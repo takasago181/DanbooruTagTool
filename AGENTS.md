@@ -1,6 +1,37 @@
-# AGENTS.md — DanbooruTagTool v1.2
+# AGENTS.md — DanbooruTagTool v1.3
 
-作業前に必ず読む:
+## 作業開始ゲート
+
+Codexは独立した班ではなく、DEV（開発班）の実装担当。
+新しいCodexセッションや作業再開時は、実装・テスト・commitを始める前に現在地をGitHub正本から確認する。
+
+最初に必ず読む:
+1. `docs/project/CURRENT_STATE.md`
+2. `docs/project/PERMANENT_RULES.md`
+3. `CURRENT_STATE.md` に記載されたDEVの現行GitHub Issue
+4. 現行Stageの仕様・実装レポート
+
+その後、必要に応じて下記の恒久仕様を読む。
+Issue番号は固定値として記憶せず、毎回 `CURRENT_STATE.md` から現行DEV Issueを特定する。
+
+作業開始前に少なくとも次を確認できる状態にする:
+- 現在のStage
+- 現行DEV Issue番号と作業範囲
+- 触ってよい範囲 / 触ってはいけない範囲
+- 次に実装する境界
+- Stage Gate
+
+古いhandoff・旧チャット・過去Stage資料とGitHub現行状態が衝突した場合、古い資料で現在地を巻き戻さない。ただし勝手に破棄・統合・補完もせず、衝突としてDEVへ報告する。
+現在地または担当Issueを確認できない場合は推測で実装を開始しない。
+
+禁止:
+- 現在Stageを越えて勝手に次Stageへ進む
+- Stage10実験用Prompt知識をStage9 production規則へ先行固定する
+- NoobAI / WAI / Illustrious / Anima等のmodel family固有Prompt grammarを共通前提にする
+- DEVの正式仕様決定やAUDITのPASS判定をCodexが代行する
+
+## 恒久仕様として読む
+
 1. `docs/PRODUCT_GOAL_LOCK.md`
 2. `docs/CODEX_IMPLEMENTATION_SPEC_JA_v1.3.md`
 3. `docs/CORE_TAG_SET_SCHEMA.md`
@@ -95,7 +126,6 @@ base size:
 6. テスト結果
 7. 未解決事項
 8. 次にChatGPTへ渡す情報
-
 
 ## Core Tag Set
 
