@@ -14,6 +14,9 @@
 6. 知識班とPrompt班は勝手に本体仕様を変更しない。
 7. チャット履歴を正本にしない。
 8. Stage完了・大方針変更・チャット移行前に `CURRENT_STATE.md` を更新する。
+9. Codexは現行DEV Issue本文を `docs/project/CURRENT_DEV_TASK.md` の同期ミラーから読む。
+10. 現行DEV Issueの本文・state・完了条件を変更する管理作業では、`CURRENT_DEV_TASK.md` も同じ管理作業内で更新する。
+11. `CURRENT_STATE.md` の現行DEV Issue番号と `CURRENT_DEV_TASK.md` のSource Issue番号が一致しない場合、Codexは実装開始しない。
 
 ## チャット移行プロトコル
 
