@@ -1,4 +1,4 @@
-# AGENTS.md — DanbooruTagTool v1.4
+# AGENTS.md — DanbooruTagTool v1.5
 
 ## 作業開始ゲート
 
@@ -8,7 +8,7 @@ Codexは独立した班ではなく、DEV（開発班）の実装担当。
 最初に必ず読む:
 1. `docs/project/CURRENT_STATE.md`
 2. `docs/project/PERMANENT_RULES.md`
-3. `CURRENT_STATE.md` に記載されたDEVの現行GitHub Issue
+3. `docs/project/CURRENT_DEV_TASK.md`
 4. 現行Stageの仕様・実装レポート
 
 その後、必要に応じて下記の恒久仕様を読む。
@@ -17,12 +17,13 @@ Issue番号は固定値として記憶せず、毎回 `CURRENT_STATE.md` から�
 作業開始前に少なくとも次を確認できる状態にする:
 - 現在のStage
 - 現行DEV Issue番号と作業範囲
+- `CURRENT_STATE.md` の現行DEV Issue番号と `CURRENT_DEV_TASK.md` のSource Issue番号が一致していること
 - 触ってよい範囲 / 触ってはいけない範囲
 - 次に実装する境界
 - Stage Gate
 
 古いhandoff・旧チャット・過去Stage資料とGitHub現行状態が衝突した場合、古い資料で現在地を巻き戻さない。ただし勝手に破棄・統合・補完もせず、衝突としてDEVへ報告する。
-現在地または担当Issueを確認できない場合は推測で実装を開始しない。
+現在地・現行DEV Issue・DEV task mirrorの整合を確認できない場合は推測で実装を開始しない。
 
 禁止:
 - 現在Stageを越えて勝手に次Stageへ進む
@@ -30,26 +31,21 @@ Issue番号は固定値として記憶せず、毎回 `CURRENT_STATE.md` から�
 - NoobAI / WAI / Illustrious / Anima等のmodel family固有Prompt grammarを共通前提にする
 - DEVの正式仕様決定やAUDITのPASS判定をCodexが代行する
 
-## GitHub Issue読取
+## 現行DEV Issue本文の読取
 
-private repository の現行Issue本文は、未認証のGitHub RESTへ直接アクセスせず、ローカルの GitHub CLI (`gh`) を優先して読む。
+Codexはprivate GitHub Issue APIへの追加認証を要求しない。
+現行DEV Issue本文は、repository内の `docs/project/CURRENT_DEV_TASK.md` をCodex読取用ミラーとして使用する。
 
-推奨手順:
-1. `gh auth status --hostname github.com` で認証状態を確認する。
-2. 未認証なら `gh auth login --hostname github.com --git-protocol https --web` で一度だけ対話認証する。
-3. 認証後、`gh issue view <Issue番号> --repo takasago181/DanbooruTagTool --json number,title,state,body,url` で現行Issue本文を読む。
-4. Issue番号は `CURRENT_STATE.md` から取得し、過去セッションの番号を固定値として使わない。
+確認手順:
+1. `docs/project/CURRENT_STATE.md` から現行DEV Issue番号を取得する。
+2. `docs/project/CURRENT_DEV_TASK.md` の `Source` Issue番号と一致することを確認する。
+3. 一致した場合のみ、同ファイルの目的・作業範囲・禁止事項・完了条件を現行DEV taskとして読む。
+4. 不一致・欠損・明確な矛盾がある場合は実装を開始せずDEVへ報告する。
 
-セキュリティ:
-- tokenを標準出力・ログ・報告へ表示しない。
-- `gh auth status --show-token` や `gh auth token` を確認目的で使わない。
-- Windows Credential Manager等に保存された資格情報を直接抜き出さない。
-- PATをソース、設定ファイル、handoff、Issue、commitへ保存しない。
-
-Issue本文を取得できない場合:
-- 推測でIssue本文を再構成しない。
-- `Issue本文取得失敗` としてDEVへ報告し、実装開始を止める。
-- `CURRENT_STATE.md` とStage仕様だけを根拠に、Issueの詳細を読んだことにしない。
+同期ルール:
+- GitHub Issueが実作業の管理記録で、`CURRENT_DEV_TASK.md` はCodex読取用ミラー。
+- DEV Issueの本文・state・完了条件を変更する管理作業では、ミラーも同じ管理作業内で更新する。
+- Codex自身がIssue本文を推測してミラーを書き換えない。
 
 ## 恒久仕様として読む
 
