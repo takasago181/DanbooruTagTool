@@ -97,8 +97,10 @@ Status: ADOPTED
 `docs/stage9/STAGE9_PROMPT_COMPOSER_SPEC_v1.md` はStage9A〜9Dを定義し、9A〜9Dのgate通過後にStage9完了としている。
 したがってStage9B監査PASSだけを理由にStage10本番A/Bへ進まない。
 
-将来DEV Issue #17でStage9C/9Dを処理する。
-もし不要・延期へ変更するなら、DEVが根拠付きでStage9仕様そのものを正式改訂し、CURRENT_STATE / Stage10 Prepも同期する。
+将来DEV Issue #17でStage9C/9Dを処理し、完了後は独立AUDIT Issue #22で監査する。
+#17のDEV自己完了だけではStage9全体PASSにせず、#22 PASS後にStage9全体Gateを完了扱いにする。
+
+もし9C/9Dを不要・延期へ変更するなら、DEVが根拠付きでStage9仕様そのものを正式改訂し、CURRENT_STATE / Stage10 Prepも同期し、その変更を#22監査対象に含める。
 
 ---
 

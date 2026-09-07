@@ -24,10 +24,10 @@ Stage9仕様は次を定義する。
 - Stage9C: Local UI integration — 未開始
 - Stage9D: Stage10 experiment hooks — 未開始
 
-Stage9は9A〜9DのGateが処理されて初めて完了とする。
 Stage9C / 9Dは将来DEV Issue #17で処理する。
+#17完成後は独立AUDIT Issue #22で監査し、PASSした時だけStage9全体Gateを完了扱いにする。
 
-もしDEVがStage9C/9Dの一部を不要・延期と判断する場合、暗黙に省略せず、根拠付きDecisionとStage9仕様の正式改訂を行い、`CURRENT_STATE.md` とこの文書も同じ管理作業内で更新する。
+もしDEVがStage9C/9Dの一部を不要・延期と判断する場合、暗黙に省略せず、根拠付きDecisionとStage9仕様の正式改訂を行い、`CURRENT_STATE.md` とこの文書も同じ管理作業内で更新する。その変更自体も#22監査対象に含める。
 
 ## Stage10開始前チェック
 
@@ -35,7 +35,8 @@ Stage9C / 9Dは将来DEV Issue #17で処理する。
 - [ ] Stage9B監査PASS（Issue #3）
 - [ ] Stage9Cを処理（Issue #17）
 - [ ] Stage9Dを処理（Issue #17）
-- [ ] Stage9全体の完了Gateを確認、またはStage9仕様の正式改訂を完了
+- [ ] Stage9C/9D完了監査PASS（Issue #22）
+- [ ] Stage9全体Gate完了
 - [ ] Stage10正式handoff
 - [ ] Forge Neo比較環境導入・動作確認（Issue #6）
 - [ ] Multi Prompt Slots等の比較手段確認
