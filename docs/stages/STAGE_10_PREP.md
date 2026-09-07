@@ -14,6 +14,7 @@ Special2788の機能を実画像A/B比較で検証する。
 - Promptの実出力を追跡可能にする。
 - Stage10専用の採点・実験管理機能を現時点で本体へ追加しない。
 - Stage9 overall Gateは完了済みだが、それだけでStage10本番A/B開始とはしない。
+- unit/regression test PASSだけで実アプリ動作PASSとは扱わない。Stage10前にIssue #28 automated E2E functional testのPASSが必要。
 
 ## Stage9 → Stage10 Gate
 
@@ -33,6 +34,25 @@ Stage9は完了済み。
 Special位置、明示的なbroad support 0/1/2、role別追加セット、model-family指定のweight表記、独立LoRA入力と明示入力IDによる縮約、frontend/runtime metadataを切り替え、元variantへ復元できる。
 比較結果の保存・採点・winner選定やmodel grammarの確定は行わない。
 
+## Automated E2E Gate
+
+Issue #28で、実アプリ主要経路を自動実行し `PASS / FAIL / BLOCKED` を機械判定する。
+
+必須観点:
+- app/session初期化
+- search → Special選択 → Core反映
+- semantic / co-occurrence候補登録
+- common / rareそれぞれから選択
+- INCLUDE / EXCLUDE / DEFAULT persistence
+- manual auxiliary追加/削除
+- Prompt preview / copy相当出力
+- provenance / evidence
+- Stage9D reversible variant → baseline復元
+- stale / invalid resultからcurrent stateを保護
+- GUI実行可能環境ではTk headless automation
+
+mockだけのテストをE2E PASSとは呼ばない。local-only protected dataやGUI環境不足で必須経路を実行不能ならBLOCKEDであり、Stage10本番へ進まない。
+
 ## Stage10開始前チェック
 
 - [x] Stage9B完了（Issue #2）
@@ -41,6 +61,7 @@ Special位置、明示的なbroad support 0/1/2、role別追加セット、model
 - [x] Stage9Dを処理（Issue #17）
 - [x] Stage9C/9D完了監査PASS（Issue #22）
 - [x] Stage9全体Gate完了
+- [ ] Automated E2E functional test PASS（Issue #28）
 - [ ] Stage10正式handoff
 - [ ] Forge Neo比較環境導入・動作確認（Issue #6）
 - [ ] Multi Prompt Slots等の比較手段確認
@@ -54,6 +75,6 @@ Special位置、明示的なbroad support 0/1/2、role別追加セット、model
 ## 現在地
 
 Stage10本番A/Bは**未開始**。
-現在は #4 KNOWLEDGE / #5 PROMPT / #6 Forge Neo TEMP と、このchecklistの残項目を完了する準備段階。
+現在はIssue #28 automated E2E動作確認を現行DEV Gateとして実施しつつ、#4 KNOWLEDGE / #5 PROMPT / #6 Forge Neo TEMPの残項目を準備する段階。
 
 このchecklistを満たす前にStage10本番画像A/Bを正式開始しない。
