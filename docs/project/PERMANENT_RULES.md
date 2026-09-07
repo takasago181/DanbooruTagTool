@@ -28,9 +28,9 @@
 20. ローカル保護データを消し得る `git clean -fdx`、`git clean -fdX`、その他ignored fileを広範囲に削除する操作は禁止。fresh cloneだけでは全runtime/全テスト環境を復元できないため、必要なlocal protected dataを別途保全・復元してから扱う。
 21. Codexの本体実装は、原則として最新mainからtask用feature branchを作って行い、直接mainへ実装commitしない。レビュー可能なstable checkpointはcommitし、可能ならremoteへpushする。mainへの反映はDEV確認・必要なAUDIT Gateを経て行う。
 22. ChatGPTレビューに必要な成果物がすべてGitHubのbranch/commit/PRから取得できる場合、ユーザーへ手動ZIP uploadを要求しない。GitHubに載らないlocal-only data、binary evidence、push失敗時などだけ `docs/CHATGPT_CODEX_HANDOFF.md` のZIP fallbackを使う。
-23. Codex/DEVの「完了」は、ローカル実装やチャット上の完了報告だけでは成立しない。少なくともレビュー対象branch/commitがremoteから取得可能で、担当Issueに完了証跡が残り、必要な実装レポート・テスト結果・protected check・未解決事項・次Gateへの停止地点がGitHubから追跡可能になって初めて「実装完了 / 監査渡し可能」と扱う。これらが未反映なら、Codexが画面上で完了と表示していてもGitHub上は未完了として扱う。
-24. DEV task完了時、Codexは担当Issueへ最低限「branch/commit/PR」「変更ファイルまたは実装要約」「focused/full test結果」「protected surface/hash確認」「未解決事項」「次に進んではいけないGate」を完了証跡として残す。repository内にStage実装レポートを要求されている場合は、それもcommit/pushしてから完了報告する。pushやIssue記録に失敗した場合は完了と名乗らず、blockerとして報告する。
-25. DEV/ChatGPTはユーザーから「Codex終わった」と聞いた時、次工程へ進む前にGitHub上の完了証跡を確認する。証跡不足なら監査や次Stageへ進まず、Codexへ証跡反映を戻す。ユーザーへ毎回Codex全文のコピペを要求することを標準運用にしない。
+23. Codexはprivate GitHub Issue APIやIssueコメントへの直接書込みを完了条件にしない。Codexの責務は、レビュー可能なbranch/commit、要求された実装レポート、テスト・protected確認結果をrepositoryへcommitし、可能ならremoteへpushすること。DEV/管理側はその成果をGitHubから確認し、対応Issueへcheckpoint/完了証跡を記録する。
+24. Codex/DEVの「監査渡し可能」は、ローカル実装やCodexチャット上の完了報告だけでは成立しない。DEVがremote branch/commitまたはfallback成果物を取得し、実装レポート・テスト結果・protected確認・未解決事項・次Gateへの停止地点を確認した後、DEV自身が担当Issueへ完了証跡を残して初めて成立する。Codexのpushが失敗した場合は完了とせず、branch/commit SHAと失敗理由を報告し、ZIP fallback等でDEVが回収できる状態にする。
+25. DEV/ChatGPTはユーザーから「Codex終わった」と聞いた時、次工程へ進む前にGitHub上のbranch/commit/report等を確認する。Codex自身のIssue書込みを要求せず、DEV側が取得できた成果からIssue証跡を記録する。成果物不足なら監査や次Stageへ進まず、必要なrepository反映またはfallback回収をCodexへ戻す。ユーザーへ毎回Codex全文のコピペを要求することを標準運用にしない。
 
 ## チャット移行プロトコル
 
