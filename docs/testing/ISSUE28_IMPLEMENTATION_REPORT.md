@@ -16,6 +16,7 @@ Stage9 overall PASS is already recorded by DEV/AUDIT on main; this report does n
 - Stale callback and queued result, wrong core, unknown status, invalid Special/manual/candidate IDs and malformed current-request result are checked against unchanged state.
 - `--e2e-report PATH.json` writes JSON and sibling Markdown using standard pytest hooks. Required GUI test IDs must pass. Failures (including teardown), interrupted/failed runs -> FAIL; missing/skip-only required paths -> BLOCKED. BLOCKED changes a nominally successful pytest exit to 2.
 - Reports capture command, environment, timestamp, source commit, working-tree state, tested-file SHA256, test outcomes, selected-state evidence and actual structured/flattened Prompt output.
+- A run initially replaces older output with an incomplete BLOCKED report; an interrupted report-generation step cannot leave a stale PASS. Git metadata subprocesses use DEVNULL stdin to avoid inherited invalid Windows console handles.
 
 ## E2E-discovered production defect
 
@@ -38,6 +39,7 @@ git diff --check
 - Development focused run: 31 passed.
 - Stage0 protected + Stage7A/B + Stage8A/B/C + Ruleset2 + Stage9A/B regression selection: 145 passed.
 - Development full run: 285 passed in 58.34s, no skips/failures.
+- One subsequent full attempt failed during report generation (Windows invalid inherited stdin handle), after test execution. It is not counted as a successful run; the reporter was corrected and the final evidence rerun.
 - Negative gate probe: running only `tests/test_e2e_verdict.py` with `--e2e-report` produced BLOCKED and process exit 2, despite all five selected tests passing. Missing GUI paths cannot yield E2E PASS.
 - Final commit-associated focused/full evidence is in `issue28_focused.json/.md` and `issue28_full.json/.md`; their source commit and hashes identify the tested code. The later evidence-only commit necessarily differs from the tested source commit.
 

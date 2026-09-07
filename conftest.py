@@ -23,6 +23,15 @@ class E2EReport:
     def __init__(self, config):
         self.config = config
         self.reports = []
+        self.path = Path(config.getoption("--e2e-report"))
+        # Invalidate an older PASS before any tests start. A crash/interruption
+        # must leave an incomplete verdict, never a stale green artifact.
+        self.write(build_result([], 0, {"state": "started; run not completed"}))
+
+    def write(self, result):
+        self.path.parent.mkdir(parents=True, exist_ok=True)
+        self.path.with_suffix(".md").write_text(markdown(result), encoding="utf-8")
+        self.path.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     def pytest_runtest_logreport(self, report):
         self.reports.append({"nodeid": report.nodeid, "when": report.when,
@@ -34,7 +43,8 @@ class E2EReport:
         root = str(self.config.rootpath)
         git = ["git", "-c", f"safe.directory={root}", "-C", root]
         def read_git(*args):
-            return subprocess.run([*git, *args], capture_output=True, text=True, check=True).stdout.strip()
+            return subprocess.run([*git, *args], stdin=subprocess.DEVNULL,
+                                  capture_output=True, text=True, check=True).stdout.strip()
         environment = {"platform": platform.platform(), "python": sys.version,
                        "utc": datetime.now(timezone.utc).isoformat(),
                        "command": [sys.executable, "-m", "pytest", *self.config.invocation_params.args],
@@ -47,10 +57,7 @@ class E2EReport:
         environment["tested_file_sha256"] = {
             name: hashlib.sha256((Path(root) / name).read_bytes()).hexdigest() for name in paths}
         result = build_result(self.reports, int(exitstatus), environment)
-        path = Path(self.config.getoption("--e2e-report"))
-        path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-        path.with_suffix(".md").write_text(markdown(result), encoding="utf-8")
+        self.write(result)
         # A skip-only run must not look green to a caller checking exit status.
         if result["verdict"] == "BLOCKED" and int(exitstatus) in (0, 5):
             session.exitstatus = 2
