@@ -24,50 +24,61 @@
 - Stage9B: 実装完了 / Issue #3 independent audit PASS
 - Issue #2: completed / closed
 - 現行DEV: Issue #17
+- 全体監査pre-gate: Stage9C/9D **FAIL / RETURN TO DEV**
+- 監査対象: `codex/stage9c9d-completion` / `99b4f4a80c12f15dfcc3e62f608af6a2c1cccf88`
 - Stage10: 未開始
-
-## 前提
-
-- Stage9B監査済み成果は latest-main integration branch `codex/stage9b-main-integration` に安全に統合済み。
-- Integration report: `docs/stage9/STAGE9B_LATEST_MAIN_INTEGRATION_REPORT.md`
-- Stage9B focused/regressionはPASS。
-- latest main側のStage0 protected testに既存不整合が1件あり、Issue #26へ別追跡した。Stage9B実装欠陥ではない。
+- DEV実確認が終わるまで #17は未完了、#22へhandoffしない。
 
 ## 今やること
 
-1. latest mainとStage9B integration成果を基点にStage9Cを承認済みStage9仕様に沿って実施・検証する。
-2. Stage9Dを承認済みStage9仕様に沿って実施・検証する。
-3. Issue #26のprotected-test不整合を、protected hash検証を弱めず最小修正するか、9C/9D回帰の前提として解消する。
-4. 9C/9Dに必要なfocused tests / regression / implementation reportを残す。
-5. review可能なbranch/commitとしてremoteへpushする。
-6. そこで停止し、Issue #22へ独立監査handoffできる状態にする。
+1. Stage9Cのcommon / rare候補集合上書き問題を修正する。
+   - visibleな全recommendation候補集合をatomicに登録する、または全bucketを保持する。
+   - lane / evidence identityを維持する。
+   - common + rare同時表示後、それぞれから選択できる回帰テストを追加する。
+2. Stage9Dの可逆A/B variant contractをStage9 spec §10に合わせる。
+   - Special position
+   - broad generic support 0 / 1 / 2
+   - role-density variants
+   - weight variants
+   - LoRA Prompt contraction variants
+   - comparison metadata
+   - Stage9ではwinner/scoring logicを入れない。
+3. 必要なfocused / regression testsを追加・再実行する。
+   - Stage9A/9B
+   - Stage8C / Ruleset2
+   - Stage7 UI関連
+   - protected/hash
+   - full suite可能範囲
+   - `git diff --check`
+4. `docs/stages/STAGE_10_PREP.md` を現状へ同期する。
+   - Stage9C/9Dを未着手扱いにしない。
+   - #22 PASS前にStage9全体完了やStage10開始可能と読める状態にしない。
+5. Issue #26のprotected-test修正方針を維持する。
+   - `data/special2788/prompt_reference/` を許容しても、既存protected source filesのhash/size検証は弱めない。
+6. implementation reportを更新し、review可能なremote branch / commitを作る。
+7. そこで停止する。#22へはDEVがremote成果を実確認してIssue #17へ完了証跡を記録するまで渡さない。
 
 ## 禁止
 
-- Stage9C/9Dを暗黙に省略しない
-- #22監査PASS前にStage9全体PASSと宣言しない
+- Codexの完了報告だけで#17を完了扱いにしない
+- DEV確認前に#22へhandoffしない
+- #22 PASS前にStage9全体PASSと宣言しない
 - Stage10画像A/Bを開始しない
+- Stage10 winner/scoring logicをStage9へ入れない
 - Stage10実験知識をStage9 production規則へ先行固定しない
 - model family別Prompt grammarを未検証で共通化しない
 - protected hash検証を弱体化してIssue #26を解消しない
 
-## 参照
-
-- `docs/stage9/STAGE9_PROMPT_COMPOSER_SPEC_v1.md`
-- `docs/stage9/STAGE9A_IMPLEMENTATION_REPORT.md`
-- `docs/stage9/STAGE9B_IMPLEMENTATION_REPORT.md`
-- `docs/stage9/STAGE9B_LATEST_MAIN_INTEGRATION_REPORT.md`
-- `docs/project/CURRENT_STATE.md`
-- `docs/project/PERMANENT_RULES.md`
-- Issue #22 Stage9C/9D audit
-- Issue #26 Stage0 protected integrity test mismatch
-
 ## 完了条件
 
-A. Stage9C / Stage9Dを実施・検証し、実装差分・tests・report・branch/commitを揃える。Issue #26もprotected検証を弱めず解消または監査可能な形で処理する。
-
-または
-
-B. DEVが根拠付きでStage9仕様を正式改訂し、9C/9Dの扱いを変更したうえで、関連するDecision / Stage仕様 / CURRENT_STATE / STAGE_10_PREPを同期し、その変更を#22で監査可能にする。
+- Stage9C common / rare候補集合上書き問題を解消し、回帰テストで固定する。
+- Stage9D §10の必要な可逆A/Bノブを実装・検証する、または正式な仕様改訂を行う。
+- `STAGE_10_PREP.md` を現状へ同期する。
+- Issue #26のprotected hash検証を弱めない修正を維持・検証する。
+- focused / regression / protected / full suite可能範囲 / `git diff --check` の結果を残す。
+- implementation reportを更新する。
+- review可能なremote branch / commitを作る。
+- DEVがremote branch、commit SHA、変更ファイル、tests、implementation reportを実確認し、Issue #17へ完了証跡を記録する。
+- その後にのみIssue #22へ独立監査handoffする。
 
 Stage9全体Gateの最終PASSはIssue #22 AUDITが判定する。
