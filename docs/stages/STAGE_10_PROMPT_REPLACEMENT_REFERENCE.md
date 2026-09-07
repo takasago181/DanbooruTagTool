@@ -11,47 +11,87 @@ Stage10のテストPrompt作成時に、ChatGPTが具体的に記述できない
 - 本体仕様・Special意味正本を変更しない。
 - 正式handoff / 正式Specialデータ / 正式実験仕様が渡された後は、それらを優先する。
 
+## Prompt作成モード
+
+PROMPT班は、ユーザー依頼の目的に応じて少なくとも以下の2モードを明示的に区別する。
+
+### 1. 実験分離モード
+
+Specialの成立可否・差分原因を観測しやすくするためのStage10 A/B向けPrompt。
+
+- 原則1実験1疑問。
+- A/Bの比較対象以外は可能な限り固定する。
+- 品質タグ、装飾、複雑背景、人物属性、照明などは、観測に不要なら盛らない。
+- 見栄えより因果分離・再現性・観測可能性を優先する。
+
+### 2. ユーザー実戦Stress Testモード
+
+ユーザーが実際に1枚を作る時に近い条件で、Specialを含む複雑・強い・難しいPromptを実戦的に組むモード。
+
+- 純粋なA/B分離より、完成Promptとしての安定性と実用性を重視する。
+- Special成立を阻害しない範囲で、quality、構図、身体の向き、camera、visibility、照明、表情、背景、negativeなどを必要に応じて補う。
+- ただし無関係な要素を大量に盛って主題Specialを埋没させない。
+- モデルfamily差を考慮し、全モデルへ同一grammarを機械的に流用しない。
+
+ユーザーが「比較用ではなく普通にユーザーが作るようなテストPrompt」「実力を見るPrompt」等を求めた場合は、原則としてユーザー実戦Stress Testモードとして扱う。
+
 ## 基本ルール
 
 1. ChatGPTが具体的に書ける成人向け内容は、予防的に置換札へ逃がさず具体的にPromptへ書く。
 2. ChatGPTが具体的に書けない核心部分だけ、日本語の非Prompt置換札にする。
 3. 置換札だけを提示してユーザーへタグ探索を丸投げしない。
 4. 置換が必要な場合、Special2788参照辞書を使い、実在候補を併記する。
-5. 候補は可能な限り以下を示す。
-   - 第一候補（canonicalを優先）
-   - Alias候補 + canonical_target
-   - broad / specific候補
-   - Semantic候補（Semanticであることを明示）
+5. 候補は原則3パターン程度提示する。機械的な固定3種ではなく、対象内容に応じてPROMPT班が最適な3候補を選ぶ。
+6. 各候補には、ユーザーが意味を判断できるよう**日本語名を必ず併記**する。
+7. 候補には可能な限り以下を示す。
+   - 日本語名
+   - 英語Tag
    - Special ID
+   - Layer（Core / Extended / Alias / Semantic）
    - post_count（ある場合）
-6. canonical / Alias / Semanticを混同しない。
-7. 複数の置換箇所がある場合は、A / B / Cのように部位・行為・状態を分ける。
-8. Stage10の成人向けPromptでは未成年対象語を使用しない。
+   - Aliasの場合 canonical_target
+   - その候補を選ぶ理由・用途を短く説明
+8. 候補選定では、可能なら次の役割分担を優先する。
+   - 候補1: 最も素直な第一候補。canonical + specificを優先。
+   - 候補2: 代替候補。Alias、別canonical、近接specific等から選ぶ。
+   - 候補3: 比較・補助候補。broad、Semantic、別強度・別表現等から目的に応じて選ぶ。
+9. 上記3役は固定規則ではない。対象Specialのデータ状況に応じて、より良い3候補構成があればPROMPT班の判断で変更してよい。
+10. canonical / Alias / Semanticを混同しない。
+11. 複数の置換箇所がある場合は、A / B / Cのように部位・行為・状態を分ける。
+12. Stage10の成人向けPromptでは未成年対象語を使用しない。
 
-## 出力形式
-
-例:
+## 置換候補の標準出力形式
 
 ```text
 【差し替えA：対象内容を日本語で説明】
 
-第一候補:
-ID xxx — canonical tag
-canonical / Core or Extended / post_count
+候補1（第一候補）:
+日本語: ...
+Tag: ...
+Special ID: ...
+Layer: ...
+post_count: ...
+補足: ...
 
-Alias候補:
-ID xxx — alias tag
-→ canonical_target: canonical_tag
+候補2（代替候補）:
+日本語: ...
+Tag: ...
+Special ID: ...
+Layer: ...
+post_count: ...
+canonical_target: ...   # Aliasの場合
+補足: ...
 
-Broad候補:
-ID xxx — broad tag
-
-Semantic候補:
-ID xxx — semantic phrase
-※ Danbooru canonical tagではない
+候補3（比較・補助候補）:
+日本語: ...
+Tag: ...
+Special ID: ...
+Layer: ...
+post_count: ...
+補足: ...
 
 推奨:
-通常は第一候補。Alias挙動・broad+specific・Semantic反応そのものを測る場合のみ対応候補へ差し替える。
+通常利用でどれを優先するか、何を比較する場合に候補2/3へ替えるかを短く説明する。
 ```
 
 ## 参照辞書
