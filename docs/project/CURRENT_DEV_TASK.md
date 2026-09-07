@@ -7,8 +7,8 @@
 - Source: GitHub Issue #2
 - Title: `[Stage9B][DEV] Runtime Composer Stage9B`
 - State: open
-- Source issue body synced from: 2026-09-07T17:46:20Z
-- Last live body comparison: 2026-09-08 — Issue #2 body/state and this mirrored task contract were compared; no purpose/scope/prohibition/completion drift was found.
+- Source issue body synced from: 2026-09-08
+- Last live body comparison: 2026-09-08 — Issue #2 body/state and this mirrored task contract were compared; completion-evidence requirements are synchronized.
 - Purpose: Codexがprivate GitHub Issue APIへ追加認証せず、現行DEV作業内容をrepository内から読めるようにするための同期ミラー。
 
 `updated_at` はIssueコメント追加でも変化し得るため、時刻の不一致だけでbody driftとは判定しない。DEV/管理側はCodexへ新規/再開指示を出す直前にprivate Issue本文/stateをlive取得し、このmirrorのtask contractと照合する。
@@ -33,6 +33,7 @@ Stage9Aで実装済みの純粋 `PromptComposer.compose()` 境界からStage9B�
 - Stage9A: PASS
 - Stage9B: 未完了
 - `prompt_composer.py` / `tests/test_stage9a_prompt_composer.py` / Stage9A実装レポートはmainに存在
+- Codex画面上の「完了」報告だけではStage9B完了としない。GitHub完了証跡Gateを満たすまで未完了扱い。
 
 ## Stage9Bでやること
 
@@ -56,6 +57,7 @@ Stage9Aで実装済みの純粋 `PromptComposer.compose()` 境界からStage9B�
 - `docs/stage9/STAGE9_PROMPT_COMPOSER_SPEC_v1.md`
 - `docs/project/CURRENT_STATE.md`
 - `docs/project/PERMANENT_RULES.md`
+- `docs/project/CHAT_START_PROTOCOL.md`
 
 ## 関連Issue
 
@@ -70,7 +72,13 @@ Stage9Aで実装済みの純粋 `PromptComposer.compose()` 境界からStage9B�
 - Stage9B対象の実装と回帰テストが完了
 - 既存Stage0-9Aの受入済み挙動を壊していない
 - 監査班へ正式なStage9B完了監査を渡せる状態になる
+- レビュー対象branch / commit / PRがremoteから取得可能
+- Issue #2に完了証跡を残す
+- 完了証跡には最低限、branch/commit/PR、変更内容または変更ファイル、focused/full test結果、protected surface/hash確認、未解決事項、次Gateへの停止地点を含める
+- `docs/stage9/STAGE9B_IMPLEMENTATION_REPORT.md` を要求どおりcommit/pushする
+- push / Issue記録 / 実装レポート反映に失敗した場合は完了と名乗らずblockerとして報告する
+- 上記GitHub完了証跡が確認できるまで、Issue #3へ監査渡し可能とは扱わない
 
 ## Current task boundary note
 
-Stage9B Issue #2の完了条件は変更していない。Stage9C/9Dは#2へ混ぜず、#2 + #3完了後の将来DEV Gate #17として扱う。
+Stage9C/9Dは#2へ混ぜず、#2 + #3完了後の将来DEV Gate #17として扱う。
