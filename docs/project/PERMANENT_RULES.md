@@ -15,6 +15,20 @@
 7. チャット履歴を正本にしない。
 8. Stage完了・大方針変更・チャット移行前に `CURRENT_STATE.md` を更新する。
 
+## チャット移行プロトコル
+
+1. 常設4班のチャットを新しくする前に、旧チャット側で現在地・未完了・禁止事項・担当Issueの状態をGitHubへ反映する。
+2. 新チャットは、実作業を始める前に次の順で現行状態を確認する。
+   1. `docs/project/CURRENT_STATE.md`
+   2. `docs/project/PERMANENT_RULES.md`
+   3. `CURRENT_STATE.md` に記載された自班の現行GitHub Issue
+   4. 必要な現行Stage仕様・Decision・mainの実装状態
+3. Issue番号はStage進行で変わるため、過去チャットや固定番号から推測しない。毎回 `CURRENT_STATE.md` から現行Issueを特定する。
+4. 新チャットは確認後、自分の班・現在Stage・担当Issue・役割・次作業・禁止事項・Codexとの関係を自分の言葉で回答し、最後に `GitHub正本運用：認識済み / 未認識` を明記する。
+5. 認識確認が完了するまで、実装・監査PASS・本番Prompt確定・Stage移行などの実作業を開始しない。
+6. 古いhandoff・旧チャット・過去Stage資料とGitHub現行状態が衝突した場合、古い資料で現在地を巻き戻さない。ただし勝手に破棄・統合もせず、衝突として確認する。
+7. 詳細手順は `docs/project/CHAT_START_PROTOCOL.md` を正本とする。
+
 ## 開発
 
 1. 実行時は非LLM。
