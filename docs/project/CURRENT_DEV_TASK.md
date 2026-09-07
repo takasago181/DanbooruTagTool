@@ -8,7 +8,7 @@
 - Title: `[Stage9B][DEV] Runtime Composer Stage9B`
 - State: open
 - Source issue body synced from: 2026-09-08
-- Last live body comparison: 2026-09-08 — Issue #2 body/state and this mirrored task contract were compared; completion-evidence responsibilities are synchronized.
+- Last live body comparison: 2026-09-08 — completion-evidence responsibilities corrected: Codex writes repository evidence; DEV/management writes Issue evidence.
 - Purpose: Codexがprivate GitHub Issue APIへ追加認証せず、現行DEV作業内容をrepository内から読めるようにするための同期ミラー。
 
 `updated_at` はIssueコメント追加でも変化し得るため、時刻の不一致だけでbody driftとは判定しない。DEV/管理側はCodexへ新規/再開指示を出す直前にprivate Issue本文/stateをlive取得し、このmirrorのtask contractと照合する。
