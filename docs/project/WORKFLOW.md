@@ -29,13 +29,88 @@ Stage10の実験Promptを作る。
 原則1実験1疑問。
 A/B間で比較対象以外を固定。
 
+## 途中checkpoint
+
+意味のある成果が出た時、長時間中断・話題切替・handoff前、または直近成果を失うと再開コストが高い時は、担当Issueへ短いcheckpointコメントを残す。
+
+最低限:
+- 最後に成功したこと / 結果
+- 未完了またはblocker
+- 次作業
+- branch / commit / file / evidence（ある場合）
+
+通常のcheckpointはIssueコメントに置く。コメントは履歴・証跡であり、task contractを変更しない。
+目的・scope・禁止事項・完了条件を変える場合はIssue本文を更新する。現行DEV Issueなら `docs/project/CURRENT_DEV_TASK.md` も同じ管理作業内で同期する。
+
+## DEV → Codex preflight
+
+Codexへ新規実装・再開指示を出す直前にDEV/管理側が行う。
+
+1. private GitHubの現行DEV Issue本文/stateをlive取得する。
+2. 最新mainの `CURRENT_STATE.md` と `CURRENT_DEV_TASK.md` を取得する。
+3. 現行DEV Issue番号 = mirror Source を確認する。
+4. Issue本文とmirrorの目的・scope・禁止事項・完了条件を照合する。
+5. 同一Issue番号でも差分があればmirrorを先に同期する。
+6. 整合確認後だけCodexへ実装/再開指示を出す。
+
+Codex側はさらにAGENTS.mdに従ってlocalのcurrent state/mirrorを確認する。
+
+## Shared management docsの更新
+
+`CURRENT_STATE.md` / `PERMANENT_RULES.md` / `DECISIONS.md` / `CURRENT_DEV_TASK.md` / Stage Gate文書を変更する前に、必ず最新mainを再取得する。
+
+- staleなチャット内コピーで全体上書きしない。
+- 競合があれば勝手に一方を採用しない。
+- 通常の班内進捗は自班Issueに置き、global stateが変わった時だけ `CURRENT_STATE.md` を更新する。
+
+## Codex implementation branch
+
+本体実装は原則、最新mainからtask用feature branchを作る。
+
+- 直接mainへ実装commitしない。
+- stable checkpointをcommitする。
+- push可能ならremoteへpushしてDEV/ChatGPT/AUDITがGitHubから確認できるようにする。
+- GitHubから確認できる成果物について、ユーザーへ手動ZIP uploadを要求しない。
+- local-only/ignored dataやbinary evidenceが監査に必要な時だけZIP handoffを使う。
+
+## Audit結果の戻り方
+
+### PASS
+- 完了条件を満たした証拠をIssueへ残す。
+- CURRENT_STATE / 次Stage Gateを必要に応じて更新する。
+- 次のStage/Issueへ進める。
+
+### CONDITIONAL PASS
+- 条件・未解決事項をAUDIT Issueへ明記する。
+- 条件が次Stage開始を妨げるかDEVが確認する。
+- 修正が必要なら現行DEV Issueへ戻すか、明示的なrepair Issueを作る。
+- task contractが変わる場合はDEV Issue本文 + CURRENT_DEV_TASKを同期する。
+- 条件を満たす前に無条件PASSとして扱わない。
+
+### FAIL
+- Stageを進めない。
+- 指摘と根拠をAUDIT Issueへ残す。
+- DEVは現行DEV Issueを再開するか、必要ならrepair Issueを明示的に作る。
+- scope/禁止/完了条件が変わる場合はIssue本文とmirrorを同期する。
+- mirror preflight後にCodexへ修正を渡す。
+- 再監査でPASSするまで次Stageを正式開始しない。
+
+## GitHubとlocal protected data
+
+GitHubはmanagement stateとcommit済みコード/文書の正本だが、local workspace全体のbackupではない。
+`.gitignore` 対象のraw/derived/runtime/Special大容量データ等はlocal protected dataとして別に存在する。
+
+- GitHub上に見えないことを削除と解釈しない。
+- `git clean -fdx` / `git clean -fdX` 等のignored file一括削除は禁止。
+- fresh cloneだけでfull runtime/full testsが成立するとは仮定しない。
+
 ## GitHub Project 推奨Fields
 
 | Field | 値 |
 |---|---|
 | Status | Backlog / Ready / Working / Audit / Blocked / Hold / Done |
 | Team | DEV / AUDIT / KNOWLEDGE / PROMPT / TEMP |
-| Stage | 9B / 10 / 11 / Maintenance |
+| Stage | 9B / 9C / 9D / 10 / 11 / Maintenance |
 | Type | Spec / Implementation / Research / Experiment / Bug / Audit |
 | Priority | P0 / P1 / P2 |
 
@@ -44,8 +119,8 @@ A/B間で比較対象以外を固定。
 ### NOW
 Status = Ready, Working, Audit, Blocked
 
-### Stage 9B
-Stage = 9B
+### Stage 9
+Stage = 9B, 9C, 9D
 
 ### Stage 10
 Stage = 10
