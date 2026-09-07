@@ -1,0 +1,37 @@
+name: Stage10 テストPrompt
+description: A/B試験用Prompt作成
+title: "[Stage10][PROMPT] "
+body:
+  - type: input
+    id: question
+    attributes:
+      label: 実験で答える疑問
+      placeholder: "例: support有無でSpecial成立率が変わるか"
+    validations:
+      required: true
+  - type: input
+    id: model
+    attributes:
+      label: Model family
+      placeholder: "WAI / Illustrious / NoobAI / Anima"
+    validations:
+      required: true
+  - type: textarea
+    id: fixed
+    attributes:
+      label: A/Bで固定する条件
+    validations:
+      required: true
+  - type: textarea
+    id: variable
+    attributes:
+      label: A/Bで変えるもの
+    validations:
+      required: true
+  - type: textarea
+    id: judgment
+    attributes:
+      label: 画像上の判定条件
+      description: 何が見えたら成立 / 不成立か
+    validations:
+      required: true

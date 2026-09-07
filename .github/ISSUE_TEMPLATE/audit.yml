@@ -1,0 +1,39 @@
+name: 監査
+description: Stage・実装・仕様の第三者監査
+title: "[StageX][AUDIT] "
+body:
+  - type: input
+    id: stage
+    attributes:
+      label: Stage
+    validations:
+      required: true
+  - type: textarea
+    id: target
+    attributes:
+      label: 監査対象
+      description: 対象Issue、PR、ファイル
+    validations:
+      required: true
+  - type: textarea
+    id: criteria
+    attributes:
+      label: 監査基準
+      description: PASS条件、禁止事項、回帰確認
+    validations:
+      required: true
+  - type: dropdown
+    id: result
+    attributes:
+      label: 結果
+      options:
+        - 未判定
+        - PASS
+        - CONDITIONAL PASS
+        - FAIL
+    validations:
+      required: true
+  - type: textarea
+    id: findings
+    attributes:
+      label: 指摘・根拠
