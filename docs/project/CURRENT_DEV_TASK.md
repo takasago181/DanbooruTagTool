@@ -6,7 +6,7 @@
 
 - Source: GitHub Issue #17
 - Title: `[Stage9][DEV] Stage9C/9D completion gate before Stage10`
-- State: open
+- State: closed
 - Source issue body synced from: 2026-09-08
 - Purpose: Codexがprivate GitHub Issue APIへ追加認証せず、現行DEV作業内容をrepository内から読めるようにするための同期ミラー。
 
@@ -23,62 +23,47 @@
 - Stage9A: PASS
 - Stage9B: 実装完了 / Issue #3 independent audit PASS
 - Issue #2: completed / closed
-- 現行DEV: Issue #17
-- 全体監査pre-gate: Stage9C/9D **FAIL / RETURN TO DEV**
-- 監査対象: `codex/stage9c9d-completion` / `99b4f4a80c12f15dfcc3e62f608af6a2c1cccf88`
+- Issue #17 DEV作業: 完了 / DEV実確認済み
+- correction branch: `codex/stage9c9d-completion`
+- correction commit: `94c6789fc6f921b7362c0e890d3fee7f3db893a3`
+- audit target: PR #27 against current main / mergeable=true
+- Issue #17 completion evidence: comment `5575794250`
 - Stage10: 未開始
-- DEV実確認が終わるまで #17は未完了、#22へhandoffしない。
+- 現在はIssue #22 independent audit待ち。Codex実装は停止。
+
+## DEVで確認済み
+
+- Stage9C common / rare候補集合上書き問題を修正し、両bucketから選択できる回帰テストを追加。
+- Stage9D §10の可逆A/B variant contractを実装。
+  - Special position
+  - broad generic support 0 / 1 / 2
+  - role-density variants
+  - model-family scoped explicit weight variants
+  - LoRA Prompt contraction variants
+  - comparison metadata
+- `docs/stages/STAGE_10_PREP.md` を現状へ同期。
+- Issue #26の修正はprotected source fileのmanifest/hash/size検証を維持し、既知の`prompt_reference/` directoryだけを許容。
+- focused 67 passed。
+- Stage7 UI + Stage8 + Ruleset2 regression 99 passed。
+- full suite可能範囲 275 passed / exit 0。
+- `git diff --check`: PASS。
+- current mainよりbranchが2 commits遅れているが、その2件はStage10 Prompt-reference guidanceと`PERMANENT_RULES.md`のみ。PR #27はcurrent mainをbaseにしmergeable=trueで、governance変更を失わない。
 
 ## 今やること
 
-1. Stage9Cのcommon / rare候補集合上書き問題を修正する。
-   - visibleな全recommendation候補集合をatomicに登録する、または全bucketを保持する。
-   - lane / evidence identityを維持する。
-   - common + rare同時表示後、それぞれから選択できる回帰テストを追加する。
-2. Stage9Dの可逆A/B variant contractをStage9 spec §10に合わせる。
-   - Special position
-   - broad generic support 0 / 1 / 2
-   - role-density variants
-   - weight variants
-   - LoRA Prompt contraction variants
-   - comparison metadata
-   - Stage9ではwinner/scoring logicを入れない。
-3. 必要なfocused / regression testsを追加・再実行する。
-   - Stage9A/9B
-   - Stage8C / Ruleset2
-   - Stage7 UI関連
-   - protected/hash
-   - full suite可能範囲
-   - `git diff --check`
-4. `docs/stages/STAGE_10_PREP.md` を現状へ同期する。
-   - Stage9C/9Dを未着手扱いにしない。
-   - #22 PASS前にStage9全体完了やStage10開始可能と読める状態にしない。
-5. Issue #26のprotected-test修正方針を維持する。
-   - `data/special2788/prompt_reference/` を許容しても、既存protected source filesのhash/size検証は弱めない。
-6. implementation reportを更新し、review可能なremote branch / commitを作る。
-7. そこで停止する。#22へはDEVがremote成果を実確認してIssue #17へ完了証跡を記録するまで渡さない。
+DEV実装作業はしない。Issue #22 AUDITの判定を待つ。
 
 ## 禁止
 
-- Codexの完了報告だけで#17を完了扱いにしない
-- DEV確認前に#22へhandoffしない
 - #22 PASS前にStage9全体PASSと宣言しない
+- PR #27を監査前にmergeしない
 - Stage10画像A/Bを開始しない
-- Stage10 winner/scoring logicをStage9へ入れない
+- Stage10 winner/scoring logicをStage9へ追加しない
 - Stage10実験知識をStage9 production規則へ先行固定しない
 - model family別Prompt grammarを未検証で共通化しない
-- protected hash検証を弱体化してIssue #26を解消しない
 
-## 完了条件
+## 次Gate
 
-- Stage9C common / rare候補集合上書き問題を解消し、回帰テストで固定する。
-- Stage9D §10の必要な可逆A/Bノブを実装・検証する、または正式な仕様改訂を行う。
-- `STAGE_10_PREP.md` を現状へ同期する。
-- Issue #26のprotected hash検証を弱めない修正を維持・検証する。
-- focused / regression / protected / full suite可能範囲 / `git diff --check` の結果を残す。
-- implementation reportを更新する。
-- review可能なremote branch / commitを作る。
-- DEVがremote branch、commit SHA、変更ファイル、tests、implementation reportを実確認し、Issue #17へ完了証跡を記録する。
-- その後にのみIssue #22へ独立監査handoffする。
-
-Stage9全体Gateの最終PASSはIssue #22 AUDITが判定する。
+- Issue #22 PASS → Stage9全体Gate完了処理・PR #27のmain反映確認へ進む。
+- Issue #22 FAIL / CONDITIONAL PASS → #17を必要に応じてreopenし、指摘事項をCURRENT_DEV_TASKへ同期してDEVへ戻す。
+- Stage10は#22 PASSだけでは開始しない。#4 / #5 / #6 / `STAGE_10_PREP.md` の残Gateを満たす必要がある。
