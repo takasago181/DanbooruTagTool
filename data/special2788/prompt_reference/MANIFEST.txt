@@ -1,0 +1,72 @@
+Test Prompt Replacement Reference — Special2788 MANIFEST
+========================================================
+Generated/verified: 2026-09-08
+Purpose: PROMPT班が置換札に具体的なSpecial候補を添えるための人間向け派生参照辞書。
+Status: Stage10本番開始を意味しない。元Special2788正本を置き換えない。
+
+SOURCE VALIDATION
+-----------------
+Source rows: 2788
+Unique Special IDs: 2788
+Unique Tags: 2788
+Source CSV SHA-256: 07584b365d5a68dbadd3f5e80859e768c2718b18746e32de02ce4b8bd60935e3
+Local rich TXT SHA-256: 95aa32793b6e4caa4ca0b950ff2d7bbbf4b6df11f048b7eba84a29160b4e00e4
+
+LAYER COUNTS
+------------
+Core: 759
+Extended: 915
+Alias: 778
+Semantic: 336
+TOTAL: 2788
+
+CATEGORY COUNTS
+---------------
+01 身体・解剖: 147
+02 裸体・衣服・露出: 229
+03 ポーズ・体位・構図: 65
+04 性行為・性的刺激: 252
+05 挿入・性具・機械: 149
+06 拘束・BDSM・支配: 161
+07 体液・排泄・汚損: 150
+08 異形・触手・非人間: 70
+09 生殖・妊娠・授乳: 14
+10 R18G・損傷・グロ: 80
+11 年齢・関係性・役割: 38
+12 メタ・レーティング: 29
+13 その他・文脈: 1404
+TOTAL: 2788
+
+GITHUB LAYOUT
+-------------
+README.md
+MANIFEST.txt
+01_身体・解剖.txt
+02_裸体・衣服・露出.txt
+03_ポーズ・体位・構図.txt
+04_性行為・性的刺激.txt
+05_挿入・性具・機械.txt
+06_拘束・BDSM・支配.txt
+07_体液・排泄・汚損.txt
+08_異形・触手・非人間.txt
+09_生殖・妊娠・授乳.txt
+10_R18G・損傷・グロ.txt
+11_年齢・関係性・役割.txt
+12_メタ・レーティング.txt
+13_その他・文脈_part01.txt  (13-0001..13-0200)
+13_その他・文脈_part02.txt  (13-0201..13-0400)
+13_その他・文脈_part03.txt  (13-0401..13-0600)
+13_その他・文脈_part04.txt  (13-0601..13-0800)
+13_その他・文脈_part05.txt  (13-0801..13-1000)
+13_その他・文脈_part06.txt  (13-1001..13-1200)
+13_その他・文脈_part07.txt  (13-1201..13-1400)
+13_その他・文脈_part08.txt  (13-1401..13-1404)
+
+PROMPT USE RULE
+---------------
+- 書ける成人向け内容は具体的に書く。
+- 本当に具体化できない核心だけ非Prompt置換札にする。
+- 置換札には辞書から、第一候補canonical、Alias+canonical_target、broad/specific、Semantic候補、Special ID、post_countを可能な範囲で併記する。
+- canonical / Alias / Semanticを混同しない。
+- 複数箇所はA/B/Cに分ける。
+- Stage10対象人物は成人のみ。
