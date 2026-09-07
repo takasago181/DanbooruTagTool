@@ -1,4 +1,4 @@
-# AGENTS.md — DanbooruTagTool v1.5
+# AGENTS.md — DanbooruTagTool v1.6
 
 ## 作業開始ゲート
 
@@ -45,6 +45,8 @@ Codexはprivate GitHub Issue APIへの追加認証を要求しない。
 同期ルール:
 - GitHub Issueが実作業の管理記録で、`CURRENT_DEV_TASK.md` はCodex読取用ミラー。
 - DEV Issueの本文・state・完了条件を変更する管理作業では、ミラーも同じ管理作業内で更新する。
+- Codexが守るべき目的・scope・禁止事項・完了条件はIssue本文とミラーに存在するものだけを現行指示として扱う。
+- Issueコメントは結果・証跡・履歴の記録には使えるが、コメントだけで現行taskの条件を上書きしたものとは扱わない。
 - Codex自身がIssue本文を推測してミラーを書き換えない。
 
 ## 恒久仕様として読む
