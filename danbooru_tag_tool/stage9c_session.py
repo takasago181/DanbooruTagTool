@@ -1,7 +1,8 @@
 """Stage9C local Composer session and Stage9D reversible variant boundary."""
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
+from math import isfinite
 from typing import Iterable
 
 from .prompt_composer import ComposerInput, ComposerProfile, PromptComposer
@@ -16,15 +17,55 @@ from .stage9b_runtime import (
 
 
 @dataclass(frozen=True, slots=True)
+class WeightVariant:
+    """Explicit model-scoped rendering supplied by the experiment caller."""
+    canonical: str
+    weight: float
+    rendered_text: str
+
+    def __post_init__(self):
+        if not self.canonical or not isfinite(self.weight) or self.weight <= 0:
+            raise ValueError("Weight requires a canonical and a finite positive value")
+        if not self.rendered_text.strip():
+            raise ValueError("Weight rendering must be supplied; grammar is not inferred")
+
+
+@dataclass(frozen=True, slots=True)
 class ComposerVariant:
     """A named, reversible Stage10 comparison input; it declares no winner."""
     variant_id: str
     profile: ComposerProfile
     comparison_metadata: tuple[tuple[str, str], ...] = ()
+    broad_generic_support: tuple[ComposerInput, ...] = ()
+    broad_generic_count: int = 0
+    role_density_variant: str = "baseline"
+    role_density_inputs: tuple[ComposerInput, ...] = ()
+    weight_variant: tuple[WeightVariant, ...] = ()
+    lora_inputs: tuple[ComposerInput, ...] = ()
+    lora_contraction_variant: str = "none"
+    lora_contraction_excluded_input_ids: tuple[str, ...] = ()
 
     def __post_init__(self):
         if not self.variant_id:
             raise ValueError("Composer variant requires a stable identity")
+        if self.broad_generic_count not in (0, 1, 2):
+            raise ValueError("Broad generic count must be 0, 1, or 2")
+        if self.broad_generic_count > len(self.broad_generic_support):
+            raise ValueError("Explicit broad generic candidates are required")
+        if not self.role_density_variant or not self.lora_contraction_variant:
+            raise ValueError("Variant labels must be explicit")
+        if any(item.canonical is None or item.block in {"SPECIAL", "LORA"}
+               for item in (*self.broad_generic_support, *self.role_density_inputs)):
+            raise ValueError("Support variants require explicitly classified canonical inputs")
+        if any(item.block != "LORA" for item in self.lora_inputs):
+            raise ValueError("LoRA inputs must remain in the LoRA block")
+        if len({item.canonical for item in self.weight_variant}) != len(self.weight_variant):
+            raise ValueError("Duplicate weight canonical")
+        if self.weight_variant and self.profile.model_family == "GENERIC":
+            raise ValueError("Explicit weight grammar requires a model-family profile")
+        if self.lora_contraction_excluded_input_ids and (
+                not self.lora_inputs or self.lora_contraction_variant == "none"):
+            raise ValueError("Contraction requires an explicit variant and LoRA inputs")
 
 
 class Stage9ComposerSession:
@@ -71,6 +112,7 @@ class Stage9ComposerSession:
         if special_id in self._special_ids:
             return False
         self._special_ids.append(special_id)
+        self.set_candidate_buckets()
         self._last_result = None
         return True
 
@@ -78,6 +120,7 @@ class Stage9ComposerSession:
         if special_id not in self._special_ids:
             return False
         self._special_ids.remove(special_id)
+        self.set_candidate_buckets()
         self._last_result = None
         return True
 
@@ -94,6 +137,8 @@ class Stage9ComposerSession:
         if canonical not in self._manual_auxiliary:
             return False
         self._manual_auxiliary.remove(canonical)
+        if self.has_cooccurrence(canonical):
+            self.choose_candidate(f"cooccurrence:{canonical}", "EXCLUDE")
         self._last_result = None
         return True
 
@@ -114,6 +159,16 @@ class Stage9ComposerSession:
         )
         self._last_result = None
 
+    def set_candidate_buckets(self, common=(), rare=(), *, snapshot_id=None):
+        """Replace the complete result atomically; common wins identical duplicates."""
+        combined = {}
+        for item in (*tuple(common), *tuple(rare)):
+            combined.setdefault(item.candidate.canonical, item)
+        self.set_discovered_candidates(combined.values(), snapshot_id=snapshot_id)
+
+    def has_cooccurrence(self, canonical):
+        return any(item.canonical == canonical for item in self._cooccurrence)
+
     def include_cooccurrence(self, canonical, reason="user selected co-occurrence suggestion"):
         self.choose_candidate(f"cooccurrence:{canonical}", "INCLUDE", reason)
 
@@ -129,7 +184,17 @@ class Stage9ComposerSession:
     def _compose(self):
         inputs = tuple(ComposerInput(f"manual:{canonical}", canonical=canonical)
                        for canonical in self._manual_auxiliary)
-        self._last_result = self.runtime.compose(
+        variant = self._variant
+        # Callers supply the exact support sets for density comparisons. There
+        # is no guessed role, density threshold, winning weight, or LoRA rule.
+        additions = (*variant.broad_generic_support[:variant.broad_generic_count],
+                     *variant.role_density_inputs, *variant.lora_inputs)
+        inputs = (*inputs, *(replace(item, selected=True) for item in additions))
+        excluded = set(variant.lora_contraction_excluded_input_ids)
+        if excluded - {item.input_id for item in inputs if item.block != "LORA"}:
+            raise ValueError("Contraction can only address explicit non-LoRA inputs")
+        inputs = tuple(item for item in inputs if item.input_id not in excluded)
+        result = self.runtime.compose(
             self.selected_special_ids,
             semantic_auxiliary=self._semantic_auxiliary,
             cooccurrence=self._cooccurrence,
@@ -138,7 +203,36 @@ class Stage9ComposerSession:
             profile=self._variant.profile,
             model_family=self._variant.profile.model_family,
         )
-        return self._last_result
+        if variant.weight_variant:
+            weights = {self.runtime.composer._canonical(item.canonical): item
+                       for item in variant.weight_variant}
+            selected = []
+            for atom in result.plan.selected_atoms:
+                rule = weights.pop(atom.canonical, None)
+                if rule:
+                    if atom.special_owners:
+                        raise ValueError("Support weighting cannot replace a Special token")
+                    atom = replace(atom, text=rule.rendered_text, weight=rule.weight)
+                selected.append(atom)
+            if weights:
+                raise ValueError("Weight target must be a rendered canonical support")
+            if len({atom.text for atom in selected}) != len(selected):
+                raise ValueError("Explicit weight rendering must not collide")
+            selected = tuple(selected)
+            plan = replace(result.plan, selected_atoms=selected)
+            result = replace(
+                result, plan=plan,
+                positive_blocks=tuple((block, tuple(a for a in selected if a.block == block))
+                                      for block in result.block_order),
+                positive_prompt=", ".join(a.text for a in selected),
+                provenance_map={a.text: a for a in selected},
+            )
+        self._last_result = result
+        return result
+
+    def comparison_snapshot(self):
+        """Capture all reversible conditions together with the actual Prompt."""
+        return self._variant, self.compose_result
 
     @property
     def compose_result(self):

@@ -83,6 +83,7 @@ class Stage7AApp(ttk.Frame):
         try:
             index_dir = self.root_path / "data/runtime_index"
             index = RuntimeIndex(index_dir)
+            self.statistics_snapshot_id = index.snapshot_id
             overlay = CanonicalOverlay(index, index_dir / "canonical_overlay.json")
             self.recommendation_controller = RecommendationController(
                 RecommendationEngine(overlay, self.knowledge)
@@ -376,7 +377,6 @@ class Stage7AApp(ttk.Frame):
             bucket=bucket,
         )
         grid_row = 0
-        self.session.set_discovered_candidates(decorated_rows)
         for decorated in decorated_rows:
             candidate = decorated.candidate
             first_row = grid_row
@@ -412,8 +412,9 @@ class Stage7AApp(ttk.Frame):
 
     def _add_recommended(self, canonical):
         if self.session.add_auxiliary(canonical):
+            if self.session.has_cooccurrence(canonical):
+                self.session.include_cooccurrence(canonical)
             self._refresh_state()
-            self.session.include_cooccurrence(canonical)
             self._show_recommendation_result(self.recommendation_result)
 
     def _render_semantic_support(self):
@@ -494,7 +495,20 @@ class Stage7AApp(ttk.Frame):
     def _show_recommendation_result(self, result):
         if result.request_id != self.active_recommendation_request:
             return
+        if result.status == "ready" and set(result.core_canonicals) != set(
+                self.session.statistics_core_canonicals() or ()):
+            return
         self.recommendation_result = result
+        self.session.set_candidate_buckets(
+            self.stage8a_semantics.decorate_many(
+                result.common, core_canonicals=result.core_canonicals, bucket="common"
+            ) if result.status == "ready" else (),
+            self.stage8a_semantics.decorate_many(
+                result.rare, core_canonicals=result.core_canonicals, bucket="rare"
+            ) if result.status == "ready" else (),
+            snapshot_id=getattr(self, "statistics_snapshot_id", None),
+        )
+        self._refresh_state()
         if not self.session.selected_special_ids:
             self.recommendation_box.grid_remove()
             return
