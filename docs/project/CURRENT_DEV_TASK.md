@@ -7,7 +7,7 @@
 - Source: GitHub Issue #2
 - Title: `[Stage9B][DEV] Runtime Composer Stage9B`
 - State: open
-- Source issue updated at: 2026-09-07T17:46:20Z
+- Source issue body synced from: 2026-09-07T17:46:20Z
 - Purpose: Codexがprivate GitHub Issue APIへ追加認証せず、現行DEV作業内容をrepository内から読めるようにするための同期ミラー。
 
 ## Sync Contract
@@ -15,6 +15,8 @@
 - GitHub Issueが実作業の管理記録であり、このファイルはCodex読取用ミラー。
 - `docs/project/CURRENT_STATE.md` に記載された現行DEV Issue番号と、このファイルの `Source` が一致しない場合は実装を開始しない。
 - 現行DEV Issueの本文・state・完了条件を変更する管理作業では、このファイルも同じ管理作業内で更新する。
+- Codexが守るべき目的・scope・禁止事項・完了条件を変更する場合、Issueコメントだけで済ませずIssue本文とこのミラーへ反映する。
+- Issueコメントは結果・証跡・履歴の記録には使用できるが、コメントだけでこのミラーの現行task条件を上書きしない。
 - Issueとこのミラーに矛盾が見つかった場合、Codexは推測で補完せずDEVへ報告して停止する。
 - Issue番号を過去セッションから固定値として記憶しない。必ず `CURRENT_STATE.md` から現行DEV Issueを特定する。
 
