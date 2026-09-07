@@ -206,3 +206,19 @@ def test_invalid_variants_fail_without_caching_partial_result():
     for _ in range(2):
         with pytest.raises(ValueError):
             session.compose_result
+
+
+@pytest.mark.parametrize("invalid", [decorated("unknown-canonical"), decorated("solo", "INVALID_ROLE")])
+def test_invalid_candidate_registration_is_atomic(invalid):
+    session = make_session()
+    session.add_special("311")
+    session.set_candidate_buckets((decorated(),), (decorated("blush"),))
+    session.include_cooccurrence("solo")
+    baseline = session.comparison_snapshot()
+    decisions = session.selection_state
+    with pytest.raises((KeyError, ValueError)):
+        session.set_candidate_buckets((decorated("smile"),), (invalid,))
+    assert session.comparison_snapshot() == baseline
+    assert session.selection_state == decisions
+    assert session.has_cooccurrence("solo") and session.has_cooccurrence("blush")
+    assert not session.has_cooccurrence("smile")
