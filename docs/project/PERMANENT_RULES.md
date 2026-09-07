@@ -30,6 +30,14 @@
 17. `CURRENT_STATE.md` / `PERMANENT_RULES.md` / `DECISIONS.md` / `CURRENT_DEV_TASK.md` / Stage Gate文書など共有管理ファイルを変更する前に、必ず最新mainの内容とblob/commitを再取得してから差分を統合する。古いチャット内コピーや記憶だけでファイル全体を上書きしない。競合があれば停止して明示的に解消する。
 18. DEV/管理側がCodexへ新規実装または再開指示を出す直前に、private GitHubの現行DEV Issue本文/stateと、最新mainの `CURRENT_STATE.md` / `CURRENT_DEV_TASK.md` を照合する。同じIssue番号のまま本文だけ変更された場合も検出し、目的・scope・禁止事項・完了条件に差があればミラーを先に同期する。照合前にCodexへ実装開始させない。
 
+Codex側の現行DEV task読取補足:
+- GitHub Issueが実作業の管理記録で、`CURRENT_DEV_TASK.md` はCodex読取用ミラー。
+- DEV Issueの本文・state・完了条件を変更する管理作業では、ミラーも同じ管理作業内で更新する。
+- Codexが守るべき目的・scope・禁止事項・完了条件はIssue本文とミラーに存在するものだけを現行指示として扱う。
+- Issueコメントは結果・証跡・checkpoint・履歴の記録には使えるが、コメントだけで現行taskの条件を上書きしたものとは扱わない。
+- Codex自身がIssue本文を推測してミラーを書き換えない。
+- DEV/管理側はCodexへ新規実装・再開を渡す直前にprivate Issue本文/stateと最新mainのmirrorをlive照合する運用。Codexはその管理preflightを代行せず、local側では番号・mirror・scope・Gateを再確認する。
+
 ### Local protected data
 
 19. GitHubは管理状態・commit済みコード/文書の正本だが、ローカル作業環境全体のバックアップではない。`.gitignore` 対象の `data/source/`、`data/derived/`、`data/runtime*`、Special2788の大容量CSV等はローカル側の保護データであり、GitHubに見えないことを削除・欠損と解釈しない。
