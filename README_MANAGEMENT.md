@@ -1,6 +1,17 @@
 # DanbooruTagTool 管理骨格
 
-目的は「班を増やさず、正本・進捗・引継ぎの所在を固定する」ことです。
+目的は「班を増やさず、正本・進捗・引継ぎ・Codex作業境界の所在を固定し、ユーザーの手作業を減らす」ことです。
+
+## 最初に見るもの
+
+作業チャットは、古いhandoffや記憶ではなく最新mainから次を確認する。
+
+1. `docs/project/CURRENT_STATE.md` — 現在地の正本
+2. `docs/project/PERMANENT_RULES.md` — Stageをまたぐ固定ルール
+3. `CURRENT_STATE.md` に記載された自班/担当の現行Issue
+4. 必要な `DECISIONS.md` / 現行Stage仕様 / main実装状態
+
+Codexはさらに `AGENTS.md` と `docs/project/CURRENT_DEV_TASK.md` を読む。
 
 ## 役割分担
 
@@ -10,6 +21,7 @@
 - テストPrompt班: Stage10のA/B実験用Prompt作成。仕様決定権は持たない。
 - Forge Neo環境準備: 臨時担当。Stage10比較環境の導入・動作確認後に終了。
 - Codex: 班ではなく、本体開発班の実装担当。
+- GitHub管理・調整チャット: 班ではない。正本整合・Issue/管理文書更新・班間調整だけを行う。
 
 ## 正本の置き場所
 
@@ -19,30 +31,92 @@
   - Stageをまたいで有効な固定ルール。
 - `docs/project/DECISIONS.md`
   - 重要な設計判断と理由。
-- `docs/stages/`
-  - Stage単位の仕様・完了条件。
+- `docs/stage9/` / `docs/stages/`
+  - 現行Stage・次Stageの仕様とGate。
 - GitHub Issues
-  - 「これからやる仕事」。
-- Pull Request
-  - 「実際に変更されたコード」。
+  - 実作業のtask contract、完了条件、結果、checkpoint履歴。
+- Pull Request / branch / commit
+  - 実際に変更されたコード・文書とreview対象。
+- `docs/project/CURRENT_DEV_TASK.md`
+  - Codexがprivate DEV Issue本文を追加認証なしで読むための同期ミラー。独立正本ではない。
 
 チャット履歴は正本ではありません。
 
+## CURRENT_DEV_TASKの扱い
+
+- GitHub IssueがDEV作業の管理記録。
+- `CURRENT_DEV_TASK.md` はCodex読取専用mirror。
+- `CURRENT_STATE.md` の現行DEV Issue番号とmirror Sourceが違えばCodexは停止。
+- DEV Issueのpurpose/scope/禁止事項/完了条件/stateを変更する管理作業ではmirrorも同期する。
+- IssueコメントだけではCodexのtask contractを変更しない。
+- Codexへ新規/再開指示を出す直前に、DEV/管理側がprivate Issue本文と最新mainのmirrorをlive照合する。同じIssue番号のまま本文が変わったdriftもここで検出する。
+
+## 途中checkpoint
+
+意味のある成果をチャットだけに保持し続けない。
+
+次の場合は担当Issueへ短いcheckpointコメントを残す。
+- 重要な実装/調査/監査/環境確認が成功した
+- 後続作業の前提になる事実が確定した
+- 長時間中断・話題切替・handoffに入る
+- 会話が長く、直近の成功地点を失うと再開コストが高い
+
+最低限:
+- 最後に成功したこと/結果
+- 未完了またはblocker
+- 次作業
+- branch/commit/file/evidence（ある場合）
+
+通常のcheckpointはIssueコメントに置き、global stateが変わらない限り `CURRENT_STATE.md` は更新しない。
+
+## チャット引継ぎ
+
+会話長大化、Stage/Pilot/監査区切り、大方針変更、正式handoffでは、ユーザー指示を待たず作業チャット側から移行を提案する。
+
+順序:
+
+旧チャット
+→ GitHubへcheckpoint/現在地を反映
+→ 必要ならIssue本文・Decision・Stage仕様・CURRENT_STATEを更新
+→ shared management fileは最新mainへ差分統合
+→ DEV contract変更ならCURRENT_DEV_TASKも同期
+→ 更新完了確認
+→ 新チャット移行を提案
+→ 新チャットがGitHubから復元
+
+長大な手書きhandoffをユーザーへ作らせることを標準にしない。
+
+## Codex実装・review
+
+- 本体実装は原則、最新mainからtask用feature branchを作る。
+- 直接mainへ未review実装をcommitしない。
+- stable checkpointをcommitし、push可能ならremoteへpushする。
+- ChatGPT/DEV/AUDITがGitHub branch/commit/PRから確認できる成果物はGitHubを標準handoffにする。
+- local-only/ignored data、binary evidence、push不能などGitHubだけで確認できない時だけ `docs/CHATGPT_CODEX_HANDOFF.md` のZIP fallbackを使う。
+
+## Local protected data
+
+GitHubは管理状態とcommit済みコード/文書の正本ですが、ローカルworkspace全体のbackupではありません。
+
+`.gitignore` には `data/source/`、`data/derived/`、`data/runtime*`、Special2788の大容量CSV等が含まれます。
+これらがGitHubに見えなくても削除・欠損とは限りません。
+
+禁止:
+- `git clean -fdx`
+- `git clean -fdX`
+- ignored protected dataを広範囲に消すcleanup
+
+fresh cloneだけでfull runtime/full testsを再現できるとは仮定しない。
+
 ## 最小運用
 
-1. 作業を始める前に `CURRENT_STATE.md` を見る。
-2. 新しい仕事はIssue化する。
-3. 作業結果は該当Issueに残す。
-4. 仕様が変わったら `DECISIONS.md` または Stage仕様を更新する。
-5. Stage完了・方針変更・チャット移行前だけ `CURRENT_STATE.md` を更新する。
-6. 監査PASS前に次Stageを正式開始しない。
-7. チャット間のコピペhandoffを減らし、各チャットにはIssue番号と正本ファイルだけ渡す。
+1. 作業前に `CURRENT_STATE.md` と自班Issueを確認する。
+2. 新しい確定作業はIssue化する。
+3. 意味のある途中成果はIssue checkpointへ残す。
+4. task contract変更はIssue本文へ反映する。現行DEVならmirrorも同期する。
+5. 仕様変更は `DECISIONS.md` またはStage仕様へ反映する。
+6. shared management docは最新mainを再取得してから統合する。
+7. AUDIT PASS前にGateを越えない。
+8. 承認済みStage仕様に残るsubstage/gateを暗黙に飛ばさない。
 
-## 推奨Issue名
-
-`[Stage9B][DEV] Runtime Composer ...`
-`[Stage9B][AUDIT] Stage9B 完了監査`
-`[Stage10][KNOWLEDGE] NoobAI Prompt grammar ...`
-`[Stage10][PROMPT] Special単独成立 A/B Prompt`
-
-班名をIssueタイトルにも残すことで、Projectを使わなくても検索できます。
+詳細は `docs/project/PERMANENT_RULES.md` / `docs/project/CHAT_START_PROTOCOL.md` / `docs/project/WORKFLOW.md` を参照する。

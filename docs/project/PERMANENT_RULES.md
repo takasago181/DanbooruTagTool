@@ -20,6 +20,14 @@
 12. 本プロジェクトの作業チャット（常設4班、現行Issueを持つTEMP、GitHub管理・調整チャット）は、会話が長大化して現在地混同・取りこぼし・応答品質低下のリスクが出た場合、またはStage完了・大方針変更・大きな作業区切りに到達した場合、ユーザーから「引継ぎして」と言われるのを待たず、自発的にチャット移行を提案する。
 13. 自発的なチャット移行では、旧チャット側が先にGitHub正本を更新してから移行を提案する。長大な手書きhandoffを新チャットへ貼ることを標準運用にしない。
 14. Codexが守るべき現行DEVの目的・scope・禁止事項・完了条件は、GitHub Issue本文と `CURRENT_DEV_TASK.md` に反映する。Issueコメントだけに現行指示を置いてCodexの作業条件を変更しない。コメントは結果・証跡・履歴の記録には使用してよい。
+15. 意味のある途中成果をチャットだけに保持し続けない。重要な成功結果・検証結果・判断材料が得られた時、長時間中断や話題切替の前、または直近作業を失うと再開コストが大きい時は、自班/担当Issueへ短いcheckpointを残す。
+16. checkpointは原則としてIssueコメントに残し、少なくとも「最後に成功したこと/結果」「未完了またはblocker」「次作業」「関連branch/commit/file/evidence」を含める。通常の途中経過だけで `CURRENT_STATE.md` を頻繁に書き換えない。全体の現在地・Gate・担当・Stageが変わった時だけ共有正本を更新する。
+17. `CURRENT_STATE.md` / `PERMANENT_RULES.md` / `DECISIONS.md` / `CURRENT_DEV_TASK.md` / Stage Gate文書など共有管理ファイルを変更する前に、必ず最新mainの内容とblob/commitを再取得してから差分を統合する。古いチャット内コピーや記憶だけでファイル全体を上書きしない。競合があれば停止して明示的に解消する。
+18. DEV/管理側がCodexへ新規実装または再開指示を出す直前に、private GitHubの現行DEV Issue本文/stateと、最新mainの `CURRENT_STATE.md` / `CURRENT_DEV_TASK.md` を照合する。同じIssue番号のまま本文だけ変更された場合も検出し、目的・scope・禁止事項・完了条件に差があればミラーを先に同期する。照合前にCodexへ実装開始させない。
+19. GitHubは管理状態・commit済みコード/文書の正本だが、ローカル作業環境全体のバックアップではない。`.gitignore` 対象の `data/source/`、`data/derived/`、`data/runtime*`、Special2788の大容量CSV等はローカル側の保護データであり、GitHubに見えないことを削除・欠損と解釈しない。
+20. ローカル保護データを消し得る `git clean -fdx`、`git clean -fdX`、その他ignored fileを広範囲に削除する操作は禁止。fresh cloneだけでは全runtime/全テスト環境を復元できないため、必要なlocal protected dataを別途保全・復元してから扱う。
+21. Codexの本体実装は、原則として最新mainからtask用feature branchを作って行い、直接mainへ実装commitしない。レビュー可能なstable checkpointはcommitし、可能ならremoteへpushする。mainへの反映はDEV確認・必要なAUDIT Gateを経て行う。
+22. ChatGPTレビューに必要な成果物がすべてGitHubのbranch/commit/PRから取得できる場合、ユーザーへ手動ZIP uploadを要求しない。GitHubに載らないlocal-only data、binary evidence、push失敗時などだけ `docs/CHATGPT_CODEX_HANDOFF.md` のZIP fallbackを使う。
 
 ## チャット移行プロトコル
 

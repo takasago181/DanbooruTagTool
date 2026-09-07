@@ -2,6 +2,11 @@ name: 監査
 description: Stage・実装・仕様の第三者監査
 title: "[StageX][AUDIT] "
 body:
+  - type: markdown
+    attributes:
+      value: |
+        PASS / CONDITIONAL PASS / FAIL の後に、次に進めるGateまたはDEVへ戻す条件を明示してください。
+        substageのPASSをStage全体PASSへ自動昇格させません。
   - type: input
     id: stage
     attributes:
@@ -12,7 +17,7 @@ body:
     id: target
     attributes:
       label: 監査対象
-      description: 対象Issue、PR、ファイル
+      description: 対象Issue、PR、branch/commit、ファイル
     validations:
       required: true
   - type: textarea
@@ -37,3 +42,10 @@ body:
     id: findings
     attributes:
       label: 指摘・根拠
+  - type: textarea
+    id: next_gate
+    attributes:
+      label: 次Gate / 戻り先
+      description: PASS後に進めるIssue/Stage、またはFAIL/CONDITIONAL PASS時にDEVへ戻す条件
+    validations:
+      required: true

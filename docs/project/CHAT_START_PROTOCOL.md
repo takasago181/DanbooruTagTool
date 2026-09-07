@@ -16,14 +16,35 @@
 
 提案前に旧チャット側がGitHub正本を更新する。ユーザーへ長大な手書きhandoffを作らせたり、同じ情報を再入力させたりしない。
 
+## 0.5. 途中checkpoint
+
+チャット移行まで待つと直近の有用な作業を失う可能性があるため、次の場合は自班/担当Issueへ短いcheckpointコメントを残す。
+
+- 意味のある実装・調査・監査・環境確認が成功した。
+- 後続作業の前提になる重要な事実や判断材料が確定した。
+- 長時間中断、別話題への切替、別担当への受け渡しに入る。
+- 会話が長くなり、直近の成功地点を失うと再開コストが大きい。
+
+checkpointには最低限、以下を残す。
+
+1. 最後に成功したこと / 結果
+2. 未完了またはblocker
+3. 次にやること
+4. 関連branch / commit / file / evidence（存在する場合）
+
+通常の途中経過はIssueコメントで十分であり、`CURRENT_STATE.md` を毎回更新しない。Stage・Gate・担当・全体の現在地が変わった場合だけ共有正本を更新する。
+
+checkpointコメントはtask contractを変更しない。目的・scope・禁止事項・完了条件を変更する場合はIssue本文を更新し、現行DEVなら `CURRENT_DEV_TASK.md` も同じ管理作業内で同期する。
+
 ## 1. 旧チャット側で移動前に行うこと
 
-- `docs/project/CURRENT_STATE.md` を最新化する。
-- 常設班/TEMPは自班の現行Issueへ、未完了・完了・待機条件・重要な禁止事項を反映する。
+- `docs/project/CURRENT_STATE.md` が現在地と一致していることを確認し、全体状態に変化があれば最新化する。
+- 常設班/TEMPは自班の現行Issueへ、未完了・完了・待機条件・重要な禁止事項・最後の成功地点を反映する。
 - GitHub管理・調整チャットは、変更したIssue・管理文書・Decision等へ現在地と必要な記録を反映する。班ではないため専用Issueを新設する必要はない。
 - Stage完了や仕様変更がある場合は、必要に応じて `DECISIONS.md` または現行Stage仕様へ反映する。
 - DEVの現行Issue本文・state・完了条件を変更した場合は、`docs/project/CURRENT_DEV_TASK.md` も同じ管理作業内で同期する。
 - Codexが守るべきDEVの目的・scope・禁止事項・完了条件を変更した場合、Issueコメントだけで済ませずIssue本文と `CURRENT_DEV_TASK.md` に反映する。
+- 共有管理ファイルを更新する直前に最新mainを再取得し、古いチャット内コピーで上書きしない。
 - チャット本文だけに新しい決定を残したまま移動しない。
 - GitHub更新が完了した後に「新チャットへ移行可能」とユーザーへ伝える。
 
@@ -35,10 +56,11 @@
 2. `docs/project/PERMANENT_RULES.md`
 3. 常設班/TEMPは `CURRENT_STATE.md` に記載された自班の現行GitHub Issue、GitHub管理・調整チャットは関係する現行Issueと管理文書
 4. 必要な `DECISIONS.md` / 現行Stage仕様 / mainの実装状態
+5. 自班Issueの直近checkpoint / 結果コメント（必要な場合）
 
 Issue番号は固定しない。Stageや担当変更で番号が変わるため、過去チャットや記憶から推測せず、毎回 `CURRENT_STATE.md` から特定する。
 
-DEV / Codex連携では、Codexはさらに `docs/project/CURRENT_DEV_TASK.md` のSource Issue番号が `CURRENT_STATE.md` の現行DEV Issue番号と一致することを確認する。
+DEV / Codex連携では、Codexはさらに `docs/project/CURRENT_DEV_TASK.md` のSource Issue番号が `CURRENT_STATE.md` の現行DEV Issue番号と一致することを確認する。DEV/管理側はCodexへ新規/再開指示を出す直前に、private GitHubの現行DEV Issue本文/stateと最新mainのミラーをlive照合し、同一Issue番号内の本文driftも解消しておく。
 
 ## 3. 新チャットの認識確認
 
@@ -48,10 +70,11 @@ DEV / Codex連携では、Codexはさらに `docs/project/CURRENT_DEV_TASK.md` �
 2. 現在のStage
 3. 現在の担当Issue番号、または管理・調整対象
 4. 現在地の正本として最初に見るファイル
-5. 今の次作業
-6. 今やってはいけないこと
-7. Codexとの役割分担
-8. 古いhandoff・旧チャット・過去Stage資料とGitHub現行状態が衝突した場合の扱い
+5. 最後に確認できた成功地点 / checkpoint（存在する場合）
+6. 今の次作業
+7. 今やってはいけないこと
+8. Codexとの役割分担
+9. 古いhandoff・旧チャット・過去Stage資料とGitHub現行状態が衝突した場合の扱い
 
 最後に必ず以下を明記する。
 
@@ -67,6 +90,7 @@ DEV / Codex連携では、Codexはさらに `docs/project/CURRENT_DEV_TASK.md` �
 - 仕様整理・Stage管理・Codex指示・成果確認を担当する。
 - CodexはDEVの実装担当であり独立班ではない。
 - AUDITの正式PASSを代行しない。
+- Codexへ作業を渡す直前にcurrent DEV Issueとmirrorのlive整合を確認する。
 
 ### AUDIT
 
@@ -104,12 +128,14 @@ DEV / Codex連携では、Codexはさらに `docs/project/CURRENT_DEV_TASK.md` �
 - 古いhandoff・旧チャット・過去Stage資料を、現行 `CURRENT_STATE.md` / 現行Issue / mainの状態より優先して現在地を巻き戻さない。
 - ただしGitHub側に明確な矛盾がある場合も、勝手に一方を採用・補完しない。
 - `衝突あり` として明示し、確認後にGitHub正本を修正する。
+- 複数チャットが共有管理ファイルを同時に触った場合は、最新mainを再取得してから統合し、stale copyで上書きしない。
 
 ## 6. Stage境界
 
 - `CURRENT_STATE.md` の現在Stageを越えて勝手に進まない。
 - 後続Stage用の実験知識・仮説を、前Stageのproduction規則へ先行固定しない。
 - model family固有のPrompt grammarを、検証なしに全モデル共通ルールへしない。
+- 承認済みStage仕様に残っている未完了substage/gateを、CURRENT_STATE側の短縮された手順だけを理由に暗黙スキップしない。矛盾があればDEVが正式に解消する。
 
 ## 7. 完了条件
 
@@ -117,6 +143,7 @@ DEV / Codex連携では、Codexはさらに `docs/project/CURRENT_DEV_TASK.md` �
 
 - 現在Stageを正しく認識
 - 現行Issueまたは管理対象を正しく特定
+- 必要なら直近checkpointを把握
 - 自班/担当の権限境界を正しく認識
 - 次作業と禁止事項を正しく認識
 - GitHubと古い資料の衝突処理を理解

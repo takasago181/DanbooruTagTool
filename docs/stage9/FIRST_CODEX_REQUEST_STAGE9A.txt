@@ -1,3 +1,13 @@
+【COMPLETED / HISTORICAL — DO NOT REPLAY】
+
+このファイルはStage9A実装時の承認済みCodex依頼を履歴として保存したものです。
+Stage9Aは既にPASS済みです。現在のCodexへこの依頼を再実行させないでください。
+
+現在地は最新mainの `docs/project/CURRENT_STATE.md` と `docs/project/CURRENT_DEV_TASK.md` から特定します。
+Stage9Aの結果は `docs/stage9/STAGE9A_IMPLEMENTATION_REPORT.md` を参照してください。
+
+--- HISTORICAL STAGE9A REQUEST BELOW ---
+
 DanbooruTagTool Stage9A を開始してください。
 
 前提:
