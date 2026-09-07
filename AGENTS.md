@@ -1,4 +1,4 @@
-# AGENTS.md — DanbooruTagTool v1.7
+# AGENTS.md — DanbooruTagTool v1.8
 
 ## 1. 役割と作業開始ゲート
 
@@ -101,6 +101,8 @@ fresh cloneだけでfull runtime/full pytest環境が揃うとは仮定しない
 11. `docs/TESTING_POLICY.md`
 12. `docs/ARCHITECTURE_POLICY.md`
 13. `docs/CHATGPT_CODEX_HANDOFF.md`
+
+効率実行の詳細が必要な場合は `docs/project/EFFICIENT_EXECUTION_RULES.md` を読む。これは使用量・往復削減の運用正本であり、品質・安全・Stage Gateを弱めるための規則ではない。
 
 ## 7. ChatGPT受け渡し
 
@@ -222,3 +224,14 @@ base size:
 - branch名
 - commit SHA
 - push状況
+
+## 11. 効率実行と品質保護
+
+- 独立・非競合・読み取り専用で同一の限定調査段階にあるツール呼び出しは、Code Modeで可能ならまとめて実行する。失敗を許容できる補助証拠と、失敗時に判定を止める必須証拠を先に分ける。
+- 単純確認の1経路・2サイクル予算は、HEAD、branch、Issue state等の単一値確認だけに使う。「完了」「PASS」「正常」「次Gateへ進める」等の複合判定には使わない。
+- 低リスク小規模修正ではPlanを省略できるが、着手前に原因も局所的か確認し、対象・最小差分・触らない範囲・検証を固定する。
+- N=3は過剰抽象化防止の判断材料であり、安全性・整合性・validation・protected data・transaction・external boundary等へ機械適用しない。
+- GUIは決定的テストを先に使う。ただしuser-visible layout、DPI、focus、OS/native UIを変更した場合は必要な最終実機受入を省略しない。
+- **使用量節約を理由に、現行task contract、完了条件、Stage Gate、protected integrity、必要な回帰テスト、AUDIT証拠を削らない。**
+
+詳細は `docs/project/EFFICIENT_EXECUTION_RULES.md` を正本とする。
