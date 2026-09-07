@@ -4,7 +4,7 @@
 
 ## Current Stage
 
-Stage 9 overall Gate 完了 / Stage10 準備Gate実施中 / automated E2E動作確認中
+Stage 9 overall Gate 完了 / Stage10 準備Gate実施中 / automated E2E動作確認 + A/B自動化準備中
 
 ## Completed
 
@@ -35,6 +35,12 @@ Stage 9 overall Gate 完了 / Stage10 準備Gate実施中 / automated E2E動作�
   - Stage10正式handoff / Specialデータ / 実験仕様 /固定条件等の整理。
 - #6 `[Stage10][TEMP] Forge Neo comparison environment`
   - Forge Neo比較環境の導入・動作確認。
+  - existing-tool-firstでMulti Prompt Slots / Forge Neo Infinite Image Browsing / built-in X/Y/Z等を確認する。
+- #30 `[Stage10-PREP][TEMP] Forge Neo A/B automation & external-tool integration`
+  - Stage10本番A/Bの手作業を可能な限り減らす臨時担当。
+  - 既存導入済み拡張 → Forge Neo標準機能 → Forge Neo対応拡張 → 外部CLI/API/OSS → 不足分だけ薄いglue scriptの順で検討する。
+  - A/B Prompt差し替え、固定/複数seed生成、metadata/実Prompt追跡、WD14等による一次判定、`A_WIN / B_WIN / REVIEW / BLOCKED` 振り分け、結果レポートまでを対象とする。
+  - 本体productionへ未検証の実験管理・自動判定を先行実装しない。
 
 ## Not Started / Do Not Start Yet
 
@@ -50,22 +56,24 @@ Stage10本番開始前に最低限必要:
 2. #28 automated E2E functional test — **CURRENT**
 3. #4 KNOWLEDGEのStage10知識整理を正式handoffへ反映 — **SATISFIED**
 4. #6 Forge Neo比較環境の導入・動作確認
-5. #5 Prompt班へ正式Specialデータ・実験仕様をhandoff
-6. Multi Prompt Slots等の比較手段確認
-7. A/B固定条件定義
-8. metadata保存方法定義
-9. model family差を保持し未検証共通化していないこと
-10. 実際に使ったPromptを各画像/結果へ追跡できること
-11. `docs/stages/STAGE_10_PREP.md` の残チェックを満たすこと
+5. #30 Forge Neo A/B automationのexternal-tool-first構成確認 + dry run
+6. #5 Prompt班へ正式Specialデータ・実験仕様・自動化運用をhandoff
+7. Multi Prompt Slots等の比較手段確認
+8. A/B固定条件定義
+9. metadata保存方法定義
+10. model family差を保持し未検証共通化していないこと
+11. 実際に使ったPromptを各画像/結果へ追跡できること
+12. `docs/stages/STAGE_10_PREP.md` の残チェックを満たすこと
 
 ## Next Actions
 
 1. Issue #28で実アプリ主要経路の自動E2Eテストとmachine verdictを実装・実行する。
 2. DEVがremote branch / commit / test result / machine-readable report / human-readable reportを実確認する。
 3. PASS時のみStage10準備を継続する。FAIL/BLOCKEDならStage10本番へ進まず原因を解消する。
-4. #6 / #5の残Gateを並列・合流で完了する。
-5. #5は `docs/stages/STAGE_10_KNOWLEDGE_HANDOFF.md` を正式handoffへ反映する。
-6. 全Gateが満たされた後にのみStage10本番A/Bへ移行する。
+4. #6 / #30 / #5の残Gateを並列・合流で完了する。
+5. #30はexternal / existing tool firstで、既存機能だけで減らせる手作業を先に実測し、実際のgapだけを自作対象にする。
+6. #5は `docs/stages/STAGE_10_KNOWLEDGE_HANDOFF.md` と #6 / #30の結果を正式handoffへ反映する。
+7. 全Gateが満たされた後にのみStage10本番A/Bへ移行する。
 
 ## Blocking / Unknown
 
@@ -73,6 +81,7 @@ Stage10本番開始前に最低限必要:
 - GitHubはlocal protected dataの完全backupではない。E2E必須経路がlocal protected dataを必要とする場合は、local protected environmentでの実行証跡を使用し、GitHub CI PASSとは表現しない。
 - Stage10はまだ未開始。
 - Issue #4のHOLD項目はStage10実画像A/Bで再評価するが、pre-Stage10 KNOWLEDGE blockerではない。
+- #30の自動評価は完全自動判定を前提にせず、認識困難・信頼度不足をREVIEWへ逃がす設計とする。
 
 ## Source-of-Truth Rule
 
