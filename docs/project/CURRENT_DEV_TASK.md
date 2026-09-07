@@ -23,7 +23,7 @@
 - Issueとこのミラーに矛盾が見つかった場合、Codexは推測で補完せずDEVへ報告して停止する。
 - Issue番号を過去セッションから固定値として記憶しない。必ず `CURRENT_STATE.md` から現行DEV Issueを特定する。
 - Issue番号が同じでも本文だけ変更される可能性があるため、番号一致だけを完全な同期証明とは扱わない。Codex handoff直前のDEV/管理live比較を追加Gateとする。
-- Codexはprivate GitHub Issue APIやIssueコメントへ直接書き込むことを前提にしない。Issueへのcheckpoint/完了証跡は、Codexがpushしたrepository成果をDEV/管理側が確認して記録する。
+- Codexはprivate GitHub Issue APIやIssueコメントへ直接書き込むことを前提にしない。Issueへのcheckpoint/完了証跡は、Codexがrepositoryへ残した成果をDEV/管理側が確認して記録する。
 
 ## 目的
 
