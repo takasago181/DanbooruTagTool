@@ -2,12 +2,30 @@
 
 PROMPT班がテストPrompt作成時の差し替え候補を探すための、人間向け・GitHub検索可能な派生辞書です。
 
-- 全2788件を収録する。
-- 元Special IDを保持する。
-- 日本語 / 英語Tag / ID / Layer / post_count / Aliasのcanonical_targetをコンパクトに併記する。
+## 状態
+
+- 全2788件を収録済み。
+- 元Special IDを保持。
+- 日本語 / 英語Tag / ID / Layer / post_count / Aliasのcanonical_targetをコンパクトに併記。
 - 元のSpecial2788正本を置き換えない。
-- Stage10本番開始を意味しない。現在Stageは`CURRENT_STATE.md`に従う。
+- Stage10本番開始を意味しない。現在Stageは `docs/project/CURRENT_STATE.md` に従う。
 - PROMPT班の置換候補提示ルールは `docs/stages/STAGE_10_PROMPT_REPLACEMENT_REFERENCE.md` を参照。
+- 件数・ハッシュ・ファイル構成は `MANIFEST.txt` を参照。
+
+## Prompt作成時の使い方
+
+ChatGPTが具体的に書けない核心部分だけ置換札にし、置換札の横へこの辞書から候補を付ける。
+
+優先して示すもの:
+
+1. 第一候補のcanonical
+2. Alias候補 + canonical_target
+3. broad / specific候補
+4. Semantic候補（Semanticであることを明示）
+5. Special ID
+6. post_count（ある場合）
+
+複数の置換対象がある場合はA / B / Cのように分ける。置換札だけを出してユーザーへタグ探索を丸投げしない。
 
 ## Layer略号
 
@@ -34,4 +52,15 @@ PROMPT班がテストPrompt作成時の差し替え候補を探すための、�
 12. メタ・レーティング — 29件
 13. その他・文脈 — 1404件
 
-Stage10のPrompt作成対象人物は成人のみです。辞書網羅性のため年齢関連語が含まれていても、未成年対象語を成人向けStage10 Promptへ使用しません。
+合計: 2788件。
+
+## ファイル分割
+
+- 01〜12: 各ジャンル1ファイル
+- 13: `part01`〜`part08` に分割
+
+分割はGitHub上での検索・確認をしやすくするためで、データ削減ではありません。
+
+## 成人限定
+
+Stage10のPrompt作成対象人物は成人のみです。辞書網羅性・検出参照のため年齢関連語や未成年関連語も元辞書どおり収録されていますが、未成年対象語をStage10の成人向けPrompt候補には使用しません。
