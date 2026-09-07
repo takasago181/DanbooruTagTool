@@ -1,0 +1,150 @@
+# 05 挿入・性具・機械 (149)
+05-0001	指での挿入・刺激の直後	after fingering	ID:169	E	724
+05-0002	物体・身体部位の挿入直後	after insertion	ID:170	E	267
+05-0003	衣服・布・避妊具など越しに行われる挿入表現	covered penetration	ID:171	C	1386
+05-0004	深い挿入	deep penetration	ID:172	C	9924
+05-0005	二か所または二本同時の挿入	double penetration	ID:173	C	14509
+05-0006	指による性的刺激・挿入	fingering	ID:174	C	46636
+05-0007	衣服越しに行う指での性器刺激	fingering through clothes	ID:175	C	3095
+05-0008	下着越しに行う指での性器刺激	fingering through panties	ID:176	C	1366
+05-0009	食物を体腔へ挿入する性的表現	food insertion	ID:177	C	1024
+05-0010	手などで位置を誘導しながら行う挿入	guided penetration	ID:178	C	1807
+05-0011	挿入の直前を示す描写	imminent penetration	ID:179	C	21609
+05-0012	指での性器刺激を直接描かず示唆する表現	implied fingering	ID:180	C	1865
+05-0013	複数挿入	multiple penetration	ID:181	E	70
+05-0014	物体挿入	object insertion	ID:182	C	37166
+05-0015	尻尾を体腔へ挿入する性的表現	tail insertion	ID:183	E	403
+05-0016	三か所または三本同時の挿入	triple penetration	ID:184	C	1870
+05-0017	スライムによる複数形態の挿入	versatile slime penetration	ID:185	E	67
+05-0018	相手の挿入を手で誘導する行為の別名	assisted penetration	ID:186	A	1807 ->guided_penetration
+05-0019	挿入	insertion	ID:187	A	37166 ->object_insertion
+05-0020	ロボットによる挿入	robot penetration	ID:188	S	-
+05-0021	深い挿入	deep insertion	ID:189	S	-
+05-0022	複数挿入の表記揺れ	multiple insertion	ID:190	S	-
+05-0023	物体による挿入	object penetration	ID:191	S	-
+05-0024	肛門への拳・手の挿入	anal fisting	ID:192	E	345
+05-0025	拳・手による深い挿入	fisting	ID:193	E	600
+05-0026	大型物体の挿入	large insertion	ID:194	C	3183
+05-0027	複数箇所への挿入	multiple insertions	ID:195	E	422
+05-0028	乳首への貫入	nipple penetration	ID:196	E	728
+05-0029	自分自身に拳を挿入する行為	self fisting	ID:197	E	60
+05-0030	体内膨張	inflation	ID:198	C	3670
+05-0031	挿入物などで腹部が内側から膨らむ描写	stomach bulge	ID:199	C	16749
+05-0032	anal_prolapse のalias	rectal prolapse	ID:200	A	206 ->anal_prolapse
+05-0033	極端な挿入を直接示す説明語	extreme insertion	ID:201	A	3183 ->large_insertion
+05-0034	大型物体などの極端な挿入	huge insertion	ID:202	A	3183 ->large_insertion
+05-0035	二つの拳を使う・二か所同時のフィスト挿入	double fisting	ID:203	S	-
+05-0036	極端な拡張	extreme stretching	ID:204	S	-
+05-0037	性器の拡張	genital stretching	ID:205	S	-
+05-0038	大型物体などの極端な挿入	oversized insertion	ID:206	S	-
+05-0039	尿道カテーテル・導尿管	catheter	ID:207	E	252
+05-0040	尿道内の精液	cum in urethra	ID:208	E	374
+05-0041	尿道用ビーズ	urethral beads	ID:209	E	335
+05-0042	尿道への指挿入	urethral fingering	ID:210	E	143
+05-0043	尿道への物体挿入	urethral insertion	ID:211	C	1758
+05-0044	尿道への挿入	urethral penetration	ID:212	E	57
+05-0045	尿道	urethra	ID:213	C	8619
+05-0046	尿道への物体挿入の旧・別表記	urethral object push	ID:214	A	1758 ->urethral_insertion
+05-0047	尿道関連のストラップオン器具	urethral strap-on	ID:215	S	-
+05-0048	尿道挿入・尿道プレイの直後	after urethral	ID:216	S	-
+05-0049	尿道拡張	urethral dilation	ID:217	S	-
+05-0050	尿道への性的刺激	urethral play	ID:218	S	-
+05-0051	尿道サウンディング	urethral sounding	ID:219	S	-
+05-0052	尿道挿入用の棒状器具を示す語	sounding rod	ID:220	S	-
+05-0053	尿道挿入の表記揺れ	urethra insertion	ID:221	S	-
+05-0054	尿道への性的刺激	urethra play	ID:222	S	-
+05-0055	尿道挿入用の棒状器具を示す説明語	urethral rod	ID:223	S	-
+05-0056	性行為用の人形・ラブドール	sex doll	ID:260	E	198
+05-0057	性具	sex toy	ID:261	C	74131
+05-0058	多数の性具が同時に使われている描写	too many sex toys	ID:262	E	544
+05-0059	バイブレーター	vibrator	ID:263	C	31693
+05-0060	肛門内にバイブレーターを挿入した状態	vibrator in anus	ID:264	E	422
+05-0061	乳首にバイブレーターを当てる刺激	vibrator on nipple	ID:265	C	1824
+05-0062	アナルビーズ	anal beads	ID:266	C	9657
+05-0063	肛門に装着する尻尾型プラグ	anal tail	ID:267	C	8174
+05-0064	アナルプラグ	butt plug	ID:268	C	7418
+05-0065	ディルド	dildo	ID:269	C	31537
+05-0066	口にディルドを固定するギャグ器具	dildo gag	ID:270	E	597
+05-0067	ディルドを身体に固定するハーネス	dildo harness	ID:271	E	258
+05-0068	固定したディルドに跨って使用する行為	dildo riding	ID:272	C	2580
+05-0069	マスクの下にディルドを固定した状態	dildo under mask	ID:273	E	107
+05-0070	下着の内側にディルドを装着した状態	dildo under panties	ID:274	E	648
+05-0071	両端を使用できる二重ディルド	double dildo	ID:275	C	1451
+05-0072	ドラゴン形状を模したディルド	dragon dildo	ID:276	E	170
+05-0073	卵形・ローター型バイブレーター	egg vibrator	ID:277	C	8172
+05-0074	大型マッサージワンド型バイブレーター	hitachi magic wand	ID:278	C	4814
+05-0075	馬の性器形状を模したディルド	horse dildo	ID:279	E	551
+05-0076	大型・巨大なディルド	huge dildo	ID:280	C	1509
+05-0077	宝石飾り付きアナルプラグ	jewel butt plug	ID:281	E	749
+05-0078	公共の場でのバイブ使用	public vibrator	ID:282	E	840
+05-0079	ラビット型バイブレーター	rabbit vibrator	ID:283	E	553
+05-0080	遠隔操作式バイブレーター	remote control vibrator	ID:284	C	12195
+05-0081	突起・棘状の意匠があるディルド	spiked dildo	ID:285	E	425
+05-0082	射精を模擬する機構を持つディルド	squirting dildo	ID:286	E	86
+05-0083	ストラップオン	strap-on	ID:287	C	3731
+05-0084	吸盤で固定するディルド	suction cup dildo	ID:288	E	505
+05-0085	太腿ストラップにバイブを固定した状態	vibrator in thigh strap	ID:289	C	1476
+05-0086	ニーハイ等にバイブを挟んだ状態	vibrator in thighhighs	ID:290	C	2064
+05-0087	衣服の下にバイブレーターを装着した状態	vibrator under clothes	ID:291	C	4840
+05-0088	下着の内側にバイブを装着した状態	vibrator under panties	ID:292	C	2349
+05-0089	パンストの内側にバイブを装着した状態	vibrator under pantyhose	ID:293	E	97
+05-0090	動物の性器を模したディルド	animal dildo	ID:294	E	671
+05-0091	衣服の下に入れたディルド	dildo under clothes	ID:295	E	811
+05-0092	結節形状のディルド	knotted dildo	ID:296	E	103
+05-0093	バイブレーター使用を示唆する	implied vibrator	ID:297	E	395
+05-0094	射精を模擬するディルドの別表記	ejaculating dildo	ID:298	A	86 ->squirting_dildo
+05-0095	性具の複数形	sex toys	ID:299	A	74131 ->sex_toy
+05-0096	肛門用ディルド	anal dildo	ID:300	S	-
+05-0097	蝶型の装着式バイブレーター	butterfly vibrator	ID:301	S	-
+05-0098	エッグ型バイブ	love egg	ID:302	S	-
+05-0099	性行為・性的刺激に用いる道具	sex tool	ID:303	S	-
+05-0100	振動式ディルド	vibrating dildo	ID:304	S	-
+05-0101	成人向け性具	adult toy	ID:305	S	-
+05-0102	成人向け性具の複数形	adult toys	ID:306	S	-
+05-0103	性具・玩具の挿入	toy insertion	ID:307	S	-
+05-0104	バイブレーターの略称	vibro	ID:308	S	-
+05-0105	機械・メカが女性に性的行為をする表現	mecha on girl	ID:309	E	79
+05-0106	乳汁・精液などを吸引・搾出する機械	milking machine	ID:310	C	2703
+05-0107	跨って使用する振動・刺激機械	riding machine	ID:311	E	105
+05-0108	性行為用機械	sex machine	ID:312	C	3343
+05-0109	跨乗型の電動性具・シビアン	sybian	ID:313	E	148
+05-0110	ロボットとの性行為	robot sex	ID:314	E	136
+05-0111	sex_machine の公式alias・ディルドを機械駆動する装置	dildo machine	ID:315	A	3343 ->sex_machine
+05-0112	自動でスパンキング・打撃を行う機械	spanking machine	ID:316	S	-
+05-0113	自動的に性交動作を行う機械	fuck machine	ID:317	S	-
+05-0114	機械による挿入	machine penetration	ID:318	S	-
+05-0115	機械による性行為	mechanical sex	ID:319	S	-
+05-0116	自動動作するディルドを示す語	automatic dildo	ID:320	S	-
+05-0117	性交機械の俗称	fucking machine	ID:321	S	-
+05-0118	性交機械の綴り違い	fuckmachine	ID:322	S	-
+05-0119	ロボット・機械との性行為	robotic sex	ID:323	S	-
+05-0120	性行為用ロボット	sex robot	ID:324	S	-
+05-0121	膣への物体挿入	vaginal object insertion	ID:545	C	17207
+05-0122	膣への挿入	vaginal penetration	ID:546	A	287236 ->vaginal
+05-0123	陰核を吸引刺激するバイブレーター	clitoral suction vibrator	ID:572	E	82
+05-0124	陰核にバイブレーターを当てる	vibrator on clitoris	ID:573	E	235
+05-0125	バイブレーターのコード	vibrator cord	ID:574	C	3068
+05-0126	乳房に吸引圧をかけるポンプ器具	breast enlargement pump	ID:575	S	-
+05-0127	陰核に吸引刺激を与えるポンプ器具	clitoris pump	ID:576	S	-
+05-0128	尿道への器具挿入	sounding	ID:600	C	1062
+05-0129	Aneros系の前立腺刺激器具	aneros	ID:601	E	199
+05-0130	陰茎の根元などに装着するリング	cock ring	ID:602	C	1260
+05-0131	前立腺刺激用の性具	prostate massager	ID:603	E	251
+05-0132	陰茎にバイブレーターを当てる刺激	vibrator on penis	ID:604	E	230
+05-0133	男性用自慰器具	onahole	ID:605	C	3814
+05-0134	TENGA系の男性用自慰器具	tenga	ID:606	E	758
+05-0135	男性用自慰器具・人工膣の別名	artificial vagina	ID:607	A	3814 ->onahole
+05-0136	男性用自慰器具のブランド由来の別名	fleshlight	ID:608	A	3814 ->onahole
+05-0137	男性用自慰器具の俗称・別名	pocket pussy	ID:609	A	3814 ->onahole
+05-0138	陰茎に吸引圧をかけるポンプ器具	penis pump	ID:610	S	-
+05-0139	尻・臀部型の男性用自慰器具	ass onahole	ID:611	S	-
+05-0140	電動男性用自慰器具	electric onahole	ID:612	S	-
+05-0141	脱垂一般。医療文脈もあるため性的文脈とのAND	prolapse	ID:1759	E	641
+05-0142	尿道関連	urethral	ID:1760	S	-
+05-0143	挿入	penetration	ID:1796	S	-
+05-0144	挿入を示す語。単独では一般語なので文脈判定	insert	ID:1797	S	-
+05-0145	挿入・貫入を示す動詞。単独は文脈判定	penetrate	ID:1798	S	-
+05-0146	挿入された状態	penetrated	ID:1799	S	-
+05-0147	搾乳・搾精系の装置	milking device	ID:1800	S	-
+05-0148	機械式拘束。単独は文脈判定	mechanical restraints	ID:1801	S	-
+05-0149	バイブレーターの俗称。一般語でもあるため文脈判定	vibe	ID:1802	S	-
