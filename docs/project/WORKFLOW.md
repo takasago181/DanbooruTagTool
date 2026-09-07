@@ -42,6 +42,60 @@ A/B間で比較対象以外を固定。
 通常のcheckpointはIssueコメントに置く。コメントは履歴・証跡であり、task contractを変更しない。
 目的・scope・禁止事項・完了条件を変える場合はIssue本文を更新する。現行DEV Issueなら `docs/project/CURRENT_DEV_TASK.md` も同じ管理作業内で同期する。
 
+## 班間依頼・返却
+
+班間の情報受け渡しはGitHub Issueを標準経路とする。ユーザーを手動コピペの中継役にしない。
+
+### 依頼側
+
+班Aが班Bへ依頼する時は、班Bの現行Issueへ依頼checkpointを残す。
+
+最低限:
+- `FROM`: 依頼元班 / Issue
+- `REQUEST`: 何をしてほしいか
+- `WHY`: なぜ必要か
+- `EXPECTED OUTPUT`: 返してほしい形式・判定
+- `RELATED`: 関連Issue / file / commit / evidence
+
+### 受取側
+
+班Bは作業結果をチャットだけで終わらせず、自班Issueへ結果checkpointを残す。
+
+最低限:
+- `RESULT`
+- `EVIDENCE / SOURCE`
+- `DECISION`: FACT / ADOPT候補 / HOLD / REJECT / PASS / FAIL 等、班に応じた判定
+- `LIMITATION / BLOCKER`
+- `NEXT`
+
+### 返却
+
+結果が依頼元班の次作業に必要なら、班Bまたは管理側が班Aの現行Issueにも短い返却checkpointを残す。
+詳細は班BのIssueを参照させ、同じ長文を複製しない。
+
+標準の流れ:
+
+班A Issue
+→ 班B Issueへ依頼checkpoint
+→ 班Bが作業
+→ 班B Issueへ詳細結果checkpoint
+→ 班A Issueへ短い返却checkpoint + 班B Issue参照
+→ 班AがGitHubから再開
+
+対象:
+- DEV
+- AUDIT
+- KNOWLEDGE
+- PROMPT
+- 現行Issueを持つTEMP
+
+例外:
+- local-only / binary / protected data
+- GitHub connector障害
+- push不能などGitHubに成果物を置けない合理的理由
+
+例外時も、理由・代替handoffの所在・次に誰が回収するかをIssueへ記録する。
+
 ## DEV → Codex preflight
 
 Codexへ新規実装・再開指示を出す直前にDEV/管理側が行う。
