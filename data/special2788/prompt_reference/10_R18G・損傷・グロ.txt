@@ -1,0 +1,81 @@
+# 10 R18G・損傷・グロ (80)
+10-0001	性的拷問	sexual torture	ID:419	S	-
+10-0002	乳首への拷問的刺激	nipple torture	ID:420	E	407
+10-0003	拷問	torture	ID:421	C	1796
+10-0004	拷問器具	torture instruments	ID:422	E	111
+10-0005	性的目的の窒息・酸素制限。傷害・死亡リスクがある高危険行為	autoerotic asphyxiation	ID:423	S	-
+10-0006	性的窒息・酸素制限	erotic asphyxiation	ID:424	S	-
+10-0007	性器への拷問的刺激	genital torture	ID:425	S	-
+10-0008	グロテスク・身体損壊	guro	ID:470	C	7359
+10-0009	流血・身体損壊	gore	ID:471	A	7359 ->guro
+10-0010	四肢切断	amputation	ID:472	S	-
+10-0011	解剖	dissection	ID:473	S	-
+10-0012	内臓露出	exposed organs	ID:474	S	-
+10-0013	眼球損傷	eye gouging	ID:475	S	-
+10-0014	串刺し	impalement	ID:476	S	-
+10-0015	生体解剖	vivisection	ID:477	S	-
+10-0016	死体との性行為	necrophilia	ID:478	E	444
+10-0017	頭蓋部への性的挿入	skull fucking	ID:479	E	123
+10-0018	エログロの表記揺れ	ero guro	ID:480	C	1480
+10-0019	エログロ・性的グロ	eroguro	ID:481	A	1480 ->ero_guro
+10-0020	眼部への性的挿入	eye sex	ID:482	S	-
+10-0021	死体との性行為を示す説明的俗語	corpse sex	ID:483	S	-
+10-0022	死体との性行為を示す説明的俗語	dead body sex	ID:484	S	-
+10-0023	グロテスク表現を伴う性行為	guro sex	ID:485	S	-
+10-0024	性とグロを組み合わせた表現	sexual gore	ID:486	S	-
+10-0025	性的文脈での身体損壊	sexual mutilation	ID:487	S	-
+10-0026	男性側を対象とするryona系	reverse ryona	ID:631	E	944
+10-0027	内臓	guts	ID:1764	S	-
+10-0028	四肢などを失った人物・切断状態	amputee	ID:1765	C	10783
+10-0029	斬首	decapitation	ID:1766	C	1671
+10-0030	二肢を失った・切断された状態	double amputee	ID:1767	C	1458
+10-0031	四肢すべてを失った状態	quadruple amputee	ID:1768	C	1373
+10-0032	三肢を失った・切断された状態	triple amputee	ID:1769	E	322
+10-0033	菓子・キャンディー風に描くグロ表現	candy gore	ID:1770	E	169
+10-0034	ボディホラー	body horror	ID:1771	C	2064
+10-0035	死体	corpse	ID:1772	C	5727
+10-0036	内臓露出	disembowelment	ID:1773	E	173
+10-0037	身体切断	dismemberment	ID:1774	E	617
+10-0038	頭部のない状態	headless	ID:1775	C	2293
+10-0039	腸	intestines	ID:1776	C	1969
+10-0040	身体損壊	mutilation	ID:1777	E	148
+10-0041	切断された頭部	severed head	ID:1778	C	3189
+10-0042	切断された手足	severed limb	ID:1779	C	1659
+10-0043	血溜まり	blood pool	ID:1780	A	2257 ->pool_of_blood
+10-0044	身体損壊	body mutilation	ID:1781	S	-
+10-0045	身体が切断された状態	dismembered	ID:1782	S	-
+10-0046	内臓露出	exposed guts	ID:1783	S	-
+10-0047	強い流血・グロ表現	gory	ID:1784	S	-
+10-0048	切断された身体部位	severed body parts	ID:1785	S	-
+10-0049	死・殺害と性的文脈を結びつける成人向け俗語	snuff	ID:1786	S	-
+10-0050	去勢・生殖器官除去。医療文脈もあるので性/グロとのAND	castration	ID:1789	E	152
+10-0051	精巣摘出。医療文脈もあるため性/グロとのAND	orchiectomy	ID:1790	S	-
+10-0052	子宮摘出。医療文脈もあるため性/グロとのAND	hysterectomy	ID:1793	S	-
+10-0053	卵巣摘出。医療文脈もあるため性/グロとのAND	oophorectomy	ID:1794	S	-
+10-0054	卵管摘出。医療文脈もあるため性/グロとのAND	salpingectomy	ID:1795	S	-
+10-0055	窒息を伴う描写	asphyxiation	ID:1956	C	4404
+10-0056	苦痛や屈辱を快楽として扱うマゾヒズム	masochism	ID:1957	C	1824
+10-0057	性的に扱われる極端な痛み・傷害・虐待	ryona	ID:1958	C	3577
+10-0058	相手への苦痛や支配を快楽として扱うサディズム	sadism	ID:1959	C	1791
+10-0059	身体や物で顔・呼吸を覆う窒息系BDSM表現	smother	ID:1960	E	321
+10-0060	首絞め	strangling	ID:1961	C	6402
+10-0061	蝋・ロウを垂らすBDSMプレイ	wax play	ID:1962	E	244
+10-0062	股間への蹴り・苦痛表現	crotch kick	ID:1963	E	502
+10-0063	身体を踏みつける表現	stepped on	ID:1964	C	3311
+10-0064	鞭打ち	whipping	ID:1965	E	375
+10-0065	尻などを叩く行為	spanking	ID:1966	C	3697
+10-0066	服従・支配関係の文脈	submission	ID:1967	E	144
+10-0067	股間を踏みつける苦痛表現	crotch stomping	ID:1968	E	364
+10-0068	乳首を引っ張る刺激	nipple pull	ID:1969	C	1690
+10-0069	くすぐりを長時間・苦痛として用いる拷問表現	tickle torture	ID:1970	E	864
+10-0070	火や熱を使うBDSM・温度プレイ	fire play	ID:1971	S	-
+10-0071	氷や冷刺激を使うBDSM・温度プレイ	ice play	ID:1972	S	-
+10-0072	CBT系の拘束・苦痛器具	trampling table	ID:1973	S	-
+10-0073	窒息・呼吸制限を伴う性的プレイ	breath play	ID:1974	S	-
+10-0074	首絞めを伴う性的プレイ	choking play	ID:1975	S	-
+10-0075	苦痛を性的刺激として扱うプレイ	pain play	ID:1976	S	-
+10-0076	出血	bleeding	ID:2163	C	8116
+10-0077	血	blood	ID:2164	C	189876
+10-0078	死亡	death	ID:2165	C	8198
+10-0079	内臓	organs	ID:2166	C	1197
+10-0080	骨格・骸骨	skeleton	ID:2167	C	13197
