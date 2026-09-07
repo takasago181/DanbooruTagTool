@@ -82,12 +82,15 @@ class ComposerInput:
     provenance: tuple[str, ...] = ()
     evidence: tuple[tuple[str, str | int | float], ...] = ()
 
+    reason: str = "explicitly supplied selection"
     def __post_init__(self):
         if not self.input_id or (not self.text.strip() and self.canonical is None):
             raise ValueError("Input identity and text/canonical required")
         if self.block not in BLOCK_ORDER or self.block == "SPECIAL" or self.lane not in LANES:
             raise ValueError("Invalid input block/lane; Specials use selected Special IDs")
 
+        if not self.reason:
+            raise ValueError("Input reason is required")
 
 @dataclass(frozen=True, slots=True)
 class ComposerAtom:
@@ -224,7 +227,7 @@ class PromptComposer:
                 f"input:{item.input_id}", text, canonical, item.block, (item.lane,),
                 chosen, ("DEFAULT" if item.selected is None else "INCLUDE" if chosen else "EXCLUDE"),
                 provenance=(f"input:{item.input_id}", *item.provenance),
-                reason="explicitly supplied selection", evidence=item.evidence,
+                reason=item.reason, evidence=item.evidence,
             ))
 
         # Specials are traversed first, independently of their render position.
@@ -252,19 +255,24 @@ class PromptComposer:
                 emitted[key] = atom
             else:
                 suppressed.append(atom)
-        # An explicitly supplied input can also satisfy a default-off support.
-        # Preserve its curated relations even though it was encountered later.
+        # A selected candidate can satisfy default-off suggestions from any
+        # lane. Preserve each source's evidence/provenance on the rendered
+        # atom without treating lane order or rank as a semantic score.
         for i, atom in enumerate(suppressed):
             key = ("tag", normalize_lookup(atom.text))
             target = emitted.get(key)
-            if (target is not None and atom.support_relations and
-                    atom.merged_into is None and atom.user_override != "EXCLUDE"):
+            if target is not None and atom.merged_into is None:
                 emitted[key] = replace(
                     target, support_relations=_union(target.support_relations, atom.support_relations),
                     source_lanes=_union(target.source_lanes, atom.source_lanes),
                     provenance=_union(target.provenance, atom.provenance),
+                    evidence=(*target.evidence, *atom.evidence),
                 )
-                suppressed[i] = replace(atom, merged_into=target.atom_id, reason="satisfied_by_explicit_input")
+                suppressed[i] = replace(
+                    atom, merged_into=target.atom_id,
+                    reason=("satisfied_by_explicit_input" if atom.support_relations
+                            else "same_canonical_selected_in_another_lane"),
+                )
         order = profile.effective_block_order
         selected = tuple(atom for block in order for atom in emitted.values() if atom.block == block)
         negative_keys = {self._token_key(token) for token in split_prompt_input(negative_prompt)}

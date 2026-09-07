@@ -9,7 +9,7 @@ from tkinter import ttk
 from .knowledge import TagKnowledgeCore
 from .search import TagSearchEngine
 from .stage7a_presenter import SearchPresentation, SpecialSearchPresenter
-from .stage7a_session import Stage7ASession
+from .stage9c_session import Stage9ComposerSession
 from .stage7a_warnings import Stage7AWarningPresenter
 from .stage7b_recommendations import RecommendationController, RecommendationResult
 from .stage8a_semantics import DecoratedRecommendationCandidate, Stage8ASemantics
@@ -52,12 +52,14 @@ class Stage7AApp(ttk.Frame):
             self.knowledge, TagSearchEngine(self.knowledge), self.profile_store
         )
         self.warning_presenter = Stage7AWarningPresenter(self.knowledge, self.profile_store)
-        self.session = Stage7ASession(self.knowledge, self.warning_presenter)
         self.stage8a_semantics = Stage8ASemantics.load(self.root_path)
         self.support_knowledge = SupportKnowledgeStore.load(
             self.root_path, self.knowledge, self.profile_store
         )
         self.semantic_support_candidates = ()
+        self.session = Stage9ComposerSession(
+            self.knowledge, self.warning_presenter, self.support_knowledge
+        )
         self.search_after = None
         self.presentation = SearchPresentation((), ())
         self.special_rows = []
@@ -81,6 +83,7 @@ class Stage7AApp(ttk.Frame):
         try:
             index_dir = self.root_path / "data/runtime_index"
             index = RuntimeIndex(index_dir)
+            self.statistics_snapshot_id = index.snapshot_id
             overlay = CanonicalOverlay(index, index_dir / "canonical_overlay.json")
             self.recommendation_controller = RecommendationController(
                 RecommendationEngine(overlay, self.knowledge)
@@ -409,6 +412,8 @@ class Stage7AApp(ttk.Frame):
 
     def _add_recommended(self, canonical):
         if self.session.add_auxiliary(canonical):
+            if self.session.has_cooccurrence(canonical):
+                self.session.include_cooccurrence(canonical)
             self._refresh_state()
             self._show_recommendation_result(self.recommendation_result)
 
@@ -490,7 +495,20 @@ class Stage7AApp(ttk.Frame):
     def _show_recommendation_result(self, result):
         if result.request_id != self.active_recommendation_request:
             return
+        if result.status == "ready" and set(result.core_canonicals) != set(
+                self.session.statistics_core_canonicals() or ()):
+            return
         self.recommendation_result = result
+        self.session.set_candidate_buckets(
+            self.stage8a_semantics.decorate_many(
+                result.common, core_canonicals=result.core_canonicals, bucket="common"
+            ) if result.status == "ready" else (),
+            self.stage8a_semantics.decorate_many(
+                result.rare, core_canonicals=result.core_canonicals, bucket="rare"
+            ) if result.status == "ready" else (),
+            snapshot_id=getattr(self, "statistics_snapshot_id", None),
+        )
+        self._refresh_state()
         if not self.session.selected_special_ids:
             self.recommendation_box.grid_remove()
             return

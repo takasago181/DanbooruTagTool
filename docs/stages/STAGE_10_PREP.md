@@ -20,19 +20,25 @@ Special2788の機能を実画像A/B比較で検証する。
 Stage9仕様は次を定義する。
 
 - Stage9A: Pure Composer core — PASS済み
-- Stage9B: Candidate lanes and runtime integration — 現行作業
-- Stage9C: Local UI integration — 未開始
-- Stage9D: Stage10 experiment hooks — 未開始
+- Stage9B: Candidate lanes and runtime integration — 実装完了、Issue #3監査PASS
+- Stage9C: Local UI integration — Issue #17差し戻し修正、DEV実確認待ち
+- Stage9D: Stage10 experiment hooks — Issue #17差し戻し修正、DEV実確認待ち
 
-Stage9C / 9Dは将来DEV Issue #17で処理する。
-#17完成後は独立AUDIT Issue #22で監査し、PASSした時だけStage9全体Gateを完了扱いにする。
+Stage9C / 9Dの現行DEVはIssue #17。common / rare候補管理とSection 10の可逆ノブを修正対象とする。
+DEVがremote branch / commit / tests / implementation reportを実確認し、#17へ完了証跡を記録するまでは未完了扱いとし、#22へhandoffしない。
+その後、独立AUDIT Issue #22がPASSした時だけStage9全体Gateを完了扱いにする。Stage10は未開始。
+
+比較条件の境界は `ComposerVariant` と `Stage9ComposerSession.comparison_snapshot()`。
+Special位置、明示的なbroad support 0/1/2、role別追加セット、model-family指定のweight表記、
+独立LoRA入力と明示入力IDによる縮約、frontend/runtime metadataを切り替え、元variantへ復元できる。
+比較結果の保存・採点・winner選定やmodel grammarの確定は行わない。
 
 もしDEVがStage9C/9Dの一部を不要・延期と判断する場合、暗黙に省略せず、根拠付きDecisionとStage9仕様の正式改訂を行い、`CURRENT_STATE.md` とこの文書も同じ管理作業内で更新する。その変更自体も#22監査対象に含める。
 
 ## Stage10開始前チェック
 
-- [ ] Stage9B完了（Issue #2）
-- [ ] Stage9B監査PASS（Issue #3）
+- [x] Stage9B完了（Issue #2）
+- [x] Stage9B監査PASS（Issue #3）
 - [ ] Stage9Cを処理（Issue #17）
 - [ ] Stage9Dを処理（Issue #17）
 - [ ] Stage9C/9D完了監査PASS（Issue #22）
