@@ -15,12 +15,14 @@ Stage 9B 準備 / 実装中
 - GitHub管理骨格と初期Issue群を作成済み。
 - Codex用の現行DEV task mirrorを `docs/project/CURRENT_DEV_TASK.md` に導入。
 - GitHub-first chat handoff、途中checkpoint、shared-doc stale write防止、DEV Issue/mirror preflight、local protected data保護、feature-branch review方針を管理ルールへ統合済み（management #18）。
+- DEV/Codex完了証跡Gateを管理ルールへ追加。Codex画面上の完了だけでは次工程へ進まず、GitHub上のbranch/commit/Issue証跡/実装レポート/テスト結果を確認してから監査渡しする。
 
 ## Active Work / Issues
 
 - #2 `[Stage9B][DEV] Runtime Composer Stage9B`
   - 本体開発班の現行作業。Stage9Aの `PromptComposer.compose()` 境界から再開。
   - Codex読取用ミラー: `docs/project/CURRENT_DEV_TASK.md`
+  - Codex側の完了報告は受領済みだが、GitHub上の完了証跡が未確認のため現時点では未完了扱い。証跡反映後にDEV一次確認を再開する。
 - #3 `[Stage9B][AUDIT] Stage9B completion audit`
   - 監査班。#2完了後に正式監査。完成前にPASSしない。
 - #4 `[Stage10][KNOWLEDGE] Test Prompt knowledge`
@@ -54,6 +56,7 @@ Stage 9B 準備 / 実装中
 Stage10開始前に最低限必要:
 
 1. #2 Stage9B完了
+   - GitHub完了証跡Gateを満たすことを含む
 2. #3 Stage9B監査PASS
 3. #17でStage9C / Stage9Dを処理
    - 9C/9Dを変更・延期する場合は、DEVがStage9仕様そのものを正式改訂し、Decision / CURRENT_STATE / STAGE_10_PREPも同期する
@@ -65,16 +68,18 @@ Stage10開始前に最低限必要:
 
 ## Next Actions
 
-1. #2 Stage9Bを完了させる。
-2. #3 監査班へStage9B監査を渡す。
-3. #3 PASS後に #17 を現行DEVへ昇格させ、Stage9C / Stage9Dを処理する。
-4. #17完了後に #22 へ独立監査を渡し、Stage9全体Gateを判定する。
-5. #4の知識整理をStage10正式handoffへ反映する。
-6. #6 Forge Neo比較環境の動作確認を終える。
-7. #5へ正式handoffし、全Stage10開始Gate確認後に本番試験へ移行する。
+1. #2 Stage9BのGitHub完了証跡を反映させる。
+2. DEVがremote branch/commit、Issue完了証跡、Stage9B実装レポート、テスト/protected結果を確認する。
+3. #2を監査渡し可能と確認した後、#3 監査班へStage9B監査を渡す。
+4. #3 PASS後に #17 を現行DEVへ昇格させ、Stage9C / Stage9Dを処理する。
+5. #17完了後に #22 へ独立監査を渡し、Stage9全体Gateを判定する。
+6. #4の知識整理をStage10正式handoffへ反映する。
+7. #6 Forge Neo比較環境の動作確認を終える。
+8. #5へ正式handoffし、全Stage10開始Gate確認後に本番試験へ移行する。
 
 ## Blocking / Unknown
 
+- Stage9B: Codex画面上では完了報告あり。ただしGitHub完了証跡が未確認のため、#2は未完了扱い。
 - GitHub Project本体は未設定だが、CURRENT_STATE + Issuesで現行作業は管理できるためStage9B blockerではない。
 - Stage10実験実行・記録担当は未作成。実際の試験で結果整理がボトルネックになった場合だけ分離を再検討する。
 - GitHubはlocal protected dataの完全backupではない。`data/source/` / `data/derived/` / `data/runtime*` / Special大容量CSV等は.gitignore対象を含むため、fresh cloneだけでfull runtime/full testsを再構成できるとは仮定しない。
@@ -88,6 +93,7 @@ Stage10開始前に最低限必要:
 - DEV Issueの本文・state・完了条件を変更する管理作業では、`CURRENT_DEV_TASK.md` も同じ管理作業内で更新する。
 - Codexへ新規/再開指示を出す直前に、DEV/管理側がprivate Issue本文/stateと最新mainのmirrorをlive照合し、同一Issue番号内のdriftも解消する。
 - `CURRENT_STATE.md` の現行DEV Issue番号と `CURRENT_DEV_TASK.md` のSource Issue番号が一致しない場合、Codexは実装を開始しない。
+- DEV/Codexの完了はチャット報告だけで確定しない。remote branch/commit、担当Issueの完了証跡、要求された実装レポート、テスト/protected結果がGitHubから追跡可能であることをDEVが確認してから次Gateへ進む。
 - 仕様変更は `DECISIONS.md` またはStage仕様へ反映する。
 - 共有管理ファイルは変更直前に最新mainを取得してから統合し、stale copyで上書きしない。
 - 古いhandoff / 旧監査 / 過去Stage資料を、現行Issueやmainの実装状態より優先しない。
