@@ -17,8 +17,11 @@ def _sha256(path: Path) -> str:
 
 def test_protected_source_files_match_hash_manifest():
     manifest = json.loads((ROOT / "FILE_HASHES.json").read_text(encoding="utf-8"))
+    special_children = sorted((ROOT / "data/special2788").glob("*"))
+    reference_dir = ROOT / "data/special2788/prompt_reference"
+    assert [path for path in special_children if path.is_dir()] == [reference_dir]
     protected = sorted((ROOT / "data/source").glob("*"))
-    protected += sorted((ROOT / "data/special2788").glob("*"))
+    protected += [path for path in special_children if path.is_file()]
 
     assert protected
     for path in protected:

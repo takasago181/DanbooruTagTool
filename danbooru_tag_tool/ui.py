@@ -9,7 +9,7 @@ from tkinter import ttk
 from .knowledge import TagKnowledgeCore
 from .search import TagSearchEngine
 from .stage7a_presenter import SearchPresentation, SpecialSearchPresenter
-from .stage7a_session import Stage7ASession
+from .stage9c_session import Stage9ComposerSession
 from .stage7a_warnings import Stage7AWarningPresenter
 from .stage7b_recommendations import RecommendationController, RecommendationResult
 from .stage8a_semantics import DecoratedRecommendationCandidate, Stage8ASemantics
@@ -52,12 +52,14 @@ class Stage7AApp(ttk.Frame):
             self.knowledge, TagSearchEngine(self.knowledge), self.profile_store
         )
         self.warning_presenter = Stage7AWarningPresenter(self.knowledge, self.profile_store)
-        self.session = Stage7ASession(self.knowledge, self.warning_presenter)
         self.stage8a_semantics = Stage8ASemantics.load(self.root_path)
         self.support_knowledge = SupportKnowledgeStore.load(
             self.root_path, self.knowledge, self.profile_store
         )
         self.semantic_support_candidates = ()
+        self.session = Stage9ComposerSession(
+            self.knowledge, self.warning_presenter, self.support_knowledge
+        )
         self.search_after = None
         self.presentation = SearchPresentation((), ())
         self.special_rows = []
@@ -374,6 +376,7 @@ class Stage7AApp(ttk.Frame):
             bucket=bucket,
         )
         grid_row = 0
+        self.session.set_discovered_candidates(decorated_rows)
         for decorated in decorated_rows:
             candidate = decorated.candidate
             first_row = grid_row
@@ -410,6 +413,7 @@ class Stage7AApp(ttk.Frame):
     def _add_recommended(self, canonical):
         if self.session.add_auxiliary(canonical):
             self._refresh_state()
+            self.session.include_cooccurrence(canonical)
             self._show_recommendation_result(self.recommendation_result)
 
     def _render_semantic_support(self):

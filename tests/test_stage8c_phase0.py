@@ -53,7 +53,7 @@ def test_stage8b_resolver_and_accepted_stage8c_production_hashes_are_protected()
     assert _hash("data/semantic/semantic_support_profiles.csv") == "33f9142333db867d53096cf2f11ba411aefa13996560326fa174803a2d8c2755"
     assert _hash("data/semantic/family_support_rules.csv") == "59609aadc82f9f4be97b82008159b55e4d738f41dbb9625c59be8a826fe7c4fd"
     assert _hash("danbooru_tag_tool/stage8b_support.py") == "83f5617a36d48dfb730e21e2ac2957c8e4f6c00857b0971f6af6724f4e105dd2"
-    assert _hash("danbooru_tag_tool/ui.py") == "5c83f6ca7dae2f164403cb13d3112a8ad85a8f201de351354c980daf31f98450"
+    assert _hash("danbooru_tag_tool/ui.py") == "9de9c49347cbaba26dbf6b7852e2cce3a41d69bbd2467f7586ff72658d486609"
     assert _hash("tests/test_stage8b_support.py") == "ceafd9916a9b09fe093a527dbd985042af46be1558f7414801a05f018bc0a34f"
 
 
