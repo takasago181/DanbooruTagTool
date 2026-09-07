@@ -1,0 +1,13 @@
+﻿rule_id,priority,when_semantic_role,when_same_stat_canonical,when_bucket,when_low_support,kind,message_ja,source,note
+same_stat,10,,true,,,LOW_ADDITIONAL_VALUE,選択済みSpecialと統計上同じタグです,CHATGPT_STAGE8A_V2,最優先
+rare_low_support,20,,,rare,true,DISCOVERY_CANDIDATE,珍しい候補ですが、件数が少ないため偶然の可能性もあります,CHATGPT_STAGE8A_V2,珍しい関連 low-support
+rare_regular,30,,,rare,,DISCOVERY_CANDIDATE,少し珍しい組み合わせの発見に向く候補,CHATGPT_STAGE8A_V2,珍しい関連
+subject_basic,100,SUBJECT_BASIC,,,,CORE_BASIS,生成の主体や人数を明示する基礎タグ,CHATGPT_STAGE8A_V2,default
+body_part,110,BODY_PART,,,,BODY_TARGET,対象部位を明示しやすいタグ,CHATGPT_STAGE8A_V2,default
+implement,120,IMPLEMENT,,,,IMPLEMENT_SPECIFIER,使用する器具・物体を明示しやすいタグ,CHATGPT_STAGE8A_V2,default
+action_support,130,ACTION_SUPPORT,,,,ACTION_CLARIFIER,選択中の内容をより具体的にしやすい行為補強タグ,CHATGPT_STAGE8A_V2,default
+pose,140,POSE,,,,POSE_GUIDE,姿勢・体位を補いやすいタグ,CHATGPT_STAGE8A_V2,default
+camera,150,CAMERA_COMPOSITION,,,,CAMERA_GUIDE,見せ方や構図を補いやすいタグ,CHATGPT_STAGE8A_V2,default
+state,160,STATE_REACTION,,,,STATE_EXPRESSION,状態や反応を表しやすいタグ,CHATGPT_STAGE8A_V2,default
+appearance,170,APPEARANCE_CLOTHING,,,,APPEARANCE_BASIS,外見や衣装を指定する基礎タグ,CHATGPT_STAGE8A_V2,default
+relation,180,SITUATION_RELATION,,,,RELATION_BASIS,人物関係や状況を指定する基礎タグ,CHATGPT_STAGE8A_V2,default

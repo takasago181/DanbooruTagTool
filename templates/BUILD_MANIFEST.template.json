@@ -1,0 +1,17 @@
+{
+  "app_version": "",
+  "statistics_dataset_name": "",
+  "statistics_dataset_snapshot_id": "",
+  "statistics_dataset_hash": "",
+  "statistics_total_posts": null,
+  "statistics_max_post_id": null,
+  "tag_dictionary_snapshot": "2026-09-02",
+  "tag_dictionary_hash": "",
+  "special2788_version": "2026-09-02-derived-v1",
+  "special2788_hash": "",
+  "semantic_bridge_version": "v1",
+  "semantic_bridge_hash": "",
+  "index_format_version": "",
+  "index_build_timestamp": "",
+  "total_canonical_tags": 124016
+}

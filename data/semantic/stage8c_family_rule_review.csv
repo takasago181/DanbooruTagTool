@@ -1,0 +1,26 @@
+family_rule_id,review_decision,member_count,reviewed_member_count,review_reason_ja,evidence_ref,review_batch_id,note
+GFR_ACTION_INTERACTION,UNREVIEWED,152,0,,,STAGE8C_PHASE0_INITIAL,StaticFamily=ACTION_INTERACTION; applicability review not started
+GFR_ALIAS_REFERENCE,NOT_APPLICABLE_NO_MEMBERS,0,0,現production Generation Profileにmemberがないため、Family relation promotionは適用外。,PHASE0_PRODUCTION_FAMILY_MEMBERSHIP,STAGE8C_PHASE0_CORRECTION_V16,StaticFamily=ALIAS_REFERENCE; zero-member FamilyRuleId; no enabled family relation may be owned.
+GFR_BODY_ATTRIBUTE,UNREVIEWED,121,0,,,STAGE8C_PHASE0_INITIAL,StaticFamily=BODY_ATTRIBUTE; applicability review not started
+GFR_BODY_STATE,UNREVIEWED,11,0,,,STAGE8C_PHASE0_INITIAL,StaticFamily=BODY_STATE; applicability review not started
+GFR_CAMERA_INTERNAL_VIEW,UNREVIEWED,3,0,,,STAGE8C_PHASE0_INITIAL,StaticFamily=CAMERA_INTERNAL_VIEW; applicability review not started
+GFR_CLOTHING_EXPOSURE,UNREVIEWED,246,0,,,STAGE8C_PHASE0_INITIAL,StaticFamily=CLOTHING_EXPOSURE; applicability review not started
+GFR_CONTEXT_MODIFIER,UNREVIEWED,98,0,,,STAGE8C_PHASE0_INITIAL,StaticFamily=CONTEXT_MODIFIER; applicability review not started
+GFR_DAMAGE_STATE_ACTION,UNREVIEWED,25,0,,,STAGE8C_PHASE0_INITIAL,StaticFamily=DAMAGE_STATE_ACTION; applicability review not started
+GFR_DIRECT_COMPOSITE,UNREVIEWED,52,0,,,STAGE8C_PHASE0_INITIAL,StaticFamily=DIRECT_COMPOSITE; applicability review not started
+GFR_FLUID_STATE_ACTION,UNREVIEWED,143,0,,,STAGE8C_PHASE0_INITIAL,StaticFamily=FLUID_STATE_ACTION; applicability review not started
+GFR_IMPLEMENT_OBJECT,UNREVIEWED,67,0,,,STAGE8C_PHASE0_INITIAL,StaticFamily=IMPLEMENT_OBJECT; applicability review not started
+GFR_INSERTION_STRUCTURED,UNREVIEWED,38,0,,,STAGE8C_PHASE0_INITIAL,StaticFamily=INSERTION_STRUCTURED; applicability review not started
+GFR_MACHINE_STRUCTURED,NO_COMMON_RULE,6,6,6 membersは機械概念の具体的構造が異なり、安全な共通supportを定義しない。,STAGE8C_PILOT001_MACHINE_6_MEMBER_REVIEW,STAGE8C_PHASE1_PILOT001,No generic machine/sex_toy Family relation.
+GFR_META_CONTEXT,UNREVIEWED,2,0,,,STAGE8C_PHASE0_INITIAL,StaticFamily=META_CONTEXT; applicability review not started
+GFR_MULTI_ACTOR_INTERACTION,UNREVIEWED,35,0,,,STAGE8C_PHASE0_INITIAL,StaticFamily=MULTI_ACTOR_INTERACTION; applicability review not started
+GFR_NONHUMAN_INTERACTION,UNREVIEWED,56,0,,,STAGE8C_PHASE0_INITIAL,StaticFamily=NONHUMAN_INTERACTION; applicability review not started
+GFR_POSE_COMPOSITION,UNREVIEWED,47,0,,,STAGE8C_PHASE0_INITIAL,StaticFamily=POSE_COMPOSITION; applicability review not started
+GFR_REACTION_STATE,UNREVIEWED,10,0,,,STAGE8C_PHASE0_INITIAL,StaticFamily=REACTION_STATE; applicability review not started
+GFR_RELATION_ROLE_CONTEXT,UNREVIEWED,63,0,,,STAGE8C_PHASE0_INITIAL,StaticFamily=RELATION_ROLE_CONTEXT; applicability review not started
+GFR_REPRO_BODY_STATE,UNREVIEWED,5,0,,,STAGE8C_PHASE0_INITIAL,StaticFamily=REPRO_BODY_STATE; applicability review not started
+GFR_RESTRAINT_ACTION,UNREVIEWED,70,0,,,STAGE8C_PHASE0_INITIAL,StaticFamily=RESTRAINT_ACTION; applicability review not started
+GFR_RESTRAINT_IMPLEMENT,UNREVIEWED,71,0,,,STAGE8C_PHASE0_INITIAL,StaticFamily=RESTRAINT_IMPLEMENT; applicability review not started
+GFR_SCENE_CONTEXT,UNREVIEWED,16,0,,,STAGE8C_PHASE0_INITIAL,StaticFamily=SCENE_CONTEXT; applicability review not started
+GFR_SELF_ACTION,RULES_DEFINED,15,15,15 membersすべてでsoloの同一relationを確認。,FRP_P1_SELF_ACTION_SOLO_V1;15_MEMBER_APPLICABILITY,STAGE8C_PHASE1_PILOT001,Explicit Special relation wins for duplicate canonical.
+GFR_SEMANTIC_SUPPORT,NOT_APPLICABLE_NO_MEMBERS,0,0,現production Generation Profileにmemberがないため、Family relation promotionは適用外。,PHASE0_PRODUCTION_FAMILY_MEMBERSHIP,STAGE8C_PHASE0_CORRECTION_V16,StaticFamily=SEMANTIC_SUPPORT; zero-member FamilyRuleId; no enabled family relation may be owned.

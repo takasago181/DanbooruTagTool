@@ -1,0 +1,66 @@
+# Python bytecode, caches, local environments, and test scratch space
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.pytest_*/
+.pytest-*/
+.venv/
+venv/
+env/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+
+# Local/editor/OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Credentials and local secret material
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+secrets/
+credentials/
+
+# Codex handoff copies, historical backups, provenance archives, and local packs
+_handoff/
+backups/
+archive/
+docs/handoff_archive/
+*.zip
+
+# Generated benchmark and audit output
+benchmarks/
+
+# Raw/large datasets and generated runtime indexes
+data/source/
+data/japanese/
+data/runtime/
+data/runtime_index/
+data/runtime_source/
+data/derived/
+data/special2788/*.csv
+data/special2788/*.xlsx
+data/generation/audit/
+
+# Large serialized/index formats wherever they appear
+*.parquet
+*.pickle
+*.u32
+*.u64
+*.jsonl
+*.sqlite
+*.sqlite3
+*.db
+
+# Keep small curated application data/configuration under data/generation and
+# data/semantic; keep the Special dictionary README while excluding its corpus.

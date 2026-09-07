@@ -1,0 +1,10 @@
+{
+  "core_set_id": "example-001",
+  "core_set_name": "Example Core",
+  "special_tag_ids": [
+    "SPECIAL_ID_A",
+    "SPECIAL_ID_B"
+  ],
+  "memo": "",
+  "created_at": "2026-09-04T00:00:00Z"
+}

@@ -1,0 +1,2 @@
+family_rule_id,support_slot,support_class,candidate_canonical,priority,reason_ja,evidence_level,evidence_source,generation_test_status,enabled,intent_axis,intent_direction,combination_mode,choice_group,evidence_ref,test_profile_id,model_scope,note
+GFR_SELF_ACTION,SUBJECT_BASIC,OPTIONAL_VARIATION,solo,10,自己行為の主体を単独人物として構成する共通の任意補助候補,SEMANTIC_CURATED,SRC_STAGE8B_PILOT_CURATION,NOT_TESTED,true,COMPOSITION,NEUTRAL,CONTEXTUAL,,STAGE8C_PILOT001_SELF_ACTION_15_MEMBER_REVIEW,,,NOT_TESTED; explicit Special relation takes precedence for the same canonical

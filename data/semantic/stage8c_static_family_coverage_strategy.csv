@@ -1,0 +1,26 @@
+﻿StaticFamily,total_special,family_rep_only,no_test_needed,spatial_yes,spatial_conditional,stage8c_planning_focus,planning_note_ja
+ALIAS_REFERENCE,778,0,778,0,0,identity-preserving review,FamilyRuleIdとは別概念。Alias original identityを維持し、aliasであることだけを理由にSupportを作らない。
+SEMANTIC_SUPPORT,336,0,336,0,0,special-specific priority,canonical統計に頼れない項目を含むためSpecial-specific relationを重点レビュー。
+CLOTHING_EXPOSURE,274,0,274,0,0,atomic / no-suggestion-friendly,明確な補助関係がある場合のみ。件数稼ぎのvariation追加は禁止。
+BODY_ATTRIBUTE,260,0,260,0,0,atomic / no-suggestion-friendly,本体タグだけで意味が成立する場合はNO_SUGGESTIONを正規結果とする。
+ACTION_INTERACTION,214,214,0,0,214,structured review,Body/Action/Pose/Spatialの必要性を個別に確認。静的Needsはproduction truthではない。
+FLUID_STATE_ACTION,164,0,164,0,164,state/action review,状態・結果・可視性候補を個別レビュー。
+RESTRAINT_IMPLEMENT,106,0,106,0,106,implement/context review,器具自体と行為・状態を混同しない。
+CONTEXT_MODIFIER,86,0,86,0,0,context review,普通Specialをhard方向へ拡張しないControl重点。
+RESTRAINT_ACTION,85,85,0,0,85,structured review,行為・器具・姿勢のrelationを個別レビュー。
+IMPLEMENT_OBJECT,82,0,82,0,0,atomic / implement review,器具の存在だけで不要なActionを推測しない。
+NONHUMAN_INTERACTION,67,67,0,67,0,spatial priority,複数対象・割当・shape conflictを重点確認。
+INSERTION_STRUCTURED,61,60,1,61,0,spatial priority,Actor→Body Part→Action→Implement→Spatial Assignmentを重点確認。
+RELATION_ROLE_CONTEXT,56,0,56,0,0,role/context review,関係性を一般的Actionへ勝手に置換しない。
+POSE_COMPOSITION,48,47,1,1,47,pose/composition priority,姿勢と構図を分離し、代替候補のchoice_groupを必要時のみ使う。
+MULTI_ACTOR_INTERACTION,41,41,0,41,0,spatial priority,actor separation/対象割当を重点確認。存在しないcanonicalを発明しない。
+DIRECT_COMPOSITE,40,40,0,40,0,structured review,複合意味を分解しすぎてSpecial Coreをgeneric化しない。
+DAMAGE_STATE_ACTION,26,26,0,0,26,state/action review,状態と行為を分離。severityをpriority軸にしない。
+SELF_ACTION,20,20,0,0,20,control + pose review,普通Controlとしてhard bias監査に利用。
+REACTION_STATE,13,0,13,0,0,state/reaction review,OPTIONAL_VARIATION候補は反応・可視性の意味が明確な場合のみ。
+SCENE_CONTEXT,12,0,12,0,12,context review,背景・状況候補を主題より優先させない。
+MACHINE_STRUCTURED,6,6,0,6,0,spatial/implement priority,器具・Action・配置・複数化を重点確認。
+REPRO_BODY_STATE,5,0,5,0,0,body/state review,身体状態とActionを混同しない。
+BODY_STATE,3,0,3,0,0,atomic / state review,補助不要ならNO_SUGGESTION。
+CAMERA_INTERNAL_VIEW,3,3,0,0,3,camera priority,CAMERA_COMPOSITIONと可視性のrelationを重点確認。
+META_CONTEXT,2,0,2,0,0,reference/no-suggestion-friendly,生成用Supportとして妥当かを慎重に判断。

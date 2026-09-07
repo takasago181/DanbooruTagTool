@@ -1,0 +1,52 @@
+DanbooruTagTool Stage9A を開始してください。
+
+前提:
+- Stage8C は FINAL。
+- Pilot001 ACCEPTED / Exit Pilot PASS / Pilot003 NOT REQUIRED は固定。
+- Stage0〜8Cを再監査・再設計しない。
+- 添付の `STAGE9_PROMPT_COMPOSER_SPEC_v1.md` を Stage9A の承認済み仕様として扱う。
+- 外部Prompt知識は semantic authority ではない。
+- Runtime は完全ローカル・非LLMを維持する。
+
+今回の範囲は Stage9A の純粋 Composer core のみです。UI統合、実画像生成、Stage10 A/B、LoRA自動縮約、weight自動化、汎用role件数閾値は実装しないでください。
+
+最初に現在repoを読み、既存の型・命名・tag rendering・SupportKnowledgeStore・テスト配置へ最小変更で適合する実装計画を立ててください。仕様とrepoが衝突する場合は、勝手に意味を変えず、衝突点を明示して最小安全案を選んでください。
+
+必須要件:
+1. Special専用ブロックを持つ。
+2. selected Specialはidentity-keyedで保持し、supportで置換しない。
+3. support canonical dedupe後も全 owner relation/provenance を保持する。
+4. CORE_SUPPORT + ADDITIVE は標準auto-selected候補。
+5. ALTERNATIVE / CONTEXTUAL / OPTIONAL_VARIATION は勝手に固定しない。
+6. user explicit include/exclude を記録し、競合includeは削除せずwarning。
+7. baseline block orderで COUNT の直後に RELATION、IDENTITYの後に SPECIAL。
+8. block order / Special位置は profile から変更可能にし、Stage10 A/Bへ備える。
+9. model family/profile scopeを持ち、ANIMA固有挙動をglobalへ漏らさない。
+10. exact positive/negative conflict、nsfw conflict、choice_group多重選択等を非破壊warning化。
+11. same-role固定件数閾値、weight自動化、LoRA contractionは入れない。
+12. Prompt renderは既存のcomma-separated/tag rendering規約を再利用し、space split設計を入れない。
+13. network/LLM runtime callは0。
+
+テスト:
+- 仕様 Section 14 の18項目を最低ラインとして、production dataとsynthetic fixtureを適切に使う。
+- production semantic CSVをテスト都合で変更しない。
+- focused Stage9A tests と full pytest を実行する。
+- 既存のStage8C/Ruleset2/source identity保護validatorがあるなら再実行する。
+
+成果物:
+- 実装コード
+- Stage9A tests
+- `docs/stage9/STAGE9A_IMPLEMENTATION_REPORT.md`
+- 必要なら profile 定義ファイル（ただしモデル固有の未検証知識を勝手に追加しない）
+
+作業終了時は次の8項目で報告してください。
+1. 変更した項目
+2. 変更しなかった項目
+3. 新規作成ファイル
+4. バックアップ/保全
+5. 実施テスト
+6. テスト結果
+7. 未解決事項
+8. Stage9Bの正確な再開地点
+
+Stage9BやStage10へ勝手に進まず、Stage9A gateで停止してください。

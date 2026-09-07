@@ -1,0 +1,29 @@
+{
+  "pilot": "Stage8C Phase1 Pilot001",
+  "target_specials": 21,
+  "family_rule_ids": 2,
+  "families": {
+    "GFR_SELF_ACTION": {"members": 15, "expected_review": "RULES_DEFINED", "family_proposal": "FRP_P1_SELF_ACTION_SOLO_V1", "candidate": "solo"},
+    "GFR_MACHINE_STRUCTURED": {"members": 6, "expected_review": "NO_COMMON_RULE"}
+  },
+  "expected_post_application": {
+    "SUPPORT_DEFINED": 28,
+    "UNRESOLVED": 1,
+    "NO_SUGGESTION": 0,
+    "UNREVIEWED": 2759,
+    "special_support_rows": 50,
+    "family_support_rows": 1
+  },
+  "baseline": {"special_support_rows": 39, "family_support_rows": 0},
+  "special_invariants": {
+    "88": "explicit solo CORE_SUPPORT wins over family OPTIONAL_VARIATION",
+    "310": "2 rows",
+    "311": "UNRESOLVED and 0 rows",
+    "312": "existing 5 rows unchanged",
+    "313": "4 rows",
+    "314": "3 rows",
+    "1159": "2 rows"
+  },
+  "stage9": "NOT STARTED",
+  "stage10": "NOT STARTED"
+}

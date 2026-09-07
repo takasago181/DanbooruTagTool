@@ -1,0 +1,13 @@
+﻿special_id,special_term,static_family,decision,new_relation_count,failure_mode_targets,rationale
+17,cooperative handjob,MULTI_ACTOR_INTERACTION,SUPPORT_DEFINED,1,role loss; genericization,handjob is an intrinsic base action; cooperative actor relation stays in Special.
+19,cuddling handjob,ACTION_INTERACTION,SUPPORT_DEFINED,1,composite decomposition; genericization,handjob base action can be reinforced; cuddling remains Special-owned composite meaning.
+129,sitting on face,POSE_COMPOSITION,SUPPORT_DEFINED,1,spatial relation loss; overconstraint,"sitting can reinforce pose, while on-face target/spatial ownership remains Special-owned."
+177,food insertion,INSERTION_STRUCTURED,NO_SUGGESTION,0,genericization; overconstraint,food/target cavity cannot be safely reconstructed from a generic insertion support; preserve Special only.
+178,guided penetration,INSERTION_STRUCTURED,NO_SUGGESTION,0,role loss; genericization,guided relation is the distinguishing meaning; no safe generic support is promoted.
+179,imminent penetration,INSERTION_STRUCTURED,NO_SUGGESTION,0,meaning mutation; state-to-action collapse,supporting penetration as an action would erase imminent/pre-action state.
+362,cum swap,FLUID_STATE_ACTION,SUPPORT_DEFINED,1,overconstraint; method fixation,cum reinforces material only; no oral/method support is added because cum swap has multiple realization methods.
+365,ejaculating while penetrated,FLUID_STATE_ACTION,SUPPORT_DEFINED,1,state loss; composite decomposition,"ejaculation can reinforce action, while while-penetrated state remains Special-owned."
+934,penetrating while penetrated,MULTI_ACTOR_INTERACTION,UNRESOLVED,0,actor-target role collapse; meaning mutation,current support relation vocabulary cannot safely encode simultaneously penetrating and being penetrated.
+1078,penis in another's thighhigh,DIRECT_COMPOSITE,NO_SUGGESTION,0,ownership/spatial loss; genericization,penis/thighhigh decomposition cannot preserve another-person ownership and placement safely; preserve Special only.
+1823,cuffs-to-collar,RESTRAINT_IMPLEMENT,SUPPORT_DEFINED,2,composite decomposition; connection loss,both implements are safe intrinsic components; their linkage remains Special-owned and must not be decomposed away.
+1839,spreader bar,RESTRAINT_IMPLEMENT,SUPPORT_DEFINED,1,genericization; overconstraint,restraint implement nature is safe; no spread-legs support because spreader bars can realize more than one restraint configuration.

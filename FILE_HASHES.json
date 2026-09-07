@@ -1,0 +1,318 @@
+{
+  "AGENTS.md": {
+    "bytes": 3960,
+    "sha256": "56c35b2961549c4ffc48d388f84f48c48b03107640cecd8eee2d87ab01b537d2"
+  },
+  "requirements-dev.txt": {
+    "bytes": 13,
+    "sha256": "9db10e06e59f5c4aa47b067bff5563aae75f66967b41a3811337bc181d6564a6"
+  },
+  "README_最初に読む.txt": {
+    "bytes": 1759,
+    "sha256": "ee244437d043a8625c23f006a2fe4e96f313e9c654104ef1fb7185ffce6726c8"
+  },
+  "pytest.ini": {
+    "bytes": 66,
+    "sha256": "e0e76b5c1594195370b29d46d4415e9f04d239fd3e34c9aed198298008736055"
+  },
+  "PACKAGE_MANIFEST.json": {
+    "bytes": 793,
+    "sha256": "5a0863db6de3f4ae9bcc4159f42b941348f155501a7df59abbcd8f4f94c07e78"
+  },
+  "FIRST_CODEX_REQUEST.txt": {
+    "bytes": 1644,
+    "sha256": "faba7ac7b31536bb10b787ba1845a06c36f2a83d975c92fabcff70712a31dc6e"
+  },
+  "templates/RECOMMENDATION_RANKING_DECISION.template.md": {
+    "bytes": 344,
+    "sha256": "94ecf6c94a4d9b67e08b56d51e2e8ed4cd7e496bf9b3a0c1670eb6fda1f16a21"
+  },
+  "templates/core_set.example.json": {
+    "bytes": 190,
+    "sha256": "1a9d9861d97a03ccdc8ece0f9bd2ebb15fc2914008fb9c7280d31d6bca0dee2b"
+  },
+  "templates/INDEX_ARCHITECTURE_DECISION.template.md": {
+    "bytes": 272,
+    "sha256": "14dd365cb15bb8d81ab1d156f62f2be9b99b6eaf1707d47dbb4280af1609bb77"
+  },
+  "templates/DATA_SOURCE_DECISION.template.md": {
+    "bytes": 424,
+    "sha256": "4af2ab9813f4a7b27f7867724b41a5f23d88712faac02f94d601acd7db74696e"
+  },
+  "templates/BUILD_MANIFEST.template.json": {
+    "bytes": 505,
+    "sha256": "b1e81a0e51c2df37449f35574be5a96274e227c305227a3408bb0006aad449ed"
+  },
+  "tests/test_static_data.py": {
+    "bytes": 2335,
+    "sha256": "33a5b525dd94c5c4cb8982b6ccb870193a9aefddd96a8a616c2f18f8e9567621"
+  },
+  "tests/test_final_spec.py": {
+    "bytes": 684,
+    "sha256": "ae8aa207c6aad548381075efc0d37eb4537d5ca7326fbebfe69f2b0e6bde75d3"
+  },
+  "references/README.md": {
+    "bytes": 544,
+    "sha256": "df8fedf56709ce8fa138735d6a9584bc66bd317f904ac839800e1fee8fec7634"
+  },
+  "docs/EXISTING_TOOLS_POSITIONING.md": {
+    "bytes": 580,
+    "sha256": "dd9e95f8502079399fc83012b3b8b2f00f64438e5ca6e221b6869bd64b7485cd"
+  },
+  "docs/RAW_SOURCE_SCHEMA.md": {
+    "bytes": 698,
+    "sha256": "5751d37d98df8f35f41d8d00e38d38d89865af7f58117c69f40d2cefc334a975"
+  },
+  "docs/SEMANTIC_BRIDGE_SCHEMA.md": {
+    "bytes": 750,
+    "sha256": "b2e0fa777b9b16d33de0d83c78e0c1f3a899d51b60d02db6a0fd82734a9b2c50"
+  },
+  "docs/PRODUCT_GOAL_LOCK.md": {
+    "bytes": 1504,
+    "sha256": "4ae697018e15154b2ad9cf431017f88e00e5b72eb6a09abcb9c5b4aa8c4c87b8"
+  },
+  "docs/ARCHITECTURE_POLICY.md": {
+    "bytes": 847,
+    "sha256": "f9bb05b8c261b8704ffa5be3b4695bcf0480961db31dfde36f4e2d5ac31ab928"
+  },
+  "docs/STATISTICS_POLICY.md": {
+    "bytes": 1139,
+    "sha256": "1e613dfb5d3acdf7ae825714b7ecdcb308cfdcb2e315594c8d659d3b98fdaca9"
+  },
+  "docs/TARGET_ENVIRONMENT.md": {
+    "bytes": 496,
+    "sha256": "9f96d8d734fc1e1de0577d2db001ae9d8525cca3564ec83b8f7ecc0cd6e75b32"
+  },
+  "docs/CHATGPT_CODEX_HANDOFF.md": {
+    "bytes": 1209,
+    "sha256": "6559c8457eb73d00dee2339b2444aa1eb7a6a7ae5418523a24ab44ec488113bb"
+  },
+  "docs/TESTING_POLICY.md": {
+    "bytes": 1142,
+    "sha256": "80d9ba2d71c4d01a437d89edc3d5f69a4a19be2dd4896145640a539e36e9f415"
+  },
+  "docs/CORE_TAG_SET_SCHEMA.md": {
+    "bytes": 1197,
+    "sha256": "1230616d739855534e3a24b153953bf70a7e64ec70539f1ccd6b1269c498c64b"
+  },
+  "docs/DATASET_CANDIDATES.md": {
+    "bytes": 2089,
+    "sha256": "c84fdc708722d9780cbf288c2f0a7f4e169f608e85a84e67df31fd5c856ec8a3"
+  },
+  "docs/FLOWCHARTS.md": {
+    "bytes": 2845,
+    "sha256": "211e52171e7a2a1077f137dae7170459f91287f8ea1acc49ec37d6e5f3bb8864"
+  },
+  "docs/CODEX_IMPLEMENTATION_SPEC_JA_v1.3.md": {
+    "bytes": 8559,
+    "sha256": "67316f85645e80aad8fc73d9f6c852e4e1feead8e2111a5e488f81632f9e361a"
+  },
+  "docs/AUXILIARY_TAG_ROLE_POLICY.md": {
+    "bytes": 1269,
+    "sha256": "90e9ffe03cac9011ea34dcdcf9afc5eb94b102a7446bb8596f64b2e6818648a5"
+  },
+  "docs/FEATURE_PRIORITY.md": {
+    "bytes": 958,
+    "sha256": "44fabaa92537ea743bff3c14466ceafaadb515cadc654cf8baa90c08b5ce628f"
+  },
+  "references/legacy_prototype_code/SOURCES.md": {
+    "bytes": 710,
+    "sha256": "bed4fd615e369ac7a835f9a658698c6694ad15cc81e0da36da56bbe6669954a3"
+  },
+  "references/legacy_prototype_code/requirements.txt": {
+    "bytes": 14,
+    "sha256": "bb260e03cdea3a1ab25a889a9edc62ced108f38d1fc09ddc7a67c718b12e5958"
+  },
+  "references/legacy_prototype_code/test_engine.py": {
+    "bytes": 3836,
+    "sha256": "bee752a8c09f94caede79849f8ab0ebf4a99a5b60c8f9981d0d88c40e208ddc1"
+  },
+  "references/legacy_prototype_code/DOWNLOAD_DATA.bat": {
+    "bytes": 850,
+    "sha256": "d2347cf44376b6afc9cc53099d19cf79136525fddd573ea77cc227631749549c"
+  },
+  "references/legacy_prototype_code/engine.py": {
+    "bytes": 11963,
+    "sha256": "5c986a4ab1fbe4b5ca7d67c8fceb3c57866412a5f3d47afdf43f5bdca1fa7018"
+  },
+  "references/legacy_prototype_code/START.bat": {
+    "bytes": 588,
+    "sha256": "a44aa28b4a3f975f65efb15e1e3c02b95dfedea9668f3eb416675494e438ef59"
+  },
+  "references/legacy_prototype_code/QA_REPORT.md": {
+    "bytes": 1058,
+    "sha256": "f5c91c629757aa8c0f43b976e494bec11aaf811741d7bc5f6682515832cbc921"
+  },
+  "references/legacy_prototype_code/README.md": {
+    "bytes": 3913,
+    "sha256": "4d8d5c986f9b4b8e427242a7441e5e56d074b619880970f9fea1ee42e4bc3ca6"
+  },
+  "references/legacy_prototype_code/app.py": {
+    "bytes": 9768,
+    "sha256": "045f5b6c9ac08c6ee842d9dddb0c584955632472518b0242242c431cf17acaac"
+  },
+  "references/legacy_prototype_code/download_data.py": {
+    "bytes": 3789,
+    "sha256": "d9dd0e4dab54a9c86214e2d1bb7d3ff916aaa15ab5a3784315825ab753e21688"
+  },
+  "references/trial_v0.2_code/download_reference_cooccurrence.py": {
+    "bytes": 1985,
+    "sha256": "a68d65a44e76557aa5c04347191ee875594d54fc5279a5646673cd4108551e02"
+  },
+  "references/trial_v0.2_code/DOWNLOAD_REFERENCE_COOCCURRENCE.bat": {
+    "bytes": 523,
+    "sha256": "fac3231562012b765fc43ea138df2ee3234871d18c385ef51965b49cb7da0638"
+  },
+  "references/trial_v0.2_code/START.bat": {
+    "bytes": 410,
+    "sha256": "eea7c8917fd03dcd1a910e7f4460bddfc08f0148382ba1218b5a08af0a65d201"
+  },
+  "references/trial_v0.2_code/README_使い方.txt": {
+    "bytes": 3188,
+    "sha256": "e8eed263c13f818f1a98aedac983039d5cf4b5d2611112f022b65146d2edbfd3"
+  },
+  "references/trial_v0.2_code/app/main.py": {
+    "bytes": 15284,
+    "sha256": "10feb6b68b6ecca006ab8d907b598cd2afa90ec363645b15993b8f0b5b0a9b40"
+  },
+  "references/trial_v0.2_code/app/core.py": {
+    "bytes": 8374,
+    "sha256": "cca95414d1cf74b2345a73a9cee2b8ab8d7ff56a5b7d6affc5928b6f2e66d603"
+  },
+  "references/trial_v0.2_code/app/reference_cooccurrence.py": {
+    "bytes": 4367,
+    "sha256": "f5e10ac0df9016f9e4e813e3229e3d9cb83a58bac992b0383746e474329a1bba"
+  },
+  "references/trial_v0.2_code/tests/TEST_RESULT.txt": {
+    "bytes": 1363,
+    "sha256": "5c1b071e8e9aa7e8f09ecc1c447a6ec99310871f4ae7baf142e3520868ae9306"
+  },
+  "references/trial_v0.2_code/tests/test_core.py": {
+    "bytes": 1131,
+    "sha256": "cba9326c428ad12b62be8a17439df1b4ea40c9f13c2e0852a47f0c516f17b1c0"
+  },
+  "references/trial_v0.2_code/data/translation_seed_ja_trial.csv": {
+    "bytes": 14730,
+    "sha256": "0133d742139a52b07857c4f703cb94ad6d195d1519c63c837ecedca403e4b32f"
+  },
+  "references/trial_v0.2_code/docs/DESIGN_NOTES.md": {
+    "bytes": 1068,
+    "sha256": "c0c9959fb7ae367ce591033a6447ad15d23fd13c7e6a2d289629cd491236b301"
+  },
+  "data/source/danbooru-2026-09-02.csv": {
+    "bytes": 3436154,
+    "sha256": "9b32d5ac0713ab252e7470ba6af9cb34de56878b6b3b13dfbbf6a4a37d82d95b"
+  },
+  "data/semantic/semantic_bridge_v1.csv": {
+    "bytes": 47913,
+    "sha256": "d34df85810641447f39e4b12f9dcecab6983b2e1a4384439fa3934dba8c35247"
+  },
+  "data/special2788/illustrious_tag_knowledge_base_2788.csv": {
+    "bytes": 1199815,
+    "sha256": "07584b365d5a68dbadd3f5e80859e768c2718b18746e32de02ce4b8bd60935e3"
+  },
+  "data/special2788/illustrious_tag_knowledge_base_2788_README.md": {
+    "bytes": 1106,
+    "sha256": "cb44a99237de588ee2b5934a265078c580dab587af48ebf195251e953a8df70c"
+  },
+  "data/special2788/illustrious_tag_knowledge_base_2788.xlsx": {
+    "bytes": 310602,
+    "sha256": "70a2705644cbe8503c33f4b5fad16e57b3ab2dc8601d65ae881822226471054a"
+  },
+  "data/derived/KNOWLEDGE_BASE_FULL_AUDIT_REPORT.md": {
+    "bytes": 5190,
+    "sha256": "798e215920e92aaab6cf41e4cf84cdff032375d307302cc8783af66459e7779f"
+  },
+  "data/derived/special2788_semantic_unmapped_VERIFIED_336.csv": {
+    "bytes": 146462,
+    "sha256": "80fac2f3315666bdbb93b68e086011a12c74b4c597e5a987b81d581a4e882b90"
+  },
+  "data/derived/KNOWLEDGE_BASE_FULL_AUDIT_MANIFEST.json": {
+    "bytes": 2273,
+    "sha256": "44c546f19b77a01ce1553c43540cd1fc78361241ba19ac435b581de680eaa78a"
+  },
+  "data/derived/special2788_translation_review_candidates_676.csv": {
+    "bytes": 193643,
+    "sha256": "7fb0c679af76ec56439e7e3f8cdc3cec8b782b8a465b9ac662c4268f21fe40bb"
+  },
+  "data/derived/special2788_VERIFIED_LINKAGE.csv": {
+    "bytes": 1544698,
+    "sha256": "d2691e774df0da762dbbf644c8aee4d68fe7d370ea91121c9ad083ccd3728ec2"
+  },
+  "data/derived/danbooru_full_tag_knowledge_base_VERIFIED_124016.csv": {
+    "bytes": 12813000,
+    "sha256": "23f951c82e3a25a1d7089711d629b4ab6bb3adad17a130e077044da8871feba0"
+  },
+  "data/derived/danbooru_alias_normalized_index_VERIFIED_34417.csv": {
+    "bytes": 3348194,
+    "sha256": "3f942704a10bb342ae7368024337849d392d54745061cf9259e51b9f6080a394"
+  },
+  "data/derived/danbooru_alias_occurrences_VERIFIED_34630.csv": {
+    "bytes": 5100613,
+    "sha256": "3e0c172227612247bc0ba89de16f79b48765b4adb81be5e168c42d0ad65ebe0b"
+  },
+  "archive/provenance/README.md": {
+    "bytes": 243,
+    "sha256": "42ccfbeaad3a23e97d88a8d5d5f94cef6fd883ef9650c02ed04fdbdf41469f4b"
+  },
+  "archive/provenance/special2788_generation/female_common_illustrious_positive_censorship_PRACTICAL_FINAL.txt": {
+    "bytes": 286270,
+    "sha256": "9c05f8378fe9991de89c04b854fd3488746f8381d4724959f60c804ff67a09e2"
+  },
+  "archive/provenance/special2788_generation/under18_censorship_COUNTS_FINAL_male.txt": {
+    "bytes": 14707,
+    "sha256": "812181422953410386226e719af92ede71f6f8aa1f80ee2de3afef2a0c3cf1e2"
+  },
+  "archive/provenance/special2788_generation/under18_censorship_COUNTS_FINAL_female_common.txt": {
+    "bytes": 125738,
+    "sha256": "44c6a43ae8f14c82a865bd80698f34a07897339e33226fd470f365a813fc5f0b"
+  },
+  "archive/provenance/special2788_generation/male_illustrious_negative_censorship_PRACTICAL_FINAL.txt": {
+    "bytes": 4540,
+    "sha256": "f02db4234f0c508d8dfda3cfef1592b65bdc2cdec0bdbef5735f1e63c7af42a2"
+  },
+  "archive/provenance/special2788_generation/under18_censorship_TRUE_FINAL_female_common.txt": {
+    "bytes": 130011,
+    "sha256": "11bb3c5faf00ebe2e4a6740e7a77d2cd57c01efca03d42b49b0f7d7bc70e2291"
+  },
+  "archive/provenance/special2788_generation/male_illustrious_positive_censorship_PRACTICAL_FINAL.txt": {
+    "bytes": 28878,
+    "sha256": "0733e6741e691f56383d708b585656725c88aef1c93fdd9e87ddd894699758fb"
+  },
+  "archive/provenance/special2788_generation/under18_censorship_COUNTS_FINAL_all.txt": {
+    "bytes": 139770,
+    "sha256": "3d89bb38044e221908962283b8d67777025c272d1478cc713352967b0c168450"
+  },
+  "archive/provenance/special2788_generation/under18_censorship_TRUE_FINAL_male.txt": {
+    "bytes": 17652,
+    "sha256": "654c2e5dc2e76510c3bb4bf2e4144c9abd3a7b0143cf7beb70cf2194675a538f"
+  },
+  "archive/provenance/special2788_generation/all_illustrious_negative_censorship_PRACTICAL_FINAL.txt": {
+    "bytes": 9161,
+    "sha256": "7141f12e4c55c0d8d2a71f9d445b192135a21e221dccc9991f692bc3b4a93f1b"
+  },
+  "archive/provenance/special2788_generation/illustrious_school_censorship_PROJECT_FINAL_REPORT.md": {
+    "bytes": 12888,
+    "sha256": "5f3a9f96c94184d18facfbbe885ce5ce7d38a0c02e8876354cff2331cea34611"
+  },
+  "archive/provenance/special2788_generation/all_illustrious_positive_censorship_PRACTICAL_FINAL.txt": {
+    "bytes": 307205,
+    "sha256": "ba897100cc5d79355675efbc6e0d356811196b9e98e58bbc65ef7a442445bc32"
+  },
+  "archive/provenance/special2788_generation/under18_censorship_TRUE_FINAL_audit.txt": {
+    "bytes": 1085,
+    "sha256": "e8d8d42fb9dc28dc34fa5f0d2134fb59e91d8ce89d6c3981a00ebd4777b533ae"
+  },
+  "archive/provenance/special2788_generation/female_common_illustrious_negative_censorship_PRACTICAL_FINAL.txt": {
+    "bytes": 8618,
+    "sha256": "0ec43500ebf1bf44e23f4b12ab850995b8156c75f5a1478d730b995a4b5724f9"
+  },
+  "archive/provenance/special2788_generation/under18_censorship_COUNTS_FINAL_audit.txt": {
+    "bytes": 2681,
+    "sha256": "6c717d193ef3eec11148a0d76489eea18576e4eb8e99a7b0b616af12ec5df190"
+  },
+  "archive/provenance/special2788_generation/under18_censorship_TRUE_FINAL_all.txt": {
+    "bytes": 145856,
+    "sha256": "c7a928776f6a96f3eb91ed14574c378397f48a9c6adaa6469bb9874690e58021"
+  }
+}

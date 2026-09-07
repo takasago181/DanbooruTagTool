@@ -1,0 +1,21 @@
+{
+  "package": "DanbooruTagTool Stage8C Exit Pilot",
+  "batch": "STAGE8C_EXIT_PILOT_001",
+  "files": {
+    "data/semantic/semantic_support_profiles.csv": "33f9142333db867d53096cf2f11ba411aefa13996560326fa174803a2d8c2755",
+    "data/semantic/stage8c_review_status.csv": "85478656ab894d089ec46d5facc067f00ad98a6d464258b607b827210b916a18",
+    "data/semantic/stage8c_exit_pilot_scope.csv": "ae3cc40279d494eed0d17f7e09a91c88fb5821e34789d08752bc605ffe883a85",
+    "data/semantic/stage8c_exit_pilot_family_assessment.csv": "f25d887889a9f87efb8cad334b13dab692251012264103eb1d8b660b90d65b25",
+    "benchmarks/stage8c/exit_pilot_validation_summary.json": "37f486365cccc25adf41864f3afbe1ccb9754c82f4349ec97dd7ba9a864ee432",
+    "benchmarks/stage8c/exit_pilot_scope_audit.csv": "ae3cc40279d494eed0d17f7e09a91c88fb5821e34789d08752bc605ffe883a85",
+    "docs/stage_reports/STAGE8C_EXIT_PILOT_REPORT_2026-09-07.md": "e7bc3e51b713bef8cc0e1e3f965d97f7634a647c4f5b16fd43e8ea872efd3699"
+  },
+  "protected": {
+    "data/derived/ruleset2/01_SPECIAL2788_JAPANESE_COMPLETE_CANDIDATE.csv": "12f6ccdc5d2dba33123cdfa97a636b2fdd49a519ed89d327d330471696762e02",
+    "data/derived/ruleset2/06_SEMANTIC336_ROUTING_OVERLAY.csv": "deb17fd928e7af9fed4a3542fd90d83c96c83e4c4cde9a2d9045b85a2f08e624",
+    "data/derived/ruleset2/31_METADATA_RULESET2_MIGRATIONS_v3.0.csv": "b9bcf31768e4340b58cc4e6a501d8f398df1f3aa3d15b1e6c72ba696bd8e45a5",
+    "data/derived/ruleset2/37_ALIAS_SEMANTIC_RELATIONSHIP_v3.0.csv": "9cb6d667ce4894a8df4e2a9579e0bf9adabd93ccc54ecf28ac57e9dc2581b1d5",
+    "data/derived/ruleset2/38_ALIAS_STATISTICS_POLICY_v3.0.csv": "e092014c196bf2406054f7c78c03e63a1cd8cdfdba59c059d2baf50222e7727d",
+    "data/derived/ruleset2/RULESET2_MANIFEST.json": "71ca6b039a045fab57be4a3d377a64fc3e1c7638fea98bbc47c1da0c40c444cf"
+  }
+}

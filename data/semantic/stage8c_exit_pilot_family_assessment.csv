@@ -1,0 +1,8 @@
+﻿static_family,target_member_count,pilot_result,production_family_rule_change,reason
+ACTION_INTERACTION,1,NO_UNIVERSAL_PROMOTION_FROM_PARTIAL_REVIEW,NONE,"Exit Pilot is heterogeneity testing, not full-family coverage. Partial review must not promote a family rule; member-specific/zero-relation outcomes are valid."
+DIRECT_COMPOSITE,1,NO_UNIVERSAL_PROMOTION_FROM_PARTIAL_REVIEW,NONE,"Exit Pilot is heterogeneity testing, not full-family coverage. Partial review must not promote a family rule; member-specific/zero-relation outcomes are valid."
+FLUID_STATE_ACTION,2,NO_UNIVERSAL_PROMOTION_FROM_PARTIAL_REVIEW,NONE,"Exit Pilot is heterogeneity testing, not full-family coverage. Partial review must not promote a family rule; member-specific/zero-relation outcomes are valid."
+INSERTION_STRUCTURED,3,NO_UNIVERSAL_PROMOTION_FROM_PARTIAL_REVIEW,NONE,"Exit Pilot is heterogeneity testing, not full-family coverage. Partial review must not promote a family rule; member-specific/zero-relation outcomes are valid."
+MULTI_ACTOR_INTERACTION,2,NO_UNIVERSAL_PROMOTION_FROM_PARTIAL_REVIEW,NONE,"Exit Pilot is heterogeneity testing, not full-family coverage. Partial review must not promote a family rule; member-specific/zero-relation outcomes are valid."
+POSE_COMPOSITION,1,NO_UNIVERSAL_PROMOTION_FROM_PARTIAL_REVIEW,NONE,"Exit Pilot is heterogeneity testing, not full-family coverage. Partial review must not promote a family rule; member-specific/zero-relation outcomes are valid."
+RESTRAINT_IMPLEMENT,2,NO_UNIVERSAL_PROMOTION_FROM_PARTIAL_REVIEW,NONE,"Exit Pilot is heterogeneity testing, not full-family coverage. Partial review must not promote a family rule; member-specific/zero-relation outcomes are valid."
