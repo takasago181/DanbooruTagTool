@@ -8,7 +8,7 @@
 - Title: `[Stage9B][DEV] Runtime Composer Stage9B`
 - State: open
 - Source issue body synced from: 2026-09-08
-- Last live body comparison: 2026-09-08 — Issue #2 body/state and this mirrored task contract were compared; completion-evidence requirements are synchronized.
+- Last live body comparison: 2026-09-08 — Issue #2 body/state and this mirrored task contract were compared; completion-evidence responsibilities are synchronized.
 - Purpose: Codexがprivate GitHub Issue APIへ追加認証せず、現行DEV作業内容をrepository内から読めるようにするための同期ミラー。
 
 `updated_at` はIssueコメント追加でも変化し得るため、時刻の不一致だけでbody driftとは判定しない。DEV/管理側はCodexへ新規/再開指示を出す直前にprivate Issue本文/stateをlive取得し、このmirrorのtask contractと照合する。
@@ -23,6 +23,7 @@
 - Issueとこのミラーに矛盾が見つかった場合、Codexは推測で補完せずDEVへ報告して停止する。
 - Issue番号を過去セッションから固定値として記憶しない。必ず `CURRENT_STATE.md` から現行DEV Issueを特定する。
 - Issue番号が同じでも本文だけ変更される可能性があるため、番号一致だけを完全な同期証明とは扱わない。Codex handoff直前のDEV/管理live比較を追加Gateとする。
+- Codexはprivate GitHub Issue APIやIssueコメントへ直接書き込むことを前提にしない。Issueへのcheckpoint/完了証跡は、Codexがpushしたrepository成果をDEV/管理側が確認して記録する。
 
 ## 目的
 
@@ -33,7 +34,7 @@ Stage9Aで実装済みの純粋 `PromptComposer.compose()` 境界からStage9B�
 - Stage9A: PASS
 - Stage9B: 未完了
 - `prompt_composer.py` / `tests/test_stage9a_prompt_composer.py` / Stage9A実装レポートはmainに存在
-- Codex画面上の「完了」報告だけではStage9B完了としない。GitHub完了証跡Gateを満たすまで未完了扱い。
+- Codex画面上の「完了」報告だけではStage9B完了としない。DEVがrepository成果を取得・確認してIssue証跡化するまで監査渡ししない。
 
 ## Stage9Bでやること
 
@@ -72,12 +73,13 @@ Stage9Aで実装済みの純粋 `PromptComposer.compose()` 境界からStage9B�
 - Stage9B対象の実装と回帰テストが完了
 - 既存Stage0-9Aの受入済み挙動を壊していない
 - 監査班へ正式なStage9B完了監査を渡せる状態になる
-- レビュー対象branch / commit / PRがremoteから取得可能
-- Issue #2に完了証跡を残す
-- 完了証跡には最低限、branch/commit/PR、変更内容または変更ファイル、focused/full test結果、protected surface/hash確認、未解決事項、次Gateへの停止地点を含める
-- `docs/stage9/STAGE9B_IMPLEMENTATION_REPORT.md` を要求どおりcommit/pushする
-- push / Issue記録 / 実装レポート反映に失敗した場合は完了と名乗らずblockerとして報告する
-- 上記GitHub完了証跡が確認できるまで、Issue #3へ監査渡し可能とは扱わない
+- Codexはレビュー可能なbranch/commit、変更内容、focused/full test結果、protected surface/hash確認、未解決事項、次Gateへの停止地点をrepository内の実装レポート等へ残す
+- `docs/stage9/STAGE9B_IMPLEMENTATION_REPORT.md` をcommitする
+- 可能ならfeature branchをremoteへpushする
+- Codex自身がIssue #2へ直接書き込むことは要求しない
+- push失敗時は完了と名乗らず、branch/commit SHA・失敗理由を報告し、ZIP fallback等でDEVが成果を回収できる状態にする
+- DEV/管理側がremoteまたはfallback成果物を確認後、Issue #2へ完了証跡を記録する
+- DEV側のIssue証跡記録と一次確認が完了するまで、Issue #3へ監査渡し可能とは扱わない
 
 ## Current task boundary note
 
