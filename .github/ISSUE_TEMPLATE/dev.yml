@@ -2,6 +2,11 @@ name: 開発
 description: 本体実装・仕様整理・Stage管理
 title: "[StageX][DEV] "
 body:
+  - type: markdown
+    attributes:
+      value: |
+        現行DEV Issueとして `CURRENT_STATE.md` に指定する場合、Codex用 `docs/project/CURRENT_DEV_TASK.md` も同期してください。
+        purpose / scope / 禁止事項 / 完了条件を変更する時はIssueコメントだけで済ませず、Issue本文を更新します。
   - type: input
     id: stage
     attributes:
@@ -24,6 +29,13 @@ body:
     validations:
       required: true
   - type: textarea
+    id: prohibitions
+    attributes:
+      label: 禁止事項・Stage境界
+      description: 今回やってはいけないこと、次Stageへ進む条件
+    validations:
+      required: true
+  - type: textarea
     id: done
     attributes:
       label: 完了条件
@@ -34,3 +46,5 @@ body:
     attributes:
       label: 正本・参照
       description: CURRENT_STATE / Stage仕様 / Decision IDなど
+    validations:
+      required: true
