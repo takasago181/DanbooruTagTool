@@ -36,6 +36,27 @@ checkpointには最低限、以下を残す。
 
 checkpointコメントはtask contractを変更しない。目的・scope・禁止事項・完了条件を変更する場合はIssue本文を更新し、現行DEVなら `CURRENT_DEV_TASK.md` も同じ管理作業内で同期する。
 
+## 0.75. DEV/Codex完了証跡Gate
+
+CodexやDEVがチャット上で「完了」と報告しても、それだけではGitHub正本上の完了にはしない。
+
+DEV taskを「実装完了 / 監査渡し可能」と扱う前に、DEV/ChatGPTはGitHub上で最低限次を確認する。
+
+1. レビュー対象branch / commit / PRがremoteから取得可能
+2. 担当Issueに完了証跡コメントが存在
+3. 変更内容または変更ファイルが追跡可能
+4. focused test / full testの結果が追跡可能
+5. protected surface / hash確認結果が追跡可能（要求されるtaskの場合）
+6. 未解決事項または「なし」が明記されている
+7. 次に進んではいけないGate / 停止地点が明記されている
+8. Stage実装レポートを要求されているtaskでは、そのレポートがcommit/push済み
+
+いずれかが不足している場合は、次のAUDIT/Stageへ進まず現行DEVへ戻す。
+
+push、Issue記録、Stage実装レポート反映などに失敗した場合、Codexは「完了」と名乗らずblockerとして報告する。
+
+ユーザーへCodex画面の全文コピペを毎回要求することは標準運用にしない。GitHub上の証跡だけで確認できない例外時に限り、必要な不足部分だけを依頼する。
+
 ## 1. 旧チャット側で移動前に行うこと
 
 - `docs/project/CURRENT_STATE.md` が現在地と一致していることを確認し、全体状態に変化があれば最新化する。
@@ -46,6 +67,7 @@ checkpointコメントはtask contractを変更しない。目的・scope・禁�
 - Codexが守るべきDEVの目的・scope・禁止事項・完了条件を変更した場合、Issueコメントだけで済ませずIssue本文と `CURRENT_DEV_TASK.md` に反映する。
 - 共有管理ファイルを更新する直前に最新mainを再取得し、古いチャット内コピーで上書きしない。
 - チャット本文だけに新しい決定を残したまま移動しない。
+- DEV/Codex taskの完了を引き継ぐ場合は、先に「DEV/Codex完了証跡Gate」を満たしていることを確認する。未達なら完了扱いで移行せず、現行Issueに未完了/blockerとして残す。
 - GitHub更新が完了した後に「新チャットへ移行可能」とユーザーへ伝える。
 
 ## 2. 新チャット開始時の確認順
@@ -91,6 +113,7 @@ DEV / Codex連携では、Codexはさらに `docs/project/CURRENT_DEV_TASK.md` �
 - CodexはDEVの実装担当であり独立班ではない。
 - AUDITの正式PASSを代行しない。
 - Codexへ作業を渡す直前にcurrent DEV Issueとmirrorのlive整合を確認する。
+- Codexから完了報告を受けても、GitHub上の完了証跡Gateを満たすまで監査渡し可能とは判定しない。
 
 ### AUDIT
 
