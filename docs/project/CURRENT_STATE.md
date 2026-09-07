@@ -4,7 +4,7 @@
 
 ## Current Stage
 
-Stage 9 overall Gate 完了 / Stage10 準備Gate実施中
+Stage 9 overall Gate 完了 / Stage10 準備Gate実施中 / automated E2E動作確認中
 
 ## Completed
 
@@ -20,7 +20,12 @@ Stage 9 overall Gate 完了 / Stage10 準備Gate実施中
 
 ## Active Work / Issues
 
-- 現在activeなDEV実装Issue: **なし**。
+- #28 `[Stage10-PREP][DEV] Automated E2E functional test + machine verdict`
+  - 現行DEV Issue。
+  - unit/regressionだけでなく、実アプリ主要経路を自動で通して `PASS / FAIL / BLOCKED` を機械判定する。
+  - mockだけでE2E PASSとはしない。
+  - アプリ/session初期化、検索、Special選択、common/rare候補選択、selection persistence、Prompt preview/copy、provenance/evidence、Stage9D可逆variant復元、stale/invalid result保護まで確認する。
+  - GUI実行可能環境ではTk UI headless automationも通す。環境不足で必須経路を実行不能ならBLOCKED。
 - #4 `[Stage10][KNOWLEDGE] Test Prompt knowledge`
   - Stage10実験用知識整理。production仕様決定権なし。
 - #5 `[Stage10][PROMPT] Formal handoff pending`
@@ -39,36 +44,38 @@ Stage 9 overall Gate 完了 / Stage10 準備Gate実施中
 Stage10本番開始前に最低限必要:
 
 1. Stage9 overall Gate — **SATISFIED**
-2. #4 KNOWLEDGEのStage10知識整理を正式handoffへ反映
-3. #6 Forge Neo比較環境の導入・動作確認
-4. #5 Prompt班へ正式Specialデータ・実験仕様をhandoff
-5. Multi Prompt Slots等の比較手段確認
-6. A/B固定条件定義
-7. metadata保存方法定義
-8. model family差を保持し未検証共通化していないこと
-9. 実際に使ったPromptを各画像/結果へ追跡できること
-10. `docs/stages/STAGE_10_PREP.md` の残チェックを満たすこと
+2. #28 automated E2E functional test — **CURRENT**
+3. #4 KNOWLEDGEのStage10知識整理を正式handoffへ反映
+4. #6 Forge Neo比較環境の導入・動作確認
+5. #5 Prompt班へ正式Specialデータ・実験仕様をhandoff
+6. Multi Prompt Slots等の比較手段確認
+7. A/B固定条件定義
+8. metadata保存方法定義
+9. model family差を保持し未検証共通化していないこと
+10. 実際に使ったPromptを各画像/結果へ追跡できること
+11. `docs/stages/STAGE_10_PREP.md` の残チェックを満たすこと
 
 ## Next Actions
 
-1. #4 / #6 / #5のStage10準備状況をGitHub正本で確認する。
-2. 不足しているhandoff・環境・固定条件・metadata条件を埋める。
-3. `STAGE_10_PREP.md` の残Gateを満たす。
-4. 全Gateが満たされた後にのみStage10本番A/Bへ移行する。
+1. Issue #28で実アプリ主要経路の自動E2Eテストとmachine verdictを実装・実行する。
+2. DEVがremote branch / commit / test result / machine-readable report / human-readable reportを実確認する。
+3. PASS時のみStage10準備を継続する。FAIL/BLOCKEDならStage10本番へ進まず原因を解消する。
+4. #4 / #6 / #5の残Gateを並列・合流で完了する。
+5. 全Gateが満たされた後にのみStage10本番A/Bへ移行する。
 
 ## Blocking / Unknown
 
-- Stage9 blockerはなし。
-- Stage10はまだ未開始。#4 / #5 / #6 と `STAGE_10_PREP.md` の残Gateがblocker。
-- GitHubはlocal protected dataの完全backupではない。
+- GitHub Actions workflowは現時点で存在せず、過去の275 passed等はlocal pytest証跡。起動→操作→出力までの継続的E2E Gateが未整備だったためIssue #28で補う。
+- GitHubはlocal protected dataの完全backupではない。E2E必須経路がlocal protected dataを必要とする場合は、local protected environmentでの実行証跡を使用し、GitHub CI PASSとは表現しない。
+- Stage10はまだ未開始。
 
 ## Source-of-Truth Rule
 
 - このファイルは現在地の正本。
 - 実作業の管理記録・完了条件・結果は対応Issueに残す。
 - active DEV Issueが存在する場合のみ `docs/project/CURRENT_DEV_TASK.md` をそのIssue本文の同期ミラーとして使う。
-- active DEV Issueがない間、Codexは新規実装を開始しない。
-- 新しいDEV Issueを開始する時は、Issue本文と `CURRENT_DEV_TASK.md` を同じ管理作業内で同期してからCodexへhandoffする。
+- 現在のactive DEV Issueは #28。
+- Codexへ新規/再開指示前にIssue #28本文/stateと最新mainのCURRENT_STATE/CURRENT_DEV_TASKをlive照合する。
 - Codexはprivate Issueへ直接書き込む前提ではない。repository成果を残し、DEVが確認してIssueへ証跡化する。
 - Codexの完了報告だけで次Gateへ進まない。
 - 仕様変更は `DECISIONS.md` またはStage仕様へ反映する。
