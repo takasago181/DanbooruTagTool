@@ -1,0 +1,36 @@
+name: 開発
+description: 本体実装・仕様整理・Stage管理
+title: "[StageX][DEV] "
+body:
+  - type: input
+    id: stage
+    attributes:
+      label: Stage
+      placeholder: "例: 9B"
+    validations:
+      required: true
+  - type: textarea
+    id: purpose
+    attributes:
+      label: 目的
+      description: このIssueで何を完成させるか
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: 対象範囲
+      description: 変更してよいもの / 変更しないもの
+    validations:
+      required: true
+  - type: textarea
+    id: done
+    attributes:
+      label: 完了条件
+    validations:
+      required: true
+  - type: textarea
+    id: refs
+    attributes:
+      label: 正本・参照
+      description: CURRENT_STATE / Stage仕様 / Decision IDなど

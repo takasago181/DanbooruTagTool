@@ -1,0 +1,34 @@
+name: 知識調査
+description: 外部情報の調査。仕様決定はしない。
+title: "[StageX][KNOWLEDGE] "
+body:
+  - type: input
+    id: stage
+    attributes:
+      label: Stage
+    validations:
+      required: true
+  - type: textarea
+    id: question
+    attributes:
+      label: 調査質問
+      description: 何を確かめたいか
+    validations:
+      required: true
+  - type: textarea
+    id: constraints
+    attributes:
+      label: 今回決めてはいけないこと
+      description: 本体仕様へ先行実装しない事項など
+  - type: textarea
+    id: output
+    attributes:
+      label: 欲しい出力
+      value: |
+        FACT:
+        ADOPT候補:
+        HOLD:
+        REJECT:
+        出典:
+    validations:
+      required: true
