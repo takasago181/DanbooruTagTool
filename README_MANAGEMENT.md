@@ -69,6 +69,18 @@ Codexはさらに `AGENTS.md` と `docs/project/CURRENT_DEV_TASK.md` を読む�
 
 通常のcheckpointはIssueコメントに置き、global stateが変わらない限り `CURRENT_STATE.md` は更新しない。
 
+## 班間の受け渡し
+
+DEV / AUDIT / KNOWLEDGE / PROMPT / 現行TEMPの依頼と返却は、原則GitHub Issue経由で行う。
+
+- 依頼側は、受取側の現行Issueへ「何をしてほしいか・理由・期待する出力・関連Issue/File」をcheckpointとして残す。
+- 受取側は、結果をチャットだけで返さず自班Issueへ「結果・根拠・判定・限界・次」を記録する。
+- 依頼元の次作業に必要な結果は、依頼元Issueへ短い返却checkpointも残し、詳細結果のIssueを参照する。
+- ユーザーを班間コピペの中継役にすることを標準運用にしない。
+- GitHubに載せられないlocal-only / binary / protected dataやconnector障害時だけfallbackを使い、その理由と代替handoffの所在をIssueへ残す。
+
+詳細形式は `docs/project/WORKFLOW.md` の「班間依頼・返却」を参照する。
+
 ## チャット引継ぎ
 
 会話長大化、Stage/Pilot/監査区切り、大方針変更、正式handoffでは、ユーザー指示を待たず作業チャット側から移行を提案する。
@@ -113,10 +125,11 @@ fresh cloneだけでfull runtime/full testsを再現できるとは仮定しな�
 1. 作業前に `CURRENT_STATE.md` と自班Issueを確認する。
 2. 新しい確定作業はIssue化する。
 3. 意味のある途中成果はIssue checkpointへ残す。
-4. task contract変更はIssue本文へ反映する。現行DEVならmirrorも同期する。
-5. 仕様変更は `DECISIONS.md` またはStage仕様へ反映する。
-6. shared management docは最新mainを再取得してから統合する。
-7. AUDIT PASS前にGateを越えない。
-8. 承認済みStage仕様に残るsubstage/gateを暗黙に飛ばさない。
+4. 班間依頼・返却はGitHub Issueで往復し、ユーザーへ手動中継を要求しない。
+5. task contract変更はIssue本文へ反映する。現行DEVならmirrorも同期する。
+6. 仕様変更は `DECISIONS.md` またはStage仕様へ反映する。
+7. shared management docは最新mainを再取得してから統合する。
+8. AUDIT PASS前にGateを越えない。
+9. 承認済みStage仕様に残るsubstage/gateを暗黙に飛ばさない。
 
 詳細は `docs/project/PERMANENT_RULES.md` / `docs/project/CHAT_START_PROTOCOL.md` / `docs/project/WORKFLOW.md` を参照する。
