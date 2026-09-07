@@ -4,11 +4,13 @@
 
 ## Current Stage
 
-Stage 9B 準備 / 実装中
+Stage 9B 監査PASS / 次DEV Gate昇格待ち
 
 ## Completed
 
 - Stage 9A: PASS。実装・テスト・実装レポートは main に存在。
+- Stage 9B: Codex実装成果をDEVがremote branch/commitで確認し、Issue #2へ完了証跡を記録済み。
+- Stage 9B independent audit: Issue #3 PASS。監査結果をIssue #3へ記録し、Issue #3をcompletedでclose済み。
 - Stage10用Prompt作成班: 役割・基本原則を分離済み。
 - Stage10用Prompt知識調査: 本体実装知識とは分離して扱う方針を確定。
 - 常設班: 開発 / 監査 / 知識 / Prompt の4班に固定。
@@ -20,11 +22,11 @@ Stage 9B 準備 / 実装中
 ## Active Work / Issues
 
 - #2 `[Stage9B][DEV] Runtime Composer Stage9B`
-  - 本体開発班の現行作業。Stage9Aの `PromptComposer.compose()` 境界から再開。
-  - Codex読取用ミラー: `docs/project/CURRENT_DEV_TASK.md`
-  - Codex側の完了報告は受領済みだが、DEVがremote/fallback成果物をまだ取得・確認できていないため現時点では未完了扱い。
-- #3 `[Stage9B][AUDIT] Stage9B completion audit`
-  - 監査班。#2完了後に正式監査。完成前にPASSしない。
+  - 現行DEV Issue。remote実装成果・report・test/protected結果のDEV確認とIssue完了証跡は済み、#3監査もPASS済み。
+  - feature branch: `codex/stage9b-runtime-composer`
+  - audited commit: `eb4048f68f28ea53c3fc1c47a8b3671065be8dbf`
+  - 次にDEVが#2の終了処理 / Stage9B成果の統合を確認し、#17を現行DEVへ昇格させる。
+  - #17昇格までは `docs/project/CURRENT_DEV_TASK.md` Sourceは#2のまま。
 - #4 `[Stage10][KNOWLEDGE] Test Prompt knowledge`
   - 知識班。Stage10実験用知識を整理。仕様決定権なし。
 - #5 `[Stage10][PROMPT] Formal handoff pending`
@@ -35,8 +37,8 @@ Stage 9B 準備 / 実装中
 ## Queued Gates
 
 - #17 `[Stage9][DEV] Stage9C/9D completion gate before Stage10`
-  - #2完了 + #3監査PASS後の将来DEV作業。
-  - 現行DEV Issue #2を置き換えない。`CURRENT_DEV_TASK.md` Sourceも現在は#2のまま。
+  - #2完了証跡 + #3監査PASSの開始前Gateは満たした。
+  - ただしDEVが正式に現行DEVへ昇格し、`CURRENT_STATE.md` と `CURRENT_DEV_TASK.md` を同じ管理作業内で同期するまでは着手しない。
   - 承認済みStage9仕様のStage9C（Local UI integration）/ Stage9D（Stage10 experiment hooks）を処理し、Stage9BからStage10へ暗黙に飛ばさないためのDEV Gate。
 - #22 `[Stage9][AUDIT] Stage9C/9D completion audit`
   - #17完成後の将来AUDIT Gate。
@@ -44,7 +46,7 @@ Stage 9B 準備 / 実装中
 
 ## Not Started / Do Not Start Yet
 
-- Stage9C / Stage9D（#17開始条件を満たすまで着手しない）
+- Stage9C / Stage9D（#17をDEVが現行taskへ正式昇格するまで着手しない）
 - Stage9C / Stage9D完了監査（#17完成前に#22 PASS判定しない）
 - Stage10本番A/B試験
 - Stage10実験管理機能の本体実装
@@ -55,9 +57,9 @@ Stage 9B 準備 / 実装中
 
 Stage10開始前に最低限必要:
 
-1. #2 Stage9B完了
-   - Codexのrepository成果をDEVが取得・確認し、DEVがIssueへ完了証跡を記録することを含む
-2. #3 Stage9B監査PASS
+1. Stage9B実装完了証跡 + #3 Stage9B監査PASS
+   - **SATISFIED**
+2. DEVが#17を現行DEV Issueへ正式昇格し、`CURRENT_STATE.md` と `CURRENT_DEV_TASK.md` を同期
 3. #17でStage9C / Stage9Dを処理
    - 9C/9Dを変更・延期する場合は、DEVがStage9仕様そのものを正式改訂し、Decision / CURRENT_STATE / STAGE_10_PREPも同期する
 4. #22 Stage9C/9D完了監査PASS → Stage9全体Gate完了
@@ -68,20 +70,21 @@ Stage10開始前に最低限必要:
 
 ## Next Actions
 
-1. Codexが作成したStage9Bのremote branch/commit/reportを取得できるか確認する。
-2. 取得できたらDEVが実装レポート、focused/full test結果、protected確認、未解決事項、停止地点を確認する。
-3. DEVがIssue #2へ完了証跡を記録し、監査渡し可能と判断する。
-4. #3 監査班へStage9B監査を渡す。
-5. #3 PASS後に #17 を現行DEVへ昇格させ、Stage9C / Stage9Dを処理する。
-6. #17完了後に #22 へ独立監査を渡し、Stage9全体Gateを判定する。
-7. #4の知識整理をStage10正式handoffへ反映する。
-8. #6 Forge Neo比較環境の動作確認を終える。
-9. #5へ正式handoffし、全Stage10開始Gate確認後に本番試験へ移行する。
+1. DEVがIssue #3のStage9B PASSを確認する。
+2. DEVがStage9B feature branch成果の統合 / #2終了処理を確認する。
+3. DEVが#17を現行DEVへ昇格させ、同じ管理作業内で `CURRENT_STATE.md` と `CURRENT_DEV_TASK.md` を#17へ同期する。
+4. #17でStage9C / Stage9Dを実施・検証する。
+5. #17完了後に #22 へ独立監査を渡し、Stage9全体Gateを判定する。
+6. #4の知識整理をStage10正式handoffへ反映する。
+7. #6 Forge Neo比較環境の動作確認を終える。
+8. #5へ正式handoffし、全Stage10開始Gate確認後に本番試験へ移行する。
 
 ## Blocking / Unknown
 
-- Stage9B: Codex画面上では完了報告あり。ただしDEVがremote/fallback成果物をまだ確認できていないため、#2は未完了扱い。
-- GitHub Project本体は未設定だが、CURRENT_STATE + Issuesで現行作業は管理できるためStage9B blockerではない。
+- Stage9B監査上のblockerはなし。
+- Stage9B audited branchは監査時点でcurrent mainより41 commits behindだが、live compareで後続main差分はprompt-reference assetsとproject-management docsのみで、Stage9B production変更面との競合は確認されなかった。
+- audited commitにはGitHub CI statusがなく、GitHub-only監査環境では.gitignore対象local protected dataを含むfull suiteの独立再実行はできない。Issue #3ではコード・focused tests・report・DEV証跡を独立照合し、不整合なしとしてPASSした。
+- GitHub Project本体は未設定だが、CURRENT_STATE + Issuesで現行作業は管理できるためblockerではない。
 - Stage10実験実行・記録担当は未作成。実際の試験で結果整理がボトルネックになった場合だけ分離を再検討する。
 - GitHubはlocal protected dataの完全backupではない。`data/source/` / `data/derived/` / `data/runtime*` / Special大容量CSV等は.gitignore対象を含むため、fresh cloneだけでfull runtime/full testsを再構成できるとは仮定しない。
 
