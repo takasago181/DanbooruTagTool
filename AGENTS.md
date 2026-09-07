@@ -1,4 +1,4 @@
-# AGENTS.md — DanbooruTagTool v1.3
+# AGENTS.md — DanbooruTagTool v1.4
 
 ## 作業開始ゲート
 
@@ -29,6 +29,27 @@ Issue番号は固定値として記憶せず、毎回 `CURRENT_STATE.md` から�
 - Stage10実験用Prompt知識をStage9 production規則へ先行固定する
 - NoobAI / WAI / Illustrious / Anima等のmodel family固有Prompt grammarを共通前提にする
 - DEVの正式仕様決定やAUDITのPASS判定をCodexが代行する
+
+## GitHub Issue読取
+
+private repository の現行Issue本文は、未認証のGitHub RESTへ直接アクセスせず、ローカルの GitHub CLI (`gh`) を優先して読む。
+
+推奨手順:
+1. `gh auth status --hostname github.com` で認証状態を確認する。
+2. 未認証なら `gh auth login --hostname github.com --git-protocol https --web` で一度だけ対話認証する。
+3. 認証後、`gh issue view <Issue番号> --repo takasago181/DanbooruTagTool --json number,title,state,body,url` で現行Issue本文を読む。
+4. Issue番号は `CURRENT_STATE.md` から取得し、過去セッションの番号を固定値として使わない。
+
+セキュリティ:
+- tokenを標準出力・ログ・報告へ表示しない。
+- `gh auth status --show-token` や `gh auth token` を確認目的で使わない。
+- Windows Credential Manager等に保存された資格情報を直接抜き出さない。
+- PATをソース、設定ファイル、handoff、Issue、commitへ保存しない。
+
+Issue本文を取得できない場合:
+- 推測でIssue本文を再構成しない。
+- `Issue本文取得失敗` としてDEVへ報告し、実装開始を止める。
+- `CURRENT_STATE.md` とStage仕様だけを根拠に、Issueの詳細を読んだことにしない。
 
 ## 恒久仕様として読む
 
