@@ -13,11 +13,13 @@ Stage 9B 準備 / 実装中
 - Stage10用Prompt知識調査: 本体実装知識とは分離して扱う方針を確定。
 - 常設班: 開発 / 監査 / 知識 / Prompt の4班に固定。
 - GitHub管理骨格と初期Issue群を作成済み。
+- Codex用の現行DEV task mirrorを `docs/project/CURRENT_DEV_TASK.md` に導入。
 
 ## Active Work / Issues
 
 - #2 `[Stage9B][DEV] Runtime Composer Stage9B`
   - 本体開発班の現行作業。Stage9Aの `PromptComposer.compose()` 境界から再開。
+  - Codex読取用ミラー: `docs/project/CURRENT_DEV_TASK.md`
 - #3 `[Stage9B][AUDIT] Stage9B completion audit`
   - 監査班。#2完了後に正式監査。完成前にPASSしない。
 - #4 `[Stage10][KNOWLEDGE] Test Prompt knowledge`
@@ -60,7 +62,10 @@ Stage10開始前に最低限必要:
 ## Source-of-Truth Rule
 
 - このファイルは「現在地」の正本。
-- 実作業の状態・完了条件・結果は対応するIssueに残す。
+- 実作業の管理記録・完了条件・結果は対応するGitHub Issueに残す。
+- Codexは現行DEV Issue本文を `docs/project/CURRENT_DEV_TASK.md` の同期ミラーから読む。
+- DEV Issueの本文・state・完了条件を変更する管理作業では、`CURRENT_DEV_TASK.md` も同じ管理作業内で更新する。
+- `CURRENT_STATE.md` の現行DEV Issue番号と `CURRENT_DEV_TASK.md` のSource Issue番号が一致しない場合、Codexは実装を開始しない。
 - 仕様変更は `DECISIONS.md` またはStage仕様へ反映する。
 - 古いhandoff / 旧監査 / 過去Stage資料を、現行Issueやmainの実装状態より優先しない。
 - 情報が衝突した場合は自動採用せず、衝突として確認する。
