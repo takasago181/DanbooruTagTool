@@ -30,16 +30,20 @@ Stage 9B 準備 / 実装中
 - #6 `[Stage10][TEMP] Forge Neo comparison environment`
   - 臨時担当。導入・動作確認後に終了し、常設班にはしない。
 
-## Queued Gate
+## Queued Gates
 
 - #17 `[Stage9][DEV] Stage9C/9D completion gate before Stage10`
   - #2完了 + #3監査PASS後の将来DEV作業。
   - 現行DEV Issue #2を置き換えない。`CURRENT_DEV_TASK.md` Sourceも現在は#2のまま。
-  - 承認済みStage9仕様のStage9C（Local UI integration）/ Stage9D（Stage10 experiment hooks）を処理し、Stage9BからStage10へ暗黙に飛ばさないためのGate。
+  - 承認済みStage9仕様のStage9C（Local UI integration）/ Stage9D（Stage10 experiment hooks）を処理し、Stage9BからStage10へ暗黙に飛ばさないためのDEV Gate。
+- #22 `[Stage9][AUDIT] Stage9C/9D completion audit`
+  - #17完成後の将来AUDIT Gate。
+  - #17の自己完了だけでStage9全体PASSにせず、独立監査でPASS / CONDITIONAL PASS / FAILを判定する。
 
 ## Not Started / Do Not Start Yet
 
 - Stage9C / Stage9D（#17開始条件を満たすまで着手しない）
+- Stage9C / Stage9D完了監査（#17完成前に#22 PASS判定しない）
 - Stage10本番A/B試験
 - Stage10実験管理機能の本体実装
 - model family別Prompt grammarの全モデル共通化
@@ -51,21 +55,23 @@ Stage10開始前に最低限必要:
 
 1. #2 Stage9B完了
 2. #3 Stage9B監査PASS
-3. #17でStage9C / Stage9Dを処理し、承認済みStage9仕様上のStage9完了Gateを満たす
+3. #17でStage9C / Stage9Dを処理
    - 9C/9Dを変更・延期する場合は、DEVがStage9仕様そのものを正式改訂し、Decision / CURRENT_STATE / STAGE_10_PREPも同期する
-4. Stage10正式handoff
-5. #6 Forge Neo比較環境の導入・動作確認
-6. #5へ正式Specialデータ・実験仕様を渡す
-7. Stage10固定条件・metadata保存方法等、`docs/stages/STAGE_10_PREP.md` の開始前チェックを満たす
+4. #22 Stage9C/9D完了監査PASS → Stage9全体Gate完了
+5. Stage10正式handoff
+6. #6 Forge Neo比較環境の導入・動作確認
+7. #5へ正式Specialデータ・実験仕様を渡す
+8. Stage10固定条件・metadata保存方法等、`docs/stages/STAGE_10_PREP.md` の開始前チェックを満たす
 
 ## Next Actions
 
 1. #2 Stage9Bを完了させる。
 2. #3 監査班へStage9B監査を渡す。
 3. #3 PASS後に #17 を現行DEVへ昇格させ、Stage9C / Stage9Dを処理する。
-4. #4の知識整理をStage10正式handoffへ反映する。
-5. #6 Forge Neo比較環境の動作確認を終える。
-6. #5へ正式handoffし、全Stage10開始Gate確認後に本番試験へ移行する。
+4. #17完了後に #22 へ独立監査を渡し、Stage9全体Gateを判定する。
+5. #4の知識整理をStage10正式handoffへ反映する。
+6. #6 Forge Neo比較環境の動作確認を終える。
+7. #5へ正式handoffし、全Stage10開始Gate確認後に本番試験へ移行する。
 
 ## Blocking / Unknown
 
