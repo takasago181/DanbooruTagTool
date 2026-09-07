@@ -1,6 +1,9 @@
-# GitHub Project 最小セットアップ
+# GitHub Project 最小セットアップ（任意）
 
-GitHub上でProjectを1個だけ作る。
+GitHub Project本体は補助UIです。
+`docs/project/CURRENT_STATE.md` + GitHub Issuesだけで現行作業を管理できるため、Project未設定はStage blockerではありません。
+
+必要になった場合だけProjectを1個作る。
 
 名前:
 `DanbooruTagTool Development`
@@ -25,6 +28,8 @@ GitHub上でProjectを1個だけ作る。
 
 3. Stage
    - 9B
+   - 9C
+   - 9D
    - 10
    - 11
    - Maintenance
@@ -47,8 +52,8 @@ GitHub上でProjectを1個だけ作る。
 - NOW
   - Status: Ready / Working / Audit / Blocked
 
-- Stage 9B
-  - Stage = 9B
+- Stage 9
+  - Stage = 9B / 9C / 9D
 
 - Stage 10
   - Stage = 10
@@ -65,13 +70,12 @@ GitHub上でProjectを1個だけ作る。
   - Team = PROMPT
   - Status != Done
 
-## 最初に作るIssue
+## 現行Issueの扱い
 
-1. `[Stage9B][DEV] Stage9B完了`
-2. `[Stage9B][AUDIT] Stage9B完了監査`
-3. `[Stage10][TEMP] Forge Neo比較環境 動作確認`
-4. `[Stage10][KNOWLEDGE] Stage10 Prompt知識整理`
-5. `[Stage10][PROMPT] Stage10正式handoff待ち`
+Projectを後から作る場合も、Issue番号・Stage・現在地は `CURRENT_STATE.md` から取得する。
+このファイルに書かれた例や古いIssue番号を正本として使わない。
 
 最初から細かいIssueを大量に作らない。
 作業が確定した時点で増やす。
+
+現在の管理では、Stage9B後に承認済みStage9仕様の9C/9D Gateを暗黙スキップしないことが重要。詳細は `CURRENT_STATE.md` と将来DEV Issue #17を参照する。
