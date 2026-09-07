@@ -68,13 +68,15 @@ mockだけのテストをE2E PASSとは呼ばない。local-only protected data�
 - [ ] テストPrompt班へ正式Specialデータ提供（Issue #5）
 - [ ] A/Bの固定条件定義
 - [ ] metadata保存方法定義
-- [ ] #4 KNOWLEDGEのStage10知識整理結果を正式handoffへ反映
-- [ ] model familyごとのPrompt grammar差を保持し、未検証共通化をしていない
+- [x] #4 KNOWLEDGEのStage10知識整理結果を正式handoffへ反映
+- [ ] model familyごとのPrompt grammar差を保持し、未検証共通化していない
 - [ ] 実際に使ったPromptを各画像/結果へ追跡できる
+
+Knowledge handoff正本: `docs/stages/STAGE_10_KNOWLEDGE_HANDOFF.md`
 
 ## 現在地
 
 Stage10本番A/Bは**未開始**。
-現在はIssue #28 automated E2E動作確認を現行DEV Gateとして実施しつつ、#4 KNOWLEDGE / #5 PROMPT / #6 Forge Neo TEMPの残項目を準備する段階。
+現在はIssue #28 automated E2E動作確認を現行DEV Gateとして実施しつつ、#5 PROMPT / #6 Forge Neo TEMPの残項目を準備する段階。Issue #4 KNOWLEDGEはStage10開始前調査を完了しhandoff済み。
 
 このchecklistを満たす前にStage10本番画像A/Bを正式開始しない。
