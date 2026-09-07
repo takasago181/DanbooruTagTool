@@ -31,6 +31,12 @@
 23. Codexはprivate GitHub Issue APIやIssueコメントへの直接書込みを完了条件にしない。Codexの責務は、レビュー可能なbranch/commit、要求された実装レポート、テスト・protected確認結果をrepositoryへcommitし、可能ならremoteへpushすること。DEV/管理側はその成果をGitHubから確認し、対応Issueへcheckpoint/完了証跡を記録する。
 24. Codex/DEVの「監査渡し可能」は、ローカル実装やCodexチャット上の完了報告だけでは成立しない。DEVがremote branch/commitまたはfallback成果物を取得し、実装レポート・テスト結果・protected確認・未解決事項・次Gateへの停止地点を確認した後、DEV自身が担当Issueへ完了証跡を残して初めて成立する。Codexのpushが失敗した場合は完了とせず、branch/commit SHAと失敗理由を報告し、ZIP fallback等でDEVが回収できる状態にする。
 25. DEV/ChatGPTはユーザーから「Codex終わった」と聞いた時、次工程へ進む前にGitHub上のbranch/commit/report等を確認する。Codex自身のIssue書込みを要求せず、DEV側が取得できた成果からIssue証跡を記録する。成果物不足なら監査や次Stageへ進まず、必要なrepository反映またはfallback回収をCodexへ戻す。ユーザーへ毎回Codex全文のコピペを要求することを標準運用にしない。
+26. 常設4班と現行Issueを持つTEMPの班間依頼・班間返却は、原則GitHub Issueを標準経路とする。ユーザーを「班Aの文章をコピーして班Bへ貼る中継役」にしない。
+27. 班Aが班Bへ調査・監査・実装・Prompt作成・環境確認などを依頼する場合、班Aまたは管理側が班Bの現行Issueへ依頼checkpointを残す。少なくとも「FROM / REQUEST / WHY / EXPECTED OUTPUT / RELATED ISSUE・FILE」を明記する。
+28. 依頼を受けた班Bは、結果をチャットだけで返さず自班Issueへ結果checkpointを残す。少なくとも「RESULT / EVIDENCE・SOURCE / ADOPT・HOLD・FAIL等の判定 / LIMITATION / NEXT」を含める。
+29. 班Bの結果が班Aの次作業に直接必要な場合、班Bまたは管理側は班Aの現行Issueにも短い返却checkpointを残し、自班Issueの詳細結果へリンク・Issue番号で参照させる。班Aはチャット記憶ではなくGitHub上の返却結果を読んで再開する。
+30. この往復ルールはDEV / AUDIT / KNOWLEDGE / PROMPT / 現行TEMPすべてに適用する。例外は、GitHubに載せられないlocal-only・binary・protected data、connector障害など合理的な理由がある場合だけで、その場合も理由と代替handoffの所在をIssueへ記録する。
+31. 班間handoffでtask contract自体が変わる場合、Issueコメントだけで仕様変更を済ませない。対応Issue本文、Decision、Stage仕様、現行DEVなら `CURRENT_DEV_TASK.md` を既存ルールどおり同期する。
 
 ## チャット移行プロトコル
 
