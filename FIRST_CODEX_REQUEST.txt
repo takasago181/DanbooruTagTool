@@ -1,3 +1,17 @@
+【HISTORICAL — DO NOT USE FOR CURRENT TASK】
+
+このファイルはStage0/1開始時のCodex依頼を履歴として保存したものです。
+現在のCodexへ実行指示として送らないでください。
+
+現在のCodexは最新mainの `AGENTS.md` に従い、
+`docs/project/CURRENT_STATE.md` → `docs/project/PERMANENT_RULES.md` → `docs/project/CURRENT_DEV_TASK.md` → 現行Stage資料
+の順で現在地を復元します。
+
+現在Stage/現行DEV Issueは `CURRENT_STATE.md` を唯一の入口として特定します。
+以下のStage0/1依頼を再実行して現在地を巻き戻すことは禁止です。
+
+--- HISTORICAL REQUEST BELOW ---
+
 AGENTS.md、docs/PRODUCT_GOAL_LOCK.md、docs/CODEX_IMPLEMENTATION_SPEC_JA_v1.3.md と docs/ 以下の参照仕様を先に読んでください。
 
 今回は Stage 0 と Stage 1 だけ実施してください。
@@ -25,7 +39,6 @@ Roaring Bitmap / SQLite / mmap 等のRuntime Index方式比較もまだ行わな
 
 元データを上書き・削除しないでください。
 作業終了時は docs/CHATGPT_CODEX_HANDOFF.md の8項目形式で日本語報告してください。
-
 
 重要:
 - この製品の主役はSpecial2788の単語・組み合わせによるCore Tag Setです。
