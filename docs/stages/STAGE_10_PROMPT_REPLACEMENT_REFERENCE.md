@@ -25,7 +25,8 @@ Stage10のテストPrompt作成時に、ChatGPTが具体的に記述できない
    - Special ID
    - post_count（ある場合）
 6. canonical / Alias / Semanticを混同しない。
-7. Stage10の成人向けPromptでは未成年対象語を使用しない。
+7. 複数の置換箇所がある場合は、A / B / Cのように部位・行為・状態を分ける。
+8. Stage10の成人向けPromptでは未成年対象語を使用しない。
 
 ## 出力形式
 
@@ -53,16 +54,15 @@ ID xxx — semantic phrase
 通常は第一候補。Alias挙動・broad+specific・Semantic反応そのものを測る場合のみ対応候補へ差し替える。
 ```
 
-## 複数の置換箇所
-
-置換A / B / Cのように部位・行為・状態を分ける。
-一つの札に複数の独立Specialを曖昧に詰め込まない。
-
 ## 参照辞書
 
-PROMPT班向け人間可読派生辞書:
+PROMPT班向け人間可読・GitHub検索可能な派生辞書:
 
-- `data/special2788/テストプロンプト保管用_完全版_2788.txt.gz`
-- `data/special2788/TEST_PROMPT_REFERENCE_2788_COMPACT.txt`
+- `data/special2788/prompt_reference/README.md`
+- `data/special2788/prompt_reference/MANIFEST.txt`
+- `data/special2788/prompt_reference/`
+  - 01〜12はカテゴリ別ファイル
+  - 13「その他・文脈」は1404件を8ファイルへ分割
+  - 合計2788件
 
 元のSpecial2788データを置き換える正本ではない。タグ探索・差し替え候補提示のための補助資料としてのみ使う。
