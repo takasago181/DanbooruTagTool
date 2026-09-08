@@ -1,0 +1,50 @@
+{
+  "campaign_id": "issue36-one-shot-uija-remaining-20260909-v1",
+  "contract": "translation_quarantine/r3/ONE_SHOT_UIJA_REMAINING_COMPLETION_CONTRACT.md",
+  "contract_commit": "4b6d9a813092715537c1e2b386c3b431f7995ed1",
+  "input_hashes": {
+    "data/japanese/japanese_terms.csv": "sha256:aa4583f911e29597f60a4059bf45c34dc320ab33012ec6b46f2a4ffae21422dc",
+    "translation_quarantine/coverage_summary.json": "sha256:4b3627b5e9e742bd1e64b9814eec239dabdb87d2a8e86a45df89231d48354855",
+    "translation_quarantine/missing_candidates.csv": "sha256:cbb280869707576cbac80a472f372a0becd80d80fbbd99a8d59220f74d331be7",
+    "translation_quarantine/r3/ONE_SHOT_UIJA_REMAINING_COMPLETION_CONTRACT.md": "sha256:c1e3e7d83f1e9c5c856566d41938ea15fcc8f096762d83f11ea9d5a0f1b472f7",
+    "translation_quarantine/r3_final_uija_completion_20260909/final_translation_table.csv": "sha256:738f22d56e3118f0f796b0539779736915f6fe5a015b53ffa8de9ba1d8c717de"
+  },
+  "output_hashes": {
+    "final_rows": "sha256:cc4b245aa6a659c20e7efbecb3a947876a4a04b6b76b93646f53d835d593679e",
+    "source_ledger": "sha256:7ebc050d0906385c300615be6ef16991ccbab262767a5901877bcce4777b53f7"
+  },
+  "production_modified": false,
+  "promotion": "NOT_AUTHORIZED",
+  "protected_boundary": {
+    "after": {
+      "data/japanese/japanese_terms.csv": "sha256:aa4583f911e29597f60a4059bf45c34dc320ab33012ec6b46f2a4ffae21422dc",
+      "data/runtime/japanese_overlay.json": "sha256:de1b375d79ef05f4c2477347b20b8a09115511d2ecbd39602bdebcdfa6d576dc",
+      "data/runtime_index/BUILD_MANIFEST.json": "sha256:0f7ec4961c393a4c032f23a2d3e22b9268b7e481bfd91e788fec6379411fb13f",
+      "data/runtime_index/canonical_overlay.json": "sha256:bf9a62105740ec579ea0618721b78a0d3ccc2279cf18aabf402c3083ede05195",
+      "data/semantic/family_support_rules.csv": "sha256:59609aadc82f9f4be97b82008159b55e4d738f41dbb9625c59be8a826fe7c4fd",
+      "data/semantic/semantic_support_profiles.csv": "sha256:33f9142333db867d53096cf2f11ba411aefa13996560326fa174803a2d8c2755"
+    },
+    "before": {
+      "data/japanese/japanese_terms.csv": "sha256:aa4583f911e29597f60a4059bf45c34dc320ab33012ec6b46f2a4ffae21422dc",
+      "data/runtime/japanese_overlay.json": "sha256:de1b375d79ef05f4c2477347b20b8a09115511d2ecbd39602bdebcdfa6d576dc",
+      "data/runtime_index/BUILD_MANIFEST.json": "sha256:0f7ec4961c393a4c032f23a2d3e22b9268b7e481bfd91e788fec6379411fb13f",
+      "data/runtime_index/canonical_overlay.json": "sha256:bf9a62105740ec579ea0618721b78a0d3ccc2279cf18aabf402c3083ede05195",
+      "data/semantic/family_support_rules.csv": "sha256:59609aadc82f9f4be97b82008159b55e4d738f41dbb9625c59be8a826fe7c4fd",
+      "data/semantic/semantic_support_profiles.csv": "sha256:33f9142333db867d53096cf2f11ba411aefa13996560326fa174803a2d8c2755"
+    },
+    "changed": false,
+    "production_modified": false,
+    "verdict": "PASS"
+  },
+  "replay": {
+    "final_hash": "sha256:cc4b245aa6a659c20e7efbecb3a947876a4a04b6b76b93646f53d835d593679e",
+    "live_fetch": false,
+    "new_ready_used_as_teacher": false,
+    "original_vs_replay1": "PASS",
+    "original_vs_replay2": "PASS",
+    "replay1_vs_replay2": "PASS",
+    "source_mode": "frozen_local_inputs_only",
+    "verdict": "PASS"
+  },
+  "schema_version": "issue36-one-shot-uija-manifest-v1"
+}

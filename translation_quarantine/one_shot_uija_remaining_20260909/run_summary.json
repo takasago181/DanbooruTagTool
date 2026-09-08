@@ -1,0 +1,47 @@
+{
+  "auto_filled_lightweight": 19267,
+  "campaign_id": "issue36-one-shot-uija-remaining-20260909-v1",
+  "contract_commit": "4b6d9a813092715537c1e2b386c3b431f7995ed1",
+  "corrected_obvious_mistranslations": {
+    "finger_to_mouth": "口に指",
+    "pauldrons": "肩当て",
+    "simple_background": "シンプルな背景"
+  },
+  "display_ja_final_coverage": {
+    "count": 22584,
+    "rate": 0.7373404290051911,
+    "total": 30629
+  },
+  "english_fallback": 8048,
+  "final_state_counts": {
+    "ENGLISH_FALLBACK_EXCEPTION": 8048,
+    "JA_ACCEPT_EXISTING": 547,
+    "JA_ACCEPT_MACHINE": 19267,
+    "JA_ACCEPT_STRICT": 2767
+  },
+  "generic_review_pending": 0,
+  "measurable_universe": 30629,
+  "newly_processed": 30073,
+  "obvious_mistranslation": 0,
+  "prior_completed_556": 556,
+  "production_modified": false,
+  "promotion": "NOT_AUTHORIZED",
+  "protected_boundary_verdict": "PASS",
+  "remaining_p0_p1_p2": {
+    "P0": 469,
+    "P1": 4910,
+    "P2": 24694
+  },
+  "replay_verdict": "PASS",
+  "search_ja_final_coverage": {
+    "count": 22584,
+    "rate": 0.7373404290051911,
+    "total": 30629
+  },
+  "strict_review_routed": 10806,
+  "terminal_p0_p1_p2": {
+    "P0": 1025,
+    "P1": 4910,
+    "P2": 24694
+  }
+}

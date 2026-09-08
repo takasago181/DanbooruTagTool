@@ -1,0 +1,34 @@
+{
+  "already_terminal_before_run": 556,
+  "completed_overlap_by_priority": {
+    "P0": 556
+  },
+  "completed_table_deduplicated": true,
+  "input_hashes": {
+    "data/japanese/japanese_terms.csv": "sha256:aa4583f911e29597f60a4059bf45c34dc320ab33012ec6b46f2a4ffae21422dc",
+    "translation_quarantine/coverage_summary.json": "sha256:4b3627b5e9e742bd1e64b9814eec239dabdb87d2a8e86a45df89231d48354855",
+    "translation_quarantine/missing_candidates.csv": "sha256:cbb280869707576cbac80a472f372a0becd80d80fbbd99a8d59220f74d331be7",
+    "translation_quarantine/r3/ONE_SHOT_UIJA_REMAINING_COMPLETION_CONTRACT.md": "sha256:c1e3e7d83f1e9c5c856566d41938ea15fcc8f096762d83f11ea9d5a0f1b472f7",
+    "translation_quarantine/r3_final_uija_completion_20260909/final_translation_table.csv": "sha256:738f22d56e3118f0f796b0539779736915f6fe5a015b53ffa8de9ba1d8c717de"
+  },
+  "input_paths": [
+    "translation_quarantine/coverage_summary.json",
+    "translation_quarantine/missing_candidates.csv",
+    "translation_quarantine/r3_final_uija_completion_20260909/final_translation_table.csv",
+    "data/japanese/japanese_terms.csv",
+    "translation_quarantine/r3/ONE_SHOT_UIJA_REMAINING_COMPLETION_CONTRACT.md"
+  ],
+  "measurable_universe": 30629,
+  "phase0_definition": "category=0 canonicals with nonempty canonical_overlay source_tag_ids in protected Stage 5 runtime index",
+  "phase0_queue_by_priority": {
+    "P0": 1025,
+    "P1": 4910,
+    "P2": 24694
+  },
+  "remaining_by_priority": {
+    "P0": 469,
+    "P1": 4910,
+    "P2": 24694
+  },
+  "rows_newly_processed": 30073
+}

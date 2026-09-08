@@ -1,0 +1,10 @@
+{
+  "final_hash": "sha256:cc4b245aa6a659c20e7efbecb3a947876a4a04b6b76b93646f53d835d593679e",
+  "live_fetch": false,
+  "new_ready_used_as_teacher": false,
+  "original_vs_replay1": "PASS",
+  "original_vs_replay2": "PASS",
+  "replay1_vs_replay2": "PASS",
+  "source_mode": "frozen_local_inputs_only",
+  "verdict": "PASS"
+}
