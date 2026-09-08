@@ -7,20 +7,21 @@ Rule version: R2
 
 ## Current position
 - Target: 2,788 Specials
-- Special-level first pass checkpointed through: 1100
-- Cumulative effective verdicts: PASS 761 / FIX 154 / REVIEW 169 / IMAGE_TEST_REQUIRED 16
+- Special-level first pass checkpointed through: 1120
+- Cumulative effective verdicts: PASS 765 / FIX 159 / REVIEW 180 / IMAGE_TEST_REQUIRED 16
 - Batch 1-11 R2 acceptance gates: PASS
+- Batch 12: IN_PROGRESS (1101-1120 durable)
 - Revalidation pending: 0
 - Semantic-support frozen target: 58 rows; durable audited coverage: 53
-- Next first-pass sequence: 1101
+- Next first-pass sequence: 1121
 - Production modified: NO
 
-## Batch 11 complete
-1001-1100: PASS 23 / FIX 18 / REVIEW 59 / IMAGE_TEST_REQUIRED 0. Five 20-row checkpoints are durable across results, candidate-fix blocks, queue blocks, progress, and handoff. Deterministic PASS re-audit checked 10/23, including all S/A PASS rows, with 0 new false-PASS. Batch11 gate PASS.
+## Batch 12 partial
+1101-1120: PASS 4 / FIX 5 / REVIEW 11 / IMAGE_TEST_REQUIRED 0. Results, candidate-fix block, empty queue block, progress and this handoff are durably checkpointed before continuing.
 
-Notable quarantine-only findings include self-ownership correction for ID1007, explicit structural requirements for several bodypart/object relations, and ID1060 self-ownership/body-site binding. PROVISIONAL rows without exact source authority remain REVIEW rather than guessed corrections.
+PROVISIONAL / REVIEW_REQUIRED rows without exact source authority remain REVIEW. Concrete fixes are limited to explicit actor/bodypart/object/spatial relations supported by the frozen identity and reviewed sibling conventions.
 
-Semantic-support coverage remains 53/58; remaining frozen rows belong to later Special IDs 1159, 1823, and 1839.
+Semantic-support coverage remains 53/58; remaining rows belong to Special IDs 1159, 1823 and 1839.
 
 ## Critical interpretation rules
 - Blank/None is not automatically missing data; UNKNOWN/not asserted remains valid.
@@ -31,4 +32,4 @@ Semantic-support coverage remains 53/58; remaining frozen rows belong to later S
 - Special2788 exact identity remains first-class.
 
 ## Exact restart
-Resume first-pass at sequence 1101. Checkpoint every20. Do not modify production/main.
+Resume first-pass at sequence 1121. Checkpoint every20. Do not modify production/main.
