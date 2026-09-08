@@ -30,6 +30,11 @@ def wire_vertical_scrollbar(listbox, scrollbar):
     scrollbar.configure(command=listbox.yview)
 
 
+def bilingual_tag_label(japanese, english_tag):
+    ja = (japanese or "").strip() or "日本語未登録"
+    return f"{ja} / {english_tag}"
+
+
 def set_general_results_visible(results_frame, general_box, visible):
     """Give the full result pane to Special when no General result exists."""
     if visible:
@@ -125,7 +130,7 @@ class Stage7AApp(ttk.Frame):
         self.results_frame.rowconfigure(1, weight=0)
         content.add(self.results_frame, weight=3)
 
-        special_box = ttk.LabelFrame(self.results_frame, text="Special2788", padding=8)
+        special_box = ttk.LabelFrame(self.results_frame, text="Specialタグ候補", padding=8)
         special_box.grid(row=0, column=0, sticky="nsew", pady=(0, 8))
         special_box.columnconfigure(0, weight=1)
         special_box.rowconfigure(0, weight=1)
@@ -160,7 +165,7 @@ class Stage7AApp(ttk.Frame):
         selected.columnconfigure(0, weight=1)
         content.add(selected, weight=4)
 
-        ttk.Label(selected, text="選んだSpecial", font=("Yu Gothic UI", 13, "bold")).grid(
+        ttk.Label(selected, text="選択したSpecialタグ", font=("Yu Gothic UI", 13, "bold")).grid(
             row=0, column=0, sticky="w"
         )
         self.selected_special_frame = ttk.Frame(selected)
@@ -198,13 +203,13 @@ class Stage7AApp(ttk.Frame):
         self.recommendation_notebook.add(self.semantic_support_tab, text="意味から補助")
         self.recommendation_box.grid_remove()
 
-        self.prompt_bar = ttk.LabelFrame(self, text="Prompt preview", padding=8)
+        self.prompt_bar = ttk.LabelFrame(self, text="完成Prompt", padding=8)
         self.prompt_bar.grid(row=2, column=0, sticky="ew", pady=(12, 0))
         self.prompt_bar.columnconfigure(0, weight=1)
         self.prompt_text = tk.Text(self.prompt_bar, height=3, wrap="word", font=("Consolas", 10),
                                    state="disabled")
         self.prompt_text.grid(row=0, column=0, sticky="ew")
-        self.copy_button = ttk.Button(self.prompt_bar, text="Promptをコピー", command=self._copy_prompt)
+        self.copy_button = ttk.Button(self.prompt_bar, text="完成Promptをコピー", command=self._copy_prompt)
         self.copy_button.grid(row=0, column=1, sticky="e", padx=(8, 0))
         self.copy_feedback = ttk.Label(self.prompt_bar, text="")
         self.copy_feedback.grid(row=1, column=1, sticky="e", pady=(4, 0))
@@ -252,10 +257,9 @@ class Stage7AApp(ttk.Frame):
         self.special_list.delete(0, "end")
         self.general_list.delete(0, "end")
         for item in self.special_rows:
-            self.special_list.insert("end", f"{item.japanese or item.original_term}　/　{item.original_term}")
+            self.special_list.insert("end", bilingual_tag_label(item.japanese, item.original_term))
         for item in self.general_rows:
-            label = item.display_japanese or item.prompt_text
-            self.general_list.insert("end", f"{label}　/　{item.canonical}")
+            self.general_list.insert("end", bilingual_tag_label(item.display_japanese, item.canonical))
         set_general_results_visible(self.results_frame, self.general_box, bool(self.general_rows))
 
     def _focus_first_result(self, event=None):
@@ -355,9 +359,8 @@ class Stage7AApp(ttk.Frame):
     def _candidate_headline(self, decorated: DecoratedRecommendationCandidate):
         candidate = decorated.candidate
         display = self.knowledge.japanese_overlay.display_by_canonical.get(candidate.canonical)
-        display = display or candidate.canonical.replace("_", " ")
         badge = f"[{decorated.semantic_label_ja}] " if decorated.semantic_label_ja else ""
-        return f"{badge}{display} / {candidate.canonical}"
+        return f"{badge}{bilingual_tag_label(display, candidate.canonical)}"
 
     def _candidate_statistics(self, decorated: DecoratedRecommendationCandidate, bucket):
         candidate = decorated.candidate
@@ -385,11 +388,7 @@ class Stage7AApp(ttk.Frame):
                       wraplength=520, justify="left").grid(
                           row=first_row, column=0, sticky="w", pady=(4, 0)
                       )
-            ttk.Label(frame, text=self._candidate_statistics(decorated, bucket),
-                      wraplength=520, justify="left", foreground="#50545c").grid(
-                          row=first_row + 1, column=0, sticky="w"
-                      )
-            next_row = first_row + 2
+            next_row = first_row + 1
             if decorated.generation_hint_ja:
                 ttk.Label(frame, text=decorated.generation_hint_ja,
                           wraplength=520, justify="left", foreground="#3f536b").grid(
@@ -402,6 +401,11 @@ class Stage7AApp(ttk.Frame):
                               row=next_row, column=0, sticky="w", pady=(0, 4)
                           )
                 next_row += 1
+            ttk.Label(frame, text=self._candidate_statistics(decorated, bucket),
+                      wraplength=520, justify="left", foreground="#50545c").grid(
+                          row=next_row, column=0, sticky="w"
+                      )
+            next_row += 1
             added = candidate.canonical in self.session.manual_auxiliary_canonicals
             ttk.Button(frame, text="追加済み" if added else "＋追加",
                        state="disabled" if added else "normal",
@@ -437,16 +441,16 @@ class Stage7AApp(ttk.Frame):
         grid_row = 1
         for candidate in self.semantic_support_candidates:
             display = self.knowledge.japanese_overlay.display_by_canonical.get(candidate.canonical)
-            display = display or candidate.canonical.replace("_", " ")
             ttk.Label(
                 frame,
-                text=f"{display} / {candidate.canonical}",
+                text=bilingual_tag_label(display, candidate.canonical),
                 wraplength=520,
                 justify="left",
             ).grid(row=grid_row, column=0, sticky="w", pady=(4, 0))
             next_row = grid_row + 1
             for relation in candidate.relations:
-                owner = self.knowledge.special[relation.owner_special_id].term
+                special = self.knowledge.special[relation.owner_special_id]
+                owner = bilingual_tag_label(special.japanese, special.term)
                 slot = SUPPORT_SLOT_LABELS_JA[relation.support_slot]
                 support_class = SUPPORT_CLASS_LABELS_JA[relation.support_class]
                 ttk.Label(
@@ -555,7 +559,8 @@ class Stage7AApp(ttk.Frame):
             chip = ttk.Frame(self.selected_special_frame, padding=(3, 0))
             chip.grid(row=row, column=0, sticky="ew")
             chip.columnconfigure(0, weight=1)
-            ttk.Label(chip, text=f"{special.japanese} / {special.term}", justify="left").grid(
+            ttk.Label(chip, text=f"[選択Special] {bilingual_tag_label(special.japanese, special.term)}",
+                      justify="left").grid(
                 row=0, column=0, sticky="w"
             )
             ttk.Button(chip, text="×", width=3,
@@ -570,7 +575,9 @@ class Stage7AApp(ttk.Frame):
             chip = ttk.Frame(self.auxiliary_frame, padding=(4, 1))
             chip.grid(row=row, column=0, sticky="ew")
             chip.columnconfigure(0, weight=1)
-            ttk.Label(chip, text=display or canonical.replace("_", " ")).grid(row=0, column=0, sticky="w")
+            ttk.Label(chip, text=f"[手動追加] {bilingual_tag_label(display, canonical)}").grid(
+                row=0, column=0, sticky="w"
+            )
             ttk.Button(chip, text="×", width=3,
                        command=lambda tag=canonical: self._remove_auxiliary(tag)).grid(
                 row=0, column=1, sticky="e"
@@ -632,7 +639,7 @@ class Stage7AApp(ttk.Frame):
 
 def create_window(root_path: Path | None = None):
     root = tk.Tk()
-    root.title("DanbooruTagTool — Special-first")
+    root.title("DanbooruTagTool")
     root.geometry("1120x760")
     root.minsize(900, 540)
     app = Stage7AApp(root, root_path=root_path)

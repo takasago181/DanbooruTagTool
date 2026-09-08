@@ -14,6 +14,7 @@ from danbooru_tag_tool.stage7a_session import Stage7ASession
 from danbooru_tag_tool.stage7a_warnings import Stage7AWarningPresenter
 from danbooru_tag_tool.ui import (
     Stage7AApp,
+    bilingual_tag_label,
     create_window,
     set_general_results_visible,
     wire_vertical_scrollbar,
@@ -21,6 +22,36 @@ from danbooru_tag_tool.ui import (
 
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+def test_bilingual_tag_label_uses_explicit_japanese_fallback():
+    assert bilingual_tag_label("日本語", "sample_tag") == "日本語 / sample_tag"
+    assert bilingual_tag_label("", "sample_tag") == "日本語未登録 / sample_tag"
+    assert bilingual_tag_label(None, "sample_tag") == "日本語未登録 / sample_tag"
+    assert bilingual_tag_label("   ", "sample_tag") == "日本語未登録 / sample_tag"
+    assert bilingual_tag_label("  日本語  ", "sample_tag") == "日本語 / sample_tag"
+
+
+def test_issue35_ui_uses_bilingual_identity_and_japanese_first_chrome():
+    source = inspect.getsource(Stage7AApp)
+    assert "bilingual_tag_label(item.japanese, item.original_term)" in source
+    assert "bilingual_tag_label(item.display_japanese, item.canonical)" in source
+    assert "bilingual_tag_label(display, candidate.canonical)" in source
+    assert "owner = bilingual_tag_label(special.japanese, special.term)" in source
+    assert "[選択Special] {bilingual_tag_label(special.japanese, special.term)}" in source
+    assert "[手動追加] {bilingual_tag_label(display, canonical)}" in source
+    assert "text=\"Specialタグ候補\"" in source
+    assert "text=\"選択したSpecialタグ\"" in source
+    assert "text=\"完成Prompt\"" in source
+    assert "text=\"完成Promptをコピー\"" in source
+    assert 'root.title("DanbooruTagTool")' in inspect.getsource(create_window)
+
+
+def test_candidate_rows_render_evidence_before_raw_statistics():
+    source = inspect.getsource(Stage7AApp._render_candidate_rows)
+    assert source.index("decorated.generation_hint_ja") < source.index(
+        "self._candidate_statistics(decorated, bucket)"
+    )
 
 
 @pytest.fixture(scope="module")
