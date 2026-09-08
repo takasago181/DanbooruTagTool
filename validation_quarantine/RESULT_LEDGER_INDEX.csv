@@ -38,3 +38,4 @@ start_sequence,end_sequence,path,rule_version,row_count,status,notes
 721,740,validation_quarantine/results_blocks/0721_0740.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; 5 FIX
 741,760,validation_quarantine/results_blocks/0741_0760.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; 4 FIX / 1 REVIEW
 761,780,validation_quarantine/results_blocks/0761_0780.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; 5 FIX / 6 REVIEW
+781,800,validation_quarantine/results_blocks/0781_0800.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; 6 FIX / 5 REVIEW; Batch8 gate pending sampling
