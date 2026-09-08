@@ -1,0 +1,21 @@
+special_id,tag,original_sequence,original_verdict,new_rule_version,revalidation_verdict,risk_priority,reason,evidence_refs,status,notes
+61,torso grab,61,PASS,R2,PASS,B,"Structured interaction remains conservative; no enabled support row or mandatory actor/spatial override is established.",results_blocks/0061_0080;STAGE_10_KNOWLEDGE_HANDOFF,RESOLVED_R2,
+62,two-footed footjob,62,PASS,R2,PASS,B,"Two-footed qualifier remains Special-owned without extra actor/support inference.",results_blocks/0061_0080;STAGE_10_KNOWLEDGE_HANDOFF,RESOLVED_R2,
+63,two-handed handjob,63,PASS,R2,PASS,B,"Two-handed qualifier remains Special-owned without extra actor/support inference.",results_blocks/0061_0080;STAGE_10_KNOWLEDGE_HANDOFF,RESOLVED_R2,
+64,underwater sex,64,PASS,R2,PASS,B,"Underwater setting remains intrinsic to Special identity; no automatic scene support is asserted.",results_blocks/0061_0080;STAGE_10_KNOWLEDGE_HANDOFF,RESOLVED_R2,
+65,upright 69,65,PASS,R2,PASS,A,"Explicit posture supports POSE_COMPOSITION and PoseRequirement as static structure; Stage10 keeps generation effectiveness separate and no automatic support injection is claimed.",results_blocks/0061_0080;GENERATION_PROFILE_SCHEMA;STAGE_10_KNOWLEDGE_HANDOFF,RESOLVED_R2,"A-priority cross-check complete."
+66,fuck,66,PASS,R2,PASS,A,"ALIAS_PRESERVE is identity policy only; Stage10 keeps canonical/Alias model-response equivalence on HOLD, so no equivalence claim is promoted.",results_blocks/0061_0080;STAGE_10_KNOWLEDGE_HANDOFF,RESOLVED_R2,"A-priority cross-check complete."
+67,fucking,67,PASS,R2,PASS,A,"ALIAS_PRESERVE is identity policy only; Stage10 keeps canonical/Alias model-response equivalence on HOLD, so no equivalence claim is promoted.",results_blocks/0061_0080;STAGE_10_KNOWLEDGE_HANDOFF,RESOLVED_R2,"A-priority cross-check complete."
+68,after buttjob,68,PASS,R2,PASS,B,"UNMAPPED semantic/search handling remains conservative and does not claim direct model recognition.",results_blocks/0061_0080,RESOLVED_R2,
+69,after frottage,69,PASS,R2,PASS,B,"UNMAPPED semantic/search handling remains conservative and does not claim direct model recognition.",results_blocks/0061_0080,RESOLVED_R2,
+70,automatic sex,70,PASS,R2,PASS,B,"Semantic/search-only handling avoids unsupported direct recognition claim.",results_blocks/0061_0080,RESOLVED_R2,
+71,backjob,71,PASS,R2,PASS,B,"UNMAPPED semantic concept remains uncanonicalized and support-only.",results_blocks/0061_0080,RESOLVED_R2,
+72,building sex,72,PASS,R2,PASS,B,"UNMAPPED semantic concept remains uncanonicalized and support-only.",results_blocks/0061_0080,RESOLVED_R2,
+73,navel sex,73,PASS,R2,PASS,B,"Semantic/search-only handling avoids unsupported canonical/model recognition claim.",results_blocks/0061_0080,RESOLVED_R2,
+74,nosejob,74,PASS,R2,PASS,B,"Semantic/search-only handling avoids unsupported canonical/model recognition claim.",results_blocks/0061_0080,RESOLVED_R2,
+75,stealth paizuri,75,PASS,R2,PASS,B,"Concept remains semantic/search-only without direct canonical recognition claim.",results_blocks/0061_0080,RESOLVED_R2,
+76,coitus,76,PASS,R2,PASS,B,"UNMAPPED synonym-like term remains semantic-only; model equivalence with `sex` is not asserted and stays Stage10 HOLD.",results_blocks/0061_0080;STAGE_10_KNOWLEDGE_HANDOFF,RESOLVED_R2,
+77,intercourse,77,PASS,R2,PASS,B,"UNMAPPED synonym-like term remains semantic-only; model equivalence with `sex` is not asserted and stays Stage10 HOLD.",results_blocks/0061_0080;STAGE_10_KNOWLEDGE_HANDOFF,RESOLVED_R2,
+78,jerk off,78,PASS,R2,PASS,B,"Colloquial term remains semantic/search-only without silent canonicalization.",results_blocks/0061_0080,RESOLVED_R2,
+79,jerking off,79,PASS,R2,PASS,B,"Colloquial term remains semantic/search-only without silent canonicalization.",results_blocks/0061_0080,RESOLVED_R2,
+80,penetrative sex,80,PASS,R2,PASS,B,"Broad concept remains semantic/search-only and avoids unsupported direct canonical or generation-response claim.",results_blocks/0061_0080;STAGE_10_KNOWLEDGE_HANDOFF,RESOLVED_R2,
