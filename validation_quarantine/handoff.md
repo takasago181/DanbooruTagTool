@@ -15,12 +15,14 @@ Rule version: R2
 - Last completed Special: ID 100 (`after fellatio`)
 - Batch 1 first-pass: COMPLETE
 - Batch 1 R2 acceptance gate: FAILED
-- Next Special sequence position: 101 (BLOCKED)
-- Full Batch 1 revalidation pending: 100 Special entries
+- Batch 1 R2 revalidation checkpoint: 20 / 100
+- Next Batch 1 revalidation position: 21
+- Next new Special sequence position: 101 (BLOCKED)
+- Revalidation queue remains pending until full Batch 1 gate acceptance: 100 entries
 - Semantic-support frozen target: 58 data rows
 - Semantic-support rows covered: 9
 - Semantic-support IMAGE_TEST_REQUIRED: 6
-- False-PASS found: 1 (S risk)
+- False-PASS found: 1 (S risk; ID88)
 - Production modified: NO
 
 ## Why Batch 1 failed
@@ -28,9 +30,23 @@ During the mandatory semantic-support sidecar audit, ID88 `masturbation` was fou
 
 Under R2 this is an S-risk false-PASS because default-on additive support must receive deep review and the row is `NOT_TESTED`. The original block is not rewritten. `revalidation_results.csv` explicitly supersedes ID88 to `IMAGE_TEST_REQUIRED` pending controlled image A/B.
 
-R2 requires any S/A false-PASS to invalidate the current 100-Special batch. Therefore sequences 1-100 are now queued for full sidecar-aware revalidation, and sequence 101 must not begin until that gate passes.
+R2 requires any S/A false-PASS to invalidate the current 100-Special batch. Therefore sequences 1-100 are undergoing full sidecar-aware revalidation, and sequence 101 must not begin until that gate passes.
 
-## Newly completed direct R2 work
+## R2 revalidation checkpoint 1-20
+Completed and persisted in `revalidation_results.csv`.
+
+- IDs1-15: PASS retained after sidecar-aware R2 screening; no enabled default-on support or new generation-behavior claim requiring escalation.
+- ID16 `cooperative footjob`: IMAGE_TEST_REQUIRED retained. Three CORE_SUPPORT+ADDITIVE rows remain NOT_TESTED for default generation value.
+- ID17 `cooperative handjob`: IMAGE_TEST_REQUIRED retained. Broad parent additive behavior remains a controlled A/B question.
+- ID18 `crotch grab`: PASS retained; no enabled sidecar and no unsupported actor/bodypart promotion.
+- ID19 `cuddling handjob`: IMAGE_TEST_REQUIRED retained because broad parent addition may dilute compound relation emphasis.
+- ID20 `double footjob`: A-priority PASS retained after Stage10 knowledge cross-check. Meaning can reflect two feet without necessarily requiring two actors; conservative non-promotion of multi-actor separation remains appropriate.
+- New false-PASS in 1-20: 0.
+- New FIX/REVIEW findings in 1-20: 0.
+- Candidate-fix ledger unchanged.
+- Queue entries intentionally remain pending until the full 1-100 R2 revalidation gate is accepted, preventing partial closure from being mistaken for batch acceptance.
+
+## Direct R2 first-pass work already completed
 Sequences 61-80:
 - 20 PASS after R2 screening.
 - ID65 pose structure deep-reviewed and retained without automatic support injection.
@@ -39,8 +55,8 @@ Sequences 61-80:
 
 Sequences 81-100:
 - Initial checkpoint: 18 PASS, 2 FIX.
-- New FIX ID92 `pillow humping` -> `ImplementRequirementOverride=true`.
-- New FIX ID94 `table humping` -> `ImplementRequirementOverride=true`.
+- FIX ID92 `pillow humping` -> `ImplementRequirementOverride=true`.
+- FIX ID94 `table humping` -> `ImplementRequirementOverride=true`.
 - ID88 initial PASS is superseded after sidecar audit; effective state is IMAGE_TEST_REQUIRED.
 
 ## Semantic-support coverage completed so far
@@ -52,7 +68,7 @@ Frozen data rows 1-9 have explicit records in `semantic_support_results.csv`:
 - ID88 optional pose alternatives `sitting`, `on_back`, `kneeling` -> static PASS as optional alternatives; no generation-benefit claim
 
 ## Historical findings preserved
-- IDs16,17,19: IMAGE_TEST_REQUIRED
+- IDs16,17,19,88: IMAGE_TEST_REQUIRED
 - IDs22,40,55: REVIEW
 - IDs34,36: ActorRequirement FIX candidates
 - ID49: pose/composition FIX candidate
@@ -68,7 +84,7 @@ Frozen data rows 1-9 have explicit records in `semantic_support_results.csv`:
 - S/A and generation-behavior claims require knowledge/PROMPT cross-check.
 - Image-dependent uncertainty is not guessed PASS.
 - Any S/A false-PASS invalidates the current 100-Special batch.
-- Historical blocks remain immutable; corrections use explicit revalidation records.
+- Historical result blocks remain immutable; corrections/revalidation use explicit `revalidation_results.csv` records.
 
 ## Durable ledgers
 - `RESULT_LEDGER_INDEX.csv` + `results_blocks/`
@@ -81,10 +97,11 @@ Frozen data rows 1-9 have explicit records in `semantic_support_results.csv`:
 
 ## Exact restart
 1. Read Issue #32 and all durable ledgers.
-2. Confirm Batch 1 R2 gate is FAILED because of ID88 S-risk false-PASS.
-3. Revalidate sequences 1-100 under full sidecar-aware R2, preserving historical records and using explicit supersession records where needed.
-4. Re-run deterministic PASS false-PASS sampling only after full-batch revalidation stabilizes.
-5. Do not process sequence 101 until the Batch 1 gate passes.
+2. Confirm Batch 1 R2 gate remains FAILED because of ID88 S-risk false-PASS.
+3. Resume full Batch 1 R2 revalidation at sequence 21.
+4. Do not mark the 100 queue entries resolved until the complete 1-100 revalidation gate is accepted.
+5. Re-run deterministic PASS false-PASS sampling only after full-batch revalidation stabilizes.
+6. Do not process sequence 101 until the Batch 1 gate passes.
 
 ## Automation safety
 Do not run scheduled and manual GitHub writes concurrently.
