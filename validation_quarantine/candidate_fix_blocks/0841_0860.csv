@@ -1,0 +1,6 @@
+special_id,tag,field,current_value,proposed_value,rule_version,risk_priority,evidence_refs,reason,status,notes
+842,sex toy pull,ImplementRequirementOverride,,true,R2,A,generation_profile;generation_profile:IDs822,824;generation_family_rules,"A sex toy is intrinsic to the named action while ACTION_INTERACTION leaves implement need unasserted.",QUARANTINED_CANDIDATE,Structural implement only.
+844,panties on penis,BodypartRequirementOverride,,true,R2,A,generation_profile;generation_profile:IDs801,806,815;generation_family_rules,"Penis is an intrinsic bodypart participant.",QUARANTINED_CANDIDATE,
+844,panties on penis,SpatialAssignmentOverride,,true,R2,A,generation_profile;generation_profile:IDs801,806,815;generation_family_rules,"The on-target relation is intrinsic.",QUARANTINED_CANDIDATE,Do not infer implement requirement for clothing.
+850,cum in panties,SpatialAssignmentOverride,,true,R2,A,generation_profile;generation_profile:IDs469,801;generation_family_rules,"Containment in panties is intrinsic to the canonical.",QUARANTINED_CANDIDATE,
+851,foreskin pull,BodypartRequirementOverride,,true,R2,A,generation_profile;generation_profile:IDs803,818;generation_family_rules,"Foreskin is the explicit action target.",QUARANTINED_CANDIDATE,
