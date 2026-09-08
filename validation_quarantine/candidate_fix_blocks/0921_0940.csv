@@ -1,0 +1,6 @@
+special_id,tag,field,current_value,proposed_value,rule_version,risk_priority,evidence_refs,reason,status,notes
+921,padlocked chastity cage,ImplementRequirementOverride,,true,R2,A,generation_profile;generation_profile:IDs856,882;generation_family_rules,"The chastity device is the intrinsic restraint implement.",QUARANTINED_CANDIDATE,
+925,cum in bowl,ImplementRequirementOverride,,true,R2,A,generation_profile;generation_profile:IDs850,905;generation_family_rules,"A bowl is the intrinsic receptacle object.",QUARANTINED_CANDIDATE,
+925,cum in bowl,SpatialAssignmentOverride,,true,R2,A,generation_profile;generation_profile:IDs850,905;generation_family_rules,"Containment in the bowl is intrinsic.",QUARANTINED_CANDIDATE,
+928,hands on penis,BodypartRequirementOverride,,true,R2,A,generation_profile;generation_profile:IDs806,815,899;generation_family_rules,"Hands and penis are intrinsic bodypart participants; spatial=true already exists.",QUARANTINED_CANDIDATE,
+929,nub chastity cage,ImplementRequirementOverride,,true,R2,A,generation_profile;generation_profile:IDs882,921;generation_family_rules,"The chastity device is the intrinsic restraint implement.",QUARANTINED_CANDIDATE,
