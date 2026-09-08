@@ -17,6 +17,19 @@ Special2788の機能を実画像A/B比較で検証する。
 - unit/regression test PASSだけで実アプリ動作PASSとは扱わない。Issue #28 automated E2E functional testはPASS済み。
 - Stage10比較自動化はexternal / existing tool firstとし、既存Forge Neo機能・既存拡張・外部OSSで満たせる範囲を先に使う。不足箇所だけ薄いglue/harnessを追加する。
 
+## Issue #6 comparison environment completion
+
+Issue #6: **PASS_WITH_NOTE / completed**。
+
+- Multi Prompt Slots fixed SHA: `b3f45b17e5a24a20b4fa04edac74e6a4fec23dfe`
+- Forge Neo Infinite Image Browsing fixed SHA: `ced039479c2e1463c9bdb136d355e01b3dfc9279`
+- fixed-seed A/B (Seed 5072): PASS
+- generated-image Prompt/PNG metadata traceability: PASS
+- existing baseline regular-generation regression: PASS
+- audit commit: `472a219058771fe117b87d62c9d53d5402b8cff9`
+- notes: extension-namespaced `ui-config.json` persistence and the approved IIB commit's declared `imageio-ffmpeg` missing-dependency bootstrap are retained as standard installation side effects; unrelated updates were not performed.
+- evidence: `docs/testing/ISSUE6_COMPLETION_CHECKPOINT_20260908.md`, `docs/testing/ISSUE6_EXTENSION_INSTALL_AND_VERIFICATION_20260908.md`, `docs/testing/ISSUE6_EXTENSION_AUDIT_20260908.md`
+
 ## Stage9 → Stage10 Gate
 
 Stage9は完了済み。
@@ -86,15 +99,15 @@ Issue #6は比較環境の導入・基礎動作確認、Issue #30はその上で
 - [x] Stage9全体Gate完了
 - [x] Automated E2E functional test PASS（Issue #28）
 - [ ] Stage10正式handoff
-- [ ] Forge Neo比較環境導入・動作確認（Issue #6）
+- [x] Forge Neo比較環境導入・動作確認（Issue #6） — PASS_WITH_NOTE / completed
 - [ ] Forge Neo A/B automation external-tool-first dry run（Issue #30）
-- [ ] Multi Prompt Slots等の比較手段確認
+- [x] Multi Prompt Slots等の比較手段確認（Issue #6）
 - [ ] テストPrompt班へ正式Specialデータ提供（Issue #5）
 - [ ] A/Bの固定条件定義
-- [ ] metadata保存方法定義
+- [x] metadata保存方法定義（Issue #6 baseline / handoff）
 - [x] #4 KNOWLEDGEのStage10知識整理結果を正式handoffへ反映
 - [ ] model familyごとのPrompt grammar差を保持し、未検証共通化をしていない
-- [ ] 実際に使ったPromptを各画像/結果へ追跡できる
+- [x] 実際に使ったPromptを各画像/結果へ追跡できる（Issue #6 baseline / handoff）
 - [ ] REVIEW対象だけを人間が確認できる自動化運用をdry runで確認
 
 Knowledge handoff正本: `docs/stages/STAGE_10_KNOWLEDGE_HANDOFF.md`
@@ -102,6 +115,6 @@ Knowledge handoff正本: `docs/stages/STAGE_10_KNOWLEDGE_HANDOFF.md`
 ## 現在地
 
 Stage10本番A/Bは**未開始**。
-Issue #28 automated E2EはPASS済み。現在は #5 PROMPT / #6 Forge Neo TEMP / #30 A/B automation TEMPの残項目を準備・完了する段階。Issue #4 KNOWLEDGEはStage10開始前調査を完了しhandoff済み。
+Issue #28 automated E2EはPASS済み。Issue #6 Forge Neo比較環境はPASS_WITH_NOTEで完了し、現在は #5 PROMPT / #30 A/B automation TEMPの残項目を準備・完了する段階。Issue #4 KNOWLEDGEはStage10開始前調査を完了しhandoff済み。
 
 このchecklistを満たす前にStage10本番画像A/Bを正式開始しない。
