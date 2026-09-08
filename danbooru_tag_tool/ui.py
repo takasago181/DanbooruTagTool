@@ -498,16 +498,22 @@ class Stage7AApp(ttk.Frame):
         if result.status == "ready" and set(result.core_canonicals) != set(
                 self.session.statistics_core_canonicals() or ()):
             return
+        if result.status not in {"ready", "empty", "unavailable", "error"}:
+            return
+        try:
+            self.session.set_candidate_buckets(
+                self.stage8a_semantics.decorate_many(
+                    result.common, core_canonicals=result.core_canonicals, bucket="common"
+                ) if result.status == "ready" else (),
+                self.stage8a_semantics.decorate_many(
+                    result.rare, core_canonicals=result.core_canonicals, bucket="rare"
+                ) if result.status == "ready" else (),
+                snapshot_id=getattr(self, "statistics_snapshot_id", None),
+            )
+        except (KeyError, ValueError):
+            # Reject invalid payloads without replacing the last valid UI state.
+            return
         self.recommendation_result = result
-        self.session.set_candidate_buckets(
-            self.stage8a_semantics.decorate_many(
-                result.common, core_canonicals=result.core_canonicals, bucket="common"
-            ) if result.status == "ready" else (),
-            self.stage8a_semantics.decorate_many(
-                result.rare, core_canonicals=result.core_canonicals, bucket="rare"
-            ) if result.status == "ready" else (),
-            snapshot_id=getattr(self, "statistics_snapshot_id", None),
-        )
         self._refresh_state()
         if not self.session.selected_special_ids:
             self.recommendation_box.grid_remove()

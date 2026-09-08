@@ -1,0 +1,4670 @@
+{
+  "schema_version": 1,
+  "issue": 28,
+  "verdict": "PASS",
+  "pytest_exit_code": 0,
+  "environment": {
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+    "utc": "2026-09-07T22:11:09.421662+00:00",
+    "command": [
+      "C:\\Users\\takas\\AppData\\Local\\Python\\pythoncore-3.12-64\\python.exe",
+      "-m",
+      "pytest",
+      "-q",
+      "tests/test_e2e_functional.py",
+      "tests/test_e2e_verdict.py",
+      "tests/test_stage9c_session.py",
+      "--e2e-report",
+      "docs/testing/issue28_focused.json",
+      "--basetemp",
+      ".pytest-issue28-focused-final2"
+    ],
+    "commit": "fcf7b217d4270f43747cb7259aa80153e90ae45d",
+    "working_tree": "?? docs/testing/issue28_focused.json\n?? docs/testing/issue28_focused.md\n?? docs/testing/issue28_full.json\n?? docs/testing/issue28_full.md",
+    "scope": "local protected-data environment; withdrawn real Tk; no mocks",
+    "tested_file_sha256": {
+      "conftest.py": "d83bb2e5f7855dfc3764cd7566a980c3380997d1115fe3d48dcca3691ec8a417",
+      "tools/e2e_verdict.py": "3279b42bc8a5eca6870ca50343bc85952b60f0d9cf2605814b6b58ab46d4563a",
+      "tests/test_e2e_functional.py": "2aec4251cd4c643fd2f60dd375a54dcd3eb6ac7c0b5d9ab7017d5f796c8faf59",
+      "danbooru_tag_tool/ui.py": "cb7fa90dceff84c41d895a0744bdade3da5343c5aaa5dbb5a13db486cecd6258",
+      "danbooru_tag_tool/stage9c_session.py": "a00bdef68ebaf5800ca391437e4f627bd860f589bf85154741daecefa1239f0f",
+      "danbooru_tag_tool/stage9b_runtime.py": "49c8cbf45297e1f6cc95f8f073a11e63527732f95747565edd121ce2cfc4ea48",
+      "danbooru_tag_tool/prompt_composer.py": "151904e9a627db5a47eff0de81df261b93bdebc7959903d6a2e6136a34dc1fbb"
+    }
+  },
+  "required": [
+    "tests/test_e2e_functional.py::test_real_tk_search_candidates_and_output",
+    "tests/test_e2e_functional.py::test_real_tk_variant_restoration",
+    "tests/test_e2e_functional.py::test_real_tk_stale_and_invalid_protection"
+  ],
+  "unexecuted_or_unsuccessful": [],
+  "call_counts": {
+    "passed": 31
+  },
+  "reports": [
+    {
+      "nodeid": "tests/test_e2e_functional.py::test_real_tk_search_candidates_and_output",
+      "when": "setup",
+      "outcome": "passed",
+      "duration": 1.2840540000033798,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_e2e_functional.py::test_real_tk_search_candidates_and_output",
+      "when": "call",
+      "outcome": "passed",
+      "duration": 1.4203589999960968,
+      "detail": "",
+      "evidence": {
+        "tk": "8.6.15",
+        "snapshot_id": "nyanko-devs/danbooru2026@ebb02a630201c7b51487e45fb90b3fcf4cbedc20:metadata/posts-snapshot.parquet",
+        "bucket_counts": {
+          "common": 8,
+          "rare": 5
+        },
+        "output": {
+          "plan": {
+            "selected_special_ids": [
+              "1816"
+            ],
+            "candidate_atoms": [
+              {
+                "atom_id": "special:1816",
+                "text": "blindfold",
+                "canonical": null,
+                "block": "SPECIAL",
+                "source_lanes": [
+                  "SPECIAL"
+                ],
+                "selected": true,
+                "user_override": "DEFAULT",
+                "special_owners": [
+                  "1816"
+                ],
+                "support_relations": [],
+                "provenance": [
+                  "special:1816"
+                ],
+                "weight": null,
+                "reason": "selected Special identity",
+                "merged_into": null,
+                "evidence": []
+              },
+              {
+                "atom_id": "input:semantic_aux:white_hair",
+                "text": "white hair",
+                "canonical": "white_hair",
+                "block": "GENERAL_AUX",
+                "source_lanes": [
+                  "SEMANTIC_AUX"
+                ],
+                "selected": false,
+                "user_override": "EXCLUDE",
+                "special_owners": [],
+                "support_relations": [],
+                "provenance": [
+                  "input:semantic_aux:white_hair",
+                  "stage8a_semantics",
+                  "semantic_role:UNCLASSIFIED"
+                ],
+                "weight": null,
+                "reason": "semantic/search auxiliary from approved role: UNCLASSIFIED",
+                "merged_into": null,
+                "evidence": [
+                  [
+                    "base_count",
+                    27518
+                  ],
+                  [
+                    "co_count",
+                    8799
+                  ],
+                  [
+                    "conditional_rate",
+                    0.31975434261210844
+                  ],
+                  [
+                    "runtime_global_count",
+                    971042
+                  ],
+                  [
+                    "global_rate",
+                    0.08655826938014659
+                  ],
+                  [
+                    "raw_lift",
+                    3.6940935268450366
+                  ],
+                  [
+                    "wilson_lower_bound",
+                    0.31426945803627654
+                  ],
+                  [
+                    "shrunk_lift",
+                    3.6921368898148637
+                  ],
+                  [
+                    "semantic_role",
+                    "UNCLASSIFIED"
+                  ]
+                ]
+              },
+              {
+                "atom_id": "input:semantic_aux:thighhighs",
+                "text": "thighhighs",
+                "canonical": "thighhighs",
+                "block": "GENERAL_AUX",
+                "source_lanes": [
+                  "SEMANTIC_AUX"
+                ],
+                "selected": false,
+                "user_override": "EXCLUDE",
+                "special_owners": [],
+                "support_relations": [],
+                "provenance": [
+                  "input:semantic_aux:thighhighs",
+                  "stage8a_semantics",
+                  "semantic_role:UNCLASSIFIED"
+                ],
+                "weight": null,
+                "reason": "semantic/search auxiliary from approved role: UNCLASSIFIED",
+                "merged_into": null,
+                "evidence": [
+                  [
+                    "base_count",
+                    27518
+                  ],
+                  [
+                    "co_count",
+                    9382
+                  ],
+                  [
+                    "conditional_rate",
+                    0.3409404753252417
+                  ],
+                  [
+                    "runtime_global_count",
+                    1430723
+                  ],
+                  [
+                    "global_rate",
+                    0.12753403750030531
+                  ],
+                  [
+                    "raw_lift",
+                    2.673329269642432
+                  ],
+                  [
+                    "wilson_lower_bound",
+                    0.3353623370528594
+                  ],
+                  [
+                    "shrunk_lift",
+                    2.6721139822071476
+                  ],
+                  [
+                    "semantic_role",
+                    "UNCLASSIFIED"
+                  ]
+                ]
+              },
+              {
+                "atom_id": "input:semantic_aux:covered_eyes",
+                "text": "covered eyes",
+                "canonical": "covered_eyes",
+                "block": "GENERAL_AUX",
+                "source_lanes": [
+                  "SEMANTIC_AUX"
+                ],
+                "selected": false,
+                "user_override": "EXCLUDE",
+                "special_owners": [],
+                "support_relations": [],
+                "provenance": [
+                  "input:semantic_aux:covered_eyes",
+                  "stage8a_semantics",
+                  "semantic_role:UNCLASSIFIED"
+                ],
+                "weight": null,
+                "reason": "semantic/search auxiliary from approved role: UNCLASSIFIED",
+                "merged_into": null,
+                "evidence": [
+                  [
+                    "base_count",
+                    27518
+                  ],
+                  [
+                    "co_count",
+                    9746
+                  ],
+                  [
+                    "conditional_rate",
+                    0.354168180827095
+                  ],
+                  [
+                    "runtime_global_count",
+                    25360
+                  ],
+                  [
+                    "global_rate",
+                    0.0022605795748078016
+                  ],
+                  [
+                    "raw_lift",
+                    156.67140620661718
+                  ],
+                  [
+                    "wilson_lower_bound",
+                    0.3485381688560682
+                  ],
+                  [
+                    "shrunk_lift",
+                    156.5583468659195
+                  ],
+                  [
+                    "semantic_role",
+                    "UNCLASSIFIED"
+                  ]
+                ]
+              },
+              {
+                "atom_id": "input:semantic_aux:short_hair",
+                "text": "short hair",
+                "canonical": "short_hair",
+                "block": "GENERAL_AUX",
+                "source_lanes": [
+                  "SEMANTIC_AUX"
+                ],
+                "selected": false,
+                "user_override": "EXCLUDE",
+                "special_owners": [],
+                "support_relations": [],
+                "provenance": [
+                  "input:semantic_aux:short_hair",
+                  "stage8a_semantics",
+                  "semantic_role:UNCLASSIFIED"
+                ],
+                "weight": null,
+                "reason": "semantic/search auxiliary from approved role: UNCLASSIFIED",
+                "merged_into": null,
+                "evidence": [
+                  [
+                    "base_count",
+                    27518
+                  ],
+                  [
+                    "co_count",
+                    11540
+                  ],
+                  [
+                    "conditional_rate",
+                    0.41936187222908644
+                  ],
+                  [
+                    "runtime_global_count",
+                    2926954
+                  ],
+                  [
+                    "global_rate",
+                    0.2609074301578074
+                  ],
+                  [
+                    "raw_lift",
+                    1.607320542674616
+                  ],
+                  [
+                    "wilson_lower_bound",
+                    0.41354327728853557
+                  ],
+                  [
+                    "shrunk_lift",
+                    1.6068794644970619
+                  ],
+                  [
+                    "semantic_role",
+                    "UNCLASSIFIED"
+                  ]
+                ]
+              },
+              {
+                "atom_id": "input:semantic_aux:long_hair",
+                "text": "long hair",
+                "canonical": "long_hair",
+                "block": "GENERAL_AUX",
+                "source_lanes": [
+                  "SEMANTIC_AUX"
+                ],
+                "selected": false,
+                "user_override": "EXCLUDE",
+                "special_owners": [],
+                "support_relations": [],
+                "provenance": [
+                  "input:semantic_aux:long_hair",
+                  "stage8a_semantics",
+                  "semantic_role:UNCLASSIFIED"
+                ],
+                "weight": null,
+                "reason": "semantic/search auxiliary from approved role: UNCLASSIFIED",
+                "merged_into": null,
+                "evidence": [
+                  [
+                    "base_count",
+                    27518
+                  ],
+                  [
+                    "co_count",
+                    11818
+                  ],
+                  [
+                    "conditional_rate",
+                    0.4294643506068755
+                  ],
+                  [
+                    "runtime_global_count",
+                    5790640
+                  ],
+                  [
+                    "global_rate",
+                    0.5161751778022495
+                  ],
+                  [
+                    "raw_lift",
+                    0.8320127915399419
+                  ],
+                  [
+                    "wilson_lower_bound",
+                    0.4236260941939512
+                  ],
+                  [
+                    "shrunk_lift",
+                    0.8321347954679396
+                  ],
+                  [
+                    "semantic_role",
+                    "UNCLASSIFIED"
+                  ]
+                ]
+              },
+              {
+                "atom_id": "input:semantic_aux:solo",
+                "text": "solo",
+                "canonical": "solo",
+                "block": "SUPPORT_STRUCTURE",
+                "source_lanes": [
+                  "SEMANTIC_AUX"
+                ],
+                "selected": false,
+                "user_override": "EXCLUDE",
+                "special_owners": [],
+                "support_relations": [],
+                "provenance": [
+                  "input:semantic_aux:solo",
+                  "stage8a_semantics",
+                  "semantic_role:SUBJECT_BASIC",
+                  "semantic_label:人物・人数"
+                ],
+                "weight": null,
+                "reason": "semantic/search auxiliary from approved role: SUBJECT_BASIC",
+                "merged_into": null,
+                "evidence": [
+                  [
+                    "base_count",
+                    27518
+                  ],
+                  [
+                    "co_count",
+                    12231
+                  ],
+                  [
+                    "conditional_rate",
+                    0.4444727087724399
+                  ],
+                  [
+                    "runtime_global_count",
+                    6583146
+                  ],
+                  [
+                    "global_rate",
+                    0.5868188243524322
+                  ],
+                  [
+                    "raw_lift",
+                    0.7574274892475128
+                  ],
+                  [
+                    "wilson_lower_bound",
+                    0.4386098256077717
+                  ],
+                  [
+                    "shrunk_lift",
+                    0.7576036621800077
+                  ],
+                  [
+                    "semantic_role",
+                    "SUBJECT_BASIC"
+                  ],
+                  [
+                    "generation_hint_kind",
+                    "CORE_BASIS"
+                  ]
+                ]
+              },
+              {
+                "atom_id": "input:semantic_aux:breasts",
+                "text": "breasts",
+                "canonical": "breasts",
+                "block": "SUPPORT_STRUCTURE",
+                "source_lanes": [
+                  "SEMANTIC_AUX"
+                ],
+                "selected": true,
+                "user_override": "INCLUDE",
+                "special_owners": [],
+                "support_relations": [],
+                "provenance": [
+                  "input:semantic_aux:breasts",
+                  "stage8a_semantics",
+                  "semantic_role:BODY_PART",
+                  "semantic_label:身体部位"
+                ],
+                "weight": null,
+                "reason": "user explicit choice",
+                "merged_into": null,
+                "evidence": [
+                  [
+                    "base_count",
+                    27518
+                  ],
+                  [
+                    "co_count",
+                    16699
+                  ],
+                  [
+                    "conditional_rate",
+                    0.6068391598226616
+                  ],
+                  [
+                    "runtime_global_count",
+                    4542658
+                  ],
+                  [
+                    "global_rate",
+                    0.40493059503695816
+                  ],
+                  [
+                    "raw_lift",
+                    1.4986251156627846
+                  ],
+                  [
+                    "wilson_lower_bound",
+                    0.6010534912163065
+                  ],
+                  [
+                    "shrunk_lift",
+                    1.4982629796211964
+                  ],
+                  [
+                    "semantic_role",
+                    "BODY_PART"
+                  ],
+                  [
+                    "generation_hint_kind",
+                    "BODY_TARGET"
+                  ]
+                ]
+              },
+              {
+                "atom_id": "input:semantic_aux:1girl",
+                "text": "1girl",
+                "canonical": "1girl",
+                "block": "SUPPORT_STRUCTURE",
+                "source_lanes": [
+                  "SEMANTIC_AUX"
+                ],
+                "selected": false,
+                "user_override": "EXCLUDE",
+                "special_owners": [],
+                "support_relations": [],
+                "provenance": [
+                  "input:semantic_aux:1girl",
+                  "stage8a_semantics",
+                  "semantic_role:SUBJECT_BASIC",
+                  "semantic_label:人物・人数"
+                ],
+                "weight": null,
+                "reason": "semantic/search auxiliary from approved role: SUBJECT_BASIC",
+                "merged_into": null,
+                "evidence": [
+                  [
+                    "base_count",
+                    27518
+                  ],
+                  [
+                    "co_count",
+                    18175
+                  ],
+                  [
+                    "conditional_rate",
+                    0.6604767788356712
+                  ],
+                  [
+                    "runtime_global_count",
+                    7773799
+                  ],
+                  [
+                    "global_rate",
+                    0.6929531245292316
+                  ],
+                  [
+                    "raw_lift",
+                    0.95313341618075
+                  ],
+                  [
+                    "wilson_lower_bound",
+                    0.6548596856248893
+                  ],
+                  [
+                    "shrunk_lift",
+                    0.9531674539349944
+                  ],
+                  [
+                    "semantic_role",
+                    "SUBJECT_BASIC"
+                  ],
+                  [
+                    "generation_hint_kind",
+                    "CORE_BASIS"
+                  ]
+                ]
+              },
+              {
+                "atom_id": "input:semantic_aux:sensory_deprivation",
+                "text": "sensory deprivation",
+                "canonical": "sensory_deprivation",
+                "block": "GENERAL_AUX",
+                "source_lanes": [
+                  "SEMANTIC_AUX"
+                ],
+                "selected": false,
+                "user_override": "EXCLUDE",
+                "special_owners": [],
+                "support_relations": [],
+                "provenance": [
+                  "input:semantic_aux:sensory_deprivation",
+                  "stage8a_semantics",
+                  "semantic_role:UNCLASSIFIED"
+                ],
+                "weight": null,
+                "reason": "semantic/search auxiliary from approved role: UNCLASSIFIED",
+                "merged_into": null,
+                "evidence": [
+                  [
+                    "base_count",
+                    27518
+                  ],
+                  [
+                    "co_count",
+                    109
+                  ],
+                  [
+                    "conditional_rate",
+                    0.0039610436805000366
+                  ],
+                  [
+                    "runtime_global_count",
+                    123
+                  ],
+                  [
+                    "global_rate",
+                    1.0964167496110394e-05
+                  ],
+                  [
+                    "raw_lift",
+                    361.27172281025815
+                  ],
+                  [
+                    "wilson_lower_bound",
+                    0.0032849744670530746
+                  ],
+                  [
+                    "shrunk_lift",
+                    361.01006857043654
+                  ],
+                  [
+                    "semantic_role",
+                    "UNCLASSIFIED"
+                  ],
+                  [
+                    "evidence_note_kind",
+                    "DISCOVERY_CANDIDATE"
+                  ]
+                ]
+              },
+              {
+                "atom_id": "input:semantic_aux:tape_blindfold",
+                "text": "tape blindfold",
+                "canonical": "tape_blindfold",
+                "block": "GENERAL_AUX",
+                "source_lanes": [
+                  "SEMANTIC_AUX"
+                ],
+                "selected": false,
+                "user_override": "EXCLUDE",
+                "special_owners": [],
+                "support_relations": [],
+                "provenance": [
+                  "input:semantic_aux:tape_blindfold",
+                  "stage8a_semantics",
+                  "semantic_role:UNCLASSIFIED"
+                ],
+                "weight": null,
+                "reason": "semantic/search auxiliary from approved role: UNCLASSIFIED",
+                "merged_into": null,
+                "evidence": [
+                  [
+                    "base_count",
+                    27518
+                  ],
+                  [
+                    "co_count",
+                    65
+                  ],
+                  [
+                    "conditional_rate",
+                    0.0023620902681880953
+                  ],
+                  [
+                    "runtime_global_count",
+                    72
+                  ],
+                  [
+                    "global_rate",
+                    6.418049266015841e-06
+                  ],
+                  [
+                    "raw_lift",
+                    368.0386625723769
+                  ],
+                  [
+                    "wilson_lower_bound",
+                    0.0018538449043585296
+                  ],
+                  [
+                    "shrunk_lift",
+                    367.77209371293
+                  ],
+                  [
+                    "semantic_role",
+                    "UNCLASSIFIED"
+                  ],
+                  [
+                    "evidence_note_kind",
+                    "DISCOVERY_CANDIDATE"
+                  ]
+                ]
+              },
+              {
+                "atom_id": "input:semantic_aux:blindfold_slip",
+                "text": "blindfold slip",
+                "canonical": "blindfold_slip",
+                "block": "GENERAL_AUX",
+                "source_lanes": [
+                  "SEMANTIC_AUX"
+                ],
+                "selected": false,
+                "user_override": "EXCLUDE",
+                "special_owners": [],
+                "support_relations": [],
+                "provenance": [
+                  "input:semantic_aux:blindfold_slip",
+                  "stage8a_semantics",
+                  "semantic_role:UNCLASSIFIED"
+                ],
+                "weight": null,
+                "reason": "semantic/search auxiliary from approved role: UNCLASSIFIED",
+                "merged_into": null,
+                "evidence": [
+                  [
+                    "base_count",
+                    27518
+                  ],
+                  [
+                    "co_count",
+                    171
+                  ],
+                  [
+                    "conditional_rate",
+                    0.006214114397848681
+                  ],
+                  [
+                    "runtime_global_count",
+                    171
+                  ],
+                  [
+                    "global_rate",
+                    1.5242867006787621e-05
+                  ],
+                  [
+                    "raw_lift",
+                    407.6735954647867
+                  ],
+                  [
+                    "wilson_lower_bound",
+                    0.005352059693867998
+                  ],
+                  [
+                    "shrunk_lift",
+                    407.37824097610576
+                  ],
+                  [
+                    "semantic_role",
+                    "UNCLASSIFIED"
+                  ],
+                  [
+                    "evidence_note_kind",
+                    "DISCOVERY_CANDIDATE"
+                  ]
+                ]
+              },
+              {
+                "atom_id": "input:semantic_aux:blindfold_lift",
+                "text": "blindfold lift",
+                "canonical": "blindfold_lift",
+                "block": "GENERAL_AUX",
+                "source_lanes": [
+                  "SEMANTIC_AUX"
+                ],
+                "selected": false,
+                "user_override": "EXCLUDE",
+                "special_owners": [],
+                "support_relations": [],
+                "provenance": [
+                  "input:semantic_aux:blindfold_lift",
+                  "stage8a_semantics",
+                  "semantic_role:UNCLASSIFIED"
+                ],
+                "weight": null,
+                "reason": "semantic/search auxiliary from approved role: UNCLASSIFIED",
+                "merged_into": null,
+                "evidence": [
+                  [
+                    "base_count",
+                    27518
+                  ],
+                  [
+                    "co_count",
+                    481
+                  ],
+                  [
+                    "conditional_rate",
+                    0.017479467984591903
+                  ],
+                  [
+                    "runtime_global_count",
+                    481
+                  ],
+                  [
+                    "global_rate",
+                    4.287613467991138e-05
+                  ],
+                  [
+                    "raw_lift",
+                    407.6735954647867
+                  ],
+                  [
+                    "wilson_lower_bound",
+                    0.01599709200160156
+                  ],
+                  [
+                    "shrunk_lift",
+                    407.37824097610576
+                  ],
+                  [
+                    "semantic_role",
+                    "UNCLASSIFIED"
+                  ],
+                  [
+                    "evidence_note_kind",
+                    "DISCOVERY_CANDIDATE"
+                  ]
+                ]
+              },
+              {
+                "atom_id": "input:semantic_aux:colored_blindfold",
+                "text": "colored blindfold",
+                "canonical": "colored_blindfold",
+                "block": "GENERAL_AUX",
+                "source_lanes": [
+                  "SEMANTIC_AUX"
+                ],
+                "selected": false,
+                "user_override": "EXCLUDE",
+                "special_owners": [],
+                "support_relations": [],
+                "provenance": [
+                  "input:semantic_aux:colored_blindfold",
+                  "stage8a_semantics",
+                  "semantic_role:UNCLASSIFIED"
+                ],
+                "weight": null,
+                "reason": "semantic/search auxiliary from approved role: UNCLASSIFIED",
+                "merged_into": null,
+                "evidence": [
+                  [
+                    "base_count",
+                    27518
+                  ],
+                  [
+                    "co_count",
+                    950
+                  ],
+                  [
+                    "conditional_rate",
+                    0.034522857765826004
+                  ],
+                  [
+                    "runtime_global_count",
+                    950
+                  ],
+                  [
+                    "global_rate",
+                    8.468259448215346e-05
+                  ],
+                  [
+                    "raw_lift",
+                    407.6735954647867
+                  ],
+                  [
+                    "wilson_lower_bound",
+                    0.03242993169741689
+                  ],
+                  [
+                    "shrunk_lift",
+                    407.37824097610576
+                  ],
+                  [
+                    "semantic_role",
+                    "UNCLASSIFIED"
+                  ],
+                  [
+                    "evidence_note_kind",
+                    "DISCOVERY_CANDIDATE"
+                  ]
+                ]
+              },
+              {
+                "atom_id": "input:cooccurrence:white_hair",
+                "text": "white hair",
+                "canonical": "white_hair",
+                "block": "GENERAL_AUX",
+                "source_lanes": [
+                  "COOCCURRENCE"
+                ],
+                "selected": false,
+                "user_override": "EXCLUDE",
+                "special_owners": [],
+                "support_relations": [],
+                "provenance": [
+                  "input:cooccurrence:white_hair",
+                  "stage6_true_and_cooccurrence"
+                ],
+                "weight": null,
+                "reason": "true-AND co-occurrence suggestion; user choice required",
+                "merged_into": null,
+                "evidence": [
+                  [
+                    "base_count",
+                    27518
+                  ],
+                  [
+                    "co_count",
+                    8799
+                  ],
+                  [
+                    "conditional_rate",
+                    0.31975434261210844
+                  ],
+                  [
+                    "runtime_global_count",
+                    971042
+                  ],
+                  [
+                    "global_rate",
+                    0.08655826938014659
+                  ],
+                  [
+                    "raw_lift",
+                    3.6940935268450366
+                  ],
+                  [
+                    "wilson_lower_bound",
+                    0.31426945803627654
+                  ],
+                  [
+                    "shrunk_lift",
+                    3.6921368898148637
+                  ],
+                  [
+                    "snapshot_id",
+                    "nyanko-devs/danbooru2026@ebb02a630201c7b51487e45fb90b3fcf4cbedc20:metadata/posts-snapshot.parquet"
+                  ]
+                ]
+              },
+              {
+                "atom_id": "input:cooccurrence:thighhighs",
+                "text": "thighhighs",
+                "canonical": "thighhighs",
+                "block": "GENERAL_AUX",
+                "source_lanes": [
+                  "COOCCURRENCE"
+                ],
+                "selected": false,
+                "user_override": "EXCLUDE",
+                "special_owners": [],
+                "support_relations": [],
+                "provenance": [
+                  "input:cooccurrence:thighhighs",
+                  "stage6_true_and_cooccurrence"
+                ],
+                "weight": null,
+                "reason": "true-AND co-occurrence suggestion; user choice required",
+                "merged_into": null,
+                "evidence": [
+                  [
+                    "base_count",
+                    27518
+                  ],
+                  [
+                    "co_count",
+                    9382
+                  ],
+                  [
+                    "conditional_rate",
+                    0.3409404753252417
+                  ],
+                  [
+                    "runtime_global_count",
+                    1430723
+                  ],
+                  [
+                    "global_rate",
+                    0.12753403750030531
+                  ],
+                  [
+                    "raw_lift",
+                    2.673329269642432
+                  ],
+                  [
+                    "wilson_lower_bound",
+                    0.3353623370528594
+                  ],
+                  [
+                    "shrunk_lift",
+                    2.6721139822071476
+                  ],
+                  [
+                    "snapshot_id",
+                    "nyanko-devs/danbooru2026@ebb02a630201c7b51487e45fb90b3fcf4cbedc20:metadata/posts-snapshot.parquet"
+                  ]
+                ]
+              },
+              {
+                "atom_id": "input:cooccurrence:covered_eyes",
+                "text": "covered eyes",
+                "canonical": "covered_eyes",
+                "block": "GENERAL_AUX",
+                "source_lanes": [
+                  "COOCCURRENCE"
+                ],
+                "selected": false,
+                "user_override": "EXCLUDE",
+                "special_owners": [],
+                "support_relations": [],
+                "provenance": [
+                  "input:cooccurrence:covered_eyes",
+                  "stage6_true_and_cooccurrence"
+                ],
+                "weight": null,
+                "reason": "true-AND co-occurrence suggestion; user choice required",
+                "merged_into": null,
+                "evidence": [
+                  [
+                    "base_count",
+                    27518
+                  ],
+                  [
+                    "co_count",
+                    9746
+                  ],
+                  [
+                    "conditional_rate",
+                    0.354168180827095
+                  ],
+                  [
+                    "runtime_global_count",
+                    25360
+                  ],
+                  [
+                    "global_rate",
+                    0.0022605795748078016
+                  ],
+                  [
+                    "raw_lift",
+                    156.67140620661718
+                  ],
+                  [
+                    "wilson_lower_bound",
+                    0.3485381688560682
+                  ],
+                  [
+                    "shrunk_lift",
+                    156.5583468659195
+                  ],
+                  [
+                    "snapshot_id",
+                    "nyanko-devs/danbooru2026@ebb02a630201c7b51487e45fb90b3fcf4cbedc20:metadata/posts-snapshot.parquet"
+                  ]
+                ]
+              },
+              {
+                "atom_id": "input:cooccurrence:short_hair",
+                "text": "short hair",
+                "canonical": "short_hair",
+                "block": "GENERAL_AUX",
+                "source_lanes": [
+                  "COOCCURRENCE"
+                ],
+                "selected": false,
+                "user_override": "EXCLUDE",
+                "special_owners": [],
+                "support_relations": [],
+                "provenance": [
+                  "input:cooccurrence:short_hair",
+                  "stage6_true_and_cooccurrence"
+                ],
+                "weight": null,
+                "reason": "true-AND co-occurrence suggestion; user choice required",
+                "merged_into": null,
+                "evidence": [
+                  [
+                    "base_count",
+                    27518
+                  ],
+                  [
+                    "co_count",
+                    11540
+                  ],
+                  [
+                    "conditional_rate",
+                    0.41936187222908644
+                  ],
+                  [
+                    "runtime_global_count",
+                    2926954
+                  ],
+                  [
+                    "global_rate",
+                    0.2609074301578074
+                  ],
+                  [
+                    "raw_lift",
+                    1.607320542674616
+                  ],
+                  [
+                    "wilson_lower_bound",
+                    0.41354327728853557
+                  ],
+                  [
+                    "shrunk_lift",
+                    1.6068794644970619
+                  ],
+                  [
+                    "snapshot_id",
+                    "nyanko-devs/danbooru2026@ebb02a630201c7b51487e45fb90b3fcf4cbedc20:metadata/posts-snapshot.parquet"
+                  ]
+                ]
+              },
+              {
+                "atom_id": "input:cooccurrence:long_hair",
+                "text": "long hair",
+                "canonical": "long_hair",
+                "block": "GENERAL_AUX",
+                "source_lanes": [
+                  "COOCCURRENCE"
+                ],
+                "selected": false,
+                "user_override": "EXCLUDE",
+                "special_owners": [],
+                "support_relations": [],
+                "provenance": [
+                  "input:cooccurrence:long_hair",
+                  "stage6_true_and_cooccurrence"
+                ],
+                "weight": null,
+                "reason": "true-AND co-occurrence suggestion; user choice required",
+                "merged_into": null,
+                "evidence": [
+                  [
+                    "base_count",
+                    27518
+                  ],
+                  [
+                    "co_count",
+                    11818
+                  ],
+                  [
+                    "conditional_rate",
+                    0.4294643506068755
+                  ],
+                  [
+                    "runtime_global_count",
+                    5790640
+                  ],
+                  [
+                    "global_rate",
+                    0.5161751778022495
+                  ],
+                  [
+                    "raw_lift",
+                    0.8320127915399419
+                  ],
+                  [
+                    "wilson_lower_bound",
+                    0.4236260941939512
+                  ],
+                  [
+                    "shrunk_lift",
+                    0.8321347954679396
+                  ],
+                  [
+                    "snapshot_id",
+                    "nyanko-devs/danbooru2026@ebb02a630201c7b51487e45fb90b3fcf4cbedc20:metadata/posts-snapshot.parquet"
+                  ]
+                ]
+              },
+              {
+                "atom_id": "input:cooccurrence:solo",
+                "text": "solo",
+                "canonical": "solo",
+                "block": "GENERAL_AUX",
+                "source_lanes": [
+                  "COOCCURRENCE"
+                ],
+                "selected": false,
+                "user_override": "EXCLUDE",
+                "special_owners": [],
+                "support_relations": [],
+                "provenance": [
+                  "input:cooccurrence:solo",
+                  "stage6_true_and_cooccurrence"
+                ],
+                "weight": null,
+                "reason": "true-AND co-occurrence suggestion; user choice required",
+                "merged_into": null,
+                "evidence": [
+                  [
+                    "base_count",
+                    27518
+                  ],
+                  [
+                    "co_count",
+                    12231
+                  ],
+                  [
+                    "conditional_rate",
+                    0.4444727087724399
+                  ],
+                  [
+                    "runtime_global_count",
+                    6583146
+                  ],
+                  [
+                    "global_rate",
+                    0.5868188243524322
+                  ],
+                  [
+                    "raw_lift",
+                    0.7574274892475128
+                  ],
+                  [
+                    "wilson_lower_bound",
+                    0.4386098256077717
+                  ],
+                  [
+                    "shrunk_lift",
+                    0.7576036621800077
+                  ],
+                  [
+                    "snapshot_id",
+                    "nyanko-devs/danbooru2026@ebb02a630201c7b51487e45fb90b3fcf4cbedc20:metadata/posts-snapshot.parquet"
+                  ]
+                ]
+              },
+              {
+                "atom_id": "input:cooccurrence:breasts",
+                "text": "breasts",
+                "canonical": "breasts",
+                "block": "GENERAL_AUX",
+                "source_lanes": [
+                  "COOCCURRENCE"
+                ],
+                "selected": false,
+                "user_override": "EXCLUDE",
+                "special_owners": [],
+                "support_relations": [],
+                "provenance": [
+                  "input:cooccurrence:breasts",
+                  "stage6_true_and_cooccurrence"
+                ],
+                "weight": null,
+                "reason": "true-AND co-occurrence suggestion; user choice required",
+                "merged_into": null,
+                "evidence": [
+                  [
+                    "base_count",
+                    27518
+                  ],
+                  [
+                    "co_count",
+                    16699
+                  ],
+                  [
+                    "conditional_rate",
+                    0.6068391598226616
+                  ],
+                  [
+                    "runtime_global_count",
+                    4542658
+                  ],
+                  [
+                    "global_rate",
+                    0.40493059503695816
+                  ],
+                  [
+                    "raw_lift",
+                    1.4986251156627846
+                  ],
+                  [
+                    "wilson_lower_bound",
+                    0.6010534912163065
+                  ],
+                  [
+                    "shrunk_lift",
+                    1.4982629796211964
+                  ],
+                  [
+                    "snapshot_id",
+                    "nyanko-devs/danbooru2026@ebb02a630201c7b51487e45fb90b3fcf4cbedc20:metadata/posts-snapshot.parquet"
+                  ]
+                ]
+              },
+              {
+                "atom_id": "input:cooccurrence:1girl",
+                "text": "1girl",
+                "canonical": "1girl",
+                "block": "GENERAL_AUX",
+                "source_lanes": [
+                  "COOCCURRENCE"
+                ],
+                "selected": false,
+                "user_override": "EXCLUDE",
+                "special_owners": [],
+                "support_relations": [],
+                "provenance": [
+                  "input:cooccurrence:1girl",
+                  "stage6_true_and_cooccurrence"
+                ],
+                "weight": null,
+                "reason": "user explicit choice",
+                "merged_into": null,
+                "evidence": [
+                  [
+                    "base_count",
+                    27518
+                  ],
+                  [
+                    "co_count",
+                    18175
+                  ],
+                  [
+                    "conditional_rate",
+                    0.6604767788356712
+                  ],
+                  [
+                    "runtime_global_count",
+                    7773799
+                  ],
+                  [
+                    "global_rate",
+                    0.6929531245292316
+                  ],
+                  [
+                    "raw_lift",
+                    0.95313341618075
+                  ],
+                  [
+                    "wilson_lower_bound",
+                    0.6548596856248893
+                  ],
+                  [
+                    "shrunk_lift",
+                    0.9531674539349944
+                  ],
+                  [
+                    "snapshot_id",
+                    "nyanko-devs/danbooru2026@ebb02a630201c7b51487e45fb90b3fcf4cbedc20:metadata/posts-snapshot.parquet"
+                  ]
+                ]
+              },
+              {
+                "atom_id": "input:cooccurrence:sensory_deprivation",
+                "text": "sensory deprivation",
+                "canonical": "sensory_deprivation",
+                "block": "GENERAL_AUX",
+                "source_lanes": [
+                  "COOCCURRENCE"
+                ],
+                "selected": false,
+                "user_override": "EXCLUDE",
+                "special_owners": [],
+                "support_relations": [],
+                "provenance": [
+                  "input:cooccurrence:sensory_deprivation",
+                  "stage6_true_and_cooccurrence"
+                ],
+                "weight": null,
+                "reason": "true-AND co-occurrence suggestion; user choice required",
+                "merged_into": null,
+                "evidence": [
+                  [
+                    "base_count",
+                    27518
+                  ],
+                  [
+                    "co_count",
+                    109
+                  ],
+                  [
+                    "conditional_rate",
+                    0.0039610436805000366
+                  ],
+                  [
+                    "runtime_global_count",
+                    123
+                  ],
+                  [
+                    "global_rate",
+                    1.0964167496110394e-05
+                  ],
+                  [
+                    "raw_lift",
+                    361.27172281025815
+                  ],
+                  [
+                    "wilson_lower_bound",
+                    0.0032849744670530746
+                  ],
+                  [
+                    "shrunk_lift",
+                    361.01006857043654
+                  ],
+                  [
+                    "snapshot_id",
+                    "nyanko-devs/danbooru2026@ebb02a630201c7b51487e45fb90b3fcf4cbedc20:metadata/posts-snapshot.parquet"
+                  ]
+                ]
+              },
+              {
+                "atom_id": "input:cooccurrence:tape_blindfold",
+                "text": "tape blindfold",
+                "canonical": "tape_blindfold",
+                "block": "GENERAL_AUX",
+                "source_lanes": [
+                  "COOCCURRENCE"
+                ],
+                "selected": false,
+                "user_override": "EXCLUDE",
+                "special_owners": [],
+                "support_relations": [],
+                "provenance": [
+                  "input:cooccurrence:tape_blindfold",
+                  "stage6_true_and_cooccurrence"
+                ],
+                "weight": null,
+                "reason": "true-AND co-occurrence suggestion; user choice required",
+                "merged_into": null,
+                "evidence": [
+                  [
+                    "base_count",
+                    27518
+                  ],
+                  [
+                    "co_count",
+                    65
+                  ],
+                  [
+                    "conditional_rate",
+                    0.0023620902681880953
+                  ],
+                  [
+                    "runtime_global_count",
+                    72
+                  ],
+                  [
+                    "global_rate",
+                    6.418049266015841e-06
+                  ],
+                  [
+                    "raw_lift",
+                    368.0386625723769
+                  ],
+                  [
+                    "wilson_lower_bound",
+                    0.0018538449043585296
+                  ],
+                  [
+                    "shrunk_lift",
+                    367.77209371293
+                  ],
+                  [
+                    "snapshot_id",
+                    "nyanko-devs/danbooru2026@ebb02a630201c7b51487e45fb90b3fcf4cbedc20:metadata/posts-snapshot.parquet"
+                  ]
+                ]
+              },
+              {
+                "atom_id": "input:cooccurrence:blindfold_slip",
+                "text": "blindfold slip",
+                "canonical": "blindfold_slip",
+                "block": "GENERAL_AUX",
+                "source_lanes": [
+                  "COOCCURRENCE"
+                ],
+                "selected": false,
+                "user_override": "EXCLUDE",
+                "special_owners": [],
+                "support_relations": [],
+                "provenance": [
+                  "input:cooccurrence:blindfold_slip",
+                  "stage6_true_and_cooccurrence"
+                ],
+                "weight": null,
+                "reason": "true-AND co-occurrence suggestion; user choice required",
+                "merged_into": null,
+                "evidence": [
+                  [
+                    "base_count",
+                    27518
+                  ],
+                  [
+                    "co_count",
+                    171
+                  ],
+                  [
+                    "conditional_rate",
+                    0.006214114397848681
+                  ],
+                  [
+                    "runtime_global_count",
+                    171
+                  ],
+                  [
+                    "global_rate",
+                    1.5242867006787621e-05
+                  ],
+                  [
+                    "raw_lift",
+                    407.6735954647867
+                  ],
+                  [
+                    "wilson_lower_bound",
+                    0.005352059693867998
+                  ],
+                  [
+                    "shrunk_lift",
+                    407.37824097610576
+                  ],
+                  [
+                    "snapshot_id",
+                    "nyanko-devs/danbooru2026@ebb02a630201c7b51487e45fb90b3fcf4cbedc20:metadata/posts-snapshot.parquet"
+                  ]
+                ]
+              },
+              {
+                "atom_id": "input:cooccurrence:blindfold_lift",
+                "text": "blindfold lift",
+                "canonical": "blindfold_lift",
+                "block": "GENERAL_AUX",
+                "source_lanes": [
+                  "COOCCURRENCE"
+                ],
+                "selected": false,
+                "user_override": "EXCLUDE",
+                "special_owners": [],
+                "support_relations": [],
+                "provenance": [
+                  "input:cooccurrence:blindfold_lift",
+                  "stage6_true_and_cooccurrence"
+                ],
+                "weight": null,
+                "reason": "true-AND co-occurrence suggestion; user choice required",
+                "merged_into": null,
+                "evidence": [
+                  [
+                    "base_count",
+                    27518
+                  ],
+                  [
+                    "co_count",
+                    481
+                  ],
+                  [
+                    "conditional_rate",
+                    0.017479467984591903
+                  ],
+                  [
+                    "runtime_global_count",
+                    481
+                  ],
+                  [
+                    "global_rate",
+                    4.287613467991138e-05
+                  ],
+                  [
+                    "raw_lift",
+                    407.6735954647867
+                  ],
+                  [
+                    "wilson_lower_bound",
+                    0.01599709200160156
+                  ],
+                  [
+                    "shrunk_lift",
+                    407.37824097610576
+                  ],
+                  [
+                    "snapshot_id",
+                    "nyanko-devs/danbooru2026@ebb02a630201c7b51487e45fb90b3fcf4cbedc20:metadata/posts-snapshot.parquet"
+                  ]
+                ]
+              },
+              {
+                "atom_id": "input:cooccurrence:colored_blindfold",
+                "text": "colored blindfold",
+                "canonical": "colored_blindfold",
+                "block": "GENERAL_AUX",
+                "source_lanes": [
+                  "COOCCURRENCE"
+                ],
+                "selected": true,
+                "user_override": "INCLUDE",
+                "special_owners": [],
+                "support_relations": [],
+                "provenance": [
+                  "input:cooccurrence:colored_blindfold",
+                  "stage6_true_and_cooccurrence"
+                ],
+                "weight": null,
+                "reason": "user selected co-occurrence suggestion",
+                "merged_into": null,
+                "evidence": [
+                  [
+                    "base_count",
+                    27518
+                  ],
+                  [
+                    "co_count",
+                    950
+                  ],
+                  [
+                    "conditional_rate",
+                    0.034522857765826004
+                  ],
+                  [
+                    "runtime_global_count",
+                    950
+                  ],
+                  [
+                    "global_rate",
+                    8.468259448215346e-05
+                  ],
+                  [
+                    "raw_lift",
+                    407.6735954647867
+                  ],
+                  [
+                    "wilson_lower_bound",
+                    0.03242993169741689
+                  ],
+                  [
+                    "shrunk_lift",
+                    407.37824097610576
+                  ],
+                  [
+                    "snapshot_id",
+                    "nyanko-devs/danbooru2026@ebb02a630201c7b51487e45fb90b3fcf4cbedc20:metadata/posts-snapshot.parquet"
+                  ]
+                ]
+              },
+              {
+                "atom_id": "input:manual:colored_blindfold",
+                "text": "colored blindfold",
+                "canonical": "colored_blindfold",
+                "block": "GENERAL_AUX",
+                "source_lanes": [
+                  "USER_EXPLICIT"
+                ],
+                "selected": true,
+                "user_override": "DEFAULT",
+                "special_owners": [],
+                "support_relations": [],
+                "provenance": [
+                  "input:manual:colored_blindfold"
+                ],
+                "weight": null,
+                "reason": "explicitly supplied selection",
+                "merged_into": null,
+                "evidence": []
+              }
+            ],
+            "selected_atoms": [
+              {
+                "atom_id": "special:1816",
+                "text": "blindfold",
+                "canonical": null,
+                "block": "SPECIAL",
+                "source_lanes": [
+                  "SPECIAL"
+                ],
+                "selected": true,
+                "user_override": "DEFAULT",
+                "special_owners": [
+                  "1816"
+                ],
+                "support_relations": [],
+                "provenance": [
+                  "special:1816"
+                ],
+                "weight": null,
+                "reason": "selected Special identity",
+                "merged_into": null,
+                "evidence": []
+              },
+              {
+                "atom_id": "input:semantic_aux:breasts",
+                "text": "breasts",
+                "canonical": "breasts",
+                "block": "SUPPORT_STRUCTURE",
+                "source_lanes": [
+                  "SEMANTIC_AUX",
+                  "COOCCURRENCE"
+                ],
+                "selected": true,
+                "user_override": "INCLUDE",
+                "special_owners": [],
+                "support_relations": [],
+                "provenance": [
+                  "input:semantic_aux:breasts",
+                  "stage8a_semantics",
+                  "semantic_role:BODY_PART",
+                  "semantic_label:身体部位",
+                  "input:cooccurrence:breasts",
+                  "stage6_true_and_cooccurrence"
+                ],
+                "weight": null,
+                "reason": "user explicit choice",
+                "merged_into": null,
+                "evidence": [
+                  [
+                    "base_count",
+                    27518
+                  ],
+                  [
+                    "co_count",
+                    16699
+                  ],
+                  [
+                    "conditional_rate",
+                    0.6068391598226616
+                  ],
+                  [
+                    "runtime_global_count",
+                    4542658
+                  ],
+                  [
+                    "global_rate",
+                    0.40493059503695816
+                  ],
+                  [
+                    "raw_lift",
+                    1.4986251156627846
+                  ],
+                  [
+                    "wilson_lower_bound",
+                    0.6010534912163065
+                  ],
+                  [
+                    "shrunk_lift",
+                    1.4982629796211964
+                  ],
+                  [
+                    "semantic_role",
+                    "BODY_PART"
+                  ],
+                  [
+                    "generation_hint_kind",
+                    "BODY_TARGET"
+                  ],
+                  [
+                    "base_count",
+                    27518
+                  ],
+                  [
+                    "co_count",
+                    16699
+                  ],
+                  [
+                    "conditional_rate",
+                    0.6068391598226616
+                  ],
+                  [
+                    "runtime_global_count",
+                    4542658
+                  ],
+                  [
+                    "global_rate",
+                    0.40493059503695816
+                  ],
+                  [
+                    "raw_lift",
+                    1.4986251156627846
+                  ],
+                  [
+                    "wilson_lower_bound",
+                    0.6010534912163065
+                  ],
+                  [
+                    "shrunk_lift",
+                    1.4982629796211964
+                  ],
+                  [
+                    "snapshot_id",
+                    "nyanko-devs/danbooru2026@ebb02a630201c7b51487e45fb90b3fcf4cbedc20:metadata/posts-snapshot.parquet"
+                  ]
+                ]
+              },
+              {
+                "atom_id": "input:cooccurrence:colored_blindfold",
+                "text": "colored blindfold",
+                "canonical": "colored_blindfold",
+                "block": "GENERAL_AUX",
+                "source_lanes": [
+                  "COOCCURRENCE",
+                  "USER_EXPLICIT",
+                  "SEMANTIC_AUX"
+                ],
+                "selected": true,
+                "user_override": "INCLUDE",
+                "special_owners": [],
+                "support_relations": [],
+                "provenance": [
+                  "input:cooccurrence:colored_blindfold",
+                  "stage6_true_and_cooccurrence",
+                  "input:manual:colored_blindfold",
+                  "input:semantic_aux:colored_blindfold",
+                  "stage8a_semantics",
+                  "semantic_role:UNCLASSIFIED"
+                ],
+                "weight": null,
+                "reason": "user selected co-occurrence suggestion",
+                "merged_into": null,
+                "evidence": [
+                  [
+                    "base_count",
+                    27518
+                  ],
+                  [
+                    "co_count",
+                    950
+                  ],
+                  [
+                    "conditional_rate",
+                    0.034522857765826004
+                  ],
+                  [
+                    "runtime_global_count",
+                    950
+                  ],
+                  [
+                    "global_rate",
+                    8.468259448215346e-05
+                  ],
+                  [
+                    "raw_lift",
+                    407.6735954647867
+                  ],
+                  [
+                    "wilson_lower_bound",
+                    0.03242993169741689
+                  ],
+                  [
+                    "shrunk_lift",
+                    407.37824097610576
+                  ],
+                  [
+                    "snapshot_id",
+                    "nyanko-devs/danbooru2026@ebb02a630201c7b51487e45fb90b3fcf4cbedc20:metadata/posts-snapshot.parquet"
+                  ],
+                  [
+                    "base_count",
+                    27518
+                  ],
+                  [
+                    "co_count",
+                    950
+                  ],
+                  [
+                    "conditional_rate",
+                    0.034522857765826004
+                  ],
+                  [
+                    "runtime_global_count",
+                    950
+                  ],
+                  [
+                    "global_rate",
+                    8.468259448215346e-05
+                  ],
+                  [
+                    "raw_lift",
+                    407.6735954647867
+                  ],
+                  [
+                    "wilson_lower_bound",
+                    0.03242993169741689
+                  ],
+                  [
+                    "shrunk_lift",
+                    407.37824097610576
+                  ],
+                  [
+                    "semantic_role",
+                    "UNCLASSIFIED"
+                  ],
+                  [
+                    "evidence_note_kind",
+                    "DISCOVERY_CANDIDATE"
+                  ]
+                ]
+              }
+            ],
+            "suppressed_atoms": [
+              {
+                "atom_id": "input:semantic_aux:white_hair",
+                "text": "white hair",
+                "canonical": "white_hair",
+                "block": "GENERAL_AUX",
+                "source_lanes": [
+                  "SEMANTIC_AUX"
+                ],
+                "selected": false,
+                "user_override": "EXCLUDE",
+                "special_owners": [],
+                "support_relations": [],
+                "provenance": [
+                  "input:semantic_aux:white_hair",
+                  "stage8a_semantics",
+                  "semantic_role:UNCLASSIFIED"
+                ],
+                "weight": null,
+                "reason": "semantic/search auxiliary from approved role: UNCLASSIFIED",
+                "merged_into": null,
+                "evidence": [
+                  [
+                    "base_count",
+                    27518
+                  ],
+                  [
+                    "co_count",
+                    8799
+                  ],
+                  [
+                    "conditional_rate",
+                    0.31975434261210844
+                  ],
+                  [
+                    "runtime_global_count",
+                    971042
+                  ],
+                  [
+                    "global_rate",
+                    0.08655826938014659
+                  ],
+                  [
+                    "raw_lift",
+                    3.6940935268450366
+                  ],
+                  [
+                    "wilson_lower_bound",
+                    0.31426945803627654
+                  ],
+                  [
+                    "shrunk_lift",
+                    3.6921368898148637
+                  ],
+                  [
+                    "semantic_role",
+                    "UNCLASSIFIED"
+                  ]
+                ]
+              },
+              {
+                "atom_id": "input:semantic_aux:thighhighs",
+                "text": "thighhighs",
+                "canonical": "thighhighs",
+                "block": "GENERAL_AUX",
+                "source_lanes": [
+                  "SEMANTIC_AUX"
+                ],
+                "selected": false,
+                "user_override": "EXCLUDE",
+                "special_owners": [],
+                "support_relations": [],
+                "provenance": [
+                  "input:semantic_aux:thighhighs",
+                  "stage8a_semantics",
+                  "semantic_role:UNCLASSIFIED"
+                ],
+                "weight": null,
+                "reason": "semantic/search auxiliary from approved role: UNCLASSIFIED",
+                "merged_into": null,
+                "evidence": [
+                  [
+                    "base_count",
+                    27518
+                  ],
+                  [
+                    "co_count",
+                    9382
+                  ],
+                  [
+                    "conditional_rate",
+                    0.3409404753252417
+                  ],
+                  [
+                    "runtime_global_count",
+                    1430723
+                  ],
+                  [
+                    "global_rate",
+                    0.12753403750030531
+                  ],
+                  [
+                    "raw_lift",
+                    2.673329269642432
+                  ],
+                  [
+                    "wilson_lower_bound",
+                    0.3353623370528594
+                  ],
+                  [
+                    "shrunk_lift",
+                    2.6721139822071476
+                  ],
+                  [
+                    "semantic_role",
+                    "UNCLASSIFIED"
+                  ]
+                ]
+              },
+              {
+                "atom_id": "input:semantic_aux:covered_eyes",
+                "text": "covered eyes",
+                "canonical": "covered_eyes",
+                "block": "GENERAL_AUX",
+                "source_lanes": [
+                  "SEMANTIC_AUX"
+                ],
+                "selected": false,
+                "user_override": "EXCLUDE",
+                "special_owners": [],
+                "support_relations": [],
+                "provenance": [
+                  "input:semantic_aux:covered_eyes",
+                  "stage8a_semantics",
+                  "semantic_role:UNCLASSIFIED"
+                ],
+                "weight": null,
+                "reason": "semantic/search auxiliary from approved role: UNCLASSIFIED",
+                "merged_into": null,
+                "evidence": [
+                  [
+                    "base_count",
+                    27518
+                  ],
+                  [
+                    "co_count",
+                    9746
+                  ],
+                  [
+                    "conditional_rate",
+                    0.354168180827095
+                  ],
+                  [
+                    "runtime_global_count",
+                    25360
+                  ],
+                  [
+                    "global_rate",
+                    0.0022605795748078016
+                  ],
+                  [
+                    "raw_lift",
+                    156.67140620661718
+                  ],
+                  [
+                    "wilson_lower_bound",
+                    0.3485381688560682
+                  ],
+                  [
+                    "shrunk_lift",
+                    156.5583468659195
+                  ],
+                  [
+                    "semantic_role",
+                    "UNCLASSIFIED"
+                  ]
+                ]
+              },
+              {
+                "atom_id": "input:semantic_aux:short_hair",
+                "text": "short hair",
+                "canonical": "short_hair",
+                "block": "GENERAL_AUX",
+                "source_lanes": [
+                  "SEMANTIC_AUX"
+                ],
+                "selected": false,
+                "user_override": "EXCLUDE",
+                "special_owners": [],
+                "support_relations": [],
+                "provenance": [
+                  "input:semantic_aux:short_hair",
+                  "stage8a_semantics",
+                  "semantic_role:UNCLASSIFIED"
+                ],
+                "weight": null,
+                "reason": "semantic/search auxiliary from approved role: UNCLASSIFIED",
+                "merged_into": null,
+                "evidence": [
+                  [
+                    "base_count",
+                    27518
+                  ],
+                  [
+                    "co_count",
+                    11540
+                  ],
+                  [
+                    "conditional_rate",
+                    0.41936187222908644
+                  ],
+                  [
+                    "runtime_global_count",
+                    2926954
+                  ],
+                  [
+                    "global_rate",
+                    0.2609074301578074
+                  ],
+                  [
+                    "raw_lift",
+                    1.607320542674616
+                  ],
+                  [
+                    "wilson_lower_bound",
+                    0.41354327728853557
+                  ],
+                  [
+                    "shrunk_lift",
+                    1.6068794644970619
+                  ],
+                  [
+                    "semantic_role",
+                    "UNCLASSIFIED"
+                  ]
+                ]
+              },
+              {
+                "atom_id": "input:semantic_aux:long_hair",
+                "text": "long hair",
+                "canonical": "long_hair",
+                "block": "GENERAL_AUX",
+                "source_lanes": [
+                  "SEMANTIC_AUX"
+                ],
+                "selected": false,
+                "user_override": "EXCLUDE",
+                "special_owners": [],
+                "support_relations": [],
+                "provenance": [
+                  "input:semantic_aux:long_hair",
+                  "stage8a_semantics",
+                  "semantic_role:UNCLASSIFIED"
+                ],
+                "weight": null,
+                "reason": "semantic/search auxiliary from approved role: UNCLASSIFIED",
+                "merged_into": null,
+                "evidence": [
+                  [
+                    "base_count",
+                    27518
+                  ],
+                  [
+                    "co_count",
+                    11818
+                  ],
+                  [
+                    "conditional_rate",
+                    0.4294643506068755
+                  ],
+                  [
+                    "runtime_global_count",
+                    5790640
+                  ],
+                  [
+                    "global_rate",
+                    0.5161751778022495
+                  ],
+                  [
+                    "raw_lift",
+                    0.8320127915399419
+                  ],
+                  [
+                    "wilson_lower_bound",
+                    0.4236260941939512
+                  ],
+                  [
+                    "shrunk_lift",
+                    0.8321347954679396
+                  ],
+                  [
+                    "semantic_role",
+                    "UNCLASSIFIED"
+                  ]
+                ]
+              },
+              {
+                "atom_id": "input:semantic_aux:solo",
+                "text": "solo",
+                "canonical": "solo",
+                "block": "SUPPORT_STRUCTURE",
+                "source_lanes": [
+                  "SEMANTIC_AUX"
+                ],
+                "selected": false,
+                "user_override": "EXCLUDE",
+                "special_owners": [],
+                "support_relations": [],
+                "provenance": [
+                  "input:semantic_aux:solo",
+                  "stage8a_semantics",
+                  "semantic_role:SUBJECT_BASIC",
+                  "semantic_label:人物・人数"
+                ],
+                "weight": null,
+                "reason": "semantic/search auxiliary from approved role: SUBJECT_BASIC",
+                "merged_into": null,
+                "evidence": [
+                  [
+                    "base_count",
+                    27518
+                  ],
+                  [
+                    "co_count",
+                    12231
+                  ],
+                  [
+                    "conditional_rate",
+                    0.4444727087724399
+                  ],
+                  [
+                    "runtime_global_count",
+                    6583146
+                  ],
+                  [
+                    "global_rate",
+                    0.5868188243524322
+                  ],
+                  [
+                    "raw_lift",
+                    0.7574274892475128
+                  ],
+                  [
+                    "wilson_lower_bound",
+                    0.4386098256077717
+                  ],
+                  [
+                    "shrunk_lift",
+                    0.7576036621800077
+                  ],
+                  [
+                    "semantic_role",
+                    "SUBJECT_BASIC"
+                  ],
+                  [
+                    "generation_hint_kind",
+                    "CORE_BASIS"
+                  ]
+                ]
+              },
+              {
+                "atom_id": "input:semantic_aux:1girl",
+                "text": "1girl",
+                "canonical": "1girl",
+                "block": "SUPPORT_STRUCTURE",
+                "source_lanes": [
+                  "SEMANTIC_AUX"
+                ],
+                "selected": false,
+                "user_override": "EXCLUDE",
+                "special_owners": [],
+                "support_relations": [],
+                "provenance": [
+                  "input:semantic_aux:1girl",
+                  "stage8a_semantics",
+                  "semantic_role:SUBJECT_BASIC",
+                  "semantic_label:人物・人数"
+                ],
+                "weight": null,
+                "reason": "semantic/search auxiliary from approved role: SUBJECT_BASIC",
+                "merged_into": null,
+                "evidence": [
+                  [
+                    "base_count",
+                    27518
+                  ],
+                  [
+                    "co_count",
+                    18175
+                  ],
+                  [
+                    "conditional_rate",
+                    0.6604767788356712
+                  ],
+                  [
+                    "runtime_global_count",
+                    7773799
+                  ],
+                  [
+                    "global_rate",
+                    0.6929531245292316
+                  ],
+                  [
+                    "raw_lift",
+                    0.95313341618075
+                  ],
+                  [
+                    "wilson_lower_bound",
+                    0.6548596856248893
+                  ],
+                  [
+                    "shrunk_lift",
+                    0.9531674539349944
+                  ],
+                  [
+                    "semantic_role",
+                    "SUBJECT_BASIC"
+                  ],
+                  [
+                    "generation_hint_kind",
+                    "CORE_BASIS"
+                  ]
+                ]
+              },
+              {
+                "atom_id": "input:semantic_aux:sensory_deprivation",
+                "text": "sensory deprivation",
+                "canonical": "sensory_deprivation",
+                "block": "GENERAL_AUX",
+                "source_lanes": [
+                  "SEMANTIC_AUX"
+                ],
+                "selected": false,
+                "user_override": "EXCLUDE",
+                "special_owners": [],
+                "support_relations": [],
+                "provenance": [
+                  "input:semantic_aux:sensory_deprivation",
+                  "stage8a_semantics",
+                  "semantic_role:UNCLASSIFIED"
+                ],
+                "weight": null,
+                "reason": "semantic/search auxiliary from approved role: UNCLASSIFIED",
+                "merged_into": null,
+                "evidence": [
+                  [
+                    "base_count",
+                    27518
+                  ],
+                  [
+                    "co_count",
+                    109
+                  ],
+                  [
+                    "conditional_rate",
+                    0.0039610436805000366
+                  ],
+                  [
+                    "runtime_global_count",
+                    123
+                  ],
+                  [
+                    "global_rate",
+                    1.0964167496110394e-05
+                  ],
+                  [
+                    "raw_lift",
+                    361.27172281025815
+                  ],
+                  [
+                    "wilson_lower_bound",
+                    0.0032849744670530746
+                  ],
+                  [
+                    "shrunk_lift",
+                    361.01006857043654
+                  ],
+                  [
+                    "semantic_role",
+                    "UNCLASSIFIED"
+                  ],
+                  [
+                    "evidence_note_kind",
+                    "DISCOVERY_CANDIDATE"
+                  ]
+                ]
+              },
+              {
+                "atom_id": "input:semantic_aux:tape_blindfold",
+                "text": "tape blindfold",
+                "canonical": "tape_blindfold",
+                "block": "GENERAL_AUX",
+                "source_lanes": [
+                  "SEMANTIC_AUX"
+                ],
+                "selected": false,
+                "user_override": "EXCLUDE",
+                "special_owners": [],
+                "support_relations": [],
+                "provenance": [
+                  "input:semantic_aux:tape_blindfold",
+                  "stage8a_semantics",
+                  "semantic_role:UNCLASSIFIED"
+                ],
+                "weight": null,
+                "reason": "semantic/search auxiliary from approved role: UNCLASSIFIED",
+                "merged_into": null,
+                "evidence": [
+                  [
+                    "base_count",
+                    27518
+                  ],
+                  [
+                    "co_count",
+                    65
+                  ],
+                  [
+                    "conditional_rate",
+                    0.0023620902681880953
+                  ],
+                  [
+                    "runtime_global_count",
+                    72
+                  ],
+                  [
+                    "global_rate",
+                    6.418049266015841e-06
+                  ],
+                  [
+                    "raw_lift",
+                    368.0386625723769
+                  ],
+                  [
+                    "wilson_lower_bound",
+                    0.0018538449043585296
+                  ],
+                  [
+                    "shrunk_lift",
+                    367.77209371293
+                  ],
+                  [
+                    "semantic_role",
+                    "UNCLASSIFIED"
+                  ],
+                  [
+                    "evidence_note_kind",
+                    "DISCOVERY_CANDIDATE"
+                  ]
+                ]
+              },
+              {
+                "atom_id": "input:semantic_aux:blindfold_slip",
+                "text": "blindfold slip",
+                "canonical": "blindfold_slip",
+                "block": "GENERAL_AUX",
+                "source_lanes": [
+                  "SEMANTIC_AUX"
+                ],
+                "selected": false,
+                "user_override": "EXCLUDE",
+                "special_owners": [],
+                "support_relations": [],
+                "provenance": [
+                  "input:semantic_aux:blindfold_slip",
+                  "stage8a_semantics",
+                  "semantic_role:UNCLASSIFIED"
+                ],
+                "weight": null,
+                "reason": "semantic/search auxiliary from approved role: UNCLASSIFIED",
+                "merged_into": null,
+                "evidence": [
+                  [
+                    "base_count",
+                    27518
+                  ],
+                  [
+                    "co_count",
+                    171
+                  ],
+                  [
+                    "conditional_rate",
+                    0.006214114397848681
+                  ],
+                  [
+                    "runtime_global_count",
+                    171
+                  ],
+                  [
+                    "global_rate",
+                    1.5242867006787621e-05
+                  ],
+                  [
+                    "raw_lift",
+                    407.6735954647867
+                  ],
+                  [
+                    "wilson_lower_bound",
+                    0.005352059693867998
+                  ],
+                  [
+                    "shrunk_lift",
+                    407.37824097610576
+                  ],
+                  [
+                    "semantic_role",
+                    "UNCLASSIFIED"
+                  ],
+                  [
+                    "evidence_note_kind",
+                    "DISCOVERY_CANDIDATE"
+                  ]
+                ]
+              },
+              {
+                "atom_id": "input:semantic_aux:blindfold_lift",
+                "text": "blindfold lift",
+                "canonical": "blindfold_lift",
+                "block": "GENERAL_AUX",
+                "source_lanes": [
+                  "SEMANTIC_AUX"
+                ],
+                "selected": false,
+                "user_override": "EXCLUDE",
+                "special_owners": [],
+                "support_relations": [],
+                "provenance": [
+                  "input:semantic_aux:blindfold_lift",
+                  "stage8a_semantics",
+                  "semantic_role:UNCLASSIFIED"
+                ],
+                "weight": null,
+                "reason": "semantic/search auxiliary from approved role: UNCLASSIFIED",
+                "merged_into": null,
+                "evidence": [
+                  [
+                    "base_count",
+                    27518
+                  ],
+                  [
+                    "co_count",
+                    481
+                  ],
+                  [
+                    "conditional_rate",
+                    0.017479467984591903
+                  ],
+                  [
+                    "runtime_global_count",
+                    481
+                  ],
+                  [
+                    "global_rate",
+                    4.287613467991138e-05
+                  ],
+                  [
+                    "raw_lift",
+                    407.6735954647867
+                  ],
+                  [
+                    "wilson_lower_bound",
+                    0.01599709200160156
+                  ],
+                  [
+                    "shrunk_lift",
+                    407.37824097610576
+                  ],
+                  [
+                    "semantic_role",
+                    "UNCLASSIFIED"
+                  ],
+                  [
+                    "evidence_note_kind",
+                    "DISCOVERY_CANDIDATE"
+                  ]
+                ]
+              },
+              {
+                "atom_id": "input:semantic_aux:colored_blindfold",
+                "text": "colored blindfold",
+                "canonical": "colored_blindfold",
+                "block": "GENERAL_AUX",
+                "source_lanes": [
+                  "SEMANTIC_AUX"
+                ],
+                "selected": false,
+                "user_override": "EXCLUDE",
+                "special_owners": [],
+                "support_relations": [],
+                "provenance": [
+                  "input:semantic_aux:colored_blindfold",
+                  "stage8a_semantics",
+                  "semantic_role:UNCLASSIFIED"
+                ],
+                "weight": null,
+                "reason": "same_canonical_selected_in_another_lane",
+                "merged_into": "input:cooccurrence:colored_blindfold",
+                "evidence": [
+                  [
+                    "base_count",
+                    27518
+                  ],
+                  [
+                    "co_count",
+                    950
+                  ],
+                  [
+                    "conditional_rate",
+                    0.034522857765826004
+                  ],
+                  [
+                    "runtime_global_count",
+                    950
+                  ],
+                  [
+                    "global_rate",
+                    8.468259448215346e-05
+                  ],
+                  [
+                    "raw_lift",
+                    407.6735954647867
+                  ],
+                  [
+                    "wilson_lower_bound",
+                    0.03242993169741689
+                  ],
+                  [
+                    "shrunk_lift",
+                    407.37824097610576
+                  ],
+                  [
+                    "semantic_role",
+                    "UNCLASSIFIED"
+                  ],
+                  [
+                    "evidence_note_kind",
+                    "DISCOVERY_CANDIDATE"
+                  ]
+                ]
+              },
+              {
+                "atom_id": "input:cooccurrence:white_hair",
+                "text": "white hair",
+                "canonical": "white_hair",
+                "block": "GENERAL_AUX",
+                "source_lanes": [
+                  "COOCCURRENCE"
+                ],
+                "selected": false,
+                "user_override": "EXCLUDE",
+                "special_owners": [],
+                "support_relations": [],
+                "provenance": [
+                  "input:cooccurrence:white_hair",
+                  "stage6_true_and_cooccurrence"
+                ],
+                "weight": null,
+                "reason": "true-AND co-occurrence suggestion; user choice required",
+                "merged_into": null,
+                "evidence": [
+                  [
+                    "base_count",
+                    27518
+                  ],
+                  [
+                    "co_count",
+                    8799
+                  ],
+                  [
+                    "conditional_rate",
+                    0.31975434261210844
+                  ],
+                  [
+                    "runtime_global_count",
+                    971042
+                  ],
+                  [
+                    "global_rate",
+                    0.08655826938014659
+                  ],
+                  [
+                    "raw_lift",
+                    3.6940935268450366
+                  ],
+                  [
+                    "wilson_lower_bound",
+                    0.31426945803627654
+                  ],
+                  [
+                    "shrunk_lift",
+                    3.6921368898148637
+                  ],
+                  [
+                    "snapshot_id",
+                    "nyanko-devs/danbooru2026@ebb02a630201c7b51487e45fb90b3fcf4cbedc20:metadata/posts-snapshot.parquet"
+                  ]
+                ]
+              },
+              {
+                "atom_id": "input:cooccurrence:thighhighs",
+                "text": "thighhighs",
+                "canonical": "thighhighs",
+                "block": "GENERAL_AUX",
+                "source_lanes": [
+                  "COOCCURRENCE"
+                ],
+                "selected": false,
+                "user_override": "EXCLUDE",
+                "special_owners": [],
+                "support_relations": [],
+                "provenance": [
+                  "input:cooccurrence:thighhighs",
+                  "stage6_true_and_cooccurrence"
+                ],
+                "weight": null,
+                "reason": "true-AND co-occurrence suggestion; user choice required",
+                "merged_into": null,
+                "evidence": [
+                  [
+                    "base_count",
+                    27518
+                  ],
+                  [
+                    "co_count",
+                    9382
+                  ],
+                  [
+                    "conditional_rate",
+                    0.3409404753252417
+                  ],
+                  [
+                    "runtime_global_count",
+                    1430723
+                  ],
+                  [
+                    "global_rate",
+                    0.12753403750030531
+                  ],
+                  [
+                    "raw_lift",
+                    2.673329269642432
+                  ],
+                  [
+                    "wilson_lower_bound",
+                    0.3353623370528594
+                  ],
+                  [
+                    "shrunk_lift",
+                    2.6721139822071476
+                  ],
+                  [
+                    "snapshot_id",
+                    "nyanko-devs/danbooru2026@ebb02a630201c7b51487e45fb90b3fcf4cbedc20:metadata/posts-snapshot.parquet"
+                  ]
+                ]
+              },
+              {
+                "atom_id": "input:cooccurrence:covered_eyes",
+                "text": "covered eyes",
+                "canonical": "covered_eyes",
+                "block": "GENERAL_AUX",
+                "source_lanes": [
+                  "COOCCURRENCE"
+                ],
+                "selected": false,
+                "user_override": "EXCLUDE",
+                "special_owners": [],
+                "support_relations": [],
+                "provenance": [
+                  "input:cooccurrence:covered_eyes",
+                  "stage6_true_and_cooccurrence"
+                ],
+                "weight": null,
+                "reason": "true-AND co-occurrence suggestion; user choice required",
+                "merged_into": null,
+                "evidence": [
+                  [
+                    "base_count",
+                    27518
+                  ],
+                  [
+                    "co_count",
+                    9746
+                  ],
+                  [
+                    "conditional_rate",
+                    0.354168180827095
+                  ],
+                  [
+                    "runtime_global_count",
+                    25360
+                  ],
+                  [
+                    "global_rate",
+                    0.0022605795748078016
+                  ],
+                  [
+                    "raw_lift",
+                    156.67140620661718
+                  ],
+                  [
+                    "wilson_lower_bound",
+                    0.3485381688560682
+                  ],
+                  [
+                    "shrunk_lift",
+                    156.5583468659195
+                  ],
+                  [
+                    "snapshot_id",
+                    "nyanko-devs/danbooru2026@ebb02a630201c7b51487e45fb90b3fcf4cbedc20:metadata/posts-snapshot.parquet"
+                  ]
+                ]
+              },
+              {
+                "atom_id": "input:cooccurrence:short_hair",
+                "text": "short hair",
+                "canonical": "short_hair",
+                "block": "GENERAL_AUX",
+                "source_lanes": [
+                  "COOCCURRENCE"
+                ],
+                "selected": false,
+                "user_override": "EXCLUDE",
+                "special_owners": [],
+                "support_relations": [],
+                "provenance": [
+                  "input:cooccurrence:short_hair",
+                  "stage6_true_and_cooccurrence"
+                ],
+                "weight": null,
+                "reason": "true-AND co-occurrence suggestion; user choice required",
+                "merged_into": null,
+                "evidence": [
+                  [
+                    "base_count",
+                    27518
+                  ],
+                  [
+                    "co_count",
+                    11540
+                  ],
+                  [
+                    "conditional_rate",
+                    0.41936187222908644
+                  ],
+                  [
+                    "runtime_global_count",
+                    2926954
+                  ],
+                  [
+                    "global_rate",
+                    0.2609074301578074
+                  ],
+                  [
+                    "raw_lift",
+                    1.607320542674616
+                  ],
+                  [
+                    "wilson_lower_bound",
+                    0.41354327728853557
+                  ],
+                  [
+                    "shrunk_lift",
+                    1.6068794644970619
+                  ],
+                  [
+                    "snapshot_id",
+                    "nyanko-devs/danbooru2026@ebb02a630201c7b51487e45fb90b3fcf4cbedc20:metadata/posts-snapshot.parquet"
+                  ]
+                ]
+              },
+              {
+                "atom_id": "input:cooccurrence:long_hair",
+                "text": "long hair",
+                "canonical": "long_hair",
+                "block": "GENERAL_AUX",
+                "source_lanes": [
+                  "COOCCURRENCE"
+                ],
+                "selected": false,
+                "user_override": "EXCLUDE",
+                "special_owners": [],
+                "support_relations": [],
+                "provenance": [
+                  "input:cooccurrence:long_hair",
+                  "stage6_true_and_cooccurrence"
+                ],
+                "weight": null,
+                "reason": "true-AND co-occurrence suggestion; user choice required",
+                "merged_into": null,
+                "evidence": [
+                  [
+                    "base_count",
+                    27518
+                  ],
+                  [
+                    "co_count",
+                    11818
+                  ],
+                  [
+                    "conditional_rate",
+                    0.4294643506068755
+                  ],
+                  [
+                    "runtime_global_count",
+                    5790640
+                  ],
+                  [
+                    "global_rate",
+                    0.5161751778022495
+                  ],
+                  [
+                    "raw_lift",
+                    0.8320127915399419
+                  ],
+                  [
+                    "wilson_lower_bound",
+                    0.4236260941939512
+                  ],
+                  [
+                    "shrunk_lift",
+                    0.8321347954679396
+                  ],
+                  [
+                    "snapshot_id",
+                    "nyanko-devs/danbooru2026@ebb02a630201c7b51487e45fb90b3fcf4cbedc20:metadata/posts-snapshot.parquet"
+                  ]
+                ]
+              },
+              {
+                "atom_id": "input:cooccurrence:solo",
+                "text": "solo",
+                "canonical": "solo",
+                "block": "GENERAL_AUX",
+                "source_lanes": [
+                  "COOCCURRENCE"
+                ],
+                "selected": false,
+                "user_override": "EXCLUDE",
+                "special_owners": [],
+                "support_relations": [],
+                "provenance": [
+                  "input:cooccurrence:solo",
+                  "stage6_true_and_cooccurrence"
+                ],
+                "weight": null,
+                "reason": "true-AND co-occurrence suggestion; user choice required",
+                "merged_into": null,
+                "evidence": [
+                  [
+                    "base_count",
+                    27518
+                  ],
+                  [
+                    "co_count",
+                    12231
+                  ],
+                  [
+                    "conditional_rate",
+                    0.4444727087724399
+                  ],
+                  [
+                    "runtime_global_count",
+                    6583146
+                  ],
+                  [
+                    "global_rate",
+                    0.5868188243524322
+                  ],
+                  [
+                    "raw_lift",
+                    0.7574274892475128
+                  ],
+                  [
+                    "wilson_lower_bound",
+                    0.4386098256077717
+                  ],
+                  [
+                    "shrunk_lift",
+                    0.7576036621800077
+                  ],
+                  [
+                    "snapshot_id",
+                    "nyanko-devs/danbooru2026@ebb02a630201c7b51487e45fb90b3fcf4cbedc20:metadata/posts-snapshot.parquet"
+                  ]
+                ]
+              },
+              {
+                "atom_id": "input:cooccurrence:breasts",
+                "text": "breasts",
+                "canonical": "breasts",
+                "block": "GENERAL_AUX",
+                "source_lanes": [
+                  "COOCCURRENCE"
+                ],
+                "selected": false,
+                "user_override": "EXCLUDE",
+                "special_owners": [],
+                "support_relations": [],
+                "provenance": [
+                  "input:cooccurrence:breasts",
+                  "stage6_true_and_cooccurrence"
+                ],
+                "weight": null,
+                "reason": "same_canonical_selected_in_another_lane",
+                "merged_into": "input:semantic_aux:breasts",
+                "evidence": [
+                  [
+                    "base_count",
+                    27518
+                  ],
+                  [
+                    "co_count",
+                    16699
+                  ],
+                  [
+                    "conditional_rate",
+                    0.6068391598226616
+                  ],
+                  [
+                    "runtime_global_count",
+                    4542658
+                  ],
+                  [
+                    "global_rate",
+                    0.40493059503695816
+                  ],
+                  [
+                    "raw_lift",
+                    1.4986251156627846
+                  ],
+                  [
+                    "wilson_lower_bound",
+                    0.6010534912163065
+                  ],
+                  [
+                    "shrunk_lift",
+                    1.4982629796211964
+                  ],
+                  [
+                    "snapshot_id",
+                    "nyanko-devs/danbooru2026@ebb02a630201c7b51487e45fb90b3fcf4cbedc20:metadata/posts-snapshot.parquet"
+                  ]
+                ]
+              },
+              {
+                "atom_id": "input:cooccurrence:1girl",
+                "text": "1girl",
+                "canonical": "1girl",
+                "block": "GENERAL_AUX",
+                "source_lanes": [
+                  "COOCCURRENCE"
+                ],
+                "selected": false,
+                "user_override": "EXCLUDE",
+                "special_owners": [],
+                "support_relations": [],
+                "provenance": [
+                  "input:cooccurrence:1girl",
+                  "stage6_true_and_cooccurrence"
+                ],
+                "weight": null,
+                "reason": "user explicit choice",
+                "merged_into": null,
+                "evidence": [
+                  [
+                    "base_count",
+                    27518
+                  ],
+                  [
+                    "co_count",
+                    18175
+                  ],
+                  [
+                    "conditional_rate",
+                    0.6604767788356712
+                  ],
+                  [
+                    "runtime_global_count",
+                    7773799
+                  ],
+                  [
+                    "global_rate",
+                    0.6929531245292316
+                  ],
+                  [
+                    "raw_lift",
+                    0.95313341618075
+                  ],
+                  [
+                    "wilson_lower_bound",
+                    0.6548596856248893
+                  ],
+                  [
+                    "shrunk_lift",
+                    0.9531674539349944
+                  ],
+                  [
+                    "snapshot_id",
+                    "nyanko-devs/danbooru2026@ebb02a630201c7b51487e45fb90b3fcf4cbedc20:metadata/posts-snapshot.parquet"
+                  ]
+                ]
+              },
+              {
+                "atom_id": "input:cooccurrence:sensory_deprivation",
+                "text": "sensory deprivation",
+                "canonical": "sensory_deprivation",
+                "block": "GENERAL_AUX",
+                "source_lanes": [
+                  "COOCCURRENCE"
+                ],
+                "selected": false,
+                "user_override": "EXCLUDE",
+                "special_owners": [],
+                "support_relations": [],
+                "provenance": [
+                  "input:cooccurrence:sensory_deprivation",
+                  "stage6_true_and_cooccurrence"
+                ],
+                "weight": null,
+                "reason": "true-AND co-occurrence suggestion; user choice required",
+                "merged_into": null,
+                "evidence": [
+                  [
+                    "base_count",
+                    27518
+                  ],
+                  [
+                    "co_count",
+                    109
+                  ],
+                  [
+                    "conditional_rate",
+                    0.0039610436805000366
+                  ],
+                  [
+                    "runtime_global_count",
+                    123
+                  ],
+                  [
+                    "global_rate",
+                    1.0964167496110394e-05
+                  ],
+                  [
+                    "raw_lift",
+                    361.27172281025815
+                  ],
+                  [
+                    "wilson_lower_bound",
+                    0.0032849744670530746
+                  ],
+                  [
+                    "shrunk_lift",
+                    361.01006857043654
+                  ],
+                  [
+                    "snapshot_id",
+                    "nyanko-devs/danbooru2026@ebb02a630201c7b51487e45fb90b3fcf4cbedc20:metadata/posts-snapshot.parquet"
+                  ]
+                ]
+              },
+              {
+                "atom_id": "input:cooccurrence:tape_blindfold",
+                "text": "tape blindfold",
+                "canonical": "tape_blindfold",
+                "block": "GENERAL_AUX",
+                "source_lanes": [
+                  "COOCCURRENCE"
+                ],
+                "selected": false,
+                "user_override": "EXCLUDE",
+                "special_owners": [],
+                "support_relations": [],
+                "provenance": [
+                  "input:cooccurrence:tape_blindfold",
+                  "stage6_true_and_cooccurrence"
+                ],
+                "weight": null,
+                "reason": "true-AND co-occurrence suggestion; user choice required",
+                "merged_into": null,
+                "evidence": [
+                  [
+                    "base_count",
+                    27518
+                  ],
+                  [
+                    "co_count",
+                    65
+                  ],
+                  [
+                    "conditional_rate",
+                    0.0023620902681880953
+                  ],
+                  [
+                    "runtime_global_count",
+                    72
+                  ],
+                  [
+                    "global_rate",
+                    6.418049266015841e-06
+                  ],
+                  [
+                    "raw_lift",
+                    368.0386625723769
+                  ],
+                  [
+                    "wilson_lower_bound",
+                    0.0018538449043585296
+                  ],
+                  [
+                    "shrunk_lift",
+                    367.77209371293
+                  ],
+                  [
+                    "snapshot_id",
+                    "nyanko-devs/danbooru2026@ebb02a630201c7b51487e45fb90b3fcf4cbedc20:metadata/posts-snapshot.parquet"
+                  ]
+                ]
+              },
+              {
+                "atom_id": "input:cooccurrence:blindfold_slip",
+                "text": "blindfold slip",
+                "canonical": "blindfold_slip",
+                "block": "GENERAL_AUX",
+                "source_lanes": [
+                  "COOCCURRENCE"
+                ],
+                "selected": false,
+                "user_override": "EXCLUDE",
+                "special_owners": [],
+                "support_relations": [],
+                "provenance": [
+                  "input:cooccurrence:blindfold_slip",
+                  "stage6_true_and_cooccurrence"
+                ],
+                "weight": null,
+                "reason": "true-AND co-occurrence suggestion; user choice required",
+                "merged_into": null,
+                "evidence": [
+                  [
+                    "base_count",
+                    27518
+                  ],
+                  [
+                    "co_count",
+                    171
+                  ],
+                  [
+                    "conditional_rate",
+                    0.006214114397848681
+                  ],
+                  [
+                    "runtime_global_count",
+                    171
+                  ],
+                  [
+                    "global_rate",
+                    1.5242867006787621e-05
+                  ],
+                  [
+                    "raw_lift",
+                    407.6735954647867
+                  ],
+                  [
+                    "wilson_lower_bound",
+                    0.005352059693867998
+                  ],
+                  [
+                    "shrunk_lift",
+                    407.37824097610576
+                  ],
+                  [
+                    "snapshot_id",
+                    "nyanko-devs/danbooru2026@ebb02a630201c7b51487e45fb90b3fcf4cbedc20:metadata/posts-snapshot.parquet"
+                  ]
+                ]
+              },
+              {
+                "atom_id": "input:cooccurrence:blindfold_lift",
+                "text": "blindfold lift",
+                "canonical": "blindfold_lift",
+                "block": "GENERAL_AUX",
+                "source_lanes": [
+                  "COOCCURRENCE"
+                ],
+                "selected": false,
+                "user_override": "EXCLUDE",
+                "special_owners": [],
+                "support_relations": [],
+                "provenance": [
+                  "input:cooccurrence:blindfold_lift",
+                  "stage6_true_and_cooccurrence"
+                ],
+                "weight": null,
+                "reason": "true-AND co-occurrence suggestion; user choice required",
+                "merged_into": null,
+                "evidence": [
+                  [
+                    "base_count",
+                    27518
+                  ],
+                  [
+                    "co_count",
+                    481
+                  ],
+                  [
+                    "conditional_rate",
+                    0.017479467984591903
+                  ],
+                  [
+                    "runtime_global_count",
+                    481
+                  ],
+                  [
+                    "global_rate",
+                    4.287613467991138e-05
+                  ],
+                  [
+                    "raw_lift",
+                    407.6735954647867
+                  ],
+                  [
+                    "wilson_lower_bound",
+                    0.01599709200160156
+                  ],
+                  [
+                    "shrunk_lift",
+                    407.37824097610576
+                  ],
+                  [
+                    "snapshot_id",
+                    "nyanko-devs/danbooru2026@ebb02a630201c7b51487e45fb90b3fcf4cbedc20:metadata/posts-snapshot.parquet"
+                  ]
+                ]
+              },
+              {
+                "atom_id": "input:manual:colored_blindfold",
+                "text": "colored blindfold",
+                "canonical": "colored_blindfold",
+                "block": "GENERAL_AUX",
+                "source_lanes": [
+                  "USER_EXPLICIT"
+                ],
+                "selected": false,
+                "user_override": "DEFAULT",
+                "special_owners": [],
+                "support_relations": [],
+                "provenance": [
+                  "input:manual:colored_blindfold"
+                ],
+                "weight": null,
+                "reason": "exact rendered token dedupe",
+                "merged_into": "input:cooccurrence:colored_blindfold",
+                "evidence": []
+              }
+            ],
+            "warnings": [],
+            "profile": {
+              "profile_id": "stage9a_baseline",
+              "model_family": "GENERIC",
+              "block_order": [
+                "META_QUALITY",
+                "COUNT",
+                "RELATION",
+                "IDENTITY",
+                "SPECIAL",
+                "SUPPORT_STRUCTURE",
+                "POSE_COMPOSITION",
+                "GENERAL_AUX",
+                "BACKGROUND_LIGHT",
+                "LORA"
+              ],
+              "special_slot_position": 4,
+              "negative_rule_set": [],
+              "validation_status": "STAGE9_DESIGN_CANDIDATE",
+              "notes": "Baseline ordering; not Stage10 image-validated."
+            }
+          },
+          "positive_blocks": [
+            [
+              "META_QUALITY",
+              []
+            ],
+            [
+              "COUNT",
+              []
+            ],
+            [
+              "RELATION",
+              []
+            ],
+            [
+              "IDENTITY",
+              []
+            ],
+            [
+              "SPECIAL",
+              [
+                {
+                  "atom_id": "special:1816",
+                  "text": "blindfold",
+                  "canonical": null,
+                  "block": "SPECIAL",
+                  "source_lanes": [
+                    "SPECIAL"
+                  ],
+                  "selected": true,
+                  "user_override": "DEFAULT",
+                  "special_owners": [
+                    "1816"
+                  ],
+                  "support_relations": [],
+                  "provenance": [
+                    "special:1816"
+                  ],
+                  "weight": null,
+                  "reason": "selected Special identity",
+                  "merged_into": null,
+                  "evidence": []
+                }
+              ]
+            ],
+            [
+              "SUPPORT_STRUCTURE",
+              [
+                {
+                  "atom_id": "input:semantic_aux:breasts",
+                  "text": "breasts",
+                  "canonical": "breasts",
+                  "block": "SUPPORT_STRUCTURE",
+                  "source_lanes": [
+                    "SEMANTIC_AUX",
+                    "COOCCURRENCE"
+                  ],
+                  "selected": true,
+                  "user_override": "INCLUDE",
+                  "special_owners": [],
+                  "support_relations": [],
+                  "provenance": [
+                    "input:semantic_aux:breasts",
+                    "stage8a_semantics",
+                    "semantic_role:BODY_PART",
+                    "semantic_label:身体部位",
+                    "input:cooccurrence:breasts",
+                    "stage6_true_and_cooccurrence"
+                  ],
+                  "weight": null,
+                  "reason": "user explicit choice",
+                  "merged_into": null,
+                  "evidence": [
+                    [
+                      "base_count",
+                      27518
+                    ],
+                    [
+                      "co_count",
+                      16699
+                    ],
+                    [
+                      "conditional_rate",
+                      0.6068391598226616
+                    ],
+                    [
+                      "runtime_global_count",
+                      4542658
+                    ],
+                    [
+                      "global_rate",
+                      0.40493059503695816
+                    ],
+                    [
+                      "raw_lift",
+                      1.4986251156627846
+                    ],
+                    [
+                      "wilson_lower_bound",
+                      0.6010534912163065
+                    ],
+                    [
+                      "shrunk_lift",
+                      1.4982629796211964
+                    ],
+                    [
+                      "semantic_role",
+                      "BODY_PART"
+                    ],
+                    [
+                      "generation_hint_kind",
+                      "BODY_TARGET"
+                    ],
+                    [
+                      "base_count",
+                      27518
+                    ],
+                    [
+                      "co_count",
+                      16699
+                    ],
+                    [
+                      "conditional_rate",
+                      0.6068391598226616
+                    ],
+                    [
+                      "runtime_global_count",
+                      4542658
+                    ],
+                    [
+                      "global_rate",
+                      0.40493059503695816
+                    ],
+                    [
+                      "raw_lift",
+                      1.4986251156627846
+                    ],
+                    [
+                      "wilson_lower_bound",
+                      0.6010534912163065
+                    ],
+                    [
+                      "shrunk_lift",
+                      1.4982629796211964
+                    ],
+                    [
+                      "snapshot_id",
+                      "nyanko-devs/danbooru2026@ebb02a630201c7b51487e45fb90b3fcf4cbedc20:metadata/posts-snapshot.parquet"
+                    ]
+                  ]
+                }
+              ]
+            ],
+            [
+              "POSE_COMPOSITION",
+              []
+            ],
+            [
+              "GENERAL_AUX",
+              [
+                {
+                  "atom_id": "input:cooccurrence:colored_blindfold",
+                  "text": "colored blindfold",
+                  "canonical": "colored_blindfold",
+                  "block": "GENERAL_AUX",
+                  "source_lanes": [
+                    "COOCCURRENCE",
+                    "USER_EXPLICIT",
+                    "SEMANTIC_AUX"
+                  ],
+                  "selected": true,
+                  "user_override": "INCLUDE",
+                  "special_owners": [],
+                  "support_relations": [],
+                  "provenance": [
+                    "input:cooccurrence:colored_blindfold",
+                    "stage6_true_and_cooccurrence",
+                    "input:manual:colored_blindfold",
+                    "input:semantic_aux:colored_blindfold",
+                    "stage8a_semantics",
+                    "semantic_role:UNCLASSIFIED"
+                  ],
+                  "weight": null,
+                  "reason": "user selected co-occurrence suggestion",
+                  "merged_into": null,
+                  "evidence": [
+                    [
+                      "base_count",
+                      27518
+                    ],
+                    [
+                      "co_count",
+                      950
+                    ],
+                    [
+                      "conditional_rate",
+                      0.034522857765826004
+                    ],
+                    [
+                      "runtime_global_count",
+                      950
+                    ],
+                    [
+                      "global_rate",
+                      8.468259448215346e-05
+                    ],
+                    [
+                      "raw_lift",
+                      407.6735954647867
+                    ],
+                    [
+                      "wilson_lower_bound",
+                      0.03242993169741689
+                    ],
+                    [
+                      "shrunk_lift",
+                      407.37824097610576
+                    ],
+                    [
+                      "snapshot_id",
+                      "nyanko-devs/danbooru2026@ebb02a630201c7b51487e45fb90b3fcf4cbedc20:metadata/posts-snapshot.parquet"
+                    ],
+                    [
+                      "base_count",
+                      27518
+                    ],
+                    [
+                      "co_count",
+                      950
+                    ],
+                    [
+                      "conditional_rate",
+                      0.034522857765826004
+                    ],
+                    [
+                      "runtime_global_count",
+                      950
+                    ],
+                    [
+                      "global_rate",
+                      8.468259448215346e-05
+                    ],
+                    [
+                      "raw_lift",
+                      407.6735954647867
+                    ],
+                    [
+                      "wilson_lower_bound",
+                      0.03242993169741689
+                    ],
+                    [
+                      "shrunk_lift",
+                      407.37824097610576
+                    ],
+                    [
+                      "semantic_role",
+                      "UNCLASSIFIED"
+                    ],
+                    [
+                      "evidence_note_kind",
+                      "DISCOVERY_CANDIDATE"
+                    ]
+                  ]
+                }
+              ]
+            ],
+            [
+              "BACKGROUND_LIGHT",
+              []
+            ],
+            [
+              "LORA",
+              []
+            ]
+          ],
+          "positive_prompt": "blindfold, breasts, colored blindfold",
+          "negative_prompt": "",
+          "warnings": [],
+          "provenance_map": {
+            "blindfold": {
+              "atom_id": "special:1816",
+              "text": "blindfold",
+              "canonical": null,
+              "block": "SPECIAL",
+              "source_lanes": [
+                "SPECIAL"
+              ],
+              "selected": true,
+              "user_override": "DEFAULT",
+              "special_owners": [
+                "1816"
+              ],
+              "support_relations": [],
+              "provenance": [
+                "special:1816"
+              ],
+              "weight": null,
+              "reason": "selected Special identity",
+              "merged_into": null,
+              "evidence": []
+            },
+            "breasts": {
+              "atom_id": "input:semantic_aux:breasts",
+              "text": "breasts",
+              "canonical": "breasts",
+              "block": "SUPPORT_STRUCTURE",
+              "source_lanes": [
+                "SEMANTIC_AUX",
+                "COOCCURRENCE"
+              ],
+              "selected": true,
+              "user_override": "INCLUDE",
+              "special_owners": [],
+              "support_relations": [],
+              "provenance": [
+                "input:semantic_aux:breasts",
+                "stage8a_semantics",
+                "semantic_role:BODY_PART",
+                "semantic_label:身体部位",
+                "input:cooccurrence:breasts",
+                "stage6_true_and_cooccurrence"
+              ],
+              "weight": null,
+              "reason": "user explicit choice",
+              "merged_into": null,
+              "evidence": [
+                [
+                  "base_count",
+                  27518
+                ],
+                [
+                  "co_count",
+                  16699
+                ],
+                [
+                  "conditional_rate",
+                  0.6068391598226616
+                ],
+                [
+                  "runtime_global_count",
+                  4542658
+                ],
+                [
+                  "global_rate",
+                  0.40493059503695816
+                ],
+                [
+                  "raw_lift",
+                  1.4986251156627846
+                ],
+                [
+                  "wilson_lower_bound",
+                  0.6010534912163065
+                ],
+                [
+                  "shrunk_lift",
+                  1.4982629796211964
+                ],
+                [
+                  "semantic_role",
+                  "BODY_PART"
+                ],
+                [
+                  "generation_hint_kind",
+                  "BODY_TARGET"
+                ],
+                [
+                  "base_count",
+                  27518
+                ],
+                [
+                  "co_count",
+                  16699
+                ],
+                [
+                  "conditional_rate",
+                  0.6068391598226616
+                ],
+                [
+                  "runtime_global_count",
+                  4542658
+                ],
+                [
+                  "global_rate",
+                  0.40493059503695816
+                ],
+                [
+                  "raw_lift",
+                  1.4986251156627846
+                ],
+                [
+                  "wilson_lower_bound",
+                  0.6010534912163065
+                ],
+                [
+                  "shrunk_lift",
+                  1.4982629796211964
+                ],
+                [
+                  "snapshot_id",
+                  "nyanko-devs/danbooru2026@ebb02a630201c7b51487e45fb90b3fcf4cbedc20:metadata/posts-snapshot.parquet"
+                ]
+              ]
+            },
+            "colored blindfold": {
+              "atom_id": "input:cooccurrence:colored_blindfold",
+              "text": "colored blindfold",
+              "canonical": "colored_blindfold",
+              "block": "GENERAL_AUX",
+              "source_lanes": [
+                "COOCCURRENCE",
+                "USER_EXPLICIT",
+                "SEMANTIC_AUX"
+              ],
+              "selected": true,
+              "user_override": "INCLUDE",
+              "special_owners": [],
+              "support_relations": [],
+              "provenance": [
+                "input:cooccurrence:colored_blindfold",
+                "stage6_true_and_cooccurrence",
+                "input:manual:colored_blindfold",
+                "input:semantic_aux:colored_blindfold",
+                "stage8a_semantics",
+                "semantic_role:UNCLASSIFIED"
+              ],
+              "weight": null,
+              "reason": "user selected co-occurrence suggestion",
+              "merged_into": null,
+              "evidence": [
+                [
+                  "base_count",
+                  27518
+                ],
+                [
+                  "co_count",
+                  950
+                ],
+                [
+                  "conditional_rate",
+                  0.034522857765826004
+                ],
+                [
+                  "runtime_global_count",
+                  950
+                ],
+                [
+                  "global_rate",
+                  8.468259448215346e-05
+                ],
+                [
+                  "raw_lift",
+                  407.6735954647867
+                ],
+                [
+                  "wilson_lower_bound",
+                  0.03242993169741689
+                ],
+                [
+                  "shrunk_lift",
+                  407.37824097610576
+                ],
+                [
+                  "snapshot_id",
+                  "nyanko-devs/danbooru2026@ebb02a630201c7b51487e45fb90b3fcf4cbedc20:metadata/posts-snapshot.parquet"
+                ],
+                [
+                  "base_count",
+                  27518
+                ],
+                [
+                  "co_count",
+                  950
+                ],
+                [
+                  "conditional_rate",
+                  0.034522857765826004
+                ],
+                [
+                  "runtime_global_count",
+                  950
+                ],
+                [
+                  "global_rate",
+                  8.468259448215346e-05
+                ],
+                [
+                  "raw_lift",
+                  407.6735954647867
+                ],
+                [
+                  "wilson_lower_bound",
+                  0.03242993169741689
+                ],
+                [
+                  "shrunk_lift",
+                  407.37824097610576
+                ],
+                [
+                  "semantic_role",
+                  "UNCLASSIFIED"
+                ],
+                [
+                  "evidence_note_kind",
+                  "DISCOVERY_CANDIDATE"
+                ]
+              ]
+            }
+          },
+          "profile_id": "stage9a_baseline",
+          "block_order": [
+            "META_QUALITY",
+            "COUNT",
+            "RELATION",
+            "IDENTITY",
+            "SPECIAL",
+            "SUPPORT_STRUCTURE",
+            "POSE_COMPOSITION",
+            "GENERAL_AUX",
+            "BACKGROUND_LIGHT",
+            "LORA"
+          ]
+        },
+        "selection": {
+          "decisions": [
+            {
+              "candidate_id": "cooccurrence:colored_blindfold",
+              "state": "INCLUDE",
+              "reason": "user selected co-occurrence suggestion"
+            },
+            {
+              "candidate_id": "cooccurrence:1girl",
+              "state": "EXCLUDE",
+              "reason": "user explicit choice"
+            },
+            {
+              "candidate_id": "semantic_aux:breasts",
+              "state": "INCLUDE",
+              "reason": "user explicit choice"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "nodeid": "tests/test_e2e_functional.py::test_real_tk_search_candidates_and_output",
+      "when": "teardown",
+      "outcome": "passed",
+      "duration": 0.01759469999524299,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_e2e_functional.py::test_real_tk_variant_restoration",
+      "when": "setup",
+      "outcome": "passed",
+      "duration": 1.3449838000087766,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_e2e_functional.py::test_real_tk_variant_restoration",
+      "when": "call",
+      "outcome": "passed",
+      "duration": 1.2907523000030778,
+      "detail": "",
+      "evidence": {
+        "tk": "8.6.15",
+        "snapshot_id": "nyanko-devs/danbooru2026@ebb02a630201c7b51487e45fb90b3fcf4cbedc20:metadata/posts-snapshot.parquet",
+        "variant_combinations_restored": 12
+      }
+    },
+    {
+      "nodeid": "tests/test_e2e_functional.py::test_real_tk_variant_restoration",
+      "when": "teardown",
+      "outcome": "passed",
+      "duration": 0.013376900009461679,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_e2e_functional.py::test_real_tk_stale_and_invalid_protection",
+      "when": "setup",
+      "outcome": "passed",
+      "duration": 1.495413999989978,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_e2e_functional.py::test_real_tk_stale_and_invalid_protection",
+      "when": "call",
+      "outcome": "passed",
+      "duration": 1.2199924000015017,
+      "detail": "",
+      "evidence": {
+        "tk": "8.6.15",
+        "snapshot_id": "nyanko-devs/danbooru2026@ebb02a630201c7b51487e45fb90b3fcf4cbedc20:metadata/posts-snapshot.parquet",
+        "guards": [
+          "stale_request",
+          "stale_queue",
+          "wrong_core",
+          "invalid_status",
+          "invalid_special",
+          "invalid_manual",
+          "invalid_candidate",
+          "malformed_result"
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/test_e2e_functional.py::test_real_tk_stale_and_invalid_protection",
+      "when": "teardown",
+      "outcome": "passed",
+      "duration": 0.02261759999964852,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_e2e_verdict.py::test_machine_verdict[passed-0-PASS]",
+      "when": "setup",
+      "outcome": "passed",
+      "duration": 0.00018050000653602183,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_e2e_verdict.py::test_machine_verdict[passed-0-PASS]",
+      "when": "call",
+      "outcome": "passed",
+      "duration": 8.749999688006938e-05,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_e2e_verdict.py::test_machine_verdict[passed-0-PASS]",
+      "when": "teardown",
+      "outcome": "passed",
+      "duration": 7.399999594781548e-05,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_e2e_verdict.py::test_machine_verdict[failed-1-FAIL]",
+      "when": "setup",
+      "outcome": "passed",
+      "duration": 0.00010900000052060932,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_e2e_verdict.py::test_machine_verdict[failed-1-FAIL]",
+      "when": "call",
+      "outcome": "passed",
+      "duration": 6.639999628532678e-05,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_e2e_verdict.py::test_machine_verdict[failed-1-FAIL]",
+      "when": "teardown",
+      "outcome": "passed",
+      "duration": 6.639999628532678e-05,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_e2e_verdict.py::test_machine_verdict[skipped-0-BLOCKED]",
+      "when": "setup",
+      "outcome": "passed",
+      "duration": 9.65999934123829e-05,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_e2e_verdict.py::test_machine_verdict[skipped-0-BLOCKED]",
+      "when": "call",
+      "outcome": "passed",
+      "duration": 6.299999949987978e-05,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_e2e_verdict.py::test_machine_verdict[skipped-0-BLOCKED]",
+      "when": "teardown",
+      "outcome": "passed",
+      "duration": 6.269999721553177e-05,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_e2e_verdict.py::test_machine_verdict[passed-2-FAIL]",
+      "when": "setup",
+      "outcome": "passed",
+      "duration": 9.470000804867595e-05,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_e2e_verdict.py::test_machine_verdict[passed-2-FAIL]",
+      "when": "call",
+      "outcome": "passed",
+      "duration": 6.0699996538460255e-05,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_e2e_verdict.py::test_machine_verdict[passed-2-FAIL]",
+      "when": "teardown",
+      "outcome": "passed",
+      "duration": 6.150000263005495e-05,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_e2e_verdict.py::test_absent_gui_or_teardown_failure_never_passes",
+      "when": "setup",
+      "outcome": "passed",
+      "duration": 6.180000491440296e-05,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_e2e_verdict.py::test_absent_gui_or_teardown_failure_never_passes",
+      "when": "call",
+      "outcome": "passed",
+      "duration": 6.489999941550195e-05,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_e2e_verdict.py::test_absent_gui_or_teardown_failure_never_passes",
+      "when": "teardown",
+      "outcome": "passed",
+      "duration": 5.629999213851988e-05,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_local_session_composes_core_and_manual_auxiliary",
+      "when": "setup",
+      "outcome": "passed",
+      "duration": 6.729998858645558e-05,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_local_session_composes_core_and_manual_auxiliary",
+      "when": "call",
+      "outcome": "passed",
+      "duration": 1.2201814000000013,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_local_session_composes_core_and_manual_auxiliary",
+      "when": "teardown",
+      "outcome": "passed",
+      "duration": 0.0002057999954558909,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_review_lanes_are_default_off_and_selection_persists",
+      "when": "setup",
+      "outcome": "passed",
+      "duration": 0.0001311999949393794,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_review_lanes_are_default_off_and_selection_persists",
+      "when": "call",
+      "outcome": "passed",
+      "duration": 0.7425342999922577,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_review_lanes_are_default_off_and_selection_persists",
+      "when": "teardown",
+      "outcome": "passed",
+      "duration": 0.00010619999375194311,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_stage9d_variant_is_reversible_and_does_not_decide_a_winner",
+      "when": "setup",
+      "outcome": "passed",
+      "duration": 9.370000043418258e-05,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_stage9d_variant_is_reversible_and_does_not_decide_a_winner",
+      "when": "call",
+      "outcome": "passed",
+      "duration": 0.7415414999995846,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_stage9d_variant_is_reversible_and_does_not_decide_a_winner",
+      "when": "teardown",
+      "outcome": "passed",
+      "duration": 0.00010820000898092985,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_ui_receives_both_buckets_atomically_and_adds_from_either[common0-rare0]",
+      "when": "setup",
+      "outcome": "passed",
+      "duration": 0.00014449999434873462,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_ui_receives_both_buckets_atomically_and_adds_from_either[common0-rare0]",
+      "when": "call",
+      "outcome": "passed",
+      "duration": 0.7532684000034351,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_ui_receives_both_buckets_atomically_and_adds_from_either[common0-rare0]",
+      "when": "teardown",
+      "outcome": "passed",
+      "duration": 0.00013939999917056412,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_ui_receives_both_buckets_atomically_and_adds_from_either[common1-rare1]",
+      "when": "setup",
+      "outcome": "passed",
+      "duration": 0.00013339999713934958,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_ui_receives_both_buckets_atomically_and_adds_from_either[common1-rare1]",
+      "when": "call",
+      "outcome": "passed",
+      "duration": 0.77961330000835,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_ui_receives_both_buckets_atomically_and_adds_from_either[common1-rare1]",
+      "when": "teardown",
+      "outcome": "passed",
+      "duration": 0.0001438999897800386,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_ui_receives_both_buckets_atomically_and_adds_from_either[common2-rare2]",
+      "when": "setup",
+      "outcome": "passed",
+      "duration": 0.00014429999282583594,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_ui_receives_both_buckets_atomically_and_adds_from_either[common2-rare2]",
+      "when": "call",
+      "outcome": "passed",
+      "duration": 0.7718003000045428,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_ui_receives_both_buckets_atomically_and_adds_from_either[common2-rare2]",
+      "when": "teardown",
+      "outcome": "passed",
+      "duration": 0.0001235000090673566,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_ui_receives_both_buckets_atomically_and_adds_from_either[common3-rare3]",
+      "when": "setup",
+      "outcome": "passed",
+      "duration": 0.00013169999874662608,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_ui_receives_both_buckets_atomically_and_adds_from_either[common3-rare3]",
+      "when": "call",
+      "outcome": "passed",
+      "duration": 0.7735906000016257,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_ui_receives_both_buckets_atomically_and_adds_from_either[common3-rare3]",
+      "when": "teardown",
+      "outcome": "passed",
+      "duration": 0.00011920000542886555,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_ui_receives_both_buckets_atomically_and_adds_from_either[common4-rare4]",
+      "when": "setup",
+      "outcome": "passed",
+      "duration": 0.00012549999519251287,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_ui_receives_both_buckets_atomically_and_adds_from_either[common4-rare4]",
+      "when": "call",
+      "outcome": "passed",
+      "duration": 0.7726926000032108,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_ui_receives_both_buckets_atomically_and_adds_from_either[common4-rare4]",
+      "when": "teardown",
+      "outcome": "passed",
+      "duration": 0.00011860000086016953,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_semantic_only_add_does_not_require_cooccurrence",
+      "when": "setup",
+      "outcome": "passed",
+      "duration": 7.979999645613134e-05,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_semantic_only_add_does_not_require_cooccurrence",
+      "when": "call",
+      "outcome": "passed",
+      "duration": 0.7975865000043996,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_semantic_only_add_does_not_require_cooccurrence",
+      "when": "teardown",
+      "outcome": "passed",
+      "duration": 0.0001016000023810193,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_core_change_clears_candidates_but_not_stable_decisions",
+      "when": "setup",
+      "outcome": "passed",
+      "duration": 8.230000094044954e-05,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_core_change_clears_candidates_but_not_stable_decisions",
+      "when": "call",
+      "outcome": "passed",
+      "duration": 0.8113830000074813,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_core_change_clears_candidates_but_not_stable_decisions",
+      "when": "teardown",
+      "outcome": "passed",
+      "duration": 0.0001117999927373603,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_remove_included_candidate_excludes_its_lane",
+      "when": "setup",
+      "outcome": "passed",
+      "duration": 9.469999349676073e-05,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_remove_included_candidate_excludes_its_lane",
+      "when": "call",
+      "outcome": "passed",
+      "duration": 0.7869117999944137,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_remove_included_candidate_excludes_its_lane",
+      "when": "teardown",
+      "outcome": "passed",
+      "duration": 0.00027200000477023423,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_broad_generic_knob_changes_actual_prompt_and_restores[0]",
+      "when": "setup",
+      "outcome": "passed",
+      "duration": 0.00021430000197142363,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_broad_generic_knob_changes_actual_prompt_and_restores[0]",
+      "when": "call",
+      "outcome": "passed",
+      "duration": 0.7638299999962328,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_broad_generic_knob_changes_actual_prompt_and_restores[0]",
+      "when": "teardown",
+      "outcome": "passed",
+      "duration": 0.00012589999823831022,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_broad_generic_knob_changes_actual_prompt_and_restores[1]",
+      "when": "setup",
+      "outcome": "passed",
+      "duration": 0.0001311999949393794,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_broad_generic_knob_changes_actual_prompt_and_restores[1]",
+      "when": "call",
+      "outcome": "passed",
+      "duration": 0.7582741000078386,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_broad_generic_knob_changes_actual_prompt_and_restores[1]",
+      "when": "teardown",
+      "outcome": "passed",
+      "duration": 0.00011920000542886555,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_broad_generic_knob_changes_actual_prompt_and_restores[2]",
+      "when": "setup",
+      "outcome": "passed",
+      "duration": 0.00021600000036414713,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_broad_generic_knob_changes_actual_prompt_and_restores[2]",
+      "when": "call",
+      "outcome": "passed",
+      "duration": 0.7548926000017673,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_broad_generic_knob_changes_actual_prompt_and_restores[2]",
+      "when": "teardown",
+      "outcome": "passed",
+      "duration": 0.00011759999324567616,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_all_six_knobs_are_reversible_and_capture_actual_prompt",
+      "when": "setup",
+      "outcome": "passed",
+      "duration": 8.830000297166407e-05,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_all_six_knobs_are_reversible_and_capture_actual_prompt",
+      "when": "call",
+      "outcome": "passed",
+      "duration": 0.7696074999985285,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_all_six_knobs_are_reversible_and_capture_actual_prompt",
+      "when": "teardown",
+      "outcome": "passed",
+      "duration": 0.00010539998766034842,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_lora_alone_never_contracts_and_density_has_no_implicit_limit",
+      "when": "setup",
+      "outcome": "passed",
+      "duration": 8.349999552592635e-05,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_lora_alone_never_contracts_and_density_has_no_implicit_limit",
+      "when": "call",
+      "outcome": "passed",
+      "duration": 0.7661641999875428,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_lora_alone_never_contracts_and_density_has_no_implicit_limit",
+      "when": "teardown",
+      "outcome": "passed",
+      "duration": 0.00010299999848939478,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_weight_grammar_is_explicit_and_profile_scoped[NOOBAI]",
+      "when": "setup",
+      "outcome": "passed",
+      "duration": 0.00011269999959040433,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_weight_grammar_is_explicit_and_profile_scoped[NOOBAI]",
+      "when": "call",
+      "outcome": "passed",
+      "duration": 0.749153099997784,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_weight_grammar_is_explicit_and_profile_scoped[NOOBAI]",
+      "when": "teardown",
+      "outcome": "passed",
+      "duration": 0.00010730000212788582,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_weight_grammar_is_explicit_and_profile_scoped[WAI_ILLUSTRIOUS]",
+      "when": "setup",
+      "outcome": "passed",
+      "duration": 0.00011449999874457717,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_weight_grammar_is_explicit_and_profile_scoped[WAI_ILLUSTRIOUS]",
+      "when": "call",
+      "outcome": "passed",
+      "duration": 0.776157800006331,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_weight_grammar_is_explicit_and_profile_scoped[WAI_ILLUSTRIOUS]",
+      "when": "teardown",
+      "outcome": "passed",
+      "duration": 0.00010940000356640667,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_weight_grammar_is_explicit_and_profile_scoped[ILLUSTRIOUS]",
+      "when": "setup",
+      "outcome": "passed",
+      "duration": 0.00011579999409150332,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_weight_grammar_is_explicit_and_profile_scoped[ILLUSTRIOUS]",
+      "when": "call",
+      "outcome": "passed",
+      "duration": 0.7492979999951785,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_weight_grammar_is_explicit_and_profile_scoped[ILLUSTRIOUS]",
+      "when": "teardown",
+      "outcome": "passed",
+      "duration": 0.0001109000004362315,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_weight_grammar_is_explicit_and_profile_scoped[ANIMA]",
+      "when": "setup",
+      "outcome": "passed",
+      "duration": 0.00012569999671541154,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_weight_grammar_is_explicit_and_profile_scoped[ANIMA]",
+      "when": "call",
+      "outcome": "passed",
+      "duration": 0.7863369999977294,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_weight_grammar_is_explicit_and_profile_scoped[ANIMA]",
+      "when": "teardown",
+      "outcome": "passed",
+      "duration": 0.0001416000013705343,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_invalid_variants_fail_without_caching_partial_result",
+      "when": "setup",
+      "outcome": "passed",
+      "duration": 0.0001053000014508143,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_invalid_variants_fail_without_caching_partial_result",
+      "when": "call",
+      "outcome": "passed",
+      "duration": 0.7914872999972431,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_invalid_variants_fail_without_caching_partial_result",
+      "when": "teardown",
+      "outcome": "passed",
+      "duration": 0.00011199999426025897,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_invalid_candidate_registration_is_atomic[invalid0]",
+      "when": "setup",
+      "outcome": "passed",
+      "duration": 0.00015560000611003488,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_invalid_candidate_registration_is_atomic[invalid0]",
+      "when": "call",
+      "outcome": "passed",
+      "duration": 0.7690942999906838,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_invalid_candidate_registration_is_atomic[invalid0]",
+      "when": "teardown",
+      "outcome": "passed",
+      "duration": 0.0001314999972237274,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_invalid_candidate_registration_is_atomic[invalid1]",
+      "when": "setup",
+      "outcome": "passed",
+      "duration": 0.00011239999730605632,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_invalid_candidate_registration_is_atomic[invalid1]",
+      "when": "call",
+      "outcome": "passed",
+      "duration": 0.7849023000017041,
+      "detail": "",
+      "evidence": {}
+    },
+    {
+      "nodeid": "tests/test_stage9c_session.py::test_invalid_candidate_registration_is_atomic[invalid1]",
+      "when": "teardown",
+      "outcome": "passed",
+      "duration": 0.00016759999562054873,
+      "detail": "",
+      "evidence": {}
+    }
+  ]
+}

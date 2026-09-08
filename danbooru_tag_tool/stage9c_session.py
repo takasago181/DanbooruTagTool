@@ -145,9 +145,15 @@ class Stage9ComposerSession:
     def set_discovered_candidates(self, decorated: Iterable[DecoratedRecommendationCandidate], *, snapshot_id=None):
         """Register existing UI candidates in both independent review lanes."""
         decorated = tuple(decorated)
-        self._semantic_auxiliary = tuple(semantic_auxiliary_candidate(item) for item in decorated)
-        self._cooccurrence = tuple(cooccurrence_candidate(item.candidate, snapshot_id=snapshot_id)
-                                   for item in decorated)
+        # Validate/build both lanes before committing either one. Invalid input
+        # must leave the last usable result and user decisions intact.
+        for item in decorated:
+            if item.candidate.canonical not in self.knowledge.canonical:
+                raise KeyError(item.candidate.canonical)
+        semantic = tuple(semantic_auxiliary_candidate(item) for item in decorated)
+        cooccurrence = tuple(cooccurrence_candidate(item.candidate, snapshot_id=snapshot_id)
+                             for item in decorated)
+        self._semantic_auxiliary, self._cooccurrence = semantic, cooccurrence
         self._last_result = None
 
     def choose_candidate(self, candidate_id, state, reason="user explicit choice"):
