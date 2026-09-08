@@ -1,0 +1,2 @@
+special_id,tag,field,current_value,proposed_value,rule_version,risk_priority,evidence_refs,reason,status,notes
+545,vaginal object insertion,ImplementRequirementOverride,,true,R2,A,generation_profile;generation_profile:IDs149,182;generation_family_rules,"An inserted object is intrinsic to the Special; actor/bodypart structure is already asserted but the implement requirement is not.",QUARANTINED_CANDIDATE,Structural metadata only; no object subtype or automatic support insertion.
