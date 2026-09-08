@@ -14,8 +14,9 @@ from translation_quarantine.r3.r3_common import (
     ensure_r3_output,
     issue32_fingerprint,
     classify_risk,
+    term_class,
 )
-from translation_quarantine.r3.r3_run import run
+from translation_quarantine.r3.r3_run import _candidate_terms, run
 from translation_quarantine.r3.r3_select_pilot import select_pilot
 from translation_quarantine.r3.r3_verify import verify
 
@@ -47,9 +48,82 @@ def test_r3_known_failure_patterns_are_systemic_rules():
     assert classify_risk("gaping") == "HIGH_ANATOMY_ADULT"
     assert classify_risk("cuffs") == "CRITICAL"
     assert disallowed_search_reason("ガールズイラスト", "1girl") == "CATEGORY_OR_NOISY_ALIAS"
-    assert disallowed_search_reason("背景", "simple_background") == "NARROWER_OR_DIFFERENT_SUBTYPE"
+    assert disallowed_search_reason("単色背景", "simple_background") == "NARROWER_THAN_CANONICAL"
     assert disallowed_search_reason("騎乗位", "straddling") == "SEXUAL_SUBTYPE_NARROWING"
     assert disallowed_search_reason("手錠", "cuffs") == "SUBTYPE_COLLISION_REQUIRES_SCOPE"
+
+
+def _candidate(canonical: str, term: str, **extra):
+    return _candidate_terms(
+        [
+            {
+                "evidence_id": "scope",
+                "canonical": canonical,
+                "evidence_role": "SEMANTIC_SCOPE",
+                "scope_note": "exact canonical scope",
+                "frozen": True,
+            },
+            {
+                "evidence_id": "term",
+                "canonical": canonical,
+                "evidence_role": "WORDING_CANDIDATE",
+                "term": term,
+                "term_class": "EXACT_SYNONYM",
+                "search_equivalence_proof": "EXACT",
+                "frozen": True,
+                **extra,
+            },
+        ],
+        canonical,
+    )[0]
+
+
+def test_search_safety_rejects_narrowing_but_not_direct_simple_background_form():
+    narrow = _candidate("simple_background", "単色背景")
+    direct = _candidate("simple_background", "シンプル背景")
+    assert narrow["term_state"] == "REJECTED"
+    assert narrow["rejection_reason"] == "NARROWER_THAN_CANONICAL"
+    assert direct["rejection_reason"] != "NARROWER_THAN_CANONICAL"
+    assert direct["term_state"] == "ACCEPTED"
+
+
+def test_search_safety_rejects_count_attribute_and_relation_scope_changes():
+    assert _candidate("1girl", "女の子")["term_state"] == "REJECTED"
+    attribute = _candidate("1girl", "美少女")
+    assert attribute["term_state"] == "REJECTED"
+    assert attribute["rejection_reason"] == "ATTRIBUTE_ADDED"
+    for relation in ("parent", "child", "adjacent", "actor_added", "target_added", "context_added"):
+        result = _candidate("girl", "女性", candidate_relation=relation)
+        assert result["term_state"] == "REJECTED", relation
+
+
+def test_unproven_japanese_term_is_not_orthographic_or_ready():
+    assert term_class("まつげ", "eyelashes") == "COMMON_EXACT_PARAPHRASE"
+    result = _candidate_terms(
+        [
+            {"evidence_id": "scope", "canonical": "eyelashes", "evidence_role": "SEMANTIC_SCOPE", "frozen": True},
+            {"evidence_id": "term", "canonical": "eyelashes", "evidence_role": "WORDING_CANDIDATE", "term": "まつげ", "frozen": True},
+        ],
+        "eyelashes",
+    )[0]
+    assert result["term_class"] != "ORTHOGRAPHIC_VARIANT"
+    assert result["term_state"] == "REVIEW"
+
+
+def test_high_or_critical_without_exact_scope_remains_review():
+    result = _candidate_terms(
+        [{
+            "evidence_id": "term",
+            "canonical": "gaping",
+            "evidence_role": "WORDING_CANDIDATE",
+            "term": "拡張",
+            "term_class": "EXACT_SYNONYM",
+            "search_equivalence_proof": "EXACT",
+            "frozen": True,
+        }],
+        "gaping",
+    )[0]
+    assert result["term_state"] == "REVIEW"
 
 
 def test_states_follow_contradiction_then_stale_then_review_priority():
@@ -101,6 +175,16 @@ def test_r3_run_blind_masking_and_protected_boundary(r3_fixture_root):
     summary = json.loads((output / "run_summary.json").read_text(encoding="utf-8"))
     assert summary["remaining_925_p0_processed"] is False
     assert summary["production_modified"] is False
+
+
+def test_without_frozen_issue32_overlap_bridge_is_not_ready(r3_fixture_root):
+    root = _quarantine_fixture(r3_fixture_root)
+    output = root / "translation_quarantine" / "r3"
+    run(root, output)
+    pilot_rows = [json.loads(line) for line in (output / "pilot_rows.jsonl").read_text(encoding="utf-8").splitlines()]
+    assert len(pilot_rows) == 100
+    assert {row["bridge32_state"] for row in pilot_rows} == {"REVIEW"}
+    assert all("NO_FROZEN_ISSUE32_OVERLAP" in row["reason_codes"] for row in pilot_rows)
 
 
 def test_frozen_issue32_snapshot_is_bridged_without_staling_generation_changes(r3_fixture_root):

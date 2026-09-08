@@ -64,6 +64,29 @@ _ATTRIBUTE_WORDS = {
     "medium", "multicolored", "multiple", "purple", "red", "short", "simple",
     "small", "white", "yellow",
 }
+_ATTRIBUTE_MARKERS = (
+    "美少女", "美女", "かわいい", "可愛い", "巨乳", "幼女", "成人", "若い",
+    "大型", "小型", "白い", "黒い", "赤い", "青い",
+)
+_EVIDENCE_HAZARDS = {
+    "parent": "PARENT_OR_CATEGORY_CONCEPT",
+    "category": "PARENT_OR_CATEGORY_CONCEPT",
+    "child": "SUBTYPE_OR_CHILD_CONCEPT",
+    "subtype": "SUBTYPE_OR_CHILD_CONCEPT",
+    "attribute_added": "ATTRIBUTE_ADDED",
+    "actor_added": "ACTOR_ADDED",
+    "target_added": "TARGET_ADDED",
+    "context_added": "CONTEXT_ADDED",
+    "adjacent": "ADJACENT_CONCEPT",
+    "implication_only": "IMPLICATION_ONLY",
+    "related_only": "RELATED_OR_COOCCURRENCE_ONLY",
+    "cooccurrence_only": "RELATED_OR_COOCCURRENCE_ONLY",
+    "count_changed": "COUNT_CHANGED",
+    "type_changed": "OBJECT_STATE_ACTION_RELATION_TYPE_CHANGED",
+    "sibling_collision": "SIBLING_COLLISION",
+    "broader": "BROADER_THAN_CANONICAL",
+    "narrower": "NARROWER_THAN_CANONICAL",
+}
 
 
 def canonical_json_bytes(value: Any) -> bytes:
@@ -238,27 +261,72 @@ def normalize_terms(value: Any) -> list[str]:
 
 
 def term_class(term: str, canonical: str, *, explicit: str = "") -> str:
-    """Type a candidate without treating it as semantic approval."""
+    """Type a candidate without treating it as semantic approval.
+
+    Character shape is intentionally insufficient evidence for an orthographic
+    variant.  The trusted evidence record must explicitly provide that class.
+    """
 
     if explicit in TERM_CLASSES:
         return explicit
     if term == canonical:
         return "EXACT_SYNONYM"
-    if re.fullmatch(r"[\w\-]+", term, flags=re.UNICODE) and "_" not in term:
-        return "ORTHOGRAPHIC_VARIANT"
     return "COMMON_EXACT_PARAPHRASE"
 
 
-def disallowed_search_reason(term: str, canonical: str) -> str:
-    """Return a reusable rejection reason for clearly unsafe search aliases."""
+def search_equivalence_proven(record: Mapping[str, Any], typed_class: str) -> bool:
+    """Return whether trusted evidence mechanically proves search equivalence."""
+
+    if record.get("term_class") not in TERM_CLASSES:
+        return False
+    if typed_class == "ORTHOGRAPHIC_VARIANT":
+        return bool(record.get("orthographic_evidence") or record.get("search_equivalence_proof") == "ORTHOGRAPHIC")
+    return bool(
+        record.get("exact_synonym_verified") is True
+        or record.get("search_equivalence_proof") in {"EXACT", "VERIFIED_EXACT", "COMMON_EXACT"}
+    )
+
+
+def disallowed_search_reason(
+    term: str,
+    canonical: str,
+    evidence: Mapping[str, Any] | None = None,
+) -> str:
+    """Return a reusable reason for a candidate that cannot be auto-accepted."""
 
     if not term.strip():
         return "EMPTY_TERM"
+    evidence = evidence or {}
+    for field in ("candidate_relation", "scope_relation", "search_scope_relation", "relation_type"):
+        value = str(evidence.get(field, "")).strip().lower().replace(" ", "_")
+        if value in _EVIDENCE_HAZARDS:
+            return _EVIDENCE_HAZARDS[value]
+    for field in ("source_type", "evidence_role"):
+        value = str(evidence.get(field, "")).lower()
+        if any(marker in value for marker in ("cooccurrence", "related_tag", "implication", "context_only")):
+            return "RELATED_OR_IMPLICATION_ONLY"
+
     lowered = term.lower()
-    if canonical == "1girl" and any(word in term for word in ("ガールズイラスト", "女の子たち")):
+    canonical_lower = canonical.lower()
+    if canonical_lower == "1girl" and any(word in term for word in ("ガールズイラスト", "女の子たち")):
         return "CATEGORY_OR_NOISY_ALIAS"
-    if canonical == "simple_background" and "背景" in term and "単色" not in term:
-        return "NARROWER_OR_DIFFERENT_SUBTYPE"
+    if any(marker in term for marker in _ATTRIBUTE_MARKERS):
+        if canonical_lower in {"1girl", "1boy", "girl", "boy"} or evidence.get("candidate_relation") == "attribute_added":
+            return "ATTRIBUTE_ADDED"
+    canonical_numbers = [int(value) for value in re.findall(r"\d+", canonical_lower)]
+    term_numbers = [int(value) for value in re.findall(r"(?<!\d)(\d+)(?!\d)", term)]
+    japanese_count_markers = ("一人", "1人", "二人", "2人", "三人", "3人", "ひとり", "ふたり", "さんにん")
+    if canonical_numbers and not (term_numbers or any(marker in term for marker in japanese_count_markers)):
+        return "COUNT_CHANGED_OR_MISSING"
+    if canonical_numbers and term_numbers and term_numbers != canonical_numbers:
+        return "COUNT_CHANGED_OR_MISSING"
+
+    # This is a reusable composition rule: a solid-colour background is a
+    # narrower subtype of a simple background, while the direct surface form
+    # シンプル背景 does not trigger the narrowing rule.
+    if "background" in canonical_lower and "単色" in term:
+        return "NARROWER_THAN_CANONICAL"
+
     if canonical == "straddling" and any(word in term for word in ("騎乗位", "性行為")):
         return "SEXUAL_SUBTYPE_NARROWING"
     if canonical == "cuffs" and any(word in term for word in ("手錠", "手枷")):

@@ -25,3 +25,7 @@ or inventing a fresh-pilot override table.
 `blind30_input.jsonl` is reviewer-facing and excludes automation states,
 reason codes, risk classes, and prior Phase1A verdict fields. The separate
 `blind30_key.json` contains the deterministic selection key.
+
+When no frozen #32 snapshot overlaps the selected canonicals, `bridge32_state`
+is `REVIEW`; this dry-run condition is not bridge verification. `READY` is
+reserved for canonicals covered by the supplied frozen snapshot.

@@ -36,6 +36,7 @@ try:
         read_csv,
         read_jsonl,
         semantic_class_for,
+        search_equivalence_proven,
         stable_key,
         term_class,
         wording_candidates,
@@ -65,6 +66,7 @@ except ImportError:  # pragma: no cover - supports direct CLI execution
     read_csv,
     read_jsonl,
     semantic_class_for,
+    search_equivalence_proven,
     stable_key,
     term_class,
     wording_candidates,
@@ -158,14 +160,23 @@ def _candidate_terms(records: list[Mapping[str, Any]], canonical: str) -> list[d
             seen.add(term)
             explicit = str(record.get("term_class", ""))
             typed = term_class(term, canonical, explicit=explicit)
-            rejection = disallowed_search_reason(term, canonical)
+            rejection = disallowed_search_reason(term, canonical, record)
             if rejection:
                 state = "REJECTED"
             elif typed == "BROAD_SEARCH_ALIAS":
                 state = "REVIEW"
                 rejection = "BROAD_ALIAS_CANNOT_BE_SEMANTIC_APPROVAL"
+            elif explicit not in TERM_CLASSES:
+                state = "REVIEW"
+                rejection = "TERM_CLASS_NOT_EXPLICITLY_EVIDENCED"
+            elif not search_equivalence_proven(record, typed):
+                state = "REVIEW"
+                rejection = "MISSING_MECHANICAL_SEARCH_EQUIVALENCE_PROOF"
+            elif not any(r.get("evidence_role") == "SEMANTIC_SCOPE" for r in records):
+                state = "REVIEW"
+                rejection = "NO_AUTHORITATIVE_SEMANTIC_SCOPE"
             else:
-                state = "REVIEW" if not any(r.get("evidence_role") == "SEMANTIC_SCOPE" for r in records) else "ACCEPTED"
+                state = "ACCEPTED"
             output.append({
                 "canonical": canonical,
                 "term": term,
@@ -211,14 +222,19 @@ def _make_pilot_rows(
         search_state = "READY" if accepted else "REVIEW"
         search_reasons = [] if accepted else ["NO_SAFE_SEARCH_CANDIDATE"]
 
-        bridge_state = "READY"
+        # A live dry-run with no frozen #32 overlap is not bridge validation.
+        # Keep it fail-closed until an authoritative snapshot actually covers
+        # this canonical; only that overlap may produce READY.
+        bridge_state = "REVIEW"
         bridge_ref = ""
         fingerprint = ""
+        bridge_reasons = ["NO_FROZEN_ISSUE32_OVERLAP"]
         if canonical in issue32:
             snapshot = issue32[canonical]
             fingerprint = issue32_fingerprint(snapshot)
             bridge_ref = str(issue32_path or "frozen_issue32_input")
             bridge_state = "READY"
+            bridge_reasons = []
             bridge_rows.append({
                 "canonical": canonical,
                 "snapshot_ref": bridge_ref,
@@ -227,7 +243,7 @@ def _make_pilot_rows(
                 "bridge32_state": bridge_state,
                 "reason_codes": [],
             })
-        row_reasons = [*display_reasons, *search_reasons]
+        row_reasons = [*display_reasons, *search_reasons, *bridge_reasons]
         row_state = derive_row_state(display_state, search_state, bridge_state)
         pilot_rows.append({
             "pilot_ordinal": int(item["pilot_ordinal"]),

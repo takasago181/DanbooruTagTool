@@ -9,9 +9,9 @@
     "blind30_review.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "bridge32.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "evidence_manifest.jsonl": "c1400721871617c3bdd6d9573764a875dd1a07dde24ac970c1362ec0cf7d0bc0",
-    "pilot_rows.jsonl": "efed96d5d0540693ca66add16e52a85c348618b5e0667c256d7d0f14cc752063",
+    "pilot_rows.jsonl": "4667a929237ac19a00a8c587d55e10aa335a39f03be887d482636600a19ecd52",
     "pilot_selection.json": "57a2506c3766dbd2af198a2ee70e3894e7efac692ce17f3d1aedb42c452c03cd",
-    "run_summary.json": "d6c90e625024b4feeaddfb3c8e8a77718cc252456e4012ef708a790ac29d8d2c",
+    "run_summary.json": "161ee5b29d481ab9a7ca086ff5f4641fb66518dd864c1eedb9ec2c789cb3145d",
     "search_terms.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
   },
   "input_file_hashes": {
@@ -114,7 +114,7 @@
     "docs/project/CURRENT_DEV_TASK.md": "1523d51fe6b4b7b0b15f78998a737472e8f9768f39812df9c7c7ed0d620bd063",
     "tests/test_stage7a_ui.py": "e84ed361fee7afdcf1027edaa75a68eeb45c8be54adcaf717a6f36f530f5dcf7"
   },
-  "run_timestamp_utc": "2026-09-08T13:54:32.447188+00:00",
+  "run_timestamp_utc": "2026-09-08T14:28:44.266335+00:00",
   "schema_version": "r3-1",
   "selection_seed": "UIJA-R3-PILOT-20260908-V1"
 }
