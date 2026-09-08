@@ -13,8 +13,8 @@
   "review": 3,
   "image_test_required": 4,
   "revalidation_pending": 100,
-  "batch1_revalidation_completed": 20,
-  "batch1_revalidation_next_start": 21,
+  "batch1_revalidation_completed": 40,
+  "batch1_revalidation_next_start": 41,
   "false_pass_samples_checked": 0,
   "false_pass_found": 1,
   "semantic_support_snapshot_total_rows": 58,
@@ -26,5 +26,5 @@
   "next_batch": 1,
   "next_start_position": 101,
   "production_modified": false,
-  "notes": "Batch 1 first-pass reached 100 but R2 gate FAILED before sampling due S-risk false-PASS at ID88. Full Batch1 revalidation is required before sequence101. R2 revalidation checkpoint 1-20 completed with no new false-PASS: IDs16/17/19 remain IMAGE_TEST_REQUIRED; ID20 A-priority conservative structure retained after Stage10 knowledge cross-check. Queue entries remain pending until the full 1-100 revalidation gate is accepted; next revalidation position is 21."
+  "notes": "Batch 1 remains blocked after ID88 S-risk false-PASS. Full R2 revalidation checkpoint 1-40 completed. No additional false-PASS found in 21-40; ID22 and ID40 remain REVIEW, ID34 and ID36 retain narrowed ActorRequirementOverride FIX candidates, and A-priority IDs21/25 remain conservative PASS after Stage10 knowledge cross-check. Queue entries remain pending until complete 1-100 gate acceptance. Next revalidation position: 41."
 }
