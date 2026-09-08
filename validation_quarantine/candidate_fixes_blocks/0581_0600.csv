@@ -1,0 +1,2 @@
+special_id,tag,field,current_value,proposed_value,rule_version,risk_priority,evidence_refs,reason,status,notes
+600,sounding,ImplementRequirementOverride,,true,R2,A,generation_profile;generation_profile:IDs209,211;generation_family_rules;STAGE_10_KNOWLEDGE_HANDOFF,"Sounding intrinsically denotes urethral insertion of an object; current actor/bodypart structure leaves the implement requirement unasserted.",QUARANTINED_CANDIDATE,Structural metadata only; no object subtype or automatic support insertion.
