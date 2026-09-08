@@ -6,7 +6,8 @@ Order:
 3. validate Hard Adult Challenge v1 design;
 4. run the audited #39 R3 engine with frozen evidence + real bridge requirements;
 5. apply the Issue #41 effective-risk overlay;
-6. stop before blind30 if any required bridge is missing/blocked;
+6. fail closed if any required bridge is missing/blocked or lacks an explicit
+   meaning-relevant RESOLVED status;
 7. otherwise build the effective-risk blind30 package.
 
 No production data is written by this module.
@@ -57,6 +58,7 @@ def run_pipeline(
     # repository runtime supplies the audited #39 modules.
     from .r3_hard_adult_gate import validate_files
     from .r3_issue41_bridge_discovery import discover
+    from .r3_issue41_bridge_status import inspect_bridge_status
     from .r3_issue41_build_blind import build as build_blind
     from .r3_issue41_effective_risk import apply_file
     from .r3_issue41_normalize_evidence import normalize
@@ -75,6 +77,11 @@ def run_pipeline(
     requirements_path = output / "issue41_issue32_overlap_requirements.jsonl"
     overrides_path = output / "issue41_effective_risk_overrides.jsonl"
 
+    # #40 requires an explicit meaning-relevant unresolved-state signal.  A
+    # structurally valid/pinned snapshot is not enough to authorize the blind
+    # gate if #32 has not resolved the translation-visible propositions.
+    bridge_status = inspect_bridge_status(issue32_snapshot, requirements_path)
+
     r3_result = run_r3(
         root,
         output,
@@ -89,13 +96,16 @@ def run_pipeline(
         value = str(row.get("bridge32_availability", ""))
         availability_counts[value] = availability_counts.get(value, 0) + 1
 
-    blocked = sum(
+    availability_blocked = sum(
         availability_counts.get(value, 0)
         for value in ("BRIDGE_MISSING", "BLOCKED_BRIDGE")
     )
-    blind_state = "HOLD_BRIDGE" if blocked else "BUILT"
+    status_blocked = int(bridge_status.get("blocked_count", 0))
+    bridge_blocked = bool(availability_blocked or status_blocked)
+
+    blind_state = "HOLD_BRIDGE" if bridge_blocked else "BUILT"
     blind_key: dict[str, Any] | None = None
-    if not blocked:
+    if not bridge_blocked:
         blind_key = build_blind(output)
 
     fingerprint_paths = [
@@ -110,12 +120,14 @@ def run_pipeline(
     input_fingerprint, input_identities = _fingerprint(fingerprint_paths)
 
     summary = {
-        "schema_version": "issue41-pipeline-1",
+        "schema_version": "issue41-pipeline-2",
         "normalized_input": normalized,
         "bridge_discovery": overlap,
         "hard_adult_design": hard,
         "effective_risk": effective,
         "bridge_availability_counts": dict(sorted(availability_counts.items())),
+        "bridge_availability_blocked_count": availability_blocked,
+        "bridge_status_guard": bridge_status,
         "blind30_state": blind_state,
         "blind30_selected": len(blind_key.get("selected", [])) if blind_key else 0,
         "input_fingerprint": input_fingerprint,
