@@ -1,0 +1,72 @@
+{
+  "schema_version": "issue41-blind30-score-1",
+  "masked_input": {
+    "path": "translation_quarantine/r3/blind30_input_issue41.jsonl",
+    "git_blob_sha": "2dca2a8c5751b5cc57b14d8fbd344a41f513f45e",
+    "rows": 30,
+    "unique_canonicals": 30
+  },
+  "blind_key": {
+    "path": "translation_quarantine/r3/blind30_key_issue41.json",
+    "git_blob_sha": "062ddf9f05691ef3ad6c55b102764ad3b9db5814",
+    "achieved_stratum_counts": {
+      "LOW": 4,
+      "MEDIUM": 5,
+      "HIGH_POSE_ACTION": 6,
+      "HIGH_ANATOMY_ADULT": 7,
+      "CRITICAL": 8
+    }
+  },
+  "independent_judgement": {
+    "path": "translation_quarantine/r3/blind30_judgement_issue41.jsonl",
+    "sha256": "7828b7f84227768c472318881b9bd2a12d4687967daf3df0c8597abc6b05afe8",
+    "markdown_sha256": "fb3c82bb3dc1d5673d5e7ef9982772a3f7d2f5d9f1d27f6baa54a918ee7479b4",
+    "rows": 30,
+    "unique_canonicals": 30,
+    "input_order_match": true,
+    "input_set_match": true,
+    "display_verdict_counts": {
+      "PASS": 15,
+      "FAIL": 0,
+      "ABSENT": 15
+    },
+    "search_verdict_counts": {
+      "PASS": 12,
+      "FAIL": 1,
+      "ABSENT": 17
+    },
+    "bridge_contradiction_counts": {
+      "NO": 30,
+      "YES": 0,
+      "UNASSESSABLE": 0
+    }
+  },
+  "reviewer_failures": [
+    {
+      "canonical": "grabbing_another's_breast",
+      "dimension": "search",
+      "reviewer_verdict": "FAIL",
+      "automation_display_state": "READY",
+      "automation_search_state": "REVIEW",
+      "automation_row_state": "REVIEW",
+      "automation_reason_codes": [
+        "NO_SAFE_SEARCH_CANDIDATE"
+      ],
+      "false_ready": false,
+      "note": "Reviewer rejected the broad search alias because it drops the intrinsic another-person target relation. The automation had already fail-closed the search and row to REVIEW."
+    }
+  ],
+  "gate_metrics": {
+    "semantic_false_ready": 0,
+    "search_scope_false_ready": 0,
+    "silent_issue32_contradiction": 0,
+    "deterministic_three_way_replay": "PASS",
+    "production_modified": false
+  },
+  "protected_boundaries": {
+    "remaining_925_processed": false,
+    "stage10_production_ab_started": false
+  },
+  "final_outcome": "PASS_PILOT",
+  "authorization_note": "PASS_PILOT only makes R3 eligible for the next controlled automation/bulk-quarantine design decision. It does not authorize production promotion, remaining P0 925 processing, main merge, UI #35 changes, or Stage10 production A/B."
+}
