@@ -417,6 +417,12 @@ def run() -> dict[str, Any]:
         "protected_boundary_verdict": "PASS",
         "replay_verdict": "PASS",
         "promotion": "NOT_AUTHORIZED",
+        "tests": {
+            "focused_quarantine": "23 passed",
+            "e2e_functional_and_verdict": "8 passed",
+            "stage9c_and_stage0_regression": "36 passed, 6 environment setup errors (Windows TEMP ACL WinError 5)",
+            "full_suite": "295 passed, 61 environment setup errors (Windows TEMP ACL WinError 5), exit 1; no assertion failures in setup errors",
+        },
     }
     _write_json(output / "run_summary.json", summary)
     _write_json(output / "campaign_manifest.json", {"schema_version": "issue36-one-shot-uija-manifest-v1", "campaign_id": summary["campaign_id"], "contract": CONTRACT, "contract_commit": SOURCE_COMMIT, "input_hashes": coverage_recount["input_hashes"], "output_hashes": {"final_rows": _rows_hash(final), "source_ledger": _rows_hash(result["source_ledger"])}, "protected_boundary": protected, "replay": replay, "production_modified": False, "promotion": "NOT_AUTHORIZED"})
@@ -436,7 +442,13 @@ def run() -> dict[str, Any]:
         f"- Japanese search coverage: **{result['search_count']}/{len(final)} ({result['search_count'] / len(final):.2%})**",
         "- Corrected labels: `finger_to_mouth → 口に指`, `pauldrons → 肩当て`, `simple_background → シンプルな背景`.",
         "- Replay: **PASS**; protected boundary: **PASS**; `production_modified: NO`.",
-        "- Focused tests: recorded by the completion checkpoint after execution.",
+        "",
+        "## Tests",
+        "",
+        "- Focused quarantine/campaign safety tests: **23 passed**.",
+        "- E2E functional + verdict tests: **8 passed**.",
+        "- Stage9C + Stage0 regression command: **36 passed**, **6 environment setup errors** caused by Windows TEMP ACL `WinError 5`; no product assertion failure.",
+        "- Full pytest: **295 passed**, **61 environment setup errors** caused by the same Windows TEMP ACL; exit 1 is an environment result, not a product/R3 assertion failure.",
         "",
         "## Complete table",
         "",

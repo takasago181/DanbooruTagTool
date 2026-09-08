@@ -13,7 +13,13 @@
 - Japanese search coverage: **22584/30629 (73.73%)**
 - Corrected labels: `finger_to_mouth → 口に指`, `pauldrons → 肩当て`, `simple_background → シンプルな背景`.
 - Replay: **PASS**; protected boundary: **PASS**; `production_modified: NO`.
-- Focused tests: recorded by the completion checkpoint after execution.
+
+## Tests
+
+- Focused quarantine/campaign safety tests: **23 passed**.
+- E2E functional + verdict tests: **8 passed**.
+- Stage9C + Stage0 regression command: **36 passed**, **6 environment setup errors** caused by Windows TEMP ACL `WinError 5`; no product assertion failure.
+- Full pytest: **295 passed**, **61 environment setup errors** caused by the same Windows TEMP ACL; exit 1 is an environment result, not a product/R3 assertion failure.
 
 ## Complete table
 

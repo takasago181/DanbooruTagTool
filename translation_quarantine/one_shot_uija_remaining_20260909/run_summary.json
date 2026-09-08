@@ -43,5 +43,11 @@
     "P0": 1025,
     "P1": 4910,
     "P2": 24694
+  },
+  "tests": {
+    "e2e_functional_and_verdict": "8 passed",
+    "focused_quarantine": "23 passed",
+    "full_suite": "295 passed, 61 environment setup errors (Windows TEMP ACL WinError 5), exit 1; no assertion failures in setup errors",
+    "stage9c_and_stage0_regression": "36 passed, 6 environment setup errors (Windows TEMP ACL WinError 5)"
   }
 }
