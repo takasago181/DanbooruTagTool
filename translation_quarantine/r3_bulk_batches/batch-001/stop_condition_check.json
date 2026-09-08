@@ -1,0 +1,54 @@
+{
+  "bridge_guard": {
+    "blocked_canonicals": [],
+    "blocked_count": 0,
+    "missing_count": 0,
+    "required_count": 7,
+    "resolved_count": 7,
+    "rows": [
+      {
+        "bridge_status_state": "RESOLVED",
+        "canonical": "bara",
+        "meaning_relevant_status": "RESOLVED"
+      },
+      {
+        "bridge_status_state": "RESOLVED",
+        "canonical": "fishnets",
+        "meaning_relevant_status": "RESOLVED"
+      },
+      {
+        "bridge_status_state": "RESOLVED",
+        "canonical": "loli",
+        "meaning_relevant_status": "RESOLVED"
+      },
+      {
+        "bridge_status_state": "RESOLVED",
+        "canonical": "fellatio",
+        "meaning_relevant_status": "RESOLVED"
+      },
+      {
+        "bridge_status_state": "RESOLVED",
+        "canonical": "pussy",
+        "meaning_relevant_status": "RESOLVED"
+      },
+      {
+        "bridge_status_state": "RESOLVED",
+        "canonical": "anal",
+        "meaning_relevant_status": "RESOLVED"
+      },
+      {
+        "bridge_status_state": "RESOLVED",
+        "canonical": "bound",
+        "meaning_relevant_status": "RESOLVED"
+      }
+    ],
+    "state": "READY",
+    "status_missing_count": 0,
+    "unresolved_count": 0
+  },
+  "contradictions": [],
+  "evidence_schema_failures": [],
+  "false_ready_machine_guard": [],
+  "ok_before_verifier": true,
+  "rule_drift": []
+}

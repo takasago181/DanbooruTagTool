@@ -71,8 +71,15 @@ def _identity(value: Mapping[str, Any]) -> str:
     return "sha256:" + hashlib.sha256(payload.encode("utf-8")).hexdigest()
 
 
-def acquire_and_freeze(root: Path, selected: list[Mapping[str, Any]], queue_path: Path, output_path: Path) -> list[dict[str, Any]]:
-    """Build one deterministic frozen evidence set for the selected canary."""
+def acquire_and_freeze(
+    root: Path,
+    selected: list[Mapping[str, Any]],
+    queue_path: Path,
+    output_path: Path,
+    *,
+    campaign_id: str = "issue36-r3-bulk-canary-20260909-v2",
+) -> list[dict[str, Any]]:
+    """Build one deterministic frozen evidence set for a bounded bulk batch."""
 
     overlay_path = root / "data" / "runtime" / "japanese_overlay.json"
     overlay = json.loads(overlay_path.read_text(encoding="utf-8"))
@@ -91,7 +98,7 @@ def acquire_and_freeze(root: Path, selected: list[Mapping[str, Any]], queue_path
             "content_identity": queue_hash,
             "evidence_role": "IDENTITY_ONLY",
             "frozen": True,
-            "bulk_campaign": "issue36-r3-bulk-canary-20260909-v2",
+            "bulk_campaign": campaign_id,
         })
         scope_note = TRANSPARENT_COMPOSITION_SCOPE.get(canonical)
         term = SAFE_WORDING_TERMS.get(canonical)
@@ -111,7 +118,7 @@ def acquire_and_freeze(root: Path, selected: list[Mapping[str, Any]], queue_path
             "evidence_role": "SEMANTIC_SCOPE",
             "scope_basis": "TRANSPARENT_CANONICAL_COMPOSITION",
             "frozen": True,
-            "bulk_campaign": "issue36-r3-bulk-canary-20260909-v2",
+            "bulk_campaign": campaign_id,
         })
         evidence.append({
             "evidence_id": f"issue36-bulk:wording:{canonical}",
@@ -127,7 +134,7 @@ def acquire_and_freeze(root: Path, selected: list[Mapping[str, Any]], queue_path
             "term_class": "EXACT_SYNONYM",
             "exact_synonym_verified": True,
             "search_equivalence_proof": "EXACT",
-            "bulk_campaign": "issue36-r3-bulk-canary-20260909-v2",
+            "bulk_campaign": campaign_id,
         })
     evidence.sort(key=lambda row: (str(row.get("canonical", "")), str(row.get("evidence_id", ""))))
     write_jsonl(output_path, evidence)

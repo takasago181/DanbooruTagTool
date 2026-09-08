@@ -1,0 +1,14 @@
+{
+  "batch_rows": 25,
+  "deterministic_replay": {
+    "mismatches": {},
+    "original_vs_rerun1": "PASS",
+    "original_vs_rerun2": "PASS",
+    "rerun1_vs_rerun2": "PASS"
+  },
+  "errors": [],
+  "ok": true,
+  "production_modified": false,
+  "schema_version": "issue36-bulk-batch-verification-1",
+  "self_grade": "NOT_PERFORMED"
+}

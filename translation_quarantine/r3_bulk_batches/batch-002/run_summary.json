@@ -1,0 +1,92 @@
+{
+  "approval_capable_evidence_rows": 0,
+  "batch_id": "batch-002",
+  "batch_rows": 200,
+  "blind_review": "NOT_PERFORMED",
+  "bridge_status_guard": {
+    "blocked_canonicals": [],
+    "blocked_count": 0,
+    "missing_count": 0,
+    "required_count": 7,
+    "resolved_count": 7,
+    "rows": [
+      {
+        "bridge_status_state": "RESOLVED",
+        "canonical": "bara",
+        "meaning_relevant_status": "RESOLVED"
+      },
+      {
+        "bridge_status_state": "RESOLVED",
+        "canonical": "fishnets",
+        "meaning_relevant_status": "RESOLVED"
+      },
+      {
+        "bridge_status_state": "RESOLVED",
+        "canonical": "loli",
+        "meaning_relevant_status": "RESOLVED"
+      },
+      {
+        "bridge_status_state": "RESOLVED",
+        "canonical": "fellatio",
+        "meaning_relevant_status": "RESOLVED"
+      },
+      {
+        "bridge_status_state": "RESOLVED",
+        "canonical": "pussy",
+        "meaning_relevant_status": "RESOLVED"
+      },
+      {
+        "bridge_status_state": "RESOLVED",
+        "canonical": "anal",
+        "meaning_relevant_status": "RESOLVED"
+      },
+      {
+        "bridge_status_state": "RESOLVED",
+        "canonical": "bound",
+        "meaning_relevant_status": "RESOLVED"
+      }
+    ],
+    "state": "READY",
+    "status_missing_count": 0,
+    "unresolved_count": 0
+  },
+  "campaign_id": "issue36-r3-bulk-remaining-20260909-v1",
+  "contradiction_rows": 0,
+  "counts": {
+    "bridge_availability": {
+      "NOT_REQUIRED": 200
+    },
+    "bridge_state": {
+      "READY": 200
+    },
+    "display": {
+      "REVIEW": 200
+    },
+    "risk": {
+      "CRITICAL": 5,
+      "LOW": 165,
+      "MEDIUM": 30
+    },
+    "row": {
+      "REVIEW": 200
+    },
+    "search": {
+      "REVIEW": 200
+    }
+  },
+  "evidence": {
+    "failures": [],
+    "frozen_rows": 200,
+    "identity_only_rows": 200,
+    "semantic_scope_rows": 0,
+    "wording_candidate_rows": 0
+  },
+  "membership_hash": "13a873629112410f09f1d6847ae02e538aedc148a52a6433e21d31bda1439669",
+  "production_modified": false,
+  "ready_rows": 0,
+  "review_rows": 200,
+  "schema_version": "issue36-bulk-batch-1",
+  "self_grade": "NOT_PERFORMED",
+  "semantic_rule_change_required": false,
+  "stale_review_rows": 0
+}

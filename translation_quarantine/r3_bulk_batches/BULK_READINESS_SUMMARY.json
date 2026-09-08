@@ -1,0 +1,146 @@
+{
+  "batch_sizes": [
+    200,
+    200,
+    200,
+    25
+  ],
+  "batches": [
+    {
+      "batch_id": "batch-001",
+      "contradiction": 0,
+      "ready": 0,
+      "review": 200,
+      "rows": 200,
+      "stale_review": 0,
+      "verifier": {
+        "batch_rows": 200,
+        "deterministic_replay": {
+          "mismatches": {},
+          "original_vs_rerun1": "PASS",
+          "original_vs_rerun2": "PASS",
+          "rerun1_vs_rerun2": "PASS"
+        },
+        "errors": [],
+        "ok": true,
+        "production_modified": false,
+        "schema_version": "issue36-bulk-batch-verification-1",
+        "self_grade": "NOT_PERFORMED"
+      }
+    },
+    {
+      "batch_id": "batch-002",
+      "contradiction": 0,
+      "ready": 0,
+      "review": 200,
+      "rows": 200,
+      "stale_review": 0,
+      "verifier": {
+        "batch_rows": 200,
+        "deterministic_replay": {
+          "mismatches": {},
+          "original_vs_rerun1": "PASS",
+          "original_vs_rerun2": "PASS",
+          "rerun1_vs_rerun2": "PASS"
+        },
+        "errors": [],
+        "ok": true,
+        "production_modified": false,
+        "schema_version": "issue36-bulk-batch-verification-1",
+        "self_grade": "NOT_PERFORMED"
+      }
+    },
+    {
+      "batch_id": "batch-003",
+      "contradiction": 0,
+      "ready": 0,
+      "review": 200,
+      "rows": 200,
+      "stale_review": 0,
+      "verifier": {
+        "batch_rows": 200,
+        "deterministic_replay": {
+          "mismatches": {},
+          "original_vs_rerun1": "PASS",
+          "original_vs_rerun2": "PASS",
+          "rerun1_vs_rerun2": "PASS"
+        },
+        "errors": [],
+        "ok": true,
+        "production_modified": false,
+        "schema_version": "issue36-bulk-batch-verification-1",
+        "self_grade": "NOT_PERFORMED"
+      }
+    },
+    {
+      "batch_id": "batch-004",
+      "contradiction": 0,
+      "ready": 0,
+      "review": 25,
+      "rows": 25,
+      "stale_review": 0,
+      "verifier": {
+        "batch_rows": 25,
+        "deterministic_replay": {
+          "mismatches": {},
+          "original_vs_rerun1": "PASS",
+          "original_vs_rerun2": "PASS",
+          "rerun1_vs_rerun2": "PASS"
+        },
+        "errors": [],
+        "ok": true,
+        "production_modified": false,
+        "schema_version": "issue36-bulk-batch-verification-1",
+        "self_grade": "NOT_PERFORMED"
+      }
+    }
+  ],
+  "blind_review": "NOT_PERFORMED",
+  "campaign_id": "issue36-r3-bulk-remaining-20260909-v1",
+  "eligible_before_canary": 825,
+  "exclusions": {
+    "base_hash": "8f8ce1de330b84aec8b0c7f7439775a48ae27d2c27d8079a84f3e809e49f56b8",
+    "canary_count": 200,
+    "full_hash": "303e69009506b9346951355ad05e225f19806fd823d6ddf79c8962faf17d9d10",
+    "issue41_count": 100,
+    "phase1a_count": 100
+  },
+  "final_gate": "READY_FOR_INDEPENDENT_BULK_READINESS_REVIEW",
+  "issue32_bridge": {
+    "content_identity": "sha256:7e46f7f3655846a4f6ea2d1990e015701cbff5b123bdf8ef1809668f8a375ef5",
+    "official_blob": "974bb9c971caf632f8ec73dff39fe4c55e60efaa",
+    "required_count": 7,
+    "resolved_count": 7,
+    "state": "READY"
+  },
+  "production_modified": false,
+  "production_promotion": "NOT_AUTHORIZED",
+  "remaining_processed": 625,
+  "rule_fingerprints": {
+    "translation_quarantine/r3/r3_bulk_evidence.py": "860b2cefacda8e5ee2e6fa88aa447e8a2f4b41495d32ceca4795752e1b718152",
+    "translation_quarantine/r3/r3_common.py": "fce8db7f33f685a711e9840475b4518b2507133b98495cf235a56b371d0de71d",
+    "translation_quarantine/r3/r3_issue41_bridge_status.py": "10f430c3b2eeb9474b871bca54c0616690e081fa96fc72d4de6c875905450264",
+    "translation_quarantine/r3/r3_run.py": "1d5df32b586beaf8c56e1d8b0d006f075ed68a0b646d49d0875174c9b460991d"
+  },
+  "schema_version": "issue36-bulk-readiness-summary-1",
+  "self_grade": "NOT_PERFORMED",
+  "source_queue": {
+    "portable_content_identity": "1196c44ae87bfd39684d2976ff0211f13bfbefebd7c747a237a61cf0f3c8a71d",
+    "raw_sha256": "cbb280869707576cbac80a472f372a0becd80d80fbbd99a8d59220f74d331be7"
+  },
+  "stop_conditions": {
+    "contradiction": 0,
+    "false_ready": 0,
+    "review_allowed": true,
+    "rule_drift": 0,
+    "verifier_failure": 0
+  },
+  "totals": {
+    "contradiction_rows": 0,
+    "ready_rows": 0,
+    "review_rows": 625,
+    "stale_review_rows": 0
+  },
+  "validated_r3_base": "53f02d9b3419db8fd9099b38204c29eed289ee8e",
+  "validated_r3_head": "1c5a2cba7f8a0c5cd7c15ad510317c75d07d8851"
+}
