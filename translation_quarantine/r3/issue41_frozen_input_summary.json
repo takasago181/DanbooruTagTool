@@ -1,0 +1,13 @@
+{
+  "approved_input_rows": 69,
+  "decision_ledger": "issue41_frozen_decision_ledger.jsonl",
+  "evidence_manifest": "issue41_frozen_evidence_manifest.jsonl",
+  "evidence_rows": 169,
+  "explicit_review_rows": 31,
+  "fixed_pilot_rows": 100,
+  "identity_review_rows": 31,
+  "membership_and_ordinals_complete": true,
+  "schema_version": "issue41-frozen-input-1",
+  "semantic_scope_rows": 69,
+  "wording_candidate_rows": 69
+}

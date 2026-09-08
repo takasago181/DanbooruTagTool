@@ -1,32 +1,32 @@
 {
   "artifact_state_counts": {
     "bridge32": {
-      "READY": 100
+      "READY": 93,
+      "REVIEW": 7
     },
     "display": {
-      "REVIEW": 100
+      "READY": 69,
+      "REVIEW": 31
     },
     "row": {
-      "REVIEW": 100
+      "READY": 58,
+      "REVIEW": 42
     },
     "search": {
-      "REVIEW": 100
+      "READY": 58,
+      "REVIEW": 42
     }
   },
   "blind30_gate_metrics": {
-    "review_rows": 0,
-    "search_scope_false_ready": 0,
-    "selected": 30,
-    "semantic_false_ready": 0,
-    "silent_bridge_contradictions": 0,
-    "state": "REVIEW_PENDING"
+    "selected": 0,
+    "state": "NOT_BUILT"
   },
   "bridge32_audit": {
     "available_count": 0,
     "blocked_bridge_count": 0,
-    "bridge_missing_count": 0,
+    "bridge_missing_count": 7,
     "contradiction_count": 0,
-    "not_required_count": 100,
+    "not_required_count": 93,
     "records": [
       {
         "bridge32_availability": "NOT_REQUIRED",
@@ -74,8 +74,8 @@
         "snapshot_ref": ""
       },
       {
-        "bridge32_availability": "NOT_REQUIRED",
-        "bridge32_state": "READY",
+        "bridge32_availability": "BRIDGE_MISSING",
+        "bridge32_state": "REVIEW",
         "canonical": "bara",
         "content_identity": "",
         "current_fingerprint": "",
@@ -182,8 +182,8 @@
         "snapshot_ref": ""
       },
       {
-        "bridge32_availability": "NOT_REQUIRED",
-        "bridge32_state": "READY",
+        "bridge32_availability": "BRIDGE_MISSING",
+        "bridge32_state": "REVIEW",
         "canonical": "fishnets",
         "content_identity": "",
         "current_fingerprint": "",
@@ -227,8 +227,8 @@
         "snapshot_ref": ""
       },
       {
-        "bridge32_availability": "NOT_REQUIRED",
-        "bridge32_state": "READY",
+        "bridge32_availability": "BRIDGE_MISSING",
+        "bridge32_state": "REVIEW",
         "canonical": "loli",
         "content_identity": "",
         "current_fingerprint": "",
@@ -245,8 +245,8 @@
         "snapshot_ref": ""
       },
       {
-        "bridge32_availability": "NOT_REQUIRED",
-        "bridge32_state": "READY",
+        "bridge32_availability": "BRIDGE_MISSING",
+        "bridge32_state": "REVIEW",
         "canonical": "fellatio",
         "content_identity": "",
         "current_fingerprint": "",
@@ -524,8 +524,8 @@
         "snapshot_ref": ""
       },
       {
-        "bridge32_availability": "NOT_REQUIRED",
-        "bridge32_state": "READY",
+        "bridge32_availability": "BRIDGE_MISSING",
+        "bridge32_state": "REVIEW",
         "canonical": "pussy",
         "content_identity": "",
         "current_fingerprint": "",
@@ -569,8 +569,8 @@
         "snapshot_ref": ""
       },
       {
-        "bridge32_availability": "NOT_REQUIRED",
-        "bridge32_state": "READY",
+        "bridge32_availability": "BRIDGE_MISSING",
+        "bridge32_state": "REVIEW",
         "canonical": "anal",
         "content_identity": "",
         "current_fingerprint": "",
@@ -902,8 +902,8 @@
         "snapshot_ref": ""
       },
       {
-        "bridge32_availability": "NOT_REQUIRED",
-        "bridge32_state": "READY",
+        "bridge32_availability": "BRIDGE_MISSING",
+        "bridge32_state": "REVIEW",
         "canonical": "bound",
         "content_identity": "",
         "current_fingerprint": "",
@@ -929,31 +929,34 @@
         "snapshot_ref": ""
       }
     ],
-    "required_overlap_count": 0,
+    "required_overlap_count": 7,
     "stale_count": 0
   },
-  "deterministic_replay_comparison": {
-    "mismatches": {},
-    "original_vs_rerun1": "PASS",
-    "original_vs_rerun2": "PASS",
-    "rerun1_vs_rerun2": "PASS"
-  },
-  "deterministic_rerun_verification": "PASS",
+  "deterministic_rerun_verification": "NOT_RUN",
   "issue32_overlap_counts": {
     "omitted": 0,
-    "pool": 0,
-    "selected": 0
+    "pool": 7,
+    "selected": 7
   },
   "production_modified": false,
   "regression_fixture_count": 100,
   "remaining_925_p0_processed": false,
   "row_state_counts": {
-    "REVIEW": 100
+    "READY": 58,
+    "REVIEW": 42
   },
   "schema_version": "r3-1",
   "search_term_counts": {
-    "class": {},
-    "state": {}
+    "class": {
+      "BROAD_SEARCH_ALIAS": 10,
+      "COMMON_EXACT_PARAPHRASE": 44,
+      "EXACT_SYNONYM": 15
+    },
+    "state": {
+      "ACCEPTED": 58,
+      "REJECTED": 10,
+      "REVIEW": 1
+    }
   },
   "selected_stratum_counts": {
     "CRITICAL": 15,

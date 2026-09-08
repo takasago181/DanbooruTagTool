@@ -2,29 +2,31 @@
   "baseline_commit": "a787ce39aa50f938f95612801e79f30bcdb63427",
   "blind_algorithm_version": "r3-blind30-1",
   "deterministic_replay_inputs": {
-    "evidence_input_ref": "generated:evidence_manifest.jsonl",
+    "evidence_input_ref": "translation_quarantine/r3/issue41_frozen_evidence_manifest.jsonl",
     "input_hashes": {
-      "evidence_input": "bc5d8ffffbfab80f175f48fcc037dcdf537288b5e40813754660ad1b174280b4",
-      "issue32_requirements": "",
+      "evidence_input": "62fed69f516786d3496e9906bf2506aee69f8fde40ae99106c700010952bfc90",
+      "issue32_requirements": "3bb7f048c74f69e40b3d4d6a8acfd104909c1501d9abb721c2e765ed43377a3a",
       "issue32_snapshot": ""
     },
-    "issue32_requirements_ref": "",
+    "issue32_requirements_ref": "translation_quarantine/r3/issue41_issue32_overlap_requirements.jsonl",
     "issue32_snapshot_ref": ""
   },
   "engine_version": "r3-test-engine-1",
-  "evidence_manifest_hash": "bc5d8ffffbfab80f175f48fcc037dcdf537288b5e40813754660ad1b174280b4",
+  "evidence_manifest_hash": "50924d9f834a575c22617dd249894b008e7e0b3e3272cb76c5941d8386f8ccfa",
   "generated_file_hashes": {
-    "blind30_input.jsonl": "cb38d6cfd447d28276fe68d576d293183afbab80f236e0f114b3b1fb7f3885d5",
-    "blind30_key.json": "612134f594f7ccca2638fb1f245fa14648f5b82bddbc1256a452c53025dd368a",
+    "blind30_input.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "blind30_key.json": "3a05398ee33fc49b25897a60851a694443e32763e4ceed5030fc467626fe606e",
     "blind30_review.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "bridge32.jsonl": "185691b99e0f7e2ae95f022ca6c01ba3983f5ef0e7e69abfdc2856ecdf6f8ba3",
-    "evidence_manifest.jsonl": "bc5d8ffffbfab80f175f48fcc037dcdf537288b5e40813754660ad1b174280b4",
-    "pilot_rows.jsonl": "6c1f72fe1a188dd083be314d9bc6bc335c7696d3ebf37d6f09f2c90217cf05f3",
-    "pilot_selection.json": "57a2506c3766dbd2af198a2ee70e3894e7efac692ce17f3d1aedb42c452c03cd",
-    "run_summary.json": "fa69a2190a6ccd5fab9eee89e34158d5e0bb778fca8dfa8b1edc0f2fd88c3f5a",
-    "search_terms.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    "bridge32.jsonl": "c2558c2bf4c4b7cc6aa795eed2cfc2c6093d89ee3f388c2a391c4ebb18319cc6",
+    "evidence_manifest.jsonl": "50924d9f834a575c22617dd249894b008e7e0b3e3272cb76c5941d8386f8ccfa",
+    "pilot_rows.jsonl": "e678ad210e67bdaf4d0a3f6ba67b5dae1e753bdd6c70deb3e303e4c5c7dccfec",
+    "pilot_selection.json": "6672ba0cd480c10dc7bef6eda04d48801bd0fe88285733f8e57fad2d933184f1",
+    "run_summary.json": "08268d78e255c743139343a1736325b0beadf7ee1ba77f7b162ea7898b11a290",
+    "search_terms.jsonl": "697d34a7d71afb6b8a1a15779d1919a787eb4d20d3c6b716e4dc736ac1b4cfa9"
   },
   "input_file_hashes": {
+    "frozen_evidence_manifest": "62fed69f516786d3496e9906bf2506aee69f8fde40ae99106c700010952bfc90",
+    "frozen_issue32_requirements": "3bb7f048c74f69e40b3d4d6a8acfd104909c1501d9abb721c2e765ed43377a3a",
     "missing_candidates.csv": "cbb280869707576cbac80a472f372a0becd80d80fbbd99a8d59220f74d331be7",
     "phase1a_review.csv": "d1efbc511fe7ddb35f29a15c26a143fc763168f599094a6b1337b92853070aaf"
   },
@@ -124,7 +126,7 @@
     "docs/project/CURRENT_DEV_TASK.md": "1523d51fe6b4b7b0b15f78998a737472e8f9768f39812df9c7c7ed0d620bd063",
     "tests/test_stage7a_ui.py": "e84ed361fee7afdcf1027edaa75a68eeb45c8be54adcaf717a6f36f530f5dcf7"
   },
-  "run_timestamp_utc": "2026-09-08T15:14:21.873555+00:00",
+  "run_timestamp_utc": "2026-09-08T16:38:49.401258+00:00",
   "schema_version": "r3-1",
   "selection_seed": "UIJA-R3-PILOT-20260908-V1"
 }

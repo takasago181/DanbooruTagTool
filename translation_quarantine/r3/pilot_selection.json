@@ -16,8 +16,8 @@
   },
   "issue32_overlap_counts": {
     "omitted": 0,
-    "pool": 0,
-    "selected": 0
+    "pool": 7,
+    "selected": 7
   },
   "pilot_algorithm_version": "r3-selection-1",
   "requested_stratum_counts": {
@@ -91,7 +91,7 @@
     },
     {
       "canonical": "bara",
-      "issue32_overlap": "NO",
+      "issue32_overlap": "YES",
       "lanes": "general_or_proxy;statistical_recommendation",
       "pilot_ordinal": 6,
       "post_count_or_reference": "90549",
@@ -235,7 +235,7 @@
     },
     {
       "canonical": "fishnets",
-      "issue32_overlap": "NO",
+      "issue32_overlap": "YES",
       "lanes": "general_or_proxy;statistical_recommendation",
       "pilot_ordinal": 18,
       "post_count_or_reference": "85583",
@@ -295,7 +295,7 @@
     },
     {
       "canonical": "loli",
-      "issue32_overlap": "NO",
+      "issue32_overlap": "YES",
       "lanes": "general_or_proxy;statistical_recommendation",
       "pilot_ordinal": 23,
       "post_count_or_reference": "193733",
@@ -319,7 +319,7 @@
     },
     {
       "canonical": "fellatio",
-      "issue32_overlap": "NO",
+      "issue32_overlap": "YES",
       "lanes": "general_or_proxy;statistical_recommendation",
       "pilot_ordinal": 25,
       "post_count_or_reference": "83978",
@@ -691,7 +691,7 @@
     },
     {
       "canonical": "pussy",
-      "issue32_overlap": "NO",
+      "issue32_overlap": "YES",
       "lanes": "general_or_proxy;statistical_recommendation",
       "pilot_ordinal": 56,
       "post_count_or_reference": "452063",
@@ -751,7 +751,7 @@
     },
     {
       "canonical": "anal",
-      "issue32_overlap": "NO",
+      "issue32_overlap": "YES",
       "lanes": "general_or_proxy",
       "pilot_ordinal": 61,
       "post_count_or_reference": "62938",
@@ -1022,7 +1022,7 @@
       "priority": "P0",
       "risk_class": "CRITICAL",
       "selection_key": "5007e0df25c198746b3217ff1e74d811b21f3fcc41742585e5eb305893de24f1",
-      "selection_stratum": "CRITICAL",
+      "selection_stratum": "HIGH_POSE_ACTION",
       "semantic_class": ""
     },
     {
@@ -1195,14 +1195,14 @@
     },
     {
       "canonical": "bound",
-      "issue32_overlap": "NO",
+      "issue32_overlap": "YES",
       "lanes": "general_or_proxy;statistical_recommendation",
       "pilot_ordinal": 98,
       "post_count_or_reference": "98130",
       "priority": "P0",
       "risk_class": "CRITICAL",
       "selection_key": "a45f1056f0ddc5f88c9f96bf8bd3fe8fb879b42adc200d1a1f6224a9760669a5",
-      "selection_stratum": "HIGH_POSE_ACTION",
+      "selection_stratum": "CRITICAL",
       "semantic_class": ""
     },
     {

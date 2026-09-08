@@ -1,0 +1,15 @@
+{
+  "effective_risk_counts": {
+    "CRITICAL": 41,
+    "HIGH_ANATOMY_ADULT": 22,
+    "HIGH_POSE_ACTION": 5,
+    "LOW": 10,
+    "MEDIUM": 22
+  },
+  "membership_unchanged": true,
+  "output_file": "pilot_rows_effective.jsonl",
+  "override_manifest_sha256": "25f885f40bc017bb41b03ee14cefda81c606c2de00a161de082dfe6af8d12027",
+  "override_rows": 15,
+  "pilot_rows": 100,
+  "schema_version": "issue41-effective-risk-1"
+}
