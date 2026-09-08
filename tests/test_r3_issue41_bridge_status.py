@@ -52,6 +52,43 @@ def test_bridge_status_guard_all_explicit_resolved_is_ready(tmp_path: Path):
     assert inspect_bridge_status(snapshot, requirements)["state"] == "READY"
 
 
+def test_bridge_status_guard_reads_v2_json_object_rows(tmp_path: Path):
+    requirements = tmp_path / "requirements.jsonl"
+    snapshot = tmp_path / "ui_ja_issue41_overlap7_v2.json"
+    _write_jsonl(requirements, [{"canonical": "anal"}, {"canonical": "bound"}])
+    snapshot.write_text(
+        json.dumps(
+            {
+                "schema": "dict-validation.translation-bridge.v1",
+                "snapshot_version": "ui-ja-issue41-overlap7-v2",
+                "rows": [
+                    {"canonical": "anal", "meaning_relevant_status": "RESOLVED"},
+                    {"canonical": "bound", "meaning_relevant_status": "RESOLVED"},
+                ],
+            },
+            ensure_ascii=False,
+            indent=2,
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+
+    result = inspect_bridge_status(snapshot, requirements)
+    assert result["state"] == "READY"
+    assert result["required_count"] == 2
+    assert result["resolved_count"] == 2
+    assert result["blocked_count"] == 0
+
+
+def test_bridge_status_guard_rejects_json_object_without_rows(tmp_path: Path):
+    requirements = tmp_path / "requirements.jsonl"
+    snapshot = tmp_path / "snapshot.json"
+    _write_jsonl(requirements, [{"canonical": "anal"}])
+    snapshot.write_text('{"snapshot_version":"broken"}\n', encoding="utf-8")
+    with pytest.raises(ValueError, match="must contain a rows array"):
+        inspect_bridge_status(snapshot, requirements)
+
+
 def test_bridge_status_guard_rejects_unknown_status(tmp_path: Path):
     requirements = tmp_path / "requirements.jsonl"
     snapshot = tmp_path / "snapshot.jsonl"
