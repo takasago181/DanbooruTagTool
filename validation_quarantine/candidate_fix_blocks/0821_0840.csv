@@ -1,0 +1,11 @@
+special_id,tag,field,current_value,proposed_value,rule_version,risk_priority,evidence_refs,reason,status,notes
+822,onahole handjob,ImplementRequirementOverride,,true,R2,A,generation_profile;generation_profile:ID824;generation_family_rules,"Onahole is intrinsic to the named handjob variant.",QUARANTINED_CANDIDATE,No automatic support insertion.
+823,penis over one eye,BodypartRequirementOverride,,true,R2,A,generation_profile;generation_profile:IDs789,806,815;generation_family_rules,"Penis/eye bodypart participation is intrinsic; spatial=true already exists.",QUARANTINED_CANDIDATE,
+828,ofuda on pussy,BodypartRequirementOverride,,true,R2,A,generation_profile;generation_profile:IDs799,831;generation_family_rules,"Pussy is the explicit bodypart target.",QUARANTINED_CANDIDATE,
+828,ofuda on pussy,ImplementRequirementOverride,,true,R2,A,generation_profile;generation_profile:IDs799,831;generation_family_rules,"Ofuda is the intrinsic object component.",QUARANTINED_CANDIDATE,
+829,chocolate on nipples,BodypartRequirementOverride,,true,R2,A,generation_profile;generation_profile:IDs791,813;generation_family_rules,"Nipples are the explicit target; spatial=true already exists.",QUARANTINED_CANDIDATE,
+831,ofuda on nipples,BodypartRequirementOverride,,true,R2,A,generation_profile;generation_profile:IDs799,828;generation_family_rules,"Nipples are the explicit bodypart target.",QUARANTINED_CANDIDATE,
+831,ofuda on nipples,ImplementRequirementOverride,,true,R2,A,generation_profile;generation_profile:IDs799,828;generation_family_rules,"Ofuda is the intrinsic object component.",QUARANTINED_CANDIDATE,
+839,presenting own anus,ActorRequirementOverride,,true,R2,A,generation_profile;generation_profile:IDs514,680,779,797;generation_family_rules,"'own' makes self ownership intrinsic.",QUARANTINED_CANDIDATE,
+839,presenting own anus,BodypartRequirementOverride,,true,R2,A,generation_profile;generation_profile:IDs514,680,779,797;generation_family_rules,"Anus is the explicit bodypart target.",QUARANTINED_CANDIDATE,
+839,presenting own anus,SpecialFlags,,SELF_ACTOR_ROLE,R2,A,generation_profile;generation_profile:IDs680,779,797;generation_family_rules,"Self ownership should remain explicit in structural metadata.",QUARANTINED_CANDIDATE,Retain pose=true.
