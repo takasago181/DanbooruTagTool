@@ -1,0 +1,24 @@
+{
+  "issue": 36,
+  "rule_version": "R1",
+  "status": "BASELINE_NOT_RUN",
+  "production_modified": false,
+  "measurable_universe": null,
+  "display_by_canonical": {
+    "entries": null
+  },
+  "search_by_canonical": {
+    "entries": null
+  },
+  "lanes": {
+    "general_or_proxy": null,
+    "statistical_recommendation": null,
+    "semantic_support": null,
+    "manual_auxiliary_or_proxy": null
+  },
+  "union": null,
+  "notes": [
+    "Populate only from a reproducible read-only run against the real protected-data environment.",
+    "Do not claim exhaustive General-search reachability unless it is deterministically measurable."
+  ]
+}
