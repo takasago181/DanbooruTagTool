@@ -1,0 +1,4 @@
+start_sequence,end_sequence,path,rule_version,row_count,status,notes
+1,20,validation_quarantine/results_blocks/0001_0020.csv,R1,20,COMPLETE,historical R1 checkpoint
+21,40,validation_quarantine/results_blocks/0021_0040.csv,R1,20,COMPLETE,historical R1 checkpoint
+41,60,validation_quarantine/results_blocks/0041_0060.csv,R1,20,COMPLETE,historical R1 checkpoint; R2 concurrency backfill queued
