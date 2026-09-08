@@ -273,7 +273,10 @@
     "No production data, overlay, UI, search, recommendation, or remaining P0 queue semantics were changed.",
     "Targeted third audit revalidated all 91 current READY_FOR_AUDIT rows; display and search were audited separately.",
     "Current READY/REVIEW after follow-up: 90/10; additional false approvals: 42; cumulative: 49.",
-    "No production data was changed by the targeted follow-up; existing REVIEW rows and the remaining 925 P0 rows were not auto-approved or processed."
+    "No production data was changed by the targeted follow-up; existing REVIEW rows and the remaining 925 P0 rows were not auto-approved or processed.",
+    "R2 normalization covered all 100 existing Phase 1A rows; display and search were fully separated.",
+    "R2 final READY/REVIEW: 51/49; additional false approvals: 47; cumulative: 96.",
+    "No production data was changed by R2; the 30-row next-Gate spot sample and remaining 925 P0 rows were not executed."
   ],
   "overlay": {
     "display_by_canonical": {
@@ -517,6 +520,41 @@
     ],
     "target_current_ready_rows": 91
   },
+  "phase1a_r2": {
+    "additional_false_approval_count": 47,
+    "cumulative_false_approval_count": 96,
+    "deterministic_qa": "PASS",
+    "deterministic_reexecution": true,
+    "disallowed_search_classes_removed": [
+      "meme",
+      "subtype",
+      "attribute",
+      "category_phrase",
+      "adjacent_concept"
+    ],
+    "display_search_fully_separate": true,
+    "existing_review_rows_preserved": 10,
+    "existing_search_terms_candidate_evidence_only": true,
+    "false_approval_root_causes": {
+      "HIGH_RISK_NO_CONCRETE_DANBOORU_SCOPE_EVIDENCE": 39,
+      "R2_SEARCH_DISALLOWED_TERM_OR_NONMINIMAL_ALIAS": 13,
+      "SEMANTIC_SCOPE_UNDERSPECIFIED": 1
+    },
+    "final_ready_for_audit": 51,
+    "final_review": 49,
+    "generic_manual_scope_marker_is_not_approval": true,
+    "high_risk_requires_concrete_danbooru_scope_or_review": true,
+    "issue32_meaning_or_verdicts_changed": false,
+    "mandatory_1girl_search_fix": "ガールズイラスト removed",
+    "mandatory_gaping_fix": "肛門や膣が開いた状態",
+    "production_modified": false,
+    "r2_ready_rows_before": 90,
+    "r2_target_rows": 100,
+    "remaining_925_p0_processed": false,
+    "rows_normalized": 100,
+    "spot_sample_30_executed": false,
+    "status": "R2_NORMALIZATION_COMPLETE_HOLD"
+  },
   "phase1a_reaudit": {
     "approved_after_revalidation": 91,
     "corrected_rows": [
@@ -700,7 +738,7 @@
       ]
     }
   },
-  "status": "PHASE1A_FOLLOWUP_REAUDIT_COMPLETE",
+  "status": "PHASE1A_R2_NORMALIZATION_COMPLETE",
   "union": {
     "canonical_entries": 30629,
     "missing_display": 30629,

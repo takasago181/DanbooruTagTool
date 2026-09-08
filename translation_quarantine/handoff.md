@@ -123,3 +123,19 @@ The latest independent follow-up remained HOLD because `simple_background` was s
 - Production data, #32 meaning/verdicts, #35 UI, search/recommendation logic, and the remaining P0 queue were unchanged.
 
 The detailed row-level before/after evidence is in `phase1a_review.csv`; the reproducible audit is `phase1a_followup_reaudit.py`.
+
+## R2 normalization
+
+R2 normalized all 100 existing Phase 1A rows. Display and search were fully separated. Existing `search_by_canonical` terms were treated as candidate evidence only; memes, subtypes, attribute-bearing terms, category phrases, and adjacent concepts were removed from the normalized search candidates.
+
+- Final state: `READY_FOR_AUDIT` 51 / `REVIEW` 49
+- Additional false approvals: 47; cumulative: 96
+- `gaping`: display corrected to `肛門や膣が開いた状態`; search normalized to `ガッピング`
+- `1girl`: `ガールズイラスト` removed from search candidates
+- Existing REVIEW rows were preserved and not auto-approved.
+- HIGH-risk rows without concrete Danbooru scope evidence were moved to REVIEW.
+- 30-row independent spot sample: not executed; it is the next Gate.
+- Remaining 925 P0 rows and production data: untouched.
+
+Root causes: {'HIGH_RISK_NO_CONCRETE_DANBOORU_SCOPE_EVIDENCE': 39, 'R2_SEARCH_DISALLOWED_TERM_OR_NONMINIMAL_ALIAS': 13, 'SEMANTIC_SCOPE_UNDERSPECIFIED': 1}
+Detailed row-level R2 evidence is in `phase1a_review.csv`; implementation is `phase1a_r2_normalize.py`.
