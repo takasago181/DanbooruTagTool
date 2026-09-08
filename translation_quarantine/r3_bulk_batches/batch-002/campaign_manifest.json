@@ -1,7 +1,7 @@
 {
   "batch_id": "batch-002",
   "campaign_id": "issue36-r3-bulk-remaining-20260909-v1",
-  "evidence_manifest_hash": "840203d490212dbfe1688154eecc0b8515aced02962b529fe69609023fcfb3d9",
+  "evidence_manifest_hash": "4b9f5303c1e095868899d0eaec88e85b046df14e1f3573a1b209e5006da36443",
   "issue32_snapshot": {
     "content_identity": "sha256:7e46f7f3655846a4f6ea2d1990e015701cbff5b123bdf8ef1809668f8a375ef5",
     "guard": {
@@ -154,7 +154,7 @@
     "tests/test_stage7a_ui.py": "e84ed361fee7afdcf1027edaa75a68eeb45c8be54adcaf717a6f36f530f5dcf7"
   },
   "rule_fingerprints": {
-    "translation_quarantine/r3/r3_bulk_evidence.py": "860b2cefacda8e5ee2e6fa88aa447e8a2f4b41495d32ceca4795752e1b718152",
+    "translation_quarantine/r3/r3_bulk_evidence.py": "00616dd8100c6ac3f9a6e568fc40cb5ab5a9aefdc59f55e4e1bd204e3cb7a49a",
     "translation_quarantine/r3/r3_common.py": "fce8db7f33f685a711e9840475b4518b2507133b98495cf235a56b371d0de71d",
     "translation_quarantine/r3/r3_issue41_bridge_status.py": "10f430c3b2eeb9474b871bca54c0616690e081fa96fc72d4de6c875905450264",
     "translation_quarantine/r3/r3_run.py": "1d5df32b586beaf8c56e1d8b0d006f075ed68a0b646d49d0875174c9b460991d"

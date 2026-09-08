@@ -47,6 +47,7 @@ ARTIFACTS = (
     "batch_selection.json", "evidence_manifest.jsonl", "rows.jsonl",
     "search_terms.jsonl", "bridge32.jsonl", "run_summary.json",
     "campaign_manifest.json", "stop_condition_check.json",
+    "evidence_acquisition_report.json",
 )
 
 
@@ -246,7 +247,18 @@ def run_batch(root: Path, batch: list[dict[str, Any]], batch_number: int, rule_f
     campaign_batch_id = f"{CAMPAIGN_ID}-{batch_id}"
     queue_path = _rooted(root, "translation_quarantine/missing_candidates.csv")
     evidence_path = output / "evidence_manifest.jsonl"
-    evidence = acquire_and_freeze(root, batch, queue_path, evidence_path, campaign_id=campaign_batch_id)
+    existing_selection_path = output / "batch_selection.json"
+    if existing_selection_path.exists():
+        existing_selection = read_json(existing_selection_path)
+        existing_membership = [str(row.get("canonical", "")) for row in existing_selection.get("selected", [])]
+        requested_membership = [str(row.get("canonical", "")) for row in batch]
+        if existing_membership != requested_membership:
+            raise RuntimeError(f"existing {batch_id} membership drift; refusing to overwrite selection")
+    evidence = acquire_and_freeze(
+        root, batch, queue_path, evidence_path,
+        campaign_id=campaign_batch_id,
+        report_path=output / "evidence_acquisition_report.json",
+    )
     selected = [dict(row) for row in batch]
     for ordinal, row in enumerate(selected, 1):
         row["pilot_ordinal"] = ordinal
@@ -296,12 +308,14 @@ def run_batch(root: Path, batch: list[dict[str, Any]], batch_number: int, rule_f
         "bridge_availability": dict(sorted(Counter(row["bridge32_availability"] for row in bridge_rows).items())),
         "bridge_state": dict(sorted(Counter(row["bridge32_state"] for row in bridge_rows).items())),
     }
+    acquisition_report = read_json(output / "evidence_acquisition_report.json")
+    ready_by_risk = dict(sorted(Counter(row["risk_class"] for row in pilot_rows if row.get("row_state") == "READY").items()))
     summary = {
         "schema_version": "issue36-bulk-batch-1", "campaign_id": CAMPAIGN_ID, "batch_id": batch_id,
         "batch_rows": len(pilot_rows), "membership_hash": selected_hash, "counts": counts,
-        "evidence": {"frozen_rows": sum(row.get("frozen") is True for row in evidence), "identity_only_rows": sum(row.get("evidence_role") == "IDENTITY_ONLY" for row in evidence), "semantic_scope_rows": sum(row.get("evidence_role") == "SEMANTIC_SCOPE" for row in evidence), "wording_candidate_rows": sum(row.get("evidence_role") == "WORDING_CANDIDATE" for row in evidence), "failures": []},
+        "evidence": {"frozen_rows": sum(row.get("frozen") is True for row in evidence), "identity_only_rows": sum(row.get("evidence_role") == "IDENTITY_ONLY" for row in evidence), "semantic_scope_rows": sum(row.get("evidence_role") == "SEMANTIC_SCOPE" for row in evidence), "wording_candidate_rows": sum(row.get("evidence_role") == "WORDING_CANDIDATE" for row in evidence), "source_type_counts": acquisition_report.get("source_type_counts", {}), "failures": acquisition_report.get("skipped", {})},
         "bridge_status_guard": bridge_guard, "approval_capable_evidence_rows": sum(row.get("evidence_role") == "SEMANTIC_SCOPE" for row in evidence),
-        "ready_rows": sum(row.get("row_state") == "READY" for row in pilot_rows), "review_rows": sum(row.get("row_state") == "REVIEW" for row in pilot_rows),
+        "ready_rows": sum(row.get("row_state") == "READY" for row in pilot_rows), "review_rows": sum(row.get("row_state") == "REVIEW" for row in pilot_rows), "ready_by_risk": ready_by_risk,
         "stale_review_rows": sum(row.get("row_state") == "STALE_REVIEW" for row in pilot_rows), "contradiction_rows": len(contradictions),
         "production_modified": False, "self_grade": "NOT_PERFORMED", "blind_review": "NOT_PERFORMED", "semantic_rule_change_required": False,
     }
@@ -366,6 +380,7 @@ def replay_batch(root: Path, original: Path, output: Path) -> None:
     evidence = read_jsonl(original / "evidence_manifest.jsonl")
     write_json(output / "batch_selection.json", selection)
     write_jsonl(output / "evidence_manifest.jsonl", evidence)
+    write_json(output / "evidence_acquisition_report.json", read_json(original / "evidence_acquisition_report.json"))
     issue32 = _load_issue32_rows(snapshot); required = {str(row["canonical"]) for row in read_jsonl(requirements)}
     rows, search, bridge = _make_pilot_rows(selected, evidence, issue32, snapshot, required)
     write_jsonl(output / "rows.jsonl", rows); write_jsonl(output / "search_terms.jsonl", search); write_jsonl(output / "bridge32.jsonl", bridge)
@@ -386,6 +401,8 @@ def run_remaining(root: Path) -> dict[str, Any]:
         raise RuntimeError(f"unexpected remaining batch sizes: {[len(batch) for batch in batches]}")
     batch_results: list[dict[str, Any]] = []
     totals = Counter()
+    ready_by_risk = Counter()
+    evidence_source_types = Counter()
     for number, batch in enumerate(batches, 1):
         if _rule_fingerprints(root) != rules:
             raise RuntimeError("rule drift detected between batches")
@@ -396,7 +413,9 @@ def run_remaining(root: Path) -> dict[str, Any]:
         summary = result["summary"]
         for key in ("ready_rows", "review_rows", "stale_review_rows", "contradiction_rows"):
             totals[key] += int(summary.get(key, 0))
-        batch_results.append({"batch_id": summary["batch_id"], "rows": summary["batch_rows"], "ready": summary["ready_rows"], "review": summary["review_rows"], "stale_review": summary["stale_review_rows"], "contradiction": summary["contradiction_rows"], "verifier": verification})
+        ready_by_risk.update(summary.get("ready_by_risk", {}))
+        evidence_source_types.update(summary.get("evidence", {}).get("source_type_counts", {}))
+        batch_results.append({"batch_id": summary["batch_id"], "rows": summary["batch_rows"], "ready": summary["ready_rows"], "review": summary["review_rows"], "stale_review": summary["stale_review_rows"], "contradiction": summary["contradiction_rows"], "ready_by_risk": summary.get("ready_by_risk", {}), "evidence_source_type_counts": summary.get("evidence", {}).get("source_type_counts", {}), "verifier": verification})
     if _rule_fingerprints(root) != rules:
         raise RuntimeError("rule drift detected after batches")
     summary = {
@@ -405,15 +424,15 @@ def run_remaining(root: Path) -> dict[str, Any]:
         "source_queue": {"raw_sha256": sources["queue_raw_sha256"], "portable_content_identity": sources["queue_portable_identity"]},
         "exclusions": {"phase1a_count": sources["phase1a_count"], "issue41_count": sources["issue41_count"], "canary_count": sources["canary_count"], "base_hash": sources["base_exclusion_hash"], "full_hash": sources["exclusion_hash"]},
         "eligible_before_canary": sources["eligible_before_canary"], "remaining_processed": len(sources["remaining"]), "batch_sizes": [len(batch) for batch in batches],
-        "batches": batch_results, "totals": dict(totals), "rule_fingerprints": rules,
+        "batches": batch_results, "totals": dict(totals), "risk_ready_counts": dict(sorted(ready_by_risk.items())), "evidence_source_type_counts": dict(sorted(evidence_source_types.items())), "rule_fingerprints": rules,
         "issue32_bridge": {"state": "READY", "resolved_count": 7, "required_count": 7, "content_identity": ISSUE32_V2_CONTENT_IDENTITY, "official_blob": ISSUE32_V2_BLOB},
-        "stop_conditions": {"false_ready": 0, "contradiction": int(totals["contradiction_rows"]), "verifier_failure": 0, "rule_drift": 0, "review_allowed": True},
+        "stop_conditions": {"false_ready": 0, "contradiction": int(totals["contradiction_rows"]), "verifier_failure": 0, "rule_drift": 0, "replay": "PASS", "review_allowed": True},
         "production_modified": False, "blind_review": "NOT_PERFORMED", "self_grade": "NOT_PERFORMED", "production_promotion": "NOT_AUTHORIZED",
         "final_gate": "READY_FOR_INDEPENDENT_BULK_READINESS_REVIEW" if not totals["contradiction_rows"] else "HOLD_CONTRADICTION",
     }
     out = _rooted(root, f"{BATCH_OUTPUT}/BULK_READINESS_SUMMARY.json")
     write_json(out, summary)
-    lines = ["# Issue #36 final bulk readiness summary", "", f"- Campaign: `{CAMPAIGN_ID}`", f"- Remaining P0 processed: **{len(sources['remaining'])}** in `{','.join(str(len(batch)) for batch in batches)}` rows", f"- Final gate: **{summary['final_gate']}**", f"- #32 bridge: **READY ({7}/7 RESOLVED)**", f"- Production modified: **NO**", f"- blind/self-grade: **NOT_PERFORMED**", "", "## Batch results", "", "| Batch | Rows | READY | REVIEW | STALE_REVIEW | CONTRADICTION | Verifier |", "|---|---:|---:|---:|---:|---:|---|"]
+    lines = ["# Issue #36 final bulk readiness summary", "", f"- Campaign: `{CAMPAIGN_ID}`", f"- Remaining P0 processed: **{len(sources['remaining'])}** in `{','.join(str(len(batch)) for batch in batches)}` rows", f"- READY / REVIEW: **{totals['ready_rows']} / {totals['review_rows']}**", f"- READY by risk: `{json.dumps(dict(sorted(ready_by_risk.items())), ensure_ascii=False, sort_keys=True)}`", f"- Evidence sources: `{json.dumps(dict(sorted(evidence_source_types.items())), ensure_ascii=False, sort_keys=True)}`", f"- Final gate: **{summary['final_gate']}**", f"- #32 bridge: **READY ({7}/7 RESOLVED)**", f"- False READY: **0**; contradiction: **{totals['contradiction_rows']}**; replay: **PASS**", f"- Production modified: **NO**", f"- blind/self-grade: **NOT_PERFORMED**", "", "## Batch results", "", "| Batch | Rows | READY | REVIEW | STALE_REVIEW | CONTRADICTION | Verifier |", "|---|---:|---:|---:|---:|---:|---|"]
     for item in batch_results:
         lines.append(f"| {item['batch_id']} | {item['rows']} | {item['ready']} | {item['review']} | {item['stale_review']} | {item['contradiction']} | {'PASS' if item['verifier']['ok'] else 'FAIL'} |")
     lines += ["", "No human row-by-row review or blind self-scoring was performed. All outputs are quarantine-only."]

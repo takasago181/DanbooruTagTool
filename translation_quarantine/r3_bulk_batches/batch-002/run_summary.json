@@ -1,5 +1,5 @@
 {
-  "approval_capable_evidence_rows": 0,
+  "approval_capable_evidence_rows": 35,
   "batch_id": "batch-002",
   "batch_rows": 200,
   "blind_review": "NOT_PERFORMED",
@@ -60,7 +60,8 @@
       "READY": 200
     },
     "display": {
-      "REVIEW": 200
+      "READY": 7,
+      "REVIEW": 193
     },
     "risk": {
       "CRITICAL": 5,
@@ -68,23 +69,40 @@
       "MEDIUM": 30
     },
     "row": {
-      "REVIEW": 200
+      "READY": 7,
+      "REVIEW": 193
     },
     "search": {
-      "REVIEW": 200
+      "READY": 7,
+      "REVIEW": 193
     }
   },
   "evidence": {
-    "failures": [],
-    "frozen_rows": 200,
+    "failures": {
+      "exact_authority_without_unambiguous_wording": 1,
+      "high_or_critical_without_exact_authority": 4,
+      "no_safe_transparent_or_exact_scope": 161,
+      "transparent_without_safe_overlay_wording": 27
+    },
+    "frozen_rows": 242,
     "identity_only_rows": 200,
-    "semantic_scope_rows": 0,
-    "wording_candidate_rows": 0
+    "semantic_scope_rows": 35,
+    "source_type_counts": {
+      "local_exact_authoritative_reference": 1,
+      "local_overlay_wording_candidate": 7,
+      "pinned_candidate_queue": 200,
+      "transparent_canonical_composition": 34
+    },
+    "wording_candidate_rows": 7
   },
   "membership_hash": "13a873629112410f09f1d6847ae02e538aedc148a52a6433e21d31bda1439669",
   "production_modified": false,
-  "ready_rows": 0,
-  "review_rows": 200,
+  "ready_by_risk": {
+    "LOW": 5,
+    "MEDIUM": 2
+  },
+  "ready_rows": 7,
+  "review_rows": 193,
   "schema_version": "issue36-bulk-batch-1",
   "self_grade": "NOT_PERFORMED",
   "semantic_rule_change_required": false,

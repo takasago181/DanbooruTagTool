@@ -4,7 +4,11 @@ from pathlib import Path
 import pytest
 
 from translation_quarantine.r3.r3_bulk_run import check_masked_rows
-from translation_quarantine.r3.r3_bulk_evidence import acquire_and_freeze
+from translation_quarantine.r3.r3_bulk_evidence import (
+    _exact_reference_index,
+    acquire_and_freeze,
+    transparent_composition_scope,
+)
 from translation_quarantine.r3.r3_bulk_select import CANARY_SEED, portable_csv_text_hash, select_canary, select_records
 from translation_quarantine.r3.r3_common import stable_key
 
@@ -60,6 +64,56 @@ def test_bulk_evidence_freeze_keeps_unresolved_rows_identity_only(monkeypatch):
     assert len(semantic) == len(wording) > 0
     assert all(row["frozen"] is True for row in evidence)
     assert all(row["scope_basis"] == "TRANSPARENT_CANONICAL_COMPOSITION" for row in semantic)
+
+
+def test_bulk_evidence_expands_only_transparent_low_medium_compositions():
+    assert transparent_composition_scope("blue_flower", "MEDIUM") is not None
+    assert transparent_composition_scope("socks", "LOW") is not None
+    assert transparent_composition_scope("simple_background", "MEDIUM") is None
+    assert transparent_composition_scope("anal_object_insertion", "CRITICAL") is None
+    assert transparent_composition_scope("holding_sword", "HIGH_POSE_ACTION") is None
+
+
+def test_transparent_wording_safety_keeps_narrowing_or_ambiguous_terms_review(monkeypatch):
+    selected = [{"canonical": name, "semantic_class": ""} for name in ("green_jacket", "sword", "cloud")]
+    queue_path = ROOT / "translation_quarantine" / "missing_candidates.csv"
+    monkeypatch.setattr("translation_quarantine.r3.r3_bulk_evidence.write_jsonl", lambda _path, _rows: None)
+    monkeypatch.setattr("translation_quarantine.r3.r3_bulk_evidence.write_json", lambda _path, _value: None)
+    evidence = acquire_and_freeze(
+        ROOT, selected, queue_path, ROOT / "unused.jsonl",
+        campaign_id="issue36-r3-bulk-remaining-test",
+    )
+    assert not [row for row in evidence if row.get("evidence_role") == "WORDING_CANDIDATE"]
+
+
+def test_exact_reference_index_does_not_promote_alias_rows():
+    index, _content_hash, _stats = _exact_reference_index(ROOT)
+    assert "girl_on_top" in index
+    assert index["girl_on_top"]["Tag"].replace(" ", "_") == "girl_on_top"
+    assert "titjob" not in index
+
+
+def test_overlay_wording_never_becomes_semantic_authority(monkeypatch):
+    selected = [{"canonical": "blue_flower", "semantic_class": ""}]
+    queue_path = ROOT / "translation_quarantine" / "missing_candidates.csv"
+    monkeypatch.setattr(
+        "translation_quarantine.r3.r3_bulk_evidence.write_jsonl",
+        lambda _path, _rows: None,
+    )
+    monkeypatch.setattr(
+        "translation_quarantine.r3.r3_bulk_evidence.write_json",
+        lambda _path, _value: None,
+    )
+    evidence = acquire_and_freeze(
+        ROOT, selected, queue_path, ROOT / "unused.jsonl",
+        campaign_id="issue36-r3-bulk-remaining-test",
+        report_path=ROOT / "unused-report.json",
+    )
+    semantic = [row for row in evidence if row["evidence_role"] == "SEMANTIC_SCOPE"]
+    wording = [row for row in evidence if row["evidence_role"] == "WORDING_CANDIDATE"]
+    assert semantic and wording
+    assert all("overlay" not in row["source_type"] for row in semantic)
+    assert all("semantic authority" in row["scope_note"] or "semantic authority" in row.get("scope_note", "") for row in wording)
 
 
 def test_masked_audit50_is_50_rows_and_preserves_existing_audit20():

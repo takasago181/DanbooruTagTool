@@ -1,5 +1,5 @@
 {
-  "approval_capable_evidence_rows": 0,
+  "approval_capable_evidence_rows": 5,
   "batch_id": "batch-004",
   "batch_rows": 25,
   "blind_review": "NOT_PERFORMED",
@@ -74,14 +74,22 @@
     }
   },
   "evidence": {
-    "failures": [],
-    "frozen_rows": 25,
+    "failures": {
+      "no_safe_transparent_or_exact_scope": 20,
+      "transparent_without_safe_overlay_wording": 5
+    },
+    "frozen_rows": 30,
     "identity_only_rows": 25,
-    "semantic_scope_rows": 0,
+    "semantic_scope_rows": 5,
+    "source_type_counts": {
+      "pinned_candidate_queue": 25,
+      "transparent_canonical_composition": 5
+    },
     "wording_candidate_rows": 0
   },
   "membership_hash": "775ebee564438c1e5b4c698b6a94fcb3baad9b280383482510aa05b52d7438c2",
   "production_modified": false,
+  "ready_by_risk": {},
   "ready_rows": 0,
   "review_rows": 25,
   "schema_version": "issue36-bulk-batch-1",

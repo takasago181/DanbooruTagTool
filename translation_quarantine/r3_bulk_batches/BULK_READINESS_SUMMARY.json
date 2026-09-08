@@ -9,8 +9,16 @@
     {
       "batch_id": "batch-001",
       "contradiction": 0,
-      "ready": 0,
-      "review": 200,
+      "evidence_source_type_counts": {
+        "local_overlay_wording_candidate": 6,
+        "pinned_candidate_queue": 200,
+        "transparent_canonical_composition": 42
+      },
+      "ready": 6,
+      "ready_by_risk": {
+        "LOW": 6
+      },
+      "review": 194,
       "rows": 200,
       "stale_review": 0,
       "verifier": {
@@ -31,8 +39,18 @@
     {
       "batch_id": "batch-002",
       "contradiction": 0,
-      "ready": 0,
-      "review": 200,
+      "evidence_source_type_counts": {
+        "local_exact_authoritative_reference": 1,
+        "local_overlay_wording_candidate": 7,
+        "pinned_candidate_queue": 200,
+        "transparent_canonical_composition": 34
+      },
+      "ready": 7,
+      "ready_by_risk": {
+        "LOW": 5,
+        "MEDIUM": 2
+      },
+      "review": 193,
       "rows": 200,
       "stale_review": 0,
       "verifier": {
@@ -53,8 +71,17 @@
     {
       "batch_id": "batch-003",
       "contradiction": 0,
-      "ready": 0,
-      "review": 200,
+      "evidence_source_type_counts": {
+        "local_overlay_wording_candidate": 8,
+        "pinned_candidate_queue": 200,
+        "transparent_canonical_composition": 42
+      },
+      "ready": 8,
+      "ready_by_risk": {
+        "LOW": 4,
+        "MEDIUM": 4
+      },
+      "review": 192,
       "rows": 200,
       "stale_review": 0,
       "verifier": {
@@ -75,7 +102,12 @@
     {
       "batch_id": "batch-004",
       "contradiction": 0,
+      "evidence_source_type_counts": {
+        "pinned_candidate_queue": 25,
+        "transparent_canonical_composition": 5
+      },
       "ready": 0,
+      "ready_by_risk": {},
       "review": 25,
       "rows": 25,
       "stale_review": 0,
@@ -98,6 +130,12 @@
   "blind_review": "NOT_PERFORMED",
   "campaign_id": "issue36-r3-bulk-remaining-20260909-v1",
   "eligible_before_canary": 825,
+  "evidence_source_type_counts": {
+    "local_exact_authoritative_reference": 1,
+    "local_overlay_wording_candidate": 21,
+    "pinned_candidate_queue": 625,
+    "transparent_canonical_composition": 123
+  },
   "exclusions": {
     "base_hash": "8f8ce1de330b84aec8b0c7f7439775a48ae27d2c27d8079a84f3e809e49f56b8",
     "canary_count": 200,
@@ -116,8 +154,12 @@
   "production_modified": false,
   "production_promotion": "NOT_AUTHORIZED",
   "remaining_processed": 625,
+  "risk_ready_counts": {
+    "LOW": 15,
+    "MEDIUM": 6
+  },
   "rule_fingerprints": {
-    "translation_quarantine/r3/r3_bulk_evidence.py": "860b2cefacda8e5ee2e6fa88aa447e8a2f4b41495d32ceca4795752e1b718152",
+    "translation_quarantine/r3/r3_bulk_evidence.py": "00616dd8100c6ac3f9a6e568fc40cb5ab5a9aefdc59f55e4e1bd204e3cb7a49a",
     "translation_quarantine/r3/r3_common.py": "fce8db7f33f685a711e9840475b4518b2507133b98495cf235a56b371d0de71d",
     "translation_quarantine/r3/r3_issue41_bridge_status.py": "10f430c3b2eeb9474b871bca54c0616690e081fa96fc72d4de6c875905450264",
     "translation_quarantine/r3/r3_run.py": "1d5df32b586beaf8c56e1d8b0d006f075ed68a0b646d49d0875174c9b460991d"
@@ -131,14 +173,15 @@
   "stop_conditions": {
     "contradiction": 0,
     "false_ready": 0,
+    "replay": "PASS",
     "review_allowed": true,
     "rule_drift": 0,
     "verifier_failure": 0
   },
   "totals": {
     "contradiction_rows": 0,
-    "ready_rows": 0,
-    "review_rows": 625,
+    "ready_rows": 21,
+    "review_rows": 604,
     "stale_review_rows": 0
   },
   "validated_r3_base": "53f02d9b3419db8fd9099b38204c29eed289ee8e",

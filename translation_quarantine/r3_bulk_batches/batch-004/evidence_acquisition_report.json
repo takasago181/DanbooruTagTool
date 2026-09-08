@@ -1,0 +1,26 @@
+{
+  "campaign_id": "issue36-r3-bulk-remaining-20260909-v1-batch-004",
+  "evidence_role_counts": {
+    "IDENTITY_ONLY": 25,
+    "SEMANTIC_SCOPE": 5
+  },
+  "exact_authoritative_scope_candidates": 0,
+  "reference": {
+    "ambiguous_exact_rows": 0,
+    "content_identity": "07584b365d5a68dbadd3f5e80859e768c2718b18746e32de02ce4b8bd60935e3",
+    "exact_rows": 2010,
+    "path": "data/special2788/illustrious_tag_knowledge_base_2788.csv"
+  },
+  "schema_version": "issue36-bulk-evidence-acquisition-2",
+  "selected_rows": 25,
+  "skipped": {
+    "no_safe_transparent_or_exact_scope": 20,
+    "transparent_without_safe_overlay_wording": 5
+  },
+  "source_type_counts": {
+    "pinned_candidate_queue": 25,
+    "transparent_canonical_composition": 5
+  },
+  "transparent_scope_candidates": 5,
+  "wording_candidates": 0
+}
