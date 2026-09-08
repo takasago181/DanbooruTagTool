@@ -7,9 +7,9 @@
   "fixed_order": "production Special2788 order at audit start",
   "batch_size": 100,
   "internal_block_size": 20,
-  "completed_specials": 540,
-  "pass": 489,
-  "fix": 29,
+  "completed_specials": 560,
+  "pass": 508,
+  "fix": 30,
   "review": 6,
   "image_test_required": 16,
   "revalidation_pending": 0,
@@ -25,10 +25,10 @@
   "semantic_support_rows_covered": 53,
   "semantic_support_rows_review": 0,
   "semantic_support_rows_image_test_required": 29,
-  "last_completed_special_id": "540",
+  "last_completed_special_id": "560",
   "last_completed_batch": 5,
   "next_batch": 6,
-  "next_start_position": 541,
+  "next_start_position": 561,
   "production_modified": false,
-  "notes": "Batch6 checkpoint through540. Block521-540 PASS19/FIX1; ID535 straddling paizuri -> PoseRequirementOverride=true quarantined candidate. Earlier ID503 remains REVIEW. candidate_fixes synchronized; revalidation queue has no delta/pending=0; semantic support remains53/58. Next541; production/main unchanged."
+  "notes": "Batch6 checkpoint through560. Block541-560 PASS19/FIX1; ID545 vaginal object insertion -> ImplementRequirementOverride=true candidate durably stored in candidate_fixes_blocks/0541_0560.csv. Candidate aggregate remains synchronized through ID535 and will be consolidated before Batch6 acceptance. Revalidation queue has no delta/pending=0; semantic support remains53/58. Next561; production/main unchanged."
 }
