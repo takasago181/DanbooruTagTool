@@ -1,0 +1,7 @@
+special_id,tag,field,current_value,proposed_value,rule_version,risk_priority,evidence_refs,reason,status,notes
+882,tube chastity cage,ImplementRequirementOverride,,true,R2,A,generation_profile;generation_profile:IDs856,879;generation_family_rules,"The chastity device is the intrinsic restraint implement.",QUARANTINED_CANDIDATE,
+887,intravaginal futanari,SpatialAssignmentOverride,,true,R2,A,generation_profile;generation_profile:IDs264,479;generation_family_rules,"Intravaginal placement is intrinsic.",QUARANTINED_CANDIDATE,
+888,used onahole,ImplementRequirementOverride,,true,R2,A,generation_profile;generation_profile:IDs822,824,879;generation_family_rules,"The onahole is the intrinsic object concept.",QUARANTINED_CANDIDATE,
+889,chocolate on pussy,BodypartRequirementOverride,,true,R2,A,generation_profile;generation_profile:IDs828,829,831;generation_family_rules,"Pussy is the explicit target; spatial=true already exists.",QUARANTINED_CANDIDATE,
+893,nipple press,BodypartRequirementOverride,,true,R2,A,generation_profile;generation_profile:IDs818,851;generation_family_rules,"Nipple is the explicit action target.",QUARANTINED_CANDIDATE,
+899,nipples pressed together,BodypartRequirementOverride,,true,R2,A,generation_profile;generation_profile:IDs806,815;generation_family_rules,"Nipples are intrinsic bodypart participants; spatial=true already exists.",QUARANTINED_CANDIDATE,
