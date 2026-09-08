@@ -1,0 +1,4 @@
+sequence,special_id,tag,rule_version,risk_priority,problem_fields,proposed_change,reason,evidence_refs,status
+1161,1161,penis on tongue,R2,A,BodypartRequirementOverride,bodypart=true,intrinsic anatomical target; spatial already true,generation_profile;generation_profile:ID1112,QUARANTINE_CANDIDATE
+1175,1175,clitoris pull,R2,A,BodypartRequirementOverride,bodypart=true,intrinsic clitoris target,generation_profile;generation_profile:ID569,QUARANTINE_CANDIDATE
+1180,1180,penis under breasts,R2,A,BodypartRequirementOverride,bodypart=true,intrinsic named bodypart relation; spatial already true,generation_profile;generation_profile:ID1106,QUARANTINE_CANDIDATE
