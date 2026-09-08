@@ -30,6 +30,24 @@ Issue #6: **PASS_WITH_NOTE / completed**。
 - notes: extension-namespaced `ui-config.json` persistence and the approved IIB commit's declared `imageio-ffmpeg` missing-dependency bootstrap are retained as standard installation side effects; unrelated updates were not performed.
 - evidence: `docs/testing/ISSUE6_COMPLETION_CHECKPOINT_20260908.md`, `docs/testing/ISSUE6_EXTENSION_INSTALL_AND_VERIFICATION_20260908.md`, `docs/testing/ISSUE6_EXTENSION_AUDIT_20260908.md`
 
+## Issue #30 infrastructure pipeline checkpoint
+
+Issue #30のexternal-tool-first配管は **PASS_PIPELINE**。
+
+- remote evidence branch: `codex/issue30-automation-dry-run-20260908`
+- evidence commit: `f2fc7acb15f996630c9f008284d80cf3261fb32f`
+- Forge Neo API: `neo-2.29` / API-enabled runtime / no `/sdapi/v1/options` POST
+- fixed model: `waiIllustriousSDXL_v170` / hash `f116b0c78f`
+- fixed conditions: Seed 5072 / Steps 24 / CFG 4.5 / Euler a / Automatic / 1024x1024 / batch 1 / LoRA none
+- A/B 2枚を `/sdapi/v1/txt2img` で生成し、PNG SHA-256・API response・`/sdapi/v1/png-info` actual Prompt/Negative/Seed/settings traceabilityを確認
+- WD14 `wd14-eva02.v3.large`、threshold 0.0で両画像のraw confidenceをmachine-readable保存
+- plumbing diagnostic: `standing` A=0.80345 / B=0.00976、`sitting` A=0.00100 / B=0.93025
+- user manual operations: 0
+- Agent Scheduler: HOLD
+- model switch / production scoring / A_WIN・B_WIN判定: 未実施
+
+このPASSは **生成→metadata→WD14 rawまでのインフラ配管PASS** であり、Issue #30完了やStage10本番開始を意味しない。残りはWD14語彙coverageを考慮した保守的な `A_WIN / B_WIN / REVIEW / BLOCKED` routingとgolden-set validation。低信頼・未対応概念をFAIL/WINへ強制せずREVIEWへ送る。
+
 ## Stage9 → Stage10 Gate
 
 Stage9は完了済み。
@@ -101,6 +119,8 @@ Issue #6は比較環境の導入・基礎動作確認、Issue #30はその上で
 - [ ] Stage10正式handoff
 - [x] Forge Neo比較環境導入・動作確認（Issue #6） — PASS_WITH_NOTE / completed
 - [ ] Forge Neo A/B automation external-tool-first dry run（Issue #30）
+  - [x] Forge API → fixed-seed A/B → PNG actual metadata → WD14 raw confidence — PASS_PIPELINE
+  - [ ] coverage-aware verdict routing / REVIEW fallback / golden-set validation
 - [x] Multi Prompt Slots等の比較手段確認（Issue #6）
 - [ ] テストPrompt班へ正式Specialデータ提供（Issue #5）
 - [ ] A/Bの固定条件定義
@@ -115,6 +135,6 @@ Knowledge handoff正本: `docs/stages/STAGE_10_KNOWLEDGE_HANDOFF.md`
 ## 現在地
 
 Stage10本番A/Bは**未開始**。
-Issue #28 automated E2EはPASS済み。Issue #6 Forge Neo比較環境はPASS_WITH_NOTEで完了し、現在は #5 PROMPT / #30 A/B automation TEMPの残項目を準備・完了する段階。Issue #4 KNOWLEDGEはStage10開始前調査を完了しhandoff済み。
+Issue #28 automated E2EはPASS済み。Issue #6 Forge Neo比較環境はPASS_WITH_NOTEで完了。Issue #30は生成・metadata・WD14 rawまでPASS_PIPELINEとなり、現在はcoverage-aware verdict routing / REVIEW fallback / golden-set validationが残る。#5 PROMPTは#30最終結果のhandoff待ち。Issue #4 KNOWLEDGEはStage10開始前調査を完了しhandoff済み。
 
 このchecklistを満たす前にStage10本番画像A/Bを正式開始しない。
