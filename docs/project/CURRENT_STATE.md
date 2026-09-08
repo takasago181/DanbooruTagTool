@@ -32,6 +32,7 @@ Stage 9 overall Gate 完了 / Stage10 準備Gate実施中 / automated E2E PASS
   - E2Eでinvalid recommendation resultのstate破壊バグを発見し、検証完了前に候補状態を置換しない最小修正を実施。
   - Stage0 protected hash/size/path-set checks維持・PASS。
 - 常設班: 開発 / 監査 / 知識 / Prompt の4班。
+- 別働横断班: ツール本体UIおよび翻訳改善班（Issue #34）。常設4班とは別枠で、実UIの視認性・操作性、日本語display/search品質、検索ノイズを監査・改善仕様化し、必要な実装はDEVへhandoffする。
 
 ## Active Work / Issues
 
@@ -46,6 +47,11 @@ Stage 9 overall Gate 完了 / Stage10 準備Gate実施中 / automated E2E PASS
   - Stage10本番A/Bの手作業を可能な限り減らす臨時担当。
   - 既存導入済み拡張 → Forge Neo標準機能 → Forge Neo対応拡張 → 外部CLI/API/OSS → 不足分だけ薄いglue scriptの順で検討する。
   - A/B Prompt差し替え、固定/複数seed生成、metadata/実Prompt追跡、WD14等による一次判定、`A_WIN / B_WIN / REVIEW / BLOCKED` 振り分け、結果レポートまでを対象とする。
+- #34 `[UI-JA][CROSS] Tool UI / Japanese translation quality improvement`
+  - 常設4班とは別の横断改善班。
+  - real desktop screenshotを基準にvisual/manual UI監査、日本語display/search品質監査、検索false positive監査を行う。
+  - 初期P0: `anal`検索で`piano` / `analog clock` / `analogous colors`等の無関係General候補が見える検索ノイズ、日本語表示の不統一・直訳感。
+  - 既存Stage9 semantics / protected data / canonical identityを維持し、必要なコード変更はDEV Issueへhandoffする。
 
 ## Not Started / Do Not Start Yet
 
@@ -74,8 +80,9 @@ Stage10本番開始前に最低限必要:
 
 1. #6 / #30を並列で完了させ、比較環境・自動化構成・dry run結果を証跡化する。
 2. #5は `docs/stages/STAGE_10_KNOWLEDGE_HANDOFF.md` と #6 / #30の結果を正式handoffへ反映する。
-3. A/B固定条件、metadata保存、実Prompt traceability、model-family差保持を最終確認する。
-4. 全Gateが満たされた後にのみStage10本番A/Bへ移行する。
+3. #34はStage10準備と並列でreal UI / 日本語品質 / 検索ノイズを監査し、実装が必要な項目をDEV handoff可能な受入条件へ落とす。
+4. A/B固定条件、metadata保存、実Prompt traceability、model-family差保持を最終確認する。
+5. 全Gateが満たされた後にのみStage10本番A/Bへ移行する。
 
 ## Blocking / Unknown
 
@@ -85,6 +92,7 @@ Stage10本番開始前に最低限必要:
 - GitHub Actions CIは未導入。#28 PASSはlocal protected-data environmentの実Tk証跡であり、CI PASSとは表現しない。
 - Stage10はまだ未開始。#6 / #30 / #5 と `STAGE_10_PREP.md` の残Gateがblocker。
 - #30の自動評価は完全自動判定を前提にせず、認識困難・信頼度不足をREVIEWへ逃がす。
+- #34はStage10開始Gateそのものではないが、現行UIを完成UIとして扱わない。visual/manual desktop inspectionと日本語品質確認は別証跡として残す。
 
 ## Source-of-Truth Rule
 
