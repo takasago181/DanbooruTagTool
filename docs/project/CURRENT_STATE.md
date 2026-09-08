@@ -61,6 +61,9 @@ Stage 9 overall Gate 完了 / Stage10 準備Gate実施中 / automated E2E PASS
 - #32 `[DICT-VALIDATION] Special2788 generation metadata full validation (quarantine)`
   - production inputs read-onlyの長期品質監査。
   - Stage10 final dictionary freezeへ向けた意味/生成メタデータ検証。
+  - 現在の2,788件は**この監査の固定母数**として維持するが、最終freeze時の件数を2,788へ固定しない。
+  - 2,788件本体監査完了後、final promotion audit前にpre-freeze completeness reconciliation（漏れ監査）を1回実施する。
+  - genuine missing Specialが見つかった場合は既存2,788監査をやり直さず、追加deltaだけ同じ#32基準で監査してからpromotionへ進む。
 - #30 `[Stage10-PREP][TEMP] Forge Neo A/B automation & external-tool integration`
   - Stage10本番A/Bの手作業を可能な限り減らす臨時担当。
   - external / existing tool first。
@@ -98,10 +101,10 @@ Stage 9 overall Gate 完了 / Stage10 準備Gate実施中 / automated E2E PASS
   2. #36/#39 UI-JAの承認済みproduction promotion（Japanese display/search overlay等）
 - 2 laneを同時完了待ちにはしない。**先に独立promotion gateを満たしたlaneからDEVが順次反映**する。
 - production書き込み・mergeは必ず直列化する。同時promotionは禁止。
-- #32 laneの反映は、2,788/2,788 + frozen semantic-support全件 + revalidation解消/明示park + false-PASS gate + candidate cross-consistency + separate final promotion audit PASS後。
+- #32 laneの反映は、current 2,788/2,788 + frozen semantic-support全件 + revalidation解消/明示park + false-PASS gate + candidate cross-consistency + **pre-freeze completeness reconciliation** + genuine missing-Special deltaがあればその追加監査 + separate final promotion audit PASS後。
 - UI-JA laneの反映は、R3 bridge/fresh100/blind30 gate + false READY 0 + stale/contradiction解消 + separate overlay promotion audit PASS後。
 - 各promotionはDEVが実施し、protected integrity / deterministic build or overlay generation / focused + regression + full feasible suite / real Windows UI確認を行い、AUDITが反映後差分を独立確認する。
-- #32 production promotion完了後に**final Special2788 dictionary freeze**とし、そのsnapshotをKNOWLEDGEのWD14 / Kagami-24k / CL Tagger v2 coverage比較へ渡す。UI-JAの完了を待ってStage10 core準備を止めない。
+- #32 production promotion完了後に**final Special dictionary freeze**とし、最終件数はcompleteness reconciliation結果に従う。そのsnapshotをKNOWLEDGEのWD14 / Kagami-24k / CL Tagger v2 coverage比較へ渡す。UI-JAの完了を待ってStage10 core準備を止めない。
 - UI-JA promotionはStage10 core Gateと独立して進めてよいが、他のproduction変更と衝突する場合は後ろへ直列化する。
 - この予約は#35の現行task contract / `CURRENT_DEV_TASK.md`を変更しない。#35完了前にpromotion DEVへ切り替えない。
 
@@ -139,17 +142,17 @@ Stage10本番開始前に最低限必要:
 9. metadata保存方法定義 — **SATISFIED for Issue #6 baseline / handoff**
 10. model family差を保持し未検証共通化していないこと
 11. 実際に使ったPromptを各画像/結果へ追跡できること — **SATISFIED for Issue #6 baseline / handoff**
-12. #32 promotion audit PASS → DEV production反映 → final Special2788 dictionary freeze
-13. final Special2788 dictionary freeze後、KNOWLEDGEがWD14 / Kagami-24k / CL Tagger v2 coverageを比較しPROMPT/#30へ返却
+12. #32 current 2,788 validation完了 → pre-freeze completeness reconciliation → missing-Special deltaがあれば追加監査 → promotion audit PASS → DEV production反映 → final Special dictionary freeze
+13. final Special dictionary freeze後、KNOWLEDGEがWD14 / Kagami-24k / CL Tagger v2 coverageを比較しPROMPT/#30へ返却
 14. `docs/stages/STAGE_10_PREP.md` の残チェックを満たすこと
 
 ## Next Actions
 
 1. #35 UI-only改善を継続し、real Windows Tk screenshot/manual inspectionを実施。`data/**`は変更しない。
-2. #32はfull validation / final promotion auditまで継続。PASS後、予約済みDEV promotionを起動し、production反映後にSpecial2788をfreezeする。
+2. #32はcurrent 2,788 full validationを止めずに継続。完了後にpre-freeze completeness reconciliationを実施し、genuine missing Specialがあれば追加deltaのみ同じ基準で監査する。その後にfinal promotion audit → 予約済みDEV promotion → final Special dictionary freezeへ進む。
 3. #36/#39はR3 bridge → fresh100 → blind30 → overlay promotion auditまで継続。PASS後、予約済みDEV promotionでproduction Japanese overlayへ反映する。
 4. #30は `docs/testing/ISSUE30_SPECIAL_REPRESENTATIVE_ROUTING_DESIGN_20260908.md` に従い、test method / routing architectureのみ整理する。
-5. final Special2788 freeze後、KNOWLEDGEがWD14 EVA02 v3 / Kagami-24k / CL Tagger v2 stable/fixed releaseの2,788 coverage比較を実施する。
+5. final Special dictionary freeze後、KNOWLEDGEがWD14 EVA02 v3 / Kagami-24k / CL Tagger v2 stable/fixed releaseの**final frozen Special count** coverage比較を実施する。
 6. coverage返却後、PROMPTがfinal representative Special/caseを確定し、#30がcapability別AUTO/REVIEW routingを校正する。
 7. #5へ#30最終結果・正式Specialデータ・実験仕様・自動化運用を反映する。
 8. 全Gate完了後のみStage10本番A/Bへ移行する。
@@ -162,6 +165,7 @@ Stage10本番開始前に最低限必要:
 - #30のForge API/A/B/metadata/WD14配管blockerは解消済み。
 - #30の残blockerはfinal dictionary freeze後のevaluator coverage、representative Special確定、capability別routing妥当性、REVIEW fallback校正。
 - #39 full pytestは`ENVIRONMENT_BLOCKED`。call-phase failure 0の証跡あり。残HOLDはcontrolled-bridge contract patch。
+- 現2,788件はrunning auditの固定母数だが、**final frozen Special countの完全性はpre-freeze completeness reconciliation完了まで未確定**。
 - WD14をSpecial2788全体のground truthにしない。
 - unusual anatomy系Specialへ `bad anatomy / extra limbs / extra arms` 等を無条件適用しない。別A/B項目。
 - #34/#35はStage10開始Gateそのものではないが、現行UIを完成UIとして扱わない。
