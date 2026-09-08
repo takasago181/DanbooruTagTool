@@ -29,3 +29,9 @@ start_sequence,end_sequence,path,rule_version,row_count,status,notes
 541,560,validation_quarantine/results_blocks/0541_0560.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; ID545 FIX implement requirement
 561,580,validation_quarantine/results_blocks/0561_0580.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; IDs569/571/573 FIX; ID570 REVIEW
 581,600,validation_quarantine/results_blocks/0581_0600.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; ID600 FIX implement requirement; Batch6 gate PASS
+601,620,validation_quarantine/results_blocks/0601_0620.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
+621,640,validation_quarantine/results_blocks/0621_0640.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
+641,660,validation_quarantine/results_blocks/0641_0660.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
+661,680,validation_quarantine/results_blocks/0661_0680.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; ID680 S-risk self-action correction
+681,700,validation_quarantine/results_blocks/0681_0700.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; Batch7 gate PASS
+701,720,validation_quarantine/results_blocks/0701_0720.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; 8 FIX / 2 REVIEW
