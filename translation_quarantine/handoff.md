@@ -2,12 +2,12 @@
 
 ## Status
 
-- Phase: Phase 1A translation pilot COMPLETE
+- Phase: Phase 1A full independent revalidation COMPLETE
 - Rule: R1
 - Branch: `ui-ja/japanese-overlay-quarantine`
 - Production modified: NO
 - Protected-data run: read-only
-- Pilot QA gate: PASS
+- Revalidation gate: PASS_WITH_REVIEW_ROWS
 
 ## Start point
 
@@ -53,7 +53,7 @@ The same screenshot also showed unrelated General results such as `piano` / `ana
 #32 may inspect some of the same canonical tags in semantic/generation context. #36 must treat those tags only as Japanese display/search coverage records and must not reuse wording as evidence for #32 generation verdicts.
 
 Phase 0 remains the fixed baseline. Its protected input hashes and coverage
-definitions are unchanged by Phase 1A.
+definitions are unchanged by Phase 1A and this revalidation.
 
 ## Phase 1A result
 
@@ -70,12 +70,10 @@ The last selected canonical is `collarbone`. The candidate wording and QA
 ledger are in `phase1a_review.csv`; the reproducible generator is
 `phase1a_generate.py`.
 
-- Review state: `READY_FOR_AUDIT` 92 / `REVIEW` 8
+- Initial Phase 1A state: `READY_FOR_AUDIT` 92 / `REVIEW` 8
 - Proposal source: `EXISTING_SEARCH` 67 / `LOCAL_EXACT` 31 / `GENERATED` 2
 - Risk: `HIGH` 50 / `MEDIUM` 6 / `LOW` 44
-- HIGH second-pass rows: 50; semantic identity distortions: 0
-- Ordinary deterministic independent sample: 10/50 (20%); false approvals: 0
-- Local wording errors: 0; pilot QA gate: `PASS`
+- Previous self-QA was not accepted as the independent gate.
 - #32 label-only overlap in pilot: 8 (`feet`, `footjob`, `handjob`,
   `kneeling`, `on_back`, `penis`, `sitting`, `solo`)
 - Existing search terms were retained as evidence; no search term was deleted
@@ -86,3 +84,26 @@ ledger are in `phase1a_review.csv`; the reproducible generator is
 `REVIEW` means a human wording decision is still required and is not a
 production approval. Do not promote these candidates, do not continue to the
 remaining 925 P0 rows, and do not modify production data from this branch.
+
+## Independent full revalidation
+
+All 100 existing Phase 1A rows were revalidated independently for semantic
+width and UI-JA naturalness. Proposal-source fields were not used as approval
+evidence.
+
+- Rows revalidated: 100/100
+- Final state: `READY_FOR_AUDIT` 91 / `REVIEW` 9
+- Existing 8 `REVIEW` rows preserved; no automatic approval
+- New `REVIEW`: `multiple_penetration`
+- False approvals found: 7
+- Root causes: semantic-width narrowing 3; semantic scope underspecified 1;
+  state reduced to substance 1; UI naturalness/state scope 1; community
+  shorthand UI naturalness 1
+- Corrected: `cuffs`, `straddling`, `lactation`, `vaginal`, `gaping`,
+  `medium_breasts`
+- Corrected and moved to `REVIEW`: `multiple_penetration`
+- Full revalidation result: `PASS_WITH_REVIEW_ROWS`
+
+The detailed before/after audit is in `phase1a_review.csv`; the reproducible
+re-audit implementation is `phase1a_reaudit.py`. No production data or
+remaining-P0 work was changed.

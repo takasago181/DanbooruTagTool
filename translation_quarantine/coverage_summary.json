@@ -267,7 +267,10 @@
     "Japaneseあり/なし lane totals are display coverage; search coverage is reported separately in every lane.",
     "Phase 1A generated exactly 100 P0 quarantine candidates; no production wording was promoted.",
     "Existing search terms were retained as evidence and were not deleted or replaced.",
-    "Review state REVIEW means a human wording decision is still required; it is not a production approval."
+    "Review state REVIEW means a human wording decision is still required; it is not a production approval.",
+    "Independent full revalidation covered all 100 Phase 1A rows; proposal-source fields were not used as approval evidence.",
+    "Seven prior approvals were false approvals and were corrected or moved to REVIEW; the existing eight REVIEW rows were preserved.",
+    "No production data, overlay, UI, search, recommendation, or remaining P0 queue semantics were changed."
   ],
   "overlay": {
     "display_by_canonical": {
@@ -339,6 +342,51 @@
       "fill to exactly 100 with P0 high-usage General order: post_count descending, canonical ascending"
     ],
     "status": "PASS"
+  },
+  "phase1a_reaudit": {
+    "approved_after_revalidation": 91,
+    "corrected_rows": [
+      "cuffs",
+      "gaping",
+      "lactation",
+      "straddling",
+      "vaginal",
+      "medium_breasts"
+    ],
+    "deterministic_qa": "PASS",
+    "deterministic_reexecution": true,
+    "existing_review_rows_preserved": 8,
+    "false_approval_count": 7,
+    "false_approval_root_causes": {
+      "SEMANTIC_SCOPE_UNDERSPECIFIED": 1,
+      "SEMANTIC_WIDTH_NARROWING": 3,
+      "STATE_REDUCED_TO_SUBSTANCE": 1,
+      "UI_NATURALNESS_AND_STATE_SCOPE": 1,
+      "UI_NATURALNESS_COMMUNITY_SHORTHAND": 1
+    },
+    "full_revalidation": true,
+    "issue32_meaning_or_verdicts_changed": false,
+    "issue32_overlap_reviewed": [
+      "feet",
+      "footjob",
+      "handjob",
+      "kneeling",
+      "on_back",
+      "penis",
+      "sitting",
+      "solo"
+    ],
+    "new_review_rows": [
+      "multiple_penetration"
+    ],
+    "production_modified": false,
+    "proposal_evidence_reused_for_approval": false,
+    "qa_rule": "full 100-row independent semantic-width and UI-JA naturalness review; proposal-source fields are not approval evidence",
+    "remaining_925_p0_processed": false,
+    "review_rows_after_revalidation": 9,
+    "rows_revalidated": 100,
+    "status": "PASS_WITH_REVIEW_ROWS",
+    "unchanged_pass_rows": 85
   },
   "priority_queue": {
     "counts": {
@@ -478,7 +526,7 @@
       ]
     }
   },
-  "status": "PHASE1A_COMPLETE",
+  "status": "PHASE1A_REAUDIT_COMPLETE",
   "union": {
     "canonical_entries": 30629,
     "missing_display": 30629,
