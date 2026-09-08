@@ -31,6 +31,14 @@ Stage 9 overall Gate 完了 / Stage10 準備Gate実施中 / automated E2E PASS
   - required real-Tk scenarios 3/3 PASS
   - E2Eでinvalid recommendation resultのstate破壊バグを発見し、検証完了前に候補状態を置換しない最小修正を実施。
   - Stage0 protected hash/size/path-set checks維持・PASS。
+- Issue #6 `[Stage10][TEMP] Forge Neo comparison environment`: **PASS_WITH_NOTE / completed**。
+  - Multi Prompt Slots fixed SHA: `b3f45b17e5a24a20b4fa04edac74e6a4fec23dfe`。
+  - Forge Neo Infinite Image Browsing fixed SHA: `ced039479c2e1463c9bdb136d355e01b3dfc9279`。
+  - fixed-seed A/B (Seed 5072) — PASS; PNG metadata / actual Prompt traceability — PASS; baseline regular-generation regression — PASS。
+  - completion checkpoint: `docs/testing/ISSUE6_COMPLETION_CHECKPOINT_20260908.md`。
+  - verification: `docs/testing/ISSUE6_EXTENSION_INSTALL_AND_VERIFICATION_20260908.md`。
+  - audit: `docs/testing/ISSUE6_EXTENSION_AUDIT_20260908.md`、commit `472a219058771fe117b87d62c9d53d5402b8cff9`。
+  - note: Multi Prompt Slots namespaced UI-state persistence and the approved Infinite Image Browsing declared `imageio-ffmpeg` missing-dependency bootstrap are retained as standard-install side effects; unrelated updates were not authorized.
 - 常設班: 開発 / 監査 / 知識 / Prompt の4班。
 - 別働横断班: ツール本体UIおよび翻訳改善班（Issue #34）。常設4班とは別枠で、実UIの視認性・操作性、日本語display/search品質、検索ノイズを監査・改善仕様化し、必要な実装はDEVへhandoffする。
 
@@ -47,9 +55,6 @@ Stage 9 overall Gate 完了 / Stage10 準備Gate実施中 / automated E2E PASS
 - #5 `[Stage10][PROMPT] Formal handoff pending`
   - #4 KNOWLEDGE handoff受領済み。
   - Stage10正式handoff / Specialデータ / 実験仕様 / 固定条件 / 自動化運用を整理する。
-- #6 `[Stage10][TEMP] Forge Neo comparison environment`
-  - Forge Neo比較環境の導入・動作確認。
-  - existing-tool-firstでMulti Prompt Slots / Forge Neo Infinite Image Browsing / built-in X/Y/Z等を確認する。
 - #30 `[Stage10-PREP][TEMP] Forge Neo A/B automation & external-tool integration`
   - Stage10本番A/Bの手作業を可能な限り減らす臨時担当。
   - 既存導入済み拡張 → Forge Neo標準機能 → Forge Neo対応拡張 → 外部CLI/API/OSS → 不足分だけ薄いglue scriptの順で検討する。
@@ -73,22 +78,22 @@ Stage10本番開始前に最低限必要:
 1. Stage9 overall Gate — **SATISFIED**
 2. #28 automated E2E functional test — **SATISFIED**
 3. #4 KNOWLEDGEのStage10知識整理を正式handoffへ反映 — **SATISFIED**
-4. #6 Forge Neo比較環境の導入・動作確認
+4. #6 Forge Neo比較環境の導入・動作確認 — **SATISFIED / PASS_WITH_NOTE**
 5. #30 Forge Neo A/B automationのexternal-tool-first構成確認 + dry run
 6. #5 Prompt班へ正式Specialデータ・実験仕様・自動化運用をhandoff
-7. Multi Prompt Slots等の比較手段確認
+7. Multi Prompt Slots等の比較手段確認 — **SATISFIED**
 8. A/B固定条件定義
-9. metadata保存方法定義
+9. metadata保存方法定義 — **SATISFIED for Issue #6 baseline / handoff**
 10. model family差を保持し未検証共通化していないこと
-11. 実際に使ったPromptを各画像/結果へ追跡できること
+11. 実際に使ったPromptを各画像/結果へ追跡できること — **SATISFIED for Issue #6 baseline / handoff**
 12. `docs/stages/STAGE_10_PREP.md` の残チェックを満たすこと
 
 ## Next Actions
 
 1. #35を実装し、日本語-first表示・UI chrome・状態判別・関連候補可読性・resizeをUI-onlyで改善する。`data/**`は変更しない。
 2. #35完了後、real Windows Tk screenshot/manual inspection + focused/regression/full suite可能範囲を確認し、#34へ結果を戻す。
-3. #6 / #30を並列で完了させ、比較環境・自動化構成・dry run結果を証跡化する。
-4. #5は `docs/stages/STAGE_10_KNOWLEDGE_HANDOFF.md` と #6 / #30の結果を正式handoffへ反映する。
+3. #30のA/B automation external-tool-first構成とdry runを完了し、#6 handoffを取り込む。
+4. #5は `docs/stages/STAGE_10_KNOWLEDGE_HANDOFF.md` と #30の結果を正式handoffへ反映する。
 5. A/B固定条件、metadata保存、実Prompt traceability、model-family差保持を最終確認する。
 6. 全Gateが満たされた後にのみStage10本番A/Bへ移行する。
 
@@ -98,7 +103,7 @@ Stage10本番開始前に最低限必要:
 - Issue #28 blockerは解消済み。functional E2EはPASS。
 - E2Eはvisual-layout/manual desktop inspection、全2,788 Special総当たり、Forge同時稼働性能、画像品質を検証するものではない。
 - GitHub Actions CIは未導入。#28 PASSはlocal protected-data environmentの実Tk証跡であり、CI PASSとは表現しない。
-- Stage10はまだ未開始。#6 / #30 / #5 と `STAGE_10_PREP.md` の残Gateがblocker。
+- Stage10はまだ未開始。#30 / #5 と `STAGE_10_PREP.md` の残Gateがblocker。#6は完了済み。
 - #30の自動評価は完全自動判定を前提にせず、認識困難・信頼度不足をREVIEWへ逃がす。
 - #34 / #35はStage10開始Gateそのものではないが、現行UIを完成UIとして扱わない。#35では辞書内容を触らずUI-first改善を実施する。
 
