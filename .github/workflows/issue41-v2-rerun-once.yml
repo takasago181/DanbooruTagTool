@@ -26,33 +26,59 @@ jobs:
           SNAP_COMMIT='9f1659cfabb885b2dfc0dd4fef3a6611f19bee11'
           SNAP_PATH='validation_quarantine/bridge_snapshots/ui_ja_issue41_overlap7_v2.json'
           SNAP_BLOB='974bb9c971caf632f8ec73dff39fe4c55e60efaa'
-          SNAP_SHA256='7e46f7f3655846a4f6ea2d1990e015701cbff5b123bdf8ef1809668f8a375ef5'
+          SNAP_CONTENT_IDENTITY='sha256:7e46f7f3655846a4f6ea2d1990e015701cbff5b123bdf8ef1809668f8a375ef5'
           SNAP_OUT="$RUNNER_TEMP/ui_ja_issue41_overlap7_v2.json"
 
           test "$(git rev-parse "$SNAP_COMMIT")" = "$SNAP_COMMIT"
           test "$(git rev-parse "$SNAP_COMMIT:$SNAP_PATH")" = "$SNAP_BLOB"
           git show "$SNAP_COMMIT:$SNAP_PATH" > "$SNAP_OUT"
-          echo "$SNAP_SHA256  $SNAP_OUT" | sha256sum -c -
 
-          python - "$SNAP_OUT" <<'PY'
-          import json, sys
+          python - "$SNAP_OUT" "$SNAP_CONTENT_IDENTITY" <<'PY'
+          import hashlib, json, sys
           from pathlib import Path
+
           p = Path(sys.argv[1])
+          expected_identity = sys.argv[2]
           payload = json.loads(p.read_text(encoding='utf-8'))
-          md = payload['metadata']
-          assert md['snapshot'] == 'ui_ja_issue41_overlap7_v2'
-          assert md['contract_version'] == 2
-          assert md['source_branch'] == 'dict-validation/quarantine'
-          assert md['source_commit'] == '9f1659cfabb885b2dfc0dd4fef3a6611f19bee11'
-          assert md['consumer_scope'] == '#41 read-only'
-          assert md['frozen'] is True and md['pinned'] is True and md['immutable'] is True
+
+          assert payload['schema'] == 'dict-validation.translation-bridge.v1'
+          assert payload['snapshot_version'] == 'ui-ja-issue41-overlap7-v2'
+          assert payload['owner_issue'] == 32
+          assert payload['consumer_issue'] == 41
+          assert payload['snapshot_ref'] == 'validation_quarantine/bridge_snapshots/ui_ja_issue41_overlap7_v2.json'
+          assert payload['snapshot_frozen'] is True
+          assert payload['snapshot_pinned'] is True
+          assert payload['snapshot_immutable'] is True
+          assert payload['content_identity'] == expected_identity
+          assert payload['content_identity_rule'] == 'SHA-256 over canonical JSON ordered row identities (canonical, row content_identity, meaning_fingerprint, meaning_relevant_status) in authoritative #41 overlap order.'
+
           expected = ['bara', 'fishnets', 'loli', 'fellatio', 'pussy', 'anal', 'bound']
+          assert payload['authoritative_overlap_order'] == expected
           rows = payload['rows']
           assert [r['canonical'] for r in rows] == expected
           assert len(rows) == 7
+          assert all(r['snapshot_frozen'] is True for r in rows)
+          assert all(r['snapshot_pinned'] is True for r in rows)
+          assert all(r['snapshot_immutable'] is True for r in rows)
           assert all(r['meaning_relevant_status'] == 'RESOLVED' for r in rows)
           assert all(r['conflict_signal'] is False for r in rows)
-          print('snapshot_validation=PASS rows=7 resolved=7 conflicts=0')
+
+          identities = [
+              {
+                  'canonical': r['canonical'],
+                  'content_identity': r['content_identity'],
+                  'meaning_fingerprint': r['meaning_fingerprint'],
+                  'meaning_relevant_status': r['meaning_relevant_status'],
+              }
+              for r in rows
+          ]
+          canonical_json = json.dumps(
+              identities, ensure_ascii=False, sort_keys=True, separators=(',', ':')
+          ).encode('utf-8')
+          calculated = 'sha256:' + hashlib.sha256(canonical_json).hexdigest()
+          assert calculated == expected_identity, (calculated, expected_identity)
+          print('snapshot_validation=PASS commit=PASS blob=PASS content_identity=PASS')
+          print('bridge_contract=PASS rows=7 resolved=7 conflicts=0 frozen_pinned_immutable=7/7')
           PY
 
           echo "ISSUE41_SNAPSHOT=$SNAP_OUT" >> "$GITHUB_ENV"
@@ -80,7 +106,7 @@ jobs:
           assert s['stage10_production_ab_started'] is False
           print('bridge_guard=PASS required=7 resolved=7 blocked=0')
           print('blind30=BUILT selected=30')
-          print('effective_risk=', s.get('effective_risk'))
+          print('effective_risk=', json.dumps(s.get('effective_risk'), sort_keys=True))
           PY
 
       - name: Run deterministic replay verifier
