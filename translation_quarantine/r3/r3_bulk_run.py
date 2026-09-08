@@ -1,0 +1,257 @@
+"""Run one bounded Issue #36 bulk canary around the unchanged R3 evaluator."""
+from __future__ import annotations
+
+import argparse
+import json
+from collections import Counter
+from pathlib import Path
+from typing import Any, Iterable, Mapping
+
+try:
+    from .r3_common import RISK_ORDER, file_hash, json_hash, protected_snapshot, read_json, read_jsonl, stable_key, write_json, write_jsonl
+    from .r3_issue41_bridge_status import inspect_bridge_status
+    from .r3_run import _make_pilot_rows
+    from .r3_bulk_select import CANARY_SIZE, CANARY_SEED, select_canary
+except ImportError:  # pragma: no cover
+    from r3_common import RISK_ORDER, file_hash, json_hash, protected_snapshot, read_json, read_jsonl, stable_key, write_json, write_jsonl
+    from r3_issue41_bridge_status import inspect_bridge_status
+    from r3_run import _make_pilot_rows
+    from r3_bulk_select import CANARY_SIZE, CANARY_SEED, select_canary
+
+
+OUTPUT_NAME = "translation_quarantine/r3_bulk_canary"
+AUDIT_SEED = "UIJA-R3-BULK-CANARY-AUDIT20-20260909-V1"
+AUDIT_QUOTAS = {risk: 4 for risk in RISK_ORDER}
+MASKED_FIELDS = {
+    "risk_class", "display_state", "search_state", "bridge32_state", "bridge32_availability",
+    "row_state", "reason_codes", "issue32_meaning_fingerprint", "issue32_content_identity",
+    "issue32_conflict_signal", "prior_review_state", "review_state", "audit_key",
+}
+
+
+def _bulk_output(root: Path, output: Path) -> Path:
+    allowed = (root / "translation_quarantine" / "r3_bulk_canary").resolve()
+    output = output.resolve()
+    try:
+        output.relative_to(allowed)
+    except ValueError as exc:
+        raise ValueError(f"bulk output must stay below {allowed}") from exc
+    output.mkdir(parents=True, exist_ok=True)
+    return output
+
+
+def _relative(root: Path, path: Path) -> str:
+    try:
+        return str(path.resolve().relative_to(root.resolve())).replace("\\", "/")
+    except ValueError:
+        return str(path.resolve()).replace("\\", "/")
+
+
+def _identity_evidence(root: Path, selected: list[Mapping[str, Any]], queue_path: Path) -> list[dict[str, Any]]:
+    queue_hash = file_hash(queue_path)
+    return [
+        {
+            "evidence_id": f"issue36-bulk:identity:{row['canonical']}",
+            "canonical": row["canonical"],
+            "source_type": "pinned_candidate_queue",
+            "source_ref": _relative(root, queue_path),
+            "scope_note": "canonical identity only; no Japanese wording or semantic scope is inferred",
+            "content_identity": queue_hash,
+            "evidence_role": "IDENTITY_ONLY",
+            "frozen": True,
+            "bulk_campaign": "issue36-r3-bulk-canary-20260909-v1",
+        }
+        for row in selected
+    ]
+
+
+def _audit_package(rows: list[dict[str, Any]], search_rows: list[dict[str, Any]], evidence: list[dict[str, Any]]) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+    by_search: dict[str, list[dict[str, Any]]] = {}
+    for row in search_rows:
+        by_search.setdefault(str(row["canonical"]), []).append({"term": row["term"], "term_class": row["term_class"]})
+    by_evidence: dict[str, list[dict[str, Any]]] = {}
+    for row in evidence:
+        by_evidence.setdefault(str(row["canonical"]), []).append(row)
+    grouped: dict[str, list[dict[str, Any]]] = {risk: [] for risk in RISK_ORDER}
+    for row in rows:
+        item = dict(row)
+        item["audit_key"] = stable_key(AUDIT_SEED, str(row["canonical"]))
+        grouped.setdefault(str(row["risk_class"]), []).append(item)
+    overlap = {row["canonical"] for row in rows if row.get("issue32_overlap") == "YES"}
+    for risk in grouped:
+        grouped[risk].sort(key=lambda item: (
+            0 if item.get("row_state") == "READY" else 1,
+            0 if item["canonical"] in overlap else 1,
+            item["audit_key"],
+            item["canonical"],
+        ))
+    selected: list[dict[str, Any]] = []
+    used: set[str] = set()
+    for risk in RISK_ORDER:
+        for row in grouped.get(risk, [])[: AUDIT_QUOTAS[risk]]:
+            selected.append(row)
+            used.add(row["canonical"])
+    if len(selected) != 20:
+        raise ValueError("cannot form the stratified audit20")
+    selected.sort(key=lambda row: (row["audit_key"], row["canonical"]))
+    masked = []
+    key_rows = []
+    for row in selected:
+        canonical = str(row["canonical"])
+        masked.append({
+            "canonical": canonical,
+            "candidate_display": row.get("display_candidate", ""),
+            "search_terms": by_search.get(canonical, []),
+            "semantic_evidence": [
+                {"evidence_id": item["evidence_id"], "scope_note": item.get("scope_note", ""), "source_ref": item.get("source_ref", "")}
+                for item in by_evidence.get(canonical, []) if item.get("evidence_role") == "SEMANTIC_SCOPE"
+            ],
+            "issue32_snapshot_evidence": [
+                {"evidence_id": item["evidence_id"], "scope_note": item.get("scope_note", ""), "source_ref": item.get("source_ref", "")}
+                for item in by_evidence.get(canonical, []) if item.get("evidence_role") == "BRIDGE32"
+            ],
+        })
+        key_rows.append({
+            "canonical": canonical,
+            "audit_key": row["audit_key"],
+            "effective_risk_class": row.get("risk_class", ""),
+            "display_state": row.get("display_state", ""),
+            "search_state": row.get("search_state", ""),
+            "bridge32_state": row.get("bridge32_state", ""),
+            "bridge32_availability": row.get("bridge32_availability", ""),
+            "row_state": row.get("row_state", ""),
+            "reason_codes": row.get("reason_codes", []),
+        })
+    key = {
+        "schema_version": "issue36-bulk-audit20-key-1",
+        "audit_seed": AUDIT_SEED,
+        "requested_stratum_counts": dict(AUDIT_QUOTAS),
+        "selected": key_rows,
+    }
+    return masked, key
+
+
+def check_masked_rows(masked_rows: list[dict[str, Any]], key: dict[str, Any], serialized: str | None = None) -> dict[str, Any]:
+    serialized = serialized if serialized is not None else json.dumps(masked_rows, ensure_ascii=False, sort_keys=True)
+    leaked_fields = sorted(set().union(*(MASKED_FIELDS & set(row) for row in masked_rows))) if masked_rows else []
+    key_hashes = [str(row.get("audit_key", "")) for row in key.get("selected", [])]
+    leaked_key_values = sorted(value for value in key_hashes if value and value in serialized)
+    forbidden_literals = sorted(value for value in ("READY", "STALE_REVIEW", "CONTRADICTION", "FALSE_APPROVAL", "REVIEW_PENDING") if value in serialized)
+    return {
+        "schema_version": "issue36-bulk-audit20-leakage-1",
+        "masked_rows": len(masked_rows),
+        "leaked_masked_fields": leaked_fields,
+        "leaked_key_values": leaked_key_values,
+        "forbidden_state_literals": forbidden_literals,
+        "ok": not leaked_fields and not leaked_key_values and not forbidden_literals,
+    }
+
+
+def check_masked_leakage(masked_path: Path, key_path: Path) -> dict[str, Any]:
+    masked_rows = read_jsonl(masked_path)
+    key = read_json(key_path)
+    return check_masked_rows(masked_rows, key, masked_path.read_text(encoding="utf-8"))
+
+
+def run_campaign(root: Path, output_dir: Path, *, issue32_snapshot: Path | None = None) -> dict[str, Any]:
+    root = root.resolve()
+    output = _bulk_output(root, output_dir)
+    protected_before = protected_snapshot(root)
+    selection = select_canary(root)
+    selection_path = output / "canary_selection.json"
+    write_json(selection_path, selection)
+    selected = selection["selected"]
+    queue_path = root / "translation_quarantine" / "missing_candidates.csv"
+    evidence = _identity_evidence(root, selected, queue_path)
+    evidence_path = output / "evidence_manifest.jsonl"
+    write_jsonl(evidence_path, evidence)
+    requirements_path = root / "translation_quarantine" / "r3" / "issue41_issue32_overlap_requirements.jsonl"
+    bridge_guard = inspect_bridge_status(issue32_snapshot, requirements_path if requirements_path.exists() else Path("missing-requirements.jsonl"))
+    required_overlap = {str(row["canonical"]) for row in read_jsonl(requirements_path)} if requirements_path.exists() else set()
+    issue32: dict[str, dict[str, Any]] = {}
+    if issue32_snapshot and issue32_snapshot.exists():
+        for row in read_jsonl(issue32_snapshot):
+            canonical = str(row.get("canonical", row.get("candidate_canonical", ""))).strip()
+            if canonical:
+                issue32[canonical] = row
+    pilot_rows, search_rows, bridge_rows = _make_pilot_rows(selected, evidence, issue32, issue32_snapshot, required_overlap)
+    rows_path = output / "rows.jsonl"
+    search_path = output / "search_terms.jsonl"
+    bridge_path = output / "bridge32.jsonl"
+    write_jsonl(rows_path, pilot_rows)
+    write_jsonl(search_path, search_rows)
+    write_jsonl(bridge_path, bridge_rows)
+    masked, key = _audit_package(pilot_rows, search_rows, evidence)
+    masked_path = output / "masked_audit20_input.jsonl"
+    key_path = output / "masked_audit20_key.json"
+    write_jsonl(masked_path, masked)
+    write_json(key_path, key)
+    leakage = check_masked_leakage(masked_path, key_path)
+    write_json(output / "leakage_check.json", leakage)
+    after = protected_snapshot(root)
+    if before != after:
+        raise RuntimeError("protected data boundary changed during bulk canary")
+    counts = {
+        "display": dict(sorted(Counter(row["display_state"] for row in pilot_rows).items())),
+        "search": dict(sorted(Counter(row["search_state"] for row in pilot_rows).items())),
+        "row": dict(sorted(Counter(row["row_state"] for row in pilot_rows).items())),
+        "risk": dict(sorted(Counter(row["risk_class"] for row in pilot_rows).items())),
+        "bridge_availability": dict(sorted(Counter(row["bridge32_availability"] for row in bridge_rows).items())),
+        "bridge_state": dict(sorted(Counter(row["bridge32_state"] for row in bridge_rows).items())),
+    }
+    summary = {
+        "schema_version": "issue36-bulk-canary-1",
+        "campaign_id": selection["campaign_id"],
+        "canary_rows": len(pilot_rows),
+        "canary_membership_hash": selection["canary_membership_hash"],
+        "effective_risk_distribution": counts["risk"],
+        "counts": counts,
+        "evidence": {
+            "frozen_rows": sum(row.get("frozen") is True for row in evidence),
+            "identity_only_rows": sum(row.get("evidence_role") == "IDENTITY_ONLY" for row in evidence),
+            "semantic_scope_rows": sum(row.get("evidence_role") == "SEMANTIC_SCOPE" for row in evidence),
+            "wording_candidate_rows": sum(row.get("evidence_role") == "WORDING_CANDIDATE" for row in evidence),
+            "failures": [],
+        },
+        "bridge_status_guard": bridge_guard,
+        "audit20_rows": len(masked),
+        "audit20_leakage_check": leakage,
+        "semantic_rule_change_required": False,
+        "production_modified": False,
+        "remaining_full_p0_processed": False,
+        "stage10_production_ab_started": False,
+        "self_grade": "NOT_PERFORMED",
+    }
+    write_json(output / "run_summary.json", summary)
+    write_json(output / "campaign_manifest.json", {
+        "schema_version": "issue36-bulk-campaign-1",
+        "campaign_id": selection["campaign_id"],
+        "validated_r3_base": "53f02d9b3419db8fd9099b38204c29eed289ee8e",
+        "validated_r3_head": "1c5a2cba7f8a0c5cd7c15ad510317c75d07d8851",
+        "selection_seed": CANARY_SEED,
+        "source_queue": selection["source_queue"],
+        "source_queue_hash": selection["source_queue_hash"],
+        "exclusion_set_hash": selection["exclusion_set"]["hash"],
+        "canary_membership_hash": selection["canary_membership_hash"],
+        "artifact_hashes": {name: file_hash(output / name) for name in (
+            "canary_selection.json", "evidence_manifest.jsonl", "rows.jsonl", "search_terms.jsonl",
+            "bridge32.jsonl", "run_summary.json", "masked_audit20_input.jsonl", "masked_audit20_key.json", "leakage_check.json",
+        )},
+        "protected_snapshot_before": protected_before,
+        "production_modified": False,
+    })
+    return summary
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[2])
+    parser.add_argument("--output", type=Path, default=Path(__file__).resolve().parents[1] / "r3_bulk_canary")
+    parser.add_argument("--issue32-snapshot", type=Path)
+    args = parser.parse_args()
+    print(json.dumps(run_campaign(args.root, args.output, issue32_snapshot=args.issue32_snapshot), ensure_ascii=False, indent=2, sort_keys=True))
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

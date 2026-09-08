@@ -1,0 +1,25 @@
+{
+  "schema_version": "issue36-bulk-preflight-1",
+  "status": "HOLD_SOURCE_DRIFT",
+  "branch": "ui-ja/issue36-r3-bulk-canary",
+  "contract_commit": "e1b5783bc0f6b9847723f937225c4d5727dbae27",
+  "validated_r3_base": "53f02d9b3419db8fd9099b38204c29eed289ee8e",
+  "validated_r3_head": "1c5a2cba7f8a0c5cd7c15ad510317c75d07d8851",
+  "source_drift": {
+    "missing_candidates.csv": {
+      "validated": "29a29ed4d6ce124566be5648a3926a76b84ea9301d90fc95043f148054b1f4fc",
+      "current": "cbb280869707576cbac80a472f372a0becd80d80fbbd99a8d59220f74d331be7"
+    },
+    "phase1a_review.csv": {
+      "validated": "9a273066047579bc4896c013db9d953509a5da6727a4a211f9c47dff7c17ab71",
+      "current": "d1efbc511fe7ddb35f29a15c26a143fc763168f599094a6b1337b92853070aaf"
+    }
+  },
+  "canary_selected": 0,
+  "replay": "NOT_RUN",
+  "masked_audit20_generated": false,
+  "blind20_self_grade": "NOT_PERFORMED",
+  "production_modified": false,
+  "current_dev_task_modified": false,
+  "semantic_rule_change_required": "NO"
+}
