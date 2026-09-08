@@ -7,3 +7,4 @@ start_sequence,end_sequence,path,rule_version,row_count,status,notes
 101,120,validation_quarantine/results_blocks/0101_0120.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
 121,140,validation_quarantine/results_blocks/0121_0140.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
 141,160,validation_quarantine/results_blocks/0141_0160.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
+161,180,validation_quarantine/results_blocks/0161_0180.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
