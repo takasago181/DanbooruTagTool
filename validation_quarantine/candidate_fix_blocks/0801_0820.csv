@@ -1,0 +1,8 @@
+special_id,tag,field,current_value,proposed_value,rule_version,risk_priority,evidence_refs,reason,status,notes
+801,penis in panties,BodypartRequirementOverride,,true,R2,A,generation_profile;generation_profile:ID798;generation_family_rules,"Penis is an intrinsic bodypart participant.",QUARANTINED_CANDIDATE,
+801,penis in panties,SpatialAssignmentOverride,,true,R2,A,generation_profile;generation_profile:ID798;generation_family_rules,"In-panties containment is intrinsic to the canonical.",QUARANTINED_CANDIDATE,
+803,smelling penis,BodypartRequirementOverride,,true,R2,A,generation_profile;generation_profile:IDs787,797;generation_family_rules,"Penis is the explicit target.",QUARANTINED_CANDIDATE,
+806,penis on stomach,BodypartRequirementOverride,,true,R2,A,generation_profile;generation_profile:ID789;generation_family_rules,"Explicit bodypart-to-bodypart relation is intrinsic; spatial=true already exists.",QUARANTINED_CANDIDATE,
+813,lipstick mark on testicles,BodypartRequirementOverride,,true,R2,A,generation_profile;generation_profile:IDs791,799;generation_family_rules,"Testicles are the explicit bodypart target; spatial=true already exists.",QUARANTINED_CANDIDATE,
+815,penis on head,BodypartRequirementOverride,,true,R2,A,generation_profile;generation_profile:IDs789,806;generation_family_rules,"Penis/head bodypart participation is intrinsic; spatial=true already exists.",QUARANTINED_CANDIDATE,
+818,sucking male nipple,BodypartRequirementOverride,,true,R2,A,generation_profile;generation_profile:IDs787,803;generation_family_rules,"Nipple is the explicit action target.",QUARANTINED_CANDIDATE,
