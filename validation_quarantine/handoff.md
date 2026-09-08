@@ -7,35 +7,55 @@ Rule version: R2
 
 ## Current position
 - Target: 2,788 Specials
-- Completed Special-level first pass: 300
-- Effective counts: PASS 266 / FIX 22 / REVIEW 4 / IMAGE_TEST_REQUIRED 8
+- Completed Special-level first pass: 400
+- Effective counts: PASS 358 / FIX 22 / REVIEW 5 / IMAGE_TEST_REQUIRED 15
 - Batch 1 R2 acceptance gate: PASS
-- Batch 2 acceptance gate: PASS
-- Batch 3 acceptance gate: PASS
+- Batch 2 R2 acceptance gate: PASS
+- Batch 3 R2 acceptance gate: PASS
+- Batch 4 R2 acceptance gate: PASS
 - Revalidation queue pending: 0
-- Semantic-support frozen target: 58 rows; covered: 24
-- Next first-pass Special sequence: 301
-- Current external batch: 4 (301-400)
+- Semantic-support frozen target: 58 rows; covered: 46
+- Semantic-support IMAGE_TEST_REQUIRED rows: 27
+- Next first-pass Special sequence: 401
+- Current external batch: 5 (401-500)
 - Production modified: NO
 
-## Batch 3 final
-201-300 delta: PASS 92 / FIX 8 / REVIEW 0 / IMAGE_TEST_REQUIRED 0.
+## Batch 4 final
+301-400 delta: PASS 92 / FIX 0 / REVIEW 1 / IMAGE_TEST_REQUIRED 7.
 
-New FIX candidates in Batch3:
-- ID209 `urethral beads`: ImplementRequirementOverride=true
-- ID211 `urethral insertion`: ImplementRequirementOverride=true
-- ID233 `love train`: PoseRequirementOverride=true
-- ID240 `reverse spitroast`: PoseRequirementOverride=true
-- ID242 `spitroast`: PoseRequirementOverride=true
-- ID264 `vibrator in anus`: BodypartRequirementOverride=true; SpatialAssignmentOverride=true
-- ID265 `vibrator on nipple`: BodypartRequirementOverride=true; SpatialAssignmentOverride=true
-- ID272 `dildo riding`: PoseRequirementOverride=true
+20-Special result checkpoints were saved as:
+- 0301_0320.csv
+- 0321_0340.csv
+- 0341_0360.csv
+- 0361_0380.csv
+- 0381_0400.csv
 
-Sequences 281-300 added no new non-PASS findings. The reviewed implement-object placement tags remain consistent with approved sibling convention: preserve exact Special identity without forcing extra structural decomposition unless independently required.
+Non-PASS findings:
+- ID309 `mecha on girl` -> REVIEW. It remains PROVISIONAL_CORRECTION with broad technology-group evidence and no settled family/role; blanks were not auto-filled.
+- ID312 `sex machine` -> IMAGE_TEST_REQUIRED because default-on CORE_SUPPORT+ADDITIVE `machine` / `sex_toy` rows are NOT_TESTED.
+- ID313 `sybian` -> IMAGE_TEST_REQUIRED because default-on `vibrator` / `sex_toy` reinforcement is NOT_TESTED for the specific machine identity.
+- ID314 `robot sex` -> IMAGE_TEST_REQUIRED because default-on broad constituents `robot` / `sex` require controlled broad+specific A/B.
+- ID325 `tentacle sex` -> IMAGE_TEST_REQUIRED because default-on `tentacles` / `sex` reinforcement is NOT_TESTED.
+- ID362 `cum swap` -> IMAGE_TEST_REQUIRED because default-on broad `cum` reinforcement may dilute the transfer relation.
+- ID365 `ejaculating while penetrated` -> IMAGE_TEST_REQUIRED because broad `ejaculation` reinforcement may dilute the simultaneous-state relation.
+- ID385 `cumdrip from penis` -> IMAGE_TEST_REQUIRED because `penis` / `cum` / `dripping` are all default-on and their combined generation effect is NOT_TESTED.
 
-Batch3 deterministic PASS re-audit sampled 18 of 92 PASS rows and found 0 new false-PASS. Batch3 gate therefore PASS.
+No new static FIX candidate was supported in Batch4, so `candidate_fixes.csv` remains unchanged. No new backfill pattern was triggered, so `revalidation_queue.csv` remains unchanged.
 
-No semantic-support sidecar rows map to Specials 281-300; global coverage remains 24/58.
+## Semantic-support coverage
+Source rows 25-46 were audited in this batch. Global coverage is now 46/58. Optional/contextual variations were statically resolved when their scope was explicit. Every CORE_SUPPORT+ADDITIVE row in this range was deep-reviewed and unresolved default-on generation value was parked as IMAGE_TEST_REQUIRED rather than guessed PASS.
+
+## Batch 4 false-PASS gate
+PASS population: 92. Deterministic sample: 18 PASS rows with A-risk preference. New false-PASS: 0. Batch4 gate PASS. Audit ledger: `pass_sampling_batch4_r2.csv`.
+
+## Critical interpretation rules
+- Blank/None is not automatically missing data.
+- UNKNOWN / NOT ASSERTED may be correct.
+- Requirement metadata is structural and does not itself command support insertion.
+- common/rare/co-occurrence statistics remain separate from semantic support.
+- Stage10 HOLD knowledge is evidence for experiment design, not production truth.
+- CORE_SUPPORT+ADDITIVE default-on effects require generation evidence under R2.
+- Exact Special identity remains first-class; broad constituents do not replace it.
 
 ## Exact restart
-Resume sequence 301 under R2. Specials 310/312/313/314 and 325 have frozen semantic-support sidecar rows and require R2 sidecar coverage/deep review where applicable. Do not modify production/main.
+Resume sequence 401 under R2 from the frozen audit order. Read `progress.json`, `RESULT_LEDGER_INDEX.csv`, and `semantic_support_results.csv` first. Do not modify production/main.
