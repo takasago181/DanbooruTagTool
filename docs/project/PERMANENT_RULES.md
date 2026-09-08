@@ -77,6 +77,7 @@ Codex側の現行DEV task読取補足:
 41. 日本語入力はJapanese overlay / Alias / Semantic等のStage9で確立した経路を活用し、英語入力はcanonical / normalized Englishを直接利用できる既存Stage9検索能力を維持する。UI・辞書・ランキング変更でこの両経路を退行させない。
 42. 候補表示は日本語優先＋canonical英語併記を基本とするが、**入力言語と表示言語を混同しない**。最終Prompt payloadはcanonical英語を維持する。
 43. 検索/UI改修の受入れでは日本語queryと英語canonical queryの両方を回帰確認する。片方だけ通る状態を完成扱いしない。
+44. 最終UIの安定した主導線は **検索 → Special候補選択 → Special詳細/成立条件確認 → 必須・推奨support調整 → 完成Promptコピー** とする。具体的なレイアウト・視覚設計はUI-JA親Issue #34を管理先とし、内部機能の増加によって通常操作を複雑化させない。
 
 ## チャット移行プロトコル
 
