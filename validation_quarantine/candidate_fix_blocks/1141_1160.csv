@@ -1,0 +1,5 @@
+sequence,special_id,tag,rule_version,risk_priority,problem_fields,proposed_change,reason,evidence_refs,status
+1146,1146,cum in gloves,R2,A,ImplementRequirementOverride+SpatialAssignmentOverride,implement=true; spatial=true,intrinsic container object+containment relation,generation_profile;generation_profile:ID1125,QUARANTINE_CANDIDATE
+1147,1147,mismatched nipple piercing,R2,A,BodypartRequirementOverride,bodypart=true,intrinsic nipple target,generation_profile;generation_profile:ID420,QUARANTINE_CANDIDATE
+1148,1148,mole on testicles,R2,A,BodypartRequirementOverride,bodypart=true,intrinsic anatomical target; spatial already true,generation_profile;generation_profile:ID1112,QUARANTINE_CANDIDATE
+1154,1154,cum on horns,R2,A,SpatialAssignmentOverride,spatial=true,intrinsic on-target relation,generation_profile;generation_profile:ID1125,QUARANTINE_CANDIDATE
