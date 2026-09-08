@@ -1,0 +1,11 @@
+sequence,special_id,tag,risk_priority,re_audit_result,false_pass,reason
+1034,1034,presenting penis,A,PASS,false,"Pose requirement and composition-owner flag remain internally consistent."
+1072,1072,mother and son threesome,A,PASS,false,"Actor/spatial requirements and separation flag preserve the explicit multi-actor relation."
+1083,1083,pig penis,S,PASS,false,"Known category-correction overlay remains bounded to body_attribute with official source evidence."
+1084,1084,arm slave (mecha),S,PASS,false,"Named mecha-class correction preserves exact identity and avoids lexical decomposition."
+1001,1001,implied after masturbation,B,PASS,false,"Context-modifier handling preserves implied post-action context."
+1021,1021,penis chart,B,PASS,false,"BODY_ATTRIBUTE classification remains conservative."
+1048,1048,implied vaginal,B,PASS,false,"Context-modifier handling preserves implied rather than explicit action."
+1062,1062,after gangbang,B,PASS,false,"Post-action context remains correctly isolated from active-action structure."
+1073,1073,simulated handjob,B,PASS,false,"Simulated context remains SUPPORT and does not claim active action."
+1098,1098,testicle tattoo,B,PASS,false,"BODY_ATTRIBUTE classification preserves the anatomical decoration identity without speculative structure."
