@@ -7,8 +7,8 @@
   "fixed_order": "production Special2788 order at audit start",
   "batch_size": 100,
   "internal_block_size": 20,
-  "completed_specials": 460,
-  "pass": 418,
+  "completed_specials": 480,
+  "pass": 438,
   "fix": 22,
   "review": 5,
   "image_test_required": 15,
@@ -24,10 +24,10 @@
   "semantic_support_rows_covered": 50,
   "semantic_support_rows_review": 0,
   "semantic_support_rows_image_test_required": 27,
-  "last_completed_special_id": "460",
+  "last_completed_special_id": "480",
   "last_completed_batch": 4,
   "next_batch": 5,
-  "next_start_position": 461,
+  "next_start_position": 481,
   "production_modified": false,
-  "notes": "Batch5 checkpoint 441-460 complete: delta PASS20. Semantic spelling/phrase variants remain non-direct search support; fluid/scat profiles remain conservative without speculative support insertion. candidate_fixes and revalidation_queue unchanged."
+  "notes": "Batch5 checkpoint 461-480 complete: delta PASS20. Damage/guro A-risk rows470/478/479/480 deep-reviewed against prompt_reference/10 and Stage10 boundary; no concrete correction promoted. candidate_fixes and revalidation_queue unchanged."
 }
