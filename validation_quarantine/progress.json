@@ -7,9 +7,9 @@
   "fixed_order": "production Special2788 order at audit start",
   "batch_size": 100,
   "internal_block_size": 20,
-  "completed_specials": 720,
-  "pass": 629,
-  "fix": 66,
+  "completed_specials": 740,
+  "pass": 644,
+  "fix": 71,
   "review": 9,
   "image_test_required": 16,
   "revalidation_pending": 0,
@@ -28,10 +28,10 @@
   "semantic_support_rows_covered": 53,
   "semantic_support_rows_review": 0,
   "semantic_support_rows_image_test_required": 29,
-  "last_completed_special_id": "720",
+  "last_completed_special_id": "740",
   "last_completed_batch": 7,
   "next_batch": 8,
-  "next_start_position": 721,
+  "next_start_position": 741,
   "production_modified": false,
-  "notes": "Batch8 partial checkpoint 701-720 durably saved: PASS10/FIX8/REVIEW2/IMAGE_TEST_REQUIRED0; revalidation queue delta0. Main/production unchanged. Next safe restart721."
+  "notes": "Batch8 partial checkpoint through740 durably saved. Batch8 delta701-740: PASS25/FIX13/REVIEW2/IMAGE_TEST_REQUIRED0; revalidation queue delta0. ID738 animal penis has quarantine-only static family/role/mode correction aligned to approved horse/dog penis siblings. Main/production unchanged. Next safe restart741."
 }
