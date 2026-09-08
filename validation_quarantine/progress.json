@@ -12,14 +12,14 @@
   "fix": 27,
   "review": 5,
   "image_test_required": 16,
-  "revalidation_pending": 60,
+  "revalidation_pending": 40,
   "batch1_acceptance_gate": "PASS",
   "batch2_acceptance_gate": "PASS",
   "batch3_acceptance_gate": "PASS",
   "batch4_acceptance_gate": "PASS",
   "batch5_acceptance_gate": "FAIL",
-  "batch5_revalidation_completed": 40,
-  "batch5_revalidation_next_start": 441,
+  "batch5_revalidation_completed": 60,
+  "batch5_revalidation_next_start": 461,
   "first_pass_blocked_at": 501,
   "false_pass_samples_checked": 93,
   "false_pass_found": 4,
@@ -30,7 +30,7 @@
   "last_completed_special_id": "500",
   "last_completed_batch": 4,
   "next_batch": 5,
-  "next_start_position": 441,
+  "next_start_position": 461,
   "production_modified": false,
-  "notes": "Batch5 full R2 revalidation checkpoints 401-440 completed. ID420 remains FIX for BodypartRequirementOverride=true. Revalidation 421-440 found one additional A-risk false-PASS at ID422 torture instruments: GFR_RESTRAINT_IMPLEMENT leaves requirement defaults UNKNOWN, so ImplementRequirementOverride=true is now a quarantined candidate. Effective cumulative counts become PASS452/FIX27/REVIEW5/IMAGE_TEST_REQUIRED16. Durable result blocks: revalidation_blocks/0401_0420.csv and 0421_0440.csv; queue overlays match. Batch5 gate remains FAIL until 401-500 revalidation and final sampling/integrity gate complete. Sequence501 remains blocked. Semantic support coverage stays 53/58."
+  "notes": "Batch5 full R2 revalidation checkpoints 401-460 completed. ID420 and ID422 remain/add FIX candidates; 441-460 yielded no new false-PASSes. Effective cumulative counts remain PASS452/FIX27/REVIEW5/IMAGE_TEST_REQUIRED16. Durable revalidation and queue-overlay blocks exist through 0441_0460. Batch5 gate remains FAIL until 401-500 full revalidation plus final sampling/integrity checks complete. Sequence501 remains blocked. Semantic-support coverage stays 53/58."
 }
