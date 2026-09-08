@@ -1,0 +1,11 @@
+sequence,special_id,tag,risk_priority,original_state,resample_state,false_pass,reason
+805,805,paizuri invitation,B,PASS,PASS,false,Context-only classification remains conservative and does not inject generation structure.
+817,817,mutual orgasm,A,PASS,PASS,false,Multi-actor actor/spatial structure is already asserted; no missing intrinsic requirement found.
+825,825,penetration gesture,B,PASS,PASS,false,Gesture/context classification remains non-action and conservative.
+840,840,reverse nursing fingering,B,PASS,PASS,false,Structured action identity is preserved without speculative extra metadata.
+849,849,orgasm denial,A,PASS,PASS,false,Actor requirement is present; no additional intrinsic bodypart/spatial requirement is established.
+860,860,sex with insects,A,PASS,PASS,false,Nonhuman interaction already carries actor and spatial requirements.
+873,873,simulated paizuri,B,PASS,PASS,false,Simulated context is correctly kept out of literal action structure.
+891,891,slime sex,A,PASS,PASS,false,Nonhuman interaction already carries actor and spatial requirements.
+897,897,mutual fingering,A,PASS,PASS,false,Reciprocal multi-actor structure already carries actor and spatial requirements.
+900,900,after handjob,B,PASS,PASS,false,Post-action context remains correctly separated from active action.
