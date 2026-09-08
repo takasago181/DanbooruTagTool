@@ -3,6 +3,7 @@
 Date: 2026-09-08. DEV implementation by Codex.
 Branch: `codex/issue28-e2e-verdict`.
 Base main: `f60ff9074a5d8f3db8f7ab7ffa8691e8ef02c75f`.
+Before delivery, latest main `b95ea939c66b9929efdc8e4d32f59f09ed7edfac` was incorporated. Its additional changes are documentation only; the #28 mirror contract remains unchanged.
 CURRENT_STATE active DEV and CURRENT_DEV_TASK Source both identify #28.
 Stage9 overall PASS is already recorded by DEV/AUDIT on main; this report does not redo that decision.
 
@@ -31,8 +32,8 @@ Windows local protected-data environment; Python 3.12; real Tk 8.6.15 with withd
 Commands:
 
 ```powershell
-python -m pytest -q tests/test_e2e_functional.py tests/test_e2e_verdict.py tests/test_stage9c_session.py --e2e-report docs/testing/issue28_focused.json --basetemp .pytest-issue28-focused-final
-python -m pytest -q --e2e-report docs/testing/issue28_full.json --basetemp .pytest-issue28-full-final
+python -m pytest -q tests/test_e2e_functional.py tests/test_e2e_verdict.py tests/test_stage9c_session.py --e2e-report docs/testing/issue28_focused.json --basetemp .pytest-issue28-focused-final2
+python -m pytest -q --e2e-report docs/testing/issue28_full.json --basetemp .pytest-issue28-full-final2
 git diff --check
 ```
 
@@ -42,6 +43,9 @@ git diff --check
 - One subsequent full attempt failed during report generation (Windows invalid inherited stdin handle), after test execution. It is not counted as a successful run; the reporter was corrected and the final evidence rerun.
 - Negative gate probe: running only `tests/test_e2e_verdict.py` with `--e2e-report` produced BLOCKED and process exit 2, despite all five selected tests passing. Missing GUI paths cannot yield E2E PASS.
 - Final commit-associated focused/full evidence is in `issue28_focused.json/.md` and `issue28_full.json/.md`; their source commit and hashes identify the tested code. The later evidence-only commit necessarily differs from the tested source commit.
+- Final source revision: `fcf7b217d4270f43747cb7259aa80153e90ae45d`. Focused: **31 passed in 26.57s**. Full: **285 passed in 61.41s**, exit 0, machine verdict **PASS**, no skipped or failed tests. All three real Tk functional scenarios passed.
+- Delivery verification: before main integration, every tested-file SHA256 matched the working files. Switching branches then normalized some mixed line endings. After integration, Git confirms identical code/test blobs against tested revision `fcf7b21` and no working code/test changes; the explicit protected UI byte hash remains unchanged. Recorded SHA256 values describe the original test-run bytes. These completed runs remain the validation evidence for the identical code; they were not repeated for documentation/checkout line-ending changes.
+- `git diff --check`: PASS. Stage0/protected hash checks passed in the full run; protected data and authority paths have no branch diff against current main.
 
 ## Protected surfaces
 
