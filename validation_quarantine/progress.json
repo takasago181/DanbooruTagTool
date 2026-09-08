@@ -7,10 +7,10 @@
   "fixed_order": "production Special2788 order at audit start",
   "batch_size": 100,
   "internal_block_size": 20,
-  "completed_specials": 1020,
-  "pass": 742,
-  "fix": 142,
-  "review": 120,
+  "completed_specials": 1040,
+  "pass": 746,
+  "fix": 146,
+  "review": 132,
   "image_test_required": 16,
   "revalidation_pending": 0,
   "batch1_acceptance_gate": "PASS",
@@ -31,10 +31,10 @@
   "semantic_support_rows_covered": 53,
   "semantic_support_rows_review": 0,
   "semantic_support_rows_image_test_required": 29,
-  "last_completed_special_id": "1020",
+  "last_completed_special_id": "1040",
   "last_completed_batch": 10,
   "next_batch": 11,
-  "next_start_position": 1021,
+  "next_start_position": 1041,
   "production_modified": false,
-  "notes": "Partial Batch11 checkpoint through1020. Delta PASS4/FIX6/REVIEW10/IMAGE_TEST_REQUIRED0. Next safe restart1021. Production/main unchanged."
+  "notes": "Partial Batch11 checkpoint through1040. Batch11 delta PASS8/FIX10/REVIEW22/IMAGE_TEST_REQUIRED0. Next safe restart1041. Production/main unchanged."
 }
