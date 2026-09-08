@@ -1,0 +1,96 @@
+{
+  "blind30_selected": 0,
+  "blind30_state": "HOLD_BRIDGE",
+  "bridge_availability_blocked_count": 7,
+  "bridge_availability_counts": {
+    "BRIDGE_MISSING": 7,
+    "NOT_REQUIRED": 93
+  },
+  "bridge_discovery": {
+    "exact_overlap_count": 7,
+    "fixed_fresh100": 100,
+    "generation_profile_rows": 2788,
+    "generation_profile_sha256": "3d3b7c16bee23c34892c6ac1a40b69208ef14199c5bae749ac8a22151c8dc835",
+    "identity_only_discovery": true,
+    "non_overlap_count": 93,
+    "production_modified": false,
+    "requirements_file": "issue41_issue32_overlap_requirements.jsonl",
+    "schema_version": "issue41-bridge-discovery-1"
+  },
+  "bridge_status_guard": {
+    "blocked_canonicals": [
+      "anal",
+      "bara",
+      "bound",
+      "fellatio",
+      "fishnets",
+      "loli",
+      "pussy"
+    ],
+    "blocked_count": 7,
+    "missing_count": 7,
+    "required_count": 7,
+    "resolved_count": 0,
+    "rows": [],
+    "state": "NO_SNAPSHOT",
+    "status_missing_count": 0,
+    "unresolved_count": 0
+  },
+  "effective_risk": {
+    "effective_risk_counts": {
+      "CRITICAL": 41,
+      "HIGH_ANATOMY_ADULT": 22,
+      "HIGH_POSE_ACTION": 5,
+      "LOW": 10,
+      "MEDIUM": 22
+    },
+    "membership_unchanged": true,
+    "output_file": "pilot_rows_effective.jsonl",
+    "override_manifest_sha256": "25f885f40bc017bb41b03ee14cefda81c606c2de00a161de082dfe6af8d12027",
+    "override_rows": 15,
+    "pilot_rows": 100,
+    "schema_version": "issue41-effective-risk-1"
+  },
+  "hard_adult_design": {
+    "ambiguity_probes": 16,
+    "challenge_rows": 64,
+    "errors": [],
+    "ok": true,
+    "stratum_counts": {
+      "ANATOMY_BOUNDARY": 6,
+      "BDSM_RESTRAINT_DOMINATION": 12,
+      "FLUID_EXCRETION_CONTAMINATION": 12,
+      "INSERTION_TOY_MACHINE": 12,
+      "REPRODUCTION_LACTATION": 4,
+      "SEXUAL_ACTION": 10,
+      "TENTACLE_NONHUMAN": 8
+    }
+  },
+  "input_fingerprint": "30916346fea92fb0a3925dc7e0e19d10371c961ea8bebd13caf77aa25b3e4c6e",
+  "input_identities": {
+    "hard_adult_ambiguity_probes_v1.jsonl": "216cd4033d923641db94dcdc157677fafb7fd90582c72372fcfa0a357112fcbc",
+    "hard_adult_challenge_v1.jsonl": "ce17453292cfec9892979ac20390694d45fcdcf4d376c47e79403fea6debdf17",
+    "issue41_effective_risk_overrides.jsonl": "25f885f40bc017bb41b03ee14cefda81c606c2de00a161de082dfe6af8d12027",
+    "issue41_frozen_evidence_manifest.jsonl": "62fed69f516786d3496e9906bf2506aee69f8fde40ae99106c700010952bfc90",
+    "issue41_issue32_overlap_requirements.jsonl": "3bb7f048c74f69e40b3d4d6a8acfd104909c1501d9abb721c2e765ed43377a3a"
+  },
+  "issue32_snapshot_supplied": false,
+  "normalized_input": {
+    "approved_input_rows": 69,
+    "decision_ledger": "issue41_frozen_decision_ledger.jsonl",
+    "evidence_manifest": "issue41_frozen_evidence_manifest.jsonl",
+    "evidence_rows": 169,
+    "explicit_review_rows": 31,
+    "fixed_pilot_rows": 100,
+    "identity_review_rows": 31,
+    "membership_and_ordinals_complete": true,
+    "schema_version": "issue41-frozen-input-1",
+    "semantic_scope_rows": 69,
+    "wording_candidate_rows": 69
+  },
+  "production_modified": false,
+  "r3_engine_result_state": "",
+  "remaining_925_processed": false,
+  "schema_version": "issue41-pipeline-2",
+  "stage10_production_ab_started": false
+}

@@ -47,3 +47,25 @@
 - Regenerated quarantine artifacts are limited to `translation_quarantine/r3/**`.
 - The expected `issue41_normalization_summary.json` name from the execution-slot checklist is not emitted by the current normalizer; the current implementation emits `issue41_frozen_input_summary.json` instead.
 - Final outcome is `HOLD_BRIDGE` / blocked before blind30, with an additional Hard Adult design validation defect. No production promotion is authorized.
+
+## Rerun at latest GitHub checkpoint (`87a20b3749a743bfd7a06199a7303aa0c14b6cc1`)
+
+- GitHub Issue #41 latest checkpoint was reread from the live issue. The remote `ui-ja/issue41-pilot` HEAD matched `87a20b3`; the local branch was fast-forwarded from `3e8c282` without reset or overwrite.
+- Hard Adult focused command: `python -m pytest -q -p no:cacheprovider tests/test_r3_hard_adult_gate.py tests/test_r3_hard_adult_frozen_assets.py`
+  - Result: `3 passed`.
+  - `HAP-003` now passes with `anal object insertion`; the frozen asset contains 64 challenge rows and 16 ambiguity probes, and the regression assertion confirms Special ID149 is present while the old `masturbation` row is absent.
+- Combined focused command including the new guard and bridge/effective-risk tests:
+  - Result: `5 passed, 7 errors`.
+  - The 7 errors occur during pytest `tmp_path` setup at the pre-existing Windows temp ACL boundary (`C:\Users\takas\AppData\Local\Temp\pytest-of-takas`, `WinError 5`). No assertion failure was reported in the new code; the non-fixture Hard Adult tests passed.
+- Bridge guard direct smoke (same three cases as `tests/test_r3_issue41_bridge_status.py`): `3 scenarios passed` — unresolved/missing status holds, all explicit `RESOLVED` is ready, and unknown status is rejected.
+- One-command pipeline: `python -m translation_quarantine.r3.r3_issue41_pipeline .`
+  - Result: exit 0; schema `issue41-pipeline-2`.
+  - Hard Adult design: `ok=true`, 64 rows + 16 probes, all 7 strata preserved.
+  - Frozen input: 69 approved + 31 explicit REVIEW = 169 evidence rows.
+  - Exact generation-profile overlap: 7; bridge availability `BRIDGE_MISSING=7`, `NOT_REQUIRED=93`.
+  - #32 snapshot supplied: `false`; meaning-relevant guard: `NO_SNAPSHOT`, required 7, resolved 0, blocked 7.
+  - Final pipeline state: `HOLD_BRIDGE`; blind30 selected 0 and was not generated.
+  - `production_modified=false`, `remaining_925_processed=false`, and `stage10_production_ab_started=false`.
+- Generated execution evidence includes `issue41_pipeline_summary.json`, refreshed frozen-input/overlap summaries and R3 manifests, plus this report. The report records runtime overlap from the protected local generation profile; it does not fabricate or write a #32 snapshot.
+- Protected boundary rechecked: no `data/**`, #32-owned `validation_quarantine/**`, #35 UI, `CURRENT_DEV_TASK.md`, main, or Stage10 production A/B changes.
+- Current result remains normal and intentionally blocked at `HOLD_BRIDGE`; blind30 remains prohibited until all 7 #32-owned rows exist with explicit `meaning_relevant_status=RESOLVED`.
