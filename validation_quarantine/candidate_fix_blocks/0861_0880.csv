@@ -1,0 +1,8 @@
+special_id,tag,field,current_value,proposed_value,rule_version,risk_priority,evidence_refs,reason,status,notes
+865,labia piercing,BodypartRequirementOverride,,true,R2,A,generation_profile;generation_profile:ID874;generation_family_rules,"Labia is the intrinsic bodypart target.",QUARANTINED_CANDIDATE,
+865,labia piercing,ImplementRequirementOverride,,true,R2,A,generation_profile;generation_profile:ID874;generation_family_rules,"A piercing object is intrinsic.",QUARANTINED_CANDIDATE,
+867,penis out of frame,CameraRequirementOverride,,true,R2,A,generation_profile;generation_family_rules,"Out-of-frame composition is intrinsic to the canonical.",QUARANTINED_CANDIDATE,Structural framing metadata only.
+874,single nipple piercing,BodypartRequirementOverride,,true,R2,A,generation_profile;generation_profile:ID865;generation_family_rules,"Nipple is the explicit target.",QUARANTINED_CANDIDATE,
+874,single nipple piercing,ImplementRequirementOverride,,true,R2,A,generation_profile;generation_profile:ID865;generation_family_rules,"A piercing object is intrinsic.",QUARANTINED_CANDIDATE,
+879,wireless sex toy controller,ImplementRequirementOverride,,true,R2,A,generation_profile;generation_profile:IDs842,865;generation_family_rules,"The controller/device is itself the intrinsic implement concept.",QUARANTINED_CANDIDATE,
+880,penis milking,BodypartRequirementOverride,,true,R2,A,generation_profile;generation_profile:ID851;generation_family_rules,"Penis is the explicit action target.",QUARANTINED_CANDIDATE,
