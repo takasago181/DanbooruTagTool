@@ -8,39 +8,35 @@ Rule version: R2
 ## Current position
 - Target: 2,788 Specials
 - Special-level first pass reached: 500
-- Effective counts after completed Batch5 revalidation checkpoints: PASS 451 / FIX 28 / REVIEW 5 / IMAGE_TEST_REQUIRED 16
+- Effective counts after full Batch5 revalidation: PASS 451 / FIX 28 / REVIEW 5 / IMAGE_TEST_REQUIRED 16
 - Batch 1-4 R2 acceptance gates: PASS
-- Batch 5 R2 acceptance gate: FAIL
-- Batch 5 full revalidation completed: 80 / 100 (401-480)
-- Effective pending revalidation: 20 (481-500)
+- Batch 5 full R2 revalidation: COMPLETE (401-500)
+- Batch 5 acceptance gate: PENDING_FINAL_GATE
+- Effective pending revalidation: 0
 - Semantic-support frozen target: 58 rows; durable audited coverage: 53
-- First-pass sequence 501 is BLOCKED until Batch5 full revalidation and final acceptance gate pass
-- Exact next work: Batch5 R2 full revalidation starting at sequence 481
+- First-pass sequence 501 remains BLOCKED until post-revalidation integrity + PASS-resampling gate completes
 - Production modified: NO
 
-## Durable revalidation checkpoints
+## Durable Batch5 revalidation checkpoints
 - `revalidation_blocks/0401_0420.csv`
 - `revalidation_blocks/0421_0440.csv`
 - `revalidation_blocks/0441_0460.csv`
 - `revalidation_blocks/0461_0480.csv`
-- matching queue-resolution overlays in `revalidation_queue_blocks/`
-- `candidate_fixes.csv` updated whenever a new finding changed the candidate set
+- `revalidation_blocks/0481_0500.csv`
+- matching queue-resolution overlays under `revalidation_queue_blocks/`
 
-## Confirmed/new Batch5 corrections during full revalidation
-- ID420 `nipple torture` -> retain FIX, `BodypartRequirementOverride=true`.
-- ID422 `torture instruments` -> new FIX, `ImplementRequirementOverride=true`; family defaults are UNKNOWN and do not encode the intrinsic implement requirement.
-- ID469 `peeing on penis` -> new FIX, `BodypartRequirementOverride=true` + `SpatialAssignmentOverride=true`; cross-consistent with reviewed fixed-bodypart contact sibling ID265.
-- ID479 `skull fucking` -> retain FIX, `BodypartRequirementOverride=true` + `SpatialAssignmentOverride=true`.
+## Corrections confirmed by full revalidation
+- ID420 `nipple torture` -> FIX: `BodypartRequirementOverride=true`.
+- ID422 `torture instruments` -> FIX: `ImplementRequirementOverride=true`.
+- ID469 `peeing on penis` -> FIX: `BodypartRequirementOverride=true` + `SpatialAssignmentOverride=true`.
+- ID479 `skull fucking` -> FIX: `BodypartRequirementOverride=true` + `SpatialAssignmentOverride=true`.
+- ID490 `bestiality` -> FIX: `ActorRequirementOverride=true`.
+- ID493 `mating (animal)` -> FIX: `ActorRequirementOverride=true`.
+- ID488 `xray sex` -> retain IMAGE_TEST_REQUIRED; Stage10/model-dependent visibility behavior remains unpromoted.
 
-Rows441-460 produced no new false-PASS. Semantic/search-only rows continue to be kept separate from direct structural profiles; no direct requirement metadata is promoted solely from phrase decomposition in that lane.
+A-risk ID491 `knotting`, ID492 `animal insertion`, and ID496 `zoophilia` remain PASS after prompt-reference and prior deterministic sampling cross-check. In particular, ID492's frozen reference says insertion using animal body parts or similar; this does not universally establish a live animal actor or one fixed insertion target, so no speculative actor/bodypart/implement override is promoted.
 
-`revalidation_queue.csv` is the original Batch5 queue snapshot. Completed append-only queue overlays in `revalidation_queue_blocks/` are authoritative for restart, so 401-480 must not be processed again. Effective pending count is 20.
-
-## Remaining first-pass findings at 481-500
-- ID488 `xray sex` -> IMAGE_TEST_REQUIRED.
-- ID490 `bestiality` -> FIX `ActorRequirementOverride=true`.
-- ID493 `mating (animal)` -> FIX `ActorRequirementOverride=true`.
-- Other A-risk rows 491/492/496 require revalidation cross-check before Batch5 can be accepted.
+`revalidation_queue.csv` remains the original Batch5 queue snapshot. The five append-only queue overlays in `revalidation_queue_blocks/` are authoritative for completed state; effective pending count is 0.
 
 ## Critical interpretation rules
 - Blank/None is not automatically missing data; family-rule blanks explicitly mean UNKNOWN/not asserted.
@@ -51,4 +47,4 @@ Rows441-460 produced no new false-PASS. Semantic/search-only rows continue to be
 - Special2788 exact identity remains first-class.
 
 ## Exact restart
-Read Issue #32, R2 rules, `progress.json`, `candidate_fixes.csv`, original `revalidation_queue.csv`, completed queue overlays, the five Batch5 first-pass result blocks, and four completed Batch5 revalidation blocks. Resume at sequence481. Persist the 481-500 checkpoint, then run the full Batch5 integrity and false-PASS acceptance checks before sequence501. Do not modify production/main.
+Run the Batch5 post-revalidation integrity check over the five 20-row revalidation blocks and five queue overlays. Then re-sample the effective PASS population under R2, with A-risk preference. Only if no new false-PASS is found may Batch5 acceptance become PASS and sequence501 be unblocked. Do not modify production/main.
