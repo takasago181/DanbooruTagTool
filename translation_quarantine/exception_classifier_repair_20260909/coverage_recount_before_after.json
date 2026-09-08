@@ -1,0 +1,19 @@
+{
+  "after": {
+    "display_ja": 29753,
+    "fallback": 876,
+    "search_ja": 29753
+  },
+  "before": {
+    "display_ja": 28861,
+    "fallback": 1768,
+    "search_ja": 28861
+  },
+  "input_hashes": {
+    "translation_quarantine/forced_ja_display_completion_20260909/final_translation_table.csv": "sha256:8c610959613d12d393c47b24e2069089422740136cf00f60d68d81e1a069cc36",
+    "translation_quarantine/r3/EXCEPTION_CLASSIFIER_REPAIR_CONTRACT.md": "sha256:43d7467f40b6dc6d7b63e0d42116b7c14e8ade78232ab55ec4e02732422a1271"
+  },
+  "measurable_universe": 30629,
+  "merged_unique_canonicals": 30629,
+  "residual_fallback_input": 1768
+}

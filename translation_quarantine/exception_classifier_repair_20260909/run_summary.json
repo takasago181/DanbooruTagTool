@@ -1,0 +1,53 @@
+{
+  "before_after": {
+    "after": {
+      "display_ja": 29753,
+      "fallback": 876,
+      "search_ja": 29753
+    },
+    "before": {
+      "display_ja": 28861,
+      "fallback": 1768,
+      "search_ja": 28861
+    },
+    "input_hashes": {
+      "translation_quarantine/forced_ja_display_completion_20260909/final_translation_table.csv": "sha256:8c610959613d12d393c47b24e2069089422740136cf00f60d68d81e1a069cc36",
+      "translation_quarantine/r3/EXCEPTION_CLASSIFIER_REPAIR_CONTRACT.md": "sha256:43d7467f40b6dc6d7b63e0d42116b7c14e8ade78232ab55ec4e02732422a1271"
+    },
+    "measurable_universe": 30629,
+    "merged_unique_canonicals": 30629,
+    "residual_fallback_input": 1768
+  },
+  "campaign_id": "issue36-exception-classifier-repair-20260909-v1",
+  "contract": "translation_quarantine/r3/EXCEPTION_CLASSIFIER_REPAIR_CONTRACT.md",
+  "contract_commit": "e365165b4e5be9a1a6433b933bca8e2f0cbb67d7",
+  "fallback_ledger": "translation_quarantine/exception_classifier_repair_20260909/fallback_exceptions.jsonl",
+  "fallback_ledger_count": 876,
+  "fallback_reason_classes": {
+    "CODE_OR_PRODUCT_IDENTIFIER": 46,
+    "OPAQUE_SOURCE_STRING": 22,
+    "PRODUCT_OR_SERVICE_NAME": 5,
+    "PROPER_NAME_OR_QUALIFIED_LABEL": 731,
+    "SYMBOL_OR_EMOTICON": 72
+  },
+  "final_state_counts": {
+    "ENGLISH_FALLBACK_EXCEPTION": 876,
+    "JA_ACCEPT_EXISTING": 547,
+    "JA_ACCEPT_MACHINE": 25375,
+    "JA_ACCEPT_STRICT": 3831
+  },
+  "final_table_rows": 30629,
+  "generic_review_pending": 0,
+  "input_residual_fallback": 1768,
+  "japanese_display_created": 892,
+  "production_modified": false,
+  "promotion": "NOT_AUTHORIZED",
+  "protected_boundary_verdict": "PASS",
+  "replay_verdict": "PASS",
+  "residual_english_fallback": 876,
+  "tests": {
+    "focused_repair": "6 passed",
+    "full_pytest": "313 passed, 61 environment setup errors (Windows TEMP ACL WinError 5), no product assertion failures in setup errors",
+    "prior_forced_ja": "43 passed"
+  }
+}
