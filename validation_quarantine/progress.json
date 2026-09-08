@@ -7,10 +7,10 @@
   "fixed_order": "production Special2788 order at audit start",
   "batch_size": 100,
   "internal_block_size": 20,
-  "completed_specials": 940,
-  "pass": 722,
-  "fix": 121,
-  "review": 81,
+  "completed_specials": 960,
+  "pass": 728,
+  "fix": 128,
+  "review": 88,
   "image_test_required": 16,
   "revalidation_pending": 0,
   "batch1_acceptance_gate": "PASS",
@@ -30,10 +30,10 @@
   "semantic_support_rows_covered": 53,
   "semantic_support_rows_review": 0,
   "semantic_support_rows_image_test_required": 29,
-  "last_completed_special_id": "940",
+  "last_completed_special_id": "960",
   "last_completed_batch": 9,
   "next_batch": 10,
-  "next_start_position": 941,
+  "next_start_position": 961,
   "production_modified": false,
-  "notes": "This run processed the next100 Specials from restart841 through940. Batch9 801-900 completed with PASS36/FIX27/REVIEW37/IMAGE_TEST_REQUIRED0 and R2 gate PASS after deterministic PASS sample10/36 with0 new false-PASS. Batch10 partial 901-940 is durably checkpointed in two20-row blocks with delta PASS9/FIX8/REVIEW23/IMAGE_TEST_REQUIRED0. Matching candidate-fix and revalidation-queue blocks persisted. Semantic support remains53/58. Next safe restart941. Production/main unchanged."
+  "notes": "Batch10 partial now checkpointed through960. 941-960 delta PASS6/FIX7/REVIEW7/IMAGE_TEST_REQUIRED0. Result, candidate-fix, and empty revalidation-queue blocks persisted. Next safe restart961. Production/main unchanged."
 }
