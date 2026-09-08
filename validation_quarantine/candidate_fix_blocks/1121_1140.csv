@@ -1,0 +1,6 @@
+sequence,special_id,tag,rule_version,risk_priority,problem_fields,proposed_change,reason,evidence_refs,status
+1123,1123,lipstick mark on anus,R2,A,BodypartRequirementOverride,bodypart=true,intrinsic anal target; spatial already true,generation_profile;generation_profile:ID1112,QUARANTINE_CANDIDATE
+1124,1124,cum on neck,R2,A,BodypartRequirementOverride+SpatialAssignmentOverride,bodypart=true; spatial=true,intrinsic named neck target+on-target relation,generation_profile;generation_profile:ID469,QUARANTINE_CANDIDATE
+1125,1125,cum on wall,R2,A,SpatialAssignmentOverride,spatial=true,intrinsic on-wall relation,generation_profile;generation_profile:ID469,QUARANTINE_CANDIDATE
+1134,1134,biting foreskin,R2,A,BodypartRequirementOverride,bodypart=true,intrinsic foreskin target,generation_profile;generation_profile:ID420,QUARANTINE_CANDIDATE
+1140,1140,penis in swimsuit,R2,A,BodypartRequirementOverride,bodypart=true,intrinsic penis target; spatial already true,generation_profile;generation_profile:ID1116,QUARANTINE_CANDIDATE
