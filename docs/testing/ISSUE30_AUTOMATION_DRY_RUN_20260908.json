@@ -90,8 +90,39 @@
     "forge_restart": false,
     "protected_repository_paths_changed": false
   },
-  "verdict": "BLOCKED",
-  "blocker": "BLOCKED_API_DISABLED",
+  "first_attempt": {
+    "evidence_commit": "5e0a821cf23c8405c443b625a0e89849b5c10ea6",
+    "verdict": "BLOCKED",
+    "blocker": "BLOCKED_API_DISABLED"
+  },
+  "resume_attempt": {
+    "task_spec_main": "6e381a30a111adb218f3236a4912e8adc6b6bcb6",
+    "process": {
+      "pid": 20508,
+      "path": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Packages\\Stable Diffusion WebUI Forge - Neo\\venv\\Scripts\\python.exe",
+      "start_time": "2026-09-08T19:14:45",
+      "main_window_handle": 0,
+      "main_window_close_returned": false,
+      "still_running_after_close_attempt": true
+    },
+    "pre_shutdown_idle": true,
+    "planned_command": "webui.bat --api",
+    "planned_command_executed": false,
+    "restart_status": "blocked_no_controllable_close_path",
+    "normal_launch_restored": false,
+    "forge_left_stopped": false,
+    "existing_forge_session": "still_running_non_api",
+    "generation_status": "not_run",
+    "metadata_status": "not_run",
+    "wd14_post_status": "not_run",
+    "verdict": "BLOCKED_RESTART_CONTROL"
+  },
+  "persistent_setting_hashes": {
+    "webui-user.bat_sha256_before": "F5AE1B180E7FDF72BDD6EA6DB57D529BCEE7B0B32D6A31B396D82356652D19AA",
+    "config.json_sha256_before": "1FCD5EACA58DABF87A62C9317A257D9A765CC5E168329453FC7C937BA319E3C4"
+  },
+  "verdict": "BLOCKED_RESTART_CONTROL",
+  "blocker": "BLOCKED_RESTART_CONTROL",
   "agent_scheduler": "HOLD",
   "next_gap": "Controlled non-concurrent Forge Neo session with temporary --api launch argument or already API-enabled runtime",
   "production_verdict": null

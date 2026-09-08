@@ -139,3 +139,37 @@ Decision: **BLOCKED**. The native Forge UI and WD14 API are present, but the req
 Smallest next gap: provide a controlled, non-concurrent Forge Neo session launched with a temporary `--api` argument (or an already API-enabled runtime), without changing persistent settings. Then repeat only Phase 1–3 and record the A/B PNG hashes, actual metadata, and WD14 POST responses.
 
 This result is infrastructure-only and must not be treated as Stage10 production A/B evidence.
+
+## API-enabled resume attempt — 2026-09-08
+
+The API-resume task specification was brought in from latest `origin/main` at `6e381a30a111adb218f3236a4912e8adc6b6bcb6`. The prior evidence commit `5e0a821cf23c8405c443b625a0e89849b5c10ea6` remains in this branch's history.
+
+### Pre-shutdown capture
+
+- Existing Forge UI: idle; no generation was running.
+- Existing Forge process: PID `20508`
+- Process path: `C:\Users\takas\Downloads\StabilityMatrix-win-x64\Data\Packages\Stable Diffusion WebUI Forge - Neo\venv\Scripts\python.exe`
+- Process start: `2026-09-08 19:14:45`
+- Main window handle: `0`; no controllable native process window was exposed.
+- Package: Forge Neo `neo-2.29`, package commit `efc42fe03739d0d8cda7de6e7bed2f8c1969a0c7`
+- URL/port: `http://127.0.0.1:7860`
+- Loaded checkpoint: `waiIllustriousSDXL_v170`, hash `f116b0c78f`
+- Fixed baseline: Seed `5072`, Steps `24`, CFG `4.5`, Euler a, Automatic, `1024x1024`, batch count/size `1/1`
+- `webui-user.bat` SHA-256 before attempted resume: `F5AE1B180E7FDF72BDD6EA6DB57D529BCEE7B0B32D6A31B396D82356652D19AA`
+- `config.json` SHA-256 before attempted resume: `1FCD5EACA58DABF87A62C9317A257D9A765CC5E168329453FC7C937BA319E3C4`
+- Current endpoint probe: `/` 200, `/openapi.json` 200, `/sdapi/v1/options` 404, `/tagger/v1/interrogators` 200.
+
+### Stop result
+
+The required normal close could not be performed safely:
+
+- `CloseMainWindow()` was attempted on the exact package PID and returned `False` because the process has no main window (`handle=0`).
+- No Forge shutdown/restart endpoint was exposed; only unrelated reload/shutdown routes were present in the Gradio/OpenAPI surface.
+- No force-kill, `taskkill`, concurrent second Forge process, persistent setting edit, or dependency change was performed.
+- The one-shot command `webui.bat --api` was **not executed**.
+- The existing normal non-API Forge session remains running; it was neither restarted nor left stopped by this attempt.
+- A/B generation, PNG metadata extraction, WD14 POST, and raw confidence capture were **not executed**.
+
+Resume-attempt infrastructure verdict: **`BLOCKED_RESTART_CONTROL`**.
+
+The temporary API session must be retried only after the user/Forge owner provides a controllable normal-close path or confirms a safe stop mechanism for this exact process. The expected command remains `webui.bat --api` from the verified Forge package directory; it was not run in this attempt.
