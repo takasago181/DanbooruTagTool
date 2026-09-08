@@ -1,0 +1,7 @@
+special_id,tag,field,current_value,proposed_value,rule_version,risk_priority,evidence_refs,reason,status,notes
+741,bandaids on nipples,BodypartRequirementOverride,,true,R2,A,generation_profile;generation_profile:IDs723,753;generation_family_rules,"Nipple bodypart target is intrinsic; spatial=true already exists.",QUARANTINED_CANDIDATE,Structural target only.
+741,bandaids on nipples,ImplementRequirementOverride,,true,R2,A,generation_profile;generation_profile:IDs723,753;generation_family_rules,"Bandaid is the intrinsic implement/object component.",QUARANTINED_CANDIDATE,Structural implement only.
+750,holding sex toy,ImplementRequirementOverride,,true,R2,A,generation_profile;generation_profile:ID422;generation_family_rules,"Sex toy implement is intrinsic to the holding action.",QUARANTINED_CANDIDATE,No automatic support insertion implied.
+751,licking nipple,BodypartRequirementOverride,,true,R2,A,generation_profile;generation_profile:IDs685-698;generation_family_rules,"Nipple is the explicit licking target.",QUARANTINED_CANDIDATE,No spatial promotion solely from contact.
+753,bandaid on pussy,BodypartRequirementOverride,,true,R2,A,generation_profile;generation_profile:IDs723,741;generation_family_rules,"Pussy bodypart target is intrinsic; spatial=true already exists.",QUARANTINED_CANDIDATE,Structural target only.
+753,bandaid on pussy,ImplementRequirementOverride,,true,R2,A,generation_profile;generation_profile:IDs723,741;generation_family_rules,"Bandaid is the intrinsic implement/object component.",QUARANTINED_CANDIDATE,Structural implement only.
