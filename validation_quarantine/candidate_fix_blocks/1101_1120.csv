@@ -1,0 +1,6 @@
+sequence,special_id,tag,rule_version,risk_priority,problem_fields,proposed_change,reason,evidence_refs,status
+1103,1103,handjob under clothes,R2,A,SpatialAssignmentOverride,spatial=true,intrinsic under-clothes relation,generation_profile;generation_family_rules,QUARANTINE_CANDIDATE
+1106,1106,penis to navel,R2,A,BodypartRequirementOverride,bodypart=true,intrinsic named anatomical target; spatial already true,generation_profile;generation_profile:ID1095,QUARANTINE_CANDIDATE
+1112,1112,lipstick mark on pussy,R2,A,BodypartRequirementOverride,bodypart=true,intrinsic named genital target; spatial already true,generation_profile;generation_profile:ID1095,QUARANTINE_CANDIDATE
+1116,1116,dick in a box,R2,A,BodypartRequirementOverride+ImplementRequirementOverride,bodypart=true; implement=true,intrinsic penis+box containment; spatial already true,generation_profile;generation_profile:ID1095,QUARANTINE_CANDIDATE
+1118,1118,licking another's pussy juice,R2,A,ActorRequirementOverride,actor=true,explicit another-person ownership,generation_profile;generation_profile:ID34;generation_profile:ID513,QUARANTINE_CANDIDATE
