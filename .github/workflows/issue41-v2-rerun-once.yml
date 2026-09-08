@@ -83,6 +83,12 @@ jobs:
 
           echo "ISSUE41_SNAPSHOT=$SNAP_OUT" >> "$GITHUB_ENV"
 
+      - name: Run focused bridge consumer tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pytest -q tests/test_r3_issue41_bridge_status.py
+
       - name: Run existing Issue 41 pipeline with v2
         shell: bash
         run: |
