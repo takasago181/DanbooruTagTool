@@ -36,7 +36,14 @@ Stage 9 overall Gate 完了 / Stage10 準備Gate実施中 / automated E2E PASS
 
 ## Active Work / Issues
 
-- 現在activeなDEV実装Issue: **なし**。
+- 現在activeなDEV実装Issue: **#35 `[UI][DEV] Japanese-first desktop UI pass (dictionary frozen)`**。
+  - parent: #34 UI-JA cross-team。
+  - branch: `ui-ja/issue35-ui-only`
+  - UI/presentation-only。辞書本体の自動改善が別系統で進行中のため、このIssueでは `data/**`、Japanese overlay内容、Special2788内容、canonical/alias/semantic/generation-profile dataを変更しない。
+  - Final Prompt以外のタグ/候補表示は、日本語がある場合 `日本語 / canonical`、ない場合 `日本語未登録 / canonical` とし、英語のみの無言fallbackをなくす。
+  - `Prompt preview`等の開発的英語chromeを日本語優先へ統一する。
+  - recommendation/search ranking semanticsとStage9 composition semanticsは変更しない。
+  - 実装後はreal Windows Tk screenshot/manual inspectionを必須とし、automated E2Eだけで完了扱いにしない。
 - #5 `[Stage10][PROMPT] Formal handoff pending`
   - #4 KNOWLEDGE handoff受領済み。
   - Stage10正式handoff / Specialデータ / 実験仕様 / 固定条件 / 自動化運用を整理する。
@@ -49,9 +56,9 @@ Stage 9 overall Gate 完了 / Stage10 準備Gate実施中 / automated E2E PASS
   - A/B Prompt差し替え、固定/複数seed生成、metadata/実Prompt追跡、WD14等による一次判定、`A_WIN / B_WIN / REVIEW / BLOCKED` 振り分け、結果レポートまでを対象とする。
 - #34 `[UI-JA][CROSS] Tool UI / Japanese translation quality improvement`
   - 常設4班とは別の横断改善班。
-  - real desktop screenshotを基準にvisual/manual UI監査、日本語display/search品質監査、検索false positive監査を行う。
-  - 初期P0: `anal`検索で`piano` / `analog clock` / `analogous colors`等の無関係General候補が見える検索ノイズ、日本語表示の不統一・直訳感。
-  - 既存Stage9 semantics / protected data / canonical identityを維持し、必要なコード変更はDEV Issueへhandoffする。
+  - 現在は辞書内容改善を凍結し、#35でUI-first改善を先行する。
+  - real desktop screenshotを基準にvisual/manual UI監査、日本語表示の使い方、操作導線を改善する。
+  - 検索ノイズや翻訳内容そのものの改善は辞書自動改善完了後または別Issueで扱う。
 
 ## Not Started / Do Not Start Yet
 
@@ -78,11 +85,12 @@ Stage10本番開始前に最低限必要:
 
 ## Next Actions
 
-1. #6 / #30を並列で完了させ、比較環境・自動化構成・dry run結果を証跡化する。
-2. #5は `docs/stages/STAGE_10_KNOWLEDGE_HANDOFF.md` と #6 / #30の結果を正式handoffへ反映する。
-3. #34はStage10準備と並列でreal UI / 日本語品質 / 検索ノイズを監査し、実装が必要な項目をDEV handoff可能な受入条件へ落とす。
-4. A/B固定条件、metadata保存、実Prompt traceability、model-family差保持を最終確認する。
-5. 全Gateが満たされた後にのみStage10本番A/Bへ移行する。
+1. #35を実装し、日本語-first表示・UI chrome・状態判別・関連候補可読性・resizeをUI-onlyで改善する。`data/**`は変更しない。
+2. #35完了後、real Windows Tk screenshot/manual inspection + focused/regression/full suite可能範囲を確認し、#34へ結果を戻す。
+3. #6 / #30を並列で完了させ、比較環境・自動化構成・dry run結果を証跡化する。
+4. #5は `docs/stages/STAGE_10_KNOWLEDGE_HANDOFF.md` と #6 / #30の結果を正式handoffへ反映する。
+5. A/B固定条件、metadata保存、実Prompt traceability、model-family差保持を最終確認する。
+6. 全Gateが満たされた後にのみStage10本番A/Bへ移行する。
 
 ## Blocking / Unknown
 
@@ -92,14 +100,14 @@ Stage10本番開始前に最低限必要:
 - GitHub Actions CIは未導入。#28 PASSはlocal protected-data environmentの実Tk証跡であり、CI PASSとは表現しない。
 - Stage10はまだ未開始。#6 / #30 / #5 と `STAGE_10_PREP.md` の残Gateがblocker。
 - #30の自動評価は完全自動判定を前提にせず、認識困難・信頼度不足をREVIEWへ逃がす。
-- #34はStage10開始Gateそのものではないが、現行UIを完成UIとして扱わない。visual/manual desktop inspectionと日本語品質確認は別証跡として残す。
+- #34 / #35はStage10開始Gateそのものではないが、現行UIを完成UIとして扱わない。#35では辞書内容を触らずUI-first改善を実施する。
 
 ## Source-of-Truth Rule
 
 - このファイルは現在地の正本。
 - 実作業の管理記録・完了条件・結果は対応Issueに残す。
 - active DEV Issueが存在する場合のみ `docs/project/CURRENT_DEV_TASK.md` をそのIssue本文の同期ミラーとして使う。
-- 現在activeなDEV Issueはない。Codexは新規DEV taskを開始しない。
+- 現在activeなDEV Issueは **#35**。Codexは #35 と同期済み `CURRENT_DEV_TASK.md` のみを現行DEV実装として扱う。
 - 新しいDEV Issueを開始する時はIssue本文 / CURRENT_STATE / CURRENT_DEV_TASKを同じ管理作業内で同期し、live照合後にCodexへhandoffする。
 - Codexはprivate Issueへ直接書き込む前提ではない。repository成果を残し、DEVが確認してIssueへ証跡化する。
 - Codexの完了報告だけで次Gateへ進まない。
