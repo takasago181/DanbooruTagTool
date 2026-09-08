@@ -17,9 +17,10 @@ This directory is the durable workspace for the long-running validation of Speci
 The current audit state must be recoverable from files in this directory plus Issue #32 without relying on chat memory.
 
 Files:
-- `VALIDATION_RULES.md`: current validation rules and rule-version history.
-- `progress.json`: single current restart point and aggregate counts.
-- `results.csv`: one durable result row per validated Special/batch decision.
+- `VALIDATION_RULES.md`: current validation rules and rule-version history. R2 is active after sequence 40.
+- `progress.json`: single current restart point and aggregate Special/support-row counts.
+- `results.csv`: one durable Special-level result row per validated Special/batch decision.
+- `semantic_support_results.csv`: one durable audit record per frozen semantic-support input row.
 - `candidate_fixes.csv`: proposed corrections only; never treated as approved production data.
 - `revalidation_queue.csv`: prior rows that must be revisited after rule/evidence changes.
 - `handoff.md`: current chat-to-chat handoff summary.
@@ -29,7 +30,9 @@ Files:
 - 100 Specials per external batch.
 - 20 x 5 internal consistency blocks.
 - Fast screening first, targeted deep review second.
-- Sample PASS rows every 100-row batch to estimate false-PASS risk.
+- R2 requires complete frozen semantic-support row coverage, not only `CORE_SUPPORT + ADDITIVE` coverage.
+- R2 requires generation-evidence cross-checks for high-impact claims instead of allowing production metadata to self-certify image-generation behavior.
+- Sample PASS rows every 100-row batch under the numeric escalation rules in `VALIDATION_RULES.md`.
 
 ## Valid states
 - PASS
@@ -37,7 +40,7 @@ Files:
 - REVIEW
 - IMAGE_TEST_REQUIRED
 
-Blank/None is not automatically an error.
+Blank/None is not automatically an error. `REVIEW` / `IMAGE_TEST_REQUIRED` may represent audited-but-unresolved rows when evidence is explicitly recorded.
 
 ## Restart rule
-Before moving to a new ChatGPT chat, update `progress.json` and `handoff.md` at minimum. The new chat resumes from GitHub state, not conversational recollection.
+Before moving to a new ChatGPT chat, update `progress.json` and `handoff.md` at minimum, plus row-level ledgers that changed. The new chat resumes from GitHub state, not conversational recollection.
