@@ -1,0 +1,11 @@
+sequence,special_id,tag,risk_priority,re_audit_result,false_pass,reason
+920,920,male spitroast,A,PASS,false,"Multi-actor actor/spatial structure remains internally consistent."
+938,938,masturbating while watching,A,PASS,false,"SELF_ACTION actor ownership remains explicit; watching context adds no required structure."
+945,945,brother and sister threesome,A,PASS,false,"Actor/spatial requirements plus separation flag preserve the multi-actor identity."
+902,902,slave brand,B,PASS,false,"BODY_ATTRIBUTE/body_mark remains conservative and meaning-preserving."
+911,911,colored anus,B,PASS,false,"BODY_ATTRIBUTE preserves visible color state without speculative requirements."
+914,914,guy tired after sex (meme),B,PASS,false,"REFERENCE_ONLY handling remains correctly isolated from decomposed generation semantics."
+935,935,deformed anus,B,PASS,false,"BODY_ATTRIBUTE classification remains conservative."
+950,950,slave crest (shield hero),B,PASS,false,"Named franchise symbol/device correction remains bounded to proper-noun metadata."
+970,970,imminent fingering,B,PASS,false,"CONTEXT_MODIFIER correctly preserves imminent rather than active action."
+993,993,three-finger handjob,B,PASS,false,"Finger count does not justify extra structure absent independent evidence."
