@@ -1,0 +1,4 @@
+sequence,special_id,tag,rule_version,risk_priority,problem_fields,proposed_change,reason,evidence_refs,status
+961,961,looking at pussy,R2,A,BodypartRequirementOverride,Set BodypartRequirementOverride=true,"Named genital target is intrinsic; actor requirement already true.",generation_profile;generation_family_rules,QUARANTINE_CANDIDATE
+964,964,cum on object,R2,A,ImplementRequirementOverride+SpatialAssignmentOverride,Set ImplementRequirementOverride=true; SpatialAssignmentOverride=true,"Explicit object target and placement relation.",generation_profile;generation_family_rules,QUARANTINE_CANDIDATE
+974,974,colored chastity cage,R2,A,ImplementRequirementOverride,Set ImplementRequirementOverride=true,"Intrinsic restraint device remains required despite color modifier.",generation_profile;generation_family_rules,QUARANTINE_CANDIDATE
