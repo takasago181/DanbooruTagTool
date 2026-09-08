@@ -1,0 +1,4 @@
+special_id,tag,field,current_value,proposed_value,rule_version,risk_priority,evidence_refs,reason,status,notes
+621,biting testicles,BodypartRequirementOverride,,true,R2,A,generation_profile;generation_profile:IDs616,619;generation_family_rules,"The testicles are the explicit action target.",QUARANTINED_CANDIDATE,No spatial promotion.
+622,cbt press,BodypartRequirementOverride,,true,R2,A,generation_profile;generation_profile:ID617;generation_family_rules,"The CBT-qualified press intrinsically targets genital body parts.",QUARANTINED_CANDIDATE,No implement/pose promotion.
+632,bound penis,BodypartRequirementOverride,,true,R2,A,generation_profile;generation_profile:IDs420,569;generation_family_rules,"The penis is the intrinsic restraint target.",QUARANTINED_CANDIDATE,No specific restraint implement inferred.
