@@ -20,9 +20,9 @@
   "batch5_acceptance_gate": "PASS",
   "batch6_acceptance_gate": "PASS",
   "batch7_acceptance_gate": "PASS",
-  "batch8_acceptance_gate": "PENDING_SAMPLING",
-  "first_pass_blocked_at": 801,
-  "false_pass_samples_checked": 146,
+  "batch8_acceptance_gate": "PASS",
+  "first_pass_blocked_at": null,
+  "false_pass_samples_checked": 158,
   "false_pass_found": 5,
   "semantic_support_snapshot_total_rows": 58,
   "semantic_support_rows_covered": 53,
@@ -33,5 +33,5 @@
   "next_batch": 9,
   "next_start_position": 801,
   "production_modified": false,
-  "notes": "Batch8 first-pass 701-800 fully checkpointed in five20-row blocks. Batch8 delta PASS58/FIX28/REVIEW14/IMAGE_TEST_REQUIRED0. Do not start801 until Batch8 integrity and deterministic PASS sampling gate complete. Revalidation queue delta0; semantic support coverage53/58; main/production unchanged."
+  "notes": "Batch8 (701-800) R2 acceptance gate PASS. Five20-row result/candidate-fix/revalidation-queue checkpoints reconcile exactly100 unique contiguous sequences. Batch8 delta PASS58/FIX28/REVIEW14/IMAGE_TEST_REQUIRED0. Deterministic PASS re-audit checked12/58 (20.69%) with A-risk preference; new false-PASS0. Revalidation queue delta0. Semantic support coverage53/58. Next safe restart801. Production/main unchanged."
 }
