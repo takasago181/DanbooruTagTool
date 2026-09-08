@@ -1,0 +1,4 @@
+sequence,special_id,tag,rule_version,risk_priority,problem_fields,proposed_change,reason,evidence_refs,status
+1065,1065,vibrator under swimsuit,R2,A,ImplementRequirementOverride+SpatialAssignmentOverride,implement=true; spatial=true,intrinsic implement+under relation,generation_profile;generation_profile:ID985,QUARANTINE_CANDIDATE
+1075,1075,chocolate on penis,R2,A,BodypartRequirementOverride+ImplementRequirementOverride,bodypart=true; implement=true,intrinsic bodypart+object; spatial already true,generation_profile;generation_profile:ID1017,QUARANTINE_CANDIDATE
+1078,1078,penis in another's thighhigh,R2,A,ActorRequirementOverride+BodypartRequirementOverride+ImplementRequirementOverride+SpecialFlags,actor=true; bodypart=true; implement=true; ACTOR_SEPARATION_REQUIRED,explicit another ownership plus intrinsic bodypart+garment; spatial already true,generation_profile;generation_profile:ID991,QUARANTINE_CANDIDATE
