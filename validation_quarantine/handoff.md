@@ -7,34 +7,41 @@ Rule version: R2
 
 ## Current position
 - Target: 2,788 Specials
-- Batch 7 first-pass 601-700 is durably checkpointed
-- Cumulative effective verdicts through 700 first-pass: PASS 619 / FIX 58 / REVIEW 7 / IMAGE_TEST_REQUIRED 16
-- Batch 1-6 R2 acceptance gates: PASS
-- Batch 7 acceptance gate: PENDING_SAMPLING
-- Sequence701 is blocked until the Batch7 gate completes
+- Special-level first pass accepted through: 700
+- Cumulative effective verdicts: PASS 619 / FIX 58 / REVIEW 7 / IMAGE_TEST_REQUIRED 16
+- Batch 1-7 R2 acceptance gates: PASS
 - Revalidation pending: 0
 - Semantic-support frozen target: 58 rows; durable audited coverage: 53
+- Next first-pass sequence: 701
 - Production modified: NO
 
-## Batch 7 first-pass distribution
-- 601-620: PASS13 / FIX7
-- 621-640: PASS17 / FIX3
-- 641-660: PASS20 / FIX0
-- 661-680: PASS19 / FIX1
-- 681-700: PASS7 / FIX13
-- Batch7 total: PASS76 / FIX24 / REVIEW0 / IMAGE_TEST_REQUIRED0
+## Batch 7 acceptance
+Batch 7 range 601-700 is durably stored in five 20-row result blocks.
 
-Five append-only result blocks, candidate-fix delta blocks, and revalidation-queue delta blocks are saved. Queue delta is empty.
+Final Batch7 distribution:
+- PASS 76
+- FIX 24
+- REVIEW 0
+- IMAGE_TEST_REQUIRED 0
 
-Notable high-risk correction:
-- ID680 `autocunnilingus`: propose SELF_ACTION / GFR_SELF_ACTION / Actor=true / SELF_ACTOR_ROLE. This is quarantine-only and does not authorize production promotion.
+`pass_sampling_batch7_r2.csv` rechecked 16 / 76 PASS rows (21.05%), including every surviving A-risk PASS; new false-PASS: 0. `batch7_integrity_r2.md` records 100/100 reconciliation with no gaps or duplicates. Batch7 R2 acceptance gate: PASS.
 
-Candidate-fix partial state is represented by the existing consolidated `candidate_fixes.csv` through ID600 plus Batch7 append-only candidate blocks. No production/main data was modified.
+Notable correction:
+- ID680 `autocunnilingus` -> proposed `SELF_ACTION` + `GFR_SELF_ACTION` + `ActorRequirementOverride=true` + `SELF_ACTOR_ROLE`. This remains quarantine-only.
 
-## Gate still required
-Run exact100-row reconciliation across 0601_0620 through 0681_0700, then deterministic >=20% surviving-PASS re-audit with all surviving A-risk PASS rows included. If false-PASS=0, accept Batch7 and unblock701. Otherwise apply R2 escalation rules.
+Other Batch7 fixes are predominantly explicit bodypart/target and on-target spatial requirements in genital-contact/restraint tags, recorded in the five `candidate_fix_blocks/` files.
+
+Candidate-fix durable representation for this batch is layered: the pre-Batch7 consolidated `candidate_fixes.csv` remains through ID600, and all Batch7 deltas are append-only in `candidate_fix_blocks/0601_0620.csv` through `0681_0700.csv`. This avoids stale aggregate overwrite while preserving every candidate. Revalidation-queue delta is zero.
 
 Semantic-support coverage remains 53/58; remaining frozen rows belong to later Special IDs 1159, 1823, and 1839.
 
+## Critical interpretation rules
+- Blank/None is not automatically missing data; UNKNOWN/not asserted remains valid.
+- Requirement overrides are structural metadata, not support-insertion commands.
+- Statistical common/rare/co-occurrence remains separate from semantic support.
+- Stage10 HOLD evidence is not production truth.
+- Direct structural profiles and semantic/search-only rows must not be conflated.
+- Special2788 exact identity remains first-class.
+
 ## Exact restart
-Complete Batch7 integrity + PASS sampling before any sequence701 work. Do not modify production/main.
+Resume first-pass at sequence 701. Process at most 100 Specials, checkpoint every 20, and run the next 100-level integrity + deterministic PASS resampling gate before accepting sequence800. Do not modify production/main.
