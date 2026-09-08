@@ -1,0 +1,98 @@
+{
+  "issue": 30,
+  "date": "2026-09-08",
+  "scope": "non-production dry run",
+  "repository": {
+    "origin_main": "cc87387928265ebc2dce659f1db07d0546163aa5",
+    "branch": "codex/issue30-automation-dry-run-20260908",
+    "worktree": "C:\\Codex\\DanbooruTagTool\\.worktrees\\issue30-automation-dry-run-20260908"
+  },
+  "runtime": {
+    "forge_version": "neo-2.29",
+    "forge_package_commit": "efc42fe03739d0d8cda7de6e7bed2f8c1969a0c7",
+    "python": "3.13.15",
+    "torch": "2.11.0+cu130",
+    "gradio": "4.40.0",
+    "checkpoint": "sd\\waiIllustriousSDXL_v170.safetensors",
+    "model": "waiIllustriousSDXL_v170",
+    "model_hash": "f116b0c78f",
+    "baseline": {
+      "negative_prompt": "lowres, blurry, bad anatomy, text, watermark",
+      "steps": 24,
+      "cfg": 4.5,
+      "sampler": "Euler a",
+      "scheduler": "Automatic",
+      "width": 1024,
+      "height": 1024,
+      "batch_count": 1,
+      "batch_size": 1,
+      "seed": 5072,
+      "lora": null
+    },
+    "launch_args_observation": "webui-user.bat contains set COMMANDLINE_ARGS=; no --api argument"
+  },
+  "endpoint_results": {
+    "GET /": 200,
+    "GET /openapi.json": 200,
+    "GET /sdapi/v1/options": 404,
+    "GET /sdapi/v1/samplers": 404,
+    "GET /sdapi/v1/schedulers": 404,
+    "POST /sdapi/v1/txt2img": "not_sent",
+    "GET /tagger/v1/interrogators": 200,
+    "GET /tagger/v1/interrogate": 405
+  },
+  "ab_request": {
+    "prompt_a": "1girl, solo, standing, looking at viewer, simple background",
+    "prompt_b": "1girl, solo, sitting, looking at viewer, simple background",
+    "seed": 5072,
+    "batch_size": 1,
+    "status": "not_run",
+    "images": []
+  },
+  "png_metadata": {
+    "status": "not_run",
+    "records": []
+  },
+  "wd14": {
+    "interrogators_endpoint_status": 200,
+    "available_models": [
+      "wd14-vit.v1",
+      "wd14-vit.v2",
+      "wd14-convnext.v1",
+      "wd14-convnext.v2",
+      "wd14-convnextv2.v1",
+      "wd14-eva02.v3.large",
+      "wd14-swinv2-v1",
+      "wd-v1-4-moat-tagger.v2",
+      "wd-v1-4-vit-tagger.v3",
+      "wd14-vit.v3.large",
+      "wd-v1-4-convnext-tagger.v3",
+      "wd-v1-4-swinv2-tagger.v3",
+      "mld-caformer.dec-5-97527",
+      "mld-tresnetd.6-30000",
+      "Z3D-E621-Convnext"
+    ],
+    "selected_model": null,
+    "a": {"status": "not_run", "confidences": {}},
+    "b": {"status": "not_run", "confidences": {}}
+  },
+  "manual_operations": {
+    "after_forge_ready": 0,
+    "diagnostic_only": 0,
+    "stage10_per_experiment": null,
+    "measurement_status": "not_measurable_api_blocked"
+  },
+  "persistent_changes": {
+    "forge_settings_changed": false,
+    "options_post": false,
+    "model_switch": false,
+    "dependency_or_extension_change": false,
+    "forge_restart": false,
+    "protected_repository_paths_changed": false
+  },
+  "verdict": "BLOCKED",
+  "blocker": "BLOCKED_API_DISABLED",
+  "agent_scheduler": "HOLD",
+  "next_gap": "Controlled non-concurrent Forge Neo session with temporary --api launch argument or already API-enabled runtime",
+  "production_verdict": null
+}
