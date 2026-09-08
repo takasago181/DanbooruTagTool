@@ -8,47 +8,53 @@ Rule version: R2
 ## Current position
 - Target: 2,788 Specials
 - Completed Special-level first pass: 100
+- Effective counts: PASS 84 / FIX 9 / REVIEW 3 / IMAGE_TEST_REQUIRED 4
 - Batch 1 first-pass: COMPLETE
-- Batch 1 R2 acceptance gate: FAILED
-- Batch 1 R2 revalidation checkpoint: 80 / 100
-- Next Batch 1 revalidation position: 81
-- Next new Special sequence position: 101 (BLOCKED)
-- Revalidation queue remains pending until full Batch 1 gate acceptance: 100 entries
-- Effective first-pass counts before gate acceptance: PASS 84 / FIX 9 / REVIEW 3 / IMAGE_TEST_REQUIRED 4
+- Batch 1 full R2 revalidation: 100 / 100 COMPLETE
+- Batch 1 R2 acceptance gate: PASS
+- Revalidation queue pending: 0 (all 100 entries resolved or evidence-parked)
+- PASS false-PASS sample: 20 checked, 0 new false-PASS after revalidation
+- Historical false-PASS: 1 (ID88, S risk; explicitly superseded)
 - Semantic-support frozen target: 58 rows; covered: 9
-- False-PASS found: 1 (S risk; ID88)
+- Next first-pass Special sequence: 101
+- Next external batch: 2 (101-200)
 - Production modified: NO
 
-## Fail root cause
-ID88 `masturbation` omitted enabled CORE_SUPPORT+ADDITIVE `solo` from its immutable 81-100 verdict. R2 requires deep review of default-on additive support; effective ID88 state is IMAGE_TEST_REQUIRED pending controlled A/B. Sequence101 stays blocked until the complete Batch1 gate passes.
+## Batch 1 root cause and correction
+ID88 `masturbation` originally recorded PASS while enabled CORE_SUPPORT+ADDITIVE `solo` was omitted from the Special-level sidecar-aware verdict. R2 correctly classified this as an S-risk false-PASS. The immutable first-pass block remains unchanged; `revalidation_results.csv` / `revalidation_blocks/0081_0100.csv` supersede effective ID88 state to IMAGE_TEST_REQUIRED pending controlled A/B.
 
-## R2 revalidation checkpoints
-### 1-20
-No new false-PASS. IDs16/17/19 remain IMAGE_TEST_REQUIRED; ID20 A-priority PASS retained.
+The root cause was addressed by full R2 sidecar-aware revalidation of sequences1-100. No additional false-PASS was found.
 
-### 21-40
-No new false-PASS. IDs22/40 remain REVIEW. IDs34/36 retain narrowed ActorRequirementOverride FIX. IDs21/25 remain conservative A-priority PASS.
+## Revalidation checkpoints
+- 1-20: complete. IDs16/17/19 remain IMAGE_TEST_REQUIRED; ID20 A-priority PASS retained.
+- 21-40: complete. IDs22/40 remain REVIEW; IDs34/36 narrowed ActorRequirement FIX retained.
+- 41-60: complete in `revalidation_blocks/0041_0060.csv`. ID55 REVIEW retained; IDs49/50/57/58/59 FIX candidates retained.
+- 61-80: complete in `revalidation_blocks/0061_0080.csv`. No new false-PASS/FIX; A-priority structure/alias rows retained without generation overclaim.
+- 81-100: complete in `revalidation_blocks/0081_0100.csv`. ID88 -> IMAGE_TEST_REQUIRED; IDs92/94 ImplementRequirement FIX retained.
 
-### 41-60
-No new false-PASS. ID55 remains REVIEW; IDs49/50/57/58/59 retain existing A-priority FIX candidates after schema/Stage10 cross-check. Stored in `revalidation_blocks/0041_0060.csv`.
+## PASS sampling gate
+`pass_sampling_batch1_r2.csv` records the deterministic 20-row audit:
+- all 13 effective A-priority PASS rows in Batch1
+- 7 fixed spread B-priority PASS controls
+- new false-PASS: 0
 
-### 61-80
-No new false-PASS or FIX.
-- ID65 `upright 69`: A-priority static pose/composition structure retained; no auto-support claim.
-- IDs66/67 `fuck`/`fucking`: ALIAS_PRESERVE retained as identity policy; canonical/Alias image-response equivalence remains Stage10 HOLD.
-- IDs68-80 semantic/search concepts remain conservative and do not claim direct model equivalence.
-Stored in `revalidation_blocks/0061_0080.csv`.
+Therefore Batch1 acceptance gate is PASS and sequence101 may begin.
+
+## Effective unresolved/candidates after Batch1
+- IMAGE_TEST_REQUIRED: IDs16,17,19,88
+- REVIEW: IDs22,40,55
+- FIX candidates: IDs34,36,49,50,57,58,59,92,94
+These are explicitly parked/resolved in `revalidation_queue.csv`; they do not block first-pass continuation.
 
 ## Semantic-support coverage
-Frozen rows1-9 are explicitly audited: IDs16/17/19 default-on CORE_SUPPORT+ADDITIVE rows and ID88 `solo` are IMAGE_TEST_REQUIRED; ID88 optional pose alternatives are static PASS as optional choices only.
-
-## Preserved unresolved/candidates
-- IMAGE_TEST_REQUIRED: 16,17,19,88
-- REVIEW: 22,40,55
-- FIX candidates: 34,36,49,50,57,58,59,92,94
+Frozen rows1-9 are audited:
+- IDs16/17/19 CORE_SUPPORT+ADDITIVE -> IMAGE_TEST_REQUIRED
+- ID88 `solo` CORE_SUPPORT+ADDITIVE -> IMAGE_TEST_REQUIRED
+- ID88 optional pose alternatives -> static PASS as optional choices only
+Global coverage remains 9/58. Continue row-complete sidecar audit as associated Specials are encountered; final promotion remains blocked until 58/58.
 
 ## Exact restart
-Resume Batch1 R2 revalidation at sequence81. Keep all 100 queue entries pending until complete 1-100 revalidation and final Batch1 gate. Do not process sequence101 yet.
+Resume first-pass at sequence101 under R2. Process 101-200 with 20-row checkpoints. For any associated semantic-support row, record it in `semantic_support_results.csv` before accepting the Special-level verdict. At 200, run the full 100-row consistency + deterministic PASS sampling gate. Do not modify main/production.
 
 ## Durable ledgers
-`RESULT_LEDGER_INDEX.csv`, `results_blocks/`, `revalidation_results.csv`, `revalidation_blocks/`, `candidate_fixes.csv`, `revalidation_queue.csv`, `semantic_support_results.csv`, `progress.json`, `handoff.md`.
+`RESULT_LEDGER_INDEX.csv`, `results_blocks/`, `revalidation_results.csv`, `revalidation_blocks/`, `pass_sampling_batch1_r2.csv`, `candidate_fixes.csv`, `revalidation_queue.csv`, `semantic_support_results.csv`, `progress.json`, `handoff.md`.
