@@ -13,3 +13,4 @@ start_sequence,end_sequence,path,rule_version,row_count,status,notes
 221,240,validation_quarantine/results_blocks/0221_0240.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
 241,260,validation_quarantine/results_blocks/0241_0260.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
 261,280,validation_quarantine/results_blocks/0261_0280.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
+281,300,validation_quarantine/results_blocks/0281_0300.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; Batch3 gate PASS
