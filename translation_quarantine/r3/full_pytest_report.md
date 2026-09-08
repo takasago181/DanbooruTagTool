@@ -1,10 +1,10 @@
 # R3 full pytest capture
 
 - verdict: `ENVIRONMENT_BLOCKED`
-- setup errors: `52`
+- setup errors: `61`
 - call failures: `0`
-- exception types: `{'BaseException': 52, 'PermissionError': 52, 'WinError': 52}`
-- root causes: `{'WINDOWS_ACL_TEMP_SETUP': 52}`
+- exception types: `{'BaseException': 61, 'PermissionError': 61, 'WinError': 61}`
+- root causes: `{'WINDOWS_ACL_TEMP_SETUP': 61}`
 
 ## First three setup errors
 
@@ -12,7 +12,7 @@
 
 ```text
 cls = <class '_pytest.runner.CallInfo'>
-func = <function call_and_report.<locals>.<lambda> at 0x00000273FE2C7100>
+func = <function call_and_report.<locals>.<lambda> at 0x000001FE7F09AFC0>
 when = 'setup'
 reraise = (<class '_pytest.outcomes.Exit'>, <class 'KeyboardInterrupt'>)
 
@@ -94,9 +94,19 @@ C:\Users\takas\AppData\Local\Python\pythoncore-3.12-64\Lib\site-packages\_pytest
 C:\Users\takas\AppData\Local\Python\pythoncore-3.12-64\Lib\site-packages\_pytest\tmpdir.py:251: in _mk_tmp
     return factory.mktemp(name, numbered=True)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-C:\Users\takas\AppData\Local\Python\pythoncore-3.12-64\Lib\site-packages\_pytest\tmpdir.py:135: in mktemp
-    p = make_numbered_dir(root=self.getbasetemp(), prefix=basename, mode=0o700)
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\takas\AppData\Local\Python\pythoncore-3.12-64\Lib\site-packages\_pytest\tmpdir.py:130: in mktemp
+    basename = self._ensure_relative_to_basetemp(basename)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\takas\AppData\Local\Python\pythoncore-3.12-64\Lib\site-packages\_pytest\tmpdir.py:111: in _ensure_relative_to_basetemp
+    if (self.getbasetemp() / basename).resolve().parent != self.getbasetemp():
+        ^^^^^^^^^^^^^^^^^^
+C:\Users\takas\AppData\Local\Python\pythoncore-3.12-64\Lib\site-packages\_pytest\tmpdir.py:186: in getbasetemp
+    basetemp = make_numbered_dir_with_cleanup(
+C:\Users\takas\AppData\Local\Python\pythoncore-3.12-64\Lib\site-packages\_pytest\pathlib.py:407: in make_numbered_dir_with_cleanup
+    raise e
+C:\Users\takas\AppData\Local\Python\pythoncore-3.12-64\Lib\site-packages\_pytest\pathlib.py:388: in make_numbered_dir_with_cleanup
+    p = make_numbered_dir(root, prefix, mode)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 C:\Users\takas\AppData\Local\Python\pythoncore-3.12-64\Lib\site-packages\_pytest\pathlib.py:229: in make_numbered_dir
     max_existing = max(map(parse_num, find_suffixes(root, prefix)), default=-1)
                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -105,15 +115,15 @@ C:\Users\takas\AppData\Local\Python\pythoncore-3.12-64\Lib\site-packages\_pytest
                  ^^^^
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 
-root = WindowsPath('C:/Codex/DanbooruTagTool/.pytest-r3-audit-final2')
-prefix = 'test_absent_empty_and_unknown_'
+root = WindowsPath('C:/Users/takas/AppData/Local/Temp/pytest-of-takas')
+prefix = 'pytest-'
 
     def find_prefixed(root: Path, prefix: str) -> Iterator[os.DirEntry[str]]:
         """Find all elements in root that begin with the prefix, case-insensitive."""
         l_prefix = prefix.lower()
 >       for x in os.scandir(root):
                  ^^^^^^^^^^^^^^^^
-E       PermissionError: [WinError 5] アクセスが拒否されました。: 'C:\\Codex\\DanbooruTagTool\\.pytest-r3-audit-final2'
+E       PermissionError: [WinError 5] アクセスが拒否されました。: 'C:\\Users\\takas\\AppData\\Local\\Temp\\pytest-of-takas'
 
 C:\Users\takas\AppData\Local\Python\pythoncore-3.12-64\Lib\site-packages\_pytest\pathlib.py:176: PermissionError
 ```
@@ -122,7 +132,7 @@ C:\Users\takas\AppData\Local\Python\pythoncore-3.12-64\Lib\site-packages\_pytest
 
 ```text
 cls = <class '_pytest.runner.CallInfo'>
-func = <function call_and_report.<locals>.<lambda> at 0x000002739E4C4B80>
+func = <function call_and_report.<locals>.<lambda> at 0x000001FE1D058D60>
 when = 'setup'
 reraise = (<class '_pytest.outcomes.Exit'>, <class 'KeyboardInterrupt'>)
 
@@ -204,9 +214,19 @@ C:\Users\takas\AppData\Local\Python\pythoncore-3.12-64\Lib\site-packages\_pytest
 C:\Users\takas\AppData\Local\Python\pythoncore-3.12-64\Lib\site-packages\_pytest\tmpdir.py:251: in _mk_tmp
     return factory.mktemp(name, numbered=True)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-C:\Users\takas\AppData\Local\Python\pythoncore-3.12-64\Lib\site-packages\_pytest\tmpdir.py:135: in mktemp
-    p = make_numbered_dir(root=self.getbasetemp(), prefix=basename, mode=0o700)
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\takas\AppData\Local\Python\pythoncore-3.12-64\Lib\site-packages\_pytest\tmpdir.py:130: in mktemp
+    basename = self._ensure_relative_to_basetemp(basename)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\takas\AppData\Local\Python\pythoncore-3.12-64\Lib\site-packages\_pytest\tmpdir.py:111: in _ensure_relative_to_basetemp
+    if (self.getbasetemp() / basename).resolve().parent != self.getbasetemp():
+        ^^^^^^^^^^^^^^^^^^
+C:\Users\takas\AppData\Local\Python\pythoncore-3.12-64\Lib\site-packages\_pytest\tmpdir.py:186: in getbasetemp
+    basetemp = make_numbered_dir_with_cleanup(
+C:\Users\takas\AppData\Local\Python\pythoncore-3.12-64\Lib\site-packages\_pytest\pathlib.py:407: in make_numbered_dir_with_cleanup
+    raise e
+C:\Users\takas\AppData\Local\Python\pythoncore-3.12-64\Lib\site-packages\_pytest\pathlib.py:388: in make_numbered_dir_with_cleanup
+    p = make_numbered_dir(root, prefix, mode)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 C:\Users\takas\AppData\Local\Python\pythoncore-3.12-64\Lib\site-packages\_pytest\pathlib.py:229: in make_numbered_dir
     max_existing = max(map(parse_num, find_suffixes(root, prefix)), default=-1)
                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -215,15 +235,15 @@ C:\Users\takas\AppData\Local\Python\pythoncore-3.12-64\Lib\site-packages\_pytest
                  ^^^^
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 
-root = WindowsPath('C:/Codex/DanbooruTagTool/.pytest-r3-audit-final2')
-prefix = 'test_malformed_profiles_reject'
+root = WindowsPath('C:/Users/takas/AppData/Local/Temp/pytest-of-takas')
+prefix = 'pytest-'
 
     def find_prefixed(root: Path, prefix: str) -> Iterator[os.DirEntry[str]]:
         """Find all elements in root that begin with the prefix, case-insensitive."""
         l_prefix = prefix.lower()
 >       for x in os.scandir(root):
                  ^^^^^^^^^^^^^^^^
-E       PermissionError: [WinError 5] アクセスが拒否されました。: 'C:\\Codex\\DanbooruTagTool\\.pytest-r3-audit-final2'
+E       PermissionError: [WinError 5] アクセスが拒否されました。: 'C:\\Users\\takas\\AppData\\Local\\Temp\\pytest-of-takas'
 
 C:\Users\takas\AppData\Local\Python\pythoncore-3.12-64\Lib\site-packages\_pytest\pathlib.py:176: PermissionError
 ```
@@ -232,7 +252,7 @@ C:\Users\takas\AppData\Local\Python\pythoncore-3.12-64\Lib\site-packages\_pytest
 
 ```text
 cls = <class '_pytest.runner.CallInfo'>
-func = <function call_and_report.<locals>.<lambda> at 0x000002739E4C6340>
+func = <function call_and_report.<locals>.<lambda> at 0x000001FE1D05A0C0>
 when = 'setup'
 reraise = (<class '_pytest.outcomes.Exit'>, <class 'KeyboardInterrupt'>)
 
@@ -314,9 +334,19 @@ C:\Users\takas\AppData\Local\Python\pythoncore-3.12-64\Lib\site-packages\_pytest
 C:\Users\takas\AppData\Local\Python\pythoncore-3.12-64\Lib\site-packages\_pytest\tmpdir.py:251: in _mk_tmp
     return factory.mktemp(name, numbered=True)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-C:\Users\takas\AppData\Local\Python\pythoncore-3.12-64\Lib\site-packages\_pytest\tmpdir.py:135: in mktemp
-    p = make_numbered_dir(root=self.getbasetemp(), prefix=basename, mode=0o700)
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\takas\AppData\Local\Python\pythoncore-3.12-64\Lib\site-packages\_pytest\tmpdir.py:130: in mktemp
+    basename = self._ensure_relative_to_basetemp(basename)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\takas\AppData\Local\Python\pythoncore-3.12-64\Lib\site-packages\_pytest\tmpdir.py:111: in _ensure_relative_to_basetemp
+    if (self.getbasetemp() / basename).resolve().parent != self.getbasetemp():
+        ^^^^^^^^^^^^^^^^^^
+C:\Users\takas\AppData\Local\Python\pythoncore-3.12-64\Lib\site-packages\_pytest\tmpdir.py:186: in getbasetemp
+    basetemp = make_numbered_dir_with_cleanup(
+C:\Users\takas\AppData\Local\Python\pythoncore-3.12-64\Lib\site-packages\_pytest\pathlib.py:407: in make_numbered_dir_with_cleanup
+    raise e
+C:\Users\takas\AppData\Local\Python\pythoncore-3.12-64\Lib\site-packages\_pytest\pathlib.py:388: in make_numbered_dir_with_cleanup
+    p = make_numbered_dir(root, prefix, mode)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 C:\Users\takas\AppData\Local\Python\pythoncore-3.12-64\Lib\site-packages\_pytest\pathlib.py:229: in make_numbered_dir
     max_existing = max(map(parse_num, find_suffixes(root, prefix)), default=-1)
                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -325,15 +355,15 @@ C:\Users\takas\AppData\Local\Python\pythoncore-3.12-64\Lib\site-packages\_pytest
                  ^^^^
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 
-root = WindowsPath('C:/Codex/DanbooruTagTool/.pytest-r3-audit-final2')
-prefix = 'test_malformed_profiles_reject'
+root = WindowsPath('C:/Users/takas/AppData/Local/Temp/pytest-of-takas')
+prefix = 'pytest-'
 
     def find_prefixed(root: Path, prefix: str) -> Iterator[os.DirEntry[str]]:
         """Find all elements in root that begin with the prefix, case-insensitive."""
         l_prefix = prefix.lower()
 >       for x in os.scandir(root):
                  ^^^^^^^^^^^^^^^^
-E       PermissionError: [WinError 5] アクセスが拒否されました。: 'C:\\Codex\\DanbooruTagTool\\.pytest-r3-audit-final2'
+E       PermissionError: [WinError 5] アクセスが拒否されました。: 'C:\\Users\\takas\\AppData\\Local\\Temp\\pytest-of-takas'
 
 C:\Users\takas\AppData\Local\Python\pythoncore-3.12-64\Lib\site-packages\_pytest\pathlib.py:176: PermissionError
 ```
@@ -354,6 +384,15 @@ The complete records are in `full_pytest_report.json`.
 - `setup` `tests/test_generation_profile.py::test_v2_metadata_does_not_change_fixture_statistics[192]`: `WINDOWS_ACL_TEMP_SETUP` / `['BaseException', 'PermissionError', 'WinError']`
 - `setup` `tests/test_generation_profile.py::test_v2_metadata_does_not_change_fixture_statistics[1578]`: `WINDOWS_ACL_TEMP_SETUP` / `['BaseException', 'PermissionError', 'WinError']`
 - `setup` `tests/test_generation_profile.py::test_v2_metadata_does_not_change_fixture_statistics[1117]`: `WINDOWS_ACL_TEMP_SETUP` / `['BaseException', 'PermissionError', 'WinError']`
+- `setup` `tests/test_r3_issue41_bridge_discovery.py::test_exact_identity_overlap_only`: `WINDOWS_ACL_TEMP_SETUP` / `['BaseException', 'PermissionError', 'WinError']`
+- `setup` `tests/test_r3_issue41_bridge_status.py::test_bridge_status_guard_blocks_unresolved_and_missing_status`: `WINDOWS_ACL_TEMP_SETUP` / `['BaseException', 'PermissionError', 'WinError']`
+- `setup` `tests/test_r3_issue41_bridge_status.py::test_bridge_status_guard_all_explicit_resolved_is_ready`: `WINDOWS_ACL_TEMP_SETUP` / `['BaseException', 'PermissionError', 'WinError']`
+- `setup` `tests/test_r3_issue41_bridge_status.py::test_bridge_status_guard_reads_v2_json_object_rows`: `WINDOWS_ACL_TEMP_SETUP` / `['BaseException', 'PermissionError', 'WinError']`
+- `setup` `tests/test_r3_issue41_bridge_status.py::test_bridge_status_guard_rejects_json_object_without_rows`: `WINDOWS_ACL_TEMP_SETUP` / `['BaseException', 'PermissionError', 'WinError']`
+- `setup` `tests/test_r3_issue41_bridge_status.py::test_bridge_status_guard_rejects_unknown_status`: `WINDOWS_ACL_TEMP_SETUP` / `['BaseException', 'PermissionError', 'WinError']`
+- `setup` `tests/test_r3_issue41_effective_risk.py::test_override_validation_rejects_downgrade_duplicate_unknown_and_nonfrozen`: `WINDOWS_ACL_TEMP_SETUP` / `['BaseException', 'PermissionError', 'WinError']`
+- `setup` `tests/test_r3_issue41_effective_risk.py::test_fixed_membership_and_ordinals_are_preserved`: `WINDOWS_ACL_TEMP_SETUP` / `['BaseException', 'PermissionError', 'WinError']`
+- `setup` `tests/test_r3_issue41_normalize_evidence.py::test_normalize_69_approved_plus_31_review`: `WINDOWS_ACL_TEMP_SETUP` / `['BaseException', 'PermissionError', 'WinError']`
 - `setup` `tests/test_ruleset2_integration.py::test_model_aux_local_source_rules_and_final_gate`: `WINDOWS_ACL_TEMP_SETUP` / `['BaseException', 'PermissionError', 'WinError']`
 - `setup` `tests/test_stage0_integrity.py::test_protected_check_rejects_missing_modified_and_unexpected_sources[none]`: `WINDOWS_ACL_TEMP_SETUP` / `['BaseException', 'PermissionError', 'WinError']`
 - `setup` `tests/test_stage0_integrity.py::test_protected_check_rejects_missing_modified_and_unexpected_sources[missing]`: `WINDOWS_ACL_TEMP_SETUP` / `['BaseException', 'PermissionError', 'WinError']`

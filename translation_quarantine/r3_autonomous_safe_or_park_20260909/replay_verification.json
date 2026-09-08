@@ -1,0 +1,19 @@
+{
+  "artifact_hashes": {
+    "propositions": "sha256:b83cf89e52aa85035f869c0e935139cb2af857a2d7e182036dfb686451489136",
+    "provenance": "sha256:0e4984b02d27669991edd05ac5821c23cd304dec801efcdc892787176cf25149",
+    "search": "sha256:bf65340e21f6617a70598eb5af3b0bafc2713380b08e7138ae4de09ff9c8d07c",
+    "semantic_gates": "sha256:e50fb7c1686a7e8324b112977ff9ca0b4417e85ecc1a6599178a10519f0593a1",
+    "source_ledger": "sha256:70b43d60682bfc79d969d33cd643863f0ef4f8d7869a94088903ffc06f0daaef",
+    "terminal": "sha256:d48d11e9cf9919391c152865ee5267292f98c59bde121321e794a1a192ef54f4",
+    "validations": "sha256:f7013026e6e1efa267262687c682db483a29e75f17b87c2e85026f23db46a0b5",
+    "wording": "sha256:4955fc7bd6d9880ca21551fcc507724b95b3936dfe42a6e6cc3c0c50d7eaf945"
+  },
+  "exhaustion_ledger_replayed": true,
+  "live_fetch": false,
+  "original_vs_replay1": "PASS",
+  "original_vs_replay2": "PASS",
+  "replay1_vs_replay2": "PASS",
+  "source_mode": "frozen_only",
+  "verdict": "PASS"
+}

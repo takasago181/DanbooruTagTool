@@ -1,0 +1,9 @@
+{
+  "content_identity": "sha256:7e46f7f3655846a4f6ea2d1990e015701cbff5b123bdf8ef1809668f8a375ef5",
+  "official_blob": "974bb9c971caf632f8ec73dff39fe4c55e60efaa",
+  "read_only": true,
+  "required_count": 7,
+  "resolved_count": 7,
+  "snapshot_path": "translation_quarantine/r3_bulk_canary/issue32_snapshot_v2.json",
+  "state": "READY"
+}

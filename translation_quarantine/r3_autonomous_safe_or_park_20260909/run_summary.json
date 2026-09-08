@@ -1,0 +1,134 @@
+{
+  "bridge32": {
+    "content_identity": "sha256:7e46f7f3655846a4f6ea2d1990e015701cbff5b123bdf8ef1809668f8a375ef5",
+    "official_blob": "974bb9c971caf632f8ec73dff39fe4c55e60efaa",
+    "read_only": true,
+    "required_count": 7,
+    "resolved_count": 7,
+    "state": "READY"
+  },
+  "campaign_id": "issue36-autonomous-safe-or-park-20260909-v1",
+  "contradiction_canonicals": [],
+  "counts": {
+    "CONTRADICTION": 0,
+    "PARK": 542,
+    "READY": 14,
+    "REVIEW": 542,
+    "SAFE": 14
+  },
+  "exact_source_acquisition": {
+    "frozen_route_records": 556,
+    "frozen_snapshot_reused": "translation_quarantine/r3_restricted_routes_20260909/wiki_evidence.jsonl",
+    "http_200_exact": 148,
+    "live_fetch_performed": false,
+    "retries_of_frozen_exhausted_routes": 0
+  },
+  "false_ready_count": 0,
+  "input_unresolved_rows": 556,
+  "new_ready_used_as_teacher": false,
+  "production_modified": false,
+  "promotion": "NOT_AUTHORIZED",
+  "protected_boundary_changed": false,
+  "protected_boundary_verdict": "PASS",
+  "ready_canonicals": [
+    "blazer",
+    "christmas",
+    "clothes_lift",
+    "crescent",
+    "extra_ears",
+    "eyeshadow",
+    "finger_to_mouth",
+    "high_ponytail",
+    "juliet_sleeves",
+    "maid_headdress",
+    "necktie",
+    "night",
+    "scarf",
+    "sunglasses"
+  ],
+  "replay": {
+    "artifact_hashes": {
+      "propositions": "sha256:b83cf89e52aa85035f869c0e935139cb2af857a2d7e182036dfb686451489136",
+      "provenance": "sha256:0e4984b02d27669991edd05ac5821c23cd304dec801efcdc892787176cf25149",
+      "search": "sha256:bf65340e21f6617a70598eb5af3b0bafc2713380b08e7138ae4de09ff9c8d07c",
+      "semantic_gates": "sha256:e50fb7c1686a7e8324b112977ff9ca0b4417e85ecc1a6599178a10519f0593a1",
+      "source_ledger": "sha256:70b43d60682bfc79d969d33cd643863f0ef4f8d7869a94088903ffc06f0daaef",
+      "terminal": "sha256:d48d11e9cf9919391c152865ee5267292f98c59bde121321e794a1a192ef54f4",
+      "validations": "sha256:f7013026e6e1efa267262687c682db483a29e75f17b87c2e85026f23db46a0b5",
+      "wording": "sha256:4955fc7bd6d9880ca21551fcc507724b95b3936dfe42a6e6cc3c0c50d7eaf945"
+    },
+    "exhaustion_ledger_replayed": true,
+    "live_fetch": false,
+    "original_vs_replay1": "PASS",
+    "original_vs_replay2": "PASS",
+    "replay1_vs_replay2": "PASS",
+    "source_mode": "frozen_only",
+    "verdict": "PASS"
+  },
+  "review_canonicals_file": "terminal_states.jsonl",
+  "review_count": 542,
+  "risk_decision_counts": {
+    "CRITICAL": {
+      "REVIEW": 9
+    },
+    "LOW": {
+      "READY": 14,
+      "REVIEW": 448
+    },
+    "MEDIUM": {
+      "REVIEW": 85
+    }
+  },
+  "schema_version": "issue36-autonomous-safe-or-park-summary-v1",
+  "search_gate_counts": {
+    "PARKED": 542,
+    "READY": 14
+  },
+  "semantic_gate_counts": {
+    "READY_FOR_WORDING_SEARCH_GATE": 162,
+    "REVIEW": 394
+  },
+  "source_route_counts": {
+    "additional_allowlisted_exact_canonical_adapters": {
+      "EXHAUSTED": 556
+    },
+    "danbooru_exact_canonical_wiki": {
+      "EXHAUSTED": 408,
+      "REUSED_FROZEN_USABLE": 148
+    },
+    "local_exact_assets": {
+      "EXHAUSTED": 451,
+      "REUSED_FROZEN_USABLE": 105
+    },
+    "minimal_search_term": {
+      "EXHAUSTED": 542,
+      "REUSED_FROZEN_USABLE": 14
+    },
+    "wording_evidence": {
+      "EXHAUSTED": 542,
+      "REUSED_FROZEN_USABLE": 14
+    }
+  },
+  "stop_reasons": {
+    "contradiction": 0,
+    "false_ready": 0,
+    "replay_failure": 0,
+    "route_exhaustion_or_insufficient_evidence": 542
+  },
+  "top_residual_review_reasons": {
+    "CANONICAL_WIDTH_UNSPECIFIED": 470,
+    "EXACT_CANONICAL_AUTHORITY_UNAVAILABLE": 408,
+    "IDENTITY_OR_TITLE_MISMATCH": 408,
+    "MULTIPLE_WORDING_CANDIDATES": 18,
+    "NO_INDEPENDENT_DISPLAY_CANDIDATE": 119,
+    "PROPOSITION_AMBIGUOUS": 6,
+    "PROPOSITION_INCOMPLETE": 485,
+    "SEMANTIC_SCOPE_NOT_ESTABLISHED": 394,
+    "UNNATURAL_OR_EXPLANATORY_WORDING": 11,
+    "WORDING_GATE_NOT_READY": 542
+  },
+  "wording_gate_counts": {
+    "PARKED": 542,
+    "READY": 14
+  }
+}
