@@ -35,3 +35,4 @@ start_sequence,end_sequence,path,rule_version,row_count,status,notes
 661,680,validation_quarantine/results_blocks/0661_0680.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; ID680 S-risk self-action correction
 681,700,validation_quarantine/results_blocks/0681_0700.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; Batch7 gate PASS
 701,720,validation_quarantine/results_blocks/0701_0720.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; 8 FIX / 2 REVIEW
+721,740,validation_quarantine/results_blocks/0721_0740.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; 5 FIX
