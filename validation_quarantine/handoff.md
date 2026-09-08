@@ -7,20 +7,19 @@ Rule version: R2
 
 ## Current position
 - Target: 2,788 Specials
-- Special-level first pass checkpointed through: 980
-- Cumulative effective verdicts: PASS 734 / FIX 131 / REVIEW 99 / IMAGE_TEST_REQUIRED 16
-- Batch 1-9 R2 acceptance gates: PASS
-- Batch 10: partial (901-980 checkpointed)
+- Special-level first pass checkpointed through: 1000
+- Cumulative effective verdicts: PASS 738 / FIX 136 / REVIEW 110 / IMAGE_TEST_REQUIRED 16
+- Batch 1-10 R2 acceptance gates: PASS
 - Revalidation pending: 0
 - Semantic-support frozen target: 58 rows; durable audited coverage: 53
-- Next first-pass sequence: 981
+- Next first-pass sequence: 1001
 - Production modified: NO
 
-## Batch 10 partial
-Ranges 901-980 are durably stored in 20-row blocks with matching candidate-fix and revalidation-queue checkpoint blocks.
+## Batch 10 complete
+Batch10 (901-1000): PASS 25 / FIX 23 / REVIEW 52 / IMAGE_TEST_REQUIRED 0.
+Five 20-row blocks reconcile exactly 100 unique contiguous sequences. Deterministic PASS re-audit sampled 10/25, including every surviving A-risk PASS, and found 0 new false-PASS. Evidence: `pass_sampling_batch10_r2.csv` and `batch10_integrity_r2.md`.
 
-Latest 961-980 delta: PASS 6 / FIX 3 / REVIEW 11 / IMAGE_TEST_REQUIRED 0.
-New quarantine-only structural candidates: IDs961,964,974. PROVISIONAL/ambiguous rows remain REVIEW. No revalidation item added.
+Latest quarantine-only structural candidates from 981-1000 include IDs983,985,991,997,999. Ambiguous PROVISIONAL rows remain REVIEW rather than guessed corrections. No revalidation item was added.
 
 Semantic-support coverage remains 53/58; remaining frozen rows belong to later Special IDs 1159, 1823, and 1839.
 
@@ -33,4 +32,4 @@ Semantic-support coverage remains 53/58; remaining frozen rows belong to later S
 - Special2788 exact identity remains first-class.
 
 ## Exact restart
-Resume first-pass at sequence 981. Batch10 gate remains pending until sequence1000. Checkpoint every20. Do not modify production/main.
+Resume first-pass at sequence 1001. Checkpoint every20. Do not modify production/main.
