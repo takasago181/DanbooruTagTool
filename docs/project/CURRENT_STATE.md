@@ -43,10 +43,13 @@ Stage 9 overall Gate 完了 / Stage10 準備Gate実施中 / automated E2E PASS
   - Special2788-centered代表性、rare/niche、relation / actor-target / body-site binding、multiple-Special、support-dependent visibilityをテスト方式へ反映。
   - routing思想: unsupported/low-confidence=`REVIEW`、traceability/infrastructure欠損=`BLOCKED`、simple/relational/composite/rare/model-familyを1つのglobal confidence/margin thresholdへ統合しない。
   - design authority: `docs/testing/ISSUE30_SPECIAL_REPRESENTATIVE_ROUTING_DESIGN_20260908.md`
+- Issue #38 `[UI-JA][CROSS] Translation automation R3 spec + blind pilot review`: KNOWLEDGE / PROMPT contracts返却済み、R3 test implementation specへhandoff済み。Issue #39が実装・検証の後続担当。
 - 常設班: 開発 / 監査 / 知識 / Prompt の4班。
 - 別働横断班: ツール本体UIおよび翻訳改善班（Issue #34）。
 
 ## Active Work / Issues
+
+### ACTIVE NOW
 
 - 現在activeなDEV実装Issue: **#35 `[UI][DEV] Japanese-first desktop UI pass (dictionary frozen)`**。
   - parent: #34 UI-JA cross-team。
@@ -55,11 +58,9 @@ Stage 9 overall Gate 完了 / Stage10 準備Gate実施中 / automated E2E PASS
   - Final Prompt以外は日本語がある場合 `日本語 / canonical`、ない場合 `日本語未登録 / canonical`。
   - recommendation/search ranking semanticsとStage9 composition semanticsは変更しない。
   - 実装後real Windows Tk screenshot/manual inspection必須。
-- #5 `[Stage10][PROMPT] Formal handoff pending`
-  - #4 KNOWLEDGE handoff受領済み。
-  - #37共同結論を受領。
-  - Prompt構造、A/B質問、support-isolation、replacement workflowの準備は進めてよい。
-  - final representative Special IDs、Tagger割当、AUTO/REVIEW最終routing、production thresholdは辞書freeze後までHOLD。
+- #32 `[DICT-VALIDATION] Special2788 generation metadata full validation (quarantine)`
+  - production inputs read-onlyの長期品質監査。
+  - Stage10 final dictionary freezeへ向けた意味/生成メタデータ検証。
 - #30 `[Stage10-PREP][TEMP] Forge Neo A/B automation & external-tool integration`
   - Stage10本番A/Bの手作業を可能な限り減らす臨時担当。
   - external / existing tool first。
@@ -69,9 +70,28 @@ Stage 9 overall Gate 完了 / Stage10 準備Gate実施中 / automated E2E PASS
   - generic contact-sheet taskは次のproduct-representative stepとして**PAUSED / SUPERSEDED**。
   - 次に進めてよいのはSpecial-representative test method / capability-routed routing設計まで。
   - final test data / evaluator allocationは辞書freeze + KNOWLEDGE coverage返却待ち。
+
+### WAITING / GATED
+
+- #39 `[UI-JA][DEV-QUEUED] R3 translation automation test engine + unseen 100 / blind30 harness`
+  - Issue #40 architecture verdictを反映したbridge32条件を維持。
+  - full-suite `240 passed / 52 setup errors` はWinError 5証跡不足のためAUDIT HOLD。
+  - #35をCURRENT_DEV_TASKから置き換えない。
+- #5 `[Stage10][PROMPT] Formal handoff pending`
+  - #4 KNOWLEDGE handoff受領済み。
+  - #37共同結論を受領。
+  - Prompt構造、A/B質問、support-isolation、replacement workflowの準備は進めてよい。
+  - final representative Special IDs、Tagger割当、AUTO/REVIEW最終routing、production thresholdは辞書freeze後までHOLD。
+- #36 `[UI-JA][DATA] Japanese overlay coverage audit + priority expansion (quarantine)`
+  - production Japanese dataはfreezeしたまま候補/検証を継続。
+  - #39 R3 gateと独立監査後にpromotion可否を判断。
 - #34 `[UI-JA][CROSS] Tool UI / Japanese translation quality improvement`
-  - 常設4班とは別の横断改善班。
-  - 現在は辞書内容改善を凍結し#35でUI-first改善を先行。
+  - UI-JA全体parent。#35 / #36 / #39の親管理Issueとして継続。
+
+### BACKLOG / MAINTENANCE
+
+- #24 `[Maintenance][DEV] Local protected data backup / restore verification`
+  - Stage10 blockerではない保守タスク。
 
 ## Not Started / Do Not Start Yet
 
@@ -121,16 +141,25 @@ Stage10本番開始前に最低限必要:
 - GitHub Actions CIは未導入。#28 PASSはlocal protected-data environmentの実Tk証跡。
 - #30のForge API/A/B/metadata/WD14配管blockerは解消済み。
 - #30の残blockerはfinal dictionary freeze後のevaluator coverage、representative Special確定、capability別routing妥当性、REVIEW fallback校正。
+- #39はWinError 5 setup-error grouping/log evidence待ち。architecture #40 PASSを#39 PASSと解釈しない。
 - WD14をSpecial2788全体のground truthにしない。
 - unusual anatomy系Specialへ `bad anatomy / extra limbs / extra arms` 等を無条件適用しない。別A/B項目。
 - #34/#35はStage10開始Gateそのものではないが、現行UIを完成UIとして扱わない。
+
+## Issue Hygiene
+
+- Issue番号は履歴・参照のため振り直さない。
+- 新規Issueは、owner / scope / lifecycle / Gateのいずれかが既存Issueから独立して管理する必要がある場合に限る。
+- 単なる途中経過、再監査、結果返却、同一task内の次ステップは原則として既存Issueのcheckpointコメントで継続し、不要にIssue番号を増やさない。
+- 完了条件を満たし、後続Issueまたは正本へ結果がhandoff済みのIssueはcloseして履歴として保持する。
+- `CURRENT_STATE.md` では `ACTIVE NOW / WAITING / BACKLOG` を分け、通常作業者が全履歴Issueを追わなくて済む状態を維持する。
 
 ## Source-of-Truth Rule
 
 - このファイルは現在地の正本。
 - 実作業・完了条件・結果は対応Issueに残す。
 - active DEV Issueが存在する場合のみ `docs/project/CURRENT_DEV_TASK.md` を現行DEV Issue本文の同期ミラーとして使う。
-- 現在activeなDEV Issueは **#35**。#30/#37がCURRENT_DEV_TASKを上書きしない。
+- 現在activeなDEV Issueは **#35**。#30/#32/#39がCURRENT_DEV_TASKを上書きしない。
 - 共有管理ファイルは最新mainを取得してから更新し、stale copyで上書きしない。
 - Codex完了報告だけで次Gateへ進まない。
 - 仕様変更は `DECISIONS.md` またはStage仕様へ反映する。
