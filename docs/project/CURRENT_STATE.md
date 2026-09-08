@@ -75,7 +75,9 @@ Stage 9 overall Gate 完了 / Stage10 準備Gate実施中 / automated E2E PASS
 
 - #39 `[UI-JA][DEV-QUEUED] R3 translation automation test engine + unseen 100 / blind30 harness`
   - Issue #40 architecture verdictを反映したbridge32条件を維持。
-  - full-suite `240 passed / 52 setup errors` はWinError 5証跡不足のためAUDIT HOLD。
+  - full-suiteの52 setup errorsは全件Windows ACL / WinError 5と証跡化済み。`FULL_PYTEST = ENVIRONMENT_BLOCKED`、call-phase failure 0。
+  - search-safety reworkはPASS。残HOLDは#40 controlled-bridge契約の薄いpatch 1件。
+  - bridge patch PASS前にreal frozen evidence / blind30 quality auditへ進まない。
   - #35をCURRENT_DEV_TASKから置き換えない。
 - #5 `[Stage10][PROMPT] Formal handoff pending`
   - #4 KNOWLEDGE handoff受領済み。
@@ -87,6 +89,21 @@ Stage 9 overall Gate 完了 / Stage10 準備Gate実施中 / automated E2E PASS
   - #39 R3 gateと独立監査後にpromotion可否を判断。
 - #34 `[UI-JA][CROSS] Tool UI / Japanese translation quality improvement`
   - UI-JA全体parent。#35 / #36 / #39の親管理Issueとして継続。
+
+### RESERVED NEXT DEV — production data promotion / integration
+
+- 次のproduction data反映は**DEV班の予約作業**とする。新Issueは現時点では作らず、実際にpromotion-readyになった時点で必要なら1本だけDEV Issueを起動する。
+- 対象は2 lane:
+  1. #32 Special辞書検証の承認済みproduction promotion（Special2788 generation metadata / semantic-support等）
+  2. #36/#39 UI-JAの承認済みproduction promotion（Japanese display/search overlay等）
+- 2 laneを同時完了待ちにはしない。**先に独立promotion gateを満たしたlaneからDEVが順次反映**する。
+- production書き込み・mergeは必ず直列化する。同時promotionは禁止。
+- #32 laneの反映は、2,788/2,788 + frozen semantic-support全件 + revalidation解消/明示park + false-PASS gate + candidate cross-consistency + separate final promotion audit PASS後。
+- UI-JA laneの反映は、R3 bridge/fresh100/blind30 gate + false READY 0 + stale/contradiction解消 + separate overlay promotion audit PASS後。
+- 各promotionはDEVが実施し、protected integrity / deterministic build or overlay generation / focused + regression + full feasible suite / real Windows UI確認を行い、AUDITが反映後差分を独立確認する。
+- #32 production promotion完了後に**final Special2788 dictionary freeze**とし、そのsnapshotをKNOWLEDGEのWD14 / Kagami-24k / CL Tagger v2 coverage比較へ渡す。UI-JAの完了を待ってStage10 core準備を止めない。
+- UI-JA promotionはStage10 core Gateと独立して進めてよいが、他のproduction変更と衝突する場合は後ろへ直列化する。
+- この予約は#35の現行task contract / `CURRENT_DEV_TASK.md`を変更しない。#35完了前にpromotion DEVへ切り替えない。
 
 ### BACKLOG / MAINTENANCE
 
@@ -122,17 +139,20 @@ Stage10本番開始前に最低限必要:
 9. metadata保存方法定義 — **SATISFIED for Issue #6 baseline / handoff**
 10. model family差を保持し未検証共通化していないこと
 11. 実際に使ったPromptを各画像/結果へ追跡できること — **SATISFIED for Issue #6 baseline / handoff**
-12. final Special2788 dictionary freeze後、KNOWLEDGEがWD14 / Kagami-24k / CL Tagger v2 coverageを比較しPROMPT/#30へ返却
-13. `docs/stages/STAGE_10_PREP.md` の残チェックを満たすこと
+12. #32 promotion audit PASS → DEV production反映 → final Special2788 dictionary freeze
+13. final Special2788 dictionary freeze後、KNOWLEDGEがWD14 / Kagami-24k / CL Tagger v2 coverageを比較しPROMPT/#30へ返却
+14. `docs/stages/STAGE_10_PREP.md` の残チェックを満たすこと
 
 ## Next Actions
 
 1. #35 UI-only改善を継続し、real Windows Tk screenshot/manual inspectionを実施。`data/**`は変更しない。
-2. #30は `docs/testing/ISSUE30_SPECIAL_REPRESENTATIVE_ROUTING_DESIGN_20260908.md` に従い、test method / routing architectureのみ整理する。
-3. 辞書関連作業完了・final Special2788 freeze後、KNOWLEDGEがWD14 EVA02 v3 / Kagami-24k / CL Tagger v2 stable/fixed releaseの2,788 coverage比較を実施する。
-4. coverage返却後、PROMPTがfinal representative Special/caseを確定し、#30がcapability別AUTO/REVIEW routingを校正する。
-5. #5へ#30最終結果・正式Specialデータ・実験仕様・自動化運用を反映する。
-6. 全Gate完了後のみStage10本番A/Bへ移行する。
+2. #32はfull validation / final promotion auditまで継続。PASS後、予約済みDEV promotionを起動し、production反映後にSpecial2788をfreezeする。
+3. #36/#39はR3 bridge → fresh100 → blind30 → overlay promotion auditまで継続。PASS後、予約済みDEV promotionでproduction Japanese overlayへ反映する。
+4. #30は `docs/testing/ISSUE30_SPECIAL_REPRESENTATIVE_ROUTING_DESIGN_20260908.md` に従い、test method / routing architectureのみ整理する。
+5. final Special2788 freeze後、KNOWLEDGEがWD14 EVA02 v3 / Kagami-24k / CL Tagger v2 stable/fixed releaseの2,788 coverage比較を実施する。
+6. coverage返却後、PROMPTがfinal representative Special/caseを確定し、#30がcapability別AUTO/REVIEW routingを校正する。
+7. #5へ#30最終結果・正式Specialデータ・実験仕様・自動化運用を反映する。
+8. 全Gate完了後のみStage10本番A/Bへ移行する。
 
 ## Blocking / Unknown
 
@@ -141,7 +161,7 @@ Stage10本番開始前に最低限必要:
 - GitHub Actions CIは未導入。#28 PASSはlocal protected-data environmentの実Tk証跡。
 - #30のForge API/A/B/metadata/WD14配管blockerは解消済み。
 - #30の残blockerはfinal dictionary freeze後のevaluator coverage、representative Special確定、capability別routing妥当性、REVIEW fallback校正。
-- #39はWinError 5 setup-error grouping/log evidence待ち。architecture #40 PASSを#39 PASSと解釈しない。
+- #39 full pytestは`ENVIRONMENT_BLOCKED`。call-phase failure 0の証跡あり。残HOLDはcontrolled-bridge contract patch。
 - WD14をSpecial2788全体のground truthにしない。
 - unusual anatomy系Specialへ `bad anatomy / extra limbs / extra arms` 等を無条件適用しない。別A/B項目。
 - #34/#35はStage10開始Gateそのものではないが、現行UIを完成UIとして扱わない。
@@ -159,7 +179,7 @@ Stage10本番開始前に最低限必要:
 - このファイルは現在地の正本。
 - 実作業・完了条件・結果は対応Issueに残す。
 - active DEV Issueが存在する場合のみ `docs/project/CURRENT_DEV_TASK.md` を現行DEV Issue本文の同期ミラーとして使う。
-- 現在activeなDEV Issueは **#35**。#30/#32/#39がCURRENT_DEV_TASKを上書きしない。
+- 現在activeなDEV Issueは **#35**。#30/#32/#39および予約済みfuture promotion taskがCURRENT_DEV_TASKを上書きしない。
 - 共有管理ファイルは最新mainを取得してから更新し、stale copyで上書きしない。
 - Codex完了報告だけで次Gateへ進まない。
 - 仕様変更は `DECISIONS.md` またはStage仕様へ反映する。
