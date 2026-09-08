@@ -8,7 +8,7 @@ on:
       - .github/workflows/issue41-v2-rerun-once.yml
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   verify-issue41-v2:
@@ -51,6 +51,7 @@ jobs:
           assert payload['snapshot_immutable'] is True
           assert payload['content_identity'] == expected_identity
           assert payload['content_identity_rule'] == 'SHA-256 over canonical JSON ordered row identities (canonical, row content_identity, meaning_fingerprint, meaning_relevant_status) in authoritative #41 overlap order.'
+          assert payload['meaning_fingerprint_rule'] == 'SHA-256 over canonical JSON of translation_visible_semantics only. Generation-only metadata is excluded.'
 
           expected = ['bara', 'fishnets', 'loli', 'fellatio', 'pussy', 'anal', 'bound']
           assert payload['authoritative_overlap_order'] == expected
@@ -62,6 +63,14 @@ jobs:
           assert all(r['snapshot_immutable'] is True for r in rows)
           assert all(r['meaning_relevant_status'] == 'RESOLVED' for r in rows)
           assert all(r['conflict_signal'] is False for r in rows)
+          for r in rows:
+              semantic_json = json.dumps(
+                  r['translation_visible_semantics'],
+                  ensure_ascii=False,
+                  sort_keys=True,
+                  separators=(',', ':'),
+              ).encode('utf-8')
+              assert 'sha256:' + hashlib.sha256(semantic_json).hexdigest() == r['meaning_fingerprint']
 
           identities = [
               {
@@ -77,21 +86,52 @@ jobs:
           ).encode('utf-8')
           calculated = 'sha256:' + hashlib.sha256(canonical_json).hexdigest()
           assert calculated == expected_identity, (calculated, expected_identity)
-          print('snapshot_validation=PASS commit=PASS blob=PASS content_identity=PASS')
+          print('snapshot_validation=PASS commit=PASS blob=PASS content_identity=PASS meaning_fingerprints=7/7')
           print('bridge_contract=PASS rows=7 resolved=7 conflicts=0 frozen_pinned_immutable=7/7')
           PY
 
           echo "ISSUE41_SNAPSHOT=$SNAP_OUT" >> "$GITHUB_ENV"
 
+      - name: Apply native v2 R3 consumer patch
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+
+          p = Path('translation_quarantine/r3/r3_common.py')
+          text = p.read_text(encoding='utf-8')
+
+          old = '''def issue32_fingerprint(record: Mapping[str, Any]) -> str:\n    """Hash only translation-relevant #32 propositions."""\n\n    selected = issue32_propositions(record)\n    if not selected and "meaning_fingerprint" in record:\n        return str(record["meaning_fingerprint"])\n    return json_hash(selected)\n'''
+          new = '''def issue32_fingerprint(record: Mapping[str, Any]) -> str:\n    """Hash only translation-relevant #32 propositions."""\n\n    # Issue #32 bridge v2 defines its meaning fingerprint over the exact\n    # ``translation_visible_semantics`` object and uses a ``sha256:`` prefix.\n    # Keep the legacy projection/hash contract unchanged for older fixtures.\n    native_semantics = record.get("translation_visible_semantics")\n    if isinstance(native_semantics, Mapping) and native_semantics:\n        return f"sha256:{json_hash(dict(native_semantics))}"\n\n    selected = issue32_propositions(record)\n    if not selected and "meaning_fingerprint" in record:\n        return str(record["meaning_fingerprint"])\n    return json_hash(selected)\n'''
+          assert text.count(old) == 1, 'issue32_fingerprint patch anchor mismatch'
+          text = text.replace(old, new)
+
+          old = '''    aliases = {\n'''
+          new = '''    native_semantics = record.get("translation_visible_semantics")\n    if isinstance(native_semantics, Mapping) and native_semantics:\n        return dict(native_semantics)\n\n    aliases = {\n'''
+          assert text.count(old) == 1, 'issue32_propositions patch anchor mismatch'
+          text = text.replace(old, new, 1)
+
+          old = '''    return any(record.get(field) is True for field in (\n        "bridge_conflict", "independent_semantic_conflict", "semantic_conflict",\n    ))\n'''
+          new = '''    return any(record.get(field) is True for field in (\n        "conflict_signal", "bridge_conflict", "independent_semantic_conflict", "semantic_conflict",\n    ))\n'''
+          assert text.count(old) == 1, 'bridge_conflict patch anchor mismatch'
+          text = text.replace(old, new)
+
+          p.write_text(text, encoding='utf-8', newline='\n')
+          PY
+          git diff --check -- translation_quarantine/r3/r3_common.py
+
       - name: Install focused test dependency
         shell: bash
         run: python -m pip install pytest
 
-      - name: Run focused bridge consumer tests
+      - name: Run focused v2 consumer tests
         shell: bash
         run: |
           set -euo pipefail
-          python -m pytest -q tests/test_r3_issue41_bridge_status.py
+          python -m pytest -q \
+            tests/test_r3_issue41_bridge_status.py \
+            tests/test_r3_issue41_v2_contract.py
 
       - name: Run existing Issue 41 pipeline with v2
         shell: bash
@@ -105,19 +145,33 @@ jobs:
           p = Path('translation_quarantine/r3/issue41_pipeline_summary.json')
           s = json.loads(p.read_text(encoding='utf-8'))
           g = s['bridge_status_guard']
+          assert g['state'] == 'READY'
           assert g['required_count'] == 7
           assert g['resolved_count'] == 7
           assert g['blocked_count'] == 0
+          assert s['bridge_availability_counts'].get('AVAILABLE') == 7
           assert s['bridge_availability_blocked_count'] == 0
           assert s['blind30_state'] == 'BUILT'
           assert s['blind30_selected'] == 30
           assert s['production_modified'] is False
           assert s['remaining_925_processed'] is False
           assert s['stage10_production_ab_started'] is False
-          print('bridge_guard=PASS required=7 resolved=7 blocked=0')
+          print('bridge_guard=PASS required=7 resolved=7 blocked=0 available=7')
           print('blind30=BUILT selected=30')
           print('effective_risk=', json.dumps(s.get('effective_risk'), sort_keys=True))
           PY
+
+      - name: Commit tested native v2 consumer support
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add translation_quarantine/r3/r3_common.py
+          if ! git diff --cached --quiet; then
+            git commit -m '#41: consume native v2 meaning fingerprints'
+            git push origin HEAD:ui-ja/issue41-pilot
+          fi
 
       - name: Run deterministic replay verifier
         shell: bash
