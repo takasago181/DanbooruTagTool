@@ -2,11 +2,11 @@
 
 ## Status
 
-- Phase: baseline coverage inventory
+- Phase: baseline coverage inventory COMPLETE
 - Rule: R1
 - Branch: `ui-ja/japanese-overlay-quarantine`
 - Production modified: NO
-- Baseline run: NOT STARTED
+- Baseline run: COMPLETE (read-only protected-data run)
 
 ## Start point
 
@@ -18,9 +18,28 @@ Before any measurement:
 3. Confirm production Japanese overlay is read-only.
 4. Read Issue #36 and `COVERAGE_RULES.md`.
 
-## First required output
+## Phase 0 result
 
-Populate `coverage_summary.json` and `missing_candidates.csv` from a reproducible baseline run. Report the exact measurable universe/proxy and limitations.
+`coverage_summary.json` and `missing_candidates.csv` are populated from a reproducible
+read-only run. The exact measurable universes, proxies, lane memberships, rates,
+ranking separation, #32 overlap, and protected input hashes are recorded in the
+JSON artifact.
+
+- Protected root: `C:\Codex\DanbooruTagTool`
+- Overlay: display canonical entries `0`; search canonical entries `15,228`
+  (`25,140` search terms)
+- General runtime/canonical proxy: `30,629`; display Japanese `0/30,629`,
+  search Japanese `4,641/30,629`
+- Documented recommendation probe `anal AND butt_plug`: base `3,735`, full
+  candidate pool `5,918`; common surface `8`, rare surface `5`
+- Semantic-support reachable union: `41` canonical candidates
+- Deduplicated missing union: `30,629`; queue `P0 1,025 / P1 4,910 / P2 24,694`
+- No translation wording was generated; proposal columns remain blank.
+
+The recommendation pool is a documented production parity probe, not an exhaustive
+all-Core recommendation universe. General is a runtime/canonical proxy, not an
+exhaustive search reachability claim for all raw runtime tags. Lane totals report
+display coverage as Japaneseあり/なし and search coverage separately.
 
 ## Known manual evidence
 
@@ -31,3 +50,6 @@ The same screenshot also showed unrelated General results such as `piano` / `ana
 ## Parallel overlap
 
 #32 may inspect some of the same canonical tags in semantic/generation context. #36 must treat those tags only as Japanese display/search coverage records and must not reuse wording as evidence for #32 generation verdicts.
+
+Phase 0 is complete and must STOP here. Do not generate translation wording or
+promote any row to production from this branch.

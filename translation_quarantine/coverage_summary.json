@@ -1,24 +1,426 @@
 {
   "issue": 36,
-  "rule_version": "R1",
-  "status": "BASELINE_NOT_RUN",
-  "production_modified": false,
-  "measurable_universe": null,
-  "display_by_canonical": {
-    "entries": null
-  },
-  "search_by_canonical": {
-    "entries": null
+  "issue32_overlap": {
+    "meaning_unchanged": true,
+    "note": "Overlap is a Japanese coverage intersection only; #32 verdicts, meaning, and validation state are not modified or reinterpreted.",
+    "overlap_canonicals": [
+      "feet",
+      "footjob",
+      "handjob",
+      "kneeling",
+      "on_back",
+      "penis",
+      "sitting",
+      "solo"
+    ],
+    "overlap_with_phase0_missing_union": 8,
+    "source_path": "validation_quarantine/semantic_support_results.csv",
+    "source_ref": "origin/dict-validation/quarantine",
+    "source_rows": 9,
+    "unique_candidate_canonicals": 8
   },
   "lanes": {
-    "general_or_proxy": null,
-    "statistical_recommendation": null,
-    "semantic_support": null,
-    "manual_auxiliary_or_proxy": null
+    "general_or_proxy": {
+      "display_ja": {
+        "covered": 0,
+        "missing": 30629,
+        "rate": 0.0
+      },
+      "entries": 30629,
+      "japanese": {
+        "covered": 0,
+        "missing": 30629,
+        "rate": 0.0
+      },
+      "search_ja": {
+        "covered": 4641,
+        "missing": 25988,
+        "rate": 0.15152306637500407
+      }
+    },
+    "manual_auxiliary_or_proxy": {
+      "display_ja": {
+        "covered": 0,
+        "missing": 13,
+        "rate": 0.0
+      },
+      "entries": 13,
+      "japanese": {
+        "covered": 0,
+        "missing": 13,
+        "rate": 0.0
+      },
+      "search_ja": {
+        "covered": 9,
+        "missing": 4,
+        "rate": 0.6923076923076923
+      }
+    },
+    "semantic_support": {
+      "display_ja": {
+        "covered": 0,
+        "missing": 41,
+        "rate": 0.0
+      },
+      "entries": 41,
+      "japanese": {
+        "covered": 0,
+        "missing": 41,
+        "rate": 0.0
+      },
+      "search_ja": {
+        "covered": 26,
+        "missing": 15,
+        "rate": 0.6341463414634146
+      }
+    },
+    "statistical_recommendation": {
+      "display_ja": {
+        "covered": 0,
+        "missing": 5918,
+        "rate": 0.0
+      },
+      "entries": 5918,
+      "japanese": {
+        "covered": 0,
+        "missing": 5918,
+        "rate": 0.0
+      },
+      "search_ja": {
+        "covered": 1773,
+        "missing": 4145,
+        "rate": 0.29959445758702263
+      }
+    }
   },
-  "union": null,
+  "measurement": {
+    "canonical_total": 124016,
+    "general_proxy": {
+      "display_ja": {
+        "covered": 0,
+        "missing": 30629,
+        "rate": 0.0
+      },
+      "entries": 30629,
+      "japanese": {
+        "covered": 0,
+        "missing": 30629,
+        "rate": 0.0
+      },
+      "search_ja": {
+        "covered": 4641,
+        "missing": 25988,
+        "rate": 0.15152306637500407
+      }
+    },
+    "general_proxy_definition": "category=0 canonicals with nonempty canonical_overlay source_tag_ids in protected Stage 5 runtime index",
+    "manual_auxiliary_or_proxy": {
+      "canonicals": [
+        "1girl",
+        "anal_ball_wear",
+        "anal_object_insertion",
+        "anal_tail",
+        "ass",
+        "blush",
+        "breasts",
+        "heart_butt_plug",
+        "holding_butt_plug",
+        "jewel_butt_plug",
+        "object_insertion",
+        "sex_toy",
+        "tail"
+      ],
+      "definition": "union of rows actually surfaced by the documented probe's common/rare UI limits; each is manually addable in the current UI",
+      "surface": {
+        "display_ja": {
+          "covered": 0,
+          "missing": 13,
+          "rate": 0.0
+        },
+        "entries": 13,
+        "japanese": {
+          "covered": 0,
+          "missing": 13,
+          "rate": 0.0
+        },
+        "search_ja": {
+          "covered": 9,
+          "missing": 4,
+          "rate": 0.6923076923076923
+        }
+      }
+    },
+    "recommendation_probe": {
+      "base_count": 3735,
+      "common_surface": {
+        "display_ja": {
+          "covered": 0,
+          "missing": 8,
+          "rate": 0.0
+        },
+        "entries": 8,
+        "japanese": {
+          "covered": 0,
+          "missing": 8,
+          "rate": 0.0
+        },
+        "search_ja": {
+          "covered": 6,
+          "missing": 2,
+          "rate": 0.75
+        }
+      },
+      "common_surface_canonicals": [
+        "sex_toy",
+        "object_insertion",
+        "anal_object_insertion",
+        "1girl",
+        "breasts",
+        "ass",
+        "tail",
+        "blush"
+      ],
+      "common_surface_limit": 8,
+      "core": [
+        "anal",
+        "butt_plug"
+      ],
+      "full_pool": {
+        "display_ja": {
+          "covered": 0,
+          "missing": 5918,
+          "rate": 0.0
+        },
+        "entries": 5918,
+        "japanese": {
+          "covered": 0,
+          "missing": 5918,
+          "rate": 0.0
+        },
+        "search_ja": {
+          "covered": 1773,
+          "missing": 4145,
+          "rate": 0.29959445758702263
+        }
+      },
+      "rare_surface": {
+        "display_ja": {
+          "covered": 0,
+          "missing": 5,
+          "rate": 0.0
+        },
+        "entries": 5,
+        "japanese": {
+          "covered": 0,
+          "missing": 5,
+          "rate": 0.0
+        },
+        "search_ja": {
+          "covered": 3,
+          "missing": 2,
+          "rate": 0.6
+        }
+      },
+      "rare_surface_canonicals": [
+        "heart_butt_plug",
+        "jewel_butt_plug",
+        "holding_butt_plug",
+        "anal_ball_wear",
+        "anal_tail"
+      ],
+      "rare_surface_limit": 5
+    },
+    "recommendation_proxy_definition": "full RecommendationEngine candidate pool for the documented production parity probe anal AND butt_plug; not exhaustive",
+    "runtime_index_snapshot_id": "nyanko-devs/danbooru2026@ebb02a630201c7b51487e45fb90b3fcf4cbedc20:metadata/posts-snapshot.parquet",
+    "runtime_total_posts": 11218362,
+    "semantic_support": {
+      "definition": "unique canonicals returned by the production SupportKnowledgeStore for every Special ID; enabled explicit/family rows only at runtime",
+      "family_rows_enabled": 1,
+      "family_rows_total": 1,
+      "special_rows_enabled": 58,
+      "special_rows_total": 58,
+      "unique_candidate_canonicals": {
+        "display_ja": {
+          "covered": 0,
+          "missing": 41,
+          "rate": 0.0
+        },
+        "entries": 41,
+        "japanese": {
+          "covered": 0,
+          "missing": 41,
+          "rate": 0.0
+        },
+        "search_ja": {
+          "covered": 26,
+          "missing": 15,
+          "rate": 0.6341463414634146
+        }
+      }
+    },
+    "semantic_total": 336,
+    "special_total": 2788
+  },
   "notes": [
-    "Populate only from a reproducible read-only run against the real protected-data environment.",
-    "Do not claim exhaustive General-search reachability unless it is deterministically measurable."
-  ]
+    "No translation text was generated; proposal columns remain blank.",
+    "General coverage is a deterministic runtime/canonical proxy, not an exhaustive search reachability claim for all raw runtime tags.",
+    "Recommendation coverage beyond the documented probe is unmeasured in Phase 0; the full probe pool is a reachable-candidate proxy.",
+    "Japaneseあり/なし lane totals are display coverage; search coverage is reported separately in every lane."
+  ],
+  "overlay": {
+    "display_by_canonical": {
+      "canonical_entries": 0,
+      "japanese_missing_in_overlay_entries": 15228,
+      "japanese_present": 0
+    },
+    "search_by_canonical": {
+      "canonical_entries": 15228,
+      "search_terms": 25140
+    }
+  },
+  "priority_queue": {
+    "counts": {
+      "P0": 1025,
+      "P1": 4910,
+      "P2": 24694
+    },
+    "high_usage_general_count": 1000,
+    "high_usage_general_definition": "top 1000 by protected runtime_global_count descending, canonical ascending tie-break",
+    "p0_surface_seed_canonicals": {
+      "common": [
+        "sex_toy",
+        "object_insertion",
+        "anal_object_insertion",
+        "1girl",
+        "breasts",
+        "ass",
+        "tail",
+        "blush"
+      ],
+      "rare": [
+        "heart_butt_plug",
+        "jewel_butt_plug",
+        "holding_butt_plug",
+        "anal_ball_wear",
+        "anal_tail"
+      ],
+      "semantic_support_count": 41
+    },
+    "rows": 30629
+  },
+  "production_modified": false,
+  "protected_data_read_path": "C:\\Codex\\DanbooruTagTool",
+  "protected_input_sha256": {
+    "data/runtime/japanese_overlay.json": "de1b375d79ef05f4c2477347b20b8a09115511d2ecbd39602bdebcdfa6d576dc",
+    "data/runtime_index/BUILD_MANIFEST.json": "0f7ec4961c393a4c032f23a2d3e22b9268b7e481bfd91e788fec6379411fb13f",
+    "data/runtime_index/canonical_overlay.json": "bf9a62105740ec579ea0618721b78a0d3ccc2279cf18aabf402c3083ede05195",
+    "data/semantic/family_support_rules.csv": "59609aadc82f9f4be97b82008159b55e4d738f41dbb9625c59be8a826fe7c4fd",
+    "data/semantic/semantic_support_profiles.csv": "33f9142333db867d53096cf2f11ba411aefa13996560326fa174803a2d8c2755"
+  },
+  "ranking_issue_separated": {
+    "classification": "SEARCH_RANKING_ISSUE_NOT_TRANSLATION_COVERAGE",
+    "note": "These results are recorded as the requested ranking/noise separation. No search or recommendation logic was changed, and their appearance for anal did not assign translation priority.",
+    "query": "anal",
+    "returned_count": 49,
+    "terms": {
+      "analog_clock": {
+        "display": "missing",
+        "display_ja": null,
+        "group": "All Danbooru",
+        "match_type": "prefix",
+        "rank_in_limit_50": 27,
+        "search": "missing",
+        "search_terms": []
+      },
+      "analogous_colors": {
+        "display": "missing",
+        "display_ja": null,
+        "group": "All Danbooru",
+        "match_type": "prefix",
+        "rank_in_limit_50": 28,
+        "search": "covered",
+        "search_terms": [
+          "るいじしょく"
+        ]
+      },
+      "canal": {
+        "display": "missing",
+        "display_ja": null,
+        "group": "All Danbooru",
+        "match_type": "partial",
+        "rank_in_limit_50": 37,
+        "search": "missing",
+        "search_terms": []
+      },
+      "piano": {
+        "display": "missing",
+        "display_ja": null,
+        "group": "All Danbooru",
+        "match_type": "prefix",
+        "rank_in_limit_50": 26,
+        "search": "covered",
+        "search_terms": [
+          "ピアノ"
+        ]
+      }
+    }
+  },
+  "rule_version": "R1",
+  "specific_coverage": {
+    "1girl": {
+      "display": "missing",
+      "display_ja": null,
+      "search": "covered",
+      "search_terms": [
+        "おんなのこ",
+        "ガール",
+        "ガールズイラスト",
+        "女の子"
+      ]
+    },
+    "blush": {
+      "display": "missing",
+      "display_ja": null,
+      "search": "covered",
+      "search_terms": [
+        "頬染め"
+      ]
+    },
+    "nipples": {
+      "display": "missing",
+      "display_ja": null,
+      "search": "missing",
+      "search_terms": []
+    },
+    "penis": {
+      "display": "missing",
+      "display_ja": null,
+      "search": "covered",
+      "search_terms": [
+        "おちんちん",
+        "ちんこ",
+        "チンコ",
+        "ペニス",
+        "黒チンポ"
+      ]
+    },
+    "sex": {
+      "display": "missing",
+      "display_ja": null,
+      "search": "covered",
+      "search_terms": [
+        "キスハメ",
+        "セックス",
+        "トイレセックス",
+        "中出し"
+      ]
+    }
+  },
+  "status": "PHASE0_COMPLETE",
+  "union": {
+    "canonical_entries": 30629,
+    "missing_display": 30629,
+    "missing_search": 25988,
+    "missing_total_deduplicated": 30629
+  }
 }
