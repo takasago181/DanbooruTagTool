@@ -1,0 +1,160 @@
+{
+  "bridge32": {
+    "content_identity": "sha256:7e46f7f3655846a4f6ea2d1990e015701cbff5b123bdf8ef1809668f8a375ef5",
+    "official_blob": "974bb9c971caf632f8ec73dff39fe4c55e60efaa",
+    "required_count": 7,
+    "resolved_count": 7,
+    "state": "READY"
+  },
+  "campaign_id": "issue36-r3-restricted-routes-20260909-v1",
+  "counts": {
+    "CONTRADICTION": 0,
+    "READY": 47,
+    "REVIEW": 557
+  },
+  "evaluated_batch_counts": {
+    "REVIEW": 556
+  },
+  "evidence_source_counts": {
+    "danbooru_exact_canonical_wiki": 556,
+    "local_overlay_wording_candidate": 78,
+    "pinned_candidate_queue": 556,
+    "prior_frozen_semantic_scope": 105
+  },
+  "false_ready": 0,
+  "final_ready_canonicals": [
+    "areola_slip",
+    "bare_arms",
+    "bare_legs",
+    "bdsm",
+    "bent_over",
+    "blood",
+    "blue_sky",
+    "bottomless",
+    "bra",
+    "camisole",
+    "clothing_aside",
+    "corset",
+    "covering_privates",
+    "cowgirl_position",
+    "drooling",
+    "erection",
+    "female_pubic_hair",
+    "garter_straps",
+    "girl_on_top",
+    "groping",
+    "hetero",
+    "hood_down",
+    "lingerie",
+    "midriff",
+    "no_panties",
+    "off_shoulder",
+    "on_side",
+    "open_clothes",
+    "oral",
+    "paizuri",
+    "piercing",
+    "restrained",
+    "revealing_clothes",
+    "saliva",
+    "see-through_clothes",
+    "side_slit",
+    "sideboob",
+    "skirt_lift",
+    "sleeves_rolled_up",
+    "strap_slip",
+    "testicles",
+    "thong",
+    "topless_female",
+    "topless_male",
+    "underwear_only",
+    "undressing",
+    "zettai_ryouiki"
+  ],
+  "focused_reaudit": {
+    "action": "PARK_PREVIOUS_READY_ROW",
+    "candidate": "無修正を示す語",
+    "candidate_content_identity": "07584b365d5a68dbadd3f5e80859e768c2718b18746e32de02ce4b8bd60935e3",
+    "candidate_source_type": "local_exact_authoritative_reference_wording",
+    "canonical": "uncensored",
+    "checks": {
+      "natural_display_wording": false,
+      "not_narrowing_or_broadening": true,
+      "not_slang": true,
+      "search_equivalence_proof": true,
+      "single_candidate": true
+    },
+    "new_ready_teacher": false,
+    "prior_row_state": "READY",
+    "reason_codes": [
+      "UNNATURAL_EXPLANATORY_WORDING",
+      "DISPLAY_WORDING_NOT_ESTABLISHED"
+    ],
+    "result": "REVIEW",
+    "scope_status": "EXACT_CANONICAL_SCOPE_RETAINS_VALIDITY"
+  },
+  "new_ready_canonicals": [],
+  "new_ready_used_as_teacher": false,
+  "parked_count": 557,
+  "parked_reason_counts": {
+    "AUTHORITATIVE_SCOPE_UNAVAILABLE": 330,
+    "DISPLAY_WORDING_NOT_ESTABLISHED": 557,
+    "MULTIPLE_CANDIDATES": 24,
+    "NARROWING_OR_BROADENING_OR_AMBIGUOUS": 6,
+    "NO_SUPPORTED_DISPLAY_CANDIDATE": 75,
+    "SEMANTIC_PROPOSITION_REVIEW_REQUIRED": 121,
+    "SEMANTIC_SCOPE_NOT_ESTABLISHED": 451,
+    "UNNATURAL_EXPLANATORY_WORDING": 1
+  },
+  "parked_route_decision_count": 1565,
+  "production_modified": false,
+  "promotion": "NOT_AUTHORIZED",
+  "protected_boundary_changed": false,
+  "replay": "PASS",
+  "residual_review_reason_distribution": {
+    "AUTHORITATIVE_SCOPE_UNAVAILABLE": 330,
+    "DISPLAY_WORDING_NOT_ESTABLISHED": 1,
+    "MULTIPLE_CANDIDATES": 24,
+    "NARROWING_OR_BROADENING_OR_AMBIGUOUS": 6,
+    "NO_SAFE_SEARCH_CANDIDATE": 556,
+    "NO_SUPPORTED_DISPLAY_CANDIDATE": 75,
+    "SEMANTIC_PROPOSITION_REVIEW_REQUIRED": 121,
+    "SEMANTIC_SCOPE_NOT_ESTABLISHED": 451,
+    "UNNATURAL_EXPLANATORY_WORDING": 1
+  },
+  "risk_ready_counts": {
+    "CRITICAL": 1,
+    "LOW": 45,
+    "MEDIUM": 1
+  },
+  "route_counts": {
+    "minimal_search_term": {
+      "accepted": 0,
+      "parked": 556,
+      "processed": 556
+    },
+    "semantic_scope_acquisition": {
+      "exact_wiki_acquired_pending_review": 121,
+      "parked": 451,
+      "prior_scope_established": 105,
+      "processed": 556
+    },
+    "wording_only": {
+      "eligible": 105,
+      "parked_or_ineligible": 556,
+      "processed": 556,
+      "safe_candidates": 0
+    }
+  },
+  "route_reason_notes": "HIGH/CRITICAL exact authority is required; all newly acquired wiki pages remain parked pending proposition review. Existing overlay/search assets are wording candidates only.",
+  "schema_version": "issue36-restricted-routes-summary-1",
+  "source_campaign": "translation_quarantine/r3_bulk_review_reduction",
+  "source_review_rows": 556,
+  "verifier": "PASS",
+  "wiki_acquisition": {
+    "content_identity_required": true,
+    "http_200_exact": 148,
+    "records": 556,
+    "unavailable_or_mismatch": 408
+  }
+}

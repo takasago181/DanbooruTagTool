@@ -1,0 +1,22 @@
+{
+  "action": "PARK_PREVIOUS_READY_ROW",
+  "candidate": "無修正を示す語",
+  "candidate_content_identity": "07584b365d5a68dbadd3f5e80859e768c2718b18746e32de02ce4b8bd60935e3",
+  "candidate_source_type": "local_exact_authoritative_reference_wording",
+  "canonical": "uncensored",
+  "checks": {
+    "natural_display_wording": false,
+    "not_narrowing_or_broadening": true,
+    "not_slang": true,
+    "search_equivalence_proof": true,
+    "single_candidate": true
+  },
+  "new_ready_teacher": false,
+  "prior_row_state": "READY",
+  "reason_codes": [
+    "UNNATURAL_EXPLANATORY_WORDING",
+    "DISPLAY_WORDING_NOT_ESTABLISHED"
+  ],
+  "result": "REVIEW",
+  "scope_status": "EXACT_CANONICAL_SCOPE_RETAINS_VALIDITY"
+}

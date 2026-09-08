@@ -1,0 +1,9 @@
+{
+  "ok": true,
+  "original_vs_rerun1": "PASS",
+  "original_vs_rerun2": "PASS",
+  "production_modified": false,
+  "rerun1_vs_rerun2": "PASS",
+  "schema_version": "issue36-restricted-routes-verification-1",
+  "self_grade": "NOT_PERFORMED"
+}
