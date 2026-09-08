@@ -1,0 +1,4 @@
+sequence,special_id,tag,rule_version,risk_priority,problem_fields,proposed_change,reason,evidence_refs,status
+1044,1044,sucking both nipples,R2,A,BodypartRequirementOverride,BodypartRequirementOverride=true,intrinsic named bodypart target,generation_profile;generation_family_rules,QUARANTINE_CANDIDATE
+1054,1054,cooperative nipple licking,R2,A,BodypartRequirementOverride,BodypartRequirementOverride=true,named bodypart target omitted while actor/spatial present,generation_profile;generation_profile:ID102,QUARANTINE_CANDIDATE
+1060,1060,own cum in mouth,R2,S,ActorRequirementOverride+BodypartRequirementOverride+SpatialAssignmentOverride+SpecialFlags,actor=true; bodypart=true; spatial=true; SELF_ACTOR_ROLE,explicit self ownership and mouth target,generation_profile;generation_family_rules,QUARANTINE_CANDIDATE
