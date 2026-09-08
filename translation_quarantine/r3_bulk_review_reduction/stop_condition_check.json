@@ -1,0 +1,9 @@
+{
+  "bridge_failure": false,
+  "contradictions": [],
+  "evidence_schema_failures": [],
+  "false_ready_machine_guard": [],
+  "ok_before_verifier": true,
+  "protected_boundary_changed": false,
+  "rule_drift": []
+}

@@ -1,0 +1,117 @@
+{
+  "blind_or_self_grade": "NOT_PERFORMED",
+  "bridge": {
+    "content_identity": "sha256:7e46f7f3655846a4f6ea2d1990e015701cbff5b123bdf8ef1809668f8a375ef5",
+    "official_blob": "974bb9c971caf632f8ec73dff39fe4c55e60efaa",
+    "required_count": 7,
+    "resolved_count": 7,
+    "state": "READY"
+  },
+  "campaign_id": "issue36-review-reduction-20260909-v1",
+  "counts": {
+    "CONTRADICTION": 0,
+    "READY": 48,
+    "REVIEW": 556,
+    "STALE_REVIEW": 0
+  },
+  "evidence_role_counts": {
+    "IDENTITY_ONLY": 604,
+    "SEMANTIC_SCOPE": 153,
+    "WORDING_CANDIDATE": 48
+  },
+  "evidence_source_type_counts": {
+    "local_exact_authoritative_reference": 45,
+    "local_exact_authoritative_reference_wording": 47,
+    "local_overlay_wording_candidate": 1,
+    "pinned_candidate_queue": 604,
+    "prior_frozen_semantic_scope": 103,
+    "transparent_canonical_composition": 5
+  },
+  "new_ready_canonicals": [
+    "areola_slip",
+    "bare_arms",
+    "bare_legs",
+    "bdsm",
+    "bent_over",
+    "blood",
+    "blue_sky",
+    "bottomless",
+    "bra",
+    "camisole",
+    "clothing_aside",
+    "corset",
+    "covering_privates",
+    "cowgirl_position",
+    "drooling",
+    "erection",
+    "female_pubic_hair",
+    "garter_straps",
+    "girl_on_top",
+    "groping",
+    "hetero",
+    "hood_down",
+    "lingerie",
+    "midriff",
+    "no_panties",
+    "off_shoulder",
+    "on_side",
+    "open_clothes",
+    "oral",
+    "paizuri",
+    "piercing",
+    "restrained",
+    "revealing_clothes",
+    "saliva",
+    "see-through_clothes",
+    "side_slit",
+    "sideboob",
+    "skirt_lift",
+    "sleeves_rolled_up",
+    "strap_slip",
+    "testicles",
+    "thong",
+    "topless_female",
+    "topless_male",
+    "uncensored",
+    "underwear_only",
+    "undressing",
+    "zettai_ryouiki"
+  ],
+  "production_modified": false,
+  "promotion": "NOT_AUTHORIZED",
+  "protected_boundary_changed": false,
+  "review_reason_counts": {
+    "HIGH_OR_CRITICAL_MISSING_EXACT_CANONICAL_SCOPE": 9,
+    "NO_SAFE_SEARCH_CANDIDATE": 556,
+    "NO_SUPPORTED_DISPLAY_CANDIDATE": 556
+  },
+  "risk_ready_counts": {
+    "CRITICAL": 1,
+    "LOW": 46,
+    "MEDIUM": 1
+  },
+  "rule_fingerprints": {
+    "translation_quarantine/r3/r3_bulk_evidence.py": "f6234785127a707078bdb0dfcdd3f7c3c52428a91d28a1ea5f6283199a7bb312",
+    "translation_quarantine/r3/r3_common.py": "fce8db7f33f685a711e9840475b4518b2507133b98495cf235a56b371d0de71d",
+    "translation_quarantine/r3/r3_issue41_bridge_status.py": "10f430c3b2eeb9474b871bca54c0616690e081fa96fc72d4de6c875905450264",
+    "translation_quarantine/r3/r3_review_reduction.py": "4aebd4b0cd961b39c28230595678f9e94e556f2aa2d1a7d233d04ee2257693ab",
+    "translation_quarantine/r3/r3_run.py": "1d5df32b586beaf8c56e1d8b0d006f075ed68a0b646d49d0875174c9b460991d"
+  },
+  "schema_version": "issue36-review-reduction-summary-1",
+  "selected_rows": 604,
+  "source_commit": "a9516b3bc656d7a48bcf0c67647eaed8d95b3f4e",
+  "still_review_reason_distribution": {
+    "HIGH_OR_CRITICAL_MISSING_EXACT_CANONICAL_SCOPE": 9,
+    "NO_SAFE_SEARCH_CANDIDATE": 556,
+    "NO_SUPPORTED_DISPLAY_CANDIDATE": 556
+  },
+  "stop_conditions": {
+    "bridge_failure": false,
+    "contradiction": 0,
+    "false_ready": 0,
+    "replay": "PASS",
+    "rule_drift": 0,
+    "verifier_failure": 0
+  },
+  "validated_r3_base": "53f02d9b3419db8fd9099b38204c29eed289ee8e"
+}

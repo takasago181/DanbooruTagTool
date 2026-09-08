@@ -80,11 +80,11 @@ TRANSPARENT_ATTRIBUTE_TOKENS = {
     "low", "medium", "multicolored", "narrow", "orange", "pink", "pointed",
     "polka", "purple", "red", "round", "short", "simple", "single", "small",
     "soft", "starry", "straight", "striped", "thick", "transparent", "twin",
-    "vertical", "wavy", "wide", "white", "wooden", "yellow",
+    "cloudy", "starry", "vertical", "wavy", "wide", "white", "wooden", "yellow",
 }
 TRANSPARENT_ENTITY_TOKENS = {
     "apron", "background", "bag", "bell", "belt", "beret", "bikini", "book",
-    "boots", "bow", "bowtie", "bra", "cap", "candy", "camera", "chair", "cloud",
+    "boots", "bow", "bowtie", "bra", "cap", "candy", "camera", "chair", "cloud", "sky", "swimsuit",
     "coat", "couch", "collar", "computer", "cup", "dress", "earrings", "eyes",
     "flower", "food", "fork", "glasses", "gloves", "guitar", "hair", "hat", "eyewear",
     "headphones", "headset", "jacket", "key", "mask", "microphone", "necklace",
@@ -213,6 +213,42 @@ def _append_wording(evidence: list[dict[str, Any]], *, canonical: str, term: str
     })
 
 
+def _append_reference_scope(
+    evidence: list[dict[str, Any]], *, canonical: str, reference: Mapping[str, Any],
+    reference_hash: str, campaign_id: str, evidence_id_prefix: str = "issue36-bulk",
+) -> None:
+    evidence.append({
+        "evidence_id": f"{evidence_id_prefix}:scope:{canonical}", "canonical": canonical,
+        "source_type": "local_exact_authoritative_reference", "source_ref": SPECIAL_REFERENCE,
+        "scope_note": "exact canonical authoritative reference; scope is frozen from the exact Tag row only",
+        "content_identity": reference_hash, "evidence_role": "SEMANTIC_SCOPE",
+        "scope_basis": "EXACT_CANONICAL_AUTHORITATIVE_REFERENCE", "authority": "EXACT_CANONICAL_ONLY",
+        "reference_tag": reference.get("Tag", ""),
+        "reference_description": str(reference.get("元の日本語説明", "")).strip(),
+        "reference_category": str(reference.get("主カテゴリ", "")).strip(),
+        "frozen": True, "bulk_campaign": campaign_id,
+    })
+
+
+def _append_reference_wording(
+    evidence: list[dict[str, Any]], *, canonical: str, reference: Mapping[str, Any],
+    reference_hash: str, campaign_id: str,
+) -> bool:
+    term = str(reference.get("日本語", "")).strip()
+    if not term:
+        return False
+    evidence.append({
+        "evidence_id": f"issue36-bulk:reference-wording:{canonical}", "canonical": canonical,
+        "source_type": "local_exact_authoritative_reference_wording", "source_ref": SPECIAL_REFERENCE,
+        "scope_note": "Exact-canonical reference wording candidate; overlay/search data is not used as semantic authority.",
+        "content_identity": reference_hash, "evidence_role": "WORDING_CANDIDATE",
+        "frozen": True, "display_candidate": term, "search_candidate": term,
+        "term_class": "EXACT_SYNONYM", "exact_synonym_verified": True,
+        "search_equivalence_proof": "EXACT", "bulk_campaign": campaign_id,
+    })
+    return True
+
+
 def acquire_and_freeze(
     root: Path,
     selected: list[Mapping[str, Any]],
@@ -221,6 +257,8 @@ def acquire_and_freeze(
     *,
     campaign_id: str = "issue36-r3-bulk-canary-20260909-v2",
     report_path: Path | None = None,
+    prior_evidence: list[Mapping[str, Any]] | None = None,
+    review_reduction: bool = False,
 ) -> list[dict[str, Any]]:
     """Build one deterministic frozen evidence set for a bounded bulk batch."""
 
@@ -231,12 +269,15 @@ def acquire_and_freeze(
     queue_hash = file_hash(queue_path)
     exact_index, exact_hash, reference_stats = _exact_reference_index(root)
     legacy_canary_mode = campaign_id.startswith("issue36-r3-bulk-canary")
+    prior_by_canonical: dict[str, list[Mapping[str, Any]]] = {}
+    for record in prior_evidence or []:
+        prior_by_canonical.setdefault(str(record.get("canonical", "")), []).append(record)
     evidence: list[dict[str, Any]] = []
     report: dict[str, Any] = {
         "schema_version": "issue36-bulk-evidence-acquisition-2", "campaign_id": campaign_id,
         "selected_rows": len(selected), "source_type_counts": Counter(), "evidence_role_counts": Counter(),
         "transparent_scope_candidates": 0, "exact_authoritative_scope_candidates": 0,
-        "wording_candidates": 0, "skipped": Counter(),
+        "prior_frozen_scope_candidates": 0, "wording_candidates": 0, "skipped": Counter(),
         "reference": {"path": SPECIAL_REFERENCE, "content_identity": exact_hash, **reference_stats},
     }
     for item in selected:
@@ -251,7 +292,29 @@ def acquire_and_freeze(
         })
         entry = entries.get(canonical, {})
         terms = _overlay_wording(entry)
+        prior_semantic = [record for record in prior_by_canonical.get(canonical, []) if record.get("evidence_role") == "SEMANTIC_SCOPE"]
         scope = None if legacy_canary_mode else transparent_composition_scope(canonical, risk_class)
+        exact = exact_index.get(canonical.lower())
+        if review_reduction and prior_semantic:
+            for prior in prior_semantic:
+                carried = dict(prior)
+                carried["evidence_id"] = f"issue36-review:prior-scope:{canonical}"
+                carried["source_type"] = "prior_frozen_semantic_scope"
+                carried["source_ref"] = "translation_quarantine/r3_bulk_batches/*/evidence_manifest.jsonl"
+                carried["bulk_campaign"] = campaign_id
+                evidence.append(carried)
+            if exact is not None:
+                if _append_reference_wording(evidence, canonical=canonical, reference=exact, reference_hash=exact_hash, campaign_id=campaign_id):
+                    report["wording_candidates"] += 1
+            else:
+                safe_term = _safe_transparent_wording(canonical, terms)
+                if safe_term is not None:
+                    _append_wording(evidence, canonical=canonical, term=safe_term, overlay_hash=overlay_hash, campaign_id=campaign_id)
+                    report["wording_candidates"] += 1
+                else:
+                    report["skipped"]["prior_semantic_without_safe_wording"] += 1
+            report["prior_frozen_scope_candidates"] += len(prior_semantic)
+            continue
         # The old 32 are retained verbatim for canary compatibility.
         if canonical in TRANSPARENT_COMPOSITION_SCOPE and canonical in SAFE_WORDING_TERMS:
             term = SAFE_WORDING_TERMS[canonical]
@@ -284,7 +347,44 @@ def acquire_and_freeze(
             else:
                 report["skipped"]["transparent_without_safe_overlay_wording"] += 1
             continue
-        exact = exact_index.get(canonical.lower())
+        if review_reduction:
+            if exact is not None:
+                _append_reference_scope(evidence, canonical=canonical, reference=exact, reference_hash=exact_hash, campaign_id=campaign_id, evidence_id_prefix="issue36-review")
+                report["exact_authoritative_scope_candidates"] += 1
+                reference = exact
+            elif scope is not None:
+                scope_note, scope_basis = scope
+                evidence.append({
+                    "evidence_id": f"issue36-review:scope:{canonical}", "canonical": canonical,
+                    "source_type": "transparent_canonical_composition", "source_ref": "translation_quarantine/r3/r3_bulk_evidence.py",
+                    "scope_note": scope_note, "content_identity": _identity({"canonical": canonical, "scope_note": scope_note}),
+                    "evidence_role": "SEMANTIC_SCOPE", "scope_basis": scope_basis,
+                    "frozen": True, "bulk_campaign": campaign_id,
+                })
+                report["transparent_scope_candidates"] += 1
+                reference = None
+            else:
+                reference = None
+            if reference is not None and exact is not None:
+                if _append_reference_wording(evidence, canonical=canonical, reference=reference, reference_hash=exact_hash, campaign_id=campaign_id):
+                    report["wording_candidates"] += 1
+            elif reference is not None:
+                safe_term = _safe_transparent_wording(canonical, terms)
+                if safe_term is not None:
+                    _append_wording(evidence, canonical=canonical, term=safe_term, overlay_hash=overlay_hash, campaign_id=campaign_id)
+                    report["wording_candidates"] += 1
+            elif scope is not None:
+                safe_term = _safe_transparent_wording(canonical, terms)
+                if safe_term is not None:
+                    _append_wording(evidence, canonical=canonical, term=safe_term, overlay_hash=overlay_hash, campaign_id=campaign_id)
+                    report["wording_candidates"] += 1
+                else:
+                    report["skipped"]["transparent_without_safe_overlay_wording"] += 1
+            elif risk_class in {"HIGH_POSE_ACTION", "HIGH_ANATOMY_ADULT", "CRITICAL"}:
+                report["skipped"]["high_or_critical_without_exact_authority"] += 1
+            else:
+                report["skipped"]["no_safe_transparent_or_exact_scope"] += 1
+            continue
         if not legacy_canary_mode and risk_class in {"HIGH_POSE_ACTION", "HIGH_ANATOMY_ADULT", "CRITICAL"}:
             if exact is None:
                 report["skipped"]["high_or_critical_without_exact_authority"] += 1

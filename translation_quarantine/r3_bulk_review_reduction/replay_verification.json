@@ -1,0 +1,24 @@
+{
+  "deterministic_replay": {
+    "artifact_states": {
+      "bridge32.jsonl": "PASS",
+      "campaign_manifest.json": "PASS",
+      "campaign_selection.json": "PASS",
+      "evidence_acquisition_report.json": "PASS",
+      "evidence_manifest.jsonl": "PASS",
+      "rows.jsonl": "PASS",
+      "run_summary.json": "PASS",
+      "search_terms.jsonl": "PASS",
+      "stop_condition_check.json": "PASS"
+    },
+    "mismatches": {},
+    "original_vs_rerun1": "PASS",
+    "original_vs_rerun2": "PASS",
+    "rerun1_vs_rerun2": "PASS"
+  },
+  "errors": [],
+  "ok": true,
+  "production_modified": false,
+  "schema_version": "issue36-review-reduction-verification-1",
+  "self_grade": "NOT_PERFORMED"
+}

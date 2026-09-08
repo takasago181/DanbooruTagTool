@@ -1,0 +1,34 @@
+{
+  "campaign_id": "issue36-review-reduction-20260909-v1",
+  "evidence_role_counts": {
+    "IDENTITY_ONLY": 604,
+    "SEMANTIC_SCOPE": 153,
+    "WORDING_CANDIDATE": 48
+  },
+  "exact_authoritative_scope_candidates": 45,
+  "prior_frozen_scope_candidates": 103,
+  "reference": {
+    "ambiguous_exact_rows": 0,
+    "content_identity": "07584b365d5a68dbadd3f5e80859e768c2718b18746e32de02ce4b8bd60935e3",
+    "exact_rows": 2010,
+    "path": "data/special2788/illustrious_tag_knowledge_base_2788.csv"
+  },
+  "schema_version": "issue36-bulk-evidence-acquisition-2",
+  "selected_rows": 604,
+  "skipped": {
+    "high_or_critical_without_exact_authority": 10,
+    "no_safe_transparent_or_exact_scope": 441,
+    "prior_semantic_without_safe_wording": 101,
+    "transparent_without_safe_overlay_wording": 4
+  },
+  "source_type_counts": {
+    "local_exact_authoritative_reference": 45,
+    "local_exact_authoritative_reference_wording": 47,
+    "local_overlay_wording_candidate": 1,
+    "pinned_candidate_queue": 604,
+    "prior_frozen_semantic_scope": 103,
+    "transparent_canonical_composition": 5
+  },
+  "transparent_scope_candidates": 5,
+  "wording_candidates": 48
+}
