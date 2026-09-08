@@ -7,21 +7,19 @@ Rule version: R2
 
 ## Current position
 - Target: 2,788 Specials
-- Completed Special-level first pass: 160
-- Effective counts: PASS 140 / FIX 11 / REVIEW 3 / IMAGE_TEST_REQUIRED 6
+- Completed Special-level first pass: 180
+- Effective counts: PASS 157 / FIX 12 / REVIEW 3 / IMAGE_TEST_REQUIRED 8
 - Batch 1 R2 acceptance gate: PASS
-- Batch 2 checkpoints complete: 101-120, 121-140, 141-160
+- Batch 2 checkpoints complete: 101-120, 121-140, 141-160, 161-180
 - Revalidation queue pending: 0
-- Semantic-support frozen target: 58 rows; covered: 15
-- Next first-pass Special sequence: 161
+- Semantic-support frozen target: 58 rows; covered: 24
+- Next first-pass Special sequence: 181
 - Production modified: NO
 
 ## Batch 2 findings so far
-- ID122 `missionary` -> IMAGE_TEST_REQUIRED due four enabled NOT_TESTED CORE_SUPPORT+ADDITIVE rows.
-- ID129 `sitting on face` -> IMAGE_TEST_REQUIRED due enabled NOT_TESTED CORE_SUPPORT+ADDITIVE `sitting`.
-- ID149 `anal object insertion` -> FIX candidate: ImplementRequirementOverride=true.
-- ID153 `pegging` -> FIX candidate: ImplementRequirementOverride=true.
-- Alias/Semantic rows remain conservative; no model-response equivalence promoted.
+- ID122 `missionary`, ID129 `sitting on face`, ID161 `anal training`, ID173 `double penetration` -> IMAGE_TEST_REQUIRED due enabled NOT_TESTED CORE_SUPPORT+ADDITIVE behavior.
+- FIX candidates: ID149 `anal object insertion`, ID153 `pegging`, ID177 `food insertion` -> ImplementRequirementOverride=true.
+- Semantic-support rows10-24 are audited. Contextual/optional rows remain static PASS only as non-default choices.
 
 ## Exact restart
-Resume first-pass at sequence161 under R2. Continue through 200 with 20-row checkpoints. Audit associated semantic-support rows before accepting each Special-level verdict. At 200 run full Batch2 consistency and deterministic PASS sampling gate. Do not modify main/production.
+Resume first-pass at sequence181 under R2. Complete 181-200, then run Batch2 static consistency checks and deterministic PASS false-PASS sampling before sequence201. Do not modify main/production.
