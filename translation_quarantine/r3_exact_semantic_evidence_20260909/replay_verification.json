@@ -1,0 +1,8 @@
+{
+  "live_fetch": false,
+  "original_vs_replay1": "PASS",
+  "replay": "PASS",
+  "replay1_vs_replay2": "PASS",
+  "schema_version": "exact-semantic-evidence-replay-v1",
+  "source_mode": "frozen_only"
+}
