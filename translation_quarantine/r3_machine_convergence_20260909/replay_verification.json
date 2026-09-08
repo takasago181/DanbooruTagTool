@@ -1,0 +1,19 @@
+{
+  "artifact_hashes": {
+    "audits": "sha256:6d5ea8dff78b3652e294dd49582857560306cb0d9d8f7ced91346005c6e1ab16",
+    "candidates": "sha256:e3637e5915d96df4d1ebca387f9fdf9f27936b8f63d8e4fca78c46d36f1c3b9e",
+    "ledger": "sha256:e333f33428b2a32618683c151386fc6ddcf8630c4f6008feb17747a70d52020c",
+    "provenance": "sha256:1bbc03700baf480b15c95c81fdbba266e50ba85781dba743a1708fa66b73a755",
+    "rows": "sha256:1876c334539c77ec1507e5b7167f0d6bb6e5f4ce90d78a21a4d13dbcdebdeb23",
+    "search": "sha256:d2032128eadbe311bf1f5f4d87ca3069d93fd1b2568f43f85707f1201a4c98b8",
+    "strict": "sha256:8cf20b2242e15e1737c87c9a7318a7c31d391724cd0fda2eb12e387c9cee06e6",
+    "wording": "sha256:58bd774cfc8006193618a9a396160c05e654f896fe1ca1829b0f321988ad8a18"
+  },
+  "live_fetch": false,
+  "new_ready_used_as_teacher": false,
+  "original_vs_replay1": "PASS",
+  "original_vs_replay2": "PASS",
+  "replay1_vs_replay2": "PASS",
+  "source_mode": "local_frozen_inputs_only",
+  "verdict": "PASS"
+}
