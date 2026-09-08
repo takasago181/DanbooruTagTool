@@ -7,30 +7,30 @@ Rule version: R2
 
 ## Current position
 - Target: 2,788 Specials
-- Special-level first pass checkpointed through: 860
-- Cumulative effective verdicts: PASS 699 / FIX 102 / REVIEW 43 / IMAGE_TEST_REQUIRED 16
-- Batch 1-8 R2 acceptance gates: PASS
-- Batch 9: partial (801-860 checkpointed)
+- Special-level first pass checkpointed through: 900
+- Cumulative effective verdicts: PASS 713 / FIX 113 / REVIEW 58 / IMAGE_TEST_REQUIRED 16
+- Batch 1-9 R2 acceptance gates: PASS
 - Revalidation pending: 0
 - Semantic-support frozen target: 58 rows; durable audited coverage: 53
-- Next first-pass sequence: 861
+- Next first-pass sequence: 901
 - Production modified: NO
 
-## Batch 9 partial
-Ranges 801-820, 821-840, and 841-860 are durably stored with matching result, candidate-fix, and revalidation-queue checkpoint blocks.
+## Batch 9 complete
+Ranges 801-820, 821-840, 841-860, 861-880, and 881-900 are durably stored with matching result, candidate-fix, and revalidation-queue checkpoint blocks.
 
-Partial Batch9 distribution:
-- PASS 22
-- FIX 16
-- REVIEW 22
+Batch9 distribution:
+- PASS 36
+- FIX 27
+- REVIEW 37
 - IMAGE_TEST_REQUIRED 0
 
-Notable quarantine-only findings in 841-860:
-- ID842 `sex toy pull` -> implement requirement candidate.
-- ID844 `panties on penis` -> bodypart + spatial requirement candidates.
-- ID850 `cum in panties` -> spatial requirement candidate.
-- ID851 `foreskin pull` -> bodypart requirement candidate.
-- ID845 `bouncing testicles`, ID852 `nipple tweak through clothes`, ID856 `chastity cage emission`, and PROVISIONAL rows remain REVIEW where family/meaning cannot be safely fixed from frozen evidence alone.
+Deterministic PASS re-audit:
+- Sampled 10 / 36 PASS rows (R2 minimum 10), prioritizing surviving A-risk PASS rows.
+- New false-PASS: 0
+- Batch9 acceptance gate: PASS
+- Evidence: `pass_sampling_batch9_r2.csv`, `batch9_integrity_r2.md`
+
+Notable quarantine-only findings in the 841-900 continuation include implement/bodypart/spatial/camera requirement candidates only where intrinsic structure was directly encoded by the canonical; ambiguous PROVISIONAL or family-mismatch rows remain REVIEW rather than guessed corrections.
 
 Semantic-support coverage remains 53/58; remaining frozen rows belong to later Special IDs 1159, 1823, and 1839.
 
@@ -43,4 +43,4 @@ Semantic-support coverage remains 53/58; remaining frozen rows belong to later S
 - Special2788 exact identity remains first-class.
 
 ## Exact restart
-Resume first-pass at sequence 861. Continue Batch9 only after the 841-860 checkpoint is accepted as durable. Checkpoint every 20; run Batch9 integrity + deterministic PASS resampling before acceptance. Do not modify production/main.
+Resume first-pass at sequence 901 (Batch10). Checkpoint every 20; do not modify production/main.
