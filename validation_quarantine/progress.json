@@ -7,10 +7,10 @@
   "fixed_order": "production Special2788 order at audit start",
   "batch_size": 100,
   "internal_block_size": 20,
-  "completed_specials": 960,
-  "pass": 728,
-  "fix": 128,
-  "review": 88,
+  "completed_specials": 980,
+  "pass": 734,
+  "fix": 131,
+  "review": 99,
   "image_test_required": 16,
   "revalidation_pending": 0,
   "batch1_acceptance_gate": "PASS",
@@ -30,10 +30,10 @@
   "semantic_support_rows_covered": 53,
   "semantic_support_rows_review": 0,
   "semantic_support_rows_image_test_required": 29,
-  "last_completed_special_id": "960",
+  "last_completed_special_id": "980",
   "last_completed_batch": 9,
   "next_batch": 10,
-  "next_start_position": 961,
+  "next_start_position": 981,
   "production_modified": false,
-  "notes": "Batch10 partial now checkpointed through960. 941-960 delta PASS6/FIX7/REVIEW7/IMAGE_TEST_REQUIRED0. Result, candidate-fix, and empty revalidation-queue blocks persisted. Next safe restart961. Production/main unchanged."
+  "notes": "Batch10 partial now checkpointed through980. 961-980 delta PASS6/FIX3/REVIEW11/IMAGE_TEST_REQUIRED0. Matching result/candidate-fix/revalidation-queue blocks persisted. Next safe restart981. Production/main unchanged."
 }
