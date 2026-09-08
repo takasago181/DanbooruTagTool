@@ -1,0 +1,17 @@
+sample_order,sequence,special_id,tag,risk_priority,recheck_verdict,false_pass,reason,evidence_refs,notes
+1,601,601,aneros,B,PASS,false,IMPLEMENT_OBJECT/DIRECT remains conservative and does not imply use-state structure.,generation_profile;generation_family_rules,Spread control.
+2,607,607,artificial vagina,C,PASS,false,ALIAS_PRESERVE correctly avoids prompt-identity replacement.,generation_profile;STAGE_10_KNOWLEDGE_HANDOFF,Alias control.
+3,613,613,penis tentacle,B,PASS,false,Compound nonhuman identity is preserved without unsupported target relation.,generation_profile;generation_family_rules,Spread control.
+4,623,623,ballbusting,C,PASS,false,Alias preservation remains correct after CBT sibling review.,generation_profile;STAGE_10_KNOWLEDGE_HANDOFF,Alias control.
+5,631,631,reverse ryona,B,PASS,false,No independent evidence requires extra structural metadata beyond restraint-action classification.,generation_profile;generation_family_rules,Spread control.
+6,633,633,chastity cage,B,PASS,false,RESTRAINT_IMPLEMENT/DIRECT correctly describes the implement identity without forced placement.,generation_profile;generation_family_rules,Implement control.
+7,638,638,completely nude,B,PASS,false,CLOTHING_EXPOSURE/DIRECT directly represents the state.,generation_profile;generation_family_rules,Spread control.
+8,645,645,pantyshot,A,PASS,false,Camera ownership is explicitly asserted while pose=false prevents overreach.,generation_profile;generation_family_rules;STAGE_10_KNOWLEDGE_HANDOFF,All surviving A-risk PASS included.
+9,648,648,fucked silly,B,PASS,false,REACTION_STATE/DIRECT remains appropriate without adding action support.,generation_profile;generation_family_rules,Spread control.
+10,657,657,exhibitionism,B,PASS,false,SCENE_CONTEXT/SUPPORT remains context-only and does not force physical structure.,generation_profile;generation_family_rules,Spread control.
+11,663,663,prostitution,B,PASS,false,SCENE_CONTEXT/SUPPORT remains conservative.,generation_profile;generation_family_rules,Spread control.
+12,671,671,nip slip,C,PASS,false,Alias preservation remains correct.,generation_profile;STAGE_10_KNOWLEDGE_HANDOFF,Alias control.
+13,679,679,female masturbation,A,PASS,false,SELF_ACTION with actor=true and SELF_ACTOR_ROLE already encodes self ownership.,generation_profile;generation_family_rules;generation_profile:ID512,All surviving A-risk PASS included.
+14,681,681,cunnilingus,B,PASS,false,Base action classification remains conservative; blank actor/bodypart fields are UNKNOWN rather than errors.,generation_profile;generation_family_rules,Near-boundary control after ID680 correction.
+15,697,697,multiple penis fellatio,A,PASS,false,Existing actor=true and spatial=true capture multiple-target binding; sibling fellatio convention does not justify new bodypart promotion.,generation_profile;generation_profile:IDs102,104;STAGE_10_KNOWLEDGE_HANDOFF,All surviving A-risk PASS included.
+16,699,699,male penetrated,A,PASS,false,INSERTION_STRUCTURED already asserts actor=true and bodypart=true; no implement/pose requirement is intrinsic from current evidence.,generation_profile;generation_family_rules;STAGE_10_KNOWLEDGE_HANDOFF,All surviving A-risk PASS included.
