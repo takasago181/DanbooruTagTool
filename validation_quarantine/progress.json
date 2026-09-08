@@ -7,9 +7,9 @@
   "fixed_order": "production Special2788 order at audit start",
   "batch_size": 100,
   "internal_block_size": 20,
-  "completed_specials": 220,
-  "pass": 192,
-  "fix": 16,
+  "completed_specials": 240,
+  "pass": 210,
+  "fix": 18,
   "review": 4,
   "image_test_required": 8,
   "revalidation_pending": 0,
@@ -21,10 +21,10 @@
   "semantic_support_rows_covered": 24,
   "semantic_support_rows_review": 0,
   "semantic_support_rows_image_test_required": 14,
-  "last_completed_special_id": "220",
+  "last_completed_special_id": "240",
   "last_completed_batch": 2,
   "next_batch": 3,
-  "next_start_position": 221,
+  "next_start_position": 241,
   "production_modified": false,
-  "notes": "Batch3 checkpoint 201-220 complete under R2. Delta PASS18/FIX2. New FIX candidates: ID209 urethral beads and ID211 urethral insertion -> ImplementRequirementOverride=true. No semantic-support sidecar rows exist for Specials201-220; global coverage remains24/58. Revalidation queue unchanged."
+  "notes": "Batch3 checkpoints 201-240 complete. Batch3 delta so far PASS36/FIX4. New FIX candidates: ID209/211 ImplementRequirementOverride=true; ID233/240 PoseRequirementOverride=true. No semantic-support sidecar rows in 201-240; global coverage remains24/58. Revalidation queue unchanged."
 }
