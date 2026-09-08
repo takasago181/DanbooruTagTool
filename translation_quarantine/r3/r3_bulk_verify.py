@@ -43,8 +43,19 @@ def verify(root: Path, output: Path, *, replay: bool = True) -> dict[str, object
         errors.append("canary must contain exactly 200 rows")
     if len({row.get("canonical") for row in rows}) != len(rows):
         errors.append("canary contains duplicate canonicals")
-    if len(evidence) != len(rows) or any(row.get("frozen") is not True for row in evidence):
-        errors.append("evidence manifest is not one frozen row per canary canonical")
+    canary_canonicals = {str(row.get("canonical", "")) for row in rows}
+    identity_canonicals = {
+        str(row.get("canonical", ""))
+        for row in evidence
+        if row.get("evidence_role") == "IDENTITY_ONLY"
+    }
+    if (
+        not canary_canonicals
+        or identity_canonicals != canary_canonicals
+        or any(row.get("frozen") is not True for row in evidence)
+        or len({(str(row.get("canonical", "")), str(row.get("evidence_id", ""))) for row in evidence}) != len(evidence)
+    ):
+        errors.append("evidence manifest lacks one frozen identity record per canary canonical")
     if len(masked) != 20 or len(key.get("selected", [])) != 20:
         errors.append("masked audit20 must contain exactly 20 rows and 20 key rows")
     if not leakage.get("ok"):
@@ -72,6 +83,10 @@ def verify(root: Path, output: Path, *, replay: bool = True) -> dict[str, object
         issue32_snapshot = candidate if candidate.is_absolute() else root / candidate
         if not issue32_snapshot.exists():
             errors.append("frozen #32 snapshot from the original campaign is missing")
+    evidence_ref = str(manifest.get("evidence_manifest_ref", "")).strip()
+    frozen_evidence = root / evidence_ref if evidence_ref else output / "evidence_manifest.jsonl"
+    if not frozen_evidence.exists():
+        errors.append("frozen evidence manifest from the original campaign is missing")
 
     if run_replay and not errors:
         temp_root = output / ".replay_work"
@@ -81,8 +96,8 @@ def verify(root: Path, output: Path, *, replay: bool = True) -> dict[str, object
         try:
             first_dir = temp_root / "rerun1"
             second_dir = temp_root / "rerun2"
-            run_campaign(root, first_dir, issue32_snapshot=issue32_snapshot)
-            run_campaign(root, second_dir, issue32_snapshot=issue32_snapshot)
+            run_campaign(root, first_dir, issue32_snapshot=issue32_snapshot, evidence_path=frozen_evidence)
+            run_campaign(root, second_dir, issue32_snapshot=issue32_snapshot, evidence_path=frozen_evidence)
             original_hashes = _hashes(output)
             first_hashes = _hashes(first_dir)
             second_hashes = _hashes(second_dir)

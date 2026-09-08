@@ -1,0 +1,79 @@
+{
+  "schema": "dict-validation.translation-bridge.v1",
+  "snapshot_version": "ui-ja-issue41-overlap7-v2",
+  "owner_issue": 32,
+  "consumer_issue": 41,
+  "snapshot_ref": "validation_quarantine/bridge_snapshots/ui_ja_issue41_overlap7_v2.json",
+  "snapshot_frozen": true,
+  "snapshot_pinned": true,
+  "snapshot_immutable": true,
+  "content_identity": "sha256:7e46f7f3655846a4f6ea2d1990e015701cbff5b123bdf8ef1809668f8a375ef5",
+  "content_identity_rule": "SHA-256 over canonical JSON ordered row identities (canonical, row content_identity, meaning_fingerprint, meaning_relevant_status) in authoritative #41 overlap order.",
+  "meaning_fingerprint_rule": "SHA-256 over canonical JSON of translation_visible_semantics only. Generation-only metadata is excluded.",
+  "authoritative_overlap_order": ["bara","fishnets","loli","fellatio","pussy","anal","bound"],
+  "supersedes_snapshot": {
+    "snapshot_ref": "validation_quarantine/bridge_snapshots/ui_ja_issue41_overlap7_v1.json",
+    "reason": "v1 captured a stale normal-audit observation while a pre-existing scheduled #32 run was still committing normal checkpoints. v1 remains immutable historical evidence but is NOT_CONSUMABLE. v2 updates only normal-audit references; translation-visible meaning fingerprints are unchanged."
+  },
+  "consumer_request": {
+    "issue32_comment_id": 5589021664,
+    "issue41_pipeline_commit_observed": "3e8c282d91f2470363da7f25e5fb2cfcb2899903",
+    "issue41_generation_profile_sha256": "3d3b7c16bee23c34892c6ac1a40b69208ef14199c5bae749ac8a22151c8dc835"
+  },
+  "frozen_source": {
+    "audit_tree_sha": "b95ea939c66b9929efdc8e4d32f59f09ed7edfac",
+    "generation_profile_blob_sha": "ac6c1d24e1c6ce04b238cc0b16d788f9d0965a05",
+    "normal_audit_rule_version": "R2"
+  },
+  "normal_audit_boundary": {
+    "bridge_export_mutates_normal_progress": false,
+    "bridge_export_mutates_existing_verdicts": false,
+    "normal_sequence_order_unchanged": true,
+    "normal_progress_is_outside_bridge_content_identity": true,
+    "note": "A scheduled normal #32 run that began before bridge isolation continued independently. Its checkpoints are not credited to or caused by this bridge mini-audit."
+  },
+  "scope_guard": {
+    "translation_visible_meaning_only": true,
+    "generation_only_fields_excluded_from_fingerprint": true,
+    "no_ui_ja_wording_or_ready_state": true,
+    "no_normal_sequence_completion_credit": true,
+    "no_production_or_main_write": true
+  },
+  "rows": [
+    {
+      "canonical":"bara","special_id":2378,"snapshot_ref":"validation_quarantine/bridge_snapshots/ui_ja_issue41_overlap7_v2.json#bara","content_identity":"sha256:e87080b45d779c28c281d75d472870ba252b2d1ff02d8cdca9a63f17c628744c","snapshot_frozen":true,"snapshot_pinned":true,"snapshot_immutable":true,"meaning_relevant_status":"RESOLVED",
+      "translation_visible_semantics":{"identity_scope":"Danbooru genre/context label for male-focused homoerotic works in the bara/gei-komi tradition, defined primarily by genre/target-audience context and often emphasizing masculine male appeal.","action_vs_state":"genre_or_context","actor_or_ownership":null,"target_or_body_site":null,"count_or_cardinality":null,"intrinsic_relation_or_spatial_requirement":null,"defining_qualifiers":["male-focused homoerotic genre/context","not equivalent to a generic muscular-male anatomy tag"]},
+      "meaning_fingerprint":"sha256:3c4e843c34568b57c6698bf9ffccae1dba82a2365a544cb139ed0af3e24c0d43","conflict_signal":false,"unresolved_reason":null,"normal_audit_state":"NOT_REACHED_IN_NORMAL_AUDIT_AT_BRIDGE_RESOLUTION","normal_audit_ref":null,"source_refs":["frozen_generation_profile:b95ea939c66b9929efdc8e4d32f59f09ed7edfac:ac6c1d24e1c6ce04b238cc0b16d788f9d0965a05:SpecialID=2378","https://safebooru.donmai.us/wiki_pages/bara"]
+    },
+    {
+      "canonical":"fishnets","special_id":2098,"snapshot_ref":"validation_quarantine/bridge_snapshots/ui_ja_issue41_overlap7_v2.json#fishnets","content_identity":"sha256:28509ff5c1245227220ea916e5ff38bbc1a8b87aa8ffd3f3d9a8d05b72edd1bd","snapshot_frozen":true,"snapshot_pinned":true,"snapshot_immutable":true,"meaning_relevant_status":"RESOLVED",
+      "translation_visible_semantics":{"identity_scope":"Visible fishnet mesh material or pattern worn as clothing; the base canonical is not limited to one specific garment or body region.","action_vs_state":"clothing_visual_state","actor_or_ownership":null,"target_or_body_site":null,"count_or_cardinality":null,"intrinsic_relation_or_spatial_requirement":null,"defining_qualifiers":["fishnet/open-mesh clothing material or pattern","no specific garment type is intrinsic to the base canonical"]},
+      "meaning_fingerprint":"sha256:f7e4d2f2199394bd9cab9af2c39557a55f5396ebff5267c3008f88c027d6043c","conflict_signal":false,"unresolved_reason":null,"normal_audit_state":"NOT_REACHED_IN_NORMAL_AUDIT_AT_BRIDGE_RESOLUTION","normal_audit_ref":null,"source_refs":["frozen_generation_profile:b95ea939c66b9929efdc8e4d32f59f09ed7edfac:ac6c1d24e1c6ce04b238cc0b16d788f9d0965a05:SpecialID=2098","https://safebooru.donmai.us/wiki_pages/fishnet_bodystocking"]
+    },
+    {
+      "canonical":"loli","special_id":722,"snapshot_ref":"validation_quarantine/bridge_snapshots/ui_ja_issue41_overlap7_v2.json#loli","content_identity":"sha256:b727b59c876c1f41b8fefec89e3dae6f2577ba0cf4feba17cbc79c036df14035","snapshot_frozen":true,"snapshot_pinned":true,"snapshot_immutable":true,"meaning_relevant_status":"RESOLVED",
+      "translation_visible_semantics":{"identity_scope":"Danbooru-specific explicit-content age classification for loli depictions; it is not a generic safe-image synonym for a young, cute, or petite girl.","action_vs_state":"age_and_content_context_classification","actor_or_ownership":null,"target_or_body_site":null,"count_or_cardinality":null,"intrinsic_relation_or_spatial_requirement":null,"defining_qualifiers":["used in Danbooru's explicit/basic Age classification","Danbooru historical usage excludes safe-image use","does not by itself encode a numeric or legal age"]},
+      "meaning_fingerprint":"sha256:cbd2dc33d76b469ea22f4a0fe3dc1a6c097ac49fe81fd5bef3c3272517d28881","conflict_signal":false,"unresolved_reason":null,"normal_audit_state":"NOT_REACHED_IN_NORMAL_AUDIT_AT_BRIDGE_RESOLUTION","normal_audit_ref":null,"source_refs":["frozen_generation_profile:b95ea939c66b9929efdc8e4d32f59f09ed7edfac:ac6c1d24e1c6ce04b238cc0b16d788f9d0965a05:SpecialID=722","https://safebooru.donmai.us/wiki_pages/howto%3Atag_checklist","https://safebooru.donmai.us/wiki_pages/help%3Acensored_tags","https://safebooru.donmai.us/forum_topics/519"]
+    },
+    {
+      "canonical":"fellatio","special_id":104,"snapshot_ref":"validation_quarantine/bridge_snapshots/ui_ja_issue41_overlap7_v2.json#fellatio","content_identity":"sha256:89a5daf697e9336888eae3cffe0f048d5f3dbb1e9188a16a14864ba001cdc780","snapshot_frozen":true,"snapshot_pinned":true,"snapshot_immutable":true,"meaning_relevant_status":"RESOLVED",
+      "translation_visible_semantics":{"identity_scope":"Oral sexual stimulation of a penis using the mouth; a direct sexual action rather than an anatomical state or a generic oral-sex umbrella term.","action_vs_state":"sexual_action","actor_or_ownership":"mouth performs stimulation on a penis; base canonical does not assert participant count","target_or_body_site":"penis","count_or_cardinality":null,"intrinsic_relation_or_spatial_requirement":"mouth-to-penis oral contact/stimulation","defining_qualifiers":["penis is the target body site","oral action is intrinsic"]},
+      "meaning_fingerprint":"sha256:67eff56e6c2d1c9bb3e9ff9483cee3049fd6311a375aa95e17fea86d8adfcdfb","conflict_signal":false,"unresolved_reason":null,"normal_audit_state":"PASS_R2","normal_audit_ref":"validation_quarantine/results_blocks/0101_0120.csv:sequence=104","source_refs":["frozen_generation_profile:b95ea939c66b9929efdc8e4d32f59f09ed7edfac:ac6c1d24e1c6ce04b238cc0b16d788f9d0965a05:SpecialID=104","validation_quarantine/results_blocks/0101_0120.csv:sequence=104","https://safebooru.donmai.us/wiki_pages/sucking","https://safebooru.donmai.us/wiki_pages/help%3Atasks"]
+    },
+    {
+      "canonical":"pussy","special_id":509,"snapshot_ref":"validation_quarantine/bridge_snapshots/ui_ja_issue41_overlap7_v2.json#pussy","content_identity":"sha256:60b0bd7c906b94d9b618ecc1cadddff190ade4e9321de5cf5175eed867f888f1","snapshot_frozen":true,"snapshot_pinned":true,"snapshot_immutable":true,"meaning_relevant_status":"RESOLVED",
+      "translation_visible_semantics":{"identity_scope":"Anatomical body-part tag for the vulva/external female genital region, not an action tag.","action_vs_state":"anatomical_identity","actor_or_ownership":null,"target_or_body_site":"vulva / external female genital region","count_or_cardinality":null,"intrinsic_relation_or_spatial_requirement":null,"defining_qualifiers":["external genital body site","distinct from a sexual action"]},
+      "meaning_fingerprint":"sha256:286dcd8670e7c9276b23a6d71905e2c2e58794c560bd2b1cee7614225bbe41a1","conflict_signal":false,"unresolved_reason":null,"normal_audit_state":"PASS_R2","normal_audit_ref":"validation_quarantine/results_blocks/0501_0520.csv:sequence=509","source_refs":["frozen_generation_profile:b95ea939c66b9929efdc8e4d32f59f09ed7edfac:ac6c1d24e1c6ce04b238cc0b16d788f9d0965a05:SpecialID=509","validation_quarantine/results_blocks/0501_0520.csv:sequence=509","https://safebooru.donmai.us/wiki_pages/howto%3Atag_checklist","https://safebooru.donmai.us/wiki_pages/tag_group%3Abody_parts"]
+    },
+    {
+      "canonical":"anal","special_id":147,"snapshot_ref":"validation_quarantine/bridge_snapshots/ui_ja_issue41_overlap7_v2.json#anal","content_identity":"sha256:d6fc28b7816fc63cfefe5c43153f043902273348b14e87b861ab7e8d95c9f572","snapshot_frozen":true,"snapshot_pinned":true,"snapshot_immutable":true,"meaning_relevant_status":"RESOLVED",
+      "translation_visible_semantics":{"identity_scope":"Anal penetration as a sexual action category; it includes penile, finger, object, toy, tentacle, and other forms of anal penetration.","action_vs_state":"sexual_action","actor_or_ownership":null,"target_or_body_site":"anus / anal opening","count_or_cardinality":null,"intrinsic_relation_or_spatial_requirement":"penetration target is anal rather than vaginal","defining_qualifiers":["anal penetration is intrinsic","base canonical does not by itself require a particular implement or participant count"]},
+      "meaning_fingerprint":"sha256:7faf5bf881b05e4f0a39b1bf03e70c7459e5edd6075a2fb7846b6ec03bcde896","conflict_signal":false,"unresolved_reason":null,"normal_audit_state":"PASS_R2","normal_audit_ref":"validation_quarantine/results_blocks/0141_0160.csv:sequence=147","source_refs":["frozen_generation_profile:b95ea939c66b9929efdc8e4d32f59f09ed7edfac:ac6c1d24e1c6ce04b238cc0b16d788f9d0965a05:SpecialID=147","validation_quarantine/results_blocks/0141_0160.csv:sequence=147","https://huggingface.co/datasets/lylogummy/danbooru_wikis_2026/viewer/default/train?p=3","https://safebooru.donmai.us/wiki_pages/help%3Atasks"]
+    },
+    {
+      "canonical":"bound","special_id":1898,"snapshot_ref":"validation_quarantine/bridge_snapshots/ui_ja_issue41_overlap7_v2.json#bound","content_identity":"sha256:1e3578773fd73e2b8d066a58428e153efb39b7497d683edd37aa504a8893030f","snapshot_frozen":true,"snapshot_pinned":true,"snapshot_immutable":true,"meaning_relevant_status":"RESOLVED",
+      "translation_visible_semantics":{"identity_scope":"A person or body is physically bound/restrained; the base canonical does not specify which body part or what restraint method is used.","action_vs_state":"restraint_state_or_action","actor_or_ownership":null,"target_or_body_site":"person/body, unspecified body part","count_or_cardinality":null,"intrinsic_relation_or_spatial_requirement":"physical restraint restricts the body or a body part","defining_qualifiers":["physical restraint is intrinsic","specific body part and restraint device are not intrinsic to the base canonical"]},
+      "meaning_fingerprint":"sha256:31b0ecafb9949474bc1f7171d416ff252c15b5530ab511628cfc5debe6da3507","conflict_signal":false,"unresolved_reason":null,"normal_audit_state":"NOT_REACHED_IN_NORMAL_AUDIT_AT_BRIDGE_RESOLUTION","normal_audit_ref":null,"source_refs":["frozen_generation_profile:b95ea939c66b9929efdc8e4d32f59f09ed7edfac:ac6c1d24e1c6ce04b238cc0b16d788f9d0965a05:SpecialID=1898","https://safebooru.donmai.us/wiki_pages/bound_wrists","https://safebooru.donmai.us/wiki_pages/bound_arms"]
+    }
+  ]
+}

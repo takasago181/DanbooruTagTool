@@ -3,6 +3,7 @@ from pathlib import Path
 import pytest
 
 from translation_quarantine.r3.r3_bulk_run import check_masked_rows
+from translation_quarantine.r3.r3_bulk_evidence import acquire_and_freeze
 from translation_quarantine.r3.r3_bulk_select import CANARY_SEED, portable_csv_text_hash, select_canary, select_records
 from translation_quarantine.r3.r3_common import stable_key
 
@@ -39,3 +40,22 @@ def test_masked_audit_leakage_checker_is_fail_closed():
     result = check_masked_rows(masked_rows, key)
     assert result["ok"] is True
     assert check_masked_rows([{"canonical": "sample", "row_state": "READY"}], key)["ok"] is False
+
+
+def test_bulk_evidence_freeze_keeps_unresolved_rows_identity_only(monkeypatch):
+    selection = select_canary(ROOT)
+    queue_path = ROOT / "translation_quarantine" / "missing_candidates.csv"
+    monkeypatch.setattr(
+        "translation_quarantine.r3.r3_bulk_evidence.write_jsonl",
+        lambda _path, _rows: None,
+    )
+    evidence = acquire_and_freeze(ROOT, selection["selected"], queue_path, ROOT / "unused.jsonl")
+    identities = {
+        row["canonical"] for row in evidence if row["evidence_role"] == "IDENTITY_ONLY"
+    }
+    semantic = [row for row in evidence if row["evidence_role"] == "SEMANTIC_SCOPE"]
+    wording = [row for row in evidence if row["evidence_role"] == "WORDING_CANDIDATE"]
+    assert identities == {row["canonical"] for row in selection["selected"]}
+    assert len(semantic) == len(wording) > 0
+    assert all(row["frozen"] is True for row in evidence)
+    assert all(row["scope_basis"] == "TRANSPARENT_CANONICAL_COMPOSITION" for row in semantic)

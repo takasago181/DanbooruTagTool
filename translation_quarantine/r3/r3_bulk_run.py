@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 from collections import Counter
 from pathlib import Path
@@ -12,11 +13,13 @@ try:
     from .r3_issue41_bridge_status import inspect_bridge_status
     from .r3_run import _load_issue32_rows, _make_pilot_rows
     from .r3_bulk_select import CANARY_SIZE, CANARY_SEED, select_canary
+    from .r3_bulk_evidence import acquire_and_freeze
 except ImportError:  # pragma: no cover
     from r3_common import RISK_ORDER, file_hash, json_hash, protected_snapshot, read_json, read_jsonl, stable_key, write_json, write_jsonl
     from r3_issue41_bridge_status import inspect_bridge_status
     from r3_run import _load_issue32_rows, _make_pilot_rows
     from r3_bulk_select import CANARY_SIZE, CANARY_SEED, select_canary
+    from r3_bulk_evidence import acquire_and_freeze
 
 
 OUTPUT_NAME = "translation_quarantine/r3_bulk_canary"
@@ -47,26 +50,67 @@ def _relative(root: Path, path: Path) -> str:
         return str(path.resolve()).replace("\\", "/")
 
 
-def _identity_evidence(
-    root: Path,
-    selected: list[Mapping[str, Any]],
-    queue_path: Path,
-    queue_identity: str,
-) -> list[dict[str, Any]]:
-    return [
-        {
-            "evidence_id": f"issue36-bulk:identity:{row['canonical']}",
-            "canonical": row["canonical"],
-            "source_type": "pinned_candidate_queue",
-            "source_ref": _relative(root, queue_path),
-            "scope_note": "canonical identity only; no Japanese wording or semantic scope is inferred",
-            "content_identity": queue_identity,
-            "evidence_role": "IDENTITY_ONLY",
-            "frozen": True,
-            "bulk_campaign": "issue36-r3-bulk-canary-20260909-v1",
-        }
-        for row in selected
-    ]
+ISSUE32_V2_BLOB = "974bb9c971caf632f8ec73dff39fe4c55e60efaa"
+ISSUE32_V2_CONTENT_IDENTITY = "sha256:7e46f7f3655846a4f6ea2d1990e015701cbff5b123bdf8ef1809668f8a375ef5"
+
+
+def _git_output(root: Path, args: list[str]) -> str:
+    import subprocess
+
+    command = ["git", "-c", f"safe.directory={root}", *args]
+    completed = subprocess.run(command, cwd=root, check=True, capture_output=True)
+    return completed.stdout.decode("utf-8")
+
+
+def _materialize_issue32_snapshot(root: Path, output: Path, git_ref: str) -> tuple[Path, dict[str, Any]]:
+    if ":" not in git_ref:
+        raise ValueError("--issue32-git-ref must be REF:PATH")
+    ref, path = git_ref.split(":", 1)
+    raw = _git_output(root, ["show", f"{ref}:{path}"]).encode("utf-8")
+    blob = _git_output(root, ["rev-parse", f"{ref}:{path}"]).strip()
+    if blob != ISSUE32_V2_BLOB:
+        raise ValueError(f"official #32 v2 blob drifted: {blob}")
+    target = output / "issue32_snapshot_v2.json"
+    target.write_bytes(raw)
+    value = json.loads(raw.decode("utf-8"))
+    if not isinstance(value, dict) or value.get("snapshot_version") != "ui-ja-issue41-overlap7-v2":
+        raise ValueError("official #32 v2 snapshot contract is invalid")
+    rows = value.get("rows")
+    if not isinstance(rows, list) or len(rows) != 7:
+        raise ValueError("official #32 v2 snapshot must contain exactly 7 rows")
+    if value.get("content_identity") != ISSUE32_V2_CONTENT_IDENTITY:
+        raise ValueError("official #32 v2 content identity mismatch")
+    if not all(
+        row.get("meaning_relevant_status") == "RESOLVED"
+        and row.get("snapshot_frozen") is True
+        and row.get("snapshot_pinned") is True
+        and row.get("snapshot_immutable") is True
+        and row.get("conflict_signal") is False
+        for row in rows
+    ):
+        raise ValueError("official #32 v2 rows are not all resolved/frozen/pinned/immutable")
+    return target, {
+        "origin_ref": git_ref,
+        "origin_blob": blob,
+        "origin_content_identity": value["content_identity"],
+        "snapshot_version": value["snapshot_version"],
+        "row_count": len(rows),
+        "raw_sha256": hashlib.sha256(raw).hexdigest(),
+    }
+
+
+def _snapshot_metadata(path: Path | None) -> dict[str, Any]:
+    if path is None or not path.exists() or path.suffix.lower() != ".json":
+        return {}
+    value = json.loads(path.read_text(encoding="utf-8"))
+    return {
+        "origin_ref": str(value.get("snapshot_ref", "")),
+        "origin_blob": "",
+        "origin_content_identity": str(value.get("content_identity", "")),
+        "snapshot_version": str(value.get("snapshot_version", "")),
+        "row_count": len(value.get("rows", [])) if isinstance(value, dict) else 0,
+        "raw_sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
+    }
 
 
 def _audit_package(rows: list[dict[str, Any]], search_rows: list[dict[str, Any]], evidence: list[dict[str, Any]]) -> tuple[list[dict[str, Any]], dict[str, Any]]:
@@ -174,18 +218,32 @@ def check_masked_leakage(masked_path: Path, key_path: Path) -> dict[str, Any]:
     return check_masked_rows(masked_rows, key, masked_path.read_text(encoding="utf-8"))
 
 
-def run_campaign(root: Path, output_dir: Path, *, issue32_snapshot: Path | None = None) -> dict[str, Any]:
+def run_campaign(
+    root: Path,
+    output_dir: Path,
+    *,
+    issue32_snapshot: Path | None = None,
+    issue32_git_ref: str | None = None,
+    evidence_path: Path | None = None,
+) -> dict[str, Any]:
     root = root.resolve()
     output = _bulk_output(root, output_dir)
     protected_before = protected_snapshot(root)
+    snapshot_metadata: dict[str, Any] = _snapshot_metadata(issue32_snapshot)
+    if issue32_git_ref:
+        issue32_snapshot, snapshot_metadata = _materialize_issue32_snapshot(root, output, issue32_git_ref)
     selection = select_canary(root)
     selection_path = output / "canary_selection.json"
     write_json(selection_path, selection)
     selected = selection["selected"]
     queue_path = root / "translation_quarantine" / "missing_candidates.csv"
-    evidence = _identity_evidence(root, selected, queue_path, selection["source_queue_portable_content_identity"])
-    evidence_path = output / "evidence_manifest.jsonl"
-    write_jsonl(evidence_path, evidence)
+    frozen_evidence_path = evidence_path
+    evidence_output_path = output / "evidence_manifest.jsonl"
+    if frozen_evidence_path is not None and frozen_evidence_path.exists():
+        evidence = read_jsonl(frozen_evidence_path)
+        write_jsonl(evidence_output_path, evidence)
+    else:
+        evidence = acquire_and_freeze(root, selected, queue_path, evidence_output_path)
     requirements_path = root / "translation_quarantine" / "r3" / "issue41_issue32_overlap_requirements.jsonl"
     bridge_guard = inspect_bridge_status(issue32_snapshot, requirements_path if requirements_path.exists() else Path("missing-requirements.jsonl"))
     required_overlap = {str(row["canonical"]) for row in read_jsonl(requirements_path)} if requirements_path.exists() else set()
@@ -281,6 +339,12 @@ def run_campaign(root: Path, output_dir: Path, *, issue32_snapshot: Path | None 
         "protected_snapshot_before": protected_before,
         "issue32_snapshot_ref": _relative(root, issue32_snapshot) if issue32_snapshot and issue32_snapshot.exists() else "",
         "issue32_snapshot_hash": file_hash(issue32_snapshot) if issue32_snapshot and issue32_snapshot.exists() else "",
+        "issue32_snapshot_origin_ref": snapshot_metadata.get("origin_ref", ""),
+        "issue32_snapshot_origin_blob": snapshot_metadata.get("origin_blob", ""),
+        "issue32_snapshot_origin_content_identity": snapshot_metadata.get("origin_content_identity", ""),
+        "issue32_snapshot_version": snapshot_metadata.get("snapshot_version", ""),
+        "issue32_snapshot_row_count": snapshot_metadata.get("row_count", 0),
+        "evidence_manifest_ref": _relative(root, evidence_output_path),
         "production_modified": False,
     })
     return summary
@@ -291,8 +355,9 @@ def main() -> int:
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[2])
     parser.add_argument("--output", type=Path, default=Path(__file__).resolve().parents[1] / "r3_bulk_canary")
     parser.add_argument("--issue32-snapshot", type=Path)
+    parser.add_argument("--issue32-git-ref", type=str)
     args = parser.parse_args()
-    print(json.dumps(run_campaign(args.root, args.output, issue32_snapshot=args.issue32_snapshot), ensure_ascii=False, indent=2, sort_keys=True))
+    print(json.dumps(run_campaign(args.root, args.output, issue32_snapshot=args.issue32_snapshot, issue32_git_ref=args.issue32_git_ref), ensure_ascii=False, indent=2, sort_keys=True))
     return 0
 
 

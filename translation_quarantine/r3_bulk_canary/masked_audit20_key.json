@@ -21,42 +21,11 @@
       "bridge32_availability": "NOT_REQUIRED",
       "bridge32_state": "READY",
       "canonical": "sneakers",
-      "display_state": "REVIEW",
+      "display_state": "READY",
       "effective_risk_class": "LOW",
-      "reason_codes": [
-        "NO_SAFE_SEARCH_CANDIDATE",
-        "NO_SUPPORTED_DISPLAY_CANDIDATE"
-      ],
-      "row_state": "REVIEW",
-      "search_state": "REVIEW"
-    },
-    {
-      "audit_key": "02e601e79d227f592b3e6a33913091302c360070d66f1509710dbf7df0ccc90c",
-      "bridge32_availability": "NOT_REQUIRED",
-      "bridge32_state": "READY",
-      "canonical": "wolf_girl",
-      "display_state": "REVIEW",
-      "effective_risk_class": "LOW",
-      "reason_codes": [
-        "NO_SAFE_SEARCH_CANDIDATE",
-        "NO_SUPPORTED_DISPLAY_CANDIDATE"
-      ],
-      "row_state": "REVIEW",
-      "search_state": "REVIEW"
-    },
-    {
-      "audit_key": "03dc0c601e25761c33de7b8d41a8ec79ce2e727f0ce0362424e9f0936676d3ed",
-      "bridge32_availability": "NOT_REQUIRED",
-      "bridge32_state": "READY",
-      "canonical": "doll",
-      "display_state": "REVIEW",
-      "effective_risk_class": "LOW",
-      "reason_codes": [
-        "NO_SAFE_SEARCH_CANDIDATE",
-        "NO_SUPPORTED_DISPLAY_CANDIDATE"
-      ],
-      "row_state": "REVIEW",
-      "search_state": "REVIEW"
+      "reason_codes": [],
+      "row_state": "READY",
+      "search_state": "READY"
     },
     {
       "audit_key": "03dfce236cc23ff1d228b3101e89f6f81acb4a6cdd323d43968394187dcbc5d0",
@@ -87,62 +56,6 @@
       "search_state": "REVIEW"
     },
     {
-      "audit_key": "0599002ff1028ade0ac0ec324960089a6096e1729d448f45ede13ae25f270e75",
-      "bridge32_availability": "NOT_REQUIRED",
-      "bridge32_state": "READY",
-      "canonical": "colored_inner_hair",
-      "display_state": "REVIEW",
-      "effective_risk_class": "LOW",
-      "reason_codes": [
-        "NO_SAFE_SEARCH_CANDIDATE",
-        "NO_SUPPORTED_DISPLAY_CANDIDATE"
-      ],
-      "row_state": "REVIEW",
-      "search_state": "REVIEW"
-    },
-    {
-      "audit_key": "05bfff150eb3c1c18e47d0ff6ed9561f9a45b2010a65d0380abbcfcea3d26341",
-      "bridge32_availability": "NOT_REQUIRED",
-      "bridge32_state": "READY",
-      "canonical": "happy_birthday",
-      "display_state": "REVIEW",
-      "effective_risk_class": "LOW",
-      "reason_codes": [
-        "NO_SAFE_SEARCH_CANDIDATE",
-        "NO_SUPPORTED_DISPLAY_CANDIDATE"
-      ],
-      "row_state": "REVIEW",
-      "search_state": "REVIEW"
-    },
-    {
-      "audit_key": "0a24cbeba65560e5052fa6571511db2e21e4ce11ba4e2737e002a582bfbf0eda",
-      "bridge32_availability": "NOT_REQUIRED",
-      "bridge32_state": "READY",
-      "canonical": "clenched_hands",
-      "display_state": "REVIEW",
-      "effective_risk_class": "LOW",
-      "reason_codes": [
-        "NO_SAFE_SEARCH_CANDIDATE",
-        "NO_SUPPORTED_DISPLAY_CANDIDATE"
-      ],
-      "row_state": "REVIEW",
-      "search_state": "REVIEW"
-    },
-    {
-      "audit_key": "0b7473dc017cde89593d57d279fa3852afb406a81aec9cbf9cab2c57cfdadcc0",
-      "bridge32_availability": "NOT_REQUIRED",
-      "bridge32_state": "READY",
-      "canonical": "trembling",
-      "display_state": "REVIEW",
-      "effective_risk_class": "LOW",
-      "reason_codes": [
-        "NO_SAFE_SEARCH_CANDIDATE",
-        "NO_SUPPORTED_DISPLAY_CANDIDATE"
-      ],
-      "row_state": "REVIEW",
-      "search_state": "REVIEW"
-    },
-    {
       "audit_key": "0c8aac923650ebc12301fa1eaa4cd369915da4eeaec7f0e8da95182b1805b5aa",
       "bridge32_availability": "NOT_REQUIRED",
       "bridge32_state": "READY",
@@ -157,60 +70,26 @@
       "search_state": "REVIEW"
     },
     {
-      "audit_key": "0f54ca1620a92d74967f6e64be539be5eb38a5b09ae2a942da5a0df28ff16f28",
-      "bridge32_availability": "NOT_REQUIRED",
-      "bridge32_state": "READY",
-      "canonical": "legs",
-      "display_state": "REVIEW",
-      "effective_risk_class": "LOW",
-      "reason_codes": [
-        "NO_SAFE_SEARCH_CANDIDATE",
-        "NO_SUPPORTED_DISPLAY_CANDIDATE"
-      ],
-      "row_state": "REVIEW",
-      "search_state": "REVIEW"
-    },
-    {
       "audit_key": "0fc62d54cea1f7c89d1010f96b2572d53925bdcdb4d70d0d76d82bdfb0c0a305",
       "bridge32_availability": "NOT_REQUIRED",
       "bridge32_state": "READY",
       "canonical": "long_skirt",
-      "display_state": "REVIEW",
+      "display_state": "READY",
       "effective_risk_class": "MEDIUM",
-      "reason_codes": [
-        "NO_SAFE_SEARCH_CANDIDATE",
-        "NO_SUPPORTED_DISPLAY_CANDIDATE"
-      ],
-      "row_state": "REVIEW",
-      "search_state": "REVIEW"
+      "reason_codes": [],
+      "row_state": "READY",
+      "search_state": "READY"
     },
     {
       "audit_key": "117c4d8087390616dca4be8a5b49ce8c28bb0036856fa6eccd4b73a550531459",
       "bridge32_availability": "NOT_REQUIRED",
       "bridge32_state": "READY",
       "canonical": "black_socks",
-      "display_state": "REVIEW",
+      "display_state": "READY",
       "effective_risk_class": "MEDIUM",
-      "reason_codes": [
-        "NO_SAFE_SEARCH_CANDIDATE",
-        "NO_SUPPORTED_DISPLAY_CANDIDATE"
-      ],
-      "row_state": "REVIEW",
-      "search_state": "REVIEW"
-    },
-    {
-      "audit_key": "11863f9dc841d3a7d3af87b6db011cff412d600d908f845dc02065822024ba04",
-      "bridge32_availability": "NOT_REQUIRED",
-      "bridge32_state": "READY",
-      "canonical": "two-tone_hair",
-      "display_state": "REVIEW",
-      "effective_risk_class": "LOW",
-      "reason_codes": [
-        "NO_SAFE_SEARCH_CANDIDATE",
-        "NO_SUPPORTED_DISPLAY_CANDIDATE"
-      ],
-      "row_state": "REVIEW",
-      "search_state": "REVIEW"
+      "reason_codes": [],
+      "row_state": "READY",
+      "search_state": "READY"
     },
     {
       "audit_key": "14aec5703bc50b7f5a66705fc355ee37a6f4c15709b872efc774a0a2fe652c06",
@@ -267,6 +146,94 @@
       ],
       "row_state": "REVIEW",
       "search_state": "REVIEW"
+    },
+    {
+      "audit_key": "3558db30b21716f918c32fab1dc7607cce43a2fd7dfe1e0e14338605e6000fdd",
+      "bridge32_availability": "NOT_REQUIRED",
+      "bridge32_state": "READY",
+      "canonical": "leotard",
+      "display_state": "READY",
+      "effective_risk_class": "LOW",
+      "reason_codes": [],
+      "row_state": "READY",
+      "search_state": "READY"
+    },
+    {
+      "audit_key": "4021d607b6953977b46cbe4554d0f8c49a006dc27780de491d8ee69468a2c2cf",
+      "bridge32_availability": "NOT_REQUIRED",
+      "bridge32_state": "READY",
+      "canonical": "couch",
+      "display_state": "READY",
+      "effective_risk_class": "LOW",
+      "reason_codes": [],
+      "row_state": "READY",
+      "search_state": "READY"
+    },
+    {
+      "audit_key": "41333e2acbd84ed8e4f407ef437e41466287e5e0580e1892dfa9ab4bce270bd4",
+      "bridge32_availability": "NOT_REQUIRED",
+      "bridge32_state": "READY",
+      "canonical": "highleg",
+      "display_state": "READY",
+      "effective_risk_class": "LOW",
+      "reason_codes": [],
+      "row_state": "READY",
+      "search_state": "READY"
+    },
+    {
+      "audit_key": "453173d598c2af564df81044d189e88856ab3fc86c0fe877ad9dd839ae5b947d",
+      "bridge32_availability": "NOT_REQUIRED",
+      "bridge32_state": "READY",
+      "canonical": "side_ponytail",
+      "display_state": "READY",
+      "effective_risk_class": "LOW",
+      "reason_codes": [],
+      "row_state": "READY",
+      "search_state": "READY"
+    },
+    {
+      "audit_key": "4ea0024d0d5363f3bf714a64c9e7ebd90fb9c808b4001eff67fd4735017be44a",
+      "bridge32_availability": "NOT_REQUIRED",
+      "bridge32_state": "READY",
+      "canonical": "transparent_background",
+      "display_state": "READY",
+      "effective_risk_class": "LOW",
+      "reason_codes": [],
+      "row_state": "READY",
+      "search_state": "READY"
+    },
+    {
+      "audit_key": "6339e99d03da344201238d72a7aedbf81b3849b68adde510d932a3de6e607ed0",
+      "bridge32_availability": "NOT_REQUIRED",
+      "bridge32_state": "READY",
+      "canonical": "zipper",
+      "display_state": "READY",
+      "effective_risk_class": "LOW",
+      "reason_codes": [],
+      "row_state": "READY",
+      "search_state": "READY"
+    },
+    {
+      "audit_key": "68d7bb29e5005acfd43ab0c9880405c1119494ecc9d6cda8328b40dca15baca1",
+      "bridge32_availability": "NOT_REQUIRED",
+      "bridge32_state": "READY",
+      "canonical": "earrings",
+      "display_state": "READY",
+      "effective_risk_class": "LOW",
+      "reason_codes": [],
+      "row_state": "READY",
+      "search_state": "READY"
+    },
+    {
+      "audit_key": "6dab1e287225c0cf1738ae64cde91f86e2c299bcf463fef5b65d74630a078b51",
+      "bridge32_availability": "NOT_REQUIRED",
+      "bridge32_state": "READY",
+      "canonical": "glasses",
+      "display_state": "READY",
+      "effective_risk_class": "LOW",
+      "reason_codes": [],
+      "row_state": "READY",
+      "search_state": "READY"
     },
     {
       "audit_key": "c582e2c2ff3704a6a9528cd8ece4a0e5a9f8fbae91851ee8ac05bfaf054bb68a",
