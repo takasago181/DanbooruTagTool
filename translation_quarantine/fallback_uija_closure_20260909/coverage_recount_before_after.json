@@ -1,0 +1,18 @@
+{
+  "after": {
+    "display_ja": 22877,
+    "search_ja": 22877
+  },
+  "before": {
+    "display_ja": 22584,
+    "search_ja": 22584
+  },
+  "fallback_input": 8048,
+  "input_hashes": {
+    "data/japanese/japanese_terms.csv": "sha256:aa4583f911e29597f60a4059bf45c34dc320ab33012ec6b46f2a4ffae21422dc",
+    "translation_quarantine/one_shot_uija_remaining_20260909/final_translation_table.csv": "sha256:bb6d18ff2c548828bba7974d47f2b0e1c6b95be03567ddbff51bcea7dda6e45f",
+    "translation_quarantine/r3/FALLBACK_UIJA_CLOSURE_CONTRACT.md": "sha256:b44268bcae7629e55a9e79201a9596c0f890af6ed0a816025d328b89095664c6"
+  },
+  "measurable_universe": 30629,
+  "merged_unique_canonicals": 30629
+}

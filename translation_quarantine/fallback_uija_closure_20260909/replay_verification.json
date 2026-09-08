@@ -1,0 +1,10 @@
+{
+  "live_fetch": false,
+  "merged_table_hash": "sha256:7d58451123a3f7d05aea65d0de958c6ff4938fa393f7ed247212a200182fb22b",
+  "new_ready_used_as_teacher": false,
+  "original_vs_replay1": "PASS",
+  "original_vs_replay2": "PASS",
+  "replay1_vs_replay2": "PASS",
+  "source_mode": "frozen_one_shot_table_and_local_assets_only",
+  "verdict": "PASS"
+}
