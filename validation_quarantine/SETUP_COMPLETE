@@ -1,0 +1,7 @@
+issue=32
+branch=dict-validation/quarantine
+rule_version=R1
+status=READY_TO_START
+production_modified=false
+next_batch=1
+next_sequence=1
