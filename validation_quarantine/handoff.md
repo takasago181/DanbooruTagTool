@@ -7,15 +7,15 @@ Rule version: R1
 
 ## Current position
 - Target: 2,788 Specials
-- Completed: 20
-- PASS: 17
-- FIX: 0
-- REVIEW: 0
+- Completed: 40
+- PASS: 33
+- FIX: 2
+- REVIEW: 2
 - IMAGE_TEST_REQUIRED: 3
-- Last completed Special: ID 20 (`double footjob`)
+- Last completed Special: ID 40 (`hug and suck`)
 - Last completed batch: 0 (Batch 1 is partial)
 - Next batch: 1
-- Next sequence position: 21
+- Next sequence position: 41
 - Revalidation pending: 0
 - Production modified: NO
 
@@ -35,14 +35,19 @@ The first pass uses the frozen production revision captured at setup. Do not sil
 
 ## Current findings
 Checkpoint 1 (sequence 1-20):
-- Generation Profile classifications were acceptable for all 20 rows under R1.
-- IDs 16 `cooperative footjob`, 17 `cooperative handjob`, and 19 `cuddling handjob` have enabled `CORE_SUPPORT + ADDITIVE` rows that are semantically plausible but have `generation_test_status=NOT_TESTED`.
-- Because Stage9 Composer default-selects CORE_SUPPORT+ADDITIVE, these three are parked as `IMAGE_TEST_REQUIRED` until controlled Stage10 comparison decides whether default broad/constituent reinforcement helps versus a minimal Special-only baseline.
-- ID20 `double footjob` remains ACTION_INTERACTION rather than MULTI_ACTOR_INTERACTION because its reference meaning permits either multiple participants or use of both feet; no unsupported actor-count assertion was added. Recheck against sibling `double handjob` / `two-footed footjob` during cross-family review.
+- Generation Profile classifications acceptable for all 20 rows under R1.
+- IDs 16 `cooperative footjob`, 17 `cooperative handjob`, 19 `cuddling handjob` -> `IMAGE_TEST_REQUIRED` because enabled CORE_SUPPORT+ADDITIVE is semantically plausible but NOT_TESTED and currently default-on in Composer.
+
+Checkpoint 2 (sequence 21-40):
+- IDs 34 `grabbing another's ass` and 36 `guided crotch grab` -> `FIX` candidates in quarantine. Their identities intrinsically require distinct actor ownership and spatial target assignment, but ActorRequirementOverride / SpatialAssignmentOverride / ACTOR_SEPARATION_REQUIRED are absent. Candidate fixes are recorded; production remains untouched.
+- ID22 `ear sex` -> `REVIEW`: internal gloss indicates insertion semantics and may conflict with generic ACTION_INTERACTION, but independent authoritative definition was not recovered yet.
+- ID40 `hug and suck` -> `REVIEW`: evidence suggests a compound multi-actor/spatial act, but exact authoritative definition remains insufficient for a static correction.
+- ID21 `double handjob` remains ACTION_INTERACTION because multiplicity can describe participants or hands; same conservative logic as ID20 `double footjob`.
 
 ## Critical interpretation rules
 - Blank/None is not automatically missing data.
 - UNKNOWN / NOT ASSERTED may be the correct state.
+- Promote missing tag-level structure only when semantic ownership/geometry is independently high-confidence and generation-relevant; do not fill every blank for completeness.
 - Generation requirements are structural metadata, not automatic support insertion commands.
 - common/rare/co-occurrence statistics are separate from semantic support.
 - Stage10 HOLD knowledge is not production truth.
@@ -60,7 +65,7 @@ Checkpoint 1 (sequence 1-20):
 - this `handoff.md`
 
 ## Exact restart
-Read Issue #32 and the durable files above. Confirm active rule version R1. Resume Batch 1 at frozen Generation Profile sequence 21. Do not re-count sequence 1-20 unless a revalidation trigger is recorded.
+Read Issue #32 and durable files. Confirm active rule version R1. Resume Batch 1 at frozen Generation Profile sequence 41. Do not re-count sequence 1-40 unless a revalidation trigger is recorded.
 
 ## Chat migration rule
 Before leaving any future validation chat, update at minimum:
