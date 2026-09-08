@@ -1,0 +1,48 @@
+{
+  "artifact_state_counts": {
+    "bridge32": {
+      "READY": 100
+    },
+    "display": {
+      "REVIEW": 100
+    },
+    "row": {
+      "REVIEW": 100
+    },
+    "search": {
+      "REVIEW": 100
+    }
+  },
+  "blind30_gate_metrics": {
+    "review_rows": 0,
+    "search_scope_false_ready": 0,
+    "selected": 30,
+    "semantic_false_ready": 0,
+    "silent_bridge_contradictions": 0,
+    "state": "REVIEW_PENDING"
+  },
+  "deterministic_rerun_verification": "PASS",
+  "issue32_overlap_counts": {
+    "omitted": 0,
+    "pool": 0,
+    "selected": 0
+  },
+  "production_modified": false,
+  "regression_fixture_count": 100,
+  "remaining_925_p0_processed": false,
+  "row_state_counts": {
+    "REVIEW": 100
+  },
+  "schema_version": "r3-1",
+  "search_term_counts": {
+    "class": {},
+    "state": {}
+  },
+  "selected_stratum_counts": {
+    "CRITICAL": 15,
+    "HIGH_ANATOMY_ADULT": 20,
+    "HIGH_POSE_ACTION": 20,
+    "LOW": 25,
+    "MEDIUM": 20
+  }
+}
