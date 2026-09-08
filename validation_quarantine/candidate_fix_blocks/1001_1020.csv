@@ -1,0 +1,7 @@
+sequence,special_id,tag,rule_version,risk_priority,problem_fields,proposed_change,reason,evidence_refs,status
+1003,1003,slapping with penis,R2,A,BodypartRequirementOverride,BodypartRequirementOverride=true,intrinsic named bodypart,generation_profile;generation_family_rules,QUARANTINE_CANDIDATE
+1007,1007,licking own nipple,R2,S,GenerationFamily+ActorRequirementOverride+BodypartRequirementOverride+SpecialFlags,SELF_ACTION + actor/bodypart + SELF_ACTOR_ROLE,explicit self ownership and named target,generation_profile;generation_profile:ID779;generation_family_rules,QUARANTINE_CANDIDATE
+1011,1011,penis on shoulder,R2,A,BodypartRequirementOverride,BodypartRequirementOverride=true,intrinsic named bodypart; spatial already true,generation_profile;generation_profile:ID997,QUARANTINE_CANDIDATE
+1014,1014,poking with penis,R2,A,BodypartRequirementOverride,BodypartRequirementOverride=true,intrinsic named bodypart,generation_profile;generation_profile:ID1003,QUARANTINE_CANDIDATE
+1016,1016,hair on penis,R2,A,BodypartRequirementOverride+ImplementRequirementOverride,bodypart=true; implement=true,intrinsic bodypart+external object; spatial already true,generation_profile;generation_profile:ID991,QUARANTINE_CANDIDATE
+1017,1017,food on penis,R2,A,BodypartRequirementOverride+ImplementRequirementOverride,bodypart=true; implement=true,intrinsic bodypart+object; spatial already true,generation_profile;generation_profile:ID1016,QUARANTINE_CANDIDATE
