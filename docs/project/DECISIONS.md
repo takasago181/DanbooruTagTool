@@ -140,3 +140,32 @@ Status: ADOPTED
 
 理由:
 - 他班/管理チャットの最新更新をstale writeで消す事故を防ぐ。
+
+---
+
+## D-012 Final Special countは2,788へ固定せずpre-freeze completeness reconciliationで確定
+
+Status: ADOPTED
+
+現在の2,788件はIssue #32の**running audit用固定母数**として維持し、途中で並び替え・差し替え・母数変更をしない。
+一方で、2,788という現在件数だけを根拠に「最終Special集合も必ず2,788件」とは決めない。
+
+Issue #32のcurrent 2,788 full validation完了後、final production promotion audit / final Special dictionary freezeの前に、1回だけ明示的な**pre-freeze completeness reconciliation（漏れ監査）**を行う。
+
+少なくとも以下を突き合わせる:
+- current frozen Special2788 source/profile
+- 過去Stageで作成・記録された追加Special候補
+- canonical / Alias / Semantic辞書および関連local search/support資産
+- missing/additional word作業を記録したdurable checkpoint / decision
+
+判定ルール:
+- auxiliary/search-only/general tagをSpecialへ自動昇格しない。
+- 独立根拠で「本来Special集合へ含めるべきidentity」と確認できたものだけをmissing-Special候補にする。
+- genuine missing Specialが見つかっても、完了済み2,788監査は破棄・再実行しない。
+- missing分だけをdeltaとして追加し、Issue #32と同等の該当risk/evidence/revalidation基準で監査する。
+- missingが0ならreconciliation PASSを明示し、最終件数2,788を確定する。
+- missingが存在すればdelta監査完了後の総数を最終件数とする。
+
+理由:
+- 長期開発中に追加・補完した語彙資産がSpecial本体か補助資産かを最終freeze前に取りこぼさず再照合するため。
+- 現在までの2,788件監査成果を無駄にせず、必要な追加分だけ厳密に検証するため。
