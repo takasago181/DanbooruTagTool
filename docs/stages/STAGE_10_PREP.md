@@ -13,9 +13,12 @@ Special2788の機能を実画像A/B比較で検証する。
 - model family差を保持する。
 - Promptの実出力を追跡可能にする。
 - Stage10専用の採点・実験管理機能を現時点で本体へ追加しない。
-- Stage9 overall Gateは完了済みだが、それだけでStage10本番A/B開始とはしない。
-- unit/regression test PASSだけで実アプリ動作PASSとは扱わない。Issue #28 automated E2E functional testはPASS済み。
-- Stage10比較自動化はexternal / existing tool firstとし、既存Forge Neo機能・既存拡張・外部OSSで満たせる範囲を先に使う。不足箇所だけ薄いglue/harnessを追加する。
+- Stage9 overall Gate完了だけでStage10本番A/B開始とはしない。
+- Issue #28 automated E2E functional testはPASS済み。
+- Stage10比較自動化はexternal / existing tool first。不足箇所だけ薄いglue/harnessを追加する。
+- WD14その他TaggerをSpecial2788の完全なground truthとして扱わない。
+- unsupported / low-confidenceはFAILではなくREVIEWへ送る。
+- simple tag用の1つのconfidence/margin thresholdをrelation/composite/rare Specialや別model familyへ共通適用しない。
 
 ## Issue #6 comparison environment completion
 
@@ -27,114 +30,154 @@ Issue #6: **PASS_WITH_NOTE / completed**。
 - generated-image Prompt/PNG metadata traceability: PASS
 - existing baseline regular-generation regression: PASS
 - audit commit: `472a219058771fe117b87d62c9d53d5402b8cff9`
-- notes: extension-namespaced `ui-config.json` persistence and the approved IIB commit's declared `imageio-ffmpeg` missing-dependency bootstrap are retained as standard installation side effects; unrelated updates were not performed.
 - evidence: `docs/testing/ISSUE6_COMPLETION_CHECKPOINT_20260908.md`, `docs/testing/ISSUE6_EXTENSION_INSTALL_AND_VERIFICATION_20260908.md`, `docs/testing/ISSUE6_EXTENSION_AUDIT_20260908.md`
 
 ## Issue #30 infrastructure pipeline checkpoint
 
-Issue #30のexternal-tool-first配管は **PASS_PIPELINE**。
+Issue #30 external-tool-first配管: **PASS_PIPELINE**。
 
-- remote evidence branch: `codex/issue30-automation-dry-run-20260908`
+- evidence branch: `codex/issue30-automation-dry-run-20260908`
 - evidence commit: `f2fc7acb15f996630c9f008284d80cf3261fb32f`
-- Forge Neo API: `neo-2.29` / API-enabled runtime / no `/sdapi/v1/options` POST
-- fixed model: `waiIllustriousSDXL_v170` / hash `f116b0c78f`
-- fixed conditions: Seed 5072 / Steps 24 / CFG 4.5 / Euler a / Automatic / 1024x1024 / batch 1 / LoRA none
-- A/B 2枚を `/sdapi/v1/txt2img` で生成し、PNG SHA-256・API response・`/sdapi/v1/png-info` actual Prompt/Negative/Seed/settings traceabilityを確認
-- WD14 `wd14-eva02.v3.large`、threshold 0.0で両画像のraw confidenceをmachine-readable保存
-- plumbing diagnostic: `standing` A=0.80345 / B=0.00976、`sitting` A=0.00100 / B=0.93025
+- Forge Neo API `neo-2.29`
+- fixed model `waiIllustriousSDXL_v170` / hash `f116b0c78f`
+- Seed 5072 / Steps 24 / CFG 4.5 / Euler a / Automatic / 1024x1024 / batch 1 / LoRA none
+- `/sdapi/v1/txt2img` → PNG SHA-256 → `/sdapi/v1/png-info` actual Prompt/metadata → WD14 raw confidenceまで通過
 - user manual operations: 0
 - Agent Scheduler: HOLD
-- model switch / production scoring / A_WIN・B_WIN判定: 未実施
+- model switch / production scoring / production A_WIN・B_WIN判定: 未実施
 
-このPASSは **生成→metadata→WD14 rawまでのインフラ配管PASS** であり、Issue #30完了やStage10本番開始を意味しない。残りはWD14語彙coverageを考慮した保守的な `A_WIN / B_WIN / REVIEW / BLOCKED` routingとgolden-set validation。低信頼・未対応概念をFAIL/WINへ強制せずREVIEWへ送る。
+## Generic golden-set disposition
+
+Generic golden set evidence:
+- commit `33215269cfeb33b3afab0c36a6a8bd52cb55952e`
+- targets: `standing / sitting / long_hair / smile`
+- 4 experiments × 2 seeds = 8 A/B / 16 images
+- metadata 16/16 / WD14 raw 16/16 / selected target vocabulary coverage 100%
+
+Issue #37 KNOWLEDGE + PROMPT review conclusion:
+
+**`REPLACE_OR_AUGMENT_WITH_SPECIAL_REPRESENTATIVE_SET`**
+
+The generic set is retained only as a **plumbing/evaluator fixture**. It is not representative enough for DanbooruTagTool's Special2788-centered Stage10 product-purpose calibration.
+
+The generic contact-sheet task is therefore **PAUSED / SUPERSEDED as the next product-representative step**. Existing evidence is preserved.
+
+## Special-representative test design — adopted direction
+
+Design authority:
+- `docs/testing/ISSUE30_SPECIAL_REPRESENTATIVE_ROUTING_DESIGN_20260908.md`
+- Issue #37 joint checkpoint
+
+Representative calibration must include categories such as:
+
+1. actual Special2788 direct presence/absence
+2. rare / niche Special
+3. relation / actor-target / body-site binding
+4. multiple-Special simultaneous retention
+5. support-tag ON/OFF affecting observability/visibility while Special identity stays fixed
+6. canonical/Alias identity-sensitive behavior where relevant
+
+Each pair still follows **one experiment = one question**.
+
+Routing classes are capability-aware. Unsupported/insufficient evidence -> `REVIEW`; required metadata/traceability/infrastructure missing -> `BLOCKED`. Only validated compatible evaluator classes may emit candidate `A_WIN / B_WIN`.
+
+## Negative Prompt boundary
+
+For unusual-anatomy Special tests, do not mechanically fix anatomy-sensitive negatives such as:
+
+- `bad anatomy`
+- `extra limbs`
+- `extra arms`
+- similar malformed-anatomy suppression
+
+Their interaction with the target Special is a separate one-question A/B experiment. This is experiment isolation, not a production Negative Prompt rule.
+
+## HOLD until final Special2788 dictionary freeze
+
+Do not finalize before the dictionary is frozen:
+
+- representative test Special IDs / exact final case list
+- WD14 / Kagami-24k / CL Tagger v2 final responsibility split
+- each Tagger's final Special2788 coverage
+- per-Special `AUTO` / `REVIEW` final routing
+- production confidence / margin thresholds
+
+PROMPT may prepare Prompt structures, A/B questions, support-isolation patterns, and replacement workflow now, but case selection is not final.
+
+## Required KNOWLEDGE evaluator follow-up after dictionary freeze
+
+Compare the finalized 2,788-entry Special set against:
+
+- WD14 / `wd-eva02-large-tagger-v3`
+- Kagami-24k
+- CL Tagger v2 stable/fixed release
+
+Return coverage to PROMPT and Issue #30 before final evaluator allocation.
+
+At minimum report:
+- raw vocabulary coverage
+- Core / Extended / Alias / Semantic coverage separately
+- post-count-band coverage
+- raw Alias coverage and canonical-target coverage separately
+- representative-image evaluator disagreement when available
 
 ## Stage9 → Stage10 Gate
 
-Stage9は完了済み。
+Stage9 completed:
+- Stage9A PASS
+- Stage9B PASS / Issue #3 PASS
+- Stage9C PASS
+- Stage9D PASS
+- Issue #17 completed
+- Issue #22 independent audit PASS
+- PR #27 merged / merge `0f17d65e1e3c737dfacd9cfee0c9d4062b683ade`
+- Issue #26 protected integrity completed
 
-- Stage9A: Pure Composer core — PASS
-- Stage9B: Candidate lanes and runtime integration — PASS / Issue #3 PASS
-- Stage9C: Local UI integration — PASS
-- Stage9D: Stage10 experiment hooks — PASS
-- Issue #17 DEV Gate — completed
-- Issue #22 independent audit — PASS / completed
-- PR #27 — merged to main
-- merge commit — `0f17d65e1e3c737dfacd9cfee0c9d4062b683ade`
-- Issue #26 protected integrity — completed
-
-比較条件の境界は `ComposerVariant` と `Stage9ComposerSession.comparison_snapshot()`。
-Special位置、明示的なbroad support 0/1/2、role別追加セット、model-family指定のweight表記、独立LoRA入力と明示入力IDによる縮約、frontend/runtime metadataを切り替え、元variantへ復元できる。
-比較結果の保存・採点・winner選定やmodel grammarの確定は行わない。
+Comparison boundary remains `ComposerVariant` and `Stage9ComposerSession.comparison_snapshot()`; Stage9 does not finalize result scoring/winner selection or model grammar.
 
 ## Automated E2E Gate
 
 Issue #28: **PASS / completed**。
 
-- branch: `codex/issue28-e2e-verdict`
-- tested source: `fcf7b217d4270f43747cb7259aa80153e90ae45d`
-- evidence head: `04629908b38c29e3896eeca3c1fb64cf164c7142`
-- PR #33 merged to main
-- merge commit: `9504fd64ce6b4acc762f589a734d67eac6b79e93`
-- machine-readable verdict: PASS
-- full suite: 285 passed / exit 0
-- real Tk 8.6.15, required scenarios 3/3 PASS, no mocked rendering
-- negative gate probe confirms missing required GUI paths => BLOCKED / exit 2
+- evidence head `04629908b38c29e3896eeca3c1fb64cf164c7142`
+- PR #33 merged / merge `9504fd64ce6b4acc762f589a734d67eac6b79e93`
+- full suite 285 passed / exit 0
+- real Tk 8.6.15 / required scenarios 3/3 PASS / no mocked rendering
 - Stage0 protected hash/size/path-set checks PASS
-- E2Eでinvalid recommendation resultが現在stateを壊し得る不具合を検出し、validation完了前に候補状態を置換しない修正をmainへ反映済み。
 
-E2Eの対象はfunctional pathであり、visual-layout/manual desktop inspection、全2,788 Special総当たり、Forge同時稼働性能、画像品質は別Gate/Stage10対象。
-
-## Forge Neo A/B automation TEMP
-
-Issue #30で、Stage10本番A/B時のユーザー手作業を可能な限り減らす。
-
-優先順:
-1. 既に導入済みのForge Neo拡張
-2. Forge Neo標準機能
-3. Forge Neo対応既存拡張
-4. 外部CLI / API / OSS
-5. gapだけ小さなglue script / harnessを自作
-
-対象:
-- A/B Prompt差し替え
-- fixed / multi-seed生成
-- model / LoRA / steps / cfg / sampler / size固定
-- 生成画像 + 実Prompt + metadata追跡
-- WD14等の既存Taggerによるrequired / forbidden一次判定
-- `A_WIN / B_WIN / REVIEW / BLOCKED` 振り分け
-- machine-readable / human-readable report
-- REVIEW対象だけを人間が効率よく比較する導線
-
-Issue #6は比較環境の導入・基礎動作確認、Issue #30はその上で自動実行・自動整理・一次判定を担当する。Stage10本番前にdry runを行い、ユーザー操作回数・REVIEW率・metadata欠損・再現性を確認する。
+E2E does not prove visual layout/manual inspection, exhaustive 2,788 Special behavior, Forge simultaneous performance, or image quality.
 
 ## Stage10開始前チェック
 
 - [x] Stage9B完了（Issue #2）
 - [x] Stage9B監査PASS（Issue #3）
-- [x] Stage9Cを処理（Issue #17）
-- [x] Stage9Dを処理（Issue #17）
-- [x] Stage9C/9D完了監査PASS（Issue #22）
-- [x] Stage9全体Gate完了
+- [x] Stage9C/9D処理・監査PASS（Issue #17 / #22）
+- [x] Stage9 overall Gate完了
 - [x] Automated E2E functional test PASS（Issue #28）
 - [ ] Stage10正式handoff
-- [x] Forge Neo比較環境導入・動作確認（Issue #6） — PASS_WITH_NOTE / completed
-- [ ] Forge Neo A/B automation external-tool-first dry run（Issue #30）
-  - [x] Forge API → fixed-seed A/B → PNG actual metadata → WD14 raw confidence — PASS_PIPELINE
-  - [ ] coverage-aware verdict routing / REVIEW fallback / golden-set validation
+- [x] Forge Neo比較環境導入・動作確認（Issue #6） — PASS_WITH_NOTE
+- [ ] Forge Neo A/B automation external-tool-first（Issue #30）
+  - [x] Forge API → fixed-seed A/B → PNG actual metadata → WD14 raw — PASS_PIPELINE
+  - [x] generic golden set — accepted as plumbing fixture only
+  - [x] Special-representative test/routing direction — adopted via Issue #37
+  - [ ] final dictionary freeze後のTagger coverage比較
+  - [ ] final representative case selection
+  - [ ] capability-aware AUTO/REVIEW routing calibration
 - [x] Multi Prompt Slots等の比較手段確認（Issue #6）
 - [ ] テストPrompt班へ正式Specialデータ提供（Issue #5）
-- [ ] A/Bの固定条件定義
+- [ ] A/Bの固定条件最終定義
 - [x] metadata保存方法定義（Issue #6 baseline / handoff）
 - [x] #4 KNOWLEDGEのStage10知識整理結果を正式handoffへ反映
-- [ ] model familyごとのPrompt grammar差を保持し、未検証共通化をしていない
-- [x] 実際に使ったPromptを各画像/結果へ追跡できる（Issue #6 baseline / handoff）
-- [ ] REVIEW対象だけを人間が確認できる自動化運用をdry runで確認
+- [ ] model familyごとのPrompt grammar差を保持し未検証共通化していない
+- [x] 実Prompt traceability baseline確認
+- [ ] REVIEW対象だけを人間が効率よく確認できる最終運用を代表Specialセットで確認
 
 Knowledge handoff正本: `docs/stages/STAGE_10_KNOWLEDGE_HANDOFF.md`
 
 ## 現在地
 
 Stage10本番A/Bは**未開始**。
-Issue #28 automated E2EはPASS済み。Issue #6 Forge Neo比較環境はPASS_WITH_NOTEで完了。Issue #30は生成・metadata・WD14 rawまでPASS_PIPELINEとなり、現在はcoverage-aware verdict routing / REVIEW fallback / golden-set validationが残る。#5 PROMPTは#30最終結果のhandoff待ち。Issue #4 KNOWLEDGEはStage10開始前調査を完了しhandoff済み。
+
+Issue #30はインフラ配管PASS。generic golden setはplumbing fixtureに降格・保持。Special代表テスト方式とrouting思想は#37で修正済み。最終Specialデータ・Tagger割当・AUTO/REVIEW mapping・production thresholdは、辞書freeze後のKNOWLEDGE coverage比較までHOLD。
 
 このchecklistを満たす前にStage10本番画像A/Bを正式開始しない。
