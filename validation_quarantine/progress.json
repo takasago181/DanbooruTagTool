@@ -7,8 +7,8 @@
   "fixed_order": "production Special2788 order at audit start",
   "batch_size": 100,
   "internal_block_size": 20,
-  "completed_specials": 640,
-  "pass": 573,
+  "completed_specials": 660,
+  "pass": 593,
   "fix": 44,
   "review": 7,
   "image_test_required": 16,
@@ -27,10 +27,10 @@
   "semantic_support_rows_covered": 53,
   "semantic_support_rows_review": 0,
   "semantic_support_rows_image_test_required": 29,
-  "last_completed_special_id": "640",
+  "last_completed_special_id": "660",
   "last_completed_batch": 6,
   "next_batch": 7,
-  "next_start_position": 641,
+  "next_start_position": 661,
   "production_modified": false,
-  "notes": "Batch7 partial checkpoint 601-640 saved in two20-row result blocks. Delta through640 PASS30/FIX10/REVIEW0/IMAGE_TEST_REQUIRED0. Candidate-fix deltas are durable in candidate_fix_blocks/0601_0620.csv and 0621_0640.csv; revalidation queue deltas are empty. Aggregate candidate_fixes.csv remains consolidated through600 pending Batch7 gate reconciliation. Semantic-support coverage remains53/58. Next safe restart641. Production/main unchanged."
+  "notes": "Batch7 partial checkpoint 601-660 saved in three20-row result blocks. Delta through660 PASS50/FIX10/REVIEW0/IMAGE_TEST_REQUIRED0. No candidate or queue delta in641-660. Candidate-fix append-only blocks remain authoritative partial deltas; aggregate candidate_fixes.csv remains consolidated through600 pending Batch7 reconciliation. Semantic-support coverage remains53/58. Next safe restart661. Production/main unchanged."
 }
