@@ -8,7 +8,7 @@
   },
   "membership_unchanged": true,
   "output_file": "pilot_rows_effective.jsonl",
-  "override_manifest_sha256": "25f885f40bc017bb41b03ee14cefda81c606c2de00a161de082dfe6af8d12027",
+  "override_manifest_sha256": "cf747328c9921e3b929c5be591868a82fe5de1aeec1c3edb713ac3f5f394325f",
   "override_rows": 15,
   "pilot_rows": 100,
   "schema_version": "issue41-effective-risk-1"

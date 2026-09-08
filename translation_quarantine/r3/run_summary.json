@@ -1,8 +1,7 @@
 {
   "artifact_state_counts": {
     "bridge32": {
-      "READY": 93,
-      "REVIEW": 7
+      "READY": 100
     },
     "display": {
       "READY": 69,
@@ -22,9 +21,9 @@
     "state": "NOT_BUILT"
   },
   "bridge32_audit": {
-    "available_count": 0,
+    "available_count": 7,
     "blocked_bridge_count": 0,
-    "bridge_missing_count": 7,
+    "bridge_missing_count": 0,
     "contradiction_count": 0,
     "not_required_count": 93,
     "records": [
@@ -74,13 +73,13 @@
         "snapshot_ref": ""
       },
       {
-        "bridge32_availability": "BRIDGE_MISSING",
-        "bridge32_state": "REVIEW",
+        "bridge32_availability": "AVAILABLE",
+        "bridge32_state": "READY",
         "canonical": "bara",
-        "content_identity": "",
-        "current_fingerprint": "",
+        "content_identity": "sha256:e87080b45d779c28c281d75d472870ba252b2d1ff02d8cdca9a63f17c628744c",
+        "current_fingerprint": "sha256:3c4e843c34568b57c6698bf9ffccae1dba82a2365a544cb139ed0af3e24c0d43",
         "evaluated_fingerprint": "",
-        "snapshot_ref": ""
+        "snapshot_ref": "validation_quarantine/bridge_snapshots/ui_ja_issue41_overlap7_v2.json#bara"
       },
       {
         "bridge32_availability": "NOT_REQUIRED",
@@ -182,13 +181,13 @@
         "snapshot_ref": ""
       },
       {
-        "bridge32_availability": "BRIDGE_MISSING",
-        "bridge32_state": "REVIEW",
+        "bridge32_availability": "AVAILABLE",
+        "bridge32_state": "READY",
         "canonical": "fishnets",
-        "content_identity": "",
-        "current_fingerprint": "",
+        "content_identity": "sha256:28509ff5c1245227220ea916e5ff38bbc1a8b87aa8ffd3f3d9a8d05b72edd1bd",
+        "current_fingerprint": "sha256:f7e4d2f2199394bd9cab9af2c39557a55f5396ebff5267c3008f88c027d6043c",
         "evaluated_fingerprint": "",
-        "snapshot_ref": ""
+        "snapshot_ref": "validation_quarantine/bridge_snapshots/ui_ja_issue41_overlap7_v2.json#fishnets"
       },
       {
         "bridge32_availability": "NOT_REQUIRED",
@@ -227,13 +226,13 @@
         "snapshot_ref": ""
       },
       {
-        "bridge32_availability": "BRIDGE_MISSING",
-        "bridge32_state": "REVIEW",
+        "bridge32_availability": "AVAILABLE",
+        "bridge32_state": "READY",
         "canonical": "loli",
-        "content_identity": "",
-        "current_fingerprint": "",
+        "content_identity": "sha256:b727b59c876c1f41b8fefec89e3dae6f2577ba0cf4feba17cbc79c036df14035",
+        "current_fingerprint": "sha256:cbd2dc33d76b469ea22f4a0fe3dc1a6c097ac49fe81fd5bef3c3272517d28881",
         "evaluated_fingerprint": "",
-        "snapshot_ref": ""
+        "snapshot_ref": "validation_quarantine/bridge_snapshots/ui_ja_issue41_overlap7_v2.json#loli"
       },
       {
         "bridge32_availability": "NOT_REQUIRED",
@@ -245,13 +244,13 @@
         "snapshot_ref": ""
       },
       {
-        "bridge32_availability": "BRIDGE_MISSING",
-        "bridge32_state": "REVIEW",
+        "bridge32_availability": "AVAILABLE",
+        "bridge32_state": "READY",
         "canonical": "fellatio",
-        "content_identity": "",
-        "current_fingerprint": "",
+        "content_identity": "sha256:89a5daf697e9336888eae3cffe0f048d5f3dbb1e9188a16a14864ba001cdc780",
+        "current_fingerprint": "sha256:67eff56e6c2d1c9bb3e9ff9483cee3049fd6311a375aa95e17fea86d8adfcdfb",
         "evaluated_fingerprint": "",
-        "snapshot_ref": ""
+        "snapshot_ref": "validation_quarantine/bridge_snapshots/ui_ja_issue41_overlap7_v2.json#fellatio"
       },
       {
         "bridge32_availability": "NOT_REQUIRED",
@@ -524,13 +523,13 @@
         "snapshot_ref": ""
       },
       {
-        "bridge32_availability": "BRIDGE_MISSING",
-        "bridge32_state": "REVIEW",
+        "bridge32_availability": "AVAILABLE",
+        "bridge32_state": "READY",
         "canonical": "pussy",
-        "content_identity": "",
-        "current_fingerprint": "",
+        "content_identity": "sha256:60b0bd7c906b94d9b618ecc1cadddff190ade4e9321de5cf5175eed867f888f1",
+        "current_fingerprint": "sha256:286dcd8670e7c9276b23a6d71905e2c2e58794c560bd2b1cee7614225bbe41a1",
         "evaluated_fingerprint": "",
-        "snapshot_ref": ""
+        "snapshot_ref": "validation_quarantine/bridge_snapshots/ui_ja_issue41_overlap7_v2.json#pussy"
       },
       {
         "bridge32_availability": "NOT_REQUIRED",
@@ -569,13 +568,13 @@
         "snapshot_ref": ""
       },
       {
-        "bridge32_availability": "BRIDGE_MISSING",
-        "bridge32_state": "REVIEW",
+        "bridge32_availability": "AVAILABLE",
+        "bridge32_state": "READY",
         "canonical": "anal",
-        "content_identity": "",
-        "current_fingerprint": "",
+        "content_identity": "sha256:d6fc28b7816fc63cfefe5c43153f043902273348b14e87b861ab7e8d95c9f572",
+        "current_fingerprint": "sha256:7faf5bf881b05e4f0a39b1bf03e70c7459e5edd6075a2fb7846b6ec03bcde896",
         "evaluated_fingerprint": "",
-        "snapshot_ref": ""
+        "snapshot_ref": "validation_quarantine/bridge_snapshots/ui_ja_issue41_overlap7_v2.json#anal"
       },
       {
         "bridge32_availability": "NOT_REQUIRED",
@@ -902,13 +901,13 @@
         "snapshot_ref": ""
       },
       {
-        "bridge32_availability": "BRIDGE_MISSING",
-        "bridge32_state": "REVIEW",
+        "bridge32_availability": "AVAILABLE",
+        "bridge32_state": "READY",
         "canonical": "bound",
-        "content_identity": "",
-        "current_fingerprint": "",
+        "content_identity": "sha256:1e3578773fd73e2b8d066a58428e153efb39b7497d683edd37aa504a8893030f",
+        "current_fingerprint": "sha256:31b0ecafb9949474bc1f7171d416ff252c15b5530ab511628cfc5debe6da3507",
         "evaluated_fingerprint": "",
-        "snapshot_ref": ""
+        "snapshot_ref": "validation_quarantine/bridge_snapshots/ui_ja_issue41_overlap7_v2.json#bound"
       },
       {
         "bridge32_availability": "NOT_REQUIRED",

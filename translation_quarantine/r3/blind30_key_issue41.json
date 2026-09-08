@@ -1,0 +1,238 @@
+{
+  "achieved_stratum_counts": {
+    "CRITICAL": 8,
+    "HIGH_ANATOMY_ADULT": 7,
+    "HIGH_POSE_ACTION": 6,
+    "LOW": 4,
+    "MEDIUM": 5
+  },
+  "blind_seed": "UIJA-R3-BLIND30-20260908-V1",
+  "omitted_overlap": [],
+  "requested_stratum_counts": {
+    "CRITICAL": 8,
+    "HIGH_ANATOMY_ADULT": 7,
+    "HIGH_POSE_ACTION": 6,
+    "LOW": 4,
+    "MEDIUM": 5
+  },
+  "schema_version": "issue41-blind30-1",
+  "selected": [
+    {
+      "blind_key": "0121aa2bf43fdafb12f3a8fec5e477c1e547913c850810fe42c75f4d4d539763",
+      "canonical": "multiple_views",
+      "effective_risk_class": "CRITICAL",
+      "issue32_overlap": "NO",
+      "selection_risk_class": "CRITICAL"
+    },
+    {
+      "blind_key": "01418867c06f5bd7f48d469063c859f5dffe20bae5152d74612ad3089ba27a1c",
+      "canonical": "clothed_sex",
+      "effective_risk_class": "HIGH_ANATOMY_ADULT",
+      "issue32_overlap": "NO",
+      "selection_risk_class": "HIGH_ANATOMY_ADULT"
+    },
+    {
+      "blind_key": "07ff7f6319735d94c1a73f90f4e863486a93984999b1b4b942af92ca8e449ce0",
+      "canonical": "group_sex",
+      "effective_risk_class": "HIGH_ANATOMY_ADULT",
+      "issue32_overlap": "NO",
+      "selection_risk_class": "HIGH_ANATOMY_ADULT"
+    },
+    {
+      "blind_key": "0d08456fd9c77f85e5b717d3e4e99aeefb8ffa4b81c1ea4c5258f152f17bbc7c",
+      "canonical": "black_dress",
+      "effective_risk_class": "MEDIUM",
+      "issue32_overlap": "NO",
+      "selection_risk_class": "MEDIUM"
+    },
+    {
+      "blind_key": "0fd48783adf8804dd9c3baa1b78f94b30933e5c1db84ef42d4c9843b16ab3361",
+      "canonical": "rabbit_tail",
+      "effective_risk_class": "HIGH_ANATOMY_ADULT",
+      "issue32_overlap": "NO",
+      "selection_risk_class": "HIGH_ANATOMY_ADULT"
+    },
+    {
+      "blind_key": "107451993b178d7e10863ef063989b4ca82dceb3ca41a884df76837e1039eb25",
+      "canonical": "hand_on_own_hip",
+      "effective_risk_class": "CRITICAL",
+      "issue32_overlap": "NO",
+      "selection_risk_class": "CRITICAL"
+    },
+    {
+      "blind_key": "1451059818d37f9247868449bdb909f873e566177bb1a5dc2c96f58d25401159",
+      "canonical": "yellow_background",
+      "effective_risk_class": "MEDIUM",
+      "issue32_overlap": "NO",
+      "selection_risk_class": "MEDIUM"
+    },
+    {
+      "blind_key": "1496d1e8c205ffdc3213adf9096fc0416dc32a0c6feb26f1b09fc9cc70e942cd",
+      "canonical": "mole_on_breast",
+      "effective_risk_class": "CRITICAL",
+      "issue32_overlap": "NO",
+      "selection_risk_class": "CRITICAL"
+    },
+    {
+      "blind_key": "16d560897a56e3e34a835facdbc4d843471b13fac115ca0804b1490003a6631b",
+      "canonical": "black_necktie",
+      "effective_risk_class": "MEDIUM",
+      "issue32_overlap": "NO",
+      "selection_risk_class": "MEDIUM"
+    },
+    {
+      "blind_key": "1aa1f48b1d22a8a85913ca86cdb1567032b00c2a5cce214f94b7badd6b8bc9c3",
+      "canonical": "multiple_boys",
+      "effective_risk_class": "CRITICAL",
+      "issue32_overlap": "NO",
+      "selection_risk_class": "CRITICAL"
+    },
+    {
+      "blind_key": "1b41e62ea8b79caba6ffcae3268214a70460948edaf4aba1ba815bc9fadbd0f9",
+      "canonical": "alternate_breast_size_(larger)",
+      "effective_risk_class": "CRITICAL",
+      "issue32_overlap": "NO",
+      "selection_risk_class": "CRITICAL"
+    },
+    {
+      "blind_key": "1e58c9ed35853eb5560547b945e94fe045aa0742de16dab45aecefaa44b5ed13",
+      "canonical": "leaning_forward",
+      "effective_risk_class": "HIGH_POSE_ACTION",
+      "issue32_overlap": "NO",
+      "selection_risk_class": "HIGH_POSE_ACTION"
+    },
+    {
+      "blind_key": "20515cd8b9e3b51ffd7f23b7f4b74a784c425e6f31ab7c5eef247a729d3a2b73",
+      "canonical": "cum_in_pussy",
+      "effective_risk_class": "HIGH_ANATOMY_ADULT",
+      "issue32_overlap": "NO",
+      "selection_risk_class": "HIGH_ANATOMY_ADULT"
+    },
+    {
+      "blind_key": "21bcefb9320bf206f7fdf6016a470abb634704ef72a04e28fd647f345b21e7ae",
+      "canonical": "white_panties",
+      "effective_risk_class": "MEDIUM",
+      "issue32_overlap": "NO",
+      "selection_risk_class": "MEDIUM"
+    },
+    {
+      "blind_key": "2b54aaafec17d4942414c2a6b075cd7c4a9dad51c2acf6999b149b42954e3da7",
+      "canonical": "white_pants",
+      "effective_risk_class": "MEDIUM",
+      "issue32_overlap": "NO",
+      "selection_risk_class": "MEDIUM"
+    },
+    {
+      "blind_key": "2d922d5f454b8a3880900059116d26949d67cc4cb177ff7cff4bb539868a18c4",
+      "canonical": "grabbing_another's_breast",
+      "effective_risk_class": "HIGH_ANATOMY_ADULT",
+      "issue32_overlap": "NO",
+      "selection_risk_class": "HIGH_ANATOMY_ADULT"
+    },
+    {
+      "blind_key": "32116258668d6669772d46af805d5239fbad9e58e7c715ed3ec2601e22d9c6d3",
+      "canonical": "fishnets",
+      "effective_risk_class": "LOW",
+      "issue32_overlap": "YES",
+      "selection_risk_class": "LOW"
+    },
+    {
+      "blind_key": "33491d6e3729ca8b4cc14bb100b5161cbd9ae7d461f85780e29d4c56c8a9a2be",
+      "canonical": "pussy",
+      "effective_risk_class": "HIGH_ANATOMY_ADULT",
+      "issue32_overlap": "YES",
+      "selection_risk_class": "HIGH_ANATOMY_ADULT"
+    },
+    {
+      "blind_key": "36595c3085856db1677c5490ed2989de6a9466ac2df6dbf46675d1ea9e38e0dd",
+      "canonical": "all_fours",
+      "effective_risk_class": "HIGH_POSE_ACTION",
+      "issue32_overlap": "NO",
+      "selection_risk_class": "LOW"
+    },
+    {
+      "blind_key": "36cb58994e4c86399cffc37d977e2ec8ae32528c23edb9f224914de7199dfc35",
+      "canonical": "fellatio",
+      "effective_risk_class": "HIGH_ANATOMY_ADULT",
+      "issue32_overlap": "YES",
+      "selection_risk_class": "LOW"
+    },
+    {
+      "blind_key": "3a24dc008cd577e3abd9d1364201078b15ec1d04e4c6e77742618dc6dc63b133",
+      "canonical": "anal",
+      "effective_risk_class": "HIGH_ANATOMY_ADULT",
+      "issue32_overlap": "YES",
+      "selection_risk_class": "HIGH_ANATOMY_ADULT"
+    },
+    {
+      "blind_key": "4c183ecc75ea421a80ca9d686aa4eaadf1153e9bc932cfceb7fd4759573bca82",
+      "canonical": "profile",
+      "effective_risk_class": "HIGH_POSE_ACTION",
+      "issue32_overlap": "NO",
+      "selection_risk_class": "LOW"
+    },
+    {
+      "blind_key": "5631e4ea300bc6ffa76f5eb1ac5009e8669982f95fcd7944a7b9fa3002a7f4ee",
+      "canonical": "hand_fan",
+      "effective_risk_class": "LOW",
+      "issue32_overlap": "NO",
+      "selection_risk_class": "LOW"
+    },
+    {
+      "blind_key": "5e507147380c1d3cb1a671651bf815be00901f9c1425c705a2e55f187ae2fc22",
+      "canonical": "toenails",
+      "effective_risk_class": "LOW",
+      "issue32_overlap": "NO",
+      "selection_risk_class": "LOW"
+    },
+    {
+      "blind_key": "6fe1bc73dc8cf56d46eaabda810a2d82260a8944fc279d904413f366f517e667",
+      "canonical": "dragon_horns",
+      "effective_risk_class": "LOW",
+      "issue32_overlap": "NO",
+      "selection_risk_class": "LOW"
+    },
+    {
+      "blind_key": "7047babae759ca2de349e661baee60ab16791589b0a77f3c501e8169d756d184",
+      "canonical": "facing_viewer",
+      "effective_risk_class": "HIGH_POSE_ACTION",
+      "issue32_overlap": "NO",
+      "selection_risk_class": "LOW"
+    },
+    {
+      "blind_key": "8392a4820d8dc29d51ce6dc74b76ac69011639df57670b9dec572a108ed59294",
+      "canonical": "bound",
+      "effective_risk_class": "CRITICAL",
+      "issue32_overlap": "YES",
+      "selection_risk_class": "CRITICAL"
+    },
+    {
+      "blind_key": "8731dfaff809aba0afd96893566059443ae0735e4d13a85afeab11cafafab1da",
+      "canonical": "bara",
+      "effective_risk_class": "CRITICAL",
+      "issue32_overlap": "YES",
+      "selection_risk_class": "LOW"
+    },
+    {
+      "blind_key": "c79029c2e684217cb8aba9ad0f482e02a865f669ce5fea3d95d25e1c85369530",
+      "canonical": "walking",
+      "effective_risk_class": "HIGH_POSE_ACTION",
+      "issue32_overlap": "NO",
+      "selection_risk_class": "HIGH_POSE_ACTION"
+    },
+    {
+      "blind_key": "df889338115f84d6e16958f6fb3fd6defa0ec7edd185ff016b5b7ccc4404793b",
+      "canonical": "loli",
+      "effective_risk_class": "CRITICAL",
+      "issue32_overlap": "YES",
+      "selection_risk_class": "LOW"
+    }
+  ],
+  "source_effective_risk_counts": {
+    "CRITICAL": 41,
+    "HIGH_ANATOMY_ADULT": 22,
+    "HIGH_POSE_ACTION": 5,
+    "LOW": 10,
+    "MEDIUM": 22
+  }
+}

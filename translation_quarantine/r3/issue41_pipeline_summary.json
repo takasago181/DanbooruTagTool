@@ -1,16 +1,16 @@
 {
-  "blind30_selected": 0,
-  "blind30_state": "HOLD_BRIDGE",
-  "bridge_availability_blocked_count": 7,
+  "blind30_selected": 30,
+  "blind30_state": "BUILT",
+  "bridge_availability_blocked_count": 0,
   "bridge_availability_counts": {
-    "BRIDGE_MISSING": 7,
+    "AVAILABLE": 7,
     "NOT_REQUIRED": 93
   },
   "bridge_discovery": {
     "exact_overlap_count": 7,
     "fixed_fresh100": 100,
     "generation_profile_rows": 2788,
-    "generation_profile_sha256": "3d3b7c16bee23c34892c6ac1a40b69208ef14199c5bae749ac8a22151c8dc835",
+    "generation_profile_sha256": "8771d72738187d16235d33fb99d484b8e6d243b756a775fd5a04cb6970f3d60b",
     "identity_only_discovery": true,
     "non_overlap_count": 93,
     "production_modified": false,
@@ -18,21 +18,49 @@
     "schema_version": "issue41-bridge-discovery-1"
   },
   "bridge_status_guard": {
-    "blocked_canonicals": [
-      "anal",
-      "bara",
-      "bound",
-      "fellatio",
-      "fishnets",
-      "loli",
-      "pussy"
-    ],
-    "blocked_count": 7,
-    "missing_count": 7,
+    "blocked_canonicals": [],
+    "blocked_count": 0,
+    "missing_count": 0,
     "required_count": 7,
-    "resolved_count": 0,
-    "rows": [],
-    "state": "NO_SNAPSHOT",
+    "resolved_count": 7,
+    "rows": [
+      {
+        "bridge_status_state": "RESOLVED",
+        "canonical": "bara",
+        "meaning_relevant_status": "RESOLVED"
+      },
+      {
+        "bridge_status_state": "RESOLVED",
+        "canonical": "fishnets",
+        "meaning_relevant_status": "RESOLVED"
+      },
+      {
+        "bridge_status_state": "RESOLVED",
+        "canonical": "loli",
+        "meaning_relevant_status": "RESOLVED"
+      },
+      {
+        "bridge_status_state": "RESOLVED",
+        "canonical": "fellatio",
+        "meaning_relevant_status": "RESOLVED"
+      },
+      {
+        "bridge_status_state": "RESOLVED",
+        "canonical": "pussy",
+        "meaning_relevant_status": "RESOLVED"
+      },
+      {
+        "bridge_status_state": "RESOLVED",
+        "canonical": "anal",
+        "meaning_relevant_status": "RESOLVED"
+      },
+      {
+        "bridge_status_state": "RESOLVED",
+        "canonical": "bound",
+        "meaning_relevant_status": "RESOLVED"
+      }
+    ],
+    "state": "READY",
     "status_missing_count": 0,
     "unresolved_count": 0
   },
@@ -46,7 +74,7 @@
     },
     "membership_unchanged": true,
     "output_file": "pilot_rows_effective.jsonl",
-    "override_manifest_sha256": "25f885f40bc017bb41b03ee14cefda81c606c2de00a161de082dfe6af8d12027",
+    "override_manifest_sha256": "cf747328c9921e3b929c5be591868a82fe5de1aeec1c3edb713ac3f5f394325f",
     "override_rows": 15,
     "pilot_rows": 100,
     "schema_version": "issue41-effective-risk-1"
@@ -66,15 +94,16 @@
       "TENTACLE_NONHUMAN": 8
     }
   },
-  "input_fingerprint": "30916346fea92fb0a3925dc7e0e19d10371c961ea8bebd13caf77aa25b3e4c6e",
+  "input_fingerprint": "95d1e6888db5b2c0efe30e196bbed73f84584994cfa811be867befb96dc76cad",
   "input_identities": {
-    "hard_adult_ambiguity_probes_v1.jsonl": "216cd4033d923641db94dcdc157677fafb7fd90582c72372fcfa0a357112fcbc",
-    "hard_adult_challenge_v1.jsonl": "ce17453292cfec9892979ac20390694d45fcdcf4d376c47e79403fea6debdf17",
-    "issue41_effective_risk_overrides.jsonl": "25f885f40bc017bb41b03ee14cefda81c606c2de00a161de082dfe6af8d12027",
+    "hard_adult_ambiguity_probes_v1.jsonl": "d98c20387071f72593a603a886a1b5546e80caa607c8576106d61661062ae385",
+    "hard_adult_challenge_v1.jsonl": "2714bc9b5d3cf9c1db9895a6a4e1a9da845d57733e0e0dcaaf81d8ba5a75ba50",
+    "issue41_effective_risk_overrides.jsonl": "cf747328c9921e3b929c5be591868a82fe5de1aeec1c3edb713ac3f5f394325f",
     "issue41_frozen_evidence_manifest.jsonl": "62fed69f516786d3496e9906bf2506aee69f8fde40ae99106c700010952bfc90",
-    "issue41_issue32_overlap_requirements.jsonl": "3bb7f048c74f69e40b3d4d6a8acfd104909c1501d9abb721c2e765ed43377a3a"
+    "issue41_issue32_overlap_requirements.jsonl": "4e5c9570b913cf0862cf95f7a64c4b7f4e9dfa3326a8e1e6e9ca8b6f50255b53",
+    "ui_ja_issue41_overlap7_v2.json": "fdc2d097d26b588b61ba501fb779152f3b4ee90eef1c6b195addcc42bd955947"
   },
-  "issue32_snapshot_supplied": false,
+  "issue32_snapshot_supplied": true,
   "normalized_input": {
     "approved_input_rows": 69,
     "decision_ledger": "issue41_frozen_decision_ledger.jsonl",
