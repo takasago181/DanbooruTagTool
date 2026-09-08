@@ -1,0 +1,22 @@
+sample_order,special_id,tag,risk_priority,effective_verdict,sample_verdict,false_pass,reason,evidence_refs
+1,20,double footjob,A,PASS,PASS,false,"Ambiguous double multiplicity is handled conservatively; no unsupported multi-actor promotion.",revalidation_results;STAGE_10_KNOWLEDGE_HANDOFF
+2,21,double handjob,A,PASS,PASS,false,"Two hands do not necessarily imply two actors; conservative structure remains valid.",revalidation_results;STAGE_10_KNOWLEDGE_HANDOFF
+3,25,footjob from behind,A,PASS,PASS,false,"Directional identity is preserved without unproven automatic viewpoint/spatial support.",revalidation_results;STAGE_10_KNOWLEDGE_HANDOFF
+4,65,upright 69,A,PASS,PASS,false,"Static pose/composition requirement is explicit and separated from generation-effect claims.",revalidation_blocks/0061_0080;GENERATION_PROFILE_SCHEMA
+5,66,fuck,A,PASS,PASS,false,"Alias preservation is identity policy only; model-response equivalence remains HOLD.",revalidation_blocks/0061_0080;STAGE_10_KNOWLEDGE_HANDOFF
+6,67,fucking,A,PASS,PASS,false,"Alias preservation is identity policy only; model-response equivalence remains HOLD.",revalidation_blocks/0061_0080;STAGE_10_KNOWLEDGE_HANDOFF
+7,85,crotch rub,A,PASS,PASS,false,"Self-action actor structure is intrinsic and does not imply extra auto-support.",revalidation_blocks/0081_0100;GENERATION_PROFILE_SCHEMA
+8,86,futanari masturbation,A,PASS,PASS,false,"Static self-action structure is separated from unusual-anatomy generation behavior.",revalidation_blocks/0081_0100;STAGE_10_KNOWLEDGE_HANDOFF
+9,89,masturbation through clothes,A,PASS,PASS,false,"Clothing modifies contact path but no unsupported implement/support requirement is promoted.",revalidation_blocks/0081_0100;STAGE_10_KNOWLEDGE_HANDOFF
+10,90,masturbation under clothes,A,PASS,PASS,false,"Under-clothes context remains Special-owned without automatic spatial/support promotion.",revalidation_blocks/0081_0100;STAGE_10_KNOWLEDGE_HANDOFF
+11,91,mutual masturbation,A,PASS,PASS,false,"Multi-actor binding metadata is intrinsic and inspection-only, not automatic support injection.",revalidation_blocks/0081_0100;GENERATION_PROFILE_SCHEMA
+12,93,stealth masturbation,A,PASS,PASS,false,"Stealth context does not justify camera/spatial auto-support metadata.",revalidation_blocks/0081_0100;STAGE_10_KNOWLEDGE_HANDOFF
+13,95,tail masturbation,A,PASS,PASS,false,"Sibling calibration prevents speculative bodypart requirement promotion.",revalidation_blocks/0081_0100;STAGE_10_KNOWLEDGE_HANDOFF
+14,5,exposed genitals,B,PASS,PASS,false,"Semantic-only exposure concept makes no direct recognition or auto-support claim.",revalidation_results
+15,15,clothed sex,B,PASS,PASS,false,"Action structure remains direct with no enabled sidecar effect.",revalidation_results
+16,30,footjob with sandals,B,PASS,PASS,false,"Qualifier remains Special-owned; no automatic implement/support semantics.",revalidation_results
+17,45,licking armpit,B,PASS,PASS,false,"Explicit action/target structure has no enabled sidecar or hidden generation claim.",revalidation_blocks/0041_0060
+18,60,thigh sex,B,PASS,PASS,false,"Direct action structure has no enabled semantic-support sidecar.",revalidation_blocks/0041_0060
+19,76,coitus,B,PASS,PASS,false,"Semantic-only handling avoids claiming canonical/model equivalence.",revalidation_blocks/0061_0080;STAGE_10_KNOWLEDGE_HANDOFF
+20,100,after fellatio,B,PASS,PASS,false,"Post-action context does not force the active act.",revalidation_blocks/0081_0100
+# method: deterministic Batch1 R2 sample = all effective A-priority PASS rows in sequences1-100 (13 rows) + 7 fixed spread B-priority PASS controls; effective non-PASS rows excluded. New false-PASS found in sample: 0.
