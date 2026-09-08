@@ -173,3 +173,24 @@ The required normal close could not be performed safely:
 Resume-attempt infrastructure verdict: **`BLOCKED_RESTART_CONTROL`**.
 
 The temporary API session must be retried only after the user/Forge owner provides a controllable normal-close path or confirms a safe stop mechanism for this exact process. The expected command remains `webui.bat --api` from the verified Forge package directory; it was not run in this attempt.
+
+## API retry after user restart — 2026-09-08
+
+The user relaunched Forge Neo from Stability Matrix with Extra Launch Arguments `--api` and no `--listen`. The API gate was rechecked before any generation:
+
+- API-enabled Forge port `7861`: `/` 200, `/openapi.json` 200, `/sdapi/v1/options` 200, `/sdapi/v1/samplers` 200, `/sdapi/v1/txt2img` route present, `/sdapi/v1/png-info` route present, `/tagger/v1/interrogators` 200.
+- Read-only `/sdapi/v1/options` confirmed checkpoint `sd\\waiIllustriousSDXL_v170.safetensors` and hash `f116b0c78ff441467b0cdc8f1936e1ed18ea31e9997c7b132b1b8db533f0bd04`.
+- The original Forge port `7860` remained alive with the non-API UI and continued to return `/sdapi/v1/options` 404.
+- Two same-package Forge Python processes were therefore alive concurrently: old PID `20508` on `7860`, and restarted API PID `36452` on `7861` (both `...\\Stable Diffusion WebUI Forge - Neo\\venv\\Scripts\\python.exe`).
+
+Because the task forbids a concurrent second model-loaded Forge process, no `/sdapi/v1/txt2img` POST was sent. No `/sdapi/v1/options` POST, model switch, checkpoint change, dependency change, Agent Scheduler action, Stage10 production comparison, winner rule, or scoring action was performed.
+
+- A/B PNG paths and SHA-256: none; generation withheld
+- actual PNG metadata: not run
+- WD14 POST/raw confidence: not run; interrogator GET was only a read-only gate
+- user manual operations during this retry: `0`
+- Codex Forge UI input operations: `0`
+- HTTP/API operations: read-only GET probes only; generation and WD14 POST count `0`
+- normal launch restoration: not applicable; the user's API-enabled session remains running and the old non-API session also remains running
+
+Retry infrastructure verdict: **`BLOCKED_RESTART_CONTROL`**. The next retry requires the old `7860` session to be normally stopped so that only the API-enabled Forge process remains.

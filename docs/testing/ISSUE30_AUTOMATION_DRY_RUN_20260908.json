@@ -117,6 +117,37 @@
     "wd14_post_status": "not_run",
     "verdict": "BLOCKED_RESTART_CONTROL"
   },
+  "api_retry_attempt": {
+    "user_launch_claim": "Stability Matrix Extra Launch Arguments --api; no --listen",
+    "api_port": 7861,
+    "api_gate": {
+      "GET /": 200,
+      "GET /openapi.json": 200,
+      "GET /sdapi/v1/options": 200,
+      "GET /sdapi/v1/samplers": 200,
+      "route /sdapi/v1/txt2img": true,
+      "route /sdapi/v1/png-info": true,
+      "GET /tagger/v1/interrogators": 200
+    },
+    "options_read_only": {
+      "checkpoint": "sd\\waiIllustriousSDXL_v170.safetensors",
+      "checkpoint_hash": "f116b0c78ff441467b0cdc8f1936e1ed18ea31e9997c7b132b1b8db533f0bd04"
+    },
+    "concurrent_process_guard": {
+      "old_non_api": {"pid": 20508, "port": 7860, "options_status": 404, "still_running": true},
+      "new_api": {"pid": 36452, "port": 7861, "still_running": true},
+      "same_package": true,
+      "generation_allowed": false
+    },
+    "txt2img_post": "not_sent",
+    "png_status": "not_run",
+    "wd14_post_status": "not_run",
+    "user_manual_operations": 0,
+    "codex_forge_ui_input_operations": 0,
+    "http_api_generation_posts": 0,
+    "http_api_wd14_posts": 0,
+    "verdict": "BLOCKED_RESTART_CONTROL"
+  },
   "persistent_setting_hashes": {
     "webui-user.bat_sha256_before": "F5AE1B180E7FDF72BDD6EA6DB57D529BCEE7B0B32D6A31B396D82356652D19AA",
     "config.json_sha256_before": "1FCD5EACA58DABF87A62C9317A257D9A765CC5E168329453FC7C937BA319E3C4"
