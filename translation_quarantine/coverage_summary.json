@@ -262,10 +262,12 @@
     "special_total": 2788
   },
   "notes": [
-    "No translation text was generated; proposal columns remain blank.",
     "General coverage is a deterministic runtime/canonical proxy, not an exhaustive search reachability claim for all raw runtime tags.",
     "Recommendation coverage beyond the documented probe is unmeasured in Phase 0; the full probe pool is a reachable-candidate proxy.",
-    "Japaneseあり/なし lane totals are display coverage; search coverage is reported separately in every lane."
+    "Japaneseあり/なし lane totals are display coverage; search coverage is reported separately in every lane.",
+    "Phase 1A generated exactly 100 P0 quarantine candidates; no production wording was promoted.",
+    "Existing search terms were retained as evidence and were not deleted or replaced.",
+    "Review state REVIEW means a human wording decision is still required; it is not a production approval."
   ],
   "overlay": {
     "display_by_canonical": {
@@ -277,6 +279,66 @@
       "canonical_entries": 15228,
       "search_terms": 25140
     }
+  },
+  "phase1a": {
+    "high_risk_second_pass_rows": 50,
+    "high_risk_semantic_identity_distortions": 0,
+    "issue32_overlap_pilot_rows": [
+      "feet",
+      "footjob",
+      "handjob",
+      "kneeling",
+      "on_back",
+      "penis",
+      "sitting",
+      "solo"
+    ],
+    "local_wording_errors": 0,
+    "note": "Quarantine candidates only; no production overlay or search/recommendation semantics changed.",
+    "ordinary_independent_sample_fraction": 0.2,
+    "ordinary_independent_sample_size": 10,
+    "ordinary_rows": 50,
+    "ordinary_sample_canonicals": [
+      "male_focus",
+      "green_eyes",
+      "open_mouth",
+      "black_hair",
+      "gloves",
+      "blush",
+      "2girls",
+      "hat",
+      "purple_eyes",
+      "long_hair"
+    ],
+    "ordinary_sample_false_approvals": 0,
+    "pilot_size": 100,
+    "production_modified": false,
+    "proposal_source_counts": {
+      "EXISTING_SEARCH": 67,
+      "GENERATED": 2,
+      "LOCAL_EXACT": 31
+    },
+    "protected_data_read_path": "C:\\Codex\\DanbooruTagTool",
+    "review_state_counts": {
+      "READY_FOR_AUDIT": 92,
+      "REVIEW": 8
+    },
+    "risk_counts": {
+      "HIGH": 50,
+      "LOW": 44,
+      "MEDIUM": 6
+    },
+    "search_terms_preserved": true,
+    "selected_count": 100,
+    "selected_last_canonical": "collarbone",
+    "selection_rule": [
+      "all documented common recommendation surface canonicals in listed order",
+      "all documented rare recommendation surface canonicals in listed order",
+      "all semantic-support reachable canonicals in Phase 0 queue order, deduplicated",
+      "force include 1girl, penis, sex, blush, nipples",
+      "fill to exactly 100 with P0 high-usage General order: post_count descending, canonical ascending"
+    ],
+    "status": "PASS"
   },
   "priority_queue": {
     "counts": {
@@ -416,7 +478,7 @@
       ]
     }
   },
-  "status": "PHASE0_COMPLETE",
+  "status": "PHASE1A_COMPLETE",
   "union": {
     "canonical_entries": 30629,
     "missing_display": 30629,

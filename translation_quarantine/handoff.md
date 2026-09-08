@@ -2,11 +2,12 @@
 
 ## Status
 
-- Phase: baseline coverage inventory COMPLETE
+- Phase: Phase 1A translation pilot COMPLETE
 - Rule: R1
 - Branch: `ui-ja/japanese-overlay-quarantine`
 - Production modified: NO
-- Baseline run: COMPLETE (read-only protected-data run)
+- Protected-data run: read-only
+- Pilot QA gate: PASS
 
 ## Start point
 
@@ -51,5 +52,37 @@ The same screenshot also showed unrelated General results such as `piano` / `ana
 
 #32 may inspect some of the same canonical tags in semantic/generation context. #36 must treat those tags only as Japanese display/search coverage records and must not reuse wording as evidence for #32 generation verdicts.
 
-Phase 0 is complete and must STOP here. Do not generate translation wording or
-promote any row to production from this branch.
+Phase 0 remains the fixed baseline. Its protected input hashes and coverage
+definitions are unchanged by Phase 1A.
+
+## Phase 1A result
+
+Exactly 100 unique P0 canonicals were selected in the contract order:
+
+1. all documented common recommendation surface rows, in Phase 0 order;
+2. all documented rare recommendation surface rows, in Phase 0 order;
+3. all semantic-support reachable rows, deduplicated in the Phase 0 queue order;
+4. forced screenshot rows `1girl`, `penis`, `sex`, `blush`, `nipples`;
+5. P0 high-usage General rows, sorted by protected `post_count` descending and
+   canonical ascending tie-break, until the count reached 100.
+
+The last selected canonical is `collarbone`. The candidate wording and QA
+ledger are in `phase1a_review.csv`; the reproducible generator is
+`phase1a_generate.py`.
+
+- Review state: `READY_FOR_AUDIT` 92 / `REVIEW` 8
+- Proposal source: `EXISTING_SEARCH` 67 / `LOCAL_EXACT` 31 / `GENERATED` 2
+- Risk: `HIGH` 50 / `MEDIUM` 6 / `LOW` 44
+- HIGH second-pass rows: 50; semantic identity distortions: 0
+- Ordinary deterministic independent sample: 10/50 (20%); false approvals: 0
+- Local wording errors: 0; pilot QA gate: `PASS`
+- #32 label-only overlap in pilot: 8 (`feet`, `footjob`, `handjob`,
+  `kneeling`, `on_back`, `penis`, `sitting`, `solo`)
+- Existing search terms were retained as evidence; no search term was deleted
+  or replaced.
+- `piano`, `analog_clock`, `analogous_colors`, and `canal` remain outside the
+  pilot as search-ranking examples, not translation candidates.
+
+`REVIEW` means a human wording decision is still required and is not a
+production approval. Do not promote these candidates, do not continue to the
+remaining 925 P0 rows, and do not modify production data from this branch.
