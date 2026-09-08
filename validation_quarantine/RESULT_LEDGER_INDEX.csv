@@ -18,4 +18,4 @@ start_sequence,end_sequence,path,rule_version,row_count,status,notes
 321,340,validation_quarantine/results_blocks/0321_0340.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
 341,360,validation_quarantine/results_blocks/0341_0360.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
 361,380,validation_quarantine/results_blocks/0361_0380.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
-381,400,validation_quarantine/results_blocks/0381_0400.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; Batch4 gate pending sampling
+381,400,validation_quarantine/results_blocks/0381_0400.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; Batch4 gate PASS
