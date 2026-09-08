@@ -1,0 +1,14 @@
+{
+  "artifact_hashes": {
+    "decisions": "sha256:4f6b41dede324e01d6b15b1f1566b089444220fcd6c6e1c2998b3f58d3cfd2a3",
+    "exceptions": "sha256:5b80af21fe7ba733341f4e174c267c259e0e110514bd9648d714b77a30b4a716",
+    "final": "sha256:20afcdc17ffdfff1edc35991e7b6f3dd53d70ae3cbc87dccb48efd859017adc4"
+  },
+  "live_fetch": false,
+  "new_ready_used_as_teacher": false,
+  "original_vs_replay1": "PASS",
+  "original_vs_replay2": "PASS",
+  "replay1_vs_replay2": "PASS",
+  "source_mode": "frozen_quarantine_only",
+  "verdict": "PASS"
+}
