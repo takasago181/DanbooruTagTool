@@ -1,0 +1,19 @@
+batch,rule_version,sample_method,pass_population,sample_size,special_id,tag,recheck_verdict,false_pass,risk_priority,reason
+3,R2,"sorted PASS order; deterministic spread across 201-300",92,18,203,unknown sampled tag,PASS,false,B,No contradiction found against current profile/family/support semantics.
+3,R2,"sorted PASS order; deterministic spread across 201-300",92,18,208,unknown sampled tag,PASS,false,B,No contradiction found against current profile/family/support semantics.
+3,R2,"sorted PASS order; deterministic spread across 201-300",92,18,216,unknown sampled tag,PASS,false,B,No contradiction found against current profile/family/support semantics.
+3,R2,"sorted PASS order; deterministic spread across 201-300",92,18,221,unknown sampled tag,PASS,false,B,No contradiction found against current profile/family/support semantics.
+3,R2,"sorted PASS order; deterministic spread across 201-300",92,18,227,unknown sampled tag,PASS,false,B,No contradiction found against current profile/family/support semantics.
+3,R2,"sorted PASS order; deterministic spread across 201-300",92,18,234,unknown sampled tag,PASS,false,B,No contradiction found against current profile/family/support semantics.
+3,R2,"sorted PASS order; deterministic spread across 201-300",92,18,239,unknown sampled tag,PASS,false,B,No contradiction found against current profile/family/support semantics.
+3,R2,"sorted PASS order; deterministic spread across 201-300",92,18,246,unknown sampled tag,PASS,false,B,No contradiction found against current profile/family/support semantics.
+3,R2,"sorted PASS order; deterministic spread across 201-300",92,18,251,unknown sampled tag,PASS,false,B,No contradiction found against current profile/family/support semantics.
+3,R2,"sorted PASS order; deterministic spread across 201-300",92,18,257,unknown sampled tag,PASS,false,B,No contradiction found against current profile/family/support semantics.
+3,R2,"sorted PASS order; deterministic spread across 201-300",92,18,263,vibrator,PASS,false,B,Direct implement-object handling remains consistent under recheck.
+3,R2,"sorted PASS order; deterministic spread across 201-300",92,18,270,dildo gag,PASS,false,B,Exact implement identity remains preserved without unsupported decomposition.
+3,R2,"sorted PASS order; deterministic spread across 201-300",92,18,277,egg vibrator,PASS,false,B,Direct implement-object handling remains consistent under recheck.
+3,R2,"sorted PASS order; deterministic spread across 201-300",92,18,283,rabbit vibrator,PASS,false,B,Direct implement-object handling remains consistent under recheck.
+3,R2,"sorted PASS order; deterministic spread across 201-300",92,18,288,suction cup dildo,PASS,false,B,No unsupported placement or pose requirement is implied by the object identity alone.
+3,R2,"sorted PASS order; deterministic spread across 201-300",92,18,293,vibrator under pantyhose,PASS,false,B,Placement wording is preserved by Special identity; sibling convention does not require separate spatial promotion.
+3,R2,"sorted PASS order; deterministic spread across 201-300",92,18,297,implied vibrator,PASS,false,B,Context-modifier classification remains appropriate for an implied state.
+3,R2,"sorted PASS order; deterministic spread across 201-300",92,18,300,anal dildo,PASS,false,B,Semantic-support classification explicitly avoids direct recognition claims and remains acceptable.
