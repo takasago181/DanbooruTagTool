@@ -27,3 +27,4 @@ start_sequence,end_sequence,path,rule_version,row_count,status,notes
 501,520,validation_quarantine/results_blocks/0501_0520.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; ID503 REVIEW
 521,540,validation_quarantine/results_blocks/0521_0540.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; ID535 FIX pose requirement
 541,560,validation_quarantine/results_blocks/0541_0560.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; ID545 FIX implement requirement
+561,580,validation_quarantine/results_blocks/0561_0580.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; IDs569/571/573 FIX; ID570 REVIEW
