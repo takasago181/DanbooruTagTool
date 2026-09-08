@@ -32,10 +32,30 @@ special_id,tag,original_sequence,original_rule_version,new_rule_version,reason,t
 31,footjob with shoes,31,R1,R2,R2_SUPPORT_ROW_BACKFILL_AND_GENERATION_EVIDENCE_CROSSCHECK,R2 activation after sequence 40,PENDING,Preserve R1 Special-level verdict; close only new R2 obligations.
 32,frottage,32,R1,R2,R2_SUPPORT_ROW_BACKFILL_AND_GENERATION_EVIDENCE_CROSSCHECK,R2 activation after sequence 40,PENDING,Preserve R1 Special-level verdict; close only new R2 obligations.
 33,glansjob,33,R1,R2,R2_SUPPORT_ROW_BACKFILL_AND_GENERATION_EVIDENCE_CROSSCHECK,R2 activation after sequence 40,PENDING,Preserve R1 Special-level verdict; close only new R2 obligations.
-34,grabbing another's ass,34,R1,R2,R2_SUPPORT_ROW_BACKFILL_AND_GENERATION_EVIDENCE_CROSSCHECK,R2 activation after sequence 40,PENDING,Preserve quarantined FIX; R2 cross-check actor/spatial generation relevance before promotion.
+34,grabbing another's ass,34,R1,R2,R2_SUPPORT_ROW_BACKFILL_AND_GENERATION_EVIDENCE_CROSSCHECK,R2 activation after sequence 40,PENDING,Preserve narrowed quarantined FIX; verify ActorRequirement generation relevance under R2.
 35,groping,35,R1,R2,R2_SUPPORT_ROW_BACKFILL_AND_GENERATION_EVIDENCE_CROSSCHECK,R2 activation after sequence 40,PENDING,Preserve R1 Special-level verdict; close only new R2 obligations.
-36,guided crotch grab,36,R1,R2,R2_SUPPORT_ROW_BACKFILL_AND_GENERATION_EVIDENCE_CROSSCHECK,R2 activation after sequence 40,PENDING,Preserve quarantined FIX; R2 cross-check actor/spatial generation relevance before promotion.
+36,guided crotch grab,36,R1,R2,R2_SUPPORT_ROW_BACKFILL_AND_GENERATION_EVIDENCE_CROSSCHECK,R2 activation after sequence 40,PENDING,Preserve narrowed quarantined FIX; verify ActorRequirement generation relevance under R2.
 37,hairjob,37,R1,R2,R2_SUPPORT_ROW_BACKFILL_AND_GENERATION_EVIDENCE_CROSSCHECK,R2 activation after sequence 40,PENDING,Preserve R1 Special-level verdict; close only new R2 obligations.
 38,handjob,38,R1,R2,R2_SUPPORT_ROW_BACKFILL_AND_GENERATION_EVIDENCE_CROSSCHECK,R2 activation after sequence 40,PENDING,Preserve R1 Special-level verdict; close only new R2 obligations.
 39,happy sex,39,R1,R2,R2_SUPPORT_ROW_BACKFILL_AND_GENERATION_EVIDENCE_CROSSCHECK,R2 activation after sequence 40,PENDING,Preserve R1 Special-level verdict; close only new R2 obligations.
 40,hug and suck,40,R1,R2,R2_SUPPORT_ROW_BACKFILL_AND_GENERATION_EVIDENCE_CROSSCHECK,R2 activation after sequence 40,PENDING,Preserve REVIEW; actor/spatial evidence remains unresolved.
+41,implied footjob,41,R1,R2,R2_CONCURRENCY_BACKFILL,Manual R1 work overlapped R2 activation,PENDING,Preserve historical R1 result; close R2 obligations only.
+42,implied sex,42,R1,R2,R2_CONCURRENCY_BACKFILL,Manual R1 work overlapped R2 activation,PENDING,Preserve historical R1 result; close R2 obligations only.
+43,kneepit sex,43,R1,R2,R2_CONCURRENCY_BACKFILL,Manual R1 work overlapped R2 activation,PENDING,Preserve historical R1 result; close R2 obligations only.
+44,legjob,44,R1,R2,R2_CONCURRENCY_BACKFILL,Manual R1 work overlapped R2 activation,PENDING,Preserve historical R1 result; close R2 obligations only.
+45,licking armpit,45,R1,R2,R2_CONCURRENCY_BACKFILL,Manual R1 work overlapped R2 activation,PENDING,Preserve historical R1 result; close R2 obligations only.
+46,licking foot,46,R1,R2,R2_CONCURRENCY_BACKFILL,Manual R1 work overlapped R2 activation,PENDING,Preserve historical R1 result; close R2 obligations only.
+47,nipple tweak,47,R1,R2,R2_CONCURRENCY_BACKFILL,Manual R1 work overlapped R2 activation,PENDING,Preserve historical R1 result; close R2 obligations only.
+48,nursing handjob,48,R1,R2,R2_CONCURRENCY_BACKFILL,Manual R1 work overlapped R2 activation,PENDING,Preserve historical R1 result; close R2 obligations only.
+49,presenting own body,49,R1,R2,R2_CONCURRENCY_BACKFILL,Manual R1 work overlapped R2 activation,PENDING,Preserve quarantined R1 FIX candidate; mandatory R2 S/A evidence cross-check.
+50,reach-around,50,R1,R2,R2_CONCURRENCY_BACKFILL,Manual R1 work overlapped R2 activation,PENDING,Preserve quarantined R1 FIX candidate; mandatory R2 S/A evidence cross-check.
+51,reverse footjob,51,R1,R2,R2_CONCURRENCY_BACKFILL,Manual R1 work overlapped R2 activation,PENDING,Preserve historical R1 result; close R2 obligations only.
+52,reverse nursing handjob,52,R1,R2,R2_CONCURRENCY_BACKFILL,Manual R1 work overlapped R2 activation,PENDING,Preserve historical R1 result; close R2 obligations only.
+53,rough sex,53,R1,R2,R2_CONCURRENCY_BACKFILL,Manual R1 work overlapped R2 activation,PENDING,Preserve historical R1 result; close R2 obligations only.
+54,sex,54,R1,R2,R2_CONCURRENCY_BACKFILL,Manual R1 work overlapped R2 activation,PENDING,Preserve historical R1 result; close R2 obligations only.
+55,simulated footjob,55,R1,R2,R2_CONCURRENCY_BACKFILL,Manual R1 work overlapped R2 activation,PENDING,Preserve REVIEW; resolve semantic authority under R2.
+56,tailjob,56,R1,R2,R2_CONCURRENCY_BACKFILL,Manual R1 work overlapped R2 activation,PENDING,Preserve historical R1 result; close R2 obligations only.
+57,take your pick,57,R1,R2,R2_CONCURRENCY_BACKFILL,Manual R1 work overlapped R2 activation,PENDING,Preserve quarantined R1 FIX candidate; mandatory R2 S/A evidence cross-check.
+58,teamwork (sexual),58,R1,R2,R2_CONCURRENCY_BACKFILL,Manual R1 work overlapped R2 activation,PENDING,Preserve quarantined R1 FIX candidate; mandatory R2 S/A evidence cross-check.
+59,teddy bear sex,59,R1,R2,R2_CONCURRENCY_BACKFILL,Manual R1 work overlapped R2 activation,PENDING,Preserve quarantined R1 FIX candidate; mandatory R2 S/A evidence cross-check.
+60,thigh sex,60,R1,R2,R2_CONCURRENCY_BACKFILL,Manual R1 work overlapped R2 activation,PENDING,Preserve historical R1 result; close R2 obligations only.
