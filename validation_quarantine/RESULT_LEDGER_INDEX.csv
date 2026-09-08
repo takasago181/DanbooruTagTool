@@ -4,3 +4,4 @@ start_sequence,end_sequence,path,rule_version,row_count,status,notes
 41,60,validation_quarantine/results_blocks/0041_0060.csv,R1,20,COMPLETE,historical R1 checkpoint; R2 concurrency backfill queued
 61,80,validation_quarantine/results_blocks/0061_0080.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
 81,100,validation_quarantine/results_blocks/0081_0100.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
+101,120,validation_quarantine/results_blocks/0101_0120.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
