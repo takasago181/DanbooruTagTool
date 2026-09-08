@@ -1,0 +1,90 @@
+name: issue41-v2-rerun-once
+
+on:
+  push:
+    branches:
+      - ui-ja/issue41-pilot
+    paths:
+      - .github/workflows/issue41-v2-rerun-once.yml
+
+permissions:
+  contents: read
+
+jobs:
+  verify-issue41-v2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout full history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate exact Issue 32 v2 snapshot identity
+        shell: bash
+        run: |
+          set -euo pipefail
+          SNAP_COMMIT='9f1659cfabb885b2dfc0dd4fef3a6611f19bee11'
+          SNAP_PATH='validation_quarantine/bridge_snapshots/ui_ja_issue41_overlap7_v2.json'
+          SNAP_BLOB='974bb9c971caf632f8ec73dff39fe4c55e60efaa'
+          SNAP_SHA256='7e46f7f3655846a4f6ea2d1990e015701cbff5b123bdf8ef1809668f8a375ef5'
+          SNAP_OUT="$RUNNER_TEMP/ui_ja_issue41_overlap7_v2.json"
+
+          test "$(git rev-parse "$SNAP_COMMIT")" = "$SNAP_COMMIT"
+          test "$(git rev-parse "$SNAP_COMMIT:$SNAP_PATH")" = "$SNAP_BLOB"
+          git show "$SNAP_COMMIT:$SNAP_PATH" > "$SNAP_OUT"
+          echo "$SNAP_SHA256  $SNAP_OUT" | sha256sum -c -
+
+          python - "$SNAP_OUT" <<'PY'
+          import json, sys
+          from pathlib import Path
+          p = Path(sys.argv[1])
+          payload = json.loads(p.read_text(encoding='utf-8'))
+          md = payload['metadata']
+          assert md['snapshot'] == 'ui_ja_issue41_overlap7_v2'
+          assert md['contract_version'] == 2
+          assert md['source_branch'] == 'dict-validation/quarantine'
+          assert md['source_commit'] == '9f1659cfabb885b2dfc0dd4fef3a6611f19bee11'
+          assert md['consumer_scope'] == '#41 read-only'
+          assert md['frozen'] is True and md['pinned'] is True and md['immutable'] is True
+          expected = ['bara', 'fishnets', 'loli', 'fellatio', 'pussy', 'anal', 'bound']
+          rows = payload['rows']
+          assert [r['canonical'] for r in rows] == expected
+          assert len(rows) == 7
+          assert all(r['meaning_relevant_status'] == 'RESOLVED' for r in rows)
+          assert all(r['conflict_signal'] is False for r in rows)
+          print('snapshot_validation=PASS rows=7 resolved=7 conflicts=0')
+          PY
+
+          echo "ISSUE41_SNAPSHOT=$SNAP_OUT" >> "$GITHUB_ENV"
+
+      - name: Run existing Issue 41 pipeline with v2
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m translation_quarantine.r3.r3_issue41_pipeline . --issue32-snapshot "$ISSUE41_SNAPSHOT" | tee "$RUNNER_TEMP/issue41_pipeline_stdout.json"
+
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p = Path('translation_quarantine/r3/issue41_pipeline_summary.json')
+          s = json.loads(p.read_text(encoding='utf-8'))
+          g = s['bridge_status_guard']
+          assert g['required_count'] == 7
+          assert g['resolved_count'] == 7
+          assert g['blocked_count'] == 0
+          assert s['bridge_availability_blocked_count'] == 0
+          assert s['blind30_state'] == 'BUILT'
+          assert s['blind30_selected'] == 30
+          assert s['production_modified'] is False
+          assert s['remaining_925_processed'] is False
+          assert s['stage10_production_ab_started'] is False
+          print('bridge_guard=PASS required=7 resolved=7 blocked=0')
+          print('blind30=BUILT selected=30')
+          print('effective_risk=', s.get('effective_risk'))
+          PY
+
+      - name: Run deterministic replay verifier
+        shell: bash
+        run: |
+          set -o pipefail
+          python translation_quarantine/r3/r3_verify.py --root . --output translation_quarantine/r3 --rerun | tee "$RUNNER_TEMP/issue41_verifier.log"
