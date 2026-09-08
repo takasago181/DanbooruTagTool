@@ -16,6 +16,7 @@ from typing import Any, Mapping
 try:
     from .r3_common import (
         BLIND_QUOTAS,
+        BRIDGE_AVAILABILITIES,
         ENGINE_VERSION,
         SCHEMA_VERSION,
         STATES,
@@ -30,6 +31,7 @@ try:
         issue32_fingerprint,
         issue32_propositions,
         issue32_state,
+        bridge_conflict,
         json_hash,
         normalize_terms,
         protected_snapshot,
@@ -46,6 +48,7 @@ try:
 except ImportError:  # pragma: no cover - supports direct CLI execution
     from r3_common import (
     BLIND_QUOTAS,
+    BRIDGE_AVAILABILITIES,
     ENGINE_VERSION,
     SCHEMA_VERSION,
     STATES,
@@ -59,7 +62,8 @@ except ImportError:  # pragma: no cover - supports direct CLI execution
     file_hash,
         issue32_fingerprint,
         issue32_propositions,
-    issue32_state,
+        issue32_state,
+    bridge_conflict,
     json_hash,
     normalize_terms,
     protected_snapshot,
@@ -126,11 +130,19 @@ def _load_issue32_rows(path: Path | None) -> dict[str, dict[str, Any]]:
         rows = read_jsonl(path)
     elif path.suffix.lower() == ".json":
         value = json.loads(path.read_text(encoding="utf-8"))
-        rows = value if isinstance(value, list) else value.get("rows", [])
+        if isinstance(value, list):
+            rows = value
+        else:
+            metadata = value.get("metadata", {}) if isinstance(value.get("metadata", {}), dict) else {}
+            rows = [{**metadata, **row} for row in value.get("rows", [])]
     else:
         rows = read_csv(path)
     result: dict[str, dict[str, Any]] = {}
     for raw in rows:
+        raw = dict(raw)
+        for field in ("frozen", "pinned", "immutable", "immutable_reference", "bridge_conflict", "independent_semantic_conflict", "semantic_conflict"):
+            if isinstance(raw.get(field), str) and raw[field].strip().lower() in {"true", "false"}:
+                raw[field] = raw[field].strip().lower() == "true"
         canonical = str(raw.get("canonical", raw.get("candidate_canonical", raw.get("canonical_tag", "")))).strip()
         if canonical:
             result[canonical] = dict(raw)
@@ -143,6 +155,81 @@ def _issue32_evidence_rows(evidence: list[Mapping[str, Any]]) -> dict[str, dict[
         if row.get("evidence_role") == "BRIDGE32" and row.get("canonical"):
             result.setdefault(str(row["canonical"]), dict(row))
     return result
+
+
+def _bridge_requirement_canonicals(evidence: list[Mapping[str, Any]]) -> set[str]:
+    required: set[str] = set()
+    for row in evidence:
+        canonical = str(row.get("canonical", "")).strip()
+        if not canonical:
+            continue
+        if row.get("evidence_role") == "BRIDGE32_REQUIREMENT" or any(
+            row.get(field) is True for field in ("bridge32_required", "issue32_overlap_required", "required_overlap")
+        ):
+            required.add(canonical)
+    return required
+
+
+def _load_bridge_requirement_rows(path: Path | None) -> set[str]:
+    if path is None or not path.exists():
+        return set()
+    if path.suffix.lower() == ".jsonl":
+        rows = read_jsonl(path)
+    elif path.suffix.lower() == ".json":
+        value = json.loads(path.read_text(encoding="utf-8"))
+        rows = value if isinstance(value, list) else value.get("rows", [])
+    else:
+        rows = read_csv(path)
+    result: set[str] = set()
+    for raw in rows:
+        if isinstance(raw, str):
+            if raw.strip():
+                result.add(raw.strip())
+            continue
+        canonical = str(raw.get("canonical", raw.get("candidate_canonical", ""))).strip()
+        if canonical:
+            result.add(canonical)
+    return result
+
+
+def _bridge_metadata(snapshot: Mapping[str, Any], issue32_path: Path | None) -> dict[str, Any]:
+    source_ref = str(snapshot.get("snapshot_ref") or snapshot.get("source_ref") or "").strip()
+    if not source_ref and issue32_path is not None:
+        source_ref = str(issue32_path).replace("\\", "/")
+    content_identity = str(snapshot.get("content_identity") or snapshot.get("content_hash") or "").strip()
+    frozen = snapshot.get("frozen") is True
+    pinned = snapshot.get("pinned") is True
+    immutable = snapshot.get("immutable") is True or snapshot.get("immutable_reference") is True
+    propositions = issue32_propositions(snapshot)
+    fingerprint = issue32_fingerprint(snapshot) if propositions else ""
+    supplied_fingerprint = str(snapshot.get("meaning_fingerprint", "")).strip()
+    if supplied_fingerprint and fingerprint and supplied_fingerprint != fingerprint:
+        fingerprint = ""
+    valid = bool(
+        source_ref and content_identity and frozen and pinned and immutable and propositions
+        and fingerprint and supplied_fingerprint and supplied_fingerprint == fingerprint
+    )
+    return {
+        "snapshot_ref": source_ref,
+        "content_identity": content_identity,
+        "frozen": frozen,
+        "pinned": pinned,
+        "immutable": immutable,
+        "propositions": propositions,
+        "fingerprint": fingerprint,
+        "valid": valid,
+    }
+
+
+def _evaluated_fingerprint(snapshot: Mapping[str, Any]) -> str:
+    for field in (
+        "evaluated_issue32_meaning_fingerprint", "issue32_evaluated_meaning_fingerprint",
+        "evaluated_meaning_fingerprint", "previous_meaning_fingerprint", "prior_meaning_fingerprint",
+    ):
+        value = str(snapshot.get(field, "")).strip()
+        if value:
+            return value
+    return ""
 
 
 def _candidate_terms(records: list[Mapping[str, Any]], canonical: str) -> list[dict[str, Any]]:
@@ -194,6 +281,7 @@ def _make_pilot_rows(
     evidence: list[Mapping[str, Any]],
     issue32: Mapping[str, Mapping[str, Any]],
     issue32_path: Path | None,
+    required_overlap: set[str],
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]], list[dict[str, Any]]]:
     by_canonical = evidence_by_canonical(evidence)
     pilot_rows: list[dict[str, Any]] = []
@@ -222,27 +310,58 @@ def _make_pilot_rows(
         search_state = "READY" if accepted else "REVIEW"
         search_reasons = [] if accepted else ["NO_SAFE_SEARCH_CANDIDATE"]
 
-        # A live dry-run with no frozen #32 overlap is not bridge validation.
-        # Keep it fail-closed until an authoritative snapshot actually covers
-        # this canonical; only that overlap may produce READY.
-        bridge_state = "REVIEW"
+        bridge_state = "READY"
+        bridge_availability = "NOT_REQUIRED"
         bridge_ref = ""
+        content_identity = ""
         fingerprint = ""
-        bridge_reasons = ["NO_FROZEN_ISSUE32_OVERLAP"]
-        if canonical in issue32:
-            snapshot = issue32[canonical]
-            fingerprint = issue32_fingerprint(snapshot)
-            bridge_ref = str(issue32_path or "frozen_issue32_input")
-            bridge_state = "READY"
-            bridge_reasons = []
-            bridge_rows.append({
-                "canonical": canonical,
-                "snapshot_ref": bridge_ref,
-                "meaning_fingerprint": fingerprint,
-                "meaning_relevant_propositions": issue32_propositions(snapshot) or {"canonical": canonical},
-                "bridge32_state": bridge_state,
-                "reason_codes": [],
-            })
+        evaluated_fingerprint = ""
+        bridge_reasons: list[str] = []
+        conflict = False
+        metadata = {
+            "snapshot_ref": "", "content_identity": "", "frozen": False,
+            "pinned": False, "immutable": False, "propositions": {}, "fingerprint": "", "valid": False,
+        }
+        if canonical in required_overlap:
+            snapshot = issue32.get(canonical)
+            if snapshot is None:
+                bridge_availability = "BRIDGE_MISSING"
+                bridge_state = "REVIEW"
+                bridge_reasons = ["BRIDGE32_MISSING_REQUIRED_SNAPSHOT"]
+            else:
+                metadata = _bridge_metadata(snapshot, issue32_path)
+                bridge_ref = metadata["snapshot_ref"]
+                content_identity = metadata["content_identity"]
+                fingerprint = metadata["fingerprint"]
+                evaluated_fingerprint = _evaluated_fingerprint(snapshot)
+                conflict = bridge_conflict(snapshot)
+                if not metadata["valid"]:
+                    bridge_availability = "BLOCKED_BRIDGE"
+                    bridge_state = "REVIEW"
+                    bridge_reasons = ["BRIDGE32_SNAPSHOT_NOT_FROZEN_PINNED_IMMUTABLE"]
+                else:
+                    bridge_availability = "AVAILABLE"
+                    if conflict:
+                        bridge_state = "CONTRADICTION"
+                        bridge_reasons = ["EXPLICIT_INDEPENDENT_SEMANTIC_CONFLICT"]
+                    elif evaluated_fingerprint and evaluated_fingerprint != fingerprint:
+                        bridge_state = "STALE_REVIEW"
+                        bridge_reasons = ["TRANSLATION_VISIBLE_MEANING_FINGERPRINT_CHANGED"]
+        bridge_rows.append({
+            "canonical": canonical,
+            "snapshot_ref": bridge_ref,
+            "content_identity": content_identity,
+            "frozen": metadata["frozen"],
+            "pinned": metadata["pinned"],
+            "immutable": metadata["immutable"],
+            "meaning_fingerprint": fingerprint,
+            "evaluated_issue32_meaning_fingerprint": evaluated_fingerprint,
+            "meaning_relevant_propositions": metadata["propositions"],
+            "bridge32_state": bridge_state,
+            "bridge32_availability": bridge_availability,
+            "conflict_signal": conflict,
+            "reason_codes": bridge_reasons,
+        })
         row_reasons = [*display_reasons, *search_reasons, *bridge_reasons]
         row_state = derive_row_state(display_state, search_state, bridge_state)
         pilot_rows.append({
@@ -260,29 +379,54 @@ def _make_pilot_rows(
             "display_evidence_ids": display_evidence_ids,
             "search_state": search_state,
             "bridge32_state": bridge_state,
+            "bridge32_availability": bridge_availability,
             "row_state": row_state,
-            "issue32_overlap": "YES" if canonical in issue32 else "NO",
+            "issue32_overlap": "YES" if canonical in required_overlap else "NO",
             "issue32_snapshot_ref": bridge_ref,
+            "issue32_content_identity": content_identity,
             "issue32_meaning_fingerprint": fingerprint,
+            "evaluated_issue32_meaning_fingerprint": evaluated_fingerprint,
+            "issue32_conflict_signal": conflict,
             "reason_codes": sorted(set(row_reasons)),
         })
     return pilot_rows, search_rows, bridge_rows
 
 
-def run(root: Path, output_dir: Path, *, evidence_path: Path | None = None, issue32_path: Path | None = None) -> dict[str, Any]:
+def run(
+    root: Path,
+    output_dir: Path,
+    *,
+    evidence_path: Path | None = None,
+    issue32_path: Path | None = None,
+    issue32_requirements_path: Path | None = None,
+) -> dict[str, Any]:
     root = root.resolve()
     output = ensure_r3_output(root, output_dir)
     protected_before = protected_snapshot(root)
     frozen_input_evidence = read_jsonl(evidence_path) if evidence_path and evidence_path.exists() else []
+    evidence_overlap = set(_issue32_evidence_rows(frozen_input_evidence))
+    required_overlap = (
+        set(_load_issue32_rows(issue32_path))
+        | _load_bridge_requirement_rows(issue32_requirements_path)
+        | evidence_overlap
+        | _bridge_requirement_canonicals(frozen_input_evidence)
+    )
     selection = select_pilot(
         root,
         issue32_overlap=issue32_path,
-        overlap_canonicals=set(_issue32_evidence_rows(frozen_input_evidence)),
+        overlap_canonicals=required_overlap,
     )
     selected = selection["selected"]
     evidence = _load_or_create_evidence(root, selected, evidence_path)
     issue32 = _load_issue32_rows(issue32_path)
-    issue32.update({key: value for key, value in _issue32_evidence_rows(evidence).items() if key not in issue32})
+    for key, value in _issue32_evidence_rows(evidence).items():
+        if key not in issue32:
+            issue32[key] = value
+        else:
+            for field, field_value in value.items():
+                issue32[key].setdefault(field, field_value)
+    required_overlap |= _bridge_requirement_canonicals(evidence)
+    required_overlap |= set(issue32)
     if issue32_path:
         selected_canonicals = {str(item["canonical"]) for item in selected}
         existing_ids = {str(row.get("evidence_id")) for row in evidence}
@@ -296,15 +440,24 @@ def run(root: Path, output_dir: Path, *, evidence_path: Path | None = None, issu
                 "evidence_id": evidence_id,
                 "canonical": canonical,
                 "source_type": "frozen_issue32_snapshot",
-                "source_ref": _relative(root, issue32_path),
+                "source_ref": str(snapshot.get("snapshot_ref") or _relative(root, issue32_path)),
                 "scope_note": "#32 meaning bridge snapshot; generation-only metadata is excluded",
-                "content_identity": file_hash(issue32_path),
+                "content_identity": str(snapshot.get("content_identity") or snapshot.get("content_hash") or file_hash(issue32_path)),
                 "evidence_role": "BRIDGE32",
                 "frozen": True,
-                **{key: snapshot[key] for key in ("identity", "actor", "ownership", "target", "body_site", "relation", "pose", "spatial_requirement", "semantic_support_relation") if key in snapshot},
+                "pinned": snapshot.get("pinned") is True,
+                "immutable": snapshot.get("immutable") is True or snapshot.get("immutable_reference") is True,
+                **{key: snapshot[key] for key in (
+                    "identity", "entity_scope", "canonical", "count_cardinality", "count", "cardinality",
+                    "actor", "ownership", "target", "body_site", "action_state", "action_vs_state",
+                    "intrinsic_relation", "relation", "pose", "spatial_requirement", "required_modifier",
+                    "required_qualifier", "qualifier", "canonical_meaning_width", "meaning_width",
+                    "translation_visible_propositions", "evaluated_issue32_meaning_fingerprint",
+                    "bridge_conflict", "independent_semantic_conflict", "semantic_conflict",
+                ) if key in snapshot},
             })
         evidence.sort(key=lambda row: (str(row.get("canonical", "")), str(row.get("evidence_id", ""))))
-    pilot_rows, search_rows, bridge_rows = _make_pilot_rows(selected, evidence, issue32, issue32_path)
+    pilot_rows, search_rows, bridge_rows = _make_pilot_rows(selected, evidence, issue32, issue32_path, required_overlap)
 
     write_json(output / "pilot_selection.json", selection)
     write_jsonl(output / "evidence_manifest.jsonl", evidence)
@@ -339,6 +492,27 @@ def run(root: Path, output_dir: Path, *, evidence_path: Path | None = None, issu
             "class": count_values(search_rows, "term_class"),
         },
         "issue32_overlap_counts": selection["issue32_overlap_counts"],
+        "bridge32_audit": {
+            "required_overlap_count": sum(row["bridge32_availability"] != "NOT_REQUIRED" for row in bridge_rows),
+            "available_count": sum(row["bridge32_availability"] == "AVAILABLE" for row in bridge_rows),
+            "not_required_count": sum(row["bridge32_availability"] == "NOT_REQUIRED" for row in bridge_rows),
+            "bridge_missing_count": sum(row["bridge32_availability"] == "BRIDGE_MISSING" for row in bridge_rows),
+            "blocked_bridge_count": sum(row["bridge32_availability"] == "BLOCKED_BRIDGE" for row in bridge_rows),
+            "stale_count": sum(row["bridge32_state"] == "STALE_REVIEW" for row in bridge_rows),
+            "contradiction_count": sum(row["bridge32_state"] == "CONTRADICTION" for row in bridge_rows),
+            "records": [
+                {
+                    "canonical": row["canonical"],
+                    "bridge32_availability": row["bridge32_availability"],
+                    "bridge32_state": row["bridge32_state"],
+                    "current_fingerprint": row["meaning_fingerprint"],
+                    "evaluated_fingerprint": row["evaluated_issue32_meaning_fingerprint"],
+                    "snapshot_ref": row["snapshot_ref"],
+                    "content_identity": row["content_identity"],
+                }
+                for row in bridge_rows
+            ],
+        },
         "deterministic_rerun_verification": "NOT_RUN",
         "blind30_gate_metrics": {"state": "NOT_BUILT", "selected": 0},
         "regression_fixture_count": selection["eligible_pool"]["excluded_count"],
@@ -356,6 +530,7 @@ def run(root: Path, output_dir: Path, *, evidence_path: Path | None = None, issu
             "phase1a_review.csv": file_hash(root / "translation_quarantine" / "phase1a_review.csv"),
             **({"frozen_evidence_manifest": file_hash(evidence_path)} if evidence_path and evidence_path.exists() else {}),
             **({"frozen_issue32_input": file_hash(issue32_path)} if issue32_path and issue32_path.exists() else {}),
+            **({"frozen_issue32_requirements": file_hash(issue32_requirements_path)} if issue32_requirements_path and issue32_requirements_path.exists() else {}),
         },
         "selection_seed": selection["selection_seed"],
         "pilot_algorithm_version": selection["pilot_algorithm_version"],
@@ -376,8 +551,15 @@ def main() -> int:
     parser.add_argument("--output", type=Path, default=Path(__file__).resolve().parent)
     parser.add_argument("--evidence", type=Path)
     parser.add_argument("--issue32", type=Path)
+    parser.add_argument("--issue32-requirements", type=Path)
     args = parser.parse_args()
-    run(args.root, args.output, evidence_path=args.evidence, issue32_path=args.issue32)
+    run(
+        args.root,
+        args.output,
+        evidence_path=args.evidence,
+        issue32_path=args.issue32,
+        issue32_requirements_path=args.issue32_requirements,
+    )
     return 0
 
 

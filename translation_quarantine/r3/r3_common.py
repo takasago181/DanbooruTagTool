@@ -35,6 +35,7 @@ BLIND_QUOTAS = {
 }
 RISK_ORDER = tuple(PILOT_QUOTAS)
 STATES = {"READY", "REVIEW", "STALE_REVIEW", "CONTRADICTION"}
+BRIDGE_AVAILABILITIES = {"AVAILABLE", "NOT_REQUIRED", "BRIDGE_MISSING", "BLOCKED_BRIDGE"}
 TERM_CLASSES = {
     "EXACT_SYNONYM",
     "ORTHOGRAPHIC_VARIANT",
@@ -225,28 +226,54 @@ def issue32_fingerprint(record: Mapping[str, Any]) -> str:
 
 
 def issue32_propositions(record: Mapping[str, Any]) -> dict[str, Any]:
-    """Normalize raw #32 rows to propositions relevant to translation."""
+    """Normalize only UI-JA translation-visible meaning propositions.
 
-    relevant_names = (
-        "identity", "canonical", "actor", "ownership", "target", "body_site",
-        "relation", "pose", "spatial_requirement", "semantic_support_relation",
-    )
-    selected: dict[str, Any] = {}
-    for name in relevant_names:
-        if name in record and record[name] not in (None, "", [], {}):
-            selected[name] = record[name]
+    This is an allowlist rather than a short list of whatever fields happen to
+    exist in a #32 row.  In particular, generation metadata is intentionally
+    ignored.  ``semantic_support_relation`` is included only when the UI-JA
+    evaluation explicitly records that it used that relation as meaning
+    context.
+    """
+
     aliases = {
-        "identity": ("candidate_canonical", "canonical_tag"),
-        "target": ("special_tag",),
-        "semantic_support_relation": ("support_class",),
+        "identity": ("identity", "candidate_canonical", "canonical_tag"),
+        "entity_scope": ("entity_scope", "entity", "entity_type"),
+        "canonical": ("canonical",),
+        "count_cardinality": ("count_cardinality", "count", "cardinality"),
+        "actor": ("actor",),
+        "ownership": ("ownership", "owner"),
+        "target": ("target", "special_tag"),
+        "body_site": ("body_site", "body_part", "body_location"),
+        "action_state": ("action_state", "action_vs_state", "action_or_state"),
+        "intrinsic_relation": ("intrinsic_relation", "relation"),
+        "pose": ("pose",),
+        "spatial_requirement": ("spatial_requirement", "spatial_relation"),
+        "required_modifier": ("required_modifier", "required_qualifier", "qualifier", "modifier"),
+        "canonical_meaning_width": ("canonical_meaning_width", "meaning_width", "scope_width"),
     }
+    selected: dict[str, Any] = {}
+    nested = record.get("translation_visible_propositions")
+    nested = nested if isinstance(nested, Mapping) else {}
     for normalized, candidates in aliases.items():
-        if normalized in selected:
-            continue
-        for candidate in candidates:
+        value = next((nested[name] for name in (normalized, *candidates) if nested.get(name) not in (None, "", [], {})), None)
+        if value in (None, "", [], {}):
+            value = next((record[candidate] for candidate in candidates if record.get(candidate) not in (None, "", [], {})), None)
+        if value not in (None, "", [], {}):
+            selected[normalized] = value
+
+    support_used = any(record.get(flag) is True for flag in (
+        "semantic_support_used", "semantic_context_used", "semantic_support_relation_used",
+    ))
+    if support_used:
+        for candidate in ("semantic_support_relation", "support_relation", "support_class"):
             if record.get(candidate) not in (None, "", [], {}):
-                selected[normalized] = record[candidate]
+                selected["semantic_support_relation"] = record[candidate]
                 break
+        if "semantic_support_relation" not in selected:
+            for candidate in ("semantic_support_relation", "support_relation", "support_class"):
+                if nested.get(candidate) not in (None, "", [], {}):
+                    selected["semantic_support_relation"] = nested[candidate]
+                    break
     return selected
 
 
@@ -342,6 +369,14 @@ def issue32_state(current: str, evaluated: str) -> str:
     if current == evaluated:
         return "READY"
     return "STALE_REVIEW"
+
+
+def bridge_conflict(record: Mapping[str, Any]) -> bool:
+    """Read only an explicit conflict signal from frozen bridge evidence."""
+
+    return any(record.get(field) is True for field in (
+        "bridge_conflict", "independent_semantic_conflict", "semantic_conflict",
+    ))
 
 
 def derive_row_state(display_state: str, search_state: str, bridge_state: str) -> str:

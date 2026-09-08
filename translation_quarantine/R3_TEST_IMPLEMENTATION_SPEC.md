@@ -130,7 +130,10 @@ Exactly one current R3 decision record per fresh pilot canonical. Required field
 - `row_state`
 - `issue32_overlap`
 - `issue32_snapshot_ref`
+- `issue32_content_identity`
 - `issue32_meaning_fingerprint`
+- `evaluated_issue32_meaning_fingerprint`
+- `bridge32_availability` (`AVAILABLE`, `NOT_REQUIRED`, `BRIDGE_MISSING`, `BLOCKED_BRIDGE`)
 - `reason_codes`
 
 Allowed state vocabulary: `READY`, `REVIEW`, `STALE_REVIEW`, `CONTRADICTION`.
@@ -157,15 +160,26 @@ Existing `search_by_canonical` terms enter as candidates only.
 `BROAD_SEARCH_ALIAS` requires explicit justification and can never count as semantic approval evidence.
 
 ### `bridge32.jsonl`
-One record for every fresh-pilot #32 overlap:
+One audit record for every fresh-pilot canonical. Rows outside the #32
+overlap are explicit `NOT_REQUIRED` records, not missing evidence:
 - `canonical`
 - `snapshot_ref`
+- `content_identity`
+- `frozen`, `pinned`, `immutable`
 - `meaning_fingerprint`
+- `evaluated_issue32_meaning_fingerprint`
 - meaning-relevant propositions used
 - `bridge32_state`
+- `bridge32_availability`
 - `reason_codes`
 
-Meaning fingerprint includes only translation-relevant propositions: identity, actor/ownership, target/body-site, intrinsic relation/pose/spatial requirement, and semantic-support relation when actually used as semantic context. Generation-only metadata must not stale translation.
+Meaning fingerprint includes only the normalized translation-visible proposition
+allowlist: identity/entity scope, count/cardinality, actor/ownership,
+target/body-site, action/state, intrinsic relation, pose, spatial requirement,
+required modifier/qualifier, canonical meaning width, and semantic-support
+relation only when UI-JA explicitly used it as semantic context. Generation-only
+metadata must not stale translation. A required overlap without a valid pinned
+snapshot is `BRIDGE_MISSING` or `BLOCKED_BRIDGE` and cannot become READY.
 
 ### `blind30_input.jsonl`
 Reviewer-visible input only:
@@ -195,6 +209,8 @@ Must report:
 - READY/REVIEW/STALE_REVIEW/CONTRADICTION row counts
 - accepted/rejected/review search-term counts by term class
 - #32 overlap/bridge-state counts
+- bridge availability counts (`AVAILABLE`, `NOT_REQUIRED`, `BRIDGE_MISSING`, `BLOCKED_BRIDGE`)
+- current/evaluated fingerprints, snapshot refs, and content identities per audit row
 - deterministic rerun verification result
 - blind30 gate metrics when audit exists
 - `remaining_925_p0_processed: false`

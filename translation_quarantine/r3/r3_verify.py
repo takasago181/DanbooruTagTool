@@ -10,6 +10,7 @@ from typing import Any, Iterable
 try:
     from .r3_common import (
         BLIND_QUOTAS,
+        BRIDGE_AVAILABILITIES,
         PILOT_QUOTAS,
         STATES,
         TERM_CLASSES,
@@ -21,23 +22,25 @@ try:
     )
     from .r3_run import run
 except ImportError:  # pragma: no cover - supports direct CLI execution
-    from r3_common import BLIND_QUOTAS, PILOT_QUOTAS, STATES, TERM_CLASSES, file_hash, protected_snapshot, read_json, read_jsonl, write_json
+    from r3_common import BLIND_QUOTAS, BRIDGE_AVAILABILITIES, PILOT_QUOTAS, STATES, TERM_CLASSES, file_hash, protected_snapshot, read_json, read_jsonl, write_json
     from r3_run import run
 
 
 PILOT_FIELDS = {
     "pilot_ordinal", "canonical", "lanes", "priority", "post_count_or_reference", "semantic_class",
     "risk_class", "semantic_scope_summary", "semantic_evidence_ids", "display_candidate",
-    "display_state", "display_evidence_ids", "search_state", "bridge32_state", "row_state",
-    "issue32_overlap", "issue32_snapshot_ref", "issue32_meaning_fingerprint", "reason_codes",
+    "display_state", "display_evidence_ids", "search_state", "bridge32_state", "bridge32_availability", "row_state",
+    "issue32_overlap", "issue32_snapshot_ref", "issue32_content_identity", "issue32_meaning_fingerprint",
+    "evaluated_issue32_meaning_fingerprint", "issue32_conflict_signal", "reason_codes",
 }
 SEARCH_FIELDS = {
     "canonical", "term", "term_class", "term_state", "evidence_ids", "justification", "rejection_reason",
 }
 BLIND_INPUT_FIELDS = {"canonical", "candidate_display", "search_terms", "semantic_evidence", "issue32_snapshot_evidence"}
 MASKED_FIELDS = {
-    "risk_class", "display_state", "search_state", "bridge32_state", "row_state", "reason_codes",
-    "issue32_meaning_fingerprint", "prior_review_state", "phase1a_qa", "review_state",
+    "risk_class", "display_state", "search_state", "bridge32_state", "bridge32_availability", "row_state", "reason_codes",
+    "issue32_meaning_fingerprint", "evaluated_issue32_meaning_fingerprint", "issue32_content_identity",
+    "issue32_conflict_signal", "prior_review_state", "phase1a_qa", "review_state",
 }
 SEMANTIC_ARTIFACTS = (
     "pilot_selection.json", "evidence_manifest.jsonl", "pilot_rows.jsonl", "search_terms.jsonl",
@@ -86,7 +89,11 @@ def verify(root: Path, output_dir: Path, *, rerun: bool = False) -> dict[str, An
     errors.extend(_errors_for_fields(search_rows, SEARCH_FIELDS, "search_terms"))
     required_evidence = {"evidence_id", "canonical", "source_type", "source_ref", "scope_note", "content_identity", "evidence_role", "frozen"}
     errors.extend(_errors_for_fields(evidence_rows, required_evidence, "evidence_manifest"))
-    errors.extend(_errors_for_fields(bridge_rows, {"canonical", "snapshot_ref", "meaning_fingerprint", "meaning_relevant_propositions", "bridge32_state", "reason_codes"}, "bridge32"))
+    errors.extend(_errors_for_fields(bridge_rows, {
+        "canonical", "snapshot_ref", "content_identity", "frozen", "pinned", "immutable",
+        "meaning_fingerprint", "evaluated_issue32_meaning_fingerprint", "meaning_relevant_propositions",
+        "bridge32_state", "bridge32_availability", "conflict_signal", "reason_codes",
+    }, "bridge32"))
     errors.extend(_errors_for_fields(blind_input, BLIND_INPUT_FIELDS, "blind30_input"))
     errors.extend(_errors_for_fields(blind_review, {"canonical", "display_judgement", "search_judgement", "bridge32_judgement", "review_note"}, "blind30_review"))
 
@@ -102,6 +109,10 @@ def verify(root: Path, output_dir: Path, *, rerun: bool = False) -> dict[str, An
         errors.append("pilot row has an invalid display_state")
     if set(row.get("search_state") for row in pilot_rows) - STATES:
         errors.append("pilot row has an invalid search_state")
+    if set(row.get("bridge32_availability") for row in pilot_rows) - BRIDGE_AVAILABILITIES:
+        errors.append("pilot row has an invalid bridge32_availability")
+    if set(row.get("bridge32_availability") for row in bridge_rows) - BRIDGE_AVAILABILITIES:
+        errors.append("bridge32 has an invalid bridge32_availability")
     if set(row.get("term_class") for row in search_rows) - TERM_CLASSES:
         errors.append("search_terms contains an invalid term_class")
     if set(row.get("risk_class") for row in pilot_rows) - set(PILOT_QUOTAS):
@@ -117,6 +128,54 @@ def verify(root: Path, output_dir: Path, *, rerun: bool = False) -> dict[str, An
         errors.append("unexpected pilot selection seed")
     if summary.get("selected_stratum_counts") != selection.get("achieved_stratum_counts"):
         errors.append("run_summary selected stratum counts do not match pilot selection")
+    if len(bridge_rows) != len(pilot_rows) or {row.get("canonical") for row in bridge_rows} != set(canonicals):
+        errors.append("bridge32 must contain exactly one audit row per pilot canonical")
+    bridge_by_canonical = {str(row.get("canonical")): row for row in bridge_rows}
+    for row in pilot_rows:
+        canonical = str(row.get("canonical"))
+        bridge = bridge_by_canonical.get(canonical, {})
+        availability = row.get("bridge32_availability")
+        if bridge.get("bridge32_availability") != availability:
+            errors.append(f"pilot/bridge availability mismatch for {canonical}")
+        if availability == "NOT_REQUIRED" and row.get("issue32_overlap") != "NO":
+            errors.append(f"NOT_REQUIRED row is marked as overlap for {canonical}")
+        if availability != "NOT_REQUIRED" and row.get("issue32_overlap") != "YES":
+            errors.append(f"required bridge row is not marked as overlap for {canonical}")
+        if availability == "AVAILABLE":
+            if any(not bridge.get(field) for field in ("snapshot_ref", "content_identity", "meaning_fingerprint")):
+                errors.append(f"available bridge lacks immutable identity fields for {canonical}")
+            if bridge.get("frozen") is not True or bridge.get("pinned") is not True or bridge.get("immutable") is not True:
+                errors.append(f"available bridge is not frozen/pinned/immutable for {canonical}")
+        if availability in {"BRIDGE_MISSING", "BLOCKED_BRIDGE"} and row.get("row_state") == "READY":
+            errors.append(f"bridge failure allowed row READY for {canonical}")
+    expected_audit = {
+        "required_overlap_count": sum(row.get("bridge32_availability") != "NOT_REQUIRED" for row in bridge_rows),
+        "available_count": sum(row.get("bridge32_availability") == "AVAILABLE" for row in bridge_rows),
+        "not_required_count": sum(row.get("bridge32_availability") == "NOT_REQUIRED" for row in bridge_rows),
+        "bridge_missing_count": sum(row.get("bridge32_availability") == "BRIDGE_MISSING" for row in bridge_rows),
+        "blocked_bridge_count": sum(row.get("bridge32_availability") == "BLOCKED_BRIDGE" for row in bridge_rows),
+        "stale_count": sum(row.get("bridge32_state") == "STALE_REVIEW" for row in bridge_rows),
+        "contradiction_count": sum(row.get("bridge32_state") == "CONTRADICTION" for row in bridge_rows),
+    }
+    actual_audit = summary.get("bridge32_audit", {})
+    for field, value in expected_audit.items():
+        if actual_audit.get(field) != value:
+            errors.append(f"run_summary bridge32_audit mismatch for {field}")
+    audit_records = {str(row.get("canonical")): row for row in actual_audit.get("records", []) if isinstance(row, dict)}
+    if set(audit_records) != set(bridge_by_canonical):
+        errors.append("run_summary bridge32_audit records do not cover bridge32 rows")
+    for canonical, bridge in bridge_by_canonical.items():
+        audit = audit_records.get(canonical, {})
+        expected_record = {
+            "bridge32_availability": bridge.get("bridge32_availability"),
+            "bridge32_state": bridge.get("bridge32_state"),
+            "current_fingerprint": bridge.get("meaning_fingerprint"),
+            "evaluated_fingerprint": bridge.get("evaluated_issue32_meaning_fingerprint"),
+            "snapshot_ref": bridge.get("snapshot_ref"),
+            "content_identity": bridge.get("content_identity"),
+        }
+        if any(audit.get(field) != value for field, value in expected_record.items()):
+            errors.append(f"run_summary bridge32_audit record mismatch for {canonical}")
     if len(blind_input) != 30 or len(blind_key.get("selected", [])) != 30:
         errors.append("blind30 must contain exactly 30 selected rows")
     for row in blind_input:

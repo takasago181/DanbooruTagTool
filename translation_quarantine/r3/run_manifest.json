@@ -7,11 +7,11 @@
     "blind30_input.jsonl": "cb38d6cfd447d28276fe68d576d293183afbab80f236e0f114b3b1fb7f3885d5",
     "blind30_key.json": "612134f594f7ccca2638fb1f245fa14648f5b82bddbc1256a452c53025dd368a",
     "blind30_review.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "bridge32.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bridge32.jsonl": "185691b99e0f7e2ae95f022ca6c01ba3983f5ef0e7e69abfdc2856ecdf6f8ba3",
     "evidence_manifest.jsonl": "c1400721871617c3bdd6d9573764a875dd1a07dde24ac970c1362ec0cf7d0bc0",
-    "pilot_rows.jsonl": "4667a929237ac19a00a8c587d55e10aa335a39f03be887d482636600a19ecd52",
+    "pilot_rows.jsonl": "6c1f72fe1a188dd083be314d9bc6bc335c7696d3ebf37d6f09f2c90217cf05f3",
     "pilot_selection.json": "57a2506c3766dbd2af198a2ee70e3894e7efac692ce17f3d1aedb42c452c03cd",
-    "run_summary.json": "161ee5b29d481ab9a7ca086ff5f4641fb66518dd864c1eedb9ec2c789cb3145d",
+    "run_summary.json": "93d2ed86d743ee2b507a687e3d4f271bbd7d0a4c1597e3bd10bb95aa90811650",
     "search_terms.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
   },
   "input_file_hashes": {
@@ -114,7 +114,7 @@
     "docs/project/CURRENT_DEV_TASK.md": "1523d51fe6b4b7b0b15f78998a737472e8f9768f39812df9c7c7ed0d620bd063",
     "tests/test_stage7a_ui.py": "e84ed361fee7afdcf1027edaa75a68eeb45c8be54adcaf717a6f36f530f5dcf7"
   },
-  "run_timestamp_utc": "2026-09-08T14:28:44.266335+00:00",
+  "run_timestamp_utc": "2026-09-08T14:55:13.822946+00:00",
   "schema_version": "r3-1",
   "selection_seed": "UIJA-R3-PILOT-20260908-V1"
 }

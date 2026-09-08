@@ -1,7 +1,7 @@
 {
   "artifact_state_counts": {
     "bridge32": {
-      "REVIEW": 100
+      "READY": 100
     },
     "display": {
       "REVIEW": 100
@@ -20,6 +20,917 @@
     "semantic_false_ready": 0,
     "silent_bridge_contradictions": 0,
     "state": "REVIEW_PENDING"
+  },
+  "bridge32_audit": {
+    "available_count": 0,
+    "blocked_bridge_count": 0,
+    "bridge_missing_count": 0,
+    "contradiction_count": 0,
+    "not_required_count": 100,
+    "records": [
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "eyelashes",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "gauntlets",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "neck_bell",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "goggles",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "fake_animal_ears",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "bara",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "toenails",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "dragon_horns",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": ":<",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "hand_fan",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "facial_mark",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "profile",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "thigh_gap",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "all_fours",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "shirt_lift",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "mary_janes",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "facing_viewer",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "fishnets",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "rabbit_girl",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "plant",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "two-tone_background",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "underwear",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "loli",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "spoken_ellipsis",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "fellatio",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "black_leotard",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "black_ribbon",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "black_bikini",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "white_panties",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "white_pupils",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "brown_jacket",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "blue_shirt",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "yellow_eyes",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "white_shorts",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "black_dress",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "black_coat",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "blue_necktie",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "green_hair",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "white_flower",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "yellow_background",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "white_pants",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "black_necktie",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "white_bikini",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "black_pants",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "green_dress",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "walking",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "leaning_forward",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "rabbit_tail",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "clothed_sex",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "demon_tail",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "cum_in_pussy",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "fake_tail",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "horse_tail",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "huge_breasts",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "grabbing_another's_breast",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "pussy",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "small_breasts",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "sex_from_behind",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "cat_tail",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "breasts_apart",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "anal",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "covered_nipples",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "breast_press",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "fox_tail",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "group_sex",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "wolf_tail",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "pussy_juice",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "breasts_out",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "holding_book",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "double-parted_bangs",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "mole_under_eye",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "multiple_boys",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "alternate_breast_size_(larger)",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "crying_with_eyes_open",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "blood_on_face",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "between_breasts",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "two_side_up",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "holding_weapon",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "goggles_on_head",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "mole_under_mouth",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "between_legs",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "hand_on_own_hip",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "looking_to_the_side",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "wrist_cuffs",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "hand_on_own_face",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "short_hair_with_long_locks",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "holding_gun",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "holding_hands",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "hand_on_own_chest",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "cum_on_body",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "feet_out_of_frame",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "multiple_views",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "cum_on_breasts",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "holding_umbrella",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "holding_phone",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "mole_on_breast",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "holding_food",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "bound",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "standing_on_one_leg",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      },
+      {
+        "bridge32_availability": "NOT_REQUIRED",
+        "bridge32_state": "READY",
+        "canonical": "clothed_female_nude_male",
+        "content_identity": "",
+        "current_fingerprint": "",
+        "evaluated_fingerprint": "",
+        "snapshot_ref": ""
+      }
+    ],
+    "required_overlap_count": 0,
+    "stale_count": 0
   },
   "deterministic_rerun_verification": "PASS",
   "issue32_overlap_counts": {
