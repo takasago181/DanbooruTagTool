@@ -43,4 +43,5 @@ start_sequence,end_sequence,path,rule_version,row_count,status,notes
 821,840,validation_quarantine/results_blocks/0821_0840.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; Batch9 partial
 841,860,validation_quarantine/results_blocks/0841_0860.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; 4 FIX / 9 REVIEW
 861,880,validation_quarantine/results_blocks/0861_0880.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; 5 FIX / 9 REVIEW
-881,900,validation_quarantine/results_blocks/0881_0900.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; 6 FIX / 6 REVIEW; Batch9 gate pending sampling
+881,900,validation_quarantine/results_blocks/0881_0900.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; 6 FIX / 6 REVIEW; Batch9 gate PASS
+901,920,validation_quarantine/results_blocks/0901_0920.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; Batch10 partial
