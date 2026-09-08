@@ -197,10 +197,14 @@ def _bridge_metadata(snapshot: Mapping[str, Any], issue32_path: Path | None) -> 
     if not source_ref and issue32_path is not None:
         source_ref = str(issue32_path).replace("\\", "/")
     content_identity = str(snapshot.get("content_identity") or snapshot.get("content_hash") or "").strip()
-    frozen = snapshot.get("frozen") is True
-    pinned = snapshot.get("pinned") is True
-    immutable = snapshot.get("immutable") is True or snapshot.get("immutable_reference") is True
+    frozen = snapshot.get("snapshot_frozen", snapshot.get("frozen")) is True
+    pinned = snapshot.get("snapshot_pinned", snapshot.get("pinned")) is True
+    immutable = snapshot.get("snapshot_immutable", snapshot.get("immutable")) is True or snapshot.get("immutable_reference") is True
     propositions = issue32_propositions(snapshot)
+    if "semantic_support_relation" in propositions:
+        # Carry the usage decision with the normalized propositions so a
+        # replay can include this relation in the same fingerprint.
+        propositions["semantic_support_used"] = True
     fingerprint = issue32_fingerprint(snapshot) if propositions else ""
     supplied_fingerprint = str(snapshot.get("meaning_fingerprint", "")).strip()
     if supplied_fingerprint and fingerprint and supplied_fingerprint != fingerprint:
@@ -413,7 +417,10 @@ def run(
     )
     selection = select_pilot(
         root,
-        issue32_overlap=issue32_path,
+        # The normalized frozen bridge evidence is the replay input.  Keeping
+        # the selection artifact independent of the live/source path makes a
+        # replay from evidence_manifest.jsonl byte-for-byte equivalent.
+        issue32_overlap=None,
         overlap_canonicals=required_overlap,
     )
     selected = selection["selected"]
@@ -445,18 +452,50 @@ def run(
                 "content_identity": str(snapshot.get("content_identity") or snapshot.get("content_hash") or file_hash(issue32_path)),
                 "evidence_role": "BRIDGE32",
                 "frozen": True,
+                "bridge32_required": True,
+                "snapshot_frozen": snapshot.get("frozen") is True,
+                "snapshot_pinned": snapshot.get("pinned") is True,
+                "snapshot_immutable": snapshot.get("immutable") is True or snapshot.get("immutable_reference") is True,
                 "pinned": snapshot.get("pinned") is True,
                 "immutable": snapshot.get("immutable") is True or snapshot.get("immutable_reference") is True,
+                "meaning_fingerprint": str(snapshot.get("meaning_fingerprint") or issue32_fingerprint(snapshot) if issue32_propositions(snapshot) else ""),
+                "translation_visible_propositions": issue32_propositions(snapshot),
+                "semantic_support_used": snapshot.get("semantic_support_used") is True,
                 **{key: snapshot[key] for key in (
                     "identity", "entity_scope", "canonical", "count_cardinality", "count", "cardinality",
                     "actor", "ownership", "target", "body_site", "action_state", "action_vs_state",
                     "intrinsic_relation", "relation", "pose", "spatial_requirement", "required_modifier",
                     "required_qualifier", "qualifier", "canonical_meaning_width", "meaning_width",
                     "translation_visible_propositions", "evaluated_issue32_meaning_fingerprint",
+                    "semantic_support_used", "semantic_context_used", "semantic_support_relation_used",
+                    "semantic_support_relation", "support_relation", "support_class",
                     "bridge_conflict", "independent_semantic_conflict", "semantic_conflict",
                 ) if key in snapshot},
             })
         evidence.sort(key=lambda row: (str(row.get("canonical", "")), str(row.get("evidence_id", ""))))
+    if issue32_requirements_path and issue32_requirements_path.exists():
+        selected_canonicals = {str(item["canonical"]) for item in selected}
+        existing_ids = {str(row.get("evidence_id")) for row in evidence}
+        for canonical in sorted(_load_bridge_requirement_rows(issue32_requirements_path) & selected_canonicals):
+            evidence_id = f"bridge32-requirement:{canonical}"
+            if evidence_id in existing_ids:
+                continue
+            evidence.append({
+                "evidence_id": evidence_id,
+                "canonical": canonical,
+                "source_type": "frozen_bridge_requirement",
+                "source_ref": _relative(root, issue32_requirements_path),
+                "scope_note": "#32 overlap is required; snapshot availability is evaluated separately",
+                "content_identity": file_hash(issue32_requirements_path),
+                "evidence_role": "BRIDGE32_REQUIREMENT",
+                "frozen": True,
+                "bridge32_required": True,
+            })
+        evidence.sort(key=lambda row: (str(row.get("canonical", "")), str(row.get("evidence_id", ""))))
+    # The frozen evidence manifest is itself a replay input.  Normalize its
+    # order even when no issue32 source path was supplied, so the original run
+    # and an evidence-only replay serialize the same artifact.
+    evidence.sort(key=lambda row: (str(row.get("canonical", "")), str(row.get("evidence_id", ""))))
     pilot_rows, search_rows, bridge_rows = _make_pilot_rows(selected, evidence, issue32, issue32_path, required_overlap)
 
     write_json(output / "pilot_selection.json", selection)
@@ -538,6 +577,16 @@ def run(
         "evidence_manifest_hash": file_hash(output / "evidence_manifest.jsonl"),
         "generated_file_hashes": generated_hashes,
         "run_timestamp_utc": datetime.now(timezone.utc).isoformat(),
+        "deterministic_replay_inputs": {
+            "evidence_input_ref": _relative(root, evidence_path) if evidence_path and evidence_path.exists() else "generated:evidence_manifest.jsonl",
+            "issue32_snapshot_ref": _relative(root, issue32_path) if issue32_path and issue32_path.exists() else "",
+            "issue32_requirements_ref": _relative(root, issue32_requirements_path) if issue32_requirements_path and issue32_requirements_path.exists() else "",
+            "input_hashes": {
+                "evidence_input": file_hash(evidence_path) if evidence_path and evidence_path.exists() else file_hash(output / "evidence_manifest.jsonl"),
+                "issue32_snapshot": file_hash(issue32_path) if issue32_path and issue32_path.exists() else "",
+                "issue32_requirements": file_hash(issue32_requirements_path) if issue32_requirements_path and issue32_requirements_path.exists() else "",
+            },
+        },
         "production_modified": False,
         "protected_snapshot_before": protected_before,
     }

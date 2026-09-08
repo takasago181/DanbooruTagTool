@@ -12,6 +12,10 @@ python translation_quarantine/r3/r3_build_blind_audit.py --output translation_qu
 python translation_quarantine/r3/r3_verify.py --output translation_quarantine/r3 --rerun
 ```
 
+With `--rerun`, verification compares the existing semantic artifacts with
+two evidence-only replays: `original == rerun1 == rerun2`. The replay input is
+the normalized frozen evidence artifact, not a live #32 worktree.
+
 Use `--evidence PATH` only with a frozen `evidence_manifest.jsonl`. The engine
 never fetches live evidence during a rerun. Use `--issue32 PATH` for a frozen,
 pinned, immutable #32 snapshot and `--issue32-requirements PATH` when an

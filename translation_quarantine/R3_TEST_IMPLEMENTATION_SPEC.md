@@ -348,6 +348,13 @@ Canonical JSON serialization for hashable artifacts:
 
 Running R3 twice with the same pinned inputs and frozen evidence manifest must produce identical semantic artifact hashes.
 
+The verifier treats the existing output as the original replay and requires
+the three-way equality `original == rerun1 == rerun2`. It must not accept a
+rerun merely because rerun1 and rerun2 agree. Replay consumes the normalized
+frozen evidence artifact; it does not re-read a live #32 worktree. Saved bridge
+fingerprints are checked against a fresh calculation from the saved
+translation-visible propositions.
+
 Live source acquisition, if used, is a separate freeze step. Once `evidence_manifest.jsonl` is frozen, the evaluator never re-fetches a source during deterministic reruns.
 
 ## 12. Codex vs scheduled Task vs audit responsibilities
@@ -389,7 +396,7 @@ Codex test-version implementation is complete only when:
 3. existing Phase1A 100 are preserved as regression fixtures;
 4. fresh pilot runs only in quarantine;
 5. blind30 reviewer input is correctly masked;
-6. second identical rerun produces identical semantic hashes;
+6. original, first replay, and second replay produce identical semantic hashes;
 7. production files are unchanged;
 8. remaining P0 925 bulk run has not happened;
 9. no main merge is performed by this test task.

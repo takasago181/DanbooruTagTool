@@ -15,6 +15,7 @@ try:
         STATES,
         TERM_CLASSES,
         file_hash,
+        issue32_fingerprint,
         protected_snapshot,
         read_json,
         read_jsonl,
@@ -22,8 +23,12 @@ try:
     )
     from .r3_run import run
 except ImportError:  # pragma: no cover - supports direct CLI execution
-    from r3_common import BLIND_QUOTAS, BRIDGE_AVAILABILITIES, PILOT_QUOTAS, STATES, TERM_CLASSES, file_hash, protected_snapshot, read_json, read_jsonl, write_json
+    from r3_common import BLIND_QUOTAS, BRIDGE_AVAILABILITIES, PILOT_QUOTAS, STATES, TERM_CLASSES, file_hash, issue32_fingerprint, protected_snapshot, read_json, read_jsonl, write_json
     from r3_run import run
+try:
+    from .r3_build_blind_audit import build
+except ImportError:  # pragma: no cover - supports direct CLI execution
+    from r3_build_blind_audit import build
 
 
 PILOT_FIELDS = {
@@ -59,6 +64,19 @@ def _errors_for_fields(rows: Iterable[dict[str, Any]], required: set[str], label
 
 def _semantic_hashes(directory: Path) -> dict[str, str]:
     return {name: file_hash(directory / name) for name in SEMANTIC_ARTIFACTS}
+
+
+def _align_replay_metadata(directory: Path, original_summary: dict[str, Any]) -> None:
+    """Copy only verifier-owned metadata so it cannot cause replay drift."""
+
+    summary_path = directory / "run_summary.json"
+    summary = read_json(summary_path)
+    for field in ("deterministic_rerun_verification", "deterministic_replay_comparison"):
+        if field in original_summary:
+            summary[field] = original_summary[field]
+        else:
+            summary.pop(field, None)
+    write_json(summary_path, summary)
 
 
 def verify(root: Path, output_dir: Path, *, rerun: bool = False) -> dict[str, Any]:
@@ -146,6 +164,10 @@ def verify(root: Path, output_dir: Path, *, rerun: bool = False) -> dict[str, An
                 errors.append(f"available bridge lacks immutable identity fields for {canonical}")
             if bridge.get("frozen") is not True or bridge.get("pinned") is not True or bridge.get("immutable") is not True:
                 errors.append(f"available bridge is not frozen/pinned/immutable for {canonical}")
+        propositions = bridge.get("meaning_relevant_propositions")
+        stored_fingerprint = str(bridge.get("meaning_fingerprint", ""))
+        if propositions and stored_fingerprint and issue32_fingerprint(propositions) != stored_fingerprint:
+            errors.append(f"bridge fingerprint does not match propositions for {canonical}")
         if availability in {"BRIDGE_MISSING", "BLOCKED_BRIDGE"} and row.get("row_state") == "READY":
             errors.append(f"bridge failure allowed row READY for {canonical}")
     expected_audit = {
@@ -202,22 +224,48 @@ def verify(root: Path, output_dir: Path, *, rerun: bool = False) -> dict[str, An
             errors.append(f"manifest hash mismatch: {name}")
 
     rerun_result = "NOT_RUN"
+    replay_comparison = {
+        "original_vs_rerun1": "NOT_RUN",
+        "rerun1_vs_rerun2": "NOT_RUN",
+        "original_vs_rerun2": "NOT_RUN",
+        "mismatches": {},
+    }
     if rerun and not errors:
+        original_hashes = _semantic_hashes(output)
+        original_summary = dict(summary)
         temp = output / f".r3-verify-{uuid.uuid4().hex}"
         temp.mkdir(parents=True, exist_ok=False)
         try:
             first_dir = temp / "first"
             second_dir = temp / "second"
             first = run(root, first_dir, evidence_path=output / "evidence_manifest.jsonl")
+            build(first["output"], root=root)
             second = run(root, second_dir, evidence_path=output / "evidence_manifest.jsonl")
+            build(second["output"], root=root)
+            _align_replay_metadata(first["output"], original_summary)
+            _align_replay_metadata(second["output"], original_summary)
             first_hashes = _semantic_hashes(first["output"])
             second_hashes = _semantic_hashes(second["output"])
-            rerun_result = "PASS" if first_hashes == second_hashes else "FAIL"
+            replay_comparison["original_vs_rerun1"] = "PASS" if original_hashes == first_hashes else "FAIL"
+            replay_comparison["rerun1_vs_rerun2"] = "PASS" if first_hashes == second_hashes else "FAIL"
+            replay_comparison["original_vs_rerun2"] = "PASS" if original_hashes == second_hashes else "FAIL"
+            for name in SEMANTIC_ARTIFACTS:
+                if not (original_hashes[name] == first_hashes[name] == second_hashes[name]):
+                    replay_comparison["mismatches"][name] = {
+                        "original": original_hashes[name],
+                        "rerun1": first_hashes[name],
+                        "rerun2": second_hashes[name],
+                    }
+            rerun_result = "PASS" if all(
+                replay_comparison[key] == "PASS"
+                for key in ("original_vs_rerun1", "rerun1_vs_rerun2", "original_vs_rerun2")
+            ) and not replay_comparison["mismatches"] else "FAIL"
             if rerun_result != "PASS":
-                errors.append("deterministic rerun semantic hashes differ")
+                errors.append("deterministic replay semantic hashes differ")
         finally:
             shutil.rmtree(temp, ignore_errors=True)
         summary["deterministic_rerun_verification"] = rerun_result
+        summary["deterministic_replay_comparison"] = replay_comparison
         write_json(output / "run_summary.json", summary)
         manifest["generated_file_hashes"]["run_summary.json"] = file_hash(output / "run_summary.json")
         write_json(output / "run_manifest.json", manifest)
@@ -226,6 +274,7 @@ def verify(root: Path, output_dir: Path, *, rerun: bool = False) -> dict[str, An
         "ok": not errors,
         "errors": errors,
         "deterministic_rerun_verification": rerun_result,
+        "deterministic_replay_comparison": replay_comparison,
         "production_modified": False,
         "pilot_rows": len(pilot_rows),
         "blind30_rows": len(blind_input),

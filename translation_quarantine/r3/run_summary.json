@@ -932,6 +932,12 @@
     "required_overlap_count": 0,
     "stale_count": 0
   },
+  "deterministic_replay_comparison": {
+    "mismatches": {},
+    "original_vs_rerun1": "PASS",
+    "original_vs_rerun2": "PASS",
+    "rerun1_vs_rerun2": "PASS"
+  },
   "deterministic_rerun_verification": "PASS",
   "issue32_overlap_counts": {
     "omitted": 0,

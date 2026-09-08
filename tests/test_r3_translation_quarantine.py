@@ -6,6 +6,7 @@ import uuid
 from pathlib import Path
 
 import pytest
+from translation_quarantine.r3 import r3_verify as verifier_module
 
 from translation_quarantine.r3.r3_build_blind_audit import build
 from translation_quarantine.r3.r3_common import (
@@ -14,6 +15,8 @@ from translation_quarantine.r3.r3_common import (
     ensure_r3_output,
     issue32_fingerprint,
     issue32_propositions,
+    read_jsonl,
+    write_jsonl,
     classify_risk,
     term_class,
 )
@@ -200,6 +203,12 @@ def test_r3_run_blind_masking_and_protected_boundary(r3_fixture_root):
     result = verify(root, output, rerun=True)
     assert result["ok"], result["errors"]
     assert result["deterministic_rerun_verification"] == "PASS"
+    assert result["deterministic_replay_comparison"] == {
+        "original_vs_rerun1": "PASS",
+        "rerun1_vs_rerun2": "PASS",
+        "original_vs_rerun2": "PASS",
+        "mismatches": {},
+    }
     blind_rows = [json.loads(line) for line in (output / "blind30_input.jsonl").read_text(encoding="utf-8").splitlines()]
     assert len(blind_rows) == 30
     for row in blind_rows:
@@ -376,9 +385,115 @@ def test_verifier_accepts_bridge_audit_artifact_with_available_snapshot(r3_fixtu
     build(output)
     result = verify(root, output, rerun=True)
     assert result["ok"], result["errors"]
+    assert all(result["deterministic_replay_comparison"][key] == "PASS" for key in (
+        "original_vs_rerun1", "rerun1_vs_rerun2", "original_vs_rerun2",
+    ))
     bridge = next(json.loads(line) for line in (output / "bridge32.jsonl").read_text(encoding="utf-8").splitlines() if json.loads(line)["canonical"] == selected)
     assert bridge["bridge32_availability"] == "AVAILABLE"
     assert bridge["frozen"] is True and bridge["pinned"] is True and bridge["immutable"] is True
+
+
+def test_semantic_support_usage_and_relation_survive_bridge_replay(r3_fixture_root):
+    root = _quarantine_fixture(r3_fixture_root)
+    selected = select_pilot(root)["selected"][0]["canonical"]
+    snapshot, _ = _write_bridge_snapshot(root, selected, support_class="CORE_SUPPORT", semantic_support_used=True)
+    output, result = _run_build_and_verify(root, issue32_path=snapshot)
+    assert result["ok"], result["errors"]
+    bridge = next(json.loads(line) for line in (output / "bridge32.jsonl").read_text(encoding="utf-8").splitlines() if json.loads(line)["canonical"] == selected)
+    assert bridge["meaning_relevant_propositions"]["semantic_support_relation"] == "CORE_SUPPORT"
+    assert bridge["meaning_relevant_propositions"]["semantic_support_used"] is True
+
+
+def _run_build_and_verify(root: Path, *, issue32_path: Path | None = None, evidence_path: Path | None = None):
+    output = root / "translation_quarantine" / "r3"
+    run(root, output, issue32_path=issue32_path, evidence_path=evidence_path)
+    build(output)
+    return output, verify(root, output, rerun=True)
+
+
+def test_stale_review_replay_is_three_way_identical(r3_fixture_root):
+    root = _quarantine_fixture(r3_fixture_root)
+    selected = select_pilot(root)["selected"][0]["canonical"]
+    prior = {"canonical": selected, "identity": selected, "entity_scope": "entity", "count_cardinality": 1, "action_state": "state", "required_modifier": "required"}
+    snapshot, _ = _write_bridge_snapshot(root, selected, action_state="action", evaluated_issue32_meaning_fingerprint=issue32_fingerprint(prior))
+    output, result = _run_build_and_verify(root, issue32_path=snapshot)
+    assert result["ok"], result["errors"]
+    assert all(result["deterministic_replay_comparison"][key] == "PASS" for key in (
+        "original_vs_rerun1", "rerun1_vs_rerun2", "original_vs_rerun2",
+    ))
+    row = next(json.loads(line) for line in (output / "pilot_rows.jsonl").read_text(encoding="utf-8").splitlines() if json.loads(line)["canonical"] == selected)
+    assert row["bridge32_state"] == "STALE_REVIEW"
+
+
+def test_contradiction_replay_is_three_way_identical(r3_fixture_root):
+    root = _quarantine_fixture(r3_fixture_root)
+    selected = select_pilot(root)["selected"][0]["canonical"]
+    snapshot, _ = _write_bridge_snapshot(root, selected, independent_semantic_conflict=True)
+    output, result = _run_build_and_verify(root, issue32_path=snapshot)
+    assert result["ok"], result["errors"]
+    row = next(json.loads(line) for line in (output / "pilot_rows.jsonl").read_text(encoding="utf-8").splitlines() if json.loads(line)["canonical"] == selected)
+    assert row["bridge32_state"] == "CONTRADICTION"
+
+
+def test_bridge_missing_replay_is_three_way_identical(r3_fixture_root):
+    root = _quarantine_fixture(r3_fixture_root)
+    selected = select_pilot(root)["selected"][0]["canonical"]
+    evidence = root / "translation_quarantine" / "required.jsonl"
+    evidence.write_text(json.dumps({
+        "evidence_id": "required:" + selected,
+        "canonical": selected,
+        "source_type": "frozen_bridge_requirement",
+        "source_ref": "fixture://required",
+        "scope_note": "required overlap",
+        "content_identity": "requirement-v1",
+        "evidence_role": "BRIDGE32_REQUIREMENT",
+        "frozen": True,
+    }) + "\n", encoding="utf-8", newline="\n")
+    output, result = _run_build_and_verify(root, evidence_path=evidence)
+    assert result["ok"], result["errors"]
+    row = next(json.loads(line) for line in (output / "pilot_rows.jsonl").read_text(encoding="utf-8").splitlines() if json.loads(line)["canonical"] == selected)
+    assert row["bridge32_availability"] == "BRIDGE_MISSING"
+
+
+def test_blocked_bridge_replay_is_three_way_identical(r3_fixture_root):
+    root = _quarantine_fixture(r3_fixture_root)
+    selected = select_pilot(root)["selected"][0]["canonical"]
+    snapshot, _ = _write_bridge_snapshot(root, selected, pinned=False)
+    output, result = _run_build_and_verify(root, issue32_path=snapshot)
+    assert result["ok"], result["errors"]
+    row = next(json.loads(line) for line in (output / "pilot_rows.jsonl").read_text(encoding="utf-8").splitlines() if json.loads(line)["canonical"] == selected)
+    assert row["bridge32_availability"] == "BLOCKED_BRIDGE"
+
+
+def test_replay_only_match_is_not_a_false_pass_when_bridge_metadata_is_lost(r3_fixture_root, monkeypatch):
+    root = _quarantine_fixture(r3_fixture_root)
+    selected = select_pilot(root)["selected"][0]["canonical"]
+    snapshot, _ = _write_bridge_snapshot(root, selected)
+    output = root / "translation_quarantine" / "r3"
+    run(root, output, issue32_path=snapshot)
+    build(output)
+    original_run = verifier_module.run
+
+    def lossy_run(root_arg, output_dir, *, evidence_path=None, **kwargs):
+        if evidence_path is not None:
+            rows = read_jsonl(evidence_path)
+            for row in rows:
+                if row.get("evidence_role") == "BRIDGE32":
+                    row.pop("pinned", None)
+                    row.pop("immutable", None)
+                    row.pop("snapshot_pinned", None)
+                    row.pop("snapshot_immutable", None)
+            lossy_path = Path(root_arg) / "translation_quarantine" / "lossy-replay-evidence.jsonl"
+            write_jsonl(lossy_path, rows)
+            evidence_path = lossy_path
+        return original_run(root_arg, output_dir, evidence_path=evidence_path, **kwargs)
+
+    monkeypatch.setattr(verifier_module, "run", lossy_run)
+    result = verifier_module.verify(root, output, rerun=True)
+    assert result["ok"] is False
+    assert result["deterministic_rerun_verification"] == "FAIL"
+    assert result["deterministic_replay_comparison"]["original_vs_rerun1"] == "FAIL"
+    assert "bridge32.jsonl" in result["deterministic_replay_comparison"]["mismatches"]
 
 
 def test_output_boundary_is_fail_closed(r3_fixture_root):

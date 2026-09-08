@@ -96,11 +96,11 @@ def _select(rows: list[dict[str, Any]]) -> tuple[list[dict[str, Any]], dict[str,
     }
 
 
-def build(output_dir: Path, *, review_path: Path | None = None) -> dict[str, Any]:
+def build(output_dir: Path, *, review_path: Path | None = None, root: Path | None = None) -> dict[str, Any]:
     output_dir = output_dir.resolve()
     # ``.../translation_quarantine/r3`` is the output root in both the
     # repository and isolated test roots; parents[1] is that root's root.
-    ensure_r3_output(output_dir.parents[1], output_dir)
+    ensure_r3_output((root or output_dir.parents[1]).resolve(), output_dir)
     rows = read_jsonl(output_dir / "pilot_rows.jsonl")
     search_rows = read_jsonl(output_dir / "search_terms.jsonl")
     evidence = read_jsonl(output_dir / "evidence_manifest.jsonl")
