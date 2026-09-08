@@ -1,0 +1,3 @@
+sequence,special_id,tag,rule_version,risk_priority,problem_fields,proposed_change,reason,evidence_refs,status
+1188,1188,penis in another's panties,R2,A,ActorRequirementOverride+BodypartRequirementOverride+SpatialAssignmentOverride,actor=true; bodypart=true; spatial=true,explicit another-person ownership plus intrinsic containment relation,generation_profile;generation_profile:ID34;generation_profile:ID1116,QUARANTINE_CANDIDATE
+1191,1191,grabbing another's testicles,R2,A,BodypartRequirementOverride,bodypart=true,intrinsic testicle target; actor already true,generation_profile;generation_profile:ID34;generation_profile:ID420,QUARANTINE_CANDIDATE
