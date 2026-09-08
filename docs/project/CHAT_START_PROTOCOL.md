@@ -4,6 +4,17 @@
 
 この拡張は常設班を増やすものではない。TEMPは臨時担当、GitHub管理・調整チャットは班ではない。
 
+## 読取入口の要約
+
+既存ルールの入口だけを要約する。権限・正本・優先順位はこの要約によって変更しない。
+
+- 常設4班（DEV / AUDIT / KNOWLEDGE / PROMPT）とTEMP:
+  `CURRENT_STATE.md` → `PERMANENT_RULES.md` → `CURRENT_STATE.md` に記載された自班の現行Issue → 必要な現行Stage仕様 / Decision / main状態
+- Codex:
+  `AGENTS.md` → `CURRENT_STATE.md` → `PERMANENT_RULES.md` → `CURRENT_DEV_TASK.md` → 現行Stage仕様・実装レポート
+- `CURRENT_DEV_TASK.md` はDEVの現行IssueをCodexが読むための同期ミラーであり、AUDIT / KNOWLEDGE / PROMPT / TEMPの自班Issueを置き換えない。
+- TEMPは常設5班目ではなく、`CURRENT_STATE.md` に記載された期間限定担当として扱う。
+
 ## 0. チャット移行を自発的に提案する条件
 
 本プロジェクトの作業チャットは、次のいずれかに当てはまる場合、ユーザーから「引継ぎして」「新しいチャットへ移ろう」と言われるのを待たず、自発的にチャット移行を提案する。

@@ -15,6 +15,7 @@ Special2788の機能を実画像A/B比較で検証する。
 - Stage10専用の採点・実験管理機能を現時点で本体へ追加しない。
 - Stage9 overall Gateは完了済みだが、それだけでStage10本番A/B開始とはしない。
 - unit/regression test PASSだけで実アプリ動作PASSとは扱わない。Stage10前にIssue #28 automated E2E functional testのPASSが必要。
+- Stage10比較自動化はexternal / existing tool firstとし、既存Forge Neo機能・既存拡張・外部OSSで満たせる範囲を先に使う。不足箇所だけ薄いglue/harnessを追加する。
 
 ## Stage9 → Stage10 Gate
 
@@ -53,6 +54,29 @@ Issue #28で、実アプリ主要経路を自動実行し `PASS / FAIL / BLOCKED
 
 mockだけのテストをE2E PASSとは呼ばない。local-only protected dataやGUI環境不足で必須経路を実行不能ならBLOCKEDであり、Stage10本番へ進まない。
 
+## Forge Neo A/B automation TEMP
+
+Issue #30で、Stage10本番A/B時のユーザー手作業を可能な限り減らす。
+
+優先順:
+1. 既に導入済みのForge Neo拡張
+2. Forge Neo標準機能
+3. Forge Neo対応既存拡張
+4. 外部CLI / API / OSS
+5. gapだけ小さなglue script / harnessを自作
+
+対象:
+- A/B Prompt差し替え
+- fixed / multi-seed生成
+- model / LoRA / steps / cfg / sampler / size固定
+- 生成画像 + 実Prompt + metadata追跡
+- WD14等の既存Taggerによるrequired / forbidden一次判定
+- `A_WIN / B_WIN / REVIEW / BLOCKED` 振り分け
+- machine-readable / human-readable report
+- REVIEW対象だけを人間が効率よく比較する導線
+
+Issue #6は比較環境の導入・基礎動作確認、Issue #30はその上で自動実行・自動整理・一次判定を担当する。Stage10本番前にdry runを行い、ユーザー操作回数・REVIEW率・metadata欠損・再現性を確認する。
+
 ## Stage10開始前チェック
 
 - [x] Stage9B完了（Issue #2）
@@ -64,17 +88,21 @@ mockだけのテストをE2E PASSとは呼ばない。local-only protected data�
 - [ ] Automated E2E functional test PASS（Issue #28）
 - [ ] Stage10正式handoff
 - [ ] Forge Neo比較環境導入・動作確認（Issue #6）
+- [ ] Forge Neo A/B automation external-tool-first dry run（Issue #30）
 - [ ] Multi Prompt Slots等の比較手段確認
 - [ ] テストPrompt班へ正式Specialデータ提供（Issue #5）
 - [ ] A/Bの固定条件定義
 - [ ] metadata保存方法定義
-- [ ] #4 KNOWLEDGEのStage10知識整理結果を正式handoffへ反映
+- [x] #4 KNOWLEDGEのStage10知識整理結果を正式handoffへ反映
 - [ ] model familyごとのPrompt grammar差を保持し、未検証共通化をしていない
 - [ ] 実際に使ったPromptを各画像/結果へ追跡できる
+- [ ] REVIEW対象だけを人間が確認できる自動化運用をdry runで確認
+
+Knowledge handoff正本: `docs/stages/STAGE_10_KNOWLEDGE_HANDOFF.md`
 
 ## 現在地
 
 Stage10本番A/Bは**未開始**。
-現在はIssue #28 automated E2E動作確認を現行DEV Gateとして実施しつつ、#4 KNOWLEDGE / #5 PROMPT / #6 Forge Neo TEMPの残項目を準備する段階。
+現在はIssue #28 automated E2E動作確認を現行DEV Gateとして実施しつつ、#5 PROMPT / #6 Forge Neo TEMP / #30 A/B automation TEMPの残項目を準備する段階。Issue #4 KNOWLEDGEはStage10開始前調査を完了しhandoff済み。
 
 このchecklistを満たす前にStage10本番画像A/Bを正式開始しない。
