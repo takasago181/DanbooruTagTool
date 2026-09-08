@@ -7,10 +7,10 @@
   "fixed_order": "production Special2788 order at audit start",
   "batch_size": 100,
   "internal_block_size": 20,
-  "completed_specials": 1160,
-  "pass": 772,
-  "fix": 168,
-  "review": 203,
+  "completed_specials": 1180,
+  "pass": 774,
+  "fix": 171,
+  "review": 218,
   "image_test_required": 17,
   "revalidation_pending": 0,
   "batch1_acceptance_gate": "PASS",
@@ -32,10 +32,10 @@
   "semantic_support_rows_covered": 55,
   "semantic_support_rows_review": 0,
   "semantic_support_rows_image_test_required": 30,
-  "last_completed_special_id": "1160",
+  "last_completed_special_id": "1180",
   "last_completed_batch": 11,
   "next_batch": 12,
-  "next_start_position": 1161,
+  "next_start_position": 1181,
   "production_modified": false,
-  "notes": "Batch12 partial through1160. Batch12 delta PASS11/FIX14/REVIEW34/IMAGE_TEST_REQUIRED1. Semantic support rows54-55 for ID1159 audited: beads CORE_SUPPORT+ADDITIVE IMAGE_TEST_REQUIRED; anal_beads OPTIONAL_VARIATION+CONTEXTUAL PASS. Coverage55/58. Next safe restart1161."
+  "notes": "Batch12 partial through1180. Batch12 delta PASS13/FIX17/REVIEW49/IMAGE_TEST_REQUIRED1. Four20-row checkpoints durable. Semantic support55/58. Next safe restart1181."
 }
