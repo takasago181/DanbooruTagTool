@@ -7,36 +7,38 @@ Rule version: R2
 
 ## Current position
 - Target: 2,788 Specials
-- Special-level first pass reached: 500
-- Effective counts after full Batch5 revalidation: PASS 451 / FIX 28 / REVIEW 5 / IMAGE_TEST_REQUIRED 16
-- Batch 1-4 R2 acceptance gates: PASS
+- Special-level first pass accepted through: 500
+- Cumulative effective verdicts: PASS 451 / FIX 28 / REVIEW 5 / IMAGE_TEST_REQUIRED 16
+- Batch 1-5 R2 acceptance gates: PASS
 - Batch 5 full R2 revalidation: COMPLETE (401-500)
-- Batch 5 acceptance gate: PENDING_FINAL_GATE
-- Effective pending revalidation: 0
+- Revalidation pending: 0
 - Semantic-support frozen target: 58 rows; durable audited coverage: 53
-- First-pass sequence 501 remains BLOCKED until post-revalidation integrity + PASS-resampling gate completes
+- Next first-pass sequence: 501
 - Production modified: NO
 
-## Durable Batch5 revalidation checkpoints
-- `revalidation_blocks/0401_0420.csv`
-- `revalidation_blocks/0421_0440.csv`
-- `revalidation_blocks/0441_0460.csv`
-- `revalidation_blocks/0461_0480.csv`
-- `revalidation_blocks/0481_0500.csv`
-- matching queue-resolution overlays under `revalidation_queue_blocks/`
+## Batch 5 final acceptance
 
-## Corrections confirmed by full revalidation
-- ID420 `nipple torture` -> FIX: `BodypartRequirementOverride=true`.
-- ID422 `torture instruments` -> FIX: `ImplementRequirementOverride=true`.
-- ID469 `peeing on penis` -> FIX: `BodypartRequirementOverride=true` + `SpatialAssignmentOverride=true`.
-- ID479 `skull fucking` -> FIX: `BodypartRequirementOverride=true` + `SpatialAssignmentOverride=true`.
-- ID490 `bestiality` -> FIX: `ActorRequirementOverride=true`.
-- ID493 `mating (animal)` -> FIX: `ActorRequirementOverride=true`.
-- ID488 `xray sex` -> retain IMAGE_TEST_REQUIRED; Stage10/model-dependent visibility behavior remains unpromoted.
+Full revalidation used five append-only 20-row blocks and matching queue-resolution overlays covering 401-500 exactly once. Effective Batch5 verdicts after revalidation:
+- PASS 93
+- FIX 6
+- REVIEW 0
+- IMAGE_TEST_REQUIRED 1
 
-A-risk ID491 `knotting`, ID492 `animal insertion`, and ID496 `zoophilia` remain PASS after prompt-reference and prior deterministic sampling cross-check. In particular, ID492's frozen reference says insertion using animal body parts or similar; this does not universally establish a live animal actor or one fixed insertion target, so no speculative actor/bodypart/implement override is promoted.
+Confirmed corrections in quarantine:
+- ID420 `nipple torture` -> `BodypartRequirementOverride=true`
+- ID422 `torture instruments` -> `ImplementRequirementOverride=true`
+- ID469 `peeing on penis` -> `BodypartRequirementOverride=true` + `SpatialAssignmentOverride=true`
+- ID479 `skull fucking` -> `BodypartRequirementOverride=true` + `SpatialAssignmentOverride=true`
+- ID490 `bestiality` -> `ActorRequirementOverride=true`
+- ID493 `mating (animal)` -> `ActorRequirementOverride=true`
 
-`revalidation_queue.csv` remains the original Batch5 queue snapshot. The five append-only queue overlays in `revalidation_queue_blocks/` are authoritative for completed state; effective pending count is 0.
+ID488 `xray sex` remains IMAGE_TEST_REQUIRED. Stage10 HOLD/model-dependent visibility evidence was not promoted to production truth.
+
+`pass_sampling_batch5_r2_revalidation.csv` sampled 19 of 93 effective PASS rows with deterministic spread and all surviving A-risk PASS included. New false-PASS found: 0. `batch5_revalidation_integrity_r2.md` records the 100-row integrity check and PASS gate decision.
+
+A-risk ID491 `knotting`, ID492 `animal insertion`, and ID496 `zoophilia` remain PASS after prompt-reference, full revalidation, and post-revalidation sampling cross-check. ID492 specifically permits insertion using animal body parts or similar; this does not universally establish a live animal actor or fixed target, so no speculative override is promoted.
+
+`revalidation_queue.csv` remains the original Batch5 queue snapshot; completed append-only overlays under `revalidation_queue_blocks/` are authoritative for resolved state. Effective pending count is 0.
 
 ## Critical interpretation rules
 - Blank/None is not automatically missing data; family-rule blanks explicitly mean UNKNOWN/not asserted.
@@ -47,4 +49,4 @@ A-risk ID491 `knotting`, ID492 `animal insertion`, and ID496 `zoophilia` remain 
 - Special2788 exact identity remains first-class.
 
 ## Exact restart
-Run the Batch5 post-revalidation integrity check over the five 20-row revalidation blocks and five queue overlays. Then re-sample the effective PASS population under R2, with A-risk preference. Only if no new false-PASS is found may Batch5 acceptance become PASS and sequence501 be unblocked. Do not modify production/main.
+Read Issue #32, R2 rules, `progress.json`, `candidate_fixes.csv`, semantic-support ledger, and this handoff. Resume first-pass at sequence501. Process at most 100 Specials, checkpoint every20, and perform the next 100-level integrity + PASS resampling gate before accepting sequence600. Do not modify production/main.
