@@ -1,0 +1,183 @@
+{
+  "schema_version": "issue36-review-analysis-1",
+  "checkpoint_source": {
+    "issue": 36,
+    "latest_checkpoint_comment": "issuecomment-5591125456",
+    "latest_checkpoint_title": "Bulk readiness review — root cause of 625/625 REVIEW identified",
+    "branch": "ui-ja/issue36-r3-bulk-canary",
+    "source_commit": "94366c0269cd4dd4ff9e6355441090eafc246a12",
+    "analysis_is_read_only": true
+  },
+  "inputs": {
+    "summary": "translation_quarantine/r3_bulk_batches/BULK_READINESS_SUMMARY.json",
+    "summary_sha256": "0cafd3232b690679703b893fc05638dd888a528bf32ae3bf4b65d524fb7c2c13",
+    "batch_rows": {
+      "batch-001": "c7e265dc5795af7423c3a84f457004c209b8a3f102907b40c27d72d7ba11a8dd",
+      "batch-002": "728f6d7f33b34933625e03065c7eb309b6faff2d24afe3cb7761f3d6d0a80028",
+      "batch-003": "83f7ba2cf34715411868eac0552d783af5d08353e4c29c1588fc4da3423a2e17",
+      "batch-004": "8b7c299333be979810867da7c7b21925a974058b848f2db95dc9b2952f8040e9"
+    },
+    "review_rows": 604,
+    "ready_rows": 21,
+    "risk_class_counts": {
+      "LOW": 508,
+      "MEDIUM": 86,
+      "HIGH_POSE_ACTION": 0,
+      "HIGH_ANATOMY_ADULT": 0,
+      "CRITICAL": 10
+    }
+  },
+  "raw_reason_code_counts": {
+    "NO_SAFE_SEARCH_CANDIDATE": 604,
+    "NO_SUPPORTED_DISPLAY_CANDIDATE": 604,
+    "HIGH_OR_CRITICAL_MISSING_EXACT_CANONICAL_SCOPE": 9
+  },
+  "evidence_gap_counts": {
+    "identity_only": 501,
+    "identity_plus_semantic_scope": 103,
+    "wording_candidate": 0,
+    "bridge_ready_or_not_required": 604,
+    "bridge_problem": 0
+  },
+  "categories": {
+    "WORDING_MISSING": {
+      "count": 103,
+      "risk_class_counts": {
+        "LOW": 42,
+        "MEDIUM": 60,
+        "CRITICAL": 1
+      },
+      "definition": "Frozen semantic scope exists, but no independently acceptable wording candidate exists; all rows also lack a supported search candidate.",
+      "representative_examples": [
+        "black_shoes",
+        "purple_shirt",
+        "boots",
+        "cup",
+        "red_dress",
+        "green_jacket",
+        "mask",
+        "sword",
+        "bikini",
+        "girl_on_top"
+      ],
+      "subanalysis": {
+        "existing_overlay_has_terms_but_not_accepted": 29,
+        "no_overlay_search_terms": 74,
+        "why_existing_terms_do_not_auto_approve": "Some have multiple choices, broad/slang forms, ambiguity, or semantic narrowing such as green_jacket→緑ブレザー, sword→グレートソード, and grey_hair→銀髪ロング."
+      }
+    },
+    "SEMANTIC_SCOPE_MISSING": {
+      "count": 484,
+      "risk_class_counts": {
+        "LOW": 460,
+        "MEDIUM": 24
+      },
+      "definition": "No frozen semantic scope exists and the canonical did not meet the conservative transparent-composition structural probe used for this analysis.",
+      "representative_examples": [
+        "angel_wings",
+        "undressing",
+        "kneehighs",
+        "no_bra",
+        "low_twintails",
+        "hair_rings",
+        "floating_hair",
+        "ear_piercing",
+        "hand_in_pocket",
+        "sunglasses"
+      ],
+      "additional_exact_reference_candidates": 45,
+      "additional_exact_reference_note": "The local Special2788 reference contains 45 exact canonical rows among the current semantic-gap set, but they are currently classified LOW and many are adult/action/relation-sensitive. They are quarantine evidence candidates only, not automatic READY candidates."
+    },
+    "HIGH_CRITICAL_EXACT_EVIDENCE_MISSING": {
+      "count": 9,
+      "risk_class_counts": {
+        "CRITICAL": 9
+      },
+      "definition": "CRITICAL rows without an exact-canonical authoritative semantic scope record; R3 must remain fail-closed.",
+      "representative_examples": [
+        "hair_over_one_eye",
+        "eyes_visible_through_hair",
+        "holding_staff",
+        "double_bun",
+        "multiple_tails",
+        "scar_on_face",
+        "eyewear_on_head",
+        "holding_cup",
+        "hand_on_another's_head"
+      ]
+    },
+    "TRANSPARENT_COMPOSITION_NOT_SUPPORTED": {
+      "count": 8,
+      "risk_class_counts": {
+        "LOW": 6,
+        "MEDIUM": 2
+      },
+      "definition": "A conservative broader token-shape probe sees a possible single entity or attribute+entity composition, but the current frozen acquisition vocabulary does not authorize it.",
+      "representative_examples": [
+        "open_shirt",
+        "cloudy_sky",
+        "blue_sky",
+        "starry_sky",
+        "open_coat",
+        "swimsuit",
+        "sky",
+        "black_bodysuit"
+      ],
+      "safety_note": "These are investigation candidates, not approvals. State-like open_* forms and sky/background forms need explicit scope review; blue_sky is the only one with a single existing overlay wording candidate that looks immediately promising."
+    },
+    "BRIDGE_RELATED": {
+      "count": 0,
+      "risk_class_counts": {},
+      "representative_examples": [],
+      "definition": "No REVIEW row was caused by #32 bridge availability or contradiction. All 604 rows had bridge32_state=READY and bridge32_availability=NOT_REQUIRED."
+    },
+    "OTHER": {
+      "count": 0,
+      "risk_class_counts": {},
+      "representative_examples": [],
+      "definition": "No residual primary category remained after the deterministic classification."
+    }
+  },
+  "category_total_check": 604,
+  "safe_reduction_assessment": {
+    "safe_to_automate_in_quarantine_only": [
+      "Deterministic evidence-gap classification and source/provenance reporting.",
+      "Exact-canonical reference acquisition as frozen SEMANTIC_SCOPE candidates when identity is exact and alias rows are excluded; this still requires risk and wording review.",
+      "Transparent-composition acquisition for newly specified LOW/MEDIUM token classes only after a focused false-READY test and separate wording validation.",
+      "Wording candidate extraction as candidate-only evidence; it must not become semantic authority or direct production data."
+    ],
+    "retain_for_human_or_separate_authoritative_route": [
+      "All 9 CRITICAL rows lacking exact-canonical authoritative scope.",
+      "The 484 general semantic-scope gaps, including the 45 exact-reference candidates until adult/action/relation risk is independently resolved.",
+      "All 103 semantic-scoped rows until wording specificity, naturalness, and search/display separation are independently verified.",
+      "All 8 broader transparent-shape candidates until the new composition rule and wording are independently audited.",
+      "Any ambiguous, multi-term, slang, subtype/narrowing, or actor/target/relation-sensitive case."
+    ],
+    "not_a_work_item": [
+      "#32 bridge: no issue found.",
+      "Production promotion: not authorized.",
+      "Additional bulk execution: not performed."
+    ]
+  },
+  "additional_evidence_ready_estimate": {
+    "conservative_immediate_promising_candidates": 1,
+    "semantic_scope_present_but_wording_missing_upper_bound": 103,
+    "transparent_composition_candidate_upper_bound": 8,
+    "conservative_potential_ready_range": "1 to 104",
+    "calculation_note": "The lower bound is blue_sky if its scope and wording pass an independent focused audit. The upper bound is the 103 already scoped rows plus that one transparent candidate; it assumes separate acceptable wording evidence is acquired for every scoped row. It is an upper bound, not an approval prediction.",
+    "excluded_from_ready_estimate": "45 exact local reference rows are counted as scope-acquisition candidates only; their current effective risk labels understate adult/action/relation sensitivity in several cases, so they remain REVIEW until separately audited."
+  },
+  "integrity": {
+    "r3_gate_changed": false,
+    "production_modified": false,
+    "issue32_modified": false,
+    "issue35_modified": false,
+    "current_dev_task_modified": false,
+    "main_modified": false,
+    "bulk_reexecuted": false,
+    "blind_or_self_grade_performed": false,
+    "source_summary_false_ready": 0,
+    "source_summary_contradiction": 0,
+    "source_summary_replay": "PASS"
+  }
+}
