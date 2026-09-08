@@ -3,7 +3,7 @@ from pathlib import Path
 import pytest
 
 from translation_quarantine.r3.r3_bulk_run import check_masked_rows
-from translation_quarantine.r3.r3_bulk_select import CANARY_SEED, select_canary, select_records
+from translation_quarantine.r3.r3_bulk_select import CANARY_SEED, portable_csv_text_hash, select_canary, select_records
 from translation_quarantine.r3.r3_common import stable_key
 
 
@@ -18,9 +18,19 @@ def test_canary_selection_is_200_unseen_and_seeded():
     assert all(row["selection_key"] == stable_key(CANARY_SEED, row["canonical"]) for row in selected)
 
 
-def test_canary_preflight_rejects_protected_queue_drift():
-    with pytest.raises(ValueError, match="queue hash"):
-        select_canary(ROOT)
+def test_canary_preflight_uses_portable_identity_for_frozen_git_sources():
+    selection = select_canary(ROOT)
+    assert selection["canary_size"] == 200
+    assert selection["source_identity"]["missing_candidates.csv"]["current_git_blob"] == selection["source_identity"]["missing_candidates.csv"]["validated_git_blob"]
+    assert selection["source_queue_portable_content_identity"]
+
+
+def test_portable_source_identity_ignores_newlines_but_detects_field_change():
+    lf = "canonical,priority\nfoo,P0\nbar,P1\n"
+    crlf = lf.replace("\n", "\r\n")
+    changed = "canonical,priority\nfoo,P0\nbar,P0\n"
+    assert portable_csv_text_hash(lf) == portable_csv_text_hash(crlf)
+    assert portable_csv_text_hash(lf) != portable_csv_text_hash(changed)
 
 
 def test_masked_audit_leakage_checker_is_fail_closed():

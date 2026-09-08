@@ -1,0 +1,16 @@
+{
+  "canary_rows": 200,
+  "deterministic_replay": {
+    "mismatches": {},
+    "original_vs_rerun1": "PASS",
+    "original_vs_rerun2": "PASS",
+    "rerun1_vs_rerun2": "PASS"
+  },
+  "errors": [],
+  "masked_audit20_rows": 20,
+  "ok": true,
+  "production_modified": false,
+  "remaining_full_p0_processed": false,
+  "schema_version": "issue36-bulk-replay-verification-1",
+  "self_grade": "NOT_PERFORMED"
+}

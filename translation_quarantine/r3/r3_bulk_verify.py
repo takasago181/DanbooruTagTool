@@ -3,7 +3,6 @@ from __future__ import annotations
 
 import argparse
 import shutil
-import tempfile
 from pathlib import Path
 
 try:
@@ -58,31 +57,44 @@ def verify(root: Path, output: Path, *, replay: bool = True) -> dict[str, object
     if before != protected_snapshot(root):
         errors.append("protected snapshot changed during canary verification")
 
-    replay = {
+    run_replay = replay
+    replay_result = {
         "original_vs_rerun1": "NOT_RUN",
         "rerun1_vs_rerun2": "NOT_RUN",
         "original_vs_rerun2": "NOT_RUN",
         "mismatches": {},
     }
-    if replay and not errors:
-        temp_root = Path(tempfile.mkdtemp(prefix="issue36-r3-replay-", dir=str(root / "translation_quarantine" / "r3_bulk_canary")))
+    manifest = read_json(output / "campaign_manifest.json")
+    issue32_snapshot: Path | None = None
+    snapshot_ref = str(manifest.get("issue32_snapshot_ref", "")).strip()
+    if snapshot_ref:
+        candidate = Path(snapshot_ref)
+        issue32_snapshot = candidate if candidate.is_absolute() else root / candidate
+        if not issue32_snapshot.exists():
+            errors.append("frozen #32 snapshot from the original campaign is missing")
+
+    if run_replay and not errors:
+        temp_root = output / ".replay_work"
+        if temp_root.exists():
+            shutil.rmtree(temp_root, ignore_errors=True)
+        temp_root.mkdir(parents=True, exist_ok=True)
         try:
             first_dir = temp_root / "rerun1"
             second_dir = temp_root / "rerun2"
-            run_campaign(root, first_dir)
-            run_campaign(root, second_dir)
+            run_campaign(root, first_dir, issue32_snapshot=issue32_snapshot)
+            run_campaign(root, second_dir, issue32_snapshot=issue32_snapshot)
             original_hashes = _hashes(output)
             first_hashes = _hashes(first_dir)
             second_hashes = _hashes(second_dir)
-            replay["original_vs_rerun1"] = "PASS" if original_hashes == first_hashes else "FAIL"
-            replay["rerun1_vs_rerun2"] = "PASS" if first_hashes == second_hashes else "FAIL"
-            replay["original_vs_rerun2"] = "PASS" if original_hashes == second_hashes else "FAIL"
+            replay_result["original_vs_rerun1"] = "PASS" if original_hashes == first_hashes else "FAIL"
+            replay_result["rerun1_vs_rerun2"] = "PASS" if first_hashes == second_hashes else "FAIL"
+            replay_result["original_vs_rerun2"] = "PASS" if original_hashes == second_hashes else "FAIL"
             for name in REPLAY_ARTIFACTS:
                 if not (original_hashes[name] == first_hashes[name] == second_hashes[name]):
-                    replay["mismatches"][name] = {
+                    replay_result["mismatches"][name] = {
                         "original": original_hashes[name], "rerun1": first_hashes[name], "rerun2": second_hashes[name],
                     }
-            if replay["mismatches"] or any(replay[key] != "PASS" for key in ("original_vs_rerun1", "rerun1_vs_rerun2", "original_vs_rerun2")):
+            if replay_result["mismatches"] or any(replay_result[key] != "PASS" for key in ("original_vs_rerun1", "rerun1_vs_rerun2", "original_vs_rerun2")):
                 errors.append("deterministic three-way replay failed")
         finally:
             shutil.rmtree(temp_root, ignore_errors=True)
@@ -92,7 +104,7 @@ def verify(root: Path, output: Path, *, replay: bool = True) -> dict[str, object
         "errors": errors,
         "canary_rows": len(rows),
         "masked_audit20_rows": len(masked),
-        "deterministic_replay": replay,
+        "deterministic_replay": replay_result,
         "self_grade": "NOT_PERFORMED",
         "production_modified": False,
         "remaining_full_p0_processed": False,

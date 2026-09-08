@@ -1,0 +1,86 @@
+{
+  "approval_capable_evidence_rows": 0,
+  "approval_evidence_state": "HOLD_INSUFFICIENT_APPROVAL_EVIDENCE",
+  "audit20_leakage_check": {
+    "forbidden_state_literals": [],
+    "leaked_key_values": [],
+    "leaked_masked_fields": [],
+    "masked_rows": 20,
+    "ok": true,
+    "schema_version": "issue36-bulk-audit20-leakage-1"
+  },
+  "audit20_rows": 20,
+  "bridge_status_guard": {
+    "blocked_canonicals": [
+      "anal",
+      "bara",
+      "bound",
+      "fellatio",
+      "fishnets",
+      "loli",
+      "pussy"
+    ],
+    "blocked_count": 7,
+    "missing_count": 7,
+    "required_count": 7,
+    "resolved_count": 0,
+    "rows": [],
+    "state": "NO_SNAPSHOT",
+    "status_missing_count": 0,
+    "unresolved_count": 0
+  },
+  "campaign_id": "issue36-r3-bulk-canary-20260909-v1",
+  "campaign_state": "HOLD_BRIDGE",
+  "canary_membership_hash": "e21529e18a3bf40701ac554c93dc67a9763dad41d93fb413ec61a339752ae6a6",
+  "canary_rows": 200,
+  "counts": {
+    "bridge_availability": {
+      "NOT_REQUIRED": 200
+    },
+    "bridge_state": {
+      "READY": 200
+    },
+    "display": {
+      "REVIEW": 200
+    },
+    "risk": {
+      "CRITICAL": 2,
+      "LOW": 168,
+      "MEDIUM": 30
+    },
+    "row": {
+      "REVIEW": 200
+    },
+    "search": {
+      "REVIEW": 200
+    }
+  },
+  "effective_risk_distribution": {
+    "CRITICAL": 2,
+    "LOW": 168,
+    "MEDIUM": 30
+  },
+  "eligible_pool_effective_risk_distribution": {
+    "CRITICAL": 12,
+    "HIGH_ANATOMY_ADULT": 0,
+    "HIGH_POSE_ACTION": 0,
+    "LOW": 691,
+    "MEDIUM": 122
+  },
+  "evidence": {
+    "failures": [],
+    "frozen_rows": 200,
+    "identity_only_rows": 200,
+    "semantic_scope_rows": 0,
+    "wording_candidate_rows": 0
+  },
+  "production_modified": false,
+  "ready_rows": 0,
+  "remaining_full_p0_processed": false,
+  "representativeness_claim": "NATURAL_DISTRIBUTION_RECORDED",
+  "risk_coverage_gaps": [],
+  "schema_version": "issue36-bulk-canary-1",
+  "self_grade": "NOT_PERFORMED",
+  "semantic_rule_change_required": false,
+  "stage10_production_ab_started": false
+}

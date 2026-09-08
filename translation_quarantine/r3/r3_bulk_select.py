@@ -2,6 +2,10 @@
 from __future__ import annotations
 
 import argparse
+import csv
+import hashlib
+import io
+import subprocess
 from pathlib import Path
 from typing import Any
 
@@ -13,6 +17,58 @@ except ImportError:  # pragma: no cover
 
 CANARY_SEED = "UIJA-R3-BULK-CANARY-20260909-V1"
 CANARY_SIZE = 200
+VALIDATED_R3_BASE = "53f02d9b3419db8fd9099b38204c29eed289ee8e"
+
+
+def portable_rows_hash(rows: list[dict[str, Any]]) -> str:
+    """Hash parsed CSV content, independent of raw newline encoding."""
+
+    normalized = [
+        {str(key): "" if value is None else str(value) for key, value in row.items()}
+        for row in rows
+    ]
+    return json_hash(normalized)
+
+
+def portable_csv_text_hash(text: str) -> str:
+    """Expose the newline-independent identity for focused portability tests."""
+
+    reader = csv.DictReader(io.StringIO(text.lstrip("\ufeff"), newline=""))
+    return portable_rows_hash([dict(row) for row in reader])
+
+
+def _git_command(root: Path, *args: str) -> subprocess.CompletedProcess[bytes]:
+    safe_directory = str(root).replace("\\", "/")
+    return subprocess.run(
+        ["git", "-c", f"safe.directory={safe_directory}", *args],
+        cwd=root,
+        stdin=subprocess.DEVNULL,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        check=False,
+    )
+
+
+def _git_blob_hash(root: Path, ref: str, relative_path: str) -> str:
+    result = _git_command(root, "rev-parse", f"{ref}:{relative_path}")
+    if result.returncode != 0:
+        raise ValueError(
+            f"cannot resolve Git blob for {ref}:{relative_path}: "
+            f"{result.stderr.decode('utf-8', errors='replace').strip()}"
+        )
+    return result.stdout.decode("ascii").strip()
+
+
+def _git_rows(root: Path, ref: str, relative_path: str) -> tuple[list[dict[str, str]], str]:
+    result = _git_command(root, "show", f"{ref}:{relative_path}")
+    if result.returncode != 0:
+        raise ValueError(
+            f"cannot read Git source for {ref}:{relative_path}: "
+            f"{result.stderr.decode('utf-8', errors='replace').strip()}"
+        )
+    raw = result.stdout
+    reader = csv.DictReader(io.StringIO(raw.decode("utf-8-sig"), newline=""))
+    return [dict(row) for row in reader], hashlib.sha256(raw).hexdigest()
 
 
 def _canonicals(rows: list[dict[str, Any]]) -> set[str]:
@@ -49,7 +105,10 @@ def select_records(queue: list[dict[str, Any]], excluded: set[str], size: int = 
     if len(eligible) < size:
         raise ValueError(f"unseen eligible P0 pool has {len(eligible)} rows; {size} required")
     eligible.sort(key=lambda row: (row["selection_key"], row["canonical"]))
-    return [dict(row, canary_ordinal=index) for index, row in enumerate(eligible[:size], 1)]
+    return [
+        dict(row, canary_ordinal=index, pilot_ordinal=index)
+        for index, row in enumerate(eligible[:size], 1)
+    ]
 
 
 def select_canary(
@@ -69,22 +128,58 @@ def select_canary(
     if not queue_path.exists() or not phase1a_path.exists() or not issue41_selection_path.exists():
         raise FileNotFoundError("frozen #36/#41 selection inputs are missing")
 
-    queue_hash = file_hash(queue_path)
-    phase1a_hash = file_hash(phase1a_path)
     issue41_selection = read_json(issue41_selection_path)
     expected_queue_hash = str(issue41_selection.get("source_hashes", {}).get("missing_candidates.csv", ""))
     expected_phase1a_hash = str(issue41_selection.get("source_hashes", {}).get("phase1a_review.csv", ""))
-    if expected_queue_hash and expected_queue_hash != queue_hash:
-        raise ValueError("P0 queue hash differs from the validated R3 source; refusing to switch queues")
-    if expected_phase1a_hash and expected_phase1a_hash != phase1a_hash:
-        raise ValueError("Phase1A exclusion hash differs from the validated R3 source; refusing to switch exclusions")
-
     queue = read_csv(queue_path)
     phase1a = read_csv(phase1a_path)
+    queue_hash = file_hash(queue_path)
+    phase1a_hash = file_hash(phase1a_path)
+    source_specs = (
+        ("missing_candidates.csv", queue_path, queue),
+        ("phase1a_review.csv", phase1a_path, phase1a),
+    )
+    source_identity: dict[str, dict[str, str]] = {}
+    for relative_name, current_path, current_rows in source_specs:
+        current_blob = _git_blob_hash(root, "HEAD", f"translation_quarantine/{relative_name}")
+        validated_blob = _git_blob_hash(root, VALIDATED_R3_BASE, f"translation_quarantine/{relative_name}")
+        if current_blob != validated_blob:
+            raise ValueError(
+                f"Git blob differs from validated R3 base for {relative_name}; "
+                "refusing to switch sources"
+            )
+        validated_rows, validated_raw_hash = _git_rows(
+            root, VALIDATED_R3_BASE, f"translation_quarantine/{relative_name}"
+        )
+        current_portable = portable_rows_hash(current_rows)
+        validated_portable = portable_rows_hash(validated_rows)
+        if current_portable != validated_portable:
+            raise ValueError(
+                f"parsed source content differs from validated R3 source for {relative_name}; "
+                "refusing to switch sources"
+            )
+        source_identity[relative_name] = {
+            "current_git_blob": current_blob,
+            "validated_git_blob": validated_blob,
+            "current_raw_hash": file_hash(current_path),
+            "validated_raw_hash": validated_raw_hash,
+            "historical_raw_hash": expected_queue_hash if relative_name == "missing_candidates.csv" else expected_phase1a_hash,
+            "current_portable_content_identity": current_portable,
+            "validated_portable_content_identity": validated_portable,
+        }
+
     excluded_phase1a = _canonicals(phase1a)
     excluded_issue41 = _load_issue41_exclusions(issue41_selection_path)
     excluded = excluded_phase1a | excluded_issue41
-    selected = select_records(queue, excluded, size)
+    eligible_count = sum(
+        1
+        for row in queue
+        if str(row.get("canonical", "")).strip()
+        and row.get("priority", "").strip() == "P0"
+        and str(row.get("canonical", "")).strip() not in excluded
+    )
+    eligible_rows = select_records(queue, excluded, eligible_count)
+    selected = eligible_rows[:size]
     selection_hash = json_hash([row["canonical"] for row in selected])
     excluded_hash = json_hash(sorted(excluded))
     return {
@@ -95,8 +190,12 @@ def select_canary(
         "source_queue": "translation_quarantine/missing_candidates.csv",
         "source_queue_hash": queue_hash,
         "validated_r3_source_hash": expected_queue_hash,
+        "source_queue_portable_content_identity": source_identity["missing_candidates.csv"]["current_portable_content_identity"],
         "phase1a_exclusion_source_hash": phase1a_hash,
         "validated_phase1a_exclusion_hash": expected_phase1a_hash,
+        "phase1a_exclusion_portable_content_identity": source_identity["phase1a_review.csv"]["current_portable_content_identity"],
+        "validated_r3_base": VALIDATED_R3_BASE,
+        "source_identity": source_identity,
         "exclusion_set": {
             "hash": excluded_hash,
             "count": len(excluded),
@@ -108,12 +207,11 @@ def select_canary(
                 "translation_quarantine/r3/pilot_selection.json",
             ],
         },
-        "eligible_unseen_p0_count": sum(
-            1 for row in queue
-            if str(row.get("canonical", "")).strip()
-            and row.get("priority", "").strip() == "P0"
-            and str(row.get("canonical", "")).strip() not in excluded
-        ),
+        "eligible_unseen_p0_count": eligible_count,
+        "eligible_pool_effective_risk_distribution": {
+            risk: sum(row["risk_class"] == risk for row in eligible_rows)
+            for risk in ("LOW", "MEDIUM", "HIGH_POSE_ACTION", "HIGH_ANATOMY_ADULT", "CRITICAL")
+        },
         "canary_membership_hash": selection_hash,
         "effective_risk_distribution": {
             risk: sum(row["risk_class"] == risk for row in selected)
