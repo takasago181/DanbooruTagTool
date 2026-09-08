@@ -1,0 +1,20 @@
+sample_order,special_id,tag,risk_priority,effective_verdict,sample_verdict,false_pass,reason,evidence_refs
+1,102,cooperative fellatio,A,PASS,PASS,false,"Explicit multi-actor/spatial binding metadata matches the cooperative compound action and does not auto-inject redundant support.",results_blocks/0101_0120;STAGE_10_KNOWLEDGE_HANDOFF
+2,107,oral sandwich,A,PASS,PASS,false,"Multi-participant oral composition retains actor/separation structure without speculative camera or extra support claims.",results_blocks/0101_0120;STAGE_10_KNOWLEDGE_HANDOFF
+3,117,69,A,PASS,PASS,false,"Named pose/composition has explicit pose ownership while camera/visibility behavior remains unasserted.",results_blocks/0101_0120;STAGE_10_KNOWLEDGE_HANDOFF
+4,121,mating press,A,PASS,PASS,false,"Static named-position pose requirement is separated from any model-specific framing/support claim.",results_blocks/0121_0140;STAGE_10_KNOWLEDGE_HANDOFF
+5,128,sex from behind,A,PASS,PASS,false,"Defining body orientation is represented as pose composition without forcing viewpoint tags.",results_blocks/0121_0140;STAGE_10_KNOWLEDGE_HANDOFF
+6,134,top-down bottom-up,A,PASS,PASS,false,"Pose ownership is asserted conservatively; camera requirement remains UNKNOWN rather than silently inferred.",results_blocks/0121_0140;generation_family_rules
+7,148,anal fingering,A,PASS,PASS,false,"Actor/bodypart insertion structure is intrinsic; fingers are a body part, not a missing implement.",results_blocks/0141_0160;prompt_reference/05
+8,150,double anal,A,PASS,PASS,false,"Multiplicity/spatial structure is present and no specific implement is intrinsic to the concept.",results_blocks/0141_0160;STAGE_10_KNOWLEDGE_HANDOFF
+9,154,triple anal,A,PASS,PASS,false,"Triple-target insertion structure is captured without over-specifying implement type.",results_blocks/0141_0160;prompt_reference/05
+10,171,covered penetration,A,PASS,PASS,false,"Covering medium varies across clothes/cloth/contraceptive cases, so no single implement requirement is safely universal.",results_blocks/0161_0180;prompt_reference/05
+11,174,fingering,A,PASS,PASS,false,"Actor/bodypart insertion structure is sufficient and avoids misclassifying the hand as an implement.",results_blocks/0161_0180;prompt_reference/05
+12,178,guided penetration,A,PASS,PASS,false,"Guidance is preserved by the Special while current actor/bodypart structure avoids unsupported spatial promotion.",results_blocks/0161_0180;prompt_reference/05
+13,181,multiple penetration,A,PASS,PASS,false,"Multiple-target insertion structure is captured by spatial assignment without forcing a particular inserted object.",results_blocks/0181_0200;STAGE_10_KNOWLEDGE_HANDOFF
+14,184,triple penetration,A,PASS,PASS,false,"Triple penetration multiplicity is structurally represented and no universal implement subtype is asserted.",results_blocks/0181_0200;prompt_reference/05
+15,192,anal fisting,A,PASS,PASS,false,"Hand/fist is handled as a bodypart requirement, so a separate implement requirement would be incorrect.",results_blocks/0181_0200;prompt_reference/05
+16,196,nipple penetration,A,PASS,PASS,false,"Bodypart structure is explicit while no generic implement is intrinsic to every nipple-penetration case.",results_blocks/0181_0200;prompt_reference/05
+17,112,after oral,B,PASS,PASS,false,"Semantic/search-only handling makes no canonical or direct model-recognition claim.",results_blocks/0101_0120;STAGE_10_KNOWLEDGE_HANDOFF
+18,188,robot penetration,B,PASS,PASS,false,"Semantic-role handling keeps the related phrase searchable without promoting model-response equivalence.",results_blocks/0181_0200;STAGE_10_KNOWLEDGE_HANDOFF
+# method: deterministic Batch2 R2 sample = 18/90 effective PASS rows (20%), prioritizing A-risk structural rows across each 20-row checkpoint plus two spread B semantic controls; effective non-PASS rows excluded. New false-PASS found in sample: 0.
