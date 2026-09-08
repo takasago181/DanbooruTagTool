@@ -148,13 +148,151 @@
     "http_api_wd14_posts": 0,
     "verdict": "BLOCKED_RESTART_CONTROL"
   },
+  "successful_pipeline_attempt": {
+    "api_base": "http://127.0.0.1:7861",
+    "old_process_termination": {
+      "authorized_pid": 20508,
+      "preconditions_matched": true,
+      "terminated": true,
+      "port_7860_after": "HTTP 000",
+      "api_pid_untouched": 36452,
+      "api_port_7861_after": 200,
+      "api_options_after": 200,
+      "same_package_model_process_count": 1,
+      "same_package_pids": [36452]
+    },
+    "fixed_parameters": {
+      "negative_prompt": "lowres, blurry, bad anatomy, text, watermark",
+      "seed": 5072,
+      "steps": 24,
+      "cfg": 4.5,
+      "sampler": "Euler a",
+      "scheduler": "Automatic",
+      "width": 1024,
+      "height": 1024,
+      "batch_count": 1,
+      "batch_size": 1,
+      "checkpoint": "sd\\waiIllustriousSDXL_v170.safetensors",
+      "model": "waiIllustriousSDXL_v170",
+      "model_hash": "f116b0c78f",
+      "lora": null
+    },
+    "evidence_dir": "C:\\Users\\takas\\AppData\\Local\\Temp\\issue30_api_resume_20260908_20260908_204210",
+    "images": [
+      {
+        "id": "A",
+        "prompt": "1girl, solo, standing, looking at viewer, simple background",
+        "path": "C:\\Users\\takas\\AppData\\Local\\Temp\\issue30_api_resume_20260908_20260908_204210\\image_A.png",
+        "sha256": "6450E42A957D6B7AA94D7DAE61159CA6D0ADFFE53EEEDBD5ABEAA63FB9757099",
+        "elapsed_seconds": 11.113,
+        "generation_response_path": "C:\\Users\\takas\\AppData\\Local\\Temp\\issue30_api_resume_20260908_20260908_204210\\response_A.json",
+        "generation_response_sha256": "406EBC7CBAE5527893F854FCD0F2B1AFC22CB838B448D2C096D464BA8C6D92CA",
+        "png_info_path": "C:\\Users\\takas\\AppData\\Local\\Temp\\issue30_api_resume_20260908_20260908_204210\\png_info_A.json",
+        "png_info_sha256": "DAC57D44634F0F2B58DF7C8AB43B88D56D74FAFBB73F4581EFA5098C45862A04",
+        "metadata": {
+          "negative_prompt": "lowres, blurry, bad anatomy, text, watermark",
+          "seed": 5072,
+          "steps": 24,
+          "cfg": 4.5,
+          "sampler": "Euler a",
+          "scheduler": "Automatic",
+          "size": "1024x1024",
+          "model": "waiIllustriousSDXL_v170",
+          "model_hash": "f116b0c78f",
+          "forge_version": "neo-2.29",
+          "lora": null
+        }
+      },
+      {
+        "id": "B",
+        "prompt": "1girl, solo, sitting, looking at viewer, simple background",
+        "path": "C:\\Users\\takas\\AppData\\Local\\Temp\\issue30_api_resume_20260908_20260908_204210\\image_B.png",
+        "sha256": "4A0FC8F6EB0120EC9F8B3287CA0CB4435AD433FEB64BC0A54CFAB31304D6AFC4",
+        "elapsed_seconds": 7.211,
+        "generation_response_path": "C:\\Users\\takas\\AppData\\Local\\Temp\\issue30_api_resume_20260908_20260908_204210\\response_B.json",
+        "generation_response_sha256": "EDF7B15488532A38F18C0D9301BCEF44244610E5D22E1FB2C3DB188DB771F113",
+        "png_info_path": "C:\\Users\\takas\\AppData\\Local\\Temp\\issue30_api_resume_20260908_20260908_204210\\png_info_B.json",
+        "png_info_sha256": "7272C38FAA622CBBBC34C5BFE81E808B880EC7CCBA699ADF7D3B1BD7705C8D0B",
+        "metadata": {
+          "negative_prompt": "lowres, blurry, bad anatomy, text, watermark",
+          "seed": 5072,
+          "steps": 24,
+          "cfg": 4.5,
+          "sampler": "Euler a",
+          "scheduler": "Automatic",
+          "size": "1024x1024",
+          "model": "waiIllustriousSDXL_v170",
+          "model_hash": "f116b0c78f",
+          "forge_version": "neo-2.29",
+          "lora": null
+        }
+      }
+    ],
+    "wd14": {
+      "model": "wd14-eva02.v3.large",
+      "threshold": 0.0,
+      "queue": "",
+      "name_in_queue": "",
+      "raw_responses": [
+        {
+          "id": "A",
+          "path": "C:\\Users\\takas\\AppData\\Local\\Temp\\issue30_api_resume_20260908_20260908_204210\\wd14_raw_A.json",
+          "sha256": "1DE4828F1DB3DE55F0105FA9BD7DC3928E04E168E276F1DB6057F3FF087992BF",
+          "tag_confidence_entries": 10840,
+          "selected_confidences": {
+            "1girl": 0.992265761,
+            "solo": 0.985705853,
+            "standing": 0.803452671,
+            "sitting": 0.001002163,
+            "looking_at_viewer": 0.810943841,
+            "simple_background": 0.893245935,
+            "rating.general": 0.987493157,
+            "rating.sensitive": 0.020435005,
+            "rating.questionable": 0.000900447,
+            "rating.explicit": 0.000617892
+          }
+        },
+        {
+          "id": "B",
+          "path": "C:\\Users\\takas\\AppData\\Local\\Temp\\issue30_api_resume_20260908_20260908_204210\\wd14_raw_B.json",
+          "sha256": "1B2498D260A63F27D3A7B1EB85F67BF4A303C4FD9D9F9B13D2B0125553FBEFF0",
+          "tag_confidence_entries": 10844,
+          "selected_confidences": {
+            "1girl": 0.996757150,
+            "solo": 0.981036961,
+            "standing": 0.009758145,
+            "sitting": 0.930249333,
+            "looking_at_viewer": 0.975347757,
+            "simple_background": 0.863955498,
+            "rating.general": 0.087327451,
+            "rating.sensitive": 0.947173238,
+            "rating.questionable": 0.001127482,
+            "rating.explicit": 0.000626802
+          }
+        }
+      ]
+    },
+    "manual_operations": {
+      "user_after_task_start": 0,
+      "forge_ui_input_by_codex": 0,
+      "authorized_old_process_termination": 1,
+      "txt2img_posts": 2,
+      "png_info_posts": 2,
+      "wd14_posts": 2,
+      "options_posts": 0,
+      "api_forge_stop_or_restart": 0,
+      "model_switches": 0
+    },
+    "protected_or_persistent_changes": false,
+    "verdict": "PASS_PIPELINE"
+  },
   "persistent_setting_hashes": {
     "webui-user.bat_sha256_before": "F5AE1B180E7FDF72BDD6EA6DB57D529BCEE7B0B32D6A31B396D82356652D19AA",
     "config.json_sha256_before": "1FCD5EACA58DABF87A62C9317A257D9A765CC5E168329453FC7C937BA319E3C4"
   },
-  "verdict": "BLOCKED_RESTART_CONTROL",
-  "blocker": "BLOCKED_RESTART_CONTROL",
+  "verdict": "PASS_PIPELINE",
+  "blocker": null,
   "agent_scheduler": "HOLD",
-  "next_gap": "Controlled non-concurrent Forge Neo session with temporary --api launch argument or already API-enabled runtime",
+  "next_gap": "A_WIN/B_WIN/REVIEW routing, production scoring, and golden-set validation remain separate follow-up work",
   "production_verdict": null
 }

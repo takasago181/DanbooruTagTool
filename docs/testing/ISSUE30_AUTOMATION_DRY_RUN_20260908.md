@@ -194,3 +194,96 @@ Because the task forbids a concurrent second model-loaded Forge process, no `/sd
 - normal launch restoration: not applicable; the user's API-enabled session remains running and the old non-API session also remains running
 
 Retry infrastructure verdict: **`BLOCKED_RESTART_CONTROL`**. The next retry requires the old `7860` session to be normally stopped so that only the API-enabled Forge process remains.
+
+## Successful API pipeline attempt — 2026-09-08
+
+The user explicitly authorized termination of PID `20508` only. Preconditions matched: it was the old Forge Neo package process, held port `7860`, returned `/sdapi/v1/options` 404, and its UI was idle. PID `20508` was terminated; the API Forge PID `36452` was not touched.
+
+Post-termination checks:
+
+- PID `20508`: gone
+- port `7860`: no response (`HTTP 000`)
+- PID `36452`: still running
+- port `7861`: HTTP 200
+- `GET /sdapi/v1/options`: HTTP 200
+- same Forge package model-loaded process count: `1` (`36452`)
+- checkpoint: `sd\\waiIllustriousSDXL_v170.safetensors`
+- checkpoint hash: `f116b0c78ff441467b0cdc8f1936e1ed18ea31e9997c7b132b1b8db533f0bd04`
+
+### Fixed A/B generation
+
+API base: `http://127.0.0.1:7861`
+
+- Prompt A: `1girl, solo, standing, looking at viewer, simple background`
+- Prompt B: `1girl, solo, sitting, looking at viewer, simple background`
+- Negative Prompt: `lowres, blurry, bad anatomy, text, watermark`
+- Seed: `5072`
+- Steps: `24`
+- CFG: `4.5`
+- Sampler: `Euler a`
+- Scheduler: `Automatic`
+- Size: `1024x1024`
+- Batch count/size: `1/1`
+- LoRA: none
+- Checkpoint/model: `waiIllustriousSDXL_v170` / `f116b0c78f`
+
+Local non-production evidence directory:
+
+`C:\Users\takas\AppData\Local\Temp\issue30_api_resume_20260908_20260908_204210`
+
+| Image | PNG path | SHA-256 | Generation time |
+|---|---|---|---:|
+| A | `C:\Users\takas\AppData\Local\Temp\issue30_api_resume_20260908_20260908_204210\image_A.png` | `6450E42A957D6B7AA94D7DAE61159CA6D0ADFFE53EEEDBD5ABEAA63FB9757099` | 11.113 s |
+| B | `C:\Users\takas\AppData\Local\Temp\issue30_api_resume_20260908_20260908_204210\image_B.png` | `4A0FC8F6EB0120EC9F8B3287CA0CB4435AD433FEB64BC0A54CFAB31304D6AFC4` | 7.211 s |
+
+### Actual PNG metadata
+
+`POST /sdapi/v1/png-info` returned actual PNG infotext for both images. A/B differed only in the intended positive Prompt pose term; controlled generation fields matched.
+
+- A metadata file: `...\\png_info_A.json`, SHA-256 `DAC57D44634F0F2B58DF7C8AB43B88D56D74FAFBB73F4581EFA5098C45862A04`
+- B metadata file: `...\\png_info_B.json`, SHA-256 `7272C38FAA622CBBBC34C5BFE81E808B880EC7CCBA699ADF7D3B1BD7705C8D0B`
+- A actual Prompt: `1girl, solo, standing, looking at viewer, simple background`
+- B actual Prompt: `1girl, solo, sitting, looking at viewer, simple background`
+- Both actual Negative Prompt: `lowres, blurry, bad anatomy, text, watermark`
+- Both actual Seed/Steps/CFG: `5072 / 24 / 4.5`
+- Both actual Sampler/Scheduler: `Euler a / Automatic`
+- Both actual Size: `1024x1024`
+- Both actual Model/Hash: `waiIllustriousSDXL_v170 / f116b0c78f`
+- Both Forge version: `neo-2.29`
+- LoRA metadata: none
+
+### WD14 raw confidence
+
+Model: `wd14-eva02.v3.large`; threshold: `0.0`; `queue=""`; `name_in_queue=""`.
+
+- A raw response: `...\\wd14_raw_A.json`, SHA-256 `1DE4828F1DB3DE55F0105FA9BD7DC3928E04E168E276F1DB6057F3FF087992BF`; tag confidence entries `10840`.
+- B raw response: `...\\wd14_raw_B.json`, SHA-256 `1B2498D260A63F27D3A7B1EB85F67BF4A303C4FD9D9F9B13D2B0125553FBEFF0`; tag confidence entries `10844`.
+
+Selected raw values are diagnostic evidence only:
+
+| Tag/rating | A | B |
+|---|---:|---:|
+| `1girl` | 0.992265761 | 0.996757150 |
+| `solo` | 0.985705853 | 0.981036961 |
+| `standing` | 0.803452671 | 0.009758145 |
+| `sitting` | 0.001002163 | 0.930249333 |
+| `looking_at_viewer` | 0.810943841 | 0.975347757 |
+| `simple_background` | 0.893245935 | 0.863955498 |
+
+No winner, scoring, or production verdict was derived from these values.
+
+### Manual-operation measurement and verdict
+
+- User manual operations after task start: `0`
+- Forge UI input operations by Codex: `0`
+- One-time authorized old-process termination: `1`
+- HTTP/API generation POSTs: `2`
+- PNG metadata POSTs: `2`
+- WD14 POSTs: `2`
+- `/sdapi/v1/options` POSTs: `0`
+- API Forge stop/restart or model switch: `0`
+- Persistent settings/dependencies/extensions changed: no
+
+Final infrastructure verdict: **`PASS_PIPELINE`**.
+
+This PASS covers the non-production plumbing only. `A_WIN`, `B_WIN`, `REVIEW`, production scoring, golden-set validation, and Stage10 production A/B remain unexecuted.
