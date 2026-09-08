@@ -1,0 +1,8 @@
+special_id,tag,field,current_value,proposed_value,rule_version,risk_priority,evidence_refs,reason,status,notes
+901,biting nipple,BodypartRequirementOverride,,true,R2,A,generation_profile;generation_profile:IDs818,893;generation_family_rules,"Nipple is the explicit action target.",QUARANTINED_CANDIDATE,
+905,cum in footwear,SpatialAssignmentOverride,,true,R2,A,generation_profile;generation_profile:ID850;generation_family_rules,"Containment in footwear is intrinsic.",QUARANTINED_CANDIDATE,
+909,condom on nipples,BodypartRequirementOverride,,true,R2,A,generation_profile;generation_profile:IDs865,874,889;generation_family_rules,"Nipples are the explicit target.",QUARANTINED_CANDIDATE,
+909,condom on nipples,ImplementRequirementOverride,,true,R2,A,generation_profile;generation_profile:IDs865,874,889;generation_family_rules,"Condom is the intrinsic object.",QUARANTINED_CANDIDATE,
+909,condom on nipples,SpatialAssignmentOverride,,true,R2,A,generation_profile;generation_profile:IDs865,874,889;generation_family_rules,"The on-target relation is intrinsic.",QUARANTINED_CANDIDATE,
+915,nipple stimulation (female on male),ActorRequirementOverride,,true,R2,A,generation_profile;generation_profile:IDs818,893;generation_family_rules,"Distinct actor ownership is intrinsic to the canonical.",QUARANTINED_CANDIDATE,
+915,nipple stimulation (female on male),BodypartRequirementOverride,,true,R2,A,generation_profile;generation_profile:IDs818,893;generation_family_rules,"Nipple is the explicit target.",QUARANTINED_CANDIDATE,
