@@ -1,3 +1,4 @@
+import json
 from pathlib import Path
 
 import pytest
@@ -59,3 +60,29 @@ def test_bulk_evidence_freeze_keeps_unresolved_rows_identity_only(monkeypatch):
     assert len(semantic) == len(wording) > 0
     assert all(row["frozen"] is True for row in evidence)
     assert all(row["scope_basis"] == "TRANSPARENT_CANONICAL_COMPOSITION" for row in semantic)
+
+
+def test_masked_audit50_is_50_rows_and_preserves_existing_audit20():
+    base = ROOT / "translation_quarantine" / "r3_bulk_canary"
+    existing = {
+        json.loads(line)["canonical"]
+        for line in (base / "masked_audit20_input.jsonl").read_text(encoding="utf-8").splitlines()
+        if line.strip()
+    }
+    masked = [
+        json.loads(line)
+        for line in (base / "masked_audit50_input.jsonl").read_text(encoding="utf-8").splitlines()
+        if line.strip()
+    ]
+    leakage = json.loads((base / "masked_audit50_leakage_check.json").read_text(encoding="utf-8"))
+    assert len(masked) == 50
+    assert existing <= {row["canonical"] for row in masked}
+    assert all(
+        not set(row) & {
+            "state", "risk", "reason", "key", "prior_verdict", "selection_group",
+            "source_membership", "effective_risk_class", "display_state", "search_state",
+            "bridge32_state", "row_state", "reason_codes", "audit_key",
+        }
+        for row in masked
+    )
+    assert leakage["ok"] is True

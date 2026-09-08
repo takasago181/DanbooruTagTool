@@ -1,0 +1,683 @@
+{
+  "audit_seed": "UIJA-R3-BULK-CANARY-AUDIT50-20260909-V1",
+  "canary_membership_hash": "e21529e18a3bf40701ac554c93dc67a9763dad41d93fb413ec61a339752ae6a6",
+  "schema_version": "issue36-bulk-audit50-key-1",
+  "selected": [
+    {
+      "audit_key": "0a866bbd3346c7cb699b9dd23201b4a36568a56f4c17a28fe885acb9e169b783",
+      "bridge32_state": "READY",
+      "canonical": "zipper",
+      "display_state": "READY",
+      "effective_risk_class": "LOW",
+      "reason_codes": [],
+      "row_state": "READY",
+      "search_state": "READY",
+      "selection_group": "NORMAL_MASKED_AUDIT20",
+      "source_membership": "CURRENT_CANARY"
+    },
+    {
+      "audit_key": "0a9ceb4581a85ecb800aa19923a63e2f177c7ed877eee0d36aad7fdb9071e321",
+      "bridge32_state": "",
+      "canonical": "bottomless",
+      "display_state": "",
+      "effective_risk_class": "",
+      "reason_codes": [],
+      "row_state": "",
+      "search_state": "",
+      "selection_group": "HARD_ADULT_SEMANTIC_CHALLENGE",
+      "source_membership": "ELIGIBLE_QUEUE"
+    },
+    {
+      "audit_key": "0f5d46f2b47fe59ccbad938c2e6062f317a426cfadad8b101fdd4ba3612db7d9",
+      "bridge32_state": "READY",
+      "canonical": "earrings",
+      "display_state": "READY",
+      "effective_risk_class": "LOW",
+      "reason_codes": [],
+      "row_state": "READY",
+      "search_state": "READY",
+      "selection_group": "NORMAL_MASKED_AUDIT20",
+      "source_membership": "CURRENT_CANARY"
+    },
+    {
+      "audit_key": "11a6d3fab2c17c3f640f78b63ce15525506f5231caf0e5fcb5b31d67cce24d86",
+      "bridge32_state": "READY",
+      "canonical": "brown_pantyhose",
+      "display_state": "REVIEW",
+      "effective_risk_class": "MEDIUM",
+      "reason_codes": [
+        "NO_SAFE_SEARCH_CANDIDATE",
+        "NO_SUPPORTED_DISPLAY_CANDIDATE"
+      ],
+      "row_state": "REVIEW",
+      "search_state": "REVIEW",
+      "selection_group": "ADDITIONAL_SEXUAL_SEMANTIC_CHALLENGE",
+      "source_membership": "CURRENT_CANARY"
+    },
+    {
+      "audit_key": "1664a2a152d6808ea5ed75a135c3fe72d3521cec01e0e6c05bef6c42a77c5c02",
+      "bridge32_state": "",
+      "canonical": "white_pantyhose",
+      "display_state": "",
+      "effective_risk_class": "",
+      "reason_codes": [],
+      "row_state": "",
+      "search_state": "",
+      "selection_group": "ADDITIONAL_SEXUAL_SEMANTIC_CHALLENGE",
+      "source_membership": "ELIGIBLE_QUEUE"
+    },
+    {
+      "audit_key": "2938a6daa1a53e8fb12645516a73b633aa74fc9df3b04a7d31e2798f914ee8cf",
+      "bridge32_state": "",
+      "canonical": "finger_to_mouth",
+      "display_state": "",
+      "effective_risk_class": "",
+      "reason_codes": [],
+      "row_state": "",
+      "search_state": "",
+      "selection_group": "ADDITIONAL_SEXUAL_SEMANTIC_CHALLENGE",
+      "source_membership": "ELIGIBLE_QUEUE"
+    },
+    {
+      "audit_key": "2b506e0556680a3d70605a481dd0e792c15bcc47fabb11118b5e40daa5c67273",
+      "bridge32_state": "",
+      "canonical": "black_pantyhose",
+      "display_state": "",
+      "effective_risk_class": "",
+      "reason_codes": [],
+      "row_state": "",
+      "search_state": "",
+      "selection_group": "ADDITIONAL_SEXUAL_SEMANTIC_CHALLENGE",
+      "source_membership": "ELIGIBLE_QUEUE"
+    },
+    {
+      "audit_key": "2e161c4778a4ea943a282ec6b2379ad8938ea39165e8378c005bd078da7f71da",
+      "bridge32_state": "READY",
+      "canonical": "completely_nude",
+      "display_state": "REVIEW",
+      "effective_risk_class": "LOW",
+      "reason_codes": [
+        "NO_SAFE_SEARCH_CANDIDATE",
+        "NO_SUPPORTED_DISPLAY_CANDIDATE"
+      ],
+      "row_state": "REVIEW",
+      "search_state": "REVIEW",
+      "selection_group": "HARD_ADULT_SEMANTIC_CHALLENGE",
+      "source_membership": "CURRENT_CANARY"
+    },
+    {
+      "audit_key": "37a1cae73c95801e6b83712225ab0dbc946cd10f5de56e31b5bd6274078cfaf8",
+      "bridge32_state": "",
+      "canonical": "oral",
+      "display_state": "",
+      "effective_risk_class": "",
+      "reason_codes": [],
+      "row_state": "",
+      "search_state": "",
+      "selection_group": "HARD_ADULT_SEMANTIC_CHALLENGE",
+      "source_membership": "ELIGIBLE_QUEUE"
+    },
+    {
+      "audit_key": "3ca05b3032afbedd9a57a30f8b9de95d0c6eb992706842bff2105c069dd35bff",
+      "bridge32_state": "READY",
+      "canonical": "white_kimono",
+      "display_state": "REVIEW",
+      "effective_risk_class": "MEDIUM",
+      "reason_codes": [
+        "NO_SAFE_SEARCH_CANDIDATE",
+        "NO_SUPPORTED_DISPLAY_CANDIDATE"
+      ],
+      "row_state": "REVIEW",
+      "search_state": "REVIEW",
+      "selection_group": "NORMAL_MASKED_AUDIT20",
+      "source_membership": "CURRENT_CANARY"
+    },
+    {
+      "audit_key": "41349a94f8b54329867621702b036f2b6caca9fdbc30e002f96cc06416e98c8c",
+      "bridge32_state": "READY",
+      "canonical": "male_pubic_hair",
+      "display_state": "REVIEW",
+      "effective_risk_class": "LOW",
+      "reason_codes": [
+        "NO_SAFE_SEARCH_CANDIDATE",
+        "NO_SUPPORTED_DISPLAY_CANDIDATE"
+      ],
+      "row_state": "REVIEW",
+      "search_state": "REVIEW",
+      "selection_group": "ADDITIONAL_SEXUAL_SEMANTIC_CHALLENGE",
+      "source_membership": "CURRENT_CANARY"
+    },
+    {
+      "audit_key": "440023f26d0f48fb84be9474d0c2ce35083568aebe630e94675f1927565fb7e3",
+      "bridge32_state": "READY",
+      "canonical": "ass_visible_through_thighs",
+      "display_state": "REVIEW",
+      "effective_risk_class": "CRITICAL",
+      "reason_codes": [
+        "HIGH_OR_CRITICAL_MISSING_EXACT_CANONICAL_SCOPE",
+        "NO_SAFE_SEARCH_CANDIDATE",
+        "NO_SUPPORTED_DISPLAY_CANDIDATE"
+      ],
+      "row_state": "REVIEW",
+      "search_state": "REVIEW",
+      "selection_group": "NORMAL_MASKED_AUDIT20",
+      "source_membership": "CURRENT_CANARY"
+    },
+    {
+      "audit_key": "4fc94dce395de3d872b09c3c0cb348899350f08dbbecc38ee7a475b2e386bd09",
+      "bridge32_state": "READY",
+      "canonical": "brown_shoes",
+      "display_state": "REVIEW",
+      "effective_risk_class": "MEDIUM",
+      "reason_codes": [
+        "NO_SAFE_SEARCH_CANDIDATE",
+        "NO_SUPPORTED_DISPLAY_CANDIDATE"
+      ],
+      "row_state": "REVIEW",
+      "search_state": "REVIEW",
+      "selection_group": "NORMAL_MASKED_AUDIT20",
+      "source_membership": "CURRENT_CANARY"
+    },
+    {
+      "audit_key": "50862e9a5d61042d3963e779ed422318c9966a1b60802ff8f6230112ed4d91b2",
+      "bridge32_state": "READY",
+      "canonical": "black-framed_eyewear",
+      "display_state": "REVIEW",
+      "effective_risk_class": "MEDIUM",
+      "reason_codes": [
+        "NO_SAFE_SEARCH_CANDIDATE",
+        "NO_SUPPORTED_DISPLAY_CANDIDATE"
+      ],
+      "row_state": "REVIEW",
+      "search_state": "REVIEW",
+      "selection_group": "NORMAL_MASKED_AUDIT20",
+      "source_membership": "CURRENT_CANARY"
+    },
+    {
+      "audit_key": "51207588168137f056c5f124f6e5a187bf71a00e70f2397d5148d8dd4ef4a5a5",
+      "bridge32_state": "READY",
+      "canonical": "yaoi",
+      "display_state": "REVIEW",
+      "effective_risk_class": "LOW",
+      "reason_codes": [
+        "NO_SAFE_SEARCH_CANDIDATE",
+        "NO_SUPPORTED_DISPLAY_CANDIDATE"
+      ],
+      "row_state": "REVIEW",
+      "search_state": "REVIEW",
+      "selection_group": "ADDITIONAL_SEXUAL_SEMANTIC_CHALLENGE",
+      "source_membership": "CURRENT_CANARY"
+    },
+    {
+      "audit_key": "56d071a9208179702df32ab645221979c3b95c110bb039d061b1e6d87d836f50",
+      "bridge32_state": "READY",
+      "canonical": "leotard",
+      "display_state": "READY",
+      "effective_risk_class": "LOW",
+      "reason_codes": [],
+      "row_state": "READY",
+      "search_state": "READY",
+      "selection_group": "NORMAL_MASKED_AUDIT20",
+      "source_membership": "CURRENT_CANARY"
+    },
+    {
+      "audit_key": "597ae8c8e505670a56b03302ca720578aa14154e1a6d80ce09ef7524f1135a07",
+      "bridge32_state": "READY",
+      "canonical": "yuri",
+      "display_state": "REVIEW",
+      "effective_risk_class": "LOW",
+      "reason_codes": [
+        "NO_SAFE_SEARCH_CANDIDATE",
+        "NO_SUPPORTED_DISPLAY_CANDIDATE"
+      ],
+      "row_state": "REVIEW",
+      "search_state": "REVIEW",
+      "selection_group": "ADDITIONAL_SEXUAL_SEMANTIC_CHALLENGE",
+      "source_membership": "CURRENT_CANARY"
+    },
+    {
+      "audit_key": "5a790f27e4f8638d3b8b7e2d2eaa5fcad50e7228c1bbe9719314f270ee976f71",
+      "bridge32_state": "READY",
+      "canonical": "cameltoe",
+      "display_state": "REVIEW",
+      "effective_risk_class": "LOW",
+      "reason_codes": [
+        "NO_SAFE_SEARCH_CANDIDATE",
+        "NO_SUPPORTED_DISPLAY_CANDIDATE"
+      ],
+      "row_state": "REVIEW",
+      "search_state": "REVIEW",
+      "selection_group": "HARD_ADULT_SEMANTIC_CHALLENGE",
+      "source_membership": "CURRENT_CANARY"
+    },
+    {
+      "audit_key": "61cb5ec79d7b763c8ed26b101cc7adc8091ac78b010cd70801e303f427e4bc28",
+      "bridge32_state": "",
+      "canonical": "licking",
+      "display_state": "",
+      "effective_risk_class": "",
+      "reason_codes": [],
+      "row_state": "",
+      "search_state": "",
+      "selection_group": "HARD_ADULT_SEMANTIC_CHALLENGE",
+      "source_membership": "ELIGIBLE_QUEUE"
+    },
+    {
+      "audit_key": "63b1e4ad8734f441ad9f870aada6f482d5b5fb7262fd0df772db5bdeeacac49a",
+      "bridge32_state": "READY",
+      "canonical": "pantyshot",
+      "display_state": "REVIEW",
+      "effective_risk_class": "LOW",
+      "reason_codes": [
+        "NO_SAFE_SEARCH_CANDIDATE",
+        "NO_SUPPORTED_DISPLAY_CANDIDATE"
+      ],
+      "row_state": "REVIEW",
+      "search_state": "REVIEW",
+      "selection_group": "ADDITIONAL_SEXUAL_SEMANTIC_CHALLENGE",
+      "source_membership": "CURRENT_CANARY"
+    },
+    {
+      "audit_key": "6607627cd7702bf063388d44b8acc8ab3f52ec42fd845ec9fdcc15048b4911db",
+      "bridge32_state": "",
+      "canonical": "topless_female",
+      "display_state": "",
+      "effective_risk_class": "",
+      "reason_codes": [],
+      "row_state": "",
+      "search_state": "",
+      "selection_group": "HARD_ADULT_SEMANTIC_CHALLENGE",
+      "source_membership": "ELIGIBLE_QUEUE"
+    },
+    {
+      "audit_key": "6a99f4ed6c2a0a5dc8cc8ab9645130c65fb6854a9069b03dd90b9f89945258dd",
+      "bridge32_state": "READY",
+      "canonical": "side_ponytail",
+      "display_state": "READY",
+      "effective_risk_class": "LOW",
+      "reason_codes": [],
+      "row_state": "READY",
+      "search_state": "READY",
+      "selection_group": "NORMAL_MASKED_AUDIT20",
+      "source_membership": "CURRENT_CANARY"
+    },
+    {
+      "audit_key": "6e5fc9fa12342b20d60b05584de8672cd162500ea5690cb5a07ec46f26ad87c3",
+      "bridge32_state": "READY",
+      "canonical": "couch",
+      "display_state": "READY",
+      "effective_risk_class": "LOW",
+      "reason_codes": [],
+      "row_state": "READY",
+      "search_state": "READY",
+      "selection_group": "NORMAL_MASKED_AUDIT20",
+      "source_membership": "CURRENT_CANARY"
+    },
+    {
+      "audit_key": "797098a6f0ba7a0c59c4cdf0ca5d6dee006ff846a639f43582c9e8853209637b",
+      "bridge32_state": "",
+      "canonical": "areola_slip",
+      "display_state": "",
+      "effective_risk_class": "",
+      "reason_codes": [],
+      "row_state": "",
+      "search_state": "",
+      "selection_group": "HARD_ADULT_SEMANTIC_CHALLENGE",
+      "source_membership": "ELIGIBLE_QUEUE"
+    },
+    {
+      "audit_key": "7d30d14c1d30bb158d1c201cf1add0a9459cdb4a7b7119886315bf56d16865ce",
+      "bridge32_state": "READY",
+      "canonical": "holding_sword",
+      "display_state": "REVIEW",
+      "effective_risk_class": "CRITICAL",
+      "reason_codes": [
+        "HIGH_OR_CRITICAL_MISSING_EXACT_CANONICAL_SCOPE",
+        "NO_SAFE_SEARCH_CANDIDATE",
+        "NO_SUPPORTED_DISPLAY_CANDIDATE"
+      ],
+      "row_state": "REVIEW",
+      "search_state": "REVIEW",
+      "selection_group": "NORMAL_MASKED_AUDIT20",
+      "source_membership": "CURRENT_CANARY"
+    },
+    {
+      "audit_key": "8a267f47b43398e50429cd96e82d577102553c1b83611466806d3df29153425c",
+      "bridge32_state": "READY",
+      "canonical": "on_stomach",
+      "display_state": "REVIEW",
+      "effective_risk_class": "LOW",
+      "reason_codes": [
+        "NO_SAFE_SEARCH_CANDIDATE",
+        "NO_SUPPORTED_DISPLAY_CANDIDATE"
+      ],
+      "row_state": "REVIEW",
+      "search_state": "REVIEW",
+      "selection_group": "ADDITIONAL_SEXUAL_SEMANTIC_CHALLENGE",
+      "source_membership": "CURRENT_CANARY"
+    },
+    {
+      "audit_key": "8c75955d4fca31a4eac58edf0ca90c71d4e3a49d48fd6698a0d9a21108a8af4c",
+      "bridge32_state": "",
+      "canonical": "topless_male",
+      "display_state": "",
+      "effective_risk_class": "",
+      "reason_codes": [],
+      "row_state": "",
+      "search_state": "",
+      "selection_group": "HARD_ADULT_SEMANTIC_CHALLENGE",
+      "source_membership": "ELIGIBLE_QUEUE"
+    },
+    {
+      "audit_key": "8ff680bf1d5797400c670e24005a2b98e12f1cde4d6a941d8b30d79ea6e720ae",
+      "bridge32_state": "",
+      "canonical": "testicles",
+      "display_state": "",
+      "effective_risk_class": "",
+      "reason_codes": [],
+      "row_state": "",
+      "search_state": "",
+      "selection_group": "HARD_ADULT_SEMANTIC_CHALLENGE",
+      "source_membership": "ELIGIBLE_QUEUE"
+    },
+    {
+      "audit_key": "94262a834eca8dd9037603a5a876ad0a1a8efc42024f384e0016e680c33ed96d",
+      "bridge32_state": "READY",
+      "canonical": "blue_hat",
+      "display_state": "REVIEW",
+      "effective_risk_class": "MEDIUM",
+      "reason_codes": [
+        "NO_SAFE_SEARCH_CANDIDATE",
+        "NO_SUPPORTED_DISPLAY_CANDIDATE"
+      ],
+      "row_state": "REVIEW",
+      "search_state": "REVIEW",
+      "selection_group": "NORMAL_MASKED_AUDIT20",
+      "source_membership": "CURRENT_CANARY"
+    },
+    {
+      "audit_key": "9683d69e78d4d38472b9d79aa7e5c068e854582e0c5400fed86d68d532c8cd19",
+      "bridge32_state": "READY",
+      "canonical": "transparent_background",
+      "display_state": "READY",
+      "effective_risk_class": "LOW",
+      "reason_codes": [],
+      "row_state": "READY",
+      "search_state": "READY",
+      "selection_group": "NORMAL_MASKED_AUDIT20",
+      "source_membership": "CURRENT_CANARY"
+    },
+    {
+      "audit_key": "a0e797179061f8e6098c48554eaabc77010aacd74990943da19920ea03751eb6",
+      "bridge32_state": "READY",
+      "canonical": "highleg",
+      "display_state": "READY",
+      "effective_risk_class": "LOW",
+      "reason_codes": [],
+      "row_state": "READY",
+      "search_state": "READY",
+      "selection_group": "NORMAL_MASKED_AUDIT20",
+      "source_membership": "CURRENT_CANARY"
+    },
+    {
+      "audit_key": "a7dee5f3faf9929aa3c09d60159d376011b7bfa268308bdc5f1e5d9c97c30552",
+      "bridge32_state": "",
+      "canonical": "pubic_hair",
+      "display_state": "",
+      "effective_risk_class": "",
+      "reason_codes": [],
+      "row_state": "",
+      "search_state": "",
+      "selection_group": "ADDITIONAL_SEXUAL_SEMANTIC_CHALLENGE",
+      "source_membership": "ELIGIBLE_QUEUE"
+    },
+    {
+      "audit_key": "af715f4cba9c550a15e23073d6236db863212292478352734519199b30101979",
+      "bridge32_state": "READY",
+      "canonical": "panty_pull",
+      "display_state": "REVIEW",
+      "effective_risk_class": "LOW",
+      "reason_codes": [
+        "NO_SAFE_SEARCH_CANDIDATE",
+        "NO_SUPPORTED_DISPLAY_CANDIDATE"
+      ],
+      "row_state": "REVIEW",
+      "search_state": "REVIEW",
+      "selection_group": "ADDITIONAL_SEXUAL_SEMANTIC_CHALLENGE",
+      "source_membership": "CURRENT_CANARY"
+    },
+    {
+      "audit_key": "b409d257a47610eb0ec7d7aa2fa6f2277ed943dee7dd61abef1f2c5209155641",
+      "bridge32_state": "",
+      "canonical": "female_pubic_hair",
+      "display_state": "",
+      "effective_risk_class": "",
+      "reason_codes": [],
+      "row_state": "",
+      "search_state": "",
+      "selection_group": "ADDITIONAL_SEXUAL_SEMANTIC_CHALLENGE",
+      "source_membership": "ELIGIBLE_QUEUE"
+    },
+    {
+      "audit_key": "b41dd7c49f2bbacc757eabde0fac897501e8dbc69af5fadabe723842fd20e665",
+      "bridge32_state": "READY",
+      "canonical": "black_skirt",
+      "display_state": "REVIEW",
+      "effective_risk_class": "MEDIUM",
+      "reason_codes": [
+        "NO_SAFE_SEARCH_CANDIDATE",
+        "NO_SUPPORTED_DISPLAY_CANDIDATE"
+      ],
+      "row_state": "REVIEW",
+      "search_state": "REVIEW",
+      "selection_group": "NORMAL_MASKED_AUDIT20",
+      "source_membership": "CURRENT_CANARY"
+    },
+    {
+      "audit_key": "b631f76dcd78c3f3e97ebd4a1ff94da0bd464b9adf904f08c663067f924e03d3",
+      "bridge32_state": "",
+      "canonical": "hand_on_another's_head",
+      "display_state": "",
+      "effective_risk_class": "",
+      "reason_codes": [],
+      "row_state": "",
+      "search_state": "",
+      "selection_group": "ADDITIONAL_SEXUAL_SEMANTIC_CHALLENGE",
+      "source_membership": "ELIGIBLE_QUEUE"
+    },
+    {
+      "audit_key": "b8310156ae7e6aa98259e4ec9dd431d77151d11f84fda38eb9ed6650863ad835",
+      "bridge32_state": "READY",
+      "canonical": "looking_at_another",
+      "display_state": "REVIEW",
+      "effective_risk_class": "LOW",
+      "reason_codes": [
+        "NO_SAFE_SEARCH_CANDIDATE",
+        "NO_SUPPORTED_DISPLAY_CANDIDATE"
+      ],
+      "row_state": "REVIEW",
+      "search_state": "REVIEW",
+      "selection_group": "ADDITIONAL_SEXUAL_SEMANTIC_CHALLENGE",
+      "source_membership": "CURRENT_CANARY"
+    },
+    {
+      "audit_key": "bb920a3cc57ca6e3442297b305db347374468e9518edbf8a205ff5132f83a24f",
+      "bridge32_state": "READY",
+      "canonical": "puffy_long_sleeves",
+      "display_state": "REVIEW",
+      "effective_risk_class": "MEDIUM",
+      "reason_codes": [
+        "NO_SAFE_SEARCH_CANDIDATE",
+        "NO_SUPPORTED_DISPLAY_CANDIDATE"
+      ],
+      "row_state": "REVIEW",
+      "search_state": "REVIEW",
+      "selection_group": "NORMAL_MASKED_AUDIT20",
+      "source_membership": "CURRENT_CANARY"
+    },
+    {
+      "audit_key": "c273fc155eb346a4789a205e83b38a17a1fd3806c353e5f6d8c19163ea38ddf3",
+      "bridge32_state": "READY",
+      "canonical": "underboob",
+      "display_state": "REVIEW",
+      "effective_risk_class": "LOW",
+      "reason_codes": [
+        "NO_SAFE_SEARCH_CANDIDATE",
+        "NO_SUPPORTED_DISPLAY_CANDIDATE"
+      ],
+      "row_state": "REVIEW",
+      "search_state": "REVIEW",
+      "selection_group": "HARD_ADULT_SEMANTIC_CHALLENGE",
+      "source_membership": "CURRENT_CANARY"
+    },
+    {
+      "audit_key": "c3ce7ab657544f19ce29cf9f01ca1ef98d6833795d442ba4d88909cec1629905",
+      "bridge32_state": "",
+      "canonical": "girl_on_top",
+      "display_state": "",
+      "effective_risk_class": "",
+      "reason_codes": [],
+      "row_state": "",
+      "search_state": "",
+      "selection_group": "ADDITIONAL_SEXUAL_SEMANTIC_CHALLENGE",
+      "source_membership": "ELIGIBLE_QUEUE"
+    },
+    {
+      "audit_key": "d3d6b6572a15295364d16f862adc79713538545e84227334131285a2499f7036",
+      "bridge32_state": "READY",
+      "canonical": "kiss",
+      "display_state": "REVIEW",
+      "effective_risk_class": "LOW",
+      "reason_codes": [
+        "NO_SAFE_SEARCH_CANDIDATE",
+        "NO_SUPPORTED_DISPLAY_CANDIDATE"
+      ],
+      "row_state": "REVIEW",
+      "search_state": "REVIEW",
+      "selection_group": "ADDITIONAL_SEXUAL_SEMANTIC_CHALLENGE",
+      "source_membership": "CURRENT_CANARY"
+    },
+    {
+      "audit_key": "d662ceeeb85634540cffa84cb4700bd2492b3274d97d04a8a74638a29376811f",
+      "bridge32_state": "READY",
+      "canonical": "black_sleeves",
+      "display_state": "REVIEW",
+      "effective_risk_class": "MEDIUM",
+      "reason_codes": [
+        "NO_SAFE_SEARCH_CANDIDATE",
+        "NO_SUPPORTED_DISPLAY_CANDIDATE"
+      ],
+      "row_state": "REVIEW",
+      "search_state": "REVIEW",
+      "selection_group": "NORMAL_MASKED_AUDIT20",
+      "source_membership": "CURRENT_CANARY"
+    },
+    {
+      "audit_key": "d93e1eeb932179580cb3350443cde64adb8ec74dc9d98d45671c8bb093f97051",
+      "bridge32_state": "",
+      "canonical": "pantyhose",
+      "display_state": "",
+      "effective_risk_class": "",
+      "reason_codes": [],
+      "row_state": "",
+      "search_state": "",
+      "selection_group": "ADDITIONAL_SEXUAL_SEMANTIC_CHALLENGE",
+      "source_membership": "ELIGIBLE_QUEUE"
+    },
+    {
+      "audit_key": "de9133ecd425339f454deb5132cbc32f6f183a43f9f909ef2f52b15dbcbc32b7",
+      "bridge32_state": "READY",
+      "canonical": "sneakers",
+      "display_state": "READY",
+      "effective_risk_class": "LOW",
+      "reason_codes": [],
+      "row_state": "READY",
+      "search_state": "READY",
+      "selection_group": "NORMAL_MASKED_AUDIT20",
+      "source_membership": "CURRENT_CANARY"
+    },
+    {
+      "audit_key": "dfc04b455e6f3350868ba0c11d999071abdb6792b8bdfbbc2f34b84df9519f11",
+      "bridge32_state": "READY",
+      "canonical": "glasses",
+      "display_state": "READY",
+      "effective_risk_class": "LOW",
+      "reason_codes": [],
+      "row_state": "READY",
+      "search_state": "READY",
+      "selection_group": "NORMAL_MASKED_AUDIT20",
+      "source_membership": "CURRENT_CANARY"
+    },
+    {
+      "audit_key": "e2b20ef758a8cef9bceeb533d199cb1d1d06240df0a8b344e072da8bb3d8fbdf",
+      "bridge32_state": "READY",
+      "canonical": "black_socks",
+      "display_state": "READY",
+      "effective_risk_class": "MEDIUM",
+      "reason_codes": [],
+      "row_state": "READY",
+      "search_state": "READY",
+      "selection_group": "NORMAL_MASKED_AUDIT20",
+      "source_membership": "CURRENT_CANARY"
+    },
+    {
+      "audit_key": "ecc939035d3a53cccbe9db435b901dcd8d42f871588a3a0cce21618917db6569",
+      "bridge32_state": "",
+      "canonical": "sideboob",
+      "display_state": "",
+      "effective_risk_class": "",
+      "reason_codes": [],
+      "row_state": "",
+      "search_state": "",
+      "selection_group": "ADDITIONAL_SEXUAL_SEMANTIC_CHALLENGE",
+      "source_membership": "ELIGIBLE_QUEUE"
+    },
+    {
+      "audit_key": "f0fa473442732bc976d46d461c333100230e83017efdd8f490f34fab1b0d5b00",
+      "bridge32_state": "READY",
+      "canonical": "long_skirt",
+      "display_state": "READY",
+      "effective_risk_class": "MEDIUM",
+      "reason_codes": [],
+      "row_state": "READY",
+      "search_state": "READY",
+      "selection_group": "NORMAL_MASKED_AUDIT20",
+      "source_membership": "CURRENT_CANARY"
+    },
+    {
+      "audit_key": "f441fdefca48245fd34a1664bf9929e0c3dbb66286d4b7fabbffa41b8b9f0ceb",
+      "bridge32_state": "READY",
+      "canonical": "nude",
+      "display_state": "REVIEW",
+      "effective_risk_class": "LOW",
+      "reason_codes": [
+        "NO_SAFE_SEARCH_CANDIDATE",
+        "NO_SUPPORTED_DISPLAY_CANDIDATE"
+      ],
+      "row_state": "REVIEW",
+      "search_state": "REVIEW",
+      "selection_group": "ADDITIONAL_SEXUAL_SEMANTIC_CHALLENGE",
+      "source_membership": "CURRENT_CANARY"
+    },
+    {
+      "audit_key": "fd8e2d5f3ac8e2ea5e69fd8250268173e1980f3dca9be3d8a6b727d601e6c322",
+      "bridge32_state": "READY",
+      "canonical": "from_behind",
+      "display_state": "REVIEW",
+      "effective_risk_class": "LOW",
+      "reason_codes": [
+        "NO_SAFE_SEARCH_CANDIDATE",
+        "NO_SUPPORTED_DISPLAY_CANDIDATE"
+      ],
+      "row_state": "REVIEW",
+      "search_state": "REVIEW",
+      "selection_group": "ADDITIONAL_SEXUAL_SEMANTIC_CHALLENGE",
+      "source_membership": "CURRENT_CANARY"
+    }
+  ],
+  "selection_counts": {
+    "ADDITIONAL_SEXUAL_SEMANTIC_CHALLENGE": 20,
+    "HARD_ADULT_SEMANTIC_CHALLENGE": 10,
+    "NORMAL_MASKED_AUDIT20": 20
+  }
+}

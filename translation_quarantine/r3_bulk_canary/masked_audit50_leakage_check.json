@@ -1,0 +1,8 @@
+{
+  "forbidden_state_literals": [],
+  "leaked_key_values": [],
+  "leaked_masked_fields": [],
+  "masked_rows": 50,
+  "ok": true,
+  "schema_version": "issue36-bulk-audit50-leakage-1"
+}
