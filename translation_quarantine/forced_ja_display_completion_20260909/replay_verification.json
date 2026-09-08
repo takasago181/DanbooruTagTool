@@ -1,0 +1,9 @@
+{
+  "live_fetch": false,
+  "merged_table_hash": "sha256:ccb502c39c6d7effa4b84a6dfe6058398245e582cfc8bc5140b4d0f83cf83eeb",
+  "original_vs_replay1": "PASS",
+  "original_vs_replay2": "PASS",
+  "replay1_vs_replay2": "PASS",
+  "source_mode": "frozen_closure_table_and_local_rules_only",
+  "verdict": "PASS"
+}

@@ -1,0 +1,45 @@
+{
+  "campaign_id": "issue36-forced-ja-display-completion-20260909-v1",
+  "contract": "translation_quarantine/r3/FORCED_JA_DISPLAY_COMPLETION_CONTRACT.md",
+  "contract_commit": "cd04a88b2d3d0f1a6b52f7dc9c485a38c9d3f8c1",
+  "english_fallback": 1768,
+  "fallback_ledger": "translation_quarantine/forced_ja_display_completion_20260909/fallback_exceptions.jsonl",
+  "fallback_ledger_count": 1768,
+  "fallback_reason_classes": {
+    "CODE_OR_PRODUCT_IDENTIFIER": 46,
+    "OPAQUE_SOURCE_STRING": 381,
+    "PRODUCT_OR_SERVICE_NAME": 5,
+    "PROPER_NAME_OR_QUALIFIED_LABEL": 1264,
+    "SYMBOL_OR_EMOTICON": 72
+  },
+  "final_japanese_display_coverage": {
+    "count": 28861,
+    "rate": 0.9422769270952366,
+    "total": 30629
+  },
+  "final_japanese_search_coverage": {
+    "count": 28861,
+    "rate": 0.9422769270952366,
+    "total": 30629
+  },
+  "final_state_counts": {
+    "ENGLISH_FALLBACK_EXCEPTION": 1768,
+    "JA_ACCEPT_EXISTING": 547,
+    "JA_ACCEPT_MACHINE": 24497,
+    "JA_ACCEPT_STRICT": 3817
+  },
+  "final_table_rows": 30629,
+  "generic_review_pending": 0,
+  "japanese_display_created": 5984,
+  "production_modified": false,
+  "promotion": "NOT_AUTHORIZED",
+  "protected_boundary_verdict": "PASS",
+  "replay_verdict": "PASS",
+  "residual_fallback_input": 7752,
+  "strict_route_accepted": 1044,
+  "tests": {
+    "focused_forced_ja": "6 passed",
+    "full_pytest": "307 passed, 61 environment setup errors (Windows TEMP ACL WinError 5), no product assertion failures in setup errors",
+    "prior_closure": "37 passed"
+  }
+}
