@@ -1,0 +1,5 @@
+special_id,tag,field,current_value,proposed_value,rule_version,risk_priority,evidence_refs,reason,status,notes
+680,autocunnilingus,GenerationFamily,ACTION_INTERACTION,SELF_ACTION,R2,S,generation_profile;generation_family_rules;generation_profile:IDs679,512;GENERATION_PROFILE_SCHEMA,"The canonical is intrinsically self-directed; SELF_ACTION is the matching structural family.",QUARANTINED_CANDIDATE,PromptUseMode remains STRUCTURED.
+680,autocunnilingus,FamilyRuleId,GFR_ACTION_INTERACTION,GFR_SELF_ACTION,R2,A,generation_profile;generation_family_rules;generation_profile:ID679,"Family rule should follow SELF_ACTION reclassification.",QUARANTINED_CANDIDATE,
+680,autocunnilingus,ActorRequirementOverride,,true,R2,A,generation_profile;generation_profile:IDs679,512;GENERATION_PROFILE_SCHEMA,"Self ownership is intrinsic but actor requirement is currently unasserted.",QUARANTINED_CANDIDATE,Self actor only.
+680,autocunnilingus,SpecialFlags,,SELF_ACTOR_ROLE,R2,A,generation_profile;generation_profile:IDs679,512;GENERATION_PROFILE_SCHEMA,"SELF_ACTOR_ROLE makes the self-directed ownership explicit and sibling-consistent.",QUARANTINED_CANDIDATE,
