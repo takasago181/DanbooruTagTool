@@ -7,8 +7,8 @@
   "fixed_order": "production Special2788 order at audit start",
   "batch_size": 100,
   "internal_block_size": 20,
-  "completed_specials": 420,
-  "pass": 378,
+  "completed_specials": 440,
+  "pass": 398,
   "fix": 22,
   "review": 5,
   "image_test_required": 15,
@@ -24,10 +24,10 @@
   "semantic_support_rows_covered": 50,
   "semantic_support_rows_review": 0,
   "semantic_support_rows_image_test_required": 27,
-  "last_completed_special_id": "420",
+  "last_completed_special_id": "440",
   "last_completed_batch": 4,
   "next_batch": 5,
-  "next_start_position": 421,
+  "next_start_position": 441,
   "production_modified": false,
-  "notes": "Batch5 checkpoint 401-420 complete: delta PASS20. Semantic-support source rows47-50 for ID416 audited as scoped optional/contextual PASS and durably saved in semantic_support_blocks/0047_0050.csv; consolidated semantic_support_results.csv remains compatible through row46 and should be rebuilt at batch/finalization boundary. candidate_fixes and revalidation_queue unchanged."
+  "notes": "Batch5 checkpoint 421-440 complete: delta PASS20. High-risk restraint/damage meanings cross-checked against prompt_reference/10; relation-context rows against prompt_reference/06. No concrete requirement override or systemic backfill trigger supported."
 }
