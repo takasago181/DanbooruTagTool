@@ -13,8 +13,8 @@
   "review": 3,
   "image_test_required": 4,
   "revalidation_pending": 100,
-  "batch1_revalidation_completed": 60,
-  "batch1_revalidation_next_start": 61,
+  "batch1_revalidation_completed": 80,
+  "batch1_revalidation_next_start": 81,
   "false_pass_samples_checked": 0,
   "false_pass_found": 1,
   "semantic_support_snapshot_total_rows": 58,
@@ -26,5 +26,5 @@
   "next_batch": 1,
   "next_start_position": 101,
   "production_modified": false,
-  "notes": "Batch 1 remains blocked after ID88 S-risk false-PASS. Full R2 revalidation checkpoint 1-60 completed. 41-60 produced no new false-PASS: ID55 remains REVIEW; IDs49,50,57,58,59 retain existing A-priority FIX candidates after schema/Stage10 cross-check; requirement/flag metadata remains inspection-only and does not imply automatic support injection. Queue entries remain pending until complete 1-100 gate acceptance. Next revalidation position: 61."
+  "notes": "Batch 1 remains blocked after ID88 S-risk false-PASS. Full R2 revalidation checkpoint 1-80 completed. 61-80 produced no new false-PASS or fixes; A-priority IDs65-67 remain PASS with explicit separation between static structure/identity and unproven generation response. Queue entries remain pending until complete 1-100 gate acceptance. Next revalidation position: 81."
 }
