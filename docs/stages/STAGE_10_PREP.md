@@ -14,7 +14,7 @@ Special2788の機能を実画像A/B比較で検証する。
 - Promptの実出力を追跡可能にする。
 - Stage10専用の採点・実験管理機能を現時点で本体へ追加しない。
 - Stage9 overall Gateは完了済みだが、それだけでStage10本番A/B開始とはしない。
-- unit/regression test PASSだけで実アプリ動作PASSとは扱わない。Stage10前にIssue #28 automated E2E functional testのPASSが必要。
+- unit/regression test PASSだけで実アプリ動作PASSとは扱わない。Issue #28 automated E2E functional testはPASS済み。
 - Stage10比較自動化はexternal / existing tool firstとし、既存Forge Neo機能・既存拡張・外部OSSで満たせる範囲を先に使う。不足箇所だけ薄いglue/harnessを追加する。
 
 ## Stage9 → Stage10 Gate
@@ -37,22 +37,21 @@ Special位置、明示的なbroad support 0/1/2、role別追加セット、model
 
 ## Automated E2E Gate
 
-Issue #28で、実アプリ主要経路を自動実行し `PASS / FAIL / BLOCKED` を機械判定する。
+Issue #28: **PASS / completed**。
 
-必須観点:
-- app/session初期化
-- search → Special選択 → Core反映
-- semantic / co-occurrence候補登録
-- common / rareそれぞれから選択
-- INCLUDE / EXCLUDE / DEFAULT persistence
-- manual auxiliary追加/削除
-- Prompt preview / copy相当出力
-- provenance / evidence
-- Stage9D reversible variant → baseline復元
-- stale / invalid resultからcurrent stateを保護
-- GUI実行可能環境ではTk headless automation
+- branch: `codex/issue28-e2e-verdict`
+- tested source: `fcf7b217d4270f43747cb7259aa80153e90ae45d`
+- evidence head: `04629908b38c29e3896eeca3c1fb64cf164c7142`
+- PR #33 merged to main
+- merge commit: `9504fd64ce6b4acc762f589a734d67eac6b79e93`
+- machine-readable verdict: PASS
+- full suite: 285 passed / exit 0
+- real Tk 8.6.15, required scenarios 3/3 PASS, no mocked rendering
+- negative gate probe confirms missing required GUI paths => BLOCKED / exit 2
+- Stage0 protected hash/size/path-set checks PASS
+- E2Eでinvalid recommendation resultが現在stateを壊し得る不具合を検出し、validation完了前に候補状態を置換しない修正をmainへ反映済み。
 
-mockだけのテストをE2E PASSとは呼ばない。local-only protected dataやGUI環境不足で必須経路を実行不能ならBLOCKEDであり、Stage10本番へ進まない。
+E2Eの対象はfunctional pathであり、visual-layout/manual desktop inspection、全2,788 Special総当たり、Forge同時稼働性能、画像品質は別Gate/Stage10対象。
 
 ## Forge Neo A/B automation TEMP
 
@@ -85,7 +84,7 @@ Issue #6は比較環境の導入・基礎動作確認、Issue #30はその上で
 - [x] Stage9Dを処理（Issue #17）
 - [x] Stage9C/9D完了監査PASS（Issue #22）
 - [x] Stage9全体Gate完了
-- [ ] Automated E2E functional test PASS（Issue #28）
+- [x] Automated E2E functional test PASS（Issue #28）
 - [ ] Stage10正式handoff
 - [ ] Forge Neo比較環境導入・動作確認（Issue #6）
 - [ ] Forge Neo A/B automation external-tool-first dry run（Issue #30）
@@ -103,6 +102,6 @@ Knowledge handoff正本: `docs/stages/STAGE_10_KNOWLEDGE_HANDOFF.md`
 ## 現在地
 
 Stage10本番A/Bは**未開始**。
-現在はIssue #28 automated E2E動作確認を現行DEV Gateとして実施しつつ、#5 PROMPT / #6 Forge Neo TEMP / #30 A/B automation TEMPの残項目を準備する段階。Issue #4 KNOWLEDGEはStage10開始前調査を完了しhandoff済み。
+Issue #28 automated E2EはPASS済み。現在は #5 PROMPT / #6 Forge Neo TEMP / #30 A/B automation TEMPの残項目を準備・完了する段階。Issue #4 KNOWLEDGEはStage10開始前調査を完了しhandoff済み。
 
 このchecklistを満たす前にStage10本番画像A/Bを正式開始しない。
