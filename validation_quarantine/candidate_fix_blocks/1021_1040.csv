@@ -1,0 +1,5 @@
+sequence,special_id,tag,rule_version,risk_priority,problem_fields,proposed_change,reason,evidence_refs,status
+1025,1025,nipple injection,R2,A,BodypartRequirementOverride+ImplementRequirementOverride,bodypart=true; implement=true,intrinsic target+implement,generation_profile;generation_family_rules,QUARANTINE_CANDIDATE
+1026,1026,penis on cheek,R2,A,BodypartRequirementOverride,BodypartRequirementOverride=true,intrinsic named bodypart; spatial already true,generation_profile;generation_profile:ID1011,QUARANTINE_CANDIDATE
+1031,1031,penis hug,R2,A,BodypartRequirementOverride,BodypartRequirementOverride=true,intrinsic named bodypart,generation_profile;generation_profile:ID1003,QUARANTINE_CANDIDATE
+1032,1032,licking dildo,R2,A,ImplementRequirementOverride,ImplementRequirementOverride=true,intrinsic object participant,generation_profile;generation_family_rules,QUARANTINE_CANDIDATE
