@@ -1,0 +1,11 @@
+sequence,special_id,tag,risk_priority,re_audit_result,false_pass,reason
+1107,1107,post orgasm torture,S,PASS,false,"Verified correction overlay remains bounded to corrected meaning metadata and does not synthesize generation behavior."
+1128,1128,sex hair,S,PASS,false,"Verified post-event hair-state correction preserves exact identity and avoids lexical decomposition."
+1131,1131,dolphin penis,S,PASS,false,"Official Danbooru category correction remains bounded to body_attribute."
+1171,1171,instance domination,S,PASS,false,"Proper-noun/template correction remains source-backed and avoids decomposed lexical semantics."
+1200,1200,snake penis,S,PASS,false,"Official Danbooru category correction remains bounded to body_attribute."
+1102,1102,implied after paizuri,B,PASS,false,"Context-modifier handling preserves implied post-action context without asserting the act occurred explicitly."
+1110,1110,cum milking,B,PASS,false,"FLUID_STATE_ACTION classification remains conservative and does not add unsupported target/actor requirements."
+1120,1120,imminent ejaculation,B,PASS,false,"Context-modifier handling correctly preserves imminence rather than completed ejaculation."
+1132,1132,handjob with legwear,B,PASS,false,"Action identity is preserved without inventing unsupported structural overrides for clothing."
+1137,1137,fingering gesture,B,PASS,false,"Gesture remains context/support rather than being promoted to explicit fingering action."
