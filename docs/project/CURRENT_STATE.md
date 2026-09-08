@@ -4,7 +4,7 @@
 
 ## Current Stage
 
-Stage 9 overall Gate 完了 / Stage10 準備Gate実施中 / automated E2E動作確認 + A/B自動化準備中
+Stage 9 overall Gate 完了 / Stage10 準備Gate実施中 / automated E2E PASS
 
 ## Completed
 
@@ -20,19 +20,25 @@ Stage 9 overall Gate 完了 / Stage10 準備Gate実施中 / automated E2E動作�
   - knowledge handoff: `docs/stages/STAGE_10_KNOWLEDGE_HANDOFF.md`
   - handoff commit: `e1f676f28fcf963b6b2e0942c2381458065a1a5e`
   - 残る不確定項目はStage10実画像A/BへHOLD移管。
+- Issue #28 `[Stage10-PREP][DEV] Automated E2E functional test + machine verdict`: **PASS / completed**。
+  - branch: `codex/issue28-e2e-verdict`
+  - tested source: `fcf7b217d4270f43747cb7259aa80153e90ae45d`
+  - evidence head: `04629908b38c29e3896eeca3c1fb64cf164c7142`
+  - PR #33 merged to main
+  - merge commit: `9504fd64ce6b4acc762f589a734d67eac6b79e93`
+  - real Windows local protected-data environment / real Tk 8.6.15 / no mocked rendering
+  - full suite 285 passed / exit 0 / machine verdict PASS
+  - required real-Tk scenarios 3/3 PASS
+  - E2Eでinvalid recommendation resultのstate破壊バグを発見し、検証完了前に候補状態を置換しない最小修正を実施。
+  - Stage0 protected hash/size/path-set checks維持・PASS。
 - 常設班: 開発 / 監査 / 知識 / Prompt の4班。
 
 ## Active Work / Issues
 
-- #28 `[Stage10-PREP][DEV] Automated E2E functional test + machine verdict`
-  - 現行DEV Issue。
-  - unit/regressionだけでなく、実アプリ主要経路を自動で通して `PASS / FAIL / BLOCKED` を機械判定する。
-  - mockだけでE2E PASSとはしない。
-  - アプリ/session初期化、検索、Special選択、common/rare候補選択、selection persistence、Prompt preview/copy、provenance/evidence、Stage9D可逆variant復元、stale/invalid result保護まで確認する。
-  - GUI実行可能環境ではTk UI headless automationも通す。環境不足で必須経路を実行不能ならBLOCKED。
+- 現在activeなDEV実装Issue: **なし**。
 - #5 `[Stage10][PROMPT] Formal handoff pending`
   - #4 KNOWLEDGE handoff受領済み。
-  - Stage10正式handoff / Specialデータ / 実験仕様 /固定条件等の整理。
+  - Stage10正式handoff / Specialデータ / 実験仕様 / 固定条件 / 自動化運用を整理する。
 - #6 `[Stage10][TEMP] Forge Neo comparison environment`
   - Forge Neo比較環境の導入・動作確認。
   - existing-tool-firstでMulti Prompt Slots / Forge Neo Infinite Image Browsing / built-in X/Y/Z等を確認する。
@@ -40,7 +46,6 @@ Stage 9 overall Gate 完了 / Stage10 準備Gate実施中 / automated E2E動作�
   - Stage10本番A/Bの手作業を可能な限り減らす臨時担当。
   - 既存導入済み拡張 → Forge Neo標準機能 → Forge Neo対応拡張 → 外部CLI/API/OSS → 不足分だけ薄いglue scriptの順で検討する。
   - A/B Prompt差し替え、固定/複数seed生成、metadata/実Prompt追跡、WD14等による一次判定、`A_WIN / B_WIN / REVIEW / BLOCKED` 振り分け、結果レポートまでを対象とする。
-  - 本体productionへ未検証の実験管理・自動判定を先行実装しない。
 
 ## Not Started / Do Not Start Yet
 
@@ -53,7 +58,7 @@ Stage 9 overall Gate 完了 / Stage10 準備Gate実施中 / automated E2E動作�
 Stage10本番開始前に最低限必要:
 
 1. Stage9 overall Gate — **SATISFIED**
-2. #28 automated E2E functional test — **CURRENT**
+2. #28 automated E2E functional test — **SATISFIED**
 3. #4 KNOWLEDGEのStage10知識整理を正式handoffへ反映 — **SATISFIED**
 4. #6 Forge Neo比較環境の導入・動作確認
 5. #30 Forge Neo A/B automationのexternal-tool-first構成確認 + dry run
@@ -67,29 +72,27 @@ Stage10本番開始前に最低限必要:
 
 ## Next Actions
 
-1. Issue #28で実アプリ主要経路の自動E2Eテストとmachine verdictを実装・実行する。
-2. DEVがremote branch / commit / test result / machine-readable report / human-readable reportを実確認する。
-3. PASS時のみStage10準備を継続する。FAIL/BLOCKEDならStage10本番へ進まず原因を解消する。
-4. #6 / #30 / #5の残Gateを並列・合流で完了する。
-5. #30はexternal / existing tool firstで、既存機能だけで減らせる手作業を先に実測し、実際のgapだけを自作対象にする。
-6. #5は `docs/stages/STAGE_10_KNOWLEDGE_HANDOFF.md` と #6 / #30の結果を正式handoffへ反映する。
-7. 全Gateが満たされた後にのみStage10本番A/Bへ移行する。
+1. #6 / #30を並列で完了させ、比較環境・自動化構成・dry run結果を証跡化する。
+2. #5は `docs/stages/STAGE_10_KNOWLEDGE_HANDOFF.md` と #6 / #30の結果を正式handoffへ反映する。
+3. A/B固定条件、metadata保存、実Prompt traceability、model-family差保持を最終確認する。
+4. 全Gateが満たされた後にのみStage10本番A/Bへ移行する。
 
 ## Blocking / Unknown
 
-- GitHub Actions workflowは現時点で存在せず、過去の275 passed等はlocal pytest証跡。起動→操作→出力までの継続的E2E Gateが未整備だったためIssue #28で補う。
-- GitHubはlocal protected dataの完全backupではない。E2E必須経路がlocal protected dataを必要とする場合は、local protected environmentでの実行証跡を使用し、GitHub CI PASSとは表現しない。
-- Stage10はまだ未開始。
-- Issue #4のHOLD項目はStage10実画像A/Bで再評価するが、pre-Stage10 KNOWLEDGE blockerではない。
-- #30の自動評価は完全自動判定を前提にせず、認識困難・信頼度不足をREVIEWへ逃がす設計とする。
+- Stage9 blockerはなし。
+- Issue #28 blockerは解消済み。functional E2EはPASS。
+- E2Eはvisual-layout/manual desktop inspection、全2,788 Special総当たり、Forge同時稼働性能、画像品質を検証するものではない。
+- GitHub Actions CIは未導入。#28 PASSはlocal protected-data environmentの実Tk証跡であり、CI PASSとは表現しない。
+- Stage10はまだ未開始。#6 / #30 / #5 と `STAGE_10_PREP.md` の残Gateがblocker。
+- #30の自動評価は完全自動判定を前提にせず、認識困難・信頼度不足をREVIEWへ逃がす。
 
 ## Source-of-Truth Rule
 
 - このファイルは現在地の正本。
 - 実作業の管理記録・完了条件・結果は対応Issueに残す。
 - active DEV Issueが存在する場合のみ `docs/project/CURRENT_DEV_TASK.md` をそのIssue本文の同期ミラーとして使う。
-- 現在のactive DEV Issueは #28。
-- Codexへ新規/再開指示前にIssue #28本文/stateと最新mainのCURRENT_STATE/CURRENT_DEV_TASKをlive照合する。
+- 現在activeなDEV Issueはない。Codexは新規DEV taskを開始しない。
+- 新しいDEV Issueを開始する時はIssue本文 / CURRENT_STATE / CURRENT_DEV_TASKを同じ管理作業内で同期し、live照合後にCodexへhandoffする。
 - Codexはprivate Issueへ直接書き込む前提ではない。repository成果を残し、DEVが確認してIssueへ証跡化する。
 - Codexの完了報告だけで次Gateへ進まない。
 - 仕様変更は `DECISIONS.md` またはStage仕様へ反映する。
