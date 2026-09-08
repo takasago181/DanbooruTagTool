@@ -7,24 +7,21 @@ Rule version: R2
 
 ## Current position
 - Target: 2,788 Specials
-- Special-level first pass durably checkpointed through: 740
-- Cumulative effective verdicts: PASS 644 / FIX 71 / REVIEW 9 / IMAGE_TEST_REQUIRED 16
+- Special-level first pass durably checkpointed through: 760
+- Cumulative effective verdicts: PASS 659 / FIX 75 / REVIEW 10 / IMAGE_TEST_REQUIRED 16
 - Batch 1-7 R2 acceptance gates: PASS
-- Batch 8: partial (701-740 saved; gate pending)
+- Batch 8: partial (701-760 saved; gate pending)
 - Revalidation pending: 0
 - Semantic-support frozen target: 58 rows; durable audited coverage: 53
-- Next first-pass sequence: 741
+- Next first-pass sequence: 761
 - Production modified: NO
 
 ## Batch 8 partial checkpoint
-701-740 is stored in two 20-row result blocks with matching candidate-fix and revalidation-queue checkpoint blocks.
+701-760 is stored in three 20-row result blocks with matching candidate-fix and revalidation-queue checkpoint blocks.
 
-Current Batch8 delta: PASS 25 / FIX 13 / REVIEW 2 / IMAGE_TEST_REQUIRED 0.
+Current Batch8 delta: PASS 40 / FIX 17 / REVIEW 3 / IMAGE_TEST_REQUIRED 0.
 
-Notable findings:
-- Explicit bodypart-target omissions continue to be quarantined as narrow structural FIX candidates.
-- ID706 `penis sheath` and ID710 `covering anus` remain REVIEW; no family correction guessed.
-- ID738 `animal penis` -> quarantine-only static correction to BODY_ATTRIBUTE/body_attribute/DIRECT, aligned with already approved horse/dog penis correction siblings; no generation-response claim is promoted.
+Notable findings remain quarantine-only: ID738 animal-penis static classification correction; explicit bodypart/implement structural omissions; ID706/710/756 remain REVIEW rather than guessed corrections.
 
 Semantic-support coverage remains 53/58; remaining frozen rows belong to later Special IDs 1159, 1823, and 1839.
 
@@ -37,4 +34,4 @@ Semantic-support coverage remains 53/58; remaining frozen rows belong to later S
 - Special2788 exact identity remains first-class.
 
 ## Exact restart
-Resume first-pass at sequence 741. Continue at most through 800, checkpoint every 20, then run Batch8 integrity + deterministic PASS resampling before acceptance. Do not modify production/main.
+Resume first-pass at sequence 761. Continue at most through 800, checkpoint every 20, then run Batch8 integrity + deterministic PASS resampling before acceptance. Do not modify production/main.
