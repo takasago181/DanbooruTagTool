@@ -107,3 +107,19 @@ evidence.
 The detailed before/after audit is in `phase1a_review.csv`; the reproducible
 re-audit implementation is `phase1a_reaudit.py`. No production data or
 remaining-P0 work was changed.
+
+## Independent follow-up re-audit
+
+The latest independent follow-up remained HOLD because `simple_background` was still `READY_FOR_AUDIT` with the too-narrow `単色背景`. This targeted third audit revalidated every current READY row (91/91) and audited display Japanese and search Japanese separately. The remaining 925 P0 rows were not processed.
+
+- Final state: `READY_FOR_AUDIT` 90 / `REVIEW` 10
+- Additional false approvals: 42
+- Cumulative false approvals relative to the original Phase 1A approvals: 49
+- `simple_background`: `単色背景` -> `シンプルな背景`; search candidate -> `シンプルな背景`
+- Existing REVIEW rows were preserved; `anal_tail` was kept in REVIEW because the canonical compound scope was not independently secure.
+- Search candidates with subtype/noise or state loss were corrected in quarantine and retained in the follow-up audit columns.
+- Root causes: {'SEARCH_CANDIDATE_SCOPE_NOISE_OR_SUBTYPE': 40, 'SEMANTIC_SCOPE_NARROWING': 1, 'SEMANTIC_SCOPE_UNCERTAIN': 1, 'SEMANTIC_WIDTH_NARROWING': 1}
+- Generic `INDEPENDENT...REVIEW` markers were not accepted as approval evidence.
+- Production data, #32 meaning/verdicts, #35 UI, search/recommendation logic, and the remaining P0 queue were unchanged.
+
+The detailed row-level before/after evidence is in `phase1a_review.csv`; the reproducible audit is `phase1a_followup_reaudit.py`.
