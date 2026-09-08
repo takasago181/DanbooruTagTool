@@ -219,6 +219,13 @@ def semantic_class_for(canonical: str, lanes: str = "") -> str:
 def issue32_fingerprint(record: Mapping[str, Any]) -> str:
     """Hash only translation-relevant #32 propositions."""
 
+    # Issue #32 bridge v2 defines its meaning fingerprint over the exact
+    # ``translation_visible_semantics`` object and uses a ``sha256:`` prefix.
+    # Keep the legacy projection/hash contract unchanged for older fixtures.
+    native_semantics = record.get("translation_visible_semantics")
+    if isinstance(native_semantics, Mapping) and native_semantics:
+        return f"sha256:{json_hash(dict(native_semantics))}"
+
     selected = issue32_propositions(record)
     if not selected and "meaning_fingerprint" in record:
         return str(record["meaning_fingerprint"])
@@ -234,6 +241,10 @@ def issue32_propositions(record: Mapping[str, Any]) -> dict[str, Any]:
     evaluation explicitly records that it used that relation as meaning
     context.
     """
+
+    native_semantics = record.get("translation_visible_semantics")
+    if isinstance(native_semantics, Mapping) and native_semantics:
+        return dict(native_semantics)
 
     aliases = {
         "identity": ("identity", "candidate_canonical", "canonical_tag"),
@@ -375,7 +386,7 @@ def bridge_conflict(record: Mapping[str, Any]) -> bool:
     """Read only an explicit conflict signal from frozen bridge evidence."""
 
     return any(record.get(field) is True for field in (
-        "bridge_conflict", "independent_semantic_conflict", "semantic_conflict",
+        "conflict_signal", "bridge_conflict", "independent_semantic_conflict", "semantic_conflict",
     ))
 
 
