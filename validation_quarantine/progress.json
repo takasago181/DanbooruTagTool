@@ -7,10 +7,10 @@
   "fixed_order": "production Special2788 order at audit start",
   "batch_size": 100,
   "internal_block_size": 20,
-  "completed_specials": 820,
-  "pass": 686,
-  "fix": 92,
-  "review": 26,
+  "completed_specials": 840,
+  "pass": 692,
+  "fix": 98,
+  "review": 34,
   "image_test_required": 16,
   "revalidation_pending": 0,
   "batch1_acceptance_gate": "PASS",
@@ -29,10 +29,10 @@
   "semantic_support_rows_covered": 53,
   "semantic_support_rows_review": 0,
   "semantic_support_rows_image_test_required": 29,
-  "last_completed_special_id": "820",
+  "last_completed_special_id": "840",
   "last_completed_batch": 8,
   "next_batch": 9,
-  "next_start_position": 821,
+  "next_start_position": 841,
   "production_modified": false,
-  "notes": "Batch9 partial checkpoint 801-820 durably stored. Delta PASS9/FIX6/REVIEW5/IMAGE_TEST_REQUIRED0. Matching candidate-fix and revalidation-queue checkpoint blocks persisted. No semantic-support rows in this range; coverage remains53/58. Next safe restart821. Production/main unchanged."
+  "notes": "Batch9 partial checkpoint 801-840 durably stored in two20-row blocks. Partial delta PASS15/FIX12/REVIEW13/IMAGE_TEST_REQUIRED0. Matching candidate-fix and revalidation-queue checkpoint blocks persisted. No semantic-support rows in this range; coverage remains53/58. Next safe restart841. Production/main unchanged."
 }
