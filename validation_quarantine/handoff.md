@@ -7,24 +7,21 @@ Rule version: R2
 
 ## Current position
 - Target: 2,788 Specials
-- First pass checkpointed through: 1900
-- Cumulative: PASS 1448 / FIX 174 / REVIEW 261 / IMAGE_TEST_REQUIRED 17
+- First pass checkpointed through: 1920
+- Cumulative: PASS 1468 / FIX 174 / REVIEW 261 / IMAGE_TEST_REQUIRED 17
 - Batch 1-19 R2 acceptance gates: PASS
+- Batch 20: checkpoint 1/5 durable (1901-1920)
 - Revalidation pending: 0
 - Semantic support: 55 / 58; IMAGE_TEST_REQUIRED rows 30
-- Next first-pass sequence: 1901
+- Next first-pass sequence: 1921
 - Production/main modified: NO
 
-## Batch 19 complete
-1801-1900: PASS 99 / FIX 0 / REVIEW 1 / IMAGE_TEST_REQUIRED 0. Five 20-row append-only blocks are durable.
+## Batch 20 checkpoint 1
+1901-1920: PASS 20 / FIX 0 / REVIEW 0 / IMAGE_TEST_REQUIRED 0.
 
-A-risk IDs1834 `pillory`, 1840 `stocks`, 1844 `wooden horse`, and1895 `arms bound apart` were deep-reviewed. Composition, pose, and spatial requirement metadata remain structural only; no automatic support insertion was inferred and Stage10 material was treated as evidence rather than production truth.
+A-risk IDs1912 `box tie`, 1914 `frogtie`, 1915 `hogtie`, and1919 `legs bound apart` were deep-reviewed. Pose requirement metadata remains structural only; no automatic support insertion was inferred. Stage10 material was treated as scoped evidence and not promoted to production truth.
 
-ID1864 `convenient tentacle` remains S-risk REVIEW because the frozen row is `REVIEW_REQUIRED` with `TARGETED_NO_AUTHORITATIVE_DEFINITION`; available static evidence does not justify assigning GenerationFamily/GenerationRole.
-
-Deterministic R2 PASS re-audit checked 20/99 PASS rows including all four A-risk PASS rows. New false-PASS: 0. Batch19 acceptance gate: PASS.
-
-`candidate_fixes.csv` and `revalidation_queue.csv` were checked at every checkpoint and remain unchanged. Semantic support remains55/58; common/rare statistics were not conflated with semantic support.
+`candidate_fixes.csv` and `revalidation_queue.csv` checked unchanged. Semantic support remains55/58; common/rare statistics were not conflated with semantic support.
 
 ## Critical interpretation rules
 - Blank/None is not automatically missing data; UNKNOWN/not asserted remains valid.
@@ -35,4 +32,4 @@ Deterministic R2 PASS re-audit checked 20/99 PASS rows including all four A-risk
 - Special2788 exact identity remains first-class.
 
 ## Exact restart
-Resume first-pass at sequence 1901. Checkpoint every20. Do not modify production/main.
+Resume first-pass at sequence 1921. Checkpoint every20. Do not modify production/main.
