@@ -1,0 +1,21 @@
+sequence,tag,risk_priority,original_state,re_audit_state,evidence_refs,notes
+2302,collar tug,B,PASS,PASS,generation_profile;danbooru:collar_grab;danbooru:clothes_pull,Self-directed tug distinction remains consistent.
+2305,covering crotch,B,PASS,PASS,generation_profile;generation_family_rules,Visual-state classification preserved without support expansion.
+2310,nude cover,B,PASS,PASS,generation_profile;generation_family_rules,No unsupported pose/support requirement found.
+2315,skirt tug,B,PASS,PASS,generation_profile;generation_family_rules,Garment interaction remains structurally narrow.
+2320,incest,B,PASS,PASS,generation_profile;generation_family_rules;VALIDATION_RULES_R2,Context remains support-only.
+2325,selfcest,B,PASS,PASS,generation_profile;generation_family_rules,Relation context remains support-only.
+2330,nantaimori,B,PASS,PASS,generation_profile;generation_family_rules,Scene context preserved without auto-expansion.
+2332,smelling,A,PASS,PASS,generation_profile;generation_family_rules;VALIDATION_RULES_R2,A-risk deep re-audit clean; no extra target/spatial support inferred.
+2333,smelling clothes,A,PASS,PASS,generation_profile;generation_family_rules;VALIDATION_RULES_R2,A-risk deep re-audit clean.
+2334,smelling feet,A,PASS,PASS,generation_profile;generation_family_rules;VALIDATION_RULES_R2,A-risk deep re-audit clean.
+2335,smelling pantyhose,A,PASS,PASS,generation_profile;generation_family_rules;VALIDATION_RULES_R2,A-risk deep re-audit clean.
+2336,smelling underwear,A,PASS,PASS,generation_profile;generation_family_rules;VALIDATION_RULES_R2,A-risk deep re-audit clean.
+2345,implied futanari,B,PASS,PASS,generation_profile;generation_family_rules,Implied context not promoted to direct body state.
+2355,teen,B,PASS,PASS,generation_profile;VALIDATION_RULES_R2,Semantic/search support boundary preserved; no direct recognition claim.
+2360,spread legs,A,PASS,PASS,generation_profile;generation_family_rules;VALIDATION_RULES_R2,A-risk pose/composition metadata clean; no camera/support promotion.
+2365,clothed female nude male,B,PASS,PASS,generation_profile;generation_family_rules,Mixed clothing state preserved without actor/spatial inference.
+2375,young girl,B,PASS,PASS,generation_profile;VALIDATION_RULES_R2,Semantic/search support boundary preserved.
+2380,young boy,B,PASS,PASS,generation_profile;VALIDATION_RULES_R2,Semantic/search support boundary preserved.
+2385,heart pasties,B,PASS,PASS,generation_profile;generation_family_rules,Explicit clothing/cover identity preserved.
+2400,clothed male nude male,B,PASS,PASS,generation_profile;generation_family_rules,Mixed clothing state preserved without actor/spatial inference.
