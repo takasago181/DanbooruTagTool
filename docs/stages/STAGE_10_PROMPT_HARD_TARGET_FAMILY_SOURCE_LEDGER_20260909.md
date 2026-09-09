@@ -6,8 +6,8 @@ Status: evidence ledger. **Not production specification.**
 
 ## 1. Purpose
 
-`STAGE_10_PROMPT_HARD_TARGET_FAMILY_MATRIX_20260909.md` の根拠を追跡する。
-公式・作者・日本語実践・仮説を混ぜない。
+`STAGE_10_PROMPT_HARD_TARGET_FAMILY_MATRIX_20260909.md` および `STAGE_10_PROMPT_HARD_TARGET_CATEGORY_FAMILY_FAILURE_MATRIX_20260909.md` の根拠を追跡する。
+公式・作者・日本語実践・英語圏実践・仮説を混ぜない。
 
 ---
 
@@ -151,17 +151,73 @@ Status: evidence ledger. **Not production specification.**
 - Limitation:
   - official specificationではない。モデル/version差を超えて一般化しない。
 
+### J8 — WAI v16 practical prompt design
+- URL: https://note.com/major_myrtle6198/n/n0d81cdcf524a
+- Evidence: `COMMUNITY_JA`
+- Observed claim:
+  - necessary elementsを盛る一方、増やしすぎるとhand/eye/composition failureが増えるという実践報告
+  - persistent failuresをpost-processingへ回す運用
+- Use:
+  - `minimum sufficient complexity` と `PROMPT_ONLY_LIMIT` の補強
+- Limitation:
+  - v16 / general illustration workflow。hard-target-specific universal ruleではない。
+
 ---
 
-## 4. Evidence conflicts worth preserving
+## 4. English community evidence
+
+### E1 — Anima multiple-character prompt thread
+- URL: https://www.reddit.com/r/StableDiffusion/comments/1r336og/multiple_characters_using_anima_2b/
+- Evidence: `COMMUNITY_EN`
+- Observed claims:
+  - natural-language scene descriptionでsimple relation/positioningが改善したという複数報告
+  - character appearanceを明示する運用が有効という報告
+  - detailsを増やすとattributeが両actorへ漏れるという失敗報告もある
+- Use:
+  - `tag-only vs one short relation sentence`
+  - `appearance anchor` A/B
+  - prose-overload stop rule
+
+### E2 — Anima hybrid prompt / multi-character limitation
+- URL: https://www.reddit.com/r/StableDiffusion/comments/1tepgn4/sharing_my_experience_with_anima_comfyui_great/
+- Evidence: `COMMUNITY_EN`
+- Observed claims:
+  - tags + natural language hybrid approachは柔軟という報告
+  - multiple-characterでは品質低下を感じるという報告
+- Use:
+  - Animaのmulti-actor能力を過大評価しないための反証
+
+### E3 — Illustrious multi-character accuracy discussion
+- URL: https://www.reddit.com/r/StableDiffusion/comments/1rg7cpj/how_to_make_multiple_character_on_same_image_but/
+- Evidence: `COMMUNITY_EN`
+- Observed claim:
+  - 同一Promptに複数character/detailsを入れるとmixing/lossが起こり、inpaintが推奨されるという報告
+- Use:
+  - persistent binding failureの `PROMPT_ONLY_LIMIT` 候補
+
+### E4 — Illustrious prompt adherence discussion
+- URL: https://www.reddit.com/r/StableDiffusion/comments/1oxwj8e/any_advice_for_illustrious_image_prompts/
+- Evidence: `COMMUNITY_EN`
+- Observed claim:
+  - older Illustrious workflowsでnatural-language precisionが弱いという報告
+  - regional promptingを推奨する回答あり
+- Limitation:
+  - community/version-specific advice。Illustrious v1.1+ official NL capabilityと衝突し得る。
+- Decision:
+  - `VERSION_SENSITIVE / CONTROLLED_AB_REQUIRED`
+
+---
+
+## 5. Evidence conflicts worth preserving
 
 ### C1 — Anima multi-character separation
 Evidence A:
 - official model card: appearance description is important for multiple characters
-- J1/J2/J3: natural-language or hybrid Promptで一定のmulti-character separation成功
+- J1/J2/J3/E1: natural-language or hybrid Promptで一定のmulti-character separation成功
 
 Evidence B:
 - J4: Forge Coupleの領域指定が必須という実践主張
+- E2: multi-character quality低下報告
 
 PROMPT verdict:
 - `HOLD / CONTROLLED_AB_REQUIRED`
@@ -190,9 +246,53 @@ PROMPT verdict:
 - WAI v17ではgeneric long-negative inheritanceを禁止仮定にする
 - Stage10で minimum vs expanded を比較
 
+### C4 — Illustrious natural-language support
+Official v1.1+:
+- natural-language prompting is an advertised capability
+
+Community older/base workflows:
+- tag-centered prompting and regional/inpaint fallback are frequently recommended for precise multi-character allocation
+
+PROMPT verdict:
+- `VERSION_SENSITIVE`
+- do not write one global Illustrious grammar
+
 ---
 
-## 5. Source-quality lessons
+## 6. Category-family hypotheses derived from evidence
+
+### H1 — WAI v17
+Candidate: `LEAN_TAG_FIRST`
+- core target first
+- one meaning/site support
+- one geometry/visibility support
+- minimal negative adjustment
+- do not rescue by generic prompt inflation
+
+### H2 — NoobAI 1.1
+Candidate: `SPECIAL_FIRST_NATIVE_CAPTION`
+- test canonical Special in native caption position first
+- add required General support second
+- Alias/alternate surface A/B before prose rescue when dictionary evidence exists
+
+### H3 — Illustrious
+Candidate: `VERSION_SENSITIVE_TAG_CENTERED`
+- exact-version tag baseline
+- exact-version targeted NL support test
+- WAI derivative behavior is not base behavior
+
+### H4 — Anima
+Candidate: `HYBRID_RELATION_AWARE`
+- tags baseline
+- one concise relation sentence
+- appearance anchors for multiple actors
+- reduce prose when relation improves but attributes begin to bleed
+
+All H-series remain `PROJECT_HYPOTHESIS / STAGE10_REQUIRED`.
+
+---
+
+## 7. Source-quality lessons
 
 1. Official model cardがある場合、communityより上位。
 2. 同じfamily名でもderived checkpointを混ぜない。
@@ -200,10 +300,11 @@ PROMPT verdict:
 4. hard-targetでは成功例だけでなく失敗例を保存する。
 5. community consensusが割れる場合、平均化せずCONFLICTとして残す。
 6. 日本語圏知見は独立laneとして保持し、英語圏の翻訳版扱いにしない。
+7. 「複雑な関係に強い」という評判だけでPrompt-only ceilingを無限に引き上げない。
 
 ---
 
-## 6. Current evidence gaps
+## 8. Current evidence gaps
 
 - WAI v17 hard-target-specific controlled examples
 - Illustrious base/v1.1 hard relational scene official guidance
@@ -218,7 +319,7 @@ These stay `HOLD` until Stage10 or stronger evidence.
 
 ---
 
-## 7. Boundary
+## 9. Boundary
 
 - This ledger is evidence storage, not a production rule.
 - No explicit hard-target completion Prompt is stored here.
