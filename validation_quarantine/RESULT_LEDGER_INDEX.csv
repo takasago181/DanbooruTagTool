@@ -90,3 +90,7 @@ start_sequence,end_sequence,path,rule_version,row_count,status,notes
 1761,1780,validation_quarantine/results_blocks/1761_1780.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
 1781,1800,validation_quarantine/results_blocks/1781_1800.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; ID1787 S-risk REVIEW; Batch18 gate PASS
 1801,1820,validation_quarantine/results_blocks/1801_1820.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
+1821,1840,validation_quarantine/results_blocks/1821_1840.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; IDs1834,1840 A-risk deep review PASS
+1841,1860,validation_quarantine/results_blocks/1841_1860.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; ID1844 A-risk deep review PASS
+1861,1880,validation_quarantine/results_blocks/1861_1880.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; ID1864 S-risk REVIEW
+1881,1900,validation_quarantine/results_blocks/1881_1900.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; ID1895 A-risk deep review PASS; Batch19 gate PASS
