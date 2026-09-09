@@ -2,23 +2,37 @@
 
 Generated/verified: 2026-09-09
 Owner: PROMPT / Issue #5
-Purpose: machine/human-checkable inventory of the categorized PROMPT knowledge base.
+Purpose: human/AI-checkable inventory of the categorized PROMPT knowledge base.
 
 ## Active categorized files
 
 1. `README.md` — navigation / restore entry
-2. `01_PRODUCT_PURPOSE_AND_GUARDRAILS.md`
-3. `02_MODEL_FAMILY_PROFILES.md`
-4. `03_PROMPT_CONSTRUCTION_AND_SUPPORT.md`
-5. `04_HARD_TARGET_GENRES.md`
-6. `05_FAILURE_DIAGNOSIS_AND_ASSISTED_CONTROL.md`
-7. `06_QUALITY_CAMERA_NEGATIVE_DENSITY.md`
-8. `07_EVALUATION_AND_STAGE10_TESTING.md`
-9. `08_SOURCES_EVIDENCE_AND_CORRECTIONS.md`
-10. `09_HOLD_CONFLICT_AND_REVALIDATION.md`
-11. `10_WAI17_LOCAL_FIRST_PROFILE.md`
-12. `LEGACY_SOURCE_MAP.md`
-13. `CATALOG_MANIFEST.md` — this inventory
+2. `00_KNOWLEDGE_GOVERNANCE.md` — normalized SOURCE/STATUS/SCOPE/VALIDATION contract
+3. `CLAIM_REGISTRY.md` — current claim-level verdict authority
+4. `01_PRODUCT_PURPOSE_AND_GUARDRAILS.md`
+5. `02_MODEL_FAMILY_PROFILES.md`
+6. `03_PROMPT_CONSTRUCTION_AND_SUPPORT.md`
+7. `04_HARD_TARGET_GENRES.md`
+8. `05_FAILURE_DIAGNOSIS_AND_ASSISTED_CONTROL.md`
+9. `06_QUALITY_CAMERA_NEGATIVE_DENSITY.md`
+10. `07_EVALUATION_AND_STAGE10_TESTING.md`
+11. `08_SOURCES_EVIDENCE_AND_CORRECTIONS.md`
+12. `09_HOLD_CONFLICT_AND_REVALIDATION.md`
+13. `10_WAI17_LOCAL_FIRST_PROFILE.md`
+14. `VERSION_AND_FRESHNESS.md` — version/source freshness registry
+15. `USE_CASE_ROUTES.md` — task-oriented minimal reading routes
+16. `LABEL_MIGRATION_MAP.md` — legacy-label normalization
+17. `LEGACY_SOURCE_MAP.md` — provenance map from existing Stage10 docs
+18. `CATALOG_MANIFEST.md` — this inventory
+
+## Authority roles
+
+- **Project state/rules**: `CURRENT_STATE.md` / `PERMANENT_RULES.md`
+- **PROMPT work state**: Issue #5 latest checkpoint
+- **Current knowledge verdicts**: `CLAIM_REGISTRY.md`
+- **Human-readable explanation**: category docs `01`–`10`
+- **Version/freshness**: `VERSION_AND_FRESHNESS.md`
+- **Detailed evidence/history**: legacy Stage10 docs + mapped old branch docs
 
 ## Coverage statement
 
@@ -38,7 +52,18 @@ At this checkpoint, current PROMPT knowledge has been normalized across these ca
 - historical KNOWLEDGE #4 handoff consumed by PROMPT
 - older branch `prompt/audit-knowledge-reservoir-20260909` audit reservoir and runtime/evaluator supplement
 
-This does not mean external research is permanently complete. It means all **currently accumulated PROMPT-side knowledge known at this checkpoint** has an assigned active category or provenance mapping.
+This does not mean external research is permanently complete. It means all **currently accumulated PROMPT-side knowledge known at this checkpoint** has an assigned active category/provenance mapping, and major active claims have claim-level status entries.
+
+## Claim-level normalization state
+
+`CLAIM_REGISTRY.md` now distinguishes:
+
+- source provenance
+- current adoption status
+- exact scope
+- validation requirement
+
+This prevents legacy one-axis labels from conflating “official source” with “production-ready optimization”.
 
 ## Preservation rule
 
@@ -46,11 +71,27 @@ No historical Stage10 PROMPT evidence document was deleted or moved during reorg
 
 Categorized files are summaries/navigation; detailed evidence remains in its original document/branch and can be reached through `LEGACY_SOURCE_MAP.md`.
 
+Legacy labels remain in historical documents and are interpreted through `LABEL_MIGRATION_MAP.md`.
+
 ## Maintenance check
 
 A future PROMPT knowledge change is considered indexed only when:
 
-- relevant categorized file updated, and
-- detailed source/provenance mapped where applicable, and
-- HOLD/conflict status retained, and
-- Issue #5 checkpoint created for material changes.
+- existing Claim ID is updated or a new one is created when material,
+- relevant categorized file is updated,
+- detailed source/provenance is mapped where applicable,
+- HOLD/conflict status is retained,
+- version/freshness is updated where relevant,
+- Issue #5 checkpoint is created for material changes.
+
+## Restore quality check
+
+A restored PROMPT chat should be able to answer from GitHub alone:
+
+1. current priority model/profile
+2. which WAI17 statements are author facts vs Stage10 candidates
+3. current unresolved claims
+4. current failure taxonomy
+5. evaluator limitations
+6. Prompt-only vs assisted-control boundary
+7. where to find current verdict vs old evidence
