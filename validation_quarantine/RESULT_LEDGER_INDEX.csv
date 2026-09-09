@@ -88,3 +88,4 @@ start_sequence,end_sequence,path,rule_version,row_count,status,notes
 1721,1740,validation_quarantine/results_blocks/1721_1740.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; ID1739 A-risk deep review PASS
 1741,1760,validation_quarantine/results_blocks/1741_1760.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; IDs1745-1756 A-risk pose deep review PASS
 1761,1780,validation_quarantine/results_blocks/1761_1780.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
+1781,1800,validation_quarantine/results_blocks/1781_1800.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; ID1787 S-risk REVIEW; Batch18 gate pending audit
