@@ -7,8 +7,8 @@
   "fixed_order": "production Special2788 order at audit start",
   "batch_size": 100,
   "internal_block_size": 20,
-  "completed_specials": 2240,
-  "pass": 1786,
+  "completed_specials": 2260,
+  "pass": 1806,
   "fix": 174,
   "review": 263,
   "image_test_required": 17,
@@ -42,10 +42,10 @@
   "semantic_support_rows_covered": 55,
   "semantic_support_rows_review": 0,
   "semantic_support_rows_image_test_required": 30,
-  "last_completed_special_id": "2240",
+  "last_completed_special_id": "2260",
   "last_completed_batch": 22,
   "next_batch": 23,
-  "next_start_position": 2241,
+  "next_start_position": 2261,
   "production_modified": false,
-  "notes": "Batch23 checkpoint2 2221-2240 complete: PASS20/FIX0/REVIEW0/IMAGE_TEST_REQUIRED0. Clothing-state/manipulation rows remain DIRECT without automatic support or inferred blank requirements. candidate_fixes and revalidation_queue unchanged after checkpoint inspection. Semantic support55/58. Next safe restart2241; main/production unchanged."
+  "notes": "Batch23 checkpoint3 2241-2260 complete: PASS20/FIX0/REVIEW0/IMAGE_TEST_REQUIRED0. Clothing exposure/manipulation remains structural-only; blanks not auto-errors and no automatic support. candidate_fixes/revalidation_queue unchanged after inspection. Semantic support55/58. Next safe restart2261; main/production unchanged."
 }
