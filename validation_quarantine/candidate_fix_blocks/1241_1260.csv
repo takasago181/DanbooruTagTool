@@ -1,0 +1,2 @@
+sequence,special_id,tag,rule_version,risk_priority,problem_fields,proposed_change,reason,evidence_refs,status
+1241,1241,clitoral stimulation,R2,A,BodypartRequirementOverride,bodypart=true,intrinsic clitoral target is named while bodypart requirement is unasserted,generation_profile;generation_profile:ID420;generation_family_rules,QUARANTINE_CANDIDATE
