@@ -4,7 +4,7 @@ Owner: Issue #44 `KNOWLEDGE:#44`
 
 Date: 2026-09-09
 
-Status: `HANDOFF_READY_V2 / GENRE_CATALOG_CONSOLIDATED`
+Status: `HANDOFF_READY_V3 / TOPIC_CATALOG_FINALIZED`
 
 ## Purpose
 
@@ -16,7 +16,7 @@ This is the compact restart point for the persistent DanbooruTagTool KNOWLEDGE l
 2. `docs/project/PERMANENT_RULES.md`
 3. Issue #44 latest comments
 4. `docs/knowledge/KNOWLEDGE_HANDOFF_CURRENT_20260909.md` (this file)
-5. **`docs/knowledge/KNOWLEDGE_CATALOG.md`**
+5. `docs/knowledge/KNOWLEDGE_CATALOG.md`
 6. relevant `docs/knowledge/catalog/*.md`
 7. detailed `docs/knowledge/research/*` only when evidence/provenance is needed
 8. `docs/knowledge/GENERATION_KNOWLEDGE_CORPUS.md`
@@ -43,9 +43,9 @@ The original Special-first purpose remains valid; success criteria expanded.
 
 Primary product value: reduce manual trial-and-error while preserving semantic correctness, model-family scope, traceability and uncertainty.
 
-## Canonical genre catalog
+## Canonical topic catalog
 
-The knowledge corpus is now organized into one canonical topic map:
+The knowledge corpus now uses one canonical taxonomy only:
 
 0. `catalog/00_FOUNDATIONS_AND_AUTHORITY.md`
    - product goal, evidence classes, authority boundaries
@@ -68,7 +68,7 @@ The knowledge corpus is now organized into one canonical topic map:
 9. `catalog/09_OPEN_QUESTIONS_AND_HOLD.md`
    - unresolved claims and image-test backlog
 10. `catalog/10_FILE_MAP.md`
-   - complete mapping of current root/research knowledge files into the genres above
+   - complete mapping of current root/research knowledge files into the topics above
 
 `docs/knowledge/KNOWLEDGE_CATALOG.md` is the master map and `catalog/README.md` mirrors this same numbering. Do not create a second overlapping taxonomy.
 
@@ -127,19 +127,6 @@ Completed:
 - Hugging Face model cards/discussions
 - durable source-authority matrix
 
-## Evidence discipline
-
-Use:
-- `FACT_EXACT_MODEL`
-- `FACT_GENERAL`
-- `CONTROLLED_PRACTICAL`
-- `PRACTICAL`
-- `COMMUNITY`
-- `HOLD`
-- `REJECT`
-
-Language does not determine rank. Japanese/English/Chinese/Korean/other useful sources are judged by authority, exact version match and experimental control.
-
 ## Current first test target — WAI Illustrious v17
 
 Read first:
@@ -183,13 +170,6 @@ Current WAI17 HOLD/test backlog:
 - LoRA × Special/support
 - Prompt-only -> assisted-control threshold
 
-## Other family state
-
-- Illustrious XL: useful family baseline; derivative behavior must be revalidated
-- NoobAI 1.1 EPS: strong exact settings/caption-order and Danbooru+e621 exposure; rare/current trigger and hard relation remain TEST_REQUIRED
-- NoobAI V-Pred: separate prediction regime; never pool with EPS
-- Anima: strong official tag/NL/mixed/tag-dropout/Gelbooru knowledge; tag-only vs concise-hybrid relation remains a controlled-test lane
-
 ## Evaluator state
 
 - WD EVA02: common/unary baseline; rare Special absence is not image failure
@@ -198,19 +178,17 @@ Current WAI17 HOLD/test backlog:
 - full WD/Kagami/CL Special2788 coverage comparison remains queued after dictionary finalization
 - no global threshold across semantic classes/model families
 
-## Current highest-value next work
+## Maintenance rule
 
-1. preserve WAI17 local baseline exactly
-2. select representative unary / rare / relation / body-site / count / hard-composite cases
-3. test Prompt-only before postprocess/control
-4. run one-variable support ablations on predetermined paired seeds
-5. test Negative collision for unusual anatomy/count
-6. compare canonical/Alias/alternate trigger only under exact WAI17 context
-7. record local controlled outcomes back to #44 with full evidence identity
-8. generalize only after repeatable evidence exists
+For substantial new research:
+1. preserve the detailed research original
+2. update the relevant canonical catalog topic
+3. register the research file in `catalog/10_FILE_MAP.md`
+4. update this handoff only when current priorities/state changed
+5. leave a #44 checkpoint
 
 ## Handoff readiness
 
-The KNOWLEDGE lane is **HANDOFF_READY_V2** when the next chat follows the restore order above.
+The KNOWLEDGE lane is **HANDOFF_READY_V3** when the next chat follows the restore order above.
 
 Exact image-test outcomes that have not yet been performed are intentionally not invented; they remain explicit HOLD entries.
