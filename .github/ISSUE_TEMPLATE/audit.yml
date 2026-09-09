@@ -5,6 +5,12 @@ body:
   - type: markdown
     attributes:
       value: |
+        管理ボード運用: `docs/project/CONTROL_BOARD_POLICY.md` を確認してください。
+        GitHub Projectは人間向け可視化であり、Issue本文 / CURRENT_STATE / PERMANENT_RULESを置き換えません。
+        Project表示だけでPASS判定・Gate通過・production変更を判断しません。
+  - type: markdown
+    attributes:
+      value: |
         PASS / CONDITIONAL PASS / FAIL の後に、次に進めるGateまたはDEVへ戻す条件を明示してください。
         substageのPASSをStage全体PASSへ自動昇格させません。
   - type: input
