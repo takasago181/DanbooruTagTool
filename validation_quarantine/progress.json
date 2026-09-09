@@ -7,8 +7,8 @@
   "fixed_order": "production Special2788 order at audit start",
   "batch_size": 100,
   "internal_block_size": 20,
-  "completed_specials": 2620,
-  "pass": 2133,
+  "completed_specials": 2640,
+  "pass": 2153,
   "fix": 174,
   "review": 296,
   "image_test_required": 17,
@@ -46,10 +46,10 @@
   "semantic_support_rows_covered": 55,
   "semantic_support_rows_review": 0,
   "semantic_support_rows_image_test_required": 30,
-  "last_completed_special_id": "2620",
+  "last_completed_special_id": "2640",
   "last_completed_batch": 26,
   "next_batch": 27,
-  "next_start_position": 2621,
+  "next_start_position": 2641,
   "production_modified": false,
-  "notes": "Batch27 checkpoint1 2601-2620 saved. Delta PASS20/FIX0/REVIEW0/IMAGE_TEST_REQUIRED0. candidate_fixes/revalidation_queue inspected with no delta. All rows are ALIAS_PRESERVE; exact Prompt identity retained, canonical linkage statistics-only, no model-response equivalence promoted. Semantic support remains55/58; active revalidation pending0. Next safe restart2621; main/production unchanged."
+  "notes": "Batch27 checkpoint2 2621-2640 saved. Batch27 cumulative PASS40/FIX0/REVIEW0/IMAGE_TEST_REQUIRED0. candidate_fixes/revalidation_queue inspected with no delta. Alias-preserve rows retain exact Prompt identity; canonical linkage statistics-only; unusual-anatomy rows do not infer anatomy-negative/model-response behavior. Semantic support remains55/58; active revalidation pending0. RESULT_LEDGER_INDEX pre-existing lag noted; durable blocks + progress/handoff are current restart source pending index reconciliation. Next safe restart2641; main/production unchanged."
 }
