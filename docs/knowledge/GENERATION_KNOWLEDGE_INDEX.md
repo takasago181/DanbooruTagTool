@@ -4,13 +4,13 @@ Owner: Issue #44 `[KNOWLEDGE][ONGOING] Persistent generation knowledge corpus fo
 
 Branch: `knowledge/generation-corpus`
 
-Status: ONGOING / GOAL_REBASED / BATCH_A_COMPLETE
+Status: **ONGOING / GOAL_REBASED / BATCH_A+B_COMPLETE / BATCH_C_NEXT**
 
 ## Purpose
 
-This index is the restart point for the persistent KNOWLEDGE lane. It exists so a new chat can recover current generation knowledge from GitHub without depending on conversational memory.
+This is the restart point for the persistent KNOWLEDGE lane. A new chat must be able to recover current generation knowledge from GitHub without relying on conversational memory.
 
-The knowledge corpus is evidence/reference. It does not itself rewrite production data, #32 verdicts, Stage10 scoring, Prompt grammar, or model-family policy.
+The corpus is evidence/reference. It does not itself rewrite production data, #32 verdicts, Stage10 scoring, Prompt grammar, or model-family policy.
 
 ## Restart order
 
@@ -24,11 +24,11 @@ The knowledge corpus is evidence/reference. It does not itself rewrite productio
 8. relevant focused research under `docs/knowledge/research/`
 9. `docs/knowledge/GENERATION_KNOWLEDGE_CORPUS.md`
 10. `docs/knowledge/GENERATION_KNOWLEDGE_SOURCES.md`
-11. the current requesting Issue when/if a later handoff is explicitly requested
+11. the requesting Issue only when a later handoff is explicitly requested
 
 ## Current product-goal baseline
 
-The original Special-first purpose remains valid; it has **expanded rather than reversed**.
+The original Special-first purpose remains valid; it **expanded rather than reversed**.
 
 Current KNOWLEDGE optimization target:
 
@@ -37,13 +37,9 @@ Current KNOWLEDGE optimization target:
 Primary success criterion:
 **reduce manual trial-and-error while preserving semantic correctness, model-family scope, traceability, and safe uncertainty.**
 
-Detailed baseline:
-- `docs/knowledge/CURRENT_PRODUCT_GOAL_20260909.md`
-- `docs/knowledge/PRODUCT_GOAL_EVOLUTION_20260909.md`
-
 ## Evidence classes
 
-- `FACT_EXACT_MODEL`: exact checkpoint/version official or author evidence
+- `FACT_EXACT_MODEL`: exact checkpoint/version official/author evidence
 - `FACT_GENERAL`: primary research / broadly applicable mechanism evidence
 - `CONTROLLED_PRACTICAL`: practical comparison with useful controls
 - `PRACTICAL`: useful but incompletely controlled observation
@@ -51,66 +47,71 @@ Detailed baseline:
 - `HOLD`: insufficient/conflicting evidence or needs image test
 - `REJECT`: contradicted or unsafe generalization
 
-Language does not determine evidence rank. Translations/mirrors of one experiment are not counted as independent confirmations.
+Language does not determine evidence rank. Mirrors/translations of the same experiment are not independent confirmations.
 
 ## Current family coverage
 
-| Family | Current state | Strongest current knowledge | Major unresolved areas |
+| Family | State | Strongest current knowledge | Major unresolved areas |
 |---|---|---|---|
-| WAI Illustrious v17 | strong | exact author settings, quality/negative cautions, Hires behavior; practical Forge Couple actor-separation evidence | exact Prompt-only relation ceiling, rare-Special exposure, trigger variants, support pruning |
-| Illustrious XL early | strong | official quality vocabulary and composition-tag conflict warning | derivative-specific relation binding and minimum-sufficient support transferability |
-| NoobAI XL 1.1 EPS | strong | exact CFG/Steps/Euler a/resolution and native caption order | exact actor/body-site relation grammar, camera ordering, canonical/Alias response, rare exposure |
-| NoobAI V-Pred 1.0 | medium-strong | exact distinction from EPS and inference regime | practical composition/binding evidence at project-relevant complexity |
-| Anima | strong | exact tag format/order/profile differences, tag/NL coexistence, Gelbooru preference; practical multi-character failure/repair evidence | relation reliability, multi-actor ceiling, profile-specific density/pruning |
+| WAI Illustrious v17 | strong | exact author settings; quality/Negative overloading warning; Hires behavior; practical regional actor-separation evidence | exact Prompt-only relation ceiling, rare-Special exposure/trigger variants, exact support-pruning effect sizes |
+| Illustrious XL early | strong | exact quality vocabulary; author warning against conflicting critical composition tags | derivative-specific relation/binding and minimum-sufficient transferability |
+| NoobAI XL 1.1 EPS | strong | exact inference regime; native caption order with Special before General | actor/body-site relation grammar, camera support, broad+specific, canonical/Alias response, rare exposure |
+| NoobAI V-Pred 1.0 | medium-strong | exact distinction from EPS/inference regime | project-relevant practical composition/binding/pruning evidence |
+| Anima | strong | exact formatting/order/profile differences; tag dropout; mixed tag/NL; Gelbooru preference; practical multi-character and hybrid-prompt evidence | exact multi-actor ceiling, profile-specific density/pruning effect sizes, relation reliability |
 
 ## Current topic coverage
 
-| Topic | State | Audit/product usefulness |
+| Topic | State | Current use |
 |---|---|---|
-| quality/meta tags | strong but lower research priority | treat as semantic/style variables; prioritize only when they affect Special success/composition |
-| frame/camera conflict | strong | detect Prompt conflict before blaming Special semantics |
-| visibility vs geometry | medium-strong | visibility support can change pose/geometry; not a neutral no-op |
-| actor-target / multi-character binding | strong general / medium exact-family | relation binding is distinct from unary recognition; exact WAI/NoobAI evidence still needed |
-| multi-Special composition | strong general / medium exact-family | A_ONLY/B_ONLY before AB; concept competition/mode collision is a real failure class |
-| support conflict / anti-support | medium-strong after Batch A | semantically compatible support can still be generation-harmful |
-| minimum sufficient Prompt / pruning | weak-medium | next major research target |
-| negative semantic interference | strong mechanism / exact-family TEST_REQUIRED | overlapping Negative can suppress intended concepts; magnitude requires family tests |
-| canonical vs model trigger | strong for Anima / medium cross-family | exact Anima Gelbooru preference + rename examples; cross-family trigger drift unresolved |
-| prompt/concept density | strong general | count concepts/relations/bindings, not only tokens; no global breakpoint |
-| seed sensitivity / evaluation repeatability | strong general | seed affects composition; one seed is not a reliability estimate |
-| Hires / img2img / ADetailer confounds | strong mechanism | final-pass repair does not prove base Prompt success |
-| ControlNet / regional / Forge Couple assisted control | medium-strong | separate assisted-control lane; assisted success does not certify Prompt-only success |
-| LoRA interference | strong mechanism / project TEST_REQUIRED | multi-LoRA/personalized concepts can leak/interfere; exact project rules unresolved |
-| broad + specific tags | medium | plausible reinforcement/dilution/conflict; Batch B target |
-| evaluator/tagger coverage | medium-strong | simple classifiers cannot ground rare/relation/composite success globally |
-| failure diagnosis | medium-strong after Batch A | durable diagnostic tree v1 exists; exact-family thresholds still missing |
+| quality/meta tags | strong, lower research priority | model-conditioned variables; prune excess where exact family evidence supports it |
+| frame/camera conflict | strong | same-role composition tags are replacement/ablation candidates, not default stacks |
+| visibility vs geometry | medium-strong | observability support can change pose; evaluate the role it is meant to protect |
+| actor-target / body-site binding | strong general / medium exact-family | relation correctness is separate from unary concept presence |
+| multi-Special composition | strong general / medium exact-family | A_ONLY/B_ONLY before AB; concept competition/mode collision is real |
+| support conflict / anti-support | strong general / medium exact-family | semantically compatible support can be neutral or harmful |
+| minimum-sufficient Prompt / pruning | **strong general / medium exact-family** | protected semantic nucleus + role-based pruning + leave-one-out ablation + bounded escalation |
+| broad + specific | **TEST_REQUIRED** | no universal add/delete rule recovered; pairwise empirical support test only |
+| Negative semantic interference | strong mechanism / exact-family TEST_REQUIRED | overlapping Negative can suppress target; exact magnitude must be tested |
+| canonical vs model trigger | strong Anima / medium cross-family | canonical/search/alias/trigger remain separate layers |
+| prompt/concept density | strong general | semantic workload > raw token count; no global breakpoint |
+| A1111/Forge chunking | medium-strong tool evidence | 75-token chunks invalidate a simple 75/77 hard-limit rule; boundary changes are a confound |
+| seed sensitivity / repeatability | strong general | one seed proves a case/counterexample, not reliability |
+| Hires/img2img/ADetailer confounds | strong mechanism | final repair does not prove base Prompt success |
+| ControlNet/regional/Forge Couple | medium-strong | assisted-control lane remains separate from Prompt-only evidence |
+| LoRA/personalization interference | strong mechanism / project TEST_REQUIRED | loaded adapters can leak/interfere/carry context priors |
+| evaluator/tagger coverage | medium-strong | unary taggers cannot globally ground relation/composite success |
+| failure diagnosis | medium-strong | diagnostic tree v1 exists; exact thresholds remain open |
 
 ## High-value durable conclusions
 
-1. **Model family is part of the claim identity.** Never flatten WAI / Illustrious / NoobAI EPS / NoobAI V-Pred / Anima into one Prompt grammar.
-2. **Canonical identity, Japanese display/search wording, and model trigger spelling are separate layers.** Equal dictionary meaning does not prove equal generation response.
-3. **Support is typed and also needs an effect axis.** Meaning/Geometry/Visibility/Resource/Aesthetic classification does not guarantee a support is beneficial; semantically compatible support may be redundant or harmful.
-4. **A multi-concept failure is not evidence that a single tag is unknown.** Test unary concepts before diagnosing composite failure.
-5. **Relation binding is distinct from concept presence.** Actor-target/body-site/ownership correctness must be evaluated separately from entity/tag presence.
-6. **Negative Prompt terms are interventions.** A target overlapping the Negative must not be judged weak without controlled removal/ON-OFF evidence.
-7. **Seed is part of composition evidence identity.** One seed can demonstrate a case/counterexample; it cannot estimate general reliability.
-8. **Post-processing/control can rescue a result.** Hires, img2img, ADetailer, ControlNet, regional prompting and similar interventions belong in evidence metadata and separate lanes.
-9. **LoRA/personalization can introduce interference and hidden context priors.** LoRA-loaded evidence cannot be attributed solely to the base Special/support Prompt.
-10. **Prompt density is about competing concepts/relations, not token count alone.**
-11. **Current Danbooru post_count is not direct model-exposure evidence.** Training date/source/normalization/tag history matter.
-12. **Human/controlled review remains required for rare, relational, body-site-binding and multi-Special cases when automatic evaluators lack semantic reach.**
-13. **The product goal is minimum sufficient reliable assistance, not maximum tag accumulation.**
+1. **Model family is part of the claim identity.** Do not flatten WAI / Illustrious / NoobAI EPS / NoobAI V-Pred / Anima into one grammar.
+2. **Canonical identity, Japanese display/search, alias/history, and model trigger are separate layers.** Equal dictionary meaning does not prove equal activation.
+3. **Support needs two axes:** semantic role and empirical generation effect. `compatible` does not mean `include`.
+4. **Multi-concept failure is not evidence that one tag is unknown.** Test unary concepts before composite diagnosis.
+5. **Relation/ownership/body-site binding is distinct from entity presence.**
+6. **Negative Prompt is an intervention.** Target-overlapping negatives require controlled removal/ON-OFF evidence.
+7. **Seed is evidence identity.** One seed is insufficient for a general reliability claim.
+8. **Post-processing/control can rescue a result.** Hires/img2img/ADetailer/regional/ControlNet must be recorded as separate interventions.
+9. **LoRA/personalization can introduce interference and hidden context priors.**
+10. **Prompt density is competing semantic workload, not token count alone.**
+11. **Current Danbooru post_count is not direct model-exposure evidence.**
+12. **The product goal is minimum-sufficient reliable assistance, not maximum tag accumulation.**
+13. **Minimum sufficient is not shortest.** Preserve the semantic nucleus and high-information relation structure; remove redundant/conflicting support empirically.
+14. **Same-role composition support should usually be replaced/tested, not stacked by default.** Exact Illustrious author evidence supports this.
+15. **Broad + specific remains empirical.** Do not auto-add a parent/constituent merely because it is semantically related.
+16. **A1111/Forge-style long prompts are chunked.** `75/77 tokens = hard project limit` is rejected.
+17. **Stop Prompt escalation when all relevant functional support roles have been tested without repeatable benefit; escalate to assisted control/HOLD rather than unrelated tag growth.**
 
 ## Failure-diagnosis tree v1
 
-Detailed source:
+Source:
 `docs/knowledge/research/BATCH_A_FALSE_ASSUMPTION_PREVENTION_20260909.md`
 
-High-level order:
-1. traceability gate
+Order:
+1. traceability
 2. semantic identity
-3. single-concept activation
-4. composition/binding comparison
+3. unary activation
+4. composition/binding
 5. visibility/geometry
 6. Negative collision
 7. Prompt competition / anti-support pruning
@@ -119,78 +120,99 @@ High-level order:
 10. assisted-control ceiling
 11. evaluator blindness
 
-Do not skip directly from failed final image to “tag unknown.”
+Never skip directly from failed final image to `tag unknown`.
+
+## Minimum-sufficient Prompt protocol v1
+
+Source:
+`docs/knowledge/research/BATCH_B_MINIMUM_SUFFICIENT_PROMPT_20260909.md`
+
+### Protected semantic nucleus
+Do not prune meaning merely to make generation easier:
+- selected Special(s)
+- intrinsic count/actor/ownership/target/body-site/relation
+- intrinsic implement/object/modifier
+- model-specific trigger syntax where separately justified
+
+### Research pruning order
+1. unrelated decoration / excess aesthetic-quality content
+2. duplicate/synonymous representations
+3. same-role frame/viewpoint conflicts
+4. unproven broad parents/constituents
+5. optional context/NL that carries no binding/geometry value
+6. visibility/geometry/resource supports one at a time
+7. weighting only after structural conflicts are cleaned
+
+### Leave-one-out support ablation
+For support set `{s1,s2,...}`, compare the full set against `-s1`, `-s2`, etc. on the same predetermined seeds. Judge target, binding, visibility and collateral errors—not a unary tagger score alone.
+
+No exact statistical KEEP/PRUNE threshold is fixed yet.
 
 ## Current HOLD backlog
 
-- anatomy-sensitive Negative ON/OFF for unusual anatomy/count-changing Specials
-- exact NoobAI EPS 1.1 actor/body-site/camera/visibility support behavior
+- exact anatomy/count-changing Negative effect magnitude by family/Special
+- NoobAI EPS actor/body-site/camera/visibility behavior
 - WAI v17 Prompt-only relation/binding ceiling
-- canonical / Alias / Semantic generation-response equality or ranking outside exact Anima evidence
-- exact family-specific prompt-density breakpoint
-- exact simultaneous Special-count breakpoint
-- `fully visible / clearly visible / unobstructed / in frame / body part focus` family-specific effect
-- project-specific LoRA interaction rules
-- precise threshold for abandoning Prompt-only and escalating to regional/ControlNet assistance
-- robust multi-character left/right ownership by target family
-- Stage10 project-specific seed/sample-count protocol
-- empirically justified minimum-sufficient support/pruning rules
+- canonical/Alias/Semantic/alternate-trigger response outside exact Anima evidence
+- exact prompt-density and simultaneous-Special breakpoints
+- exact effect of `fully visible / clearly visible / unobstructed / in frame / body part focus`
+- project-specific LoRA x Special/support rules
+- robust left/right ownership by family
+- **project-specific seed/sample-count protocol and uncertainty rule**
+- exact KEEP/MIXED/PRUNE evidence threshold for support ablation
+- precise Prompt-only -> assisted-control escalation threshold
+- local success/failure-history confidence rules
 
 ## Reassessment map
 
 `docs/knowledge/KNOWLEDGE_REASSESSMENT_20260909.md` classifies prior knowledge as:
-- KEEP_CORE
-- MODEL_ONLY
-- DOWNGRADE
-- TEST_REQUIRED
-- OBSOLETE_AS_GOAL
-- REJECT
-- MISSING
+`KEEP_CORE / MODEL_ONLY / DOWNGRADE / TEST_REQUIRED / OBSOLETE_AS_GOAL / REJECT / MISSING`.
 
-Major priority change:
-Generic sampler/aesthetic micro-optimization is downgraded. Conflict prevention, minimum-sufficient support, relation/binding, failure diagnosis, seed reliability and model-specific adverse guidance are higher priority.
+Major priority shift:
+generic sampler/aesthetic micro-optimization is downgraded; conflict prevention, minimum-sufficient support, relation/binding, failure diagnosis, seed reliability and model-specific adverse guidance are higher priority.
 
 ## Research batches
 
 ### Batch A — false-assumption prevention
-**Status: COMPLETE first durable pass**
+**COMPLETE first durable pass**
 
-Files:
 - `docs/knowledge/research/BATCH_A_FALSE_ASSUMPTION_PREVENTION_20260909.md`
 - `docs/knowledge/research/BATCH_A_SOURCES_20260909.md`
 
-Improved gaps:
-- failure diagnosis: partial -> medium-strong
-- seed/sample reliability: strong general evidence
-- actor-target/body-site: strong general + useful Anima practical, WAI/NoobAI exact gaps remain
-- trigger drift: strong Anima evidence, cross-family gap remains
-- LoRA interference: mechanism strongly supported, project specifics remain TEST_REQUIRED
-- assisted-control boundary: sequence proposed, threshold still HOLD
+Main gains:
+failure diagnosis; concept competition; relation binding; trigger drift; Negative collision; seed sensitivity; LoRA confounding; assisted-control separation.
 
-### Batch B — minimum sufficient Prompt / pruning
-**Status: NEXT**
+### Batch B — minimum-sufficient Prompt / pruning
+**COMPLETE first durable pass**
 
-Targets:
-1. required vs redundant support
-2. support conflict/anti-support removal order
-3. broad parent + specific Special interaction
-4. concept density vs raw token count
-5. model-family support ordering/weighting only where evidence supports it
-6. evidence needed to remove a support candidate safely
-7. stopping rule for Prompt additions -> assisted control
+- `docs/knowledge/research/BATCH_B_MINIMUM_SUFFICIENT_PROMPT_20260909.md`
+- `docs/knowledge/research/BATCH_B_SOURCES_20260909.md`
+
+Main gains:
+- minimum-sufficient definition;
+- semantic nucleus protection;
+- two-axis support model;
+- pruning order v1;
+- leave-one-out ablation;
+- role-bounded stopping principle;
+- A1111/Forge chunk-boundary caution;
+- exact model pruning constraints for WAI/Illustrious/NoobAI/Anima;
+- broad+specific remains explicitly HOLD/TEST_REQUIRED.
 
 ### Batch C — evidence reliability / remaining confounds
-**Status: PENDING**
+**NEXT**
 
 Targets:
-- project-specific multi-seed protocol
-- evaluator uncertainty/human-vs-machine boundary
-- LoRA x Special/support practical interactions
-- assisted-control threshold refinement
-- local empirical history interpretation
+1. project-appropriate predetermined seed/sample protocol
+2. evidence hierarchy for `KEEP / MIXED / PRUNE` support conclusions
+3. pairwise/human judgement uncertainty
+4. evaluator false-positive/false-negative effects on pruning
+5. LoRA x Special/support practical interactions
+6. deterministic local success/failure history without semantic-authority contamination
+7. assisted-control evidence identity and stopping decision refinement
 
 ### Batch D — lower priority
-**Status: PENDING**
+**PENDING**
 
 - aesthetic/quality refinements not already relevant to target success
 - generic sampler micro-optimization
@@ -210,19 +232,19 @@ During this mode:
 ## Maintenance rules
 
 After a substantial research batch:
-- create/update source registry with evidence class and exact scope;
-- store focused durable conclusions under `docs/knowledge/research/`;
-- update this index for coverage/state changes;
+- record sources, evidence class, language, exact scope and limitations;
+- store focused conclusions under `docs/knowledge/research/`;
+- refresh this index;
 - periodically consolidate stable conclusions into the core corpus;
-- retain HOLD explicitly;
-- if a prior conclusion is superseded, keep the history and state why;
-- never silently convert PRACTICAL/COMMUNITY into FACT.
+- keep HOLD explicit;
+- preserve superseded history and explain why;
+- never silently promote PRACTICAL/COMMUNITY into FACT.
 
 ## Historical anchors
 
 - `docs/PRODUCT_GOAL_LOCK.md`: original Special-first purpose lock; still structurally valid.
-- `docs/CODEX_IMPLEMENTATION_SPEC_JA_v1.3.md`: early/frozen Special-first implementation goal; still structurally aligned.
-- Issue #4 completed Stage10 pre-start KNOWLEDGE research; historical handoff remains `docs/stages/STAGE_10_KNOWLEDGE_HANDOFF.md`.
-- Issue #37 established that simple `standing/sitting/long_hair/smile` fixtures are plumbing-only, not representative Special-centered calibration.
-- Issue #38 established semantic/evidence constraints for translation automation.
-- Issue #44 is the ongoing persistent knowledge corpus and should remain open across stages.
+- `docs/CODEX_IMPLEMENTATION_SPEC_JA_v1.3.md`: early/frozen Special-first implementation goal; still aligned.
+- Issue #4 / `docs/stages/STAGE_10_KNOWLEDGE_HANDOFF.md`: historical completed pre-Stage10 handoff, not ongoing owner.
+- Issue #37: simple `standing/sitting/long_hair/smile` fixtures are plumbing-only, not representative product calibration.
+- Issue #38: semantic/evidence constraints for translation automation.
+- Issue #44: ongoing persistent generation-knowledge owner.
