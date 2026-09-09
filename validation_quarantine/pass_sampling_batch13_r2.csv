@@ -1,0 +1,16 @@
+sequence,special_id,tag,risk_priority,re_audit_verdict,false_pass,reason
+1203,1203,imminent bukkake,B,PASS,false,Context modifier correctly preserves imminent rather than completed action.
+1211,1211,cum on shoe,B,PASS,false,Direct fluid-state classification is conservative; blank overrides are not auto-errors.
+1217,1217,implied urethral insertion,B,PASS,false,Implied context is preserved without promoting explicit insertion structure.
+1223,1223,finger on nipple,A,PASS,false,Explicit spatial composite is present; no additional requirement is established strongly enough to supersede PASS.
+1225,1225,holding unworn chastity cage,B,PASS,false,Exact restraint-object identity is preserved without inferring wear state.
+1233,1233,cooperative testicle sucking,A,PASS,false,Actor/spatial overrides and actor-separation flag preserve cooperative multi-participant binding.
+1236,1236,implied after fingering,B,PASS,false,Context-only treatment correctly avoids active-action assertion.
+1238,1238,lolidom,B,PASS,false,Exact contextual identity is preserved without broadening age semantics.
+1244,1244,breeding mount,A,PASS,false,Pose requirement and composition-owner flag capture the intrinsic mounted arrangement.
+1245,1245,nipple,B,PASS,false,Alias-preserve behavior keeps prompt identity and does not assert model-response equivalence.
+1261,1261,nakadashi,B,PASS,false,Alias-preserve behavior is consistent with identity-only row semantics.
+1270,1270,cum on foot,B,PASS,false,Spatial alias identity is preserved without silent canonical replacement.
+1281,1281,penetration from behind,B,PASS,false,Directional alias identity is preserved without adding execution metadata.
+1290,1290,cum between breasts,B,PASS,false,Spatial alias identity remains intact; canonical equivalence is not asserted.
+1300,1300,pussy spread,B,PASS,false,Exact alias identity is preserved without silent normalization.
