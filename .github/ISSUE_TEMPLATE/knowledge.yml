@@ -2,6 +2,12 @@ name: 知識調査
 description: 外部情報の調査。仕様決定はしない。
 title: "[StageX][KNOWLEDGE] "
 body:
+  - type: markdown
+    attributes:
+      value: |
+        管理ボード運用: `docs/project/CONTROL_BOARD_POLICY.md` を確認してください。
+        GitHub Projectは人間向け可視化であり、Issue本文 / CURRENT_STATE / PERMANENT_RULESを置き換えません。
+        Project表示だけで本体仕様変更・Gate通過を判断しません。
   - type: input
     id: stage
     attributes:
