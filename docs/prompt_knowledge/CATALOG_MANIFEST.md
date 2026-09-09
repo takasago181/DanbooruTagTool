@@ -7,28 +7,30 @@ Purpose: human/AI-checkable inventory of the categorized PROMPT knowledge base.
 ## Active categorized files
 
 1. `README.md` — navigation / restore entry
-2. `00_KNOWLEDGE_GOVERNANCE.md` — normalized SOURCE/STATUS/SCOPE/VALIDATION contract
-3. `CLAIM_REGISTRY.md` — current claim-level verdict authority
-4. `01_PRODUCT_PURPOSE_AND_GUARDRAILS.md`
-5. `02_MODEL_FAMILY_PROFILES.md`
-6. `03_PROMPT_CONSTRUCTION_AND_SUPPORT.md`
-7. `04_HARD_TARGET_GENRES.md`
-8. `05_FAILURE_DIAGNOSIS_AND_ASSISTED_CONTROL.md`
-9. `06_QUALITY_CAMERA_NEGATIVE_DENSITY.md`
-10. `07_EVALUATION_AND_STAGE10_TESTING.md`
-11. `08_SOURCES_EVIDENCE_AND_CORRECTIONS.md`
-12. `09_HOLD_CONFLICT_AND_REVALIDATION.md`
-13. `10_WAI17_LOCAL_FIRST_PROFILE.md`
-14. `VERSION_AND_FRESHNESS.md` — version/source freshness registry
-15. `USE_CASE_ROUTES.md` — task-oriented minimal reading routes
-16. `LABEL_MIGRATION_MAP.md` — legacy-label normalization
-17. `LEGACY_SOURCE_MAP.md` — provenance map from existing Stage10 docs
-18. `CATALOG_MANIFEST.md` — this inventory
+2. `CURRENT_QUICK_REFERENCE.md` — 30-second current snapshot
+3. `00_KNOWLEDGE_GOVERNANCE.md` — normalized SOURCE/STATUS/SCOPE/VALIDATION contract
+4. `CLAIM_REGISTRY.md` — current claim-level verdict authority
+5. `01_PRODUCT_PURPOSE_AND_GUARDRAILS.md`
+6. `02_MODEL_FAMILY_PROFILES.md`
+7. `03_PROMPT_CONSTRUCTION_AND_SUPPORT.md`
+8. `04_HARD_TARGET_GENRES.md`
+9. `05_FAILURE_DIAGNOSIS_AND_ASSISTED_CONTROL.md`
+10. `06_QUALITY_CAMERA_NEGATIVE_DENSITY.md`
+11. `07_EVALUATION_AND_STAGE10_TESTING.md`
+12. `08_SOURCES_EVIDENCE_AND_CORRECTIONS.md`
+13. `09_HOLD_CONFLICT_AND_REVALIDATION.md`
+14. `10_WAI17_LOCAL_FIRST_PROFILE.md`
+15. `VERSION_AND_FRESHNESS.md` — version/source freshness registry
+16. `USE_CASE_ROUTES.md` — task-oriented minimal reading routes
+17. `LABEL_MIGRATION_MAP.md` — legacy-label normalization
+18. `LEGACY_SOURCE_MAP.md` — provenance map from existing Stage10 docs
+19. `CATALOG_MANIFEST.md` — this inventory
 
 ## Authority roles
 
 - **Project state/rules**: `CURRENT_STATE.md` / `PERMANENT_RULES.md`
 - **PROMPT work state**: Issue #5 latest checkpoint
+- **Fast human/AI snapshot**: `CURRENT_QUICK_REFERENCE.md`
 - **Current knowledge verdicts**: `CLAIM_REGISTRY.md`
 - **Human-readable explanation**: category docs `01`–`10`
 - **Version/freshness**: `VERSION_AND_FRESHNESS.md`
@@ -56,8 +58,7 @@ This does not mean external research is permanently complete. It means all **cur
 
 ## Claim-level normalization state
 
-`CLAIM_REGISTRY.md` now distinguishes:
-
+`CLAIM_REGISTRY.md` distinguishes:
 - source provenance
 - current adoption status
 - exact scope
@@ -70,7 +71,6 @@ This prevents legacy one-axis labels from conflating “official source” with 
 No historical Stage10 PROMPT evidence document was deleted or moved during reorganization.
 
 Categorized files are summaries/navigation; detailed evidence remains in its original document/branch and can be reached through `LEGACY_SOURCE_MAP.md`.
-
 Legacy labels remain in historical documents and are interpreted through `LABEL_MIGRATION_MAP.md`.
 
 ## Maintenance check
