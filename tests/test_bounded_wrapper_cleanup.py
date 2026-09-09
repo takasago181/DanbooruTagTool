@@ -100,12 +100,17 @@ def test_accepted_bounded_labels_have_no_untranslated_semantic_base_token():
             assert row["reason"] in allowed_reasons
 
 
-def test_phrase_semantic_gate_rejects_unvalidated_ambiguous_compounds_as_a_class():
+def test_phrase_semantic_gate_rejects_unvalidated_multi_token_compositions_as_a_class():
     result = cleanup._evaluate()
     assert len(result["targets"]) == 2434
-    assert result["phrase_gate_candidates"] == 44
-    assert result["phrase_gate_demotions"] == 20
-    for canonical in ("building_snowman", "building_sand_sculpture", "break_action"):
+    assert result["phrase_gate_candidates"] > 44
+    validated = sum(
+        len(cleanup._tokens(cleanup._parts(row["canonical"])[0])) > 1
+        and row["canonical"] in cleanup.EXACT
+        for row in result["processed"].values()
+    )
+    assert result["phrase_gate_candidates"] == result["phrase_gate_demotions"] + validated
+    for canonical in ("building_snowman", "building_sand_sculpture", "break_action", "shooting_star_(symbol)", "shot_glass", "shredded_muscles"):
         row = result["processed"][canonical]
         assert row["final_state"] == "ENGLISH_FALLBACK_EXCEPTION"
         assert row["reason"] == "PHRASE_SEMANTICS_UNRESOLVED"
@@ -113,8 +118,8 @@ def test_phrase_semantic_gate_rejects_unvalidated_ambiguous_compounds_as_a_class
     for row in result["processed"].values():
         base, _qualifiers = cleanup._parts(row["canonical"])
         tokens = cleanup._tokens(base)
-        if len(tokens) > 1 and any(token in cleanup.AMBIGUOUS_COMPOSITION_HEADS for token in tokens):
-            assert row["canonical"] in cleanup.EXACT or row["final_state"] == "ENGLISH_FALLBACK_EXCEPTION"
+        if len(tokens) > 1 and row["final_state"] != "ENGLISH_FALLBACK_EXCEPTION":
+            assert row["canonical"] in cleanup.EXACT
 
 
 def test_qualified_identity_is_not_translated_away():
