@@ -7,8 +7,8 @@
   "fixed_order": "production Special2788 order at audit start",
   "batch_size": 100,
   "internal_block_size": 20,
-  "completed_specials": 1900,
-  "pass": 1448,
+  "completed_specials": 1920,
+  "pass": 1468,
   "fix": 174,
   "review": 261,
   "image_test_required": 17,
@@ -39,10 +39,10 @@
   "semantic_support_rows_covered": 55,
   "semantic_support_rows_review": 0,
   "semantic_support_rows_image_test_required": 30,
-  "last_completed_special_id": "1900",
+  "last_completed_special_id": "1920",
   "last_completed_batch": 19,
   "next_batch": 20,
-  "next_start_position": 1901,
+  "next_start_position": 1921,
   "production_modified": false,
-  "notes": "Batch19 (1801-1900) R2 acceptance gate PASS. Five 20-row append-only checkpoints reconcile to exactly100 contiguous unique sequences. Batch19 delta PASS99/FIX0/REVIEW1/IMAGE_TEST_REQUIRED0. ID1864 convenient tentacle remains S-risk REVIEW because frozen row is REVIEW_REQUIRED and no authoritative definition supports a safe family/role assignment. A-risk IDs1834 pillory,1840 stocks,1844 wooden horse,1895 arms bound apart deep-reviewed PASS; structural composition/pose/spatial metadata was not treated as automatic support insertion and Stage10 evidence was not promoted to production truth. Deterministic PASS re-audit checked20/99 including all4 A-risk PASS rows; new false-PASS0. candidate_fixes/revalidation_queue checked unchanged. Semantic support remains55/58; revalidation pending0. Next safe restart1901. Production/main unchanged."
+  "notes": "Batch20 checkpoint1 1901-1920 durable. Delta PASS20/FIX0/REVIEW0/IMAGE_TEST_REQUIRED0. IDs1912,1914,1915,1919 A-risk pose requirements deep-reviewed PASS; structural only, no automatic support insertion. candidate_fixes/revalidation_queue checked unchanged. Next safe restart1921."
 }
