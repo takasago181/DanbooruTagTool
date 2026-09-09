@@ -86,7 +86,8 @@
   ],
   "handoff_comment": "5600487287",
   "input_hashes": {
-    "translation_quarantine/full_accepted_quality_sweep_20260909/final_translation_table.csv": "6459ec1baa594836ebce0942e2f6695338f4ca87b8902833e66bc39f6dee695c"
+    "translation_quarantine/full_accepted_quality_sweep_20260909/final_translation_table.csv": "6459ec1baa594836ebce0942e2f6695338f4ca87b8902833e66bc39f6dee695c",
+    "translation_quarantine/r3/ISSUE36_FINAL_CONVERGENCE_V2.md": "4866a73e40aa3db1c25da490b462b774b2dd4e6a77175550d007360f996e7ea2"
   },
   "output_hashes": {
     "final_table": "8c1368950ed5c0678cfaa3dbb4c7ec8edbca2bff2e990ecf4e0e74b2ba5c9733",
