@@ -7,8 +7,8 @@
   "fixed_order": "production Special2788 order at audit start",
   "batch_size": 100,
   "internal_block_size": 20,
-  "completed_specials": 2700,
-  "pass": 2213,
+  "completed_specials": 2720,
+  "pass": 2233,
   "fix": 174,
   "review": 296,
   "image_test_required": 17,
@@ -47,10 +47,10 @@
   "semantic_support_rows_covered": 55,
   "semantic_support_rows_review": 0,
   "semantic_support_rows_image_test_required": 30,
-  "last_completed_special_id": "2700",
+  "last_completed_special_id": "2720",
   "last_completed_batch": 27,
   "next_batch": 28,
-  "next_start_position": 2701,
+  "next_start_position": 2721,
   "production_modified": false,
-  "notes": "Batch27 2601-2700 complete and R2 gate PASS. Delta PASS100/FIX0/REVIEW0/IMAGE_TEST_REQUIRED0. Five durable 20-row checkpoints; candidate_fixes/revalidation_queue inspected at every checkpoint with no Batch27 delta. Static integrity100/100 contiguous unique, missing0 duplicate0. PASS re-audit20/100 deterministic concept-spread, new false-PASS0. All rows ALIAS_PRESERVE: exact Prompt identity retained; canonical linkage statistics-only; no canonical/Alias model-response equivalence, automatic support, or unasserted structural behavior promoted. Stage10 canonical/Alias/Semantic response remains HOLD. Semantic support55/58; active revalidation pending0. RESULT_LEDGER_INDEX remains a lagging secondary navigation index; durable blocks + progress/handoff are restart source pending housekeeping reconciliation. Next safe restart2701; main/production unchanged."
+  "notes": "Batch28 partial checkpoint 2701-2720 durable. Delta PASS20/FIX0/REVIEW0/IMAGE_TEST_REQUIRED0. All rows ALIAS_PRESERVE; exact Prompt identity retained and canonical linkage statistics-only. candidate_fixes/revalidation_queue inspected with no delta. Stage10 canonical/Alias/Semantic response remains HOLD. Next safe restart2721; main/production unchanged."
 }
