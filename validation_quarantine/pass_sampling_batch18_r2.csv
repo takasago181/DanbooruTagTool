@@ -1,0 +1,21 @@
+sequence,special_id,tag,risk_priority,original_state,re_audit_state,false_pass,reason
+1705,1705,hentai,B,PASS,PASS,false,Semantic-role lane remains explicitly search/support-only; no direct model recognition was inferred.
+1720,1720,clitoris clamp,B,PASS,PASS,false,Implement identity remains direct while blank requirements stay NOT ASSERTED; no support insertion inferred.
+1727,1727,one breast out,B,PASS,PASS,false,Body-attribute classification remains narrow and adds no unsupported execution requirement.
+1739,1739,defloration,A,PASS,PASS,false,Actor requirement is intrinsic structural metadata only; no automatic support or model-family response claim was promoted.
+1742,1742,oral,B,PASS,PASS,false,Action-interaction grouping remains structural only and does not fill blank requirements.
+1745,1745,bent over,A,PASS,PASS,false,Pose requirement and pose composition role remain intrinsic structural metadata; Stage10 HOLD was not promoted.
+1746,1746,boy on top,A,PASS,PASS,false,Pose requirement remains structural only; no generation-response or camera default claim added.
+1747,1747,folded,A,PASS,PASS,false,Pose requirement remains structural only; no automatic geometry support inferred.
+1748,1748,full nelson,A,PASS,PASS,false,Pose requirement remains structural only; no automatic support insertion inferred.
+1749,1749,girl on top,A,PASS,PASS,false,Pose requirement remains structural only; no model-family response claim added.
+1750,1750,knees to chest,A,PASS,PASS,false,Pose requirement remains structural only; no Stage10 experimental finding was promoted.
+1751,1751,legs over head,A,PASS,PASS,false,Pose requirement remains structural only; no automatic geometry support inferred.
+1752,1752,legs up,A,PASS,PASS,false,Pose requirement remains structural only; no camera or visibility default inferred.
+1753,1753,mounting,A,PASS,PASS,false,Pose/composition ownership remains structural metadata; no winner behavior claimed.
+1754,1754,on side,A,PASS,PASS,false,Pose requirement remains structural only and does not imply model recognition.
+1755,1755,spooning,A,PASS,PASS,false,Pose requirement remains structural only; geometry/visibility support remains separately experimental.
+1756,1756,upright straddle,A,PASS,PASS,false,Pose requirement remains structural only; no automatic support behavior inferred.
+1765,1765,amputee,B,PASS,PASS,false,Damage-state/action grouping adds no unsupported requirement or semantic support.
+1780,1780,blood pool,B,PASS,PASS,false,Alias preservation remains exact-identity first; canonical linkage stays statistics-only.
+1795,1795,salpingectomy,B,PASS,PASS,false,Semantic-role lane remains search/support-only and does not assert direct model recognition.
