@@ -1,0 +1,21 @@
+sequence,special_id,tag,original_state,re_audit_state,risk_priority,sample_basis,root_cause_if_false_pass,notes
+2601,2601,over the mouth gagged,PASS,PASS,B,deterministic_alias_hold,,Exact restraint placement identity preserved; no automatic support or response-equivalence claim.
+2606,2606,nude suspenders,PASS,PASS,B,deterministic_alias_hold,,Exact exposure/clothing identity preserved; canonical linkage remains statistics-only.
+2611,2611,naked labcoat,PASS,PASS,B,deterministic_alias_hold,,Exact exposure/clothing alias retained without normalized generation claim.
+2616,2616,blindfold removed,PASS,PASS,B,deterministic_alias_hold,,Removal-state identity retained; no visibility-support inference.
+2621,2621,tentacle as hand,PASS,PASS,B,deterministic_alias_hold,,Unusual-anatomy wording preserved without anatomy-negative or model-equivalence claim.
+2626,2626,puffer fish vomiting water,PASS,PASS,B,deterministic_alias_hold,,Exact compound identity preserved without generalization.
+2631,2631,boobs,PASS,PASS,B,deterministic_alias_hold,,Colloquial prompt identity retained; canonical linkage statistics-only.
+2636,2636,overboob,PASS,PASS,B,deterministic_alias_hold,,Exposure/location alias retained without visibility-support inference.
+2641,2641,sideboobs,PASS,PASS,B,deterministic_alias_hold,,Exact exposure alias retained; no canonical response-equivalence claim.
+2646,2646,boob grab,PASS,PASS,B,deterministic_alias_hold,,Interaction wording preserved without actor-separation inference.
+2651,2651,breasts outside,PASS,PASS,B,deterministic_alias_hold,,Exposure-state identity retained without automatic support.
+2656,2656,panty down,PASS,PASS,B,deterministic_alias_hold,,Clothing-state alias preserved; canonical linkage statistics-only.
+2661,2661,garterbelt,PASS,PASS,B,deterministic_alias_hold,,Exact clothing identity preserved without model-equivalence claim.
+2666,2666,breasts covering,PASS,PASS,B,deterministic_alias_hold,,Covering-state wording retained without visibility/support inference.
+2671,2671,crotch tattoo,PASS,PASS,B,deterministic_alias_hold,,Body-location/modification identity retained; canonical linkage statistics-only.
+2676,2676,oshikko,PASS,PASS,B,deterministic_alias_hold,,Alternate-language prompt identity retained without normalized response claim.
+2681,2681,ballgag,PASS,PASS,B,deterministic_alias_hold,,Restraint alias preserved without automatic support insertion claim.
+2686,2686,whips,PASS,PASS,B,deterministic_alias_hold,,Plural implement identity retained without automatic BDSM/support inference.
+2691,2691,crotchrope,PASS,PASS,B,deterministic_alias_hold,,Restraint/body-location wording preserved without geometry/implement requirement inference.
+2696,2696,g string,PASS,PASS,B,deterministic_alias_hold,,Exact clothing identity retained; canonical linkage remains statistics-only.
