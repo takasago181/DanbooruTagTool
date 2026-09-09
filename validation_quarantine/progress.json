@@ -7,8 +7,8 @@
   "fixed_order": "production Special2788 order at audit start",
   "batch_size": 100,
   "internal_block_size": 20,
-  "completed_specials": 2140,
-  "pass": 1686,
+  "completed_specials": 2160,
+  "pass": 1706,
   "fix": 174,
   "review": 263,
   "image_test_required": 17,
@@ -41,10 +41,10 @@
   "semantic_support_rows_covered": 55,
   "semantic_support_rows_review": 0,
   "semantic_support_rows_image_test_required": 30,
-  "last_completed_special_id": "2140",
+  "last_completed_special_id": "2160",
   "last_completed_batch": 21,
   "next_batch": 22,
-  "next_start_position": 2141,
+  "next_start_position": 2161,
   "production_modified": false,
-  "notes": "Batch22 partial checkpoint 2101-2140 complete: PASS40/FIX0/REVIEW0/IMAGE_TEST_REQUIRED0. IDs2137-2140 A-risk camera/composition deep review PASS under R2 structural-only boundary; no automatic camera support or Stage10 exact tuning promoted. candidate_fixes/revalidation_queue checked with no changes; semantic support remains55/58. Next safe restart2141; main/production unchanged."
+  "notes": "Batch22 partial checkpoint 2101-2160 complete: PASS60/FIX0/REVIEW0/IMAGE_TEST_REQUIRED0. IDs2137-2141 A-risk camera/composition deep review PASS under structural-only boundary; no automatic camera support or Stage10 exact tuning promoted. candidate_fixes/revalidation_queue checked with no changes; semantic support remains55/58. Next safe restart2161; main/production unchanged."
 }
