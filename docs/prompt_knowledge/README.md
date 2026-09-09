@@ -20,16 +20,20 @@ DanbooruTagToolのPROMPT側の現在目的は、単なるタグ整形ではな�
 2. `docs/project/PERMANENT_RULES.md`
 3. Issue #5 最新checkpoint
 4. この `README.md`
-5. `00_KNOWLEDGE_GOVERNANCE.md` — 知識の読み方/label規格
-6. `CLAIM_REGISTRY.md` — **現在どのclaimを採用/HOLD/REJECTしているかの正本**
-7. 当面WAI17で試験する場合は `10_WAI17_LOCAL_FIRST_PROFILE.md`
-8. `USE_CASE_ROUTES.md` から今の作業に必要なジャンルだけ読む
+5. `CURRENT_QUICK_REFERENCE.md` — **30秒で現在地を掴む**
+6. `00_KNOWLEDGE_GOVERNANCE.md` — 知識の読み方/label規格
+7. `CLAIM_REGISTRY.md` — **現在どのclaimを採用/HOLD/REJECTしているかの正本**
+8. 当面WAI17で試験する場合は `10_WAI17_LOCAL_FIRST_PROFILE.md`
+9. `USE_CASE_ROUTES.md` から今の作業に必要なジャンルだけ読む
 
 通常復元でlegacy Stage10資料を全読しない。
 
 ---
 
 ## Current authority model
+
+### 30秒要約
+`CURRENT_QUICK_REFERENCE.md`
 
 ### Current verdict / adoption state
 `CLAIM_REGISTRY.md`
@@ -72,6 +76,7 @@ DanbooruTagToolのPROMPT側の現在目的は、単なるタグ整形ではな�
 
 | ファイル | 役割 |
 |---|---|
+| `CURRENT_QUICK_REFERENCE.md` | 人間/ChatGPT向け30秒current snapshot |
 | `CLAIM_REGISTRY.md` | 重要知識を1件1IDで管理するcurrent verdict正本 |
 | `VERSION_AND_FRESHNESS.md` | exact version / source確認日 / local applicability |
 | `USE_CASE_ROUTES.md` | WAI17、failure診断、Stage10、source監査等の用途別最短読取ルート |
