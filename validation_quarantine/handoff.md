@@ -7,19 +7,19 @@ Rule version: R2
 
 ## Current position
 - Target: 2,788 Specials
-- First pass checkpointed through: 1820
-- Cumulative: PASS 1369 / FIX 174 / REVIEW 260 / IMAGE_TEST_REQUIRED 17
+- First pass checkpointed through: 1840
+- Cumulative: PASS 1389 / FIX 174 / REVIEW 260 / IMAGE_TEST_REQUIRED 17
 - Batch 1-18 R2 acceptance gates: PASS
-- Batch 19: partial (1801-1820 checkpointed)
+- Batch 19: partial (1801-1840 checkpointed)
 - Revalidation pending: 0
 - Semantic support: 55 / 58; IMAGE_TEST_REQUIRED rows 30
-- Next first-pass sequence: 1821
+- Next first-pass sequence: 1841
 - Production/main modified: NO
 
 ## Batch 19 partial
-1801-1820: PASS 20 / FIX 0 / REVIEW 0 / IMAGE_TEST_REQUIRED 0. The 20-row append-only block is durable and indexed.
+1801-1840: PASS 40 / FIX 0 / REVIEW 0 / IMAGE_TEST_REQUIRED 0. Two 20-row append-only blocks are durable. IDs1834 `pillory` and1840 `stocks` were A-risk deep-reviewed; composition-owner metadata remains structural only and does not authorize automatic support insertion. Stage10 material was treated as evidence only.
 
-Semantic/search-only rows remain search/support-only and do not assert direct model recognition. Static BODY_STATE / CONTEXT_MODIFIER and RESTRAINT_IMPLEMENT rows are accepted as structural/reference metadata only; blank requirement fields remain unasserted rather than automatically erroneous. Candidate fixes and revalidation queue were checked and remain unchanged.
+Candidate fixes and revalidation queue were checked at both checkpoints and remain unchanged.
 
 ## Critical interpretation rules
 - Blank/None is not automatically missing data; UNKNOWN/not asserted remains valid.
@@ -30,4 +30,4 @@ Semantic/search-only rows remain search/support-only and do not assert direct mo
 - Special2788 exact identity remains first-class.
 
 ## Exact restart
-Resume first-pass at sequence 1821. Checkpoint every20. Do not modify production/main.
+Resume first-pass at sequence 1841. Checkpoint every20. Do not modify production/main.
