@@ -7,8 +7,8 @@
   "fixed_order": "production Special2788 order at audit start",
   "batch_size": 100,
   "internal_block_size": 20,
-  "completed_specials": 2520,
-  "pass": 2033,
+  "completed_specials": 2540,
+  "pass": 2053,
   "fix": 174,
   "review": 296,
   "image_test_required": 17,
@@ -45,10 +45,10 @@
   "semantic_support_rows_covered": 55,
   "semantic_support_rows_review": 0,
   "semantic_support_rows_image_test_required": 30,
-  "last_completed_special_id": "2520",
+  "last_completed_special_id": "2540",
   "last_completed_batch": 25,
   "next_batch": 26,
-  "next_start_position": 2521,
+  "next_start_position": 2541,
   "production_modified": false,
-  "notes": "Batch26 checkpoint1 2501-2520 durable. Delta PASS18/FIX0/REVIEW2/IMAGE_TEST_REQUIRED0. IDs2503 mutual impregnation and 2504 vine bondage remain S-risk REVIEW because exact structural metadata lacks sufficient independent evidence. candidate_fixes/revalidation_queue inspected with no checkpoint delta. Next safe restart2521; main/production unchanged."
+  "notes": "Batch26 checkpoint2 2521-2540 durable. Delta this checkpoint PASS20/FIX0/REVIEW0/IMAGE_TEST_REQUIRED0; Batch26 cumulative PASS38/REVIEW2. Alias-preserve rows retain exact prompt identity and limit canonical linkage to statistics only; no generation-equivalence claim promoted. candidate_fixes/revalidation_queue inspected with no checkpoint delta. Next safe restart2541; main/production unchanged."
 }
