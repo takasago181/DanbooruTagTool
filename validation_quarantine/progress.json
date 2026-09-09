@@ -7,8 +7,8 @@
   "fixed_order": "production Special2788 order at audit start",
   "batch_size": 100,
   "internal_block_size": 20,
-  "completed_specials": 1440,
-  "pass": 990,
+  "completed_specials": 1460,
+  "pass": 1010,
   "fix": 174,
   "review": 259,
   "image_test_required": 17,
@@ -35,10 +35,10 @@
   "semantic_support_rows_covered": 55,
   "semantic_support_rows_review": 0,
   "semantic_support_rows_image_test_required": 30,
-  "last_completed_special_id": "1440",
+  "last_completed_special_id": "1460",
   "last_completed_batch": 14,
   "next_batch": 15,
-  "next_start_position": 1441,
+  "next_start_position": 1461,
   "production_modified": false,
-  "notes": "Batch15 checkpoints 1401-1440 durable. Delta PASS40/FIX0/REVIEW0/IMAGE_TEST_REQUIRED0. All rows are APPROVED_IDENTITY_ONLY/ALIAS_PRESERVE with no enabled semantic support. candidate_fixes and revalidation_queue checked and unchanged at each checkpoint. Semantic support remains55/58; revalidation pending0. Next safe restart1441. Production/main unchanged."
+  "notes": "Batch15 checkpoints 1401-1460 durable. Delta PASS60/FIX0/REVIEW0/IMAGE_TEST_REQUIRED0. All rows are APPROVED_IDENTITY_ONLY/ALIAS_PRESERVE with no enabled semantic support. candidate_fixes and revalidation_queue checked and unchanged at each checkpoint. Semantic support remains55/58; revalidation pending0. Next safe restart1461. Production/main unchanged."
 }
