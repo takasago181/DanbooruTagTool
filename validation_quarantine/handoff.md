@@ -9,14 +9,14 @@ Rule version: R2
 - Target: 2,788 Specials
 - First pass checkpointed through: 2400
 - Cumulative: PASS 1941 / FIX 174 / REVIEW 268 / IMAGE_TEST_REQUIRED 17
-- Batch 1-23 R2 acceptance gates: PASS
-- Batch 24: 2301-2400 durably checkpointed; R2 100-row gate pending
+- Batch 1-24 R2 acceptance gates: PASS
+- Batch 24: complete; integrity/false-PASS gate PASS
 - Active revalidation pending pointer: 0
 - Semantic support: 55 / 58; IMAGE_TEST_REQUIRED rows 30
-- Next first-pass sequence after gate: 2401
+- Next first-pass sequence: 2401
 - Production/main modified: NO
 
-## Batch 24 pre-gate summary
+## Batch 24 summary
 Range 2301-2400: PASS 95 / FIX 0 / REVIEW 5 / IMAGE_TEST_REQUIRED 0.
 
 Durable result blocks:
@@ -26,11 +26,17 @@ Durable result blocks:
 - `results_blocks/2361_2380.csv`
 - `results_blocks/2381_2400.csv`
 
-Deep-review non-PASS:
-- A-risk REVIEW: 2301 `collar grab`, 2308 `grabbing another's skirt`, 2309 `necktie grab` due independent another-person semantics with blank ActorRequirementOverride; no guessed spatial/actor-separation fix.
-- S-risk REVIEW: 2393 `blindfold mask`, 2394 `ribbon bondage`; both are PROVISIONAL/audit-only. Independent evidence confirms identity/usage but does not safely determine the project's exact generation family/role, so blanks are not auto-fixed.
+Static integrity: 100 contiguous unique sequences, missing 0, duplicate 0.
 
-Semantic-role rows remain search/support-only; alias rows preserve exact prompt identity with canonical linkage statistics-only. No Stage10 HOLD knowledge was promoted. `candidate_fixes.csv` and `revalidation_queue.csv` were inspected at every 20-row checkpoint with no delta.
+Deep-review non-PASS:
+- A-risk REVIEW 2301 `collar grab`, 2308 `grabbing another's skirt`, 2309 `necktie grab`: independent another-person semantics make blank ActorRequirementOverride structurally suspect, but R2 does not guess a FIX or spatial/separation flags before the project clothing-grab convention is resolved.
+- S-risk REVIEW 2393 `blindfold mask`, 2394 `ribbon bondage`: PROVISIONAL/audit-only rows; independent identity/usage evidence is insufficient to choose exact project GenerationFamily/GenerationRole/ImplDependency. Blank fields remain contextual rather than auto-errors.
+
+A-risk PASS IDs2332-2336 and2360 were deep-reviewed. Semantic-role rows remain semantic/search support only; aliases preserve exact prompt identity with canonical linkage statistics-only. No Stage10 HOLD knowledge was promoted to production truth.
+
+R2 PASS re-audit: 20/95 PASS rows, all re-PASS; all A-risk PASS included; new false-PASS 0. Details: `pass_sampling_batch24_r2.csv` and `batch24_integrity_r2.md`.
+
+`candidate_fixes.csv` and `revalidation_queue.csv` were inspected at every 20-row checkpoint; Batch24 adds no new candidate fix or revalidation item. `RESULT_LEDGER_INDEX.csv` was reconciled from its prior 2200 lag and is synchronized through 2400. Semantic support remains 55/58.
 
 ## Exact restart
-Do not process 2401 until Batch24 integrity and PASS re-sampling gate is persisted. If interrupted now, first-pass through 2400 is durable but Batch24 acceptance remains pending. Do not modify production/main.
+Resume first-pass at sequence 2401 (Batch 25). Checkpoint every 20. Do not modify production/main.
