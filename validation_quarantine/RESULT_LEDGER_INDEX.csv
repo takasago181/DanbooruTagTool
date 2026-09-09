@@ -107,3 +107,4 @@ start_sequence,end_sequence,path,rule_version,row_count,status,notes
 2101,2120,validation_quarantine/results_blocks/2101_2120.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
 2121,2140,validation_quarantine/results_blocks/2121_2140.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; IDs2137-2140 A-risk camera deep review PASS
 2141,2160,validation_quarantine/results_blocks/2141_2160.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; ID2141 A-risk camera deep review PASS
+2161,2180,validation_quarantine/results_blocks/2161_2180.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; ID2176 A-risk camera deep review PASS
