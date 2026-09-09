@@ -6,9 +6,9 @@ Production `data/**`: unchanged
 
 ## Package verdict
 
-**HOLD_PROMOTION**
+**READY_FOR_FINAL_PROMOTION_AUDIT**
 
-Reason: one mandatory pre-freeze completeness input class remains unverified — local protected/ignored historical candidate/search/support assets required by D-009/D-012. No missing Special has been found; the hold is evidence-completeness only.
+All #32 pre-promotion prerequisites are now complete. This state authorizes only a separate independent final promotion audit; it does not authorize production writes or a main merge.
 
 ## Gate matrix
 
@@ -21,9 +21,9 @@ Reason: one mandatory pre-freeze completeness input class remains unverified —
 | Candidate FIX cross-consistency | PASS_WITH_STATUS_FILTER | `CANDIDATE_FIX_CROSS_CONSISTENCY_R2_20260910.md` |
 | REVIEW / IMAGE_TEST_REQUIRED disposition | PASS_AS_EXPLICITLY_PARKED | `UNRESOLVED_DISPOSITION_R2_20260910.md` |
 | GitHub-visible completeness reconciliation | PASS_VISIBLE_SCOPE | `PRE_FREEZE_COMPLETENESS_RECONCILIATION_20260910.md` |
-| Local protected-asset completeness scan | HOLD / NOT YET RECORDED | `PRE_FREEZE_LOCAL_PROTECTED_ASSET_SCAN_TASK_20260910.md` |
-| Genuine missing-Special delta validation | N/A until local scan | none found in GitHub-visible scope |
-| Independent final promotion audit | NOT STARTED | must occur only after completeness gate closes |
+| Local protected-asset completeness scan | PASS_AFTER_DELTA_VALIDATION | `PRE_FREEZE_LOCAL_PROTECTED_ASSET_SCAN_RESULT_20260910.md` |
+| Genuine missing-Special delta validation | PASS_DELTA_REJECTED_NO_GENUINE_MISSING_SPECIAL | `PRE_FREEZE_DELTA_R2_VALIDATION_20260910.md`; 5/5 dispositioned, 0 promoted |
+| Independent final promotion audit | NOT STARTED | next mandatory separate gate |
 
 ## Frozen/effective counts
 
@@ -41,6 +41,28 @@ Semantic-support frozen rows:
 
 Active revalidation pending: 0.
 
+Local completeness delta:
+- historical evidence-pending rows: 5
+- R2 validated: 5 / 5
+- genuine missing Specials: 0
+- promoted to Special: 0
+- final evidence-derived Special count: **2,788**
+
+## Local completeness closure
+
+The protected/ignored local scan returned `LOCAL_COMPLETENESS_DELTA_FOUND` because five historical candidate strings required explicit follow-up. The scan itself did not establish any genuine missing Special.
+
+R2 delta-only follow-up preserved the candidate provenance and rejected all five for promotion:
+- `cervix_removal`
+- `fallopian_tubes_removal`
+- `ovaries_removal`
+- `uterus_removal`
+- `spread_eagle`
+
+The four anatomical-removal strings have semantic meaning but no independent first-class Special authority, Special ID, or canonical/alias identity. `spread_eagle` likewise is not established as a separate Special; independent Danbooru-derived posture references use `spread_eagle_position` as the general pose tag.
+
+Therefore completeness closes at final Special count 2,788 without rerunning or altering the completed first pass.
+
 ## Knowledge/evidence boundary retained
 
 Issue #44 / KNOWLEDGE was used read-only and did not become verdict authority.
@@ -57,24 +79,23 @@ Still model/version scoped or HOLD unless controlled evidence says otherwise:
 
 No such claim was promoted to global production truth merely to close #32.
 
-## What the next execution must do
+## Next execution
 
-1. Run `PRE_FREEZE_LOCAL_PROTECTED_ASSET_SCAN_TASK_20260910.md` in the local workspace that can see ignored/protected assets.
-2. If result is `LOCAL_COMPLETENESS_PASS_MISSING_0`:
-   - record the result in quarantine + Issue #32;
-   - close completeness at final Special count 2,788;
-   - change package state to `READY_FOR_FINAL_PROMOTION_AUDIT`;
-   - start a separate independent final promotion audit.
-3. If result is `LOCAL_COMPLETENESS_DELTA_FOUND`:
-   - create a delta ledger;
-   - validate only that delta under #32 R2;
-   - rerun completeness conclusion;
-   - do not restart the completed 2,788 audit.
-4. If result is blocked/unknown:
-   - keep `HOLD_PROMOTION` and identify the exact missing inventory source.
+Run a **separate independent final promotion audit** against this quarantine package.
+
+That auditor must independently verify at minimum:
+1. effective active FIX set after withdrawn/superseded filtering;
+2. atomicity and internal consistency of multi-field candidate fixes;
+3. preservation of REVIEW / IMAGE_TEST_REQUIRED fail-closed states;
+4. semantic-support promotion boundaries;
+5. completeness closure and five-row delta rejection;
+6. production diff scope before any write;
+7. no model-scoped generation claim is silently promoted to global truth.
+
+The #32 dictionary-validation lane must not self-promote.
 
 ## Current final enum
 
-`HOLD_PROMOTION`
+`READY_FOR_FINAL_PROMOTION_AUDIT`
 
-This is not a production-quality failure and does not invalidate the completed first pass. It is the fail-closed result required because the mandatory local protected-asset reconciliation has not yet produced durable evidence.
+Production `data/**` remains unchanged. No main merge has been performed.
