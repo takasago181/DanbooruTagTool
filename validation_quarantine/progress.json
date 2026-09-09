@@ -7,10 +7,10 @@
   "fixed_order": "production Special2788 order at audit start",
   "batch_size": 100,
   "internal_block_size": 20,
-  "completed_specials": 1200,
-  "pass": 777,
+  "completed_specials": 1220,
+  "pass": 782,
   "fix": 173,
-  "review": 233,
+  "review": 248,
   "image_test_required": 17,
   "revalidation_pending": 0,
   "batch1_acceptance_gate": "PASS",
@@ -32,10 +32,10 @@
   "semantic_support_rows_covered": 55,
   "semantic_support_rows_review": 0,
   "semantic_support_rows_image_test_required": 30,
-  "last_completed_special_id": "1200",
+  "last_completed_special_id": "1220",
   "last_completed_batch": 12,
   "next_batch": 13,
-  "next_start_position": 1201,
+  "next_start_position": 1221,
   "production_modified": false,
-  "notes": "Batch12 (1101-1200) R2 acceptance gate PASS. Five20-row result checkpoints reconcile exactly100 contiguous unique sequences. Batch12 delta PASS16/FIX19/REVIEW64/IMAGE_TEST_REQUIRED1. Deterministic PASS re-audit checked10/16 including every S-risk PASS; new false-PASS0. ID1159 semantic support rows54-55 audited; beads CORE_SUPPORT+ADDITIVE remains IMAGE_TEST_REQUIRED, anal_beads contextual optional PASS. Semantic support coverage55/58. Revalidation pending0. Next safe restart1201. Production/main unchanged."
+  "notes": "Batch13 partial checkpoint 1201-1220: PASS5/FIX0/REVIEW15/IMAGE_TEST_REQUIRED0. PROVISIONAL and REVIEW_REQUIRED rows without exact frozen authority remain fail-closed REVIEW. Next safe restart1221. Production/main unchanged."
 }
