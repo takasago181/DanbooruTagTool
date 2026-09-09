@@ -4,13 +4,11 @@ Owner: Issue #44 `KNOWLEDGE:#44`
 
 Date: 2026-09-09
 
-Status: `HANDOFF_READY_V1`
+Status: `HANDOFF_READY_V2 / GENRE_CATALOG_CONSOLIDATED`
 
 ## Purpose
 
-This is the compact restart point for the persistent DanbooruTagTool KNOWLEDGE lane. A future chat should be able to recover the current state without relying on conversational memory.
-
-This file does not replace `CURRENT_STATE.md`, `PERMANENT_RULES.md`, Issue #44 or the detailed corpus. It tells the next KNOWLEDGE chat what to read and what the current research emphasis is.
+This is the compact restart point for the persistent DanbooruTagTool KNOWLEDGE lane. A future chat must recover current knowledge from GitHub without relying on conversational memory.
 
 ## Restore order
 
@@ -18,34 +16,116 @@ This file does not replace `CURRENT_STATE.md`, `PERMANENT_RULES.md`, Issue #44 o
 2. `docs/project/PERMANENT_RULES.md`
 3. Issue #44 latest comments
 4. `docs/knowledge/KNOWLEDGE_HANDOFF_CURRENT_20260909.md` (this file)
-5. `docs/knowledge/GENERATION_KNOWLEDGE_INDEX.md`
-6. `docs/knowledge/CURRENT_PRODUCT_GOAL_20260909.md`
-7. `docs/knowledge/PRODUCT_GOAL_EVOLUTION_20260909.md`
-8. `docs/knowledge/KNOWLEDGE_REASSESSMENT_20260909.md`
-9. relevant focused research files
-10. `docs/knowledge/GENERATION_KNOWLEDGE_CORPUS.md`
-11. `docs/knowledge/GENERATION_KNOWLEDGE_SOURCES.md`
+5. **`docs/knowledge/KNOWLEDGE_CATALOG.md`**
+6. relevant `docs/knowledge/catalog/*.md`
+7. detailed `docs/knowledge/research/*` only when evidence/provenance is needed
+8. `docs/knowledge/GENERATION_KNOWLEDGE_CORPUS.md`
+9. `docs/knowledge/GENERATION_KNOWLEDGE_SOURCES.md`
+10. `docs/knowledge/GENERATION_KNOWLEDGE_INDEX.md` for broad historical coverage/backlog context
 
 ## Team identity / boundaries
 
 - TEAM_ID: `KNOWLEDGE:#44`
 - branch: `knowledge/generation-corpus`
-- lane status: ongoing persistent corpus
-- current user instruction: keep independence from other active teams unless an explicit handoff is requested
-- runtime product remains non-LLM
+- lane: ongoing persistent corpus
+- current user instruction: remain independent from other active teams unless an explicit handoff is requested
+- runtime product remains local and non-LLM
 - KNOWLEDGE does not directly rewrite production dictionary data
 - KNOWLEDGE does not own #32 validation verdicts
 - KNOWLEDGE does not authorize Stage10 production A/B
-- unresolved behavior stays `HOLD / TEST_REQUIRED / IMAGE_TEST_REQUIRED`.
+- unresolved behavior stays `HOLD / TEST_REQUIRED / IMAGE_TEST_REQUIRED`
 
-## Current product-goal baseline
+## Current product goal
 
-The original Special-first purpose remains valid but the success criterion has expanded.
+The original Special-first purpose remains valid; success criteria expanded.
 
-Current target:
 `short Japanese/English intent -> correct Special Core Dictionary candidate(s) -> minimum useful support/structure -> model-family-appropriate canonical-English Prompt -> safe failure diagnosis -> fewer unnecessary generation iterations`
 
-Primary goal: reduce manual trial-and-error without sacrificing semantic correctness, model-family scope, traceability or uncertainty handling.
+Primary product value: reduce manual trial-and-error while preserving semantic correctness, model-family scope, traceability and uncertainty.
+
+## Canonical genre catalog
+
+The knowledge corpus is now organized into one canonical topic map:
+
+0. `catalog/00_FOUNDATIONS_AND_AUTHORITY.md`
+   - product goal, evidence classes, authority boundaries
+1. `catalog/01_MODEL_FAMILIES.md`
+   - WAI17 / Illustrious / NoobAI / Anima
+2. `catalog/02_PROMPT_SUPPORT_AND_COMPOSITION.md`
+   - minimum-sufficient Prompt, support, anti-support, multi-Special composition
+3. `catalog/03_FAILURE_TESTING_AND_EVALUATION.md`
+   - failure diagnosis, paired A/B, E0-E3, WD/Kagami/CL and evaluator limits
+4. `catalog/04_TOOLS_POSTPROCESS_AND_LORA.md`
+   - Hires, ADetailer, img2img, ControlNet, regional prompting, LoRA confounds
+5. `catalog/05_HARD_NICHE_ADULT_GENERATION.md`
+   - insertion/body-site, BDSM topology, machine/device, tentacle, fluid, rare/extreme, hard composites
+6. `catalog/06_SEMANTICS_ALIAS_TRIGGER.md`
+   - Danbooru canonical, Alias, implication, e621/Gelbooru, model trigger drift
+7. `catalog/07_WAI17_LOCAL_TEST_PROFILE.md`
+   - current user's WAI17/Forge Neo baseline and first controlled-test lane
+8. `catalog/08_SOURCE_AND_SITE_AUDITS.md`
+   - source hierarchy, AIArtRecipe, Toshiaki Wiki, HF, Danbooru/e621
+9. `catalog/09_OPEN_QUESTIONS_AND_HOLD.md`
+   - unresolved claims and image-test backlog
+10. `catalog/10_FILE_MAP.md`
+   - complete mapping of current root/research knowledge files into the genres above
+
+`docs/knowledge/KNOWLEDGE_CATALOG.md` is the master map and `catalog/README.md` mirrors this same numbering. Do not create a second overlapping taxonomy.
+
+## Corpus layers
+
+- **Handoff** — current lane state / restart route / immediate priority
+- **Catalog** — current organized conclusions by topic; default reading layer
+- **Corpus** — durable cross-topic synthesis
+- **Sources** — source registry/provenance
+- **Research** — detailed investigation, source audit, limitations, historical evidence
+
+Research originals are preserved. Reorganization must not erase provenance.
+
+## Core durable knowledge
+
+- model family/version/profile is part of every generation claim
+- canonical identity, Alias, implication, UI Japanese, model trigger and generation support are separate layers
+- presence is not relation success; actor/target/owner/body-site/source/destination/topology/count can fail independently
+- minimum sufficient does not mean shortest; preserve semantic nucleus and remove redundant/competitive pressure
+- semantically compatible support can become generation-harmful anti-support
+- Negative Prompt is an active semantic intervention
+- one seed is case evidence, not reliability
+- postprocess/control/LoRA-assisted success is separate from Prompt-only capability
+- machine evaluator vocabulary/semantic capability/calibration/OOD must be checked before confidence is interpreted
+- unsupported/uncertain cases route to REVIEW/HOLD rather than forced PASS/FAIL
+
+## Major completed research blocks
+
+### Goal / reassessment
+- `CURRENT_PRODUCT_GOAL_20260909.md`
+- `PRODUCT_GOAL_EVOLUTION_20260909.md`
+- `KNOWLEDGE_REASSESSMENT_20260909.md`
+
+### Methodology
+- Batch A: false-assumption prevention / diagnosis
+- Batch B: minimum-sufficient Prompt / pruning
+- Batch C: evidence reliability / evaluator boundaries
+
+### Hard / niche adult generation
+Focused research exists for:
+- insertion/body-site/count
+- BDSM/restraint topology
+- machine/device functional relation
+- tentacle/nonhuman ownership
+- fluid/source-destination
+- rare/anatomy-changing/extreme targets
+- model-family differences
+- composite-hard failure matrix
+
+### Source/site audits
+Completed:
+- AIArtRecipe
+- としあきdiffusion Wiki
+- Danbooru Wiki semantic authority
+- e621 alternate-vocabulary/NoobAI relevance
+- Hugging Face model cards/discussions
+- durable source-authority matrix
 
 ## Evidence discipline
 
@@ -56,168 +136,81 @@ Use:
 - `PRACTICAL`
 - `COMMUNITY`
 - `HOLD`
-- `REJECT`.
+- `REJECT`
 
-Language does not determine evidence rank. Japanese/English/Chinese/Korean and other useful sources are allowed; authority and experimental control determine rank.
+Language does not determine rank. Japanese/English/Chinese/Korean/other useful sources are judged by authority, exact version match and experimental control.
 
-Canonical meaning, Alias identity, model trigger surface, generation support and UI Japanese are separate layers.
-
-## Major completed research blocks
-
-### Core reassessment
-- `CURRENT_PRODUCT_GOAL_20260909.md`
-- `PRODUCT_GOAL_EVOLUTION_20260909.md`
-- `KNOWLEDGE_REASSESSMENT_20260909.md`
-
-### Generation methodology
-- `research/BATCH_A_FALSE_ASSUMPTION_PREVENTION_20260909.md`
-- `research/BATCH_A_SOURCES_20260909.md`
-- `research/BATCH_B_MINIMUM_SUFFICIENT_PROMPT_20260909.md`
-- `research/BATCH_B_SOURCES_20260909.md`
-- `research/BATCH_C_EVIDENCE_RELIABILITY_20260909.md`
-- `research/BATCH_C_SOURCES_20260909.md`
-
-Key durable ideas:
-- relation/ownership/body-site != component presence
-- semantic support can become anti-support generation-wise
-- unary success does not guarantee composite success
-- Negative is an active semantic intervention
-- minimum sufficient != shortest Prompt
-- use one-variable changes and predetermined paired seeds
-- one seed is case evidence, not reliability
-- preserve `TIE / UNCLEAR / BOTH_FAIL / BLOCKED`
-- postprocess/control/LoRA must be separated from base Prompt success.
-
-### Hard / niche adult generation
-- `research/HARD_FETISH_GENERATION_INDEX_20260909.md`
-- `research/HARD_FETISH_ANAL_INSERTION_20260909.md`
-- `research/HARD_FETISH_BDSM_RESTRAINT_20260909.md`
-- `research/HARD_FETISH_MACHINE_DEVICE_20260909.md`
-- `research/HARD_FETISH_TENTACLE_FANTASY_20260909.md`
-- `research/HARD_FETISH_FLUID_EXCRETION_20260909.md`
-- `research/HARD_FETISH_RARE_EXTREME_20260909.md`
-- `research/HARD_FETISH_MODEL_FAMILY_MATRIX_20260909.md`
-- `research/HARD_FETISH_COMPOSITE_FAILURE_MATRIX_20260909.md`
-- `research/HARD_FETISH_SOURCES_20260909.md`
-
-Structural classes include body-site, binding relation, restraint topology, device relation, exact count, nonhuman appendage relation, anatomy-changing and composite-hard cases.
-
-### Japanese practical-source audits
-- `research/AIARTRECIPE_SITE_AUDIT_20260909.md`
-- `research/AIARTRECIPE_PRACTICAL_FINDINGS_20260909.md`
-- `research/TOSHIAKI_WIKI_SITE_AUDIT_20260909.md`
-- `research/TOSHIAKI_WIKI_PRACTICAL_FINDINGS_20260909.md`
-- `research/TOSHIAKI_WIKI_COVERAGE_MAP_20260909.md`
-
-AIArtRecipe is useful as a practical failure-observation corpus, not canonical authority.
-Toshiaki Wiki is useful as Japanese operations/practical knowledge, with legacy and exact-model claims explicitly separated.
-
-### Semantic / source-authority audits
-- `research/DANBOORU_WIKI_SEMANTIC_AUDIT_20260909.md`
-- `research/E621_WIKI_SEMANTIC_TRIGGER_AUDIT_20260909.md`
-- `research/HF_MODEL_DISCUSSIONS_AUDIT_20260909.md`
-- `research/SOURCE_AUTHORITY_MATRIX_20260909.md`
-
-Authority summary:
-- Danbooru current Wiki / active Alias / implication = primary Danbooru semantic identity sources
-- e621 = secondary nonhuman/anatomy/fetish vocabulary and NoobAI alternate-trigger/exposure source, never silent Danbooru canonical replacement
-- exact model author card = highest exact-model generation authority
-- author discussion reply > general community discussion
-- GitHub official docs = highest tool-behavior authority
-- papers = strongest general-mechanism evidence
-- practical sites = hypothesis/failure evidence, not canonical truth.
-
-## Model-family state
-
-### WAI Illustrious v17
-Current first test target and local priority.
+## Current first test target — WAI Illustrious v17
 
 Read first:
-`research/WAI17_LOCAL_ENV_TEST_BASELINE_20260909.md`
+`catalog/07_WAI17_LOCAL_TEST_PROFILE.md`
 
-Strong exact knowledge:
-- Forge Neo recommended by author
+Current exact-author knowledge:
+- Forge Neo recommended
 - Euler a
 - Steps 15–30
 - CFG 5–7
-- VAE integrated
-- source examples 1024×1344 / author asks for original area larger than 1024×1024
-- minimal quality and Negative baselines
-- too many quality/aesthetic tags and overly long Negative can hurt quality
-- Hires may repair limbs; therefore base vs Hires evidence must be separated.
+- integrated VAE
+- original area larger than 1024×1024 recommended; author examples 1024×1344
+- short quality / Negative baseline
+- too many quality/aesthetic tags and overly long Negative can reduce quality/blur
+- Hires may repair limbs; base vs Hires must be separate evidence
 
-Local immediate baseline:
-- Euler a / 25 steps / CFG 5
-- 1024-class generation, 1024×1344 preferred first portrait test when appropriate
-- fixed paired seed
+Current local test baseline:
+- Forge Neo
+- WAI Illustrious v17
+- Euler a
+- Steps 25
+- CFG 5
+- portrait 1024×1344 first candidate when appropriate
+- fixed paired seeds
 - Hires OFF
 - ADetailer OFF
 - LoRA OFF
-- regional/ControlNet OFF until they are the tested variable.
+- regional/ControlNet OFF
 
-WAI17 HOLD/test backlog:
+Current WAI17 HOLD/test backlog:
 - canonical vs Alias activation
 - rare Special exposure
 - broad+specific
 - actor-target/body-site relation ceiling
 - restraint topology
-- device functional relation
-- tentacle ownership
+- machine/device functional relation
+- tentacle source/ownership
 - simultaneous Special/count breakpoints
-- visibility support effect
+- visibility-support effect
 - unusual anatomy/count Negative ON/OFF
-- LoRA x Special/support
-- Prompt-only -> assisted-control threshold.
+- LoRA × Special/support
+- Prompt-only -> assisted-control threshold
 
-### Illustrious XL baseline
-Strong general family context; do not flatten exact derivative behavior into family truth.
+## Other family state
 
-### NoobAI XL 1.1 EPS
-Strong exact settings/caption-order knowledge; Danbooru+e621 exposure. Exact rare/current trigger and hard relation behavior remain test-required.
-
-### NoobAI V-Pred 1.0
-Prediction regime and settings must remain separate from EPS.
-
-### Anima
-Strong official formatting/tag/NL/tag-dropout knowledge; relation-heavy tag-only vs concise-hybrid remains an important controlled-test lane. Community reports support binding/identity-bleed risk but are not exact success rates.
+- Illustrious XL: useful family baseline; derivative behavior must be revalidated
+- NoobAI 1.1 EPS: strong exact settings/caption-order and Danbooru+e621 exposure; rare/current trigger and hard relation remain TEST_REQUIRED
+- NoobAI V-Pred: separate prediction regime; never pool with EPS
+- Anima: strong official tag/NL/mixed/tag-dropout/Gelbooru knowledge; tag-only vs concise-hybrid relation remains a controlled-test lane
 
 ## Evaluator state
 
-Current principle:
-- WD EVA02 = common/unary baseline only
-- rare Special absence from WD output is not image failure
-- Kagami-24k and CL Tagger v2 are stronger wide-vocabulary candidates
-- full WD/Kagami/CL Special2788 coverage comparison is queued only after dictionary finalization
-- no global threshold across semantic classes or model families
-- relation/topology/body-site/source-destination often requires decomposed or human/specialized review.
-
-## Current knowledge-source hierarchy
-
-For a claim, prefer:
-1. exact author/model/tool primary source
-2. current Danbooru semantic authority when claim is about Danbooru identity
-3. primary research for general mechanism
-4. controlled exact-model practical evidence
-5. versioned practical evidence
-6. community observation
-7. unresolved = HOLD.
+- WD EVA02: common/unary baseline; rare Special absence is not image failure
+- Kagami-24k: wider-vocabulary candidate; rare-tail reliability still separate
+- CL Tagger v2: wide vocabulary + per-tag calibration/threshold/OOD information; not relation ground truth
+- full WD/Kagami/CL Special2788 coverage comparison remains queued after dictionary finalization
+- no global threshold across semantic classes/model families
 
 ## Current highest-value next work
 
-Immediate focus is WAI17 because the user plans to test with that environment first.
-
-Priority order:
-1. preserve the local WAI17 baseline exactly
-2. choose representative Special classes including rare and relation-heavy cases
-3. test base Prompt-only behavior before postprocess/control
-4. run controlled support ablations
-5. test Negative collisions for unusual anatomy/count cases
-6. learn canonical/Alias/alternate-trigger behavior under exact WAI17
-7. record all local controlled outcomes back into #44 under pinned context
-8. only later generalize to NoobAI/Anima after WAI17 evidence is stable.
+1. preserve WAI17 local baseline exactly
+2. select representative unary / rare / relation / body-site / count / hard-composite cases
+3. test Prompt-only before postprocess/control
+4. run one-variable support ablations on predetermined paired seeds
+5. test Negative collision for unusual anatomy/count
+6. compare canonical/Alias/alternate trigger only under exact WAI17 context
+7. record local controlled outcomes back to #44 with full evidence identity
+8. generalize only after repeatable evidence exists
 
 ## Handoff readiness
 
-At this checkpoint, the KNOWLEDGE lane is considered **HANDOFF_READY** if the next chat reads this file plus the files above.
+The KNOWLEDGE lane is **HANDOFF_READY_V2** when the next chat follows the restore order above.
 
-What is intentionally not 'known': exact image-test outcomes not yet performed. Those gaps are explicitly preserved instead of being reconstructed from memory or guessed.
+Exact image-test outcomes that have not yet been performed are intentionally not invented; they remain explicit HOLD entries.
