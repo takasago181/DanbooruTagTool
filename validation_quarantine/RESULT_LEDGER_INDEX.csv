@@ -74,3 +74,8 @@ start_sequence,end_sequence,path,rule_version,row_count,status,notes
 1441,1460,validation_quarantine/results_blocks/1441_1460.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
 1461,1480,validation_quarantine/results_blocks/1461_1480.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
 1481,1500,validation_quarantine/results_blocks/1481_1500.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; Batch15 gate PASS
+1501,1520,validation_quarantine/results_blocks/1501_1520.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
+1521,1540,validation_quarantine/results_blocks/1521_1540.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
+1541,1560,validation_quarantine/results_blocks/1541_1560.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
+1561,1580,validation_quarantine/results_blocks/1561_1580.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
+1581,1600,validation_quarantine/results_blocks/1581_1600.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; Batch16 gate PASS
