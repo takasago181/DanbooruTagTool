@@ -7,17 +7,17 @@ Rule version: R2
 
 ## Current position
 - Target: 2,788 Specials
-- First pass checkpointed through: 1860
-- Cumulative: PASS 1409 / FIX 174 / REVIEW 260 / IMAGE_TEST_REQUIRED 17
+- First pass checkpointed through: 1880
+- Cumulative: PASS 1428 / FIX 174 / REVIEW 261 / IMAGE_TEST_REQUIRED 17
 - Batch 1-18 R2 acceptance gates: PASS
-- Batch 19: partial (1801-1860 checkpointed)
+- Batch 19: partial (1801-1880 checkpointed)
 - Revalidation pending: 0
 - Semantic support: 55 / 58; IMAGE_TEST_REQUIRED rows 30
-- Next first-pass sequence: 1861
+- Next first-pass sequence: 1881
 - Production/main modified: NO
 
 ## Batch 19 partial
-1801-1860: PASS 60 / FIX 0 / REVIEW 0 / IMAGE_TEST_REQUIRED 0. Three 20-row append-only blocks are durable. IDs1834 `pillory`, 1840 `stocks`, and1844 `wooden horse` were A-risk deep-reviewed; composition-owner metadata remains structural only and does not authorize automatic support insertion. Semantic/search-only and NONHUMAN_INTERACTION rows preserve Special identity and model-scope boundaries.
+1801-1880: PASS 79 / FIX 0 / REVIEW 1 / IMAGE_TEST_REQUIRED 0. Four 20-row append-only blocks are durable. IDs1834 `pillory`, 1840 `stocks`, and1844 `wooden horse` were A-risk deep-reviewed; composition-owner metadata remains structural only. ID1864 `convenient tentacle` remains S-risk REVIEW because the frozen row is REVIEW_REQUIRED and no authoritative definition supports a safe family/role assignment.
 
 Candidate fixes and revalidation queue were checked at every checkpoint and remain unchanged.
 
@@ -30,4 +30,4 @@ Candidate fixes and revalidation queue were checked at every checkpoint and rema
 - Special2788 exact identity remains first-class.
 
 ## Exact restart
-Resume first-pass at sequence 1861. Checkpoint every20. Do not modify production/main.
+Resume first-pass at sequence 1881. Checkpoint every20. Do not modify production/main.
