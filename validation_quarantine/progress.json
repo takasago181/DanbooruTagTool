@@ -7,8 +7,8 @@
   "fixed_order": "production Special2788 order at audit start",
   "batch_size": 100,
   "internal_block_size": 20,
-  "completed_specials": 1400,
-  "pass": 950,
+  "completed_specials": 1420,
+  "pass": 970,
   "fix": 174,
   "review": 259,
   "image_test_required": 17,
@@ -27,6 +27,7 @@
   "batch12_acceptance_gate": "PASS",
   "batch13_acceptance_gate": "PASS",
   "batch14_acceptance_gate": "PASS",
+  "batch15_acceptance_gate": "IN_PROGRESS",
   "first_pass_blocked_at": null,
   "false_pass_samples_checked": 233,
   "false_pass_found": 5,
@@ -34,10 +35,10 @@
   "semantic_support_rows_covered": 55,
   "semantic_support_rows_review": 0,
   "semantic_support_rows_image_test_required": 30,
-  "last_completed_special_id": "1400",
+  "last_completed_special_id": "1420",
   "last_completed_batch": 14,
   "next_batch": 15,
-  "next_start_position": 1401,
+  "next_start_position": 1421,
   "production_modified": false,
-  "notes": "Batch14 (1301-1400) R2 acceptance gate PASS. Five20-row result checkpoints reconcile exactly100 contiguous unique sequences. Batch14 delta PASS100/FIX0/REVIEW0/IMAGE_TEST_REQUIRED0. Deterministic PASS re-audit checked20/100; new false-PASS0. All rows are frozen APPROVED_IDENTITY_ONLY/ALIAS_PRESERVE identity-preservation cases with no enabled semantic support. candidate_fixes and revalidation_queue unchanged. RESULT_LEDGER_INDEX stale-tail was reconciled through1300 before restart. Semantic support remains55/58; revalidation pending0. Next safe restart1401. Production/main unchanged."
+  "notes": "Batch15 checkpoint 1401-1420 durable. Delta PASS20/FIX0/REVIEW0/IMAGE_TEST_REQUIRED0. All rows are APPROVED_IDENTITY_ONLY/ALIAS_PRESERVE with no enabled semantic support. candidate_fixes and revalidation_queue checked and unchanged. Semantic support remains55/58; revalidation pending0. Next safe restart1421. Production/main unchanged."
 }
