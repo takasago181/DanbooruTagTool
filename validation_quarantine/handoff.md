@@ -7,21 +7,21 @@ Rule version: R2
 
 ## Current position
 - Target: 2,788 Specials
-- First pass checkpointed through: 1920
-- Cumulative: PASS 1468 / FIX 174 / REVIEW 261 / IMAGE_TEST_REQUIRED 17
+- First pass checkpointed through: 1960
+- Cumulative: PASS 1508 / FIX 174 / REVIEW 261 / IMAGE_TEST_REQUIRED 17
 - Batch 1-19 R2 acceptance gates: PASS
-- Batch 20: checkpoint 1/5 durable (1901-1920)
+- Batch 20: checkpoints 1-3/5 durable (1901-1960)
 - Revalidation pending: 0
 - Semantic support: 55 / 58; IMAGE_TEST_REQUIRED rows 30
-- Next first-pass sequence: 1921
+- Next first-pass sequence: 1961
 - Production/main modified: NO
 
-## Batch 20 checkpoint 1
-1901-1920: PASS 20 / FIX 0 / REVIEW 0 / IMAGE_TEST_REQUIRED 0.
+## Batch 20 so far
+1901-1960: PASS 60 / FIX 0 / REVIEW 0 / IMAGE_TEST_REQUIRED 0.
 
-A-risk IDs1912 `box tie`, 1914 `frogtie`, 1915 `hogtie`, and1919 `legs bound apart` were deep-reviewed. Pose requirement metadata remains structural only; no automatic support insertion was inferred. Stage10 material was treated as scoped evidence and not promoted to production truth.
+A-risk restraint pose/spatial rows through 1940 were deep-reviewed. Structural requirements remain non-inserting. Alias rows preserve exact Special identity with canonical linkage statistics-only. Semantic-role rows remain search/support-only without direct model-recognition claims.
 
-`candidate_fixes.csv` and `revalidation_queue.csv` checked unchanged. Semantic support remains55/58; common/rare statistics were not conflated with semantic support.
+`candidate_fixes.csv` and `revalidation_queue.csv` checked unchanged at checkpoints. Semantic support remains55/58; common/rare statistics were not conflated with semantic support.
 
 ## Critical interpretation rules
 - Blank/None is not automatically missing data; UNKNOWN/not asserted remains valid.
@@ -32,4 +32,4 @@ A-risk IDs1912 `box tie`, 1914 `frogtie`, 1915 `hogtie`, and1919 `legs bound apa
 - Special2788 exact identity remains first-class.
 
 ## Exact restart
-Resume first-pass at sequence 1921. Checkpoint every20. Do not modify production/main.
+Resume first-pass at sequence 1961. Checkpoint every20. Do not modify production/main.
