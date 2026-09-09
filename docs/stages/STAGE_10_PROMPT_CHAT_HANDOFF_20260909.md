@@ -4,18 +4,20 @@ Owner: PROMPT / Issue #5
 Branch: `prompt/current-purpose-audit-20260909`
 Purpose: New-chat restore index. **GitHub is source of truth; chat history is not.**
 
-## 1. Restore order
+## 1. Restore order — current
 
-A new PROMPT chat must restore in this order:
+A new PROMPT chat restores in this order:
 
 1. `docs/project/CURRENT_STATE.md`
 2. `docs/project/PERMANENT_RULES.md`
-3. Issue #5 latest comment / restore checkpoint
-4. this handoff file
-5. `docs/stages/STAGE_10_PROMPT_WAI17_LOCAL_TEST_PROFILE_20260909.md`
-6. Issue #30 only when automation/plumbing evidence is needed
+3. Issue #5 latest restore/migration checkpoint
+4. `docs/prompt_knowledge/README.md`
+5. `docs/prompt_knowledge/10_WAI17_LOCAL_FIRST_PROFILE.md` while WAI17 remains the first test model
+6. only the relevant categorized knowledge files `01`–`09`
+7. `docs/prompt_knowledge/LEGACY_SOURCE_MAP.md` when provenance or old evidence is needed
+8. Issue #30 only for automation/plumbing evidence
 
-Do not restore PROMPT state from chat summaries if GitHub differs.
+Do not make a new chat read every historical Stage10 PROMPT document before it can work. The categorized index is the normal restore surface; detailed Stage10 documents remain evidence/provenance.
 
 ---
 
@@ -25,9 +27,9 @@ Do not restore PROMPT state from chat summaries if GitHub differs.
 - Issue: #5 `[Stage10][PROMPT] Formal handoff pending`
 - Stage9 overall Gate: completed
 - Stage10 production A/B: **not started / not authorized by this handoff**
-- current work: pre-Stage10 Prompt audit / research accumulation / WAI17-first test preparation
-- dictionary/final representative Special/evaluator gates remain external dependencies
-- KNOWLEDGE #44 remains independent; PROMPT does not edit its corpus or verdict authority
+- current lane: pre-Stage10 Prompt audit / knowledge organization / WAI17-first test preparation
+- final representative Special/evaluator inputs remain gated by current dictionary/final-input dependencies
+- KNOWLEDGE #44 remains independent; PROMPT does not overwrite its corpus or verdict authority
 - #32 generation validation remains independent
 - #30 is automation/plumbing TEMP; PROMPT consumes its evidence but does not redefine it
 
@@ -35,89 +37,102 @@ Do not restore PROMPT state from chat summaries if GitHub differs.
 
 ## 3. Current product objective
 
-Current PROMPT objective is no longer “correctly convert Japanese to Danbooru tags” alone.
+PROMPT objective:
 
-Target:
+> Japanese creative intent -> Special-centered, model-family-appropriate, high-quality Prompt structure that can realize difficult/niche/composite adult targets with low user repair burden and explicit Prompt-only/assisted-control separation.
 
-> Convert Japanese creative intent into a high-quality, model-appropriate Prompt structure that preserves the intended Special concept, works for difficult/niche/composite adult targets, minimizes user repair, and escalates to assisted controls when Prompt-only becomes inefficient.
+Primary quality dimensions:
+- intent fidelity
+- target realization
+- binding/site/object correctness
+- geometry/visibility
+- finished visual quality
+- model-family fitness
+- minimum sufficient structure
+- low user repair burden
+- reproducibility/traceability
 
-Quality dimensions:
-- meaning / target retention
-- searchability / Japanese UX
-- Prompt usability
-- model-specific renderability
-- binding / site / object correctness
-- geometry / visibility
-- final image quality
-- low user repair cost
-- reproducibility
-
-“Minimum Prompt” means **minimum sufficient**, not shortest possible.
+`minimum` means minimum sufficient, not shortest.
 
 ---
 
-## 4. Two Prompt modes — still valid
+## 4. Categorized knowledge base
 
-### Experiment separation mode
+Normal knowledge entry point:
+`docs/prompt_knowledge/README.md`
+
+Genres:
+
+1. `01_PRODUCT_PURPOSE_AND_GUARDRAILS.md`
+2. `02_MODEL_FAMILY_PROFILES.md`
+3. `03_PROMPT_CONSTRUCTION_AND_SUPPORT.md`
+4. `04_HARD_TARGET_GENRES.md`
+5. `05_FAILURE_DIAGNOSIS_AND_ASSISTED_CONTROL.md`
+6. `06_QUALITY_CAMERA_NEGATIVE_DENSITY.md`
+7. `07_EVALUATION_AND_STAGE10_TESTING.md`
+8. `08_SOURCES_EVIDENCE_AND_CORRECTIONS.md`
+9. `09_HOLD_CONFLICT_AND_REVALIDATION.md`
+10. `10_WAI17_LOCAL_FIRST_PROFILE.md`
+11. `LEGACY_SOURCE_MAP.md`
+
+Maintenance rule:
+- new detailed evidence -> update relevant genre summary + legacy/source map
+- do not create unindexed PROMPT knowledge silos
+- keep evidence class, exact family/version and HOLD status
+
+---
+
+## 5. Prompt modes
+
+### Experimental Isolation
 - one experiment = one question
-- A/B differs only in the target variable
-- no unnecessary quality/background/lighting/person attributes
-- prioritize causal isolation, reproducibility, observability
+- A/B differs only in target variable
+- remove irrelevant aesthetic/background variables
+- causal isolation / reproducibility / observability first
 
-### User practical stress-test mode
-- build a realistic completed Prompt close to actual user use
+### Production-quality Stress Test
+- realistic completed Prompt
 - keep Special core dominant
-- add only needed quality/composition/camera/visibility/lighting/expression/background/negative
-- do not bury Special with redundant same-role support
-
-Do not casually redesign these modes; audit suitability first.
+- add only needed geometry/visibility/relation/camera/quality/Negative
+- preserve family differences
+- do not inherit the stripped experimental Prompt as the final user Prompt doctrine
 
 ---
 
-## 5. WAI17 is the first active model focus
+## 6. First active model focus — WAI17
 
-User decided initial testing will be WAI Illustrious v17 in the existing local environment.
+Current local-first profile:
+`docs/prompt_knowledge/10_WAI17_LOCAL_FIRST_PROFILE.md`
 
-Verified local model from Issue #30:
+Detailed evidence:
+`docs/stages/STAGE_10_PROMPT_WAI17_LOCAL_TEST_PROFILE_20260909.md`
+
+Verified local facts from Issue #30:
+- Forge Neo
 - `sd\\waiIllustriousSDXL_v170.safetensors`
-- SHA-256: `f116b0c78ff441467b0cdc8f1936e1ed18ea31e9997c7b132b1b8db533f0bd04`
-- Forge Neo environment
-- API / PNG metadata / WD14 pipeline already reached `PASS_PIPELINE`
+- SHA-256 `f116b0c78ff441467b0cdc8f1936e1ed18ea31e9997c7b132b1b8db533f0bd04`
+- API / PNG metadata / WD14 route verified
+- infrastructure `PASS_PIPELINE`
 
-Author-side WAI17 baseline:
-- Forge Neo recommended
+Current practical Prompt-quality baseline candidate:
 - Euler a
-- Steps 15–30
-- CFG 5–7
-- VAE integrated
-- original size >1024x1024
-- example 1024x1344
-- Hires 1.5 / 20 steps / denoise 0.35–0.5 example
-- minimal quality prompt example
-- minimal negative example
-- warning against too many quality/aesthetic tags and overly long Negative
-
-PROMPT WAI17 practical baseline candidate:
 - Steps 25
 - CFG 6
-- Euler a
-- 1024x1024 for causal square tests when suitable
-- 1024x1344 for practical portrait stress tests
-- Hires OFF during first semantic comparison
-- LoRA OFF unless explicitly tested
-- assisted controls OFF for Prompt-only baseline
-- lean tag-first candidate grammar
+- 1024x1024 causal when appropriate / 1024x1344 portrait stress
+- LoRA OFF baseline
+- Hires OFF semantic first pass
+- assisted controls OFF Prompt-only baseline
+- `LEAN_TAG_FIRST`
+- short family Negative
 
-See `STAGE_10_PROMPT_WAI17_LOCAL_TEST_PROFILE_20260909.md` for details.
-
-Important: **Issue #30 fixture settings and this WAI17 practical baseline are separate profiles.** Do not overwrite or conflate them.
+Important:
+**Issue #30 plumbing fixture and WAI17 Prompt-quality profile are separate experiment profiles.**
 
 ---
 
-## 6. Hard-target research direction
+## 7. Core hard-target structure
 
-The user’s intended product includes high-quality difficult/niche adult imagery. PROMPT research therefore tracks internal diagnostic dimensions:
-
+Internal diagnostic dimensions:
 - ACT
 - SITE
 - OBJECT
@@ -125,112 +140,149 @@ The user’s intended product includes high-quality difficult/niche adult imager
 - RELATION
 - POSE / GEOMETRY
 - VISIBILITY
+- QUALITY / NEGATIVE
 
-Primary failure classes:
-- ACT_MISSING
-- SITE_WRONG
-- BINDING_LOST
-- OBJECT_DEGRADES
-- VISIBILITY_LOST
-- GEOMETRY_BREAK
-- PROMPT_INTERFERENCE
+Do not expose this as mandatory multi-field user input. Internal decomposition supports a finished recommended Prompt.
 
-The user must not be forced to manually fill these dimensions; they are internal composer/audit dimensions.
+Hard genres are organized in:
+`docs/prompt_knowledge/04_HARD_TARGET_GENRES.md`
 
 ---
 
-## 7. Evidence hierarchy now in use
+## 8. Important do-not-regress items
 
-### Highest authority by domain
-- model Prompt grammar / settings: exact model author / official model card
-- tag semantics / alias / implication: Danbooru; e621 only as auxiliary taxonomy where relevant
-- parser / extension behavior: official GitHub repo / exact runtime implementation
-- failure theory: papers / benchmarks
-- practical Japanese workflows: AIArtRecipe / としあきdiffusion Wiki, after correction/version scoping
-
-Community evidence never overrides exact official evidence without controlled local A/B.
-
----
-
-## 8. Important accumulated PROMPT artifacts
-
-### Current-purpose / quality audit
-- `STAGE_10_PROMPT_CURRENT_PURPOSE_AUDIT_20260909.md`
-- `STAGE_10_PROMPT_CURRENT_PURPOSE_REVALIDATION_BACKLOG_20260909.md`
-- `STAGE_10_PROMPT_HIGH_QUALITY_HARD_IMAGE_CONTRACT_20260909.md`
-- `STAGE_10_PROMPT_STAGE9_DELTA_AUDIT_20260909.md`
-- `STAGE_10_PROMPT_HIGH_QUALITY_AUDIT_SCORECARD_20260909.md`
-
-### Hard-target / family research
-- `STAGE_10_PROMPT_HARD_TARGET_FAMILY_MATRIX_20260909.md`
-- `STAGE_10_PROMPT_HARD_TARGET_FAMILY_SOURCE_LEDGER_20260909.md`
-- `STAGE_10_PROMPT_HARD_TARGET_CATEGORY_FAMILY_FAILURE_MATRIX_20260909.md`
-- `STAGE_10_PROMPT_HARD_TARGET_TEST_BACKLOG_20260909.md`
-
-### Japanese community source audits
-AIArtRecipe:
-- `STAGE_10_PROMPT_AIARTRECIPE_SITE_AUDIT_20260909.md`
-- `STAGE_10_PROMPT_AIARTRECIPE_INGESTION_RULES_20260909.md`
-- `STAGE_10_PROMPT_AIARTRECIPE_COVERAGE_LEDGER_20260909.md`
-
-としあきdiffusion Wiki:
-- `STAGE_10_PROMPT_TOSHIAKI_WIKI_AUDIT_20260909.md`
-- `STAGE_10_PROMPT_TOSHIAKI_WIKI_INGESTION_RULES_20260909.md`
-- `STAGE_10_PROMPT_TOSHIAKI_WIKI_COVERAGE_LEDGER_20260909.md`
-- `STAGE_10_PROMPT_TOSHIAKI_WIKI_CORRECTIONS_20260909.md`
-
-### Primary-source backbone
-- `STAGE_10_PROMPT_PRIMARY_SOURCE_BACKBONE_20260909.md`
-- `STAGE_10_PROMPT_MODEL_OFFICIAL_SOURCE_MATRIX_20260909.md`
-- `STAGE_10_PROMPT_SEMANTIC_AUTHORITY_DANBOORU_E621_20260909.md`
-- `STAGE_10_PROMPT_ASSISTED_CONTROL_OFFICIAL_CAPABILITIES_20260909.md`
-- `STAGE_10_PROMPT_COMPOSITIONAL_FAILURE_RESEARCH_LEDGER_20260909.md`
-
-### WAI17-first test profile
-- `STAGE_10_PROMPT_WAI17_LOCAL_TEST_PROFILE_20260909.md`
-
-These are PROMPT-side research/audit artifacts, not automatic production authority.
+- no WAI/Illustrious/NoobAI/Anima grammar flattening
+- WAI17 exact author guidance outranks generic Illustrious community inheritance
+- WAI17: no generic long quality/aesthetic/Negative default
+- NoobAI native Special-before-General caption is strong baseline, not universal optimum proof
+- Anima tag-mode count uses official `1girl/1boy` surfaces; spaced community forms are not official global defaults
+- Anima/Qwen “1k token hard limit / 300 words” rationale is not accepted
+- `BREAK`, attention, CLIP chunking are parser/runtime scoped
+- canonical identity != model-facing render surface
+- alias/implication != model response equivalence
+- WD EVA02 rare vocabulary absence != Prompt failure
+- Hires/ADetailer/Couple/ControlNet success != PROMPT_ONLY success
+- `REVIEW` for unsupported evaluator questions is valid routing, not failure
+- one seed is insufficient for production Prompt rules
+- production behavior remains gated; these docs do not start Stage10 production
 
 ---
 
-## 9. Important corrections / do-not-regress items
+## 9. Current test/evaluation doctrine
 
-- Do not flatten WAI / Illustrious / NoobAI / Anima Prompt grammars.
-- Illustrious general knowledge must not automatically override exact WAI17 author guidance.
-- WAI17: avoid generic long quality/aesthetic stacks and generic long Negative inheritance.
-- NoobAI native caption order is strong baseline evidence, not proof of universal hard-target optimum.
-- Anima official grammar uses `1girl` style tags; community claims preferring spaced count forms are not official fact.
-- Anima/Qwen “~1k token hard limit” explanation was rejected as technically incorrect/unsupported.
-- A1111/Forge parser syntax is not the same thing as model training grammar.
-- `BREAK` and attention syntax must be parser/runtime scoped.
-- WD EVA02 v3 filters tags with <600 training images; rare Special absence is not automatic failure.
-- Hires / ADetailer / Forge Couple / ControlNet success must not be misreported as PROMPT_ONLY success.
-- canonical identity, Japanese display/search text, and model trigger/render spelling are separate layers.
+Evaluation vectors:
+- T target
+- B binding
+- V visibility
+- G geometry
+- Q finished quality
+- C conflict/artifact
+- M model evidence
+- U user repair
+- R reproducibility
+
+Multiple Special: keep `T_A / T_B / ...` separate.
+
+Stage10 high-priority questions after gates:
+1. support auto-selection utility
+2. family block order / Special position
+3. multi-Special retention/binding
+4. visibility side effects
+5. density minimum-sufficient curve
+6. canonical/Alias/model surface
+7. tag-only vs short relation support
+8. family/target Negative
+9. quality/meta minimum set
+10. user effort/replacement burden
+11. Prompt-only ceiling / assisted control
+
+WAI17-first ordering is defined in file `10`.
 
 ---
 
-## 10. Current next work
+## 10. Evidence hierarchy
 
-When PROMPT work resumes:
+Use the source type appropriate to the claim:
+- semantics -> Danbooru; e621 supplemental non-human only
+- exact model grammar/settings -> exact author/model official
+- parser/extensions -> exact official runtime repo
+- failure mechanism -> primary research
+- practical workflows -> community evidence after version/correction checks
 
-1. use WAI17-only lane first
-2. build WAI17 Stage10 A/B experiment template using proven Issue #30 automation infrastructure
-3. keep one experiment = one question
-4. choose representative Special cases only after the current dictionary/final-input Gate allows it
-5. start with Special recognition / canonical-vs-alias / minimal support / visibility / Negative length
-6. keep Hires and assisted controls as separate passes
-7. evaluate target/site/binding/object/geometry/visibility/finish separately
-8. do not start production Stage10 until project Gates authorize it
+Core rules:
+- tag exists != model recognizes
+- recognizes != binds correctly
+- token present != intent realized
+- community example != production rule
+- training caption order != universal inference optimum
+- assisted success != Prompt-only success
+
+Full source/correction registry:
+`docs/prompt_knowledge/08_SOURCES_EVIDENCE_AND_CORRECTIONS.md`
 
 ---
 
-## 11. Branch/checkpoint identity
+## 11. HOLD registry
 
-PROMPT working branch:
+All active uncertainty/conflict is consolidated in:
+`docs/prompt_knowledge/09_HOLD_CONFLICT_AND_REVALIDATION.md`
+
+Never silently promote HOLD because a new chat lacks context.
+
+Major HOLD families include:
+- canonical/Alias/model-trigger response equality
+- semantic support generation utility
+- family-optimal block order beyond official baseline
+- visibility side effects
+- density / multi-Special limits
+- anatomy-sensitive Negative collision
+- quality/meta minimum set
+- automatic weighting
+- LoRA interaction
+- Hires/ADetailer semantic effects
+- exact Forge Anima Turbo CFG1 Negative behavior
+- final WD evaluator allocation/thresholds
+- automatic assisted-control escalation
+
+---
+
+## 12. Historical/provenance documents
+
+Do not delete historical PROMPT detailed docs.
+Use:
+`docs/prompt_knowledge/LEGACY_SOURCE_MAP.md`
+
+to locate which categorized summary absorbed each one.
+
+Older branch-only reservoir:
+`prompt/audit-knowledge-reservoir-20260909`
+
+Its active unique knowledge has been normalized into `docs/prompt_knowledge/`; switch to the old branch only for provenance/source-audit purposes.
+
+---
+
+## 13. Next work when resumed
+
+While gates remain:
+- maintain/curate categorized knowledge
+- prepare WAI17 experiment templates/questions
+- do not select final representative production set prematurely
+- consume #44 handoffs without taking over its corpus
+- keep #30 fixture separate from Prompt-quality profiles
+
+When gates authorize representative testing:
+- start WAI17-only lane
+- one experiment = one question
+- product-representative Special cases
+- keep Hires and assisted controls separate
+- record T/B/V/G/Q/C/M/U/R
+- preserve actual resolved Prompt and exact local model/settings
+
+---
+
+## 14. Branch/checkpoint identity
+
+Working branch:
 `prompt/current-purpose-audit-20260909`
 
-WAI17 profile commit before this handoff:
-`0594f4fc15b64dbe748c66df80b827dda80bdb0a`
-
-The Issue #5 checkpoint posted after this file is the preferred chat-migration restore pointer.
-
+Preferred migration anchor is the Issue #5 checkpoint posted **after the categorized knowledge-base reorganization**, not an older chat summary.
