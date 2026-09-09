@@ -2,6 +2,12 @@ name: Stage10 テストPrompt
 description: A/B試験用Prompt作成
 title: "[Stage10][PROMPT] "
 body:
+  - type: markdown
+    attributes:
+      value: |
+        管理ボード運用: `docs/project/CONTROL_BOARD_POLICY.md` を確認してください。
+        GitHub Projectは人間向け可視化であり、Issue本文 / CURRENT_STATE / PERMANENT_RULESを置き換えません。
+        Project表示だけでStage10開始・Gate通過・本番A/B開始を判断しません。
   - type: input
     id: question
     attributes:
