@@ -12,12 +12,19 @@ A new PROMPT chat restores in this order:
 2. `docs/project/PERMANENT_RULES.md`
 3. Issue #5 latest restore/migration checkpoint
 4. `docs/prompt_knowledge/README.md`
-5. `docs/prompt_knowledge/10_WAI17_LOCAL_FIRST_PROFILE.md` while WAI17 remains the first test model
-6. only the relevant categorized knowledge files `01`–`09`
-7. `docs/prompt_knowledge/LEGACY_SOURCE_MAP.md` when provenance or old evidence is needed
-8. Issue #30 only for automation/plumbing evidence
+5. `docs/prompt_knowledge/00_KNOWLEDGE_GOVERNANCE.md`
+6. `docs/prompt_knowledge/CLAIM_REGISTRY.md`
+7. `docs/prompt_knowledge/10_WAI17_LOCAL_FIRST_PROFILE.md` while WAI17 remains the first test model
+8. `docs/prompt_knowledge/USE_CASE_ROUTES.md` and only the relevant category files
+9. `docs/prompt_knowledge/VERSION_AND_FRESHNESS.md` when exact version/freshness matters
+10. `docs/prompt_knowledge/LEGACY_SOURCE_MAP.md` only when provenance/old evidence is needed
+11. Issue #30 only for automation/plumbing evidence
 
-Do not make a new chat read every historical Stage10 PROMPT document before it can work. The categorized index is the normal restore surface; detailed Stage10 documents remain evidence/provenance.
+Do not make a new chat read every historical Stage10 PROMPT document before it can work.
+
+Current verdict priority:
+**Claim Registry > category explanation > legacy detailed evidence wording**.
+Legacy docs remain evidence/provenance, not the current adoption-state authority.
 
 ---
 
@@ -54,15 +61,62 @@ Primary quality dimensions:
 
 `minimum` means minimum sufficient, not shortest.
 
+Relevant accepted claims:
+- `K-PURPOSE-001`–`006`
+
 ---
 
-## 4. Categorized knowledge base
+## 4. Knowledge governance — current
 
 Normal knowledge entry point:
 `docs/prompt_knowledge/README.md`
 
+### Current claim-status authority
+`docs/prompt_knowledge/CLAIM_REGISTRY.md`
+
+### Label schema
+`docs/prompt_knowledge/00_KNOWLEDGE_GOVERNANCE.md`
+
+Knowledge uses separate axes:
+
+SOURCE_CLASS:
+- OFFICIAL_MODEL
+- AUTHOR_GUIDE
+- OFFICIAL_RUNTIME
+- SEMANTIC_AUTHORITY
+- PROJECT_FACT
+- CONTROLLED_PRACTICAL
+- RESEARCH
+- COMMUNITY
+- LEGACY
+
+STATUS:
+- ACCEPTED
+- CANDIDATE
+- HOLD
+- CONFLICT
+- REJECTED
+- HISTORICAL
+
+Also preserve:
+- SCOPE
+- VALIDATION_STATE
+
+Official source does **not** automatically mean production optimization is validated.
+Example:
+- WAI17 author Steps/CFG guidance = accepted author fact
+- `LEAN_TAG_FIRST` as hard-target optimum = candidate requiring Stage10 evidence
+
+Legacy labels are translated through:
+`docs/prompt_knowledge/LABEL_MIGRATION_MAP.md`
+
+---
+
+## 5. Categorized knowledge base
+
 Genres:
 
+0. `00_KNOWLEDGE_GOVERNANCE.md`
 1. `01_PRODUCT_PURPOSE_AND_GUARDRAILS.md`
 2. `02_MODEL_FAMILY_PROFILES.md`
 3. `03_PROMPT_CONSTRUCTION_AND_SUPPORT.md`
@@ -73,16 +127,24 @@ Genres:
 8. `08_SOURCES_EVIDENCE_AND_CORRECTIONS.md`
 9. `09_HOLD_CONFLICT_AND_REVALIDATION.md`
 10. `10_WAI17_LOCAL_FIRST_PROFILE.md`
-11. `LEGACY_SOURCE_MAP.md`
+
+Management/navigation:
+- `CLAIM_REGISTRY.md`
+- `VERSION_AND_FRESHNESS.md`
+- `USE_CASE_ROUTES.md`
+- `LABEL_MIGRATION_MAP.md`
+- `LEGACY_SOURCE_MAP.md`
+- `CATALOG_MANIFEST.md`
 
 Maintenance rule:
-- new detailed evidence -> update relevant genre summary + legacy/source map
+- material new knowledge -> Claim Registry + category summary + provenance map
+- HOLD/conflict stays explicit
+- model/runtime claims keep exact scope/version
 - do not create unindexed PROMPT knowledge silos
-- keep evidence class, exact family/version and HOLD status
 
 ---
 
-## 5. Prompt modes
+## 6. Prompt modes
 
 ### Experimental Isolation
 - one experiment = one question
@@ -95,11 +157,15 @@ Maintenance rule:
 - keep Special core dominant
 - add only needed geometry/visibility/relation/camera/quality/Negative
 - preserve family differences
-- do not inherit the stripped experimental Prompt as the final user Prompt doctrine
+- do not inherit stripped experimental Prompt as final user Prompt doctrine
+
+Accepted claims:
+- `K-PURPOSE-003`
+- `K-TEST-001`
 
 ---
 
-## 6. First active model focus — WAI17
+## 7. First active model focus — WAI17
 
 Current local-first profile:
 `docs/prompt_knowledge/10_WAI17_LOCAL_FIRST_PROFILE.md`
@@ -114,7 +180,15 @@ Verified local facts from Issue #30:
 - API / PNG metadata / WD14 route verified
 - infrastructure `PASS_PIPELINE`
 
-Current practical Prompt-quality baseline candidate:
+Accepted author claims:
+- `K-WAI-001`–`004`
+
+Current Stage10 candidates:
+- `K-WAI-005` LEAN_TAG_FIRST
+- `K-WAI-006` Steps25 / CFG6 practical baseline
+- `K-WAI-007` square causal vs portrait stress resolution usage
+
+Current practical candidate:
 - Euler a
 - Steps 25
 - CFG 6
@@ -122,15 +196,17 @@ Current practical Prompt-quality baseline candidate:
 - LoRA OFF baseline
 - Hires OFF semantic first pass
 - assisted controls OFF Prompt-only baseline
-- `LEAN_TAG_FIRST`
 - short family Negative
 
 Important:
 **Issue #30 plumbing fixture and WAI17 Prompt-quality profile are separate experiment profiles.**
 
+Exact model/runtime freshness:
+`VERSION_AND_FRESHNESS.md`
+
 ---
 
-## 7. Core hard-target structure
+## 8. Core hard-target structure
 
 Internal diagnostic dimensions:
 - ACT
@@ -142,21 +218,27 @@ Internal diagnostic dimensions:
 - VISIBILITY
 - QUALITY / NEGATIVE
 
-Do not expose this as mandatory multi-field user input. Internal decomposition supports a finished recommended Prompt.
+Do not expose this as mandatory multi-field user input.
+Internal decomposition supports a finished recommended Prompt.
 
-Hard genres are organized in:
+Key accepted claims:
+- `K-STRUCT-001`
+- `K-STRUCT-002`
+- `K-STRUCT-003`
+
+Hard genres:
 `docs/prompt_knowledge/04_HARD_TARGET_GENRES.md`
 
 ---
 
-## 8. Important do-not-regress items
+## 9. Important do-not-regress items
 
 - no WAI/Illustrious/NoobAI/Anima grammar flattening
 - WAI17 exact author guidance outranks generic Illustrious community inheritance
 - WAI17: no generic long quality/aesthetic/Negative default
 - NoobAI native Special-before-General caption is strong baseline, not universal optimum proof
 - Anima tag-mode count uses official `1girl/1boy` surfaces; spaced community forms are not official global defaults
-- Anima/Qwen “1k token hard limit / 300 words” rationale is not accepted
+- Anima/Qwen “1k token hard limit / 300 words” rationale is rejected
 - `BREAK`, attention, CLIP chunking are parser/runtime scoped
 - canonical identity != model-facing render surface
 - alias/implication != model response equivalence
@@ -166,9 +248,11 @@ Hard genres are organized in:
 - one seed is insufficient for production Prompt rules
 - production behavior remains gated; these docs do not start Stage10 production
 
+Use Claim Registry instead of relying on old wording.
+
 ---
 
-## 9. Current test/evaluation doctrine
+## 10. Current test/evaluation doctrine
 
 Evaluation vectors:
 - T target
@@ -183,24 +267,24 @@ Evaluation vectors:
 
 Multiple Special: keep `T_A / T_B / ...` separate.
 
-Stage10 high-priority questions after gates:
-1. support auto-selection utility
-2. family block order / Special position
-3. multi-Special retention/binding
-4. visibility side effects
-5. density minimum-sufficient curve
-6. canonical/Alias/model surface
-7. tag-only vs short relation support
-8. family/target Negative
-9. quality/meta minimum set
-10. user effort/replacement burden
-11. Prompt-only ceiling / assisted control
+Accepted methodology claims:
+- `K-EVAL-001`–`005`
+- `K-TEST-001`–`005`
+
+Stage10 high-priority unresolved claims include:
+- `K-STRUCT-004/005`
+- `K-SEM-004`
+- `K-QUALITY-004/007/008`
+- `K-WAI-005/006/007`
+- `K-FAIL-004`
+- `K-CTRL-005`
+- `K-EVAL-006`
 
 WAI17-first ordering is defined in file `10`.
 
 ---
 
-## 10. Evidence hierarchy
+## 11. Evidence hierarchy
 
 Use the source type appropriate to the claim:
 - semantics -> Danbooru; e621 supplemental non-human only
@@ -222,10 +306,13 @@ Full source/correction registry:
 
 ---
 
-## 11. HOLD registry
+## 12. HOLD registry
 
 All active uncertainty/conflict is consolidated in:
 `docs/prompt_knowledge/09_HOLD_CONFLICT_AND_REVALIDATION.md`
+
+Claim-level current statuses are in:
+`docs/prompt_knowledge/CLAIM_REGISTRY.md`
 
 Never silently promote HOLD because a new chat lacks context.
 
@@ -246,7 +333,7 @@ Major HOLD families include:
 
 ---
 
-## 12. Historical/provenance documents
+## 13. Historical/provenance documents
 
 Do not delete historical PROMPT detailed docs.
 Use:
@@ -254,17 +341,20 @@ Use:
 
 to locate which categorized summary absorbed each one.
 
+If old evidence labels appear:
+`docs/prompt_knowledge/LABEL_MIGRATION_MAP.md`
+
 Older branch-only reservoir:
 `prompt/audit-knowledge-reservoir-20260909`
 
-Its active unique knowledge has been normalized into `docs/prompt_knowledge/`; switch to the old branch only for provenance/source-audit purposes.
+Its active unique knowledge has been normalized into `docs/prompt_knowledge/`; switch to old branch only for provenance/source-audit purposes.
 
 ---
 
-## 13. Next work when resumed
+## 14. Next work when resumed
 
 While gates remain:
-- maintain/curate categorized knowledge
+- maintain/curate Claim Registry and categorized knowledge
 - prepare WAI17 experiment templates/questions
 - do not select final representative production set prematurely
 - consume #44 handoffs without taking over its corpus
@@ -277,12 +367,13 @@ When gates authorize representative testing:
 - keep Hires and assisted controls separate
 - record T/B/V/G/Q/C/M/U/R
 - preserve actual resolved Prompt and exact local model/settings
+- promote/demote claims by ID based on controlled evidence
 
 ---
 
-## 14. Branch/checkpoint identity
+## 15. Branch/checkpoint identity
 
 Working branch:
 `prompt/current-purpose-audit-20260909`
 
-Preferred migration anchor is the Issue #5 checkpoint posted **after the categorized knowledge-base reorganization**, not an older chat summary.
+Preferred migration anchor is the Issue #5 checkpoint posted **after the claim-level knowledge normalization**, not an older chat summary.
