@@ -7,8 +7,8 @@
   "fixed_order": "production Special2788 order at audit start",
   "batch_size": 100,
   "internal_block_size": 20,
-  "completed_specials": 1700,
-  "pass": 1250,
+  "completed_specials": 1720,
+  "pass": 1270,
   "fix": 174,
   "review": 259,
   "image_test_required": 17,
@@ -37,10 +37,10 @@
   "semantic_support_rows_covered": 55,
   "semantic_support_rows_review": 0,
   "semantic_support_rows_image_test_required": 30,
-  "last_completed_special_id": "1700",
+  "last_completed_special_id": "1720",
   "last_completed_batch": 17,
   "next_batch": 18,
-  "next_start_position": 1701,
+  "next_start_position": 1721,
   "production_modified": false,
-  "notes": "Batch17 (1601-1700) R2 acceptance gate PASS. Five 20-row append-only result checkpoints reconcile to exactly100 contiguous unique sequences. Batch17 delta PASS100/FIX0/REVIEW0/IMAGE_TEST_REQUIRED0. Deterministic PASS re-audit checked20/100 including semantic-role tail; new false-PASS0. Identity-only aliases preserve exact prompt identity and canonical_target remains statistical linkage only. Semantic-role rows remain search/support-only; META_CONTEXT rows remain non-structural support. candidate_fixes and revalidation_queue checked at every checkpoint and unchanged. Semantic support remains55/58; revalidation pending0. Next safe restart1701. Production/main unchanged."
+  "notes": "Batch18 partial checkpoint 1701-1720 complete: PASS20/FIX0/REVIEW0/IMAGE_TEST_REQUIRED0. Semantic/search-only rows were kept non-generative; no model-recognition claim promoted. ID1720 RESTRAINT_IMPLEMENT remains direct implement identity with blank requirements treated as NOT ASSERTED. candidate_fixes and revalidation_queue checked and unchanged. Semantic support remains55/58; revalidation pending0. Next safe restart1721. Production/main unchanged."
 }
