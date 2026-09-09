@@ -9,14 +9,14 @@ Rule version: R2
 - Target: 2,788 Specials
 - First pass checkpointed through: 2700
 - Cumulative: PASS 2213 / FIX 174 / REVIEW 296 / IMAGE_TEST_REQUIRED 17
-- Batch 1-26 R2 acceptance gates: PASS
-- Batch 27: 100-row first pass complete; integrity/false-PASS gate pending
+- Batch 1-27 R2 acceptance gates: PASS
+- Batch 27: complete; integrity/false-PASS gate PASS
 - Active revalidation pending pointer: 0
 - Semantic support: 55 / 58; IMAGE_TEST_REQUIRED rows 30
-- Next first-pass sequence: 2701 only after Batch27 gate is saved
+- Next first-pass sequence: 2701
 - Production/main modified: NO
 
-## Batch 27 first-pass summary
+## Batch 27 summary
 Range 2601-2700: PASS 100 / FIX 0 / REVIEW 0 / IMAGE_TEST_REQUIRED 0.
 
 Durable result blocks:
@@ -26,11 +26,15 @@ Durable result blocks:
 - `results_blocks/2661_2680.csv`
 - `results_blocks/2681_2700.csv`
 
-All 100 rows are `ALIAS_PRESERVE`. Exact Prompt identity is retained, canonical linkage remains statistics-only, and no canonical/Alias model-response equivalence is promoted. Alias wording that suggests actor, geometry, camera, restraint, visibility, or unusual anatomy was not used to infer unasserted production metadata. Blank requirement fields remain valid NOT ASSERTED states.
+Static integrity: 100 contiguous unique sequences, missing 0, duplicate 0.
 
-`candidate_fixes.csv` and `revalidation_queue.csv` inspected at every 20-row checkpoint; no Batch27 delta. Semantic support remains 55/58. No Stage10 HOLD knowledge promoted to production truth.
+All 100 rows are `ALIAS_PRESERVE`. Exact Prompt identity remains preserved; canonical linkage remains statistics-only; no canonical/Alias model-response equivalence, automatic support insertion, or unasserted structural metadata was promoted. Blank structural fields remain valid NOT ASSERTED states. Stage10 `canonical / Alias / Semantic response` remains HOLD.
 
-`RESULT_LEDGER_INDEX.csv` remains a lagging secondary index from a pre-existing state; durable blocks + progress + handoff are the restart source pending reconciliation.
+R2 PASS re-audit: 20/100 PASS rows, deterministic concept-spread; all re-PASS; new false-PASS 0. Details: `pass_sampling_batch27_r2.csv` and `batch27_integrity_r2.md`.
 
-## Gate boundary
-Do not start sequence 2701 until Batch27 static integrity and PASS re-audit are completed and persisted.
+`candidate_fixes.csv` and `revalidation_queue.csv` were inspected at every 20-row checkpoint; Batch27 adds no new candidate fix or revalidation item. Semantic support remains 55/58. No Stage10 HOLD knowledge was promoted to production truth.
+
+`RESULT_LEDGER_INDEX.csv` remains a lagging secondary navigation index from a pre-existing state. This does not invalidate durable blocks; authoritative restart state is durable blocks + `progress.json` + this handoff pending housekeeping reconciliation.
+
+## Exact restart
+Resume first-pass at sequence 2701 (Batch 28). Checkpoint every 20. Do not modify production/main.
