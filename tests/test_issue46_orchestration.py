@@ -12,6 +12,7 @@ from tools.issue36.orchestrator import (
     SOURCE_BLOB,
     Orchestrator,
     assert_no_blind_leakage,
+    build_prompt,
     collision_review_rows,
     load_source,
     mandatory_challenge_population,
@@ -21,6 +22,7 @@ from tools.issue36.orchestrator import (
     select_outcome_strata,
     source_queue_row,
     strict_agent_schema,
+    validate_agent_records,
     write_jsonl,
 )
 
@@ -62,6 +64,39 @@ def test_role_schemas_are_strict_and_role_specific() -> None:
     assert challenger["properties"]["records"]["items"]["additionalProperties"] is False
     assert "decision" in resolver["properties"]["records"]["items"]["required"]
     assert "decision" not in challenger["properties"]["records"]["items"]["required"]
+    assert "byte-for-byte" in resolver["properties"]["records"]["items"]["properties"]["canonical"]["description"]
+    assert "byte-for-byte" in build_prompt("CHALLENGER", REPO / "contract.md", [{"canonical": "x"}], "batch_0001")
+
+
+def test_agent_canonical_is_immutable_and_byte_exact() -> None:
+    canonical = "belle_(zenless_zone_zero)_(cosplay)"
+    input_rows = [{"canonical": canonical}]
+    valid = {
+        "records": [{
+            "canonical": canonical,
+            "display_challenge": "CONFIRM",
+            "search_challenge": "CONFIRM",
+            "rationale_ja": "確認",
+            "semantic_facets": {key: "" for key in (
+                "head_concept", "action_state", "actor", "ownership", "target",
+                "body_site", "direction_spatial", "count_cardinality", "negation",
+                "required_modifier", "qualifier_scope", "concept_width",
+            )},
+        }],
+    }
+    assert validate_agent_records("CHALLENGER", input_rows, valid) == valid["records"]
+
+    variants = [
+        "belle_(zenless_zone zero)_(cosplay)",
+        "belle (zenless_zone_zero) (cosplay)",
+        "BELLE_(ZENLESS_ZONE_ZERO)_(COSPLAY)",
+        "belle(zenless_zone_zero)(cosplay)",
+    ]
+    for variant in variants:
+        with pytest.raises(ValueError, match="immutable canonical mismatch"):
+            validate_agent_records(
+                "CHALLENGER", input_rows, {"records": [{"canonical": variant}]}
+            )
 
 
 def test_failed_child_is_fail_closed_and_manifest_is_resumable(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:

@@ -123,9 +123,17 @@ def strict_agent_schema(role: str) -> dict[str, Any]:
             "required": ["type", "ref", "note"],
         },
     }
+    immutable_canonical = {
+        "type": "string",
+        "description": (
+            "Immutable input identifier. Copy the input canonical byte-for-byte; "
+            "never translate, normalize, case-fold, remove spaces, change underscores, "
+            "or alter punctuation."
+        ),
+    }
     if role in {"RESOLVER", "REPAIR"}:
         properties = {
-            "canonical": {"type": "string"},
+            "canonical": dict(immutable_canonical),
             "decision": {"type": "string"},
             "final_display_ja": {"type": "string"},
             "final_search_ja": {"type": "string"},
@@ -143,7 +151,7 @@ def strict_agent_schema(role: str) -> dict[str, Any]:
         }
     elif role == "CHALLENGER":
         properties = {
-            "canonical": {"type": "string"},
+            "canonical": dict(immutable_canonical),
             "display_challenge": {"type": "string"},
             "search_challenge": {"type": "string"},
             "rationale_ja": {"type": "string"},
@@ -152,7 +160,7 @@ def strict_agent_schema(role: str) -> dict[str, Any]:
         }
     elif role == "RESIDUAL_CHALLENGER":
         properties = {
-            "canonical": {"type": "string"},
+            "canonical": dict(immutable_canonical),
             "residual_verdict": {"type": "string"},
             "rationale_ja": {"type": "string"},
             "semantic_facets": facet,
@@ -162,7 +170,7 @@ def strict_agent_schema(role: str) -> dict[str, Any]:
         }
     elif role == "FINAL_AUDITOR":
         properties = {
-            "canonical": {"type": "string"},
+            "canonical": dict(immutable_canonical),
             "display_audit": {"type": "string"},
             "search_audit": {"type": "string"},
             "rationale_ja": {"type": "string"},
@@ -613,7 +621,7 @@ def pilot_queue(source_by_canonical: dict[str, dict[str, str]]) -> list[dict[str
 
 def build_prompt(role: str, contract_path: Path, rows: list[dict[str, Any]], batch_id: str) -> str:
     inline = "\n".join(json.dumps(row, ensure_ascii=False, sort_keys=True) for row in rows)
-    common = f"""You are a fresh Codex child invocation for Issue #46.\nRole: {role}\nBatch: {batch_id}\nFrozen V3.1 contract commit: {CONTRACT_COMMIT}\nRead the contract at {contract_path}. It is authoritative and must not be edited.\nThe launcher will persist your final response; do not edit repository files and do not run a validator.\nReturn exactly one JSON object with a `records` array and no Markdown fences or commentary. Every array item must be the direct complete semantic record object required by the role schema; do not wrap it in another object or append commentary.\nEvery input canonical must occur exactly once in `records`; do not add or omit rows.\nWhenever semantic_facets is emitted, it must be an object containing every key head_concept, action_state, actor, ownership, target, body_site, direction_spatial, count_cardinality, negation, required_modifier, qualifier_scope, and concept_width; use empty strings for non-applicable facets.\n"""
+    common = f"""You are a fresh Codex child invocation for Issue #46.\nRole: {role}\nBatch: {batch_id}\nFrozen V3.1 contract commit: {CONTRACT_COMMIT}\nRead the contract at {contract_path}. It is authoritative and must not be edited.\nThe launcher will persist your final response; do not edit repository files and do not run a validator.\nReturn exactly one JSON object with a `records` array and no Markdown fences or commentary. Every array item must be the direct complete semantic record object required by the role schema; do not wrap it in another object or append commentary.\nEvery input canonical must occur exactly once in `records`; do not add or omit rows.\nCanonical is an immutable identifier, not translation content: copy each input canonical byte-for-byte exactly. Never translate, normalize, case-fold, change case, replace spaces or underscores, remove punctuation, or otherwise rewrite canonical. The orchestrator rejects any mismatch; do not generate a canonical from semantic meaning.\nWhenever semantic_facets is emitted, it must be an object containing every key head_concept, action_state, actor, ownership, target, body_site, direction_spatial, count_cardinality, negation, required_modifier, qualifier_scope, and concept_width; use empty strings for non-applicable facets.\n"""
     if role in {"RESOLVER", "REPAIR"}:
         return common + f"""You are the semantic producer, not a deterministic token composer. Use your own semantic judgement for the complete canonical concept. Do not fallback merely because there is no exact map, no template, or the row is multiword. Preserve actor, ownership, target, body site, direction, count, action/state, negation, qualifier, and concept width. Display Japanese and search Japanese are separate decisions; search may be absent when no exact-safe term exists.\nFor each row emit: canonical, decision (KEEP_JA/REPAIR_JA/TRANSLATE_JA/TRUE_EXCEPTION/EVIDENCE_UNRESOLVED), final_display_ja, final_search_ja, display_verdict (ACCEPT/ABSENT/UNRESOLVED), search_verdict (ACCEPT/ABSENT/UNRESOLVED), semantic_gloss_ja, semantic_facets object, risk_class, decision_rationale_ja, evidence_refs array with typed refs, attempted_evidence_routes array, unresolved_question_ja (empty only when not unresolved), review_mode exactly CODEX_AGENT_SEMANTIC_REVIEW, and batch_id exactly {batch_id}. semantic_facets must include every key: head_concept, action_state, actor, ownership, target, body_site, direction_spatial, count_cardinality, negation, required_modifier, qualifier_scope, concept_width; use an empty string when a facet does not apply. Each evidence_refs object must include type, ref, and note strings.\nInput rows:\n{inline}\n"""
     if role == "CHALLENGER":
@@ -655,10 +663,26 @@ def validate_agent_records(role: str, input_rows: list[dict[str, Any]], output: 
     records = output.get("records")
     if not isinstance(records, list) or not all(isinstance(item, dict) for item in records):
         raise ValueError(f"{role} output records must be an array of direct objects")
-    expected = [row["canonical"] for row in input_rows]
-    actual = [record.get("canonical") for record in records]
+    expected: list[str] = []
+    for index, row in enumerate(input_rows):
+        canonical = row.get("canonical")
+        if not isinstance(canonical, str):
+            raise ValueError(f"{role} input canonical at index {index} is not a string")
+        expected.append(canonical)
+    actual: list[Any] = []
+    for index, record in enumerate(records):
+        canonical = record.get("canonical")
+        actual.append(canonical)
+        expected_canonical = expected[index] if index < len(expected) else None
+        if not isinstance(canonical, str) or expected_canonical is None:
+            raise ValueError(f"{role} canonical identity mismatch at index {index}")
+        if canonical.encode("utf-8") != expected_canonical.encode("utf-8"):
+            raise ValueError(
+                f"{role} immutable canonical mismatch at index {index}: "
+                f"expected {expected_canonical!r}, got {canonical!r}"
+            )
     if actual != expected:
-        raise ValueError(f"{role} canonical coverage/order mismatch: expected {expected}, got {actual}")
+        raise ValueError(f"{role} canonical coverage/order mismatch")
     if len(set(actual)) != len(actual):
         raise ValueError(f"{role} output contains duplicate canonical rows")
     if role in {"RESOLVER", "REPAIR"}:
