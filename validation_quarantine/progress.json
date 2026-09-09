@@ -1,7 +1,7 @@
 {
   "issue": 32,
   "branch": "dict-validation/quarantine",
-  "status": "HOLD_PROMOTION_PENDING_LOCAL_COMPLETENESS_SCAN",
+  "status": "READY_FOR_FINAL_PROMOTION_AUDIT",
   "rule_version": "R2",
   "target_total_specials": 2788,
   "fixed_order": "production Special2788 order at audit start",
@@ -51,12 +51,17 @@
   "candidate_fix_cross_consistency": "PASS_WITH_STATUS_FILTER",
   "unresolved_disposition": "PASS_AS_EXPLICITLY_PARKED",
   "github_visible_completeness": "PASS_VISIBLE_SCOPE",
-  "local_protected_asset_completeness": "PENDING",
-  "promotion_readiness": "HOLD_PROMOTION",
+  "local_protected_asset_completeness": "PASS_AFTER_DELTA_VALIDATION",
+  "local_completeness_scan_enum": "LOCAL_COMPLETENESS_DELTA_FOUND",
+  "local_delta_rows": 5,
+  "local_delta_genuine_missing_special": 0,
+  "local_delta_validation": "PASS_DELTA_REJECTED_NO_GENUINE_MISSING_SPECIAL",
+  "final_special_count": 2788,
+  "promotion_readiness": "READY_FOR_FINAL_PROMOTION_AUDIT",
   "last_completed_special_id": "2788",
   "last_completed_batch": 28,
   "next_batch": null,
   "next_start_position": null,
   "production_modified": false,
-  "notes": "First pass remains COMPLETE 2788/2788 (PASS2292/FIX174/REVIEW305/IMAGE_TEST_REQUIRED17), all Batch1-28 gates PASS, active revalidation pending0. Frozen semantic support is complete 58/58 with 33 rows explicitly parked IMAGE_TEST_REQUIRED. Candidate FIX cross-consistency PASS_WITH_STATUS_FILTER; historical withdrawn/superseded candidate rows must not be promoted. REVIEW305 and Special-level IMAGE_TEST_REQUIRED17 are explicitly reconciled as evidence-parked unresolved states, not active revalidation. GitHub-visible pre-freeze completeness found no concrete additional Special identity and current main profile blob remains the frozen ac6c1d24... input, but D-009/D-012 require local protected/ignored candidate/search/support assets to be inventoried before missing=0 can be certified. Promotion package verdict is HOLD_PROMOTION pending PRE_FREEZE_LOCAL_PROTECTED_ASSET_SCAN_TASK_20260910.md. Do not rerun first pass; do not modify production data/**."
+  "notes": "First pass remains COMPLETE 2788/2788 (PASS2292/FIX174/REVIEW305/IMAGE_TEST_REQUIRED17), all Batch1-28 gates PASS, active revalidation pending0. Frozen semantic support is complete 58/58 with 33 rows explicitly parked IMAGE_TEST_REQUIRED. Candidate FIX cross-consistency PASS_WITH_STATUS_FILTER; REVIEW305 and Special-level IMAGE_TEST_REQUIRED17 remain explicitly evidence-parked. GitHub-visible completeness PASS_VISIBLE_SCOPE. Local protected-asset scan inventoried protected/ignored assets and returned LOCAL_COMPLETENESS_DELTA_FOUND with five historical evidence-pending candidates, genuine missing Special0. R2 delta-only validation rejected all five for promotion while retaining provenance; final evidence-derived Special count is 2788. Promotion readiness is READY_FOR_FINAL_PROMOTION_AUDIT. This does not authorize production data/** writes or main merge; a separate independent final promotion audit is mandatory."
 }
