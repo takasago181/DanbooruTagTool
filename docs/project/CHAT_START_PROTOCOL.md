@@ -73,9 +73,35 @@ Issue番号は固定しない。Stageや担当変更で番号が変わるため�
 
 DEV / Codex連携では、Codexはさらに `docs/project/CURRENT_DEV_TASK.md` のSource Issue番号が `CURRENT_STATE.md` の現行DEV Issue番号と一致することを確認する。DEV/管理側はCodexへ新規/再開指示を出す直前に、private GitHubの現行DEV Issue本文/stateと最新mainのミラーをlive照合し、同一Issue番号内の本文driftも解消しておく。
 
-## 3. 新チャットの認識確認
+## 3. 新チャットの認識確認 / 班ID
 
-確認後、作業開始前に次を自分の言葉で回答する。
+確認後、実作業を始める前に、まず次の固定形式で**班ID（担当ID）**を表示する。
+
+```text
+TEAM_ID: <stable team/workstream id>
+TEAM: <班または担当名>
+ROLE: <このチャットの役割>
+ISSUE: <#number / N/A>
+BRANCH: <live verified branch / main / N/A>
+HEAD: <live verified 40-char commit SHA>
+CHECKPOINT: <latest relevant issue comment id / contract commit / N/A>
+CONTRACT: <Issue body / CURRENT_DEV_TASK / contract file@commit / N/A>
+PHASE: <current phase/gate>
+SOURCE_OF_TRUTH: CURRENT_STATE -> PERMANENT_RULES -> <Issue/management source> -> live branch
+VERSION_LABEL: <optional human-readable label / N/A>
+```
+
+運用ルール:
+
+- `TEAM_ID` はチャット名ではなく、現在の作業個体を識別する安定IDとする。例: `DEV:#35`, `DICT:#32:R2`, `UIJA:#36:FINAL_AUDIT`, `UIJA:#41:BLIND30_AUDIT`, `TEMP:#30`。
+- `BRANCH` / `HEAD` / `CHECKPOINT` はチャット記憶から埋めず、開始時にGitHubからlive確認する。Issue-only担当で専用branchがない場合も、参照した `main` のHEADを記録する。
+- `v2` / `v3` / `R3` / `FINAL` 等の版名は `VERSION_LABEL` またはPHASEの補助情報として使ってよいが、**版名だけを現在個体の識別子にしない**。
+- 実際の識別は少なくとも `TEAM_ID + ISSUE + BRANCH + HEAD + CHECKPOINT/CONTRACT + PHASE` で行う。
+- `CURRENT_STATE.md` の Active Teams Registry はrouting/indexであり、Issue本文、branch上の成果物、checkpoint、現行DEVの `CURRENT_DEV_TASK.md` を置き換えるtask contractではない。
+- Registry / Issue / branch / checkpointの間でowner・scope・phase・HEAD系統に矛盾がある場合、勝手に一方を採用しない。`IDENTITY_CONFLICT` と明記して実作業を止め、GitHub正本を先に整合させる。
+- Issue変更、branch変更、正式contract変更、大きなphase変更、チャット移行時には班IDを再取得する。通常の小checkpointごとに `CURRENT_STATE.md` の固定HEADを書き換える必要はない。
+
+班IDの後、必要な範囲で次も自分の言葉で確認する。
 
 1. 自分の班または担当種別と役割
 2. 現在のStage
@@ -91,7 +117,7 @@ DEV / Codex連携では、Codexはさらに `docs/project/CURRENT_DEV_TASK.md` �
 
 `GitHub正本運用：認識済み / 未認識`
 
-認識済みと判断できるまでは実作業を開始しない。
+班IDをlive確認できず、または認識済みと判断できない間は実作業を開始しない。
 
 ## 4. 班・担当ごとの固定境界
 
@@ -154,6 +180,8 @@ DEV / Codex連携では、Codexはさらに `docs/project/CURRENT_DEV_TASK.md` �
 
 新チャットが以下を満たした時点で移行完了とする。
 
+- 班IDをGitHub live stateから取得して表示済み
+- `TEAM_ID + ISSUE + BRANCH + HEAD + CHECKPOINT/CONTRACT + PHASE` が矛盾なく確認済み
 - 現在Stageを正しく認識
 - 現行Issueまたは管理対象を正しく特定
 - 必要なら直近checkpointを把握
