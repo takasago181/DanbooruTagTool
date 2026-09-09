@@ -1,0 +1,7 @@
+{
+  "accepted_rows_screened": 27743,
+  "malformed_candidates": 2,
+  "non_japanese_candidates": 458,
+  "raw_english_candidates": 4104,
+  "screen_policy": "strong simplified-only characters plus canonical-aware raw-token checks; no blanket CJK or ASCII rejection"
+}

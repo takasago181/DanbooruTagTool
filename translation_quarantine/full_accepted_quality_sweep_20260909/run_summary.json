@@ -1,0 +1,78 @@
+{
+  "accepted_demoted": 4549,
+  "accepted_repaired": 22,
+  "accepted_revalidated": 23172,
+  "accepted_rows_screened": 27743,
+  "artifact_root": "translation_quarantine/full_accepted_quality_sweep_20260909",
+  "campaign_id": "issue36-full-accepted-quality-sweep-20260909",
+  "contract": "translation_quarantine/r3/ISSUE36_FULL_ACCEPTED_AND_FALLBACK_RECONCILIATION_CONTRACT.md",
+  "contract_commit": "0f0cdd8657aeb03ee13cf1968fb86980fe4f604e",
+  "coverage": {
+    "after": {
+      "accepted": 23194,
+      "display_ja": 23194,
+      "fallback": 7435,
+      "search_ja": 23194
+    },
+    "input_hashes": {
+      "translation_quarantine/bounded_wrapper_cleanup_20260909/final_translation_table.csv": "56cba22164782ce4ded54d7738b792b7bc47662cce87cc4f47a5e6480f3e48d4",
+      "translation_quarantine/r3/ISSUE36_FULL_ACCEPTED_AND_FALLBACK_RECONCILIATION_CONTRACT.md": "e0fc5259e1beef74750bd88a8118b9603734754c970956205460a011c239c383"
+    },
+    "measurable_universe": 30629,
+    "merged_unique_canonicals": 30629,
+    "source": {
+      "accepted": 27743,
+      "display_ja": 27283,
+      "fallback": 2886,
+      "search_ja": 27283
+    }
+  },
+  "execution_start_head": "bd111c5052203aacd74753c4a057893d2f5e79a8",
+  "fallback_reason_classes": {
+    "CODE_OR_PRODUCT_IDENTIFIER": 98,
+    "MALFORMED_LABEL": 2,
+    "NON_JAPANESE_LABEL": 444,
+    "OPAQUE_SOURCE_STRING": 70,
+    "PHRASE_SEMANTICS_UNRESOLVED": 1677,
+    "PRODUCT_OR_SERVICE_NAME": 68,
+    "PROPER_NAME_OR_QUALIFIED_LABEL": 897,
+    "RAW_ENGLISH_SEMANTIC_CORE": 4103,
+    "SYMBOL_OR_EMOTICON": 76
+  },
+  "fallback_rows_revisited": 2886,
+  "final_state_counts": {
+    "ENGLISH_FALLBACK_EXCEPTION": 7435,
+    "JA_ACCEPT_EXISTING": 546,
+    "JA_ACCEPT_MACHINE": 20001,
+    "JA_ACCEPT_STRICT": 2647
+  },
+  "final_table_rows": 30629,
+  "fixed_source_head": "1f069d050909425dbcc5c2965951fd0c920a2205",
+  "generic_review_pending": 0,
+  "phrase_rows_resolved": 0,
+  "phrase_rows_revisited": 1677,
+  "production_modified": false,
+  "promotion": "NOT_AUTHORIZED",
+  "protected_boundary_verdict": "PASS",
+  "replay_verdict": "PASS",
+  "representative_repairs": {
+    "anal_object_insertion": "肛門への物体挿入",
+    "android": "アンドロイド",
+    "hydraulic_press": "油圧プレス",
+    "imminent_anal": "肛門への挿入直前",
+    "imminent_penetration": "挿入直前",
+    "painting_fingernails": "爪に色を塗る",
+    "presenting_own_anus": "自分の肛門を見せる",
+    "presenting_own_ass": "自分の尻を見せる",
+    "presenting_own_foot": "自分の足を見せる",
+    "presenting_own_pussy": "自分の陰部を見せる",
+    "press_conference": "記者会見",
+    "taking_notes": "メモを取る",
+    "vibrator_in_anus": "肛門内のバイブレーター"
+  },
+  "tests": {
+    "focused": "46 passed",
+    "full_pytest": "359 passed; 61 known Windows TEMP ACL setup/finalize errors; no product/assertion failures"
+  },
+  "triggering_handoff_comment": "5599963638"
+}

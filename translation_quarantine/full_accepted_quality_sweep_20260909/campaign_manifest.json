@@ -1,0 +1,48 @@
+{
+  "campaign_id": "issue36-full-accepted-quality-sweep-20260909",
+  "contract": "translation_quarantine/r3/ISSUE36_FULL_ACCEPTED_AND_FALLBACK_RECONCILIATION_CONTRACT.md",
+  "contract_commit": "0f0cdd8657aeb03ee13cf1968fb86980fe4f604e",
+  "execution_start_head": "bd111c5052203aacd74753c4a057893d2f5e79a8",
+  "fixed_source_head": "1f069d050909425dbcc5c2965951fd0c920a2205",
+  "input_hashes": {
+    "translation_quarantine/bounded_wrapper_cleanup_20260909/final_translation_table.csv": "56cba22164782ce4ded54d7738b792b7bc47662cce87cc4f47a5e6480f3e48d4",
+    "translation_quarantine/r3/ISSUE36_FULL_ACCEPTED_AND_FALLBACK_RECONCILIATION_CONTRACT.md": "e0fc5259e1beef74750bd88a8118b9603734754c970956205460a011c239c383"
+  },
+  "output_hashes": {
+    "accepted_revalidation": "fbf8e8e45490473713f55848c502ecc09a33ed49a494f44f7db6463f914727a8",
+    "fallback_reconciliation": "8c8bc3ecb5e602de3096105e3980e055cb770f099a9039b5b204be1c3024c257",
+    "merged_table": "fb1792571b061eaa599373871e262f759cb515a9c7c4fe77abf5ca653c8daff6"
+  },
+  "production_modified": false,
+  "promotion": "NOT_AUTHORIZED",
+  "protected_boundary": {
+    "after": {
+      "data/japanese/japanese_terms.csv": "sha256:aa4583f911e29597f60a4059bf45c34dc320ab33012ec6b46f2a4ffae21422dc",
+      "data/runtime/japanese_overlay.json": "sha256:de1b375d79ef05f4c2477347b20b8a09115511d2ecbd39602bdebcdfa6d576dc",
+      "data/runtime_index/BUILD_MANIFEST.json": "sha256:0f7ec4961c393a4c032f23a2d3e22b9268b7e481bfd91e788fec6379411fb13f",
+      "data/runtime_index/canonical_overlay.json": "sha256:bf9a62105740ec579ea0618721b78a0d3ccc2279cf18aabf402c3083ede05195",
+      "data/semantic/family_support_rules.csv": "sha256:59609aadc82f9f4be97b82008159b55e4d738f41dbb9625c59be8a826fe7c4fd",
+      "data/semantic/semantic_support_profiles.csv": "sha256:33f9142333db867d53096cf2f11ba411aefa13996560326fa174803a2d8c2755"
+    },
+    "before": {
+      "data/japanese/japanese_terms.csv": "sha256:aa4583f911e29597f60a4059bf45c34dc320ab33012ec6b46f2a4ffae21422dc",
+      "data/runtime/japanese_overlay.json": "sha256:de1b375d79ef05f4c2477347b20b8a09115511d2ecbd39602bdebcdfa6d576dc",
+      "data/runtime_index/BUILD_MANIFEST.json": "sha256:0f7ec4961c393a4c032f23a2d3e22b9268b7e481bfd91e788fec6379411fb13f",
+      "data/runtime_index/canonical_overlay.json": "sha256:bf9a62105740ec579ea0618721b78a0d3ccc2279cf18aabf402c3083ede05195",
+      "data/semantic/family_support_rules.csv": "sha256:59609aadc82f9f4be97b82008159b55e4d738f41dbb9625c59be8a826fe7c4fd",
+      "data/semantic/semantic_support_profiles.csv": "sha256:33f9142333db867d53096cf2f11ba411aefa13996560326fa174803a2d8c2755"
+    },
+    "changed": false,
+    "production_modified": false,
+    "verdict": "PASS"
+  },
+  "replay": {
+    "merged_table_hash": "fb1792571b061eaa599373871e262f759cb515a9c7c4fe77abf5ca653c8daff6",
+    "original_vs_replay1": "PASS",
+    "original_vs_replay2": "PASS",
+    "replay1_vs_replay2": "PASS",
+    "verdict": "PASS"
+  },
+  "schema_version": "issue36-full-accepted-quality-sweep-v1",
+  "triggering_handoff_comment": "5599963638"
+}

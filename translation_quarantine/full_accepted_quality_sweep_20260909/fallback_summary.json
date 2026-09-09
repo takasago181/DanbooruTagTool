@@ -1,0 +1,17 @@
+{
+  "fallback_rows_revisited": 2886,
+  "ordinary_concept_recheck": "all fallback rows revisited; no speculative translation introduced",
+  "phrase_semantics_resolved": 0,
+  "phrase_semantics_unresolved_revisited": 1677,
+  "reason_classes": {
+    "CODE_OR_PRODUCT_IDENTIFIER": 98,
+    "MALFORMED_LABEL": 2,
+    "NON_JAPANESE_LABEL": 444,
+    "OPAQUE_SOURCE_STRING": 70,
+    "PHRASE_SEMANTICS_UNRESOLVED": 1677,
+    "PRODUCT_OR_SERVICE_NAME": 68,
+    "PROPER_NAME_OR_QUALIFIED_LABEL": 897,
+    "RAW_ENGLISH_SEMANTIC_CORE": 4103,
+    "SYMBOL_OR_EMOTICON": 76
+  }
+}

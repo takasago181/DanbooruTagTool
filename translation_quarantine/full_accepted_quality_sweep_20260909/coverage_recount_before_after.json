@@ -1,0 +1,20 @@
+{
+  "after": {
+    "accepted": 23194,
+    "display_ja": 23194,
+    "fallback": 7435,
+    "search_ja": 23194
+  },
+  "input_hashes": {
+    "translation_quarantine/bounded_wrapper_cleanup_20260909/final_translation_table.csv": "56cba22164782ce4ded54d7738b792b7bc47662cce87cc4f47a5e6480f3e48d4",
+    "translation_quarantine/r3/ISSUE36_FULL_ACCEPTED_AND_FALLBACK_RECONCILIATION_CONTRACT.md": "e0fc5259e1beef74750bd88a8118b9603734754c970956205460a011c239c383"
+  },
+  "measurable_universe": 30629,
+  "merged_unique_canonicals": 30629,
+  "source": {
+    "accepted": 27743,
+    "display_ja": 27283,
+    "fallback": 2886,
+    "search_ja": 27283
+  }
+}
