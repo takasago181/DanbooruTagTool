@@ -7,8 +7,8 @@
   "fixed_order": "production Special2788 order at audit start",
   "batch_size": 100,
   "internal_block_size": 20,
-  "completed_specials": 2320,
-  "pass": 1863,
+  "completed_specials": 2340,
+  "pass": 1883,
   "fix": 174,
   "review": 266,
   "image_test_required": 17,
@@ -44,10 +44,10 @@
   "semantic_support_rows_covered": 55,
   "semantic_support_rows_review": 0,
   "semantic_support_rows_image_test_required": 30,
-  "last_completed_special_id": "2320",
+  "last_completed_special_id": "2340",
   "last_completed_batch": 23,
   "next_batch": 24,
-  "next_start_position": 2321,
+  "next_start_position": 2341,
   "production_modified": false,
-  "notes": "Batch24 partial checkpoint 2301-2320 durable. Delta PASS17/FIX0/REVIEW3/IMAGE_TEST_REQUIRED0. A-risk REVIEW: 2301 collar grab, 2308 grabbing another's skirt, 2309 necktie grab because independent Danbooru semantics indicate another-person ownership while ActorRequirementOverride is blank; no guessed FIX/spatial flags. candidate_fixes/revalidation_queue inspected with no delta. Next safe restart2321; main/production unchanged."
+  "notes": "Batch24 partial checkpoints 2301-2340 durable. Delta PASS37/FIX0/REVIEW3/IMAGE_TEST_REQUIRED0. A-risk REVIEW remain IDs2301/2308/2309; A-risk smelling rows2332-2336 deep-reviewed PASS without spatial/support promotion. Alias IDs2327-2328 preserve prompt identity statistics-only. candidate_fixes/revalidation_queue inspected each checkpoint with no delta. Next safe restart2341; main/production unchanged."
 }
