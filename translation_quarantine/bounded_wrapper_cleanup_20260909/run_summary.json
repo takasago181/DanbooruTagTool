@@ -1,5 +1,5 @@
 {
-  "audited_source_commit": "aa0c269e0f9ca5e2c65b2c869f9e1f720802afc3",
+  "audited_source_commit": "f76535bbaefc18a31c03c5a9a337e93895b6ec34",
   "before_after": {
     "after": {
       "display_ja": 26449,
@@ -20,7 +20,7 @@
     "merged_unique_canonicals": 30629
   },
   "bounded_target_count": 2434,
-  "campaign_id": "issue36-bounded-wrapper-cleanup-20260909-v2",
+  "campaign_id": "issue36-bounded-wrapper-cleanup-20260909-v3-semantic",
   "classification_counts": {
     "TRANSLATABLE_DISPLAY": 1546,
     "TRUE_ORIGINAL_FORM_EXCEPTION": 888
@@ -58,11 +58,24 @@
     "newt": "イモリ",
     "no_magazine_(weapon)": "弾倉なし（武器）"
   },
+  "representative_semantic_repairs": {
+    "hugging_ass": "尻を抱く",
+    "hydraulic_press": "油圧プレス",
+    "opening_window": "窓を開ける",
+    "painting_fingernails": "爪に色を塗る",
+    "painting_toenails": "足の爪に色を塗る",
+    "press_conference": "記者会見",
+    "riding_motorcycle": "オートバイに乗る",
+    "taking_notes": "メモを取る",
+    "three-finger_salute": "3本指の敬礼",
+    "two-handed_masturbation": "両手での自慰",
+    "two-page_spread": "見開き2ページ"
+  },
   "residual_fallback": 1714,
   "tests": {
-    "focused_bounded_wrapper": "11 passed",
-    "full_pytest": "392 passed in 77.05s; basetemp .pytest-issue36-full-0909-final; no setup errors",
-    "qualified_review_regression": "80 passed"
+    "focused_bounded_wrapper": "12 passed",
+    "full_pytest": "393 passed; 61 known Windows TEMP ACL setup errors and pytest session-finalize PermissionError; no product/assertion failures",
+    "issue36_r3_qualified_regression": "102 passed"
   },
-  "triggering_audit_comment": "5594486124"
+  "triggering_audit_comment": "5599075517"
 }

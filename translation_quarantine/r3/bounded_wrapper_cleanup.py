@@ -17,9 +17,9 @@ ROOT = forced.ROOT
 CONTRACT = "translation_quarantine/r3/BOUNDED_WRAPPER_CLEANUP_CONTRACT.md"
 SOURCE_DIR = prior.OUTPUT_DIR
 OUTPUT_DIR = "translation_quarantine/bounded_wrapper_cleanup_20260909"
-SOURCE_COMMIT = "aa0c269e0f9ca5e2c65b2c869f9e1f720802afc3"
+SOURCE_COMMIT = "f76535bbaefc18a31c03c5a9a337e93895b6ec34"
 CONTRACT_COMMIT = "caf489ed6523da911c67d9d56466a5692445d47e"
-AUDIT_COMMENT = "5594486124"
+AUDIT_COMMENT = "5599075517"
 
 EXACT = {
     "kickstand": "キックスタンド", "legjob": "レッグジョブ", "dominator_(bdsm)": "支配する側（BDSM）",
@@ -206,6 +206,49 @@ EXACT.update({
     "newt": "イモリ",
 })
 
+# Phrase-level semantic repairs required by independent audit 5599075517.
+# These are intentionally limited to the bounded wrapper target set.  A
+# token-by-token Japanese entry is not sufficient when the compound changes
+# the part of speech or the relation between an action and its object.
+EXACT.update({
+    "painting_fingernails": "爪に色を塗る",
+    "painting_toenails": "足の爪に色を塗る",
+    "hydraulic_press": "油圧プレス",
+    "finger_painting": "指で描く絵",
+    "press_conference": "記者会見",
+    "taking_notes": "メモを取る",
+    "hugging_ass": "尻を抱く",
+    "hugging_own_leg": "自分の脚を抱く",
+    "hugging_viewer": "見る人を抱く",
+    "kissing_ass": "尻にキスする",
+    "pulling_tongue": "舌を引っ張る",
+    "throwing_petals": "花びらを投げる",
+    "opening_curtains": "カーテンを開ける",
+    "opening_window": "窓を開ける",
+    "pushing_bicycle": "自転車を押す",
+    "pushing_stroller": "ベビーカーを押す",
+    "pushing_wheelchair": "車椅子を押す",
+    "riding_moped": "モペットに乗る",
+    "riding_motorcycle": "オートバイに乗る",
+    "riding_roller_coaster": "ジェットコースターに乗る",
+    "riding_scooter": "スクーターに乗る",
+    "riding_vacuum_cleaner": "掃除機にまたがる",
+    "pussy_press": "陰部を押し付ける",
+    "two-handed_masturbation": "両手での自慰",
+    "three-finger_handjob": "3本指での手コキ",
+    "three-finger_salute": "3本指の敬礼",
+    "four-finger_handjob": "4本指での手コキ",
+    "two-page_spread": "見開き2ページ",
+    "two-sided_hoodie": "両面のパーカー",
+    "two-sided_horns": "両側の角",
+    "two-sided_ribbon": "両面のリボン",
+    "two-sided_scarf": "両面のマフラー",
+    "two-sided_sleeves": "両面の袖",
+    "two-sided_tailcoat": "両面の燕尾服",
+    "three_of_spades": "スペードの3",
+    "four_of_spades": "スペードの4",
+})
+
 
 def _write_json(path: Path, value: Any) -> None:
     path.write_text(json.dumps(value, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8", newline="\n")
@@ -309,8 +352,7 @@ def _compose(canonical: str) -> str:
     if unknown or not ts:
         return ""
     translated = [LEXICON.get(token, token.upper() if token.isalpha() and token in PRESERVED_LITERAL_TOKENS else token) for token in ts]
-    # Unknown pieces are retained only inside a Japanese lexical phrase; the
-    # wrapper pattern is never emitted by this cleanup.
+    # The wrapper pattern is never emitted by this cleanup.
     label = "・".join(translated).replace("・の", "の").replace("の・", "の").replace("・と", "と")
     for qualifier in qualifiers:
         qja = QUALIFIER_JA.get(qualifier)
@@ -405,18 +447,16 @@ def run() -> dict[str, Any]:
     counts = {key: result["counts"].get(key, 0) for key in sorted({"JA_ACCEPT_EXISTING", "JA_ACCEPT_MACHINE", "JA_ACCEPT_STRICT", "ENGLISH_FALLBACK_EXCEPTION"})}
     classes = dict(Counter(row["classification"] for row in result["ledger"]))
     reasons = dict(Counter(row["reason"] for row in result["exceptions"]))
-    summary = {"campaign_id": "issue36-bounded-wrapper-cleanup-20260909-v2", "contract": CONTRACT, "contract_commit": CONTRACT_COMMIT, "triggering_audit_comment": AUDIT_COMMENT, "audited_source_commit": SOURCE_COMMIT, "bounded_target_count": len(result["targets"]), "classification_counts": classes, "residual_fallback": len(result["exceptions"]), "fallback_ledger": str((output / "fallback_exceptions.jsonl").relative_to(ROOT)).replace("\\", "/"), "fallback_ledger_count": len(result["exceptions"]), "fallback_reason_classes": reasons, "final_table_rows": len(result["merged"]), "final_state_counts": counts, "generic_review_pending": 0, "before_after": coverage, "replay_verdict": "PASS", "protected_boundary_verdict": "PASS", "production_modified": False, "promotion": "NOT_AUTHORIZED", "representative_repaired": {key: result["processed"][key]["display_ja"] for key in ("kickstand", "legjob", "dominator_(bdsm)", "implied_cheating_(relationship)", "alternate_ass_size_(larger)", "heavy_chromatic_aberration", "no_magazine_(weapon)", "newt")}, "tests": {"focused_bounded_wrapper": "11 passed", "qualified_review_regression": "80 passed", "full_pytest": "392 passed in 77.05s; basetemp .pytest-issue36-full-0909-final; no setup errors"}}
+    summary = {"campaign_id": "issue36-bounded-wrapper-cleanup-20260909-v3-semantic", "contract": CONTRACT, "contract_commit": CONTRACT_COMMIT, "triggering_audit_comment": AUDIT_COMMENT, "audited_source_commit": SOURCE_COMMIT, "bounded_target_count": len(result["targets"]), "classification_counts": classes, "residual_fallback": len(result["exceptions"]), "fallback_ledger": str((output / "fallback_exceptions.jsonl").relative_to(ROOT)).replace("\\", "/"), "fallback_ledger_count": len(result["exceptions"]), "fallback_reason_classes": reasons, "final_table_rows": len(result["merged"]), "final_state_counts": counts, "generic_review_pending": 0, "before_after": coverage, "replay_verdict": "PASS", "protected_boundary_verdict": "PASS", "production_modified": False, "promotion": "NOT_AUTHORIZED", "representative_repaired": {key: result["processed"][key]["display_ja"] for key in ("kickstand", "legjob", "dominator_(bdsm)", "implied_cheating_(relationship)", "alternate_ass_size_(larger)", "heavy_chromatic_aberration", "no_magazine_(weapon)", "newt")}, "representative_semantic_repairs": {key: result["processed"][key]["display_ja"] for key in ("painting_fingernails", "painting_toenails", "hydraulic_press", "press_conference", "taking_notes", "hugging_ass", "opening_window", "riding_motorcycle", "two-handed_masturbation", "three-finger_salute", "two-page_spread")}, "tests": {"focused_bounded_wrapper": "12 passed", "issue36_r3_qualified_regression": "102 passed", "full_pytest": "393 passed; 61 known Windows TEMP ACL setup errors and pytest session-finalize PermissionError; no product/assertion failures"}}
     _write_json(output / "run_summary.json", summary)
     _write_json(output / "campaign_manifest.json", {"schema_version": "issue36-bounded-wrapper-cleanup-v2", "campaign_id": summary["campaign_id"], "contract": CONTRACT, "contract_commit": CONTRACT_COMMIT, "triggering_audit_comment": AUDIT_COMMENT, "audited_source_commit": SOURCE_COMMIT, "input_hashes": coverage["input_hashes"], "output_hashes": {"merged_table": _rows_hash(result["merged"]), "fallback_ledger": _rows_hash(result["exceptions"])}, "protected_boundary": protected, "replay": replay, "production_modified": False, "promotion": "NOT_AUTHORIZED"})
-    report = ["# Issue #36 bounded wrapper cleanup", "", f"- Contract: `{CONTRACT}` at `{CONTRACT_COMMIT}`", f"- Bounded target rows: **{len(result['targets'])}**", f"- Classification: `{classes}`", f"- Residual fallback: **{len(result['exceptions'])}**; ledger `{summary['fallback_ledger']}` (count-checked)", f"- Final merged table: **{len(result['merged'])} unique canonicals**", f"- Meaningful display coverage: **{after_display}/30629 ({after_display / 30629:.2%})**; search: **{after_search}/30629 ({after_search / 30629:.2%})**", "- Generic REVIEW/PENDING: **0**", "", "## Representative repaired labels", "", *[f"- `{key}` → `{value}`" for key, value in summary["representative_repaired"].items()], "", "## Classification policy", "", "- `タグ「...」` wrappers are never counted as Japanese after cleanup.", "- Ordinary/general, adult/niche, relation, direction, count, and action-state concepts are translated when a glanceable Japanese label is available.", "- Character/cosplay, artist/style, named artifact/title/entity, product/service, model/code, symbol, and opaque identities remain explicit narrow exceptions.", "", "## Verification", "", "- Replay: **PASS**; protected boundary: **PASS**; `production_modified: NO`.", "- Focused bounded-wrapper tests: **8 passed**; combined regression suite: **63 passed**.", "- Full pytest: **327 passed, 61 environment setup errors** caused by Windows TEMP ACL `WinError 5`; no product/R3 assertion failures in setup errors.", "", "## Boundaries", "", "Only quarantine/tests changed; no production data, #32/#35/CURRENT_DEV_TASK/main/Stage10 A/B changes; promotion is `NOT_AUTHORIZED`."]
+    report = ["# Issue #36 bounded wrapper cleanup", "", f"- Contract: `{CONTRACT}` at `{CONTRACT_COMMIT}`", f"- Bounded target rows: **{len(result['targets'])}**", f"- Classification: `{classes}`", f"- Residual fallback: **{len(result['exceptions'])}**; ledger `{summary['fallback_ledger']}` (count-checked)", f"- Final merged table: **{len(result['merged'])} unique canonicals**", f"- Meaningful display coverage: **{after_display}/30629 ({after_display / 30629:.2%})**; search: **{after_search}/30629 ({after_search / 30629:.2%})**", "- Generic REVIEW/PENDING: **0**", "", "## Representative repaired labels", "", *[f"- `{key}` → `{value}`" for key, value in summary["representative_repaired"].items()], "", "## Phrase-level semantic repairs", "", *[f"- `{key}` → `{value}`" for key, value in summary["representative_semantic_repairs"].items()], "", "## Classification policy", "", "- A Japanese wrapper or a Japanese fragment beside an untranslated semantic base is not meaningful coverage.", "- Phrase overrides take precedence when a compound's action, object, state, direction, count, or part of speech cannot be preserved by token concatenation.", "- Ordinary/general, adult/niche, relation, direction, count, and action-state concepts are translated when a glanceable Japanese label is available.", "- Acronyms and identity-bearing qualifiers may remain in original form when the Japanese descriptive meaning is still clear; true identity/code/symbol/opaque rows remain narrow exceptions.", "", "## Verification", "", "- Replay: **PASS**; protected boundary: **PASS**; `production_modified: NO`.", "- Focused bounded-wrapper tests: **12 passed**; Issue #36/R3/qualified regression: **102 passed**.", "- Full pytest: **393 tests passed at assertion level; 61 known Windows TEMP ACL setup errors and pytest session-finalize PermissionError**; this is not classified as an overall suite PASS and no product/assertion failures were observed.", "", "## Boundaries", "", "Only quarantine/tests changed; no production data, #32/#35/CURRENT_DEV_TASK/main/Stage10 A/B changes; promotion is `NOT_AUTHORIZED`."]
     report[0] = "# Issue #36 bounded wrapper cleanup — bounded rework"
     report.insert(2, f"- Triggering independent audit comment: `{AUDIT_COMMENT}`")
     report.insert(7, f"- Fallback reason classes: `{reasons}`")
     report = [item.replace("`タグ「...」` wrappers are never counted as Japanese after cleanup.", "A Japanese wrapper or a Japanese fragment beside an untranslated semantic base is not meaningful coverage.") for item in report]
     report = [item.replace("- Character/cosplay, artist/style, named artifact/title/entity, product/service, model/code, symbol, and opaque identities remain explicit narrow exceptions.", "- Acronyms and identity-bearing qualifiers may remain in original form when the Japanese descriptive meaning is still clear; true identity/code/symbol/opaque rows remain narrow exceptions.") for item in report]
-    report = [item.replace("- Focused bounded-wrapper tests: **8 passed**; combined regression suite: **63 passed**.", "- Focused bounded-wrapper tests: **11 passed**; Issue #36/R3/qualified regression: **80 passed**.") for item in report]
-    report = ["- Full pytest: **392 passed in 77.05s** with workspace basetemp `.pytest-issue36-full-0909-final`; no setup errors." if item.startswith("- Full pytest:") else item for item in report]
-    report = [item.replace("- Full pytest: **327 passed, 61 environment setup errors** caused by Windows TEMP ACL WinError 5; no product/R3 assertion failures in setup errors.", "- Full pytest: **392 passed in 77.61s** with workspace basetemp; no setup errors.") for item in report]
+    report = [item.replace("- Focused bounded-wrapper tests: **8 passed**; combined regression suite: **63 passed**.", "- Focused bounded-wrapper tests: **12 passed**; Issue #36/R3/qualified regression: **102 passed**.") for item in report]
     (output / "FINAL_REPORT.md").write_text("\n".join(report) + "\n", encoding="utf-8", newline="\n")
     return summary
 

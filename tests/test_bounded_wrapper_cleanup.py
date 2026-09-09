@@ -61,6 +61,28 @@ def test_weapon_qualifier_does_not_use_publication_sense_for_magazine():
     assert row["final_state"] != "ENGLISH_FALLBACK_EXCEPTION"
 
 
+def test_phrase_level_semantic_repairs_preserve_action_and_object_sense():
+    result = cleanup._evaluate()["processed"]
+    expected = {
+        "painting_fingernails": "爪に色を塗る",
+        "painting_toenails": "足の爪に色を塗る",
+        "hydraulic_press": "油圧プレス",
+        "press_conference": "記者会見",
+        "taking_notes": "メモを取る",
+        "hugging_ass": "尻を抱く",
+        "opening_window": "窓を開ける",
+        "riding_motorcycle": "オートバイに乗る",
+        "two-handed_masturbation": "両手での自慰",
+        "three-finger_salute": "3本指の敬礼",
+        "two-page_spread": "見開き2ページ",
+    }
+    for canonical, label in expected.items():
+        row = result[canonical]
+        assert row["display_ja"] == label
+        assert row["final_state"] != "ENGLISH_FALLBACK_EXCEPTION"
+        assert cleanup._meaningful(label, canonical)
+
+
 def test_accepted_bounded_labels_have_no_untranslated_semantic_base_token():
     result = cleanup._evaluate()
     allowed_reasons = {
