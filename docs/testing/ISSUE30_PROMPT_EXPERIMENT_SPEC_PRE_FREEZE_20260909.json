@@ -1,0 +1,270 @@
+{
+  "format_version": "stage10.prompt-experiment.v0.1",
+  "status": "PRE_FREEZE_DRAFT_NOT_EXECUTION_AUTHORIZATION",
+  "owner": "PROMPT:#5",
+  "gates": {
+    "requires_dictionary_freeze": true,
+    "requires_issue42_verdict": "READY_FOR_STAGE10_EVALUATION",
+    "forbid_auto_execute": true,
+    "unresolved_until_freeze": [
+      "final_special_ids",
+      "evaluator_assignment",
+      "auto_review_policy",
+      "production_thresholds",
+      "production_prompt_rules"
+    ]
+  },
+  "profile": {
+    "id": "WAI17_LOCAL_FIRST_20260909",
+    "status": "CANDIDATE_STAGE10_REQUIRED",
+    "checkpoint_path": "sd\\waiIllustriousSDXL_v170.safetensors",
+    "checkpoint_sha256": "f116b0c78ff441467b0cdc8f1936e1ed18ea31e9997c7b132b1b8db533f0bd04",
+    "runtime_family": "Forge Neo",
+    "generation": {
+      "sampler": "Euler a",
+      "scheduler": "CAPTURE_ACTUAL",
+      "steps": 25,
+      "cfg": 6,
+      "batch_size": 1,
+      "seed": "FIXED_WITHIN_PAIR",
+      "continuity_seed_candidate": 5072,
+      "resolution_modes": {
+        "CAUSAL_SQUARE": [1024, 1024],
+        "PORTRAIT_STRESS": [1024, 1344]
+      },
+      "external_vae": "OFF",
+      "lora": "OFF",
+      "hires_fix": "OFF",
+      "adetailer": "OFF",
+      "regional_or_couple": "OFF",
+      "controlnet": "OFF"
+    },
+    "prompt_grammar": {
+      "id": "LEAN_TAG_FIRST",
+      "production_fact": false,
+      "order": [
+        "SUBJECT_COUNT_IDENTITY",
+        "SPECIAL_ACT_CORE",
+        "SITE_OBJECT_REQUIRED_RELATION",
+        "NEEDED_POSE_GEOMETRY",
+        "NEEDED_FRAME_VISIBILITY",
+        "MINIMUM_QUALITY",
+        "SHORT_TARGET_SAFE_NEGATIVE"
+      ]
+    }
+  },
+  "pair_invariants": {
+    "one_experiment_one_question": true,
+    "single_independent_delta": true,
+    "fixed": [
+      "checkpoint_sha256",
+      "runtime_build",
+      "seed",
+      "resolution",
+      "sampler",
+      "scheduler",
+      "steps",
+      "cfg",
+      "batch_size",
+      "vae",
+      "lora",
+      "hires",
+      "adetailer",
+      "regional_or_couple",
+      "controlnet",
+      "negative_except_when_variable",
+      "prompt_components_except_independent_variable"
+    ],
+    "capture_actual_resolved_prompt": true,
+    "capture_actual_negative": true,
+    "multiple_seeds_before_rule_promotion": true,
+    "seed_count": "FINALIZE_BEFORE_STAGE10"
+  },
+  "case_slots": [
+    {"id": "SIMPLE_DIRECT", "class": "SIMPLE", "evaluator": "DIRECT_TAG", "review_default": false},
+    {"id": "REL_ACTOR_TARGET", "class": "RELATIONAL", "evaluator": "RELATION_BINDING", "review_default": true},
+    {"id": "REL_BODY_SITE", "class": "RELATIONAL", "evaluator": "RELATION_BINDING", "review_default": true},
+    {"id": "COMPOSITE_MULTI_SPECIAL", "class": "COMPOSITE", "evaluator": "MULTI_SPECIAL_RETENTION", "review_default": true},
+    {"id": "COMPOSITE_OBJECT_BINDING", "class": "COMPOSITE", "evaluator": "SEMANTIC_DECOMPOSED", "review_default": true},
+    {"id": "RARE_DIRECT", "class": "RARE", "evaluator": "HUMAN_ONLY_UNTIL_COVERAGE", "review_default": true},
+    {"id": "RARE_RELATIONAL", "class": "RARE", "evaluator": "HUMAN_ONLY", "review_default": true},
+    {"id": "VISIBILITY_DEPENDENT", "class": "COMPOSITE", "evaluator": "VISIBILITY_SUPPORT", "review_default": true},
+    {"id": "ALIAS_SURFACE_IF_ELIGIBLE", "class": "IDENTITY_SENSITIVE", "evaluator": "ALIAS_CANONICAL", "review_default": true, "conditional": true},
+    {"id": "NEGATIVE_COLLISION_IF_ELIGIBLE", "class": "GEOMETRY_SENSITIVE", "evaluator": "HUMAN_ONLY", "review_default": true, "conditional": true}
+  ],
+  "experiment_templates": [
+    {
+      "id": "E01",
+      "question": "Does one Meaning/Site support improve target realization without new conflict?",
+      "a": "SPECIAL_ONLY_MINIMUM",
+      "b": "A_PLUS_ONE_MEANING_OR_SITE_SUPPORT",
+      "variable": "ONE_MEANING_OR_SITE_SUPPORT",
+      "axes": ["T", "B", "C", "U"]
+    },
+    {
+      "id": "E02",
+      "question": "Does one Geometry/Visibility support improve observability or geometry without degrading target/binding?",
+      "a": "NO_GEOMETRY_VISIBILITY_SUPPORT",
+      "b": "A_PLUS_ONE_GEOMETRY_OR_VISIBILITY_SUPPORT",
+      "variable": "ONE_GEOMETRY_OR_VISIBILITY_SUPPORT",
+      "axes": ["T", "B", "V", "G", "C"]
+    },
+    {
+      "id": "E03",
+      "question": "Is one targeted support necessary to reach minimum sufficient structure?",
+      "a": "CURRENT_MINIMUM",
+      "b": "A_PLUS_ONE_JUSTIFIED_SUPPORT",
+      "variable": "ONE_JUSTIFIED_SUPPORT",
+      "axes": ["T", "B", "V", "G", "Q", "C", "U"]
+    },
+    {
+      "id": "E04",
+      "question": "Does one non-essential block fail to improve or degrade an already sufficient Prompt?",
+      "a": "MINIMUM_SUFFICIENT",
+      "b": "A_PLUS_ONE_NONESSENTIAL_BLOCK",
+      "variable": "ONE_NONESSENTIAL_BLOCK",
+      "axes": ["T", "B", "V", "G", "Q", "C", "U"]
+    },
+    {
+      "id": "E05",
+      "question": "When Special B is added, is A retained and is binding still correct?",
+      "prerequisites": ["A_ONLY_RESULT", "B_ONLY_RESULT"],
+      "a": "A_ONLY",
+      "b": "AB_MINIMAL",
+      "variable": "ADD_SPECIAL_B",
+      "axes": ["T_A", "T_B", "B", "V", "G", "C"]
+    },
+    {
+      "id": "E06",
+      "question": "Does approved alternate surface change realization for the same semantic identity?",
+      "a": "CANONICAL",
+      "b": "APPROVED_ALIAS_OR_EVIDENCE_BACKED_SURFACE",
+      "variable": "MODEL_FACING_SURFACE",
+      "axes": ["T", "B", "C", "Q"],
+      "conditional": true
+    },
+    {
+      "id": "E07",
+      "question": "Does one diagnosed Negative term reduce artifact without suppressing target/geometry?",
+      "a": "FAMILY_MINIMAL_NEGATIVE",
+      "b": "A_PLUS_ONE_NEGATIVE_TERM",
+      "variable": "ONE_NEGATIVE_TERM",
+      "axes": ["T", "G", "Q", "C"]
+    },
+    {
+      "id": "E08",
+      "question": "With identical tokens, does family-evidence-aligned block order change realization?",
+      "a": "BASELINE_ORDER",
+      "b": "FAMILY_EVIDENCE_ALIGNED_ORDER",
+      "variable": "BLOCK_ORDER_ONLY",
+      "axes": ["T", "B", "C", "Q"]
+    },
+    {
+      "id": "E09",
+      "question": "Does one short relation sentence improve binding without leakage/overdescription?",
+      "a": "TAG_ONLY",
+      "b": "TAG_PLUS_ONE_SHORT_RELATION_SENTENCE",
+      "variable": "ONE_RELATION_SENTENCE",
+      "axes": ["T", "B", "C", "Q"],
+      "family_scope": "EVIDENCE_JUSTIFIED_ONLY"
+    }
+  ],
+  "diagnostics": {
+    "intent": [
+      "actor_count",
+      "special_count",
+      "actor_a_role",
+      "actor_b_role",
+      "body_site",
+      "object_or_appendage",
+      "relation",
+      "expected_count",
+      "visibility_requirement"
+    ],
+    "observed": [
+      "target_present",
+      "site_correct",
+      "binding_correct",
+      "relation_correct",
+      "count_correct",
+      "object_integrity",
+      "geometry_coherent",
+      "visibility_judgeable",
+      "attribute_leakage",
+      "prompt_conflict"
+    ],
+    "failures": [
+      "TARGET_MISSING",
+      "SITE_WRONG",
+      "BINDING_LOST",
+      "OBJECT_DEGRADES",
+      "GEOMETRY_FAILURE",
+      "VISIBILITY_FAILURE",
+      "ATTRIBUTE_LEAKAGE",
+      "COUNT_FAILURE",
+      "OVERPROMPTED_CONFLICT",
+      "PROMPT_ONLY_LIMIT"
+    ]
+  },
+  "density_capture": [
+    "tag_count",
+    "tokenizer_token_count",
+    "special_count",
+    "support_block_count",
+    "relation_sentence_count",
+    "competing_instruction_count",
+    "camera_pose_role_count",
+    "aesthetic_block_count"
+  ],
+  "evaluation_vector": ["T", "B", "V", "G", "Q", "C", "M", "U", "R"],
+  "review_conditions": [
+    "EVALUATOR_UNSUPPORTED",
+    "VOCAB_ABSENT",
+    "VOCAB_ALIAS_ONLY",
+    "TARGET_TOO_RARE",
+    "COMPONENT_ONLY_DETECTION",
+    "RELATION_NOT_EXPRESSED",
+    "BINDING_NOT_EXPRESSED",
+    "COUNT_AMBIGUOUS",
+    "OCCLUDED_TARGET",
+    "CROPPED_TARGET",
+    "CONFIDENCE_NEAR_TIE",
+    "EVALUATOR_DISAGREEMENT",
+    "HUMAN_DISAGREEMENT",
+    "MULTI_SPECIAL_PARTIAL_RETENTION",
+    "WRONG_OR_AMBIGUOUS_BINDING",
+    "UNUSUAL_GEOMETRY_AUTOMATION_UNSAFE"
+  ],
+  "blocked_conditions": [
+    "MISSING_RESOLVED_PROMPT",
+    "MISSING_NEGATIVE",
+    "MISSING_CHECKPOINT_HASH",
+    "MODEL_HASH_MISMATCH",
+    "UNRECORDED_RUNTIME_CHANGE",
+    "MISSING_SEED_OR_SETTINGS",
+    "MISSING_REQUIRED_METADATA",
+    "UNFROZEN_CASE_AT_EXECUTION",
+    "ISSUE42_NOT_READY_AT_PRODUCTION_EXECUTION"
+  ],
+  "result_routing": {
+    "candidate_verdicts": ["A_WIN", "B_WIN", "REVIEW", "BLOCKED"],
+    "no_global_threshold": true,
+    "auto_winner_requires": [
+      "post_freeze_evaluator_assignment",
+      "capability_match",
+      "approved_class_family_threshold",
+      "complete_traceability"
+    ]
+  },
+  "cases": [],
+  "post_freeze_fill": [
+    "final_case_ids",
+    "special_ids_and_identity",
+    "eligible_alias_or_surface",
+    "evaluator_assignment",
+    "auto_review_policy",
+    "coverage_evidence",
+    "rule_promotion_seed_count",
+    "approved_thresholds_if_any"
+  ]
+}
