@@ -7,10 +7,10 @@
   "fixed_order": "production Special2788 order at audit start",
   "batch_size": 100,
   "internal_block_size": 20,
-  "completed_specials": 2720,
-  "pass": 2233,
+  "completed_specials": 2740,
+  "pass": 2250,
   "fix": 174,
-  "review": 296,
+  "review": 299,
   "image_test_required": 17,
   "revalidation_pending": 0,
   "batch1_acceptance_gate": "PASS",
@@ -47,10 +47,10 @@
   "semantic_support_rows_covered": 55,
   "semantic_support_rows_review": 0,
   "semantic_support_rows_image_test_required": 30,
-  "last_completed_special_id": "2720",
+  "last_completed_special_id": "2740",
   "last_completed_batch": 27,
   "next_batch": 28,
-  "next_start_position": 2721,
+  "next_start_position": 2741,
   "production_modified": false,
-  "notes": "Batch28 partial checkpoint 2701-2720 durable. Delta PASS20/FIX0/REVIEW0/IMAGE_TEST_REQUIRED0. All rows ALIAS_PRESERVE; exact Prompt identity retained and canonical linkage statistics-only. candidate_fixes/revalidation_queue inspected with no delta. Stage10 canonical/Alias/Semantic response remains HOLD. Next safe restart2721; main/production unchanged."
+  "notes": "Batch28 partial checkpoint 2701-2740 durable. Current Batch28 delta PASS37/FIX0/REVIEW3/IMAGE_TEST_REQUIRED0. New REVIEW: ID2734 areola piercing (A: family/role/implement contract unresolved), ID2736 caning (S: PROVISIONAL family/role unresolved), ID2737 chastity key (A: implement requirement unresolved). PROVISIONAL/blank values were preserved rather than auto-filled. candidate_fixes/revalidation_queue inspected with no delta. Next safe restart2741; main/production unchanged."
 }
