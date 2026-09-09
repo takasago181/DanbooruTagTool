@@ -7,8 +7,8 @@
   "fixed_order": "production Special2788 order at audit start",
   "batch_size": 100,
   "internal_block_size": 20,
-  "completed_specials": 2060,
-  "pass": 1606,
+  "completed_specials": 2080,
+  "pass": 1626,
   "fix": 174,
   "review": 263,
   "image_test_required": 17,
@@ -40,10 +40,10 @@
   "semantic_support_rows_covered": 55,
   "semantic_support_rows_review": 0,
   "semantic_support_rows_image_test_required": 30,
-  "last_completed_special_id": "2060",
+  "last_completed_special_id": "2080",
   "last_completed_batch": 20,
   "next_batch": 21,
-  "next_start_position": 2061,
+  "next_start_position": 2081,
   "production_modified": false,
-  "notes": "Batch21 partial checkpoint 2001-2060 durable. New block 2041-2060 delta PASS20/FIX0/REVIEW0/IMAGE_TEST_REQUIRED0. Prior IDs2029 and2031 remain A-risk REVIEW. candidate_fixes/revalidation_queue checked unchanged; semantic support remains55/58. Next safe restart2061; main/production unchanged."
+  "notes": "Batch21 partial checkpoint 2001-2080 durable. New block 2061-2080 delta PASS20/FIX0/REVIEW0/IMAGE_TEST_REQUIRED0. Semantic-role IDs2063-2067 remain search/support-only; alias ID2068 remains statistics-only canonical linkage. IDs2029 and2031 remain A-risk REVIEW. candidate_fixes/revalidation_queue checked unchanged; semantic support remains55/58. Next safe restart2081; main/production unchanged."
 }
