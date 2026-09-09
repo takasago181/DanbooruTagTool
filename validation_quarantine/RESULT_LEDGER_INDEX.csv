@@ -104,3 +104,4 @@ start_sequence,end_sequence,path,rule_version,row_count,status,notes
 2041,2060,validation_quarantine/results_blocks/2041_2060.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
 2061,2080,validation_quarantine/results_blocks/2061_2080.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
 2081,2100,validation_quarantine/results_blocks/2081_2100.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; Batch21 gate PASS
+2101,2120,validation_quarantine/results_blocks/2101_2120.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
