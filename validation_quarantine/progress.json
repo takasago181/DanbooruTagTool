@@ -7,8 +7,8 @@
   "fixed_order": "production Special2788 order at audit start",
   "batch_size": 100,
   "internal_block_size": 20,
-  "completed_specials": 2580,
-  "pass": 2093,
+  "completed_specials": 2600,
+  "pass": 2113,
   "fix": 174,
   "review": 296,
   "image_test_required": 17,
@@ -45,10 +45,10 @@
   "semantic_support_rows_covered": 55,
   "semantic_support_rows_review": 0,
   "semantic_support_rows_image_test_required": 30,
-  "last_completed_special_id": "2580",
+  "last_completed_special_id": "2600",
   "last_completed_batch": 25,
   "next_batch": 26,
-  "next_start_position": 2581,
+  "next_start_position": 2601,
   "production_modified": false,
-  "notes": "Batch26 checkpoint4 2561-2580 durable. Delta this checkpoint PASS20/FIX0/REVIEW0/IMAGE_TEST_REQUIRED0; Batch26 cumulative PASS78/REVIEW2. Alias-preserve interaction/restraint/anatomy rows were checked under the R2 canonical/Alias HOLD boundary; no model-response equivalence or automatic support claim was promoted. candidate_fixes/revalidation_queue inspected with no checkpoint delta. Next safe restart2581; main/production unchanged."
+  "notes": "Batch26 checkpoint5 2581-2600 durable. Delta this checkpoint PASS20/FIX0/REVIEW0/IMAGE_TEST_REQUIRED0; Batch26 first-pass cumulative PASS98/REVIEW2. All five 20-row result checkpoints are durable. candidate_fixes/revalidation_queue inspected with no Batch26 delta. 100-row integrity and false-PASS gate still pending; do not advance beyond2600 until gate saved. main/production unchanged."
 }
