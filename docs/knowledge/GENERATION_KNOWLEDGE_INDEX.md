@@ -4,7 +4,7 @@ Owner: Issue #44 `[KNOWLEDGE][ONGOING] Persistent generation knowledge corpus fo
 
 Branch: `knowledge/generation-corpus`
 
-Status: **ONGOING / GOAL_REBASED / BATCH_A+B+C_COMPLETE / EXACT_FAMILY_GAPS_NEXT**
+Status: **ONGOING / GOAL_REBASED / BATCH_A+B+C_COMPLETE / HARD_FETISH_DEEP_RESEARCH_V1_COMPLETE / EXACT_FAMILY_IMAGE_GAPS_REMAIN**
 
 ## Purpose
 
@@ -25,6 +25,13 @@ The corpus is evidence/reference only. It does not itself rewrite production dat
 9. `docs/knowledge/GENERATION_KNOWLEDGE_CORPUS.md`
 10. `docs/knowledge/GENERATION_KNOWLEDGE_SOURCES.md`
 11. requesting Issue only when later handoff is explicitly requested
+
+For hard/niche adult generation research, read in this order after the general reassessment files:
+1. `docs/knowledge/research/HARD_FETISH_GENERATION_INDEX_20260909.md`
+2. `HARD_FETISH_MODEL_FAMILY_MATRIX_20260909.md`
+3. the relevant focused domain file(s)
+4. `HARD_FETISH_COMPOSITE_FAILURE_MATRIX_20260909.md` for multi-Special cases
+5. `HARD_FETISH_SOURCES_20260909.md`
 
 ## Current product-goal baseline
 
@@ -51,11 +58,11 @@ Language is not an evidence rank. Mirrors/translations of one experiment are not
 
 | Family | State | Strongest knowledge | Important gaps |
 |---|---|---|---|
-| WAI Illustrious v17 | strong | exact author settings; quality/Negative overloading warning; Hires confound; practical regional actor-separation evidence | Prompt-only actor/body-site relation ceiling; alternate trigger/rare exposure; exact pruning effect sizes |
-| Illustrious XL early | strong | exact composition-tag conflict warning; quality vocabulary | derivative-specific relation binding and minimum-sufficient transferability |
-| NoobAI XL 1.1 EPS | strong | exact inference regime; native caption order Special-before-General | actor/body-site relation grammar; camera; broad+specific; canonical/Alias response; rare exposure |
-| NoobAI V-Pred 1.0 | medium-strong | exact EPS/V-Pred separation and inference regime | project-relevant composition/binding/pruning evidence |
-| Anima | strong | exact formatting/order/profile/tag-dropout/Gelbooru rules; mixed tag/NL; practical multi-character evidence | exact multi-actor ceiling; profile-specific relation/density/pruning effect sizes |
+| WAI Illustrious v17 | strong | exact author settings; quality/Negative overloading warning; Hires confound; hard-fetish audit matrix now defined | Prompt-only actor/body-site/relation/topology success rates; alternate trigger/rare exposure; exact pruning/Negative effects |
+| Illustrious XL early | strong | exact composition-tag conflict warning; quality vocabulary; relation-rich captioning context | derivative-specific hard relation binding and minimum-sufficient transferability |
+| NoobAI XL 1.1 EPS | strong | exact inference regime; native caption order Special-before-General; Danbooru+e621 exposure context | actor/body-site relation grammar; hard camera/visibility; broad+specific; canonical/Alias response; rare exposure |
+| NoobAI V-Pred 1.0 | medium-strong | exact EPS/V-Pred separation and inference regime | project-relevant hard composition/binding/pruning evidence |
+| Anima | strong | exact formatting/order/profile/tag-dropout/Gelbooru rules; mixed tag/NL; practical multi-character binding evidence | exact hard relation gain from concise hybrid; multi-actor ceiling; profile-specific anatomy/Negative effects |
 
 ## Current topic coverage
 
@@ -82,6 +89,13 @@ Language is not an evidence rank. Mirrors/translations of one experiment are not
 | ControlNet/regional/Forge Couple | medium-strong | separate assisted-control lane |
 | local empirical history | **strong safety/scope framework** | may tune local ranking, never semantic authority |
 | failure diagnosis | medium-strong | diagnostic tree v1; exact family thresholds missing |
+| anal/insertion body-site & count | **hard-fetish framework strong / exact-family TEST_REQUIRED** | site/action/implement/count/ownership decomposed; broad+specific and Negative effects remain empirical |
+| BDSM/restraint topology | **hard-fetish framework strong / exact-family TEST_REQUIRED** | theme/device/body-site/topology/role separated; restraint graph audit defined |
+| machine/device functional relation | **hard-fetish framework strong / exact-family TEST_REQUIRED** | device presence/type/function/site/target separated |
+| tentacle/nonhuman appendage relation | **hard-fetish framework strong / exact-family TEST_REQUIRED** | source/ownership/role/target/relation/count separated |
+| fluid/excretion destination relation | **hard-fetish framework strong / exact-family TEST_REQUIRED** | material/source/destination/state/quantity/layer separated |
+| rare/anatomy-changing hard targets | **strong general / exact-family TEST_REQUIRED** | token/visual/composition/evaluator rarity separated; anatomy-Negative collision protocol defined |
+| hard composite failures | **strong framework** | pairwise conflict matrix + bounded A_ONLY/B_ONLY/AB escalation defined |
 
 ## Durable conclusions
 
@@ -108,12 +122,30 @@ Language is not an evidence rank. Mirrors/translations of one experiment are not
 21. Evaluator vocabulary/semantic capability/calibration/OOD must be checked before interpreting confidence.
 22. Preference/aesthetic reward models are not rare-Special semantic ground truth.
 23. Local personal generation history may influence local empirical ranking only under pinned context; it must never rewrite canonical/semantic truth.
+24. **Hard/niche generation is not one problem class.** Separate unary state, body-site state, binding relation, restraint topology, device relation, count, nonhuman ownership, anatomy-changing and composite-hard cases.
+25. **Presence is not hard-relation success.** Rope/tentacle/machine/fluid/object detection cannot certify topology, body-site, source-target or functional relation.
+26. **Exact body-site and exact count are first-class semantic predicates** where intrinsic to the Special.
+27. **Rare hard targets can collapse toward common visual priors.** One frequent/broad constituent is a controlled A/B candidate, never automatic semantic support.
+28. **Hard-scene LoRAs are separate capability lanes.** Trigger bundles expose likely scene priors and failure modes but do not define canonical meaning or base-model support.
+29. **Restraint should be audited as topology** when the Special requires specific limb/anchor connectivity.
+30. **Machine concepts require functional relation**, not merely device presence.
+31. **Tentacle concepts require source/ownership/role/target decomposition** because the same primitive may be hair, tail, clothing, external actor or machine appendage.
+32. **Fluid/material concepts require source-destination-state judgement** where the Special is relation-specific.
+33. **Generic anatomy/count Negative stacks are highest-risk on unusual/anatomy-changing/multi-appendage targets** and require controlled ON/OFF evidence.
+34. **Hard composites must be decomposed before escalation.** Diagnose A_ONLY/B_ONLY before AB, then add one functional support role at a time.
 
 ## Failure-diagnosis tree v1
 
 Source: `docs/knowledge/research/BATCH_A_FALSE_ASSUMPTION_PREVENTION_20260909.md`
 
 `traceability -> semantic identity -> unary activation -> composition/binding -> visibility/geometry -> Negative collision -> Prompt competition/pruning -> LoRA -> seed sensitivity -> assisted-control ceiling -> evaluator blindness`
+
+For hard/niche cases, insert domain predicates at the composition/binding stage:
+- anal/insertion: site/action/implement/count/ownership
+- restraint: device/body-site/topology/pose/role
+- machine: device type/functional contact/target site
+- tentacle: source/ownership/appendage role/target relation
+- fluid: material/source/destination/state/quantity.
 
 ## Minimum-sufficient Prompt protocol v1
 
@@ -163,6 +195,53 @@ McNemar/exact-binomial reasoning can analyze discordant directions, while absolu
 
 No context-free `N seeds = proven` rule is accepted.
 
+## Hard / niche adult deep research v1
+
+Status: **COMPLETE first comprehensive evidence pass**.
+
+### Master/index
+- `docs/knowledge/research/HARD_FETISH_GENERATION_INDEX_20260909.md`
+
+### Focused domains
+- `HARD_FETISH_ANAL_INSERTION_20260909.md`
+- `HARD_FETISH_BDSM_RESTRAINT_20260909.md`
+- `HARD_FETISH_MACHINE_DEVICE_20260909.md`
+- `HARD_FETISH_TENTACLE_FANTASY_20260909.md`
+- `HARD_FETISH_FLUID_EXCRETION_20260909.md`
+- `HARD_FETISH_RARE_EXTREME_20260909.md`
+
+### Cross-cutting
+- `HARD_FETISH_MODEL_FAMILY_MATRIX_20260909.md`
+- `HARD_FETISH_COMPOSITE_FAILURE_MATRIX_20260909.md`
+- `HARD_FETISH_SOURCES_20260909.md`
+
+### Structural classes
+- `UNARY_OBJECT_OR_STATE`
+- `BODY_SITE_STATE`
+- `SIMPLE_RELATION`
+- `BINDING_RELATION`
+- `RESTRAINT_TOPOLOGY`
+- `DEVICE_RELATION`
+- `MULTI_PENETRATION_OR_COUNT`
+- `NONHUMAN_APPENDAGE_RELATION`
+- `ANATOMY_CHANGING`
+- `COMPOSITE_HARD`
+
+### Risk dimensions
+- `EXPOSURE_RISK`
+- `BINDING_RISK`
+- `VISIBILITY_RISK`
+- `GEOMETRY_RISK`
+- `COUNT_RISK`
+- `NEGATIVE_COLLISION_RISK`
+- `STYLE_CONTEXT_LEAK_RISK`
+- `EVALUATOR_BLINDNESS_RISK`
+- `LORA_CONFOUND_RISK`
+- `POSTPROCESS_RESCUE_RISK`
+
+### Scope boundary
+Detailed generation optimization in this research is for clearly adult consensual sexual/BDSM content and adult fantasy. Inventory may contain other boundary categories, but those are not promoted into hard-fetish generation recipes by this corpus.
+
 ## Evaluator capability gate v1
 
 Before any machine verdict:
@@ -179,6 +258,16 @@ Conceptual routes:
 - `RELATION_HUMAN_OR_SPECIALIZED`
 - `GEOMETRY_VISIBILITY`
 - `UNSUPPORTED_OR_OOD`
+
+Hard/niche extension routes:
+- `BODY_SITE_BINDING`
+- `RESTRAINT_TOPOLOGY_REVIEW`
+- `DEVICE_FUNCTIONAL_RELATION`
+- `APPENDAGE_OWNERSHIP_RELATION`
+- `SOURCE_DESTINATION_RELATION`
+- `ANATOMY_NEGATIVE_AB`
+- `LORA_ASSISTED_ONLY`
+- `POSTPROCESS_RESCUE`.
 
 Unsupported/OOD -> REVIEW, not image failure.
 
@@ -201,17 +290,19 @@ Context identity should include exact checkpoint, Specials, trigger surface, sup
 ## Current HOLD backlog
 
 Highest value:
-- WAI v17 Prompt-only actor-target/body-site ceiling
-- NoobAI EPS actor/body-site/camera/visibility support
+- WAI v17 Prompt-only actor-target/body-site/relation/topology ceiling for hard classes
+- NoobAI EPS actor/body-site/camera/visibility hard support behavior
+- Anima tag-only vs concise-hybrid delta for hard relations
 - cross-family canonical/Alias/alternate-trigger response
 - exact anatomy/count-changing Negative effects
-- broad+specific interaction
-- exact simultaneous-Special/density breakpoints
-- project-specific LoRA x Special/support interactions
+- broad+specific interaction on rare hard targets
+- exact simultaneous-Special/count/density breakpoints
+- project-specific LoRA x hard-Special/support interactions
 - exact `fully visible / in frame / body part focus` family effects
 - project-specific final evaluator coverage after dictionary freeze
+- automatic restraint-topology/device-function/appendage-ownership/source-destination evaluation
 - exact KEEP/MIXED/PRUNE thresholds for persistent guidance
-- exact Prompt-only -> assisted-control escalation threshold
+- exact Prompt-only -> assisted-control escalation threshold.
 
 ## Research batches
 
@@ -240,16 +331,29 @@ Main gains:
 - deterministic local-history authority boundary;
 - assisted-control evidence separation.
 
-### Next — exact-family gap research
-**NEXT**
+### Hard/niche adult generation deep research
+**COMPLETE V1**
+
+Main gains:
+- full structural taxonomy for anal/insertion, BDSM/restraint, machine/device, tentacle/fantasy, fluid/excretion and rare/anatomy-changing classes;
+- hard composite conflict matrix;
+- family-specific implication matrix;
+- multilingual primary/practical source registry;
+- domain-specific evaluator false-PASS prevention;
+- LoRA/postprocess/control evidence separation;
+- WD rare-tail failure examples tied to actual project Special rows.
+
+### Next — exact-family controlled gaps
+**NEXT RESEARCH TARGET, not automatically activated as another-team task**
 
 Priority:
-1. WAI v17 actual relation/body-site/multi-actor behavior
-2. NoobAI EPS relation/body-site/framing behavior
-3. cross-family canonical/Alias/alternate-trigger drift
-4. unusual anatomy/count Negative interactions
-5. broad+specific behavior
-6. LoRA x Special/support under realistic anime checkpoints
+1. WAI v17 actual hard relation/body-site/topology behavior
+2. NoobAI EPS hard relation/body-site/framing behavior
+3. Anima tag-only vs concise hybrid hard relation behavior
+4. cross-family canonical/Alias/alternate-trigger drift
+5. unusual anatomy/count Negative interactions
+6. broad+specific behavior on rare hard targets
+7. LoRA x hard Special/support under realistic anime checkpoints.
 
 Generic sampler/aesthetic micro-optimization remains lower priority unless it materially affects these targets.
 
