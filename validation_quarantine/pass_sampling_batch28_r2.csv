@@ -1,0 +1,17 @@
+sequence,special_id,tag,risk_priority,original_state,reaudit_state,root_cause,notes
+2701,2701,cleavegag,B,PASS,PASS,,Alias-preserve boundary remains correct; no automatic support/model equivalence.
+2704,2704,breast feed,B,PASS,PASS,,Exact identity preserved; canonical response equivalence not asserted.
+2710,2710,alcohol between breasts,B,PASS,PASS,,No geometry/support inference introduced.
+2722,2722,hand gag,B,PASS,PASS,,Restraint alias identity preserved without structural auto-fill.
+2730,2730,gag removed,B,PASS,PASS,,State alias remains non-expanding.
+2740,2740,colored pubic hair,B,PASS,PASS,,BODY_ATTRIBUTE remains static descriptive metadata only.
+2742,2742,erection under blanket,A,PASS,PASS,,Intrinsic compound relation recorded without camera/visibility support promotion.
+2743,2743,erection under towel,A,PASS,PASS,,Intrinsic compound relation recorded without camera/visibility support promotion.
+2746,2746,futanari pov,A,PASS,PASS,,Camera/composition ownership is intrinsic; exact tuning remains Stage10 HOLD.
+2750,2750,imminent facesitting,B,PASS,PASS,,Context support role is non-direct and non-automatic.
+2754,2754,large areolae,B,PASS,PASS,,Static body attribute does not imply automatic bodypart/visibility support.
+2765,2765,pubic stubble,B,PASS,PASS,,Static body attribute remains non-expanding.
+2772,2772,shirtless,B,PASS,PASS,,Alias identity preserved; canonical generation equivalence not asserted.
+2777,2777,sparse pubic hair,B,PASS,PASS,,Static body attribute remains non-expanding.
+2786,2786,x-cross (bdsm),A,PASS,PASS,,Independent apparatus evidence supports restraint-implement structure; generation assistance remains unasserted.
+2787,2787,yoke (bdsm),A,PASS,PASS,,Official Danbooru-derived evidence supports restraint-implement structure; no automatic support promoted.
