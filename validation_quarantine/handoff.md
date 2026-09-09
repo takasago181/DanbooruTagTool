@@ -7,32 +7,27 @@ Rule version: R2
 
 ## Current position
 - Target: 2,788 Specials
-- First pass checkpointed through: 2300
-- Cumulative: PASS 1846 / FIX 174 / REVIEW 263 / IMAGE_TEST_REQUIRED 17
+- First pass checkpointed through: 2320
+- Cumulative: PASS 1863 / FIX 174 / REVIEW 266 / IMAGE_TEST_REQUIRED 17
 - Batch 1-23 R2 acceptance gates: PASS
-- Batch 23: complete; integrity/false-PASS gate PASS
+- Batch 24: partial; 2301-2320 durably checkpointed
 - Active revalidation pending pointer: 0
 - Semantic support: 55 / 58; IMAGE_TEST_REQUIRED rows 30
-- Next first-pass sequence: 2301
+- Next first-pass sequence: 2321
 - Production/main modified: NO
 
-## Batch 23 summary
-Range 2201-2300: PASS 100 / FIX 0 / REVIEW 0 / IMAGE_TEST_REQUIRED 0.
+## Batch 24 partial summary
+Range 2301-2320: PASS 17 / FIX 0 / REVIEW 3 / IMAGE_TEST_REQUIRED 0.
 
-Durable result blocks:
-- `results_blocks/2201_2220.csv`
-- `results_blocks/2221_2240.csv`
-- `results_blocks/2241_2260.csv`
-- `results_blocks/2261_2280.csv`
-- `results_blocks/2281_2300.csv`
+Durable result block:
+- `results_blocks/2301_2320.csv`
 
-Static integrity: 100 contiguous unique sequences, missing 0, duplicate 0.
+A-risk deep review:
+- 2301 `collar grab`: official Danbooru semantics require another person's collar; ActorRequirementOverride is blank -> REVIEW pending project-level structural convention.
+- 2308 `grabbing another's skirt`: official definition explicitly has another character -> REVIEW for blank ActorRequirementOverride.
+- 2309 `necktie grab`: neckwear-grab semantics specify another person's neckwear and necktie_grab implicates that family -> REVIEW for blank ActorRequirementOverride.
 
-Clothing/exposure rows remain structural visual-state/DIRECT metadata; blank requirements are not auto-errors and no pose/camera/visibility support is inferred. Alias IDs 2265-2268 and 2279 preserve exact Special prompt identity with canonical linkage statistics-only. Semantic-role IDs 2269-2278 remain semantic/search support only, with no direct model-recognition, generation-equivalence, or automatic-inclusion claim. No Stage10 HOLD knowledge was promoted to production truth.
-
-R2 deterministic PASS re-audit sampled every fifth sequence: 20/100 PASS rows, including Alias 2265 and semantic-role 2270/2275. New false-PASS: 0; Batch23 gate PASS. Details: `batch23_integrity_r2.md`.
-
-`candidate_fixes.csv` and `revalidation_queue.csv` were inspected at every 20-row checkpoint; Batch23 adds no new candidate fix or revalidation item. Semantic support remains 55/58.
+No spatial assignment or actor-separation flags were inferred solely from contact. Blank/None fields were not treated as automatic errors. `candidate_fixes.csv` and `revalidation_queue.csv` were inspected at this checkpoint and have no delta. No Stage10 HOLD knowledge was promoted to production truth.
 
 ## Exact restart
-Resume first-pass at sequence 2301 (Batch 24). Checkpoint every 20. Do not modify production/main.
+Resume first-pass at sequence 2321 (Batch 24). Checkpoint every 20. Do not modify production/main.
