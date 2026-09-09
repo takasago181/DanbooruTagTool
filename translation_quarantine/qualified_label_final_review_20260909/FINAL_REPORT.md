@@ -23,7 +23,7 @@
 
 - Replay: **PASS**; protected boundary: **PASS**; `production_modified: NO`.
 - Focused qualified-review tests: **7 passed**; combined regression: **56 passed**.
-- Full pytest: **313 passed, 61 environment setup errors** caused by Windows TEMP ACL `WinError 5`; no product/R3 assertion failures in setup errors.
+- Full pytest: **320 passed, 61 environment setup errors** caused by Windows TEMP ACL `WinError 5`; no product/R3 assertion failures in setup errors.
 
 ## Boundaries
 

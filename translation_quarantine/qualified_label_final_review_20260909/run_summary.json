@@ -55,7 +55,7 @@
   "tests": {
     "combined_regression": "56 passed",
     "focused_qualified_review": "7 passed",
-    "full_pytest": "313 passed, 61 environment setup errors (Windows TEMP ACL WinError 5), no product assertion failures in setup errors",
+    "full_pytest": "320 passed, 61 environment setup errors (Windows TEMP ACL WinError 5), no product assertion failures in setup errors",
     "prior_exception_repair": "6 passed"
   }
 }
