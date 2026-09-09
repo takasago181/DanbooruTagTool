@@ -5,6 +5,12 @@ body:
   - type: markdown
     attributes:
       value: |
+        管理ボード運用: `docs/project/CONTROL_BOARD_POLICY.md` を確認してください。
+        GitHub Projectは人間向け可視化であり、Issue本文 / CURRENT_STATE / CURRENT_DEV_TASK / PERMANENT_RULESを置き換えません。
+        Project表示だけでGate通過・production変更・次Issue開始を判断しません。
+  - type: markdown
+    attributes:
+      value: |
         現行DEV Issueとして `CURRENT_STATE.md` に指定する場合、Codex用 `docs/project/CURRENT_DEV_TASK.md` も同期してください。
         purpose / scope / 禁止事項 / 完了条件を変更する時はIssueコメントだけで済ませず、Issue本文を更新します。
   - type: input
