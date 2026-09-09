@@ -7,8 +7,8 @@
   "fixed_order": "production Special2788 order at audit start",
   "batch_size": 100,
   "internal_block_size": 20,
-  "completed_specials": 2000,
-  "pass": 1548,
+  "completed_specials": 2020,
+  "pass": 1568,
   "fix": 174,
   "review": 261,
   "image_test_required": 17,
@@ -40,10 +40,10 @@
   "semantic_support_rows_covered": 55,
   "semantic_support_rows_review": 0,
   "semantic_support_rows_image_test_required": 30,
-  "last_completed_special_id": "2000",
+  "last_completed_special_id": "2020",
   "last_completed_batch": 20,
   "next_batch": 21,
-  "next_start_position": 2001,
+  "next_start_position": 2021,
   "production_modified": false,
-  "notes": "Batch20 1901-2000 R2 acceptance gate PASS. Five 20-row result blocks durable; exact contiguous unique coverage100. Batch delta PASS100/FIX0/REVIEW0/IMAGE_TEST_REQUIRED0. A-risk IDs1912,1914,1915,1919,1926,1932,1935,1937,1938,1940 deep-reviewed PASS under structural-only requirement interpretation. Deterministic PASS re-audit20/100 including all A-risk PASS; new false-PASS0. Alias canonical linkage remains statistics-only; semantic rows remain search/support-only; candidate_fixes/revalidation_queue checked unchanged; semantic support55/58; next safe restart2001; main/production unchanged."
+  "notes": "Batch21 partial checkpoint 2001-2020 durable. Delta PASS20/FIX0/REVIEW0/IMAGE_TEST_REQUIRED0. IDs2003-2005 camera/internal-view rows deep-reviewed as A-risk structural metadata using Stage10 KNOWLEDGE only for role-separation/non-insertion boundary; exact camera tuning remains HOLD. candidate_fixes/revalidation_queue checked unchanged; semantic support remains55/58. RESULT_LEDGER_INDEX historical gap through2000 reconciled before continuation. Next safe restart2021; main/production unchanged."
 }
