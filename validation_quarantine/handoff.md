@@ -7,24 +7,23 @@ Rule version: R2
 
 ## Current position
 - Target: 2,788 Specials
-- First pass checkpointed through: 2000
-- Cumulative: PASS 1548 / FIX 174 / REVIEW 261 / IMAGE_TEST_REQUIRED 17
+- First pass checkpointed through: 2020
+- Cumulative: PASS 1568 / FIX 174 / REVIEW 261 / IMAGE_TEST_REQUIRED 17
 - Batch 1-20 R2 acceptance gates: PASS
+- Batch 21: partial checkpoint through 2020; 100-Special gate not yet run
 - Revalidation pending: 0
 - Semantic support: 55 / 58; IMAGE_TEST_REQUIRED rows 30
-- Next first-pass sequence: 2001
+- Next first-pass sequence: 2021
 - Production/main modified: NO
 
-## Batch 20 complete
-1901-2000: PASS 100 / FIX 0 / REVIEW 0 / IMAGE_TEST_REQUIRED 0. Five 20-row result blocks are durable.
+## Batch 21 partial checkpoint
+2001-2020: PASS 20 / FIX 0 / REVIEW 0 / IMAGE_TEST_REQUIRED 0. Result block `results_blocks/2001_2020.csv` is durable.
 
-A-risk IDs1912 `box tie`, 1914 `frogtie`, 1915 `hogtie`, 1919 `legs bound apart`, 1926 `reverse prayer`, 1932 `shrimp tie`, 1935 `stationary restraints`, 1937 `strappado`, 1938 `suspension`, and1940 `wrists bound apart` were deep-reviewed PASS. Pose/spatial/composition metadata remains structural only; no automatic support insertion was inferred. Stage10 evidence was treated as scoped evidence, not production truth.
+IDs 2003 `cross-section`, 2004 `x-ray`, and 2005 `anal cross-section` were treated as A-risk because the profiles assert camera/internal-view structure. Deep review accepted the structural classification and camera requirement while preserving the Stage10 boundary: camera/visibility support is not automatically inserted, exact family camera tuning remains HOLD, and Stage10 knowledge is scoped evidence rather than production truth.
 
-Alias rows preserve exact Special identity with canonical linkage statistics-only. Semantic-role rows remain search/support-only and do not assert direct model recognition.
+Semantic-role rows remain search/support-only; alias rows preserve exact Special identity with canonical linkage statistics-only. `candidate_fixes.csv` and `revalidation_queue.csv` were checked and require no new entries at this checkpoint. Semantic support remains 55/58.
 
-Deterministic R2 PASS re-audit checked20/100 including every A-risk PASS. New false-PASS:0. Batch20 acceptance gate: PASS.
-
-`candidate_fixes.csv` and `revalidation_queue.csv` checked unchanged at checkpoints. Semantic support remains55/58; common/rare statistics were not conflated with semantic support.
+Before this block, `RESULT_LEDGER_INDEX.csv` was found to stop at 1920 while durable result blocks/progress existed through 2000. The index was reconciled through 2000 from the existing immutable blocks before validation resumed.
 
 ## Exact restart
-Resume first-pass at sequence 2001. Checkpoint every20. Do not modify production/main.
+Resume first-pass at sequence 2021. Checkpoint every 20. Do not modify production/main.
