@@ -1,7 +1,7 @@
 {
   "issue": 32,
   "branch": "dict-validation/quarantine",
-  "status": "FIRST_PASS_COMPLETE_PENDING_SIDEcars",
+  "status": "SEMANTIC_SUPPORT_COMPLETE_PENDING_RECONCILIATION",
   "rule_version": "R2",
   "target_total_specials": 2788,
   "fixed_order": "production Special2788 order at audit start",
@@ -45,13 +45,13 @@
   "false_pass_samples_checked": 504,
   "false_pass_found": 5,
   "semantic_support_snapshot_total_rows": 58,
-  "semantic_support_rows_covered": 55,
+  "semantic_support_rows_covered": 58,
   "semantic_support_rows_review": 0,
-  "semantic_support_rows_image_test_required": 30,
+  "semantic_support_rows_image_test_required": 33,
   "last_completed_special_id": "2788",
   "last_completed_batch": 28,
   "next_batch": null,
   "next_start_position": null,
   "production_modified": false,
-  "notes": "Special2788 fixed-universe first pass COMPLETE 2788/2788. Final partial Batch28 range2701-2788: PASS79/FIX0/REVIEW9/IMAGE_TEST_REQUIRED0; integrity88/88 contiguous unique missing0 duplicate0; deterministic 20% PASS re-audit16/79 including all five A-risk PASS, new false-PASS0, gate PASS. Cumulative PASS2292/FIX174/REVIEW305/IMAGE_TEST_REQUIRED17. Batch28 REVIEW IDs2734,2736,2737,2747,2749,2753,2763,2764,2770. candidate_fixes/revalidation_queue inspected at each checkpoint with no Batch28 delta; active revalidation pending0. Frozen semantic-support coverage remains55/58, so overall #32 promotion gate is NOT complete. Do not run more first-pass Specials. Next work is remaining sidecar/reconciliation/reporting obligations only; main/production unchanged."
+  "notes": "Special2788 fixed-universe first pass COMPLETE 2788/2788 with cumulative PASS2292/FIX174/REVIEW305/IMAGE_TEST_REQUIRED17 and all Batch1-28 acceptance gates PASS. Frozen semantic-support sidecar is now explicitly covered 58/58; rows56-58 (ID1823 cuffs-to-collar -> cuffs/collar and ID1839 spreader bar -> restraints) are parked IMAGE_TEST_REQUIRED because default CORE_SUPPORT+ADDITIVE generation benefit, broad+specific behavior, and relation/device binding remain model-scoped controlled-test questions. semantic_support_results.csv is consolidated through source row58; semantic_support IMAGE_TEST_REQUIRED total33. Active revalidation pending0. Do not run first-pass again. Next: cross-consistency review of all FIX candidates, unresolved disposition reconciliation, pre-freeze completeness reconciliation, promotion-readiness package. main/production unchanged."
 }
