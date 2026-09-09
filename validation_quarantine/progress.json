@@ -7,10 +7,10 @@
   "fixed_order": "production Special2788 order at audit start",
   "batch_size": 100,
   "internal_block_size": 20,
-  "completed_specials": 2420,
-  "pass": 1959,
+  "completed_specials": 2440,
+  "pass": 1972,
   "fix": 174,
-  "review": 270,
+  "review": 277,
   "image_test_required": 17,
   "revalidation_pending": 0,
   "batch1_acceptance_gate": "PASS",
@@ -44,10 +44,10 @@
   "semantic_support_rows_covered": 55,
   "semantic_support_rows_review": 0,
   "semantic_support_rows_image_test_required": 30,
-  "last_completed_special_id": "2420",
+  "last_completed_special_id": "2440",
   "last_completed_batch": 24,
   "next_batch": 25,
-  "next_start_position": 2421,
+  "next_start_position": 2441,
   "production_modified": false,
-  "notes": "Batch25 checkpoint1 2401-2420 durable. Delta PASS18/FIX0/REVIEW2/IMAGE_TEST_REQUIRED0. S-risk REVIEW IDs2402 tape bondage and2419 topless other; blanks were not auto-errors and no production classification was guessed. candidate_fixes/revalidation_queue inspected with no Batch25 delta. Next safe restart2421; main/production unchanged."
+  "notes": "Batch25 checkpoints1-2 durable through2440. Batch delta PASS31/FIX0/REVIEW9/IMAGE_TEST_REQUIRED0. High-risk provisional restraint/interaction/action rows kept REVIEW rather than guessed; cosmetic audit-only variants retain valid blanks. candidate_fixes/revalidation_queue inspected with no Batch25 delta. Next safe restart2441; main/production unchanged."
 }
