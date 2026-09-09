@@ -2,52 +2,89 @@
 
 Issue: #32
 Branch: `dict-validation/quarantine`
-Status: FIRST_PASS_COMPLETE_PENDING_SIDEcars
+Status: HOLD_PROMOTION_PENDING_LOCAL_COMPLETENESS_SCAN
 Rule version: R2
 
 ## Current position
 - Fixed first-pass target: 2,788 Specials
-- First pass checkpointed through: 2788 / 2788 — COMPLETE
+- First pass: 2788 / 2788 — COMPLETE
 - Cumulative: PASS 2292 / FIX 174 / REVIEW 305 / IMAGE_TEST_REQUIRED 17
 - Batch 1-28 acceptance gates: PASS
-- Active revalidation pending pointer: 0
-- Semantic support: 55 / 58; IMAGE_TEST_REQUIRED rows 30
+- Active revalidation pending: 0
+- Frozen semantic support: 58 / 58 COMPLETE; IMAGE_TEST_REQUIRED rows 33
+- Candidate FIX cross-consistency: PASS_WITH_STATUS_FILTER
+- REVIEW / IMAGE_TEST_REQUIRED disposition: PASS_AS_EXPLICITLY_PARKED
+- GitHub-visible pre-freeze completeness: PASS_VISIBLE_SCOPE
+- Local protected-asset completeness: PENDING
+- Promotion-readiness verdict: HOLD_PROMOTION
 - Production/main modified: NO
 
-## Batch 28 final-partial summary
-Range 2701-2788: PASS 79 / FIX 0 / REVIEW 9 / IMAGE_TEST_REQUIRED 0.
+## Completed post-first-pass work
 
-Durable result blocks:
-- `results_blocks/2701_2720.csv`
-- `results_blocks/2721_2740.csv`
-- `results_blocks/2741_2760.csv`
-- `results_blocks/2761_2780.csv`
-- `results_blocks/2781_2788.csv`
+### Semantic support 58/58
+Final rows are durably recorded in:
+- `semantic_support_blocks/0056_0058.csv`
+- consolidated `semantic_support_results.csv`
 
-Integrity: 88/88 contiguous unique; missing 0; duplicate 0.
-R2 PASS re-audit: 16/79 (ceil 20%), deterministic concept-spread, all five A-risk PASS included; new false-PASS 0; final-partial gate PASS. Details: `pass_sampling_batch28_r2.csv`, `batch28_integrity_r2.md`.
+Rows 56-58:
+- ID1823 `cuffs-to-collar` -> `cuffs`: IMAGE_TEST_REQUIRED
+- ID1823 `cuffs-to-collar` -> `collar`: IMAGE_TEST_REQUIRED
+- ID1839 `spreader bar` -> `restraints`: IMAGE_TEST_REQUIRED
 
-Batch28 REVIEW IDs:
-- 2734 `areola piercing` — A, family/role/implement contract unresolved
-- 2736 `caning` — S, PROVISIONAL family/role unresolved
-- 2737 `chastity key` — A, implement requirement unresolved
-- 2747 `glans` — S, PROVISIONAL family/role unresolved
-- 2749 `hymen` — S, PROVISIONAL anatomy contract unresolved
-- 2753 `jinki-style restrained` — S, PROVISIONAL meaning/family unresolved
-- 2763 `pubic cutout` — S, PROVISIONAL family/role unresolved
-- 2764 `pubic hair pull` — A, bodypart requirement contract unresolved
-- 2770 `serving tray (bdsm)` — S, REVIEW_REQUIRED authority/structure unresolved
+Reason: semantic constituent/parent compatibility does not certify default-on additive generation benefit. Relation/device identity remains first-class and model-scoped generation behavior remains controlled-test work.
 
-No Batch28 candidate fix or revalidation item was added. Blank/None states were not auto-errors; PROVISIONAL rows were not force-filled; canonical/Alias/Semantic model-response claims remain Stage10 HOLD; statistical common/rare remains separate from semantic support.
+### Candidate FIX consistency
+See:
+`CANDIDATE_FIX_CROSS_CONSISTENCY_R2_20260910.md`
 
-## Next work — no more first-pass processing
-Do NOT start sequence 2789 or another first-pass batch. The fixed 2,788-row first pass is complete.
+Result: PASS_WITH_STATUS_FILTER.
 
-Remaining #32 obligations:
-1. Frozen semantic-support row coverage: 55/58 -> resolve/audit remaining 3 rows.
-2. Confirm active revalidation queue remains fully resolved or explicitly parked.
-3. Cross-consistency check candidate fixes.
-4. Run pre-freeze completeness reconciliation required by Issue #32; if genuine missing Special identities are independently found, validate them as a separately tracked delta, not by restarting the 2,788 audit.
-5. Separate final promotion audit before any production change.
+Important promotion constraint: historical `WITHDRAWN_AFTER_SIBLING_CHECK` / superseded candidate rows are evidence only. Final implementation must select the effective active candidate set and apply multi-field fixes atomically without inferring generation support behavior.
 
-Production/main remains untouched.
+### Unresolved disposition
+See:
+`UNRESOLVED_DISPOSITION_R2_20260910.md`
+
+Result: PASS_AS_EXPLICITLY_PARKED.
+
+Special-level IMAGE_TEST_REQUIRED 17 are intentionally parked generation-evidence questions. REVIEW 305 are fail-closed evidence-insufficient/provisional/unknown cases and are not active revalidation. Do not force them to PASS/FIX for numerical cleanliness.
+
+## Pre-freeze completeness reconciliation
+
+GitHub-visible scan is recorded in:
+`PRE_FREEZE_COMPLETENESS_RECONCILIATION_20260910.md`
+
+Findings:
+- current main `special2788_generation_profile.csv` blob remains `ac6c1d24e1c6ce04b238cc0b16d788f9d0965a05`, the same frozen audit profile;
+- current main frozen semantic-support blob remains `e666e4efd5c3aabf22410d75e04ff51d826c9b0e`;
+- no GitHub-visible artifact was found that independently proves a still-missing Special identity.
+
+However, D-009/D-012 require ignored/local protected historical candidate/search/support assets to be reconciled. GitHub is intentionally not a full backup of those assets, so `missing=0` cannot yet be certified from this environment.
+
+Required local execution contract:
+`PRE_FREEZE_LOCAL_PROTECTED_ASSET_SCAN_TASK_20260910.md`
+
+Allowed local outcomes:
+- `LOCAL_COMPLETENESS_PASS_MISSING_0`
+- `LOCAL_COMPLETENESS_DELTA_FOUND`
+- `LOCAL_COMPLETENESS_BLOCKED_INVENTORY_UNKNOWN`
+
+## Promotion package
+
+See:
+`PROMOTION_READINESS_PACKAGE_20260910.md`
+
+Current enum: **HOLD_PROMOTION**.
+
+This is an evidence-completeness hold only. It does not invalidate the completed 2,788 audit or mean a missing Special was found.
+
+## Next safe action
+
+Do NOT rerun first-pass work.
+Do NOT modify production `data/**`.
+
+Run the local protected-asset completeness scan using the tracked contract above.
+
+If `LOCAL_COMPLETENESS_PASS_MISSING_0`, record the evidence in quarantine/Issue #32, set final Special count 2,788, change readiness to `READY_FOR_FINAL_PROMOTION_AUDIT`, and start a separate independent final promotion audit.
+
+If a genuine delta is found, validate only that delta under applicable #32 R2 rules; keep all completed 2,788 results.
