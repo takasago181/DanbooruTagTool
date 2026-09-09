@@ -2,7 +2,7 @@
 
 Owner: Issue #44 `KNOWLEDGE:#44`
 
-Status: `GENRE_CATALOG_V2 / CONSOLIDATED`
+Status: `TOPIC_CATALOG_V2 / CONSOLIDATED`
 
 このファイルは、知識班が蓄積した生成知識を**ジャンルから引ける最上位入口**である。
 
@@ -19,7 +19,7 @@ Status: `GENRE_CATALOG_V2 / CONSOLIDATED`
 7. 根拠確認が必要な時だけ `docs/knowledge/research/*`
 8. 横断確認時に `GENERATION_KNOWLEDGE_CORPUS.md` / `GENERATION_KNOWLEDGE_SOURCES.md`
 
-## Canonical genre catalog
+## Canonical topic catalog
 
 | # | ジャンル | 入口 | 主な内容 |
 |---|---|---|---|
@@ -27,15 +27,15 @@ Status: `GENRE_CATALOG_V2 / CONSOLIDATED`
 | 01 | モデル別生成知識 | `catalog/01_MODEL_FAMILIES.md` | WAI17 / Illustrious / NoobAI / Anima |
 | 02 | Prompt・Support・構成 | `catalog/02_PROMPT_SUPPORT_AND_COMPOSITION.md` | 最小十分Prompt、support、anti-support、複合構成 |
 | 03 | 失敗診断・テスト・評価 | `catalog/03_FAILURE_TESTING_AND_EVALUATION.md` | binding、seed、E0-E3、WD/Kagami/CL、TIE/UNCLEAR |
-| 04 | ツール・後処理・LoRA | `catalog/04_TOOLS_POSTPROCESS_AND_LORA.md` | Hires、ADetailer、img2img、Control、regional、LoRA |
+| 04 | ツール・後処理・LoRA | `catalog/04_TOOLS_POSTPROCESS_AND_LORA.md` | Forge/Hires/ADetailer/img2img/Control/regional/LoRA |
 | 05 | 特殊・ハード系成人生成 | `catalog/05_HARD_NICHE_ADULT_GENERATION.md` | body-site、BDSM、機械、触手、体液、rare/extreme |
 | 06 | 意味・Alias・Trigger | `catalog/06_SEMANTICS_ALIAS_TRIGGER.md` | Danbooru canonical、Alias、implication、e621/Gelbooru、trigger drift |
-| 07 | WAI17ローカル実証 | `catalog/07_WAI17_LOCAL_TEST_PROFILE.md` | あなたの現在環境、固定baseline、最初のテスト順 |
-| 08 | 情報源・サイト監査 | `catalog/08_SOURCE_AND_SITE_AUDITS.md` | source authority、AIArtRecipe、としあきWiki、HF、Danbooru/e621 |
+| 07 | WAI17ローカル実証 | `catalog/07_WAI17_LOCAL_TEST_PROFILE.md` | 現在環境、固定baseline、最初のテスト順 |
+| 08 | 情報源・サイト監査 | `catalog/08_SOURCE_AND_SITE_AUDITS.md` | source hierarchy、AIArtRecipe、としあきWiki、HF、Danbooru/e621 |
 | 09 | HOLD・未解決 | `catalog/09_OPEN_QUESTIONS_AND_HOLD.md` | 断定禁止項目、WAI17優先テスト、将来evaluator比較 |
 | 10 | 全ファイル地図 | `catalog/10_FILE_MAP.md` | root/research全current fileのジャンル対応 |
 
-`catalog/README.md` も同じ番号体系を使う。別の並行番号体系は作らない。
+`catalog/README.md` も同じ番号体系を使う。**別の並行番号体系は作らない。**
 
 ## 横断原則
 
@@ -62,11 +62,12 @@ Status: `GENRE_CATALOG_V2 / CONSOLIDATED`
 5. 特殊/ハード対象なら `catalog/05_HARD_NICHE_ADULT_GENERATION.md`
 6. 未確定確認は `catalog/09_OPEN_QUESTIONS_AND_HOLD.md`
 
-## 4層構造
+## 5層構造
 
 - **handoff** = 現在地・復元順・当面優先度
 - **catalog** = 現在採用している知識をジャンル別に整理
-- **corpus/sources** = 横断統合知識・出典台帳
+- **corpus** = 横断統合知識
+- **sources** = 出典台帳
 - **research** = 詳細調査・証拠・limitations・履歴
 
 通常はCatalogから入り、監査・根拠確認時だけresearchまで降りる。
