@@ -7,8 +7,8 @@
   "fixed_order": "production Special2788 order at audit start",
   "batch_size": 100,
   "internal_block_size": 20,
-  "completed_specials": 2100,
-  "pass": 1646,
+  "completed_specials": 2120,
+  "pass": 1666,
   "fix": 174,
   "review": 263,
   "image_test_required": 17,
@@ -41,10 +41,10 @@
   "semantic_support_rows_covered": 55,
   "semantic_support_rows_review": 0,
   "semantic_support_rows_image_test_required": 30,
-  "last_completed_special_id": "2100",
+  "last_completed_special_id": "2120",
   "last_completed_batch": 21,
   "next_batch": 22,
-  "next_start_position": 2101,
+  "next_start_position": 2121,
   "production_modified": false,
-  "notes": "Batch21 2001-2100 complete and R2 gate PASS. Delta from 2000: PASS98/FIX0/REVIEW2/IMAGE_TEST_REQUIRED0. A-risk REVIEW IDs2029 grabbing another's breast and2031 guided breast grab remain unresolved pending exact independent evidence for ActorRequirementOverride. PASS false-PASS sample20/98 including all A-risk PASS rows found0 new false-PASS. candidate_fixes/revalidation_queue checked with no new entries; semantic support remains55/58. Next safe restart2101; main/production unchanged."
+  "notes": "Batch22 partial checkpoint 2101-2120 complete: PASS20/FIX0/REVIEW0/IMAGE_TEST_REQUIRED0. RESULT_LEDGER_INDEX was repaired through 2100 before new work after confirming authoritative append-only blocks. candidate_fixes/revalidation_queue checked with no changes; semantic support remains55/58. Next safe restart2121; main/production unchanged."
 }
