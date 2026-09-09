@@ -1,0 +1,9 @@
+{
+  "live_fetch": false,
+  "merged_table_hash": "sha256:b73f5c560e97a9fb7c499e9ba937802b4a834829bc9af3adb7c94a9cae907e9e",
+  "original_vs_replay1": "PASS",
+  "original_vs_replay2": "PASS",
+  "replay1_vs_replay2": "PASS",
+  "source_mode": "frozen_exception_classifier_table_and_local_qualified_rules_only",
+  "verdict": "PASS"
+}

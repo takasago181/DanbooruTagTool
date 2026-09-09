@@ -1,0 +1,47 @@
+{
+  "campaign_id": "issue36-qualified-label-final-review-20260909-v1",
+  "contract": "translation_quarantine/r3/QUALIFIED_LABEL_FINAL_REVIEW_CONTRACT.md",
+  "contract_commit": "60fc740a0c6463f9aeef40293bd006c0037493da",
+  "input_hashes": {
+    "translation_quarantine/exception_classifier_repair_20260909/final_translation_table.csv": "sha256:b2cb6d5462dbe6eb7185f15b71799fe7afec2a0c534e51c3ef67cf90f1cf2e4d",
+    "translation_quarantine/r3/QUALIFIED_LABEL_FINAL_REVIEW_CONTRACT.md": "sha256:6852291a03aa15b77b0b3c53b477be3d0aa032cdd1a5dd8ea4da855276999444"
+  },
+  "output_hashes": {
+    "fallback_ledger": "sha256:99c54c9db66a1d74a3a3bd4f8bcf542cde5a3287d83cc9150121de103718aa45",
+    "merged_table": "sha256:b73f5c560e97a9fb7c499e9ba937802b4a834829bc9af3adb7c94a9cae907e9e"
+  },
+  "production_modified": false,
+  "promotion": "NOT_AUTHORIZED",
+  "protected_boundary": {
+    "after": {
+      "data/japanese/japanese_terms.csv": "sha256:aa4583f911e29597f60a4059bf45c34dc320ab33012ec6b46f2a4ffae21422dc",
+      "data/runtime/japanese_overlay.json": "sha256:de1b375d79ef05f4c2477347b20b8a09115511d2ecbd39602bdebcdfa6d576dc",
+      "data/runtime_index/BUILD_MANIFEST.json": "sha256:0f7ec4961c393a4c032f23a2d3e22b9268b7e481bfd91e788fec6379411fb13f",
+      "data/runtime_index/canonical_overlay.json": "sha256:bf9a62105740ec579ea0618721b78a0d3ccc2279cf18aabf402c3083ede05195",
+      "data/semantic/family_support_rules.csv": "sha256:59609aadc82f9f4be97b82008159b55e4d738f41dbb9625c59be8a826fe7c4fd",
+      "data/semantic/semantic_support_profiles.csv": "sha256:33f9142333db867d53096cf2f11ba411aefa13996560326fa174803a2d8c2755"
+    },
+    "before": {
+      "data/japanese/japanese_terms.csv": "sha256:aa4583f911e29597f60a4059bf45c34dc320ab33012ec6b46f2a4ffae21422dc",
+      "data/runtime/japanese_overlay.json": "sha256:de1b375d79ef05f4c2477347b20b8a09115511d2ecbd39602bdebcdfa6d576dc",
+      "data/runtime_index/BUILD_MANIFEST.json": "sha256:0f7ec4961c393a4c032f23a2d3e22b9268b7e481bfd91e788fec6379411fb13f",
+      "data/runtime_index/canonical_overlay.json": "sha256:bf9a62105740ec579ea0618721b78a0d3ccc2279cf18aabf402c3083ede05195",
+      "data/semantic/family_support_rules.csv": "sha256:59609aadc82f9f4be97b82008159b55e4d738f41dbb9625c59be8a826fe7c4fd",
+      "data/semantic/semantic_support_profiles.csv": "sha256:33f9142333db867d53096cf2f11ba411aefa13996560326fa174803a2d8c2755"
+    },
+    "changed": false,
+    "production_modified": false,
+    "verdict": "PASS"
+  },
+  "replay": {
+    "live_fetch": false,
+    "merged_table_hash": "sha256:b73f5c560e97a9fb7c499e9ba937802b4a834829bc9af3adb7c94a9cae907e9e",
+    "original_vs_replay1": "PASS",
+    "original_vs_replay2": "PASS",
+    "replay1_vs_replay2": "PASS",
+    "source_mode": "frozen_exception_classifier_table_and_local_qualified_rules_only",
+    "verdict": "PASS"
+  },
+  "schema_version": "issue36-qualified-label-final-review-v1",
+  "source_commit": "61ae092d31c60c544a3e61abb219515f64b1a719"
+}
