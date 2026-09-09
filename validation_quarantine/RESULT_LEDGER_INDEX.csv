@@ -109,3 +109,13 @@ start_sequence,end_sequence,path,rule_version,row_count,status,notes
 2141,2160,validation_quarantine/results_blocks/2141_2160.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; ID2141 A-risk camera deep review PASS
 2161,2180,validation_quarantine/results_blocks/2161_2180.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; ID2176 A-risk camera deep review PASS
 2181,2200,validation_quarantine/results_blocks/2181_2200.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
+2201,2220,validation_quarantine/results_blocks/2201_2220.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
+2221,2240,validation_quarantine/results_blocks/2221_2240.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
+2241,2260,validation_quarantine/results_blocks/2241_2260.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
+2261,2280,validation_quarantine/results_blocks/2261_2280.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
+2281,2300,validation_quarantine/results_blocks/2281_2300.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; Batch23 gate PASS
+2301,2320,validation_quarantine/results_blocks/2301_2320.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; IDs2301,2308,2309 A-risk REVIEW
+2321,2340,validation_quarantine/results_blocks/2321_2340.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; IDs2332-2336 A-risk deep review PASS
+2341,2360,validation_quarantine/results_blocks/2341_2360.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; ID2360 A-risk pose deep review PASS
+2361,2380,validation_quarantine/results_blocks/2361_2380.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
+2381,2400,validation_quarantine/results_blocks/2381_2400.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; IDs2393-2394 S-risk REVIEW; Batch24 gate PASS
