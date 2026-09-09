@@ -1,8 +1,8 @@
 # 10 — Complete File Map
 
-Status: `ALL_CURRENT_KNOWLEDGE_FILES_CLASSIFIED_V1`
+Status: `ALL_CURRENT_KNOWLEDGE_FILES_CLASSIFIED_V2 / CLAIM_LAYER_ADDED`
 
-This file maps the current `docs/knowledge/` knowledge files and focused research files into the canonical topic catalog.
+This maps the current `docs/knowledge/` assets into the canonical topic catalog and current management layer.
 
 ## Canonical catalog
 
@@ -18,18 +18,36 @@ This file maps the current `docs/knowledge/` knowledge files and focused researc
 - `09_OPEN_QUESTIONS_AND_HOLD.md`
 - `10_FILE_MAP.md`
 
+## Current management layer
+
+These files are cross-topic controls, not a second genre taxonomy.
+
+| File | Role |
+|---|---|
+| `../current/README.md` | current management entry / precedence / workflow |
+| `../current/KNOWLEDGE_GOVERNANCE.md` | Claim schema, IDs, SOURCE_CLASS/STATUS/SCOPE/VALIDATION rules |
+| `../current/CLAIM_REGISTRY.csv` | **current claim verdict source of truth** |
+| `../current/ASSET_INVENTORY.md` | requested knowledge-domain inventory and file locations |
+| `../current/VERSION_FRESHNESS_LEDGER.csv` | version/source freshness and recheck ledger |
+| `../current/HOLD_CONFLICT_REGISTER.md` | current unresolved/conflicting knowledge |
+| `../current/LEGACY_MAP.md` | old document -> category/Claim/role |
+| `../current/LABEL_MIGRATION_MAP.md` | old mixed labels -> new field interpretation |
+| `../current/CURRENT_QUICK_REFERENCE.md` | 30–60 second overview; never verdict authority |
+| `../current/READING_ROUTES.md` | task-specific 3–5 file reading routes |
+| `../current/SELF_AUDIT_20260909.md` | GitHub-only recovery audit for this organization pass |
+
 ## Root knowledge files
 
 | File | Primary catalog | Role |
 |---|---|---|
-| `CURRENT_PRODUCT_GOAL_20260909.md` | 00 | current product goal |
-| `PRODUCT_GOAL_EVOLUTION_20260909.md` | 00 | original -> current evolution |
-| `KNOWLEDGE_REASSESSMENT_20260909.md` | 00 / 09 | KEEP/HOLD/REJECT reassessment |
-| `GENERATION_KNOWLEDGE_CORPUS.md` | cross-cutting | durable consolidated corpus |
-| `GENERATION_KNOWLEDGE_SOURCES.md` | 08 | source registry |
-| `GENERATION_KNOWLEDGE_INDEX.md` | cross-cutting | coverage/research index |
+| `CURRENT_PRODUCT_GOAL_20260909.md` | 00 | current product goal evidence/context |
+| `PRODUCT_GOAL_EVOLUTION_20260909.md` | 00 | original -> current evolution/history |
+| `KNOWLEDGE_REASSESSMENT_20260909.md` | 00 / 09 | legacy KEEP/HOLD/REJECT reassessment evidence |
+| `GENERATION_KNOWLEDGE_CORPUS.md` | cross-cutting | durable consolidated corpus/evidence |
+| `GENERATION_KNOWLEDGE_SOURCES.md` | 08 | source registry/provenance |
+| `GENERATION_KNOWLEDGE_INDEX.md` | cross-cutting | historical coverage/backlog index |
 | `KNOWLEDGE_HANDOFF_CURRENT_20260909.md` | cross-cutting | restart handoff |
-| `KNOWLEDGE_CATALOG.md` | cross-cutting | master topic entry point |
+| `KNOWLEDGE_CATALOG.md` | cross-cutting | master human-readable topic entry |
 
 ## Focused research files
 
@@ -62,20 +80,22 @@ This file maps the current `docs/knowledge/` knowledge files and focused researc
 | `HARD_FETISH_COMPOSITE_FAILURE_MATRIX_20260909.md` | 05 / 03 | — |
 | `HARD_FETISH_SOURCES_20260909.md` | 08 | 05 |
 
+Detailed old-document-to-Claim absorption mapping:
+`../current/LEGACY_MAP.md`
+
 ## Layer roles
 
-- `catalog/` = current organized conclusions by topic
+- `current/CLAIM_REGISTRY.csv` = current verdict/status/scope/validation authority
+- `current/HOLD_CONFLICT_REGISTER.md` = current uncertainty detail
+- `current/VERSION_FRESHNESS_LEDGER.csv` = freshness/version identity
+- `catalog/` = current readable explanation by topic
 - `research/` = detailed evidence/provenance/history
-- `GENERATION_KNOWLEDGE_CORPUS.md` = durable cross-topic consolidated knowledge
+- `GENERATION_KNOWLEDGE_CORPUS.md` = durable cross-topic synthesis
 - `GENERATION_KNOWLEDGE_SOURCES.md` = source registry
-- `KNOWLEDGE_HANDOFF_CURRENT_20260909.md` = current chat-restart state
+- `KNOWLEDGE_HANDOFF_CURRENT_20260909.md` = restart state
 
-## Maintenance rule
+## Maintenance
 
-For substantial new research:
-1. add/preserve the focused research original;
-2. update the relevant canonical catalog file;
-3. register it here;
-4. update #44 checkpoint and handoff if current priorities changed.
+`research/source -> Claim Registry -> category explanation if needed -> HOLD/version if needed -> file map -> downstream handoff when requested -> #44 checkpoint`.
 
-Do not create a parallel numbering scheme. Extend this canonical catalog instead.
+Do not create a parallel genre numbering scheme.

@@ -1,8 +1,20 @@
 # 09 — Open Questions / HOLD
 
+## Current authority
+
+This file is the **human-readable topic summary** of uncertainty.
+
+Authoritative current HOLD/CONFLICT rows are maintained in:
+`../current/HOLD_CONFLICT_REGISTER.md`
+
+Related current claim status is maintained in:
+`../current/CLAIM_REGISTRY.csv`
+
+If this summary and those current management files differ, use the current management files and treat this document as explanation/history.
+
 ## HOLD means disciplined uncertainty
 
-HOLD is not forgotten work. It means evidence is insufficient, conflicting, model-specific, or still requires image tests.
+HOLD is not forgotten work. It means evidence is insufficient, conflicting, model-specific, version-sensitive, or still requires controlled/image testing.
 
 Do not fill HOLD with another model's behavior, old Stable Diffusion habits, or anecdotal community rules.
 
@@ -18,7 +30,9 @@ Baseline:
 - fixed paired seeds
 - Hires / ADetailer / LoRA / Control / regional OFF
 
-Open questions:
+This baseline is an isolation profile, **not a claim of hard-target optimality**.
+
+Open questions include:
 1. canonical vs Alias activation
 2. rare Special exposure
 3. broad+specific benefit/harm
@@ -32,32 +46,25 @@ Open questions:
 11. LoRA × Special/support interaction
 12. Prompt-only -> assisted-control escalation threshold
 
+See `current/HOLD_CONFLICT_REGISTER.md` for resolution method, downstream owner and Stage10 requirement per item.
+
 ## Evaluator HOLD
 
-After dictionary finalization, compare Special2788 coverage across:
+After final dictionary freeze, compare Special coverage across:
 - WD EVA02 v3
 - Kagami-24k
 - CL Tagger v2
 
-Need to resolve:
-- Core / Extended / Alias / Semantic coverage
-- raw Alias vs canonical-target mapping
-- rarity/post_count bands
-- per-tag confidence/calibration
-- OOD
-- relation classes requiring REVIEW
-- achievable reduction in manual review
+Resolve coverage, Alias/canonical mapping, rarity bands, calibration/OOD, relation REVIEW routing and manual-review reduction. Vocabulary breadth does not prove rare-tail accuracy.
 
 ## NoobAI HOLD
 
-- current canonical vs historical/e621 trigger
+- canonical vs historical/e621 trigger
 - actor/body-site relation
 - camera/visibility support
 - hard count ceiling
 - anatomy Negative effect
-- EPS vs V-Pred practical differences
-
-Lower priority until WAI17 local evidence is stable.
+- EPS vs V-Pred practical project differences
 
 ## Anima HOLD
 
@@ -71,16 +78,7 @@ Lower priority until WAI17 local evidence is stable.
 ## Promotion discipline
 
 ### Local practical rule
-Can be promoted only under pinned context when repeatable benefit/harm appears.
-
-Record:
-- checkpoint/version/hash
-- target Special
-- actual Prompt/Negative
-- seed/settings
-- LoRA/control/postprocess state
-- evaluator
-- outcome + uncertainty
+Promote only under pinned context with repeatable benefit/harm. Record exact model/checkpoint or best available identity, Prompt/Negative, seed/settings, adapters/control/postprocess, evaluator, outcome and uncertainty.
 
 ### General reusable rule
 Requires E3-level evidence across representative cases and relevant model scope.
@@ -91,11 +89,11 @@ Requires E3-level evidence across representative cases and relevant model scope.
 - aesthetic-only optimization
 - unrelated model families
 - runtime LLM approaches
-- large custom evaluator platform before a demonstrated gap
+- large custom evaluator platform before demonstrated need
 
 ## Stop condition for Prompt escalation
 
-If semantic nucleus is preserved and all relevant functional support roles have been tested without repeatable benefit, stop adding unrelated tags. Mark Prompt-only ceiling and move to HOLD/assisted-control rather than endless Prompt growth.
+If semantic nucleus is preserved and all relevant functional support roles have been tested without repeatable benefit, stop unrelated tag growth. Mark Prompt-only ceiling and move to HOLD/assisted-control.
 
 ## Primary originals
 

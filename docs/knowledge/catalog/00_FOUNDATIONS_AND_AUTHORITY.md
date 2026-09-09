@@ -2,23 +2,44 @@
 
 ## Current product goal
 
-DanbooruTagTool remains Special-first. Current success criterion is broader than the original search/dictionary goal:
+DanbooruTagTool remains Special-first:
 
 `short Japanese/English intent -> correct Special candidate(s) -> minimum useful support/structure -> model-family-appropriate canonical-English Prompt -> safe failure diagnosis -> fewer unnecessary generation iterations`
 
-The runtime remains local and non-LLM. KNOWLEDGE is evidence/reference and does not directly rewrite production dictionary data or another team's verdict.
+Runtime remains local and non-LLM. KNOWLEDGE is evidence/reference and does not directly rewrite production dictionary data or another team's verdict.
 
-## Evidence classes
+## Current claim metadata system
 
-- `FACT_EXACT_MODEL` — exact model/version author evidence or equally strong exact-version controlled evidence
-- `FACT_GENERAL` — primary/general mechanism evidence
-- `CONTROLLED_PRACTICAL` — controlled practical comparison
-- `PRACTICAL` — useful but less controlled real-world evidence
-- `COMMUNITY` — hypothesis/failure-discovery evidence
-- `HOLD` — unresolved, conflicting, or image-test required
-- `REJECT` — contradicted/overgeneralized/unsafe as a default
+Current claim verdicts are recorded in:
+`../current/CLAIM_REGISTRY.csv`
 
-Language does not determine rank. Japanese, English, Chinese, Korean and other sources are valid when evidence quality is high.
+Every current Claim separates four dimensions:
+
+- `SOURCE_CLASS` — what kind of evidence/source supports the claim
+- `STATUS` — how KNOWLEDGE currently treats the claim
+- `SCOPE` — where the claim applies
+- `VALIDATION_STATE` — whether additional validation is required
+
+Definitions and allowed values:
+`../current/KNOWLEDGE_GOVERNANCE.md`
+
+This supersedes using one mixed label such as `FACT_EXACT_MODEL` or `TEST_REQUIRED` as if it simultaneously described authority, acceptance, scope and validation.
+
+## Legacy evidence labels
+
+Existing research/corpus files may use:
+- `FACT_EXACT_MODEL`
+- `FACT_GENERAL`
+- `CONTROLLED_PRACTICAL`
+- `PRACTICAL`
+- `COMMUNITY`
+- `HOLD`
+- `REJECT`
+
+They remain valid historical shorthand in those files. They do **not** replace the current two-axis-plus-scope/validation fields.
+
+Read old labels through:
+`../current/LABEL_MIGRATION_MAP.md`
 
 ## Authority by question
 
@@ -35,7 +56,7 @@ Prefer official GitHub README/docs and version-specific issues.
 Prefer primary papers/research.
 
 ### Practical failure modes
-Use controlled/practical reports, AIArtRecipe, Toshiaki Wiki, HF discussions, creator reports, community evidence — but do not promote them into canonical truth without independent support.
+Use controlled/practical reports, AIArtRecipe, Toshiaki Wiki, HF discussions, creator reports and community evidence as hypothesis/failure sources, not canonical truth.
 
 ## Identity layers that must stay separate
 
@@ -47,6 +68,15 @@ Use controlled/practical reports, AIArtRecipe, Toshiaki Wiki, HF discussions, cr
 6. generation support
 7. UI Japanese/search wording
 8. evaluator representation
+9. Prompt-only capability
+10. assisted-control/postprocess capability
+
+## Author guidance is not production optimum
+
+Example:
+- `WAI v17 author recommends Steps 15–30` can be `SOURCE_CLASS=AUTHOR_GUIDE`, `STATUS=ACCEPTED`, `SCOPE=MODEL_VERSION:WAI-v17`.
+- `Steps 25 is the hard-target optimum` is a different project-performance claim and remains `CANDIDATE/HOLD` until controlled evidence exists.
+- `Steps 25 is the current local isolation baseline` can be `PROJECT_FACT/ACCEPTED` without claiming optimality.
 
 ## Durable authority rules
 
@@ -54,7 +84,8 @@ Use controlled/practical reports, AIArtRecipe, Toshiaki Wiki, HF discussions, cr
 - A model-preferring an old/alternate spelling does not authorize canonical rewrite.
 - Current Danbooru post_count is not direct training-exposure probability.
 - Generation success does not redefine canonical meaning.
-- A practical Prompt bundle may reveal useful support hypotheses but is not the definition of the Special.
+- A practical Prompt bundle may reveal support hypotheses but is not the definition of the Special.
+- Official-source truth and production-optimum truth are separate claims.
 
 ## Primary originals
 
