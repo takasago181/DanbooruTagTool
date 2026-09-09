@@ -17,8 +17,7 @@ Stage 9 overall Gate 完了 / Stage10 準備Gate実施中 / automated E2E PASS
 | `DEV:#35` | ACTIVE | #35 UI-only Codex slot | `ui-ja/issue35-ui-only` | implementation exists; test/manual completion gate | Issue #35 + `CURRENT_DEV_TASK.md` |
 | `DICT:#32:R2` | ACTIVE | #32 Special2788 validation | `dict-validation/quarantine` | R2 long-running audit; Batch23 PASS; next safe restart sequence 2301 | Issue #32 latest checkpoint + `validation_quarantine/handoff.md` |
 | `KNOWLEDGE:#44` | ACTIVE / ONGOING | #44 persistent generation knowledge corpus | `knowledge/generation-corpus` | organized corpus finalized; ongoing evidence maintenance for #32 / Stage10 / future #42 | Issue #44 latest checkpoint + `docs/knowledge/KNOWLEDGE_CATALOG.md` |
-| `UIJA:#36:V3` | ACTIVE / GATED | #36 Japanese overlay quarantine / FINAL CONVERGENCE V3 | `ui-ja/issue36-final-agent-convergence` | V3.1 replacement spec prepared; execution HOLD pending #45 re-audit | Issue #36 latest checkpoint + V3.1 contract commit `86bf72246b3f1f42b52f562f45d4027f0d1a71ea` |
-| `AUDIT:#45` | ACTIVE / RE-AUDIT | #45 independent pre-execution audit of #36 V3 specification | Issue #45 + `ui-ja/issue36-final-agent-convergence` | short delta re-review of V3.1; execution remains blocked until `APPROVE_V3_SPEC_FOR_EXECUTION` | Issue #45 comment `5601133261` + contract commit `86bf72246b3f1f42b52f562f45d4027f0d1a71ea` |
+| `UIJA:#36:V3` | ACTIVE / EXECUTION_AUTHORIZED | #36 Japanese overlay quarantine / FINAL CONVERGENCE V3.1 | `ui-ja/issue36-final-agent-convergence` | V3.1 spec frozen; #45 independent audit PASS; Codex execution authorized | Issue #36 checkpoint `5601218088` + V3.1 contract commit `86bf72246b3f1f42b52f562f45d4027f0d1a71ea` |
 | `TEMP:#30` | ACTIVE / GATED | #30 Forge Neo A/B automation | Issue #30 + `docs/testing/ISSUE30_SPECIAL_REPRESENTATIVE_ROUTING_DESIGN_20260908.md` | plumbing PASS; final evaluator/routing calibration waits for dictionary freeze | Issue #30 latest checkpoint / routing design |
 | `PROMPT:#5` | GATED | #5 Stage10 formal Prompt handoff | Issue #5 + Stage10 prep docs | final representative Special/evaluator inputs wait for dictionary freeze | Issue #5 + `docs/stages/STAGE_10_PREP.md` |
 
@@ -68,6 +67,12 @@ Reserved-only #42/#43 and backlog #24 are not active team identities until their
 - Issue #41 `[UI-JA][PILOT] R3 fresh100 semantic evidence + real #32 bridge + blind30 quality gate`: **PASS_PILOT / completed / closed**。
   - final blind scoring checkpoint: `5589825869`。
   - production promotion、remaining P0 925、main merge、Stage10 production A/BはこのPASSでは未許可。
+- Issue #45 `[UI-JA][AUDIT] Issue #36 FINAL CONVERGENCE V3 specification pre-review`: **APPROVE_V3_SPEC_FOR_EXECUTION / completed / closed**。
+  - initial verdict: `APPROVE_WITH_REQUIRED_SPEC_CHANGES`（comment `5601089974`）。
+  - replacement V3.1 contract: `86bf72246b3f1f42b52f562f45d4027f0d1a71ea`。
+  - final delta re-review verdict: `APPROVE_V3_SPEC_FOR_EXECUTION`（comment `5601202000`）。
+  - #36 execution authorization checkpoint: `5601218088`。
+  - production promotionはこのspec PASSだけでは未許可。
 - 常設班: 開発 / 監査 / 知識 / Prompt の4班。
 - 別働横断班: ツール本体UIおよび翻訳改善班（Issue #34）。
 
@@ -102,17 +107,12 @@ Reserved-only #42/#43 and backlog #24 are not active team identities until their
 - #36 `[UI-JA][DATA] Japanese overlay coverage audit + priority expansion (quarantine)`
   - current V3 branch: `ui-ja/issue36-final-agent-convergence`。
   - V2 machine-convergence result was rejected as final convergence because accepted Japanese coverage collapsed while fallback expanded excessively。
-  - V3.1 replacement contract commit: `86bf72246b3f1f42b52f562f45d4027f0d1a71ea`。
+  - V3.1 frozen authoritative contract commit: `86bf72246b3f1f42b52f562f45d4027f0d1a71ea`。
   - contract: `translation_quarantine/r3/ISSUE36_FINAL_CONVERGENCE_V3_AGENT_REVIEW.md`。
-  - current phase: **PROPOSED / PENDING ISSUE #45 SPEC RE-AUDIT**。
-  - V3 Codex execution: **HOLD**。`APPROVE_V3_SPEC_FOR_EXECUTION`前に実行しない。
-  - production Japanese overlayは未変更のまま。production promotionはNOT_AUTHORIZED。
-- #45 `[UI-JA][AUDIT] Issue #36 FINAL CONVERGENCE V3 specification pre-review`
-  - independent AUDIT lane。#36 V3実装・翻訳・production promotionは行わず、仕様のみ監査する。
-  - initial verdict: `APPROVE_WITH_REQUIRED_SPEC_CHANGES`（comment `5601089974`）。
-  - V3.1 replacement spec received: comment `5601133261` / commit `86bf72246b3f1f42b52f562f45d4027f0d1a71ea`。
-  - current phase: **short delta re-review**。B1-B7 + governance mismatchの残blocker有無を確認する。
-  - required success verdict: `APPROVE_V3_SPEC_FOR_EXECUTION`。それまではV3 execution HOLD / production promotion NOT_AUTHORIZED。
+  - Issue #45 final spec verdict: **`APPROVE_V3_SPEC_FOR_EXECUTION`**（comment `5601202000`）。
+  - current phase: **SPEC FROZEN / CODEX EXECUTION AUTHORIZED**（Issue #36 checkpoint `5601218088`）。
+  - V3.1 agent execution may proceed under the frozen contract; semantic/scope rules may not be weakened。
+  - production Japanese overlayは未変更のまま。production promotionはNOT_AUTHORIZEDで、V3.1 execution結果とseparate promotion audit/gateが必要。
 - #30 `[Stage10-PREP][TEMP] Forge Neo A/B automation & external-tool integration`
   - Stage10本番A/Bの手作業を可能な限り減らす臨時担当。
   - external / existing tool first。
@@ -131,7 +131,7 @@ Reserved-only #42/#43 and backlog #24 are not active team identities until their
   - Prompt構造、A/B質問、support-isolation、replacement workflowの準備は進めてよい。
   - final representative Special IDs、Tagger割当、AUTO/REVIEW最終routing、production thresholdは辞書freeze後までHOLD。
 - #34 `[UI-JA][CROSS] Tool UI / Japanese translation quality improvement`
-  - UI-JA全体parent。#35 / #36の親・調整Issueとして継続。#41 pilotはcompleted、現行独立監査は#45。
+  - UI-JA全体parent。#35 / #36の親・調整Issueとして継続。#41 pilotと#45 V3.1 spec auditはcompleted。
 - #42 `[Stage10-PREP][RESERVED] Product-purpose improvement pass before production A/B`
   - **RESERVED ONLY**。辞書/data homeworkの完了・promotion/freeze前にactivateしない。
 - #43 `[NAMING][RESERVED] Replace Special2788 as product concept name before final Stage10 freeze handoff`
@@ -196,8 +196,8 @@ Stage10本番開始前に最低限必要:
 1. #35はremaining test evidence + real Windows Tk screenshot/manual inspectionを完了する。`data/**`は変更しない。
 2. #32はnormal sequence 2301からcurrent 2,788 full validationを継続。完了後にpre-freeze completeness reconciliationを実施し、genuine missing Specialがあれば追加deltaのみ同じ基準で監査する。その後にfinal promotion audit → 予約済みDEV promotion → #43 naming gate → final Special dictionary freezeへ進む。
 3. #44 KNOWLEDGEはcanonical `docs/knowledge/catalog/00-10`体系を維持しつつpersistent corpusを継続し、#32のfalse-PASS防止・model-family別Prompt support・Stage10 evaluator設計に必要な根拠をGitHub corpusへ蓄積する。旧#4へ現在地を戻さない。
-4. #45はV3.1 replacement contract `86bf72246b3f1f42b52f562f45d4027f0d1a71ea`を短いdelta re-reviewし、`APPROVE_V3_SPEC_FOR_EXECUTION`または残blockerを返す。
-5. #36は#45の承認までV3実行をHOLDする。承認前にtranslation productionやV3 agent executionを再開しない。
+4. #36はIssue #45で承認されたfrozen V3.1 contract `86bf72246b3f1f42b52f562f45d4027f0d1a71ea`に従ってCodex agent executionを進める。quarantine境界を維持し、production `data/**` / Japanese overlayへ直接書き込まない。
+5. #36 V3.1 execution完了後はfinal artifact quality gateとseparate promotion auditを通し、production promotionはそのPASS後のみDEVへhandoffする。
 6. #30は `docs/testing/ISSUE30_SPECIAL_REPRESENTATIVE_ROUTING_DESIGN_20260908.md` に従い、test method / routing architectureのみ整理する。
 7. final Special dictionary freeze後、#44 KNOWLEDGEがWD14 EVA02 v3 / Kagami-24k / CL Tagger v2 stable/fixed releaseの**final frozen Special count** coverage比較を実施する。
 8. coverage返却後、PROMPTがfinal representative Special/caseを確定し、#30がcapability別AUTO/REVIEW routingを校正する。
@@ -214,8 +214,8 @@ Stage10本番開始前に最低限必要:
 - #30の残blockerはfinal dictionary freeze後のevaluator coverage、representative Special確定、capability別routing妥当性、REVIEW fallback校正。
 - #39 engine実装はaudit PASS / completed。full pytestの既知Windows ACL limitationは#41のisolated pilot evidenceと区別して扱う。
 - #41は**PASS_PILOT / completed / closed**。active blockerではない。
-- #45はV3.1 spec delta re-audit中。`APPROVE_V3_SPEC_FOR_EXECUTION`までは#36 V3 execution HOLD。
-- #36 production promotion許可は未確定。V3.1仕様監査完了後も、実行結果と別途promotion gateが必要。
+- #45は**APPROVE_V3_SPEC_FOR_EXECUTION / completed / closed**。active blockerではない。
+- #36 V3.1 executionはauthorized。production promotionは未許可で、execution結果・final artifact quality gate・separate promotion auditが残る。
 - 現2,788件はrunning auditの固定母数だが、**final frozen Special countの完全性はpre-freeze completeness reconciliation完了まで未確定**。
 - WD14をSpecial2788全体のground truthにしない。
 - unusual anatomy系Specialへ `bad anatomy / extra limbs / extra arms` 等を無条件適用しない。別A/B項目。
@@ -235,7 +235,7 @@ Stage10本番開始前に最低限必要:
 - `Active Teams Registry` は現在地を見失わないためのrouting/indexであり、新しい独立正本ではない。
 - 実作業・完了条件・結果は対応Issueに残す。
 - active DEV Issueが存在する場合のみ `docs/project/CURRENT_DEV_TASK.md` を現行DEV Issue本文の同期ミラーとして使う。
-- 現在activeなDEV Issueは **#35**。#30/#32/#36/#44/#45および予約済みfuture promotion taskがCURRENT_DEV_TASKを上書きしない。#41はcompleted historical evidenceでありactive identityではない。
+- 現在activeなDEV Issueは **#35**。#30/#32/#36/#44および予約済みfuture promotion taskがCURRENT_DEV_TASKを上書きしない。#41/#45はcompleted historical evidenceでありactive identityではない。
 - 各作業チャットは開始時に `CHAT_START_PROTOCOL.md` の班ID形式でlive `BRANCH / HEAD / CHECKPOINT / CONTRACT / PHASE` を再取得する。`v2/v3/R3/FINAL`等の人間向け版名だけで現在個体を判断しない。
 - 共有管理ファイルは最新mainを取得してから更新し、stale copyで上書きしない。
 - Codex完了報告だけで次Gateへ進まない。
