@@ -5,7 +5,7 @@
 - Work queue: **30629** canonicals, exactly once; batches: **205**.
 - Evidence lanes: `{'TRUE_ORIGINAL_FORM_EXCEPTION': 888, 'NEEDS_SEMANTIC_REVIEW': 29719, 'TRUSTED_ACCEPT': 22}`; semantic-review rows processed: **29719**.
 - Final table: **30629 unique**; accepted **1379**; fallback **29250**.
-- Accepted confirmed/repaired/demoted: **22580 / 614 / 21857**.
+- Accepted confirmed/repaired/demoted: **723 / 614 / 21857**.
 - Phrase 1,677: resolved JA **21**, true exception **0**, evidence-unresolved fallback **1656**; every row has an individual attempt/evidence record.
 - Collision review: **1412** records, demoted **73**, PASS.
 - Adversarial audit: **443** records, PASS; historical fixtures: **43**, PASS.
