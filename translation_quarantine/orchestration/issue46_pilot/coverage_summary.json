@@ -1,1 +1,1 @@
-{"adversarial_audit_rows":6,"decision_counts":{"KEEP_JA":1,"REPAIR_JA":1,"TRANSLATE_JA":3,"TRUE_EXCEPTION":1},"external_decision_rows":6,"residual_challenge_rows":4,"source_rows":6}
+{"adversarial_audit_rows":6,"decision_counts":{"KEEP_JA":1,"REPAIR_JA":1,"TRANSLATE_JA":3,"TRUE_EXCEPTION":1},"external_decision_rows":6,"residual_challenge_rows":0,"source_rows":6}

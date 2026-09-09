@@ -6,16 +6,14 @@ from pathlib import Path
 import pytest
 
 from tools.issue36.orchestrator import (
-    ADVERSARIAL_SAMPLE_STRATA,
     CONTRACT_COMMIT,
     MAX_REPAIR_CYCLES,
-    RESIDUAL_SAMPLE_STRATA,
     SOURCE_BLOB,
     Orchestrator,
     assert_no_blind_leakage,
     collision_review_rows,
-    freeze_stratified_sample,
     load_source,
+    outcome_sample_candidates,
     pilot_queue,
     read_json,
     source_queue_row,
@@ -99,21 +97,50 @@ def test_repair_bound_is_two() -> None:
     assert MAX_REPAIR_CYCLES == 2
 
 
-def test_full_sampling_freezes_required_v31_strata() -> None:
+def test_sampling_uses_post_outcome_populations_not_source_proxies() -> None:
     rows, _ = load_source(REPO)
     queue = [source_queue_row(row, index) for index, row in enumerate(rows)]
-    residual, residual_details = freeze_stratified_sample(
-        queue, RESIDUAL_SAMPLE_STRATA, "residual_fallback", 300
-    )
-    adversarial, adversarial_details = freeze_stratified_sample(
-        queue, ADVERSARIAL_SAMPLE_STRATA, "adversarial", 600
-    )
-    assert len(residual) == 300
-    assert len(adversarial) == 600
-    assert {entry["name"] for entry in residual_details} == {name for name, _ in RESIDUAL_SAMPLE_STRATA}
-    assert {entry["name"] for entry in adversarial_details} == {name for name, _ in ADVERSARIAL_SAMPLE_STRATA}
-    assert all(entry["selected_count"] >= min(target, entry["candidate_count"]) for entry, (_, target) in zip(residual_details, RESIDUAL_SAMPLE_STRATA))
-    assert all(entry["selected_count"] >= min(target, entry["candidate_count"]) for entry, (_, target) in zip(adversarial_details, ADVERSARIAL_SAMPLE_STRATA))
+    by_canonical = {row["canonical"]: row for row in queue}
+    final_rows = []
+    for canonical in ("1girl", "shot_glass", "!", "building_snowman"):
+        row = by_canonical[canonical]
+        final_rows.append(
+            {
+                "canonical": canonical,
+                "decision": "KEEP_JA" if canonical == "1girl" else (
+                    "REPAIR_JA" if canonical == "shot_glass" else (
+                        "TRUE_EXCEPTION" if canonical == "!" else "EVIDENCE_UNRESOLVED"
+                    )
+                ),
+                "final_display_ja": "既存表示" if canonical == "1girl" else (
+                    "修復表示" if canonical == "shot_glass" else ""
+                ),
+                "final_search_ja": "既存表示" if canonical == "1girl" else "",
+                "display_verdict": "ACCEPT" if canonical in {"1girl", "shot_glass"} else "ABSENT",
+                "search_verdict": "ACCEPT" if canonical in {"1girl", "shot_glass"} else "ABSENT",
+                "risk_class": "LOW",
+            }
+        )
+    candidates = outcome_sample_candidates([by_canonical[row["canonical"]] for row in final_rows], final_rows)
+    assert {row["canonical"] for row in candidates["random_accepted"]} == {"1girl", "shot_glass"}
+    assert {row["canonical"] for row in candidates["repaired_or_new_translation_candidate"]} == {"shot_glass"}
+    assert {row["canonical"] for row in candidates["true_exception"]} == {"!"}
+    assert {row["canonical"] for row in candidates["ordinary_residual_fallback"]} == {"building_snowman"}
+    assert "shot_glass" not in {row["canonical"] for row in candidates["ordinary_residual_fallback"]}
+
+
+def test_stage0_freezes_seed_only_before_outcomes(tmp_path: Path) -> None:
+    rows, _ = load_source(REPO)
+    queue = pilot_queue({row["canonical"]: row for row in rows})
+    orchestrator = Orchestrator(REPO, "pilot", tmp_path / "seed", "codex")
+    orchestrator.root.mkdir(parents=True, exist_ok=True)
+    orchestrator.materialize_sample_seed(queue)
+    seed = read_json(orchestrator.root / "sample_plan.json")
+    assert seed["selection_phase"] == "outcome_pending"
+    assert seed["selection_population_identity"] == "external_final_decisions_required"
+    assert seed["residual_fallback_sample"] == []
+    assert seed["adversarial_sample"] == []
+    assert "historical_blocker_candidates" not in seed
 
 
 def test_collision_review_contains_external_challenge_results() -> None:

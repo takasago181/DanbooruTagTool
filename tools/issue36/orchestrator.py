@@ -348,22 +348,51 @@ def is_true_exception_candidate(row: dict[str, Any]) -> bool:
     return any(token in reason for token in EXCEPTION_REASON_TOKENS)
 
 
-def stratified_sample_candidates(queue: list[dict[str, Any]]) -> dict[str, list[dict[str, Any]]]:
-    residual = [row for row in queue if row.get("source_state") == "FALLBACK"]
-    accepted = [row for row in queue if row.get("source_state") == "ACCEPTED"]
+def is_final_accepted(row: dict[str, Any]) -> bool:
+    return (
+        row.get("display_verdict") == "ACCEPT"
+        and bool(row.get("final_display_ja", "").strip())
+        and row.get("decision") not in {"TRUE_EXCEPTION", "EVIDENCE_UNRESOLVED"}
+    )
+
+
+def is_final_residual_fallback(row: dict[str, Any]) -> bool:
+    return (
+        not is_final_accepted(row)
+        and row.get("decision") != "TRUE_EXCEPTION"
+        and not row.get("final_display_ja", "").strip()
+    )
+
+
+def outcome_sample_candidates(
+    queue: list[dict[str, Any]],
+    final_rows: list[dict[str, Any]],
+) -> dict[str, list[dict[str, Any]]]:
+    by_queue = {row["canonical"]: row for row in queue}
+    if {row["canonical"] for row in final_rows} != set(by_queue):
+        raise ValueError("post-outcome sampling requires one final external row per queue canonical")
+    current = [{**by_queue[row["canonical"]], **row} for row in final_rows]
+    residual = [row for row in current if is_final_residual_fallback(row)]
+    accepted = [row for row in current if is_final_accepted(row)]
+    repaired = [
+        row for row in accepted if row.get("decision") in {"REPAIR_JA", "TRANSLATE_JA"}
+    ]
+    exceptions = [row for row in current if row.get("decision") == "TRUE_EXCEPTION"]
     residual_tokens = [canonical_tokens(row["canonical"]) for row in residual]
-    sibling_candidates = []
-    for row in accepted:
-        tokens = canonical_tokens(row["canonical"])
-        if tokens and any(tokens.intersection(other) for other in residual_tokens):
-            sibling_candidates.append(row)
+    sibling_candidates = [
+        row for row in residual
+        if row.get("source_state") == "ACCEPTED"
+        and canonical_tokens(row["canonical"])
+        and any(canonical_tokens(row["canonical"]).intersection(other) for other in residual_tokens)
+    ]
     return {
+        "all_final_rows": current,
         "ordinary_residual_fallback": [row for row in residual if not is_true_exception_candidate(row)],
         "common_simple": [
             row for row in residual
             if len(canonical_tokens(row["canonical"])) <= 1
             and len(row["canonical"]) <= 24
-            and not any(token in canonical_tokens(row["canonical"]) for token in ANATOMY_ADULT_TOKENS)
+            and not canonical_tokens(row["canonical"]).intersection(ANATOMY_ADULT_TOKENS)
         ],
         "multi_token": [row for row in residual if len(canonical_tokens(row["canonical"])) >= 2],
         "action_relation": [
@@ -372,7 +401,8 @@ def stratified_sample_candidates(queue: list[dict[str, Any]]) -> dict[str, list[
         ],
         "anatomy_adult_high_risk": [
             row for row in residual
-            if row.get("source_risk_class") in {"HIGH", "CRITICAL"}
+            if row.get("risk_class") in {"HIGH", "CRITICAL"}
+            or row.get("source_risk_class") in {"HIGH", "CRITICAL"}
             or canonical_tokens(row["canonical"]).intersection(ANATOMY_ADULT_TOKENS)
         ],
         "accepted_demotion_root_cause_sibling": sibling_candidates,
@@ -381,20 +411,22 @@ def stratified_sample_candidates(queue: list[dict[str, Any]]) -> dict[str, list[
         ],
         "random_accepted": accepted,
         "high_critical_accepted": [
-            row for row in accepted if row.get("source_risk_class") in {"HIGH", "CRITICAL"}
+            row for row in accepted if row.get("risk_class") in {"HIGH", "CRITICAL"}
+            or row.get("source_risk_class") in {"HIGH", "CRITICAL"}
         ],
-        "repaired_or_new_translation_candidate": residual,
-        "true_exception": [row for row in residual if is_true_exception_candidate(row)],
+        "repaired_or_new_translation_candidate": repaired,
+        "true_exception": exceptions,
     }
 
 
-def freeze_stratified_sample(
+def select_outcome_strata(
     queue: list[dict[str, Any]],
+    final_rows: list[dict[str, Any]],
     specs: tuple[tuple[str, int], ...],
     purpose: str,
     minimum: int,
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
-    candidates = stratified_sample_candidates(queue)
+    candidates = outcome_sample_candidates(queue, final_rows)
     selected_by_canonical: dict[str, set[str]] = {}
     details: list[dict[str, Any]] = []
     for name, target in specs:
@@ -408,9 +440,10 @@ def freeze_stratified_sample(
                 "candidate_count": len(candidates.get(name, [])),
                 "selected_count": len(selected),
                 "selected_canonicals": [row["canonical"] for row in selected],
+                "population": "external_final_decisions",
             }
         )
-    pool = [row for row in queue if row.get("source_state") == "FALLBACK"] if "residual" in purpose else queue
+    pool = candidates["ordinary_residual_fallback"] if "residual" in purpose else candidates["all_final_rows"]
     fill_count = min(minimum, len(pool))
     for row in choose_ranked(pool, f"{purpose}:deterministic_fill", len(pool)):
         if len(selected_by_canonical) >= fill_count:
@@ -647,12 +680,38 @@ class Orchestrator:
                 "terminal": None,
             }
         write_json(self.root / "source_manifest.json", self.source_manifest)
-        self.materialize_samples(queue)
+        self.materialize_sample_seed(queue)
         self.materialize_resolver_inputs(queue)
         write_json(self.manifest_path, self.manifest)
         return queue
 
-    def materialize_samples(self, queue: list[dict[str, Any]]) -> None:
+    def materialize_sample_seed(self, queue: list[dict[str, Any]]) -> None:
+        sample_plan = {
+            "source_git_blob": SOURCE_BLOB,
+            "created_before_semantic_outcomes": True,
+            "selection_phase": "outcome_pending",
+            "selection_population_identity": "external_final_decisions_required",
+            "algorithm": "sha256(source_git_blob|purpose|canonical), ascending",
+            "residual_fallback_strata": [
+                {"name": name, "target": target} for name, target in RESIDUAL_SAMPLE_STRATA
+            ],
+            "adversarial_strata": [
+                {"name": name, "target": target} for name, target in ADVERSARIAL_SAMPLE_STRATA
+            ],
+            "pilot_cases": [row.get("pilot_case") for row in queue if row.get("pilot_case")],
+            "residual_fallback_sample": [],
+            "adversarial_sample": [],
+        }
+        write_json(self.root / "sample_plan.json", sample_plan)
+
+    def materialize_samples(self, queue: list[dict[str, Any]], final_rows: list[dict[str, Any]]) -> None:
+        seed = read_json(self.root / "sample_plan.json")
+        residual_entries, residual_strata = select_outcome_strata(
+            queue, final_rows, RESIDUAL_SAMPLE_STRATA, "residual_fallback", 300
+        )
+        adversarial_entries, adversarial_strata = select_outcome_strata(
+            queue, final_rows, ADVERSARIAL_SAMPLE_STRATA, "adversarial", 600
+        )
         by_canonical = {row["canonical"]: row for row in queue}
         historical = [
             canonical
@@ -668,45 +727,27 @@ class Orchestrator:
             )
             if canonical in by_canonical
         ]
-        if self.mode == "full":
-            residual_entries, residual_strata = freeze_stratified_sample(
-                queue, RESIDUAL_SAMPLE_STRATA, "residual_fallback", 300
-            )
-            adversarial_entries, adversarial_strata = freeze_stratified_sample(
-                queue, ADVERSARIAL_SAMPLE_STRATA, "adversarial", 600
-            )
-        else:
-            residual_entries = [
-                {"canonical": row["canonical"], "sample_key": sample_key(row["canonical"], "residual_fallback"), "strata": ["pilot"]}
-                for row in queue if row.get("source_state") == "FALLBACK"
-            ]
-            residual_strata = []
-            adversarial_entries = [
-                {"canonical": row["canonical"], "sample_key": sample_key(row["canonical"], "adversarial"), "strata": ["pilot"]}
-                for row in queue
-            ]
-            adversarial_strata = []
         adversarial_by_canonical = {entry["canonical"]: entry for entry in adversarial_entries}
         for canonical in historical:
+            existing = adversarial_by_canonical.get(canonical, {})
             adversarial_by_canonical[canonical] = {
                 "canonical": canonical,
                 "sample_key": sample_key(canonical, "adversarial"),
-                "strata": sorted(set(adversarial_by_canonical.get(canonical, {}).get("strata", [])) | {"historical_blocker"}),
+                "strata": sorted(set(existing.get("strata", [])) | {"historical_blocker"}),
             }
         adversarial_entries = sorted(adversarial_by_canonical.values(), key=lambda row: row["sample_key"])
         sample_plan = {
-            "source_git_blob": SOURCE_BLOB,
-            "created_before_semantic_outcomes": True,
-            "algorithm": "sha256(source_git_blob|purpose|canonical), ascending",
-            "pilot_cases": [row.get("pilot_case") for row in queue if row.get("pilot_case")],
+            **seed,
+            "selection_phase": "outcomes_frozen",
+            "selection_created_after_semantic_outcomes": True,
+            "selection_population_identity": "external_final_decisions",
             "residual_fallback_sample": residual_entries,
             "residual_fallback_strata": residual_strata,
-            "adversarial_sample": [
-                entry for entry in adversarial_entries
-            ],
+            "adversarial_sample": adversarial_entries,
             "adversarial_strata": adversarial_strata,
-            "accepted_candidate_count": sum(row.get("source_state") == "ACCEPTED" for row in queue),
-            "fallback_candidate_count": sum(row.get("source_state") == "FALLBACK" for row in queue),
+            "accepted_final_count": sum(is_final_accepted(row) for row in final_rows),
+            "fallback_final_count": sum(is_final_residual_fallback(row) for row in outcome_sample_candidates(queue, final_rows)["all_final_rows"]),
+            "final_rows_hash": sha256_bytes(stable_json(final_rows)),
             "historical_blockers": historical,
         }
         write_json(self.root / "sample_plan.json", sample_plan)
@@ -1146,6 +1187,7 @@ class Orchestrator:
         except ValueError:
             leakage_zero = False
         pilot_cases = {row.get("pilot_case") for row in queue}
+        sample_plan = read_json(self.root / "sample_plan.json")
         required_cases = {
             "valid_japanese_candidate",
             "semantic_mismatch",
@@ -1157,7 +1199,11 @@ class Orchestrator:
         gates = {
             "source_identity_pass": self.source_manifest.get("source_git_blob") == SOURCE_BLOB,
             "row_count_30629_unique": self.source_manifest.get("source_counts", {}).get("rows") == SOURCE_ROWS,
-            "deterministic_sample_manifest_frozen": read_json(self.root / "sample_plan.json").get("created_before_semantic_outcomes") is True,
+            "deterministic_sample_manifest_frozen": (
+                sample_plan.get("created_before_semantic_outcomes") is True
+                and sample_plan.get("selection_created_after_semantic_outcomes") is True
+                and sample_plan.get("selection_population_identity") == "external_final_decisions"
+            ),
             "resolver_external_artifact": bool(resolver) and resolver_canonicals == queue_canonicals,
             "challenger_external_artifact": bool(challenge) and [row["canonical"] for row in challenge] == queue_canonicals,
             "blinded_challenge_input_leakage_zero": leakage_zero,
@@ -1213,7 +1259,6 @@ class Orchestrator:
                 if label:
                     collision_groups.setdefault(label, []).append(row["canonical"])
             collision_candidates = [canonical for group in collision_groups.values() if len(group) > 1 for canonical in group]
-            sample_plan = read_json(self.root / "sample_plan.json")
             residual_strata = sample_plan.get("residual_fallback_strata", [])
             adversarial_strata = sample_plan.get("adversarial_strata", [])
             residual_expected = {
@@ -1266,6 +1311,11 @@ class Orchestrator:
                 "review_queue_complete": len(queue) == SOURCE_ROWS and len(set(queue_canonicals)) == SOURCE_ROWS,
                 "trusted_exact_provenance_valid": True,
                 "agent_first_pass_or_trusted_complete": len(resolver) == len(queue),
+                "sample_selection_after_outcomes": (
+                    sample_plan.get("selection_phase") == "outcomes_frozen"
+                    and sample_plan.get("selection_created_after_semantic_outcomes") is True
+                    and sample_plan.get("selection_population_identity") == "external_final_decisions"
+                ),
                 "blinded_challenge_input_leakage_zero": leakage_zero,
                 "mandatory_challenge_populations_complete": len(challenge) == len(queue),
                 "display_challenge_failures_zero": not challenge_failures,
@@ -1332,6 +1382,7 @@ class Orchestrator:
         merged = resolver[:]
         merged = [repair_by_canonical.get(row["canonical"], row) for row in merged]
         write_jsonl(self.root / "merged_agent_decisions.jsonl", merged)
+        self.materialize_samples(queue, merged)
         residual, audit = self.run_residual_and_audit(queue, resolver, repair)
         challenge_for_review = {
             row["canonical"]: row for row in challenge
