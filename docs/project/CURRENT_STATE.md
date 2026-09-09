@@ -16,6 +16,7 @@ Stage 9 overall Gate 完了 / Stage10 準備Gate実施中 / automated E2E PASS
 | --- | --- | --- | --- | --- | --- |
 | `DEV:#35` | ACTIVE | #35 UI-only Codex slot | `ui-ja/issue35-ui-only` | implementation exists; test/manual completion gate | Issue #35 + `CURRENT_DEV_TASK.md` |
 | `DICT:#32:R2` | ACTIVE | #32 Special2788 validation | `dict-validation/quarantine` | R2 long-running audit; normal restart sequence 501 after Batch5 revalidation PASS | Issue #32 latest checkpoint + `validation_quarantine/handoff.md` |
+| `KNOWLEDGE:#44` | ACTIVE / ONGOING | #44 persistent generation knowledge corpus | `knowledge/generation-corpus` | ongoing evidence corpus for #32 / Stage10 / future #42; no production-verdict authority | Issue #44 checkpoint `5594061042` + `docs/knowledge/GENERATION_KNOWLEDGE_INDEX.md` |
 | `UIJA:#36:FINAL_AUDIT` | ACTIVE | #36 Japanese overlay quarantine | `ui-ja/issue36-machine-convergence` | final independent promotion-quality audit | Issue #36 migration checkpoint `5593794791`; qualified-label contract `60fc740a0c6463f9aeef40293bd006c0037493da`; `translation_quarantine/qualified_label_final_review_20260909/` |
 | `UIJA:#41:BLIND30_AUDIT` | ACTIVE / AUDIT READY | #41 R3 fresh100 + bridge + blind30 pilot | `ui-ja/issue41-pilot` | `BLIND30_READY_FOR_INDEPENDENT_AUDIT`; final pilot verdict pending | Issue #41 migration checkpoint `5589236828`; official #32 bridge v2 commit `9f1659cfabb885b2dfc0dd4fef3a6611f19bee11` |
 | `TEMP:#30` | ACTIVE / GATED | #30 Forge Neo A/B automation | Issue #30 + `docs/testing/ISSUE30_SPECIAL_REPRESENTATIVE_ROUTING_DESIGN_20260908.md` | plumbing PASS; final evaluator/routing calibration waits for dictionary freeze | Issue #30 latest checkpoint / routing design |
@@ -86,6 +87,13 @@ Reserved-only #42/#43 and backlog #24 are not active team identities until their
   - 現在の2,788件は**この監査の固定母数**として維持するが、最終freeze時の件数を2,788へ固定しない。
   - 2,788件本体監査完了後、final promotion audit前にpre-freeze completeness reconciliation（漏れ監査）を1回実施する。
   - genuine missing Specialが見つかった場合は既存2,788監査をやり直さず、追加deltaだけ同じ#32基準で監査してからpromotionへ進む。
+- #44 `[KNOWLEDGE][ONGOING] Persistent generation knowledge corpus for dictionary audit and Stage10`
+  - 現行の長期KNOWLEDGE lane。旧#4はcompleted historical handoffであり、ongoing ownerではない。
+  - branch: `knowledge/generation-corpus`。
+  - migration時verified HEAD: `f177f495d689d968984791e8731b3db4e03de471`。
+  - restart index: `docs/knowledge/GENERATION_KNOWLEDGE_INDEX.md`。
+  - evidence/referenceを蓄積し、#32 / Stage10 / future #42へ根拠を返す。production仕様・#32 verdictを勝手に変更しない。
+  - checkpoint: `5594061042`。
 - #36 `[UI-JA][DATA] Japanese overlay coverage audit + priority expansion (quarantine)`
   - branch: `ui-ja/issue36-machine-convergence`。
   - latest verified final-audit handoff HEAD: `f9e275f532f3e072ecde266eae8479ea52bcd31f`。
@@ -181,14 +189,15 @@ Stage10本番開始前に最低限必要:
 
 1. #35はremaining test evidence + real Windows Tk screenshot/manual inspectionを完了する。`data/**`は変更しない。
 2. #32はnormal sequence 501からcurrent 2,788 full validationを継続。完了後にpre-freeze completeness reconciliationを実施し、genuine missing Specialがあれば追加deltaのみ同じ基準で監査する。その後にfinal promotion audit → 予約済みDEV promotion → #43 naming gate → final Special dictionary freezeへ進む。
-3. #36は`translation_quarantine/qualified_label_final_review_20260909/`を対象にfinal independent promotion-quality auditを完了する。translation productionを再開しない。
-4. #41はmasked blind30の独立監査を実施し、blind judgement確定後にのみkeyと照合してfinal pilot outcomeを決める。
-5. #30は `docs/testing/ISSUE30_SPECIAL_REPRESENTATIVE_ROUTING_DESIGN_20260908.md` に従い、test method / routing architectureのみ整理する。
-6. final Special dictionary freeze後、KNOWLEDGEがWD14 EVA02 v3 / Kagami-24k / CL Tagger v2 stable/fixed releaseの**final frozen Special count** coverage比較を実施する。
-7. coverage返却後、PROMPTがfinal representative Special/caseを確定し、#30がcapability別AUTO/REVIEW routingを校正する。
-8. #5へ#30最終結果・正式Specialデータ・実験仕様・自動化運用を反映する。
-9. 辞書/data前提が完了・freezeした後に#42をactivateし、product-purpose improvement passを完了する。
-10. 全Gate完了後のみStage10本番A/Bへ移行する。
+3. #44 KNOWLEDGEはpersistent corpusを継続し、#32のfalse-PASS防止・model-family別Prompt support・Stage10 evaluator設計に必要な根拠をGitHub corpusへ蓄積する。旧#4へ現在地を戻さない。
+4. #36は`translation_quarantine/qualified_label_final_review_20260909/`を対象にfinal independent promotion-quality auditを完了する。translation productionを再開しない。
+5. #41はmasked blind30の独立監査を実施し、blind judgement確定後にのみkeyと照合してfinal pilot outcomeを決める。
+6. #30は `docs/testing/ISSUE30_SPECIAL_REPRESENTATIVE_ROUTING_DESIGN_20260908.md` に従い、test method / routing architectureのみ整理する。
+7. final Special dictionary freeze後、#44 KNOWLEDGEがWD14 EVA02 v3 / Kagami-24k / CL Tagger v2 stable/fixed releaseの**final frozen Special count** coverage比較を実施する。
+8. coverage返却後、PROMPTがfinal representative Special/caseを確定し、#30がcapability別AUTO/REVIEW routingを校正する。
+9. #5へ#30最終結果・正式Specialデータ・実験仕様・自動化運用を反映する。
+10. 辞書/data前提が完了・freezeした後に#42をactivateし、product-purpose improvement passを完了する。
+11. 全Gate完了後のみStage10本番A/Bへ移行する。
 
 ## Blocking / Unknown
 
@@ -219,7 +228,7 @@ Stage10本番開始前に最低限必要:
 - `Active Teams Registry` は現在地を見失わないためのrouting/indexであり、新しい独立正本ではない。
 - 実作業・完了条件・結果は対応Issueに残す。
 - active DEV Issueが存在する場合のみ `docs/project/CURRENT_DEV_TASK.md` を現行DEV Issue本文の同期ミラーとして使う。
-- 現在activeなDEV Issueは **#35**。#30/#32/#36/#41および予約済みfuture promotion taskがCURRENT_DEV_TASKを上書きしない。
+- 現在activeなDEV Issueは **#35**。#30/#32/#36/#41/#44および予約済みfuture promotion taskがCURRENT_DEV_TASKを上書きしない。
 - 各作業チャットは開始時に `CHAT_START_PROTOCOL.md` の班ID形式でlive `BRANCH / HEAD / CHECKPOINT / CONTRACT / PHASE` を再取得する。`v2/v3/R3/FINAL`等の人間向け版名だけで現在個体を判断しない。
 - 共有管理ファイルは最新mainを取得してから更新し、stale copyで上書きしない。
 - Codex完了報告だけで次Gateへ進まない。
