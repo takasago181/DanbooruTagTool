@@ -7,22 +7,19 @@ Rule version: R2
 
 ## Current position
 - Target: 2,788 Specials
-- First pass checkpointed through: 1800
-- Cumulative: PASS 1349 / FIX 174 / REVIEW 260 / IMAGE_TEST_REQUIRED 17
+- First pass checkpointed through: 1820
+- Cumulative: PASS 1369 / FIX 174 / REVIEW 260 / IMAGE_TEST_REQUIRED 17
 - Batch 1-18 R2 acceptance gates: PASS
+- Batch 19: partial (1801-1820 checkpointed)
 - Revalidation pending: 0
 - Semantic support: 55 / 58; IMAGE_TEST_REQUIRED rows 30
-- Next first-pass sequence: 1801
+- Next first-pass sequence: 1821
 - Production/main modified: NO
 
-## Batch 18 complete
-1701-1800: PASS 99 / FIX 0 / REVIEW 1 / IMAGE_TEST_REQUIRED 0. Five 20-row append-only blocks are durable and indexed with no gaps or duplicates.
+## Batch 19 partial
+1801-1820: PASS 20 / FIX 0 / REVIEW 0 / IMAGE_TEST_REQUIRED 0. The 20-row append-only block is durable and indexed.
 
-A-risk ID1739 and IDs1745-1756 were deep-reviewed. Pose/actor requirements remain structural metadata only; Stage10 experimental knowledge was not promoted to production truth. ID1787 `vaginal prolapse` remains S-risk REVIEW because its BODY_ATTRIBUTE/body_target_or_attribute classification conflicts with sibling ID1759 `prolapse` BODY_STATE/body_state and retrieved frozen evidence is insufficient to choose a concrete correction safely.
-
-Deterministic R2 PASS re-audit checked 20/99 PASS rows, including all 13 A-risk PASS rows. New false-PASS: 0. Batch18 acceptance gate: PASS.
-
-`candidate_fixes.csv` and `revalidation_queue.csv` were checked at every checkpoint and remain unchanged. Semantic support remains 55/58; common/rare statistics were not conflated with semantic support.
+Semantic/search-only rows remain search/support-only and do not assert direct model recognition. Static BODY_STATE / CONTEXT_MODIFIER and RESTRAINT_IMPLEMENT rows are accepted as structural/reference metadata only; blank requirement fields remain unasserted rather than automatically erroneous. Candidate fixes and revalidation queue were checked and remain unchanged.
 
 ## Critical interpretation rules
 - Blank/None is not automatically missing data; UNKNOWN/not asserted remains valid.
@@ -33,4 +30,4 @@ Deterministic R2 PASS re-audit checked 20/99 PASS rows, including all 13 A-risk 
 - Special2788 exact identity remains first-class.
 
 ## Exact restart
-Resume first-pass at sequence 1801. Checkpoint every20. Do not modify production/main.
+Resume first-pass at sequence 1821. Checkpoint every20. Do not modify production/main.
