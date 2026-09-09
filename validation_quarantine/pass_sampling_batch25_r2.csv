@@ -1,0 +1,16 @@
+batch,sequence,special_id,tag,risk_priority,original_state,reaudit_state,false_pass,reason
+25,2401,2401,ball and chain restraint,B,PASS,PASS,false,Approved restraint-implement identity remains direct and non-expanding.
+25,2407,2407,implied nudity,B,PASS,PASS,false,Context-only handling remains separated from direct body-state generation.
+25,2414,2414,covered underboob,B,PASS,PASS,false,Exposure/coverage state remains direct without camera/support promotion.
+25,2422,2422,naked cardigan,B,PASS,PASS,false,Approved clothing/exposure classification remains internally consistent.
+25,2429,2429,naked raincoat,C,PASS,PASS,false,Audit-only blank metadata makes no execution claim and preserves exact identity.
+25,2436,2436,spade pasties,C,PASS,PASS,false,Cosmetic provisional variant remains non-expanding and identity-preserving.
+25,2444,2444,imminent spanking,B,PASS,PASS,false,Context modifier remains non-executing and does not auto-add action support.
+25,2452,2452,crotchless bodysuit,B,PASS,PASS,false,Approved clothing/exposure role remains direct and structurally conservative.
+25,2461,2461,mismatched pasties,C,PASS,PASS,false,Cosmetic provisional variant makes no unsupported structural claim.
+25,2469,2469,peeing in bottle,B,PASS,PASS,false,Direct fluid action remains valid without automatic object/spatial expansion.
+25,2475,2475,implied peeing,B,PASS,PASS,false,Implied context remains correctly separated from direct action.
+25,2481,2481,imminent vomiting,B,PASS,PASS,false,Imminent context remains support-only and non-executing.
+25,2485,2485,tape blindfold,C,PASS,PASS,false,Material variant is audit-only and does not assert unsupported restraint structure.
+25,2492,2492,blindfold pull,B,PASS,PASS,false,Approved blindfold state/action identity remains conservative with no extra pose/visibility support.
+25,2500,2500,after peeing,B,PASS,PASS,false,Temporal aftermath remains context-only and non-executing.
