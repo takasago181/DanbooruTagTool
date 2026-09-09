@@ -1,0 +1,128 @@
+{
+  "all_pass": true,
+  "gates": [
+    {
+      "detail": "validated",
+      "gate": "source_identity_pass",
+      "status": "PASS"
+    },
+    {
+      "detail": "validated",
+      "gate": "row_count_30629_unique",
+      "status": "PASS"
+    },
+    {
+      "detail": "validated",
+      "gate": "canonical_identity_unchanged",
+      "status": "PASS"
+    },
+    {
+      "detail": "validated",
+      "gate": "review_queue_complete",
+      "status": "PASS"
+    },
+    {
+      "detail": "validated",
+      "gate": "trusted_exact_provenance_valid",
+      "status": "PASS"
+    },
+    {
+      "detail": "validated",
+      "gate": "agent_first_pass_or_trusted_complete",
+      "status": "PASS"
+    },
+    {
+      "detail": "validated",
+      "gate": "blinded_challenge_input_leakage_zero",
+      "status": "PASS"
+    },
+    {
+      "detail": "validated",
+      "gate": "mandatory_challenge_populations_complete",
+      "status": "PASS"
+    },
+    {
+      "detail": "validated",
+      "gate": "display_challenge_failures_zero",
+      "status": "PASS"
+    },
+    {
+      "detail": "validated",
+      "gate": "search_challenge_failures_zero",
+      "status": "PASS"
+    },
+    {
+      "detail": "validated",
+      "gate": "phrase_1677_agent_review_complete",
+      "status": "PASS"
+    },
+    {
+      "detail": "validated",
+      "gate": "fallback_reason_specificity_pass",
+      "status": "PASS"
+    },
+    {
+      "detail": "validated",
+      "gate": "residual_fallback_stratified_challenge_pass",
+      "status": "PASS"
+    },
+    {
+      "detail": "validated",
+      "gate": "coverage_anti_collapse_pass",
+      "status": "PASS"
+    },
+    {
+      "detail": "validated",
+      "gate": "collision_agent_review_pass",
+      "status": "PASS"
+    },
+    {
+      "detail": "validated",
+      "gate": "adversarial_agent_audit_600_pass",
+      "status": "PASS"
+    },
+    {
+      "detail": "validated",
+      "gate": "historical_regressions_pass",
+      "status": "PASS"
+    },
+    {
+      "detail": "validated",
+      "gate": "repair_cycle_bound_pass",
+      "status": "PASS"
+    },
+    {
+      "detail": "validated",
+      "gate": "deterministic_replay_pass",
+      "status": "PASS"
+    },
+    {
+      "detail": "validated",
+      "gate": "protected_boundary_pass",
+      "status": "PASS"
+    },
+    {
+      "detail": "validated",
+      "gate": "production_modified_no",
+      "status": "PASS"
+    },
+    {
+      "detail": "validated",
+      "gate": "focused_regression_tests_reported",
+      "status": "PASS"
+    },
+    {
+      "detail": "validated",
+      "gate": "full_pytest_reported_accurately",
+      "status": "PASS"
+    }
+  ],
+  "promotion": "NOT_AUTHORIZED",
+  "schema_version": "issue36-final-convergence-v3.1",
+  "terminal": "FINAL_READY_FOR_INDEPENDENT_AUDIT",
+  "tests": {
+    "focused_regression": "63 passed",
+    "focused_v31": "8 passed",
+    "full_pytest": "368 passed; 61 known Windows protected-data/TEMP ACL errors; no product assertion failures"
+  }
+}

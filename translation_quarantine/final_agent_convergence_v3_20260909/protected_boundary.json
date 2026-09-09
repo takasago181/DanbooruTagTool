@@ -1,0 +1,10 @@
+{
+  "production_modified": false,
+  "protected_paths_read_only": [
+    "data/source/",
+    "data/runtime/",
+    "data/derived/",
+    "data/special2788/"
+  ],
+  "verdict": "PASS"
+}

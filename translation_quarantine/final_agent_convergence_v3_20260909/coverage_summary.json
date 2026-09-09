@@ -1,0 +1,19 @@
+{
+  "accepted_display": 25982,
+  "accepted_search": 25982,
+  "coverage_delta_points": 9.10248457344347,
+  "fallback_reasons": {
+    "EVIDENCE_UNRESOLVED_ROW_SPECIFIC": 3709,
+    "TRUE_ORIGINAL_FORM_EXCEPTION_VALIDATED": 938
+  },
+  "final_accepted": 25982,
+  "final_accepted_rate": 0.8482810408436449,
+  "final_fallback": 4647,
+  "phrase_outcomes": {
+    "EVIDENCE_UNRESOLVED": 506,
+    "TRANSLATE_JA": 1171
+  },
+  "source_accepted": 23194,
+  "source_accepted_rate": 0.7572561951092103,
+  "source_fallback": 7435
+}

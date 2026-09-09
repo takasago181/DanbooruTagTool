@@ -1,0 +1,7 @@
+{
+  "decision_hash": "13c5712accc0f02fabc16b256c13b84f6455c0855be4c38b231f06074d6d467e",
+  "final_hash": "84b0088ba7f6bfe70c7c112e26c277239bab9887502d9f84634908457201ddbe",
+  "replayed_from_frozen_decisions": true,
+  "source_blob": "5fc11c64235c7b32cb72f2e819cb2ed22ab46d8a",
+  "verdict": "PASS"
+}

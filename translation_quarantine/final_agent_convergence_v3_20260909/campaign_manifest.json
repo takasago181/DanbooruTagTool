@@ -1,0 +1,9 @@
+{
+  "contract": "translation_quarantine/r3/ISSUE36_FINAL_CONVERGENCE_V3_AGENT_REVIEW.md",
+  "contract_commit": "86bf72246b3f1f42b52f562f45d4027f0d1a71ea",
+  "final_table_hash": "84b0088ba7f6bfe70c7c112e26c277239bab9887502d9f84634908457201ddbe",
+  "gate_status": "PASS",
+  "output_root": "translation_quarantine/final_agent_convergence_v3_20260909",
+  "promotion": "NOT_AUTHORIZED",
+  "source_manifest": "5fc11c64235c7b32cb72f2e819cb2ed22ab46d8a"
+}

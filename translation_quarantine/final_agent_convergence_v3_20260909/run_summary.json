@@ -1,0 +1,59 @@
+{
+  "adversarial_records": 643,
+  "campaign_id": "issue36-final-convergence-v3.1-20260909",
+  "contract_commit": "86bf72246b3f1f42b52f562f45d4027f0d1a71ea",
+  "coverage": {
+    "accepted_display": 25982,
+    "accepted_search": 25982,
+    "coverage_delta_points": 9.10248457344347,
+    "fallback_reasons": {
+      "EVIDENCE_UNRESOLVED_ROW_SPECIFIC": 3709,
+      "TRUE_ORIGINAL_FORM_EXCEPTION_VALIDATED": 938
+    },
+    "final_accepted": 25982,
+    "final_accepted_rate": 0.8482810408436449,
+    "final_fallback": 4647,
+    "phrase_outcomes": {
+      "EVIDENCE_UNRESOLVED": 506,
+      "TRANSLATE_JA": 1171
+    },
+    "source_accepted": 23194,
+    "source_accepted_rate": 0.7572561951092103,
+    "source_fallback": 7435
+  },
+  "execution_start_head": "86bf72246b3f1f42b52f562f45d4027f0d1a71ea",
+  "final_counts": {
+    "ENGLISH_FALLBACK_EXCEPTION": 4647,
+    "JA_ACCEPT_MACHINE": 22849,
+    "JA_ACCEPT_STRICT": 3133
+  },
+  "first_pass_reviewed": 30615,
+  "handoff": "5601218088",
+  "historical_records": 43,
+  "mandatory_challenge": 13500,
+  "phrase_1677": {
+    "EVIDENCE_UNRESOLVED": 506,
+    "TRANSLATE_JA": 1171
+  },
+  "production_modified": false,
+  "promotion": "NOT_AUTHORIZED",
+  "residual_challenge": 300,
+  "rows": 30629,
+  "source_accepted_demotions": 0,
+  "source_blob": "5fc11c64235c7b32cb72f2e819cb2ed22ab46d8a",
+  "source_counts": {
+    "ENGLISH_FALLBACK_EXCEPTION": 7435,
+    "JA_ACCEPT_EXISTING": 546,
+    "JA_ACCEPT_MACHINE": 20001,
+    "JA_ACCEPT_STRICT": 2647
+  },
+  "source_head": "74ce389f433d23f7f036313bac9e82a7bb6377e2",
+  "terminal": "FINAL_READY_FOR_INDEPENDENT_AUDIT",
+  "tests": {
+    "focused_regression": "63 passed",
+    "focused_v31": "8 passed",
+    "full_pytest": "368 passed; 61 known Windows protected-data/TEMP ACL errors; no product assertion failures"
+  },
+  "translated_source_fallback": 2788,
+  "trusted_exact": 14
+}

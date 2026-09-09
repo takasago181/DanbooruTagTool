@@ -1,0 +1,5 @@
+{
+  "accepted_language_failures": 0,
+  "challenge_inputs_no_resolver_leakage": true,
+  "contamination_controls": "Unicode/language/raw-token/malformed controls; source and candidate independently checked"
+}

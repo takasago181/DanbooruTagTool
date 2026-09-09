@@ -1,0 +1,25 @@
+{
+  "adversarial_agent_records": 643,
+  "challenge_review_mode": "SEPARATE_BLINDED_CODEX_AGENT_CHALLENGE",
+  "mandatory_populations_complete": true,
+  "phrase_1677_attempted": 1677,
+  "phrase_outcomes": {
+    "EVIDENCE_UNRESOLVED": 506,
+    "TRANSLATE_JA": 1171
+  },
+  "resolver_review_mode": "CODEX_AGENT_SEMANTIC_REVIEW",
+  "semantic_facets": [
+    "head_concept",
+    "action_or_state",
+    "actor",
+    "ownership",
+    "target",
+    "body_site",
+    "direction_or_spatial_relation",
+    "count_or_cardinality",
+    "negation",
+    "required_modifier",
+    "qualifier_scope",
+    "concept_width"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "contract": "translation_quarantine/r3/ISSUE36_FINAL_CONVERGENCE_V3_AGENT_REVIEW.md",
+  "contract_commit": "86bf72246b3f1f42b52f562f45d4027f0d1a71ea",
+  "handoff": "5601218088",
+  "normalized_rows": 30629,
+  "source_accepted": 23194,
+  "source_fallback": 7435,
+  "source_git_blob": "5fc11c64235c7b32cb72f2e819cb2ed22ab46d8a",
+  "source_head": "74ce389f433d23f7f036313bac9e82a7bb6377e2",
+  "source_path": "translation_quarantine/full_accepted_quality_sweep_20260909/final_translation_table.csv",
+  "source_phrase_unresolved": 1677,
+  "unique_canonicals": 30629
+}
