@@ -1,0 +1,21 @@
+sequence,special_id,tag,original_state,re_audit_state,risk_priority,sample_basis,root_cause_if_false_pass,notes
+2501,2501,whipping hair,PASS,PASS,B,deterministic_stratified,,Correction boundary remains supported without expanding generation claims.
+2502,2502,shibari marks,PASS,PASS,C,deterministic_stratified,,Intentional PROVISIONAL blanks remain non-errors.
+2505,2505,thong panties,PASS,PASS,B,deterministic_stratified,,Direct clothing-state role remains non-expanding.
+2507,2507,wiffle gag,PASS,PASS,B,deterministic_stratified,,Implement identity preserved; no automatic support insertion claimed.
+2512,2512,knot gag,PASS,PASS,B,deterministic_stratified,,Implement identity preserved; no automatic support insertion claimed.
+2518,2518,unworn gag,PASS,PASS,B,deterministic_stratified,,Unworn state is preserved without inferring worn restraint.
+2521,2521,panty peek,PASS,PASS,B,deterministic_stratified,,Visual-state role remains non-expanding.
+2527,2527,virgin destroyer sweater,PASS,PASS,B,deterministic_stratified,,Named garment identity preserved without generalization.
+2528,2528,naked thighhighs,PASS,PASS,B,deterministic_alias_hold,,Alias identity is preserved; canonical linkage remains statistics-only.
+2534,2534,tied up (sexual),PASS,PASS,B,deterministic_alias_hold,,No model-response equivalence or automatic support claim is made.
+2542,2542,arms bound,PASS,PASS,B,deterministic_alias_hold,,Exact restraint wording preserved; no automatic support claim.
+2548,2548,nipple suck,PASS,PASS,B,deterministic_alias_hold,,Exact action wording preserved; no model-equivalence inference.
+2556,2556,clothed male naked female,PASS,PASS,B,deterministic_alias_hold,,Directional relationship identity remains intact.
+2561,2561,limp penis,PASS,PASS,B,deterministic_alias_hold,,Exact state wording preserved; canonical linkage statistics-only.
+2569,2569,tentacle grab,PASS,PASS,B,deterministic_alias_hold,,Interaction wording preserved without structural inference.
+2579,2579,cleave gagged,PASS,PASS,B,deterministic_alias_hold,,Restraint-state wording preserved without automatic support.
+2585,2585,tentacles with male,PASS,PASS,B,deterministic_alias_hold,,Relationship wording preserved without actor-separation inference.
+2592,2592,aqua blindfold,PASS,PASS,B,deterministic_alias_hold,,Color/restraint identity preserved without generation-equivalence claim.
+2599,2599,red blindfold,PASS,PASS,B,deterministic_alias_hold,,Color/restraint identity preserved without generation-equivalence claim.
+2600,2600,yellow blindfold,PASS,PASS,B,deterministic_alias_hold,,Color/restraint identity preserved without generation-equivalence claim.
