@@ -46,3 +46,21 @@ start_sequence,end_sequence,path,rule_version,row_count,status,notes
 881,900,validation_quarantine/results_blocks/0881_0900.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; 6 FIX / 6 REVIEW; Batch9 gate PASS
 901,920,validation_quarantine/results_blocks/0901_0920.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; Batch10 partial
 921,940,validation_quarantine/results_blocks/0921_0940.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; Batch10 partial
+941,960,validation_quarantine/results_blocks/0941_0960.csv,R2,20,COMPLETE,reconciled from durable block ledger
+961,980,validation_quarantine/results_blocks/0961_0980.csv,R2,20,COMPLETE,reconciled from durable block ledger
+981,1000,validation_quarantine/results_blocks/0981_1000.csv,R2,20,COMPLETE,reconciled from durable block ledger; Batch10 gate PASS
+1001,1020,validation_quarantine/results_blocks/1001_1020.csv,R2,20,COMPLETE,reconciled from durable block ledger
+1021,1040,validation_quarantine/results_blocks/1021_1040.csv,R2,20,COMPLETE,reconciled from durable block ledger
+1041,1060,validation_quarantine/results_blocks/1041_1060.csv,R2,20,COMPLETE,reconciled from durable block ledger
+1061,1080,validation_quarantine/results_blocks/1061_1080.csv,R2,20,COMPLETE,reconciled from durable block ledger
+1081,1100,validation_quarantine/results_blocks/1081_1100.csv,R2,20,COMPLETE,reconciled from durable block ledger; Batch11 gate PASS
+1101,1120,validation_quarantine/results_blocks/1101_1120.csv,R2,20,COMPLETE,reconciled from durable block ledger
+1121,1140,validation_quarantine/results_blocks/1121_1140.csv,R2,20,COMPLETE,reconciled from durable block ledger
+1141,1160,validation_quarantine/results_blocks/1141_1160.csv,R2,20,COMPLETE,reconciled from durable block ledger
+1161,1180,validation_quarantine/results_blocks/1161_1180.csv,R2,20,COMPLETE,reconciled from durable block ledger
+1181,1200,validation_quarantine/results_blocks/1181_1200.csv,R2,20,COMPLETE,reconciled from durable block ledger; Batch12 gate PASS
+1201,1220,validation_quarantine/results_blocks/1201_1220.csv,R2,20,COMPLETE,reconciled from durable block ledger
+1221,1240,validation_quarantine/results_blocks/1221_1240.csv,R2,20,COMPLETE,reconciled from durable block ledger
+1241,1260,validation_quarantine/results_blocks/1241_1260.csv,R2,20,COMPLETE,reconciled from durable block ledger; ID1241 FIX
+1261,1280,validation_quarantine/results_blocks/1261_1280.csv,R2,20,COMPLETE,reconciled from durable block ledger
+1281,1300,validation_quarantine/results_blocks/1281_1300.csv,R2,20,COMPLETE,reconciled from durable block ledger; Batch13 gate PASS
