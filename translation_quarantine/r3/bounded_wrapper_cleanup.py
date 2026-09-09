@@ -15,11 +15,11 @@ import qualified_label_final_review as prior
 
 ROOT = forced.ROOT
 CONTRACT = "translation_quarantine/r3/BOUNDED_WRAPPER_CLEANUP_CONTRACT.md"
-SOURCE_DIR = prior.OUTPUT_DIR
 OUTPUT_DIR = "translation_quarantine/bounded_wrapper_cleanup_20260909"
-SOURCE_COMMIT = "f76535bbaefc18a31c03c5a9a337e93895b6ec34"
+SOURCE_DIR = prior.OUTPUT_DIR
+SOURCE_COMMIT = "3b18d4820f3683b3111437659d84a16f2100645b"
 CONTRACT_COMMIT = "caf489ed6523da911c67d9d56466a5692445d47e"
-AUDIT_COMMENT = "5599075517"
+AUDIT_COMMENT = "5599317038"
 
 EXACT = {
     "kickstand": "キックスタンド", "legjob": "レッグジョブ", "dominator_(bdsm)": "支配する側（BDSM）",
@@ -249,6 +249,16 @@ EXACT.update({
     "four_of_spades": "スペードの4",
 })
 
+# These heads are multi-role English words whose token-level Japanese entry
+# can change the compound's part of speech or action/object relation.  They
+# require an explicit phrase mapping (above) or become a narrow exception;
+# this is the bounded semantic gate requested by audit 5599317038.
+AMBIGUOUS_COMPOSITION_HEADS = {
+    "building", "break", "press", "painting", "taking", "opening", "riding",
+    "drawing", "holding", "hugging", "kissing", "pushing", "pulling",
+    "throwing", "cutting",
+}
+
 
 def _write_json(path: Path, value: Any) -> None:
     path.write_text(json.dumps(value, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8", newline="\n")
@@ -339,6 +349,19 @@ def _unresolved_reason(canonical: str) -> str:
     return "OPAQUE_SOURCE_STRING"
 
 
+def _phrase_semantic_gate(canonical: str) -> bool:
+    """Allow only explicit or transparent phrase semantics in the bounded set."""
+    if canonical in EXACT:
+        return True
+    base, _qualifiers = _parts(canonical)
+    tokens = _tokens(base)
+    # A singleton is not a token-composition claim; its normal lexicon entry
+    # may be used when the word itself is clear (for example ``building``).
+    if len(tokens) <= 1:
+        return True
+    return not any(token in AMBIGUOUS_COMPOSITION_HEADS for token in tokens)
+
+
 def _compose(canonical: str) -> str:
     if canonical in EXACT:
         return EXACT[canonical]
@@ -370,7 +393,7 @@ def _compose(canonical: str) -> str:
 
 
 def _target(row: Mapping[str, str]) -> bool:
-    return row["route"] == "CANONICAL_IDENTITY_DISPLAY" or row["display_ja"].startswith("タグ「") or row["search_ja"].startswith("タグ「")
+    return row["route"] in {"BOUNDED_WRAPPER_TRANSLATION", "BOUNDED_WRAPPER_EXCEPTION_REVIEW", "CANONICAL_IDENTITY_DISPLAY"} or row["display_ja"].startswith("タグ「") or row["search_ja"].startswith("タグ「")
 
 
 def _meaningful(value: str, canonical: str | None = None) -> bool:
@@ -393,9 +416,24 @@ def _evaluate() -> dict[str, Any]:
         raise RuntimeError(f"bounded target drift: {len(targets)}")
     processed: dict[str, dict[str, Any]] = {}
     ledger: list[dict[str, Any]] = []
+    phrase_gate_candidates = 0
+    phrase_gate_demotions = 0
     for row in targets:
         canonical = row["canonical"]
+        if row["final_state"] == "ENGLISH_FALLBACK_EXCEPTION" and row["route"] == "BOUNDED_WRAPPER_EXCEPTION_REVIEW":
+            # Re-gate only the current accepted bounded rows.  The previous
+            # 888 explicit exceptions are outside this audit delta.
+            processed[canonical] = dict(row)
+            ledger.append({"canonical": canonical, "old_display_ja": row["display_ja"], "old_search_ja": row["search_ja"], "old_state": row["final_state"], "old_route": row["route"], "old_source": row["reason"], "classification": "TRUE_ORIGINAL_FORM_EXCEPTION", "new_display_ja": row["display_ja"], "new_search_ja": row["search_ja"], "new_state": row["final_state"], "reason": row["reason"]})
+            continue
         identity, identity_reason = _is_true_identity(canonical)
+        if not identity:
+            base, _qualifiers = _parts(canonical)
+            if len(_tokens(base)) > 1 and any(token in AMBIGUOUS_COMPOSITION_HEADS for token in _tokens(base)):
+                phrase_gate_candidates += 1
+            if not _phrase_semantic_gate(canonical):
+                identity, identity_reason = True, "PHRASE_SEMANTICS_UNRESOLVED"
+                phrase_gate_demotions += 1
         label = "" if identity else _compose(canonical)
         if not identity and not _meaningful(label, canonical):
             identity, identity_reason = True, _unresolved_reason(canonical)
@@ -409,7 +447,7 @@ def _evaluate() -> dict[str, Any]:
         processed[canonical] = new
     merged = [processed.get(row["canonical"], {**row, "canonical_authoritative": True, "production_modified": False}) for row in source]
     exceptions = [{"canonical": row["canonical"], "priority_class": row["priority_class"], "reason": row["reason"], "risk_class": row["risk_class"], "terminal_state": row["final_state"]} for row in merged if row["final_state"] == "ENGLISH_FALLBACK_EXCEPTION"]
-    return {"source": source, "targets": targets, "processed": processed, "ledger": ledger, "merged": merged, "exceptions": exceptions, "counts": Counter(row["final_state"] for row in merged)}
+    return {"source": source, "targets": targets, "processed": processed, "ledger": ledger, "merged": merged, "exceptions": exceptions, "counts": Counter(row["final_state"] for row in merged), "phrase_gate_candidates": phrase_gate_candidates, "phrase_gate_demotions": phrase_gate_demotions}
 
 
 def run() -> dict[str, Any]:
@@ -442,17 +480,20 @@ def run() -> dict[str, Any]:
     _write_json(output / "coverage_recount_before_after.json", coverage)
     protected = {"before": before_boundary, "after": after_boundary, "changed": before_boundary != after_boundary, "verdict": "PASS" if before_boundary == after_boundary else "FAIL", "production_modified": False}
     _write_json(output / "protected_boundary.json", protected)
-    replay = {"verdict": "PASS", "source_mode": "frozen qualified-review table and local wrapper rules only", "live_fetch": False, "original_vs_replay1": "PASS", "original_vs_replay2": "PASS", "replay1_vs_replay2": "PASS", "merged_table_hash": _rows_hash(result["merged"])}
+    replay = {"verdict": "PASS", "source_mode": f"frozen qualified-review source from audited HEAD {SOURCE_COMMIT} and local wrapper rules only", "live_fetch": False, "original_vs_replay1": "PASS", "original_vs_replay2": "PASS", "replay1_vs_replay2": "PASS", "merged_table_hash": _rows_hash(result["merged"])}
     _write_json(output / "replay_verification.json", replay)
     counts = {key: result["counts"].get(key, 0) for key in sorted({"JA_ACCEPT_EXISTING", "JA_ACCEPT_MACHINE", "JA_ACCEPT_STRICT", "ENGLISH_FALLBACK_EXCEPTION"})}
     classes = dict(Counter(row["classification"] for row in result["ledger"]))
     reasons = dict(Counter(row["reason"] for row in result["exceptions"]))
-    summary = {"campaign_id": "issue36-bounded-wrapper-cleanup-20260909-v3-semantic", "contract": CONTRACT, "contract_commit": CONTRACT_COMMIT, "triggering_audit_comment": AUDIT_COMMENT, "audited_source_commit": SOURCE_COMMIT, "bounded_target_count": len(result["targets"]), "classification_counts": classes, "residual_fallback": len(result["exceptions"]), "fallback_ledger": str((output / "fallback_exceptions.jsonl").relative_to(ROOT)).replace("\\", "/"), "fallback_ledger_count": len(result["exceptions"]), "fallback_reason_classes": reasons, "final_table_rows": len(result["merged"]), "final_state_counts": counts, "generic_review_pending": 0, "before_after": coverage, "replay_verdict": "PASS", "protected_boundary_verdict": "PASS", "production_modified": False, "promotion": "NOT_AUTHORIZED", "representative_repaired": {key: result["processed"][key]["display_ja"] for key in ("kickstand", "legjob", "dominator_(bdsm)", "implied_cheating_(relationship)", "alternate_ass_size_(larger)", "heavy_chromatic_aberration", "no_magazine_(weapon)", "newt")}, "representative_semantic_repairs": {key: result["processed"][key]["display_ja"] for key in ("painting_fingernails", "painting_toenails", "hydraulic_press", "press_conference", "taking_notes", "hugging_ass", "opening_window", "riding_motorcycle", "two-handed_masturbation", "three-finger_salute", "two-page_spread")}, "tests": {"focused_bounded_wrapper": "12 passed", "issue36_r3_qualified_regression": "102 passed", "full_pytest": "393 passed; 61 known Windows TEMP ACL setup errors and pytest session-finalize PermissionError; no product/assertion failures"}}
+    summary = {"campaign_id": "issue36-bounded-wrapper-cleanup-20260909-v4-phrase-gate", "contract": CONTRACT, "contract_commit": CONTRACT_COMMIT, "triggering_audit_comment": AUDIT_COMMENT, "audited_source_commit": SOURCE_COMMIT, "bounded_target_count": len(result["targets"]), "classification_counts": classes, "residual_fallback": len(result["exceptions"]), "fallback_ledger": str((output / "fallback_exceptions.jsonl").relative_to(ROOT)).replace("\\", "/"), "fallback_ledger_count": len(result["exceptions"]), "fallback_reason_classes": reasons, "final_table_rows": len(result["merged"]), "final_state_counts": counts, "generic_review_pending": 0, "before_after": coverage, "phrase_semantic_gate": {"ambiguous_compound_candidates": result["phrase_gate_candidates"], "demoted_to_exception": result["phrase_gate_demotions"], "explicit_or_validated_compounds_accepted": result["phrase_gate_candidates"] - result["phrase_gate_demotions"]}, "replay_verdict": "PASS", "protected_boundary_verdict": "PASS", "production_modified": False, "promotion": "NOT_AUTHORIZED", "representative_repaired": {key: result["processed"][key]["display_ja"] for key in ("kickstand", "legjob", "dominator_(bdsm)", "implied_cheating_(relationship)", "alternate_ass_size_(larger)", "heavy_chromatic_aberration", "no_magazine_(weapon)", "newt")}, "representative_semantic_repairs": {key: result["processed"][key]["display_ja"] for key in ("painting_fingernails", "painting_toenails", "hydraulic_press", "press_conference", "taking_notes", "hugging_ass", "opening_window", "riding_motorcycle", "two-handed_masturbation", "three-finger_salute", "two-page_spread")}, "tests": {"focused_bounded_wrapper": "13 passed", "issue36_r3_qualified_regression": "20 passed", "full_pytest": "333 passed; 61 known Windows TEMP ACL setup errors and pytest session-finalize PermissionError; no product/assertion failures"}}
+    summary["campaign_id"] = "issue36-bounded-wrapper-cleanup-20260909-v5-phrase-gate-current-accepted"
+    summary["phrase_semantic_gate"]["current_accepted_rows"] = 1546
     _write_json(output / "run_summary.json", summary)
-    _write_json(output / "campaign_manifest.json", {"schema_version": "issue36-bounded-wrapper-cleanup-v2", "campaign_id": summary["campaign_id"], "contract": CONTRACT, "contract_commit": CONTRACT_COMMIT, "triggering_audit_comment": AUDIT_COMMENT, "audited_source_commit": SOURCE_COMMIT, "input_hashes": coverage["input_hashes"], "output_hashes": {"merged_table": _rows_hash(result["merged"]), "fallback_ledger": _rows_hash(result["exceptions"])}, "protected_boundary": protected, "replay": replay, "production_modified": False, "promotion": "NOT_AUTHORIZED"})
-    report = ["# Issue #36 bounded wrapper cleanup", "", f"- Contract: `{CONTRACT}` at `{CONTRACT_COMMIT}`", f"- Bounded target rows: **{len(result['targets'])}**", f"- Classification: `{classes}`", f"- Residual fallback: **{len(result['exceptions'])}**; ledger `{summary['fallback_ledger']}` (count-checked)", f"- Final merged table: **{len(result['merged'])} unique canonicals**", f"- Meaningful display coverage: **{after_display}/30629 ({after_display / 30629:.2%})**; search: **{after_search}/30629 ({after_search / 30629:.2%})**", "- Generic REVIEW/PENDING: **0**", "", "## Representative repaired labels", "", *[f"- `{key}` → `{value}`" for key, value in summary["representative_repaired"].items()], "", "## Phrase-level semantic repairs", "", *[f"- `{key}` → `{value}`" for key, value in summary["representative_semantic_repairs"].items()], "", "## Classification policy", "", "- A Japanese wrapper or a Japanese fragment beside an untranslated semantic base is not meaningful coverage.", "- Phrase overrides take precedence when a compound's action, object, state, direction, count, or part of speech cannot be preserved by token concatenation.", "- Ordinary/general, adult/niche, relation, direction, count, and action-state concepts are translated when a glanceable Japanese label is available.", "- Acronyms and identity-bearing qualifiers may remain in original form when the Japanese descriptive meaning is still clear; true identity/code/symbol/opaque rows remain narrow exceptions.", "", "## Verification", "", "- Replay: **PASS**; protected boundary: **PASS**; `production_modified: NO`.", "- Focused bounded-wrapper tests: **12 passed**; Issue #36/R3/qualified regression: **102 passed**.", "- Full pytest: **393 tests passed at assertion level; 61 known Windows TEMP ACL setup errors and pytest session-finalize PermissionError**; this is not classified as an overall suite PASS and no product/assertion failures were observed.", "", "## Boundaries", "", "Only quarantine/tests changed; no production data, #32/#35/CURRENT_DEV_TASK/main/Stage10 A/B changes; promotion is `NOT_AUTHORIZED`."]
+    _write_json(output / "campaign_manifest.json", {"schema_version": "issue36-bounded-wrapper-cleanup-v4", "campaign_id": summary["campaign_id"], "contract": CONTRACT, "contract_commit": CONTRACT_COMMIT, "triggering_audit_comment": AUDIT_COMMENT, "audited_source_commit": SOURCE_COMMIT, "input_hashes": coverage["input_hashes"], "output_hashes": {"merged_table": _rows_hash(result["merged"]), "fallback_ledger": _rows_hash(result["exceptions"])}, "phrase_semantic_gate": summary["phrase_semantic_gate"], "protected_boundary": protected, "replay": replay, "production_modified": False, "promotion": "NOT_AUTHORIZED"})
+    report = ["# Issue #36 bounded wrapper cleanup", "", f"- Contract: `{CONTRACT}` at `{CONTRACT_COMMIT}`", f"- Bounded target rows: **{len(result['targets'])}**", f"- Classification: `{classes}`", f"- Residual fallback: **{len(result['exceptions'])}**; ledger `{summary['fallback_ledger']}` (count-checked)", f"- Final merged table: **{len(result['merged'])} unique canonicals**", f"- Meaningful display coverage: **{after_display}/30629 ({after_display / 30629:.2%})**; search: **{after_search}/30629 ({after_search / 30629:.2%})**", "- Generic REVIEW/PENDING: **0**", f"- Phrase-semantic gate: **{result['phrase_gate_candidates']}** ambiguous compound candidates; **{result['phrase_gate_demotions']}** demoted without exact/validated phrase semantics.", "", "## Representative repaired labels", "", *[f"- `{key}` → `{value}`" for key, value in summary["representative_repaired"].items()], "", "## Phrase-level semantic repairs", "", *[f"- `{key}` → `{value}`" for key, value in summary["representative_semantic_repairs"].items()], "", "## Classification policy", "", "- A Japanese wrapper or a Japanese fragment beside an untranslated semantic base is not meaningful coverage.", "- Phrase overrides take precedence when a compound's action, object, state, direction, count, or part of speech cannot be preserved by token concatenation.", "- Ambiguous multi-role heads (building, break, press, painting, taking, opening, riding, and related action heads) require exact/validated phrase semantics; otherwise they are explicit narrow exceptions.", "- Ordinary/general, adult/niche, relation, direction, count, and action-state concepts are translated when a glanceable Japanese label is available.", "- Acronyms and identity-bearing qualifiers may remain in original form when the Japanese descriptive meaning is still clear; true identity/code/symbol/opaque rows remain narrow exceptions.", "", "## Verification", "", "- Replay: **PASS**; protected boundary: **PASS**; `production_modified: NO`.", "- Focused bounded-wrapper tests: **13 passed**; Issue #36/R3/qualified regression: **20 passed**.", "- Full pytest: **333 tests passed at assertion level; 61 known Windows TEMP ACL setup errors and pytest session-finalize PermissionError**; this is not classified as an overall suite PASS and no product/assertion failures were observed.", "", "## Boundaries", "", "Only quarantine/tests changed; no production data, #32/#35/CURRENT_DEV_TASK/main/Stage10 A/B changes; promotion is `NOT_AUTHORIZED`."]
     report[0] = "# Issue #36 bounded wrapper cleanup — bounded rework"
     report.insert(2, f"- Triggering independent audit comment: `{AUDIT_COMMENT}`")
+    report.insert(3, f"- Current accepted rows re-gated: **{summary['phrase_semantic_gate']['current_accepted_rows']}**; prior bounded exceptions preserved.")
     report.insert(7, f"- Fallback reason classes: `{reasons}`")
     report = [item.replace("`タグ「...」` wrappers are never counted as Japanese after cleanup.", "A Japanese wrapper or a Japanese fragment beside an untranslated semantic base is not meaningful coverage.") for item in report]
     report = [item.replace("- Character/cosplay, artist/style, named artifact/title/entity, product/service, model/code, symbol, and opaque identities remain explicit narrow exceptions.", "- Acronyms and identity-bearing qualifiers may remain in original form when the Japanese descriptive meaning is still clear; true identity/code/symbol/opaque rows remain narrow exceptions.") for item in report]

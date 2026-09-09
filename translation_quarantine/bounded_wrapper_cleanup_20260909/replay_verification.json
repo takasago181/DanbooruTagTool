@@ -1,9 +1,9 @@
 {
   "live_fetch": false,
-  "merged_table_hash": "sha256:469198106addbd12e7c842f8a0341fc2fcd1ac08833e17216b8227286ceb11c2",
+  "merged_table_hash": "sha256:ee69508a5eed518368424e21dddde6af62cb014891f3407a74d8f90e6cde2d71",
   "original_vs_replay1": "PASS",
   "original_vs_replay2": "PASS",
   "replay1_vs_replay2": "PASS",
-  "source_mode": "frozen qualified-review table and local wrapper rules only",
+  "source_mode": "frozen qualified-review source from audited HEAD 3b18d4820f3683b3111437659d84a16f2100645b and local wrapper rules only",
   "verdict": "PASS"
 }

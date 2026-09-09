@@ -7770,7 +7770,7 @@ Canonical English remains authoritative; Japanese is UI display/search assistanc
 | belly-to-belly | 腹から腹 | 腹から腹 | P2 | JA_ACCEPT_MACHINE | LIGHTWEIGHT | GLANCEABLE_NO_MATERIAL_SCOPE_CHANGE | LOW |
 | belly_dancing | ベリーダンス | ベリーダンス | P2 | JA_ACCEPT_MACHINE | LIGHTWEIGHT | GLANCEABLE_NO_MATERIAL_SCOPE_CHANGE | LOW |
 | belly_press | 腹部を押し付ける | 腹部を押し付ける | P2 | JA_ACCEPT_MACHINE | BOUNDED_WRAPPER_TRANSLATION | WRAPPER_REPLACED_WITH_MEANINGFUL_JAPANESE | LOW |
-| belly_riding | 腹・またがる | 腹・またがる | P2 | JA_ACCEPT_MACHINE | BOUNDED_WRAPPER_TRANSLATION | WRAPPER_REPLACED_WITH_MEANINGFUL_JAPANESE | LOW |
+| belly_riding |  |  | P2 | ENGLISH_FALLBACK_EXCEPTION | BOUNDED_WRAPPER_EXCEPTION_REVIEW | PHRASE_SEMANTICS_UNRESOLVED | EXCEPTION |
 | belly_rub | お腹ナデナデ | お腹ナデナデ | P2 | JA_ACCEPT_MACHINE | LIGHTWEIGHT | GLANCEABLE_NO_MATERIAL_SCOPE_CHANGE | LOW |
 | bellyjob | ボテズリ | ボテズリ | P2 | JA_ACCEPT_MACHINE | LIGHTWEIGHT | GLANCEABLE_NO_MATERIAL_SCOPE_CHANGE | LOW |
 | beloved_zofia |  |  | P2 | ENGLISH_FALLBACK_EXCEPTION | BOUNDED_WRAPPER_EXCEPTION_REVIEW | OPAQUE_SOURCE_STRING | EXCEPTION |
@@ -8672,7 +8672,7 @@ Canonical English remains authoritative; Japanese is UI display/search assistanc
 | bread_bun | バンズ | バンズ | P2 | JA_ACCEPT_MACHINE | LIGHTWEIGHT | GLANCEABLE_NO_MATERIAL_SCOPE_CHANGE | LOW |
 | bread_eating_race | パン食い競争 | パン食い競争 | P2 | JA_ACCEPT_MACHINE | LIGHTWEIGHT | GLANCEABLE_NO_MATERIAL_SCOPE_CHANGE | LOW |
 | bread_slice | 面包片 | 面包片 | P2 | JA_ACCEPT_MACHINE | LIGHTWEIGHT | GLANCEABLE_NO_MATERIAL_SCOPE_CHANGE | LOW |
-| break_action | 破壊・動作 | 破壊・動作 | P2 | JA_ACCEPT_MACHINE | BOUNDED_WRAPPER_TRANSLATION | WRAPPER_REPLACED_WITH_MEANINGFUL_JAPANESE | LOW |
+| break_action |  |  | P2 | ENGLISH_FALLBACK_EXCEPTION | BOUNDED_WRAPPER_EXCEPTION_REVIEW | PHRASE_SEMANTICS_UNRESOLVED | EXCEPTION |
 | breakdance | ブレイクダンス | ブレイクダンス | P2 | JA_ACCEPT_MACHINE | LIGHTWEIGHT | GLANCEABLE_NO_MATERIAL_SCOPE_CHANGE | LOW |
 | breaker_gorgon | ブレーカー・ゴルゴーン | ブレーカー・ゴルゴーン | P2 | JA_ACCEPT_MACHINE | LIGHTWEIGHT | GLANCEABLE_NO_MATERIAL_SCOPE_CHANGE | LOW |
 | breakfast | 朝ご飯 | 朝ご飯 | P2 | JA_ACCEPT_MACHINE | LIGHTWEIGHT | GLANCEABLE_NO_MATERIAL_SCOPE_CHANGE | LOW |
@@ -8971,8 +8971,8 @@ Canonical English remains authoritative; Japanese is UI display/search assistanc
 | bugles_(food) | とんがりコーン | とんがりコーン | P2 | JA_ACCEPT_STRICT | BOUNDED_STRICT | STRICT_SCOPE_AND_WORDING_ACCEPTED | HIGH |
 | bugles_on_fingers | 指のバグル | 指のバグル | P2 | JA_ACCEPT_MACHINE | LIGHTWEIGHT | GLANCEABLE_NO_MATERIAL_SCOPE_CHANGE | LOW |
 | build_driver | ビルドドライバー | ビルドドライバー | P2 | JA_ACCEPT_MACHINE | LIGHTWEIGHT | GLANCEABLE_NO_MATERIAL_SCOPE_CHANGE | LOW |
-| building_sand_sculpture | 建物・砂・彫刻 | 建物・砂・彫刻 | P2 | JA_ACCEPT_MACHINE | BOUNDED_WRAPPER_TRANSLATION | WRAPPER_REPLACED_WITH_MEANINGFUL_JAPANESE | LOW |
-| building_snowman | 建物・雪だるま | 建物・雪だるま | P2 | JA_ACCEPT_MACHINE | BOUNDED_WRAPPER_TRANSLATION | WRAPPER_REPLACED_WITH_MEANINGFUL_JAPANESE | LOW |
+| building_sand_sculpture |  |  | P2 | ENGLISH_FALLBACK_EXCEPTION | BOUNDED_WRAPPER_EXCEPTION_REVIEW | PHRASE_SEMANTICS_UNRESOLVED | EXCEPTION |
+| building_snowman |  |  | P2 | ENGLISH_FALLBACK_EXCEPTION | BOUNDED_WRAPPER_EXCEPTION_REVIEW | PHRASE_SEMANTICS_UNRESOLVED | EXCEPTION |
 | bulge_lift | 隆起・持ち上げ | 隆起・持ち上げ | P2 | JA_ACCEPT_MACHINE | BOUNDED_WRAPPER_TRANSLATION | WRAPPER_REPLACED_WITH_MEANINGFUL_JAPANESE | LOW |
 | bulge_peek | bulge・覗き見 | bulge・覗き見 | P2 | JA_ACCEPT_MACHINE | LEXICAL_COMPOSITION | GLANCEABLE_JA_DISPLAY | LOW |
 | bulge_press | バルジプレス | バルジプレス | P2 | JA_ACCEPT_MACHINE | LIGHTWEIGHT | GLANCEABLE_NO_MATERIAL_SCOPE_CHANGE | LOW |
@@ -9497,7 +9497,7 @@ Canonical English remains authoritative; Japanese is UI display/search assistanc
 | caviar | キャビア | キャビア | P2 | JA_ACCEPT_MACHINE | LIGHTWEIGHT | GLANCEABLE_NO_MATERIAL_SCOPE_CHANGE | LOW |
 | cavorite_ball | cavoriteボール | cavoriteボール | P2 | JA_ACCEPT_MACHINE | LIGHTWEIGHT | GLANCEABLE_NO_MATERIAL_SCOPE_CHANGE | LOW |
 | cbj-ms |  |  | P2 | ENGLISH_FALLBACK_EXCEPTION | BOUNDED_WRAPPER_EXCEPTION_REVIEW | CODE_OR_PRODUCT_IDENTIFIER | EXCEPTION |
-| cbt_press | 陰茎・睾丸拘束・押す | 陰茎・睾丸拘束・押す | P2 | JA_ACCEPT_MACHINE | BOUNDED_WRAPPER_TRANSLATION | WRAPPER_REPLACED_WITH_MEANINGFUL_JAPANESE | LOW |
+| cbt_press |  |  | P2 | ENGLISH_FALLBACK_EXCEPTION | BOUNDED_WRAPPER_EXCEPTION_REVIEW | PHRASE_SEMANTICS_UNRESOLVED | EXCEPTION |
 | cd | CD媒体 | CD媒体 | P2 | JA_ACCEPT_MACHINE | BOUNDED_WRAPPER_TRANSLATION | WRAPPER_REPLACED_WITH_MEANINGFUL_JAPANESE | LOW |
 | cd_case | CDケース | CDケース | P2 | JA_ACCEPT_MACHINE | LIGHTWEIGHT | GLANCEABLE_NO_MATERIAL_SCOPE_CHANGE | LOW |
 | cd_player | CDプレイヤー | CDプレイヤー | P2 | JA_ACCEPT_MACHINE | LIGHTWEIGHT | GLANCEABLE_NO_MATERIAL_SCOPE_CHANGE | LOW |
@@ -9587,7 +9587,7 @@ Canonical English remains authoritative; Japanese is UI display/search assistanc
 | chaldea_staff_uniform | chaldea staffの制服 | chaldea staffの制服 | P2 | JA_ACCEPT_MACHINE | SUFFIX_COMPOSITION | GLANCEABLE_JA_DISPLAY | LOW |
 | chaldea_summer_adventure! | カルデア・サマーアドベンチャー! | カルデア・サマーアドベンチャー! | P2 | JA_ACCEPT_STRICT | BOUNDED_STRICT | STRICT_SCOPE_AND_WORDING_ACCEPTED | HIGH |
 | chaldea_summer_memory | 開拓漂流日誌ブルースカイランド | 開拓漂流日誌ブルースカイランド | P2 | JA_ACCEPT_MACHINE | LIGHTWEIGHT | GLANCEABLE_NO_MATERIAL_SCOPE_CHANGE | LOW |
-| chalk_drawing | チョーク・描画 | チョーク・描画 | P2 | JA_ACCEPT_MACHINE | BOUNDED_WRAPPER_TRANSLATION | WRAPPER_REPLACED_WITH_MEANINGFUL_JAPANESE | LOW |
+| chalk_drawing |  |  | P2 | ENGLISH_FALLBACK_EXCEPTION | BOUNDED_WRAPPER_EXCEPTION_REVIEW | PHRASE_SEMANTICS_UNRESOLVED | EXCEPTION |
 | chalk_outline | チョークアウトライン | チョークアウトライン | P2 | JA_ACCEPT_MACHINE | LIGHTWEIGHT | GLANCEABLE_NO_MATERIAL_SCOPE_CHANGE | LOW |
 | chalkboard_sign | 黒板サイン | 黒板サイン | P2 | JA_ACCEPT_MACHINE | LIGHTWEIGHT | GLANCEABLE_NO_MATERIAL_SCOPE_CHANGE | LOW |
 | chameleon | カメレオン | カメレオン | P2 | JA_ACCEPT_MACHINE | LIGHTWEIGHT | GLANCEABLE_NO_MATERIAL_SCOPE_CHANGE | LOW |
@@ -10670,7 +10670,7 @@ Canonical English remains authoritative; Japanese is UI display/search assistanc
 | crawling | 這う | 這う | P2 | JA_ACCEPT_MACHINE | LIGHTWEIGHT | GLANCEABLE_NO_MATERIAL_SCOPE_CHANGE | LOW |
 | crayfish | ザリガニ | ザリガニ | P2 | JA_ACCEPT_MACHINE | LIGHTWEIGHT | GLANCEABLE_NO_MATERIAL_SCOPE_CHANGE | LOW |
 | crayon | クレヨン | クレヨン | P2 | JA_ACCEPT_MACHINE | LIGHTWEIGHT | GLANCEABLE_NO_MATERIAL_SCOPE_CHANGE | LOW |
-| crayon_drawing | クレヨン・描画 | クレヨン・描画 | P2 | JA_ACCEPT_MACHINE | BOUNDED_WRAPPER_TRANSLATION | WRAPPER_REPLACED_WITH_MEANINGFUL_JAPANESE | LOW |
+| crayon_drawing |  |  | P2 | ENGLISH_FALLBACK_EXCEPTION | BOUNDED_WRAPPER_EXCEPTION_REVIEW | PHRASE_SEMANTICS_UNRESOLVED | EXCEPTION |
 | crazy | 病み | 病み | P2 | JA_ACCEPT_MACHINE | LIGHTWEIGHT | GLANCEABLE_NO_MATERIAL_SCOPE_CHANGE | LOW |
 | crazy_b_(ensemble_stars!) | クレイジービー | クレイジービー | P2 | JA_ACCEPT_STRICT | BOUNDED_STRICT | STRICT_SCOPE_AND_WORDING_ACCEPTED | HIGH |
 | crazy_grin | クレイジーな笑顔 | クレイジーな笑顔 | P2 | JA_ACCEPT_MACHINE | LIGHTWEIGHT | GLANCEABLE_NO_MATERIAL_SCOPE_CHANGE | LOW |
@@ -11575,7 +11575,7 @@ Canonical English remains authoritative; Japanese is UI display/search assistanc
 | dollar_sign | ドル記号 | ドル記号 | P2 | JA_ACCEPT_MACHINE | LIGHTWEIGHT | GLANCEABLE_NO_MATERIAL_SCOPE_CHANGE | LOW |
 | dollchestra | ドルケ | ドルケ | P2 | JA_ACCEPT_MACHINE | LIGHTWEIGHT | GLANCEABLE_NO_MATERIAL_SCOPE_CHANGE | LOW |
 | dollhouse_view | 娃娃屋视角 | 娃娃屋视角 | P2 | JA_ACCEPT_MACHINE | LIGHTWEIGHT | GLANCEABLE_NO_MATERIAL_SCOPE_CHANGE | LOW |
-| dolls_kissing | 人形たち・キス | 人形たち・キス | P2 | JA_ACCEPT_MACHINE | BOUNDED_WRAPPER_TRANSLATION | WRAPPER_REPLACED_WITH_MEANINGFUL_JAPANESE | LOW |
+| dolls_kissing |  |  | P2 | ENGLISH_FALLBACK_EXCEPTION | BOUNDED_WRAPPER_EXCEPTION_REVIEW | PHRASE_SEMANTICS_UNRESOLVED | EXCEPTION |
 | dolman_(jacket) | 骠骑兵夹克 | 骠骑兵夹克 | P2 | JA_ACCEPT_STRICT | BOUNDED_STRICT | STRICT_SCOPE_AND_WORDING_ACCEPTED | HIGH |
 | dolphin | いるか | いるか | P2 | JA_ACCEPT_MACHINE | LIGHTWEIGHT | GLANCEABLE_NO_MATERIAL_SCOPE_CHANGE | LOW |
 | dolphin_earrings | イルカイヤリング | イルカイヤリング | P2 | JA_ACCEPT_MACHINE | LIGHTWEIGHT | GLANCEABLE_NO_MATERIAL_SCOPE_CHANGE | LOW |
@@ -11754,10 +11754,10 @@ Canonical English remains authoritative; Japanese is UI display/search assistanc
 | draw_an_original_girl_with_all_the_traits_that_your_followers_like |  |  | P2 | ENGLISH_FALLBACK_EXCEPTION | BOUNDED_WRAPPER_EXCEPTION_REVIEW | OPAQUE_SOURCE_STRING | EXCEPTION |
 | draw_me_like_one_of_your_french_girls_(meme) |  |  | P2 | ENGLISH_FALLBACK_EXCEPTION | ORIGINAL_FORM_EXCEPTION | PROPER_NAME_OR_QUALIFIED_LABEL | EXCEPTION |
 | draw_this_in_your_style_challenge | draw・thisの中のyour・style・challenge | draw・thisの中のyour・style・challenge | P2 | JA_ACCEPT_STRICT | LEXICAL_COMPOSITION | GLANCEABLE_JA_DISPLAY | HIGH |
-| drawing_arrow | 描画・矢 | 描画・矢 | P2 | JA_ACCEPT_MACHINE | BOUNDED_WRAPPER_TRANSLATION | WRAPPER_REPLACED_WITH_MEANINGFUL_JAPANESE | LOW |
+| drawing_arrow |  |  | P2 | ENGLISH_FALLBACK_EXCEPTION | BOUNDED_WRAPPER_EXCEPTION_REVIEW | PHRASE_SEMANTICS_UNRESOLVED | EXCEPTION |
 | drawing_board | 画板 | 画板 | P2 | JA_ACCEPT_MACHINE | LIGHTWEIGHT | GLANCEABLE_NO_MATERIAL_SCOPE_CHANGE | LOW |
 | drawing_bow | 弓を引く | 弓を引く | P2 | JA_ACCEPT_MACHINE | LIGHTWEIGHT | GLANCEABLE_NO_MATERIAL_SCOPE_CHANGE | LOW |
-| drawing_gun | 描画・銃 | 描画・銃 | P2 | JA_ACCEPT_MACHINE | BOUNDED_WRAPPER_TRANSLATION | WRAPPER_REPLACED_WITH_MEANINGFUL_JAPANESE | LOW |
+| drawing_gun |  |  | P2 | ENGLISH_FALLBACK_EXCEPTION | BOUNDED_WRAPPER_EXCEPTION_REVIEW | PHRASE_SEMANTICS_UNRESOLVED | EXCEPTION |
 | drawing_mannequin | デッサン人形 | デッサン人形 | P2 | JA_ACCEPT_MACHINE | LIGHTWEIGHT | GLANCEABLE_NO_MATERIAL_SCOPE_CHANGE | LOW |
 | drawing_on_dirt | drawingの上のdirt | drawingの上のdirt | P2 | JA_ACCEPT_STRICT | LEXICAL_COMPOSITION | GLANCEABLE_JA_DISPLAY | HIGH |
 | drawing_on_fourth_wall | drawingの上のfourth・壁 | drawingの上のfourth・壁 | P2 | JA_ACCEPT_STRICT | LEXICAL_COMPOSITION | GLANCEABLE_JA_DISPLAY | HIGH |
@@ -14526,7 +14526,7 @@ Canonical English remains authoritative; Japanese is UI display/search assistanc
 | greek_cross | ギリシャ十字 | ギリシャ十字 | P2 | JA_ACCEPT_MACHINE | LIGHTWEIGHT | GLANCEABLE_NO_MATERIAL_SCOPE_CHANGE | LOW |
 | greek_flag | ギリシャの国旗 | ギリシャの国旗 | P2 | JA_ACCEPT_MACHINE | LIGHTWEIGHT | GLANCEABLE_NO_MATERIAL_SCOPE_CHANGE | LOW |
 | greek_helmet | greek・ヘルメット | greek・ヘルメット | P2 | JA_ACCEPT_MACHINE | LEXICAL_COMPOSITION | GLANCEABLE_JA_DISPLAY | LOW |
-| greek_painting_style |  |  | P2 | ENGLISH_FALLBACK_EXCEPTION | BOUNDED_WRAPPER_EXCEPTION_REVIEW | OPAQUE_SOURCE_STRING | EXCEPTION |
+| greek_painting_style |  |  | P2 | ENGLISH_FALLBACK_EXCEPTION | BOUNDED_WRAPPER_EXCEPTION_REVIEW | PHRASE_SEMANTICS_UNRESOLVED | EXCEPTION |
 | greek_text | ギリシャ語 | ギリシャ語 | P2 | JA_ACCEPT_MACHINE | LIGHTWEIGHT | GLANCEABLE_NO_MATERIAL_SCOPE_CHANGE | LOW |
 | greek_toe | ギリシャ型 | ギリシャ型 | P2 | JA_ACCEPT_MACHINE | LIGHTWEIGHT | GLANCEABLE_NO_MATERIAL_SCOPE_CHANGE | LOW |
 | green-tinted_eyewear | 緑色のアイウェア | 緑色のアイウェア | P2 | JA_ACCEPT_MACHINE | LIGHTWEIGHT | GLANCEABLE_NO_MATERIAL_SCOPE_CHANGE | LOW |
@@ -15847,7 +15847,7 @@ Canonical English remains authoritative; Japanese is UI display/search assistanc
 | holding_back | 持つ・背中 | 持つ・背中 | P2 | JA_ACCEPT_STRICT | BOUNDED_STRICT | STRICT_SCOPE_AND_WORDING_ACCEPTED | HIGH |
 | holding_badge | を持つ・badge | を持つ・badge | P2 | JA_ACCEPT_STRICT | LEXICAL_COMPOSITION | GLANCEABLE_JA_DISPLAY | HIGH |
 | holding_ball | 持つ・ボール | 持つ・ボール | P2 | JA_ACCEPT_STRICT | BOUNDED_STRICT | STRICT_SCOPE_AND_WORDING_ACCEPTED | HIGH |
-| holding_ball_and_chain_(weapon) | 持っている・ボールと・チェーン（武器） | 持っている・ボールと・チェーン（武器） | P2 | JA_ACCEPT_MACHINE | BOUNDED_WRAPPER_TRANSLATION | WRAPPER_REPLACED_WITH_MEANINGFUL_JAPANESE | LOW |
+| holding_ball_and_chain_(weapon) |  |  | P2 | ENGLISH_FALLBACK_EXCEPTION | BOUNDED_WRAPPER_EXCEPTION_REVIEW | PHRASE_SEMANTICS_UNRESOLVED | EXCEPTION |
 | holding_balloon | バルーンを保持します | バルーンを保持します | P2 | JA_ACCEPT_STRICT | BOUNDED_STRICT | STRICT_SCOPE_AND_WORDING_ACCEPTED | HIGH |
 | holding_bamboo_shoot | を持つ・bamboo・shoot | を持つ・bamboo・shoot | P2 | JA_ACCEPT_STRICT | LEXICAL_COMPOSITION | GLANCEABLE_JA_DISPLAY | HIGH |
 | holding_bamboo_steamer | を持つ・bamboo・steamer | を持つ・bamboo・steamer | P2 | JA_ACCEPT_STRICT | LEXICAL_COMPOSITION | GLANCEABLE_JA_DISPLAY | HIGH |
@@ -15859,7 +15859,7 @@ Canonical English remains authoritative; Japanese is UI display/search assistanc
 | holding_baseball_bat | 野球のバットを持っています | 野球のバットを持っています | P2 | JA_ACCEPT_STRICT | BOUNDED_STRICT | STRICT_SCOPE_AND_WORDING_ACCEPTED | HIGH |
 | holding_bass_guitar | を持つ・bass・guitar | を持つ・bass・guitar | P2 | JA_ACCEPT_STRICT | LEXICAL_COMPOSITION | GLANCEABLE_JA_DISPLAY | HIGH |
 | holding_baton | バトン | バトン | P2 | JA_ACCEPT_STRICT | BOUNDED_STRICT | STRICT_SCOPE_AND_WORDING_ACCEPTED | HIGH |
-| holding_baton_(weapon) | 持っている・警棒（武器） | 持っている・警棒（武器） | P2 | JA_ACCEPT_MACHINE | BOUNDED_WRAPPER_TRANSLATION | WRAPPER_REPLACED_WITH_MEANINGFUL_JAPANESE | LOW |
+| holding_baton_(weapon) |  |  | P2 | ENGLISH_FALLBACK_EXCEPTION | BOUNDED_WRAPPER_EXCEPTION_REVIEW | PHRASE_SEMANTICS_UNRESOLVED | EXCEPTION |
 | holding_beachball | ビーチボールを持っています | ビーチボールを持っています | P2 | JA_ACCEPT_STRICT | BOUNDED_STRICT | STRICT_SCOPE_AND_WORDING_ACCEPTED | HIGH |
 | holding_beaker | を持つ・beaker | を持つ・beaker | P2 | JA_ACCEPT_STRICT | LEXICAL_COMPOSITION | GLANCEABLE_JA_DISPLAY | HIGH |
 | holding_beam_saber | を持つ・beam・saber | を持つ・beam・saber | P2 | JA_ACCEPT_STRICT | LEXICAL_COMPOSITION | GLANCEABLE_JA_DISPLAY | HIGH |
@@ -16068,7 +16068,7 @@ Canonical English remains authoritative; Japanese is UI display/search assistanc
 | holding_headgear | ヘッドギアを持っています | ヘッドギアを持っています | P2 | JA_ACCEPT_STRICT | BOUNDED_STRICT | STRICT_SCOPE_AND_WORDING_ACCEPTED | HIGH |
 | holding_headphones | ヘッドフォンを保持します | ヘッドフォンを保持します | P2 | JA_ACCEPT_STRICT | BOUNDED_STRICT | STRICT_SCOPE_AND_WORDING_ACCEPTED | HIGH |
 | holding_heart | 持つ・ハート | 持つ・ハート | P2 | JA_ACCEPT_STRICT | BOUNDED_STRICT | STRICT_SCOPE_AND_WORDING_ACCEPTED | HIGH |
-| holding_heart_(organ) | 持っている・ハート（organ） | 持っている・ハート（organ） | P2 | JA_ACCEPT_MACHINE | BOUNDED_WRAPPER_TRANSLATION | WRAPPER_REPLACED_WITH_MEANINGFUL_JAPANESE | LOW |
+| holding_heart_(organ) |  |  | P2 | ENGLISH_FALLBACK_EXCEPTION | BOUNDED_WRAPPER_EXCEPTION_REVIEW | PHRASE_SEMANTICS_UNRESOLVED | EXCEPTION |
 | holding_hockey_stick | を持つ・hockey・stick | を持つ・hockey・stick | P2 | JA_ACCEPT_STRICT | LEXICAL_COMPOSITION | GLANCEABLE_JA_DISPLAY | HIGH |
 | holding_hoe | を持つ・hoe | を持つ・hoe | P2 | JA_ACCEPT_STRICT | LEXICAL_COMPOSITION | GLANCEABLE_JA_DISPLAY | HIGH |
 | holding_holly | を持つ・holly | を持つ・holly | P2 | JA_ACCEPT_STRICT | LEXICAL_COMPOSITION | GLANCEABLE_JA_DISPLAY | HIGH |
@@ -16080,7 +16080,7 @@ Canonical English remains authoritative; Japanese is UI display/search assistanc
 | holding_ice | を持つ・ice | を持つ・ice | P2 | JA_ACCEPT_STRICT | LEXICAL_COMPOSITION | GLANCEABLE_JA_DISPLAY | HIGH |
 | holding_ice_cream | 手持冰淇淋 | 手持冰淇淋 | P2 | JA_ACCEPT_STRICT | BOUNDED_STRICT | STRICT_SCOPE_AND_WORDING_ACCEPTED | HIGH |
 | holding_ice_cream_cone | 手持冰淇淋甜筒 | 手持冰淇淋甜筒 | P2 | JA_ACCEPT_STRICT | BOUNDED_STRICT | STRICT_SCOPE_AND_WORDING_ACCEPTED | HIGH |
-| holding_ice_cream_scoop_(utensil) | 持っている・氷・クリーム・すくう道具（調理器具） | 持っている・氷・クリーム・すくう道具（調理器具） | P2 | JA_ACCEPT_MACHINE | BOUNDED_WRAPPER_TRANSLATION | WRAPPER_REPLACED_WITH_MEANINGFUL_JAPANESE | LOW |
+| holding_ice_cream_scoop_(utensil) |  |  | P2 | ENGLISH_FALLBACK_EXCEPTION | BOUNDED_WRAPPER_EXCEPTION_REVIEW | PHRASE_SEMANTICS_UNRESOLVED | EXCEPTION |
 | holding_instrument | 保持器具 | 保持器具 | P2 | JA_ACCEPT_STRICT | BOUNDED_STRICT | STRICT_SCOPE_AND_WORDING_ACCEPTED | HIGH |
 | holding_instrument_case | を持つ・楽器・case | を持つ・楽器・case | P2 | JA_ACCEPT_STRICT | LEXICAL_COMPOSITION | GLANCEABLE_JA_DISPLAY | HIGH |
 | holding_iv_stand | を持つ・iv・stand | を持つ・iv・stand | P2 | JA_ACCEPT_STRICT | LEXICAL_COMPOSITION | GLANCEABLE_JA_DISPLAY | HIGH |
@@ -24065,7 +24065,7 @@ Canonical English remains authoritative; Japanese is UI display/search assistanc
 | riding_bird | 鳥に乗る | 鳥に乗る | P2 | JA_ACCEPT_MACHINE | LIGHTWEIGHT | GLANCEABLE_NO_MATERIAL_SCOPE_CHANGE | LOW |
 | riding_boar | 乗馬イノシシ | 乗馬イノシシ | P2 | JA_ACCEPT_MACHINE | LIGHTWEIGHT | GLANCEABLE_NO_MATERIAL_SCOPE_CHANGE | LOW |
 | riding_boots | 乗馬ブーツ | 乗馬ブーツ | P2 | JA_ACCEPT_MACHINE | LIGHTWEIGHT | GLANCEABLE_NO_MATERIAL_SCOPE_CHANGE | LOW |
-| riding_digimon |  |  | P2 | ENGLISH_FALLBACK_EXCEPTION | BOUNDED_WRAPPER_EXCEPTION_REVIEW | OPAQUE_SOURCE_STRING | EXCEPTION |
+| riding_digimon |  |  | P2 | ENGLISH_FALLBACK_EXCEPTION | BOUNDED_WRAPPER_EXCEPTION_REVIEW | PHRASE_SEMANTICS_UNRESOLVED | EXCEPTION |
 | riding_dinosaur | 恐竜乗馬 | 恐竜乗馬 | P2 | JA_ACCEPT_MACHINE | LIGHTWEIGHT | GLANCEABLE_NO_MATERIAL_SCOPE_CHANGE | LOW |
 | riding_dragon | ドラゴンライダー | ドラゴンライダー | P2 | JA_ACCEPT_MACHINE | LIGHTWEIGHT | GLANCEABLE_NO_MATERIAL_SCOPE_CHANGE | LOW |
 | riding_machine | 乗馬マシン | 乗馬マシン | P2 | JA_ACCEPT_MACHINE | LIGHTWEIGHT | GLANCEABLE_NO_MATERIAL_SCOPE_CHANGE | LOW |
@@ -24076,7 +24076,7 @@ Canonical English remains authoritative; Japanese is UI display/search assistanc
 | riding_roller_coaster | ジェットコースターに乗る | ジェットコースターに乗る | P2 | JA_ACCEPT_MACHINE | BOUNDED_WRAPPER_TRANSLATION | WRAPPER_REPLACED_WITH_MEANINGFUL_JAPANESE | LOW |
 | riding_scooter | スクーターに乗る | スクーターに乗る | P2 | JA_ACCEPT_MACHINE | BOUNDED_WRAPPER_TRANSLATION | WRAPPER_REPLACED_WITH_MEANINGFUL_JAPANESE | LOW |
 | riding_shark | サメに乗る | サメに乗る | P2 | JA_ACCEPT_MACHINE | LIGHTWEIGHT | GLANCEABLE_NO_MATERIAL_SCOPE_CHANGE | LOW |
-| riding_tricycle |  |  | P2 | ENGLISH_FALLBACK_EXCEPTION | BOUNDED_WRAPPER_EXCEPTION_REVIEW | OPAQUE_SOURCE_STRING | EXCEPTION |
+| riding_tricycle |  |  | P2 | ENGLISH_FALLBACK_EXCEPTION | BOUNDED_WRAPPER_EXCEPTION_REVIEW | PHRASE_SEMANTICS_UNRESOLVED | EXCEPTION |
 | riding_vacuum_cleaner | 掃除機にまたがる | 掃除機にまたがる | P2 | JA_ACCEPT_MACHINE | BOUNDED_WRAPPER_TRANSLATION | WRAPPER_REPLACED_WITH_MEANINGFUL_JAPANESE | LOW |
 | rifle_cartridge | ライフル実包 | ライフル実包 | P2 | JA_ACCEPT_MACHINE | LIGHTWEIGHT | GLANCEABLE_NO_MATERIAL_SCOPE_CHANGE | LOW |
 | rigby_the_cat_(meme) |  |  | P2 | ENGLISH_FALLBACK_EXCEPTION | ORIGINAL_FORM_EXCEPTION | PROPER_NAME_OR_QUALIFIED_LABEL | EXCEPTION |
@@ -26791,7 +26791,7 @@ Canonical English remains authoritative; Japanese is UI display/search assistanc
 | stomacher | 腹飾り | 腹飾り | P2 | JA_ACCEPT_MACHINE | BOUNDED_WRAPPER_TRANSLATION | WRAPPER_REPLACED_WITH_MEANINGFUL_JAPANESE | LOW |
 | stomping_viewer | 踏みつけ | 踏みつけ | P2 | JA_ACCEPT_MACHINE | LIGHTWEIGHT | GLANCEABLE_NO_MATERIAL_SCOPE_CHANGE | LOW |
 | stone_bridge | 石・橋 | 石・橋 | P2 | JA_ACCEPT_MACHINE | BOUNDED_WRAPPER_TRANSLATION | WRAPPER_REPLACED_WITH_MEANINGFUL_JAPANESE | LOW |
-| stone_building | 石・建物 | 石・建物 | P2 | JA_ACCEPT_MACHINE | BOUNDED_WRAPPER_TRANSLATION | WRAPPER_REPLACED_WITH_MEANINGFUL_JAPANESE | LOW |
+| stone_building |  |  | P2 | ENGLISH_FALLBACK_EXCEPTION | BOUNDED_WRAPPER_EXCEPTION_REVIEW | PHRASE_SEMANTICS_UNRESOLVED | EXCEPTION |
 | stone_lantern | 石灯篭 | 石灯篭 | P2 | JA_ACCEPT_MACHINE | LIGHTWEIGHT | GLANCEABLE_NO_MATERIAL_SCOPE_CHANGE | LOW |
 | stone_mask | stone・マスク | stone・マスク | P2 | JA_ACCEPT_MACHINE | LEXICAL_COMPOSITION | GLANCEABLE_JA_DISPLAY | LOW |
 | stone_mask_(jojo) | 石仮面 | 石仮面 | P2 | JA_ACCEPT_STRICT | BOUNDED_STRICT | STRICT_SCOPE_AND_WORDING_ACCEPTED | HIGH |
@@ -26825,7 +26825,7 @@ Canonical English remains authoritative; Japanese is UI display/search assistanc
 | strainer | ざる | ざる | P2 | JA_ACCEPT_MACHINE | LIGHTWEIGHT | GLANCEABLE_NO_MATERIAL_SCOPE_CHANGE | LOW |
 | strangulation_mark | strangulation・印 | strangulation・印 | P2 | JA_ACCEPT_MACHINE | LEXICAL_COMPOSITION | GLANCEABLE_JA_DISPLAY | LOW |
 | strap_between_breasts | パイスラ | パイスラ | P2 | JA_ACCEPT_MACHINE | LIGHTWEIGHT | GLANCEABLE_NO_MATERIAL_SCOPE_CHANGE | LOW |
-| strap_break | ストラップ・破壊 | ストラップ・破壊 | P2 | JA_ACCEPT_MACHINE | BOUNDED_WRAPPER_TRANSLATION | WRAPPER_REPLACED_WITH_MEANINGFUL_JAPANESE | LOW |
+| strap_break |  |  | P2 | ENGLISH_FALLBACK_EXCEPTION | BOUNDED_WRAPPER_EXCEPTION_REVIEW | PHRASE_SEMANTICS_UNRESOLVED | EXCEPTION |
 | strap_lift | 肩紐ずらし | 肩紐ずらし | P2 | JA_ACCEPT_MACHINE | LIGHTWEIGHT | GLANCEABLE_NO_MATERIAL_SCOPE_CHANGE | LOW |
 | strap_pull | 肩紐ずらし | 肩紐ずらし | P2 | JA_ACCEPT_MACHINE | LIGHTWEIGHT | GLANCEABLE_NO_MATERIAL_SCOPE_CHANGE | LOW |
 | strapless_bodysuit | ストラップなし・ボディスーツ | ストラップなし・ボディスーツ | P2 | JA_ACCEPT_MACHINE | BOUNDED_WRAPPER_TRANSLATION | WRAPPER_REPLACED_WITH_MEANINGFUL_JAPANESE | LOW |
@@ -27881,7 +27881,7 @@ Canonical English remains authoritative; Japanese is UI display/search assistanc
 | thigh_beads | 太もも・ビーズ | 太もも・ビーズ | P2 | JA_ACCEPT_MACHINE | BOUNDED_WRAPPER_TRANSLATION | WRAPPER_REPLACED_WITH_MEANINGFUL_JAPANESE | LOW |
 | thigh_bow | 太もも・リボン | 太もも・リボン | P2 | JA_ACCEPT_MACHINE | LIGHTWEIGHT | GLANCEABLE_NO_MATERIAL_SCOPE_CHANGE | LOW |
 | thigh_corset | thigh・コルセット | thigh・コルセット | P2 | JA_ACCEPT_MACHINE | LEXICAL_COMPOSITION | GLANCEABLE_JA_DISPLAY | LOW |
-| thigh_cutting | 太もも・切断 | 太もも・切断 | P2 | JA_ACCEPT_MACHINE | BOUNDED_WRAPPER_TRANSLATION | WRAPPER_REPLACED_WITH_MEANINGFUL_JAPANESE | LOW |
+| thigh_cutting |  |  | P2 | ENGLISH_FALLBACK_EXCEPTION | BOUNDED_WRAPPER_EXCEPTION_REVIEW | PHRASE_SEMANTICS_UNRESOLVED | EXCEPTION |
 | thigh_freckles | thigh・そばかす | thigh・そばかす | P2 | JA_ACCEPT_MACHINE | LEXICAL_COMPOSITION | GLANCEABLE_JA_DISPLAY | LOW |
 | thigh_holster | レッグホルスター | レッグホルスター | P2 | JA_ACCEPT_MACHINE | LIGHTWEIGHT | GLANCEABLE_NO_MATERIAL_SCOPE_CHANGE | LOW |
 | thigh_marking | 太もも・印付け | 太もも・印付け | P2 | JA_ACCEPT_MACHINE | BOUNDED_WRAPPER_TRANSLATION | WRAPPER_REPLACED_WITH_MEANINGFUL_JAPANESE | LOW |

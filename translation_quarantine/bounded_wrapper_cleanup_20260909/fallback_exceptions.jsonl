@@ -196,6 +196,7 @@
 {"canonical": "beelstarmon_(cosplay)", "priority_class": "P2", "reason": "PROPER_NAME_OR_QUALIFIED_LABEL", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "beit_(idolmaster)", "priority_class": "P2", "reason": "PROPER_NAME_OR_QUALIFIED_LABEL", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "belle_(disney)_(cosplay)", "priority_class": "P2", "reason": "PROPER_NAME_OR_QUALIFIED_LABEL", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
+{"canonical": "belly_riding", "priority_class": "P2", "reason": "PHRASE_SEMANTICS_UNRESOLVED", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "beloved_zofia", "priority_class": "P2", "reason": "OPAQUE_SOURCE_STRING", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "benelli_m3", "priority_class": "P2", "reason": "CODE_OR_PRODUCT_IDENTIFIER", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "beta_pollux", "priority_class": "P2", "reason": "OPAQUE_SOURCE_STRING", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
@@ -229,6 +230,7 @@
 {"canonical": "bourbon_(kirby)", "priority_class": "P2", "reason": "PROPER_NAME_OR_QUALIFIED_LABEL", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "box_lottery_(fate/grand_order)", "priority_class": "P2", "reason": "PROPER_NAME_OR_QUALIFIED_LABEL", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "brazilian_miku_(cosplay)", "priority_class": "P2", "reason": "PROPER_NAME_OR_QUALIFIED_LABEL", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
+{"canonical": "break_action", "priority_class": "P2", "reason": "PHRASE_SEMANTICS_UNRESOLVED", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "bridget_(guilty_gear)_(cosplay)", "priority_class": "P2", "reason": "PROPER_NAME_OR_QUALIFIED_LABEL", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "bright_me_up!!_(ensemble_stars!)", "priority_class": "P2", "reason": "SYMBOL_OR_EMOTICON", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "bruno_mars_(cosplay)", "priority_class": "P2", "reason": "PROPER_NAME_OR_QUALIFIED_LABEL", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
@@ -236,6 +238,8 @@
 {"canonical": "brynhildr_(fire_emblem)", "priority_class": "P2", "reason": "PROPER_NAME_OR_QUALIFIED_LABEL", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "bt-42", "priority_class": "P2", "reason": "CODE_OR_PRODUCT_IDENTIFIER", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "bubble_head_nurse_(cosplay)", "priority_class": "P2", "reason": "PROPER_NAME_OR_QUALIFIED_LABEL", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
+{"canonical": "building_sand_sculpture", "priority_class": "P2", "reason": "PHRASE_SEMANTICS_UNRESOLVED", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
+{"canonical": "building_snowman", "priority_class": "P2", "reason": "PHRASE_SEMANTICS_UNRESOLVED", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "burning_as_one_(umamusume)", "priority_class": "P2", "reason": "PROPER_NAME_OR_QUALIFIED_LABEL", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "buster_bros!!!", "priority_class": "P2", "reason": "SYMBOL_OR_EMOTICON", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "but_you_can't_prove_it_(meme)", "priority_class": "P2", "reason": "PROPER_NAME_OR_QUALIFIED_LABEL", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
@@ -263,9 +267,11 @@
 {"canonical": "catwoman_(cosplay)", "priority_class": "P2", "reason": "PROPER_NAME_OR_QUALIFIED_LABEL", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "caved_(touhou)", "priority_class": "P2", "reason": "PROPER_NAME_OR_QUALIFIED_LABEL", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "cbj-ms", "priority_class": "P2", "reason": "CODE_OR_PRODUCT_IDENTIFIER", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
+{"canonical": "cbt_press", "priority_class": "P2", "reason": "PHRASE_SEMANTICS_UNRESOLVED", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "cempoalxochitl", "priority_class": "P2", "reason": "OPAQUE_SOURCE_STRING", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "chajinbou", "priority_class": "P2", "reason": "OPAQUE_SOURCE_STRING", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "chaldea_bedroom", "priority_class": "P2", "reason": "OPAQUE_SOURCE_STRING", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
+{"canonical": "chalk_drawing", "priority_class": "P2", "reason": "PHRASE_SEMANTICS_UNRESOLVED", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "changing_seasons_(touhou)", "priority_class": "P2", "reason": "PROPER_NAME_OR_QUALIFIED_LABEL", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "charo_(meme)", "priority_class": "P2", "reason": "PROPER_NAME_OR_QUALIFIED_LABEL", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "chase_my_ideal_idol!_(project_sekai)", "priority_class": "P2", "reason": "SYMBOL_OR_EMOTICON", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
@@ -306,6 +312,7 @@
 {"canonical": "covenant_halo_(girls'_frontline_2)", "priority_class": "P2", "reason": "PROPER_NAME_OR_QUALIFIED_LABEL", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "cover_bikini_girl_(gta_vi)_(cosplay)", "priority_class": "P2", "reason": "PROPER_NAME_OR_QUALIFIED_LABEL", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "cr-unit_(date_a_live)", "priority_class": "P2", "reason": "CODE_OR_PRODUCT_IDENTIFIER", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
+{"canonical": "crayon_drawing", "priority_class": "P2", "reason": "PHRASE_SEMANTICS_UNRESOLVED", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "creeper_(cosplay)", "priority_class": "P2", "reason": "PROPER_NAME_OR_QUALIFIED_LABEL", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "creodron_(eve_online)", "priority_class": "P2", "reason": "PROPER_NAME_OR_QUALIFIED_LABEL", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "crimson_scar_(e.g.o)", "priority_class": "P2", "reason": "PROPER_NAME_OR_QUALIFIED_LABEL", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
@@ -364,6 +371,7 @@
 {"canonical": "djeeta_(granblue_fantasy)_(cosplay)", "priority_class": "P2", "reason": "PROPER_NAME_OR_QUALIFIED_LABEL", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "dodgeball_(sport)", "priority_class": "P2", "reason": "PROPER_NAME_OR_QUALIFIED_LABEL", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "doll_panty_check", "priority_class": "P2", "reason": "OPAQUE_SOURCE_STRING", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
+{"canonical": "dolls_kissing", "priority_class": "P2", "reason": "PHRASE_SEMANTICS_UNRESOLVED", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "dopo", "priority_class": "P2", "reason": "OPAQUE_SOURCE_STRING", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "dorothea_arnault_(plegian)_(cosplay)", "priority_class": "P2", "reason": "PROPER_NAME_OR_QUALIFIED_LABEL", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "dorsiflexion_(wrist)", "priority_class": "P2", "reason": "PROPER_NAME_OR_QUALIFIED_LABEL", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
@@ -375,6 +383,8 @@
 {"canonical": "dragonborn_(d&d)", "priority_class": "P2", "reason": "PROPER_NAME_OR_QUALIFIED_LABEL", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "draw_an_original_girl_with_all_the_traits_that_your_followers_like", "priority_class": "P2", "reason": "OPAQUE_SOURCE_STRING", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "draw_me_like_one_of_your_french_girls_(meme)", "priority_class": "P2", "reason": "PROPER_NAME_OR_QUALIFIED_LABEL", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
+{"canonical": "drawing_arrow", "priority_class": "P2", "reason": "PHRASE_SEMANTICS_UNRESOLVED", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
+{"canonical": "drawing_gun", "priority_class": "P2", "reason": "PHRASE_SEMANTICS_UNRESOLVED", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "dream-space_occult_class_(touhou)", "priority_class": "P2", "reason": "PROPER_NAME_OR_QUALIFIED_LABEL", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "drive-by", "priority_class": "P2", "reason": "CODE_OR_PRODUCT_IDENTIFIER", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "drivesuit_(pacific_rim)", "priority_class": "P2", "reason": "PROPER_NAME_OR_QUALIFIED_LABEL", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
@@ -558,7 +568,7 @@
 {"canonical": "grazing_(livestock)", "priority_class": "P2", "reason": "PROPER_NAME_OR_QUALIFIED_LABEL", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "great_trichiliocosm_(e.g.o)", "priority_class": "P2", "reason": "PROPER_NAME_OR_QUALIFIED_LABEL", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "greco-roman_architecture", "priority_class": "P2", "reason": "CODE_OR_PRODUCT_IDENTIFIER", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
-{"canonical": "greek_painting_style", "priority_class": "P2", "reason": "OPAQUE_SOURCE_STRING", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
+{"canonical": "greek_painting_style", "priority_class": "P2", "reason": "PHRASE_SEMANTICS_UNRESOLVED", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "green_stem_(e.g.o)", "priority_class": "P2", "reason": "PROPER_NAME_OR_QUALIFIED_LABEL", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "grey_bandana", "priority_class": "P2", "reason": "OPAQUE_SOURCE_STRING", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "grey_bloomers", "priority_class": "P2", "reason": "OPAQUE_SOURCE_STRING", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
@@ -646,6 +656,10 @@
 {"canonical": "hina_(blue_archive)_(cosplay)", "priority_class": "P2", "reason": "PROPER_NAME_OR_QUALIFIED_LABEL", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "hk416_(girls'_frontline)_(cosplay)", "priority_class": "P2", "reason": "PROPER_NAME_OR_QUALIFIED_LABEL", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "hoeh_(meme)", "priority_class": "P2", "reason": "PROPER_NAME_OR_QUALIFIED_LABEL", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
+{"canonical": "holding_ball_and_chain_(weapon)", "priority_class": "P2", "reason": "PHRASE_SEMANTICS_UNRESOLVED", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
+{"canonical": "holding_baton_(weapon)", "priority_class": "P2", "reason": "PHRASE_SEMANTICS_UNRESOLVED", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
+{"canonical": "holding_heart_(organ)", "priority_class": "P2", "reason": "PHRASE_SEMANTICS_UNRESOLVED", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
+{"canonical": "holding_ice_cream_scoop_(utensil)", "priority_class": "P2", "reason": "PHRASE_SEMANTICS_UNRESOLVED", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "holiday_(e.g.o)", "priority_class": "P2", "reason": "PROPER_NAME_OR_QUALIFIED_LABEL", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "holoarmis", "priority_class": "P2", "reason": "OPAQUE_SOURCE_STRING", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "holoh3roes", "priority_class": "P2", "reason": "CODE_OR_PRODUCT_IDENTIFIER", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
@@ -1264,8 +1278,8 @@
 {"canonical": "rhythm_game", "priority_class": "P2", "reason": "OPAQUE_SOURCE_STRING", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "ribbon_of_saint_george", "priority_class": "P2", "reason": "OPAQUE_SOURCE_STRING", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "ribboned_xiao_guan", "priority_class": "P2", "reason": "OPAQUE_SOURCE_STRING", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
-{"canonical": "riding_digimon", "priority_class": "P2", "reason": "OPAQUE_SOURCE_STRING", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
-{"canonical": "riding_tricycle", "priority_class": "P2", "reason": "OPAQUE_SOURCE_STRING", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
+{"canonical": "riding_digimon", "priority_class": "P2", "reason": "PHRASE_SEMANTICS_UNRESOLVED", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
+{"canonical": "riding_tricycle", "priority_class": "P2", "reason": "PHRASE_SEMANTICS_UNRESOLVED", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "rigby_the_cat_(meme)", "priority_class": "P2", "reason": "PROPER_NAME_OR_QUALIFIED_LABEL", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "ring_(identity)_(project_moon)", "priority_class": "P2", "reason": "PROPER_NAME_OR_QUALIFIED_LABEL", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "ringer_box", "priority_class": "P2", "reason": "OPAQUE_SOURCE_STRING", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
@@ -1453,7 +1467,9 @@
 {"canonical": "steyr_iws_2000", "priority_class": "P2", "reason": "OPAQUE_SOURCE_STRING", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "stg44", "priority_class": "P2", "reason": "CODE_OR_PRODUCT_IDENTIFIER", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "stingray_girl", "priority_class": "P2", "reason": "OPAQUE_SOURCE_STRING", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
+{"canonical": "stone_building", "priority_class": "P2", "reason": "PHRASE_SEMANTICS_UNRESOLVED", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "stonks_(meme)", "priority_class": "P2", "reason": "PROPER_NAME_OR_QUALIFIED_LABEL", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
+{"canonical": "strap_break", "priority_class": "P2", "reason": "PHRASE_SEMANTICS_UNRESOLVED", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "stratagem_(helldivers)", "priority_class": "P2", "reason": "PROPER_NAME_OR_QUALIFIED_LABEL", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "street_fighter_6_new_challenger_art_contest", "priority_class": "P2", "reason": "OPAQUE_SOURCE_STRING", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "string_of_photos", "priority_class": "P2", "reason": "OPAQUE_SOURCE_STRING", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
@@ -1515,6 +1531,7 @@
 {"canonical": "the_loud_house_(style)", "priority_class": "P2", "reason": "PROPER_NAME_OR_QUALIFIED_LABEL", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "the_sword_sharpened_with_tears_(e.g.o)", "priority_class": "P2", "reason": "PROPER_NAME_OR_QUALIFIED_LABEL", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "theresa_apocalypse_(cosplay)", "priority_class": "P2", "reason": "PROPER_NAME_OR_QUALIFIED_LABEL", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
+{"canonical": "thigh_cutting", "priority_class": "P2", "reason": "PHRASE_SEMANTICS_UNRESOLVED", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "thoracalgia_(e.g.o)", "priority_class": "P2", "reason": "PROPER_NAME_OR_QUALIFIED_LABEL", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "thorn_(elizabeth_rose_bloodflame)", "priority_class": "P2", "reason": "PROPER_NAME_OR_QUALIFIED_LABEL", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}
 {"canonical": "thorn_ring_(deltarune)", "priority_class": "P2", "reason": "PROPER_NAME_OR_QUALIFIED_LABEL", "risk_class": "EXCEPTION", "terminal_state": "ENGLISH_FALLBACK_EXCEPTION"}

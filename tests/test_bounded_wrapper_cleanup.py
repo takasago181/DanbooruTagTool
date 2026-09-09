@@ -91,12 +91,30 @@ def test_accepted_bounded_labels_have_no_untranslated_semantic_base_token():
         "PRODUCT_OR_SERVICE_NAME",
         "PROPER_NAME_OR_QUALIFIED_LABEL",
         "SYMBOL_OR_EMOTICON",
+        "PHRASE_SEMANTICS_UNRESOLVED",
     }
     for row in result["processed"].values():
         if row["final_state"] != "ENGLISH_FALLBACK_EXCEPTION":
             assert cleanup._meaningful(row["display_ja"], row["canonical"])
         else:
             assert row["reason"] in allowed_reasons
+
+
+def test_phrase_semantic_gate_rejects_unvalidated_ambiguous_compounds_as_a_class():
+    result = cleanup._evaluate()
+    assert len(result["targets"]) == 2434
+    assert result["phrase_gate_candidates"] == 44
+    assert result["phrase_gate_demotions"] == 20
+    for canonical in ("building_snowman", "building_sand_sculpture", "break_action"):
+        row = result["processed"][canonical]
+        assert row["final_state"] == "ENGLISH_FALLBACK_EXCEPTION"
+        assert row["reason"] == "PHRASE_SEMANTICS_UNRESOLVED"
+
+    for row in result["processed"].values():
+        base, _qualifiers = cleanup._parts(row["canonical"])
+        tokens = cleanup._tokens(base)
+        if len(tokens) > 1 and any(token in cleanup.AMBIGUOUS_COMPOSITION_HEADS for token in tokens):
+            assert row["canonical"] in cleanup.EXACT or row["final_state"] == "ENGLISH_FALLBACK_EXCEPTION"
 
 
 def test_qualified_identity_is_not_translated_away():
