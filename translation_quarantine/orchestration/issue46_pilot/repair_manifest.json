@@ -1,1 +1,1 @@
-{"completed_cycles":1,"cycle_bound_enforced":true,"max_cycles":2,"repair_rows":3}
+{"completed_cycles":2,"cycle_bound_enforced":true,"cycles":[{"batches":["repair_cycle_1_0001"],"completed":true,"cycle":1,"repair_rows":3},{"batches":[],"completed":true,"cycle":2,"repair_rows":0}],"max_cycles":2,"repair_rows":3,"third_cycle_attempted":false}

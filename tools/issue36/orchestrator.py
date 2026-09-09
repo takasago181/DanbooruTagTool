@@ -5,6 +5,7 @@ import csv
 import hashlib
 import json
 import os
+import re
 import shlex
 import subprocess
 import sys
@@ -59,6 +60,45 @@ FACET_KEYS = [
     "qualifier_scope",
     "concept_width",
 ]
+
+RESIDUAL_SAMPLE_STRATA = (
+    ("ordinary_residual_fallback", 60),
+    ("common_simple", 50),
+    ("multi_token", 50),
+    ("action_relation", 40),
+    ("anatomy_adult_high_risk", 40),
+    ("accepted_demotion_root_cause_sibling", 30),
+    ("prior_phrase_unresolved_residual", 30),
+)
+ADVERSARIAL_SAMPLE_STRATA = (
+    ("random_accepted", 150),
+    ("high_critical_accepted", 150),
+    ("repaired_or_new_translation_candidate", 150),
+    ("ordinary_residual_fallback", 100),
+    ("true_exception", 50),
+)
+EXCEPTION_REASON_TOKENS = {
+    "SYMBOL_OR_EMOTICON",
+    "CODE_OR_PRODUCT_IDENTIFIER",
+    "OPAQUE_SOURCE_STRING",
+    "MALFORMED_LABEL",
+    "NON_JAPANESE_LABEL",
+    "PROPER_NAME_OR_QUALIFIED_LABEL",
+    "PRODUCT_OR_SERVICE_NAME",
+}
+ACTION_RELATION_TOKENS = {
+    "action", "arm", "behind", "between", "breast", "carry", "climb", "cover",
+    "face", "facing", "grab", "grabbing", "hand", "hold", "holding", "hug",
+    "inside", "kick", "kiss", "lick", "look", "looking", "open", "outside",
+    "over", "penetration", "pointing", "presenting", "pull", "push", "reach",
+    "relation", "ride", "sitting", "stand", "standing", "touch", "under", "wear",
+    "wearing", "with",
+}
+ANATOMY_ADULT_TOKENS = {
+    "adult", "anal", "anus", "areola", "breast", "buttocks", "clitoris", "cum",
+    "erection", "explicit", "genital", "nipples", "nude", "nudity", "penis", "pussy",
+    "sex", "testicles", "vagina", "vulva",
+}
 
 
 def strict_agent_schema(role: str) -> dict[str, Any]:
@@ -299,6 +339,137 @@ def choose_ranked(rows: list[dict[str, Any]], purpose: str, count: int) -> list[
     return sorted(rows, key=lambda row: sample_key(row["canonical"], purpose))[:count]
 
 
+def canonical_tokens(canonical: str) -> set[str]:
+    return {token.lower() for token in re.findall(r"[a-z0-9]+", canonical)}
+
+
+def is_true_exception_candidate(row: dict[str, Any]) -> bool:
+    reason = row.get("source_reason", "")
+    return any(token in reason for token in EXCEPTION_REASON_TOKENS)
+
+
+def stratified_sample_candidates(queue: list[dict[str, Any]]) -> dict[str, list[dict[str, Any]]]:
+    residual = [row for row in queue if row.get("source_state") == "FALLBACK"]
+    accepted = [row for row in queue if row.get("source_state") == "ACCEPTED"]
+    residual_tokens = [canonical_tokens(row["canonical"]) for row in residual]
+    sibling_candidates = []
+    for row in accepted:
+        tokens = canonical_tokens(row["canonical"])
+        if tokens and any(tokens.intersection(other) for other in residual_tokens):
+            sibling_candidates.append(row)
+    return {
+        "ordinary_residual_fallback": [row for row in residual if not is_true_exception_candidate(row)],
+        "common_simple": [
+            row for row in residual
+            if len(canonical_tokens(row["canonical"])) <= 1
+            and len(row["canonical"]) <= 24
+            and not any(token in canonical_tokens(row["canonical"]) for token in ANATOMY_ADULT_TOKENS)
+        ],
+        "multi_token": [row for row in residual if len(canonical_tokens(row["canonical"])) >= 2],
+        "action_relation": [
+            row for row in residual
+            if canonical_tokens(row["canonical"]).intersection(ACTION_RELATION_TOKENS)
+        ],
+        "anatomy_adult_high_risk": [
+            row for row in residual
+            if row.get("source_risk_class") in {"HIGH", "CRITICAL"}
+            or canonical_tokens(row["canonical"]).intersection(ANATOMY_ADULT_TOKENS)
+        ],
+        "accepted_demotion_root_cause_sibling": sibling_candidates,
+        "prior_phrase_unresolved_residual": [
+            row for row in residual if row.get("source_reason") == "PHRASE_SEMANTICS_UNRESOLVED"
+        ],
+        "random_accepted": accepted,
+        "high_critical_accepted": [
+            row for row in accepted if row.get("source_risk_class") in {"HIGH", "CRITICAL"}
+        ],
+        "repaired_or_new_translation_candidate": residual,
+        "true_exception": [row for row in residual if is_true_exception_candidate(row)],
+    }
+
+
+def freeze_stratified_sample(
+    queue: list[dict[str, Any]],
+    specs: tuple[tuple[str, int], ...],
+    purpose: str,
+    minimum: int,
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    candidates = stratified_sample_candidates(queue)
+    selected_by_canonical: dict[str, set[str]] = {}
+    details: list[dict[str, Any]] = []
+    for name, target in specs:
+        selected = choose_ranked(candidates.get(name, []), f"{purpose}:{name}", target)
+        for row in selected:
+            selected_by_canonical.setdefault(row["canonical"], set()).add(name)
+        details.append(
+            {
+                "name": name,
+                "target": target,
+                "candidate_count": len(candidates.get(name, [])),
+                "selected_count": len(selected),
+                "selected_canonicals": [row["canonical"] for row in selected],
+            }
+        )
+    pool = [row for row in queue if row.get("source_state") == "FALLBACK"] if "residual" in purpose else queue
+    fill_count = min(minimum, len(pool))
+    for row in choose_ranked(pool, f"{purpose}:deterministic_fill", len(pool)):
+        if len(selected_by_canonical) >= fill_count:
+            break
+        selected_by_canonical.setdefault(row["canonical"], set()).add("deterministic_fill")
+    entries = [
+        {
+            "canonical": canonical,
+            "sample_key": sample_key(canonical, purpose),
+            "strata": sorted(strata),
+        }
+        for canonical, strata in selected_by_canonical.items()
+    ]
+    entries.sort(key=lambda row: row["sample_key"])
+    return entries, details
+
+
+def collision_review_rows(
+    merged: list[dict[str, Any]],
+    challenge: list[dict[str, Any]],
+) -> list[dict[str, Any]]:
+    by_display: dict[str, list[dict[str, Any]]] = {}
+    for row in merged:
+        display = row.get("final_display_ja", "").strip()
+        if display:
+            by_display.setdefault(display, []).append(row)
+    by_canonical = {row["canonical"]: row for row in challenge}
+    reviews: list[dict[str, Any]] = []
+    for display, members in sorted(by_display.items()):
+        if len(members) < 2:
+            continue
+        candidate_reviews = []
+        for member in sorted(members, key=lambda row: row["canonical"]):
+            external = by_canonical.get(member["canonical"])
+            if external is None:
+                raise RuntimeError(
+                    f"collision review missing external challenge artifact for {member['canonical']}"
+                )
+            candidate_reviews.append(
+                {
+                    "canonical": member["canonical"],
+                    "display_challenge": external.get("display_challenge", ""),
+                    "search_challenge": external.get("search_challenge", ""),
+                    "rationale_ja": external.get("rationale_ja", ""),
+                    "root_cause": external.get("root_cause", ""),
+                }
+            )
+        reviews.append(
+            {
+                "collision_key": hashlib.sha256(display.encode("utf-8")).hexdigest(),
+                "display_ja": display,
+                "canonicals": [review["canonical"] for review in candidate_reviews],
+                "review_artifact_origin": "external_codex_final_response",
+                "external_challenge_reviews": candidate_reviews,
+            }
+        )
+    return reviews
+
+
 def pilot_queue(source_by_canonical: dict[str, dict[str, str]]) -> list[dict[str, Any]]:
     cases = [
         ("1girl", "valid_japanese_candidate", "1人の女の子", "1人の女の子"),
@@ -483,8 +654,6 @@ class Orchestrator:
 
     def materialize_samples(self, queue: list[dict[str, Any]]) -> None:
         by_canonical = {row["canonical"]: row for row in queue}
-        residual = [row for row in queue if row.get("source_state") == "FALLBACK"]
-        accepted = [row for row in queue if row.get("source_state") == "ACCEPTED"]
         historical = [
             canonical
             for canonical in (
@@ -499,28 +668,45 @@ class Orchestrator:
             )
             if canonical in by_canonical
         ]
-        adversarial_ranked = choose_ranked(queue, "adversarial", min(600, len(queue)))
-        adversarial_by_canonical = {row["canonical"]: row for row in adversarial_ranked}
+        if self.mode == "full":
+            residual_entries, residual_strata = freeze_stratified_sample(
+                queue, RESIDUAL_SAMPLE_STRATA, "residual_fallback", 300
+            )
+            adversarial_entries, adversarial_strata = freeze_stratified_sample(
+                queue, ADVERSARIAL_SAMPLE_STRATA, "adversarial", 600
+            )
+        else:
+            residual_entries = [
+                {"canonical": row["canonical"], "sample_key": sample_key(row["canonical"], "residual_fallback"), "strata": ["pilot"]}
+                for row in queue if row.get("source_state") == "FALLBACK"
+            ]
+            residual_strata = []
+            adversarial_entries = [
+                {"canonical": row["canonical"], "sample_key": sample_key(row["canonical"], "adversarial"), "strata": ["pilot"]}
+                for row in queue
+            ]
+            adversarial_strata = []
+        adversarial_by_canonical = {entry["canonical"]: entry for entry in adversarial_entries}
         for canonical in historical:
-            adversarial_by_canonical[canonical] = by_canonical[canonical]
-        adversarial_rows = sorted(
-            adversarial_by_canonical.values(), key=lambda row: sample_key(row["canonical"], "adversarial")
-        )
+            adversarial_by_canonical[canonical] = {
+                "canonical": canonical,
+                "sample_key": sample_key(canonical, "adversarial"),
+                "strata": sorted(set(adversarial_by_canonical.get(canonical, {}).get("strata", [])) | {"historical_blocker"}),
+            }
+        adversarial_entries = sorted(adversarial_by_canonical.values(), key=lambda row: row["sample_key"])
         sample_plan = {
             "source_git_blob": SOURCE_BLOB,
             "created_before_semantic_outcomes": True,
             "algorithm": "sha256(source_git_blob|purpose|canonical), ascending",
             "pilot_cases": [row.get("pilot_case") for row in queue if row.get("pilot_case")],
-            "residual_fallback_sample": [
-                {"canonical": row["canonical"], "sample_key": sample_key(row["canonical"], "residual_fallback")}
-                for row in choose_ranked(residual, "residual_fallback", min(300, len(residual)))
-            ],
+            "residual_fallback_sample": residual_entries,
+            "residual_fallback_strata": residual_strata,
             "adversarial_sample": [
-                {"canonical": row["canonical"], "sample_key": sample_key(row["canonical"], "adversarial")}
-                for row in adversarial_rows
+                entry for entry in adversarial_entries
             ],
-            "accepted_candidate_count": len(accepted),
-            "fallback_candidate_count": len(residual),
+            "adversarial_strata": adversarial_strata,
+            "accepted_candidate_count": sum(row.get("source_state") == "ACCEPTED" for row in queue),
+            "fallback_candidate_count": sum(row.get("source_state") == "FALLBACK" for row in queue),
             "historical_blockers": historical,
         }
         write_json(self.root / "sample_plan.json", sample_plan)
@@ -702,16 +888,24 @@ class Orchestrator:
         write_jsonl(self.root / "challenge_inputs.jsonl", rows)
         return all_records
 
-    def run_rechallenge(self, queue: list[dict[str, Any]], repair_records: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    def run_rechallenge(
+        self,
+        queue: list[dict[str, Any]],
+        repair_records: list[dict[str, Any]],
+        cycle: int = 1,
+    ) -> list[dict[str, Any]]:
+        if cycle > MAX_REPAIR_CYCLES:
+            raise RuntimeError(f"repair cycle bound exceeded: requested cycle {cycle}")
         if not repair_records:
             return []
         by_queue = {row["canonical"]: row for row in queue}
         rows = [blind_row({**by_queue[record["canonical"]], **record}) for record in repair_records]
         assert_no_blind_leakage(rows)
-        input_path = self.root / "inputs" / "rechallenge_cycle_1.jsonl"
+        input_path = self.root / "inputs" / f"rechallenge_cycle_{cycle}.jsonl"
         write_jsonl(input_path, rows)
-        records = self.run_agent("CHALLENGER", "rechallenge_cycle_1", rows, input_path)
-        write_jsonl(self.root / "agent_challenge_decisions" / "rechallenge_cycle_1.jsonl", records)
+        batch_id = f"rechallenge_cycle_{cycle}"
+        records = self.run_agent("CHALLENGER", batch_id, rows, input_path)
+        write_jsonl(self.root / "agent_challenge_decisions" / f"{batch_id}.jsonl", records)
         return records
 
     def build_repairs(self, queue: list[dict[str, Any]], resolver: list[dict[str, Any]], challenge: list[dict[str, Any]]) -> list[dict[str, Any]]:
@@ -739,31 +933,57 @@ class Orchestrator:
             )
         return repairs
 
-    def run_repairs(self, queue: list[dict[str, Any]], resolver: list[dict[str, Any]], challenge: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    def run_repairs(
+        self,
+        queue: list[dict[str, Any]],
+        resolver: list[dict[str, Any]],
+        challenge: list[dict[str, Any]],
+        cycle: int = 1,
+    ) -> list[dict[str, Any]]:
+        if cycle > MAX_REPAIR_CYCLES:
+            raise RuntimeError(f"repair cycle bound exceeded: requested cycle {cycle}")
         repair_rows = self.build_repairs(queue, resolver, challenge)
+        manifest_path = self.root / "repair_manifest.json"
+        manifest = read_json(manifest_path) if manifest_path.is_file() else {
+            "repair_rows": 0,
+            "max_cycles": MAX_REPAIR_CYCLES,
+            "cycles": [],
+        }
+        if manifest.get("max_cycles") not in {None, MAX_REPAIR_CYCLES}:
+            raise RuntimeError("repair manifest max cycle bound mismatch")
+        manifest["max_cycles"] = MAX_REPAIR_CYCLES
         if not repair_rows:
-            write_json(self.root / "repair_manifest.json", {"repair_rows": 0, "max_cycles": MAX_REPAIR_CYCLES})
+            manifest["cycles"] = [
+                entry for entry in manifest.get("cycles", []) if entry.get("cycle") != cycle
+            ] + [{"cycle": cycle, "repair_rows": 0, "completed": True, "batches": []}]
+            manifest["cycles"] = sorted(manifest["cycles"], key=lambda entry: entry["cycle"])
+            manifest["completed_cycles"] = max((entry["cycle"] for entry in manifest["cycles"]), default=0)
+            manifest["cycle_bound_enforced"] = True
+            manifest["third_cycle_attempted"] = False
+            write_json(manifest_path, manifest)
             return []
         batch_size = 6 if self.mode == "pilot" else 125
         records: list[dict[str, Any]] = []
+        batches: list[str] = []
         for start in range(0, len(repair_rows), batch_size):
             batch = repair_rows[start : start + batch_size]
-            batch_id = f"repair_cycle_1_{start // batch_size + 1:04d}"
+            batch_id = f"repair_cycle_{cycle}_{start // batch_size + 1:04d}"
             input_path = self.root / "inputs" / "repair" / f"{batch_id}.jsonl"
             write_jsonl(input_path, batch)
             batch_records = self.run_agent("REPAIR", batch_id, batch, input_path)
             write_jsonl(self.root / "repair_decisions" / f"{batch_id}.jsonl", batch_records)
             records.extend(batch_records)
-        write_jsonl(self.root / "repair_input_cycle_1.jsonl", repair_rows)
-        write_json(
-            self.root / "repair_manifest.json",
-            {
-                "repair_rows": len(repair_rows),
-                "max_cycles": MAX_REPAIR_CYCLES,
-                "completed_cycles": 1,
-                "cycle_bound_enforced": True,
-            },
-        )
+            batches.append(batch_id)
+        write_jsonl(self.root / f"repair_input_cycle_{cycle}.jsonl", repair_rows)
+        manifest["cycles"] = [
+            entry for entry in manifest.get("cycles", []) if entry.get("cycle") != cycle
+        ] + [{"cycle": cycle, "repair_rows": len(repair_rows), "completed": True, "batches": batches}]
+        manifest["cycles"] = sorted(manifest["cycles"], key=lambda entry: entry["cycle"])
+        manifest["repair_rows"] = sum(entry.get("repair_rows", 0) for entry in manifest["cycles"])
+        manifest["completed_cycles"] = max((entry["cycle"] for entry in manifest["cycles"]), default=0)
+        manifest["cycle_bound_enforced"] = True
+        manifest["third_cycle_attempted"] = False
+        write_json(manifest_path, manifest)
         return records
 
     def run_residual_and_audit(self, queue: list[dict[str, Any]], resolver: list[dict[str, Any]], repair: list[dict[str, Any]]) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
@@ -812,10 +1032,14 @@ class Orchestrator:
         merged: list[dict[str, Any]],
         residual: list[dict[str, Any]],
         audit: list[dict[str, Any]],
+        challenge_for_review: list[dict[str, Any]],
     ) -> None:
         """Materialize only deterministic projections of already external decisions."""
         write_jsonl(self.root / "trusted_exact_provenance.jsonl", [])
-        write_jsonl(self.root / "collision_review.jsonl", [])
+        write_jsonl(
+            self.root / "collision_review.jsonl",
+            collision_review_rows(merged, challenge_for_review),
+        )
         write_jsonl(self.root / "defect_ledger.jsonl", [])
         write_jsonl(
             self.root / "exception_ledger.jsonl",
@@ -989,6 +1213,52 @@ class Orchestrator:
                 if label:
                     collision_groups.setdefault(label, []).append(row["canonical"])
             collision_candidates = [canonical for group in collision_groups.values() if len(group) > 1 for canonical in group]
+            sample_plan = read_json(self.root / "sample_plan.json")
+            residual_strata = sample_plan.get("residual_fallback_strata", [])
+            adversarial_strata = sample_plan.get("adversarial_strata", [])
+            residual_expected = {
+                name: target for name, target in RESIDUAL_SAMPLE_STRATA
+            }
+            adversarial_expected = {
+                name: target for name, target in ADVERSARIAL_SAMPLE_STRATA
+            }
+            residual_strata_pass = (
+                len(sample_plan.get("residual_fallback_sample", [])) >= 300
+                and {entry.get("name") for entry in residual_strata} == set(residual_expected)
+                and all(
+                    entry.get("name") in residual_expected
+                    and entry.get("selected_count", 0) >= min(
+                        residual_expected[entry["name"]], entry.get("candidate_count", 0)
+                    )
+                    for entry in residual_strata
+                )
+            )
+            adversarial_strata_pass = (
+                len(sample_plan.get("adversarial_sample", [])) >= 600
+                and {entry.get("name") for entry in adversarial_strata} == set(adversarial_expected)
+                and all(
+                    entry.get("name") in adversarial_expected
+                    and entry.get("selected_count", 0) >= min(
+                        adversarial_expected[entry["name"]], entry.get("candidate_count", 0)
+                    )
+                    for entry in adversarial_strata
+                )
+            )
+            collision_artifact = read_jsonl(self.root / "collision_review.jsonl")
+            collision_artifact_candidates = {
+                canonical
+                for group in collision_artifact
+                for canonical in group.get("canonicals", [])
+            }
+            collision_artifact_valid = (
+                set(collision_candidates).issubset(collision_artifact_candidates)
+                and all(
+                    group.get("review_artifact_origin") == "external_codex_final_response"
+                    and set(group.get("canonicals", []))
+                    == {review.get("canonical") for review in group.get("external_challenge_reviews", [])}
+                    for group in collision_artifact
+                )
+            )
             full_gates = {
                 "source_identity_pass": self.source_manifest.get("source_git_blob") == SOURCE_BLOB,
                 "row_count_30629_unique": self.source_manifest.get("source_counts", {}).get("rows") == SOURCE_ROWS,
@@ -1006,9 +1276,11 @@ class Orchestrator:
                     or (row.get("attempted_evidence_routes") and row.get("unresolved_question_ja"))
                     for row in resolver
                 ),
+                "residual_sample_strata_frozen": residual_strata_pass,
+                "adversarial_sample_strata_frozen": adversarial_strata_pass,
                 "residual_fallback_stratified_challenge_pass": len(residual) >= 300 and not any(row.get("residual_verdict") == "RESOLVABLE" for row in residual),
                 "coverage_anti_collapse_pass": coverage_delta_points >= -20.0,
-                "collision_agent_review_pass": set(collision_candidates).issubset({row.get("canonical") for row in challenge}),
+                "collision_agent_review_pass": collision_artifact_valid,
                 "adversarial_agent_audit_600_pass": len(audit) >= 600 and not audit_failures,
                 "historical_regressions_pass": historical.issubset(audited_canonicals),
                 "repair_cycle_bound_pass": read_json(self.root / "repair_manifest.json").get("max_cycles") == MAX_REPAIR_CYCLES,
@@ -1045,14 +1317,30 @@ class Orchestrator:
         queue = self.load_or_prepare()
         resolver = self.run_resolver(queue)
         challenge = self.run_challenger(queue, resolver)
-        repair = self.run_repairs(queue, resolver, challenge)
-        rechallenge = self.run_rechallenge(queue, repair)
+        repair_cycle_1 = self.run_repairs(queue, resolver, challenge, cycle=1)
+        rechallenge_cycle_1 = self.run_rechallenge(queue, repair_cycle_1, cycle=1)
+        current_after_cycle_1 = repair_cycle_1 or resolver
+        repair_cycle_2 = self.run_repairs(
+            queue, current_after_cycle_1, rechallenge_cycle_1, cycle=2
+        )
+        rechallenge_cycle_2 = self.run_rechallenge(queue, repair_cycle_2, cycle=2)
+        repair_by_canonical = {
+            row["canonical"]: row for row in [*repair_cycle_1, *repair_cycle_2]
+        }
+        repair = list(repair_by_canonical.values())
+        rechallenge = rechallenge_cycle_2 or rechallenge_cycle_1
         merged = resolver[:]
-        by_repair = {row["canonical"]: row for row in repair}
-        merged = [by_repair.get(row["canonical"], row) for row in merged]
+        merged = [repair_by_canonical.get(row["canonical"], row) for row in merged]
         write_jsonl(self.root / "merged_agent_decisions.jsonl", merged)
         residual, audit = self.run_residual_and_audit(queue, resolver, repair)
-        self.materialize_contract_artifacts(queue, merged, residual, audit)
+        challenge_for_review = {
+            row["canonical"]: row for row in challenge
+        }
+        for row in [*rechallenge_cycle_1, *rechallenge_cycle_2]:
+            challenge_for_review[row["canonical"]] = row
+        self.materialize_contract_artifacts(
+            queue, merged, residual, audit, list(challenge_for_review.values())
+        )
         result = self.deterministic_validate(queue, resolver, challenge, repair, rechallenge, residual, audit)
         self.root.joinpath("FINAL_REPORT.md").write_text(
             "# Issue #46 orchestration report\n\n"
