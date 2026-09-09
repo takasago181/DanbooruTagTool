@@ -7,17 +7,17 @@ Rule version: R2
 
 ## Current position
 - Target: 2,788 Specials
-- First pass checkpointed through: 1460
-- Cumulative: PASS 1010 / FIX 174 / REVIEW 259 / IMAGE_TEST_REQUIRED 17
+- First pass checkpointed through: 1480
+- Cumulative: PASS 1030 / FIX 174 / REVIEW 259 / IMAGE_TEST_REQUIRED 17
 - Batch 1-14 R2 acceptance gates: PASS
-- Batch 15: IN_PROGRESS (1401-1460 durable)
+- Batch 15: IN_PROGRESS (1401-1480 durable)
 - Revalidation pending: 0
 - Semantic support: 55 / 58; IMAGE_TEST_REQUIRED rows 30
-- Next first-pass sequence: 1461
+- Next first-pass sequence: 1481
 - Production/main modified: NO
 
 ## Batch 15 partial
-1401-1460: PASS 60 / FIX 0 / REVIEW 0 / IMAGE_TEST_REQUIRED 0. Three append-only 20-row result blocks are durable. All frozen rows are APPROVED_IDENTITY_ONLY / ALIAS_TARGET_RESOLVED / ALIAS_PRESERVE. Exact Special prompt identity is preserved and canonical_target remains statistics-only. No enabled semantic-support rows occur in this range.
+1401-1480: PASS 80 / FIX 0 / REVIEW 0 / IMAGE_TEST_REQUIRED 0. Four append-only 20-row result blocks are durable. All frozen rows are APPROVED_IDENTITY_ONLY / ALIAS_TARGET_RESOLVED / ALIAS_PRESERVE. Exact Special prompt identity is preserved and canonical_target remains statistics-only. No enabled semantic-support rows occur in this range.
 
 `candidate_fixes.csv` and `revalidation_queue.csv` were checked at each checkpoint and require no additions.
 
@@ -30,4 +30,4 @@ Rule version: R2
 - Special2788 exact identity remains first-class.
 
 ## Exact restart
-Resume first-pass at sequence 1461. Checkpoint every20. Do not modify production/main.
+Resume first-pass at sequence 1481. Checkpoint every20. Do not modify production/main.
