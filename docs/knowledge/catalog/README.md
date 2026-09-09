@@ -1,47 +1,60 @@
-# KNOWLEDGE Catalog
+# KNOWLEDGE Catalog Directory
 
 Owner: Issue #44 `KNOWLEDGE:#44`
 
-Purpose: human-readable entry point for the persistent generation-knowledge corpus.
+Status: `CANONICAL_GENRE_MAP`
 
-This catalog reorganizes current knowledge by **topic**, while preserving the original research files as evidence/provenance. Do not delete or silently rewrite research originals just because a conclusion is summarized here.
+This directory is the **current topic-organized reading layer** for the persistent generation-knowledge corpus.
 
-## Read this first
+The authoritative top-level map is:
+`../KNOWLEDGE_CATALOG.md`
 
-1. `../KNOWLEDGE_HANDOFF_CURRENT_20260909.md` — current lane status / restore point
-2. `00_FOUNDATIONS_AND_AUTHORITY.md` — purpose, evidence classes, authority boundaries
-3. `01_MODEL_FAMILIES.md` — WAI / Illustrious / NoobAI / Anima
-4. `02_PROMPT_SUPPORT_AND_COMPOSITION.md` — Prompt structure, support taxonomy, composition/binding
-5. `03_FAILURE_TESTING_AND_EVALUATION.md` — failure diagnosis, A/B method, evidence strength, evaluator limits
-6. `04_TOOLS_POSTPROCESS_AND_LORA.md` — Hires, ADetailer, img2img, ControlNet, regional tools, LoRA
-7. `05_HARD_NICHE_ADULT_GENERATION.md` — hard/niche structural classes and audit rules
-8. `06_WAI17_LOCAL_TEST_PROFILE.md` — current local test priority and exact baseline
-9. `07_SOURCE_AND_SITE_AUDITS.md` — Danbooru/e621/HF/AIArtRecipe/Toshiaki Wiki roles
-10. `08_OPEN_QUESTIONS_AND_HOLD.md` — unresolved items and next-test backlog
+Research originals under `../research/` remain preserved as evidence/provenance. The catalog is a curated summary layer, not a replacement for source evidence.
 
-## Corpus layers
+## Canonical genre order
 
-### Layer A — current operational knowledge
-Files in this `catalog/` directory. These are the easiest files to read first.
+1. `01_PRODUCT_GOAL_AND_GOVERNANCE.md` — current product goal, scope, team authority
+2. `02_MODEL_FAMILIES.md` — WAI17 / Illustrious / NoobAI / Anima
+3. `03_PROMPT_AND_SUPPORT_DESIGN.md` — minimum-sufficient Prompt, support roles, anti-support, Negative
+4. `04_FAILURE_DIAGNOSIS_AND_COMPOSITION.md` — binding, count, visibility, multi-Special, failure classes
+5. `05_HARD_NICHE_ADULT_GENERATION.md` — hard/niche adult structural classes and audit knowledge
+6. `06_SEMANTICS_ALIAS_TRIGGER.md` — Danbooru canonical, Alias, implication, e621/Gelbooru, trigger drift
+7. `07_EVALUATION_AND_EXPERIMENTS.md` — E0–E3 evidence, paired seeds, evaluator/tagger routing
+8. `08_TOOLS_POSTPROCESS_AND_CONTROLS.md` — Forge Neo, Hires, ADetailer, LoRA, ControlNet, regional tools
+9. `09_SOURCE_AUTHORITY_AND_SITE_AUDITS.md` — source hierarchy, AIArtRecipe, Toshiaki Wiki, HF, Danbooru/e621
+10. `10_HOLD_AND_NEXT_RESEARCH.md` — unresolved claims, WAI17-first test backlog, promotion rules
+11. `11_FILE_MAP.md` — complete mapping of root/research files into the genres above
 
-### Layer B — durable consolidated corpus
-- `../GENERATION_KNOWLEDGE_CORPUS.md`
-- `../GENERATION_KNOWLEDGE_SOURCES.md`
-- `../GENERATION_KNOWLEDGE_INDEX.md`
+## Restore flow
 
-### Layer C — focused research / source audits
-Files under `../research/`. These preserve detail, evidence, limitations, and historical reasoning.
+For a fresh KNOWLEDGE chat:
 
-## Core principle
+1. `docs/project/CURRENT_STATE.md`
+2. `docs/project/PERMANENT_RULES.md`
+3. Issue #44 latest comments
+4. `../KNOWLEDGE_HANDOFF_CURRENT_20260909.md`
+5. `../KNOWLEDGE_CATALOG.md`
+6. relevant genre file(s) here
+7. detailed research originals only when evidence/provenance is needed
 
-Never collapse these into one thing:
-- canonical semantic identity
+## Layer model
+
+- **Handoff** — current lane state and immediate priority
+- **Catalog** — current knowledge by genre
+- **Research** — detailed investigations, source audits, limitations
+- **Corpus** — broad long-term consolidated knowledge
+- **Sources** — registry/provenance
+
+## Invariants
+
+Never collapse:
+- canonical meaning
 - Alias / implication / related relations
 - model-specific trigger surface
-- support needed for generation
+- generation support
 - UI Japanese/search wording
 - Prompt-only capability
-- assisted-control/postprocess capability
-- human/evaluator verdict
+- LoRA/control/postprocess-assisted capability
+- evaluator/human verdict.
 
-The catalog summarizes the current best view; when a claim matters for audit, follow the linked research/original source and preserve model/version scope.
+Unknown or insufficiently tested behavior stays `HOLD / TEST_REQUIRED / IMAGE_TEST_REQUIRED`.
