@@ -3,6 +3,9 @@
 Owner: PROMPT / Issue #5
 Status: family-scoped knowledge summary. Not production specification.
 
+Current claim authority: `CLAIM_REGISTRY.md`
+Label schema: `00_KNOWLEDGE_GOVERNANCE.md`
+
 ## 絶対原則
 
 WAI Illustrious v17 / Illustrious XL / NoobAI XL 1.1 / Anima を一つのPrompt grammarへ統合しない。
@@ -23,8 +26,11 @@ WAI Illustrious v17 / Illustrious XL / NoobAI XL 1.1 / Anima を一つのPrompt 
 
 ## WAI Illustrious v17
 
-Evidence: `AUTHOR_GUIDE`
-Current project candidate profile: `LEAN_TAG_FIRST`
+SOURCE_CLASS: `AUTHOR_GUIDE`
+Official/author claims: `ACCEPTED`
+Current project optimization profile: `CANDIDATE`
+Profile: `WAI17_LOCAL_FIRST_20260909`
+Claim group: `K-WAI-*`
 
 作者側で保持:
 - recommended software: Forge Neo
@@ -41,7 +47,7 @@ Current project candidate profile: `LEAN_TAG_FIRST`
 - overly long Negativeでquality低下/blurの可能性を警告
 - trigger wordなし
 
-PROMPT候補:
+PROMPT候補 `K-WAI-005`:
 `subject/count -> Special/ACT -> SITE/OBJECT/relation -> needed pose/geometry -> needed visibility -> minimum finish`
 
 初手:
@@ -56,14 +62,21 @@ PROMPT候補:
 - `WAI_SUPPORT_COLLISION`
 - `WAI_HIRES_MASKING`
 
+重要:
+- author guidance itself = `ACCEPTED`
+- `LEAN_TAG_FIRST`がhard-target最適 = `CANDIDATE / STAGE10_REQUIRED`
+- Steps25/CFG6等のproject baseline = `CANDIDATE / STAGE10_REQUIRED`
+
 詳細: `10_WAI17_LOCAL_FIRST_PROFILE.md`
 
 ---
 
 ## NoobAI XL 1.1
 
-Evidence: `OFFICIAL_FACT`
-Candidate profile: `SPECIAL_FIRST_NATIVE_CAPTION`
+SOURCE_CLASS: `OFFICIAL_MODEL`
+Official claims: `ACCEPTED`
+Optimization profile: `CANDIDATE`
+Claim group: `K-NOOB-*`
 
 公式で保持:
 - native tags caption
@@ -80,6 +93,11 @@ PROMPT解釈:
 - native caption orderをbaselineとして尊重
 - canonical/Alias/model-triggerのresponse差は別A/B
 - e621 exposureはnon-human系を調べる理由にはなるが、生成が強い証明ではない
+
+Current status:
+- caption order fact `K-NOOB-001` = ACCEPTED
+- `SPECIAL_FIRST_NATIVE_CAPTION` hard-target optimum `K-NOOB-003` = CANDIDATE
+- camera専用最適位置の公式確定 = REJECTED as claim (`K-NOOB-004`)
 
 主な疑い:
 - `NOOB_SPECIAL_DISPLACED`
@@ -98,8 +116,10 @@ PROMPT解釈:
 
 ## Illustrious XL
 
-Evidence: `OFFICIAL_FACT`, exact version required
-Candidate profile: `VERSION_SENSITIVE_TAG_CENTERED`
+SOURCE_CLASS: `OFFICIAL_MODEL`
+Official version claims: `ACCEPTED`
+Optimization claim: `CANDIDATE`
+Claim group: `K-ILL-*`
 
 公式方向:
 - v1.0はDanbooru-style tag + natural language理解を掲げる
@@ -112,6 +132,12 @@ PROMPT解釈:
 - WAI derivativeの成功則をOnoma baseへそのまま移植しない
 - tag-centered baselineから始め、relation/bindingが難しいときだけshort relation supportを候補化
 
+Current claims:
+- version flattening禁止 `K-ILL-001` = ACCEPTED
+- v1.1 NL方向 `K-ILL-002` = ACCEPTED
+- booru-only universal rule `K-ILL-003` = REJECTED
+- tag + short relation optimization `K-ILL-004` = CANDIDATE / STAGE10_REQUIRED
+
 高優先テスト:
 1. tag-centered vs tag + short relation
 2. simple vs relational Special
@@ -123,8 +149,10 @@ PROMPT解釈:
 
 ## Anima
 
-Evidence: `OFFICIAL_FACT`
-Candidate profile: `HYBRID_RELATION_AWARE`
+SOURCE_CLASS: `OFFICIAL_MODEL` for model-card facts; `COMMUNITY` for practical exceptions
+Official claims: `ACCEPTED`
+Optimization profile: `CANDIDATE`
+Claim group: `K-ANIMA-*`
 
 公式で保持:
 - Danbooru-style tags + natural-language captions + combinationsで学習
@@ -142,9 +170,20 @@ Candidate profile: `HYBRID_RELATION_AWARE`
 PROMPT解釈:
 - relation/ownership/multi-actorを独立検証
 - tag-only baseline
--必要時だけ short relation sentence
+- 必要時だけ short relation sentence
 - multi actorならappearance anchor候補
--文章を増やしてattribute bleedが始まったら更に増やさず減らす
+- 文章を増やしてattribute bleedが始まったら更に増やさず減らす
+
+Current claims:
+- tags + NL mix `K-ANIMA-001` = ACCEPTED
+- appearance description official direction `K-ANIMA-002` = ACCEPTED
+- official tag count `1girl/1boy` `K-ANIMA-003` = ACCEPTED
+- `1 girl` global replacement `K-ANIMA-004` = REJECTED
+- Qwen 1k/300-word rationale `K-ANIMA-005` = REJECTED
+- `HYBRID_RELATION_AWARE` `K-ANIMA-006` = CANDIDATE / STAGE10_REQUIRED
+- appearance-anchor A/B `K-ANIMA-007` = CANDIDATE / STAGE10_REQUIRED
+- BREAK behavior `K-ANIMA-008` = runtime-scoped / local recheck
+- Turbo CFG1 × Negative `K-ANIMA-009` = HOLD / local recheck
 
 主な疑い:
 - `ANIMA_RELATION_UNDERDESCRIBED`
@@ -152,10 +191,6 @@ PROMPT解釈:
 - `ANIMA_OVERDESCRIPTION`
 - `ANIMA_SCORE_SLOP`
 - `ANIMA_WEIGHT_OVERSHOOT`
-
-重要訂正:
-- tag modeのcountは公式に `1girl / 1boy / 1other`。`1 girl`をglobal defaultにしない
-- 「Qwenが1k tokenまでだから300 words以下」という説明はRATIONALE_INCORRECT扱い
 
 高優先テスト:
 1. tag-only vs tag + one relation sentence
@@ -170,14 +205,21 @@ PROMPT解釈:
 
 | Axis | WAI17 | Illustrious | NoobAI 1.1 | Anima |
 |---|---|---|---|---|
-| First style | lean tag-first | exact-version tag-centered | native caption order | tags or hybrid |
-| Special placement | high | high/version scoped | very high | relation may use prose |
+| First style | lean tag-first candidate | exact-version tag-centered candidate | native caption baseline | tags or hybrid candidate |
+| Special placement | high candidate | high/version scoped | official special-before-general baseline | relation may use prose candidate |
 | NL relation | HOLD/targeted | candidate/version scoped | HOLD/targeted | strong candidate |
-| Quality density | lean | version dependent | official prefix exists | profile dependent |
-| Long Negative | avoid as default | HOLD | baseline exists; target collision test | profile dependent |
-| Multi-actor | binding test | binding test | binding test | appearance-anchor priority |
+| Quality density | lean author direction | version dependent | official prefix exists | profile dependent |
+| Long Negative | avoid as WAI default | HOLD | baseline exists; target collision test | profile dependent |
+| Multi-actor | binding test | binding test | binding test | appearance-anchor priority candidate |
 | Weighting | targeted only | targeted only | targeted only | family-specific magnitude |
 | Hires | separate pass | separate pass | separate pass | workflow-specific |
+
+## Version / freshness
+
+Before applying any model claim:
+- exact versionを確認
+- `VERSION_AND_FRESHNESS.md` を参照
+- source checked dateとlocal applicabilityを確認
 
 ## 詳細証拠
 
