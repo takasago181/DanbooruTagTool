@@ -6,6 +6,7 @@ from pathlib import Path
 import pytest
 
 from tools.issue36.orchestrator import (
+    ADVERSARIAL_SAMPLE_STRATA,
     CONTRACT_COMMIT,
     MAX_REPAIR_CYCLES,
     SOURCE_BLOB,
@@ -13,9 +14,11 @@ from tools.issue36.orchestrator import (
     assert_no_blind_leakage,
     collision_review_rows,
     load_source,
+    mandatory_challenge_population,
     outcome_sample_candidates,
     pilot_queue,
     read_json,
+    select_outcome_strata,
     source_queue_row,
     strict_agent_schema,
     write_jsonl,
@@ -141,6 +144,87 @@ def test_stage0_freezes_seed_only_before_outcomes(tmp_path: Path) -> None:
     assert seed["residual_fallback_sample"] == []
     assert seed["adversarial_sample"] == []
     assert "historical_blocker_candidates" not in seed
+
+
+def test_additional_residual_excludes_mandatory_but_adversarial_does_not() -> None:
+    queue = [
+        {"canonical": "demoted_alpha", "source_state": "ACCEPTED", "source_reason": "WHOLE_LABEL_SCREENED_NO_BLOCKER", "source_risk_class": "LOW"},
+        {"canonical": "alpha_neighbor", "source_state": "FALLBACK", "source_reason": "RAW_ENGLISH_SEMANTIC_CORE", "source_risk_class": "LOW"},
+        {"canonical": "phrase_mandatory", "source_state": "FALLBACK", "source_reason": "PHRASE_SEMANTICS_UNRESOLVED", "source_risk_class": "LOW"},
+        {"canonical": "phrase_legacy", "source_state": "FALLBACK", "source_reason": "PHRASE_SEMANTICS_UNRESOLVED", "source_risk_class": "LOW"},
+        {"canonical": "ordinary_legacy", "source_state": "FALLBACK", "source_reason": "RAW_ENGLISH_SEMANTIC_CORE", "source_risk_class": "LOW"},
+    ]
+    final_rows = [
+        {"canonical": "demoted_alpha", "decision": "EVIDENCE_UNRESOLVED", "final_display_ja": "", "display_verdict": "UNRESOLVED", "risk_class": "LOW"},
+        {"canonical": "alpha_neighbor", "decision": "KEEP_JA", "final_display_ja": "", "display_verdict": "ABSENT", "risk_class": "LOW"},
+        {"canonical": "phrase_mandatory", "decision": "EVIDENCE_UNRESOLVED", "final_display_ja": "", "display_verdict": "UNRESOLVED", "risk_class": "LOW"},
+        {"canonical": "phrase_legacy", "decision": "KEEP_JA", "final_display_ja": "", "display_verdict": "ABSENT", "risk_class": "LOW"},
+        {"canonical": "ordinary_legacy", "decision": "KEEP_JA", "final_display_ja": "", "display_verdict": "ABSENT", "risk_class": "LOW"},
+    ]
+    challenge = [{"canonical": "demoted_alpha", "root_cause": ""}, {"canonical": "phrase_mandatory", "root_cause": ""}]
+    mandatory, artifact = mandatory_challenge_population(queue, final_rows, challenge)
+    assert {row["canonical"] for row in artifact} == mandatory
+    assert {"demoted_alpha", "phrase_mandatory"}.issubset(mandatory)
+
+    additional = outcome_sample_candidates(queue, final_rows, mandatory)
+    sibling_canonicals = {row["canonical"] for row in additional["accepted_demotion_root_cause_sibling"]}
+    assert "demoted_alpha" not in sibling_canonicals
+    assert "alpha_neighbor" in sibling_canonicals
+    assert "demoted_alpha" not in {row["canonical"] for row in additional["ordinary_residual_fallback"]}
+    assert "phrase_mandatory" not in {row["canonical"] for row in additional["prior_phrase_unresolved_residual"]}
+    adversarial = outcome_sample_candidates(queue, final_rows)
+    assert "demoted_alpha" in {row["canonical"] for row in adversarial["ordinary_residual_fallback"]}
+    adversarial_entries, _ = select_outcome_strata(
+        queue, final_rows, ADVERSARIAL_SAMPLE_STRATA, "adversarial", 1
+    )
+    assert "demoted_alpha" in {row["canonical"] for row in adversarial_entries}
+
+
+def test_full_validator_receives_merged_rows_without_undefined_reference(tmp_path: Path) -> None:
+    root = tmp_path / "full-validator"
+    orchestrator = Orchestrator(REPO, "full", root, "codex")
+    orchestrator.manifest = {"invocations": []}
+    orchestrator.source_manifest = {
+        "source_git_blob": SOURCE_BLOB,
+        "source_counts": {"rows": 30_629, "accepted": 23_194},
+    }
+    queue = [{"canonical": "alpha", "source_state": "ACCEPTED"}]
+    orchestrator.rows = [{"canonical": "alpha"}]
+    resolver = [{"canonical": "alpha"}]
+    challenge = [{"canonical": "alpha"}]
+    merged = [{
+        "canonical": "alpha",
+        "decision": "KEEP_JA",
+        "final_display_ja": "表示",
+        "display_verdict": "ACCEPT",
+    }]
+    root.mkdir(parents=True, exist_ok=True)
+    write_jsonl(root / "inputs" / "challenge_inputs.jsonl", [{"canonical": "alpha"}])
+    write_jsonl(root / "collision_review.jsonl", [])
+    write_jsonl(root / "mandatory_challenge_population.jsonl", [])
+    (root / "sample_plan.json").write_text(json.dumps({
+        "created_before_semantic_outcomes": True,
+        "selection_phase": "outcomes_frozen",
+        "selection_created_after_semantic_outcomes": True,
+        "selection_population_identity": "external_final_decisions",
+        "residual_fallback_sample": [],
+        "adversarial_sample": [],
+        "residual_fallback_strata": [],
+        "adversarial_strata": [],
+        "historical_blockers": [],
+    }), encoding="utf-8")
+    (root / "repair_manifest.json").write_text(json.dumps({"max_cycles": MAX_REPAIR_CYCLES}), encoding="utf-8")
+    (root / "replay_verification.json").write_text(json.dumps({"pass": False}), encoding="utf-8")
+    (root / "protected_boundary.json").write_text(json.dumps({"production_modified_no": True}), encoding="utf-8")
+    result = orchestrator.deterministic_validate(
+        queue, resolver, challenge, [], [], [], [], merged
+    )
+    assert result["mode"] == "full"
+    assert result["terminal"] in {
+        "BLOCKED_STRUCTURAL_DEFECT",
+        "HOLD_COVERAGE_COLLAPSE",
+        "FINAL_READY_FOR_INDEPENDENT_AUDIT",
+    }
 
 
 def test_collision_review_contains_external_challenge_results() -> None:

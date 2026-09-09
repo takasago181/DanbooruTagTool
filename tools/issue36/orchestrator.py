@@ -364,29 +364,105 @@ def is_final_residual_fallback(row: dict[str, Any]) -> bool:
     )
 
 
+def mandatory_challenge_population(
+    queue: list[dict[str, Any]],
+    final_rows: list[dict[str, Any]],
+    challenge_records: list[dict[str, Any]],
+) -> tuple[set[str], list[dict[str, Any]]]:
+    by_queue = {row["canonical"]: row for row in queue}
+    if {row["canonical"] for row in final_rows} != set(by_queue):
+        raise ValueError("mandatory challenge routing requires one final row per queue canonical")
+    challenge_by_canonical = {row["canonical"]: row for row in challenge_records}
+    current = [{**by_queue[row["canonical"]], **row} for row in final_rows]
+    populations: dict[str, set[str]] = {}
+
+    def add(canonical: str, population: str) -> None:
+        populations.setdefault(canonical, set()).add(population)
+
+    for row in current:
+        canonical = row["canonical"]
+        if row.get("source_state") == "ACCEPTED" and not is_final_accepted(row):
+            add(canonical, "source_accepted_demotion")
+        if row.get("decision") == "EVIDENCE_UNRESOLVED":
+            add(canonical, "evidence_unresolved")
+        if row.get("decision") == "TRUE_EXCEPTION":
+            add(canonical, "true_exception")
+        if row.get("decision") in {"REPAIR_JA", "TRANSLATE_JA"}:
+            add(canonical, row["decision"])
+        if is_final_accepted(row) and (
+            row.get("risk_class") in {"HIGH", "CRITICAL"}
+            or row.get("source_risk_class") in {"HIGH", "CRITICAL"}
+        ):
+            add(canonical, "high_critical_accepted")
+
+    collision_groups: dict[str, list[str]] = {}
+    for row in current:
+        display = row.get("final_display_ja", "").strip()
+        if display:
+            collision_groups.setdefault(display, []).append(row["canonical"])
+    for group in collision_groups.values():
+        if len(group) > 1:
+            for canonical in group:
+                add(canonical, "collision_or_sibling_candidate")
+    for record in challenge_records:
+        root_cause = str(record.get("root_cause", "")).lower()
+        if "collision" in root_cause or "sibling" in root_cause:
+            add(record["canonical"], "collision_or_sibling_candidate")
+
+    mandatory = set(populations)
+    missing = sorted(mandatory.difference(challenge_by_canonical))
+    if missing:
+        raise RuntimeError(
+            f"mandatory challenge artifact missing for canonical(s): {missing[:5]}"
+        )
+    artifact = [
+        {
+            "canonical": canonical,
+            "mandatory_populations": sorted(populations[canonical]),
+            "challenge_artifact_present": True,
+        }
+        for canonical in sorted(mandatory)
+    ]
+    return mandatory, artifact
+
+
 def outcome_sample_candidates(
     queue: list[dict[str, Any]],
     final_rows: list[dict[str, Any]],
+    mandatory_challenge: set[str] | None = None,
 ) -> dict[str, list[dict[str, Any]]]:
     by_queue = {row["canonical"]: row for row in queue}
     if {row["canonical"] for row in final_rows} != set(by_queue):
         raise ValueError("post-outcome sampling requires one final external row per queue canonical")
     current = [{**by_queue[row["canonical"]], **row} for row in final_rows]
-    residual = [row for row in current if is_final_residual_fallback(row)]
+    mandatory_challenge = mandatory_challenge or set()
+    residual = [
+        row for row in current
+        if is_final_residual_fallback(row) and row["canonical"] not in mandatory_challenge
+    ]
+    all_residual = [row for row in current if is_final_residual_fallback(row)]
     accepted = [row for row in current if is_final_accepted(row)]
     repaired = [
         row for row in accepted if row.get("decision") in {"REPAIR_JA", "TRANSLATE_JA"}
     ]
     exceptions = [row for row in current if row.get("decision") == "TRUE_EXCEPTION"]
     residual_tokens = [canonical_tokens(row["canonical"]) for row in residual]
+    demoted = [
+        row for row in current
+        if row.get("source_state") == "ACCEPTED" and not is_final_accepted(row)
+    ]
     sibling_candidates = [
         row for row in residual
-        if row.get("source_state") == "ACCEPTED"
-        and canonical_tokens(row["canonical"])
-        and any(canonical_tokens(row["canonical"]).intersection(other) for other in residual_tokens)
+        if any(
+            row["canonical"] != demoted_row["canonical"]
+            and canonical_tokens(row["canonical"])
+            and canonical_tokens(row["canonical"]).intersection(canonical_tokens(demoted_row["canonical"]))
+            for demoted_row in demoted
+        )
     ]
     return {
         "all_final_rows": current,
+        "all_final_residual_fallback": all_residual,
         "ordinary_residual_fallback": [row for row in residual if not is_true_exception_candidate(row)],
         "common_simple": [
             row for row in residual
@@ -425,8 +501,9 @@ def select_outcome_strata(
     specs: tuple[tuple[str, int], ...],
     purpose: str,
     minimum: int,
+    mandatory_challenge: set[str] | None = None,
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
-    candidates = outcome_sample_candidates(queue, final_rows)
+    candidates = outcome_sample_candidates(queue, final_rows, mandatory_challenge)
     selected_by_canonical: dict[str, set[str]] = {}
     details: list[dict[str, Any]] = []
     for name, target in specs:
@@ -704,10 +781,24 @@ class Orchestrator:
         }
         write_json(self.root / "sample_plan.json", sample_plan)
 
-    def materialize_samples(self, queue: list[dict[str, Any]], final_rows: list[dict[str, Any]]) -> None:
+    def materialize_samples(
+        self,
+        queue: list[dict[str, Any]],
+        final_rows: list[dict[str, Any]],
+        challenge_records: list[dict[str, Any]],
+    ) -> None:
         seed = read_json(self.root / "sample_plan.json")
+        mandatory_challenge, mandatory_artifact = mandatory_challenge_population(
+            queue, final_rows, challenge_records
+        )
+        write_jsonl(self.root / "mandatory_challenge_population.jsonl", mandatory_artifact)
         residual_entries, residual_strata = select_outcome_strata(
-            queue, final_rows, RESIDUAL_SAMPLE_STRATA, "residual_fallback", 300
+            queue,
+            final_rows,
+            RESIDUAL_SAMPLE_STRATA,
+            "residual_fallback",
+            300,
+            mandatory_challenge,
         )
         adversarial_entries, adversarial_strata = select_outcome_strata(
             queue, final_rows, ADVERSARIAL_SAMPLE_STRATA, "adversarial", 600
@@ -747,6 +838,8 @@ class Orchestrator:
             "adversarial_strata": adversarial_strata,
             "accepted_final_count": sum(is_final_accepted(row) for row in final_rows),
             "fallback_final_count": sum(is_final_residual_fallback(row) for row in outcome_sample_candidates(queue, final_rows)["all_final_rows"]),
+            "additional_residual_count": len(outcome_sample_candidates(queue, final_rows, mandatory_challenge)["ordinary_residual_fallback"]),
+            "mandatory_challenge_count": len(mandatory_challenge),
             "final_rows_hash": sha256_bytes(stable_json(final_rows)),
             "historical_blockers": historical,
         }
@@ -1168,7 +1261,17 @@ class Orchestrator:
             {"production_modified": bool(protected_changes), "production_modified_no": not protected_changes, "protected_changes": protected_changes},
         )
 
-    def deterministic_validate(self, queue: list[dict[str, Any]], resolver: list[dict[str, Any]], challenge: list[dict[str, Any]], repair: list[dict[str, Any]], rechallenge: list[dict[str, Any]], residual: list[dict[str, Any]], audit: list[dict[str, Any]]) -> dict[str, Any]:
+    def deterministic_validate(
+        self,
+        queue: list[dict[str, Any]],
+        resolver: list[dict[str, Any]],
+        challenge: list[dict[str, Any]],
+        repair: list[dict[str, Any]],
+        rechallenge: list[dict[str, Any]],
+        residual: list[dict[str, Any]],
+        audit: list[dict[str, Any]],
+        merged: list[dict[str, Any]],
+    ) -> dict[str, Any]:
         invocations = self.manifest.get("invocations", [])
         required_roles = {"RESOLVER", "CHALLENGER", "FINAL_AUDITOR"}
         actual_roles = {entry.get("role") for entry in invocations if entry.get("status") == "SUCCEEDED"}
@@ -1304,6 +1407,48 @@ class Orchestrator:
                     for group in collision_artifact
                 )
             )
+            challenge_for_population = {row["canonical"]: row for row in challenge}
+            for row in rechallenge:
+                challenge_for_population[row["canonical"]] = row
+            try:
+                expected_mandatory, _ = mandatory_challenge_population(
+                    queue, merged, list(challenge_for_population.values())
+                )
+                mandatory_artifact_rows = read_jsonl(
+                    self.root / "mandatory_challenge_population.jsonl"
+                )
+                artifact_mandatory = {
+                    row.get("canonical") for row in mandatory_artifact_rows
+                }
+                mandatory_population_pass = (
+                    artifact_mandatory == expected_mandatory
+                    and all(row.get("challenge_artifact_present") is True for row in mandatory_artifact_rows)
+                )
+            except (OSError, RuntimeError, ValueError, json.JSONDecodeError):
+                expected_mandatory = set()
+                mandatory_population_pass = False
+            additional_residual_entries = {
+                row.get("canonical") for row in sample_plan.get("residual_fallback_sample", [])
+            }
+            if mandatory_population_pass:
+                additional_residual_pool = {
+                    row["canonical"]
+                    for row in outcome_sample_candidates(queue, merged, expected_mandatory)[
+                        "ordinary_residual_fallback"
+                    ]
+                }
+            else:
+                additional_residual_pool = set()
+            additional_residual_pass = (
+                mandatory_population_pass
+                and additional_residual_entries.issubset(additional_residual_pool)
+                and additional_residual_entries.isdisjoint(expected_mandatory)
+            )
+            prior_phrase_entries = {
+                entry.get("canonical")
+                for entry in sample_plan.get("residual_fallback_sample", [])
+                if "prior_phrase_unresolved_residual" in entry.get("strata", [])
+            }
             full_gates = {
                 "source_identity_pass": self.source_manifest.get("source_git_blob") == SOURCE_BLOB,
                 "row_count_30629_unique": self.source_manifest.get("source_counts", {}).get("rows") == SOURCE_ROWS,
@@ -1315,6 +1460,11 @@ class Orchestrator:
                     sample_plan.get("selection_phase") == "outcomes_frozen"
                     and sample_plan.get("selection_created_after_semantic_outcomes") is True
                     and sample_plan.get("selection_population_identity") == "external_final_decisions"
+                ),
+                "mandatory_challenge_population_artifact": mandatory_population_pass,
+                "additional_residual_excludes_mandatory": (
+                    additional_residual_pass
+                    and prior_phrase_entries.isdisjoint(expected_mandatory)
                 ),
                 "blinded_challenge_input_leakage_zero": leakage_zero,
                 "mandatory_challenge_populations_complete": len(challenge) == len(queue),
@@ -1382,17 +1532,19 @@ class Orchestrator:
         merged = resolver[:]
         merged = [repair_by_canonical.get(row["canonical"], row) for row in merged]
         write_jsonl(self.root / "merged_agent_decisions.jsonl", merged)
-        self.materialize_samples(queue, merged)
-        residual, audit = self.run_residual_and_audit(queue, resolver, repair)
         challenge_for_review = {
             row["canonical"]: row for row in challenge
         }
         for row in [*rechallenge_cycle_1, *rechallenge_cycle_2]:
             challenge_for_review[row["canonical"]] = row
+        self.materialize_samples(queue, merged, list(challenge_for_review.values()))
+        residual, audit = self.run_residual_and_audit(queue, resolver, repair)
         self.materialize_contract_artifacts(
             queue, merged, residual, audit, list(challenge_for_review.values())
         )
-        result = self.deterministic_validate(queue, resolver, challenge, repair, rechallenge, residual, audit)
+        result = self.deterministic_validate(
+            queue, resolver, challenge, repair, rechallenge, residual, audit, merged
+        )
         self.root.joinpath("FINAL_REPORT.md").write_text(
             "# Issue #46 orchestration report\n\n"
             f"- mode: `{self.mode}`\n"
