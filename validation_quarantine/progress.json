@@ -7,8 +7,8 @@
   "fixed_order": "production Special2788 order at audit start",
   "batch_size": 100,
   "internal_block_size": 20,
-  "completed_specials": 2660,
-  "pass": 2173,
+  "completed_specials": 2680,
+  "pass": 2193,
   "fix": 174,
   "review": 296,
   "image_test_required": 17,
@@ -46,10 +46,10 @@
   "semantic_support_rows_covered": 55,
   "semantic_support_rows_review": 0,
   "semantic_support_rows_image_test_required": 30,
-  "last_completed_special_id": "2660",
+  "last_completed_special_id": "2680",
   "last_completed_batch": 26,
   "next_batch": 27,
-  "next_start_position": 2661,
+  "next_start_position": 2681,
   "production_modified": false,
-  "notes": "Batch27 checkpoint3 2641-2660 saved. Batch27 cumulative PASS60/FIX0/REVIEW0/IMAGE_TEST_REQUIRED0. candidate_fixes/revalidation_queue inspected with no delta. Alias-preserve semantics kept statistics-only; POV row2660 does not promote camera-generation behavior. Semantic support55/58; active revalidation pending0. RESULT_LEDGER_INDEX pre-existing lag remains noted. Next safe restart2661; main/production unchanged."
+  "notes": "Batch27 checkpoint4 2661-2680 saved. Batch27 cumulative PASS80/FIX0/REVIEW0/IMAGE_TEST_REQUIRED0. candidate_fixes/revalidation_queue inspected with no delta. Alias-preserve semantics remain exact-identity/statistics-only; spatial/interaction/restraint wording was not promoted into unasserted structural or generation behavior. Semantic support55/58; active revalidation pending0. RESULT_LEDGER_INDEX lag remains separately noted. Next safe restart2681; main/production unchanged."
 }
