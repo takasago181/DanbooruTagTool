@@ -7,10 +7,10 @@
   "fixed_order": "production Special2788 order at audit start",
   "batch_size": 100,
   "internal_block_size": 20,
-  "completed_specials": 2760,
-  "pass": 2267,
+  "completed_specials": 2780,
+  "pass": 2284,
   "fix": 174,
-  "review": 302,
+  "review": 305,
   "image_test_required": 17,
   "revalidation_pending": 0,
   "batch1_acceptance_gate": "PASS",
@@ -47,10 +47,10 @@
   "semantic_support_rows_covered": 55,
   "semantic_support_rows_review": 0,
   "semantic_support_rows_image_test_required": 30,
-  "last_completed_special_id": "2760",
+  "last_completed_special_id": "2780",
   "last_completed_batch": 27,
   "next_batch": 28,
-  "next_start_position": 2761,
+  "next_start_position": 2781,
   "production_modified": false,
-  "notes": "Batch28 partial checkpoint 2701-2760 durable. Current Batch28 delta PASS54/FIX0/REVIEW6/IMAGE_TEST_REQUIRED0. Additional REVIEW: ID2747 glans, ID2749 hymen, ID2753 jinki-style restrained; all remain PROVISIONAL/non-expanding rather than auto-filled. A-risk PASS IDs2742/2743 compound relation and ID2746 POV were cross-checked against Stage10 support/camera boundaries; no camera tuning or automatic support promoted. candidate_fixes/revalidation_queue inspected with no delta. Next safe restart2761; main/production unchanged."
+  "notes": "Batch28 partial checkpoint 2701-2780 durable. Current Batch28 delta PASS71/FIX0/REVIEW9/IMAGE_TEST_REQUIRED0. Added REVIEW: ID2763 pubic cutout (S PROVISIONAL), ID2764 pubic hair pull (A bodypart contract unresolved), ID2770 serving tray (bdsm) (S REVIEW_REQUIRED/authority insufficient). candidate_fixes/revalidation_queue inspected with no delta. Next safe restart2781; main/production unchanged."
 }
