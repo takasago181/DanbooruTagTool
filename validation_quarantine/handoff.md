@@ -7,20 +7,21 @@ Rule version: R2
 
 ## Current position
 - Target: 2,788 Specials
-- First pass checkpointed through: 1300
-- Cumulative: PASS 850 / FIX 174 / REVIEW 259 / IMAGE_TEST_REQUIRED 17
+- First pass checkpointed through: 1320
+- Cumulative: PASS 870 / FIX 174 / REVIEW 259 / IMAGE_TEST_REQUIRED 17
 - Batch 1-13 R2 acceptance gates: PASS
+- Batch 14: 1301-1320 checkpoint durable; batch gate not yet run
 - Revalidation pending: 0
 - Semantic support: 55 / 58; IMAGE_TEST_REQUIRED rows 30
-- Next first-pass sequence: 1301
+- Next first-pass sequence: 1321
 - Production/main modified: NO
 
-## Batch 13 complete
-1201-1300: PASS 73 / FIX 1 / REVIEW 26 / IMAGE_TEST_REQUIRED 0. Five append-only20-row result blocks, five candidate-fix blocks, five empty revalidation queue blocks, progress and handoff are durable. Sequence reconciliation is exactly100 unique contiguous rows with no gap or duplicate.
+## Batch 14 partial
+1301-1320: PASS 20 / FIX 0 / REVIEW 0 / IMAGE_TEST_REQUIRED 0. All frozen rows in this block are APPROVED_IDENTITY_ONLY / ALIAS_TARGET_RESOLVED / ALIAS_PRESERVE. Exact Special prompt identity is preserved; canonical_target remains statistics-only. No enabled semantic-support row is attached to these Specials.
 
-Deterministic R2 PASS re-audit checked 15/73 PASS rows (20.55%), including all A-risk PASS rows. New false-PASS: 0. Batch13 acceptance gate: PASS.
+Before restarting Batch14, RESULT_LEDGER_INDEX.csv was found stale at sequence940 while durable append-only blocks existed through1300. The durable block directory was reconciled and index restored through1300 before new validation resumed.
 
-ID1241 `clitoral stimulation` is the sole new quarantine FIX candidate: `BodypartRequirementOverride=true`. PROVISIONAL / REVIEW_REQUIRED rows without exact frozen source authority remain REVIEW. Identity-only alias rows preserve exact prompt identity and do not claim canonical/model-response equivalence. No Stage10 generation hypothesis was promoted to production truth.
+candidate_fixes.csv and revalidation_queue.csv were checked at this checkpoint; no new finding or queue entry was required.
 
 ## Critical interpretation rules
 - Blank/None is not automatically missing data; UNKNOWN/not asserted remains valid.
@@ -31,4 +32,4 @@ ID1241 `clitoral stimulation` is the sole new quarantine FIX candidate: `Bodypar
 - Special2788 exact identity remains first-class.
 
 ## Exact restart
-Resume first-pass at sequence 1301. Checkpoint every20. Do not modify production/main.
+Resume first-pass at sequence 1321. Checkpoint every20. Do not modify production/main.
