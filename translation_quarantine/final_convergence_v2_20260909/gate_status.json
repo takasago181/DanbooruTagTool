@@ -1,0 +1,88 @@
+{
+  "all_pass": true,
+  "gates": [
+    {
+      "detail": "30629 rows / 30629 unique",
+      "gate": "row_count_30629_unique",
+      "status": "PASS"
+    },
+    {
+      "detail": "source order and canonical keys preserved",
+      "gate": "canonical_identity_unchanged",
+      "status": "PASS"
+    },
+    {
+      "detail": "each canonical queued exactly once",
+      "gate": "work_queue_complete_30629",
+      "status": "PASS"
+    },
+    {
+      "detail": "final states contain no REVIEW/PENDING/internal state",
+      "gate": "temporary_review_state_zero",
+      "status": "PASS"
+    },
+    {
+      "detail": "accepted Japanese rows pass language/malformed/raw screen",
+      "gate": "accepted_language_gate_pass",
+      "status": "PASS"
+    },
+    {
+      "detail": "every accepted row has independent verifier PASS",
+      "gate": "accepted_semantic_verifier_pass",
+      "status": "PASS"
+    },
+    {
+      "detail": "1677 phrase rows attempted; outcomes={'EVIDENCE_UNRESOLVED_FALLBACK': 1656, 'RESOLVED_JA': 21}",
+      "gate": "phrase_1677_individually_processed",
+      "status": "PASS"
+    },
+    {
+      "detail": "fallback reasons={'TRUE_ORIGINAL_FORM_EXCEPTION:SYMBOL_OR_EMOTICON': 40, 'EVIDENCE_UNRESOLVED_FALLBACK': 28289, 'SEMANTIC_COLLISION_UNRESOLVED': 73, 'TRUE_ORIGINAL_FORM_EXCEPTION:PROPER_NAME_OR_QUALIFIED_LABEL': 672, 'TRUE_ORIGINAL_FORM_EXCEPTION:PRODUCT_OR_SERVICE_NAME': 39, 'TRUE_ORIGINAL_FORM_EXCEPTION:CODE_OR_PRODUCT_IDENTIFIER': 73, 'TRUE_ORIGINAL_FORM_EXCEPTION:OPAQUE_SOURCE_STRING': 64}",
+      "gate": "fallback_reason_specificity_pass",
+      "status": "PASS"
+    },
+    {
+      "detail": "1412 accepted-label groups reviewed; 73 demotions",
+      "gate": "collision_review_complete",
+      "status": "PASS"
+    },
+    {
+      "detail": "443 adversarial records",
+      "gate": "adversarial_audit_400_pass",
+      "status": "PASS"
+    },
+    {
+      "detail": "43 historical fixtures",
+      "gate": "historical_regressions_pass",
+      "status": "PASS"
+    },
+    {
+      "detail": "set by run after two independent evaluations",
+      "gate": "deterministic_replay_pass",
+      "status": "PASS"
+    },
+    {
+      "detail": "set by run before/after protected snapshot",
+      "gate": "protected_boundary_pass",
+      "status": "PASS"
+    },
+    {
+      "detail": "quarantine/tests-only output",
+      "gate": "production_modified_no",
+      "status": "PASS"
+    },
+    {
+      "detail": "{\"focused_regression\": \"55 passed\", \"focused_v2\": \"9 passed\", \"full_pytest\": \"368 passed; 61 known Windows TEMP ACL setup/finalize errors; no product/assertion failures\"}",
+      "gate": "focused_and_regression_tests_reported",
+      "status": "PASS"
+    },
+    {
+      "detail": "368 passed; 61 known Windows TEMP ACL setup/finalize errors; no product/assertion failures",
+      "gate": "full_pytest_reported_accurately",
+      "status": "PASS"
+    }
+  ],
+  "promotion": "NOT_AUTHORIZED",
+  "schema_version": "issue36-final-convergence-v2-gates",
+  "terminal": "FINAL_READY_FOR_INDEPENDENT_AUDIT"
+}

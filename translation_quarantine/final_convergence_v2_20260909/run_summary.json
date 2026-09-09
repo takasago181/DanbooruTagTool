@@ -1,0 +1,51 @@
+{
+  "accepted_confirmed": 22580,
+  "accepted_count": 1379,
+  "accepted_demoted": 21857,
+  "accepted_repaired": 614,
+  "adversarial_audit": {
+    "all_pass": true,
+    "records": 443
+  },
+  "artifact_root": "translation_quarantine/final_convergence_v2_20260909",
+  "campaign_id": "issue36-final-convergence-v2-20260909",
+  "collision_review": {
+    "all_pass": true,
+    "demoted": 73,
+    "records": 1412
+  },
+  "contract": "translation_quarantine/r3/ISSUE36_FINAL_CONVERGENCE_V2.md",
+  "contract_commit": "dea658df5f05a7e6bed4e188cc62d5a16cb3502e",
+  "evidence_lane_counts": {
+    "NEEDS_SEMANTIC_REVIEW": 29719,
+    "TRUE_ORIGINAL_FORM_EXCEPTION": 888,
+    "TRUSTED_ACCEPT": 22
+  },
+  "fallback_count": 29250,
+  "final_table_hash": "8c1368950ed5c0678cfaa3dbb4c7ec8edbca2bff2e990ecf4e0e74b2ba5c9733",
+  "final_table_rows": 30629,
+  "handoff_comment": "5600487287",
+  "historical_regressions": {
+    "all_pass": true,
+    "records": 43
+  },
+  "language_fixes": {},
+  "phrase_rows": {
+    "evidence_unresolved_fallback": 1656,
+    "input": 1677,
+    "resolved_ja": 21,
+    "true_exception": 0
+  },
+  "production_modified": false,
+  "promotion": "NOT_AUTHORIZED",
+  "protected_boundary": "PASS",
+  "replay": "PASS",
+  "semantic_review_rows_processed": 29719,
+  "source_head": "74ce389f433d23f7f036313bac9e82a7bb6377e2",
+  "terminal": "FINAL_READY_FOR_INDEPENDENT_AUDIT",
+  "tests": {
+    "focused_regression": "55 passed",
+    "focused_v2": "9 passed",
+    "full_pytest": "368 passed; 61 known Windows TEMP ACL setup/finalize errors; no product/assertion failures"
+  }
+}

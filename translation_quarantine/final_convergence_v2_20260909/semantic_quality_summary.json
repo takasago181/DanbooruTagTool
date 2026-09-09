@@ -1,0 +1,28 @@
+{
+  "lane_counts": {
+    "NEEDS_SEMANTIC_REVIEW": 29719,
+    "TRUE_ORIGINAL_FORM_EXCEPTION": 888,
+    "TRUSTED_ACCEPT": 22
+  },
+  "phrase_1677_outcomes": {
+    "EVIDENCE_UNRESOLVED_FALLBACK": 1656,
+    "RESOLVED_JA": 21
+  },
+  "resolver_verifier_split": true,
+  "semantic_fingerprint_fields": [
+    "head_concept",
+    "action_or_state",
+    "actor",
+    "ownership",
+    "target",
+    "body_site",
+    "direction_or_spatial_relation",
+    "count_or_cardinality",
+    "negation",
+    "required_modifier",
+    "qualifier_scope",
+    "concept_width_note"
+  ],
+  "semantic_review_rows": 29719,
+  "verifier_failures_remaining": 0
+}

@@ -1,0 +1,6 @@
+{
+  "accepted_language_gate_failures": 0,
+  "accepted_rows_screened": 23194,
+  "demoted_for_language_or_shape": 21789,
+  "policy": "strong simplified-Chinese-specific patterns and canonical-aware raw token checks; no blanket CJK/ASCII rejection"
+}

@@ -1,0 +1,8 @@
+{
+  "batch_size": 150,
+  "completed_batches": 205,
+  "completed_rows": 30629,
+  "restartable": true,
+  "status": "COMPLETE",
+  "total_rows": 30629
+}
