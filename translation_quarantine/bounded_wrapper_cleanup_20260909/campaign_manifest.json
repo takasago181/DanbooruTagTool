@@ -1,6 +1,6 @@
 {
-  "audited_source_commit": "f9e275f532f3e072ecde266eae8479ea52bcd31f",
-  "campaign_id": "issue36-bounded-wrapper-cleanup-20260909-v1",
+  "audited_source_commit": "aa0c269e0f9ca5e2c65b2c869f9e1f720802afc3",
+  "campaign_id": "issue36-bounded-wrapper-cleanup-20260909-v2",
   "contract": "translation_quarantine/r3/BOUNDED_WRAPPER_CLEANUP_CONTRACT.md",
   "contract_commit": "caf489ed6523da911c67d9d56466a5692445d47e",
   "input_hashes": {
@@ -8,8 +8,8 @@
     "translation_quarantine/r3/BOUNDED_WRAPPER_CLEANUP_CONTRACT.md": "sha256:e0f6a10bc368bf00c78cd126e9a12662cbb89cc1d232cc82ec7c1a7699a8258f"
   },
   "output_hashes": {
-    "fallback_ledger": "sha256:a9082c22f9a7ac0ce77c628450f1dbf04d326cbe6c8675d5781d06f89a1369d6",
-    "merged_table": "sha256:8aa690236b8711d94c646ad05a34b491134694c4d2e6c48dc06fa9912ce86621"
+    "fallback_ledger": "sha256:6cde197aeff4f74b4792344f975d8ef04e6d313b778a6c3da43434f90fca1c6f",
+    "merged_table": "sha256:6da74f5d579fddf41c7a23e97c9fe29ba7edf07858228918d9fb14bdd0293c20"
   },
   "production_modified": false,
   "promotion": "NOT_AUTHORIZED",
@@ -36,12 +36,13 @@
   },
   "replay": {
     "live_fetch": false,
-    "merged_table_hash": "sha256:8aa690236b8711d94c646ad05a34b491134694c4d2e6c48dc06fa9912ce86621",
+    "merged_table_hash": "sha256:6da74f5d579fddf41c7a23e97c9fe29ba7edf07858228918d9fb14bdd0293c20",
     "original_vs_replay1": "PASS",
     "original_vs_replay2": "PASS",
     "replay1_vs_replay2": "PASS",
     "source_mode": "frozen qualified-review table and local wrapper rules only",
     "verdict": "PASS"
   },
-  "schema_version": "issue36-bounded-wrapper-cleanup-v1"
+  "schema_version": "issue36-bounded-wrapper-cleanup-v2",
+  "triggering_audit_comment": "5594486124"
 }

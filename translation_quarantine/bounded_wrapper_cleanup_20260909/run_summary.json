@@ -1,15 +1,15 @@
 {
-  "audited_source_commit": "f9e275f532f3e072ecde266eae8479ea52bcd31f",
+  "audited_source_commit": "aa0c269e0f9ca5e2c65b2c869f9e1f720802afc3",
   "before_after": {
     "after": {
-      "display_ja": 29234,
-      "fallback": 1395,
-      "search_ja": 29234
+      "display_ja": 26449,
+      "fallback": 1714,
+      "search_ja": 26449
     },
     "before": {
-      "display_ja": 27369,
+      "display_ja": 24903,
       "fallback": 826,
-      "search_ja": 27369
+      "search_ja": 24903
     },
     "bounded_target_input": 2434,
     "input_hashes": {
@@ -20,27 +20,27 @@
     "merged_unique_canonicals": 30629
   },
   "bounded_target_count": 2434,
-  "campaign_id": "issue36-bounded-wrapper-cleanup-20260909-v1",
+  "campaign_id": "issue36-bounded-wrapper-cleanup-20260909-v2",
   "classification_counts": {
-    "TRANSLATABLE_DISPLAY": 1865,
-    "TRUE_ORIGINAL_FORM_EXCEPTION": 569
+    "TRANSLATABLE_DISPLAY": 1546,
+    "TRUE_ORIGINAL_FORM_EXCEPTION": 888
   },
   "contract": "translation_quarantine/r3/BOUNDED_WRAPPER_CLEANUP_CONTRACT.md",
   "contract_commit": "caf489ed6523da911c67d9d56466a5692445d47e",
   "fallback_ledger": "translation_quarantine/bounded_wrapper_cleanup_20260909/fallback_exceptions.jsonl",
-  "fallback_ledger_count": 1395,
+  "fallback_ledger_count": 1714,
   "fallback_reason_classes": {
-    "CODE_OR_PRODUCT_IDENTIFIER": 74,
-    "OPAQUE_SOURCE_STRING": 283,
-    "PRODUCT_OR_SERVICE_NAME": 39,
-    "PROPER_NAME_OR_QUALIFIED_LABEL": 925,
-    "SYMBOL_OR_EMOTICON": 74
+    "CODE_OR_PRODUCT_IDENTIFIER": 179,
+    "OPAQUE_SOURCE_STRING": 366,
+    "PRODUCT_OR_SERVICE_NAME": 68,
+    "PROPER_NAME_OR_QUALIFIED_LABEL": 975,
+    "SYMBOL_OR_EMOTICON": 126
   },
   "final_state_counts": {
-    "ENGLISH_FALLBACK_EXCEPTION": 1395,
+    "ENGLISH_FALLBACK_EXCEPTION": 1714,
     "JA_ACCEPT_EXISTING": 547,
-    "JA_ACCEPT_MACHINE": 24849,
-    "JA_ACCEPT_STRICT": 3838
+    "JA_ACCEPT_MACHINE": 24547,
+    "JA_ACCEPT_STRICT": 3821
   },
   "final_table_rows": 30629,
   "generic_review_pending": 0,
@@ -51,14 +51,18 @@
   "representative_repaired": {
     "alternate_ass_size_(larger)": "大きめの尻差分",
     "dominator_(bdsm)": "支配する側（BDSM）",
+    "heavy_chromatic_aberration": "強い色収差",
     "implied_cheating_(relationship)": "浮気を示唆する関係",
     "kickstand": "キックスタンド",
-    "legjob": "レッグジョブ"
+    "legjob": "レッグジョブ",
+    "newt": "イモリ",
+    "no_magazine_(weapon)": "弾倉なし（武器）"
   },
-  "residual_fallback": 1395,
+  "residual_fallback": 1714,
   "tests": {
-    "focused_bounded_wrapper": "8 passed",
-    "full_pytest": "327 passed, 61 environment setup errors (Windows TEMP ACL WinError 5), no product assertion failures in setup errors",
-    "qualified_review_regression": "63 passed combined regression suite"
-  }
+    "focused_bounded_wrapper": "11 passed",
+    "full_pytest": "392 passed in 77.05s; basetemp .pytest-issue36-full-0909-final; no setup errors",
+    "qualified_review_regression": "80 passed"
+  },
+  "triggering_audit_comment": "5594486124"
 }

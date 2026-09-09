@@ -27,6 +27,56 @@ def test_required_wrapper_examples_are_meaningful_japanese():
         assert processed[canonical]["final_state"] != "ENGLISH_FALLBACK_EXCEPTION"
 
 
+def test_audit_blocking_partial_english_labels_are_repaired_or_not_accepted():
+    result = cleanup._evaluate()
+    expected = {
+        "heavy_chromatic_aberration": "強い色収差",
+        "knees_together_feet_apart": "膝をつけて足を開く",
+        "fictional_aircraft": "架空の航空機",
+        "finger_counting_duo": "指で数える2人組",
+        "father_and_son_threesome": "父親と息子を含む3人での性行為",
+        "nipples_pressed_together": "乳首を押し付け合う",
+        "no_genitals": "性器なし",
+        "tank_gun": "戦車砲",
+        "tears_of_joy_emoji": "嬉し涙の絵文字",
+        "the_fool_(tarot)": "愚者（タロット）",
+    }
+    for canonical, label in expected.items():
+        row = result["processed"][canonical]
+        assert row["display_ja"] == label
+        assert cleanup._meaningful(label, canonical)
+
+
+def test_unknown_common_word_is_translated_and_company_identity_is_narrow_exception():
+    result = cleanup._evaluate()["processed"]
+    assert result["newt"]["display_ja"] == "イモリ"
+    assert result["newt"]["final_state"] != "ENGLISH_FALLBACK_EXCEPTION"
+    assert result["fender_musical_instruments_corporation"]["final_state"] == "ENGLISH_FALLBACK_EXCEPTION"
+    assert result["fender_musical_instruments_corporation"]["reason"] == "PRODUCT_OR_SERVICE_NAME"
+
+
+def test_weapon_qualifier_does_not_use_publication_sense_for_magazine():
+    row = cleanup._evaluate()["processed"]["no_magazine_(weapon)"]
+    assert row["display_ja"] == "弾倉なし（武器）"
+    assert row["final_state"] != "ENGLISH_FALLBACK_EXCEPTION"
+
+
+def test_accepted_bounded_labels_have_no_untranslated_semantic_base_token():
+    result = cleanup._evaluate()
+    allowed_reasons = {
+        "CODE_OR_PRODUCT_IDENTIFIER",
+        "OPAQUE_SOURCE_STRING",
+        "PRODUCT_OR_SERVICE_NAME",
+        "PROPER_NAME_OR_QUALIFIED_LABEL",
+        "SYMBOL_OR_EMOTICON",
+    }
+    for row in result["processed"].values():
+        if row["final_state"] != "ENGLISH_FALLBACK_EXCEPTION":
+            assert cleanup._meaningful(row["display_ja"], row["canonical"])
+        else:
+            assert row["reason"] in allowed_reasons
+
+
 def test_qualified_identity_is_not_translated_away():
     merged = {row["canonical"]: row for row in cleanup._evaluate()["merged"]}
     assert merged["hu_tao_(genshin_impact)_(cosplay)"]["final_state"] == "ENGLISH_FALLBACK_EXCEPTION"

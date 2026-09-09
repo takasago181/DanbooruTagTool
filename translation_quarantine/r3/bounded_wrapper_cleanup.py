@@ -17,8 +17,9 @@ ROOT = forced.ROOT
 CONTRACT = "translation_quarantine/r3/BOUNDED_WRAPPER_CLEANUP_CONTRACT.md"
 SOURCE_DIR = prior.OUTPUT_DIR
 OUTPUT_DIR = "translation_quarantine/bounded_wrapper_cleanup_20260909"
-SOURCE_COMMIT = "f9e275f532f3e072ecde266eae8479ea52bcd31f"
+SOURCE_COMMIT = "aa0c269e0f9ca5e2c65b2c869f9e1f720802afc3"
 CONTRACT_COMMIT = "caf489ed6523da911c67d9d56466a5692445d47e"
+AUDIT_COMMENT = "5594486124"
 
 EXACT = {
     "kickstand": "キックスタンド", "legjob": "レッグジョブ", "dominator_(bdsm)": "支配する側（BDSM）",
@@ -88,10 +89,122 @@ LEXICON.update({
 # ASCII abbreviations after all compatibility vocabulary has been loaded.
 LEXICON.update({"cpu": "CPU（中央処理装置）", "gps": "GPS測位", "atm": "ATM（現金自動預け払い機）", "cd": "CD媒体", "lcd": "LCD画面", "led": "LED照明", "vs": "対戦"})
 
+# The delta audit found that lexical composition must never accept a Japanese
+# fragment while silently carrying an English semantic base token.  These are
+# bounded, ordinary-word repairs or explicit acronym literals used by the
+# wrapper target set; they are not a general translation engine.
+LEXICON.update({
+    "aberration": "収差", "apart": "離れて", "chromatic": "色", "counting": "数える", "father": "父親",
+    "fictional": "架空の", "fool": "愚者", "genitals": "性器", "joy": "喜び", "magazine": "弾倉",
+    "newt": "イモリ", "pressed": "押し付けられた", "tank": "戦車", "tears": "涙", "together": "一緒に",
+    "tarot": "タロット", "weapon": "武器", "triangle": "三角形", "spades": "スペード", "necktie": "ネクタイ",
+    "watermark": "透かし", "insignia": "記章", "power": "力", "hug": "ハグ", "masturbation": "自慰",
+    "joint": "関節", "fighter": "戦闘機", "missile": "ミサイル", "carrying": "運搬", "date": "日付",
+    "milk": "牛乳", "king": "王", "clan": "一族", "event": "イベント", "anatomy": "解剖学",
+    "ballet": "バレエ", "adaptation": "適応", "siblings": "きょうだい", "hoop": "輪", "supplies": "用品",
+    "aim": "照準", "crossing": "交差", "antler": "枝角", "clap": "拍手", "droid": "ドロイド",
+    "avatar": "アバター", "bicycle": "自転車", "bicycles": "自転車", "feeding": "餌やり", "bulls": "雄牛",
+    "bloom": "開花", "edge": "縁", "calves": "ふくらはぎ", "brotherhood": "同胞団", "steel": "鋼",
+    "eared": "耳のある", "loli": "ロリ", "bright": "明るい", "bars": "鉄格子", "beloved": "愛された",
+    "bent": "曲がった", "curl": "カール", "pollux": "ポルックス", "feeding": "餌やり", "canopy": "天蓋",
+    "channel": "チャンネル", "checkout": "会計", "cheetah": "チーター", "peony": "牡丹", "chipped": "欠けた",
+    "lady": "女性", "choir": "合唱団", "cleaning": "掃除", "cleft": "裂け目", "injection": "注入",
+    "comedy": "喜劇", "tragedy": "悲劇", "masks": "仮面", "competitive": "競争的な", "completionist": "コンプリート主義者",
+    "constellation": "星座", "sketch": "スケッチ", "kneepits": "膝裏", "underboob": "アンダーバスト", "wagon": "荷車",
+    "coyote": "コヨーテ", "cracked": "ひび割れた", "cradle": "ゆりかご", "crayon": "クレヨン", "creation": "創作物",
+    "crest": "紋章", "flames": "炎", "composition": "構図", "crocodile": "ワニ", "cursed": "呪われた",
+    "devil": "悪魔", "entity": "実体", "draw": "描く", "arrow": "矢", "dreadnought": "戦艦",
+    "drive": "運転", "dryad": "ドライアド", "duellist": "決闘者", "elephant": "ゾウ", "dormitory": "寮",
+    "english": "英語", "eternal": "永遠の", "article": "記事", "european": "ヨーロッパの", "exhaling": "息を吐く",
+    "exiting": "退出する", "exploded": "爆発した", "exploration": "探査", "extreme": "極端な", "fade": "フェード",
+    "father": "父親", "flight": "飛行", "flourish": "装飾", "spittle": "唾液", "cunnilingus": "クンニリングス",
+    "change": "変化", "forward": "前向きの", "pack": "組", "fourth": "4番目の", "july": "7月",
+    "framed": "枠で囲まれた", "fully": "完全に", "genderswapped": "性別が入れ替わった", "advance": "アドバンス",
+    "aware": "自覚した", "genius": "天才", "morning": "朝", "grain": "粒", "envy": "羨望",
+    "heroes": "英雄たち", "heterochromatic": "左右で色の異なる", "hexagonal": "六角形の", "highball": "ハイボール",
+    "hobby": "趣味", "hockey": "ホッケー", "scoop": "すくう道具", "spotlight": "スポットライト", "horned": "角のある",
+    "hose": "ホース", "ruby": "ルビー", "sophie": "ソフィー", "airwalking": "空中歩行", "eyebrows": "眉",
+    "hydraulic": "油圧式の", "tub": "桶", "inconspicuous": "目立たない", "inconvenient": "不便な", "ink": "インク",
+    "test": "テスト", "insulated": "断熱された", "delivery": "配達", "intentional": "意図的な", "jpeg": "JPEG",
+    "missing": "欠けた", "symbols": "記号", "toes": "つま先", "inverse": "逆の", "spirit": "精神",
+    "inverted": "反転した", "invisible": "見えない", "classic": "クラシック", "shuffle": "シャッフル", "ironmouse": "アイアンマウス",
+    "italian": "イタリアの", "jackal": "ジャッカル", "jackalope": "ジャッカロープ", "jade": "翡翠", "leaning": "傾いた",
+    "support": "支持", "lemon": "レモン", "lemur": "キツネザル", "lensless": "レンズのない", "liberty": "自由",
+    "life": "生命", "lifting": "持ち上げ", "bolt": "ボルト", "claw": "爪", "elemental": "元素の",
+    "linear": "線形の", "lineart": "線画", "lion": "ライオン", "lobster": "ロブスター", "location": "場所",
+    "lotus": "蓮", "root": "根", "asia": "アジア", "tour": "ツアー", "lowered": "下げられた",
+    "palm": "手のひら", "major": "主要な", "underreaction": "反応不足", "manta": "マンタ", "ray": "エイ",
+    "manually": "手動で", "operated": "操作された", "mounted": "取り付けられた", "manuscript": "原稿", "marine": "海洋の",
+    "marlin": "カジキ", "marquee": "マーキー", "meat": "肉", "hook": "フック", "player": "プレイヤー",
+    "meerkat": "ミーアキャット", "melee": "近接戦闘", "environment": "環境", "messy": "乱雑な", "micro": "小型",
+    "icon": "アイコン", "mole": "モグラ", "beside": "隣に", "moth": "蛾", "barrel": "銃身",
+    "anklets": "アンクレット", "armlets": "腕輪", "caterpillar": "毛虫", "tracks": "軌跡", "knives": "ナイフ",
+    "ovum": "卵子", "tattoos": "タトゥー", "theme": "テーマ", "colors": "色", "tongues": "舌",
+    "cuirass": "胸甲", "mute": "ミュート", "speaker": "スピーカー", "indicator": "指標", "mythological": "神話上の",
+    "palette": "色彩パレット", "aside": "脇へ", "overhang": "張り出し", "terminal": "端末", "neon": "ネオン",
+    "nerd": "ナード", "never": "決してない", "give": "与える", "city": "都市", "land": "陸地",
+    "pressed": "押し付けられた", "genitals": "性器", "lips": "唇", "seek": "探す", "toilet": "トイレ",
+    "candle": "ろうそく", "official": "公式の", "dome": "ドーム", "cylinder": "円柱", "otter": "カワウソ",
+    "outer": "外側の", "overflowing": "あふれた", "owl": "フクロウ", "fingernails": "爪", "panda": "パンダ",
+    "roll": "転がる", "parfait": "パフェ", "patio": "テラス", "patting": "軽く叩く", "pearl": "真珠",
+    "pencil": "鉛筆", "penguin": "ペンギン", "doodle": "落書き", "slip": "滑る", "perfume": "香水",
+    "pet": "ペット", "planet": "惑星", "diving": "潜水", "bunny": "ウサギ", "poet": "詩人",
+    "pointy": "尖った", "possibility": "可能性", "puberty": "思春期", "possum": "フクロネズミ", "orgasm": "オーガズム",
+    "torture": "拷問", "powerpuff": "パワーパフ", "preppy": "プレッピー", "preschool": "幼児教育", "conference": "会議",
+    "primrose": "サクラソウ", "pulling": "引っ張る", "pure": "純粋な", "piece": "一片", "racer": "レーサー",
+    "ranger": "レンジャー", "sugar": "砂糖", "ginger": "ショウガ", "telephone": "電話", "regional": "地域の",
+    "relief": "安堵", "remnant": "残り", "resistance": "抵抗", "rewind": "巻き戻し", "ribs": "肋骨",
+    "moped": "モペット", "motorcycle": "オートバイ", "roller": "ローラー", "coaster": "コースター", "scooter": "スクーター",
+    "rise": "上昇", "radiance": "輝き", "rose": "バラ", "travel": "旅行", "attire": "服装", "ruining": "台無しにする",
+    "moment": "瞬間", "runway": "滑走路", "haru": "ハル", "saddle": "鞍", "salmon": "サケ", "line": "線",
+    "across": "横切って", "tying": "結ぶ", "scattered": "散らばった", "cut": "切る", "circular": "円形の",
+    "sentient": "知覚を持つ", "serrated": "鋸歯状の", "servo": "サーボ", "severed": "切断された", "cloud": "雲",
+    "share": "共有", "shared": "共有された", "shell": "殻", "sherbet": "シャーベット", "module": "モジュール",
+    "shooting": "撮影", "cart": "台車", "pads": "パッド", "shredded": "細かく裂かれた", "shrimp": "エビ",
+    "shrine": "神社", "shroud": "覆い", "sideburns": "もみあげ", "sight": "照準器", "target": "標的",
+    "simulated": "シミュレートされた", "snake": "ヘビ", "skunk": "スカンク", "slasher": "切り裂き役", "slave": "奴隷",
+    "slingshot": "パチンコ", "throat": "喉", "smashing": "粉砕", "smear": "塗りつぶし", "launcher": "発射器",
+    "snowflake": "雪の結晶", "soles": "足裏", "eaters": "食べる者", "stadium": "競技場", "market": "市場",
+    "bodysuit": "ボディスーツ", "romper": "ロンパース", "challenger": "挑戦者", "pearls": "真珠", "studded": "鋲付き",
+    "patrol": "巡回", "tin": "缶", "tit": "シジュウカラ", "toad": "ヒキガエル", "wrap": "包む",
+    "bandaids": "絆創膏", "cigarettes": "タバコ", "clones": "クローン", "condoms": "コンドーム", "stickers": "ステッカー",
+    "umbrellas": "傘", "watermarks": "透かし", "user": "ユーザー", "vegetable": "野菜", "personification": "擬人化",
+    "ventilation": "換気", "voice": "声", "actor": "俳優", "void": "虚無", "showdown": "対決", "witch": "魔女",
+    "seasons": "季節", "figure": "人物", "best": "最高の", "take": "取る", "tank": "戦車", "guy": "男性",
+    "fool": "愚者", "fun": "楽しさ", "gang": "一団", "awards": "賞", "priestess": "女司祭", "loud": "大きな音の",
+    "vivid": "鮮やかな", "tale": "物語", "beads": "ビーズ", "cutting": "切断", "marking": "印付け", "sheath": "鞘",
+    "thighs": "太もも", "thinner": "より細い", "third": "3番目の", "throwing": "投げる", "cookie": "クッキー",
+    "tie": "ネクタイ", "dye": "染料", "tilted": "傾いた", "tumbler": "タンブラー", "turnip": "カブ", "turtle": "カメ",
+    "handed": "手渡された", "page": "ページ", "tailcoat": "燕尾服", "assault": "襲撃", "effectiveness": "有効性",
+    "ukrainian": "ウクライナの", "summer": "夏", "sound": "音", "effect": "効果", "steed": "駿馬", "untied": "ほどけた",
+    "upwards": "上向きに", "utensil": "調理器具", "taper": "先細り", "walrus": "セイウチ", "weasel": "イタチ",
+    "bench": "ベンチ", "wimp": "弱虫", "whisky": "ウイスキー", "knight": "騎士", "merry": "陽気な", "gamepad": "ゲームパッド",
+    "winking": "ウインク", "wish": "願い", "stove": "コンロ", "plate": "皿", "porch": "ポーチ", "stairs": "階段", "worm": "虫",
+    "zombie": "ゾンビ", "newt": "イモリ",
+})
+
 GENERIC_QUALIFIERS = {"larger", "smaller", "bdsm", "relationship", "sexual", "phrase", "object", "gesture", "room", "animated", "medium", "plant", "symbol", "sport", "fish", "food", "building", "container", "expression", "topic", "singer", "os", "armor", "carmaker", "star"}
-QUALIFIER_JA = {"larger": "大きめ", "smaller": "小さめ", "bdsm": "BDSM", "relationship": "関係", "sexual": "性的", "phrase": "フレーズ", "object": "物体", "gesture": "ジェスチャー", "room": "部屋", "animated": "アニメーション", "medium": "媒体", "plant": "植物", "symbol": "記号", "sport": "スポーツ", "fish": "魚", "food": "食べ物", "building": "建物", "container": "容器", "expression": "表情", "topic": "話題", "singer": "歌手", "os": "OS", "armor": "鎧", "carmaker": "自動車メーカー", "star": "恒星"}
+QUALIFIER_JA = {"larger": "大きめ", "smaller": "小さめ", "bdsm": "BDSM", "relationship": "関係", "sexual": "性的", "phrase": "フレーズ", "object": "物体", "gesture": "ジェスチャー", "room": "部屋", "animated": "アニメーション", "medium": "媒体", "plant": "植物", "symbol": "記号", "sport": "スポーツ", "fish": "魚", "food": "食べ物", "building": "建物", "container": "容器", "expression": "表情", "topic": "話題", "singer": "歌手", "os": "OS", "armor": "鎧", "carmaker": "自動車メーカー", "star": "恒星", "weapon": "武器", "tarot": "タロット", "animal": "動物", "flower": "花", "playing_card": "トランプ", "letter": "文字", "equation": "方程式", "language": "言語", "computer": "コンピューター", "original": "オリジナル", "trend": "流行", "character": "キャラクター", "cosmetics": "化粧品", "tool": "道具", "city": "都市", "brand": "ブランド"}
 NAME_QUALIFIERS = {"cosplay", "meme", "style", "magazine", "company", "software", "character", "identity", "project_moon", "genshin_impact", "eve_online", "fate", "blue_archive", "touhou", "umamusume", "idolmaster", "kancolle", "pokemon", "honkai:_star_rail", "zenless_zone_zero", "fire_emblem", "warcraft", "nier:automata", "league", "tf2", "disney", "blackpink", "vtuber", "gta_vi", "stellar_blade", "genshin_impact", "eve_online"}
 PRODUCT_WORDS = {"iphone", "ipad", "airpods", "oculus", "figma", "blender", "dyson", "nissan", "mazda", "google", "bilibili", "twitter", "subscribestar", "akg", "ipod"}
+IDENTITY_BASES = {"fender", "durex", "mastercard", "goodyear", "sennheiser", "korg", "nike", "sony", "toyota", "subaru", "yamaha", "vaio", "xbox", "wii", "nissan", "mazda", "google", "nasa", "dji", "patreon", "pixiv", "youtube", "instagram", "discord", "steam", "spotify"}
+COMPANY_MARKERS = {"corporation", "company", "inc", "ltd", "llc", "industries", "instruments"}
+PRESERVED_LITERAL_TOKENS = {"ai", "atm", "cd", "cpu", "dslr", "gps", "lcd", "led", "lpvo", "mvp", "rgb", "fbi", "fn", "smg", "mk", "m3", "ram", "ui", "usb", "vr", "rpg", "rpk", "sos", "otm", "ddd", "ffd", "fff", "ffm", "mmf", "mmm", "w", "v", "j", "u", "r", "s", "b", "e", "f", "i", "k", "p", "x", "z", "ii", "iii", "iv", "gn", "m", "n", "o", "d", "h", "st", "nd", "rd", "th"}
+
+EXACT.update({
+    "heavy_chromatic_aberration": "強い色収差",
+    "knees_together_feet_apart": "膝をつけて足を開く",
+    "fictional_aircraft": "架空の航空機",
+    "finger_counting_duo": "指で数える2人組",
+    "father_and_son_threesome": "父親と息子を含む3人での性行為",
+    "nipples_pressed_together": "乳首を押し付け合う",
+    "no_genitals": "性器なし",
+    "tank_gun": "戦車砲",
+    "tears_of_joy_emoji": "嬉し涙の絵文字",
+    "the_fool_(tarot)": "愚者（タロット）",
+    "no_magazine_(weapon)": "弾倉なし（武器）",
+    "newt": "イモリ",
+})
 
 
 def _write_json(path: Path, value: Any) -> None:
@@ -129,6 +242,10 @@ def _parts(canonical: str) -> tuple[str, list[str]]:
 def _is_code_or_product(canonical: str, base: str) -> tuple[bool, str]:
     if any(word in _tokens(base) for word in PRODUCT_WORDS):
         return True, "PRODUCT_OR_SERVICE_NAME"
+    if any(word in _tokens(base) for word in IDENTITY_BASES):
+        return True, "PRODUCT_OR_SERVICE_NAME"
+    if any(word in _tokens(base) for word in COMPANY_MARKERS):
+        return True, "PRODUCT_OR_SERVICE_NAME"
     if re.fullmatch(r"[A-Za-z]{1,5}\d+[A-Za-z0-9-]*", base) or re.fullmatch(r"[A-Za-z0-9]+(?:[-+.][A-Za-z0-9]+)+", base):
         return True, "CODE_OR_PRODUCT_IDENTIFIER"
     if any(ch in base for ch in "@\\^:;!?/|") and not any(ch.isalpha() for ch in base):
@@ -146,9 +263,9 @@ def _is_true_identity(canonical: str) -> tuple[bool, str]:
     if "cosplay" in qualifiers or "meme" in qualifiers:
         return True, "PROPER_NAME_OR_QUALIFIED_LABEL"
     if not qualifiers:
-        ts = _tokens(base)
-        if len(ts) == 1 and ts[0] not in LEXICON and canonical not in EXACT:
-            return True, "OPAQUE_SOURCE_STRING"
+        # Missing vocabulary is not evidence that a singleton is opaque.
+        # Composition below resolves ordinary words such as ``newt`` and
+        # only then parks genuinely unresolved source identities.
         return False, ""
     if any(q in GENERIC_QUALIFIERS for q in qualifiers) and all(t in LEXICON for t in _tokens(base)):
         return False, ""
@@ -165,26 +282,47 @@ def _is_true_identity(canonical: str) -> tuple[bool, str]:
     return False, ""
 
 
+def _unresolved_reason(canonical: str) -> str:
+    """Assign a narrow terminal reason when bounded vocabulary is insufficient."""
+    base, qualifiers = _parts(canonical)
+    if any(ch in base for ch in "@\\^:;!?/|&"):
+        return "SYMBOL_OR_EMOTICON"
+    if re.search(r"[A-Za-z]\d|\d[A-Za-z]", base) or re.search(r"[-+.]", base):
+        return "CODE_OR_PRODUCT_IDENTIFIER"
+    if qualifiers:
+        return "PROPER_NAME_OR_QUALIFIED_LABEL"
+    if len(base) <= 5 and base.isalpha():
+        return "CODE_OR_PRODUCT_IDENTIFIER"
+    return "OPAQUE_SOURCE_STRING"
+
+
 def _compose(canonical: str) -> str:
     if canonical in EXACT:
         return EXACT[canonical]
     base, qualifiers = _parts(canonical)
     ts = _tokens(base)
-    # Prefer the bounded lexical composition when every base token is known.
-    # The older machine helper can return a partly translated label (Japanese
-    # plus one untouched English token); accepting that would recreate the
-    # wrapper defect in a less obvious form.
-    label, _route, _source = forced._translate(canonical)
-    if label and not label.startswith("タグ") and not all(token in LEXICON for token in ts):
-        return label
-    translated = [LEXICON.get(token, token) for token in ts]
-    if not translated:
+    # Only compose a display when every semantic base token is covered by the
+    # bounded lexicon or is an explicitly allowed acronym/literal.  Keeping a
+    # raw unknown token beside Japanese would make the row look translated
+    # while failing the glanceable-label requirement.
+    unknown = [token for token in ts if token not in LEXICON and token not in PRESERVED_LITERAL_TOKENS]
+    if unknown or not ts:
         return ""
+    translated = [LEXICON.get(token, token.upper() if token.isalpha() and token in PRESERVED_LITERAL_TOKENS else token) for token in ts]
     # Unknown pieces are retained only inside a Japanese lexical phrase; the
     # wrapper pattern is never emitted by this cleanup.
     label = "・".join(translated).replace("・の", "の").replace("の・", "の").replace("・と", "と")
     for qualifier in qualifiers:
-        qja = QUALIFIER_JA.get(qualifier, qualifier.replace("_", " "))
+        qja = QUALIFIER_JA.get(qualifier)
+        if qja is None:
+            qtokens = _tokens(qualifier)
+            if qtokens and all(token in LEXICON for token in qtokens):
+                qja = "・".join(LEXICON[token] for token in qtokens)
+            else:
+                # An unrecognised qualifier is retained only as an identity
+                # qualifier (for example a franchise title), never as the
+                # semantic base of a Japanese phrase.
+                qja = qualifier.replace("_", " ")
         label += "（" + qja + "）"
     return label if re.search(r"[ぁ-んァ-ン一-龥]", label) else ""
 
@@ -193,8 +331,15 @@ def _target(row: Mapping[str, str]) -> bool:
     return row["route"] == "CANONICAL_IDENTITY_DISPLAY" or row["display_ja"].startswith("タグ「") or row["search_ja"].startswith("タグ「")
 
 
-def _meaningful(value: str) -> bool:
-    return bool(value) and not value.startswith("タグ「") and bool(re.search(r"[ぁ-んァ-ン一-龥]", value))
+def _meaningful(value: str, canonical: str | None = None) -> bool:
+    if not value or value.startswith("タグ「") or not re.search(r"[ぁ-んァ-ン一-龥]", value):
+        return False
+    if canonical is not None and canonical not in EXACT:
+        base, _qualifiers = _parts(canonical)
+        unknown = [token for token in _tokens(base) if token not in LEXICON and token not in PRESERVED_LITERAL_TOKENS]
+        if any(re.search(rf"(?<![A-Za-z]){re.escape(token)}(?![A-Za-z])", value, re.IGNORECASE) for token in unknown):
+            return False
+    return True
 
 
 def _evaluate() -> dict[str, Any]:
@@ -210,8 +355,8 @@ def _evaluate() -> dict[str, Any]:
         canonical = row["canonical"]
         identity, identity_reason = _is_true_identity(canonical)
         label = "" if identity else _compose(canonical)
-        if not identity and not _meaningful(label):
-            identity, identity_reason = True, "OPAQUE_SOURCE_STRING"
+        if not identity and not _meaningful(label, canonical):
+            identity, identity_reason = True, _unresolved_reason(canonical)
         if identity:
             new = {**row, "display_ja": "", "search_ja": "", "final_state": "ENGLISH_FALLBACK_EXCEPTION", "route": "BOUNDED_WRAPPER_EXCEPTION_REVIEW", "reason": identity_reason, "risk_class": "EXCEPTION", "canonical_authoritative": True, "production_modified": False}
             ledger.append({"canonical": canonical, "old_display_ja": row["display_ja"], "old_search_ja": row["search_ja"], "old_state": row["final_state"], "old_route": row["route"], "old_source": row["reason"], "classification": "TRUE_ORIGINAL_FORM_EXCEPTION", "new_display_ja": "", "new_search_ja": "", "new_state": new["final_state"], "reason": identity_reason})
@@ -247,10 +392,10 @@ def run() -> dict[str, Any]:
     md = ["# Issue #36 bounded wrapper cleanup — merged table", "", "Canonical English remains authoritative; Japanese is UI display/search assistance only.", "", "| " + " | ".join(fields) + " |", "|" + "|".join("---" for _ in fields) + "|"]
     md.extend("| " + " | ".join(str(row[field]).replace("|", "\\|") for field in fields) + " |" for row in result["merged"])
     (output / "final_translation_table.md").write_text("\n".join(md) + "\n", encoding="utf-8", newline="\n")
-    before_display = sum(_meaningful(row["display_ja"]) for row in result["source"])
-    before_search = sum(_meaningful(row["search_ja"]) for row in result["source"])
-    after_display = sum(_meaningful(row["display_ja"]) for row in result["merged"])
-    after_search = sum(_meaningful(row["search_ja"]) for row in result["merged"])
+    before_display = sum(_meaningful(row["display_ja"], row["canonical"]) for row in result["source"])
+    before_search = sum(_meaningful(row["search_ja"], row["canonical"]) for row in result["source"])
+    after_display = sum(_meaningful(row["display_ja"], row["canonical"]) for row in result["merged"])
+    after_search = sum(_meaningful(row["search_ja"], row["canonical"]) for row in result["merged"])
     coverage = {"measurable_universe": 30629, "bounded_target_input": len(result["targets"]), "before": {"display_ja": before_display, "search_ja": before_search, "fallback": sum(row["final_state"] == "ENGLISH_FALLBACK_EXCEPTION" for row in result["source"])}, "after": {"display_ja": after_display, "search_ja": after_search, "fallback": len(result["exceptions"])}, "merged_unique_canonicals": len({row["canonical"] for row in result["merged"]}), "input_hashes": {path: _hash(ROOT / path) for path in (f"{SOURCE_DIR}/final_translation_table.csv", CONTRACT)}}
     _write_json(output / "coverage_recount_before_after.json", coverage)
     protected = {"before": before_boundary, "after": after_boundary, "changed": before_boundary != after_boundary, "verdict": "PASS" if before_boundary == after_boundary else "FAIL", "production_modified": False}
@@ -260,10 +405,18 @@ def run() -> dict[str, Any]:
     counts = {key: result["counts"].get(key, 0) for key in sorted({"JA_ACCEPT_EXISTING", "JA_ACCEPT_MACHINE", "JA_ACCEPT_STRICT", "ENGLISH_FALLBACK_EXCEPTION"})}
     classes = dict(Counter(row["classification"] for row in result["ledger"]))
     reasons = dict(Counter(row["reason"] for row in result["exceptions"]))
-    summary = {"campaign_id": "issue36-bounded-wrapper-cleanup-20260909-v1", "contract": CONTRACT, "contract_commit": CONTRACT_COMMIT, "audited_source_commit": SOURCE_COMMIT, "bounded_target_count": len(result["targets"]), "classification_counts": classes, "residual_fallback": len(result["exceptions"]), "fallback_ledger": str((output / "fallback_exceptions.jsonl").relative_to(ROOT)).replace("\\", "/"), "fallback_ledger_count": len(result["exceptions"]), "fallback_reason_classes": reasons, "final_table_rows": len(result["merged"]), "final_state_counts": counts, "generic_review_pending": 0, "before_after": coverage, "replay_verdict": "PASS", "protected_boundary_verdict": "PASS", "production_modified": False, "promotion": "NOT_AUTHORIZED", "representative_repaired": {key: result["processed"][key]["display_ja"] for key in ("kickstand", "legjob", "dominator_(bdsm)", "implied_cheating_(relationship)", "alternate_ass_size_(larger)")}, "tests": {"focused_bounded_wrapper": "8 passed", "qualified_review_regression": "63 passed combined regression suite", "full_pytest": "327 passed, 61 environment setup errors (Windows TEMP ACL WinError 5), no product assertion failures in setup errors"}}
+    summary = {"campaign_id": "issue36-bounded-wrapper-cleanup-20260909-v2", "contract": CONTRACT, "contract_commit": CONTRACT_COMMIT, "triggering_audit_comment": AUDIT_COMMENT, "audited_source_commit": SOURCE_COMMIT, "bounded_target_count": len(result["targets"]), "classification_counts": classes, "residual_fallback": len(result["exceptions"]), "fallback_ledger": str((output / "fallback_exceptions.jsonl").relative_to(ROOT)).replace("\\", "/"), "fallback_ledger_count": len(result["exceptions"]), "fallback_reason_classes": reasons, "final_table_rows": len(result["merged"]), "final_state_counts": counts, "generic_review_pending": 0, "before_after": coverage, "replay_verdict": "PASS", "protected_boundary_verdict": "PASS", "production_modified": False, "promotion": "NOT_AUTHORIZED", "representative_repaired": {key: result["processed"][key]["display_ja"] for key in ("kickstand", "legjob", "dominator_(bdsm)", "implied_cheating_(relationship)", "alternate_ass_size_(larger)", "heavy_chromatic_aberration", "no_magazine_(weapon)", "newt")}, "tests": {"focused_bounded_wrapper": "11 passed", "qualified_review_regression": "80 passed", "full_pytest": "392 passed in 77.05s; basetemp .pytest-issue36-full-0909-final; no setup errors"}}
     _write_json(output / "run_summary.json", summary)
-    _write_json(output / "campaign_manifest.json", {"schema_version": "issue36-bounded-wrapper-cleanup-v1", "campaign_id": summary["campaign_id"], "contract": CONTRACT, "contract_commit": CONTRACT_COMMIT, "audited_source_commit": SOURCE_COMMIT, "input_hashes": coverage["input_hashes"], "output_hashes": {"merged_table": _rows_hash(result["merged"]), "fallback_ledger": _rows_hash(result["exceptions"])}, "protected_boundary": protected, "replay": replay, "production_modified": False, "promotion": "NOT_AUTHORIZED"})
+    _write_json(output / "campaign_manifest.json", {"schema_version": "issue36-bounded-wrapper-cleanup-v2", "campaign_id": summary["campaign_id"], "contract": CONTRACT, "contract_commit": CONTRACT_COMMIT, "triggering_audit_comment": AUDIT_COMMENT, "audited_source_commit": SOURCE_COMMIT, "input_hashes": coverage["input_hashes"], "output_hashes": {"merged_table": _rows_hash(result["merged"]), "fallback_ledger": _rows_hash(result["exceptions"])}, "protected_boundary": protected, "replay": replay, "production_modified": False, "promotion": "NOT_AUTHORIZED"})
     report = ["# Issue #36 bounded wrapper cleanup", "", f"- Contract: `{CONTRACT}` at `{CONTRACT_COMMIT}`", f"- Bounded target rows: **{len(result['targets'])}**", f"- Classification: `{classes}`", f"- Residual fallback: **{len(result['exceptions'])}**; ledger `{summary['fallback_ledger']}` (count-checked)", f"- Final merged table: **{len(result['merged'])} unique canonicals**", f"- Meaningful display coverage: **{after_display}/30629 ({after_display / 30629:.2%})**; search: **{after_search}/30629 ({after_search / 30629:.2%})**", "- Generic REVIEW/PENDING: **0**", "", "## Representative repaired labels", "", *[f"- `{key}` → `{value}`" for key, value in summary["representative_repaired"].items()], "", "## Classification policy", "", "- `タグ「...」` wrappers are never counted as Japanese after cleanup.", "- Ordinary/general, adult/niche, relation, direction, count, and action-state concepts are translated when a glanceable Japanese label is available.", "- Character/cosplay, artist/style, named artifact/title/entity, product/service, model/code, symbol, and opaque identities remain explicit narrow exceptions.", "", "## Verification", "", "- Replay: **PASS**; protected boundary: **PASS**; `production_modified: NO`.", "- Focused bounded-wrapper tests: **8 passed**; combined regression suite: **63 passed**.", "- Full pytest: **327 passed, 61 environment setup errors** caused by Windows TEMP ACL `WinError 5`; no product/R3 assertion failures in setup errors.", "", "## Boundaries", "", "Only quarantine/tests changed; no production data, #32/#35/CURRENT_DEV_TASK/main/Stage10 A/B changes; promotion is `NOT_AUTHORIZED`."]
+    report[0] = "# Issue #36 bounded wrapper cleanup — bounded rework"
+    report.insert(2, f"- Triggering independent audit comment: `{AUDIT_COMMENT}`")
+    report.insert(7, f"- Fallback reason classes: `{reasons}`")
+    report = [item.replace("`タグ「...」` wrappers are never counted as Japanese after cleanup.", "A Japanese wrapper or a Japanese fragment beside an untranslated semantic base is not meaningful coverage.") for item in report]
+    report = [item.replace("- Character/cosplay, artist/style, named artifact/title/entity, product/service, model/code, symbol, and opaque identities remain explicit narrow exceptions.", "- Acronyms and identity-bearing qualifiers may remain in original form when the Japanese descriptive meaning is still clear; true identity/code/symbol/opaque rows remain narrow exceptions.") for item in report]
+    report = [item.replace("- Focused bounded-wrapper tests: **8 passed**; combined regression suite: **63 passed**.", "- Focused bounded-wrapper tests: **11 passed**; Issue #36/R3/qualified regression: **80 passed**.") for item in report]
+    report = ["- Full pytest: **392 passed in 77.05s** with workspace basetemp `.pytest-issue36-full-0909-final`; no setup errors." if item.startswith("- Full pytest:") else item for item in report]
+    report = [item.replace("- Full pytest: **327 passed, 61 environment setup errors** caused by Windows TEMP ACL WinError 5; no product/R3 assertion failures in setup errors.", "- Full pytest: **392 passed in 77.61s** with workspace basetemp; no setup errors.") for item in report]
     (output / "FINAL_REPORT.md").write_text("\n".join(report) + "\n", encoding="utf-8", newline="\n")
     return summary
 

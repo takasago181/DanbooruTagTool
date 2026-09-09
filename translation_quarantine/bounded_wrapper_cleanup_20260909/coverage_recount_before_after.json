@@ -1,13 +1,13 @@
 {
   "after": {
-    "display_ja": 29234,
-    "fallback": 1395,
-    "search_ja": 29234
+    "display_ja": 26449,
+    "fallback": 1714,
+    "search_ja": 26449
   },
   "before": {
-    "display_ja": 27369,
+    "display_ja": 24903,
     "fallback": 826,
-    "search_ja": 27369
+    "search_ja": 24903
   },
   "bounded_target_input": 2434,
   "input_hashes": {
