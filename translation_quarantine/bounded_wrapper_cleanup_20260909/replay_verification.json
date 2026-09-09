@@ -1,0 +1,9 @@
+{
+  "live_fetch": false,
+  "merged_table_hash": "sha256:8aa690236b8711d94c646ad05a34b491134694c4d2e6c48dc06fa9912ce86621",
+  "original_vs_replay1": "PASS",
+  "original_vs_replay2": "PASS",
+  "replay1_vs_replay2": "PASS",
+  "source_mode": "frozen qualified-review table and local wrapper rules only",
+  "verdict": "PASS"
+}

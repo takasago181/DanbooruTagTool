@@ -1,0 +1,64 @@
+{
+  "audited_source_commit": "f9e275f532f3e072ecde266eae8479ea52bcd31f",
+  "before_after": {
+    "after": {
+      "display_ja": 29234,
+      "fallback": 1395,
+      "search_ja": 29234
+    },
+    "before": {
+      "display_ja": 27369,
+      "fallback": 826,
+      "search_ja": 27369
+    },
+    "bounded_target_input": 2434,
+    "input_hashes": {
+      "translation_quarantine/qualified_label_final_review_20260909/final_translation_table.csv": "sha256:e22389fde175594e11ca521dd4ef1e8a5d50f8c4eee658f2b6dfca0593c3d627",
+      "translation_quarantine/r3/BOUNDED_WRAPPER_CLEANUP_CONTRACT.md": "sha256:e0f6a10bc368bf00c78cd126e9a12662cbb89cc1d232cc82ec7c1a7699a8258f"
+    },
+    "measurable_universe": 30629,
+    "merged_unique_canonicals": 30629
+  },
+  "bounded_target_count": 2434,
+  "campaign_id": "issue36-bounded-wrapper-cleanup-20260909-v1",
+  "classification_counts": {
+    "TRANSLATABLE_DISPLAY": 1865,
+    "TRUE_ORIGINAL_FORM_EXCEPTION": 569
+  },
+  "contract": "translation_quarantine/r3/BOUNDED_WRAPPER_CLEANUP_CONTRACT.md",
+  "contract_commit": "caf489ed6523da911c67d9d56466a5692445d47e",
+  "fallback_ledger": "translation_quarantine/bounded_wrapper_cleanup_20260909/fallback_exceptions.jsonl",
+  "fallback_ledger_count": 1395,
+  "fallback_reason_classes": {
+    "CODE_OR_PRODUCT_IDENTIFIER": 74,
+    "OPAQUE_SOURCE_STRING": 283,
+    "PRODUCT_OR_SERVICE_NAME": 39,
+    "PROPER_NAME_OR_QUALIFIED_LABEL": 925,
+    "SYMBOL_OR_EMOTICON": 74
+  },
+  "final_state_counts": {
+    "ENGLISH_FALLBACK_EXCEPTION": 1395,
+    "JA_ACCEPT_EXISTING": 547,
+    "JA_ACCEPT_MACHINE": 24849,
+    "JA_ACCEPT_STRICT": 3838
+  },
+  "final_table_rows": 30629,
+  "generic_review_pending": 0,
+  "production_modified": false,
+  "promotion": "NOT_AUTHORIZED",
+  "protected_boundary_verdict": "PASS",
+  "replay_verdict": "PASS",
+  "representative_repaired": {
+    "alternate_ass_size_(larger)": "大きめの尻差分",
+    "dominator_(bdsm)": "支配する側（BDSM）",
+    "implied_cheating_(relationship)": "浮気を示唆する関係",
+    "kickstand": "キックスタンド",
+    "legjob": "レッグジョブ"
+  },
+  "residual_fallback": 1395,
+  "tests": {
+    "focused_bounded_wrapper": "8 passed",
+    "full_pytest": "327 passed, 61 environment setup errors (Windows TEMP ACL WinError 5), no product assertion failures in setup errors",
+    "qualified_review_regression": "63 passed combined regression suite"
+  }
+}

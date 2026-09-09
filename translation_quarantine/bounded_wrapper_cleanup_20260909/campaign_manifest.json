@@ -1,0 +1,47 @@
+{
+  "audited_source_commit": "f9e275f532f3e072ecde266eae8479ea52bcd31f",
+  "campaign_id": "issue36-bounded-wrapper-cleanup-20260909-v1",
+  "contract": "translation_quarantine/r3/BOUNDED_WRAPPER_CLEANUP_CONTRACT.md",
+  "contract_commit": "caf489ed6523da911c67d9d56466a5692445d47e",
+  "input_hashes": {
+    "translation_quarantine/qualified_label_final_review_20260909/final_translation_table.csv": "sha256:e22389fde175594e11ca521dd4ef1e8a5d50f8c4eee658f2b6dfca0593c3d627",
+    "translation_quarantine/r3/BOUNDED_WRAPPER_CLEANUP_CONTRACT.md": "sha256:e0f6a10bc368bf00c78cd126e9a12662cbb89cc1d232cc82ec7c1a7699a8258f"
+  },
+  "output_hashes": {
+    "fallback_ledger": "sha256:a9082c22f9a7ac0ce77c628450f1dbf04d326cbe6c8675d5781d06f89a1369d6",
+    "merged_table": "sha256:8aa690236b8711d94c646ad05a34b491134694c4d2e6c48dc06fa9912ce86621"
+  },
+  "production_modified": false,
+  "promotion": "NOT_AUTHORIZED",
+  "protected_boundary": {
+    "after": {
+      "data/japanese/japanese_terms.csv": "sha256:aa4583f911e29597f60a4059bf45c34dc320ab33012ec6b46f2a4ffae21422dc",
+      "data/runtime/japanese_overlay.json": "sha256:de1b375d79ef05f4c2477347b20b8a09115511d2ecbd39602bdebcdfa6d576dc",
+      "data/runtime_index/BUILD_MANIFEST.json": "sha256:0f7ec4961c393a4c032f23a2d3e22b9268b7e481bfd91e788fec6379411fb13f",
+      "data/runtime_index/canonical_overlay.json": "sha256:bf9a62105740ec579ea0618721b78a0d3ccc2279cf18aabf402c3083ede05195",
+      "data/semantic/family_support_rules.csv": "sha256:59609aadc82f9f4be97b82008159b55e4d738f41dbb9625c59be8a826fe7c4fd",
+      "data/semantic/semantic_support_profiles.csv": "sha256:33f9142333db867d53096cf2f11ba411aefa13996560326fa174803a2d8c2755"
+    },
+    "before": {
+      "data/japanese/japanese_terms.csv": "sha256:aa4583f911e29597f60a4059bf45c34dc320ab33012ec6b46f2a4ffae21422dc",
+      "data/runtime/japanese_overlay.json": "sha256:de1b375d79ef05f4c2477347b20b8a09115511d2ecbd39602bdebcdfa6d576dc",
+      "data/runtime_index/BUILD_MANIFEST.json": "sha256:0f7ec4961c393a4c032f23a2d3e22b9268b7e481bfd91e788fec6379411fb13f",
+      "data/runtime_index/canonical_overlay.json": "sha256:bf9a62105740ec579ea0618721b78a0d3ccc2279cf18aabf402c3083ede05195",
+      "data/semantic/family_support_rules.csv": "sha256:59609aadc82f9f4be97b82008159b55e4d738f41dbb9625c59be8a826fe7c4fd",
+      "data/semantic/semantic_support_profiles.csv": "sha256:33f9142333db867d53096cf2f11ba411aefa13996560326fa174803a2d8c2755"
+    },
+    "changed": false,
+    "production_modified": false,
+    "verdict": "PASS"
+  },
+  "replay": {
+    "live_fetch": false,
+    "merged_table_hash": "sha256:8aa690236b8711d94c646ad05a34b491134694c4d2e6c48dc06fa9912ce86621",
+    "original_vs_replay1": "PASS",
+    "original_vs_replay2": "PASS",
+    "replay1_vs_replay2": "PASS",
+    "source_mode": "frozen qualified-review table and local wrapper rules only",
+    "verdict": "PASS"
+  },
+  "schema_version": "issue36-bounded-wrapper-cleanup-v1"
+}

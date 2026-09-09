@@ -1,0 +1,19 @@
+{
+  "after": {
+    "display_ja": 29234,
+    "fallback": 1395,
+    "search_ja": 29234
+  },
+  "before": {
+    "display_ja": 27369,
+    "fallback": 826,
+    "search_ja": 27369
+  },
+  "bounded_target_input": 2434,
+  "input_hashes": {
+    "translation_quarantine/qualified_label_final_review_20260909/final_translation_table.csv": "sha256:e22389fde175594e11ca521dd4ef1e8a5d50f8c4eee658f2b6dfca0593c3d627",
+    "translation_quarantine/r3/BOUNDED_WRAPPER_CLEANUP_CONTRACT.md": "sha256:e0f6a10bc368bf00c78cd126e9a12662cbb89cc1d232cc82ec7c1a7699a8258f"
+  },
+  "measurable_universe": 30629,
+  "merged_unique_canonicals": 30629
+}
