@@ -1,4 +1,4 @@
-# 03 — Failure Diagnosis, Testing and Evaluation
+# Failure Diagnosis, Testing and Evaluation
 
 ## Diagnose before blaming the tag
 
@@ -91,7 +91,7 @@ Unary taggers are useful for common visual presence/attributes. They are weak as
 - Alias equivalence.
 
 Current evaluator knowledge:
-- WD EVA02 v3: common/unary baseline; tags below its training filter create structural coverage gaps
+- WD EVA02 v3: common/unary baseline; tags under its filtering threshold create structural coverage gaps
 - Kagami-24k: wider vocabulary candidate, rare-tail reliability still separate
 - CL Tagger v2: wide vocabulary, per-tag calibration/threshold/OOD information; still not relation ground truth
 - full Special2788 comparative coverage remains queued for after dictionary finalization.
@@ -100,5 +100,5 @@ Current evaluator knowledge:
 
 - `../research/BATCH_C_EVIDENCE_RELIABILITY_20260909.md`
 - `../research/BATCH_C_SOURCES_20260909.md`
-- `../GENERATION_KNOWLEDGE_CORPUS.md`
+- `../GENERATION_KNOWLEDGE_CORPUS.md` sections 7–9
 - `../research/BATCH_A_FALSE_ASSUMPTION_PREVENTION_20260909.md`

@@ -1,4 +1,4 @@
-# 04 — Tools, Postprocess and LoRA
+# Tools, Postprocess and LoRA
 
 ## Core rule
 
@@ -97,7 +97,7 @@ Do not generalize adapter behavior across model families without evidence.
 
 ## Primary originals
 
-- `../GENERATION_KNOWLEDGE_CORPUS.md`
+- `../GENERATION_KNOWLEDGE_CORPUS.md` sections 5–6
 - `../research/TOSHIAKI_WIKI_PRACTICAL_FINDINGS_20260909.md`
 - `../research/HARD_FETISH_SOURCES_20260909.md`
 - `../research/BATCH_A_FALSE_ASSUMPTION_PREVENTION_20260909.md`

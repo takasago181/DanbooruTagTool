@@ -1,4 +1,4 @@
-# 02 — Prompt, Support and Composition
+# Prompt, Support and Composition
 
 ## Core design rule
 
@@ -108,6 +108,6 @@ Never normalize the compared surfaces before generation.
 
 - `../research/BATCH_B_MINIMUM_SUFFICIENT_PROMPT_20260909.md`
 - `../research/BATCH_A_FALSE_ASSUMPTION_PREVENTION_20260909.md`
-- `../GENERATION_KNOWLEDGE_CORPUS.md`
+- `../GENERATION_KNOWLEDGE_CORPUS.md` sections 2 and 4
 - `../research/AIARTRECIPE_PRACTICAL_FINDINGS_20260909.md`
 - `../research/TOSHIAKI_WIKI_PRACTICAL_FINDINGS_20260909.md`

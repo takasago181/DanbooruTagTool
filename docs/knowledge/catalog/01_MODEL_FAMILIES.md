@@ -1,4 +1,4 @@
-# 01 — Model-Family Knowledge
+# Model-Family Knowledge
 
 ## WAI Illustrious v17 — current first priority
 
@@ -21,8 +21,8 @@ Current WAI17 unknowns remain image-test questions: rare Special activation, can
 
 Useful family-level facts:
 - Booru-oriented captioning with richer caption context than simple independent tags alone
-- critical composition tags can conflict; mutually incompatible frame/viewpoint concepts are a Prompt contradiction before a Special failure
-- derivative checkpoints must be revalidated; generic Illustrious advice is not exact WAI truth.
+- critical composition tags can conflict; e.g. stacking mutually incompatible frame/viewpoint concepts is a Prompt contradiction before it is a Special failure
+- derivative checkpoints must be revalidated; do not treat generic Illustrious advice as exact WAI truth.
 
 ## NoobAI XL 1.1 EPS
 
@@ -42,7 +42,7 @@ Implications:
 
 ## NoobAI V-Pred 1.0
 
-Keep separate from EPS for inference claims:
+Keep completely separate from EPS for inference claims:
 - CFG 4–5
 - Steps 28–35
 - Euler
@@ -59,7 +59,7 @@ Exact family guidance:
 - random tag dropout means every related tag need not be injected
 - multiple characters benefit from explicit identity/basic appearance context
 - Aesthetic does not require quality tags in the same way as older SDXL habits
-- Turbo uses very different low-CFG/low-step inference and must be separated.
+- Turbo uses CFG 1 and low step counts; do not mix with Base/Aesthetic settings.
 
 Practical risk:
 - natural language does not eliminate binding/identity bleed
@@ -87,7 +87,7 @@ Do not transfer without evidence:
 
 ## Primary originals
 
-- `../GENERATION_KNOWLEDGE_CORPUS.md`
+- `../GENERATION_KNOWLEDGE_CORPUS.md` sections 3.x
 - `../research/HARD_FETISH_MODEL_FAMILY_MATRIX_20260909.md`
 - `../research/HF_MODEL_DISCUSSIONS_AUDIT_20260909.md`
 - `../research/WAI17_LOCAL_ENV_TEST_BASELINE_20260909.md`

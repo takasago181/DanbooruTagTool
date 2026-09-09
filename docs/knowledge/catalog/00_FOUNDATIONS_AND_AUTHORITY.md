@@ -1,4 +1,4 @@
-# 00 — Foundations and Authority
+# Foundations and Authority
 
 ## Current product goal
 
@@ -15,7 +15,7 @@ The runtime remains local and non-LLM. KNOWLEDGE is evidence/reference and does 
 - `CONTROLLED_PRACTICAL` — controlled practical comparison
 - `PRACTICAL` — useful but less controlled real-world evidence
 - `COMMUNITY` — hypothesis/failure-discovery evidence
-- `HOLD / TEST_REQUIRED / IMAGE_TEST_REQUIRED` — unresolved, conflicting, or test-required
+- `HOLD` — unresolved, conflicting, or image-test required
 - `REJECT` — contradicted/overgeneralized/unsafe as a default
 
 Language does not determine rank. Japanese, English, Chinese, Korean and other sources are valid when evidence quality is high.
@@ -35,7 +35,7 @@ Prefer official GitHub README/docs and version-specific issues.
 Prefer primary papers/research.
 
 ### Practical failure modes
-Use controlled/practical reports, AIArtRecipe, Toshiaki Wiki, HF discussions, creator reports and community evidence — but do not promote them into canonical truth without independent support.
+Use controlled/practical reports, AIArtRecipe, Toshiaki Wiki, HF discussions, creator reports, community evidence — but do not promote them into canonical truth without independent support.
 
 ## Identity layers that must stay separate
 
@@ -55,8 +55,6 @@ Use controlled/practical reports, AIArtRecipe, Toshiaki Wiki, HF discussions, cr
 - Current Danbooru post_count is not direct training-exposure probability.
 - Generation success does not redefine canonical meaning.
 - A practical Prompt bundle may reveal useful support hypotheses but is not the definition of the Special.
-- Prompt-only, LoRA/control-assisted, and postprocess-rescued outputs are separate evidence lanes.
-- Unknown behavior stays HOLD rather than being filled with another family/version's habits.
 
 ## Primary originals
 

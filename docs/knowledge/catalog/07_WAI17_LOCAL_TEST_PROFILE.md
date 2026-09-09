@@ -4,7 +4,7 @@ Status: `CURRENT_FIRST_TEST_PROFILE`
 
 ## Purpose
 
-現在のあなたの実環境で、まず WAI Illustrious v17 を使って知識を実証するための最短入口。
+現在のユーザー実環境で、まず WAI Illustrious v17 を使って知識を実証するための最短入口。
 
 詳細原本:
 `../research/WAI17_LOCAL_ENV_TEST_BASELINE_20260909.md`
