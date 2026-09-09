@@ -1,7 +1,7 @@
 start_sequence,end_sequence,path,rule_version,row_count,status,notes
-1,20,validation_quarantine/results_blocks/0001_0020.csv,R1,20,COMPLETE,historical R1 checkpoint
-21,40,validation_quarantine/results_blocks/0021_0040.csv,R1,20,COMPLETE,historical R1 checkpoint
-41,60,validation_quarantine/results_blocks/0041_0060.csv,R1,20,COMPLETE,historical R1 checkpoint; R2 concurrency backfill queued
+1,20,validation_quarantine/results_blocks/0001_0020.csv,R1,20,COMPLETE,legacy R1 checkpoint
+21,40,validation_quarantine/results_blocks/0021_0040.csv,R1,20,COMPLETE,legacy R1 checkpoint
+41,60,validation_quarantine/results_blocks/0041_0060.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
 61,80,validation_quarantine/results_blocks/0061_0080.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
 81,100,validation_quarantine/results_blocks/0081_0100.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
 101,120,validation_quarantine/results_blocks/0101_0120.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
@@ -13,57 +13,57 @@ start_sequence,end_sequence,path,rule_version,row_count,status,notes
 221,240,validation_quarantine/results_blocks/0221_0240.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
 241,260,validation_quarantine/results_blocks/0241_0260.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
 261,280,validation_quarantine/results_blocks/0261_0280.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
-281,300,validation_quarantine/results_blocks/0281_0300.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; Batch3 gate PASS
+281,300,validation_quarantine/results_blocks/0281_0300.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
 301,320,validation_quarantine/results_blocks/0301_0320.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
 321,340,validation_quarantine/results_blocks/0321_0340.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
 341,360,validation_quarantine/results_blocks/0341_0360.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
 361,380,validation_quarantine/results_blocks/0361_0380.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
-381,400,validation_quarantine/results_blocks/0381_0400.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; Batch4 gate PASS
+381,400,validation_quarantine/results_blocks/0381_0400.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
 401,420,validation_quarantine/results_blocks/0401_0420.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
 421,440,validation_quarantine/results_blocks/0421_0440.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
 441,460,validation_quarantine/results_blocks/0441_0460.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
 461,480,validation_quarantine/results_blocks/0461_0480.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
-481,500,validation_quarantine/results_blocks/0481_0500.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; Batch5 gate FAIL due A-risk false-PASSes ID420 and ID479; full 401-500 revalidation queued
-501,520,validation_quarantine/results_blocks/0501_0520.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; ID503 REVIEW
-521,540,validation_quarantine/results_blocks/0521_0540.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; ID535 FIX pose requirement
-541,560,validation_quarantine/results_blocks/0541_0560.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; ID545 FIX implement requirement
-561,580,validation_quarantine/results_blocks/0561_0580.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; IDs569/571/573 FIX; ID570 REVIEW
-581,600,validation_quarantine/results_blocks/0581_0600.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; ID600 FIX implement requirement; Batch6 gate PASS
+481,500,validation_quarantine/results_blocks/0481_0500.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
+501,520,validation_quarantine/results_blocks/0501_0520.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
+521,540,validation_quarantine/results_blocks/0521_0540.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
+541,560,validation_quarantine/results_blocks/0541_0560.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
+561,580,validation_quarantine/results_blocks/0561_0580.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
+581,600,validation_quarantine/results_blocks/0581_0600.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
 601,620,validation_quarantine/results_blocks/0601_0620.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
 621,640,validation_quarantine/results_blocks/0621_0640.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
 641,660,validation_quarantine/results_blocks/0641_0660.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
-661,680,validation_quarantine/results_blocks/0661_0680.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; ID680 S-risk self-action correction
-681,700,validation_quarantine/results_blocks/0681_0700.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; Batch7 gate PASS
-701,720,validation_quarantine/results_blocks/0701_0720.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; 8 FIX / 2 REVIEW
-721,740,validation_quarantine/results_blocks/0721_0740.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; 5 FIX
-741,760,validation_quarantine/results_blocks/0741_0760.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; 4 FIX / 1 REVIEW
-761,780,validation_quarantine/results_blocks/0761_0780.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; 5 FIX / 6 REVIEW
-781,800,validation_quarantine/results_blocks/0781_0800.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; 6 FIX / 5 REVIEW; Batch8 gate PASS
-801,820,validation_quarantine/results_blocks/0801_0820.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; Batch9 partial
-821,840,validation_quarantine/results_blocks/0821_0840.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; Batch9 partial
-841,860,validation_quarantine/results_blocks/0841_0860.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; 4 FIX / 9 REVIEW
-861,880,validation_quarantine/results_blocks/0861_0880.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; 5 FIX / 9 REVIEW
-881,900,validation_quarantine/results_blocks/0881_0900.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; 6 FIX / 6 REVIEW; Batch9 gate PASS
-901,920,validation_quarantine/results_blocks/0901_0920.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; Batch10 partial
-921,940,validation_quarantine/results_blocks/0921_0940.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; Batch10 partial
-941,960,validation_quarantine/results_blocks/0941_0960.csv,R2,20,COMPLETE,reconciled from durable block ledger
-961,980,validation_quarantine/results_blocks/0961_0980.csv,R2,20,COMPLETE,reconciled from durable block ledger
-981,1000,validation_quarantine/results_blocks/0981_1000.csv,R2,20,COMPLETE,reconciled from durable block ledger; Batch10 gate PASS
-1001,1020,validation_quarantine/results_blocks/1001_1020.csv,R2,20,COMPLETE,reconciled from durable block ledger
-1021,1040,validation_quarantine/results_blocks/1021_1040.csv,R2,20,COMPLETE,reconciled from durable block ledger
-1041,1060,validation_quarantine/results_blocks/1041_1060.csv,R2,20,COMPLETE,reconciled from durable block ledger
-1061,1080,validation_quarantine/results_blocks/1061_1080.csv,R2,20,COMPLETE,reconciled from durable block ledger
-1081,1100,validation_quarantine/results_blocks/1081_1100.csv,R2,20,COMPLETE,reconciled from durable block ledger; Batch11 gate PASS
-1101,1120,validation_quarantine/results_blocks/1101_1120.csv,R2,20,COMPLETE,reconciled from durable block ledger
-1121,1140,validation_quarantine/results_blocks/1121_1140.csv,R2,20,COMPLETE,reconciled from durable block ledger
-1141,1160,validation_quarantine/results_blocks/1141_1160.csv,R2,20,COMPLETE,reconciled from durable block ledger
-1161,1180,validation_quarantine/results_blocks/1161_1180.csv,R2,20,COMPLETE,reconciled from durable block ledger
-1181,1200,validation_quarantine/results_blocks/1181_1200.csv,R2,20,COMPLETE,reconciled from durable block ledger; Batch12 gate PASS
-1201,1220,validation_quarantine/results_blocks/1201_1220.csv,R2,20,COMPLETE,reconciled from durable block ledger
-1221,1240,validation_quarantine/results_blocks/1221_1240.csv,R2,20,COMPLETE,reconciled from durable block ledger
-1241,1260,validation_quarantine/results_blocks/1241_1260.csv,R2,20,COMPLETE,reconciled from durable block ledger; ID1241 FIX
-1261,1280,validation_quarantine/results_blocks/1261_1280.csv,R2,20,COMPLETE,reconciled from durable block ledger
-1281,1300,validation_quarantine/results_blocks/1281_1300.csv,R2,20,COMPLETE,reconciled from durable block ledger; Batch13 gate PASS
+661,680,validation_quarantine/results_blocks/0661_0680.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
+681,700,validation_quarantine/results_blocks/0681_0700.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
+701,720,validation_quarantine/results_blocks/0701_0720.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
+721,740,validation_quarantine/results_blocks/0721_0740.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
+741,760,validation_quarantine/results_blocks/0741_0760.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
+761,780,validation_quarantine/results_blocks/0761_0780.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
+781,800,validation_quarantine/results_blocks/0781_0800.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
+801,820,validation_quarantine/results_blocks/0801_0820.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
+821,840,validation_quarantine/results_blocks/0821_0840.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
+841,860,validation_quarantine/results_blocks/0841_0860.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
+861,880,validation_quarantine/results_blocks/0861_0880.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
+881,900,validation_quarantine/results_blocks/0881_0900.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
+901,920,validation_quarantine/results_blocks/0901_0920.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
+921,940,validation_quarantine/results_blocks/0921_0940.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
+941,960,validation_quarantine/results_blocks/0941_0960.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
+961,980,validation_quarantine/results_blocks/0961_0980.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
+981,1000,validation_quarantine/results_blocks/0981_1000.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; Batch10 gate PASS
+1001,1020,validation_quarantine/results_blocks/1001_1020.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
+1021,1040,validation_quarantine/results_blocks/1021_1040.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
+1041,1060,validation_quarantine/results_blocks/1041_1060.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
+1061,1080,validation_quarantine/results_blocks/1061_1080.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
+1081,1100,validation_quarantine/results_blocks/1081_1100.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; Batch11 gate PASS
+1101,1120,validation_quarantine/results_blocks/1101_1120.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
+1121,1140,validation_quarantine/results_blocks/1121_1140.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
+1141,1160,validation_quarantine/results_blocks/1141_1160.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
+1161,1180,validation_quarantine/results_blocks/1161_1180.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
+1181,1200,validation_quarantine/results_blocks/1181_1200.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; Batch12 gate PASS
+1201,1220,validation_quarantine/results_blocks/1201_1220.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
+1221,1240,validation_quarantine/results_blocks/1221_1240.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
+1241,1260,validation_quarantine/results_blocks/1241_1260.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
+1261,1280,validation_quarantine/results_blocks/1261_1280.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
+1281,1300,validation_quarantine/results_blocks/1281_1300.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; Batch13 gate PASS
 1301,1320,validation_quarantine/results_blocks/1301_1320.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
 1321,1340,validation_quarantine/results_blocks/1321_1340.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
 1341,1360,validation_quarantine/results_blocks/1341_1360.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
@@ -88,4 +88,5 @@ start_sequence,end_sequence,path,rule_version,row_count,status,notes
 1721,1740,validation_quarantine/results_blocks/1721_1740.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; ID1739 A-risk deep review PASS
 1741,1760,validation_quarantine/results_blocks/1741_1760.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; IDs1745-1756 A-risk pose deep review PASS
 1761,1780,validation_quarantine/results_blocks/1761_1780.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
-1781,1800,validation_quarantine/results_blocks/1781_1800.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; ID1787 S-risk REVIEW; Batch18 gate pending audit
+1781,1800,validation_quarantine/results_blocks/1781_1800.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint; ID1787 S-risk REVIEW; Batch18 gate PASS
+1801,1820,validation_quarantine/results_blocks/1801_1820.csv,R2,20,COMPLETE,direct R2 first-pass checkpoint
