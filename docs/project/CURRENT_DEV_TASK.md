@@ -5,187 +5,198 @@
 ## Mirror Metadata
 
 - Source Issue: **#30** `[Stage10-PREP][PHASE2_ACTIVE] Targeted evaluator refinement before #42`
-- State: **ACTIVE / PHASE2_TARGETED_REFINEMENT / REUSE_ONLY_REVIEW_AUTHORIZED**
+- State: **ACTIVE / PHASE2_GENERATION_BATCH_WAVE_AUTHORIZED**
 - Branch: `codex/issue30-calibration-design`
-- Previous completed phase: #30 Phase 1 representative evaluator calibration
-- Completed Phase 2 checkpoints:
-  - Wave 1 + human review (`233a2a25b58de388cdf4ccff1183fca0a3260472`)
-  - Wave 2 execution (`b478f32042fa3b4111a6b86c24cb6c77655d579a`)
-  - Wave 2 human review (`34aa09a8d7c82bbfaf798c68c8c98a72a65cce50`, machine-readable `63ac1ee49edef710a3b10135a7a2d33250d6cb96`)
 - Current Stage: Stage10準備Gate実施中
 
-## Purpose
+## Current continuation contract
 
-Issue #30 Phase 1は完了・凍結済み。#36/#34が#42 activationを待たせている間に、Stage10でユーザー目視負担をさらに減らせるかを、既存evaluator成果を中心に狭く検証する。
+**`docs/project/ISSUE30_PHASE2_GENERATION_BATCH_WAVE_SPEC_20260911.md`**
 
-現在は**新規生成を行わず、既存Phase 1画像だけで残る個数系 / multi-Special系の有用な問いを再利用レビューする段階**。
+This supersedes the completed reuse-only pass as the current #30 execution task.
 
-Primary restore anchors:
-- `docs/project/ISSUE30_HANDOFF_20260910.md` — Phase 1
-- `docs/project/ISSUE30_PHASE2_HANDOFF_20260910.md` — Phase 2
-- `docs/project/ISSUE30_PHASE2_EXECUTION_SPEC_20260910.md` — Phase 2 base execution contract
-- `docs/project/ISSUE30_PHASE2_WAVE2_EXECUTION_SPEC_20260910.md` — completed Wave 2 contract
-- `docs/project/ISSUE30_PHASE2_REUSE_REVIEW_SPEC_20260911.md` — **current continuation contract**
-- `docs/project/ISSUE30_PHASE2_CHECKPOINT_TEMPLATE.md` — repository/DEV handoff format
+## Accepted Phase 2 checkpoints
 
-## Accepted evidence
+- Wave 1 + human review: `233a2a25b58de388cdf4ccff1183fca0a3260472`
+- Wave 2 execution: `b478f32042fa3b4111a6b86c24cb6c77655d579a`
+- Wave 2 human review: `34aa09a8d7c82bbfaf798c68c8c98a72a65cce50` / `63ac1ee49edef710a3b10135a7a2d33250d6cb96`
+- Reuse-only human review: `44c3874ea6083590db256f819d5445501c49ff60`
 
-### Phase 1
+Reuse-only result:
+- `CAL-023 double handjob`
+- 2 pairs / 4 existing images
+- both pairs `A_ONLY_PASS`
+- new generation 0
+- evaluator rerun 0
+- narrow positive count/action anchor only; no general structural AUTO promotion
 
-- 128 unique images / WD14-Kagami-CL each 128/128
-- minimal review 19
-- Taggers are assistive triage, not Special semantic authority.
+## Current purpose
 
-### Wave 1
+The user wants the remaining useful generation tests grouped into one batch to reduce repeated ChatGPT/Codex and local generation turnaround.
 
-- P2-001 `vibrator in anus`: 2 seedとも `BOTH_FAIL`。device/body-site binding不成立。
-- P2-002 `holding sex toy`: `A_ONLY_PASS` 1件 + contrast contaminationを伴う `BOTH_PASS` 1件。
-- P2-003 `breast expansion`: 2 seedとも `BOTH_PASS`。今回条件ではNegativeへの同一target追加による一貫した抑制なし。
+Run **3–4 independent high-value experiments in one bounded pass**, preserving one-experiment/one-question causality.
 
-### Wave 2
+Normal target:
+- 12–16 new images
+- hard cap **16 new images**
+- A/B × 2 predetermined fixed seeds when new generation is needed
+- reuse compatible existing evidence where valid
+- no automatic extra seeds
 
-- P2-004 `double dildo` vs `dildo`: `double dildo` は両端型1本ではなく2本のdildoとして出た。これは `EXACT_COUNT_RETENTION` の正答ではなく、`SHAPE_SPECIFIC_REALIZATION_FAILURE / LEXICAL_DOUBLE_TO_COUNT_COLLAPSE` として保持する。
-- P2-005 `anal` vs `anal penetration`:
-  - seed 42011 = `B_ONLY_PASS`
-  - seed 42012 = `A_ONLY_PASS`
-  - canonical/alias surfaceはこのWAI17 profileでseed-sensitive。安定同等とは言えない。
-- relation/binding/body-site/count/compound semanticsは引き続き `HUMAN_REVIEW_ONLY`。
-- machine positiveはrelated object/body-part presenceの補助証拠に留まり、insertion/binding/count等のsemantic PASSにはしない。
+## Priority experiment families
 
-## Frozen policy
+1. **MULTI_SPECIAL_RETENTION**
+   - highest priority
+   - verify that two individually understandable Specials remain simultaneously visible
+   - both success conditions must be directly judgeable from one still image
 
-- direct / non-relation / simple unaryのみ補助AUTO候補。
-- relation/binding / actor-object / body-site / quantity / spatial / insertion/contact/restraint / compound / component-only / disagreement / low-confidenceは原則HUMAN REVIEW。
-- gray/unreadable/corrupt/hash/metadata/provenance欠損はsemantic評価前にBLOCKED。
-- invalid target/contrastはexperiment-validity failureとしてevaluator failureから分離。
-- Wave 1/2はstructural AUTO promotionの根拠にしない。
+2. **SINGLE_SUPPORT_TAG_EFFECT**
+   - A = Special + minimal baseline
+   - B = same + exactly one support tag
+   - one support role only: body-site / visibility / geometry / actor / count
 
-## Current continuation — Reuse-only review
+3. **SPECIFIC_ONLY_VS_BROAD_PLUS_SPECIFIC**
+   - A = specific Special
+   - B = legitimate broad/context tag + same specific Special
+   - broad/specific relation must come from current project evidence, not invention
 
-Codexは `docs/project/ISSUE30_PHASE2_REUSE_REVIEW_SPEC_20260911.md` を現在の継続仕様として読む。
+4. **ACTOR_COUNT_DISAMBIGUATION**
+   - test whether one explicit actor/count clarification reduces wrong/missing/extra-person realization
 
-### Immediate order
+Desk-only unless clearly necessary:
+- `MACHINE_SAFE_ZONE`
 
-1. latest `origin/main` を取得する。
-2. `origin/main` を `codex/issue30-calibration-design` へ mergeする。rebase/force rewriteは禁止。
-3. frozen Phase 1 128-image artifacts / evaluator outputsを再利用する。
-4. 個数系候補 `CAL-022 / CAL-023 / CAL-024` をcurrent local canonical dataで確認し、**画像だけでPASS条件を短い日本語にできるケースだけ**選ぶ。
-5. `CAL-023 double handjob` は、local canonical日本語が明確な二者/二重行為要件を示す場合の優先候補。
-6. `CAL-032 anus + after footjob` は、両Specialの成功条件を静止画だけで直接観察できる場合のみ使用する。`after footjob` が文脈推測を要するならDEFERする。
-7. 最大2 experiments / 8 reviewed images。1 experiment / 4 imagesで十分ならそこで止める。
-8. **新規画像生成 0 / 新規seed 0 / evaluator再実行不要**。既存結果を利用する。
-9. bilingual contact sheetを作成し、ユーザーに見るべき条件を具体的日本語で表示する。
-10. repositoryへdesign/manifest/resultをcommit/pushし、user/DEV review待ちでSTOPする。
+Default new exact-count generation is **not** required because reuse-only `CAL-023` already gives a narrow 2/2 positive anchor. General count semantics remain HUMAN_REVIEW_ONLY.
 
-### Review question rule
+## Case selection authority
 
-質問は「何が画像に出ていればPASSか」をそのまま書く。
+Codex may choose exact current Special IDs and execute the complete bounded batch without returning for a separate pre-generation approval if all conditions pass:
 
-良い例:
-- `2人が同時にこの行為へ参加しているか？`
-- `要求された2つの行為が同時に成立しているか？`
+- current canonical IDs/tags only
+- one short concrete Japanese visual success question exists
+- one meaningful A/B variable only
+- experiment belongs to an authorized family above
+- existing evidence is insufficient
+- total new images <=16
+- no production/canonical/#32 mutation
 
-禁止する抽象表現:
-- `同じ意味を保持しているか？`
-- `同じ視覚的対象を誘発するか？`
-- `semantic retentionは成立したか？`
+Record the selected IDs/design in repository artifacts before generation, but do not stop between valid experiments merely for approval.
 
-1つの短い具体的日本語質問にできないcaseはreviewへ出さずDEFERする。
+## Default generation lane
 
-For each selected case, record:
-- `visible_pass_condition_ja`
-- `visible_fail_condition_ja`
-- `why_this_is_judgeable_from_one_still_image`
+- Forge Neo
+- WAI Illustrious v17
+- Euler a
+- Automatic scheduler
+- Steps 25
+- CFG 5
+- 1024×1344 when appropriate
+- fixed paired seeds
+- Hires OFF
+- ADetailer OFF
+- LoRA OFF
+- ControlNet OFF
+- regional OFF
+- Forge Couple OFF
 
-### Review UX
+Prompt-only and assisted evidence remain separate.
 
-各review cellに:
-- image number
-- case ID
-- A/B
+## Evaluator policy
+
+Run/reuse:
+- WD14
+- Kagami-24k
+- CL Tagger v2.00
+
+Machine output is triage/support only.
+
+Never machine-authorize structural semantic truth for:
+- relation / binding
+- body-site ownership
+- exact count
+- multi-person role assignment
+- compound retention
+
+## USER REVIEW UX — CURRENT RULE
+
+The user-facing contact sheet is for fast visual judgment only.
+
+Each cell/pair should show only what is needed to answer:
+- image
+- **large image number**
+- **A/B marker** when needed
+- **one large concrete Japanese question**
+
+Do **not** clutter the user-facing contact sheet with:
+- full Positive Prompt
+- full Negative Prompt
 - seed
-- concrete Japanese question
-- actual Positive Prompt tags/tokens: `English (日本語)`
-- actual Negative Prompt tags/tokens: `English (日本語)`
+- case ID
+- evaluator scores/logs
+- model/settings metadata
+- token-by-token bilingual glossary
+- long descriptions
 
-日本語フォント:
-- Meiryo
-- Yu Gothic
-- MS Gothic
+Question text is the main label:
+- Japanese-capable font: Meiryo -> Yu Gothic -> MS Gothic
+- question font size >=24 px, preferably 28–32 px when layout allows
+- tofu/square glyphs => `REVIEW_ASSET_INVALID / BLOCKED`
+- local display sanity check required
 
-□/tofu表示は `REVIEW_ASSET_INVALID / BLOCKED`。
+Traceability still remains mandatory in repository Markdown/JSON/manifest outside the contact sheet:
+- exact executed Positive/Negative Prompt
+- English canonical tags/tokens
+- Japanese labels in detailed user-readable records
+- seed/model/hash/settings
+- evaluator references
+- image SHA-256/path
 
-ユーザーはraw evaluator logを見ない。
+If Prompt details are separately shown to the user, use `English (日本語)`, but the user is not required to inspect them to perform visual review.
 
-## Existing-tool-first
+Preferred review answer:
+- A / B / both / neither / tie / unclear
 
-- Multi Prompt Slots
-- built-in X/Y/Z
-- Forge Neo Infinite Image Browsing
-- Forge API
-- existing Issue #30 runner/review tooling
-- WD14 / Kagami-24k / CL Tagger v2.00 existing outputs
+## Execution order
 
-新規extensionや大型automation platformは、具体的な不足と実益が証明されない限り導入しない。
+1. fetch latest `origin/main`
+2. merge latest main into `codex/issue30-calibration-design`; no rebase/force rewrite
+3. confirm Issue #30 + CURRENT_STATE + this file point to Generation Batch Wave
+4. inspect accepted Phase1/Wave1/Wave2/reuse-only evidence
+5. choose 3–4 valid experiment families/cases
+6. create design/manifest + concrete Japanese questions
+7. focused tests/syntax/dry-run/preflight
+8. if PASS, execute the full bounded batch without stopping between experiments
+9. run/reuse evaluator triage
+10. generate simplified large-question contact sheet
+11. generate detailed traceability artifacts separately
+12. commit/push branch
+13. STOP for user + DEV/ChatGPT review
 
-## Decision labels
+## Required outputs
 
-- ADOPT
-- HOLD
-- REJECT
-- TARGETED_IMAGE_TEST_REQUIRED
-- DEFER
+- `docs/testing/ISSUE30_PHASE2_GENERATION_BATCH_DESIGN.md`
+- `docs/testing/ISSUE30_PHASE2_GENERATION_BATCH_MANIFEST.csv`
+- `docs/testing/ISSUE30_PHASE2_GENERATION_BATCH_RESULT.md`
+- `docs/testing/ISSUE30_PHASE2_GENERATION_BATCH_RESULT.json`
+- user-facing simplified contact sheet locator
+- detailed prompt/evaluator/provenance traceability
+- tests/dry-run result
+- generated/reused/blocked counts
+- review pairs / reviewed images separately
 
 ## Hard prohibitions
 
-- current reuse passでの新規画像生成禁止
-- original 128-image pilotの全再実行禁止
-- 2,788-image sweep禁止
-- Stage10 production A/B禁止
-- production `data/**`変更禁止
-- #32 verdict / canonical変更禁止
-- Tagger direct-matchをstructural Special truthへ昇格禁止
-- relation/binding全面AUTO化禁止
-- Phase 1/Wave 1/Wave 2 evidenceのmetric改善目的reinterpretation禁止
-- model-family flattening禁止
-- 大型独自automation platform禁止
-- runtime LLM dependency禁止
-- unnecessary extension installation禁止
+- >16 new images in this batch
+- original 128-image pilot wholesale rerun
+- 2,788-image sweep
+- Stage10 production A/B
+- production `data/**` changes
+- #32 verdict changes
+- canonical changes
+- runtime LLM dependency
+- unnecessary extension/tool
+- evaluator promotion to structural semantic truth
 
-## Reuse-only completion checkpoint
-
-repositoryから取得可能にする:
-- selected existing case(s)
-- selected/deferred rationale
-- exact concrete Japanese review question(s)
-- reused image count
-- reused evaluator count
-- review pairs / reviewed images の別件数
-- bilingual contact sheet locator
-- selected Japanese font / display check
-- design/manifest/result
-- remaining uncertainty
-
-終了後は追加生成・追加wave・Stage10へ自動進行せずSTOPする。
-
-## Repository handoff
-
-Codexはprivate Issue書込みを完了条件にしない。review可能なbranch/commit、実行report、tests、protected-data確認、local-only artifact locatorをrepositoryへcommit/pushする。
-
-DEV/ChatGPTはGitHubから回収し、Issue #30へ `RESULT / EVIDENCE / DECISION / LIMITATION / NEXT` checkpointを記録する。
-
-## Downstream
-
-#42は依然として #36 V5 / #34 material UI/search workの完了または明示分離待ち。Phase 2はそのGateを迂回しない。
-
-## Start / continuation Gate
-
-Codexは作業開始前に必ず:
-1. latest `main` を取得
-2. Issue #30がPHASE2_ACTIVEであることを確認
-3. `CURRENT_STATE.md` current core DEV = #30 Phase 2 reuse-only review を確認
-4. 本ファイル Source Issue = #30 を確認
-5. `ISSUE30_PHASE2_REUSE_REVIEW_SPEC_20260911.md` を確認
-6. scope不一致ならSTOP
+After the batch, STOP. Do not add seeds, start another batch, or start Stage10 automatically.
 
 Current routing authority: `docs/project/CURRENT_STATE.md`.
