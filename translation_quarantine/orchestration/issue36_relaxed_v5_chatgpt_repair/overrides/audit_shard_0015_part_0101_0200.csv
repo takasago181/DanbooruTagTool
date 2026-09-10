@@ -1,0 +1,37 @@
+canonical,old_display_ja,new_display_ja,reason
+glass_door_refrigerator,タグ「glass door refrigerator」,ガラス扉の冷蔵庫,RAW_ENGLISH_WRAPPER
+glass_footwear,glass・履物,ガラスの履物,MIXED_ENGLISH_DEBRIS
+glass_jar,タグ「glass jar」,ガラス瓶,RAW_ENGLISH_WRAPPER
+glass_shard,单块碎玻璃,ガラス片,NON_JAPANESE_RESIDUE
+glass_shards,碎玻璃,ガラスの破片,NON_JAPANESE_RESIDUE
+glass_table,玻璃桌,ガラスのテーブル,NON_JAPANESE_RESIDUE
+glass_writing,ガラスの書き込み,ガラスに書かれた文字,AWKWARD_MACHINE_TRANSLATION
+globus_cruciger,十字圣球,十字架付き宝珠,NON_JAPANESE_RESIDUE
+gloria_(pokemon)_(cosplay),グロリア（ポケモン）（コスプレ）,ユウリ（ポケモン）（コスプレ）,SEMANTIC_ERROR
+glove_belt,glove・ベルト,手袋用ベルト,MIXED_ENGLISH_DEBRIS
+glove_nails,glove・爪,手袋の爪,MIXED_ENGLISH_DEBRIS
+glove_pull,グローブプル,手袋を引っ張る,AWKWARD_MACHINE_TRANSLATION
+glove_ribbon,手袋・リボン,手袋のリボン,AWKWARD_MACHINE_TRANSLATION
+gloves_over_bodysuit,手袋・覆う・ボディスーツ,ボディスーツの上の手袋,SEMANTIC_RELATION_ERROR
+gloves_over_sleeves,手袋・覆う・袖,袖の上の手袋,SEMANTIC_RELATION_ERROR
+glow-in-the-dark,glowの中のthe・暗い,暗闇で光る,MIXED_ENGLISH_DEBRIS
+glowing_animal,光る・動物,光る動物,AWKWARD_MACHINE_TRANSLATION
+glowing_antlers,光る・antlers,光る枝角,MIXED_ENGLISH_DEBRIS
+glowing_arrow,輝く矢印,光る矢,SEMANTIC_ERROR
+glowing_bird,光る・bird,光る鳥,MIXED_ENGLISH_DEBRIS
+glowing_body_fluid,光る・身体・fluid,光る体液,MIXED_ENGLISH_DEBRIS
+glowing_bodysuit,光る・bodysuit,光るボディスーツ,MIXED_ENGLISH_DEBRIS
+glowing_book,光る・book,光る本,MIXED_ENGLISH_DEBRIS
+glowing_cracks,光る・cracks,光る亀裂,MIXED_ENGLISH_DEBRIS
+glowing_crown,光る・crown,光る王冠,MIXED_ENGLISH_DEBRIS
+glowing_glasses,光る・glasses,光る眼鏡,MIXED_ENGLISH_DEBRIS
+glowing_gun_barrel,光る・gun・barrel,光る銃身,MIXED_ENGLISH_DEBRIS
+glowing_muzzle,光る・muzzle,光る銃口,MIXED_ENGLISH_DEBRIS
+glowing_necklace,光るのネックレス,光るネックレス,AWKWARD_MACHINE_TRANSLATION
+glowing_neckwear,光る・neckwear,光る首飾り,MIXED_ENGLISH_DEBRIS
+glowing_organ,輝く心臓,光る臓器,SEMANTIC_NARROWING
+glowing_pupils,光る・pupils,光る瞳孔,MIXED_ENGLISH_DEBRIS
+glowing_pussy,光る・pussy,光る膣,MIXED_ENGLISH_DEBRIS
+glowing_scar,光る・scar,光る傷跡,MIXED_ENGLISH_DEBRIS
+glowing_snowflake,光る・snowflake,光る雪の結晶,MIXED_ENGLISH_DEBRIS
+glowing_staff,輝くスタッフ,光る杖,SEMANTIC_ERROR
