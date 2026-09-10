@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import base64
 import atexit
+import argparse
 import csv
 import gzip
 import hashlib
@@ -179,7 +180,8 @@ def png_info(session: requests.Session, raw: bytes) -> dict[str, Any]:
     return response.json()
 
 
-def generate_one(session: requests.Session, case: dict[str, str], case_index: int, cell: str) -> dict[str, Any]:
+def generate_one(session: requests.Session, case: dict[str, str], case_index: int, cell: str,
+                 allow_generate: bool = True) -> dict[str, Any]:
     prompt, negative = prompts(case, cell)
     seed = seed_for(case_index, cell)
     image_id = f"{case['case_id']}__{cell}"
@@ -207,6 +209,7 @@ def generate_one(session: requests.Session, case: dict[str, str], case_index: in
                 "image_id": image_id,
                 "case": case,
                 "cell": cell,
+                "reused": True,
                 "prompt": prompt,
                 "negative_prompt": negative,
                 "seed": seed,
@@ -218,6 +221,9 @@ def generate_one(session: requests.Session, case: dict[str, str], case_index: in
                 "png_info_artifact": str(artifact_base.with_suffix(".png-info.json")),
                 "request": payload,
             }
+    if not allow_generate:
+        raise RuntimeError(f"screen-only mode found incomplete artifact set: {image_id}")
+    assert_forge_runtime(session, "waiIllustriousSDXL_v170")
     response = None
     for attempt in range(1, 4):
         response = session.post(FORGE_API + "/sdapi/v1/txt2img", json=payload, timeout=900)
@@ -245,6 +251,7 @@ def generate_one(session: requests.Session, case: dict[str, str], case_index: in
         "image_id": image_id,
         "case": case,
         "cell": cell,
+        "reused": False,
         "prompt": prompt,
         "negative_prompt": negative,
         "seed": seed,
@@ -506,6 +513,13 @@ def create_contact_sheet(records: list[dict[str, Any]]) -> Path:
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--screen-existing",
+        action="store_true",
+        help="never call Forge txt2img; screen only a complete existing 128-image run",
+    )
+    args = parser.parse_args()
     RUN_ROOT.mkdir(parents=True, exist_ok=True)
     acquire_run_lock()
     cases = load_cases()
@@ -522,9 +536,10 @@ def main() -> None:
     records = []
     for case_index, case in enumerate(cases, start=1):
         for cell in ("target_present_seed_a", "target_present_seed_b", "contrast_seed_a", "contrast_seed_b"):
-            assert_forge_runtime(session, "waiIllustriousSDXL_v170")
-            records.append(generate_one(session, case, case_index, cell))
-            print(f"GENERATED {len(records)}/128 {records[-1]['image_id']}", flush=True)
+            record = generate_one(session, case, case_index, cell, allow_generate=not args.screen_existing)
+            records.append(record)
+            state = "REUSED" if record["reused"] else "GENERATED"
+            print(f"{state} {len(records)}/128 {record['image_id']}", flush=True)
     write_json(RUN_ROOT / "generation_records.json", records)
     print("GENERATION_COMPLETE", flush=True)
     for index, record in enumerate(records, start=1):
