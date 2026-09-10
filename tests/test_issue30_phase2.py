@@ -4,6 +4,7 @@ from pathlib import Path
 
 from tools.issue30_calibration_pilot import load_profiles, load_cases, validate_cases
 from tools.issue30_phase2_analysis import structural_class
+from tools.issue30_machine_first_routing import marker_integrity, pair_routes, route_image
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -166,3 +167,38 @@ def test_machine_triage_audit_proves_raw_outputs_and_records_reporting_defect():
     assert report["machine_handled_images"] == 0
     assert report["human_required_images"] == 12
     assert report["human_review_reduction_percent"] == 0.0
+
+
+def _routing_fixture(route_class="MACHINE", condition="A", image_id="X__a", case_id="X"):
+    return {
+        "image_id": image_id,
+        "case_id": case_id,
+        "cell_type": "target_present_seed_a" if condition == "A" else "contrast_seed_a",
+        "condition": condition,
+        "generation": {"seed": 1},
+        "case": {"relation_binding_required": "false"},
+        "screening": {"screening_classes": [] if route_class == "MACHINE" else ["RELATION_OR_BINDING"], "desk_relation_sensitive": route_class == "HUMAN", "high_confidence_eligible": route_class == "MACHINE"},
+        "evaluators": {"wd14": {"execution_state": "OK"}, "kagami": {"execution_state": "OK"}, "cl_v2_00": {"execution_state": "OK"}},
+    }
+
+
+def test_machine_first_pair_routing_regression_covers_machine_human_blocked_and_marker_mismatch():
+    machine_a = _routing_fixture(condition="A", image_id="X__target_present_seed_a")
+    machine_b = _routing_fixture(condition="B", image_id="X__contrast_seed_a")
+    for row in (machine_a, machine_b):
+        row["machine_route"], row["route_reasons"] = route_image(row, provenance_pass=True)
+    assert pair_routes([machine_a, machine_b][0:2])[("X", 1)]["route"] == "MACHINE_HANDLED_PAIR"
+    human_a = _routing_fixture(route_class="HUMAN", condition="A", image_id="Y__target_present_seed_a", case_id="Y")
+    human_b = _routing_fixture(route_class="HUMAN", condition="B", image_id="Y__contrast_seed_a", case_id="Y")
+    for row in (human_a, human_b):
+        row["machine_route"], row["route_reasons"] = route_image(row, provenance_pass=True)
+    assert pair_routes([human_a, human_b])[("Y", 1)]["route"] == "HUMAN_REVIEW_REQUIRED_PAIR"
+    blocked = _routing_fixture(condition="A", image_id="Z__target_present_seed_a", case_id="Z")
+    blocked["machine_route"], blocked["route_reasons"] = route_image(blocked, provenance_pass=False)
+    blocked_b = _routing_fixture(condition="B", image_id="Z__contrast_seed_a", case_id="Z")
+    blocked_b["machine_route"], blocked_b["route_reasons"] = route_image(blocked_b, provenance_pass=True)
+    assert pair_routes([blocked, blocked_b])[("Z", 1)]["route"] == "BLOCKED_PAIR"
+    assert marker_integrity([machine_a, machine_b]) == (True, [])
+    bad = dict(machine_b)
+    bad["condition"] = "A"
+    assert marker_integrity([machine_a, bad])[0] is False

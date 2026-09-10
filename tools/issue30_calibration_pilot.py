@@ -383,6 +383,14 @@ def evaluator_record(name: str, version: str, vocab_revision: str, state: str,
     }
 
 
+def evaluator_artifact_path(name: str, image_id: str) -> Path:
+    if name == "WD14":
+        return RUN_ROOT / "raw" / "wd14" / f"{image_id}.json"
+    if name == "Kagami":
+        return RUN_ROOT / "raw" / "kagami" / f"{image_id}.json.gz"
+    return RUN_ROOT / "raw" / "cl v2.00" / f"{image_id}.json.gz"
+
+
 def target_score(pairs: list[tuple[str, float]], case: dict[str, str]) -> tuple[float | None, bool, str]:
     targets = {norm(x) for x in canonical_parts(case)}
     direct = [(score, tag) for tag, score in pairs if norm(tag) in targets]
@@ -672,6 +680,9 @@ def main() -> None:
     structured = []
     for record in records:
         evaluators = {"wd14": record["wd14"], "kagami": record["kagami"], "cl_v2_00": record["cl_v2_00"]}
+        for evaluator_name, evaluator in evaluators.items():
+            display_name = {"wd14": "WD14", "kagami": "Kagami", "cl_v2_00": "CL v2.00"}[evaluator_name]
+            evaluator["raw_output_artifact"] = str(evaluator_artifact_path(display_name, record["image_id"]))
         record["evaluators"] = evaluators
         record["screen"] = screening(record, evaluators)
         structured.append(record)
