@@ -1,0 +1,46 @@
+canonical,old_display_ja,new_display_ja,reason
+in_locker,ロッカーで,ロッカーの中,SEMANTIC_RELATION_ERROR
+in_nest,の中のnest,巣の中,MIXED_ENGLISH_DEBRIS
+in_orbit,軌道で,軌道上,SEMANTIC_RELATION_ERROR
+in_palm,手のひらで,手のひらの上,SEMANTIC_RELATION_ERROR
+in_pocket,ポケットに,ポケットの中,SEMANTIC_RELATION_ERROR
+in_pot,ポットで,ポットの中,SEMANTIC_RELATION_ERROR
+in_refrigerator,冷蔵庫で,冷蔵庫の中,SEMANTIC_RELATION_ERROR
+in_sack,袋に,袋の中,SEMANTIC_RELATION_ERROR
+in_shopping_cart,ショッピングカートで,ショッピングカートの中,SEMANTIC_RELATION_ERROR
+in_snow_globe,の中のsnow・globe,スノードームの中,MIXED_ENGLISH_DEBRIS
+in_the_face,ジャイアンパンチ,顔面に,SEMANTIC_ERROR
+in_the_name_of_love_and_hate_(e.g.o),in the name of love and hate (e.g.o),愛と憎しみの名の下に（E.G.O）,CANONICAL_FALLBACK_TRANSLATABLE
+in_trash_can,の中のtrash・can,ゴミ箱の中,MIXED_ENGLISH_DEBRIS
+in_trunk,の中のtrunk,トランクの中,MIXED_ENGLISH_DEBRIS
+in_washing_machine,の中のwashing・machine,洗濯機の中,MIXED_ENGLISH_DEBRIS
+ina's_back_(meme),ina's back (meme),イナの背中（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+inaba_tewi_(cosplay),inaba tewi（コスプレ）,因幡てゐ（コスプレ）,MIXED_ENGLISH_DEBRIS
+incoming_gift,着信ギフト,飛んでくる贈り物,SEMANTIC_ERROR
+incoming_letter,入ってくる手紙,飛んでくる手紙,AWKWARD_MACHINE_TRANSLATION
+incoming_object,incoming・物体,飛んでくる物体,MIXED_ENGLISH_DEBRIS
+inconsistent_censoring,inconsistent censの指輪,一貫性のない修正,SEMANTIC_ERROR
+inconspicuous_sex_toy,タグ「inconspicuous sex toy」,目立たない性具,RAW_ENGLISH_WRAPPER
+inconvenient_hair,inconvenient・髪,邪魔な髪,MIXED_ENGLISH_DEBRIS
+inconvenient_horns,タグ「inconvenient horns」,邪魔な角,RAW_ENGLISH_WRAPPER
+inconvenient_tail,不便な尾,邪魔な尻尾,AWKWARD_MACHINE_TRANSLATION
+index_fingers_raised,上手に上げられた指の指,両人差し指を立てる,SEMANTIC_ERROR
+index_ring,indexの指輪,人差し指の指輪,MIXED_ENGLISH_DEBRIS
+indonesian_elementary_school_uniform,indonesian elementaryの学校制服,インドネシアの小学校制服,MIXED_ENGLISH_DEBRIS
+infinite_stratos_academy_school_uniform,無限のストラトスアカデミーユニフォーム,IS学園の制服,SEMANTIC_ERROR
+infinity_symbol,infinity・記号,無限大記号,MIXED_ENGLISH_DEBRIS
+inflatable_duck,タグ「inflatable duck」,空気入りのアヒル,RAW_ENGLISH_WRAPPER
+inflatable_raft,充气筏,空気入りのいかだ,NON_JAPANESE_RESIDUE
+inflatable_torpedo,タグ「inflatable torpedo」,空気入りの魚雷,RAW_ENGLISH_WRAPPER
+inflatable_wings,inflatable・翼,空気入りの翼,MIXED_ENGLISH_DEBRIS
+inflating,充气,膨らませる,NON_JAPANESE_RESIDUE
+inhaler,タグ「inhaler」,吸入器,RAW_ENGLISH_WRAPPER
+ink_on_breast,inkの上の胸,胸についたインク,SEMANTIC_RELATION_ERROR
+ink_on_clothes,inkの上の服,服についたインク,SEMANTIC_RELATION_ERROR
+ink_splatter,タグ「ink splatter」,インクの飛沫,RAW_ENGLISH_WRAPPER
+inkblot,タグ「inkblot」,インクの染み,RAW_ENGLISH_WRAPPER
+inkblot_test,タグ「inkblot test」,インクの染みテスト,RAW_ENGLISH_WRAPPER
+inkling_(swim_form),タグ「inkling (swim form)」,インクリング（イカ形態）,RAW_ENGLISH_WRAPPER
+inner_ego,内側のego,内なる自我,MIXED_ENGLISH_DEBRIS
+innertube_with_ears,耳を持つInnerTube,耳付き浮き輪,MIXED_ENGLISH_DEBRIS
+inoue_takina_(cosplay),井上タキナ（コスプレ）,井ノ上たきな（コスプレ）,SEMANTIC_ERROR
