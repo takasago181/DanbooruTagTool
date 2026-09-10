@@ -39,7 +39,7 @@ Pinned vocabulary revision: `b25b82a03f7282e41aa2f257a52c7583b710bd1c`.
 
 ### Kagami-24k
 
-Resolved model revision: `1a1e36f52d0fa202a26cf8f4169f42ef92b9367d`.
+Resolved model revision: `fbf04252c68c9cbf03c8b343e537e3cd7594c8a1`.
 
 - DIRECT: 1,412 / 2,788 = **50.65%**
 - DIRECT + current reviewed alias/approx layer: 1,412 / 2,788 = **50.65%**
@@ -161,3 +161,11 @@ semantic or relation correctness.
 - no 2,788-image generation sweep started
 - no Stage10 production A/B started
 - no unsolicited cross-team production change requested
+
+Current machine-generated checkpoint commit: `557aa4cb7433f19574e8e87f049e4b70588f2ea2`.
+
+## 11. Next handoff
+
+- Use the exact WD14/Kagami/CL v2.00 matrix for #30 representative image calibration.
+- Keep vocabulary presence as an observation aid; do not treat it as image-level semantic or relation ground truth.
+- Do not start the full 2,788-image generation sweep or Stage10 production A/B from this handoff.
