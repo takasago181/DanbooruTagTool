@@ -74,9 +74,9 @@ Parked evidence remains available:
 
 `AUTO_CANDIDATE` is calibration candidate only, not production automatic approval.
 
-### Issue #30 representative evaluator calibration
+### Issue #30 Phase 1 representative evaluator calibration
 
-**SATISFIED / COMPLETED / HANDOFF READY**
+**SATISFIED / COMPLETED / FROZEN EVIDENCE**
 
 Infrastructure baseline:
 - Forge Neo API `neo-2.29`
@@ -88,43 +88,20 @@ Controlled pilot:
 - WD14 128/128
 - Kagami 128/128
 - CL v2.00 128/128
-- no Stage10 production A/B
-- no 2,788-image sweep
-- no production `data/**` / #32 / canonical change
+- minimal human review 19
+- provisional AUTO-support 8 / HUMAN_REVIEW_ONLY 9 / BLOCKED 2 / UNRESOLVED 1
 
-Overlapping screening counts:
-- LOW_CONFIDENCE: 93
-- RELATION_OR_BINDING: 92
-- COMPONENT_ONLY: 84
-- DISAGREEMENT: 38
-- BLOCKED: 20
-- HIGH_CONFIDENCE_AUTO_LIKELY: 1
-
-Minimal human review:
-- 19 high-information images
-- target present 16 / absent 1 / unclear 2
-- provisional AUTO-support 8
-- HUMAN_REVIEW_ONLY 9
-- BLOCKED 2
-- UNRESOLVED 1
-
-Final #30 policy:
+Frozen policy:
 - Taggers remain assistive triage, not complete Special semantic authority.
 - direct / non-relation / simple unary may remain optional targeted-validation candidates.
 - relation/binding / actor-object / body-site / quantity / spatial / insertion / contact / restraint / compound / component-only / disagreement / low-confidence default to HUMAN REVIEW.
 - gray/unreadable/corrupt/hash/metadata/provenance failures are BLOCKED before semantic scoring.
 - invalid target/contrast generation is experiment-validity failure, not evaluator failure.
 
-Important observed failures:
-- invalid contrast realization (`exposed genitals` contrast)
-- gray/unobservable image artifact
-- body-site ambiguity (`anal object insertion`)
-- restraint-state ambiguity (`bound penis`)
+Phase 1 restore:
+- `docs/project/ISSUE30_HANDOFF_20260910.md`
 
-Full restore/handoff:
-`docs/project/ISSUE30_HANDOFF_20260910.md`
-
-## Current remaining gates
+## Current remaining gates / active refinements
 
 ### Gate A — #36 UI-JA V5 final convergence
 
@@ -145,27 +122,46 @@ Status: **REMAINS**
 
 Before #42 activation, material bilingual-search/search-noise/UI issues that can change evaluated product behavior must be completed or explicitly separated from the Stage10 Gate.
 
-### Gate C — #30 final representative calibration
+### Refinement C — #30 Phase 2 targeted evaluator refinement
 
-Status: **SATISFIED / COMPLETED**
+Status: **ACTIVE / CURRENT CORE DEV / OPTIONAL PRE-#42 IMPROVEMENT**
 
-Carry-forward evaluator rule:
-- use Taggers for pre-screening, disagreement/low-confidence detection, review prioritization and narrow simple-unary support only
-- do not use direct tag detection as proof of structural Special semantics
-- do not restart the 128-image pilot without a narrow regression/evaluator-change reason
+Phase 2 does not invalidate the completed Phase 1 Gate and does not restart broad calibration.
+
+Restore:
+- `docs/project/ISSUE30_PHASE2_HANDOFF_20260910.md`
+
+Scope:
+- existing 128-image raw outputs / metadata first
+- direct / non-relation / simple-unary threshold/agreement refinement
+- review prioritization / abstention
+- artifact-quality gate
+- experiment-validity checks
+- additional evaluator / deterministic non-LLM signal only if uniquely useful
+- new images only for the smallest explicitly justified targeted question
+
+Do not:
+- rerun original 128-image pilot wholesale
+- run 2,788-image sweep
+- start Stage10 production A/B
+- weaken HUMAN REVIEW boundary for structural Special semantics without explicit evidence
+
+Phase 2 stops on diminishing returns. Complexity must not exceed realistic user-work reduction.
 
 ### Gate D — #42 product-purpose improvement pass
 
-Status: **RESERVED / #30 SATISFIED / UI-JA-SEARCH GATED**
+Status: **RESERVED / #30 PHASE1 SATISFIED / UI-JA-SEARCH GATED**
 
 Satisfied:
 - dictionary freeze
 - #44 evaluator coverage
-- #30 representative calibration
+- #30 Phase 1 representative calibration
 
 Still required before activation:
 - #36 V5 material UI-JA/data homework complete or explicitly separated
 - #34 material search/UI concerns complete or explicitly separated
+
+#30 Phase 2 is an optional refinement running during this wait. It must hand off any evidence-backed delta before #42 executes, but Phase 2 itself does not replace the #36/#34 Gate.
 
 #42 must consume #30 results as:
 - Tagger-assisted triage, not full AUTO
@@ -174,31 +170,11 @@ Still required before activation:
 - experiment-validity failure separated from evaluator failure
 - manual-work reduction by abstention/prioritization rather than forced binary verdict
 
-Review targets remain:
-- Japanese intent variation/search robustness
-- Special/support conflicts
-- model-family ineffective/harmful guidance
-- failure diagnosis
-- Prompt bloat/pruning
-- minimum sufficient Prompt
-- optional deterministic local history
-- parked REVIEW/IMAGE_TEST_REQUIRED questions requiring controlled images
-
-Final verdict: `READY_FOR_STAGE10_EVALUATION` or `HOLD_PRE_STAGE10`.
-
 ### Gate E — #5 formal Prompt handoff
 
 Status: **WAITS #42**
 
-#30 prerequisite is now satisfied.
-Formal handoff must integrate:
-- frozen Special Core Dictionary identity/count
-- evaluator capability and HUMAN REVIEW boundary
-- #42 Prompt-design changes / IMAGE_TEST_REQUIRED questions
-- one-question experiment isolation
-- model-family differences
-- A/B fixed conditions
-- canonical-English final Prompt payload
+#30 Phase 1 prerequisite is satisfied. Any adopted Phase 2 delta must be included before formal Stage10 Prompt handoff is finalized.
 
 ### Gate F — local protected-data maintenance #24
 
@@ -209,14 +185,12 @@ Required: backup coverage/freshness, manifest, rebuildability, representative no
 ## Canonical dependency order
 
 Parallel now:
+- `#30 Phase 2 targeted evaluator refinement`
 - `#36 V5 repair/audit -> integration/revalidation -> independent promotion gate`
 - `#34 bilingual search relevance`
 - `#24 protected-data safety`
-- current core DEV: `NONE / MANAGEMENT_HANDOFF`
 
-#30 is complete.
-
-Then, when #36/#34 material work is complete or explicitly separated:
+Then, when #36/#34 material work is complete or explicitly separated and #30 Phase 2 has either completed or been explicitly stopped:
 `#42 product-purpose improvement -> #5 formal Prompt handoff -> remaining final checks -> Stage10 production A/B`
 
 ## Stage10開始前チェック
@@ -229,8 +203,9 @@ Then, when #36/#34 material work is complete or explicitly separated:
 - [x] production-safe fix promotion + audit（#48/#49）
 - [x] final Special Core Dictionary naming/freeze（#43）
 - [x] #44 final evaluator coverage comparison
-- [x] #30 controlled representative calibration complete
-- [x] #30 Tagger-assisted triage / HUMAN REVIEW boundary defined
+- [x] #30 Phase 1 controlled representative calibration complete
+- [x] #30 Phase 1 Tagger-assisted triage / HUMAN REVIEW boundary defined
+- [ ] #30 Phase 2 targeted refinement complete or explicitly stop on diminishing returns
 - [ ] #36 V5 repair/audit -> integration/revalidation -> independent promotion gate
 - [ ] #34 material remaining UI/search concerns resolve or explicit separation
 - [ ] #42 product-purpose improvement pass
@@ -243,6 +218,6 @@ Then, when #36/#34 material work is complete or explicitly separated:
 
 Stage10 production A/B is **NOT STARTED**。
 
-#30 is complete and no core DEV is currently selected. #42 is the intended next product-purpose pass once #36/#34 material prerequisites are complete or explicitly separated.
+Current core DEV is Issue #30 Phase 2 targeted refinement. #36 remains independently active and is still a material prerequisite for #42 unless explicitly separated. #42 is not active yet.
 
 Current routing authority: `docs/project/CURRENT_STATE.md`.
