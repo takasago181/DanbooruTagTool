@@ -1,0 +1,50 @@
+canonical,old_display_ja,new_display_ja,reason
+icing_on_face,icingの上の顔,顔についたアイシング,SEMANTIC_RELATION_ERROR
+icing_trim,タグ「icing trim」,アイシングの縁取り,RAW_ENGLISH_WRAPPER
+idle_animation,アイドルアニメーション,待機アニメーション,SEMANTIC_ERROR
+iei,遗照,遺影,NON_JAPANESE_RESIDUE
+if_happiness_is_a_circle_(meme),如果幸福是一個圈,もし幸せが円なら（ミーム）,NON_JAPANESE_RESIDUE
+igawa_asagi_(cosplay),イガワサギ（コスプレ）,井河アサギ（コスプレ）,SEMANTIC_ERROR
+ignihyde_dorm_uniform,ignihyde dormの制服,イグニハイド寮の制服,MIXED_ENGLISH_DEBRIS
+ikamusume_(cosplay),Ikamusume（コスプレ）,イカ娘（コスプレ）,MIXED_ENGLISH_DEBRIS
+ikari_gendou_(cosplay),イカリ・ジェンドゥ（コスプレ）,碇ゲンドウ（コスプレ）,SEMANTIC_ERROR
+ikari_shinji_(cosplay),イカリ・シンジ（コスプレ）,碇シンジ（コスプレ）,SEMANTIC_ERROR
+ikazuchi_(kancolle)_(cosplay),岩石（カンコル）（コスプレ）,雷（艦これ）（コスプレ）,SEMANTIC_ERROR
+ikoma_squad's_uniform,ikoma squadの制服,生駒隊の制服,MIXED_ENGLISH_DEBRIS
+illegible_text,省略性文字,判読不能な文字,SEMANTIC_ERROR
+illyasviel_von_einzbern_(cosplay),illyasviel von einzbern (cosplay),イリヤスフィール・フォン・アインツベルン（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+imac,タグ「imac」,iMac,RAW_ENGLISH_WRAPPER
+image_warping,図像扭转,画像の歪み,NON_JAPANESE_RESIDUE
+imageboard,イメージボード,画像掲示板,SEMANTIC_ERROR
+imageboard_colors,画像ボードの色,画像掲示板の配色,SEMANTIC_ERROR
+imaginary_scramble,イマジナリ・トレンチ,イマジナリ・スクランブル,SEMANTIC_ERROR
+imaishi_hiroyuki_(style),タグ「imaishi hiroyuki (style)」,今石洋之風,RAW_ENGLISH_WRAPPER
+imaizumi_kagerou_(cosplay),Imaizumi Kagerou（コスプレ）,今泉影狼（コスプレ）,MIXED_ENGLISH_DEBRIS
+imi_negev,タグ「imi negev」,IMI ネゲヴ,RAW_ENGLISH_WRAPPER
+imminent_attack,直前のattack,攻撃直前,MIXED_ENGLISH_DEBRIS
+imminent_bite,差し迫った一口,噛みつき直前,SEMANTIC_ERROR
+imminent_breast_grab,差し迫った乳房グラブ,胸を掴む直前,AWKWARD_MACHINE_TRANSLATION
+imminent_bukkake,直前のbukkake,ぶっかけ直前,MIXED_ENGLISH_DEBRIS
+imminent_cheating_(relationship),タグ「imminent cheating (relationship)」,浮気直前,RAW_ENGLISH_WRAPPER
+imminent_death,面临死亡,死の直前,NON_JAPANESE_RESIDUE
+imminent_double_penetration,差し迫った二重浸透,二重挿入直前,SEMANTIC_ERROR
+imminent_eating,直前のeating,食べる直前,MIXED_ENGLISH_DEBRIS
+imminent_ejaculation,直前のejaculation,射精直前,MIXED_ENGLISH_DEBRIS
+imminent_explosion,直前のexplosion,爆発直前,MIXED_ENGLISH_DEBRIS
+imminent_facesitting,直前のfacesitting,顔面騎乗直前,MIXED_ENGLISH_DEBRIS
+imminent_fingering,差し迫った運指,指入れ直前,SEMANTIC_ERROR
+imminent_forced_dressing,直前のforced・dressing,強制着衣直前,MIXED_ENGLISH_DEBRIS
+imminent_grope,差し迫った模索,身体をまさぐる直前,SEMANTIC_ERROR
+imminent_hand_holding,差し迫った手持ち,手をつなぐ直前,SEMANTIC_ERROR
+imminent_headpat,直前のheadpat,頭を撫でる直前,MIXED_ENGLISH_DEBRIS
+imminent_hit,差し迫ったヒット,打撃直前,SEMANTIC_ERROR
+imminent_hug,imminent hug,ハグ直前,CANONICAL_FALLBACK_TRANSLATABLE
+imminent_irrumatio,直前のirrumatio,イラマチオ直前,MIXED_ENGLISH_DEBRIS
+imminent_kick,直前のkick,蹴る直前,MIXED_ENGLISH_DEBRIS
+imminent_licking,直前の舐める,舐める直前,AWKWARD_MACHINE_TRANSLATION
+imminent_masturbation,直前のmasturbation,自慰直前,MIXED_ENGLISH_DEBRIS
+imminent_murder,直前のmurder,殺害直前,MIXED_ENGLISH_DEBRIS
+imminent_orgasm,直前のorgasm,絶頂直前,MIXED_ENGLISH_DEBRIS
+imminent_peeing,直前のpeeing,排尿直前,MIXED_ENGLISH_DEBRIS
+imminent_pocky_kiss,直前のpocky・kiss,ポッキーキス直前,MIXED_ENGLISH_DEBRIS
+imminent_stabbing,直前のstabbing,刺す直前,MIXED_ENGLISH_DEBRIS
