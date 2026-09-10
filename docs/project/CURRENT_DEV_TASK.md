@@ -5,15 +5,15 @@
 ## Mirror Metadata
 
 - Source Issue: **#30** `[Stage10-PREP][PHASE2_ACTIVE] Targeted evaluator refinement before #42`
-- State: **ACTIVE / PHASE2_GENERATION_BATCH_WAVE_AUTHORIZED**
+- State: **ACTIVE / PHASE2_MACHINE_TRIAGE_AUDIT / NO_NEW_GENERATION**
 - Branch: `codex/issue30-calibration-design`
 - Current Stage: Stage10準備Gate実施中
 
 ## Current continuation contract
 
-**`docs/project/ISSUE30_PHASE2_GENERATION_BATCH_WAVE_SPEC_20260911.md`**
+**`docs/project/ISSUE30_PHASE2_MACHINE_TRIAGE_AUDIT_20260911.md`**
 
-This supersedes the completed reuse-only pass as the current #30 execution task.
+The completed Generation Batch is now evidence. Do not run another generation batch until this audit is reviewed.
 
 ## Accepted Phase 2 checkpoints
 
@@ -21,190 +21,133 @@ This supersedes the completed reuse-only pass as the current #30 execution task.
 - Wave 2 execution: `b478f32042fa3b4111a6b86c24cb6c77655d579a`
 - Wave 2 human review: `34aa09a8d7c82bbfaf798c68c8c98a72a65cce50` / `63ac1ee49edef710a3b10135a7a2d33250d6cb96`
 - Reuse-only human review: `44c3874ea6083590db256f819d5445501c49ff60`
+- Generation Batch execution: `6e19da24a9718691b3c2e726bbe256fcb69f4a68`
+- Generation Batch human review: `4a3e6ef5d19b33b5482bcfc86cc362ad6cbad9f3`
 
-Reuse-only result:
-- `CAL-023 double handjob`
-- 2 pairs / 4 existing images
-- both pairs `A_ONLY_PASS`
-- new generation 0
-- evaluator rerun 0
-- narrow positive count/action anchor only; no general structural AUTO promotion
+Generation Batch result:
+- 3 experiments / 12 generated images
+- reported 36 evaluator runs
+- 6 pairs / 12 images were all sent to the user
+- GB-001: 2 × `UNCLEAR`
+- GB-002: 2 × `BOTH_PASS`
+- GB-003: 2 × `BOTH_PASS`
 
-## Current purpose
+## Why the current audit is required
 
-The user wants the remaining useful generation tests grouped into one batch to reduce repeated ChatGPT/Codex and local generation turnaround.
+The intended workflow is:
 
-Run **3–4 independent high-value experiments in one bounded pass**, preserving one-experiment/one-question causality.
+`generate -> machine evaluation -> machine handles what it safely can -> user sees only unresolved/structural remainder`
 
-Normal target:
-- 12–16 new images
-- hard cap **16 new images**
-- A/B × 2 predetermined fixed seeds when new generation is needed
-- reuse compatible existing evidence where valid
+The completed batch did **not** achieve that workflow. Its design declared all 6 pairs / 12 images for human review from the start, so machine evaluation did not reduce user review load.
+
+In addition, the committed Generation Batch result shows suspicious evaluator provenance: multiple image records can reference the same final raw evaluator artifact such as `GB-003__contrast_seed_b`. Treat evaluator reference integrity as unverified until this audit passes.
+
+The previous report code also calculates `evaluator_runs` as `len(rows) * 3`; future counts must come from actual valid evaluator records/artifacts.
+
+## Immediate order — NO NEW GENERATION
+
+1. fetch latest `origin/main`.
+2. merge latest main into `codex/issue30-calibration-design`; no rebase/force rewrite.
+3. read `ISSUE30_PHASE2_MACHINE_TRIAGE_AUDIT_20260911.md`.
+4. inspect the existing 12 Generation Batch images and evaluator artifacts only.
+5. verify WD14 / Kagami-24k / CL Tagger v2.00 per-image raw outputs and their image bindings.
+6. verify/report actual evaluator successes rather than `12 * 3` arithmetic.
+7. fix evaluator-reference reporting if it is only a reporting defect.
+8. if a raw evaluator result is missing/wrong, rerun only that evaluator on that existing image; **new image generation remains 0**.
+9. retrospectively route the current 12 images through machine-first triage.
+10. compare machine routing against the already-recorded human labels. Do not ask the user to review them again.
+11. calculate how many images/pairs machine triage could safely have removed from human review.
+12. commit/push audit Markdown + JSON + focused tests and STOP for DEV/ChatGPT.
+
+## Machine-first routing rule
+
+Allowed routes:
+- `MACHINE_HANDLED_CANDIDATE`
+- `HUMAN_REVIEW_REQUIRED`
+- `BLOCKED`
+
+Machine-handled eligibility is narrow:
+- direct / non-relation / simple-unary only
+- evaluator provenance complete
+- required evaluator outputs valid
+- adequate agreement/confidence
+- no structural ambiguity
+
+Remain HUMAN_REVIEW_REQUIRED:
+- relation / binding
+- body-site correctness / ownership
+- insertion/contact topology
+- exact count semantics
+- actor/subject/object assignment
+- multi-person role assignment
+- compound or multi-Special retention when component presence is insufficient
+- evaluator disagreement / low confidence
+- ambiguous identity/category
+
+Machine component detection is not structural semantic truth.
+
+## Required audit outputs
+
+- `docs/testing/ISSUE30_PHASE2_MACHINE_TRIAGE_AUDIT.md`
+- `docs/testing/ISSUE30_PHASE2_MACHINE_TRIAGE_AUDIT.json`
+- per-image evaluator-reference verification
+- actual evaluator successful/missing/failed counts
+- per-evaluator valid counts
+- `evaluator_reference_integrity_check: PASS/FAIL`
+- retrospective machine route for all 12 existing images/pairs
+- `machine_handled_images/pairs`
+- `human_required_images/pairs`
+- `human_review_reduction_percent`
+- focused test result
+
+If all current experiments are structurally human-only, explicitly record:
+`HUMAN_REVIEW_REDUCTION = 0 for this batch design`
+and treat that as a test-selection/design failure for the user-work-reduction objective.
+
+## Future Generation Batch — NOT YET AUTHORIZED
+
+After this audit is accepted, restore the batch size originally discussed with the user:
+- target **4–5 experiments**
+- normally **16–20 new images**
+- hard cap **20 new images**
 - no automatic extra seeds
 
-## Priority experiment families
+Future batches must deliberately mix:
+1. machine-judgeable direct/simple-unary cases, so machine triage can actually remove user work;
+2. high-value structural cases that genuinely need human judgment.
 
-1. **MULTI_SPECIAL_RETENTION**
-   - highest priority
-   - verify that two individually understandable Specials remain simultaneously visible
-   - both success conditions must be directly judgeable from one still image
+Do not select only structural tests and then send every generated image to the user.
 
-2. **SINGLE_SUPPORT_TAG_EFFECT**
-   - A = Special + minimal baseline
-   - B = same + exactly one support tag
-   - one support role only: body-site / visibility / geometry / actor / count
+Mandatory future order:
+1. generate
+2. artifact/provenance gate
+3. evaluator execution/reuse
+4. evaluator-reference integrity check
+5. machine triage
+6. remove machine-handled items from mandatory user review
+7. build contact sheet only for human-required items
+8. user reviews only that remainder
 
-3. **SPECIFIC_ONLY_VS_BROAD_PLUS_SPECIFIC**
-   - A = specific Special
-   - B = legitimate broad/context tag + same specific Special
-   - broad/specific relation must come from current project evidence, not invention
+## USER REVIEW UX carry-forward
 
-4. **ACTOR_COUNT_DISAMBIGUATION**
-   - test whether one explicit actor/count clarification reduces wrong/missing/extra-person realization
-
-Desk-only unless clearly necessary:
-- `MACHINE_SAFE_ZONE`
-
-Default new exact-count generation is **not** required because reuse-only `CAL-023` already gives a narrow 2/2 positive anchor. General count semantics remain HUMAN_REVIEW_ONLY.
-
-## Case selection authority
-
-Codex may choose exact current Special IDs and execute the complete bounded batch without returning for a separate pre-generation approval if all conditions pass:
-
-- current canonical IDs/tags only
-- one short concrete Japanese visual success question exists
-- one meaningful A/B variable only
-- experiment belongs to an authorized family above
-- existing evidence is insufficient
-- total new images <=16
-- no production/canonical/#32 mutation
-
-Record the selected IDs/design in repository artifacts before generation, but do not stop between valid experiments merely for approval.
-
-## Default generation lane
-
-- Forge Neo
-- WAI Illustrious v17
-- Euler a
-- Automatic scheduler
-- Steps 25
-- CFG 5
-- 1024×1344 when appropriate
-- fixed paired seeds
-- Hires OFF
-- ADetailer OFF
-- LoRA OFF
-- ControlNet OFF
-- regional OFF
-- Forge Couple OFF
-
-Prompt-only and assisted evidence remain separate.
-
-## Evaluator policy
-
-Run/reuse:
-- WD14
-- Kagami-24k
-- CL Tagger v2.00
-
-Machine output is triage/support only.
-
-Never machine-authorize structural semantic truth for:
-- relation / binding
-- body-site ownership
-- exact count
-- multi-person role assignment
-- compound retention
-
-## USER REVIEW UX — CURRENT RULE
-
-The user-facing contact sheet is for fast visual judgment only.
-
-Each cell/pair should show only what is needed to answer:
+When user review is genuinely required, contact sheet shows only:
 - image
-- **large image number**
-- **A/B marker** when needed
-- **one large concrete Japanese question**
+- large number
+- correct A/B marker when applicable
+- one large concrete Japanese question
 
-Do **not** clutter the user-facing contact sheet with:
-- full Positive Prompt
-- full Negative Prompt
-- seed
-- case ID
-- evaluator scores/logs
-- model/settings metadata
-- token-by-token bilingual glossary
-- long descriptions
+Question font >=24 px, preferably 28–32 px. Japanese font priority: Meiryo -> Yu Gothic -> MS Gothic.
 
-Question text is the main label:
-- Japanese-capable font: Meiryo -> Yu Gothic -> MS Gothic
-- question font size >=24 px, preferably 28–32 px when layout allows
-- tofu/square glyphs => `REVIEW_ASSET_INVALID / BLOCKED`
-- local display sanity check required
-
-### A/B marker integrity — mandatory
-
-A prior sample/review sheet displayed every image as `B`. The next sheet must prevent this before handoff.
-
-For every A/B experiment:
-- derive displayed A/B from the **manifest / structured experiment condition**, not filename order, sort order, or fragile string-prefix inference;
-- each `(experiment, seed)` pair must contain exactly **one A + one B**;
-- the displayed marker must agree with the exact executed Prompt condition recorded for that image;
-- run an automated pre-handoff assertion that rejects accidental all-A/all-B labeling;
-- missing/duplicate/mismatched A/B => `REVIEW_ASSET_INVALID / BLOCKED`, and do not hand the sheet to the user;
-- record `ab_marker_integrity_check: PASS/FAIL` in the result artifact;
-- intentional non-A/B experiments must use an explicit non-A/B presentation mode instead of false A/B labels.
-
-The user is not responsible for checking this metadata manually.
-
-Traceability still remains mandatory in repository Markdown/JSON/manifest outside the contact sheet:
-- exact executed Positive/Negative Prompt
-- English canonical tags/tokens
-- Japanese labels in detailed user-readable records
-- seed/model/hash/settings
-- evaluator references
-- image SHA-256/path
-
-If Prompt details are separately shown to the user, use `English (日本語)`, but the user is not required to inspect them to perform visual review.
-
-Preferred review answer:
-- A / B / both / neither / tie / unclear
-
-## Execution order
-
-1. fetch latest `origin/main`
-2. merge latest main into `codex/issue30-calibration-design`; no rebase/force rewrite
-3. confirm Issue #30 + CURRENT_STATE + this file point to Generation Batch Wave
-4. inspect accepted Phase1/Wave1/Wave2/reuse-only evidence
-5. choose 3–4 valid experiment families/cases
-6. create design/manifest + concrete Japanese questions
-7. focused tests/syntax/dry-run/preflight
-8. if PASS, execute the full bounded batch without stopping between experiments
-9. run/reuse evaluator triage
-10. generate simplified large-question contact sheet
-11. run Japanese display sanity check **and A/B marker integrity validation**
-12. generate detailed traceability artifacts separately
-13. commit/push branch
-14. STOP for user + DEV/ChatGPT review
-
-## Required outputs
-
-- `docs/testing/ISSUE30_PHASE2_GENERATION_BATCH_DESIGN.md`
-- `docs/testing/ISSUE30_PHASE2_GENERATION_BATCH_MANIFEST.csv`
-- `docs/testing/ISSUE30_PHASE2_GENERATION_BATCH_RESULT.md`
-- `docs/testing/ISSUE30_PHASE2_GENERATION_BATCH_RESULT.json`
-- user-facing simplified contact sheet locator
-- detailed prompt/evaluator/provenance traceability
-- tests/dry-run result
-- generated/reused/blocked counts
-- review pairs / reviewed images separately
-- **A/B marker integrity check PASS/FAIL**
+A/B marker integrity remains mandatory:
+- derive marker from structured manifest condition
+- exactly one A + one B per `(experiment, seed)` pair
+- all-A/all-B/mismatch => `REVIEW_ASSET_INVALID / BLOCKED`
+- user is not responsible for metadata checking
 
 ## Hard prohibitions
 
-- >16 new images in this batch
-- original 128-image pilot wholesale rerun
+- current auditでの新規画像生成
+- current 12 imagesのuser再レビュー
 - 2,788-image sweep
 - Stage10 production A/B
 - production `data/**` changes
@@ -213,8 +156,7 @@ Preferred review answer:
 - runtime LLM dependency
 - unnecessary extension/tool
 - evaluator promotion to structural semantic truth
-- handing the user a contact sheet when A/B marker integrity is not PASS
 
-After the batch, STOP. Do not add seeds, start another batch, or start Stage10 automatically.
+After the audit, STOP. No next batch until DEV/ChatGPT accepts the audit.
 
 Current routing authority: `docs/project/CURRENT_STATE.md`.
