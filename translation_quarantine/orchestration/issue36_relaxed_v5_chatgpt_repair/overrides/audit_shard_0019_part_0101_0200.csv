@@ -1,0 +1,28 @@
+canonical,old_display_ja,new_display_ja,reason
+lace-trimmed_nightgown,レース・整えた・nightgown,レース縁取りのナイトガウン,MIXED_ENGLISH_DEBRIS
+lace-trimmed_sailor_collar,レース・整えた・sailor・襟,レース縁取りのセーラー襟,MIXED_ENGLISH_DEBRIS
+lace-trimmed_shirt_collar,レース・整えた・シャツ・襟,レース縁取りのシャツ襟,AWKWARD_MACHINE_TRANSLATION
+lace-trimmed_socks,レース・整えたの靴下,レース縁取りの靴下,AWKWARD_MACHINE_TRANSLATION
+lace-trimmed_tank_top,レース・整えた・tank・トップス,レース縁取りのタンクトップ,MIXED_ENGLISH_DEBRIS
+lace-trimmed_umbrella,レース・整えた・umbrella,レース縁取りの傘,MIXED_ENGLISH_DEBRIS
+lace-trimmed_wrist_cuffs,レース・整えた・手首・カフ,レース縁取りのリストカフス,AWKWARD_MACHINE_TRANSLATION
+lace-up_pants,レース・上向きのパンツ,レースアップパンツ,SEMANTIC_ERROR
+lace-up_thighhighs,レースアップの大腿部,レースアップのサイハイソックス,SEMANTIC_ERROR
+lace_lappet,レース・lappet,レースのラペット,MIXED_ENGLISH_DEBRIS
+lace_pantyhose_hooked_on_heel_(meme),高跟鞋勾蕾丝,かかとに引っ掛けたレースパンスト（ミーム）,NON_JAPANESE_RESIDUE
+lace_thigh_strap,レース・thigh・strap,レースの太ももストラップ,MIXED_ENGLISH_DEBRIS
+ladder_slit,タグ「ladder slit」,はしご状スリット,RAW_ENGLISH_WRAPPER
+laddered_bodystocking,タグ「laddered bodystocking」,伝線したボディストッキング,RAW_ENGLISH_WRAPPER
+laddered_pantyhose,ladderedのパンスト,伝線したパンスト,MIXED_ENGLISH_DEBRIS
+laddered_thighhighs,ladderedのニーハイ,伝線したサイハイソックス,MIXED_ENGLISH_DEBRIS
+ladybug_(original)_(love_live!),タグ「ladybug (original) (love live!)」,レディバグ（オリジナル）（ラブライブ!）,RAW_ENGLISH_WRAPPER
+ladybug_girl,タグ「ladybug girl」,てんとう虫娘,RAW_ENGLISH_WRAPPER
+ladybug_ornament,ladybug・飾り,てんとう虫の飾り,MIXED_ENGLISH_DEBRIS
+lala_satalin_deviluke_(cosplay),lala satalin deviluke (cosplay),ララ・サタリン・デビルーク（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+lambda_symbol,lambda・記号,ラムダ記号,MIXED_ENGLISH_DEBRIS
+lamia_boy,ナーガ,ラミア少年,SEMANTIC_ERROR
+landing_craft,着陸船,上陸用舟艇,SEMANTIC_ERROR
+landing_net,タグ「landing net」,ランディングネット,RAW_ENGLISH_WRAPPER
+landing_strip_pubic_hair,landing・strip・pubic・髪,ランディングストリップ型の陰毛,MIXED_ENGLISH_DEBRIS
+lantern_festival,元宵節,ランタン祭り,SEMANTIC_NARROWING
+lap_pillow_invitation,ラップ枕の招待状,膝枕のお誘い,SEMANTIC_ERROR
