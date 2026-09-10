@@ -1,0 +1,12 @@
+canonical,old_display_ja,new_display_ja,reason
+condom_wrapper_in_clothes,衣服の中のコンドーム,衣服の中のコンドーム包装,SEMANTIC_OMISSION
+covered_abs,覆われた腹部,隠れた腹筋,POLYSEMY_ERROR
+demon_slayer_uniform,デーモンスレイヤーユニフォーム,鬼殺隊の隊服,PROPER_TERM_TRANSLATION
+fingering_through_clothes,隔衣手淫,服越しの手マン,NON_JAPANESE_RESIDUE
+fingering_through_panties,隔内ズボン手淫,パンティー越しの手マン,NON_JAPANESE_AND_SEMANTIC_ERROR
+fish_girl,魚人,魚娘,GENDER_SEMANTIC_ERROR
+food_in_mouth,口移し,口の中の食べ物,RELATION_SEMANTIC_ERROR
+foot_focus,足フェチ,足を強調,SEMANTIC_ADDITION_ERROR
+furry_with_furry,毛深い者同士,獣人同士,POLYSEMY_ERROR
+furry_with_non-furry,毛深い者と非毛深い者,獣人と非獣人,POLYSEMY_ERROR
+hair_focus,ヘアフォーカス,髪を強調,RAW_LOANWORD_CLARIFICATION
