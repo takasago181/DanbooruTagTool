@@ -11,6 +11,8 @@ MANIFEST = ROOT / "docs/testing/ISSUE30_PHASE2_TEST_MANIFEST.csv"
 PHASE1_CASES = ROOT / "docs/testing/ISSUE30_REAL_IMAGE_CALIBRATION_CASES_20260910.csv"
 COVERAGE = ROOT / "docs/testing/ISSUE30_PHASE2_STRUCTURAL_COVERAGE.json"
 WAVE_RESULT = ROOT / "docs/testing/ISSUE30_PHASE2_WAVE1_RESULT.json"
+WAVE2_MANIFEST = ROOT / "docs/testing/ISSUE30_PHASE2_WAVE2_TEST_MANIFEST.csv"
+WAVE2_RESULT = ROOT / "docs/testing/ISSUE30_PHASE2_WAVE2_RESULT.json"
 HUMAN_REVIEW = ROOT / "docs/testing/ISSUE30_PHASE2_HUMAN_REVIEW_RESULTS_20260910.json"
 
 
@@ -53,6 +55,28 @@ def test_wave_result_is_complete_but_stopped_for_human_review():
     assert report["evaluator_runs"] == 36
     assert report["artifact_gate"] == {"PASS": 12}
     assert report["experiment_validity"]["status"] == "PENDING_HUMAN_REVIEW"
+    assert report["decision"]["additional_generation"] == "STOP_UNTIL_REVIEW"
+    assert report["human_review_pair_count"] == 6
+    assert report["human_review_reviewed_image_count"] == 12
+    assert report["review_display"]["display_check"] == "PASS"
+    assert report["review_display"]["font_path"].endswith("meiryo.ttc")
+
+
+def test_wave2_manifest_and_result_are_bounded_and_bilingual_review_ready():
+    cases = load_cases(WAVE2_MANIFEST)
+    assert len(cases) == 2
+    assert len(cases) * 4 == 8
+    validate_cases(cases, load_profiles())
+    assert {int(value) for case in cases for value in case["special_ids"].split("|")} == {147, 269, 275, 1286}
+    assert all(case["target_prompt"] and case["contrast_prompt"] for case in cases)
+    report = json.loads(WAVE2_RESULT.read_text(encoding="utf-8"))
+    assert report["status"] == "SECOND_WAVE_COMPLETE_REVIEW_REQUIRED"
+    assert report["image_count"] == report["new_images_generated"] == 8
+    assert report["evaluator_runs"] == 24
+    assert report["artifact_gate"] == {"PASS": 8}
+    assert report["human_review_pair_count"] == 4
+    assert report["human_review_reviewed_image_count"] == 8
+    assert report["review_display"]["display_check"] == "PASS"
     assert report["decision"]["additional_generation"] == "STOP_UNTIL_REVIEW"
 
 

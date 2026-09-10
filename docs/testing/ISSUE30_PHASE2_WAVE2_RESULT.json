@@ -1,0 +1,360 @@
+{
+  "schema_version": "issue30.phase2.wave2_result.v1",
+  "status": "SECOND_WAVE_COMPLETE_REVIEW_REQUIRED",
+  "run_id": "issue30-phase2-wave2-20260910",
+  "manifest": "docs\\testing\\ISSUE30_PHASE2_WAVE2_TEST_MANIFEST.csv",
+  "local_artifact_root": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_wave2_20260910",
+  "review_asset": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_wave2_20260910\\review_queue\\phase2_wave2_ab_contact_sheet.png",
+  "review_display": {
+    "font_path": "C:\\Windows\\Fonts\\meiryo.ttc",
+    "font_priority": [
+      "C:\\Windows\\Fonts\\meiryo.ttc",
+      "C:\\Windows\\Fonts\\YuGothM.ttc",
+      "C:\\Windows\\Fonts\\msgothic.ttc"
+    ],
+    "japanese_label_sample": "Positive: vibrator (バイブレーター)",
+    "display_check": "PASS",
+    "display_check_reason": "Japanese-capable installed font selected"
+  },
+  "image_count": 8,
+  "new_images_generated": 8,
+  "screen_only_reused_images": 0,
+  "evaluator_runs": 24,
+  "evaluator_complete_images": 8,
+  "artifact_gate": {
+    "PASS": 8
+  },
+  "experiment_validity": {
+    "status": "PENDING_HUMAN_REVIEW",
+    "failures_recorded": 0
+  },
+  "screening_class_occurrences": {
+    "LOW_CONFIDENCE": 7,
+    "RELATION_OR_BINDING": 4,
+    "COMPONENT_ONLY": 4
+  },
+  "human_review_image_count": 5,
+  "human_review_image_ids": [
+    "P2-004__target_present_seed_a",
+    "P2-004__target_present_seed_b",
+    "P2-004__contrast_seed_a",
+    "P2-004__contrast_seed_b",
+    "P2-005__target_present_seed_a"
+  ],
+  "human_review_pair_count": 4,
+  "human_review_reviewed_image_count": 8,
+  "generation_profile": {
+    "model_family": "Illustrious XL",
+    "checkpoint": "waiIllustriousSDXL_v170.safetensors",
+    "checkpoint_hash": "f116b0c78ff441467b0cdc8f1936e1ed18ea31e9997c7b132b1b8db533f0bd04",
+    "forge_version": "neo-2.29",
+    "sampler": "Euler a",
+    "steps": 25,
+    "cfg": 5.0,
+    "resolution": {
+      "width": 1024,
+      "height": 1344
+    },
+    "lora": {
+      "present": false,
+      "names": [],
+      "weights": []
+    }
+  },
+  "experiments": [
+    {
+      "case_id": "P2-004",
+      "special_ids": [
+        275,
+        269
+      ],
+      "canonical": "double dildo",
+      "canonical_ja": "両端を使用できる二重ディルド",
+      "question": "Does the count-/shape-specific tag preserve the intended exact object distinction versus a broader tag?",
+      "condition_a": {
+        "prompt": "masterpiece, best quality, 1girl, solo, double dildo, simple background",
+        "negative_prompt": "lowres, blurry, text, watermark, jpeg artifacts"
+      },
+      "condition_b": {
+        "prompt": "masterpiece, best quality, 1girl, solo, dildo, simple background",
+        "negative_prompt": "lowres, blurry, text, watermark, jpeg artifacts"
+      },
+      "seeds": [
+        42001,
+        42002
+      ],
+      "image_count": 4,
+      "artifact_gate": {
+        "PASS": 4
+      },
+      "screening_class_occurrences": {
+        "LOW_CONFIDENCE": 4
+      },
+      "human_review_image_ids": [
+        "P2-004__contrast_seed_a",
+        "P2-004__target_present_seed_a",
+        "P2-004__contrast_seed_b",
+        "P2-004__target_present_seed_b"
+      ],
+      "experiment_validity": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "case_id": "P2-005",
+      "special_ids": [
+        147,
+        1286
+      ],
+      "canonical": "anal / anal penetration",
+      "canonical_ja": "アナル性交 / 肛門・アナル・挿入に関係する表現",
+      "question": "Does the legitimate alias trigger the same visible target as the canonical English surface under identical settings?",
+      "condition_a": {
+        "prompt": "masterpiece, best quality, 1girl, solo, anal, simple background",
+        "negative_prompt": "lowres, blurry, text, watermark, jpeg artifacts"
+      },
+      "condition_b": {
+        "prompt": "masterpiece, best quality, 1girl, solo, anal penetration, simple background",
+        "negative_prompt": "lowres, blurry, text, watermark, jpeg artifacts"
+      },
+      "seeds": [
+        42011,
+        42012
+      ],
+      "image_count": 4,
+      "artifact_gate": {
+        "PASS": 4
+      },
+      "screening_class_occurrences": {
+        "RELATION_OR_BINDING": 4,
+        "COMPONENT_ONLY": 4,
+        "LOW_CONFIDENCE": 3
+      },
+      "human_review_image_ids": [
+        "P2-005__target_present_seed_a"
+      ],
+      "experiment_validity": "PENDING_HUMAN_REVIEW"
+    }
+  ],
+  "image_records": [
+    {
+      "image_id": "P2-004__target_present_seed_a",
+      "case_id": "P2-004",
+      "canonical": "double dildo",
+      "canonical_ja": "両端を使用できる二重ディルド",
+      "cell_type": "target_present_seed_a",
+      "seed": 42001,
+      "prompt": "masterpiece, best quality, 1girl, solo, double dildo, simple background",
+      "negative_prompt": "lowres, blurry, text, watermark, jpeg artifacts",
+      "sha256": "c333fde9f6cf0cef5ac9e6b99b38707da662f2af1f493995850a5cd6f3b32bd8",
+      "bytes": 1411218,
+      "width": 1024,
+      "height": 1344,
+      "image_path": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_wave2_20260910\\images\\P2-004__target_present_seed_a.png",
+      "reused": false,
+      "artifact_gate": {
+        "status": "PASS",
+        "reasons": []
+      },
+      "screening_classes": [
+        "LOW_CONFIDENCE"
+      ],
+      "agreement_pattern": "UNANIMOUS_POSITIVE",
+      "selected_for_human_review": true,
+      "experiment_validity": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "image_id": "P2-004__target_present_seed_b",
+      "case_id": "P2-004",
+      "canonical": "double dildo",
+      "canonical_ja": "両端を使用できる二重ディルド",
+      "cell_type": "target_present_seed_b",
+      "seed": 42002,
+      "prompt": "masterpiece, best quality, 1girl, solo, double dildo, simple background",
+      "negative_prompt": "lowres, blurry, text, watermark, jpeg artifacts",
+      "sha256": "7300dabe12e3b9b7bbf0abfa0e19ff3310815db4caf71e42c66c025da493d00b",
+      "bytes": 942509,
+      "width": 1024,
+      "height": 1344,
+      "image_path": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_wave2_20260910\\images\\P2-004__target_present_seed_b.png",
+      "reused": false,
+      "artifact_gate": {
+        "status": "PASS",
+        "reasons": []
+      },
+      "screening_classes": [
+        "LOW_CONFIDENCE"
+      ],
+      "agreement_pattern": "UNANIMOUS_POSITIVE",
+      "selected_for_human_review": true,
+      "experiment_validity": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "image_id": "P2-004__contrast_seed_a",
+      "case_id": "P2-004",
+      "canonical": "double dildo",
+      "canonical_ja": "両端を使用できる二重ディルド",
+      "cell_type": "contrast_seed_a",
+      "seed": 42001,
+      "prompt": "masterpiece, best quality, 1girl, solo, dildo, simple background",
+      "negative_prompt": "lowres, blurry, text, watermark, jpeg artifacts",
+      "sha256": "a3a587704260968a6ba7cd209f7a4223779235352d1e74fa908865dba0d7cdac",
+      "bytes": 1323095,
+      "width": 1024,
+      "height": 1344,
+      "image_path": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_wave2_20260910\\images\\P2-004__contrast_seed_a.png",
+      "reused": false,
+      "artifact_gate": {
+        "status": "PASS",
+        "reasons": []
+      },
+      "screening_classes": [
+        "LOW_CONFIDENCE"
+      ],
+      "agreement_pattern": "UNANIMOUS_POSITIVE",
+      "selected_for_human_review": true,
+      "experiment_validity": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "image_id": "P2-004__contrast_seed_b",
+      "case_id": "P2-004",
+      "canonical": "double dildo",
+      "canonical_ja": "両端を使用できる二重ディルド",
+      "cell_type": "contrast_seed_b",
+      "seed": 42002,
+      "prompt": "masterpiece, best quality, 1girl, solo, dildo, simple background",
+      "negative_prompt": "lowres, blurry, text, watermark, jpeg artifacts",
+      "sha256": "3981763a7cbcf84c01d0d082343cbca80868f949849e1a565b7f20c9ba40eb7d",
+      "bytes": 963452,
+      "width": 1024,
+      "height": 1344,
+      "image_path": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_wave2_20260910\\images\\P2-004__contrast_seed_b.png",
+      "reused": false,
+      "artifact_gate": {
+        "status": "PASS",
+        "reasons": []
+      },
+      "screening_classes": [
+        "LOW_CONFIDENCE"
+      ],
+      "agreement_pattern": "UNANIMOUS_POSITIVE",
+      "selected_for_human_review": true,
+      "experiment_validity": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "image_id": "P2-005__target_present_seed_a",
+      "case_id": "P2-005",
+      "canonical": "anal / anal penetration",
+      "canonical_ja": "アナル性交 / 肛門・アナル・挿入に関係する表現",
+      "cell_type": "target_present_seed_a",
+      "seed": 42011,
+      "prompt": "masterpiece, best quality, 1girl, solo, anal, simple background",
+      "negative_prompt": "lowres, blurry, text, watermark, jpeg artifacts",
+      "sha256": "aeb55acffab45c71ad50242d7ea24247585d5e7d779604b95d53babd24fa3c8f",
+      "bytes": 1542057,
+      "width": 1024,
+      "height": 1344,
+      "image_path": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_wave2_20260910\\images\\P2-005__target_present_seed_a.png",
+      "reused": false,
+      "artifact_gate": {
+        "status": "PASS",
+        "reasons": []
+      },
+      "screening_classes": [
+        "RELATION_OR_BINDING",
+        "COMPONENT_ONLY",
+        "LOW_CONFIDENCE"
+      ],
+      "agreement_pattern": "UNANIMOUS_POSITIVE",
+      "selected_for_human_review": true,
+      "experiment_validity": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "image_id": "P2-005__target_present_seed_b",
+      "case_id": "P2-005",
+      "canonical": "anal / anal penetration",
+      "canonical_ja": "アナル性交 / 肛門・アナル・挿入に関係する表現",
+      "cell_type": "target_present_seed_b",
+      "seed": 42012,
+      "prompt": "masterpiece, best quality, 1girl, solo, anal, simple background",
+      "negative_prompt": "lowres, blurry, text, watermark, jpeg artifacts",
+      "sha256": "ffa5ff47f33ee4136105b1303292e8aeade49f08759fa501f94f28d15a4db95f",
+      "bytes": 1528928,
+      "width": 1024,
+      "height": 1344,
+      "image_path": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_wave2_20260910\\images\\P2-005__target_present_seed_b.png",
+      "reused": false,
+      "artifact_gate": {
+        "status": "PASS",
+        "reasons": []
+      },
+      "screening_classes": [
+        "RELATION_OR_BINDING",
+        "COMPONENT_ONLY",
+        "LOW_CONFIDENCE"
+      ],
+      "agreement_pattern": "UNANIMOUS_POSITIVE",
+      "selected_for_human_review": false,
+      "experiment_validity": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "image_id": "P2-005__contrast_seed_a",
+      "case_id": "P2-005",
+      "canonical": "anal / anal penetration",
+      "canonical_ja": "アナル性交 / 肛門・アナル・挿入に関係する表現",
+      "cell_type": "contrast_seed_a",
+      "seed": 42011,
+      "prompt": "masterpiece, best quality, 1girl, solo, anal penetration, simple background",
+      "negative_prompt": "lowres, blurry, text, watermark, jpeg artifacts",
+      "sha256": "414578f4fdddf1e8b57c7e4174e419632ea111c51425d9dd1a7ef45965322826",
+      "bytes": 1496373,
+      "width": 1024,
+      "height": 1344,
+      "image_path": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_wave2_20260910\\images\\P2-005__contrast_seed_a.png",
+      "reused": false,
+      "artifact_gate": {
+        "status": "PASS",
+        "reasons": []
+      },
+      "screening_classes": [
+        "RELATION_OR_BINDING",
+        "COMPONENT_ONLY"
+      ],
+      "agreement_pattern": "UNANIMOUS_POSITIVE",
+      "selected_for_human_review": false,
+      "experiment_validity": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "image_id": "P2-005__contrast_seed_b",
+      "case_id": "P2-005",
+      "canonical": "anal / anal penetration",
+      "canonical_ja": "アナル性交 / 肛門・アナル・挿入に関係する表現",
+      "cell_type": "contrast_seed_b",
+      "seed": 42012,
+      "prompt": "masterpiece, best quality, 1girl, solo, anal penetration, simple background",
+      "negative_prompt": "lowres, blurry, text, watermark, jpeg artifacts",
+      "sha256": "7eb436cf2d8736f3580d1caa9ff134e66198e84875b37b0121f4b4946ed057bb",
+      "bytes": 1510766,
+      "width": 1024,
+      "height": 1344,
+      "image_path": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_wave2_20260910\\images\\P2-005__contrast_seed_b.png",
+      "reused": false,
+      "artifact_gate": {
+        "status": "PASS",
+        "reasons": []
+      },
+      "screening_classes": [
+        "RELATION_OR_BINDING",
+        "COMPONENT_ONLY",
+        "LOW_CONFIDENCE"
+      ],
+      "agreement_pattern": "UNANIMOUS_POSITIVE",
+      "selected_for_human_review": false,
+      "experiment_validity": "PENDING_HUMAN_REVIEW"
+    }
+  ],
+  "decision": {
+    "device_contact": "HOLD_HUMAN_REVIEW_REQUIRED",
+    "source_ownership": "HOLD_HUMAN_REVIEW_REQUIRED",
+    "negative_collision": "HOLD_HUMAN_REVIEW_REQUIRED",
+    "additional_generation": "STOP_UNTIL_REVIEW"
+  }
+}

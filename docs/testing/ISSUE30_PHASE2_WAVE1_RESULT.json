@@ -2,9 +2,20 @@
   "schema_version": "issue30.phase2.wave1_result.v1",
   "status": "FIRST_WAVE_COMPLETE_REVIEW_REQUIRED",
   "run_id": "issue30-phase2-wave1-20260910",
-  "manifest": "C:\\Codex\\DanbooruTagTool\\docs\\testing\\ISSUE30_PHASE2_TEST_MANIFEST.csv",
+  "manifest": "docs\\testing\\ISSUE30_PHASE2_TEST_MANIFEST.csv",
   "local_artifact_root": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_wave1_profile_20260910",
   "review_asset": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_wave1_profile_20260910\\review_queue\\phase2_wave1_ab_contact_sheet.png",
+  "review_display": {
+    "font_path": "C:\\Windows\\Fonts\\meiryo.ttc",
+    "font_priority": [
+      "C:\\Windows\\Fonts\\meiryo.ttc",
+      "C:\\Windows\\Fonts\\YuGothM.ttc",
+      "C:\\Windows\\Fonts\\msgothic.ttc"
+    ],
+    "japanese_label_sample": "Positive: vibrator (バイブレーター)",
+    "display_check": "PASS",
+    "display_check_reason": "Japanese-capable installed font selected"
+  },
   "image_count": 12,
   "new_images_generated": 12,
   "screen_only_reused_images": 12,
@@ -31,6 +42,8 @@
     "P2-003__contrast_seed_a",
     "P2-003__contrast_seed_b"
   ],
+  "human_review_pair_count": 6,
+  "human_review_reviewed_image_count": 12,
   "generation_profile": {
     "model_family": "Illustrious XL",
     "checkpoint": "waiIllustriousSDXL_v170.safetensors",
