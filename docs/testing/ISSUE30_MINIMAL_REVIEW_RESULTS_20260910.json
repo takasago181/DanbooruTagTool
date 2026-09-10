@@ -1,0 +1,46 @@
+{
+  "schema_version": "issue30.minimal_review_result.v1",
+  "source": "user_chat_review_20260910",
+  "review_scope": "human_target_concept_presence_only",
+  "reviewer_count": 1,
+  "pilot_images": 128,
+  "minimal_review_images": 19,
+  "summary": {
+    "target_present_yes": 16,
+    "target_present_no": 1,
+    "target_present_unclear": 2,
+    "contrast_not_realized": 1,
+    "site_or_relation_issue": 1,
+    "blocked_or_unobservable": 2,
+    "unresolved": 1,
+    "provisional_auto_support_candidates": 8,
+    "provisional_human_review_only": 9
+  },
+  "records": [
+    {"review_order": 1, "image_id": "CAL-001__target_present_seed_b", "canonical": "anus", "canonical_ja": "肛門", "target_or_contrast": "target", "human_target_concept_present": "yes", "human_final_route": "AUTO_SUPPORT", "reviewer_note": "対象あり"},
+    {"review_order": 2, "image_id": "CAL-003__target_present_seed_a", "canonical": "anus peek", "canonical_ja": "肛門ちら見せ", "target_or_contrast": "target", "human_target_concept_present": "yes", "human_final_route": "AUTO_SUPPORT", "reviewer_note": "対象あり"},
+    {"review_order": 3, "image_id": "CAL-003__target_present_seed_b", "canonical": "anus peek", "canonical_ja": "肛門ちら見せ", "target_or_contrast": "target", "human_target_concept_present": "yes", "human_final_route": "AUTO_SUPPORT", "reviewer_note": "対象あり"},
+    {"review_order": 4, "image_id": "CAL-002__target_present_seed_b", "canonical": "spread anus", "canonical_ja": "開いた肛門", "target_or_contrast": "target", "human_target_concept_present": "yes", "human_final_route": "AUTO_SUPPORT", "reviewer_note": "対象あり"},
+    {"review_order": 5, "image_id": "CAL-005__contrast_seed_a", "canonical": "exposed genitals", "canonical_ja": "露出した性器", "target_or_contrast": "contrast", "human_target_concept_present": "no", "contrast_realized": "no", "human_final_route": "BLOCKED", "reviewer_note": "Tシャツ姿で性器は露出しておらず、対照Specialが未成立"},
+    {"review_order": 6, "image_id": "CAL-005__target_present_seed_a", "canonical": "exposed genitals", "canonical_ja": "露出した性器", "target_or_contrast": "target", "human_target_concept_present": "yes", "human_final_route": "AUTO_SUPPORT", "reviewer_note": "対象あり"},
+    {"review_order": 7, "image_id": "CAL-028__target_present_seed_b", "canonical": "after footjob", "canonical_ja": "足を使った性行為の後の状態", "target_or_contrast": "target", "human_target_concept_present": "yes", "human_final_route": "HUMAN_REVIEW_ONLY", "reviewer_note": "対象あり。状態・関係性はAUTO判定しない"},
+    {"review_order": 8, "image_id": "CAL-028__target_present_seed_a", "canonical": "after footjob", "canonical_ja": "足を使った性行為の後の状態", "target_or_contrast": "target", "human_target_concept_present": "yes", "human_final_route": "HUMAN_REVIEW_ONLY", "reviewer_note": "対象あり。状態・関係性はAUTO判定しない"},
+    {"review_order": 9, "image_id": "CAL-006__target_present_seed_a", "canonical": "genital closeup", "canonical_ja": "性器のクローズアップ", "target_or_contrast": "target", "human_target_concept_present": "yes", "human_final_route": "AUTO_SUPPORT", "reviewer_note": "対象あり"},
+    {"review_order": 10, "image_id": "CAL-006__target_present_seed_b", "canonical": "genital closeup", "canonical_ja": "性器のクローズアップ", "target_or_contrast": "target", "human_target_concept_present": "yes", "human_final_route": "AUTO_SUPPORT", "reviewer_note": "対象あり"},
+    {"review_order": 11, "image_id": "CAL-001__target_present_seed_a", "canonical": "anus", "canonical_ja": "肛門", "target_or_contrast": "target", "human_target_concept_present": "unclear", "human_final_route": "BLOCKED", "reviewer_note": "画像が灰色で内容を判断できない"},
+    {"review_order": 12, "image_id": "CAL-007__target_present_seed_a", "canonical": "armpit sex", "canonical_ja": "脇を使った性行為", "target_or_contrast": "target", "human_target_concept_present": "yes", "human_final_route": "HUMAN_REVIEW_ONLY", "reviewer_note": "対象あり。関係性はAUTO判定しない"},
+    {"review_order": 13, "image_id": "CAL-018__target_present_seed_a", "canonical": "grabbing another's ass", "canonical_ja": "他人の尻をつかむ", "target_or_contrast": "target", "human_target_concept_present": "yes", "human_final_route": "HUMAN_REVIEW_ONLY", "reviewer_note": "対象あり。主体・相手の対応はAUTO判定しない"},
+    {"review_order": 14, "image_id": "CAL-014__target_present_seed_a", "canonical": "anal object insertion", "canonical_ja": "肛門への物体挿入", "target_or_contrast": "target", "human_target_concept_present": "yes", "human_body_part_ownership_site_correct": "no", "human_unwanted_extra_interpretation": "yes", "human_final_route": "HUMAN_REVIEW_ONLY", "reviewer_note": "対象はあるが膣にも入っており、部位解釈が不正確"},
+    {"review_order": 15, "image_id": "CAL-023__target_present_seed_a", "canonical": "double handjob", "canonical_ja": "二人がかりの手による性行為", "target_or_contrast": "target", "human_target_concept_present": "yes", "human_final_route": "HUMAN_REVIEW_ONLY", "reviewer_note": "対象あり。人数・関係性はAUTO判定しない"},
+    {"review_order": 16, "image_id": "CAL-020__target_present_seed_a", "canonical": "cooperative fellatio", "canonical_ja": "協力して行うフェラチオ", "target_or_contrast": "target", "human_target_concept_present": "yes", "human_final_route": "HUMAN_REVIEW_ONLY", "reviewer_note": "対象あり。協力関係はAUTO判定しない"},
+    {"review_order": 17, "image_id": "CAL-025__target_present_seed_a", "canonical": "hug and suck", "canonical_ja": "抱擁と吸う行為の複合", "target_or_contrast": "target", "human_target_concept_present": "yes", "human_final_route": "HUMAN_REVIEW_ONLY", "reviewer_note": "対象あり。複合要素の保持はAUTO判定しない"},
+    {"review_order": 18, "image_id": "CAL-031__target_present_seed_a", "canonical": "bound penis", "canonical_ja": "拘束された陰茎", "target_or_contrast": "target", "human_target_concept_present": "unclear", "human_final_route": "UNRESOLVED", "reviewer_note": "拘束状態がよく分からない"},
+    {"review_order": 19, "image_id": "CAL-010__target_present_seed_a", "canonical": "cuddling handjob", "canonical_ja": "寄り添いながらの手による性行為", "target_or_contrast": "target", "human_target_concept_present": "yes", "human_final_route": "HUMAN_REVIEW_ONLY", "reviewer_note": "対象あり。寄り添い・関係性はAUTO判定しない"}
+  ],
+  "limitations": [
+    "This review records only the user's target-presence observations; unasked dimensions are not inferred.",
+    "AUTO_SUPPORT is provisional calibration evidence only and does not authorize production AUTO.",
+    "Relation/binding, site and compound semantics remain HUMAN_REVIEW_ONLY.",
+    "No new images were generated and no evaluator was rerun."
+  ]
+}
