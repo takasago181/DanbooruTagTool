@@ -1,0 +1,34 @@
+{
+  "status": "HISTORICAL_SNAPSHOT_DO_NOT_USE_FOR_CURRENT_ROUTING",
+  "current_routing": "docs/project/CURRENT_STATE.md",
+  "cleanup_note": "2026-09-11 repository cleanup audit: preserved for provenance; this manifest describes the 2026-09-04 v1.3 start pack and is not the current project manifest.",
+  "package_version": "1.3-final",
+  "date": "2026-09-04",
+  "purpose": "Final Codex start pack: Special2788 Core Tag Set first, true AND + Candidate Aggregation auxiliary discovery",
+  "missing_required_files": [],
+  "source_of_truth": {
+    "raw_tag_dictionary": "data/source/danbooru-2026-09-02.csv",
+    "special2788": "data/special2788/illustrious_tag_knowledge_base_2788.csv",
+    "semantic_bridge": "data/semantic/semantic_bridge_v1.csv"
+  },
+  "active_audited_overlay": {
+    "historical_note": "The following fields were active for the v1.3 package snapshot only and are not current routing authority.",
+    "ruleset": "Ruleset2 v3.0 accepted checkpoint 2026-09-07",
+    "special2788": "data/derived/ruleset2/01_SPECIAL2788_JAPANESE_COMPLETE_CANDIDATE.csv",
+    "alias_semantic_authority": "data/derived/ruleset2/37_ALIAS_SEMANTIC_RELATIONSHIP_v3.0.csv",
+    "alias_statistics_authority": "data/derived/ruleset2/38_ALIAS_STATISTICS_POLICY_v3.0.csv",
+    "semantic336_routing": "data/derived/ruleset2/06_SEMANTIC336_ROUTING_OVERLAY.csv",
+    "manifest": "data/derived/ruleset2/RULESET2_MANIFEST.json"
+  },
+  "not_included": [
+    "Approved post-level metadata (not selected yet)",
+    "image dataset",
+    "duplicate verified bundle ZIPs"
+  ],
+  "design_lock": {
+    "primary": "Special2788 Core Tag Set",
+    "technical_bottleneck": "Candidate Aggregation",
+    "auxiliary": "All Danbooru + true co-occurrence",
+    "output": "Prompt + LoRA"
+  }
+}
