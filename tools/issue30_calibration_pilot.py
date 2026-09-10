@@ -406,7 +406,7 @@ def screening(record: dict[str, Any], evaluators: dict[str, dict[str, Any]]) -> 
         classes.append("COMPONENT_ONLY")
     if len(set(v for v in votes if v is not None)) > 1:
         classes.append("DISAGREEMENT")
-    if any(v is None for v in votes) or any((e["raw_score"] is not None and e["raw_score"] < THRESHOLDS[name]) for name, e in evaluators.items()):
+    if any(v is None for v in votes) or any((e["raw_score"] is not None and e["threshold_used"] is not None and e["raw_score"] < e["threshold_used"]) for e in evaluators.values()):
         classes.append("LOW_CONFIDENCE")
     all_direct = all(e["execution_state"] == "OK" and e["observation_basis"] == "DIRECT" for e in evaluators.values())
     unanimous_positive = votes == [True, True, True]
