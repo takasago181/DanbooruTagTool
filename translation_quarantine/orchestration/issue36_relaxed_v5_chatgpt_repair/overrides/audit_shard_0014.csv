@@ -99,3 +99,30 @@ flower_symbol,花形符号,花のシンボル,NON_JAPANESE_RESIDUE
 flower_thigh_strap,花・thigh・strap,花の太ももストラップ,MIXED_ENGLISH_DEBRIS
 flower_to_mouth,花から口まで,口元に花,SEMANTIC_RELATION_ERROR
 flower_underskirt,花・underskirt,花のアンダースカート,MIXED_ENGLISH_DEBRIS
+flower_wand,花・wand,花の杖,MIXED_ENGLISH_DEBRIS
+fluffy_white_puppy_expressions_(meme),fluffy white puppy expressions (meme),ふわふわ白い子犬の表情（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+fluid_on_breasts,fluidの上の胸,胸についた液体,SEMANTIC_RELATION_ERROR
+flushed_face_emoji,flushed・顔・emoji,赤面顔の絵文字,MIXED_ENGLISH_DEBRIS
+flushed_face_emoji_shirt_(meme),flushed face emoji shirt (meme),赤面顔絵文字シャツ（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+flute_tassel,タグ「flute tassel」,フルートの房飾り,RAW_ENGLISH_WRAPPER
+flying_fish,空の魚,飛ぶ魚,SEMANTIC_ERROR
+flying_nimbus,筋斗云,筋斗雲,NON_JAPANESE_RESIDUE
+flying_spittle,タグ「flying spittle」,飛び散る唾,RAW_ENGLISH_WRAPPER
+flying_train,タグ「flying train」,空飛ぶ列車,RAW_ENGLISH_WRAPPER
+flying_whale,空の鯨,空飛ぶクジラ,SEMANTIC_ERROR
+foaming_waves,発泡波,泡立つ波,SEMANTIC_ERROR
+fog,雾,霧,NON_JAPANESE_RESIDUE
+fold-over_collar,foldの上の襟,折り返し襟,MIXED_ENGLISH_DEBRIS
+fold-over_gloves,fold overの手袋,折り返し手袋,MIXED_ENGLISH_DEBRIS
+folded_twintails,折叠双馬尾,折り畳まれたツインテール,NON_JAPANESE_RESIDUE
+folding_clothes,折り畳み式の服,服を畳む,SEMANTIC_ERROR
+folding_stool,折りたたみ便,折りたたみ椅子,SEMANTIC_ERROR
+folding_table,折叠桌,折りたたみテーブル,NON_JAPANESE_RESIDUE
+food-themed_brooch,食べ物・themed・ブローチ,食べ物モチーフのブローチ,MIXED_ENGLISH_DEBRIS
+food-themed_choker,食べ物・themed・choker,食べ物モチーフのチョーカー,MIXED_ENGLISH_DEBRIS
+food-themed_hair,食べ物・themed・髪,食べ物モチーフの髪,MIXED_ENGLISH_DEBRIS
+food-themed_weapon,food themedの武器,食べ物モチーフの武器,MIXED_ENGLISH_DEBRIS
+food_as_clothes,服として食べ物,食べ物を服として身につける,SEMANTIC_RELATION_ERROR
+food_as_ears,食べ物・as・耳,耳としての食べ物,MIXED_ENGLISH_DEBRIS
+food_between_breasts,乳挟み,胸の間の食べ物,SEMANTIC_NARROWING
+food_costume,食べ物・衣装,食べ物の衣装,AWKWARD_MACHINE_TRANSLATION
