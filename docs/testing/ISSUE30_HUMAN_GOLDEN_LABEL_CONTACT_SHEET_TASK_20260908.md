@@ -20,6 +20,6 @@ Current routing/test-design authority:
 - Issue #37 joint checkpoint
 - Issue #30 current checkpoint
 
-Final representative Special IDs, evaluator allocation (WD14 / Kagami-24k / CL Tagger v2), per-Special AUTO/REVIEW routing, and production thresholds remain HOLD until the final Special2788 dictionary is frozen and KNOWLEDGE returns the full evaluator coverage comparison.
+Final representative Special IDs, evaluator allocation (WD14 / Kagami-24k / CL Tagger v2), per-Special AUTO/REVIEW routing, and production thresholds remain HOLD until the final Special Core Dictionary is frozen and KNOWLEDGE returns the full evaluator coverage comparison.
 
 Stage10 production A/B remains not started.

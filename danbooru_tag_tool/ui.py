@@ -125,7 +125,7 @@ class Stage7AApp(ttk.Frame):
         self.results_frame.rowconfigure(1, weight=0)
         content.add(self.results_frame, weight=3)
 
-        special_box = ttk.LabelFrame(self.results_frame, text="Special2788", padding=8)
+        special_box = ttk.LabelFrame(self.results_frame, text="Special Core Dictionary", padding=8)
         special_box.grid(row=0, column=0, sticky="nsew", pady=(0, 8))
         special_box.columnconfigure(0, weight=1)
         special_box.rowconfigure(0, weight=1)

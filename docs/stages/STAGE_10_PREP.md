@@ -2,7 +2,7 @@
 
 ## 目的
 
-Special2788の機能を実画像A/B比較で検証する。
+Special Core Dictionaryの機能を実画像A/B比較で検証する。
 
 ## 現時点の重要原則
 
@@ -16,7 +16,7 @@ Special2788の機能を実画像A/B比較で検証する。
 - Stage9 overall Gate完了だけでStage10本番A/B開始とはしない。
 - Issue #28 automated E2E functional testはPASS済み。
 - Stage10比較自動化はexternal / existing tool first。不足箇所だけ薄いglue/harnessを追加する。
-- WD14その他TaggerをSpecial2788の完全なground truthとして扱わない。
+- WD14その他TaggerをSpecial Core Dictionaryの完全なground truthとして扱わない。
 - unsupported / low-confidenceはFAILではなくREVIEWへ送る。
 - simple tag用の1つのconfidence/margin thresholdをrelation/composite/rare Specialや別model familyへ共通適用しない。
 
@@ -58,7 +58,7 @@ Issue #37 KNOWLEDGE + PROMPT review conclusion:
 
 **`REPLACE_OR_AUGMENT_WITH_SPECIAL_REPRESENTATIVE_SET`**
 
-The generic set is retained only as a **plumbing/evaluator fixture**. It is not representative enough for DanbooruTagTool's Special2788-centered Stage10 product-purpose calibration.
+The generic set is retained only as a **plumbing/evaluator fixture**. It is not representative enough for DanbooruTagTool's Special Core Dictionary-centered Stage10 product-purpose calibration.
 
 The generic contact-sheet task is therefore **PAUSED / SUPERSEDED as the next product-representative step**. Existing evidence is preserved.
 
@@ -70,7 +70,7 @@ Design authority:
 
 Representative calibration must include categories such as:
 
-1. actual Special2788 direct presence/absence
+1. actual Special Core Dictionary direct presence/absence
 2. rare / niche Special
 3. relation / actor-target / body-site binding
 4. multiple-Special simultaneous retention
@@ -92,13 +92,13 @@ For unusual-anatomy Special tests, do not mechanically fix anatomy-sensitive neg
 
 Their interaction with the target Special is a separate one-question A/B experiment. This is experiment isolation, not a production Negative Prompt rule.
 
-## HOLD until final Special2788 dictionary freeze
+## HOLD until final Special Core Dictionary freeze
 
 Do not finalize before the dictionary is frozen:
 
 - representative test Special IDs / exact final case list
 - WD14 / Kagami-24k / CL Tagger v2 final responsibility split
-- each Tagger's final Special2788 coverage
+- each Tagger's final Special Core Dictionary coverage
 - per-Special `AUTO` / `REVIEW` final routing
 - production confidence / margin thresholds
 

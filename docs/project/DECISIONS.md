@@ -153,7 +153,7 @@ Status: ADOPTED
 Issue #32のcurrent 2,788 full validation完了後、final production promotion audit / final Special dictionary freezeの前に、1回だけ明示的な**pre-freeze completeness reconciliation（漏れ監査）**を行う。
 
 少なくとも以下を突き合わせる:
-- current frozen Special2788 source/profile
+- current frozen Special Core Dictionary source/profile (physical `Special2788` identifiers retained)
 - 過去Stageで作成・記録された追加Special候補
 - canonical / Alias / Semantic辞書および関連local search/support資産
 - missing/additional word作業を記録したdurable checkpoint / decision

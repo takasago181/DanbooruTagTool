@@ -99,7 +99,7 @@ flowchart TD
 
 ```mermaid
 flowchart TD
- A[Special2788] --> B[Core Tag Set]
+ A[Special Core Dictionary] --> B[Core Tag Set]
  B --> C[True multi-tag AND]
  C --> D[Candidate Aggregation]
  D --> E[Auxiliary Candidates]

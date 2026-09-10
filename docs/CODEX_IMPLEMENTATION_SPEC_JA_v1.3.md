@@ -22,7 +22,7 @@
 
 ### Core Tag Setを第一級にする
 
-単語1個だけでなく、Special2788の複数語の組み合わせを「核」として保持する。
+単語1個だけでなく、Special Core Dictionaryの複数Specialの組み合わせを「核」として保持する。
 
 内部区分:
 - Core Tag Set
@@ -45,7 +45,7 @@ v1 minimumは `docs/CORE_TAG_SET_SCHEMA.md` に従う。
 Exact matchは常に最優先。
 その後にSpecialをUI上優遇する。
 
-## 3. 固定Special2788
+## 3. 固定production snapshot（互換識別子: Special2788）
 
 total 2,788
 Core 759
@@ -185,7 +185,7 @@ docs/architecture/INDEX_ARCHITECTURE_DECISION.md
 実装:
 - Canonical
 - Alias
-- Special2788
+- Special Core Dictionary
 - Translation layer
 - Static Semantic Bridge schema
 - normalization

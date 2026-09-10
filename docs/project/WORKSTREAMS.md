@@ -12,7 +12,7 @@
 
 **今の大きな作業は3本です。**
 
-1. **生成辞書検証** — Special2788の生成用付加データを全件監査中
+1. **生成辞書検証** — Special Core Dictionaryの生成用付加データを全件監査中
 2. **UI・日本語改善** — UI仕上げ + 日本語辞書R3テストエンジンを実装中
 3. **Stage10準備** — A/B自動化の基礎は完成、最終的な判定方法は辞書確定待ち
 
@@ -33,7 +33,7 @@
 **関連:** #32
 
 ### 何をしている？
-Special2788についている画像生成用データが、本当に生成目的に合っているかを順番に監査しています。
+Special Core Dictionaryについている画像生成用データが、本当に生成目的に合っているかを順番に監査しています。
 
 主に確認しているもの:
 - Generation Profile
@@ -165,9 +165,9 @@ blind gateがPASSするまで進めません。
 ユーザー手操作0でここまで到達済みです。
 
 ### 何が待ち？
-Special2788全体ではWD14だけを正解判定器にできないため、以下を待っています。
+Special Core Dictionary全体ではWD14だけを正解判定器にできないため、以下を待っています。
 
-- 最終Special2788辞書freeze
+- 最終Special Core Dictionary freeze
 - WD14 / Kagami-24k / CL Tagger v2等のcoverage比較
 - 代表Specialケース確定
 - Specialごとの AUTO / REVIEW 振り分け方針
@@ -244,7 +244,7 @@ KNOWLEDGE + PROMPTの結論返却済み。
 
 結論:
 - genericな `standing / sitting / long_hair / smile` は配管テスト用としては有効
-- DanbooruTagTool本番評価にはSpecial2788代表ケースが必要
+- DanbooruTagTool本番評価にはSpecial Core Dictionary代表ケースが必要
 
 ### ✅ R3設計・レビュー #38 の設計フェーズ
 R3のKNOWLEDGE/PROMPT契約を統合し、テスト実装仕様を凍結済み。

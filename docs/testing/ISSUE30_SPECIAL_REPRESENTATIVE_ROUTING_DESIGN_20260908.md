@@ -4,7 +4,7 @@ Status: DESIGN ADOPTED / FINAL TEST DATA HOLD
 
 ## Why this exists
 
-The accepted generic golden set (`standing / sitting / long_hair / smile`) remains valid as a low-level plumbing/evaluator fixture. It is not representative enough for DanbooruTagTool's actual Special2788-centered Stage10 purpose.
+The accepted generic golden set (`standing / sitting / long_hair / smile`) remains valid as a low-level plumbing/evaluator fixture. It is not representative enough for DanbooruTagTool's actual Special Core Dictionary-centered Stage10 purpose. The production snapshot remains technically identified as `Special2788`.
 
 Joint review source: Issue #37 KNOWLEDGE + PROMPT consensus.
 
@@ -65,7 +65,7 @@ Do not finalize:
 
 - representative Special IDs / exact final case list
 - WD14 / Kagami-24k / CL Tagger v2 role allocation
-- full Special2788 evaluator coverage
+- full Special Core Dictionary evaluator coverage
 - per-Special `AUTO` vs `REVIEW` routing
 - production confidence/margin thresholds
 

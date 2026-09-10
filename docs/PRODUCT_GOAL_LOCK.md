@@ -14,9 +14,11 @@ Stage実測で前提が崩れた場合だけ、この文書を再オープンす
 ## 主従
 
 ### 主役
-- Special2788の単語
-- Special2788の組み合わせ
+- Special Core Dictionary の Special entry
+- Special Core Dictionary の Special 組み合わせ
 - Core Tag Set（生成の核）
+
+現在のproduction snapshot/corpusは、互換上 `Special2788` として保持する。
 
 ### 補助
 - 全Danbooru canonical
@@ -31,7 +33,7 @@ Stage実測で前提が崩れた場合だけ、この文書を再オープンす
 
 ## ユーザーが本当にしたいこと
 
-1. Special2788から「出したいもの」を決める
+1. Special Core Dictionary から「出したいもの」を決める
 2. 複数Specialを組み合わせて核を作る
 3. 核だけで足りない固定要素を補助タグで埋める
 4. 必要なときだけ全Danbooruへ広げる
@@ -42,7 +44,7 @@ Stage実測で前提が崩れた場合だけ、この文書を再オープンす
 - 12万タグ検索を主画面にしない
 - 共起ランキング自体を目的にしない
 - autocompleteの豪華さを最優先にしない
-- Special2788を単なるbadge付き候補に格下げしない
+- Special Core Dictionary を単なるbadge付き候補に格下げしない
 
 ## 完成時の最小操作
 

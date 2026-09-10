@@ -6,7 +6,7 @@
 
 ## 1. 製品目的と境界
 
-- 主役は Special2788 の単語・組み合わせから成る Core Tag Set。
+- 主役は Special Core Dictionary の Special entry・組み合わせから成る Core Tag Set。
 - All Danbooru、true multi-tag AND、Candidate Aggregation は Core を補助する。
 - Core / Auxiliary / LoRA は後続実装でも内部的に分離する。
 - Stage 0/1 では production index、Runtime Index方式比較、推薦UI、Prompt UIを実装しない。
@@ -17,7 +17,7 @@
 | 区分 | 場所 | 状態・用途 |
 |---|---|---|
 | 正本タグ辞書 | `data/source/danbooru-2026-09-02.csv` | headerless 4列、3,436,154 bytes、124,016 canonical |
-| 正本Special | `data/special2788/` | CSV / XLSX / README、合計2,788語 |
+| production snapshot/corpus | `data/special2788/` | 互換上の `Special2788` path。CSV / XLSX / README、合計2,788語 |
 | Semantic Bridge | `data/semantic/semantic_bridge_v1.csv` | 336行、初期値は全件UNMAPPED |
 | 監査済み派生物 | `data/derived/` | canonical・alias・Special linkage・監査報告。正本の代替ではない |
 | 参考コード | `references/` | trial v0.2 / legacy prototype。通常実装の入力・正式pytest対象にしない |

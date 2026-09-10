@@ -9,7 +9,7 @@
 - u-haru: pair co-occurrence
 
 本プロジェクトの中核:
-- Special2788
+- Special Core Dictionary
 - verified canonical/alias
 - 日英同格
 - true multi-tag AND

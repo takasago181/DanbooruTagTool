@@ -2,7 +2,7 @@
 
 ## MUST — v1の存在理由
 
-1. Special2788を主役として選べる
+1. Special Core Dictionaryを主役として選べる
 2. 複数SpecialをCore Tag Setとして扱える
 3. 日本語/英語/混在検索
 4. canonical/alias安全解決

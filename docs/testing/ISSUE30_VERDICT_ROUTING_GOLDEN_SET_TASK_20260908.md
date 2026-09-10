@@ -174,7 +174,7 @@ Candidate routing semantics for analysis only:
 Selection principle:
 - prioritize **precision of automatic decisions over coverage**
 - on this tiny initial golden set, any candidate with a false decisive call is not acceptable for promotion
-- do not infer that one threshold generalizes to rare/relational Special2788 cases
+- do not infer that one threshold generalizes to rare/relational Special Core Dictionary cases
 
 ## Required outputs
 

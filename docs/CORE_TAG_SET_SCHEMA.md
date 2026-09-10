@@ -2,7 +2,7 @@
 
 ## Core Tag Setとは
 
-Special2788から選んだ1個以上のタグを、
+Special Core Dictionary から選んだ1個以上の Special を、
 「この生成で何を出したいか」を表す第一級オブジェクトとして扱う。
 
 単なる selected_tags の別名ではない。
@@ -46,7 +46,8 @@ Special2788から選んだ1個以上のタグを、
 
 ## 原則
 
-Core Setは原則Special2788由来。
+Core Setは原則Special Core Dictionary由来。現在のproduction snapshot/corpusは
+互換上 `Special2788` として保持される。
 All Danbooruタグを勝手にCoreへ昇格させない。
 
 将来必要ならユーザー操作で例外を追加できる余地は残してよいが、

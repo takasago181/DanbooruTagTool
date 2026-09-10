@@ -1,8 +1,9 @@
-# Special2788 Generation Profile v2.1
+# Special Core Dictionary Generation Profile v2.1
 
 ## 境界
 
-正本は `data/special2788/illustrious_tag_knowledge_base_2788.csv`。
+production snapshot/corpusの正本は `data/special2788/illustrious_tag_knowledge_base_2788.csv`。
+この path と `Special2788` は互換上の snapshot identifier であり、formal concept name ではない。
 Generation Profileは、正本へ書き戻さないread-only sidecarである。
 Tag、日本語、Layer、カテゴリ、canonical_target、post_count、Prompt identityを変更しない。
 

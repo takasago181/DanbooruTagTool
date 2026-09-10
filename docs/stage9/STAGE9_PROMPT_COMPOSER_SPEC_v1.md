@@ -6,7 +6,7 @@ Previous fixed point: Stage8C FINAL / Pilot001 ACCEPTED / Exit Pilot PASS / Pilo
 
 ## 0. Stage9 goal
 
-Stage9 creates the Prompt Composer layer that converts the user's selected Special2788 entries and supporting knowledge into a practical English Danbooru-style Prompt without weakening Special meaning.
+Stage9 creates the Prompt Composer layer that converts the user's selected Special Core Dictionary entries and supporting knowledge into a practical English Danbooru-style Prompt without weakening Special meaning. The current production snapshot/corpus remains technically identified as `Special2788`.
 
 Runtime remains fully local and non-LLM.
 Stage8C is not reopened.
@@ -21,7 +21,7 @@ The Composer must answer four questions deterministically:
 
 ## 1. Non-negotiable invariants
 
-1. Special2788 remains first-class and is never demoted to General support.
+1. Special Core Dictionary remains first-class and is never demoted to General support.
 2. A support tag may help a Special, but must never replace the Special identity.
 3. Distinct Special identities must never be silently collapsed merely because a General canonical or alias overlaps.
 4. Canonical dedupe of support must preserve all owner relations/provenance.
@@ -83,7 +83,7 @@ Negative Prompt is a separate channel and is never mixed into the positive block
 - COUNT: person count / subject-count tokens.
 - RELATION: explicit multi-character relation tokens. When present, this block is immediately after COUNT.
 - IDENTITY: character/identity tokens supplied by the user or existing character profile.
-- SPECIAL: selected Special2788 entries. First-class; never treated as General support.
+- SPECIAL: selected Special Core Dictionary entries. First-class; never treated as General support.
 - SUPPORT_STRUCTURE: structural support such as body part, implement/object, action support, state/reaction, and other semantically approved support.
 - POSE_COMPOSITION: pose and camera/composition items.
 - GENERAL_AUX: clothing/situation/detail/other auxiliary items from later-stage candidate sources.
@@ -357,7 +357,7 @@ Do not mutate production semantic CSV merely to make a test possible.
 Stage9A must not modify unless a concrete implementation dependency is proven and separately reported:
 
 - Stage0-8B source identity/data authority;
-- Special2788 source corpus;
+- Special Core Dictionary production concept and its `Special2788` source corpus;
 - Ruleset2 authority;
 - Stage8C accepted semantic support rows;
 - family_support_rules.csv semantics;

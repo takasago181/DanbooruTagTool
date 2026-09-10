@@ -8,7 +8,7 @@ invalid and a canonical has at most one `display` row.
 Only `display` and `search` rows are materialized into the local runtime file
 `data/runtime/japanese_overlay.json`. A display value is also a search value.
 Candidate and rejected rows remain audit data and cannot enter runtime search or
-presentation. Existing Special2788 Japanese text remains the first presentation
+ presentation. Existing Special Core Dictionary snapshot Japanese text remains the first presentation
 value and is never replaced by this overlay.
 
 External imports use the current canonical set after only the project normalizer

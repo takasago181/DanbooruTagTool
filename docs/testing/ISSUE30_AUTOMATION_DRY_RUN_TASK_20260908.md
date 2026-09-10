@@ -40,7 +40,7 @@ Treat these as verified baseline facts unless current runtime contradicts them:
 - Do not API-switch checkpoint/model family in this dry run.
 - Keep one already-working model family/checkpoint loaded for the entire run.
 - Do not change persistent Forge Neo settings merely to make the test pass.
-- Do not start Stage10 production A/B or use Special2788 production verdicts.
+- Do not start Stage10 production A/B or use Special Core Dictionary production verdicts.
 - Do not add a custom runner/GUI/harness before proving a concrete gap.
 - One-off PowerShell/Python commands for API calls and evidence extraction are allowed; do not commit them as production code unless a gap is proven.
 
