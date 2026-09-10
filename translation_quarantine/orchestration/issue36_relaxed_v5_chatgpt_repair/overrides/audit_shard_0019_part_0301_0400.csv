@@ -1,0 +1,51 @@
+canonical,old_display_ja,new_display_ja,reason
+lcb_uniform_(project_moon),LCBパロ,LCB制服（Project Moon）,SEMANTIC_ERROR
+lcd,タグ「lcd」,LCD,RAW_ENGLISH_WRAPPER
+lcl,タグ「lcl」,LCL,RAW_ENGLISH_WRAPPER
+le_malin_(azur_lane)_(cosplay),le malin (azur lane) (cosplay),ル・マラン（アズールレーン）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+le_mans_prototype,ル・マン,ル・マン・プロトタイプ,SEMANTIC_UNDERSPECIFICATION
+leaf_bracelet,树葉手环,葉の腕輪,NON_JAPANESE_RESIDUE
+leaf_censor,ディフェンスに定評のある葉っぱ,葉による修正,SEMANTIC_ERROR
+leaf_dress,leaf・ドレス,葉のドレス,MIXED_ENGLISH_DEBRIS
+leaf_in_hair,leafの中の髪,髪の中の葉,SEMANTIC_RELATION_ERROR
+leaf_in_mouth,leafの中のmouth,口の中の葉,SEMANTIC_RELATION_ERROR
+leaf_leotard,leaf・レオタード,葉のレオタード,MIXED_ENGLISH_DEBRIS
+leaf_necklace,leaf・ネックレス,葉のネックレス,MIXED_ENGLISH_DEBRIS
+leaf_on_liquid,leafの上の液体,液体の上の葉,SEMANTIC_RELATION_ERROR
+leaf_ornament,leaf・飾り,葉の飾り,MIXED_ENGLISH_DEBRIS
+leaf_pile,タグ「leaf pile」,落ち葉の山,RAW_ENGLISH_WRAPPER
+leaf_shirt,leaf・シャツ,葉のシャツ,MIXED_ENGLISH_DEBRIS
+leaf_tattoo,leafのタトゥー,葉のタトゥー,MIXED_ENGLISH_DEBRIS
+leaf_wings,leaf・翼,葉の翼,MIXED_ENGLISH_DEBRIS
+leaf_wreath,树葉花环,葉のリース,NON_JAPANESE_RESIDUE
+league_club_uniform,league clubの制服,リーグ部の制服,MIXED_ENGLISH_DEBRIS
+leaning_against_motorcycle,靠在摩托車上,バイクにもたれる,NON_JAPANESE_RESIDUE
+leaning_against_vehicle,靠在車辆上,車にもたれる,NON_JAPANESE_RESIDUE
+leaning_on_animal,leaningの上の動物,動物にもたれる,MIXED_ENGLISH_DEBRIS
+leaning_on_ball,leaningの上のボール,ボールにもたれる,MIXED_ENGLISH_DEBRIS
+leaning_on_broom,leaningの上のbroom,ほうきにもたれる,MIXED_ENGLISH_DEBRIS
+leaning_on_self,leaningの上のself,自分の身体にもたれる,MIXED_ENGLISH_DEBRIS
+leaning_out_of_window,タグ「leaning out of window」,窓から身を乗り出す,RAW_ENGLISH_WRAPPER
+leaning_to_the_side,身体倾斜,身体を横に傾ける,NON_JAPANESE_RESIDUE
+leash_between_breasts,リードの間の胸,胸の間のリード,SEMANTIC_RELATION_ERROR
+leash_in_mouth,リードの中のmouth,口にリード,MIXED_ENGLISH_DEBRIS
+leather_(palico_armor),タグ「leather (palico armor)」,レザー（オトモ装備）,RAW_ENGLISH_WRAPPER
+leather_bra,leather・ブラ,革のブラ,MIXED_ENGLISH_DEBRIS
+leather_coat,leather・コート,革のコート,MIXED_ENGLISH_DEBRIS
+leather_collar,革の襟,革の首輪,SEMANTIC_ERROR
+leather_daddy,タグ「leather daddy」,レザーダディ,RAW_ENGLISH_WRAPPER
+leather_dress,leather・ドレス,革のドレス,MIXED_ENGLISH_DEBRIS
+leather_gloves,皮手套,革の手袋,NON_JAPANESE_RESIDUE
+leather_leotard,leather・レオタード,革のレオタード,MIXED_ENGLISH_DEBRIS
+leather_shirt,leather・シャツ,革のシャツ,MIXED_ENGLISH_DEBRIS
+leather_wrist_straps,leather・手首・straps,革のリストストラップ,MIXED_ENGLISH_DEBRIS
+leatherclub_scene_(meme),leatherclub scene (meme),レザークラブのシーン（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+led,タグ「led」,LED,RAW_ENGLISH_WRAPPER
+ledge,棚,張り出し,SEMANTIC_ERROR
+leech_girl,リーチガール,ヒル娘,SEMANTIC_ERROR
+left_out,除外,仲間外れ,SEMANTIC_ERROR
+leg_blade,タグ「leg blade」,脚の刃,RAW_ENGLISH_WRAPPER
+leg_cast,タグ「leg cast」,脚のギプス,RAW_ENGLISH_WRAPPER
+leg_focus,leg・焦点,脚を強調,MIXED_ENGLISH_DEBRIS
+leg_fur,leg・毛,脚の毛,MIXED_ENGLISH_DEBRIS
+leg_holster,タグ「leg holster」,レッグホルスター,RAW_ENGLISH_WRAPPER
