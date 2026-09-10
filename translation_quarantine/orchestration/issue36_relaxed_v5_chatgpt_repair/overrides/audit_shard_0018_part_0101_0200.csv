@@ -1,0 +1,49 @@
+canonical,old_display_ja,new_display_ja,reason
+insect_on_finger,指の昆虫,指にいる昆虫,SEMANTIC_RELATION_ERROR
+insect_on_head,頭の昆虫,頭にいる昆虫,SEMANTIC_RELATION_ERROR
+insertion_threshold_(meme),insertion threshold (meme),挿入閾値（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+inside_another's_fur,の中の他人の毛,他人の毛皮の中,AWKWARD_MACHINE_TRANSLATION
+inside_creature,内部クリーチャー,生き物の内部,SEMANTIC_ERROR
+inside_pocket,の中のpocket,ポケットの中,MIXED_ENGLISH_DEBRIS
+instagram_story,タグ「instagram story」,Instagramストーリー,RAW_ENGLISH_WRAPPER
+instrument_case_on_back,楽器・caseの上の背中,背中の楽器ケース,SEMANTIC_RELATION_ERROR
+insulated_delivery_bag,タグ「insulated delivery bag」,保温配達バッグ,RAW_ENGLISH_WRAPPER
+insulting_viewer,侮辱的な視聴者,視点側を侮辱する,SEMANTIC_ERROR
+integrity_knight_armor,integrity knightの鎧,整合騎士の鎧,MIXED_ENGLISH_DEBRIS
+intentional_jpeg_artifacts,タグ「intentional jpeg artifacts」,意図的なJPEGノイズ,RAW_ENGLISH_WRAPPER
+intentionally_missing_halo,タグ「intentionally missing halo」,意図的に光輪なし,RAW_ENGLISH_WRAPPER
+interactive_media,タグ「interactive media」,インタラクティブメディア,RAW_ENGLISH_WRAPPER
+interface_censor,タグ「interface censor」,インターフェースによる修正,RAW_ENGLISH_WRAPPER
+interlocked_mars_symbols,タグ「interlocked mars symbols」,組み合った火星記号,RAW_ENGLISH_WRAPPER
+interlocked_toes,タグ「interlocked toes」,組み合った足指,RAW_ENGLISH_WRAPPER
+interlocked_venus_symbols,インターロックされた金星のシンボル,組み合った金星記号,AWKWARD_MACHINE_TRANSLATION
+intestine_clothing,intestine・衣類,腸でできた衣服,MIXED_ENGLISH_DEBRIS
+inteyvat_flower_(genshin_impact),inteyvat flower (genshin impact),インテイワットの花（原神）,CANONICAL_FALLBACK_TRANSLATABLE
+inubashiri_momiji_(cosplay),inubashiri momiji（コスプレ）,犬走椛（コスプレ）,MIXED_ENGLISH_DEBRIS
+inugami_korone_(cosplay),inugami korone（コスプレ）,戌神ころね（コスプレ）,MIXED_ENGLISH_DEBRIS
+inverse_spirit_(date_a_live),タグ「inverse spirit (date a live)」,反転精霊（デート・ア・ライブ）,RAW_ENGLISH_WRAPPER
+inverted_colors,補色,色反転,SEMANTIC_ERROR
+inverted_cross_earrings,inverted crossのイヤリング,逆十字のイヤリング,MIXED_ENGLISH_DEBRIS
+inverted_cross_necklace,inverted・十字架・ネックレス,逆十字のネックレス,MIXED_ENGLISH_DEBRIS
+inverted_cross_print,inverted crossの柄,逆十字柄,MIXED_ENGLISH_DEBRIS
+inverted_eyelashes,タグ「inverted eyelashes」,逆向きのまつ毛,RAW_ENGLISH_WRAPPER
+inverted_umbrella,上向きの傘,裏返った傘,SEMANTIC_ERROR
+invisible_man,隐形男人,透明人間,NON_JAPANESE_RESIDUE
+invisible_shoes,invisibleの靴,透明な靴,MIXED_ENGLISH_DEBRIS
+invisible_table,タグ「invisible table」,透明なテーブル,RAW_ENGLISH_WRAPPER
+iono_(pokemon)_(cosplay),iono (pokemon) (cosplay),ナンジャモ（ポケモン）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+iowa_(kancolle)_(cosplay),アイオワ（カンコル）（コスプレ）,アイオワ（艦これ）（コスプレ）,SEMANTIC_ERROR
+ipad,タグ「ipad」,iPad,RAW_ENGLISH_WRAPPER
+iphone_11_pro,タグ「iphone 11 pro」,iPhone 11 Pro,RAW_ENGLISH_WRAPPER
+iphone_x,タグ「iphone x」,iPhone X,RAW_ENGLISH_WRAPPER
+ipod,タグ「ipod」,iPod,RAW_ENGLISH_WRAPPER
+ipod_ad,タグ「ipod ad」,iPod広告,RAW_ENGLISH_WRAPPER
+ipod_classic,タグ「ipod classic」,iPod classic,RAW_ENGLISH_WRAPPER
+ipod_nano,タグ「ipod nano」,iPod nano,RAW_ENGLISH_WRAPPER
+ipod_nano_2g,タグ「ipod nano 2g」,iPod nano 2G,RAW_ENGLISH_WRAPPER
+ipod_nano_3g,タグ「ipod nano 3g」,iPod nano 3G,RAW_ENGLISH_WRAPPER
+ipod_nano_4g,タグ「ipod nano 4g」,iPod nano 4G,RAW_ENGLISH_WRAPPER
+ipod_nano_5g,タグ「ipod nano 5g」,iPod nano 5G,RAW_ENGLISH_WRAPPER
+ipod_shuffle,タグ「ipod shuffle」,iPod shuffle,RAW_ENGLISH_WRAPPER
+ipod_touch,タグ「ipod touch」,iPod touch,RAW_ENGLISH_WRAPPER
+iranian_clothes,iranian・服,イランの服,MIXED_ENGLISH_DEBRIS
