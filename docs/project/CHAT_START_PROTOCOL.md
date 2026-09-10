@@ -1,19 +1,20 @@
 # CHAT START PROTOCOL
 
-目的: 常設4班（DEV / AUDIT / KNOWLEDGE / PROMPT）に加え、現行Issueを持つTEMP担当やGitHub管理・調整チャットも、新しいChatGPTチャットへ移動した際に古いhandoffや旧チャットに引っ張られず、GitHub正本から同じ現在地を再構成する。
+目的: 常設3班（DEV / KNOWLEDGE / PROMPT）に加え、必要な品質Gateごとに起動するAUDIT、現行Issueを持つTEMP担当、GitHub管理・調整チャットも、新しいChatGPTチャットへ移動した際に古いhandoffや旧チャットに引っ張られず、GitHub正本から同じ現在地を再構成する。
 
-この拡張は常設班を増やすものではない。TEMPは臨時担当、GitHub管理・調整チャットは班ではない。
+この拡張は常設班を増やすものではない。AUDITはGateごとに起動する非常設の独立監査ロール、TEMPは臨時担当、GitHub管理・調整チャットは班ではない。
 
 ## 読取入口の要約
 
 既存ルールの入口だけを要約する。権限・正本・優先順位はこの要約によって変更しない。
 
-- 常設4班（DEV / AUDIT / KNOWLEDGE / PROMPT）とTEMP:
-  `CURRENT_STATE.md` → `PERMANENT_RULES.md` → `CURRENT_STATE.md` に記載された自班の現行Issue → 必要な現行Stage仕様 / Decision / main状態
+- 常設3班（DEV / KNOWLEDGE / PROMPT）、必要時AUDIT、TEMP:
+  `CURRENT_STATE.md` → `PERMANENT_RULES.md` → `CURRENT_STATE.md` に記載された自班/担当または監査対象の現行Issue → 必要な現行Stage仕様 / Decision / main状態
 - Codex:
   `AGENTS.md` → `CURRENT_STATE.md` → `PERMANENT_RULES.md` → `CURRENT_DEV_TASK.md` → 現行Stage仕様・実装レポート
-- `CURRENT_DEV_TASK.md` はDEVの現行IssueをCodexが読むための同期ミラーであり、AUDIT / KNOWLEDGE / PROMPT / TEMPの自班Issueを置き換えない。
-- TEMPは常設5班目ではなく、`CURRENT_STATE.md` に記載された期間限定担当として扱う。
+- `CURRENT_DEV_TASK.md` はDEVの現行IssueをCodexが読むための同期ミラーであり、AUDIT / KNOWLEDGE / PROMPT / TEMPのIssueや監査対象を置き換えない。
+- AUDITは常設4班目ではなく、明示された品質Gateのために起動し、独立判定を記録した後は常時待機しない。
+- TEMPも常設4班目ではなく、`CURRENT_STATE.md` に記載された期間限定担当として扱う。
 
 ## 0. チャット移行を自発的に提案する条件
 
@@ -51,6 +52,7 @@ checkpointコメントはtask contractを変更しない。目的・scope・禁�
 
 - `docs/project/CURRENT_STATE.md` が現在地と一致していることを確認し、全体状態に変化があれば最新化する。
 - 常設班/TEMPは自班の現行Issueへ、未完了・完了・待機条件・重要な禁止事項・最後の成功地点を反映する。
+- AUDITは対象Gateの監査結果・exact target・判定・残blockerを対象Issueまたは監査Issueへ反映し、監査完了後は常時待機させない。
 - GitHub管理・調整チャットは、変更したIssue・管理文書・Decision等へ現在地と必要な記録を反映する。班ではないため専用Issueを新設する必要はない。
 - Stage完了や仕様変更がある場合は、必要に応じて `DECISIONS.md` または現行Stage仕様へ反映する。
 - DEVの現行Issue本文・state・完了条件を変更した場合は、`docs/project/CURRENT_DEV_TASK.md` も同じ管理作業内で同期する。
@@ -65,11 +67,11 @@ checkpointコメントはtask contractを変更しない。目的・scope・禁�
 
 1. `docs/project/CURRENT_STATE.md`
 2. `docs/project/PERMANENT_RULES.md`
-3. 常設班/TEMPは `CURRENT_STATE.md` に記載された自班の現行GitHub Issue、GitHub管理・調整チャットは関係する現行Issueと管理文書
+3. 常設班/TEMPは `CURRENT_STATE.md` に記載された自班の現行GitHub Issue、AUDITは明示された監査対象Issue/Gate、GitHub管理・調整チャットは関係する現行Issueと管理文書
 4. 必要な `DECISIONS.md` / 現行Stage仕様 / mainの実装状態
-5. 自班Issueの直近checkpoint / 結果コメント（必要な場合）
+5. 自班/担当Issueまたは監査対象の直近checkpoint / 結果コメント（必要な場合）
 
-Issue番号は固定しない。Stageや担当変更で番号が変わるため、過去チャットや記憶から推測せず、毎回 `CURRENT_STATE.md` から特定する。
+Issue番号は固定しない。Stageや担当変更で番号が変わるため、過去チャットや記憶から推測せず、毎回 `CURRENT_STATE.md` と明示された監査依頼から特定する。
 
 DEV / Codex連携では、Codexはさらに `docs/project/CURRENT_DEV_TASK.md` のSource Issue番号が `CURRENT_STATE.md` の現行DEV Issue番号と一致することを確認する。DEV/管理側はCodexへ新規/再開指示を出す直前に、private GitHubの現行DEV Issue本文/stateと最新mainのミラーをlive照合し、同一Issue番号内の本文driftも解消しておく。
 
@@ -93,7 +95,7 @@ VERSION_LABEL: <optional human-readable label / N/A>
 
 運用ルール:
 
-- `TEAM_ID` はチャット名ではなく、現在の作業個体を識別する安定IDとする。例: `DEV:#35`, `DICT:#32:R2`, `UIJA:#36:FINAL_AUDIT`, `UIJA:#41:BLIND30_AUDIT`, `TEMP:#30`。
+- `TEAM_ID` はチャット名ではなく、現在の作業個体を識別する安定IDとする。例: `DEV:#30`, `KNOWLEDGE:#44`, `PROMPT:#5`, `AUDIT:#<target>:<gate>`, `TEMP:#30`。
 - `BRANCH` / `HEAD` / `CHECKPOINT` はチャット記憶から埋めず、開始時にGitHubからlive確認する。Issue-only担当で専用branchがない場合も、参照した `main` のHEADを記録する。
 - `v2` / `v3` / `R3` / `FINAL` 等の版名は `VERSION_LABEL` またはPHASEの補助情報として使ってよいが、**版名だけを現在個体の識別子にしない**。
 - 実際の識別は少なくとも `TEAM_ID + ISSUE + BRANCH + HEAD + CHECKPOINT/CONTRACT + PHASE` で行う。
@@ -105,7 +107,7 @@ VERSION_LABEL: <optional human-readable label / N/A>
 
 1. 自分の班または担当種別と役割
 2. 現在のStage
-3. 現在の担当Issue番号、または管理・調整対象
+3. 現在の担当Issue番号、または管理・監査対象
 4. 現在地の正本として最初に見るファイル
 5. 最後に確認できた成功地点 / checkpoint（存在する場合）
 6. 今の次作業
@@ -126,17 +128,19 @@ VERSION_LABEL: <optional human-readable label / N/A>
 - 唯一の司令塔。
 - 仕様整理・Stage管理・Codex指示・成果確認を担当する。
 - CodexはDEVの実装担当であり独立班ではない。
-- AUDITの正式PASSを代行しない。
+- 必要なAUDIT Gateの正式PASSを代行しない。
 - Codexへ作業を渡す直前にcurrent DEV Issueとmirrorのlive整合を確認する。
 - Codexはprivate GitHub Issueへ直接書き込む前提ではない。Codexはrepository成果をcommit/pushし、DEVがGitHubから取得・確認して担当Issueへcheckpoint/完了証跡を記録する。
 - Codexが「完了」と返しても、DEVがbranch/commit/report/test/protected結果を取得・確認してIssue証跡化するまでは監査渡ししない。
 
-### AUDIT
+### AUDIT（必要時のみ起動）
 
-- DEV/Codexから独立した品質ゲート。
-- 実装差分・テスト・証拠を確認して PASS / CONDITIONAL PASS / FAIL を判定する。
+- 常設班ではなく、明示された品質Gateごとに起動する独立監査ロール。
+- DEV/Codexから独立して実装差分・テスト・証拠を確認し、PASS / CONDITIONAL PASS / FAILを判定する。
 - 開発班やCodexの自己申告だけでPASSしない。
 - 監査対象が完成する前にPASSしない。
+- 対象Gateの監査結果をGitHubへ記録した後は、常時待機チャットとして維持しない。
+- 次のGateでは、GitHub正本から新しいAUDIT個体を起動してよい。
 
 ### KNOWLEDGE
 
@@ -153,7 +157,7 @@ VERSION_LABEL: <optional human-readable label / N/A>
 ### TEMP
 
 - `CURRENT_STATE.md` に記載された期間限定の作業だけを担当する。
-- 常設5班目にはならない。
+- 常設4班目にはならない。
 - 自班Issueが終了したらTEMP担当も終了する。
 
 ### GitHub管理・調整チャット
@@ -180,10 +184,10 @@ VERSION_LABEL: <optional human-readable label / N/A>
 
 新チャットが以下を満たした時点で移行完了とする。
 
-- 班IDをGitHub live stateから取得して表示済み
+- 班ID/担当IDをGitHub live stateから取得して表示済み
 - `TEAM_ID + ISSUE + BRANCH + HEAD + CHECKPOINT/CONTRACT + PHASE` が矛盾なく確認済み
 - 現在Stageを正しく認識
-- 現行Issueまたは管理対象を正しく特定
+- 現行Issueまたは管理/監査対象を正しく特定
 - 必要なら直近checkpointを把握
 - 自班/担当の権限境界を正しく認識
 - 次作業と禁止事項を正しく認識

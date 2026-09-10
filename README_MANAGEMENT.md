@@ -16,12 +16,14 @@ Codexはさらに `AGENTS.md` と `docs/project/CURRENT_DEV_TASK.md` を読む�
 ## 役割分担
 
 - 本体開発班: 唯一の司令塔。仕様決定、Stage管理、Codex実装指示。
-- 監査班: 第三者監査。PASS / CONDITIONAL PASS / FAIL を返す。
-- 知識班: 外部調査。仕様決定権は持たない。
-- テストPrompt班: Stage10のA/B実験用Prompt作成。仕様決定権は持たない。
-- Forge Neo環境準備: 臨時担当。Stage10比較環境の導入・動作確認後に終了。
+- 知識班: 外部調査・知識コーパス維持。仕様決定権は持たない。
+- Prompt班: Stage10のA/B実験用Prompt設計・正式handoff。仕様決定権は持たない。
+- AUDIT: 常設班ではない。独立監査が必要な品質Gateごとに新しく起動し、PASS / HOLD / FAIL等を返した後は常時待機しない。
+- Forge Neo環境準備/TEMP: 必要な期間だけ動く臨時担当。
 - Codex: 班ではなく、本体開発班の実装担当。
 - GitHub管理・調整チャット: 班ではない。正本整合・Issue/管理文書更新・班間調整だけを行う。
+
+常設は **DEV / KNOWLEDGE / PROMPT の3班**。AUDITは独立性を維持したまま、必要時だけ起動するGateロールです。
 
 ## 正本の置き場所
 
@@ -71,7 +73,7 @@ Codexはさらに `AGENTS.md` と `docs/project/CURRENT_DEV_TASK.md` を読む�
 
 ## 班間の受け渡し
 
-DEV / AUDIT / KNOWLEDGE / PROMPT / 現行TEMPの依頼と返却は、原則GitHub Issue経由で行う。
+DEV / KNOWLEDGE / PROMPT / 必要時のAUDIT / 現行TEMPの依頼と返却は、原則GitHub Issue経由で行う。
 
 - 依頼側は、受取側の現行Issueへ「何をしてほしいか・理由・期待する出力・関連Issue/File」をcheckpointとして残す。
 - 受取側は、結果をチャットだけで返さず自班Issueへ「結果・根拠・判定・限界・次」を記録する。
@@ -103,7 +105,7 @@ DEV / AUDIT / KNOWLEDGE / PROMPT / 現行TEMPの依頼と返却は、原則GitHu
 - 本体実装は原則、最新mainからtask用feature branchを作る。
 - 直接mainへ未review実装をcommitしない。
 - stable checkpointをcommitし、push可能ならremoteへpushする。
-- ChatGPT/DEV/AUDITがGitHub branch/commit/PRから確認できる成果物はGitHubを標準handoffにする。
+- ChatGPT/DEV/必要時AUDITがGitHub branch/commit/PRから確認できる成果物はGitHubを標準handoffにする。
 - local-only/ignored data、binary evidence、push不能などGitHubだけで確認できない時だけ `docs/CHATGPT_CODEX_HANDOFF.md` のZIP fallbackを使う。
 
 ## Local protected data
@@ -129,7 +131,7 @@ fresh cloneだけでfull runtime/full testsを再現できるとは仮定しな�
 5. task contract変更はIssue本文へ反映する。現行DEVならmirrorも同期する。
 6. 仕様変更は `DECISIONS.md` またはStage仕様へ反映する。
 7. shared management docは最新mainを再取得してから統合する。
-8. AUDIT PASS前にGateを越えない。
+8. 独立監査が必要なGateでは、必要時にAUDITを起動し、PASS前にGateを越えない。
 9. 承認済みStage仕様に残るsubstage/gateを暗黙に飛ばさない。
 
 詳細は `docs/project/PERMANENT_RULES.md` / `docs/project/CHAT_START_PROTOCOL.md` / `docs/project/WORKFLOW.md` を参照する。

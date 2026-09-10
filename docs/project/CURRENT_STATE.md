@@ -10,24 +10,30 @@ Stage 9 overall Gate 完了 / Stage10 準備Gate実施中 / automated E2E PASS /
 
 ## Current Core DEV
 
-**Issue #30 / PHASE2_TARGETED_REFINEMENT / GENERATION_BATCH2_MACHINE_FIRST**
+**Issue #30 / PHASE2_ACTIVE / BATCH2_COMPLETE / BROAD_COVERAGE_WAVE1_AUTHORIZED_AFTER_PREFLIGHT / MACHINE_FIRST / FULL_CHATGPT_VISUAL_AUDIT**
 
-Issue #30 Phase 1 / Phase 2 Wave 1 / Wave 2 / reuse-only review / first Generation Batch / Machine Triage Auditは実行済み。
+Issue #30 Phase 1 / Phase 2 Wave 1 / Wave 2 / reuse-only review / first Generation Batch / Machine Triage Audit / Generation Batch 2 / Batch 2 human reviewは実行済み。
 
 Machine Triage Audit `2660c3106d2252c8aa8f3006f2a1040fd95004db` をDEV受入れ済み。既存Generation Batch 12画像ではWD14 / Kagami-24k / CL Tagger v2.00のraw evaluatorは36/36成功、raw artifact image-ID bindingはPASS。一方、旧Generation Batch reportのevaluator referenceは33件不一致で、reporting/provenance参照 defectだった。retrospective machine-first reductionは0%で、前Batchがrelation/binding/body-site/low-confidence中心だったことによるbatch selection失敗と判定した。
 
-現在は次の**Generation Batch 2**を、機械判定を実際にreview routingへ使う前提で実行する段階。新規生成前にevaluator成功数・参照整合・pair-level routing計測の修正preflightを必須とする。
+Generation Batch 2は完了。execution/report `7e516bd1ca27c862cdaf023c023bed74e34e6833`、human review `1cd33c7ebec445c3e3870ebce360f9cfee1ffbf9`。16 new images / 8 A/B pairs、WD14 / Kagami / CLは48/48成功、machine-handled 4 images / 2 pairs、human-required 12 images / 6 pairs、blocked 0、image/pair review reduction 25%。人手対象6 pairは6/6 `BOTH_PASS`として記録済み。
+
+ユーザー指示により、旧`BROAD_COVERAGE_AUTOMATION_PREP / NO_NEW_GENERATION`はsuperseded。現在は**Broad Coverage Wave 1**を、同一task内のmandatory preflight PASS後に実行する段階。target 16 experiments / 64 new images、adaptive 12–20 experiments / 48–80 images。複数のSpecial semantic familyへ層別する。machine-first routingは一次判定として凍結するが、Wave 1ではvalid generated imageを**全件ChatGPT目視監査**へ出し、machine-handledも省略しない。machine-vs-visual agreement / false-safe / family別disagreementを測る校正Waveとする。
 
 Current restore anchors:
 - Phase 1: `docs/project/ISSUE30_HANDOFF_20260910.md`
 - Phase 2 base: `docs/project/ISSUE30_PHASE2_HANDOFF_20260910.md`
-- Generation Batch execution: `6e19da24a9718691b3c2e726bbe256fcb69f4a68`
-- Generation Batch human review: `4a3e6ef5d19b33b5482bcfc86cc362ad6cbad9f3`
+- first Generation Batch execution: `6e19da24a9718691b3c2e726bbe256fcb69f4a68`
+- first Generation Batch human review: `4a3e6ef5d19b33b5482bcfc86cc362ad6cbad9f3`
 - Machine Triage Audit: `2660c3106d2252c8aa8f3006f2a1040fd95004db`
-- **current continuation: `docs/project/ISSUE30_PHASE2_GENERATION_BATCH2_SPEC_20260911.md`**
+- Generation Batch 2 execution/report: `7e516bd1ca27c862cdaf023c023bed74e34e6833`
+- Generation Batch 2 human review: `1cd33c7ebec445c3e3870ebce360f9cfee1ffbf9`
+- **current continuation: `docs/project/ISSUE30_BROAD_COVERAGE_WAVE1_SPEC_20260911.md`**
+- supporting policy: `docs/project/AUDIT_ARTIFACT_CACHE_POLICY.md`
+- broad direction: `docs/project/ISSUE30_BROAD_COVERAGE_AUTOMATION_DIRECTION_20260911.md`
 - branch: `codex/issue30-calibration-design`
 
-`CURRENT_DEV_TASK.md` is synchronized to Source Issue #30 / PHASE2_GENERATION_BATCH2_AUTHORIZED_AFTER_PREFLIGHT.
+`CURRENT_DEV_TASK.md` is synchronized to Source Issue #30 / BROAD_COVERAGE_WAVE1_AUTHORIZED_AFTER_PREFLIGHT / MACHINE_FIRST / FULL_CHATGPT_VISUAL_AUDIT.
 
 Issue #42 remains downstream and is still gated on #36 V5 / #34 material UI-JA/search work completion or explicit separation. Phase 2 does not bypass that Gate.
 
@@ -40,7 +46,7 @@ Issue #42 remains downstream and is still gated on #36 V5 / #34 material UI-JA/s
 | `UIJA:#36:V5` | ACTIVE / CHATGPT_LED_REPAIR | Japanese overlay final convergence / semantic repair | `ui-ja/issue36-relaxed-v5-chatgpt-repair` | 30,629 rowsを既存31 audit shardsへ分割し、ChatGPT側で明確な翻訳・意味欠陥を修正/監査。V4はimmutable evidenceとして保持 | Issue #36 latest V5 checkpoint |
 | `UIJA-ORCH:#46` | SUPERSEDED / CLOSED | historical independent Codex orchestration for V3.1/V4 | Issue #46 / `codex/issue46-orchestrator` | historical evidence only | Issue #46 superseded checkpoint |
 | `UIJA-PARENT:#34` | OPEN / CROSS-CUTTING / SEARCH_RELEVANCE_REMAINS | bilingual search relevance and remaining parent UI concerns | Issue #34 | `anal -> piano/analog_clock/...` 等のsubstring/fuzzy search noiseが主要残件 | Issue #34 current body |
-| `TEMP:#30` | ACTIVE / CORE_DEV / PHASE2_GENERATION_BATCH2 | Forge Neo evaluator calibration & A/B automation | `codex/issue30-calibration-design` | Machine Triage Audit受入れ済み。preflight修正後、4–5実験/最大20 new imagesをmachine-first routingでまとめて実行 | `docs/project/ISSUE30_PHASE2_GENERATION_BATCH2_SPEC_20260911.md` |
+| `TEMP:#30` | ACTIVE / CORE_DEV / BROAD_COVERAGE_WAVE1 | Forge Neo evaluator calibration & A/B automation | `codex/issue30-calibration-design` | mandatory preflight PASS後、16 experiments / 64 images中心で複数semantic familyを層別生成し、WD14/Kagami/CL -> machine route freeze -> **全valid imageをChatGPT目視監査**へ渡す | `docs/project/ISSUE30_BROAD_COVERAGE_WAVE1_SPEC_20260911.md` |
 | `PREP:#42` | RESERVED / GATED | Stage10 pre-evaluation product-purpose improvement | Issue #42 | #30 Phase 1 prerequisite satisfied。#36/#34 material homework完了または明示分離後にactivate | Issue #42 |
 | `PROMPT:#5` | GATED | Stage10 formal Prompt handoff | Issue #5 | #42 result後にformal handoff | Issue #5 |
 | `MAINT:#24` | OPEN / SAFETY_DEBT | Local protected data backup / restore verification | Issue #24 | GitHub外protected dataのbackup/restore・manifest・非破壊restore検証 | Issue #24 |
@@ -87,6 +93,16 @@ Issue #42 remains downstream and is still gated on #36 V5 / #34 material UI-JA/s
   - old report reference mismatches 33 = reporting defect
   - A/B marker PASS
   - retrospective human-review reduction 0%
+- Issue #30 Phase 2 Generation Batch 2: **COMPLETED / HUMAN REVIEWED**
+  - execution/report `7e516bd1ca27c862cdaf023c023bed74e34e6833`
+  - human review `1cd33c7ebec445c3e3870ebce360f9cfee1ffbf9`
+  - 4 experiments / 16 generated images / 8 A/B pairs
+  - evaluator success 48/48
+  - machine-handled 4 images / 2 pairs
+  - human-required 12 images / 6 pairs
+  - blocked 0
+  - image/pair user-review reduction 25%
+  - human-required 6/6 pairs `BOTH_PASS`
 - Issue #46 historical orchestration: **superseded / closed**
 
 ## Frozen terminology
@@ -141,52 +157,51 @@ Machine-first user-work rule:
 - evaluator run countは実artifact成功数から計算し、`images × 3` の算術だけで成功扱いしない
 - per-image evaluator reference整合性を自動検査する
 - A/B pair単位のmachine/human/blocked routingと削減率を実測する
+- **Wave 1だけは校正目的で全valid imageをChatGPT目視監査し、machine-handledも隠さない**
+- Wave 1のmachine review-reduction値は「機械なら隠した量」の診断値であり、actual visual-review reductionとは扱わない
+- family別false-safeが十分低いと確認できた範囲のみ、後続Waveでsample auditへ移行可能
 
 Review UX carry-forward:
 - user-facing contact sheetは**画像 + 大きな番号 + 必要時A/B + 大きな具体的日本語質問**へ簡素化
-- full Prompt/Negative、seed、case ID、evaluator score、model/settings、token glossaryは原則contact sheetから外す
+- Wave 1は全valid imageを複数sheetへ分割。通常4 A/B pairs / 8 images程度、細部判定時はさらに少なくする
+- 48–80 imagesを1枚へ潰して小さくしない
+- full Prompt/Negative、raw evaluator score、model/settings wallは原則contact sheetから外す
 - question font >=24px、可能なら28–32px
 - Meiryo -> Yu Gothic -> MS Gothic
 - tofu/square表示は review asset invalid
 - A/B markerはmanifest conditionから導出し、全A/全B/不一致はBLOCKED
 
+Audit artifact cleanup carry-forward:
+- original/source generated imagesはprotected evidenceでありaudit cleanup対象外
+- disposable audit copyのみcurrent-only retentionで上書き/削除可能
+- cleanup rootは明示設定、sentinel + canonical path + strict descendant + ownership manifestを必須化
+- unknown/unowned target、path escape、保護領域混入時は0 deletionでSTOP
+- public本体Git historyへ生成監査画像を蓄積しない
+- Google Driveは使用しない
+
 ## Active / Ready Work
 
-### #30 Phase 2 — CURRENT CORE DEV / GENERATION_BATCH2_MACHINE_FIRST
+### #30 Phase 2 — CURRENT CORE DEV / BROAD_COVERAGE_WAVE1 / FULL_CHATGPT_VISUAL_AUDIT
 
 Current contract:
-`docs/project/ISSUE30_PHASE2_GENERATION_BATCH2_SPEC_20260911.md`
+`docs/project/ISSUE30_BROAD_COVERAGE_WAVE1_SPEC_20260911.md`
 
-Mandatory preflight before generation:
-1. actual evaluator success countをverified artifact/resultから算出
-2. per-image evaluator reference整合を強制
-3. `machine_handled_pairs` を実routeから計算し、0固定を廃止
-4. `human_required_pairs` をhistorical review countから流用せず実routeから計算
-5. image-level / pair-level reductionを両方計測
-6. machine-handled pair + human-required pairを含む回帰fixture test
-7. A/B marker/provenance mismatchはBLOCKED
-8. preflight FAILならnew generation 0でSTOP
+Immediate flow:
+1. latest live `origin/main`を取得し、`codex/issue30-calibration-design`へmerge。rebase/force禁止
+2. Batch 2 evidence / evaluator counting / per-image evaluator refs / pair routing / A-B manifest integrityをpreflight確認
+3. `AUDIT_ARTIFACT_CACHE_POLICY.md`に従うcleanup containment / sentinel / ownership / fail-closed guardを実装・focused test
+4. preflight PASS後、target **16 experiments / 64 new images** を生成。adaptive **12–20 experiments / 48–80 images**
+5. direct/simple、body/visibility、clothing/exposure、pose/composition、object/tool、contact、body-site/spatial、actor/count/role、multi-person、multi-Special、device/state、visible-result、unusual form、adult body-state、scene/context、single-support effect等へ層別
+6. 明確な成人対象のみ。age-ambiguous/minor-codedはこのgeneration waveから除外。graphic injury/goreはジャンル数稼ぎで選ばない
+7. 全valid imageへWD14 / Kagami / CL Tagger v2.00
+8. image/pair machine routeを確定し、**ChatGPT目視前に凍結**
+9. machine-handled / human-requiredを問わず、**全valid imageをreadable contact-sheet set + disposable individual audit copiesへexport**
+10. complete audit index manifestでdisplay number / experiment / family / image ID / A-B / seed / hash / source / machine route / evaluator locatorを対応付ける
+11. userは全Wave 1 visual assetsをChatGPTへアップロードし、ChatGPTが全pairを独立目視監査
+12. `A_ONLY_PASS / B_ONLY_PASS / BOTH_PASS / BOTH_FAIL / UNCLEAR / ASSET_INVALID`で記録し、machine-vs-visual agreement / false-safe / over-routing / family別disagreementを算出
+13. 結果記録まではWave 2を開始しない
 
-Batch 2 bounds:
-- target 4–5 experiments
-- normally 16–20 new images
-- hard cap 20
-- normally A/B × 2 predetermined fixed seeds
-- no automatic extra seeds
-- quota fill禁止
-
-Mandatory mix:
-- 1–2 fresh direct/simple-unary machine-judgeable experiments
-- 2–3 genuinely structural high-value experiments
-
-Structural priority:
-1. `ACTOR_COUNT_DISAMBIGUATION`
-2. clearer `MULTI_SPECIAL_RETENTION` replacement
-3. new `SINGLE_SUPPORT_TAG_EFFECT`
-
-Do not repeat low-value/redundant cases merely to fill the batch.
-
-User sees only `HUMAN_REVIEW_REQUIRED_PAIR` remainder after evaluator + machine triage. Machine-handled pairs are not placed on the mandatory contact sheet.
+No blind 2,788 sweep / no automatic extra seeds / no Stage10 production A/B.
 
 ### #36 UI-JA V5 — ChatGPT-led repair/audit
 
@@ -244,20 +259,23 @@ Formal completionは以下の後:
 9. #43 naming/final dictionary freeze — SATISFIED
 10. #44 final evaluator coverage — SATISFIED
 11. #30 Phase 1 controlled representative calibration + minimal review — **SATISFIED / FROZEN**
-12. #30 Phase 2 targeted refinement — **ACTIVE / GENERATION_BATCH2_MACHINE_FIRST**
-13. #36 V5 repair/audit -> integration/revalidation -> independent promotion gate — **ACTIVE**
-14. #34 bilingual search relevance/noise — **REMAINS / resolve or explicitly separate before #42**
-15. #42 product-purpose improvement pass — REMAINS
-16. #5 formal Prompt handoff — REMAINS / after #42
-17. `docs/stages/STAGE_10_PREP.md` remaining checks — REMAINS
-18. Stage10 production A/B — NOT STARTED
+12. #30 Phase 2 Generation Batch 2 machine-first — **SATISFIED / HUMAN REVIEW COMPLETE**
+13. #30 Broad Coverage Wave 1 — **ACTIVE / AUTHORIZED_AFTER_PREFLIGHT / TARGET_64_IMAGES / FULL_CHATGPT_VISUAL_AUDIT**
+14. #36 V5 repair/audit -> integration/revalidation -> independent promotion gate — **ACTIVE**
+15. #34 bilingual search relevance/noise — **REMAINS / resolve or explicitly separate before #42**
+16. #42 product-purpose improvement pass — REMAINS
+17. #5 formal Prompt handoff — REMAINS / after #42
+18. `docs/stages/STAGE_10_PREP.md` remaining checks — REMAINS
+19. Stage10 production A/B — NOT STARTED
 
 ## Canonical dependency order
 
 Parallel now:
-- Core DEV: `#30 Phase 2 Generation Batch 2 machine-first`
+- Core DEV: `#30 Broad Coverage Wave 1 -> machine result freeze -> full ChatGPT visual audit -> calibration decision`
 - UI-JA lane: `#36 V5 repair/audit -> integration/revalidation -> independent promotion gate`
 - cross-cutting: `#34 bilingual search relevance`, `#24 protected-data safety`
+
+#30 Wave 1は#42 activation Gateを自動解除しない。
 
 #42 activation still waits for material #36/#34 work completion or explicit separation.
 
@@ -266,27 +284,35 @@ Then:
 
 ## Next Actions
 
-1. #30 Batch 2 preflight metric/provenance fixes
-2. preflight PASS後、4–5 experiments / 16–20 imagesをまとめて生成
-3. WD14/Kagami/CL -> machine triage -> human-required pairだけuser review
-4. Batch 2終了後、#30 Phase 2 close/diminishing-return判断
-5. #36 V5 workをGitHub正本へ継続反映
-6. #34 bilingual search relevance/noiseをresolveまたはStage10 Gateから明示分離
-7. managementがGate確認後に#42をcurrent core DEVとして明示activate
-8. #42 product-purpose improvement passで#30 Tagger-assisted triage policyを統合
-9. #5 formal Prompt handoff
-10. `STAGE_10_PREP.md` remaining checksをclose
-11. 全Gate完了後のみ Stage10 production A/B
-12. parallel safety debt: #24 protected-data backup / restore verification
+1. #30 branchでlatest live mainを再取得・merge
+2. audit-cache safety + evaluator/provenance/routing preflightを実装・確認
+3. preflight PASS後、Broad Coverage Wave 1を16 experiments / 64 images中心で層別生成
+4. 全valid imageへWD14/Kagami/CL -> machine routeを確定・凍結
+5. 全valid imageをreadable audit sheetsとindividual disposable copiesへexport
+6. ユーザーが全Wave 1 visual assetsをChatGPTへアップロード
+7. ChatGPTが全件目視し、machine-vs-visual agreement / false-safe / family別disagreementを判定
+8. 結果をGitHubへ記録後、Wave 2 / targeted deepening / recalibration / sample-audit移行 / #30 closeを判断
+9. #36 V5 workをGitHub正本へ継続反映
+10. #34 bilingual search relevance/noiseをresolveまたはStage10 Gateから明示分離
+11. managementがGate確認後に#42をcurrent core DEVとして明示activate
+12. #42 product-purpose improvement passで#30 Tagger-assisted triage policyを統合
+13. #5 formal Prompt handoff
+14. `STAGE_10_PREP.md` remaining checksをclose
+15. 全Gate完了後のみ Stage10 production A/B
+16. parallel safety debt: #24 protected-data backup / restore verification
 
 ## Source-of-Truth Rule
 
-- current core DEV = **Issue #30 / Phase 2 Generation Batch 2 machine-first**
+- current core DEV = **Issue #30 / Broad Coverage Wave 1 / AUTHORIZED_AFTER_PREFLIGHT / FULL_CHATGPT_VISUAL_AUDIT**
 - `CURRENT_DEV_TASK.md` Source Issue = **#30**
-- current continuation contract = `docs/project/ISSUE30_PHASE2_GENERATION_BATCH2_SPEC_20260911.md`
+- current continuation contract = `docs/project/ISSUE30_BROAD_COVERAGE_WAVE1_SPEC_20260911.md`
+- audit cleanup policy = `docs/project/AUDIT_ARTIFACT_CACHE_POLICY.md`
+- broad direction = `docs/project/ISSUE30_BROAD_COVERAGE_AUTOMATION_DIRECTION_20260911.md`
 - Machine Triage Audit accepted evidence = `2660c3106d2252c8aa8f3006f2a1040fd95004db`
-- Generation Batch execution evidence = `6e19da24a9718691b3c2e726bbe256fcb69f4a68`
-- Generation Batch human review evidence = `4a3e6ef5d19b33b5482bcfc86cc362ad6cbad9f3`
+- first Generation Batch execution evidence = `6e19da24a9718691b3c2e726bbe256fcb69f4a68`
+- first Generation Batch human review evidence = `4a3e6ef5d19b33b5482bcfc86cc362ad6cbad9f3`
+- Batch 2 execution/report evidence = `7e516bd1ca27c862cdaf023c023bed74e34e6833`
+- Batch 2 human review evidence = `1cd33c7ebec445c3e3870ebce360f9cfee1ffbf9`
 - Phase 1 evidence is frozen; do not restart original 128-image pilot wholesale
 - final formal concept name = **`Special Core Dictionary`**
 - #32/#48/#49/#43 dictionary validation/promotion/freeze chain is completed; do not restart it

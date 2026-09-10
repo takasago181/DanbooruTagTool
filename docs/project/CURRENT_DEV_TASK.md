@@ -2,154 +2,250 @@
 
 最終同期: 2026-09-11
 
-## Mirror Metadata
+## Source
 
-- Source Issue: **#30** `[Stage10-PREP][PHASE2_ACTIVE] Targeted evaluator refinement before #42`
-- State: **ACTIVE / PHASE2_GENERATION_BATCH2_AUTHORIZED_AFTER_PREFLIGHT / MACHINE_FIRST**
-- Branch: `codex/issue30-calibration-design`
-- Current Stage: Stage10準備Gate実施中
+- Source Issue: **#30**
+- Issue state: **OPEN / ACTIVE**
+- DEV state: **PHASE2_ACTIVE / BATCH2_COMPLETE / BROAD_COVERAGE_WAVE1_AUTHORIZED_AFTER_PREFLIGHT / MACHINE_FIRST / FULL_CHATGPT_VISUAL_AUDIT**
+- Stage10 production A/B: **NOT STARTED**
+- Working branch: `codex/issue30-calibration-design`
+- Current continuation contract: `docs/project/ISSUE30_BROAD_COVERAGE_WAVE1_SPEC_20260911.md`
 
-## Current continuation contract
+Supporting policies:
+- `docs/project/AUDIT_ARTIFACT_CACHE_POLICY.md`
+- `docs/project/ISSUE30_BROAD_COVERAGE_AUTOMATION_DIRECTION_20260911.md`
 
-**`docs/project/ISSUE30_PHASE2_GENERATION_BATCH2_SPEC_20260911.md`**
+This file is the Codex-readable mirror of Issue #30. If Issue #30 and this file differ, do not implement until DEV synchronizes them.
 
-Machine Triage Audit is accepted evidence. Do not repeat it or re-review its 12 images.
+## Accepted Batch 2 checkpoint
 
-## Accepted Phase 2 checkpoints
+Generation Batch 2 is complete.
 
-- Wave 1 + human review: `233a2a25b58de388cdf4ccff1183fca0a3260472`
-- Wave 2 execution/human review: preserved
-- Reuse-only human review: `44c3874ea6083590db256f819d5445501c49ff60`
-- Generation Batch execution: `6e19da24a9718691b3c2e726bbe256fcb69f4a68`
-- Generation Batch human review: `4a3e6ef5d19b33b5482bcfc86cc362ad6cbad9f3`
-- Machine Triage Audit: **`2660c3106d2252c8aa8f3006f2a1040fd95004db`**
+Evidence:
+- execution/report commit: `7e516bd1ca27c862cdaf023c023bed74e34e6833`
+- human-review commit: `1cd33c7ebec445c3e3870ebce360f9cfee1ffbf9`
 
-Accepted audit facts:
-- 12 existing images
-- actual evaluator success 36/36 = WD14 12 / Kagami 12 / CL 12
-- raw evaluator image-ID binding PASS
-- old report evaluator-reference mismatches 33
-- A/B marker PASS
-- retrospective human-review reduction 0%
-- 0% reason = previous batch chose structural/relation-sensitive or low-confidence cases; not a user-review failure
+Accepted facts:
+- 16 generated images / 8 A/B pairs
+- actual evaluator success 48/48 = WD14 16 / Kagami-24k 16 / CL Tagger v2.00 16
+- evaluator-reference integrity PASS after report-reference repair
+- A/B marker integrity PASS
+- machine-handled 4 images / 2 pairs
+- human-required 12 images / 6 pairs
+- blocked 0
+- image/pair review reduction 25% / 25%
+- human-required 6/6 pairs `BOTH_PASS`
 
-## Immediate preflight — must pass before new generation
+Do not regenerate or re-review the 12 already human-reviewed Batch 2 images.
 
-1. fetch latest `origin/main` and merge into `codex/issue30-calibration-design`; no rebase/force rewrite.
-2. read `ISSUE30_PHASE2_GENERATION_BATCH2_SPEC_20260911.md`.
-3. fix evaluator success reporting so success is counted from verified artifacts/results, not `images * 3` arithmetic alone.
-4. keep per-image evaluator references bound to each image ID and block provenance mismatch.
-5. fix pair-level routing metrics:
-   - compute `machine_handled_pairs`; do not hard-code 0.
-   - compute `human_required_pairs` from actual routes; do not copy historical review count.
-   - compute image-level and pair-level reduction.
-6. add regression/fixture coverage with at least one machine-handled A/B pair and one human-required pair.
-7. A/B mismatch/all-A/all-B must block review handoff.
-8. if any preflight fails: STOP with **0 new images**.
+## Current user direction — full visual audit
 
-## Batch 2 purpose
+The user wants broad multi-family generation now and will upload the generated Wave 1 review assets so ChatGPT can inspect **all valid generated images**.
 
-Execute several useful tests in one pass while actually reducing user review through machine-first routing.
+Wave 1 therefore does **not** use sample-only visual auditing.
+
+Machine routing still runs first and its results must be frozen before visual review, but `MACHINE_HANDLED_PAIR` does not suppress any valid Wave 1 image from the ChatGPT audit package.
+
+Purpose of Wave 1:
+- broad image-generation coverage across materially different Special families;
+- measure machine-routing trustworthiness against independent full visual review;
+- identify false-safe patterns before later review reduction is trusted.
+
+## Immediate work
+
+Before generating anything:
+
+1. Fetch the latest live `origin/main`.
+2. Merge latest live `origin/main` into `codex/issue30-calibration-design`.
+3. No rebase and no force rewrite.
+4. Verify this mirror and `ISSUE30_BROAD_COVERAGE_WAVE1_SPEC_20260911.md` are present after merge.
+5. Verify Batch 2 accepted evidence remains readable.
+6. Verify evaluator success/failure accounting comes from actual artifacts/results.
+7. Verify per-image evaluator-reference integrity and actual pair-routing calculations.
+8. Verify A/B markers come from structured manifest/condition.
+9. Implement/test audit-cache containment, sentinel, ownership-manifest and fail-closed cleanup guards per `AUDIT_ARTIFACT_CACHE_POLICY.md`.
+10. Run focused fixtures containing machine-handled, human-required and blocked/mismatch cases.
+
+If any mandatory preflight item fails: **STOP with 0 new images**.
+
+## Broad Coverage Wave 1 — authorized after preflight
 
 Target:
-- **4–5 experiments**
-- normally **16–20 new images**
-- hard cap **20 new images**
+- **16 independent experiments**
 - normally A/B × 2 predetermined fixed seeds
+- target **64 new images**
+
+Adaptive bounds:
+- minimum 12 experiments / 48 images when more cases would be redundant or invalid
+- maximum 20 experiments / 80 images
 - no automatic extra seeds
-- do not fill quota
+- no quota filling
+- no blind 2,788-entry sweep
 
-Mandatory mix:
-- **1–2 fresh direct/simple-unary machine-judgeable experiments** for real machine-first routing validation
-- **2–3 high-value structural experiments** that genuinely require human semantic judgment
+Select real current Special entries across materially different semantic families. Avoid one-family concentration.
 
-Do not select only structural cases and then send the full batch to the user.
+Cover as many distinct behaviors as practical, including:
+- direct/simple unary visual concepts
+- body/visibility attributes
+- clothing/exposure state
+- pose/composition
+- object/tool presence
+- action/contact
+- body-site/spatial correctness
+- actor/count/role
+- multi-person binding
+- multi-Special retention
+- restraint/device state
+- visible-result/state
+- unusual/nonhuman visual forms
+- adult body-state
+- scene/context interactions
+- single-support-tag effects
 
-## Structural priority
+Use clearly adult subjects only for generated evidence. Exclude age-ambiguous/minor-coded cases. Do not choose graphic injury/gore just to increase family count. This is a test-selection constraint only; do not mutate the canonical dictionary.
 
-1. `ACTOR_COUNT_DISAMBIGUATION`
-2. clearer `MULTI_SPECIAL_RETENTION` replacement; do not repeat ambiguous `holding sex toy + vibrator`
-3. new `SINGLE_SUPPORT_TAG_EFFECT`; do not repeat GB-002 `vibrator in anus + anal`
+Codex chooses the exact current Special IDs. Do not ask the user to manually search the 2,788-entry dictionary.
 
-Normally skip:
-- generic exact-count repeat; `CAL-023 double handjob` is already the narrow anchor
-- `double dildo` as exact-count evidence
-- immediate repeat of `breast expansion + breasts`
-- immediate repeat of `anal` vs `anal penetration`
-- extra seeds just to chase GB-001 ambiguity
+## Default generation profile
 
-Codex may select exact real current Special IDs without asking the user to search the dictionary, provided each case meets the current spec and <=20 new images.
+Unless an experiment has a documented reason to differ:
+- Forge Neo
+- WAI Illustrious v17
+- Euler a
+- Automatic scheduler
+- Steps 25
+- CFG 5
+- normally 1024 × 1344
+- Hires OFF
+- ADetailer OFF
+- LoRA OFF
+- ControlNet OFF
+- regional/Forge Couple OFF
 
-## Machine-first execution order
+Keep non-target settings fixed within each A/B comparison.
 
-`generate -> artifact/provenance gate -> WD14/Kagami/CL -> evaluator-reference integrity -> machine triage image+pair -> human-required pairs only -> contact sheet -> user review`
+## Mandatory machine-first pipeline
 
-Machine evaluation must affect routing; it is not decorative.
+For every valid new image:
 
-Machine-handled eligibility remains narrow:
-- direct / non-relation / simple-unary
-- complete provenance
-- valid evaluator outputs
-- existing calibrated confidence/agreement criteria satisfied
-- no structural ambiguity
+`generate -> artifact/provenance gate -> WD14 -> Kagami-24k -> CL Tagger v2.00 -> evaluator-reference integrity -> image route -> pair route -> freeze machine result -> export all valid images for ChatGPT visual audit`
 
-Human-protected:
+All three evaluators must run on every valid image.
+
+Machine Taggers remain assistive triage only. They are not broad structural semantic ground truth.
+
+Human-protected by default:
 - relation/binding
-- body-site ownership/correctness
-- insertion/contact topology
-- exact-count semantics
+- exact count
 - actor/subject/object assignment
 - multi-person role assignment
+- body-site ownership/correctness
+- insertion/contact/spatial topology
 - compound/multi-Special retention
-- ambiguous identity
-- disagreement/low confidence
+- ambiguous identity/category
+- evaluator disagreement/low confidence
 
-## User review UX
+## Full ChatGPT visual audit — mandatory for Wave 1
 
-Build the contact sheet **after machine triage**.
+Every valid generated Wave 1 image must be included in the ChatGPT-visible audit package, including images from `MACHINE_HANDLED_PAIR`.
 
-Only `HUMAN_REVIEW_REQUIRED_PAIR` items appear by default.
+Do not use sample-only auditing in this wave.
 
-Show only:
-- image(s)
-- large number
-- correct A/B marker
-- one large concrete Japanese question
+Export after machine routing is frozen:
+- complete audit index manifest for all generated images;
+- readable contact-sheet set covering **all valid images**;
+- disposable individual audit copies for higher-resolution follow-up.
 
-Do not clutter with Prompt/Negative/seed/case ID/evaluator/model/settings/token glossary.
+Preferred contact-sheet density:
+- normally 4 A/B pairs = 8 images per sheet;
+- use fewer when detail would be too small;
+- do not compress all 48–80 images into one giant sheet.
 
-Question font >=24 px, preferably 28–32 px. Font priority Meiryo -> Yu Gothic -> MS Gothic. Tofu/square => invalid.
+The user will upload all Wave 1 visual assets needed for ChatGPT review. The user is not required to manually classify all images; ChatGPT performs the independent visual comparison.
 
-A/B marker must derive from structured manifest/condition. Exactly one A + one B per pair. Mismatch/all-A/all-B => `REVIEW_ASSET_INVALID / BLOCKED`.
+Per-pair visual verdict vocabulary:
+- `A_ONLY_PASS`
+- `B_ONLY_PASS`
+- `BOTH_PASS`
+- `BOTH_FAIL`
+- `UNCLEAR`
+- `ASSET_INVALID`
+
+Each experiment must have one concrete Japanese visual question. Avoid vague “どちらが良いか” wording.
+
+## Machine-vs-visual calibration
+
+After ChatGPT visual results are returned, record:
+- visually audited image count / valid generated image count = target 100%
+- visually audited pair count / valid generated pair count = target 100%
+- machine route vs visual result agreement
+- false-safe count/rate
+- false-human/over-routing count/rate as calibration signal only
+- disagreement by semantic family
+- machine-handled false-safe rate by semantic family
+- evaluator disagreement/low-confidence relation to visual failures
+- recurring failure modes that should change routing or Prompt/support construction
+
+`false-safe` means a machine-handled pair that the independent visual audit finds failed, ambiguous, invalid, structurally unsafe, or otherwise should not have been hidden from human review.
+
+Do not automatically promote structural categories even if aggregate agreement looks high.
+
+## Review-reduction metrics
+
+Continue calculating provisional machine-route image/pair review-reduction metrics for comparison with Batch 2.
+
+For Wave 1 they are **diagnostic only**: they mean “what the machine would have hidden.”
+
+Actual independent visual audit coverage is 100% of valid generated images/pairs, so do not report the provisional reduction as actual achieved visual-review reduction.
+
+Later waves may switch to sampled audit only after explicit DEV/ChatGPT acceptance of sufficiently low false-safe evidence for the relevant machine-safe families.
+
+## Audit-cache safety
+
+Cleanup may affect only explicitly owned disposable audit copies under one configured audit root.
+
+Mandatory protections:
+- sentinel ownership marker
+- canonical absolute path resolution
+- strict-descendant checks
+- per-batch ownership manifest
+- traversal/symlink/junction/reparse escape rejection
+- unknown/unowned target => 0 deletions / STOP
+- no broad wildcard recursive cleanup
+- no `git clean -fdx` / `git clean -fdX`
+
+Original/source images, evaluator raw artifacts, accepted evidence, `data/**`, `docs/**`, models/checkpoints, repository/user roots and anything outside the audit root are protected.
+
+Do not commit bulk generated images/contact sheets into normal public Git history.
 
 ## Required outputs
 
-- `docs/testing/ISSUE30_PHASE2_GENERATION_BATCH2_DESIGN.md`
-- `docs/testing/ISSUE30_PHASE2_GENERATION_BATCH2_MANIFEST.csv`
-- `docs/testing/ISSUE30_PHASE2_GENERATION_BATCH2_RESULT.md`
-- `docs/testing/ISSUE30_PHASE2_GENERATION_BATCH2_RESULT.json`
-- actual evaluator success/failure counts
+- `docs/testing/ISSUE30_BROAD_COVERAGE_WAVE1_DESIGN.md`
+- `docs/testing/ISSUE30_BROAD_COVERAGE_WAVE1_MANIFEST.csv`
+- `docs/testing/ISSUE30_BROAD_COVERAGE_WAVE1_RESULT.md`
+- `docs/testing/ISSUE30_BROAD_COVERAGE_WAVE1_RESULT.json`
+- complete all-image visual-audit index manifest
+- all-image contact-sheet set
+- individual disposable audit-image directory locator
+
+Before visual review report:
+- semantic-family distribution
+- experiment/image counts
+- actual WD14/Kagami/CL successes/failures
 - per-image evaluator-reference integrity
-- image-level and pair-level machine routes
-- machine-handled/human-required/blocked image + pair counts
-- image-level + pair-level human-review reduction
-- simplified contact sheet for human-required pairs only
-- focused tests/preflight result
+- provisional machine/human/blocked image and pair counts
+- provisional image/pair review reduction
+- all-image audit-package coverage counts
+- contact-sheet local paths
+- protected-source integrity
+- focused test/preflight result
 
-## Hard prohibitions
+## Stop condition
 
-- >20 new images
-- automatic seed expansion
-- original 128-image wholesale rerun
-- 2,788-image sweep
-- Stage10 production A/B
-- production `data/**` mutation
-- #32 verdict/canonical mutation
-- runtime LLM dependency
-- unnecessary extension/tool
-- machine promotion to structural semantic truth
-- showing machine-handled pairs to the user merely because they were generated
+After Wave 1 generation, evaluator routing, reports and the **full all-image visual-audit package** are complete: **STOP and return the audit-package paths.**
 
-After Batch 2, STOP for DEV/ChatGPT. The user reviews only the actual human-required remainder.
+Do not automatically start Wave 2.
 
-Current routing authority: `docs/project/CURRENT_STATE.md`.
+After the user uploads the Wave 1 visual assets, ChatGPT performs full independent visual review. Those results are then recorded before deciding Wave 2, deeper testing, routing recalibration, or later sampled auditing.
+
+#42 remains downstream; this Wave 1 does not bypass its existing #36/#34 activation gates.

@@ -1,5 +1,17 @@
 # DanbooruTagTool 作業ダッシュボード
 
+> **HISTORICAL SNAPSHOT — CURRENT ROUTINGには使用しない**
+>
+> このファイルは 2026-09-10 時点の人間向けスナップショットで、現在地の正本ではありません。
+> 内容には現在はsuperseded/completedになった #46 や、当時の #44 -> #30 順序などが残っています。
+> **現在地・担当・依存関係は必ず `docs/project/CURRENT_STATE.md` と live GitHub Issueを使用してください。**
+>
+> 2026-09-11 cleanup auditで、誤routing防止のため現行ダッシュボード用途を終了しました。歴史記録として本文は下に保存しています。
+
+---
+
+## Historical content (2026-09-10)
+
 最終更新: 2026-09-10
 
 > このファイルは **人間向けの見やすい要約** です。
