@@ -1,0 +1,33 @@
+canonical,old_display_ja,new_display_ja,reason
+jerboa_tail,jerboa・尻尾,トビネズミの尻尾,MIXED_ENGLISH_DEBRIS
+jervis_(kancolle)_(cosplay),Jervis（Kancolle）（コスプレ）,ジャーヴィス（艦これ）（コスプレ）,MIXED_ENGLISH_DEBRIS
+jessica_rabbit_(cosplay),jessica rabbit (cosplay),ジェシカ・ラビット（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+jet_boots,jetのブーツ,ジェットブーツ,MIXED_ENGLISH_DEBRIS
+jetty,とってい,桟橋,SEMANTIC_ERROR
+jeweled_crown,タグ「jeweled crown」,宝石付きの王冠,RAW_ENGLISH_WRAPPER
+jeweled_hat,jeweled・帽子,宝石付きの帽子,MIXED_ENGLISH_DEBRIS
+jian_(weapon),剑,剣（中国の武器）,NON_JAPANESE_RESIDUE
+jiaoling_ruqun,交领襦裙,交領襦裙,NON_JAPANESE_RESIDUE
+jigen_daisuke_(cosplay),Jigen daisuke（コスプレ）,次元大介（コスプレ）,MIXED_ENGLISH_DEBRIS
+jinbei_(clothes),ひっぱり,甚平,SEMANTIC_ERROR
+jindai_high_school_uniform,Jindai High Schoolの制服,陣代高校の制服,MIXED_ENGLISH_DEBRIS
+job_application_form_(meme),job application form (meme),就職応募用紙（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+jodhpurs,ジョードパーズ,ジョッパーズ,SEMANTIC_ERROR
+johnston_(kancolle)_(cosplay),ジョンストン（カンコル）（コスプレ）,ジョンストン（艦これ）（コスプレ）,SEMANTIC_ERROR
+joint_(drug),タグ「joint (drug)」,大麻のジョイント,RAW_ENGLISH_WRAPPER
+joint_lock,擒拿,関節技,NON_JAPANESE_RESIDUE
+jojifuku,大人なのに女児服着てる,女児服,SEMANTIC_NARROWING
+jojo_pose,スタンド,ジョジョ立ち,SEMANTIC_ERROR
+jonathan_joestar's_pose,大乔立,ジョナサン・ジョースターのポーズ,NON_JAPANESE_RESIDUE
+joseph_joestar_(young)_(cosplay),ジョセフ・ジョスター（ヤング）（コスプレ）,若いジョセフ・ジョースター（コスプレ）,SEMANTIC_ERROR
+joui,ジュイ,攘夷,SEMANTIC_ERROR
+ju_87,タグ「ju 87」,Ju 87,RAW_ENGLISH_WRAPPER
+judge,ほうかん,審判,SEMANTIC_ERROR
+judgement_armband_(toaru),タグ「judgement armband (toaru)」,ジャッジメント腕章（とある）,RAW_ENGLISH_WRAPPER
+jug_(bottle),タグ「jug (bottle)」,水差し,RAW_ENGLISH_WRAPPER
+juice_carton,タグ「juice carton」,ジュースの紙パック,RAW_ENGLISH_WRAPPER
+jujutsu_tech_uniform,呪術高専東京校,呪術高専の制服,SEMANTIC_UNDERSPECIFICATION
+jumpscare,タグ「jumpscare」,ジャンプスケア,RAW_ENGLISH_WRAPPER
+jumpsuit_around_waist,ウエストの周りのジャンプスーツ,腰に巻いたジャンプスーツ,AWKWARD_MACHINE_TRANSLATION
+jumpsuit_pull,ジャンプスーツプル,ジャンプスーツを引っ張る,AWKWARD_MACHINE_TRANSLATION
+junko_(touhou)_(cosplay),Junko（Touhou）（コスプレ）,純狐（東方）（コスプレ）,MIXED_ENGLISH_DEBRIS
