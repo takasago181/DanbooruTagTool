@@ -1,0 +1,42 @@
+canonical,old_display_ja,new_display_ja,reason
+knit_scarf,タグ「knit scarf」,ニットマフラー,RAW_ENGLISH_WRAPPER
+knolling,ノール,ノーリング,SEMANTIC_ERROR
+knot_print,knotの柄,結び目柄,MIXED_ENGLISH_DEBRIS
+knotted_dildo,タグ「knotted dildo」,ノット付きディルド,RAW_ENGLISH_WRAPPER
+knuckle_hair,ナックルの髪,指の関節の毛,SEMANTIC_ERROR
+ko-fi_logo,ko fiのロゴ,Ko-fiのロゴ,MIXED_ENGLISH_DEBRIS
+ko-fi_username,ko fiのユーザー名,Ko-fiユーザー名,MIXED_ENGLISH_DEBRIS
+koakuma_(cosplay),小屋（コスプレ）,小悪魔（コスプレ）,SEMANTIC_ERROR
+koala_ears,koala・耳,コアラの耳,MIXED_ENGLISH_DEBRIS
+koala_forest_military_uniform,コアラ森林軍服,コアラの森学園の軍服,SEMANTIC_ERROR
+kobeya_uniform,神戸屋,神戸屋の制服,SEMANTIC_UNDERSPECIFICATION
+kochiya_sanae_(cosplay),小島sanae（コスプレ）,東風谷早苗（コスプレ）,SEMANTIC_ERROR
+kochou_shinobu_(cosplay),小川忍（コスプレ）,胡蝶しのぶ（コスプレ）,SEMANTIC_ERROR
+koge_donbo_(style),タグ「koge donbo (style)」,こげどんぼ*風,RAW_ENGLISH_WRAPPER
+koharu_(blue_archive)_(cosplay),koharu (blue archive) (cosplay),下江コハル（ブルーアーカイブ）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+koi,こい,鯉,SEMANTIC_ERROR
+komaeda_nagito_(cosplay),komaeda nagito (cosplay),狛枝凪斗（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+komainu_boy,タグ「komainu boy」,狛犬少年,RAW_ENGLISH_WRAPPER
+komainu_girl,タグ「komainu girl」,狛犬娘,RAW_ENGLISH_WRAPPER
+kokoshnik,ココシニク,ココシュニク,SEMANTIC_ERROR
+kokushi_musou,国士無双十三面待ち,国士無双,SEMANTIC_NARROWING
+komaru_(himouto!_umaru-chan)_(cosplay),コマル（ヒマウフ！ウマルちゃん）（コスプレ）,こまる（干物妹!うまるちゃん）（コスプレ）,SEMANTIC_ERROR
+komatsuzaki_rui_(style),オシオキ集,小松崎類風,SEMANTIC_ERROR
+komeiji_family_(touhou),komeiji family (touhou),古明地家（東方）,CANONICAL_FALLBACK_TRANSLATABLE
+komeiji_koishi_(cosplay),Komeiji Koishi（コスプレ）,古明地こいし（コスプレ）,MIXED_ENGLISH_DEBRIS
+komeiji_satori_(cosplay),Komeiji Satori（コスプレ）,古明地さとり（コスプレ）,MIXED_ENGLISH_DEBRIS
+komino_masahiko_(style),タグ「komino masahiko (style)」,小美野雅彦風,RAW_ENGLISH_WRAPPER
+kongou_(kancolle)_(cosplay),Kongou（Kancolle）（コスプレ）,金剛（艦これ）（コスプレ）,MIXED_ENGLISH_DEBRIS
+kongou_pose,kongou・ポーズ,金剛のポーズ,MIXED_ENGLISH_DEBRIS
+konjiki_no_yami_(cosplay),konjiki no yami（コスプレ）,金色の闇（コスプレ）,MIXED_ENGLISH_DEBRIS
+konohagakure_anbu_uniform,konohagakure anbuの制服,木ノ葉隠れ暗部の制服,MIXED_ENGLISH_DEBRIS
+konohagakure_shinobi_uniform,konohagakure shinobiの制服,木ノ葉隠れ忍の制服,MIXED_ENGLISH_DEBRIS
+konpaku_youmu_(cosplay),Konpaku Youmu（コスプレ）,魂魄妖夢（コスプレ）,MIXED_ENGLISH_DEBRIS
+korea,朝鮮,韓国,SEMANTIC_ERROR
+korean_armor,koreanの鎧,韓国の鎧,MIXED_ENGLISH_DEBRIS
+korean_clothes,韓服,韓国の服,SEMANTIC_NARROWING
+korean_national_police_agency,タグ「korean national police agency」,韓国警察庁,RAW_ENGLISH_WRAPPER
+korg,タグ「korg」,KORG,RAW_ENGLISH_WRAPPER
+korg_rk-100,タグ「korg rk-100」,KORG RK-100,RAW_ENGLISH_WRAPPER
+kosaka_honoka_(cosplay),kosaka honoka (cosplay),高坂穂乃果（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+koto_(instrument),コト（楽器）,琴（楽器）,SEMANTIC_ERROR
