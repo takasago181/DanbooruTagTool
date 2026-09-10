@@ -1,0 +1,45 @@
+canonical,old_display_ja,new_display_ja,reason
+high-low_skirt,高低裙,ハイロースカート,NON_JAPANESE_RESIDUE
+high-visibility_clothing,高い・visibility・衣類,高視認性衣類,MIXED_ENGLISH_DEBRIS
+high-waist_belt,显胸腰帯,ハイウエストベルト,NON_JAPANESE_RESIDUE
+high-waist_dress,高い・waist・ドレス,ハイウエストドレス,MIXED_ENGLISH_DEBRIS
+high_braided_ponytail,高い・編み込みのponytail,高い位置の編み込みポニーテール,MIXED_ENGLISH_DEBRIS
+high_ceiling,高い・ceiling,高い天井,MIXED_ENGLISH_DEBRIS
+high_denomination_banknote,高い・denomination・banknote,高額紙幣,MIXED_ENGLISH_DEBRIS
+high_heel_bodysuit,高い・heel・bodysuit,ハイヒール付きボディスーツ,MIXED_ENGLISH_DEBRIS
+high_side_ponytail,高い・側面・ponytail,高い位置のサイドポニーテール,MIXED_ENGLISH_DEBRIS
+high_x_joker_(idolmaster),ハイxジョーカー（アイドルマスター）,High×Joker（アイドルマスター）,SEMANTIC_ERROR
+highball_glass,タグ「highball glass」,ハイボールグラス,RAW_ENGLISH_WRAPPER
+highlander_railway_academy_logo,highlander railway academyのロゴ,ハイランダー鉄道学園のロゴ,MIXED_ENGLISH_DEBRIS
+highleg_buruma,高腰日式体操短ズボン,ハイレグブルマー,NON_JAPANESE_RESIDUE
+highleg_dress,高腰连衣裙,ハイレグドレス,NON_JAPANESE_RESIDUE
+highleg_springsuit,タグ「highleg springsuit」,ハイレグスプリングスーツ,RAW_ENGLISH_WRAPPER
+highlighter_(makeup),タグ「highlighter (makeup)」,ハイライター（化粧）,RAW_ENGLISH_WRAPPER
+hijiri_byakuren_(cosplay),hijiri byakuren（コスプレ）,聖白蓮（コスプレ）,MIXED_ENGLISH_DEBRIS
+hikari_(blue_archive)_(cosplay),hikari (blue archive) (cosplay),ヒカリ（ブルーアーカイブ）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+hikarizaka_private_high_school_uniform,hikarizaka私立高校ユニフォーム,光坂高校の制服,MIXED_ENGLISH_DEBRIS
+hiking,アウトドア,ハイキング,SEMANTIC_NARROWING
+hiking_backpack,登山背包,登山用バックパック,NON_JAPANESE_RESIDUE
+hikoboshi_(cosplay),hikoboshi（コスプレ）,彦星（コスプレ）,MIXED_ENGLISH_DEBRIS
+hilda_(pokemon)_(cosplay),ヒルダ（ポケモン）（コスプレ）,トウコ（ポケモン）（コスプレ）,SEMANTIC_ERROR
+himalayan_poppy_(flower),タグ「himalayan poppy (flower)」,ヒマラヤの青いケシ,RAW_ENGLISH_WRAPPER
+himaruya_hidekazu_(style),野生のひまさん,日丸屋秀和（画風）,SEMANTIC_ERROR
+himation,迫害,ヒマティオン,SEMANTIC_ERROR
+himemiya_anthy_(cosplay),Himemiya Anthy（コスプレ）,姫宮アンシー（コスプレ）,MIXED_ENGLISH_DEBRIS
+himeya_company_uniform,Himeya Companyのユニフォーム,姫屋の制服,MIXED_ENGLISH_DEBRIS
+himitsucalibur_(fate),himitsucalibur (fate),ヒミツカリバー（Fate）,CANONICAL_FALLBACK_TRANSLATABLE
+himukai_yuuji_(style),タグ「himukai yuuji (style)」,日向悠二（画風）,RAW_ENGLISH_WRAPPER
+hina_(blue_archive)_(cosplay),hina (blue archive) (cosplay),ヒナ（ブルーアーカイブ）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+hinanawi_tenshi_(cosplay),hinanawi tenshi（コスプレ）,比那名居天子（コスプレ）,MIXED_ENGLISH_DEBRIS
+hip_dips,腰・dips,腰のくぼみ,MIXED_ENGLISH_DEBRIS
+hip_strap,腰・strap,腰のストラップ,MIXED_ENGLISH_DEBRIS
+hippopotamus,河馬,カバ,AWKWARD_MACHINE_TRANSLATION
+hippopotamus_girl,タグ「hippopotamus girl」,カバの少女,RAW_ENGLISH_WRAPPER
+hippopotamus_tail,hippopotamus・尻尾,カバの尻尾,MIXED_ENGLISH_DEBRIS
+hips_in_air,空気中の腰,腰を高く上げる,SEMANTIC_ERROR
+hirano_kouta_(style),野生の平野耕太,平野耕太（画風）,SEMANTIC_ERROR
+hirasawa_yui's_middle_school_uniform,hirasawa yui middleの学校制服,平沢唯の中学校制服,MIXED_ENGLISH_DEBRIS
+hirasawa_yui_(cosplay),平田ゆい（コスプレ）,平沢唯（コスプレ）,SEMANTIC_ERROR
+hissing,タグ「hissing」,威嚇してシューッと鳴く,RAW_ENGLISH_WRAPPER
+historical_american_flag,historical americanの旗,歴史的なアメリカ国旗,MIXED_ENGLISH_DEBRIS
+historical_connection,聖杯乱舞,歴史上のつながり,SEMANTIC_ERROR
