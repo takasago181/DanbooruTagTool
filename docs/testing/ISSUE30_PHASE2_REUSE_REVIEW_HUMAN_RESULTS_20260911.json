@@ -1,0 +1,35 @@
+{
+  "schema_version": "issue30.phase2.reuse_only_human_review.v1",
+  "reviewed_case": "CAL-023",
+  "reviewed_pairs": 2,
+  "reviewed_images": 4,
+  "pair_results": [
+    {
+      "seed": 30230,
+      "answer": "A",
+      "result": "A_ONLY_PASS",
+      "a_image_id": "CAL-023__target_present_seed_a",
+      "b_image_id": "CAL-023__contrast_seed_a",
+      "observation_a": "両手による手淫が成立している。",
+      "observation_b": "背中を向けた女と、遠くにぼやけた男たちが見えるが、要求された手淫は成立していない。"
+    },
+    {
+      "seed": 30231,
+      "answer": "A",
+      "result": "A_ONLY_PASS",
+      "a_image_id": "CAL-023__target_present_seed_b",
+      "b_image_id": "CAL-023__contrast_seed_b",
+      "observation_a": "両手による手淫が成立している。",
+      "observation_b": "黒い服を着た女2人と男1人が立っているだけで、要求された手淫は成立していない。"
+    }
+  ],
+  "summary": {
+    "a_only_pass_pairs": 2,
+    "b_only_pass_pairs": 0,
+    "both_pass_pairs": 0,
+    "neither_pairs": 0,
+    "experiment_validity": "VALID_FOR_VISIBLE_DOUBLE_HANDJOB_PREDICATE",
+    "decision": "HOLD_FOR_DEV_PHASE2_CLOSE"
+  },
+  "notes": "Human review is authoritative for the concrete visible predicate. This does not promote relation/count semantics to automatic truth."
+}

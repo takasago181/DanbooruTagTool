@@ -15,6 +15,7 @@ WAVE2_MANIFEST = ROOT / "docs/testing/ISSUE30_PHASE2_WAVE2_TEST_MANIFEST.csv"
 WAVE2_RESULT = ROOT / "docs/testing/ISSUE30_PHASE2_WAVE2_RESULT.json"
 REUSE_MANIFEST = ROOT / "docs/testing/ISSUE30_PHASE2_REUSE_REVIEW_MANIFEST.csv"
 REUSE_RESULT = ROOT / "docs/testing/ISSUE30_PHASE2_REUSE_REVIEW_RESULT.json"
+REUSE_HUMAN_RESULT = ROOT / "docs/testing/ISSUE30_PHASE2_REUSE_REVIEW_HUMAN_RESULTS_20260911.json"
 HUMAN_REVIEW = ROOT / "docs/testing/ISSUE30_PHASE2_HUMAN_REVIEW_RESULTS_20260910.json"
 
 
@@ -108,3 +109,12 @@ def test_reuse_only_review_is_existing_four_image_bounded_and_stopped():
     assert report["reviewed_images"] == 4
     assert report["review_display"]["display_check"] == "PASS"
     assert report["decision"] == "STOP_FOR_USER_DEV_REVIEW"
+
+
+def test_reuse_only_human_review_records_two_a_only_pass_pairs():
+    report = json.loads(REUSE_HUMAN_RESULT.read_text(encoding="utf-8"))
+    assert report["reviewed_pairs"] == 2
+    assert report["reviewed_images"] == 4
+    assert [row["result"] for row in report["pair_results"]] == ["A_ONLY_PASS", "A_ONLY_PASS"]
+    assert report["summary"]["a_only_pass_pairs"] == 2
+    assert report["summary"]["decision"] == "HOLD_FOR_DEV_PHASE2_CLOSE"
