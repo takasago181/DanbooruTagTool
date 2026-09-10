@@ -2,7 +2,7 @@
 
 Status: **ADOPTED / PROJECT-WIDE SAFETY RULE**
 
-Purpose: large image-generation/evaluator tests need temporary visual evidence for ChatGPT/DEV audit without bloating Git history or risking deletion of unrelated local data.
+Purpose: large image-generation/evaluator tests need temporary visual evidence for ChatGPT/DEV audit without bloating the main repository history or risking deletion of unrelated local data.
 
 ## Core separation
 
@@ -10,13 +10,46 @@ Three classes are mandatory:
 
 1. **Original/generated source images** — protected evidence. Audit cleanup must never delete or overwrite them.
 2. **Disposable audit copies** — compressed/downsized/contact-sheet copies used only for current visual audit. These may be replaced or deleted.
-3. **Textual evidence** — manifest, hashes, evaluator results, routes, metrics, decisions. These remain normal Git evidence.
+3. **Textual evidence** — manifest, hashes, evaluator results, routes, metrics, decisions. These remain normal Git evidence in `DanbooruTagTool`.
 
-Generated audit images must **not** be committed to the public repository's normal Git history by default. Use local/private storage or an explicitly approved private sync location. Public GitHub/release/issue upload of generated audit images is prohibited unless DEV explicitly approves the exact content and exposure.
+Generated audit images must **not** be committed to the public `DanbooruTagTool` repository's normal Git history by default.
+
+## Adopted handoff architecture — no Google Drive
+
+Google Drive is not part of the approved workflow.
+
+Preferred storage/organization target is a **separate private disposable audit-cache repository**, conceptually:
+
+`DanbooruTagTool-AuditCache`
+
+Rules for that repository:
+
+- it is **not canonical project evidence**;
+- it contains only current disposable audit copies/contact sheets plus a lightweight ownership manifest;
+- original/source PNGs remain outside it and protected;
+- textual verdict/evaluator/provenance evidence remains in the main `DanbooruTagTool` repository;
+- cleanup code for the audit-cache repository must have no delete path into the main repository, protected data, original generation roots, models, or accepted evidence;
+- current-audit-set replacement is allowed after all deletion guards pass;
+- if history size becomes material, the cache repository may be archived/recreated because it is explicitly non-canonical, but accepted textual results must already exist in the main repository.
+
+### Reviewer-access reality
+
+A separate private GitHub repository is useful for isolation and cleanup safety, but it must **not** be assumed that ChatGPT can directly render/read every private binary image through the GitHub connector.
+
+Until a verified binary-image retrieval path is proven on the actual connection, the guaranteed ChatGPT visual-audit handoff is:
+
+1. Codex creates **one current contact sheet/audit sheet per wave** from the disposable cache.
+2. The user attaches that one sheet to the ChatGPT conversation/File Library for visual inspection.
+3. ChatGPT audits human-required items plus the selected machine-handled sample from that sheet.
+4. The resulting textual verdict is committed back to the main repository.
+
+This keeps manual work to one attachment per wave rather than per image while avoiding Google Drive and public exposure.
+
+If future tooling proves direct private binary retrieval from `DanbooruTagTool-AuditCache`, that verified route may replace the manual one-sheet attachment without changing the safety model.
 
 ## Disposable cache root
 
-All cleanup-capable code must operate only inside one explicitly configured disposable audit root, for example a path conceptually equivalent to:
+All cleanup-capable local code must operate only inside one explicitly configured disposable audit root, for example a path conceptually equivalent to:
 
 `<private-local-root>/DanbooruTagTool/audit_cache/current/`
 
@@ -62,13 +95,11 @@ A current audit export should contain only what is useful for visual judgment:
 
 Do not put full Prompt/Negative/evaluator logs on the visual sheet unless a specific audit requires them; keep those in textual evidence.
 
-## Private handoff
+## Private handoff priority
 
-Preferred order:
-
-1. local/private synced folder accessible to the reviewing tool/account;
-2. one current contact sheet/audit package manually attached when private sync is unavailable;
-3. other private temporary storage explicitly approved by DEV.
+1. Verified direct private binary retrieval from the separate audit-cache repository, if/when proven on the actual reviewer connection.
+2. Otherwise, one current contact sheet/audit sheet manually attached to ChatGPT per wave.
+3. Other private temporary storage only when explicitly approved by DEV.
 
 Do not solve review convenience by publishing generated images into the public project repository.
 
