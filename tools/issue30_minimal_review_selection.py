@@ -16,7 +16,7 @@ from collections import Counter
 from pathlib import Path
 from typing import Any
 
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageFont
 
 
 THRESHOLDS = {"wd14": 0.50, "kagami": 0.37, "cl_v2_00": 0.50}
@@ -271,13 +271,45 @@ def write_csv(path: Path, rows: list[dict[str, Any]], fields: list[str]) -> None
         writer.writerows(rows)
 
 
+def _load_contact_sheet_font(size: int) -> ImageFont.FreeTypeFont | ImageFont.ImageFont:
+    """Load a Windows Japanese font so Special glosses render legibly."""
+    for font_path in (
+        Path(r"C:\Windows\Fonts\meiryo.ttc"),
+        Path(r"C:\Windows\Fonts\YuGothM.ttc"),
+        Path(r"C:\Windows\Fonts\msgothic.ttc"),
+    ):
+        if font_path.exists():
+            try:
+                return ImageFont.truetype(str(font_path), size=size)
+            except OSError:
+                continue
+    return ImageFont.load_default()
+
+
+def _wrap_contact_sheet_label(label: str, font: ImageFont.ImageFont, max_width: int) -> str:
+    """Wrap Japanese labels by rendered width so long glosses remain readable."""
+    lines: list[str] = []
+    current = ""
+    for character in label:
+        candidate = current + character
+        if current and font.getlength(candidate) > max_width:
+            lines.append(current)
+            current = character
+        else:
+            current = candidate
+    if current:
+        lines.append(current)
+    return "\n".join(lines)
+
+
 def create_blinded_contact_sheet(run_root: Path, selected: list[dict[str, Any]]) -> Path:
     """Create an ordered, score-free sheet for the user's visual review."""
-    thumb_w, thumb_h, label_h = 320, 320, 44
+    thumb_w, thumb_h, label_h = 320, 320, 72
     cols = 4
     rows = (len(selected) + cols - 1) // cols
     sheet = Image.new("RGB", (cols * thumb_w, rows * (thumb_h + label_h)), "white")
     draw = ImageDraw.Draw(sheet)
+    label_font = _load_contact_sheet_font(17)
     for index, row in enumerate(selected):
         with Image.open(row["image_path"]) as image:
             image = image.convert("RGB")
@@ -286,7 +318,14 @@ def create_blinded_contact_sheet(run_root: Path, selected: list[dict[str, Any]])
             y = (index // cols) * (thumb_h + label_h) + (thumb_h - image.height) // 2
             sheet.paste(image, (x, y))
         label = f"{row['review_order']:02d}  [{row['target_or_contrast']}] {row['canonical_ja']}"
-        draw.text(((index % cols) * thumb_w + 4, (index // cols) * (thumb_h + label_h) + thumb_h + 4), label, fill="black")
+        label = _wrap_contact_sheet_label(label, label_font, thumb_w - 8)
+        draw.multiline_text(
+            ((index % cols) * thumb_w + 4, (index // cols) * (thumb_h + label_h) + thumb_h + 4),
+            label,
+            fill="black",
+            font=label_font,
+            spacing=1,
+        )
     output = run_root / "review_queue" / "minimal_review_contact_sheet.png"
     output.parent.mkdir(parents=True, exist_ok=True)
     sheet.save(output, format="PNG")
