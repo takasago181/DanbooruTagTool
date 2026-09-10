@@ -1,0 +1,36 @@
+canonical,old_display_ja,new_display_ja,reason
+grabbing_tentacle,掴む・触手,触手を掴む,AWKWARD_MACHINE_TRANSLATION
+gracidea,タグ「gracidea」,グラシデアの花,RAW_ENGLISH_WRAPPER
+gradient-tinted_eyewear,グラデーション・tinted・eyewear,グラデーション着色の眼鏡,MIXED_ENGLISH_DEBRIS
+gradient_ascot,グラデーション・ascot,グラデーションのアスコット,MIXED_ENGLISH_DEBRIS
+gradient_bodysuit,グラデーション・bodysuit,グラデーションのボディスーツ,MIXED_ENGLISH_DEBRIS
+gradient_border,グラデーションボーダー,グラデーションの枠,SEMANTIC_ERROR
+gradient_bowtie,グラデーション・bowtie,グラデーションの蝶ネクタイ,MIXED_ENGLISH_DEBRIS
+gradient_cape,勾配ケープ,グラデーションのケープ,SEMANTIC_ERROR
+gradient_cloak,グラデーション・cloak,グラデーションのマント,MIXED_ENGLISH_DEBRIS
+gradient_dress,渐变色连衣裙,グラデーションのドレス,NON_JAPANESE_RESIDUE
+gradient_eyes,渐变色眼睛,グラデーションの目,NON_JAPANESE_RESIDUE
+gradient_filter,グラデーション・filter,グラデーションフィルター,MIXED_ENGLISH_DEBRIS
+gradient_halo,渐变光环,グラデーションの光輪,NON_JAPANESE_RESIDUE
+gradient_hoodie,グラデーション・hoodie,グラデーションのパーカー,MIXED_ENGLISH_DEBRIS
+gradient_horns,グラジエントホーン,グラデーションの角,AWKWARD_MACHINE_TRANSLATION
+gradient_kimono,勾配着物,グラデーションの着物,SEMANTIC_ERROR
+gradient_outline,グラデーション・輪郭,グラデーションの輪郭,MIXED_ENGLISH_DEBRIS
+gradient_shadow,グラデーション・shadow,グラデーションの影,MIXED_ENGLISH_DEBRIS
+gradient_sky,渐变天空,グラデーションの空,NON_JAPANESE_RESIDUE
+gradient_sleeves,グラデーションスリーブ,グラデーションの袖,AWKWARD_MACHINE_TRANSLATION
+gradient_sweater,グラデーション・sweater,グラデーションのセーター,MIXED_ENGLISH_DEBRIS
+gradient_wings,グラジエントウィング,グラデーションの翼,AWKWARD_MACHINE_TRANSLATION
+grado_labs,タグ「grado labs」,Grado Labs,RAW_ENGLISH_WRAPPER
+grady_sisters_(the_shining)_(cosplay),grady sisters (the shining) (cosplay),グレイディ姉妹（シャイニング）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+grand_scale,タグ「grand scale」,大規模,RAW_ENGLISH_WRAPPER
+grandma,タグ「grandma」,祖母,RAW_ENGLISH_WRAPPER
+grape_earrings,grapeのイヤリング,ブドウのイヤリング,MIXED_ENGLISH_DEBRIS
+grape_juice,タグ「grape juice」,ブドウジュース,RAW_ENGLISH_WRAPPER
+grape_print,grapeの柄,ブドウ柄,MIXED_ENGLISH_DEBRIS
+grape_vine,グレープヴァイン,ブドウのつる,SEMANTIC_ERROR
+grapefruit_slice,タグ「grapefruit slice」,グレープフルーツの輪切り,RAW_ENGLISH_WRAPPER
+grass_block,タグ「grass block」,草ブロック,RAW_ENGLISH_WRAPPER
+grate,すりおろします,すりおろす,AWKWARD_MACHINE_TRANSLATION
+grated_daikon,タグ「grated daikon」,大根おろし,RAW_ENGLISH_WRAPPER
+graviton_beam_emitter,タグ「graviton beam emitter」,重力子放射線射出装置,RAW_ENGLISH_WRAPPER
