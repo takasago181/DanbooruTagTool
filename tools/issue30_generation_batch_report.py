@@ -37,6 +37,14 @@ def wrap(value: str, width: int = 43) -> str:
     return "\n".join(textwrap.wrap(value, width=width, break_long_words=True, break_on_hyphens=True))
 
 
+def evaluator_artifact_paths(run_root: Path, image_id: str) -> dict[str, str]:
+    return {
+        "wd14": str(run_root / "raw/wd14" / f"{image_id}.json"),
+        "kagami": str(run_root / "raw/kagami" / f"{image_id}.json.gz"),
+        "cl_v2_00": str(run_root / "raw/cl v2.00" / f"{image_id}.json.gz"),
+    }
+
+
 def make_contact_sheet(rows: list[dict[str, Any]], manifest: dict[str, dict[str, str]], output: Path) -> dict[str, Any]:
     ordered = sorted(rows, key=lambda row: (row["case_id"], row["seed"], row["condition"]))
     thumb_w, thumb_h, label_h = 700, 620, 190
@@ -122,7 +130,7 @@ def main() -> None:
             "negative_prompt": result["generation"]["negative_prompt"], "image_path": result["image_artifact"]["path"],
             "sha256": result["image_artifact"]["sha256"], "bytes": result["image_artifact"]["bytes"],
             "width": result["image_artifact"]["width"], "height": result["image_artifact"]["height"],
-            "artifact_gate": artifact_gate(result), "evaluator_references": {key: value.get("raw_output_artifact") for key, value in result["evaluators"].items()},
+            "artifact_gate": artifact_gate(result), "evaluator_references": evaluator_artifact_paths(args.run_root, result["image_id"]),
             "screening_classes": result["screening"]["screening_classes"], "reused": bool(generation[result["image_id"]].get("reused", False)),
         })
     if len(rows) != len(manifest) * 4:

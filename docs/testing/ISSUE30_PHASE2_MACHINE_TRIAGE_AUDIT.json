@@ -1,0 +1,676 @@
+{
+  "schema_version": "issue30.phase2.machine_triage_audit.v1",
+  "status": "AUDIT_COMPLETE_REVIEW_REQUIRED",
+  "new_images": 0,
+  "generation_batch_images": 12,
+  "planned_evaluator_runs": 36,
+  "actual_successful_evaluator_runs": 36,
+  "actual_failed_or_missing_evaluator_runs": 0,
+  "per_evaluator_successes": {
+    "wd14": 12,
+    "kagami": 12,
+    "cl_v2_00": 12
+  },
+  "per_evaluator_failures": {},
+  "reported_reference_integrity_check": "FAIL",
+  "raw_artifact_image_binding_check": "PASS",
+  "evaluator_reference_integrity_check": "FAIL",
+  "reported_reference_mismatches": [
+    {
+      "image_id": "GB-001__target_present_seed_a",
+      "evaluator": "wd14",
+      "reported": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-003__contrast_seed_b.json",
+      "expected": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-001__target_present_seed_a.json"
+    },
+    {
+      "image_id": "GB-001__target_present_seed_a",
+      "evaluator": "kagami",
+      "reported": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-003__contrast_seed_b.json.gz",
+      "expected": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-001__target_present_seed_a.json.gz"
+    },
+    {
+      "image_id": "GB-001__target_present_seed_a",
+      "evaluator": "cl_v2_00",
+      "reported": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-003__contrast_seed_b.json.gz",
+      "expected": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-001__target_present_seed_a.json.gz"
+    },
+    {
+      "image_id": "GB-001__target_present_seed_b",
+      "evaluator": "wd14",
+      "reported": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-003__contrast_seed_b.json",
+      "expected": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-001__target_present_seed_b.json"
+    },
+    {
+      "image_id": "GB-001__target_present_seed_b",
+      "evaluator": "kagami",
+      "reported": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-003__contrast_seed_b.json.gz",
+      "expected": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-001__target_present_seed_b.json.gz"
+    },
+    {
+      "image_id": "GB-001__target_present_seed_b",
+      "evaluator": "cl_v2_00",
+      "reported": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-003__contrast_seed_b.json.gz",
+      "expected": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-001__target_present_seed_b.json.gz"
+    },
+    {
+      "image_id": "GB-001__contrast_seed_a",
+      "evaluator": "wd14",
+      "reported": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-003__contrast_seed_b.json",
+      "expected": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-001__contrast_seed_a.json"
+    },
+    {
+      "image_id": "GB-001__contrast_seed_a",
+      "evaluator": "kagami",
+      "reported": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-003__contrast_seed_b.json.gz",
+      "expected": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-001__contrast_seed_a.json.gz"
+    },
+    {
+      "image_id": "GB-001__contrast_seed_a",
+      "evaluator": "cl_v2_00",
+      "reported": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-003__contrast_seed_b.json.gz",
+      "expected": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-001__contrast_seed_a.json.gz"
+    },
+    {
+      "image_id": "GB-001__contrast_seed_b",
+      "evaluator": "wd14",
+      "reported": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-003__contrast_seed_b.json",
+      "expected": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-001__contrast_seed_b.json"
+    },
+    {
+      "image_id": "GB-001__contrast_seed_b",
+      "evaluator": "kagami",
+      "reported": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-003__contrast_seed_b.json.gz",
+      "expected": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-001__contrast_seed_b.json.gz"
+    },
+    {
+      "image_id": "GB-001__contrast_seed_b",
+      "evaluator": "cl_v2_00",
+      "reported": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-003__contrast_seed_b.json.gz",
+      "expected": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-001__contrast_seed_b.json.gz"
+    },
+    {
+      "image_id": "GB-002__target_present_seed_a",
+      "evaluator": "wd14",
+      "reported": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-003__contrast_seed_b.json",
+      "expected": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-002__target_present_seed_a.json"
+    },
+    {
+      "image_id": "GB-002__target_present_seed_a",
+      "evaluator": "kagami",
+      "reported": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-003__contrast_seed_b.json.gz",
+      "expected": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-002__target_present_seed_a.json.gz"
+    },
+    {
+      "image_id": "GB-002__target_present_seed_a",
+      "evaluator": "cl_v2_00",
+      "reported": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-003__contrast_seed_b.json.gz",
+      "expected": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-002__target_present_seed_a.json.gz"
+    },
+    {
+      "image_id": "GB-002__target_present_seed_b",
+      "evaluator": "wd14",
+      "reported": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-003__contrast_seed_b.json",
+      "expected": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-002__target_present_seed_b.json"
+    },
+    {
+      "image_id": "GB-002__target_present_seed_b",
+      "evaluator": "kagami",
+      "reported": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-003__contrast_seed_b.json.gz",
+      "expected": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-002__target_present_seed_b.json.gz"
+    },
+    {
+      "image_id": "GB-002__target_present_seed_b",
+      "evaluator": "cl_v2_00",
+      "reported": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-003__contrast_seed_b.json.gz",
+      "expected": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-002__target_present_seed_b.json.gz"
+    },
+    {
+      "image_id": "GB-002__contrast_seed_a",
+      "evaluator": "wd14",
+      "reported": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-003__contrast_seed_b.json",
+      "expected": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-002__contrast_seed_a.json"
+    },
+    {
+      "image_id": "GB-002__contrast_seed_a",
+      "evaluator": "kagami",
+      "reported": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-003__contrast_seed_b.json.gz",
+      "expected": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-002__contrast_seed_a.json.gz"
+    },
+    {
+      "image_id": "GB-002__contrast_seed_a",
+      "evaluator": "cl_v2_00",
+      "reported": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-003__contrast_seed_b.json.gz",
+      "expected": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-002__contrast_seed_a.json.gz"
+    },
+    {
+      "image_id": "GB-002__contrast_seed_b",
+      "evaluator": "wd14",
+      "reported": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-003__contrast_seed_b.json",
+      "expected": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-002__contrast_seed_b.json"
+    },
+    {
+      "image_id": "GB-002__contrast_seed_b",
+      "evaluator": "kagami",
+      "reported": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-003__contrast_seed_b.json.gz",
+      "expected": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-002__contrast_seed_b.json.gz"
+    },
+    {
+      "image_id": "GB-002__contrast_seed_b",
+      "evaluator": "cl_v2_00",
+      "reported": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-003__contrast_seed_b.json.gz",
+      "expected": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-002__contrast_seed_b.json.gz"
+    },
+    {
+      "image_id": "GB-003__target_present_seed_a",
+      "evaluator": "wd14",
+      "reported": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-003__contrast_seed_b.json",
+      "expected": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-003__target_present_seed_a.json"
+    },
+    {
+      "image_id": "GB-003__target_present_seed_a",
+      "evaluator": "kagami",
+      "reported": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-003__contrast_seed_b.json.gz",
+      "expected": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-003__target_present_seed_a.json.gz"
+    },
+    {
+      "image_id": "GB-003__target_present_seed_a",
+      "evaluator": "cl_v2_00",
+      "reported": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-003__contrast_seed_b.json.gz",
+      "expected": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-003__target_present_seed_a.json.gz"
+    },
+    {
+      "image_id": "GB-003__target_present_seed_b",
+      "evaluator": "wd14",
+      "reported": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-003__contrast_seed_b.json",
+      "expected": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-003__target_present_seed_b.json"
+    },
+    {
+      "image_id": "GB-003__target_present_seed_b",
+      "evaluator": "kagami",
+      "reported": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-003__contrast_seed_b.json.gz",
+      "expected": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-003__target_present_seed_b.json.gz"
+    },
+    {
+      "image_id": "GB-003__target_present_seed_b",
+      "evaluator": "cl_v2_00",
+      "reported": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-003__contrast_seed_b.json.gz",
+      "expected": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-003__target_present_seed_b.json.gz"
+    },
+    {
+      "image_id": "GB-003__contrast_seed_a",
+      "evaluator": "wd14",
+      "reported": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-003__contrast_seed_b.json",
+      "expected": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-003__contrast_seed_a.json"
+    },
+    {
+      "image_id": "GB-003__contrast_seed_a",
+      "evaluator": "kagami",
+      "reported": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-003__contrast_seed_b.json.gz",
+      "expected": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-003__contrast_seed_a.json.gz"
+    },
+    {
+      "image_id": "GB-003__contrast_seed_a",
+      "evaluator": "cl_v2_00",
+      "reported": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-003__contrast_seed_b.json.gz",
+      "expected": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-003__contrast_seed_a.json.gz"
+    }
+  ],
+  "ab_marker_integrity_check": "PASS",
+  "screening_class_occurrences": {
+    "RELATION_OR_BINDING": 8,
+    "LOW_CONFIDENCE": 4
+  },
+  "machine_handled_images": 0,
+  "machine_handled_pairs": 0,
+  "human_required_images": 12,
+  "human_required_pairs": 6,
+  "blocked_images": 0,
+  "reviewed_pairs": 6,
+  "reviewed_images": 12,
+  "human_review_reduction_percent": 0.0,
+  "human_review_reduction_statement": "HUMAN_REVIEW_REDUCTION = 0 for this batch design",
+  "human_result_summary": {
+    "both_pass_pairs": 4,
+    "unclear_pairs": 2,
+    "a_only_pass_pairs": 0,
+    "b_only_pass_pairs": 0,
+    "experiment_validity": "VALID_WITH_GB001_IDENTITY_UNCLEAR",
+    "decision": "HOLD_FOR_DEV_PHASE2_CLOSE"
+  },
+  "per_image": [
+    {
+      "image_id": "GB-001__target_present_seed_a",
+      "case_id": "GB-001",
+      "condition": "A",
+      "seed": 43001,
+      "screening_classes": [
+        "RELATION_OR_BINDING"
+      ],
+      "machine_route": "HUMAN_REVIEW_REQUIRED",
+      "route_reasons": [
+        "relation/binding protected"
+      ],
+      "evaluators": {
+        "wd14": {
+          "expected_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-001__target_present_seed_a.json",
+          "reported_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-003__contrast_seed_b.json",
+          "artifact_state": "OK",
+          "detail": "readable non-error result",
+          "filename_image_binding": true
+        },
+        "kagami": {
+          "expected_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-001__target_present_seed_a.json.gz",
+          "reported_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-003__contrast_seed_b.json.gz",
+          "artifact_state": "OK",
+          "detail": "readable non-error result",
+          "filename_image_binding": true
+        },
+        "cl_v2_00": {
+          "expected_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-001__target_present_seed_a.json.gz",
+          "reported_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-003__contrast_seed_b.json.gz",
+          "artifact_state": "OK",
+          "detail": "readable non-error result",
+          "filename_image_binding": true
+        }
+      }
+    },
+    {
+      "image_id": "GB-001__target_present_seed_b",
+      "case_id": "GB-001",
+      "condition": "A",
+      "seed": 43002,
+      "screening_classes": [
+        "RELATION_OR_BINDING"
+      ],
+      "machine_route": "HUMAN_REVIEW_REQUIRED",
+      "route_reasons": [
+        "relation/binding protected"
+      ],
+      "evaluators": {
+        "wd14": {
+          "expected_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-001__target_present_seed_b.json",
+          "reported_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-003__contrast_seed_b.json",
+          "artifact_state": "OK",
+          "detail": "readable non-error result",
+          "filename_image_binding": true
+        },
+        "kagami": {
+          "expected_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-001__target_present_seed_b.json.gz",
+          "reported_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-003__contrast_seed_b.json.gz",
+          "artifact_state": "OK",
+          "detail": "readable non-error result",
+          "filename_image_binding": true
+        },
+        "cl_v2_00": {
+          "expected_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-001__target_present_seed_b.json.gz",
+          "reported_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-003__contrast_seed_b.json.gz",
+          "artifact_state": "OK",
+          "detail": "readable non-error result",
+          "filename_image_binding": true
+        }
+      }
+    },
+    {
+      "image_id": "GB-001__contrast_seed_a",
+      "case_id": "GB-001",
+      "condition": "B",
+      "seed": 43001,
+      "screening_classes": [
+        "RELATION_OR_BINDING"
+      ],
+      "machine_route": "HUMAN_REVIEW_REQUIRED",
+      "route_reasons": [
+        "relation/binding protected"
+      ],
+      "evaluators": {
+        "wd14": {
+          "expected_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-001__contrast_seed_a.json",
+          "reported_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-003__contrast_seed_b.json",
+          "artifact_state": "OK",
+          "detail": "readable non-error result",
+          "filename_image_binding": true
+        },
+        "kagami": {
+          "expected_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-001__contrast_seed_a.json.gz",
+          "reported_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-003__contrast_seed_b.json.gz",
+          "artifact_state": "OK",
+          "detail": "readable non-error result",
+          "filename_image_binding": true
+        },
+        "cl_v2_00": {
+          "expected_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-001__contrast_seed_a.json.gz",
+          "reported_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-003__contrast_seed_b.json.gz",
+          "artifact_state": "OK",
+          "detail": "readable non-error result",
+          "filename_image_binding": true
+        }
+      }
+    },
+    {
+      "image_id": "GB-001__contrast_seed_b",
+      "case_id": "GB-001",
+      "condition": "B",
+      "seed": 43002,
+      "screening_classes": [
+        "RELATION_OR_BINDING"
+      ],
+      "machine_route": "HUMAN_REVIEW_REQUIRED",
+      "route_reasons": [
+        "relation/binding protected"
+      ],
+      "evaluators": {
+        "wd14": {
+          "expected_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-001__contrast_seed_b.json",
+          "reported_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-003__contrast_seed_b.json",
+          "artifact_state": "OK",
+          "detail": "readable non-error result",
+          "filename_image_binding": true
+        },
+        "kagami": {
+          "expected_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-001__contrast_seed_b.json.gz",
+          "reported_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-003__contrast_seed_b.json.gz",
+          "artifact_state": "OK",
+          "detail": "readable non-error result",
+          "filename_image_binding": true
+        },
+        "cl_v2_00": {
+          "expected_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-001__contrast_seed_b.json.gz",
+          "reported_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-003__contrast_seed_b.json.gz",
+          "artifact_state": "OK",
+          "detail": "readable non-error result",
+          "filename_image_binding": true
+        }
+      }
+    },
+    {
+      "image_id": "GB-002__target_present_seed_a",
+      "case_id": "GB-002",
+      "condition": "A",
+      "seed": 43011,
+      "screening_classes": [
+        "RELATION_OR_BINDING"
+      ],
+      "machine_route": "HUMAN_REVIEW_REQUIRED",
+      "route_reasons": [
+        "relation/binding protected"
+      ],
+      "evaluators": {
+        "wd14": {
+          "expected_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-002__target_present_seed_a.json",
+          "reported_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-003__contrast_seed_b.json",
+          "artifact_state": "OK",
+          "detail": "readable non-error result",
+          "filename_image_binding": true
+        },
+        "kagami": {
+          "expected_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-002__target_present_seed_a.json.gz",
+          "reported_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-003__contrast_seed_b.json.gz",
+          "artifact_state": "OK",
+          "detail": "readable non-error result",
+          "filename_image_binding": true
+        },
+        "cl_v2_00": {
+          "expected_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-002__target_present_seed_a.json.gz",
+          "reported_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-003__contrast_seed_b.json.gz",
+          "artifact_state": "OK",
+          "detail": "readable non-error result",
+          "filename_image_binding": true
+        }
+      }
+    },
+    {
+      "image_id": "GB-002__target_present_seed_b",
+      "case_id": "GB-002",
+      "condition": "A",
+      "seed": 43012,
+      "screening_classes": [
+        "RELATION_OR_BINDING"
+      ],
+      "machine_route": "HUMAN_REVIEW_REQUIRED",
+      "route_reasons": [
+        "relation/binding protected"
+      ],
+      "evaluators": {
+        "wd14": {
+          "expected_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-002__target_present_seed_b.json",
+          "reported_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-003__contrast_seed_b.json",
+          "artifact_state": "OK",
+          "detail": "readable non-error result",
+          "filename_image_binding": true
+        },
+        "kagami": {
+          "expected_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-002__target_present_seed_b.json.gz",
+          "reported_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-003__contrast_seed_b.json.gz",
+          "artifact_state": "OK",
+          "detail": "readable non-error result",
+          "filename_image_binding": true
+        },
+        "cl_v2_00": {
+          "expected_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-002__target_present_seed_b.json.gz",
+          "reported_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-003__contrast_seed_b.json.gz",
+          "artifact_state": "OK",
+          "detail": "readable non-error result",
+          "filename_image_binding": true
+        }
+      }
+    },
+    {
+      "image_id": "GB-002__contrast_seed_a",
+      "case_id": "GB-002",
+      "condition": "B",
+      "seed": 43011,
+      "screening_classes": [
+        "RELATION_OR_BINDING"
+      ],
+      "machine_route": "HUMAN_REVIEW_REQUIRED",
+      "route_reasons": [
+        "relation/binding protected"
+      ],
+      "evaluators": {
+        "wd14": {
+          "expected_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-002__contrast_seed_a.json",
+          "reported_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-003__contrast_seed_b.json",
+          "artifact_state": "OK",
+          "detail": "readable non-error result",
+          "filename_image_binding": true
+        },
+        "kagami": {
+          "expected_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-002__contrast_seed_a.json.gz",
+          "reported_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-003__contrast_seed_b.json.gz",
+          "artifact_state": "OK",
+          "detail": "readable non-error result",
+          "filename_image_binding": true
+        },
+        "cl_v2_00": {
+          "expected_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-002__contrast_seed_a.json.gz",
+          "reported_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-003__contrast_seed_b.json.gz",
+          "artifact_state": "OK",
+          "detail": "readable non-error result",
+          "filename_image_binding": true
+        }
+      }
+    },
+    {
+      "image_id": "GB-002__contrast_seed_b",
+      "case_id": "GB-002",
+      "condition": "B",
+      "seed": 43012,
+      "screening_classes": [
+        "RELATION_OR_BINDING"
+      ],
+      "machine_route": "HUMAN_REVIEW_REQUIRED",
+      "route_reasons": [
+        "relation/binding protected"
+      ],
+      "evaluators": {
+        "wd14": {
+          "expected_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-002__contrast_seed_b.json",
+          "reported_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-003__contrast_seed_b.json",
+          "artifact_state": "OK",
+          "detail": "readable non-error result",
+          "filename_image_binding": true
+        },
+        "kagami": {
+          "expected_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-002__contrast_seed_b.json.gz",
+          "reported_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-003__contrast_seed_b.json.gz",
+          "artifact_state": "OK",
+          "detail": "readable non-error result",
+          "filename_image_binding": true
+        },
+        "cl_v2_00": {
+          "expected_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-002__contrast_seed_b.json.gz",
+          "reported_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-003__contrast_seed_b.json.gz",
+          "artifact_state": "OK",
+          "detail": "readable non-error result",
+          "filename_image_binding": true
+        }
+      }
+    },
+    {
+      "image_id": "GB-003__target_present_seed_a",
+      "case_id": "GB-003",
+      "condition": "A",
+      "seed": 43021,
+      "screening_classes": [
+        "LOW_CONFIDENCE"
+      ],
+      "machine_route": "HUMAN_REVIEW_REQUIRED",
+      "route_reasons": [
+        "low confidence"
+      ],
+      "evaluators": {
+        "wd14": {
+          "expected_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-003__target_present_seed_a.json",
+          "reported_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-003__contrast_seed_b.json",
+          "artifact_state": "OK",
+          "detail": "readable non-error result",
+          "filename_image_binding": true
+        },
+        "kagami": {
+          "expected_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-003__target_present_seed_a.json.gz",
+          "reported_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-003__contrast_seed_b.json.gz",
+          "artifact_state": "OK",
+          "detail": "readable non-error result",
+          "filename_image_binding": true
+        },
+        "cl_v2_00": {
+          "expected_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-003__target_present_seed_a.json.gz",
+          "reported_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-003__contrast_seed_b.json.gz",
+          "artifact_state": "OK",
+          "detail": "readable non-error result",
+          "filename_image_binding": true
+        }
+      }
+    },
+    {
+      "image_id": "GB-003__target_present_seed_b",
+      "case_id": "GB-003",
+      "condition": "A",
+      "seed": 43022,
+      "screening_classes": [
+        "LOW_CONFIDENCE"
+      ],
+      "machine_route": "HUMAN_REVIEW_REQUIRED",
+      "route_reasons": [
+        "low confidence"
+      ],
+      "evaluators": {
+        "wd14": {
+          "expected_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-003__target_present_seed_b.json",
+          "reported_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-003__contrast_seed_b.json",
+          "artifact_state": "OK",
+          "detail": "readable non-error result",
+          "filename_image_binding": true
+        },
+        "kagami": {
+          "expected_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-003__target_present_seed_b.json.gz",
+          "reported_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-003__contrast_seed_b.json.gz",
+          "artifact_state": "OK",
+          "detail": "readable non-error result",
+          "filename_image_binding": true
+        },
+        "cl_v2_00": {
+          "expected_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-003__target_present_seed_b.json.gz",
+          "reported_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-003__contrast_seed_b.json.gz",
+          "artifact_state": "OK",
+          "detail": "readable non-error result",
+          "filename_image_binding": true
+        }
+      }
+    },
+    {
+      "image_id": "GB-003__contrast_seed_a",
+      "case_id": "GB-003",
+      "condition": "B",
+      "seed": 43021,
+      "screening_classes": [
+        "LOW_CONFIDENCE"
+      ],
+      "machine_route": "HUMAN_REVIEW_REQUIRED",
+      "route_reasons": [
+        "low confidence"
+      ],
+      "evaluators": {
+        "wd14": {
+          "expected_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-003__contrast_seed_a.json",
+          "reported_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-003__contrast_seed_b.json",
+          "artifact_state": "OK",
+          "detail": "readable non-error result",
+          "filename_image_binding": true
+        },
+        "kagami": {
+          "expected_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-003__contrast_seed_a.json.gz",
+          "reported_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-003__contrast_seed_b.json.gz",
+          "artifact_state": "OK",
+          "detail": "readable non-error result",
+          "filename_image_binding": true
+        },
+        "cl_v2_00": {
+          "expected_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-003__contrast_seed_a.json.gz",
+          "reported_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-003__contrast_seed_b.json.gz",
+          "artifact_state": "OK",
+          "detail": "readable non-error result",
+          "filename_image_binding": true
+        }
+      }
+    },
+    {
+      "image_id": "GB-003__contrast_seed_b",
+      "case_id": "GB-003",
+      "condition": "B",
+      "seed": 43022,
+      "screening_classes": [
+        "LOW_CONFIDENCE"
+      ],
+      "machine_route": "HUMAN_REVIEW_REQUIRED",
+      "route_reasons": [
+        "low confidence"
+      ],
+      "evaluators": {
+        "wd14": {
+          "expected_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-003__contrast_seed_b.json",
+          "reported_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-003__contrast_seed_b.json",
+          "artifact_state": "OK",
+          "detail": "readable non-error result",
+          "filename_image_binding": true
+        },
+        "kagami": {
+          "expected_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-003__contrast_seed_b.json.gz",
+          "reported_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-003__contrast_seed_b.json.gz",
+          "artifact_state": "OK",
+          "detail": "readable non-error result",
+          "filename_image_binding": true
+        },
+        "cl_v2_00": {
+          "expected_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-003__contrast_seed_b.json.gz",
+          "reported_artifact": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-003__contrast_seed_b.json.gz",
+          "artifact_state": "OK",
+          "detail": "readable non-error result",
+          "filename_image_binding": true
+        }
+      }
+    }
+  ],
+  "decision": "HOLD_FOR_DEV_REVIEW",
+  "limitation": "The batch selected only structural/relation-sensitive or low-confidence cases, so machine-first routing safely removed no images. The 0% reduction is a batch design failure for user-work reduction, not a user review failure."
+}

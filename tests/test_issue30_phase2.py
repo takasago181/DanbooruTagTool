@@ -19,6 +19,7 @@ REUSE_HUMAN_RESULT = ROOT / "docs/testing/ISSUE30_PHASE2_REUSE_REVIEW_HUMAN_RESU
 BATCH_MANIFEST = ROOT / "docs/testing/ISSUE30_PHASE2_GENERATION_BATCH_MANIFEST.csv"
 BATCH_RESULT = ROOT / "docs/testing/ISSUE30_PHASE2_GENERATION_BATCH_RESULT.json"
 BATCH_HUMAN_RESULT = ROOT / "docs/testing/ISSUE30_PHASE2_GENERATION_BATCH_HUMAN_RESULTS_20260911.json"
+TRIAGE_AUDIT = ROOT / "docs/testing/ISSUE30_PHASE2_MACHINE_TRIAGE_AUDIT.json"
 HUMAN_REVIEW = ROOT / "docs/testing/ISSUE30_PHASE2_HUMAN_REVIEW_RESULTS_20260910.json"
 
 
@@ -150,3 +151,18 @@ def test_generation_batch_human_review_records_ambiguous_multi_special_identity(
     assert report["summary"]["unclear_pairs"] == 2
     assert [row["result"] for row in report["pair_results"][:2]] == ["UNCLEAR", "UNCLEAR"]
     assert report["summary"]["decision"] == "HOLD_FOR_DEV_PHASE2_CLOSE"
+
+
+def test_machine_triage_audit_proves_raw_outputs_and_records_reporting_defect():
+    report = json.loads(TRIAGE_AUDIT.read_text(encoding="utf-8"))
+    assert report["new_images"] == 0
+    assert report["actual_successful_evaluator_runs"] == 36
+    assert report["actual_failed_or_missing_evaluator_runs"] == 0
+    assert report["per_evaluator_successes"] == {"wd14": 12, "kagami": 12, "cl_v2_00": 12}
+    assert report["raw_artifact_image_binding_check"] == "PASS"
+    assert report["reported_reference_integrity_check"] == "FAIL"
+    assert len(report["reported_reference_mismatches"]) == 33
+    assert report["ab_marker_integrity_check"] == "PASS"
+    assert report["machine_handled_images"] == 0
+    assert report["human_required_images"] == 12
+    assert report["human_review_reduction_percent"] == 0.0

@@ -172,9 +172,9 @@
         "reasons": []
       },
       "evaluator_references": {
-        "wd14": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-003__contrast_seed_b.json",
-        "kagami": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-003__contrast_seed_b.json.gz",
-        "cl_v2_00": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-003__contrast_seed_b.json.gz"
+        "wd14": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-001__target_present_seed_a.json",
+        "kagami": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-001__target_present_seed_a.json.gz",
+        "cl_v2_00": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-001__target_present_seed_a.json.gz"
       },
       "screening_classes": [
         "RELATION_OR_BINDING"
@@ -198,9 +198,9 @@
         "reasons": []
       },
       "evaluator_references": {
-        "wd14": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-003__contrast_seed_b.json",
-        "kagami": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-003__contrast_seed_b.json.gz",
-        "cl_v2_00": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-003__contrast_seed_b.json.gz"
+        "wd14": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-001__target_present_seed_b.json",
+        "kagami": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-001__target_present_seed_b.json.gz",
+        "cl_v2_00": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-001__target_present_seed_b.json.gz"
       },
       "screening_classes": [
         "RELATION_OR_BINDING"
@@ -224,9 +224,9 @@
         "reasons": []
       },
       "evaluator_references": {
-        "wd14": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-003__contrast_seed_b.json",
-        "kagami": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-003__contrast_seed_b.json.gz",
-        "cl_v2_00": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-003__contrast_seed_b.json.gz"
+        "wd14": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-001__contrast_seed_a.json",
+        "kagami": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-001__contrast_seed_a.json.gz",
+        "cl_v2_00": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-001__contrast_seed_a.json.gz"
       },
       "screening_classes": [
         "RELATION_OR_BINDING"
@@ -250,9 +250,9 @@
         "reasons": []
       },
       "evaluator_references": {
-        "wd14": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-003__contrast_seed_b.json",
-        "kagami": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-003__contrast_seed_b.json.gz",
-        "cl_v2_00": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-003__contrast_seed_b.json.gz"
+        "wd14": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-001__contrast_seed_b.json",
+        "kagami": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-001__contrast_seed_b.json.gz",
+        "cl_v2_00": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-001__contrast_seed_b.json.gz"
       },
       "screening_classes": [
         "RELATION_OR_BINDING"
@@ -276,9 +276,9 @@
         "reasons": []
       },
       "evaluator_references": {
-        "wd14": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-003__contrast_seed_b.json",
-        "kagami": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-003__contrast_seed_b.json.gz",
-        "cl_v2_00": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-003__contrast_seed_b.json.gz"
+        "wd14": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-002__target_present_seed_a.json",
+        "kagami": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-002__target_present_seed_a.json.gz",
+        "cl_v2_00": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-002__target_present_seed_a.json.gz"
       },
       "screening_classes": [
         "RELATION_OR_BINDING"
@@ -302,9 +302,9 @@
         "reasons": []
       },
       "evaluator_references": {
-        "wd14": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-003__contrast_seed_b.json",
-        "kagami": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-003__contrast_seed_b.json.gz",
-        "cl_v2_00": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-003__contrast_seed_b.json.gz"
+        "wd14": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-002__target_present_seed_b.json",
+        "kagami": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-002__target_present_seed_b.json.gz",
+        "cl_v2_00": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-002__target_present_seed_b.json.gz"
       },
       "screening_classes": [
         "RELATION_OR_BINDING"
@@ -328,9 +328,9 @@
         "reasons": []
       },
       "evaluator_references": {
-        "wd14": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-003__contrast_seed_b.json",
-        "kagami": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-003__contrast_seed_b.json.gz",
-        "cl_v2_00": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-003__contrast_seed_b.json.gz"
+        "wd14": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-002__contrast_seed_a.json",
+        "kagami": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-002__contrast_seed_a.json.gz",
+        "cl_v2_00": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-002__contrast_seed_a.json.gz"
       },
       "screening_classes": [
         "RELATION_OR_BINDING"
@@ -354,9 +354,9 @@
         "reasons": []
       },
       "evaluator_references": {
-        "wd14": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-003__contrast_seed_b.json",
-        "kagami": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-003__contrast_seed_b.json.gz",
-        "cl_v2_00": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-003__contrast_seed_b.json.gz"
+        "wd14": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-002__contrast_seed_b.json",
+        "kagami": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-002__contrast_seed_b.json.gz",
+        "cl_v2_00": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-002__contrast_seed_b.json.gz"
       },
       "screening_classes": [
         "RELATION_OR_BINDING"
@@ -380,9 +380,9 @@
         "reasons": []
       },
       "evaluator_references": {
-        "wd14": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-003__contrast_seed_b.json",
-        "kagami": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-003__contrast_seed_b.json.gz",
-        "cl_v2_00": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-003__contrast_seed_b.json.gz"
+        "wd14": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-003__target_present_seed_a.json",
+        "kagami": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-003__target_present_seed_a.json.gz",
+        "cl_v2_00": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-003__target_present_seed_a.json.gz"
       },
       "screening_classes": [
         "LOW_CONFIDENCE"
@@ -406,9 +406,9 @@
         "reasons": []
       },
       "evaluator_references": {
-        "wd14": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-003__contrast_seed_b.json",
-        "kagami": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-003__contrast_seed_b.json.gz",
-        "cl_v2_00": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-003__contrast_seed_b.json.gz"
+        "wd14": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-003__target_present_seed_b.json",
+        "kagami": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-003__target_present_seed_b.json.gz",
+        "cl_v2_00": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-003__target_present_seed_b.json.gz"
       },
       "screening_classes": [
         "LOW_CONFIDENCE"
@@ -432,9 +432,9 @@
         "reasons": []
       },
       "evaluator_references": {
-        "wd14": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-003__contrast_seed_b.json",
-        "kagami": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-003__contrast_seed_b.json.gz",
-        "cl_v2_00": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-003__contrast_seed_b.json.gz"
+        "wd14": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-003__contrast_seed_a.json",
+        "kagami": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-003__contrast_seed_a.json.gz",
+        "cl_v2_00": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-003__contrast_seed_a.json.gz"
       },
       "screening_classes": [
         "LOW_CONFIDENCE"
