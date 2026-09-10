@@ -70,6 +70,21 @@ Relative A/B improvement and absolute success reliability are separate. `BOTH_FA
 - record Hires/ADetailer/img2img/control separately
 - do not keep only successful images.
 
+## Reproducibility identity
+
+Seed固定は比較実験に重要だが、**seedだけで完全再現性は保証されない**。
+
+Diffusion runtimeでは、library/runtime version、platform/device、random generator、deterministic algorithm等の違いで同一seedでも完全一致しない場合がある。したがってpromotion-criticalな証拠では、seedに加えて結果へ影響するexecution identityを必要な粒度で保存する。
+
+最低限の中心は、checkpoint/hash、runtime/commit、sampler/scheduler、steps、CFG、resolution、Positive/Negative Prompt、LoRA、補助処理ON/OFF、seedである。
+
+これはmulti-seed evidenceとは別問題である。
+
+- multi-seed = reliability/generalization
+- reproducibility identity = 同じ比較条件を再構築できるか
+
+Current Claim: `K-EVID-004`.
+
 ## Evaluator capability gate
 
 Before interpreting a machine score:
@@ -96,9 +111,30 @@ Current evaluator knowledge:
 - CL Tagger v2: wide vocabulary, per-tag calibration/threshold/OOD information; still not relation ground truth
 - full Special2788 comparative coverage remains queued for after dictionary finalization.
 
+## External compositional-evaluation support
+
+GenEvalとT2I-CompBenchは、複合text-to-image評価を一つのholistic similarityだけで済ませず、object presence/co-occurrence、count、position、attribute binding、spatial/non-spatial relation等へ分解して診断する研究根拠を与える。
+
+DanbooruTagToolではこれをそのまま自動judgeへ移植するのではなく、難しいSpecialを必要なpredicateへ分解して評価する現在方針の補強として使う。
+
+例:
+- actor/object presence
+- exact count
+- body-site
+- actor-target / ownership
+- source-destination
+- spatial / non-spatial relation
+- topology/connectivity
+- simultaneous concept retention
+
+GenEval/T2I-CompBenchはWAI17やSpecial2788そのものの性能証明ではない。project-specific success rateや自動thresholdはStage10等で別途検証する。
+
+Current Claim: `K-EVAL-006`.
+
 ## Primary originals
 
 - `../research/BATCH_C_EVIDENCE_RELIABILITY_20260909.md`
 - `../research/BATCH_C_SOURCES_20260909.md`
+- `../research/BATCH_D_RUNTIME_PROMPT_REPRO_COMPOSITION_20260910.md`
 - `../GENERATION_KNOWLEDGE_CORPUS.md` sections 7–9
 - `../research/BATCH_A_FALSE_ASSUMPTION_PREVENTION_20260909.md`

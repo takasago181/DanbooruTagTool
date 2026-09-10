@@ -40,8 +40,27 @@ Project isolation baseline:
 - Negative is an active semantic intervention
 - A_ONLY/B_ONLY before blaming AB failure on an unknown tag
 - one seed != reliability
+- fixed seed alone != exact cross-environment reproducibility
+- runtime prompt preprocessing != Danbooru semantics or checkpoint generation behavior
+- compositional targets should be diagnosable as atomic predicates instead of only one holistic score
 - Prompt-only / LoRA/control-assisted / postprocess-repaired are separate evidence lanes
 - evaluator vocabulary/semantic capability/calibration/OOD must be checked before confidence is interpreted
+
+## 2026-09-10 focused enrichment
+
+教科書化前のgap auditで、既存Knowledgeの薄かった4点を補強した。
+
+- `K-TOOL-006`: A1111のlong-prompt chunk / `BREAK` / attention weightはruntime preprocessingであり、semantic authorityではない
+- `K-TOOL-007`: inspected Forge Neo upstreamのA1111継承方針と、user local Forge Neoのremote/commit identityを分ける
+- `K-EVID-004`: seed固定だけではruntime/platform/versionを跨いだ完全再現性を保証しない
+- `K-EVAL-006`: GenEval / T2I-CompBenchは複合生成をpresence/count/binding/relation等へ分解して評価する方法論を支持する
+
+重要な未確定事項:
+- `BREAK` がWAI17のbindingを改善するとはまだ言えない
+- local Forge Neoのexact remote/commit/parser behaviorはpin前
+- external benchmark metricをSpecial2788の最終judgeとしてそのまま採用しない
+
+Evidence: `../research/BATCH_D_RUNTIME_PROMPT_REPRO_COMPOSITION_20260910.md`.
 
 ## Important CANDIDATE knowledge
 
@@ -96,9 +115,10 @@ Not safe to hand off as settled:
 - final evaluator allocation/thresholds
 - exact optimal Prompt density/Support count
 - canonical-vs-trigger activation equivalence
+- WAI17 generation benefit from `BREAK` / chunk placement
 
 ## Stop point
 
-No large new research in this organization pass. Next empirical decisions remain gated by controlled WAI17 tests and final dictionary freeze/evaluator coverage work described in the HOLD register.
+Focused enrichment completed for runtime prompt preprocessing, reproducibility identity, and compositional-evaluation methodology. Remaining generation-effect questions stay gated by controlled WAI17 tests and final dictionary freeze/evaluator coverage work described in the HOLD register.
 
 Restore: `handoff -> this file -> Claim Registry -> relevant Catalog -> HOLD/Version -> evidence only as needed`.

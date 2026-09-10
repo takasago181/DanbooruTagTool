@@ -104,10 +104,28 @@ Controlled tests may compare:
 
 Never normalize the compared surfaces before generation.
 
+## Runtime preprocessing boundary
+
+入力したPrompt文字列と、モデルへ渡されるconditioningは同一レイヤーではない。
+
+AUTOMATIC1111 WebUIのruntime仕様では、長いPromptを75-token chunkへ分けて処理し、`BREAK` で新しいchunkを開始できる。また `(word)` / `[word]` / `(word:weight)` のattention/emphasis構文がある。
+
+このため次を分離する。
+
+- Danbooru semantic identity
+- Prompt surface / tag order
+- runtime tokenization / chunking / weighting
+- checkpointがそのconditioningへ実際にどう反応するか
+
+`BREAK` はDanbooru tagでもsemantic supportでもない。さらに、`BREAK` やchunk境界がWAI17のbindingを改善することは現時点で確定していない。A1111由来のruntime仕様をローカルForge Neoへ適用する場合も、local remote/commit/configをpinするまでは完全同一とみなさない。
+
+Current Claims: `K-TOOL-006`, `K-TOOL-007`.
+
 ## Primary originals
 
 - `../research/BATCH_B_MINIMUM_SUFFICIENT_PROMPT_20260909.md`
 - `../research/BATCH_A_FALSE_ASSUMPTION_PREVENTION_20260909.md`
+- `../research/BATCH_D_RUNTIME_PROMPT_REPRO_COMPOSITION_20260910.md`
 - `../GENERATION_KNOWLEDGE_CORPUS.md` sections 2 and 4
 - `../research/AIARTRECIPE_PRACTICAL_FINDINGS_20260909.md`
 - `../research/TOSHIAKI_WIKI_PRACTICAL_FINDINGS_20260909.md`
