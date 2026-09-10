@@ -15,7 +15,7 @@
 
 Machine Triage Audit is accepted evidence. Do not repeat it or re-review its 12 images.
 
-## Accepted evidence
+## Accepted Phase 2 checkpoints
 
 - Wave 1 + human review: `233a2a25b58de388cdf4ccff1183fca0a3260472`
 - Wave 2 execution/human review: preserved
