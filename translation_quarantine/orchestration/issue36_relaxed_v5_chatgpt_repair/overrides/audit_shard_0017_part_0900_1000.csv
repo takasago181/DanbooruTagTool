@@ -1,0 +1,65 @@
+canonical,old_display_ja,new_display_ja,reason
+imminent_tentacle_sex,直前の触手・sex,触手性交直前,MIXED_ENGLISH_DEBRIS
+imminent_threesome,直前のthreesome,3人での性行為直前,MIXED_ENGLISH_DEBRIS
+imminent_throw,直前のthrow,投げる直前,MIXED_ENGLISH_DEBRIS
+imminent_uno_loss_(meme),imminent uno loss (meme),UNOで負ける直前（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+imminent_vomiting,直前のvomiting,嘔吐直前,MIXED_ENGLISH_DEBRIS
+imminent_vore,差し迫ったつがみ,捕食直前,SEMANTIC_ERROR
+imminent_wardrobe_malfunction,直前のwardrobe・malfunction,衣装事故直前,MIXED_ENGLISH_DEBRIS
+impending_doom,タグ「impending doom」,差し迫る破滅,RAW_ENGLISH_WRAPPER
+imperial_aquila,タグ「imperial aquila」,インペリアル・アクィラ,RAW_ENGLISH_WRAPPER
+imperial_german_army,タグ「imperial german army」,ドイツ帝国陸軍,RAW_ENGLISH_WRAPPER
+imperial_german_flag,帝国のドイツの旗,ドイツ帝国旗,AWKWARD_MACHINE_TRANSLATION
+imperial_japanese_army,日本軍,大日本帝国陸軍,SEMANTIC_UNDERSPECIFICATION
+imperial_japanese_navy,日本軍,大日本帝国海軍,SEMANTIC_UNDERSPECIFICATION
+imperial_russian_army,タグ「imperial russian army」,ロシア帝国陸軍,RAW_ENGLISH_WRAPPER
+imperial_war_flag,imperial warの旗,帝国軍旗,MIXED_ENGLISH_DEBRIS
+imperium_of_man,人間の帝国,人類帝国,SEMANTIC_ERROR
+implied_after_fellatio,暗示された・後のfellatio,フェラチオ後を示唆,MIXED_ENGLISH_DEBRIS
+implied_after_fight,暗示された・後のfight,戦闘後を示唆,MIXED_ENGLISH_DEBRIS
+implied_after_fingering,implied after fingの指輪,指入れ後を示唆,SEMANTIC_ERROR
+implied_after_kiss,暗示された・後のkiss,キス後を示唆,MIXED_ENGLISH_DEBRIS
+implied_after_masturbation,暗示された・後のmasturbation,自慰後を示唆,MIXED_ENGLISH_DEBRIS
+implied_after_paizuri,暗示された・後のpaizuri,パイズリ後を示唆,MIXED_ENGLISH_DEBRIS
+implied_bondage,暗示された・bondage,拘束を示唆,MIXED_ENGLISH_DEBRIS
+implied_breast_milk,暗示された・胸・milk,母乳を示唆,MIXED_ENGLISH_DEBRIS
+implied_cannibalism,暗示された・cannibalism,人肉食を示唆,MIXED_ENGLISH_DEBRIS
+implied_death,暗示死亡,死を示唆,AWKWARD_MACHINE_TRANSLATION
+implied_drugging,暗示された・drugging,薬物投与を示唆,MIXED_ENGLISH_DEBRIS
+implied_egg_laying,暗示された・egg・laying,産卵を示唆,MIXED_ENGLISH_DEBRIS
+implied_extra_ears,暗黙の余分な耳,余分な耳を示唆,AWKWARD_MACHINE_TRANSLATION
+implied_footjob,暗黙の足場,足コキを示唆,SEMANTIC_ERROR
+implied_hetero,暗示された・hetero,異性間関係を示唆,MIXED_ENGLISH_DEBRIS
+implied_injury,暗示された・injury,負傷を示唆,MIXED_ENGLISH_DEBRIS
+implied_lactation,暗示された・lactation,授乳を示唆,MIXED_ENGLISH_DEBRIS
+implied_male_pregnancy,暗示された・male・pregnancy,男性妊娠を示唆,MIXED_ENGLISH_DEBRIS
+implied_nudity,暗示裸体,裸体を示唆,AWKWARD_MACHINE_TRANSLATION
+implied_peeing,暗示された・peeing,排尿を示唆,MIXED_ENGLISH_DEBRIS
+implied_penetration,暗黙の侵入,挿入を示唆,SEMANTIC_ERROR
+implied_self-harm,暗示された・self・harm,自傷を示唆,MIXED_ENGLISH_DEBRIS
+implied_stepping,暗示された・stepping,踏みつけを示唆,MIXED_ENGLISH_DEBRIS
+implied_suicide,暗示された・suicide,自殺を示唆,MIXED_ENGLISH_DEBRIS
+implied_threesome,暗示された・threesome,3人での性行為を示唆,MIXED_ENGLISH_DEBRIS
+implied_transformation,暗示された・transformation,変身を示唆,MIXED_ENGLISH_DEBRIS
+implied_vaginal,暗示された・vaginal,膣性交を示唆,MIXED_ENGLISH_DEBRIS
+imprinted_skin,imprinted・肌,跡がついた肌,MIXED_ENGLISH_DEBRIS
+improvised_instrument,即興樂器,即席の楽器,NON_JAPANESE_RESIDUE
+improvised_umbrella,即興の傘,即席の傘,SEMANTIC_ERROR
+improvised_vase,タグ「improvised vase」,即席の花瓶,RAW_ENGLISH_WRAPPER
+in_bag,バッグで,バッグの中,SEMANTIC_RELATION_ERROR
+in_basket,バスケットで,バスケットの中,SEMANTIC_RELATION_ERROR
+in_bathtub,の中のbathtub,浴槽の中,MIXED_ENGLISH_DEBRIS
+in_bowl,ボウルで,ボウルの中,SEMANTIC_RELATION_ERROR
+in_bucket,バケツで,バケツの中,SEMANTIC_RELATION_ERROR
+in_cage,ケージで,ケージの中,SEMANTIC_RELATION_ERROR
+in_cart,の中のcart,カートの中,MIXED_ENGLISH_DEBRIS
+in_cauldron,大釜で,大釜の中,SEMANTIC_RELATION_ERROR
+in_cell,セルで,独房の中,SEMANTIC_ERROR
+in_coffin,の中のcoffin,棺の中,MIXED_ENGLISH_DEBRIS
+in_crane_game,の中のcrane・game,クレーンゲームの中,MIXED_ENGLISH_DEBRIS
+in_cup,カップイン,カップの中,AWKWARD_MACHINE_TRANSLATION
+in_food,食べ物で,食べ物の中,SEMANTIC_RELATION_ERROR
+in_hat,帽子で,帽子の中,SEMANTIC_RELATION_ERROR
+in_hot_air_balloon,の中のhot・air・balloon,熱気球の中,MIXED_ENGLISH_DEBRIS
+in_hourglass,の中のhourglass,砂時計の中,MIXED_ENGLISH_DEBRIS
+in_jar,瓶で,瓶の中,SEMANTIC_RELATION_ERROR
