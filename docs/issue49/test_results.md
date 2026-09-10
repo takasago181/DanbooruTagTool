@@ -1,6 +1,7 @@
 # Issue #49 test results
 
 Correction-gate branch: `codex/issue49-dict-promotion-latest-main`.
+Reverified HEAD: `484bf928a1b1c8c07f349bcc1bc77681d72e2160`.
 Latest-main base: `ad9d0f314151b94b7888e9059d4a77cf5cfc4e22`.
 
 All pytest commands used `-p no:cacheprovider` and an explicit writable

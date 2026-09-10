@@ -12,6 +12,7 @@ Issue #36 Japanese-overlay promotion remain prohibited.
 
 - Issue: #49
 - Correction-gate branch: `codex/issue49-dict-promotion-latest-main`
+- Reverified HEAD: `484bf928a1b1c8c07f349bcc1bc77681d72e2160`
 - Production base: `origin/main` at `ad9d0f314151b94b7888e9059d4a77cf5cfc4e22`
 - Read-only quarantine ref: `origin/dict-validation/quarantine` at `f476ce5578afa77bf754541d29efa6f55a048d12`
 - Candidate inputs: 36 files consisting of `validation_quarantine/candidate_fixes.csv` and the singular `validation_quarantine/candidate_fix_blocks/*.csv`
