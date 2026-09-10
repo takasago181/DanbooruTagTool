@@ -1,0 +1,40 @@
+canonical,old_display_ja,new_display_ja,reason
+ghost_mask,ghost・マスク,幽霊のマスク,MIXED_ENGLISH_DEBRIS
+ghost_ornament,ghost・飾り,幽霊の飾り,MIXED_ENGLISH_DEBRIS
+ghost_pose,幽灵姿势,幽霊のポーズ,NON_JAPANESE_RESIDUE
+ghostbusters_uniform,ghostbustersの制服,ゴーストバスターズの制服,MIXED_ENGLISH_DEBRIS
+ghoul_(fallout),タグ「ghoul (fallout)」,グール（Fallout）,RAW_ENGLISH_WRAPPER
+giant,巨ケモ,巨人,SEMANTIC_ERROR
+giant_male,巨大カップル,巨大な男性,SEMANTIC_ERROR
+giantess,巨大カップル,巨大な女性,SEMANTIC_ERROR
+gibberish_text,gibberish・テキスト,意味不明な文章,MIXED_ENGLISH_DEBRIS
+gibson_brands_inc,タグ「gibson brands inc」,Gibson Brands,RAW_ENGLISH_WRAPPER
+gibson_es-335,タグ「gibson es-335」,Gibson ES-335,RAW_ENGLISH_WRAPPER
+gibson_sg_(bass),タグ「gibson sg (bass)」,Gibson SGベース,RAW_ENGLISH_WRAPPER
+gif_caption_(meme),gif caption (meme),GIFキャプション（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+gigbag,タグ「gigbag」,ギグバッグ,RAW_ENGLISH_WRAPPER
+giggling,笑い,くすくす笑う,SEMANTIC_UNDERSPECIFICATION
+gilgamesh_(fate)_(cosplay),ギルガメッシュ（運命）（コスプレ）,ギルガメッシュ（Fate）（コスプレ）,SEMANTIC_ERROR
+gingerbread_man,姜饼人,ジンジャーブレッドマン,NON_JAPANESE_RESIDUE
+gingham_background,ギンガム,ギンガム柄の背景,SEMANTIC_UNDERSPECIFICATION
+gingham_bikini,gingham・ビキニ,ギンガム柄ビキニ,MIXED_ENGLISH_DEBRIS
+gingham_bow,gingham・リボン,ギンガム柄リボン,MIXED_ENGLISH_DEBRIS
+gingham_bowtie,タグ「gingham bowtie」,ギンガム柄の蝶ネクタイ,RAW_ENGLISH_WRAPPER
+gingham_clothes,ギンガム,ギンガム柄の服,SEMANTIC_UNDERSPECIFICATION
+gingham_dress,方格连衣裙,ギンガム柄ドレス,NON_JAPANESE_RESIDUE
+gingham_necktie,タグ「gingham necktie」,ギンガム柄ネクタイ,RAW_ENGLISH_WRAPPER
+gingham_pillow,タグ「gingham pillow」,ギンガム柄の枕,RAW_ENGLISH_WRAPPER
+gingham_shirt,gingham・シャツ,ギンガム柄シャツ,MIXED_ENGLISH_DEBRIS
+gingham_sleeves,タグ「gingham sleeves」,ギンガム柄の袖,RAW_ENGLISH_WRAPPER
+ginkgo_guild_uniform,Ginkgoギルドユニフォーム,イチョウ商会の制服,MIXED_ENGLISH_DEBRIS
+giorno_giovanna's_pose,giorno・giovanna・ポーズ,ジョルノ・ジョバァーナのポーズ,MIXED_ENGLISH_DEBRIS
+giraffe_boy,タグ「giraffe boy」,キリンの少年,RAW_ENGLISH_WRAPPER
+giraffe_horns,キリンホーン,キリンの角,AWKWARD_MACHINE_TRANSLATION
+giraffe_print,キリンプリント,キリン柄,SEMANTIC_ERROR
+giraffe_tail,キリンテール,キリンの尻尾,AWKWARD_MACHINE_TRANSLATION
+girl_staring_at_guy's_chest_(meme),胸のen望（ミーム）,男性の胸を見る少女（ミーム）,SEMANTIC_ERROR
+girly_boy,オネエ,女の子っぽい少年,SEMANTIC_NARROWING
+giving_flower,giving・花,花を渡す,MIXED_ENGLISH_DEBRIS
+giving_food,giving・食べ物,食べ物を渡す,MIXED_ENGLISH_DEBRIS
+glacier,冰川,氷河,NON_JAPANESE_RESIDUE
+glass_ceiling,タグ「glass ceiling」,ガラスの天井,RAW_ENGLISH_WRAPPER
