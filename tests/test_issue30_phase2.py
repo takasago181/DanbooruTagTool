@@ -13,6 +13,8 @@ COVERAGE = ROOT / "docs/testing/ISSUE30_PHASE2_STRUCTURAL_COVERAGE.json"
 WAVE_RESULT = ROOT / "docs/testing/ISSUE30_PHASE2_WAVE1_RESULT.json"
 WAVE2_MANIFEST = ROOT / "docs/testing/ISSUE30_PHASE2_WAVE2_TEST_MANIFEST.csv"
 WAVE2_RESULT = ROOT / "docs/testing/ISSUE30_PHASE2_WAVE2_RESULT.json"
+REUSE_MANIFEST = ROOT / "docs/testing/ISSUE30_PHASE2_REUSE_REVIEW_MANIFEST.csv"
+REUSE_RESULT = ROOT / "docs/testing/ISSUE30_PHASE2_REUSE_REVIEW_RESULT.json"
 HUMAN_REVIEW = ROOT / "docs/testing/ISSUE30_PHASE2_HUMAN_REVIEW_RESULTS_20260910.json"
 
 
@@ -88,3 +90,21 @@ def test_human_review_preserves_pair_outcomes_and_validity_boundaries():
     assert report["summary"]["p2_002_contrast_contamination_pairs"] == 1
     assert report["summary"]["additional_generation"] == "STOP_UNTIL_DEV_REVIEW"
     assert {row["human_answer"] for row in report["pair_results"]} >= {"neither", "A", "both"}
+
+
+def test_reuse_only_review_is_existing_four_image_bounded_and_stopped():
+    with REUSE_MANIFEST.open(encoding="utf-8-sig", newline="") as stream:
+        rows = list(csv.DictReader(stream))
+    assert len(rows) == 4
+    assert {row["case_id"] for row in rows} == {"CAL-023"}
+    assert {row["condition"] for row in rows} == {"A", "B"}
+    assert {row["seed"] for row in rows} == {"30230", "30231"}
+    report = json.loads(REUSE_RESULT.read_text(encoding="utf-8"))
+    assert report["status"] == "REUSE_ONLY_REVIEW_READY"
+    assert report["new_images_generated"] == report["new_seeds"] == report["evaluator_reruns"] == 0
+    assert report["reused_image_count"] == 4
+    assert report["reused_evaluator_count"] == 12
+    assert report["review_pairs"] == 2
+    assert report["reviewed_images"] == 4
+    assert report["review_display"]["display_check"] == "PASS"
+    assert report["decision"] == "STOP_FOR_USER_DEV_REVIEW"

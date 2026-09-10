@@ -1,0 +1,97 @@
+{
+  "schema_version": "issue30.phase2.reuse_only_review.v1",
+  "status": "REUSE_ONLY_REVIEW_READY",
+  "new_images_generated": 0,
+  "new_seeds": 0,
+  "evaluator_reruns": 0,
+  "selected_existing_cases": [
+    {
+      "case_id": "CAL-023",
+      "canonical": "double handjob",
+      "special_ids": [
+        21
+      ],
+      "visible_pass_condition_ja": "2人または両手による手淫が2つ同時に成立しているか？",
+      "visible_fail_condition_ja": "1つの手淫だけ・立っているだけ・該当行為なし",
+      "why_this_is_judgeable_from_one_still_image": "2人の参加者と両手/二つの手の動作が同一フレームに見えるかを確認できるため。"
+    }
+  ],
+  "reused_image_count": 4,
+  "reused_evaluator_count": 12,
+  "review_pairs": 2,
+  "reviewed_images": 4,
+  "artifact_gate": {
+    "PASS": 4
+  },
+  "contact_sheet": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_pilot_20260910\\review_queue\\issue30_phase2_reuse_only_contact_sheet.png",
+  "local_artifact_root": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_pilot_20260910",
+  "review_display": {
+    "font_path": "C:\\Windows\\Fonts\\meiryo.ttc",
+    "japanese_label_sample": "PASS条件: 2人または両手による手淫",
+    "display_check": "PASS"
+  },
+  "image_records": [
+    {
+      "image_id": "CAL-023__target_present_seed_a",
+      "case_id": "CAL-023",
+      "condition": "A",
+      "seed": 30230,
+      "prompt": "masterpiece, best quality, 2people, double handjob, simple background",
+      "negative_prompt": "lowres, blurry, text, watermark, jpeg artifacts",
+      "image_path": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_pilot_20260910\\images\\CAL-023__target_present_seed_a.png",
+      "artifact_gate": "PASS",
+      "evaluator_count": 3,
+      "screening_classes": [
+        "RELATION_OR_BINDING"
+      ]
+    },
+    {
+      "image_id": "CAL-023__target_present_seed_b",
+      "case_id": "CAL-023",
+      "condition": "A",
+      "seed": 30231,
+      "prompt": "masterpiece, best quality, 2people, double handjob, simple background",
+      "negative_prompt": "lowres, blurry, text, watermark, jpeg artifacts",
+      "image_path": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_pilot_20260910\\images\\CAL-023__target_present_seed_b.png",
+      "artifact_gate": "PASS",
+      "evaluator_count": 3,
+      "screening_classes": [
+        "RELATION_OR_BINDING"
+      ]
+    },
+    {
+      "image_id": "CAL-023__contrast_seed_a",
+      "case_id": "CAL-023",
+      "condition": "B",
+      "seed": 30230,
+      "prompt": "masterpiece, best quality, 2people, standing, simple background",
+      "negative_prompt": "lowres, blurry, text, watermark, jpeg artifacts",
+      "image_path": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_pilot_20260910\\images\\CAL-023__contrast_seed_a.png",
+      "artifact_gate": "PASS",
+      "evaluator_count": 3,
+      "screening_classes": [
+        "RELATION_OR_BINDING",
+        "COMPONENT_ONLY",
+        "DISAGREEMENT",
+        "LOW_CONFIDENCE"
+      ]
+    },
+    {
+      "image_id": "CAL-023__contrast_seed_b",
+      "case_id": "CAL-023",
+      "condition": "B",
+      "seed": 30231,
+      "prompt": "masterpiece, best quality, 2people, standing, simple background",
+      "negative_prompt": "lowres, blurry, text, watermark, jpeg artifacts",
+      "image_path": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_pilot_20260910\\images\\CAL-023__contrast_seed_b.png",
+      "artifact_gate": "PASS",
+      "evaluator_count": 3,
+      "screening_classes": [
+        "RELATION_OR_BINDING",
+        "COMPONENT_ONLY",
+        "LOW_CONFIDENCE"
+      ]
+    }
+  ],
+  "decision": "STOP_FOR_USER_DEV_REVIEW"
+}
