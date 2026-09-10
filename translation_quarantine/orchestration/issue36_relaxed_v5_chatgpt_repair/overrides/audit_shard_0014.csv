@@ -38,3 +38,64 @@ floating_stairs,悬浮楼梯,浮遊する階段,NON_JAPANESE_RESIDUE
 floating_tears,浮遊する・tears,浮遊する涙,MIXED_ENGLISH_DEBRIS
 floating_weapon_behind_back,浮遊する・武器・behind・背中,背後に浮遊する武器,MIXED_ENGLISH_DEBRIS
 floor_lamp,落地灯,フロアランプ,NON_JAPANESE_RESIDUE
+florakinesis,木属性,植物を操る能力,SEMANTIC_NARROWING
+floral_(idolmaster),floral (idolmaster),フローラル（アイドルマスター）,CANONICAL_FALLBACK_TRANSLATABLE
+floral_border,花の境界,花柄の枠,SEMANTIC_ERROR
+floral_bow,ギフトボウ,花のリボン,SEMANTIC_ERROR
+floral_embroidery,タグ「floral embroidery」,花の刺繍,RAW_ENGLISH_WRAPPER
+floral_print_apron,floral・柄・エプロン,花柄エプロン,MIXED_ENGLISH_DEBRIS
+floral_print_bow,floral・柄・リボン,花柄リボン,MIXED_ENGLISH_DEBRIS
+floral_print_bra,floral・柄・ブラ,花柄ブラ,MIXED_ENGLISH_DEBRIS
+floral_print_dress,花卉印花连衣裙,花柄ドレス,NON_JAPANESE_RESIDUE
+floral_print_gloves,floral printの手袋,花柄手袋,MIXED_ENGLISH_DEBRIS
+floral_print_jacket,floral・柄・ジャケット,花柄ジャケット,MIXED_ENGLISH_DEBRIS
+floral_print_kimono,floral・柄・kimono,花柄着物,MIXED_ENGLISH_DEBRIS
+floral_print_leotard,floral・柄・レオタード,花柄レオタード,MIXED_ENGLISH_DEBRIS
+floral_print_one-piece_swimsuit,floral print one pieceの水着,花柄ワンピース水着,MIXED_ENGLISH_DEBRIS
+floral_print_panties,floral・柄・パンツ,花柄パンツ,MIXED_ENGLISH_DEBRIS
+floral_print_pants,floral・柄・パンツ,花柄ズボン,MIXED_ENGLISH_DEBRIS
+floral_print_pantyhose,floral printのパンスト,花柄パンスト,MIXED_ENGLISH_DEBRIS
+floral_print_sarong,floral・柄・sarong,花柄サロン,MIXED_ENGLISH_DEBRIS
+floral_print_sash,floral・柄・sash,花柄サッシュ,MIXED_ENGLISH_DEBRIS
+floral_print_shirt,花シャツ衫,花柄シャツ,NON_JAPANESE_RESIDUE
+floral_print_shorts,floral・柄・shorts,花柄ショートパンツ,MIXED_ENGLISH_DEBRIS
+floral_print_skirt,floral・柄・スカート,花柄スカート,MIXED_ENGLISH_DEBRIS
+floral_print_sleeves,floral・柄・sleeves,花柄の袖,MIXED_ENGLISH_DEBRIS
+floral_print_veil,floral・柄・ベール,花柄ベール,MIXED_ENGLISH_DEBRIS
+florence_nightingale_(fate)_(cosplay),フローレンスナイチンゲール（運命）（コスプレ）,フローレンス・ナイチンゲール（Fate）（コスプレ）,SEMANTIC_ERROR
+florence_nightingale_(trick_or_treatment)_(fate)_(cosplay),トリック・オア・トリートメント,フローレンス・ナイチンゲール（トリック・オア・トリートメント）（Fate）（コスプレ）,SEMANTIC_UNDERSPECIFICATION
+flotation_belt,浮選ベルト,浮力ベルト,SEMANTIC_ERROR
+flourish_(design),タグ「flourish (design)」,フローリッシュ（装飾）,RAW_ENGLISH_WRAPPER
+flow_glow_(hololive),タグ「flow glow (hololive)」,FLOW GLOW（ホロライブ）,RAW_ENGLISH_WRAPPER
+flower-shaped_eyewear,花・shaped・eyewear,花形の眼鏡,MIXED_ENGLISH_DEBRIS
+flower-trimmed_bra,花・整えた・ブラ,花飾りのブラ,AWKWARD_MACHINE_TRANSLATION
+flower-trimmed_dress,花・整えた・ドレス,花飾りのドレス,AWKWARD_MACHINE_TRANSLATION
+flower-trimmed_shorts,花・整えた・shorts,花飾りのショートパンツ,MIXED_ENGLISH_DEBRIS
+flower-trimmed_skirt,花・整えた・スカート,花飾りのスカート,AWKWARD_MACHINE_TRANSLATION
+flower-trimmed_sleeves,花・整えた・sleeves,花飾りの袖,MIXED_ENGLISH_DEBRIS
+flower_as_hat,花・as・帽子,帽子代わりの花,MIXED_ENGLISH_DEBRIS
+flower_balloon,花・balloon,花の風船,MIXED_ENGLISH_DEBRIS
+flower_bush,花・bush,花の茂み,MIXED_ENGLISH_DEBRIS
+flower_censor,花の検閲,花による修正,SEMANTIC_ERROR
+flower_eyepatch,花の眼科,花の眼帯,SEMANTIC_ERROR
+flower_facial_mark,フラワーフェイシャルマーク,花形の顔の模様,AWKWARD_MACHINE_TRANSLATION
+flower_field,花田,花畑,SEMANTIC_ERROR
+flower_focus,花・焦点,花を強調,SEMANTIC_ERROR
+flower_hairclip,花・hairclip,花のヘアクリップ,MIXED_ENGLISH_DEBRIS
+flower_hairtie,花・hairtie,花のヘアゴム,MIXED_ENGLISH_DEBRIS
+flower_in_braid,花の中のbraid,三つ編みの中の花,SEMANTIC_RELATION_ERROR
+flower_in_drink,飲み物の花,飲み物の中の花,SEMANTIC_RELATION_ERROR
+flower_in_eye,目の花,目の中の花,SEMANTIC_RELATION_ERROR
+flower_in_hat,花の中の帽子,帽子の中の花,SEMANTIC_RELATION_ERROR
+flower_on_chest,花の上の胸,胸についた花,SEMANTIC_RELATION_ERROR
+flower_on_face,花の上の顔,顔についた花,SEMANTIC_RELATION_ERROR
+flower_on_head,脳内お花畑,頭の上の花,SEMANTIC_ERROR
+flower_on_liquid,液体の花,液体の上の花,SEMANTIC_RELATION_ERROR
+flower_on_shoulder,花の上の肩,肩についた花,SEMANTIC_RELATION_ERROR
+flower_over_eye,花・覆う目,目を覆う花,SEMANTIC_RELATION_ERROR
+flower_over_mouth,花・覆う・口,口を覆う花,SEMANTIC_RELATION_ERROR
+flower_pendant,花・pendant,花のペンダント,MIXED_ENGLISH_DEBRIS
+flower_symbol,花形符号,花のシンボル,NON_JAPANESE_RESIDUE
+flower_thigh_strap,花・thigh・strap,花の太ももストラップ,MIXED_ENGLISH_DEBRIS
+flower_to_mouth,花から口まで,口元に花,SEMANTIC_RELATION_ERROR
+flower_underskirt,花・underskirt,花のアンダースカート,MIXED_ENGLISH_DEBRIS
