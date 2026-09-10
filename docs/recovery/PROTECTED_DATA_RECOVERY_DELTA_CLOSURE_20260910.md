@@ -2,12 +2,12 @@
 
 ## Verdict
 
-`FUNCTIONALLY_RESTORED_WITH_AUDITED_NEW_METADATA`
+`RECOVERY_HOLD`
 
-The remaining `+1,192` bytes are explained by the surviving pre-freeze
-record's group accounting and line-ending/working-tree representation. No
-content-level corruption, alternate snapshot use, unique local loss, or
-unexpected protected-data modification was found.
+The group arithmetic explains the byte total, but the requested regression
+gate found a real content-level inconsistency in a generation audit input.
+The inconsistency is not safe to classify as a mere line-ending or scan
+representation difference. No file was changed to work around it.
 
 The known Special README difference is separate: `+40` bytes. Therefore the
 full post-extra delta is `+1,232` bytes, exactly as follows:
@@ -23,8 +23,8 @@ full post-extra delta is `+1,232` bytes, exactly as follows:
 The pre-freeze scan preserved the complete manifest digest and group total,
 but did not preserve a per-file list for `data/generation/` root files or
 `data/semantic/`. It did preserve `data/generation/audit/` as one aggregate
-row. Consequently, the `+1,192` residual is an accounting/representation
-delta, not an independently assignable corrupted file.
+row. The aggregate difference is therefore a useful lead, not by itself a
+per-file recovery proof.
 
 ## Scope and safety
 
@@ -122,9 +122,11 @@ the LF blob SHA only because the working-tree byte representation is CRLF.
 ### `data/generation/audit/` aggregate-different files
 
 No per-file accident-before size or SHA survived for this seven-file row. The
-current files are the canonical v2/v2.1 audit inputs, and their hashes match
-the recovery report and the current Generation Profile v2.1 handoff evidence.
-They are ignored local protected files, not tracked Git blobs.
+current files are the retained v2/v2.1 audit inputs recorded by the recovery
+report, but the regression test below proves that the retained
+`HIGH_CONFIDENCE_CORRECTIONS_v1.csv` is not the complete v2.1 input expected
+by the current production profile. They are ignored local protected files,
+not tracked Git blobs.
 
 | path | accident-before expected | current size / SHA-256 | provenance |
 |---|---:|---:|---|
@@ -132,15 +134,30 @@ They are ignored local protected files, not tracked Git blobs.
 | `EXPLICIT_STRUCTURAL_OVERRIDES_240_v1.csv` | no per-file record; group only | 94,802 / `e6f20275258c5ad1eb8d40ba21b100c709e457996ba078d7c5bf44270bec09dd` | v2.1 audit handoff |
 | `FAMILY_AUDIT_VALIDATION_v1.json` | no per-file record; group only | 1,002 / `67af388ac98d8414e3a89c0d8e9fff220b2ccf25bdd4830faf1ffe995a05a5dd` | v2.1 audit handoff |
 | `FAMILY_RULE_AUDIT_25_v1.csv` | no per-file record; group only | 7,738 / `70e49f7d1a5ef71167b2ea30bea6bc0ee75a79f60e105575d8ccc3adc49d9975` | v2.1 audit handoff |
-| `HIGH_CONFIDENCE_CORRECTIONS_v1.csv` | no per-file record; group only | 35,507 / `22c76da0cb3a2b58c36b405609823e11c332ae5565c1c4bd35501a3c0be2bbf5` | v2.1 audit handoff |
+| `HIGH_CONFIDENCE_CORRECTIONS_v1.csv` | no per-file record; group only | 35,507 / `22c76da0cb3a2b58c36b405609823e11c332ae5565c1c4bd35501a3c0be2bbf5` | retained v2.1-labeled handoff, but only 175 rows |
 | `PROMOTION_COUNTS_v1.json` | no per-file record; group only | 297 / `c6056909e0ed89ef54e386d201f9adeeafe1af7169d5a90913268273b27eb206` | v2 handoff |
 | `PROMOTION_PLAN_v1.csv` | no per-file record; group only | 1,241,747 / `a1eba3166318bb314c4ac3cb83d85d49b5e60b0bece6300a2fa74022d0197315` | v2 handoff |
 
 The scan-side `-1,787` cannot be assigned to one of these files without
-inventing a per-file baseline. Its exact aggregate is recorded, and the
-current seven-file set is independently tied to the canonical profile
-version. This is why the difference is accepted as a known scan-basis/EOL
-representation delta rather than a hash mismatch.
+inventing a per-file baseline. A surviving older handoff contains a
+177-row `HIGH_CONFIDENCE_CORRECTIONS_v1.csv` candidate, size 36,157 and
+SHA-256
+`7bf6218f4d9456596c19e32a79ca02cb747c07371b859e5b565ff7a7e2231c64`.
+It contains the two final correction rows absent from the current 175-row
+file, but it is a historical candidate and was not substituted. The scan
+aggregate is therefore evidence of a version/line-ending transition, not
+proof that the current audit input is safe.
+
+The two absent rows are:
+
+| SpecialID | tag | current production profile | surviving candidate correction |
+|---:|---|---|---|
+| 152 | `multiple anal` | `INSERTION_STRUCTURED` / `bodypart_action` | `MULTI_ACTOR_INTERACTION` → `INSERTION_STRUCTURED` |
+| 697 | `multiple penis fellatio` | `ACTION_INTERACTION` / `action` | `MULTI_ACTOR_INTERACTION` → `ACTION_INTERACTION` |
+
+The current profile therefore cannot be independently certified against its
+retained audit input. No copy was installed and no existing file was
+overwritten.
 
 ### Known Special README difference
 
@@ -163,27 +180,40 @@ representation delta rather than a hash mismatch.
   human-authored/semantic risk noted in prior assessment is provenance scope,
   not a current content mismatch.
 
-## Gate decision before regression tests
+## Regression result and gate decision
 
-The delta is fully closed as a known scan-basis/representation difference:
+The byte arithmetic is closed, but the functional recovery gate is not:
 
 - missing: 0
-- exact-target hash mismatch: 0
+- exact-target hash mismatch: 0 for the previously certified source/runtime targets;
+  generation audit input mismatch: 1
 - unique local loss: 0
 - alternate snapshot: 0
-- unexpected modification/corruption evidence: 0
+- unexpected modification/corruption evidence: 1 (audit input is incomplete)
 - known README difference: +40 bytes
-- remaining +1,192: accounted for by the omitted-group and audit aggregate
-  differences above
+- remaining +1,192: numerically accounted for, but not safely attributable to
+  exact accident-before file content because the audit input has a proven
+  two-row content mismatch
 
-Therefore the functional recovery gate is open for the requested read-only
-runtime/search regression and full pytest. This report will be amended with
-the test results and the final gate after those tests complete.
+Therefore the functional recovery gate is closed. Full pytest was not run.
 
 ## Regression tests
 
-Pending at report creation. The following are permitted only after the audit
-gate above:
+The runtime integrity check passed before the content mismatch was found:
+
+- `tools/verify_runtime_index.py`: PASS; true-AND cases and global-count
+  match passed.
+
+The targeted read-only regression command then produced **200 passed, 1
+failed** in 49.46s. The failure was:
+
+```text
+tests/test_generation_profile.py::test_v2_1_review_sets_match_production_exactly
+AssertionError: assert len(corrections) == 177
+AssertionError: assert 175 == 177
+```
+
+The following were not run after this failure:
 
 - runtime index integrity;
 - Stage 5 true AND search;
@@ -196,10 +226,10 @@ gate above:
 
 ## Final state
 
-Until the regression suite is recorded, the audit verdict is:
+The final audit verdict is:
 
-`FUNCTIONALLY_RESTORED_WITH_AUDITED_NEW_METADATA`
+`RECOVERY_HOLD`
 
-The final `PROTECTED_DATA_RECOVERY_COMPLETE` verdict is conditional on all
-requested tests passing. No #35 completion, #49 start, or main merge is part
+No `PROTECTED_DATA_RECOVERY_COMPLETE` verdict is allowed while the audit
+input mismatch remains. No #35 completion, #49 start, or main merge is part
 of this task.
