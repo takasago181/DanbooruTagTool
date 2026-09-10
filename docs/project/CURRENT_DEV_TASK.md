@@ -68,6 +68,7 @@ Expected first-wave principle:
 - one experiment = one primary question
 - A/B差分以外固定
 - user reviewはnumbered contact sheetと `A / B / both / neither / tie / unclear` 程度へ圧縮
+- **review表示では、ユーザーに見せるPositive / Negative Prompt内の各tag/tokenを英語原文 + 日本語ラベルで併記する。英語canonical・実行Prompt自体は変更しない。少なくともtarget/contrast、actor/count、support、比較に関係するNegativeを含める。**
 - Prompt-only evidenceとHires/ADetailer/LoRA/Control/regional/Couple-assisted evidenceを分離
 
 Default WAI17 lane:
