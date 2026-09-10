@@ -1,0 +1,4 @@
+canonical,old_display_ja,new_display_ja,reason
+holding_hands,両手で持つ,手をつなぐ,POLYSEMY_RELATION_ERROR
+gaping,口を大きく開ける,性行為後に開いた膣・肛門,ADULT_TAG_POLYSEMY_ERROR
+pelvic_curtain,骨盤カーテン,前垂れ状の腰布,LITERAL_TRANSLATION_ERROR
