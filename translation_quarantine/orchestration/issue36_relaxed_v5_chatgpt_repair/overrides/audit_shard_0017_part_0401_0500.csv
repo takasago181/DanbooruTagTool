@@ -1,0 +1,31 @@
+canonical,old_display_ja,new_display_ja,reason
+hollow_mask,hollow・マスク,空洞のマスク,MIXED_ENGLISH_DEBRIS
+hollow_mouth,中空の口,空洞の口,AWKWARD_MACHINE_TRANSLATION
+holly_hat_ornament,holly・帽子・飾り,ヒイラギの帽子飾り,MIXED_ENGLISH_DEBRIS
+holographic_interface,ホログラフィック界面,ホログラフィックインターフェース,NON_JAPANESE_RESIDUE
+holographic_monitor,全息显示屏,ホログラフィックモニター,NON_JAPANESE_RESIDUE
+holographic_wings,全息翅膀,ホログラフィックな翼,NON_JAPANESE_RESIDUE
+hololive_christmas_outfit,タグ「hololive christmas outfit」,ホロライブのクリスマス衣装,RAW_ENGLISH_WRAPPER
+hololive_gamers,白上ブートキャンプ,ホロライブゲーマーズ,SEMANTIC_ERROR
+hololive_summer_2023_swimsuit,hololive summer 2023の水着,ホロライブサマー2023の水着,MIXED_ENGLISH_DEBRIS
+hololive_super_expo_2026_outfit,タグ「hololive super expo 2026 outfit」,hololive SUPER EXPO 2026衣装,RAW_ENGLISH_WRAPPER
+holostars_idol_uniform_(1st_act),タグ「holostars idol uniform (1st act)」,ホロスターズのアイドル衣装（1st act）,RAW_ENGLISH_WRAPPER
+holostars_idol_uniform_(2nd_act),タグ「holostars idol uniform (2nd act)」,ホロスターズのアイドル衣装（2nd act）,RAW_ENGLISH_WRAPPER
+holy_quintet,タグ「holy quintet」,ホーリークインテット,RAW_ENGLISH_WRAPPER
+hometown_(deltarune),タグ「hometown (deltarune)」,ホームタウン（DELTARUNE）,RAW_ENGLISH_WRAPPER
+homework,作业,宿題,NON_JAPANESE_RESIDUE
+homeworld_gem_uniform,homeworld gemの制服,ホームワールド・ジェムの制服,MIXED_ENGLISH_DEBRIS
+homicipher_text,homicipher・テキスト,Homicipherのテキスト,MIXED_ENGLISH_DEBRIS
+honey,ハニー,はちみつ,SEMANTIC_ERROR
+honeycomb_(pattern),ハニカム構造,ハニカム模様,SEMANTIC_ERROR
+hong_meiling_(cosplay),Hong Meil​​ing（コスプレ）,紅美鈴（コスプレ）,MIXED_ENGLISH_DEBRIS
+honggaitou,赤盖頭,紅蓋頭,NON_JAPANESE_RESIDUE
+honnoji_academy_school_uniform,honnoji academyの学校制服,本能字学園の制服,MIXED_ENGLISH_DEBRIS
+hood_grab,フードグラブ,フードを掴む,AWKWARD_MACHINE_TRANSLATION
+hood_over_eyes,フード・覆う目,目を覆うフード,AWKWARD_MACHINE_TRANSLATION
+hood_over_one_eye,フード・覆う・1人目,片目を覆うフード,SEMANTIC_ERROR
+hood_pull,フードプル,フードを引っ張る,AWKWARD_MACHINE_TRANSLATION
+hooded_overalls,タグ「hooded overalls」,フード付きオーバーオール,RAW_ENGLISH_WRAPPER
+hooded_shrug,hooded・ボレロ,フード付きボレロ,MIXED_ENGLISH_DEBRIS
+hoodie_pull,パーカープル,パーカーを引っ張る,AWKWARD_MACHINE_TRANSLATION
+hoodie_tug,パーカータグ,パーカーをつまんで引く,SEMANTIC_ERROR
