@@ -1,0 +1,33 @@
+canonical,old_display_ja,new_display_ja,reason
+hussar,ハッサル,ユサール（軽騎兵）,SEMANTIC_ERROR
+hyakkaryouran_(blue_archive),hyakkaryouran (blue archive),百花繚乱（ブルーアーカイブ）,CANONICAL_FALLBACK_TRANSLATABLE
+hydrangea_print,hydrangeaの柄,アジサイ柄,MIXED_ENGLISH_DEBRIS
+hydraulic_press,タグ「hydraulic press」,油圧プレス,RAW_ENGLISH_WRAPPER
+hydrokinesis,水属性,水を操る能力,SEMANTIC_NARROWING
+hylian_(language),タグ「hylian (language)」,ハイリア語,RAW_ENGLISH_WRAPPER
+hylian_(ocarina_of_time),タグ「hylian (ocarina of time)」,ハイリア人（時のオカリナ）,RAW_ENGLISH_WRAPPER
+hypnotizing_viewer,逆催眠,視点側を催眠にかける,SEMANTIC_ERROR
+http_404,タグ「http 404」,HTTP 404,RAW_ENGLISH_WRAPPER
+hoyofair,タグ「hoyofair」,HoYoFair,RAW_ENGLISH_WRAPPER
+hoyolab_username,hoyolabのユーザー名,HoYoLABユーザー名,MIXED_ENGLISH_DEBRIS
+ibaraki_kasen_(cosplay),イバラキ・カセン（コスプレ）,茨木華扇（コスプレ）,SEMANTIC_ERROR
+ibispaint,タグ「ibispaint」,ibisPaint,RAW_ENGLISH_WRAPPER
+ibuki_suika_(cosplay),Ibuki Suika（コスプレ）,伊吹萃香（コスプレ）,MIXED_ENGLISH_DEBRIS
+ice_cream_bar,雪糕,アイスバー,NON_JAPANESE_RESIDUE
+ice_cream_cone,冰淇淋甜筒,アイスクリームコーン,NON_JAPANESE_RESIDUE
+ice_cream_cone_spill,アイスクリームコーン流出,アイスクリームコーンをこぼす,SEMANTIC_ERROR
+ice_cream_print,ice creamの柄,アイスクリーム柄,MIXED_ENGLISH_DEBRIS
+ice_cream_stand,タグ「ice cream stand」,アイスクリームスタンド,RAW_ENGLISH_WRAPPER
+ice_cream_tub,タグ「ice cream tub」,アイスクリーム容器,RAW_ENGLISH_WRAPPER
+ice_crown_(adventure_time),タグ「ice crown (adventure time)」,氷の王冠（アドベンチャー・タイム）,RAW_ENGLISH_WRAPPER
+ice_crystal,冰晶,氷の結晶,NON_JAPANESE_RESIDUE
+ice_cube,冰块,氷のキューブ,NON_JAPANESE_RESIDUE
+ice_hair,ice・髪,氷の髪,MIXED_ENGLISH_DEBRIS
+ice_horns,アイスホーン,氷の角,AWKWARD_MACHINE_TRANSLATION
+iceberg,冰山,氷山,NON_JAPANESE_RESIDUE
+i-beam,タグ「i-beam」,I形鋼,RAW_ENGLISH_WRAPPER
+"i'm_not_calling_you_""good_boy""_(meme)","i'm not calling you ""good boy"" (meme)",「お前を『いい子』とは呼ばない」（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+i'm_this_clingy_(meme),i'm this clingy (meme),「私はこんなにくっつきたがり」（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+i've_never_seen_a_guy_recreate_this_successfully_tbh_(meme),i've never seen a guy recreate this successfully tbh (meme),「これをうまく再現できた男を見たことがない」（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+i_really_like_wearing_sunglasses_(meme),i really like wearing sunglasses (meme),「サングラスをかけるのが本当に好き」（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+i_think_we're_gonna_have_to_kill_this_guy_steven_(meme),i think we're gonna have to kill this guy steven (meme),「スティーブン、こいつを殺すしかないと思う」（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
