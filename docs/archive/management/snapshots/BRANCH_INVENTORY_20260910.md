@@ -9,7 +9,7 @@
 
 ---
 
-Purpose: reduce branch-name ambiguity without deleting audit/evidence history blindly.
+Purpose: reduce branch-name ambiguity without deleting audit/evidence history.
 
 Authority: `docs/project/CURRENT_STATE.md` and live Issues remain the routing source of truth. This file is an inventory, not a task contract.
 

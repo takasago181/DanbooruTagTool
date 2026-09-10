@@ -29,7 +29,7 @@ GitHub Projectはtask contractやGate authorityとして使用しない。
 
 以下は導入検討の履歴として保持する。
 - 本ファイルのGit履歴
-- `docs/project/CONTROL_BOARD_MIGRATION_DESIGN.md`
+- `docs/archive/management/project_board/CONTROL_BOARD_MIGRATION_DESIGN.md`
 - Issue #47
 - 過去に各Issueへ行った導入通知
 - Issue template側に残る一般的なGitHub-first管理参照
