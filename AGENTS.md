@@ -48,7 +48,7 @@ Issue番号は固定値として記憶せず、毎回 `origin/main` の `CURRENT
 この状態では:
 - Codexは新しいcore DEV Issueを推測・自動選択しない。
 - open Issueを見つけても勝手にcurrent DEVへ昇格しない。
-- #46/#36、#44等の独立レーンは、それぞれ明示されたIssue/branch/contractに従う場合だけ進める。
+- KNOWLEDGE / PROMPT / UI-JA / TEMP / 必要時AUDIT等の独立レーンは、それぞれ `CURRENT_STATE.md` と明示されたIssue/branch/contractに従う場合だけ進める。
 - 新しいcore DEV実装は、管理側が Issue + `CURRENT_STATE.md` + `CURRENT_DEV_TASK.md` を同期して選択した後に開始する。
 
 古いhandoff・旧チャット・過去Stage資料とGitHub現行状態が衝突した場合、古い資料で現在地を巻き戻さない。ただし勝手に破棄・統合・補完もせず、衝突としてDEVへ報告する。
