@@ -1,0 +1,104 @@
+canonical,old_display_ja,new_display_ja,reason
+burger_costume,burger・衣装,ハンバーガー衣装,MIXED_ENGLISH_DEBRIS
+burger_king_crown,タグ「burger king crown」,バーガーキングの王冠,RAW_ENGLISH_WRAPPER
+burning_at_the_stake,危機にburningしている,火あぶり,MIXED_ENGLISH_DEBRIS
+burning_hair,burning・髪,燃える髪,MIXED_ENGLISH_DEBRIS
+burning_paper,タグ「burning paper」,燃える紙,RAW_ENGLISH_WRAPPER
+burning_photo,タグ「burning photo」,燃える写真,RAW_ENGLISH_WRAPPER
+burning_vehicle,タグ「burning vehicle」,燃える車両,RAW_ENGLISH_WRAPPER
+burnt_paper,タグ「burnt paper」,焦げた紙,RAW_ENGLISH_WRAPPER
+burnt_tongue,タグ「burnt tongue」,やけどした舌,RAW_ENGLISH_WRAPPER
+bursting_ass,屁股蹦出,尻がはみ出る,NON_JAPANESE_RESIDUE
+bus_interior,バス,バス車内,SEMANTIC_UNDERSPECIFICATION
+bus_stop_shelter,タグ「bus stop shelter」,バス停の待合所,RAW_ENGLISH_WRAPPER
+butcher's_nails,butcher・爪,ブッチャーズ・ネイル,MIXED_ENGLISH_DEBRIS
+butler,かれい,執事,SEMANTIC_ERROR
+butler_bowing,タグ「butler bowing」,お辞儀する執事,RAW_ENGLISH_WRAPPER
+butt_bump,タグ「butt bump」,尻同士をぶつける,RAW_ENGLISH_WRAPPER
+butt_crush,タグ「butt crush」,尻で押しつぶす,RAW_ENGLISH_WRAPPER
+butterfly-shaped_pupils,蝶の形をした生徒,蝶形の瞳孔,SEMANTIC_ERROR
+butterfly_cutout,蝶・cutout,蝶形の切り抜き,MIXED_ENGLISH_DEBRIS
+butterfly_in_eye,蝶の中の目,目の中の蝶,RELATION_SEMANTIC_ERROR
+butterfly_on_face,蝶の上の顔,顔に蝶,RELATION_SEMANTIC_ERROR
+butterfly_on_mouth,蝶の上のmouth,口に蝶,MIXED_ENGLISH_DEBRIS
+butterfly_over_eye,蝶の上の目,目を覆う蝶,RELATION_SEMANTIC_ERROR
+butterfly_print_haori,蝶・柄・haori,蝶柄の羽織,MIXED_ENGLISH_DEBRIS
+butterfly_print_kimono,蝶・柄・kimono,蝶柄の着物,MIXED_ENGLISH_DEBRIS
+butterfly_print_sash,蝶・柄・sash,蝶柄の帯,MIXED_ENGLISH_DEBRIS
+buttjob_under_clothes,buttjobの下の服,着衣下の尻コキ,MIXED_ENGLISH_DEBRIS
+buttoned_cuffs,buttoned・カフ,ボタン留めの袖口,MIXED_ENGLISH_DEBRIS
+buttoning,ボタン化,ボタンを留める,SEMANTIC_ERROR
+cable_hair,cable・髪,ケーブル状の髪,MIXED_ENGLISH_DEBRIS
+cable_insertion,タグ「cable insertion」,ケーブル挿入,RAW_ENGLISH_WRAPPER
+cage_interior,檻・interior,檻の内部,MIXED_ENGLISH_DEBRIS
+cake-shaped_hat,cake・shaped・帽子,ケーキ型の帽子,MIXED_ENGLISH_DEBRIS
+cake_decoration,タグ「cake decoration」,ケーキ飾り,RAW_ENGLISH_WRAPPER
+cake_on_head,cakeの上の頭,頭の上のケーキ,RELATION_SEMANTIC_ERROR
+cake_print,cakeの柄,ケーキ柄,MIXED_ENGLISH_DEBRIS
+cake_slicer,タグ「cake slicer」,ケーキスライサー,RAW_ENGLISH_WRAPPER
+camel_tail,camel・尻尾,ラクダの尻尾,MIXED_ENGLISH_DEBRIS
+camellia_print,camelliaの柄,椿柄,MIXED_ENGLISH_DEBRIS
+camelot_academy_of_chivalry_school_uniform,camelot academy of chivalryの学校制服,キャメロット騎士学院の制服,MIXED_ENGLISH_DEBRIS
+camouflage_bag,タグ「camouflage bag」,迷彩バッグ,RAW_ENGLISH_WRAPPER
+camouflage_coat,camouflage・コート,迷彩コート,MIXED_ENGLISH_DEBRIS
+camouflage_hat,camouflage・帽子,迷彩帽子,MIXED_ENGLISH_DEBRIS
+can_between_breasts,canの間の胸,胸の間の缶,RELATION_SEMANTIC_ERROR
+can_to_cheek,頬にできます,頬に缶を当てる,SEMANTIC_ERROR
+canadian_flag_print,canadian flagの柄,カナダ国旗柄,MIXED_ENGLISH_DEBRIS
+candle_on_head,candleの上の頭,頭の上のろうそく,RELATION_SEMANTIC_ERROR
+candle_on_headwear,candleの上のheadwear,頭飾りの上のろうそく,MIXED_ENGLISH_DEBRIS
+candlestand,烛台,燭台,NON_JAPANESE_RESIDUE
+candy_apple_hair_ornament,candy appleの髪飾り,りんご飴の髪飾り,MIXED_ENGLISH_DEBRIS
+candy_cane_hair_ornament,candy caneの髪飾り,キャンディケインの髪飾り,MIXED_ENGLISH_DEBRIS
+candy_wrapper,糖纸,キャンディの包み紙,NON_JAPANESE_RESIDUE
+canned_fish,canned・魚,魚の缶詰,MIXED_ENGLISH_DEBRIS
+cape_clasp,ケープ・clasp,ケープの留め具,MIXED_ENGLISH_DEBRIS
+cape_umbrella,ケープ・umbrella,ケープ型傘,MIXED_ENGLISH_DEBRIS
+capybara_ears,capybara・耳,カピバラの耳,MIXED_ENGLISH_DEBRIS
+car_part,タグ「car part」,自動車部品,RAW_ENGLISH_WRAPPER
+card_in_hat,cardの中の帽子,帽子の中のカード,RELATION_SEMANTIC_ERROR
+cardboard_cutout,人形立牌,等身大パネル,NON_JAPANESE_RESIDUE
+cardigan_on_shoulders,cardiganの上のshoulders,肩に掛けたカーディガン,MIXED_ENGLISH_DEBRIS
+cardigan_partially_removed,cardigan・部分的に・removed,カーディガンを一部脱いだ状態,MIXED_ENGLISH_DEBRIS
+cargo_skirt,cargo・スカート,カーゴスカート,MIXED_ENGLISH_DEBRIS
+carrot_background,carrotの背景,ニンジン背景,MIXED_ENGLISH_DEBRIS
+carrot_in_pocket,carrotの中のpocket,ポケットの中のニンジン,MIXED_ENGLISH_DEBRIS
+carrying_baby,抱着婴儿,赤ちゃんを抱える,NON_JAPANESE_RESIDUE
+carrying_multiple_people,carrying・multiple・人々,複数人を運ぶ,MIXED_ENGLISH_DEBRIS
+celestial_being_uniform,天体は均一です,セレスティアル・ビーイングの制服,SEMANTIC_ERROR
+censored_with_cum,絶頂で検閲されました,精液で隠す,SEMANTIC_ERROR
+centipede_print,centipedeの柄,ムカデ柄,MIXED_ENGLISH_DEBRIS
+centipede_tattoo,centipedeのタトゥー,ムカデのタトゥー,MIXED_ENGLISH_DEBRIS
+chain_around_arm,チェーンの周囲の腕,腕に巻いたチェーン,RELATION_SEMANTIC_ERROR
+chain_around_neck,チェーンの周囲の首,首に巻いたチェーン,RELATION_SEMANTIC_ERROR
+chain_axe,チェーン・axe,チェーンアックス,MIXED_ENGLISH_DEBRIS
+chain_bracelet,チェーン・bracelet,チェーンブレスレット,MIXED_ENGLISH_DEBRIS
+chain_earrings,链式耳环,チェーンイヤリング,NON_JAPANESE_RESIDUE
+chain_necktie,チェーン・necktie,チェーンネクタイ,MIXED_ENGLISH_DEBRIS
+chained_legs,chained・脚,鎖で拘束された脚,MIXED_ENGLISH_DEBRIS
+chair_tipping,椅子の転換,椅子が傾く,SEMANTIC_ERROR
+chaldea_logo,Chaldeaロゴ,カルデアのロゴ,MIXED_ENGLISH_DEBRIS
+chaldea_staff_uniform,chaldea staffの制服,カルデア職員の制服,MIXED_ENGLISH_DEBRIS
+changmingsuo,長命锁,長命鎖,NON_JAPANESE_RESIDUE
+character-themed_food,キャラクター・themed・食べ物,キャラクターをテーマにした食べ物,MIXED_ENGLISH_DEBRIS
+character-themed_onahole,角色娃娃飛机杯,キャラクター型オナホール,NON_JAPANESE_RESIDUE
+character_and_genderswap,キャラクター・and・genderswap,キャラクターの性別反転,MIXED_ENGLISH_DEBRIS
+character_backpack,キャラクター・backpack,キャラクターバックパック,MIXED_ENGLISH_DEBRIS
+character_charm,キャラクター・charm,キャラクターチャーム,MIXED_ENGLISH_DEBRIS
+character_chart,文字チャート,キャラクター表,SEMANTIC_ERROR
+character_cookie,キャラクター・cookie,キャラクタークッキー,MIXED_ENGLISH_DEBRIS
+cherry_background,cherryの背景,サクランボ背景,MIXED_ENGLISH_DEBRIS
+cherry_hat_ornament,cherry・帽子・飾り,サクランボの帽子飾り,MIXED_ENGLISH_DEBRIS
+cherry_necklace,cherry・ネックレス,サクランボのネックレス,MIXED_ENGLISH_DEBRIS
+chest_holster,胸・holster,胸部ホルスター,MIXED_ENGLISH_DEBRIS
+chest_markings,胸・markings,胸の模様,MIXED_ENGLISH_DEBRIS
+chest_spike,胸・spike,胸のトゲ,MIXED_ENGLISH_DEBRIS
+chest_tuft,胸部房,胸の房毛,NON_JAPANESE_RESIDUE
+chibi_on_head,頭の上にキビ,頭の上のちびキャラ,SEMANTIC_ERROR
+chibi_on_shoulder,肩にキビ,肩の上のちびキャラ,SEMANTIC_ERROR
+chikage_(bloodborne),チケージ（血borne）,チカゲ（Bloodborne）,MIXED_ENGLISH_DEBRIS
+child_carry,儿童抱,子供を抱える,NON_JAPANESE_RESIDUE
+chin-chin,顎・顎,ちんちん,SEMANTIC_ERROR
+chinese_border,chinese・枠,中華風の枠,MIXED_ENGLISH_DEBRIS
+chinese_knot_border,chinese・knot・枠,中国結びの枠,MIXED_ENGLISH_DEBRIS
+chinese_paper-cut,剪纸,中国の切り絵,NON_JAPANESE_RESIDUE
