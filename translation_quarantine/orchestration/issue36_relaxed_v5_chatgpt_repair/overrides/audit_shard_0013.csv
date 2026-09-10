@@ -70,3 +70,46 @@ empty_pool,プール掃除,空のプール,SEMANTIC_ERROR
 endfield_industries_logo,endfield industriesのロゴ,エンドフィールド・インダストリーズのロゴ,MIXED_ENGLISH_DEBRIS
 ending_celebration,タグ「ending celebration」,終了祝い,RAW_ENGLISH_WRAPPER
 energon,エネルギー,エネルゴン,SEMANTIC_ERROR
+energy_arrow,エネルギー矢印,エネルギーの矢,SEMANTIC_ERROR
+energy_axe,エネルギーx,エネルギー斧,SEMANTIC_ERROR
+energy_barrier,バリア,エネルギーバリア,SEMANTIC_UNDERSPECIFICATION
+energy_beam,ビーム,エネルギービーム,SEMANTIC_UNDERSPECIFICATION
+energy_blast,エネルギー・blast,エネルギー爆発,MIXED_ENGLISH_DEBRIS
+energy_cannon,ビーム砲,エネルギー砲,SEMANTIC_NARROWING
+energy_field,エネルギー・field,エネルギーフィールド,MIXED_ENGLISH_DEBRIS
+energy_gun,光線銃,エネルギー銃,SEMANTIC_NARROWING
+energy_hair,エネルギー・髪,エネルギーの髪,AWKWARD_MACHINE_TRANSLATION
+energy_orb,エネルギー・orb,エネルギー球,MIXED_ENGLISH_DEBRIS
+energy_scythe,エネルギー・scythe,エネルギー鎌,MIXED_ENGLISH_DEBRIS
+energy_shield,ビームシールド,エネルギーシールド,SEMANTIC_NARROWING
+energy_sword,ビームサーベル,エネルギーソード,SEMANTIC_NARROWING
+energy_tail,エネルギー・尻尾,エネルギーの尻尾,AWKWARD_MACHINE_TRANSLATION
+energy_tank,エネルギー・tank,エネルギータンク,MIXED_ENGLISH_DEBRIS
+energy_weapon,ビーム兵器,エネルギー武器,SEMANTIC_NARROWING
+engineer_(tf2)_(cosplay),engineer (tf2) (cosplay),エンジニア（TF2）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+english_bond,タグ「english bond」,イギリス積み,RAW_ENGLISH_WRAPPER
+engulfing_lightning_(genshin_impact),稲妻の巻き込み（Genshin Impact）,草薙の稲光（原神）,SEMANTIC_ERROR
+enkephalin_(project_moon),enkephalin (project moon),エンケファリン（Project Moon）,CANONICAL_FALLBACK_TRANSLATABLE
+enoki_mushroom,タグ「enoki mushroom」,えのき茸,RAW_ENGLISH_WRAPPER
+enoshima_junko_(cosplay),エノシマ・ジャンコ（コスプレ）,江ノ島盾子（コスプレ）,SEMANTIC_ERROR
+entangled,意外缠住,絡みついた,NON_JAPANESE_RESIDUE
+entity_(lethal_company),entity (lethal company),エンティティ（Lethal Company）,CANONICAL_FALLBACK_TRANSLATABLE
+enveloped,タグ「enveloped」,包まれた,RAW_ENGLISH_WRAPPER
+envy,羡慕,嫉妬,NON_JAPANESE_RESIDUE
+eotech,タグ「eotech」,EOTech,RAW_ENGLISH_WRAPPER
+eotech_exps3,タグ「eotech exps3」,EOTech EXPS3,RAW_ENGLISH_WRAPPER
+erdtree_(elden_ring),エルドリー（エルデンリング）,黄金樹（エルデンリング）,SEMANTIC_ERROR
+erection_in_panties,erectionの中のパンツ,パンツ内の勃起,SEMANTIC_RELATION_ERROR
+erection_under_towel,erectionの下のtowel,タオルの下の勃起,SEMANTIC_RELATION_ERROR
+eri_(blue_archive)_(cosplay),eri (blue archive) (cosplay),エリ（ブルーアーカイブ）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+eridian,タグ「eridian」,エリディアン,RAW_ENGLISH_WRAPPER
+ermine,エルミン,オコジョ,SEMANTIC_ERROR
+escape_room,セックスしないと出られない部屋,脱出ゲームの部屋,SEMANTIC_NARROWING
+escrima_sticks,タグ「escrima sticks」,エスクリマスティック,RAW_ENGLISH_WRAPPER
+escudo_sword_(rayearth),タグ「escudo sword (rayearth)」,エスクードの剣（レイアース）,RAW_ENGLISH_WRAPPER
+esrb,タグ「esrb」,ESRB,RAW_ENGLISH_WRAPPER
+estus_flask,estusフラスコ,エスト瓶,MIXED_ENGLISH_DEBRIS
+ethan_(pokemon)_(cosplay),イーサン（ポケモン）（コスプレ）,ヒビキ（ポケモン）（コスプレ）,SEMANTIC_ERROR
+etna_(disgaea)_(cosplay),エトナ（sigaea）（コスプレ）,エトナ（ディスガイア）（コスプレ）,MIXED_ENGLISH_DEBRIS
+etorofu_(kancolle)_(cosplay),エトロフ（カンコル）（コスプレ）,択捉（艦これ）（コスプレ）,SEMANTIC_ERROR
+eula_(genshin_impact)_(cosplay),eula (genshin impact) (cosplay),エウルア（原神）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
