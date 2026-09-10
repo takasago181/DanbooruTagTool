@@ -16,11 +16,21 @@ Issue番号は固定値として記憶せず、毎回 `CURRENT_STATE.md` から�
 
 作業開始前に少なくとも次を確認できる状態にする:
 - 現在のStage
-- 現行DEV Issue番号と作業範囲
-- `CURRENT_STATE.md` の現行DEV Issue番号と `CURRENT_DEV_TASK.md` のSource Issue番号が一致していること
+- 現行DEV Issue番号と作業範囲、または `NO_CURRENT_DEV / MANAGEMENT_HANDOFF`
+- `CURRENT_STATE.md` の現行DEVと `CURRENT_DEV_TASK.md` のSourceが一致していること
 - 触ってよい範囲 / 触ってはいけない範囲
 - 次に実装する境界
 - Stage Gate
+
+### NO_CURRENT_DEV の扱い
+
+`CURRENT_STATE.md` が current core DEV = `NONE` で、`CURRENT_DEV_TASK.md` も Source Issue = `NONE` / `NO_CURRENT_DEV / MANAGEMENT_HANDOFF` の場合、これは**正常な管理停止状態**であり不整合ではない。
+
+この状態では:
+- Codexは新しいcore DEV Issueを推測・自動選択しない。
+- open Issueを見つけても勝手にcurrent DEVへ昇格しない。
+- #46/#36、#44等の独立レーンは、それぞれ明示されたIssue/branch/contractに従う場合だけ進める。
+- 新しいcore DEV実装は、管理側が Issue + `CURRENT_STATE.md` + `CURRENT_DEV_TASK.md` を同期して選択した後に開始する。
 
 古いhandoff・旧チャット・過去Stage資料とGitHub現行状態が衝突した場合、古い資料で現在地を巻き戻さない。ただし勝手に破棄・統合・補完もせず、衝突としてDEVへ報告する。
 現在地・現行DEV Issue・DEV task mirrorの整合を確認できない場合は推測で実装を開始しない。
@@ -40,10 +50,11 @@ Codexはprivate GitHub Issue APIへの追加認証を要求しない。
 現行DEV Issue本文は、repository内の `docs/project/CURRENT_DEV_TASK.md` をCodex読取用ミラーとして使用する。
 
 確認手順:
-1. `docs/project/CURRENT_STATE.md` から現行DEV Issue番号を取得する。
-2. `docs/project/CURRENT_DEV_TASK.md` の `Source` Issue番号と一致することを確認する。
-3. 一致した場合のみ、同ファイルの目的・作業範囲・禁止事項・完了条件を現行DEV taskとして読む。
-4. 不一致・欠損・明確な矛盾がある場合は実装を開始せずDEVへ報告する。
+1. `docs/project/CURRENT_STATE.md` から現行DEV Issue番号、または `NONE` を取得する。
+2. `docs/project/CURRENT_DEV_TASK.md` の `Source Issue` と一致することを確認する。
+3. 両方 `NONE` の場合は正常な `NO_CURRENT_DEV / MANAGEMENT_HANDOFF` として停止し、新規core DEVを推測しない。
+4. 実Issue番号で一致した場合のみ、同ファイルの目的・作業範囲・禁止事項・完了条件を現行DEV taskとして読む。
+5. 不一致・欠損・明確な矛盾がある場合は実装を開始せずDEVへ報告する。
 
 Issue / mirror同期、Issueコメントの扱い、DEV/管理側のpreflightの恒久ルールは `docs/project/PERMANENT_RULES.md` の「正本・現行DEV・checkpoint」を正本とする。
 
