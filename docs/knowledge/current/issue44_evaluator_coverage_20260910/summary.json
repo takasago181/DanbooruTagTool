@@ -1,0 +1,78 @@
+{
+  "rows": 2788,
+  "provenance": {
+    "WD14": {
+      "repo": "SmilingWolf/wd-eva02-large-tagger-v3",
+      "revision": "b25b82a03f7282e41aa2f257a52c7583b710bd1c",
+      "vocab_rows": 10824,
+      "status": "OK"
+    },
+    "Kagami": {
+      "repo": "Redstonexs/kagami-24k",
+      "revision": "fbf04252c68c9cbf03c8b343e537e3cd7594c8a1",
+      "vocab_rows": 23952,
+      "status": "OK"
+    },
+    "CL": {
+      "repo": "cella110n/cl_tagger_v2",
+      "revision": "v2_00",
+      "vocab_rows": null,
+      "status": "UNAVAILABLE_GATED",
+      "error": "HTTPError: HTTP Error 401: Unauthorized",
+      "authenticated": false
+    }
+  },
+  "coverage": {
+    "WD14": {
+      "classes": {
+        "DIRECT": 658,
+        "AUTO_EVAL_DIFFICULT": 1684,
+        "COMPONENT_ONLY": 446
+      },
+      "direct_count": 658,
+      "direct_pct": 23.6,
+      "direct_alias_count": 658,
+      "direct_alias_pct": 23.6
+    },
+    "Kagami": {
+      "classes": {
+        "DIRECT": 1412,
+        "AUTO_EVAL_DIFFICULT": 1090,
+        "COMPONENT_ONLY": 286
+      },
+      "direct_count": 1412,
+      "direct_pct": 50.65,
+      "direct_alias_count": 1412,
+      "direct_alias_pct": 50.65
+    },
+    "CL": {
+      "classes": {
+        "UNVERIFIED_GATED": 2788
+      },
+      "direct_count": 0,
+      "direct_pct": 0.0,
+      "direct_alias_count": 0,
+      "direct_alias_pct": 0.0
+    }
+  },
+  "final": {
+    "AUTO_CANDIDATE": 754,
+    "BLOCKED": 1076,
+    "REVIEW_REQUIRED": 958
+  },
+  "relation_required": 910,
+  "representative_cases": 30,
+  "combined": {
+    "verified_evaluators": [
+      "wd14_class",
+      "kagami_class"
+    ],
+    "direct_union_count": 1423,
+    "direct_union_pct": 51.04,
+    "direct_alias_union_count": 1423,
+    "direct_alias_union_pct": 51.04,
+    "observable_including_components_count": 1712,
+    "observable_including_components_pct": 61.41,
+    "three_evaluator_exact_available": false
+  }
+}

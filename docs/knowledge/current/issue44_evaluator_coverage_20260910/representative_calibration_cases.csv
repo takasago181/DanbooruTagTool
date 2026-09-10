@@ -1,0 +1,31 @@
+﻿stratum,special_id,canonical,final_recommendation,why_selected
+simple_unary,1,anus,AUTO_CANDIDATE,unary/non-relational vocabulary candidate; calibration pending
+simple_unary,2,spread anus,AUTO_CANDIDATE,unary/non-relational vocabulary candidate; calibration pending
+simple_unary,3,anus peek,AUTO_CANDIDATE,unary/non-relational vocabulary candidate; calibration pending
+rare_or_no_vocab,4,bare anus,BLOCKED,no verified direct/alias/component observation
+rare_or_no_vocab,5,exposed genitals,BLOCKED,no verified direct/alias/component observation
+rare_or_no_vocab,6,genital closeup,BLOCKED,no verified direct/alias/component observation
+relation,11,armpit sex,REVIEW_REQUIRED,relation/binding predicate requires human calibration
+relation,12,buttjob,REVIEW_REQUIRED,relation/binding predicate requires human calibration
+relation,13,cloth glansjob,REVIEW_REQUIRED,relation/binding predicate requires human calibration
+components_only,19,cuddling handjob,REVIEW_REQUIRED,relation/binding predicate requires human calibration
+components_only,26,footjob under table,REVIEW_REQUIRED,relation/binding predicate requires human calibration
+components_only,27,footjob with boots,REVIEW_REQUIRED,relation/binding predicate requires human calibration
+bodypart,148,anal fingering,REVIEW_REQUIRED,relation/binding predicate requires human calibration
+bodypart,149,anal object insertion,REVIEW_REQUIRED,relation/binding predicate requires human calibration
+bodypart,150,double anal,REVIEW_REQUIRED,relation/binding predicate requires human calibration
+actor_subject_object,16,cooperative footjob,REVIEW_REQUIRED,relation/binding predicate requires human calibration
+actor_subject_object,17,cooperative handjob,REVIEW_REQUIRED,relation/binding predicate requires human calibration
+actor_subject_object,85,crotch rub,REVIEW_REQUIRED,relation/binding predicate requires human calibration
+spatial,91,mutual masturbation,REVIEW_REQUIRED,relation/binding predicate requires human calibration
+spatial,102,cooperative fellatio,REVIEW_REQUIRED,relation/binding predicate requires human calibration
+spatial,107,oral sandwich,REVIEW_REQUIRED,relation/binding predicate requires human calibration
+count_or_multi,20,double footjob,REVIEW_REQUIRED,relation/binding predicate requires human calibration
+count_or_multi,21,double handjob,REVIEW_REQUIRED,relation/binding predicate requires human calibration
+count_or_multi,62,two-footed footjob,REVIEW_REQUIRED,relation/binding predicate requires human calibration
+compound,40,hug and suck,REVIEW_REQUIRED,relation/binding predicate requires human calibration
+compound,135,stand and carry,BLOCKED,relation required and no useful verified vocabulary observation
+compound,630,cock and ball torture,REVIEW_REQUIRED,relation/binding predicate requires human calibration
+outcome_auto_candidate,8,after footjob,AUTO_CANDIDATE,unary/non-relational vocabulary candidate; calibration pending
+outcome_review_required,15,clothed sex,REVIEW_REQUIRED,relation/binding predicate requires human calibration
+outcome_blocked,7,visible genitals,BLOCKED,no verified direct/alias/component observation
