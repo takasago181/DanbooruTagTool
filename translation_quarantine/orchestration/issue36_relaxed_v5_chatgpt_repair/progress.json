@@ -8,6 +8,8 @@
   "last_completed_shard": 9,
   "override_rows": 1439,
   "status": "IN_PROGRESS",
+  "current_shard_partial_override": true,
+  "current_shard_partial_override_path": "translation_quarantine/orchestration/issue36_relaxed_v5_chatgpt_repair/overrides/audit_shard_0010.csv",
   "translator": "ChatGPT",
   "semantic_auditor": "ChatGPT_self_reaudit_then_final_cross_shard_reaudit",
   "codex_semantic_role": "NONE",
