@@ -1,0 +1,36 @@
+canonical,old_display_ja,new_display_ja,reason
+kanji_focus,kanji・焦点,漢字を強調,MIXED_ENGLISH_DEBRIS
+kanji_hair_ornament,kanjiの髪飾り,漢字の髪飾り,MIXED_ENGLISH_DEBRIS
+kanji_tattoo,kanjiのタトゥー,漢字のタトゥー,MIXED_ENGLISH_DEBRIS
+kanna_(blue_archive)_(cosplay),kanna (blue archive) (cosplay),尾刃カンナ（ブルーアーカイブ）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+kansaiben,关西腔,関西弁,NON_JAPANESE_RESIDUE
+kanshou_&_bakuya_(fate),カンショウ＆バクヤ（運命）,干将・莫耶（Fate）,SEMANTIC_ERROR
+karaginu_mo,十二単,唐衣裳,SEMANTIC_NARROWING
+karakura_high_school_uniform,karakura highの学校制服,空座高校の制服,MIXED_ENGLISH_DEBRIS
+karasuno_volleyball_uniform,カラスノバレーボールユニフォーム,烏野高校バレー部のユニフォーム,SEMANTIC_ERROR
+kasamatsu_tracen_school_uniform,kasamatsu tracenの学校制服,笠松トレセン学園の制服,MIXED_ENGLISH_DEBRIS
+kasamatsu_tracen_training_uniform,kasamatsu tracen trainingの制服,笠松トレセンのトレーニングウェア,MIXED_ENGLISH_DEBRIS
+kasane_teto_(cosplay),kasane teto (cosplay),重音テト（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+kashima_(kancolle)_(cosplay),カシマ（カンコル）（コスプレ）,鹿島（艦これ）（コスプレ）,SEMANTIC_ERROR
+kasugano_sakura_(cosplay),カスガノ・サクラ（コスプレ）,春日野さくら（コスプレ）,SEMANTIC_ERROR
+kasumi_(doa)_(cosplay),kasumi（doa）（コスプレ）,かすみ（DEAD OR ALIVE）（コスプレ）,MIXED_ENGLISH_DEBRIS
+kasumi_(kancolle)_(cosplay),kasumi（kancolle）（コスプレ）,霞（艦これ）（コスプレ）,MIXED_ENGLISH_DEBRIS
+katori_(kancolle)_(cosplay),香取の服,香取（艦これ）（コスプレ）,SEMANTIC_ERROR
+katori_squad's_uniform,katori squadの制服,香取隊の制服,MIXED_ENGLISH_DEBRIS
+katsuragi_misato_(cosplay),カツーラギ師場（コスプレ）,葛城ミサト（コスプレ）,SEMANTIC_ERROR
+kawaii_kaiwai,タグ「kawaii kaiwai」,かわいい界隈,RAW_ENGLISH_WRAPPER
+kawakami_academy_school_uniform,川崎アカデミーのユニフォーム,川神学園の制服,SEMANTIC_ERROR
+kawasaki_(company),川崎,カワサキ（企業）,SEMANTIC_ERROR
+kawashiro_nitori_(cosplay),川島nitori（コスプレ）,河城にとり（コスプレ）,SEMANTIC_ERROR
+kayoko_(blue_archive)_(cosplay),kayoko (blue archive) (cosplay),鬼方カヨコ（ブルーアーカイブ）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+kazakh_clothes,kazakh・服,カザフの服,MIXED_ENGLISH_DEBRIS
+kazama_squad's_uniform,kazama squadの制服,風間隊の制服,MIXED_ENGLISH_DEBRIS
+kazamatsuri_institute_high_school_uniform,kazamatsuri institute highの学校制服,風祭学院高校の制服,MIXED_ENGLISH_DEBRIS
+kazami_yuuka_(cosplay),カザミユウカ（コスプレ）,風見幽香（コスプレ）,SEMANTIC_ERROR
+kazekoshi_school_uniform,Kazekoshi学校の制服,風越女子高校の制服,MIXED_ENGLISH_DEBRIS
+kazusa_(blue_archive)_(cosplay),kazusa (blue archive) (cosplay),杏山カズサ（ブルーアーカイブ）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+keizoku_(emblem),keizoku（エンブレム）,継続高校（エンブレム）,MIXED_ENGLISH_DEBRIS
+keizoku_military_uniform,剣道軍服,継続高校の軍服,SEMANTIC_ERROR
+keizoku_school_uniform,keizokuの学校制服,継続高校の制服,MIXED_ENGLISH_DEBRIS
+kel-tec_ksg,タグ「kel-tec ksg」,Kel-Tec KSG,RAW_ENGLISH_WRAPPER
+kel-tec_rfb,タグ「kel-tec rfb」,Kel-Tec RFB,RAW_ENGLISH_WRAPPER
