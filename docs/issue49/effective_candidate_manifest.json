@@ -4513,6 +4513,8 @@
     "integrity_report": "docs/issue49/protected_data_integrity.json"
   },
   "production_base": {
+    "base_commit": "ad9d0f314151b94b7888e9059d4a77cf5cfc4e22",
+    "base_ref": "origin/main",
     "bytes": 557177,
     "git_blob": "ac6c1d24e1c6ce04b238cc0b16d788f9d0965a05",
     "identity_hash": "b2f126ae9d49493034245fe006aad8eceb12eb2bf08a45160995b8da10b07763",

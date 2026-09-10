@@ -100,6 +100,13 @@ def _git_blob(ref: str, path: str) -> str:
         raise PromotionError(f"Cannot resolve evidence blob {ref}:{path}") from exc
 
 
+def _git_revision(ref: str) -> str:
+    try:
+        return _run_git("rev-parse", ref, text=True).strip()
+    except subprocess.CalledProcessError as exc:
+        raise PromotionError(f"Cannot resolve Git revision {ref}") from exc
+
+
 def _candidate_paths(ref: str) -> tuple[str, ...]:
     raw = _run_git(
         "ls-tree", "-r", "--name-only", ref, "validation_quarantine", text=True
@@ -624,6 +631,8 @@ def run(args: argparse.Namespace) -> dict:
     before_profile_bytes = profile_path.read_bytes()
     before_profile = {
         "path": profile_path.relative_to(root).as_posix(),
+        "base_ref": "origin/main",
+        "base_commit": _git_revision("origin/main"),
         "bytes": len(before_profile_bytes),
         "sha256": _sha256_bytes(before_profile_bytes),
         "git_blob": _git_file_blob(profile_path),

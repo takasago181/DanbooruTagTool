@@ -1,5 +1,8 @@
 # Issue #49 test results
 
+Correction-gate branch: `codex/issue49-dict-promotion-latest-main`.
+Latest-main base: `ad9d0f314151b94b7888e9059d4a77cf5cfc4e22`.
+
 All pytest commands used `-p no:cacheprovider` and an explicit writable
 `--basetemp` because the host's default pytest temp directory is inaccessible.
 

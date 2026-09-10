@@ -11,7 +11,8 @@ Issue #36 Japanese-overlay promotion remain prohibited.
 ## Source and base
 
 - Issue: #49
-- Production base: `origin/main` at `0be096644086101772340ee7ccf519de63139743`
+- Correction-gate branch: `codex/issue49-dict-promotion-latest-main`
+- Production base: `origin/main` at `ad9d0f314151b94b7888e9059d4a77cf5cfc4e22`
 - Read-only quarantine ref: `origin/dict-validation/quarantine` at `f476ce5578afa77bf754541d29efa6f55a048d12`
 - Candidate inputs: 36 files consisting of `validation_quarantine/candidate_fixes.csv` and the singular `validation_quarantine/candidate_fix_blocks/*.csv`
 - No protected raw dataset was added to Git
@@ -58,5 +59,8 @@ are not flattened into global truth.
 - `protected_data_integrity.json`: before/after hashes for integrity-coupled protected files
 - `test_results.md`: commands and results
 - `ROLLBACK.md`: rollback procedure
+
+The implementation commits were rebuilt on the latest-main base without merge
+conflicts. The final branch HEAD is reported with the push result.
 
 The implementation intentionally stops before the separate post-write audit.
