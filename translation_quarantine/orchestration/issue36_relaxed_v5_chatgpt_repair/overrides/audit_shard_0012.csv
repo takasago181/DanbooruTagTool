@@ -82,3 +82,42 @@ detached_eyes,detached・目,分離した目,MIXED_ENGLISH_DEBRIS
 detached_horns,孤立した角,分離した角,AWKWARD_MACHINE_TRANSLATION
 detached_legs,脚の孤立した脚,分離した脚,SEMANTIC_ERROR
 detached_magazine_(weapon),マガジン,取り外した弾倉,SEMANTIC_UNDERSPECIFICATION
+detached_pants,戸建てズボン,分離したズボン,SEMANTIC_ERROR
+determined,坚定,決意した,NON_JAPANESE_RESIDUE
+devil_fruit_power,タグ「devil fruit power」,悪魔の実の能力,RAW_ENGLISH_WRAPPER
+devil_sword_dante,devil・剣・dante,魔剣ダンテ,MIXED_ENGLISH_DEBRIS
+dezombification,タグ「dezombification」,ゾンビ化解除,RAW_ENGLISH_WRAPPER
+diagonal-striped_background,diagonal stripedの背景,斜め縞の背景,MIXED_ENGLISH_DEBRIS
+diagonal-striped_border,diagonal・ストライプ柄の枠,斜め縞の枠,MIXED_ENGLISH_DEBRIS
+diagonal-striped_bow,斜めの裂けた弓,斜め縞のリボン,SEMANTIC_ERROR
+diagonal-striped_bowtie,斜めの縞模様のボウタイ,斜め縞の蝶ネクタイ,AWKWARD_MACHINE_TRANSLATION
+diagonal-striped_clothes,diagonal・ストライプ柄の服,斜め縞の服,MIXED_ENGLISH_DEBRIS
+diagonal-striped_hat,diagonal・ストライプ柄の帽子,斜め縞の帽子,MIXED_ENGLISH_DEBRIS
+diagonal-striped_headwear,diagonal・ストライプ柄のheadwear,斜め縞の頭飾り,MIXED_ENGLISH_DEBRIS
+diagonal-striped_necktie,斜めのネクタイ,斜め縞のネクタイ,SEMANTIC_UNDERSPECIFICATION
+diagonal-striped_ribbon,diagonal・ストライプ柄のribbon,斜め縞のリボン,MIXED_ENGLISH_DEBRIS
+diagonal-striped_shirt,diagonal・ストライプ柄のシャツ,斜め縞のシャツ,MIXED_ENGLISH_DEBRIS
+diagonal-striped_thighhighs,diagonal stripedのニーハイ,斜め縞のサイハイソックス,MIXED_ENGLISH_DEBRIS
+diagonal_bangs,斜刘海,斜め前髪,NON_JAPANESE_RESIDUE
+dialogue,字幕,台詞,SEMANTIC_ERROR
+diamond-shaped_earrings,diamond shapedのイヤリング,ひし形のイヤリング,MIXED_ENGLISH_DEBRIS
+diamond_brooch,diamond・ブローチ,ダイヤモンドのブローチ,MIXED_ENGLISH_DEBRIS
+diamond_choker,タグ「diamond choker」,ダイヤモンドのチョーカー,RAW_ENGLISH_WRAPPER
+diamond_dust_(girls_band_cry),タグ「diamond dust (girls band cry)」,ダイヤモンドダスト（ガールズバンドクライ）,RAW_ENGLISH_WRAPPER
+diamond_facial_mark,diamond・facial・印,ひし形の顔の印,MIXED_ENGLISH_DEBRIS
+diamond_in_eye,diamondの中の目,目の中のひし形,SEMANTIC_RELATION_ERROR
+diamond_mouth,菱形嘴,ひし形の口,NON_JAPANESE_RESIDUE
+diamond_necklace,diamond・ネックレス,ダイヤモンドのネックレス,MIXED_ENGLISH_DEBRIS
+diamond_on_cheek,diamondの上のcheek,頬のひし形,SEMANTIC_RELATION_ERROR
+diamond_print,diamondの柄,ダイヤモンド柄,MIXED_ENGLISH_DEBRIS
+diamond_ring,钻戒,ダイヤモンドの指輪,NON_JAPANESE_RESIDUE
+diana_(pragmata)_(cosplay),diana (pragmata) (cosplay),ディアナ（PRAGMATA）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+dianzi,钿子,鈿子,NON_JAPANESE_RESIDUE
+diasomnia_dorm_uniform,diasomnia dormの制服,ディアソムニア寮の制服,MIXED_ENGLISH_DEBRIS
+dice_necklace,dice・ネックレス,サイコロのネックレス,MIXED_ENGLISH_DEBRIS
+dice_pendant,タグ「dice pendant」,サイコロのペンダント,RAW_ENGLISH_WRAPPER
+dick_in_a_box,dickの中の1つのbox,箱の中の陰茎,MIXED_ENGLISH_DEBRIS
+dieci_association_south_uniform,dieci association southの制服,ディエーチ協会南部の制服,MIXED_ENGLISH_DEBRIS
+different_zoom_layer,タグ「different zoom layer」,異なるズームレイヤー,RAW_ENGLISH_WRAPPER
+digimon_on_head,digimonの上の頭,頭の上のデジモン,SEMANTIC_RELATION_ERROR
+digital_dissolve,デジタル解散,デジタル消失,SEMANTIC_ERROR
