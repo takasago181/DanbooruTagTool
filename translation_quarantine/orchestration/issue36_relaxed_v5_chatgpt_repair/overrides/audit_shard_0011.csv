@@ -214,3 +214,97 @@ cow_print_bridal_gauntlets,cow・柄・花嫁用のガントレット,牛柄の�
 cow_print_hairband,cow・柄・ヘアバンド,牛柄ヘアバンド,MIXED_ENGLISH_DEBRIS
 cow_print_jacket,cow・柄・ジャケット,牛柄ジャケット,MIXED_ENGLISH_DEBRIS
 cow_print_panties,cow・柄・パンツ,牛柄パンティー,MIXED_ENGLISH_DEBRIS
+cow_print_pasties,cow・柄・pasties,牛柄ニップレス,MIXED_ENGLISH_DEBRIS
+cow_print_shrug,cow・柄・ボレロ,牛柄ボレロ,MIXED_ENGLISH_DEBRIS
+cow_print_sleeves,cow・柄・sleeves,牛柄の袖,MIXED_ENGLISH_DEBRIS
+cow_print_wrist_cuffs,cow・柄・手首・カフ,牛柄のリストカフス,MIXED_ENGLISH_DEBRIS
+cowering,カリスマガード,身をすくめる,SEMANTIC_ERROR
+cowl_neck,垂坠领,カウルネック,NON_JAPANESE_RESIDUE
+coyote_boy,タグ「coyote boy」,コヨーテ少年,RAW_ENGLISH_WRAPPER
+cpr,心臓マッサージ,心肺蘇生,SEMANTIC_UNDERSPECIFICATION
+cpu,タグ「cpu」,CPU,RAW_ENGLISH_WRAPPER
+crab_print,カニ印刷,カニ柄,SEMANTIC_ERROR
+crack_of_light,户外光,差し込む光,NON_JAPANESE_RESIDUE
+cracked_armor,crackedの鎧,ひび割れた鎧,MIXED_ENGLISH_DEBRIS
+cracked_background,crackedの背景,ひび割れた背景,MIXED_ENGLISH_DEBRIS
+cracked_face,cracked・顔,ひび割れた顔,MIXED_ENGLISH_DEBRIS
+cracked_helmet,cracked・ヘルメット,ひび割れたヘルメット,MIXED_ENGLISH_DEBRIS
+cracked_kawaii_mask,cracked・kawaii・マスク,ひび割れたかわいいマスク,MIXED_ENGLISH_DEBRIS
+cracked_skull,タグ「cracked skull」,ひび割れた頭蓋骨,RAW_ENGLISH_WRAPPER
+cracking_ground,タグ「cracking ground」,ひび割れる地面,RAW_ENGLISH_WRAPPER
+crackling_energy,crackling・エネルギー,火花を散らすエネルギー,MIXED_ENGLISH_DEBRIS
+cradle_position,タグ「cradle position」,抱きかかえる姿勢,RAW_ENGLISH_WRAPPER
+cradling_head,頭の頭,頭を抱きかかえる,SEMANTIC_ERROR
+cradling_phone,夹着听筒,受話器を肩で挟む,NON_JAPANESE_RESIDUE
+cranberry,蔓越莓,クランベリー,NON_JAPANESE_RESIDUE
+crane_print,craneの柄,鶴柄,MIXED_ENGLISH_DEBRIS
+crayon_drawing,タグ「crayon drawing」,クレヨン画,RAW_ENGLISH_WRAPPER
+cream_on_hands,creamの上の両手,手についたクリーム,RELATION_SEMANTIC_ERROR
+creative_signature,タグ「creative signature」,創意的な署名,RAW_ENGLISH_WRAPPER
+creator_and_creation,タグ「creator and creation」,作者と作品,RAW_ENGLISH_WRAPPER
+creator_name,タグ「creator name」,作者名,RAW_ENGLISH_WRAPPER
+creature_and_personification,馬とウマ,生き物とその擬人化,SEMANTIC_NARROWING
+creature_as_food,creature・as・食べ物,食べ物としての生き物,MIXED_ENGLISH_DEBRIS
+creature_focus,creature・焦点,生き物を強調,MIXED_ENGLISH_DEBRIS
+creature_on_arm,creatureの上の腕,腕の上の生き物,RELATION_SEMANTIC_ERROR
+creature_on_hand,creatureの上の手,手の上の生き物,RELATION_SEMANTIC_ERROR
+creature_on_lap,ラップのクリーチャー,膝の上の生き物,SEMANTIC_ERROR
+crescent-shaped_pupils,タグ「crescent-shaped pupils」,三日月型の瞳孔,RAW_ENGLISH_WRAPPER
+crescent_brooch,crescent・ブローチ,三日月のブローチ,MIXED_ENGLISH_DEBRIS
+crescent_cutout,タグ「crescent cutout」,三日月形の切り抜き,RAW_ENGLISH_WRAPPER
+crescent_halo,新月光环,三日月形の光輪,NON_JAPANESE_RESIDUE
+crescent_ornament,crescent・飾り,三日月の飾り,MIXED_ENGLISH_DEBRIS
+crescent_pendant,タグ「crescent pendant」,三日月のペンダント,RAW_ENGLISH_WRAPPER
+crescent_print,三日月印刷,三日月柄,SEMANTIC_ERROR
+crescent_wand,三日月,三日月の杖,SEMANTIC_UNDERSPECIFICATION
+crescent_wing_ornament,crescent・翼・飾り,三日月形の翼飾り,MIXED_ENGLISH_DEBRIS
+crest_of_flames,タグ「crest of flames」,炎の紋章,RAW_ENGLISH_WRAPPER
+crew_cut,板寸,クルーカット,NON_JAPANESE_RESIDUE
+crewmate_(among_us)_(cosplay),乗組員（私たちの間）（コスプレ）,クルーメイト（Among Us）（コスプレ）,SEMANTIC_ERROR
+crime_prevention_buzzer_threat,タグ「crime prevention buzzer threat」,防犯ブザーで威嚇,RAW_ENGLISH_WRAPPER
+crimes_against_food,crimes・対面した・食べ物,食べ物への冒涜,MIXED_ENGLISH_DEBRIS
+criss-cross_straps,criss・十字架・straps,クロスしたストラップ,MIXED_ENGLISH_DEBRIS
+criss-cross_strings,criss・十字架・strings,クロスした紐,MIXED_ENGLISH_DEBRIS
+criss-cross_suspenders,criss・十字架・suspenders,クロスしたサスペンダー,MIXED_ENGLISH_DEBRIS
+criss-crossed_composition,タグ「criss-crossed composition」,交差構図,RAW_ENGLISH_WRAPPER
+crocodile_boy,タグ「crocodile boy」,ワニ少年,RAW_ENGLISH_WRAPPER
+crocodile_girl,鳄魚娘,ワニ娘,NON_JAPANESE_RESIDUE
+crocodile_hair_ornament,crocodileの髪飾り,ワニの髪飾り,MIXED_ENGLISH_DEBRIS
+crooked_teeth,タグ「crooked teeth」,歪んだ歯,RAW_ENGLISH_WRAPPER
+cropped_arm,cropped・腕,画面で切れた腕,MIXED_ENGLISH_DEBRIS
+cropped_arms,トリミングされた腕,画面で切れた両腕,SEMANTIC_ERROR
+cropped_cardigan,タグ「cropped cardigan」,クロップド丈のカーディガン,RAW_ENGLISH_WRAPPER
+cropped_coat,cropped・コート,クロップド丈のコート,MIXED_ENGLISH_DEBRIS
+cropped_head,クロップドヘッド,画面で切れた頭,SEMANTIC_ERROR
+cropped_kimono,タグ「cropped kimono」,丈の短い着物,RAW_ENGLISH_WRAPPER
+cropped_rash_guard,タグ「cropped rash guard」,クロップド丈のラッシュガード,RAW_ENGLISH_WRAPPER
+cropped_shoulders,肩下裁切,画面で切れた肩,NON_JAPANESE_RESIDUE
+cropped_vest,トリミングされたベスト,クロップド丈のベスト,SEMANTIC_ERROR
+cross-body_stretch,交叉拉伸,クロスボディストレッチ,NON_JAPANESE_RESIDUE
+cross-laced_apron,十字架・laced・エプロン,クロス編み上げエプロン,MIXED_ENGLISH_DEBRIS
+cross-laced_armwear,十字架・laced・armwear,クロス編み上げ腕装具,MIXED_ENGLISH_DEBRIS
+cross-laced_bikini,架橋ビキニ,クロス編み上げビキニ,SEMANTIC_ERROR
+cross-laced_bra,十字架・laced・ブラ,クロス編み上げブラ,MIXED_ENGLISH_DEBRIS
+cross-laced_collar,十字架・laced・襟,クロス編み上げ襟,MIXED_ENGLISH_DEBRIS
+cross-laced_corset,十字架・laced・コルセット,クロス編み上げコルセット,MIXED_ENGLISH_DEBRIS
+cross-laced_dress,交叉系帯连衣裙,クロス編み上げドレス,NON_JAPANESE_RESIDUE
+cross-laced_gloves,架橋手袋,クロス編み上げ手袋,SEMANTIC_ERROR
+cross-laced_hairband,十字架・laced・ヘアバンド,クロス編み上げヘアバンド,MIXED_ENGLISH_DEBRIS
+cross-laced_headwear,十字架・laced・headwear,クロス編み上げ頭飾り,MIXED_ENGLISH_DEBRIS
+cross-laced_jacket,十字架・laced・ジャケット,クロス編み上げジャケット,MIXED_ENGLISH_DEBRIS
+cross-laced_leotard,交叉系紧身衣,クロス編み上げレオタード,NON_JAPANESE_RESIDUE
+cross-laced_one-piece_swimsuit,cross laced one pieceの水着,クロス編み上げワンピース水着,MIXED_ENGLISH_DEBRIS
+cross-laced_panties,架橋パンティー,クロス編み上げパンティー,SEMANTIC_ERROR
+cross-laced_pants,架橋パンツ,クロス編み上げパンツ,SEMANTIC_ERROR
+cross-laced_sandals,架橋サンダル,クロス編み上げサンダル,SEMANTIC_ERROR
+cross-laced_shoes,cross lacedの靴,クロス編み上げ靴,MIXED_ENGLISH_DEBRIS
+cross-laced_slit,架橋されたスリット,クロス編み上げスリット,SEMANTIC_ERROR
+cross-laced_sweater,十字架・laced・sweater,クロス編み上げセーター,MIXED_ENGLISH_DEBRIS
+cross-laced_vest,十字架・laced・vest,クロス編み上げベスト,MIXED_ENGLISH_DEBRIS
+cross-shaped_pupils,クロス型の生徒,十字型の瞳孔,SEMANTIC_ERROR
+cross-species_cosplay,クロス種のコスプレ,異種族コスプレ,SEMANTIC_ERROR
+cross_bracelet,十字架・bracelet,十字架のブレスレット,MIXED_ENGLISH_DEBRIS
+cross_cutout,切り抜き,十字形の切り抜き,SEMANTIC_UNDERSPECIFICATION
+cross_facial_mark,十字架・facial・印,十字形の顔の印,MIXED_ENGLISH_DEBRIS
+cross_halo,クロス・光輪,十字形の光輪,MIXED_ENGLISH_DEBRIS
+cross_hat_ornament,十字架・帽子・飾り,十字架の帽子飾り,MIXED_ENGLISH_DEBRIS
