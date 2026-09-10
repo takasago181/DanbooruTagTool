@@ -1,0 +1,40 @@
+canonical,old_display_ja,new_display_ja,reason
+jack_(playing_card),タグ「jack (playing card)」,ジャック（トランプ）,RAW_ENGLISH_WRAPPER
+jack_of_clubs_(playing_card),タグ「jack of clubs (playing card)」,クラブのジャック（トランプ）,RAW_ENGLISH_WRAPPER
+jack_of_diamonds,タグ「jack of diamonds」,ダイヤのジャック,RAW_ENGLISH_WRAPPER
+jack_the_ripper_(fate/apocrypha)_(cosplay),ジャックコス,ジャック・ザ・リッパー（Fate/Apocrypha）（コスプレ）,SEMANTIC_UNDERSPECIFICATION
+jackal_(hellsing),タグ「jackal (hellsing)」,ジャッカル（HELLSING）,RAW_ENGLISH_WRAPPER
+jackal_girl,タグ「jackal girl」,ジャッカル娘,RAW_ENGLISH_WRAPPER
+jackalope_girl,タグ「jackalope girl」,ジャッカロープ娘,RAW_ENGLISH_WRAPPER
+jacket_around_neck,ジャケット・周囲・首,首に巻いたジャケット,AWKWARD_MACHINE_TRANSLATION
+jacket_grab,ジャケットグラブ,ジャケットを掴む,AWKWARD_MACHINE_TRANSLATION
+jacket_lift,ジャケットリフト,ジャケットを持ち上げる,AWKWARD_MACHINE_TRANSLATION
+jacket_on_arm,ジャケットの上の腕,腕にかけたジャケット,SEMANTIC_RELATION_ERROR
+jacket_over_head,ジャケット・覆う・頭,頭を覆うジャケット,AWKWARD_MACHINE_TRANSLATION
+jacket_over_hoodie,ジャケットの上のhoodie,パーカーの上のジャケット,SEMANTIC_RELATION_ERROR
+jacket_over_jacket,ジャケット・覆う・ジャケット,ジャケットの上にジャケット,AWKWARD_MACHINE_TRANSLATION
+jacket_over_swimsuit,水着ジャージ,水着の上のジャケット,SEMANTIC_ERROR
+jacket_pull,ジャケットプル,ジャケットを引っ張る,AWKWARD_MACHINE_TRANSLATION
+jacket_tucked_in,ジャケット・tuckedの中の,裾を入れたジャケット,MIXED_ENGLISH_DEBRIS
+jacket_tug,ジャケットタグ,ジャケットをつまんで引く,SEMANTIC_ERROR
+jackets,タグ「jackets」,ジャケット,RAW_ENGLISH_WRAPPER
+jade_bracelet,玉镯,翡翠の腕輪,NON_JAPANESE_RESIDUE
+jade_pendant,タグ「jade pendant」,翡翠のペンダント,RAW_ENGLISH_WRAPPER
+jagged_sclera,タグ「jagged sclera」,ギザギザの強膜,RAW_ENGLISH_WRAPPER
+jaguar,美洲虎,ジャガー,NON_JAPANESE_RESIDUE
+james_(pokemon)_(cosplay),ジェームズ（ポケモン）（コスプレ）,コジロウ（ポケモン）（コスプレ）,SEMANTIC_ERROR
+jane_doe_(zenless_zone_zero)_(cosplay),jane doe (zenless zone zero) (cosplay),ジェーン・ドゥ（ゼンレスゾーンゼロ）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+janitor,管理人,用務員,SEMANTIC_ERROR
+japanese_castle,タグ「japanese castle」,日本の城,RAW_ENGLISH_WRAPPER
+japanese_flag_print,japanese flagの柄,日本国旗柄,MIXED_ENGLISH_DEBRIS
+japanese_national_soccer_team_uniform,サッカー日本代表,サッカー日本代表のユニフォーム,SEMANTIC_UNDERSPECIFICATION
+japanese_saw,横挽き,和鋸,SEMANTIC_NARROWING
+japanese_tankery_league_(emblem),日本のタンクリーグ（エンブレム）,日本戦車道連盟（エンブレム）,SEMANTIC_ERROR
+japanese_tankery_league_judge_uniform,日本のタンクリーリーグジャッジユニフォーム,日本戦車道連盟審判員の制服,SEMANTIC_ERROR
+jazz_for_your_soul_(meme),jazz for your soul (meme),魂にジャズを（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+jeanne_d'arc_(fate)_(cosplay),jeanne d'arc (fate) (cosplay),ジャンヌ・ダルク（Fate）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+jeanne_d'arc_alter_santa_lily_(fate)_(cosplay),jeanne d'arc alter santa lily (fate) (cosplay),ジャンヌ・ダルク・オルタ・サンタ・リリィ（Fate）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+jeep_wrangler,タグ「jeep wrangler」,ジープ・ラングラー,RAW_ENGLISH_WRAPPER
+jelly_cube,タグ「jelly cube」,ゼリーキューブ,RAW_ENGLISH_WRAPPER
+jelly_drink,jelly・飲み物,ゼリー飲料,MIXED_ENGLISH_DEBRIS
+jellyfish_earrings,jellyfishのイヤリング,クラゲのイヤリング,MIXED_ENGLISH_DEBRIS
