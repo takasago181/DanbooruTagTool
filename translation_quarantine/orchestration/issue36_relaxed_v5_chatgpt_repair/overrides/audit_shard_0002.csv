@@ -1,0 +1,8 @@
+canonical,old_display_ja,new_display_ja,reason
+:/,歪嘴,口を斜めにした表情,NON_JAPANESE_RESIDUE
+>:),自信闭嘴笑,悪そうな笑顔,NON_JAPANESE_RESIDUE
+alcohol_enema,肛門ワイン,アルコール浣腸,ADULT_TAG_SEMANTIC_ERROR
+animal_genitalia_on_humanoid,人型キャラクター上の動物の性器,人型キャラクターの動物型性器,RELATION_SEMANTIC_ERROR
+back_focus,魅惑の背中,背中を強調,SEMANTIC_ADDITION_ERROR
+branding_iron,ブランディングアイロン,焼印ごて,LITERAL_TRANSLATION_ERROR
+commissioner_name,タグ「commissioner name」,依頼者名,RAW_ENGLISH_WRAPPER
