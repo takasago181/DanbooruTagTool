@@ -1,0 +1,472 @@
+{
+  "schema_version": "issue30.phase2.generation_batch_result.v1",
+  "status": "BATCH_COMPLETE_REVIEW_REQUIRED",
+  "manifest": "docs\\testing\\ISSUE30_PHASE2_GENERATION_BATCH_MANIFEST.csv",
+  "run_id": "issue30-phase2-generation-batch-20260911",
+  "local_artifact_root": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911",
+  "contact_sheet": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\review_queue\\generation_batch_large_question_contact_sheet.png",
+  "new_images_generated": 12,
+  "reused_images": 0,
+  "evaluator_runs": 36,
+  "review_pairs": 6,
+  "reviewed_images": 12,
+  "artifact_gate": {
+    "PASS": 12
+  },
+  "blocked_count": 0,
+  "review_display": {
+    "font_path": "C:\\Windows\\Fonts\\meiryo.ttc",
+    "question_font_px": 30,
+    "display_check": "PASS",
+    "question_sample": "Bでは、手に持った性具がバイブレーターとして見え、手で持つ状態も同時に成立しているか？"
+  },
+  "generation_profile": {
+    "model_family": "Illustrious XL",
+    "checkpoint": "waiIllustriousSDXL_v170.safetensors",
+    "checkpoint_hash": "f116b0c78ff441467b0cdc8f1936e1ed18ea31e9997c7b132b1b8db533f0bd04",
+    "forge_version": "neo-2.29",
+    "sampler": "Euler a",
+    "steps": 25,
+    "cfg": 5.0,
+    "resolution": {
+      "width": 1024,
+      "height": 1344
+    },
+    "lora": {
+      "present": false,
+      "names": [],
+      "weights": []
+    }
+  },
+  "experiments": [
+    {
+      "case_id": "GB-001",
+      "calibration_role": "MULTI_SPECIAL_RETENTION",
+      "special_ids": [
+        750,
+        263
+      ],
+      "canonical": "holding sex toy + vibrator",
+      "canonical_ja": "性具を手に持つ状態 + バイブレーター",
+      "question_ja": "Bでは、手に持った性具がバイブレーターとして見え、手で持つ状態も同時に成立しているか？",
+      "image_count": 4,
+      "condition_a": {
+        "prompt": "masterpiece, best quality, 1girl, solo, holding sex toy, simple background",
+        "negative_prompt": "lowres, blurry, text, watermark, jpeg artifacts"
+      },
+      "condition_b": {
+        "prompt": "masterpiece, best quality, 1girl, solo, holding sex toy, vibrator, simple background",
+        "negative_prompt": "lowres, blurry, text, watermark, jpeg artifacts"
+      },
+      "traceability_tokens": {
+        "GB-001__target_present_seed_a": {
+          "positive_ja": "masterpiece (傑作), best quality (最高品質), 1girl (女の子1人), solo (1人), holding sex toy (性具を手に持っている描写), simple background (シンプルな背景)",
+          "negative_ja": "lowres (低解像度), blurry (ぼやけ), text (文字), watermark (透かし), jpeg artifacts (JPEGアーティファクト)"
+        },
+        "GB-001__target_present_seed_b": {
+          "positive_ja": "masterpiece (傑作), best quality (最高品質), 1girl (女の子1人), solo (1人), holding sex toy (性具を手に持っている描写), simple background (シンプルな背景)",
+          "negative_ja": "lowres (低解像度), blurry (ぼやけ), text (文字), watermark (透かし), jpeg artifacts (JPEGアーティファクト)"
+        },
+        "GB-001__contrast_seed_a": {
+          "positive_ja": "masterpiece (傑作), best quality (最高品質), 1girl (女の子1人), solo (1人), holding sex toy (性具を手に持っている描写), vibrator (バイブレーター), simple background (シンプルな背景)",
+          "negative_ja": "lowres (低解像度), blurry (ぼやけ), text (文字), watermark (透かし), jpeg artifacts (JPEGアーティファクト)"
+        },
+        "GB-001__contrast_seed_b": {
+          "positive_ja": "masterpiece (傑作), best quality (最高品質), 1girl (女の子1人), solo (1人), holding sex toy (性具を手に持っている描写), vibrator (バイブレーター), simple background (シンプルな背景)",
+          "negative_ja": "lowres (低解像度), blurry (ぼやけ), text (文字), watermark (透かし), jpeg artifacts (JPEGアーティファクト)"
+        }
+      }
+    },
+    {
+      "case_id": "GB-002",
+      "calibration_role": "SINGLE_SUPPORT_TAG_EFFECT",
+      "special_ids": [
+        264,
+        147
+      ],
+      "canonical": "vibrator in anus + anal",
+      "canonical_ja": "肛門内にバイブレーターを挿入した状態 + アナル性交",
+      "question_ja": "Bでは、バイブレーターが肛門内に見えているか？",
+      "image_count": 4,
+      "condition_a": {
+        "prompt": "masterpiece, best quality, 1girl, solo, vibrator in anus, simple background",
+        "negative_prompt": "lowres, blurry, text, watermark, jpeg artifacts"
+      },
+      "condition_b": {
+        "prompt": "masterpiece, best quality, 1girl, solo, vibrator in anus, anal, simple background",
+        "negative_prompt": "lowres, blurry, text, watermark, jpeg artifacts"
+      },
+      "traceability_tokens": {
+        "GB-002__target_present_seed_a": {
+          "positive_ja": "masterpiece (傑作), best quality (最高品質), 1girl (女の子1人), solo (1人), vibrator in anus (肛門内にバイブレーターを挿入した状態), simple background (シンプルな背景)",
+          "negative_ja": "lowres (低解像度), blurry (ぼやけ), text (文字), watermark (透かし), jpeg artifacts (JPEGアーティファクト)"
+        },
+        "GB-002__target_present_seed_b": {
+          "positive_ja": "masterpiece (傑作), best quality (最高品質), 1girl (女の子1人), solo (1人), vibrator in anus (肛門内にバイブレーターを挿入した状態), simple background (シンプルな背景)",
+          "negative_ja": "lowres (低解像度), blurry (ぼやけ), text (文字), watermark (透かし), jpeg artifacts (JPEGアーティファクト)"
+        },
+        "GB-002__contrast_seed_a": {
+          "positive_ja": "masterpiece (傑作), best quality (最高品質), 1girl (女の子1人), solo (1人), vibrator in anus (肛門内にバイブレーターを挿入した状態), anal (アナル性交), simple background (シンプルな背景)",
+          "negative_ja": "lowres (低解像度), blurry (ぼやけ), text (文字), watermark (透かし), jpeg artifacts (JPEGアーティファクト)"
+        },
+        "GB-002__contrast_seed_b": {
+          "positive_ja": "masterpiece (傑作), best quality (最高品質), 1girl (女の子1人), solo (1人), vibrator in anus (肛門内にバイブレーターを挿入した状態), anal (アナル性交), simple background (シンプルな背景)",
+          "negative_ja": "lowres (低解像度), blurry (ぼやけ), text (文字), watermark (透かし), jpeg artifacts (JPEGアーティファクト)"
+        }
+      }
+    },
+    {
+      "case_id": "GB-003",
+      "calibration_role": "SPECIFIC_ONLY_VS_BROAD_PLUS_SPECIFIC",
+      "special_ids": [
+        2024,
+        2170
+      ],
+      "canonical": "breast expansion + breasts",
+      "canonical_ja": "乳房の誇張拡大 + 乳房",
+      "question_ja": "Bでは、乳房が誇張して大きくなる状態が成立しているか？",
+      "image_count": 4,
+      "condition_a": {
+        "prompt": "masterpiece, best quality, 1girl, solo, breast expansion, simple background",
+        "negative_prompt": "lowres, blurry, text, watermark, jpeg artifacts"
+      },
+      "condition_b": {
+        "prompt": "masterpiece, best quality, 1girl, solo, breasts, breast expansion, simple background",
+        "negative_prompt": "lowres, blurry, text, watermark, jpeg artifacts"
+      },
+      "traceability_tokens": {
+        "GB-003__target_present_seed_a": {
+          "positive_ja": "masterpiece (傑作), best quality (最高品質), 1girl (女の子1人), solo (1人), breast expansion (乳房が異常・誇張して大きくなる表現), simple background (シンプルな背景)",
+          "negative_ja": "lowres (低解像度), blurry (ぼやけ), text (文字), watermark (透かし), jpeg artifacts (JPEGアーティファクト)"
+        },
+        "GB-003__target_present_seed_b": {
+          "positive_ja": "masterpiece (傑作), best quality (最高品質), 1girl (女の子1人), solo (1人), breast expansion (乳房が異常・誇張して大きくなる表現), simple background (シンプルな背景)",
+          "negative_ja": "lowres (低解像度), blurry (ぼやけ), text (文字), watermark (透かし), jpeg artifacts (JPEGアーティファクト)"
+        },
+        "GB-003__contrast_seed_a": {
+          "positive_ja": "masterpiece (傑作), best quality (最高品質), 1girl (女の子1人), solo (1人), breasts (乳房), breast expansion (乳房が異常・誇張して大きくなる表現), simple background (シンプルな背景)",
+          "negative_ja": "lowres (低解像度), blurry (ぼやけ), text (文字), watermark (透かし), jpeg artifacts (JPEGアーティファクト)"
+        },
+        "GB-003__contrast_seed_b": {
+          "positive_ja": "masterpiece (傑作), best quality (最高品質), 1girl (女の子1人), solo (1人), breasts (乳房), breast expansion (乳房が異常・誇張して大きくなる表現), simple background (シンプルな背景)",
+          "negative_ja": "lowres (低解像度), blurry (ぼやけ), text (文字), watermark (透かし), jpeg artifacts (JPEGアーティファクト)"
+        }
+      }
+    }
+  ],
+  "image_records": [
+    {
+      "image_id": "GB-001__target_present_seed_a",
+      "case_id": "GB-001",
+      "condition": "A",
+      "seed": 43001,
+      "prompt": "masterpiece, best quality, 1girl, solo, holding sex toy, simple background",
+      "negative_prompt": "lowres, blurry, text, watermark, jpeg artifacts",
+      "image_path": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\images\\GB-001__target_present_seed_a.png",
+      "sha256": "07c391b6b903a1d93ced4993332e0874a58bd334749abf495a98dc3bfb06e148",
+      "bytes": 1502509,
+      "width": 1024,
+      "height": 1344,
+      "artifact_gate": {
+        "status": "PASS",
+        "reasons": []
+      },
+      "evaluator_references": {
+        "wd14": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-003__contrast_seed_b.json",
+        "kagami": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-003__contrast_seed_b.json.gz",
+        "cl_v2_00": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-003__contrast_seed_b.json.gz"
+      },
+      "screening_classes": [
+        "RELATION_OR_BINDING"
+      ],
+      "reused": false
+    },
+    {
+      "image_id": "GB-001__target_present_seed_b",
+      "case_id": "GB-001",
+      "condition": "A",
+      "seed": 43002,
+      "prompt": "masterpiece, best quality, 1girl, solo, holding sex toy, simple background",
+      "negative_prompt": "lowres, blurry, text, watermark, jpeg artifacts",
+      "image_path": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\images\\GB-001__target_present_seed_b.png",
+      "sha256": "f7744f5d3a857e8e1796768a88efdeea49a69bac72930231e8d6c0917bb8d819",
+      "bytes": 1463407,
+      "width": 1024,
+      "height": 1344,
+      "artifact_gate": {
+        "status": "PASS",
+        "reasons": []
+      },
+      "evaluator_references": {
+        "wd14": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-003__contrast_seed_b.json",
+        "kagami": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-003__contrast_seed_b.json.gz",
+        "cl_v2_00": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-003__contrast_seed_b.json.gz"
+      },
+      "screening_classes": [
+        "RELATION_OR_BINDING"
+      ],
+      "reused": false
+    },
+    {
+      "image_id": "GB-001__contrast_seed_a",
+      "case_id": "GB-001",
+      "condition": "B",
+      "seed": 43001,
+      "prompt": "masterpiece, best quality, 1girl, solo, holding sex toy, vibrator, simple background",
+      "negative_prompt": "lowres, blurry, text, watermark, jpeg artifacts",
+      "image_path": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\images\\GB-001__contrast_seed_a.png",
+      "sha256": "c1ae1c8a2800d742f5b64c84d6dce985bc06452d05619d786c9396fb4c451a70",
+      "bytes": 1322192,
+      "width": 1024,
+      "height": 1344,
+      "artifact_gate": {
+        "status": "PASS",
+        "reasons": []
+      },
+      "evaluator_references": {
+        "wd14": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-003__contrast_seed_b.json",
+        "kagami": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-003__contrast_seed_b.json.gz",
+        "cl_v2_00": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-003__contrast_seed_b.json.gz"
+      },
+      "screening_classes": [
+        "RELATION_OR_BINDING"
+      ],
+      "reused": false
+    },
+    {
+      "image_id": "GB-001__contrast_seed_b",
+      "case_id": "GB-001",
+      "condition": "B",
+      "seed": 43002,
+      "prompt": "masterpiece, best quality, 1girl, solo, holding sex toy, vibrator, simple background",
+      "negative_prompt": "lowres, blurry, text, watermark, jpeg artifacts",
+      "image_path": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\images\\GB-001__contrast_seed_b.png",
+      "sha256": "72bd39635b79d6ac83106e2919c27e5a6ecfdbc243ebb9372148f483db8cde32",
+      "bytes": 1461156,
+      "width": 1024,
+      "height": 1344,
+      "artifact_gate": {
+        "status": "PASS",
+        "reasons": []
+      },
+      "evaluator_references": {
+        "wd14": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-003__contrast_seed_b.json",
+        "kagami": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-003__contrast_seed_b.json.gz",
+        "cl_v2_00": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-003__contrast_seed_b.json.gz"
+      },
+      "screening_classes": [
+        "RELATION_OR_BINDING"
+      ],
+      "reused": false
+    },
+    {
+      "image_id": "GB-002__target_present_seed_a",
+      "case_id": "GB-002",
+      "condition": "A",
+      "seed": 43011,
+      "prompt": "masterpiece, best quality, 1girl, solo, vibrator in anus, simple background",
+      "negative_prompt": "lowres, blurry, text, watermark, jpeg artifacts",
+      "image_path": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\images\\GB-002__target_present_seed_a.png",
+      "sha256": "93670d3308113ad6af924d2d7b276431bd53219e083c09ba253b8044a1b42113",
+      "bytes": 1243452,
+      "width": 1024,
+      "height": 1344,
+      "artifact_gate": {
+        "status": "PASS",
+        "reasons": []
+      },
+      "evaluator_references": {
+        "wd14": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-003__contrast_seed_b.json",
+        "kagami": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-003__contrast_seed_b.json.gz",
+        "cl_v2_00": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-003__contrast_seed_b.json.gz"
+      },
+      "screening_classes": [
+        "RELATION_OR_BINDING"
+      ],
+      "reused": false
+    },
+    {
+      "image_id": "GB-002__target_present_seed_b",
+      "case_id": "GB-002",
+      "condition": "A",
+      "seed": 43012,
+      "prompt": "masterpiece, best quality, 1girl, solo, vibrator in anus, simple background",
+      "negative_prompt": "lowres, blurry, text, watermark, jpeg artifacts",
+      "image_path": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\images\\GB-002__target_present_seed_b.png",
+      "sha256": "4855ac3ec0ecaa6ff7d4cd52a4dc2f291cc99fe9ed4fefc521b55005f7cd9988",
+      "bytes": 1436447,
+      "width": 1024,
+      "height": 1344,
+      "artifact_gate": {
+        "status": "PASS",
+        "reasons": []
+      },
+      "evaluator_references": {
+        "wd14": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-003__contrast_seed_b.json",
+        "kagami": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-003__contrast_seed_b.json.gz",
+        "cl_v2_00": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-003__contrast_seed_b.json.gz"
+      },
+      "screening_classes": [
+        "RELATION_OR_BINDING"
+      ],
+      "reused": false
+    },
+    {
+      "image_id": "GB-002__contrast_seed_a",
+      "case_id": "GB-002",
+      "condition": "B",
+      "seed": 43011,
+      "prompt": "masterpiece, best quality, 1girl, solo, vibrator in anus, anal, simple background",
+      "negative_prompt": "lowres, blurry, text, watermark, jpeg artifacts",
+      "image_path": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\images\\GB-002__contrast_seed_a.png",
+      "sha256": "e79d15ce2fe2bd524d021c19a0ac1a6893dfe6f07d59c073af879d8861f6bf11",
+      "bytes": 1381555,
+      "width": 1024,
+      "height": 1344,
+      "artifact_gate": {
+        "status": "PASS",
+        "reasons": []
+      },
+      "evaluator_references": {
+        "wd14": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-003__contrast_seed_b.json",
+        "kagami": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-003__contrast_seed_b.json.gz",
+        "cl_v2_00": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-003__contrast_seed_b.json.gz"
+      },
+      "screening_classes": [
+        "RELATION_OR_BINDING"
+      ],
+      "reused": false
+    },
+    {
+      "image_id": "GB-002__contrast_seed_b",
+      "case_id": "GB-002",
+      "condition": "B",
+      "seed": 43012,
+      "prompt": "masterpiece, best quality, 1girl, solo, vibrator in anus, anal, simple background",
+      "negative_prompt": "lowres, blurry, text, watermark, jpeg artifacts",
+      "image_path": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\images\\GB-002__contrast_seed_b.png",
+      "sha256": "63f573928c12963427f1e37acee809c5ff7c0c754f35c8269b193595d91a7191",
+      "bytes": 1509875,
+      "width": 1024,
+      "height": 1344,
+      "artifact_gate": {
+        "status": "PASS",
+        "reasons": []
+      },
+      "evaluator_references": {
+        "wd14": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-003__contrast_seed_b.json",
+        "kagami": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-003__contrast_seed_b.json.gz",
+        "cl_v2_00": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-003__contrast_seed_b.json.gz"
+      },
+      "screening_classes": [
+        "RELATION_OR_BINDING"
+      ],
+      "reused": false
+    },
+    {
+      "image_id": "GB-003__target_present_seed_a",
+      "case_id": "GB-003",
+      "condition": "A",
+      "seed": 43021,
+      "prompt": "masterpiece, best quality, 1girl, solo, breast expansion, simple background",
+      "negative_prompt": "lowres, blurry, text, watermark, jpeg artifacts",
+      "image_path": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\images\\GB-003__target_present_seed_a.png",
+      "sha256": "4494a13bfeb1d61395c0e3114c81826f8918a3f440dc29b8d437490a4c037ba3",
+      "bytes": 960917,
+      "width": 1024,
+      "height": 1344,
+      "artifact_gate": {
+        "status": "PASS",
+        "reasons": []
+      },
+      "evaluator_references": {
+        "wd14": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-003__contrast_seed_b.json",
+        "kagami": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-003__contrast_seed_b.json.gz",
+        "cl_v2_00": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-003__contrast_seed_b.json.gz"
+      },
+      "screening_classes": [
+        "LOW_CONFIDENCE"
+      ],
+      "reused": false
+    },
+    {
+      "image_id": "GB-003__target_present_seed_b",
+      "case_id": "GB-003",
+      "condition": "A",
+      "seed": 43022,
+      "prompt": "masterpiece, best quality, 1girl, solo, breast expansion, simple background",
+      "negative_prompt": "lowres, blurry, text, watermark, jpeg artifacts",
+      "image_path": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\images\\GB-003__target_present_seed_b.png",
+      "sha256": "1fedd9c080e7894d089f1a4bc6683e206e58d4ba37a8a12cdb2ab473cda0f4b1",
+      "bytes": 1549434,
+      "width": 1024,
+      "height": 1344,
+      "artifact_gate": {
+        "status": "PASS",
+        "reasons": []
+      },
+      "evaluator_references": {
+        "wd14": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-003__contrast_seed_b.json",
+        "kagami": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-003__contrast_seed_b.json.gz",
+        "cl_v2_00": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-003__contrast_seed_b.json.gz"
+      },
+      "screening_classes": [
+        "LOW_CONFIDENCE"
+      ],
+      "reused": false
+    },
+    {
+      "image_id": "GB-003__contrast_seed_a",
+      "case_id": "GB-003",
+      "condition": "B",
+      "seed": 43021,
+      "prompt": "masterpiece, best quality, 1girl, solo, breasts, breast expansion, simple background",
+      "negative_prompt": "lowres, blurry, text, watermark, jpeg artifacts",
+      "image_path": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\images\\GB-003__contrast_seed_a.png",
+      "sha256": "cffe1cd66fc07513de01123c6bbb70ee7c57afe44da8323ae96bd9fc048fb4e5",
+      "bytes": 1063174,
+      "width": 1024,
+      "height": 1344,
+      "artifact_gate": {
+        "status": "PASS",
+        "reasons": []
+      },
+      "evaluator_references": {
+        "wd14": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-003__contrast_seed_b.json",
+        "kagami": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-003__contrast_seed_b.json.gz",
+        "cl_v2_00": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-003__contrast_seed_b.json.gz"
+      },
+      "screening_classes": [
+        "LOW_CONFIDENCE"
+      ],
+      "reused": false
+    },
+    {
+      "image_id": "GB-003__contrast_seed_b",
+      "case_id": "GB-003",
+      "condition": "B",
+      "seed": 43022,
+      "prompt": "masterpiece, best quality, 1girl, solo, breasts, breast expansion, simple background",
+      "negative_prompt": "lowres, blurry, text, watermark, jpeg artifacts",
+      "image_path": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\images\\GB-003__contrast_seed_b.png",
+      "sha256": "21f63463af1bb6d4f484a7567b90dbea408cb252711d5ba43f9507aec44d1478",
+      "bytes": 1537156,
+      "width": 1024,
+      "height": 1344,
+      "artifact_gate": {
+        "status": "PASS",
+        "reasons": []
+      },
+      "evaluator_references": {
+        "wd14": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\wd14\\GB-003__contrast_seed_b.json",
+        "kagami": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\kagami\\GB-003__contrast_seed_b.json.gz",
+        "cl_v2_00": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_generation_batch_20260911\\raw\\cl v2.00\\GB-003__contrast_seed_b.json.gz"
+      },
+      "screening_classes": [
+        "LOW_CONFIDENCE"
+      ],
+      "reused": false
+    }
+  ],
+  "decision": "HOLD_FOR_HUMAN_REVIEW"
+}

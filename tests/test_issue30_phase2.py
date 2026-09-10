@@ -16,6 +16,8 @@ WAVE2_RESULT = ROOT / "docs/testing/ISSUE30_PHASE2_WAVE2_RESULT.json"
 REUSE_MANIFEST = ROOT / "docs/testing/ISSUE30_PHASE2_REUSE_REVIEW_MANIFEST.csv"
 REUSE_RESULT = ROOT / "docs/testing/ISSUE30_PHASE2_REUSE_REVIEW_RESULT.json"
 REUSE_HUMAN_RESULT = ROOT / "docs/testing/ISSUE30_PHASE2_REUSE_REVIEW_HUMAN_RESULTS_20260911.json"
+BATCH_MANIFEST = ROOT / "docs/testing/ISSUE30_PHASE2_GENERATION_BATCH_MANIFEST.csv"
+BATCH_RESULT = ROOT / "docs/testing/ISSUE30_PHASE2_GENERATION_BATCH_RESULT.json"
 HUMAN_REVIEW = ROOT / "docs/testing/ISSUE30_PHASE2_HUMAN_REVIEW_RESULTS_20260910.json"
 
 
@@ -118,3 +120,21 @@ def test_reuse_only_human_review_records_two_a_only_pass_pairs():
     assert [row["result"] for row in report["pair_results"]] == ["A_ONLY_PASS", "A_ONLY_PASS"]
     assert report["summary"]["a_only_pass_pairs"] == 2
     assert report["summary"]["decision"] == "HOLD_FOR_DEV_PHASE2_CLOSE"
+
+
+def test_generation_batch_is_bounded_and_keeps_review_display_separate():
+    with BATCH_MANIFEST.open(encoding="utf-8-sig", newline="") as stream:
+        cases = list(csv.DictReader(stream))
+    assert len(cases) == 3
+    assert len(cases) * 4 == 12
+    validate_cases(cases, load_profiles())
+    report = json.loads(BATCH_RESULT.read_text(encoding="utf-8"))
+    assert report["status"] == "BATCH_COMPLETE_REVIEW_REQUIRED"
+    assert report["new_images_generated"] == 12
+    assert report["reused_images"] == 0
+    assert report["evaluator_runs"] == 36
+    assert report["review_pairs"] == 6
+    assert report["reviewed_images"] == 12
+    assert report["blocked_count"] == 0
+    assert report["review_display"]["display_check"] == "PASS"
+    assert report["review_display"]["question_font_px"] >= 24
