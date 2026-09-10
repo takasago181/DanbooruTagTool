@@ -1,0 +1,36 @@
+canonical,old_display_ja,new_display_ja,reason
+kouno_marika's_silence_suzuka_drawing_(meme),高野スズカ,高野麻里佳が描いたサイレンススズカ（ミーム）,SEMANTIC_ERROR
+kousaka_kirino's_school_uniform,Kousaka Kirinoの学校の制服,高坂桐乃の学校制服,MIXED_ENGLISH_DEBRIS
+kouyouen_academy_school_uniform,光陽園ハルヒ,光陽園学院の制服,SEMANTIC_ERROR
+koyanskaya_(fate)_(cosplay),koyanskaya（運命）（コスプレ）,コヤンスカヤ（Fate）（コスプレ）,MIXED_ENGLISH_DEBRIS
+kozaki_yuusuke_(style),タグ「kozaki yuusuke (style)」,コザキユースケ風,RAW_ENGLISH_WRAPPER
+kraken_regiment,タグ「kraken regiment」,クラーケン連隊,RAW_ENGLISH_WRAPPER
+kris_hair_ornament,krisの髪飾り,クリスナイフの髪飾り,MIXED_ENGLISH_DEBRIS
+kriss_vector,スーパーV,KRISS Vector,SEMANTIC_ERROR
+ksvk_12.7,タグ「ksvk 12.7」,KSVK 12.7,RAW_ENGLISH_WRAPPER
+kuja_pirates_jolly_roger,タグ「kuja pirates jolly roger」,九蛇海賊団の海賊旗,RAW_ENGLISH_WRAPPER
+kujo_jolyne_(cosplay),Kujo Jolyne（コスプレ）,空条徐倫（コスプレ）,MIXED_ENGLISH_DEBRIS
+kujo_jotaro's_pose,kujo・jotaro・ポーズ,空条承太郎のポーズ,MIXED_ENGLISH_DEBRIS
+kujo_jotaro_(cosplay),Kujo Jotaro（コスプレ）,空条承太郎（コスプレ）,MIXED_ENGLISH_DEBRIS
+kunai_hair_ornament,kunaiの髪飾り,くないの髪飾り,MIXED_ENGLISH_DEBRIS
+kung_fu,功夫,カンフー,NON_JAPANESE_RESIDUE
+kunugigaoka_middle_school_uniform,クヌギガカ川中学校のユニフォーム,椚ヶ丘中学校の制服,SEMANTIC_ERROR
+kuoh_academy_school_uniform,kuoh academyの学校制服,駒王学園の制服,MIXED_ENGLISH_DEBRIS
+kurobara_girls_high_school_uniform,黒薔薇女子高校,黒薔薇女子高校の制服,SEMANTIC_UNDERSPECIFICATION
+kurokumo_clan_(identity)_(project_moon),kurokumo clan (identity) (project moon),黒雲会（人格）（Project Moon）,CANONICAL_FALLBACK_TRANSLATABLE
+kuromorimine_(emblem),クロモリミン（エンブレム）,黒森峰女学園（エンブレム）,SEMANTIC_ERROR
+kuromorimine_military_uniform,黒森峰制服,黒森峰女学園の軍服,SEMANTIC_UNDERSPECIFICATION
+kuromorimine_school_uniform,黒森峰制服,黒森峰女学園の制服,SEMANTIC_UNDERSPECIFICATION
+kurumibashi_school_uniform,胡桃橋中学校,胡桃橋中学校の制服,SEMANTIC_UNDERSPECIFICATION
+kusanagi_motoko_(cosplay),モトコクサナギ（コスプレ）,草薙素子（コスプレ）,SEMANTIC_ERROR
+kwon_eun-bi_(cosplay),kwon eun-bi (cosplay),クォン・ウンビ（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+kwon_eun-bi_waterbomb_performance_(meme),kwon eun-bi waterbomb performance (meme),クォン・ウンビのWATERBOMBパフォーマンス（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+kyouwa_school_uniform,共和学園,共和学園の制服,SEMANTIC_UNDERSPECIFICATION
+kyubey_(cosplay),Kyubey（コスプレ）,キュゥべえ（コスプレ）,MIXED_ENGLISH_DEBRIS
+lace-trimmed_ascot,レース・整えた・ascot,レース縁取りのアスコット,MIXED_ENGLISH_DEBRIS
+lace-trimmed_blindfold,レース・整えた・目隠し,レース縁取りの目隠し,AWKWARD_MACHINE_TRANSLATION
+lace-trimmed_boots,レース・整えたのブーツ,レース縁取りのブーツ,AWKWARD_MACHINE_TRANSLATION
+lace-trimmed_bow,レーストリミングされた弓,レース縁取りのリボン,SEMANTIC_ERROR
+lace-trimmed_bowtie,レース・整えた・bowtie,レース縁取りの蝶ネクタイ,MIXED_ENGLISH_DEBRIS
+lace-trimmed_dress,蕾丝辺连衣裙,レース縁取りのドレス,NON_JAPANESE_RESIDUE
+lace-trimmed_jacket,レース・整えた・ジャケット,レース縁取りのジャケット,AWKWARD_MACHINE_TRANSLATION
