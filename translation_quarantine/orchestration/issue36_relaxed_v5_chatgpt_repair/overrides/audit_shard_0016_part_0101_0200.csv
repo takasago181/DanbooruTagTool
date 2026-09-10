@@ -1,0 +1,59 @@
+canonical,old_display_ja,new_display_ja,reason
+hand_in_another's_glove,手の中の他人のglove,他人の手袋の中に手,MIXED_ENGLISH_DEBRIS
+hand_in_another's_pants,手の中の他人のパンツ,他人のズボンの中に手,SEMANTIC_RELATION_ERROR
+hand_in_another's_pantyhose,hand in anotherのパンスト,他人のパンストの中に手,MIXED_ENGLISH_DEBRIS
+hand_in_another's_pocket,ポケットに手,他人のポケットに手,SEMANTIC_UNDERSPECIFICATION
+hand_in_another's_shirt,手の中の他人のシャツ,他人のシャツの中に手,SEMANTIC_RELATION_ERROR
+hand_in_clothes,手の中の服,服の中に手,SEMANTIC_RELATION_ERROR
+hand_in_jacket,ジャケットの手,ジャケットの中に手,SEMANTIC_RELATION_ERROR
+hand_in_own_bra,手の中のown・ブラ,自分のブラの中に手,MIXED_ENGLISH_DEBRIS
+hand_in_own_pantyhose,hand in ownのパンスト,自分のパンストの中に手,MIXED_ENGLISH_DEBRIS
+hand_in_pants,ズボンの手,ズボンの中に手,SEMANTIC_RELATION_ERROR
+hand_in_thighhighs,太ももの手に渡ります,サイハイソックスの中に手,SEMANTIC_ERROR
+hand_in_underwear,手の中のunderwear,下着の中に手,MIXED_ENGLISH_DEBRIS
+hand_jewel,手・宝石,手の宝石,MIXED_ENGLISH_DEBRIS
+hand_on_another's_forehead,手の上の他人のforehead,他人の額に手,MIXED_ENGLISH_DEBRIS
+hand_on_another's_hat,他の人の帽子を手にします,他人の帽子に手,SEMANTIC_ERROR
+hand_on_another's_headwear,手の上の他人のheadwear,他人の頭飾りに手,MIXED_ENGLISH_DEBRIS
+hand_on_another's_nape,手の上の他人のnape,他人のうなじに手,MIXED_ENGLISH_DEBRIS
+hand_on_another's_wrist,手の上の他人の手首,他人の手首に手,SEMANTIC_RELATION_ERROR
+hand_on_bed,手の上のbed,ベッドの上に手,MIXED_ENGLISH_DEBRIS
+hand_on_blade,手の上のblade,刃に手,MIXED_ENGLISH_DEBRIS
+hand_on_book,手の上のbook,本に手,MIXED_ENGLISH_DEBRIS
+hand_on_cane,手の上のcane,杖に手,MIXED_ENGLISH_DEBRIS
+hand_on_chair,手の上の椅子,椅子に手,SEMANTIC_RELATION_ERROR
+hand_on_eyewear,アイウェアの手,眼鏡に手,SEMANTIC_RELATION_ERROR
+hand_on_glass,ガラスの上に手を入れます,ガラスに手,SEMANTIC_ERROR
+hand_on_handle,手の上のhandle,取っ手に手,MIXED_ENGLISH_DEBRIS
+hand_on_headset,ヘッドセットのハンド,ヘッドセットに手,SEMANTIC_ERROR
+hand_on_helmet,手の上のヘルメット,ヘルメットに手,SEMANTIC_RELATION_ERROR
+hand_on_hilt,柄の手,柄に手,SEMANTIC_RELATION_ERROR
+hand_on_own_back,手の上のown・背中,自分の背中に手,MIXED_ENGLISH_DEBRIS
+hand_on_own_ear,手の上のown・耳,自分の耳に手,MIXED_ENGLISH_DEBRIS
+hand_on_own_elbow,手托着肘部,自分の肘に手,NON_JAPANESE_RESIDUE
+hand_on_own_hat,手の上のown・帽子,自分の帽子に手,MIXED_ENGLISH_DEBRIS
+hand_on_own_opposite_hip,手の上のown・opposite・腰,反対側の自分の腰に手,MIXED_ENGLISH_DEBRIS
+hand_on_own_tail,手の上のown・尻尾,自分の尻尾に手,MIXED_ENGLISH_DEBRIS
+hand_on_own_tentacles,手の上のown・tentacles,自分の触手に手,MIXED_ENGLISH_DEBRIS
+hand_on_railing,手すりの手,手すりに手,SEMANTIC_RELATION_ERROR
+hand_on_shield,手の上のshield,盾に手,MIXED_ENGLISH_DEBRIS
+hand_on_window,ウィンドウにハンド,窓に手,SEMANTIC_ERROR
+hand_over_another's_eyes,他の人の目を渡します,他人の目を手で覆う,SEMANTIC_ERROR
+hand_over_another's_mouth,ハンドギャグ,他人の口を手で覆う,SEMANTIC_UNDERSPECIFICATION
+hand_over_eye,手・覆う目,目を手で覆う,AWKWARD_MACHINE_TRANSLATION
+hand_over_heart,手・覆う・ハート,胸に手を当てる,SEMANTIC_ERROR
+hand_saw,手・saw,手鋸,MIXED_ENGLISH_DEBRIS
+hand_shadow_covering_breasts_(meme),hand shadow covering breasts (meme),手の影で胸を覆う（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+hand_size_difference,手・size・difference,手の大きさの差,MIXED_ENGLISH_DEBRIS
+hand_to_blade,手・へのblade,刃に手,MIXED_ENGLISH_DEBRIS
+hand_to_forehead,手から額まで,額に手,SEMANTIC_RELATION_ERROR
+hand_to_hand,手から手から,手と手,SEMANTIC_ERROR
+hand_to_weapon,hand toの武器,武器に手,MIXED_ENGLISH_DEBRIS
+hand_towel,手巾,ハンドタオル,NON_JAPANESE_RESIDUE
+hand_under_clothes,服の中で乳揉み,服の下に手,SEMANTIC_NARROWING
+hand_under_pillow,手の下のpillow,枕の下に手,SEMANTIC_RELATION_ERROR
+hand_under_swimsuit,水着の下で手,水着の下に手,AWKWARD_MACHINE_TRANSLATION
+hand_wave,手波,手を振る,SEMANTIC_ERROR
+handcuff_dangle,タグ「handcuff dangle」,ぶら下がる手錠,RAW_ENGLISH_WRAPPER
+handgun_cartridge,タグ「handgun cartridge」,拳銃用弾薬,RAW_ENGLISH_WRAPPER
+handgun_stock,タグ「handgun stock」,拳銃用ストック,RAW_ENGLISH_WRAPPER
