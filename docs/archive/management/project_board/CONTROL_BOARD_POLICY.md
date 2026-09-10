@@ -13,16 +13,15 @@ GitHub Project「DanbooruTagTool 管理ボード」の本体導入は行わな�
 理由:
 - `docs/project/CURRENT_STATE.md` が全体routing/current stage/dependency/workstream stateを担う。
 - 各GitHub Issueがtask contract / completion criteria / checkpoint / evidenceを担う。
-- `docs/project/CURRENT_DEV_TASK.md` がcurrent core DEVのみをCodexへ同期する。
+- Codexは `CURRENT_STATE.md` が示すcurrent core DEV IssueをGitHubから直接取得する。
 - これに加えてGitHub Projectを常時同期対象にすると、管理情報の重複・drift・更新負担が増える。
 
 ## Current management model
 
-正規管理は次の3層に限定する。
+正規管理は次の2層に限定する。
 
-1. `CURRENT_STATE.md` — 全体routing/current state
-2. 各Issue — task contract / evidence / checkpoint
-3. `CURRENT_DEV_TASK.md` — current core DEV mirror
+1. `CURRENT_STATE.md` — 全体routing/current stateとcurrent DEV Issue番号
+2. 各live Issue — task contract / evidence / checkpoint
 
 GitHub Projectはtask contractやGate authorityとして使用しない。
 

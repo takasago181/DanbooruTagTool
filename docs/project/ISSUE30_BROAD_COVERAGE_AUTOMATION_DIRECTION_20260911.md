@@ -4,7 +4,7 @@ Status: **RESERVED NEXT / DESIGN DIRECTION ONLY / NOT YET AUTHORIZED FOR GENERAT
 
 This records the user's next-direction request after Generation Batch 2: increase real-image testing substantially, cover varied Special Core Dictionary semantic families, and automate as much of generation/evaluation/routing/audit as safely possible.
 
-This file does **not** start Stage10 production A/B and does not authorize a new large batch yet. Activation requires DEV review of Batch 2, latest-main synchronization, and an explicit current task contract update in Issue #30 + `CURRENT_DEV_TASK.md`.
+This file does **not** start Stage10 production A/B and does not authorize a new large batch yet. Activation requires DEV review of Batch 2, latest-main synchronization, and an explicit current task contract update in live Issue #30 with `CURRENT_STATE.md` routing aligned.
 
 ## Final product objective
 
@@ -155,7 +155,7 @@ No fixed production threshold should be invented merely to automate more aggress
 3. Batch 2 machine-handled pairs receive independent visual audit or an explicit DEV rationale for why they are sufficient without it.
 4. Disposable audit-image path and one-sheet ChatGPT handoff are available.
 5. Audit-cache deletion guards from `AUDIT_ARTIFACT_CACHE_POLICY.md` are implemented/tested before any automated cleanup.
-6. Current Issue #30 body and `CURRENT_DEV_TASK.md` are updated together to authorize the new broad-coverage lane.
+6. Current live Issue #30 body is updated and `CURRENT_STATE.md` routing is aligned to authorize the new broad-coverage lane.
 
 ## Hard boundaries
 

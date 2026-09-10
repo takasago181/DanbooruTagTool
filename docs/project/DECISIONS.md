@@ -59,19 +59,19 @@ Stage10用framing、caption順、hybrid形式などを全モデル共通ルー�
 
 ## D-006 CURRENT_DEV_TASKはCodex読取用同期ミラー
 
+Status: SUPERSEDED_BY_D-011
+
+これは、GitHub Issue APIへ直接アクセスできなかった移行前の運用決定を保存する履歴である。現在の運用では `CURRENT_DEV_TASK.md` を現行DEV task contractの同期ミラーとして扱わない。
+
+---
+
+## D-011 Codex DEV IssueはGitHubから直接取得する
+
 Status: ADOPTED
 
-GitHub IssueをDEV作業の管理記録として維持し、`docs/project/CURRENT_DEV_TASK.md` はprivate Issue APIへ追加認証できないCodexが現行DEV taskを読むための同期ミラーとする。
+`CURRENT_STATE.md` はcurrent DEV Issue番号を示すrouting正本とし、Codexはその番号のlive GitHub Issueを `gh issue view <ISSUE_NUMBER> --comments` で直接取得する。Issue title / state / body / 最新コメント / 最新checkpoint / continuation contract / completion condition / blocker・gateを確認し、`PERMANENT_RULES.md` と照合してから作業を開始する。
 
-理由:
-- ユーザーへGitHub CLI導入・browser認証・Issue本文の手動copy/pasteを要求しないため。
-- Issueとmirrorの二重正本化を避けるため。
-
-規則:
-- `CURRENT_STATE.md` の現行DEV Issue番号とmirror Sourceが不一致ならCodexは停止。
-- purpose/scope/禁止/完了条件の変更はIssue本文 + mirrorへ同期する。
-- IssueコメントだけではCodexの現行task contractを変更しない。
-- DEV/管理側はCodexへ指示する直前にprivate Issueとmirrorをlive照合し、同一Issue番号内のdriftも検出する。
+Fail-closed条件は、`gh` 不在、認証失敗、Issue取得失敗、番号不一致、想定外のclosed / superseded、Issue本文と最新checkpointの関係不明、または恒久ルールとの明確な矛盾である。driftや管理文書との不一致を確認した場合も、古い資料を根拠に続行しない。
 
 ---
 

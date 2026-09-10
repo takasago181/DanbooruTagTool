@@ -40,7 +40,7 @@ A/B間で比較対象以外を固定。
 - branch / commit / file / evidence（ある場合）
 
 通常のcheckpointはIssueコメントに置く。コメントは履歴・証跡であり、task contractを変更しない。
-目的・scope・禁止事項・完了条件を変える場合はIssue本文を更新する。現行DEV Issueなら `docs/project/CURRENT_DEV_TASK.md` も同じ管理作業内で同期する。
+目的・scope・禁止事項・完了条件を変える場合はlive Issue本文を更新する。`CURRENT_STATE.md` のcurrent DEV routingと整合させる。
 
 ## 班間依頼・返却
 
@@ -106,20 +106,11 @@ GitHubを正本としつつ、ユーザーから依頼・返却内容が見え�
 
 ## DEV → Codex preflight
 
-Codexへ新規実装・再開指示を出す直前にDEV/管理側が行う。
-
-1. private GitHubの現行DEV Issue本文/stateをlive取得する。
-2. 最新mainの `CURRENT_STATE.md` と `CURRENT_DEV_TASK.md` を取得する。
-3. 現行DEV Issue番号 = mirror Source を確認する。
-4. Issue本文とmirrorの目的・scope・禁止事項・完了条件を照合する。
-5. 同一Issue番号でも差分があればmirrorを先に同期する。
-6. 整合確認後だけCodexへ実装/再開指示を出す。
-
-Codex側はさらにAGENTS.mdに従ってlocalのcurrent state/mirrorを確認する。
+Codexは新規実装・再開時に `AGENTS.md` のstartup gateを実行する。current DEV Issueのlive取得、確認項目、番号不一致・closed / superseded・取得失敗等のfail-closed条件は、`AGENTS.md` と `PERMANENT_RULES.md` の正本に従う。
 
 ## Shared management docsの更新
 
-`CURRENT_STATE.md` / `PERMANENT_RULES.md` / `DECISIONS.md` / `CURRENT_DEV_TASK.md` / Stage Gate文書を変更する前に、必ず最新mainを再取得する。
+`CURRENT_STATE.md` / `PERMANENT_RULES.md` / `DECISIONS.md` / Stage Gate文書を変更する前に、必ず最新mainを再取得する。
 
 - staleなチャット内コピーで全体上書きしない。
 - 競合があれば勝手に一方を採用しない。
@@ -146,15 +137,15 @@ Codex側はさらにAGENTS.mdに従ってlocalのcurrent state/mirrorを確認�
 - 条件・未解決事項をAUDIT Issueへ明記する。
 - 条件が次Stage開始を妨げるかDEVが確認する。
 - 修正が必要なら現行DEV Issueへ戻すか、明示的なrepair Issueを作る。
-- task contractが変わる場合はDEV Issue本文 + CURRENT_DEV_TASKを同期する。
+- task contractが変わる場合はDEV Issue本文を更新し、`CURRENT_STATE.md` のroutingと整合させる。
 - 条件を満たす前に無条件PASSとして扱わない。
 
 ### FAIL
 - Stageを進めない。
 - 指摘と根拠をAUDIT Issueへ残す。
 - DEVは現行DEV Issueを再開するか、必要ならrepair Issueを明示的に作る。
-- scope/禁止/完了条件が変わる場合はIssue本文とmirrorを同期する。
-- mirror preflight後にCodexへ修正を渡す。
+- scope/禁止/完了条件が変わる場合はIssue本文を更新し、`CURRENT_STATE.md` と整合させる。
+- live Issue preflight後にCodexへ修正を渡す。
 - 再監査でPASSするまで次Stageを正式開始しない。
 
 ## GitHubとlocal protected data
@@ -170,7 +161,7 @@ GitHubはmanagement stateとcommit済みコード/文書の正本だが、local 
 
 **現在は未採用。**
 
-Issue #47で検討したGitHub Project管理ボードは、`CURRENT_STATE.md` + 各Issue + `CURRENT_DEV_TASK.md` の3層で十分と判断し、2026-09-10に `NOT PLANNED` でcloseした。
+Issue #47で検討したGitHub Project管理ボードは、`CURRENT_STATE.md` + live GitHub Issuesで十分と判断し、2026-09-10に `NOT PLANNED` でcloseした。
 
 したがって現在は:
 - Projectのfield/viewを作成・同期しない
