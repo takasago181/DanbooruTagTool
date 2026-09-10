@@ -1,0 +1,17 @@
+canonical,old_display_ja,new_display_ja,reason
+hay,hay,干し草,UNNECESSARY_CANONICAL_FALLBACK
+hexagram,ダビデの星,六芒星,SEMANTIC_NARROWING_ERROR
+horse_dildo,タグ「horse dildo」,馬型ディルド,RAW_ENGLISH_WRAPPER
+id_card,学生証,身分証,SEMANTIC_NARROWING_ERROR
+lace-trimmed_bra,レース trim のブラジャー,レース縁取りのブラジャー,MIXED_ENGLISH_DEBRIS
+lace-trimmed_garter_belt,レース trim のガーターベルト,レース縁取りのガーターベルト,MIXED_ENGLISH_DEBRIS
+lace-trimmed_gloves,レース trim の手袋,レース縁取りの手袋,MIXED_ENGLISH_DEBRIS
+lace-trimmed_panties,レース trim のパンティー,レース縁取りのパンティー,MIXED_ENGLISH_DEBRIS
+lace-trimmed_sleeves,レース trim の袖,レース縁取りの袖,MIXED_ENGLISH_DEBRIS
+lace-trimmed_thighhighs,レース trim のサイハイソックス,レース縁取りのサイハイソックス,MIXED_ENGLISH_DEBRIS
+lolidom,ロリ趣味,ロリ優位,SEMANTIC_ROLE_ERROR
+mora_(genshin_impact),摩拉,モラ,NON_JAPANESE_LOCALIZATION_RESIDUE
+multiple_traps,複数のトラップ,複数の男の娘,POLYSEMY_ERROR
+mummy,マミー,ミイラ,POLYSEMY_ERROR
+no_dickey,ペニスなし,セーラー服の胸当てなし,POLYSEMY_ERROR
+objectification,オナホ化,物体化,SEMANTIC_NARROWING_ERROR
