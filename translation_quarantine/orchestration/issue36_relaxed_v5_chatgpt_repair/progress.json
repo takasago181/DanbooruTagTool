@@ -1,0 +1,13 @@
+{
+  "base_commit": "7567c3e681f251582ac508191761ebcea9bd69f1",
+  "branch": "ui-ja/issue36-relaxed-v5-chatgpt-repair",
+  "total_rows": 30629,
+  "total_shards": 31,
+  "completed_shards": [],
+  "current_shard": 1,
+  "status": "IN_PROGRESS",
+  "translator": "ChatGPT",
+  "semantic_auditor": "ChatGPT_self_reaudit_then_final_cross_shard_reaudit",
+  "codex_semantic_role": "NONE",
+  "production_modified": false
+}
