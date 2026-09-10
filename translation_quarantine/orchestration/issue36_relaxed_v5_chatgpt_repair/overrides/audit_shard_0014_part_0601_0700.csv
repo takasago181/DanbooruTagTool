@@ -1,0 +1,62 @@
+canonical,old_display_ja,new_display_ja,reason
+front_zipper,正面・zipper,前面ジッパー,MIXED_ENGLISH_DEBRIS
+frost_shard_(e.g.o),frost shard (e.g.o),フロスト・シャード（E.G.O）,CANONICAL_FALLBACK_TRANSLATABLE
+frosted_border,frosted・枠,霜付きの枠,MIXED_ENGLISH_DEBRIS
+frown_lines,タグ「frown lines」,眉間のしわ,RAW_ENGLISH_WRAPPER
+fruit_as_cup,fruit・as・カップ,果物をカップとして使う,MIXED_ENGLISH_DEBRIS
+fruit_earrings,fruitのイヤリング,果物のイヤリング,MIXED_ENGLISH_DEBRIS
+fruit_focus,fruit・焦点,果物を強調,MIXED_ENGLISH_DEBRIS
+fruit_on_liquid,液体の果物,液体の上の果物,SEMANTIC_RELATION_ERROR
+fruit_popsicle,タグ「fruit popsicle」,フルーツアイスキャンディー,RAW_ENGLISH_WRAPPER
+fruit_print,fruitの柄,果物柄,MIXED_ENGLISH_DEBRIS
+frutiger_metro,タグ「frutiger metro」,フルティガー・メトロ,RAW_ENGLISH_WRAPPER
+fu_manchu_(mustache),タグ「fu manchu (mustache)」,フー・マンチュー髭,RAW_ENGLISH_WRAPPER
+fubuki_(kancolle)_(cosplay),Fubuki（Kancolle）（コスプレ）,吹雪（艦これ）（コスプレ）,MIXED_ENGLISH_DEBRIS
+fuji_kiseki_(umamusume)_(cosplay),fuji kiseki (umamusume) (cosplay),フジキセキ（ウマ娘）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+fujimaru_ritsuka_(female)_(cosplay),藤原ritsuka（女性）（コスプレ）,藤丸立香（女性）（コスプレ）,SEMANTIC_ERROR
+fujimaru_ritsuka_(male)_(cosplay),藤原ritsuka（男性）（コスプレ）,藤丸立香（男性）（コスプレ）,SEMANTIC_ERROR
+fujimi_high_school_uniform,fujimi highの学校制服,富士見高校の制服,MIXED_ENGLISH_DEBRIS
+fujimoto_tatsuki_(style),タグ「fujimoto tatsuki (style)」,藤本タツキ風,RAW_ENGLISH_WRAPPER
+fujin_yumi_(fire_emblem),富士ウン（火の紋章）,風神弓（ファイアーエムブレム）,SEMANTIC_ERROR
+fujiwara_no_mokou_(cosplay),藤原no mokou（コスプレ）,藤原妹紅（コスプレ）,MIXED_ENGLISH_DEBRIS
+fujiwara_takumi's_toyota_trueno_ae86,藤原高山のトヨタトルーノAE86,藤原拓海のトヨタ・スプリンタートレノ AE86,SEMANTIC_ERROR
+fujoshi,腐女,腐女子,SEMANTIC_ERROR
+fukurodani_volleyball_uniform,fukurodani volleyballの制服,梟谷学園バレー部ユニフォーム,MIXED_ENGLISH_DEBRIS
+fukutaichou_badge,福田全バッジ,副隊長バッジ,SEMANTIC_ERROR
+full-body_blush,フルボディブラッシュ,全身の赤み,AWKWARD_MACHINE_TRANSLATION
+full-stop_office_(identity)_(project_moon),full-stop office (identity) (project moon),フルストップ・オフィス（人格）（Project Moon）,CANONICAL_FALLBACK_TRANSLATABLE
+full_beard,full・髭,濃いひげ,MIXED_ENGLISH_DEBRIS
+full_cleavage,full・胸の谷間,胸の谷間全体,MIXED_ENGLISH_DEBRIS
+full_cowling_(boku_no_hero_academia),タグ「full cowling (boku no hero academia)」,フルカウル（僕のヒーローアカデミア）,RAW_ENGLISH_WRAPPER
+full_face_makeup,full・顔・化粧,顔全体のメイク,MIXED_ENGLISH_DEBRIS
+full_mouth,全身・口,口いっぱい,SEMANTIC_ERROR
+full_page_comic,full・page・漫画,1ページ全面漫画,MIXED_ENGLISH_DEBRIS
+fully_genderswapped_group,タグ「fully genderswapped group」,全員性別転換したグループ,RAW_ENGLISH_WRAPPER
+fumizuki_academy_school_uniform,fumizuki academyの学校制服,文月学園の制服,MIXED_ENGLISH_DEBRIS
+fundoshi_aside,Fundoshiはさておき,ふんどしを脇にずらす,SEMANTIC_ERROR
+fundoshi_pull,fundoshi・引っ張る,ふんどしを引っ張る,MIXED_ENGLISH_DEBRIS
+funeral_veil,funeral・ベール,葬儀用ベール,MIXED_ENGLISH_DEBRIS
+fungi,タグ「fungi」,菌類,RAW_ENGLISH_WRAPPER
+fur-lined_gloves,fur linedの手袋,毛皮裏地の手袋,MIXED_ENGLISH_DEBRIS
+fur-trimmed_arm_warmers,毛・整えた・腕のウォーマー,毛皮縁取りの腕ウォーマー,AWKWARD_MACHINE_TRANSLATION
+fur-trimmed_armor,毛皮のトリミングされた鎧,毛皮縁取りの鎧,AWKWARD_MACHINE_TRANSLATION
+fur-trimmed_bandeau,毛・整えた・bandeau,毛皮縁取りのバンドゥ,MIXED_ENGLISH_DEBRIS
+fur-trimmed_belt,毛・整えた・ベルト,毛皮縁取りのベルト,AWKWARD_MACHINE_TRANSLATION
+fur-trimmed_bikini,毛皮のトリミングされたビキニ,毛皮縁取りのビキニ,AWKWARD_MACHINE_TRANSLATION
+fur-trimmed_bodysuit,毛・整えた・bodysuit,毛皮縁取りのボディスーツ,MIXED_ENGLISH_DEBRIS
+fur-trimmed_bow,毛・整えた・リボン,毛皮縁取りのリボン,AWKWARD_MACHINE_TRANSLATION
+fur-trimmed_bra,毛皮のトリミングブラジャー,毛皮縁取りのブラ,AWKWARD_MACHINE_TRANSLATION
+fur-trimmed_bracer,毛・整えた・小手,毛皮縁取りの小手,AWKWARD_MACHINE_TRANSLATION
+fur-trimmed_cape,毛皮のトリミングされたケープ,毛皮縁取りのケープ,AWKWARD_MACHINE_TRANSLATION
+fur-trimmed_cardigan,毛・整えた・cardigan,毛皮縁取りのカーディガン,MIXED_ENGLISH_DEBRIS
+fur-trimmed_choker,毛皮のトリミングされたチョーカー,毛皮縁取りのチョーカー,AWKWARD_MACHINE_TRANSLATION
+fur-trimmed_cloak,毛皮のトリミングされたマント,毛皮縁取りのマント,AWKWARD_MACHINE_TRANSLATION
+fur-trimmed_hairband,毛・整えた・ヘアバンド,毛皮縁取りのヘアバンド,AWKWARD_MACHINE_TRANSLATION
+fur-trimmed_headwear,毛皮のトリミングされた帽子,毛皮縁取りの帽子,AWKWARD_MACHINE_TRANSLATION
+fur-trimmed_hood,毛皮のトリミングされたフード,毛皮縁取りのフード,AWKWARD_MACHINE_TRANSLATION
+fur-trimmed_hoodie,毛・整えた・hoodie,毛皮縁取りのパーカー,MIXED_ENGLISH_DEBRIS
+fur-trimmed_jumpsuit,毛・整えた・jumpsuit,毛皮縁取りのジャンプスーツ,MIXED_ENGLISH_DEBRIS
+fur-trimmed_kimono,毛辺和服,毛皮縁取りの着物,NON_JAPANESE_RESIDUE
+fur-trimmed_leg_warmers,fur trimmed legのウォーマー,毛皮縁取りのレッグウォーマー,MIXED_ENGLISH_DEBRIS
+fur-trimmed_leotard,毛皮のトリミングされたレオタード,毛皮縁取りのレオタード,AWKWARD_MACHINE_TRANSLATION
+fur-trimmed_mittens,毛皮のトリミングされたミトン,毛皮縁取りのミトン,AWKWARD_MACHINE_TRANSLATION
