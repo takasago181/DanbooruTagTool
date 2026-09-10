@@ -1,0 +1,36 @@
+canonical,old_display_ja,new_display_ja,reason
+hook_hand,手をフック,フック状の手,SEMANTIC_ERROR
+hope's_peak_academy_school_uniform,ホープのピークアカデミースクールユニフォーム,希望ヶ峰学園の制服,SEMANTIC_ERROR
+horizontal-striped_belt,horizontal・ストライプ柄のベルト,横縞のベルト,MIXED_ENGLISH_DEBRIS
+horizontal_navel,タグ「horizontal navel」,横長のへそ,RAW_ENGLISH_WRAPPER
+horizontal_spotlight,タグ「horizontal spotlight」,横向きのスポットライト,RAW_ENGLISH_WRAPPER
+horn_cover,タグ「horn cover」,角カバー,RAW_ENGLISH_WRAPPER
+horned_armor,hornedの鎧,角付きの鎧,MIXED_ENGLISH_DEBRIS
+horned_headphones,タグ「horned headphones」,角付きヘッドホン,RAW_ENGLISH_WRAPPER
+horned_tiara,horned・ティアラ,角付きティアラ,MIXED_ENGLISH_DEBRIS
+horns_through_headwear,帽子を通して角,帽子を突き抜ける角,AWKWARD_MACHINE_TRANSLATION
+horrified,恐ろしい,恐怖した表情,SEMANTIC_ERROR
+horse_earrings,horseのイヤリング,馬のイヤリング,MIXED_ENGLISH_DEBRIS
+horse_pose,一着のポーズ,馬のポーズ,SEMANTIC_ERROR
+horse_print,horseの柄,馬柄,MIXED_ENGLISH_DEBRIS
+horse_pussy,タグ「horse pussy」,馬の膣,RAW_ENGLISH_WRAPPER
+horse_racing_track,トラック,競馬場,SEMANTIC_NARROWING
+horseshoe_hat_ornament,horseshoe・帽子・飾り,馬蹄の帽子飾り,MIXED_ENGLISH_DEBRIS
+horseshoe_necklace,horseshoe・ネックレス,馬蹄のネックレス,MIXED_ENGLISH_DEBRIS
+horseshoe_print,ホースシュープリント,馬蹄柄,AWKWARD_MACHINE_TRANSLATION
+horseshoe_tattoo,horseshoeのタトゥー,馬蹄のタトゥー,MIXED_ENGLISH_DEBRIS
+hose_reel,タグ「hose reel」,ホースリール,RAW_ENGLISH_WRAPPER
+hoshimachi_suisei_(cosplay),hoshimachi suisei (cosplay),星街すいせい（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+hoshino_(blue_archive)_(cosplay),hoshino (blue archive) (cosplay),小鳥遊ホシノ（ブルーアーカイブ）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+hoshino_ai_(cosplay),hoshino ai (cosplay),星野アイ（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+hoshino_ruby_dance,タグ「hoshino ruby dance」,星野ルビーのダンス,RAW_ENGLISH_WRAPPER
+hospital,医院,病院,NON_JAPANESE_RESIDUE
+hot_air_balloon,热气球,熱気球,NON_JAPANESE_RESIDUE
+hot_dog,ホットドック,ホットドッグ,SEMANTIC_ERROR
+hot_dog_costume,hot・犬・衣装,ホットドッグ衣装,SEMANTIC_ERROR
+hoto_cocoa's_school_uniform,Hoto Cocoaの学校の制服,保登心愛の学校制服,MIXED_ENGLISH_DEBRIS
+hoto_cocoa_(cosplay),hoto cocoa（コスプレ）,保登心愛（コスプレ）,MIXED_ENGLISH_DEBRIS
+houjuu_nue_(cosplay),Houjuu Nue（コスプレ）,封獣ぬえ（コスプレ）,MIXED_ENGLISH_DEBRIS
+houraisan_kaguya_(cosplay),Houraisan Kaguya（コスプレ）,蓬莱山輝夜（コスプレ）,MIXED_ENGLISH_DEBRIS
+hourglass,沙漏,砂時計,NON_JAPANESE_RESIDUE
+hourglass_earrings,hourglassのイヤリング,砂時計のイヤリング,MIXED_ENGLISH_DEBRIS
