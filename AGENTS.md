@@ -5,26 +5,45 @@
 Codexは独立した班ではなく、DEV（開発班）の実装担当。
 新しいCodexセッションや作業再開時は、実装・テスト・commitを始める前に現在地をGitHub正本から確認する。
 
-最初に必ず読む:
-1. `docs/project/CURRENT_STATE.md`
-2. `docs/project/PERMANENT_RULES.md`
-3. `docs/project/CURRENT_DEV_TASK.md`
+### 最初に行うremote-current-state確認
+
+現在どのlocal branchにいるかに関係なく、**branch-localの管理ファイルを現在地として読む前に**、まずremoteの最新管理状態を確認する。
+
+1. `git status --short --branch`
+2. `git fetch origin --prune`
+3. `origin/main` のHEADを確認
+4. 以下を `git show origin/main:<path>` 等のread-only操作で直接読む
+   - `AGENTS.md`
+   - `docs/project/CURRENT_STATE.md`
+   - `docs/project/PERMANENT_RULES.md`
+   - `docs/project/CURRENT_DEV_TASK.md`
+5. `origin/main` 上のcurrent core DEV / Source Issue / Stage Gateを先に確定する
+6. その後でのみ、現在branch上の管理ファイルとの差分を確認する
+
+**古いtask branch上の `CURRENT_STATE.md` / `CURRENT_DEV_TASK.md` / `AGENTS.md` を、fetch後の `origin/main` より優先して現在地判定に使ってはいけない。**
+現在branchの管理ファイルが `origin/main` と異なる場合、branch-local stateはそのbranch作成時点の履歴として扱い、現在地は `origin/main` を優先する。
+
+remote-current-state確認後、通常の読取順は:
+1. `origin/main:docs/project/CURRENT_STATE.md`
+2. `origin/main:docs/project/PERMANENT_RULES.md`
+3. `origin/main:docs/project/CURRENT_DEV_TASK.md`
 4. 現行Stageの仕様・実装レポート
 
 その後、必要に応じて下記の恒久仕様を読む。
-Issue番号は固定値として記憶せず、毎回 `CURRENT_STATE.md` から現行DEV Issueを特定する。
+Issue番号は固定値として記憶せず、毎回 `origin/main` の `CURRENT_STATE.md` から現行DEV Issueを特定する。
 
 作業開始前に少なくとも次を確認できる状態にする:
 - 現在のStage
 - 現行DEV Issue番号と作業範囲、または `NO_CURRENT_DEV / MANAGEMENT_HANDOFF`
-- `CURRENT_STATE.md` の現行DEVと `CURRENT_DEV_TASK.md` のSourceが一致していること
+- `origin/main` の `CURRENT_STATE.md` の現行DEVと `CURRENT_DEV_TASK.md` のSourceが一致していること
+- 現在branchが最新mainに対して古い / ahead / divergedのどれか
 - 触ってよい範囲 / 触ってはいけない範囲
 - 次に実装する境界
 - Stage Gate
 
 ### NO_CURRENT_DEV の扱い
 
-`CURRENT_STATE.md` が current core DEV = `NONE` で、`CURRENT_DEV_TASK.md` も Source Issue = `NONE` / `NO_CURRENT_DEV / MANAGEMENT_HANDOFF` の場合、これは**正常な管理停止状態**であり不整合ではない。
+`origin/main` の `CURRENT_STATE.md` が current core DEV = `NONE` で、`CURRENT_DEV_TASK.md` も Source Issue = `NONE` / `NO_CURRENT_DEV / MANAGEMENT_HANDOFF` の場合、これは**正常な管理停止状態**であり不整合ではない。
 
 この状態では:
 - Codexは新しいcore DEV Issueを推測・自動選択しない。
@@ -50,8 +69,8 @@ Codexはprivate GitHub Issue APIへの追加認証を要求しない。
 現行DEV Issue本文は、repository内の `docs/project/CURRENT_DEV_TASK.md` をCodex読取用ミラーとして使用する。
 
 確認手順:
-1. `docs/project/CURRENT_STATE.md` から現行DEV Issue番号、または `NONE` を取得する。
-2. `docs/project/CURRENT_DEV_TASK.md` の `Source Issue` と一致することを確認する。
+1. `origin/main:docs/project/CURRENT_STATE.md` から現行DEV Issue番号、または `NONE` を取得する。
+2. `origin/main:docs/project/CURRENT_DEV_TASK.md` の `Source Issue` と一致することを確認する。
 3. 両方 `NONE` の場合は正常な `NO_CURRENT_DEV / MANAGEMENT_HANDOFF` として停止し、新規core DEVを推測しない。
 4. 実Issue番号で一致した場合のみ、同ファイルの目的・作業範囲・禁止事項・完了条件を現行DEV taskとして読む。
 5. 不一致・欠損・明確な矛盾がある場合は実装を開始せずDEVへ報告する。
@@ -66,16 +85,19 @@ Codexは**新しいセッション開始時・作業再開時・新しいtask br
 
 1. `git status --short --branch` で現在branchとworking treeを確認する。
 2. `git fetch origin --prune` でremote refsを更新する。
-3. local `main` と `origin/main` の関係を確認する。
-4. local `main` がcleanかつ `origin/main` へfast-forward可能なら、`git switch main` → `git merge --ff-only origin/main` で自動同期する。
-5. 同期後の `main` HEADを記録し、そのmain上の `CURRENT_STATE.md` / `PERMANENT_RULES.md` / `CURRENT_DEV_TASK.md` を読み直す。
-6. current DEVが実Issueの場合のみ、明示されたtask branchへ移るか、最新mainからtask branchを作る。
-7. 既存task branchを再開する場合は、そのbranchと最新mainの差分を確認し、勝手にrebase/reset/force-updateせず、task contractに従って継続可否を判断する。
+3. **現在branchをswitchする前に** `origin/main` の管理ファイルをread-onlyで直接読み、現在地を確定する。
+4. local `main` と `origin/main` の関係を確認する。
+5. local `main` がcleanかつ `origin/main` へfast-forward可能で、未追跡path collisionやworktree制約がないことを確認できた場合のみ、`git switch main` → `git merge --ff-only origin/main` で自動同期する。
+6. 同期後の `main` HEADを記録し、そのmain上の `CURRENT_STATE.md` / `PERMANENT_RULES.md` / `CURRENT_DEV_TASK.md` を再確認する。
+7. current DEVが実Issueの場合のみ、明示されたtask branchへ移るか、最新mainからtask branchを作る。
+8. 既存task branchを再開する場合は、そのbranchと最新mainの差分を確認し、勝手にrebase/reset/force-updateせず、task contractに従って継続可否を判断する。
 
 自動同期を止める条件:
 - tracked working treeに未commit変更がある
 - local mainとorigin/mainがdivergeしている
 - fast-forward-onlyで更新できない
+- 未追跡file/directoryがswitch/fast-forward先とpath collisionする
+- worktree制約により安全なswitchができない
 - merge/rebase/reset/checkoutによりユーザー作業を失う可能性がある
 - remote fetchに失敗した
 - 現在のbranch/HEADがtask contractと矛盾する
