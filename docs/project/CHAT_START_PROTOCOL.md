@@ -97,7 +97,7 @@ VERSION_LABEL: <optional human-readable label / N/A>
 - `BRANCH` / `HEAD` / `CHECKPOINT` はチャット記憶から埋めず、開始時にGitHubからlive確認する。Issue-only担当で専用branchがない場合も、参照した `main` のHEADを記録する。
 - `v2` / `v3` / `R3` / `FINAL` 等の版名は `VERSION_LABEL` またはPHASEの補助情報として使ってよいが、**版名だけを現在個体の識別子にしない**。
 - 実際の識別は少なくとも `TEAM_ID + ISSUE + BRANCH + HEAD + CHECKPOINT/CONTRACT + PHASE` で行う。
-- `CURRENT_STATE.md` の Active Teams Registry はrouting/indexであり、Issue本文、branch上の成果物、checkpoint、現行DEVの `CURRENT_DEV_TASK.md` を置き換えるtask contractではない。
+- `CURRENT_STATE.md` の Workstreams Registry はrouting/indexであり、Issue本文、branch上の成果物、checkpoint、現行DEVの `CURRENT_DEV_TASK.md` を置き換えるtask contractではない。
 - Registry / Issue / branch / checkpointの間でowner・scope・phase・HEAD系統に矛盾がある場合、勝手に一方を採用しない。`IDENTITY_CONFLICT` と明記して実作業を止め、GitHub正本を先に整合させる。
 - Issue変更、branch変更、正式contract変更、大きなphase変更、チャット移行時には班IDを再取得する。通常の小checkpointごとに `CURRENT_STATE.md` の固定HEADを書き換える必要はない。
 
