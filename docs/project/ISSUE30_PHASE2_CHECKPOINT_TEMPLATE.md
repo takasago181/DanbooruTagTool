@@ -15,7 +15,8 @@ Counts:
 - new images generated:
 - evaluator runs:
 - BLOCKED:
-- human review candidates:
+- review pairs:
+- reviewed images:
 - unresolved questions:
 
 ## EVIDENCE
@@ -49,6 +50,11 @@ Execution identity:
 - Control/regional:
 - seeds:
 
+Review display:
+- selected Japanese font:
+- Japanese display check:
+- bilingual Prompt labels complete:
+
 Tests / checks:
 - 
 - 
@@ -57,7 +63,7 @@ Tests / checks:
 
 | Item | Decision | Reason |
 |---|---|---|
-| `<item>` | ADOPT / HOLD / REJECT / TARGETED_IMAGE_TEST_REQUIRED | `<reason>` |
+| `<item>` | ADOPT / HOLD / REJECT / TARGETED_IMAGE_TEST_REQUIRED / DEFER | `<reason>` |
 
 Current automation conclusion:
 `<what can realistically reduce user work>`
@@ -81,12 +87,22 @@ Use:
 |---|---|---:|---|---|---|
 | | | | | | |
 
+For every user-facing review question, also record:
+- `visible_pass_condition_ja`
+- `visible_fail_condition_ja`
+- `why_this_is_judgeable_from_one_still_image`
+
+If these cannot be stated clearly, use `DEFER` instead of asking an abstract question.
+
 ## ARTIFACT / VALIDITY
 
 Artifact failures:
 - 
 
 Experiment-validity failures:
+- 
+
+Contact-sheet validity:
 - 
 
 Artifact failure and experiment-validity failure are not evaluator semantic failures.
@@ -112,8 +128,14 @@ If review is required:
 Review asset:
 `<contact sheet / file>`
 
-Number of images the user must inspect:
+Review pairs:
 `<N>`
+
+Reviewed images:
+`<N>`
+
+Exact Japanese question(s):
+- `<what visible condition makes this PASS?>`
 
 Question format:
 `A / B / both / neither / tie / unclear`
