@@ -143,6 +143,21 @@ Question text is the main label:
 - tofu/square glyphs => `REVIEW_ASSET_INVALID / BLOCKED`
 - local display sanity check required
 
+### A/B marker integrity — mandatory
+
+A prior sample/review sheet displayed every image as `B`. The next sheet must prevent this before handoff.
+
+For every A/B experiment:
+- derive displayed A/B from the **manifest / structured experiment condition**, not filename order, sort order, or fragile string-prefix inference;
+- each `(experiment, seed)` pair must contain exactly **one A + one B**;
+- the displayed marker must agree with the exact executed Prompt condition recorded for that image;
+- run an automated pre-handoff assertion that rejects accidental all-A/all-B labeling;
+- missing/duplicate/mismatched A/B => `REVIEW_ASSET_INVALID / BLOCKED`, and do not hand the sheet to the user;
+- record `ab_marker_integrity_check: PASS/FAIL` in the result artifact;
+- intentional non-A/B experiments must use an explicit non-A/B presentation mode instead of false A/B labels.
+
+The user is not responsible for checking this metadata manually.
+
 Traceability still remains mandatory in repository Markdown/JSON/manifest outside the contact sheet:
 - exact executed Positive/Negative Prompt
 - English canonical tags/tokens
@@ -168,9 +183,10 @@ Preferred review answer:
 8. if PASS, execute the full bounded batch without stopping between experiments
 9. run/reuse evaluator triage
 10. generate simplified large-question contact sheet
-11. generate detailed traceability artifacts separately
-12. commit/push branch
-13. STOP for user + DEV/ChatGPT review
+11. run Japanese display sanity check **and A/B marker integrity validation**
+12. generate detailed traceability artifacts separately
+13. commit/push branch
+14. STOP for user + DEV/ChatGPT review
 
 ## Required outputs
 
@@ -183,6 +199,7 @@ Preferred review answer:
 - tests/dry-run result
 - generated/reused/blocked counts
 - review pairs / reviewed images separately
+- **A/B marker integrity check PASS/FAIL**
 
 ## Hard prohibitions
 
@@ -196,6 +213,7 @@ Preferred review answer:
 - runtime LLM dependency
 - unnecessary extension/tool
 - evaluator promotion to structural semantic truth
+- handing the user a contact sheet when A/B marker integrity is not PASS
 
 After the batch, STOP. Do not add seeds, start another batch, or start Stage10 automatically.
 
