@@ -1,0 +1,30 @@
+canonical,old_display_ja,new_display_ja,reason
+height_mark,高さマーク,身長目盛り,SEMANTIC_ERROR
+height_switch,高さスイッチ,身長の切り替え,SEMANTIC_ERROR
+helena_blavatsky_(fate)_(cosplay),ヘレナ・ブラバツキー（運命）（コスプレ）,ヘレナ・ブラヴァツキー（Fate）（コスプレ）,SEMANTIC_ERROR
+helix,タグ「helix」,らせん,RAW_ENGLISH_WRAPPER
+hell_(chainsaw_man),タグ「hell (chainsaw man)」,地獄（チェンソーマン）,RAW_ENGLISH_WRAPPER
+hello_kitty_print,hello kittyの柄,ハローキティ柄,MIXED_ENGLISH_DEBRIS
+helmet_over_eyes,目の上にヘルメット,目を覆うヘルメット,SEMANTIC_RELATION_ERROR
+helmet_over_one_eye,ヘルメットの上の1つの目,片目を覆うヘルメット,SEMANTIC_RELATION_ERROR
+hem_peeking_out,衣角露出,裾が見えている,NON_JAPANESE_RESIDUE
+hentai_foundry_username,hentai foundryのユーザー名,Hentai Foundryユーザー名,MIXED_ENGLISH_DEBRIS
+herb_bundle,ハーブバンドル,ハーブの束,AWKWARD_MACHINE_TRANSLATION
+herensuge_girls_academy_school_uniform,エレンスゲ女学園,エレンスゲ女学園の制服,SEMANTIC_UNDERSPECIFICATION
+heroes'_gallery,タグ「heroes' gallery」,英雄たちのギャラリー,RAW_ENGLISH_WRAPPER
+heterochromatic_eyewear,タグ「heterochromatic eyewear」,左右で色の違う眼鏡,RAW_ENGLISH_WRAPPER
+hev_suit,hev・スーツ,HEVスーツ,MIXED_ENGLISH_DEBRIS
+hewlett-packard,タグ「hewlett-packard」,Hewlett-Packard,RAW_ENGLISH_WRAPPER
+hex_nail_(e.g.o),hex nail (e.g.o),ヘックス・ネイル（E.G.O）,CANONICAL_FALLBACK_TRANSLATABLE
+hex_tails,六馬尾,6本の尻尾,NON_JAPANESE_RESIDUE
+hexagonal_eyewear,タグ「hexagonal eyewear」,六角形の眼鏡,RAW_ENGLISH_WRAPPER
+hexapod,タグ「hexapod」,六脚類,RAW_ENGLISH_WRAPPER
+hezi,诃子,訶子,NON_JAPANESE_RESIDUE
+heziqun,诃子裙,訶子裙,NON_JAPANESE_RESIDUE
+hf_murasama,タグ「hf murasama」,HFムラサマ,RAW_ENGLISH_WRAPPER
+hibiki_(kancolle)_(cosplay),hibiki（kancolle）（コスプレ）,響（艦これ）（コスプレ）,MIXED_ENGLISH_DEBRIS
+hibikino_high_school_uniform,私立ひびきの高校,私立ひびきの高校の制服,SEMANTIC_UNDERSPECIFICATION
+hiburi_(kancolle)_(cosplay),Hiburi（Kancolle）（コスプレ）,日振（艦これ）（コスプレ）,MIXED_ENGLISH_DEBRIS
+hifumi_(blue_archive)_(cosplay),hifumi (blue archive) (cosplay),ヒフミ（ブルーアーカイブ）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+higashikata_josuke's_pose,higashikata・josuke・ポーズ,東方仗助のポーズ,MIXED_ENGLISH_DEBRIS
+high-low_dress,高低连衣裙,ハイロードレス,NON_JAPANESE_RESIDUE
