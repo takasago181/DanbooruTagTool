@@ -25,6 +25,8 @@ BATCH2_RESULT = ROOT / "docs/testing/ISSUE30_PHASE2_GENERATION_BATCH2_RESULT.jso
 BATCH2_HUMAN_RESULT = ROOT / "docs/testing/ISSUE30_PHASE2_GENERATION_BATCH2_HUMAN_RESULTS_20260911.json"
 TRIAGE_AUDIT = ROOT / "docs/testing/ISSUE30_PHASE2_MACHINE_TRIAGE_AUDIT.json"
 HUMAN_REVIEW = ROOT / "docs/testing/ISSUE30_PHASE2_HUMAN_REVIEW_RESULTS_20260910.json"
+WAVE1_BROAD_MANIFEST = ROOT / "docs/testing/ISSUE30_BROAD_COVERAGE_WAVE1_MANIFEST.csv"
+WAVE1_BROAD_RESULT = ROOT / "docs/testing/ISSUE30_BROAD_COVERAGE_WAVE1_RESULT.json"
 
 
 def test_phase2_manifest_is_bounded_and_uses_current_special_ids():
@@ -89,6 +91,30 @@ def test_wave2_manifest_and_result_are_bounded_and_bilingual_review_ready():
     assert report["human_review_reviewed_image_count"] == 8
     assert report["review_display"]["display_check"] == "PASS"
     assert report["decision"]["additional_generation"] == "STOP_UNTIL_REVIEW"
+
+
+def test_broad_coverage_wave1_is_bounded_evaluator_complete_and_stopped():
+    with WAVE1_BROAD_MANIFEST.open(encoding="utf-8-sig", newline="") as stream:
+        cases = list(csv.DictReader(stream))
+    assert len(cases) == 16
+    assert len(cases) * 4 == 64
+    assert len({case["case_id"] for case in cases}) == 16
+    assert len({case["seed_a"] for case in cases}) == 16
+    assert len({case["seed_b"] for case in cases}) == 16
+    assert all(case["target_prompt"] and case["contrast_prompt"] for case in cases)
+
+    report = json.loads(WAVE1_BROAD_RESULT.read_text(encoding="utf-8"))
+    assert report["status"] == "WAVE1_MACHINE_ROUTING_FROZEN_FULL_VISUAL_AUDIT_PENDING"
+    assert report["generated_images"] == report["valid_generated_images"] == 64
+    assert report["generated_pairs"] == 32
+    assert report["actual_successful_evaluator_runs"] == 192
+    assert report["evaluator_reference_integrity_check"] == "PASS"
+    assert report["ab_marker_integrity_check"] == "PASS"
+    assert report["blocked_images"] == report["blocked_pairs"] == 0
+    assert report["visual_audit_coverage"]["percent"] == 100.0
+    assert report["machine_route_frozen"] is True
+    assert report["decision"] == "STOP_FOR_CHATGPT_VISUAL_AUDIT"
+    assert report["wave2_started"] is False
 
 
 def test_human_review_preserves_pair_outcomes_and_validity_boundaries():

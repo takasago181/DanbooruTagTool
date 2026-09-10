@@ -30,7 +30,10 @@ ImageFont = None
 
 ROOT = Path(__file__).resolve().parents[1]
 CASE_MANIFEST = ROOT / "docs/testing/ISSUE30_REAL_IMAGE_CALIBRATION_CASES_20260910.csv"
-PROFILE = ROOT / "data/generation/special2788_generation_profile.csv"
+PROFILE = Path(os.environ.get(
+    "ISSUE30_PROFILE",
+    str(ROOT / "data/generation/special2788_generation_profile.csv"),
+))
 FORGE_API = os.environ.get("ISSUE30_FORGE_API", "http://127.0.0.1:7860")
 RUN_ROOT = Path(os.environ.get(
     "ISSUE30_PILOT_ROOT",
@@ -124,8 +127,8 @@ def load_cases(manifest_path: Path = CASE_MANIFEST) -> list[dict[str, str]]:
     return cases
 
 
-def load_profiles() -> dict[int, dict[str, str]]:
-    with PROFILE.open(encoding="utf-8-sig", newline="") as handle:
+def load_profiles(profile_path: Path = PROFILE) -> dict[int, dict[str, str]]:
+    with profile_path.open(encoding="utf-8-sig", newline="") as handle:
         return {int(row["SpecialID"]): row for row in csv.DictReader(handle)}
 
 
@@ -619,13 +622,19 @@ def main() -> None:
         help="case manifest; defaults to the frozen Phase 1 32-case manifest",
     )
     parser.add_argument(
+        "--profile",
+        type=Path,
+        default=PROFILE,
+        help="current Special generation profile; defaults to ISSUE30_PROFILE or the repository profile",
+    )
+    parser.add_argument(
         "--dry-run",
         action="store_true",
         help="validate the manifest and current Special IDs without contacting Forge or writing artifacts",
     )
     args = parser.parse_args()
     cases = load_cases(args.manifest)
-    profiles = load_profiles()
+    profiles = load_profiles(args.profile)
     validate_cases(cases, profiles)
     planned_images = len(cases) * 4
     if args.dry_run:
