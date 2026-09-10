@@ -145,6 +145,24 @@ The numbered contact sheet or adjacent review table must show:
 
 Record the selected Japanese font and display-check result in the repository result artifact when practical.
 
+### Japanese review-question wording rule
+
+User-facing Japanese questions must name the concrete visual predicate to judge. Avoid abstract wording such as 「同じ視覚的な対象を誘発するか」「差を保持するか」without saying what the target appearance/relation actually is.
+
+Preferred form:
+- 「AとBのどちらで、○○が成立しているか？」
+- 「Aの具体タグで、Bにはない○○の形状・個数・関係が出ているか？」
+
+For current Wave 2:
+- P2-004 should be explained as: 「A=`double dildo` と B=`dildo` を比べ、Aで『2本の別々のディルド』ではなく『1本の両端型ディルド』が出ているか？」
+- P2-005 should be explained as: 「A=`anal` と B=`anal penetration` を比べ、どちらで『肛門への挿入』が成立しているか？ ただ肛門が見える・広がるだけなら不成立。」
+
+When another visible element violates the fixed prompt (for example `solo`なのに別人物が出る、target以外の追加挿入が出る), record it separately as a confound / prompt-adherence failure instead of silently treating it as equivalent target success.
+
+P2-004 caveat: `double dildo` is a double-ended-object concept, not an exact "two separate dildos" count tag. Therefore P2-004 may provide evidence about shape-specific retention or lexical `double` misinterpretation, but it must not by itself close the general `EXACT_COUNT_RETENTION` question. If the target image shows two separate dildos rather than one double-ended dildo, record target realization as failed even though a numeric difference appeared.
+
+P2-005 caveat: `anal` vs `anal penetration` can only support alias/alternate-trigger equivalence if the same concrete predicate is judged. Presence of an anus alone is insufficient; visible anal penetration is the primary predicate for this comparison. Fixed-prompt violations such as a male appearing despite `1girl, solo` weaken experiment validity and must be recorded.
+
 ## Required Wave 2 repository artifacts
 
 Before generation:
