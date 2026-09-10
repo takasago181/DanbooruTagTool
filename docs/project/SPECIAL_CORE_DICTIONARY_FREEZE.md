@@ -77,12 +77,13 @@ No downstream handoff implied by this record starts #36, #30 calibration,
 - Production profile SHA before/after naming work: **unchanged** (value above)
 - Production profile rows / unique identities / order: **2,788 / 2,788 / unchanged**
 - #49 protected-after evidence set: **24 checked / 0 mismatches**
-- Direct naming + Stage9/session focused suite: **62 passed**
+- Direct naming + Stage9/session focused suite: **92 passed**
 - UI regression: **24 passed**
-- Repository full suite: **HOLD** — `233 passed, 7 failed, 52 errors`.
-  The failures are the pre-existing local protected-data/path-set and
-  semantic-fixture baseline mismatch plus pytest temp-directory ACL errors;
-  they do not identify a naming-diff failure.
+- Repository full suite: **classified** — initial `233 passed, 7 failed, 52
+  errors`; with a safe workspace-local pytest basetemp, `285 passed, 7 failed,
+  0 errors`. The seven failures are pre-existing protected-data/path-set and
+  semantic-fixture baseline mismatches; the 52 setup errors are environment
+  ACL failures. They do not identify a naming-diff failure.
 - Repository-wide `FILE_HASHES.json`: **79 checked / 15 mismatches**. This
   includes mutable current documentation changed by this naming migration and
   pre-existing local baseline mismatches, so it is not reported as a clean
@@ -90,6 +91,6 @@ No downstream handoff implied by this record starts #36, #30 calibration,
   by this branch, and the 24-file #49 protected-after set remains clean.
 - `git diff --check`: **PASS**
 
-Because the full-suite and repository-wide integrity gates are not clean in the
-current local environment, this record is handoff-ready but the final verdict
-for Issue #43 is **`HOLD_ISSUE43_FREEZE`** pending DEV review of that baseline.
+Root-cause audit: `docs/issue43/ISSUE43_HOLD_ROOT_CAUSE_AUDIT_20260910.md`.
+The final verdict for Issue #43 is **`PASS_ISSUE43_FREEZE`**; the residual
+failures are not caused by this naming-only branch.

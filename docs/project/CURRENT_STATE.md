@@ -53,7 +53,7 @@ Stage 9 overall Gate 完了 / Stage10 準備Gate実施中 / automated E2E PASS
 
 ## Active Work / Issues
 
-### #43 naming / final Special dictionary freeze — current DEV
+### #43 naming / final Special dictionary freeze — completed
 
 #49 production promotionが完了したため正式activate。
 
@@ -106,7 +106,7 @@ RESERVED until dictionary/data promotion/freeze prerequisites complete。日本�
 6. #35 completion — SATISFIED
 7. #32 validation + independent promotion audit — SATISFIED
 8. #49 production FIX implementation + post-write audit + main merge — **SATISFIED / completed**
-9. #43 naming/final dictionary freeze gate — **ACTIVE / REMAINS**
+9. #43 naming/final dictionary freeze gate — **SATISFIED / completed**
 10. final dictionary freeze後のKNOWLEDGE evaluator coverage return — REMAINS
 11. #36/#46 full UI-JA execution + independent promotion gate — REMAINS
 12. #30 final representative routing/evaluator calibration — REMAINS
@@ -116,7 +116,7 @@ RESERVED until dictionary/data promotion/freeze prerequisites complete。日本�
 
 ## Next Actions
 
-1. **#43** reference inventory + low-risk naming migration + final Special Core Dictionary snapshot freeze
+1. **#43** completed: reference inventory + low-risk naming migration + final Special Core Dictionary snapshot freeze
 2. #46 authorized 30,629 full execution -> #36 revalidation -> independent promotion gate
 3. final dictionary freeze後、#44 KNOWLEDGE evaluator coverage return
 4. #30 final representative routing/evaluator calibration
@@ -126,7 +126,7 @@ RESERVED until dictionary/data promotion/freeze prerequisites complete。日本�
 
 ## Source-of-Truth Rule
 
-- current DEV = **#43**
+- current DEV = **#43** (completed handoff; next DEV selection remains a management action)
 - final formal concept name = **`Special Core Dictionary`**
 - `CURRENT_DEV_TASK.md` is the synchronized mirror for current DEV
 - #49 is completed/closed and merged;再実装対象ではない
