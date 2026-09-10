@@ -2,154 +2,135 @@
 
 最終同期: 2026-09-11
 
-## Mirror Metadata
+## Source
 
-- Source Issue: **#30** `[Stage10-PREP][PHASE2_ACTIVE] Targeted evaluator refinement before #42`
-- State: **ACTIVE / PHASE2_GENERATION_BATCH2_AUTHORIZED_AFTER_PREFLIGHT / MACHINE_FIRST**
-- Branch: `codex/issue30-calibration-design`
-- Current Stage: Stage10準備Gate実施中
+- Source Issue: **#30**
+- Issue state: **OPEN / ACTIVE**
+- DEV state: **PHASE2_ACTIVE / BATCH2_COMPLETE / BROAD_COVERAGE_AUTOMATION_PREP / NO_NEW_GENERATION**
+- Stage10 production A/B: **NOT STARTED**
+- Working branch: `codex/issue30-calibration-design`
+- Current continuation contract: `docs/project/ISSUE30_BROAD_COVERAGE_AUTOMATION_PREP_SPEC_20260911.md`
 
-## Current continuation contract
+Supporting policy/direction:
+- `docs/project/AUDIT_ARTIFACT_CACHE_POLICY.md`
+- `docs/project/ISSUE30_BROAD_COVERAGE_AUTOMATION_DIRECTION_20260911.md`
 
-**`docs/project/ISSUE30_PHASE2_GENERATION_BATCH2_SPEC_20260911.md`**
+This file is the Codex-readable mirror of Issue #30. If Issue #30 and this file differ, do not implement until DEV synchronizes them.
 
-Machine Triage Audit is accepted evidence. Do not repeat it or re-review its 12 images.
+## Accepted Batch 2 checkpoint
 
-## Accepted Phase 2 checkpoints
+Generation Batch 2 is complete.
 
-- Wave 1 + human review: `233a2a25b58de388cdf4ccff1183fca0a3260472`
-- Wave 2 execution/human review: preserved
-- Reuse-only human review: `44c3874ea6083590db256f819d5445501c49ff60`
-- Generation Batch execution: `6e19da24a9718691b3c2e726bbe256fcb69f4a68`
-- Generation Batch human review: `4a3e6ef5d19b33b5482bcfc86cc362ad6cbad9f3`
-- Machine Triage Audit: **`2660c3106d2252c8aa8f3006f2a1040fd95004db`**
+Evidence:
+- execution/report commit: `7e516bd1ca27c862cdaf023c023bed74e34e6833`
+- human-review commit: `1cd33c7ebec445c3e3870ebce360f9cfee1ffbf9`
 
-Accepted audit facts:
-- 12 existing images
-- actual evaluator success 36/36 = WD14 12 / Kagami 12 / CL 12
-- raw evaluator image-ID binding PASS
-- old report evaluator-reference mismatches 33
-- A/B marker PASS
-- retrospective human-review reduction 0%
-- 0% reason = previous batch chose structural/relation-sensitive or low-confidence cases; not a user-review failure
+Accepted facts:
+- generated images: **16**
+- A/B pairs: **8**
+- actual evaluator success: **48/48** = WD14 16 / Kagami-24k 16 / CL Tagger v2.00 16
+- evaluator-reference integrity: PASS after report-reference repair
+- A/B marker integrity: PASS
+- machine-handled: **4 images / 2 pairs**
+- human-required: **12 images / 6 pairs**
+- blocked: **0**
+- image/pair user-review reduction: **25% / 25%**
+- human-required result: **6/6 pairs BOTH_PASS**
 
-## Immediate preflight — must pass before new generation
+Do not regenerate or re-review the 12 already human-reviewed Batch 2 images.
 
-1. fetch latest `origin/main` and merge into `codex/issue30-calibration-design`; no rebase/force rewrite.
-2. read `ISSUE30_PHASE2_GENERATION_BATCH2_SPEC_20260911.md`.
-3. fix evaluator success reporting so success is counted from verified artifacts/results, not `images * 3` arithmetic alone.
-4. keep per-image evaluator references bound to each image ID and block provenance mismatch.
-5. fix pair-level routing metrics:
-   - compute `machine_handled_pairs`; do not hard-code 0.
-   - compute `human_required_pairs` from actual routes; do not copy historical review count.
-   - compute image-level and pair-level reduction.
-6. add regression/fixture coverage with at least one machine-handled A/B pair and one human-required pair.
-7. A/B mismatch/all-A/all-B must block review handoff.
-8. if any preflight fails: STOP with **0 new images**.
+## Immediate work
 
-## Batch 2 purpose
+Before changing files or producing audit assets:
 
-Execute several useful tests in one pass while actually reducing user review through machine-first routing.
+1. Fetch the latest live `origin/main`.
+2. Merge latest `origin/main` into `codex/issue30-calibration-design`.
+3. No rebase and no force rewrite.
+4. Verify that the fetched main contains this mirror and `ISSUE30_BROAD_COVERAGE_AUTOMATION_PREP_SPEC_20260911.md`.
 
-Target:
-- **4–5 experiments**
-- normally **16–20 new images**
-- hard cap **20 new images**
+Then execute only the PREP contract:
+
+1. Implement/test disposable audit-cache cleanup guards per `AUDIT_ARTIFACT_CACHE_POLICY.md`.
+2. Reuse **existing Batch 2 images only**.
+3. Create one visual-audit contact sheet for the two previously machine-handled pairs:
+   - B2-001 / seed `44001`
+   - B2-001 / seed `44002`
+   - total: 2 pairs / 4 images.
+4. A/B labels must come from structured manifest/condition.
+5. Include large concrete Japanese audit questions.
+6. Create a lightweight audit manifest mapping display number, pair, image ID, A/B condition, source hash, source locator, and machine route.
+7. Do not commit the contact-sheet image or disposable generated audit copies into the normal public Git history.
+8. Report the local contact-sheet path so the user can attach **one file** to ChatGPT.
+9. Add focused tests proving deletion containment, sentinel/ownership-manifest checks, and unknown/unowned-file fail-closed behavior.
+10. Report protected/original-file integrity and STOP for DEV/ChatGPT visual audit.
+
+**Generate 0 new images in this PREP task.**
+
+## Deletion safety — mandatory
+
+Audit cleanup may delete/replace only files explicitly owned by the audit manifest and strictly below one configured disposable audit root.
+
+Mandatory protections:
+- exact configured audit root; never guess it;
+- sentinel ownership marker;
+- canonical absolute path resolution;
+- every deletion target is a strict descendant of audit root;
+- reject empty/relative/root/profile/repository/`data/**`/`docs/**`/model/source-generation paths;
+- reject traversal and symlink/junction/reparse escape;
+- unknown/unowned deletion target => STOP / 0 deletions;
+- no broad recursive wildcard cleanup;
+- no `git clean -fdx` or `git clean -fdX`;
+- never couple audit cleanup to source PNG, evaluator raw artifact, production/protected data, accepted evidence, or model deletion.
+
+## Audit handoff
+
+Google Drive is not used.
+
+A separate private audit cache can later be used as isolated disposable/non-canonical storage, but private Git binary visibility to ChatGPT is not assumed. Current reliable visual handoff is one compact contact sheet attached to chat; textual evidence stays in GitHub.
+
+## Next gate after PREP
+
+After DEV/ChatGPT independently reviews the two previously machine-handled pairs for false-safe behavior:
+
+- PASS -> DEV may create/authorize a new Broad Coverage Wave 1 contract.
+- false-safe -> affected automatic rule/class returns to human review and must be recalibrated before expansion.
+
+Planned Wave 1 envelope is **not yet authorized**:
+- 12–20 independent experiments
 - normally A/B × 2 predetermined fixed seeds
-- no automatic extra seeds
-- do not fill quota
+- approximately 48–80 images
+- stratified across multiple Special semantic families
+- machine-first routing
+- machine-handled visual audit sample >=10%, floor 2 pairs when >=2 exist, plus suspicious/borderline cases
+- adaptive later waves based on failure/variance/disagreement/product value.
 
-Mandatory mix:
-- **1–2 fresh direct/simple-unary machine-judgeable experiments** for real machine-first routing validation
-- **2–3 high-value structural experiments** that genuinely require human semantic judgment
+## Human-protected semantics
 
-Do not select only structural cases and then send the full batch to the user.
-
-## Structural priority
-
-1. `ACTOR_COUNT_DISAMBIGUATION`
-2. clearer `MULTI_SPECIAL_RETENTION` replacement; do not repeat ambiguous `holding sex toy + vibrator`
-3. new `SINGLE_SUPPORT_TAG_EFFECT`; do not repeat GB-002 `vibrator in anus + anal`
-
-Normally skip:
-- generic exact-count repeat; `CAL-023 double handjob` is already the narrow anchor
-- `double dildo` as exact-count evidence
-- immediate repeat of `breast expansion + breasts`
-- immediate repeat of `anal` vs `anal penetration`
-- extra seeds just to chase GB-001 ambiguity
-
-Codex may select exact real current Special IDs without asking the user to search the dictionary, provided each case meets the current spec and <=20 new images.
-
-## Machine-first execution order
-
-`generate -> artifact/provenance gate -> WD14/Kagami/CL -> evaluator-reference integrity -> machine triage image+pair -> human-required pairs only -> contact sheet -> user review`
-
-Machine evaluation must affect routing; it is not decorative.
-
-Machine-handled eligibility remains narrow:
-- direct / non-relation / simple-unary
-- complete provenance
-- valid evaluator outputs
-- existing calibrated confidence/agreement criteria satisfied
-- no structural ambiguity
-
-Human-protected:
+Keep human-protected by default:
 - relation/binding
-- body-site ownership/correctness
-- insertion/contact topology
-- exact-count semantics
+- exact count
 - actor/subject/object assignment
 - multi-person role assignment
+- body-site ownership/correctness
+- insertion/contact/spatial topology
 - compound/multi-Special retention
-- ambiguous identity
-- disagreement/low confidence
+- ambiguous identity/category
+- evaluator disagreement/low confidence.
 
-## User review UX
-
-Build the contact sheet **after machine triage**.
-
-Only `HUMAN_REVIEW_REQUIRED_PAIR` items appear by default.
-
-Show only:
-- image(s)
-- large number
-- correct A/B marker
-- one large concrete Japanese question
-
-Do not clutter with Prompt/Negative/seed/case ID/evaluator/model/settings/token glossary.
-
-Question font >=24 px, preferably 28–32 px. Font priority Meiryo -> Yu Gothic -> MS Gothic. Tofu/square => invalid.
-
-A/B marker must derive from structured manifest/condition. Exactly one A + one B per pair. Mismatch/all-A/all-B => `REVIEW_ASSET_INVALID / BLOCKED`.
-
-## Required outputs
-
-- `docs/testing/ISSUE30_PHASE2_GENERATION_BATCH2_DESIGN.md`
-- `docs/testing/ISSUE30_PHASE2_GENERATION_BATCH2_MANIFEST.csv`
-- `docs/testing/ISSUE30_PHASE2_GENERATION_BATCH2_RESULT.md`
-- `docs/testing/ISSUE30_PHASE2_GENERATION_BATCH2_RESULT.json`
-- actual evaluator success/failure counts
-- per-image evaluator-reference integrity
-- image-level and pair-level machine routes
-- machine-handled/human-required/blocked image + pair counts
-- image-level + pair-level human-review reduction
-- simplified contact sheet for human-required pairs only
-- focused tests/preflight result
+Machine Taggers remain assistive triage only; they are not broad structural semantic ground truth.
 
 ## Hard prohibitions
 
-- >20 new images
-- automatic seed expansion
-- original 128-image wholesale rerun
-- 2,788-image sweep
+- any new image generation in current PREP
 - Stage10 production A/B
-- production `data/**` mutation
+- blind 2,788-entry image sweep
+- automatic extra seeds merely to chase a desired result
+- production/protected `data/**` mutation
 - #32 verdict/canonical mutation
 - runtime LLM dependency
-- unnecessary extension/tool
+- generated audit-image accumulation in normal public Git history
+- unsafe broad filesystem cleanup
 - machine promotion to structural semantic truth
-- showing machine-handled pairs to the user merely because they were generated
+- asking the user to review/upload dozens of individual images when a compact audit sheet can be used
 
-After Batch 2, STOP for DEV/ChatGPT. The user reviews only the actual human-required remainder.
-
-Current routing authority: `docs/project/CURRENT_STATE.md`.
+#42 remains downstream; Issue #30 PREP does not bypass its existing gates.
