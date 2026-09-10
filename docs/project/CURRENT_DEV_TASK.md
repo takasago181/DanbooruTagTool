@@ -1,167 +1,130 @@
 # CURRENT DEV TASK
 
-最終同期: 2026-09-08
+最終同期: 2026-09-10
 
 ## Mirror Metadata
 
-- Source Issue: #35 `[UI][DEV] Japanese-first desktop UI pass (dictionary frozen)`
-- Parent: #34 `[UI-JA][CROSS] Tool UI / Japanese translation quality improvement`
+- Source Issue: #49 `[DICT-PROMOTION][DEV] Apply audited Issue #32 fixes to production`
+- Parent / source lane: #32 dictionary validation + #48 independent promotion audit
 - State: active
-- Branch: `ui-ja/issue35-ui-only`
-- Implementation model: Luna
-- Purpose: Codexがprivate GitHub Issue APIへ追加認証せず、現行DEV作業内容をrepository内から読むための同期ミラー。
+- Production base: latest `main`
+- Implementation branch: dedicated Issue #49 feature branch created from latest `main`
+- Purpose: Codexが現行DEV task contractをrepository内から読めるようにする同期ミラー。詳細・結果証拠はIssue #49を正本とする。
 
-## User decision
+## Purpose
 
-辞書本体は別の自動改善処理が進行中。このIssueでは辞書内容を変更しない。
+Issue #32 quarantine validationとIssue #48 independent auditでproduction-safeと承認されたeffective FIX subsetだけを、current productionのSpecial generation profileへ反映する。
 
-このpassは、現在ロード済みの日本語データを使ってデスクトップUIを一貫した日本語優先表示にするだけ。
+Quarantineはread-only evidenceとして扱い、production implementationのbaseには使わない。
+
+## Source authority
+
+- Issue #32 quarantine results
+- branch `dict-validation/quarantine`
+- Issue #48 final verdict comment `5605993533`
+- `validation_quarantine/PROMOTION_READINESS_PACKAGE_20260910.md`
+- `validation_quarantine/CANDIDATE_FIX_CROSS_CONSISTENCY_R2_20260910.md`
+- `validation_quarantine/candidate_fixes.csv`
+- `validation_quarantine/candidate_fix_blocks/**`
 
 ## Start gate
 
-編集前に必ず:
+実装前に必ず:
 
-1. `ui-ja/issue35-ui-only` をcheckoutする。
-2. `docs/project/CURRENT_STATE.md` のactive DEV Issueが #35 であることを確認する。
-3. このファイルが Source Issue #35 / State active / Branch `ui-ja/issue35-ui-only` であることを確認する。
-4. 不一致があればSTOPして報告する。
+1. `docs/project/CURRENT_STATE.md` のcurrent DEVが #49 であることを確認する。
+2. このファイルが Source Issue #49 / State active であることを確認する。
+3. Issue #49本文と最新checkpointを読む。
+4. latest `main` から専用feature branchを作る。`dict-validation/quarantine` をproduction baseにしない。
+5. 不一致があればSTOPし、管理同期を先に直す。
 
-branchはIssue #35 active化後のcurrent mainへ再同期済み。古いローカルbranch状態から作業しない。
+## Required promotion contract
 
-## Files allowed in this pass
+1. Special identity set / row count / orderingを正確に維持する: 2,788 entries。
+2. `candidate_fixes.csv` + `candidate_fix_blocks/**` からdeterministic machine-readable effective-candidate manifestを作る。
+3. `WITHDRAWN_AFTER_SIBLING_CHECK`、superseded、history-only、non-effective rowsを除外する。
+4. 同一 `(special_id, field)` に conflicting effective assignments があれば書き込み前にSTOPする。
+5. Special単位でapproved field setをatomicに適用する。
+6. effective candidateで明示されたfield以外は変更しない。sibling/adjacent fixを推測しない。
+7. REVIEW / IMAGE_TEST_REQUIRED outcomesをproductionへ昇格しない。
+8. semantic-support parked 33 IMAGE_TEST_REQUIRED rowsのdefault/additive behaviorを変更しない。
+9. WAI17 / Illustrious / NoobAI / Anima等のmodel-scoped generation claimsをglobal truthへ平坦化しない。
+10. rejected completeness 5件を追加しない: `cervix_removal`, `fallopian_tubes_removal`, `ovaries_removal`, `uterus_removal`, `spread_eagle`。
+11. canonical / Alias / Japanese / search / ranking / Prompt composerを変更しない。
+12. Stage10 production A/Bを開始しない。
 
-原則として変更対象は:
+## Allowed production diff scope
 
-- `danbooru_tag_tool/ui.py`
-- `tests/test_stage7a_ui.py`
+Primary intended target:
 
-必要性が明確でない新規module/abstractionは作らない。
+- `data/generation/special2788_generation_profile.csv`
+
+追加の `data/**` 変更は禁止。ただし既存project machineryで必須なstrictly-derived integrity/manifest artifactだけは例外になり得る。その場合はcompletion reportでpath・理由・generated-from関係を明示し、scopeを黙って広げない。
+
+## Pre-write machine gates
+
+production write前に必ず:
+
+- input production profileがcurrent approved production baseに対応することを確認
+- 2,788 unique Special identities / fixed order確認
+- effective-candidate manifest作成
+- active candidate row count / unique affected Special countを記録
+- conflicting effective `(special_id, field)` assignments = 0
+- target `special_id` がexactly once存在
+- touched / integrity-coupled protected filesのpre-write SHA-256 / manifest記録
+
+1つでも失敗したらpartial writeせずSTOP。
+
+## Post-write checks
+
+- exact profile row count = 2,788
+- identity / order unchanged
+- each effective candidate applied exactly once
+- excluded / withdrawn candidate applied = 0
+- non-candidate field changes = 0
+- rejected completeness candidates added = 0
+- semantic-support data unchanged（通常）
+- required tests / integrity checks実行
+- `git diff --check` PASS
+- before/afterの全変更セルをeffective candidate rowへtraceできるdiff report作成
+- protected-data integrity evidence記録
+
+## Required durable outputs
+
+feature branchへcommit:
+
+- machine-readable effective-candidate manifest
+- exact applied-diff report
+- implementation/completion report
+- test results
+- protected-data integrity evidence
+- rollback/reversion instructions
+
+protected raw datasets自体はGitHubへコピーしない。
+
+## Stop point / acceptance verdict
+
+実装・test・push後にSTOPする。mainへmergeしない。Stage10 A/Bを開始しない。production promotion completeを宣言しない。
+
+別のpost-write independent auditが必須。
+
+DEV handoff verdictはexactly one:
+
+- `READY_FOR_POST_WRITE_AUDIT`
+- `HOLD_PROMOTION_IMPLEMENTATION`
 
 ## Forbidden
 
-- `data/**` の変更
-- `data/runtime/japanese_overlay.json` の変更
-- Special2788 content変更
-- canonical / alias / semantic / generation-profile content変更
-- search ranking / fuzzy matching / recommendation scoring・ordering変更
-- Stage9C/9D composition/session semantics変更
-- protected hash/integrity弱体化
-- `anal -> piano/analog...` 検索ノイズ修正（これは #34 の別項目）
-
-## Deterministic implementation steps
-
-### Step 1 — `ui.py` にpure display helperを1個だけ追加
-
-以下と同等の挙動:
-
-```python
-def bilingual_tag_label(japanese, english_tag):
-    ja = (japanese or "").strip() or "日本語未登録"
-    return f"{ja} / {english_tag}"
-```
-
-`english_tag` を翻訳・normalizeしない。これは表示上のtraceability用でありPrompt整形ではない。
-
-### Step 2 — visible tag/candidate identityをhelperへ統一
-
-既存methodのpresentation文字列だけ変更:
-
-- `_run_search`
-  - Special: `item.japanese` + `item.original_term`
-  - General: `item.display_japanese` + `item.canonical`
-- `_candidate_headline`
-  - Japanese overlay display + `candidate.canonical`
-  - 日本語なしなら `日本語未登録 / canonical`
-- `_render_semantic_support`
-  - candidate identity: Japanese overlay display + canonical
-  - relation owner Specialも、そのSpecialの `japanese` + `term` でbilingual表示
-- `_refresh_state`
-  - selected Specialをbilingual表示
-  - manually added auxiliaryをbilingual表示しcanonicalを常時表示
-
-これらのtag/candidate identity rowでは英語だけへのsilent fallbackを禁止。
-
-### Step 3 — selected item sourceを明示
-
-新しいstateを作らず文字prefix/badgeだけ使う:
-
-- selected Special: `[選択Special] 日本語 / english_tag`
-- manual auxiliary: `[手動追加] 日本語 / canonical`
-
-`Stage9ComposerSession.automatic_injections` は現在empty。fake automatic group/UIを追加しない。現在sessionから表面化していない自動項目は表示しない。
-
-### Step 4 — Japanese-first UI chrome
-
-exact changes:
-
-- window title: `DanbooruTagTool`
-- `Prompt preview` -> `完成Prompt`
-- `Promptをコピー` -> `完成Promptをコピー`
-- `Special2788` -> `Specialタグ候補`
-- `選んだSpecial` -> `選択したSpecialタグ`
-- `その他のDanbooruタグ`, `関連候補`, `よく使われる`, `珍しい関連`, `意味から補助` は既存日本語を維持
-
-final Prompt payloadそのものは翻訳しない。
-
-### Step 5 — recommendation readabilityはpresentation順だけ変更
-
-`_render_candidate_rows` でscoring/orderを変えず、表示順だけ:
-
-1. bilingual tag identity
-2. generation hint / evidence note（あれば）
-3. raw statistics (`件数 / 割合 / Lift`) を最後
-4. `＋追加` button維持
-
-ranking/filtering/scoring変更禁止。
-
-### Step 6 — Luna passではwindowを再設計しない
-
-existing single-window / panes / resize systemを維持。新規window/dialog/tab構成への変更や大規模geometry/layout rewriteは禁止。
-
-より大きなvisual-layout改善は、このpass後のreal screenshot reviewで必要なら別Issueにする。
-
-## Acceptance tests
-
-1. `bilingual_tag_label("日本語", "sample_tag") == "日本語 / sample_tag"`。
-2. missing/blank Japanese -> `日本語未登録 / sample_tag`。
-3. Special search rowにJapanese + original Special term。
-4. General resultにJapanese + canonical、missing Japaneseはexplicit fallback。
-5. selected manual auxiliaryはJapanese/fallback + canonicalを常時表示。
-6. related candidateはJapanese/fallback + canonicalを常時表示。
-7. semantic-support candidateとowner Special identityがbilingual。
-8. final Prompt preview / clipboard payloadはcanonical English Prompt syntaxのまま。
-9. `data/**` changed files = 0。
-10. search/recommendation/session semantics unchanged。
-11. protected integrity tests unchanged and PASS。
-
-## Required test order
-
-```text
-python -m pytest -q tests/test_stage7a_ui.py
-python -m pytest -q tests/test_stage9c_session.py tests/test_stage0_integrity.py
-python -m pytest -q tests/test_e2e_functional.py tests/test_e2e_verdict.py
-python -m pytest -q
-```
-
-環境/Tk制約で実行不可なら、exact command / error / 未検証項目を報告する。未実行をPASSと表現しない。
-
-## Manual inspection gate
-
-code/tests完了だけでUI完成宣言しない。real Windows Tk screenshot/manual inspectionはUI-JA班が別途実施する。
-
-## Completion report required
-
-- remote branch
-- commit SHA
-- changed files
-- focused/regression/full-suite results
-- `data/**` unchanged確認
-- search/recommendation/Stage9 semantics unchanged確認
-- unverified items
-- screenshot/manual inspection status
+- #36 Japanese overlay production promotion
+- canonical / Alias / Japanese/search/ranking/Prompt changes
+- REVIEW / IMAGE_TEST_REQUIREDの数合わせ昇格
+- protected integrity weakening
+- alternate snapshot substitution
+- `git clean` によるprotected data cleanup
+- main merge
+- Stage10 production A/B
 
 ## Codex Gate
 
-Issue #35 / `CURRENT_STATE.md` / this file are synchronized. Codex may implement **only Issue #35** on branch `ui-ja/issue35-ui-only`.
+Issue #35はcompleted / closed。current DEVは **Issue #49**。
 
-Do not begin unrelated Stage10 production work from this mirror.
+CodexはIssue #49 contractの範囲だけを実装し、`READY_FOR_POST_WRITE_AUDIT` または `HOLD_PROMOTION_IMPLEMENTATION` で停止する。
