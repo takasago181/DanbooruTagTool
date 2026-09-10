@@ -1,0 +1,42 @@
+canonical,old_display_ja,new_display_ja,reason
+hairstyle_switch,髪型交換,髪型の切り替え,SEMANTIC_ERROR
+hakama_lift,ハカマリフト,袴を持ち上げる,AWKWARD_MACHINE_TRANSLATION
+hakama_pull,ハカマプル,袴を引っ張る,AWKWARD_MACHINE_TRANSLATION
+hakama_removed,ハカマは削除した,袴を脱いだ,SEMANTIC_ERROR
+hakuho_high_school_uniform,白宝高校,白宝高校の制服,SEMANTIC_UNDERSPECIFICATION
+hakuo_school_uniform,ハクオスクールユニフォーム,白皇学院の制服,SEMANTIC_ERROR
+half-coat,half・コート,ハーフコート,MIXED_ENGLISH_DEBRIS
+half-jacket,half・ジャケット,ハーフジャケット,MIXED_ENGLISH_DEBRIS
+half-leotard,half・レオタード,ハーフレオタード,MIXED_ENGLISH_DEBRIS
+half-sleeves,タグ「half-sleeves」,半袖,RAW_ENGLISH_WRAPPER
+half_chest_guard,half・胸・guard,半胸当て,MIXED_ENGLISH_DEBRIS
+half_crown_braid,タグ「half crown braid」,ハーフクラウン編み,RAW_ENGLISH_WRAPPER
+half_note,ハーフノート,2分音符,SEMANTIC_ERROR
+half_rest,半休息,2分休符,SEMANTIC_ERROR
+half_up_bun,half・上向きのbun,ハーフアップのお団子,MIXED_ENGLISH_DEBRIS
+half_up_half_down_braid,half・上向きのhalf・下向きのbraid,ハーフアップ・ハーフダウンの三つ編み,MIXED_ENGLISH_DEBRIS
+halftone_dot_(medium),タグ「halftone dot (medium)」,網点（画材）,RAW_ENGLISH_WRAPPER
+halftone_outline,halftone・輪郭,ハーフトーンの輪郭,MIXED_ENGLISH_DEBRIS
+halo_around_horn,haloの周囲のhorn,角の周りの光輪,MIXED_ENGLISH_DEBRIS
+halo_behind_head,halo・behind・頭,頭の後ろの光輪,MIXED_ENGLISH_DEBRIS
+halo_ornament,halo・飾り,光輪の飾り,MIXED_ENGLISH_DEBRIS
+halo_removed,ハローが削除されました,光輪を外した,SEMANTIC_ERROR
+halter_leotard,halter・レオタード,ホルターレオタード,MIXED_ENGLISH_DEBRIS
+hamakaze_(kancolle)_(cosplay),Hamakaze（Kancolle）（コスプレ）,浜風（艦これ）（コスプレ）,MIXED_ENGLISH_DEBRIS
+hamayumi_(genshin_impact),hamayumi (genshin impact),破魔の弓（原神）,CANONICAL_FALLBACK_TRANSLATABLE
+hamon_(jojo),波纹,波紋（ジョジョ）,NON_JAPANESE_RESIDUE
+hamster_boy,タグ「hamster boy」,ハムスターの少年,RAW_ENGLISH_WRAPPER
+hamster_on_head,hamsterの上の頭,頭の上のハムスター,SEMANTIC_RELATION_ERROR
+hanafuda_earrings,花札耳饰,花札のイヤリング,NON_JAPANESE_RESIDUE
+hanako_(blue_archive)_(cosplay),hanako (blue archive) (cosplay),ハナコ（ブルーアーカイブ）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+hanasakigawa_school_uniform,花咲川女子学園,花咲川女子学園の制服,SEMANTIC_UNDERSPECIFICATION
+hanbok,ハンボク,韓服,SEMANTIC_ERROR
+hand_blush,ハンドブラッシュ,手の赤み,SEMANTIC_ERROR
+hand_chains,手・chains,手の鎖,MIXED_ENGLISH_DEBRIS
+hand_cursor,手・cursor,手形カーソル,MIXED_ENGLISH_DEBRIS
+hand_fan_writing,ハンドファンの執筆,扇子に書かれた文字,SEMANTIC_ERROR
+hand_focus,ハンド,手を強調,SEMANTIC_UNDERSPECIFICATION
+hand_gagged,ハンドギャグ,手で口を塞ぐ,SEMANTIC_ERROR
+hand_grab,手つなぎ,手を掴む,SEMANTIC_ERROR
+hand_grabbing_both_breasts,手・掴む・both・胸,両胸を掴む手,MIXED_ENGLISH_DEBRIS
+hand_in_another's_clothes,手の中の他人の服,他人の服の中に手,SEMANTIC_RELATION_ERROR
