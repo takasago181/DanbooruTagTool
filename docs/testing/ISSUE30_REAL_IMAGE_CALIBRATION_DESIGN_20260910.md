@@ -1,14 +1,16 @@
 # Issue #30 — Real-image evaluator calibration design
 
 Date: 2026-09-10
-Status: **DESIGN COMPLETE / IMAGE GENERATION NOT STARTED**
+Status: **DESIGN REVISED / IMAGE GENERATION NOT STARTED**
 
 ## 1. Purpose and boundary
 
 This document defines a reproducible calibration pass for WD14, Kagami-24k and
 CL Tagger v2.00 against human image-level reference judgments. It is a
-pre-Stage10 capability test, not approval of `AUTO_CANDIDATE` as production
-automatic scoring.
+pre-Stage10 capability triage, not approval of `AUTO_CANDIDATE` as production
+automatic scoring. The pilot's purpose is to narrow the classes worth further
+testing, exclude clearly unsuitable classes, and keep any later image
+generation limited to evidence-backed candidates.
 
 This pass deliberately does **not**:
 
@@ -86,6 +88,11 @@ If a contrast cannot be made without changing multiple questions, the cell is
 marked `UNSUITABLE_CONTRAST` and is not used for threshold fitting. It remains
 useful as a human-review example.
 
+The 128-image pilot is intentionally a fixed upper bound for this pass. It is
+not a promise to generate more images after the pilot. Additional validation
+requires a separate selection decision based on pilot evidence and is limited
+to classes that show measurable automation value.
+
 The initial profile is the already demonstrated infrastructure baseline:
 
 - Forge Neo API `neo-2.29`;
@@ -140,24 +147,52 @@ The 32 cases cover these strata:
 The source 30 are intentionally retained even where several cases are hard or
 similar. Removing them would bias the calibration toward easy unary tags.
 
+The pilot is not sized to freeze production thresholds. It is sized to answer
+three narrower questions: which capability classes have a credible automation
+prospect, which classes should be excluded from automation, and what smallest
+additional validation would resolve the remaining uncertainty.
+
 ## 5. Human reference protocol
 
 Human judgment is the image-level reference. It is a reference label, not a
 claim that a Tagger or a single reviewer defines Danbooru semantics.
 
-For every image:
+The normal path is one pass by the user who owns the local installation:
 
-1. render the image and show the case question, but hide Tagger scores/tags,
-   desk recommendation and proposed routing;
-2. obtain two independent blinded labels;
-3. use the tri-state values `true`, `false`, `unclear`, or `not_applicable` for
-   each applicable dimension;
-4. preserve both raw rater records;
-5. adjudicate disagreements with a third reviewer or documented adjudication;
-6. set `reference_state=UNRESOLVED` when the disagreement cannot be resolved.
+1. render the image and show only the case question and image;
+2. hide Tagger scores/tags, desk recommendation, predicted routing and any
+   other evaluator-derived hint;
+3. record one blinded judgment using `true`, `false`, `unclear`, or
+   `not_applicable` for each applicable dimension;
+4. record a difficulty flag and, when useful, a short reason for uncertainty.
+
+Two-person labeling is **not required for all 128 images**. A second judgment
+is a targeted recheck only when one of these conditions holds:
+
+- an applicable dimension is `unclear` or the user marks the image difficult;
+- the image is a defined boundary case (relation/binding, component-only,
+  rare-tail, compound, quantity, spatial, insertion/contact/restraint or
+  multiple-Special retention);
+- evaluator execution later reports disagreement or a direct observation that
+  conflicts with the initial reference;
+- the first label and the expected target/contrast question cannot be decided
+  confidently from the image.
+
+The recheck is either a delayed re-read by the same user or an available
+independent reviewer. The rechecker sees the image and question but not raw
+Tagger output, desk routing or the disagreement details that could bias the
+judgment. Preserve the initial label and the recheck label separately. Resolve
+the final reference only after the recheck; use `UNRESOLVED` only when the
+initial and recheck judgments cannot be resolved.
 
 An `UNRESOLVED` reference is excluded from promotion/threshold fitting and is
 sent to human review. It is not silently converted to a negative label.
+
+The minimum human image load is therefore **128 image views / initial labels**
+(one view per planned image), with no mandatory second pass. Report the
+recheck count, total human views, recheck rate and the avoided confirmations
+against the old mandatory-two-rater baseline of 256 initial labels. This makes
+human-effort reduction a first-class pilot KPI.
 
 The required dimensions are:
 
@@ -171,7 +206,8 @@ The required dimensions are:
 - unwanted extra interpretation present;
 - usable for Stage10 preference judgment.
 
-`overall_reference_verdict` is derived only after the dimensions are recorded:
+`overall_reference_verdict` is derived only after the dimensions and any
+targeted recheck are recorded:
 `PASS` requires all applicable required dimensions to be true and no unwanted
 extra interpretation; `FAIL` requires a required dimension to be false or an
 unwanted extra interpretation; otherwise it is `UNCLEAR`.
@@ -191,7 +227,7 @@ Normalization never rewrites the Prompt, invents aliases, or turns a component
 into proof of a relation. Raw scores remain comparable only within the same
 evaluator version and output format.
 
-The correctness label for an evaluator is computed against the adjudicated
+The correctness label for an evaluator is computed against the final resolved
 human reference for the relevant dimension, not against the evaluator's own
 tag. For a relation/binding case, a direct relation tag can still be `FP` if
 the image shows the wrong actor, site, direction, count or topology.
@@ -239,6 +275,16 @@ For every evaluator and combination strategy, report:
 - fraction sent to human review;
 - BLOCKED rate and infrastructure-blocked rate separately.
 
+Also report the human-effort KPI:
+
+- initial labels/images viewed (expected 128);
+- targeted rechecks and recheck rate;
+- total human image views and total human confirmations;
+- confirmations avoided versus the old mandatory-two-rater baseline (256
+  initial labels, before any third-party adjudication);
+- proportion of the pilot that would still require human review after each
+  candidate strategy.
+
 For small strata, include Wilson confidence intervals and raw confusion counts;
 do not rank strategies by a rounded percentage alone. A strategy that has
 higher automation but a worse false-positive bound is rejected.
@@ -265,6 +311,10 @@ Default to human review for:
 - any direct evaluator result contradicted by a required human dimension;
 - any model/checkpoint/LoRA profile without its own calibration evidence.
 
+Relation/binding classes are retained as human-review boundary evidence. The
+pilot does not seek to auto-promote them; a direct relation label is still
+insufficient without the applicable human dimensions.
+
 ### AUTO_CANDIDATE
 
 `AUTO_CANDIDATE` is allowed only as a candidate input to calibration when the
@@ -278,13 +328,38 @@ No class is promoted from the 32-case pilot directly to Stage10 production
 automatic scoring solely because it has zero observed false positives in this
 small sample.
 
-## 10. Stage10 production-start Gate
+## 10. Pilot exit and targeted additional validation
+
+At pilot close, assign each capability class one of:
+
+- `PROMISING_FOR_TARGETED_VALIDATION`: direct, non-relation candidate with
+  resolved labels, no confirmed false-positive pattern in the pilot, and a
+  measurable reduction in expected human confirmations under at least one
+  strategy;
+- `HUMAN_REVIEW_ONLY`: relation/binding, compound, quantity, spatial,
+  insertion/contact/restraint, component-only or disagreement-heavy class;
+- `EXCLUDE_OR_BLOCKED`: no verified observation, missing provenance, or no
+  credible image-level signal.
+
+This is a triage result, not a production routing change. Do not generate
+additional images unconditionally after the pilot. A follow-up proposal must
+name the promising class, the unresolved question, the smallest required
+sample and the expected human-effort benefit. Only that approved class may
+receive additional images.
+
+The future class-level evidence condition of at least 30 resolved positive and
+30 resolved negative holdout images remains valid, but it is applied only to a
+class that passes this pilot triage. It is not a requirement to expand every
+class or every Special.
+
+## 11. Stage10 production-start Gate
 
 Stage10 production A/B remains prohibited until all of the following are true:
 
 1. the exact model/checkpoint/Prompt/Negative/metadata path is frozen for the
    tested profile and independently reproducible;
-2. every proposed automatic capability class has at least 30 resolved positive
+2. every proposed automatic capability class has, after pilot triage, at least
+   30 resolved positive
    and 30 resolved negative holdout images from multiple cases (or a larger
    sample justified by the class risk);
 3. its precision point estimate is at least 0.98, its false-positive rate is at
@@ -304,7 +379,7 @@ Stage10 production A/B remains prohibited until all of the following are true:
 If any condition is unmet, the result is `HOLD_PRE_STAGE10`, not a partial
 production authorization.
 
-## 11. Expected failure modes
+## 12. Expected failure modes
 
 The run must explicitly look for:
 
@@ -322,8 +397,14 @@ The run must explicitly look for:
 - prompt or negative-prompt changes that alter visibility and are mistaken for
   evaluator quality;
 - metadata/hash/path loss that must be BLOCKED rather than judged visually.
+- reviewer fatigue or context drift across the initial pass;
+- recheck leakage from seeing evaluator disagreement or desk routing;
+- recheck volume erasing the intended human-effort reduction;
+- a pilot class appearing promising only because its sample is too small;
+- additional images being generated without a documented class-level value
+  decision.
 
-## 12. Minimal execution procedure
+## 13. Minimal execution procedure
 
 The future execution should be:
 
@@ -335,12 +416,19 @@ The future execution should be:
    PNG metadata immediately;
 5. hash each image and raw evaluator response before any labeling;
 6. run WD14, Kagami and CL v2.00 with pinned versions;
-7. conduct blinded two-rater human labeling and adjudication;
-8. compute per-evaluator and combination confusion matrices with case-level
+7. conduct one-user blinded initial labeling for all images, hiding all
+   evaluator/routing outputs;
+8. run only targeted rechecks for unclear/difficult/boundary/disagreement
+   cases, using delayed same-user review or an available independent reviewer;
+9. mark only unresolved rechecks as `UNRESOLVED` and route them to human
+   review;
+10. compute per-evaluator and combination confusion matrices with case-level
    cross-validation;
-9. produce a review queue for disagreement, relation/binding, component-only,
+11. produce a review queue for disagreement, relation/binding, component-only,
    rare-tail and BLOCKED records;
-10. write a checkpoint with metrics, limitations and the next Gate. Do not
+12. report human views, rechecks and avoided confirmations alongside accuracy
+   metrics;
+13. write a checkpoint with metrics, limitations and the next Gate. Do not
     rewrite production routing from a single pilot result.
 
 The only helper tooling justified at this stage is a thin validator/aggregator

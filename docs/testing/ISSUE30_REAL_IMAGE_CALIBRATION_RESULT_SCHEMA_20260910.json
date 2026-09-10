@@ -18,6 +18,7 @@
     "generation",
     "image_artifact",
     "human_reference",
+    "human_effort",
     "evaluators",
     "evaluator_agreement",
     "relation_binding",
@@ -37,6 +38,7 @@
     "generation": {"$ref": "#/$defs/generation"},
     "image_artifact": {"$ref": "#/$defs/image_artifact"},
     "human_reference": {"$ref": "#/$defs/human_reference"},
+    "human_effort": {"$ref": "#/$defs/human_effort"},
     "evaluators": {
       "type": "object",
       "additionalProperties": false,
@@ -124,24 +126,55 @@
     "human_rater": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["rater_id", "blinded_to_evaluators", "dimensions", "notes"],
+      "required": ["rater_id", "rater_role", "blinded_to_evaluators", "difficulty", "dimensions", "notes"],
       "properties": {
         "rater_id": {"type": "string", "minLength": 1},
+        "rater_role": {"type": "string", "enum": ["INITIAL_USER", "RECHECK_SAME_USER_DELAYED", "RECHECK_INDEPENDENT_REVIEWER"]},
         "blinded_to_evaluators": {"type": "boolean", "const": true},
+        "difficulty": {"type": "string", "enum": ["EASY", "NORMAL", "DIFFICULT", "UNCLEAR"]},
         "dimensions": {"$ref": "#/$defs/human_dimensions"},
+        "notes": {"type": "string"}
+      }
+    },
+    "recheck": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["required", "triggers", "performed", "method", "resolved", "second_dimensions", "notes"],
+      "properties": {
+        "required": {"type": "boolean"},
+        "triggers": {"type": "array", "items": {"type": "string", "enum": ["UNCLEAR_DIMENSION", "USER_MARKED_DIFFICULT", "BOUNDARY_CASE", "EVALUATOR_DISAGREEMENT", "EVALUATOR_CONFLICT_WITH_REFERENCE", "UNSUITABLE_CONTRAST"]}},
+        "performed": {"type": "boolean"},
+        "method": {"type": "string", "enum": ["NOT_REQUIRED", "SAME_USER_DELAYED", "INDEPENDENT_REVIEWER"]},
+        "reviewer_id": {"type": ["string", "null"]},
+        "resolved": {"type": "boolean"},
+        "second_dimensions": {"anyOf": [{"$ref": "#/$defs/human_dimensions"}, {"type": "null"}]},
         "notes": {"type": "string"}
       }
     },
     "human_reference": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["raters", "adjudicated_dimensions", "reference_state", "overall_reference_verdict", "adjudication_notes"],
+      "required": ["initial_labeler_id", "raters", "adjudicated_dimensions", "reference_state", "overall_reference_verdict", "recheck", "resolution_notes"],
       "properties": {
-        "raters": {"type": "array", "items": {"$ref": "#/$defs/human_rater"}, "minItems": 2},
+        "initial_labeler_id": {"type": "string", "minLength": 1},
+        "raters": {"type": "array", "items": {"$ref": "#/$defs/human_rater"}, "minItems": 1},
         "adjudicated_dimensions": {"$ref": "#/$defs/human_dimensions"},
         "reference_state": {"type": "string", "enum": ["RESOLVED", "UNRESOLVED"]},
         "overall_reference_verdict": {"type": "string", "enum": ["PASS", "FAIL", "UNCLEAR"]},
-        "adjudication_notes": {"type": "string"}
+        "recheck": {"$ref": "#/$defs/recheck"},
+        "resolution_notes": {"type": "string"}
+      }
+    },
+    "human_effort": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["initial_viewed", "recheck_viewed", "initial_label_count", "recheck_label_count", "total_image_views"],
+      "properties": {
+        "initial_viewed": {"type": "boolean", "const": true},
+        "recheck_viewed": {"type": "boolean"},
+        "initial_label_count": {"type": "integer", "const": 1},
+        "recheck_label_count": {"type": "integer", "minimum": 0, "maximum": 1},
+        "total_image_views": {"type": "integer", "enum": [1, 2]}
       }
     },
     "detected_tag": {
