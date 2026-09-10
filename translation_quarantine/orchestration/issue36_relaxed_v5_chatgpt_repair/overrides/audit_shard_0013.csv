@@ -1,0 +1,72 @@
+canonical,old_display_ja,new_display_ja,reason
+eating_non-food,eating・non・食べ物,非食品を食べる,MIXED_ENGLISH_DEBRIS
+ebon_dagger,タグ「ebon dagger」,黒檀の短剣,RAW_ENGLISH_WRAPPER
+echo_flower,echo・花,エコーフラワー,MIXED_ENGLISH_DEBRIS
+edelgard_von_hresvelg_(cosplay),edelgard von hresvelg (cosplay),エーデルガルト・フォン・フレスベルグ（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+eden_gross_cooking_reaction_(meme),eden gross cooking reaction (meme),エデンのまずい料理への反応（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+edie_crop_hoodie,エディ作物のパーカー,エディ・クロップドパーカー,SEMANTIC_ERROR
+edo_tensei,江戸時代,穢土転生,SEMANTIC_ERROR
+edogawa_conan_(cosplay),edogawa conan (cosplay),江戸川コナン（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+eevee_(cosplay),Eevee（コスプレ）,イーブイ（コスプレ）,MIXED_ENGLISH_DEBRIS
+eevee_ears,eevee・耳,イーブイの耳,MIXED_ENGLISH_DEBRIS
+eevee_tail,eevee・尻尾,イーブイの尻尾,MIXED_ENGLISH_DEBRIS
+egg_earrings,eggのイヤリング,卵のイヤリング,MIXED_ENGLISH_DEBRIS
+egg_print,eggの柄,卵柄,MIXED_ENGLISH_DEBRIS
+egyptian_trend_(meme),egyptian trend (meme),エジプト風トレンド（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+eight-pointed_star,eight・pointed・星,八芒星,MIXED_ENGLISH_DEBRIS
+eimi_(blue_archive)_(cosplay),eimi (blue archive) (cosplay),エイミ（ブルーアーカイブ）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+eiserne_jungfrau,タグ「eiserne jungfrau」,アイゼルネ・ユングフラウ,RAW_ENGLISH_WRAPPER
+eishin_flash_(umamusume)_(cosplay),eishin flash (umamusume) (cosplay),エイシンフラッシュ（ウマ娘）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+elbow_blush,肘・赤み,肘の赤み,AWKWARD_MACHINE_TRANSLATION
+elbow_cuffs,肘・カフ,肘カフ,AWKWARD_MACHINE_TRANSLATION
+elbow_drop,肘・drop,エルボードロップ,MIXED_ENGLISH_DEBRIS
+elbow_on_knee,膝の肘,膝の上の肘,SEMANTIC_RELATION_ERROR
+elbow_on_leg,肘の上のleg,脚の上の肘,SEMANTIC_RELATION_ERROR
+elbow_on_table,テーブルの肘,テーブルの上の肘,SEMANTIC_RELATION_ERROR
+elbow_on_thigh,肘の上のthigh,太ももの上の肘,SEMANTIC_RELATION_ERROR
+elbow_rest,肘の休息,肘置き,SEMANTIC_ERROR
+elbows_on_table,テーブルの肘,テーブルの上の両肘,SEMANTIC_RELATION_ERROR
+elcan_scope,タグ「elcan scope」,ELCANスコープ,RAW_ENGLISH_WRAPPER
+elder_spear,タグ「elder spear」,エルダースピア,RAW_ENGLISH_WRAPPER
+eldritch_abomination,エルドリッチの憎悪,異形の怪物,SEMANTIC_ERROR
+electric_eyes,electric・目,電気を帯びた目,MIXED_ENGLISH_DEBRIS
+electric_fan,扇風機ぶわさ,扇風機,SEMANTIC_ERROR
+electric_plug_tail,electric・plug・尻尾,電源プラグの尻尾,MIXED_ENGLISH_DEBRIS
+electric_screaming_(e.g.o),electric screaming (e.g.o),エレクトリック・スクリーミング（E.G.O）,CANONICAL_FALLBACK_TRANSLATABLE
+electric_shock_(nikke),タグ「electric shock (nikke)」,エレクトリックショック（NIKKE）,RAW_ENGLISH_WRAPPER
+electro_symbol_(genshin_impact),雷元素のシンボル（Genshin Impact）,雷元素のシンボル（原神）,MIXED_ENGLISH_DEBRIS
+electrokinesis,雷属性,電気を操る能力,SEMANTIC_NARROWING
+elegg_(nikke)_(cosplay),elegg (nikke) (cosplay),エレグ（NIKKE）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+element_bending,要素の曲げ,元素操作,SEMANTIC_ERROR
+elephant_boy,タグ「elephant boy」,ゾウの少年,RAW_ENGLISH_WRAPPER
+elevated_highway,タグ「elevated highway」,高架道路,RAW_ENGLISH_WRAPPER
+elevated_railway,タグ「elevated railway」,高架鉄道,RAW_ENGLISH_WRAPPER
+elf_hat,elf・帽子,エルフの帽子,MIXED_ENGLISH_DEBRIS
+eliwood_(fire_emblem)_(cosplay),エリウッド（火の紋章）（コスプレ）,エリウッド（ファイアーエムブレム）（コスプレ）,SEMANTIC_ERROR
+elizabeth_bathory_(brave)_(fate)_(cosplay),エリザベス・バソリー（勇敢）（運命）（コスプレ）,エリザベート・バートリー（ブレイブ）（Fate）（コスプレ）,SEMANTIC_ERROR
+elizabeth_bathory_(fate)_(cosplay),elizabeth bathory (fate) (cosplay),エリザベート・バートリー（Fate）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+elizabeth_tower,ビッグベン,エリザベス・タワー,SEMANTIC_ERROR
+ellen_joe_(cosplay),ellen joe (cosplay),エレン・ジョー（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+elmo_dormitory_outfit,タグ「elmo dormitory outfit」,エルモ寮服,RAW_ENGLISH_WRAPPER
+elmo_training_outfit,タグ「elmo training outfit」,エルモ訓練服,RAW_ENGLISH_WRAPPER
+elphelt_valentine_(cosplay),elphelt valentine (cosplay),エルフェルト＝ヴァレンタイン（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+elsa_(frozen)_(cosplay),エルザ（フローズン）（コスプレ）,エルサ（アナと雪の女王）（コスプレ）,SEMANTIC_ERROR
+elysia_(honkai_impact)_(cosplay),elysia (honkai impact) (cosplay),エリシア（崩壊3rd）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+em-2,em-2,EM-2,CANONICAL_FALLBACK_TRANSLATABLE
+emblem_ring,emblemの指輪,紋章士の指輪,MIXED_ENGLISH_DEBRIS
+embroidery,刺绣,刺繍,NON_JAPANESE_RESIDUE
+embroidery_hoop,绷子,刺繍枠,NON_JAPANESE_RESIDUE
+emiya_family_(fate),emiya family (fate),衛宮家（Fate）,CANONICAL_FALLBACK_TRANSLATABLE
+emiya_shirou_(cosplay),emiya shirou（コスプレ）,衛宮士郎（コスプレ）,MIXED_ENGLISH_DEBRIS
+emoji_censor,自主規制,絵文字による修正,SEMANTIC_UNDERSPECIFICATION
+emoji_hair_ornament,emojiの髪飾り,絵文字の髪飾り,MIXED_ENGLISH_DEBRIS
+emperor's_children,タグ「emperor's children」,エンペラーズ・チルドレン,RAW_ENGLISH_WRAPPER
+emperor_penguin_(kemono_friends)_(cosplay),皇帝ペンギン（ケモモンフレンズ）（コスプレ）,コウテイペンギン（けものフレンズ）（コスプレ）,SEMANTIC_ERROR
+empire_waist,高腰收束,エンパイアウエスト,NON_JAPANESE_RESIDUE
+empty_bathtub,タグ「empty bathtub」,空の浴槽,RAW_ENGLISH_WRAPPER
+empty_bottle,タグ「empty bottle」,空のボトル,RAW_ENGLISH_WRAPPER
+empty_bowl,タグ「empty bowl」,空のボウル,RAW_ENGLISH_WRAPPER
+empty_pool,プール掃除,空のプール,SEMANTIC_ERROR
+endfield_industries_logo,endfield industriesのロゴ,エンドフィールド・インダストリーズのロゴ,MIXED_ENGLISH_DEBRIS
+ending_celebration,タグ「ending celebration」,終了祝い,RAW_ENGLISH_WRAPPER
+energon,エネルギー,エネルゴン,SEMANTIC_ERROR
