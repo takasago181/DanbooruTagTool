@@ -92,6 +92,11 @@ Codexは `docs/project/ISSUE30_PHASE2_REUSE_REVIEW_SPEC_20260911.md` を現在�
 
 1つの短い具体的日本語質問にできないcaseはreviewへ出さずDEFERする。
 
+For each selected case, record:
+- `visible_pass_condition_ja`
+- `visible_fail_condition_ja`
+- `why_this_is_judgeable_from_one_still_image`
+
 ### Review UX
 
 各review cellに:
@@ -178,7 +183,7 @@ DEV/ChatGPTはGitHubから回収し、Issue #30へ `RESULT / EVIDENCE / DECISION
 Codexは作業開始前に必ず:
 1. latest `main` を取得
 2. Issue #30がPHASE2_ACTIVEであることを確認
-3. `CURRENT_STATE.md` current core DEV = #30 Phase 2 を確認
+3. `CURRENT_STATE.md` current core DEV = #30 Phase 2 reuse-only review を確認
 4. 本ファイル Source Issue = #30 を確認
 5. `ISSUE30_PHASE2_REUSE_REVIEW_SPEC_20260911.md` を確認
 6. scope不一致ならSTOP
