@@ -16,10 +16,10 @@
     "CL": {
       "repo": "cella110n/cl_tagger_v2",
       "revision": "v2_00",
-      "vocab_rows": null,
-      "status": "UNAVAILABLE_GATED",
-      "error": "HTTPError: HTTP Error 401: Unauthorized",
-      "authenticated": false
+      "vocab_rows": 106436,
+      "status": "OK",
+      "error": "",
+      "authenticated": true
     }
   },
   "coverage": {
@@ -47,32 +47,35 @@
     },
     "CL": {
       "classes": {
-        "UNVERIFIED_GATED": 2788
+        "DIRECT": 1704,
+        "AUTO_EVAL_DIFFICULT": 848,
+        "COMPONENT_ONLY": 236
       },
-      "direct_count": 0,
-      "direct_pct": 0.0,
-      "direct_alias_count": 0,
-      "direct_alias_pct": 0.0
+      "direct_count": 1704,
+      "direct_pct": 61.12,
+      "direct_alias_count": 1704,
+      "direct_alias_pct": 61.12
     }
   },
   "final": {
-    "AUTO_CANDIDATE": 754,
-    "BLOCKED": 1076,
-    "REVIEW_REQUIRED": 958
+    "AUTO_CANDIDATE": 939,
+    "BLOCKED": 831,
+    "REVIEW_REQUIRED": 1018
   },
-  "relation_required": 910,
+  "relation_required": 918,
   "representative_cases": 30,
   "combined": {
     "verified_evaluators": [
       "wd14_class",
-      "kagami_class"
+      "kagami_class",
+      "cl_class"
     ],
-    "direct_union_count": 1423,
-    "direct_union_pct": 51.04,
-    "direct_alias_union_count": 1423,
-    "direct_alias_union_pct": 51.04,
-    "observable_including_components_count": 1712,
-    "observable_including_components_pct": 61.41,
-    "three_evaluator_exact_available": false
+    "direct_union_count": 1725,
+    "direct_union_pct": 61.87,
+    "direct_alias_union_count": 1725,
+    "direct_alias_union_pct": 61.87,
+    "observable_including_components_count": 1957,
+    "observable_including_components_pct": 70.19,
+    "three_evaluator_exact_available": true
   }
 }
