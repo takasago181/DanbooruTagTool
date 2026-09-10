@@ -1,0 +1,56 @@
+canonical,old_display_ja,new_display_ja,reason
+h&k_g11,タグ「h&k g11」,H&K G11,RAW_ENGLISH_WRAPPER
+h&k_g28,タグ「h&k g28」,H&K G28,RAW_ENGLISH_WRAPPER
+h&k_g3,タグ「h&k g3」,H&K G3,RAW_ENGLISH_WRAPPER
+h&k_g36,タグ「h&k g36」,H&K G36,RAW_ENGLISH_WRAPPER
+h&k_g36c,タグ「h&k g36c」,H&K G36C,RAW_ENGLISH_WRAPPER
+h&k_g41,タグ「h&k g41」,H&K G41,RAW_ENGLISH_WRAPPER
+h&k_hk33,タグ「h&k hk33」,H&K HK33,RAW_ENGLISH_WRAPPER
+h&k_hk416,タグ「h&k hk416」,H&K HK416,RAW_ENGLISH_WRAPPER
+h&k_hk417,タグ「h&k hk417」,H&K HK417,RAW_ENGLISH_WRAPPER
+h&k_mark_23,マーク23,H&K Mark 23,SEMANTIC_UNDERSPECIFICATION
+h&k_mg5,トリックオアトリック,H&K MG5,SEMANTIC_ERROR
+h&k_mp5,タグ「h&k mp5」,H&K MP5,RAW_ENGLISH_WRAPPER
+h&k_mp5k,タグ「h&k mp5k」,H&K MP5K,RAW_ENGLISH_WRAPPER
+h&k_mp5sd,タグ「h&k mp5sd」,H&K MP5SD,RAW_ENGLISH_WRAPPER
+h&k_mp7,タグ「h&k mp7」,H&K MP7,RAW_ENGLISH_WRAPPER
+h&k_p30,デモンズロア,H&K P30,SEMANTIC_ERROR
+h&k_psg1,アイディール(ブルーアーカイブ),H&K PSG1,SEMANTIC_ERROR
+h&k_ump,タグ「h&k ump」,H&K UMP,RAW_ENGLISH_WRAPPER
+h&k_usp,タグ「h&k usp」,H&K USP,RAW_ENGLISH_WRAPPER
+h&k_vp70,タグ「h&k vp70」,H&K VP70,RAW_ENGLISH_WRAPPER
+h&k_vp9,タグ「h&k vp9」,H&K VP9,RAW_ENGLISH_WRAPPER
+h&k_xm8,タグ「h&k xm8」,H&K XM8,RAW_ENGLISH_WRAPPER
+h.s.c.t._(love_live!),タグ「h.s.c.t. (love live!)」,H.S.C.T.（ラブライブ！）,RAW_ENGLISH_WRAPPER
+h_(letter),タグ「h (letter)」,H（文字）,RAW_ENGLISH_WRAPPER
+habataki_academy_school_uniform,ハバタキアカデミーユニフォーム,はばたき学園の制服,SEMANTIC_ERROR
+hachikuji_mayoi_(cosplay),Hachikuji Mayoi（コスプレ）,八九寺真宵（コスプレ）,MIXED_ENGLISH_DEBRIS
+hachimitsu_academy_school_uniform,八光学園,八光学園の制服,SEMANTIC_UNDERSPECIFICATION
+hair_around_ear,髪・周囲・耳,耳の周りの髪,AWKWARD_MACHINE_TRANSLATION
+hair_around_horn,髪の周囲のhorn,角の周りの髪,MIXED_ENGLISH_DEBRIS
+hair_between_breasts,髪・間・胸,胸の間の髪,AWKWARD_MACHINE_TRANSLATION
+hair_chart,髪・chart,髪型チャート,MIXED_ENGLISH_DEBRIS
+hair_color_switch,髪・color・switch,髪色の切り替え,MIXED_ENGLISH_DEBRIS
+hair_elastic,髪・elastic,ヘアゴム,MIXED_ENGLISH_DEBRIS
+hair_floating_upwards,髪・浮遊する・upwards,上向きに浮く髪,MIXED_ENGLISH_DEBRIS
+hair_half_over_shoulder,髪・halfの上の肩,髪の半分を肩にかける,MIXED_ENGLISH_DEBRIS
+hair_half_undone,髪は半分元に戻ります,半分ほどけた髪,SEMANTIC_ERROR
+hair_in_another's_mouth,髪の中の他人のmouth,他人の口に髪,MIXED_ENGLISH_DEBRIS
+hair_knot,髪・knot,髪の結び目,MIXED_ENGLISH_DEBRIS
+hair_length_switch,髪の長さのスイッチ,髪の長さの切り替え,AWKWARD_MACHINE_TRANSLATION
+hair_on_horn,ホーンの髪,角にかかった髪,SEMANTIC_RELATION_ERROR
+hair_on_penis,髪の上のpenis,陰茎にかかった髪,SEMANTIC_RELATION_ERROR
+hair_on_tail,髪の上の尻尾,尻尾にかかった髪,SEMANTIC_RELATION_ERROR
+hair_over_ass,髪の上のass,尻を覆う髪,SEMANTIC_RELATION_ERROR
+hair_over_breasts,髪・覆う・胸,胸を覆う髪,AWKWARD_MACHINE_TRANSLATION
+hair_over_crotch,股間の髪,股間を覆う髪,SEMANTIC_UNDERSPECIFICATION
+hair_over_mouth,髪・覆う・口,口を覆う髪,AWKWARD_MACHINE_TRANSLATION
+hair_over_one_breast,髪・覆う・1人・胸,片胸を覆う髪,SEMANTIC_ERROR
+hair_through_headwear,帽子を通して髪,帽子を突き抜ける髪,AWKWARD_MACHINE_TRANSLATION
+hair_through_hood,髪・越しのフード,フードを突き抜ける髪,SEMANTIC_RELATION_ERROR
+hair_tie_on_wrist,髪・tieの上の手首,手首のヘアゴム,SEMANTIC_RELATION_ERROR
+hair_tuft,髪・tuft,髪の房,MIXED_ENGLISH_DEBRIS
+hair_undone,髪は元に戻します,ほどけた髪,SEMANTIC_ERROR
+hair_vines,髪の毛,つる状の髪,SEMANTIC_UNDERSPECIFICATION
+hair_visible_through_wig,髪・visible・越しのwig,かつら越しに見える地毛,MIXED_ENGLISH_DEBRIS
+hair_wagging,髪が振る,揺れる髪,AWKWARD_MACHINE_TRANSLATION
