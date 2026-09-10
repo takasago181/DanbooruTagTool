@@ -33,7 +33,7 @@ Stage10 production A/Bは**未開始**。
 - Stage9D PASS
 - Stage9 overall Gate PASS / completed
 - Issue #28 automated E2E PASS / completed
-- real Tk E2E baseline: full suite 285 passed / exit 0 at accepted checkpoint
+- real Tk E2E baseline accepted
 
 ### Forge Neo comparison environment — Issue #6
 
@@ -77,12 +77,27 @@ Parked evidence remains available:
 - Special IMAGE_TEST_REQUIRED: 17
 - semantic-support IMAGE_TEST_REQUIRED: 33 rows
 
+### Issue #44 evaluator coverage
+
+**SATISFIED / HANDOFF COMPLETE**
+
+- WD14 direct: 658 / 2,788 (23.60%)
+- Kagami direct: 1,412 / 2,788 (50.65%)
+- CL Tagger v2.00 direct: 1,704 / 2,788 (61.12%)
+- 3-evaluator direct union: 1,725 / 2,788 (61.87%)
+- observable including components: 1,957 / 2,788 (70.19%)
+- AUTO_CANDIDATE 939 / REVIEW_REQUIRED 1,018 / BLOCKED 831
+- relation/binding structural risk: 918
+
+`AUTO_CANDIDATE` is calibration candidate only, not production automatic approval.
+
 ## Special-representative calibration direction
 
 Generic `standing / sitting / long_hair / smile` evidence is plumbing-only and must not define production thresholds.
 
-Representative calibration must include categories such as:
+Current #30 representative design uses 32 cases × 4 images = planned 128 images. All planned images are screened first by WD14 / Kagami / CL Tagger v2.00, while human review is concentrated on protected-route anchors, evaluator exceptions and a small stratified AUTO-likely sample.
 
+Representative calibration includes categories such as:
 1. direct Special Core Entry presence/absence
 2. rare / niche Special
 3. relation / actor-target / body-site binding
@@ -92,66 +107,52 @@ Representative calibration must include categories such as:
 
 Each pair follows **one experiment = one question**.
 
-For unusual-anatomy Special tests, anatomy-sensitive Negative Prompt terms are not mechanically fixed. Their interaction with the target Special is a separate controlled question.
-
 ## Current remaining gates
 
-### Gate A — #46 -> #36 UI-JA final convergence
+### Gate A — #36 UI-JA V5 final convergence
 
-Status: **READY NOW / REMAINS**
+Status: **ACTIVE**
 
-1. #46 run/resume authorized 30,629 orchestration
-2. durable Resolver / Challenger / Repair / Final-Audit artifacts returned to #36
-3. #36 V3.1 revalidation
-4. if eligible, separate independent production-promotion audit
-5. post-promotion real Windows/UI verification where required
+Current route:
+1. branch `ui-ja/issue36-relaxed-v5-chatgpt-repair`
+2. preserve V4 as immutable evidence
+3. split/process the 30,629-row table through the existing 31 audit shards
+4. ChatGPT performs translation/semantic repair review directly
+5. Codex/Luna is not used for translation-quality judgment or semantic audit in the current lane
+6. repair clear defects only: non-Japanese/Chinese residue, raw English debris, obvious mistranslation, relation inversion, broken machine-composed labels
+7. return every shard result/progress to GitHub/#36; shard chats are not source of truth
+8. after all shards: integration/revalidation
+9. if eligible: separate independent production-promotion audit
+10. post-promotion real Windows/UI verification where required
 
-#46 full-execution authorization is not production-promotion authority.
+Historical Issue #46 orchestration is superseded and must not be treated as the current execution path.
 
-### Gate B — #44 evaluator coverage
-
-Status: **READY NOW / REMAINS**
-
-Final dictionary freeze prerequisite is satisfied.
-
-Compare finalized 2,788-entry Special Core Dictionary against:
-- WD14 / `wd-eva02-large-tagger-v3`
-- Kagami-24k
-- CL Tagger v2 stable/fixed release
-
-At minimum return:
-- raw vocabulary coverage
-- Core / Extended / Alias / Semantic coverage separately where applicable
-- post-count-band coverage
-- raw Alias coverage vs canonical-target coverage
-- representative-image evaluator disagreement when available
-- evaluator capability limitations relevant to AUTO/REVIEW routing
-
-### Gate C — #34 remaining parent UI/search concerns
+### Gate B — #34 remaining parent UI/search concerns
 
 Status: **REMAINS**
 
 #36 translation convergence is not identical to all #34 concerns.
 Before #42 activation, material bilingual-search/search-noise/UI issues that can change the evaluated product must be completed or explicitly separated from the Stage10 Gate.
 
-### Gate D — #30 final representative calibration
+### Gate C — #30 final representative calibration
 
-Status: **WAITS #44 COVERAGE**
+Status: **ACTIVE / CURRENT CORE DEV**
 
-After Gate B:
-- finalize representative Special case list
-- assign evaluator responsibility by capability
-- calibrate `AUTO / REVIEW / BLOCKED`
+- finalize/review representative Special case manifest
+- execute controlled 128-image calibration design as authorized by #30 task contract, not Stage10 production A/B
+- compare WD14 / Kagami / CL Tagger v2.00 with human image-level judgments
+- calibrate `AUTO / HUMAN REVIEW / BLOCKED`
 - define only evidence-supported candidate `A_WIN / B_WIN`
-- verify user primarily handles REVIEW cases
+- relation/binding and other structural-risk cases remain conservative human-review candidates unless evidence supports narrower automation
 - preserve fixed-seed / actual Prompt / metadata traceability
+- prioritize false-positive suppression over maximum automation rate
 
-### Gate E — #42 product-purpose improvement pass
+### Gate D — #42 product-purpose improvement pass
 
 Status: **RESERVED / UI-JA-DATA GATED**
 
-Dictionary freeze prerequisite is satisfied.
-Activate only after material #36/#34 UI-JA/data homework is completed or explicitly separated.
+Dictionary freeze and #44 evaluator coverage prerequisites are satisfied.
+Activate only after #30 representative calibration and material #36/#34 UI-JA/data homework are completed or explicitly separated.
 
 Review:
 - Japanese intent variation/search robustness
@@ -165,9 +166,9 @@ Review:
 
 Final verdict: `READY_FOR_STAGE10_EVALUATION` or `HOLD_PRE_STAGE10`.
 
-### Gate F — #5 formal Prompt handoff
+### Gate E — #5 formal Prompt handoff
 
-Status: **WAITS #44 + #30 + #42**
+Status: **WAITS #30 + #42**
 
 Formal handoff must integrate:
 - frozen Special Core Dictionary snapshot identity/count/hash
@@ -182,24 +183,23 @@ Formal handoff must integrate:
 
 #42 completes before #5 is finalized.
 
-### Gate G — local protected-data maintenance #24
+### Gate F — local protected-data maintenance #24
 
 Status: **OPEN SAFETY DEBT / PARALLEL**
 
-This is not the Stage10 experiment definition itself, but it remains visible because GitHub is not a backup for local protected data.
+This is not the Stage10 experiment definition itself, but remains visible because GitHub is not a backup for local protected data.
 Required: backup coverage/freshness, manifest, rebuildability, representative non-destructive restore, deletion guardrails.
 
 ## Canonical dependency order
 
 Parallel now:
-
-- `#46 -> #36 -> independent UI-JA promotion gate`
-- `#44 evaluator coverage`
+- `#30 representative calibration`
+- `#36 V5 ChatGPT-led 31-shard repair/audit -> integration/revalidation -> independent promotion gate`
 - cross-cutting/maintenance: `#34`, `#24`
+- #44 remains ongoing only for scoped follow-up; its evaluator coverage Gate is complete
 
 Then:
-
-`#44 coverage -> #30 representative calibration -> #42 product-purpose improvement -> #5 formal Prompt handoff -> remaining final checks -> Stage10 production A/B`
+`#30 calibration -> #42 product-purpose improvement -> #5 formal Prompt handoff -> remaining final checks -> Stage10 production A/B`
 
 #42 additionally requires material #34/#36 UI-JA/data homework to be completed or explicitly separated.
 
@@ -214,11 +214,10 @@ Then:
 - [x] Special Core Dictionary full validation（#32）
 - [x] production-safe fix promotion + audit（#48/#49）
 - [x] final Special Core Dictionary naming/freeze（#43）
-- [ ] #46 full execution -> #36 revalidation -> independent promotion gate
+- [x] #44 final evaluator coverage comparison
+- [ ] #36 V5 31-shard repair/audit -> integration/revalidation -> independent promotion gate
 - [ ] #34 material remaining UI/search concerns resolve or explicit separation
-- [ ] #44 final evaluator coverage comparison
-- [ ] #30 final representative case selection
-- [ ] #30 capability-aware AUTO/REVIEW/BLOCKED calibration
+- [ ] #30 controlled representative calibration complete
 - [ ] #42 product-purpose improvement pass
 - [ ] #5 formal Prompt handoff
 - [ ] A/B fixed conditions final definition
@@ -228,8 +227,8 @@ Then:
 
 ## Current state
 
-Stage10 production A/B is **NOT STARTED**.
+Stage10 production A/B is **NOT STARTED**。
 
-The dictionary-validation/promotion/freeze lane is complete. The immediate executable lanes are #46/#36 UI-JA and #44 evaluator coverage. #30 waits on #44. #42 waits on material UI-JA/data completion or explicit separation. #5 final handoff waits on #44 + #30 + #42.
+The dictionary validation/promotion/freeze lane and #44 evaluator desk coverage are complete. Immediate active lanes are #30 representative calibration preparation/execution and #36 V5 ChatGPT-led UI-JA repair. #42 waits on #30 plus material UI-JA/data completion or explicit separation. #5 waits on #30 + #42.
 
 Current routing authority: `docs/project/CURRENT_STATE.md`.
