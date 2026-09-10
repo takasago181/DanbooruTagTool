@@ -28,12 +28,6 @@ Reserved-only #42/#43、backlog #24、管理基盤 #47 は現行DEV task contrac
 - Issue #28 automated E2E: **PASS / completed**。
 - Issue #6 Forge Neo comparison environment: **PASS_WITH_NOTE / completed**。
 - Issue #35 Japanese-first desktop UI: **ISSUE35_FINAL_COMPLETION_PASS / completed / closed**。
-  - implementation HEAD: `13b2a5ba3396e1d569cf9442b18b19eb7c815b1a`
-  - candidate-specific new failures/errors: 0
-  - focused UI: 27 passed / E2E: 8 passed
-  - real Windows Tk manual screenshot inspection: PASS
-  - `data/**` changed files: 0
-  - completion checkpoint: Issue #35 comment `5611408350`
 - Issue #37 representative-set review: **REPLACE_OR_AUGMENT_WITH_SPECIAL_REPRESENTATIVE_SET**。
 - Issue #39 UI-JA R3 engine: audit PASS / completed。
 - Issue #41 UI-JA pilot: **PASS_PILOT / completed / closed**。
@@ -79,12 +73,8 @@ Reserved-only #42/#43、backlog #24、管理基盤 #47 は現行DEV task contrac
 
 - current DEV Issue: **#49 `[DICT-PROMOTION][DEV] Apply audited Issue #32 fixes to production`**。
 - latest mainからdedicated feature branchで実装する。
-- 174 Special-level FIX verdictからeffective manifestを機械的に作り、withdrawn/superseded/history-only/non-effective rowsを除外する。
-- primary intended target: `data/generation/special2788_generation_profile.csv`。
-- Special identity / row count / order 2,788を維持する。
+- 174 Special-level FIX verdictからeffective manifestを機械的に作る。
 - REVIEW 305 / IMAGE_TEST_REQUIRED 17 / semantic-support parked 33は**今回promotionしないが、quarantineから削除・破棄もしない**。
-- model-scoped claimsをglobal truthへ平坦化しない。
-- canonical / Alias / Japanese / search / ranking / Prompt composerを変更しない。
 - implementation/test/push後は **READY_FOR_POST_WRITE_AUDIT** または **HOLD_PROMOTION_IMPLEMENTATION** でSTOP。
 - main merge / Stage10 start / #36 production promotionは禁止。別post-write independent auditが必須。
 
@@ -149,7 +139,7 @@ Reserved-only #42/#43、backlog #24、管理基盤 #47 は現行DEV task contrac
 
 ## Next Actions
 
-1. #49: approved effective FIX subsetをproduction feature branchへ適用し、post-write auditへ渡す。
+1. #49 approved effective FIX subsetをproduction feature branchへ適用し、post-write auditへ渡す。
 2. #49 audit PASS後のみmain統合。
 3. #43 naming gate → final Special Core Dictionary snapshot freeze。
 4. #46 authorized full execution → #36 revalidation → separate promotion audit。
