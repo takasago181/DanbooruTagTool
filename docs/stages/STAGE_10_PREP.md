@@ -16,7 +16,7 @@ Stage10 production A/Bは**未開始**。
 - model family差を保持する。
 - actual Prompt / seed / model / settings / PNG metadataを追跡可能にする。
 - Stage10比較自動化は external / existing tool first。不足箇所だけ薄いglue/harnessを追加する。
-- WD14その他TaggerをSpecial Core Dictionaryの完全なground truthとして扱わない。
+- WD14 / Kagami / CL等TaggerをSpecial Core Dictionaryの完全なground truthとして扱わない。
 - unsupported / low-confidence evaluator caseはFAILではなくREVIEWへ送る。
 - required metadata/traceability/infrastructure欠損はBLOCKED。
 - simple tag用thresholdをrelation/composite/rare Specialや別model familyへ共通適用しない。
@@ -33,7 +33,6 @@ Stage10 production A/Bは**未開始**。
 - Stage9D PASS
 - Stage9 overall Gate PASS / completed
 - Issue #28 automated E2E PASS / completed
-- real Tk E2E baseline: full suite 285 passed / exit 0 at accepted checkpoint
 
 ### Forge Neo comparison environment — Issue #6
 
@@ -45,19 +44,6 @@ Stage10 production A/Bは**未開始**。
 - generated-image Prompt/PNG metadata traceability: PASS
 - regular-generation regression: PASS
 
-### Issue #30 infrastructure baseline
-
-**PASS_PIPELINE**
-
-- evidence branch: `codex/issue30-automation-dry-run-20260908`
-- evidence commit: `f2fc7acb15f996630c9f008284d80cf3261fb32f`
-- Forge Neo API `neo-2.29`
-- fixed model baseline `waiIllustriousSDXL_v170` / hash `f116b0c78f`
-- generation -> PNG SHA-256 -> `/sdapi/v1/png-info` -> evaluator raw output path demonstrated
-- user manual operations: 0 for demonstrated plumbing path
-- generic golden set retained as plumbing/evaluator fixture only
-- Special-representative routing direction adopted via #37
-
 ### Special Core Dictionary validation / promotion / freeze
 
 **SATISFIED / completed**
@@ -67,169 +53,171 @@ Stage10 production A/Bは**未開始**。
 - #49 audited production-safe fixes promoted and post-write audited
 - #43 formal concept naming/freeze completed
 - formal concept: `Special Core Dictionary`
-- historical/snapshot compatibility identifier: `Special2788`
-- user-selected nucleus: `Core Tag Set`
-- production profile SHA-256: `55490940378e15d8e41454e701d0c202abbab307a08fb6e56841171e0edec1fd`
-- rows / unique SpecialID / order: 2,788 / 2,788 / unchanged
+- production row count / unique identity / order: 2,788 / 2,788 / unchanged
 
 Parked evidence remains available:
 - Special REVIEW: 305
 - Special IMAGE_TEST_REQUIRED: 17
 - semantic-support IMAGE_TEST_REQUIRED: 33 rows
 
-## Special-representative calibration direction
+### Issue #44 evaluator coverage
 
-Generic `standing / sitting / long_hair / smile` evidence is plumbing-only and must not define production thresholds.
+**SATISFIED / HANDOFF COMPLETE**
 
-Representative calibration must include categories such as:
+- WD14 direct: 658 / 2,788 (23.60%)
+- Kagami direct: 1,412 / 2,788 (50.65%)
+- CL Tagger v2.00 direct: 1,704 / 2,788 (61.12%)
+- 3-evaluator direct union: 1,725 / 2,788 (61.87%)
+- observable including components: 1,957 / 2,788 (70.19%)
+- AUTO_CANDIDATE 939 / REVIEW_REQUIRED 1,018 / BLOCKED 831
+- relation/binding structural risk: 918
 
-1. direct Special Core Entry presence/absence
-2. rare / niche Special
-3. relation / actor-target / body-site binding
-4. multiple-Special simultaneous retention
-5. support-tag ON/OFF affecting observability/visibility while Special identity stays fixed
-6. canonical/Alias identity-sensitive behavior where relevant
+`AUTO_CANDIDATE` is calibration candidate only, not production automatic approval.
 
-Each pair follows **one experiment = one question**.
+### Issue #30 Phase 1 representative evaluator calibration
 
-For unusual-anatomy Special tests, anatomy-sensitive Negative Prompt terms are not mechanically fixed. Their interaction with the target Special is a separate controlled question.
+**SATISFIED / COMPLETED / FROZEN EVIDENCE**
 
-## Current remaining gates
+Infrastructure baseline:
+- Forge Neo API `neo-2.29`
+- fixed model baseline `waiIllustriousSDXL_v170` / hash `f116b0c78f`
+- generation -> PNG SHA-256 -> png-info -> evaluator raw output path verified
 
-### Gate A — #46 -> #36 UI-JA final convergence
+Controlled pilot:
+- 32 representative Special cases × 4 = 128 unique images
+- WD14 128/128
+- Kagami 128/128
+- CL v2.00 128/128
+- minimal human review 19
+- provisional AUTO-support 8 / HUMAN_REVIEW_ONLY 9 / BLOCKED 2 / UNRESOLVED 1
 
-Status: **READY NOW / REMAINS**
+Frozen policy:
+- Taggers remain assistive triage, not complete Special semantic authority.
+- direct / non-relation / simple unary may remain optional targeted-validation candidates.
+- relation/binding / actor-object / body-site / quantity / spatial / insertion / contact / restraint / compound / component-only / disagreement / low-confidence default to HUMAN REVIEW.
+- gray/unreadable/corrupt/hash/metadata/provenance failures are BLOCKED before semantic scoring.
+- invalid target/contrast generation is experiment-validity failure, not evaluator failure.
 
-1. #46 run/resume authorized 30,629 orchestration
-2. durable Resolver / Challenger / Repair / Final-Audit artifacts returned to #36
-3. #36 V3.1 revalidation
-4. if eligible, separate independent production-promotion audit
-5. post-promotion real Windows/UI verification where required
+Phase 1 restore:
+- `docs/project/ISSUE30_HANDOFF_20260910.md`
 
-#46 full-execution authorization is not production-promotion authority.
+## Current remaining gates / active refinements
 
-### Gate B — #44 evaluator coverage
+### Gate A — #36 UI-JA V5 final convergence
 
-Status: **READY NOW / REMAINS**
+Status: **ACTIVE**
 
-Final dictionary freeze prerequisite is satisfied.
+Current route:
+- branch `ui-ja/issue36-relaxed-v5-chatgpt-repair`
+- preserve V4 as immutable evidence
+- process 30,629-row table through existing 31 audit shards
+- ChatGPT-led translation/semantic repair
+- after all shards: integration/revalidation -> separate independent production-promotion gate
 
-Compare finalized 2,788-entry Special Core Dictionary against:
-- WD14 / `wd-eva02-large-tagger-v3`
-- Kagami-24k
-- CL Tagger v2 stable/fixed release
+Historical Issue #46 orchestration is superseded.
 
-At minimum return:
-- raw vocabulary coverage
-- Core / Extended / Alias / Semantic coverage separately where applicable
-- post-count-band coverage
-- raw Alias coverage vs canonical-target coverage
-- representative-image evaluator disagreement when available
-- evaluator capability limitations relevant to AUTO/REVIEW routing
-
-### Gate C — #34 remaining parent UI/search concerns
+### Gate B — #34 remaining parent UI/search concerns
 
 Status: **REMAINS**
 
-#36 translation convergence is not identical to all #34 concerns.
-Before #42 activation, material bilingual-search/search-noise/UI issues that can change the evaluated product must be completed or explicitly separated from the Stage10 Gate.
+Before #42 activation, material bilingual-search/search-noise/UI issues that can change evaluated product behavior must be completed or explicitly separated from the Stage10 Gate.
 
-### Gate D — #30 final representative calibration
+### Refinement C — #30 Phase 2 targeted evaluator refinement
 
-Status: **WAITS #44 COVERAGE**
+Status: **ACTIVE / CURRENT CORE DEV / OPTIONAL PRE-#42 IMPROVEMENT**
 
-After Gate B:
-- finalize representative Special case list
-- assign evaluator responsibility by capability
-- calibrate `AUTO / REVIEW / BLOCKED`
-- define only evidence-supported candidate `A_WIN / B_WIN`
-- verify user primarily handles REVIEW cases
-- preserve fixed-seed / actual Prompt / metadata traceability
+Phase 2 does not invalidate the completed Phase 1 Gate and does not restart broad calibration.
 
-### Gate E — #42 product-purpose improvement pass
+Restore:
+- `docs/project/ISSUE30_PHASE2_HANDOFF_20260910.md`
 
-Status: **RESERVED / UI-JA-DATA GATED**
+Scope:
+- existing 128-image raw outputs / metadata first
+- direct / non-relation / simple-unary threshold/agreement refinement
+- review prioritization / abstention
+- artifact-quality gate
+- experiment-validity checks
+- additional evaluator / deterministic non-LLM signal only if uniquely useful
+- new images only for the smallest explicitly justified targeted question
 
-Dictionary freeze prerequisite is satisfied.
-Activate only after material #36/#34 UI-JA/data homework is completed or explicitly separated.
+Do not:
+- rerun original 128-image pilot wholesale
+- run 2,788-image sweep
+- start Stage10 production A/B
+- weaken HUMAN REVIEW boundary for structural Special semantics without explicit evidence
 
-Review:
-- Japanese intent variation/search robustness
-- Special/support conflicts
-- model-family ineffective/harmful guidance
-- failure diagnosis
-- Prompt bloat/pruning
-- minimum sufficient Prompt
-- simple deterministic local success/failure history if useful
-- parked REVIEW/IMAGE_TEST_REQUIRED questions that need controlled images
+Phase 2 stops on diminishing returns. Complexity must not exceed realistic user-work reduction.
 
-Final verdict: `READY_FOR_STAGE10_EVALUATION` or `HOLD_PRE_STAGE10`.
+### Gate D — #42 product-purpose improvement pass
 
-### Gate F — #5 formal Prompt handoff
+Status: **RESERVED / #30 PHASE1 SATISFIED / UI-JA-SEARCH GATED**
 
-Status: **WAITS #44 + #30 + #42**
+Satisfied:
+- dictionary freeze
+- #44 evaluator coverage
+- #30 Phase 1 representative calibration
 
-Formal handoff must integrate:
-- frozen Special Core Dictionary snapshot identity/count/hash
-- evaluator coverage/capability
-- representative cases and routing
-- #42 Prompt-design changes / IMAGE_TEST_REQUIRED questions
-- one-question experiment isolation
-- model-family differences
-- A/B fixed conditions
-- human REVIEW boundary
-- canonical-English final Prompt payload
+Still required before activation:
+- #36 V5 material UI-JA/data homework complete or explicitly separated
+- #34 material search/UI concerns complete or explicitly separated
 
-#42 completes before #5 is finalized.
+#30 Phase 2 is an optional refinement running during this wait. It must hand off any evidence-backed delta before #42 executes, but Phase 2 itself does not replace the #36/#34 Gate.
 
-### Gate G — local protected-data maintenance #24
+#42 must consume #30 results as:
+- Tagger-assisted triage, not full AUTO
+- HUMAN REVIEW boundary for structural Special semantics
+- artifact-quality gate before semantic scoring
+- experiment-validity failure separated from evaluator failure
+- manual-work reduction by abstention/prioritization rather than forced binary verdict
+
+### Gate E — #5 formal Prompt handoff
+
+Status: **WAITS #42**
+
+#30 Phase 1 prerequisite is satisfied. Any adopted Phase 2 delta must be included before formal Stage10 Prompt handoff is finalized.
+
+### Gate F — local protected-data maintenance #24
 
 Status: **OPEN SAFETY DEBT / PARALLEL**
 
-This is not the Stage10 experiment definition itself, but it remains visible because GitHub is not a backup for local protected data.
 Required: backup coverage/freshness, manifest, rebuildability, representative non-destructive restore, deletion guardrails.
 
 ## Canonical dependency order
 
 Parallel now:
+- `#30 Phase 2 targeted evaluator refinement`
+- `#36 V5 repair/audit -> integration/revalidation -> independent promotion gate`
+- `#34 bilingual search relevance`
+- `#24 protected-data safety`
 
-- `#46 -> #36 -> independent UI-JA promotion gate`
-- `#44 evaluator coverage`
-- cross-cutting/maintenance: `#34`, `#24`
-
-Then:
-
-`#44 coverage -> #30 representative calibration -> #42 product-purpose improvement -> #5 formal Prompt handoff -> remaining final checks -> Stage10 production A/B`
-
-#42 additionally requires material #34/#36 UI-JA/data homework to be completed or explicitly separated.
+Then, when #36/#34 material work is complete or explicitly separated and #30 Phase 2 has either completed or been explicitly stopped:
+`#42 product-purpose improvement -> #5 formal Prompt handoff -> remaining final checks -> Stage10 production A/B`
 
 ## Stage10開始前チェック
 
 - [x] Stage9 overall Gate完了
 - [x] Automated E2E functional test PASS（#28）
 - [x] Forge Neo比較環境導入・動作確認（#6）
-- [x] Forge API -> fixed-seed A/B -> PNG actual metadata -> evaluator raw pipeline（#30 baseline）
-- [x] generic golden setをplumbing fixtureへ降格
-- [x] Special-representative test/routing direction採用（#37）
+- [x] Forge API -> fixed-seed A/B -> PNG metadata -> evaluator raw pipeline
 - [x] Special Core Dictionary full validation（#32）
 - [x] production-safe fix promotion + audit（#48/#49）
 - [x] final Special Core Dictionary naming/freeze（#43）
-- [ ] #46 full execution -> #36 revalidation -> independent promotion gate
+- [x] #44 final evaluator coverage comparison
+- [x] #30 Phase 1 controlled representative calibration complete
+- [x] #30 Phase 1 Tagger-assisted triage / HUMAN REVIEW boundary defined
+- [ ] #30 Phase 2 targeted refinement complete or explicitly stop on diminishing returns
+- [ ] #36 V5 repair/audit -> integration/revalidation -> independent promotion gate
 - [ ] #34 material remaining UI/search concerns resolve or explicit separation
-- [ ] #44 final evaluator coverage comparison
-- [ ] #30 final representative case selection
-- [ ] #30 capability-aware AUTO/REVIEW/BLOCKED calibration
 - [ ] #42 product-purpose improvement pass
 - [ ] #5 formal Prompt handoff
 - [ ] A/B fixed conditions final definition
 - [ ] model-family Prompt grammar differences preserved without unsupported flattening
-- [ ] representative Special setでREVIEW-only human workflow確認
 - [ ] final Stage10 start authorization
 
 ## Current state
 
-Stage10 production A/B is **NOT STARTED**.
+Stage10 production A/B is **NOT STARTED**。
 
-The dictionary-validation/promotion/freeze lane is complete. The immediate executable lanes are #46/#36 UI-JA and #44 evaluator coverage. #30 waits on #44. #42 waits on material UI-JA/data completion or explicit separation. #5 final handoff waits on #44 + #30 + #42.
+Current core DEV is Issue #30 Phase 2 targeted refinement. #36 remains independently active and is still a material prerequisite for #42 unless explicitly separated. #42 is not active yet.
 
 Current routing authority: `docs/project/CURRENT_STATE.md`.
