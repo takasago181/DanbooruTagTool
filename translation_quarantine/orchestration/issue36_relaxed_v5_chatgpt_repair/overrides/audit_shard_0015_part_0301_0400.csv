@@ -1,0 +1,39 @@
+canonical,old_display_ja,new_display_ja,reason
+goldeen_(cosplay),ゴールデン（コスプレ）,トサキント（コスプレ）,SEMANTIC_ERROR
+golden_bough_(project_moon),golden bough (project moon),黄金の枝（Project Moon）,CANONICAL_FALLBACK_TRANSLATABLE
+golden_butterfly,golden・蝶,金色の蝶,MIXED_ENGLISH_DEBRIS
+golden_cross_(elden_ring),タグ「golden cross (elden ring)」,黄金の十字架（エルデンリング）,RAW_ENGLISH_WRAPPER
+golden_egg,金蛋,金の卵,NON_JAPANESE_RESIDUE
+golden_hour,タグ「golden hour」,ゴールデンアワー,RAW_ENGLISH_WRAPPER
+golden_rose,金玫瑰,金色のバラ,NON_JAPANESE_RESIDUE
+golden_sword,golden・剣,黄金の剣,MIXED_ENGLISH_DEBRIS
+golem_(d.gray-man),タグ「golem (d.gray-man)」,ゴーレム（D.Gray-man）,RAW_ENGLISH_WRAPPER
+gondola_lift,タグ「gondola lift」,ゴンドラリフト,RAW_ENGLISH_WRAPPER
+gong,锣,銅鑼,NON_JAPANESE_RESIDUE
+good_girl_(phrase),タグ「good girl (phrase)」,「いい子」（台詞）,RAW_ENGLISH_WRAPPER
+good_luck_knot,好運結,幸運の結び目,NON_JAPANESE_RESIDUE
+good_morning,タグ「good morning」,おはよう,RAW_ENGLISH_WRAPPER
+google_maps,タグ「google maps」,Google マップ,RAW_ENGLISH_WRAPPER
+google_street_view,タグ「google street view」,Google ストリートビュー,RAW_ENGLISH_WRAPPER
+goosebumps,タグ「goosebumps」,鳥肌,RAW_ENGLISH_WRAPPER
+gordius_wheel_(fate),ゴルディウスホイール（運命）,ゴルディウス・ホイール（Fate）,SEMANTIC_ERROR
+gothic_plate_armor,gothic plateの鎧,ゴシック式プレートアーマー,MIXED_ENGLISH_DEBRIS
+gotland_(kancolle)_(cosplay),Gotland（Kancolle）（コスプレ）,ゴトランド（艦これ）（コスプレ）,MIXED_ENGLISH_DEBRIS
+gotoh_hitori_(cosplay),gotoh hitori (cosplay),後藤ひとり（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+gouged_eye,gouged・目,えぐられた目,MIXED_ENGLISH_DEBRIS
+gown,ボールガウンドレス,ガウン,SEMANTIC_NARROWING
+gp-25,gp-25,GP-25,CANONICAL_FALLBACK_TRANSLATABLE
+gps,タグ「gps」,GPS,RAW_ENGLISH_WRAPPER
+grabbing_another's_dress,掴む・他人のドレス,他人のドレスを掴む,AWKWARD_MACHINE_TRANSLATION
+grabbing_another's_face,顔をつかむ,他人の顔を掴む,SEMANTIC_UNDERSPECIFICATION
+grabbing_another's_nose,掴む・他人のnose,他人の鼻を掴む,MIXED_ENGLISH_DEBRIS
+grabbing_another's_pectorals,掴む・他人のpectorals,他人の胸筋を掴む,MIXED_ENGLISH_DEBRIS
+grabbing_another's_shirt,シャツグラブ,他人のシャツを掴む,SEMANTIC_UNDERSPECIFICATION
+grabbing_another's_skirt,掴む・他人のスカート,他人のスカートを掴む,AWKWARD_MACHINE_TRANSLATION
+grabbing_another's_sleeve,スリーブグラブ,他人の袖を掴む,SEMANTIC_UNDERSPECIFICATION
+grabbing_another's_stomach_bulge,掴む・他人の腹部・bulge,他人の腹部の膨らみを掴む,MIXED_ENGLISH_DEBRIS
+grabbing_another's_testicles,掴む・他人のtesticles,他人の睾丸を掴む,MIXED_ENGLISH_DEBRIS
+grabbing_multiple_others'_breasts,掴む・multiple・others'・胸,複数人の胸を掴む,MIXED_ENGLISH_DEBRIS
+grabbing_own_hair,髪に手,自分の髪を掴む,SEMANTIC_UNDERSPECIFICATION
+grabbing_own_pectoral,掴む・own・pectoral,自分の胸筋を掴む,MIXED_ENGLISH_DEBRIS
+grabbing_own_tail,掴む・own・尻尾,自分の尻尾を掴む,MIXED_ENGLISH_DEBRIS
