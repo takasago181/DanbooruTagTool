@@ -1,0 +1,39 @@
+canonical,old_display_ja,new_display_ja,reason
+happy_white_day,happy・白い・day,ハッピーホワイトデー,MIXED_ENGLISH_DEBRIS
+hara_tetsuo_(style),野生の原哲夫,原哲夫（画風）,SEMANTIC_ERROR
+haran_geppaku_futsu_(genshin_impact),haran geppaku futsu (genshin impact),波乱月白経津（原神）,CANONICAL_FALLBACK_TRANSLATABLE
+harmful_spikes,タグ「harmful spikes」,危険なトゲ,RAW_ENGLISH_WRAPPER
+harmony_(e.g.o),harmony (e.g.o),ハーモニー（E.G.O）,CANONICAL_FALLBACK_TRANSLATABLE
+haru_urara_(umamusume)_(cosplay),haru urara (umamusume) (cosplay),ハルウララ（ウマ娘）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+haruna_(kancolle)_(cosplay),ハルナ（カンコル）（コスプレ）,榛名（艦これ）（コスプレ）,SEMANTIC_ERROR
+haruno_sakura_(cosplay),haruno sakura (cosplay),春野サクラ（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+hasn't_kissed_anyone_ever_vs_expecting_a_kiss_with_tongue_(meme),hasn't kissed anyone ever vs expecting a kiss with tongue (meme),キス未経験なのに舌を使うキスを期待する（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+hasshaku-sama_(cosplay),hasshaku-sama（コスプレ）,八尺様（コスプレ）,MIXED_ENGLISH_DEBRIS
+hasu_no_sora_gym_uniform,hasu no sora gymの制服,蓮ノ空女学院の体操服,MIXED_ENGLISH_DEBRIS
+hasu_no_sora_school_uniform,hasu no soraの学校制服,蓮ノ空女学院の制服,MIXED_ENGLISH_DEBRIS
+hasumi_(blue_archive)_(cosplay),hasumi (blue archive) (cosplay),ハスミ（ブルーアーカイブ）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+hat_bobbles,帽子が丸くなっています,帽子のポンポン,SEMANTIC_ERROR
+hat_branch,帽子・branch,帽子の枝,MIXED_ENGLISH_DEBRIS
+hat_feather,羽帽子,帽子の羽飾り,SEMANTIC_RELATION_ERROR
+hat_flaps,帽子・flaps,帽子のフラップ,MIXED_ENGLISH_DEBRIS
+hat_launch,帽子の発売,帽子を投げ上げる,SEMANTIC_ERROR
+hat_loss,帽子の損失,帽子を失う,AWKWARD_MACHINE_TRANSLATION
+hat_on_horn,帽子の上のhorn,角に帽子,SEMANTIC_RELATION_ERROR
+hat_on_lap,帽子の上のlap,膝の上に帽子,SEMANTIC_RELATION_ERROR
+hat_on_tail,帽子の上の尻尾,尻尾に帽子,SEMANTIC_RELATION_ERROR
+hat_over_eyes,帽子・覆う目,目を覆う帽子,AWKWARD_MACHINE_TRANSLATION
+hat_over_hat,帽子・覆う・帽子,帽子の上に帽子,SEMANTIC_RELATION_ERROR
+hat_over_hood,帽子・覆う・フード,フードの上に帽子,SEMANTIC_RELATION_ERROR
+hat_over_one_ear,帽子・覆う・1人・耳,片耳を覆う帽子,SEMANTIC_ERROR
+hat_over_one_eye,帽子・覆う・1人目,片目を覆う帽子,SEMANTIC_ERROR
+hat_tassel,帽穗,帽子の房飾り,NON_JAPANESE_RESIDUE
+hat_tip,帽子に手,帽子を軽く持ち上げる,SEMANTIC_UNDERSPECIFICATION
+hat_veil,帽子・ベール,帽子のベール,AWKWARD_MACHINE_TRANSLATION
+hat_with_ears,猫耳帽,耳付き帽子,SEMANTIC_NARROWING
+hat_writing,帽子の書き込み,帽子に書かれた文字,AWKWARD_MACHINE_TRANSLATION
+hata_no_kokoro_(cosplay),hata no kokoro（コスプレ）,秦こころ（コスプレ）,MIXED_ENGLISH_DEBRIS
+hatsuboshi_gakuen_gym_uniform,hatsuboshi gakuen gymの制服,初星学園の体操服,MIXED_ENGLISH_DEBRIS
+hatsune_miku_world_cup_custody_battle_(meme),hatsune miku world cup custody battle (meme),初音ミク・ワールドカップ親権争い（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+have_to_poop,便意我慢,便意を催す,SEMANTIC_NARROWING
+hawaiian_clothes,hawaiian・服,ハワイ風の服,MIXED_ENGLISH_DEBRIS
+hawker_harrier,ハリアー,ホーカー・ハリアー,SEMANTIC_UNDERSPECIFICATION
