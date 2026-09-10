@@ -1,4 +1,5 @@
 import csv
+import json
 from collections import Counter
 from dataclasses import fields, replace
 import hashlib
@@ -31,6 +32,7 @@ FAMILY_AUDIT = ROOT / "data/generation/audit/FAMILY_RULE_AUDIT_25_v1.csv"
 CORRECTIONS = ROOT / "data/generation/audit/HIGH_CONFIDENCE_CORRECTIONS_v1.csv"
 STRUCTURAL_OVERRIDES = ROOT / "data/generation/audit/EXPLICIT_STRUCTURAL_OVERRIDES_240_v1.csv"
 STATIC_REVIEW = ROOT / "data/generation/audit/APPROVED_STATIC_1352_REVIEW_v1.csv"
+ISSUE49_DIFF = ROOT / "docs/issue49/applied_diff_report.json"
 EXPECTED_COUNTS = {
     "APPROVED_STATIC": 1352,
     "APPROVED_IDENTITY_ONLY": 778,
@@ -349,12 +351,36 @@ def test_v2_1_review_sets_match_production_exactly(store):
     assert len(review) == 1352
     assert all(store.profiles[row["SpecialID"]].PromotionStatus == "APPROVED_STATIC"
                for row in review)
+    issue49 = json.loads(ISSUE49_DIFF.read_text(encoding="utf-8"))
+    issue49_values = {
+        (row["special_id"], row["field"]): row["after"]
+        for row in issue49["changed_cells"]
+    }
     for row in review:
         profile = store.profiles[row["SpecialID"]]
+        expected = {
+            "GenerationFamily": row["ProposedFamily"],
+            "GenerationRole": row["ProposedRole"],
+            "PromptUseMode": row["ProposedPromptUseMode"],
+        }
+        for field in expected:
+            expected[field] = issue49_values.get(
+                (row["SpecialID"], field), expected[field]
+            )
         assert (profile.GenerationFamily, profile.GenerationRole, profile.PromptUseMode) == (
-            row["ProposedFamily"], row["ProposedRole"], row["ProposedPromptUseMode"]
+            expected["GenerationFamily"], expected["GenerationRole"], expected["PromptUseMode"]
         )
     explicit_ids = {row["SpecialID"] for row in overrides}
+    issue49_structural_fields = {
+        "ActorRequirementOverride", "BodypartRequirementOverride",
+        "ImplementRequirementOverride", "PoseRequirementOverride",
+        "CameraRequirementOverride", "SpatialAssignmentOverride",
+        "CompositionRoleOverride", "SpecialFlags",
+    }
+    explicit_ids |= {
+        row["special_id"] for row in issue49["changed_cells"]
+        if row["field"] in issue49_structural_fields
+    }
     actual_ids = {
         profile.SpecialID for profile in store.profiles.values()
         if profile.PromotionStatus == "APPROVED_STATIC" and any((
@@ -394,9 +420,11 @@ def test_audited_examples_and_actor_separation_are_explicit(store):
     assert cross_section.NeedsCamera is True and cross_section.CompositionRole == "camera"
     separated = [profile for profile in store.profiles.values()
                  if profile.SpecialFlags == "ACTOR_SEPARATION_REQUIRED"]
-    assert len(separated) == 35
-    assert all(profile.ActorRequirementOverride is True
-               and profile.SpatialAssignmentOverride is True for profile in separated)
+    assert len(separated) == 37
+    assert all(profile.ActorRequirementOverride is True for profile in separated)
+    assert all(profile.SpatialAssignmentOverride is True
+               for profile in separated if profile.SpecialID != "58")
+    assert store.profiles["58"].SpatialAssignmentOverride is None
     self_actor = next(profile for profile in store.profiles.values()
                       if profile.SpecialFlags == "SELF_ACTOR_ROLE")
     assert self_actor.ActorRequirementOverride is True

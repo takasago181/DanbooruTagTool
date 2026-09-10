@@ -329,7 +329,7 @@ def test_runtime_search_path_is_offline(monkeypatch, knowledge, profile_store):
     ("data/source/danbooru-2026-09-02.csv", "9b32d5ac0713ab252e7470ba6af9cb34de56878b6b3b13dfbbf6a4a37d82d95b"),
     ("data/derived/danbooru_alias_normalized_index_VERIFIED_34417.csv", "3f942704a10bb342ae7368024337849d392d54745061cf9259e51b9f6080a394"),
     ("data/derived/special2788_VERIFIED_LINKAGE.csv", "d2691e774df0da762dbbf644c8aee4d68fe7d370ea91121c9ad083ccd3728ec2"),
-    ("data/generation/special2788_generation_profile.csv", "3d3b7c16bee23c34892c6ac1a40b69208ef14199c5bae749ac8a22151c8dc835"),
+    ("data/generation/special2788_generation_profile.csv", "55490940378e15d8e41454e701d0c202abbab307a08fb6e56841171e0edec1fd"),
     ("data/generation/generation_family_rules.csv", "0f0e2e9f1f001d12e421324a6356bab42293fb206fe53a3e642495d5765c6936"),
     ("data/generation/generation_model_observations.csv", "ee036aac810ef94b9f0376a23d0159f4275d6d2feac7ccd689ca297d361164c8"),
     ("data/runtime/japanese_overlay.json", "de1b375d79ef05f4c2477347b20b8a09115511d2ecbd39602bdebcdfa6d576dc"),

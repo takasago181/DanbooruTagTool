@@ -1,0 +1,317 @@
+{
+  "issue": 49,
+  "non_target_protected_changes": [],
+  "protected_after": [
+    {
+      "bytes": 5518,
+      "git_blob": "400ae5abdd5d7ecb4c112ddb42f0ab610f33d78a",
+      "path": "data/generation/generation_family_rules.csv",
+      "sha256": "0f0e2e9f1f001d12e421324a6356bab42293fb206fe53a3e642495d5765c6936"
+    },
+    {
+      "bytes": 3605,
+      "git_blob": "b23a3b23438df4496102f042b3875a012d9db932",
+      "path": "data/generation/generation_model_observations.csv",
+      "sha256": "ee036aac810ef94b9f0376a23d0159f4275d6d2feac7ccd689ca297d361164c8"
+    },
+    {
+      "bytes": 558215,
+      "git_blob": "ab87cf2c505e2915beeccc3d85503684a07d2e4e",
+      "path": "data/generation/special2788_generation_profile.csv",
+      "sha256": "55490940378e15d8e41454e701d0c202abbab307a08fb6e56841171e0edec1fd"
+    },
+    {
+      "bytes": 610,
+      "git_blob": "99ade8e98c5c62e112c55e2663ae98b2074c14dc",
+      "path": "data/semantic/family_support_rules.csv",
+      "sha256": "85907d03a5425675d1afc87177a8c99fe846d941718780a6b86baa10373c5465"
+    },
+    {
+      "bytes": 1658,
+      "git_blob": "aa582d16f9b704a29f553b0d6182cce2d322df5c",
+      "path": "data/semantic/recommendation_generation_hints.csv",
+      "sha256": "5ae09ddb0267f0a6de563ea5b49d76725795724500938552666e3c591f6ecd79"
+    },
+    {
+      "bytes": 2024,
+      "git_blob": "bbfdc0f1a0f6f6da8571c4bd6af8773165a3df51",
+      "path": "data/semantic/recommendation_semantic_labels.csv",
+      "sha256": "57459defccb4ac0fe8f55a938557531dad2d067ea45d36a1655f8cd5824cbe0f"
+    },
+    {
+      "bytes": 47913,
+      "git_blob": "ce7223aa99481757b95cff0b86dc0cf05bf4f35b",
+      "path": "data/semantic/semantic_bridge_v1.csv",
+      "sha256": "d34df85810641447f39e4b12f9dcecab6983b2e1a4384439fa3934dba8c35247"
+    },
+    {
+      "bytes": 15959,
+      "git_blob": "e666e4efd5c3aabf22410d75e04ff51d826c9b0e",
+      "path": "data/semantic/semantic_support_profiles.csv",
+      "sha256": "2ecddf3fa35fe7e1f2c2a32b201cd016f2d2df7f8672f25bed37237aa996afc2"
+    },
+    {
+      "bytes": 161,
+      "git_blob": "7751023a23cab5a93ccfc7accdaab544b5306628",
+      "path": "data/semantic/stage10_test_slots.csv",
+      "sha256": "ddac136b3c6839c8f31e60298d6551fd6d16ed48effa4cffa2c7ad4744789a49"
+    },
+    {
+      "bytes": 1716,
+      "git_blob": "d01aa0bdbe064dc1ddac1dd8244a9a68ae6e57f0",
+      "path": "data/semantic/stage8c_exit_pilot_family_assessment.csv",
+      "sha256": "8e699ae1111a17498d67d23e858e65c57fc35b7ae8e98f4156fffd02cd591241"
+    },
+    {
+      "bytes": 2468,
+      "git_blob": "2d02324277c31c78cf730a6070fe83ea5e56570c",
+      "path": "data/semantic/stage8c_exit_pilot_scope.csv",
+      "sha256": "458678b49066cdd6dcfcc3bc9d41e80c34a2094c83be8f9d73a0004f6c6a9009"
+    },
+    {
+      "bytes": 3854,
+      "git_blob": "99ccdd801c4d3c78ba8fa699f21978685c4545fb",
+      "path": "data/semantic/stage8c_family_candidate_applicability.csv",
+      "sha256": "4365211b4c15d858d3a6004d35ca15392852b30cdacdb839107b2afc2fbd01e5"
+    },
+    {
+      "bytes": 627,
+      "git_blob": "cadddd8503c01418b9f70dceb8dd1263b5b94d70",
+      "path": "data/semantic/stage8c_family_relation_proposals.csv",
+      "sha256": "7dc74464b67fed6fe73e6d70707974e8bf5c9d3facf9dea7da0f3a5e9e455ef2"
+    },
+    {
+      "bytes": 3929,
+      "git_blob": "011aba8d1d0b70eef2c807ffed43d776e2a3fb99",
+      "path": "data/semantic/stage8c_family_rule_review.csv",
+      "sha256": "681537dbdc17869bc4a70ce8ef8725efdeebd3bc859c9ad154933154203e832a"
+    },
+    {
+      "bytes": 231,
+      "git_blob": "b70d1e1d1c7ca5d5d228d4aa4ec8960c0dbf9c1b",
+      "path": "data/semantic/stage8c_model_familiarity.csv",
+      "sha256": "b9fa2c16a55f04aa584c8013db76209f5edffc77797a915ba1fcce966e92dc33"
+    },
+    {
+      "bytes": 137,
+      "git_blob": "0f34103d3b9651fc66634177e99e3bbe52cc5938",
+      "path": "data/semantic/stage8c_non_tag_strategy.csv",
+      "sha256": "4cafc8042676ec3cd9c0be6ea73ed47b1e91e05f3d2086fadccb3a8c4b267399"
+    },
+    {
+      "bytes": 955,
+      "git_blob": "cd6c1db05113ba67de83f23d43e6723f553c0caa",
+      "path": "data/semantic/stage8c_pilot001_frozen_expectations.json",
+      "sha256": "ebe872ed84429227fc3351750549c18ba93f4f15af3cd2e1c27b78ecf35a4818"
+    },
+    {
+      "bytes": 150,
+      "git_blob": "35c328f677de6a6ddf69333af7561302b3b6f432",
+      "path": "data/semantic/stage8c_practical_use.csv",
+      "sha256": "7415f73372277a2d1c1be682c4a78960b4016e9f5640e8de06cf1324bc45e499"
+    },
+    {
+      "bytes": 265,
+      "git_blob": "1ed85b132a9e55f49f0f2e1716e7241ff10af6d1",
+      "path": "data/semantic/stage8c_relation_evidence_events.csv",
+      "sha256": "99448e2bfa508b3ee877a639f7505a67c1dcf27a3bb8d692ee411596aa0ca730"
+    },
+    {
+      "bytes": 4677,
+      "git_blob": "8dc72e8be1376dbd6bd63f0e71c65ada2aa01812",
+      "path": "data/semantic/stage8c_research_sources.csv",
+      "sha256": "dcfedd028648e7519ee7814d497118e69d477a4da5c0f1a6682a556d86852036"
+    },
+    {
+      "bytes": 164687,
+      "git_blob": "b5182535ce984b0d26679cca0c3c878e8d22f21d",
+      "path": "data/semantic/stage8c_review_status.csv",
+      "sha256": "42360a05641ed738b0f80925171e9f0a80d72ed3279b7bfac8e95ec28d11fe33"
+    },
+    {
+      "bytes": 3220,
+      "git_blob": "1b77d4b8321317081e0b4f8b2bcb948b73bf2a97",
+      "path": "data/semantic/stage8c_static_family_coverage_strategy.csv",
+      "sha256": "f7d9b5749ff669a4930544104b0936e9a40498913599d6858fd04ce1a24f1a02"
+    },
+    {
+      "bytes": 2236277,
+      "git_blob": "47cec058edde111ab101db81c9b5b495b3906712",
+      "path": "data/runtime/japanese_overlay.json",
+      "sha256": "de1b375d79ef05f4c2477347b20b8a09115511d2ecbd39602bdebcdfa6d576dc"
+    },
+    {
+      "bytes": 1199815,
+      "git_blob": "0f0a9b3fc11188e7a0e5763bea8e7d9210f047c0",
+      "path": "data/special2788/illustrious_tag_knowledge_base_2788.csv",
+      "sha256": "07584b365d5a68dbadd3f5e80859e768c2718b18746e32de02ce4b8bd60935e3"
+    }
+  ],
+  "protected_before": [
+    {
+      "bytes": 5518,
+      "git_blob": "400ae5abdd5d7ecb4c112ddb42f0ab610f33d78a",
+      "path": "data/generation/generation_family_rules.csv",
+      "sha256": "0f0e2e9f1f001d12e421324a6356bab42293fb206fe53a3e642495d5765c6936"
+    },
+    {
+      "bytes": 3605,
+      "git_blob": "b23a3b23438df4496102f042b3875a012d9db932",
+      "path": "data/generation/generation_model_observations.csv",
+      "sha256": "ee036aac810ef94b9f0376a23d0159f4275d6d2feac7ccd689ca297d361164c8"
+    },
+    {
+      "bytes": 557177,
+      "git_blob": "ac6c1d24e1c6ce04b238cc0b16d788f9d0965a05",
+      "path": "data/generation/special2788_generation_profile.csv",
+      "sha256": "3d3b7c16bee23c34892c6ac1a40b69208ef14199c5bae749ac8a22151c8dc835"
+    },
+    {
+      "bytes": 610,
+      "git_blob": "99ade8e98c5c62e112c55e2663ae98b2074c14dc",
+      "path": "data/semantic/family_support_rules.csv",
+      "sha256": "85907d03a5425675d1afc87177a8c99fe846d941718780a6b86baa10373c5465"
+    },
+    {
+      "bytes": 1658,
+      "git_blob": "aa582d16f9b704a29f553b0d6182cce2d322df5c",
+      "path": "data/semantic/recommendation_generation_hints.csv",
+      "sha256": "5ae09ddb0267f0a6de563ea5b49d76725795724500938552666e3c591f6ecd79"
+    },
+    {
+      "bytes": 2024,
+      "git_blob": "bbfdc0f1a0f6f6da8571c4bd6af8773165a3df51",
+      "path": "data/semantic/recommendation_semantic_labels.csv",
+      "sha256": "57459defccb4ac0fe8f55a938557531dad2d067ea45d36a1655f8cd5824cbe0f"
+    },
+    {
+      "bytes": 47913,
+      "git_blob": "ce7223aa99481757b95cff0b86dc0cf05bf4f35b",
+      "path": "data/semantic/semantic_bridge_v1.csv",
+      "sha256": "d34df85810641447f39e4b12f9dcecab6983b2e1a4384439fa3934dba8c35247"
+    },
+    {
+      "bytes": 15959,
+      "git_blob": "e666e4efd5c3aabf22410d75e04ff51d826c9b0e",
+      "path": "data/semantic/semantic_support_profiles.csv",
+      "sha256": "2ecddf3fa35fe7e1f2c2a32b201cd016f2d2df7f8672f25bed37237aa996afc2"
+    },
+    {
+      "bytes": 161,
+      "git_blob": "7751023a23cab5a93ccfc7accdaab544b5306628",
+      "path": "data/semantic/stage10_test_slots.csv",
+      "sha256": "ddac136b3c6839c8f31e60298d6551fd6d16ed48effa4cffa2c7ad4744789a49"
+    },
+    {
+      "bytes": 1716,
+      "git_blob": "d01aa0bdbe064dc1ddac1dd8244a9a68ae6e57f0",
+      "path": "data/semantic/stage8c_exit_pilot_family_assessment.csv",
+      "sha256": "8e699ae1111a17498d67d23e858e65c57fc35b7ae8e98f4156fffd02cd591241"
+    },
+    {
+      "bytes": 2468,
+      "git_blob": "2d02324277c31c78cf730a6070fe83ea5e56570c",
+      "path": "data/semantic/stage8c_exit_pilot_scope.csv",
+      "sha256": "458678b49066cdd6dcfcc3bc9d41e80c34a2094c83be8f9d73a0004f6c6a9009"
+    },
+    {
+      "bytes": 3854,
+      "git_blob": "99ccdd801c4d3c78ba8fa699f21978685c4545fb",
+      "path": "data/semantic/stage8c_family_candidate_applicability.csv",
+      "sha256": "4365211b4c15d858d3a6004d35ca15392852b30cdacdb839107b2afc2fbd01e5"
+    },
+    {
+      "bytes": 627,
+      "git_blob": "cadddd8503c01418b9f70dceb8dd1263b5b94d70",
+      "path": "data/semantic/stage8c_family_relation_proposals.csv",
+      "sha256": "7dc74464b67fed6fe73e6d70707974e8bf5c9d3facf9dea7da0f3a5e9e455ef2"
+    },
+    {
+      "bytes": 3929,
+      "git_blob": "011aba8d1d0b70eef2c807ffed43d776e2a3fb99",
+      "path": "data/semantic/stage8c_family_rule_review.csv",
+      "sha256": "681537dbdc17869bc4a70ce8ef8725efdeebd3bc859c9ad154933154203e832a"
+    },
+    {
+      "bytes": 231,
+      "git_blob": "b70d1e1d1c7ca5d5d228d4aa4ec8960c0dbf9c1b",
+      "path": "data/semantic/stage8c_model_familiarity.csv",
+      "sha256": "b9fa2c16a55f04aa584c8013db76209f5edffc77797a915ba1fcce966e92dc33"
+    },
+    {
+      "bytes": 137,
+      "git_blob": "0f34103d3b9651fc66634177e99e3bbe52cc5938",
+      "path": "data/semantic/stage8c_non_tag_strategy.csv",
+      "sha256": "4cafc8042676ec3cd9c0be6ea73ed47b1e91e05f3d2086fadccb3a8c4b267399"
+    },
+    {
+      "bytes": 955,
+      "git_blob": "cd6c1db05113ba67de83f23d43e6723f553c0caa",
+      "path": "data/semantic/stage8c_pilot001_frozen_expectations.json",
+      "sha256": "ebe872ed84429227fc3351750549c18ba93f4f15af3cd2e1c27b78ecf35a4818"
+    },
+    {
+      "bytes": 150,
+      "git_blob": "35c328f677de6a6ddf69333af7561302b3b6f432",
+      "path": "data/semantic/stage8c_practical_use.csv",
+      "sha256": "7415f73372277a2d1c1be682c4a78960b4016e9f5640e8de06cf1324bc45e499"
+    },
+    {
+      "bytes": 265,
+      "git_blob": "1ed85b132a9e55f49f0f2e1716e7241ff10af6d1",
+      "path": "data/semantic/stage8c_relation_evidence_events.csv",
+      "sha256": "99448e2bfa508b3ee877a639f7505a67c1dcf27a3bb8d692ee411596aa0ca730"
+    },
+    {
+      "bytes": 4677,
+      "git_blob": "8dc72e8be1376dbd6bd63f0e71c65ada2aa01812",
+      "path": "data/semantic/stage8c_research_sources.csv",
+      "sha256": "dcfedd028648e7519ee7814d497118e69d477a4da5c0f1a6682a556d86852036"
+    },
+    {
+      "bytes": 164687,
+      "git_blob": "b5182535ce984b0d26679cca0c3c878e8d22f21d",
+      "path": "data/semantic/stage8c_review_status.csv",
+      "sha256": "42360a05641ed738b0f80925171e9f0a80d72ed3279b7bfac8e95ec28d11fe33"
+    },
+    {
+      "bytes": 3220,
+      "git_blob": "1b77d4b8321317081e0b4f8b2bcb948b73bf2a97",
+      "path": "data/semantic/stage8c_static_family_coverage_strategy.csv",
+      "sha256": "f7d9b5749ff669a4930544104b0936e9a40498913599d6858fd04ce1a24f1a02"
+    },
+    {
+      "bytes": 2236277,
+      "git_blob": "47cec058edde111ab101db81c9b5b495b3906712",
+      "path": "data/runtime/japanese_overlay.json",
+      "sha256": "de1b375d79ef05f4c2477347b20b8a09115511d2ecbd39602bdebcdfa6d576dc"
+    },
+    {
+      "bytes": 1199815,
+      "git_blob": "0f0a9b3fc11188e7a0e5763bea8e7d9210f047c0",
+      "path": "data/special2788/illustrious_tag_knowledge_base_2788.csv",
+      "sha256": "07584b365d5a68dbadd3f5e80859e768c2718b18746e32de02ce4b8bd60935e3"
+    }
+  ],
+  "semantic_paths_unchanged": [
+    "data/semantic/family_support_rules.csv",
+    "data/semantic/recommendation_generation_hints.csv",
+    "data/semantic/recommendation_semantic_labels.csv",
+    "data/semantic/semantic_bridge_v1.csv",
+    "data/semantic/semantic_support_profiles.csv",
+    "data/semantic/stage10_test_slots.csv",
+    "data/semantic/stage8c_exit_pilot_family_assessment.csv",
+    "data/semantic/stage8c_exit_pilot_scope.csv",
+    "data/semantic/stage8c_family_candidate_applicability.csv",
+    "data/semantic/stage8c_family_relation_proposals.csv",
+    "data/semantic/stage8c_family_rule_review.csv",
+    "data/semantic/stage8c_model_familiarity.csv",
+    "data/semantic/stage8c_non_tag_strategy.csv",
+    "data/semantic/stage8c_pilot001_frozen_expectations.json",
+    "data/semantic/stage8c_practical_use.csv",
+    "data/semantic/stage8c_relation_evidence_events.csv",
+    "data/semantic/stage8c_research_sources.csv",
+    "data/semantic/stage8c_review_status.csv",
+    "data/semantic/stage8c_static_family_coverage_strategy.csv"
+  ]
+}
