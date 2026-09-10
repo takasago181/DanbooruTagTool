@@ -1,0 +1,42 @@
+canonical,old_display_ja,new_display_ja,reason
+grey_haori,タグ「grey haori」,灰色の羽織,RAW_ENGLISH_WRAPPER
+grey_headdress,灰色の髪飾り,灰色の頭飾り,SEMANTIC_ERROR
+grey_headscarf,タグ「grey headscarf」,灰色のヘッドスカーフ,RAW_ENGLISH_WRAPPER
+grey_helmet,grey・ヘルメット,灰色のヘルメット,MIXED_ENGLISH_DEBRIS
+grey_leg_warmers,grey legのウォーマー,灰色のレッグウォーマー,MIXED_ENGLISH_DEBRIS
+grey_lips,灰嘴唇,灰色の唇,NON_JAPANESE_RESIDUE
+grey_male_swimwear,灰色の男性水着,灰色の男性用水着,AWKWARD_MACHINE_TRANSLATION
+grey_overskirt,タグ「grey overskirt」,灰色のオーバースカート,RAW_ENGLISH_WRAPPER
+grey_pupils,灰色瞳孔,灰色の瞳孔,AWKWARD_MACHINE_TRANSLATION
+grey_rose,灰玫瑰,灰色のバラ,NON_JAPANESE_RESIDUE
+grey_sandals,grey・サンダル,灰色のサンダル,MIXED_ENGLISH_DEBRIS
+grey_sarong,タグ「grey sarong」,灰色のサロン,RAW_ENGLISH_WRAPPER
+grey_sash,灰色のサッシ,灰色のサッシュ,SEMANTIC_ERROR
+grey_scales,grey・鱗,灰色の鱗,MIXED_ENGLISH_DEBRIS
+grey_scarf,灰色の・マフラー,灰色のスカーフ,SEMANTIC_NARROWING
+grey_sclera,灰色の硬化,灰色の強膜,SEMANTIC_ERROR
+grey_serafuku,灰色のserafuku,灰色のセーラー服,MIXED_ENGLISH_DEBRIS
+grey_shrug,grey・ボレロ,灰色のボレロ,MIXED_ENGLISH_DEBRIS
+grey_slippers,タグ「grey slippers」,灰色のスリッパ,RAW_ENGLISH_WRAPPER
+grey_streaks,grey・メッシュ,灰色のメッシュ,MIXED_ENGLISH_DEBRIS
+grey_tabard,タグ「grey tabard」,灰色のタバード,RAW_ENGLISH_WRAPPER
+grey_trim,タグ「grey trim」,灰色の縁取り,RAW_ENGLISH_WRAPPER
+grey_tube_top,grey・チューブ・トップス,灰色のチューブトップ,MIXED_ENGLISH_DEBRIS
+grey_tunic,タグ「grey tunic」,灰色のチュニック,RAW_ENGLISH_WRAPPER
+grey_veil,grey・ベール,灰色のベール,MIXED_ENGLISH_DEBRIS
+grey_wrist_cuffs,grey・手首・カフ,灰色のリストカフス,MIXED_ENGLISH_DEBRIS
+greyscale_with_colored_background,灰度配彩色背景,カラー背景のグレースケール,NON_JAPANESE_RESIDUE
+grid,网格,グリッド,NON_JAPANESE_RESIDUE
+grid_background,网格背景,グリッド背景,NON_JAPANESE_RESIDUE
+grid_border,grid・枠,グリッドの枠,MIXED_ENGLISH_DEBRIS
+grid_lineup,タグ「grid lineup」,グリッド状の整列,RAW_ENGLISH_WRAPPER
+grid_print,gridの柄,グリッド柄,MIXED_ENGLISH_DEBRIS
+grid_shawl,タグ「grid shawl」,グリッド柄のショール,RAW_ENGLISH_WRAPPER
+grid_skirt,grid・スカート,グリッド柄のスカート,MIXED_ENGLISH_DEBRIS
+grid_teeth,タグ「grid teeth」,格子状の歯,RAW_ENGLISH_WRAPPER
+griffin_&_kryuger_logo,griffin & kryugerのロゴ,グリフィン＆クルーガーのロゴ,MIXED_ENGLISH_DEBRIS
+grim_reaper_(cosplay),grim reaper (cosplay),死神（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+grimace_shake_(meme),grimace shake (meme),グリマスシェイク（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+groin_attack,タグ「groin attack」,股間攻撃,RAW_ENGLISH_WRAPPER
+grooming,舔毛,毛づくろい,NON_JAPANESE_RESIDUE
+group_(toaru),タグ「group (toaru)」,グループ（とあるシリーズ）,RAW_ENGLISH_WRAPPER
