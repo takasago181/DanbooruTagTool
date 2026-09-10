@@ -1,5 +1,14 @@
 # Branch Inventory — 2026-09-10
 
+> **HISTORICAL SNAPSHOT — DO NOT USE FOR CURRENT ROUTING**
+>
+> このInventoryは2026-09-10時点の枝分類です。現在は #46 がsuperseded/closed、#36はV5、#30がcurrent core DEVであり、下記`KEEP_ACTIVE`分類には古い状態が含まれます。
+> **現在のbranch用途は `docs/project/CURRENT_STATE.md`、live Issue、実際のremote branch状態を優先してください。**
+>
+> 2026-09-11 repository cleanup auditで、誤って現行branch表として使われないようhistorical扱いを明示しました。枝自体はこの作業では削除していません。
+
+---
+
 Purpose: reduce branch-name ambiguity without deleting audit/evidence history blindly.
 
 Authority: `docs/project/CURRENT_STATE.md` and live Issues remain the routing source of truth. This file is an inventory, not a task contract.
