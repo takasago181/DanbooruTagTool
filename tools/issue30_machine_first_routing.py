@@ -42,7 +42,14 @@ def verify_row_provenance(run_root: Path, row: dict[str, Any]) -> dict[str, Any]
             "artifact_state": state,
             "readable_non_error": readable,
         }
-    return {"pass": all(item["reported_matches_expected"] and item["readable_non_error"] for item in checks.values()), "evaluators": checks}
+    raw_pass = all(item["readable_non_error"] for item in checks.values())
+    reported_pass = all(item["reported_matches_expected"] for item in checks.values())
+    return {
+        "pass": raw_pass and reported_pass,
+        "raw_artifact_pass": raw_pass,
+        "reported_reference_pass": reported_pass,
+        "evaluators": checks,
+    }
 
 
 def route_image(row: dict[str, Any], provenance_pass: bool) -> tuple[str, list[str]]:

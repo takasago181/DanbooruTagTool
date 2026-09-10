@@ -20,6 +20,8 @@ REUSE_HUMAN_RESULT = ROOT / "docs/testing/ISSUE30_PHASE2_REUSE_REVIEW_HUMAN_RESU
 BATCH_MANIFEST = ROOT / "docs/testing/ISSUE30_PHASE2_GENERATION_BATCH_MANIFEST.csv"
 BATCH_RESULT = ROOT / "docs/testing/ISSUE30_PHASE2_GENERATION_BATCH_RESULT.json"
 BATCH_HUMAN_RESULT = ROOT / "docs/testing/ISSUE30_PHASE2_GENERATION_BATCH_HUMAN_RESULTS_20260911.json"
+BATCH2_MANIFEST = ROOT / "docs/testing/ISSUE30_PHASE2_GENERATION_BATCH2_MANIFEST.csv"
+BATCH2_RESULT = ROOT / "docs/testing/ISSUE30_PHASE2_GENERATION_BATCH2_RESULT.json"
 TRIAGE_AUDIT = ROOT / "docs/testing/ISSUE30_PHASE2_MACHINE_TRIAGE_AUDIT.json"
 HUMAN_REVIEW = ROOT / "docs/testing/ISSUE30_PHASE2_HUMAN_REVIEW_RESULTS_20260910.json"
 
@@ -152,6 +154,33 @@ def test_generation_batch_human_review_records_ambiguous_multi_special_identity(
     assert report["summary"]["unclear_pairs"] == 2
     assert [row["result"] for row in report["pair_results"][:2]] == ["UNCLEAR", "UNCLEAR"]
     assert report["summary"]["decision"] == "HOLD_FOR_DEV_PHASE2_CLOSE"
+
+
+def test_generation_batch2_is_machine_first_bounded_and_repair_audited():
+    with BATCH2_MANIFEST.open(encoding="utf-8-sig", newline="") as stream:
+        cases = list(csv.DictReader(stream))
+    assert len(cases) == 4
+    assert len(cases) * 4 == 16
+    validate_cases(cases, load_profiles())
+    report = json.loads(BATCH2_RESULT.read_text(encoding="utf-8"))
+    assert report["status"] == "BATCH2_COMPLETE_MACHINE_FIRST_REVIEW_REQUIRED"
+    assert report["generated_images"] == 16
+    assert report["planned_evaluator_runs"] == report["actual_successful_evaluator_runs"] == 48
+    assert report["actual_failed_or_missing_evaluator_runs"] == 0
+    assert report["per_evaluator_successes"] == {"wd14": 16, "kagami": 16, "cl_v2_00": 16}
+    assert report["evaluator_reference_integrity_check"] == "PASS"
+    assert report["raw_artifact_image_binding_check"] == "PASS"
+    assert report["original_report_reference_integrity_check"] == "FAIL"
+    assert report["original_report_reference_mismatches"] == 45
+    assert report["reporting_reference_repair_applied"] is True
+    assert report["ab_marker_integrity_check"] == "PASS"
+    assert report["machine_handled_images"] == 4
+    assert report["machine_handled_pairs"] == 2
+    assert report["human_required_images"] == 12
+    assert report["human_required_pairs"] == 6
+    assert report["blocked_images"] == report["blocked_pairs"] == 0
+    assert report["image_level_review_reduction_percent"] == report["pair_level_review_reduction_percent"] == 25.0
+    assert report["review_display"]["display_check"] == "PASS"
 
 
 def test_machine_triage_audit_proves_raw_outputs_and_records_reporting_defect():

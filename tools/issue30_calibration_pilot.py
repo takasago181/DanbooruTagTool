@@ -679,10 +679,15 @@ def main() -> None:
         print(f"CL {index}/{planned_images}", flush=True)
     structured = []
     for record in records:
-        evaluators = {"wd14": record["wd14"], "kagami": record["kagami"], "cl_v2_00": record["cl_v2_00"]}
+        # Copy each evaluator record before attaching the per-image reference.
+        # This prevents a shared/mutated evaluator object from binding every row
+        # to the last image in a batch.
+        evaluators = {name: dict(record[name]) for name in ("wd14", "kagami", "cl_v2_00")}
         for evaluator_name, evaluator in evaluators.items():
             display_name = {"wd14": "WD14", "kagami": "Kagami", "cl_v2_00": "CL v2.00"}[evaluator_name]
             evaluator["raw_output_artifact"] = str(evaluator_artifact_path(display_name, record["image_id"]))
+        if any(Path(item["raw_output_artifact"]) != evaluator_artifact_path({"wd14": "WD14", "kagami": "Kagami", "cl_v2_00": "CL v2.00"}[name], record["image_id"]) for name, item in evaluators.items()):
+            raise RuntimeError(f"per-image evaluator artifact binding failed: {record['image_id']}")
         record["evaluators"] = evaluators
         record["screen"] = screening(record, evaluators)
         structured.append(record)

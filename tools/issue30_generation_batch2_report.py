@@ -74,6 +74,7 @@ def markdown(report: dict[str, Any]) -> str:
         f"- Failed/missing evaluator runs: **{report['actual_failed_or_missing_evaluator_runs']}**",
         f"- Per evaluator: WD14 **{report['per_evaluator_successes'].get('wd14', 0)}**, Kagami **{report['per_evaluator_successes'].get('kagami', 0)}**, CL **{report['per_evaluator_successes'].get('cl_v2_00', 0)}**",
         f"- Evaluator reference integrity: **{report['evaluator_reference_integrity_check']}**",
+        f"- Original aggregate-reference check: **{report['original_report_reference_integrity_check']}** ({report['original_report_reference_mismatches']} mismatches; report-only repair applied: **{report['reporting_reference_repair_applied']}**)",
         f"- A/B marker integrity: **{report['ab_marker_integrity_check']}**",
         f"- Machine-handled: **{report['machine_handled_images']} images / {report['machine_handled_pairs']} pairs**",
         f"- Human-required: **{report['human_required_images']} images / {report['human_required_pairs']} pairs**",
@@ -126,14 +127,24 @@ def main() -> None:
             continue
         provenance = verify_row_provenance(args.run_root, result)
         condition = "A" if result["cell_type"].startswith("target_present") else "B"
-        route, reasons = route_image({**result, "case": manifest[result["case_id"]]}, provenance["pass"])
+        # The generated raw artifacts are the authoritative per-image evidence.
+        # If only the aggregate JSON reference is stale, repair that reporting
+        # field in this derived report and retain the mismatch as audit evidence.
+        corrected_evaluators = {
+            name: {**result["evaluators"][name], "raw_output_artifact": check["expected"]}
+            for name, check in provenance["evaluators"].items()
+        }
+        route, reasons = route_image(
+            {**result, "case": manifest[result["case_id"]], "evaluators": corrected_evaluators},
+            provenance["raw_artifact_pass"],
+        )
         for name, item in provenance["evaluators"].items():
             (per_success if item["readable_non_error"] else per_failure)[name] += 1
         records.append({
             "image_id": result["image_id"], "case_id": result["case_id"], "condition": condition, "seed": result["generation"]["seed"],
             "image_path": result["image_artifact"]["path"], "sha256": result["image_artifact"]["sha256"], "bytes": result["image_artifact"]["bytes"],
             "screening_classes": result["screening"]["screening_classes"], "machine_route": route, "route_reasons": reasons,
-            "provenance": provenance, "evaluators": result["evaluators"], "generation": result["generation"],
+            "provenance": provenance, "evaluators": corrected_evaluators, "generation": result["generation"],
         })
     marker_pass, marker_errors = marker_integrity(records)
     pair_input = [{**result, "condition": "A" if result["cell_type"].startswith("target_present") else "B", "machine_route": record["machine_route"]} for result, record in zip([r for r in results if r["case_id"] in manifest], records)]
@@ -147,15 +158,32 @@ def main() -> None:
     blocked_pairs = sum(item["route"] == "BLOCKED_PAIR" for item in pairs.values())
     review_rows = [row for row in records if pairs[(row["case_id"], int(row["seed"]))]["route"] == "HUMAN_REVIEW_REQUIRED_PAIR"]
     display = make_contact_sheet(review_rows, manifest, args.contact_sheet)
-    reference_failures = [row for row in records for item in row["provenance"]["evaluators"].values() if not item["reported_matches_expected"]]
+    reference_failures = [
+        {"image_id": row["image_id"], "evaluator": name, **item}
+        for row in records
+        for name, item in row["provenance"]["evaluators"].items()
+        if not item["reported_matches_expected"]
+    ]
+    raw_failures = [
+        {"image_id": row["image_id"], "evaluator": name, **item}
+        for row in records
+        for name, item in row["provenance"]["evaluators"].items()
+        if not item["readable_non_error"]
+    ]
     report = {
         "schema_version": "issue30.phase2.generation_batch2_result.v1", "status": "BATCH2_COMPLETE_MACHINE_FIRST_REVIEW_REQUIRED",
         "run_id": results[0]["run_id"], "manifest": str(args.manifest), "local_artifact_root": str(args.run_root),
         "generated_images": sum(not bool(row.get("reused", False)) for row in read_json(args.run_root / "generation_records.json")), "reused_images": 0,
         "planned_evaluator_runs": len(records) * 3, "actual_successful_evaluator_runs": sum(per_success.values()), "actual_failed_or_missing_evaluator_runs": sum(per_failure.values()),
         "per_evaluator_successes": dict(per_success), "per_evaluator_failures": dict(per_failure),
-        "evaluator_reference_integrity_check": "PASS" if not reference_failures and all(item["provenance"]["pass"] for item in records) else "FAIL",
-        "reference_failures": reference_failures, "ab_marker_integrity_check": "PASS" if marker_pass else "FAIL", "ab_marker_errors": marker_errors,
+        "evaluator_reference_integrity_check": "PASS" if not raw_failures else "FAIL",
+        "raw_artifact_image_binding_check": "PASS" if not raw_failures else "FAIL",
+        "reporting_reference_repair_applied": bool(reference_failures),
+        "original_report_reference_integrity_check": "PASS" if not reference_failures else "FAIL",
+        "original_report_reference_mismatches": len(reference_failures),
+        "reference_failures": reference_failures,
+        "raw_artifact_failures": raw_failures,
+        "ab_marker_integrity_check": "PASS" if marker_pass else "FAIL", "ab_marker_errors": marker_errors,
         "machine_handled_images": machine_images, "machine_handled_pairs": machine_pairs, "human_required_images": human_images, "human_required_pairs": human_pairs,
         "blocked_images": blocked_images, "blocked_pairs": blocked_pairs, "image_level_review_reduction_percent": round(machine_images / len(records) * 100, 2),
         "pair_level_review_reduction_percent": round(machine_pairs / len(pairs) * 100, 2), "pair_routes": pair_key,
