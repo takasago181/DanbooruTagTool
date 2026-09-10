@@ -1,0 +1,37 @@
+canonical,old_display_ja,new_display_ja,reason
+kendo_mask,剣道マスク,剣道面,SEMANTIC_ERROR
+keqing_(genshin_impact)_(cosplay),keqing (genshin impact) (cosplay),刻晴（原神）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+kero_(cardcaptor_sakura)_(cosplay),kero (cardcaptor sakura) (cosplay),ケロちゃん（カードキャプターさくら）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+kerosene_lamp,煤油灯,石油ランプ,NON_JAPANESE_RESIDUE
+kessoku_band_logo,kessoku bandのロゴ,結束バンドのロゴ,MIXED_ENGLISH_DEBRIS
+kessoku_band_t-shirt,kessoku・band・t・シャツ,結束バンドTシャツ,MIXED_ENGLISH_DEBRIS
+kettle_helm,タグ「kettle helm」,ケトルヘルム,RAW_ENGLISH_WRAPPER
+key_choker,鍵・choker,鍵のチョーカー,MIXED_ENGLISH_DEBRIS
+key_hair_ornament,キーヘアの飾り,鍵の髪飾り,SEMANTIC_ERROR
+key_in_head,頭のキー,頭の中の鍵,SEMANTIC_RELATION_ERROR
+keyboard_(instrument),電子ピアノ,キーボード（楽器）,SEMANTIC_NARROWING
+kfp,タグ「kfp」,KFP,RAW_ENGLISH_WRAPPER
+khorne_(symbol),タグ「khorne (symbol)」,コーンのシンボル,RAW_ENGLISH_WRAPPER
+kiana_kaslana_(cosplay),kiana kaslana (cosplay),キアナ・カスラナ（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+kickflip,タグ「kickflip」,キックフリップ,RAW_ENGLISH_WRAPPER
+kicking_viewer,視聴者を蹴る,視点側を蹴る,SEMANTIC_ERROR
+kickstand,タグ「kickstand」,キックスタンド,RAW_ENGLISH_WRAPPER
+kidnapping,お持ち帰り,誘拐,SEMANTIC_ERROR
+kidokawa_seishuu,タグ「kidokawa seishuu」,木戸川清修,RAW_ENGLISH_WRAPPER
+kiki_(majo_no_takkyuubin)_(cosplay),kiki (majo no takkyuubin) (cosplay),キキ（魔女の宅急便）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+kill_markings,タグ「kill markings」,撃墜マーク,RAW_ENGLISH_WRAPPER
+killer_queen's_pose,killer・queen・ポーズ,キラークイーンのポーズ,MIXED_ENGLISH_DEBRIS
+kilt,キルトスカート,キルト,SEMANTIC_NARROWING
+kimetsu_gakuen_school_uniform,kimetsu gakuenの学校制服,キメツ学園の制服,MIXED_ENGLISH_DEBRIS
+kimono_partially_removed,kimono・部分的に・removed,着物を部分的に脱いだ,MIXED_ENGLISH_DEBRIS
+kimono_pull,着物プル,着物を引っ張る,AWKWARD_MACHINE_TRANSLATION
+kindergarten,園児,幼稚園,SEMANTIC_ERROR
+kindergarten_teacher,保母,幼稚園教諭,SEMANTIC_ERROR
+king_(playing_card),タグ「king (playing card)」,キング（トランプ）,RAW_ENGLISH_WRAPPER
+king_of_clubs,クラブの王,クラブのキング,SEMANTIC_ERROR
+king_of_diamonds,キングオブダイヤモンド,ダイヤのキング,AWKWARD_MACHINE_TRANSLATION
+king_of_hearts_(playing_card),キングオブハーツ（カード）,ハートのキング（トランプ）,AWKWARD_MACHINE_TRANSLATION
+kinky_hair,kinky・髪,縮れ毛,MIXED_ENGLISH_DEBRIS
+kino_makoto's_school_uniform,キノマコトの学校の制服,木野まことの学校制服,SEMANTIC_ERROR
+kinomoto_sakura_(cosplay),水田さくか（コスプレ）,木之本桜（コスプレ）,SEMANTIC_ERROR
+kiosk,タグ「kiosk」,キオスク,RAW_ENGLISH_WRAPPER
