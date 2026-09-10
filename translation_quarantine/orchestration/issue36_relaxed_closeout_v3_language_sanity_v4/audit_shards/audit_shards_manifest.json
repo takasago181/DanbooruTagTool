@@ -1,0 +1,245 @@
+{
+  "schema_version": 1,
+  "purpose": "ChatGPT independent audit read-only CSV view",
+  "source_file": "final_translation_table.csv",
+  "source_sha256": "46f0343e2bea864a4d67e52177a76976ae13e3d0a639da62d164333804489bb2",
+  "source_rows": 30629,
+  "source_unique_canonicals": 30629,
+  "source_first_canonical": "!",
+  "source_last_canonical": "|_|",
+  "canonical_order_sha256": "8a8a1b331971d9be085fe6bacbbf971b2e384e54bc5910c9adc25ca84f132b68",
+  "columns": [
+    "canonical",
+    "display_ja",
+    "decision",
+    "risk_class",
+    "language_sanity_provenance"
+  ],
+  "max_rows_per_shard": 1000,
+  "shard_count": 31,
+  "shards": [
+    {
+      "file": "audit_shard_0001.csv",
+      "row_count": 1000,
+      "start_canonical": "!",
+      "end_canonical": "white_wings",
+      "sha256": "d634ab188ece763b75705bfd96f049ecdb687c3605700f419146395d5e007eb3"
+    },
+    {
+      "file": "audit_shard_0002.csv",
+      "row_count": 1000,
+      "start_canonical": "wide-eyed",
+      "end_canonical": "commissioner_name",
+      "sha256": "4f19f82bce421d48c7b4bb711adaaee347714b6b5c14fa78d38c5864336e93e1"
+    },
+    {
+      "file": "audit_shard_0003.csv",
+      "row_count": 1000,
+      "start_canonical": "company_connection",
+      "end_canonical": "happy_valentine",
+      "sha256": "d33bc66eb21c2bf6465b28b5528e97a312747e517ea8254a0bb8d04e13e2e6b4"
+    },
+    {
+      "file": "audit_shard_0004.csv",
+      "row_count": 1000,
+      "start_canonical": "harem",
+      "end_canonical": "onesie",
+      "sha256": "923571acfbc105eec87ef428fe195f1ad69f4c452de85715fca3aafc32ac5075"
+    },
+    {
+      "file": "audit_shard_0005.csv",
+      "row_count": 1000,
+      "start_canonical": "oni",
+      "end_canonical": "slave",
+      "sha256": "6ae96ad0f7f1430ef95b6210c1bdcd1c36b7eef0809a970365ac88a407e5c3d2"
+    },
+    {
+      "file": "audit_shard_0006.csv",
+      "row_count": 1000,
+      "start_canonical": "slave_brand",
+      "end_canonical": "39",
+      "sha256": "b435b3743be56c3680bd294d6df4c0bc36f362161d7cba2b8d3f9380df3a4774"
+    },
+    {
+      "file": "audit_shard_0007.csv",
+      "row_count": 1000,
+      "start_canonical": "3;",
+      "end_canonical": "armored_legwear",
+      "sha256": "fc4d904d10ee104305344e64cb070cc1e5fe4c8fdde7b96fddb4187b99eca15b"
+    },
+    {
+      "file": "audit_shard_0008.csv",
+      "row_count": 1000,
+      "start_canonical": "armored_leotard",
+      "end_canonical": "black_buruma",
+      "sha256": "cbd712e821694cf30c9a6da8f24b9a30dc93be61ce2b3b916b164a1ca6b59f7b"
+    },
+    {
+      "file": "audit_shard_0009.csv",
+      "row_count": 1000,
+      "start_canonical": "black_butterfly",
+      "end_canonical": "bunny_hood_(zelda)",
+      "sha256": "d4dd8753cb9653876a2399bc3cb694973bdb4d9586c15b8fb6802a98767bbbe4"
+    },
+    {
+      "file": "audit_shard_0010.csv",
+      "row_count": 1000,
+      "start_canonical": "bunny_slippers",
+      "end_canonical": "cicada_block_(meme)",
+      "sha256": "5e31801891a1989e312c8f50c5b3fd557073c9fe6cddc7890680f91fa37f384b"
+    },
+    {
+      "file": "audit_shard_0011.csv",
+      "row_count": 1000,
+      "start_canonical": "cicada_hug",
+      "end_canonical": "curtain_grab",
+      "sha256": "62a5497ec71b37bc3980335484f16f59ba1d44625dbe3195345900538dbc72ba"
+    },
+    {
+      "file": "audit_shard_0012.csv",
+      "row_count": 1000,
+      "start_canonical": "curved_horns",
+      "end_canonical": "eastern_dragon",
+      "sha256": "7a487b759aa37d7a964e807675685ee4a8d52faf348d9b9ca8b87394403ef44f"
+    },
+    {
+      "file": "audit_shard_0013.csv",
+      "row_count": 1000,
+      "start_canonical": "eastern_dragon_horns",
+      "end_canonical": "flanged_mace",
+      "sha256": "af74fdf14a2f9a221aa16a6818800cc2605c2489bd7a96ef47d80dc940ce04f5"
+    },
+    {
+      "file": "audit_shard_0014.csv",
+      "row_count": 1000,
+      "start_canonical": "flapper_girl",
+      "end_canonical": "ghost_hair_ornament",
+      "sha256": "162e7e658455e1664688c10f687abeb651c52918d6cde73146d06e3cd193f54f"
+    },
+    {
+      "file": "audit_shard_0015.csv",
+      "row_count": 1000,
+      "start_canonical": "ghost_hands",
+      "end_canonical": "hairpods",
+      "sha256": "9548c5a3cc1788adb31461cc2502d27d50e686473fb557b0bd4767d3a244f43f"
+    },
+    {
+      "file": "audit_shard_0016.csv",
+      "row_count": 1000,
+      "start_canonical": "hairstyle_connection",
+      "end_canonical": "holding_eyeball",
+      "sha256": "d646ec723c170086df063a71d0710a6c66470fc04f0f905e63f48409b746c252"
+    },
+    {
+      "file": "audit_shard_0017.csv",
+      "row_count": 1000,
+      "start_canonical": "holding_eyepatch",
+      "end_canonical": "in_jar",
+      "sha256": "7ee1f50d91ffaad3c8174926d594ed13266dd4a3af5df1c3bbfdffbcd64dcd60"
+    },
+    {
+      "file": "audit_shard_0018.csv",
+      "row_count": 1000,
+      "start_canonical": "in_locker",
+      "end_canonical": "koukyou_suru_machi_no_katasumi_de_(project_sekai)",
+      "sha256": "2d9ed135108247908e2e60e20b59c085d816b62dd5909f1ec4f5d9703ba1c3ec"
+    },
+    {
+      "file": "audit_shard_0019.csv",
+      "row_count": 1000,
+      "start_canonical": "kouno_marika's_silence_suzuka_drawing_(meme)",
+      "end_canonical": "maginot_school_uniform",
+      "sha256": "2b61e20a6c7b0746678b138ffc53594ad3cdd55c22c37fedab716932997ed53e"
+    },
+    {
+      "file": "audit_shard_0020.csv",
+      "row_count": 1000,
+      "start_canonical": "magitek_armor",
+      "end_canonical": "mounted_dildo",
+      "sha256": "c0aa9cac28ac336962408f1111fb6cb8e725233c8410ed95abd0bbb25aef60bc"
+    },
+    {
+      "file": "audit_shard_0021.csv",
+      "row_count": 1000,
+      "start_canonical": "mourning",
+      "end_canonical": "odradek",
+      "sha256": "2e0b9838a30c12449dafce2bf2c5aeea970d76a3e090c1f806bb0ea5cafdbe35"
+    },
+    {
+      "file": "audit_shard_0022.csv",
+      "row_count": 1000,
+      "start_canonical": "odst",
+      "end_canonical": "penrose_triangle",
+      "sha256": "76b135a38789356d7e0c500e2ff6d3864547c6bbc715bd5f13d67b7bba1973f0"
+    },
+    {
+      "file": "audit_shard_0023.csv",
+      "row_count": 1000,
+      "start_canonical": "pensive",
+      "end_canonical": "print_headband",
+      "sha256": "e6535cf6ffe812e835dc327d5a39dcd492f315a9a849ceb4a9283197d6548264"
+    },
+    {
+      "file": "audit_shard_0024.csv",
+      "row_count": 1000,
+      "start_canonical": "print_headwear",
+      "end_canonical": "ribbon-trimmed_capelet",
+      "sha256": "f8a22026fd0879c7b8c6f21b1b81777c251e9e40404a66d4e0e586c8d977c0b2"
+    },
+    {
+      "file": "audit_shard_0025.csv",
+      "row_count": 1000,
+      "start_canonical": "ribbon-trimmed_choker",
+      "end_canonical": "shamoji",
+      "sha256": "c5353cba34e46d6aec84322dde2eb6c358ebebacfca37594a245e768a4d8dbf2"
+    },
+    {
+      "file": "audit_shard_0026.csv",
+      "row_count": 1000,
+      "start_canonical": "shampoo",
+      "end_canonical": "snowdin_(undertale)",
+      "sha256": "9b55225b2f54159be9f733f3713b77f26738e4d6c9c1b1ef8fc9343b17299a88"
+    },
+    {
+      "file": "audit_shard_0027.csv",
+      "row_count": 1000,
+      "start_canonical": "snowdrop_(flower)",
+      "end_canonical": "stuffed_deer",
+      "sha256": "837244503775dbbc98e25ec964860c53d92b9681d4eaa6ec7e3a6ef09dad509c"
+    },
+    {
+      "file": "audit_shard_0028.csv",
+      "row_count": 1000,
+      "start_canonical": "stuffed_dinosaur",
+      "end_canonical": "tied_dress",
+      "sha256": "2501258935f9f77e019438183f889a3df57d745b68a3e788764ed860f6338e36"
+    },
+    {
+      "file": "audit_shard_0029.csv",
+      "row_count": 1000,
+      "start_canonical": "tied_ears",
+      "end_canonical": "undone_sarashi",
+      "sha256": "2e25c1e9c0aceb9021ba72addad318ab62f7bd7273822eeaf2715d758b5bd28e"
+    },
+    {
+      "file": "audit_shard_0030.csv",
+      "row_count": 1000,
+      "start_canonical": "unequal_popsicle_division",
+      "end_canonical": "wingdings",
+      "sha256": "724e65dcd661995e51cd3b2e8d3bc7a6fa3a52c1148a7d85dcc63da36d0452a6"
+    },
+    {
+      "file": "audit_shard_0031.csv",
+      "row_count": 629,
+      "start_canonical": "winged_animal",
+      "end_canonical": "|_|",
+      "sha256": "82994c3b86929b5f679214c29f8299defb645f149672c524f7aaaa0987b0bf62"
+    }
+  ],
+  "total_shard_rows": 30629,
+  "duplicate_count": 0,
+  "missing_count": 0,
+  "extra_count": 0,
+  "semantic_processing": false,
+  "production_modified": false
+}
