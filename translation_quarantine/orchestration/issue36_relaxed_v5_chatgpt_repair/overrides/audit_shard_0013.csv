@@ -150,3 +150,54 @@ external_fuel_tank,落下タンク,外部燃料タンク,SEMANTIC_ERROR
 extra_breasts,複乳たん,余分な乳房,SEMANTIC_ERROR
 extra_mouth,腹口,余分な口,SEMANTIC_NARROWING
 extra_pussies,タグ「extra pussies」,余分な膣,RAW_ENGLISH_WRAPPER
+extreme_engrish,タグ「extreme engrish」,極端なEngrish,RAW_ENGLISH_WRAPPER
+eye_black,目・黒い,アイブラック,SEMANTIC_ERROR
+eye_brooch,目・ブローチ,目のブローチ,AWKWARD_MACHINE_TRANSLATION
+eye_color_connection,目・color・接続,目の色のつながり,MIXED_ENGLISH_DEBRIS
+eye_focus,目,目を強調,SEMANTIC_UNDERSPECIFICATION
+eye_hair_ornament,目の髪の飾り,目の髪飾り,AWKWARD_MACHINE_TRANSLATION
+eye_in_mouth,目の中のmouth,口の中の目,SEMANTIC_RELATION_ERROR
+eye_injury,目・injury,目の怪我,MIXED_ENGLISH_DEBRIS
+eye_on_hat,目の上の帽子,帽子についた目,SEMANTIC_RELATION_ERROR
+eye_pov,目・pov,目視点,MIXED_ENGLISH_DEBRIS
+eyeball_hat_ornament,eyeball・帽子・飾り,眼球の帽子飾り,MIXED_ENGLISH_DEBRIS
+eyebrow_cut,眉毛,眉の切れ目,SEMANTIC_UNDERSPECIFICATION
+eyebrow_razor,タグ「eyebrow razor」,眉用カミソリ,RAW_ENGLISH_WRAPPER
+eyebrows_visible_through_hat,帽子を通して見える眉,帽子越しに見える眉,AWKWARD_MACHINE_TRANSLATION
+eyebrows_visible_through_mask,マスクを通して見える眉,マスク越しに見える眉,AWKWARD_MACHINE_TRANSLATION
+eyed_shadow,タグ「eyed shadow」,目のある影,RAW_ENGLISH_WRAPPER
+eyed_silhouette,タグ「eyed silhouette」,目のあるシルエット,RAW_ENGLISH_WRAPPER
+eyed_tentacle,eyed・触手,目のある触手,MIXED_ENGLISH_DEBRIS
+eyelid_pull,拉眼睑,まぶたを引っ張る,NON_JAPANESE_RESIDUE
+eyepatch_lift,アイパッチリフト,眼帯を持ち上げる,AWKWARD_MACHINE_TRANSLATION
+eyepatch_pull,アイパッチプル,眼帯を引っ張る,AWKWARD_MACHINE_TRANSLATION
+eyes_of_horus_(warhammer_40k),タグ「eyes of horus (warhammer 40k)」,ホルスの目（Warhammer 40K）,RAW_ENGLISH_WRAPPER
+eyes_on_wings,目の上の翼,翼についた目,SEMANTIC_RELATION_ERROR
+eyeshadow_under_eye,eyeshadowの下の目,目の下のアイシャドウ,SEMANTIC_RELATION_ERROR
+eyestalks,タグ「eyestalks」,眼柄,RAW_ENGLISH_WRAPPER
+eyewear_hang,眼鏡を垂れ下げる,眼鏡をぶら下げる,AWKWARD_MACHINE_TRANSLATION
+eyewear_lift,アイウェアリフト,眼鏡を持ち上げる,AWKWARD_MACHINE_TRANSLATION
+eyewear_on_headwear,帽子のアイウェア,頭飾りの上の眼鏡,SEMANTIC_RELATION_ERROR
+eyewear_pull,アイウェアプル,眼鏡を引っ張る,AWKWARD_MACHINE_TRANSLATION
+eyewear_switch,アイウェアスイッチ,眼鏡を掛け替える,SEMANTIC_ERROR
+eyewear_view,眼镜視図,眼鏡越しの視点,NON_JAPANESE_RESIDUE
+eyewear_visible_through_hair,eyewear・visible・越しの髪,髪越しに見える眼鏡,MIXED_ENGLISH_DEBRIS
+f-14_tomcat,トムキャット,F-14 トムキャット,SEMANTIC_UNDERSPECIFICATION
+f-15_eagle,イーグル,F-15 イーグル,SEMANTIC_UNDERSPECIFICATION
+f-16_fighting_falcon,ファイティングファルコン,F-16 ファイティングファルコン,SEMANTIC_UNDERSPECIFICATION
+f-22_raptor,らぷたん,F-22 ラプター,SEMANTIC_ERROR
+f-35_lightning_ii,タグ「f-35 lightning ii」,F-35 ライトニングII,RAW_ENGLISH_WRAPPER
+f-lags_(idolmaster),f-lags (idolmaster),F-LAGS（アイドルマスター）,CANONICAL_FALLBACK_TRANSLATABLE
+f4u_corsair,タグ「f4u corsair」,F4U コルセア,RAW_ENGLISH_WRAPPER
+fabarm_fp6/sdass,ファバームFP6,FABARM FP6/SDASS,SEMANTIC_UNDERSPECIFICATION
+face_between_breasts,顔・間・胸,胸の間の顔,MIXED_ENGLISH_DEBRIS
+face_down,下向き,顔を下に向ける,SEMANTIC_UNDERSPECIFICATION
+face_hug,顔の抱擁,顔を抱きしめる,SEMANTIC_ERROR
+face_in_armpit,顔の中のarmpit,脇の下に顔,MIXED_ENGLISH_DEBRIS
+face_in_crotch,顔贴裆部,股間に顔,NON_JAPANESE_RESIDUE
+face_in_hands,手で顔,両手で顔を覆う,SEMANTIC_UNDERSPECIFICATION
+face_in_shadow,顔の中のshadow,影の中の顔,MIXED_ENGLISH_DEBRIS
+face_jewel,顔・宝石,顔の宝石,MIXED_ENGLISH_DEBRIS
+face_on_another's_chest,顔の上の他人の胸,他人の胸の上の顔,SEMANTIC_RELATION_ERROR
+face_squeeze,顔・squeeze,顔をつまむ,MIXED_ENGLISH_DEBRIS
+face_to_pecs,ペックに顔を合わせます,顔を胸筋に押し当てる,SEMANTIC_ERROR
