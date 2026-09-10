@@ -17,7 +17,7 @@ Stage 9 overall Gate 完了 / Stage10 準備Gate実施中 / automated E2E PASS
 | `KNOWLEDGE:#44` | ACTIVE / ONGOING | persistent generation knowledge corpus | `knowledge/generation-corpus` | catalog整理済み。Stage10 / #42 / evaluator設計向けの継続知識owner | Issue #44 latest checkpoint + `docs/knowledge/KNOWLEDGE_CATALOG.md` |
 | `UIJA:#36:V3.1` | ACTIVE / REEXECUTION_PENDING | Japanese overlay final convergence | `ui-ja/issue36-final-agent-convergence` | failed execution `cafcd41d...` は独立性欠陥でreject。semantic contract自体は維持 | Issue #36 checkpoint `5601610579` |
 | `UIJA-ORCH:#46` | ACTIVE / FULL_EXECUTION_AUTHORIZED | one-command independent Codex orchestration | `codex/issue46-orchestrator` | pilot・bounded fixes・delta audit完了。30,629 full execution authorized。production promotionは未許可 | Issue #46 comment `5603074340` |
-| `TEMP:#30` | ACTIVE / GATED | Forge Neo A/B automation | Issue #30 | infrastructure PASS。final evaluator/routing calibrationはfinal dictionary freeze待ち | Issue #30 latest checkpoint |
+| `TEMP:#30` | ACTIVE / GATED | Forge Neo A/B automation | Issue #30 | infrastructure PASS。final evaluator/routing calibrationはfinal Special dictionary freeze待ち | Issue #30 latest checkpoint |
 | `PROMPT:#5` | GATED | Stage10 formal Prompt handoff | Issue #5 | final representative Special/evaluator inputsはdictionary freeze待ち | Issue #5 + `docs/stages/STAGE_10_PREP.md` |
 
 Reserved-only #42/#43、backlog #24、管理基盤 #47 は現行DEV task contractを置き換えない。
