@@ -1,0 +1,27 @@
+canonical,old_display_ja,new_display_ja,reason
+gae_buidhe_(fate),gae buidhe (fate),ゲイ・ボウ（Fate）,CANONICAL_FALLBACK_TRANSLATABLE
+gae_dearg_(fate),gae dearg (fate),ゲイ・ジャルグ（Fate）,CANONICAL_FALLBACK_TRANSLATABLE
+gagging,タグ「gagging」,えずく,RAW_ENGLISH_WRAPPER
+galactic_empire_(star_wars),タグ「galactic empire (star wars)」,銀河帝国（スター・ウォーズ）,RAW_ENGLISH_WRAPPER
+galaxy_background,galaxyの背景,銀河の背景,MIXED_ENGLISH_DEBRIS
+galaxy_team_survey_corps_uniform,galaxy team survey corpsの制服,ギンガ団調査隊の制服,MIXED_ENGLISH_DEBRIS
+gallente_federation_(eve_online),gallente federation (eve online),ガレンテ連邦（EVE Online）,CANONICAL_FALLBACK_TRANSLATABLE
+game_boy_advance_(original),タグ「game boy advance (original)」,初代ゲームボーイアドバンス,RAW_ENGLISH_WRAPPER
+game_controller_nipples_(meme),game controller nipples (meme),ゲームコントローラー乳首（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+game_controller_print,game controllerの柄,ゲームコントローラー柄,MIXED_ENGLISH_DEBRIS
+game_screenshot_inset,game・screenshot・差し込み,ゲーム画面の差し込み,MIXED_ENGLISH_DEBRIS
+gameplay_ability,タグ「gameplay ability」,ゲーム内能力,RAW_ENGLISH_WRAPPER
+ganyu_(genshin_impact)_(cosplay),ganyu (genshin impact) (cosplay),甘雨（原神）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+garage_door,タグ「garage door」,ガレージドア,RAW_ENGLISH_WRAPPER
+garden_of_thorns_(e.g.o),garden of thorns (e.g.o),ガーデン・オブ・ソーンズ（E.G.O）,CANONICAL_FALLBACK_TRANSLATABLE
+gardevoir_(cosplay),gardevoir (cosplay),サーナイト（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+garnet_til_alexandros_xvii_(cosplay),garnet til alexandros xvii (cosplay),ガーネット・ティル・アレクサンドロス17世（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+garreg_mach_monastery_uniform,garreg mach monasteryの制服,ガルグ＝マク大修道院の制服,MIXED_ENGLISH_DEBRIS
+gas_lantern,タグ「gas lantern」,ガスランタン,RAW_ENGLISH_WRAPPER
+gas_mask_canister,gas・マスク・canister,ガスマスク用キャニスター,MIXED_ENGLISH_DEBRIS
+gasterblaster,タグ「gasterblaster」,ガスターブラスター,RAW_ENGLISH_WRAPPER
+gathers,集まっています,ギャザー,SEMANTIC_ERROR
+gatkkeun,gatkkeun,カックン,CANONICAL_FALLBACK_TRANSLATABLE
+gauge,けいき,計器,AWKWARD_MACHINE_TRANSLATION
+gauze_on_arm,gauzeの上の腕,腕についたガーゼ,SEMANTIC_RELATION_ERROR
+gauze_on_cheek,gauzeの上のcheek,頬についたガーゼ,SEMANTIC_RELATION_ERROR
