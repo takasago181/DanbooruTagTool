@@ -147,3 +147,14 @@ DEV/ChatGPT decides whether:
 2. multi-Special should remain deferred because the available Phase 1 case is not visually judgeable;
 3. one final narrowly justified new-image experiment is worth the cost;
 4. Phase 2 has reached diminishing returns and should close.
+
+## Wave 2 review UX lesson carried forward
+
+The review UI must not ask the user to interpret abstract research wording. The Japanese question is a user-interface contract, not just documentation.
+
+For each selected case, Codex must explicitly record:
+- `visible_pass_condition_ja`
+- `visible_fail_condition_ja`
+- `why_this_is_judgeable_from_one_still_image`
+
+If any of these cannot be written clearly, the case is `DEFER`.
