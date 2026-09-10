@@ -1,0 +1,18 @@
+{
+  "lane": "UI-JA_RELAXED_CLOSEOUT_LANGUAGE_SANITY",
+  "terminal": "RELAXED_CLOSEOUT_LANGUAGE_SANITY_PASS",
+  "created_at": "2026-09-10T08:18:37.242365+00:00",
+  "input_root": "C:\\Codex\\DanbooruTagTool\\translation_quarantine\\orchestration\\issue36_relaxed_closeout_v3",
+  "input_terminal": "RELAXED_CLOSEOUT_PASS",
+  "implementation_commit": "1037392cd5dbef562b2ad35009138459c8a47e83",
+  "source_path": "translation_quarantine/full_accepted_quality_sweep_20260909/final_translation_table.csv",
+  "source_git_blob": "5fc11c64235c7b32cb72f2e819cb2ed22ab46d8a",
+  "source_rows": 30629,
+  "final_rows": 30629,
+  "auto_fix_loops_used": 1,
+  "max_auto_fix_loops": 2,
+  "semantic_reaudit_performed": false,
+  "production_modified": false,
+  "promotion_executed": false,
+  "historical_v31_status_preserved": "BLOCKED_STRUCTURAL_DEFECT"
+}

@@ -1,0 +1,32 @@
+{
+  "scope": "Chinese/Korean/other-non-Japanese-display-only",
+  "translation_quality_reaudit": false,
+  "v31_semantic_audit_reopened": false,
+  "input_final_rows": 30629,
+  "output_final_rows": 30629,
+  "japanese_display_count": 29795,
+  "accepted_count": 29795,
+  "fallback_count": 834,
+  "original_preserved_count": 0,
+  "auto_fix_count": 160,
+  "scan_findings_count": 967,
+  "non_japanese_accepted_remaining": 0,
+  "auto_fix_loops_used": 1,
+  "input_coverage_snapshot": {
+    "source_rows": 30629,
+    "final_rows": 30629,
+    "accepted_rows": 29795,
+    "japanese_display_count": 29795,
+    "fallback_rows": 834,
+    "original_preserved_count": 2,
+    "canonical_fallback_count": 832,
+    "external_resolver_rows_reused": 4125,
+    "deterministic_fast_path_rows_reused": 26504,
+    "auto_fix_count": 1166,
+    "fallback_sample_size": 300,
+    "fallback_sample_risk_class_counts": {
+      "EXCEPTION": 295,
+      "LOW": 5
+    }
+  }
+}

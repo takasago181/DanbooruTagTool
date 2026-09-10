@@ -1,0 +1,16 @@
+{
+  "production_modified": false,
+  "production_modified_no": true,
+  "protected_changes": [],
+  "promotion_executed": false,
+  "checked_boundaries": [
+    "data/**",
+    "runtime overlay",
+    "#32",
+    "#35",
+    "#41",
+    "CURRENT_DEV_TASK.md",
+    "Stage10 A/B",
+    "main promotion"
+  ]
+}

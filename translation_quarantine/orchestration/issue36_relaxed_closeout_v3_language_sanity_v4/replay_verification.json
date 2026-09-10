@@ -1,0 +1,8 @@
+{
+  "replayable": true,
+  "input_root": "C:\\Codex\\DanbooruTagTool\\translation_quarantine\\orchestration\\issue36_relaxed_closeout_v3",
+  "input_terminal": "RELAXED_CLOSEOUT_PASS",
+  "canonical_order_preserved": true,
+  "auto_fix_loops_used": 1,
+  "semantic_reaudit_performed": false
+}

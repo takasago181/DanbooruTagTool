@@ -1,0 +1,12 @@
+{
+  "language_sanity": true,
+  "source_final_rows": true,
+  "duplicate_missing_extra": true,
+  "canonical_identity_order": true,
+  "display_nonempty": true,
+  "replay": true,
+  "protected_boundary": true,
+  "promotion_executed": false,
+  "v31_semantic_audit": "NOT_REOPENED_HISTORICAL_STATUS_PRESERVED",
+  "terminal": "RELAXED_CLOSEOUT_LANGUAGE_SANITY_PASS"
+}
