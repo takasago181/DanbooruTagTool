@@ -18,6 +18,7 @@ REUSE_RESULT = ROOT / "docs/testing/ISSUE30_PHASE2_REUSE_REVIEW_RESULT.json"
 REUSE_HUMAN_RESULT = ROOT / "docs/testing/ISSUE30_PHASE2_REUSE_REVIEW_HUMAN_RESULTS_20260911.json"
 BATCH_MANIFEST = ROOT / "docs/testing/ISSUE30_PHASE2_GENERATION_BATCH_MANIFEST.csv"
 BATCH_RESULT = ROOT / "docs/testing/ISSUE30_PHASE2_GENERATION_BATCH_RESULT.json"
+BATCH_HUMAN_RESULT = ROOT / "docs/testing/ISSUE30_PHASE2_GENERATION_BATCH_HUMAN_RESULTS_20260911.json"
 HUMAN_REVIEW = ROOT / "docs/testing/ISSUE30_PHASE2_HUMAN_REVIEW_RESULTS_20260910.json"
 
 
@@ -138,3 +139,14 @@ def test_generation_batch_is_bounded_and_keeps_review_display_separate():
     assert report["blocked_count"] == 0
     assert report["review_display"]["display_check"] == "PASS"
     assert report["review_display"]["question_font_px"] >= 24
+
+
+def test_generation_batch_human_review_records_ambiguous_multi_special_identity():
+    report = json.loads(BATCH_HUMAN_RESULT.read_text(encoding="utf-8"))
+    assert report["reviewed_pairs"] == 6
+    assert report["reviewed_images"] == 12
+    assert report["new_images"] == 0
+    assert report["summary"]["both_pass_pairs"] == 4
+    assert report["summary"]["unclear_pairs"] == 2
+    assert [row["result"] for row in report["pair_results"][:2]] == ["UNCLEAR", "UNCLEAR"]
+    assert report["summary"]["decision"] == "HOLD_FOR_DEV_PHASE2_CLOSE"
