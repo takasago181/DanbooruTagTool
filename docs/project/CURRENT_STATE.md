@@ -12,7 +12,7 @@ Stage 9 overall Gate 完了 / Stage10 準備Gate実施中 / automated E2E PASS
 
 | TEAM_ID | Status | Issue / scope | Branch / locator | Current phase | Restore anchor |
 | --- | --- | --- | --- | --- | --- |
-| `DEV:#43` | ACTIVE | #43 naming/final dictionary freeze gate | Issue #43 | #49 production promotion完了を受けて正式activate。count-independent concept naming + final freeze handoffを実施 | Issue #43 latest comment + `CURRENT_DEV_TASK.md` |
+| `DEV:#43` | ACTIVE | #43 naming/final dictionary freeze gate | Issue #43 | formal concept name **Special Core Dictionary** user-finalized。reference inventory + low-risk naming migration + final freeze handoffを実施 | Issue #43 latest comment + `CURRENT_DEV_TASK.md` |
 | `DICT:#32:R2` | VALIDATION_COMPLETE / PROMOTED | #32 Special2788 full validation | `dict-validation/quarantine` | 2,788/2,788 validation complete。approved effective subsetは#49でproduction反映済み | Issue #32 + #48 + #49 |
 | `KNOWLEDGE:#44` | ACTIVE / ONGOING | persistent generation knowledge corpus | `knowledge/generation-corpus` | final dictionary freeze後のevaluator coverage return待ち | Issue #44 latest checkpoint |
 | `UIJA:#36:V3.1` | ACTIVE / REEXECUTION_PENDING | Japanese overlay final convergence | `ui-ja/issue36-final-agent-convergence` | #46 orchestratorによる30,629 full execution + revalidation待ち | Issue #36 / #46 |
@@ -55,19 +55,22 @@ Stage 9 overall Gate 完了 / Stage10 準備Gate実施中 / automated E2E PASS
 
 ### #43 naming / final Special dictionary freeze — current DEV
 
-#49 production promotionが完了したため、予約条件を満たし正式activate。
+#49 production promotionが完了したため正式activate。
 
-Current direction:
-- formal concept: `Special Core Dictionary`
-- historical snapshot name: `Special2788`
+Final user decision:
+- formal concept: **`Special Core Dictionary`**
+- historical snapshot/corpus label: `Special2788`
 - user-selected nucleus: `Core Tag Set`
+- per-entry: existing `Special` may remain where unambiguous; `Special Core Entry` may be used for explicit prose
 - relation: `Special Core Dictionary -> Core Tag Set -> Auxiliary/support -> Prompt`
 
 Required:
 - active `Special2788` referencesを rename-now / compatibility-keep / historical-never-rewrite に分類
-- protected path/schema/hash/historyを不用意にrenameしない
-- naming-only changeでdictionary content / canonical identity / Stage9 behaviorを変えない
-- final Special dictionary snapshotをfreezeし、KNOWLEDGE / PROMPT / #30 / #42へhandoff可能にする
+- current user-facing/current architecture terminologyだけを低リスクで更新
+- protected path/schema/hash/serialized keys/historyを不用意にrenameしない
+- naming-only changeでdictionary content / canonical identity / protected hashes / Stage9 behaviorを変えない
+- final production snapshotのidentity/count/hashとconcept definitionsをdurable freeze recordへ固定
+- KNOWLEDGE / PROMPT / #30 / #42へhandoff可能にする
 
 ### #36 / #46 UI-JA final convergence
 
@@ -113,7 +116,7 @@ RESERVED until dictionary/data promotion/freeze prerequisites complete。日本�
 
 ## Next Actions
 
-1. **#43** naming decision + final Special Core Dictionary snapshot freeze
+1. **#43** reference inventory + low-risk naming migration + final Special Core Dictionary snapshot freeze
 2. #46 authorized 30,629 full execution -> #36 revalidation -> independent promotion gate
 3. final dictionary freeze後、#44 KNOWLEDGE evaluator coverage return
 4. #30 final representative routing/evaluator calibration
@@ -124,6 +127,7 @@ RESERVED until dictionary/data promotion/freeze prerequisites complete。日本�
 ## Source-of-Truth Rule
 
 - current DEV = **#43**
+- final formal concept name = **`Special Core Dictionary`**
 - `CURRENT_DEV_TASK.md` is the synchronized mirror for current DEV
 - #49 is completed/closed and merged;再実装対象ではない
 - #32 parked REVIEW / IMAGE_TEST_REQUIRED evidence is carry-forward asset and must not be discarded
