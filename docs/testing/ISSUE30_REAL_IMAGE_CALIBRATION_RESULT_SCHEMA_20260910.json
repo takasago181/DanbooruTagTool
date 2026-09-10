@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://danboorutagtool.local/schema/issue30-real-image-calibration-result-20260910.json",
+  "$id": "https://danboorutagtool.local/schema/issue30-real-image-calibration-result-20260910-v2.json",
   "title": "Issue #30 real-image calibration per-image result",
-  "description": "One JSONL record per generated calibration image. Human labels are the image-level reference; evaluator output is observation evidence only.",
+  "description": "One JSONL record per generated calibration image. All images are screened by three evaluators first; human labels are collected only for required exceptions and a declared AUTO-likely quality sample.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -17,6 +17,8 @@
     "cell_type",
     "generation",
     "image_artifact",
+    "screening",
+    "human_review_selection",
     "human_reference",
     "human_effort",
     "evaluators",
@@ -26,7 +28,7 @@
     "final_calibration_verdict"
   ],
   "properties": {
-    "schema_version": {"type": "string", "const": "issue30.real_image_calibration.v1"},
+    "schema_version": {"type": "string", "const": "issue30.real_image_calibration.v2"},
     "run_id": {"type": "string", "minLength": 1},
     "image_id": {"type": "string", "minLength": 1},
     "case_id": {"type": "string", "pattern": "^CAL-[0-9]{3}$"},
@@ -37,7 +39,9 @@
     "cell_type": {"$ref": "#/$defs/cell_type"},
     "generation": {"$ref": "#/$defs/generation"},
     "image_artifact": {"$ref": "#/$defs/image_artifact"},
-    "human_reference": {"$ref": "#/$defs/human_reference"},
+    "screening": {"$ref": "#/$defs/screening"},
+    "human_review_selection": {"$ref": "#/$defs/human_review_selection"},
+    "human_reference": {"anyOf": [{"$ref": "#/$defs/human_reference"}, {"type": "null"}]},
     "human_effort": {"$ref": "#/$defs/human_effort"},
     "evaluators": {
       "type": "object",
@@ -165,16 +169,44 @@
         "resolution_notes": {"type": "string"}
       }
     },
+    "screening": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["automatically_screened", "screening_classes", "high_confidence_eligible", "provenance_complete", "desk_classification", "desk_relation_sensitive", "score_band"],
+      "properties": {
+        "automatically_screened": {"type": "boolean", "const": true},
+        "screening_classes": {"type": "array", "items": {"type": "string", "enum": ["HIGH_CONFIDENCE_AUTO_LIKELY", "DISAGREEMENT", "LOW_CONFIDENCE", "RELATION_OR_BINDING", "COMPONENT_ONLY", "BLOCKED"]}, "minItems": 1, "uniqueItems": true},
+        "high_confidence_eligible": {"type": "boolean"},
+        "provenance_complete": {"type": "boolean"},
+        "desk_classification": {"type": "string", "enum": ["AUTO_CANDIDATE", "REVIEW_REQUIRED", "BLOCKED"]},
+        "desk_relation_sensitive": {"type": "boolean"},
+        "score_band": {"type": "string", "enum": ["HIGH", "MEDIUM", "LOW", "UNAVAILABLE"]}
+      }
+    },
+    "human_review_selection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["selected_for_human_review", "selection_kind", "reasons", "capability_class", "agreement_pattern", "score_band", "sampled_auto_candidate"],
+      "properties": {
+        "selected_for_human_review": {"type": "boolean"},
+        "selection_kind": {"type": "string", "enum": ["PROTECTED_ROUTE_ANCHOR", "REQUIRED_EXCEPTION", "AUTO_QUALITY_SAMPLE", "EXPANDED_AFTER_FALSE_POSITIVE", "NOT_SELECTED"]},
+        "reasons": {"type": "array", "items": {"type": "string", "enum": ["EVALUATOR_DISAGREEMENT", "LOW_CONFIDENCE", "RELATION_OR_BINDING", "COMPONENT_ONLY", "BLOCKED_OR_AMBIGUOUS", "UNSUITABLE_CONTRAST", "AUTO_QUALITY_SAMPLE", "SAMPLED_FALSE_POSITIVE_EXPANSION"]}},
+        "capability_class": {"type": "string", "minLength": 1},
+        "agreement_pattern": {"type": "string", "minLength": 1},
+        "score_band": {"type": "string", "enum": ["HIGH", "MEDIUM", "LOW", "UNAVAILABLE"]},
+        "sampled_auto_candidate": {"type": "boolean"}
+      }
+    },
     "human_effort": {
       "type": "object",
       "additionalProperties": false,
       "required": ["initial_viewed", "recheck_viewed", "initial_label_count", "recheck_label_count", "total_image_views"],
       "properties": {
-        "initial_viewed": {"type": "boolean", "const": true},
+        "initial_viewed": {"type": "boolean"},
         "recheck_viewed": {"type": "boolean"},
-        "initial_label_count": {"type": "integer", "const": 1},
+        "initial_label_count": {"type": "integer", "minimum": 0, "maximum": 1},
         "recheck_label_count": {"type": "integer", "minimum": 0, "maximum": 1},
-        "total_image_views": {"type": "integer", "enum": [1, 2]}
+        "total_image_views": {"type": "integer", "minimum": 0, "maximum": 2}
       }
     },
     "detected_tag": {
@@ -233,6 +265,6 @@
         "reason": {"type": "string"}
       }
     },
-    "final_verdict": {"type": "string", "enum": ["AUTO_CANDIDATE", "CALIBRATED_AUTO_CANDIDATE", "HUMAN_REVIEW_REQUIRED", "BLOCKED", "CALIBRATION_HOLD"]}
+    "final_verdict": {"type": "string", "enum": ["SCREENED_AUTO_LIKELY", "NOT_REVIEWED", "AUTO_CANDIDATE", "CALIBRATED_AUTO_CANDIDATE", "HUMAN_REVIEW_REQUIRED", "BLOCKED", "CALIBRATION_HOLD"]}
   }
 }
