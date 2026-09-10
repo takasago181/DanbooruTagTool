@@ -1,0 +1,227 @@
+canonical,old_display_ja,new_display_ja,reason
+faceless_hood,faceless・フード,顔のないフード,MIXED_ENGLISH_DEBRIS
+facepalm,捂顔,顔を手で覆う,NON_JAPANESE_RESIDUE
+facial_recognition,タグ「facial recognition」,顔認識,RAW_ENGLISH_WRAPPER
+facing_animal,facing・動物,動物の方を向く,MIXED_ENGLISH_DEBRIS
+facing_object,facing・物体,物体の方を向く,MIXED_ENGLISH_DEBRIS
+facing_to_the_side,面向侧辺,横を向く,NON_JAPANESE_RESIDUE
+fade_(haircut),タグ「fade (haircut)」,フェードカット,RAW_ENGLISH_WRAPPER
+faded_memories_(e.g.o),faded memories (e.g.o),色あせた記憶（E.G.O）,CANONICAL_FALLBACK_TRANSLATABLE
+fading,消逝,消えかけ,NON_JAPANESE_RESIDUE
+fading_border,辺缘渐隐,薄れていく枠,NON_JAPANESE_RESIDUE
+fairy,オナホ妖精,妖精,SEMANTIC_NARROWING
+fairy_lights,タグ「fairy lights」,フェアリーライト,RAW_ENGLISH_WRAPPER
+fairy_sword_arondight,fairy・剣・arondight,妖精剣アロンダイト,MIXED_ENGLISH_DEBRIS
+fairy_sword_galatine,fairy・剣・galatine,妖精剣ガラティーン,MIXED_ENGLISH_DEBRIS
+fairy_tail_logo,fairy tailのロゴ,FAIRY TAILのロゴ,MIXED_ENGLISH_DEBRIS
+fake_censor,假打码,偽の修正,NON_JAPANESE_RESIDUE
+fake_eyelashes,偽のeyelashes,つけまつげ,MIXED_ENGLISH_DEBRIS
+fake_game_cover,偽のgame・cover,偽のゲーム表紙,MIXED_ENGLISH_DEBRIS
+fake_magazine_scan,偽のmagazine・scan,偽の雑誌スキャン,MIXED_ENGLISH_DEBRIS
+fake_penis_shadow,偽のpenis・shadow,偽の陰茎の影,MIXED_ENGLISH_DEBRIS
+fake_photograph,偽のphotograph,偽の写真,MIXED_ENGLISH_DEBRIS
+fake_pincers,偽のpincers,偽のハサミ,MIXED_ENGLISH_DEBRIS
+fake_pointy_ears,偽のpointy・耳,偽の尖った耳,MIXED_ENGLISH_DEBRIS
+fake_transparency,いわて応援ポケモン,偽の透明表現,SEMANTIC_ERROR
+fake_whiskers,假胡须,偽のひげ,NON_JAPANESE_RESIDUE
+falconry_glove,餌掛け,鷹狩り用手袋,SEMANTIC_ERROR
+falin_touden_(chimera)_(cosplay),falin touden (chimera) (cosplay),ファリン・トーデン（キメラ）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+fall_guy_(cosplay),秋の男（コスプレ）,フォールガイ（コスプレ）,SEMANTIC_ERROR
+fallen_angel_ero_maid_costume,fallen・angel・ero・maid・衣装,堕天使エロメイド衣装,MIXED_ENGLISH_DEBRIS
+falling_flower,falling・花,落ちる花,MIXED_ENGLISH_DEBRIS
+falling_paper,タグ「falling paper」,落ちる紙,RAW_ENGLISH_WRAPPER
+falling_rock,タグ「falling rock」,落石,RAW_ENGLISH_WRAPPER
+famicom_cartridge,Famicomカートリッジ,ファミコンカートリッジ,MIXED_ENGLISH_DEBRIS
+famicom_controller,Famicomゲームパッド,ファミコンコントローラー,SEMANTIC_ERROR
+familia_uniform,familiaの制服,ファミリアの制服,MIXED_ENGLISH_DEBRIS
+family_bonding,タグ「family bonding」,家族のふれあい,RAW_ENGLISH_WRAPPER
+family_burger_(chainsaw_man),タグ「family burger (chainsaw man)」,ファミリーバーガー（チェンソーマン）,RAW_ENGLISH_WRAPPER
+family_guy_death_pose_(meme),family guy death pose (meme),ファミリー・ガイ死亡ポーズ（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+fan_between_breasts,fanの間の胸,胸の間の扇子,SEMANTIC_RELATION_ERROR
+fan_hair_ornament,ファンの髪の飾り,扇子の髪飾り,SEMANTIC_ERROR
+fan_over_face,顔を越えてファン,顔を覆う扇子,SEMANTIC_ERROR
+fan_print,fanの柄,扇子柄,MIXED_ENGLISH_DEBRIS
+fan_screaming_at_madison_beer_(meme),fan screaming at madison beer (meme),マディソン・ビアーに叫ぶファン（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+fan_to_mouth,扇子靠嘴巴上,口元に扇子,NON_JAPANESE_RESIDUE
+fanbox_logo,fanboxのロゴ,FANBOXロゴ,MIXED_ENGLISH_DEBRIS
+fanged_bangs,タグ「fanged bangs」,牙状の前髪,RAW_ENGLISH_WRAPPER
+fanghunt_office_(identity)_(project_moon),fanghunt office (identity) (project moon),ファングハント・オフィス（人格）（Project Moon）,CANONICAL_FALLBACK_TRANSLATABLE
+fangs_out,牙を取り出します,牙を見せる,SEMANTIC_ERROR
+fanlight_window,タグ「fanlight window」,欄間窓,RAW_ENGLISH_WRAPPER
+fanning_breasts,fanning・胸,胸を扇ぐ,MIXED_ENGLISH_DEBRIS
+fanning_crotch,扇風機ぶわさ,股間を扇ぐ,SEMANTIC_ERROR
+fanning_face,面部扇风,顔を扇ぐ,NON_JAPANESE_RESIDUE
+fantasy_racism,タグ「fantasy racism」,ファンタジー人種差別,RAW_ENGLISH_WRAPPER
+fast_food,イートイン,ファストフード,SEMANTIC_ERROR
+fast_forward_button,fast・forward・ボタン,早送りボタン,MIXED_ENGLISH_DEBRIS
+fast_helmet,fast・ヘルメット,FASTヘルメット,MIXED_ENGLISH_DEBRIS
+fat_animal,fat・動物,太った動物,MIXED_ENGLISH_DEBRIS
+fat_joke,太った冗談,肥満ネタ,SEMANTIC_ERROR
+fatal_fury_cap,致命的なフューリーキャップ,餓狼伝説の帽子,SEMANTIC_ERROR
+fatass_teto_(meme),fatass teto (meme),太ったテト（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+fate_testarossa_(cosplay),Fate Testarossa（コスプレ）,フェイト・テスタロッサ（コスプレ）,MIXED_ENGLISH_DEBRIS
+fatherly,父親,父親らしい,SEMANTIC_UNDERSPECIFICATION
+fatter_than_canon,タグ「fatter than canon」,原作より太っている,RAW_ENGLISH_WRAPPER
+fatui_coat,执行官斗篷,ファデュイのコート,NON_JAPANESE_RESIDUE
+fatui_logo,fatuiのロゴ,ファデュイのロゴ,MIXED_ENGLISH_DEBRIS
+faux_3d,タグ「faux 3d」,擬似3D,RAW_ENGLISH_WRAPPER
+faux_figurine,ヴィネット,フィギュア風,SEMANTIC_ERROR
+favonius_greatsword_(genshin_impact),favonius greatsword (genshin impact),西風大剣（原神）,CANONICAL_FALLBACK_TRANSLATABLE
+favonius_sword_(genshin_impact),西风剑,西風剣（原神）,NON_JAPANESE_RESIDUE
+fbi_badge,タグ「fbi badge」,FBIバッジ,RAW_ENGLISH_WRAPPER
+fear_of_ghosts,ファスム恐怖症,幽霊恐怖症,SEMANTIC_ERROR
+feather-trimmed_cape,羽・整えた・ケープ,羽飾りのケープ,MIXED_ENGLISH_DEBRIS
+feather-trimmed_dress,羽毛装饰连衣裙,羽飾りのドレス,NON_JAPANESE_RESIDUE
+feather-trimmed_leotard,羽・整えた・レオタード,羽飾りのレオタード,MIXED_ENGLISH_DEBRIS
+feather_cape,羽・ケープ,羽のケープ,AWKWARD_MACHINE_TRANSLATION
+feather_capelet,羽・capelet,羽のケープレット,MIXED_ENGLISH_DEBRIS
+feather_choker,羽・choker,羽のチョーカー,MIXED_ENGLISH_DEBRIS
+feather_coat,羽・コート,羽のコート,AWKWARD_MACHINE_TRANSLATION
+feather_dress,羽毛连衣裙,羽のドレス,NON_JAPANESE_RESIDUE
+feather_fan,羽毛扇,羽扇,NON_JAPANESE_RESIDUE
+feather_fingers,羽・fingers,羽の指,MIXED_ENGLISH_DEBRIS
+feather_hair,羽毛,羽の髪,SEMANTIC_UNDERSPECIFICATION
+feather_in_mouth,羽の中のmouth,口に羽,SEMANTIC_RELATION_ERROR
+feather_sleeves,羽・sleeves,羽の袖,MIXED_ENGLISH_DEBRIS
+feathered_helmet,feathered・ヘルメット,羽飾りのヘルメット,MIXED_ENGLISH_DEBRIS
+fed_by_viewer,視聴者によって供給されます,視点側に食べさせてもらう,SEMANTIC_ERROR
+federation_navy_(eve_online),federation navy (eve online),連邦海軍（EVE Online）,CANONICAL_FALLBACK_TRANSLATABLE
+feeding_animal,feeding・動物,動物に餌を与える,MIXED_ENGLISH_DEBRIS
+feeding_viewer,着信食品,視点側に食べさせる,SEMANTIC_ERROR
+feeling_muscles,タグ「feeling muscles」,筋肉を触る,RAW_ENGLISH_WRAPPER
+feet_burger_(meme),feet burger (meme),足バーガー（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+feet_in_food,足バーガー,食べ物の中の足,SEMANTIC_NARROWING
+feet_on_another's_face,feetの上の他人の顔,他人の顔の上の足,SEMANTIC_RELATION_ERROR
+feet_on_chair,椅子の足,椅子の上の足,SEMANTIC_RELATION_ERROR
+feet_up_heels_up,feet・上向きのheels・上向きの,足とかかとを上げる,MIXED_ENGLISH_DEBRIS
+felicia_(darkstalkers)_(cosplay),フェリシアコス,フェリシア（ヴァンパイア）（コスプレ）,SEMANTIC_UNDERSPECIFICATION
+fellatio_through_clothes,fellatio・越しの服,服越しのフェラチオ,MIXED_ENGLISH_DEBRIS
+female_admiral_(kancolle)_(cosplay),女性提督（カンコル）（コスプレ）,女性提督（艦これ）（コスプレ）,SEMANTIC_ERROR
+female_armpit_hair,女性・armpit・髪,女性の脇毛,MIXED_ENGLISH_DEBRIS
+female_butler,女管家,女性執事,NON_JAPANESE_RESIDUE
+female_byleth_(fire_emblem)_(cosplay),female byleth (fire emblem) (cosplay),ベレス（ファイアーエムブレム）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+female_corrin_(fire_emblem)_(cosplay),female corrin (fire emblem) (cosplay),カムイ（女性）（ファイアーエムブレム）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+female_ejaculation_through_clothes,衣服による女性の射精,服越しの女性射精,SEMANTIC_RELATION_ERROR
+female_fertilization,百合受孕,女性の受精,NON_JAPANESE_RESIDUE
+female_robin_(fire_emblem)_(cosplay),female robin (fire emblem) (cosplay),ルフレ（女性）（ファイアーエムブレム）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+fen_cichlid_girls_academy_school_uniform,fen cichlid girls academyの学校制服,フェン・シクリッド女学院の制服,MIXED_ENGLISH_DEBRIS
+fence_post,タグ「fence post」,柵柱,RAW_ENGLISH_WRAPPER
+fender_jaguar,タグ「fender jaguar」,フェンダー・ジャガー,RAW_ENGLISH_WRAPPER
+fender_musical_instruments_corporation,タグ「fender musical instruments corporation」,フェンダー・ミュージカル・インストゥルメンツ,RAW_ENGLISH_WRAPPER
+fengguan,凤冠,鳳冠,NON_JAPANESE_RESIDUE
+fenrir_(ff7),タグ「fenrir (ff7)」,フェンリル（FF7）,RAW_ENGLISH_WRAPPER
+fern_(sousou_no_frieren)_(cosplay),fern (sousou no frieren) (cosplay),フェルン（葬送のフリーレン）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+ferris_wheel,摩天轮,観覧車,NON_JAPANESE_RESIDUE
+ferris_wheel_interior,フェリスホイールインテリア,観覧車の内部,SEMANTIC_ERROR
+festering_desire_(genshin_impact),腐殖之剑,腐植の剣（原神）,NON_JAPANESE_RESIDUE
+festival_jinbei,タグ「festival jinbei」,祭り用甚平,RAW_ENGLISH_WRAPPER
+festoon_(necklace),タグ「festoon (necklace)」,フェストゥーンネックレス,RAW_ENGLISH_WRAPPER
+fetal_position,胎儿姿势,胎児姿勢,NON_JAPANESE_RESIDUE
+fetus,胎兒,胎児,NON_JAPANESE_RESIDUE
+ff_gradient,ff・グラデーション,FFグラデーション,MIXED_ENGLISH_DEBRIS
+fg204,fg204,FG204,CANONICAL_FALLBACK_TRANSLATABLE
+fg42,fg42,FG42,CANONICAL_FALLBACK_TRANSLATABLE
+fgm-148_javelin,ジャベリン,FGM-148 ジャベリン,SEMANTIC_UNDERSPECIFICATION
+fictional_aircraft,タグ「fictional aircraft」,架空の航空機,RAW_ENGLISH_WRAPPER
+field,畑,野原,SEMANTIC_NARROWING
+field_of_blades,ブレードのフィールド,刃の野原,SEMANTIC_ERROR
+fiery_aura,タグ「fiery aura」,炎のオーラ,RAW_ENGLISH_WRAPPER
+fifa_world_cup_trophy,fifa・world・カップ・trophy,FIFAワールドカップトロフィー,MIXED_ENGLISH_DEBRIS
+fifth_position_of_the_arms,fifth・position・of・the・両腕,腕の第5ポジション,MIXED_ENGLISH_DEBRIS
+fig,無花果,イチジク,NON_JAPANESE_RESIDUE
+fig_sign,女握り,フィグサイン,SEMANTIC_ERROR
+fight_cloud,雲と戦う,戦闘を表す煙雲,SEMANTIC_ERROR
+figure_four_sitting,図4が座っています,4の字座り,SEMANTIC_ERROR
+figure_four_standing,figure・four・立つ,4の字立ち,MIXED_ENGLISH_DEBRIS
+figure_skating_dress,花样滑冰连衣裙,フィギュアスケート衣装,NON_JAPANESE_RESIDUE
+figures_taking_selfie_(meme),figures taking selfie (meme),フィギュアが自撮り（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+filler_text,filler・テキスト,ダミーテキスト,MIXED_ENGLISH_DEBRIS
+film_reel,タグ「film reel」,フィルムリール,RAW_ENGLISH_WRAPPER
+film_set,タグ「film set」,撮影セット,RAW_ENGLISH_WRAPPER
+film_strip,フィルム,フィルムストリップ,SEMANTIC_UNDERSPECIFICATION
+filolial,タグ「filolial」,フィロリアル,RAW_ENGLISH_WRAPPER
+fin_piercing,finのピアス,ヒレのピアス,MIXED_ENGLISH_DEBRIS
+final_chapter_(fate/grand_order),final chapter (fate/grand order),最終章（Fate/Grand Order）,CANONICAL_FALLBACK_TRANSLATABLE
+finger_between_breasts,指・間・胸,胸の間の指,MIXED_ENGLISH_DEBRIS
+finger_claws,finger・爪,指の爪,MIXED_ENGLISH_DEBRIS
+finger_counting_duo,タグ「finger counting duo」,2人で指折り,RAW_ENGLISH_WRAPPER
+finger_frame_duo,タグ「finger frame duo」,2人の指フレーム,RAW_ENGLISH_WRAPPER
+finger_frame_over_eye,finger・frameの上の目,目の上に指フレーム,MIXED_ENGLISH_DEBRIS
+finger_gun_to_own_head,finger・gun・へのown・頭,自分の頭に指鉄砲,MIXED_ENGLISH_DEBRIS
+finger_in_glove,fingerの中のglove,手袋の中の指,MIXED_ENGLISH_DEBRIS
+finger_in_own_ear,fingerの中のown・耳,自分の耳に指,MIXED_ENGLISH_DEBRIS
+finger_on_another's_head,fingerの上の他人の頭,他人の頭に指,SEMANTIC_RELATION_ERROR
+finger_on_forehead,fingerの上のforehead,額に指,MIXED_ENGLISH_DEBRIS
+finger_on_nipple,fingerの上の乳首,乳首に指,MIXED_ENGLISH_DEBRIS
+finger_painting,タグ「finger painting」,指絵,RAW_ENGLISH_WRAPPER
+finger_puppet,指偶,指人形,NON_JAPANESE_RESIDUE
+finger_ribbon,指・リボン,指のリボン,AWKWARD_MACHINE_TRANSLATION
+finger_to_another's_mouth,手指放在他人嘴辺,他人の口に指,NON_JAPANESE_RESIDUE
+finger_to_eye,指から目,目に指,SEMANTIC_RELATION_ERROR
+finger_to_eyewear,指からアイウェアへ,眼鏡に指,SEMANTIC_RELATION_ERROR
+finger_to_face,指から顔,顔に指,SEMANTIC_RELATION_ERROR
+finger_to_head,指から頭,頭に指,SEMANTIC_RELATION_ERROR
+finger_to_own_nose,finger・へのown・nose,自分の鼻に指,MIXED_ENGLISH_DEBRIS
+finger_to_tongue,指から舌へ,舌に指,SEMANTIC_RELATION_ERROR
+finger_twirl,指のくるくびき,指でくるくる回す,SEMANTIC_ERROR
+finger_under_clothes,fingerの下の服,服の下に指,SEMANTIC_RELATION_ERROR
+finger_wagging,指がぐらぐら,指を振る,SEMANTIC_ERROR
+finger_writing,指の書き込み,指で書く,SEMANTIC_ERROR
+fingernail_gloves,fingernailの手袋,爪付き手袋,MIXED_ENGLISH_DEBRIS
+fingerprint_mark,fingerprint・印,指紋跡,MIXED_ENGLISH_DEBRIS
+fingers_on_another's_face,fingersの上の他人の顔,他人の顔に指,SEMANTIC_RELATION_ERROR
+fingers_to_head,fingers・への頭,頭に指,MIXED_ENGLISH_DEBRIS
+fingersmile,指笑顔,指で笑顔を作る,SEMANTIC_ERROR
+finishing_move,仕上げの動き,とどめの技,SEMANTIC_ERROR
+finnish_text,スオミ語,フィンランド語,SEMANTIC_ERROR
+fir_tree,杉,モミの木,SEMANTIC_ERROR
+fire_hair_ornament,fireの髪飾り,炎の髪飾り,MIXED_ENGLISH_DEBRIS
+fire_light,fire・光,炎の光,MIXED_ENGLISH_DEBRIS
+fire_on_chest,fireの上の胸,胸に炎,SEMANTIC_RELATION_ERROR
+fireflies,萤火,ホタルの群れ,NON_JAPANESE_RESIDUE
+firefly_(honkai:_star_rail)_(cosplay),firefly (honkai: star rail) (cosplay),ホタル（崩壊：スターレイル）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+firing_at_viewer,視聴者の発射,視点側に向けて発砲,SEMANTIC_ERROR
+first_high_school_uniform,最初の高校のユニフォーム,第一高校の制服,SEMANTIC_ERROR
+fish-shaped_pupils,魚・shaped・pupils,魚型の瞳孔,MIXED_ENGLISH_DEBRIS
+fish_bottle,魚・bottle,魚のボトル,MIXED_ENGLISH_DEBRIS
+fish_grill,魚・grill,魚焼きグリル,MIXED_ENGLISH_DEBRIS
+fish_hat_ornament,魚・帽子・飾り,魚の帽子飾り,AWKWARD_MACHINE_TRANSLATION
+fish_hook_earrings,fish hookのイヤリング,釣り針のイヤリング,MIXED_ENGLISH_DEBRIS
+fish_on_head,魚の上の頭,頭の上の魚,SEMANTIC_RELATION_ERROR
+fish_skeleton_earrings,fish skeletonのイヤリング,魚骨のイヤリング,MIXED_ENGLISH_DEBRIS
+fish_skeleton_hair_ornament,fish skeletonの髪飾り,魚骨の髪飾り,MIXED_ENGLISH_DEBRIS
+fish_skeleton_print,fish skeletonの柄,魚骨柄,MIXED_ENGLISH_DEBRIS
+fishnet_bra,fishnet・ブラ,網目のブラ,MIXED_ENGLISH_DEBRIS
+fishnet_bridal_gauntlets,fishnet・花嫁用のガントレット,網目のブライダルガントレット,MIXED_ENGLISH_DEBRIS
+fishnet_cutout,タグ「fishnet cutout」,網目の切り抜き,RAW_ENGLISH_WRAPPER
+fishnet_dress,fishnet・ドレス,網目のドレス,MIXED_ENGLISH_DEBRIS
+fishnet_hiphighs,fishnet・ハイソックス,網タイツのヒップハイ,MIXED_ENGLISH_DEBRIS
+fishnet_kneehighs,タグ「fishnet kneehighs」,網タイツのニーソックス,RAW_ENGLISH_WRAPPER
+fishnet_leggings,渔网紧身ズボン,網タイツのレギンス,NON_JAPANESE_RESIDUE
+fishnet_leotard,渔网紧身衣,網目レオタード,NON_JAPANESE_RESIDUE
+fishnet_shorts,タグ「fishnet shorts」,網目ショーツ,RAW_ENGLISH_WRAPPER
+fishnet_shrug,fishnet・ボレロ,網目ボレロ,MIXED_ENGLISH_DEBRIS
+fishnet_veil,fishnet・ベール,網目ベール,MIXED_ENGLISH_DEBRIS
+fist_bump,拳バンプ,フィストバンプ,SEMANTIC_ERROR
+fist_bumping_viewer,タグ「fist bumping viewer」,視点側とフィストバンプ,RAW_ENGLISH_WRAPPER
+fist_fight,拳の戦い,殴り合い,SEMANTIC_ERROR
+fist_pump,拳ポンプ,ガッツポーズ,SEMANTIC_ERROR
+fist_shaking,握りこぶし,拳を振る,SEMANTIC_UNDERSPECIFICATION
+fitting_room,試着,試着室,SEMANTIC_ERROR
+five_of_clubs,5つのクラブ,クラブの5,SEMANTIC_ERROR
+five_of_hearts,5つの心,ハートの5,SEMANTIC_ERROR
+five_of_spades,5つのスペード,スペードの5,SEMANTIC_ERROR
+flab,フラブ,たるんだ脂肪,SEMANTIC_ERROR
+flag_background,フラグの背景,旗の背景,SEMANTIC_ERROR
+flag_nails,旗・爪,旗柄の爪,AWKWARD_MACHINE_TRANSLATION
+flag_on_vehicle,旗の上のvehicle,乗り物についた旗,SEMANTIC_RELATION_ERROR
+flag_patch,旗・patch,旗のワッペン,MIXED_ENGLISH_DEBRIS
+flailing,フレアリング,手足をばたつかせる,SEMANTIC_ERROR
+flame-tipped_tail,炎の尾,先端が炎の尻尾,SEMANTIC_UNDERSPECIFICATION
+flame_tattoo,flameのタトゥー,炎のタトゥー,MIXED_ENGLISH_DEBRIS
+flamel_symbol,フレームシンボル,フラメルのシンボル,SEMANTIC_ERROR
+flaming_head,flaming・頭,燃える頭,MIXED_ENGLISH_DEBRIS
+flaming_horns,タグ「flaming horns」,燃える角,RAW_ENGLISH_WRAPPER
+flamingo_innertube,タグ「flamingo innertube」,フラミンゴの浮き輪,RAW_ENGLISH_WRAPPER
+flamingo_raft,タグ「flamingo raft」,フラミンゴ型フロート,RAW_ENGLISH_WRAPPER
+flanged_mace,タグ「flanged mace」,フランジ付きメイス,RAW_ENGLISH_WRAPPER
