@@ -6,7 +6,7 @@
 
 Stage 9 overall Gate 完了 / Stage10 準備Gate実施中 / automated E2E PASS
 
-本ファイルは現在地の正本だが、実作業の詳細・完了条件・最新checkpointは各GitHub Issueを正本とする。更新競合時はlive Issue / branch / checkpointを優先して本ファイルを同期する。
+本ファイルは現在地のrouting正本。task contract / completion criteria / result evidenceは対応Issueを正本とし、更新競合時はlive Issue / branch / checkpointを優先して同期する。
 
 ## Active Teams Registry
 
@@ -24,20 +24,13 @@ Reserved-only #42/#43、backlog #24、管理基盤 #47 は現行DEV task contrac
 
 ## Completed
 
-- Stage9A: PASS。
-- Stage9B: implementation complete / independent audit PASS。
-- Stage9C / Stage9D: independent audit PASS。
 - Stage9 overall Gate: **PASS / completed**。
-- Issue #28 automated E2E: **PASS / completed**。real Windows Tk / protected-data environmentで検証済み。
+- Issue #28 automated E2E: **PASS / completed**。
 - Issue #6 Forge Neo comparison environment: **PASS_WITH_NOTE / completed**。
 - Issue #35 Japanese-first desktop UI: **ISSUE35_FINAL_COMPLETION_PASS / completed / closed**。
   - implementation HEAD: `13b2a5ba3396e1d569cf9442b18b19eb7c815b1a`
-  - changed files: `danbooru_tag_tool/ui.py`, `tests/test_stage7a_ui.py` only
   - candidate-specific new failures/errors: 0
-  - focused UI: 27 passed
-  - E2E: 8 passed
-  - session/integrity: 32 passed + known baseline failure
-  - full: 286 passed + known baseline 2 failures
+  - focused UI: 27 passed / E2E: 8 passed
   - real Windows Tk manual screenshot inspection: PASS
   - `data/**` changed files: 0
   - completion checkpoint: Issue #35 comment `5611408350`
@@ -48,106 +41,84 @@ Reserved-only #42/#43、backlog #24、管理基盤 #47 は現行DEV task contrac
 
 ### Issue #32 dictionary validation closure
 
-Issue #32は「監査継続中」ではない。以下まで完了済み。
-
 - Special first-pass: **2,788 / 2,788**
-- Special verdict totals:
-  - PASS 2,292
-  - FIX 174
-  - REVIEW 305
-  - IMAGE_TEST_REQUIRED 17
+- Special verdict totals: PASS 2,292 / FIX 174 / REVIEW 305 / IMAGE_TEST_REQUIRED 17
 - semantic support: **58 / 58 audited**
-- semantic-support IMAGE_TEST_REQUIRED: 33 rows parked
+- semantic-support IMAGE_TEST_REQUIRED: **33 rows parked**
 - active revalidation pending: 0
 - candidate FIX cross-consistency: completed
-- local protected-asset completeness scan: completed
-- historical delta candidates: 5/5 dispositioned、すべて DO_NOT_PROMOTE
-- `GENUINE_MISSING_SPECIAL = 0`
+- completeness reconciliation: PASS / `GENUINE_MISSING_SPECIAL = 0`
 - final evidence-derived Special count: **2,788**
-- production/main remained unchanged during #32 audit
 - #32 final recommendation: **READY_FOR_FINAL_PROMOTION_AUDIT**
-- Issue #48 independent final promotion audit verdict: **APPROVE_WITH_REQUIRED_PROMOTION_CONTRACT**
+- #48 independent final promotion audit: **APPROVE_WITH_REQUIRED_PROMOTION_CONTRACT**
 
-よって次は#32の再監査ではなく、Issue #49でapproved effective FIX subsetをcurrent mainからproductionへ反映し、その後post-write independent auditを行う。
+### Quarantine carry-forward rule — DO NOT DISCARD
+
+#32でproduction promotion対象にならなかった項目は、失敗・不要・削除対象を意味しない。特に以下は**将来の検証資産として保存し、捨てない**。
+
+- Special `REVIEW`: **305件**
+- Special `IMAGE_TEST_REQUIRED`: **17件**
+- semantic-support `IMAGE_TEST_REQUIRED`: **33行**
+- そのほか証拠不足・model-family依存・controlled image evidence待ちで明示parkされた候補
+
+これらは `dict-validation/quarantine` / `validation_quarantine/**` の監査証跡・候補データを保持する。
+
+運用ルール:
+1. #49 production promotionから除外することと、候補を破棄することを混同しない。
+2. quarantineのrow identity、verdict、evidence、reason、model/version scope、関連Special/support identityを保持する。
+3. #42 product-purpose improvement pass、#30/Stage10 representative controlled image tests、必要なmodel-family別検証の入力候補として再利用する。
+4. 実画像または新しい独立証拠で有効性が確認されたものは、既存監査証跡を残したまま別Gateで再判定し、必要なら将来のproduction correction candidateへ昇格できる。
+5. 有効性が否定されたものも履歴を削除せず、REJECT/HOLD等の根拠付き結果として残す。
+6. Stage10開始のために未解決候補を一括削除・一括PASS・一括REJECTしてはいけない。
+
+このcarry-forward ruleは「全部productionへ入れる」という意味ではない。**証拠が足りない有望候補を失わず、後の実画像検証で再評価できる状態を維持する**ためのルールである。
 
 ## Active Work / Issues
-
-### ACTIVE NOW
 
 ### #49 dictionary production promotion — current DEV
 
 - current DEV Issue: **#49 `[DICT-PROMOTION][DEV] Apply audited Issue #32 fixes to production`**。
-- management sync: complete (`CURRENT_STATE.md` + `CURRENT_DEV_TASK.md`)。
-- activation checkpoint: Issue #49 comment `5611412073`。
-- production implementation base: latest `main`。`dict-validation/quarantine` はread-only evidence。
-- dedicated Issue #49 feature branchをlatest mainから作成して実装する。
-- 174 Special-level FIX verdictから、withdrawn/superseded/history-only/non-effective rowsを除外したeffective manifestを機械的に作る。
+- latest mainからdedicated feature branchで実装する。
+- 174 Special-level FIX verdictからeffective manifestを機械的に作り、withdrawn/superseded/history-only/non-effective rowsを除外する。
 - primary intended target: `data/generation/special2788_generation_profile.csv`。
 - Special identity / row count / order 2,788を維持する。
-- REVIEW 305 / IMAGE_TEST_REQUIRED 17 / semantic-support parked 33をpromotionしない。
+- REVIEW 305 / IMAGE_TEST_REQUIRED 17 / semantic-support parked 33は**今回promotionしないが、quarantineから削除・破棄もしない**。
 - model-scoped claimsをglobal truthへ平坦化しない。
-- rejected completeness 5件を追加しない。
 - canonical / Alias / Japanese / search / ranking / Prompt composerを変更しない。
 - implementation/test/push後は **READY_FOR_POST_WRITE_AUDIT** または **HOLD_PROMOTION_IMPLEMENTATION** でSTOP。
 - main merge / Stage10 start / #36 production promotionは禁止。別post-write independent auditが必須。
 
 ### #36 / #46 UI-JA final convergence
 
-- #36 frozen V3.1 semantic contract remains authoritative: `86bf72246b3f1f42b52f562f45d4027f0d1a71ea`。
-- execution HEAD `cafcd41d43b99d26a43fbae39cbfb058cd5df1c3` は、Resolver/Challenger等を同一Python内で擬似実行した構造欠陥のため **FAIL_PROMOTION / BLOCKED_STRUCTURAL_DEFECT**。
-- 翻訳意味ルールそのものを再設計する必要はない。
-- #46で本物の独立 `codex exec` invocation / blinded challenger / bounded repair / collision review / post-outcome samplingを実装。
-- #46 latest independent delta verdict: **PASS_DELTA / FULL_EXECUTION_AUTHORIZED / PRODUCTION_PROMOTION_NOT_AUTHORIZED**。
-- 次は#46 orchestratorを使って30,629 full executionを行い、#36をV3.1 contract下でre-run/revalidateする。
-- production Japanese overlayはまだ変更しない。
+- #36 frozen V3.1 semantic contract: `86bf72246b3f1f42b52f562f45d4027f0d1a71ea`。
+- failed execution `cafcd41d...` は構造欠陥でreject済み。
+- #46 latest verdict: **PASS_DELTA / FULL_EXECUTION_AUTHORIZED / PRODUCTION_PROMOTION_NOT_AUTHORIZED**。
+- 次は#46 orchestratorで30,629 full executionを行い、#36をre-run/revalidateする。
 
 ### #44 KNOWLEDGE
 
 - ongoing persistent knowledge owner。
-- branch: `knowledge/generation-corpus`
 - canonical reading layer: `docs/knowledge/KNOWLEDGE_CATALOG.md` + `docs/knowledge/catalog/00-10`。
-- production仕様や#32 verdictを直接変更しない。
 
 ### #30 Forge Neo A/B automation
 
 - infrastructure pipeline: **PASS_PIPELINE**。
-- Forge Neo API -> fixed-seed A/B -> actual PNG metadata -> WD14 raw confidenceまでmanual operation 0で通過済み。
-- generic golden fixtureはplumbing fixtureとしてのみ保持。
 - final representative data / evaluator coverage / routing calibrationはfinal Special dictionary freeze後までHOLD。
+- #32のparked REVIEW / IMAGE_TEST_REQUIREDは、Stage10 representative controlled-test候補として利用可能。ただし無差別全件画像化はせず、#42/#30でrisk/value/model scopeを基に優先順位付けする。
 
 ## WAITING / GATED
 
 ### #5 PROMPT
-
 - final representative Special IDs / Tagger allocation / AUTO-REVIEW routing / production thresholdはfinal dictionary freeze後までHOLD。
 
-### #34 UI-JA parent
-
-- #35はcompleted。#36 / #46の親・調整Issueとして継続。
-
 ### #42 Stage10 pre-evaluation product-purpose improvement
-
-- **RESERVED ONLY**。
-- dictionary/data homework・promotion・freeze後にactivate。
+- **RESERVED ONLY**。dictionary/data homework・promotion・freeze後にactivate。
 - 日本語意図揺れ、support競合、model-family ineffective/harmful guidance、failure diagnosis、Prompt bloat、minimum sufficient set、local success/failure historyを評価する。
+- #32のREVIEW 305 / IMAGE_TEST_REQUIRED 17 / semantic-support parked 33を**discardせずcarry-forward inputとして受け取り、実画像・新規独立証拠が必要な候補を再評価する**。
 
 ### #43 naming gate
-
-- **RESERVED ONLY**。
-- #49 approved production promotion完了後にactivate。
+- **RESERVED ONLY**。#49 approved production promotion完了後にactivate。
 - preferred formal concept name: `Special Core Dictionary`。
-- historical `Special2788` identityを無理にrewriteしない。
-
-### #47 management board
-
-- GitHub Project管理ボード導入用。
-- human-facing visibilityのみ。Issue / CURRENT_STATE / CURRENT_DEV_TASK / Gate authorityを置き換えない。
-- current DEV #49を置き換えない。
-
-### #24 maintenance
-
-- local protected data backup / restore verification。
-- Stage10 blockerではない。
 
 ## Not Started / Do Not Start Yet
 
@@ -160,67 +131,43 @@ Issue #32は「監査継続中」ではない。以下まで完了済み。
 
 ## Current Gates
 
-Stage10 production A/B開始前に最低限必要:
-
 1. Stage9 overall Gate — **SATISFIED**
 2. #28 automated E2E — **SATISFIED**
 3. Stage10 KNOWLEDGE handoff — **SATISFIED**
 4. #6 Forge Neo comparison environment — **SATISFIED / PASS_WITH_NOTE**
 5. #30 infrastructure plumbing — **SATISFIED / PASS_PIPELINE**
-6. #35 current DEV completion — **SATISFIED / completed**
+6. #35 completion — **SATISFIED / completed**
 7. #32 validation + completeness + final independent promotion audit — **SATISFIED**
 8. #49 approved production FIX implementation + post-write independent audit + merge — **ACTIVE / REMAINS**
 9. #43 naming/final dictionary freeze gate — **REMAINS after #49**
 10. final dictionary freeze後のKNOWLEDGE evaluator coverage return — **REMAINS**
-11. #36/#46 full UI-JA execution + independent final artifact/promotion gate — **REMAINS**。UI-JA core Stage10 dependencyの扱いは既存Gate authorityに従う。
+11. #36/#46 full UI-JA execution + independent final artifact/promotion gate — **REMAINS**
 12. #30 final representative routing/evaluator calibration — **REMAINS after dictionary freeze**
 13. #5 formal Prompt handoff — **REMAINS**
-14. #42 reserved product-purpose improvement pass — **REMAINS after prerequisites**
+14. #42 product-purpose improvement pass — **REMAINS after prerequisites**
 15. `docs/stages/STAGE_10_PREP.md` remaining checks — **REMAINS**
 
 ## Next Actions
 
-1. **#49**: approved effective FIX subsetをproduction feature branchへ適用し、`READY_FOR_POST_WRITE_AUDIT` / `HOLD_PROMOTION_IMPLEMENTATION` でSTOPする。
-2. #49 implementation後、separate post-write independent auditを実施する。audit PASS後のみmain統合。
-3. #49 approved promotion完了後、**#43** naming gateを実施し、final Special Core Dictionary snapshotをfreezeする。
-4. **#46**: authorized orchestratorで30,629 full executionを行い、**#36**をfrozen V3.1 semantic contract下でrevalidateする。
-5. #36 full resultはseparate independent quality/promotion gateを通す。直接productionへ書かない。
-6. final Special dictionary freeze後、**#44 KNOWLEDGE**がWD14 / Kagami-24k / CL Tagger系coverageを比較しPROMPT/#30へ返す。
-7. **#30**がcapability別AUTO/REVIEW routingを校正し、PROMPTがfinal representative casesを確定する。
-8. **#5**へ正式Special data / experiment design / automation operationをhandoffする。
-9. dictionary/data prerequisites完了・freeze後、**#42**をactivateする。
-10. 全Gate完了後のみStage10 production A/Bへ進む。
-
-## Blocking / Unknown
-
-- Stage9 blockerなし。
-- #35はcompleted / closed。旧protected-data missing blocker・manual gateとも解消済み。
-- #32 first-pass / semantic coverage / completeness / final promotion audit blockerは解消済み。
-- #49は**current DEVとしてactive**。implementation + post-write audit待ち。
-- #36旧executionは構造欠陥でreject済みだが、#46のorchestrator implementation blockerは解消し**full execution authorized**。
-- UI-JA production promotionは未許可。
-- #30残blockerはfinal dictionary freeze後のevaluator coverage / representative Special / capability routing calibration。
-- WD14をSpecial全体のground truthにはしない。
-- GitHub Actions CIは本体production Gateとして未導入。local protected-data evidenceと混同しない。
-
-## Issue Hygiene
-
-- Issue番号は履歴・参照のため振り直さない。
-- 新規Issueはowner / scope / lifecycle / Gateが独立して管理される場合に限る。
-- 同一task内の途中経過・再監査・結果返却は原則既存Issue checkpointで継続する。
-- completed Issueはcloseして履歴として保持する。
-- `CURRENT_STATE.md` は `ACTIVE NOW / WAITING / BACKLOG` を分ける。
+1. #49: approved effective FIX subsetをproduction feature branchへ適用し、post-write auditへ渡す。
+2. #49 audit PASS後のみmain統合。
+3. #43 naming gate → final Special Core Dictionary snapshot freeze。
+4. #46 authorized full execution → #36 revalidation → separate promotion audit。
+5. final dictionary freeze後、#44 KNOWLEDGEがevaluator coverageを返す。
+6. #30がrepresentative routing/evaluator calibrationを行う。この際#32 parked資産を必要に応じて候補化する。
+7. #5 formal handoff。
+8. prerequisites完了後#42をactivateし、#32 parked資産を含む未確定事項をproduct-purpose観点で再評価する。
+9. 全Gate完了後のみStage10 production A/Bへ進む。
 
 ## Source-of-Truth Rule
 
 - このファイルは現在地のrouting正本。
 - task contract / completion criteria / result evidenceは対応Issueが正本。
 - active DEV Issueがある場合だけ `docs/project/CURRENT_DEV_TASK.md` を同期ミラーとして使う。
-- 現在active DEVは **#49**。Issue #35はcompleted / closed。
-- DEV Issue切替時は、Issue checkpoint/state変更と `CURRENT_STATE.md` / `CURRENT_DEV_TASK.md` の同期を同じ管理操作で行う。管理正本を後追い状態に残さない。
+- 現在active DEVは **#49**。
 - #32はvalidation complete / promotion evidence laneであり、first-pass再実行対象ではない。
+- #32のREVIEW / IMAGE_TEST_REQUIRED / parked evidenceは**非promotion = 非破棄**。quarantine carry-forward assetとして保持する。
 - #46はfull execution authorizedだが、production promotion authorityではない。
-- 各チャット開始時にlive `BRANCH / HEAD / CHECKPOINT / CONTRACT / PHASE` を再取得する。
 - 共有管理ファイルは最新mainを確認してから更新し、stale copyで上書きしない。
 - Codex完了報告だけで次Gateへ進まない。
 - 仕様変更は`DECISIONS.md`または該当Stage/Issue contractへ反映する。
