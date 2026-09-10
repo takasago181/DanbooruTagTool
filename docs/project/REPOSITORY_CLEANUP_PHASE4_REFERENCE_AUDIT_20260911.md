@@ -1,6 +1,6 @@
 # Repository Cleanup Phase 4 — Reference Audit — 2026-09-11
 
-Status: **HISTORICAL AUDIT RECORD — ROOT ARCHIVE EXECUTED 2026-09-11 / BRANCH CLEANUP STILL PENDING**
+Status: **EXECUTION STARTED — ROOT ARCHIVE BATCH1 + CONTROL BOARD ARCHIVE COMPLETE**
 
 Authority remains:
 1. `docs/project/CURRENT_STATE.md`
@@ -8,22 +8,9 @@ Authority remains:
 3. live GitHub Issues
 4. `docs/project/CURRENT_DEV_TASK.md` for current core DEV mirror only
 
-This phase checks whether previously identified cleanup candidates still have obvious live references on the current default branch before any destructive cleanup is considered.
+This phase originally checked whether cleanup candidates had live references before destructive action. After user authorization to organize the repository, the proven-safe archive moves below were executed. No production data, local protected data, active source code, current routing authority, or branch ref was removed in this phase.
 
-## Execution update — 2026-09-11
-
-After user authorization to begin repository organization, the four root historical files identified below were archived. Each destination retained the same blob content before the root copy was removed:
-
-- `FIRST_CODEX_REQUEST.txt` -> `docs/archive/codex_pack_v1_3/FIRST_CODEX_REQUEST.txt`
-- `README_最初に読む.txt` -> `docs/archive/codex_pack_v1_3/README_最初に読む.txt`
-- `PACKAGE_MANIFEST.json` -> `docs/archive/codex_pack_v1_3/PACKAGE_MANIFEST.json`
-- `PROJECT_BOARD_SETUP.md` -> `docs/archive/codex_pack_v1_3/PROJECT_BOARD_SETUP.md`
-
-Verification after the move confirmed all four archived files exist and the four misleading root entries are gone. No production `data/**`, local protected data, active source code, or active routing document was deleted.
-
-Branch cleanup is still a separate step and remains subject to immediate pre-delete containment/reference verification.
-
-## 1. Governance drift fixed during this phase
+## 1. Governance drift fixed during audit
 
 ### `docs/project/CHAT_START_PROTOCOL.md`
 Updated to the current governance model:
@@ -36,75 +23,70 @@ No Stage Gate or independent-audit requirement was weakened.
 
 ### `AGENTS.md`
 Removed stale concrete lane examples from the generic `NO_CURRENT_DEV` rule.
-The rule now points Codex to `CURRENT_STATE.md` + explicit Issue/branch/contract for any independent lane instead of naming historical #46/#36 routing as an example.
+The rule now points Codex to `CURRENT_STATE.md` + explicit Issue/branch/contract for any independent lane instead of naming historical routing examples.
 
 No runtime/product behavior was changed.
 
-## 2. Root historical start-pack files — reference scan
+## 2. Root historical start-pack files — archive executed
 
-Current default-branch code search returned no direct references for the exact filenames below:
+The following root files were proven to have no current default-branch dependency by exact filename and were moved into `docs/archive/codex_pack_v1_3/`:
 
 - `FIRST_CODEX_REQUEST.txt`
 - `README_最初に読む.txt`
 - `PACKAGE_MANIFEST.json`
 - `PROJECT_BOARD_SETUP.md`
 
-Interpretation:
-- this is strong evidence that current default-branch source/docs do not depend on these exact root paths by filename;
-- it is **not** by itself authorization to delete or move them because Issue comments, old commits, external/local procedures, or unindexed references may still cite them.
+Archive copies were created first and verified, then the root copies were removed. Historical contents remain preserved in Git history and under the archive namespace.
 
-Historical pre-execution classification:
+## 3. Control-board documents — archive executed
 
-| File | Current role | Phase-4 classification |
-| --- | --- | --- |
-| `FIRST_CODEX_REQUEST.txt` | Stage0/1 historical Codex request; explicitly DO NOT USE | `ARCHIVE_READY_PENDING_USER_APPROVAL` |
-| `README_最初に読む.txt` | v1.3 historical start-pack explanation; filename looks current | `ARCHIVE_READY_PENDING_USER_APPROVAL` |
-| `PACKAGE_MANIFEST.json` | v1.3 historical package manifest; now explicitly marked historical | `ARCHIVE_READY_PENDING_USER_APPROVAL` |
-| `PROJECT_BOARD_SETUP.md` | historical GitHub Project proposal; #47 NOT PLANNED | `ARCHIVE_READY_PENDING_USER_APPROVAL` |
+The following superseded management-board documents were moved out of `docs/project/` into:
 
-Execution result:
-`ARCHIVED / ROOT CLEANED / CONTENT PRESERVED`
+`docs/archive/management/project_board/`
 
-## 3. Control-board documents
+- `CONTROL_BOARD_POLICY.md`
+- `CONTROL_BOARD_MIGRATION_DESIGN.md`
 
-- `docs/project/CONTROL_BOARD_POLICY.md`
-- `docs/project/CONTROL_BOARD_MIGRATION_DESIGN.md`
+Reason:
+- both are explicitly NOT PLANNED / SUPERSEDED;
+- Issue #47 is the durable decision record;
+- current management authority is only `CURRENT_STATE.md` + live Issues + `CURRENT_DEV_TASK.md` for current core DEV mirror;
+- leaving these files in `docs/project/` made historical management proposals look more current than they are.
 
-Both already state that the GitHub Project plan is NOT PLANNED / SUPERSEDED and retain value as governance history. Their problem is placement, not correctness.
+The archived policy cross-reference was updated to the archived migration-design path.
 
-Classification:
-`ARCHIVE_CANDIDATE_AFTER_PATH_REFERENCE_CHECK`
+## 4. Branch deletion candidates — proof established, not yet deleted
 
-No change/move executed for these two files in this phase.
+The following branch tips were previously proven to be fully contained in `main` with zero branch-side commits at the time of audit:
 
-## 4. Merged branch candidates — stronger evidence
+1. `codex/issue28-e2e-verdict`
+2. `codex/issue43-special-core-dictionary`
+3. `codex/issue49-dict-promotion-latest-main`
+4. `codex/stage9c9d-completion`
+5. `docs/organize-agent-rules-no-semantic-change`
+6. `docs/stage10-ab-automation-temp`
+7. `codex/issue44-hf-token-gated-dispatch`
 
-Previous compare audit established:
+These remain candidates for one-by-one branch-ref cleanup only after an immediate final comparison against latest `main` and a check that no active restore contract depends on the branch name.
 
-- `codex/issue28-e2e-verdict` tip is an ancestor of current `main`.
-- `codex/issue43-special-core-dictionary` tip is an ancestor of current `main`.
-- `codex/issue49-dict-promotion-latest-main` tip is an ancestor of current `main`.
+## 5. Branches that are NOT safe to delete
 
-Phase-4 exact-name default-branch search returned no direct references to those branch names.
+Examples already confirmed KEEP:
+- `codex/issue6-preflight-check` — diverged with branch-side commits
+- `dict-validation/quarantine` — large unique evidence history
+- `codex/issue30-automation-dry-run-20260908` — unique commits remain
+- `codex/issue49-dict-promotion` — unique promotion-history commits remain
+- `codex/stage9b-main-integration` — unique commits remain
+- `codex/stage9b-runtime-composer` — unique commits remain
+- historical `management/*`, `prompt/*`, and older `ui-ja/*` branches with branch-side commits remain KEEP until separately proven redundant
 
-Therefore these three move from generic delete-candidate status to:
+Active branches remain KEEP:
+- `main`
+- `codex/issue30-calibration-design`
+- `knowledge/generation-corpus`
+- `ui-ja/issue36-relaxed-v5-chatgpt-repair`
 
-`BRANCH_DELETE_READY_PENDING_ISSUE_COMMENT_REFERENCE_CHECK_AND_USER_APPROVAL`
-
-Important:
-- deleting a branch ref would not delete its commits from `main` because the tips are already ancestors of `main`;
-- branch deletion was not executed in this phase;
-- Issue comments and audit/checkpoint history must still be checked for branch-name restore semantics before deletion.
-
-## 5. Branch that is NOT safe
-
-`codex/issue6-preflight-check` remains **KEEP_EVIDENCE / NOT DELETE READY**.
-
-Reason from compare audit:
-- it has diverged from `main`;
-- branch contains 9 commits not in current main.
-
-Age/completion is not enough to justify deletion.
+`codex/issue44-checkpoint-sync` currently shares a HEAD with the active KNOWLEDGE branch history but remains KEEP while #44 and branch-name restore semantics may still matter.
 
 ## 6. Current active/near-term items — do not clean
 
@@ -120,27 +102,28 @@ Do not delete, move, or archive during repository decluttering:
 - `danbooru_tag_tool/**`
 - `tests/**`
 - current production/semantic data
-- `knowledge/generation-corpus` while #44 remains ongoing
-- `codex/issue30-calibration-design` while #30 is current core DEV
-- `ui-ja/issue36-relaxed-v5-chatgpt-repair` while #36 V5 is active
+- active branch artifacts
 
-## 7. Important remaining cleanup risks
+## 7. Safety invariants
 
-1. old Stage evidence remains mixed among active docs; archive mapping requires a path-reference map first.
-2. many remote branches are operationally obsolete but still contain unique commits.
-3. Issue comments can contain restore anchors that default-branch code search cannot detect.
-4. `CONTROL_BOARD_POLICY.md` / `CONTROL_BOARD_MIGRATION_DESIGN.md` are historical governance material still located under active-looking `docs/project/`.
+- no production `data/**` cleanup
+- no local protected-data cleanup
+- no `git clean -fdx` / `git clean -fdX`
+- no history rewrite / force push
+- archive first, remove active-looking copy second
+- branch deletion only after latest-main recheck and only one-by-one
+- uncertainty => KEEP
 
-## 8. Next safe cleanup steps
+## Current verdict
 
-1. finish reference checks for remaining historical management/control-board docs;
-2. move historical-only docs to a clear archive namespace where safe;
-3. immediately re-check the seven strong branch-delete candidates against latest `main`;
-4. delete branch refs only when their tips remain fully contained and no active restore contract depends on the branch name;
-5. never touch local protected ignored data as part of repository cleanup.
+Repository organization has started safely.
 
-## Phase-4 verdict
+Completed:
+- root historical v1.3/start-pack clutter moved to archive
+- superseded GitHub Project/control-board docs moved out of active `docs/project/`
+- governance-current files remain in place
+- no branch deletion yet
 
-Repository authority drift was reduced and the first archive cleanup batch has now been executed successfully. Historical start-pack material is preserved under `docs/archive/codex_pack_v1_3/`, while the repository root is cleaner and less likely to misroute a human or tool.
-
-Branch cleanup remains pending and separately gated by final proof.
+Next cleanup action:
+- final-recheck the seven fully-contained branch candidates against latest `main`;
+- delete branch refs one-by-one only if each still has zero branch-side commits and no active restore dependency.
