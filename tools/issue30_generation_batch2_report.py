@@ -176,7 +176,7 @@ def main() -> None:
         "generated_images": sum(not bool(row.get("reused", False)) for row in read_json(args.run_root / "generation_records.json")), "reused_images": 0,
         "planned_evaluator_runs": len(records) * 3, "actual_successful_evaluator_runs": sum(per_success.values()), "actual_failed_or_missing_evaluator_runs": sum(per_failure.values()),
         "per_evaluator_successes": dict(per_success), "per_evaluator_failures": dict(per_failure),
-        "evaluator_reference_integrity_check": "PASS" if not raw_failures else "FAIL",
+        "evaluator_reference_integrity_check": "PASS" if not raw_failures and not reference_failures else "FAIL",
         "raw_artifact_image_binding_check": "PASS" if not raw_failures else "FAIL",
         "reporting_reference_repair_applied": bool(reference_failures),
         "original_report_reference_integrity_check": "PASS" if not reference_failures else "FAIL",
