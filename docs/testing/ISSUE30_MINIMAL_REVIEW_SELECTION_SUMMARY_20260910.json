@@ -1,0 +1,30 @@
+{
+  "source_run": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_pilot_20260910",
+  "pilot_images": 128,
+  "current_review_queue": 58,
+  "minimal_review_count": 19,
+  "selected_from_current_queue": 18,
+  "high_candidate_outside_queue": 1,
+  "selected_by_impact": {
+    "AUTO viability": 4,
+    "disagreement behavior": 2,
+    "threshold boundary": 2,
+    "blocked confirmation": 2,
+    "component-proxy safety": 1,
+    "relation safety": 8
+  },
+  "excluded_current_queue": 40,
+  "raw_pointer_mismatch_count": 127,
+  "raw_audit_note": "The pilot result artifact pointers are inconsistent for 127/128 rows; this selection re-addresses existing raw files by image_id and does not rerun evaluators.",
+  "ordered_contact_sheet": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_pilot_20260910\\review_queue\\minimal_review_contact_sheet.png",
+  "early_stop": {
+    "stop_auto_validation_if": [
+      "the mandatory HIGH candidate is a clear human false positive",
+      "two false positives occur among review orders 1-4",
+      "a non-relation simple class has two clear human-negative examples despite unanimous positive machine votes"
+    ],
+    "on_stop": "mark AUTO_CALIBRATION_HOLD; do not review deferred redundant cases; keep relation/binding HUMAN_REVIEW_ONLY"
+  },
+  "no_generation_or_evaluator_calls": true,
+  "production_auto_promotion": false
+}

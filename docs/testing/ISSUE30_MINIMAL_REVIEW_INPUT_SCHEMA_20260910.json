@@ -1,0 +1,23 @@
+{
+  "schema_version": "issue30.minimal_review_input.v1",
+  "per_image": {
+    "review_order": "integer",
+    "image_id": "string",
+    "human_target_concept_present": "yes|no|unclear",
+    "human_actor_subject_correct": "yes|no|unclear|not_applicable",
+    "human_target_object_correct": "yes|no|unclear|not_applicable",
+    "human_body_part_ownership_site_correct": "yes|no|unclear|not_applicable",
+    "human_count_correct": "yes|no|unclear|not_applicable",
+    "human_spatial_relation_correct": "yes|no|unclear|not_applicable",
+    "human_compound_all_elements_retained": "yes|no|unclear|not_applicable",
+    "human_unwanted_extra_interpretation": "yes|no|unclear",
+    "usable_for_stage10_preference_judgment": "yes|no|unclear",
+    "human_final_route": "AUTO_SUPPORT|HUMAN_REVIEW_ONLY|BLOCKED|UNRESOLVED",
+    "reviewer_note": "string"
+  },
+  "rules": [
+    "Do not reveal evaluator votes, scores, screening class, or route while making the human judgment.",
+    "Use UNRESOLVED for unclear or unresolved judgments; exclude it from threshold fitting and AUTO promotion.",
+    "A relation/binding failure is HUMAN_REVIEW_ONLY even when all evaluators vote positive."
+  ]
+}
