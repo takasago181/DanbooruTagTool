@@ -65,6 +65,20 @@ carrot_background,carrotの背景,ニンジン背景,MIXED_ENGLISH_DEBRIS
 carrot_in_pocket,carrotの中のpocket,ポケットの中のニンジン,MIXED_ENGLISH_DEBRIS
 carrying_baby,抱着婴儿,赤ちゃんを抱える,NON_JAPANESE_RESIDUE
 carrying_multiple_people,carrying・multiple・人々,複数人を運ぶ,MIXED_ENGLISH_DEBRIS
+cartoon_wings,cartoon・翼,漫画風の翼,MIXED_ENGLISH_DEBRIS
+casual_one-piece_swimsuit,休闲连体泳衣,カジュアルなワンピース水着,NON_JAPANESE_RESIDUE
+cat-shaped_eyewear,猫・shaped・eyewear,猫型メガネ,MIXED_ENGLISH_DEBRIS
+cat-shaped_pupils,猫・shaped・pupils,猫型の瞳孔,MIXED_ENGLISH_DEBRIS
+cat_cafe,猫咖,猫カフェ,NON_JAPANESE_RESIDUE
+cat_charm,猫・charm,猫チャーム,MIXED_ENGLISH_DEBRIS
+cat_ear-shaped_hair,猫・耳・shaped・髪,猫耳型の髪,MIXED_ENGLISH_DEBRIS
+cat_o-ring,cat oの指輪,猫型Oリング,MIXED_ENGLISH_DEBRIS
+cat_on_chest,猫の上の胸,胸の上の猫,RELATION_SEMANTIC_ERROR
+cat_on_keyboard,猫の上のkeyboard,キーボードの上の猫,MIXED_ENGLISH_DEBRIS
+cat_pendant,猫・pendant,猫ペンダント,MIXED_ENGLISH_DEBRIS
+cat_stretch,猫式拉伸,猫のストレッチ,NON_JAPANESE_RESIDUE
+cat_testicles,猫のtest丸,猫の睾丸,MIXED_ENGLISH_DEBRIS
+cave_interior,山洞里,洞窟内部,NON_JAPANESE_RESIDUE
 celestial_being_uniform,天体は均一です,セレスティアル・ビーイングの制服,SEMANTIC_ERROR
 censored_with_cum,絶頂で検閲されました,精液で隠す,SEMANTIC_ERROR
 centipede_print,centipedeの柄,ムカデ柄,MIXED_ENGLISH_DEBRIS
@@ -87,6 +101,34 @@ character_backpack,キャラクター・backpack,キャラクターバックパ�
 character_charm,キャラクター・charm,キャラクターチャーム,MIXED_ENGLISH_DEBRIS
 character_chart,文字チャート,キャラクター表,SEMANTIC_ERROR
 character_cookie,キャラクター・cookie,キャラクタークッキー,MIXED_ENGLISH_DEBRIS
+character_doll_in_itabag,キャラクター・dollの中のitabag,痛バッグの中のキャラクター人形,MIXED_ENGLISH_DEBRIS
+character_figure,キャラクター・figure,キャラクターフィギュア,MIXED_ENGLISH_DEBRIS
+character_memorial,キャラクター・memorial,キャラクター追悼,MIXED_ENGLISH_DEBRIS
+character_name_tattoo,character nameのタトゥー,キャラクター名のタトゥー,MIXED_ENGLISH_DEBRIS
+character_pov,キャラクター・pov,キャラクター視点,MIXED_ENGLISH_DEBRIS
+character_signature,文字署名,キャラクターの署名,SEMANTIC_ERROR
+character_snowman,キャラクター・snowman,キャラクター雪だるま,MIXED_ENGLISH_DEBRIS
+character_transformation,キャラクター・transformation,キャラクター変身,MIXED_ENGLISH_DEBRIS
+checkerboard_cookie_hair_ornament,checkerboard cookieの髪飾り,市松模様クッキーの髪飾り,MIXED_ENGLISH_DEBRIS
+checkered_ascot,チェック柄のascot,チェック柄のアスコット,MIXED_ENGLISH_DEBRIS
+checkered_bandana,チェック柄のbandana,チェック柄のバンダナ,MIXED_ENGLISH_DEBRIS
+checkered_bracelet,チェック柄のbracelet,チェック柄のブレスレット,MIXED_ENGLISH_DEBRIS
+checkered_cloak,チェック柄のcloak,チェック柄のマント,MIXED_ENGLISH_DEBRIS
+checkered_dress,格子连衣裙,チェック柄のドレス,NON_JAPANESE_RESIDUE
+checkered_leg_warmers,checkered legのウォーマー,チェック柄のレッグウォーマー,MIXED_ENGLISH_DEBRIS
+checkered_sweater,チェック柄のsweater,チェック柄のセーター,MIXED_ENGLISH_DEBRIS
+checkered_sweater_vest,チェック柄のsweater・vest,チェック柄のセーターベスト,MIXED_ENGLISH_DEBRIS
+checkered_tablecloth,チェック柄のtablecloth,チェック柄のテーブルクロス,MIXED_ENGLISH_DEBRIS
+checkered_tank_top,チェック柄のtank・トップス,チェック柄のタンクトップ,MIXED_ENGLISH_DEBRIS
+checkered_trim,チェック柄のtrim,チェック柄の縁取り,MIXED_ENGLISH_DEBRIS
+checkered_wristband,チェック柄のwristband,チェック柄のリストバンド,MIXED_ENGLISH_DEBRIS
+cheek-to-breast,頬から脳breast,頬を胸に当てる,MIXED_ENGLISH_DEBRIS
+cheek_on_glass,ガラスの頬,ガラスに頬を当てる,RELATION_SEMANTIC_ERROR
+cheek_poking,戳顔,頬をつつく,NON_JAPANESE_RESIDUE
+cheek_rest,頬の休息,頬杖,SEMANTIC_ERROR
+cheek_squash,挤圧顔颊,頬を押しつぶす,NON_JAPANESE_RESIDUE
+cheering,加油,応援する,NON_JAPANESE_RESIDUE
+cheese_print,cheeseの柄,チーズ柄,MIXED_ENGLISH_DEBRIS
 cherry_background,cherryの背景,サクランボ背景,MIXED_ENGLISH_DEBRIS
 cherry_hat_ornament,cherry・帽子・飾り,サクランボの帽子飾り,MIXED_ENGLISH_DEBRIS
 cherry_necklace,cherry・ネックレス,サクランボのネックレス,MIXED_ENGLISH_DEBRIS
