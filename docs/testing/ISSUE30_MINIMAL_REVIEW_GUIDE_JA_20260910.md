@@ -10,6 +10,8 @@
 
 `C:\Users\takas\Downloads\StabilityMatrix-win-x64\Data\Models\Issue30Evaluators\issue30_pilot_20260910\review_queue\minimal_review_contact_sheet.png`
 
+画像一覧には、各画像の番号・対象/対照・Specialの日本語の意味を直接表示しています。TaggerのscoreやAUTO判定は表示していません。
+
 ## 1〜5で見る内容
 
 Taggerの結果やAUTO判定は見ないでください。画像だけを見て、次の3点を答えます。

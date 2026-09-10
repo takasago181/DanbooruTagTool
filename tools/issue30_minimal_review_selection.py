@@ -285,7 +285,7 @@ def create_blinded_contact_sheet(run_root: Path, selected: list[dict[str, Any]])
             x = (index % cols) * thumb_w + (thumb_w - image.width) // 2
             y = (index // cols) * (thumb_h + label_h) + (thumb_h - image.height) // 2
             sheet.paste(image, (x, y))
-        label = f"{row['review_order']:02d}  {row['image_id']}"
+        label = f"{row['review_order']:02d}  [{row['target_or_contrast']}] {row['canonical_ja']}"
         draw.text(((index % cols) * thumb_w + 4, (index // cols) * (thumb_h + label_h) + thumb_h + 4), label, fill="black")
     output = run_root / "review_queue" / "minimal_review_contact_sheet.png"
     output.parent.mkdir(parents=True, exist_ok=True)
