@@ -22,6 +22,7 @@ BATCH_RESULT = ROOT / "docs/testing/ISSUE30_PHASE2_GENERATION_BATCH_RESULT.json"
 BATCH_HUMAN_RESULT = ROOT / "docs/testing/ISSUE30_PHASE2_GENERATION_BATCH_HUMAN_RESULTS_20260911.json"
 BATCH2_MANIFEST = ROOT / "docs/testing/ISSUE30_PHASE2_GENERATION_BATCH2_MANIFEST.csv"
 BATCH2_RESULT = ROOT / "docs/testing/ISSUE30_PHASE2_GENERATION_BATCH2_RESULT.json"
+BATCH2_HUMAN_RESULT = ROOT / "docs/testing/ISSUE30_PHASE2_GENERATION_BATCH2_HUMAN_RESULTS_20260911.json"
 TRIAGE_AUDIT = ROOT / "docs/testing/ISSUE30_PHASE2_MACHINE_TRIAGE_AUDIT.json"
 HUMAN_REVIEW = ROOT / "docs/testing/ISSUE30_PHASE2_HUMAN_REVIEW_RESULTS_20260910.json"
 
@@ -181,6 +182,24 @@ def test_generation_batch2_is_machine_first_bounded_and_repair_audited():
     assert report["blocked_images"] == report["blocked_pairs"] == 0
     assert report["image_level_review_reduction_percent"] == report["pair_level_review_reduction_percent"] == 25.0
     assert report["review_display"]["display_check"] == "PASS"
+
+
+def test_generation_batch2_human_review_records_all_required_pairs_as_both_pass():
+    report = json.loads(BATCH2_HUMAN_RESULT.read_text(encoding="utf-8"))
+    assert report["reviewed_pairs"] == 6
+    assert report["reviewed_images"] == 12
+    assert report["new_images"] == 0
+    assert report["machine_handled_pairs_excluded"] == 2
+    assert [row["result"] for row in report["pair_results"]] == ["BOTH_PASS"] * 6
+    assert report["summary"] == {
+        "both_pass_pairs": 6,
+        "unclear_pairs": 0,
+        "a_only_pass_pairs": 0,
+        "b_only_pass_pairs": 0,
+        "neither_pairs": 0,
+        "experiment_validity": "VALID_WITH_ALL_HUMAN_REQUIRED_PAIRS_BOTH_PASS",
+        "decision": "HOLD_FOR_DEV_PHASE2_CLOSE",
+    }
 
 
 def test_machine_triage_audit_proves_raw_outputs_and_records_reporting_defect():
