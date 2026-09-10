@@ -6,6 +6,25 @@ This records the user's next-direction request after Generation Batch 2: increas
 
 This file does **not** start Stage10 production A/B and does not authorize a new large batch yet. Activation requires DEV review of Batch 2, latest-main synchronization, and an explicit current task contract update in Issue #30 + `CURRENT_DEV_TASK.md`.
 
+## Final product objective
+
+The goal is **not** to maximize generated image count.
+
+The goal is to raise DanbooruTagTool's practical completion quality by repeatedly answering, with real-image evidence:
+
+- which Special Core Dictionary families work reliably as-is;
+- which require support/clarification tags;
+- which fail by seed/model/context;
+- which evaluator classes can safely reduce human work;
+- which structural classes must remain human-protected;
+- which failure clusters should feed product improvements before Stage10 production A/B.
+
+Target end-state:
+
+`Japanese intent -> Special/Core + support selection -> model-aware prompt construction -> high probability of intended visual result`
+
+with the tool automatically handling as much search, selection, generation test, evaluator triage, provenance, and review routing as practical, while the user reviews only genuinely ambiguous/high-value residuals.
+
 ## Why broader coverage is valuable
 
 Generation Batch 2 demonstrates the machine-first path, but four experiments are too narrow to estimate behavior across the Special Core Dictionary. Product completeness improves more from **stratified semantic coverage + measured failure modes** than from simply generating many random cases.
@@ -45,9 +64,23 @@ Later wave size may increase only after automation, provenance, visual-audit tra
 
 Target flow:
 
-`select stratified cases -> freeze manifest -> generate -> artifact/provenance gate -> WD14/Kagami/CL -> evaluator-reference integrity -> machine image route -> pair route -> independent visual audit sample -> human-required remainder only -> aggregate coverage metrics`
+`select stratified cases -> freeze manifest -> generate -> artifact/provenance gate -> WD14/Kagami/CL -> evaluator-reference integrity -> machine image route -> pair route -> independent visual audit sample -> human-required remainder only -> aggregate coverage metrics -> choose next wave adaptively`
 
 The user should not manually search the Special Core Dictionary or review every generated image.
+
+## Audit image transport — adopted direction
+
+Google Drive is **not** used.
+
+Audit-image organization uses a separate private disposable cache repository conceptually named:
+
+`DanbooruTagTool-AuditCache`
+
+It is not canonical. It contains only current disposable audit copies/contact sheets and ownership metadata. Original generated images remain protected locally; accepted textual evidence remains in the main `DanbooruTagTool` repository.
+
+Because direct private binary rendering through the current ChatGPT GitHub connector is not assumed, the guaranteed review handoff is one current contact sheet/audit sheet attached to ChatGPT per wave. That sheet contains all human-required pairs plus a sampled subset of machine-handled pairs. If direct private binary retrieval is later proven, it may replace this one-sheet manual handoff.
+
+All cleanup follows `docs/project/AUDIT_ARTIFACT_CACHE_POLICY.md`. Cleanup must fail closed and may never cross into the main repository, protected data, source images, accepted evidence, or model directories.
 
 ## Machine vs human boundary
 
@@ -120,7 +153,7 @@ No fixed production threshold should be invented merely to automate more aggress
 1. Batch 2 DEV review completed.
 2. Issue #30 branch merged/synchronized with latest live `main`; stale `origin/main` is not accepted.
 3. Batch 2 machine-handled pairs receive independent visual audit or an explicit DEV rationale for why they are sufficient without it.
-4. Private/disposable audit-image transfer path is available.
+4. Disposable audit-image path and one-sheet ChatGPT handoff are available.
 5. Audit-cache deletion guards from `AUDIT_ARTIFACT_CACHE_POLICY.md` are implemented/tested before any automated cleanup.
 6. Current Issue #30 body and `CURRENT_DEV_TASK.md` are updated together to authorize the new broad-coverage lane.
 
