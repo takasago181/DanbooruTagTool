@@ -4,9 +4,9 @@
 
 ## Mirror Metadata
 
-- Source Issue: **#30** `[Stage10-PREP][TEMP][CALIBRATION_READY] Forge Neo A/B automation & external-tool integration`
-- State: **ACTIVE / CALIBRATION_DESIGN**
-- Branch: task branch from latest `main` for Issue #30 calibration work
+- Source Issue: **#30** `[Stage10-PREP][TEMP][DESIGN_READY] Forge Neo evaluator calibration & A/B automation`
+- State: **ACTIVE / CALIBRATION_DESIGN_READY / CONTROLLED_EXECUTION_NOT_YET_STARTED**
+- Branch: `codex/issue30-calibration-design`
 - Previous DEV: #43 `[NAMING][COMPLETED] Finalize Special Core Dictionary naming and freeze handoff`
 - Current Stage: Stage10準備Gate実施中
 
@@ -14,7 +14,9 @@
 
 Issue #44で確定した3 evaluator coverageを受け取り、Stage10本番A/Bの前に、代表Special Core Entryを使った実画像キャリブレーションを再現可能な形で設計・実施する。
 
-Current representative design is 32 cases × 4 images = planned 128 images. All planned images are screened first by WD14 / Kagami-24k / CL Tagger v2.00. Human review is concentrated on protected-route anchors, evaluator exceptions and a small stratified AUTO-likely sample.
+Calibration design is now materially complete and reviewable. Current representative design is **32 cases × 4 images = planned 128 images**. All planned images are screened first by WD14 / Kagami-24k / CL Tagger v2.00. Human review is concentrated on protected-route anchors, evaluator exceptions and a stratified AUTO-likely sample.
+
+The controlled 128-image execution has **not started** merely because the design exists. Execute only after explicit authorization under Issue #30.
 
 `AUTO_CANDIDATE` は自動採点承認ではない。
 
@@ -37,32 +39,22 @@ Current desk results:
 - BLOCKED: 831
 - relation/binding structural risk: 918
 
-## Required work
+## Current design artifacts
 
-1. latest `main` から Issue #30 用task branchを使用する。
-2. approved representative manifestを保持し、controlled real-image calibrationを実施可能にする。
-3. easyだけでなく、simple unary / rare-tail / multiple Specials / person relationship / subject-object / body-part / quantity / spatial / insertion-contact-restraint / compound / component-only / disagreement / AUTO control / REVIEW boundary / BLOCKED controlを含める。
-4. machine-readable result schemaとgeneration provenanceを保持する。
-5. Human referenceと WD14 / Kagami / CL v2.00 raw outputを比較する。
-6. evaluator-alone / OR / AND / majority / CL-primary + support / disagreement-to-human / limited component proxyを比較する。
-7. precision / false-positive suppressionをautomation率より優先する。
-8. Stage10 production A/Bへ進める明示Gateを定義する。
-9. 必要性が実証された場合のみ最小限の補助scriptを追加する。
+- `docs/testing/ISSUE30_REAL_IMAGE_CALIBRATION_DESIGN_20260910.md`
+- `docs/testing/ISSUE30_REAL_IMAGE_CALIBRATION_CASES_20260910.csv`
+- `docs/testing/ISSUE30_REAL_IMAGE_CALIBRATION_RESULT_SCHEMA_20260910.json`
 
-## Result schema minimum
+## Next work
 
-各画像について最低限:
-- case_id / Special ID / canonical
-- model / checkpoint / model version
-- Prompt / Negative Prompt / Seed
-- sampler / steps / CFG / resolution
-- LoRA state + weight
-- generated image path/hash
-- human reference verdict + judgment dimensions
-- WD14 / Kagami / CL raw scores and tags
-- evaluator correctness/agreement/disagreement
-- relation/binding required flag
-- final calibration verdict
+1. Review/accept the completed calibration design if not already explicitly accepted.
+2. Only after explicit authorization, execute the controlled 32-case / 128-image calibration.
+3. Compare human image-level reference with WD14 / Kagami / CL v2.00 raw outputs.
+4. Compare evaluator-alone / OR / AND / majority / CL-primary + support / disagreement-to-human / limited component proxy strategies.
+5. Prioritize precision and false-positive suppression over automation rate.
+6. Calibrate provisional `AUTO / HUMAN REVIEW / BLOCKED` routing.
+7. Define only evidence-supported candidate `A_WIN / B_WIN` behavior.
+8. Hand final operational constraints/results to #42 / #5 / `STAGE_10_PREP.md`.
 
 ## Evaluation rules
 
@@ -78,11 +70,12 @@ Current desk results:
 ## UI-JA concurrency note
 
 UI-JA current execution route is **Issue #36 V5 ChatGPT-led 31-shard repair/audit** on `ui-ja/issue36-relaxed-v5-chatgpt-repair`.
-Historical Issue #46 Codex orchestration is superseded and does not replace or alter this #30 core DEV contract.
+Historical Issue #46 Codex orchestration is **superseded / closed** and does not replace or alter this #30 core DEV contract.
 
 ## Hard prohibitions
 
 - Stage10 production A/Bを開始しない
+- explicit authorization前にcontrolled 128-image calibrationを開始しない
 - 2,788-image sweepをしない
 - production `data/**` を変更しない
 - #32 verdictを書き換えない
@@ -95,24 +88,14 @@ Historical Issue #46 Codex orchestration is superseded and does not replace or a
 
 ## Completion criteria
 
-- calibration experiment specification exists
-- machine-readable result schema exists
-- representative case list + rationale exists
-- execution procedure exists
-- evaluator comparison strategy exists
-- provisional AUTO / HUMAN REVIEW / BLOCKED rules exist
-- explicit Stage10 production-start Gate exists
-- expected failure modes documented
-- only justified minimal helper tooling added
-- `data/**`, #32, canonical unchanged
-- reviewable branch/commit/report available
+Issue #30 is not complete at design-ready state. Completion requires the authorized controlled calibration to return reviewable evidence and a final capability-aware routing result suitable for #42/#5 handoff, or an explicit HOLD/BLOCKED disposition.
 
-## Start Gate
+## Start / continuation Gate
 
-Codexは実装開始前に必ず:
+Codexは作業継続前に必ず:
 1. latest `main` を取得する。
 2. `docs/project/CURRENT_STATE.md` が Current Core DEV = **#30** であることを確認する。
-3. このファイルの Source Issue = **#30** と Issue #30 本文のscopeが一致することを確認する。
+3. このファイルの Source Issue = **#30** と Issue #30 本文のscope/stateが一致することを確認する。
 4. stale branch/mirrorを見ている場合は更新し、なお不一致ならSTOPして報告する。
 
 Issue本文・CURRENT_STATE・CURRENT_DEV_TASKが一致して初めて #30 calibration workを継続する。
