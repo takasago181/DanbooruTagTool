@@ -1,0 +1,47 @@
+canonical,old_display_ja,new_display_ja,reason
+green_nightgown,緑のnightgown,緑色のナイトガウン,MIXED_ENGLISH_DEBRIS
+green_penis,緑のpenis,緑色の陰茎,MIXED_ENGLISH_DEBRIS
+green_petals,緑のpetals,緑色の花びら,MIXED_ENGLISH_DEBRIS
+green_pillow,緑のpillow,緑色の枕,MIXED_ENGLISH_DEBRIS
+green_poncho,緑のponcho,緑色のポンチョ,MIXED_ENGLISH_DEBRIS
+green_pupils,緑色瞳孔,緑色の瞳孔,AWKWARD_MACHINE_TRANSLATION
+green_pussy,緑のpussy,緑色の膣,MIXED_ENGLISH_DEBRIS
+green_raincoat,緑のraincoat,緑色のレインコート,MIXED_ENGLISH_DEBRIS
+green_rose,緑玫瑰,緑色のバラ,NON_JAPANESE_RESIDUE
+green_sarong,グリーンサロン,緑色のサロン,AWKWARD_MACHINE_TRANSLATION
+green_sash,グリーンサッシ,緑色のサッシュ,SEMANTIC_ERROR
+green_scales,緑色のスケール,緑色の鱗,SEMANTIC_ERROR
+green_scarf,緑の・マフラー,緑色のスカーフ,SEMANTIC_NARROWING
+green_scrunchie,グリーンシュリューヒー,緑色のシュシュ,SEMANTIC_ERROR
+green_serafuku,グリーンセラフク,緑色のセーラー服,AWKWARD_MACHINE_TRANSLATION
+green_shawl,緑のshawl,緑色のショール,MIXED_ENGLISH_DEBRIS
+green_slippers,緑のslippers,緑色のスリッパ,MIXED_ENGLISH_DEBRIS
+green_snake,緑のsnake,緑色の蛇,MIXED_ENGLISH_DEBRIS
+green_stem_(e.g.o),green stem (e.g.o),グリーン・ステム（E.G.O）,CANONICAL_FALLBACK_TRANSLATABLE
+green_swim_trunks,緑の泳ぐ・trunks,緑色のスイムトランクス,MIXED_ENGLISH_DEBRIS
+green_tabard,緑のtabard,緑色のタバード,MIXED_ENGLISH_DEBRIS
+green_track_suit,グリーントラックスーツ,緑色のジャージ,AWKWARD_MACHINE_TRANSLATION
+green_visor_cap,緑のバイザー・帽子,緑色のサンバイザー,MIXED_ENGLISH_DEBRIS
+green_wrist_cuffs,緑の手首・カフ,緑色のリストカフス,AWKWARD_MACHINE_TRANSLATION
+grenade_hair_ornament,手ren弾の髪の飾り,手榴弾の髪飾り,SEMANTIC_ERROR
+grenade_pin_in_mouth,grenade・ピンの中のmouth,口に手榴弾のピン,MIXED_ENGLISH_DEBRIS
+grey-tinted_eyewear,タグ「grey-tinted eyewear」,灰色がかった眼鏡,RAW_ENGLISH_WRAPPER
+grey_arm_warmers,grey armのウォーマー,灰色のアームウォーマー,MIXED_ENGLISH_DEBRIS
+grey_armband,grey・腕章,灰色の腕章,MIXED_ENGLISH_DEBRIS
+grey_assault_visor,grey・assault・バイザー,灰色のアサルトバイザー,MIXED_ENGLISH_DEBRIS
+grey_bandana,タグ「grey bandana」,灰色のバンダナ,RAW_ENGLISH_WRAPPER
+grey_bandeau,タグ「grey bandeau」,灰色のバンドゥ,RAW_ENGLISH_WRAPPER
+grey_beard,grey・髭,灰色のひげ,MIXED_ENGLISH_DEBRIS
+grey_bird,タグ「grey bird」,灰色の鳥,RAW_ENGLISH_WRAPPER
+grey_bloomers,タグ「grey bloomers」,灰色のブルマー,RAW_ENGLISH_WRAPPER
+grey_bonnet,タグ「grey bonnet」,灰色のボンネット,RAW_ENGLISH_WRAPPER
+grey_bridal_gauntlets,grey・花嫁用のガントレット,灰色のブライダルガントレット,MIXED_ENGLISH_DEBRIS
+grey_buruma,タグ「grey buruma」,灰色のブルマー,RAW_ENGLISH_WRAPPER
+grey_butterfly,grey・蝶,灰色の蝶,MIXED_ENGLISH_DEBRIS
+grey_car,タグ「grey car」,灰色の車,RAW_ENGLISH_WRAPPER
+grey_corset,grey・コルセット,灰色のコルセット,MIXED_ENGLISH_DEBRIS
+grey_crown,タグ「grey crown」,灰色の王冠,RAW_ENGLISH_WRAPPER
+grey_facial_hair,grey・facial・髪,灰色のひげ,MIXED_ENGLISH_DEBRIS
+grey_garter_straps,タグ「grey garter straps」,灰色のガーターストラップ,RAW_ENGLISH_WRAPPER
+grey_gem,grey・宝石,灰色の宝石,MIXED_ENGLISH_DEBRIS
+grey_hanfu,タグ「grey hanfu」,灰色の漢服,RAW_ENGLISH_WRAPPER
