@@ -22,7 +22,7 @@ Codexは独立した班ではなく、DEV（開発班）の実装担当。
 8. `PERMANENT_RULES.md` と照合し、整合している場合だけ作業を開始する
 9. その後でのみ、現在branch上の管理ファイルとの差分を確認する
 
-**古いtask branch上の `CURRENT_STATE.md` / `CURRENT_DEV_TASK.md` / `AGENTS.md` を、fetch後の `origin/main` より優先して現在地判定に使ってはいけない。**
+**古いtask branch上の `CURRENT_STATE.md` / `AGENTS.md` を、fetch後の `origin/main` より優先して現在地判定に使ってはいけない。**
 現在branchの管理ファイルが `origin/main` と異なる場合、branch-local stateはそのbranch作成時点の履歴として扱い、現在地は `origin/main` を優先する。
 
 remote-current-state確認後、通常のCodex DEV読取順は:
@@ -30,8 +30,6 @@ remote-current-state確認後、通常のCodex DEV読取順は:
 2. `origin/main:docs/project/PERMANENT_RULES.md`
 3. `gh issue view <CURRENT_DEV_ISSUE> --comments`
 4. 現行Stageの仕様・実装レポート
-
-`docs/project/CURRENT_DEV_TASK.md` は移行期間中の参考資料 / fallback diagnostic artifactであり、live GitHub Issueより優先しない。必要な場合だけ差分・古いcheckpoint・移行残件の診断に使う。
 
 その後、必要に応じて下記の恒久仕様を読む。
 Issue番号は固定値として記憶せず、毎回 `origin/main` の `CURRENT_STATE.md` から現行DEV Issueを特定する。
@@ -69,15 +67,7 @@ Issue番号は固定値として記憶せず、毎回 `origin/main` の `CURRENT
 
 ## 3. 現行DEV task contract
 
-Codexは、`CURRENT_STATE.md` が示すIssueをlive GitHubから直接取得する。GitHub IssueがDEV作業の正本であり、`CURRENT_DEV_TASK.md` は現行task contractの代替ではない。
-
-確認手順:
-1. `origin/main:docs/project/CURRENT_STATE.md` から現行DEV Issue番号、または `NONE` を取得する。
-2. `NONE` の場合は正常な `NO_CURRENT_DEV / MANAGEMENT_HANDOFF` として停止し、新規core DEVを推測しない。
-3. 実Issue番号の場合、`gh issue view <ISSUE_NUMBER> --comments` を実行し、title / state / body / 最新コメント / 最新checkpoint / continuation contract / completion condition / blocker・gateを確認する。
-4. `CURRENT_STATE.md` のIssue番号と取得結果が一致し、Issueが想定外にclosed / supersededでなく、`PERMANENT_RULES.md` と矛盾しない場合だけ作業を開始する。
-5. `gh` 利用不可、認証失敗、Issue取得失敗、Issue本文と最新checkpointの関係不明、または明確な矛盾がある場合はfail-closedで停止する。古い `CURRENT_DEV_TASK.md` を根拠に続行しない。
-6. `CURRENT_DEV_TASK.md` は参考資料 / fallback diagnostic artifactとして必要時に読む。live Issueとの不一致は報告するが、古い内容を最新仕様として実装しない。
+現行DEVの目的・scope・禁止事項・完了条件は、Section 1で取得したlive GitHub Issue本文から読む。`CURRENT_STATE.md` はcurrent DEV Issue番号とroutingを担い、GitHub IssueがDEV作業の正本である。
 
 Issueコメントは最新checkpoint・結果・証跡・履歴の確認に使う。コメントだけでIssue本文のtask contractを黙って上書きしたものとは扱わない。
 

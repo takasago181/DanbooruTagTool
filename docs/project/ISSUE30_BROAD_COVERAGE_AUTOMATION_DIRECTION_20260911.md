@@ -155,7 +155,7 @@ No fixed production threshold should be invented merely to automate more aggress
 3. Batch 2 machine-handled pairs receive independent visual audit or an explicit DEV rationale for why they are sufficient without it.
 4. Disposable audit-image path and one-sheet ChatGPT handoff are available.
 5. Audit-cache deletion guards from `AUDIT_ARTIFACT_CACHE_POLICY.md` are implemented/tested before any automated cleanup.
-6. Current live Issue #30 body is updated and `CURRENT_STATE.md` routing is aligned to authorize the new broad-coverage lane. `CURRENT_DEV_TASK.md` is not a required synchronization target.
+6. Current live Issue #30 body is updated and `CURRENT_STATE.md` routing is aligned to authorize the new broad-coverage lane.
 
 ## Hard boundaries
 

@@ -71,7 +71,7 @@ Status: ADOPTED
 
 `CURRENT_STATE.md` はcurrent DEV Issue番号を示すrouting正本とし、Codexはその番号のlive GitHub Issueを `gh issue view <ISSUE_NUMBER> --comments` で直接取得する。Issue title / state / body / 最新コメント / 最新checkpoint / continuation contract / completion condition / blocker・gateを確認し、`PERMANENT_RULES.md` と照合してから作業を開始する。
 
-Fail-closed条件は、`gh` 不在、認証失敗、Issue取得失敗、番号不一致、想定外のclosed / superseded、Issue本文と最新checkpointの関係不明、または恒久ルールとの明確な矛盾である。`docs/project/CURRENT_DEV_TASK.md` は移行期間中の参考資料 / fallback diagnostic artifactとして保持するが、Issueより優先せず、同期を実装開始の前提にしない。driftは報告する。
+Fail-closed条件は、`gh` 不在、認証失敗、Issue取得失敗、番号不一致、想定外のclosed / superseded、Issue本文と最新checkpointの関係不明、または恒久ルールとの明確な矛盾である。driftや管理文書との不一致を確認した場合も、古い資料を根拠に続行しない。
 
 ---
 
