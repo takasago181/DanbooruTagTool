@@ -114,10 +114,23 @@ def acquire_run_lock() -> Path:
 
 
 def forge_process_count() -> int | None:
-    """Return the number of Forge launch processes when Windows exposes it."""
+    """Return the number of independent Forge launch trees on Windows.
+
+    Stability Matrix can expose a normal parent/child pair with the same
+    ``launch.py`` command line.  Count only roots, so that pair is accepted
+    while two separately launched Forge trees are rejected.
+    """
     if os.name != "nt":
         return None
-    command = "Get-CimInstance Win32_Process -Filter \"Name='python.exe'\" | Where-Object { $_.CommandLine -match 'Forge Neo.*launch.py|launch.py.*Forge Neo' } | Measure-Object | Select-Object -ExpandProperty Count"
+    command = (
+        "$ps=@(Get-CimInstance Win32_Process | Where-Object { "
+        "($_.Name -eq 'python.exe') -and "
+        "([string]$_.CommandLine -like '*Stable Diffusion WebUI Forge - Neo*') -and "
+        "([string]$_.CommandLine -like '*launch.py*') }); "
+        "$ids=@($ps | ForEach-Object { [int]$_.ProcessId }); "
+        "$roots=@($ps | Where-Object { $ids -notcontains [int]$_.ParentProcessId }); "
+        "$roots.Count"
+    )
     result = subprocess.run(["powershell", "-NoProfile", "-Command", command], capture_output=True, text=True, timeout=20)
     text = result.stdout.strip()
     return int(text) if result.returncode == 0 and text.isdigit() else None
