@@ -1,4 +1,8 @@
-# CURRENT DEV TASK
+# CURRENT DEV TASK — MIGRATION REFERENCE / FALLBACK DIAGNOSTIC ONLY
+
+> This file is retained during the direct-Issue migration. It is not the current DEV task contract and never outranks the live GitHub Issue.
+> Codex must read `CURRENT_STATE.md`, obtain the current DEV Issue number, run `gh issue view <ISSUE_NUMBER> --comments`, inspect the live Issue and latest checkpoint, then compare with `PERMANENT_RULES.md` before implementation.
+> If this file differs from the live Issue, report the drift and do not use stale mirror content as current specification.
 
 最終同期: 2026-09-11
 
@@ -15,7 +19,7 @@ Supporting policies:
 - `docs/project/AUDIT_ARTIFACT_CACHE_POLICY.md`
 - `docs/project/ISSUE30_BROAD_COVERAGE_AUTOMATION_DIRECTION_20260911.md`
 
-This file is the Codex-readable mirror of Issue #30. If Issue #30 and this file differ, do not implement until DEV synchronizes them.
+This file is the retained migration reference for Issue #30. If it differs from Issue #30, report the drift; do not wait for or require synchronization before reading the live Issue, and do not use stale content as current specification.
 
 ## Accepted Batch 2 checkpoint
 

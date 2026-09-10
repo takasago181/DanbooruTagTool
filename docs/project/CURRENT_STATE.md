@@ -33,7 +33,7 @@ Current restore anchors:
 - broad direction: `docs/project/ISSUE30_BROAD_COVERAGE_AUTOMATION_DIRECTION_20260911.md`
 - branch: `codex/issue30-calibration-design`
 
-`CURRENT_DEV_TASK.md` is synchronized to Source Issue #30 / BROAD_COVERAGE_WAVE1_AUTHORIZED_AFTER_PREFLIGHT / MACHINE_FIRST / FULL_CHATGPT_VISUAL_AUDIT.
+Codex DEV startup source is: this current DEV Issue number → live GitHub Issue via `gh issue view <ISSUE_NUMBER> --comments` → `PERMANENT_RULES.md`. `CURRENT_DEV_TASK.md` is retained only as a migration-period reference / fallback diagnostic artifact and never outranks the live Issue.
 
 Issue #42 remains downstream and is still gated on #36 V5 / #34 material UI-JA/search work completion or explicit separation. Phase 2 does not bypass that Gate.
 
@@ -304,7 +304,7 @@ Then:
 ## Source-of-Truth Rule
 
 - current core DEV = **Issue #30 / Broad Coverage Wave 1 / AUTHORIZED_AFTER_PREFLIGHT / FULL_CHATGPT_VISUAL_AUDIT**
-- `CURRENT_DEV_TASK.md` Source Issue = **#30**
+- current DEV Issue number = **#30**; fetch its live title/state/body/comments with `gh issue view 30 --comments`
 - current continuation contract = `docs/project/ISSUE30_BROAD_COVERAGE_WAVE1_SPEC_20260911.md`
 - audit cleanup policy = `docs/project/AUDIT_ARTIFACT_CACHE_POLICY.md`
 - broad direction = `docs/project/ISSUE30_BROAD_COVERAGE_AUTOMATION_DIRECTION_20260911.md`
@@ -319,5 +319,5 @@ Then:
 - #32 parked REVIEW / IMAGE_TEST_REQUIRED evidence is carry-forward asset and must not be discarded
 - #44 exact evaluator desk coverage is completed
 - Issue #46 is superseded historical evidence; current UI-JA route = Issue #36 V5
-- DEV切替時は Issue + CURRENT_STATE + CURRENT_DEV_TASK を同一管理操作で同期する
+- DEV切替時は live GitHub Issue + CURRENT_STATE を同一管理操作で整合させる。CURRENT_DEV_TASK.md は必要な移行参考情報としてのみ更新する
 - completion reportだけで次Gateへ進まない。live GitHub stateを再確認する

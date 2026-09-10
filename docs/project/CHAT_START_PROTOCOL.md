@@ -10,9 +10,10 @@
 
 - 常設3班（DEV / KNOWLEDGE / PROMPT）、必要時AUDIT、TEMP:
   `CURRENT_STATE.md` → `PERMANENT_RULES.md` → `CURRENT_STATE.md` に記載された自班/担当または監査対象の現行Issue → 必要な現行Stage仕様 / Decision / main状態
-- Codex:
-  `AGENTS.md` → `CURRENT_STATE.md` → `PERMANENT_RULES.md` → `CURRENT_DEV_TASK.md` → 現行Stage仕様・実装レポート
-- `CURRENT_DEV_TASK.md` はDEVの現行IssueをCodexが読むための同期ミラーであり、AUDIT / KNOWLEDGE / PROMPT / TEMPのIssueや監査対象を置き換えない。
+- Codex DEV:
+  `AGENTS.md` → `CURRENT_STATE.md` → current DEV Issue番号を取得 → `gh issue view <ISSUE_NUMBER> --comments` → `PERMANENT_RULES.md` → 現行Stage仕様・実装レポート
+- `CURRENT_DEV_TASK.md` は移行期間中の参考資料 / fallback diagnostic artifactであり、live GitHub IssueやAUDIT / KNOWLEDGE / PROMPT / TEMPのIssueを置き換えない。
+- `gh` 不在、認証失敗、Issue取得失敗、Issue番号不一致、想定外のclosed / superseded、Issue本文と最新checkpointの関係不明、または恒久ルール矛盾がある場合はfail-closedで実装を開始しない。
 - AUDITは常設4班目ではなく、明示された品質Gateのために起動し、独立判定を記録した後は常時待機しない。
 - TEMPも常設4班目ではなく、`CURRENT_STATE.md` に記載された期間限定担当として扱う。
 
@@ -46,7 +47,7 @@ checkpointには最低限、以下を残す。
 
 通常の途中経過はIssueコメントで十分であり、`CURRENT_STATE.md` を毎回更新しない。Stage・Gate・担当・全体の現在地が変わった場合だけ共有正本を更新する。
 
-checkpointコメントはtask contractを変更しない。目的・scope・禁止事項・完了条件を変更する場合はIssue本文を更新し、現行DEVなら `CURRENT_DEV_TASK.md` も同じ管理作業内で同期する。
+checkpointコメントはtask contractを黙って変更しない。目的・scope・禁止事項・完了条件はlive Issue本文を正本とし、最新コメントはcheckpoint・結果・証跡・履歴として確認する。`CURRENT_DEV_TASK.md` の同期は移行期間中の任意の参考資料更新である。
 
 ## 1. 旧チャット側で移動前に行うこと
 
@@ -55,8 +56,8 @@ checkpointコメントはtask contractを変更しない。目的・scope・禁�
 - AUDITは対象Gateの監査結果・exact target・判定・残blockerを対象Issueまたは監査Issueへ反映し、監査完了後は常時待機させない。
 - GitHub管理・調整チャットは、変更したIssue・管理文書・Decision等へ現在地と必要な記録を反映する。班ではないため専用Issueを新設する必要はない。
 - Stage完了や仕様変更がある場合は、必要に応じて `DECISIONS.md` または現行Stage仕様へ反映する。
-- DEVの現行Issue本文・state・完了条件を変更した場合は、`docs/project/CURRENT_DEV_TASK.md` も同じ管理作業内で同期する。
-- Codexが守るべきDEVの目的・scope・禁止事項・完了条件を変更した場合、Issueコメントだけで済ませずIssue本文と `CURRENT_DEV_TASK.md` に反映する。
+- DEVの現行Issue本文・state・完了条件を変更した場合は、live Issueを更新し、`CURRENT_STATE.md` のroutingと整合させる。`CURRENT_DEV_TASK.md` は必要な移行参考情報としてのみ更新する。
+- Codexが守るべきDEVの目的・scope・禁止事項・完了条件はlive Issue本文から読む。Issueと参考資料が食い違えば報告し、古い参考資料で続行しない。
 - 共有管理ファイルを更新する直前に最新mainを再取得し、古いチャット内コピーで上書きしない。
 - チャット本文だけに新しい決定を残したまま移動しない。
 - GitHub更新が完了した後に「新チャットへ移行可能」とユーザーへ伝える。
@@ -67,13 +68,13 @@ checkpointコメントはtask contractを変更しない。目的・scope・禁�
 
 1. `docs/project/CURRENT_STATE.md`
 2. `docs/project/PERMANENT_RULES.md`
-3. 常設班/TEMPは `CURRENT_STATE.md` に記載された自班の現行GitHub Issue、AUDITは明示された監査対象Issue/Gate、GitHub管理・調整チャットは関係する現行Issueと管理文書
-4. 必要な `DECISIONS.md` / 現行Stage仕様 / mainの実装状態
+3. Codex DEVは `CURRENT_STATE.md` に記載されたcurrent DEV Issueを `gh issue view <ISSUE_NUMBER> --comments` で直接取得する。常設班/TEMP/AUDITはそれぞれ明示された現行Issue/Gateを取得する。
+4. `PERMANENT_RULES.md` と必要な `DECISIONS.md` / 現行Stage仕様 / mainの実装状態
 5. 自班/担当Issueまたは監査対象の直近checkpoint / 結果コメント（必要な場合）
 
 Issue番号は固定しない。Stageや担当変更で番号が変わるため、過去チャットや記憶から推測せず、毎回 `CURRENT_STATE.md` と明示された監査依頼から特定する。
 
-DEV / Codex連携では、Codexはさらに `docs/project/CURRENT_DEV_TASK.md` のSource Issue番号が `CURRENT_STATE.md` の現行DEV Issue番号と一致することを確認する。DEV/管理側はCodexへ新規/再開指示を出す直前に、private GitHubの現行DEV Issue本文/stateと最新mainのミラーをlive照合し、同一Issue番号内の本文driftも解消しておく。
+DEV / Codex連携では、Codexが `CURRENT_STATE.md` のIssue番号とlive取得結果を一致確認する。`CURRENT_DEV_TASK.md` は参考資料 / fallback diagnostic artifactであり、live Issueとのdriftは報告するが、同期完了を実装開始の前提にしない。
 
 ## 3. 新チャットの認識確認 / 班ID
 
@@ -99,7 +100,7 @@ VERSION_LABEL: <optional human-readable label / N/A>
 - `BRANCH` / `HEAD` / `CHECKPOINT` はチャット記憶から埋めず、開始時にGitHubからlive確認する。Issue-only担当で専用branchがない場合も、参照した `main` のHEADを記録する。
 - `v2` / `v3` / `R3` / `FINAL` 等の版名は `VERSION_LABEL` またはPHASEの補助情報として使ってよいが、**版名だけを現在個体の識別子にしない**。
 - 実際の識別は少なくとも `TEAM_ID + ISSUE + BRANCH + HEAD + CHECKPOINT/CONTRACT + PHASE` で行う。
-- `CURRENT_STATE.md` の Workstreams Registry はrouting/indexであり、Issue本文、branch上の成果物、checkpoint、現行DEVの `CURRENT_DEV_TASK.md` を置き換えるtask contractではない。
+- `CURRENT_STATE.md` の Workstreams Registry はrouting/indexであり、live Issue本文、branch上の成果物、checkpointを置き換えるtask contractではない。`CURRENT_DEV_TASK.md` は移行参考資料に留まる。
 - Registry / Issue / branch / checkpointの間でowner・scope・phase・HEAD系統に矛盾がある場合、勝手に一方を採用しない。`IDENTITY_CONFLICT` と明記して実作業を止め、GitHub正本を先に整合させる。
 - Issue変更、branch変更、正式contract変更、大きなphase変更、チャット移行時には班IDを再取得する。通常の小checkpointごとに `CURRENT_STATE.md` の固定HEADを書き換える必要はない。
 
@@ -129,7 +130,7 @@ VERSION_LABEL: <optional human-readable label / N/A>
 - 仕様整理・Stage管理・Codex指示・成果確認を担当する。
 - CodexはDEVの実装担当であり独立班ではない。
 - 必要なAUDIT Gateの正式PASSを代行しない。
-- Codexへ作業を渡す直前にcurrent DEV Issueとmirrorのlive整合を確認する。
+- Codexへ作業を渡す場合も、Codex自身がcurrent DEV Issueをlive取得してtitle/state/body/latest checkpoint/contract/gateを確認する。
 - Codexはprivate GitHub Issueへ直接書き込む前提ではない。Codexはrepository成果をcommit/pushし、DEVがGitHubから取得・確認して担当Issueへcheckpoint/完了証跡を記録する。
 - Codexが「完了」と返しても、DEVがbranch/commit/report/test/protected結果を取得・確認してIssue証跡化するまでは監査渡ししない。
 

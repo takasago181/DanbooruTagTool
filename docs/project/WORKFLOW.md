@@ -40,7 +40,7 @@ A/B間で比較対象以外を固定。
 - branch / commit / file / evidence（ある場合）
 
 通常のcheckpointはIssueコメントに置く。コメントは履歴・証跡であり、task contractを変更しない。
-目的・scope・禁止事項・完了条件を変える場合はIssue本文を更新する。現行DEV Issueなら `docs/project/CURRENT_DEV_TASK.md` も同じ管理作業内で同期する。
+目的・scope・禁止事項・完了条件を変える場合はlive Issue本文を更新する。`CURRENT_STATE.md` のcurrent DEV routingと整合させ、`CURRENT_DEV_TASK.md` は必要な移行参考情報としてのみ更新する。
 
 ## 班間依頼・返却
 
@@ -106,16 +106,14 @@ GitHubを正本としつつ、ユーザーから依頼・返却内容が見え�
 
 ## DEV → Codex preflight
 
-Codexへ新規実装・再開指示を出す直前にDEV/管理側が行う。
+Codexは新規実装・再開時に、自身でlive Issueを直接取得して確認する。
 
-1. private GitHubの現行DEV Issue本文/stateをlive取得する。
-2. 最新mainの `CURRENT_STATE.md` と `CURRENT_DEV_TASK.md` を取得する。
-3. 現行DEV Issue番号 = mirror Source を確認する。
-4. Issue本文とmirrorの目的・scope・禁止事項・完了条件を照合する。
-5. 同一Issue番号でも差分があればmirrorを先に同期する。
-6. 整合確認後だけCodexへ実装/再開指示を出す。
-
-Codex側はさらにAGENTS.mdに従ってlocalのcurrent state/mirrorを確認する。
+1. 最新mainの `CURRENT_STATE.md` からcurrent DEV Issue番号を取得する。
+2. `gh issue view <ISSUE_NUMBER> --comments` でIssue title / state / body / 最新コメント / 最新checkpointを取得する。
+3. continuation contract / completion condition / blocker・gateを確認し、`PERMANENT_RULES.md` と照合する。
+4. `CURRENT_STATE.md` のIssue番号と取得結果が一致し、Issueが想定外にclosed / supersededでないことを確認する。
+5. `gh` 不在、認証失敗、取得失敗、本文とcheckpointの関係不明、または明確な矛盾があればfail-closedで停止する。
+6. `CURRENT_DEV_TASK.md` は参考資料 / fallback diagnostic artifactとしてdrift診断にのみ使い、古い内容を根拠に続行しない。
 
 ## Shared management docsの更新
 
@@ -146,15 +144,15 @@ Codex側はさらにAGENTS.mdに従ってlocalのcurrent state/mirrorを確認�
 - 条件・未解決事項をAUDIT Issueへ明記する。
 - 条件が次Stage開始を妨げるかDEVが確認する。
 - 修正が必要なら現行DEV Issueへ戻すか、明示的なrepair Issueを作る。
-- task contractが変わる場合はDEV Issue本文 + CURRENT_DEV_TASKを同期する。
+- task contractが変わる場合はDEV Issue本文を更新し、`CURRENT_STATE.md` のroutingと整合させる。`CURRENT_DEV_TASK.md` の更新は移行参考情報として任意とする。
 - 条件を満たす前に無条件PASSとして扱わない。
 
 ### FAIL
 - Stageを進めない。
 - 指摘と根拠をAUDIT Issueへ残す。
 - DEVは現行DEV Issueを再開するか、必要ならrepair Issueを明示的に作る。
-- scope/禁止/完了条件が変わる場合はIssue本文とmirrorを同期する。
-- mirror preflight後にCodexへ修正を渡す。
+- scope/禁止/完了条件が変わる場合はIssue本文を更新し、`CURRENT_STATE.md` と整合させる。
+- live Issue preflight後にCodexへ修正を渡す。
 - 再監査でPASSするまで次Stageを正式開始しない。
 
 ## GitHubとlocal protected data
