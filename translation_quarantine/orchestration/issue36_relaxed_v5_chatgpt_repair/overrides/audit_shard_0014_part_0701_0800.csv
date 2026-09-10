@@ -1,0 +1,59 @@
+canonical,old_display_ja,new_display_ja,reason
+fur-trimmed_overskirt,毛・整えた・overskirt,毛皮縁取りのオーバースカート,MIXED_ENGLISH_DEBRIS
+fur-trimmed_pajamas,毛・整えた・pajamas,毛皮縁取りのパジャマ,MIXED_ENGLISH_DEBRIS
+fur-trimmed_panties,毛皮のトリミングされたパンティー,毛皮縁取りのパンティー,AWKWARD_MACHINE_TRANSLATION
+fur-trimmed_pants,毛皮のトリミングされたズボン,毛皮縁取りのズボン,AWKWARD_MACHINE_TRANSLATION
+fur-trimmed_poncho,毛・整えた・poncho,毛皮縁取りのポンチョ,MIXED_ENGLISH_DEBRIS
+fur-trimmed_robe,毛皮のトリミングされたローブ,毛皮縁取りのローブ,AWKWARD_MACHINE_TRANSLATION
+fur-trimmed_scarf,毛・整えた・scarf,毛皮縁取りのスカーフ,MIXED_ENGLISH_DEBRIS
+fur-trimmed_shawl,毛皮のトリミングされたショール,毛皮縁取りのショール,AWKWARD_MACHINE_TRANSLATION
+fur-trimmed_shirt,毛皮のトリミングされたシャツ,毛皮縁取りのシャツ,AWKWARD_MACHINE_TRANSLATION
+fur-trimmed_shoes,毛・整えたの靴,毛皮縁取りの靴,AWKWARD_MACHINE_TRANSLATION
+fur-trimmed_shorts,毛辺短ズボン,毛皮縁取りのショートパンツ,NON_JAPANESE_RESIDUE
+fur-trimmed_shrug,毛・整えた・ボレロ,毛皮縁取りのボレロ,AWKWARD_MACHINE_TRANSLATION
+fur-trimmed_slippers,毛・整えた・slippers,毛皮縁取りのスリッパ,MIXED_ENGLISH_DEBRIS
+fur-trimmed_socks,毛・整えたの靴下,毛皮縁取りの靴下,AWKWARD_MACHINE_TRANSLATION
+fur-trimmed_sweater,毛皮のトリミングされたセーター,毛皮縁取りのセーター,AWKWARD_MACHINE_TRANSLATION
+fur-trimmed_tube_top,毛・整えた・チューブ・トップス,毛皮縁取りのチューブトップ,AWKWARD_MACHINE_TRANSLATION
+fur-trimmed_veil,毛・整えた・ベール,毛皮縁取りのベール,AWKWARD_MACHINE_TRANSLATION
+fur-trimmed_vest,毛皮のトリミングされたベスト,毛皮縁取りのベスト,AWKWARD_MACHINE_TRANSLATION
+fur-trimmed_waist_cape,毛皮のトリミングされたウエストケープ,毛皮縁取りのウエストケープ,AWKWARD_MACHINE_TRANSLATION
+fur-trimmed_wrist_cuffs,毛・整えた・手首・カフ,毛皮縁取りのリストカフス,AWKWARD_MACHINE_TRANSLATION
+fur_(clothing),タグ「fur (clothing)」,毛皮（衣類）,RAW_ENGLISH_WRAPPER
+fur_anklet,毛・アンクレット,毛皮のアンクレット,AWKWARD_MACHINE_TRANSLATION
+fur_arm_warmers,毛・腕のウォーマー,毛皮の腕ウォーマー,AWKWARD_MACHINE_TRANSLATION
+fur_boots,皮靴,毛皮のブーツ,SEMANTIC_ERROR
+fur_bra,毛・ブラ,毛皮のブラ,AWKWARD_MACHINE_TRANSLATION
+fur_capelet,皮草,毛皮のケープレット,NON_JAPANESE_RESIDUE
+fur_dress,毛・ドレス,毛皮のドレス,AWKWARD_MACHINE_TRANSLATION
+fur_footwear,ムートンブーツ,毛皮の履物,SEMANTIC_NARROWING
+fur_hair_tie,毛・髪・tie,毛皮のヘアゴム,MIXED_ENGLISH_DEBRIS
+fur_hairband,毛・ヘアバンド,毛皮のヘアバンド,AWKWARD_MACHINE_TRANSLATION
+fur_hood,毛・フード,毛皮のフード,AWKWARD_MACHINE_TRANSLATION
+fur_leg_warmers,fur legのウォーマー,毛皮のレッグウォーマー,MIXED_ENGLISH_DEBRIS
+fur_sleeve_cuffs,毛・sleeve・カフ,毛皮の袖口,MIXED_ENGLISH_DEBRIS
+fur_thigh_strap,毛・thigh・strap,毛皮の太ももストラップ,MIXED_ENGLISH_DEBRIS
+fur_vest,毛・vest,毛皮のベスト,MIXED_ENGLISH_DEBRIS
+fur_wrist_cuffs,毛・手首・カフ,毛皮のリストカフス,AWKWARD_MACHINE_TRANSLATION
+furina_(genshin_impact)_(cosplay),furina (genshin impact) (cosplay),フリーナ（原神）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+furious,狂怒,激怒,AWKWARD_MACHINE_TRANSLATION
+furisode_sleeves,タグ「furisode sleeves」,振袖の袖,RAW_ENGLISH_WRAPPER
+furoshiki_around_neck,furoshikiの周囲の首,首に巻いた風呂敷,SEMANTIC_RELATION_ERROR
+furred_dragon,ファードラ,毛皮に覆われたドラゴン,SEMANTIC_ERROR
+furry_and_animal,furry・and・動物,ケモノと動物,MIXED_ENGLISH_DEBRIS
+futaba_anzu_(cosplay),Futaba Anzu（コスプレ）,双葉杏（コスプレ）,MIXED_ENGLISH_DEBRIS
+futaba_riho_(cosplay),Futaba riho（コスプレ）,双葉理保（コスプレ）,MIXED_ENGLISH_DEBRIS
+futatsuiwa_mamizou_(cosplay),Futatsuiwa mamizou（コスプレ）,二ッ岩マミゾウ（コスプレ）,MIXED_ENGLISH_DEBRIS
+futhark,タグ「futhark」,フサルク,RAW_ENGLISH_WRAPPER
+future_fish,future fish,FUTURE FISH,CANONICAL_FALLBACK_TRANSLATABLE
+future_gadget_lab,タグ「future gadget lab」,未来ガジェット研究所,RAW_ENGLISH_WRAPPER
+fuyuki_(fate/grand_order),fuyuki (fate/grand order),冬木（Fate/Grand Order）,CANONICAL_FALLBACK_TRANSLATABLE
+fuzzy_clothes,fuzzy・服,毛羽立った服,MIXED_ENGLISH_DEBRIS
+fuzzy_handcuffs,タグ「fuzzy handcuffs」,ふわふわ手錠,RAW_ENGLISH_WRAPPER
+fw_190,タグ「fw 190」,Fw 190,RAW_ENGLISH_WRAPPER
+g-clef_(precure),g-clef（スイートプリケア）,Gクレフ（スイートプリキュア）,SEMANTIC_ERROR
+g-spot_stimulation,Gスポット,Gスポット刺激,SEMANTIC_UNDERSPECIFICATION
+g_corp._(identity)_(project_moon),g corp. (identity) (project moon),G社（人格）（Project Moon）,CANONICAL_FALLBACK_TRANSLATABLE
+gable_roof,タグ「gable roof」,切妻屋根,RAW_ENGLISH_WRAPPER
+gadabout_(dq3)_(cosplay),gadabout (dq3) (cosplay),遊び人（DQ3）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+gae_bolg_(fate),ゲーボルグ（運命）,ゲイ・ボルク（Fate）,SEMANTIC_ERROR
