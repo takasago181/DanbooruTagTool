@@ -52,3 +52,33 @@ decay,減衰,腐敗,SEMANTIC_ERROR
 deck_of_cards,カードのデッキ,トランプ一組,SEMANTIC_ERROR
 decorating_baked_goods,タグ「decorating baked goods」,焼き菓子を飾り付ける,RAW_ENGLISH_WRAPPER
 decorating_christmas_tree,タグ「decorating christmas tree」,クリスマスツリーを飾る,RAW_ENGLISH_WRAPPER
+deer_costume,deer・衣装,鹿の衣装,MIXED_ENGLISH_DEBRIS
+deer_hood,deer・フード,鹿のフード,MIXED_ENGLISH_DEBRIS
+deer_print,deerの柄,鹿柄,MIXED_ENGLISH_DEBRIS
+deflect,タグ「deflect」,そらす,RAW_ENGLISH_WRAPPER
+deformed_anus,タグ「deformed anus」,変形した肛門,RAW_ENGLISH_WRAPPER
+dejiko_(cosplay),dejiko（コスプレ）,デ・ジ・キャラットのデ・ジ・キャラット（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+delta_rune_(symbol),タグ「delta rune (symbol)」,デルタルーン（シンボル）,RAW_ENGLISH_WRAPPER
+delta_rune_print,delta runeの柄,デルタルーン柄,MIXED_ENGLISH_DEBRIS
+demon_hood,demon・フード,悪魔のフード,MIXED_ENGLISH_DEBRIS
+demon_king_academy_school_uniform,demon king academyの学校制服,魔王学院の制服,MIXED_ENGLISH_DEBRIS
+demonic_creature,タグ「demonic creature」,悪魔のような生物,RAW_ENGLISH_WRAPPER
+deneb_(star),タグ「deneb (star)」,デネブ（恒星）,RAW_ENGLISH_WRAPPER
+denim_apron,denim・エプロン,デニムエプロン,MIXED_ENGLISH_DEBRIS
+denim_bikini,denim・ビキニ,デニムビキニ,MIXED_ENGLISH_DEBRIS
+denim_dress,牛仔连衣裙,デニムドレス,NON_JAPANESE_RESIDUE
+denim_overalls,タグ「denim overalls」,デニムオーバーオール,RAW_ENGLISH_WRAPPER
+denji_(chainsaw_man)_(cosplay),denji (chainsaw man) (cosplay),デンジ（チェンソーマン）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+dental_chair,dental・椅子,歯科用椅子,MIXED_ENGLISH_DEBRIS
+dental_filling,タグ「dental filling」,歯の詰め物,RAW_ENGLISH_WRAPPER
+dentures,タグ「dentures」,入れ歯,RAW_ENGLISH_WRAPPER
+design_speculation,自设官方角色,デザイン推測,NON_JAPANESE_RESIDUE
+designer's_reflection_(shining_nikki),设计师之影,デザイナーの影（シャイニングニキ）,NON_JAPANESE_RESIDUE
+detachable_thumb,タグ「detachable thumb」,取り外し可能な親指,RAW_ENGLISH_WRAPPER
+detached_ahoge,戸建てアホージ,分離したアホ毛,SEMANTIC_ERROR
+detached_cape,戸建てケープ,分離したケープ,SEMANTIC_ERROR
+detached_ears,孤立した耳,分離した耳,AWKWARD_MACHINE_TRANSLATION
+detached_eyes,detached・目,分離した目,MIXED_ENGLISH_DEBRIS
+detached_horns,孤立した角,分離した角,AWKWARD_MACHINE_TRANSLATION
+detached_legs,脚の孤立した脚,分離した脚,SEMANTIC_ERROR
+detached_magazine_(weapon),マガジン,取り外した弾倉,SEMANTIC_UNDERSPECIFICATION
