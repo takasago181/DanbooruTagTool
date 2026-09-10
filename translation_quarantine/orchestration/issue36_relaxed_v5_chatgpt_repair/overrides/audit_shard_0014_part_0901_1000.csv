@@ -1,0 +1,37 @@
+canonical,old_display_ja,new_display_ja,reason
+gauze_on_face,gauzeの上の顔,顔についたガーゼ,SEMANTIC_RELATION_ERROR
+gauze_on_forehead,gauzeの上のforehead,額についたガーゼ,SEMANTIC_RELATION_ERROR
+gauze_on_hand,gauzeの上の手,手についたガーゼ,SEMANTIC_RELATION_ERROR
+gauze_on_knee,gauzeの上のknee,膝についたガーゼ,SEMANTIC_RELATION_ERROR
+gauze_on_leg,gauzeの上のleg,脚についたガーゼ,SEMANTIC_RELATION_ERROR
+gauze_on_neck,gauzeの上の首,首についたガーゼ,SEMANTIC_RELATION_ERROR
+gauze_on_thigh,gauzeの上のthigh,太ももについたガーゼ,SEMANTIC_RELATION_ERROR
+gauze_over_eye,gauzeの上の目,目を覆うガーゼ,SEMANTIC_RELATION_ERROR
+gawr_gura_(cosplay),ガーグラ（コスプレ）,がうる・ぐら（コスプレ）,SEMANTIC_ERROR
+gay_male_pride_flag,gay male prideの旗,ゲイ男性プライド旗,MIXED_ENGLISH_DEBRIS
+gaze_on_me!_outfit_(umamusume),私を見つめている！衣装（umamusume）,Gaze on Me!衣装（ウマ娘）,SEMANTIC_ERROR
+gear_background,gearの背景,歯車の背景,MIXED_ENGLISH_DEBRIS
+gear_earrings,gearのイヤリング,歯車のイヤリング,MIXED_ENGLISH_DEBRIS
+gear_hat_ornament,gear・帽子・飾り,歯車の帽子飾り,MIXED_ENGLISH_DEBRIS
+gehenna_academy_logo,gehenna academyのロゴ,ゲヘナ学園のロゴ,MIXED_ENGLISH_DEBRIS
+gekkoukan_high_school_uniform,Gekkoukan High Schoolの制服,月光館学園の制服,MIXED_ENGLISH_DEBRIS
+gem-studded_nails,宝石・studded・爪,宝石を散りばめた爪,MIXED_ENGLISH_DEBRIS
+gem_(azur_lane),タグ「gem (azur lane)」,ダイヤ（アズールレーン）,RAW_ENGLISH_WRAPPER
+gem_on_head,宝石の上の頭,頭についた宝石,SEMANTIC_RELATION_ERROR
+gem_uniform_(houseki_no_kuni),タグ「gem uniform (houseki no kuni)」,宝石の国の制服,RAW_ENGLISH_WRAPPER
+gemini_(symbol),タグ「gemini (symbol)」,双子座の記号,RAW_ENGLISH_WRAPPER
+genderswap_(otf),タグ「genderswap (otf)」,性別転換（OTF）,RAW_ENGLISH_WRAPPER
+genderswap_aware,タグ「genderswap aware」,性別転換を自覚,RAW_ENGLISH_WRAPPER
+genderswap_on_genderswap,genderswapの上のgenderswap,性別転換者同士,MIXED_ENGLISH_DEBRIS
+genius_invokation_tcg,七圣召唤,七聖召喚,NON_JAPANESE_RESIDUE
+genius_invokation_tcg_(style),タグ「genius invokation tcg (style)」,七聖召喚風,RAW_ENGLISH_WRAPPER
+genkan,玄关,玄関,NON_JAPANESE_RESIDUE
+genocide_route_(undertale),タグ「genocide route (undertale)」,虐殺ルート（Undertale）,RAW_ENGLISH_WRAPPER
+genre_connection,genre・接続,ジャンルのつながり,MIXED_ENGLISH_DEBRIS
+geo_symbol_(genshin_impact),岩元素のシンボル（Genshin Impact）,岩元素のシンボル（原神）,MIXED_ENGLISH_DEBRIS
+geokinesis,地属性,大地を操る能力,SEMANTIC_NARROWING
+georgian_era,タグ「georgian era」,ジョージ王朝時代,RAW_ENGLISH_WRAPPER
+german_flag_print,ドイツの旗印刷,ドイツ国旗柄,SEMANTIC_ERROR
+german_national_soccer_team_uniform,german national soccer teamの制服,ドイツ代表サッカー制服,MIXED_ENGLISH_DEBRIS
+gessen_academy_school_uniform,gessen academyの学校制服,月閃女学館の制服,MIXED_ENGLISH_DEBRIS
+getter_rays,タグ「getter rays」,ゲッター線,RAW_ENGLISH_WRAPPER
