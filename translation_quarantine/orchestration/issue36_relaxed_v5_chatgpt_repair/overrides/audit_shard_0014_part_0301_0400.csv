@@ -1,0 +1,52 @@
+canonical,old_display_ja,new_display_ja,reason
+food_focus,食べ物,食べ物を強調,SEMANTIC_UNDERSPECIFICATION
+food_in_pocket,食べ物の中のpocket,ポケットの中の食べ物,SEMANTIC_RELATION_ERROR
+food_name,食べ物・name,食べ物の名前,MIXED_ENGLISH_DEBRIS
+food_on_breasts,胸の食べ物,胸についた食べ物,SEMANTIC_RELATION_ERROR
+food_on_clothes,服の食べ物,服についた食べ物,SEMANTIC_RELATION_ERROR
+food_on_hair,髪の毛の食べ物,髪についた食べ物,SEMANTIC_RELATION_ERROR
+food_on_hand,手元の食べ物,手の上の食べ物,SEMANTIC_RELATION_ERROR
+food_on_head,頭の食べ物,頭の上の食べ物,SEMANTIC_RELATION_ERROR
+food_on_legs,足の食べ物,脚についた食べ物,SEMANTIC_RELATION_ERROR
+food_on_pectorals,食べ物の上のpectorals,胸筋についた食べ物,SEMANTIC_RELATION_ERROR
+food_print,フードプリント,食べ物柄,SEMANTIC_ERROR
+food_stand,でみせ,食べ物の屋台,SEMANTIC_ERROR
+food_truck,屋台,フードトラック,SEMANTIC_NARROWING
+food_with_face,食べ物・付きの顔,顔のある食べ物,SEMANTIC_RELATION_ERROR
+food_wrapper,フードラッパー,食品の包装,SEMANTIC_ERROR
+foodification,お菓子化,食べ物化,SEMANTIC_NARROWING
+foot_against_wall,足・対面した・壁,壁に足をつける,AWKWARD_MACHINE_TRANSLATION
+foot_dangle,脚部悬挂,足をぶら下げる,NON_JAPANESE_RESIDUE
+foot_hair,足髪,足の毛,SEMANTIC_ERROR
+foot_on_another's_back,後ろに足,他人の背中に足,SEMANTIC_RELATION_ERROR
+foot_on_another's_breast,胸の足,他人の乳房に足,SEMANTIC_RELATION_ERROR
+foot_on_another's_chest,足の上の他人の胸,他人の胸に足,SEMANTIC_RELATION_ERROR
+foot_on_another's_face,顔に足,他人の顔に足,SEMANTIC_UNDERSPECIFICATION
+foot_on_another's_thigh,足の上の他人のthigh,他人の太ももに足,SEMANTIC_RELATION_ERROR
+foot_on_table,足の上のtable,テーブルの上の足,SEMANTIC_RELATION_ERROR
+foot_on_weapon,foot onの武器,武器の上の足,SEMANTIC_RELATION_ERROR
+footjob_over_clothes,衣服の上の足場,服の上からの足コキ,SEMANTIC_ERROR
+footjob_through_footwear,footjob・越しの履物,履物越しの足コキ,MIXED_ENGLISH_DEBRIS
+footjob_under_table,桌下足交,テーブルの下で足コキ,NON_JAPANESE_RESIDUE
+footjob_with_footwear,footjob・付きの履物,履物を履いた足コキ,MIXED_ENGLISH_DEBRIS
+footjob_with_sandals,footjob・付きのサンダル,サンダルを履いた足コキ,MIXED_ENGLISH_DEBRIS
+footprint_on_body,footprintの上の身体,身体についた足跡,SEMANTIC_RELATION_ERROR
+footstool,脚凳,足台,NON_JAPANESE_RESIDUE
+footwear_focus,履物・焦点,履物を強調,SEMANTIC_ERROR
+for_the_better_right?_(meme),より良い権利のために？ （ミーム）,良い方向にだよね？（ミーム）,SEMANTIC_ERROR
+forced_cunnilingus,タグ「forced cunnilingus」,強制クンニリングス,RAW_ENGLISH_WRAPPER
+forced_dressing,強制ドレッシング,強制着衣,SEMANTIC_ERROR
+forced_hug,タグ「forced hug」,強制ハグ,RAW_ENGLISH_WRAPPER
+forced_lactation,タグ「forced lactation」,強制乳汁分泌,RAW_ENGLISH_WRAPPER
+forced_masturbation,タグ「forced masturbation」,強制自慰,RAW_ENGLISH_WRAPPER
+forced_perspective,強制的な視点,強制遠近法,SEMANTIC_ERROR
+forehead-to-forehead,額からfore-forehead,額と額を合わせる,MIXED_ENGLISH_DEBRIS
+forehead_blush,forehead・赤み,額の赤み,MIXED_ENGLISH_DEBRIS
+forehead_piercing,foreheadのピアス,額のピアス,MIXED_ENGLISH_DEBRIS
+forehead_ui,タグ「forehead ui」,額のUI,RAW_ENGLISH_WRAPPER
+foreskin_insertion,伸入包皮,包皮への挿入,NON_JAPANESE_RESIDUE
+fork_hair_ornament,forkの髪飾り,フォークの髪飾り,MIXED_ENGLISH_DEBRIS
+forked_hair,forked・髪,二股に分かれた髪,MIXED_ENGLISH_DEBRIS
+form_change,タグ「form change」,形態変化,RAW_ENGLISH_WRAPPER
+formidable_(azur_lane)_(cosplay),恐ろしい（Azur Lane）（コスプレ）,フォーミダブル（アズールレーン）（コスプレ）,SEMANTIC_ERROR
+fortune_bikini,fortune・ビキニ,フォーチュンビキニ,MIXED_ENGLISH_DEBRIS
