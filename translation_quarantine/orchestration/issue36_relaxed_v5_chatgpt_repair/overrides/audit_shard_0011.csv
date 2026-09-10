@@ -82,3 +82,52 @@ coffee_filter,タグ「coffee filter」,コーヒーフィルター,RAW_ENGLISH_
 coffee_maker,パーコレータ,コーヒーメーカー,SEMANTIC_NARROWING
 coffee_table,咖啡桌,コーヒーテーブル,NON_JAPANESE_RESIDUE
 coil,タグ「coil」,コイル,RAW_ENGLISH_WRAPPER
+coiled,タグ「coiled」,巻かれた状態,RAW_ENGLISH_WRAPPER
+coin_mask,coin mask,コインの仮面,CANONICAL_FALLBACK_TRANSLATABLE
+coin_stack,タグ「coin stack」,積み重ねたコイン,RAW_ENGLISH_WRAPPER
+coin_sword,銅錢劍,銭剣,NON_JAPANESE_RESIDUE
+cold_war,冷战,冷戦,NON_JAPANESE_RESIDUE
+collage_background,拼贴背景,コラージュ背景,NON_JAPANESE_RESIDUE
+collar_chain_(jewelry),ピンホールカラー,襟元のチェーン,SEMANTIC_ERROR
+collar_grab,カラーグラブ,襟を掴む,SEMANTIC_ERROR
+collar_tabs,襟・tabs,襟章,MIXED_ENGLISH_DEBRIS
+collar_tug,拉扯领子,襟を引っ張る,NON_JAPANESE_RESIDUE
+collarbone_peek,collarbone・覗き見,鎖骨ちら見せ,MIXED_ENGLISH_DEBRIS
+collarbone_tattoo,collarboneのタトゥー,鎖骨のタトゥー,MIXED_ENGLISH_DEBRIS
+collared_bodysuit,襟付きのbodysuit,襟付きボディスーツ,MIXED_ENGLISH_DEBRIS
+collared_halterneck,襟付きのhalterneck,襟付きホルターネック,MIXED_ENGLISH_DEBRIS
+collared_jumpsuit,襟付きのjumpsuit,襟付きジャンプスーツ,MIXED_ENGLISH_DEBRIS
+collared_kimono,襟付きのkimono,襟付き着物,MIXED_ENGLISH_DEBRIS
+collared_pajamas,襟付きのpajamas,襟付きパジャマ,MIXED_ENGLISH_DEBRIS
+collared_socks,襟付きのの靴下,襟付き靴下,MALFORMED_JAPANESE
+collared_sweater,襟付きのsweater,襟付きセーター,MIXED_ENGLISH_DEBRIS
+collared_tunic,襟付きのtunic,襟付きチュニック,MIXED_ENGLISH_DEBRIS
+collision,碰撞,衝突,NON_JAPANESE_RESIDUE
+colombian_clothes,colombian・服,コロンビアの服,MIXED_ENGLISH_DEBRIS
+colony_interior,タグ「colony interior」,コロニー内部,RAW_ENGLISH_WRAPPER
+color-coded,カラーコーディング,色分けされた,SEMANTIC_ERROR
+color_connection,顔色相仿,色のつながり,NON_JAPANESE_RESIDUE
+color_coordination,赤と青,色合わせ,SEMANTIC_ERROR
+color_filter,タグ「color filter」,カラーフィルター,RAW_ENGLISH_WRAPPER
+color_picker,タグ「color picker」,カラーピッカー,RAW_ENGLISH_WRAPPER
+color_wheel,タグ「color wheel」,色相環,RAW_ENGLISH_WRAPPER
+color_wheel_challenge,タグ「color wheel challenge」,色相環チャレンジ,RAW_ENGLISH_WRAPPER
+colored_anus,色付きのanus,色付きの肛門,MIXED_ENGLISH_DEBRIS
+colored_armpit_hair,色付きの脇の下の髪,色付きの脇毛,SEMANTIC_ERROR
+colored_fingertips,色付きのfingertips,色付きの指先,MIXED_ENGLISH_DEBRIS
+colored_lights,色付きのlights,色付きの光,MIXED_ENGLISH_DEBRIS
+colored_pencil,彩铅,色鉛筆,NON_JAPANESE_RESIDUE
+colored_penis,色付きのpenis,色付きの陰茎,MIXED_ENGLISH_DEBRIS
+colored_petticoat,色付きのpetticoat,色付きのペチコート,MIXED_ENGLISH_DEBRIS
+colored_saliva,色付きのsaliva,色付きの唾液,MIXED_ENGLISH_DEBRIS
+colored_shoe_interior,色付きの靴のインテリア,色付きの靴の内側,SEMANTIC_ERROR
+colored_text_highlight,色付きのテキスト・highlight,色付きの文字ハイライト,MIXED_ENGLISH_DEBRIS
+colored_veins,色付きのveins,色付きの血管,MIXED_ENGLISH_DEBRIS
+colorful_background,多彩背景,カラフルな背景,NON_JAPANESE_RESIDUE
+colorful_clouds,オレンジ色の雲,カラフルな雲,SEMANTIC_ERROR
+colt_1851_navy,コルト1851海軍,コルト1851ネイビー,SEMANTIC_ERROR
+column_lineup,多列排布,縦列配置,NON_JAPANESE_RESIDUE
+column_lineup_background,column lineupの背景,縦列配置の背景,MIXED_ENGLISH_DEBRIS
+combination_wrench,タグ「combination wrench」,コンビネーションレンチ,RAW_ENGLISH_WRAPPER
+comedy_and_tragedy_masks,タグ「comedy and tragedy masks」,喜劇と悲劇の仮面,RAW_ENGLISH_WRAPPER
+comic_panel_inset,漫画・panel・差し込み,漫画コマの差し込み,MIXED_ENGLISH_DEBRIS
