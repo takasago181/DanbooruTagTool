@@ -22,6 +22,23 @@ from PIL import Image, ImageDraw
 THRESHOLDS = {"wd14": 0.50, "kagami": 0.37, "cl_v2_00": 0.50}
 EVALUATORS = ("wd14", "kagami", "cl_v2_00")
 
+JA_GLOSS = {
+    "anus": "肛門",
+    "anus peek": "肛門ちら見せ",
+    "spread anus": "開いた肛門",
+    "exposed genitals": "露出した性器",
+    "genital closeup": "性器のクローズアップ",
+    "armpit sex": "脇を使った性行為",
+    "grabbing another's ass": "他人の尻をつかむ",
+    "anal object insertion": "肛門への物体挿入",
+    "double handjob": "二人がかりの手による性行為",
+    "cooperative fellatio": "協力して行うフェラチオ",
+    "after footjob": "足を使った性行為の後の状態",
+    "hug and suck": "抱擁と吸う行為の複合",
+    "bound penis": "拘束された陰茎",
+    "cuddling handjob": "寄り添いながらの手による性行為",
+}
+
 
 def norm(value: Any) -> str:
     value = str(value or "").strip().casefold().replace("_", " ")
@@ -152,6 +169,7 @@ def derive_row(run_root: Path, row: dict[str, Any]) -> dict[str, Any]:
         "image_id": row["image_id"],
         "case_id": row["case_id"],
         "canonical": row["canonical"],
+        "canonical_ja": JA_GLOSS.get(row["canonical"], "日本語説明未登録"),
         "cell_type": row["cell_type"],
         "capability_class": row["human_review_selection"]["capability_class"],
         "desk_classification": row["screening"]["desk_classification"],
@@ -297,6 +315,7 @@ def main() -> None:
     contact_sheet = create_blinded_contact_sheet(run_root, selected)
     minimal_fields = [
         "review_order", "image_id", "case_id", "canonical", "target_or_contrast", "cell_type", "capability_class",
+        "canonical_ja",
         "screening_classes", "agreement_pattern", "score_band", "wd14_score", "wd14_vote", "kagami_score", "kagami_vote",
         "cl_score", "cl_vote", "selection_reason", "what_human_decides", "decision_impact", "image_path", "sha256"
     ]
@@ -314,12 +333,12 @@ def main() -> None:
     for row in queue_rows:
         chosen = next((x for x in selected if x["image_id"] == row["image_id"]), None)
         mapping_rows.append({
-            "image_id": row["image_id"], "case_id": row["case_id"], "canonical": row["canonical"], "cell_type": row["cell_type"],
+            "image_id": row["image_id"], "case_id": row["case_id"], "canonical": row["canonical"], "canonical_ja": row["canonical_ja"], "cell_type": row["cell_type"],
             "capability_class": row["capability_class"], "pilot_screening_classes": ";".join(row["original_pilot_classes"]),
             "raw_audit_screening_classes": ";".join(row["screening_classes"]), "selected_minimal": row["image_id"] in selected_ids,
             "review_order": chosen["review_order"] if chosen else "", "defer_reason": chosen["selection_reason"] if chosen else "redundant within covered pattern or outside current decision need"
         })
-    write_csv(out_root / "ISSUE30_REVIEW_QUEUE_MAPPING_20260910.csv", mapping_rows, ["image_id", "case_id", "canonical", "cell_type", "capability_class", "pilot_screening_classes", "raw_audit_screening_classes", "selected_minimal", "review_order", "defer_reason"])
+    write_csv(out_root / "ISSUE30_REVIEW_QUEUE_MAPPING_20260910.csv", mapping_rows, ["image_id", "case_id", "canonical", "canonical_ja", "cell_type", "capability_class", "pilot_screening_classes", "raw_audit_screening_classes", "selected_minimal", "review_order", "defer_reason"])
 
     label_schema = {
         "schema_version": "issue30.minimal_review_input.v1",
