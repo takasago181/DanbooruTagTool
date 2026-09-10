@@ -346,10 +346,10 @@ def run_wd14(session: requests.Session, record: dict[str, Any]) -> dict[str, Any
         pairs = normalized_pairs(obj)
         score, observed, basis = target_score(pairs, record["case"])
         tags = [{"tag": tag, "score": score} for tag, score in pairs[:200]]
-        return evaluator_record("WD14", "wd14-eva02.v3.large", "runtime-interrogator", "OK", score, tags, basis, artifact, THRESHOLDS["WD14"])
+        return evaluator_record("WD14", "wd14-eva02.v3.large", "runtime-interrogator", "OK", score, tags, basis, observed, artifact, THRESHOLDS["WD14"])
     except Exception as exc:
         write_json(artifact, {"error": type(exc).__name__, "message": str(exc)})
-        return evaluator_record("WD14", "wd14-eva02.v3.large", "runtime-interrogator", "ERROR", None, [], "UNVERIFIED", artifact, THRESHOLDS["WD14"])
+        return evaluator_record("WD14", "wd14-eva02.v3.large", "runtime-interrogator", "ERROR", None, [], "UNVERIFIED", None, artifact, THRESHOLDS["WD14"])
 
 
 def run_onnx(record: dict[str, Any], session: Any, tags: list[str], name: str,
