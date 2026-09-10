@@ -1,0 +1,470 @@
+{
+  "schema_version": "issue30.phase2.wave1_result.v1",
+  "status": "FIRST_WAVE_COMPLETE_REVIEW_REQUIRED",
+  "run_id": "issue30-phase2-wave1-20260910",
+  "manifest": "C:\\Codex\\DanbooruTagTool\\docs\\testing\\ISSUE30_PHASE2_TEST_MANIFEST.csv",
+  "local_artifact_root": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_wave1_profile_20260910",
+  "review_asset": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_wave1_profile_20260910\\review_queue\\phase2_wave1_ab_contact_sheet.png",
+  "image_count": 12,
+  "new_images_generated": 12,
+  "screen_only_reused_images": 12,
+  "evaluator_runs": 36,
+  "evaluator_complete_images": 12,
+  "artifact_gate": {
+    "PASS": 12
+  },
+  "experiment_validity": {
+    "status": "PENDING_HUMAN_REVIEW",
+    "failures_recorded": 0
+  },
+  "screening_class_occurrences": {
+    "RELATION_OR_BINDING": 8,
+    "COMPONENT_ONLY": 4,
+    "LOW_CONFIDENCE": 9
+  },
+  "human_review_image_count": 6,
+  "human_review_image_ids": [
+    "P2-001__target_present_seed_a",
+    "P2-002__target_present_seed_a",
+    "P2-003__target_present_seed_a",
+    "P2-003__target_present_seed_b",
+    "P2-003__contrast_seed_a",
+    "P2-003__contrast_seed_b"
+  ],
+  "generation_profile": {
+    "model_family": "Illustrious XL",
+    "checkpoint": "waiIllustriousSDXL_v170.safetensors",
+    "checkpoint_hash": "f116b0c78ff441467b0cdc8f1936e1ed18ea31e9997c7b132b1b8db533f0bd04",
+    "forge_version": "neo-2.29",
+    "sampler": "Euler a",
+    "steps": 25,
+    "cfg": 5.0,
+    "resolution": {
+      "width": 1024,
+      "height": 1344
+    },
+    "lora": {
+      "present": false,
+      "names": [],
+      "weights": []
+    }
+  },
+  "experiments": [
+    {
+      "case_id": "P2-001",
+      "special_ids": [
+        264
+      ],
+      "canonical": "vibrator in anus",
+      "question": "Does the prompt preserve the functional device-to-body-site relation?",
+      "condition_a": {
+        "prompt": "masterpiece, best quality, 1girl, solo, vibrator in anus, simple background",
+        "negative_prompt": "lowres, blurry, text, watermark, jpeg artifacts"
+      },
+      "condition_b": {
+        "prompt": "masterpiece, best quality, 1girl, solo, vibrator, simple background",
+        "negative_prompt": "lowres, blurry, text, watermark, jpeg artifacts"
+      },
+      "seeds": [
+        41001,
+        41002
+      ],
+      "image_count": 4,
+      "artifact_gate": {
+        "PASS": 4
+      },
+      "screening_class_occurrences": {
+        "RELATION_OR_BINDING": 4,
+        "COMPONENT_ONLY": 4,
+        "LOW_CONFIDENCE": 4
+      },
+      "human_review_image_ids": [
+        "P2-001__target_present_seed_a"
+      ],
+      "experiment_validity": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "case_id": "P2-002",
+      "special_ids": [
+        750
+      ],
+      "canonical": "holding sex toy",
+      "question": "Does the prompt preserve the subject-to-object holding relation?",
+      "condition_a": {
+        "prompt": "masterpiece, best quality, 1girl, solo, holding sex toy, simple background",
+        "negative_prompt": "lowres, blurry, text, watermark, jpeg artifacts"
+      },
+      "condition_b": {
+        "prompt": "masterpiece, best quality, 1girl, solo, sex toy, simple background",
+        "negative_prompt": "lowres, blurry, text, watermark, jpeg artifacts"
+      },
+      "seeds": [
+        41011,
+        41012
+      ],
+      "image_count": 4,
+      "artifact_gate": {
+        "PASS": 4
+      },
+      "screening_class_occurrences": {
+        "RELATION_OR_BINDING": 4,
+        "LOW_CONFIDENCE": 1
+      },
+      "human_review_image_ids": [
+        "P2-002__target_present_seed_a"
+      ],
+      "experiment_validity": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "case_id": "P2-003",
+      "special_ids": [
+        2024
+      ],
+      "canonical": "breast expansion",
+      "question": "Does adding the target to Negative Prompt suppress or destabilize the anatomy-changing target?",
+      "condition_a": {
+        "prompt": "masterpiece, best quality, 1girl, solo, breast expansion, simple background",
+        "negative_prompt": "lowres, blurry, text, watermark, jpeg artifacts"
+      },
+      "condition_b": {
+        "prompt": "masterpiece, best quality, 1girl, solo, breast expansion, simple background",
+        "negative_prompt": "lowres, blurry, text, watermark, jpeg artifacts, breast expansion"
+      },
+      "seeds": [
+        41021,
+        41022
+      ],
+      "image_count": 4,
+      "artifact_gate": {
+        "PASS": 4
+      },
+      "screening_class_occurrences": {
+        "LOW_CONFIDENCE": 4
+      },
+      "human_review_image_ids": [
+        "P2-003__contrast_seed_a",
+        "P2-003__target_present_seed_a",
+        "P2-003__contrast_seed_b",
+        "P2-003__target_present_seed_b"
+      ],
+      "experiment_validity": "PENDING_HUMAN_REVIEW"
+    }
+  ],
+  "image_records": [
+    {
+      "image_id": "P2-001__target_present_seed_a",
+      "case_id": "P2-001",
+      "canonical": "vibrator in anus",
+      "cell_type": "target_present_seed_a",
+      "seed": 41001,
+      "prompt": "masterpiece, best quality, 1girl, solo, vibrator in anus, simple background",
+      "negative_prompt": "lowres, blurry, text, watermark, jpeg artifacts",
+      "sha256": "01d42513ff0f4d4ef4cc705fdfd645f696ad48fcfc610a6576661d76b2b25c89",
+      "bytes": 1018674,
+      "width": 1024,
+      "height": 1344,
+      "image_path": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_wave1_profile_20260910\\images\\P2-001__target_present_seed_a.png",
+      "reused": true,
+      "artifact_gate": {
+        "status": "PASS",
+        "reasons": []
+      },
+      "screening_classes": [
+        "RELATION_OR_BINDING",
+        "COMPONENT_ONLY",
+        "LOW_CONFIDENCE"
+      ],
+      "agreement_pattern": "UNANIMOUS_POSITIVE",
+      "selected_for_human_review": true,
+      "experiment_validity": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "image_id": "P2-001__target_present_seed_b",
+      "case_id": "P2-001",
+      "canonical": "vibrator in anus",
+      "cell_type": "target_present_seed_b",
+      "seed": 41002,
+      "prompt": "masterpiece, best quality, 1girl, solo, vibrator in anus, simple background",
+      "negative_prompt": "lowres, blurry, text, watermark, jpeg artifacts",
+      "sha256": "36097ced97b1af378f5a6f617868f84aed8b6add74a56b00973fb80b47fdd147",
+      "bytes": 1067774,
+      "width": 1024,
+      "height": 1344,
+      "image_path": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_wave1_profile_20260910\\images\\P2-001__target_present_seed_b.png",
+      "reused": true,
+      "artifact_gate": {
+        "status": "PASS",
+        "reasons": []
+      },
+      "screening_classes": [
+        "RELATION_OR_BINDING",
+        "COMPONENT_ONLY",
+        "LOW_CONFIDENCE"
+      ],
+      "agreement_pattern": "UNANIMOUS_POSITIVE",
+      "selected_for_human_review": false,
+      "experiment_validity": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "image_id": "P2-001__contrast_seed_a",
+      "case_id": "P2-001",
+      "canonical": "vibrator in anus",
+      "cell_type": "contrast_seed_a",
+      "seed": 41001,
+      "prompt": "masterpiece, best quality, 1girl, solo, vibrator, simple background",
+      "negative_prompt": "lowres, blurry, text, watermark, jpeg artifacts",
+      "sha256": "4935312373a73886fbc33458294b3679696a652a2c2b2419a9595031f00ac0c0",
+      "bytes": 831241,
+      "width": 1024,
+      "height": 1344,
+      "image_path": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_wave1_profile_20260910\\images\\P2-001__contrast_seed_a.png",
+      "reused": true,
+      "artifact_gate": {
+        "status": "PASS",
+        "reasons": []
+      },
+      "screening_classes": [
+        "RELATION_OR_BINDING",
+        "COMPONENT_ONLY",
+        "LOW_CONFIDENCE"
+      ],
+      "agreement_pattern": "UNANIMOUS_POSITIVE",
+      "selected_for_human_review": false,
+      "experiment_validity": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "image_id": "P2-001__contrast_seed_b",
+      "case_id": "P2-001",
+      "canonical": "vibrator in anus",
+      "cell_type": "contrast_seed_b",
+      "seed": 41002,
+      "prompt": "masterpiece, best quality, 1girl, solo, vibrator, simple background",
+      "negative_prompt": "lowres, blurry, text, watermark, jpeg artifacts",
+      "sha256": "8ca26cb73b4a24a847944f0ba6221da6dfbfab150bef34d09cf207f97a9e3e70",
+      "bytes": 1532991,
+      "width": 1024,
+      "height": 1344,
+      "image_path": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_wave1_profile_20260910\\images\\P2-001__contrast_seed_b.png",
+      "reused": true,
+      "artifact_gate": {
+        "status": "PASS",
+        "reasons": []
+      },
+      "screening_classes": [
+        "RELATION_OR_BINDING",
+        "COMPONENT_ONLY",
+        "LOW_CONFIDENCE"
+      ],
+      "agreement_pattern": "UNANIMOUS_POSITIVE",
+      "selected_for_human_review": false,
+      "experiment_validity": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "image_id": "P2-002__target_present_seed_a",
+      "case_id": "P2-002",
+      "canonical": "holding sex toy",
+      "cell_type": "target_present_seed_a",
+      "seed": 41011,
+      "prompt": "masterpiece, best quality, 1girl, solo, holding sex toy, simple background",
+      "negative_prompt": "lowres, blurry, text, watermark, jpeg artifacts",
+      "sha256": "a3a458cbc013212f0153e289599693c5f9ea75468ca300149286bf57365f46eb",
+      "bytes": 1071613,
+      "width": 1024,
+      "height": 1344,
+      "image_path": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_wave1_profile_20260910\\images\\P2-002__target_present_seed_a.png",
+      "reused": true,
+      "artifact_gate": {
+        "status": "PASS",
+        "reasons": []
+      },
+      "screening_classes": [
+        "RELATION_OR_BINDING"
+      ],
+      "agreement_pattern": "UNANIMOUS_POSITIVE",
+      "selected_for_human_review": true,
+      "experiment_validity": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "image_id": "P2-002__target_present_seed_b",
+      "case_id": "P2-002",
+      "canonical": "holding sex toy",
+      "cell_type": "target_present_seed_b",
+      "seed": 41012,
+      "prompt": "masterpiece, best quality, 1girl, solo, holding sex toy, simple background",
+      "negative_prompt": "lowres, blurry, text, watermark, jpeg artifacts",
+      "sha256": "e80f7797e6029a243ce716e3157fb8533e2fa9bbf22e90cd79e42fc1af4a213b",
+      "bytes": 1399048,
+      "width": 1024,
+      "height": 1344,
+      "image_path": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_wave1_profile_20260910\\images\\P2-002__target_present_seed_b.png",
+      "reused": true,
+      "artifact_gate": {
+        "status": "PASS",
+        "reasons": []
+      },
+      "screening_classes": [
+        "RELATION_OR_BINDING"
+      ],
+      "agreement_pattern": "UNANIMOUS_POSITIVE",
+      "selected_for_human_review": false,
+      "experiment_validity": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "image_id": "P2-002__contrast_seed_a",
+      "case_id": "P2-002",
+      "canonical": "holding sex toy",
+      "cell_type": "contrast_seed_a",
+      "seed": 41011,
+      "prompt": "masterpiece, best quality, 1girl, solo, sex toy, simple background",
+      "negative_prompt": "lowres, blurry, text, watermark, jpeg artifacts",
+      "sha256": "ea0f1ccb83b08c883d8ae884c5fcae006bbaf6de20300245b6ad34feb0f42c3c",
+      "bytes": 1458894,
+      "width": 1024,
+      "height": 1344,
+      "image_path": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_wave1_profile_20260910\\images\\P2-002__contrast_seed_a.png",
+      "reused": true,
+      "artifact_gate": {
+        "status": "PASS",
+        "reasons": []
+      },
+      "screening_classes": [
+        "RELATION_OR_BINDING",
+        "LOW_CONFIDENCE"
+      ],
+      "agreement_pattern": "UNANIMOUS_POSITIVE",
+      "selected_for_human_review": false,
+      "experiment_validity": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "image_id": "P2-002__contrast_seed_b",
+      "case_id": "P2-002",
+      "canonical": "holding sex toy",
+      "cell_type": "contrast_seed_b",
+      "seed": 41012,
+      "prompt": "masterpiece, best quality, 1girl, solo, sex toy, simple background",
+      "negative_prompt": "lowres, blurry, text, watermark, jpeg artifacts",
+      "sha256": "3644797060aae098c9cb200238b892f6681a9cfbe46504c8e15bc7531416a1a6",
+      "bytes": 1434116,
+      "width": 1024,
+      "height": 1344,
+      "image_path": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_wave1_profile_20260910\\images\\P2-002__contrast_seed_b.png",
+      "reused": true,
+      "artifact_gate": {
+        "status": "PASS",
+        "reasons": []
+      },
+      "screening_classes": [
+        "RELATION_OR_BINDING"
+      ],
+      "agreement_pattern": "UNANIMOUS_POSITIVE",
+      "selected_for_human_review": false,
+      "experiment_validity": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "image_id": "P2-003__target_present_seed_a",
+      "case_id": "P2-003",
+      "canonical": "breast expansion",
+      "cell_type": "target_present_seed_a",
+      "seed": 41021,
+      "prompt": "masterpiece, best quality, 1girl, solo, breast expansion, simple background",
+      "negative_prompt": "lowres, blurry, text, watermark, jpeg artifacts",
+      "sha256": "11e3864b857b34170ba7c090b9fa73f7a757569bf6892f9c936e2d2f52e670d8",
+      "bytes": 1491458,
+      "width": 1024,
+      "height": 1344,
+      "image_path": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_wave1_profile_20260910\\images\\P2-003__target_present_seed_a.png",
+      "reused": true,
+      "artifact_gate": {
+        "status": "PASS",
+        "reasons": []
+      },
+      "screening_classes": [
+        "LOW_CONFIDENCE"
+      ],
+      "agreement_pattern": "UNANIMOUS_POSITIVE",
+      "selected_for_human_review": true,
+      "experiment_validity": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "image_id": "P2-003__target_present_seed_b",
+      "case_id": "P2-003",
+      "canonical": "breast expansion",
+      "cell_type": "target_present_seed_b",
+      "seed": 41022,
+      "prompt": "masterpiece, best quality, 1girl, solo, breast expansion, simple background",
+      "negative_prompt": "lowres, blurry, text, watermark, jpeg artifacts",
+      "sha256": "29687c1666e52767b0800efa108853a8267de2bc2edcde9fee21d1aacb79f68c",
+      "bytes": 1194049,
+      "width": 1024,
+      "height": 1344,
+      "image_path": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_wave1_profile_20260910\\images\\P2-003__target_present_seed_b.png",
+      "reused": true,
+      "artifact_gate": {
+        "status": "PASS",
+        "reasons": []
+      },
+      "screening_classes": [
+        "LOW_CONFIDENCE"
+      ],
+      "agreement_pattern": "UNANIMOUS_POSITIVE",
+      "selected_for_human_review": true,
+      "experiment_validity": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "image_id": "P2-003__contrast_seed_a",
+      "case_id": "P2-003",
+      "canonical": "breast expansion",
+      "cell_type": "contrast_seed_a",
+      "seed": 41021,
+      "prompt": "masterpiece, best quality, 1girl, solo, breast expansion, simple background",
+      "negative_prompt": "lowres, blurry, text, watermark, jpeg artifacts, breast expansion",
+      "sha256": "b86b50eb5e2faf590a4e1c6502eb9c0cc04483e25876a2fbb89241953d7f63e0",
+      "bytes": 1524641,
+      "width": 1024,
+      "height": 1344,
+      "image_path": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_wave1_profile_20260910\\images\\P2-003__contrast_seed_a.png",
+      "reused": true,
+      "artifact_gate": {
+        "status": "PASS",
+        "reasons": []
+      },
+      "screening_classes": [
+        "LOW_CONFIDENCE"
+      ],
+      "agreement_pattern": "UNANIMOUS_POSITIVE",
+      "selected_for_human_review": true,
+      "experiment_validity": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "image_id": "P2-003__contrast_seed_b",
+      "case_id": "P2-003",
+      "canonical": "breast expansion",
+      "cell_type": "contrast_seed_b",
+      "seed": 41022,
+      "prompt": "masterpiece, best quality, 1girl, solo, breast expansion, simple background",
+      "negative_prompt": "lowres, blurry, text, watermark, jpeg artifacts, breast expansion",
+      "sha256": "6577d547789abe43f9a87091da0abc57f884a509eb076122fa4572b48ff19a19",
+      "bytes": 1726093,
+      "width": 1024,
+      "height": 1344,
+      "image_path": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_wave1_profile_20260910\\images\\P2-003__contrast_seed_b.png",
+      "reused": true,
+      "artifact_gate": {
+        "status": "PASS",
+        "reasons": []
+      },
+      "screening_classes": [
+        "LOW_CONFIDENCE"
+      ],
+      "agreement_pattern": "UNANIMOUS_POSITIVE",
+      "selected_for_human_review": true,
+      "experiment_validity": "PENDING_HUMAN_REVIEW"
+    }
+  ],
+  "decision": {
+    "device_contact": "HOLD_HUMAN_REVIEW_REQUIRED",
+    "source_ownership": "HOLD_HUMAN_REVIEW_REQUIRED",
+    "negative_collision": "HOLD_HUMAN_REVIEW_REQUIRED",
+    "additional_generation": "STOP_UNTIL_REVIEW"
+  }
+}

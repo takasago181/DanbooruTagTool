@@ -1,0 +1,55 @@
+import csv
+import json
+from pathlib import Path
+
+from tools.issue30_calibration_pilot import load_profiles, load_cases, validate_cases
+from tools.issue30_phase2_analysis import structural_class
+
+
+ROOT = Path(__file__).resolve().parents[1]
+MANIFEST = ROOT / "docs/testing/ISSUE30_PHASE2_TEST_MANIFEST.csv"
+PHASE1_CASES = ROOT / "docs/testing/ISSUE30_REAL_IMAGE_CALIBRATION_CASES_20260910.csv"
+COVERAGE = ROOT / "docs/testing/ISSUE30_PHASE2_STRUCTURAL_COVERAGE.json"
+WAVE_RESULT = ROOT / "docs/testing/ISSUE30_PHASE2_WAVE1_RESULT.json"
+
+
+def test_phase2_manifest_is_bounded_and_uses_current_special_ids():
+    cases = load_cases(MANIFEST)
+    assert len(cases) == 3
+    assert len(cases) * 4 == 12
+    validate_cases(cases, load_profiles())
+    assert {int(case["special_ids"]) for case in cases} == {264, 750, 2024}
+    assert all(case["target_prompt"] and case["contrast_prompt"] for case in cases)
+    assert {(case["steps"], case["cfg"], case["width"], case["height"]) for case in cases} == {("25", "5", "1024", "1344")}
+
+
+def test_phase1_structural_mapping_keeps_frozen_case_manifest_read_only():
+    with PHASE1_CASES.open(encoding="utf-8-sig", newline="") as stream:
+        rows = list(csv.DictReader(stream))
+    by_id = {row["case_id"]: row for row in rows}
+    assert structural_class(by_id["CAL-001"]) == "UNARY_OBJECT_OR_STATE"
+    assert structural_class(by_id["CAL-014"]) == "BODY_SITE_STATE"
+    assert structural_class(by_id["CAL-023"]) == "MULTI_OBJECT_OR_COUNT"
+    assert structural_class(by_id["CAL-031"]) == "RESTRAINT_TOPOLOGY"
+    assert structural_class(by_id["CAL-032"]) == "COMPOSITE_HARD"
+
+
+def test_coverage_report_records_artifact_and_validity_boundaries():
+    report = json.loads(COVERAGE.read_text(encoding="utf-8"))
+    assert report["existing_image_count"] == 128
+    assert report["evaluator_complete_image_count"] == 128
+    assert report["human_review_record_count"] == 19
+    assert report["artifact_gate"] == {"pass": 127, "blocked": 1}
+    assert report["experiment_validity_failure_count"] == 1
+    assert report["frozen_policy"]["relation_binding_auto"] is False
+
+
+def test_wave_result_is_complete_but_stopped_for_human_review():
+    report = json.loads(WAVE_RESULT.read_text(encoding="utf-8"))
+    assert report["status"] == "FIRST_WAVE_COMPLETE_REVIEW_REQUIRED"
+    assert report["image_count"] == report["new_images_generated"] == 12
+    assert report["screen_only_reused_images"] == 12
+    assert report["evaluator_runs"] == 36
+    assert report["artifact_gate"] == {"PASS": 12}
+    assert report["experiment_validity"]["status"] == "PENDING_HUMAN_REVIEW"
+    assert report["decision"]["additional_generation"] == "STOP_UNTIL_REVIEW"
