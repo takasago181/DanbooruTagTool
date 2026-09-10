@@ -1,0 +1,40 @@
+canonical,old_display_ja,new_display_ja,reason
+glowing_tongue,光る・tongue,光る舌,MIXED_ENGLISH_DEBRIS
+glowing_tree,光る・tree,光る木,MIXED_ENGLISH_DEBRIS
+glowing_windows,光る・windows,光る窓,MIXED_ENGLISH_DEBRIS
+gn_particles,タグ「gn particles」,GN粒子,RAW_ENGLISH_WRAPPER
+gnosis_(genshin_impact),神之心,神の心（原神）,NON_JAPANESE_RESIDUE
+go_do_a_crime_(meme),go do a crime (meme),犯罪をしろ（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+goblin_mask,goblin・マスク,ゴブリンのマスク,MIXED_ENGLISH_DEBRIS
+goddess_(nikke),タグ「goddess (nikke)」,ゴッデス（NIKKE）,RAW_ENGLISH_WRAPPER
+goggles_around_breasts,gogglesの周囲の胸,胸の周りのゴーグル,SEMANTIC_RELATION_ERROR
+going_to_colombia_for_the_food_and_culture_(meme),going to colombia for the food and culture (meme),食と文化のためにコロンビアへ行く（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+gojo_satoru_(cosplay),gojo satoru (cosplay),五条悟（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+gojou's_imaginary_technique,タグ「gojou's imaginary technique」,五条の虚式,RAW_ENGLISH_WRAPPER
+goku_and_vegeta_in_the_rain_(meme),goku and vegeta in the rain (meme),雨の中の悟空とベジータ（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+gokugetsu_gakuen_school_uniform,極月学園,極月学園の制服,SEMANTIC_UNDERSPECIFICATION
+gold_bangle,金色のbangle,金色のバングル,MIXED_ENGLISH_DEBRIS
+gold_bar,金の延棒,金の延べ棒,SEMANTIC_ERROR
+gold_bowtie,金色のbowtie,金色の蝶ネクタイ,MIXED_ENGLISH_DEBRIS
+gold_buckle,金色のbuckle,金色のバックル,MIXED_ENGLISH_DEBRIS
+gold_circlet,金色のcirclet,金色のサークレット,MIXED_ENGLISH_DEBRIS
+gold_coin,金币,金貨,NON_JAPANESE_RESIDUE
+gold_crown,金色のcrown,金色の王冠,MIXED_ENGLISH_DEBRIS
+gold_crown_academy_school_uniform,gold crown academyの学校制服,ゴールドクラウン学園の制服,MIXED_ENGLISH_DEBRIS
+gold_embroidery,金色のembroidery,金色の刺繍,MIXED_ENGLISH_DEBRIS
+gold_eyeshadow,金色のeyeshadow,金色のアイシャドウ,MIXED_ENGLISH_DEBRIS
+gold_halo,金色光环,金色の光輪,NON_JAPANESE_RESIDUE
+gold_headdress,金色のheaddress,金色の頭飾り,MIXED_ENGLISH_DEBRIS
+gold_headwear,金色のheadwear,金色の頭飾り,MIXED_ENGLISH_DEBRIS
+gold_lips,金嘴唇,金色の唇,NON_JAPANESE_RESIDUE
+gold_medal,金色のmedal,金メダル,MIXED_ENGLISH_DEBRIS
+gold_one-piece_swimsuit,金色水着,金色のワンピース水着,SEMANTIC_UNDERSPECIFICATION
+gold_pasties,金色のpasties,金色のニップレス,MIXED_ENGLISH_DEBRIS
+gold_pendant,金色のpendant,金色のペンダント,MIXED_ENGLISH_DEBRIS
+gold_petals,金色のpetals,金色の花びら,MIXED_ENGLISH_DEBRIS
+gold_ribbon,金色のribbon,金色のリボン,MIXED_ENGLISH_DEBRIS
+gold_rush_(e.g.o),gold rush (e.g.o),ゴールドラッシュ（E.G.O）,CANONICAL_FALLBACK_TRANSLATABLE
+gold_ship_(umamusume)_(cosplay),金の船（Umamusume）（コスプレ）,ゴールドシップ（ウマ娘）（コスプレ）,SEMANTIC_ERROR
+gold_thighhighs,金色ののニーハイ,金色のサイハイソックス,AWKWARD_MACHINE_TRANSLATION
+gold_vambraces,金色のvambraces,金色の前腕甲,MIXED_ENGLISH_DEBRIS
+gold_wrist_cuffs,金色の手首・カフ,金色のリストカフス,AWKWARD_MACHINE_TRANSLATION
