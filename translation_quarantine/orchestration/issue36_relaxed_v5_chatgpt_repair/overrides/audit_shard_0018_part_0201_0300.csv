@@ -1,0 +1,32 @@
+canonical,old_display_ja,new_display_ja,reason
+iridescent,镭射,虹色,NON_JAPANESE_RESIDUE
+iridescent_hair,iridescent・髪,虹色の髪,MIXED_ENGLISH_DEBRIS
+iris_print,irisの柄,アヤメ柄,MIXED_ENGLISH_DEBRIS
+irisviel_von_einzbern_(cosplay),irisviel von einzbern (cosplay),アイリスフィール・フォン・アインツベルン（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+irisviel_von_einzbern_(halloween_princess)_(cosplay),irisviel von einzbern (halloween princess) (cosplay),アイリスフィール・フォン・アインツベルン（ハロウィン・プリンセス）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+iron_hands_(warhammer),タグ「iron hands (warhammer)」,アイアンハンズ（ウォーハンマー）,RAW_ENGLISH_WRAPPER
+iron_sting_(genshin_impact),iron sting (genshin impact),鉄蜂の刺し（原神）,CANONICAL_FALLBACK_TRANSLATABLE
+iron_warriors,タグ「iron warriors」,アイアンウォリアーズ,RAW_ENGLISH_WRAPPER
+irregular_border,irregular・枠,不規則な枠,MIXED_ENGLISH_DEBRIS
+ishowspeed_trying_not_to_laugh_(meme),ishowspeed trying not to laugh (meme),IShowSpeedが笑いをこらえる（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+ishtar_(fate)_(cosplay),Ishtar（Fate）（コスプレ）,イシュタル（Fate）（コスプレ）,MIXED_ENGLISH_DEBRIS
+isopod,フナムシ,等脚類,SEMANTIC_NARROWING
+israel-hamas_war,年パレスチナ・イスラエル戦争,イスラエル・ハマス戦争,SEMANTIC_ERROR
+itagaki_keisuke_(style),タグ「itagaki keisuke (style)」,板垣恵介風,RAW_ENGLISH_WRAPPER
+italian_army,タグ「italian army」,イタリア陸軍,RAW_ENGLISH_WRAPPER
+italian_flag_print,イタリアの旗印刷,イタリア国旗柄,SEMANTIC_ERROR
+itan_private_high_school_uniform,itan private highの学校制服,私立伊旦高校の制服,MIXED_ENGLISH_DEBRIS
+itou_ikuko_(style),itou ikuko（スタイル）,伊藤郁子風,MIXED_ENGLISH_DEBRIS
+iwagakure_symbol,iwagakureシンボル,岩隠れの里のシンボル,MIXED_ENGLISH_DEBRIS
+iwatobi_high_school_uniform,岩田高校のユニフォーム,岩鳶高校の制服,SEMANTIC_ERROR
+izayoi_sakuya_(cosplay),Izayoi sakuya（コスプレ）,十六夜咲夜（コスプレ）,MIXED_ENGLISH_DEBRIS
+izumi_sagiri_(cosplay),Izumi Sagiri（コスプレ）,和泉紗霧（コスプレ）,MIXED_ENGLISH_DEBRIS
+j-core,タグ「j-core」,J-core,RAW_ENGLISH_WRAPPER
+jack-o'-lantern_brooch,jack・o'・lantern・ブローチ,ジャック・オー・ランタンのブローチ,MIXED_ENGLISH_DEBRIS
+jack-o'-lantern_cutout,Jack-o'-Lanternカットアウト,ジャック・オー・ランタン形の切り抜き,MIXED_ENGLISH_DEBRIS
+jack-o'-lantern_earrings,Jack-o'-Lanternイヤリング,ジャック・オー・ランタンのイヤリング,MIXED_ENGLISH_DEBRIS
+jack-o'-lantern_hair_ornament,jack o' lanternの髪飾り,ジャック・オー・ランタンの髪飾り,MIXED_ENGLISH_DEBRIS
+jack-o'-lantern_hat,jack・o'・lantern・帽子,ジャック・オー・ランタンの帽子,MIXED_ENGLISH_DEBRIS
+jack-o'-lantern_hat_ornament,jack・o'・lantern・帽子・飾り,ジャック・オー・ランタンの帽子飾り,MIXED_ENGLISH_DEBRIS
+jack-o'-lantern_head,jack・o'・lantern・頭,ジャック・オー・ランタンの頭,MIXED_ENGLISH_DEBRIS
+jack-o'-lantern_ornament,jack・o'・lantern・飾り,ジャック・オー・ランタンの飾り,MIXED_ENGLISH_DEBRIS
