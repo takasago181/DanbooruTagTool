@@ -1,0 +1,40 @@
+canonical,old_display_ja,new_display_ja,reason
+grazing_(livestock),タグ「grazing (livestock)」,草を食む,RAW_ENGLISH_WRAPPER
+great_grail,素晴らしい聖杯,大聖杯,SEMANTIC_ERROR
+great_helm,タグ「great helm」,グレートヘルム,RAW_ENGLISH_WRAPPER
+great_knife,素晴らしいナイフ,大型ナイフ,SEMANTIC_ERROR
+greatsword,巨剑,大剣,NON_JAPANESE_RESIDUE
+greco-roman_architecture,タグ「greco-roman architecture」,古代ギリシャ・ローマ建築,RAW_ENGLISH_WRAPPER
+greco-roman_clothes,greco・roman・服,古代ギリシャ・ローマ風の服,MIXED_ENGLISH_DEBRIS
+greek_armor,greekの鎧,ギリシャ風の鎧,MIXED_ENGLISH_DEBRIS
+greek_helmet,greek・ヘルメット,ギリシャ風の兜,MIXED_ENGLISH_DEBRIS
+greek_painting_style,タグ「greek painting style」,ギリシャ絵画風,RAW_ENGLISH_WRAPPER
+green_anus,緑のanus,緑色の肛門,MIXED_ENGLISH_DEBRIS
+green_assault_visor,緑のassault・バイザー,緑色のアサルトバイザー,MIXED_ENGLISH_DEBRIS
+green_aura,緑のaura,緑色のオーラ,MIXED_ENGLISH_DEBRIS
+green_babydoll,緑のbabydoll,緑色のベビードール,MIXED_ENGLISH_DEBRIS
+green_belt,緑地帯,緑色のベルト,SEMANTIC_ERROR
+green_bird,緑のbird,緑色の鳥,MIXED_ENGLISH_DEBRIS
+green_blanket,緑のblanket,緑色の毛布,MIXED_ENGLISH_DEBRIS
+green_bonnet,緑のbonnet,緑色のボンネット,MIXED_ENGLISH_DEBRIS
+green_border,緑の境界,緑色の枠,SEMANTIC_ERROR
+green_car,緑のcar,緑色の車,MIXED_ENGLISH_DEBRIS
+green_crown,緑のcrown,緑色の王冠,MIXED_ENGLISH_DEBRIS
+green_dougi,緑のdougi,緑色の道着,MIXED_ENGLISH_DEBRIS
+green_facial_hair,緑の顔の毛,緑色のひげ,AWKWARD_MACHINE_TRANSLATION
+green_gakuran,緑のgakuran,緑色の学ラン,MIXED_ENGLISH_DEBRIS
+green_hair_ornament,緑のの髪飾り,緑色の髪飾り,AWKWARD_MACHINE_TRANSLATION
+green_hanfu,緑のhanfu,緑色の漢服,MIXED_ENGLISH_DEBRIS
+green_haori,緑のhaori,緑色の羽織,MIXED_ENGLISH_DEBRIS
+green_headdress,緑の髪飾り,緑色の頭飾り,SEMANTIC_ERROR
+green_headscarf,緑のheadscarf,緑色のヘッドスカーフ,MIXED_ENGLISH_DEBRIS
+green_highlights,緑のhighlights,緑色のハイライト,MIXED_ENGLISH_DEBRIS
+green_lantern_corps,緑のlantern・corps,グリーンランタン・コァ,MIXED_ENGLISH_DEBRIS
+green_leaf,緑のleaf,緑色の葉,MIXED_ENGLISH_DEBRIS
+green_leg_warmers,green legのウォーマー,緑色のレッグウォーマー,MIXED_ENGLISH_DEBRIS
+green_lightning,緑のlightning,緑色の稲妻,MIXED_ENGLISH_DEBRIS
+green_lightsaber,緑のlightsaber,緑色のライトセーバー,MIXED_ENGLISH_DEBRIS
+green_lining,緑のlining,緑色の裏地,MIXED_ENGLISH_DEBRIS
+green_male_swimwear,緑の男性の水着,緑色の男性用水着,AWKWARD_MACHINE_TRANSLATION
+green_male_underwear,緑色の下着,緑色の男性用下着,SEMANTIC_UNDERSPECIFICATION
+green_moon,緑のmoon,緑色の月,MIXED_ENGLISH_DEBRIS
