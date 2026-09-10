@@ -1,0 +1,67 @@
+name: Issue44 evaluator coverage
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  coverage:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout KNOWLEDGE lane
+        uses: actions/checkout@v4
+        with:
+          ref: knowledge/generation-corpus
+          fetch-depth: 0
+
+      - name: Verify HF_TOKEN is configured
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          if [ -z "${HF_TOKEN:-}" ]; then
+            echo "::error::Repository secret HF_TOKEN is not configured."
+            exit 1
+          fi
+
+      - name: Use current main production profile
+        run: |
+          git fetch origin main --depth=1
+          git show origin/main:data/generation/special2788_generation_profile.csv > data/generation/special2788_generation_profile.csv
+
+      - name: Run desk coverage
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: python tools/issue44_evaluator_coverage.py
+
+      - name: Require exact CL v2.00 coverage
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          summary = json.loads(
+              Path("docs/knowledge/current/issue44_evaluator_coverage_20260910/summary.json")
+              .read_text(encoding="utf-8")
+          )
+          cl = summary["provenance"]["CL"]
+          combined = summary["combined"]
+          if cl.get("status") != "OK" or not combined.get("three_evaluator_exact_available"):
+              raise SystemExit(
+                  "CL Tagger v2.00 gated vocabulary was not loaded; "
+                  "verify HF_TOKEN and Hugging Face access approval."
+              )
+          PY
+
+      - name: Commit knowledge artifacts
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/knowledge/current/issue44_evaluator_coverage_20260910
+          if git diff --cached --quiet; then
+            echo "No coverage artifact changes"
+          else
+            git commit -m "knowledge: checkpoint issue44 evaluator coverage"
+            git push origin HEAD:knowledge/generation-corpus
+          fi
