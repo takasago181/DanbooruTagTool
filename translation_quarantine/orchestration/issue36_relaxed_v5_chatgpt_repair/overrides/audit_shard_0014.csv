@@ -1,0 +1,40 @@
+canonical,old_display_ja,new_display_ja,reason
+flapper_girl,タグ「flapper girl」,フラッパーガール,RAW_ENGLISH_WRAPPER
+flapping_ears,羽毛,耳をぱたぱた動かす,SEMANTIC_ERROR
+flashing_light,flashing・光,点滅する光,MIXED_ENGLISH_DEBRIS
+flat_chest_grab,フラットチェストグラブ,平らな胸を掴む,AWKWARD_MACHINE_TRANSLATION
+flat_chest_joke,平らな胸の冗談,貧乳ネタ,AWKWARD_MACHINE_TRANSLATION
+flayed_skin,flayed・肌,皮を剥がれた皮膚,MIXED_ENGLISH_DEBRIS
+flemish_bond,タグ「flemish bond」,フランドル積み,RAW_ENGLISH_WRAPPER
+flesh,肉スライム,肉,SEMANTIC_NARROWING
+flesh_storage_bulbs,タグ「flesh storage bulbs」,肉質の貯蔵球,RAW_ENGLISH_WRAPPER
+fletcher_(kancolle)_(cosplay),フレッチャー（カンコル）（コスプレ）,フレッチャー（艦これ）（コスプレ）,SEMANTIC_ERROR
+flexing_pectorals,タグ「flexing pectorals」,胸筋を動かす,RAW_ENGLISH_WRAPPER
+flight_attendant,スチュワーデス,客室乗務員,SEMANTIC_ERROR
+flight_attendant_hat,flight・attendant・帽子,客室乗務員の帽子,MIXED_ENGLISH_DEBRIS
+flight_stick,タグ「flight stick」,フライトスティック,RAW_ENGLISH_WRAPPER
+fling_posse,タグ「fling posse」,Fling Posse,RAW_ENGLISH_WRAPPER
+flipped_bangs,上翘刘海,跳ね上がった前髪,NON_JAPANESE_RESIDUE
+flipped_sidelocks,タグ「flipped sidelocks」,外向きに跳ねた横髪,RAW_ENGLISH_WRAPPER
+flirting,调情,いちゃつく,NON_JAPANESE_RESIDUE
+floating_armor,浮遊するの鎧,浮遊する鎧,AWKWARD_MACHINE_TRANSLATION
+floating_ball,浮遊する・ボール,浮遊するボール,AWKWARD_MACHINE_TRANSLATION
+floating_blood,浮遊する・血,浮遊する血,AWKWARD_MACHINE_TRANSLATION
+floating_character,浮遊する・キャラクター,浮遊するキャラクター,AWKWARD_MACHINE_TRANSLATION
+floating_curtains,浮遊する・curtains,浮遊するカーテン,MIXED_ENGLISH_DEBRIS
+floating_drapes,浮遊する・drapes,浮遊するドレープ,MIXED_ENGLISH_DEBRIS
+floating_food,浮遊する・食べ物,浮遊する食べ物,AWKWARD_MACHINE_TRANSLATION
+floating_gem,浮遊する・宝石,浮遊する宝石,AWKWARD_MACHINE_TRANSLATION
+floating_gun,浮遊する・gun,浮遊する銃,MIXED_ENGLISH_DEBRIS
+floating_jacket,浮遊する・ジャケット,浮遊するジャケット,AWKWARD_MACHINE_TRANSLATION
+floating_lights,浮遊する・lights,浮遊する光,MIXED_ENGLISH_DEBRIS
+floating_liquid,浮遊する・液体,浮遊する液体,AWKWARD_MACHINE_TRANSLATION
+floating_mask,浮遊する・マスク,浮遊するマスク,AWKWARD_MACHINE_TRANSLATION
+floating_paper,浮遊する・paper,浮遊する紙,MIXED_ENGLISH_DEBRIS
+floating_ribbon,浮遊する・ribbon,浮遊するリボン,MIXED_ENGLISH_DEBRIS
+floating_rock,フローティングロック,浮遊する岩,SEMANTIC_ERROR
+floating_staff,浮遊する・staff,浮遊する杖,MIXED_ENGLISH_DEBRIS
+floating_stairs,悬浮楼梯,浮遊する階段,NON_JAPANESE_RESIDUE
+floating_tears,浮遊する・tears,浮遊する涙,MIXED_ENGLISH_DEBRIS
+floating_weapon_behind_back,浮遊する・武器・behind・背中,背後に浮遊する武器,MIXED_ENGLISH_DEBRIS
+floor_lamp,落地灯,フロアランプ,NON_JAPANESE_RESIDUE
