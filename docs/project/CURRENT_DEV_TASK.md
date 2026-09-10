@@ -6,7 +6,7 @@
 
 - Source Issue: **#30**
 - Issue state: **OPEN / ACTIVE**
-- DEV state: **PHASE2_ACTIVE / BATCH2_COMPLETE / BROAD_COVERAGE_WAVE1_AUTHORIZED_AFTER_PREFLIGHT / MACHINE_FIRST**
+- DEV state: **PHASE2_ACTIVE / BATCH2_COMPLETE / BROAD_COVERAGE_WAVE1_AUTHORIZED_AFTER_PREFLIGHT / MACHINE_FIRST / FULL_CHATGPT_VISUAL_AUDIT**
 - Stage10 production A/B: **NOT STARTED**
 - Working branch: `codex/issue30-calibration-design`
 - Current continuation contract: `docs/project/ISSUE30_BROAD_COVERAGE_WAVE1_SPEC_20260911.md`
@@ -38,11 +38,18 @@ Accepted facts:
 
 Do not regenerate or re-review the 12 already human-reviewed Batch 2 images.
 
-## User direction change
+## Current user direction — full visual audit
 
-The previous `BROAD_COVERAGE_AUTOMATION_PREP / NO_NEW_GENERATION` state is superseded.
+The user wants broad multi-family generation now and will upload the generated Wave 1 review assets so ChatGPT can inspect **all valid generated images**.
 
-User explicitly requested useful broad generation across many different genres/families now. The previously planned 4-image false-safe audit is folded into Wave 1 machine-handled audit sampling and is not a blocking wait state.
+Wave 1 therefore does **not** use sample-only visual auditing.
+
+Machine routing still runs first and its results must be frozen before visual review, but `MACHINE_HANDLED_PAIR` does not suppress any valid Wave 1 image from the ChatGPT audit package.
+
+Purpose of Wave 1:
+- broad image-generation coverage across materially different Special families;
+- measure machine-routing trustworthiness against independent full visual review;
+- identify false-safe patterns before later review reduction is trusted.
 
 ## Immediate work
 
@@ -55,7 +62,7 @@ Before generating anything:
 5. Verify Batch 2 accepted evidence remains readable.
 6. Verify evaluator success/failure accounting comes from actual artifacts/results.
 7. Verify per-image evaluator-reference integrity and actual pair-routing calculations.
-8. Verify A/B marker comes from structured manifest/condition.
+8. Verify A/B markers come from structured manifest/condition.
 9. Implement/test audit-cache containment, sentinel, ownership-manifest and fail-closed cleanup guards per `AUDIT_ARTIFACT_CACHE_POLICY.md`.
 10. Run focused fixtures containing machine-handled, human-required and blocked/mismatch cases.
 
@@ -69,8 +76,8 @@ Target:
 - target **64 new images**
 
 Adaptive bounds:
-- 12 experiments / 48 images minimum when more would be redundant or invalid
-- 20 experiments / 80 images maximum
+- minimum 12 experiments / 48 images when more cases would be redundant or invalid
+- maximum 20 experiments / 80 images
 - no automatic extra seeds
 - no quota filling
 - no blind 2,788-entry sweep
@@ -121,7 +128,7 @@ Keep non-target settings fixed within each A/B comparison.
 
 For every valid new image:
 
-`generate -> artifact/provenance gate -> WD14 -> Kagami-24k -> CL Tagger v2.00 -> evaluator-reference integrity -> image route -> pair route -> review reduction accounting`
+`generate -> artifact/provenance gate -> WD14 -> Kagami-24k -> CL Tagger v2.00 -> evaluator-reference integrity -> image route -> pair route -> freeze machine result -> export all valid images for ChatGPT visual audit`
 
 All three evaluators must run on every valid image.
 
@@ -138,18 +145,60 @@ Human-protected by default:
 - ambiguous identity/category
 - evaluator disagreement/low confidence
 
-## User review
+## Full ChatGPT visual audit — mandatory for Wave 1
 
-Do **not** show every generated image to the user.
+Every valid generated Wave 1 image must be included in the ChatGPT-visible audit package, including images from `MACHINE_HANDLED_PAIR`.
 
-After machine triage:
-- exclude normal `MACHINE_HANDLED_PAIR` from mandatory human review;
-- include all `HUMAN_REVIEW_REQUIRED_PAIR` items that still need semantic judgment;
-- report `BLOCKED_PAIR` separately;
-- independently audit a machine-handled sample >=10%, floor 2 pairs if >=2 machine-handled pairs exist, plus suspicious/borderline cases;
-- Batch 2 B2-001 seeds `44001` / `44002` may be reused as historical audit anchors without regeneration.
+Do not use sample-only auditing in this wave.
 
-Contact sheet should contain only image(s), large display number, correct A/B marker, and one large concrete Japanese question by default. Question font >=24px, preferably 28–32px. A/B must derive from structured manifest.
+Export after machine routing is frozen:
+- complete audit index manifest for all generated images;
+- readable contact-sheet set covering **all valid images**;
+- disposable individual audit copies for higher-resolution follow-up.
+
+Preferred contact-sheet density:
+- normally 4 A/B pairs = 8 images per sheet;
+- use fewer when detail would be too small;
+- do not compress all 48–80 images into one giant sheet.
+
+The user will upload all Wave 1 visual assets needed for ChatGPT review. The user is not required to manually classify all images; ChatGPT performs the independent visual comparison.
+
+Per-pair visual verdict vocabulary:
+- `A_ONLY_PASS`
+- `B_ONLY_PASS`
+- `BOTH_PASS`
+- `BOTH_FAIL`
+- `UNCLEAR`
+- `ASSET_INVALID`
+
+Each experiment must have one concrete Japanese visual question. Avoid vague “どちらが良いか” wording.
+
+## Machine-vs-visual calibration
+
+After ChatGPT visual results are returned, record:
+- visually audited image count / valid generated image count = target 100%
+- visually audited pair count / valid generated pair count = target 100%
+- machine route vs visual result agreement
+- false-safe count/rate
+- false-human/over-routing count/rate as calibration signal only
+- disagreement by semantic family
+- machine-handled false-safe rate by semantic family
+- evaluator disagreement/low-confidence relation to visual failures
+- recurring failure modes that should change routing or Prompt/support construction
+
+`false-safe` means a machine-handled pair that the independent visual audit finds failed, ambiguous, invalid, structurally unsafe, or otherwise should not have been hidden from human review.
+
+Do not automatically promote structural categories even if aggregate agreement looks high.
+
+## Review-reduction metrics
+
+Continue calculating provisional machine-route image/pair review-reduction metrics for comparison with Batch 2.
+
+For Wave 1 they are **diagnostic only**: they mean “what the machine would have hidden.”
+
+Actual independent visual audit coverage is 100% of valid generated images/pairs, so do not report the provisional reduction as actual achieved visual-review reduction.
+
+Later waves may switch to sampled audit only after explicit DEV/ChatGPT acceptance of sufficiently low false-safe evidence for the relevant machine-safe families.
 
 ## Audit-cache safety
 
@@ -175,23 +224,28 @@ Do not commit bulk generated images/contact sheets into normal public Git histor
 - `docs/testing/ISSUE30_BROAD_COVERAGE_WAVE1_MANIFEST.csv`
 - `docs/testing/ISSUE30_BROAD_COVERAGE_WAVE1_RESULT.md`
 - `docs/testing/ISSUE30_BROAD_COVERAGE_WAVE1_RESULT.json`
+- complete all-image visual-audit index manifest
+- all-image contact-sheet set
+- individual disposable audit-image directory locator
 
-Report:
+Before visual review report:
 - semantic-family distribution
 - experiment/image counts
 - actual WD14/Kagami/CL successes/failures
 - per-image evaluator-reference integrity
-- machine/human/blocked image and pair counts
-- image-level and pair-level review reduction
-- machine-handled audit sample and rationale
-- contact-sheet local path(s)
+- provisional machine/human/blocked image and pair counts
+- provisional image/pair review reduction
+- all-image audit-package coverage counts
+- contact-sheet local paths
 - protected-source integrity
 - focused test/preflight result
 
 ## Stop condition
 
-After Wave 1 generation, evaluator routing, reports and compact review assets are complete: **STOP for DEV/ChatGPT review and user review of only the routed remainder/audit sample.**
+After Wave 1 generation, evaluator routing, reports and the **full all-image visual-audit package** are complete: **STOP and return the audit-package paths.**
 
 Do not automatically start Wave 2.
+
+After the user uploads the Wave 1 visual assets, ChatGPT performs full independent visual review. Those results are then recorded before deciding Wave 2, deeper testing, routing recalibration, or later sampled auditing.
 
 #42 remains downstream; this Wave 1 does not bypass its existing #36/#34 activation gates.
