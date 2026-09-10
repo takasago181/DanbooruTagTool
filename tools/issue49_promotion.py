@@ -289,6 +289,15 @@ def _load_special_identity(path: Path) -> list[tuple[str, str]]:
         return [(row["ID"], row["Tag"]) for row in reader]
 
 
+def _load_family_rule_families(path: Path) -> dict[str, str]:
+    with path.open(encoding="utf-8-sig", newline="") as stream:
+        reader = csv.DictReader(stream)
+        if reader.fieldnames is None or "FamilyRuleId" not in reader.fieldnames \
+                or "GenerationFamily" not in reader.fieldnames:
+            raise PromotionError("Unexpected family-rule schema")
+        return {row["FamilyRuleId"]: row["GenerationFamily"] for row in reader}
+
+
 def _identity_hash(identity: list[tuple[str, str]]) -> str:
     return _sha256_bytes(
         "".join(f"{special_id}\t{tag}\n" for special_id, tag in identity).encode()
@@ -344,6 +353,9 @@ def _assert_profile_gate(
                 f"Candidate field {candidate['field']} is not a production column"
             )
     by_id = {row["SpecialID"]: row for row in rows}
+    family_rule_families = _load_family_rule_families(
+        _repo_root() / "data/generation/generation_family_rules.csv"
+    )
     active = [candidate for candidate in candidates if candidate["status"] in ACTIVE_STATUSES]
     excluded = [candidate for candidate in candidates if candidate["status"] in EXCLUDED_STATUSES]
     non_effective = []
@@ -387,6 +399,32 @@ def _assert_profile_gate(
             raise PromotionError(f"Excluded candidate tag drift: {candidate['special_id']}")
         if candidate["tag"] in REJECTED_COMPLETENESS_TAGS:
             raise PromotionError(f"Rejected completeness candidate is present: {candidate['tag']}")
+    invalid_specials = {}
+    grouped: dict[str, list[dict]] = defaultdict(list)
+    for candidate in effective:
+        grouped[candidate["special_id"]].append(candidate)
+    for special_id, assignments_for_special in grouped.items():
+        staged = dict(by_id[special_id])
+        for candidate in assignments_for_special:
+            staged[candidate["field"]] = candidate["proposed_value"]
+        family_rule = staged["FamilyRuleId"]
+        if family_rule and family_rule_families.get(family_rule) != staged["GenerationFamily"]:
+            invalid_specials[special_id] = (
+                "staged GenerationFamily does not match staged FamilyRuleId"
+            )
+    if invalid_specials:
+        retained = []
+        for candidate in effective:
+            reason = invalid_specials.get(candidate["special_id"])
+            if reason:
+                parked = dict(candidate)
+                parked["non_effective_reason"] = reason
+                non_effective.append(parked)
+            else:
+                retained.append(candidate)
+        effective = retained
+    assignments = {(candidate["special_id"], candidate["field"]): candidate
+                   for candidate in effective}
     affected = []
     for special_id in (row["SpecialID"] for row in rows):
         if special_id in {sid for sid, _ in assignments}:
@@ -422,10 +460,6 @@ def _assert_profile_gate(
     }
 
 
-def _json_safe(value):
-    return value
-
-
 def _write_json(path: Path, value: dict) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(
@@ -443,6 +477,24 @@ def _write_profile_atomic(path: Path, columns: list[str], rows: list[dict]) -> N
             writer = csv.DictWriter(stream, fieldnames=columns, lineterminator="\r\n")
             writer.writeheader()
             writer.writerows(rows)
+            stream.flush()
+            os.fsync(stream.fileno())
+        os.replace(temporary, path)
+    except Exception:
+        try:
+            os.unlink(temporary)
+        except FileNotFoundError:
+            pass
+        raise
+
+
+def _write_bytes_atomic(path: Path, data: bytes) -> None:
+    fd, temporary = tempfile.mkstemp(
+        prefix=f".{path.name}.", suffix=".building", dir=path.parent
+    )
+    try:
+        with os.fdopen(fd, "wb") as stream:
+            stream.write(data)
             stream.flush()
             os.fsync(stream.fileno())
         os.replace(temporary, path)
@@ -552,19 +604,19 @@ def _apply_and_report(
     }
 
 
-def _sha256_file_bytes(rows: list[dict], columns: list[str]) -> str:
-    stream = io.StringIO(newline="")
-    writer = csv.DictWriter(stream, fieldnames=columns, lineterminator="\r\n")
-    writer.writeheader()
-    writer.writerows(rows)
-    return _sha256_bytes(stream.getvalue().encode())
-
-
 def run(args: argparse.Namespace) -> dict:
     root = _repo_root()
     profile_path = (root / args.profile).resolve()
     special_source = (root / args.special_source).resolve()
     candidate_root = (root / args.candidate_root).resolve() if args.candidate_root else None
+    if args.restore_baseline_ref:
+        profile_relative = Path(args.profile).as_posix()
+        data = _git_bytes(args.restore_baseline_ref, profile_relative)
+        if profile_relative == "data/generation/special2788_generation_profile.csv":
+            data = data.replace(b"\r\n", b"\n").replace(b"\n", b"\r\n")
+        _write_bytes_atomic(profile_path, data)
+        print(json.dumps({"restored": profile_relative, "sha256": _sha256_bytes(data)}))
+        return {"verdict": "BASELINE_RESTORED"}
     candidates, source_files = load_candidates(ref=args.candidate_ref, candidate_root=candidate_root)
     columns, rows, effective, gate = _assert_profile_gate(
         profile_path, special_source, candidates
@@ -622,6 +674,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--integrity-report", default="docs/issue49/protected_data_integrity.json")
     parser.add_argument("--diff-report", default="docs/issue49/applied_diff_report.json")
     parser.add_argument("--apply", action="store_true")
+    parser.add_argument("--restore-baseline-ref")
     return parser
 
 
@@ -632,6 +685,6 @@ if __name__ == "__main__":
         raise SystemExit(f"HOLD_PROMOTION_IMPLEMENTATION: {exc}")
     print(json.dumps({
         "verdict": result.get("verdict"),
-        "counts": result["counts"],
+        "counts": result.get("counts"),
         "manifest": result.get("schema_version"),
     }, ensure_ascii=False))
