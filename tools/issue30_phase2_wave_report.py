@@ -16,6 +16,11 @@ from issue30_phase2_analysis import artifact_gate
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_MANIFEST = ROOT / "docs/testing/ISSUE30_PHASE2_TEST_MANIFEST.csv"
+JA_FONT_CANDIDATES = (
+    Path(r"C:\Windows\Fonts\meiryo.ttc"),
+    Path(r"C:\Windows\Fonts\YuGothM.ttc"),
+    Path(r"C:\Windows\Fonts\msgothic.ttc"),
+)
 
 
 def read_json(path: Path) -> Any:
@@ -33,13 +38,23 @@ def load_manifest(path: Path) -> dict[str, dict[str, str]]:
     return {row["case_id"]: row for row in rows}
 
 
-def make_contact_sheet(rows: list[dict[str, Any]], output: Path) -> None:
+def label_font() -> ImageFont.FreeTypeFont | ImageFont.ImageFont:
+    for path in JA_FONT_CANDIDATES:
+        if path.is_file():
+            try:
+                return ImageFont.truetype(str(path), 14)
+            except OSError:
+                continue
+    return ImageFont.load_default()
+
+
+def make_contact_sheet(rows: list[dict[str, Any]], output: Path, canonical_ja: dict[str, str]) -> None:
     ordered = sorted(rows, key=lambda row: (row["case_id"], row["generation"]["seed"], row["cell_type"]))
-    thumb_w, thumb_h, label_h = 384, 384, 48
+    thumb_w, thumb_h, label_h = 384, 384, 70
     cols = 2
     sheet = Image.new("RGB", (cols * thumb_w, ((len(ordered) + 1) // 2) * (thumb_h + label_h)), "white")
     draw = ImageDraw.Draw(sheet)
-    font = ImageFont.load_default()
+    font = label_font()
     for index, row in enumerate(ordered):
         x = (index % cols) * thumb_w
         y = (index // cols) * (thumb_h + label_h)
@@ -48,7 +63,7 @@ def make_contact_sheet(rows: list[dict[str, Any]], output: Path) -> None:
             image.thumbnail((thumb_w - 8, thumb_h - 8))
             sheet.paste(image, (x + (thumb_w - image.width) // 2, y + (thumb_h - image.height) // 2))
         condition = "A" if row["cell_type"].startswith("target_present") else "B"
-        label = f"#{index + 1:02d}  {row['case_id']}  {condition}  seed={row['generation']['seed']}\n{row['canonical']}"
+        label = f"#{index + 1:02d}  {row['case_id']}  {condition}  seed={row['generation']['seed']}\n{row['canonical']}\n{canonical_ja.get(row['case_id'], '')}"
         draw.multiline_text((x + 6, y + thumb_h + 3), label, fill="black", font=font, spacing=2)
     output.parent.mkdir(parents=True, exist_ok=True)
     sheet.save(output, format="PNG")
@@ -67,6 +82,7 @@ def build_report(run_root: Path, manifest_path: Path, contact_sheet: Path, gener
             "image_id": row["image_id"],
             "case_id": row["case_id"],
             "canonical": row["canonical"],
+            "canonical_ja": manifest[row["case_id"]].get("canonical_ja", ""),
             "cell_type": row["cell_type"],
             "seed": row["generation"]["seed"],
             "prompt": row["generation"]["prompt"],
@@ -94,6 +110,7 @@ def build_report(run_root: Path, manifest_path: Path, contact_sheet: Path, gener
             "case_id": case_id,
             "special_ids": [int(value) for value in case["special_ids"].split("|")],
             "canonical": case["canonical"],
+            "canonical_ja": case.get("canonical_ja", ""),
             "question": case["question"],
             "condition_a": {"prompt": case["target_prompt"], "negative_prompt": case["target_negative_prompt"]},
             "condition_b": {"prompt": case["contrast_prompt"], "negative_prompt": case["contrast_negative_prompt"]},
@@ -211,7 +228,8 @@ def main() -> None:
     args = parser.parse_args()
     contact_sheet = args.contact_sheet or (args.run_root / "review_queue" / "phase2_wave1_ab_contact_sheet.png")
     raw = read_json(args.run_root / "calibration_results.json")
-    make_contact_sheet(raw, contact_sheet)
+    manifest = load_manifest(args.manifest)
+    make_contact_sheet(raw, contact_sheet, {case_id: row.get("canonical_ja", "") for case_id, row in manifest.items()})
     report = build_report(args.run_root, args.manifest, contact_sheet, args.generated_count)
     write_json(args.output_json, report)
     args.output_md.parent.mkdir(parents=True, exist_ok=True)
