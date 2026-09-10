@@ -75,8 +75,10 @@ component-only, disagreement, and low-confidence cases.
 
 ## NEXT
 
-Next allowed action: human-review the numbered A/B contact sheet, then stop for
-DEV/ChatGPT review. Do not add seeds or experiments automatically.
+Next allowed action: record the completed human review and stop for DEV/ChatGPT
+review. Do not add seeds or experiments automatically.
+
+Human review result: `ISSUE30_PHASE2_HUMAN_REVIEW_RESULTS_20260910.md`.
 
 ## BOUNDARY CONFIRMATION
 

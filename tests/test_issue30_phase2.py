@@ -11,6 +11,7 @@ MANIFEST = ROOT / "docs/testing/ISSUE30_PHASE2_TEST_MANIFEST.csv"
 PHASE1_CASES = ROOT / "docs/testing/ISSUE30_REAL_IMAGE_CALIBRATION_CASES_20260910.csv"
 COVERAGE = ROOT / "docs/testing/ISSUE30_PHASE2_STRUCTURAL_COVERAGE.json"
 WAVE_RESULT = ROOT / "docs/testing/ISSUE30_PHASE2_WAVE1_RESULT.json"
+HUMAN_REVIEW = ROOT / "docs/testing/ISSUE30_PHASE2_HUMAN_REVIEW_RESULTS_20260910.json"
 
 
 def test_phase2_manifest_is_bounded_and_uses_current_special_ids():
@@ -53,3 +54,13 @@ def test_wave_result_is_complete_but_stopped_for_human_review():
     assert report["artifact_gate"] == {"PASS": 12}
     assert report["experiment_validity"]["status"] == "PENDING_HUMAN_REVIEW"
     assert report["decision"]["additional_generation"] == "STOP_UNTIL_REVIEW"
+
+
+def test_human_review_preserves_pair_outcomes_and_validity_boundaries():
+    report = json.loads(HUMAN_REVIEW.read_text(encoding="utf-8"))
+    assert report["summary"]["reviewed_images"] == 12
+    assert report["summary"]["artifact_failures"] == 0
+    assert report["summary"]["p2_001_relation_successes"] == 0
+    assert report["summary"]["p2_002_contrast_contamination_pairs"] == 1
+    assert report["summary"]["additional_generation"] == "STOP_UNTIL_DEV_REVIEW"
+    assert {row["human_answer"] for row in report["pair_results"]} >= {"neither", "A", "both"}

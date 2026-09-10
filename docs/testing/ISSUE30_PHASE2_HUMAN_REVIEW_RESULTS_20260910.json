@@ -1,0 +1,39 @@
+{
+  "schema_version": "issue30.phase2.human_review.v1",
+  "source": "user_chat_review_20260910",
+  "reviewer_count": 1,
+  "review_scope": "visual A/B comparison of target realization and the declared primary relation",
+  "contact_sheet": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Models\\Issue30Evaluators\\issue30_phase2_wave1_profile_20260910\\review_queue\\phase2_wave1_ab_contact_sheet.png",
+  "records": [
+    {"image_number": 1, "image_id": "P2-001__contrast_seed_a", "experiment_id": "P2-001", "condition": "B", "seed": 41001, "human_observation": "バイブはあるが、肛門とは判定できない。", "relation_realized": false},
+    {"image_number": 2, "image_id": "P2-001__target_present_seed_a", "experiment_id": "P2-001", "condition": "A", "seed": 41001, "human_observation": "挿入はあるが、バイブは膣、肛門側はディルドになっている。指定したバイブの肛門内関係ではない。", "relation_realized": false},
+    {"image_number": 3, "image_id": "P2-001__contrast_seed_b", "experiment_id": "P2-001", "condition": "B", "seed": 41002, "human_observation": "1番と同じく、バイブはあるが肛門とは判定できない。", "relation_realized": false},
+    {"image_number": 4, "image_id": "P2-001__target_present_seed_b", "experiment_id": "P2-001", "condition": "A", "seed": 41002, "human_observation": "肛門には何もなく、膣にディルドが入っている。", "relation_realized": false},
+    {"image_number": 5, "image_id": "P2-002__contrast_seed_a", "experiment_id": "P2-002", "condition": "B", "seed": 41011, "human_observation": "性器はあるが、手に持っていない。", "relation_realized": false},
+    {"image_number": 6, "image_id": "P2-002__target_present_seed_a", "experiment_id": "P2-002", "condition": "A", "seed": 41011, "human_observation": "性具を手に持っている。", "relation_realized": true},
+    {"image_number": 7, "image_id": "P2-002__contrast_seed_b", "experiment_id": "P2-002", "condition": "B", "seed": 41012, "human_observation": "手に持っており、膣に入れている。", "relation_realized": true, "contrast_contaminated": true},
+    {"image_number": 8, "image_id": "P2-002__target_present_seed_b", "experiment_id": "P2-002", "condition": "A", "seed": 41012, "human_observation": "性具を手に持っている。", "relation_realized": true},
+    {"image_number": 9, "image_id": "P2-003__contrast_seed_a", "experiment_id": "P2-003", "condition": "B", "seed": 41021, "human_observation": "成立している。", "target_realized": true},
+    {"image_number": 10, "image_id": "P2-003__target_present_seed_a", "experiment_id": "P2-003", "condition": "A", "seed": 41021, "human_observation": "成立しており、9番以上に大きい。", "target_realized": true},
+    {"image_number": 11, "image_id": "P2-003__contrast_seed_b", "experiment_id": "P2-003", "condition": "B", "seed": 41022, "human_observation": "10番以上に大きい。", "target_realized": true},
+    {"image_number": 12, "image_id": "P2-003__target_present_seed_b", "experiment_id": "P2-003", "condition": "A", "seed": 41022, "human_observation": "11番以上に大きい。", "target_realized": true}
+  ],
+  "pair_results": [
+    {"experiment_id": "P2-001", "seed": 41001, "human_answer": "neither", "result": "BOTH_FAIL", "failure_class": "F4_BINDING_OWNERSHIP", "experiment_validity": "TARGET_REALIZATION_FAILED", "note": "Aは指定部位・対象が不一致、Bは肛門内関係を示さない。"},
+    {"experiment_id": "P2-001", "seed": 41002, "human_answer": "neither", "result": "BOTH_FAIL", "failure_class": "F4_BINDING_OWNERSHIP", "experiment_validity": "TARGET_REALIZATION_FAILED", "note": "Aは肛門ではなく膣側、Bも肛門内関係を示さない。"},
+    {"experiment_id": "P2-002", "seed": 41011, "human_answer": "A", "result": "A_ONLY_PASS", "failure_class": "F4_BINDING_OWNERSHIP", "experiment_validity": "VALID_FOR_THIS_PAIR", "note": "Aのみholdingが成立。"},
+    {"experiment_id": "P2-002", "seed": 41012, "human_answer": "both", "result": "BOTH_PASS", "failure_class": "F4_BINDING_OWNERSHIP", "experiment_validity": "CONTRAST_CONTAMINATED", "note": "Bにもholdingが現れ、object-only対照が汚染されている。"},
+    {"experiment_id": "P2-003", "seed": 41021, "human_answer": "both", "result": "BOTH_PASS", "failure_class": "NONE", "experiment_validity": "VALID_FOR_TARGET_REALIZATION", "note": "A/Bとも成立。Bの方が大きい。Negativeによる抑制は観測されない。"},
+    {"experiment_id": "P2-003", "seed": 41022, "human_answer": "both", "result": "BOTH_PASS", "failure_class": "NONE", "experiment_validity": "VALID_FOR_TARGET_REALIZATION", "note": "A/Bとも成立。Aの方が大きい。Negativeによる抑制は観測されない。"}
+  ],
+  "summary": {
+    "reviewed_images": 12,
+    "artifact_failures": 0,
+    "p2_001_relation_successes": 0,
+    "p2_002_holding_successes": 3,
+    "p2_003_target_realization_successes": 4,
+    "p2_002_contrast_contamination_pairs": 1,
+    "additional_generation": "STOP_UNTIL_DEV_REVIEW",
+    "production_auto_promotion": false
+  }
+}

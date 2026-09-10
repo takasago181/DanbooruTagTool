@@ -34,7 +34,13 @@ The bounded first wave completed with 12 new images and 36 evaluator runs. Machi
 
 Review asset: `C:\Users\takas\Downloads\StabilityMatrix-win-x64\Data\Models\Issue30Evaluators\issue30_phase2_wave1_profile_20260910\review_queue\phase2_wave1_ab_contact_sheet.png`
 
-Review all 12 numbered A/B images in the contact sheet. For each question, compare the same seed's A and B condition and answer `A / B / both / neither / tie / unclear`. Do not inspect raw evaluator logs.
+Completed. The user reviewed all 12 numbered A/B images. Pair answers were:
+
+- P2-001 `vibrator in anus`: `neither` for seeds 41001 and 41002; the target relation was realized at the wrong body site or not observable.
+- P2-002 `holding sex toy`: `A` for seed 41011; `both` for seed 41012, with the B contrast contaminated by holding.
+- P2-003 `breast expansion`: `both` for seeds 41021 and 41022; both conditions realized the target, with a noted size difference.
+
+Machine-readable human record: `ISSUE30_PHASE2_HUMAN_REVIEW_RESULTS_20260910.json`. No additional seed or experiment was run after review.
 
 ## Decision and limitation
 
