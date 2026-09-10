@@ -1,0 +1,36 @@
+name: Issue44 evaluator coverage
+
+on:
+  push:
+    branches: [knowledge/generation-corpus]
+    paths:
+      - '.github/workflows/issue44_evaluator_coverage.yml'
+      - 'tools/issue44_evaluator_coverage.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  coverage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: knowledge/generation-corpus
+          fetch-depth: 0
+      - name: Run desk coverage
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: python tools/issue44_evaluator_coverage.py
+      - name: Commit knowledge artifacts
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/knowledge/current/issue44_evaluator_coverage_20260910
+          if git diff --cached --quiet; then
+            echo "No coverage artifact changes"
+          else
+            git commit -m "knowledge: checkpoint issue44 evaluator coverage"
+            git push origin HEAD:knowledge/generation-corpus
+          fi
