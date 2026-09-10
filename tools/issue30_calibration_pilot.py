@@ -79,6 +79,15 @@ def write_gzip_json(path: Path, value: Any) -> None:
         json.dump(value, handle, ensure_ascii=False, separators=(",", ":"))
 
 
+def read_json(path: Path) -> Any:
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def read_gzip_json(path: Path) -> Any:
+    with gzip.open(path, "rt", encoding="utf-8") as handle:
+        return json.load(handle)
+
+
 def load_cases() -> list[dict[str, str]]:
     with CASE_MANIFEST.open(encoding="utf-8-sig", newline="") as handle:
         cases = list(csv.DictReader(handle))
@@ -335,7 +344,7 @@ def target_score(pairs: list[tuple[str, float]], case: dict[str, str]) -> tuple[
     return None, False, "NONE"
 
 
-def run_wd14(session: requests.Session, record: dict[str, Any]) -> dict[str, Any]:
+def run_wd14(session: requests.Session, record: dict[str, Any], reuse_existing: bool = False) -> dict[str, Any]:
     raw = Path(record["image_path"]).read_bytes()
     payload = {
         "image": "data:image/png;base64," + base64.b64encode(raw).decode("ascii"),
@@ -345,6 +354,16 @@ def run_wd14(session: requests.Session, record: dict[str, Any]) -> dict[str, Any
         "name_in_queue": "",
     }
     artifact = RUN_ROOT / "raw" / "wd14" / f"{record['image_id']}.json"
+    if reuse_existing:
+        if not artifact.exists():
+            raise RuntimeError(f"missing cached WD14 artifact in screen-only mode: {artifact}")
+        obj = read_json(artifact)
+        if "error" in obj:
+            raise RuntimeError(f"cached WD14 artifact is an error: {artifact}")
+        pairs = normalized_pairs(obj)
+        score, observed, basis = target_score(pairs, record["case"])
+        tags = [{"tag": tag, "score": score} for tag, score in pairs[:200]]
+        return evaluator_record("WD14", "wd14-eva02.v3.large", "runtime-interrogator", "OK", score, tags, basis, observed, artifact, THRESHOLDS["WD14"])
     try:
         response = session.post(FORGE_API + "/tagger/v1/interrogate", json=payload, timeout=300)
         response.raise_for_status()
@@ -360,8 +379,19 @@ def run_wd14(session: requests.Session, record: dict[str, Any]) -> dict[str, Any
 
 
 def run_onnx(record: dict[str, Any], session: Any, tags: list[str], name: str,
-             version: str, revision: str, side: int, bgr: bool, threshold: float) -> dict[str, Any]:
+             version: str, revision: str, side: int, bgr: bool, threshold: float,
+             reuse_existing: bool = False) -> dict[str, Any]:
     artifact = RUN_ROOT / "raw" / name.lower() / f"{record['image_id']}.json.gz"
+    if reuse_existing:
+        if not artifact.exists():
+            raise RuntimeError(f"missing cached {name} artifact in screen-only mode: {artifact}")
+        obj = read_gzip_json(artifact)
+        if "error" in obj:
+            raise RuntimeError(f"cached {name} artifact is an error: {artifact}")
+        pairs = [(str(tag), float(score)) for tag, score in obj["top_tags"]]
+        score, observed, basis = target_score(pairs, record["case"])
+        visible = [{"tag": tag, "score": score} for tag, score in pairs[:500] if score >= threshold]
+        return evaluator_record(name, version, revision, "OK", score, visible, basis, observed, artifact, threshold)
     try:
         input_name = session.get_inputs()[0].name
         output_name = session.get_outputs()[0].name
@@ -543,7 +573,7 @@ def main() -> None:
     write_json(RUN_ROOT / "generation_records.json", records)
     print("GENERATION_COMPLETE", flush=True)
     for index, record in enumerate(records, start=1):
-        record["wd14"] = run_wd14(session, record)
+        record["wd14"] = run_wd14(session, record, reuse_existing=args.screen_existing)
         print(f"WD14 {index}/128", flush=True)
     import onnxruntime as ort
     kagami_session = ort.InferenceSession(str(KAGAMI_ROOT / "onnx/model_prob.onnx"), providers=["CPUExecutionProvider"])
@@ -551,14 +581,14 @@ def main() -> None:
         kagami_tags = [row["name"] for row in csv.DictReader(handle)]
     kagami_rev = "fbf04252c68c9cbf03c8b343e537e3cd7594c8a1"
     for index, record in enumerate(records, start=1):
-        record["kagami"] = run_onnx(record, kagami_session, kagami_tags, "Kagami", "Kagami-24k", kagami_rev, 448, True, THRESHOLDS["Kagami"])
+        record["kagami"] = run_onnx(record, kagami_session, kagami_tags, "Kagami", "Kagami-24k", kagami_rev, 448, True, THRESHOLDS["Kagami"], reuse_existing=args.screen_existing)
         print(f"KAGAMI {index}/128", flush=True)
     cl_session = ort.InferenceSession(str(CL_ROOT / "model.onnx"), providers=["CPUExecutionProvider"])
     vocab = json.loads((CL_ROOT / "model_vocabulary.json").read_text(encoding="utf-8"))
     cl_tags = [tag for tag, index in sorted(vocab["tag_to_idx"].items(), key=lambda item: item[1])]
     cl_rev = "b57909e9c63f71e208a26473e7aabdf45ed6b6"
     for index, record in enumerate(records, start=1):
-        record["cl_v2_00"] = run_onnx(record, cl_session, cl_tags, "CL v2.00", "v2.00", cl_rev + ":v2_00", 384, False, THRESHOLDS["CL"])
+        record["cl_v2_00"] = run_onnx(record, cl_session, cl_tags, "CL v2.00", "v2.00", cl_rev + ":v2_00", 384, False, THRESHOLDS["CL"], reuse_existing=args.screen_existing)
         print(f"CL {index}/128", flush=True)
     structured = []
     for record in records:
