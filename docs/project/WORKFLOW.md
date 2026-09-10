@@ -166,35 +166,17 @@ GitHubはmanagement stateとcommit済みコード/文書の正本だが、local 
 - `git clean -fdx` / `git clean -fdX` 等のignored file一括削除は禁止。
 - fresh cloneだけでfull runtime/full testsが成立するとは仮定しない。
 
-## GitHub Project 推奨Fields
+## GitHub Project
 
-| Field | 値 |
-|---|---|
-| Status | Backlog / Ready / Working / Audit / Blocked / Hold / Done |
-| Team | DEV / AUDIT / KNOWLEDGE / PROMPT / TEMP |
-| Stage | 9B / 9C / 9D / 10 / 11 / Maintenance |
-| Type | Spec / Implementation / Research / Experiment / Bug / Audit |
-| Priority | P0 / P1 / P2 |
+**現在は未採用。**
 
-## 推奨Views
+Issue #47で検討したGitHub Project管理ボードは、`CURRENT_STATE.md` + 各Issue + `CURRENT_DEV_TASK.md` の3層で十分と判断し、2026-09-10に `NOT PLANNED` でcloseした。
 
-### NOW
-Status = Ready, Working, Audit, Blocked
+したがって現在は:
+- Projectのfield/viewを作成・同期しない
+- Projectをtask contractやGate authorityとして扱わない
+- 管理正本を増やさない
 
-### Stage 9
-Stage = 9B, 9C, 9D
+将来、現行3層で実際に管理不能・高頻度の見落としが発生した場合のみ、別Issueで再検討する。
 
-### Stage 10
-Stage = 10
-
-### Audit Queue
-Team = AUDIT and Status != Done
-
-### Research Queue
-Team = KNOWLEDGE and Status != Done
-
-### Prompt Queue
-Team = PROMPT and Status != Done
-
-個人開発なので担当者フィールドは不要。
-「Team」は人ではなく作業モードを表す。
+過去のProject field/view案はGit履歴と `CONTROL_BOARD_MIGRATION_DESIGN.md` に履歴として残す。
