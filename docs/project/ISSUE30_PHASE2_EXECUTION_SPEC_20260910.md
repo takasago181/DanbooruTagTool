@@ -336,6 +336,24 @@ Provide:
 - Japanese experiment description
 - A/B condition labels
 - only the one question being judged
+- review-visible Positive / Negative Prompt tags as **English original + Japanese label**
+
+The executed Prompt remains English/canonical. Japanese is display-only and must never silently alter generation input.
+
+Bilingual display applies at minimum to:
+- target / contrast tags
+- actor / count tags
+- visibility / geometry / support tags shown to the user
+- Negative Prompt tags relevant to the comparison
+
+Japanese text rendering is part of the review-asset validity gate. On Windows, prefer a Japanese-glyph-capable font in this order when available:
+1. Meiryo (`meiryo.ttc`)
+2. Yu Gothic (`YuGothM.ttc` or another installed Yu Gothic face)
+3. MS Gothic (`msgothic.ttc`)
+
+Do not silently accept `ImageFont.load_default()` or another font that renders Japanese as tofu/empty squares for a user-facing review asset. If no usable Japanese font is available, mark the review asset `REVIEW_ASSET_INVALID` / `BLOCKED` and stop for a rendering fix rather than asking the user to review broken labels.
+
+After changing Japanese labels or font selection, regenerate the contact sheet and perform a local display check before review. Confirm that at least one known Japanese label renders legibly and is not replaced by square/tofu glyphs. Record the selected font and display-check result in the review/result artifact when practical.
 
 User response should ideally be limited to:
 - A
