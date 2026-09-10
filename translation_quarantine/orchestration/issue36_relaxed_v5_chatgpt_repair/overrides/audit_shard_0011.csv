@@ -308,3 +308,69 @@ cross_cutout,切り抜き,十字形の切り抜き,SEMANTIC_UNDERSPECIFICATION
 cross_facial_mark,十字架・facial・印,十字形の顔の印,MIXED_ENGLISH_DEBRIS
 cross_halo,クロス・光輪,十字形の光輪,MIXED_ENGLISH_DEBRIS
 cross_hat_ornament,十字架・帽子・飾り,十字架の帽子飾り,MIXED_ENGLISH_DEBRIS
+cross_in_eye,十字架の中の目,目の中の十字,RELATION_SEMANTIC_ERROR
+cross_ornament,十字架・飾り,十字架の飾り,MIXED_ENGLISH_DEBRIS
+cross_pendant,十字架・pendant,十字架のペンダント,MIXED_ENGLISH_DEBRIS
+cross_tie,クロス・結び,クロスタイ,SEMANTIC_ERROR
+crossbody_bag,タグ「crossbody bag」,クロスボディバッグ,RAW_ENGLISH_WRAPPER
+crossbow_bolt,矢,クロスボウ用ボルト,SEMANTIC_UNDERSPECIFICATION
+crossbuck,タグ「crossbuck」,クロスバック標識,RAW_ENGLISH_WRAPPER
+crossed_knees,タグ「crossed knees」,交差した膝,RAW_ENGLISH_WRAPPER
+crossed_weapons,タグ「crossed weapons」,交差した武器,RAW_ENGLISH_WRAPPER
+crossguard_lightsaber,タグ「crossguard lightsaber」,クロスガード・ライトセーバー,RAW_ENGLISH_WRAPPER
+crosshair_pov,タグ「crosshair pov」,照準器視点,RAW_ENGLISH_WRAPPER
+crosshair_pupils,十字架の生徒,照準型の瞳孔,SEMANTIC_ERROR
+crotch_strap,股間・strap,股間ストラップ,MIXED_ENGLISH_DEBRIS
+crotchless_bodysuit,クロットレスボディスーツ,股部分の開いたボディスーツ,SEMANTIC_ERROR
+crotchless_pants,股間のズボン,股部分の開いたパンツ,SEMANTIC_ERROR
+crow's_feet,魚尾纹,目尻のしわ,NON_JAPANESE_RESIDUE
+crowded,員電車,混雑,SEMANTIC_ERROR
+crown_earrings,crownのイヤリング,王冠のイヤリング,MIXED_ENGLISH_DEBRIS
+crown_hat_ornament,crown・帽子・飾り,王冠の帽子飾り,MIXED_ENGLISH_DEBRIS
+crown_necklace,crown・ネックレス,王冠のネックレス,MIXED_ENGLISH_DEBRIS
+crown_ornament,crown・飾り,王冠の飾り,MIXED_ENGLISH_DEBRIS
+crucible_(doom),るつぼ（運命）,クルーシブル（DOOM）,SEMANTIC_ERROR
+crumbs,パン粉,食べかす,SEMANTIC_NARROWING
+crushed,圧扁的,押しつぶされた,NON_JAPANESE_RESIDUE
+crushing_food,crushing・食べ物,食べ物を押しつぶす,MIXED_ENGLISH_DEBRIS
+crying_cat_(meme),crying cat (meme),泣いている猫（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+crystal_horns,水晶のhorns,水晶の角,MIXED_ENGLISH_DEBRIS
+crystal_sword,アイスソード,水晶の剣,SEMANTIC_ERROR
+cube_earrings,cubeのイヤリング,立方体のイヤリング,MIXED_ENGLISH_DEBRIS
+cuddling,依偎,抱き合う,NON_JAPANESE_RESIDUE
+cuddling_handjob,拥抱手交,抱き合いながらの手コキ,NON_JAPANESE_RESIDUE
+cum_bubble,精液泡泡,精液の泡,NON_JAPANESE_RESIDUE
+cum_bucket,兼バケツ,精液バケツ,SEMANTIC_ERROR
+cum_in_gloves,cum inの手袋,手袋の中の精液,MIXED_ENGLISH_DEBRIS
+cum_in_navel,へそ,へその中の精液,SEMANTIC_UNDERSPECIFICATION
+cum_in_nipple,cumの中の乳首,乳首の中の精液,RELATION_SEMANTIC_ERROR
+cum_on_bed,ベッドの中出し,ベッドについた精液,SEMANTIC_ERROR
+cum_on_fourth_wall,cumの上のfourth・壁,第四の壁についた精液,MIXED_ENGLISH_DEBRIS
+cum_on_goggles,cumの上のgoggles,ゴーグルについた精液,MIXED_ENGLISH_DEBRIS
+cum_on_headwear,帽子の中出し,頭飾りについた精液,SEMANTIC_ERROR
+cum_on_horns,角の中出し,角についた精液,SEMANTIC_ERROR
+cum_on_object,オブジェクトの中出し,物体についた精液,SEMANTIC_ERROR
+cum_on_shoe,cumの上の靴,靴についた精液,MIXED_ENGLISH_DEBRIS
+cum_on_skirt,スカートの中出し,スカートについた精液,SEMANTIC_ERROR
+cum_on_wall,cumの上の壁,壁についた精液,MIXED_ENGLISH_DEBRIS
+cumdrip_onto_panties,パンティーに累積します,パンティーに垂れる精液,SEMANTIC_ERROR
+cup_hilt,カップ・hilt,カップヒルト,MIXED_ENGLISH_DEBRIS
+cup_holder,カップ・holder,カップホルダー,MIXED_ENGLISH_DEBRIS
+cup_on_head,カップの上の頭,頭の上のカップ,RELATION_SEMANTIC_ERROR
+cup_size,カップ・size,カップサイズ,MIXED_ENGLISH_DEBRIS
+cupping_ears,cupping・耳,耳に手を当てる,MIXED_ENGLISH_DEBRIS
+cupping_hands,捧起手,両手を杯状にする,NON_JAPANESE_RESIDUE
+cure_black_pose,黒のポーズを治します,キュアブラックのポーズ,SEMANTIC_ERROR
+cure_happy_(cosplay),ハッピーを治す（コスプレ）,キュアハッピー（コスプレ）,SEMANTIC_ERROR
+cure_melody_(cosplay),治療メロディー（コスプレ）,キュアメロディ（コスプレ）,SEMANTIC_ERROR
+cure_peace_(cosplay),キュア平和（コスプレ）,キュアピース（コスプレ）,SEMANTIC_ERROR
+cure_white_(cosplay),ホワイトを治す（コスプレ）,キュアホワイト（コスプレ）,SEMANTIC_ERROR
+cure_white_pose,白いポーズを治します,キュアホワイトのポーズ,SEMANTIC_ERROR
+curled_ends,タグ「curled ends」,カールした毛先,RAW_ENGLISH_WRAPPER
+curled_up,蜷缩,体を丸める,NON_JAPANESE_RESIDUE
+curly_ends,タグ「curly ends」,巻いた毛先,RAW_ENGLISH_WRAPPER
+curly_sidelocks,タグ「curly sidelocks」,巻いた横髪,RAW_ENGLISH_WRAPPER
+curse_seal,タグ「curse seal」,呪印,RAW_ENGLISH_WRAPPER
+cursed_energy_(jujutsu_kaisen),タグ「cursed energy (jujutsu kaisen)」,呪力（呪術廻戦）,RAW_ENGLISH_WRAPPER
+cursor_hair_ornament,cursorの髪飾り,カーソルの髪飾り,MIXED_ENGLISH_DEBRIS
+curtain_grab,カーテングラブ,カーテンを掴む,SEMANTIC_ERROR
