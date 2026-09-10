@@ -1,0 +1,46 @@
+canonical,old_display_ja,new_display_ja,reason
+heart_arms,ハート・両腕,腕でハートを作る,MIXED_ENGLISH_DEBRIS
+heart_arms_trio,ハート・両腕・trio,3人で腕のハート,MIXED_ENGLISH_DEBRIS
+heart_bubbles,心臓の泡,ハートの泡,SEMANTIC_ERROR
+heart_cheeks,心の頬,ハート型の頬,MIXED_ENGLISH_DEBRIS
+heart_crown,ハート・crown,ハートの王冠,MIXED_ENGLISH_DEBRIS
+heart_cushion,ハート・cushion,ハート型クッション,MIXED_ENGLISH_DEBRIS
+heart_emoji,ハート・emoji,ハートの絵文字,MIXED_ENGLISH_DEBRIS
+heart_facial_mark,ハートフェイシャルマーク,ハート型の顔の印,AWKWARD_MACHINE_TRANSLATION
+heart_floating_above_hand,ハート・浮遊する・above・手,手の上に浮かぶハート,MIXED_ENGLISH_DEBRIS
+heart_frame,ハート・frame,ハート型フレーム,MIXED_ENGLISH_DEBRIS
+heart_hands_over_eye,ハート・両手・覆う目,目の上でハートを作る手,MIXED_ENGLISH_DEBRIS
+heart_hands_trio,ハート・両手・trio,3人で手のハート,MIXED_ENGLISH_DEBRIS
+heart_image,ハート・image,ハートの画像,MIXED_ENGLISH_DEBRIS
+heart_in_heart_hands,ハートの中のハート・両手,手で作ったハートの中のハート,MIXED_ENGLISH_DEBRIS
+heart_locket,ハート・locket,ハート型ロケット,MIXED_ENGLISH_DEBRIS
+heart_of_string,ラインのハート,紐で作ったハート,SEMANTIC_ERROR
+heart_on_cheek,ハートの上のcheek,頬のハート,SEMANTIC_RELATION_ERROR
+heart_pirates_jolly_roger,ハート・pirates・jolly・roger,ハートの海賊団のジョリー・ロジャー,MIXED_ENGLISH_DEBRIS
+heart_pockets,ハート・pockets,ハート型ポケット,MIXED_ENGLISH_DEBRIS
+heart_ring_strap,ハート・指輪・strap,ハートリング付きストラップ,MIXED_ENGLISH_DEBRIS
+heart_tail,ハート・尻尾,ハート型の尻尾,AWKWARD_MACHINE_TRANSLATION
+heart_tail_duo,ハートテールデュオ,2本の尻尾でハート,SEMANTIC_ERROR
+heart_wings,ハート・翼,ハート型の翼,AWKWARD_MACHINE_TRANSLATION
+hearthian,タグ「hearthian」,ハーシアン,RAW_ENGLISH_WRAPPER
+heartless_(kingdom_hearts),タグ「heartless (kingdom hearts)」,ハートレス（キングダム ハーツ）,RAW_ENGLISH_WRAPPER
+heartless_emblem,タグ「heartless emblem」,ハートレスのエンブレム,RAW_ENGLISH_WRAPPER
+heartslabyul_dorm_uniform,heartslabyul dormの制服,ハーツラビュル寮の制服,MIXED_ENGLISH_DEBRIS
+heartsteel_(league),心之钢,HEARTSTEEL（League of Legends）,NON_JAPANESE_RESIDUE
+heat_stroke_photoshoot_(meme),heat stroke photoshoot (meme),熱中症撮影（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+heather_(flower),タグ「heather (flower)」,ヘザー（花）,RAW_ENGLISH_WRAPPER
+heaven_(kanji),タグ「heaven (kanji)」,「天」の字,RAW_ENGLISH_WRAPPER
+heavy_bolter,タグ「heavy bolter」,ヘヴィボルター,RAW_ENGLISH_WRAPPER
+heavy_film_grain,タグ「heavy film grain」,強いフィルム粒子,RAW_ENGLISH_WRAPPER
+heavy_machine_gun,重机枪,重機関銃,NON_JAPANESE_RESIDUE
+hebijo_academy_school_uniform,hebijo academyの学校制服,秘立蛇女子学園の制服,MIXED_ENGLISH_DEBRIS
+hecate's_staff_(fate),hecate's staff (fate),ヘカテーの杖（Fate）,CANONICAL_FALLBACK_TRANSLATABLE
+hecatia_lapislazuli_(cosplay),hecatia lapislazuli (cosplay),ヘカーティア・ラピスラズリ（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+hedgehog_boy,タグ「hedgehog boy」,ハリネズミの少年,RAW_ENGLISH_WRAPPER
+hedgehog_girl,タグ「hedgehog girl」,ハリネズミの少女,RAW_ENGLISH_WRAPPER
+heel_pop,タグ「heel pop」,かかとを上げるポーズ,RAW_ENGLISH_WRAPPER
+heel_stretch,タグ「heel stretch」,ヒールストレッチ,RAW_ENGLISH_WRAPPER
+height_conscious,高さを意識しています,身長を気にする,SEMANTIC_ERROR
+height_envy,タグ「height envy」,身長への嫉妬,RAW_ENGLISH_WRAPPER
+height_growth,タグ「height growth」,身長の成長,RAW_ENGLISH_WRAPPER
+height_lineup,タグ「height lineup」,身長順の整列,RAW_ENGLISH_WRAPPER
