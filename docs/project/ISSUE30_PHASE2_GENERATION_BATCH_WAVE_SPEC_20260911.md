@@ -248,6 +248,20 @@ For each image/pair:
 - A/B marker when needed to answer the pair
 - **one large, concrete Japanese question describing exactly what to look for**
 
+### A/B marker integrity — mandatory
+
+A prior review sheet incorrectly displayed all sample images as `B`. This must not recur.
+
+For every A/B experiment:
+- derive the displayed A/B marker from the manifest/structured experiment condition, not from filename position, sort order, or fragile string-prefix heuristics;
+- for every `(experiment, seed)` pair, verify there is exactly **one A image and one B image** before rendering the contact sheet;
+- verify the displayed marker agrees with the exact executed Prompt condition recorded for that image;
+- run an automated assertion over the rendered sheet input so an all-A/all-B labeling mistake cannot pass silently;
+- if a pair is missing A or B, duplicated, or marker/condition mapping is inconsistent, set `REVIEW_ASSET_INVALID / BLOCKED` and do not hand the sheet to the user;
+- record the A/B integrity check as PASS/FAIL in the repository result.
+
+If an experiment is intentionally not an A/B pair, it must use an explicit non-A/B presentation mode rather than falsely labeling every image A or B.
+
 ### Contact sheet SHOULD NOT show by default
 
 Remove from the user-facing sheet unless strictly needed for the visual decision:
@@ -314,6 +328,7 @@ After generation/evaluation:
 - user-facing large-question contact sheet locator
 - detailed bilingual traceability report outside the sheet
 - pair count / reviewed image count separately
+- **A/B marker integrity check PASS/FAIL**
 - concise result Markdown
 - machine-readable JSON
 - tests/dry-run results
@@ -336,9 +351,10 @@ Suggested names:
 8. if all gates PASS, execute the whole bounded batch without returning between experiments
 9. run/reuse evaluator triage
 10. build the simplified large-question contact sheet
-11. build detailed repository traceability artifacts separately
-12. commit/push branch
-13. STOP for user + DEV/ChatGPT review
+11. run A/B marker integrity validation; BLOCK the review asset on any mismatch
+12. build detailed repository traceability artifacts separately
+13. commit/push branch
+14. STOP for user + DEV/ChatGPT review
 
 ## Stop rules
 
