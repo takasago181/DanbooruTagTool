@@ -10,22 +10,21 @@ Stage 9 overall Gate 完了 / Stage10 準備Gate実施中 / automated E2E PASS /
 
 ## Current Core DEV
 
-**Issue #30 / PHASE2_TARGETED_REFINEMENT / REUSE_ONLY_REVIEW**
+**Issue #30 / PHASE2_TARGETED_REFINEMENT / GENERATION_BATCH_WAVE**
 
-Issue #30 Phase 1 representative evaluator calibrationは完了・凍結済み。Phase 2 Wave 1 / Wave 2も実行・人間レビューまで完了した。
+Issue #30 Phase 1 representative evaluator calibrationは完了・凍結済み。Phase 2 Wave 1 / Wave 2 / reuse-only reviewも実行・人間レビューまで完了した。
 
-現在は新規生成を止め、既存Phase 1 128-image evidenceから残る個数系 / multi-Special系の問いを、具体的な日本語の可視条件で再利用レビューする段階。
+現在は、ユーザーとCodex/ChatGPT間の往復回数とローカル生成待ちを減らすため、残る高価値な生成テストを1つのbounded batchへまとめて実行する段階。
 
 Current restore anchors:
 - Phase 1: `docs/project/ISSUE30_HANDOFF_20260910.md`
 - Phase 2 base: `docs/project/ISSUE30_PHASE2_HANDOFF_20260910.md`
-- current continuation: `docs/project/ISSUE30_PHASE2_REUSE_REVIEW_SPEC_20260911.md`
+- completed reuse-only contract: `docs/project/ISSUE30_PHASE2_REUSE_REVIEW_SPEC_20260911.md`
+- **current continuation: `docs/project/ISSUE30_PHASE2_GENERATION_BATCH_WAVE_SPEC_20260911.md`**
 - branch: `codex/issue30-calibration-design`
-- Wave 2 execution commit: `b478f32042fa3b4111a6b86c24cb6c77655d579a`
-- Wave 2 human review Markdown commit: `34aa09a8d7c82bbfaf798c68c8c98a72a65cce50`
-- Wave 2 human review JSON commit: `63ac1ee49edef710a3b10135a7a2d33250d6cb96`
+- reuse-only human review commit: `44c3874ea6083590db256f819d5445501c49ff60`
 
-`CURRENT_DEV_TASK.md` is synchronized to Source Issue #30 / REUSE_ONLY_REVIEW_AUTHORIZED.
+`CURRENT_DEV_TASK.md` is synchronized to Source Issue #30 / PHASE2_GENERATION_BATCH_WAVE_AUTHORIZED.
 
 Issue #42 remains downstream and is still gated on #36 V5 / #34 material UI-JA/search work completion or explicit separation. Phase 2 does not bypass that Gate.
 
@@ -38,7 +37,7 @@ Issue #42 remains downstream and is still gated on #36 V5 / #34 material UI-JA/s
 | `UIJA:#36:V5` | ACTIVE / CHATGPT_LED_REPAIR | Japanese overlay final convergence / semantic repair | `ui-ja/issue36-relaxed-v5-chatgpt-repair` | 30,629 rowsを既存31 audit shardsへ分割し、ChatGPT側で明確な翻訳・意味欠陥を修正/監査。V4はimmutable evidenceとして保持 | Issue #36 latest V5 checkpoint |
 | `UIJA-ORCH:#46` | SUPERSEDED / CLOSED | historical independent Codex orchestration for V3.1/V4 | Issue #46 / `codex/issue46-orchestrator` | historical evidence only | Issue #46 superseded checkpoint |
 | `UIJA-PARENT:#34` | OPEN / CROSS-CUTTING / SEARCH_RELEVANCE_REMAINS | bilingual search relevance and remaining parent UI concerns | Issue #34 | `anal -> piano/analog...` 等のsubstring/fuzzy search noiseが主要残件 | Issue #34 current body |
-| `TEMP:#30` | ACTIVE / CORE_DEV / PHASE2_REUSE_ONLY_REVIEW | Forge Neo evaluator calibration & A/B automation | `codex/issue30-calibration-design` | Wave 1/2 human review完了。既存Phase 1画像のreuse-only review中。新規生成0 | `docs/project/ISSUE30_PHASE2_REUSE_REVIEW_SPEC_20260911.md` |
+| `TEMP:#30` | ACTIVE / CORE_DEV / PHASE2_GENERATION_BATCH | Forge Neo evaluator calibration & A/B automation | `codex/issue30-calibration-design` | Wave 1/2/reuse-only human review完了。3–4高価値実験を最大16 new imagesでまとめて実行 | `docs/project/ISSUE30_PHASE2_GENERATION_BATCH_WAVE_SPEC_20260911.md` |
 | `PREP:#42` | RESERVED / GATED | Stage10 pre-evaluation product-purpose improvement | Issue #42 | #30 Phase 1 prerequisite satisfied。#36/#34 material homework完了または明示分離後にactivate | Issue #42 |
 | `PROMPT:#5` | GATED | Stage10 formal Prompt handoff | Issue #5 | #42 result後にformal handoff | Issue #5 |
 | `MAINT:#24` | OPEN / SAFETY_DEBT | Local protected data backup / restore verification | Issue #24 | GitHub外protected dataのbackup/restore・manifest・非破壊restore検証 | Issue #24 |
@@ -65,6 +64,12 @@ Issue #42 remains downstream and is still gated on #36 V5 / #34 material UI-JA/s
   - P2-004 `double dildo`: exact-count testとしては不適切。shape/lexical collapse evidenceとして保持
   - P2-005 `anal` vs `anal penetration`: seed-sensitive (`B_ONLY_PASS` / `A_ONLY_PASS`)
   - structural AUTO promotionなし
+- Issue #30 Phase 2 reuse-only review: **COMPLETED / HUMAN REVIEWED**
+  - `CAL-023 double handjob`
+  - 2 pairs / 4 existing images
+  - both `A_ONLY_PASS`
+  - new generation 0 / evaluator rerun 0
+  - narrow count/action positive anchorのみ。general structural AUTOには昇格しない
 - Issue #46 historical orchestration: **superseded / closed**
 
 ## Frozen terminology
@@ -113,26 +118,46 @@ Artifact/experiment separation:
 - target/contrast generation不成立 -> experiment validity failure; evaluator精度と混同しない
 
 Review UX carry-forward:
-- questionは「何が画像に出ていればPASSか」を短い日本語で直接書く
-- actual Prompt tags/tokensを `English (日本語)` で併記
+- user-facing contact sheetは**画像 + 大きな番号 + 必要時A/B + 大きな具体的日本語質問**へ簡素化する
+- full Prompt/Negative、seed、case ID、evaluator score、model/settings、token glossaryは原則contact sheetから外す
+- traceabilityは別のrepository Markdown/JSON/manifestへ完全保持する
+- Prompt詳細をユーザーへ別表示する場合のみ `English (日本語)` 併記
+- question font >=24px、可能なら28–32px
 - Meiryo -> Yu Gothic -> MS Gothic
 - tofu/square表示は review asset invalid
 
 ## Active / Ready Work
 
-### #30 Phase 2 — CURRENT CORE DEV / REUSE_ONLY_REVIEW
+### #30 Phase 2 — CURRENT CORE DEV / GENERATION_BATCH_WAVE
 
 Current contract:
-`docs/project/ISSUE30_PHASE2_REUSE_REVIEW_SPEC_20260911.md`
+`docs/project/ISSUE30_PHASE2_GENERATION_BATCH_WAVE_SPEC_20260911.md`
 
-Rules:
-1. latest mainを#30 branchへmerge
-2. existing Phase 1 128 images/evaluator outputsを再利用
-3. count candidates `CAL-022 / CAL-023 / CAL-024` から、current local canonical意味が静止画で直接判定できるcaseだけ選択
-4. `CAL-032 anus + after footjob` は両構成要素を静止画で直接判定できる場合だけ使用。文脈推測が必要ならDEFER
-5. max 2 experiments / 8 reviewed images。1 experiment / 4 imagesで十分なら停止
-6. new generation 0 / new seeds 0 / evaluator rerun不要
-7. bilingual contact sheet -> user review -> DEV judgment
+Batch purpose:
+- ChatGPT/Codex/ローカル生成の往復を減らすため、独立した高価値テストを1 passへ集約する
+- one experiment = one primary questionは維持する
+
+Priority:
+1. `MULTI_SPECIAL_RETENTION`
+2. `SINGLE_SUPPORT_TAG_EFFECT`
+3. `SPECIFIC_ONLY_VS_BROAD_PLUS_SPECIFIC`
+4. `ACTOR_COUNT_DISAMBIGUATION`
+
+Desk-only by default:
+- `MACHINE_SAFE_ZONE`
+
+Batch bounds:
+- 3–4 experiments
+- normally A/B × 2 predetermined fixed seeds
+- normally 12–16 new images
+- hard cap 16 new images
+- compatible existing evidence reuse first
+- no automatic extra seeds
+- quota fill禁止
+
+Codexはcurrent canonical dataから実在Special IDを選び、可視PASS条件が短い日本語で明確・A/B差分が1つ・既存証拠不足・<=16 new imagesであれば、中間承認で止まらずbatch全体を実行してよい。
+
+Default new exact-count testは行わない。`CAL-023 double handjob` の2/2 A_ONLY_PASSをnarrow positive anchorとして保持し、general count semanticsはHUMAN_REVIEW_ONLYのまま。
 
 ### #36 UI-JA V5 — ChatGPT-led repair/audit
 
@@ -190,7 +215,7 @@ Formal completionは以下の後:
 9. #43 naming/final dictionary freeze — SATISFIED
 10. #44 final evaluator coverage — SATISFIED
 11. #30 Phase 1 controlled representative calibration + minimal review — **SATISFIED / FROZEN**
-12. #30 Phase 2 targeted refinement — **ACTIVE / REUSE_ONLY_REVIEW**
+12. #30 Phase 2 targeted refinement — **ACTIVE / GENERATION_BATCH_WAVE**
 13. #36 V5 repair/audit -> integration/revalidation -> independent promotion gate — **ACTIVE**
 14. #34 bilingual search relevance/noise — **REMAINS / resolve or explicitly separate before #42**
 15. #42 product-purpose improvement pass — REMAINS
@@ -201,7 +226,7 @@ Formal completionは以下の後:
 ## Canonical dependency order
 
 Parallel now:
-- Core DEV: `#30 Phase 2 reuse-only review`
+- Core DEV: `#30 Phase 2 Generation Batch Wave`
 - UI-JA lane: `#36 V5 repair/audit -> integration/revalidation -> independent promotion gate`
 - cross-cutting: `#34 bilingual search relevance`, `#24 protected-data safety`
 
@@ -212,22 +237,24 @@ Then:
 
 ## Next Actions
 
-1. #30 reuse-only review using existing Phase 1 artifacts
-2. #36 V5 workをGitHub正本へ継続反映
-3. #34 bilingual search relevance/noiseをresolveまたはStage10 Gateから明示分離
-4. reuse-only review後、#30 Phase 2がdiminishing returnsならfinal delta handoffを作る
-5. managementがGate確認後に#42をcurrent core DEVとして明示activate
-6. #42 product-purpose improvement passで#30 Tagger-assisted triage policyを統合
-7. #5 formal Prompt handoff
-8. `STAGE_10_PREP.md` remaining checksをclose
-9. 全Gate完了後のみ Stage10 production A/B
-10. parallel safety debt: #24 protected-data backup / restore verification
+1. #30 Generation Batch Waveを最大16 new imagesでまとめて実行
+2. simplified large-question contact sheetでuser review
+3. batch終了後DEV/ChatGPTがPhase 2 close/diminishing-returnを判断
+4. #36 V5 workをGitHub正本へ継続反映
+5. #34 bilingual search relevance/noiseをresolveまたはStage10 Gateから明示分離
+6. managementがGate確認後に#42をcurrent core DEVとして明示activate
+7. #42 product-purpose improvement passで#30 Tagger-assisted triage policyを統合
+8. #5 formal Prompt handoff
+9. `STAGE_10_PREP.md` remaining checksをclose
+10. 全Gate完了後のみ Stage10 production A/B
+11. parallel safety debt: #24 protected-data backup / restore verification
 
 ## Source-of-Truth Rule
 
-- current core DEV = **Issue #30 / Phase 2 reuse-only review**
+- current core DEV = **Issue #30 / Phase 2 Generation Batch Wave**
 - `CURRENT_DEV_TASK.md` Source Issue = **#30**
-- current continuation contract = `docs/project/ISSUE30_PHASE2_REUSE_REVIEW_SPEC_20260911.md`
+- current continuation contract = `docs/project/ISSUE30_PHASE2_GENERATION_BATCH_WAVE_SPEC_20260911.md`
+- reuse-only human result anchor = `44c3874ea6083590db256f819d5445501c49ff60`
 - Phase 1 evidence is frozen; do not restart original 128-image pilot wholesale
 - final formal concept name = **`Special Core Dictionary`**
 - #32/#48/#49/#43 dictionary validation/promotion/freeze chain is completed; do not restart it
