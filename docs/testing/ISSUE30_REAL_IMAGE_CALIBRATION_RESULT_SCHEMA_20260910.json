@@ -1,0 +1,205 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://danboorutagtool.local/schema/issue30-real-image-calibration-result-20260910.json",
+  "title": "Issue #30 real-image calibration per-image result",
+  "description": "One JSONL record per generated calibration image. Human labels are the image-level reference; evaluator output is observation evidence only.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "run_id",
+    "image_id",
+    "case_id",
+    "special_id",
+    "special_ids",
+    "canonical",
+    "experiment_question",
+    "cell_type",
+    "generation",
+    "image_artifact",
+    "human_reference",
+    "evaluators",
+    "evaluator_agreement",
+    "relation_binding",
+    "routing_evaluations",
+    "final_calibration_verdict"
+  ],
+  "properties": {
+    "schema_version": {"type": "string", "const": "issue30.real_image_calibration.v1"},
+    "run_id": {"type": "string", "minLength": 1},
+    "image_id": {"type": "string", "minLength": 1},
+    "case_id": {"type": "string", "pattern": "^CAL-[0-9]{3}$"},
+    "special_id": {"type": "integer", "minimum": 1},
+    "special_ids": {"type": "array", "items": {"type": "integer", "minimum": 1}, "minItems": 1},
+    "canonical": {"type": "string", "minLength": 1},
+    "experiment_question": {"type": "string", "minLength": 1},
+    "cell_type": {"$ref": "#/$defs/cell_type"},
+    "generation": {"$ref": "#/$defs/generation"},
+    "image_artifact": {"$ref": "#/$defs/image_artifact"},
+    "human_reference": {"$ref": "#/$defs/human_reference"},
+    "evaluators": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["wd14", "kagami", "cl_v2_00"],
+      "properties": {
+        "wd14": {"$ref": "#/$defs/evaluator_result"},
+        "kagami": {"$ref": "#/$defs/evaluator_result"},
+        "cl_v2_00": {"$ref": "#/$defs/evaluator_result"}
+      }
+    },
+    "evaluator_agreement": {"$ref": "#/$defs/evaluator_agreement"},
+    "relation_binding": {"$ref": "#/$defs/relation_binding"},
+    "routing_evaluations": {"type": "array", "items": {"$ref": "#/$defs/routing_evaluation"}, "minItems": 1},
+    "final_calibration_verdict": {"$ref": "#/$defs/final_verdict"},
+    "final_calibration_reason": {"type": "string"},
+    "notes": {"type": "string"}
+  },
+  "$defs": {
+    "tri_state": {"type": ["boolean", "string"], "enum": [true, false, "unclear", "not_applicable"]},
+    "cell_type": {"type": "string", "enum": ["target_present_seed_a", "target_present_seed_b", "contrast_seed_a", "contrast_seed_b"]},
+    "generation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["model_family", "checkpoint", "model_version", "checkpoint_hash", "prompt", "negative_prompt", "seed", "sampler", "steps", "cfg", "resolution", "lora"],
+      "properties": {
+        "model_family": {"type": "string", "minLength": 1},
+        "checkpoint": {"type": "string", "minLength": 1},
+        "model_version": {"type": "string", "minLength": 1},
+        "checkpoint_hash": {"type": "string", "minLength": 1},
+        "forge_version": {"type": "string"},
+        "prompt": {"type": "string"},
+        "negative_prompt": {"type": "string"},
+        "seed": {"type": "integer", "minimum": 0},
+        "sampler": {"type": "string", "minLength": 1},
+        "steps": {"type": "integer", "minimum": 1},
+        "cfg": {"type": "number", "minimum": 0},
+        "resolution": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["width", "height"],
+          "properties": {"width": {"type": "integer", "minimum": 1}, "height": {"type": "integer", "minimum": 1}}
+        },
+        "lora": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["present", "names", "weights"],
+          "properties": {
+            "present": {"type": "boolean"},
+            "names": {"type": "array", "items": {"type": "string"}},
+            "weights": {"type": "array", "items": {"type": "number"}}
+          }
+        },
+        "png_info_raw_artifact": {"type": "string"}
+      }
+    },
+    "image_artifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256", "bytes", "width", "height"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"type": "string", "pattern": "^[0-9a-fA-F]{64}$"},
+        "bytes": {"type": "integer", "minimum": 1},
+        "width": {"type": "integer", "minimum": 1},
+        "height": {"type": "integer", "minimum": 1},
+        "metadata_hash": {"type": "string"}
+      }
+    },
+    "human_dimensions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["target_concept_present", "actor_subject_correct", "target_object_correct", "body_part_ownership_site_correct", "count_correct", "spatial_relation_correct", "compound_all_elements_retained", "unwanted_extra_interpretation", "usable_for_stage10_preference_judgment"],
+      "properties": {
+        "target_concept_present": {"$ref": "#/$defs/tri_state"},
+        "actor_subject_correct": {"$ref": "#/$defs/tri_state"},
+        "target_object_correct": {"$ref": "#/$defs/tri_state"},
+        "body_part_ownership_site_correct": {"$ref": "#/$defs/tri_state"},
+        "count_correct": {"$ref": "#/$defs/tri_state"},
+        "spatial_relation_correct": {"$ref": "#/$defs/tri_state"},
+        "compound_all_elements_retained": {"$ref": "#/$defs/tri_state"},
+        "unwanted_extra_interpretation": {"$ref": "#/$defs/tri_state"},
+        "usable_for_stage10_preference_judgment": {"$ref": "#/$defs/tri_state"}
+      }
+    },
+    "human_rater": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["rater_id", "blinded_to_evaluators", "dimensions", "notes"],
+      "properties": {
+        "rater_id": {"type": "string", "minLength": 1},
+        "blinded_to_evaluators": {"type": "boolean", "const": true},
+        "dimensions": {"$ref": "#/$defs/human_dimensions"},
+        "notes": {"type": "string"}
+      }
+    },
+    "human_reference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["raters", "adjudicated_dimensions", "reference_state", "overall_reference_verdict", "adjudication_notes"],
+      "properties": {
+        "raters": {"type": "array", "items": {"$ref": "#/$defs/human_rater"}, "minItems": 2},
+        "adjudicated_dimensions": {"$ref": "#/$defs/human_dimensions"},
+        "reference_state": {"type": "string", "enum": ["RESOLVED", "UNRESOLVED"]},
+        "overall_reference_verdict": {"type": "string", "enum": ["PASS", "FAIL", "UNCLEAR"]},
+        "adjudication_notes": {"type": "string"}
+      }
+    },
+    "detected_tag": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["tag", "score"],
+      "properties": {"tag": {"type": "string"}, "score": {"type": "number", "minimum": 0, "maximum": 1}}
+    },
+    "evaluator_result": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["evaluator_name", "model_version", "vocabulary_revision", "execution_state", "raw_score", "detected_tags", "observation_basis", "target_observed", "correctness", "raw_output_artifact"],
+      "properties": {
+        "evaluator_name": {"type": "string", "minLength": 1},
+        "model_version": {"type": "string", "minLength": 1},
+        "vocabulary_revision": {"type": "string", "minLength": 1},
+        "execution_state": {"type": "string", "enum": ["OK", "ERROR", "UNVERIFIED"]},
+        "raw_score": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+        "detected_tags": {"type": "array", "items": {"$ref": "#/$defs/detected_tag"}},
+        "observation_basis": {"type": "string", "enum": ["DIRECT", "COMPONENT_PROXY", "NONE", "UNVERIFIED"]},
+        "target_observed": {"type": ["boolean", "null"]},
+        "threshold_used": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+        "correctness": {"type": "string", "enum": ["TP", "FP", "TN", "FN", "UNASSESSABLE"]},
+        "raw_output_artifact": {"type": "string", "minLength": 1}
+      }
+    },
+    "evaluator_agreement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["wd14_vote", "kagami_vote", "cl_v2_00_vote", "agreement_class"],
+      "properties": {
+        "wd14_vote": {"type": ["boolean", "null"]},
+        "kagami_vote": {"type": ["boolean", "null"]},
+        "cl_v2_00_vote": {"type": ["boolean", "null"]},
+        "agreement_class": {"type": "string", "enum": ["UNANIMOUS_POSITIVE", "UNANIMOUS_NEGATIVE", "SPLIT", "ABSTAINED", "UNVERIFIED"]}
+      }
+    },
+    "relation_binding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["required", "categories", "human_dimensions_required"],
+      "properties": {
+        "required": {"type": "boolean"},
+        "categories": {"type": "array", "items": {"type": "string", "enum": ["ACTOR_SUBJECT", "TARGET_OBJECT", "BODYPART_SITE", "COUNT", "SPATIAL", "INSERTION", "CONTACT", "RESTRAINT", "COMPOUND", "MULTI_SPECIAL"]}},
+        "human_dimensions_required": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "routing_evaluation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["strategy", "threshold_profile", "decision", "reason"],
+      "properties": {
+        "strategy": {"type": "string", "enum": ["WD14_ALONE", "KAGAMI_ALONE", "CL_ALONE", "OR", "AND", "MAJORITY", "CL_PRIMARY_SUPPORT", "DISAGREEMENT_TO_HUMAN", "LIMITED_COMPONENT_PROXY"]},
+        "threshold_profile": {"type": "string", "minLength": 1},
+        "decision": {"type": "string", "enum": ["AUTO_CANDIDATE", "HUMAN_REVIEW_REQUIRED", "BLOCKED", "ABSTAIN"]},
+        "reason": {"type": "string"}
+      }
+    },
+    "final_verdict": {"type": "string", "enum": ["AUTO_CANDIDATE", "CALIBRATED_AUTO_CANDIDATE", "HUMAN_REVIEW_REQUIRED", "BLOCKED", "CALIBRATION_HOLD"]}
+  }
+}
