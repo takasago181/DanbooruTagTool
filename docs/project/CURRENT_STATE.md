@@ -10,24 +10,25 @@ Stage 9 overall Gate 完了 / Stage10 準備Gate実施中 / automated E2E PASS /
 
 ## Current Core DEV
 
-**NONE / management handoff state**
+**Issue #30 / Stage10 representative evaluator calibration design**
 
-Issue #43 は completed / closed。次の core DEV はまだ正式選択していない。
-#46/#36 UI-JA と #44 KNOWLEDGE はそれぞれ独立レーンとして進行可能だが、CURRENT_DEV_TASK を勝手に引き継がない。
-新しい core DEV を選ぶ場合は Issue + CURRENT_STATE + CURRENT_DEV_TASK を同一管理操作で同期する。
+Issue #44の3-evaluator desk coverageは完了し、#30へのhandoffも同期済み。次のcore DEVとして #30 を正式選択した。
+`CURRENT_DEV_TASK.md` は Source Issue #30 に同期済み。Codexはlatest mainを取得し、Issue #30 / CURRENT_STATE / CURRENT_DEV_TASKの一致を確認してから作業開始する。
+
+#46/#36 UI-JA と #44 KNOWLEDGE は独立レーンとして並行可能だが、#30のcore DEV contractを勝手に引き継がない。
 
 ## Workstreams Registry
 
 | TEAM_ID | Status | Issue / scope | Branch / locator | Current phase | Restore anchor |
 | --- | --- | --- | --- | --- | --- |
 | `DICT:#32:R2` | COMPLETED / PROMOTED / CARRY_FORWARD_ONLY | #32 Special Core Dictionary historical `Special2788` validation | `dict-validation/quarantine` | 2,788/2,788 validation complete。approved effective subsetは#49でproduction反映済み。REVIEW/ITRはparked evidenceとして保持 | Issue #32 + #48 + #49 + #43 freeze |
-| `KNOWLEDGE:#44` | ACTIVE / ONGOING / COVERAGE_READY | persistent generation knowledge corpus | `knowledge/generation-corpus` | final dictionary freeze済み。次はWD14 / Kagami-24k / CL Tagger v2 evaluator coverage return | Issue #44 latest checkpoint |
+| `KNOWLEDGE:#44` | ACTIVE / ONGOING / COVERAGE_COMPLETE | persistent generation knowledge corpus | `knowledge/generation-corpus` | 2,788 × WD14 / Kagami-24k / CL Tagger v2.00 desk coverage完了。#30 handoff済み。今後は必要な追加知識/校正返却を担当 | Issue #44 correction checkpoint `5614819866` + commit `557aa4c` |
 | `UIJA:#36:V3.1` | ACTIVE / REEXECUTION_PENDING | Japanese overlay final convergence | `ui-ja/issue36-final-agent-convergence` | #46 orchestratorによる30,629 full execution + V3.1 revalidation待ち | Issue #36 / #46 |
 | `UIJA-ORCH:#46` | ACTIVE / FULL_EXECUTION_AUTHORIZED | independent Codex orchestration | `codex/issue46-orchestrator` | full execution authorized / production promotion not authorized | Issue #46 latest checkpoint |
 | `UIJA-PARENT:#34` | OPEN / CROSS-CUTTING | Tool UI / Japanese translation quality improvement | Issue #34 | #36 translation laneとは別に bilingual search / search-noise / remaining parent concernsを保持。Stage10前にresolveまたは明示分離が必要 | Issue #34 |
-| `TEMP:#30` | ACTIVE / GATED_ON_COVERAGE | Forge Neo A/B automation | Issue #30 | infrastructure PASS。dictionary freeze satisfied。#44 evaluator coverage後にrepresentative routing/calibration | Issue #30 |
-| `PROMPT:#5` | GATED | Stage10 formal Prompt handoff | Issue #5 | #44 coverage + #30 calibration + #42 result後にformal handoff | Issue #5 |
-| `PREP:#42` | RESERVED / GATED | Stage10 pre-evaluation product-purpose improvement | Issue #42 | dictionary freeze satisfied。UI-JA/data homework完了または明示分離後、Stage10前に実施 | Issue #42 |
+| `TEMP:#30` | ACTIVE / CORE_DEV / CALIBRATION_DESIGN | Forge Neo A/B automation | Issue #30 | infrastructure PASS。dictionary freeze satisfied。#44 exact 3-evaluator coverage satisfied。representative real-image calibration design開始 | Issue #30 current body + `CURRENT_DEV_TASK.md` |
+| `PROMPT:#5` | GATED | Stage10 formal Prompt handoff | Issue #5 | #30 calibration + #42 result後にformal handoff | Issue #5 |
+| `PREP:#42` | RESERVED / GATED | Stage10 pre-evaluation product-purpose improvement | Issue #42 | dictionary freeze satisfied。#30 calibration後、UI-JA/data homework完了または明示分離後、Stage10前に実施 | Issue #42 |
 | `MAINT:#24` | OPEN / SAFETY_DEBT | Local protected data backup / restore verification | Issue #24 | GitHub外protected dataのbackup/restore・manifest・非破壊restore検証。core DEVとは別枠 | Issue #24 |
 
 ## Completed
@@ -57,6 +58,19 @@ Issue #43 は completed / closed。次の core DEV はまだ正式選択して�
   - production profile SHA unchanged: `55490940378e15d8e41454e701d0c202abbab307a08fb6e56841171e0edec1fd`
   - exact row count / identity / order: 2,788 maintained
   - **completed / closed**
+- Issue #44 finalized evaluator desk coverage:
+  - correction checkpoint: `5614819866`
+  - machine-generated coverage commit: `557aa4c`
+  - #30 handoff sync: `dba23df`
+  - WD14 direct: 658 / 2,788 (23.60%)
+  - Kagami direct: 1,412 / 2,788 (50.65%)
+  - CL Tagger v2.00 direct: 1,704 / 2,788 (61.12%)
+  - 3-evaluator direct union: 1,725 / 2,788 (61.87%)
+  - observable including components: 1,957 / 2,788 (70.19%)
+  - exact 3-evaluator: true
+  - AUTO_CANDIDATE 939 / REVIEW_REQUIRED 1,018 / BLOCKED 831
+  - relation/binding structural risk: 918
+  - production `data/**`, #32, canonical unchanged
 
 ## Frozen terminology
 
@@ -89,20 +103,30 @@ Issue #43 は completed / closed。次の core DEV はまだ正式選択して�
 
 ### #44 KNOWLEDGE evaluator coverage
 
-Dictionary freeze prerequisiteは **SATISFIED**。
-次のcurrent priority:
-- finalized 2,788-entry Special Core Dictionary against WD14 / `wd-eva02-large-tagger-v3`
-- Kagami-24k
-- CL Tagger v2 stable/fixed release
+Final evaluator desk coverage: **SATISFIED / HANDOFF COMPLETE**。
 
-最低限、raw vocabulary / Core-Extended-Alias-Semantic / post-count-band / Alias-vs-canonical-target coverageを返し、#30 / #5へhandoffする。
+Confirmed current result:
+- WD14 direct 658 (23.60%)
+- Kagami direct 1,412 (50.65%)
+- CL Tagger v2.00 direct 1,704 (61.12%)
+- direct union 1,725 (61.87%)
+- observable including components 1,957 (70.19%)
+- AUTO_CANDIDATE 939 / REVIEW_REQUIRED 1,018 / BLOCKED 831
 
-### #30 Forge Neo A/B automation
+`AUTO_CANDIDATE` は自動採点承認ではない。実画像でのsemantic correctnessは #30 representative calibrationで検証する。
+
+### #30 Forge Neo A/B automation — CURRENT CORE DEV
 
 - infrastructure: **PASS_PIPELINE**
 - final dictionary freeze: **SATISFIED**
-- remaining gate: #44 evaluator coverage + representative Special case selection
-- then capability-aware `AUTO / REVIEW / BLOCKED` calibration and evidence-supported candidate `A_WIN / B_WIN` behavior
+- #44 exact evaluator coverage: **SATISFIED**
+- current phase: **representative real-image calibration design**
+- first pass target: about 30 representative cases, not 2,788 sweep
+- human image-level judgment remains reference ground truth
+- compare WD14 / Kagami / CL v2.00 raw outputs and routing strategies
+- relation/binding, subject/object, body-site, count, spatial, insertion/contact/restraint, compound and disagreement cases remain conservative human-review candidates
+- false-positive suppression / precision takes priority over maximum automation rate
+- Stage10 production A/B remains prohibited until later Gates complete
 
 ### #34 UI-JA parent remaining concerns
 
@@ -119,14 +143,15 @@ Stage10前の#42 activation条件を満たすため、remaining concernを完了
 ### #42 Stage10 pre-evaluation product-purpose improvement
 
 Dictionary promotion/freeze prerequisiteは **SATISFIED**。
-開始条件として残るのは、UI-JA dictionary/display/search work等、評価対象Prompt/searchをmaterially変え得るpre-Stage10 homeworkの完了または明示分離。
+#44 evaluator coverage prerequisiteも **SATISFIED**。
+開始条件として残るのは #30 representative calibration完了と、UI-JA dictionary/display/search work等、評価対象Prompt/searchをmaterially変え得るpre-Stage10 homeworkの完了または明示分離。
 対象: 日本語意図揺れ、support競合、model-family差、failure diagnosis、Prompt bloat、minimum sufficient set、parked evidence再評価。
 
 ### #5 PROMPT formal handoff
 
 Formal completionは以下の後:
 1. #43 final freeze handoff — SATISFIED
-2. #44 evaluator coverage return
+2. #44 evaluator coverage return — SATISFIED
 3. #30 representative routing/calibration
 4. #42 product-purpose improvement result
 
@@ -143,12 +168,12 @@ Formal completionは以下の後:
 7. #32 validation + independent promotion audit — SATISFIED
 8. #49 production FIX implementation + post-write audit + production merge — SATISFIED / completed
 9. #43 naming/final dictionary freeze gate — SATISFIED / completed
-10. #44 final evaluator coverage return — REMAINS / READY NOW
+10. #44 final evaluator coverage return — **SATISFIED / exact 3-evaluator**
 11. #46 full UI-JA orchestration -> #36 revalidation -> independent promotion gate — REMAINS / READY NOW
 12. #34 remaining parent UI/search concerns — REMAINS / resolve or explicitly separate before #42
-13. #30 final representative routing/evaluator calibration — REMAINS / waits #44 coverage
-14. #42 product-purpose improvement pass — REMAINS / after material UI-JA/data homework is complete or separated
-15. #5 formal Prompt handoff — REMAINS / after #44 + #30 + #42
+13. #30 final representative routing/evaluator calibration — **ACTIVE / CURRENT CORE DEV**
+14. #42 product-purpose improvement pass — REMAINS / after #30 and material UI-JA/data homework is complete or separated
+15. #5 formal Prompt handoff — REMAINS / after #30 + #42
 16. `docs/stages/STAGE_10_PREP.md` remaining checks — REMAINS
 17. Stage10 production A/B — NOT STARTED
 
@@ -156,37 +181,40 @@ Formal completionは以下の後:
 
 Parallel now:
 
+- Core DEV: `#30 representative calibration design -> controlled representative calibration`
 - Lane A: `#46 full execution -> #36 revalidation -> independent UI-JA promotion gate`
-- Lane B: `#44 evaluator coverage`
+- KNOWLEDGE: `#44 coverage complete`; remains available for scoped calibration/knowledge follow-up
 - Maintenance/cross-cutting: `#24 protected-data safety`, `#34 remaining UI/search parent concerns`
 
 Then:
 
-`#44 coverage -> #30 representative calibration -> #42 product-purpose improvement -> #5 formal Prompt handoff -> remaining STAGE_10_PREP checks -> Stage10 production A/B`
+`#30 representative calibration -> #42 product-purpose improvement -> #5 formal Prompt handoff -> remaining STAGE_10_PREP checks -> Stage10 production A/B`
 
-#42 activation additionally requires material #34/#36 UI-JA/data homework to be completed or explicitly separated.
+#42 activation additionally requires material #34/#36 UI-JA/data homework to be completed or explicitly separated。
 
 ## Next Actions
 
-1. #46 authorized 30,629 full execution -> #36 V3.1 revalidation -> separate independent promotion gate
-2. parallel: #44 finalized Special Core Dictionary evaluator coverage return
-3. #34 remaining parent concernsをresolveまたはStage10 Gateから明示分離
-4. #30 final representative routing/evaluator calibration
-5. #42 product-purpose improvement pass
-6. #5 formal Prompt handoff
-7. `STAGE_10_PREP.md` remaining checksをclose
-8. 全Gate完了後のみ Stage10 production A/B
-9. parallel safety debt: #24 protected-data backup / restore verificationを完了させる
+1. #30: latest mainから現行DEV contractを確認し、about-30 representative calibration設計を完成する
+2. #30: schema / case rationale / execution procedure / evaluator comparison / routing Gateをreviewable branch/commitへ残す
+3. #46 authorized 30,629 full execution -> #36 V3.1 revalidation -> separate independent promotion gate
+4. #34 remaining parent concernsをresolveまたはStage10 Gateから明示分離
+5. #30の代表実画像calibrationをcontrolledに実施し、AUTO/HUMAN REVIEW/BLOCKED境界を証拠で更新
+6. #42 product-purpose improvement pass
+7. #5 formal Prompt handoff
+8. `STAGE_10_PREP.md` remaining checksをclose
+9. 全Gate完了後のみ Stage10 production A/B
+10. parallel safety debt: #24 protected-data backup / restore verificationを完了させる
 
 ## Source-of-Truth Rule
 
-- current core DEV = **NONE** until a management action explicitly selects the next DEV Issue
-- `CURRENT_DEV_TASK.md` must also say no current DEV during this handoff state
+- current core DEV = **Issue #30** until its current calibration-design pass is completed or management explicitly switches DEV
+- `CURRENT_DEV_TASK.md` Source Issue must remain **#30** while this DEV slot is active
+- Issue #30 / CURRENT_STATE / CURRENT_DEV_TASK の目的・scope・禁止事項が一致しない場合、Codexは実装開始しない
 - final formal concept name = **`Special Core Dictionary`**
 - Issue #43 is completed/closed and its final branch HEAD is on main
 - #49 production dictionary promotion is completed/closed;再実装対象ではない
 - #32 validation is completed; parked REVIEW / IMAGE_TEST_REQUIRED evidence is carry-forward asset and must not be discarded
+- #44 exact evaluator desk coverage is completed; `AUTO_CANDIDATE` is not production auto-score approval
 - #46 full execution authorization is not production-promotion authority and does not itself become core DEV
-- #44 is long-lived KNOWLEDGE, not core DEV
 - DEV切替時は Issue + CURRENT_STATE + CURRENT_DEV_TASK を同一管理操作で同期する
 - Codex completion reportだけで次Gateへ進まない。live GitHub stateを再確認する
