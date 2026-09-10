@@ -372,10 +372,10 @@ def run_onnx(record: dict[str, Any], session: Any, tags: list[str], name: str,
         score, observed, basis = target_score(pairs, record["case"])
         write_gzip_json(artifact, {"output_name": output_name, "scores": [float(x) for x in values], "top_tags": pairs[:500]})
         visible = [{"tag": tag, "score": score} for tag, score in pairs[:500] if score >= threshold]
-        return evaluator_record(name, version, revision, "OK", score, visible, basis, artifact, threshold)
+        return evaluator_record(name, version, revision, "OK", score, visible, basis, observed, artifact, threshold)
     except Exception as exc:
         write_gzip_json(artifact, {"error": type(exc).__name__, "message": str(exc)})
-        return evaluator_record(name, version, revision, "ERROR", None, [], "UNVERIFIED", artifact, threshold)
+        return evaluator_record(name, version, revision, "ERROR", None, [], "UNVERIFIED", None, artifact, threshold)
 
 
 def score_band(results: dict[str, dict[str, Any]]) -> str:
