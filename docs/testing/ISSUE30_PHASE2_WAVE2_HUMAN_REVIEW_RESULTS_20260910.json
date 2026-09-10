@@ -1,0 +1,29 @@
+{
+  "schema_version": "issue30.phase2.wave2.human_review.v1",
+  "source": "user_chat_review_20260910",
+  "reviewed_images": 8,
+  "reviewed_pairs": 4,
+  "records": [
+    {"image_number":1,"case_id":"P2-004","condition":"B","seed":42001,"prompt_surface":"dildo","observation":"女の子なし、ディルドのみ","intended_specific_shape_realized":false},
+    {"image_number":2,"case_id":"P2-004","condition":"A","seed":42001,"prompt_surface":"double dildo","observation":"ディルド2本のみ、女の子なし","intended_specific_shape_realized":false,"lexical_double_to_count_collapse":true},
+    {"image_number":3,"case_id":"P2-004","condition":"B","seed":42002,"prompt_surface":"dildo","observation":"ディルドにまたがっている","intended_specific_shape_realized":false},
+    {"image_number":4,"case_id":"P2-004","condition":"A","seed":42002,"prompt_surface":"double dildo","observation":"同様だが、ディルドが2本","intended_specific_shape_realized":false,"lexical_double_to_count_collapse":true},
+    {"image_number":5,"case_id":"P2-005","condition":"B","seed":42011,"prompt_surface":"anal penetration","observation":"アナルと膣の両方に挿入","anal_penetration_realized":true,"extra_vaginal_penetration":true},
+    {"image_number":6,"case_id":"P2-005","condition":"A","seed":42011,"prompt_surface":"anal","observation":"男性なし。性交ではなく、アナルが広がっているだけ","anal_penetration_realized":false},
+    {"image_number":7,"case_id":"P2-005","condition":"B","seed":42012,"prompt_surface":"anal penetration","observation":"アナルのアップ","anal_penetration_realized":false},
+    {"image_number":8,"case_id":"P2-005","condition":"A","seed":42012,"prompt_surface":"anal","observation":"男性がいて挿入","anal_penetration_realized":true,"subject_constraint_violation":"1girl, solo"}
+  ],
+  "pair_results": [
+    {"case_id":"P2-004","seed":42001,"result":"SPECIFIC_SHAPE_FAIL","note":"double dildo was rendered as two separate dildos; not valid evidence for exact-count retention"},
+    {"case_id":"P2-004","seed":42002,"result":"SPECIFIC_SHAPE_FAIL","note":"double dildo again appeared as two separate dildos"},
+    {"case_id":"P2-005","seed":42011,"result":"B_ONLY_PASS","note":"anal penetration realized only for alias surface, with extra vaginal insertion"},
+    {"case_id":"P2-005","seed":42012,"result":"A_ONLY_PASS","note":"anal surface realized penetration, but subject/composition constraint was violated"}
+  ],
+  "decisions": {
+    "P2-004":"HOLD_HUMAN_REVIEW_ONLY_RECLASSIFY_SHAPE_SPECIFIC",
+    "P2-005":"HOLD_HUMAN_REVIEW_ONLY_SEED_SENSITIVE",
+    "structural_auto_promotion":false,
+    "machine_evaluator_role":"ASSISTIVE_TRIAGE_ONLY"
+  },
+  "next": "REUSE_EXISTING_PHASE1_IMAGES_BEFORE_ANY_NEW_GENERATION"
+}
