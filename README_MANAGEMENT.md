@@ -11,7 +11,7 @@
 3. `CURRENT_STATE.md` に記載された自班/担当の現行Issue
 4. 必要な `DECISIONS.md` / 現行Stage仕様 / main実装状態
 
-Codexはさらに `AGENTS.md` と `docs/project/CURRENT_DEV_TASK.md` を読む。
+Codexはさらに `AGENTS.md` を読み、current DEV IssueをGitHubから直接取得する。
 
 ## 役割分担
 
@@ -39,19 +39,14 @@ Codexはさらに `AGENTS.md` と `docs/project/CURRENT_DEV_TASK.md` を読む�
   - 実作業のtask contract、完了条件、結果、checkpoint履歴。
 - Pull Request / branch / commit
   - 実際に変更されたコード・文書とreview対象。
-- `docs/project/CURRENT_DEV_TASK.md`
-  - Codexがprivate DEV Issue本文を追加認証なしで読むための同期ミラー。独立正本ではない。
-
 チャット履歴は正本ではありません。
 
-## CURRENT_DEV_TASKの扱い
+## DEV Issueの扱い
 
-- GitHub IssueがDEV作業の管理記録。
-- `CURRENT_DEV_TASK.md` はCodex読取専用mirror。
-- `CURRENT_STATE.md` の現行DEV Issue番号とmirror Sourceが違えばCodexは停止。
-- DEV Issueのpurpose/scope/禁止事項/完了条件/stateを変更する管理作業ではmirrorも同期する。
+- GitHub IssueがDEV作業のtask contract、完了条件、checkpoint、evidenceを担う。
+- `CURRENT_STATE.md` はcurrent DEV Issue番号とroutingを担う。
 - IssueコメントだけではCodexのtask contractを変更しない。
-- Codexへ新規/再開指示を出す直前に、DEV/管理側がprivate Issue本文と最新mainのmirrorをlive照合する。同じIssue番号のまま本文が変わったdriftもここで検出する。
+- Codexは新規/再開時にlive Issueを取得し、本文と最新checkpointの関係を確認する。
 
 ## 途中checkpoint
 
@@ -93,7 +88,7 @@ DEV / KNOWLEDGE / PROMPT / 必要時のAUDIT / 現行TEMPの依頼と返却は�
 → GitHubへcheckpoint/現在地を反映
 → 必要ならIssue本文・Decision・Stage仕様・CURRENT_STATEを更新
 → shared management fileは最新mainへ差分統合
-→ DEV contract変更ならCURRENT_DEV_TASKも同期
+→ DEV contract変更ならlive Issue本文とCURRENT_STATEのroutingを整合
 → 更新完了確認
 → 新チャット移行を提案
 → 新チャットがGitHubから復元
@@ -128,7 +123,7 @@ fresh cloneだけでfull runtime/full testsを再現できるとは仮定しな�
 2. 新しい確定作業はIssue化する。
 3. 意味のある途中成果はIssue checkpointへ残す。
 4. 班間依頼・返却はGitHub Issueで往復し、ユーザーへ手動中継を要求しない。
-5. task contract変更はIssue本文へ反映する。現行DEVならmirrorも同期する。
+5. task contract変更はIssue本文へ反映し、CURRENT_STATEのroutingと整合させる。
 6. 仕様変更は `DECISIONS.md` またはStage仕様へ反映する。
 7. shared management docは最新mainを再取得してから統合する。
 8. 独立監査が必要なGateでは、必要時にAUDITを起動し、PASS前にGateを越えない。

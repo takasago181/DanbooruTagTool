@@ -16,17 +16,19 @@ Codexは独立した班ではなく、DEV（開発班）の実装担当。
    - `AGENTS.md`
    - `docs/project/CURRENT_STATE.md`
    - `docs/project/PERMANENT_RULES.md`
-   - `docs/project/CURRENT_DEV_TASK.md`
-5. `origin/main` 上のcurrent core DEV / Source Issue / Stage Gateを先に確定する
-6. その後でのみ、現在branch上の管理ファイルとの差分を確認する
+5. `origin/main` 上のcurrent core DEV / Stage Gateを先に確定し、`CURRENT_STATE.md` からcurrent DEV Issue番号を取得する
+6. そのIssue番号のlive GitHub Issueを `gh issue view <ISSUE_NUMBER> --comments` で直接取得する
+7. Issue title / state / body / 最新コメント / 最新checkpoint / continuation contract / completion condition / blocker・gateを確認する
+8. `PERMANENT_RULES.md` と照合し、整合している場合だけ作業を開始する
+9. その後でのみ、現在branch上の管理ファイルとの差分を確認する
 
-**古いtask branch上の `CURRENT_STATE.md` / `CURRENT_DEV_TASK.md` / `AGENTS.md` を、fetch後の `origin/main` より優先して現在地判定に使ってはいけない。**
+**古いtask branch上の `CURRENT_STATE.md` / `AGENTS.md` を、fetch後の `origin/main` より優先して現在地判定に使ってはいけない。**
 現在branchの管理ファイルが `origin/main` と異なる場合、branch-local stateはそのbranch作成時点の履歴として扱い、現在地は `origin/main` を優先する。
 
-remote-current-state確認後、通常の読取順は:
+remote-current-state確認後、通常のCodex DEV読取順は:
 1. `origin/main:docs/project/CURRENT_STATE.md`
 2. `origin/main:docs/project/PERMANENT_RULES.md`
-3. `origin/main:docs/project/CURRENT_DEV_TASK.md`
+3. `gh issue view <CURRENT_DEV_ISSUE> --comments`
 4. 現行Stageの仕様・実装レポート
 
 その後、必要に応じて下記の恒久仕様を読む。
@@ -35,7 +37,7 @@ Issue番号は固定値として記憶せず、毎回 `origin/main` の `CURRENT
 作業開始前に少なくとも次を確認できる状態にする:
 - 現在のStage
 - 現行DEV Issue番号と作業範囲、または `NO_CURRENT_DEV / MANAGEMENT_HANDOFF`
-- `origin/main` の `CURRENT_STATE.md` の現行DEVと `CURRENT_DEV_TASK.md` のSourceが一致していること
+- `CURRENT_STATE.md` のcurrent DEV Issue番号と、取得したlive GitHub Issueが一致していること
 - 現在branchが最新mainに対して古い / ahead / divergedのどれか
 - 触ってよい範囲 / 触ってはいけない範囲
 - 次に実装する境界
@@ -43,16 +45,16 @@ Issue番号は固定値として記憶せず、毎回 `origin/main` の `CURRENT
 
 ### NO_CURRENT_DEV の扱い
 
-`origin/main` の `CURRENT_STATE.md` が current core DEV = `NONE` で、`CURRENT_DEV_TASK.md` も Source Issue = `NONE` / `NO_CURRENT_DEV / MANAGEMENT_HANDOFF` の場合、これは**正常な管理停止状態**であり不整合ではない。
+`origin/main` の `CURRENT_STATE.md` が current core DEV = `NONE` / `NO_CURRENT_DEV / MANAGEMENT_HANDOFF` の場合、これは**正常な管理停止状態**であり不整合ではない。
 
 この状態では:
 - Codexは新しいcore DEV Issueを推測・自動選択しない。
 - open Issueを見つけても勝手にcurrent DEVへ昇格しない。
 - KNOWLEDGE / PROMPT / UI-JA / TEMP / 必要時AUDIT等の独立レーンは、それぞれ `CURRENT_STATE.md` と明示されたIssue/branch/contractに従う場合だけ進める。
-- 新しいcore DEV実装は、管理側が Issue + `CURRENT_STATE.md` + `CURRENT_DEV_TASK.md` を同期して選択した後に開始する。
+- 新しいcore DEV実装は、管理側が live Issue と `CURRENT_STATE.md` を選択・整合させた後に開始する。
 
 古いhandoff・旧チャット・過去Stage資料とGitHub現行状態が衝突した場合、古い資料で現在地を巻き戻さない。ただし勝手に破棄・統合・補完もせず、衝突としてDEVへ報告する。
-現在地・現行DEV Issue・DEV task mirrorの整合を確認できない場合は推測で実装を開始しない。
+現在地・現行DEV Issue・最新checkpointの整合を確認できない場合は推測で実装を開始しない。
 
 ## 2. 作業開始時の禁止・停止条件
 
@@ -65,17 +67,9 @@ Issue番号は固定値として記憶せず、毎回 `origin/main` の `CURRENT
 
 ## 3. 現行DEV task contract
 
-Codexはprivate GitHub Issue APIへの追加認証を要求しない。
-現行DEV Issue本文は、repository内の `docs/project/CURRENT_DEV_TASK.md` をCodex読取用ミラーとして使用する。
+現行DEVの目的・scope・禁止事項・完了条件は、Section 1で取得したlive GitHub Issue本文から読む。`CURRENT_STATE.md` はcurrent DEV Issue番号とroutingを担い、GitHub IssueがDEV作業の正本である。
 
-確認手順:
-1. `origin/main:docs/project/CURRENT_STATE.md` から現行DEV Issue番号、または `NONE` を取得する。
-2. `origin/main:docs/project/CURRENT_DEV_TASK.md` の `Source Issue` と一致することを確認する。
-3. 両方 `NONE` の場合は正常な `NO_CURRENT_DEV / MANAGEMENT_HANDOFF` として停止し、新規core DEVを推測しない。
-4. 実Issue番号で一致した場合のみ、同ファイルの目的・作業範囲・禁止事項・完了条件を現行DEV taskとして読む。
-5. 不一致・欠損・明確な矛盾がある場合は実装を開始せずDEVへ報告する。
-
-Issue / mirror同期、Issueコメントの扱い、DEV/管理側のpreflightの恒久ルールは `docs/project/PERMANENT_RULES.md` の「正本・現行DEV・checkpoint」を正本とする。
+Issueコメントは最新checkpoint・結果・証跡・履歴の確認に使う。コメントだけでIssue本文のtask contractを黙って上書きしたものとは扱わない。
 
 ## 4. task branch / 起動時Git同期
 
@@ -88,7 +82,7 @@ Codexは**新しいセッション開始時・作業再開時・新しいtask br
 3. **現在branchをswitchする前に** `origin/main` の管理ファイルをread-onlyで直接読み、現在地を確定する。
 4. local `main` と `origin/main` の関係を確認する。
 5. local `main` がcleanかつ `origin/main` へfast-forward可能で、未追跡path collisionやworktree制約がないことを確認できた場合のみ、`git switch main` → `git merge --ff-only origin/main` で自動同期する。
-6. 同期後の `main` HEADを記録し、そのmain上の `CURRENT_STATE.md` / `PERMANENT_RULES.md` / `CURRENT_DEV_TASK.md` を再確認する。
+6. 同期後の `main` HEADを記録し、そのmain上の `CURRENT_STATE.md` / `PERMANENT_RULES.md` を再確認する。実Issueの場合は、current DEV Issueを `gh issue view <ISSUE_NUMBER> --comments` で再取得する。
 7. current DEVが実Issueの場合のみ、明示されたtask branchへ移るか、最新mainからtask branchを作る。
 8. 既存task branchを再開する場合は、そのbranchと最新mainの差分を確認し、勝手にrebase/reset/force-updateせず、task contractに従って継続可否を判断する。
 
