@@ -14,6 +14,7 @@ from tools.issue36.orchestrator import (
     assert_no_blind_leakage,
     build_prompt,
     collision_review_rows,
+    fast_mechanical_label,
     load_source,
     mandatory_challenge_population,
     outcome_sample_candidates,
@@ -133,6 +134,20 @@ def test_failed_child_is_fail_closed_and_manifest_is_resumable(tmp_path: Path, m
 def test_repair_bound_is_two() -> None:
     # The executable contract constant is intentionally checked without creating a child run.
     assert MAX_REPAIR_CYCLES == 2
+
+
+def test_fast_path_prefers_existing_japanese_and_keeps_opaque_fallback() -> None:
+    rows, _ = load_source(REPO)
+    by_canonical = {row["canonical"]: row for row in rows}
+    assert by_canonical["1girl"]["display_ja"]
+    assert fast_mechanical_label("long_hair") == "長い・髪"
+    assert fast_mechanical_label("some_unmapped_proper_name") == ""
+
+
+def test_fast_path_policy_is_distinct_from_codex_semantic_review() -> None:
+    orchestrator = Orchestrator(REPO, "full", Path("fast-path-test"), "codex", fast_path=True)
+    assert orchestrator.fast_path is True
+    assert orchestrator.fast_path is not False
 
 
 def test_sampling_uses_post_outcome_populations_not_source_proxies() -> None:

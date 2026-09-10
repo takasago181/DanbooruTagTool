@@ -27,6 +27,11 @@ SOURCE_ACCEPTED = 23_194
 SOURCE_FALLBACK = 7_435
 PHRASE_HOMEWORK = 1_677
 MAX_REPAIR_CYCLES = 2
+FAST_PATH_AFTER_BATCH = 33
+FAST_PATH_CHUNK_SIZE = 5_000
+FAST_CANDIDATE_REL = Path(
+    "translation_quarantine/qualified_label_final_review_20260909/final_translation_table.csv"
+)
 FORBIDDEN_BLIND_FIELDS = {
     "decision",
     "decision_rationale_ja",
@@ -338,6 +343,47 @@ def source_queue_row(row: dict[str, str], index: int) -> dict[str, Any]:
     }
 
 
+def fast_known_candidates(repo: Path) -> dict[str, dict[str, str]]:
+    path = repo / FAST_CANDIDATE_REL
+    if not path.is_file():
+        raise RuntimeError(f"missing fast-path candidate asset: {path}")
+    with path.open(encoding="utf-8-sig", newline="") as handle:
+        rows = list(csv.DictReader(handle))
+    candidates = {
+        row["canonical"]: row
+        for row in rows
+        if row.get("canonical") and row.get("display_ja", "").strip()
+    }
+    return candidates
+
+
+FAST_TOKEN_MAP = {
+    "girl": "少女", "boy": "少年", "female": "女性", "male": "男性",
+    "woman": "女性", "man": "男性", "hair": "髪", "long": "長い",
+    "short": "短い", "black": "黒", "white": "白", "red": "赤",
+    "blue": "青", "green": "緑", "eyes": "目", "eye": "目",
+    "breasts": "胸", "breast": "胸", "nude": "裸", "smile": "笑顔",
+    "open": "開いた", "closed": "閉じた", "looking": "見ている",
+    "standing": "立っている", "sitting": "座っている", "outdoors": "屋外",
+    "indoors": "屋内", "sky": "空", "night": "夜", "day": "昼",
+    "white_background": "白背景", "simple_background": "単純背景",
+}
+
+
+def fast_mechanical_label(canonical: str) -> str:
+    if re.search(r"(^|[_()])(?:[a-z]+_)?(?:\d{3,}|[a-f0-9]{8,})(?=$|[_()])", canonical.lower()):
+        return ""
+    tokens = re.findall(r"[a-z][a-z0-9]*", canonical.lower())
+    if not tokens or len(tokens) > 8:
+        return ""
+    translated = [FAST_TOKEN_MAP.get(token) for token in tokens]
+    if not any(translated):
+        return ""
+    if any(value is None for value in translated):
+        return ""
+    return "・".join(translated)
+
+
 def sample_key(canonical: str, purpose: str) -> str:
     raw = f"{SOURCE_BLOB}|{purpose}|{canonical}".encode("utf-8")
     return hashlib.sha256(raw).hexdigest()
@@ -549,6 +595,7 @@ def select_outcome_strata(
 def collision_review_rows(
     merged: list[dict[str, Any]],
     challenge: list[dict[str, Any]],
+    fast_path: bool = False,
 ) -> list[dict[str, Any]]:
     by_display: dict[str, list[dict[str, Any]]] = {}
     for row in merged:
@@ -564,9 +611,18 @@ def collision_review_rows(
         for member in sorted(members, key=lambda row: row["canonical"]):
             external = by_canonical.get(member["canonical"])
             if external is None:
-                raise RuntimeError(
-                    f"collision review missing external challenge artifact for {member['canonical']}"
-                )
+                if not fast_path:
+                    raise RuntimeError(
+                        f"collision review missing external challenge artifact for {member['canonical']}"
+                    )
+                candidate_reviews.append({
+                    "canonical": member["canonical"],
+                    "display_challenge": "SKIPPED_BY_EXPLICIT_SPEED_POLICY",
+                    "search_challenge": "SKIPPED_BY_EXPLICIT_SPEED_POLICY",
+                    "rationale_ja": "独立semantic collision challenge未実施",
+                    "root_cause": "fast_path_semantic_review_skipped",
+                })
+                continue
             candidate_reviews.append(
                 {
                     "canonical": member["canonical"],
@@ -581,7 +637,11 @@ def collision_review_rows(
                 "collision_key": hashlib.sha256(display.encode("utf-8")).hexdigest(),
                 "display_ja": display,
                 "canonicals": [review["canonical"] for review in candidate_reviews],
-                "review_artifact_origin": "external_codex_final_response",
+                "review_artifact_origin": (
+                    "deterministic_fast_path_structural_only"
+                    if fast_path
+                    else "external_codex_final_response"
+                ),
                 "external_challenge_reviews": candidate_reviews,
             }
         )
@@ -729,11 +789,12 @@ def validate_agent_records(role: str, input_rows: list[dict[str, Any]], output: 
 
 
 class Orchestrator:
-    def __init__(self, repo: Path, mode: str, run_root: Path, codex_bin: str) -> None:
+    def __init__(self, repo: Path, mode: str, run_root: Path, codex_bin: str, fast_path: bool = False) -> None:
         self.repo = repo
         self.mode = mode
         self.root = run_root
         self.codex_bin = codex_bin
+        self.fast_path = fast_path
         self.manifest_path = self.root / "run_manifest.json"
         self.invocations_dir = self.root / "invocations"
         self.contract_path = repo / CONTRACT_REL
@@ -764,6 +825,8 @@ class Orchestrator:
                     raise RuntimeError(
                         f"stale/mismatched run manifest at {self.manifest_path}: {key} differs; use a new run root"
                     )
+            if self.fast_path and previous.get("fast_path", False) is False:
+                previous["fast_path"] = True
             self.manifest = previous
         else:
             self.manifest = {
@@ -779,6 +842,16 @@ class Orchestrator:
                 "created_at": utc_now(),
                 "invocations": [],
                 "terminal": None,
+                "fast_path": self.fast_path,
+            }
+        if self.fast_path:
+            self.manifest["fast_path_policy"] = {
+                "enabled": True,
+                "after_external_resolver_batch": FAST_PATH_AFTER_BATCH,
+                "chunk_size": FAST_PATH_CHUNK_SIZE,
+                "priority": "existing_japanese_then_deterministic_mechanical_then_english_fallback",
+                "codex_individual_semantic_review_for_remaining": False,
+                "semantic_quality_gate": "SKIPPED_BY_EXPLICIT_SPEED_POLICY",
             }
         write_json(self.root / "source_manifest.json", self.source_manifest)
         self.materialize_sample_seed(queue)
@@ -1012,14 +1085,90 @@ class Orchestrator:
         input_dir = self.root / "inputs" / "resolver"
         output_dir = self.root / "agent_semantic_decisions"
         output_dir.mkdir(parents=True, exist_ok=True)
-        for path in sorted(input_dir.glob("batch_*.jsonl")):
+        paths = sorted(input_dir.glob("batch_*.jsonl"))
+        if self.fast_path:
+            paths = [path for path in paths if int(path.stem.split("_")[1]) <= FAST_PATH_AFTER_BATCH]
+        for path in paths:
             rows = read_jsonl(path)
             batch_id = path.stem
             records = self.run_agent("RESOLVER", batch_id, rows, path)
             all_records.extend(records)
             write_jsonl(output_dir / f"{batch_id}.jsonl", records)
         write_jsonl(self.root / "resolver_decisions.jsonl", all_records)
+        if self.fast_path:
+            all_records = self.run_fast_path(queue, all_records)
+            write_jsonl(self.root / "resolver_decisions.jsonl", all_records)
         return all_records
+
+    def run_fast_path(self, queue: list[dict[str, Any]], external_records: list[dict[str, Any]]) -> list[dict[str, Any]]:
+        """Bulk Japanese-priority projection; deliberately not semantic Codex evidence."""
+        if len(external_records) != FAST_PATH_AFTER_BATCH * 125:
+            raise RuntimeError("fast path requires successful external resolver batches 0001-0033")
+        known = fast_known_candidates(self.repo)
+        completed = {row["canonical"] for row in external_records}
+        remaining = [row for row in queue if row["canonical"] not in completed]
+        output_dir = self.root / "agent_semantic_decisions"
+        input_dir = self.root / "inputs" / "fast_path"
+        output_dir.mkdir(parents=True, exist_ok=True)
+        input_dir.mkdir(parents=True, exist_ok=True)
+        fast_records: list[dict[str, Any]] = []
+        facets = {key: "" for key in FACET_KEYS}
+        for start in range(0, len(remaining), FAST_PATH_CHUNK_SIZE):
+            batch = remaining[start : start + FAST_PATH_CHUNK_SIZE]
+            batch_id = f"fast_path_{start // FAST_PATH_CHUNK_SIZE + 1:04d}"
+            input_path = input_dir / f"{batch_id}.jsonl"
+            output_path = self.invocations_dir / "fast_path" / f"{batch_id}.json"
+            write_jsonl(input_path, batch)
+            input_hash = sha256_file(input_path)
+            cached = next((entry for entry in self.manifest.get("invocations", [])
+                           if entry.get("role") == "FAST_PATH" and entry.get("batch_id") == batch_id
+                           and entry.get("input_hash") == input_hash and entry.get("status") == "SUCCEEDED"), None)
+            if cached:
+                if not output_path.is_file() or sha256_file(output_path) != cached.get("output_hash"):
+                    raise RuntimeError(f"FAST_PATH/{batch_id} cached artifact hash mismatch")
+                records = read_json(output_path)["records"]
+            else:
+                records = []
+                for row in batch:
+                    candidate = known.get(row["canonical"], {})
+                    display = candidate.get("display_ja", "").strip() or row.get("source_display_ja", "").strip()
+                    provenance = "existing_candidate_asset" if display else ""
+                    if not display:
+                        display = fast_mechanical_label(row["canonical"])
+                        provenance = "deterministic_mechanical_token_composition" if display else ""
+                    accepted = bool(display)
+                    records.append({
+                        "canonical": row["canonical"],
+                        "decision": "KEEP_JA" if accepted and candidate else ("TRANSLATE_JA" if accepted else "EVIDENCE_UNRESOLVED"),
+                        "final_display_ja": display,
+                        "final_search_ja": display if accepted else "",
+                        "display_verdict": "ACCEPT" if accepted else "UNRESOLVED",
+                        "search_verdict": "ACCEPT" if accepted else "ABSENT",
+                        "semantic_gloss_ja": display,
+                        "semantic_facets": dict(facets),
+                        "risk_class": row.get("source_risk_class", "LOW"),
+                        "decision_rationale_ja": "速度優先の既存候補再利用または決定的機械合成。独立semantic監査なし。" if accepted else "安全な候補なし。英語canonical fallback。",
+                        "evidence_refs": [{"type": "fast_path_asset", "ref": provenance or "none", "note": "explicit speed policy"}],
+                        "attempted_evidence_routes": ["existing_candidate_asset", "deterministic_token_map"],
+                        "unresolved_question_ja": "機械的に安全な日本語候補がない" if not accepted else "",
+                        "review_mode": "DETERMINISTIC_FAST_PATH",
+                        "batch_id": batch_id,
+                    })
+                output_path.parent.mkdir(parents=True, exist_ok=True)
+                write_json(output_path, {"records": records})
+                self.manifest.setdefault("invocations", []).append({
+                    "role": "FAST_PATH", "batch_id": batch_id, "invocation_id": f"fast-path-{batch_id}",
+                    "child_process_id": None, "input_path": str(input_path), "input_hash": input_hash,
+                    "output_path": str(output_path), "output_hash": sha256_file(output_path),
+                    "contract_commit": CONTRACT_COMMIT, "status": "SUCCEEDED",
+                    "artifact_origin": "deterministic_fast_path", "started_at": utc_now(), "ended_at": utc_now(),
+                })
+                write_json(self.manifest_path, self.manifest)
+            if [r.get("canonical") for r in records] != [r["canonical"] for r in batch]:
+                raise RuntimeError(f"FAST_PATH/{batch_id} canonical/order mismatch")
+            write_jsonl(output_dir / f"{batch_id}.jsonl", records)
+            fast_records.extend(records)
+        return external_records + fast_records
 
     def build_challenge_inputs(self, queue: list[dict[str, Any]], resolver_records: list[dict[str, Any]]) -> list[dict[str, Any]]:
         by_canonical = {row["canonical"]: row for row in queue}
@@ -1196,7 +1345,7 @@ class Orchestrator:
         write_jsonl(self.root / "trusted_exact_provenance.jsonl", [])
         write_jsonl(
             self.root / "collision_review.jsonl",
-            collision_review_rows(merged, challenge_for_review),
+            collision_review_rows(merged, challenge_for_review, self.fast_path),
         )
         write_jsonl(self.root / "defect_ledger.jsonl", [])
         write_jsonl(
@@ -1540,6 +1689,8 @@ class Orchestrator:
     def run(self) -> dict[str, Any]:
         queue = self.load_or_prepare()
         resolver = self.run_resolver(queue)
+        if self.fast_path:
+            return self.run_fast_completion(queue, resolver)
         challenge = self.run_challenger(queue, resolver)
         repair_cycle_1 = self.run_repairs(queue, resolver, challenge, cycle=1)
         rechallenge_cycle_1 = self.run_rechallenge(queue, repair_cycle_1, cycle=1)
@@ -1587,6 +1738,76 @@ class Orchestrator:
             raise RuntimeError(f"pilot failed; see {self.root / 'gate_status.json'}")
         return result
 
+    def run_fast_completion(self, queue: list[dict[str, Any]], merged: list[dict[str, Any]]) -> dict[str, Any]:
+        if [row["canonical"] for row in queue] != [row["canonical"] for row in merged]:
+            raise RuntimeError("fast path canonical identity/order mismatch")
+        write_jsonl(self.root / "merged_agent_decisions.jsonl", merged)
+        write_jsonl(self.root / "mandatory_challenge_population.jsonl", [])
+        write_jsonl(self.root / "residual_fallback_sample.jsonl", [])
+        write_jsonl(self.root / "residual_fallback_challenge.jsonl", [])
+        write_jsonl(self.root / "adversarial_sample.jsonl", [])
+        write_jsonl(self.root / "adversarial_agent_audit.jsonl", [])
+        write_json(self.root / "sample_plan.json", {
+            "source_git_blob": SOURCE_BLOB,
+            "selection_phase": "outcomes_frozen",
+            "selection_population_identity": "fast_path_not_semantic_sampled",
+            "created_before_semantic_outcomes": True,
+            "selection_created_after_semantic_outcomes": False,
+            "policy": "speed_priority_japanese_display",
+            "mandatory_challenge_population": "SKIPPED_BY_EXPLICIT_SPEED_POLICY",
+            "residual_fallback_challenge": "SKIPPED_BY_EXPLICIT_SPEED_POLICY",
+            "final_adversarial_audit": "SKIPPED_BY_EXPLICIT_SPEED_POLICY",
+        })
+        self.materialize_contract_artifacts(queue, merged, [], [], [])
+        accepted = sum(is_final_accepted(row) for row in merged)
+        fallback = len(merged) - accepted
+        replay = read_json(self.root / "replay_verification.json")
+        boundary = read_json(self.root / "protected_boundary.json")
+        structural_gates = {
+            "source_identity_pass": self.source_manifest.get("source_git_blob") == SOURCE_BLOB,
+            "row_count_30629_unique": self.source_manifest.get("source_counts", {}).get("rows") == SOURCE_ROWS,
+            "canonical_identity_unchanged": [r["canonical"] for r in queue] == [r["canonical"] for r in merged],
+            "review_queue_complete": len(queue) == SOURCE_ROWS and len({r["canonical"] for r in queue}) == SOURCE_ROWS,
+            "resolver_external_batches_0001_to_0033": len([e for e in self.manifest.get("invocations", []) if e.get("role") == "RESOLVER" and e.get("status") == "SUCCEEDED"]) >= FAST_PATH_AFTER_BATCH,
+            "fast_path_chunks_complete": len([e for e in self.manifest.get("invocations", []) if e.get("role") == "FAST_PATH" and e.get("status") == "SUCCEEDED"]) >= 1,
+            "deterministic_replay_pass": replay.get("pass") is True,
+            "protected_boundary_pass": boundary.get("production_modified_no") is True,
+            "production_modified_no": boundary.get("production_modified_no") is True,
+        }
+        write_json(self.root / "coverage_summary.json", {
+            "source_rows": len(queue), "final_rows": len(merged), "final_accepted": accepted,
+            "final_fallback": fallback, "coverage_delta_points": (accepted - SOURCE_ACCEPTED) / SOURCE_ROWS * 100,
+            "policy": "speed_priority_japanese_display",
+        })
+        write_json(self.root / "semantic_quality_summary.json", {
+            "semantic_quality_gate": "SKIPPED_BY_EXPLICIT_SPEED_POLICY",
+            "semantic_translation_generated_by_python": True,
+            "fast_path_existing_candidate_rows": sum(r.get("review_mode") == "DETERMINISTIC_FAST_PATH" and r.get("decision") == "KEEP_JA" for r in merged),
+            "independent_codex_semantic_review": "NOT_PERFORMED_FOR_REMAINING_ROWS",
+        })
+        terminal = "FAST_PATH_COMPLETE_FOR_INDEPENDENT_AUDIT" if all(structural_gates.values()) else "BLOCKED_STRUCTURAL_DEFECT"
+        result = {
+            "schema_version": 1, "mode": "full", "terminal": terminal,
+            "gates": structural_gates, "resolver_count": len(merged),
+            "final_accepted_count": accepted, "final_fallback_count": fallback,
+            "challenge_count": 0, "repair_count": 0, "rechallenge_count": 0,
+            "residual_count": 0, "audit_count": 0,
+            "production_promotion_authorized": False,
+        }
+        self.root.joinpath("FINAL_REPORT.md").write_text(
+            "# Issue #46 fast-path orchestration report\n\n"
+            f"- terminal: `{terminal}`\n- contract: `{CONTRACT_COMMIT}`\n- source blob: `{SOURCE_BLOB}`\n"
+            "- policy: speed-priority Japanese display\n"
+            "- remaining semantic Codex review: skipped by explicit user policy\n"
+            "- production modified: `NO`\n- promotion: `NOT_AUTHORIZED`\n",
+            encoding="utf-8",
+        )
+        write_json(self.root / "gate_status.json", result)
+        self.manifest["terminal"] = terminal
+        self.manifest["completed_at"] = utc_now()
+        write_json(self.manifest_path, self.manifest)
+        return result
+
 
 def parse_args(argv: list[str]) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Issue #46 single-command Codex orchestration")
@@ -1594,6 +1815,7 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
     parser.add_argument("--repo", type=Path, default=Path(__file__).resolve().parents[2])
     parser.add_argument("--run-root", type=Path)
     parser.add_argument("--codex-bin", default=os.environ.get("CODEX_BIN", "codex"))
+    parser.add_argument("--fast-path", action="store_true")
     return parser.parse_args(argv)
 
 
@@ -1606,7 +1828,7 @@ def main(argv: list[str] | None = None) -> int:
         if pilot["terminal"] != "PILOT_PASS":
             return 2
         full_root = (repo / "translation_quarantine/orchestration/issue46_full").resolve()
-        full = Orchestrator(repo, "full", full_root, args.codex_bin).run()
+        full = Orchestrator(repo, "full", full_root, args.codex_bin, args.fast_path).run()
         return 0 if full["terminal"] == "FINAL_READY_FOR_INDEPENDENT_AUDIT" else 3
     if args.mode == "full":
         pilot_root = repo / "translation_quarantine/orchestration/issue46_pilot"
@@ -1616,7 +1838,7 @@ def main(argv: list[str] | None = None) -> int:
         run_root = (args.run_root or repo / "translation_quarantine/orchestration/issue36_v31").resolve()
     else:
         run_root = (args.run_root or repo / "translation_quarantine/orchestration/issue46_pilot").resolve()
-    Orchestrator(repo, args.mode, run_root, args.codex_bin).run()
+    Orchestrator(repo, args.mode, run_root, args.codex_bin, args.fast_path).run()
     return 0
 
 
