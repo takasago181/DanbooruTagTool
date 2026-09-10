@@ -1,0 +1,43 @@
+canonical,old_display_ja,new_display_ja,reason
+kirare_idol_uniform,kirare idolの制服,KiRaReのアイドル衣装,MIXED_ENGLISH_DEBRIS
+kirigakure_symbol,Kirigakureシンボル,霧隠れの里のシンボル,MIXED_ENGLISH_DEBRIS
+kirima_syaro_(cosplay),キリマ・シロ（コスプレ）,桐間紗路（コスプレ）,SEMANTIC_ERROR
+kirin_(company),キリンビール,キリン（企業）,SEMANTIC_NARROWING
+kirisame_marisa_(cosplay),KirisameMarisa（コスプレ）,霧雨魔理沙（コスプレ）,MIXED_ENGLISH_DEBRIS
+kiryu_kazuma_(cosplay),kiryu kazuma (cosplay),桐生一馬（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+kiryuuin_satsuki_(cosplay),Kiryuuin Satsuki（コスプレ）,鬼龍院皐月（コスプレ）,MIXED_ENGLISH_DEBRIS
+kisaki_(blue_archive)_(cosplay),kisaki (blue archive) (cosplay),竜華キサキ（ブルーアーカイブ）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+kiso_(kancolle)_(cosplay),Kiso（Kancolle）（コスプレ）,木曾（艦これ）（コスプレ）,MIXED_ENGLISH_DEBRIS
+kiss_from_behind,kiss・からのbehind,後ろからキス,MIXED_ENGLISH_DEBRIS
+kiss_meter_(meme),kiss meter (meme),キスメーター（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+kissing_animal,kissing・動物,動物にキス,MIXED_ENGLISH_DEBRIS
+kissing_ass,タグ「kissing ass」,尻にキス,RAW_ENGLISH_WRAPPER
+kissing_back,キスバック,背中にキス,SEMANTIC_ERROR
+kissing_eye,目をキス,目にキス,AWKWARD_MACHINE_TRANSLATION
+kissing_foot,足をキス,足にキス,AWKWARD_MACHINE_TRANSLATION
+kissing_hand,手をキス,手にキス,AWKWARD_MACHINE_TRANSLATION
+kissing_head,ヘッドキス,頭にキス,SEMANTIC_ERROR
+kissing_stomach,胃にキス,腹部にキス,SEMANTIC_ERROR
+kissing_viewer,キス待ち,視点側にキス,SEMANTIC_ERROR
+kissuisou_uniform,喜翠荘,喜翠荘の制服,SEMANTIC_UNDERSPECIFICATION
+kitagawa_marin_(cosplay),北川マリン（コスプレ）,喜多川海夢（コスプレ）,SEMANTIC_ERROR
+kitakami_(kancolle)_(cosplay),北京（カンコル）（コスプレ）,北上（艦これ）（コスプレ）,SEMANTIC_ERROR
+kitasan_black_(umamusume)_(cosplay),kitasan black (umamusume) (cosplay),キタサンブラック（ウマ娘）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+kitauji_high_school_uniform,キタウジ高校の制服,北宇治高校の制服,SEMANTIC_ERROR
+kitchen_range,タグ「kitchen range」,調理用コンロ,RAW_ENGLISH_WRAPPER
+kite_string,kite sの指輪,凧糸,SEMANTIC_ERROR
+kitten_heels,タグ「kitten heels」,キトゥンヒール,RAW_ENGLISH_WRAPPER
+kiyosumi_school_uniform,久野学校の制服,清澄高校の制服,SEMANTIC_ERROR
+kjerag_logo,ケージェラグのロゴ,イェラグのロゴ,SEMANTIC_ERROR
+klee_(genshin_impact)_(cosplay),クリー（ジェンシンインパクト）（コスプレ）,クレー（原神）（コスプレ）,SEMANTIC_ERROR
+knee_armor,kneeの鎧,膝の鎧,MIXED_ENGLISH_DEBRIS
+knee_blush,膝の赤面,膝の赤み,SEMANTIC_ERROR
+knee_to_chest,膝から胸,膝を胸につける,SEMANTIC_RELATION_ERROR
+knee_to_face,顔を合わせます,顔に膝,SEMANTIC_ERROR
+kneehighs_pull,膝のように引っ張る,ハイソックスを引っ張る,SEMANTIC_ERROR
+knife_in_chest,ナイフの中の胸,胸に刺さったナイフ,SEMANTIC_RELATION_ERROR
+knife_in_head,頭のナイフ,頭に刺さったナイフ,SEMANTIC_UNDERSPECIFICATION
+knifed,ナイフ,ナイフで刺された,SEMANTIC_ERROR
+knights_(ensemble_stars!),Knightsの日,Knights（あんさんぶるスターズ!）,SEMANTIC_ERROR
+knights_of_blood_uniform_(sao),騎士の血液ユニフォーム（SAO）,血盟騎士団の制服（SAO）,SEMANTIC_ERROR
+knights_of_the_round_uniform,丸いユニフォームの騎士,円卓の騎士の制服,SEMANTIC_ERROR
