@@ -40,3 +40,45 @@ clipping_toenails,タグ「clipping toenails」,足の爪を切る,RAW_ENGLISH_W
 clitoral_circular_saw,シリコン丸鋸,クリトリス用丸鋸,SEMANTIC_ERROR
 clitoral_injection,タグ「clitoral injection」,クリトリスへの注射,RAW_ENGLISH_WRAPPER
 cloaca,泄殖腔,総排泄腔,NON_JAPANESE_RESIDUE
+clock_hat_ornament,clock・帽子・飾り,時計の帽子飾り,MIXED_ENGLISH_DEBRIS
+clock_necklace,clock・ネックレス,時計のネックレス,MIXED_ENGLISH_DEBRIS
+clock_tower,钟塔,時計塔,NON_JAPANESE_RESIDUE
+clogs,詰まり,木靴,SEMANTIC_ERROR
+close-quarters_combat,タグ「close-quarters combat」,近接戦闘,RAW_ENGLISH_WRAPPER
+closing_eyes,closing・目,目を閉じる,MIXED_ENGLISH_DEBRIS
+clothed_male_underwear_female,clothed・male・underwear・女性,着衣の男性と下着姿の女性,MIXED_ENGLISH_DEBRIS
+clothes_between_thighs,服・間・太もも,太ももの間の服,SEMANTIC_ERROR
+clothes_blanket,服・blanket,服を毛布代わりにする,MIXED_ENGLISH_DEBRIS
+clothes_down,衣服下落,服を下げる,NON_JAPANESE_RESIDUE
+clothes_gag,衣服口塞,衣服を猿ぐつわにする,NON_JAPANESE_RESIDUE
+clothes_grab,抓住衣服,服を掴む,NON_JAPANESE_RESIDUE
+clothes_in_mouth,嘴里含着衣服,口に服をくわえる,NON_JAPANESE_RESIDUE
+clothes_on_and_off,服の上のand・off,服を着たり脱いだりする,MIXED_ENGLISH_DEBRIS
+clothes_on_bed,ベッドの服,ベッドの上の服,RELATION_SEMANTIC_ERROR
+clothes_on_chair,服の上の椅子,椅子の上の服,RELATION_SEMANTIC_ERROR
+clothes_over_shoulder,服の上の肩,肩にかけた服,RELATION_SEMANTIC_ERROR
+clothesline,clothesline,物干しロープ,CANONICAL_FALLBACK_TRANSLATABLE
+cloud_background,クラウドの背景,雲の背景,SEMANTIC_ERROR
+cloud_focus,クラウドフォーカス,雲を強調,SEMANTIC_ERROR
+cloud_hair,雲毛,雲のような髪,SEMANTIC_ERROR
+cloud_print,クラウドプリント,雲柄,SEMANTIC_ERROR
+cloud_tattoo,クラウドタトゥー,雲のタトゥー,SEMANTIC_ERROR
+clover-shaped_pupils,クローバー型の生徒,クローバー型の瞳孔,SEMANTIC_ERROR
+clown_makeup,clown・化粧,ピエロの化粧,MIXED_ENGLISH_DEBRIS
+club_facial_mark,club・facial・印,クラブ形の顔の印,MIXED_ENGLISH_DEBRIS
+clutching_chest,捂住胸口,胸を押さえる,NON_JAPANESE_RESIDUE
+clutching_clothes,クラッチ服,服を握りしめる,SEMANTIC_ERROR
+coat_around_waist,コートの周囲のwaist,腰に巻いたコート,MIXED_ENGLISH_DEBRIS
+coat_grab,抓着外套,コートを掴む,NON_JAPANESE_RESIDUE
+coat_hold,コート・hold,コートを持つ,MIXED_ENGLISH_DEBRIS
+coat_on_head,コートの上の頭,頭にコート,RELATION_SEMANTIC_ERROR
+coat_on_shoulders,披肩外套,肩に掛けたコート,NON_JAPANESE_RESIDUE
+coat_rack,ハットラック,コートラック,SEMANTIC_ERROR
+cockade,タグ「cockade」,コカード,RAW_ENGLISH_WRAPPER
+cocked_eyebrow,コックされた眉,上げた眉,SEMANTIC_ERROR
+cocked_hammer,コックされたハンマー,起こした撃鉄,SEMANTIC_ERROR
+coconut_cup,coconut・カップ,ココナッツのカップ,MIXED_ENGLISH_DEBRIS
+coffee_filter,タグ「coffee filter」,コーヒーフィルター,RAW_ENGLISH_WRAPPER
+coffee_maker,パーコレータ,コーヒーメーカー,SEMANTIC_NARROWING
+coffee_table,咖啡桌,コーヒーテーブル,NON_JAPANESE_RESIDUE
+coil,タグ「coil」,コイル,RAW_ENGLISH_WRAPPER
