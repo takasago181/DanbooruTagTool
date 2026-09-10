@@ -1,0 +1,30 @@
+canonical,old_display_ja,new_display_ja,reason
+lapel_chain,lapel・チェーン,襟のチェーン,MIXED_ENGLISH_DEBRIS
+large_cross,大きい・クロス,大きな十字架,AWKWARD_MACHINE_TRANSLATION
+large_earrings,largeのイヤリング,大きなイヤリング,MIXED_ENGLISH_DEBRIS
+large_horns,タグ「large horns」,大きな角,RAW_ENGLISH_WRAPPER
+large_teddy_bear,タグ「large teddy bear」,大きなテディベア,RAW_ENGLISH_WRAPPER
+lariat_(necklace),タグ「lariat (necklace)」,ラリアットネックレス,RAW_ENGLISH_WRAPPER
+laser_cannon,タグ「laser cannon」,レーザー砲,RAW_ENGLISH_WRAPPER
+laser_musket,タグ「laser musket」,レーザーマスケット,RAW_ENGLISH_WRAPPER
+laser_pointer_projection,タグ「laser pointer projection」,レーザーポインターの投影,RAW_ENGLISH_WRAPPER
+laserdisc_cover,Laserdiscカバー,レーザーディスクのカバー,MIXED_ENGLISH_DEBRIS
+lass_(pokemon)_(cosplay),ラス（ポケモン）（コスプレ）,ミニスカート（ポケモン）（コスプレ）,SEMANTIC_ERROR
+lasso_of_truth,真実のラッソ,真実の投げ縄,SEMANTIC_ERROR
+last_defense_academy_school_uniform,学生鎧,最終防衛学園の制服,SEMANTIC_ERROR
+latex_sleeves,ラテックス・sleeves,ラテックスの袖,MIXED_ENGLISH_DEBRIS
+latex_thigh_boots,latex thighのブーツ,ラテックスのサイハイブーツ,MIXED_ENGLISH_DEBRIS
+laughing_man_(gits),笑う男（貝殻の幽霊）,笑い男（攻殻機動隊）,SEMANTIC_ERROR
+laundry,洗衣,洗濯,NON_JAPANESE_RESIDUE
+laundry_pole,laundry pole,物干し竿,CANONICAL_FALLBACK_TRANSLATABLE
+lavafall,タグ「lavafall」,溶岩の滝,RAW_ENGLISH_WRAPPER
+lavender_melon_(genshin_impact),lavender melon (genshin impact),ラベンダーメロン（原神）,CANONICAL_FALLBACK_TRANSLATABLE
+lay's_(potato_chips),タグ「lay's (potato chips)」,Lay's（ポテトチップス）,RAW_ENGLISH_WRAPPER
+layer_cake,レヤーケーキ,レイヤーケーキ,SEMANTIC_ERROR
+layered_armor,layeredの鎧,重ねた鎧,MIXED_ENGLISH_DEBRIS
+layered_ascot,タグ「layered ascot」,重ねたアスコット,RAW_ENGLISH_WRAPPER
+layered_hair,layered・髪,レイヤー入りの髪,MIXED_ENGLISH_DEBRIS
+layered_kimono,十二単,重ね着した着物,SEMANTIC_NARROWING
+layered_shirt,重ね着,重ね着したシャツ,SEMANTIC_UNDERSPECIFICATION
+layered_shorts,タグ「layered shorts」,重ね履きしたショートパンツ,RAW_ENGLISH_WRAPPER
+lactic_acid_bacteria,乳酸菌とってるぅ?,乳酸菌,SEMANTIC_ERROR
