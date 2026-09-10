@@ -1,0 +1,365 @@
+canonical,old_display_ja,new_display_ja,reason
+armored_leotard,装甲紧身衣,装甲レオタード,NON_JAPANESE_RESIDUE
+armored_skirt,装甲裙,装甲スカート,NON_JAPANESE_RESIDUE
+armpit_carry,提猫式,脇抱え,NON_JAPANESE_RESIDUE
+armpit_focus,腋は性器,脇を強調,SEMANTIC_ADDITION_ERROR
+armpit_hair_peek,armpit・髪・覗き見,脇毛チラ見せ,MIXED_ENGLISH_DEBRIS
+armpit_hold,タグ「armpit hold」,脇で挟む,RAW_ENGLISH_WRAPPER
+arms_across_body,両腕・across・身体,体の前で腕を交差,MIXED_ENGLISH_DEBRIS
+arms_around_another's_back,後ろの腕,他人の背中に両腕を回す,RELATION_SEMANTIC_ERROR
+arms_around_another's_waist,腰の周りの腕,他人の腰に両腕を回す,RELATION_SEMANTIC_ERROR
+arms_around_self,両腕の周囲のself,自分を両腕で抱く,MIXED_ENGLISH_DEBRIS
+arms_between_legs,両腕・間・脚,脚の間に両腕,BROKEN_COMPOSITION
+arms_bound_above_head,両腕・bound・above・頭,頭上で両腕を拘束,MIXED_ENGLISH_DEBRIS
+arms_on_another's_shoulder,両腕の上の他人の肩,他人の肩に両腕を置く,RELATION_SEMANTIC_ERROR
+arms_on_head,頭の腕,頭に両腕を置く,RELATION_SEMANTIC_ERROR
+arms_on_knees,膝の腕,膝に両腕を置く,RELATION_SEMANTIC_ERROR
+arona_(blue_archive)_(cosplay),アロナの服,アロナ（ブルーアーカイブ）のコスプレ,SEMANTIC_OMISSION
+aroused_nosebleed,タグ「aroused nosebleed」,興奮による鼻血,RAW_ENGLISH_WRAPPER
+arrow_cross,arrow・十字架,矢の十字架,MIXED_ENGLISH_DEBRIS
+arrow_in_body,体の矢印,体に刺さった矢,POLYSEMY_ERROR
+arrow_in_head,頭の矢印,頭に刺さった矢,POLYSEMY_ERROR
+arrow_in_mouth,口の矢印,口に入った矢,POLYSEMY_ERROR
+arrow_print,矢印の印刷,矢柄,POLYSEMY_ERROR
+arrow_tattoo,arrowのタトゥー,矢のタトゥー,MIXED_ENGLISH_DEBRIS
+arrow_through_apple,リンゴを通る矢印,リンゴを貫く矢,POLYSEMY_ERROR
+arsene_lupin_iii_(cosplay),Arsene Lupine III（コスプレ）,アルセーヌ・ルパン三世のコスプレ,MIXED_ENGLISH_DEBRIS
+art_nouveau,ミュシャ,アール・ヌーヴォー,SEMANTIC_NARROWING_ERROR
+art_program_in_frame,art・programの中のframe,画面内の描画ソフト,MIXED_ENGLISH_DEBRIS
+art_supplies,タグ「art supplies」,画材,RAW_ENGLISH_WRAPPER
+art_tools_in_frame,art・toolsの中のframe,画面内の画材,MIXED_ENGLISH_DEBRIS
+art_vs_artist,タグ「art vs artist」,作品と作者,RAW_ENGLISH_WRAPPER
+arthropod_boy,虫人,節足動物男子,SEMANTIC_NARROWING_ERROR
+arthropod_girl,虫人,節足動物娘,SEMANTIC_NARROWING_ERROR
+arthropod_tail,arthropod・尻尾,節足動物の尻尾,MIXED_ENGLISH_DEBRIS
+artifact_(genshin_impact),圣遗物,聖遺物（原神）,NON_JAPANESE_RESIDUE
+artist's_hand_in_frame,artist・手の中のframe,画面内に作者の手,MIXED_ENGLISH_DEBRIS
+artist_glove,绘画手套,絵描き用手袋,NON_JAPANESE_RESIDUE
+artist_name_(singer),タグ「artist name (singer)」,アーティスト名（歌手）,RAW_ENGLISH_WRAPPER
+artoria_caster_(fate)_(cosplay),アルトリアキャスター（運命）（コスプレ）,アルトリア・キャスター（Fate）のコスプレ,LITERAL_FRANCHISE_TRANSLATION
+as_i've_written_(honkai:_star_rail),如我所書,書き記した通り（崩壊：スターレイル）,NON_JAPANESE_RESIDUE
+as_val,ヴァルとして,AS Val,PROPER_NAME_CORRUPTION
+asagami_private_girls_acadamy_uniform,浅上女学院,浅上女学院の制服,SEMANTIC_OMISSION
+asahigaoka_school_uniform,浅野岡学校の制服,旭丘分校の制服,PROPER_TERM_TRANSLATION
+asahina_mikuru_(cosplay),アサヒナ・ミクル（コスプレ）,朝比奈みくるのコスプレ,MIXED_ENGLISH_DEBRIS
+asahiyama_high_school_uniform,旭山高等学校,旭山高等学校の制服,SEMANTIC_OMISSION
+asanagi_(style),麻木（スタイル）,朝凪風,PROPER_NAME_CORRUPTION
+asari_(mass_effect),タグ「asari (mass effect)」,アサリ（Mass Effect）,RAW_ENGLISH_WRAPPER
+asashio_(kancolle)_(cosplay),asashio（kancolle）（コスプレ）,朝潮（艦これ）のコスプレ,MIXED_ENGLISH_DEBRIS
+asashio_kai_ni_(kancolle)_(cosplay),asashio kai ni (kancolle) (cosplay),朝潮改二（艦これ）のコスプレ,UNNECESSARY_CANONICAL_FALLBACK
+asexual_flag,asexualの旗,アセクシュアルの旗,MIXED_ENGLISH_DEBRIS
+ashes,灰烬,灰,NON_JAPANESE_RESIDUE
+ashigaya_high_school_uniform,芦ケ谷高校,芦ヶ谷高校の制服,SEMANTIC_OMISSION
+asian_indian_clothes,asian・indian・服,インド風衣装,MIXED_ENGLISH_DEBRIS
+asmr,音声,ASMR,SEMANTIC_NARROWING_ERROR
+asobi_asobase's_school_uniform,asobi asobaseの学校制服,『あそびあそばせ』の制服,MIXED_ENGLISH_DEBRIS
+ass_blush,ass・赤み,尻の赤み,MIXED_ENGLISH_DEBRIS
+ass_clap,タグ「ass clap」,尻を打ち合わせる,RAW_ENGLISH_WRAPPER
+ass_lift,タグ「ass lift」,尻を持ち上げる,RAW_ENGLISH_WRAPPER
+ass_peek,尻破れ,尻チラ見せ,SEMANTIC_ERROR
+ass_rubbing,タグ「ass rubbing」,尻を擦り合わせる,RAW_ENGLISH_WRAPPER
+assault_visor,攻撃バイザー,アサルトバイザー,LITERAL_TRANSLATION_ERROR
+assisted_carrying,タグ「assisted carrying」,二人がかりで運ぶ,RAW_ENGLISH_WRAPPER
+assisted_fellatio,タグ「assisted fellatio」,フェラチオの介助,RAW_ENGLISH_WRAPPER
+assisted_stretching,ストレッチ補給を支援します,ストレッチの補助,BROKEN_TRANSLATION
+assless_skirt,assless・スカート,尻出しスカート,MIXED_ENGLISH_DEBRIS
+asticassia_school_uniform,アスティカシアスクールユニフォーム,アスティカシア高等専門学園の制服,PROPER_TERM_TRANSLATION
+astolfo_(fate)_(cosplay),アストルフォ（運命）（コスプレ）,アストルフォ（Fate）のコスプレ,LITERAL_FRANCHISE_TRANSLATION
+astral_dress,astral・ドレス,霊装,MIXED_ENGLISH_DEBRIS
+astromech_droid,タグ「astromech droid」,アストロメク・ドロイド,RAW_ENGLISH_WRAPPER
+asuna_(blue_archive)_(cosplay),asuna (blue archive) (cosplay),一之瀬アスナ（ブルーアーカイブ）のコスプレ,UNNECESSARY_CANONICAL_FALLBACK
+asymmetrical_coat,asymmetrical・コート,左右非対称のコート,MIXED_ENGLISH_DEBRIS
+asymmetrical_dual_wielding,双持不同武器,左右で異なる武器の二刀流,NON_JAPANESE_RESIDUE
+asymmetrical_ears,asymmetrical・耳,左右非対称の耳,MIXED_ENGLISH_DEBRIS
+asymmetrical_eyelashes,タグ「asymmetrical eyelashes」,左右非対称のまつ毛,RAW_ENGLISH_WRAPPER
+asymmetrical_eyes,asymmetrical・目,左右非対称の目,MIXED_ENGLISH_DEBRIS
+asymmetrical_mask,asymmetrical・マスク,左右非対称のマスク,MIXED_ENGLISH_DEBRIS
+asymmetrical_one-piece_swimsuit,asymmetrical one pieceの水着,左右非対称のワンピース水着,MIXED_ENGLISH_DEBRIS
+asymmetrical_pigeon-toed,タグ「asymmetrical pigeon-toed」,左右非対称の内股,RAW_ENGLISH_WRAPPER
+asymmetrical_sidelocks,タグ「asymmetrical sidelocks」,左右非対称のサイドロック,RAW_ENGLISH_WRAPPER
+asymmetrical_skirt,asymmetrical・スカート,左右非対称のスカート,MIXED_ENGLISH_DEBRIS
+at-at,位置・位置,AT-AT,PROPER_NAME_CORRUPTION
+at_knifepoint,KnifePointで,刃物を突きつけられて,MIXED_ENGLISH_DEBRIS
+atmospheric_layer,大气层,大気層,NON_JAPANESE_RESIDUE
+attack_points,タグ「attack points」,攻撃ポイント,RAW_ENGLISH_WRAPPER
+attack_trail,タグ「attack trail」,攻撃の軌跡,RAW_ENGLISH_WRAPPER
+attacking_viewer,着信攻撃,こちらを攻撃する,SEMANTIC_ERROR
+attribute_slider,タグ「attribute slider」,属性スライダー,RAW_ENGLISH_WRAPPER
+audio_cable,タグ「audio cable」,オーディオケーブル,RAW_ENGLISH_WRAPPER
+aunt_and_nephew,叔母とne,叔母と甥,BROKEN_TRANSLATION
+aurelia_academy_school_uniform,奥蕾莉亚学院制服,アウレリア学園の制服,NON_JAPANESE_RESIDUE
+autocunnilingus,タグ「autocunnilingus」,セルフクンニ,RAW_ENGLISH_WRAPPER
+autocycle,三轮小拖車,三輪自動車,NON_JAPANESE_RESIDUE
+autodefenestration,オートドーデストレーション,自分から窓の外へ飛び出す,BROKEN_TRANSLITERATION
+autopenetration,タグ「autopenetration」,自己挿入,RAW_ENGLISH_WRAPPER
+avatar_state,タグ「avatar state」,アバター状態,RAW_ENGLISH_WRAPPER
+aventail,タグ「aventail」,アヴェンテイル,RAW_ENGLISH_WRAPPER
+aviator_glasses,タグ「aviator glasses」,アビエーター眼鏡,RAW_ENGLISH_WRAPPER
+avocado,わになし,アボカド,OBSOLETE_NAME_TRANSLATION
+awkward,尴尬,気まずい,NON_JAPANESE_RESIDUE
+axillary_tail_of_spence,axillary・尻尾・of・spence,スペンス腋窩尾,MIXED_ENGLISH_DEBRIS
+axolotl_ears,axolotl・耳,ウーパールーパーの耳,MIXED_ENGLISH_DEBRIS
+axolotl_girl,axolotlの女の子,ウーパールーパー娘,MIXED_ENGLISH_DEBRIS
+axolotl_tail,axolotl・尻尾,ウーパールーパーの尻尾,MIXED_ENGLISH_DEBRIS
+ayachi_nene_(cosplay),ayachi nene (cosplay),綾地寧々のコスプレ,UNNECESSARY_CANONICAL_FALLBACK
+ayanokouji_martial_arts_school_uniform,ayanokouji martial artsの学校制服,綾小路武芸学園の制服,MIXED_ENGLISH_DEBRIS
+ayase_eli_(cosplay),ayase eli（コスプレ）,絢瀬絵里のコスプレ,MIXED_ENGLISH_DEBRIS
+ayase_momo_(cosplay),ayase momo (cosplay),綾瀬桃のコスプレ,UNNECESSARY_CANONICAL_FALLBACK
+aztec_clothes,aztec・服,アステカ風衣装,MIXED_ENGLISH_DEBRIS
+azumanga_daioh's_gym_uniform,azumanga daioh gymの制服,『あずまんが大王』の体操服,MIXED_ENGLISH_DEBRIS
+azumanga_daioh's_school_uniform,アズマンガ・ダイオの制服,『あずまんが大王』の制服,BROKEN_TRANSLITERATION
+b-52_stratofortress,タグ「b-52 stratofortress」,B-52 ストラトフォートレス,RAW_ENGLISH_WRAPPER
+baby_animal,baby・動物,動物の赤ちゃん,MIXED_ENGLISH_DEBRIS
+baby_hippopotamus,タグ「baby hippopotamus」,カバの赤ちゃん,RAW_ENGLISH_WRAPPER
+babydoll_hold,タグ「babydoll hold」,ベビードールを持つ,RAW_ENGLISH_WRAPPER
+babydoll_pull,babydoll・引っ張る,ベビードールを引っ張る,MIXED_ENGLISH_DEBRIS
+babydoll_tug,タグ「babydoll tug」,ベビードールをつまんで引く,RAW_ENGLISH_WRAPPER
+babyls_school_uniform,バビルススクールユニフォーム,バビルスの制服,LITERAL_TRANSLATION_ERROR
+back_fin,背中・fin,背びれ,MIXED_ENGLISH_DEBRIS
+back_hair,背中髪,背中まで伸びた髪,BROKEN_TRANSLATION
+back_ribbon,背中・リボン,背中のリボン,BROKEN_COMPOSITION
+back_spikes,背中・spikes,背中のトゲ,MIXED_ENGLISH_DEBRIS
+backdrop,背景幕布,背景幕,NON_JAPANESE_RESIDUE
+backless_kimono,露背和服,背中開きの着物,NON_JAPANESE_RESIDUE
+backless_shirt,露背シャツ衫,背中開きのシャツ,NON_JAPANESE_RESIDUE
+backless_sweater,背中の開いた・sweater,背中開きのセーター,MIXED_ENGLISH_DEBRIS
+backpack_basket,タグ「backpack basket」,背負いかご,RAW_ENGLISH_WRAPPER
+backpack_on_one_shoulder,backpackの上の1つの肩,片肩にかけたリュック,MIXED_ENGLISH_DEBRIS
+backpack_vacuum_cleaner,タグ「backpack vacuum cleaner」,背負い式掃除機,RAW_ENGLISH_WRAPPER
+backward-facing_horns,タグ「backward-facing horns」,後ろ向きの角,RAW_ENGLISH_WRAPPER
+backwards_text,後方テキスト,左右反転した文字,SEMANTIC_ERROR
+backwards_virgin_killer_sweater,後方のバージンキラーセーター,後ろ前の童貞を殺すセーター,LITERAL_TRANSLATION_ERROR
+bad_apple!!,ダメなりんご！！,Bad Apple!!,PROPER_NAME_CORRUPTION
+bad_arm,悪い腕,腕の作画崩れ,LITERAL_TRANSLATION_ERROR
+bad_gun_anatomy,悪い銃の解剖学,銃の構造崩れ,LITERAL_TRANSLATION_ERROR
+bad_hands,悪い手,手の作画崩れ,LITERAL_TRANSLATION_ERROR
+bad_leg,悪い脚,脚の作画崩れ,LITERAL_TRANSLATION_ERROR
+bad_math,タグ「bad math」,計算ミス,RAW_ENGLISH_WRAPPER
+bad_multiple_views,悪い複数のビュー,複数視点の作画崩れ,LITERAL_TRANSLATION_ERROR
+bad_neck,悪い首,首の作画崩れ,LITERAL_TRANSLATION_ERROR
+bad_vehicle_anatomy,タグ「bad vehicle anatomy」,乗り物の構造崩れ,RAW_ENGLISH_WRAPPER
+bad_vulva,悪い外陰,女性器の作画崩れ,LITERAL_TRANSLATION_ERROR
+badger_boy,タグ「badger boy」,アナグマ男子,RAW_ENGLISH_WRAPPER
+badger_girl,タグ「badger girl」,アナグマ娘,RAW_ENGLISH_WRAPPER
+badminton_racket,羽毛球拍,バドミントンラケット,NON_JAPANESE_RESIDUE
+bag_behind_back,bag・behind・背中,背中側のバッグ,MIXED_ENGLISH_DEBRIS
+bag_bow,バッグ・リボン,バッグのリボン,BROKEN_COMPOSITION
+bag_on_head,頭のバッグ,頭にバッグ,RELATION_SEMANTIC_ERROR
+bag_on_lap,ラップにバッグ,膝の上にバッグ,POLYSEMY_ERROR
+bag_over_head,バッグ・覆う・頭,頭にかぶせたバッグ,BROKEN_COMPOSITION
+bagged_fish,袋装金魚,袋に入った魚,NON_JAPANESE_RESIDUE
+baker_at_bat,バットのベイカー,打席のパン職人,POLYSEMY_ERROR
+balance_scale_print,balance scaleの柄,天秤柄,MIXED_ENGLISH_DEBRIS
+balancing_on_finger,balancingの上のfinger,指の上でバランスを取る,MIXED_ENGLISH_DEBRIS
+balancing_on_head,頭のバランス,頭の上でバランスを取る,RELATION_SEMANTIC_ERROR
+bald_female,光頭女性,坊主頭の女性,NON_JAPANESE_RESIDUE
+ball_bra,ボール・ブラ,ボール型ブラ,BROKEN_COMPOSITION
+ball_hands,ボール・両手,丸めた手,BROKEN_COMPOSITION
+ballerino,タグ「ballerino」,男性バレエダンサー,RAW_ENGLISH_WRAPPER
+ballet_class_clothes,ballet・class・服,バレエレッスン着,MIXED_ENGLISH_DEBRIS
+ballroom_dancing,タグ「ballroom dancing」,社交ダンス,RAW_ENGLISH_WRAPPER
+bamboo_hair_ornament,bambooの髪飾り,竹の髪飾り,MIXED_ENGLISH_DEBRIS
+bamboo_leaf,タグ「bamboo leaf」,竹の葉,RAW_ENGLISH_WRAPPER
+bamboo_print,竹のプリント,竹柄,POLYSEMY_ERROR
+bamboo_screen,竹のスクリーン,竹製の衝立,LITERAL_TRANSLATION_ERROR
+bamboo_slips,竹简,竹簡,NON_JAPANESE_RESIDUE
+banana_costume,banana・衣装,バナナ衣装,MIXED_ENGLISH_DEBRIS
+banana_in_mouth,bananaの中のmouth,口にバナナ,MIXED_ENGLISH_DEBRIS
+banana_print,バナナプリント,バナナ柄,POLYSEMY_ERROR
+banana_split,タグ「banana split」,バナナスプリット,RAW_ENGLISH_WRAPPER
+bandage_in_mouth,bandageの中のmouth,口に包帯,MIXED_ENGLISH_DEBRIS
+bandage_on_cheek,bandageの上のcheek,頬の包帯,MIXED_ENGLISH_DEBRIS
+bandage_on_chest,bandageの上の胸,胸の包帯,MIXED_ENGLISH_DEBRIS
+bandage_on_hair,bandageの上の髪,髪の包帯,MIXED_ENGLISH_DEBRIS
+bandage_on_leg,bandageの上のleg,脚の包帯,MIXED_ENGLISH_DEBRIS
+bandage_on_neck,bandageの上の首,首の包帯,MIXED_ENGLISH_DEBRIS
+bandage_on_nose,bandageの上のnose,鼻の包帯,MIXED_ENGLISH_DEBRIS
+bandage_on_thigh,bandageの上のthigh,太ももの包帯,MIXED_ENGLISH_DEBRIS
+bandaged_stomach,bandaged・腹部,包帯を巻いた腹部,MIXED_ENGLISH_DEBRIS
+bandaged_torso,タグ「bandaged torso」,包帯を巻いた胴体,RAW_ENGLISH_WRAPPER
+bandaged_waist,タグ「bandaged waist」,包帯を巻いた腰,RAW_ENGLISH_WRAPPER
+bandaged_weapon,bandagedの武器,包帯を巻いた武器,MIXED_ENGLISH_DEBRIS
+bandaged_wings,bandaged・翼,包帯を巻いた翼,MIXED_ENGLISH_DEBRIS
+bandages_over_clothes,bandagesの上の服,服の上から包帯,RELATION_SEMANTIC_ERROR
+bandages_over_mouth,bandagesの上のmouth,口を覆う包帯,MIXED_ENGLISH_DEBRIS
+bandaid_hair_ornament,バンダイドの髪の飾り,絆創膏の髪飾り,BROKEN_TRANSLITERATION
+bandaid_on_arm,腕のバンダイド,腕の絆創膏,BROKEN_TRANSLITERATION
+bandaid_on_breast,乳房のバンダイド,乳房の絆創膏,BROKEN_TRANSLITERATION
+bandaid_on_cheek,頬に盗賊,頬の絆創膏,POLYSEMY_ERROR
+bandaid_on_chest,絆創膏の上の胸,胸の絆創膏,RELATION_SEMANTIC_ERROR
+bandaid_on_clothes,服のバンダイド,服の絆創膏,BROKEN_TRANSLITERATION
+bandaid_on_ear,耳にbandaid,耳の絆創膏,MIXED_ENGLISH_DEBRIS
+bandaid_on_eye,絆創膏の上の目,目の絆創膏,RELATION_SEMANTIC_ERROR
+bandaid_on_finger,絆創膏の上のfinger,指の絆創膏,MIXED_ENGLISH_DEBRIS
+bandaid_on_foot,徒歩でバンダイド,足の絆創膏,POLYSEMY_ERROR
+bandaid_on_forehead,額に包まれています,額の絆創膏,SEMANTIC_ERROR
+bandaid_on_hand,手元にバンダイド,手の絆創膏,BROKEN_TRANSLITERATION
+bandaid_on_head,頭のバンダイド,頭の絆創膏,BROKEN_TRANSLITERATION
+bandaid_on_hip,絆創膏の上の腰,腰の絆創膏,RELATION_SEMANTIC_ERROR
+bandaid_on_horn,絆創膏の上のhorn,角の絆創膏,MIXED_ENGLISH_DEBRIS
+bandaid_on_neck,首に包まれています,首の絆創膏,SEMANTIC_ERROR
+bandaid_on_shoulder,肩に詰まっています,肩の絆創膏,SEMANTIC_ERROR
+bandaid_on_stomach,胃のバンダイド,腹部の絆創膏,POLYSEMY_ERROR
+bandaid_on_tail,絆創膏の上の尻尾,尻尾の絆創膏,RELATION_SEMANTIC_ERROR
+bandaid_on_wrist,絆創膏の上の手首,手首の絆創膏,RELATION_SEMANTIC_ERROR
+bandana_around_arm,bandanaの周囲の腕,腕に巻いたバンダナ,MIXED_ENGLISH_DEBRIS
+bandana_around_neck,bandanaの周囲の首,首に巻いたバンダナ,MIXED_ENGLISH_DEBRIS
+bandeau_lift,バンドーリフト,バンドゥを持ち上げる,RAW_LOANWORD_CLARIFICATION
+bandeau_pull,バンドープル,バンドゥを引っ張る,RAW_LOANWORD_CLARIFICATION
+bangs_blown_up,bangs・blown・上向きの,吹き上がった前髪,MIXED_ENGLISH_DEBRIS
+banner,横幅,横断幕,POLYSEMY_ERROR
+baozi_hair_ornament,baoziの髪飾り,肉まんの髪飾り,MIXED_ENGLISH_DEBRIS
+barber_cape,barber・ケープ,理髪用ケープ,MIXED_ENGLISH_DEBRIS
+barbed_tongue,タグ「barbed tongue」,トゲのある舌,RAW_ENGLISH_WRAPPER
+bare_hips,むき出し・腰,露出した腰,BROKEN_COMPOSITION
+bare_tree,むき出し・木,葉のない木,LITERAL_TRANSLATION_ERROR
+barred_window,防盗窗,鉄格子付き窓,NON_JAPANESE_RESIDUE
+barrel_shroud,barrel shroud,銃身覆い,UNNECESSARY_CANONICAL_FALLBACK
+baseball_field,タグ「baseball field」,野球場,RAW_ENGLISH_WRAPPER
+baseball_helmet,棒球頭盔,野球用ヘルメット,NON_JAPANESE_RESIDUE
+baseball_uniform,棒球服,野球ユニフォーム,NON_JAPANESE_RESIDUE
+basket_on_head,basketの上の頭,頭にかご,MIXED_ENGLISH_DEBRIS
+basketball_hoop,篮筐,バスケットゴール,NON_JAPANESE_RESIDUE
+basketball_shorts,タグ「basketball shorts」,バスケットボール用ショーツ,RAW_ENGLISH_WRAPPER
+basketweave,タグ「basketweave」,かご編み,RAW_ENGLISH_WRAPPER
+bastard_munchen_soccer_uniform,bastard munchen soccerの制服,バスタード・ミュンヘンのサッカーユニフォーム,MIXED_ENGLISH_DEBRIS
+bat_boy,タグ「bat boy」,コウモリ男子,RAW_ENGLISH_WRAPPER
+bat_brooch,bat・ブローチ,コウモリのブローチ,MIXED_ENGLISH_DEBRIS
+bat_hat_ornament,bat・帽子・飾り,コウモリの帽子飾り,MIXED_ENGLISH_DEBRIS
+bat_mask,bat・マスク,コウモリのマスク,MIXED_ENGLISH_DEBRIS
+bat_necklace,bat・ネックレス,コウモリのネックレス,MIXED_ENGLISH_DEBRIS
+bat_tattoo,バットタトゥー,コウモリのタトゥー,POLYSEMY_ERROR
+batarang,バッタラン,バットラング,BROKEN_TRANSLITERATION
+bath_brush,タグ「bath brush」,入浴用ブラシ,RAW_ENGLISH_WRAPPER
+batman_symbol,batman・記号,バットマンのシンボル,MIXED_ENGLISH_DEBRIS
+battle,戦う,戦闘,SEMANTIC_ROLE_ERROR
+battle_effectiveness_award,バトル効果賞,戦闘功績章,LITERAL_TRANSLATION_ERROR
+battle_scarred,タグ「battle scarred」,戦傷跡,RAW_ENGLISH_WRAPPER
+battle_standard,戦闘基準,軍旗,POLYSEMY_ERROR
+bay,タグ「bay」,湾,RAW_ENGLISH_WRAPPER
+bc_freedom_military_uniform,bc freedom militaryの制服,BC自由学園の軍服,MIXED_ENGLISH_DEBRIS
+beacon,タグ「beacon」,ビーコン,RAW_ENGLISH_WRAPPER
+bead_armlet,bead・腕輪,ビーズ腕輪,MIXED_ENGLISH_DEBRIS
+bead_hairband,bead・ヘアバンド,ビーズヘアバンド,MIXED_ENGLISH_DEBRIS
+beaded_eyelashes,タグ「beaded eyelashes」,ビーズ付きまつ毛,RAW_ENGLISH_WRAPPER
+beamed_eighth_notes,8枚目のノート,連桁付き八分音符,POLYSEMY_ERROR
+beamed_sixteenth_notes,ビームされた16番目のメモ,連桁付き十六分音符,POLYSEMY_ERROR
+beamed_thirty-second_notes,32秒のノートをビームしました,連桁付き三十二分音符,POLYSEMY_ERROR
+bear_charm,タグ「bear charm」,クマのチャーム,RAW_ENGLISH_WRAPPER
+bear_claws,bear・爪,クマの爪,MIXED_ENGLISH_DEBRIS
+bear_cub,タグ「bear cub」,子グマ,RAW_ENGLISH_WRAPPER
+bear_ear_hairband,bear・耳・ヘアバンド,クマ耳ヘアバンド,MIXED_ENGLISH_DEBRIS
+bear_hair_ornament,髪の毛の飾り,クマの髪飾り,SEMANTIC_OMISSION
+bear_head,頭の頭,クマの頭,POLYSEMY_ERROR
+bear_tail,尾の尾,クマの尻尾,POLYSEMY_ERROR
+beard_over_mouth,髭の上のmouth,口を覆うひげ,MIXED_ENGLISH_DEBRIS
+bearskin_cap,bearskin・帽子,熊皮帽,MIXED_ENGLISH_DEBRIS
+beats_by_dr._dre,博士によるビート。ドレ,Beats by Dr. Dre,PROPER_NAME_CORRUPTION
+beaver_girl,タグ「beaver girl」,ビーバー娘,RAW_ENGLISH_WRAPPER
+bed_invitation,オストリグサ,ベッドへの誘い,SEMANTIC_ERROR
+bedtime_story,タグ「bedtime story」,寝る前のお話,RAW_ENGLISH_WRAPPER
+bee_boy,タグ「bee boy」,ハチ男子,RAW_ENGLISH_WRAPPER
+bee_hair_ornament,beeの髪飾り,ハチの髪飾り,MIXED_ENGLISH_DEBRIS
+bee_print,beeの柄,ハチ柄,MIXED_ENGLISH_DEBRIS
+bee_wings,bee・翼,ハチの羽,MIXED_ENGLISH_DEBRIS
+beer_glass,タグ「beer glass」,ビールグラス,RAW_ENGLISH_WRAPPER
+beer_hat,beer・帽子,ビール帽子,MIXED_ENGLISH_DEBRIS
+beetle,コウチュウ目,甲虫,SEMANTIC_NARROWING_ERROR
+beetle_boy,タグ「beetle boy」,甲虫男子,RAW_ENGLISH_WRAPPER
+behind-the-head_headphones,舞台裏のヘッドフォン,後頭部型ヘッドホン,POLYSEMY_ERROR
+behind_another,背後から胸揉み,他人の背後,SEMANTIC_ADDITION_ERROR
+behind_bars,タグ「behind bars」,鉄格子の向こう,RAW_ENGLISH_WRAPPER
+behind_curtains,在窗帘後面,カーテンの後ろ,NON_JAPANESE_RESIDUE
+bell-bottoms,喇叭ズボン,ベルボトム,NON_JAPANESE_RESIDUE
+bell_bow,鈴・リボン,鈴付きリボン,BROKEN_COMPOSITION
+bell_ear_ornament,鈴・耳・飾り,鈴の耳飾り,BROKEN_COMPOSITION
+bell_jar,鈴・jar,ベルジャー,MIXED_ENGLISH_DEBRIS
+bell_pepper_slice,鈴・pepper・slice,ピーマンの輪切り,MIXED_ENGLISH_DEBRIS
+bell_ringing,鈴・ringing,鈴を鳴らす,MIXED_ENGLISH_DEBRIS
+bellhop_uniform,ベルボーイ,ベルボーイの制服,SEMANTIC_OMISSION
+belt_bag,腰包,ウエストバッグ,NON_JAPANESE_RESIDUE
+belt_bondage,ベルト・bondage,ベルト拘束,MIXED_ENGLISH_DEBRIS
+belt_bow,ベルトボウ,ベルトのリボン,POLYSEMY_ERROR
+belt_charm,ベルト・charm,ベルトのチャーム,MIXED_ENGLISH_DEBRIS
+belt_ribbon,ベルト・ribbon,ベルトのリボン,MIXED_ENGLISH_DEBRIS
+belt_slit,ベルト・slit,ベルトのスリット,MIXED_ENGLISH_DEBRIS
+belted_coat,belted・コート,ベルト付きコート,MIXED_ENGLISH_DEBRIS
+belted_jacket,belted・ジャケット,ベルト付きジャケット,MIXED_ENGLISH_DEBRIS
+belted_leg_warmers,belted legのウォーマー,ベルト付きレッグウォーマー,MIXED_ENGLISH_DEBRIS
+bending_backward,後方に曲げます,後ろに反る,MACHINE_TRANSLATION_ARTIFACT
+bent_back,弯背,曲がった背中,NON_JAPANESE_RESIDUE
+between_feet,間・足,両足の間,BROKEN_COMPOSITION
+bib_collar,bib・襟,よだれかけ襟,MIXED_ENGLISH_DEBRIS
+bible_black's_school_uniform,bible blackの学校制服,Bible Blackの制服,MIXED_ENGLISH_DEBRIS
+bible_verse,タグ「bible verse」,聖書の一節,RAW_ENGLISH_WRAPPER
+biblically_accurate_angel,タグ「biblically accurate angel」,聖書記述に忠実な天使,RAW_ENGLISH_WRAPPER
+bicep_curl,タグ「bicep curl」,アームカール,RAW_ENGLISH_WRAPPER
+bicep_strap,タグ「bicep strap」,上腕ストラップ,RAW_ENGLISH_WRAPPER
+bicorne,双角帽,二角帽,NON_JAPANESE_RESIDUE
+bicycles_only_sign,タグ「bicycles only sign」,自転車専用標識,RAW_ENGLISH_WRAPPER
+big_head,大きい・頭,大きな頭,BROKEN_COMPOSITION
+big_mouth,大きい・口,大きな口,BROKEN_COMPOSITION
+bikini_around_one_leg,ビキニ・周囲・1人・脚,片脚に引っかかったビキニ,BROKEN_COMPOSITION
+bikini_bottom_around_leg,ビキニ・bottomの周囲のleg,脚に引っかかったビキニボトム,MIXED_ENGLISH_DEBRIS
+bikini_bottom_lift,掀起比基尼下衣,ビキニボトムを持ち上げる,NON_JAPANESE_RESIDUE
+bikini_bottom_under_shorts,見せハイレグパンツ,ショートパンツの下のビキニボトム,SEMANTIC_ERROR
+bikini_in_mouth,くちブラ,口にくわえたビキニ,SEMANTIC_ERROR
+bikini_over_clothes,ビキニ・覆う・服,服の上のビキニ,BROKEN_COMPOSITION
+bikini_ribbon,ビキニ・リボン,ビキニのリボン,BROKEN_COMPOSITION
+bikini_shorts,ビキニ・ショートパンツ,ビキニショーツ,BROKEN_COMPOSITION
+bikini_top_aside,ビキニトップは脇にあります,ビキニトップを脇にずらす,SEMANTIC_ROLE_ERROR
+bikini_top_peek,ビキニ・トップス・覗き見,ビキニトップのチラ見せ,BROKEN_COMPOSITION
+bikini_top_under_shirt,ビキニ・トップスの下のシャツ,シャツの下のビキニトップ,RELATION_SEMANTIC_ERROR
+bikini_tug,ビキニタグ,ビキニをつまんで引く,POLYSEMY_ERROR
+bikini_visible_through_clothes,ビキニ・visible・越しの服,服越しに見えるビキニ,MIXED_ENGLISH_DEBRIS
+billiard_ball,billiard・ボール,ビリヤード球,MIXED_ENGLISH_DEBRIS
+billiard_table,台球桌,ビリヤード台,NON_JAPANESE_RESIDUE
+billiards,スヌーカー,ビリヤード,SEMANTIC_NARROWING_ERROR
+binary,二进制数,二進数,NON_JAPANESE_RESIDUE
+bindle,包袱,風呂敷包み,NON_JAPANESE_RESIDUE
+bio_lab,ROお絵かき生体工学研究所,生体研究所,SEMANTIC_ADDITION_ERROR
+biomechanical,タグ「biomechanical」,生体機械的,RAW_ENGLISH_WRAPPER
+biplane,双翼机,複葉機,NON_JAPANESE_RESIDUE
+bird_feeding,タグ「bird feeding」,鳥に餌をやる,RAW_ENGLISH_WRAPPER
+bird_hat_ornament,bird・帽子・飾り,鳥の帽子飾り,MIXED_ENGLISH_DEBRIS
+bird_on_head,頭の鳥,頭の上の鳥,RELATION_SEMANTIC_ERROR
+bird_on_leg,足の鳥,脚の上の鳥,RELATION_SEMANTIC_ERROR
+bird_pin,bird・ピン,鳥のピン,MIXED_ENGLISH_DEBRIS
+bird_tattoo,birdのタトゥー,鳥のタトゥー,MIXED_ENGLISH_DEBRIS
+birthday_connection,birthday・接続,誕生日つながり,MIXED_ENGLISH_DEBRIS
+birthday_date,タグ「birthday date」,誕生日の日付,RAW_ENGLISH_WRAPPER
+birthday_glasses,タグ「birthday glasses」,誕生日メガネ,RAW_ENGLISH_WRAPPER
+bishie_sparkle,タグ「bishie sparkle」,美形キャラのキラキラ,RAW_ENGLISH_WRAPPER
+bite_mark_on_arm,噛み跡・印の上の腕,腕の噛み跡,BROKEN_COMPOSITION
+bite_mark_on_back,噛み跡・印の上の背中,背中の噛み跡,BROKEN_COMPOSITION
+bite_mark_on_face,噛み跡・印の上の顔,顔の噛み跡,BROKEN_COMPOSITION
+bite_mark_on_hand,噛み跡・印の上の手,手の噛み跡,BROKEN_COMPOSITION
+bite_mark_on_leg,噛み跡・印の上のleg,脚の噛み跡,MIXED_ENGLISH_DEBRIS
+bite_mark_on_neck,噛み跡・印の上の首,首の噛み跡,BROKEN_COMPOSITION
+bite_mark_on_pectorals,噛み跡・印の上のpectorals,胸筋の噛み跡,MIXED_ENGLISH_DEBRIS
+bite_mark_on_shoulder,噛み跡・印の上の肩,肩の噛み跡,BROKEN_COMPOSITION
+bite_mark_on_stomach,噛み跡・印の上の腹部,腹部の噛み跡,BROKEN_COMPOSITION
+bite_mark_on_thigh,噛み跡・印の上のthigh,太ももの噛み跡,MIXED_ENGLISH_DEBRIS
+biting_another's_arm,biting・他人の腕,他人の腕を噛む,MIXED_ENGLISH_DEBRIS
+biting_another's_clothes,biting・他人の服,他人の服を噛む,MIXED_ENGLISH_DEBRIS
+biting_another's_finger,biting・他人のfinger,他人の指を噛む,MIXED_ENGLISH_DEBRIS
+biting_another's_hand,biting・他人の手,他人の手を噛む,MIXED_ENGLISH_DEBRIS
+biting_another's_lip,biting・他人のlip,他人の唇を噛む,MIXED_ENGLISH_DEBRIS
+biting_another's_tail,biting・他人の尻尾,他人の尻尾を噛む,MIXED_ENGLISH_DEBRIS
+biting_another's_tongue,biting・他人のtongue,他人の舌を噛む,MIXED_ENGLISH_DEBRIS
+biting_ass,お尻の噛み合い,尻を噛む,SEMANTIC_ROLE_ERROR
+biting_clothes,噛む服,服を噛む,SEMANTIC_ROLE_ERROR
+biting_foreskin,包皮の噛み合い,包皮を噛む,SEMANTIC_ROLE_ERROR
+biting_neck,首の噛み合い,首を噛む,SEMANTIC_ROLE_ERROR
+biting_own_hand,biting・own・手,自分の手を噛む,MIXED_ENGLISH_DEBRIS
+biting_own_tail,biting・own・尻尾,自分の尻尾を噛む,MIXED_ENGLISH_DEBRIS
+biting_own_tongue,タグ「biting own tongue」,自分の舌を噛む,RAW_ENGLISH_WRAPPER
+biting_penis,ペニス噛む,ペニスを噛む,BROKEN_TRANSLATION
+biting_shoulder,biting・肩,肩を噛む,MIXED_ENGLISH_DEBRIS
+black_arm_garter,黒い・腕・garter,黒いアームガーター,MIXED_ENGLISH_DEBRIS
+black_assault_visor,黒い・assault・バイザー,黒いアサルトバイザー,MIXED_ENGLISH_DEBRIS
+black_bandages,黒い・bandages,黒い包帯,MIXED_ENGLISH_DEBRIS
+black_bear,黒い・bear,黒いクマ,MIXED_ENGLISH_DEBRIS
+black_bodice,黒い・bodice,黒いボディス,MIXED_ENGLISH_DEBRIS
+black_bodystocking,黒い・bodystocking,黒いボディストッキング,MIXED_ENGLISH_DEBRIS
+black_bonnet,黒い・bonnet,黒いボンネット,MIXED_ENGLISH_DEBRIS
