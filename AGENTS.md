@@ -58,12 +58,33 @@ Codexはprivate GitHub Issue APIへの追加認証を要求しない。
 
 Issue / mirror同期、Issueコメントの扱い、DEV/管理側のpreflightの恒久ルールは `docs/project/PERMANENT_RULES.md` の「正本・現行DEV・checkpoint」を正本とする。
 
-## 4. task branch
+## 4. task branch / 起動時Git同期
 
 本体実装は原則として最新mainからtask用feature branchを作る。
 
+Codexは**新しいセッション開始時・作業再開時・新しいtask branchを作る直前**に、ユーザーへ手動 `git pull` を求める前に自分で次のpreflightを実行する。
+
+1. `git status --short --branch` で現在branchとworking treeを確認する。
+2. `git fetch origin --prune` でremote refsを更新する。
+3. local `main` と `origin/main` の関係を確認する。
+4. local `main` がcleanかつ `origin/main` へfast-forward可能なら、`git switch main` → `git merge --ff-only origin/main` で自動同期する。
+5. 同期後の `main` HEADを記録し、そのmain上の `CURRENT_STATE.md` / `PERMANENT_RULES.md` / `CURRENT_DEV_TASK.md` を読み直す。
+6. current DEVが実Issueの場合のみ、明示されたtask branchへ移るか、最新mainからtask branchを作る。
+7. 既存task branchを再開する場合は、そのbranchと最新mainの差分を確認し、勝手にrebase/reset/force-updateせず、task contractに従って継続可否を判断する。
+
+自動同期を止める条件:
+- tracked working treeに未commit変更がある
+- local mainとorigin/mainがdivergeしている
+- fast-forward-onlyで更新できない
+- merge/rebase/reset/checkoutによりユーザー作業を失う可能性がある
+- remote fetchに失敗した
+- 現在のbranch/HEADがtask contractと矛盾する
+
+停止条件に当たった場合は、**stash・reset・rebase・force checkout・force pushを自動実行しない**。現状、失敗した操作、必要な判断だけを報告する。
+
+追加ルール:
 - 実装を直接mainへcommitしない。
-- 作業開始前にlocal mainを可能な範囲で最新origin/mainへfast-forwardし、clean working treeを確認する。
+- main同期のための `fetch` / `ff-only` はCodex自身が行う。通常はユーザーへ毎回 `git pull` を依頼しない。
 - 現行taskに対応する明確なbranch名を使う。
 - 意味のあるstable checkpointはcommitする。
 - push可能ならremoteへpushし、branch名とcommit SHAを報告する。
