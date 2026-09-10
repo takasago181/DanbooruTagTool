@@ -168,7 +168,7 @@ GitHubはmanagement stateとcommit済みコード/文書の正本だが、local 
 
 **現在は未採用。**
 
-Issue #47で検討したGitHub Project管理ボードは、`CURRENT_STATE.md` + 各Issue + `CURRENT_DEV_TASK.md` の3層で十分と判断し、2026-09-10に `NOT PLANNED` でcloseした。
+Issue #47で検討したGitHub Project管理ボードは、`CURRENT_STATE.md` + live GitHub Issuesで十分と判断し、2026-09-10に `NOT PLANNED` でcloseした。`CURRENT_DEV_TASK.md` は移行期間中の参考資料であり、管理正本の層には含めない。
 
 したがって現在は:
 - Projectのfield/viewを作成・同期しない

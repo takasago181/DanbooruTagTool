@@ -88,7 +88,7 @@ ISSUE: <#number / N/A>
 BRANCH: <live verified branch / main / N/A>
 HEAD: <live verified 40-char commit SHA>
 CHECKPOINT: <latest relevant issue comment id / contract commit / N/A>
-CONTRACT: <Issue body / CURRENT_DEV_TASK / contract file@commit / N/A>
+CONTRACT: <live Issue body / latest checkpoint / contract file@commit / N/A>
 PHASE: <current phase/gate>
 SOURCE_OF_TRUTH: CURRENT_STATE -> PERMANENT_RULES -> <Issue/management source> -> live branch
 VERSION_LABEL: <optional human-readable label / N/A>
