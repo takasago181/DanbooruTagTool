@@ -1,6 +1,6 @@
 # DanbooruTagTool 作業ダッシュボード
 
-最終更新: 2026-09-08
+最終更新: 2026-09-10
 
 > このファイルは **人間向けの見やすい要約** です。
 > 正本ではありません。
@@ -8,247 +8,214 @@
 
 ## まずここだけ見ればOK
 
-**現在地:** Stage9は完了。Stage10本番A/Bを始める前の準備中。
+**現在地:** Stage9完了 / Special Core Dictionary freeze完了 / Stage10準備中。
 
-**今の大きな作業は3本です。**
+**current core DEV:** NONE。
 
-1. **生成辞書検証** — Special Core Dictionaryの生成用付加データを全件監査中
-2. **UI・日本語改善** — UI仕上げ + 日本語辞書R3テストエンジンを実装中
-3. **Stage10準備** — A/B自動化の基礎は完成、最終的な判定方法は辞書確定待ち
+今すぐ並列で動かせる主作業は2本です。
+
+1. **UI・日本語最終収束** — `#46 -> #36`
+2. **Evaluator coverage調査** — `#44`
+
+その後の正規順序は:
+
+`#44 -> #30 -> #42 -> #5 -> Stage10`
+
+#42を開始する前に、#36/#46と#34のうちStage10評価に影響するUI-JA/data課題を完了するか、明示的に別Gateへ分離します。
 
 ---
 
 ## 状態の見方
 
-- 🟢 **稼働中** — 今まさに進めてよい作業
-- 🟡 **仕上げ中** — 実装はほぼ済み、確認や最終Gateが残っている
-- ⏸️ **待機中** — 他の作業結果を待っている。今は本処理を進めない
-- ✅ **完了** — 役目を終えて停止
+- 🟢 **今進めてよい** — prerequisite satisfied
+- ⏸️ **待機 / Gateあり** — 他Issueの結果待ち
+- 🛠️ **保守 / 横断課題** — mainlineとは別に放置しない
+- ✅ **完了** — 再実行しない
 
 ---
 
-# 1. 生成辞書検証
+# 1. Special Core Dictionary
 
-**状態: 🟢 稼働中**  
-**関連:** #32
+**状態: ✅ 完了**
 
-### 何をしている？
-Special Core Dictionaryについている画像生成用データが、本当に生成目的に合っているかを順番に監査しています。
+関連:
+- #32 validation — completed / closed
+- #48 independent promotion audit — completed
+- #49 production-safe fix promotion — completed / closed
+- #43 naming/freeze — `PASS_ISSUE43_FREEZE` / completed / closed
 
-主に確認しているもの:
-- Generation Profile
-- Semantic Support
-- 補助タグの役割・組み合わせ
-- actor / target / body-site / pose / visibility などの構造
-- 画像で確認しないと決められない項目
+Final production facts:
+- 2,788 entries
+- 2,788 unique SpecialID
+- order unchanged
+- production profile SHA-256: `55490940378e15d8e41454e701d0c202abbab307a08fb6e56841171e0edec1fd`
 
-### 現在地
-- **300 / 2,788件 完了**
-- Batch 1〜3: PASS
-- productionデータ変更: **なし**
+正式用語:
+- `Special Core Dictionary` — formal concept
+- `Special2788` — historical/snapshot/compatibility identifier
+- `Core Tag Set` — user-selected nucleus
 
-### この作業のゴール
-2,788件すべてを検証し、候補修正を隔離状態で揃えた後、別の最終監査を通して必要な修正だけproductionへ反映する。
+Parked evidenceは捨てない:
+- REVIEW 305
+- Special IMAGE_TEST_REQUIRED 17
+- semantic-support IMAGE_TEST_REQUIRED 33
+
+これらは#42/#30/Stage10 controlled testsで必要なものだけ再評価します。
 
 ---
 
 # 2. UI・日本語改善
 
-**大元: #34**
-
-これは1つの大きな改善作業です。GitHub上では安全のため複数Issueに分かれていますが、ユーザー視点ではまとめて **「UI・日本語改善」** と考えてOKです。
+大元: #34
 
 ## 2-A. UI本体
 
-**状態: 🟡 仕上げ中**  
-**関連:** #35
+**状態: ✅ #35完了**
 
-### 何をしている？
-ツール画面を日本語-firstで分かりやすくしています。
+日本語-first UI本体は完了済み。再実装対象ではありません。
 
-主な改善:
-- `Specialタグ候補`
-- `選択したSpecialタグ`
-- `完成Prompt`
-- `完成Promptをコピー`
-- 日本語がないタグを `日本語未登録 / canonical` と明示
-- 日本語とcanonical英語を両方表示して追跡可能にする
+## 2-B. 日本語overlay最終収束
 
-### 現在地
-コード実装はほぼ完了。
+**状態: 🟢 今進めてよい**
 
-残りは主に:
-- protected dataを使った最終回帰確認
-- 実Windows Tk画面の目視確認
-- 問題なければmain統合
+関連:
+- #46 — `FULL_EXECUTION_AUTHORIZED / PRODUCTION_PROMOTION_NOT_AUTHORIZED`
+- #36 — `REEXECUTION_PENDING`
 
-### Codex上の位置づけ
-#35は今も **正式な現行DEV実装枠** です。
-ただし下記#39は、#35を置き換えない **隔離された別Codexテスト実装枠** として並行実行されています。
+現在の流れ:
 
----
+`#46 30,629 full orchestration -> #36 V3.1 revalidation -> separate independent production-promotion gate`
 
-## 2-B. 日本語辞書改善
+重要:
+- #46完了だけでproduction反映しない
+- #36再検証PASS後も別promotion gateが必要
+- 過去の#38/#39/#41等のpilot/旧実装を現行作業として再開しない
 
-**本体Issue: #36**  
-**R3設計・レビュー: #38**  
-**現在のR3実装: #39**
+## 2-C. #34親Issueの残件
 
-**状態: 🟢 #39 R3テストエンジン実装中 / ⏸️ 大量処理は停止**
+**状態: 🛠️ OPEN / cross-cutting**
 
-### 何をしている？
-Generalタグや関連候補などについて、
-- 画面に出す自然な日本語
-- 日本語検索で使う検索語
+#36 translation laneとは別に、以下の親課題を保持:
+- 日本語 + 英語 bilingual search
+- substring/fuzzy由来の検索ノイズ
+- parent-level UI/search concerns
 
-を整備します。
-
-### #36 → #38 → #39 の関係
-#36で最初の100件を試したところ、既存の日本語検索データに
-- 狭すぎる訳
-- 広すぎる訳
-- subtype
-- meme・俗語
-- 関連語を同義語扱いしたもの
-
-などが多く含まれていることが分かりました。
-
-そこで大量処理を止め、#38で安全なR3仕様を設計・レビューしました。
-#38のR3テスト実装仕様はすでに凍結済みです。
-
-現在は #39 で、その仕様どおりに **R3テストエンジンと未見100件 / blind30用ハーネスを実装中** です。
-
-つまり:
-
-`#36 日本語辞書本体 → 問題発見 → #38 R3仕様策定・凍結 → #39 テストエンジン実装 → 未見100件 → blind30監査 → PASS後に#36の残り処理を再開`
-
-という関係です。
-
-### 今Codexが作っているもの (#39)
-- R3共通安全ルール
-- deterministicな未見100件選出
-- LOW / MEDIUM / HIGH / CRITICAL分類
-- display日本語とsearch日本語の別判定
-- #32との意味矛盾bridge
-- REVIEW / STALE_REVIEW / CONTRADICTION等の状態管理
-- blind30監査データ生成
-- 同じ入力から同じ結果になるhash検証
-- 過去の誤承認パターンの回帰テスト
-
-### 次のGate
-1. #39 R3テストエンジン実装完了
-2. **未見100件**でpilot
-3. その中から**30件を独立blind監査**
-4. 誤承認0なら残りP0へ拡大
-
-### 禁止中
-- 残り925 P0の一括処理
-- production日本語辞書への反映
-- #39からmainへの直接統合
-
-blind gateがPASSするまで進めません。
+#42開始前に、Stage10評価へ影響する残件を完了するか、明示的に別Gateへ分離します。
 
 ---
 
-# 3. Stage10準備
+# 3. KNOWLEDGE / Evaluator coverage
 
-## 3-A. A/B自動化
+**状態: 🟢 今進めてよい**
+**関連: #44**
 
-**状態: ⏸️ 一部待機中**  
-**関連:** #30
+Special Core Dictionary freeze prerequisiteは完了済み。
 
-### できたこと
-以下の自動パイプラインは通っています。
+次の重点:
+- WD14 / `wd-eva02-large-tagger-v3`
+- Kagami-24k
+- CL Tagger v2 stable/fixed release
 
-`Prompt → Forge Neo API → 固定Seed A/B生成 → PNG → 実metadata回収 → WD14 raw confidence`
+最終2,788 entriesに対してcoverage/capabilityを整理し、#30へ返します。
 
-ユーザー手操作0でここまで到達済みです。
+目的は「Taggerをground truthにする」ことではなく、
+- どのSpecialをAUTO判定候補にできるか
+- どれをREVIEWへ送るべきか
+- evaluator vocabulary不足を生成FAILと誤認しない
 
-### 何が待ち？
-Special Core Dictionary全体ではWD14だけを正解判定器にできないため、以下を待っています。
-
-- 最終Special Core Dictionary freeze
-- WD14 / Kagami-24k / CL Tagger v2等のcoverage比較
-- 代表Specialケース確定
-- Specialごとの AUTO / REVIEW 振り分け方針
-
-### 現在やってよいこと
-- テスト方法の設計
-- 判定ルーティング構造の整理
-
-### まだやらないこと
-- production用の固定閾値
-- 全Special共通winner判定
-- Stage10本番A/B
+ための能力境界を決めることです。
 
 ---
 
-## 3-B. Prompt正式handoff
+# 4. Forge Neo A/B自動化
 
-**状態: ⏸️ 一部入力待ち**  
-**関連:** #5
+**状態: ⏸️ #44 coverage待ち**
+**関連: #30**
 
-### 何をする？
-Stage10本番で使う
-- Prompt構造
-- A/Bで何を比較するか
-- 固定条件
-- supportの入れ方
-- model family差
-- 実験結果の追跡方法
+完了済み:
 
-を正式な実験仕様にまとめます。
+`Prompt -> Forge Neo API -> fixed-seed A/B -> PNG -> actual metadata -> evaluator raw output`
 
-### 待っているもの
-- 最終辞書
-- Tagger coverage結果
-- #30の最終自動化方式
-- 代表Specialケース
+Infrastructure verdict: `PASS_PIPELINE`
 
-これらが揃ったらStage10開始前の正式handoffを完成させます。
+残り:
+- #44 evaluator coverage受領
+- representative Special case selection
+- `AUTO / REVIEW / BLOCKED` calibration
+- evidence-supportedな場合のみcandidate `A_WIN / B_WIN`
+- REVIEWだけを人間が効率よく見る運用確認
+
+外部/既存ツール優先。大規模な独自GUI・実験プラットフォームは作りません。
 
 ---
 
-# 4. 支援する常設班
+# 5. Stage10前 product-purpose improvement
 
-常設班はこの4班だけです。
+**状態: ⏸️ RESERVED / UI-JA-data Gate待ち**
+**関連: #42**
 
-### 開発班
-本体仕様・実装・main統合を担当。Codexは独立班ではなく開発班の実装担当。
+Dictionary freezeは完了済み。
 
-### 監査班
-他班の成果を独立確認し、PASS / HOLD / 差し戻しを判定。
+開始前に必要:
+- #36/#46のmaterialなUI-JA/data課題完了
+- #34のStage10評価に影響する残件を完了または明示分離
 
-### 知識班
-WAI / Illustrious / NoobAI / Anima等の画像生成知識や、Tagger能力・根拠を調査。
+主な対象:
+- 日本語意図の揺れ
+- Special/support競合
+- model-family差
+- failure diagnosis
+- Prompt bloat / pruning
+- minimum sufficient Prompt
+- parked REVIEW/IMAGE_TEST_REQUIREDのうち必要な再評価
 
-次の大きな仕事は、辞書freeze後のTagger coverage比較。
-
-### Prompt班
-Stage10のPrompt設計、代表ケース、A/B質問、正式handoffを担当。
-
-#38のR3仕様策定にも知識を返却済み。
+#42は単なる仕上げではなく、Stage10で評価する製品状態を固めるGateです。
 
 ---
 
-# 5. 完了して止まった作業
+# 6. Prompt正式handoff
 
-### ✅ Stage9本体
-完了済み。
+**状態: ⏸️ GATED**
+**関連: #5**
 
-### ✅ Forge Neo比較環境 #6
-比較環境・固定Seed・metadata・Prompt追跡などを確認して役目終了。
+Formal completionに必要:
+1. #44 evaluator coverage
+2. #30 representative routing/calibration
+3. #42 product-purpose improvement result
+4. remaining `STAGE_10_PREP.md` checks
 
-### ✅ Golden-set代表性確認 #37
-KNOWLEDGE + PROMPTの結論返却済み。
+#42の結果を取り込む前に#5をfinalizeしません。
 
-結論:
-- genericな `standing / sitting / long_hair / smile` は配管テスト用としては有効
-- DanbooruTagTool本番評価にはSpecial Core Dictionary代表ケースが必要
+---
 
-### ✅ R3設計・レビュー #38 の設計フェーズ
-R3のKNOWLEDGE/PROMPT契約を統合し、テスト実装仕様を凍結済み。
-現在の実作業は#39へ移っています。
+# 7. Protected-data保守
+
+**状態: 🛠️ OPEN / safety debt**
+**関連: #24**
+
+GitHub外local protected dataについて:
+- inventory
+- backup location/freshness
+- checksum/manifest
+- reacquisition/rebuildability分類
+- non-destructive restore verification
+
+を完成させます。
+
+Stage10 mainlineとは別枠ですが、今回のprotected-data incidentを踏まえ、見えない技術負債として放置しません。
+
+---
+
+# 8. GitHub管理
+
+GitHub Project管理ボード導入 #47 は **NOT PLANNED / closed**。
+
+管理の正規3層:
+1. `CURRENT_STATE.md` — 全体routing/current state
+2. 各Issue — task contract/evidence
+3. `CURRENT_DEV_TASK.md` — current core DEV mirror
+
+管理正本をこれ以上増やしません。
 
 ---
 
@@ -257,55 +224,53 @@ R3のKNOWLEDGE/PROMPT契約を統合し、テスト実装仕様を凍結済み�
 ```text
 Stage9 完了
    ↓
-Stage10準備
-   ├─ 生成辞書検証 #32 を継続
-   ├─ UI・日本語改善 #34
-   │    ├─ UI本体 #35 を仕上げる
-   │    └─ 日本語辞書 #36
-   │         └─ R3仕様 #38 完了
-   │              └─ R3エンジン #39 実装中
-   │                   ↓
-   │                未見100件
-   │                   ↓
-   │                blind30監査
-   │
-   ├─ 辞書freeze
-   ↓
-Tagger coverage比較
-   ↓
-代表Specialケース確定
-   ↓
-A/B自動判定方式を確定
-   ↓
-Prompt正式handoff
-   ↓
-Stage10 実画像A/B開始
+Special Core Dictionary
+#32 -> #48 -> #49 -> #43
+   ✅ 完了 / freeze済み
+
+今は並列:
+   ├─ #46 -> #36 -> independent UI-JA promotion gate
+   └─ #44 evaluator coverage
+
+横断:
+   ├─ #34 remaining UI/search concerns
+   └─ #24 protected-data maintenance
+
+その後:
+#44
+  ↓
+#30 representative calibration
+  ↓
+#42 product-purpose improvement
+  ↓
+#5 formal Prompt handoff
+  ↓
+STAGE_10_PREP remaining checks
+  ↓
+Stage10 production A/B
 ```
 
 ---
 
 # あなた向け超短縮版
 
-**今ほんとに動いてる:**
-- #32 生成辞書検証
-- #35 UI仕上げ
-- #39 日本語辞書R3テストエンジン実装
+**今やる:**
+- #46 / #36 UI-JA最終収束
+- #44 Tagger/evaluator coverage
 
-**今待ってる:**
-- #36 日本語辞書の残り925件本処理
-- #30 A/B自動判定の最終部分
-- #5 Prompt正式handoffの最終部分
+**次:**
+- #30 A/B自動判定calibration
+- #42 Prompt/searchの本質改善
+- #5 Stage10正式handoff
 
-**終わった / 次へ渡した:**
-- Stage9
-- #6 Forge Neo比較環境
-- #37 generic golden-set代表性確認
-- #38 R3設計フェーズ
+**横で忘れない:**
+- #34 UI/search親残件
+- #24 protected-data backup/restore
 
-**次の大きな節目:**
+**もうやり直さない:**
+- #32全件辞書検証
+- #35 UI本体
+- #43 naming/freeze
+- 過去の#38/#39/#41 pilot系
 
-**#39完成 → 未見100件 → blind30監査 → 辞書処理再開可否**
-
-その先が、
-
-**辞書freeze → Tagger比較 → Stage10正式handoff → 実画像A/B開始**
+最終的な正本は常に `CURRENT_STATE.md` とlive Issueです。
