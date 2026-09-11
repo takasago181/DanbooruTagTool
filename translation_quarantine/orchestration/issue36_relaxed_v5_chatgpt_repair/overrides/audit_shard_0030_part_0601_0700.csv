@@ -1,0 +1,37 @@
+canonical,old_display_ja,new_display_ja,reason
+water_censor,水検閲,水による検閲,SEMANTIC_ERROR
+water_dress,水・ドレス,水のドレス,MIXED_ENGLISH_DEBRIS
+water_fight,水・fight,水遊び,MIXED_ENGLISH_DEBRIS
+water_on_glass,水の上のglass,ガラスについた水,SEMANTIC_RELATION_ERROR
+water_stream,水・stream,水流,MIXED_ENGLISH_DEBRIS
+water_tank,水・タンク,水槽,MIXED_ENGLISH_DEBRIS
+water_world,塩湖,水の世界,SEMANTIC_ERROR
+watermark_grid,タグ「watermark grid」,透かしのグリッド,RAW_ENGLISH_WRAPPER
+waves,浪花,波,SEMANTIC_ERROR
+waving_another's_arm,waving・他人の腕,他人の腕を振る,MIXED_ENGLISH_DEBRIS
+waving_hands,waving・両手,両手を振る,MIXED_ENGLISH_DEBRIS
+wavy_background,wavyの背景,波状の背景,MIXED_ENGLISH_DEBRIS
+wavy_ends,タグ「wavy ends」,波打った毛先,RAW_ENGLISH_WRAPPER
+wavy_sidelocks,タグ「wavy sidelocks」,波打った横髪,RAW_ENGLISH_WRAPPER
+wax_seal,封蜡,封蝋,NON_JAPANESE_RESIDUE
+wax_seal_hair_ornament,wax sealの髪飾り,封蝋の髪飾り,MIXED_ENGLISH_DEBRIS
+wd-40,wd-40,WD-40,OPAQUE_BRAND_CASE
+weapon_across_shoulders,武器・across・shoulders,両肩にまたがる武器,MIXED_ENGLISH_DEBRIS
+weapon_between_breasts,武器の間の胸,胸の間の武器,SEMANTIC_RELATION_ERROR
+weapon_between_legs,武器の間の脚,脚の間の武器,SEMANTIC_RELATION_ERROR
+weapon_charm,武器吊坠,武器のチャーム,NON_JAPANESE_RESIDUE
+weapon_connection,武器相仿,武器のつながり,NON_JAPANESE_RESIDUE
+weapon_focus,武器画,武器に焦点,SEMANTIC_ERROR
+weapon_formation,武器・formation,武器の陣形,MIXED_ENGLISH_DEBRIS
+weapon_in_garters,武器の中のgarters,ガーターに差した武器,MIXED_ENGLISH_DEBRIS
+weapon_on_wall,武器の上の壁,壁に掛けた武器,SEMANTIC_RELATION_ERROR
+weapon_personification,武器・personification,武器の擬人化,MIXED_ENGLISH_DEBRIS
+weapon_riding,武器・riding,武器に乗る,MIXED_ENGLISH_DEBRIS
+weapon_strap,武器・strap,武器ストラップ,MIXED_ENGLISH_DEBRIS
+weapon_switch,武器・switch,武器の切り替え,MIXED_ENGLISH_DEBRIS
+weapon_tassel,武器・tassel,武器の房飾り,MIXED_ENGLISH_DEBRIS
+weaponized_instrument,weaponized・楽器,武器化した楽器,MIXED_ENGLISH_DEBRIS
+weasel_boy,タグ「weasel boy」,イタチ少年,RAW_ENGLISH_WRAPPER
+web_shooter,巣・shooter,ウェブシューター,SEMANTIC_AMBIGUITY
+webclap,タグ「webclap」,ウェブ拍手,RAW_ENGLISH_WRAPPER
+webcounter,タグ「webcounter」,アクセスカウンター,RAW_ENGLISH_WRAPPER
