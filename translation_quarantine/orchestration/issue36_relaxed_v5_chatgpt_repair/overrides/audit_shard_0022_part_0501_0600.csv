@@ -1,0 +1,39 @@
+canonical,old_display_ja,new_display_ja,reason
+overhead_lights,タグ「overhead lights」,頭上の照明,RAW_ENGLISH_WRAPPER
+overlighting,顶部打光,上方からの照明,NON_JAPANESE_RESIDUE
+overpass,高架下,高架橋,SEMANTIC_ERROR
+oversized_eyewear,タグ「oversized eyewear」,大型のアイウェア,RAW_ENGLISH_WRAPPER
+oversized_footwear,oversized・履物,大型の履物,MIXED_ENGLISH_DEBRIS
+oversized_fork,タグ「oversized fork」,巨大なフォーク,RAW_ENGLISH_WRAPPER
+oversized_gloves,oversizedの手袋,大型の手袋,MIXED_ENGLISH_DEBRIS
+oversized_hat,oversized・帽子,大型の帽子,MIXED_ENGLISH_DEBRIS
+oversized_jacket,oversized・ジャケット,大型のジャケット,MIXED_ENGLISH_DEBRIS
+oversized_spoon,タグ「oversized spoon」,巨大なスプーン,RAW_ENGLISH_WRAPPER
+oversized_sweater,タグ「oversized sweater」,大型のセーター,RAW_ENGLISH_WRAPPER
+overskirt,overskirt,オーバースカート,CANONICAL_FALLBACK_TRANSLATABLE
+owl_boy,タグ「owl boy」,フクロウ少年,RAW_ENGLISH_WRAPPER
+own_cum_in_mouth,own・cumの中のmouth,自分の精液を口に含む,MIXED_ENGLISH_DEBRIS
+oxfords,オックスフォード,オックスフォードシューズ,SEMANTIC_UNDERSPECIFICATION
+oyama_mahiro_(cosplay),oyama mahiro (cosplay),緒山まひろ（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+p_corp_uniform,p corpの制服,P社の制服,MIXED_ENGLISH_DEBRIS
+pac-man_eyes,吃豆人眼睛,パックマン風の目,NON_JAPANESE_RESIDUE
+pachinko_ball,pachinko・ボール,パチンコ玉,MIXED_ENGLISH_DEBRIS
+padded_cloak,タグ「padded cloak」,パッド入りマント,RAW_ENGLISH_WRAPPER
+padded_room,タグ「padded room」,クッション張りの部屋,RAW_ENGLISH_WRAPPER
+padded_vest,タグ「padded vest」,パッド入りベスト,RAW_ENGLISH_WRAPPER
+padisarah_flower,padisarah・花,パティサラの花,MIXED_ENGLISH_DEBRIS
+padlocked_choker,南京錠付きのchoker,南京錠付きチョーカー,MIXED_ENGLISH_DEBRIS
+page_tear,ページの涙,ページの破れ,SEMANTIC_ERROR
+paint_in_hair,髪を塗ります,髪についた塗料,SEMANTIC_STATE_ACTION_ERROR
+paint_on_body,体に絵を描きます,体についた塗料,SEMANTIC_STATE_ACTION_ERROR
+paint_on_clothes,服に絵を描きます,服についた塗料,SEMANTIC_STATE_ACTION_ERROR
+paint_on_fingers,指にペイントします,指についた塗料,SEMANTIC_STATE_ACTION_ERROR
+paint_on_hands,paintの上の両手,手についた塗料,SEMANTIC_RELATION_ERROR
+paint_splatter,スプラッタをペイントします,塗料の飛沫,SEMANTIC_ERROR
+paint_splatter_on_face,顔料在顔上,顔についた塗料の飛沫,NON_JAPANESE_RESIDUE
+paintball,タグ「paintball」,ペイントボール,RAW_ENGLISH_WRAPPER
+paintbrush_rack,笔架,絵筆立て,NON_JAPANESE_RESIDUE
+painted_clothes,彩绘服装,塗装された服,NON_JAPANESE_RESIDUE
+painting_(object),絵中絵,絵画,SEMANTIC_ERROR
+painting_fingernails,タグ「painting fingernails」,手の爪を塗る,RAW_ENGLISH_WRAPPER
+painting_toenails,タグ「painting toenails」,足の爪を塗る,RAW_ENGLISH_WRAPPER
