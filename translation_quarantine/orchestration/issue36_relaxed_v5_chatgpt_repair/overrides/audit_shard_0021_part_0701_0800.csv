@@ -1,0 +1,28 @@
+canonical,old_display_ja,new_display_ja,reason
+no_bitches?_(meme),no bitches? (meme),女いないの？（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+no_cape,カペレットはありません,ケープなし,SEMANTIC_ERROR
+no_genitals,タグ「no genitals」,性器なし,RAW_ENGLISH_WRAPPER
+no_hairclip,ヘアリップはありません,ヘアクリップなし,SEMANTIC_ERROR
+no_leotard,no・レオタード,レオタードなし,MIXED_ENGLISH_DEBRIS
+no_lips,タグ「no lips」,唇なし,RAW_ENGLISH_WRAPPER
+no_magazine_(weapon),タグ「no magazine (weapon)」,弾倉なし（武器）,RAW_ENGLISH_WRAPPER
+no_nut_november,ナッツはありません。11月はありません,ノー・ナット・ノーベンバー,SEMANTIC_ERROR
+no_piercings,タグ「no piercings」,ピアスなし,RAW_ENGLISH_WRAPPER
+no_print,noの柄,柄なし,SEMANTIC_ERROR
+no_prosthetic_arm,no・prosthetic・腕,義手なし,MIXED_ENGLISH_DEBRIS
+no_prosthetic_leg,タグ「no prosthetic leg」,義足なし,RAW_ENGLISH_WRAPPER
+no_pussy,ぜろなり,女性器なし,SEMANTIC_ERROR
+no_reflection,no・反射,反射なし,MIXED_ENGLISH_DEBRIS
+no_symbol,シンボルはありません,禁止マーク,SEMANTIC_ERROR
+no_symbol_tattoo,no symbolのタトゥー,禁止マークのタトゥー,MIXED_ENGLISH_DEBRIS
+no_toilet_paper,タグ「no toilet paper」,トイレットペーパーなし,RAW_ENGLISH_WRAPPER
+no_tsuba,タグ「no tsuba」,鍔なし,RAW_ENGLISH_WRAPPER
+no_veil,no・ベール,ベールなし,MIXED_ENGLISH_DEBRIS
+noctyx,タグ「noctyx」,Noctyx,RAW_ENGLISH_WRAPPER
+nohrian_butler_uniform,nohrian butlerの制服,ノーリア執事服,MIXED_ENGLISH_DEBRIS
+nokotan_entering_a_classroom_(meme),nokotan entering a classroom (meme),教室に入るのこたん（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+non-binary_flag,non binaryの旗,ノンバイナリー・フラッグ,MIXED_ENGLISH_DEBRIS
+non-cat_lingerie,non・猫・lingerie,猫以外のランジェリー,MIXED_ENGLISH_DEBRIS
+nontraditional_poke_ball,nontraditional・poke・ボール,非標準的なモンスターボール,MIXED_ENGLISH_DEBRIS
+nontraditional_witch_hat,nontraditional・witch・帽子,非伝統的な魔女帽子,MIXED_ENGLISH_DEBRIS
+noose,縄,輪縄,SEMANTIC_NARROWING
