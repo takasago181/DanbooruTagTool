@@ -1,0 +1,36 @@
+canonical,old_display_ja,new_display_ja,reason
+traffic_officer,交通官,交通整理員,SEMANTIC_ERROR
+tragus_piercing,tragusのピアス,トラガスピアス,MIXED_ENGLISH_DEBRIS
+trailblazer's_hat_(honkai:_star_rail),タグ「trailblazer's hat (honkai: star rail)」,開拓者の帽子（崩壊：スターレイル）,RAW_ENGLISH_WRAPPER
+trailblazer_bash!_(umamusume),タグ「trailblazer bash! (umamusume)」,Trailblazer Bash!（ウマ娘）,RAW_ENGLISH_WRAPPER
+train_(clothing),拖地裙摆,トレーン（衣服）,NON_JAPANESE_RESIDUE
+training_tap,タグ「training tap」,トレーニングタップ,RAW_ENGLISH_WRAPPER
+training_wheels,トレーニングホイール,補助輪,SEMANTIC_ERROR
+transformation,状态变化,変身・変化,NON_JAPANESE_RESIDUE
+transformation_brooch_(sailor_moon),タグ「transformation brooch (sailor moon)」,変身ブローチ（セーラームーン）,RAW_ENGLISH_WRAPPER
+transforming_clothes,変身する服,変形する服,SEMANTIC_ERROR
+transforming_weapon,transformingの武器,変形武器,MIXED_ENGLISH_DEBRIS
+transgender_flag_print,transgender flagの柄,トランスジェンダー旗柄,MIXED_ENGLISH_DEBRIS
+transit_bus,タグ「transit bus」,路線バス,RAW_ENGLISH_WRAPPER
+transparent_ball,transparent・ボール,透明なボール,MIXED_ENGLISH_DEBRIS
+transparent_bow,透明な弓,透明なリボン,SEMANTIC_AMBIGUITY
+transparent_flower,transparent・花,透明な花,MIXED_ENGLISH_DEBRIS
+transparent_innertube,タグ「transparent innertube」,透明な浮き輪,RAW_ENGLISH_WRAPPER
+transparent_sword,transparent・剣,透明な剣,MIXED_ENGLISH_DEBRIS
+trapeze,空な,空中ブランコ,SEMANTIC_ERROR
+trapeze_dress,梯形连衣裙,台形ドレス,NON_JAPANESE_RESIDUE
+trapper_hat,trapper・帽子,トラッパーハット,MIXED_ENGLISH_DEBRIS
+traumatized,受创,トラウマを負った,NON_JAPANESE_RESIDUE
+travel,観光,旅行,SEMANTIC_NARROWING
+traveler's_original_sword_(genshin_impact),traveler's original sword (genshin impact),旅人の初期剣（原神）,CANONICAL_FALLBACK_TRANSLATABLE
+treadmill,踏み車,トレッドミル,SEMANTIC_AMBIGUITY
+tree-topper,タグ「tree-topper」,ツリートッパー,RAW_ENGLISH_WRAPPER
+tree_bark,タグ「tree bark」,樹皮,RAW_ENGLISH_WRAPPER
+tree_costume,木・衣装,木の衣装,MIXED_ENGLISH_DEBRIS
+tree_focus,tree・焦点,木を強調,MIXED_ENGLISH_DEBRIS
+tree_horns,タグ「tree horns」,木の角,RAW_ENGLISH_WRAPPER
+tree_print,ツリープリント,木柄,SEMANTIC_ERROR
+tres_bien_maid_uniform,tres bien maidの制服,トレビアンメイドの制服,MIXED_ENGLISH_DEBRIS
+triangle-shaped_hair,triangle・shaped・髪,三角形の髪,MIXED_ENGLISH_DEBRIS
+triangle-shaped_pubic_hair,triangle・shaped・pubic・髪,三角形の陰毛,MIXED_ENGLISH_DEBRIS
+triangle-shaped_pupils,三角形の生徒,三角形の瞳孔,SEMANTIC_AMBIGUITY
