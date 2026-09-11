@@ -10,9 +10,9 @@ Stage 9 overall Gate 完了 / Stage10 準備Gate実施中 / automated E2E PASS /
 
 ## Current Core DEV
 
-**NONE / MANAGEMENT_HANDOFF**
+**Issue #55 — UI-JA V5 production promotion implementation**
 
-Issue #30 Phase 1 / Phase 2 / Broad Coverage Wave 1 / evaluator repair / full ChatGPT visual audit / main integrationは完了・受入済み。現在のcore DEVは未選択で、management handoff状態とする。
+Issue #55 `[UI-JA][PRODUCTION][DEV] Promote audited Issue #36 V5 Japanese overlay` をcurrent DEVとして実行する。latest live `main`をbaseとする専用branch `codex/issue55-ui-ja-production-promotion`から、監査済みV5成果物を実local protected runtimeへdeterministic/atomicに反映し、実Windows UI確認後にpost-write auditへ渡す。Issue #36 quarantine branchはread-only evidence/inputであり、production baseまたはmainへの直接mergeには使用しない。
 
 Machine Triage Audit `2660c3106d2252c8aa8f3006f2a1040fd95004db` をDEV受入れ済み。既存Generation Batch 12画像ではWD14 / Kagami-24k / CL Tagger v2.00のraw evaluatorは36/36成功、raw artifact image-ID bindingはPASS。一方、旧Generation Batch reportのevaluator referenceは33件不一致で、reporting/provenance参照 defectだった。retrospective machine-first reductionは0%で、前Batchがrelation/binding/body-site/low-confidence中心だったことによるbatch selection失敗と判定した。
 
@@ -29,7 +29,7 @@ Current restore anchors:
 - Generation Batch 2 execution/report: `7e516bd1ca27c862cdaf023c023bed74e34e6833`
 - Generation Batch 2 human review: `1cd33c7ebec445c3e3870ebce360f9cfee1ffbf9`
 - Issue #30 accepted repair/integration: `9be3fe764c77b7dd6eaba4f791dfb5c3282c8e8b`
-- **current continuation: `MANAGEMENT_HANDOFF / NO_CURRENT_CORE_DEV`**
+- **current continuation: Issue #55 production promotion implementation / stop at `READY_FOR_POST_WRITE_AUDIT` or `HOLD_PRODUCTION_PROMOTION`**
 - supporting policy: `docs/project/AUDIT_ARTIFACT_CACHE_POLICY.md`
 - broad direction: `docs/project/ISSUE30_BROAD_COVERAGE_AUTOMATION_DIRECTION_20260911.md`
 - branch: `codex/issue30-calibration-design`
@@ -188,7 +188,7 @@ Audit artifact cleanup carry-forward:
 
 ## Active / Ready Work
 
-No current core DEV is selected. Issue #30 is completed and integrated; its Wave 1 generation/re-evaluation routing is historical and inactive.
+Current core DEV is Issue #55. Scope is limited to audited Issue #36 V5 Japanese overlay production promotion, deterministic post-write verification, and real Windows UI acceptance. Issue #30 is completed and integrated; its Wave 1 generation/re-evaluation routing is historical and inactive.
 
 ### #36 UI-JA V5 — ChatGPT-led repair/audit
 
@@ -248,7 +248,7 @@ Formal completionは以下の後:
 11. #30 Phase 1 controlled representative calibration + minimal review — **SATISFIED / FROZEN**
 12. #30 Phase 2 Generation Batch 2 machine-first — **SATISFIED / HUMAN REVIEW COMPLETE**
 13. #30 Broad Coverage Wave 1 — **SATISFIED / COMPLETED / REPAIR_ACCEPTED / INTEGRATED**
-14. #36 V5 repair/audit -> integration/revalidation -> independent promotion gate — **ACTIVE**
+14. #36 V5 repair/audit -> integration/revalidation -> independent promotion gate — **PROMOTION IMPLEMENTATION ACTIVE AS #55 / POST-WRITE AUDIT REMAINS**
 15. #34 bilingual search relevance/noise — **REMAINS / resolve or explicitly separate before #42**
 16. #42 product-purpose improvement pass — REMAINS
 17. #5 formal Prompt handoff — REMAINS / after #42
@@ -270,7 +270,7 @@ Then:
 
 ## Next Actions
 
-1. #36 V5 workをGitHub正本へ継続反映
+1. #55で監査済み#36 V5 overlayを実local productionへ安全に反映し、`READY_FOR_POST_WRITE_AUDIT`または`HOLD_PRODUCTION_PROMOTION`で停止
 2. #34 bilingual search relevance/noiseをresolveまたはStage10 Gateから明示分離
 3. #42は#36/#34 material homework完了または明示分離まで`RESERVED / GATED`として維持
 4. managementがGate確認後に#42をcurrent core DEVとして明示activate
@@ -282,9 +282,9 @@ Then:
 
 ## Source-of-Truth Rule
 
-- current core DEV = **NONE / MANAGEMENT_HANDOFF**
-- current DEV Issue number = **NONE**
-- current continuation = **MANAGEMENT_HANDOFF / NO_CURRENT_CORE_DEV**
+- current core DEV = **Issue #55 UI-JA V5 production promotion implementation**
+- current DEV Issue number = **#55**
+- current continuation = **production write + deterministic verification + real Windows UI acceptance; stop before independent post-write audit**
 - Issue #30 accepted integration checkpoint = `5629477164`
 - Issue #30 accepted main commit = `9be3fe764c77b7dd6eaba4f791dfb5c3282c8e8b`
 - audit cleanup policy = `docs/project/AUDIT_ARTIFACT_CACHE_POLICY.md`
