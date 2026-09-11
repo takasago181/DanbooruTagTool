@@ -12,8 +12,12 @@
     "RAW_ENGLISH_WRAPPER": 527,
     "CONTROL_CHAR": 0
   },
+  "raw_english_wrapper_rows": 527,
+  "raw_english_wrapper_already_overridden": 0,
+  "raw_english_wrapper_not_overridden": 527,
   "notes": {
     "ASCII_WORD": "review candidate only; proper names, acronyms, codes and product names may be valid",
-    "SIMPLIFIED_CHINESE_HINT": "heuristic review candidate only; never auto-fix from this signal"
+    "SIMPLIFIED_CHINESE_HINT": "heuristic review candidate only; never auto-fix from this signal",
+    "RAW_ENGLISH_WRAPPER": "semantic review required; this script never auto-fixes it"
   }
 }
