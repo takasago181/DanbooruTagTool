@@ -1,0 +1,10 @@
+canonical,old_display_ja,new_display_ja,reason
+vibrator_under_panties,バイブINパンツ,下着の中のバイブレーター,MALFORMED_MIXED_LANGUAGE
+living_fish_tank,living・魚・tank,生きた魚の水槽,MALFORMED_MIXED_LANGUAGE
+bc_freedom_school_uniform,BCフリーダムスクールユニフォーム,BC自由学園の制服,ESTABLISHED_JA_NAME
+blu-ray_logo,blu rayのロゴ,Blu-rayロゴ,PROPER_NAME_NORMALIZATION
+bluesky_logo,blueskyのロゴ,Blueskyロゴ,PROPER_NAME_NORMALIZATION
+bluesky_username,blueskyのユーザー名,Blueskyユーザー名,PROPER_NAME_NORMALIZATION
+discord_logo,discordのロゴ,Discordロゴ,PROPER_NAME_NORMALIZATION
+discord_username,discordのユーザー名,Discordユーザー名,PROPER_NAME_NORMALIZATION
+apu_spills_his_tendies_(meme),APUが彼の傾向をこぼす（ミーム）,APUがチキンテンダーをこぼす（ミーム）,SEMANTIC_MISTRANSLATION
