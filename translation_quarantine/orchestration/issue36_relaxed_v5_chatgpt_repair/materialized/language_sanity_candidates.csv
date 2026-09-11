@@ -643,9 +643,8 @@ row_number,canonical,display_ja,checks,already_overridden
 14921,h&k_vp70,H&K VP70,ASCII_WORD,true
 14922,h&k_vp9,H&K VP9,ASCII_WORD,true
 14923,h&k_xm8,H&K XM8,ASCII_WORD,true
-14950,hair_branch,髪・branch,ASCII_WORD,false
+14950,hair_branch,hair branch（曖昧タグ）,ASCII_WORD,true
 14959,hair_edges,髪・edges,ASCII_WORD,false
-14981,hair_petal,髪・petal,ASCII_WORD,false
 14985,hair_sprinkles,髪・sprinkles,ASCII_WORD,false
 15019,hakuryou_high_school_uniform,hakuryou highの学校制服,ASCII_WORD,false
 15020,hakusen_academy_school_uniform,hakusen academyの学校制服,ASCII_WORD,false
@@ -781,7 +780,7 @@ row_number,canonical,display_ja,checks,already_overridden
 17456,joker_(dc)_(cosplay),ジョーカー（DC）（コスプレ）,ASCII_WORD,false
 17462,jouin_high_school_uniform,jouin highの学校制服,ASCII_WORD,false
 17469,ju_87,Ju 87,ASCII_WORD,true
-17502,junkyard_dog_mk_iii,junkyard・犬・mk・iii,ASCII_WORD,false
+17502,junkyard_dog_mk_iii,ジャンクヤード・ドッグ Mk.III（GUILTY GEAR）,ASCII_WORD,true
 17508,just_monika_(meme),Just Monika（ミーム）,ASCII_WORD,true
 17523,k_corp._(identity)_(project_moon),k corp. (identity) (project moon),ASCII_WORD,false
 17524,kaalakiota_corporation_(eve_online),kaalakiota corporation (eve online),ASCII_WORD,false
@@ -845,7 +844,7 @@ row_number,canonical,display_ja,checks,already_overridden
 18183,land_of_illusion_(e.g.o),land of illusion (e.g.o),ASCII_WORD,false
 18196,lantern_(e.g.o),lantern (e.g.o),ASCII_WORD,false
 18201,lap_pov,ラップPOV,ASCII_WORD,false
-18207,lapwing_face_tracking_redraws,lapwing・顔・tracking・redraws,ASCII_WORD,false
+18207,lapwing_face_tracking_redraws,Lapwing顔トラッキング再描画,ASCII_WORD,true
 18219,large_module_(eve_online),大型モジュール（EVE Online）,ASCII_WORD,false
 18239,lashers,lashers,ASCII_WORD,true
 18245,lat_model_(mikumikudance),Lat式ミク,ASCII_WORD,false
