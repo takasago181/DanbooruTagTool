@@ -1,0 +1,49 @@
+canonical,old_display_ja,new_display_ja,reason
+stuffed_dog,ぬいぐるみ,犬のぬいぐるみ,SEMANTIC_UNDERSPECIFICATION
+stuffed_duck,ぬいぐるみ,アヒルのぬいぐるみ,SEMANTIC_UNDERSPECIFICATION
+stuffed_eggplant,ぬいぐるみ,ナスのぬいぐるみ,SEMANTIC_UNDERSPECIFICATION
+stuffed_fish,ぬいぐるみ,魚のぬいぐるみ,SEMANTIC_UNDERSPECIFICATION
+stuffed_gag,塞满堵嘴,詰め物式の猿轡,NON_JAPANESE_RESIDUE
+stuffed_giraffe,ぬいぐるみ,キリンのぬいぐるみ,SEMANTIC_UNDERSPECIFICATION
+stuffed_goat,ぬいぐるみのgoat,ヤギのぬいぐるみ,MIXED_ENGLISH_DEBRIS
+stuffed_hamster,ぬいぐるみのhamster,ハムスターのぬいぐるみ,MIXED_ENGLISH_DEBRIS
+stuffed_hedgehog,ぬいぐるみのhedgehog,ハリネズミのぬいぐるみ,MIXED_ENGLISH_DEBRIS
+stuffed_horse,ぬいぐるみ,馬のぬいぐるみ,SEMANTIC_UNDERSPECIFICATION
+stuffed_monkey,詰まった猿,サルのぬいぐるみ,SEMANTIC_ERROR
+stuffed_mouse,ぬいぐるみマウス,ネズミのぬいぐるみ,SEMANTIC_AMBIGUITY
+stuffed_narwhal,ぬいぐるみのnarwhal,イッカクのぬいぐるみ,MIXED_ENGLISH_DEBRIS
+stuffed_octopus,タコの詰め物,タコのぬいぐるみ,SEMANTIC_ERROR
+stuffed_orca,ぬいぐるみorca,シャチのぬいぐるみ,MIXED_ENGLISH_DEBRIS
+stuffed_otter,ぬいぐるみ,カワウソのぬいぐるみ,SEMANTIC_UNDERSPECIFICATION
+stuffed_owl,ぬいぐるみ,フクロウのぬいぐるみ,SEMANTIC_UNDERSPECIFICATION
+stuffed_pig,詰め物,豚のぬいぐるみ,SEMANTIC_ERROR
+stuffed_seal,詰め物,アザラシのぬいぐるみ,SEMANTIC_ERROR
+stuffed_sheep,ぬいぐるみ,羊のぬいぐるみ,SEMANTIC_UNDERSPECIFICATION
+stuffed_shrimp,ぬいぐるみのshrimp,エビのぬいぐるみ,MIXED_ENGLISH_DEBRIS
+stuffed_snake,ぬいぐるみ,ヘビのぬいぐるみ,SEMANTIC_UNDERSPECIFICATION
+stuffed_spring_onion,ぬいぐるみのspring・onion,ねぎのぬいぐるみ,MIXED_ENGLISH_DEBRIS
+stuffed_tiger,ぬいぐるみ,トラのぬいぐるみ,SEMANTIC_UNDERSPECIFICATION
+stuffed_tomato,ぬいぐるみのtomato,トマトのぬいぐるみ,MIXED_ENGLISH_DEBRIS
+stuffed_turtle,ぬいぐるみ,カメのぬいぐるみ,SEMANTIC_UNDERSPECIFICATION
+stuffed_whale,ぬいぐるみ,クジラのぬいぐるみ,SEMANTIC_UNDERSPECIFICATION
+stuffed_wolf,ぬいぐるみ,オオカミのぬいぐるみ,SEMANTIC_UNDERSPECIFICATION
+stug_iii,タグ「stug iii」,StuG III,RAW_ENGLISH_WRAPPER
+stun_baton,タグ「stun baton」,スタンバトン,RAW_ENGLISH_WRAPPER
+su-37,su-37,Su-37,CANONICAL_FALLBACK_TRANSLATABLE
+su-47_berkut,タグ「su-47 berkut」,Su-47 ベルクト,RAW_ENGLISH_WRAPPER
+su-57,su-57,Su-57,CANONICAL_FALLBACK_TRANSLATABLE
+sua_(alien_stage)_(cosplay),sua (alien stage) (cosplay),スア（ALIEN STAGE）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+subaru_brz,タグ「subaru brz」,スバル BRZ,RAW_ENGLISH_WRAPPER
+subaru_wrx,タグ「subaru wrx」,スバル WRX,RAW_ENGLISH_WRAPPER
+submarine_sandwich,潜水艦サンドイッチ,サブマリンサンドイッチ,SEMANTIC_AMBIGUITY
+subsurface_scattering,subsurface scattの指輪,サブサーフェス・スキャタリング,SEMANTIC_ERROR
+subway_map,タグ「subway map」,地下鉄路線図,RAW_ENGLISH_WRAPPER
+subway_station,地铁站,地下鉄駅,NON_JAPANESE_RESIDUE
+sucking_both_nipples,吮吸両個乳頭,両方の乳首を吸う,NON_JAPANESE_RESIDUE
+sucking_male_nipple,吸吮男性乳頭,男性の乳首を吸う,NON_JAPANESE_RESIDUE
+sucking_on_multiple_breasts,吮吸多個乳頭,複数の乳房を吸う,NON_JAPANESE_RESIDUE
+suction_tentacles,タグ「suction tentacles」,吸盤付き触手,RAW_ENGLISH_WRAPPER
+suicide,首吊り自殺,自殺,SEMANTIC_NARROWING
+suigintou_(cosplay),suigintou（コスプレ）,水銀燈（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+suimei_academy_school_uniform,suimei academyの学校制服,スイメイ学園の制服,MIXED_ENGLISH_DEBRIS
+suiseiseki_(cosplay),suiseiseki（コスプレ）,翠星石（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
