@@ -1,0 +1,43 @@
+canonical,old_display_ja,new_display_ja,reason
+odst,タグ「odst」,ODST,RAW_ENGLISH_WRAPPER
+oerlikon_20mm_gun,タグ「oerlikon 20mm gun」,エリコン20mm機関砲,RAW_ENGLISH_WRAPPER
+off-shoulder_bandeau,off・肩・bandeau,オフショルダーバンドゥ,MIXED_ENGLISH_DEBRIS
+off-shoulder_capelet,off・肩・capelet,オフショルダーケープレット,MIXED_ENGLISH_DEBRIS
+off-shoulder_cardigan,off・肩・cardigan,オフショルダーカーディガン,MIXED_ENGLISH_DEBRIS
+offering_food,offering・食べ物,食べ物を差し出す,MIXED_ENGLISH_DEBRIS
+offering_hand,offering・手,手を差し出す,MIXED_ENGLISH_DEBRIS
+offering_hand_to_another,offering・手・への他人の,他人に手を差し出す,MIXED_ENGLISH_DEBRIS
+offering_leash,offering・リード,リードを差し出す,MIXED_ENGLISH_DEBRIS
+official_alternate_hair_ornament,official alternateの髪飾り,公式別デザインの髪飾り,MIXED_ENGLISH_DEBRIS
+official_alternate_horns,タグ「official alternate horns」,公式別デザインの角,RAW_ENGLISH_WRAPPER
+official_style,野生の公式,公式スタイル,SEMANTIC_ERROR
+ofuda_between_fingers,ofudaの間のfingers,指の間のお札,MIXED_ENGLISH_DEBRIS
+ofuda_earrings,ofudaのイヤリング,お札のイヤリング,MIXED_ENGLISH_DEBRIS
+ofuda_on_clothes,衣服の中,服の上のお札,SEMANTIC_RELATION_ERROR
+ofuda_on_head,頭の中のofuda,頭の上のお札,SEMANTIC_RELATION_ERROR
+ofuda_on_leg,ofudaの上のleg,脚の上のお札,SEMANTIC_RELATION_ERROR
+ofuda_over_one_eye,ofudaの上の1つの目,片目を覆うお札,SEMANTIC_RELATION_ERROR
+ofuro,オフーロ,お風呂,SEMANTIC_ERROR
+ohisashiburi_(style),ohisashiburi（スタイル）,おひさしぶり（スタイル）,TRANSLITERATION_ERROR
+oil_lamp,魔法のランプ,オイルランプ,SEMANTIC_ERROR
+ok_sign_over_eye,目で署名します,目の上でOKサイン,SEMANTIC_ERROR
+okapi_ears,okapi・耳,オカピの耳,MIXED_ENGLISH_DEBRIS
+okina's_natural_hair_color,黒隠岐奈,隠岐奈の地毛色,SEMANTIC_ERROR
+okita_souji_(koha-ace)_(cosplay),オキタ・スージー（koha-ace）（コスプレ）,沖田総司（KOHA-ACE）（コスプレ）,TRANSLITERATION_ERROR
+olive,オリブ,オリーブ,TRANSLITERATION_ERROR
+olive_branch,タグ「olive branch」,オリーブの枝,RAW_ENGLISH_WRAPPER
+olive_oil,タグ「olive oil」,オリーブオイル,RAW_ENGLISH_WRAPPER
+olympus_(apex_legends),オリンパス（頂点の伝説）,オリンパス（Apex Legends）,SEMANTIC_ERROR
+omega_symbol,オメガシンボル,オメガ記号,SEMANTIC_ERROR
+omnitrix,タグ「omnitrix」,オムニトリックス,RAW_ENGLISH_WRAPPER
+omnitrix_symbol,omnitrix・記号,オムニトリックスの記号,MIXED_ENGLISH_DEBRIS
+on-model_vs_in_your_style_challenge,の上のmodel・vsの中のyour・style・challenge,公式デザイン対自分の絵柄チャレンジ,SEMANTIC_ERROR
+on_airplane,の上のairplane,飛行機の上,MIXED_ENGLISH_DEBRIS
+on_animal,動物について,動物の上,SEMANTIC_RELATION_ERROR
+on_bicycle,の上のbicycle,自転車の上,MIXED_ENGLISH_DEBRIS
+on_blanket,の上のblanket,毛布の上,MIXED_ENGLISH_DEBRIS
+on_book,の上のbook,本の上,MIXED_ENGLISH_DEBRIS
+on_box,ボックスに,箱の上,SEMANTIC_RELATION_ERROR
+on_branch,の上のbranch,枝の上,MIXED_ENGLISH_DEBRIS
+on_car,の上のcar,車の上,MIXED_ENGLISH_DEBRIS
+on_ceiling,天井に,天井の上,SEMANTIC_RELATION_ERROR
