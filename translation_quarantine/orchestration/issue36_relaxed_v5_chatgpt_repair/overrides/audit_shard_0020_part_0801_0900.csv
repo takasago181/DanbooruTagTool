@@ -1,0 +1,44 @@
+canonical,old_display_ja,new_display_ja,reason
+mod_fashion,modファッション,モッズファッション,SEMANTIC_ERROR
+model,プラモデル,模型,SEMANTIC_NARROWING
+model_building,モデル構築,建物模型,SEMANTIC_ERROR
+model_clipping,タグ「model clipping」,モデルのクリッピング,RAW_ENGLISH_WRAPPER
+model_ship,モデル船,船模型,AWKWARD_MACHINE_TRANSLATION
+model_tank,モデルタンク,戦車模型,SEMANTIC_ERROR
+mogador_(azur_lane)_(cosplay),mogador (azur lane) (cosplay),モガドール（アズールレーン）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+mole_beside_mouth,タグ「mole beside mouth」,口元のほくろ,RAW_ENGLISH_WRAPPER
+mole_on_areola,乳晕痣,乳輪のほくろ,NON_JAPANESE_RESIDUE
+mole_on_chest,moleの上の胸,胸のほくろ,SEMANTIC_RELATION_ERROR
+mole_on_ear,耳痣,耳のほくろ,NON_JAPANESE_RESIDUE
+mole_on_foot,moleの上の足,足のほくろ,MIXED_ENGLISH_DEBRIS
+mole_on_forehead,moleの上のforehead,額のほくろ,MIXED_ENGLISH_DEBRIS
+mole_on_hand,moleの上の手,手のほくろ,MIXED_ENGLISH_DEBRIS
+mole_on_hip,moleの上の腰,腰のほくろ,MIXED_ENGLISH_DEBRIS
+mole_on_neck,首にモル,首のほくろ,SEMANTIC_ERROR
+mole_on_nose,鼻痣,鼻のほくろ,NON_JAPANESE_RESIDUE
+mole_on_shoulder,肩にモル,肩のほくろ,SEMANTIC_ERROR
+mom_and_her_daughter_(meme),mom and her daughter (meme),母親と娘（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+momoi_(blue_archive)_(cosplay),momoi (blue archive) (cosplay),才羽モモイ（ブルーアーカイブ）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+momotsuki_gakuen_school_uniform,桃村ガクエン学校のユニフォーム,桃月学園の制服,SEMANTIC_ERROR
+mona_(genshin_impact)_(cosplay),モナ（ジェンシンインパクト）（コスプレ）,モナ（原神）（コスプレ）,SEMANTIC_ERROR
+money-shaped_pupils,お金の形をした生徒,お金の形をした瞳孔,SEMANTIC_ERROR
+money_bag,ドル袋,お金の袋,SEMANTIC_NARROWING
+money_between_breasts,moneyの間の胸,胸の間のお金,SEMANTIC_RELATION_ERROR
+money_fan,タグ「money fan」,扇状のお札,RAW_ENGLISH_WRAPPER
+money_in_mouth,moneyの中のmouth,口にお金,MIXED_ENGLISH_DEBRIS
+mongolian_clothes,mongolian・服,モンゴルの服,MIXED_ENGLISH_DEBRIS
+monitor_head,monitor・頭,モニター頭,MIXED_ENGLISH_DEBRIS
+monk,そう,僧侶,SEMANTIC_ERROR
+monk_shoes,monkの靴,モンクストラップシューズ,MIXED_ENGLISH_DEBRIS
+monkey_bars,高い鉄棒,雲梯,SEMANTIC_ERROR
+monkey_d._luffy_(cosplay),モンキーd。ルフィ（コスプレ）,モンキー・D・ルフィ（コスプレ）,SEMANTIC_ERROR
+monobloc_chair,monobloc・椅子,モノブロックチェア,MIXED_ENGLISH_DEBRIS
+monofin,人魚スーツ,モノフィン,SEMANTIC_ERROR
+monohoshizao_(fate),monohoshizao (fate),物干し竿（Fate）,CANONICAL_FALLBACK_TRANSLATABLE
+monomi_(danganronpa)_(cosplay),monomi (danganronpa) (cosplay),モノミ（ダンガンロンパ）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+mononobe_no_futo_(cosplay),Mononobe No Futo（コスプレ）,物部布都（コスプレ）,SEMANTIC_ERROR
+monster_(monster_farm),タグ「monster (monster farm)」,モンスター（モンスターファーム）,RAW_ENGLISH_WRAPPER
+monster_arm,monster・腕,モンスターの腕,MIXED_ENGLISH_DEBRIS
+monster_focus,monster・焦点,モンスターを強調,MIXED_ENGLISH_DEBRIS
+monster_sexualization,タグ「monster sexualization」,モンスターの性的化,RAW_ENGLISH_WRAPPER
+monsterification,スライム化,モンスター化,SEMANTIC_NARROWING
