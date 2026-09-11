@@ -1,0 +1,43 @@
+canonical,old_display_ja,new_display_ja,reason
+short_braided_ponytail,短い・編み込みのponytail,短い編み込みポニーテール,MIXED_ENGLISH_DEBRIS
+short_male,短い・男性,低身長の男性,SEMANTIC_AMBIGUITY
+short_sideburns,短い・sideburns,短いもみあげ,MIXED_ENGLISH_DEBRIS
+shorter_than_canon,タグ「shorter than canon」,公式設定より低身長,RAW_ENGLISH_WRAPPER
+shorts_aside,ショートパンツはさておき,ショートパンツをずらす,SEMANTIC_ERROR
+shorts_lift,ショートパンツリフト,ショートパンツを持ち上げる,SEMANTIC_STATE_ACTION_ERROR
+shorts_rolled_up,ショーツが巻き上げられました,まくり上げたショートパンツ,SEMANTIC_STATE_ACTION_ERROR
+shorts_tan,ショーツタン,ショートパンツの日焼け跡,SEMANTIC_ERROR
+shorts_tug,ショーツタグ,ショートパンツを引っ張る,SEMANTIC_AMBIGUITY
+shorts_under_skirt,安全ズボン,スカートの下のショートパンツ,SEMANTIC_NARROWING
+shot_down,shot・下向きの,撃ち落とされた,MIXED_ENGLISH_DEBRIS
+shot_glass,タグ「shot glass」,ショットグラス,RAW_ENGLISH_WRAPPER
+shoulder-to-shoulder,肩から肩まで,肩を並べる,SEMANTIC_ERROR
+shoulder_belt,过肩腰帯,肩掛けベルト,NON_JAPANESE_RESIDUE
+shoulder_boards,军衔,肩章,NON_JAPANESE_RESIDUE
+shoulder_patch,肩・patch,肩のワッペン,MIXED_ENGLISH_DEBRIS
+shoulder_peek,肩・覗き見,肩見せ,SEMANTIC_ERROR
+shoulder_pouch,肩・pouch,肩のポーチ,MIXED_ENGLISH_DEBRIS
+shoulder_ribbon,肩・ribbon,肩のリボン,MIXED_ENGLISH_DEBRIS
+shoulder_sash,サッシュ,肩掛けサッシュ,SEMANTIC_UNDERSPECIFICATION
+shoulder_strap,单肩斜帯,ショルダーストラップ,NON_JAPANESE_RESIDUE
+shoulder_tilt,肩・tilt,肩を傾ける,MIXED_ENGLISH_DEBRIS
+shoulderstand,タグ「shoulderstand」,肩立ち,RAW_ENGLISH_WRAPPER
+shouting_with_hands,手で叫ぶ,口元に手を当てて叫ぶ,SEMANTIC_ERROR
+shoveling,シャベル,シャベルで掘る,SEMANTIC_STATE_ACTION_ERROR
+showgirl,タグ「showgirl」,ショーガール,RAW_ENGLISH_WRAPPER
+showing_phone,showing・電話,電話を見せる,MIXED_ENGLISH_DEBRIS
+shredded_muscles,タグ「shredded muscles」,鍛え上げた筋肉,RAW_ENGLISH_WRAPPER
+shrimp_costume,shrimp・衣装,エビの衣装,MIXED_ENGLISH_DEBRIS
+shrimp_girl,タグ「shrimp girl」,エビ娘,RAW_ENGLISH_WRAPPER
+shrimp_hair_ornament,shrimpの髪飾り,エビの髪飾り,MIXED_ENGLISH_DEBRIS
+shrimp_tail,shrimp・尻尾,エビの尻尾,MIXED_ENGLISH_DEBRIS
+shrinking,シュリンカー,縮小,SEMANTIC_ERROR
+shroud_(sailing),タグ「shroud (sailing)」,支索（帆船）,RAW_ENGLISH_WRAPPER
+shudder,タグ「shudder」,身震い,RAW_ENGLISH_WRAPPER
+shuka_high_school_uniform,秀華高校,秀華高校の制服,SEMANTIC_UNDERSPECIFICATION
+shure_55sh,タグ「shure 55sh」,Shure 55SH,RAW_ENGLISH_WRAPPER
+shure_sm58,タグ「shure sm58」,Shure SM58,RAW_ENGLISH_WRAPPER
+shuriken_earrings,shurikenのイヤリング,手裏剣のイヤリング,MIXED_ENGLISH_DEBRIS
+shuriken_hair_ornament,シュリケンの髪の飾り,手裏剣の髪飾り,TRANSLITERATION_ERROR
+shuriken_print,shurikenの柄,手裏剣柄,MIXED_ENGLISH_DEBRIS
+shuten_douji_(fate)_(cosplay),酒呑童子コス,酒呑童子（Fate）（コスプレ）,SEMANTIC_UNDERSPECIFICATION
