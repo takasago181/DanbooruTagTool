@@ -25,6 +25,17 @@ Codexは独立した班ではなく、DEV（開発班）の実装担当。
 **古いtask branch上の `CURRENT_STATE.md` / `AGENTS.md` を、fetch後の `origin/main` より優先して現在地判定に使ってはいけない。**
 現在branchの管理ファイルが `origin/main` と異なる場合、branch-local stateはそのbranch作成時点の履歴として扱い、現在地は `origin/main` を優先する。
 
+この規則はrepository rootにも適用する。`C:\Codex\DanbooruTagTool` がfeature branch上にあること自体は許容するが、rootにあるlocal `CURRENT_STATE.md`を「rootだから最新」と判断してはならない。rootのbranch / HEAD / `origin/main`との差を確認し、現在地は次の順で確定する。
+
+1. GitHub live `main` のHEAD
+2. live `main` の `docs/project/CURRENT_STATE.md`
+3. 対応するlive GitHub Issue本文
+4. Issue最新checkpoint/comment
+5. live `docs/project/PERMANENT_RULES.md`
+6. 必要なfeature branch / local worktree
+
+local worktreeの `CURRENT_STATE.md`、handoff、branch-local management documentはhistorical snapshotの可能性がある。local資料とlive `main` / live Issue / checkpointが衝突した場合、古いlocal資料を根拠にcompleted Issueを再開、superseded taskを再実行、old Waveやold Gateを再開してはならない。矛盾が解消されるまでfail-closedで停止する。
+
 remote-current-state確認後、通常のCodex DEV読取順は:
 1. `origin/main:docs/project/CURRENT_STATE.md`
 2. `origin/main:docs/project/PERMANENT_RULES.md`
