@@ -6,6 +6,7 @@ on:
       - ui-ja/issue36-relaxed-v5-chatgpt-repair
     paths:
       - "translation_quarantine/orchestration/issue36_relaxed_v5_chatgpt_repair/materialize_v5.py"
+      - "translation_quarantine/orchestration/issue36_relaxed_v5_chatgpt_repair/language_sanity_v5.py"
       - "translation_quarantine/orchestration/issue36_relaxed_v5_chatgpt_repair/progress.json"
       - "translation_quarantine/orchestration/issue36_relaxed_v5_chatgpt_repair/overrides/**"
       - "translation_quarantine/orchestration/issue36_relaxed_closeout_v3_language_sanity_v4/final_translation_table.csv"
@@ -32,6 +33,9 @@ jobs:
       - name: Materialize and validate V5
         run: python translation_quarantine/orchestration/issue36_relaxed_v5_chatgpt_repair/materialize_v5.py
 
+      - name: Run deterministic language sanity scan
+        run: python translation_quarantine/orchestration/issue36_relaxed_v5_chatgpt_repair/language_sanity_v5.py
+
       - name: Commit deterministic materialized outputs
         shell: bash
         run: |
@@ -43,5 +47,5 @@ jobs:
             echo "No materialized changes to commit."
             exit 0
           fi
-          git commit -m "UI-JA V5: materialize reviewed overrides [skip ci]"
+          git commit -m "UI-JA V5: refresh materialized validation outputs [skip ci]"
           git push origin HEAD:ui-ja/issue36-relaxed-v5-chatgpt-repair
