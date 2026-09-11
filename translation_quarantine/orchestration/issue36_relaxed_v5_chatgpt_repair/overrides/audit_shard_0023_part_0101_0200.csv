@@ -1,0 +1,27 @@
+canonical,old_display_ja,new_display_ja,reason
+phosphophyllite_(gemstone),リン植物（宝石）,フォスフォフィライト（宝石）,SEMANTIC_ERROR
+photo_booth,プリクラ,フォトブース,SEMANTIC_NARROWING
+photobomb,タグ「photobomb」,写真への写り込み,RAW_ENGLISH_WRAPPER
+photocopying_self,タグ「photocopying self」,自分をコピー機で複写,RAW_ENGLISH_WRAPPER
+photokinesis,光属性,光操作,SEMANTIC_ERROR
+phrygian_helmet,phrygian・ヘルメット,フリギア式ヘルメット,MIXED_ENGLISH_DEBRIS
+physical_examination,お医者さんごっこ,身体検査,SEMANTIC_NARROWING
+pi_(math),タグ「pi (math)」,円周率π,RAW_ENGLISH_WRAPPER
+piano_keys,ピアノの鍵,ピアノの鍵盤,SEMANTIC_ERROR
+picking_fruit,果物を選ぶ,果物を摘む,SEMANTIC_ERROR
+picnic_table,タグ「picnic table」,ピクニックテーブル,RAW_ENGLISH_WRAPPER
+picot_trim_panties,picot・trim・パンツ,ピコット縁のパンティー,MIXED_ENGLISH_DEBRIS
+pierced_hat,pierced・帽子,穴の開いた帽子,MIXED_ENGLISH_DEBRIS
+pig_print,豚の版画,豚柄,SEMANTIC_ERROR
+pikachu_hood,ピカチュウフッド,ピカチュウフード,TRANSLITERATION_ERROR
+pikaclones,タグ「pikaclones」,ピカチュウクローン,RAW_ENGLISH_WRAPPER
+pile_of_corpses,タグ「pile of corpses」,死体の山,RAW_ENGLISH_WRAPPER
+pile_of_money,タグ「pile of money」,金の山,RAW_ENGLISH_WRAPPER
+pile_of_trash,タグ「pile of trash」,ゴミの山,RAW_ENGLISH_WRAPPER
+pill_hair_ornament,ピルヘアの飾り,錠剤の髪飾り,SEMANTIC_ERROR
+pill_in_mouth,舌のピル,口の中の錠剤,SEMANTIC_RELATION_ERROR
+pill_print,pillの柄,錠剤柄,MIXED_ENGLISH_DEBRIS
+pill_ring,pillの指輪,錠剤の指輪,MIXED_ENGLISH_DEBRIS
+pillar_of_light,pillar・of・光,光の柱,MIXED_ENGLISH_DEBRIS
+pillarboxed,柱箱,ピラーボックス,SEMANTIC_ERROR
+piloting,パイロット,操縦,SEMANTIC_ERROR
