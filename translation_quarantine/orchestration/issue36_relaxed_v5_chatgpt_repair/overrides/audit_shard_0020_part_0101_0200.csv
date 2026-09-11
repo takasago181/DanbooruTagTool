@@ -1,0 +1,30 @@
+canonical,old_display_ja,new_display_ja,reason
+mandarin_orange_slice,mandarin・オレンジ色のslice,みかんの輪切り,MIXED_ENGLISH_DEBRIS
+mangekyou_sharingan,万花筒写轮眼,万華鏡写輪眼,NON_JAPANESE_RESIDUE
+manhattan_cafe_(umamusume)_(cosplay),manhattan cafe (umamusume) (cosplay),マンハッタンカフェ（ウマ娘）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+manhattan_cafe_holding_a_fish_(meme),manhattan cafe holding a fish (meme),魚を持つマンハッタンカフェ（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+manila_envelope,档案袋,マニラ封筒,NON_JAPANESE_RESIDUE
+manjuu_abuse_(azur_lane),タグ「manjuu abuse (azur lane)」,まんじゅう虐待（アズールレーン）,RAW_ENGLISH_WRAPPER
+mankanshoku_mako_(cosplay),Mankanshoku Mako（コスプレ）,満艦飾マコ（コスプレ）,SEMANTIC_ERROR
+manspreading,タグ「manspreading」,大股開き,RAW_ENGLISH_WRAPPER
+manta_ray_girl,タグ「manta ray girl」,マンタ娘,RAW_ENGLISH_WRAPPER
+manually-operated_mounted_gun,タグ「manually-operated mounted gun」,手動式の据え付け銃,RAW_ENGLISH_WRAPPER
+manuscript_paper,タグ「manuscript paper」,原稿用紙,RAW_ENGLISH_WRAPPER
+manya_(dq4)_(cosplay),Manya（DQ4）（コスプレ）,マーニャ（DQ4）（コスプレ）,SEMANTIC_ERROR
+map_pin,map・ピン,地図のピン,MIXED_ENGLISH_DEBRIS
+maple_tree,メープル,カエデの木,SEMANTIC_UNDERSPECIFICATION
+marble_floor,タグ「marble floor」,大理石の床,RAW_ENGLISH_WRAPPER
+marble_sculpture,タグ「marble sculpture」,大理石の彫刻,RAW_ENGLISH_WRAPPER
+march_7th_(honkai:_star_rail)_(cosplay),march 7th (honkai: star rail) (cosplay),三月なのか（崩壊：スターレイル）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+march_hare_(alice_in_wonderland)_(cosplay),マーチヘア（不思議の国のアリス）（コスプレ）,三月ウサギ（不思議の国のアリス）（コスプレ）,SEMANTIC_ERROR
+marciana_(nikke)_(cosplay),marciana (nikke) (cosplay),マルチャーナ（NIKKE）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+marcille_donato_(cosplay),marcille donato (cosplay),マルシル・ドナトー（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+mari_(blue_archive)_(cosplay),mari (blue archive) (cosplay),伊落マリー（ブルーアーカイブ）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+maribel_hearn_(cosplay),マリベルハーン（コスプレ）,マエリベリー・ハーン（コスプレ）,SEMANTIC_ERROR
+marine_uniform_(one_piece),タグ「marine uniform (one piece)」,海軍制服（ONE PIECE）,RAW_ENGLISH_WRAPPER
+mark_of_the_doom_slayer,印・of・the・doom・slayer,ドゥームスレイヤーの印,MIXED_ENGLISH_DEBRIS
+mark_under_eye,印の下の目,目の下の印,SEMANTIC_RELATION_ERROR
+markings_on_cheeks,markingsの上のcheeks,頬の模様,MIXED_ENGLISH_DEBRIS
+marlin_(fish),タグ「marlin (fish)」,カジキ,RAW_ENGLISH_WRAPPER
+marquee_lights,タグ「marquee lights」,マーキーライト,RAW_ENGLISH_WRAPPER
+marriage_certificate,タグ「marriage certificate」,結婚証明書,RAW_ENGLISH_WRAPPER
