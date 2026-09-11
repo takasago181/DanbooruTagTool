@@ -1,0 +1,44 @@
+canonical,old_display_ja,new_display_ja,reason
+smiley_hair_ornament,smileyの髪飾り,スマイリーの髪飾り,MIXED_ENGLISH_DEBRIS
+smiley_hat_ornament,smiley・帽子・飾り,スマイリーの帽子飾り,MIXED_ENGLISH_DEBRIS
+smiley_print,smileyの柄,スマイリー柄,MIXED_ENGLISH_DEBRIS
+smith_&_wesson_360,タグ「smith & wesson 360」,Smith & Wesson 360,RAW_ENGLISH_WRAPPER
+smith_&_wesson_m&p,タグ「smith & wesson m&p」,Smith & Wesson M&P,RAW_ENGLISH_WRAPPER
+smoke_from_mouth,smoke・からのmouth,口から煙,MIXED_ENGLISH_DEBRIS
+smoke_grenade_launcher,タグ「smoke grenade launcher」,発煙弾発射器,RAW_ENGLISH_WRAPPER
+smoke_heart,煙心,ハート形の煙,SEMANTIC_ERROR
+smoke_trail,烟雾,煙の軌跡,NON_JAPANESE_RESIDUE
+smokestack,烟囱,煙突,NON_JAPANESE_RESIDUE
+smokey_eyeshadow,タグ「smokey eyeshadow」,スモーキーアイシャドウ,RAW_ENGLISH_WRAPPER
+smoking_barrel,硝煙,煙を上げる銃身,SEMANTIC_UNDERSPECIFICATION
+smoking_pipe_in_mouth,smoking・pipeの中のmouth,口に喫煙パイプ,MIXED_ENGLISH_DEBRIS
+smother,スモーザー,覆って窒息させる,SEMANTIC_ERROR
+snake_bite,snake・噛み跡,ヘビの噛み跡,MIXED_ENGLISH_DEBRIS
+snake_boy,ナーガ,ヘビ少年,SEMANTIC_NARROWING
+snake_hair,ゴルゴーン,ヘビの髪,SEMANTIC_NARROWING
+snake_head_tail,蛇頭尾巴,ヘビ頭の尻尾,NON_JAPANESE_RESIDUE
+snake_hood,snake・フード,ヘビのフード,MIXED_ENGLISH_DEBRIS
+snake_on_head,snakeの上の頭,頭の上のヘビ,SEMANTIC_RELATION_ERROR
+snake_on_shoulder,snakeの上の肩,肩の上のヘビ,SEMANTIC_RELATION_ERROR
+snake_wrapped_around_arm,snake・wrappedの周囲の腕,腕に巻き付いたヘビ,MIXED_ENGLISH_DEBRIS
+snake_wrapped_around_body,snake・wrappedの周囲の身体,体に巻き付いたヘビ,MIXED_ENGLISH_DEBRIS
+snake_wrapped_around_leg,snake・wrappedの周囲のleg,脚に巻き付いたヘビ,MIXED_ENGLISH_DEBRIS
+snake_wrapped_around_neck,snake・wrappedの周囲の首,首に巻き付いたヘビ,MIXED_ENGLISH_DEBRIS
+snakebite_(piercing),タグ「snakebite (piercing)」,スネークバイト（ピアス）,RAW_ENGLISH_WRAPPER
+snap-fit_buckle,塑料卡扣,スナップフィットバックル,NON_JAPANESE_RESIDUE
+snapchat,タグ「snapchat」,Snapchat,RAW_ENGLISH_WRAPPER
+sneaking_suit,こっそりスーツ,潜入スーツ,SEMANTIC_ERROR
+snorkel_mask,snorkel・マスク,シュノーケルマスク,MIXED_ENGLISH_DEBRIS
+snow_animal,snow・動物,雪の動物,MIXED_ENGLISH_DEBRIS
+snow_duck,タグ「snow duck」,雪のアヒル,RAW_ENGLISH_WRAPPER
+snow_leopard_boy,タグ「snow leopard boy」,ユキヒョウ少年,RAW_ENGLISH_WRAPPER
+snow_leopard_ears,snow・leopard・耳,ユキヒョウの耳,MIXED_ENGLISH_DEBRIS
+snow_leopard_girl,タグ「snow leopard girl」,ユキヒョウ娘,RAW_ENGLISH_WRAPPER
+snow_leopard_tail,snow・leopard・尻尾,ユキヒョウの尻尾,MIXED_ENGLISH_DEBRIS
+snow_on_clothes,snowの上の服,服の上の雪,SEMANTIC_RELATION_ERROR
+snow_on_tree,snowの上のtree,木の上の雪,SEMANTIC_RELATION_ERROR
+snow_shovel,雪かき,雪かき用シャベル,SEMANTIC_UNDERSPECIFICATION
+snow_white's_queen_(fairy_tale_character)_(cosplay),snow white's queen (fairy tale character) (cosplay),白雪姫の女王（童話）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+snow_white_(fairy_tale_character)_(cosplay),snow white (fairy tale character) (cosplay),白雪姫（童話）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+snowball_fight,打雪仗,雪合戦,NON_JAPANESE_RESIDUE
+snowdin_(undertale),タグ「snowdin (undertale)」,スノーフル（Undertale）,RAW_ENGLISH_WRAPPER
