@@ -1,0 +1,47 @@
+canonical,old_display_ja,new_display_ja,reason
+thai_clothes,泰国服饰,タイの服,NON_JAPANESE_RESIDUE
+thai_text,タイ語,タイ語の文字,SEMANTIC_UNDERSPECIFICATION
+tharja_(fire_emblem)_(cosplay),tharja (fire emblem) (cosplay),サーリャ（ファイアーエムブレム）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+thatched_roof,thatき屋根,茅葺き屋根,TRANSLITERATION_ERROR
+thaumiel_(zenless_zone_zero),塔烏弥尔,タウミエル（ゼンレスゾーンゼロ）,NON_JAPANESE_RESIDUE
+the_children_(zettai_karen_children),タグ「the children (zettai karen children)」,ザ・チルドレン（絶対可憐チルドレン）,RAW_ENGLISH_WRAPPER
+the_dazzlings_(my_little_pony),海妖三姐妹,ダズリングス（マイリトルポニー）,NON_JAPANESE_RESIDUE
+the_fool_(tarot),タグ「the fool (tarot)」,愚者（タロット）,RAW_ENGLISH_WRAPPER
+the_high_priestess_(tarot),タグ「the high priestess (tarot)」,女教皇（タロット）,RAW_ENGLISH_WRAPPER
+the_kogado_(idolmaster),the kogado (idolmaster),THE 虎牙道（アイドルマスター）,CANONICAL_FALLBACK_TRANSLATABLE
+the_loud_house_(style),タグ「the loud house (style)」,ラウド・ハウス（スタイル）,RAW_ENGLISH_WRAPPER
+the_sword_sharpened_with_tears_(e.g.o),the sword sharpened with tears (e.g.o),涙で研がれた剣（E.G.O）,CANONICAL_FALLBACK_TRANSLATABLE
+the_vivid_old_tale_(project_sekai),タグ「the vivid old tale (project sekai)」,The Vivid Old Tale（プロジェクトセカイ）,RAW_ENGLISH_WRAPPER
+theater_seating,タグ「theater seating」,劇場の座席,RAW_ENGLISH_WRAPPER
+theft,奪う,窃盗,SEMANTIC_STATE_ACTION_ERROR
+themis_legal_academy_school_uniform,themis legal academyの学校制服,テミス法学院の制服,MIXED_ENGLISH_DEBRIS
+theresa_apocalypse_(cosplay),theresa apocalypse (cosplay),テレサ・アポカリプス（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+thermometer_in_mouth,thermometerの中のmouth,口にくわえた体温計,SEMANTIC_RELATION_ERROR
+thick_arm_hair,太い・腕・髪,濃い腕毛,MIXED_ENGLISH_DEBRIS
+thick_ass_hair,太い・ass・髪,濃い尻毛,MIXED_ENGLISH_DEBRIS
+thick_back_hair,太い・背中・髪,濃い背毛,MIXED_ENGLISH_DEBRIS
+thick_beard,太い・髭,濃いあごひげ,MIXED_ENGLISH_DEBRIS
+thick_chest_hair,太い・胸・髪,濃い胸毛,MIXED_ENGLISH_DEBRIS
+thick_leg_hair,太い・leg・髪,濃い脚毛,MIXED_ENGLISH_DEBRIS
+thick_mustache,太い・mustache,濃い口ひげ,MIXED_ENGLISH_DEBRIS
+thick_navel_hair,太い・navel・髪,濃いへそ毛,MIXED_ENGLISH_DEBRIS
+thick_testicle_hair,太い・testicle・髪,濃い睾丸の毛,MIXED_ENGLISH_DEBRIS
+thigh_armor,thighの鎧,太ももの鎧,MIXED_ENGLISH_DEBRIS
+thigh_beads,タグ「thigh beads」,太もものビーズ,RAW_ENGLISH_WRAPPER
+thigh_corset,thigh・コルセット,太もものコルセット,MIXED_ENGLISH_DEBRIS
+thigh_cutting,タグ「thigh cutting」,太ももを切る,RAW_ENGLISH_WRAPPER
+thigh_freckles,thigh・そばかす,太もものそばかす,MIXED_ENGLISH_DEBRIS
+thigh_marking,タグ「thigh marking」,太ももの模様,RAW_ENGLISH_WRAPPER
+thigh_peek,thigh・覗き見,太ももをちら見せ,MIXED_ENGLISH_DEBRIS
+thigh_scrunchie,太もものシュリューティー,太もものシュシュ,TRANSLITERATION_ERROR
+thigh_sheath,タグ「thigh sheath」,太ももの鞘,RAW_ENGLISH_WRAPPER
+thigh_straddling,膝コキ,太ももにまたがる,SEMANTIC_ERROR
+thighband_bodystocking,タグ「thighband bodystocking」,太ももバンド付きボディストッキング,RAW_ENGLISH_WRAPPER
+thighband_hiphighs,thighband・ハイソックス,太ももバンド付きヒップハイ,MIXED_ENGLISH_DEBRIS
+thighhigh_dangle,太もものぶら下がっています,サイハイソックスがぶら下がる,SEMANTIC_ERROR
+thighhigh_gaiters,大胆なゲイター,サイハイゲートル,SEMANTIC_AMBIGUITY
+thighhigh_removed,大胆な削除,サイハイソックスを脱いだ,SEMANTIC_ERROR
+thighhighs_pull,太ももが引っ張る,サイハイソックスを引っ張る,SEMANTIC_ERROR
+thighs_together,タグ「thighs together」,太ももを揃える,RAW_ENGLISH_WRAPPER
+think_mark_think!_(meme),マークを考えてみてください！ （ミーム）,考えろマーク、考えろ！（ミーム）,SEMANTIC_ERROR
+thinking_emoji,絵文字を考えています,考える顔の絵文字,SEMANTIC_ERROR
