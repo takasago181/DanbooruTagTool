@@ -1,0 +1,5 @@
+canonical,old_display_ja,new_display_ja,reason
+eye_of_senri,目・of・senri,闡裡の瞳（連縁）,OFFICIAL_JA_NAME
+hair_sprinkles,髪・sprinkles,ヘアスプリンクル（髪飾りビーズ）,SEMANTIC_TERM_NORMALIZATION
+pov_adoring,pov adの指輪,愛おしむ視線（POV）,SEMANTIC_DEFINITION_REPAIR
+open_roof_top,開いた・roof・トップス,開いた屋根,MACHINE_COMPOSITION_ERROR
