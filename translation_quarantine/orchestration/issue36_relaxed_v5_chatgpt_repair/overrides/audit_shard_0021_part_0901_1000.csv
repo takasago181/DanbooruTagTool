@@ -1,0 +1,41 @@
+canonical,old_display_ja,new_display_ja,reason
+o-ring_arm_strap,o・指輪・腕・strap,Oリング付きアームストラップ,MIXED_ENGLISH_DEBRIS
+o-ring_belly_chain,o・指輪・belly・チェーン,Oリング付きベリーチェーン,MIXED_ENGLISH_DEBRIS
+o-ring_bikini_bottom,o・指輪・ビキニ・bottom,Oリング付きビキニボトム,MIXED_ENGLISH_DEBRIS
+o-ring_bra,o・指輪・ブラ,Oリング付きブラ,MIXED_ENGLISH_DEBRIS
+o-ring_dress,o・指輪・ドレス,Oリング付きドレス,MIXED_ENGLISH_DEBRIS
+o-ring_garter_belt,o・指輪・garter・ベルト,Oリング付きガーターベルト,MIXED_ENGLISH_DEBRIS
+o-ring_garter_straps,o・指輪・garter・straps,Oリング付きガーターストラップ,MIXED_ENGLISH_DEBRIS
+o-ring_legwear_garter,o・指輪・legwear・garter,Oリング付きレッグウェアガーター,MIXED_ENGLISH_DEBRIS
+o-ring_leotard,o・指輪・レオタード,Oリング付きレオタード,MIXED_ENGLISH_DEBRIS
+o-ring_necktie,o・指輪・necktie,Oリング付きネクタイ,MIXED_ENGLISH_DEBRIS
+o-ring_one-piece_swimsuit,o ring one pieceの水着,Oリング付きワンピース水着,MIXED_ENGLISH_DEBRIS
+o-ring_suspenders,o・指輪・suspenders,Oリング付きサスペンダー,MIXED_ENGLISH_DEBRIS
+o_scanner,タグ「o scanner」,オースキャナー,RAW_ENGLISH_WRAPPER
+o_x,牛,O×,SEMANTIC_ERROR
+oak_cake_roll_(honkai:_star_rail),橡木蛋糕卷,オークケーキロール（崩壊：スターレイル）,NON_JAPANESE_RESIDUE
+oathkeeper,タグ「oathkeeper」,オースキーパー,RAW_ENGLISH_WRAPPER
+obata_takeshi_(style),タグ「obata takeshi (style)」,小畑健（スタイル）,RAW_ENGLISH_WRAPPER
+obese,男の肥満化,肥満,SEMANTIC_NARROWING
+obi_bow,obi・リボン,帯のリボン,MIXED_ENGLISH_DEBRIS
+object_and_personification,物体・and・personification,物体と擬人化,MIXED_ENGLISH_DEBRIS
+object_floating_above_hand,物体・浮遊する・above・手,手の上に浮かぶ物体,MIXED_ENGLISH_DEBRIS
+object_focus,アイテム,物体を強調,SEMANTIC_UNDERSPECIFICATION
+object_in_bra,物体の中のブラ,ブラの中の物体,SEMANTIC_RELATION_ERROR
+object_in_clothes,物体の中の服,服の中の物体,SEMANTIC_RELATION_ERROR
+object_in_panties,パンティーのオブジェクト,パンティーの中の物体,SEMANTIC_UNDERSPECIFICATION
+object_in_pocket,物体の中のpocket,ポケットの中の物体,SEMANTIC_RELATION_ERROR
+object_in_swimsuit,水着のオブジェクト,水着の中の物体,SEMANTIC_UNDERSPECIFICATION
+object_namesake,名字双关,物体と同名,NON_JAPANESE_RESIDUE
+object_on_lap,物体の上のlap,膝の上の物体,SEMANTIC_RELATION_ERROR
+object_through_head,物体・越しの頭,頭を貫く物体,SEMANTIC_RELATION_ERROR
+object_to_mouth,物体・へのmouth,口元に物体,MIXED_ENGLISH_DEBRIS
+oblivion_(keyblade),タグ「oblivion (keyblade)」,過ぎ去りし思い出（キーブレード）,RAW_ENGLISH_WRAPPER
+obsydia_(nijisanji),タグ「obsydia (nijisanji)」,OBSYDIA（にじさんじ）,RAW_ENGLISH_WRAPPER
+octarian_(enemy),タグ「octarian (enemy)」,オクタリアン（敵）,RAW_ENGLISH_WRAPPER
+octavinelle_dorm_uniform,octavinelle dormの制服,オクタヴィネル寮の制服,MIXED_ENGLISH_DEBRIS
+octoling_(swim_form),タグ「octoling (swim form)」,オクトリング（泳ぎ形態）,RAW_ENGLISH_WRAPPER
+octopus_print,タコ印刷,タコ柄,SEMANTIC_ERROR
+oda_nobunaga_(fate)_(cosplay),oda nobunaga (fate) (cosplay),織田信長（Fate）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+odd_one_out,奇妙なもの,仲間外れ,SEMANTIC_ERROR
+oddly_specific_shirts_(meme),oddly specific shirts (meme),妙に具体的なシャツ（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
