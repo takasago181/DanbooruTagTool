@@ -18,7 +18,6 @@ row_number,canonical,display_ja,checks,already_overridden
 4393,pov_legs,POVの足,ASCII_WORD,false
 4674,reverse_nursing_fingering,reverse nursing fingの指輪,ASCII_WORD,false
 4680,rgb_lights,RGBライト,ASCII_WORD,true
-4881,shoe_dangle,靴・dangle,ASCII_WORD,false
 5249,subscribestar_logo,SubscribeStarロゴ,ASCII_WORD,true
 5250,subscribestar_username,SubscribeStarのユーザー名,ASCII_WORD,false
 5299,tablet_pc,タブレットPC,ASCII_WORD,false
@@ -46,7 +45,6 @@ row_number,canonical,display_ja,checks,already_overridden
 6471,ame_no_kisaki_academy_school_uniform,ame no kisaki academyの学校制服,ASCII_WORD,false
 6504,among_us_eyes_(meme),Among Usの目（ミーム）,ASCII_WORD,true
 6551,angel_wing_uniform,angel wingの制服,ASCII_WORD,false
-6572,animal_band,動物・band,ASCII_WORD,false
 6669,anti-rain_(girls'_frontline),AR小隊（ドールズフロントライン）,ASCII_WORD,true
 6683,anzio_ironworks_20mm_rifle,アンツィオ20mm対物ライフル,ASCII_WORD,false
 6744,aps_rifle,APS水中銃,ASCII_WORD,true
@@ -82,16 +80,10 @@ row_number,canonical,display_ja,checks,already_overridden
 8394,blueberry_academy_school_uniform,blueberry academyの学校制服,ASCII_WORD,false
 8398,bluesky_logo,blueskyのロゴ,ASCII_WORD,false
 8399,bluesky_username,blueskyのユーザー名,ASCII_WORD,false
-8445,body_onahole,身体・onahole,ASCII_WORD,false
 8459,bofors_40_mm_gun,ボフォース40mm機関砲,ASCII_WORD,false
 8533,boosty_username,boostyのユーザー名,ASCII_WORD,false
-8564,bouncing_flat_chest,bouncing・flat・胸,ASCII_WORD,false
-8693,breast_pile,胸・pile,ASCII_WORD,false
-8704,breastless_ghost_costume,breastless・ghost・衣装,ASCII_WORD,false
 8924,bryan_lee_o'malley_(style),Bryan Lee O'Malley風,ASCII_WORD,true
 8988,bullying_viewer,POVいじめ,ASCII_WORD,false
-9133,cafe_lycoreco_uniform,cafe lycorecoの制服,ASCII_WORD,false
-9135,cafe_mew_mew_uniform,cafe mew mewの制服,ASCII_WORD,false
 9492,cavorite_ball,cavoriteボール,ASCII_WORD,false
 9496,cd_case,CDケース,ASCII_WORD,false
 9497,cd_player,CDプレイヤー,ASCII_WORD,false
@@ -112,7 +104,6 @@ row_number,canonical,display_ja,checks,already_overridden
 11454,discord_username,discordのユーザー名,ASCII_WORD,false
 11515,diyap_(style),diyap風,ASCII_WORD,true
 11606,doom_cover_parody,DOOMパッケージ表紙パロディ,ASCII_WORD,true
-11667,double_inward_v,二重のinward・v,ASCII_WORD,false
 11673,double_ok_sign,ダブルOKサイン,ASCII_WORD,false
 11746,drama_cd,ドラマCD,ASCII_WORD,false
 11781,dream_c_club_uniform,DREAM C CLUBの制服,ASCII_WORD,true
@@ -144,7 +135,6 @@ row_number,canonical,display_ja,checks,already_overridden
 13244,fn_minimi,FNミニミ,ASCII_WORD,false
 13380,forehead_ui,額のUI,ASCII_WORD,true
 13433,fox_platoon_(blue_archive),FOX小隊（ブルーアーカイブ）,ASCII_WORD,true
-13653,full-body_clothes_hanger,full・身体・服・hanger,ASCII_WORD,false
 13748,furaffinity_username,Furaffinityユーザー名,ASCII_WORD,false
 13795,ga_rune_pose,GAルーンポーズ,ASCII_WORD,false
 13820,gambol_shroud,Gambolシュラウド,ASCII_WORD,false
@@ -168,8 +158,8 @@ row_number,canonical,display_ja,checks,already_overridden
 15019,hakuryou_high_school_uniform,hakuryou highの学校制服,ASCII_WORD,false
 15020,hakusen_academy_school_uniform,hakusen academyの学校制服,ASCII_WORD,false
 15084,hanamiya_nina_(style),hanamiya nina風,ASCII_WORD,true
-15351,hasu_no_sora_pop_up_shop_china_collection,hasu・no・sora・pop・上向きのshop・china・collection,ASCII_WORD,false
-15496,heart-shift_bracelets,ハート・shift・bracelets,ASCII_WORD,false
+15351,hasu_no_sora_pop_up_shop_china_collection,蓮ノ空POP UP SHOP チャイナコレクション,ASCII_WORD,true
+15496,heart-shift_bracelets,Heart-Shiftブレスレット,ASCII_WORD,true
 15603,heijou_institute_school_uniform,hejou Institute学校の制服,ASCII_WORD,false
 15611,hekiho_academy_school_uniform,hekiho academyの学校制服,ASCII_WORD,false
 15643,hentai_foundry_username,Hentai Foundryユーザー名,ASCII_WORD,true
@@ -252,7 +242,6 @@ row_number,canonical,display_ja,checks,already_overridden
 18672,living_fish_tank,living・魚・tank,ASCII_WORD,false
 18709,lofter_logo,lofterのロゴ,ASCII_WORD,false
 18833,love_high_school_uniform,love highの学校制服,ASCII_WORD,false
-18837,love_live!_victory_flag,love live! victoryの旗,ASCII_WORD,false
 18999,maginot_military_uniform,maginot militaryの制服,ASCII_WORD,false
 19000,maginot_school_uniform,maginotの学校制服,ASCII_WORD,false
 19006,magnolia_eclair_ii,マグノリアエクレアII,ASCII_WORD,false
@@ -319,7 +308,6 @@ row_number,canonical,display_ja,checks,already_overridden
 21182,onono_imoko_(style),onono imoko風,ASCII_WORD,true
 21195,oota_kuniyoshi_face_(meme),oota kuniyoshiの顔（ミーム）,ASCII_WORD,false
 21197,ootori_gakuen_school_uniform,ootori gakuen学校の制服,ASCII_WORD,false
-21225,open_onesie,開いた・onesie,ASCII_WORD,false
 21228,open_roof_top,開いた・roof・トップス,ASCII_WORD,false
 21249,oppai_hoodie,OPPAIパーカー,ASCII_WORD,false
 21400,organization_xiii,XIII機関,ASCII_WORD,true
@@ -451,7 +439,6 @@ row_number,canonical,display_ja,checks,already_overridden
 28716,twitter_strip_game_parody,Twitter脱衣ゲームのパロディ,ASCII_WORD,true
 28717,twitter_suki,Twitter好き,ASCII_WORD,true
 28718,twitter_verified_checkmark,Twitterの認証マーク,ASCII_WORD,false
-28794,two-tone_pantyhose,two toneのパンスト,ASCII_WORD,false
 28825,two_soyjaks_pointing_(meme),2人のSoyjakが指差す（ミーム）,ASCII_WORD,true
 28836,type-moon_heroines,TYPE-MOONヒロインズ,ASCII_WORD,false
 28865,ucc_coffee,UCCコーヒー,ASCII_WORD,false
@@ -475,7 +462,7 @@ row_number,canonical,display_ja,checks,already_overridden
 29709,weibo_username,Weiboユーザー名,ASCII_WORD,true
 29710,weibo_watermark,Weiboの透かし,ASCII_WORD,true
 29720,weird_route_(deltarune),Aルートweirdroute,ASCII_WORD,false
-29928,wi-fi_symbol,wifiシンボル,ASCII_WORD,false
+29928,wi-fi_symbol,Wi-Fiマーク,ASCII_WORD,true
 29947,wii_remote,Wiiリモコン,ASCII_WORD,false
 29976,windows_logo,Windowsロゴ,ASCII_WORD,false
 30068,witch_(fire_emblem_fates)_(cosplay),魔女（ファイアーエムブレムif）（コスプレ）,ASCII_WORD,true

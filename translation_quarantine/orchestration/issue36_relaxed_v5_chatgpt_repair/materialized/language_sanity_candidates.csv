@@ -37,7 +37,6 @@ row_number,canonical,display_ja,checks,already_overridden
 4542,qiqi_(genshin_impact)_(cosplay),qiqi (genshin impact) (cosplay),ASCII_WORD,false
 4674,reverse_nursing_fingering,reverse nursing fingの指輪,ASCII_WORD,false
 4680,rgb_lights,RGBライト,ASCII_WORD,true
-4881,shoe_dangle,靴・dangle,ASCII_WORD,false
 4980,skin_suit_(stellar_blade),スキンスーツ（Stellar Blade）,ASCII_WORD,true
 5249,subscribestar_logo,SubscribeStarロゴ,ASCII_WORD,true
 5250,subscribestar_username,SubscribeStarのユーザー名,ASCII_WORD,false
@@ -127,7 +126,6 @@ row_number,canonical,display_ja,checks,already_overridden
 6539,anemo_symbol_(genshin_impact),風元素のシンボル（Genshin Impact）,ASCII_WORD,false
 6545,angel_(kof)_(cosplay),エンジェル（kof）（コスプレ）,ASCII_WORD,false
 6551,angel_wing_uniform,angel wingの制服,ASCII_WORD,false
-6572,animal_band,動物・band,ASCII_WORD,false
 6621,animatech_(league),animatech (league),ASCII_WORD,true
 6642,annihilation_(nikke),Annihilation（NIKKE）,ASCII_WORD,true
 6648,anon_tokyo_(bang_dream!),ANON TOKYO（BanG Dream!）,ASCII_WORD,true
@@ -254,7 +252,6 @@ row_number,canonical,display_ja,checks,already_overridden
 8416,bmw_m3,BMW M3,ASCII_WORD,true
 8418,bnw_(umamusume),BNW(ウマ娘),ASCII_WORD,false
 8435,boc'z_(umamusume),BoC'z（ウマ娘）,ASCII_WORD,true
-8445,body_onahole,身体・onahole,ASCII_WORD,false
 8459,bofors_40_mm_gun,ボフォース40mm機関砲,ASCII_WORD,false
 8466,boko_(girls_und_panzer)_(cosplay),boko (girls und panzer) (cosplay),ASCII_WORD,false
 8475,bolkki,bolkki,ASCII_WORD,false
@@ -270,7 +267,6 @@ row_number,canonical,display_ja,checks,already_overridden
 8533,boosty_username,boostyのユーザー名,ASCII_WORD,false
 8538,boqta,boqta,ASCII_WORD,false
 8545,borrowed_inset,borrowed・差し込み,ASCII_WORD,false
-8564,bouncing_flat_chest,bouncing・flat・胸,ASCII_WORD,false
 8573,bound_tail,bound・尻尾,ASCII_WORD,false
 8576,boundless_creation_(eve_online),boundless creation (eve online),ASCII_WORD,false
 8578,bourbon_(kirby),Bourbon（Kirby）,ASCII_WORD,true
@@ -280,8 +276,6 @@ row_number,canonical,display_ja,checks,already_overridden
 8661,brazilian_flag_bikini,brazilian・旗・ビキニ,ASCII_WORD,false
 8663,brazilian_miku_(cosplay),brazilian miku (cosplay),ASCII_WORD,false
 8675,breaking_through_wall,breaking・越しの壁,ASCII_WORD,false
-8693,breast_pile,胸・pile,ASCII_WORD,false
-8704,breastless_ghost_costume,breastless・ghost・衣装,ASCII_WORD,false
 8732,bridget_(guilty_gear)_(cosplay),bridget (guilty gear) (cosplay),ASCII_WORD,false
 8736,bright_me_up!!_(ensemble_stars!),BRIGHT ME UP!!（あんさんぶるスターズ！）,ASCII_WORD,true
 8792,broly_culo_(meme),Broly culo（ミーム）,ASCII_WORD,false
@@ -300,8 +294,6 @@ row_number,canonical,display_ja,checks,already_overridden
 9060,butler_(fire_emblem:_three_houses),執事（Fire Emblem: Three Houses）,ASCII_WORD,false
 9112,bygone_days_(e.g.o),bygone days (e.g.o),ASCII_WORD,false
 9129,cadpat,CADPAT（迷彩柄）,ASCII_WORD,true
-9133,cafe_lycoreco_uniform,cafe lycorecoの制服,ASCII_WORD,false
-9135,cafe_mew_mew_uniform,cafe mew mewの制服,ASCII_WORD,false
 9147,caladbolg_(fate),caladbolg (fate),ASCII_WORD,false
 9152,caldari_state_(eve_online),caldari state (eve online),ASCII_WORD,false
 9154,calflet,calflet,ASCII_WORD,true
@@ -454,7 +446,6 @@ row_number,canonical,display_ja,checks,already_overridden
 11606,doom_cover_parody,DOOMパッケージ表紙パロディ,ASCII_WORD,true
 11622,dorothea_arnault_(plegian)_(cosplay),dorothea arnault (plegian) (cosplay),ASCII_WORD,false
 11628,dotabata_cafe_rec!!_(project_sekai),ドタバタ_cafe_●REC!!,ASCII_WORD,false
-11667,double_inward_v,二重のinward・v,ASCII_WORD,false
 11673,double_ok_sign,ダブルOKサイン,ASCII_WORD,false
 11691,down_boy!!_(meme),down boy!! (meme),ASCII_WORD,false
 11699,dp-27,DP-27,ASCII_WORD,true
@@ -576,7 +567,6 @@ row_number,canonical,display_ja,checks,already_overridden
 13583,frolicking_fairies_of_gensokyo_(touhou),frolicking fairies of gensokyo (touhou),ASCII_WORD,false
 13636,fuck-me_pasties,fuck-me pasties,ASCII_WORD,true
 13646,fujiwara_takumi's_toyota_trueno_ae86,藤原拓海のトヨタ・スプリンタートレノ AE86,ASCII_WORD,true
-13653,full-body_clothes_hanger,full・身体・服・hanger,ASCII_WORD,false
 13655,full-stop_office_(identity)_(project_moon),フルストップ・オフィス（人格）（Project Moon）,ASCII_WORD,true
 13668,funamusea_(style),海底囚人（Funamusea）風,ASCII_WORD,true
 13748,furaffinity_username,Furaffinityユーザー名,ASCII_WORD,false
@@ -668,9 +658,9 @@ row_number,canonical,display_ja,checks,already_overridden
 15203,handjob_gesture_(not_ok),handjob gesture（not ok）,ASCII_WORD,true
 15296,happy_enjoy_music!_(project_sekai),HAPPY ENJOY MUSIC!（プロジェクトセカイ）,ASCII_WORD,true
 15311,hardcore_heart,hardcore・ハート,ASCII_WORD,false
-15351,hasu_no_sora_pop_up_shop_china_collection,hasu・no・sora・pop・上向きのshop・china・collection,ASCII_WORD,false
+15351,hasu_no_sora_pop_up_shop_china_collection,蓮ノ空POP UP SHOP チャイナコレクション,ASCII_WORD,true
 15392,hauling_ship_(eve_online),輸送艦（EVE Online）,ASCII_WORD,false
-15496,heart-shift_bracelets,ハート・shift・bracelets,ASCII_WORD,false
+15496,heart-shift_bracelets,Heart-Shiftブレスレット,ASCII_WORD,true
 15562,heartsteel_(league),HEARTSTEEL（League of Legends）,ASCII_WORD,true
 15585,hecate's_staff_(fate),ヘカテーの杖（Fate）,ASCII_WORD,true
 15603,heijou_institute_school_uniform,hejou Institute学校の制服,ASCII_WORD,false
@@ -894,7 +884,6 @@ row_number,canonical,display_ja,checks,already_overridden
 18811,loss_(meme),Loss（ミーム）,ASCII_WORD,true
 18833,love_high_school_uniform,love highの学校制服,ASCII_WORD,false
 18836,love_live!_series_asia_tour_2024,Love Live! Series Asia Tour 2024,ASCII_WORD,true
-18837,love_live!_victory_flag,love live! victoryの旗,ASCII_WORD,false
 18857,lpvo,LPVO,ASCII_WORD,true
 18865,lucky_oasis_(stella_sora),Lucky Oasis（ステラソラ）,ASCII_WORD,true
 18880,lunacy_(limbus_company),狂気（Limbus Company）,ASCII_WORD,true
@@ -1114,7 +1103,6 @@ row_number,canonical,display_ja,checks,already_overridden
 21182,onono_imoko_(style),onono imoko風,ASCII_WORD,true
 21195,oota_kuniyoshi_face_(meme),oota kuniyoshiの顔（ミーム）,ASCII_WORD,false
 21197,ootori_gakuen_school_uniform,ootori gakuen学校の制服,ASCII_WORD,false
-21225,open_onesie,開いた・onesie,ASCII_WORD,false
 21228,open_roof_top,開いた・roof・トップス,ASCII_WORD,false
 21249,oppai_hoodie,OPPAIパーカー,ASCII_WORD,false
 21258,ora_ora_get_pregnant_(meme),ora ora get pregnant (meme),ASCII_WORD,false
@@ -1549,7 +1537,6 @@ row_number,canonical,display_ja,checks,already_overridden
 28716,twitter_strip_game_parody,Twitter脱衣ゲームのパロディ,ASCII_WORD,true
 28717,twitter_suki,Twitter好き,ASCII_WORD,true
 28718,twitter_verified_checkmark,Twitterの認証マーク,ASCII_WORD,false
-28794,two-tone_pantyhose,two toneのパンスト,ASCII_WORD,false
 28825,two_soyjaks_pointing_(meme),2人のSoyjakが指差す（ミーム）,ASCII_WORD,true
 28835,type-1_energy_sword,Type-1エネルギーソード,ASCII_WORD,true
 28836,type-moon_heroines,TYPE-MOONヒロインズ,ASCII_WORD,false
@@ -1612,7 +1599,7 @@ row_number,canonical,display_ja,checks,already_overridden
 29861,white_knight_(nikke),ホワイトナイト（NIKKE）,ASCII_WORD,true
 29900,white_snow's_merry_xmas_(ensemble_stars!),White Snow's Merry Xmas（あんさんぶるスターズ！）,ASCII_WORD,true
 29926,whoop_catsuit,whoop catsuit,ASCII_WORD,true
-29928,wi-fi_symbol,wifiシンボル,ASCII_WORD,false
+29928,wi-fi_symbol,Wi-Fiマーク,ASCII_WORD,true
 29946,wii,Wii,ASCII_WORD,true
 29947,wii_remote,Wiiリモコン,ASCII_WORD,false
 29948,wii_u,Wii U,ASCII_WORD,true

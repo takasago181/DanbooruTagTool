@@ -4,9 +4,9 @@
   "output_table": "translation_quarantine/orchestration/issue36_relaxed_v5_chatgpt_repair/materialized/final_translation_table_v5.csv",
   "source_rows": 30629,
   "materialized_rows": 30629,
-  "override_files": 199,
-  "override_rows": 10522,
-  "applied_overrides": 10522,
+  "override_files": 200,
+  "override_rows": 10538,
+  "applied_overrides": 10538,
   "canonical_unique": true,
   "canonical_identity_preserved": true,
   "canonical_order_preserved": true,
@@ -213,6 +213,7 @@
     "audit_shard_reaudit_raw_wrapper_0007.csv": 74,
     "audit_shard_reaudit_raw_wrapper_0008.csv": 69,
     "cross_shard_ascii_reaudit_0001.csv": 9,
-    "cross_shard_ascii_reaudit_0002.csv": 22
+    "cross_shard_ascii_reaudit_0002.csv": 22,
+    "cross_shard_ascii_reaudit_0003.csv": 16
   }
 }
