@@ -8,10 +8,12 @@
   "last_completed_shard": 19,
   "override_rows": 5538,
   "status": "IN_PROGRESS",
-  "current_shard_partial_override": false,
-  "current_shard_partial_override_parts": [],
-  "current_shard_partial_override_rows": 0,
-  "current_shard_reviewed_through_line": 0,
+  "current_shard_partial_override": true,
+  "current_shard_partial_override_parts": [
+    "translation_quarantine/orchestration/issue36_relaxed_v5_chatgpt_repair/overrides/audit_shard_0020.csv"
+  ],
+  "current_shard_partial_override_rows": 31,
+  "current_shard_reviewed_through_line": 100,
   "translator": "ChatGPT",
   "semantic_auditor": "ChatGPT_self_reaudit_then_final_cross_shard_reaudit",
   "codex_semantic_role": "NONE",
