@@ -1,0 +1,48 @@
+canonical,old_display_ja,new_display_ja,reason
+shuuchiin_academy_school_uniform,秀知院学園,秀知院学園の制服,SEMANTIC_UNDERSPECIFICATION
+shuuchikan_academy_school_uniform,shuuchikan academyの学校制服,修智館学院の制服,MIXED_ENGLISH_DEBRIS
+shuujin_academy_school_uniform,秀尽学園高校,秀尽学園高校の制服,SEMANTIC_UNDERSPECIFICATION
+side-tie_one-piece_swimsuit,side tie one pieceの水着,サイドタイのワンピース水着,MIXED_ENGLISH_DEBRIS
+side-tie_vest,側面・tie・vest,サイドタイのベスト,MIXED_ENGLISH_DEBRIS
+side_ahoge,サイドアホージ,サイドアホ毛,TRANSLITERATION_ERROR
+side_capelet,側面・capelet,サイドケープレット,MIXED_ENGLISH_DEBRIS
+side_halo,側面・halo,横向きの光輪,MIXED_ENGLISH_DEBRIS
+side_horns,側面・horns,側頭部の角,MIXED_ENGLISH_DEBRIS
+side_labret_piercing,side labretのピアス,サイドラブレットピアス,MIXED_ENGLISH_DEBRIS
+side_ponytail_with_braided_base,側面・ponytail・付きの編み込みの土台,編み込みの付け根があるサイドポニーテール,MIXED_ENGLISH_DEBRIS
+side_ponytail_with_hair_base,側面・ponytail・付きの髪・土台,髪の付け根があるサイドポニーテール,MIXED_ENGLISH_DEBRIS
+side_up_ring,側面・上向きのの指輪,サイドアップのリング,MIXED_ENGLISH_DEBRIS
+sideboob_cutout,タグ「sideboob cutout」,横乳のカットアウト,RAW_ENGLISH_WRAPPER
+sideburns_stubble,タグ「sideburns stubble」,もみあげの無精ひげ,RAW_ENGLISH_WRAPPER
+sideless_bangs,タグ「sideless bangs」,横髪のない前髪,RAW_ENGLISH_WRAPPER
+sideless_kimono,タグ「sideless kimono」,脇の開いた着物,RAW_ENGLISH_WRAPPER
+sideless_leotard,sideless・レオタード,脇の開いたレオタード,MIXED_ENGLISH_DEBRIS
+sideless_shirt,sideless・シャツ,脇の開いたシャツ,MIXED_ENGLISH_DEBRIS
+sideless_sweater,タグ「sideless sweater」,脇の開いたセーター,RAW_ENGLISH_WRAPPER
+sideless_swimsuit,sidelessの水着,脇の開いた水着,MIXED_ENGLISH_DEBRIS
+sidelocks_tied_back,サイドロックは縛られました,横髪を後ろで結ぶ,SEMANTIC_STATE_ACTION_ERROR
+sidesaddle,サイドアドル,横乗り,TRANSLITERATION_ERROR
+sideways,図像侧置,横向き,NON_JAPANESE_RESIDUE
+siegfeld_institute_of_music_school_uniform,siegfeld institute of musicの学校制服,シークフェルト音楽学院の制服,MIXED_ENGLISH_DEBRIS
+sierpinski_triangle,タグ「sierpinski triangle」,シェルピンスキーの三角形,RAW_ENGLISH_WRAPPER
+sig_556,タグ「sig 556」,SIG 556,RAW_ENGLISH_WRAPPER
+sig_mcx,セーフティー(ブルーアーカイブ),SIG MCX,SEMANTIC_NARROWING
+sig_mpx,ロジック&リーズン,SIG MPX,SEMANTIC_NARROWING
+sig_p220/p226,タグ「sig p220/p226」,SIG P220/P226,RAW_ENGLISH_WRAPPER
+sig_p228/p229,タグ「sig p228/p229」,SIG P228/P229,RAW_ENGLISH_WRAPPER
+sig_san_511,タグ「sig san 511」,SIG SAN 511,RAW_ENGLISH_WRAPPER
+sig_sauer,タグ「sig sauer」,SIG Sauer,RAW_ENGLISH_WRAPPER
+sig_sauer_p320,タグ「sig sauer p320」,SIG Sauer P320,RAW_ENGLISH_WRAPPER
+sig_sg550,タグ「sig sg550」,SIG SG550,RAW_ENGLISH_WRAPPER
+sig_sg552,タグ「sig sg552」,SIG SG552,RAW_ENGLISH_WRAPPER
+sight_magnifier,タグ「sight magnifier」,サイト用マグニファイア,RAW_ENGLISH_WRAPPER
+sighting,タグ「sighting」,照準を合わせる,RAW_ENGLISH_WRAPPER
+sigma_symbol,sigma・記号,シグマ記号,MIXED_ENGLISH_DEBRIS
+sign_of_khorne,タグ「sign of khorne」,コーンの印,RAW_ENGLISH_WRAPPER
+signal_flag,海軍の旗,信号旗,SEMANTIC_NARROWING
+signet_of_ego,タグ「signet of ego」,自我の印章,RAW_ENGLISH_WRAPPER
+silence_suzuka_(umamusume)_(cosplay),silence suzuka (umamusume) (cosplay),サイレンススズカ（ウマ娘）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+silhouette_target,タグ「silhouette target」,シルエット標的,RAW_ENGLISH_WRAPPER
+silk_flower_(genshin_impact),シルクの花（ゲンシンの衝撃）,霓裳花（原神）,SEMANTIC_ERROR
+silver_bangle,銀色のbangle,銀色のバングル,MIXED_ENGLISH_DEBRIS
+silver_bodysuit,銀色のbodysuit,銀色のボディスーツ,MIXED_ENGLISH_DEBRIS
