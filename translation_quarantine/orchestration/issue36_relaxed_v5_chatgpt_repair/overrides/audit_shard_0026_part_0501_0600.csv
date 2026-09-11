@@ -1,0 +1,43 @@
+canonical,old_display_ja,new_display_ja,reason
+silver_bracelet,銀色のbracelet,銀色のブレスレット,MIXED_ENGLISH_DEBRIS
+silver_circlet,銀色のcirclet,銀色のサークレット,MIXED_ENGLISH_DEBRIS
+silver_crown,銀色のcrown,銀色の王冠,MIXED_ENGLISH_DEBRIS
+silver_sword_(genshin_impact),silver sword (genshin impact),銀の剣（原神）,CANONICAL_FALLBACK_TRANSLATABLE
+silver_thighlet,銀色のthighlet,銀色の太もも飾り,MIXED_ENGLISH_DEBRIS
+silver_wolf_(honkai:_star_rail)_(cosplay),silver wolf (honkai: star rail) (cosplay),銀狼（崩壊：スターレイル）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+simon_(ttgl)_(cosplay),サイモン（TTGL）（コスプレ）,シモン（天元突破グレンラガン）（コスプレ）,SEMANTIC_ERROR
+simple_bat,タグ「simple bat」,簡略化したコウモリ,RAW_ENGLISH_WRAPPER
+simple_bird,タグ「simple bird」,簡略化した鳥,RAW_ENGLISH_WRAPPER
+simple_butterfly,simple・蝶,簡略化した蝶,MIXED_ENGLISH_DEBRIS
+simple_fish,simple・魚,簡略化した魚,MIXED_ENGLISH_DEBRIS
+simple_flower,simple・花,簡略化した花,MIXED_ENGLISH_DEBRIS
+simulacrum_(titanfall),タグ「simulacrum (titanfall)」,シミュラクラム（Titanfall）,RAW_ENGLISH_WRAPPER
+simulated_facial,顔射,疑似顔射,SEMANTIC_NARROWING
+simulated_handjob,タグ「simulated handjob」,疑似手コキ,RAW_ENGLISH_WRAPPER
+single-shoulder_dress,单肩连衣裙,ワンショルダードレス,NON_JAPANESE_RESIDUE
+single-shoulder_one-piece_swimsuit,single shoulder one pieceの水着,ワンショルダーのワンピース水着,MIXED_ENGLISH_DEBRIS
+single_animal_ear,単一の動物・耳,片方だけの動物耳,MIXED_ENGLISH_DEBRIS
+single_ankle_boot,単一のankle・boot,片方だけのアンクルブーツ,MIXED_ENGLISH_DEBRIS
+single_ankle_cuff,単一のankle・cuff,片方だけの足首カフ,MIXED_ENGLISH_DEBRIS
+single_antler,単一のantler,片方だけの枝角,MIXED_ENGLISH_DEBRIS
+single_arm_guard,単一の腕・guard,片腕だけのアームガード,MIXED_ENGLISH_DEBRIS
+single_bang,单刘海,一本の前髪,NON_JAPANESE_RESIDUE
+single_bare_arm,シングルベアアーム,片腕だけ裸,SEMANTIC_ERROR
+single_blank_eye,単一のblank・目,片目だけ空白,MIXED_ENGLISH_DEBRIS
+single_bracelet,単一のbracelet,片腕だけのブレスレット,MIXED_ENGLISH_DEBRIS
+single_claw_pose,单手握爪姿势,片手の爪ポーズ,NON_JAPANESE_RESIDUE
+single_couter,単一のcouter,片方だけのコーター,MIXED_ENGLISH_DEBRIS
+single_detached_legging,単一のdetached・legging,片脚だけの付けレギンス,MIXED_ENGLISH_DEBRIS
+single_drill,螺旋单馬尾,一本のドリル髪,NON_JAPANESE_RESIDUE
+single_earphone_removed,単一イヤホンが削除されました,片方のイヤホンを外した,SEMANTIC_STATE_ACTION_ERROR
+single_empty_eye,単一のempty・目,片目だけ空洞,MIXED_ENGLISH_DEBRIS
+single_eyebrow,単一のeyebrow,片眉だけ,MIXED_ENGLISH_DEBRIS
+single_fishnet_armwear,単一のfishnet・armwear,片腕だけの網目アームウェア,MIXED_ENGLISH_DEBRIS
+single_flame,単一のflame,一つの炎,MIXED_ENGLISH_DEBRIS
+single_floppy_ear,単一のfloppy・耳,片方だけ垂れた耳,MIXED_ENGLISH_DEBRIS
+single_handcuff,単一のhandcuff,片方だけの手錠,MIXED_ENGLISH_DEBRIS
+single_leg_bodysuit,単一のleg・bodysuit,片脚だけ覆うボディスーツ,MIXED_ENGLISH_DEBRIS
+single_loose_sock,単一のゆるい・sock,片方だけのルーズソックス,MIXED_ENGLISH_DEBRIS
+single_mechanical_glove,単一の機械のglove,片手だけの機械式グローブ,MIXED_ENGLISH_DEBRIS
+single_pantsleg,シングルパンツスレッグ,片方だけのズボン裾,TRANSLITERATION_ERROR
+single_sode,単一のsode,片方だけの袖,MIXED_ENGLISH_DEBRIS
