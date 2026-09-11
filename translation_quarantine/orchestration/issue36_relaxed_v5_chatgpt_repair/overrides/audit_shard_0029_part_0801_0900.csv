@@ -1,0 +1,52 @@
+canonical,old_display_ja,new_display_ja,reason
+two-tone_shrug,two・色調・ボレロ,ツートンのボレロ,MIXED_ENGLISH_DEBRIS
+two-tone_slingshot_swimsuit,two tone slingshotの水着,ツートンのスリングショット水着,MIXED_ENGLISH_DEBRIS
+two-tone_socks,two toneの靴下,ツートンの靴下,MIXED_ENGLISH_DEBRIS
+two-tone_sports_bra,two・色調・sports・ブラ,ツートンのスポーツブラ,MIXED_ENGLISH_DEBRIS
+two-tone_suit,two・色調・スーツ,ツートンのスーツ,MIXED_ENGLISH_DEBRIS
+two-tone_sweater_vest,two・色調・sweater・vest,ツートンのセーターベスト,MIXED_ENGLISH_DEBRIS
+two-tone_tank_top,two・色調・tank・トップス,ツートンのタンクトップ,MIXED_ENGLISH_DEBRIS
+two-tone_tunic,two・色調・tunic,ツートンのチュニック,MIXED_ENGLISH_DEBRIS
+two-tone_umbrella,two・色調・umbrella,ツートンの傘,MIXED_ENGLISH_DEBRIS
+two-tone_veil,双色面纱,ツートンのベール,NON_JAPANESE_RESIDUE
+two-tone_wrist_cuffs,two・色調・手首・カフ,ツートンのリストカフ,MIXED_ENGLISH_DEBRIS
+two-tone_wristband,two・色調・wristband,ツートンのリストバンド,MIXED_ENGLISH_DEBRIS
+two_of_clubs,2つのクラブ,クラブの2,SEMANTIC_ERROR
+two_of_diamonds,ダイヤモンドの2つ,ダイヤの2,SEMANTIC_ERROR
+two_of_hearts,二つの心,ハートの2,SEMANTIC_AMBIGUITY
+two_of_spades,2つのスペード,スペードの2,SEMANTIC_ERROR
+two_side_up_with_braided_base,two・側面・上向きの付きの編み込みの土台,編み込みベースのツーサイドアップ,MIXED_ENGLISH_DEBRIS
+two_side_up_with_hair_base,two・側面・上向きの付きの髪・土台,髪の土台付きツーサイドアップ,MIXED_ENGLISH_DEBRIS
+two_soyjaks_pointing_(meme),2つの大豆ポインティング（ミーム）,2人のSoyjakが指差す（ミーム）,SEMANTIC_ERROR
+tying,結びつきます,結ぶ,SEMANTIC_STATE_ACTION_ERROR
+tying_another's_hair,tying・他人の髪,他人の髪を結ぶ,MIXED_ENGLISH_DEBRIS
+tying_bikini,tying・ビキニ,ビキニを結ぶ,MIXED_ENGLISH_DEBRIS
+type-1_energy_sword,タイプ-1エネルギーの剣,Type-1エネルギーソード,TRANSLITERATION_ERROR
+type_100_smg,タグ「type 100 smg」,一〇〇式機関短銃,RAW_ENGLISH_WRAPPER
+type_10_(tank),タグ「type 10 (tank)」,10式戦車,RAW_ENGLISH_WRAPPER
+type_56_assault_rifle,タグ「type 56 assault rifle」,56式自動小銃,RAW_ENGLISH_WRAPPER
+type_74_(tank),タグ「type 74 (tank)」,74式戦車,RAW_ENGLISH_WRAPPER
+type_90_(tank),タグ「type 90 (tank)」,90式戦車,RAW_ENGLISH_WRAPPER
+type_96_aa_gun,タグ「type 96 aa gun」,96式対空砲,RAW_ENGLISH_WRAPPER
+type_effectiveness,タグ「type effectiveness」,タイプ相性,RAW_ENGLISH_WRAPPER
+typewriter,いんじき,タイプライター,SEMANTIC_ERROR
+typhoon,サイクロン,台風,SEMANTIC_ERROR
+u's_1st_years,タグ「u's 1st years」,μ's 1年生,RAW_ENGLISH_WRAPPER
+u's_2nd_years,タグ「u's 2nd years」,μ's 2年生,RAW_ENGLISH_WRAPPER
+u's_3rd_years,タグ「u's 3rd years」,μ's 3年生,RAW_ENGLISH_WRAPPER
+u.a._cheerleader_uniform,U.A.チアリーダーのユニフォーム,雄英高校のチアリーダー衣装,SEMANTIC_ERROR
+u.a._gym_uniform,U.A.ジムユニフォーム,雄英高校の体操服,SEMANTIC_ERROR
+u.a._school_uniform,u.a.の学校制服,雄英高校の制服,MIXED_ENGLISH_DEBRIS
+ubel_(sousou_no_frieren)_(cosplay),ubel (sousou no frieren) (cosplay),ユーベル（葬送のフリーレン）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+uchigatana,うどん,打刀,SEMANTIC_ERROR
+uchiha_symbol,うちはシンボル,うちは一族の紋章,SEMANTIC_UNDERSPECIFICATION
+uchiko,打粉責め,打粉,SEMANTIC_ERROR
+uchiwa_(medium),うちはデザイン,うちわ（媒体）,SEMANTIC_ERROR
+ufo_hair_ornament,ufoの髪飾り,UFOの髪飾り,MIXED_ENGLISH_DEBRIS
+ufo_skirt,ufo・スカート,UFOスカート,MIXED_ENGLISH_DEBRIS
+uh-1_iroquois,uh-1イロコイ,UH-1 イロコイ,TRANSLITERATION_ERROR
+uh-60_blackhawk,uh-60ブラックホーク,UH-60 ブラックホーク,TRANSLITERATION_ERROR
+ukrainian_ground_forces,タグ「ukrainian ground forces」,ウクライナ陸軍,RAW_ENGLISH_WRAPPER
+ukrainian_text,ウクライナ語,ウクライナ語の文字,SEMANTIC_UNDERSPECIFICATION
+ultimate_madoka_(cosplay),アルティメットマドーカ（コスプレ）,アルティメットまどか（コスプレ）,TRANSLITERATION_ERROR
+ultra_instinct_sign,身勝手の極意,身勝手の極意“兆”,SEMANTIC_UNDERSPECIFICATION
