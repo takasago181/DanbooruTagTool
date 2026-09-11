@@ -1,0 +1,37 @@
+canonical,old_display_ja,new_display_ja,reason
+pushing_bicycle,タグ「pushing bicycle」,自転車を押す,RAW_ENGLISH_WRAPPER
+pushing_face,推顔,顔を押す,NON_JAPANESE_RESIDUE
+pushing_stroller,タグ「pushing stroller」,ベビーカーを押す,RAW_ENGLISH_WRAPPER
+pushing_wheelchair,タグ「pushing wheelchair」,車椅子を押す,RAW_ENGLISH_WRAPPER
+pussy_juice_drip,タグ「pussy juice drip」,愛液の滴り,RAW_ENGLISH_WRAPPER
+pussy_juice_in_mouth,口の中の猫ジュース,口の中の愛液,SEMANTIC_AMBIGUITY
+pussy_juice_on_face,pussy・juiceの上の顔,顔についた愛液,SEMANTIC_RELATION_ERROR
+pussy_on_glass,pussyの上のglass,ガラスに押し付けた外陰部,SEMANTIC_RELATION_ERROR
+pussy_out_of_frame,タグ「pussy out of frame」,外陰部が画面外,RAW_ENGLISH_WRAPPER
+pussy_squeeze,猫の絞り,外陰部を圧迫,SEMANTIC_AMBIGUITY
+pussy_steam,猫の蒸気,外陰部からの湯気,SEMANTIC_AMBIGUITY
+pussy_tentacle,pussy・触手,外陰部状の触手,MIXED_ENGLISH_DEBRIS
+putting_in_contact_lens,puttingの中のcontact・lens,コンタクトレンズを入れる,MIXED_ENGLISH_DEBRIS
+putting_on_earrings,putting onのイヤリング,イヤリングを着ける,MIXED_ENGLISH_DEBRIS
+putting_on_footwear,ブーツを着る,履物を履く,SEMANTIC_NARROWING
+putting_on_jacket,puttingの上のジャケット,ジャケットを着る,SEMANTIC_RELATION_ERROR
+puzzle,拼図,パズル,NON_JAPANESE_RESIDUE
+puzzle_piece_print,puzzle pieceの柄,パズルピース柄,MIXED_ENGLISH_DEBRIS
+pyra_(xenoblade)_(cosplay),pyra（xenoblade）（コスプレ）,ホムラ（ゼノブレイド）（コスプレ）,SEMANTIC_ERROR
+pyro_symbol_(genshin_impact),炎元素のシンボル（Genshin Impact）,炎元素のシンボル（原神）,MIXED_ENGLISH_DEBRIS
+pyromania,タグ「pyromania」,放火症,RAW_ENGLISH_WRAPPER
+qifrey's_atelier_apprentice_uniform,qifrey atelier apprenticeの制服,キーフリーのアトリエの弟子制服,MIXED_ENGLISH_DEBRIS
+qingming_sword,qingming・剣,青冥剣,MIXED_ENGLISH_DEBRIS
+qingtuan,青团,青団（チントゥアン）,NON_JAPANESE_RESIDUE
+qr_code_tattoo,qr codeのタトゥー,QRコードのタトゥー,MIXED_ENGLISH_DEBRIS
+quad_drills,螺旋四馬尾,4本のドリル髪,NON_JAPANESE_RESIDUE
+quad_hair_rings,quad・髪・rings,4つのヘアリング,MIXED_ENGLISH_DEBRIS
+quadcopter,タグ「quadcopter」,クアッドコプター,RAW_ENGLISH_WRAPPER
+quadruple_wielding,4倍の振る舞い,4本の武器を同時に持つ,SEMANTIC_ERROR
+quanxi's_group_(chainsaw_man),Quanxiのグループ（チェーンソーマン）,クァンシのグループ（チェンソーマン）,TRANSLITERATION_ERROR
+queen_(playing_card),タグ「queen (playing card)」,クイーン（トランプ）,RAW_ENGLISH_WRAPPER
+queen_of_hearts_(alice_in_wonderland)_(cosplay),queen of hearts (alice in wonderland) (cosplay),ハートの女王（不思議の国のアリス）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+question_mark_ahoge,question・印・ahoge,疑問符形のアホ毛,MIXED_ENGLISH_DEBRIS
+quilt,被子,キルト,NON_JAPANESE_RESIDUE
+quilted_headwear,タグ「quilted headwear」,キルティングの頭飾り,RAW_ENGLISH_WRAPPER
+quilted_jacket,quilted・ジャケット,キルティングジャケット,MIXED_ENGLISH_DEBRIS
