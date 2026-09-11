@@ -1,0 +1,38 @@
+canonical,old_display_ja,new_display_ja,reason
+opaque_monocle,タグ「opaque monocle」,不透明なモノクル,RAW_ENGLISH_WRAPPER
+opaque_sunglasses,タグ「opaque sunglasses」,不透明なサングラス,RAW_ENGLISH_WRAPPER
+open-chest_sweater,開いた・胸・セーター,胸元の開いたセーター,MIXED_ENGLISH_DEBRIS
+open-toe_shoes,open toeの靴,つま先の開いた靴,MIXED_ENGLISH_DEBRIS
+open_box,箱を開ける,開いた箱,SEMANTIC_STATE_ACTION_ERROR
+open_can,開く缶,開いた缶,SEMANTIC_STATE_ACTION_ERROR
+open_car_hood,開いた・car・フード,開いた車のボンネット,MIXED_ENGLISH_DEBRIS
+open_cloak,クロークを開きます,開いたマント,SEMANTIC_STATE_ACTION_ERROR
+open_cuffs,カフスを開きます,開いたカフス,SEMANTIC_STATE_ACTION_ERROR
+open_cylinder_(revolver),タグ「open cylinder (revolver)」,開いたシリンダー（リボルバー）,RAW_ENGLISH_WRAPPER
+open_gift,オープンギフト,開いたプレゼント,SEMANTIC_ERROR
+open_happi,開いた・happi,前の開いた法被,MIXED_ENGLISH_DEBRIS
+open_hatch,ハッチを開きます,開いたハッチ,SEMANTIC_STATE_ACTION_ERROR
+open_leotard,レオタードを開きます,前の開いたレオタード,SEMANTIC_STATE_ACTION_ERROR
+open_magazine,オープンマガジン,開いた雑誌,SEMANTIC_ERROR
+open_pajamas,パジャマを開きます,前の開いたパジャマ,SEMANTIC_STATE_ACTION_ERROR
+open_poke_ball,ポークボールを開きます,開いたモンスターボール,SEMANTIC_ERROR
+open_suitcase,開いた・suitcase,開いたスーツケース,MIXED_ENGLISH_DEBRIS
+open_towel,タオルを開けます,広げたタオル,SEMANTIC_STATE_ACTION_ERROR
+open_window_shutter,開いた・window・shutter,開いた窓の雨戸,MIXED_ENGLISH_DEBRIS
+opening_another's_clothes,opening・他人の服,他人の服を開く,MIXED_ENGLISH_DEBRIS
+opening_can,オープニング缶,缶を開ける,SEMANTIC_ERROR
+opening_curtains,タグ「opening curtains」,カーテンを開ける,RAW_ENGLISH_WRAPPER
+opening_eyes,opening・目,目を開ける,MIXED_ENGLISH_DEBRIS
+opening_own_clothes,自己によって開かれました,自分の服を開く,SEMANTIC_ERROR
+opening_window,タグ「opening window」,窓を開ける,RAW_ENGLISH_WRAPPER
+operating_table,手术台,手術台,NON_JAPANESE_RESIDUE
+options_(shmup),タグ「options (shmup)」,オプション（シューティングゲーム）,RAW_ENGLISH_WRAPPER
+orange-shaped_earrings,オレンジ色のイヤリング,オレンジ形のイヤリング,SEMANTIC_ERROR
+orange_amps,オレンジ色のamps,オレンジ色のアンプ,MIXED_ENGLISH_DEBRIS
+orange_assault_visor,オレンジ色のassault・バイザー,オレンジ色のアサルトバイザー,MIXED_ENGLISH_DEBRIS
+orange_bandeau,オレンジバンドー,オレンジ色のバンドゥ,TRANSLITERATION_ERROR
+orange_bird,オレンジ色のbird,オレンジ色の鳥,MIXED_ENGLISH_DEBRIS
+orange_blossoms,オレンジ色の花,オレンジの花,SEMANTIC_ERROR
+orange_car,オレンジ色のcar,オレンジ色の車,MIXED_ENGLISH_DEBRIS
+orange_dougi,オレンジ色のdougi,オレンジ色の道着,MIXED_ENGLISH_DEBRIS
+orange_fire,オレンジ色のfire,オレンジ色の炎,MIXED_ENGLISH_DEBRIS
