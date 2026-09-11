@@ -1,0 +1,33 @@
+canonical,old_display_ja,new_display_ja,reason
+narutomaki_hair_ornament,narutomakiの髪飾り,なるとの髪飾り,MIXED_ENGLISH_DEBRIS
+nasa,タグ「nasa」,NASA,RAW_ENGLISH_WRAPPER
+nasu_squad's_uniform,nasu squadの制服,那須隊の制服,MIXED_ENGLISH_DEBRIS
+nationale_volksarmee,赤いプロイセン,国家人民軍,SEMANTIC_ERROR
+native_american,インディアン,ネイティブアメリカン,SEMANTIC_ERROR
+native_american_clothes,native・american・服,ネイティブアメリカンの服,MIXED_ENGLISH_DEBRIS
+natural_wedgie,自然的内ズボン陷入,自然に食い込んだ下着,NON_JAPANESE_RESIDUE
+naval_dress_uniform,naval dressの制服,海軍礼装,MIXED_ENGLISH_DEBRIS
+naval_working_uniform,naval workingの制服,海軍作業服,MIXED_ENGLISH_DEBRIS
+navel_hair,脐下毛,へそ周りの毛,NON_JAPANESE_RESIDUE
+navel_peek,navel・覗き見,へそが見える,MIXED_ENGLISH_DEBRIS
+navel_penetration,タグ「navel penetration」,へそへの挿入,RAW_ENGLISH_WRAPPER
+nazi_party_pin,nazi・party・ピン,ナチ党のピン,MIXED_ENGLISH_DEBRIS
+nazi_war_ensign,ナチス戦争少sign,ナチス・ドイツ軍艦旗,SEMANTIC_ERROR
+neapolitan_palette,タグ「neapolitan palette」,ナポリタン配色,RAW_ENGLISH_WRAPPER
+nebula,星云,星雲,NON_JAPANESE_RESIDUE
+neck_focus,首・焦点,首を強調,AWKWARD_MACHINE_TRANSLATION
+neck_pouch,首・pouch,首のポーチ,MIXED_ENGLISH_DEBRIS
+neck_tuft,首・tuft,首の毛束,MIXED_ENGLISH_DEBRIS
+neck_warmer,围脖,ネックウォーマー,NON_JAPANESE_RESIDUE
+necklace_between_breasts,ネックレスの間の胸,胸の間のネックレス,SEMANTIC_RELATION_ERROR
+necklace_in_mouth,ネックレスの中のmouth,口にネックレス,MIXED_ENGLISH_DEBRIS
+necktie_around_wrists,necktieの周囲のwrists,手首に巻いたネクタイ,MIXED_ENGLISH_DEBRIS
+necktie_aside,タグ「necktie aside」,脇にずらしたネクタイ,RAW_ENGLISH_WRAPPER
+necktie_in_pocket,necktieの中のpocket,ポケットの中のネクタイ,SEMANTIC_RELATION_ERROR
+necktie_lift,タグ「necktie lift」,ネクタイを持ち上げる,RAW_ENGLISH_WRAPPER
+necktie_over_shoulder,necktieの上の肩,肩に掛けたネクタイ,SEMANTIC_RELATION_ERROR
+necktie_overhang,タグ「necktie overhang」,垂れ下がるネクタイ,RAW_ENGLISH_WRAPPER
+nectar,みき,花蜜,SEMANTIC_ERROR
+needle_(hollow_knight),ニードル（中空騎士）,ニードル（Hollow Knight）,SEMANTIC_ERROR
+needles_between_fingers,needlesの間のfingers,指の間の針,MIXED_ENGLISH_DEBRIS
+negative,负片,ネガ,NON_JAPANESE_RESIDUE
