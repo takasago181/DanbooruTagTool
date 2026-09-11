@@ -1,0 +1,47 @@
+canonical,old_display_ja,new_display_ja,reason
+tatara_kogasa_(cosplay),Tatara Kogasa（コスプレ）,多々良小傘（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+tatenashi_high_school_uniform,Tatenashi High Schoolの制服,タテナシ高校の制服,MIXED_ENGLISH_DEBRIS
+tatsumaki_(cosplay),Tatsumaki（コスプレ）,タツマキ（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+tatsuta_(kancolle)_(cosplay),Tatsuta（Kancolle）（コスプレ）,龍田（艦これ）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+tattoo_between_breasts,タトゥーの間の胸,胸の間のタトゥー,SEMANTIC_RELATION_ERROR
+tattoo_choker,タトゥー・choker,タトゥーチョーカー,MIXED_ENGLISH_DEBRIS
+tattoo_sleeve,タトゥー・sleeve,タトゥースリーブ,MIXED_ENGLISH_DEBRIS
+tattooing,タグ「tattooing」,タトゥーを入れる,RAW_ENGLISH_WRAPPER
+taur_exoskeleton,タグ「taur exoskeleton」,タウル型外骨格,RAW_ENGLISH_WRAPPER
+taurus_(symbol),タグ「taurus (symbol)」,牡牛座記号,RAW_ENGLISH_WRAPPER
+taurus_(zodiac),金牛座,牡牛座,NON_JAPANESE_RESIDUE
+taut_bikini,ぴんと見たビキニ,ぴんと張ったビキニ,SEMANTIC_ERROR
+taut_bodysuit,ぴんと見たボディースーツ,ぴんと張ったボディスーツ,SEMANTIC_ERROR
+taut_camisole,タグ「taut camisole」,ぴんと張ったキャミソール,RAW_ENGLISH_WRAPPER
+taut_pants,ぴんぴりパンツ,ぴんと張ったズボン,TRANSLITERATION_ERROR
+taut_shirt,贴身シャツ衫,ぴんと張ったシャツ,NON_JAPANESE_RESIDUE
+taut_shorts,緊張したショートパンツ,ぴんと張ったショートパンツ,SEMANTIC_AMBIGUITY
+taut_sweater,ぴんと見たセーター,ぴんと張ったセーター,SEMANTIC_ERROR
+taut_swimsuit,緊張した水着,ぴんと張った水着,SEMANTIC_AMBIGUITY
+tbh_creature_(meme),tbh creature (meme),TBHクリーチャー（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+team_31a_(heaven_burns_red),タグ「team 31a (heaven burns red)」,第31A部隊（ヘブンバーンズレッド）,RAW_ENGLISH_WRAPPER
+team_7_(naruto),タグ「team 7 (naruto)」,第七班（NARUTO）,RAW_ENGLISH_WRAPPER
+team_aqua_uniform,チームアクアユニフォーム,アクア団の制服,SEMANTIC_ERROR
+team_flare_uniform,チームフレアユニフォーム,フレア団の制服,SEMANTIC_ERROR
+team_galactic_uniform,チームギャラクティックユニフォーム,ギンガ団の制服,SEMANTIC_ERROR
+team_guy_(naruto),タグ「team guy (naruto)」,ガイ班（NARUTO）,RAW_ENGLISH_WRAPPER
+team_magma_uniform,チームマグマユニフォーム,マグマ団の制服,SEMANTIC_ERROR
+team_plasma_uniform,チームプラズマユニフォーム,プラズマ団の制服,SEMANTIC_ERROR
+team_rainbow_rocket_uniform,チームレインボーロケットユニフォーム,レインボーロケット団の制服,SEMANTIC_ERROR
+team_skull_uniform,チームスカルユニフォーム,スカル団の制服,SEMANTIC_ERROR
+tear_troughs,泪沟,涙溝,NON_JAPANESE_RESIDUE
+teardrop-shaped_gem,teardrop・shaped・宝石,涙形の宝石,MIXED_ENGLISH_DEBRIS
+teardrop_earrings,teardropのイヤリング,涙形のイヤリング,MIXED_ENGLISH_DEBRIS
+teardrop_necklace,teardrop・ネックレス,涙形のネックレス,MIXED_ENGLISH_DEBRIS
+tearing_paper,引き裂く紙,紙を引き裂く,SEMANTIC_STATE_ACTION_ERROR
+tears_facial_mark,tears・facial・印,涙のフェイスマーク,MIXED_ENGLISH_DEBRIS
+tears_from_one_eye,tears・からの1つの目,片目からの涙,MIXED_ENGLISH_DEBRIS
+tears_of_joy_emoji,タグ「tears of joy emoji」,嬉し泣きの絵文字,RAW_ENGLISH_WRAPPER
+technology_liberation_alliance_(identity)_(project_moon),technology liberation alliance (identity) (project moon),技術解放連合（Identity）（Project Moon）,CANONICAL_FALLBACK_TRANSLATABLE
+techpriest,タグ「techpriest」,テックプリースト,RAW_ENGLISH_WRAPPER
+teddy_bear_ornament,teddy・bear・飾り,テディベアの飾り,MIXED_ENGLISH_DEBRIS
+tedeza_rize's_school_uniform,Tedeza Rizeの学校の制服,天々座理世の学校制服,MIXED_ENGLISH_DEBRIS
+teeth_hold,歯は保持します,歯でくわえる,SEMANTIC_ERROR
+teeth_print,歯の印刷,歯柄,SEMANTIC_STATE_ACTION_ERROR
+teeth_print_mask,teeth・柄・マスク,歯柄のマスク,MIXED_ENGLISH_DEBRIS
+teitan_high_school_uniform,テイタン高校のユニフォーム,帝丹高校の制服,TRANSLITERATION_ERROR
