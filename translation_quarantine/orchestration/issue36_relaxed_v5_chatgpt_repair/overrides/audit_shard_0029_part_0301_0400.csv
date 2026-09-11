@@ -1,0 +1,39 @@
+canonical,old_display_ja,new_display_ja,reason
+tortico_cat,tortico・猫,トーティコ猫,MIXED_ENGLISH_DEBRIS
+torture_instruments,拷問楽器,拷問器具,SEMANTIC_AMBIGUITY
+touching_another's_back,touching・他人の背中,他人の背中に触れる,MIXED_ENGLISH_DEBRIS
+touching_another's_chastity_cage,touching・他人の貞操帯・檻,他人の貞操ケージに触れる,MIXED_ENGLISH_DEBRIS
+touching_another's_crotch,touching・他人の股間,他人の股間に触れる,MIXED_ENGLISH_DEBRIS
+touching_self_through_portal,touching・self・越しのportal,ポータル越しに自分自身へ触れる,MIXED_ENGLISH_DEBRIS
+touhou_11th_popularity_poll,タグ「touhou 11th popularity poll」,第11回東方Project人気投票,RAW_ENGLISH_WRAPPER
+touhou_12th_popularity_poll,タグ「touhou 12th popularity poll」,第12回東方Project人気投票,RAW_ENGLISH_WRAPPER
+touhou_14th_popularity_poll,タグ「touhou 14th popularity poll」,第14回東方Project人気投票,RAW_ENGLISH_WRAPPER
+touhou_16th_popularity_poll,タグ「touhou 16th popularity poll」,第16回東方Project人気投票,RAW_ENGLISH_WRAPPER
+touhou_17th_popularity_poll,タグ「touhou 17th popularity poll」,第17回東方Project人気投票,RAW_ENGLISH_WRAPPER
+touhou_18th_popularity_poll,タグ「touhou 18th popularity poll」,第18回東方Project人気投票,RAW_ENGLISH_WRAPPER
+touhou_19th_popularity_poll,タグ「touhou 19th popularity poll」,第19回東方Project人気投票,RAW_ENGLISH_WRAPPER
+touhou_20th_popularity_poll,タグ「touhou 20th popularity poll」,第20回東方Project人気投票,RAW_ENGLISH_WRAPPER
+touhou_21st_popularity_poll,タグ「touhou 21st popularity poll」,第21回東方Project人気投票,RAW_ENGLISH_WRAPPER
+touhou_user_interface,タグ「touhou user interface」,東方Project風ユーザーインターフェース,RAW_ENGLISH_WRAPPER
+towel_on_legs,浴巾盖在腿上,脚の上のタオル,NON_JAPANESE_RESIDUE
+towel_tug,タグ「towel tug」,タオルを引っ張る,RAW_ENGLISH_WRAPPER
+tower_shield,タグ「tower shield」,タワーシールド,RAW_ENGLISH_WRAPPER
+toy_dinosaur,タグ「toy dinosaur」,おもちゃの恐竜,RAW_ENGLISH_WRAPPER
+toy_mouse,おもちゃマウス,おもちゃのネズミ,SEMANTIC_AMBIGUITY
+toy_packaging,フィギュア箱,おもちゃのパッケージ,SEMANTIC_NARROWING
+toy_robot,おもちゃ・ロボット,おもちゃのロボット,MIXED_ENGLISH_DEBRIS
+toy_sword,おもちゃ・剣,おもちゃの剣,MIXED_ENGLISH_DEBRIS
+toy_tank,おもちゃ・タンク,おもちゃの戦車,SEMANTIC_AMBIGUITY
+toyogasaki_academy_school_uniform,豊ヶ崎学園,豊ヶ崎学園の制服,SEMANTIC_UNDERSPECIFICATION
+toyosatomimi_no_miko_(cosplay),トイサトミミはミコ（コスプレ）,豊聡耳神子（コスプレ）,TRANSLITERATION_ERROR
+toyota_supra_mk_iv,タグ「toyota supra mk iv」,トヨタ・スープラ Mk IV,RAW_ENGLISH_WRAPPER
+tracen_ondo_outfit_(umamusume),トレセン音頭,トレセン音頭衣装（ウマ娘）,SEMANTIC_UNDERSPECIFICATION
+tracen_school_uniform,トレセン冬服,トレセン学園の制服,SEMANTIC_NARROWING
+tracen_swimsuit,セパスク,トレセン学園の水着,SEMANTIC_NARROWING
+track_and_field,セパレートユニフォーム,陸上競技,SEMANTIC_ERROR
+track_pants,ズボンを追跡します,トラックパンツ,SEMANTIC_AMBIGUITY
+trad_goth,タグ「trad goth」,トラッドゴス,RAW_ENGLISH_WRAPPER
+traditional_elf,伝統的な・elf,伝統的なエルフ,MIXED_ENGLISH_DEBRIS
+traditional_nun,伝統的な・nun,伝統的な修道女,MIXED_ENGLISH_DEBRIS
+traffic,こうつう,交通,TRANSLITERATION_ERROR
+traffic_barrier,交通障壁,交通バリケード,SEMANTIC_ERROR
