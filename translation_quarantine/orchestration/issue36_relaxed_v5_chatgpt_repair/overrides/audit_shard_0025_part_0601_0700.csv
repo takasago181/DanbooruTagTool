@@ -1,0 +1,42 @@
+canonical,old_display_ja,new_display_ja,reason
+scar_on_ear,scarの上の耳,耳の傷跡,SEMANTIC_RELATION_ERROR
+scar_on_foot,scarの上の足,足の傷跡,SEMANTIC_RELATION_ERROR
+scar_on_head,scarの上の頭,頭の傷跡,SEMANTIC_RELATION_ERROR
+scar_on_hip,scarの上の腰,腰の傷跡,SEMANTIC_RELATION_ERROR
+scar_on_horns,scarの上のhorns,角の傷跡,SEMANTIC_RELATION_ERROR
+scar_on_lip,scarの上のlip,唇の傷跡,SEMANTIC_RELATION_ERROR
+scar_on_shoulder,scarの上の肩,肩の傷跡,SEMANTIC_RELATION_ERROR
+scar_on_sternum,scarの上のsternum,胸骨の傷跡,SEMANTIC_RELATION_ERROR
+scar_on_stomach,胃の傷跡,お腹の傷跡,SEMANTIC_AMBIGUITY
+scar_on_tail,scarの上の尻尾,尻尾の傷跡,SEMANTIC_RELATION_ERROR
+scar_on_thigh,scarの上のthigh,太ももの傷跡,SEMANTIC_RELATION_ERROR
+scarabia_dorm_uniform,scarabia dormの制服,スカラビア寮の制服,MIXED_ENGLISH_DEBRIS
+scared_to_sleep_alone,scared・へのsleep・alone,一人で寝るのが怖い,MIXED_ENGLISH_DEBRIS
+scarf_choker,タグ「scarf choker」,スカーフチョーカー,RAW_ENGLISH_WRAPPER
+scarf_over_mouth,マフラー・覆う・口,口を覆うスカーフ,MIXED_ENGLISH_DEBRIS
+scarf_tying,タグ「scarf tying」,スカーフを結ぶ,RAW_ENGLISH_WRAPPER
+scarlet_macaw,コンゴウインコ,ベニコンゴウインコ,SEMANTIC_UNDERSPECIFICATION
+scars_all_over,傷跡が多すぎます,全身の傷跡,SEMANTIC_ERROR
+scathach_(fate)_(cosplay),スカサッハ（運命）（コスプレ）,スカサハ（Fate）（コスプレ）,SEMANTIC_ERROR
+scattered_paper,タグ「scattered paper」,散らばった紙,RAW_ENGLISH_WRAPPER
+scene_cut,タグ「scene cut」,場面転換,RAW_ENGLISH_WRAPPER
+scene_fashion,シーン,シーン系ファッション,SEMANTIC_UNDERSPECIFICATION
+schale_logo,schaleのロゴ,シャーレのロゴ,MIXED_ENGLISH_DEBRIS
+schecter_guitar,タグ「schecter guitar」,シェクターのギター,RAW_ENGLISH_WRAPPER
+science,理科,科学,SEMANTIC_NARROWING
+scissor_doors,タグ「scissor doors」,シザードア,RAW_ENGLISH_WRAPPER
+scolding,少女説教中,叱る,SEMANTIC_NARROWING
+sconce,タグ「sconce」,壁付け燭台,RAW_ENGLISH_WRAPPER
+score,採点,スコア,SEMANTIC_NARROWING
+scorpio_(symbol),タグ「scorpio (symbol)」,さそり座の記号,RAW_ENGLISH_WRAPPER
+scorpion_pose,scorpion・ポーズ,スコーピオンポーズ,MIXED_ENGLISH_DEBRIS
+scout_(tf2)_(cosplay),scout (tf2) (cosplay),スカウト（TF2）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+scraped_knee,膝を削った,擦りむいた膝,SEMANTIC_ERROR
+scratched,タグ「scratched」,引っかき傷がある,RAW_ENGLISH_WRAPPER
+scratched_paint,タグ「scratched paint」,傷ついた塗装,RAW_ENGLISH_WRAPPER
+scratching_ass,お尻を傷つけます,お尻をかく,SEMANTIC_ERROR
+scratching_back,scratching・背中,背中をかく,MIXED_ENGLISH_DEBRIS
+scratching_chin,タグ「scratching chin」,顎をかく,RAW_ENGLISH_WRAPPER
+scratching_head,頭を傷つけます,頭をかく,SEMANTIC_ERROR
+scratching_neck,scratching・首,首をかく,MIXED_ENGLISH_DEBRIS
+scratching_stomach,胃を傷つけます,お腹をかく,SEMANTIC_ERROR
