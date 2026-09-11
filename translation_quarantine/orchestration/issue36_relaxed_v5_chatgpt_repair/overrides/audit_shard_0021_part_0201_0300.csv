@@ -1,0 +1,47 @@
+canonical,old_display_ja,new_display_ja,reason
+murasame_(kancolle)_(cosplay),Murasame（Kancolle）（コスプレ）,村雨（艦これ）（コスプレ）,SEMANTIC_ERROR
+musashi_(kancolle)_(cosplay),Musashi（Kancolle）（コスプレ）,武蔵（艦これ）（コスプレ）,SEMANTIC_ERROR
+muscle_awe,タグ「muscle awe」,筋肉への畏敬,RAW_ENGLISH_WRAPPER
+muscle_car,アメ車,マッスルカー,SEMANTIC_ERROR
+muscle_cuirass,タグ「muscle cuirass」,筋肉型の胸甲,RAW_ENGLISH_WRAPPER
+muscle_envy,筋肉のvy望,筋肉への嫉妬,SEMANTIC_ERROR
+muscular_other,筋肉質のother,筋肉質のその他キャラ,MIXED_ENGLISH_DEBRIS
+mushi_(mushishi),タグ「mushi (mushishi)」,蟲（蟲師）,RAW_ENGLISH_WRAPPER
+mushroom_earrings,mushroomのイヤリング,キノコのイヤリング,MIXED_ENGLISH_DEBRIS
+musical_note-shaped_pupils,ノート型の生徒,音符形の瞳孔,SEMANTIC_ERROR
+musical_note-themed_food,musical・note・themed・食べ物,音符モチーフの食べ物,MIXED_ENGLISH_DEBRIS
+musical_note_background,musical noteの背景,音符の背景,MIXED_ENGLISH_DEBRIS
+musical_note_brooch,musical・note・ブローチ,音符のブローチ,MIXED_ENGLISH_DEBRIS
+musical_note_earrings,ノートノートイヤリング,音符のイヤリング,SEMANTIC_ERROR
+musical_note_hair_ornament,ノートノートヘアオーナメント,音符の髪飾り,SEMANTIC_ERROR
+musical_note_hat_ornament,musical・note・帽子・飾り,音符の帽子飾り,MIXED_ENGLISH_DEBRIS
+musical_note_necklace,ノートノートネックレス,音符のネックレス,SEMANTIC_ERROR
+musical_note_ornament,musical・note・飾り,音符の飾り,MIXED_ENGLISH_DEBRIS
+musical_note_print,ノートノートプリント,音符柄,SEMANTIC_ERROR
+musical_note_tattoo,musical noteのタトゥー,音符のタトゥー,MIXED_ENGLISH_DEBRIS
+musical_staff_print,musical staffの柄,五線譜柄,MIXED_ENGLISH_DEBRIS
+mustache_stubble,タグ「mustache stubble」,口ひげの無精ひげ,RAW_ENGLISH_WRAPPER
+mute_speaker_sign,タグ「mute speaker sign」,ミュートスピーカー記号,RAW_ENGLISH_WRAPPER
+mutilation,性器破壊,身体損壊,SEMANTIC_NARROWING
+mutsuki_face_(blue_archive),铸币大頭,ムツキ顔（ブルーアーカイブ）,NON_JAPANESE_RESIDUE
+mutual_breast_sucking,相互授乳,互いの乳房を吸う,SEMANTIC_ERROR
+mutual_cheek_pinching,タグ「mutual cheek pinching」,互いの頬をつまむ,RAW_ENGLISH_WRAPPER
+mutual_foot_licking,相互の足の舐め,互いの足を舐める,AWKWARD_MACHINE_TRANSLATION
+mutual_handjob,タグ「mutual handjob」,相互手コキ,RAW_ENGLISH_WRAPPER
+mutual_impregnation,百合同时受孕,互いに妊娠させる,NON_JAPANESE_RESIDUE
+mutual_orgasm,共同高潮,相互オーガズム,NON_JAPANESE_RESIDUE
+mutual_tsundere,タグ「mutual tsundere」,相互ツンデレ,RAW_ENGLISH_WRAPPER
+mvp,タグ「mvp」,MVP,RAW_ENGLISH_WRAPPER
+my_melody_(cosplay),私のメロディー（コスプレ）,マイメロディ（コスプレ）,SEMANTIC_ERROR
+myers-briggs_type_indicator,タグ「myers-briggs type indicator」,MBTI,RAW_ENGLISH_WRAPPER
+mygo!!!!!_(bang_dream!),タグ「mygo!!!!! (bang dream!)」,MyGO!!!!!（BanG Dream!）,RAW_ENGLISH_WRAPPER
+mygo!!!!!_logo_(bang_dream!),タグ「mygo!!!!! logo (bang dream!)」,MyGO!!!!!ロゴ（BanG Dream!）,RAW_ENGLISH_WRAPPER
+myouga_(plant),タグ「myouga (plant)」,ミョウガ,RAW_ENGLISH_WRAPPER
+myouren_temple_clan_(touhou),myouren temple clan (touhou),命蓮寺一派（東方）,CANONICAL_FALLBACK_TRANSLATABLE
+mysterious_heroine_x_(fate)_(cosplay),神秘的なヒロインX（運命）（コスプレ）,謎のヒロインX（Fate）（コスプレ）,SEMANTIC_ERROR
+mysterious_heroine_xx_(fate)_(cosplay),神秘的なヒロインxx（運命）（コスプレ）,謎のヒロインXX（Fate）（コスプレ）,SEMANTIC_ERROR
+mystia_lorelei_(cosplay),Mystia Lorelei（コスプレ）,ミスティア・ローレライ（コスプレ）,SEMANTIC_ERROR
+mythological_creature,タグ「mythological creature」,神話生物,RAW_ENGLISH_WRAPPER
+mythra_(xenoblade)_(cosplay),Mythra（xenoblade）（コスプレ）,ヒカリ（ゼノブレイド）（コスプレ）,SEMANTIC_ERROR
+n1k,強風,紫電,SEMANTIC_ERROR
+na'vi,タグ「na'vi」,ナヴィ,RAW_ENGLISH_WRAPPER
