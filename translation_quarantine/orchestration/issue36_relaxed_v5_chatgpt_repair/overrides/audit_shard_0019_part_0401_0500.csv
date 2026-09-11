@@ -1,0 +1,45 @@
+canonical,old_display_ja,new_display_ja,reason
+leg_markings,タグ「leg markings」,脚の模様,RAW_ENGLISH_WRAPPER
+leg_on_another's_leg,legの上の他人のleg,他人の脚の上に脚,SEMANTIC_RELATION_ERROR
+leg_on_another's_shoulder,legの上の他人の肩,他人の肩に脚,SEMANTIC_RELATION_ERROR
+leg_support,タグ「leg support」,脚の支え,RAW_ENGLISH_WRAPPER
+leggings_under_shorts,leggingsの下のshorts,ショートパンツの下にレギンス,MIXED_ENGLISH_DEBRIS
+leggings_under_skirt,leggingsの下のスカート,スカートの下にレギンス,MIXED_ENGLISH_DEBRIS
+legionnaire,レジオネラ,軍団兵,SEMANTIC_ERROR
+legjob,タグ「legjob」,脚コキ,RAW_ENGLISH_WRAPPER
+legless_amputee,足なし,両脚切断者,SEMANTIC_UNDERSPECIFICATION
+legs_on_another's_lap,脚の上の他人のlap,他人の膝の上に脚,SEMANTIC_RELATION_ERROR
+legs_on_another's_shoulders,脚の上の他人のshoulders,他人の肩に両脚,SEMANTIC_RELATION_ERROR
+legs_on_table,テーブルの脚,テーブルの上に脚,SEMANTIC_RELATION_ERROR
+legwear_cutout,タグ「legwear cutout」,レッグウェアの開口部,RAW_ENGLISH_WRAPPER
+lemon_tree,タグ「lemon tree」,レモンの木,RAW_ENGLISH_WRAPPER
+lemonade,レモン水,レモネード,SEMANTIC_ERROR
+lemur_ears,キツネザル,キツネザルの耳,SEMANTIC_UNDERSPECIFICATION
+length_markings,雌シリンダー,長さ目盛り,SEMANTIC_ERROR
+lensless_glasses,タグ「lensless glasses」,レンズなし眼鏡,RAW_ENGLISH_WRAPPER
+leo_(symbol),タグ「leo (symbol)」,しし座記号,RAW_ENGLISH_WRAPPER
+leo_(zodiac),狮子座,しし座,NON_JAPANESE_RESIDUE
+leon_(pokemon)_(cosplay),レオン（ポケモン）（コスプレ）,ダンデ（ポケモン）（コスプレ）,SEMANTIC_ERROR
+leon_s._kennedy_(cosplay),leon s. kennedy (cosplay),レオン・S・ケネディ（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+leopard_pelt,タグ「leopard pelt」,ヒョウの毛皮,RAW_ENGLISH_WRAPPER
+leopard_print_panties,豹纹内ズボン,ヒョウ柄パンティー,NON_JAPANESE_RESIDUE
+leotard_over_bodysuit,レオタードの上のbodysuit,ボディスーツの上にレオタード,MIXED_ENGLISH_DEBRIS
+leotard_peek,レオタード・覗き見,レオタードが見える,SEMANTIC_ERROR
+leotard_peel,レオタード・peel,レオタードを剥ぐ,MIXED_ENGLISH_DEBRIS
+leotard_tug,レオタード・タグ,レオタードを引っ張る,SEMANTIC_ERROR
+lesbian_flag,lesbianの旗,レズビアン・フラッグ,MIXED_ENGLISH_DEBRIS
+lesbians_doing_makeup_(meme),lesbians doing makeup (meme),化粧をするレズビアン（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+less_than_chest_height,身長差,胸の高さ未満,SEMANTIC_ERROR
+letter_balloon,タグ「letter balloon」,文字バルーン,RAW_ENGLISH_WRAPPER
+letter_banner,タグ「letter banner」,文字バナー,RAW_ENGLISH_WRAPPER
+letter_print,letterの柄,文字柄,MIXED_ENGLISH_DEBRIS
+level_5_(toaru),タグ「level 5 (toaru)」,レベル5（とあるシリーズ）,RAW_ENGLISH_WRAPPER
+level_up,レベルアップします,レベルアップ,AWKWARD_MACHINE_TRANSLATION
+lever_action,杠杆式,レバーアクション,NON_JAPANESE_RESIDUE
+leverless_arcade_stick,タグ「leverless arcade stick」,レバーレスアーケードスティック,RAW_ENGLISH_WRAPPER
+libeccio_(kancolle)_(cosplay),マエストラーレ級の服,リベッチオ（艦これ）（コスプレ）,SEMANTIC_ERROR
+liberation_(fire_emblem),liberation (fire emblem),解放（ファイアーエムブレム）,CANONICAL_FALLBACK_TRANSLATABLE
+libra_(symbol),タグ「libra (symbol)」,てんびん座記号,RAW_ENGLISH_WRAPPER
+libra_(zodiac),天平座,てんびん座,SEMANTIC_ERROR
+licking_another,舐める・他人の,他人を舐める,AWKWARD_MACHINE_TRANSLATION
+licking_another's_arm,舐める・他人の腕,他人の腕を舐める,AWKWARD_MACHINE_TRANSLATION
