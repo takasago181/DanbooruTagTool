@@ -1,0 +1,47 @@
+canonical,old_display_ja,new_display_ja,reason
+third_wheel,タグ「third wheel」,お邪魔虫,RAW_ENGLISH_WRAPPER
+thirty-second_note,32秒のメモ,32分音符,SEMANTIC_ERROR
+thoracalgia_(e.g.o),thoracalgia (e.g.o),胸痛（E.G.O）,CANONICAL_FALLBACK_TRANSLATABLE
+thorn_print,thornの柄,いばら柄,MIXED_ENGLISH_DEBRIS
+thorn_ring_(deltarune),タグ「thorn ring (deltarune)」,いばらの指輪（DELTARUNE）,RAW_ENGLISH_WRAPPER
+thors_military_academy_branch_campus_uniform,thors military academy branch campusの制服,トールズ士官学院・第II分校の制服,MIXED_ENGLISH_DEBRIS
+thors_military_academy_class_vii_uniform,thors military academy class viiの制服,トールズ士官学院VII組の制服,MIXED_ENGLISH_DEBRIS
+thors_military_academy_school_uniform,thors military academyの学校制服,トールズ士官学院の制服,MIXED_ENGLISH_DEBRIS
+thousand_sons,千子军团,サウザンドサンズ,NON_JAPANESE_RESIDUE
+thousand_yard_stare,タグ「thousand yard stare」,千ヤードの凝視,RAW_ENGLISH_WRAPPER
+three-finger_handjob,タグ「three-finger handjob」,3本指の手コキ,RAW_ENGLISH_WRAPPER
+three-finger_salute,タグ「three-finger salute」,3本指の敬礼,RAW_ENGLISH_WRAPPER
+three-toned_background,三色调背景,3色の背景,NON_JAPANESE_RESIDUE
+three_of_clubs,3つのクラブ,クラブの3,SEMANTIC_ERROR
+three_of_diamonds,3つのダイヤモンド,ダイヤの3,SEMANTIC_ERROR
+three_of_hearts,3つの心,ハートの3,SEMANTIC_AMBIGUITY
+three_of_spades,タグ「three of spades」,スペードの3,RAW_ENGLISH_WRAPPER
+through_bars,越しのbars,柵越し,MIXED_ENGLISH_DEBRIS
+through_mirror,越しのmirror,鏡越し,MIXED_ENGLISH_DEBRIS
+through_page,越しのpage,ページ越し,MIXED_ENGLISH_DEBRIS
+through_painting,越しのpainting,絵画越し,MIXED_ENGLISH_DEBRIS
+through_portal,越しのportal,ポータル越し,MIXED_ENGLISH_DEBRIS
+through_sunroof,越しのsunroof,サンルーフ越し,MIXED_ENGLISH_DEBRIS
+throw_pillow,タグ「throw pillow」,クッション,RAW_ENGLISH_WRAPPER
+throwing_hat,throwing・帽子,帽子を投げる,MIXED_ENGLISH_DEBRIS
+throwing_needles,投げる針,針を投げる,SEMANTIC_STATE_ACTION_ERROR
+throwing_person,投げる人,人を投げる,SEMANTIC_STATE_ACTION_ERROR
+throwing_petals,タグ「throwing petals」,花びらを投げる,RAW_ENGLISH_WRAPPER
+throwing_poke_ball,ポークボールを投げる,モンスターボールを投げる,TRANSLITERATION_ERROR
+throwing_weapon,throwingの武器,武器を投げる,MIXED_ENGLISH_DEBRIS
+thumb_(identity)_(project_moon),thumb (identity) (project moon),親指（Identity）（Project Moon）,CANONICAL_FALLBACK_TRANSLATABLE
+thumb_hole_sleeves,タグ「thumb hole sleeves」,サムホール付き袖,RAW_ENGLISH_WRAPPER
+thumb_to_mouth,口から口へ,親指を口元へ,SEMANTIC_ERROR
+thumbprint_cookie,タグ「thumbprint cookie」,サムプリントクッキー,RAW_ENGLISH_WRAPPER
+thumbs_down_heart_hands,thumbs・下向きのハート・両手,親指を下げたハートハンド,MIXED_ENGLISH_DEBRIS
+thumbs_up_emoji,thumbs・上向きのemoji,サムズアップの絵文字,MIXED_ENGLISH_DEBRIS
+tibetan_clothes,藏族,チベットの服,NON_JAPANESE_RESIDUE
+tickling_arms,tickling・両腕,腕をくすぐる,MIXED_ENGLISH_DEBRIS
+tickling_ass,タグ「tickling ass」,尻をくすぐる,RAW_ENGLISH_WRAPPER
+tickling_back,tickling・背中,背中をくすぐる,MIXED_ENGLISH_DEBRIS
+tickling_breasts,tickling・胸,乳房をくすぐる,MIXED_ENGLISH_DEBRIS
+tickling_face,tickling・顔,顔をくすぐる,MIXED_ENGLISH_DEBRIS
+tie-dye,タグ「tie-dye」,タイダイ,RAW_ENGLISH_WRAPPER
+tie_fighter,ネクタイファイター,TIEファイター,SEMANTIC_AMBIGUITY
+tied_beard,tied・髭,結んだひげ,MIXED_ENGLISH_DEBRIS
+tied_drawstring,tied drawsの指輪,結んだドローストリング,SEMANTIC_ERROR
