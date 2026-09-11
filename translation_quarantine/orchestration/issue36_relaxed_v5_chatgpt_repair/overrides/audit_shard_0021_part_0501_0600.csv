@@ -1,0 +1,32 @@
+canonical,old_display_ja,new_display_ja,reason
+negi_suppository,ネガシスコリー,ネギ座薬,SEMANTIC_ERROR
+nekomata_okayu_(cosplay),nekomata okeu（コスプレ）,猫又おかゆ（コスプレ）,SEMANTIC_ERROR
+nen_(hunter_x_hunter),ネン,念（HUNTER×HUNTER）,SEMANTIC_ERROR
+neon_palette,ネオン,ネオン配色,SEMANTIC_UNDERSPECIFICATION
+neon_sign,タグ「neon sign」,ネオンサイン,RAW_ENGLISH_WRAPPER
+neptune_(neptunia)_(cosplay),neptune (neptunia) (cosplay),ネプテューヌ（超次元ゲイム ネプテューヌ）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+neptune_symbol,ネプチューンシンボル,海王星記号,SEMANTIC_ERROR
+nerd_emoji,タグ「nerd emoji」,オタク絵文字,RAW_ENGLISH_WRAPPER
+nero_claudius_(fate)_(cosplay),nero claudius (fate) (cosplay),ネロ・クラウディウス（Fate）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+nero_claudius_(swimsuit_caster)_(fate)_(cosplay),nero claudius (swimsuit caster) (fate) (cosplay),ネロ・クラウディウス（水着キャスター）（Fate）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+neru_(blue_archive)_(cosplay),neru (blue archive) (cosplay),美甘ネル（ブルーアーカイブ）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+nerv_logo,ネルフ,NERVロゴ,SEMANTIC_UNDERSPECIFICATION
+nerv_uniform,nervの制服,NERVの制服,MIXED_ENGLISH_DEBRIS
+nervous_system,タグ「nervous system」,神経系,RAW_ENGLISH_WRAPPER
+ness_(mother_2)_(cosplay),ness（母2）（コスプレ）,ネス（MOTHER2）（コスプレ）,SEMANTIC_ERROR
+nessa_(pokemon)_(cosplay),ネッサ（ポケモン）（コスプレ）,ルリナ（ポケモン）（コスプレ）,SEMANTIC_ERROR
+netherworld_(disgaea),タグ「netherworld (disgaea)」,魔界（ディスガイア）,RAW_ENGLISH_WRAPPER
+neuron_activation_(meme),neuron activation (meme),ニューロン活性化（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+newspaper,報紙,新聞,NON_JAPANESE_RESIDUE
+newsprint_background,newsprintの背景,新聞紙の背景,MIXED_ENGLISH_DEBRIS
+newt,タグ「newt」,イモリ,RAW_ENGLISH_WRAPPER
+nia_teppelin_(cosplay),nia Teppelin（コスプレ）,ニア・テッペリン（コスプレ）,SEMANTIC_ERROR
+nibelheim,タグ「nibelheim」,ニブルヘイム,RAW_ENGLISH_WRAPPER
+nice_nature_(umamusume)_(cosplay),素敵な自然（umamusume）（コスプレ）,ナイスネイチャ（ウマ娘）（コスプレ）,SEMANTIC_ERROR
+nico_robin_(cosplay),nico robin (cosplay),ニコ・ロビン（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+night_city_(cyberpunk),タグ「night city (cyberpunk)」,ナイトシティ（サイバーパンク）,RAW_ENGLISH_WRAPPER
+night_clothes,夜・服,寝間着,SEMANTIC_ERROR
+night_lords,蝙蝠崽,ナイトロード,NON_JAPANESE_RESIDUE
+night_raven_college_ceremonial_robes,タグ「night raven college ceremonial robes」,ナイトレイブンカレッジ式典服,RAW_ENGLISH_WRAPPER
+night_raven_college_gym_uniform,night raven college gymの制服,ナイトレイブンカレッジ運動着,MIXED_ENGLISH_DEBRIS
+night_raven_college_labwear,タグ「night raven college labwear」,ナイトレイブンカレッジ実験着,RAW_ENGLISH_WRAPPER
