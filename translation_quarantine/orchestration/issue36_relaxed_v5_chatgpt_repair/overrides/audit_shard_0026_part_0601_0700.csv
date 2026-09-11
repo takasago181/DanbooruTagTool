@@ -1,0 +1,39 @@
+canonical,old_display_ja,new_display_ja,reason
+single_unworn_boot,単一の未使用のboot,未着用の片方のブーツ,MIXED_ENGLISH_DEBRIS
+single_unworn_glove,単一の未使用のglove,未着用の片方の手袋,MIXED_ENGLISH_DEBRIS
+single_unworn_shoe,単一の未使用の靴,未着用の片方の靴,SEMANTIC_ERROR
+single_wide_sleeve,単一のwide・sleeve,片方だけの幅広袖,MIXED_ENGLISH_DEBRIS
+sisters-in-law,sistersの中のlaw,義理の姉妹,MIXED_ENGLISH_DEBRIS
+site_of_grace,恵みの場所,祝福,SEMANTIC_ERROR
+sitting_against_vehicle,sitting・対面した・vehicle,車両にもたれて座る,MIXED_ENGLISH_DEBRIS
+sitting_between_legs,座る・間・脚,脚の間に座る,MIXED_ENGLISH_DEBRIS
+sitting_in_window,坐在窗台上,窓辺に座る,NON_JAPANESE_RESIDUE
+sitting_on_another's_back,sittingの上の他人の背中,他人の背中に座る,MIXED_ENGLISH_DEBRIS
+sitting_on_creature,sittingの上のcreature,生物の上に座る,MIXED_ENGLISH_DEBRIS
+sitting_on_leg,sittingの上のleg,脚の上に座る,MIXED_ENGLISH_DEBRIS
+sitting_on_mecha,sittingの上のmecha,メカの上に座る,MIXED_ENGLISH_DEBRIS
+sitting_on_mushroom,sittingの上のmushroom,キノコの上に座る,MIXED_ENGLISH_DEBRIS
+sitting_on_piano,sittingの上のpiano,ピアノの上に座る,MIXED_ENGLISH_DEBRIS
+sitting_on_pokemon,sittingの上のpokemon,ポケモンの上に座る,MIXED_ENGLISH_DEBRIS
+sitting_on_robot,sittingの上のrobot,ロボットの上に座る,MIXED_ENGLISH_DEBRIS
+sitting_on_stairs,坐在台阶上,階段に座る,NON_JAPANESE_RESIDUE
+sitting_on_weapon,sitting onの武器,武器の上に座る,MIXED_ENGLISH_DEBRIS
+six_of_clubs,タグ「six of clubs」,クラブの6,RAW_ENGLISH_WRAPPER
+six_of_diamonds,6つのダイヤモンド,ダイヤの6,SEMANTIC_ERROR
+six_of_hearts,6つの心,ハートの6,SEMANTIC_ERROR
+six_of_spades,タグ「six of spades」,スペードの6,RAW_ENGLISH_WRAPPER
+six_pointed_star,six・pointed・星,六芒星,MIXED_ENGLISH_DEBRIS
+sixteenth_note,タグ「sixteenth note」,16分音符,RAW_ENGLISH_WRAPPER
+sixteenth_rest,タグ「sixteenth rest」,16分休符,RAW_ENGLISH_WRAPPER
+sjms_school_uniform,sjmsの学校制服,SJMSの制服,MIXED_ENGLISH_DEBRIS
+skadi_(arknights)_(cosplay),skadi (arknights) (cosplay),スカジ（アークナイツ）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+skates,冰刀,アイススケート靴,NON_JAPANESE_RESIDUE
+skeletal_body,skeletal・身体,骨格状の身体,MIXED_ENGLISH_DEBRIS
+skeletal_clothes,skeletal・服,骨格模様の服,MIXED_ENGLISH_DEBRIS
+skeleton_horse,馬の骨,骨格の馬,SEMANTIC_AMBIGUITY
+skeleton_snake,タグ「skeleton snake」,骨格のヘビ,RAW_ENGLISH_WRAPPER
+sketch_inset,sketch・差し込み,スケッチの差し込み画像,MIXED_ENGLISH_DEBRIS
+sketchbook_full_colors's_school_uniform,sketchbook full colorsの学校制服,スケッチブック ～full color's～の学校制服,MIXED_ENGLISH_DEBRIS
+ski_gear,滑雪装备,スキー装備,NON_JAPANESE_RESIDUE
+skid_mark,skid・印,スキッドマーク,MIXED_ENGLISH_DEBRIS
+skin-colored_pantyhose,肉丝,肌色のパンスト,NON_JAPANESE_RESIDUE
