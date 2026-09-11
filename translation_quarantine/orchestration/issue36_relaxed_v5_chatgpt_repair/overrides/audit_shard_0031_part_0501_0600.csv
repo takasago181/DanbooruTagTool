@@ -1,0 +1,42 @@
+canonical,old_display_ja,new_display_ja,reason
+yuna_(ff10)_(cosplay),ユナ（ff10）（コスプレ）,ユウナ（FF10）（コスプレ）,TRANSLITERATION_ERROR
+yuntouxie,云頭鞋,雲頭履,NON_JAPANESE_RESIDUE
+yuri_(object),タグ「yuri (object)」,ユリ（物体）,RAW_ENGLISH_WRAPPER
+yurigaoka_girls_academy_school_uniform,百合ヶ丘女学院,百合ヶ丘女学院の制服,SEMANTIC_UNDERSPECIFICATION
+yuruyuri's_starting,Yuru Yuriのスタート,ゆるゆりの始まり,MIXED_ENGLISH_DEBRIS
+yusuf_dikec_(meme),yusuf dikec (meme),ユスフ・ディケチ（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+yuubari_(kancolle)_(cosplay),ユバリ（カンコル）（コスプレ）,夕張（艦これ）（コスプレ）,TRANSLITERATION_ERROR
+yuudachi_kai_ni_(kancolle)_(cosplay),ユダチカイニ（カンコル）（コスプレ）,夕立改二（艦これ）（コスプレ）,TRANSLITERATION_ERROR
+yuugumo_(kancolle)_(cosplay),ユウガモ（カンコル）（コスプレ）,夕雲（艦これ）（コスプレ）,TRANSLITERATION_ERROR
+yuuka_(blue_archive)_(cosplay),yuuka (blue archive) (cosplay),早瀬ユウカ（ブルーアーカイブ）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+yuuki_makoto_(persona_3)_(cosplay),yuuki makoto (persona 3) (cosplay),結城理（ペルソナ3）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+yuunagi_middle_school_uniform,夕凪中学校,夕凪中学校の制服,SEMANTIC_UNDERSPECIFICATION
+yuzuki_yukari_(cosplay),ゆうきゆく（コスプレ）,結月ゆかり（コスプレ）,SEMANTIC_ERROR
+z1_leberecht_maass_(kancolle)_(cosplay),z1 leberecht maass (kancolle) (cosplay),Z1 レーベレヒト・マース（艦これ）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+z3_max_schultz_(kancolle)_(cosplay),z3 max schultz (kancolle) (cosplay),Z3 マックス・シュルツ（艦これ）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+z_(russian_symbol),タグ「z (russian symbol)」,Z（ロシア記号）,RAW_ENGLISH_WRAPPER
+z_flag,zの旗,Zの旗,OPAQUE_SYMBOL_CASE
+za_warudo,タグ「za warudo」,ザ・ワールド,RAW_ENGLISH_WRAPPER
+zabaniya_(fate),zabaniya (fate),ザバーニーヤ（Fate）,CANONICAL_FALLBACK_TRANSLATABLE
+zabrak,タグ「zabrak」,ザブラク,RAW_ENGLISH_WRAPPER
+zaft_(gundam),タグ「zaft (gundam)」,ザフト（ガンダム）,RAW_ENGLISH_WRAPPER
+zaft_uniform,ザフト,ザフトの制服,SEMANTIC_UNDERSPECIFICATION
+zangetsu_(shikai),斩月,斬月,NON_JAPANESE_RESIDUE
+zankuro_(style),タグ「zankuro (style)」,Zankuro（スタイル）,RAW_ENGLISH_WRAPPER
+zanpakutou,斩魄刀,斬魄刀,NON_JAPANESE_RESIDUE
+zashono_academy_school_uniform,zashono academyの学校制服,ザショノ学園の制服,MIXED_ENGLISH_DEBRIS
+zero_(code_geass)_(cosplay),Zero（コードGEASS）（コスプレ）,ゼロ（コードギアス）（コスプレ）,TRANSLITERATION_ERROR
+zero_two_(darling_in_the_franxx)_(cosplay),ゼロ2（franxxの最愛の人）（コスプレ）,ゼロツー（ダーリン・イン・ザ・フランキス）（コスプレ）,SEMANTIC_LITERAL_TRANSLATION
+zesty_sonic_(meme),zesty sonic (meme),Zesty Sonic（ミーム）,OPAQUE_TITLE
+zhongguo_hua,中国の絵画,中国画,SEMANTIC_ERROR
+zhuang_hat,zhuang・帽子,壮族の帽子,MIXED_ENGLISH_DEBRIS
+zidane_tribal_(cosplay),zidane tribal (cosplay),ジタン・トライバル（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+zig-zag_part,タグ「zig-zag part」,ジグザグ分け目,RAW_ENGLISH_WRAPPER
+zig-zag_pattern,タグ「zig-zag pattern」,ジグザグ模様,RAW_ENGLISH_WRAPPER
+ziploc_bag,タグ「ziploc bag」,ジップロック袋,RAW_ENGLISH_WRAPPER
+zipper_dress,拉链连衣裙,ジッパー付きドレス,NON_JAPANESE_RESIDUE
+zipper_leotard,拉链紧身衣,ジッパー付きレオタード,NON_JAPANESE_RESIDUE
+zipper_top,zipper・トップス,ジッパー付きトップス,MIXED_ENGLISH_DEBRIS
+zodiac_wheel,タグ「zodiac wheel」,黄道十二宮の輪,RAW_ENGLISH_WRAPPER
+zombie_(bleach),タグ「zombie (bleach)」,ゾンビ（BLEACH）,RAW_ENGLISH_WRAPPER
+zombie_costume,zombie・衣装,ゾンビ衣装,MIXED_ENGLISH_DEBRIS
