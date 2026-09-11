@@ -1,0 +1,60 @@
+canonical,old_display_ja,new_display_ja,reason
+on_cloud,クラウド上,雲の上,SEMANTIC_ERROR
+on_counter,カウンター,カウンターの上,SEMANTIC_UNDERSPECIFICATION
+on_creature,の上のcreature,生物の上,MIXED_ENGLISH_DEBRIS
+on_crescent,月に乗る,三日月の上,SEMANTIC_NARROWING
+on_cushion,の上のcushion,クッションの上,MIXED_ENGLISH_DEBRIS
+on_fence,フェンスで,フェンスの上,SEMANTIC_RELATION_ERROR
+on_finger,指で,指の上,SEMANTIC_RELATION_ERROR
+on_flower,花に,花の上,SEMANTIC_RELATION_ERROR
+on_food,食べ物に,食べ物の上,SEMANTIC_RELATION_ERROR
+on_hammock,の上のhammock,ハンモックの上,MIXED_ENGLISH_DEBRIS
+on_ice,の上のice,氷の上,MIXED_ENGLISH_DEBRIS
+on_innertube,の上のinnertube,浮き輪の上,MIXED_ENGLISH_DEBRIS
+on_jet_ski,の上のjet・ski,ジェットスキーの上,MIXED_ENGLISH_DEBRIS
+on_ladder,の上のladder,はしごの上,MIXED_ENGLISH_DEBRIS
+on_leaf,の上のleaf,葉の上,MIXED_ENGLISH_DEBRIS
+on_liquid,液体に,液体の上,SEMANTIC_RELATION_ERROR
+on_log,の上のlog,丸太の上,MIXED_ENGLISH_DEBRIS
+on_magic_circle,の上のmagic・円形の,魔法陣の上,MIXED_ENGLISH_DEBRIS
+on_mat,の上のmat,マットの上,MIXED_ENGLISH_DEBRIS
+on_mecha,メカで,メカの上,SEMANTIC_RELATION_ERROR
+on_mini_planet,の上のmini・planet,小さな惑星の上,MIXED_ENGLISH_DEBRIS
+on_moped,の上のmoped,モペッドの上,MIXED_ENGLISH_DEBRIS
+on_motorcycle,オートバイで,バイクの上,SEMANTIC_RELATION_ERROR
+on_mushroom,の上のmushroom,キノコの上,MIXED_ENGLISH_DEBRIS
+on_piano,ピアノで,ピアノの上,SEMANTIC_RELATION_ERROR
+on_pumpkin,の上のpumpkin,カボチャの上,MIXED_ENGLISH_DEBRIS
+on_raft,の上のraft,いかだの上,MIXED_ENGLISH_DEBRIS
+on_railroad_tracks,の上のrailroad・tracks,線路の上,MIXED_ENGLISH_DEBRIS
+on_rooftop,の上のrooftop,屋上の上,MIXED_ENGLISH_DEBRIS
+on_scooter,の上のscooter,スクーターの上,MIXED_ENGLISH_DEBRIS
+on_ship,の上のship,船の上,MIXED_ENGLISH_DEBRIS
+on_stairs,在台阶上,階段の上,NON_JAPANESE_RESIDUE
+on_suitcase,の上のsuitcase,スーツケースの上,MIXED_ENGLISH_DEBRIS
+on_tank,の上のtank,戦車の上,SEMANTIC_ERROR
+on_train,の上のtrain,列車の上,MIXED_ENGLISH_DEBRIS
+on_tree,の上のtree,木の上,MIXED_ENGLISH_DEBRIS
+on_tree_stump,木の切り株に座っています,木の切り株の上,SEMANTIC_NARROWING
+on_truck,の上のtruck,トラックの上,MIXED_ENGLISH_DEBRIS
+on_van,の上のvan,バンの上,MIXED_ENGLISH_DEBRIS
+on_vaulting_horse,の上のvaulting・horse,跳び箱の上,MIXED_ENGLISH_DEBRIS
+on_wall,壁に,壁の上,SEMANTIC_RELATION_ERROR
+on_water,水に,水の上,SEMANTIC_RELATION_ERROR
+on_weapon,onの武器,武器の上,MIXED_ENGLISH_DEBRIS
+on_windowsill,の上のwindowsill,窓辺の上,MIXED_ENGLISH_DEBRIS
+one-shoulder_tunic,1つの肩・tunic,ワンショルダーチュニック,MIXED_ENGLISH_DEBRIS
+one_arm_push-ups,1つの腕・push・ups,片腕立て伏せ,MIXED_ENGLISH_DEBRIS
+one_eye_in_shadow,1つの目の中のshadow,片目が影の中,MIXED_ENGLISH_DEBRIS
+one_man_army,1つのman・army,一人軍隊,MIXED_ENGLISH_DEBRIS
+onigiri_hair_ornament,onigiriの髪の飾り,おにぎりの髪飾り,MIXED_ENGLISH_DEBRIS
+onigiri_print,onigiriプリント,おにぎり柄,MIXED_ENGLISH_DEBRIS
+onion_dome,タグ「onion dome」,玉ねぎ形ドーム,RAW_ENGLISH_WRAPPER
+onion_slice,タグ「onion slice」,玉ねぎのスライス,RAW_ENGLISH_WRAPPER
+onozuka_komachi_(cosplay),コマチノズカ（コスプレ）,小野塚小町（コスプレ）,TRANSLITERATION_ERROR
+ooarai_(emblem),ooarai（エンブレム）,大洗（エンブレム）,MIXED_ENGLISH_DEBRIS
+ooarai_military_uniform,ooarai militaryの制服,大洗の軍服,MIXED_ENGLISH_DEBRIS
+ooarai_naval_school_uniform,ooarai海軍学校の制服,大洗海軍学校の制服,MIXED_ENGLISH_DEBRIS
+ooarai_volleyball_uniform,ooarai volleyballの制服,大洗のバレーボール制服,MIXED_ENGLISH_DEBRIS
+ooyodo_(kancolle)_(cosplay),Ooyodo（Kancolle）（コスプレ）,大淀（艦これ）（コスプレ）,TRANSLITERATION_ERROR
+oozora_subaru_(cosplay),oozora subaru (cosplay),大空スバル（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
