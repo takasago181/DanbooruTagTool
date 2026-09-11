@@ -1,0 +1,40 @@
+canonical,old_display_ja,new_display_ja,reason
+loose_thighhigh,ゆるい太い,ゆるいサイハイソックス,SEMANTIC_ERROR
+loose_wires,ゆるい・wires,ゆるい配線,MIXED_ENGLISH_DEBRIS
+lopsided_border,lopsided・枠,傾いた枠,MIXED_ENGLISH_DEBRIS
+lopunny_(cosplay),Lopunny（コスプレ）,ミミロップ（コスプレ）,SEMANTIC_ERROR
+lord_camelot_(fate),lord camelot (fate),ロード・キャメロット（Fate）,CANONICAL_FALLBACK_TRANSLATABLE
+lorem_ipsum,タグ「lorem ipsum」,Lorem ipsum,RAW_ENGLISH_WRAPPER
+loss_(meme),loss (meme),Loss（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+lotus_pod,莲蓬,ハスの花托,NON_JAPANESE_RESIDUE
+lotus_print,lotusの柄,ハス柄,MIXED_ENGLISH_DEBRIS
+lotus_root_slice,タグ「lotus root slice」,レンコンの輪切り,RAW_ENGLISH_WRAPPER
+lounging,ラウンジ,くつろぐ,SEMANTIC_ERROR
+love_guitar_rod,ギターロッドが大好きです,ラブ・ギター・ロッド,SEMANTIC_ERROR
+love_live!_series_asia_tour_2024,タグ「love live! series asia tour 2024」,Love Live! Series Asia Tour 2024,RAW_ENGLISH_WRAPPER
+love_triangle,三角恋,三角関係,SEMANTIC_ERROR
+lovebird,ボタンインコ,ラブバード,SEMANTIC_NARROWING
+lovestruck,メスの顔,恋に落ちた,SEMANTIC_ERROR
+loving_aura,爱心环,愛情オーラ,NON_JAPANESE_RESIDUE
+low-tied_hair_rings,低い・tied・髪・rings,低い位置で結んだヘアリング,MIXED_ENGLISH_DEBRIS
+low-tied_medium_hair,低い・tied・普通サイズの髪,低い位置で結んだミディアムヘア,SEMANTIC_ERROR
+low_block_heels,低跟鞋,ローブロックヒール,NON_JAPANESE_RESIDUE
+low_neckline,低领口,低いネックライン,NON_JAPANESE_RESIDUE
+lower_eyelashes_only,タグ「lower eyelashes only」,下まつ毛のみ,RAW_ENGLISH_WRAPPER
+lower_lip_only,タグ「lower lip only」,下唇のみ,RAW_ENGLISH_WRAPPER
+lowered_eyelids,タグ「lowered eyelids」,伏せたまぶた,RAW_ENGLISH_WRAPPER
+lpvo,タグ「lpvo」,LPVO,RAW_ENGLISH_WRAPPER
+lube_on_breasts,lubeの上の胸,胸に潤滑剤,MIXED_ENGLISH_DEBRIS
+lucina_(fire_emblem)_(cosplay),lucina (fire emblem) (cosplay),ルキナ（ファイアーエムブレム）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+lucy_(cyberpunk)_(cosplay),lucy (cyberpunk) (cosplay),ルーシー（サイバーパンク）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+lum_(cosplay),Lum（コスプレ）,ラム（コスプレ）,SEMANTIC_ERROR
+lumine_(genshin_impact)_(cosplay),lumine (genshin impact) (cosplay),蛍（原神）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+luna_nova_school_uniform,ルナノヴァスクールユニフォーム,ルーナノヴァ魔法学校の制服,SEMANTIC_ERROR
+luna_wolves,タグ「luna wolves」,ルナ・ウルブズ,RAW_ENGLISH_WRAPPER
+lunacy_(limbus_company),lunacy (limbus company),狂気（Limbus Company）,CANONICAL_FALLBACK_TRANSLATABLE
+lunar_invader_trio_(touhou),lunar invader trio (touhou),月の侵略者三人組（東方）,CANONICAL_FALLBACK_TRANSLATABLE
+lungmen_logo,lungmenのロゴ,龍門のロゴ,MIXED_ENGLISH_DEBRIS
+lupine_scarlet_(arknights),狼之绯,ルピナス・スカーレット（アークナイツ）,NON_JAPANESE_RESIDUE
+lute_(instrument),鲁特琴,リュート,NON_JAPANESE_RESIDUE
+luxiem,タグ「luxiem」,Luxiem,RAW_ENGLISH_WRAPPER
+luxury_(idolmaster),luxury (idolmaster),ラグジュアリー（アイドルマスター）,CANONICAL_FALLBACK_TRANSLATABLE
