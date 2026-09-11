@@ -49,7 +49,13 @@ def main() -> None:
 
     source_by_canonical = {row["canonical"]: row for row in source_rows}
 
-    override_files = sorted(OVERRIDE_DIR.glob("audit_shard_*.csv"))
+    # Source-shard repairs and post-shard cross-audit repairs are both durable V5 overrides.
+    # Keep the namespaces distinct for provenance, but materialize both through the same
+    # fail-closed validation path.
+    override_files = sorted(
+        list(OVERRIDE_DIR.glob("audit_shard_*.csv"))
+        + list(OVERRIDE_DIR.glob("cross_shard_*.csv"))
+    )
     if not override_files:
         fail("no override CSV files found")
 
