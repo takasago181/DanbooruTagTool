@@ -1,0 +1,32 @@
+canonical,old_display_ja,new_display_ja,reason
+mimikyu_(cosplay),ミミキュー（コスプレ）,ミミッキュ（コスプレ）,SEMANTIC_ERROR
+minami_kotori_(cosplay),天ミkotori（コスプレ）,南ことり（コスプレ）,SEMANTIC_ERROR
+minamoto_no_raikou_(fate)_(cosplay),鉱本no raikou（運命）（コスプレ）,源頼光（Fate）（コスプレ）,SEMANTIC_ERROR
+minato_aqua_(cosplay),港アクア（コスプレ）,湊あくあ（コスプレ）,SEMANTIC_ERROR
+mindflayer,タグ「mindflayer」,マインドフレイヤー,RAW_ENGLISH_WRAPPER
+minecraft_(style),タグ「minecraft (style)」,Minecraft風,RAW_ENGLISH_WRAPPER
+minecraft_axe,タグ「minecraft axe」,Minecraftの斧,RAW_ENGLISH_WRAPPER
+minecraft_pickaxe,タグ「minecraft pickaxe」,Minecraftのつるはし,RAW_ENGLISH_WRAPPER
+minecraft_shield,タグ「minecraft shield」,Minecraftの盾,RAW_ENGLISH_WRAPPER
+mini_bowtie,タグ「mini bowtie」,ミニ蝶ネクタイ,RAW_ENGLISH_WRAPPER
+mini_eyewear,タグ「mini eyewear」,ミニ眼鏡,RAW_ENGLISH_WRAPPER
+mini_hair_bow,mini・髪・リボン,小さな髪リボン,MIXED_ENGLISH_DEBRIS
+mini_party_hat,mini・party・帽子,小さなパーティー帽,MIXED_ENGLISH_DEBRIS
+mini_person,タグ「mini person」,小さな人物,RAW_ENGLISH_WRAPPER
+mini_person_on_head,mini・personの上の頭,頭の上の小さな人物,SEMANTIC_RELATION_ERROR
+mini_person_on_shoulder,mini・personの上の肩,肩の上の小さな人物,SEMANTIC_RELATION_ERROR
+mini_snowman,タグ「mini snowman」,小さな雪だるま,RAW_ENGLISH_WRAPPER
+mini_tiara,mini・ティアラ,ミニティアラ,MIXED_ENGLISH_DEBRIS
+miniapron,タグ「miniapron」,ミニエプロン,RAW_ENGLISH_WRAPPER
+minibike,ミニビケ,ミニバイク,SEMANTIC_ERROR
+miniboy,小人,小さな少年,SEMANTIC_UNDERSPECIFICATION
+minifridge,タグ「minifridge」,ミニ冷蔵庫,RAW_ENGLISH_WRAPPER
+minigirl,小人,小さな少女,SEMANTIC_UNDERSPECIFICATION
+minimalism,极简主义,ミニマリズム,NON_JAPANESE_RESIDUE
+mining,鉱業,採掘,SEMANTIC_ERROR
+mining_helmet,マイニングヘルメット,採掘用ヘルメット,AWKWARD_MACHINE_TRANSLATION
+minmatar_republic_(eve_online),minmatar republic (eve online),ミンマター共和国（EVE Online）,CANONICAL_FALLBACK_TRANSLATABLE
+minor_arcana_(tarot),タグ「minor arcana (tarot)」,小アルカナ（タロット）,RAW_ENGLISH_WRAPPER
+mirko_(cosplay),mirko (cosplay),ミルコ（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+mirror_twins,双子を鏡,鏡写しの双子,SEMANTIC_ERROR
+misaka_mikoto_(cosplay),ミサカ・ミコト（コスプレ）,御坂美琴（コスプレ）,SEMANTIC_ERROR
