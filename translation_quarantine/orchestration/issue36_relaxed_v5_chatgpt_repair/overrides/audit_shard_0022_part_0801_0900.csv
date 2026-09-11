@@ -1,0 +1,33 @@
+canonical,old_display_ja,new_display_ja,reason
+pasties_removed,タグ「pasties removed」,ニップレスを外した,RAW_ENGLISH_WRAPPER
+pasties_under_clothes,pastiesの下の服,服の下のニップレス,SEMANTIC_RELATION_ERROR
+patchouli_knowledge_(cosplay),パチョリの知識（コスプレ）,パチュリー・ノーレッジ（コスプレ）,TRANSLITERATION_ERROR
+patchwork_skin,拼接皮肌,パッチワーク状の肌,NON_JAPANESE_RESIDUE
+patriotism,ナショナリズム,愛国心,SEMANTIC_ERROR
+patterned_skin,patterned・肌,模様のある肌,MIXED_ENGLISH_DEBRIS
+patting_back,振り返る,背中を軽くたたく,SEMANTIC_ERROR
+patting_belly,タグ「patting belly」,お腹を軽くたたく,RAW_ENGLISH_WRAPPER
+patting_lap,パッティングラップ,膝を軽くたたく,SEMANTIC_ERROR
+pause_button,pause・ボタン,一時停止ボタン,MIXED_ENGLISH_DEBRIS
+paw-shaped_pupils,肉球・shaped・pupils,肉球形の瞳孔,MIXED_ENGLISH_DEBRIS
+paw_cutout,足の切り抜き,肉球形の切り抜き,SEMANTIC_ERROR
+paw_hair_ornament,足の髪の飾り,肉球の髪飾り,SEMANTIC_ERROR
+paw_ornament,足の飾り,肉球の飾り,SEMANTIC_ERROR
+paw_pendant,肉球・pendant,肉球のペンダント,MIXED_ENGLISH_DEBRIS
+paw_print_background,足の印刷の背景,肉球柄の背景,SEMANTIC_ERROR
+paw_print_palms,手套爪印,手のひらの肉球模様,NON_JAPANESE_RESIDUE
+paw_print_pattern,爪印図案,肉球柄,NON_JAPANESE_RESIDUE
+paw_sleeves,肉球・sleeves,肉球付きの袖,MIXED_ENGLISH_DEBRIS
+pea_pod,インゲンマメ,エンドウのさや,SEMANTIC_ERROR
+peach_slice,タグ「peach slice」,桃のスライス,RAW_ENGLISH_WRAPPER
+peafowl,タグ「peafowl」,クジャク,RAW_ENGLISH_WRAPPER
+peaked_lapels,戗驳领,ピークドラペル,NON_JAPANESE_RESIDUE
+pear,なし,梨,SEMANTIC_AMBIGUITY
+pearl_belt,pearl・ベルト,真珠のベルト,MIXED_ENGLISH_DEBRIS
+pearl_bikini,pearl・ビキニ,真珠のビキニ,MIXED_ENGLISH_DEBRIS
+pearl_choker,タグ「pearl choker」,真珠のチョーカー,RAW_ENGLISH_WRAPPER
+pearl_clan_outfit,真珠一族の衣装,シンジュ団の衣装,SEMANTIC_ERROR
+pearl_hairband,pearl・ヘアバンド,真珠のヘアバンド,MIXED_ENGLISH_DEBRIS
+pectoral_cleavage,胸部の切断,胸筋の谷間,SEMANTIC_ERROR
+pectoral_focus,胸の焦点,胸筋を強調,SEMANTIC_ERROR
+pectoral_grab,摸男性胸膛,胸筋をつかむ,NON_JAPANESE_RESIDUE
