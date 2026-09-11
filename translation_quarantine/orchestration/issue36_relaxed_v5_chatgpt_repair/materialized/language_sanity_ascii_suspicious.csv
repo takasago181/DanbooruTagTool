@@ -70,7 +70,6 @@ row_number,canonical,display_ja,checks,already_overridden
 7863,bilibili_username,bilibiliのユーザー名,ASCII_WORD,false
 7864,bilibili_watermark,bilibiliの透かし,ASCII_WORD,true
 8107,black_vinegar_middle_school_uniform,black vinegar middleの学校制服,ASCII_WORD,false
-8111,black_wings_of_corrosion,黒い・翼・of・corrosion,ASCII_WORD,false
 8124,blacksteel_worldwide_logo,blacksteel worldwideのロゴ,ASCII_WORD,false
 8145,blazblue_insignia,BLAZBLUEの紋章,ASCII_WORD,true
 8159,bling-bang-bang-born_(creepy_nuts),BBBBダンス,ASCII_WORD,false
