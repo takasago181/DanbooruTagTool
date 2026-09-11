@@ -1,0 +1,33 @@
+canonical,old_display_ja,new_display_ja,reason
+sailor_jupiter_(cosplay),船乗りの木星（コスプレ）,セーラージュピター（コスプレ）,SEMANTIC_ERROR
+sailor_moon_pose,sailor・moon・ポーズ,セーラームーンのポーズ,MIXED_ENGLISH_DEBRIS
+sailor_saturn_(cosplay),船乗り土星（コスプレ）,セーラーサターン（コスプレ）,SEMANTIC_ERROR
+sailor_venus_(cosplay),セーラー金星（コスプレ）,セーラーヴィーナス（コスプレ）,SEMANTIC_ERROR
+sainan_high_school_uniform,Sainan High Schoolの制服,彩南高校の制服,MIXED_ENGLISH_DEBRIS
+saint_mary's_academy_school_uniform,saint mary academyの学校制服,セント・メアリーズ・アカデミーの制服,MIXED_ENGLISH_DEBRIS
+saitama_(one-punch_man)_(cosplay),SAITAMA（ワンパンチマン）（コスプレ）,サイタマ（ワンパンマン）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+sakae_general_school_uniform,栄総合学園,栄総合学園の制服,SEMANTIC_UNDERSPECIFICATION
+sakata_gintoki_(cosplay),Sakata Gintoki（コスプレ）,坂田銀時（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+sakihata_rimi's_d-sword,sakihata・rimi・d・剣,咲畑梨深のDソード,MIXED_ENGLISH_DEBRIS
+sakura_empire_(emblem),重樱,重桜（エンブレム）,NON_JAPANESE_RESIDUE
+sakura_futaba_(cosplay),さくらutaba（コスプレ）,佐倉双葉（コスプレ）,SEMANTIC_ERROR
+sakura_kyoko_(cosplay),sakura kyoko (cosplay),佐倉杏子（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+salamanders_(warhammer),タグ「salamanders (warhammer)」,サラマンダー戦団（Warhammer）,RAW_ENGLISH_WRAPPER
+saliva_bubble,タグ「saliva bubble」,唾液の泡,RAW_ENGLISH_WRAPPER
+saliva_on_breasts,salivaの上の胸,乳房についた唾液,SEMANTIC_RELATION_ERROR
+saliva_on_hand,salivaの上の手,手についた唾液,SEMANTIC_RELATION_ERROR
+saliva_pool,タグ「saliva pool」,唾液の水たまり,RAW_ENGLISH_WRAPPER
+salmon_(fish),タグ「salmon (fish)」,サケ（魚）,RAW_ENGLISH_WRAPPER
+saloon,タグ「saloon」,酒場,RAW_ENGLISH_WRAPPER
+salt_bae_(meme),ソルトバイ,ソルト・ベイ（ミーム）,TRANSLITERATION_ERROR
+salt_middle_school_uniform,salt middleの学校制服,ソルト中学校の制服,MIXED_ENGLISH_DEBRIS
+samba_costume,サンバ,サンバ衣装,SEMANTIC_UNDERSPECIFICATION
+sam_porter_bridges_(cosplay),サムポーターブリッジ（コスプレ）,サム・ポーター・ブリッジズ（コスプレ）,TRANSLITERATION_ERROR
+samidare_(kancolle)_(cosplay),Samidare（Kancolle）（コスプレ）,五月雨（艦これ）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+samus's_gunship,タグ「samus's gunship」,サムスのガンシップ,RAW_ENGLISH_WRAPPER
+san_(mononoke_hime)_(cosplay),San（MononokeMime）（コスプレ）,サン（もののけ姫）（コスプレ）,SEMANTIC_ERROR
+sanbaka_anniversary_outfit,アンジュ・カトリーナ(さんばか新衣装),さんばか周年衣装,SEMANTIC_NARROWING
+sand_bucket,タグ「sand bucket」,砂遊び用バケツ,RAW_ENGLISH_WRAPPER
+sand_sculpture,砂の城,砂像,SEMANTIC_NARROWING
+sand_writing,砂遊び,砂に文字を書く,SEMANTIC_NARROWING
+sandbox,砂遊び,砂場,SEMANTIC_ERROR
