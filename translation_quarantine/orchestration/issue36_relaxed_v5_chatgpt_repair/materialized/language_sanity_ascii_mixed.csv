@@ -27,11 +27,10 @@ row_number,canonical,display_ja,checks,already_overridden
 5249,subscribestar_logo,SubscribeStarロゴ,ASCII_WORD,true
 5250,subscribestar_username,SubscribeStarのユーザー名,ASCII_WORD,false
 5299,tablet_pc,タブレットPC,ASCII_WORD,false
-5542,tumblr_username,tumblrユーザー名,ASCII_WORD,false
+5542,tumblr_username,Tumblrユーザー名,ASCII_WORD,true
 5560,twitter_logo,Twitterロゴ,ASCII_WORD,false
 5561,twitter_screenshot,Twitterのスクリーンショット,ASCII_WORD,false
 5562,twitter_x_logo,X（旧Twitter）のロゴ,ASCII_WORD,true
-5713,vibrator_under_panties,バイブINパンツ,ASCII_WORD,false
 5727,vogue_(magazine),Vogue（雑誌）,ASCII_WORD,true
 5868,yd_dancer_outfit,YD型踊り子衣装,ASCII_WORD,false
 5945,1-up_mushroom,1UPきのこ,ASCII_WORD,false
@@ -86,7 +85,7 @@ row_number,canonical,display_ja,checks,already_overridden
 6683,anzio_ironworks_20mm_rifle,アンツィオ20mm対物ライフル,ASCII_WORD,false
 6693,aoshidan_(emblem),aoshidan（エンブレム）,ASCII_WORD,false
 6744,aps_rifle,APS水中銃,ASCII_WORD,true
-6745,apu_spills_his_tendies_(meme),APUが彼の傾向をこぼす（ミーム）,ASCII_WORD,false
+6745,apu_spills_his_tendies_(meme),APUがチキンテンダーをこぼす（ミーム）,ASCII_WORD,true
 6746,aqours_1st_years,Aqours 1年生組,ASCII_WORD,true
 6747,aqours_2nd_years,Aqours 2年生組,ASCII_WORD,true
 6748,aqours_3rd_years,Aqours 3年生組,ASCII_WORD,true
@@ -118,7 +117,7 @@ row_number,canonical,display_ja,checks,already_overridden
 7628,battleship_(eve_online),戦艦（EVE Online）,ASCII_WORD,false
 7641,bc_freedom_(emblem),BCフリーダム（エンブレム）,ASCII_WORD,false
 7642,bc_freedom_military_uniform,BC自由学園の軍服,ASCII_WORD,true
-7643,bc_freedom_school_uniform,BCフリーダムスクールユニフォーム,ASCII_WORD,false
+7643,bc_freedom_school_uniform,BC自由学園の制服,ASCII_WORD,true
 7644,bcy_username,bcyのユーザー名,ASCII_WORD,false
 7762,bellwall_military_uniform,bellwall militaryの制服,ASCII_WORD,false
 7763,bellwall_school_uniform,bellwallの学校制服,ASCII_WORD,false
@@ -143,11 +142,11 @@ row_number,canonical,display_ja,checks,already_overridden
 8167,block_(minecraft),ブロック（Minecraft）,ASCII_WORD,true
 8179,blood_edge_(stellar_blade),ブラッドエッジ（Stellar Blade）,ASCII_WORD,true
 8245,bloom_garden_party_jacket,Bloom Garden Partyのピンクジャケット,ASCII_WORD,true
-8261,blu-ray_logo,blu rayのロゴ,ASCII_WORD,false
+8261,blu-ray_logo,Blu-rayロゴ,ASCII_WORD,true
 8324,blue_journey_(hololive),Blue Journey（ホロライブ）,ASCII_WORD,true
 8394,blueberry_academy_school_uniform,blueberry academyの学校制服,ASCII_WORD,false
-8398,bluesky_logo,blueskyのロゴ,ASCII_WORD,false
-8399,bluesky_username,blueskyのユーザー名,ASCII_WORD,false
+8398,bluesky_logo,Blueskyロゴ,ASCII_WORD,true
+8399,bluesky_username,Blueskyユーザー名,ASCII_WORD,true
 8415,bmw_3_series,BMW 3シリーズ,ASCII_WORD,true
 8418,bnw_(umamusume),BNW(ウマ娘),ASCII_WORD,false
 8435,boc'z_(umamusume),BoC'z（ウマ娘）,ASCII_WORD,true
@@ -207,7 +206,6 @@ row_number,canonical,display_ja,checks,already_overridden
 10377,compass_uniform,compassの制服,ASCII_WORD,false
 10428,constellation_crystal_(ff14),星座クリスタル（FF14）,ASCII_WORD,true
 10487,cooperative_pussyjob,協力して行うpussyjob,ASCII_WORD,true
-10489,coordinated_clothes_writing,coordinated・服・writing,ASCII_WORD,false
 10543,counters_(nikke),カウンターズ(勝利の女神:NIKKE),ASCII_WORD,false
 10553,covenant_halo_(girls'_frontline_2),Covenant Halo（ドールズフロントライン2）,ASCII_WORD,true
 10555,cover_bikini_girl_(gta_vi)_(pose),GTA VI表紙ビキニ女性のポーズ,ASCII_WORD,true
@@ -247,8 +245,8 @@ row_number,canonical,display_ja,checks,already_overridden
 11346,diamond_(minecraft),ダイヤモンド(Minecraft),ASCII_WORD,false
 11364,diana_(pragmata)_(cosplay),ディアナ（PRAGMATA）（コスプレ）,ASCII_WORD,true
 11391,digimon_(virtual_pet),デジタルモンスターVer.1,ASCII_WORD,false
-11453,discord_logo,discordのロゴ,ASCII_WORD,false
-11454,discord_username,discordのユーザー名,ASCII_WORD,false
+11453,discord_logo,Discordロゴ,ASCII_WORD,true
+11454,discord_username,Discordユーザー名,ASCII_WORD,true
 11515,diyap_(style),diyap風,ASCII_WORD,true
 11518,dizzy_(guilty_gear)_(cosplay),Dizzy（Guilty Gear）（コスプレ）,ASCII_WORD,false
 11606,doom_cover_parody,DOOMパッケージ表紙パロディ,ASCII_WORD,true
@@ -390,7 +388,6 @@ row_number,canonical,display_ja,checks,already_overridden
 15666,hev_suit,HEVスーツ,ASCII_WORD,true
 15680,hf_murasama,HFムラサマ,ASCII_WORD,true
 15681,hibachi_(object),hibachi（オブジェクト）,ASCII_WORD,false
-15699,high-ended_braid,高い・ended・braid,ASCII_WORD,false
 15726,high_x_joker_(idolmaster),High×Joker（アイドルマスター）,ASCII_WORD,true
 15757,himematsu_school_uniform,himematsuの学校制服,ASCII_WORD,false
 15761,himitsucalibur_(fate),ヒミツカリバー（Fate）,ASCII_WORD,true
@@ -493,7 +490,6 @@ row_number,canonical,display_ja,checks,already_overridden
 18052,kurumi-gaoka_high_school_uniform,kurumi gaoka highの学校制服,ASCII_WORD,false
 18061,kwon_eun-bi_waterbomb_performance_(meme),クォン・ウンビのWATERBOMBパフォーマンス（ミーム）,ASCII_WORD,true
 18069,l'avenir_academy_school_uniform,L'Avenir Academyのユニフォーム,ASCII_WORD,false
-18201,lap_pov,ラップPOV,ASCII_WORD,false
 18207,lapwing_face_tracking_redraws,Lapwing顔トラッキング再描画,ASCII_WORD,true
 18219,large_module_(eve_online),大型モジュール（EVE Online）,ASCII_WORD,false
 18245,lat_model_(mikumikudance),Lat式ミク,ASCII_WORD,false
@@ -506,7 +502,6 @@ row_number,canonical,display_ja,checks,already_overridden
 18604,limbus_kindergarten_uniform,Limbus幼稚園の制服,ASCII_WORD,true
 18618,linked_bikini,linked・ビキニ,ASCII_WORD,false
 18671,living_doll_uniform,living dollの制服,ASCII_WORD,false
-18672,living_fish_tank,living・魚・tank,ASCII_WORD,false
 18691,lobotomy_corporation_(identity)_(project_moon),ロボトミーコーポレーション（identity）（Project Moon）,ASCII_WORD,true
 18709,lofter_logo,lofterのロゴ,ASCII_WORD,false
 18737,long_fall_boots_(portal),ロングフォールブーツ（Portal）,ASCII_WORD,true
@@ -807,7 +802,6 @@ row_number,canonical,display_ja,checks,already_overridden
 24854,seitetsu_academy_school_uniform,seitetsu academyの学校制服,ASCII_WORD,false
 24857,sekiba_girls'_high_school_uniform,sekiba girls' highの学校制服,ASCII_WORD,false
 24863,selene_girls_school_uniform,selene girlsの学校制服,ASCII_WORD,false
-24874,selfcest_without_self,selfcest・なしのself,ASCII_WORD,false
 24887,senkou_high_school_uniform,Senkou High Schoolの制服,ASCII_WORD,false
 24892,sensei_haruki_suetsugu_(style),sensei haruki suetsugu風,ASCII_WORD,true
 24905,seraphim_(one_piece),セラフィム(ONEPIECE),ASCII_WORD,false
