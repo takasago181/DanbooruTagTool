@@ -1,0 +1,30 @@
+canonical,old_display_ja,new_display_ja,reason
+mars_symbol_hair_ornament,mars symbolの髪飾り,火星記号の髪飾り,MIXED_ENGLISH_DEBRIS
+marshall_amplification,タグ「marshall amplification」,Marshall Amplification,RAW_ENGLISH_WRAPPER
+maru-yu_(kancolle)_(cosplay),Maru-yu（kancolle）（コスプレ）,まるゆ（艦これ）（コスプレ）,SEMANTIC_ERROR
+maru_ni_juumonji_(crest),タグ「maru ni juumonji (crest)」,丸に十文字（家紋）,RAW_ENGLISH_WRAPPER
+maruman_sketchbook,タグ「maruman sketchbook」,マルマン スケッチブック,RAW_ENGLISH_WRAPPER
+maruzensky_(umamusume)_(cosplay),maruzensky (umamusume) (cosplay),マルゼンスキー（ウマ娘）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+masamune_(ff7),マサミューン（FF7）,正宗（FF7）,SEMANTIC_ERROR
+mascara_wand,マスカラの杖,マスカラブラシ,SEMANTIC_ERROR
+mash_kyrielight_(enma-tei_uniform)_(cosplay),mash kyrielight (enma-tei uniform) (cosplay),マシュ・キリエライト（閻魔亭制服）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+mask_on_belt,マスクの上のベルト,ベルトにマスク,SEMANTIC_RELATION_ERROR
+mask_on_hat,マスクの上の帽子,帽子にマスク,SEMANTIC_RELATION_ERROR
+mask_on_shoulder,マスクの上の肩,肩にマスク,SEMANTIC_RELATION_ERROR
+mastectomy_scar,タグ「mastectomy scar」,乳房切除痕,RAW_ENGLISH_WRAPPER
+mastercard,タグ「mastercard」,Mastercard,RAW_ENGLISH_WRAPPER
+masturbating_together,同时自慰,一緒に自慰,NON_JAPANESE_RESIDUE
+masturbating_while_penetrated,タグ「masturbating while penetrated」,挿入されながら自慰,RAW_ENGLISH_WRAPPER
+masturbating_while_watching,見ている間自慰行為,見ながら自慰,AWKWARD_MACHINE_TRANSLATION
+matching_accessory,タグ「matching accessory」,お揃いのアクセサリー,RAW_ENGLISH_WRAPPER
+matching_earrings,一致するイヤリング,お揃いのイヤリング,SEMANTIC_ERROR
+matching_pose,matching・ポーズ,お揃いのポーズ,MIXED_ENGLISH_DEBRIS
+materializing,具体化,実体化,SEMANTIC_ERROR
+math_lady_(meme),math lady (meme),数学おばさん（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+mating_season,発情,発情期,SEMANTIC_UNDERSPECIFICATION
+matou_family_(fate),matou family (fate),間桐家（Fate）,CANONICAL_FALLBACK_TRANSLATABLE
+matou_sakura_(cosplay),マトゥーサクラ（コスプレ）,間桐桜（コスプレ）,SEMANTIC_ERROR
+mature_eyes,mature・目,大人びた目,MIXED_ENGLISH_DEBRIS
+may_(pokemon)_(cosplay),5月（ポケモン）（コスプレ）,ハルカ（ポケモン）（コスプレ）,SEMANTIC_ERROR
+maya_(kancolle)_(cosplay),マヤ（カンコル）（コスプレ）,摩耶（艦これ）（コスプレ）,SEMANTIC_ERROR
+maya_kai_ni_(kancolle)_(cosplay),maya kai ni (kancolle) (cosplay),摩耶改二（艦これ）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
