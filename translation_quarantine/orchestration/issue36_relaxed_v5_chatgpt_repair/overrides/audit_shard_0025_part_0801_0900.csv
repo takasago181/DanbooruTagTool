@@ -1,0 +1,41 @@
+canonical,old_display_ja,new_display_ja,reason
+see-through_overskirt,見る・越しのoverskirt,シースルーオーバースカート,MIXED_ENGLISH_DEBRIS
+see-through_pantyhose,透視连ズボン袜,シースルーパンスト,NON_JAPANESE_RESIDUE
+see-through_ribbon,見る・越しのribbon,シースルーリボン,MIXED_ENGLISH_DEBRIS
+see-through_robe,見る・越しのローブ,シースルーローブ,SEMANTIC_ERROR
+see-through_sarong,透明莎笼,シースルーサロン,NON_JAPANESE_RESIDUE
+see-through_scarf,見る・越しのscarf,シースルースカーフ,MIXED_ENGLISH_DEBRIS
+see-through_shawl,透明披肩,シースルーショール,NON_JAPANESE_RESIDUE
+see-through_shrug,見る・越しのボレロ,シースルーボレロ,SEMANTIC_ERROR
+see-through_skirt_layer,見る・越しのスカート・layer,シースルーのスカート層,MIXED_ENGLISH_DEBRIS
+see-through_sleeve_layer,見る・越しのsleeve・layer,シースルーの袖層,MIXED_ENGLISH_DEBRIS
+see-through_socks,見る・越しのの靴下,シースルー靴下,SEMANTIC_ERROR
+see-through_strap,見る・越しのstrap,シースルーストラップ,MIXED_ENGLISH_DEBRIS
+see-through_tail,見る・越しの尻尾,半透明の尻尾,SEMANTIC_ERROR
+see-through_tank_top,見る・越しのtank・トップス,シースルータンクトップ,MIXED_ENGLISH_DEBRIS
+see-through_underwear,見る・越しのunderwear,シースルー下着,MIXED_ENGLISH_DEBRIS
+see-through_wrist_cuffs,見る・越しの手首・カフ,シースルー手首カフ,SEMANTIC_ERROR
+seed_uniform_(ff8),タグ「seed uniform (ff8)」,SeeD制服（FF8）,RAW_ENGLISH_WRAPPER
+seele_(evangelion),タグ「seele (evangelion)」,ゼーレ（エヴァンゲリオン）,RAW_ENGLISH_WRAPPER
+segmented_comic,segmented・漫画,分割された漫画,MIXED_ENGLISH_DEBRIS
+segmented_tail,segmented・尻尾,節状の尻尾,MIXED_ENGLISH_DEBRIS
+seia_(blue_archive)_(cosplay),seia (blue archive) (cosplay),百合園セイア（ブルーアーカイブ）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+seidoukan_academy_school_uniform,星導館学園,星導館学園の制服,SEMANTIC_UNDERSPECIFICATION
+seiren_academy_school_uniform,私立征嶺学園,私立征嶺学園の制服,SEMANTIC_UNDERSPECIFICATION
+seisho_music_academy_school_uniform,seisho music academyの学校制服,聖翔音楽学園の制服,MIXED_ENGLISH_DEBRIS
+seiyo_academy_school_uniform,セイヨアカデミーユニフォーム,聖夜学園の制服,TRANSLITERATION_ERROR
+selection_university_military_uniform,選択大学軍服の選択,セレクション大学の軍服,SEMANTIC_ERROR
+self-cosplay,ミッドフォーム,自分自身のコスプレ,SEMANTIC_ERROR
+self_character_print,self characterの柄,自分のキャラクター柄,MIXED_ENGLISH_DEBRIS
+self_fisting,自己拳,自分へのフィスティング,SEMANTIC_ERROR
+self_hug,抱胸,自分自身を抱く,SEMANTIC_ERROR
+self_milking,挤奶,自分で搾乳,NON_JAPANESE_RESIDUE
+selfie_prank,タグ「selfie prank」,自撮りいたずら,RAW_ENGLISH_WRAPPER
+semi-circular_eyewear,タグ「semi-circular eyewear」,半円形のアイウェア,RAW_ENGLISH_WRAPPER
+sengoku_nadeko_(cosplay),Sengoku nadeko（コスプレ）,千石撫子（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+senjougahara_hitagi_skirt_lift_pose,senjougahara・hitagi・スカート・lift・ポーズ,戦場ヶ原ひたぎのスカートリフトポーズ,MIXED_ENGLISH_DEBRIS
+sennheiser,タグ「sennheiser」,ゼンハイザー,RAW_ENGLISH_WRAPPER
+senpai_kinshi!_(love_live!),タグ「senpai kinshi! (love live!)」,先輩禁止！（ラブライブ！）,RAW_ENGLISH_WRAPPER
+senriyama_school_uniform,セナヤマの制服,千里山の制服,TRANSLITERATION_ERROR
+sentient_plant,タグ「sentient plant」,意思を持つ植物,RAW_ENGLISH_WRAPPER
+sentient_stuffed_toy,sentient・ぬいぐるみのtoy,意思を持つぬいぐるみ,MIXED_ENGLISH_DEBRIS
