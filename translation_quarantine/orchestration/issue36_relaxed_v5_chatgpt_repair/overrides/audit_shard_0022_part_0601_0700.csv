@@ -1,0 +1,30 @@
+canonical,old_display_ja,new_display_ja,reason
+paizuri_while_penetrated,浸透している間、ペイズリ,挿入されながらパイズリ,SEMANTIC_ERROR
+pajama_pants,pajama・パンツ,パジャマのズボン,MIXED_ENGLISH_DEBRIS
+pal_(creature),タグ「pal (creature)」,パル（生物）,RAW_ENGLISH_WRAPPER
+palm-fist_tap,手を打つ,掌と拳を打ち合わせる,SEMANTIC_UNDERSPECIFICATION
+palmar_flexion,タグ「palmar flexion」,掌屈,RAW_ENGLISH_WRAPPER
+panda_boy,タグ「panda boy」,パンダ少年,RAW_ENGLISH_WRAPPER
+panda_hood,パンダフッド,パンダフード,TRANSLITERATION_ERROR
+panda_ornament,panda・飾り,パンダの飾り,MIXED_ENGLISH_DEBRIS
+pankou,盘扣,チャイナボタン,NON_JAPANESE_RESIDUE
+pansexual_flag,pansexualの旗,パンセクシュアルの旗,MIXED_ENGLISH_DEBRIS
+panties_around_feet,パンツ・周囲・足,足元のパンティー,MIXED_ENGLISH_DEBRIS
+panties_around_knees,パンツの周囲のknees,膝まわりのパンティー,MIXED_ENGLISH_DEBRIS
+panties_around_one_finger,パンツ・周囲・1人・指,一本の指にかけたパンティー,SEMANTIC_ERROR
+panties_on_penis,パンコキ,陰茎にかけたパンティー,SEMANTIC_NARROWING
+panties_over_bodysuit,パンツ・覆う・ボディスーツ,ボディスーツの上のパンティー,SEMANTIC_RELATION_ERROR
+panties_over_clothes,パンツ・覆う・服,服の上のパンティー,SEMANTIC_RELATION_ERROR
+panties_under_bike_shorts,はみパン,バイクショーツの下のパンティー,SEMANTIC_NARROWING
+pants_around_ankles,パンツの周囲のankles,足首まわりのズボン,MIXED_ENGLISH_DEBRIS
+pants_around_thighs,ズボン・周囲・太もも,太ももまわりのズボン,MIXED_ENGLISH_DEBRIS
+pants_lift,パンツ・lift,ズボンを持ち上げる,MIXED_ENGLISH_DEBRIS
+pants_rolled_up,ズボンが巻き上げられました,裾をまくったズボン,SEMANTIC_ERROR
+pants_tucked_in,ズボン腿塞进鞋子里,ズボンを履物の中に入れる,NON_JAPANESE_RESIDUE
+panty_&_stocking_with_garterbelt_(style),タグ「panty & stocking with garterbelt (style)」,Panty & Stocking with Garterbelt（スタイル）,RAW_ENGLISH_WRAPPER
+panty_dangle,タグ「panty dangle」,ぶら下がったパンティー,RAW_ENGLISH_WRAPPER
+panty_roll,タグ「panty roll」,丸めたパンティー,RAW_ENGLISH_WRAPPER
+panty_spread,タグ「panty spread」,パンティーを広げる,RAW_ENGLISH_WRAPPER
+panty_tag,タグ「panty tag」,パンティーのタグ,RAW_ENGLISH_WRAPPER
+panty_tug,パンティータグ,パンティーを引っ張る,SEMANTIC_ERROR
+pantyhose_around_legs,パンストの周囲の脚,脚まわりのパンスト,SEMANTIC_RELATION_ERROR
