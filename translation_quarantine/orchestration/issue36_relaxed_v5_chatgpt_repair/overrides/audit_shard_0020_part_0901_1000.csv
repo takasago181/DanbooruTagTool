@@ -1,0 +1,34 @@
+canonical,old_display_ja,new_display_ja,reason
+moogle_(cosplay),moogle (cosplay),モーグリ（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+moon_(symbol),タグ「moon (symbol)」,月の記号,RAW_ENGLISH_WRAPPER
+moon_background,moonの背景,月の背景,MIXED_ENGLISH_DEBRIS
+moon_behind_head,moon・behind・頭,頭の後ろの月,MIXED_ENGLISH_DEBRIS
+moon_gate,月亮門,月門,NON_JAPANESE_RESIDUE
+moon_phases,月相,月の満ち欠け,NON_JAPANESE_RESIDUE
+moon_tattoo,moonのタトゥー,月のタトゥー,MIXED_ENGLISH_DEBRIS
+moon_uniform_(houseki_no_kuni),タグ「moon uniform (houseki no kuni)」,月の制服（宝石の国）,RAW_ENGLISH_WRAPPER
+moon_with_face,moon・付きの顔,顔のある月,MIXED_ENGLISH_DEBRIS
+moonlight_greatsword,暗月の大剣,月光の大剣,SEMANTIC_ERROR
+moose_antlers,タグ「moose antlers」,ヘラジカの角,RAW_ENGLISH_WRAPPER
+moose_ears,ムースの耳,ヘラジカの耳,SEMANTIC_ERROR
+moose_girl,ムースガール,ヘラジカ娘,SEMANTIC_ERROR
+moose_tail,ムースの尾,ヘラジカの尻尾,SEMANTIC_ERROR
+mordred_(fate)_(cosplay),mordred (fate) (cosplay),モードレッド（Fate）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+morgan_le_fay_(fate)_(cosplay),morgan le fay (fate) (cosplay),モルガン（Fate）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+morichika_rinnosuke_(cosplay),モリチカ・リノスケ（コスプレ）,森近霖之助（コスプレ）,SEMANTIC_ERROR
+moriya_family_(touhou),moriya family (touhou),守矢一家（東方）,CANONICAL_FALLBACK_TRANSLATABLE
+moriya_suwako_(cosplay),Moriya Suwako（コスプレ）,洩矢諏訪子（コスプレ）,SEMANTIC_ERROR
+morning_glory_print,朝の栄光のプリント,アサガオ柄,SEMANTIC_ERROR
+mortar_shell,モルタルシェル,迫撃砲弾,SEMANTIC_ERROR
+mortarboard,モルタルボード,角帽,SEMANTIC_ERROR
+moth_antennae,mothアンテナ,蛾の触角,MIXED_ENGLISH_DEBRIS
+moth_boy,タグ「moth boy」,蛾の少年,RAW_ENGLISH_WRAPPER
+moth_hair_ornament,髪の毛の飾り,蛾の髪飾り,SEMANTIC_UNDERSPECIFICATION
+moth_wings,翼,蛾の翼,SEMANTIC_UNDERSPECIFICATION
+mother_and_son_threesome,タグ「mother and son threesome」,母親と息子を含む3P,RAW_ENGLISH_WRAPPER
+motor_oil,タグ「motor oil」,エンジンオイル,RAW_ENGLISH_WRAPPER
+motorized_unicycle,タグ「motorized unicycle」,電動一輪車,RAW_ENGLISH_WRAPPER
+motosu_school_uniform,motosuの学校制服,本栖高校の制服,MIXED_ENGLISH_DEBRIS
+mountain_climbing,タグ「mountain climbing」,登山,RAW_ENGLISH_WRAPPER
+mountain_focus,mountain・焦点,山を強調,MIXED_ENGLISH_DEBRIS
+mounted_dildo,マウントされたディルド,固定式ディルド,AWKWARD_MACHINE_TRANSLATION
