@@ -1,0 +1,46 @@
+canonical,old_display_ja,new_display_ja,reason
+skinned,タグ「skinned」,皮を剥がされた,RAW_ENGLISH_WRAPPER
+skirt_around_one_ankle,スカート・周囲・1人・足首,片足首まわりのスカート,MIXED_ENGLISH_DEBRIS
+skirt_in_mouth,嘴里含着裙子,口にスカート,NON_JAPANESE_RESIDUE
+skirt_partially_removed,スカート・部分的に・removed,一部脱いだスカート,MIXED_ENGLISH_DEBRIS
+skirt_peek,スカート・覗き見,スカートから覗く,SEMANTIC_ERROR
+skirt_pocket,スカート・pocket,スカートのポケット,MIXED_ENGLISH_DEBRIS
+skirt_rolled_up,スカートが巻き上げられました,まくり上げたスカート,SEMANTIC_STATE_ACTION_ERROR
+skirt_ruff,スカート・ruff,スカートのひだ飾り,MIXED_ENGLISH_DEBRIS
+skirt_tug,前押さえ,スカートを引っ張る,SEMANTIC_ERROR
+skorpion_vz._61,タグ「skorpion vz. 61」,Škorpion vz. 61,RAW_ENGLISH_WRAPPER
+skort,裙ズボン,スコート,NON_JAPANESE_RESIDUE
+skousers,タグ「skousers」,スカウザーズ,RAW_ENGLISH_WRAPPER
+skull_and_crossbones_tattoo,skull and crossbonesのタトゥー,髑髏と交差骨のタトゥー,MIXED_ENGLISH_DEBRIS
+skull_background,skullの背景,髑髏の背景,MIXED_ENGLISH_DEBRIS
+skull_choker,頭蓋骨チーカー,髑髏のチョーカー,TRANSLITERATION_ERROR
+skull_head,skull・頭,髑髏の頭,MIXED_ENGLISH_DEBRIS
+skull_on_head,頭の頭蓋骨,頭の上の髑髏,SEMANTIC_RELATION_ERROR
+skull_pauldron,タグ「skull pauldron」,髑髏の肩当て,RAW_ENGLISH_WRAPPER
+skullcap,タグ「skullcap」,スカルキャップ,RAW_ENGLISH_WRAPPER
+skullgirls_1st_dlc_character_poll,skullgirls・1st・dlc・キャラクター・poll,Skullgirls第1弾DLCキャラクター投票,MIXED_ENGLISH_DEBRIS
+skunk_boy,タグ「skunk boy」,スカンク少年,RAW_ENGLISH_WRAPPER
+sky_face,sky・顔,空の顔,MIXED_ENGLISH_DEBRIS
+sky_focus,スカイフォーカス,空を強調,SEMANTIC_ERROR
+sky_print,スカイプリント,空柄,SEMANTIC_ERROR
+sky_surfing,驭器飛行,空をサーフィン,NON_JAPANESE_RESIDUE
+skyline,天际線,スカイライン,NON_JAPANESE_RESIDUE
+slaanesh_(symbol),タグ「slaanesh (symbol)」,スラーネッシュの記号,RAW_ENGLISH_WRAPPER
+slam,スラム,叩きつける,SEMANTIC_AMBIGUITY
+slam_dunk_(basketball),扣篮,スラムダンク（バスケットボール）,NON_JAPANESE_RESIDUE
+slamming_door,ドアを叩きます,ドアを強く閉める,SEMANTIC_ERROR
+slapping_breasts,乳ビンタ,乳房を叩く,SEMANTIC_RELATION_ERROR
+slapping_with_breasts,乳ビンタ,乳房で叩く,SEMANTIC_RELATION_ERROR
+slave_visor_(tsmg_nao!),タグ「slave visor (tsmg nao!)」,スレイブバイザー（TSMG Nao!）,RAW_ENGLISH_WRAPPER
+sleep_talking,話している睡眠,寝言,SEMANTIC_ERROR
+sleeping_animal,眠っている・動物,眠っている動物,MIXED_ENGLISH_DEBRIS
+sleeping_bag,眠っている・バッグ,寝袋,SEMANTIC_AMBIGUITY
+sleeping_on_desk,趴在桌上睡觉,机で寝る,NON_JAPANESE_RESIDUE
+sleepwalking,夢遊病,夢遊,SEMANTIC_NARROWING
+sleeve_belt,sleeve・ベルト,袖のベルト,MIXED_ENGLISH_DEBRIS
+sleeve_pouch,タグ「sleeve pouch」,袖のポーチ,RAW_ENGLISH_WRAPPER
+sleeve_pull,スリーブプル,袖を引っ張る,SEMANTIC_STATE_ACTION_ERROR
+sleeve_pushed_up,sleeve・pushed・上向きの,まくり上げた袖,MIXED_ENGLISH_DEBRIS
+sleeve_rolled_up,スリーブが丸めました,まくった袖,SEMANTIC_STATE_ACTION_ERROR
+sleeve_slit,タグ「sleeve slit」,袖のスリット,RAW_ENGLISH_WRAPPER
+sleeved_leotard,sleeved・レオタード,袖付きレオタード,MIXED_ENGLISH_DEBRIS
