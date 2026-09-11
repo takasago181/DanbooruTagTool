@@ -1,0 +1,43 @@
+canonical,old_display_ja,new_display_ja,reason
+triangle_background,triangleの背景,三角形の背景,MIXED_ENGLISH_DEBRIS
+triangle_bra,triangle・ブラ,三角形のブラ,MIXED_ENGLISH_DEBRIS
+triangle_button,triangle・ボタン,三角形のボタン,MIXED_ENGLISH_DEBRIS
+triangle_facial_mark,triangle・facial・印,三角形のフェイスマーク,MIXED_ENGLISH_DEBRIS
+triangle_hands,triangle・両手,三角形を作る手,MIXED_ENGLISH_DEBRIS
+triangle_necklace,triangle・ネックレス,三角形のネックレス,MIXED_ENGLISH_DEBRIS
+triangle_nose,タグ「triangle nose」,三角形の鼻,RAW_ENGLISH_WRAPPER
+triangle_o-ring,triangle oの指輪,三角形Oリング,SEMANTIC_ERROR
+triangle_print,三角形印刷,三角形柄,SEMANTIC_STATE_ACTION_ERROR
+triangular_anus,タグ「triangular anus」,三角形の肛門,RAW_ENGLISH_WRAPPER
+tridecagram,タグ「tridecagram」,十三芒星,RAW_ENGLISH_WRAPPER
+trigger_discipline,規律をトリガーします,トリガー規律,SEMANTIC_ERROR
+trigram,卦象,三爻卦,NON_JAPANESE_RESIDUE
+trimmed_tail,整えたの尻尾,整えた尻尾,TRANSLITERATION_ERROR
+trinity_general_school_sportswear,trinity・general・学校・sportswear,トリニティ総合学園の体操服,MIXED_ENGLISH_DEBRIS
+trinity_general_school_swimsuit,trinity general schoolの水着,トリニティ総合学園の水着,MIXED_ENGLISH_DEBRIS
+triple_amputee,トリプル切断者,3肢切断者,SEMANTIC_ERROR
+triple_domain_expansion_(meme),triple domain expansion (meme),三重領域展開（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+triple_vaginal,トリプル膣,膣への三重挿入,SEMANTIC_ERROR
+tripod_(laboratory),タグ「tripod (laboratory)」,三脚（実験器具）,RAW_ENGLISH_WRAPPER
+triptych_(art),タグ「triptych (art)」,三連画,RAW_ENGLISH_WRAPPER
+triquetra,タグ「triquetra」,トリケトラ,RAW_ENGLISH_WRAPPER
+trishula_shakti_(fate),trishula shakti (fate),トリシューラ・シャクティ（Fate）,CANONICAL_FALLBACK_TRANSLATABLE
+triumph_(expression),タグ「triumph (expression)」,勝ち誇った表情,RAW_ENGLISH_WRAPPER
+troll_(warcraft),トロール（warcraft）,トロール（Warcraft）,MIXED_ENGLISH_DEBRIS
+troll_face,嘲讽顔,トロールフェイス,NON_JAPANESE_RESIDUE
+trompe_l'oeil,タグ「trompe l'oeil」,だまし絵,RAW_ENGLISH_WRAPPER
+trout,タグ「trout」,マス,RAW_ENGLISH_WRAPPER
+true_crime,不謹慎,実録犯罪,SEMANTIC_ERROR
+true_velocity_rm338,オートラッカー,True Velocity RM338,SEMANTIC_ERROR
+true_zangetsu_(shikai),タグ「true zangetsu (shikai)」,真の斬月（始解）,RAW_ENGLISH_WRAPPER
+truss,桁架,トラス,NON_JAPANESE_RESIDUE
+trypophobia,蓮コラ,集合体恐怖症,SEMANTIC_NARROWING
+tryzub,タグ「tryzub」,トルィーズブ,RAW_ENGLISH_WRAPPER
+tsab_air_military_uniform,tsab air militaryの制服,TSAB航空部隊の軍服,MIXED_ENGLISH_DEBRIS
+tsab_executive_military_uniform,TSABエグゼクティブ軍服,TSAB執務部隊の軍服,SEMANTIC_ERROR
+tsab_ground_military_uniform,TSABグラウンド軍服,TSAB地上部隊の軍服,SEMANTIC_ERROR
+tsab_naval_military_uniform,TSAB海軍の軍服,TSAB海上部隊の軍服,SEMANTIC_ERROR
+tsubakigaoka_metropolitan_high_school_uniform,tsubakigaoka metropolitan highの学校制服,都立椿ヶ丘高校の制服,MIXED_ENGLISH_DEBRIS
+tsubakisakuhana_school_uniform,tsubakisakuhanaの学校制服,椿咲花学園の制服,MIXED_ENGLISH_DEBRIS
+tsubame_nishi_high_school_uniform,tsubame nishi highの学校制服,燕西高校の制服,MIXED_ENGLISH_DEBRIS
+tsuchinoko,槌の子,ツチノコ,SEMANTIC_ERROR
