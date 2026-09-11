@@ -1,0 +1,42 @@
+canonical,old_display_ja,new_display_ja,reason
+shenhe_(genshin_impact)_(cosplay),shenhe (genshin impact) (cosplay),申鶴（原神）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+shepherd's_crook,羊飼いの詐欺師,羊飼いの杖,SEMANTIC_AMBIGUITY
+sherbet_glass,タグ「sherbet glass」,シャーベットグラス,RAW_ENGLISH_WRAPPER
+shi_association_south_(identity)_(project_moon),shi association south (identity) (project moon),シ協会南部（人格）（Project Moon）,CANONICAL_FALLBACK_TRANSLATABLE
+shi_association_south_uniform,shi association southの制服,シ協会南部の制服,MIXED_ENGLISH_DEBRIS
+shiba_koen_middle_school_uniform,shiba koen middleの学校制服,芝公園中学校の制服,MIXED_ENGLISH_DEBRIS
+shibahama_high_school_uniform,shibahama highの学校制服,芝浜高校の制服,MIXED_ENGLISH_DEBRIS
+shibari_marks,シバリマークス,縛り跡,SEMANTIC_ERROR
+shibuya_109,タグ「shibuya 109」,渋谷109,RAW_ENGLISH_WRAPPER
+shibuya_rin_(cosplay),渋谷rin（コスプレ）,渋谷凛（コスプレ）,MIXED_ENGLISH_DEBRIS
+shide_hair_ornament,shideの髪飾り,紙垂の髪飾り,MIXED_ENGLISH_DEBRIS
+shield_hair_ornament,shieldの髪飾り,盾の髪飾り,MIXED_ENGLISH_DEBRIS
+shield_module,タグ「shield module」,シールドモジュール,RAW_ENGLISH_WRAPPER
+shield_on_back,shieldの上の背中,背中の盾,SEMANTIC_RELATION_ERROR
+shield_wall,shield・壁,盾の壁,MIXED_ENGLISH_DEBRIS
+shielding,タグ「shielding」,かばう,RAW_ENGLISH_WRAPPER
+shielding_another_from_rain,shielding・他人のからのrain,他人を雨からかばう,MIXED_ENGLISH_DEBRIS
+shigure_(kancolle)_(cosplay),shigure（kancolle）（コスプレ）,時雨（艦これ）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+shigure_kai_ni_(kancolle)_(cosplay),shigure kai ni (kancolle) (cosplay),時雨改二（艦これ）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+shigure_kai_san_(kancolle)_(cosplay),shigure kai san (kancolle) (cosplay),時雨改三（艦これ）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+shigure_ui_(vtuber)_(cosplay),shigure ui (vtuber) (cosplay),しぐれうい（VTuber）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+shiki_eiki_(cosplay),シキ・エイキ（コスプレ）,四季映姫（コスプレ）,SEMANTIC_ERROR
+shima_(pattern),島（パターン）,縞（模様）,SEMANTIC_AMBIGUITY
+shimiko_(blue_archive)_(cosplay),shimiko (blue archive) (cosplay),円堂シミコ（ブルーアーカイブ）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+shimokitazawa_high_school_uniform,下北沢高校,下北沢高校の制服,SEMANTIC_UNDERSPECIFICATION
+shimousa_(fate/grand_order),shimousa (fate/grand order),下総国（Fate/Grand Order）,CANONICAL_FALLBACK_TRANSLATABLE
+shimushu_pose,清水ポーズ,占守ポーズ,SEMANTIC_ERROR
+shinai,しない,竹刀,SEMANTIC_AMBIGUITY
+shindouji_school_uniform,shindoujiの学校制服,新道寺の制服,MIXED_ENGLISH_DEBRIS
+shining_resonance_collection_of_visual_materials,視覚素材の輝く共鳴コレクション,シャイニング・レゾナンス ビジュアル資料集,SEMANTIC_ERROR
+shinji_in_a_chair_(meme),椅子の中のシンジ（ミーム）,椅子に座るシンジ（ミーム）,SEMANTIC_RELATION_ERROR
+shinjou_akane_(cosplay),Shinjou akane（コスプレ）,新条アカネ（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+shinkawa_youji_(style),野生の新川洋司,新川洋司（スタイル）,SEMANTIC_ERROR
+shinra_infantry_uniform,shinra infantryの制服,神羅兵の制服,MIXED_ENGLISH_DEBRIS
+shinsengumi,だんだら模様,新選組,SEMANTIC_NARROWING
+shinsengumi_(fate),shinsengumi (fate),新選組（Fate）,CANONICAL_FALLBACK_TRANSLATABLE
+shinsengumi_swords_(touken_ranbu),タグ「shinsengumi swords (touken ranbu)」,新選組ゆかりの刀剣（刀剣乱舞）,RAW_ENGLISH_WRAPPER
+shinsoo_(tower_of_god),タグ「shinsoo (tower of god)」,神之水（神之塔）,RAW_ENGLISH_WRAPPER
+shiny_eyes,shiny・目,光沢のある目,MIXED_ENGLISH_DEBRIS
+shiny_gloves,shinyの手袋,光沢のある手袋,MIXED_ENGLISH_DEBRIS
+shiny_leotard,shiny・レオタード,光沢のあるレオタード,MIXED_ENGLISH_DEBRIS
