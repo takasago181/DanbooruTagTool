@@ -1,0 +1,27 @@
+canonical,old_display_ja,new_display_ja,reason
+nagae_iku_(cosplay),名誉イク（コスプレ）,永江衣玖（コスプレ）,SEMANTIC_ERROR
+nagato_(battleship),タグ「nagato (battleship)」,長門（戦艦）,RAW_ENGLISH_WRAPPER
+nagato_(kancolle)_(cosplay),ナガート（カンコル）（コスプレ）,長門（艦これ）（コスプレ）,SEMANTIC_ERROR
+nagato_yuki_(cosplay),長門ゆき（コスプレ）,長門有希（コスプレ）,SEMANTIC_ERROR
+nagisa_kaworu_(cosplay),ナギサ・カワル（コスプレ）,渚カヲル（コスプレ）,SEMANTIC_ERROR
+nahida_(genshin_impact)_(cosplay),nahida (genshin impact) (cosplay),ナヒーダ（原神）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+nail_(hollow_knight),ネイル（中空騎士）,釘（Hollow Knight）,SEMANTIC_ERROR
+nail_gun,打钉枪,釘打ち銃,NON_JAPANESE_RESIDUE
+nail_hair_ornament,ネイルヘアオーナメント,釘の髪飾り,SEMANTIC_ERROR
+nail_ornament,nail・飾り,釘の飾り,MIXED_ENGLISH_DEBRIS
+nail_polish_brush,タグ「nail polish brush」,マニキュアブラシ,RAW_ENGLISH_WRAPPER
+nails_visible_through_gloves,nails visible throughの手袋,手袋越しに見える爪,MIXED_ENGLISH_DEBRIS
+naka_(kancolle)_(cosplay),naka（Kancolle）（コスプレ）,那珂（艦これ）（コスプレ）,SEMANTIC_ERROR
+naked_gloves,nakedの手袋,裸手袋,MIXED_ENGLISH_DEBRIS
+naked_jacket,裸学ラン,裸ジャケット,SEMANTIC_NARROWING
+nambu_pistol,nambu・拳銃,南部式拳銃,MIXED_ENGLISH_DEBRIS
+name_tag_hair_ornament,name tagの髪飾り,名札の髪飾り,MIXED_ENGLISH_DEBRIS
+nameplate,ひょうさつ,ネームプレート,SEMANTIC_NARROWING
+nami_(one_piece)_(cosplay),nami (one piece) (cosplay),ナミ（ONE PIECE）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+nanakusa-no-sekku,七草がゆ,七草の節句,SEMANTIC_ERROR
+nanami_chiaki_(cosplay),ナナミチアキ（コスプレ）,七海千秋（コスプレ）,SEMANTIC_ERROR
+napa_cabbage,タグ「napa cabbage」,白菜,RAW_ENGLISH_WRAPPER
+nape_braid,タグ「nape braid」,襟足の三つ編み,RAW_ENGLISH_WRAPPER
+naranja_academy_(emblem),タグ「naranja academy (emblem)」,オレンジアカデミー（校章）,RAW_ENGLISH_WRAPPER
+narration,叙事,ナレーション,SEMANTIC_ERROR
+narrow_hips,タグ「narrow hips」,細い腰,RAW_ENGLISH_WRAPPER
