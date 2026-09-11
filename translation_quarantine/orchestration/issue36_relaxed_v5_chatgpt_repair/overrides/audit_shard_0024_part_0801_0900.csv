@@ -1,0 +1,37 @@
+canonical,old_display_ja,new_display_ja,reason
+red_winter_federal_academy_logo,red winter federal academyのロゴ,レッドウィンター連邦学園のロゴ,MIXED_ENGLISH_DEBRIS
+red_yarn,赤い・yarn,赤い毛糸,MIXED_ENGLISH_DEBRIS
+redaction,タグ「redaction」,黒塗り,RAW_ENGLISH_WRAPPER
+reddit_logo,redditのロゴ,Redditのロゴ,MIXED_ENGLISH_DEBRIS
+reefslider_(splatoon),タグ「reefslider (splatoon)」,サメライド（スプラトゥーン）,RAW_ENGLISH_WRAPPER
+reflected_worlds,タグ「reflected worlds」,反射した世界,RAW_ENGLISH_WRAPPER
+reflective_clothes,reflective・服,反射する服,MIXED_ENGLISH_DEBRIS
+reflective_eyewear,タグ「reflective eyewear」,反射するアイウェア,RAW_ENGLISH_WRAPPER
+reflective_liquid,reflective・液体,反射する液体,MIXED_ENGLISH_DEBRIS
+reflective_surface,タグ「reflective surface」,反射面,RAW_ENGLISH_WRAPPER
+reflective_table,タグ「reflective table」,反射するテーブル,RAW_ENGLISH_WRAPPER
+reflective_wall,reflective・壁,反射する壁,MIXED_ENGLISH_DEBRIS
+reflective_weapon,reflectiveの武器,反射する武器,MIXED_ENGLISH_DEBRIS
+reflector_(ookami),タグ「reflector (ookami)」,リフレクター（大神）,RAW_ENGLISH_WRAPPER
+reflex_sight,反射視力,リフレックスサイト,SEMANTIC_AMBIGUITY
+refrigerator_interior,冷蔵庫のインテリア,冷蔵庫の内部,SEMANTIC_AMBIGUITY
+regional_and_normal,タグ「regional and normal」,リージョンフォームと通常形態,RAW_ENGLISH_WRAPPER
+regloss_(hololive),タグ「regloss (hololive)」,ReGLOSS（ホロライブ）,RAW_ENGLISH_WRAPPER
+reindeer_hair_ornament,reindeerの髪飾り,トナカイの髪飾り,MIXED_ENGLISH_DEBRIS
+reindeer_hood,トナカイフッド,トナカイフード,TRANSLITERATION_ERROR
+reisa_(blue_archive)_(cosplay),reisa (blue archive) (cosplay),宇沢レイサ（ブルーアーカイブ）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+reisen_udongein_inaba_(cosplay),reisen udongein inaba (cosplay),鈴仙・優曇華院・イナバ（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+reiuji_utsuho_(cosplay),Reiuji Utsuho（コスプレ）,霊烏路空（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+rejected_kiss,キスをブロックします,キスを拒む,SEMANTIC_ERROR
+related,タグ「related」,関連,RAW_ENGLISH_WRAPPER
+relief_(expression),タグ「relief (expression)」,安堵（表情）,RAW_ENGLISH_WRAPPER
+rem_(re:zero)_(cosplay),rem（re：zero）（コスプレ）,レム（Re:ゼロ）（コスプレ）,MIXED_ENGLISH_DEBRIS
+removing_bandaid,バンダイドを削除します,絆創膏を剥がす,SEMANTIC_ERROR
+removing_bikini_top,外す・ビキニ・トップス,ビキニトップを外す,MIXED_ENGLISH_DEBRIS
+removing_earbuds,外す・earbuds,イヤホンを外す,MIXED_ENGLISH_DEBRIS
+removing_necktie,外す・necktie,ネクタイを外す,MIXED_ENGLISH_DEBRIS
+removing_pants,外す・パンツ,ズボンを脱ぐ,SEMANTIC_AMBIGUITY
+removing_pantyhose,外すのパンスト,パンストを脱ぐ,SEMANTIC_ERROR
+removing_pasties,撕下乳贴,ニップレスを剥がす,NON_JAPANESE_RESIDUE
+removing_thighhigh,外す・thighhigh,サイハイソックスを脱ぐ,MIXED_ENGLISH_DEBRIS
+removing_wig,外す・wig,かつらを外す,MIXED_ENGLISH_DEBRIS
