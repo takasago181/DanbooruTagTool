@@ -1,0 +1,47 @@
+name: UI-JA V5 materialize
+
+on:
+  push:
+    branches:
+      - ui-ja/issue36-relaxed-v5-chatgpt-repair
+    paths:
+      - "translation_quarantine/orchestration/issue36_relaxed_v5_chatgpt_repair/materialize_v5.py"
+      - "translation_quarantine/orchestration/issue36_relaxed_v5_chatgpt_repair/progress.json"
+      - "translation_quarantine/orchestration/issue36_relaxed_v5_chatgpt_repair/overrides/**"
+      - "translation_quarantine/orchestration/issue36_relaxed_closeout_v3_language_sanity_v4/final_translation_table.csv"
+      - ".github/workflows/ui-ja-v5-materialize.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout working branch
+        uses: actions/checkout@v4
+        with:
+          ref: ui-ja/issue36-relaxed-v5-chatgpt-repair
+          fetch-depth: 1
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Materialize and validate V5
+        run: python translation_quarantine/orchestration/issue36_relaxed_v5_chatgpt_repair/materialize_v5.py
+
+      - name: Commit deterministic materialized outputs
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add translation_quarantine/orchestration/issue36_relaxed_v5_chatgpt_repair/materialized/
+          if git diff --cached --quiet; then
+            echo "No materialized changes to commit."
+            exit 0
+          fi
+          git commit -m "UI-JA V5: materialize reviewed overrides [skip ci]"
+          git push origin HEAD:ui-ja/issue36-relaxed-v5-chatgpt-repair
