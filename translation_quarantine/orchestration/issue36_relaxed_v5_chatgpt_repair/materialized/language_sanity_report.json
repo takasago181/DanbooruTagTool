@@ -13,8 +13,14 @@
   "raw_english_wrapper_rows": 0,
   "raw_english_wrapper_already_overridden": 0,
   "raw_english_wrapper_not_overridden": 0,
+  "ascii_only_rows": 623,
+  "ascii_mixed_rows": 1068,
+  "ascii_suspicious_rows": 512,
   "notes": {
     "ASCII_WORD": "review candidate only; proper names, acronyms, codes and product names may be valid",
+    "ASCII_ONLY": "triage bucket only; proper names/titles/model identifiers and explicit English fallbacks may be valid",
+    "ASCII_MIXED": "triage bucket only; normal Japanese labels may legitimately contain brands/acronyms",
+    "ASCII_SUSPICIOUS": "priority review bucket for machine-composed Japanese/English seams or untranslated qualifier words; never auto-fix from this signal",
     "SIMPLIFIED_CHINESE_HINT": "high-signal Simplified-Chinese-form heuristic only; shared Japanese characters are intentionally excluded; never auto-fix from this signal",
     "RAW_ENGLISH_WRAPPER": "semantic review required; this script never auto-fixes it"
   }
