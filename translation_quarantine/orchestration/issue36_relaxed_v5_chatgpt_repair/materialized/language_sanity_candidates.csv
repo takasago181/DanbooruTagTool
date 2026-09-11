@@ -35,7 +35,6 @@ row_number,canonical,display_ja,checks,already_overridden
 4392,pov_hands,POVハンド,ASCII_WORD,false
 4393,pov_legs,POVの足,ASCII_WORD,false
 4542,qiqi_(genshin_impact)_(cosplay),qiqi (genshin impact) (cosplay),ASCII_WORD,false
-4674,reverse_nursing_fingering,reverse nursing fingの指輪,ASCII_WORD,false
 4680,rgb_lights,RGBライト,ASCII_WORD,true
 4980,skin_suit_(stellar_blade),スキンスーツ（Stellar Blade）,ASCII_WORD,true
 5249,subscribestar_logo,SubscribeStarロゴ,ASCII_WORD,true
@@ -241,7 +240,7 @@ row_number,canonical,display_ja,checks,already_overridden
 8159,bling-bang-bang-born_(creepy_nuts),BBBBダンス,ASCII_WORD,false
 8167,block_(minecraft),ブロック（Minecraft）,ASCII_WORD,true
 8179,blood_edge_(stellar_blade),ブラッドエッジ（Stellar Blade）,ASCII_WORD,true
-8245,bloom_garden_party_jacket,bloom・garden・party・ジャケット,ASCII_WORD,false
+8245,bloom_garden_party_jacket,Bloom Garden Partyのピンクジャケット,ASCII_WORD,true
 8261,blu-ray_logo,blu rayのロゴ,ASCII_WORD,false
 8324,blue_journey_(hololive),Blue Journey（ホロライブ）,ASCII_WORD,true
 8394,blueberry_academy_school_uniform,blueberry academyの学校制服,ASCII_WORD,false
@@ -381,7 +380,6 @@ row_number,canonical,display_ja,checks,already_overridden
 10722,crewmate_(among_us)_(cosplay),クルーメイト（Among Us）（コスプレ）,ASCII_WORD,true
 10729,crimson_scar_(e.g.o),crimson scar (e.g.o),ASCII_WORD,false
 10794,cross_calibur_(fate),cross calibur (fate),ASCII_WORD,false
-10801,cross_of_prontera,十字架・of・prontera,ASCII_WORD,false
 10837,crow's_eye_view_(e.g.o),crow's eye view (e.g.o),ASCII_WORD,false
 10842,crown_bow,crown・リボン,ASCII_WORD,false
 10853,crucible_(doom),クルーシブル（DOOM）,ASCII_WORD,true
@@ -600,7 +598,6 @@ row_number,canonical,display_ja,checks,already_overridden
 14035,gif_caption_(meme),GIFキャプション（ミーム）,ASCII_WORD,true
 14048,gilgamesh_(fate)_(cosplay),ギルガメッシュ（Fate）（コスプレ）,ASCII_WORD,true
 14130,gloria_the_scot,Gloria the Scot,ASCII_WORD,true
-14132,glorious_azure_costume_(umamusume),輝かしいazure衣装（umamusume）,ASCII_WORD,false
 14210,gn_drive,GNドライヴ,ASCII_WORD,false
 14211,gn_particles,GN粒子,ASCII_WORD,true
 14212,gn_sword,GNソード,ASCII_WORD,false
@@ -1450,14 +1447,12 @@ row_number,canonical,display_ja,checks,already_overridden
 27251,sv-001_(metal_slug),SV001（メタルスラグ）,ASCII_WORD,false
 27252,sv-98,SV-98,ASCII_WORD,true
 27314,swinging_object,swinging・物体,ASCII_WORD,false
-27331,sword-swallowing_fellatio,剣・swallowing・fellatio,ASCII_WORD,false
 27354,sword_school_reunion_(touken_ranbu),sword school reunion（刀剣乱舞）,ASCII_WORD,true
 27368,symphony_no._765_(idolmaster),シンフォニーNo.765,ASCII_WORD,false
 27371,syngup!_(idolmaster),SYNGUP!（アイドルマスター）,ASCII_WORD,true
 27389,t.t._star_(nikke),T.T. Star（NIKKE）,ASCII_WORD,true
 27390,t_corp._(identity)_(project_moon),T社（Identity）（Project Moon）,ASCII_WORD,true
 27392,ta_girls_school_uniform,TAガールズスクールユニフォーム,ASCII_WORD,false
-27451,tail_lock,尻尾・lock,ASCII_WORD,false
 27475,taito_four_seasons_figure_(vocaloid),タイトー四季フィギュア（VOCALOID）,ASCII_WORD,true
 27490,take_the_best_shot!_(project_sekai),Take the Best Shot!（プロジェクトセカイ）,ASCII_WORD,true
 27493,takenami_hideyuki_(style),takenami hideyuki風,ASCII_WORD,true
@@ -1465,7 +1460,6 @@ row_number,canonical,display_ja,checks,already_overridden
 27517,tam_(ragnarok_online),TAM（ラグナロクオンライン）,ASCII_WORD,true
 27525,tamamo_cat_(fate)_(cosplay),タマモキャット（Fate）（コスプレ）,ASCII_WORD,true
 27526,tamamo_no_mae_(fate)_(cosplay),玉藻の前（Fate）（コスプレ）,ASCII_WORD,true
-27533,tan_tattoo,tanのタトゥー,ASCII_WORD,false
 27619,taurus_curve,taurus curve,ASCII_WORD,true
 27635,tbf_avenger,TBFアベンジャー,ASCII_WORD,false
 27636,tbh_creature_(meme),TBHクリーチャー（ミーム）,ASCII_WORD,true
@@ -1593,7 +1587,7 @@ row_number,canonical,display_ja,checks,already_overridden
 29661,we_can_do_it!,We Can Do It!,ASCII_WORD,true
 29709,weibo_username,Weiboユーザー名,ASCII_WORD,true
 29710,weibo_watermark,Weiboの透かし,ASCII_WORD,true
-29720,weird_route_(deltarune),Aルートweirdroute,ASCII_WORD,false
+29720,weird_route_(deltarune),Weirdルート（DELTARUNE）,ASCII_WORD,true
 29789,whip_the_wimp_girl!!_(project_sekai),Whip the wimp girl!!（プロジェクトセカイ）,ASCII_WORD,true
 29797,whisp,Whisp,ASCII_WORD,true
 29861,white_knight_(nikke),ホワイトナイト（NIKKE）,ASCII_WORD,true
