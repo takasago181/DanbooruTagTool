@@ -53,7 +53,7 @@ row_number,canonical,display_ja,checks,already_overridden
 1499,black_one-piece_swimsuit,黒いワンピース水着,SIMPLIFIED_CHINESE_HINT,false
 1509,black_slingshot_swimsuit,黒いスリングショット水着,SIMPLIFIED_CHINESE_HINT,false
 1519,blacked_female,黒人NTR（女性側）,ASCII_WORD,false
-1529,blob_(google),タグ「blob (google)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+1529,blob_(google),Google Blob（絵文字）,ASCII_WORD,true
 1557,blue_kimono,青い着物,SIMPLIFIED_CHINESE_HINT,false
 1562,blue_one-piece_swimsuit,青いワンピース水着,SIMPLIFIED_CHINESE_HINT,false
 1576,blue_slingshot_swimsuit,青いスリングショット水着,SIMPLIFIED_CHINESE_HINT,false
@@ -97,7 +97,7 @@ row_number,canonical,display_ja,checks,already_overridden
 2160,cum_on_clothes,着衣ぶっかけ,SIMPLIFIED_CHINESE_HINT,false
 2170,cum_on_picture,画像への射精,SIMPLIFIED_CHINESE_HINT,false
 2191,cupless_swimsuit,カップなし水着,SIMPLIFIED_CHINESE_HINT,false
-2224,ddd_threesome,タグ「ddd threesome」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+2224,ddd_threesome,ddd threesome,ASCII_WORD,true
 2246,deviantart_username,DeviantArtユーザー名,ASCII_WORD,false
 2270,dirty_talk,卑猥な会話,SIMPLIFIED_CHINESE_HINT,false
 2272,disembodied_foot,身体から離れた足,SIMPLIFIED_CHINESE_HINT,false
@@ -172,7 +172,7 @@ row_number,canonical,display_ja,checks,already_overridden
 4004,ooarai_school_uniform,大洗女子学園,SIMPLIFIED_CHINESE_HINT,false
 4018,open_kimono,開いた着物,SIMPLIFIED_CHINESE_HINT,false
 4040,orange_male_underwear,オレンジ色の男性下着,SIMPLIFIED_CHINESE_HINT,false
-4058,orientation_play,タグ「orientation play」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+4058,orientation_play,orientation play,ASCII_WORD,true
 4061,otonokizaka_school_uniform,音ノ木坂学院の制服,SIMPLIFIED_CHINESE_HINT,false
 4074,overwatch_logo,Overwatchのロゴ,ASCII_WORD,false
 4090,painttool_sai,ペイントツールSAI,ASCII_WORD,false
@@ -258,7 +258,7 @@ row_number,canonical,display_ja,checks,already_overridden
 5893,yellow_kimono,黄色の着物,SIMPLIFIED_CHINESE_HINT,false
 5899,yellow_one-piece_swimsuit,黄色のワンピース水着,SIMPLIFIED_CHINESE_HINT,false
 5909,yellow_slingshot_swimsuit,黄色いスリングショット水着,SIMPLIFIED_CHINESE_HINT,false
-5919,yomorio_lingerie,タグ「yomorio lingerie」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+5919,yomorio_lingerie,yomorio lingerie,ASCII_WORD,true
 5945,1-up_mushroom,1UPきのこ,ASCII_WORD,false
 5946,100kg_(meme),100kg（ミーム）,ASCII_WORD,true
 5947,10mm_pistol,10mm・拳銃,ASCII_WORD,false
@@ -274,7 +274,6 @@ row_number,canonical,display_ja,checks,already_overridden
 6025,6th_live_dream_~bloom_garden_party~,蓮ノ空6th福岡Day1,ASCII_WORD,false
 6028,777_(nikke),777(勝利の女神:NIKKE),ASCII_WORD,false
 6034,9s_(nier:automata)_(cosplay),9S（NieR:Automata）のコスプレ,ASCII_WORD,true
-6053,\(^o^)/,タグ「\(^o^)/」,RAW_ENGLISH_WRAPPER,false
 6060,a-10_thunderbolt_ii,A-10 サンダーボルトII,ASCII_WORD,true
 6063,a-rise,A-RISE,ASCII_WORD,true
 6064,a2_(nier:automata)_(cosplay),A2（NieR:Automata）のコスプレ,ASCII_WORD,true
@@ -289,7 +288,7 @@ row_number,canonical,display_ja,checks,already_overridden
 6117,achiga_school_uniform,阿知賀女子学院の制服,SIMPLIFIED_CHINESE_HINT,true
 6122,ackchyually_(meme),ackchyually (meme),ASCII_WORD,false
 6123,acog,ACOG（光学照準器）,ASCII_WORD;SIMPLIFIED_CHINESE_HINT,true
-6124,acorn_(palico_armor),タグ「acorn (palico armor)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+6124,acorn_(palico_armor),Acorn（オトモ装備）,ASCII_WORD,true
 6140,adaptation_comparison,媒体別の比較,SIMPLIFIED_CHINESE_HINT,true
 6146,adaptive_combat_rifle,ブッシュマスターACR,ASCII_WORD,false
 6180,adjusting_swimsuit,水着直し,SIMPLIFIED_CHINESE_HINT,false
@@ -340,7 +339,7 @@ row_number,canonical,display_ja,checks,already_overridden
 6386,all_the_way_through,体内貫通,SIMPLIFIED_CHINESE_HINT,false
 6404,alphabet_blocks,アルファベット・blocks,ASCII_WORD,false
 6405,alphes_(style),alphes塗り,ASCII_WORD,false
-6414,alternate_(the_mandela_catalogue),タグ「alternate (the mandela catalogue)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+6414,alternate_(the_mandela_catalogue),Alternate（The Mandela Catalogue）,ASCII_WORD,true
 6416,alternate_art_style,別画風,SIMPLIFIED_CHINESE_HINT,true
 6417,alternate_body_fluid,別の体液,SIMPLIFIED_CHINESE_HINT,true
 6418,alternate_body_hair,別の体毛,SIMPLIFIED_CHINESE_HINT,true
@@ -364,18 +363,18 @@ row_number,canonical,display_ja,checks,already_overridden
 6551,angel_wing_uniform,angel wingの制服,ASCII_WORD,false
 6572,animal_band,動物・band,ASCII_WORD,false
 6620,animate_object,動く物体,SIMPLIFIED_CHINESE_HINT,true
-6621,animatech_(league),タグ「animatech (league)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-6642,annihilation_(nikke),タグ「annihilation (nikke)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-6648,anon_tokyo_(bang_dream!),タグ「anon tokyo (bang dream!)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+6621,animatech_(league),animatech (league),ASCII_WORD,true
+6642,annihilation_(nikke),Annihilation（NIKKE）,ASCII_WORD,true
+6648,anon_tokyo_(bang_dream!),ANON TOKYO（BanG Dream!）,ASCII_WORD,true
 6650,another_ship_dynamic_i_enjoy_(meme),another ship dynamic i enjoy (meme),ASCII_WORD,false
-6669,anti-rain_(girls'_frontline),タグ「anti-rain (girls' frontline)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+6669,anti-rain_(girls'_frontline),AR小隊（ドールズフロントライン）,ASCII_WORD,true
 6683,anzio_ironworks_20mm_rifle,アンツィオ20mm対物ライフル,ASCII_WORD,false
 6685,anzio_school_uniform,アンツィオ学校のユニフォーム,SIMPLIFIED_CHINESE_HINT,false
 6693,aoshidan_(emblem),aoshidan（エンブレム）,ASCII_WORD,false
 6696,aozora_middle_school_uniform,あおぞら中学校の制服,SIMPLIFIED_CHINESE_HINT,true
-6716,appletrend,タグ「appletrend」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+6716,appletrend,Appletrend,ASCII_WORD,true
 6736,aprob_(meme),aprob (meme),ASCII_WORD,false
-6744,aps_rifle,タグ「aps rifle」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+6744,aps_rifle,APS水中銃,ASCII_WORD,true
 6745,apu_spills_his_tendies_(meme),APUが彼の傾向をこぼす（ミーム）,ASCII_WORD,false
 6746,aqours_1st_years,Aqours 1年生組,ASCII_WORD,true
 6747,aqours_2nd_years,Aqours 2年生組,ASCII_WORD,true
@@ -389,7 +388,7 @@ row_number,canonical,display_ja,checks,already_overridden
 6853,ar-18,ar-18,ASCII_WORD,false
 6854,ar-57,ar-57,ASCII_WORD,false
 6863,arakumo_gakuen,新雲学園,SIMPLIFIED_CHINESE_HINT,false
-6864,aramasa,タグ「aramasa」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+6864,aramasa,Aramasa,ASCII_WORD,true
 6885,arcueid_brunestud_(cosplay),arcueid brunestud (cosplay),ASCII_WORD,false
 6886,ardor_blossom_star_(e.g.o),ardor blossom star (e.g.o),ASCII_WORD,false
 6889,area_15,ホロライブID1期生,ASCII_WORD,false
@@ -402,7 +401,6 @@ row_number,canonical,display_ja,checks,already_overridden
 6937,arisugawa_academy_school_uniform,有栖川学園の制服,SIMPLIFIED_CHINESE_HINT,true
 6958,arm_mounted_weapon,腕装着型武器,SIMPLIFIED_CHINESE_HINT,true
 6966,arm_out_of_frame,腕が画面外,SIMPLIFIED_CHINESE_HINT,true
-6985,armatus_(tales),タグ「armatus (tales)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 7016,arms_across_body,体の前で腕を交差,SIMPLIFIED_CHINESE_HINT,true
 7039,arrow_in_body,体に刺さった矢,SIMPLIFIED_CHINESE_HINT,true
 7054,art_program_in_frame,画面内の描画ソフト,SIMPLIFIED_CHINESE_HINT,true
@@ -424,7 +422,6 @@ row_number,canonical,display_ja,checks,already_overridden
 7107,ashford_academy_swimsuit,アシュフォードアカデミーの水着,SIMPLIFIED_CHINESE_HINT,false
 7113,asmr,ASMR,ASCII_WORD,true
 7127,assassin_(fate/zero)_(cosplay),アサシン（Fate/Zero）（コスプレ）,ASCII_WORD,false
-7136,assisted_rape,タグ「assisted rape」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 7141,asticassia_school_uniform,アスティカシア高等専門学園の制服,SIMPLIFIED_CHINESE_HINT,true
 7142,astolfo_(fate)_(cosplay),アストルフォ（Fate）のコスプレ,ASCII_WORD,true
 7167,asymmetrical_one-piece_swimsuit,左右非対称のワンピース水着,SIMPLIFIED_CHINESE_HINT,true
@@ -435,7 +432,6 @@ row_number,canonical,display_ja,checks,already_overridden
 7187,atm,ATM（現金自動預払機）,ASCII_WORD,true
 7193,atsuko's_grin_(meme),atsuko's grin (meme),ASCII_WORD,false
 7197,attack_ship_(eve_online),攻撃艦（EVE Online）,ASCII_WORD,false
-7202,attitude_derriere,タグ「attitude derriere」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 7217,aurelia_academy_school_uniform,アウレリア学園の制服,SIMPLIFIED_CHINESE_HINT,true
 7241,av_idol,AVアイドル,ASCII_WORD,false
 7246,ave_mujica_(bang_dream!),Ave Mujica（BanG Dream!）,ASCII_WORD,true
@@ -444,16 +440,14 @@ row_number,canonical,display_ja,checks,already_overridden
 7256,awafuji_school_uniform,awafujiの学校制服,ASCII_WORD;SIMPLIFIED_CHINESE_HINT,false
 7258,awakened_being_(claymore),覚醒者（CLAYMORE）,ASCII_WORD,true
 7259,awakening_(sennen_sensou_aigis),目覚め（Sennen Sensou Aigis）,ASCII_WORD,false
-7260,awakening_(toaru),タグ「awakening (toaru)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-7261,awakening_beat_(project_sekai),タグ「awakening beat (project sekai)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-7265,awestruck,タグ「awestruck」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-7268,awooo,タグ「awooo」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-7269,ax_bass,タグ「ax bass」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+7260,awakening_(toaru),Awakening（とある）,ASCII_WORD,true
+7261,awakening_beat_(project_sekai),Awakening Beat（プロジェクトセカイ）,ASCII_WORD,true
+7269,ax_bass,AXベース,ASCII_WORD,true
 7281,ayanokouji_martial_arts_school_uniform,綾小路武芸学園の制服,SIMPLIFIED_CHINESE_HINT,true
 7282,ayase_eli_(cosplay),絢瀬絵里のコスプレ,SIMPLIFIED_CHINESE_HINT,true
 7292,azumanga_daioh's_gym_uniform,『あずまんが大王』の体操服,SIMPLIFIED_CHINESE_HINT,true
 7294,azuna_(love_live!),A・ZU・NA（ラブライブ！）,ASCII_WORD,true
-7295,azure_(armor),タグ「azure (armor)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+7295,azure_(armor),azure (armor),ASCII_WORD,true
 7296,azurelight_(genshin_impact),azurelight (genshin impact),ASCII_WORD,false
 7297,b&t_apc,B&T APC（銃器）,ASCII_WORD,true
 7298,b&t_mp9,ステアーTMP,ASCII_WORD,false
@@ -473,7 +467,7 @@ row_number,canonical,display_ja,checks,already_overridden
 7431,balmung_(fate),balmung (fate),ASCII_WORD,false
 7432,balmung_kriemhild_(fate),balmung kriemhild (fate),ASCII_WORD,false
 7433,baltimore_(azur_lane)_(cosplay),baltimore (azur lane) (cosplay),ASCII_WORD,false
-7447,bamboozler_14_(splatoon),タグ「bamboozler 14 (splatoon)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+7447,bamboozler_14_(splatoon),14式竹筒銃（Splatoon）,ASCII_WORD,true
 7482,bandaged_torso,包帯を巻いた胴体,SIMPLIFIED_CHINESE_HINT,true
 7537,barbie_mugshot_(meme),barbie mugshot (meme),ASCII_WORD,false
 7604,bathroom_scale,体重計,SIMPLIFIED_CHINESE_HINT,false
@@ -487,22 +481,17 @@ row_number,canonical,display_ja,checks,already_overridden
 7643,bc_freedom_school_uniform,BCフリーダムスクールユニフォーム,ASCII_WORD,false
 7644,bcy_username,bcyのユーザー名,ASCII_WORD,false
 7651,beacon_of_the_reed_sea_(genshin_impact),beacon of the reed sea (genshin impact),ASCII_WORD,false
-7659,beaded_penis,タグ「beaded penis」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-7689,bear_position,タグ「bear position」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+7689,bear_position,bear position,ASCII_WORD,true
 7704,beats_by_dr._dre,Beats by Dr. Dre,ASCII_WORD,true
 7725,beelstarmon_(cosplay),beelstarmon (cosplay),ASCII_WORD,false
 7743,beit_(idolmaster),beit (idolmaster),ASCII_WORD,false
 7758,belle_(disney)_(cosplay),belle (disney) (cosplay),ASCII_WORD,false
 7762,bellwall_military_uniform,bellwall militaryの制服,ASCII_WORD,false
 7763,bellwall_school_uniform,bellwallの学校制服,ASCII_WORD;SIMPLIFIED_CHINESE_HINT,false
-7766,belly_press,タグ「belly press」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-7767,belly_riding,タグ「belly riding」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-7770,beloved_zofia,タグ「beloved zofia」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-7793,bent_w,タグ「bent w」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+7770,beloved_zofia,Beloved Zofia,ASCII_WORD,true
 7799,beretta_ar70/90,ベレッタAR70,ASCII_WORD,false
 7800,beretta_px4,ベレッタPx4,ASCII_WORD,false
-7806,beta_pollux,タグ「beta pollux」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-7812,bevor,タグ「bevor」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+7806,beta_pollux,Beta Pollux,ASCII_WORD,true
 7815,bf_109,Bf 109,ASCII_WORD,true
 7819,bible_black's_school_uniform,Bible Blackの制服,ASCII_WORD,true
 7840,big_onis_of_gensokyo_(touhou),big onis of gensokyo (touhou),ASCII_WORD,false
@@ -516,7 +505,6 @@ row_number,canonical,display_ja,checks,already_overridden
 7923,birthday_party,誕生日会,SIMPLIFIED_CHINESE_HINT,false
 7934,bismarck_(kancolle)_(cosplay),bismarck（kancolle）（コスプレ）,ASCII_WORD,false
 7978,blabla_(nikke),BlaBla（NIKKE）,ASCII_WORD,true
-7999,black_bulls_(emblem),タグ「black bulls (emblem)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 8012,black_dougi,黒い道着,SIMPLIFIED_CHINESE_HINT,true
 8013,black_eagles_(fire_emblem),黒鷲の学級,SIMPLIFIED_CHINESE_HINT,false
 8047,black_male_swimwear,黒い男性用水着,SIMPLIFIED_CHINESE_HINT,true
@@ -524,12 +512,12 @@ row_number,canonical,display_ja,checks,already_overridden
 8107,black_vinegar_middle_school_uniform,black vinegar middleの学校制服,ASCII_WORD;SIMPLIFIED_CHINESE_HINT,false
 8111,black_wings_of_corrosion,黒い・翼・of・corrosion,ASCII_WORD,false
 8114,blackcliff_slasher_(genshin_impact),blackcliff slasher (genshin impact),ASCII_WORD,false
-8115,blacked_(phrase),タグ「blacked (phrase)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+8115,blacked_(phrase),blacked（フレーズ）,ASCII_WORD,true
 8116,blackish_961sp_(idolmaster),ブラッキッシュ961SP,ASCII_WORD,false
 8124,blacksteel_worldwide_logo,blacksteel worldwideのロゴ,ASCII_WORD,false
-8125,blacktober,タグ「blacktober」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+8125,blacktober,Blacktober,ASCII_WORD,true
 8128,blade_lineage_(identity)_(project_moon),blade lineage (identity) (project moon),ASCII_WORD,false
-8134,blake_bloom_(wuthering_waves),タグ「blake bloom (wuthering waves)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+8134,blake_bloom_(wuthering_waves),Blake Bloom（鳴潮）,ASCII_WORD,true
 8140,blanket_cape,blanket・ケープ,ASCII_WORD,false
 8143,blanket_veil,blanket・ベール,ASCII_WORD,false
 8145,blazblue_insignia,BLAZBLUEの紋章,ASCII_WORD,true
@@ -584,19 +572,13 @@ row_number,canonical,display_ja,checks,already_overridden
 8538,boqta,boqta,ASCII_WORD,false
 8545,borrowed_inset,borrowed・差し込み,ASCII_WORD,false
 8546,borrowed_weapon,borrowedの武器,ASCII_WORD,false
-8562,bouncing_belly,タグ「bouncing belly」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-8563,bouncing_bulge,タグ「bouncing bulge」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 8564,bouncing_flat_chest,bouncing・flat・胸,ASCII_WORD,false
-8569,bound_calves,タグ「bound calves」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-8572,bound_penis,タグ「bound penis」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 8573,bound_tail,bound・尻尾,ASCII_WORD,false
-8574,bound_testicles,タグ「bound testicles」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 8576,boundless_creation_(eve_online),boundless creation (eve online),ASCII_WORD,false
-8578,bourbon_(kirby),タグ「bourbon (kirby)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+8578,bourbon_(kirby),Bourbon（Kirby）,ASCII_WORD,true
 8583,bow_babydoll,リボン・babydoll,ASCII_WORD,false
 8590,bow_garter_belt,リボン・garter・ベルト,ASCII_WORD,false
 8597,bow_swimsuit,弓水着,SIMPLIFIED_CHINESE_HINT,false
-8600,bowl_boat,タグ「bowl boat」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 8612,box_body,box・身体,ASCII_WORD;SIMPLIFIED_CHINESE_HINT,false
 8614,box_lottery_(fate/grand_order),box lottery (fate/grand order),ASCII_WORD,false
 8630,boyfriend's_shirt_(tokimeki_no_mirai_chizu),虹ヶ咲学園彼シャツ同好会,SIMPLIFIED_CHINESE_HINT,false
@@ -617,34 +599,31 @@ row_number,canonical,display_ja,checks,already_overridden
 8704,breastless_ghost_costume,breastless・ghost・衣装,ASCII_WORD,false
 8727,bridal_swimsuit,ブライダル水着,SIMPLIFIED_CHINESE_HINT,true
 8732,bridget_(guilty_gear)_(cosplay),bridget (guilty gear) (cosplay),ASCII_WORD,false
-8736,bright_me_up!!_(ensemble_stars!),タグ「bright me up!! (ensemble stars!)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+8736,bright_me_up!!_(ensemble_stars!),BRIGHT ME UP!!（あんさんぶるスターズ！）,ASCII_WORD,true
 8765,broken_heart_hair_ornament,broken heartの髪飾り,ASCII_WORD,false
 8780,broken_screen,壊れた画面,SIMPLIFIED_CHINESE_HINT,false
 8792,broly_culo_(meme),Broly culo（ミーム）,ASCII_WORD,false
-8795,brooklyn_sweater,タグ「brooklyn sweater」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-8800,brother_and_sister_threesome,タグ「brother and sister threesome」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+8795,brooklyn_sweater,Brooklyn sweater,ASCII_WORD,true
 8827,brown_cat,茶色い・猫,SIMPLIFIED_CHINESE_HINT,false
-8831,brown_egyptian_cat-eared_loli_(trend),タグ「brown egyptian cat-eared loli (trend)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+8831,brown_egyptian_cat-eared_loli_(trend),褐色エジプト風猫耳ロリ（トレンド）,SIMPLIFIED_CHINESE_HINT,true
 8851,brown_kimono,茶色の着物,SIMPLIFIED_CHINESE_HINT,false
 8855,brown_male_swimwear,茶色い男性用水着,SIMPLIFIED_CHINESE_HINT,true
 8856,brown_male_underwear,茶色い男性用下着,SIMPLIFIED_CHINESE_HINT,true
 8860,brown_one-piece_swimsuit,茶色のワンピース水着,SIMPLIFIED_CHINESE_HINT,false
 8914,bruno_mars_(cosplay),bruno mars (cosplay),ASCII_WORD,false
-8924,bryan_lee_o'malley_(style),タグ「bryan lee o'malley (style)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+8924,bryan_lee_o'malley_(style),Bryan Lee O'Malley風,ASCII_WORD,true
 8926,brynhildr_(fire_emblem),brynhildr (fire emblem),ASCII_WORD,false
 8927,bt-42,bt-42,ASCII_WORD,false
 8932,bubble_head_nurse_(cosplay),bubble head nurse (cosplay),ASCII_WORD,false
 8934,bubble_print,bubbleの柄,ASCII_WORD,false
 8960,bug_print,bugの柄,ASCII_WORD,false
-8970,bulge_lift,タグ「bulge lift」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 8971,bulge_peek,bulge・覗き見,ASCII_WORD,false
 8979,bullet_earrings,bulletのイヤリング,ASCII_WORD,false
 8988,bullying_viewer,POVいじめ,ASCII_WORD,false
-8992,bunbunmaru,タグ「bunbunmaru」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-9015,burning_as_one_(umamusume),タグ「burning as one (umamusume)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-9051,buster_bros!!!,タグ「buster bros!!!」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+8992,bunbunmaru,bunbunmaru,ASCII_WORD,true
+9015,burning_as_one_(umamusume),Burning as One（ウマ娘）,ASCII_WORD,true
+9051,buster_bros!!!,Buster Bros!!!,ASCII_WORD,true
 9055,but_you_can't_prove_it_(meme),but you can't prove it (meme),ASCII_WORD,false
-9056,butch/femme_couple,タグ「butch/femme couple」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 9060,butler_(fire_emblem:_three_houses),執事（Fire Emblem: Three Houses）,ASCII_WORD,false
 9092,butterfly_print_kimono,蝶柄の着物,SIMPLIFIED_CHINESE_HINT,true
 9100,buttjob_over_clothes,着衣尻コキ,SIMPLIFIED_CHINESE_HINT,false
@@ -656,20 +635,17 @@ row_number,canonical,display_ja,checks,already_overridden
 9139,cake_cat_(honkai:_star_rail),猫糕,SIMPLIFIED_CHINESE_HINT,false
 9147,caladbolg_(fate),caladbolg (fate),ASCII_WORD,false
 9152,caldari_state_(eve_online),caldari state (eve online),ASCII_WORD,false
-9154,calflet,タグ「calflet」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+9154,calflet,calflet,ASCII_WORD,true
 9158,calico_m950,Calico M950,ASCII_WORD,true
 9180,camelot_academy_of_chivalry_school_uniform,キャメロット騎士学院の制服,SIMPLIFIED_CHINESE_HINT,true
-9184,camera_hold_pose_(han-0v0),タグ「camera hold pose (han-0v0)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+9184,camera_hold_pose_(han-0v0),camera hold pose（han-0v0）,ASCII_WORD,true
 9188,camisole_over_clothes,重ね着,SIMPLIFIED_CHINESE_HINT,false
 9190,cammy_stretch_(meme),cammy stretch (meme),ASCII_WORD,false
 9230,canari_(pokemon)_(cosplay),canari (pokemon) (cosplay),ASCII_WORD,false
 9237,candied_ajilenakh_nut_(genshin_impact),candied ajilenakh nut (genshin impact),ASCII_WORD,false
-9249,candy_gore,タグ「candy gore」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 9251,candy_heart,candy・ハート,ASCII_WORD,false
-9259,caning,タグ「caning」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-9271,canon_event,タグ「canon event」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+9259,caning,杖で叩く（体罰）,SIMPLIFIED_CHINESE_HINT,true
 9287,capital_ship_(eve_online),主力艦（EVE Online）,ASCII_WORD,false
-9290,capotain,タグ「capotain」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 9291,capote_(e.g.o),capote (e.g.o),ASCII_WORD,false
 9341,cardiogram_print,cardiogramの柄,ASCII_WORD,false
 9342,caren_hortensia_(cosplay),Caren Hortensia（コスプレ）,ASCII_WORD,false
@@ -724,30 +700,27 @@ row_number,canonical,display_ja,checks,already_overridden
 9454,cat_tree,猫・木,SIMPLIFIED_CHINESE_HINT,false
 9455,cat_under_faucet_(meme),cat under faucet (meme),ASCII_WORD,false
 9456,cat_zipper,猫ジッパー,SIMPLIFIED_CHINESE_HINT,false
-9457,catalyst_scimitar,タグ「catalyst scimitar」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-9469,cathead,タグ「cathead」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+9469,cathead,cathead,ASCII_WORD,true
 9473,cats_are_liquid,猫は液体,SIMPLIFIED_CHINESE_HINT,false
 9474,cats_are_scared_of_cucumbers,猫はキュウリを怖がる,SIMPLIFIED_CHINESE_HINT,true
 9479,catwoman_(cosplay),catwoman (cosplay),ASCII_WORD,false
 9488,caved_(touhou),caved (touhou),ASCII_WORD,false
 9492,cavorite_ball,cavoriteボール,ASCII_WORD,false
 9493,cbj-ms,CBJ-MS,ASCII_WORD,true
-9494,cbt_press,タグ「cbt press」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+9494,cbt_press,cbt press,ASCII_WORD,true
 9495,cd,CD,ASCII_WORD,true
 9496,cd_case,CDケース,ASCII_WORD,false
 9497,cd_player,CDプレイヤー,ASCII_WORD,false
-9504,celestial_being,タグ「celestial being」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-9545,cervix_punching,タグ「cervix punching」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 9547,ch-47_chinook,CH-47チヌーク,ASCII_WORD,false
 9573,chajinbou,chajinbou,ASCII_WORD,false
 9584,chalk_drawing,チョーク画,SIMPLIFIED_CHINESE_HINT,true
 9601,changing_clothes,着替え,SIMPLIFIED_CHINESE_HINT,false
 9603,changing_seasons_(touhou),changing seasons (touhou),ASCII_WORD,false
-9606,channel_(caststation)_(style),タグ「channel (caststation) (style)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+9606,channel_(caststation)_(style),channel（caststation）風,ASCII_WORD,true
 9612,chaperon_hat,chaperon・帽子,ASCII_WORD,false
 9615,char_aznable_(cosplay),Char aznable（コスプレ）,ASCII_WORD,false
 9667,charo_(meme),charo (meme),ASCII_WORD,false
-9670,chase_my_ideal_idol!_(project_sekai),タグ「chase my ideal idol! (project sekai)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+9670,chase_my_ideal_idol!_(project_sekai),Chase My Ideal Idol!（プロジェクトセカイ）,ASCII_WORD,true
 9676,check_my_note_(idolmaster),チェックMYノート,ASCII_WORD,false
 9689,checkered_bra,checkered bra,ASCII_WORD,false
 9704,checkered_kimono,市松模様の着物,SIMPLIFIED_CHINESE_HINT,false
@@ -757,7 +730,6 @@ row_number,canonical,display_ja,checks,already_overridden
 9758,chemicals,化学物質,SIMPLIFIED_CHINESE_HINT,false
 9759,chemistry,化学,SIMPLIFIED_CHINESE_HINT,false
 9760,chemistry_set,化学セット,SIMPLIFIED_CHINESE_HINT,false
-9780,cherub,タグ「cherub」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 9781,cheshire_(azur_lane)_(cosplay),cheshire (azur lane) (cosplay),ASCII_WORD,false
 9782,cheshire_cat_(alice_in_wonderland)_(cosplay),チェシャー猫（不思議の国のアリス）（コスプレ）,SIMPLIFIED_CHINESE_HINT,false
 9813,cheytac_m200,CheyTac M200,ASCII_WORD,true
@@ -768,9 +740,7 @@ row_number,canonical,display_ja,checks,already_overridden
 9837,chidori_(naruto),千鳥（NARUTO）,ASCII_WORD,true
 9843,chikage_(bloodborne),チカゲ（Bloodborne）,ASCII_WORD,true
 9845,child's_drawing,小学生が描いてみた,SIMPLIFIED_CHINESE_HINT,false
-9887,chinese_peony,タグ「chinese peony」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 9913,chloe_von_einzbern_(archer_install)_(cosplay),chloe von einzbern (archer install) (cosplay),ASCII_WORD,false
-9916,choco_girl,タグ「choco girl」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 9930,chocolate_lady_no_karasawagi,タグ「chocolate lady no karasawagi」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 9951,choir_outfit_(utdr),タグ「choir outfit (utdr)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 9960,chopper_crying_(meme),chopper crying (meme),ASCII_WORD,false
