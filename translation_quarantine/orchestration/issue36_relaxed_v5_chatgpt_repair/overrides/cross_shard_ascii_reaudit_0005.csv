@@ -1,0 +1,5 @@
+canonical,old_display_ja,new_display_ja,reason
+hair_branch,髪・branch,hair branch（曖昧タグ）,EXPLICIT_AMBIGUITY_PRESERVED
+hair_petal,髪・petal,花びら型の髪飾り,SEMANTIC_DEFINITION_REPAIR
+junkyard_dog_mk_iii,junkyard・犬・mk・iii,ジャンクヤード・ドッグ Mk.III（GUILTY GEAR）,PROPER_NAME_NORMALIZATION
+lapwing_face_tracking_redraws,lapwing・顔・tracking・redraws,Lapwing顔トラッキング再描画,PROPER_MEME_TERM_NORMALIZATION
