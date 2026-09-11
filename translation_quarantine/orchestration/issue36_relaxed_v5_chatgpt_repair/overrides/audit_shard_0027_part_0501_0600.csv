@@ -1,0 +1,46 @@
+canonical,old_display_ja,new_display_ja,reason
+st._odessa_girls'_school_uniform,st. odessa girls'の学校制服,聖オデッサ女学院の制服,MIXED_ENGLISH_DEBRIS
+st._spica_school_uniform,聖スピカ女学院,聖スピカ女学院の制服,SEMANTIC_UNDERSPECIFICATION
+st._theresa's_girls_academy_school_uniform,聖テレサ女学院,聖テレサ女学院の制服,SEMANTIC_UNDERSPECIFICATION
+stab,刺し傷,刺す,SEMANTIC_STATE_ACTION_ERROR
+stabbed_heart,stabbed・ハート,刺されたハート,MIXED_ENGLISH_DEBRIS
+stabbing_viewer,タグ「stabbing viewer」,視聴者を刺す,RAW_ENGLISH_WRAPPER
+stack_bond,タグ「stack bond」,スタックボンド,RAW_ENGLISH_WRAPPER
+stacked_clothes_dryer,stacked・服・dryer,積み重ね式衣類乾燥機,MIXED_ENGLISH_DEBRIS
+stadiometer,スタジオメーター,身長計,SEMANTIC_ERROR
+stadium_lights,タグ「stadium lights」,スタジアム照明,RAW_ENGLISH_WRAPPER
+staff_(ff10),タグ「staff (ff10)」,杖（FF10）,RAW_ENGLISH_WRAPPER
+staff_of_armadyl_(runescape),タグ「staff of armadyl (runescape)」,アルマディルの杖（RuneScape）,RAW_ENGLISH_WRAPPER
+staff_of_the_scarlet_sands_(genshin_impact),staff of the scarlet sands (genshin impact),赤砂の杖（原神）,CANONICAL_FALLBACK_TRANSLATABLE
+staff_riding,スタッフライディング,杖に乗る,SEMANTIC_ERROR
+stained_glass_print,stained glassの柄,ステンドグラス柄,MIXED_ENGLISH_DEBRIS
+stalagmite,石笋,石筍,NON_JAPANESE_RESIDUE
+stamen,タグ「stamen」,雄しべ,RAW_ENGLISH_WRAPPER
+stand-up_comedy,stand・上向きのcomedy,スタンダップコメディ,MIXED_ENGLISH_DEBRIS
+standard_manufacturing_dp-12,シューティング☆スター,Standard Manufacturing DP-12,SEMANTIC_ERROR
+standing_anilingus,立つ・anilingus,立位アニリングス,MIXED_ENGLISH_DEBRIS
+standing_at_attention,注意を払っています,気をつけの姿勢,SEMANTIC_ERROR
+standing_double_penetration,立っている二重浸透,立位二重挿入,SEMANTIC_ERROR
+standing_footjob,立つ・footjob,立位足コキ,MIXED_ENGLISH_DEBRIS
+standing_front_split,立つ・正面・split,立った前後開脚,MIXED_ENGLISH_DEBRIS
+standing_leg_lock,站立腿锁,立位レッグロック,NON_JAPANESE_RESIDUE
+standing_on_animal,立つの上の動物,動物の上に立つ,SEMANTIC_RELATION_ERROR
+standing_on_desk,立つの上の机,机の上に立つ,SEMANTIC_RELATION_ERROR
+standing_on_magic_circle,立つの上のmagic・円形の,魔法陣の上に立つ,MIXED_ENGLISH_DEBRIS
+standing_on_rock,立つの上のrock,岩の上に立つ,MIXED_ENGLISH_DEBRIS
+standing_on_roof,立つの上のroof,屋根の上に立つ,MIXED_ENGLISH_DEBRIS
+standing_on_sword,立つの上の剣,剣の上に立つ,SEMANTIC_RELATION_ERROR
+standing_on_weapon,standing onの武器,武器の上に立つ,MIXED_ENGLISH_DEBRIS
+standing_restraints,立っている拘束,立位拘束,SEMANTIC_ERROR
+standing_up,立つ・上向きの,立ち上がる,SEMANTIC_ERROR
+staple,主食,ステープル,SEMANTIC_AMBIGUITY
+stapled_face,stapled・顔,ステープルで留めた顔,MIXED_ENGLISH_DEBRIS
+star-shaped_bag,星・shaped・bag,星形のバッグ,MIXED_ENGLISH_DEBRIS
+star-shaped_bikini,星・shaped・ビキニ,星形のビキニ,MIXED_ENGLISH_DEBRIS
+star-shaped_buckle,星・shaped・buckle,星形のバックル,MIXED_ENGLISH_DEBRIS
+star-shaped_cookie,星・shaped・cookie,星形のクッキー,MIXED_ENGLISH_DEBRIS
+star-shaped_food,星・shaped・食べ物,星形の食べ物,MIXED_ENGLISH_DEBRIS
+star-shaped_gem,星・shaped・宝石,星形の宝石,MIXED_ENGLISH_DEBRIS
+star-shaped_hair,星・shaped・髪,星形の髪,MIXED_ENGLISH_DEBRIS
+star_bra,星・ブラ,星柄のブラ,MIXED_ENGLISH_DEBRIS
+star_censor,スター検閲,星形の検閲,SEMANTIC_ERROR
