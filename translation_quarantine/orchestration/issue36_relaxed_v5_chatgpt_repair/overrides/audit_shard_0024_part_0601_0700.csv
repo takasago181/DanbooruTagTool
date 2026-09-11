@@ -1,0 +1,36 @@
+canonical,old_display_ja,new_display_ja,reason
+rayman_limbs,タグ「rayman limbs」,レイマン風の分離した手足,RAW_ENGLISH_WRAPPER
+razor_blade_earrings,razor bladeのイヤリング,かみそり刃のイヤリング,MIXED_ENGLISH_DEBRIS
+re;iris_(idolmaster),ことてまさき,Re;IRIS（アイドルマスター）,SEMANTIC_ERROR
+reaching_towards_another,reaching・towards・他人の,他人へ手を伸ばす,MIXED_ENGLISH_DEBRIS
+reaction_inset,reaction・差し込み,リアクションの差し込み画像,MIXED_ENGLISH_DEBRIS
+reading_together,タグ「reading together」,一緒に読む,RAW_ENGLISH_WRAPPER
+real_life_insert,実際の挿入,実写の差し込み,SEMANTIC_ERROR
+real_world_location,GoogleMapの旅,現実世界の場所,SEMANTIC_NARROWING
+realdoll,人形化,RealDoll,SEMANTIC_ERROR
+rebreather,レブラー,リブリーザー,TRANSLITERATION_ERROR
+receding_hairline,タグ「receding hairline」,後退した生え際,RAW_ENGLISH_WRAPPER
+recliner,躺椅,リクライニングチェア,NON_JAPANESE_RESIDUE
+record_store,タグ「record store」,レコード店,RAW_ENGLISH_WRAPPER
+recording_audio,タグ「recording audio」,音声録音,RAW_ENGLISH_WRAPPER
+recreational_vehicle,キャンピングカー,レクリエーショナル・ビークル,SEMANTIC_NARROWING
+rectangular_6koma,タグ「rectangular 6koma」,長方形の6コマ,RAW_ENGLISH_WRAPPER
+rectangular_cage,rectangular・檻,長方形の檻,MIXED_ENGLISH_DEBRIS
+rectangular_earrings,rectangularのイヤリング,長方形のイヤリング,MIXED_ENGLISH_DEBRIS
+rectangular_eyes,rectangular・目,長方形の目,MIXED_ENGLISH_DEBRIS
+recursive_animalization,タグ「recursive animalization」,再帰的な動物化,RAW_ENGLISH_WRAPPER
+recycle_bin,ビンをリサイクルします,ごみ箱,SEMANTIC_ERROR
+red-eye_effect,赤目現狀,赤目効果,NON_JAPANESE_RESIDUE
+red_(pokemon)_(cosplay),赤（ポケモン）（コスプレ）,レッド（ポケモン）（コスプレ）,SEMANTIC_AMBIGUITY
+red_assault_visor,赤い・assault・バイザー,赤いアサルトバイザー,MIXED_ENGLISH_DEBRIS
+red_aura,赤い・aura,赤いオーラ,MIXED_ENGLISH_DEBRIS
+red_babydoll,赤いbabydoll,赤いベビードール,MIXED_ENGLISH_DEBRIS
+red_bandage,赤い・bandage,赤い包帯,MIXED_ENGLISH_DEBRIS
+red_bandeau,レッドバンドー,赤いバンドゥ,TRANSLITERATION_ERROR
+red_bird,赤い・bird,赤い鳥,MIXED_ENGLISH_DEBRIS
+red_bodice,赤い・bodice,赤いボディス,MIXED_ENGLISH_DEBRIS
+red_bonnet,赤い・bonnet,赤いボンネット帽,MIXED_ENGLISH_DEBRIS
+red_bustier,赤い・bustier,赤いビスチェ,MIXED_ENGLISH_DEBRIS
+red_car,赤い・car,赤い車,MIXED_ENGLISH_DEBRIS
+red_carpet,赤毯,赤いカーペット,NON_JAPANESE_RESIDUE
+red_changpao,赤い・changpao,赤い長袍,MIXED_ENGLISH_DEBRIS
