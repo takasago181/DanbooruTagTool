@@ -1,0 +1,45 @@
+canonical,old_display_ja,new_display_ja,reason
+tohru_(maidragon)_(cosplay),tohru（maidragon）（コスプレ）,トール（小林さんちのメイドラゴン）（コスプレ）,MIXED_ENGLISH_DEBRIS
+tohsaka_rin_(cosplay),Tohsaka Rin（コスプレ）,遠坂凛（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+toilet_brush,馬桶刷,トイレブラシ,NON_JAPANESE_RESIDUE
+tokai_teio_(umamusume)_(cosplay),tokai teio (umamusume) (cosplay),トウカイテイオー（ウマ娘）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+toki_(blue_archive)_(cosplay),toki (blue archive) (cosplay),トキ（ブルーアーカイブ）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+tokimeki_fes_tenshi_to_akuma_kara_no_shoutaijou,tokimeki・fes・tenshi・へのakuma・kara・no・shoutaijou,ときめきフェス 天使と悪魔からの招待状,MIXED_ENGLISH_DEBRIS
+tokimeki_poporon,タグ「tokimeki poporon」,ときめきポポロン♪,RAW_ENGLISH_WRAPPER
+tokiwadai_school_gym_uniform,tokiwadai school gymの制服,常盤台中学校の体操服,MIXED_ENGLISH_DEBRIS
+tokiwadai_school_swimsuit,tokiwadai schoolの水着,常盤台中学校の水着,MIXED_ENGLISH_DEBRIS
+tokusatsu,巨大ヒロイン,特撮,SEMANTIC_NARROWING
+tokyo-3_middle_school_uniform,tokyo 3 middleの学校制服,第3新東京市立第壱中学校の制服,MIXED_ENGLISH_DEBRIS
+tomato_costume,トメィトゥ,トマトの衣装,SEMANTIC_ERROR
+tomato_mask,tomato・マスク,トマトのマスク,MIXED_ENGLISH_DEBRIS
+tomato_plant,タグ「tomato plant」,トマトの株,RAW_ENGLISH_WRAPPER
+tomato_print,tomatoの柄,トマト柄,MIXED_ENGLISH_DEBRIS
+tomato_sauce,タグ「tomato sauce」,トマトソース,RAW_ENGLISH_WRAPPER
+tomoe_mami_(cosplay),トモーマミ（コスプレ）,巴マミ（コスプレ）,TRANSLITERATION_ERROR
+tomoeda_elementary_school_uniform,トモーダ小学校のユニフォーム,友枝小学校の制服,TRANSLITERATION_ERROR
+tomoeda_high_school_uniform,トモーダ高校のユニフォーム,友枝高校の制服,TRANSLITERATION_ERROR
+tomoeda_middle_school_uniform,トモーダ中学校のユニフォーム,友枝中学校の制服,TRANSLITERATION_ERROR
+tone_(kancolle)_(cosplay),トーン（kancolle）（コスプレ）,利根（艦これ）（コスプレ）,TRANSLITERATION_ERROR
+tongue_suck,舌は吸う,舌を吸う,SEMANTIC_STATE_ACTION_ERROR
+tongue_wrap,タグ「tongue wrap」,舌を巻きつける,RAW_ENGLISH_WRAPPER
+too_literal,文字通りすぎます,直訳すぎる,SEMANTIC_ERROR
+too_many_arms,too・many・両腕,腕が多すぎる,MIXED_ENGLISH_DEBRIS
+too_many_balloons,タグ「too many balloons」,風船が多すぎる,RAW_ENGLISH_WRAPPER
+too_many_bandaids,タグ「too many bandaids」,絆創膏が多すぎる,RAW_ENGLISH_WRAPPER
+too_many_bows,弓が多すぎます,リボンが多すぎる,SEMANTIC_AMBIGUITY
+too_many_cigarettes,タグ「too many cigarettes」,タバコが多すぎる,RAW_ENGLISH_WRAPPER
+too_many_clones,タグ「too many clones」,クローンが多すぎる,RAW_ENGLISH_WRAPPER
+too_many_condoms,タグ「too many condoms」,コンドームが多すぎる,RAW_ENGLISH_WRAPPER
+too_many_dolls,タグ「too many dolls」,人形が多すぎる,RAW_ENGLISH_WRAPPER
+too_many_fish,too・many・魚,魚が多すぎる,MIXED_ENGLISH_DEBRIS
+too_many_hands,too・many・両手,手が多すぎる,MIXED_ENGLISH_DEBRIS
+too_many_hearts,心が多すぎます,ハートが多すぎる,SEMANTIC_AMBIGUITY
+too_many_in_mouth,口が多すぎます,口の中に物が多すぎる,SEMANTIC_ERROR
+too_many_lipstick_marks,too・many・口紅・marks,口紅の跡が多すぎる,MIXED_ENGLISH_DEBRIS
+too_many_memes,タグ「too many memes」,ミームが多すぎる,RAW_ENGLISH_WRAPPER
+too_many_papers,タグ「too many papers」,紙が多すぎる,RAW_ENGLISH_WRAPPER
+too_many_piercings,タグ「too many piercings」,ピアスが多すぎる,RAW_ENGLISH_WRAPPER
+too_many_stickers,タグ「too many stickers」,ステッカーが多すぎる,RAW_ENGLISH_WRAPPER
+too_many_umbrellas,タグ「too many umbrellas」,傘が多すぎる,RAW_ENGLISH_WRAPPER
+too_many_watermarks,タグ「too many watermarks」,透かしが多すぎる,RAW_ENGLISH_WRAPPER
+too_many_wings,too・many・翼,翼が多すぎる,MIXED_ENGLISH_DEBRIS
