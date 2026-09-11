@@ -1,0 +1,47 @@
+canonical,old_display_ja,new_display_ja,reason
+table_tennis_ball,乒乓球,卓球ボール,NON_JAPANESE_RESIDUE
+table_tennis_paddle,乒乓球拍,卓球ラケット,NON_JAPANESE_RESIDUE
+tablecloth,桌布,テーブルクロス,NON_JAPANESE_RESIDUE
+tacet_discord_(wuthering_waves),タグ「tacet discord (wuthering waves)」,残像（鳴潮）,RAW_ENGLISH_WRAPPER
+tachikawa_squad's_uniform,tachikawa squadの制服,太刀川隊の制服,MIXED_ENGLISH_DEBRIS
+tactical_gloves,tacticalの手袋,タクティカルグローブ,MIXED_ENGLISH_DEBRIS
+tactical_maid,タグ「tactical maid」,タクティカルメイド,RAW_ENGLISH_WRAPPER
+tactical_school_uniform,tacticalの学校制服,タクティカルスクール制服,MIXED_ENGLISH_DEBRIS
+tactical_surface_fighter,战术机,戦術機,NON_JAPANESE_RESIDUE
+tactical_swimsuit,tacticalの水着,タクティカル水着,MIXED_ENGLISH_DEBRIS
+tactical_witch,タグ「tactical witch」,タクティカルウィッチ,RAW_ENGLISH_WRAPPER
+tagalog_text,タガログ語,タガログ語の文字,SEMANTIC_UNDERSPECIFICATION
+taichou_haori,太平・ハオリ,隊長羽織,SEMANTIC_ERROR
+taihou_(azur_lane)_(cosplay),Taihou（Azur Lane）（コスプレ）,大鳳（アズールレーン）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+taihou_(kancolle)_(cosplay),大鳳装備,大鳳（艦これ）（コスプレ）,SEMANTIC_ERROR
+tail-shaped_hair,尻尾・shaped・髪,尻尾形の髪,MIXED_ENGLISH_DEBRIS
+tail_around_another's_arm,尻尾の周囲の他人の腕,他人の腕に巻きつく尻尾,SEMANTIC_RELATION_ERROR
+tail_around_another's_leg,尻尾の周囲の他人のleg,他人の脚に巻きつく尻尾,MIXED_ENGLISH_DEBRIS
+tail_around_another's_waist,尻尾の周囲の他人のwaist,他人の腰に巻きつく尻尾,MIXED_ENGLISH_DEBRIS
+tail_around_arm,尻尾・周囲・腕,腕に巻きつく尻尾,MIXED_ENGLISH_DEBRIS
+tail_around_neck,尻尾・周囲・首,首に巻きつく尻尾,MIXED_ENGLISH_DEBRIS
+tail_around_own_leg,尾巴绕腿,自分の脚に巻きつく尻尾,NON_JAPANESE_RESIDUE
+tail_around_own_waist,尻尾の周囲のown・waist,自分の腰に巻きつく尻尾,MIXED_ENGLISH_DEBRIS
+tail_between_breasts,尻尾・間・胸,胸の間の尻尾,MIXED_ENGLISH_DEBRIS
+tail_blade,尻尾・blade,尻尾の刃,MIXED_ENGLISH_DEBRIS
+tail_bondage,尻尾・bondage,尻尾による拘束,MIXED_ENGLISH_DEBRIS
+tail_in_ass,尻尾の中のass,肛門内の尻尾,SEMANTIC_RELATION_ERROR
+tail_on_face,顔の尾,顔の上の尻尾,SEMANTIC_UNDERSPECIFICATION
+tail_scrunchie,尻尾・scrunchie,尻尾のシュシュ,MIXED_ENGLISH_DEBRIS
+tail_sex,尻尾・sex,尻尾を使った性行為,MIXED_ENGLISH_DEBRIS
+tail_stimulation,尻尾・stimulation,尻尾への刺激,MIXED_ENGLISH_DEBRIS
+tail_tuft,尻尾・tuft,尻尾の房,MIXED_ENGLISH_DEBRIS
+tail_under_clothes,尻尾の下の服,服の下の尻尾,SEMANTIC_RELATION_ERROR
+tails_touching,タグ「tails touching」,尻尾同士が触れる,RAW_ENGLISH_WRAPPER
+taimanin_suit,対魔忍パロ,対魔忍スーツ,SEMANTIC_ERROR
+taiyou_gakuen_uniform,台湾ガクエンユニフォーム,太陽学園の制服,TRANSLITERATION_ERROR
+takamachi_nanoha_(cosplay),タカマチナノハ（コスプレ）,高町なのは（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+takamaki_ann_(cosplay),takamaki ann (cosplay),高巻杏（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+takanashi_kiara_(cosplay),高野kiara（コスプレ）,小鳥遊キアラ（コスプレ）,SEMANTIC_ERROR
+takao_(azur_lane)_(cosplay),タカオ（アズールレーン）（コスプレ）,高雄（アズールレーン）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+takao_(kancolle)_(cosplay),タカオ（カンコル）（コスプレ）,高雄（艦これ）（コスプレ）,TRANSLITERATION_ERROR
+takarada_rikka_(cosplay),タカラダ・リッカ（コスプレ）,宝多六花（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+takarazaki_school_uniform,宝崎市,宝崎学園の制服,SEMANTIC_ERROR
+taking_another's_hand,taking・他人の手,他人の手を取る,MIXED_ENGLISH_DEBRIS
+taking_cover,カバーする,遮蔽物に隠れる,SEMANTIC_AMBIGUITY
+taking_notes,タグ「taking notes」,メモを取る,RAW_ENGLISH_WRAPPER
