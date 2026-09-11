@@ -39,7 +39,7 @@
   "current_shard": null,
   "last_completed_shard": 31,
   "override_rows": 10691,
-  "status": "SOURCE_REVIEW_COMPLETE_CROSS_SHARD_REAUDIT_IN_PROGRESS",
+  "status": "SOURCE_REVIEW_COMPLETE_CROSS_SHARD_REAUDIT_COMPLETE_AWAITING_INDEPENDENT_PROMOTION_AUDIT",
   "current_shard_partial_override": false,
   "current_shard_partial_override_parts": [],
   "current_shard_partial_override_rows": 0,
