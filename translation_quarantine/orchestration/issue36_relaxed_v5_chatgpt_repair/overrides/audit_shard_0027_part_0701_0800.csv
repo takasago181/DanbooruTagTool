@@ -1,0 +1,47 @@
+canonical,old_display_ja,new_display_ja,reason
+stelle_(honkai:_star_rail)_(cosplay),stelle (honkai: star rail) (cosplay),星（崩壊：スターレイル）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+stencil_lettering,stencil lettの指輪,ステンシル文字,SEMANTIC_ERROR
+step-parent_and_step-child,義母,義親と継子,SEMANTIC_NARROWING
+step-siblings,義兄弟,義理のきょうだい,SEMANTIC_NARROWING
+stepping_on_non-human,steppingの上のnon・人間,人外を踏む,MIXED_ENGLISH_DEBRIS
+stepping_on_object,steppingの上の物体,物体を踏む,MIXED_ENGLISH_DEBRIS
+stepping_on_viewer,踏みつけ,視聴者を踏む,SEMANTIC_UNDERSPECIFICATION
+stepping_stones,垫脚石,飛び石,NON_JAPANESE_RESIDUE
+stethoscope_around_neck,听诊器挂在脖子上,首にかけた聴診器,NON_JAPANESE_RESIDUE
+stethoscope_between_breasts,stethoscopeの間の胸,胸の間の聴診器,SEMANTIC_RELATION_ERROR
+stethoscope_on_nipple,stethoscopeの上の乳首,乳首に当てた聴診器,SEMANTIC_RELATION_ERROR
+steyr_iws_2000,タグ「steyr iws 2000」,Steyr IWS 2000,RAW_ENGLISH_WRAPPER
+stg44,stg44,StG 44,CANONICAL_FALLBACK_TRANSLATABLE
+stick,小木棍,棒,NON_JAPANESE_RESIDUE
+stick_figure,柴,棒人間,SEMANTIC_ERROR
+sticker_on_chest,ステッカーの上の胸,胸のステッカー,SEMANTIC_RELATION_ERROR
+sticker_on_clothes,ステッカーの上の服,服のステッカー,SEMANTIC_RELATION_ERROR
+sticker_on_hair,ステッカーの上の髪,髪のステッカー,SEMANTIC_RELATION_ERROR
+sticker_on_leg,ステッカーの上のleg,脚のステッカー,MIXED_ENGLISH_DEBRIS
+sticker_on_stomach,ステッカーの上の腹部,腹部のステッカー,SEMANTIC_RELATION_ERROR
+sticker_sheet_(medium),タグ「sticker sheet (medium)」,ステッカーシート,RAW_ENGLISH_WRAPPER
+stifled_laugh,憋笑,笑いをこらえる,NON_JAPANESE_RESIDUE
+stile_uniform,スティーレ,スティーレの制服,SEMANTIC_UNDERSPECIFICATION
+stingray_girl,タグ「stingray girl」,エイ娘,RAW_ENGLISH_WRAPPER
+stitched_chest,stitched・胸,縫い目のある胸,MIXED_ENGLISH_DEBRIS
+stitched_clothes,stitched・服,縫い目のある服,MIXED_ENGLISH_DEBRIS
+stitched_eye,ステッチの目,縫われた目,SEMANTIC_ERROR
+stitched_forehead,タグ「stitched forehead」,縫い目のある額,RAW_ENGLISH_WRAPPER
+stitched_neck,首に縫われた首,縫い目のある首,SEMANTIC_ERROR
+stitched_tail,stitched・尻尾,縫い目のある尻尾,MIXED_ENGLISH_DEBRIS
+stitched_tongue,タグ「stitched tongue」,縫われた舌,RAW_ENGLISH_WRAPPER
+stitched_wrist,stitched・手首,縫い目のある手首,MIXED_ENGLISH_DEBRIS
+stock_market,タグ「stock market」,株式市場,RAW_ENGLISH_WRAPPER
+stomach_focus,腹部・焦点,腹部を強調,MIXED_ENGLISH_DEBRIS
+stomach_hair,腹部・髪,腹毛,SEMANTIC_ERROR
+stomach_jewel,腹部・jewel,腹部の宝石,MIXED_ENGLISH_DEBRIS
+stomacher,タグ「stomacher」,ストマッカー,RAW_ENGLISH_WRAPPER
+stomping_viewer,踏みつけ,視聴者を踏みつける,SEMANTIC_UNDERSPECIFICATION
+stone_bridge,タグ「stone bridge」,石橋,RAW_ENGLISH_WRAPPER
+stone_building,タグ「stone building」,石造りの建物,RAW_ENGLISH_WRAPPER
+stone_mask,stone・マスク,石の仮面,MIXED_ENGLISH_DEBRIS
+stone_skirt,stone・スカート,石のスカート,MIXED_ENGLISH_DEBRIS
+stone_torii,ストーントリイ,石造りの鳥居,SEMANTIC_ERROR
+stoned,石打ち,ハイになった,SEMANTIC_AMBIGUITY
+stonks_(meme),stonks (meme),ストンクス（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+stop_sign,止まれ,一時停止標識,SEMANTIC_UNDERSPECIFICATION
