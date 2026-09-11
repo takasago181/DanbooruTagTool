@@ -1,0 +1,36 @@
+canonical,old_display_ja,new_display_ja,reason
+tied_hoodie_strings,タグ「tied hoodie strings」,結んだパーカーの紐,RAW_ENGLISH_WRAPPER
+tied_tank_top,tied・tank・トップス,結んだタンクトップ,MIXED_ENGLISH_DEBRIS
+tied_up_(nonsexual),緊縛,縛られた（非性的）,SEMANTIC_NARROWING
+tiered_skirt,tiered・スカート,ティアードスカート,MIXED_ENGLISH_DEBRIS
+tifa_lockhart_(cosplay),Tifa Lockhart（コスプレ）,ティファ・ロックハート（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+tight_bottoms,タグ「tight bottoms」,タイトなボトムス,RAW_ENGLISH_WRAPPER
+tiki_(young)_(fire_emblem)_(cosplay),tiki (young) (fire emblem) (cosplay),チキ（幼少）（ファイアーエムブレム）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+tiktok_logo,Tiktokロゴ,TikTokロゴ,TRANSLITERATION_ERROR
+tiktok_username,tiktokのユーザー名,TikTokのユーザー名,MIXED_ENGLISH_DEBRIS
+tileable,タイル可能,タイル化可能,SEMANTIC_ERROR
+till_(alien_stage)_(cosplay),till (alien stage) (cosplay),ティル（ALIEN STAGE）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+tilted_border,tilted・枠,傾いた枠,MIXED_ENGLISH_DEBRIS
+tilted_halo,タグ「tilted halo」,傾いた光輪,RAW_ENGLISH_WRAPPER
+time_patrol_(dragon_ball),タグ「time patrol (dragon ball)」,タイムパトロール（ドラゴンボール）,RAW_ENGLISH_WRAPPER
+tin_(container),タグ「tin (container)」,缶,RAW_ENGLISH_WRAPPER
+tingtang_gang_(identity)_(project_moon),tingtang gang (identity) (project moon),ティンタンギャング（Identity）（Project Moon）,CANONICAL_FALLBACK_TRANSLATABLE
+tint_me_(idolmaster),tint me (idolmaster),Tint Me!（アイドルマスター）,CANONICAL_FALLBACK_TRANSLATABLE
+tip_jar,タグ「tip jar」,チップ入れ,RAW_ENGLISH_WRAPPER
+tiptoe_kiss,踮脚亲吻,つま先立ちのキス,NON_JAPANESE_RESIDUE
+tire_swing,タグ「tire swing」,タイヤブランコ,RAW_ENGLISH_WRAPPER
+tissue_in_nose,tissueの中のnose,鼻に詰めたティッシュ,SEMANTIC_RELATION_ERROR
+tit_(bird),タグ「tit (bird)」,カラ類（鳥）,RAW_ENGLISH_WRAPPER
+titan_shifter_scars,タグ「titan shifter scars」,巨人化能力者の傷跡,RAW_ENGLISH_WRAPPER
+tnt_block_(minecraft),タグ「tnt block (minecraft)」,TNTブロック（Minecraft）,RAW_ENGLISH_WRAPPER
+toad_(mario)_(cosplay),toad (mario) (cosplay),キノピオ（マリオ）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+toad_armor_(amphibia),タグ「toad armor (amphibia)」,ヒキガエルの鎧（Amphibia）,RAW_ENGLISH_WRAPPER
+toddler,赤ちゃん,幼児,SEMANTIC_NARROWING
+toe_claws,toe・爪,足指の爪,MIXED_ENGLISH_DEBRIS
+toe_cleavage,つま先の切断,足指の谷間,SEMANTIC_ERROR
+toe_grab,タグ「toe grab」,足指でつかむ,RAW_ENGLISH_WRAPPER
+toe_socks,分趾袜,五本指ソックス,NON_JAPANESE_RESIDUE
+toeprint,タグ「toeprint」,足指の跡,RAW_ENGLISH_WRAPPER
+toes_up,つま先アップ,つま先を上げる,SEMANTIC_STATE_ACTION_ERROR
+tohmi_higashi_high_school_uniform,tohmi higashi highの学校制服,トオミ東高校の制服,MIXED_ENGLISH_DEBRIS
+tohno_tengu_shinobi_group_uniform,tohno tengu shinobi groupの制服,遠野天狗忍び集団の制服,MIXED_ENGLISH_DEBRIS
