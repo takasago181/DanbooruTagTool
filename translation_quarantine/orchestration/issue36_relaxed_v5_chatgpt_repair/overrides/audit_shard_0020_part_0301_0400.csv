@@ -1,0 +1,36 @@
+canonical,old_display_ja,new_display_ja,reason
+mayan_clothes,mayan・服,マヤ族の服,MIXED_ENGLISH_DEBRIS
+meandros_border,meandros・枠,メアンドロス模様の枠,MIXED_ENGLISH_DEBRIS
+meandros_trim,タグ「meandros trim」,メアンドロス模様の縁飾り,RAW_ENGLISH_WRAPPER
+measuring,测量,計測,NON_JAPANESE_RESIDUE
+meat_hair_ornament,meatの髪飾り,肉の髪飾り,MIXED_ENGLISH_DEBRIS
+meat_hook,タグ「meat hook」,肉吊りフック,RAW_ENGLISH_WRAPPER
+mecha_focus,mecha・焦点,メカを強調,MIXED_ENGLISH_DEBRIS
+mechanical_broom,機械的ほうき,機械式ほうき,SEMANTIC_ERROR
+mechanical_cyclops_eye,機械のcyclops・目,機械の一つ目,MIXED_ENGLISH_DEBRIS
+mechanical_hips,機械のhips,機械の腰,MIXED_ENGLISH_DEBRIS
+mechanical_horns,機械的ホーン,機械の角,SEMANTIC_ERROR
+mechanical_penis,機械のpenis,機械の陰茎,MIXED_ENGLISH_DEBRIS
+mechanical_pussy,機械のpussy,機械の女性器,MIXED_ENGLISH_DEBRIS
+mechanical_wings,机械翅膀,機械の翼,NON_JAPANESE_RESIDUE
+mechanix_wear,タグ「mechanix wear」,Mechanix Wear,RAW_ENGLISH_WRAPPER
+medi_gun,タグ「medi gun」,メディガン,RAW_ENGLISH_WRAPPER
+media_player_interface,タグ「media player interface」,メディアプレイヤー画面,RAW_ENGLISH_WRAPPER
+medical_monitor,タグ「medical monitor」,医療モニター,RAW_ENGLISH_WRAPPER
+medici_collar,medici・襟,メディチカラー,MIXED_ENGLISH_DEBRIS
+meditation,冥想,瞑想,NON_JAPANESE_RESIDUE
+medium_sideburns,普通サイズのsideburns,中くらいのもみあげ,MIXED_ENGLISH_DEBRIS
+medium_sidelocks,普通サイズのsidelocks,中くらいの横髪,MIXED_ENGLISH_DEBRIS
+medium_skirt,普通サイズの・スカート,ミディ丈スカート,SEMANTIC_ERROR
+medium_tank,普通サイズの・タンク,中戦車,SEMANTIC_ERROR
+medusa_(rider)_(fate)_(cosplay),medusa (rider) (fate) (cosplay),メドゥーサ（ライダー）（Fate）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+meer_campbell_(cosplay),Meer Campbell（コスプレ）,ミーア・キャンベル（コスプレ）,SEMANTIC_ERROR
+meerkat_boy,タグ「meerkat boy」,ミーアキャット少年,RAW_ENGLISH_WRAPPER
+meerkat_ears,meerkat・耳,ミーアキャットの耳,MIXED_ENGLISH_DEBRIS
+meerkat_tail,meerkat・尻尾,ミーアキャットの尻尾,MIXED_ENGLISH_DEBRIS
+mega_evolution_symbol,mega・evolution・記号,メガシンカの記号,MIXED_ENGLISH_DEBRIS
+mega_lopunny_(cosplay),mega lopunny (cosplay),メガミミロップ（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+mega_man_(character)_(cosplay),メガマン（キャラクター）（コスプレ）,ロックマン（コスプレ）,SEMANTIC_ERROR
+mega_pokemon,メガシンカ,メガシンカポケモン,SEMANTIC_UNDERSPECIFICATION
+megurigaoka_high_school_uniform,megurigaoka highの学校制服,巡ヶ丘学院高等学校の制服,MIXED_ENGLISH_DEBRIS
+megurine_luka_(cosplay),ルカコス,巡音ルカ（コスプレ）,SEMANTIC_UNDERSPECIFICATION
