@@ -1,0 +1,28 @@
+canonical,old_display_ja,new_display_ja,reason
+plasma_pistol,plasma・拳銃,プラズマピストル,MIXED_ENGLISH_DEBRIS
+plasma_rifle,タグ「plasma rifle」,プラズマライフル,RAW_ENGLISH_WRAPPER
+plastic_spoon,タグ「plastic spoon」,プラスチックスプーン,RAW_ENGLISH_WRAPPER
+plate_on_head,plateの上の頭,頭の上の皿,SEMANTIC_RELATION_ERROR
+platelet_(hataraku_saibou)_(cosplay),platelet (hataraku saibou) (cosplay),血小板（はたらく細胞）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+play_of_the_game,ゲームのプレイ,プレイ・オブ・ザ・ゲーム,SEMANTIC_ERROR
+playboy_bunny_vest,タグ「playboy bunny vest」,プレイボーイバニーのベスト,RAW_ENGLISH_WRAPPER
+playground_equipment_(kemono_friends_pavilion),遊び場機器（ケモモンフレンズパビリオン）,遊具（けものフレンズぱびりおん）,TRANSLITERATION_ERROR
+playing,演奏,遊ぶ,SEMANTIC_NARROWING
+playing_bass_guitar,遊ぶ・bass・guitar,ベースギターを演奏,MIXED_ENGLISH_DEBRIS
+playing_chess,遊ぶ・chess,チェスをする,MIXED_ENGLISH_DEBRIS
+playing_drums,ドラム,ドラムを演奏,SEMANTIC_UNDERSPECIFICATION
+playing_guitar,ギタリスト,ギターを演奏,SEMANTIC_ERROR
+playing_tabletop_game,遊ぶ・tabletop・game,テーブルゲームをする,MIXED_ENGLISH_DEBRIS
+playing_violin,遊ぶ・violin,バイオリンを演奏,MIXED_ENGLISH_DEBRIS
+playstation_logo,playstationのロゴ,PlayStationのロゴ,MIXED_ENGLISH_DEBRIS
+playstation_vr,タグ「playstation vr」,PlayStation VR,RAW_ENGLISH_WRAPPER
+pleated_capelet,タグ「pleated capelet」,プリーツケープレット,RAW_ENGLISH_WRAPPER
+pleated_kimono,タグ「pleated kimono」,プリーツ入りの着物,RAW_ENGLISH_WRAPPER
+plum_blossom_print,plum blossomの柄,梅の花柄,MIXED_ENGLISH_DEBRIS
+plurk_username,plurkのユーザー名,Plurkのユーザー名,MIXED_ENGLISH_DEBRIS
+pluto_symbol,Pl王星のシンボル,冥王星の記号,SEMANTIC_ERROR
+pocky_box,タグ「pocky box」,ポッキーの箱,RAW_ENGLISH_WRAPPER
+pocky_kissing_viewer,着信ポッキーキス,視聴者とポッキーキス,SEMANTIC_ERROR
+poco_grande_glass,タグ「poco grande glass」,ポコグランデグラス,RAW_ENGLISH_WRAPPER
+poet_shirt,poet・シャツ,ポエットシャツ,MIXED_ENGLISH_DEBRIS
+poet_sleeves,タグ「poet sleeves」,ポエットスリーブ,RAW_ENGLISH_WRAPPER
