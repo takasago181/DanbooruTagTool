@@ -1,0 +1,38 @@
+canonical,old_display_ja,new_display_ja,reason
+surgeon_cuffs,surgeon・カフ,サージャンカフス,MIXED_ENGLISH_DEBRIS
+surgical_light,surgical・光,手術灯,MIXED_ENGLISH_DEBRIS
+surplice,タグ「surplice」,サープリス,RAW_ENGLISH_WRAPPER
+surprise_hug,タグ「surprise hug」,突然のハグ,RAW_ENGLISH_WRAPPER
+surrounded,取り囲む,囲まれた,SEMANTIC_STATE_ACTION_ERROR
+surrounded_by_breasts,surrounded・by・胸,乳房に囲まれた,MIXED_ENGLISH_DEBRIS
+surrounded_by_feet,タグ「surrounded by feet」,足に囲まれた,RAW_ENGLISH_WRAPPER
+surrounded_by_guns,タグ「surrounded by guns」,銃に囲まれた,RAW_ENGLISH_WRAPPER
+survey_corps_(emblem),調查兵團,調査兵団（紋章）,NON_JAPANESE_RESIDUE
+suspended_cage,suspended・檻,吊り下げられた檻,MIXED_ENGLISH_DEBRIS
+suspender_corset,suspender・コルセット,サスペンダー付きコルセット,MIXED_ENGLISH_DEBRIS
+suspender_pants,suspender・パンツ,サスペンダー付きズボン,MIXED_ENGLISH_DEBRIS
+suspenders_hanging,背帯位于身体両侧,サスペンダーを垂らす,NON_JAPANESE_RESIDUE
+suspenders_pull,吊帯拉扯,サスペンダーを引っ張る,NON_JAPANESE_RESIDUE
+suspenders_slip,吊帯滑落,サスペンダーがずり落ちる,NON_JAPANESE_RESIDUE
+suspicious_egg_dish,タグ「suspicious egg dish」,怪しい卵料理,RAW_ENGLISH_WRAPPER
+suzumiya_haruhi_(cosplay),スズミヤ・ハーヒ（コスプレ）,涼宮ハルヒ（コスプレ）,TRANSLITERATION_ERROR
+suzuya_(kancolle)_(cosplay),スズヤ（カンコル）（コスプレ）,鈴谷（艦これ）（コスプレ）,TRANSLITERATION_ERROR
+sv-98,sv-98,SV-98,CANONICAL_FALLBACK_TRANSLATABLE
+swaddled,タグ「swaddled」,おくるみに包まれた,RAW_ENGLISH_WRAPPER
+swan,天鹅,白鳥,NON_JAPANESE_RESIDUE
+swan_lake_headpiece,タグ「swan lake headpiece」,白鳥の湖のヘッドピース,RAW_ENGLISH_WRAPPER
+swastika_tattoo,swastikaのタトゥー,かぎ十字のタトゥー,MIXED_ENGLISH_DEBRIS
+sway_back,上体後拱,上体を反らす,NON_JAPANESE_RESIDUE
+swaying_hip,swaying・腰,腰を揺らす,MIXED_ENGLISH_DEBRIS
+sweater_around_neck,セーター・周囲・首,首に巻いたセーター,MIXED_ENGLISH_DEBRIS
+sweater_partially_tucked_in,sweater・部分的に・tuckedの中の,セーターを一部タックイン,MIXED_ENGLISH_DEBRIS
+sweater_tucked_in,押し込まれたセーター,セーターをタックイン,SEMANTIC_ERROR
+sweater_under_dress,sweaterの下のドレス,ドレスの下のセーター,SEMANTIC_RELATION_ERROR
+sweater_under_shirt,sweaterの下のシャツ,シャツの下のセーター,SEMANTIC_RELATION_ERROR
+sweating_speech_bubble,タグ「sweating speech bubble」,汗マーク付き吹き出し,RAW_ENGLISH_WRAPPER
+sweaty_clothes,汗をかいた服,汗で濡れた服,SEMANTIC_ERROR
+sweaty_feet,タグ「sweaty feet」,汗ばんだ足,RAW_ENGLISH_WRAPPER
+swedish_flag_print,スウェーデンの旗印刷,スウェーデン国旗柄,SEMANTIC_STATE_ACTION_ERROR
+swedish_text,スウェーデン語,スウェーデン語の文字,SEMANTIC_UNDERSPECIFICATION
+sweet_potato,いも,サツマイモ,SEMANTIC_UNDERSPECIFICATION
+sweety_(zenless_zone_zero)_(cosplay),sweety (zenless zone zero) (cosplay),スウィーティー（ゼンレスゾーンゼロ）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
