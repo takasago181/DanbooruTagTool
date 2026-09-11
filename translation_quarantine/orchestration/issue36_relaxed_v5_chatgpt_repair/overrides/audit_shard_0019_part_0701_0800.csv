@@ -1,0 +1,39 @@
+canonical,old_display_ja,new_display_ja,reason
+logo_hair_ornament,ロゴヘアの飾り,ロゴの髪飾り,AWKWARD_MACHINE_TRANSLATION
+loincloth_lift,ロインコロスリフト,腰布を持ち上げる,SEMANTIC_ERROR
+lolita_print,lolitaの柄,ロリータ柄,MIXED_ENGLISH_DEBRIS
+lollipop_hair_ornament,lollipopの髪飾り,ロリポップの髪飾り,MIXED_ENGLISH_DEBRIS
+lollipop_in_mouth,lollipopの中のmouth,口にロリポップ,MIXED_ENGLISH_DEBRIS
+lon_lon_milk,タグ「lon lon milk」,ロンロン牛乳,RAW_ENGLISH_WRAPPER
+lone_nape_hair,孤独なうなじ,一本だけの襟足,SEMANTIC_ERROR
+lonely_lonely_dance_(meme),lonely lonely dance (meme),ロンリーロンリーダンス（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+long_mustache,長い・mustache,長い口ひげ,MIXED_ENGLISH_DEBRIS
+long_shadow,長い・shadow,長い影,MIXED_ENGLISH_DEBRIS
+long_single_sidelock,長い・単一のsidelock,一本の長い横髪,MIXED_ENGLISH_DEBRIS
+long_sword_(sao),タグ「long sword (sao)」,ロングソード（SAO）,RAW_ENGLISH_WRAPPER
+longevity_peach_bun,寿桃包,寿桃まん,NON_JAPANESE_RESIDUE
+longinus_(weapon)_(fate),longinus (weapon) (fate),ロンギヌス（武器）（Fate）,CANONICAL_FALLBACK_TRANSLATABLE
+looking_afar,遠くを探しています,遠くを見る,SEMANTIC_ERROR
+looking_around,見る・周囲,周囲を見る,AWKWARD_MACHINE_TRANSLATION
+looking_at_animal,見る・位置・動物,動物を見る,SEMANTIC_ERROR
+looking_at_breasts,見る・位置・胸,胸を見る,SEMANTIC_ERROR
+looking_at_bulge,タグ「looking at bulge」,膨らみを見る,RAW_ENGLISH_WRAPPER
+looking_at_creature,タグ「looking at creature」,生き物を見る,RAW_ENGLISH_WRAPPER
+looking_at_crotch,looking・at・股間,股間を見る,MIXED_ENGLISH_DEBRIS
+looking_at_cup,looking・at・カップ,カップを見る,MIXED_ENGLISH_DEBRIS
+looking_at_doll,タグ「looking at doll」,人形を見る,RAW_ENGLISH_WRAPPER
+looking_at_hand,見る・位置・手,手を見る,SEMANTIC_ERROR
+looking_at_hands,見る・位置・両手,両手を見る,SEMANTIC_ERROR
+looking_at_map,タグ「looking at map」,地図を見る,RAW_ENGLISH_WRAPPER
+looking_at_panties,見る・位置・パンツ,パンティーを見る,SEMANTIC_ERROR
+looking_at_pectorals,タグ「looking at pectorals」,胸筋を見る,RAW_ENGLISH_WRAPPER
+looking_at_pussy,猫を見ています,女性器を見る,SEMANTIC_ERROR
+looking_at_reflection,looking・at・反射,映り込みを見る,MIXED_ENGLISH_DEBRIS
+looking_outside,見る・外側,外を見る,AWKWARD_MACHINE_TRANSLATION
+looking_over_eyewear,越过眼镜看,眼鏡の上から見る,NON_JAPANESE_RESIDUE
+looking_past_viewer,過去の視聴者を探しています,閲覧者の向こうを見る,SEMANTIC_ERROR
+looking_through_magnifying_glass,looking・越しのmagnifying・glass,虫眼鏡越しに見る,MIXED_ENGLISH_DEBRIS
+looking_through_scope,looking・越しのscope,スコープ越しに見る,MIXED_ENGLISH_DEBRIS
+looking_through_window,looking・越しのwindow,窓越しに見る,MIXED_ENGLISH_DEBRIS
+loose_bandages,ゆるい・bandages,ゆるい包帯,MIXED_ENGLISH_DEBRIS
+loose_kimono,ゆるい・kimono,ゆるい着物,MIXED_ENGLISH_DEBRIS
