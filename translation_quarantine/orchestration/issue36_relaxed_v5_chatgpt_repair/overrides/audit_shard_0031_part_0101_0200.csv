@@ -1,0 +1,34 @@
+canonical,old_display_ja,new_display_ja,reason
+wonderlands_x_showtime_(project_sekai),ワンダショミク,ワンダーランズ×ショウタイム,SEMANTIC_ERROR
+wood-burning_stove,タグ「wood-burning stove」,薪ストーブ,RAW_ENGLISH_WRAPPER
+wood_blade_(deltarune),タグ「wood blade (deltarune)」,ウッドブレード（Deltarune）,RAW_ENGLISH_WRAPPER
+wooden_bucket,木桶,木製のバケツ,NON_JAPANESE_RESIDUE
+wooden_desk,wooden・机,木製の机,MIXED_ENGLISH_DEBRIS
+wooden_house,タグ「wooden house」,木造家屋,RAW_ENGLISH_WRAPPER
+wooden_lantern,春日灯笼,木製の灯籠,NON_JAPANESE_RESIDUE
+wooden_plate,タグ「wooden plate」,木製の皿,RAW_ENGLISH_WRAPPER
+wooden_porch,タグ「wooden porch」,木製のポーチ,RAW_ENGLISH_WRAPPER
+wooden_staff,木製のスタッフ,木製の杖,SEMANTIC_AMBIGUITY
+wooden_stairs,タグ「wooden stairs」,木製の階段,RAW_ENGLISH_WRAPPER
+word_bearers,タグ「word bearers」,ワードベアラー,RAW_ENGLISH_WRAPPER
+woren,woren,Woren,OPAQUE_NAME_CASE
+world_eaters,タグ「world eaters」,ワールドイーター,RAW_ENGLISH_WRAPPER
+worm_girl,タグ「worm girl」,ミミズ娘,RAW_ENGLISH_WRAPPER
+worried,悩み,心配そう,SEMANTIC_ERROR
+woven_hatching,タグ「woven hatching」,織物風ハッチング,RAW_ENGLISH_WRAPPER
+wraith_(apex_legends)_(cosplay),レイス（頂点の伝説）（コスプレ）,レイス（Apex Legends）（コスプレ）,SEMANTIC_LITERAL_TRANSLATION
+wraparound_tape_gag,wraparound・tape・猿ぐつわ,巻き付けたテープの猿ぐつわ,MIXED_ENGLISH_DEBRIS
+wrapped_bento,ラップベント,包まれた弁当,TRANSLITERATION_ERROR
+wrapped_hair,wrapped・髪,巻かれた髪,MIXED_ENGLISH_DEBRIS
+wreath,はなわ,リース,SEMANTIC_AMBIGUITY
+wrestling_mask,覆面レスラー,レスリングマスク,SEMANTIC_ERROR
+wringing_clothes,絞る,服を絞る,SEMANTIC_UNDERSPECIFICATION
+wrist_bell,手首・鈴,手首の鈴,MIXED_ENGLISH_DEBRIS
+wrist_bobbles,手首・bobbles,手首のボブル飾り,MIXED_ENGLISH_DEBRIS
+wrist_computer,手首・computer,手首装着コンピューター,MIXED_ENGLISH_DEBRIS
+wrist_extended,手首が拡張されました,手首を伸ばした,SEMANTIC_ERROR
+wrists_bound_apart,区切られた手首,左右に離して拘束された手首,SEMANTIC_ERROR
+wrists_extended,手首が延長されました,両手首を伸ばした,SEMANTIC_ERROR
+wryyyyyyyyyyyyyyyyyyyy,タグ「wryyyyyyyyyyyyyyyyyyyy」,WRYYYYYYYYYYYYYYYYYYY,OPAQUE_EXPRESSION
+wuthering_heights_(identity)_(project_moon),wuthering heights (identity) (project moon),ワザリング・ハイツ（人格）（Project Moon）,CANONICAL_FALLBACK_TRANSLATABLE
+wuxia,武俠,武侠,NON_JAPANESE_RESIDUE
