@@ -1,0 +1,34 @@
+canonical,old_display_ja,new_display_ja,reason
+ruining_the_glorious_moment,タグ「ruining the glorious moment」,輝かしい瞬間を台無しにする,RAW_ENGLISH_WRAPPER
+ruins,废墟,廃墟,NON_JAPANESE_RESIDUE
+running_track,トラック,陸上トラック,SEMANTIC_AMBIGUITY
+runway_fashion,タグ「runway fashion」,ランウェイファッション,RAW_ENGLISH_WRAPPER
+russian_air_force,タグ「russian air force」,ロシア空軍,RAW_ENGLISH_WRAPPER
+russian_ground_forces,ロシア連邦軍,ロシア陸軍,SEMANTIC_NARROWING
+russo-ukrainian_war,ウクライナ侵攻,ロシア・ウクライナ戦争,SEMANTIC_NARROWING
+ryu_(street_fighter)_(cosplay),ryu（ストリートファイター）（コスプレ）,リュウ（ストリートファイター）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+ryukishi07_(style),ryuukishi07（スタイル）,竜騎士07（スタイル）,TRANSLITERATION_ERROR
+ryuuguu_rena_(cosplay),ryuuguu rena（コスプレ）,竜宮レナ（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+ryuujou_(kancolle)_(cosplay),ryuujou（kancolle）（コスプレ）,龍驤（艦これ）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+s.e.m_(idolmaster),s.e.m (idolmaster),S.E.M（アイドルマスター）,CANONICAL_FALLBACK_TRANSLATABLE
+s.m.s.,タグ「s.m.s.」,S.M.S.,RAW_ENGLISH_WRAPPER
+s.o.n.g._uniform,歌。ユニフォーム,S.O.N.G.制服,SEMANTIC_ERROR
+s.t.a.r.s._uniform,s.t.a.r.s.の制服,S.T.A.R.S.制服,MIXED_ENGLISH_DEBRIS
+s.w.a.t.,タグ「s.w.a.t.」,SWAT,RAW_ENGLISH_WRAPPER
+s4_uniform,S4(アイカツスターズ!),S4制服（アイカツスターズ！）,SEMANTIC_UNDERSPECIFICATION
+saber_(fate)_(cosplay),saber (fate) (cosplay),セイバー（Fate）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+saber_alter_(swimsuit_rider)_(second_ascension)_(cosplay),saber alter (swimsuit rider) (second ascension) (cosplay),セイバーオルタ（水着ライダー）（第二再臨）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+sabertooth_cat,sabertooth・猫,剣歯虎,MIXED_ENGLISH_DEBRIS
+sachertorte_(food),タグ「sachertorte (food)」,ザッハトルテ,RAW_ENGLISH_WRAPPER
+sack_behind_back,sack・behind・背中,背中の後ろの袋,MIXED_ENGLISH_DEBRIS
+sacrificial_sword_(genshin_impact),祭礼剑,祭礼の剣,NON_JAPANESE_RESIDUE
+sadamoto_yoshiyuki_(style),タグ「sadamoto yoshiyuki (style)」,貞本義行（スタイル）,RAW_ENGLISH_WRAPPER
+saddle_blanket,タグ「saddle blanket」,鞍敷き,RAW_ENGLISH_WRAPPER
+safety_pin_hair_ornament,安全用・ピンの髪飾り,安全ピンの髪飾り,SEMANTIC_ERROR
+sage_(dq3)_(cosplay),セージ（DQ3）（コスプレ）,賢者（DQ3）（コスプレ）,SEMANTIC_ERROR
+sagging_pants,sagging・パンツ,腰履きのズボン,MIXED_ENGLISH_DEBRIS
+sagiri_(kancolle)_(cosplay),狭霧の水着,狭霧（艦これ）（コスプレ）,SEMANTIC_ERROR
+sagisawa_fumika_(cosplay),佐々木fumika（コスプレ）,鷺沢文香（コスプレ）,SEMANTIC_ERROR
+sagittarius_(symbol),タグ「sagittarius (symbol)」,射手座の記号,RAW_ENGLISH_WRAPPER
+saigyouji_yuyuko_(cosplay),saigyouji yuyuko（コスプレ）,西行寺幽々子（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+sailboat,ほぶね,帆船,TRANSLITERATION_ERROR
