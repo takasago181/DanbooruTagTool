@@ -1,0 +1,39 @@
+canonical,old_display_ja,new_display_ja,reason
+pink_slippers,ピンクのslippers,ピンクのスリッパ,MIXED_ENGLISH_DEBRIS
+pink_tabard,ピンクのtabard,ピンクのタバード,MIXED_ENGLISH_DEBRIS
+pink_track_suit,ピンクのtrack・スーツ,ピンクのトラックスーツ,MIXED_ENGLISH_DEBRIS
+pink_tunic,ピンクのtunic,ピンクのチュニック,MIXED_ENGLISH_DEBRIS
+pinky_to_mouth,ピンキーから口,小指を口元に,SEMANTIC_ERROR
+pinstripe_ascot,タグ「pinstripe ascot」,ピンストライプのアスコット,RAW_ENGLISH_WRAPPER
+pinstripe_bow,pinstripe・リボン,ピンストライプのリボン,MIXED_ENGLISH_DEBRIS
+pinstripe_coat,pinstripe・コート,ピンストライプのコート,MIXED_ENGLISH_DEBRIS
+pinstripe_dress,细条纹连衣裙,ピンストライプのドレス,NON_JAPANESE_RESIDUE
+pinstripe_hat,pinstripe・帽子,ピンストライプの帽子,MIXED_ENGLISH_DEBRIS
+pinstripe_kimono,タグ「pinstripe kimono」,ピンストライプの着物,RAW_ENGLISH_WRAPPER
+pinstripe_one-piece_swimsuit,pinstripe one pieceの水着,ピンストライプのワンピース水着,MIXED_ENGLISH_DEBRIS
+pinstripe_pantyhose,pinstripeのパンスト,ピンストライプのパンスト,MIXED_ENGLISH_DEBRIS
+pinstripe_ribbon,タグ「pinstripe ribbon」,ピンストライプのリボン,RAW_ENGLISH_WRAPPER
+pinstripe_shorts,タグ「pinstripe shorts」,ピンストライプのショートパンツ,RAW_ENGLISH_WRAPPER
+pinstripe_sleeves,タグ「pinstripe sleeves」,ピンストライプの袖,RAW_ENGLISH_WRAPPER
+pinstripe_socks,pinstripeの靴下,ピンストライプの靴下,MIXED_ENGLISH_DEBRIS
+pinstripe_thighhighs,pinstripeのニーハイ,ピンストライプのサイハイソックス,MIXED_ENGLISH_DEBRIS
+pinwheel_hair_ornament,ピンホイールの髪の飾り,風車の髪飾り,SEMANTIC_ERROR
+pinyin_text,拼音,ピンイン表記,NON_JAPANESE_RESIDUE
+pioneer_(nikke),タグ「pioneer (nikke)」,パイオニア（NIKKE）,RAW_ENGLISH_WRAPPER
+pioneer_neckerchief,赤领巾,赤いネッカチーフ,NON_JAPANESE_RESIDUE
+pirate_costume,海盗,海賊衣装,NON_JAPANESE_RESIDUE
+pirelli,タグ「pirelli」,Pirelli,RAW_ENGLISH_WRAPPER
+pisces_(symbol),タグ「pisces (symbol)」,うお座の記号,RAW_ENGLISH_WRAPPER
+pita_(food),タグ「pita (food)」,ピタパン,RAW_ENGLISH_WRAPPER
+pitcher's_mound,タグ「pitcher's mound」,ピッチャーマウンド,RAW_ENGLISH_WRAPPER
+pith_helmet,髄ヘルメット,ピスヘルメット,SEMANTIC_ERROR
+pixel_art_inset,pixel・art・差し込み,ピクセルアートの差し込み,MIXED_ENGLISH_DEBRIS
+pixel_eyes,pixel・目,ピクセル状の目,MIXED_ENGLISH_DEBRIS
+pixel_text,pixel・テキスト,ピクセル文字,MIXED_ENGLISH_DEBRIS
+pixelated_background,pixelatedの背景,ピクセル化した背景,MIXED_ENGLISH_DEBRIS
+pixie_(ff14),タグ「pixie (ff14)」,ピクシー（FF14）,RAW_ENGLISH_WRAPPER
+pixiv_id,タグ「pixiv id」,pixiv ID,RAW_ENGLISH_WRAPPER
+pizza_box_computer,タグ「pizza box computer」,ピザボックス型コンピュータ,RAW_ENGLISH_WRAPPER
+pizza_print,pizzaの柄,ピザ柄,MIXED_ENGLISH_DEBRIS
+pk_academy_school_uniform,pk academyの学校制服,PK学園の制服,MIXED_ENGLISH_DEBRIS
+pkm,タグ「pkm」,PKM,RAW_ENGLISH_WRAPPER
