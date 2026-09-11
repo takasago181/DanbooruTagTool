@@ -1,0 +1,54 @@
+canonical,old_display_ja,new_display_ja,reason
+spine_bumps,タグ「spine bumps」,背骨の隆起,RAW_ENGLISH_WRAPPER
+spine_sword,脊髓劍,脊椎の剣,NON_JAPANESE_RESIDUE
+spinning_cat_(meme),spinning cat (meme),回る猫（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+spinning_head,spinning・頭,回転する頭,MIXED_ENGLISH_DEBRIS
+spiral_cheeks,タグ「spiral cheeks」,渦巻き模様の頬,RAW_ENGLISH_WRAPPER
+spiral_fingerprint,spiral fingeの柄,渦巻き状の指紋,SEMANTIC_ERROR
+spiral_horn,タグ「spiral horn」,螺旋状の角,RAW_ENGLISH_WRAPPER
+spiral_notebook,タグ「spiral notebook」,リングノート,RAW_ENGLISH_WRAPPER
+spiral_print,spiralの柄,渦巻き柄,MIXED_ENGLISH_DEBRIS
+spiral_staircase,旋转楼梯,螺旋階段,NON_JAPANESE_RESIDUE
+spitting_seed,タグ「spitting seed」,種を吐き出す,RAW_ENGLISH_WRAPPER
+splashtag_(splatoon),タグ「splashtag (splatoon)」,ネームプレート（スプラトゥーン）,RAW_ENGLISH_WRAPPER
+splatoonification,タグ「splatoonification」,スプラトゥーン化,RAW_ENGLISH_WRAPPER
+splendor_of_onyx_(umamusume),タグ「splendor of onyx (umamusume)」,Splendor of Onyx（ウマ娘）,RAW_ENGLISH_WRAPPER
+splendor_of_tranquil_waters_(genshin_impact),splendor of tranquil waters (genshin impact),静水流転の輝き（原神）,CANONICAL_FALLBACK_TRANSLATABLE
+split-color_clothes,split・color・服,2色に分かれた服,MIXED_ENGLISH_DEBRIS
+split-color_skin,split・color・肌,2色に分かれた肌,MIXED_ENGLISH_DEBRIS
+split_crop,分屏裁切,分割クロップ,NON_JAPANESE_RESIDUE
+split_head,split・頭,分割された頭,MIXED_ENGLISH_DEBRIS
+split_screen,分屏,分割画面,NON_JAPANESE_RESIDUE
+split_theme,分割主题,分割テーマ,NON_JAPANESE_RESIDUE
+sploot,タグ「sploot」,スプロート（伏せ姿勢）,RAW_ENGLISH_WRAPPER
+spoken_animal,話された動物,吹き出し内の動物,SEMANTIC_ERROR
+spoken_broken_heart,spoken・broken・ハート,吹き出し内の割れたハート,MIXED_ENGLISH_DEBRIS
+spoken_clothes,spoken・服,吹き出し内の服,MIXED_ENGLISH_DEBRIS
+spoken_dollar_sign,話し言葉のサイン,吹き出し内のドル記号,SEMANTIC_ERROR
+spoken_emoji,話された絵文字,吹き出し内の絵文字,SEMANTIC_ERROR
+spoken_expression,話し言葉,吹き出し内の表情,SEMANTIC_ERROR
+spoken_flower,話された花,吹き出し内の花,SEMANTIC_ERROR
+spoken_food,話された食べ物,吹き出し内の食べ物,SEMANTIC_ERROR
+spoken_hand,spoken・手,吹き出し内の手,MIXED_ENGLISH_DEBRIS
+spoken_impregnation,タグ「spoken impregnation」,吹き出し内の妊娠表現,RAW_ENGLISH_WRAPPER
+spoken_letter,話し言葉,吹き出し内の文字,SEMANTIC_ERROR
+spoken_light_bulb,話し言葉電球,吹き出し内の電球,SEMANTIC_ERROR
+spoken_money,話されたお金,吹き出し内のお金,SEMANTIC_ERROR
+spoken_no_symbol,spoken・no・記号,吹き出し内の禁止記号,MIXED_ENGLISH_DEBRIS
+spoken_notice_lines,タグ「spoken notice lines」,吹き出し内の注目線,RAW_ENGLISH_WRAPPER
+spoken_number,音声番号,吹き出し内の数字,SEMANTIC_ERROR
+spoken_panties,話されたパンティー,吹き出し内のパンティー,SEMANTIC_ERROR
+spoken_paw_print,spoken pawの柄,吹き出し内の肉球マーク,MIXED_ENGLISH_DEBRIS
+spoken_scene,タグ「spoken scene」,吹き出し内の場面,RAW_ENGLISH_WRAPPER
+spoken_skull,話された頭蓋骨,吹き出し内の髑髏,SEMANTIC_ERROR
+spoken_smile,タグ「spoken smile」,吹き出し内の笑顔,RAW_ENGLISH_WRAPPER
+spoken_sparkle,話された輝き,吹き出し内の輝き,SEMANTIC_ERROR
+spoken_star,話された星,吹き出し内の星,SEMANTIC_ERROR
+spoken_sun,タグ「spoken sun」,吹き出し内の太陽,RAW_ENGLISH_WRAPPER
+spoken_sweatdrop,話された汗ドロップ,吹き出し内の汗マーク,SEMANTIC_ERROR
+spoken_symbol,話されたシンボル,吹き出し内の記号,SEMANTIC_ERROR
+spoken_thumbs_up,spoken・thumbs・上向きの,吹き出し内の親指を立てる手,MIXED_ENGLISH_DEBRIS
+spoken_venus_symbol,話された金星のシンボル,吹き出し内の女性記号,SEMANTIC_ERROR
+spoken_www,タグ「spoken www」,吹き出し内のwww,RAW_ENGLISH_WRAPPER
+spoken_x,話されたx,吹き出し内のX,SEMANTIC_ERROR
+spoken_zzz,話されたZzz,吹き出し内のZzz,SEMANTIC_ERROR
