@@ -1,0 +1,45 @@
+canonical,old_display_ja,new_display_ja,reason
+unworn_necklace,ネックレスが削除されました,着用していないネックレス,SEMANTIC_STATE_ACTION_ERROR
+unworn_pantyhose,Pantyhoseが削除されました,着用していないパンスト,SEMANTIC_STATE_ACTION_ERROR
+unworn_ribbon,リボンが削除されました,着用していないリボン,SEMANTIC_STATE_ACTION_ERROR
+unworn_robe,未使用のローブ,着用していないローブ,SEMANTIC_STATE_ACTION_ERROR
+unworn_sandals,サンダルが削除されました,着用していないサンダル,SEMANTIC_STATE_ACTION_ERROR
+unworn_sarong,サロンは削除した,着用していないサロン,SEMANTIC_STATE_ACTION_ERROR
+unworn_scarf,スカーフが削除されました,着用していないスカーフ,SEMANTIC_STATE_ACTION_ERROR
+unworn_scrunchie,削除しました,着用していないシュシュ,SEMANTIC_ERROR
+unworn_sleeves,袖が取り除かれました,着用していない袖,SEMANTIC_STATE_ACTION_ERROR
+unworn_slippers,スリッパが削除されました,着用していないスリッパ,SEMANTIC_STATE_ACTION_ERROR
+unworn_sweater,セーターが取り外されました,着用していないセーター,SEMANTIC_STATE_ACTION_ERROR
+unworn_swim_cap,水泳キャップが取り除かれました,着用していないスイムキャップ,SEMANTIC_STATE_ACTION_ERROR
+unworn_veil,未使用のベール,着用していないベール,SEMANTIC_STATE_ACTION_ERROR
+unworn_vest,ベストが削除されました,着用していないベスト,SEMANTIC_STATE_ACTION_ERROR
+unworn_wig,かつらが削除されました,着用していないかつら,SEMANTIC_STATE_ACTION_ERROR
+upright_69,タグ「upright 69」,立位69,RAW_ENGLISH_WRAPPER
+upright_ahoge,タグ「upright ahoge」,直立したアホ毛,RAW_ENGLISH_WRAPPER
+upside-down_world,颠倒世界,逆さまの世界,NON_JAPANESE_RESIDUE
+upwards_triangle_mouth,タグ「upwards triangle mouth」,上向き三角形の口,RAW_ENGLISH_WRAPPER
+urasawa_naoki_(style),タグ「urasawa naoki (style)」,浦沢直樹（スタイル）,RAW_ENGLISH_WRAPPER
+urethral_fingering,尿道指の指,尿道への指挿入,SEMANTIC_ERROR
+urethral_penetration,チンポインチンポ,尿道挿入,SEMANTIC_ERROR
+urn,タグ「urn」,骨壺,RAW_ENGLISH_WRAPPER
+ursus_logo,烏萨斯,ウルサスのロゴ,NON_JAPANESE_RESIDUE
+us_navy_(emblem),タグ「us navy (emblem)」,アメリカ海軍（エンブレム）,RAW_ENGLISH_WRAPPER
+usada_pekora_(cosplay),Usada Pekora（コスプレ）,兎田ぺこら（コスプレ）,TRANSLITERATION_ERROR
+usb_cable,タグ「usb cable」,USBケーブル,RAW_ENGLISH_WRAPPER
+usb_tail,usb・尻尾,USB型の尻尾,MIXED_ENGLISH_DEBRIS
+used_onahole,人工膣を使用しました,使用済みオナホール,SEMANTIC_STATE_ACTION_ERROR
+ushiwakamaru_(fate)_(cosplay),ushiwakamaru（運命）（コスプレ）,牛若丸（Fate）（コスプレ）,MIXED_ENGLISH_DEBRIS
+utensil_rack,タグ「utensil rack」,調理器具ラック,RAW_ENGLISH_WRAPPER
+utility_vest,タグ「utility vest」,ユーティリティベスト,RAW_ENGLISH_WRAPPER
+utnapishtim_operator_uniform_(blue_archive),ウトナピシュティム操縦員の制服（Blue Archive）,ウトナピシュティム操縦員の制服（ブルーアーカイブ）,MIXED_ENGLISH_DEBRIS
+utx_school_uniform,UTX学校のユニフォーム,UTX学園の制服,SEMANTIC_ERROR
+uva_academy_(emblem),タグ「uva academy (emblem)」,グレープアカデミー（エンブレム）,RAW_ENGLISH_WRAPPER
+uwagi,タグ「uwagi」,上着,RAW_ENGLISH_WRAPPER
+uwu,タグ「uwu」,uwu,OPAQUE_EXPRESSION
+uzumaki_symbol,uzumaki・記号,渦巻き記号,MIXED_ENGLISH_DEBRIS
+v-bangs,タグ「v-bangs」,V字前髪,RAW_ENGLISH_WRAPPER
+v-taper,タグ「v-taper」,V字型体型,RAW_ENGLISH_WRAPPER
+v.w.p_(kamitsubaki_studio),タグ「v.w.p (kamitsubaki studio)」,V.W.P（KAMITSUBAKI STUDIO）,RAW_ENGLISH_WRAPPER
+v4x,v4x,V4X,OPAQUE_IDENTIFIER_CASE
+v_formation,タグ「v formation」,V字編隊,RAW_ENGLISH_WRAPPER
+v_over_head,vの上の頭,頭上のV字,SEMANTIC_RELATION_ERROR
