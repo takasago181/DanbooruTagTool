@@ -143,7 +143,7 @@ row_number,canonical,display_ja,checks,already_overridden
 3272,impossible_swimsuit,ありえない水着,SIMPLIFIED_CHINESE_HINT,false
 3282,incoming_call,電話の着信,SIMPLIFIED_CHINESE_HINT,false
 3300,inverted_nipples,陥没乳首,SIMPLIFIED_CHINESE_HINT,false
-3305,ios_(os),タグ「ios (os)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+3305,ios_(os),iOS,ASCII_WORD,true
 3306,iphone,iphone,ASCII_WORD,false
 3309,isbn,isbn,ASCII_WORD,false
 3322,jeanne_d'arc_alter_(fate)_(cosplay),jeanne d'arc alter (fate) (cosplay),ASCII_WORD,false
@@ -155,7 +155,6 @@ row_number,canonical,display_ja,checks,already_overridden
 3451,leaning,体を傾けている,SIMPLIFIED_CHINESE_HINT,false
 3517,lineart,線画,SIMPLIFIED_CHINESE_HINT,false
 3536,liquid,液体,SIMPLIFIED_CHINESE_HINT,false
-3577,loosely_tucked_bangs,タグ「loosely tucked bangs」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 3621,male_underwear,男性の下着,SIMPLIFIED_CHINESE_HINT,false
 3622,male_underwear_aside,男性の下着を脇にどける,SIMPLIFIED_CHINESE_HINT,false
 3624,maneki-neko,招き猫,SIMPLIFIED_CHINESE_HINT,false
@@ -218,7 +217,7 @@ row_number,canonical,display_ja,checks,already_overridden
 4930,silent_comic,サイレント漫画,SIMPLIFIED_CHINESE_HINT,false
 4936,simplified_chinese_text,簡体字の文章,SIMPLIFIED_CHINESE_HINT,true
 4937,simulated_bukkake,謎の白い液体,SIMPLIFIED_CHINESE_HINT,false
-4980,skin_suit_(stellar_blade),タグ「skin suit (stellar blade)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+4980,skin_suit_(stellar_blade),スキンスーツ（Stellar Blade）,ASCII_WORD,true
 5010,slingshot_swimsuit,スリングショット水着,SIMPLIFIED_CHINESE_HINT,true
 5011,slingshot_swimsuit_pull,スリングショット水着を引っ張る,SIMPLIFIED_CHINESE_HINT,true
 5070,sphere_earrings,球体のイヤリング,SIMPLIFIED_CHINESE_HINT,false
@@ -275,14 +274,13 @@ row_number,canonical,display_ja,checks,already_overridden
 6025,6th_live_dream_~bloom_garden_party~,蓮ノ空6th福岡Day1,ASCII_WORD,false
 6028,777_(nikke),777(勝利の女神:NIKKE),ASCII_WORD,false
 6034,9s_(nier:automata)_(cosplay),9S（NieR:Automata）のコスプレ,ASCII_WORD,true
-6052,@_(symbol),タグ「@ (symbol)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 6053,\(^o^)/,タグ「\(^o^)/」,RAW_ENGLISH_WRAPPER,false
 6060,a-10_thunderbolt_ii,A-10 サンダーボルトII,ASCII_WORD,true
 6063,a-rise,A-RISE,ASCII_WORD,true
 6064,a2_(nier:automata)_(cosplay),A2（NieR:Automata）のコスプレ,ASCII_WORD,true
 6069,a_certain_high_school_gym_uniform,とある高校の体操服,SIMPLIFIED_CHINESE_HINT,true
 6075,aa-12,aa-12,ASCII_WORD,false
-6091,absolute_(nikke),タグ「absolute (nikke)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+6091,absolute_(nikke),アブソルート（NIKKE）,ASCII_WORD,true
 6092,absolute_cinema_(meme),absolute cinema (meme),ASCII_WORD,false
 6094,absolution_(genshin_impact),absolution (genshin impact),ASCII_WORD,false
 6101,abydos_high_school_logo,アビドス高等学校のロゴ,SIMPLIFIED_CHINESE_HINT,true
@@ -290,7 +288,7 @@ row_number,canonical,display_ja,checks,already_overridden
 6105,academy_city,学園都市,SIMPLIFIED_CHINESE_HINT,false
 6117,achiga_school_uniform,阿知賀女子学院の制服,SIMPLIFIED_CHINESE_HINT,true
 6122,ackchyually_(meme),ackchyually (meme),ASCII_WORD,false
-6123,acog,タグ「acog」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+6123,acog,ACOG（光学照準器）,ASCII_WORD;SIMPLIFIED_CHINESE_HINT,true
 6124,acorn_(palico_armor),タグ「acorn (palico armor)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 6140,adaptation_comparison,媒体別の比較,SIMPLIFIED_CHINESE_HINT,true
 6146,adaptive_combat_rifle,ブッシュマスターACR,ASCII_WORD,false
@@ -299,53 +297,49 @@ row_number,canonical,display_ja,checks,already_overridden
 6190,advanced_nurturing_high_school_uniform,高度育成高等学校の制服,SIMPLIFIED_CHINESE_HINT,true
 6191,advanced_ship_(eve_online),先進型艦船（EVE Online）,ASCII_WORD,false
 6195,aedd_(e.g.o),aedd (e.g.o),ASCII_WORD,false
-6196,aegis_(nikke),タグ「aegis (nikke)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+6196,aegis_(nikke),イージス（NIKKE）,ASCII_WORD,true
 6197,aegis_sword_(xenoblade),エージスの剣（xenoblade）,ASCII_WORD,false
 6199,aek-971,aek-971,ASCII_WORD,false
 6206,aerospray_(splatoon),プロモデラーMG,ASCII_WORD,false
 6216,affinity_sunglasses_(blue_archive),Affinityサングラス（Blue Archive）,ASCII_WORD,false
 6218,affliction_(darkest_dungeon),苦痛（Darkest Dungeon）,ASCII_WORD,true
 6243,afterglow_(bang_dream!),Afterglow(バンドリ),ASCII_WORD,false
-6272,ags_(last_origin),タグ「ags (last origin)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+6272,ags_(last_origin),AGS（ラストオリジン）,ASCII_WORD,true
 6273,ah-1_cobra,AH-1コブラ,ASCII_WORD,false
-6274,ah-64_apache,タグ「ah-64 apache」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+6274,ah-64_apache,AH-64 アパッチ,ASCII_WORD,true
 6276,ahnenerbe_shop_uniform,ahnenerbe shopの制服,ASCII_WORD,false
 6280,ahri_(league)_(cosplay),アーリ（LoL）のコスプレ,ASCII_WORD,true
 6281,ai-generated_art_(topic),AI生成画像（話題）,ASCII_WORD;SIMPLIFIED_CHINESE_HINT,true
-6283,ai_arctic_warfare,タグ「ai arctic warfare」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 6285,aigis_(fate),神体結界,SIMPLIFIED_CHINESE_HINT,false
 6287,aihara_academy_school_uniform,aihara academyの学校制服,ASCII_WORD;SIMPLIFIED_CHINESE_HINT,false
-6288,aim-120_amraam,タグ「aim-120 amraam」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-6294,aimpoint,タグ「aimpoint」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-6322,airpods,タグ「airpods」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-6326,aiscream_(love_live!),タグ「aiscream (love live!)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+6288,aim-120_amraam,AIM-120 AMRAAM,ASCII_WORD,true
+6294,aimpoint,Aimpoint（照準器）,ASCII_WORD,true
+6322,airpods,AirPods,ASCII_WORD,true
+6326,aiscream_(love_live!),AiScReam（ラブライブ！）,ASCII_WORD,true
 6328,ak-105,ak-105,ASCII_WORD,false
 6329,ak-12,ak-12,ASCII_WORD,false
 6330,ak-15,ak-15,ASCII_WORD,false
 6331,ak-47,ak-47,ASCII_WORD,false
 6332,ak-74,ak-74,ASCII_WORD,false
 6333,ak-74m,ak-74m,ASCII_WORD,false
-6334,ak-alfa,タグ「ak-alfa」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+6334,ak-alfa,AK-Alfa,ASCII_WORD,true
 6335,ak_5,ak 5,ASCII_WORD,false
 6340,akali_(league)_(cosplay),アカリ（LoL）のコスプレ,ASCII_WORD,true
 6347,akatsuki_uniform,akatsukiの制服,ASCII_WORD,false
-6349,akg,タグ「akg」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-6350,akg_k-series_headphones,タグ「akg k-series headphones」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+6349,akg,AKG,ASCII_WORD,true
+6350,akg_k-series_headphones,AKG Kシリーズヘッドホン,ASCII_WORD,true
 6351,akiha_school_uniform,朱葉女子高等学校,SIMPLIFIED_CHINESE_HINT,false
 6354,akira_movie_poster,AKIRAの映画ポスター,ASCII_WORD;SIMPLIFIED_CHINESE_HINT,true
-6358,akm,タグ「akm」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-6359,akms,タグ「akms」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+6358,akm,AKM,ASCII_WORD,true
+6359,akms,AKMS,ASCII_WORD,true
 6360,ako_(blue_archive)_(cosplay),ako (blue archive) (cosplay),ASCII_WORD,false
 6361,aks-74,aks-74,ASCII_WORD,false
 6362,aks-74u,aks-74u,ASCII_WORD,false
 6372,alcina_dimitrescu_(cosplay),Alcina dimitrescu（コスプレ）,ASCII_WORD,false
 6383,alienposting_(meme),alienposting (meme),ASCII_WORD,false
 6386,all_the_way_through,体内貫通,SIMPLIFIED_CHINESE_HINT,false
-6400,alpha_legion,タグ「alpha legion」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 6404,alphabet_blocks,アルファベット・blocks,ASCII_WORD,false
 6405,alphes_(style),alphes塗り,ASCII_WORD,false
-6406,alpine_(carmaker),タグ「alpine (carmaker)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-6410,altair_(star),タグ「altair (star)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 6414,alternate_(the_mandela_catalogue),タグ「alternate (the mandela catalogue)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 6416,alternate_art_style,別画風,SIMPLIFIED_CHINESE_HINT,true
 6417,alternate_body_fluid,別の体液,SIMPLIFIED_CHINESE_HINT,true
@@ -364,17 +358,13 @@ row_number,canonical,display_ja,checks,already_overridden
 6488,american_flag_swimsuit,アメリカ国旗の水着,SIMPLIFIED_CHINESE_HINT,false
 6504,among_us_eyes_(meme),Among Usの目（ミーム）,ASCII_WORD,true
 6520,anatomical_nonsense,解剖学的ナンセンス,SIMPLIFIED_CHINESE_HINT,false
-6532,ancient_dragon_(elden_ring),タグ「ancient dragon (elden ring)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+6532,ancient_dragon_(elden_ring),古竜（ELDEN RING）,ASCII_WORD,true
 6539,anemo_symbol_(genshin_impact),風元素のシンボル（Genshin Impact）,ASCII_WORD,false
 6545,angel_(kof)_(cosplay),エンジェル（kof）（コスプレ）,ASCII_WORD,false
 6551,angel_wing_uniform,angel wingの制服,ASCII_WORD,false
-6562,anima_(honkai:_nexus_anima),タグ「anima (honkai: nexus anima)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 6572,animal_band,動物・band,ASCII_WORD,false
-6577,animal_crossing_(style),タグ「animal crossing (style)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 6620,animate_object,動く物体,SIMPLIFIED_CHINESE_HINT,true
 6621,animatech_(league),タグ「animatech (league)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-6622,animation_meme,タグ「animation meme」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-6624,animatronic,タグ「animatronic」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 6642,annihilation_(nikke),タグ「annihilation (nikke)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 6648,anon_tokyo_(bang_dream!),タグ「anon tokyo (bang dream!)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 6650,another_ship_dynamic_i_enjoy_(meme),another ship dynamic i enjoy (meme),ASCII_WORD,false
@@ -387,9 +377,9 @@ row_number,canonical,display_ja,checks,already_overridden
 6736,aprob_(meme),aprob (meme),ASCII_WORD,false
 6744,aps_rifle,タグ「aps rifle」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 6745,apu_spills_his_tendies_(meme),APUが彼の傾向をこぼす（ミーム）,ASCII_WORD,false
-6746,aqours_1st_years,タグ「aqours 1st years」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-6747,aqours_2nd_years,タグ「aqours 2nd years」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-6748,aqours_3rd_years,タグ「aqours 3rd years」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+6746,aqours_1st_years,Aqours 1年生組,ASCII_WORD,true
+6747,aqours_2nd_years,Aqours 2年生組,ASCII_WORD,true
+6748,aqours_3rd_years,Aqours 3年生組,ASCII_WORD,true
 6790,aqua_kimono,アクア着物,SIMPLIFIED_CHINESE_HINT,false
 6793,aqua_male_swimwear,水色の男性用水着,SIMPLIFIED_CHINESE_HINT,true
 6796,aqua_one-piece_swimsuit,アクアワンピース水着,SIMPLIFIED_CHINESE_HINT,false
@@ -442,34 +432,31 @@ row_number,canonical,display_ja,checks,already_overridden
 7177,at4,at4,ASCII_WORD,false
 7178,at_field,ATフィールド,ASCII_WORD,false
 7183,athletic_leotard,体操服,SIMPLIFIED_CHINESE_HINT,false
-7187,atm,タグ「atm」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+7187,atm,ATM（現金自動預払機）,ASCII_WORD,true
 7193,atsuko's_grin_(meme),atsuko's grin (meme),ASCII_WORD,false
 7197,attack_ship_(eve_online),攻撃艦（EVE Online）,ASCII_WORD,false
 7202,attitude_derriere,タグ「attitude derriere」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-7216,aurebesh,タグ「aurebesh」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 7217,aurelia_academy_school_uniform,アウレリア学園の制服,SIMPLIFIED_CHINESE_HINT,true
 7241,av_idol,AVアイドル,ASCII_WORD,false
-7246,ave_mujica_(bang_dream!),タグ「ave mujica (bang dream!)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+7246,ave_mujica_(bang_dream!),Ave Mujica（BanG Dream!）,ASCII_WORD,true
 7254,avocado_academy_school_uniform,avocado academyの学校制服,ASCII_WORD;SIMPLIFIED_CHINESE_HINT,false
-7255,awacs,タグ「awacs」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+7255,awacs,AWACS（早期警戒管制機）,ASCII_WORD,true
 7256,awafuji_school_uniform,awafujiの学校制服,ASCII_WORD;SIMPLIFIED_CHINESE_HINT,false
-7258,awakened_being_(claymore),タグ「awakened being (claymore)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+7258,awakened_being_(claymore),覚醒者（CLAYMORE）,ASCII_WORD,true
 7259,awakening_(sennen_sensou_aigis),目覚め（Sennen Sensou Aigis）,ASCII_WORD,false
 7260,awakening_(toaru),タグ「awakening (toaru)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 7261,awakening_beat_(project_sekai),タグ「awakening beat (project sekai)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-7263,awataguchi_family_(touken_ranbu),タグ「awataguchi family (touken ranbu)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 7265,awestruck,タグ「awestruck」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 7268,awooo,タグ「awooo」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 7269,ax_bass,タグ「ax bass」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 7281,ayanokouji_martial_arts_school_uniform,綾小路武芸学園の制服,SIMPLIFIED_CHINESE_HINT,true
 7282,ayase_eli_(cosplay),絢瀬絵里のコスプレ,SIMPLIFIED_CHINESE_HINT,true
 7292,azumanga_daioh's_gym_uniform,『あずまんが大王』の体操服,SIMPLIFIED_CHINESE_HINT,true
-7294,azuna_(love_live!),タグ「azuna (love live!)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+7294,azuna_(love_live!),A・ZU・NA（ラブライブ！）,ASCII_WORD,true
 7295,azure_(armor),タグ「azure (armor)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 7296,azurelight_(genshin_impact),azurelight (genshin impact),ASCII_WORD,false
-7297,b&t_apc,タグ「b&t apc」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+7297,b&t_apc,B&T APC（銃器）,ASCII_WORD,true
 7298,b&t_mp9,ステアーTMP,ASCII_WORD,false
-7303,b-komachi_(new),タグ「b-komachi (new)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 7316,babydoll_t-shirt,BabyDoll Tシャツ,ASCII_WORD,false
 7334,backless_kimono,背中開きの着物,SIMPLIFIED_CHINESE_HINT,true
 7351,bad_apple!!,Bad Apple!!,ASCII_WORD,true
@@ -489,7 +476,6 @@ row_number,canonical,display_ja,checks,already_overridden
 7447,bamboozler_14_(splatoon),タグ「bamboozler 14 (splatoon)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 7482,bandaged_torso,包帯を巻いた胴体,SIMPLIFIED_CHINESE_HINT,true
 7537,barbie_mugshot_(meme),barbie mugshot (meme),ASCII_WORD,false
-7550,barre_chord,タグ「barre chord」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 7571,basket_hilt,タグ「basket hilt」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 7604,bathroom_scale,体重計,SIMPLIFIED_CHINESE_HINT,false
 7605,batik,タグ「batik」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
