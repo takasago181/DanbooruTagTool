@@ -1,21 +1,24 @@
-# CURRENT DEV TASK — LIVE ISSUE MIRROR / FALLBACK DIAGNOSTIC ONLY
+# CURRENT DEV TASK — COMPLETED ISSUE RECORD / FALLBACK DIAGNOSTIC ONLY
 
 > The live GitHub Issue is the executable task authority. Read `CURRENT_STATE.md`, then fetch Issue #55 and its latest checkpoint before implementation. If this mirror differs from the live Issue, fail closed and use neither stale content nor chat history to guess the contract.
 
-最終同期: 2026-09-11
+最終同期: 2026-09-12
 
 ## Source
 
 - Source Issue: **#55**
 - Issue title: **[UI-JA][PRODUCTION][DEV] Promote audited Issue #36 V5 Japanese overlay**
-- Issue state: **OPEN / ACTIVE**
-- DEV state: **PRODUCTION_PROMOTION_IMPLEMENTATION_COMPLETE / AWAITING_INDEPENDENT_POST_WRITE_AUDIT**
+- Issue state: **COMPLETED / CLOSED**
+- DEV state: **ISSUE55_ISSUE36_PRODUCTION_PROMOTION_COMPLETE**
 - Working branch: `codex/issue55-ui-ja-production-promotion`
-- Production base: live `main` `4ccf87cbe461779b9296d115fce19fc169b84a66`
+- Production base: live `main` `4ccf87cbe461779b9296d115fce19fc169b84a66`; audited branch integrated by fast-forward
 - Audited input branch: `ui-ja/issue36-relaxed-v5-chatgpt-repair`
 - Audited input HEAD at activation: `c221b3bcf97ad117482b4e8c411cf2edf419b5df`
 - Independent audit checkpoint: Issue #36 comment `5633982018`, verdict `PROMOTION_AUDIT_PASS`
-- Stop point: exactly `READY_FOR_POST_WRITE_AUDIT` or `HOLD_PRODUCTION_PROMOTION`
+- Audited branch HEAD: `f577b8c95c683e228440622d9de318a51dd1bf4d`
+- Independent post-write audit: `APPROVE_ISSUE55_POST_WRITE` (Issue #55 checkpoint `5641419849`)
+- Completion checkpoints: Issue #55 and Issue #36 closed after main integration
+- Stop point: `ISSUE55_ISSUE36_PRODUCTION_PROMOTION_COMPLETE`
 - Stage10 production A/B: **NOT STARTED**
 
 ## Scope
@@ -32,12 +35,12 @@
 
 ## Hard boundaries
 
-- Do not merge the quarantine branch into `main`.
+- Do not merge the quarantine branch into `main`; it remains read-only evidence/input.
 - Do not re-audit or rewrite 30,629 Japanese translations.
 - Do not change #34 ranking, #35 UI, #32/#49 generation data, semantic support, recommendation behavior, Prompt syntax, or Stage10 state.
 - Do not commit protected `data/runtime/japanese_overlay.json` or its contents.
 - Do not use `git clean -fdx` or `git clean -fdX`.
 - No partial production write and no write without a rollback copy.
-- Do not close Issue #36, merge the promotion branch to `main`, activate #42, or start Stage10 before the independent post-write audit PASS.
+- Do not activate #42 or start Stage10 as part of this completion.
 
-Implementation completion evidence is recorded in `docs/project/ISSUE55_PRODUCTION_PROMOTION_REPORT.md` and `docs/testing/ISSUE55_PRODUCTION_PROMOTION_MANIFEST.json`. Stop for a fresh independent post-write audit; the full contract remains the live Issue #55 body and latest checkpoint.
+Implementation and audit evidence are recorded in `docs/project/ISSUE55_PRODUCTION_PROMOTION_REPORT.md` and `docs/testing/ISSUE55_PRODUCTION_PROMOTION_MANIFEST.json`. This record is historical; the live Issues and `CURRENT_STATE.md` remain authoritative for future routing.

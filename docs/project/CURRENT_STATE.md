@@ -10,9 +10,9 @@ Stage 9 overall Gate 完了 / Stage10 準備Gate実施中 / automated E2E PASS /
 
 ## Current Core DEV
 
-**Issue #55 — UI-JA V5 production promotion implementation complete / awaiting independent post-write audit**
+**NONE / MANAGEMENT_HANDOFF**
 
-Issue #55 `[UI-JA][PRODUCTION][DEV] Promote audited Issue #36 V5 Japanese overlay` の実装は完了した。latest live `main`をbaseとする専用branch `codex/issue55-ui-ja-production-promotion`から、監査済みV5成果物を実local protected runtimeへdeterministic/atomicに反映し、実Windows UI確認までPASS。現在はfresh independent post-write audit待ち。Issue #36 quarantine branchはread-only evidence/inputであり、production baseまたはmainへの直接mergeには使用しない。
+Issue #55 のproduction promotion、rollback documentation remediation、fresh independent post-write audit、main統合が完了した。Issue #36 V5 Japanese overlayは30,629 entriesを実local protected runtimeへdeterministic/atomicに反映済みで、Issue #55/#36は完了処理済み。次のcore DEVは未選択とし、#42 activation / Stage10開始は行わない。Issue #36 quarantine branchはread-only evidence/inputであり、production baseまたはmainへの直接mergeには使用しない。
 
 Machine Triage Audit `2660c3106d2252c8aa8f3006f2a1040fd95004db` をDEV受入れ済み。既存Generation Batch 12画像ではWD14 / Kagami-24k / CL Tagger v2.00のraw evaluatorは36/36成功、raw artifact image-ID bindingはPASS。一方、旧Generation Batch reportのevaluator referenceは33件不一致で、reporting/provenance参照 defectだった。retrospective machine-first reductionは0%で、前Batchがrelation/binding/body-site/low-confidence中心だったことによるbatch selection失敗と判定した。
 
@@ -29,7 +29,7 @@ Current restore anchors:
 - Generation Batch 2 execution/report: `7e516bd1ca27c862cdaf023c023bed74e34e6833`
 - Generation Batch 2 human review: `1cd33c7ebec445c3e3870ebce360f9cfee1ffbf9`
 - Issue #30 accepted repair/integration: `9be3fe764c77b7dd6eaba4f791dfb5c3282c8e8b`
-- **current continuation: Issue #55 `READY_FOR_POST_WRITE_AUDIT` / fresh independent post-write audit待ち**
+- **current continuation: `MANAGEMENT_HANDOFF / NO_CURRENT_CORE_DEV`**
 - supporting policy: `docs/project/AUDIT_ARTIFACT_CACHE_POLICY.md`
 - broad direction: `docs/project/ISSUE30_BROAD_COVERAGE_AUTOMATION_DIRECTION_20260911.md`
 - branch: `codex/issue30-calibration-design`
@@ -42,7 +42,7 @@ Issue #42 remains downstream and is still gated on #36 V5 / #34 material UI-JA/s
 | --- | --- | --- | --- | --- | --- |
 | `DICT:#32:R2` | COMPLETED / PROMOTED / CARRY_FORWARD_ONLY | #32 Special Core Dictionary historical validation | `dict-validation/quarantine` | 2,788/2,788 validation complete。approved effective subsetは#49でproduction反映済み。REVIEW/ITRはparked evidenceとして保持 | Issue #32 + #48 + #49 + #43 freeze |
 | `KNOWLEDGE:#44` | ACTIVE / ONGOING / COVERAGE_COMPLETE | persistent generation knowledge corpus | `knowledge/generation-corpus` | 2,788 × WD14 / Kagami-24k / CL Tagger v2.00 desk coverage完了。#30 handoff済み。必要な追加知識/校正返却を担当 | Issue #44 correction checkpoint `5614819866` + commit `557aa4c` |
-| `UIJA:#36:V5` | ACTIVE / CHATGPT_LED_REPAIR | Japanese overlay final convergence / semantic repair | `ui-ja/issue36-relaxed-v5-chatgpt-repair` | 30,629 rowsを既存31 audit shardsへ分割し、ChatGPT側で明確な翻訳・意味欠陥を修正/監査。V4はimmutable evidenceとして保持 | Issue #36 latest V5 checkpoint |
+| `UIJA:#36:V5` | COMPLETED / PROMOTED / POST_WRITE_AUDITED | Japanese overlay final convergence / production promotion | `ui-ja/issue36-relaxed-v5-chatgpt-repair` + `main` | 30,629 rowsのV5をIssue #55でproduction反映・独立post-write監査・main統合済み。V4はimmutable evidenceとして保持 | Issue #36 completion checkpoint |
 | `UIJA-ORCH:#46` | SUPERSEDED / CLOSED | historical independent Codex orchestration for V3.1/V4 | Issue #46 / `codex/issue46-orchestrator` | historical evidence only | Issue #46 superseded checkpoint |
 | `UIJA-PARENT:#34` | OPEN / CROSS-CUTTING / SEARCH_RELEVANCE_REMAINS | bilingual search relevance and remaining parent UI concerns | Issue #34 | `anal -> piano/analog_clock/...` 等のsubstring/fuzzy search noiseが主要残件 | Issue #34 current body |
 | `TEMP:#30` | COMPLETED / ACCEPTED / INTEGRATED | Forge Neo evaluator calibration & A/B automation | `main @ 9be3fe7` / historical branch `codex/issue30-calibration-design` | Wave 1 16 experiments / 64 images、full visual audit、raw-based evaluator serialization repair、machine-vs-visual calibration完了。再生成・再評価・Wave 2なし | Issue #30 checkpoint `5629477164` / repaired calibration artifacts |
@@ -59,6 +59,8 @@ Issue #42 remains downstream and is still gated on #36 V5 / #34 material UI-JA/s
 - Issue #32 dictionary validation: **completed**
 - Issue #48 independent final promotion audit: **completed**
 - Issue #49 production promotion: **completed / post-write audited / merged**
+- Issue #55 UI-JA V5 production promotion: **completed / rollback documentation re-audited / merged**
+- Issue #36 V5 Japanese overlay convergence and production promotion: **completed / 30,629 entries / closed**
 - Issue #43 Special Core Dictionary naming/freeze: **PASS_ISSUE43_FREEZE / completed**
 - Issue #44 final evaluator desk coverage: **SATISFIED / HANDOFF COMPLETE**
 - Issue #30 Phase 1 representative evaluator calibration: **COMPLETED / FROZEN EVIDENCE**
@@ -188,18 +190,18 @@ Audit artifact cleanup carry-forward:
 
 ## Active / Ready Work
 
-Issue #55 implementation is complete with deterministic post-write verification and real Windows UI acceptance PASS. Current continuation is a fresh independent post-write audit; no implementation expansion or main merge is authorized. Issue #30 is completed and integrated; its Wave 1 generation/re-evaluation routing is historical and inactive.
+Issue #55 and #36 production work is complete, independently post-write audited, and integrated into main. No implementation expansion, #42 activation, or Stage10 start is authorized by this completion sync. Issue #30 is completed and integrated; its Wave 1 generation/re-evaluation routing is historical and inactive.
 
 ### #36 UI-JA V5 — ChatGPT-led repair/audit
 
-Current policy:
+Current policy (historical completion record):
 - GitHub remains canonical; chat history is not canonical.
 - V4 artifacts remain frozen as evidence. V5 is a separate repair lane.
 - current branch: `ui-ja/issue36-relaxed-v5-chatgpt-repair`
 - 30,629-row table is processed through the existing 31 audit shards.
 - ChatGPT performs translation/semantic repair review directly.
 - Codex/Luna is not used for translation-quality judgment or semantic audit in the current lane.
-- after all shards: integration/revalidation -> separate independent production-promotion gate.
+- after all shards: integration/revalidation -> separate independent production-promotion gate -> Issue #55 production promotion and post-write audit complete.
 
 ### #34 UI-JA parent remaining concerns
 
@@ -248,7 +250,7 @@ Formal completionは以下の後:
 11. #30 Phase 1 controlled representative calibration + minimal review — **SATISFIED / FROZEN**
 12. #30 Phase 2 Generation Batch 2 machine-first — **SATISFIED / HUMAN REVIEW COMPLETE**
 13. #30 Broad Coverage Wave 1 — **SATISFIED / COMPLETED / REPAIR_ACCEPTED / INTEGRATED**
-14. #36 V5 repair/audit -> integration/revalidation -> independent promotion gate — **#55 IMPLEMENTATION COMPLETE / READY_FOR_POST_WRITE_AUDIT**
+14. #36 V5 repair/audit -> integration/revalidation -> independent promotion gate — **SATISFIED / #55 production promotion + post-write audit + main integration COMPLETE**
 15. #34 bilingual search relevance/noise — **REMAINS / resolve or explicitly separate before #42**
 16. #42 product-purpose improvement pass — REMAINS
 17. #5 formal Prompt handoff — REMAINS / after #42
@@ -270,21 +272,20 @@ Then:
 
 ## Next Actions
 
-1. #55の実local promoted stateをfresh independent post-write auditへ渡し、PASSまではmain merge・Issue #36 closeを行わない
-2. #34 bilingual search relevance/noiseをresolveまたはStage10 Gateから明示分離
-3. #42は#36/#34 material homework完了または明示分離まで`RESERVED / GATED`として維持
-4. managementがGate確認後に#42をcurrent core DEVとして明示activate
-5. #42 product-purpose improvement pass
-6. #5 formal Prompt handoff
-7. `STAGE_10_PREP.md` remaining checksをclose
-8. 全Gate完了後のみ Stage10 production A/B
-9. parallel safety debt: #24 protected-data backup / restore verification
+1. #34 bilingual search relevance/noiseをresolveまたはStage10 Gateから明示分離
+2. #42は#34 material homework完了または明示分離まで`RESERVED / GATED`として維持
+3. managementがGate確認後に#42をcurrent core DEVとして明示activate
+4. #42 product-purpose improvement pass
+5. #5 formal Prompt handoff
+6. `STAGE_10_PREP.md` remaining checksをclose
+7. 全Gate完了後のみ Stage10 production A/B
+8. parallel safety debt: #24 protected-data backup / restore verification
 
 ## Source-of-Truth Rule
 
-- current core DEV = **Issue #55 UI-JA V5 production promotion implementation complete / audit handoff**
-- current DEV Issue number = **#55**
-- current continuation = **`READY_FOR_POST_WRITE_AUDIT`; fresh independent post-write audit待ち**
+- current core DEV = **NONE / MANAGEMENT_HANDOFF**
+- current DEV Issue number = **NONE**
+- current continuation = **`MANAGEMENT_HANDOFF / NO_CURRENT_CORE_DEV`**
 - Issue #30 accepted integration checkpoint = `5629477164`
 - Issue #30 accepted main commit = `9be3fe764c77b7dd6eaba4f791dfb5c3282c8e8b`
 - audit cleanup policy = `docs/project/AUDIT_ARTIFACT_CACHE_POLICY.md`
