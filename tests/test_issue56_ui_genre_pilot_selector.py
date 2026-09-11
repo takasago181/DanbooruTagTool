@@ -1,3 +1,5 @@
+import csv
+import json
 from collections import Counter
 from pathlib import Path
 
@@ -12,10 +14,27 @@ from tools.issue56_ui_genre_pilot_selector import (
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE_DIR = ROOT / "data" / "special2788" / "prompt_reference"
+TAXONOMY = ROOT / "docs" / "issue56" / "pilot" / "issue56_ui_genre_taxonomy_candidate_v1_2.json"
+CLASSIFICATION_MAP = ROOT / "docs" / "issue56" / "pilot" / "issue56_ui_genre_pilot_v1_classification_map.csv"
 
 
 def _pilot_rows(pilot):
     return [item["row"] for item in pilot]
+
+
+def _taxonomy_indexes():
+    taxonomy = json.loads(TAXONOMY.read_text(encoding="utf-8"))
+    genres = {genre["id"]: genre for genre in taxonomy["genres"]}
+    subgenres = {
+        genre_id: {subgenre["id"]: subgenre for subgenre in genre["subgenres"]}
+        for genre_id, genre in genres.items()
+    }
+    return taxonomy, genres, subgenres
+
+
+def _classification_rows():
+    with CLASSIFICATION_MAP.open(newline="", encoding="utf-8") as handle:
+        return list(csv.DictReader(handle))
 
 
 def test_prompt_reference_materializes_all_2788_unique_special_ids():
@@ -120,3 +139,64 @@ def test_selection_is_deterministic():
     first = [item["row"].special_id for item in select_pilot(rows)]
     second = [item["row"].special_id for item in select_pilot(rows)]
     assert first == second
+
+
+def test_taxonomy_has_unique_ids_and_mandatory_japanese_labels():
+    taxonomy, genres, subgenres = _taxonomy_indexes()
+    assert taxonomy["display_contract"]["normal_ui_genre_language"] == "ja"
+    assert taxonomy["display_contract"]["special_row"] == "ja_plus_en"
+    assert len(genres) == 14
+    assert all(genre["label_ja"].strip() for genre in genres.values())
+    for genre_id, items in subgenres.items():
+        assert len(items) == len(genres[genre_id]["subgenres"])
+        assert all(item["label_ja"].strip() for item in items.values())
+
+
+def test_reviewed_classification_map_matches_exact_formal_pilot_ids():
+    source_rows, _ = load_prompt_reference(SOURCE_DIR)
+    pilot_ids = [str(item["row"].special_id) for item in select_pilot(source_rows)]
+    reviewed = _classification_rows()
+    reviewed_ids = [row["special_id"] for row in reviewed]
+
+    assert len(reviewed) == 150
+    assert len(set(reviewed_ids)) == 150
+    assert set(reviewed_ids) == set(pilot_ids)
+
+
+def test_reviewed_paths_reference_only_defined_taxonomy_ids():
+    _, genres, subgenres = _taxonomy_indexes()
+    reviewed = _classification_rows()
+
+    def validate_path(path: str):
+        if not path:
+            return
+        parts = path.split(">", 1)
+        genre_id = parts[0].strip()
+        subgenre_id = parts[1].strip() if len(parts) == 2 else ""
+        assert genre_id in genres
+        if subgenre_id:
+            assert subgenre_id in subgenres[genre_id]
+
+    for row in reviewed:
+        status = row["classification_status"]
+        assert status in {"HUMAN_REVIEWED", "AUTO_INHERITED_ALIAS", "REVIEW_REQUIRED", "AMBIGUOUS"}
+
+        genre_id = row["primary_genre_id"].strip()
+        subgenre_id = row["primary_subgenre_id"].strip()
+        if status in {"REVIEW_REQUIRED", "AMBIGUOUS"} and not genre_id:
+            assert row["ambiguity_note"].strip()
+        else:
+            assert genre_id in genres
+            if subgenre_id:
+                assert subgenre_id in subgenres[genre_id]
+
+        for secondary_path in row["secondary_paths"].split("|"):
+            validate_path(secondary_path.strip())
+
+
+def test_reviewed_map_keeps_unresolved_cases_exceptional():
+    reviewed = _classification_rows()
+    unresolved = [
+        row for row in reviewed if row["classification_status"] in {"REVIEW_REQUIRED", "AMBIGUOUS"}
+    ]
+    assert 0 < len(unresolved) <= 5
