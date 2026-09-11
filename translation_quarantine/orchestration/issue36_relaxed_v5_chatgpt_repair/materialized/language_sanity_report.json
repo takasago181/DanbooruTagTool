@@ -1,9 +1,9 @@
 {
   "status": "PASS",
   "rows_scanned": 30629,
-  "candidate_rows": 1639,
+  "candidate_rows": 1636,
   "check_counts": {
-    "ASCII_WORD": 1639
+    "ASCII_WORD": 1636
   },
   "hard_fail_counts": {
     "HANGUL": 0,
@@ -14,8 +14,8 @@
   "raw_english_wrapper_already_overridden": 0,
   "raw_english_wrapper_not_overridden": 0,
   "ascii_only_rows": 616,
-  "ascii_mixed_rows": 1023,
-  "ascii_suspicious_rows": 463,
+  "ascii_mixed_rows": 1020,
+  "ascii_suspicious_rows": 459,
   "notes": {
     "ASCII_WORD": "review candidate only; proper names, acronyms, codes and product names may be valid",
     "ASCII_ONLY": "triage bucket only; proper names/titles/model identifiers and explicit English fallbacks may be valid",

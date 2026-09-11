@@ -293,7 +293,6 @@ row_number,canonical,display_ja,checks,already_overridden
 12337,exciting_animal_(love_live!),エキサイティングな動物（Love Live！）,ASCII_WORD,false
 12357,exploration_ship_(eve_online),探査艦（EVE Online）,ASCII_WORD,false
 12401,extreme_engrish,極端なEngrish,ASCII_WORD,true
-12414,eye_of_senri,目・of・senri,ASCII_WORD,false
 12447,eyes_of_horus_(warhammer_40k),ホルスの目（Warhammer 40K）,ASCII_WORD,true
 12468,f-35_lightning_ii,F-35 ライトニングII,ASCII_WORD,true
 12469,f-4_phantom_ii,F-4ファントムII,ASCII_WORD,false
@@ -374,7 +373,6 @@ row_number,canonical,display_ja,checks,already_overridden
 14867,gundam_age-1_titus_(cosplay),ガンダムAGE-1 タイタス（コスプレ）,ASCII_WORD,true
 14887,gyari_(imagesdawn)_(style),Gyari（ImagesDawn）（スタイル）,ASCII_WORD,false
 14950,hair_branch,hair branch（曖昧タグ）,ASCII_WORD,true
-14985,hair_sprinkles,髪・sprinkles,ASCII_WORD,false
 15019,hakuryou_high_school_uniform,hakuryou highの学校制服,ASCII_WORD,false
 15020,hakusen_academy_school_uniform,hakusen academyの学校制服,ASCII_WORD,false
 15038,half_eye_mask,half・目・マスク,ASCII_WORD,false
@@ -671,7 +669,6 @@ row_number,canonical,display_ja,checks,already_overridden
 21182,onono_imoko_(style),onono imoko風,ASCII_WORD,true
 21195,oota_kuniyoshi_face_(meme),oota kuniyoshiの顔（ミーム）,ASCII_WORD,false
 21197,ootori_gakuen_school_uniform,ootori gakuen学校の制服,ASCII_WORD,false
-21228,open_roof_top,開いた・roof・トップス,ASCII_WORD,false
 21249,oppai_hoodie,OPPAIパーカー,ASCII_WORD,false
 21380,orbital_frame_(zone_of_the_enders),オービタルフレーム（ZONE OF THE ENDERS）,ASCII_WORD,true
 21393,ordinal_scale_uniform_(sao),オーディナル・スケールの制服（SAO）,ASCII_WORD,true
@@ -719,7 +716,7 @@ row_number,canonical,display_ja,checks,already_overridden
 22793,pop_in_my_heart!!_(project_sekai),Pop in my Heart!!（プロジェクトセカイ）,ASCII_WORD,true
 22804,poptepipic_pose,Poptepipicポーズ,ASCII_WORD,false
 22828,possibility_of_puberty_(sword),Possibility of Puberty（剣）,ASCII_WORD,true
-22859,pov_adoring,pov adの指輪,ASCII_WORD,false
+22859,pov_adoring,愛おしむ視線（POV）,ASCII_WORD,true
 22862,pov_dating,POVデート,ASCII_WORD,false
 22875,power_armor_(fallout),パワーアーマー（Fallout）,ASCII_WORD,true
 22882,power_item_(touhou),パワーアイテム（Touhou）,ASCII_WORD,false

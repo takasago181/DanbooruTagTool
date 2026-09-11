@@ -115,7 +115,6 @@ row_number,canonical,display_ja,checks,already_overridden
 11999,east_japan_railway_company,東日本旅客鉄道（JR東日本）,ASCII_WORD,true
 12096,elcan_scope,ELCANスコープ,ASCII_WORD,true
 12401,extreme_engrish,極端なEngrish,ASCII_WORD,true
-12414,eye_of_senri,目・of・senri,ASCII_WORD,false
 12468,f-35_lightning_ii,F-35 ライトニングII,ASCII_WORD,true
 12469,f-4_phantom_ii,F-4ファントムII,ASCII_WORD,false
 12477,fabarm_sat-8,ファバームSAT-8,ASCII_WORD,false
@@ -148,7 +147,6 @@ row_number,canonical,display_ja,checks,already_overridden
 14366,goryoukan_academy_uniform,goryoukan academyの制服,ASCII_WORD,false
 14790,grizzly_win_mag,LARグリズリー,ASCII_WORD,false
 14867,gundam_age-1_titus_(cosplay),ガンダムAGE-1 タイタス（コスプレ）,ASCII_WORD,true
-14985,hair_sprinkles,髪・sprinkles,ASCII_WORD,false
 15019,hakuryou_high_school_uniform,hakuryou highの学校制服,ASCII_WORD,false
 15020,hakusen_academy_school_uniform,hakusen academyの学校制服,ASCII_WORD,false
 15084,hanamiya_nina_(style),hanamiya nina風,ASCII_WORD,true
@@ -300,7 +298,6 @@ row_number,canonical,display_ja,checks,already_overridden
 21182,onono_imoko_(style),onono imoko風,ASCII_WORD,true
 21195,oota_kuniyoshi_face_(meme),oota kuniyoshiの顔（ミーム）,ASCII_WORD,false
 21197,ootori_gakuen_school_uniform,ootori gakuen学校の制服,ASCII_WORD,false
-21228,open_roof_top,開いた・roof・トップス,ASCII_WORD,false
 21249,oppai_hoodie,OPPAIパーカー,ASCII_WORD,false
 21400,organization_xiii,XIII機関,ASCII_WORD,true
 21429,osafune_girls_academy_school_uniform,osafune girls academyの学校制服,ASCII_WORD,false
@@ -327,7 +324,6 @@ row_number,canonical,display_ja,checks,already_overridden
 22580,plurk_username,Plurkのユーザー名,ASCII_WORD,true
 22663,pokemon_rgby_(style),ポケモンRGBY（スタイル）,ASCII_WORD,false
 22804,poptepipic_pose,Poptepipicポーズ,ASCII_WORD,false
-22859,pov_adoring,pov adの指輪,ASCII_WORD,false
 22862,pov_dating,POVデート,ASCII_WORD,false
 22901,pp_tenshi_t-shirt,★PP天使★Tシャツ,ASCII_WORD,false
 23100,prts_logo_(arknights),PRTSロゴ（アークナイツ）,ASCII_WORD,true
