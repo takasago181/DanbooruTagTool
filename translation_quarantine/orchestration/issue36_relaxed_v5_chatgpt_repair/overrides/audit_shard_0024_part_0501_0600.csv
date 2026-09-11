@@ -1,0 +1,36 @@
+canonical,old_display_ja,new_display_ja,reason
+raiden_shogun_(cosplay),Raiden Shogun（コスプレ）,雷電将軍（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+raihan_(pokemon)_(cosplay),Raihan（ポケモン）（コスプレ）,キバナ（ポケモン）（コスプレ）,SEMANTIC_ERROR
+raimon_school_uniform,ライモンスクールユニフォーム,雷門中学校の制服,TRANSLITERATION_ERROR
+raimon_soccer_uniform,雷門イレブン,雷門サッカー部のユニフォーム,SEMANTIC_ERROR
+rain_mikamura_(cosplay),雨ミカムラ（コスプレ）,レイン・ミカムラ（コスプレ）,SEMANTIC_AMBIGUITY
+rain_poncho,タグ「rain poncho」,レインポンチョ,RAW_ENGLISH_WRAPPER
+rainbow-tinted_eyewear,タグ「rainbow-tinted eyewear」,虹色レンズのアイウェア,RAW_ENGLISH_WRAPPER
+rainbow_background,彩虹色背景,虹色の背景,NON_JAPANESE_RESIDUE
+rainbow_bow,rainbow・リボン,虹色のリボン,MIXED_ENGLISH_DEBRIS
+rainbow_choker,タグ「rainbow choker」,虹色のチョーカー,RAW_ENGLISH_WRAPPER
+rainbow_eyes,彩虹眼睛,虹色の目,NON_JAPANESE_RESIDUE
+rainbow_hairband,rainbow・ヘアバンド,虹色のヘアバンド,MIXED_ENGLISH_DEBRIS
+rainbow_halo,タグ「rainbow halo」,虹色の光輪,RAW_ENGLISH_WRAPPER
+rainbow_order,虹の注文,虹色の順序,SEMANTIC_AMBIGUITY
+rainbow_ribbon,タグ「rainbow ribbon」,虹色のリボン,RAW_ENGLISH_WRAPPER
+rainbow_sticker,rainbow・ステッカー,虹色のステッカー,MIXED_ENGLISH_DEBRIS
+rainbow_trail,タグ「rainbow trail」,虹色の軌跡,RAW_ENGLISH_WRAPPER
+raincloud,タグ「raincloud」,雨雲,RAW_ENGLISH_WRAPPER
+raining_blood,雨の血,血の雨,SEMANTIC_RELATION_ERROR
+raise_a_suilen,スイレンを育てます,RAISE A SUILEN,SEMANTIC_ERROR
+rally_car,ラリー,ラリーカー,SEMANTIC_UNDERSPECIFICATION
+ram_(animal),タグ「ram (animal)」,雄羊,RAW_ENGLISH_WRAPPER
+ram_(computer),タグ「ram (computer)」,RAM（コンピュータ）,RAW_ENGLISH_WRAPPER
+ram_skull,タグ「ram skull」,雄羊の頭蓋骨,RAW_ENGLISH_WRAPPER
+ramen_stand,タグ「ramen stand」,ラーメン屋台,RAW_ENGLISH_WRAPPER
+ramp,ランプ,スロープ,SEMANTIC_AMBIGUITY
+range_finder,範囲ファインダー,距離計,SEMANTIC_ERROR
+ranking,タグ「ranking」,ランキング,RAW_ENGLISH_WRAPPER
+ranoa_magic_academy_school_uniform,ranoa magic academyの学校制服,ラノア魔法大学の制服,MIXED_ENGLISH_DEBRIS
+rapi_(nikke)_(cosplay),rapi (nikke) (cosplay),ラピ（NIKKE）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+rapunzel_(disney)_(cosplay),rapunzel (disney) (cosplay),ラプンツェル（ディズニー）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+rathalos_(armor),レウス,レウス装備,SEMANTIC_UNDERSPECIFICATION
+ratite,タグ「ratite」,走鳥類,RAW_ENGLISH_WRAPPER
+rattail,タグ「rattail」,ラットテール,RAW_ENGLISH_WRAPPER
+raven_(dc)_(cosplay),raven (dc) (cosplay),レイブン（DC）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
