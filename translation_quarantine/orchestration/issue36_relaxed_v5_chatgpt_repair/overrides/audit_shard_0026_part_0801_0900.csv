@@ -1,0 +1,41 @@
+canonical,old_display_ja,new_display_ja,reason
+sleeveless_bodystocking,タグ「sleeveless bodystocking」,ノースリーブボディストッキング,RAW_ENGLISH_WRAPPER
+sleeveless_robe,sleeveless・ローブ,ノースリーブローブ,MIXED_ENGLISH_DEBRIS
+sleeveless_shrug,sleeveless・ボレロ,ノースリーブボレロ,MIXED_ENGLISH_DEBRIS
+sleeveless_tunic,タグ「sleeveless tunic」,ノースリーブチュニック,RAW_ENGLISH_WRAPPER
+sliced_cheese,タグ「sliced cheese」,スライスチーズ,RAW_ENGLISH_WRAPPER
+slicing,タグ「slicing」,切り分ける,RAW_ENGLISH_WRAPPER
+slime_censor,タグ「slime censor」,スライムによる隠し,RAW_ENGLISH_WRAPPER
+slime_girls_(omori),タグ「slime girls (omori)」,スライムガールズ（OMORI）,RAW_ENGLISH_WRAPPER
+slime_hair,slime・髪,スライム状の髪,MIXED_ENGLISH_DEBRIS
+slime_on_head,slimeの上の頭,頭の上のスライム,SEMANTIC_RELATION_ERROR
+slimification,スライム化,痩身化,SEMANTIC_AMBIGUITY
+slingback_heels,タグ「slingback heels」,スリングバックヒール,RAW_ENGLISH_WRAPPER
+slingshot_dress,slingshot・ドレス,スリングショットドレス,MIXED_ENGLISH_DEBRIS
+slingshot_tan,タグ「slingshot tan」,スリングショット水着の日焼け跡,RAW_ENGLISH_WRAPPER
+slip-on_shoes,slip onの靴,スリッポン,MIXED_ENGLISH_DEBRIS
+slipping_on_banana_peel,slippingの上のbanana・peel,バナナの皮で滑る,MIXED_ENGLISH_DEBRIS
+slit_throat_(gesture),タグ「slit throat (gesture)」,喉を切るジェスチャー,RAW_ENGLISH_WRAPPER
+slouch_hat,前かがみの帽子,スラウチハット,SEMANTIC_AMBIGUITY
+slovenly,滑らかに,だらしない,SEMANTIC_AMBIGUITY
+slugcat,タグ「slugcat」,スラッグキャット,RAW_ENGLISH_WRAPPER
+slur_(profanity),タグ「slur (profanity)」,差別的な蔑称,RAW_ENGLISH_WRAPPER
+slurping,丸,すする,SEMANTIC_ERROR
+slushie,タグ「slushie」,スラッシー,RAW_ENGLISH_WRAPPER
+smashing_guitar,タグ「smashing guitar」,ギターを叩き壊す,RAW_ENGLISH_WRAPPER
+smc-gumi_(nijisanji),タグ「smc-gumi (nijisanji)」,SMC組（にじさんじ）,RAW_ENGLISH_WRAPPER
+smear_frame,タグ「smear frame」,スメアフレーム,RAW_ENGLISH_WRAPPER
+smeared_blood,塗りつぶされた血,塗り広げられた血,SEMANTIC_ERROR
+smeared_lipstick,塗りつぶしの口紅,にじんだ口紅,SEMANTIC_ERROR
+smearing,タグ「smearing」,塗り広げる,RAW_ENGLISH_WRAPPER
+smelling_clothes,闻衣服,服の匂いを嗅ぐ,NON_JAPANESE_RESIDUE
+smelling_feet,足の匂い,足の匂いを嗅ぐ,SEMANTIC_STATE_ACTION_ERROR
+smelling_flower,臭いのある花,花の匂いを嗅ぐ,SEMANTIC_STATE_ACTION_ERROR
+smelling_hair,髪の臭い,髪の匂いを嗅ぐ,SEMANTIC_STATE_ACTION_ERROR
+smelling_pantyhose,パンストの臭い,パンストの匂いを嗅ぐ,SEMANTIC_STATE_ACTION_ERROR
+smelling_pussy,タグ「smelling pussy」,外陰部の匂いを嗅ぐ,RAW_ENGLISH_WRAPPER
+smelling_shoe,smelling・靴,靴の匂いを嗅ぐ,MIXED_ENGLISH_DEBRIS
+smelling_underwear,アソコの匂い,下着の匂いを嗅ぐ,SEMANTIC_NARROWING
+smelly_armpits,タグ「smelly armpits」,臭い脇,RAW_ENGLISH_WRAPPER
+smelly_pussy,タグ「smelly pussy」,臭い外陰部,RAW_ENGLISH_WRAPPER
+smile_emoji,タグ「smile emoji」,笑顔の絵文字,RAW_ENGLISH_WRAPPER
