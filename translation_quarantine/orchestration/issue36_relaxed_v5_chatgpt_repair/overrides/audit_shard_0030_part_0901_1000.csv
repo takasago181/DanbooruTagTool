@@ -1,0 +1,39 @@
+canonical,old_display_ja,new_display_ja,reason
+white_spider_lily,白い・蜘蛛・lily,白い彼岸花,MIXED_ENGLISH_DEBRIS
+white_string,white sの指輪,白い紐,SEMANTIC_ERROR
+white_tailcoat,白い・tailcoat,白い燕尾服,MIXED_ENGLISH_DEBRIS
+white_tulip,白い・tulip,白いチューリップ,MIXED_ENGLISH_DEBRIS
+white_turban,白い・turban,白いターバン,MIXED_ENGLISH_DEBRIS
+white_unitard,白い・unitard,白いユニタード,MIXED_ENGLISH_DEBRIS
+white_wine,白い・wine,白ワイン,MIXED_ENGLISH_DEBRIS
+whitebeard_pirates_jolly_roger,タグ「whitebeard pirates jolly roger」,白ひげ海賊団の海賊旗,RAW_ENGLISH_WRAPPER
+whole_note,全体のメモ,全音符,SEMANTIC_AMBIGUITY
+why_dis_ninja_look_so_mad_(meme),why dis ninja look so mad (meme),なんでこの忍者こんな怒ってるの？（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+wicker_furniture,タグ「wicker furniture」,籐家具,RAW_ENGLISH_WRAPPER
+wide-leg_pants,幅広い・脚・ズボン,ワイドレッグパンツ,SEMANTIC_ERROR
+wide_belt,wide・ベルト,幅広ベルト,MIXED_ENGLISH_DEBRIS
+wide_brim,広いつかみ,広いつば,SEMANTIC_AMBIGUITY
+wide_face,幅広い・顔,幅広い顔,MIXED_ENGLISH_DEBRIS
+wide_mouth,幅広い・口,幅広い口,MIXED_ENGLISH_DEBRIS
+wide_shot,远景镜頭,ロングショット,NON_JAPANESE_RESIDUE
+widow's_peak,美人尖,富士額,NON_JAPANESE_RESIDUE
+wig_on_non-human,wigの上のnon・人間,人外がかつらを着用,MIXED_ENGLISH_DEBRIS
+wig_stand,タグ「wig stand」,かつらスタンド,RAW_ENGLISH_WRAPPER
+wii,タグ「wii」,Wii,OPAQUE_PRODUCT_NAME
+wii_u,タグ「wii u」,Wii U,OPAQUE_PRODUCT_NAME
+wii_u_gamepad,タグ「wii u gamepad」,Wii U GamePad,OPAQUE_PRODUCT_NAME
+wild_hunt_academy_of_arts_logo,wild hunt academy of artsのロゴ,ワイルドハント芸術学院のロゴ,MIXED_ENGLISH_DEBRIS
+wilted_ahoge,しおれしもの,しおれたアホ毛,SEMANTIC_ERROR
+winch,タグ「winch」,ウインチ,RAW_ENGLISH_WRAPPER
+wind_glider,风之翼,風の翼,NON_JAPANESE_RESIDUE
+window_light,window・光,窓からの光,MIXED_ENGLISH_DEBRIS
+window_shadow,タグ「window shadow」,窓の影,RAW_ENGLISH_WRAPPER
+windwheel_aster_(genshin_impact),windwheel aster (genshin impact),風車アスター（原神）,CANONICAL_FALLBACK_TRANSLATABLE
+winford_academy_uniform,winford academyの制服,ウィンフォード学園の制服,MIXED_ENGLISH_DEBRIS
+wing-shaped_bow,翼・shaped・リボン,翼形のリボン,MIXED_ENGLISH_DEBRIS
+wing_cape,翼・ケープ,翼のケープ,MIXED_ENGLISH_DEBRIS
+wing_clan_(breath_of_fire),タグ「wing clan (breath of fire)」,飛翼族（ブレス オブ ファイア）,RAW_ENGLISH_WRAPPER
+wing_covers,翼・covers,翼の覆い,MIXED_ENGLISH_DEBRIS
+wing_flapping,翼・flapping,羽ばたき,MIXED_ENGLISH_DEBRIS
+wingbeat_(e.g.o),wingbeat (e.g.o),Wingbeat（E.G.O）,OPAQUE_TITLE
+wingdings,タグ「wingdings」,Wingdings,OPAQUE_FONT_NAME
