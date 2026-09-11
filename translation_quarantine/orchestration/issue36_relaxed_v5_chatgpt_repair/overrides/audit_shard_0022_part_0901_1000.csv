@@ -1,0 +1,49 @@
+canonical,old_display_ja,new_display_ja,reason
+pectoral_pillow,胸の枕,胸筋を枕にする,SEMANTIC_UNDERSPECIFICATION
+pectoral_press,胸のプレス,胸筋を押す,SEMANTIC_UNDERSPECIFICATION
+pectoral_squeeze,胸部絞り,胸筋を絞る,SEMANTIC_UNDERSPECIFICATION
+pectorals_on_glass,ガラスの胸,ガラスに押し付けた胸筋,SEMANTIC_RELATION_ERROR
+pedal_board,タグ「pedal board」,ペダルボード,RAW_ENGLISH_WRAPPER
+pedestrian_bridge,天桥,歩道橋,NON_JAPANESE_RESIDUE
+pedestrian_crossing_sign,歩行者の交差点,歩行者横断標識,SEMANTIC_ERROR
+pedestrians_only_sign,歩行者のみ署名,歩行者専用標識,SEMANTIC_ERROR
+pee_puddle,タグ「pee puddle」,尿の水たまり,RAW_ENGLISH_WRAPPER
+peed_self,タグ「peed self」,おもらしした,RAW_ENGLISH_WRAPPER
+peeing_on_penis,ペニスにピス,陰茎に放尿,MIXED_ENGLISH_DEBRIS
+peeing_on_viewer,視聴者のおしっこ,視聴者に放尿,SEMANTIC_RELATION_ERROR
+peg_leg,ペグの脚,義足,SEMANTIC_ERROR
+peking_opera,京剧,京劇,NON_JAPANESE_RESIDUE
+pelvic_thrust,骨盤の推力,腰振り,SEMANTIC_ERROR
+pen_behind_ear,pen・behind・耳,耳の後ろのペン,MIXED_ENGLISH_DEBRIS
+pen_in_mouth,penの中のmouth,口にペン,MIXED_ENGLISH_DEBRIS
+pen_to_mouth,口から口まで,ペンを口元に,SEMANTIC_ERROR
+pencil_as_mustache,タグ「pencil as mustache」,鉛筆を口ひげに見立てる,RAW_ENGLISH_WRAPPER
+pencil_in_hair,pencilの中の髪,髪に鉛筆,MIXED_ENGLISH_DEBRIS
+pencil_to_face,顔を合わせる鉛筆,鉛筆を顔に向ける,SEMANTIC_ERROR
+pendant_collar,pendant・襟,ペンダント付き首輪,MIXED_ENGLISH_DEBRIS
+pendant_removed,タグ「pendant removed」,ペンダントを外した,RAW_ENGLISH_WRAPPER
+penguin_boy,タグ「penguin boy」,ペンギン少年,RAW_ENGLISH_WRAPPER
+penguin_earrings,penguinのイヤリング,ペンギンのイヤリング,MIXED_ENGLISH_DEBRIS
+penguin_hood,ペンギンフッド,ペンギンフード,TRANSLITERATION_ERROR
+penguin_logistics_logo,ペンギンロジスティクスロゴ,ペンギン急便のロゴ,SEMANTIC_ERROR
+penguin_ornament,penguin・飾り,ペンギンの飾り,MIXED_ENGLISH_DEBRIS
+penguin_print,penguinの柄,ペンギン柄,MIXED_ENGLISH_DEBRIS
+penis-shaped_jewelry,penis・shaped・アクセサリー,陰茎形アクセサリー,MIXED_ENGLISH_DEBRIS
+penis_and_testicles_touching,玉ズリ,陰茎と睾丸が接触,SEMANTIC_NARROWING
+penis_doodle,タグ「penis doodle」,陰茎の落書き,RAW_ENGLISH_WRAPPER
+penis_earrings,penisのイヤリング,陰茎のイヤリング,MIXED_ENGLISH_DEBRIS
+penis_head,ペニスヘッド,亀頭,SEMANTIC_ERROR
+penis_hug,ペニスの抱擁,陰茎を抱く,SEMANTIC_ERROR
+penis_in_another's_thighhigh,ニーソコキ,他人のサイハイソックスの中の陰茎,SEMANTIC_NARROWING
+penis_in_glove,手袋コキ,手袋の中の陰茎,SEMANTIC_NARROWING
+penis_in_swimsuit,水着の陰茎,水着の中の陰茎,SEMANTIC_RELATION_ERROR
+penis_in_unworn_legwear,靴下コキ,未着用レッグウェアの中の陰茎,SEMANTIC_NARROWING
+penis_measuring,下腹部定規,陰茎を測る,SEMANTIC_ERROR
+penis_on_tongue,penisの上のtongue,舌の上の陰茎,SEMANTIC_RELATION_ERROR
+penis_out_of_frame,タグ「penis out of frame」,陰茎が画面外,RAW_ENGLISH_WRAPPER
+penis_tentacle,penis・触手,陰茎状の触手,MIXED_ENGLISH_DEBRIS
+penis_to_breast,乳首ズリ,陰茎を乳房に当てる,SEMANTIC_NARROWING
+penis_to_navel,臍姦,陰茎をへそに当てる,SEMANTIC_NARROWING
+penis_under_another's_clothes,着衣コキ,他人の服の下の陰茎,SEMANTIC_NARROWING
+penis_under_breasts,下乳ズリ,乳房の下の陰茎,SEMANTIC_NARROWING
+penis_under_mask,penisの下のマスク,マスクの下の陰茎,SEMANTIC_RELATION_ERROR
