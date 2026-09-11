@@ -1,0 +1,30 @@
+canonical,old_display_ja,new_display_ja,reason
+mouse_hat,mouse・帽子,ネズミの帽子,MIXED_ENGLISH_DEBRIS
+mouse_hole,タグ「mouse hole」,ネズミ穴,RAW_ENGLISH_WRAPPER
+mouth_bubble,タグ「mouth bubble」,口元の泡,RAW_ENGLISH_WRAPPER
+mouth_mask_under_chin,mouth・マスクの下のchin,顎の下のマスク,MIXED_ENGLISH_DEBRIS
+mouth_out_of_frame,タグ「mouth out of frame」,口がフレーム外,RAW_ENGLISH_WRAPPER
+mouth_tentacles,タグ「mouth tentacles」,口の触手,RAW_ENGLISH_WRAPPER
+mouth_tube,mouth・チューブ,口のチューブ,MIXED_ENGLISH_DEBRIS
+mouth_visible_through_hair,mouth・visible・越しの髪,髪越しに見える口,MIXED_ENGLISH_DEBRIS
+mouthwash,洗口液,マウスウォッシュ,NON_JAPANESE_RESIDUE
+movie_poster_(medium),タグ「movie poster (medium)」,映画ポスター（媒体）,RAW_ENGLISH_WRAPPER
+movie_projector,タグ「movie projector」,映写機,RAW_ENGLISH_WRAPPER
+movie_reference,映画の参照,映画へのオマージュ,SEMANTIC_ERROR
+moving_background,movingの背景,動く背景,MIXED_ENGLISH_DEBRIS
+mp3_player,随身听,MP3プレーヤー,NON_JAPANESE_RESIDUE
+mucus,黏液,粘液,NON_JAPANESE_RESIDUE
+mugen_gakuen_school_uniform,mugen gakuenの学校制服,無限学園の制服,MIXED_ENGLISH_DEBRIS
+mullet,マレット,マレットヘア,SEMANTIC_ERROR
+multi-lane_road,タグ「multi-lane road」,多車線道路,RAW_ENGLISH_WRAPPER
+multi-strapped_panties,多系帯内ズボン,マルチストラップパンティー,NON_JAPANESE_RESIDUE
+multicolor-tinted_eyewear,タグ「multicolor-tinted eyewear」,多色レンズの眼鏡,RAW_ENGLISH_WRAPPER
+multicolored_ascot,多色のascot,多色のアスコットタイ,MIXED_ENGLISH_DEBRIS
+multicolored_bandeau,多色のbandeau,多色のバンドゥ,MIXED_ENGLISH_DEBRIS
+multicolored_hair_bobbles,多色の髪の葉,多色のヘアボブル,SEMANTIC_ERROR
+multicolored_headscarf,多色のheadscarf,多色のヘッドスカーフ,MIXED_ENGLISH_DEBRIS
+multicolored_jumpsuit,多色のjumpsuit,多色のジャンプスーツ,MIXED_ENGLISH_DEBRIS
+multicolored_leg_warmers,multicolored legのウォーマー,多色のレッグウォーマー,MIXED_ENGLISH_DEBRIS
+multicolored_leggings,多色のleggings,多色のレギンス,MIXED_ENGLISH_DEBRIS
+multicolored_male_swimwear,多色のmale・swimwear,多色の男性用水着,MIXED_ENGLISH_DEBRIS
+multicolored_panties,多色の・パンツ,多色のパンティー,SEMANTIC_ERROR
