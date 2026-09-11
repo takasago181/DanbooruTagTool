@@ -1,0 +1,31 @@
+canonical,old_display_ja,new_display_ja,reason
+wedding_suit,wedding・スーツ,ウェディングスーツ,MIXED_ENGLISH_DEBRIS
+wedge_heels,坡跟鞋,ウェッジヒール,NON_JAPANESE_RESIDUE
+weibo_username,weiboユーザー名,Weiboユーザー名,OPAQUE_NAME_CASE
+weibo_watermark,Weiboロゴ,Weiboの透かし,SEMANTIC_ERROR
+weichang,围裳,ウェイチャン,NON_JAPANESE_RESIDUE
+weight_bench,タグ「weight bench」,ウェイトベンチ,RAW_ENGLISH_WRAPPER
+weight_conscious,重量意識,体重を気にする,SEMANTIC_ERROR
+weight_gain,男の肥満化,体重増加,SEMANTIC_NARROWING
+welcome_mat,タグ「welcome mat」,玄関マット,RAW_ENGLISH_WRAPPER
+welding_goggles,タグ「welding goggles」,溶接ゴーグル,RAW_ENGLISH_WRAPPER
+werehog,タグ「werehog」,ウェアホッグ,RAW_ENGLISH_WRAPPER
+western_dragon,ドラゴン,西洋竜,SEMANTIC_NARROWING
+wet_bikini,wet・ビキニ,濡れたビキニ,MIXED_ENGLISH_DEBRIS
+wet_fur,wet・毛,濡れた毛皮,MIXED_ENGLISH_DEBRIS
+wet_male_swimwear,タグ「wet male swimwear」,濡れた男性用水着,RAW_ENGLISH_WRAPPER
+wet_male_underwear,濡れた雄の下着,濡れた男性用下着,SEMANTIC_ERROR
+wet_socks,wetの靴下,濡れた靴下,MIXED_ENGLISH_DEBRIS
+wet_swimsuit,浸湿泳装,濡れた水着,NON_JAPANESE_RESIDUE
+wet_thighhighs,濡れた太もも,濡れたサイハイソックス,SEMANTIC_AMBIGUITY
+what_i_watched_what_i_expected_what_i_got_(meme),what i watched what i expected what i got (meme),見たもの・期待したもの・得たもの（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+wheat_bundle,タグ「wheat bundle」,麦の束,RAW_ENGLISH_WRAPPER
+wheel_earring,wheel eaの指輪,車輪型イヤリング,SEMANTIC_ERROR
+wheel_of_dharma,タグ「wheel of dharma」,法輪,RAW_ENGLISH_WRAPPER
+wheeled_leg(s),タグ「wheeled leg(s)」,車輪付きの脚,RAW_ENGLISH_WRAPPER
+where's_the_cat?_(meme),where's the cat? (meme),猫はどこ？（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+whimsy_twee,タグ「whimsy twee」,ウィムジー・トゥイー,RAW_ENGLISH_WRAPPER
+whipping_hair,髪を鞭打ちます,髪を振り回す,SEMANTIC_ERROR
+whisky_glass,タグ「whisky glass」,ウイスキーグラス,RAW_ENGLISH_WRAPPER
+whisp,whisp,Whisp,OPAQUE_NAME_CASE
+whistle_around_neck,首の周りを口whi,首から下げたホイッスル,SEMANTIC_ERROR
