@@ -1,0 +1,38 @@
+canonical,old_display_ja,new_display_ja,reason
+virgo_(symbol),タグ「virgo (symbol)」,乙女座記号,RAW_ENGLISH_WRAPPER
+virgo_(zodiac),处女座,乙女座,NON_JAPANESE_RESIDUE
+virtual_graduation_commemoration,タグ「virtual graduation commemoration」,バーチャル卒業記念,RAW_ENGLISH_WRAPPER
+virtual_reality,VRヘッドセット,バーチャルリアリティ,SEMANTIC_NARROWING
+virus_(mega_man),タグ「virus (mega man)」,ウイルス（ロックマン）,RAW_ENGLISH_WRAPPER
+vitarka_mudra,说法印,説法印,NON_JAPANESE_RESIDUE
+vitiligo,タグ「vitiligo」,尋常性白斑,RAW_ENGLISH_WRAPPER
+viziam_(eve_online),viziam (eve online),Viziam（EVE Online）,CANONICAL_FALLBACK_TRANSLATABLE
+vkontakte_username,vkontakteのユーザー名,VKontakteのユーザー名,OPAQUE_NAME_CASE
+vocaloid_boxart_pose,ボーカロイドボクサートのポーズ,VOCALOIDパッケージアートのポーズ,SEMANTIC_ERROR
+vocaloid_editor,タグ「vocaloid editor」,VOCALOIDエディタ,RAW_ENGLISH_WRAPPER
+voice_actor,声优,声優,NON_JAPANESE_RESIDUE
+voice_actor_name,タグ「voice actor name」,声優名,RAW_ENGLISH_WRAPPER
+voices_&_letters_collection!,タグ「voices & letters collection!」,VOICES & LETTERS COLLECTION!,OPAQUE_TITLE
+void_(guilty_crown),void（有罪の王冠）,ヴォイド（ギルティクラウン）,SEMANTIC_LITERAL_TRANSLATION
+void_cube,タグ「void cube」,ヴォイドキューブ,RAW_ENGLISH_WRAPPER
+volleyball_net,排球网,バレーボールネット,NON_JAPANESE_RESIDUE
+volleyball_uniform,排球服,バレーボールのユニフォーム,NON_JAPANESE_RESIDUE
+vollstandig,タグ「vollstandig」,フォルシュテンディッヒ,RAW_ENGLISH_WRAPPER
+voltaction,タグ「voltaction」,VOLTACTION,OPAQUE_GROUP_NAME
+volumen_hydragyrum_(fate),ボリュールハイドラム（運命）,月霊髄液（Fate）,TRANSLITERATION_ERROR
+vomit,呕吐,嘔吐物,NON_JAPANESE_RESIDUE
+vortex_vanquisher_(genshin_impact),贯虹之槊,破天の槍（原神）,NON_JAPANESE_RESIDUE
+vs,タグ「vs」,VS,OPAQUE_ABBREVIATION
+vsk-94,vsk-94,VSK-94,OPAQUE_IDENTIFIER_CASE
+vspo!_showdown,タグ「vspo! showdown」,VSPO! SHOWDOWN,OPAQUE_TITLE
+vss_vintorez,タグ「vss vintorez」,VSS Vintorez,OPAQUE_WEAPON_NAME
+vyshyvanka,タグ「vyshyvanka」,ヴィシヴァンカ,RAW_ENGLISH_WRAPPER
+w_corp._(identity)_(project_moon),w corp. (identity) (project moon),W社（人格）（Project Moon）,CANONICAL_FALLBACK_TRANSLATABLE
+w_over_eye,w目の上,目の上のW字,SEMANTIC_RELATION_ERROR
+w_over_head,wの上の頭,頭上のW字,SEMANTIC_RELATION_ERROR
+w_over_mouth,wの上のmouth,口元のW字,MIXED_ENGLISH_DEBRIS
+wada_arco_(style),タグ「wada arco (style)」,ワダアルコ（スタイル）,RAW_ENGLISH_WRAPPER
+wagnaria_uniform,ワグナリア,ワグナリアの制服,SEMANTIC_UNDERSPECIFICATION
+wah,タグ「wah」,wah,OPAQUE_EXPRESSION
+waist_bag,タグ「waist bag」,ウエストバッグ,RAW_ENGLISH_WRAPPER
+waist_cape,裙摆,腰ケープ,NON_JAPANESE_RESIDUE
