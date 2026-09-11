@@ -1,0 +1,48 @@
+canonical,old_display_ja,new_display_ja,reason
+print_headwear,帽子をプリントします,柄入り頭飾り,SEMANTIC_STATE_ACTION_ERROR
+print_hood,柄・フード,柄入りフード,SEMANTIC_ERROR
+print_hoodie,パーカーを印刷します,柄入りパーカー,SEMANTIC_STATE_ACTION_ERROR
+print_innertube,InnerTubeを印刷します,柄入り浮き輪,SEMANTIC_STATE_ACTION_ERROR
+print_kimono,着物を印刷します,柄入り着物,SEMANTIC_STATE_ACTION_ERROR
+print_leggings,柄・leggings,柄入りレギンス,MIXED_ENGLISH_DEBRIS
+print_leotard,レオタードを印刷します,柄入りレオタード,SEMANTIC_STATE_ACTION_ERROR
+print_male_swimwear,男性の水着を印刷します,柄入り男性用水着,SEMANTIC_STATE_ACTION_ERROR
+print_male_underwear,男性の下着を印刷します,柄入り男性用下着,SEMANTIC_STATE_ACTION_ERROR
+print_mask,マスクを印刷します,柄入りマスク,SEMANTIC_STATE_ACTION_ERROR
+print_mug,マグカップを印刷します,柄入りマグカップ,SEMANTIC_STATE_ACTION_ERROR
+print_neckerchief,ネッカチーフを印刷します,柄入りネッカチーフ,SEMANTIC_STATE_ACTION_ERROR
+print_necktie,ネクタイをプリント,柄入りネクタイ,SEMANTIC_STATE_ACTION_ERROR
+print_one-piece_swimsuit,print one pieceの水着,柄入りワンピース水着,MIXED_ENGLISH_DEBRIS
+print_overalls,柄・overalls,柄入りオーバーオール,MIXED_ENGLISH_DEBRIS
+print_pajamas,パジャマを印刷します,柄入りパジャマ,SEMANTIC_STATE_ACTION_ERROR
+print_paper_fan,柄・paper・fan,柄入り紙扇子,MIXED_ENGLISH_DEBRIS
+print_ribbon,リボンを印刷します,柄入りリボン,SEMANTIC_STATE_ACTION_ERROR
+print_robe,柄・ローブ,柄入りローブ,SEMANTIC_ERROR
+print_sarong,サロンを印刷します,柄入りサロン,SEMANTIC_STATE_ACTION_ERROR
+print_sash,サッシを印刷します,柄入りサッシュ,SEMANTIC_ERROR
+print_scrunchie,プリントシュリューヒー,柄入りシュシュ,TRANSLITERATION_ERROR
+print_shawl,柄・shawl,柄入りショール,MIXED_ENGLISH_DEBRIS
+print_shirt,印花シャツ衫,柄入りシャツ,NON_JAPANESE_RESIDUE
+print_shorts,ショートパンツを印刷します,柄入りショートパンツ,SEMANTIC_STATE_ACTION_ERROR
+print_shrug,柄・ボレロ,柄入りボレロ,SEMANTIC_ERROR
+print_sports_bra,柄・sports・ブラ,柄入りスポーツブラ,MIXED_ENGLISH_DEBRIS
+print_sweater,セーターを印刷します,柄入りセーター,SEMANTIC_STATE_ACTION_ERROR
+print_tabard,柄・tabard,柄入りタバード,MIXED_ENGLISH_DEBRIS
+print_tank_top,タンクトップを印刷します,柄入りタンクトップ,SEMANTIC_STATE_ACTION_ERROR
+print_towel,タオルを印刷します,柄入りタオル,SEMANTIC_STATE_ACTION_ERROR
+print_umbrella,傘を印刷します,柄入り傘,SEMANTIC_STATE_ACTION_ERROR
+print_vest,ベストを印刷します,柄入りベスト,SEMANTIC_STATE_ACTION_ERROR
+prinz_eugen_(kancolle)_(cosplay),prinz eugen (kancolle) (cosplay),プリンツ・オイゲン（艦これ）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+prisma_illya_(cosplay),イリヤズム,プリズマ☆イリヤ（コスプレ）,SEMANTIC_ERROR
+prisoner,刑務所,囚人,SEMANTIC_ERROR
+problem_solver_68_(blue_archive),problem solver 68 (blue archive),便利屋68（ブルーアーカイブ）,CANONICAL_FALLBACK_TRANSLATABLE
+progress_pride_flag,progress prideの旗,プログレス・プライド・フラッグ,MIXED_ENGLISH_DEBRIS
+projected_inset,予測された挿入図,投影された差し込み画像,SEMANTIC_ERROR
+projector_screen,projector・画面,プロジェクタースクリーン,MIXED_ENGLISH_DEBRIS
+propane_tank,プロパンガス,プロパンガスボンベ,SEMANTIC_UNDERSPECIFICATION
+proposing_to_viewer,proposing・へのviewer,視聴者へのプロポーズ,MIXED_ENGLISH_DEBRIS
+prosthetic_ear,prosthetic・耳,義耳,MIXED_ENGLISH_DEBRIS
+prosthetic_fingers,タグ「prosthetic fingers」,義指,RAW_ENGLISH_WRAPPER
+prosthetic_sword,prosthetic・剣,義肢の剣,MIXED_ENGLISH_DEBRIS
+prostration,失意体前屈,平伏,SEMANTIC_NARROWING
+prts_logo_(arknights),タグ「prts logo (arknights)」,PRTSロゴ（アークナイツ）,RAW_ENGLISH_WRAPPER
