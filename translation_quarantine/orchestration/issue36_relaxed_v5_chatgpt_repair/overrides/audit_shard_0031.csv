@@ -1,0 +1,43 @@
+canonical,old_display_ja,new_display_ja,reason
+winged_boots,wingedのブーツ,翼付きブーツ,MIXED_ENGLISH_DEBRIS
+winged_cat,winged・猫,翼のある猫,MIXED_ENGLISH_DEBRIS
+winged_gloves,wingedの手袋,翼付き手袋,MIXED_ENGLISH_DEBRIS
+winged_hair_tie,winged・髪・tie,翼付きヘアタイ,MIXED_ENGLISH_DEBRIS
+winged_halo,タグ「winged halo」,翼付きの光輪,RAW_ENGLISH_WRAPPER
+winged_headphones,タグ「winged headphones」,翼付きヘッドホン,RAW_ENGLISH_WRAPPER
+winged_headwear,タグ「winged headwear」,翼付き頭飾り,RAW_ENGLISH_WRAPPER
+winged_heart_tattoo,winged heartのタトゥー,翼のあるハートのタトゥー,MIXED_ENGLISH_DEBRIS
+winged_sandals,winged・サンダル,翼付きサンダル,MIXED_ENGLISH_DEBRIS
+winged_shoes,wingedの靴,翼付きの靴,MIXED_ENGLISH_DEBRIS
+winged_skull,タグ「winged skull」,翼付きの頭蓋骨,RAW_ENGLISH_WRAPPER
+winged_sleeves,タグ「winged sleeves」,翼付きの袖,RAW_ENGLISH_WRAPPER
+winged_weapon,wingedの武器,翼付き武器,MIXED_ENGLISH_DEBRIS
+wings_as_eyes,翼・as・目,目としての翼,MIXED_ENGLISH_DEBRIS
+wings_through_clothes,翼・越しの服,服を突き抜けた翼,SEMANTIC_RELATION_ERROR
+wingtip_collar,wingtip・襟,ウィングチップカラー,MIXED_ENGLISH_DEBRIS
+wink_heart,wink・ハート,ウィンクハート,MIXED_ENGLISH_DEBRIS
+wink_star,wink・星,ウィンクスター,MIXED_ENGLISH_DEBRIS
+winking_(animated),タグ「winking (animated)」,ウィンク（アニメーション）,RAW_ENGLISH_WRAPPER
+wiping_another's_face,wiping・他人の顔,他人の顔を拭く,MIXED_ENGLISH_DEBRIS
+wiping_blood,擦拭血迹,血を拭く,NON_JAPANESE_RESIDUE
+wiping_face,擦顔,顔を拭く,NON_JAPANESE_RESIDUE
+wiping_mouth,擦嘴,口を拭く,NON_JAPANESE_RESIDUE
+wiping_pussy,事後清理,外陰部を拭く,SEMANTIC_NARROWING
+wiping_tears,抹眼泪,涙を拭く,NON_JAPANESE_RESIDUE
+wireless_game_controller,タグ「wireless game controller」,ワイヤレスゲームコントローラー,RAW_ENGLISH_WRAPPER
+wireless_headphones,タグ「wireless headphones」,ワイヤレスヘッドホン,RAW_ENGLISH_WRAPPER
+wireless_microphone,タグ「wireless microphone」,ワイヤレスマイク,RAW_ENGLISH_WRAPPER
+wishing_cairn_(e.g.o),wishing cairn (e.g.o),Wishing Cairn（E.G.O）,OPAQUE_TITLE
+wisteria_print,wisteriaの柄,藤柄,MIXED_ENGLISH_DEBRIS
+witch_(fire_emblem_fates)_(cosplay),witch (fire emblem fates) (cosplay),魔女（ファイアーエムブレムif）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+wizard_hat,巫师帽,魔法使いの帽子,NON_JAPANESE_RESIDUE
+wo-class_aircraft_carrier_(cosplay),WOクラスの航空機キャリア（コスプレ）,空母ヲ級（コスプレ）,SEMANTIC_LITERAL_TRANSLATION
+woe_plague_be_upon_ye_(meme),woe plague be upon ye (meme),災いあれ・疫病をくらえ（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+wolf_brooch,wolf・ブローチ,オオカミのブローチ,MIXED_ENGLISH_DEBRIS
+wolf_cub,タグ「wolf cub」,オオカミの子,RAW_ENGLISH_WRAPPER
+wolf_head,wolf・頭,オオカミの頭,MIXED_ENGLISH_DEBRIS
+wolf_print,wolfの柄,オオカミ柄,MIXED_ENGLISH_DEBRIS
+wolfhook_(genshin_impact),wolfhook (genshin impact),ググプラム（原神）,CANONICAL_FALLBACK_TRANSLATABLE
+women's_toilet_symbol,women・toilet・記号,女性用トイレの記号,MIXED_ENGLISH_DEBRIS
+women_want_me_fish_fear_me_(meme),women want me fish fear me (meme),女は俺を求め魚は俺を恐れる（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+wonder_woman_(cosplay),wonder woman (cosplay),ワンダーウーマン（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
