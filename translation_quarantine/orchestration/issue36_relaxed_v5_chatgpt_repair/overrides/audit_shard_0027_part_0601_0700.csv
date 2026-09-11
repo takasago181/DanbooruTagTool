@@ -1,0 +1,38 @@
+canonical,old_display_ja,new_display_ja,reason
+star_hair_bun,星・髪・bun,星形のお団子髪,MIXED_ENGLISH_DEBRIS
+star_harmony_academy_school_uniform,スターハーモニー学園,スターハーモニー学園の制服,SEMANTIC_UNDERSPECIFICATION
+star_in_eye,目のスター,目の中の星,SEMANTIC_RELATION_ERROR
+star_in_mouth,星の中のmouth,口の中の星,SEMANTIC_RELATION_ERROR
+star_map,星・map,星図,MIXED_ENGLISH_DEBRIS
+star_o-ring,star oの指輪,星形Oリング,SEMANTIC_ERROR
+star_of_life,人生の星,スター・オブ・ライフ,SEMANTIC_ERROR
+star_on_cheek,星の上のcheek,頬の星,SEMANTIC_RELATION_ERROR
+star_pendant,星・pendant,星のペンダント,MIXED_ENGLISH_DEBRIS
+star_power_stick,星・power・stick,スターパワースティック,MIXED_ENGLISH_DEBRIS
+star_print_panties,スターパンティー,星柄のパンティー,SEMANTIC_UNDERSPECIFICATION
+star_rail_special_pass_(honkai:_star_rail),タグ「star rail special pass (honkai: star rail)」,星軌専用チケット（崩壊：スターレイル）,RAW_ENGLISH_WRAPPER
+star_trail,スタートレイル,星の軌跡,SEMANTIC_ERROR
+starfish_bikini,ヒトデブラ,ヒトデビキニ,SEMANTIC_ERROR
+starfish_print,starfishの柄,ヒトデ柄,MIXED_ENGLISH_DEBRIS
+starlight_academy_school_uniform,スターライト学園,スターライト学園の制服,SEMANTIC_UNDERSPECIFICATION
+starry_hair,星空,星空のような髪,SEMANTIC_UNDERSPECIFICATION
+starry_skin,starry・肌,星空のような肌,MIXED_ENGLISH_DEBRIS
+starry_sky_print,星空ドレス,星空柄,SEMANTIC_NARROWING
+startend_(hololive),タグ「startend (hololive)」,Startend（ホロライブ）,RAW_ENGLISH_WRAPPER
+starter_pokemon_trio,最初のポケモン,最初の3匹のポケモン,SEMANTIC_UNDERSPECIFICATION
+starter_squad_(azur_lane),タグ「starter squad (azur lane)」,初期艦隊（アズールレーン）,RAW_ENGLISH_WRAPPER
+starting_block,開始ブロック,スターティングブロック,SEMANTIC_ERROR
+startorch_academy_school_uniform,startorch academyの学校制服,スタートーチ学園の制服,MIXED_ENGLISH_DEBRIS
+static_cling,静的なしがみつき,静電気でくっつく,SEMANTIC_ERROR
+statue_of_the_seven_(cosplay),statue of the seven (cosplay),七天神像（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+statuette,スタチュート,スタチュエット,TRANSLITERATION_ERROR
+status_effect,デバフ,ステータス効果,SEMANTIC_NARROWING
+stealth_fingering,隐秘指交,隠れて手マン,NON_JAPANESE_RESIDUE
+stealth_footjob,隐秘足交,隠れて足コキ,NON_JAPANESE_RESIDUE
+stealth_handjob,隐秘手交,隠れて手コキ,NON_JAPANESE_RESIDUE
+steam_deck,タグ「steam deck」,Steam Deck,RAW_ENGLISH_WRAPPER
+steam_from_nose,steam・からのnose,鼻からの蒸気,MIXED_ENGLISH_DEBRIS
+steaming_clothes,steaming・服,湯気の立つ服,MIXED_ENGLISH_DEBRIS
+steaming_food,steaming・食べ物,湯気の立つ食べ物,MIXED_ENGLISH_DEBRIS
+steel-toe_boots,スチール製のブーツ,安全靴,SEMANTIC_UNDERSPECIFICATION
+stellar_jade,星琼,星玉,NON_JAPANESE_RESIDUE
