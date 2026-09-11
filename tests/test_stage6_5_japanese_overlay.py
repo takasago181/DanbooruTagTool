@@ -88,7 +88,10 @@ def test_special_japanese_identity_and_stage4_order_are_preserved():
 
 def test_overlay_lookup_provenance_and_rollback():
     knowledge = TagKnowledgeCore.load(ROOT)
-    term = next(iter(knowledge.japanese_overlay.lookup()))
+    term = next(
+        term for term in knowledge.japanese_overlay.lookup()
+        if term not in knowledge.canonical and term not in knowledge.aliases
+    )
     result = TagSearchEngine(knowledge).search_one(term)[0]
     assert "japanese_overlay" in result.provenance
     old = TagKnowledgeCore.load(ROOT, japanese_overlay_path=ROOT / "missing-overlay.json")

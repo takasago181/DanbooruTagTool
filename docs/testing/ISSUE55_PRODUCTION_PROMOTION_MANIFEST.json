@@ -1,0 +1,58 @@
+{
+  "format_version": 1,
+  "generated_at": "2026-09-11T12:26:20.733632+00:00",
+  "issue49_profile_after": {
+    "identity_order_preserved": true,
+    "path": "C:\\Codex\\DanbooruTagTool\\data\\generation\\special2788_generation_profile.csv",
+    "rows": 2788,
+    "sha256": "55490940378e15d8e41454e701d0c202abbab307a08fb6e56841171e0edec1fd",
+    "unique_identities": 2788
+  },
+  "issue49_profile_before": {
+    "identity_order_preserved": true,
+    "path": "C:\\Codex\\DanbooruTagTool\\data\\generation\\special2788_generation_profile.csv",
+    "rows": 2788,
+    "sha256": "55490940378e15d8e41454e701d0c202abbab307a08fb6e56841171e0edec1fd",
+    "unique_identities": 2788
+  },
+  "issue49_profile_unchanged": true,
+  "mapping": {
+    "canonical_identity_exact": true,
+    "canonical_order_preserved": true,
+    "display_ja_exact": true,
+    "duplicate_canonical_count": 0,
+    "production_loader_validation": true,
+    "search_ja_exact_single_item_list": true,
+    "unknown_canonical_count": 0,
+    "unrelated_entry_fields": 0,
+    "utf8_roundtrip": true
+  },
+  "overlay": {
+    "atomic_replace": true,
+    "loader_display_count": 30629,
+    "loader_search_count": 30629,
+    "path": "C:\\Codex\\DanbooruTagTool\\data\\runtime\\japanese_overlay.json",
+    "post_entries": 30629,
+    "post_sha256": "999b42fa76e036ad79f68ef7cd3ff958c94bd42c08ab00dd0394898d0205de76",
+    "post_size": 4114120,
+    "pre_entries": 15228,
+    "pre_sha256": "de1b375d79ef05f4c2477347b20b8a09115511d2ecbd39602bdebcdfa6d576dc",
+    "pre_size": 2236277,
+    "temporary_sha256": "999b42fa76e036ad79f68ef7cd3ff958c94bd42c08ab00dd0394898d0205de76",
+    "temporary_size": 4114120
+  },
+  "rollback": {
+    "automatic_rollback_performed": false,
+    "available": true,
+    "path": "C:\\Codex\\DanbooruTagTool\\backups\\issue55_japanese_overlay_pre_v5_20260911_2152\\original_japanese_overlay.json",
+    "sha256": "de1b375d79ef05f4c2477347b20b8a09115511d2ecbd39602bdebcdfa6d576dc"
+  },
+  "runtime_root": "C:\\Codex\\DanbooruTagTool",
+  "source": {
+    "path": "C:\\Codex\\DanbooruTagTool\\.worktrees\\issue36-v5-audited-input\\translation_quarantine\\orchestration\\issue36_relaxed_v5_chatgpt_repair\\materialized\\final_translation_table_v5.csv",
+    "rows": 30629,
+    "sha256": "a307a354f6e7c9fb2387464713765795d9949802b345b00eb3cb64659df7fdce",
+    "unique_canonicals": 30629
+  },
+  "verdict": "PRODUCTION_WRITE_COMPLETE_AWAITING_UI_ACCEPTANCE"
+}

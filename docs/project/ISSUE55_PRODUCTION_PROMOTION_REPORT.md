@@ -1,0 +1,138 @@
+# Issue #55 UI-JA V5 Production Promotion Report
+
+Date: 2026-09-11 JST
+
+## Verdict
+
+`HOLD_PRODUCTION_PROMOTION`
+
+The protected production write and every deterministic post-write gate passed. The remaining blocker is the required independent visual inspection of the real Windows Tk window: the native Computer Use connector exposed no Windows apps and its `@oai/sky` fallback returned `Trusted RPC service is not configured: sky`. The actual app is running and responsive, but mojibake/tofu/layout cannot be truthfully marked visually inspected by Codex.
+
+## Authorities and routing
+
+- live `main`: `4ccf87cbe461779b9296d115fce19fc169b84a66`
+- promotion branch: `codex/issue55-ui-ja-production-promotion`
+- audited V5 branch: `ui-ja/issue36-relaxed-v5-chatgpt-repair`
+- audited V5 live HEAD: `c221b3bcf97ad117482b4e8c411cf2edf419b5df`
+- independent audit target: `ea8762c4b351e9d0fd939687b2aae6617c852d18`
+- independent audit checkpoint: Issue #36 comment `5633982018`
+- audit verdict: `PROMOTION_AUDIT_PASS`
+- audit-target-to-live-V5 diff: only `PRODUCTION_PROMOTION_HANDOFF.md`; audited data/materializer/reports unchanged
+- `CURRENT_STATE.md` and a restored `CURRENT_DEV_TASK.md` route current DEV to Issue #55 on this feature branch
+- quarantine worktree was detached/read-only at exact live V5 HEAD
+
+## Actual local runtime and Issue #49 baseline
+
+- actual repo/runtime root: `C:\Codex\DanbooruTagTool`
+- launcher: `C:\Codex\DanbooruTagTool\START_DANBOORU_TAG_TOOL.bat`
+- local branch/HEAD after safe synchronization: `main` / `4ccf87cbe461779b9296d115fce19fc169b84a66`
+- remote: `https://github.com/takasago181/DanbooruTagTool.git`
+- relation to live main: `0 ahead / 0 behind`
+- Issue #49 anchor `490f5653460804c8a40cb48d093b91d5d8dd5d9c`: contained in local history
+- profile: `data/generation/special2788_generation_profile.csv`
+- profile SHA-256 before/after: `55490940378e15d8e41454e701d0c202abbab307a08fb6e56841171e0edec1fd` / unchanged
+- profile rows/unique identities/order: 2,788 / 2,788 / exact `1..2788`
+- duplicate identity: 0
+- diff from Issue #49 anchor for the profile: 0
+- result: `LOCAL_ISSUE49_SYNC_PASS`
+
+The root had no tracked changes but was 45 commits behind live main. Two untracked paths collided with tracked live-main paths. They were moved, not deleted, to `C:\Codex\DanbooruTagTool\backups\issue55_pre_main_sync_20260911_2130\` before `git switch main` and `git merge --ff-only origin/main`. Both files are recoverable there. No stash, rebase, reset, force checkout, or protected-data deletion was used.
+
+## Audited V5 source
+
+- source: `materialized/final_translation_table_v5.csv` from detached V5 worktree
+- source SHA-256: `a307a354f6e7c9fb2387464713765795d9949802b345b00eb3cb64659df7fdce`
+- source/materialized rows: 30,629 / 30,629
+- completed shards: 31 / 31
+- override rows/applied: 10,691 / 10,691
+- canonical unique/identity/order: PASS
+- duplicate canonical: 0
+- non-display columns preserved: PASS
+- `display_ja` nonempty: PASS
+- HANGUL / RAW_ENGLISH_WRAPPER / CONTROL_CHAR: 0 / 0 / 0
+- `production_modified=false` before this implementation
+
+No translation, semantic, ASCII-suspicious, or Japanese-polish re-audit was performed.
+
+## Production write
+
+- target: `C:\Codex\DanbooruTagTool\data\runtime\japanese_overlay.json`
+- target status: Git-ignored local protected data (`.gitignore` `data/runtime/`)
+- loader: `TagKnowledgeCore.load()` -> `JapaneseOverlay.load()`
+- schema: format version 1; top-level `entries`; exact entry fields `display_ja` and `search_ja`
+- pre hash/size/entries: `de1b375d79ef05f4c2477347b20b8a09115511d2ecbd39602bdebcdfa6d576dc` / 2,236,277 bytes / 15,228
+- post hash/size/entries: `999b42fa76e036ad79f68ef7cd3ff958c94bd42c08ab00dd0394898d0205de76` / 4,114,120 bytes / 30,629
+- transformation: each audited row maps exactly to `canonical -> {display_ja, search_ja: [search_ja]}`
+- temp validation: JSON/schema/count/identity/order/unknown/blank/search-list/UTF-8/real-loader all PASS
+- atomic write: same-filesystem temporary file followed by `os.replace()`
+- partial write: none
+- owned temp remnants: 0
+
+Rollback copy:
+
+- path: `C:\Codex\DanbooruTagTool\backups\issue55_japanese_overlay_pre_v5_20260911_2152\original_japanese_overlay.json`
+- SHA-256: `de1b375d79ef05f4c2477347b20b8a09115511d2ecbd39602bdebcdfa6d576dc`
+- backup matches the complete pre-write artifact: PASS
+- automatic rollback performed: no
+- rollback remains available
+
+## Independent deterministic post-write verification
+
+- production JSON parse/load: PASS
+- source rows / production entries: 30,629 / 30,629
+- duplicate source canonical: 0
+- canonical identity/order exact: PASS / PASS
+- V5-to-production mapping mismatch: 0
+- entry field mismatch: 0
+- blank display: 0
+- invalid search list: 0
+- unknown canonical: 0
+- loader display/search count: 30,629 / 30,629
+- loader mapping mismatch: 0
+- UTF-8 roundtrip: PASS
+- #49 profile pre/post unchanged: PASS
+- root tracked changes after write: 0
+- generation metadata, semantic support, recommendation data, Prompt syntax, UI code: not written by the promotion path
+- pre/post overlay diff is fully explained by exact replacement with the audited V5 canonical set and intended two fields
+
+## Tests
+
+- Issue #55 converter fail-closed tests: 4 passed
+- updated actual-root overlay/UI focused tests: 31 passed
+- Stage 9C session: 23 passed
+- E2E functional/verdict: 8 passed
+- focused total: 66 passed
+- `py_compile`: PASS
+- `git diff --check`: PASS
+- full suite with updated #55 expectations: 307 passed, 9 pre-existing/local-baseline failures
+
+The nine full-suite failures are outside overlay/UI/search scope: missing local `PACKAGE_MANIFEST.json` (two tests), existing Stage 0 protected README manifest mismatch, existing semantic-support protected hash mismatch, and five Stage 8 family snapshot/applicability mismatches following the already-approved Issue #49 profile. Focused #55 tests introduced zero failures/errors. The system Python initially lacked Pillow; the completed full run used the bundled local Pillow package without installing dependencies.
+
+## Real Windows acceptance state
+
+- launched executable: `C:\Users\takas\AppData\Local\Python\pythoncore-3.12-64\pythonw.exe`
+- launch working directory: `C:\Codex\DanbooruTagTool`
+- launch arguments: `-m danbooru_tag_tool`
+- window title: `DanbooruTagTool — Special-first`
+- process responding: yes
+- actual root equals the verified/promoted root: PASS
+- representative underlying display/search/canonical checks: 7/7 PASS (`1girl`, `gaping`, `holding_hands`, `ios_(os)`, `branding_iron`, `katana`, `car`)
+- each Japanese display query returned the intended canonical first with Japanese-overlay provenance; canonical identity remained English
+- visual mojibake/tofu/layout inspection: **BLOCKED by unavailable native UI connector**
+
+The app remains open for the user or a working native UI automation context to perform the minimal visual gate. Do not treat deterministic string/search checks as proof of rendered glyph quality.
+
+## Contamination and stop point
+
+- protected production file committed: no
+- quarantine rewritten: no
+- #34 ranking changed: no
+- #35 UI implementation changed: no
+- #32/#49 data changed: no
+- semantic/recommendation/Prompt changed: no
+- Stage10 started: no
+- main merge performed: no
+- Issue #36 closed: no
+- unrelated contamination: 0
+
+Resume by visually inspecting the already-open real Tk app at the exact promoted root. If rendering/search samples pass, update this report/checkpoint to `READY_FOR_POST_WRITE_AUDIT`; otherwise preserve evidence and either roll back with the recorded copy or report the exact UI defect.

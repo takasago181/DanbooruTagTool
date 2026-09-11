@@ -168,18 +168,18 @@ def test_special_japanese_and_overlay_search_expand_to_special(presenter, knowle
     assert any(item.matched_canonical in canonicals for item in result.special)
 
 
-def test_search_only_japanese_is_not_promoted_to_general_display(presenter, knowledge):
+def test_promoted_japanese_is_used_for_general_display(presenter, knowledge):
     special_canonicals = {candidate for item in knowledge.special.values()
                           for candidate in item.canonical_candidates}
     term, canonicals = next(
         (term, canonicals) for term, canonicals in knowledge.overlay_lookup.items()
-        if any(canonical not in special_canonicals
-               and canonical not in knowledge.japanese_overlay.display_by_canonical
-               for canonical in canonicals)
+        if len(canonicals) == 1
+        and canonicals[0] not in special_canonicals
+        and canonicals[0] in knowledge.japanese_overlay.display_by_canonical
     )
     result = presenter.search(term)
     item = next(item for item in result.general if item.canonical in canonicals)
-    assert item.display_japanese is None
+    assert item.display_japanese == knowledge.japanese_overlay.display_by_canonical[item.canonical]
 
 
 def test_semantic_unmapped_has_no_fake_canonical_or_count(presenter, knowledge, profile_store):
@@ -332,7 +332,7 @@ def test_runtime_search_path_is_offline(monkeypatch, knowledge, profile_store):
     ("data/generation/special2788_generation_profile.csv", "55490940378e15d8e41454e701d0c202abbab307a08fb6e56841171e0edec1fd"),
     ("data/generation/generation_family_rules.csv", "0f0e2e9f1f001d12e421324a6356bab42293fb206fe53a3e642495d5765c6936"),
     ("data/generation/generation_model_observations.csv", "ee036aac810ef94b9f0376a23d0159f4275d6d2feac7ccd689ca297d361164c8"),
-    ("data/runtime/japanese_overlay.json", "de1b375d79ef05f4c2477347b20b8a09115511d2ecbd39602bdebcdfa6d576dc"),
+    ("data/runtime/japanese_overlay.json", "999b42fa76e036ad79f68ef7cd3ff958c94bd42c08ab00dd0394898d0205de76"),
 ))
 def test_protected_assets_are_unchanged(relative, expected):
     assert hashlib.sha256((ROOT / relative).read_bytes()).hexdigest() == expected

@@ -10,7 +10,11 @@ import json
 import os
 from pathlib import Path
 import shutil
+import sys
 import tempfile
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
 
 from danbooru_tag_tool.japanese_overlay import JapaneseOverlay
 from danbooru_tag_tool.knowledge import TagKnowledgeCore
