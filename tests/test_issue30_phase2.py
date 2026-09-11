@@ -27,6 +27,8 @@ TRIAGE_AUDIT = ROOT / "docs/testing/ISSUE30_PHASE2_MACHINE_TRIAGE_AUDIT.json"
 HUMAN_REVIEW = ROOT / "docs/testing/ISSUE30_PHASE2_HUMAN_REVIEW_RESULTS_20260910.json"
 WAVE1_BROAD_MANIFEST = ROOT / "docs/testing/ISSUE30_BROAD_COVERAGE_WAVE1_MANIFEST.csv"
 WAVE1_BROAD_RESULT = ROOT / "docs/testing/ISSUE30_BROAD_COVERAGE_WAVE1_RESULT.json"
+WAVE1_REPAIRED_RESULT = ROOT / "docs/testing/ISSUE30_BROAD_COVERAGE_WAVE1_REPAIRED_CALIBRATION.json"
+PILOT_SOURCE = ROOT / "tools/issue30_calibration_pilot.py"
 
 
 def test_phase2_manifest_is_bounded_and_uses_current_special_ids():
@@ -115,6 +117,23 @@ def test_broad_coverage_wave1_is_bounded_evaluator_complete_and_stopped():
     assert report["machine_route_frozen"] is True
     assert report["decision"] == "STOP_FOR_CHATGPT_VISUAL_AUDIT"
     assert report["wave2_started"] is False
+
+
+def test_wave1_serializer_is_record_scoped_and_repaired_calibration_is_frozen():
+    source = PILOT_SOURCE.read_text(encoding="utf-8")
+    assert '"evaluators": record["evaluators"]' in source
+    assert 'routing(record["evaluators"], record["screen"])' in source
+
+    report = json.loads(WAVE1_REPAIRED_RESULT.read_text(encoding="utf-8"))
+    assert report["status"] == "REPAIRED_FROM_EXISTING_RAW_ARTIFACTS_MACHINE_VS_VISUAL_CALIBRATION_COMPLETE_STOPPED"
+    assert report["repair_scope"]["images_regenerated"] == 0
+    assert report["repair_scope"]["evaluator_reruns"] == 0
+    assert report["repair_scope"]["rows_rebuilt"] == 64
+    assert report["raw_artifact_integrity"]["all_rebuilt_evaluators_ok"] is True
+    assert report["route_recalculation_comparison"] == {"image_route_matches_frozen": 64, "pair_route_matches_frozen": 32}
+    assert report["machine_vs_visual"]["machine_handled_false_safe_pairs"] == 1
+    assert report["machine_vs_visual"]["machine_handled_pairs"] == 2
+    assert report["decision"] == "STOP_AFTER_REPAIR_AND_MACHINE_VS_VISUAL_CALIBRATION"
 
 
 def test_human_review_preserves_pair_outcomes_and_validity_boundaries():
