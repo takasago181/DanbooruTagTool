@@ -16,7 +16,6 @@ row_number,canonical,display_ja,checks,already_overridden
 3218,human_(warcraft),人間（Warcraft）,ASCII_WORD,false
 3265,implied_yaoi,BLを示唆,ASCII_WORD,false
 3342,k/da_(league),K/DA（リーグオブレジェンド）,ASCII_WORD,false
-3922,nub_chastity_cage,nub貞操帯,ASCII_WORD,false
 3947,oculus_headset,Oculusヘッドセット,ASCII_WORD,false
 4074,overwatch_logo,Overwatchのロゴ,ASCII_WORD,false
 4090,painttool_sai,ペイントツールSAI,ASCII_WORD,false
@@ -60,10 +59,10 @@ row_number,canonical,display_ja,checks,already_overridden
 6272,ags_(last_origin),AGS（ラストオリジン）,ASCII_WORD,true
 6273,ah-1_cobra,AH-1コブラ,ASCII_WORD,false
 6274,ah-64_apache,AH-64 アパッチ,ASCII_WORD,true
-6276,ahnenerbe_shop_uniform,ahnenerbe shopの制服,ASCII_WORD,false
+6276,ahnenerbe_shop_uniform,Ahnenerbe Shopの制服,ASCII_WORD,true
 6280,ahri_(league)_(cosplay),アーリ（LoL）のコスプレ,ASCII_WORD,true
 6281,ai-generated_art_(topic),AI生成画像（話題）,ASCII_WORD,true
-6287,aihara_academy_school_uniform,aihara academyの学校制服,ASCII_WORD,false
+6287,aihara_academy_school_uniform,Aihara Academyの制服,ASCII_WORD,true
 6294,aimpoint,Aimpoint（照準器）,ASCII_WORD,true
 6326,aiscream_(love_live!),AiScReam（ラブライブ！）,ASCII_WORD,true
 6340,akali_(league)_(cosplay),アカリ（LoL）のコスプレ,ASCII_WORD,true
@@ -73,7 +72,7 @@ row_number,canonical,display_ja,checks,already_overridden
 6372,alcina_dimitrescu_(cosplay),Alcina dimitrescu（コスプレ）,ASCII_WORD,false
 6405,alphes_(style),alphes塗り,ASCII_WORD,false
 6449,alvis_uniform,alvisの制服,ASCII_WORD,false
-6471,ame_no_kisaki_academy_school_uniform,ame no kisaki academyの学校制服,ASCII_WORD,false
+6471,ame_no_kisaki_academy_school_uniform,Ame no Kisaki Academyの制服,ASCII_WORD,true
 6504,among_us_eyes_(meme),Among Usの目（ミーム）,ASCII_WORD,true
 6532,ancient_dragon_(elden_ring),古竜（ELDEN RING）,ASCII_WORD,true
 6539,anemo_symbol_(genshin_impact),風元素のシンボル（Genshin Impact）,ASCII_WORD,false
@@ -98,9 +97,9 @@ row_number,canonical,display_ja,checks,already_overridden
 7187,atm,ATM（現金自動預払機）,ASCII_WORD,true
 7197,attack_ship_(eve_online),攻撃艦（EVE Online）,ASCII_WORD,false
 7241,av_idol,AVアイドル,ASCII_WORD,false
-7254,avocado_academy_school_uniform,avocado academyの学校制服,ASCII_WORD,false
+7254,avocado_academy_school_uniform,Avocado Academyの制服,ASCII_WORD,true
 7255,awacs,AWACS（早期警戒管制機）,ASCII_WORD,true
-7256,awafuji_school_uniform,awafujiの学校制服,ASCII_WORD,false
+7256,awafuji_school_uniform,Awafujiの制服,ASCII_WORD,true
 7258,awakened_being_(claymore),覚醒者（CLAYMORE）,ASCII_WORD,true
 7259,awakening_(sennen_sensou_aigis),目覚め（Sennen Sensou Aigis）,ASCII_WORD,false
 7260,awakening_(toaru),Awakening（とある）,ASCII_WORD,true
@@ -117,8 +116,8 @@ row_number,canonical,display_ja,checks,already_overridden
 7642,bc_freedom_military_uniform,BC自由学園の軍服,ASCII_WORD,true
 7643,bc_freedom_school_uniform,BC自由学園の制服,ASCII_WORD,true
 7644,bcy_username,bcyのユーザー名,ASCII_WORD,false
-7762,bellwall_military_uniform,bellwall militaryの制服,ASCII_WORD,false
-7763,bellwall_school_uniform,bellwallの学校制服,ASCII_WORD,false
+7762,bellwall_military_uniform,Bellwallの軍服,ASCII_WORD,true
+7763,bellwall_school_uniform,Bellwallの制服,ASCII_WORD,true
 7799,beretta_ar70/90,ベレッタAR70,ASCII_WORD,false
 7800,beretta_px4,ベレッタPx4,ASCII_WORD,false
 7819,bible_black's_school_uniform,Bible Blackの制服,ASCII_WORD,true
@@ -127,10 +126,10 @@ row_number,canonical,display_ja,checks,already_overridden
 7864,bilibili_watermark,bilibiliの透かし,ASCII_WORD,true
 7875,binding_shield_(fire_emblem),封印の盾（Fire Emblem）,ASCII_WORD,false
 7934,bismarck_(kancolle)_(cosplay),bismarck（kancolle）（コスプレ）,ASCII_WORD,false
-8107,black_vinegar_middle_school_uniform,black vinegar middleの学校制服,ASCII_WORD,false
+8107,black_vinegar_middle_school_uniform,Black Vinegar Middle Schoolの制服,ASCII_WORD,true
 8115,blacked_(phrase),blacked（フレーズ）,ASCII_WORD,true
 8116,blackish_961sp_(idolmaster),ブラッキッシュ961SP,ASCII_WORD,false
-8124,blacksteel_worldwide_logo,blacksteel worldwideのロゴ,ASCII_WORD,false
+8124,blacksteel_worldwide_logo,Blacksteel Worldwideのロゴ,ASCII_WORD,true
 8134,blake_bloom_(wuthering_waves),Blake Bloom（鳴潮）,ASCII_WORD,true
 8140,blanket_cape,blanket・ケープ,ASCII_WORD,false
 8143,blanket_veil,blanket・ベール,ASCII_WORD,false
@@ -142,7 +141,7 @@ row_number,canonical,display_ja,checks,already_overridden
 8245,bloom_garden_party_jacket,Bloom Garden Partyのピンクジャケット,ASCII_WORD,true
 8261,blu-ray_logo,Blu-rayロゴ,ASCII_WORD,true
 8324,blue_journey_(hololive),Blue Journey（ホロライブ）,ASCII_WORD,true
-8394,blueberry_academy_school_uniform,blueberry academyの学校制服,ASCII_WORD,false
+8394,blueberry_academy_school_uniform,Blueberry Academyの制服,ASCII_WORD,true
 8398,bluesky_logo,Blueskyロゴ,ASCII_WORD,true
 8399,bluesky_username,Blueskyユーザー名,ASCII_WORD,true
 8415,bmw_3_series,BMW 3シリーズ,ASCII_WORD,true
@@ -166,7 +165,6 @@ row_number,canonical,display_ja,checks,already_overridden
 8792,broly_culo_(meme),Broly culo（ミーム）,ASCII_WORD,false
 8924,bryan_lee_o'malley_(style),Bryan Lee O'Malley風,ASCII_WORD,true
 8971,bulge_peek,bulge・覗き見,ASCII_WORD,false
-8988,bullying_viewer,POVいじめ,ASCII_WORD,false
 9015,burning_as_one_(umamusume),Burning as One（ウマ娘）,ASCII_WORD,true
 9060,butler_(fire_emblem:_three_houses),執事（Fire Emblem: Three Houses）,ASCII_WORD,false
 9129,cadpat,CADPAT（迷彩柄）,ASCII_WORD,true
@@ -178,7 +176,6 @@ row_number,canonical,display_ja,checks,already_overridden
 9407,castle_town_(deltarune),キャッスルタウン（DELTARUNE）,ASCII_WORD,true
 9409,castrol,Castrol（ブランド）,ASCII_WORD,true
 9411,casull_(hellsing),カスール（HELLSING）,ASCII_WORD,true
-9492,cavorite_ball,cavoriteボール,ASCII_WORD,false
 9496,cd_case,CDケース,ASCII_WORD,false
 9497,cd_player,CDプレイヤー,ASCII_WORD,false
 9547,ch-47_chinook,CH-47チヌーク,ASCII_WORD,false
@@ -238,7 +235,7 @@ row_number,canonical,display_ja,checks,already_overridden
 11289,destroyer_(eve_online),駆逐艦（EVE Online）,ASCII_WORD,false
 11309,deviantart_logo,DeviantArtロゴ,ASCII_WORD,false
 11315,deviruchi_hat,deviruchi・帽子,ASCII_WORD,false
-11316,devyat'_association_north_uniform,devyat' association northの制服,ASCII_WORD,false
+11316,devyat'_association_north_uniform,Devyat' Association Northの制服,ASCII_WORD,true
 11346,diamond_(minecraft),ダイヤモンド(Minecraft),ASCII_WORD,false
 11364,diana_(pragmata)_(cosplay),ディアナ（PRAGMATA）（コスプレ）,ASCII_WORD,true
 11391,digimon_(virtual_pet),デジタルモンスターVer.1,ASCII_WORD,false
@@ -334,7 +331,6 @@ row_number,canonical,display_ja,checks,already_overridden
 13801,gae_buidhe_(fate),ゲイ・ボウ（Fate）,ASCII_WORD,true
 13802,gae_dearg_(fate),ゲイ・ジャルグ（Fate）,ASCII_WORD,true
 13816,gallente_federation_(eve_online),ガレンテ連邦（EVE Online）,ASCII_WORD,true
-13820,gambol_shroud,Gambolシュラウド,ASCII_WORD,false
 13825,game_boy_advance_sp,ゲームボーイアドバンスSP,ASCII_WORD,false
 13827,game_cartridge,ROMカセット,ASCII_WORD,false
 13870,garmentmaker_(honkai:_star_rail),Garmentmaker（崩壊：スターレイル）,ASCII_WORD,true
@@ -358,7 +354,7 @@ row_number,canonical,display_ja,checks,already_overridden
 14354,google_maps,Google マップ,ASCII_WORD,true
 14356,google_street_view,Google ストリートビュー,ASCII_WORD,true
 14361,gordius_wheel_(fate),ゴルディウス・ホイール（Fate）,ASCII_WORD,true
-14366,goryoukan_academy_uniform,goryoukan academyの制服,ASCII_WORD,false
+14366,goryoukan_academy_uniform,Goryoukan Academyの制服,ASCII_WORD,true
 14453,gram_(fate),グラム(Fate),ASCII_WORD,false
 14784,grim_reaper_(weapon)_(fate),グリム・リーパー(Fate),ASCII_WORD,false
 14790,grizzly_win_mag,LARグリズリー,ASCII_WORD,false
@@ -367,8 +363,8 @@ row_number,canonical,display_ja,checks,already_overridden
 14867,gundam_age-1_titus_(cosplay),ガンダムAGE-1 タイタス（コスプレ）,ASCII_WORD,true
 14887,gyari_(imagesdawn)_(style),Gyari（ImagesDawn）（スタイル）,ASCII_WORD,false
 14950,hair_branch,hair branch（曖昧タグ）,ASCII_WORD,true
-15019,hakuryou_high_school_uniform,hakuryou highの学校制服,ASCII_WORD,false
-15020,hakusen_academy_school_uniform,hakusen academyの学校制服,ASCII_WORD,false
+15019,hakuryou_high_school_uniform,Hakuryou High Schoolの制服,ASCII_WORD,true
+15020,hakusen_academy_school_uniform,Hakusen Academyの制服,ASCII_WORD,true
 15038,half_eye_mask,half・目・マスク,ASCII_WORD,false
 15084,hanamiya_nina_(style),hanamiya nina風,ASCII_WORD,true
 15296,happy_enjoy_music!_(project_sekai),HAPPY ENJOY MUSIC!（プロジェクトセカイ）,ASCII_WORD,true
@@ -377,8 +373,8 @@ row_number,canonical,display_ja,checks,already_overridden
 15392,hauling_ship_(eve_online),輸送艦（EVE Online）,ASCII_WORD,false
 15496,heart-shift_bracelets,Heart-Shiftブレスレット,ASCII_WORD,true
 15585,hecate's_staff_(fate),ヘカテーの杖（Fate）,ASCII_WORD,true
-15603,heijou_institute_school_uniform,hejou Institute学校の制服,ASCII_WORD,false
-15611,hekiho_academy_school_uniform,hekiho academyの学校制服,ASCII_WORD,false
+15603,heijou_institute_school_uniform,Heijou Instituteの制服,ASCII_WORD,true
+15611,hekiho_academy_school_uniform,Hekiho Academyの制服,ASCII_WORD,true
 15612,helena_blavatsky_(fate)_(cosplay),ヘレナ・ブラヴァツキー（Fate）（コスプレ）,ASCII_WORD,true
 15627,hello_mem_world!_(honkai:_star_rail),Hello Mem World!（崩壊：スターレイル）,ASCII_WORD,true
 15643,hentai_foundry_username,Hentai Foundryユーザー名,ASCII_WORD,true
@@ -386,9 +382,9 @@ row_number,canonical,display_ja,checks,already_overridden
 15680,hf_murasama,HFムラサマ,ASCII_WORD,true
 15681,hibachi_(object),hibachi（オブジェクト）,ASCII_WORD,false
 15726,high_x_joker_(idolmaster),High×Joker（アイドルマスター）,ASCII_WORD,true
-15757,himematsu_school_uniform,himematsuの学校制服,ASCII_WORD,false
+15757,himematsu_school_uniform,Himematsuの制服,ASCII_WORD,true
 15761,himitsucalibur_(fate),ヒミツカリバー（Fate）,ASCII_WORD,true
-15770,hino_minami_high_school_uniform,hino minami highの学校制服,ASCII_WORD,false
+15770,hino_minami_high_school_uniform,Hino Minami High Schoolの制服,ASCII_WORD,true
 15807,hk416_(girls'_frontline)_(cosplay),HK416（ドールズフロントライン）（コスプレ）,ASCII_WORD,true
 15920,holding_cd,CDを持つ,ASCII_WORD,true
 16138,holding_mp3_player,MP3プレーヤーを持つ,ASCII_WORD,true
@@ -396,7 +392,7 @@ row_number,canonical,display_ja,checks,already_overridden
 16397,hollow_(bleach),虚（BLEACH）,ASCII_WORD,true
 16406,holoadvent,ホロライブEN3期生,ASCII_WORD,false
 16408,holocouncil,ホロライブEN2期生,ASCII_WORD,false
-16419,holohoneygaoka_high_school_uniform,holohoneygaoka highの学校制服,ASCII_WORD,false
+16419,holohoneygaoka_high_school_uniform,Holohoneygaoka High Schoolの制服,ASCII_WORD,true
 16420,holojustice,ホロライブEN4期生,ASCII_WORD,false
 16433,hololive_super_expo_2026_outfit,hololive SUPER EXPO 2026衣装,ASCII_WORD,true
 16434,holomyth,ホロライブEN1期生,ASCII_WORD,false
@@ -406,23 +402,21 @@ row_number,canonical,display_ja,checks,already_overridden
 16439,holotempus,ホロスターズEN1期生,ASCII_WORD,false
 16447,hometown_(deltarune),ホームタウン（DELTARUNE）,ASCII_WORD,true
 16450,homicipher_text,Homicipherのテキスト,ASCII_WORD,true
-16453,homurabara_academy_elementary_school_uniform,homurabara academy elementaryの学校制服,ASCII_WORD,false
+16453,homurabara_academy_elementary_school_uniform,Homurabara Academy Elementary Schoolの制服,ASCII_WORD,true
 16456,honda_civic_type_r,シビックTypeR,ASCII_WORD,false
 16459,honda_nsx,ホンダNSX,ASCII_WORD,false
-16503,hooked_on_heel,hookedの上のheel,ASCII_WORD,false
-16570,hoshinomiya_girls'_high_school_uniform,hoshinomiya girls' highの学校制服,ASCII_WORD,false
-16593,houjou_high_school_uniform,houjou highの学校制服,ASCII_WORD,false
+16570,hoshinomiya_girls'_high_school_uniform,Hoshinomiya Girls' High Schoolの制服,ASCII_WORD,true
+16593,houjou_high_school_uniform,Houjou High Schoolの制服,ASCII_WORD,true
 16621,hoyolab_username,HoYoLABユーザー名,ASCII_WORD,true
 16623,hs2000,スプリングフィールドXD,ASCII_WORD,false
 16626,http_status_code,HTTPステータスコード,ASCII_WORD,false
-16661,humagear_headphones,Humagearヘッドフォン,ASCII_WORD,false
 16692,hunter_(bloodborne)_(cosplay),狩人（Bloodborne）（コスプレ）,ASCII_WORD,true
 16708,hybrid_weapon_(eve_online),ハイブリッド兵器（EVE Online）,ASCII_WORD,false
 16742,i-401_(kancolle)_(cosplay),I-401（Kancolle）（コスプレ）,ASCII_WORD,false
 16838,ikea_shark,IKEAのサメ,ASCII_WORD,false
 16860,imi_negev,IMI ネゲヴ,ASCII_WORD,true
 16904,imminent_uno_loss_(meme),UNOで負ける直前（ミーム）,ASCII_WORD,true
-17042,indigo_academy_school_uniform,indigo academyの学校制服,ASCII_WORD,false
+17042,indigo_academy_school_uniform,Indigo Academyの制服,ASCII_WORD,true
 17053,infinite_stratos_academy_school_uniform,IS学園の制服,ASCII_WORD,true
 17115,instagram_logo,Instagramロゴ,ASCII_WORD,false
 17116,instagram_story,Instagramストーリー,ASCII_WORD,true
@@ -431,7 +425,7 @@ row_number,canonical,display_ja,checks,already_overridden
 17158,into_the_new_light_(project_sekai),Into the New Light（プロジェクトセカイ）,ASCII_WORD,true
 17191,ipod_ad,iPod広告,ASCII_WORD,true
 17213,irken_pak,イルケンPAK,ASCII_WORD,true
-17214,irken_uniform,irkenの制服,ASCII_WORD,false
+17214,irken_uniform,Irkenの制服,ASCII_WORD,true
 17227,ironmouse_outfit_art_contest,Ironmouse衣装アートコンテスト,ASCII_WORD,true
 17239,ishowspeed_trying_not_to_laugh_(meme),IShowSpeedが笑いをこらえる（ミーム）,ASCII_WORD,true
 17240,ishtar_(fate)_(cosplay),イシュタル（Fate）（コスプレ）,ASCII_WORD,true
@@ -448,27 +442,27 @@ row_number,canonical,display_ja,checks,already_overridden
 17388,jeanne_d'arc_alter_santa_lily_(fate)_(cosplay),ジャンヌ・ダルク・オルタ・サンタ・リリィ（Fate）（コスプレ）,ASCII_WORD,true
 17444,jk_gumi_(nijisanji),にじさんじJK組,ASCII_WORD,false
 17456,joker_(dc)_(cosplay),ジョーカー（DC）（コスプレ）,ASCII_WORD,false
-17462,jouin_high_school_uniform,jouin highの学校制服,ASCII_WORD,false
+17462,jouin_high_school_uniform,Jouin High Schoolの制服,ASCII_WORD,true
 17502,junkyard_dog_mk_iii,ジャンクヤード・ドッグ Mk.III（GUILTY GEAR）,ASCII_WORD,true
 17508,just_monika_(meme),Just Monika（ミーム）,ASCII_WORD,true
 17552,kaine_(nier)_(cosplay),カイネ（NieR）（コスプレ）,ASCII_WORD,true
 17556,kaito_(vocaloid)_(cosplay),KAITO（VOCALOID）（コスプレ）,ASCII_WORD,true
 17567,kama_(fate)_(cosplay),カーマ（Fate）（コスプレ）,ASCII_WORD,true
-17576,kami_high_school_uniform,kami highの学校制服,ASCII_WORD,false
-17613,kanon_school_uniform,kanonの学校制服,ASCII_WORD,false
+17576,kami_high_school_uniform,Kami High Schoolの制服,ASCII_WORD,true
+17613,kanon_school_uniform,Kanonの制服,ASCII_WORD,true
 17615,kanshou_&_bakuya_(fate),干将・莫耶（Fate）,ASCII_WORD,true
 17648,kasumi_(doa)_(cosplay),かすみ（DEAD OR ALIVE）（コスプレ）,ASCII_WORD,true
-17651,katagiri_senior_high_school_uniform,katagiri senior highの学校制服,ASCII_WORD,false
-17674,kazami_uniform,kazamiの制服,ASCII_WORD,false
+17651,katagiri_senior_high_school_uniform,Katagiri Senior High Schoolの制服,ASCII_WORD,true
+17674,kazami_uniform,Kazamiの制服,ASCII_WORD,true
 17683,ke-ta_(style),ke-ta（スタイル）,ASCII_WORD,false
 17690,kei_(keigarou)_(style),Kei（Keigarou）（スタイル）,ASCII_WORD,false
-17753,kikka_academy_school_uniform,kikka academyの学校制服,ASCII_WORD,false
-17755,kikyo_private_academy_school_uniform,kikyo private academyの学校制服,ASCII_WORD,false
+17753,kikka_academy_school_uniform,Kikka Academyの制服,ASCII_WORD,true
+17755,kikyo_private_academy_school_uniform,Kikyo Private Academyの制服,ASCII_WORD,true
 17803,kirare_idol_uniform,KiRaReのアイドル衣装,ASCII_WORD,true
-17808,kirigaoka_girls'_academy_school_uniform,kirigaoka girls' academyの学校制服,ASCII_WORD,false
-17814,kirishima_uniform,kirishimaの制服,ASCII_WORD,false
-17816,kiritsusei_juuji_academy_school_uniform,kiritsusei juuji academyの学校制服,ASCII_WORD,false
-17846,kitami_hokuryo_high_school_uniform,kitami hokuryo highの学校制服,ASCII_WORD,false
+17808,kirigaoka_girls'_academy_school_uniform,Kirigaoka Girls' Academyの制服,ASCII_WORD,true
+17814,kirishima_uniform,Kirishimaの制服,ASCII_WORD,true
+17816,kiritsusei_juuji_academy_school_uniform,Kiritsusei Juuji Academyの制服,ASCII_WORD,true
+17846,kitami_hokuryo_high_school_uniform,Kitami Hokuryo High Schoolの制服,ASCII_WORD,true
 17897,knights_(ensemble_stars!),Knights（あんさんぶるスターズ!）,ASCII_WORD,true
 17898,knights_of_blood_uniform_(sao),血盟騎士団の制服（SAO）,ASCII_WORD,true
 17914,knowing_the_unseen_(project_sekai),Knowing the Unseen（プロジェクトセカイ）,ASCII_WORD,true
@@ -476,15 +470,15 @@ row_number,canonical,display_ja,checks,already_overridden
 17917,ko-fi_username,Ko-fiユーザー名,ASCII_WORD,true
 17938,koi_(koisan)_(style),koi（koisan）風,ASCII_WORD,true
 17941,koikoi_love_cafe_(ensemble_stars!),Koikoi Love Cafe（あんさんぶるスターズ！）,ASCII_WORD,true
-17946,kokatsu_academy_school_uniform,kokatsu academyの学校制服,ASCII_WORD,false
-17997,kotonohatoh_uniform,kotonohatohの制服,ASCII_WORD,false
-18004,kouryou_academy_school_uniform,Kouryouアカデミーユニフォーム,ASCII_WORD,false
-18005,kouryoukan_academy_school_uniform,kouryoukan academyの学校制服,ASCII_WORD,false
+17946,kokatsu_academy_school_uniform,Kokatsu Academyの制服,ASCII_WORD,true
+17997,kotonohatoh_uniform,Kotonohatohの制服,ASCII_WORD,true
+18004,kouryou_academy_school_uniform,Kouryou Academyの制服,ASCII_WORD,true
+18005,kouryoukan_academy_school_uniform,Kouryoukan Academyの制服,ASCII_WORD,true
 18008,koyanskaya_(fate)_(cosplay),コヤンスカヤ（Fate）（コスプレ）,ASCII_WORD,true
-18022,kuho_girls_academy_school_uniform,kuho girls academyの学校制服,ASCII_WORD,false
+18022,kuho_girls_academy_school_uniform,Kuho Girls Academyの制服,ASCII_WORD,true
 18045,kurokumo_clan_(identity)_(project_moon),黒雲会（人格）（Project Moon）,ASCII_WORD,true
 18046,kurokw_(style),kurokw風,ASCII_WORD,true
-18052,kurumi-gaoka_high_school_uniform,kurumi gaoka highの学校制服,ASCII_WORD,false
+18052,kurumi-gaoka_high_school_uniform,Kurumi-Gaoka High Schoolの制服,ASCII_WORD,true
 18061,kwon_eun-bi_waterbomb_performance_(meme),クォン・ウンビのWATERBOMBパフォーマンス（ミーム）,ASCII_WORD,true
 18069,l'avenir_academy_school_uniform,L'Avenir Academyのユニフォーム,ASCII_WORD,false
 18207,lapwing_face_tracking_redraws,Lapwing顔トラッキング再描画,ASCII_WORD,true
@@ -493,12 +487,12 @@ row_number,canonical,display_ja,checks,already_overridden
 18282,lay's_(potato_chips),Lay's（ポテトチップス）,ASCII_WORD,true
 18301,lcb_uniform_(project_moon),LCB制服（Project Moon）,ASCII_WORD,true
 18423,lekku_(anatomy),レック（Lekku／頭部触手）,ASCII_WORD,true
-18537,liebe_girls_academy_school_uniform,liebe girls academyの学校制服,ASCII_WORD,false
+18537,liebe_girls_academy_school_uniform,Liebe Girls Academyの制服,ASCII_WORD,true
 18538,liella!_first_generation,Liella! 1期生,ASCII_WORD,true
 18539,liella!_second_generation,Liella! 2期生,ASCII_WORD,true
 18604,limbus_kindergarten_uniform,Limbus幼稚園の制服,ASCII_WORD,true
 18618,linked_bikini,linked・ビキニ,ASCII_WORD,false
-18671,living_doll_uniform,living dollの制服,ASCII_WORD,false
+18671,living_doll_uniform,Living Dollの制服,ASCII_WORD,true
 18691,lobotomy_corporation_(identity)_(project_moon),ロボトミーコーポレーション（identity）（Project Moon）,ASCII_WORD,true
 18709,lofter_logo,lofterのロゴ,ASCII_WORD,false
 18737,long_fall_boots_(portal),ロングフォールブーツ（Portal）,ASCII_WORD,true
@@ -506,13 +500,13 @@ row_number,canonical,display_ja,checks,already_overridden
 18760,longinus_(weapon)_(fate),ロンギヌス（武器）（Fate）,ASCII_WORD,true
 18808,lord_camelot_(fate),ロード・キャメロット（Fate）,ASCII_WORD,true
 18811,loss_(meme),Loss（ミーム）,ASCII_WORD,true
-18833,love_high_school_uniform,love highの学校制服,ASCII_WORD,false
+18833,love_high_school_uniform,Love High Schoolの制服,ASCII_WORD,true
 18865,lucky_oasis_(stella_sora),Lucky Oasis（ステラソラ）,ASCII_WORD,true
 18880,lunacy_(limbus_company),狂気（Limbus Company）,ASCII_WORD,true
 18982,mage_(dq3)_(cosplay),魔法使い（DQ3）（コスプレ）,ASCII_WORD,true
 18997,magicite,魔石(ファイナルファンタジーVI),ASCII_WORD,false
-18999,maginot_military_uniform,maginot militaryの制服,ASCII_WORD,false
-19000,maginot_school_uniform,maginotの学校制服,ASCII_WORD,false
+18999,maginot_military_uniform,Maginotの軍服,ASCII_WORD,true
+19000,maginot_school_uniform,Maginotの制服,ASCII_WORD,true
 19006,magnolia_eclair_ii,マグノリアエクレアII,ASCII_WORD,false
 19016,mahou_shoujo_kikou_~prisma_codes~,魔法少女紀行 ～Prisma Codes～,ASCII_WORD,true
 19017,maid_(fire_emblem:_three_houses),メイド（Fire Emblem: Three Houses）,ASCII_WORD,false
@@ -520,13 +514,13 @@ row_number,canonical,display_ja,checks,already_overridden
 19108,mane_six_(my_little_pony),Mane Six（マイリトルポニー）,ASCII_WORD,true
 19132,manya_(dq4)_(cosplay),マーニャ（DQ4）（コスプレ）,ASCII_WORD,true
 19159,marciana_(nikke)_(cosplay),マルチャーナ（NIKKE）（コスプレ）,ASCII_WORD,true
-19161,marehoshi_academy_school_uniform,marehoshi academyの学校制服,ASCII_WORD,false
+19161,marehoshi_academy_school_uniform,Marehoshi Academyの制服,ASCII_WORD,true
 19176,marine_uniform_(one_piece),海軍制服（ONE PIECE）,ASCII_WORD,true
 19182,mark_iv_tank,マークIV戦車,ASCII_WORD,false
 19221,masamune_(ff7),正宗（FF7）,ASCII_WORD,true
 19276,matis_(nikke),メティス(勝利の女神:NIKKE),ASCII_WORD,false
 19279,matou_family_(fate),間桐家（Fate）,ASCII_WORD,true
-19304,mayqueen_maid_uniform,mayqueen maidの制服,ASCII_WORD,false
+19304,mayqueen_maid_uniform,Mayqueenのメイド服,ASCII_WORD,true
 19308,mazda_mx-5_na,マツダ MX-5 NA,ASCII_WORD,true
 19309,mazda_mx-5_nd,マツダ MX-5 ND,ASCII_WORD,true
 19310,mazda_rx-7,サバンナRX-7,ASCII_WORD,false
@@ -546,8 +540,8 @@ row_number,canonical,display_ja,checks,already_overridden
 19526,micro_uzi,マイクロUZI,ASCII_WORD,false
 19531,microsoft_paint_(software),MSペイント,ASCII_WORD,false
 19536,middle_(identity)_(project_moon),中指（identity）（Project Moon）,ASCII_WORD,true
-19550,mihama_private_academy_school_uniform,mihama private academyの学校制服,ASCII_WORD,false
-19552,mihoshi_academy_school_uniform,Mihoshi Academyユニフォーム,ASCII_WORD,false
+19550,mihama_private_academy_school_uniform,Mihama Private Academyの制服,ASCII_WORD,true
+19552,mihoshi_academy_school_uniform,Mihoshi Academyの制服,ASCII_WORD,true
 19554,mihoyo_icon_parody,miHoYoアイコンパロディ,ASCII_WORD,true
 19555,mihuashi_logo,mihuashiのロゴ,ASCII_WORD,false
 19556,mihuashi_username,mihuashiのユーザー名,ASCII_WORD,false
@@ -566,20 +560,20 @@ row_number,canonical,display_ja,checks,already_overridden
 19670,minmatar_republic_(eve_online),ミンマター共和国（EVE Online）,ASCII_WORD,true
 19684,miracreation_(original),Miracreation（オリジナル）,ASCII_WORD,true
 19686,mirakurun_(cosplay),Mirakurun（コスプレ）,ASCII_WORD,false
-19694,misaki_municipal_high_school_uniform,misaki municipal highの学校制服,ASCII_WORD,false
-19719,misono_gakuen_school_uniform,misono gakuenの学校制服,ASCII_WORD,false
+19694,misaki_municipal_high_school_uniform,Misaki Municipal High Schoolの制服,ASCII_WORD,true
+19719,misono_gakuen_school_uniform,Misono Gakuenの制服,ASCII_WORD,true
 19729,misskey.io_username,misskey.ioのユーザー名,ASCII_WORD,false
 19750,mixed_holding,mixed・を持つ,ASCII_WORD,false
 19765,miyamoto_musashi_(fate)_(cosplay),宮本武蔵（Fate）（コスプレ）,ASCII_WORD,true
 19766,miyamoto_musashi_(swimsuit_berserker)_(fate)_(cosplay),宮本武蔵（水着バーサーカー）（Fate）（コスプレ）,ASCII_WORD,true
 19767,miyoushe_watermark,Miyousheウォーターマーク,ASCII_WORD,true
 19769,mizi_(alien_stage)_(cosplay),ミジ（ALIEN STAGE）（コスプレ）,ASCII_WORD,true
-19772,mizuka_academy_school_uniform,mizuka academyの学校制服,ASCII_WORD,false
-19773,mizukawa_school_uniform,mizukawaの学校制服,ASCII_WORD,false
+19772,mizuka_academy_school_uniform,Mizuka Academyの制服,ASCII_WORD,true
+19773,mizukawa_school_uniform,Mizukawaの制服,ASCII_WORD,true
 19783,mma_gloves,MMAグローブ,ASCII_WORD,true
 19802,modakawa_dress,modakawa・ドレス,ASCII_WORD,false
-19814,moegi_high_school_uniform,moegi highの学校制服,ASCII_WORD,false
-19849,momozono_junior_high_school_uniform,momozono junior highの学校制服,ASCII_WORD,false
+19814,moegi_high_school_uniform,Moegi High Schoolの制服,ASCII_WORD,true
+19849,momozono_junior_high_school_uniform,Momozono Junior High Schoolの制服,ASCII_WORD,true
 19881,monohoshizao_(fate),物干し竿（Fate）,ASCII_WORD,true
 19886,monolith_(stella_sora),Monolith（ステラソラ）,ASCII_WORD,true
 19904,mood_(umamusume),Mood（ウマ娘）,ASCII_WORD,true
@@ -589,7 +583,7 @@ row_number,canonical,display_ja,checks,already_overridden
 20034,mp3_player,MP3プレーヤー,ASCII_WORD,true
 20037,mtu_virus,MtUウィルス,ASCII_WORD,false
 20274,mygo!!!!!_logo_(bang_dream!),MyGO!!!!!ロゴ（BanG Dream!）,ASCII_WORD,true
-20276,myoudou_gakuen_high_school_uniform,myoudou gakuen highの学校制服,ASCII_WORD,false
+20276,myoudou_gakuen_high_school_uniform,Myoudou Gakuen High Schoolの制服,ASCII_WORD,true
 20283,mysterious_heroine_x_(fate)_(cosplay),謎のヒロインX（Fate）（コスプレ）,ASCII_WORD,true
 20284,mysterious_heroine_xx_(fate)_(cosplay),謎のヒロインXX（Fate）（コスプレ）,ASCII_WORD,true
 20294,n-zap_(splatoon),n-zap（スプラトゥーン）,ASCII_WORD,false
@@ -599,8 +593,8 @@ row_number,canonical,display_ja,checks,already_overridden
 20334,nakaue_shigehisa_(style),nakaue shigehisa風,ASCII_WORD,true
 20335,nakayama_tooru_(style),nakayama tooru風,ASCII_WORD,true
 20371,nami_(one_piece)_(cosplay),ナミ（ONE PIECE）（コスプレ）,ASCII_WORD,true
-20376,nanahyakuichi_middle_school_uniform,nanahyakuichi middleの学校制服,ASCII_WORD,false
-20386,nanyou_academy_uniform,nanyou academyの制服,ASCII_WORD,false
+20376,nanahyakuichi_middle_school_uniform,Nanahyakuichi Middle Schoolの制服,ASCII_WORD,true
+20386,nanyou_academy_uniform,Nanyou Academyの制服,ASCII_WORD,true
 20407,nasa_logo,NASAロゴ,ASCII_WORD,false
 20437,naver_username,Naverユーザー名,ASCII_WORD,false
 20440,naze?_nazo?!_answer,なぜ?謎?!ANSWER,ASCII_WORD,false
@@ -617,9 +611,9 @@ row_number,canonical,display_ja,checks,already_overridden
 20537,nes_controller,NESコントローラー,ASCII_WORD,true
 20539,ness_(mother_2)_(cosplay),ネス（MOTHER2）（コスプレ）,ASCII_WORD,true
 20554,never_give_up_cooking!_(project_sekai),Never Give Up Cooking!（プロジェクトセカイ）,ASCII_WORD,true
-20555,nevermore_academy_school_uniform,nevermore academyの学校制服,ASCII_WORD,false
+20555,nevermore_academy_school_uniform,Nevermore Academyの制服,ASCII_WORD,true
 20558,new_emperor_team_(len'en),New Emperor Team（連縁）,ASCII_WORD,true
-20569,newgrounds_username,newgroundsのユーザー名,ASCII_WORD,false
+20569,newgrounds_username,Newgroundsユーザー名,ASCII_WORD,true
 20588,niconico_id,ニコニコID,ASCII_WORD,false
 20592,night_and_day_amcg_(idolmaster),ナイトアンドデイAMCG,ASCII_WORD,false
 20605,nightborne_(warcraft),ナイトボーン（Warcraft）,ASCII_WORD,true
@@ -646,9 +640,9 @@ row_number,canonical,display_ja,checks,already_overridden
 20965,obsydia_(nijisanji),OBSYDIA（にじさんじ）,ASCII_WORD,true
 20991,oda_nobunaga_(fate)_(cosplay),織田信長（Fate）（コスプレ）,ASCII_WORD,true
 21003,oerlikon_20mm_gun,エリコン20mm機関砲,ASCII_WORD,true
-21036,ohananomitsu_high_school_uniform,ohananomitsu highの学校制服,ASCII_WORD,false
-21037,ohananomitsu_middle_school_uniform,ohananomitsu middleの学校制服,ASCII_WORD,false
-21041,ohtori_academy_school_uniform,ohtori academyの学校制服,ASCII_WORD,false
+21036,ohananomitsu_high_school_uniform,Ohananomitsu High Schoolの制服,ASCII_WORD,true
+21037,ohananomitsu_middle_school_uniform,Ohananomitsu Middle Schoolの制服,ASCII_WORD,true
+21041,ohtori_academy_school_uniform,Ohtori Academyの制服,ASCII_WORD,true
 21046,ok_sign,OKサイン,ASCII_WORD,false
 21047,ok_sign_over_eye,目の上でOKサイン,ASCII_WORD,true
 21054,okita_souji_(koha-ace)_(cosplay),沖田総司（KOHA-ACE）（コスプレ）,ASCII_WORD,true
@@ -658,16 +652,16 @@ row_number,canonical,display_ja,checks,already_overridden
 21087,omocat_(style),OMOCAT風,ASCII_WORD,true
 21088,omoi_wo_nosete!_dream_stage_(project_sekai),想いをのせて!Dream_Stage,ASCII_WORD,false
 21182,onono_imoko_(style),onono imoko風,ASCII_WORD,true
-21195,oota_kuniyoshi_face_(meme),oota kuniyoshiの顔（ミーム）,ASCII_WORD,false
-21197,ootori_gakuen_school_uniform,ootori gakuen学校の制服,ASCII_WORD,false
+21195,oota_kuniyoshi_face_(meme),Oota Kuniyoshiの顔（ミーム）,ASCII_WORD,true
+21197,ootori_gakuen_school_uniform,Ootori Gakuenの制服,ASCII_WORD,true
 21249,oppai_hoodie,OPPAIパーカー,ASCII_WORD,false
 21380,orbital_frame_(zone_of_the_enders),オービタルフレーム（ZONE OF THE ENDERS）,ASCII_WORD,true
 21393,ordinal_scale_uniform_(sao),オーディナル・スケールの制服（SAO）,ASCII_WORD,true
 21398,organic_bra,organic・ブラ,ASCII_WORD,false
 21400,organization_xiii,XIII機関,ASCII_WORD,true
 21404,oriens_(nijisanji),Oriens（にじさんじ）,ASCII_WORD,true
-21429,osafune_girls_academy_school_uniform,osafune girls academyの学校制服,ASCII_WORD,false
-21463,oufi_association_south_uniform,oufi association southの制服,ASCII_WORD,false
+21429,osafune_girls_academy_school_uniform,Osafune Girls Academyの制服,ASCII_WORD,true
+21463,oufi_association_south_uniform,Oufi Association Southの制服,ASCII_WORD,true
 21485,over_rad_squad!!_(project_sekai),Over Rad Squad!!（プロジェクトセカイ）,ASCII_WORD,true
 21690,panty_&_stocking_with_garterbelt_(style),Panty & Stocking with Garterbelt（スタイル）,ASCII_WORD,true
 21691,panty_(psg)_(cosplay),パンティー（PSG）（コスプレ）,ASCII_WORD,false
@@ -729,7 +723,7 @@ row_number,canonical,display_ja,checks,already_overridden
 23441,rabbit_platoon_(blue_archive),RABBIT小隊（Blue Archive）,ASCII_WORD,false
 23447,rabbits_(ensemble_stars!),Ra*bits（あんさんぶるスターズ！）,ASCII_WORD,true
 23498,raiden_(metal_gear)_(cosplay),Raiden（Metal Gear）（コスプレ）,ASCII_WORD,false
-23553,rakuyo_high_school_uniform,rakuyo highの学校制服,ASCII_WORD,false
+23553,rakuyo_high_school_uniform,Rakuyo High Schoolの制服,ASCII_WORD,true
 23556,ram_(computer),RAM（コンピュータ）,ASCII_WORD,true
 23557,ram_(re:zero)_(cosplay),Ram（Re：Zero）（コスプレ）,ASCII_WORD,false
 23567,ranger_uniform_(amphibia),レンジャー制服（Amphibia）,ASCII_WORD,true
@@ -744,11 +738,11 @@ row_number,canonical,display_ja,checks,already_overridden
 23808,reddit_logo,Redditのロゴ,ASCII_WORD,true
 23809,reddit_username,Redditユーザー名,ASCII_WORD,false
 23832,regloss_(hololive),ReGLOSS（ホロライブ）,ASCII_WORD,true
-23838,reimei_school_uniform,reimeiの学校制服,ASCII_WORD,false
+23838,reimei_school_uniform,Reimeiの制服,ASCII_WORD,true
 23862,rem_(re:zero)_(cosplay),レム（Re:ゼロ）（コスプレ）,ASCII_WORD,true
 23870,remnant_cube_(wuthering_waves),Remnant Cube（鳴潮）,ASCII_WORD,true
 23894,renault_ft,ルノーFT-17,ASCII_WORD,false
-23897,renpu_girls_school_uniform,Renpu Girls Schoolユニフォーム,ASCII_WORD,false
+23897,renpu_girls_school_uniform,Renpu Girls Schoolの制服,ASCII_WORD,true
 23898,rensouhou-chan_(cosplay),rensouhou-chan（コスプレ）,ASCII_WORD,false
 23927,retweet_chicks,#RTされた数だけ推しキャラにひよこを乗せる,ASCII_WORD,false
 23952,revy_(black_lagoon)_(cosplay),レヴィ（BLACK LAGOON）（コスプレ）,ASCII_WORD,true
@@ -762,17 +756,17 @@ row_number,canonical,display_ja,checks,already_overridden
 24251,roundtable_hold_(elden_ring),円卓（ELDEN RING）,ASCII_WORD,true
 24264,royal_magic_wand_(svtfoe),ロイヤル・マジック・ワンド（SVTFOE）,ASCII_WORD,true
 24273,rpg_(weapon),RPG（武器）,ASCII_WORD,true
-24335,ryoujoku_school_uniform,ryoujokuの学校制服,ASCII_WORD,false
+24335,ryoujoku_school_uniform,Ryoujokuの制服,ASCII_WORD,true
 24353,sa-3_mozambique,SA-3モザンビーク,ASCII_WORD,false
 24356,saber_(fate)_(cosplay),セイバー（Fate）（コスプレ）,ASCII_WORD,true
 24380,sage_(dq3)_(cosplay),賢者（DQ3）（コスプレ）,ASCII_WORD,true
 24381,sage_outfit_(fire_emblem_engage),賢者の衣装（Fire Emblem Engage）,ASCII_WORD,false
-24440,sakigei_municipal_academy_school_uniform,sakigei municipal academyの学校制服,ASCII_WORD,false
+24440,sakigei_municipal_academy_school_uniform,Sakigei Municipal Academyの制服,ASCII_WORD,true
 24455,salamanders_(warhammer),サラマンダー戦団（Warhammer）,ASCII_WORD,true
 24515,sans_(undertale)_(cosplay),サンズ（Undertale）（コスプレ）,ASCII_WORD,true
-24525,sao_survivor_school_uniform,sao survivorの学校制服,ASCII_WORD,false
-24555,satogahama_baseball_uniform,satogahama baseballの制服,ASCII_WORD,false
-24556,satogahama_school_uniform,satogahamaの学校制服,ASCII_WORD,false
+24525,sao_survivor_school_uniform,SAO Survivorの制服,ASCII_WORD,true
+24555,satogahama_baseball_uniform,Satogahamaの野球ユニフォーム,ASCII_WORD,true
+24556,satogahama_school_uniform,Satogahamaの制服,ASCII_WORD,true
 24584,sbd_dauntless,SBD ドーントレス,ASCII_WORD,true
 24592,scamp_(kancolle)_(cosplay),Scamp（Kancolle）（コスプレ）,ASCII_WORD,false
 24632,scathach_(fate)_(cosplay),スカサハ（Fate）（コスプレ）,ASCII_WORD,true
@@ -781,22 +775,22 @@ row_number,canonical,display_ja,checks,already_overridden
 24682,scout_(tf2)_(cosplay),スカウト（TF2）（コスプレ）,ASCII_WORD,true
 24722,sd_card,SDカード,ASCII_WORD,true
 24760,sechi_(sechihyeo)_(style),sechi（sechihyeo）風,ASCII_WORD,true
-24761,second_wangan_school_uniform,second wanganの学校制服,ASCII_WORD,false
+24761,second_wangan_school_uniform,Second Wanganの制服,ASCII_WORD,true
 24770,see-through_(psg),シースルー（PSG）,ASCII_WORD,false
 24824,seed_uniform_(ff8),SeeD制服（FF8）,ASCII_WORD,true
 24833,seggs_(meme),seggs（ミーム）,ASCII_WORD,false
-24842,seigetsu_academy_school_uniform,seigetsu academyの学校制服,ASCII_WORD,false
-24843,seijou_academy_school_uniform,seijou academyの学校制服,ASCII_WORD,false
-24844,seijou_baseball_uniform,seijou baseballの制服,ASCII_WORD,false
-24846,seimei_high_school_uniform,seimei highの学校制服,ASCII_WORD,false
-24847,seio_girls'_academy_school_uniform,seio girls' academyの学校制服,ASCII_WORD,false
-24848,seiou_gakuen_school_uniform,seiou gakuenの学校制服,ASCII_WORD,false
-24850,seisen_school_uniform,seisenの学校制服,ASCII_WORD,false
+24842,seigetsu_academy_school_uniform,Seigetsu Academyの制服,ASCII_WORD,true
+24843,seijou_academy_school_uniform,Seijou Academyの制服,ASCII_WORD,true
+24844,seijou_baseball_uniform,Seijouの野球ユニフォーム,ASCII_WORD,true
+24846,seimei_high_school_uniform,Seimei High Schoolの制服,ASCII_WORD,true
+24847,seio_girls'_academy_school_uniform,Seio Girls' Academyの制服,ASCII_WORD,true
+24848,seiou_gakuen_school_uniform,Seiou Gakuenの制服,ASCII_WORD,true
+24850,seisen_school_uniform,Seisenの制服,ASCII_WORD,true
 24852,seishou_elementary_school_uniform,Seishou小学校の制服,ASCII_WORD,false
-24853,seishou_middle_school_uniform,seishou middleの学校制服,ASCII_WORD,false
-24854,seitetsu_academy_school_uniform,seitetsu academyの学校制服,ASCII_WORD,false
-24857,sekiba_girls'_high_school_uniform,sekiba girls' highの学校制服,ASCII_WORD,false
-24863,selene_girls_school_uniform,selene girlsの学校制服,ASCII_WORD,false
+24853,seishou_middle_school_uniform,Seishou Middle Schoolの制服,ASCII_WORD,true
+24854,seitetsu_academy_school_uniform,Seitetsu Academyの制服,ASCII_WORD,true
+24857,sekiba_girls'_high_school_uniform,Sekiba Girls' High Schoolの制服,ASCII_WORD,true
+24863,selene_girls_school_uniform,Selene Girls Schoolの制服,ASCII_WORD,true
 24887,senkou_high_school_uniform,Senkou High Schoolの制服,ASCII_WORD,false
 24892,sensei_haruki_suetsugu_(style),sensei haruki suetsugu風,ASCII_WORD,true
 24905,seraphim_(one_piece),セラフィム(ONEPIECE),ASCII_WORD,false
@@ -810,10 +804,10 @@ row_number,canonical,display_ja,checks,already_overridden
 25137,shigure_ui_(vtuber)_(cosplay),しぐれうい（VTuber）（コスプレ）,ASCII_WORD,true
 25155,shimizu_takako_(style),shimizu takako風,ASCII_WORD,true
 25157,shimousa_(fate/grand_order),下総国（Fate/Grand Order）,ASCII_WORD,true
-25173,shinju-kan_school_uniform,shinju kanの学校制服,ASCII_WORD,false
-25182,shinsen_middle_school_uniform,shinsen middleの学校制服,ASCII_WORD,false
+25173,shinju-kan_school_uniform,Shinju-kanの制服,ASCII_WORD,true
+25182,shinsen_middle_school_uniform,Shinsen Middle Schoolの制服,ASCII_WORD,true
 25184,shinsengumi_(fate),新選組（Fate）,ASCII_WORD,true
-25215,shirahana_school_uniform,shirahanaの学校制服,ASCII_WORD,false
+25215,shirahana_school_uniform,Shirahanaの制服,ASCII_WORD,true
 25360,shouten_pegasus_mix_mori,昇天ペガサスMIX盛り,ASCII_WORD,false
 25381,shrine_team_(len'en),Shrine Team（連縁）,ASCII_WORD,true
 25399,shuten_douji_(fate)_(cosplay),酒呑童子（Fate）（コスプレ）,ASCII_WORD,true
@@ -863,7 +857,7 @@ row_number,canonical,display_ja,checks,already_overridden
 27368,symphony_no._765_(idolmaster),シンフォニーNo.765,ASCII_WORD,false
 27371,syngup!_(idolmaster),SYNGUP!（アイドルマスター）,ASCII_WORD,true
 27390,t_corp._(identity)_(project_moon),T社（Identity）（Project Moon）,ASCII_WORD,true
-27392,ta_girls_school_uniform,TAガールズスクールユニフォーム,ASCII_WORD,false
+27392,ta_girls_school_uniform,TA Girls Schoolの制服,ASCII_WORD,true
 27475,taito_four_seasons_figure_(vocaloid),タイトー四季フィギュア（VOCALOID）,ASCII_WORD,true
 27490,take_the_best_shot!_(project_sekai),Take the Best Shot!（プロジェクトセカイ）,ASCII_WORD,true
 27493,takenami_hideyuki_(style),takenami hideyuki風,ASCII_WORD,true
@@ -918,7 +912,7 @@ row_number,canonical,display_ja,checks,already_overridden
 28586,tsab_executive_military_uniform,TSAB執務部隊の軍服,ASCII_WORD,true
 28587,tsab_ground_military_uniform,TSAB地上部隊の軍服,ASCII_WORD,true
 28588,tsab_naval_military_uniform,TSAB海上部隊の軍服,ASCII_WORD,true
-28603,tsukinaga_academy_school_uniform,tsukinaga academyの学校制服,ASCII_WORD,false
+28603,tsukinaga_academy_school_uniform,Tsukinaga Academyの制服,ASCII_WORD,true
 28607,tsukumihara_academy_uniform_(fate/extra),月海原学園の制服（Fate/EXTRA）,ASCII_WORD,true
 28608,tsukumihara_academy_uniform_(fate/extra_ccc),月海原学園の制服（Fate/EXTRA CCC）,ASCII_WORD,true
 28621,ttgl_eyecatch,TTGLアイキャッチ,ASCII_WORD,false
