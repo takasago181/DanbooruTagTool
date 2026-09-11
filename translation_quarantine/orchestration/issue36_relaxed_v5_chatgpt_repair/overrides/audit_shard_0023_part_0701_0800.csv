@@ -1,0 +1,35 @@
+canonical,old_display_ja,new_display_ja,reason
+polka_dot_babydoll,水玉柄のdot・babydoll,水玉柄のベビードール,MIXED_ENGLISH_DEBRIS
+polka_dot_bag,水玉柄のdot・bag,水玉柄のバッグ,MIXED_ENGLISH_DEBRIS
+polka_dot_blanket,水玉柄のdot・blanket,水玉柄の毛布,MIXED_ENGLISH_DEBRIS
+polka_dot_bloomers,水玉柄のdot・bloomers,水玉柄のブルマー,MIXED_ENGLISH_DEBRIS
+polka_dot_bodysuit,水玉柄のdot・bodysuit,水玉柄のボディスーツ,MIXED_ENGLISH_DEBRIS
+polka_dot_bow,ポルカドットボウ,水玉柄のリボン,SEMANTIC_AMBIGUITY
+polka_dot_bra,polka dot bra,水玉柄のブラ,CANONICAL_FALLBACK_TRANSLATABLE
+polka_dot_dress,波点连衣裙,水玉柄のドレス,NON_JAPANESE_RESIDUE
+polka_dot_hat,水玉柄のdot・帽子,水玉柄の帽子,MIXED_ENGLISH_DEBRIS
+polka_dot_headwear,水玉柄のdot・headwear,水玉柄の頭飾り,MIXED_ENGLISH_DEBRIS
+polka_dot_neckerchief,水玉柄のdot・neckerchief,水玉柄のネッカチーフ,MIXED_ENGLISH_DEBRIS
+polka_dot_one-piece_swimsuit,polka dot one pieceの水着,水玉柄のワンピース水着,MIXED_ENGLISH_DEBRIS
+polka_dot_pantyhose,polka dotのパンスト,水玉柄のパンスト,MIXED_ENGLISH_DEBRIS
+polka_dot_shadow,水玉柄のdot・shadow,水玉柄の影,MIXED_ENGLISH_DEBRIS
+polka_dot_socks,polka dotの靴下,水玉柄の靴下,MIXED_ENGLISH_DEBRIS
+polka_dot_thighhighs,polka dotのニーハイ,水玉柄のサイハイソックス,MIXED_ENGLISH_DEBRIS
+poll,タグ「poll」,投票,RAW_ENGLISH_WRAPPER
+polyamory,タグ「polyamory」,ポリアモリー,RAW_ENGLISH_WRAPPER
+polygamy,一夫多妻,複婚,SEMANTIC_NARROWING
+polyhedral_dice,タグ「polyhedral dice」,多面体ダイス,RAW_ENGLISH_WRAPPER
+pom_pom_beanie,タグ「pom pom beanie」,ポンポン付きニット帽,RAW_ENGLISH_WRAPPER
+pom_pom_drawstring,pom pom drawsの指輪,ポンポン付きドローストリング,SEMANTIC_ERROR
+pom_pom_footwear,pom・pom・履物,ポンポン付きの履物,MIXED_ENGLISH_DEBRIS
+pom_pom_hat_ornament,pom・pom・帽子・飾り,帽子のポンポン飾り,MIXED_ENGLISH_DEBRIS
+pomefiore_dorm_uniform,pomefiore dormの制服,ポムフィオーレ寮の制服,MIXED_ENGLISH_DEBRIS
+pomegranate_flower,pomegranate・花,ザクロの花,MIXED_ENGLISH_DEBRIS
+pomni_(the_amazing_digital_circus)_(cosplay),pomni (the amazing digital circus) (cosplay),ポムニ（アメイジング・デジタル・サーカス）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+pompompurin_(cosplay),pompompurin (cosplay),ポムポムプリン（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+pony_express_uniform,pony expressの制服,ポニー・エクスプレスの制服,MIXED_ENGLISH_DEBRIS
+ponytail_with_hair_base,ponytail・付きの髪・土台,ポニーテールの付け根,MIXED_ENGLISH_DEBRIS
+pooka_(odin_sphere),プーカ（オーディン球）,プーカ（オーディンスフィア）,SEMANTIC_ERROR
+pool_float,タグ「pool float」,プール用浮き輪,RAW_ENGLISH_WRAPPER
+pop_art,タグ「pop art」,ポップアート,RAW_ENGLISH_WRAPPER
+popped_collar,立领,立てた襟,NON_JAPANESE_RESIDUE
