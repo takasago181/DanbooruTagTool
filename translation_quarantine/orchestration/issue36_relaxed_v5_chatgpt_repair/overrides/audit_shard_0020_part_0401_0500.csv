@@ -1,0 +1,35 @@
+canonical,old_display_ja,new_display_ja,reason
+meiko_(vocaloid)_(cosplay),Meiko（Vocaloid）（コスプレ）,MEIKO（VOCALOID）（コスプレ）,SEMANTIC_ERROR
+mejiro_mcqueen_(umamusume)_(cosplay),mejiro mcqueen (umamusume) (cosplay),メジロマックイーン（ウマ娘）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+mejiro_palmer_(umamusume)_(cosplay),mejiro palmer (umamusume) (cosplay),メジロパーマー（ウマ娘）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+melee_weapon_(warframe),タグ「melee weapon (warframe)」,近接武器（Warframe）,RAW_ENGLISH_WRAPPER
+melting_eyes,melting・目,溶ける目,MIXED_ENGLISH_DEBRIS
+melting_heart,melting・ハート,溶けるハート,MIXED_ENGLISH_DEBRIS
+melting_ice_cream,タグ「melting ice cream」,溶けたアイスクリーム,RAW_ENGLISH_WRAPPER
+melting_popsicle,タグ「melting popsicle」,溶けたアイスキャンディー,RAW_ENGLISH_WRAPPER
+melting_tail,melting・尻尾,溶ける尻尾,MIXED_ENGLISH_DEBRIS
+meltryllis_(swimsuit_lancer)_(fate)_(cosplay),meltryllis (swimsuit lancer) (fate) (cosplay),メルトリリス（水着ランサー）（Fate）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+meme_combination,タグ「meme combination」,ミームの組み合わせ,RAW_ENGLISH_WRAPPER
+meme_inset,meme・差し込み,ミームの差し込み,MIXED_ENGLISH_DEBRIS
+memorial_on_desk,memorialの上の机,机の上の記念品,SEMANTIC_RELATION_ERROR
+men's_toilet_symbol,men・toilet・記号,男性トイレ記号,MIXED_ENGLISH_DEBRIS
+menacing,タグ「menacing」,威圧的,RAW_ENGLISH_WRAPPER
+menstrual_blood,menstrual・血,経血,MIXED_ENGLISH_DEBRIS
+meowth_(cosplay),Meowth（コスプレ）,ニャース（コスプレ）,SEMANTIC_ERROR
+mephistopheles_(project_moon),mephistopheles (project moon),メフィストフェレス（Project Moon）,CANONICAL_FALLBACK_TRANSLATABLE
+mercedes-benz_amg_gt,タグ「mercedes-benz amg gt」,Mercedes-Benz AMG GT,RAW_ENGLISH_WRAPPER
+mercury_symbol,水銀シンボル,水星記号,SEMANTIC_ERROR
+mercy_(overwatch)_(cosplay),慈悲（オーバーウォッチ）（コスプレ）,マーシー（オーバーウォッチ）（コスプレ）,SEMANTIC_ERROR
+merfolk_out_of_environment,タグ「merfolk out of environment」,本来の環境外にいる人魚,RAW_ENGLISH_WRAPPER
+merfolk_with_merfolk,merfolk・付きのmerfolk,人魚同士,MIXED_ENGLISH_DEBRIS
+mesoamerican_architecture,タグ「mesoamerican architecture」,メソアメリカ建築,RAW_ENGLISH_WRAPPER
+messy_eater,タグ「messy eater」,食べ方が汚い,RAW_ENGLISH_WRAPPER
+mesugaki_pose,雌小鬼姿势,メスガキポーズ,NON_JAPANESE_RESIDUE
+metal_band_text,金属・band・テキスト,メタルバンドの文字,MIXED_ENGLISH_DEBRIS
+metal_bracelet,金属・bracelet,金属の腕輪,MIXED_ENGLISH_DEBRIS
+metal_eyepatch,金属・eyepatch,金属の眼帯,MIXED_ENGLISH_DEBRIS
+metal_gloves,金属手套,金属の手袋,NON_JAPANESE_RESIDUE
+metal_jaw,金属・jaw,金属の顎,MIXED_ENGLISH_DEBRIS
+meteor_shower,流星雨,流星群,NON_JAPANESE_RESIDUE
+metamoran_vest,メタモル星人の合体,メタモル星人のベスト,SEMANTIC_ERROR
+mew_ichigo_(cosplay),ミュー・イチゴ（コスプレ）,ミュウイチゴ（コスプレ）,SEMANTIC_ERROR
