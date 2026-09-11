@@ -33,12 +33,12 @@ row_number,canonical,display_ja,checks,already_overridden
 5945,1-up_mushroom,1UPキノコ,ASCII_WORD,true
 5946,100kg_(meme),100kg（ミーム）,ASCII_WORD,true
 5947,10mm_pistol,10mm・拳銃,ASCII_WORD,false
-5999,2nd_live_tour_~blooming_with_ooo~,蓮ノ空2nd兵庫Day2,ASCII_WORD,false
+5999,2nd_live_tour_~blooming_with_ooo~,蓮ノ空2nd Live Tour ～Blooming with ○○○～,ASCII_WORD,true
 6005,3rd_live_tour_try_tri_unity!!!,蓮ノ空3rd,ASCII_WORD,false
 6008,40mm_grenade,40mm榴弾,ASCII_WORD,true
-6010,4th_live_dream_~bloom_the_dream_believers~,蓮ノ空4th石川Day1,ASCII_WORD,false
-6018,5th_live_tour_~4pair_power_spread!!!!~,蓮ノ空5th東京Day1,ASCII_WORD,false
-6025,6th_live_dream_~bloom_garden_party~,蓮ノ空6th福岡Day1,ASCII_WORD,false
+6010,4th_live_dream_~bloom_the_dream_believers~,"蓮ノ空4th Live Dream ～Bloom, The Dream Believers～",ASCII_WORD,true
+6018,5th_live_tour_~4pair_power_spread!!!!~,蓮ノ空5th Live Tour ～4Pair Power Spread!!!!～,ASCII_WORD,true
+6025,6th_live_dream_~bloom_garden_party~,蓮ノ空6th Live Dream ～Bloom Garden Party～,ASCII_WORD,true
 6028,777_(nikke),777(勝利の女神:NIKKE),ASCII_WORD,false
 6034,9s_(nier:automata)_(cosplay),9S（NieR:Automata）のコスプレ,ASCII_WORD,true
 6060,a-10_thunderbolt_ii,A-10 サンダーボルトII,ASCII_WORD,true
@@ -633,7 +633,7 @@ row_number,canonical,display_ja,checks,already_overridden
 20836,notepad_(windows),メモ帳（Windows）,ASCII_WORD,true
 20837,notes_of_grandeur_(umamusume),Notes of Grandeur（ウマ娘）,ASCII_WORD,true
 20851,nt-d,NT-Dシステム,ASCII_WORD,false
-20852,ntr_character_sheet,NTRエロ漫画の登場人物,ASCII_WORD,false
+20852,ntr_character_sheet,NTRキャラクターシート,ASCII_WORD,true
 20868,null_focus,null・焦点,ASCII_WORD,false
 20874,number_four_(asl),数字の4（ASL）,ASCII_WORD,true
 20965,obsydia_(nijisanji),OBSYDIA（にじさんじ）,ASCII_WORD,true

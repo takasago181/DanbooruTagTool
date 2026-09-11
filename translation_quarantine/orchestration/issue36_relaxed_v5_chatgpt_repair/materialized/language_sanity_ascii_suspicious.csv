@@ -22,11 +22,7 @@ row_number,canonical,display_ja,checks,already_overridden
 5562,twitter_x_logo,X（旧Twitter）のロゴ,ASCII_WORD,true
 5868,yd_dancer_outfit,YD型踊り子衣装,ASCII_WORD,false
 5945,1-up_mushroom,1UPキノコ,ASCII_WORD,true
-5999,2nd_live_tour_~blooming_with_ooo~,蓮ノ空2nd兵庫Day2,ASCII_WORD,false
 6008,40mm_grenade,40mm榴弾,ASCII_WORD,true
-6010,4th_live_dream_~bloom_the_dream_believers~,蓮ノ空4th石川Day1,ASCII_WORD,false
-6018,5th_live_tour_~4pair_power_spread!!!!~,蓮ノ空5th東京Day1,ASCII_WORD,false
-6025,6th_live_dream_~bloom_garden_party~,蓮ノ空6th福岡Day1,ASCII_WORD,false
 6060,a-10_thunderbolt_ii,A-10 サンダーボルトII,ASCII_WORD,true
 6216,affinity_sunglasses_(blue_archive),Affinityサングラス（Blue Archive）,ASCII_WORD,false
 6276,ahnenerbe_shop_uniform,Ahnenerbe Shopの制服,ASCII_WORD,true
@@ -270,7 +266,7 @@ row_number,canonical,display_ja,checks,already_overridden
 20592,night_and_day_amcg_(idolmaster),ナイトアンドデイAMCG,ASCII_WORD,false
 20680,nissan_gt-r,日産GT-R,ASCII_WORD,true
 20686,nissan_skyline_gt-r,スカイラインGT-R,ASCII_WORD,false
-20852,ntr_character_sheet,NTRエロ漫画の登場人物,ASCII_WORD,false
+20852,ntr_character_sheet,NTRキャラクターシート,ASCII_WORD,true
 21003,oerlikon_20mm_gun,エリコン20mm機関砲,ASCII_WORD,true
 21036,ohananomitsu_high_school_uniform,Ohananomitsu High Schoolの制服,ASCII_WORD,true
 21037,ohananomitsu_middle_school_uniform,Ohananomitsu Middle Schoolの制服,ASCII_WORD,true
