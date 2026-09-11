@@ -1,20 +1,20 @@
 {
   "status": "REVIEW_REQUIRED",
   "rows_scanned": 30629,
-  "candidate_rows": 3049,
+  "candidate_rows": 3010,
   "check_counts": {
-    "ASCII_WORD": 1908,
-    "RAW_ENGLISH_WRAPPER": 487,
-    "SIMPLIFIED_CHINESE_HINT": 1240
+    "ASCII_WORD": 1868,
+    "RAW_ENGLISH_WRAPPER": 437,
+    "SIMPLIFIED_CHINESE_HINT": 1241
   },
   "hard_fail_counts": {
     "HANGUL": 0,
-    "RAW_ENGLISH_WRAPPER": 487,
+    "RAW_ENGLISH_WRAPPER": 437,
     "CONTROL_CHAR": 0
   },
-  "raw_english_wrapper_rows": 487,
+  "raw_english_wrapper_rows": 437,
   "raw_english_wrapper_already_overridden": 0,
-  "raw_english_wrapper_not_overridden": 487,
+  "raw_english_wrapper_not_overridden": 437,
   "notes": {
     "ASCII_WORD": "review candidate only; proper names, acronyms, codes and product names may be valid",
     "SIMPLIFIED_CHINESE_HINT": "heuristic review candidate only; never auto-fix from this signal",
