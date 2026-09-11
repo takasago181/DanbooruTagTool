@@ -1,0 +1,36 @@
+canonical,old_display_ja,new_display_ja,reason
+snowfield_police_uniform,クラン・カラティン,雪原警察の制服,SEMANTIC_ERROR
+snowflake_brooch,snowflake・ブローチ,雪の結晶のブローチ,MIXED_ENGLISH_DEBRIS
+snowflake_halo,タグ「snowflake halo」,雪の結晶形の光輪,RAW_ENGLISH_WRAPPER
+snowflake_hat_ornament,snowflake・帽子・飾り,雪の結晶の帽子飾り,MIXED_ENGLISH_DEBRIS
+snowflake_pupils,雪花瞳孔,雪の結晶形の瞳孔,NON_JAPANESE_RESIDUE
+snowman_earrings,snowmanのイヤリング,雪だるまのイヤリング,MIXED_ENGLISH_DEBRIS
+snowscape,タグ「snowscape」,雪景色,RAW_ENGLISH_WRAPPER
+soccer_field,足球场,サッカー場,NON_JAPANESE_RESIDUE
+sock_dangle,靴下のぶら下がっています,ぶら下がった靴下,SEMANTIC_STATE_ACTION_ERROR
+sock_pull,靴下プル,靴下を引っ張る,SEMANTIC_STATE_ACTION_ERROR
+sock_puppet,タグ「sock puppet」,靴下人形,RAW_ENGLISH_WRAPPER
+socks_over_pants,靴下の上のパンツ,ズボンの上の靴下,SEMANTIC_RELATION_ERROR
+socks_over_pantyhose,パンストの靴下,パンストの上の靴下,SEMANTIC_UNDERSPECIFICATION
+soejima_shigenori_(style),ペルソナ風,副島成記（スタイル）,SEMANTIC_NARROWING
+softball_uniform,softballの制服,ソフトボールのユニフォーム,MIXED_ENGLISH_DEBRIS
+softboiled_egg,ゆで卵,半熟卵,SEMANTIC_NARROWING
+soil,ち,土,TRANSLITERATION_ERROR
+soju,燒酒,焼酎（ソジュ）,NON_JAPANESE_RESIDUE
+sol_badguy_(cosplay),Sol Badguy（コスプレ）,ソル＝バッドガイ（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+solar_term,節气,二十四節気,NON_JAPANESE_RESIDUE
+soldering,はんだ,はんだ付け,SEMANTIC_STATE_ACTION_ERROR
+soles_together,タグ「soles together」,足裏を合わせる,RAW_ENGLISH_WRAPPER
+solid_circle_eyes,豆豆眼,塗りつぶした円形の目,NON_JAPANESE_RESIDUE
+solid_circle_pupils,固体の生徒,塗りつぶした円形の瞳孔,SEMANTIC_AMBIGUITY
+solid_eye,solid・目,塗りつぶした目,MIXED_ENGLISH_DEBRIS
+solid_eyes,しっかりした目,塗りつぶした目,SEMANTIC_AMBIGUITY
+solid_oval_eyes,しっかりした楕円形の目,塗りつぶした楕円形の目,SEMANTIC_AMBIGUITY
+solid_snake_(cosplay),固体ヘビ（コスプレ）,ソリッド・スネーク（コスプレ）,SEMANTIC_AMBIGUITY
+sombrero,墨西哥幅辺帽,ソンブレロ,NON_JAPANESE_RESIDUE
+son_goku_(cosplay),息子悟空（コスプレ）,孫悟空（コスプレ）,SEMANTIC_AMBIGUITY
+song_of_broken_pines_(genshin_impact),松籁响起之时,松韻の響く頃（原神）,NON_JAPANESE_RESIDUE
+sonic_adventure_pose,sonic・adventure・ポーズ,ソニックアドベンチャーのポーズ,MIXED_ENGLISH_DEBRIS
+sonobeno_high_school_uniform,sonobeno highの学校制服,園部野高校の制服,MIXED_ENGLISH_DEBRIS
+sonoda_umi_(cosplay),Sonoda Umi（コスプレ）,園田海未（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+sons_of_horus,タグ「sons of horus」,サンズ・オブ・ホルス,RAW_ENGLISH_WRAPPER
