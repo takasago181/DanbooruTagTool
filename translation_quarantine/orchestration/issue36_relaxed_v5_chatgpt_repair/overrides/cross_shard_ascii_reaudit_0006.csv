@@ -1,0 +1,5 @@
+canonical,old_display_ja,new_display_ja,reason
+hair_edges,髪・edges,生え際の産毛（エッジ）,SEMANTIC_DEFINITION_REPAIR
+negative_space_oral_(meme),SFWイラスト,ネガティブスペースでオーラルを示す構図（ミーム）,SEMANTIC_SCOPE_CORRECTION
+raana_the_cat,raana・the・猫,猫として描かれた要楽奈,SEMANTIC_CONCEPT_NORMALIZATION
+raizen_high_school_uniform,Raizen High Schoolの制服,来禅高校の制服,OFFICIAL_JA_NAME
