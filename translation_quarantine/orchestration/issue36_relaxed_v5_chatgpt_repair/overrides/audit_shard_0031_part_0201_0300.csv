@@ -1,0 +1,40 @@
+canonical,old_display_ja,new_display_ja,reason
+x-shaped_pupils,X字型の生徒,X字型の瞳孔,SEMANTIC_AMBIGUITY
+x-wing,X・翼,Xウイング,MIXED_ENGLISH_DEBRIS
+x3,x3,X3,OPAQUE_IDENTIFIER_CASE
+x_anus,タグ「x anus」,X字型の肛門,RAW_ENGLISH_WRAPPER
+x_facial_mark,X・facial・印,X字の顔マーク,MIXED_ENGLISH_DEBRIS
+x_fingers_over_mouth,X・fingersの上のmouth,口元で指をX字にする,MIXED_ENGLISH_DEBRIS
+x_hat_ornament,X・帽子・飾り,X字の帽子飾り,MIXED_ENGLISH_DEBRIS
+x_mark,X・印,X印,MIXED_ENGLISH_DEBRIS
+x_mouth,：バツ,X字の口,SEMANTIC_ERROR
+x_navel,xへそ,X字のへそ,SEMANTIC_ERROR
+xbox_(original),タグ「xbox (original)」,Xbox（初代）,OPAQUE_PRODUCT_NAME
+xbox_360,タグ「xbox 360」,Xbox 360,OPAQUE_PRODUCT_NAME
+xbox_logo,xboxのロゴ,Xboxのロゴ,OPAQUE_NAME_CASE
+xd,タグ「xd」,XD,OPAQUE_EXPRESSION
+xiangyun,云纹,祥雲文様,NON_JAPANESE_RESIDUE
+xiaohongshu_logo,xiaohongshuのロゴ,小紅書のロゴ,MIXED_ENGLISH_DEBRIS
+xiaohongshu_watermark,小赤書水印,小紅書の透かし,NON_JAPANESE_RESIDUE
+y2k_fashion,千禧年,Y2Kファッション,NON_JAPANESE_RESIDUE
+yabi_fashion,亚逼,Yabiファッション,NON_JAPANESE_RESIDUE
+yae_miko_(cosplay),イエ・ミコ（コスプレ）,八重神子（コスプレ）,TRANSLITERATION_ERROR
+yagokoro_eirin_(cosplay),Yagokoro Eirin（コスプレ）,八意永琳（コスプレ）,TRANSLITERATION_ERROR
+yakumo_family_(touhou),yakumo family (touhou),八雲一家（東方）,CANONICAL_FALLBACK_TRANSLATABLE
+yakumo_ran_(cosplay),ヤクモ走った（コスプレ）,八雲藍（コスプレ）,SEMANTIC_ERROR
+yakumo_yukari_(cosplay),Yakumo Yukari（コスプレ）,八雲紫（コスプレ）,TRANSLITERATION_ERROR
+yamabuki_high_school_uniform,山本高校のユニフォーム,山吹高校の制服,TRANSLITERATION_ERROR
+yamabushi_tengu,タグ「yamabushi tengu」,山伏天狗,RAW_ENGLISH_WRAPPER
+yamaha_pacifica,タグ「yamaha pacifica」,YAMAHA PACIFICA,OPAQUE_PRODUCT_NAME
+yamaha_trb,タグ「yamaha trb」,YAMAHA TRB,OPAQUE_PRODUCT_NAME
+yamamura_sadako_(cosplay),山村夏（コスプレ）,山村貞子（コスプレ）,SEMANTIC_ERROR
+yamashita_ikuto_(style),タグ「yamashita ikuto (style)」,山下いくと（スタイル）,RAW_ENGLISH_WRAPPER
+yamato_(kancolle)_(cosplay),ヤマト（カンコル）（コスプレ）,大和（艦これ）（コスプレ）,TRANSLITERATION_ERROR
+yasaka_kanako_(cosplay),Yasaka Kanako（コスプレ）,八坂神奈子（コスプレ）,TRANSLITERATION_ERROR
+yasuhiko_yoshikazu_(style),タグ「yasuhiko yoshikazu (style)」,安彦良和（スタイル）,RAW_ENGLISH_WRAPPER
+yato_(fire_emblem),yato (fire emblem),夜刀神（ファイアーエムブレム）,CANONICAL_FALLBACK_TRANSLATABLE
+yazawa_nico_(cosplay),ヤザワ・ニコ（コスプレ）,矢澤にこ（コスプレ）,TRANSLITERATION_ERROR
+year_1_&_year_2_(squid_game)_(meme),year 1 & year 2 (squid game) (meme),1年生＆2年生（イカゲーム）（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+yearning-mircalla_(e.g.o),yearning-mircalla (e.g.o),Yearning-Mircalla（E.G.O）,OPAQUE_TITLE
+yelan_(genshin_impact)_(cosplay),yelan (genshin impact) (cosplay),夜蘭（原神）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+yellow-tinted_eyewear,黄色のアイウェア,黄色レンズのアイウェア,SEMANTIC_UNDERSPECIFICATION
