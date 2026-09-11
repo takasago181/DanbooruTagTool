@@ -9,7 +9,7 @@
 - Source Issue: **#55**
 - Issue title: **[UI-JA][PRODUCTION][DEV] Promote audited Issue #36 V5 Japanese overlay**
 - Issue state: **OPEN / ACTIVE**
-- DEV state: **PRODUCTION_PROMOTION_IMPLEMENTATION**
+- DEV state: **PRODUCTION_PROMOTION_IMPLEMENTATION_COMPLETE / AWAITING_INDEPENDENT_POST_WRITE_AUDIT**
 - Working branch: `codex/issue55-ui-ja-production-promotion`
 - Production base: live `main` `4ccf87cbe461779b9296d115fce19fc169b84a66`
 - Audited input branch: `ui-ja/issue36-relaxed-v5-chatgpt-repair`
@@ -40,4 +40,4 @@
 - No partial production write and no write without a rollback copy.
 - Do not close Issue #36, merge the promotion branch to `main`, activate #42, or start Stage10 before the independent post-write audit PASS.
 
-The full contract remains the live Issue #55 body and latest checkpoint.
+Implementation completion evidence is recorded in `docs/project/ISSUE55_PRODUCTION_PROMOTION_REPORT.md` and `docs/testing/ISSUE55_PRODUCTION_PROMOTION_MANIFEST.json`. Stop for a fresh independent post-write audit; the full contract remains the live Issue #55 body and latest checkpoint.

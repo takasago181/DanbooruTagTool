@@ -54,5 +54,15 @@
     "sha256": "a307a354f6e7c9fb2387464713765795d9949802b345b00eb3cb64659df7fdce",
     "unique_canonicals": 30629
   },
-  "verdict": "PRODUCTION_WRITE_COMPLETE_AWAITING_UI_ACCEPTANCE"
+  "ui_acceptance": {
+    "canonical_prompt_preserved": true,
+    "evidence_screenshot_count": 5,
+    "issue34_ranking_noise_out_of_scope": true,
+    "japanese_display_search": true,
+    "mojibake_or_tofu_observed": false,
+    "special_detail_and_recommendations": true,
+    "status": "PASS",
+    "visual_layout_regression_observed": false
+  },
+  "verdict": "READY_FOR_POST_WRITE_AUDIT"
 }

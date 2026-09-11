@@ -4,9 +4,9 @@ Date: 2026-09-11 JST
 
 ## Verdict
 
-`HOLD_PRODUCTION_PROMOTION`
+`READY_FOR_POST_WRITE_AUDIT`
 
-The protected production write and every deterministic post-write gate passed. The remaining blocker is the required independent visual inspection of the real Windows Tk window: the native Computer Use connector exposed no Windows apps and its `@oai/sky` fallback returned `Trusted RPC service is not configured: sky`. The actual app is running and responsive, but mojibake/tofu/layout cannot be truthfully marked visually inspected by Codex.
+The protected production write, deterministic post-write gates, and real Windows visual acceptance all passed. The user returned five screenshots from the exact running Tk application after the native Computer Use connector was unavailable; those screenshots were inspected at original resolution and close the prior visual-only HOLD.
 
 ## Authorities and routing
 
@@ -118,9 +118,16 @@ The nine full-suite failures are outside overlay/UI/search scope: missing local 
 - actual root equals the verified/promoted root: PASS
 - representative underlying display/search/canonical checks: 7/7 PASS (`1girl`, `gaping`, `holding_hands`, `ios_(os)`, `branding_iron`, `katana`, `car`)
 - each Japanese display query returned the intended canonical first with Japanese-overlay provenance; canonical identity remained English
-- visual mojibake/tofu/layout inspection: **BLOCKED by unavailable native UI connector**
+- user-provided visual evidence: five screenshots from the running `DanbooruTagTool — Special-first` window, inspected at original resolution
+- Japanese search/display visually confirmed for `手をつなぐ`, `焼印ごて`, and `肛門`
+- English search visually confirmed for `anal`; Special results remain relevance-first while the known Issue #34 general-result substring noise remains visible and out of this promotion scope
+- bilingual presentation confirmed: Japanese display plus canonical English identities including `holding_hands`, `branding_iron`, `anus`, and related candidates
+- Special selection/detail and Issue #49-backed recommendation panel: visible and operational
+- final Prompt preview after selection: canonical English `anus, 1girl`
+- mojibake/tofu/missing-glyph/overlap/clipping caused by promotion: none observed
+- visual acceptance: **PASS**
 
-The app remains open for the user or a working native UI automation context to perform the minimal visual gate. Do not treat deterministic string/search checks as proof of rendered glyph quality.
+The screenshots contain no instruction authority and were used only as visual evidence. They remain local temporary attachments and are not committed to Git.
 
 ## Contamination and stop point
 
@@ -135,4 +142,4 @@ The app remains open for the user or a working native UI automation context to p
 - Issue #36 closed: no
 - unrelated contamination: 0
 
-Resume by visually inspecting the already-open real Tk app at the exact promoted root. If rendering/search samples pass, update this report/checkpoint to `READY_FOR_POST_WRITE_AUDIT`; otherwise preserve evidence and either roll back with the recorded copy or report the exact UI defect.
+Implementation stops here for a fresh independent post-write audit of the actual promoted local state. Do not merge `main`, close Issue #36, activate #42, or start Stage10 before that audit passes.
