@@ -1,0 +1,46 @@
+canonical,old_display_ja,new_display_ja,reason
+special_week_(umamusume)_(cosplay),special week (umamusume) (cosplay),スペシャルウィーク（ウマ娘）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+species_connection,species・接続,種族のつながり,MIXED_ENGLISH_DEBRIS
+speech_bubble_censor,タグ「speech bubble censor」,吹き出しによる隠し,RAW_ENGLISH_WRAPPER
+speed_limit_sign,最高速度,速度制限標識,SEMANTIC_UNDERSPECIFICATION
+speedo_(company),speedo (company),Speedo（企業）,CANONICAL_FALLBACK_TRANSLATABLE
+sperm_circle_tattoo,sperm circleのタトゥー,精子の円形タトゥー,MIXED_ENGLISH_DEBRIS
+sphere_body,球体・身体,球体の身体,MIXED_ENGLISH_DEBRIS
+sphinx,スピンクス,スフィンクス,TRANSLITERATION_ERROR
+spider_girl,アラクネ,クモ娘,SEMANTIC_NARROWING
+spider_lily_print,spider lilyの柄,彼岸花柄,MIXED_ENGLISH_DEBRIS
+spider_tank,蜘蛛・tank,クモ型戦車,MIXED_ENGLISH_DEBRIS
+spider_web_background,スパイダーWebの背景,クモの巣の背景,MIXED_ENGLISH_DEBRIS
+spider_web_pattern,蜘蛛・巣・pattern,クモの巣柄,MIXED_ENGLISH_DEBRIS
+spidersona,タグ「spidersona」,スパイダーソナ,RAW_ENGLISH_WRAPPER
+spike_piercing,spikeのピアス,スパイク型ピアス,MIXED_ENGLISH_DEBRIS
+spiked_arm,spiked・腕,スパイク付きの腕,MIXED_ENGLISH_DEBRIS
+spiked_ball_and_chain,モーニングスター,スパイク付き鉄球鎖,SEMANTIC_NARROWING
+spiked_bat,スパイクされたコウモリ,スパイク付きバット,SEMANTIC_AMBIGUITY
+spiked_cape,spiked・ケープ,スパイク付きケープ,MIXED_ENGLISH_DEBRIS
+spiked_club,狼牙棒,スパイク付き棍棒,SEMANTIC_NARROWING
+spiked_cock_ring,spiked cockの指輪,スパイク付きコックリング,SEMANTIC_AMBIGUITY
+spiked_cuffs,spiked・カフ,スパイク付きカフ,MIXED_ENGLISH_DEBRIS
+spiked_dress,spiked・ドレス,スパイク付きドレス,MIXED_ENGLISH_DEBRIS
+spiked_ear_piercing,スパイクされた耳のピアス,スパイク型の耳ピアス,SEMANTIC_ERROR
+spiked_hair_ornament,spikedの髪飾り,スパイク付き髪飾り,MIXED_ENGLISH_DEBRIS
+spiked_hat,spiked・帽子,スパイク付き帽子,MIXED_ENGLISH_DEBRIS
+spiked_hood,spiked・フード,スパイク付きフード,MIXED_ENGLISH_DEBRIS
+spiked_jacket,スパイクされたジャケット,スパイク付きジャケット,SEMANTIC_ERROR
+spiked_kneepads,タグ「spiked kneepads」,スパイク付き膝当て,RAW_ENGLISH_WRAPPER
+spiked_legwear_garter,タグ「spiked legwear garter」,スパイク付きレッグウェアガーター,RAW_ENGLISH_WRAPPER
+spiked_mace,モーニングスター,スパイク付きメイス,SEMANTIC_NARROWING
+spiked_mask,spiked・マスク,スパイク付きマスク,MIXED_ENGLISH_DEBRIS
+spiked_necklace,spiked・ネックレス,スパイク付きネックレス,MIXED_ENGLISH_DEBRIS
+spiked_penis,スパイクされたペニス,スパイク付き陰茎,SEMANTIC_ERROR
+spiked_ring,spikedの指輪,スパイク付き指輪,MIXED_ENGLISH_DEBRIS
+spiked_shield,タグ「spiked shield」,スパイク付き盾,RAW_ENGLISH_WRAPPER
+spiked_shirt,spiked・シャツ,スパイク付きシャツ,MIXED_ENGLISH_DEBRIS
+spiked_shoes,スパイクされた靴,スパイク付き靴,SEMANTIC_ERROR
+spiked_sleeves,タグ「spiked sleeves」,スパイク付き袖,RAW_ENGLISH_WRAPPER
+spiked_thighhighs,spikedのニーハイ,スパイク付きサイハイソックス,MIXED_ENGLISH_DEBRIS
+spiked_thighlet,スパイクされた大腿部,スパイク付き太もも飾り,SEMANTIC_ERROR
+spiked_wings,スパイクされた翼,スパイク付き翼,SEMANTIC_ERROR
+spiked_wristband,タグ「spiked wristband」,スパイク付きリストバンド,RAW_ENGLISH_WRAPPER
+spinach,タグ「spinach」,ほうれん草,RAW_ENGLISH_WRAPPER
+spinal_cord,タグ「spinal cord」,脊髄,RAW_ENGLISH_WRAPPER
