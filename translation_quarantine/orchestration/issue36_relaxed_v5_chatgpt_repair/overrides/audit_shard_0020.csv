@@ -1,0 +1,32 @@
+canonical,old_display_ja,new_display_ja,reason
+mahora_academy_middle_school_uniform,マホラアカデミー中学校のユニフォーム,麻帆良学園中等部の制服,SEMANTIC_ERROR
+mahou_shoujo_kikou_~prisma_codes~,廃棄少女幻想エンド・サクリファイス,魔法少女紀行 ～Prisma Codes～,SEMANTIC_ERROR
+majima_goro_(cosplay),majima goro (cosplay),真島吾朗（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+majin_symbol,majin・記号,魔人マーク,MIXED_ENGLISH_DEBRIS
+major_injury_underreaction,タグ「major injury underreaction」,重傷なのに反応が薄い,RAW_ENGLISH_WRAPPER
+majorette,攻撃,バトントワラー,SEMANTIC_ERROR
+makai_(touhou),マカイ（touhou）,魔界（東方）,SEMANTIC_ERROR
+makai_family_(touhou),makai family (touhou),魔界一家（東方）,CANONICAL_FALLBACK_TRANSLATABLE
+make_america_great_again,アメリカを再び偉大にします,アメリカを再び偉大に,AWKWARD_MACHINE_TRANSLATION
+makeover,タグ「makeover」,イメージチェンジ,RAW_ENGLISH_WRAPPER
+makima_(chainsaw_man)_(cosplay),makima (chainsaw man) (cosplay),マキマ（チェンソーマン）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+makinami_mari_illustrious_(cosplay),マキナミマリイラストレス（コスプレ）,真希波・マリ・イラストリアス（コスプレ）,SEMANTIC_ERROR
+making_faces,顔を作る,変顔をする,SEMANTIC_ERROR
+makise_kurisu_(cosplay),MakiseKurisu（コスプレ）,牧瀬紅莉栖（コスプレ）,SEMANTIC_ERROR
+malaysian_clothes,malaysian・服,マレーシアの服,MIXED_ENGLISH_DEBRIS
+malaysian_secondary_school_uniform,馬来西亚校服,マレーシアの中等学校制服,NON_JAPANESE_RESIDUE
+male_byleth_(fire_emblem)_(cosplay),male byleth (fire emblem) (cosplay),ベレト（ファイアーエムブレム）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+male_harem,逆後宫,逆ハーレム,NON_JAPANESE_RESIDUE
+male_lactation,父乳,男性の乳汁分泌,SEMANTIC_ERROR
+male_robin_(fire_emblem)_(cosplay),male robin (fire emblem) (cosplay),ルフレ（男）（ファイアーエムブレム）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+male_swimwear,競パン,男性用水着,SEMANTIC_NARROWING
+male_thong,male・Tバック,男性用Tバック,MIXED_ENGLISH_DEBRIS
+male_underwear_peek,雄の下着の覗き見,男性用下着が見える,SEMANTIC_ERROR
+maliketh's_black_blade,maliketh・黒い・blade,マリケスの黒き剣,MIXED_ENGLISH_DEBRIS
+mamono_with_mamono,mamono・付きのmamono,魔物同士,MIXED_ENGLISH_DEBRIS
+man_levitating_pizza_(meme),man levitating pizza (meme),ピザを浮かせる男（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+man_watching_tv_(meme),man watching tv (meme),テレビを見る男（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+manboobs,マンブーブ,男性の胸,SEMANTIC_ERROR
+manchu_clothes,manchu・服,満州族の服,MIXED_ENGLISH_DEBRIS
+mandalorian_armor,mandalorianの鎧,マンダロリアンの鎧,MIXED_ENGLISH_DEBRIS
+mandalorian_helmet,mandalorian・ヘルメット,マンダロリアンのヘルメット,MIXED_ENGLISH_DEBRIS
