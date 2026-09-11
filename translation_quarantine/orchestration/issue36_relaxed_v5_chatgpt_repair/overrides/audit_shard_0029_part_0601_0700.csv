@@ -1,0 +1,43 @@
+canonical,old_display_ja,new_display_ja,reason
+tsukinomori_school_uniform,月ノ森女子学園,月ノ森女子学園の制服,SEMANTIC_UNDERSPECIFICATION
+tsukishima_general_high_school_uniform,津島一般高校の制服,月島総合高校の制服,TRANSLITERATION_ERROR
+tsukumihara_academy_uniform_(fate/extra),tsukumihara academy uniform (fate/extra),月海原学園の制服（Fate/EXTRA）,CANONICAL_FALLBACK_TRANSLATABLE
+tsukumihara_academy_uniform_(fate/extra_ccc),tsukumihara academy uniform (fate/extra ccc),月海原学園の制服（Fate/EXTRA CCC）,CANONICAL_FALLBACK_TRANSLATABLE
+tsunako_(style),タグ「tsunako (style)」,つなこ（スタイル）,RAW_ENGLISH_WRAPPER
+tsuruga_school_uniform,ツルーガ学校の制服,敦賀学校の制服,TRANSLITERATION_ERROR
+tsuwabuki_high_school_uniform,ツワブキ高校,ツワブキ高校の制服,SEMANTIC_UNDERSPECIFICATION
+tsuyu_sauce,ツユーソース,つゆ,TRANSLITERATION_ERROR
+tuanshan,团扇,団扇（トゥアンシャン）,NON_JAPANESE_RESIDUE
+tube_dress,筒形连衣裙,チューブドレス,NON_JAPANESE_RESIDUE
+tulaytullah's_remembrance_(genshin_impact),tulaytullah's remembrance (genshin impact),トゥライトゥーラの記憶（原神）,CANONICAL_FALLBACK_TRANSLATABLE
+tumbler_glass,タグ「tumbler glass」,タンブラーグラス,RAW_ENGLISH_WRAPPER
+tunnel,うどう,トンネル,TRANSLITERATION_ERROR
+turkish_clothes,turkish・服,トルコの服,MIXED_ENGLISH_DEBRIS
+turn_cuff_socks,turn cuffの靴下,折り返しソックス,MIXED_ENGLISH_DEBRIS
+turning_page,ターニングページ,ページをめくる,SEMANTIC_STATE_ACTION_ERROR
+turnip_(mario),タグ「turnip (mario)」,カブ（マリオ）,RAW_ENGLISH_WRAPPER
+turretless_tank,架空戦車,砲塔のない戦車,SEMANTIC_ERROR
+turtle_boy,タグ「turtle boy」,カメ少年,RAW_ENGLISH_WRAPPER
+turtle_button,turtle・ボタン,カメのボタン,MIXED_ENGLISH_DEBRIS
+turtleneck_bikini_top,turtleneck・ビキニ・トップス,タートルネックのビキニトップ,MIXED_ENGLISH_DEBRIS
+turtleneck_capelet,タグ「turtleneck capelet」,タートルネックのケープレット,RAW_ENGLISH_WRAPPER
+turtleneck_coat,turtleneck・コート,タートルネックのコート,MIXED_ENGLISH_DEBRIS
+turtleneck_dress,高领毛衣连衣裙,タートルネックドレス,NON_JAPANESE_RESIDUE
+turtleneck_jumpsuit,タグ「turtleneck jumpsuit」,タートルネックのジャンプスーツ,RAW_ENGLISH_WRAPPER
+turtleneck_lift,タグ「turtleneck lift」,タートルネックをめくる,RAW_ENGLISH_WRAPPER
+turtleneck_one-piece_swimsuit,turtleneck one pieceの水着,タートルネックのワンピース水着,MIXED_ENGLISH_DEBRIS
+turtleneck_shirt,高领シャツ衫,タートルネックシャツ,NON_JAPANESE_RESIDUE
+turtleneck_shrug,turtleneck・ボレロ,タートルネックのボレロ,MIXED_ENGLISH_DEBRIS
+turtleneck_under_shirt,turtleneckの下のシャツ,シャツの下のタートルネック,SEMANTIC_RELATION_ERROR
+tuxedo_cat,奶牛猫,タキシード猫,NON_JAPANESE_RESIDUE
+tuxedo_kamen_(cosplay),タキシード・カメン（コスプレ）,タキシード仮面（コスプレ）,TRANSLITERATION_ERROR
+tuxedo_shirt,tuxedo・シャツ,タキシードシャツ,MIXED_ENGLISH_DEBRIS
+tv_show,エロバラエティ,テレビ番組,SEMANTIC_NARROWING
+tv_world_(deltarune),タグ「tv world (deltarune)」,TVワールド（DELTARUNE）,RAW_ENGLISH_WRAPPER
+twee_fashion,タグ「twee fashion」,トゥイーファッション,RAW_ENGLISH_WRAPPER
+twi'lek,タグ「twi'lek」,トワイレック,RAW_ENGLISH_WRAPPER
+twilight_(e.g.o),twilight (e.g.o),黄昏（E.G.O）,CANONICAL_FALLBACK_TRANSLATABLE
+twin_blades,タグ「twin blades」,双剣,RAW_ENGLISH_WRAPPER
+twin_blades_of_levianta,タグ「twin blades of levianta」,レヴィアンタの双剣,RAW_ENGLISH_WRAPPER
+twinhook_pirates_(identity)_(project_moon),twinhook pirates (identity) (project moon),ツインフック海賊団（Identity）（Project Moon）,CANONICAL_FALLBACK_TRANSLATABLE
+twinmyniad_(fate),twinmyniad (fate),ツインミニアド（Fate）,CANONICAL_FALLBACK_TRANSLATABLE
