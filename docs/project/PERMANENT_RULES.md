@@ -18,7 +18,7 @@
 ### 正本・現行DEV・checkpoint
 
 8. Stage完了・大方針変更・チャット移行前に `CURRENT_STATE.md` を更新する。
-9. Codexは `CURRENT_STATE.md` からcurrent DEV Issue番号を取得し、そのlive GitHub Issueを `gh issue view <ISSUE_NUMBER> --comments` で直接取得して読む。GitHub Issueが現行DEVの正本である。
+9. Codexは、最新のGitHub live `main`からread-onlyで取得した `CURRENT_STATE.md` からcurrent DEV Issue番号を取得し、そのlive GitHub Issueを `gh issue view <ISSUE_NUMBER> --comments` で直接取得して読む。ここでいう `CURRENT_STATE.md` は、作業中local worktreeのbranch-localコピーではない。GitHub Issueが現行DEVの正本である。
 10. DEV開始時は、Issue title / state / body / 最新コメント / 最新checkpoint / continuation contract / completion condition / blocker・gateを確認し、`PERMANENT_RULES.md` と照合する。
 11. `gh` 利用不可、GitHub認証失敗、Issue取得失敗、`CURRENT_STATE.md` のcurrent DEV Issue欠落、番号不一致、想定外のclosed / superseded、Issue本文と最新checkpointの関係不明、または明確な恒久ルール矛盾がある場合はfail-closedで実装を開始しない。古い資料を根拠に続行しない。
 12. 本プロジェクトの作業チャット（常設3班、必要時に起動したAUDIT Gate、現行Issueを持つTEMP、GitHub管理・調整チャット）は、会話が長大化して現在地混同・取りこぼし・応答品質低下のリスクが出た場合、またはStage完了・大方針変更・大きな作業区切りに到達した場合、ユーザーから「引継ぎして」と言われるのを待たず、自発的にチャット移行を提案する。
@@ -28,6 +28,23 @@
 16. checkpointは原則としてIssueコメントに残し、少なくとも「最後に成功したこと/結果」「未完了またはblocker」「次作業」「関連branch/commit/file/evidence」を含める。通常の途中経過だけで `CURRENT_STATE.md` を頻繁に書き換えない。全体の現在地・Gate・担当・Stageが変わった時だけ共有正本を更新する。
 17. `CURRENT_STATE.md` / `PERMANENT_RULES.md` / `DECISIONS.md` / Stage Gate文書など共有管理ファイルを変更する前に、必ず最新mainの内容とblob/commitを再取得してから差分を統合する。古いチャット内コピーや記憶だけでファイル全体を上書きしない。競合があれば停止して明示的に解消する。
 18. DEV/管理側がCodexへ新規実装または再開指示を出す場合も、Codex自身が上記のlive Issue preflightを実行する。Issue本文・state・最新checkpointの関係に不明点があればfail-closedで停止する。
+
+#### Live GitHub authorityとstale worktreeの扱い
+
+作業開始・作業再開・復元時の現在地は、local worktree内の管理文書から直接決めてはならない。次のread-only順序で確認する。
+
+1. GitHub live `main` のHEAD
+2. GitHub live `main` の `docs/project/CURRENT_STATE.md`
+3. `CURRENT_STATE.md` が示す対応live GitHub Issue本文
+4. Issueの最新checkpoint/comment
+5. GitHub live `docs/project/PERMANENT_RULES.md`
+6. 必要なfeature branchとlocal worktreeのbranch / HEAD / 差分
+
+local worktreeの `CURRENT_STATE.md`、handoff、branch-local management documentは、そのworktreeが作られた時点のhistorical snapshotである可能性がある。repository rootがfeature branch上にある場合も同じであり、rootに存在することだけを理由に最新状態とは判断しない。
+
+local `CURRENT_STATE.md`、local handoff、branch-local document、live `main`、live Issueまたは最新checkpointが食い違う場合は、古いlocal資料から現在地を推測して作業を開始しない。live GitHub authorityを優先し、必要なrouting同期または管理側の判断が完了するまでfail-closedで停止する。
+
+staleなfeature branchやhistorical worktree内の管理文書を理由に、completed Issueの再開、superseded taskの再実行、old Waveの再生成、old Gateの再開を行ってはならない。live authorityとの照合後に、明示された現行branch / contractだけを再開対象とする。
 
 Codex自身がIssue本文を推測して書き換えない。
 
