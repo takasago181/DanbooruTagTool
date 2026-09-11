@@ -1,0 +1,29 @@
+canonical,old_display_ja,new_display_ja,reason
+mismatched_ear_covers,左右不揃いの耳・covers,左右不揃いの耳カバー,MIXED_ENGLISH_DEBRIS
+mismatched_facial_hair,左右不揃いのfacial・髪,左右不揃いのひげ,MIXED_ENGLISH_DEBRIS
+misplaced_genitals,誤った性器,本来と異なる位置の性器,SEMANTIC_ERROR
+misplaced_mouth,タグ「misplaced mouth」,本来と異なる位置の口,RAW_ENGLISH_WRAPPER
+missile_trail,タグ「missile trail」,ミサイルの航跡,RAW_ENGLISH_WRAPPER
+mistletoe_hair_ornament,mistletoeの髪飾り,ヤドリギの髪飾り,MIXED_ENGLISH_DEBRIS
+mistsplitter_reforged_(genshin_impact),mistsplitter reforged (genshin impact),霧切の廻光（原神）,CANONICAL_FALLBACK_TRANSLATABLE
+misty_(pokemon)_(cosplay),ミスティ（ポケモン）（コスプレ）,カスミ（ポケモン）（コスプレ）,SEMANTIC_ERROR
+mitsubishi_f-2,タグ「mitsubishi f-2」,三菱F-2,RAW_ENGLISH_WRAPPER
+miwa_squad's_uniform,miwa squadの制服,三輪隊の制服,MIXED_ENGLISH_DEBRIS
+mixed_horns,タグ「mixed horns」,異なる種類の角,RAW_ENGLISH_WRAPPER
+mixed_limbs,タグ「mixed limbs」,異なる種類の手足,RAW_ENGLISH_WRAPPER
+mixed_martial_arts,综合格斗,総合格闘技,NON_JAPANESE_RESIDUE
+mixed_wings,mixed・翼,異なる種類の翼,MIXED_ENGLISH_DEBRIS
+miyafuji_yoshika_(cosplay),ミヤフジヨシカ（コスプレ）,宮藤芳佳（コスプレ）,SEMANTIC_ERROR
+miyako_yoshika_(cosplay),ミヤコヨシカ（コスプレ）,宮古芳香（コスプレ）,SEMANTIC_ERROR
+miyamoto_musashi_(fate)_(cosplay),宮本蘇省（運命）（コスプレ）,宮本武蔵（Fate）（コスプレ）,SEMANTIC_ERROR
+miyamoto_musashi_(swimsuit_berserker)_(fate)_(cosplay),宮本学芸（水着バーサーカー）（運命）（コスプレ）,宮本武蔵（水着バーサーカー）（Fate）（コスプレ）,SEMANTIC_ERROR
+miyoushe_watermark,タグ「miyoushe watermark」,Miyousheウォーターマーク,RAW_ENGLISH_WRAPPER
+miyu_edelfelt_(magical_girl)_(cosplay),miyu edelfelt (magical girl) (cosplay),美遊・エーデルフェルト（魔法少女）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+mizi_(alien_stage)_(cosplay),mizi (alien stage) (cosplay),ミジ（ALIEN STAGE）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+mizuhashi_parsee_(cosplay),光沢パーシー（コスプレ）,水橋パルスィ（コスプレ）,SEMANTIC_ERROR
+mizuki_nana_(cosplay),mizuki nana (cosplay),水樹奈々（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+mizuki_yukikaze_(cosplay),Yukikaze Mizuki（コスプレ）,水城ゆきかぜ（コスプレ）,SEMANTIC_ERROR
+mk_14_ebr,タグ「mk 14 ebr」,MK 14 EBR,RAW_ENGLISH_WRAPPER
+mlg,タグ「mlg」,MLG,RAW_ENGLISH_WRAPPER
+mma_gloves,综合格斗手套,MMAグローブ,NON_JAPANESE_RESIDUE
+mochizuki_kei_(style),タグ「mochizuki kei (style)」,望月けい（スタイル）,RAW_ENGLISH_WRAPPER
