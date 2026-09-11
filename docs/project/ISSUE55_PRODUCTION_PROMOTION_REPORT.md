@@ -76,6 +76,36 @@ Rollback copy:
 - automatic rollback performed: no
 - rollback remains available
 
+### Rollback procedure (documented; not executed during this promotion)
+
+Use this procedure only when an authorized operator decides that the production Japanese overlay must return to the pre-V5 state. Do not perform it while the application is running, and do not overwrite the only rollback copy.
+
+1. Exit `DanbooruTagTool` and verify that the launched `pythonw.exe` process for `C:\Codex\DanbooruTagTool` has ended. Do not kill an unrelated Python process; if the application cannot be closed cleanly, stop and resolve that condition first.
+2. Confirm that the rollback source exists at `C:\Codex\DanbooruTagTool\backups\issue55_japanese_overlay_pre_v5_20260911_2152\original_japanese_overlay.json`.
+3. Compute its SHA-256 and continue only when it equals `de1b375d79ef05f4c2477347b20b8a09115511d2ecbd39602bdebcdfa6d576dc`. A mismatch is a hard stop; do not use the file.
+4. Preserve the current production overlay before replacing it. Copy `C:\Codex\DanbooruTagTool\data\runtime\japanese_overlay.json` to a new, uniquely named file under `C:\Codex\DanbooruTagTool\backups\` (for example `issue55_rollback_current_v5_<timestamp>\current_japanese_overlay.json`) and record that copy's SHA-256. This preserves a recovery point if the rollback itself must be undone.
+5. Copy the verified rollback source to a temporary file in the same directory as the production target, for example `C:\Codex\DanbooruTagTool\data\runtime\.issue55-rollback-<unique>.tmp`. Keep the source and temporary file until every post-replace check passes.
+6. Validate the temporary file before replacement: parse JSON, require `format_version == 1`, require the top-level keys `format_version` and `entries`, and require every entry to contain only `display_ja` and `search_ja`. Then load that temporary path through the formal `JapaneseOverlay.load()` and `TagKnowledgeCore.load(..., japanese_overlay_path=<temporary>)` using the actual runtime root. Confirm the expected pre-V5 entry count of 15,228 and that the loader succeeds.
+7. With the application still stopped, atomically replace the target using `os.replace(<temporary>, <target>)` (same filesystem). Do not use a sequential truncate/write or an in-place editor. If the replace operation fails, leave the current target intact and investigate without deleting the source or preserved current-V5 copy.
+8. Compute the target SHA-256. Continue only when it equals the expected pre-V5 hash `de1b375d79ef05f4c2477347b20b8a09115511d2ecbd39602bdebcdfa6d576dc` and the entry count is 15,228.
+9. Run `JapaneseOverlay.load()` and `TagKnowledgeCore.load(..., japanese_overlay_path=<target>)` against the replaced target and require PASS. Also verify that `data/generation/special2788_generation_profile.csv` still has SHA-256 `55490940378e15d8e41454e701d0c202abbab307a08fb6e56841171e0edec1fd`.
+10. If needed, start the application from `C:\Codex\DanbooruTagTool` and perform a minimal runtime smoke check, then close it again. Do not treat this smoke check as a replacement for the hash and formal-loader checks.
+11. If any post-replace check fails, do not continue normal use. Restore from the preserved current-V5 copy using the same verified-temporary-file and `os.replace()` sequence, then validate its recorded SHA-256 and loader state. If the desired state is still the pre-V5 state, the immutable source remains the original rollback file above; never reconstruct it manually. Record the failure, paths, hashes, and recovery result in the relevant Issue checkpoint.
+
+Illustrative PowerShell/Python commands (documentation only; do not run as part of this report remediation):
+
+```powershell
+$source = 'C:\Codex\DanbooruTagTool\backups\issue55_japanese_overlay_pre_v5_20260911_2152\original_japanese_overlay.json'
+$target = 'C:\Codex\DanbooruTagTool\data\runtime\japanese_overlay.json'
+Get-FileHash -Algorithm SHA256 -LiteralPath $source
+$temporary = Join-Path (Split-Path -Parent $target) ('.issue55-rollback-' + [guid]::NewGuid().ToString('N') + '.tmp')
+Copy-Item -LiteralPath $source -Destination $temporary
+py -3.12 -c "import json, os; from pathlib import Path; from danbooru_tag_tool.knowledge import TagKnowledgeCore; p=Path(r'$temporary'); root=Path(r'C:\Codex\DanbooruTagTool'); d=json.loads(p.read_text(encoding='utf-8')); assert d['format_version']==1 and set(d)=={'format_version','entries'} and len(d['entries'])==15228; TagKnowledgeCore.load(root, japanese_overlay_path=p); os.replace(p, Path(r'$target'))"
+Get-FileHash -Algorithm SHA256 -LiteralPath $target
+```
+
+The command block is an example of the order and validation boundary, not an instruction to execute rollback now. The current promoted V5 overlay and the #49 profile must remain unchanged during this documentation remediation.
+
 ## Independent deterministic post-write verification
 
 - production JSON parse/load: PASS
