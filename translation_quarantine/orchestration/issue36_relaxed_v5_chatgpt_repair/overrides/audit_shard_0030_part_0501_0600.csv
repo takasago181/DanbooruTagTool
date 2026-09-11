@@ -1,0 +1,33 @@
+canonical,old_display_ja,new_display_ja,reason
+waist_jewel,タグ「waist jewel」,腰の宝石,RAW_ENGLISH_WRAPPER
+waist_poke_ball,ウエストポークボール,腰のモンスターボール,TRANSLITERATION_ERROR
+waist_ribbon,タグ「waist ribbon」,腰のリボン,RAW_ENGLISH_WRAPPER
+waist_tassel,タグ「waist tassel」,腰の房飾り,RAW_ENGLISH_WRAPPER
+walking_towards_viewer,タグ「walking towards viewer」,視聴者に向かって歩く,RAW_ENGLISH_WRAPPER
+walkman_e_series,タグ「walkman e series」,WALKMAN Eシリーズ,OPAQUE_PRODUCT_NAME
+walkman_nw-s203f,タグ「walkman nw-s203f」,WALKMAN NW-S203F,OPAQUE_PRODUCT_NAME
+wall-eyed,壁の目,外斜視,SEMANTIC_AMBIGUITY
+wall_cross-section,壁・十字架・section,壁の断面,MIXED_ENGLISH_DEBRIS
+wall_lamp,壁灯,壁掛けランプ,NON_JAPANESE_RESIDUE
+wall_mirror,壁・mirror,壁掛け鏡,MIXED_ENGLISH_DEBRIS
+wall_shelf,壁・shelf,壁棚,MIXED_ENGLISH_DEBRIS
+walrus_boy,タグ「walrus boy」,セイウチ少年,RAW_ENGLISH_WRAPPER
+walther_ppk,ワルサーPP,ワルサーPPK,SEMANTIC_ERROR
+walther_wa_2000,タグ「walther wa 2000」,ワルサーWA 2000,OPAQUE_WEAPON_NAME
+wan_squad_of_gensokyo_(touhou),wan squad of gensokyo (touhou),幻想郷の犬チーム（東方）,CANONICAL_FALLBACK_TRANSLATABLE
+wand_in_head,wandの中の頭,頭に刺さった杖,SEMANTIC_RELATION_ERROR
+wandenreich_uniform,wandenreichの制服,見えざる帝国の制服,MIXED_ENGLISH_DEBRIS
+wanderer_(genshin_impact)_(cosplay),wanderer (genshin impact) (cosplay),放浪者（原神）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+war,战争,戦争,NON_JAPANESE_RESIDUE
+war_banner,タグ「war banner」,軍旗,RAW_ENGLISH_WRAPPER
+warm_colors,暖かい,暖色,SEMANTIC_UNDERSPECIFICATION
+warming,温暖化,温める,SEMANTIC_AMBIGUITY
+warrior,劍士,戦士,SEMANTIC_NARROWING
+warrior_(dq3)_(cosplay),warrior (dq3) (cosplay),戦士（DQ3）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+warship,军舰,軍艦,NON_JAPANESE_RESIDUE
+warspite_(kancolle)_(cosplay),Warspite（Kancolle）（コスプレ）,ウォースパイト（艦これ）（コスプレ）,TRANSLITERATION_ERROR
+washing_clothes,washing・服,洗濯する,MIXED_ENGLISH_DEBRIS
+washing_vehicle,エロ洗車,車両を洗う,SEMANTIC_NARROWING
+watanabe_akio_(style),タグ「watanabe akio (style)」,渡辺明夫（スタイル）,RAW_ENGLISH_WRAPPER
+watching_movie,タグ「watching movie」,映画を見る,RAW_ENGLISH_WRAPPER
+watching_pornography,タグ「watching pornography」,ポルノを見る,RAW_ENGLISH_WRAPPER
