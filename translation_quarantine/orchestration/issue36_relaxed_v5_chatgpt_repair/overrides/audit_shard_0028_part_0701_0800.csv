@@ -1,0 +1,47 @@
+canonical,old_display_ja,new_display_ja,reason
+telegram_username,telegramのユーザー名,Telegramのユーザー名,MIXED_ENGLISH_DEBRIS
+telepole_(e.g.o),telepole (e.g.o),テレポール（E.G.O）,CANONICAL_FALLBACK_TRANSLATABLE
+telnyashka,タグ「telnyashka」,テルニャシュカ,RAW_ENGLISH_WRAPPER
+temari_print,temariの柄,手まり柄,MIXED_ENGLISH_DEBRIS
+tempura_costume,tempura・衣装,天ぷらの衣装,MIXED_ENGLISH_DEBRIS
+ten_of_clubs,タグ「ten of clubs」,クラブの10,RAW_ENGLISH_WRAPPER
+ten_of_diamonds,タグ「ten of diamonds」,ダイヤの10,RAW_ENGLISH_WRAPPER
+ten_of_hearts,10の心,ハートの10,SEMANTIC_AMBIGUITY
+ten_of_spades,10のスペード,スペードの10,SEMANTIC_ERROR
+tendrils_from_back,tendrils・からの背中,背中から伸びる巻きひげ,MIXED_ENGLISH_DEBRIS
+tengu-geta,天狗木屐,天狗下駄,NON_JAPANESE_RESIDUE
+tengu_pose,tengu・ポーズ,天狗のポーズ,MIXED_ENGLISH_DEBRIS
+tenjou_utena_(cosplay),Tenjou Utena（コスプレ）,天上ウテナ（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+tenkyuu_chimata_pose,tenkyuu・chimata・ポーズ,天弓千亦のポーズ,MIXED_ENGLISH_DEBRIS
+tennis_dress,网球连衣裙,テニスドレス,NON_JAPANESE_RESIDUE
+tennis_net,网球网,テニスネット,NON_JAPANESE_RESIDUE
+tennis_serve,タグ「tennis serve」,テニスのサーブ,RAW_ENGLISH_WRAPPER
+tennis_skirt,网球短裙,テニススカート,NON_JAPANESE_RESIDUE
+tennomifune_academy_school_uniform,tennomifune academyの学校制服,天ノ御船学園の制服,MIXED_ENGLISH_DEBRIS
+tenryuu_(kancolle)_(cosplay),tenryuu（kancolle）（コスプレ）,天龍（艦これ）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+tent_dress,帐篷连衣裙,テントドレス,NON_JAPANESE_RESIDUE
+tent_interior,帐篷内部,テント内部,NON_JAPANESE_RESIDUE
+tentacle_around_neck,触手の周囲の首,首に巻きつく触手,SEMANTIC_RELATION_ERROR
+tentacle_between_breasts,触手の間の胸,胸の間の触手,SEMANTIC_RELATION_ERROR
+tentacle_in_ear,触手の中の耳,耳の中の触手,SEMANTIC_RELATION_ERROR
+tentacle_on_penis,触手コキ,陰茎の上の触手,SEMANTIC_NARROWING
+tentacle_tongue,触手・tongue,触手状の舌,MIXED_ENGLISH_DEBRIS
+tentacle_with_hand,触手・付きの手,手のある触手,SEMANTIC_RELATION_ERROR
+tentacle_with_mouth,触手・付きのmouth,口のある触手,MIXED_ENGLISH_DEBRIS
+tentacles_as_hands,tentacles・as・両手,手の代わりの触手,MIXED_ENGLISH_DEBRIS
+tentacles_on_futa,tentaclesの上のfuta,ふたなりに絡む触手,SEMANTIC_RELATION_ERROR
+tentacles_on_male,男性の触手,男性に絡む触手,SEMANTIC_RELATION_ERROR
+teratophilia,タグ「teratophilia」,怪物性愛,RAW_ENGLISH_WRAPPER
+teri_derp_(meme),teri derp (meme),テリ・ダープ（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+terminator_armor,terminatorの鎧,ターミネーターアーマー,MIXED_ENGLISH_DEBRIS
+terra_branford_(cosplay),terra branford (cosplay),ティナ・ブランフォード（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+terrace,梯田,テラス,SEMANTIC_ERROR
+tesla_(company),特斯拉,テスラ,NON_JAPANESE_RESIDUE
+test_score,0点の答案,テストの点数,SEMANTIC_NARROWING
+test_tube_holster,test・チューブ・holster,試験管ホルスター,MIXED_ENGLISH_DEBRIS
+test_tube_rack,テストチューブラック,試験管ラック,SEMANTIC_ERROR
+testicle_hair,testicle・髪,睾丸の毛,MIXED_ENGLISH_DEBRIS
+testicles_cross-section,testicles・十字架・section,睾丸の断面,MIXED_ENGLISH_DEBRIS
+testicles_on_face,睾丸贴在顔上,顔に睾丸,NON_JAPANESE_RESIDUE
+tetra_(fish),タグ「tetra (fish)」,テトラ（魚）,RAW_ENGLISH_WRAPPER
+text_in_eyes,目のテキスト,目の中の文字,SEMANTIC_RELATION_ERROR
