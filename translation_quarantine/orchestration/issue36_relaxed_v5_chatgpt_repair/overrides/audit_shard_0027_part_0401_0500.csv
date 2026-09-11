@@ -1,0 +1,41 @@
+canonical,old_display_ja,new_display_ja,reason
+sports_bottle,タグ「sports bottle」,スポーツボトル,RAW_ENGLISH_WRAPPER
+sports_bra_lift,スポーツブラジャーリフト,スポーツブラを持ち上げる,SEMANTIC_STATE_ACTION_ERROR
+sports_bra_peek,sports・ブラ・覗き見,スポーツブラから覗く,MIXED_ENGLISH_DEBRIS
+sports_bra_pull,sports・ブラ・引っ張る,スポーツブラを引っ張る,MIXED_ENGLISH_DEBRIS
+sports_utility_vehicle,越野車,スポーツ・ユーティリティ・ビークル,NON_JAPANESE_RESIDUE
+spotted_skin,spotted・肌,斑点模様の肌,MIXED_ENGLISH_DEBRIS
+sprawled,タグ「sprawled」,大の字に寝そべる,RAW_ENGLISH_WRAPPER
+spread_cleavage,胸の谷間を広げます,胸の谷間を広げる,SEMANTIC_STATE_ACTION_ERROR
+spread_nipple,乳首を広げます,乳首を広げる,SEMANTIC_STATE_ACTION_ERROR
+spread_wings,翼を広げます,翼を広げる,SEMANTIC_STATE_ACTION_ERROR
+spreading_another's_legs,spreading・他人の脚,他人の脚を広げる,MIXED_ENGLISH_DEBRIS
+spring_onion_hair_ornament,スプリングオニオンの髪の飾り,ねぎの髪飾り,SEMANTIC_ERROR
+spring_onion_print,スプリングオニオンプリント,ねぎ柄,SEMANTIC_ERROR
+spring_roll,春卷,春巻き,NON_JAPANESE_RESIDUE
+sputnik,タグ「sputnik」,スプートニク,RAW_ENGLISH_WRAPPER
+spyglass,海盗望远镜,望遠鏡,NON_JAPANESE_RESIDUE
+square-end_necktie,四角形・end・necktie,角形の先端のネクタイ,MIXED_ENGLISH_DEBRIS
+squash,南瓜,カボチャ,NON_JAPANESE_RESIDUE
+squatting_on_person,squattingの上のperson,人物の上でしゃがむ,MIXED_ENGLISH_DEBRIS
+squeeze_bottle,ボトルを絞ります,スクイズボトル,SEMANTIC_STATE_ACTION_ERROR
+squeezing_cheeks,タグ「squeezing cheeks」,頬をつまむ,RAW_ENGLISH_WRAPPER
+squid_print,squidの柄,イカ柄,MIXED_ENGLISH_DEBRIS
+squirting_liquid,液体を潮吹き,液体を噴き出す,SEMANTIC_NARROWING
+squishing,つぶします,押しつぶす,SEMANTIC_STATE_ACTION_ERROR
+sr-25,sr-25,SR-25,CANONICAL_FALLBACK_TRANSLATABLE
+sr-3mp,sr-3mp,SR-3MP,CANONICAL_FALLBACK_TRANSLATABLE
+ss_insignia,タグ「ss insignia」,SSの徽章,RAW_ENGLISH_WRAPPER
+st._chronica_academy_school_uniform,st。クロニカアカデミーユニフォーム,聖クロニカ学園の制服,TRANSLITERATION_ERROR
+st._feles_gakuen_uniform,st。フェレス・ガクエンのユニフォーム,聖フェレス学園の制服,TRANSLITERATION_ERROR
+st._gloriana's_(emblem),st。グロリアナ（エンブレム）,聖グロリアーナ（エンブレム）,TRANSLITERATION_ERROR
+st._gloriana's_military_uniform,st。グロリアナの軍服,聖グロリアーナの軍服,TRANSLITERATION_ERROR
+st._gloriana's_school_uniform,st。グロリアナの制服,聖グロリアーナの制服,TRANSLITERATION_ERROR
+st._hermelin_school_uniform,st。エルメリンの学校のユニフォーム,聖ヘルメリン学園の制服,TRANSLITERATION_ERROR
+st._hilde_academy_of_magic_uniform,st。ヒルデアカデミーオブマジックユニフォーム,聖ヒルデ魔法学院の制服,TRANSLITERATION_ERROR
+st._liliana's_academy_school_uniform,聖リリアンナ学園,聖リリアンナ学園の制服,SEMANTIC_UNDERSPECIFICATION
+st._louis_(azur_lane)_(cosplay),st。ルイ（アズールレーン）（コスプレ）,サン・ルイ（アズールレーン）（コスプレ）,TRANSLITERATION_ERROR
+st._lucia_academy_school_uniform,聖ルチーア学園,聖ルチーア学園の制服,SEMANTIC_UNDERSPECIFICATION
+st._lulim_school_uniform,聖ル・リム女学校,聖ル・リム女学校の制服,SEMANTIC_UNDERSPECIFICATION
+st._miator_school_uniform,聖ミアトル女学園,聖ミアトル女学園の制服,SEMANTIC_UNDERSPECIFICATION
+st._michael's_school_uniform,st。マイケルの学校の制服,聖ミカエル学園の制服,TRANSLITERATION_ERROR
