@@ -1,0 +1,40 @@
+canonical,old_display_ja,new_display_ja,reason
+yellow_track_suit,黄色い・track・スーツ,黄色いトラックスーツ,MIXED_ENGLISH_DEBRIS
+yellow_trim,黄色い・trim,黄色い縁取り,MIXED_ENGLISH_DEBRIS
+yggdrasil_(sao),タグ「yggdrasil (sao)」,世界樹（SAO）,RAW_ENGLISH_WRAPPER
+yin_yang_pin,陰陽・yang・ピン,陰陽ピン,MIXED_ENGLISH_DEBRIS
+yoba_academy_school_uniform,yoba academyの学校制服,ヨバ学園の制服,MIXED_ENGLISH_DEBRIS
+yodaka_(ado),adoよだか,よだか（Ado）,SEMANTIC_ERROR
+yoga_pants,ヨガウェア,ヨガパンツ,SEMANTIC_NARROWING
+yoke_(bdsm),タグ「yoke (bdsm)」,拘束用ヨーク,RAW_ENGLISH_WRAPPER
+yokosuka_girls_marine_high_school_swimsuit,yokosuka girls marine high schoolの水着,横須賀女子海洋高校の水着,MIXED_ENGLISH_DEBRIS
+yokosuka_girls_marine_high_school_uniform,女子海洋学校,横須賀女子海洋高校の制服,SEMANTIC_UNDERSPECIFICATION
+yomiyama_north_junior_high_school_uniform,夜見山北中学校,夜見山北中学校の制服,SEMANTIC_UNDERSPECIFICATION
+yor_briar_(cosplay),Yor Briar（コスプレ）,ヨル・フォージャー（コスプレ）,TRANSLITERATION_ERROR
+yoshi_and_toad_kissing_(meme),yoshi and toad kissing (meme),ヨッシーとキノピオがキス（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+yoshida_akihiko_(style),タグ「yoshida akihiko (style)」,吉田明彦（スタイル）,RAW_ENGLISH_WRAPPER
+yoshida_yuuko_(cosplay),yoshida yuuko (cosplay),吉田優子（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+yotsuba_university_affiliated_junior_high_school_uniform,yotsuba university affiliated junior highの学校制服,四葉大学附属中学校の制服,MIXED_ENGLISH_DEBRIS
+yotsuboshi_academy_school_uniform,四ツ星学園,四ツ星学園の制服,SEMANTIC_UNDERSPECIFICATION
+you're_not_helping,タグ「you're not helping」,手伝いになってない,RAW_ENGLISH_WRAPPER
+you_are_an_idiot_(virus),タグ「you are an idiot (virus)」,You Are An Idiot（ウイルス）,OPAQUE_TITLE
+you_are_my_hero!!_(project_sekai),タグ「you are my hero!! (project sekai)」,YOU ARE MY HERO!!（プロジェクトセカイ）,OPAQUE_TITLE
+you_gonna_get_eaten,あなたは食べるつもりです,あなたは食べられる,SEMANTIC_ERROR
+you_know_other_men?_(meme),you know other men? (meme),他の男も知ってるの？（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+you_look_lonely_(meme),you look lonely (meme),寂しそうだね（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+you_should_kill_yourself_now_(meme),you should kill yourself now (meme),今すぐ自殺すべきだ（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+youkai_watch_(object),Youkai Watch（オブジェクト）,妖怪ウォッチ（物体）,MIXED_ENGLISH_DEBRIS
+your_bra_strap_is_showing_(meme),your bra strap is showing (meme),ブラのストラップ見えてるよ（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+youtube_shorts,タグ「youtube shorts」,YouTube Shorts,OPAQUE_PRODUCT_NAME
+yuanbao,银锭,元宝,NON_JAPANESE_RESIDUE
+yuanlingpao,圆领袍,円領袍,NON_JAPANESE_RESIDUE
+yuffie_kisaragi_(cosplay),Yuffie Kisaragi（コスプレ）,ユフィ・キサラギ（コスプレ）,TRANSLITERATION_ERROR
+yugakure_symbol,yugakure・記号,湯隠れの里のシンボル,MIXED_ENGLISH_DEBRIS
+yui_(princess_connect!)_(cosplay),yui (princess connect!) (cosplay),ユイ（プリンセスコネクト！）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+yuigaoka_music_program_school_uniform,ユイガカ音楽プログラム学校の制服,結ヶ丘音楽科の制服,TRANSLITERATION_ERROR
+yuigaoka_school_uniform,ユイガカの学校制服,結ヶ丘女子高等学校の制服,TRANSLITERATION_ERROR
+yukadon_on_viewer,勝ち馬が乗る,視聴者に床ドン,SEMANTIC_ERROR
+yukikaze_(kancolle)_(cosplay),Yukikaze（Kancolle）（コスプレ）,雪風（艦これ）（コスプレ）,TRANSLITERATION_ERROR
+yukuni_academy_school_uniform,yukuni academyの学校制服,ユクニ学園の制服,MIXED_ENGLISH_DEBRIS
+yumenosaki_school_uniform,夢ノ咲,夢ノ咲学院の制服,SEMANTIC_UNDERSPECIFICATION
+yumizuki_imperial_high_school_uniform,yumizuki imperial highの学校制服,弓月帝国高校の制服,MIXED_ENGLISH_DEBRIS
