@@ -1,0 +1,32 @@
+canonical,old_display_ja,new_display_ja,reason
+sandevistan,タグ「sandevistan」,サンデヴィスタン,RAW_ENGLISH_WRAPPER
+sandwich,カツサンド,サンドイッチ,SEMANTIC_NARROWING
+sandwich_board,タグ「sandwich board」,サンドイッチボード,RAW_ENGLISH_WRAPPER
+sandwich_cookie,sandwich cookie,サンドイッチクッキー,CANONICAL_FALLBACK_TRANSLATABLE
+sanjou_school_swords_(touken_ranbu),タグ「sanjou school swords (touken ranbu)」,三条派の刀剣（刀剣乱舞）,RAW_ENGLISH_WRAPPER
+sankyoin_academy_school_uniform,参京院教育学園,参京院教育学園の制服,SEMANTIC_UNDERSPECIFICATION
+sans_(undertale)_(cosplay),sans (undertale) (cosplay),サンズ（Undertale）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+sanshoku_dango,三色团子,三色団子,NON_JAPANESE_RESIDUE
+sanshuu_middle_school_uniform,sanshuu middleの学校制服,讃州中学校の制服,MIXED_ENGLISH_DEBRIS
+santa_cape,santa・ケープ,サンタケープ,MIXED_ENGLISH_DEBRIS
+santa_leotard,santa・レオタード,サンタレオタード,MIXED_ENGLISH_DEBRIS
+saori_(blue_archive)_(cosplay),saori (blue archive) (cosplay),錠前サオリ（ブルーアーカイブ）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+saotome_academy_school_uniform,ソートームアカデミーユニフォーム,早乙女学園の制服,TRANSLITERATION_ERROR
+sarashi_pull,サラシプル,さらしを引っ張る,SEMANTIC_ERROR
+sarayashiki_junior_high_school_uniform,Sarayashiki中学校のユニフォーム,皿屋敷中学校の制服,MIXED_ENGLISH_DEBRIS
+sarong_hold,タグ「sarong hold」,サロンを押さえる,RAW_ENGLISH_WRAPPER
+sarong_lift,サロンリフト,サロンを持ち上げる,SEMANTIC_STATE_ACTION_ERROR
+sash_bow,sash・リボン,サッシュのリボン,MIXED_ENGLISH_DEBRIS
+satellite_dish,衛星皿,衛星アンテナ,SEMANTIC_ERROR
+saturated,タグ「saturated」,高彩度,RAW_ENGLISH_WRAPPER
+saturated_background,saturatedの背景,高彩度の背景,MIXED_ENGLISH_DEBRIS
+savanaclaw_dorm_uniform,savanaclaw dormの制服,サバナクロー寮の制服,MIXED_ENGLISH_DEBRIS
+saw_cleaver,クリーバーを見た,ノコギリ鉈,SEMANTIC_ERROR
+sawai_yoshio_(style),タグ「sawai yoshio (style)」,澤井啓夫（スタイル）,RAW_ENGLISH_WRAPPER
+sbd_dauntless,タグ「sbd dauntless」,SBD ドーントレス,RAW_ENGLISH_WRAPPER
+scabiosa_(flower),タグ「scabiosa (flower)」,スカビオサ（花）,RAW_ENGLISH_WRAPPER
+scale_print,スケールプリント,鱗柄,SEMANTIC_AMBIGUITY
+scapular,肩甲骨,スカプラリオ,SEMANTIC_AMBIGUITY
+scar_across_eyebrow,タグ「scar across eyebrow」,眉を横切る傷跡,RAW_ENGLISH_WRAPPER
+scar_across_eyes,scar・across・目,目を横切る傷跡,MIXED_ENGLISH_DEBRIS
+scar_on_chin,scarの上のchin,顎の傷跡,SEMANTIC_RELATION_ERROR
