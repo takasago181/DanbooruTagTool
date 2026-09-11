@@ -1,0 +1,27 @@
+canonical,old_display_ja,new_display_ja,reason
+porcelain,瓷器,磁器,NON_JAPANESE_RESIDUE
+portcullis,タグ「portcullis」,落とし格子,RAW_ENGLISH_WRAPPER
+pose_imitation,ポーズ・imitation,ポーズの模倣,MIXED_ENGLISH_DEBRIS
+possessed,乗っ取り,憑依された,SEMANTIC_ERROR
+possum_girl,タグ「possum girl」,オポッサム娘,RAW_ENGLISH_WRAPPER
+possum_tail,possum・尻尾,オポッサムの尻尾,MIXED_ENGLISH_DEBRIS
+post_orgasm_torture,タグ「post orgasm torture」,オーガズム後の責め,RAW_ENGLISH_WRAPPER
+poster_parody,タグ「poster parody」,ポスターパロディ,RAW_ENGLISH_WRAPPER
+posterized,タグ「posterized」,ポスタリゼーション加工,RAW_ENGLISH_WRAPPER
+potential_unleashed,アルティメット悟飯,潜在能力解放,SEMANTIC_NARROWING
+pound_cake,タグ「pound cake」,パウンドケーキ,RAW_ENGLISH_WRAPPER
+pouring_onto_pussy,猫に注ぐ,外陰部に注ぐ,SEMANTIC_AMBIGUITY
+pov_across_bed,ベッドの向こう側のPOV,ベッド越しの一人称視点,SEMANTIC_ERROR
+pov_across_table,テーブルを横切るPOV,テーブル越しの一人称視点,SEMANTIC_ERROR
+pov_doorway,タグ「pov doorway」,出入口越しの一人称視点,RAW_ENGLISH_WRAPPER
+pov_hair,pov・髪,一人称視点の髪,MIXED_ENGLISH_DEBRIS
+pov_peephole,タグ「pov peephole」,のぞき穴越しの一人称視点,RAW_ENGLISH_WRAPPER
+powdered_wig,タグ「powdered wig」,粉をはたいたかつら,RAW_ENGLISH_WRAPPER
+power_(chainsaw_man)_(cosplay),power (chainsaw man) (cosplay),パワー（チェンソーマン）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+power_armor_(fallout),タグ「power armor (fallout)」,パワーアーマー（Fallout）,RAW_ENGLISH_WRAPPER
+power_ring_(green_lantern),タグ「power ring (green lantern)」,パワーリング（グリーンランタン）,RAW_ENGLISH_WRAPPER
+power_sword,power・剣,パワーソード,MIXED_ENGLISH_DEBRIS
+power_tool,有力な手法,電動工具,SEMANTIC_ERROR
+powered_wheelchair,タグ「powered wheelchair」,電動車椅子,RAW_ENGLISH_WRAPPER
+powerpuff_girls_(style),タグ「powerpuff girls (style)」,パワーパフガールズ（スタイル）,RAW_ENGLISH_WRAPPER
+pp-19-01_vityaz,タグ「pp-19-01 vityaz」,PP-19-01 Vityaz,RAW_ENGLISH_WRAPPER
