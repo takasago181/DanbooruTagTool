@@ -1,0 +1,48 @@
+canonical,old_display_ja,new_display_ja,reason
+multicolored_rose,多彩玫瑰,多色のバラ,NON_JAPANESE_RESIDUE
+multicolored_sash,多色のsash,多色のサッシュ,MIXED_ENGLISH_DEBRIS
+multicolored_scrunchie,多色のシュリューティー,多色のシュシュ,SEMANTIC_ERROR
+multicolored_sports_bra,多色のsports・ブラ,多色のスポーツブラ,MIXED_ENGLISH_DEBRIS
+multicolored_squares_background,multicolored squaresの背景,多色の正方形の背景,MIXED_ENGLISH_DEBRIS
+multicolored_tunic,多色のtunic,多色のチュニック,MIXED_ENGLISH_DEBRIS
+multicolored_wristband,多色のwristband,多色のリストバンド,MIXED_ENGLISH_DEBRIS
+multilingual_text,multilingual・テキスト,多言語テキスト,MIXED_ENGLISH_DEBRIS
+multiple-barrel_gun,タグ「multiple-barrel gun」,多銃身銃,RAW_ENGLISH_WRAPPER
+multiple_4koma,複数の4koma,複数の4コマ,MIXED_ENGLISH_DEBRIS
+multiple_aircraft,タグ「multiple aircraft」,複数の航空機,RAW_ENGLISH_WRAPPER
+multiple_animal_ears,複数・動物・耳,複数の動物耳,AWKWARD_MACHINE_TRANSLATION
+multiple_anklets,タグ「multiple anklets」,複数のアンクレット,RAW_ENGLISH_WRAPPER
+multiple_arm_straps,multiple・腕・straps,複数のアームストラップ,MIXED_ENGLISH_DEBRIS
+multiple_armlets,タグ「multiple armlets」,複数の腕輪,RAW_ENGLISH_WRAPPER
+multiple_caterpillar_tracks,タグ「multiple caterpillar tracks」,複数の履帯,RAW_ENGLISH_WRAPPER
+multiple_costumes,タグ「multiple costumes」,複数の衣装,RAW_ENGLISH_WRAPPER
+multiple_dogs,犬のパック,複数の犬,SEMANTIC_ERROR
+multiple_drills,タグ「multiple drills」,複数のドリル,RAW_ENGLISH_WRAPPER
+multiple_faces,タグ「multiple faces」,複数の顔,RAW_ENGLISH_WRAPPER
+multiple_forms,タグ「multiple forms」,複数の形態,RAW_ENGLISH_WRAPPER
+multiple_hair_bows,複数の髪の毛,複数の髪リボン,SEMANTIC_ERROR
+multiple_hair_ribbons,multiple・髪・ribbons,複数の髪リボン,MIXED_ENGLISH_DEBRIS
+multiple_hairclips,タグ「multiple hairclips」,複数のヘアクリップ,RAW_ENGLISH_WRAPPER
+multiple_hat_bows,複数の帽子の弓,複数の帽子リボン,SEMANTIC_ERROR
+multiple_head_bumps,multiple・頭・bumps,複数の頭のこぶ,MIXED_ENGLISH_DEBRIS
+multiple_heads,三つ首,複数の頭,SEMANTIC_NARROWING
+multiple_knives,タグ「multiple knives」,複数のナイフ,RAW_ENGLISH_WRAPPER
+multiple_ovum,タグ「multiple ovum」,複数の卵子,RAW_ENGLISH_WRAPPER
+multiple_panties,複数・パンツ,複数のパンティー,SEMANTIC_ERROR
+multiple_pov,タグ「multiple pov」,複数視点,RAW_ENGLISH_WRAPPER
+multiple_reverse_traps,multiple・逆のtraps,複数の逆トラップ,MIXED_ENGLISH_DEBRIS
+multiple_riders,二人乗り,複数人乗り,SEMANTIC_NARROWING
+multiple_scoops,多個冰淇淋球,複数のアイスクリームスクープ,NON_JAPANESE_RESIDUE
+multiple_seasonal_school_uniforms,multiple・seasonal・学校・uniforms,複数の季節制服,MIXED_ENGLISH_DEBRIS
+multiple_tattoos,タグ「multiple tattoos」,複数のタトゥー,RAW_ENGLISH_WRAPPER
+multiple_theme_colors,タグ「multiple theme colors」,複数のテーマカラー,RAW_ENGLISH_WRAPPER
+multiple_thigh_straps,タグ「multiple thigh straps」,複数の太ももストラップ,RAW_ENGLISH_WRAPPER
+multiple_tongues,タグ「multiple tongues」,複数の舌,RAW_ENGLISH_WRAPPER
+multiple_unit_train,気動車,動力分散式列車,SEMANTIC_ERROR
+multiple_wielding,複数の振動,複数武器を扱う,SEMANTIC_ERROR
+multiple_wristbands,タグ「multiple wristbands」,複数のリストバンド,RAW_ENGLISH_WRAPPER
+mundane_made_awesome,タグ「mundane made awesome」,日常を格好よく描く,RAW_ENGLISH_WRAPPER
+muntins,タグ「muntins」,窓格子,RAW_ENGLISH_WRAPPER
+murakumo_(kancolle)_(cosplay),ムラクモ（カンコル）（コスプレ）,叢雲（艦これ）（コスプレ）,SEMANTIC_ERROR
+murasa_minamitsu_(cosplay),ムラサ・ミナミツ（コスプレ）,村紗水蜜（コスプレ）,SEMANTIC_ERROR
+murasaki_shion_(cosplay),murasaki shion (cosplay),紫咲シオン（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
