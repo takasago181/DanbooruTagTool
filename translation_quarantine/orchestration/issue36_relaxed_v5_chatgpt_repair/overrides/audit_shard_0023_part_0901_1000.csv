@@ -1,0 +1,40 @@
+canonical,old_display_ja,new_display_ja,reason
+praise,タグ「praise」,称賛,RAW_ENGLISH_WRAPPER
+pravda_school_uniform,pravdaの学校制服,プラウダ高校の制服,MIXED_ENGLISH_DEBRIS
+prayer_beads,ロザリオ,祈祷用の数珠,SEMANTIC_NARROWING
+precum_pool,precumプール,我慢汁の水たまり,MIXED_ENGLISH_DEBRIS
+predacon,パンダコン,プレダコン,TRANSLITERATION_ERROR
+prehensile_tail,尾巴抓握,物をつかめる尾,NON_JAPANESE_RESIDUE
+prehensile_toes,つま先を予後とする,物をつかめる足指,SEMANTIC_ERROR
+prehensile_tongue,前舌,物をつかめる舌,SEMANTIC_ERROR
+prehistoric,石器時代,先史時代,SEMANTIC_NARROWING
+prelati's_spellbook,Prelatiのスペルブック,プレラーティの魔術書,MIXED_ENGLISH_DEBRIS
+preppy_fashion,タグ「preppy fashion」,プレッピーファッション,RAW_ENGLISH_WRAPPER
+presenting_foot,足を提示します,足を見せる,SEMANTIC_ERROR
+presenting_pectorals,見せる・pectorals,胸筋を見せる,MIXED_ENGLISH_DEBRIS
+presenting_tanlines,見せる・tanlines,日焼け跡を見せる,MIXED_ENGLISH_DEBRIS
+press_conference,タグ「press conference」,記者会見,RAW_ENGLISH_WRAPPER
+pride_trooper_uniform,pride trooperの制服,プライド・トルーパーズの制服,MIXED_ENGLISH_DEBRIS
+prime_(warframe),タグ「prime (warframe)」,Prime（Warframe）,RAW_ENGLISH_WRAPPER
+primordial_jade_winged-spear_(genshin_impact),和璞鸢,和璞鳶,NON_JAPANESE_RESIDUE
+princess_daisy_(cosplay),princess daisy (cosplay),デイジー姫（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+princess_leia_(cosplay),princess leia (cosplay),レイア姫（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+princess_rosa_costume,princess・rosa・衣装,プリンセス・ローザの衣装,MIXED_ENGLISH_DEBRIS
+pringles_can,プリングルはできます,プリングルズの缶,SEMANTIC_ERROR
+print_apron,エプロンを印刷します,柄入りエプロン,SEMANTIC_STATE_ACTION_ERROR
+print_ascot,アスコットを印刷します,柄入りアスコット,SEMANTIC_STATE_ACTION_ERROR
+print_bandaid,バンダイドを印刷します,柄入り絆創膏,SEMANTIC_STATE_ACTION_ERROR
+print_bandana,バンダナを印刷します,柄入りバンダナ,SEMANTIC_STATE_ACTION_ERROR
+print_bandeau,柄・bandeau,柄入りバンドゥ,MIXED_ENGLISH_DEBRIS
+print_bed_sheet,ベッドシートを印刷します,柄入りベッドシーツ,SEMANTIC_STATE_ACTION_ERROR
+print_bra,print bra,柄入りブラ,CANONICAL_FALLBACK_TRANSLATABLE
+print_camisole,キャミソールを印刷します,柄入りキャミソール,SEMANTIC_STATE_ACTION_ERROR
+print_cape,ケープをプリントします,柄入りケープ,SEMANTIC_STATE_ACTION_ERROR
+print_capelet,カペレットを印刷します,柄入りケープレット,SEMANTIC_STATE_ACTION_ERROR
+print_choker,チョーカーを印刷します,柄入りチョーカー,SEMANTIC_STATE_ACTION_ERROR
+print_cloak,マントを印刷します,柄入りマント,SEMANTIC_STATE_ACTION_ERROR
+print_curtains,柄・curtains,柄入りカーテン,MIXED_ENGLISH_DEBRIS
+print_eyepatch,印刷アイパッチ,柄入りアイパッチ,SEMANTIC_ERROR
+print_fan,柄・fan,柄入り扇子,MIXED_ENGLISH_DEBRIS
+print_hakama,ハカマを印刷します,柄入り袴,SEMANTIC_STATE_ACTION_ERROR
+print_haori,柄・haori,柄入り羽織,MIXED_ENGLISH_DEBRIS
