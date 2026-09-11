@@ -1,0 +1,37 @@
+canonical,old_display_ja,new_display_ja,reason
+store_clerk,コンビニ店員,店員,SEMANTIC_NARROWING
+storm_attacker,ストーム攻撃者,ストームアタッカー,SEMANTIC_ERROR
+storm_cloud,ストームクラウド,嵐雲,SEMANTIC_ERROR
+storm_drain,雨水排水,雨水排水溝,SEMANTIC_UNDERSPECIFICATION
+straight-arm_salute,ナチス式敬礼,腕を伸ばす敬礼,SEMANTIC_NARROWING
+strangulation_mark,strangulation・印,絞め跡,MIXED_ENGLISH_DEBRIS
+strap_break,タグ「strap break」,ストラップ切れ,RAW_ENGLISH_WRAPPER
+strapless_bodysuit,タグ「strapless bodysuit」,ストラップレスボディスーツ,RAW_ENGLISH_WRAPPER
+strapless_jumpsuit,タグ「strapless jumpsuit」,ストラップレスジャンプスーツ,RAW_ENGLISH_WRAPPER
+strapless_kimono,タグ「strapless kimono」,ストラップレス着物,RAW_ENGLISH_WRAPPER
+strapless_romper,タグ「strapless romper」,ストラップレスロンパース,RAW_ENGLISH_WRAPPER
+strawberry_bag,タグ「strawberry bag」,イチゴのバッグ,RAW_ENGLISH_WRAPPER
+strawberry_brooch,strawberry・ブローチ,イチゴのブローチ,MIXED_ENGLISH_DEBRIS
+strawberry_hat,strawberry・帽子,イチゴの帽子,MIXED_ENGLISH_DEBRIS
+strawberry_hat_ornament,strawberry・帽子・飾り,イチゴの帽子飾り,MIXED_ENGLISH_DEBRIS
+strawberry_jam,タグ「strawberry jam」,イチゴジャム,RAW_ENGLISH_WRAPPER
+strawberry_ornament,strawberry・飾り,イチゴの飾り,MIXED_ENGLISH_DEBRIS
+strawberry_plant,タグ「strawberry plant」,イチゴの株,RAW_ENGLISH_WRAPPER
+strawberry_shortcake,ショートケーキ,イチゴのショートケーキ,SEMANTIC_UNDERSPECIFICATION
+streaked_beard,streaked・髭,筋の入った髭,MIXED_ENGLISH_DEBRIS
+streaking,裸奔,裸で走る,NON_JAPANESE_RESIDUE
+stream,溪流,小川,NON_JAPANESE_RESIDUE
+streamers,彩帯,飾りテープ,NON_JAPANESE_RESIDUE
+streetwear,ストリート,ストリートウェア,SEMANTIC_UNDERSPECIFICATION
+string_around_neck,stringの周囲の首,首に巻いた紐,MIXED_ENGLISH_DEBRIS
+string_around_wrist,stringの周囲の手首,手首に巻いた紐,MIXED_ENGLISH_DEBRIS
+string_bowtie,タグ「string bowtie」,紐状の蝶ネクタイ,RAW_ENGLISH_WRAPPER
+string_choker,文字列チョーカー,紐チョーカー,SEMANTIC_AMBIGUITY
+string_in_mouth,口の中の文字列,口の中の紐,SEMANTIC_AMBIGUITY
+string_of_flags,彩旗,旗を連ねた紐,NON_JAPANESE_RESIDUE
+string_of_light_bulbs,電球のストリング,電球を連ねた紐,SEMANTIC_ERROR
+string_of_pearls,タグ「string of pearls」,真珠の連なり,RAW_ENGLISH_WRAPPER
+string_of_photos,タグ「string of photos」,写真を連ねた紐,RAW_ENGLISH_WRAPPER
+string_on_pinky,ピンキーの文字列,小指に結んだ紐,SEMANTIC_AMBIGUITY
+string_tie,結び,ストリングタイ,SEMANTIC_UNDERSPECIFICATION
+strip_tease,タグ「strip tease」,ストリップティーズ,RAW_ENGLISH_WRAPPER
