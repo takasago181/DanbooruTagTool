@@ -1,0 +1,38 @@
+canonical,old_display_ja,new_display_ja,reason
+point_item_(touhou),point item (touhou),点アイテム（東方）,CANONICAL_FALLBACK_TRANSLATABLE
+pointed_bangs,タグ「pointed bangs」,尖った前髪,RAW_ENGLISH_WRAPPER
+pointed_crown,タグ「pointed crown」,尖った王冠,RAW_ENGLISH_WRAPPER
+pointing_at_another,指向某人,他人を指さす,NON_JAPANESE_RESIDUE
+pointing_at_mouth,指差し・位置・口,口を指さす,SEMANTIC_ERROR
+pointing_at_object,pointing・at・物体,物体を指さす,MIXED_ENGLISH_DEBRIS
+pointing_backward,タグ「pointing backward」,後ろを指さす,RAW_ENGLISH_WRAPPER
+pointing_down,指向下方,下を指さす,NON_JAPANESE_RESIDUE
+pointing_forward,前進します,前を指さす,SEMANTIC_ERROR
+pointing_melee_weapon,pointing meleeの武器,近接武器を向ける,MIXED_ENGLISH_DEBRIS
+pointing_sword,指差し・剣,剣を向ける,SEMANTIC_ERROR
+pointing_up,指し示します,上を指さす,SEMANTIC_UNDERSPECIFICATION
+pointing_with_thumb,pointing・付きのthumb,親指で指し示す,MIXED_ENGLISH_DEBRIS
+pointy_boots,pointyのブーツ,先の尖ったブーツ,MIXED_ENGLISH_DEBRIS
+pointy_chin,タグ「pointy chin」,尖った顎,RAW_ENGLISH_WRAPPER
+pointy_shoes,pointyの靴,先の尖った靴,MIXED_ENGLISH_DEBRIS
+poison_apple,タグ「poison apple」,毒リンゴ,RAW_ENGLISH_WRAPPER
+poisoned,タグ「poisoned」,毒を受けた,RAW_ENGLISH_WRAPPER
+poke_ball_background,poke ballの背景,モンスターボールの背景,MIXED_ENGLISH_DEBRIS
+poke_ball_hair_ornament,ポークボールの髪の飾り,モンスターボールの髪飾り,TRANSLITERATION_ERROR
+poke_ball_mug,poke・ボール・mug,モンスターボールのマグカップ,MIXED_ENGLISH_DEBRIS
+poke_ball_symbol,ポークボールシンボル,モンスターボールの記号,TRANSLITERATION_ERROR
+poke_ball_theme,ポークボールのテーマ,モンスターボールのテーマ,TRANSLITERATION_ERROR
+pokedex_number,タグ「pokedex number」,ポケモン図鑑番号,RAW_ENGLISH_WRAPPER
+pokemon_move,ポケモン技絵,ポケモンの技,SEMANTIC_ERROR
+pokemon_on_lap,ラップのポケモン,膝の上のポケモン,SEMANTIC_ERROR
+pokemon_on_leg,脚のポケモン,脚の上のポケモン,SEMANTIC_UNDERSPECIFICATION
+pokemon_ribbon,タグ「pokemon ribbon」,ポケモンのリボン,RAW_ENGLISH_WRAPPER
+pokemon_team,タグ「pokemon team」,ポケモンチーム,RAW_ENGLISH_WRAPPER
+poker_face_failure,ポーカーフェイスの故障,ポーカーフェイス失敗,SEMANTIC_ERROR
+poking_another's_breast,poking・他人の胸,他人の乳房をつつく,MIXED_ENGLISH_DEBRIS
+poking_ass,突っ込んだお尻,お尻をつつく,SEMANTIC_ERROR
+poking_own_breast,poking・own・胸,自分の乳房をつつく,MIXED_ENGLISH_DEBRIS
+pole_between_breasts,poleの間の胸,胸の間の棒,MIXED_ENGLISH_DEBRIS
+polehammer,タグ「polehammer」,ポールハンマー,RAW_ENGLISH_WRAPPER
+police_siren,タグ「police siren」,警察のサイレン,RAW_ENGLISH_WRAPPER
+polish_army,タグ「polish army」,ポーランド軍,RAW_ENGLISH_WRAPPER
