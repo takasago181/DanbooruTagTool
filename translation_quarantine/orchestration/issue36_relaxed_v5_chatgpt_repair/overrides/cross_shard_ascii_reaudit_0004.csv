@@ -1,0 +1,9 @@
+canonical,old_display_ja,new_display_ja,reason
+reverse_nursing_fingering,reverse nursing fingの指輪,逆授乳フィンガリング,SEMANTIC_DEFINITION_REPAIR
+bloom_garden_party_jacket,bloom・garden・party・ジャケット,Bloom Garden Partyのピンクジャケット,DEFINED_PROPER_TERM_NORMALIZATION
+cross_of_prontera,十字架・of・prontera,プロンテラの十字架,MALFORMED_MIXED_LANGUAGE
+glorious_azure_costume_(umamusume),輝かしいazure衣装（umamusume）,グロリアス・アジュール衣装（ウマ娘）,DEFINED_PROPER_TERM_NORMALIZATION
+tail_lock,尻尾・lock,尻尾で相手の胴を巻き寄せる,SEMANTIC_DEFINITION_REPAIR
+tan_tattoo,tanのタトゥー,タトゥー状の日焼け跡,SEMANTIC_DEFINITION_REPAIR
+sword-swallowing_fellatio,剣・swallowing・fellatio,剣呑みフェラチオ,MALFORMED_MIXED_LANGUAGE
+weird_route_(deltarune),Aルートweirdroute,Weirdルート（DELTARUNE）,DEFINED_PROPER_TERM_NORMALIZATION
