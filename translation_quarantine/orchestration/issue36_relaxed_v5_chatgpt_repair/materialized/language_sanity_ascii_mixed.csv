@@ -20,8 +20,6 @@ row_number,canonical,display_ja,checks,already_overridden
 3947,oculus_headset,Oculusヘッドセット,ASCII_WORD,false
 4074,overwatch_logo,Overwatchのロゴ,ASCII_WORD,false
 4090,painttool_sai,ペイントツールSAI,ASCII_WORD,false
-4392,pov_hands,POVハンド,ASCII_WORD,false
-4393,pov_legs,POVの足,ASCII_WORD,false
 4680,rgb_lights,RGBライト,ASCII_WORD,true
 4980,skin_suit_(stellar_blade),スキンスーツ（Stellar Blade）,ASCII_WORD,true
 5249,subscribestar_logo,SubscribeStarロゴ,ASCII_WORD,true
@@ -709,7 +707,6 @@ row_number,canonical,display_ja,checks,already_overridden
 22793,pop_in_my_heart!!_(project_sekai),Pop in my Heart!!（プロジェクトセカイ）,ASCII_WORD,true
 22828,possibility_of_puberty_(sword),Possibility of Puberty（剣）,ASCII_WORD,true
 22859,pov_adoring,愛おしむ視線（POV）,ASCII_WORD,true
-22862,pov_dating,POVデート,ASCII_WORD,false
 22875,power_armor_(fallout),パワーアーマー（Fallout）,ASCII_WORD,true
 22882,power_item_(touhou),パワーアイテム（Touhou）,ASCII_WORD,false
 22894,powerful_breasts,powerful・胸,ASCII_WORD,false

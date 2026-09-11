@@ -14,8 +14,6 @@ row_number,canonical,display_ja,checks,already_overridden
 3947,oculus_headset,Oculusヘッドセット,ASCII_WORD,false
 4074,overwatch_logo,Overwatchのロゴ,ASCII_WORD,false
 4090,painttool_sai,ペイントツールSAI,ASCII_WORD,false
-4392,pov_hands,POVハンド,ASCII_WORD,false
-4393,pov_legs,POVの足,ASCII_WORD,false
 4680,rgb_lights,RGBライト,ASCII_WORD,true
 5249,subscribestar_logo,SubscribeStarロゴ,ASCII_WORD,true
 5250,subscribestar_username,SubscribeStarのユーザー名,ASCII_WORD,false
@@ -316,7 +314,6 @@ row_number,canonical,display_ja,checks,already_overridden
 22558,pleasing_parfait_(umamusume),やる気UPスイーツ,ASCII_WORD,false
 22580,plurk_username,Plurkのユーザー名,ASCII_WORD,true
 22663,pokemon_rgby_(style),ポケモンRGBY（スタイル）,ASCII_WORD,false
-22862,pov_dating,POVデート,ASCII_WORD,false
 22901,pp_tenshi_t-shirt,★PP天使★Tシャツ,ASCII_WORD,false
 23100,prts_logo_(arknights),PRTSロゴ（アークナイツ）,ASCII_WORD,true
 23110,ptrd-41,デグチャレフPTRD1941,ASCII_WORD,false
