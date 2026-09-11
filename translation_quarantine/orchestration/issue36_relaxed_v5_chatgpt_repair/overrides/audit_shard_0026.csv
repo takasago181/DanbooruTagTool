@@ -1,0 +1,37 @@
+canonical,old_display_ja,new_display_ja,reason
+shanghai_neckline,タグ「shanghai neckline」,上海ネックライン,RAW_ENGLISH_WRAPPER
+shaped_cloud,タグ「shaped cloud」,形のある雲,RAW_ENGLISH_WRAPPER
+shaped_liquid,shaped・液体,形を成した液体,MIXED_ENGLISH_DEBRIS
+shapes_background,shapesの背景,図形の背景,MIXED_ENGLISH_DEBRIS
+share_crystal_(neptunia),タグ「share crystal (neptunia)」,シェアクリスタル（ネプテューヌ）,RAW_ENGLISH_WRAPPER
+shared_handcuffs,共用手铐,共有の手錠,NON_JAPANESE_RESIDUE
+shared_improvised_umbrella,タグ「shared improvised umbrella」,即席の傘を共有,RAW_ENGLISH_WRAPPER
+shared_shirt,shared・シャツ,共有のシャツ,MIXED_ENGLISH_DEBRIS
+shared_speech_bubble,共有音声バブル,共有の吹き出し,SEMANTIC_ERROR
+shared_thought_bubble,共有思考バブル,共有の思考吹き出し,SEMANTIC_ERROR
+shared_veil,shared・ベール,共有のベール,MIXED_ENGLISH_DEBRIS
+shared_weapon,sharedの武器,共有の武器,MIXED_ENGLISH_DEBRIS
+sharing_food,口移し,食べ物を分け合う,SEMANTIC_NARROWING
+shark_fin,フカヒレ,サメのひれ,SEMANTIC_NARROWING
+shark_hat,shark・帽子,サメの帽子,MIXED_ENGLISH_DEBRIS
+shark_head,shark・頭,サメの頭,MIXED_ENGLISH_DEBRIS
+shark_tooth,shark・歯,サメの歯,MIXED_ENGLISH_DEBRIS
+shaving_another,shaving・他人の,他人を剃る,MIXED_ENGLISH_DEBRIS
+shaving_armpit,タグ「shaving armpit」,脇毛を剃る,RAW_ENGLISH_WRAPPER
+shaving_beard,shaving・髭,ひげを剃る,MIXED_ENGLISH_DEBRIS
+shaving_crotch,シェービングクロッチ,股間を剃る,SEMANTIC_ERROR
+shawl_lapels,青果领,ショールラペル,NON_JAPANESE_RESIDUE
+sheaf,タグ「sheaf」,束,RAW_ENGLISH_WRAPPER
+sheathing,硬化,鞘に収める,SEMANTIC_AMBIGUITY
+sheep_head,sheep・頭,羊の頭,MIXED_ENGLISH_DEBRIS
+sheep_hood,羊フッド,羊フード,TRANSLITERATION_ERROR
+sheet_ghost,タグ「sheet ghost」,シーツのお化け,RAW_ENGLISH_WRAPPER
+sheet_music,乐谱,楽譜,NON_JAPANESE_RESIDUE
+shell_(company),shell (company),Shell（企業）,CANONICAL_FALLBACK_TRANSLATABLE
+shell_brooch,shell・ブローチ,貝殻のブローチ,MIXED_ENGLISH_DEBRIS
+shell_hat_ornament,shell・帽子・飾り,貝殻の帽子飾り,MIXED_ENGLISH_DEBRIS
+shell_jacket,shell・ジャケット,シェルジャケット,MIXED_ENGLISH_DEBRIS
+shell_necklace,贝壳项链,貝殻のネックレス,NON_JAPANESE_RESIDUE
+shell_pasties,タグ「shell pasties」,貝殻形のニップレス,RAW_ENGLISH_WRAPPER
+shell_to_ear,耳からシェル,耳に貝殻を当てる,SEMANTIC_RELATION_ERROR
+shelving_book,棚の本,本を棚に戻す,SEMANTIC_STATE_ACTION_ERROR
