@@ -1,0 +1,40 @@
+canonical,old_display_ja,new_display_ja,reason
+vertical-striped_leggings,縦のストライプ柄のleggings,縦縞のレギンス,MIXED_ENGLISH_DEBRIS
+vertical-striped_overalls,縦のストライプ柄のoveralls,縦縞のオーバーオール,MIXED_ENGLISH_DEBRIS
+vertical-striped_pajamas,縦のストライプ柄のpajamas,縦縞のパジャマ,MIXED_ENGLISH_DEBRIS
+vertical-striped_pillow,縦のストライプ柄のpillow,縦縞の枕,MIXED_ENGLISH_DEBRIS
+vertical-striped_ribbon,縦のストライプ柄のribbon,縦縞のリボン,MIXED_ENGLISH_DEBRIS
+vertical-striped_sash,縦のストライプ柄のsash,縦縞のサッシュ,MIXED_ENGLISH_DEBRIS
+vertical-striped_sleeves,縦のストライプ柄のsleeves,縦縞の袖,MIXED_ENGLISH_DEBRIS
+vertical-striped_sports_bra,縦のストライプ柄のsports・ブラ,縦縞のスポーツブラ,MIXED_ENGLISH_DEBRIS
+vertical_foregrip,垂直のforegrip,垂直フォアグリップ,MIXED_ENGLISH_DEBRIS
+vertical_text,文字纵向排列,縦書きテキスト,NON_JAPANESE_RESIDUE
+very_hairy,タグ「very hairy」,非常に毛深い,RAW_ENGLISH_WRAPPER
+very_long_cape,very・長い・ケープ,非常に長いケープ,MIXED_ENGLISH_DEBRIS
+very_long_robe,very・長い・ローブ,非常に長いローブ,MIXED_ENGLISH_DEBRIS
+very_long_sidelocks,very・長い・sidelocks,非常に長い横髪,MIXED_ENGLISH_DEBRIS
+very_long_veil,very・長い・ベール,非常に長いベール,MIXED_ENGLISH_DEBRIS
+very_low_bun,very・低い・bun,非常に低い位置のお団子髪,MIXED_ENGLISH_DEBRIS
+very_wide_shot,极远景镜頭,超ロングショット,NON_JAPANESE_RESIDUE
+vest_pouch,タグ「vest pouch」,ベストのポーチ,RAW_ENGLISH_WRAPPER
+vgen_logo,vgenのロゴ,VGenのロゴ,OPAQUE_NAME_CASE
+vgen_username,vgenのユーザー名,VGenのユーザー名,OPAQUE_NAME_CASE
+vhs-d2,vhs-d2,VHS-D2,OPAQUE_IDENTIFIER_CASE
+vibrator_on_soles,vibratorの上のsoles,足裏にバイブレーター,SEMANTIC_RELATION_ERROR
+vibrator_under_swimsuit,vibrator underの水着,水着の下のバイブレーター,MIXED_ENGLISH_DEBRIS
+victory_rolls,タグ「victory rolls」,ヴィクトリーロール（髪型）,RAW_ENGLISH_WRAPPER
+video_game_case,タグ「video game case」,ビデオゲームのケース,RAW_ENGLISH_WRAPPER
+vietnamese_clothes,越服,ベトナムの服,NON_JAPANESE_RESIDUE
+view_between_legs,アーチフェラ,脚の間からの視点,SEMANTIC_NARROWING
+viewer_holding_weapon,viewer holdingの武器,視聴者が武器を持つ,MIXED_ENGLISH_DEBRIS
+viewer_self-insert,タグ「viewer self-insert」,視聴者の自己投影,RAW_ENGLISH_WRAPPER
+vigilante_crew_(blue_archive),自警団（Blue Archive）,自警団（ブルーアーカイブ）,MIXED_ENGLISH_DEBRIS
+vignetting,タグ「vignetting」,ビネット効果,RAW_ENGLISH_WRAPPER
+viltrumite,タグ「viltrumite」,ヴィルトルマイト,RAW_ENGLISH_WRAPPER
+viltrumite_clothes,viltrumite・服,ヴィルトルマイトの服,MIXED_ENGLISH_DEBRIS
+viltrumite_group_shot_(meme),viltrumite group shot (meme),ヴィルトルマイト集合写真（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+vincent_van_gogh_(style),フィンセント・ファン・ゴッホ,フィンセント・ファン・ゴッホ（スタイル）,SEMANTIC_UNDERSPECIFICATION
+vine_bondage,タグ「vine bondage」,つる植物による拘束,RAW_ENGLISH_WRAPPER
+vine_boom_(meme),vine boom (meme),Vineブーム（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+vine_print,ぶどうプリント,つる植物柄,SEMANTIC_AMBIGUITY
+vine_tentacle,vine・触手,つる植物状の触手,MIXED_ENGLISH_DEBRIS
