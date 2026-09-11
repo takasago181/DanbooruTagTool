@@ -41,7 +41,6 @@ row_number,canonical,display_ja,checks,already_overridden
 6287,aihara_academy_school_uniform,aihara academyの学校制服,ASCII_WORD,false
 6347,akatsuki_uniform,akatsukiの制服,ASCII_WORD,false
 6354,akira_movie_poster,AKIRAの映画ポスター,ASCII_WORD,true
-6404,alphabet_blocks,アルファベット・blocks,ASCII_WORD,true
 6405,alphes_(style),alphes塗り,ASCII_WORD,false
 6449,alvis_uniform,alvisの制服,ASCII_WORD,false
 6471,ame_no_kisaki_academy_school_uniform,ame no kisaki academyの学校制服,ASCII_WORD,false
@@ -85,35 +84,14 @@ row_number,canonical,display_ja,checks,already_overridden
 8399,bluesky_username,blueskyのユーザー名,ASCII_WORD,false
 8445,body_onahole,身体・onahole,ASCII_WORD,false
 8459,bofors_40_mm_gun,ボフォース40mm機関砲,ASCII_WORD,false
-8480,bolt_hair_ornament,boltの髪飾り,ASCII_WORD,true
-8485,bomb_hair_ornament,bombの髪飾り,ASCII_WORD,true
-8491,bone_armor,boneの鎧,ASCII_WORD,true
-8492,bone_earrings,boneのイヤリング,ASCII_WORD,true
-8493,bone_in_mouth,boneの中のmouth,ASCII_WORD,true
-8498,bone_weapon,boneの武器,ASCII_WORD,true
 8533,boosty_username,boostyのユーザー名,ASCII_WORD,false
-8546,borrowed_weapon,borrowedの武器,ASCII_WORD,true
 8564,bouncing_flat_chest,bouncing・flat・胸,ASCII_WORD,false
-8583,bow_babydoll,リボン・babydoll,ASCII_WORD,true
-8590,bow_garter_belt,リボン・garter・ベルト,ASCII_WORD,true
-8641,braid_over_shoulder,braidの上の肩,ASCII_WORD,true
-8645,braided_scarf,編み込みのscarf,ASCII_WORD,true
-8650,braiding_own_hair,braiding・own・髪,ASCII_WORD,true
-8662,brazilian_flag_print,brazilian flagの柄,ASCII_WORD,true
-8664,brazilian_national_soccer_team_uniform,brazilian national soccer teamの制服,ASCII_WORD,true
-8676,breaking_through_window,breaking・越しのwindow,ASCII_WORD,true
 8693,breast_pile,胸・pile,ASCII_WORD,false
-8697,breast_shake,胸・shake,ASCII_WORD,true
 8704,breastless_ghost_costume,breastless・ghost・衣装,ASCII_WORD,false
-8765,broken_heart_hair_ornament,broken heartの髪飾り,ASCII_WORD,true
 8924,bryan_lee_o'malley_(style),Bryan Lee O'Malley風,ASCII_WORD,true
-8934,bubble_print,bubbleの柄,ASCII_WORD,true
-8960,bug_print,bugの柄,ASCII_WORD,true
-8979,bullet_earrings,bulletのイヤリング,ASCII_WORD,true
 8988,bullying_viewer,POVいじめ,ASCII_WORD,false
 9133,cafe_lycoreco_uniform,cafe lycorecoの制服,ASCII_WORD,false
 9135,cafe_mew_mew_uniform,cafe mew mewの制服,ASCII_WORD,false
-9341,cardiogram_print,cardiogramの柄,ASCII_WORD,true
 9492,cavorite_ball,cavoriteボール,ASCII_WORD,false
 9496,cd_case,CDケース,ASCII_WORD,false
 9497,cd_player,CDプレイヤー,ASCII_WORD,false
@@ -163,7 +141,6 @@ row_number,canonical,display_ja,checks,already_overridden
 12756,ff_gradient,FFグラデーション,ASCII_WORD,true
 12778,fifa_world_cup_trophy,FIFAワールドカップトロフィー,ASCII_WORD,true
 13008,flash_drive,USBメモリ,ASCII_WORD,false
-13203,flower_wrapper,花・wrapper,ASCII_WORD,true
 13244,fn_minimi,FNミニミ,ASCII_WORD,false
 13380,forehead_ui,額のUI,ASCII_WORD,true
 13433,fox_platoon_(blue_archive),FOX小隊（ブルーアーカイブ）,ASCII_WORD,true

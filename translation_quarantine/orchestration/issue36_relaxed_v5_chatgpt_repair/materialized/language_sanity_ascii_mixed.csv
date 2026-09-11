@@ -50,6 +50,8 @@ row_number,canonical,display_ja,checks,already_overridden
 6060,a-10_thunderbolt_ii,A-10 サンダーボルトII,ASCII_WORD,true
 6064,a2_(nier:automata)_(cosplay),A2（NieR:Automata）のコスプレ,ASCII_WORD,true
 6091,absolute_(nikke),アブソルート（NIKKE）,ASCII_WORD,true
+6092,absolute_cinema_(meme),Absolute Cinema（ミーム）,ASCII_WORD,true
+6122,ackchyually_(meme),Ackchyually（ミーム）,ASCII_WORD,true
 6123,acog,ACOG（光学照準器）,ASCII_WORD,true
 6124,acorn_(palico_armor),Acorn（オトモ装備）,ASCII_WORD,true
 6146,adaptive_combat_rifle,ブッシュマスターACR,ASCII_WORD,false
@@ -74,10 +76,8 @@ row_number,canonical,display_ja,checks,already_overridden
 6350,akg_k-series_headphones,AKG Kシリーズヘッドホン,ASCII_WORD,true
 6354,akira_movie_poster,AKIRAの映画ポスター,ASCII_WORD,true
 6372,alcina_dimitrescu_(cosplay),Alcina dimitrescu（コスプレ）,ASCII_WORD,false
-6404,alphabet_blocks,アルファベット・blocks,ASCII_WORD,true
 6405,alphes_(style),alphes塗り,ASCII_WORD,false
 6449,alvis_uniform,alvisの制服,ASCII_WORD,false
-6453,amamiya_ren_(cosplay),Amamiya Ren（コスプレ）,ASCII_WORD,true
 6471,ame_no_kisaki_academy_school_uniform,ame no kisaki academyの学校制服,ASCII_WORD,false
 6504,among_us_eyes_(meme),Among Usの目（ミーム）,ASCII_WORD,true
 6532,ancient_dragon_(elden_ring),古竜（ELDEN RING）,ASCII_WORD,true
@@ -142,6 +142,7 @@ row_number,canonical,display_ja,checks,already_overridden
 8140,blanket_cape,blanket・ケープ,ASCII_WORD,false
 8143,blanket_veil,blanket・ベール,ASCII_WORD,false
 8145,blazblue_insignia,BLAZBLUEの紋章,ASCII_WORD,true
+8150,blender_(software),Blender（ソフトウェア）,ASCII_WORD,true
 8159,bling-bang-bang-born_(creepy_nuts),BBBBダンス,ASCII_WORD,false
 8167,block_(minecraft),ブロック（Minecraft）,ASCII_WORD,true
 8179,blood_edge_(stellar_blade),ブラッドエッジ（Stellar Blade）,ASCII_WORD,true
@@ -156,46 +157,26 @@ row_number,canonical,display_ja,checks,already_overridden
 8435,boc'z_(umamusume),BoC'z（ウマ娘）,ASCII_WORD,true
 8445,body_onahole,身体・onahole,ASCII_WORD,false
 8459,bofors_40_mm_gun,ボフォース40mm機関砲,ASCII_WORD,false
-8480,bolt_hair_ornament,boltの髪飾り,ASCII_WORD,true
 8481,bolt_pistol,bolt・拳銃,ASCII_WORD,false
-8485,bomb_hair_ornament,bombの髪飾り,ASCII_WORD,true
 8486,bomb_item_(touhou),爆弾アイテム（Touhou）,ASCII_WORD,false
-8491,bone_armor,boneの鎧,ASCII_WORD,true
-8492,bone_earrings,boneのイヤリング,ASCII_WORD,true
-8493,bone_in_mouth,boneの中のmouth,ASCII_WORD,true
 8495,bone_ornament,bone・飾り,ASCII_WORD,false
 8497,bone_tail,bone・尻尾,ASCII_WORD,false
-8498,bone_weapon,boneの武器,ASCII_WORD,true
 8502,bonfire_(dark_souls),bonfire（ダークソウルズ）,ASCII_WORD,false
 8519,book_skirt,book・スカート,ASCII_WORD,false
 8533,boosty_username,boostyのユーザー名,ASCII_WORD,false
 8545,borrowed_inset,borrowed・差し込み,ASCII_WORD,false
-8546,borrowed_weapon,borrowedの武器,ASCII_WORD,true
 8564,bouncing_flat_chest,bouncing・flat・胸,ASCII_WORD,false
 8573,bound_tail,bound・尻尾,ASCII_WORD,false
-8583,bow_babydoll,リボン・babydoll,ASCII_WORD,true
-8590,bow_garter_belt,リボン・garter・ベルト,ASCII_WORD,true
 8612,box_body,box・身体,ASCII_WORD,false
-8641,braid_over_shoulder,braidの上の肩,ASCII_WORD,true
-8645,braided_scarf,編み込みのscarf,ASCII_WORD,true
 8648,braiding_another's_hair,braiding・他人の髪,ASCII_WORD,false
-8650,braiding_own_hair,braiding・own・髪,ASCII_WORD,true
 8661,brazilian_flag_bikini,brazilian・旗・ビキニ,ASCII_WORD,false
-8662,brazilian_flag_print,brazilian flagの柄,ASCII_WORD,true
-8664,brazilian_national_soccer_team_uniform,brazilian national soccer teamの制服,ASCII_WORD,true
 8675,breaking_through_wall,breaking・越しの壁,ASCII_WORD,false
-8676,breaking_through_window,breaking・越しのwindow,ASCII_WORD,true
 8693,breast_pile,胸・pile,ASCII_WORD,false
-8697,breast_shake,胸・shake,ASCII_WORD,true
 8704,breastless_ghost_costume,breastless・ghost・衣装,ASCII_WORD,false
 8736,bright_me_up!!_(ensemble_stars!),BRIGHT ME UP!!（あんさんぶるスターズ！）,ASCII_WORD,true
-8765,broken_heart_hair_ornament,broken heartの髪飾り,ASCII_WORD,true
 8792,broly_culo_(meme),Broly culo（ミーム）,ASCII_WORD,false
 8924,bryan_lee_o'malley_(style),Bryan Lee O'Malley風,ASCII_WORD,true
-8934,bubble_print,bubbleの柄,ASCII_WORD,true
-8960,bug_print,bugの柄,ASCII_WORD,true
 8971,bulge_peek,bulge・覗き見,ASCII_WORD,false
-8979,bullet_earrings,bulletのイヤリング,ASCII_WORD,true
 8988,bullying_viewer,POVいじめ,ASCII_WORD,false
 9015,burning_as_one_(umamusume),Burning as One（ウマ娘）,ASCII_WORD,true
 9060,butler_(fire_emblem:_three_houses),執事（Fire Emblem: Three Houses）,ASCII_WORD,false
@@ -204,7 +185,6 @@ row_number,canonical,display_ja,checks,already_overridden
 9135,cafe_mew_mew_uniform,cafe mew mewの制服,ASCII_WORD,false
 9251,candy_heart,candy・ハート,ASCII_WORD,false
 9287,capital_ship_(eve_online),主力艦（EVE Online）,ASCII_WORD,false
-9341,cardiogram_print,cardiogramの柄,ASCII_WORD,true
 9342,caren_hortensia_(cosplay),Caren Hortensia（コスプレ）,ASCII_WORD,false
 9362,carrier_(eve_online),空母（EVE Online）,ASCII_WORD,false
 9364,carro_veloce_cv-33,カルロ・ヴェローチェ CV-33,ASCII_WORD,true
@@ -350,7 +330,6 @@ row_number,canonical,display_ja,checks,already_overridden
 13129,florence_nightingale_(fate)_(cosplay),フローレンス・ナイチンゲール（Fate）（コスプレ）,ASCII_WORD,true
 13130,florence_nightingale_(trick_or_treatment)_(fate)_(cosplay),フローレンス・ナイチンゲール（トリック・オア・トリートメント）（Fate）（コスプレ）,ASCII_WORD,true
 13138,flow_glow_(hololive),FLOW GLOW（ホロライブ）,ASCII_WORD,true
-13203,flower_wrapper,花・wrapper,ASCII_WORD,true
 13244,fn_minimi,FNミニミ,ASCII_WORD,false
 13253,focus_(horizon),フォーカス（Horizon）,ASCII_WORD,true
 13355,forbidden_pants,forbidden・パンツ,ASCII_WORD,false

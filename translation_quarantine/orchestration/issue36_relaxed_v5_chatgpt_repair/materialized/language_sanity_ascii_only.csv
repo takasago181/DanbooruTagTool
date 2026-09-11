@@ -13,15 +13,11 @@ row_number,canonical,display_ja,checks,already_overridden
 4348,pogchamp_(meme),pogchamp (meme),ASCII_WORD,false
 4542,qiqi_(genshin_impact)_(cosplay),qiqi (genshin impact) (cosplay),ASCII_WORD,false
 5919,yomorio_lingerie,yomorio lingerie,ASCII_WORD,true
-5948,114514_(meme),114514 (meme),ASCII_WORD,true
 6004,3dio,3dio,ASCII_WORD,false
 6011,4th_match_flame_(e.g.o),4th match flame (e.g.o),ASCII_WORD,false
-6022,69_(meme),69 (meme),ASCII_WORD,true
 6063,a-rise,A-RISE,ASCII_WORD,true
 6075,aa-12,aa-12,ASCII_WORD,false
-6092,absolute_cinema_(meme),absolute cinema (meme),ASCII_WORD,true
 6094,absolution_(genshin_impact),absolution (genshin impact),ASCII_WORD,false
-6122,ackchyually_(meme),ackchyually (meme),ASCII_WORD,true
 6186,adoration_(e.g.o),adoration (e.g.o),ASCII_WORD,false
 6195,aedd_(e.g.o),aedd (e.g.o),ASCII_WORD,false
 6199,aek-971,aek-971,ASCII_WORD,false
@@ -45,7 +41,6 @@ row_number,canonical,display_ja,checks,already_overridden
 6414,alternate_(the_mandela_catalogue),Alternate（The Mandela Catalogue）,ASCII_WORD,true
 6457,amarr_empire_(eve_online),amarr empire (eve online),ASCII_WORD,false
 6459,amate_yuzuriha_(cosplay),amate yuzuriha (cosplay),ASCII_WORD,false
-6475,amenoma_kageuchi_(genshin_impact),amenoma kageuchi (genshin impact),ASCII_WORD,true
 6476,amenomurakumo-no-tsurugi_(fate),amenomurakumo-no-tsurugi (fate),ASCII_WORD,false
 6621,animatech_(league),animatech (league),ASCII_WORD,true
 6642,annihilation_(nikke),Annihilation（NIKKE）,ASCII_WORD,true
@@ -59,7 +54,6 @@ row_number,canonical,display_ja,checks,already_overridden
 6853,ar-18,ar-18,ASCII_WORD,false
 6854,ar-57,ar-57,ASCII_WORD,false
 6864,aramasa,Aramasa,ASCII_WORD,true
-6885,arcueid_brunestud_(cosplay),arcueid brunestud (cosplay),ASCII_WORD,true
 6886,ardor_blossom_star_(e.g.o),ardor blossom star (e.g.o),ASCII_WORD,false
 6896,argonauts_(fate),argonauts (fate),ASCII_WORD,false
 6926,aria_(zenless_zone_zero)_(cosplay),aria (zenless zone zero) (cosplay),ASCII_WORD,false
@@ -102,7 +96,6 @@ row_number,canonical,display_ja,checks,already_overridden
 8114,blackcliff_slasher_(genshin_impact),blackcliff slasher (genshin impact),ASCII_WORD,false
 8125,blacktober,Blacktober,ASCII_WORD,true
 8128,blade_lineage_(identity)_(project_moon),blade lineage (identity) (project moon),ASCII_WORD,false
-8150,blender_(software),blender (software),ASCII_WORD,true
 8414,bmw,BMW,ASCII_WORD,true
 8416,bmw_m3,BMW M3,ASCII_WORD,true
 8466,boko_(girls_und_panzer)_(cosplay),boko (girls und panzer) (cosplay),ASCII_WORD,false
