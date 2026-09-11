@@ -1,0 +1,34 @@
+canonical,old_display_ja,new_display_ja,reason
+toothbrush,はブラシ,歯ブラシ,TRANSLITERATION_ERROR
+tootsuki_saryou_ryouri_gakuen_uniform,tootsuki saryou ryouri gakuenの制服,遠月茶寮料理學園の制服,MIXED_ENGLISH_DEBRIS
+top-load_washing_machine,波轮洗衣机,縦型洗濯機,NON_JAPANESE_RESIDUE
+top/bottom_dynamic_annotated,タグ「top/bottom dynamic annotated」,攻め・受け関係の注釈付き,RAW_ENGLISH_WRAPPER
+top_of_moe_2013,トップス・of・moe・2013,トップ・オブ・モエ 2013,MIXED_ENGLISH_DEBRIS
+top_of_moe_2014,トップス・of・moe・2014,トップ・オブ・モエ 2014,MIXED_ENGLISH_DEBRIS
+top_of_moe_2015,トップス・of・moe・2015,トップ・オブ・モエ 2015,MIXED_ENGLISH_DEBRIS
+top_of_moe_2016,トップス・of・moe・2016,トップ・オブ・モエ 2016,MIXED_ENGLISH_DEBRIS
+top_of_moe_2017,トップス・of・moe・2017,トップ・オブ・モエ 2017,MIXED_ENGLISH_DEBRIS
+top_of_moe_2018,トップス・of・moe・2018,トップ・オブ・モエ 2018,MIXED_ENGLISH_DEBRIS
+top_of_moe_2019,トップス・of・moe・2019,トップ・オブ・モエ 2019,MIXED_ENGLISH_DEBRIS
+top_of_moe_2020,トップス・of・moe・2020,トップ・オブ・モエ 2020,MIXED_ENGLISH_DEBRIS
+top_of_moe_2021,トップス・of・moe・2021,トップ・オブ・モエ 2021,MIXED_ENGLISH_DEBRIS
+top_of_moe_2022,トップス・of・moe・2022,トップ・オブ・モエ 2022,MIXED_ENGLISH_DEBRIS
+topless_other,側面全裸,別の人物がトップレス,SEMANTIC_ERROR
+toramaru_shou_(cosplay),トラマル・ショウ（コスプレ）,寅丸星（コスプレ）,TRANSLITERATION_ERROR
+torii_earrings,トリイイヤリング,鳥居のイヤリング,TRANSLITERATION_ERROR
+torii_hair_ornament,トリイの髪の飾り,鳥居の髪飾り,TRANSLITERATION_ERROR
+torn_bandages,破れた・bandages,破れた包帯,MIXED_ENGLISH_DEBRIS
+torn_bandeau,破れた・bandeau,破れたバンドゥ,MIXED_ENGLISH_DEBRIS
+torn_camisole,破れた・camisole,破れたキャミソール,MIXED_ENGLISH_DEBRIS
+torn_cloth,破れた・cloth,破れた布,MIXED_ENGLISH_DEBRIS
+torn_hakama,ハカマを引き裂いた,破れた袴,SEMANTIC_STATE_ACTION_ERROR
+torn_jumpsuit,破れた・jumpsuit,破れたジャンプスーツ,MIXED_ENGLISH_DEBRIS
+torn_mask,マスク割れ,破れたマスク,SEMANTIC_ERROR
+torn_overalls,破れた・overalls,破れたオーバーオール,MIXED_ENGLISH_DEBRIS
+torn_paper,破れた・paper,破れた紙,MIXED_ENGLISH_DEBRIS
+torn_photo,破れた・photo,破れた写真,MIXED_ENGLISH_DEBRIS
+torn_sports_bra,破れた・sports・ブラ,破れたスポーツブラ,MIXED_ENGLISH_DEBRIS
+torn_straps,破れた・straps,破れたストラップ,MIXED_ENGLISH_DEBRIS
+torn_stuffed_toy,破れた・ぬいぐるみのtoy,破れたぬいぐるみ,MIXED_ENGLISH_DEBRIS
+torn_underwear,破れた・underwear,破れた下着,MIXED_ENGLISH_DEBRIS
+torpedo_launcher,魚雷ランチャー,魚雷発射機,SEMANTIC_ERROR
