@@ -1,0 +1,30 @@
+canonical,old_display_ja,new_display_ja,reason
+orange_hanfu,オレンジ色のhanfu,オレンジ色の漢服,MIXED_ENGLISH_DEBRIS
+orange_haori,オレンジ色のhaori,オレンジ色の羽織,MIXED_ENGLISH_DEBRIS
+orange_headscarf,オレンジ色のheadscarf,オレンジ色のヘッドスカーフ,MIXED_ENGLISH_DEBRIS
+orange_horns,オレンジホーン,オレンジ色の角,SEMANTIC_ERROR
+orange_leaf,オレンジ色のleaf,オレンジ色の葉,MIXED_ENGLISH_DEBRIS
+orange_leg_warmers,orange legのウォーマー,オレンジ色のレッグウォーマー,MIXED_ENGLISH_DEBRIS
+orange_leggings,オレンジ色のleggings,オレンジ色のレギンス,MIXED_ENGLISH_DEBRIS
+orange_lips,橙色嘴唇,オレンジ色の唇,NON_JAPANESE_RESIDUE
+orange_loincloth,オレンジ色のloincloth,オレンジ色の腰布,MIXED_ENGLISH_DEBRIS
+orange_petals,オレンジ色のpetals,オレンジ色の花びら,MIXED_ENGLISH_DEBRIS
+orange_pupils,橙色瞳孔,オレンジ色の瞳孔,NON_JAPANESE_RESIDUE
+orange_rope,オレンジ色のrope,オレンジ色のロープ,MIXED_ENGLISH_DEBRIS
+orange_rose,橙玫瑰,オレンジ色のバラ,NON_JAPANESE_RESIDUE
+orange_sash,オレンジサッシ,オレンジ色のサッシュ,SEMANTIC_ERROR
+orange_shawl,オレンジ色のshawl,オレンジ色のショール,MIXED_ENGLISH_DEBRIS
+orange_slice,オレンジ色のスライス,オレンジのスライス,SEMANTIC_ERROR
+orange_slingshot_swimsuit,orange slingshotの水着,オレンジ色のスリングショット水着,MIXED_ENGLISH_DEBRIS
+orange_slippers,オレンジ色のslippers,オレンジ色のスリッパ,MIXED_ENGLISH_DEBRIS
+orange_trim,オレンジ色のtrim,オレンジ色の縁取り,MIXED_ENGLISH_DEBRIS
+orange_tulip,オレンジ色のtulip,オレンジ色のチューリップ,MIXED_ENGLISH_DEBRIS
+orbital_frame_(zone_of_the_enders),軌道フレーム（エンダーのゾーン）,オービタルフレーム（ZONE OF THE ENDERS）,SEMANTIC_ERROR
+orca_boy,タグ「orca boy」,シャチ少年,RAW_ENGLISH_WRAPPER
+orca_hair_ornament,orcaの髪飾り,シャチの髪飾り,MIXED_ENGLISH_DEBRIS
+orca_hood,orca・フード,シャチのフード,MIXED_ENGLISH_DEBRIS
+order_of_the_black_knights_uniform,ブラックナイツユニフォームの順序,黒の騎士団の制服,SEMANTIC_ERROR
+order_suit_(splatoon),タグ「order suit (splatoon)」,オーダースーツ（スプラトゥーン）,RAW_ENGLISH_WRAPPER
+ordinal_scale_uniform_(sao),タグ「ordinal scale uniform (sao)」,オーディナル・スケールの制服（SAO）,RAW_ENGLISH_WRAPPER
+organic_weapon,organicの武器,生体武器,MIXED_ENGLISH_DEBRIS
+organization_xiii,タグ「organization xiii」,XIII機関,RAW_ENGLISH_WRAPPER
