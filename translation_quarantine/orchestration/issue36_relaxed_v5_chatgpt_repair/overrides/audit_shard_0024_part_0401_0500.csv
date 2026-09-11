@@ -1,0 +1,26 @@
+canonical,old_display_ja,new_display_ja,reason
+r-99_smg,タグ「r-99 smg」,R-99 SMG,RAW_ENGLISH_WRAPPER
+r3birth_(love_live!),タグ「r3birth (love live!)」,R3BIRTH（ラブライブ！）,RAW_ENGLISH_WRAPPER
+rabbit-shaped_pupils,バニー型の生徒,ウサギ形の瞳孔,SEMANTIC_AMBIGUITY
+rabbit_balloon,ウサギ・balloon,ウサギの風船,MIXED_ENGLISH_DEBRIS
+rabbit_charm,ウサギ・charm,ウサギのチャーム,MIXED_ENGLISH_DEBRIS
+rabbit_ear_headphones,兔耳耳机,ウサギ耳ヘッドホン,NON_JAPANESE_RESIDUE
+rabbit_ear_headwear,ウサギ・耳・headwear,ウサギ耳の頭飾り,MIXED_ENGLISH_DEBRIS
+rabbit_o-ring,rabbit oの指輪,ウサギ形Oリング,SEMANTIC_ERROR
+rabbit_pasties,ウサギ・pasties,ウサギ形ニップレス,MIXED_ENGLISH_DEBRIS
+rabbit_youkai_group_(touhou),rabbit youkai group (touhou),ウサギ妖怪グループ（東方）,CANONICAL_FALLBACK_TRANSLATABLE
+rabbits_(ensemble_stars!),タグ「rabbits (ensemble stars!)」,Ra*bits（あんさんぶるスターズ！）,RAW_ENGLISH_WRAPPER
+raccoon_tails_(hairstyle),タグ「raccoon tails (hairstyle)」,ラクーンテール（髪型）,RAW_ENGLISH_WRAPPER
+race_fetishism_parody,race・フェティシズム・parody,人種フェティシズムのパロディ,MIXED_ENGLISH_DEBRIS
+race_flag,raceの旗,レース旗,MIXED_ENGLISH_DEBRIS
+race_queen_two-piece,タグ「race queen two-piece」,レースクイーンのツーピース衣装,RAW_ENGLISH_WRAPPER
+racing,カーレース,レース,SEMANTIC_NARROWING
+racist_momoi_(meme),种族騎士王小桃,差別主義者モモイ（ミーム）,NON_JAPANESE_RESIDUE
+radar_dish,レーダー料理,レーダーアンテナ,SEMANTIC_AMBIGUITY
+radar_hair_ornament,radarの髪飾り,レーダーの髪飾り,MIXED_ENGLISH_DEBRIS
+radial_gradient_background,radial gradientの背景,放射状グラデーションの背景,MIXED_ENGLISH_DEBRIS
+radiation_symbol-shaped_pupils,radiation・記号・shaped・pupils,放射線記号形の瞳孔,MIXED_ENGLISH_DEBRIS
+radio_tower,ラジオタワー,電波塔,SEMANTIC_ERROR
+ragdoll,タグ「ragdoll」,ラグドール,RAW_ENGLISH_WRAPPER
+ragequit,タグ「ragequit」,レイジクイット,RAW_ENGLISH_WRAPPER
+raiden_mei_(cosplay),raiden mei (cosplay),雷電芽衣（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
