@@ -1,0 +1,42 @@
+canonical,old_display_ja,new_display_ja,reason
+ship's_wheel_ornament,ship・wheel・飾り,舵輪の飾り,MIXED_ENGLISH_DEBRIS
+ship_deck,シップデッキ,船の甲板,SEMANTIC_ERROR
+ship_in_a_bottle,ボトルに出荷します,ボトルシップ,SEMANTIC_AMBIGUITY
+ship_turret,タグ「ship turret」,艦砲塔,RAW_ENGLISH_WRAPPER
+shipping_(fandom),関係チャッピング,カップリング（ファンダム）,SEMANTIC_ERROR
+shirai_kuroko_(cosplay),シライ・クロコ（コスプレ）,白井黒子（コスプレ）,SEMANTIC_ERROR
+shiraitodai_school_uniform,Shiraitodaiの制服,白糸台高校の制服,CANONICAL_FALLBACK_TRANSLATABLE
+shirakami_fubuki_(cosplay),Shirakami Fubuki（コスプレ）,白上フブキ（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+shiranui_(kancolle)_(cosplay),shiranui（kancolle）（コスプレ）,不知火（艦これ）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+shiratorizawa_volleyball_uniform,shiratorizawa volleyballの制服,白鳥沢バレー部のユニフォーム,MIXED_ENGLISH_DEBRIS
+shiratsuyu_(kancolle)_(cosplay),shiratsuyu (kancolle) (cosplay),白露（艦これ）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+shirogane_noel_(cosplay),Shirogane Noel（コスプレ）,白銀ノエル（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+shiroko_(blue_archive)_(cosplay),shiroko (blue archive) (cosplay),砂狼シロコ（ブルーアーカイブ）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+shirt_aside,シャツは別として,シャツをずらす,SEMANTIC_ERROR
+shirt_belt,シャツ・ベルト,シャツのベルト,MIXED_ENGLISH_DEBRIS
+shirt_bow,シャツ・リボン,シャツのリボン,MIXED_ENGLISH_DEBRIS
+shirt_down,シャツダウン,シャツを下げる,SEMANTIC_ERROR
+shirt_hold,シャツホールド,シャツを持つ,SEMANTIC_ERROR
+shirt_in_mouth,嘴里含着シャツ衫,口にシャツ,NON_JAPANESE_RESIDUE
+shirt_over_head,シャツ・覆う・頭,頭にかぶせたシャツ,MIXED_ENGLISH_DEBRIS
+shirt_partially_removed,シャツ・部分的に・removed,一部脱いだシャツ,MIXED_ENGLISH_DEBRIS
+shirt_rolled_up,シャツが巻き上げられました,まくり上げたシャツ,SEMANTIC_STATE_ACTION_ERROR
+shirt_slip,シャツスリップ,ずれたシャツ,SEMANTIC_ERROR
+shirt_tug,拖拽シャツ衣,シャツを引っ張る,NON_JAPANESE_RESIDUE
+shirt_under_kimono,シャツの下のkimono,着物の下のシャツ,SEMANTIC_RELATION_ERROR
+shirt_under_sweater,シャツの下のsweater,セーターの下のシャツ,SEMANTIC_RELATION_ERROR
+shishio_makoto_(cosplay),shishio makoto (cosplay),志々雄真実（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+shishiro_botan_(cosplay),shishiro botan (cosplay),獅白ぼたん（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+shock_collar,shock・襟,電気首輪,MIXED_ENGLISH_DEBRIS
+shoe_buckle,靴・buckle,靴のバックル,MIXED_ENGLISH_DEBRIS
+shoe_loss,靴の損失,靴を失くす,SEMANTIC_ERROR
+shogi,shogi,将棋,CANONICAL_FALLBACK_TRANSLATABLE
+shooing,タグ「shooing」,追い払う,RAW_ENGLISH_WRAPPER
+shooting_star_(symbol),タグ「shooting star (symbol)」,流れ星の記号,RAW_ENGLISH_WRAPPER
+shooting_star_hair_ornament,shooting starの髪飾り,流れ星の髪飾り,MIXED_ENGLISH_DEBRIS
+shooting_star_hat_ornament,shooting・星・帽子・飾り,流れ星の帽子飾り,MIXED_ENGLISH_DEBRIS
+shooting_through_heart,心を通して撃ちます,心臓を撃ち抜く,SEMANTIC_ERROR
+shopping_bag,レジ袋,買い物袋,SEMANTIC_NARROWING
+shopping_basket_cart,タグ「shopping basket cart」,買い物かごカート,RAW_ENGLISH_WRAPPER
+short-sleeved_jacket,短い・sleeved・ジャケット,半袖ジャケット,MIXED_ENGLISH_DEBRIS
+short-sleeved_sweater,短袖のセーター,半袖セーター,NON_JAPANESE_RESIDUE
