@@ -1,0 +1,35 @@
+canonical,old_display_ja,new_display_ja,reason
+pantyhose_cutout,パンスト・cutout,パンストのカットアウト,MIXED_ENGLISH_DEBRIS
+pantyhose_tug,パンストのタグ,パンストを引っ張る,SEMANTIC_ERROR
+pantyhose_under_leotard,パンストの下のレオタード,レオタードの下のパンスト,SEMANTIC_RELATION_ERROR
+pantyhose_under_swimsuit,水着タイツ,水着の下のパンスト,SEMANTIC_UNDERSPECIFICATION
+panzer_38(t),タグ「panzer 38(t)」,38(t)戦車,RAW_ENGLISH_WRAPPER
+panzer_ii,タグ「panzer ii」,II号戦車,RAW_ENGLISH_WRAPPER
+panzer_iii,タグ「panzer iii」,III号戦車,RAW_ENGLISH_WRAPPER
+papaya,木瓜,パパイヤ,SEMANTIC_ERROR
+paper_boat,纸船,紙の船,NON_JAPANESE_RESIDUE
+paper_crown,タグ「paper crown」,紙の王冠,RAW_ENGLISH_WRAPPER
+paper_doll_chain,paper・doll・チェーン,連なった紙人形,MIXED_ENGLISH_DEBRIS
+paper_fan,纸扇,紙扇子,NON_JAPANESE_RESIDUE
+paper_flower,paper・花,紙の花,MIXED_ENGLISH_DEBRIS
+paper_in_mouth,paperの中のmouth,口に紙,MIXED_ENGLISH_DEBRIS
+paper_towel,毛巾,ペーパータオル,SEMANTIC_ERROR
+paperclip,回形针,クリップ,NON_JAPANESE_RESIDUE
+papercutting,タグ「papercutting」,切り絵,RAW_ENGLISH_WRAPPER
+papers,論文,紙類,SEMANTIC_NARROWING
+parasite_dress_uniform_(darling_in_the_franxx),タグ「parasite dress uniform (darling in the franxx)」,パラサイト礼装（ダーリン・イン・ザ・フランキス）,RAW_ENGLISH_WRAPPER
+parasite_suit_(darling_in_the_franxx),タグ「parasite suit (darling in the franxx)」,パラサイトスーツ（ダーリン・イン・ザ・フランキス）,RAW_ENGLISH_WRAPPER
+parchment,ようひし,羊皮紙,TRANSLITERATION_ERROR
+parfait_glass,タグ「parfait glass」,パフェグラス,RAW_ENGLISH_WRAPPER
+parquet_floor,タグ「parquet floor」,寄木張りの床,RAW_ENGLISH_WRAPPER
+parrot_boy,タグ「parrot boy」,オウム少年,RAW_ENGLISH_WRAPPER
+parrot_girl,タグ「parrot girl」,オウム娘,RAW_ENGLISH_WRAPPER
+part_time_job,タグ「part time job」,アルバイト,RAW_ENGLISH_WRAPPER
+partial_squatting,タグ「partial squatting」,中腰,RAW_ENGLISH_WRAPPER
+partial_transformation,タグ「partial transformation」,部分変身,RAW_ENGLISH_WRAPPER
+partially_blind,部分的に・blind,部分的な失明,MIXED_ENGLISH_DEBRIS
+partially_bordered,部分的に・bordered,一部に枠あり,MIXED_ENGLISH_DEBRIS
+partially_cracked_egg,部分的に・cracked・egg,一部ひび割れた卵,MIXED_ENGLISH_DEBRIS
+partially_feathered_tail,部分的に・feathered・尻尾,一部に羽毛のある尻尾,MIXED_ENGLISH_DEBRIS
+partially_opaque_sunglasses,部分的に・opaque・sunglasses,一部不透明なサングラス,MIXED_ENGLISH_DEBRIS
+parting_water,parting・水,水を分ける,MIXED_ENGLISH_DEBRIS
