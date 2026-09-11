@@ -4,7 +4,7 @@ row_number,canonical,display_ja,checks,already_overridden
 936,twitter_username,Twitterのユーザー名,ASCII_WORD,false
 957,virtual_youtuber,バーチャルYouTuber,ASCII_WORD,false
 1071,\m/,I love youハンドサイン,ASCII_WORD,false
-1519,blacked_female,黒人NTR（女性側）,ASCII_WORD,false
+1519,blacked_female,blacked female（曖昧タグ）,ASCII_WORD,true
 1529,blob_(google),Google Blob（絵文字）,ASCII_WORD,true
 2224,ddd_threesome,ddd threesome,ASCII_WORD,true
 2246,deviantart_username,DeviantArtユーザー名,ASCII_WORD,false
@@ -44,7 +44,7 @@ row_number,canonical,display_ja,checks,already_overridden
 5727,vogue_(magazine),Vogue（雑誌）,ASCII_WORD,true
 5868,yd_dancer_outfit,YD型踊り子衣装,ASCII_WORD,false
 5919,yomorio_lingerie,yomorio lingerie,ASCII_WORD,true
-5945,1-up_mushroom,1UPきのこ,ASCII_WORD,false
+5945,1-up_mushroom,1UPキノコ,ASCII_WORD,true
 5946,100kg_(meme),100kg（ミーム）,ASCII_WORD,true
 5947,10mm_pistol,10mm・拳銃,ASCII_WORD,false
 5999,2nd_live_tour_~blooming_with_ooo~,蓮ノ空2nd兵庫Day2,ASCII_WORD,false
@@ -358,7 +358,6 @@ row_number,canonical,display_ja,checks,already_overridden
 10428,constellation_crystal_(ff14),星座クリスタル（FF14）,ASCII_WORD,true
 10437,contempt_awe_(e.g.o),contempt awe (e.g.o),ASCII_WORD,false
 10478,cool_s,Cool S,ASCII_WORD,true
-10487,cooperative_pussyjob,協力して行うpussyjob,ASCII_WORD,true
 10522,cortisol_level_(meme),cortisol level (meme),ASCII_WORD,false
 10543,counters_(nikke),カウンターズ(勝利の女神:NIKKE),ASCII_WORD,false
 10553,covenant_halo_(girls'_frontline_2),Covenant Halo（ドールズフロントライン2）,ASCII_WORD,true
@@ -576,7 +575,7 @@ row_number,canonical,display_ja,checks,already_overridden
 13912,gaze_on_me!_outfit_(umamusume),Gaze on Me!衣装（ウマ娘）,ASCII_WORD,true
 13931,geissele_urg-i,Geissele URG-I,ASCII_WORD,true
 13948,genderswap_(otf),性別転換（OTF）,ASCII_WORD,true
-13957,genkai_made_pom_pon!!,限界までPom_Pon!!,ASCII_WORD,false
+13957,genkai_made_pom_pon!!,限界までPom Pon!!,ASCII_WORD,true
 13962,genocide_route_(undertale),虐殺ルート（Undertale）,ASCII_WORD,true
 13990,get_over_it._(project_sekai),Get over it.（プロジェクトセカイ）,ASCII_WORD,true
 14010,ghoul_(fallout),グール（Fallout）,ASCII_WORD,true

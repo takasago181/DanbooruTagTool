@@ -3,7 +3,6 @@ row_number,canonical,display_ja,checks,already_overridden
 936,twitter_username,Twitterのユーザー名,ASCII_WORD,false
 957,virtual_youtuber,バーチャルYouTuber,ASCII_WORD,false
 1071,\m/,I love youハンドサイン,ASCII_WORD,false
-1519,blacked_female,黒人NTR（女性側）,ASCII_WORD,false
 2246,deviantart_username,DeviantArtユーザー名,ASCII_WORD,false
 2463,fantia_logo,Fantiaロゴ,ASCII_WORD,false
 2464,fantia_username,Fantiaユーザー名,ASCII_WORD,false
@@ -22,7 +21,7 @@ row_number,canonical,display_ja,checks,already_overridden
 5561,twitter_screenshot,Twitterのスクリーンショット,ASCII_WORD,false
 5562,twitter_x_logo,X（旧Twitter）のロゴ,ASCII_WORD,true
 5868,yd_dancer_outfit,YD型踊り子衣装,ASCII_WORD,false
-5945,1-up_mushroom,1UPきのこ,ASCII_WORD,false
+5945,1-up_mushroom,1UPキノコ,ASCII_WORD,true
 5999,2nd_live_tour_~blooming_with_ooo~,蓮ノ空2nd兵庫Day2,ASCII_WORD,false
 6008,40mm_grenade,40mm榴弾,ASCII_WORD,true
 6010,4th_live_dream_~bloom_the_dream_believers~,蓮ノ空4th石川Day1,ASCII_WORD,false
@@ -82,7 +81,6 @@ row_number,canonical,display_ja,checks,already_overridden
 9676,check_my_note_(idolmaster),チェックMYノート,ASCII_WORD,false
 10044,clamp_(circle)_(style),野生のCLAMP,ASCII_WORD,false
 10334,colt_single_action_army,コルトSAA,ASCII_WORD,false
-10487,cooperative_pussyjob,協力して行うpussyjob,ASCII_WORD,true
 10555,cover_bikini_girl_(gta_vi)_(pose),GTA VI表紙ビキニ女性のポーズ,ASCII_WORD,true
 10616,cr-unit_(date_a_live),CRユニット（デート・ア・ライブ）,ASCII_WORD,true
 11043,cz_scorpion_evo_3,CZ スコーピオンEVO 3,ASCII_WORD,true
@@ -127,7 +125,7 @@ row_number,canonical,display_ja,checks,already_overridden
 13795,ga_rune_pose,GAルーンポーズ,ASCII_WORD,false
 13825,game_boy_advance_sp,ゲームボーイアドバンスSP,ASCII_WORD,false
 13827,game_cartridge,ROMカセット,ASCII_WORD,false
-13957,genkai_made_pom_pon!!,限界までPom_Pon!!,ASCII_WORD,false
+13957,genkai_made_pom_pon!!,限界までPom Pon!!,ASCII_WORD,true
 14033,gibson_sg,ギブソンSG,ASCII_WORD,false
 14034,gibson_sg_(bass),Gibson SGベース,ASCII_WORD,true
 14035,gif_caption_(meme),GIFキャプション（ミーム）,ASCII_WORD,true
