@@ -87,7 +87,6 @@ row_number,canonical,display_ja,checks,already_overridden
 9676,check_my_note_(idolmaster),チェックMYノート,ASCII_WORD,false
 10044,clamp_(circle)_(style),野生のCLAMP,ASCII_WORD,false
 10334,colt_single_action_army,コルトSAA,ASCII_WORD,false
-10377,compass_uniform,compassの制服,ASCII_WORD,false
 10487,cooperative_pussyjob,協力して行うpussyjob,ASCII_WORD,true
 10555,cover_bikini_girl_(gta_vi)_(pose),GTA VI表紙ビキニ女性のポーズ,ASCII_WORD,true
 10616,cr-unit_(date_a_live),CRユニット（デート・ア・ライブ）,ASCII_WORD,true
@@ -298,7 +297,7 @@ row_number,canonical,display_ja,checks,already_overridden
 21463,oufi_association_south_uniform,oufi association southの制服,ASCII_WORD,false
 21709,panzer_ii,II号戦車,ASCII_WORD,true
 21710,panzer_iii,III号戦車,ASCII_WORD,true
-21772,parker-hale_idw,パーカー - ヘールIDW,ASCII_WORD,false
+21772,parker-hale_idw,パーカー・ヘイルIDW,ASCII_WORD,true
 21856,pawoo_username,Pawooユーザー名,ASCII_WORD,false
 21860,pc_engine,PCエンジン,ASCII_WORD,false
 21951,pendleton_ward_(style),Pendleton Ward風,ASCII_WORD,true
@@ -317,7 +316,6 @@ row_number,canonical,display_ja,checks,already_overridden
 22558,pleasing_parfait_(umamusume),やる気UPスイーツ,ASCII_WORD,false
 22580,plurk_username,Plurkのユーザー名,ASCII_WORD,true
 22663,pokemon_rgby_(style),ポケモンRGBY（スタイル）,ASCII_WORD,false
-22804,poptepipic_pose,Poptepipicポーズ,ASCII_WORD,false
 22862,pov_dating,POVデート,ASCII_WORD,false
 22901,pp_tenshi_t-shirt,★PP天使★Tシャツ,ASCII_WORD,false
 23100,prts_logo_(arknights),PRTSロゴ（アークナイツ）,ASCII_WORD,true

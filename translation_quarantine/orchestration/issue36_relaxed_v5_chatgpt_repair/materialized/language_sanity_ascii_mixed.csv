@@ -203,7 +203,6 @@ row_number,canonical,display_ja,checks,already_overridden
 10343,combat_ship_(eve_online),戦闘艦（EVE Online）,ASCII_WORD,false
 10371,comp_(megami_tensei),COMP（女神転生）,ASCII_WORD,true
 10373,companion/af,コンパニオン/AF,ASCII_WORD,false
-10377,compass_uniform,compassの制服,ASCII_WORD,false
 10428,constellation_crystal_(ff14),星座クリスタル（FF14）,ASCII_WORD,true
 10487,cooperative_pussyjob,協力して行うpussyjob,ASCII_WORD,true
 10543,counters_(nikke),カウンターズ(勝利の女神:NIKKE),ASCII_WORD,false
@@ -677,7 +676,7 @@ row_number,canonical,display_ja,checks,already_overridden
 21709,panzer_ii,II号戦車,ASCII_WORD,true
 21710,panzer_iii,III号戦車,ASCII_WORD,true
 21766,pareo_swimsuit_(fire_emblem_engage),パレオ付き水着（Fire Emblem Engage）,ASCII_WORD,false
-21772,parker-hale_idw,パーカー - ヘールIDW,ASCII_WORD,false
+21772,parker-hale_idw,パーカー・ヘイルIDW,ASCII_WORD,true
 21776,parksolian_(infinity_nikki),Parksolian（インフィニティニキ）,ASCII_WORD,true
 21808,passion!!!!!!_(love_live!),PASSION!!!!!!（ラブライブ！）,ASCII_WORD,true
 21810,passionlip_(fate)_(cosplay),PassionLip（Fate）（コスプレ）,ASCII_WORD,false
@@ -708,7 +707,6 @@ row_number,canonical,display_ja,checks,already_overridden
 22580,plurk_username,Plurkのユーザー名,ASCII_WORD,true
 22663,pokemon_rgby_(style),ポケモンRGBY（スタイル）,ASCII_WORD,false
 22793,pop_in_my_heart!!_(project_sekai),Pop in my Heart!!（プロジェクトセカイ）,ASCII_WORD,true
-22804,poptepipic_pose,Poptepipicポーズ,ASCII_WORD,false
 22828,possibility_of_puberty_(sword),Possibility of Puberty（剣）,ASCII_WORD,true
 22859,pov_adoring,愛おしむ視線（POV）,ASCII_WORD,true
 22862,pov_dating,POVデート,ASCII_WORD,false
