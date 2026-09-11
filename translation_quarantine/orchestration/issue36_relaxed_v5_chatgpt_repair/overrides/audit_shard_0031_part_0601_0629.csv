@@ -1,0 +1,13 @@
+canonical,old_display_ja,new_display_ja,reason
+zoomer_slang,タグ「zoomer slang」,Z世代スラング,RAW_ENGLISH_WRAPPER
+zooming_in,ズームインします,ズームイン,SEMANTIC_STATE_ACTION_ERROR
+zuikaku_(kancolle)_(cosplay),Zuikaku（Kancolle）（コスプレ）,瑞鶴（艦これ）（コスプレ）,TRANSLITERATION_ERROR
+zun_(style),野生の神主,ZUN（スタイル）,SEMANTIC_NARROWING
+zun_hat,zun・帽子,ZUN帽,MIXED_ENGLISH_DEBRIS
+zun_pose,zun・ポーズ,ZUNポーズ,MIXED_ENGLISH_DEBRIS
+zura_(phrase),Zura（フレーズ）,ずら（フレーズ）,TRANSLITERATION_ERROR
+zwei_association_south_(identity)_(project_moon),zwei association south (identity) (project moon),ツヴァイ協会南部（人格）（Project Moon）,CANONICAL_FALLBACK_TRANSLATABLE
+zwei_association_south_uniform,zwei association southの制服,ツヴァイ協会南部の制服,MIXED_ENGLISH_DEBRIS
+zwei_association_west_uniform,zwei association westの制服,ツヴァイ協会西部の制服,MIXED_ENGLISH_DEBRIS
+zzz,タグ「zzz」,zzz,OPAQUE_EXPRESSION
+|_|,| |,|_|,SEMANTIC_SYMBOL_LOSS
