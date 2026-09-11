@@ -1,0 +1,43 @@
+canonical,old_display_ja,new_display_ja,reason
+ribbon-trimmed_coat,ribbon・整えた・コート,リボン縁取りのコート,MIXED_ENGLISH_DEBRIS
+ribbon-trimmed_corset,ribbon・整えた・コルセット,リボン縁取りのコルセット,MIXED_ENGLISH_DEBRIS
+ribbon-trimmed_hood,ribbon・整えた・フード,リボン縁取りのフード,MIXED_ENGLISH_DEBRIS
+ribbon-trimmed_jacket,ribbon・整えた・ジャケット,リボン縁取りのジャケット,MIXED_ENGLISH_DEBRIS
+ribbon-trimmed_socks,ribbon trimmedの靴下,リボン縁取りの靴下,MIXED_ENGLISH_DEBRIS
+ribbon-trimmed_sweater,ribbon・整えた・sweater,リボン縁取りのセーター,MIXED_ENGLISH_DEBRIS
+ribbon-trimmed_wrist_cuffs,ribbon・整えた・手首・カフ,リボン縁取りの手首カフ,MIXED_ENGLISH_DEBRIS
+ribbon_around_body,リボン・周囲・ボディ,体に巻いたリボン,MIXED_ENGLISH_DEBRIS
+ribbon_between_breasts,リボン・間・胸,胸の間のリボン,MIXED_ENGLISH_DEBRIS
+ribbon_border,ribbon・枠,リボンの枠,MIXED_ENGLISH_DEBRIS
+ribbon_cable,タグ「ribbon cable」,リボンケーブル,RAW_ENGLISH_WRAPPER
+ribbon_censor,タグ「ribbon censor」,リボンによる隠し,RAW_ENGLISH_WRAPPER
+ribbon_of_saint_george,タグ「ribbon of saint george」,聖ゲオルギー・リボン,RAW_ENGLISH_WRAPPER
+ribbon_print,ribbonの柄,リボン柄,MIXED_ENGLISH_DEBRIS
+ribboned_xiao_guan,タグ「ribboned xiao guan」,リボン付き小冠,RAW_ENGLISH_WRAPPER
+ribs_(food),タグ「ribs (food)」,スペアリブ,RAW_ENGLISH_WRAPPER
+rice_shower_(umamusume)_(cosplay),ライスシャワー（Umamusume）（コスプレ）,ライスシャワー（ウマ娘）（コスプレ）,MIXED_ENGLISH_DEBRIS
+ride-on_toy_car,rideの上のtoy・car,乗用玩具の車,MIXED_ENGLISH_DEBRIS
+riding_animal,乗馬動物,動物に乗る,SEMANTIC_ERROR
+riding_bicycle,自電車に乗る,自転車に乗る,TRANSLITERATION_ERROR
+riding_boar,乗馬イノシシ,イノシシに乗る,SEMANTIC_ERROR
+riding_digimon,タグ「riding digimon」,デジモンに乗る,RAW_ENGLISH_WRAPPER
+riding_dinosaur,恐竜乗馬,恐竜に乗る,SEMANTIC_ERROR
+riding_dragon,ドラゴンライダー,ドラゴンに乗る,SEMANTIC_STATE_ACTION_ERROR
+riding_moped,タグ「riding moped」,モペッドに乗る,RAW_ENGLISH_WRAPPER
+riding_motorcycle,タグ「riding motorcycle」,バイクに乗る,RAW_ENGLISH_WRAPPER
+riding_outfit,乗馬キュロット,乗馬服,SEMANTIC_NARROWING
+riding_roller_coaster,タグ「riding roller coaster」,ジェットコースターに乗る,RAW_ENGLISH_WRAPPER
+riding_scooter,タグ「riding scooter」,スクーターに乗る,RAW_ENGLISH_WRAPPER
+riding_tricycle,タグ「riding tricycle」,三輪車に乗る,RAW_ENGLISH_WRAPPER
+riding_vacuum_cleaner,タグ「riding vacuum cleaner」,掃除機に乗る,RAW_ENGLISH_WRAPPER
+rigging,舰装,艤装,NON_JAPANESE_RESIDUE
+ring_(sonic),タグ「ring (sonic)」,リング（ソニック）,RAW_ENGLISH_WRAPPER
+ring_hair_ornament,髪の飾り,リング状の髪飾り,SEMANTIC_UNDERSPECIFICATION
+ring_light,指輪・光,リングライト,MIXED_ENGLISH_DEBRIS
+ring_of_fire,指輪・of・fire,炎の輪,MIXED_ENGLISH_DEBRIS
+ring_on_every_finger,指輪の上のevery・finger,すべての指に指輪,MIXED_ENGLISH_DEBRIS
+ring_pop,指輪・pop,リングポップ,MIXED_ENGLISH_DEBRIS
+ring_sidelocks,指輪・sidelocks,リング状の横髪,MIXED_ENGLISH_DEBRIS
+ringer_box,タグ「ringer box」,リンガーボックス,RAW_ENGLISH_WRAPPER
+ringing_artifacts,タグ「ringing artifacts」,リンギングアーティファクト,RAW_ENGLISH_WRAPPER
+rinne_sharingan,轮回写轮眼,輪廻写輪眼,NON_JAPANESE_RESIDUE
