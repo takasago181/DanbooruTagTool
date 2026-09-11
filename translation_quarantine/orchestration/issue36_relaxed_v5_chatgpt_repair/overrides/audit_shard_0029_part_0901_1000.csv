@@ -1,0 +1,49 @@
+canonical,old_display_ja,new_display_ja,reason
+ultra_recon_squad_uniform,Ultra Recon Squadユニフォーム,ウルトラ調査隊の制服,MIXED_ENGLISH_DEBRIS
+ultra_sword,ultra・剣,ウルトラソード,MIXED_ENGLISH_DEBRIS
+ultraman_(cosplay),ultraman (cosplay),ウルトラマン（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+ultramarines,スペースマリーン,ウルトラマリーン,SEMANTIC_NARROWING
+uma_stars_(umamusume),タグ「uma stars (umamusume)」,UMA STARS（ウマ娘）,RAW_ENGLISH_WRAPPER
+uma_summer_(umamusume),タグ「uma summer (umamusume)」,ウマサマー（ウマ娘）,RAW_ENGLISH_WRAPPER
+umamusume_horse_relations,ホースの暗黒面,ウマ娘の実馬関係,SEMANTIC_ERROR
+umbrella_bow,傘の弓,傘のリボン,SEMANTIC_AMBIGUITY
+umbrella_flower,umbrella・花,傘形の花,MIXED_ENGLISH_DEBRIS
+umbrella_on_arm,umbrellaの上の腕,腕にかけた傘,SEMANTIC_RELATION_ERROR
+umbrella_over_shoulder,umbrellaの上の肩,肩越しの傘,SEMANTIC_RELATION_ERROR
+umbrella_ribbon,タグ「umbrella ribbon」,傘のリボン,RAW_ENGLISH_WRAPPER
+umbrella_riding,傘の乗馬,傘に乗る,SEMANTIC_ERROR
+umbrella_tassel,タグ「umbrella tassel」,傘の房飾り,RAW_ENGLISH_WRAPPER
+umbreon_(cosplay),Umbreon（コスプレ）,ブラッキー（コスプレ）,TRANSLITERATION_ERROR
+umeboshi,umeboshi,梅干し,CANONICAL_FALLBACK_TRANSLATABLE
+umpire,裁判,審判,SEMANTIC_AMBIGUITY
+unamused,つまらない,しらけた表情,SEMANTIC_ERROR
+unamused_friend_comic_(meme),unamused friend comic (meme),しらけた友人コミック（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+unbuckled,バックルされていない,バックルを外した,SEMANTIC_ERROR
+unbuttoned_dress,ボタンのないドレス,ボタンを外したドレス,SEMANTIC_ERROR
+unbuttoned_jacket,unbuttoned・ジャケット,ボタンを外したジャケット,MIXED_ENGLISH_DEBRIS
+unbuttoned_sleeves,ボタンのない袖,ボタンを外した袖,SEMANTIC_ERROR
+unconscious,失神,意識不明,SEMANTIC_NARROWING
+unconventional_merfolk,タグ「unconventional merfolk」,変則的な人魚,RAW_ENGLISH_WRAPPER
+unconventional_police_vehicle,タグ「unconventional police vehicle」,変則的な警察車両,RAW_ENGLISH_WRAPPER
+unconventional_sound_effect,タグ「unconventional sound effect」,変則的な効果音,RAW_ENGLISH_WRAPPER
+unconventional_steed,タグ「unconventional steed」,変則的な乗騎,RAW_ENGLISH_WRAPPER
+under-stirrup_footjob,の下のstirrup・footjob,鐙の下での足コキ,MIXED_ENGLISH_DEBRIS
+under_covers,盖着被子,布団の中,NON_JAPANESE_RESIDUE
+under_fire,火の下,砲火の下,SEMANTIC_AMBIGUITY
+under_skirt,スカート捕食,スカートの下,SEMANTIC_ERROR
+under_the_table_(arknights),テーブルの下（arknights）,テーブルの下（アークナイツ）,MIXED_ENGLISH_DEBRIS
+undershirt,汗衫,肌着,NON_JAPANESE_RESIDUE
+undershirt_peek,undershirt・覗き見,肌着をちら見せ,MIXED_ENGLISH_DEBRIS
+undersized_breast_cup,ハミ乳,小さすぎるブラカップ,SEMANTIC_NARROWING
+undersized_pokemon,タグ「undersized pokemon」,小さすぎるポケモン,RAW_ENGLISH_WRAPPER
+underwater_shot,タグ「underwater shot」,水中ショット,RAW_ENGLISH_WRAPPER
+underwear_theft,《窃盗(スティール)》,下着泥棒,SEMANTIC_NARROWING
+underworld_(ornament),underworld（飾り）,アンダーワールド（飾り）,MIXED_ENGLISH_DEBRIS
+undone_ascot,アスコットを元に戻しました,ほどけたアスコット,SEMANTIC_ERROR
+undone_bowtie,ボウタイを元に戻しました,ほどけた蝶ネクタイ,SEMANTIC_ERROR
+undone_cross_tie,undone・十字架・tie,ほどけたクロスタイ,MIXED_ENGLISH_DEBRIS
+undone_duijin,タグ「undone duijin」,ほどけた対襟,RAW_ENGLISH_WRAPPER
+undone_neck_ribbon,ネックリボンを元に戻しました,ほどけたネックリボン,SEMANTIC_ERROR
+undone_neckerchief,Neckerchiefを元に戻しました,ほどけたネッカチーフ,SEMANTIC_ERROR
+undone_necktie,ネクタイを元に戻します,ほどけたネクタイ,SEMANTIC_ERROR
+undone_sarashi,サラシを元に戻しました,ほどけたさらし,SEMANTIC_ERROR
