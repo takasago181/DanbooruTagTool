@@ -374,7 +374,6 @@ row_number,canonical,display_ja,checks,already_overridden
 14867,gundam_age-1_titus_(cosplay),ガンダムAGE-1 タイタス（コスプレ）,ASCII_WORD,true
 14887,gyari_(imagesdawn)_(style),Gyari（ImagesDawn）（スタイル）,ASCII_WORD,false
 14950,hair_branch,hair branch（曖昧タグ）,ASCII_WORD,true
-14959,hair_edges,髪・edges,ASCII_WORD,false
 14985,hair_sprinkles,髪・sprinkles,ASCII_WORD,false
 15019,hakuryou_high_school_uniform,hakuryou highの学校制服,ASCII_WORD,false
 15020,hakusen_academy_school_uniform,hakusen academyの学校制服,ASCII_WORD,false
@@ -617,7 +616,6 @@ row_number,canonical,display_ja,checks,already_overridden
 20437,naver_username,Naverユーザー名,ASCII_WORD,false
 20440,naze?_nazo?!_answer,なぜ?謎?!ANSWER,ASCII_WORD,false
 20494,needle_(hollow_knight),ニードル（Hollow Knight）,ASCII_WORD,true
-20501,negative_space_oral_(meme),SFWイラスト,ASCII_WORD,false
 20503,nejikirio_(style),nejikirio風,ASCII_WORD,true
 20509,nemlei_(style),nemlei風,ASCII_WORD,true
 20511,nen_(hunter_x_hunter),念（HUNTER×HUNTER）,ASCII_WORD,true
@@ -742,11 +740,9 @@ row_number,canonical,display_ja,checks,already_overridden
 23360,qr_code_tattoo,QRコードのタトゥー,ASCII_WORD,true
 23390,quiet_(metal_gear)_(cosplay),Quiet（Metal Gear）（コスプレ）,ASCII_WORD,false
 23407,r3birth_(love_live!),R3BIRTH（ラブライブ！）,ASCII_WORD,true
-23409,raana_the_cat,raana・the・猫,ASCII_WORD,false
 23441,rabbit_platoon_(blue_archive),RABBIT小隊（Blue Archive）,ASCII_WORD,false
 23447,rabbits_(ensemble_stars!),Ra*bits（あんさんぶるスターズ！）,ASCII_WORD,true
 23498,raiden_(metal_gear)_(cosplay),Raiden（Metal Gear）（コスプレ）,ASCII_WORD,false
-23548,raizen_high_school_uniform,Raizen High Schoolの制服,ASCII_WORD,false
 23553,rakuyo_high_school_uniform,rakuyo highの学校制服,ASCII_WORD,false
 23556,ram_(computer),RAM（コンピュータ）,ASCII_WORD,true
 23557,ram_(re:zero)_(cosplay),Ram（Re：Zero）（コスプレ）,ASCII_WORD,false

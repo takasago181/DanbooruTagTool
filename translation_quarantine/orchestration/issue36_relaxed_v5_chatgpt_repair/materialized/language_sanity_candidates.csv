@@ -644,7 +644,6 @@ row_number,canonical,display_ja,checks,already_overridden
 14922,h&k_vp9,H&K VP9,ASCII_WORD,true
 14923,h&k_xm8,H&K XM8,ASCII_WORD,true
 14950,hair_branch,hair branch（曖昧タグ）,ASCII_WORD,true
-14959,hair_edges,髪・edges,ASCII_WORD,false
 14985,hair_sprinkles,髪・sprinkles,ASCII_WORD,false
 15019,hakuryou_high_school_uniform,hakuryou highの学校制服,ASCII_WORD,false
 15020,hakusen_academy_school_uniform,hakusen academyの学校制服,ASCII_WORD,false
@@ -1026,7 +1025,6 @@ row_number,canonical,display_ja,checks,already_overridden
 20437,naver_username,Naverユーザー名,ASCII_WORD,false
 20440,naze?_nazo?!_answer,なぜ?謎?!ANSWER,ASCII_WORD,false
 20494,needle_(hollow_knight),ニードル（Hollow Knight）,ASCII_WORD,true
-20501,negative_space_oral_(meme),SFWイラスト,ASCII_WORD,false
 20503,nejikirio_(style),nejikirio風,ASCII_WORD,true
 20505,nekoken_technique,nekoken technique,ASCII_WORD,true
 20509,nemlei_(style),nemlei風,ASCII_WORD,true
@@ -1223,14 +1221,12 @@ row_number,canonical,display_ja,checks,already_overridden
 23406,r.b._(identity)_(project_moon),r.b. (identity) (project moon),ASCII_WORD,false
 23407,r3birth_(love_live!),R3BIRTH（ラブライブ！）,ASCII_WORD,true
 23408,r_corp._(identity)_(project_moon),r corp. (identity) (project moon),ASCII_WORD,false
-23409,raana_the_cat,raana・the・猫,ASCII_WORD,false
 23441,rabbit_platoon_(blue_archive),RABBIT小隊（Blue Archive）,ASCII_WORD,false
 23447,rabbits_(ensemble_stars!),Ra*bits（あんさんぶるスターズ！）,ASCII_WORD,true
 23462,racer's_high_(stellar_blade),Racer's High（Stellar Blade）,ASCII_WORD,true
 23489,rafiki_holding_simba_(meme),rafiki holding simba (meme),ASCII_WORD,false
 23498,raiden_(metal_gear)_(cosplay),Raiden（Metal Gear）（コスプレ）,ASCII_WORD,false
 23543,raise_a_suilen,RAISE A SUILEN,ASCII_WORD,true
-23548,raizen_high_school_uniform,Raizen High Schoolの制服,ASCII_WORD,false
 23553,rakuyo_high_school_uniform,rakuyo highの学校制服,ASCII_WORD,false
 23556,ram_(computer),RAM（コンピュータ）,ASCII_WORD,true
 23557,ram_(re:zero)_(cosplay),Ram（Re：Zero）（コスプレ）,ASCII_WORD,false
