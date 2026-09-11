@@ -741,8 +741,8 @@ row_number,canonical,display_ja,checks,already_overridden
 9843,chikage_(bloodborne),チカゲ（Bloodborne）,ASCII_WORD,true
 9845,child's_drawing,小学生が描いてみた,SIMPLIFIED_CHINESE_HINT,false
 9913,chloe_von_einzbern_(archer_install)_(cosplay),chloe von einzbern (archer install) (cosplay),ASCII_WORD,false
-9930,chocolate_lady_no_karasawagi,タグ「chocolate lady no karasawagi」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-9951,choir_outfit_(utdr),タグ「choir outfit (utdr)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+9930,chocolate_lady_no_karasawagi,Chocolate Lady no Karasawagi,ASCII_WORD,true
+9951,choir_outfit_(utdr),聖歌隊衣装（UTDR）,ASCII_WORD,true
 9960,chopper_crying_(meme),chopper crying (meme),ASCII_WORD,false
 9966,choso_giving_toudou_a_haircut_(meme),choso giving toudou a haircut (meme),ASCII_WORD,false
 9969,chouzetsusaikawa_tenshi-chan_(cosplay),chouzetsusaikawa tenshi-chan (cosplay),ASCII_WORD,false
@@ -757,13 +757,13 @@ row_number,canonical,display_ja,checks,already_overridden
 10035,cirno_(cosplay),Cirno（コスプレ）,ASCII_WORD,false
 10044,clamp_(circle)_(style),野生のCLAMP,ASCII_WORD,false
 10071,cleaning_&_clearing_(blue_archive),掃除と片付け（Blue Archive）,ASCII_WORD,false
-10129,close_game/offline_(project_sekai),タグ「close game/offline (project sekai)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+10129,close_game/offline_(project_sekai),Close game/OFFLINE（プロジェクトセカイ）,ASCII_WORD,true
 10137,clothed_bath,着衣入浴,SIMPLIFIED_CHINESE_HINT,false
 10138,clothed_male_underwear_female,着衣の男性と下着姿の女性,SIMPLIFIED_CHINESE_HINT,true
 10139,clothed_robot,服を着たロボット,SIMPLIFIED_CHINESE_HINT,false
 10152,clothes_on_and_off,服を着たり脱いだりする,SIMPLIFIED_CHINESE_HINT,true
 10227,code:escape_(idolmaster),code:escape (idolmaster),ASCII_WORD,false
-10240,coil_(dimension_w),タグ「coil (dimension w)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+10240,coil_(dimension_w),コイル（Dimension W）,ASCII_WORD,true
 10273,collared_kimono,襟付き着物,SIMPLIFIED_CHINESE_HINT,true
 10286,colonel_sanders_(cosplay),colonel sanders (cosplay),ASCII_WORD,false
 10331,colt_9mm_smg,コルト9mm SMG,ASCII_WORD,true
@@ -774,29 +774,27 @@ row_number,canonical,display_ja,checks,already_overridden
 10357,comic_background,漫画背景,SIMPLIFIED_CHINESE_HINT,false
 10358,comic_cover,漫画・表紙,SIMPLIFIED_CHINESE_HINT,false
 10359,comic_panel_inset,漫画コマの差し込み,SIMPLIFIED_CHINESE_HINT,true
-10371,comp_(megami_tensei),タグ「comp (megami tensei)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+10371,comp_(megami_tensei),COMP（女神転生）,ASCII_WORD,true
 10373,companion/af,コンパニオン/AF,ASCII_WORD,false
 10374,company_name,会社名,SIMPLIFIED_CHINESE_HINT,false
 10377,compass_uniform,compassの制服,ASCII_WORD,false
-10383,completionist_cape_(runescape),タグ「completionist cape (runescape)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-10384,complex_exterior,タグ「complex exterior」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+10383,completionist_cape_(runescape),Completionist Cape（RuneScape）,ASCII_WORD,true
 10392,computer_tower,パソコン本体,SIMPLIFIED_CHINESE_HINT,false
-10428,constellation_crystal_(ff14),タグ「constellation crystal (ff14)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+10428,constellation_crystal_(ff14),星座クリスタル（FF14）,ASCII_WORD,true
 10437,contempt_awe_(e.g.o),contempt awe (e.g.o),ASCII_WORD,false
-10478,cool_s,タグ「cool s」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-10487,cooperative_pussyjob,タグ「cooperative pussyjob」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+10478,cool_s,Cool S,ASCII_WORD,true
+10487,cooperative_pussyjob,協力して行うpussyjob,ASCII_WORD,true
 10489,coordinated_clothes_writing,coordinated・服・writing,ASCII_WORD,false
-10500,coreflame_(honkai:_star_rail),タグ「coreflame (honkai: star rail)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 10517,corpse,死体,SIMPLIFIED_CHINESE_HINT,true
 10518,corpus_spongiosum,尿道海綿体,SIMPLIFIED_CHINESE_HINT,true
 10522,cortisol_level_(meme),cortisol level (meme),ASCII_WORD,false
 10543,counters_(nikke),カウンターズ(勝利の女神:NIKKE),ASCII_WORD,false
-10553,covenant_halo_(girls'_frontline_2),タグ「covenant halo (girls' frontline 2)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+10553,covenant_halo_(girls'_frontline_2),Covenant Halo（ドールズフロントライン2）,ASCII_WORD,true
 10554,cover_bikini_girl_(gta_vi)_(cosplay),cover bikini girl (gta vi) (cosplay),ASCII_WORD,false
-10555,cover_bikini_girl_(gta_vi)_(pose),タグ「cover bikini girl (gta vi) (pose)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+10555,cover_bikini_girl_(gta_vi)_(pose),GTA VI表紙ビキニ女性のポーズ,ASCII_WORD,true
 10577,covering_body,体を覆う,SIMPLIFIED_CHINESE_HINT,false
 10615,cpu,CPU,ASCII_WORD,true
-10616,cr-unit_(date_a_live),タグ「cr-unit (date a live)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+10616,cr-unit_(date_a_live),CRユニット（デート・ア・ライブ）,ASCII_WORD,true
 10634,cracked_screen,割れた画面,SIMPLIFIED_CHINESE_HINT,false
 10662,crash_landing,不時着,SIMPLIFIED_CHINESE_HINT,false
 10667,crayon_drawing,クレヨン画,SIMPLIFIED_CHINESE_HINT,true
@@ -817,16 +815,14 @@ row_number,canonical,display_ja,checks,already_overridden
 10842,crown_bow,crown・リボン,ASCII_WORD,false
 10853,crucible_(doom),クルーシブル（DOOM）,ASCII_WORD,true
 10858,cruiser_(eve_online),巡洋艦（EVE Online）,ASCII_WORD,false
-10870,cruxis_wings_(tales),タグ「cruxis wings (tales)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 10873,crying_cat_(meme),泣いている猫（ミーム）,SIMPLIFIED_CHINESE_HINT,true
 10875,cryo_symbol_(genshin_impact),氷元素のシンボル（Genshin Impact）,ASCII_WORD,false
-10893,cs/ls06,タグ「cs/ls06」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+10893,cs/ls06,CS/LS06,ASCII_WORD,true
 10894,cu_chulainn_(lancer)_(fate)_(cosplay),cu chulainn (lancer) (fate) (cosplay),ASCII_WORD,false
 10895,cube,立方体,SIMPLIFIED_CHINESE_HINT,false
 10896,cube_earrings,立方体のイヤリング,SIMPLIFIED_CHINESE_HINT,true
 10935,cum_on_object,物体についた精液,SIMPLIFIED_CHINESE_HINT,true
 10946,cunny_(meme),cunny (meme),ASCII_WORD,false
-10947,cunt_busting,タグ「cunt busting」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 10961,cure_arcana_shadow_(cosplay),cure arcana shadow (cosplay),ASCII_WORD,false
 10962,cure_berry_(cosplay),Cure Berry（コスプレ）,ASCII_WORD,false
 10963,cure_black_(cosplay),Cure Black（コスプレ）,ASCII_WORD,false
@@ -837,8 +833,7 @@ row_number,canonical,display_ja,checks,already_overridden
 10985,curren_chan_(umamusume)_(cosplay),curren chan (umamusume) (cosplay),ASCII_WORD,false
 11004,custodian_helmet,custodian・ヘルメット,ASCII_WORD,false
 11010,cutesexyrobutts_(style),Cutesexyrobutts（スタイル）,ASCII_WORD,false
-11020,cutout_eyelashes,タグ「cutout eyelashes」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-11027,cyaron!_(love_live!),タグ「cyaron! (love live!)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+11027,cyaron!_(love_live!),CYaRon!（ラブライブ！）,ASCII_WORD,true
 11030,cyber_world_(deltarune),サイバーワールド（DELTARUNE）,ASCII_WORD,true
 11039,cynthia_(pokemon)_(cosplay),cynthia (pokemon) (cosplay),ASCII_WORD,false
 11041,cz_75,CZ 75,ASCII_WORD,true
@@ -858,18 +853,16 @@ row_number,canonical,display_ja,checks,already_overridden
 11123,dark_mage_(fire_emblem_fates),闇魔道士（Fire Emblem Fates）,ASCII_WORD,false
 11132,dark_territory_(sao),ダークテリトリー（SAO）,ASCII_WORD,true
 11135,darkin_(league),ダーキン（League of Legends）,ASCII_WORD,true
-11146,date_clan_blades_(touken_ranbu),タグ「date clan blades (touken ranbu)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 11147,date_connection,date・接続,ASCII_WORD,false
 11156,dawn_office_(identity)_(project_moon),dawn office (identity) (project moon),ASCII_WORD,false
 11174,death_box_(apex_legends),デスボックス（Apex Legends）,ASCII_WORD,true
 11201,deel,deel,ASCII_WORD,false
 11214,deez_nuts_(meme),deez nuts (meme),ASCII_WORD,false
 11216,defecating_self,着衣脱糞,SIMPLIFIED_CHINESE_HINT,false
-11225,deku's_photo_of_hagakure_toru,タグ「deku's photo of hagakure toru」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 11241,demon_king_academy_school_uniform,魔王学院の制服,SIMPLIFIED_CHINESE_HINT,true
 11245,dendro_symbol_(genshin_impact),草元素のシンボル（Genshin Impact）,ASCII_WORD,false
 11275,desert_tech_mdr,デザートテクノロジーMDR,ASCII_WORD,false
-11286,destiny's_embrace_(kingdom_hearts),タグ「destiny's embrace (kingdom hearts)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+11286,destiny's_embrace_(kingdom_hearts),デスティニープレイス（KINGDOM HEARTS）,ASCII_WORD,true
 11289,destroyer_(eve_online),駆逐艦（EVE Online）,ASCII_WORD,false
 11309,deviantart_logo,DeviantArtロゴ,ASCII_WORD,false
 11315,deviruchi_hat,deviruchi・帽子,ASCII_WORD,false
@@ -879,21 +872,19 @@ row_number,canonical,display_ja,checks,already_overridden
 11380,did_you_want_to_talk?_(meme),did you want to talk? (meme),ASCII_WORD,false
 11382,dieci_association_south_uniform,ディエーチ協会南部の制服,SIMPLIFIED_CHINESE_HINT,true
 11391,digimon_(virtual_pet),デジタルモンスターVer.1,ASCII_WORD,false
-11427,dior,タグ「dior」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-11433,dipper,タグ「dipper」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+11427,dior,Dior,ASCII_WORD,true
+11433,dipper,dipper,ASCII_WORD,true
 11453,discord_logo,discordのロゴ,ASCII_WORD,false
 11454,discord_username,discordのユーザー名,ASCII_WORD,false
 11462,disembodied_torso,分離した胴体,SIMPLIFIED_CHINESE_HINT,true
 11473,dispersion_(optics),分散（光学）,SIMPLIFIED_CHINESE_HINT,true
 11474,display,画面,SIMPLIFIED_CHINESE_HINT,false
-11497,diverdiva,タグ「diverdiva」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+11497,diverdiva,DiverDiva,ASCII_WORD,true
 11504,divine_water_(fate),divine water (fate),ASCII_WORD,false
-11515,diyap_(style),タグ「diyap (style)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+11515,diyap_(style),diyap風,ASCII_WORD,true
 11518,dizzy_(guilty_gear)_(cosplay),Dizzy（Guilty Gear）（コスプレ）,ASCII_WORD,false
 11519,dj,DJ,ASCII_WORD,true
-11521,djinn_equip,タグ「djinn equip」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-11523,do_not_want,タグ「do not want」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-11562,doll_(nikke),タグ「doll (nikke)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+11562,doll_(nikke),Doll（NIKKE）,ASCII_WORD,true
 11605,doodled_object,落書きされた物体,SIMPLIFIED_CHINESE_HINT,true
 11606,doom_cover_parody,DOOMパッケージ表紙パロディ,ASCII_WORD,true
 11622,dorothea_arnault_(plegian)_(cosplay),dorothea arnault (plegian) (cosplay),ASCII_WORD,false
@@ -907,7 +898,6 @@ row_number,canonical,display_ja,checks,already_overridden
 11723,dragon_li_cat,ドラゴン・リー（猫）,SIMPLIFIED_CHINESE_HINT,true
 11746,drama_cd,ドラマCD,ASCII_WORD,false
 11747,dramatic_stars_(idolmaster),DRAMATIC STARS（アイドルマスター）,ASCII_WORD,true
-11751,drawing_arrow,タグ「drawing arrow」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 11752,drawing_board,画板,SIMPLIFIED_CHINESE_HINT,false
 11760,drawing_on_self,自分の身体に絵を描く,SIMPLIFIED_CHINESE_HINT,true
 11777,dreadnought_(warhammer_40k),ドレッドノート（Warhammer 40K）,ASCII_WORD,true
@@ -918,17 +908,16 @@ row_number,canonical,display_ja,checks,already_overridden
 11801,dress_under_shirt,シャツの下に着たドレス,SIMPLIFIED_CHINESE_HINT,true
 11802,dress_under_skirt,スカートの下に着たドレス,SIMPLIFIED_CHINESE_HINT,true
 11805,dressing_another,他人に服を着せる,SIMPLIFIED_CHINESE_HINT,true
-11828,drive-by,タグ「drive-by」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 11838,droneboat_(eve_online),ドローンボート（EVE Online）,ASCII_WORD,false
 11845,dropped_object,落とした物体,SIMPLIFIED_CHINESE_HINT,true
 11861,drying_body,身体を乾かす,SIMPLIFIED_CHINESE_HINT,true
-11863,dshk,タグ「dshk」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+11863,dshk,DShK,ASCII_WORD,true
 11865,dsr-50,DSR-50,ASCII_WORD,true
 11866,dss_choker,DSSチョーカー,ASCII_WORD,false
 11888,duel_academy_uniform_(yu-gi-oh!_gx),デュエル・アカデミア制服（遊☆戯☆王GX）,ASCII_WORD,true
 11891,duellist's_cap_(tier_6),デュエリストキャップ（Tier 6）,ASCII_WORD,true
 11907,durandal_(fire_emblem),デュランダル(FE),ASCII_WORD,false
-11908,durex,タグ「durex」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+11908,durex,Durex,ASCII_WORD,true
 11924,duvolle_laboratories_(eve_online),duvolle laboratories (eve online),ASCII_WORD,false
 11925,dvd_(object),DVD（オブジェクト）,ASCII_WORD,false
 11926,dvd_case,DVDケース,ASCII_WORD,false
@@ -936,15 +925,14 @@ row_number,canonical,display_ja,checks,already_overridden
 11928,dvd_logo,DVDロゴ,ASCII_WORD,true
 11929,dvd_player,DVDプレーヤー,ASCII_WORD,false
 11930,dvddvd_(meme),dvddvd (meme),ASCII_WORD,false
-11931,dx,タグ「dx」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+11931,dx,DX,ASCII_WORD,true
 11940,dyson_(company),dyson (company),ASCII_WORD,false
-11942,dytica_(nijisanji),タグ「dytica (nijisanji)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+11942,dytica_(nijisanji),Dytica（にじさんじ）,ASCII_WORD,true
 11943,e-kid_fashion,E-kidファッション,ASCII_WORD,true
 11947,e.g.o_(project_moon),e.g.o (project moon),ASCII_WORD,false
 11949,e=mc2_(equation),E=mc²（方程式）,ASCII_WORD,true
-11974,eargasm,タグ「eargasm」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 11999,east_japan_railway_company,東日本旅客鉄道（JR東日本）,ASCII_WORD,true
-12019,edel_note,タグ「edel note」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+12019,edel_note,Edel Note,ASCII_WORD,true
 12025,edging_underwear,下着,SIMPLIFIED_CHINESE_HINT,false
 12076,ejaculation_under_clothes,着衣射精,SIMPLIFIED_CHINESE_HINT,false
 12096,elcan_scope,ELCANスコープ,ASCII_WORD,true
@@ -957,29 +945,26 @@ row_number,canonical,display_ja,checks,already_overridden
 12150,em-2,EM-2,ASCII_WORD,true
 12169,emilia_(re:zero)_(cosplay),エミリア（Re：ゼロ）（コスプレ）,ASCII_WORD,false
 12170,emiya_family_(fate),衛宮家（Fate）,ASCII_WORD,true
-12188,en'enra,タグ「en'enra」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-12190,ena_(species),タグ「ena (species)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+12190,ena_(species),ENA（種族）,ASCII_WORD,true
 12229,engineer_(tf2)_(cosplay),エンジニア（TF2）（コスプレ）,ASCII_WORD,true
 12236,enkephalin_(project_moon),エンケファリン（Project Moon）,ASCII_WORD,true
-12246,enter_enter_mission!,タグ「enter enter mission!」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+12246,enter_enter_mission!,Enter Enter MISSION!,ASCII_WORD,true
 12247,entity_(lethal_company),エンティティ（Lethal Company）,ASCII_WORD,true
 12249,entrance_ceremony,入学式,SIMPLIFIED_CHINESE_HINT,false
 12254,eotech,EOTech,ASCII_WORD,true
 12255,eotech_exps3,EOTech EXPS3,ASCII_WORD,true
 12285,esrb,ESRB,ASCII_WORD,true
-12288,eternal_moon_article,タグ「eternal moon article」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-12291,ether_aria_(love_live!),タグ「ether aria (love live!)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+12288,eternal_moon_article,Eternal Moon Article,ASCII_WORD,true
+12291,ether_aria_(love_live!),Ether Aria（ラブライブ！）,ASCII_WORD,true
 12307,eve_(stellar_blade)_(cosplay),イヴ（Stellar Blade）（コスプレ）,ASCII_WORD,true
 12329,excalibur_academy_school_uniform,聖剣学院の制服,SIMPLIFIED_CHINESE_HINT,true
 12330,excalibur_galatine_(fate),転輪する勝利の剣（Fate）,ASCII_WORD,true
 12337,exciting_animal_(love_live!),エキサイティングな動物（Love Live！）,ASCII_WORD,false
 12338,excuse_me_he_asked_for_no_pickles_(meme),excuse me he asked for no pickles (meme),ASCII_WORD,false
-12354,exploded_cosmetics,タグ「exploded cosmetics」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 12357,exploration_ship_(eve_online),探査艦（EVE Online）,ASCII_WORD,false
-12370,expression_35,タグ「expression 35」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+12370,expression_35,expression 35,ASCII_WORD,true
 12374,expressive_object,表情のある物体,SIMPLIFIED_CHINESE_HINT,true
 12401,extreme_engrish,極端なEngrish,ASCII_WORD,true
-12402,eye_banner_(trend),タグ「eye banner (trend)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 12414,eye_of_senri,目・of・senri,ASCII_WORD,false
 12447,eyes_of_horus_(warhammer_40k),ホルスの目（Warhammer 40K）,ASCII_WORD,true
 12468,f-35_lightning_ii,F-35 ライトニングII,ASCII_WORD,true
@@ -993,14 +978,11 @@ row_number,canonical,display_ja,checks,already_overridden
 12511,facing_object,物体の方を向く,SIMPLIFIED_CHINESE_HINT,true
 12524,faint_aroma_(e.g.o),faint aroma (e.g.o),ASCII_WORD,false
 12532,fairy_tail_logo,FAIRY TAILのロゴ,ASCII_WORD,true
-12580,fallschirmhelm,タグ「fallschirmhelm」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-12600,fan_meeting,タグ「fan meeting」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 12606,fanbox_logo,FANBOXロゴ,ASCII_WORD,true
 12608,fanghunt_office_(identity)_(project_moon),ファングハント・オフィス（人格）（Project Moon）,ASCII_WORD,true
 12630,fast_helmet,FASTヘルメット,ASCII_WORD,true
-12640,father_and_son_threesome,タグ「father and son threesome」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 12655,fbi_badge,FBIバッジ,ASCII_WORD,true
-12656,fdd_threesome,タグ「fdd threesome」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+12656,fdd_threesome,fdd threesome,ASCII_WORD,true
 12692,federation_navy_(eve_online),連邦海軍（EVE Online）,ASCII_WORD,true
 12694,feeding_animal,動物に餌を与える,SIMPLIFIED_CHINESE_HINT,true
 12719,female_protagonist_(pokemon_go)_(cosplay),女性主人公（ポケモンGO）（コスプレ）,ASCII_WORD,false
@@ -1012,11 +994,11 @@ row_number,canonical,display_ja,checks,already_overridden
 12759,fgm-148_javelin,FGM-148 ジャベリン,ASCII_WORD,true
 12778,fifa_world_cup_trophy,FIFAワールドカップトロフィー,ASCII_WORD,true
 12805,final_chapter_(fate/grand_order),最終章（Fate/Grand Order）,ASCII_WORD,true
-12808,find_the_dream_view_(project_sekai),タグ「find the dream view (project sekai)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+12808,find_the_dream_view_(project_sekai),Find the Dream View（プロジェクトセカイ）,ASCII_WORD,true
 12811,fine_art_parody,名画オマージュ,SIMPLIFIED_CHINESE_HINT,false
-12854,fingering_gesture,タグ「fingering gesture」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-12891,firelock,タグ「firelock」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-12893,fireseal,タグ「fireseal」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+12854,fingering_gesture,fingering gesture,ASCII_WORD,true
+12891,firelock,firelock,ASCII_WORD,true
+12893,fireseal,fireseal,ASCII_WORD,true
 12951,fishnet_swimsuit,メッシュ水着,SIMPLIFIED_CHINESE_HINT,false
 12960,fitting_room,試着室,SIMPLIFIED_CHINESE_HINT,true
 12984,flamestrider_(genshin_impact),flamestrider (genshin impact),ASCII_WORD,false
@@ -1024,7 +1006,6 @@ row_number,canonical,display_ja,checks,already_overridden
 13044,fling_posse,Fling Posse,ASCII_WORD,true
 13077,floating_liquid,浮遊する液体,SIMPLIFIED_CHINESE_HINT,true
 13085,floating_screen,フローティング画面,SIMPLIFIED_CHINESE_HINT,false
-13106,floral_dissolve,タグ「floral dissolve」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 13116,floral_print_kimono,花柄着物,SIMPLIFIED_CHINESE_HINT,true
 13118,floral_print_one-piece_swimsuit,花柄ワンピース水着,SIMPLIFIED_CHINESE_HINT,true
 13129,florence_nightingale_(fate)_(cosplay),フローレンス・ナイチンゲール（Fate）（コスプレ）,ASCII_WORD,true
@@ -1032,7 +1013,7 @@ row_number,canonical,display_ja,checks,already_overridden
 13138,flow_glow_(hololive),FLOW GLOW（ホロライブ）,ASCII_WORD,true
 13182,flower_on_liquid,液体の上の花,SIMPLIFIED_CHINESE_HINT,true
 13203,flower_wrapper,花・wrapper,ASCII_WORD,false
-13204,flowjob,タグ「flowjob」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+13204,flowjob,flowjob,ASCII_WORD,true
 13213,fluid_on_breasts,胸についた液体,SIMPLIFIED_CHINESE_HINT,true
 13214,fluid_sac_(e.g.o),fluid sac (e.g.o),ASCII_WORD,false
 13239,fn_f2000,FN F2000,ASCII_WORD,true
@@ -1055,9 +1036,9 @@ row_number,canonical,display_ja,checks,already_overridden
 13404,fou_(fate)_(cosplay),フォウ（Fate）（コスプレ）,ASCII_WORD,true
 13414,four_beasts_(nikke),フォービースト(勝利の女神:NIKKE),ASCII_WORD,false
 13433,fox_platoon_(blue_archive),FOX小隊（ブルーアーカイブ）,ASCII_WORD,true
-13442,fraid,タグ「fraid」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+13442,fraid,fraid,ASCII_WORD,true
 13443,frame_(idolmaster),FRAME(アイドルマスター),ASCII_WORD,false
-13481,freudian_switch,タグ「freudian switch」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+13481,freudian_switch,Freudian switch,ASCII_WORD,true
 13491,friendship_club_(princess_connect!),聖テレサ女学院(なかよし部),SIMPLIFIED_CHINESE_HINT,false
 13497,frigate_(eve_online),フリゲート（EVE Online）,ASCII_WORD,false
 13536,frilled_kimono,フリル付き着物,SIMPLIFIED_CHINESE_HINT,true
@@ -1066,7 +1047,7 @@ row_number,canonical,display_ja,checks,already_overridden
 13583,frolicking_fairies_of_gensokyo_(touhou),frolicking fairies of gensokyo (touhou),ASCII_WORD,false
 13602,front_zipper_swimsuit_(realise),フロントジッパー競泳水着,SIMPLIFIED_CHINESE_HINT,false
 13624,fruit_on_liquid,液体の上の果物,SIMPLIFIED_CHINESE_HINT,true
-13636,fuck-me_pasties,タグ「fuck-me pasties」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+13636,fuck-me_pasties,fuck-me pasties,ASCII_WORD,true
 13646,fujiwara_takumi's_toyota_trueno_ae86,藤原拓海のトヨタ・スプリンタートレノ AE86,ASCII_WORD,true
 13650,fukurodani_volleyball_uniform,梟谷学園バレー部ユニフォーム,SIMPLIFIED_CHINESE_HINT,true
 13653,full-body_clothes_hanger,full・身体・服・hanger,ASCII_WORD;SIMPLIFIED_CHINESE_HINT,false
@@ -1080,10 +1061,10 @@ row_number,canonical,display_ja,checks,already_overridden
 13748,furaffinity_username,Furaffinityユーザー名,ASCII_WORD,false
 13776,future_fish,FUTURE FISH,ASCII_WORD,true
 13780,fuuka_academy_school_uniform,風華学園の制服,SIMPLIFIED_CHINESE_HINT,false
-13781,fuuka_school_uniform_(hara_hara!!),タグ「fuuka school uniform (hara hara!!)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+13781,fuuka_school_uniform_(hara_hara!!),フウカの制服（HARA HARA!!）,ASCII_WORD,true
 13785,fuyuki_(fate/grand_order),冬木（Fate/Grand Order）,ASCII_WORD,true
 13788,fw_190,Fw 190,ASCII_WORD,true
-13789,g'ie_(hundred_line),タグ「g'ie (hundred line)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+13789,g'ie_(hundred_line),G'ie（HUNDRED LINE）,ASCII_WORD,true
 13794,g_corp._(identity)_(project_moon),G社（人格）（Project Moon）,ASCII_WORD,true
 13795,ga_rune_pose,GAルーンポーズ,ASCII_WORD,false
 13799,gadabout_(dq3)_(cosplay),遊び人（DQ3）（コスプレ）,ASCII_WORD,true
@@ -1096,7 +1077,7 @@ row_number,canonical,display_ja,checks,already_overridden
 13825,game_boy_advance_sp,ゲームボーイアドバンスSP,ASCII_WORD,false
 13827,game_cartridge,ROMカセット,ASCII_WORD,false
 13834,game_screenshot_inset,ゲーム画面の差し込み,SIMPLIFIED_CHINESE_HINT,true
-13870,garmentmaker_(honkai:_star_rail),タグ「garmentmaker (honkai: star rail)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+13870,garmentmaker_(honkai:_star_rail),Garmentmaker（崩壊：スターレイル）,ASCII_WORD,true
 13895,gattai,合体ロボ,SIMPLIFIED_CHINESE_HINT,false
 13912,gaze_on_me!_outfit_(umamusume),Gaze on Me!衣装（ウマ娘）,ASCII_WORD,true
 13929,gehenna_academy_logo,ゲヘナ学園のロゴ,SIMPLIFIED_CHINESE_HINT,true
@@ -1121,7 +1102,7 @@ row_number,canonical,display_ja,checks,already_overridden
 14084,giving,与える,SIMPLIFIED_CHINESE_HINT,false
 14088,giving_up_the_ghost,幽体離脱,SIMPLIFIED_CHINESE_HINT,false
 14089,giving_wedgie,他人の下着を引き上げる,SIMPLIFIED_CHINESE_HINT,false
-14130,gloria_the_scot,タグ「gloria the scot」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+14130,gloria_the_scot,Gloria the Scot,ASCII_WORD,true
 14132,glorious_azure_costume_(umamusume),輝かしいazure衣装（umamusume）,ASCII_WORD,false
 14143,gloved_sleeves,手袋一体型の袖,SIMPLIFIED_CHINESE_HINT,true
 14152,glowing_body_fluid,光る体液,SIMPLIFIED_CHINESE_HINT,true
@@ -1156,7 +1137,7 @@ row_number,canonical,display_ja,checks,already_overridden
 14449,grado_labs,Grado Labs,ASCII_WORD,true
 14453,gram_(fate),グラム(Fate),ASCII_WORD,false
 14477,graphia_academy_school_uniform,グラフィエ学院の制服,SIMPLIFIED_CHINESE_HINT,false
-14488,grassrunner,タグ「grassrunner」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+14488,grassrunner,grassrunner,ASCII_WORD,true
 14513,great_trichiliocosm_(e.g.o),great trichiliocosm (e.g.o),ASCII_WORD,false
 14523,greek_painting_style,ギリシャ絵画風,SIMPLIFIED_CHINESE_HINT,true
 14557,green_cat,緑の・猫,SIMPLIFIED_CHINESE_HINT,false
@@ -1173,7 +1154,7 @@ row_number,canonical,display_ja,checks,already_overridden
 14715,grey_male_swimwear,灰色の男性用水着,SIMPLIFIED_CHINESE_HINT,true
 14720,grey_one-piece_swimsuit,灰色のワンピース水着,SIMPLIFIED_CHINESE_HINT,false
 14784,grim_reaper_(weapon)_(fate),グリム・リーパー(Fate),ASCII_WORD,false
-14788,grind_fiction,タグ「grind fiction」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+14788,grind_fiction,Grind Fiction,ASCII_WORD,true
 14789,gris_swimsuit,グリス水着,SIMPLIFIED_CHINESE_HINT,false
 14790,grizzly_win_mag,LARグリズリー,ASCII_WORD,false
 14809,growing_out_of_body,身体から生える,SIMPLIFIED_CHINESE_HINT,true
@@ -1184,7 +1165,7 @@ row_number,canonical,display_ja,checks,already_overridden
 14867,gundam_age-1_titus_(cosplay),ガンダムAGE-1 タイタス（コスプレ）,ASCII_WORD,true
 14869,gunjou_gakuen_school_uniform,群青学園の制服,SIMPLIFIED_CHINESE_HINT,true
 14887,gyari_(imagesdawn)_(style),Gyari（ImagesDawn）（スタイル）,ASCII_WORD,false
-14890,gyaru_w,タグ「gyaru w」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+14890,gyaru_w,gyaru w,ASCII_WORD,true
 14897,gym_teacher,体育の先生,SIMPLIFIED_CHINESE_HINT,false
 14898,gymnastics,体操,SIMPLIFIED_CHINESE_HINT,true
 14908,h&k_hk33,H&K HK33,ASCII_WORD,true
@@ -1219,10 +1200,9 @@ row_number,canonical,display_ja,checks,already_overridden
 15085,hanasakigawa_school_uniform,花咲川女子学園の制服,SIMPLIFIED_CHINESE_HINT,true
 15116,hand_in_underwear,下着の中に手,SIMPLIFIED_CHINESE_HINT,true
 15191,hand_under_swimsuit,水着の下に手,SIMPLIFIED_CHINESE_HINT,true
-15203,handjob_gesture_(not_ok),タグ「handjob gesture (not ok)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+15203,handjob_gesture_(not_ok),handjob gesture（not ok）,ASCII_WORD,true
 15265,hanegasaki_academy_school_uniform,羽ヶ崎学園の制服,SIMPLIFIED_CHINESE_HINT,true
 15266,haneoka_school_uniform,羽丘女子学園の制服,SIMPLIFIED_CHINESE_HINT,true
-15281,hanging_wedgie,タグ「hanging wedgie」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 15287,hanzou_academy_school_uniform,半蔵学院の制服,SIMPLIFIED_CHINESE_HINT,true
 15296,happy_enjoy_music!_(project_sekai),HAPPY ENJOY MUSIC!（プロジェクトセカイ）,ASCII_WORD,true
 15298,happy_happy_happy_cat_(meme),猫ミーム,SIMPLIFIED_CHINESE_HINT,false
@@ -1324,7 +1304,7 @@ row_number,canonical,display_ja,checks,already_overridden
 16571,hoshinoumi_academy_school_uniform,星ノ海学園制服,SIMPLIFIED_CHINESE_HINT,false
 16590,hoto_cocoa's_school_uniform,保登心愛の学校制服,SIMPLIFIED_CHINESE_HINT,true
 16593,houjou_high_school_uniform,houjou highの学校制服,ASCII_WORD;SIMPLIFIED_CHINESE_HINT,false
-16596,hounskull,タグ「hounskull」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+16596,hounskull,Hounskull,ASCII_WORD,true
 16619,hoyofair,HoYoFair,ASCII_WORD,true
 16621,hoyolab_username,HoYoLABユーザー名,ASCII_WORD,true
 16623,hs2000,スプリングフィールドXD,ASCII_WORD,false
@@ -1343,7 +1323,7 @@ row_number,canonical,display_ja,checks,already_overridden
 16695,huntrix,huntrix,ASCII_WORD,false
 16700,husbant_(meme),husbant (meme),ASCII_WORD,false
 16708,hybrid_weapon_(eve_online),ハイブリッド兵器（EVE Online）,ASCII_WORD,false
-16728,hypnoshades_(splatoon),タグ「hypnoshades (splatoon)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+16728,hypnoshades_(splatoon),Hypnoshades（Splatoon）,ASCII_WORD,true
 16735,i'll_go_fer_scissors._how_'bout_you?_(e.g.o),i'll go fer scissors. how 'bout you? (e.g.o),ASCII_WORD,false
 16738,i'm_stuff_(meme),i'm stuff (meme),ASCII_WORD,false
 16742,i-401_(kancolle)_(cosplay),I-401（Kancolle）（コスプレ）,ASCII_WORD,false
@@ -1360,7 +1340,7 @@ row_number,canonical,display_ja,checks,already_overridden
 16853,imageboard,画像掲示板,SIMPLIFIED_CHINESE_HINT,true
 16854,imageboard_colors,画像掲示板の配色,SIMPLIFIED_CHINESE_HINT,true
 16860,imi_negev,IMI ネゲヴ,ASCII_WORD,true
-16861,imijikarishi_valentine,タグ「imijikarishi valentine」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+16861,imijikarishi_valentine,Imijikarishi Valentine,ASCII_WORD,true
 16863,immersed,没頭,SIMPLIFIED_CHINESE_HINT,false
 16879,imminent_forced_dressing,強制着衣直前,SIMPLIFIED_CHINESE_HINT,true
 16881,imminent_grope,身体をまさぐる直前,SIMPLIFIED_CHINESE_HINT,true
