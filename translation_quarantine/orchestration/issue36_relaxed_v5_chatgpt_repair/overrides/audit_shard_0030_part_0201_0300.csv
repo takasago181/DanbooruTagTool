@@ -1,0 +1,49 @@
+canonical,old_display_ja,new_display_ja,reason
+v_over_mouth,v口の上,口元のVサイン,SEMANTIC_RELATION_ERROR
+vaio,タグ「vaio」,VAIO,OPAQUE_BRAND
+valknut_(symbol),タグ「valknut (symbol)」,ヴァルクヌート（シンボル）,RAW_ENGLISH_WRAPPER
+valz,valz,VALZ,OPAQUE_IDENTIFIER_CASE
+vampire_bite,vampire・噛み跡,吸血鬼の噛み跡,MIXED_ENGLISH_DEBRIS
+vanan'ice,タグ「vanan'ice」,VANAN'ICE,OPAQUE_GROUP_NAME
+vanripper_(style),vanripper（スタイル）,Vanripper（スタイル）,OPAQUE_NAME_CASE
+vaping,タグ「vaping」,電子タバコを吸う,RAW_ENGLISH_WRAPPER
+vaporeon_(cosplay),vaporeon (cosplay),シャワーズ（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+vaporwave,蒸汽波,ヴェイパーウェイヴ,NON_JAPANESE_RESIDUE
+variations,变化,バリエーション,NON_JAPANESE_RESIDUE
+varied_reactions,タグ「varied reactions」,さまざまな反応,RAW_ENGLISH_WRAPPER
+various_styles_challenge,タグ「various styles challenge」,さまざまな画風チャレンジ,RAW_ENGLISH_WRAPPER
+vat,タグ「vat」,大桶,RAW_ENGLISH_WRAPPER
+vdv,ソ連空挺軍,ロシア空挺軍,SEMANTIC_NARROWING
+vector_circles,タグ「vector circles」,ベクター円,RAW_ENGLISH_WRAPPER
+vega_(star),タグ「vega (star)」,ベガ（恒星）,RAW_ENGLISH_WRAPPER
+vegetable_juice,タグ「vegetable juice」,野菜ジュース,RAW_ENGLISH_WRAPPER
+vehicle_and_personification,タグ「vehicle and personification」,車両と擬人化,RAW_ENGLISH_WRAPPER
+vehicle_focus,カーイラスト,車両に焦点,SEMANTIC_NARROWING
+veil_over_one_eye,ベールの上の1つの目,片目を覆うベール,SEMANTIC_RELATION_ERROR
+veil_scene_14_redraw_(meme),veil scene 14 redraw (meme),ベールシーン14再描画（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+veiny_belly,タグ「veiny belly」,血管の浮いた腹部,RAW_ENGLISH_WRAPPER
+veiny_crotch,veiny・股間,血管の浮いた股間,MIXED_ENGLISH_DEBRIS
+veiny_face,veiny・顔,血管の浮いた顔,MIXED_ENGLISH_DEBRIS
+veiny_feet,タグ「veiny feet」,血管の浮いた足,RAW_ENGLISH_WRAPPER
+veiny_hands,静脈の手,血管の浮いた手,SEMANTIC_ERROR
+veiny_legs,veiny・脚,血管の浮いた脚,MIXED_ENGLISH_DEBRIS
+veiny_neck,veiny・首,血管の浮いた首,MIXED_ENGLISH_DEBRIS
+veiny_pectorals,タグ「veiny pectorals」,血管の浮いた胸筋,RAW_ENGLISH_WRAPPER
+veiny_tentacles,静脈触手,血管の浮いた触手,SEMANTIC_ERROR
+velcro_footwear,velcro・履物,面ファスナー付き履物,MIXED_ENGLISH_DEBRIS
+vending_cart,自動販売カート,販売カート,SEMANTIC_ERROR
+venom_snake_(cosplay),毒ヘビ（コスプレ）,ヴェノム・スネーク（コスプレ）,SEMANTIC_AMBIGUITY
+ventilation_fan,タグ「ventilation fan」,換気扇,RAW_ENGLISH_WRAPPER
+venus_bikini,维纳斯比基尼,ヴィーナスビキニ,NON_JAPANESE_RESIDUE
+venus_symbol_earrings,venus symbolのイヤリング,金星記号のイヤリング,MIXED_ENGLISH_DEBRIS
+venus_symbol_hair_ornament,venus symbolの髪飾り,金星記号の髪飾り,MIXED_ENGLISH_DEBRIS
+vepr-12,vepr-12,VEPR-12,OPAQUE_IDENTIFIER_CASE
+verbal_degradation,タグ「verbal degradation」,言葉による屈辱,RAW_ENGLISH_WRAPPER
+vergil's_chair_(meme),vergil's chair (meme),バージルの椅子（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+vergil_(devil_may_cry)_(cosplay),vergil (devil may cry) (cosplay),バージル（デビルメイクライ）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+vermilion_city_school_uniform,バーミリオンシティスクールユニフォーム,クチバシティの学校制服,SEMANTIC_TRANSLITERATION_ERROR
+verone_gakuin_school_uniform,ベローネ学院,ベローネ学院の制服,SEMANTIC_UNDERSPECIFICATION
+vertical-striped_background,縦の・ストライプ柄のの背景,縦縞の背景,SEMANTIC_ERROR
+vertical-striped_bow,垂直縞模様の弓,縦縞のリボン,SEMANTIC_AMBIGUITY
+vertical-striped_bowtie,縦のストライプ柄のbowtie,縦縞の蝶ネクタイ,MIXED_ENGLISH_DEBRIS
+vertical-striped_capelet,縦のストライプ柄のcapelet,縦縞のケープレット,MIXED_ENGLISH_DEBRIS
