@@ -1,0 +1,5 @@
+canonical,old_display_ja,new_display_ja,reason
+beretta_ar70/90,ベレッタAR70,ベレッタAR70/90,SEMANTIC_MODEL_IDENTITY_REPAIR
+lat_model_(mikumikudance),Lat式ミク,Lat式モデル（MikuMikuDance）,SEMANTIC_SCOPE_REPAIR
+mazda_rx-7,サバンナRX-7,マツダRX-7,SEMANTIC_MODEL_SCOPE_REPAIR
+milkor_mgl,ダネルMGL,ミルコーMGL,SEMANTIC_MANUFACTURER_IDENTITY_REPAIR
