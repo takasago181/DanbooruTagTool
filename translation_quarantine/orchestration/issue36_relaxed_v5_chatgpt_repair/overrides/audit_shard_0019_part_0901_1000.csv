@@ -1,0 +1,25 @@
+canonical,old_display_ja,new_display_ja,reason
+lying_on_animal,lyingの上の動物,動物の上に横たわる,MIXED_ENGLISH_DEBRIS
+lying_on_another,別のものに横たわっています,他人の上に横たわる,SEMANTIC_ERROR
+lying_on_ball,lyingの上のボール,ボールの上に横たわる,MIXED_ENGLISH_DEBRIS
+lying_on_branch,lyingの上のbranch,枝の上に横たわる,MIXED_ENGLISH_DEBRIS
+lying_on_clothes,lyingの上の服,服の上に横たわる,MIXED_ENGLISH_DEBRIS
+lying_upside-down,lying・upside・下向きの,逆さまに横たわる,MIXED_ENGLISH_DEBRIS
+lyra_(pokemon)_(cosplay),ライラ（ポケモン）（コスプレ）,コトネ（ポケモン）（コスプレ）,SEMANTIC_ERROR
+m._bison_(cosplay),m. bison (cosplay),ベガ（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+m16a2,コルト・カナダC7,M16A2,SEMANTIC_ERROR
+m3_lee/grant,タグ「m3 lee/grant」,M3リー/グラント,RAW_ENGLISH_WRAPPER
+m43_field_cap,m43・field・帽子,M43野戦帽,MIXED_ENGLISH_DEBRIS
+m60_(machine_gun),タグ「m60 (machine gun)」,M60機関銃,RAW_ENGLISH_WRAPPER
+mac-10/11,イングラムM11,MAC-10/11,SEMANTIC_NARROWING
+madeleine,タグ「madeleine」,マドレーヌ,RAW_ENGLISH_WRAPPER
+magatama_print,magatamaの柄,勾玉柄,MIXED_ENGLISH_DEBRIS
+magazine_ejection,雑誌の排出,弾倉排出,SEMANTIC_ERROR
+mage_(dq3)_(cosplay),メイジ（DQ3）（コスプレ）,魔法使い（DQ3）（コスプレ）,SEMANTIC_ERROR
+magia_baiser_(cosplay),magia baiser (cosplay),マジアベーゼ（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+magic_arm,magic・腕,魔法の腕,MIXED_ENGLISH_DEBRIS
+magic_bullet_(e.g.o),magic bullet (e.g.o),魔弾（E.G.O）,CANONICAL_FALLBACK_TRANSLATABLE
+magic_circle_background,magic circleの背景,魔法陣の背景,MIXED_ENGLISH_DEBRIS
+magic_circle_floating_ahead_hand,magic・円形の浮遊する・ahead・手,手の前に浮かぶ魔法陣,MIXED_ENGLISH_DEBRIS
+magic_pen_(twisted_wonderland),タグ「magic pen (twisted wonderland)」,マジカルペン（ツイステッドワンダーランド）,RAW_ENGLISH_WRAPPER
+magician's_wand,タグ「magician's wand」,手品師の杖,RAW_ENGLISH_WRAPPER
