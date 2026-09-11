@@ -77,7 +77,11 @@ def main() -> None:
     override_counts = Counter(row["canonical"] for row in overrides)
     duplicate_override = sorted(k for k, v in override_counts.items() if v != 1)
     if duplicate_override:
-        fail(f"override canonical duplicated; examples={duplicate_override[:20]}")
+        duplicate_sources = {
+            canonical: [row["__file"] for row in overrides if row["canonical"] == canonical]
+            for canonical in duplicate_override[:20]
+        }
+        fail(f"override canonical duplicated; sources={duplicate_sources}")
 
     missing_from_source: list[str] = []
     old_value_mismatches: list[dict[str, str]] = []
