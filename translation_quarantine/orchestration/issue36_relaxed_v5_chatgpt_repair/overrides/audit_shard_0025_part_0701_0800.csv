@@ -1,0 +1,34 @@
+canonical,old_display_ja,new_display_ja,reason
+screenshot_background,screenshotの背景,スクリーンショットの背景,MIXED_ENGLISH_DEBRIS
+screenshot_inset,スクリーンキャップの挿入図,スクリーンショットの差し込み画像,SEMANTIC_ERROR
+screw_hair_ornament,ねじ髪の飾り,ネジの髪飾り,SEMANTIC_AMBIGUITY
+screw_in_head,頭をねじ込みます,頭にネジ,SEMANTIC_STATE_ACTION_ERROR
+scribble_background,scribbleの背景,落書きの背景,MIXED_ENGLISH_DEBRIS
+scruffing,タグ「scruffing」,首根っこをつかむ,RAW_ENGLISH_WRAPPER
+sd_card,タグ「sd card」,SDカード,RAW_ENGLISH_WRAPPER
+sea_angel_girl,タグ「sea angel girl」,クリオネ娘,RAW_ENGLISH_WRAPPER
+sea_slug_ears,sea・slug・耳,ウミウシの耳,MIXED_ENGLISH_DEBRIS
+sea_spray,浪花,波しぶき,SEMANTIC_ERROR
+sea_stars,タグ「sea stars」,ヒトデ,RAW_ENGLISH_WRAPPER
+season_connection,season・接続,季節のつながり,MIXED_ENGLISH_DEBRIS
+seatbelt_between_breasts,seatbeltの間の胸,胸の間のシートベルト,SEMANTIC_RELATION_ERROR
+secretary_settings_(arknights),タグ「secretary settings (arknights)」,秘書設定（アークナイツ）,RAW_ENGLISH_WRAPPER
+see-through_apron,見る・越しのエプロン,シースルーエプロン,SEMANTIC_ERROR
+see-through_babydoll,見る・越しのbabydoll,シースルーベビードール,MIXED_ENGLISH_DEBRIS
+see-through_bodystocking,透視连体丝袜,シースルーボディストッキング,NON_JAPANESE_RESIDUE
+see-through_bodysuit,透視连体衣,シースルーボディスーツ,NON_JAPANESE_RESIDUE
+see-through_bow,見る・越しのリボン,シースルーリボン,SEMANTIC_ERROR
+see-through_bridal_gauntlets,見る・越しの花嫁用のガントレット,シースルーの花嫁用ガントレット,SEMANTIC_ERROR
+see-through_capelet,見る・越しのcapelet,シースルーケープレット,MIXED_ENGLISH_DEBRIS
+see-through_cardigan,見る・越しのcardigan,シースルーカーディガン,MIXED_ENGLISH_DEBRIS
+see-through_chemise,見る・越しのchemise,シースルーシュミーズ,MIXED_ENGLISH_DEBRIS
+see-through_cleavage,透視乳沟,透けて見える胸の谷間,NON_JAPANESE_RESIDUE
+see-through_frills,見る・越しのfrills,シースルーフリル,MIXED_ENGLISH_DEBRIS
+see-through_gloves,グローブを見せます,シースルー手袋,SEMANTIC_ERROR
+see-through_hat,見る・越しの帽子,シースルー帽子,SEMANTIC_ERROR
+see-through_hood,見る・越しのフード,シースルーフード,SEMANTIC_ERROR
+see-through_hoodie,見る・越しのhoodie,シースルーパーカー,MIXED_ENGLISH_DEBRIS
+see-through_kimono,透視和服,シースルー着物,NON_JAPANESE_RESIDUE
+see-through_magazine_(weapon),タグ「see-through magazine (weapon)」,透明な弾倉,RAW_ENGLISH_WRAPPER
+see-through_midriff,見る・越しのmidriff,透けて見える腹部,MIXED_ENGLISH_DEBRIS
+see-through_nightgown,見る・越しのnightgown,シースルーナイトガウン,MIXED_ENGLISH_DEBRIS
