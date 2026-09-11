@@ -19,10 +19,15 @@ HANGUL_RE = re.compile(r"[\u1100-\u11ff\u3130-\u318f\uac00-\ud7af]")
 ASCII_WORD_RE = re.compile(r"[A-Za-z]{2,}")
 RAW_WRAPPER_RE = re.compile(r"(?:タグ|tag)\s*[「\"'].*?[A-Za-z].*?[」\"']", re.IGNORECASE)
 CONTROL_RE = re.compile(r"[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]")
-# High-signal characters that are common in machine-translated Simplified Chinese
-# but are not normal modern Japanese orthography. This is a candidate detector,
-# never an automatic semantic decision.
-SIMPLIFIED_CHINESE_HINT_RE = re.compile(r"[这们为发见说让还没过从对开关头脸门车书画体样气边进远两东乐龙鱼鸟马猫岁与后里会现给着么饭药学员厂广网线级场术块条张颗]")
+
+# High-signal Simplified-Chinese forms that are not normal modern Japanese
+# orthography. Do not include characters that are also ordinary Japanese
+# (for example 猫, 体, 画, 学, 着, 会, 里, 与, 条). The previous detector
+# included those shared characters and produced >1,000 false-positive rows.
+# This remains a review-candidate detector only; it never auto-fixes text.
+SIMPLIFIED_CHINESE_HINT_RE = re.compile(
+    r"[这们为发见说让还过从对开关头脸门车书样气边进远两东乐龙鱼鸟马岁现给么饭药员厂广网线级场术块张颗]"
+)
 
 
 def read_override_canonicals() -> set[str]:
@@ -108,7 +113,7 @@ def main() -> None:
         "raw_english_wrapper_not_overridden": raw_override_counts["false"],
         "notes": {
             "ASCII_WORD": "review candidate only; proper names, acronyms, codes and product names may be valid",
-            "SIMPLIFIED_CHINESE_HINT": "heuristic review candidate only; never auto-fix from this signal",
+            "SIMPLIFIED_CHINESE_HINT": "high-signal Simplified-Chinese-form heuristic only; shared Japanese characters are intentionally excluded; never auto-fix from this signal",
             "RAW_ENGLISH_WRAPPER": "semantic review required; this script never auto-fixes it",
         },
     }
