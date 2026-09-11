@@ -1,0 +1,35 @@
+canonical,old_display_ja,new_display_ja,reason
+swimsuit_cover-up,水着・cover・上向きの,水着のカバーアップ,MIXED_ENGLISH_DEBRIS
+swimsuit_skirt,泳装裙,水着スカート,NON_JAPANESE_RESIDUE
+swimsuit_under_clothes,セラスク,服の下の水着,SEMANTIC_ERROR
+swinging_on_rope,swingingの上のrope,ロープにつかまって揺れる,MIXED_ENGLISH_DEBRIS
+swinging_on_vine,swingingの上のvine,つるにつかまって揺れる,MIXED_ENGLISH_DEBRIS
+swinging_on_web,swingingの上の巣,クモの巣につかまって揺れる,SEMANTIC_ERROR
+swiping,タグ「swiping」,スワイプする,RAW_ENGLISH_WRAPPER
+switchblade,タグ「switchblade」,スイッチブレード,RAW_ENGLISH_WRAPPER
+sword_between_breasts,剣・間・胸,胸の間の剣,MIXED_ENGLISH_DEBRIS
+sword_between_thighs,剣・間・太もも,太ももの間の剣,MIXED_ENGLISH_DEBRIS
+sword_fingers,剣・指,剣のような指,MIXED_ENGLISH_DEBRIS
+sword_in_front_of_face,剣の中の正面・of・顔,顔の前の剣,SEMANTIC_RELATION_ERROR
+sword_in_mouth,剣の中のmouth,口にくわえた剣,SEMANTIC_RELATION_ERROR
+sword_necklace,剣・ネックレス,剣のネックレス,MIXED_ENGLISH_DEBRIS
+sword_print,ソードプリント,剣柄,SEMANTIC_ERROR
+sword_surfing,剣・surfing,剣に乗る,MIXED_ENGLISH_DEBRIS
+sword_tassel,剣・tassel,剣の房,MIXED_ENGLISH_DEBRIS
+sword_to_throat,剣・へのthroat,喉元に剣,MIXED_ENGLISH_DEBRIS
+sword_writing,剣の執筆,剣で文字を書く,SEMANTIC_ERROR
+swordstaff,タグ「swordstaff」,剣杖,RAW_ENGLISH_WRAPPER
+sylveon_(cosplay),Sylveon（コスプレ）,ニンフィア（コスプレ）,TRANSLITERATION_ERROR
+symphogear_pendant,Symphogearペンダント,シンフォギアのペンダント,MIXED_ENGLISH_DEBRIS
+syngup!_(idolmaster),syngup! (idolmaster),SYNGUP!（アイドルマスター）,CANONICAL_FALLBACK_TRANSLATABLE
+synthwave,タグ「synthwave」,シンセウェーブ,RAW_ENGLISH_WRAPPER
+syringe_earrings,syringeのイヤリング,注射器のイヤリング,MIXED_ENGLISH_DEBRIS
+syringe_hair_ornament,syringeの髪飾り,注射器の髪飾り,MIXED_ENGLISH_DEBRIS
+syringe_necklace,syringe・ネックレス,注射器のネックレス,MIXED_ENGLISH_DEBRIS
+t-34,t-34,T-34,CANONICAL_FALLBACK_TRANSLATABLE
+t-34-85,t-34-85,T-34-85,CANONICAL_FALLBACK_TRANSLATABLE
+t-72,t-72,T-72,CANONICAL_FALLBACK_TRANSLATABLE
+t-800_(cosplay),t-800 (cosplay),T-800（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+t-90,t-90,T-90,CANONICAL_FALLBACK_TRANSLATABLE
+t_corp._(identity)_(project_moon),t corp. (identity) (project moon),T社（Identity）（Project Moon）,CANONICAL_FALLBACK_TRANSLATABLE
+t_t,t t,T_T,SEMANTIC_ERROR
