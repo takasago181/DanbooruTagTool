@@ -118,7 +118,7 @@ row_number,canonical,display_ja,checks,already_overridden
 7644,bcy_username,bcyのユーザー名,ASCII_WORD,false
 7762,bellwall_military_uniform,Bellwallの軍服,ASCII_WORD,true
 7763,bellwall_school_uniform,Bellwallの制服,ASCII_WORD,true
-7799,beretta_ar70/90,ベレッタAR70,ASCII_WORD,false
+7799,beretta_ar70/90,ベレッタAR70/90,ASCII_WORD,true
 7800,beretta_px4,ベレッタPx4,ASCII_WORD,false
 7819,bible_black's_school_uniform,Bible Blackの制服,ASCII_WORD,true
 7862,bilibili_logo,bilibiliのロゴ,ASCII_WORD,false
@@ -482,7 +482,7 @@ row_number,canonical,display_ja,checks,already_overridden
 18069,l'avenir_academy_school_uniform,L'Avenir Academyのユニフォーム,ASCII_WORD,false
 18207,lapwing_face_tracking_redraws,Lapwing顔トラッキング再描画,ASCII_WORD,true
 18219,large_module_(eve_online),大型モジュール（EVE Online）,ASCII_WORD,false
-18245,lat_model_(mikumikudance),Lat式ミク,ASCII_WORD,false
+18245,lat_model_(mikumikudance),Lat式モデル（MikuMikuDance）,ASCII_WORD,true
 18282,lay's_(potato_chips),Lay's（ポテトチップス）,ASCII_WORD,true
 18301,lcb_uniform_(project_moon),LCB制服（Project Moon）,ASCII_WORD,true
 18423,lekku_(anatomy),レック（Lekku／頭部触手）,ASCII_WORD,true
@@ -522,7 +522,7 @@ row_number,canonical,display_ja,checks,already_overridden
 19304,mayqueen_maid_uniform,Mayqueenのメイド服,ASCII_WORD,true
 19308,mazda_mx-5_na,マツダ MX-5 NA,ASCII_WORD,true
 19309,mazda_mx-5_nd,マツダ MX-5 ND,ASCII_WORD,true
-19310,mazda_rx-7,サバンナRX-7,ASCII_WORD,false
+19310,mazda_rx-7,マツダRX-7,ASCII_WORD,true
 19311,mazda_rx-7_fc,マツダ RX-7 FC,ASCII_WORD,true
 19312,mazda_rx-7_fd,マツダ RX-7 FD,ASCII_WORD,true
 19315,mbcc_insignia_(path_to_nowhere),MBCCの紋章（無期迷途）,ASCII_WORD,true
@@ -548,7 +548,7 @@ row_number,canonical,display_ja,checks,already_overridden
 19560,mika_pikazo_(style),Mika Pikazo（スタイル）,ASCII_WORD,true
 19568,miko_embrace,神無月の巫女EDパロ,ASCII_WORD,false
 19576,militaria_(nikke),ミリタリア（NIKKE）,ASCII_WORD,true
-19599,milkor_mgl,ダネルMGL,ASCII_WORD,false
+19599,milkor_mgl,ミルコーMGL,ASCII_WORD,true
 19621,minamoto_no_raikou_(fate)_(cosplay),源頼光（Fate）（コスプレ）,ASCII_WORD,true
 19629,minebea_pm-9,9mm機関けん銃,ASCII_WORD,false
 19631,minecraft_(style),Minecraft風,ASCII_WORD,true

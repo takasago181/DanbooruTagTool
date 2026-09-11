@@ -54,7 +54,7 @@ row_number,canonical,display_ja,checks,already_overridden
 7644,bcy_username,bcyのユーザー名,ASCII_WORD,false
 7762,bellwall_military_uniform,Bellwallの軍服,ASCII_WORD,true
 7763,bellwall_school_uniform,Bellwallの制服,ASCII_WORD,true
-7799,beretta_ar70/90,ベレッタAR70,ASCII_WORD,false
+7799,beretta_ar70/90,ベレッタAR70/90,ASCII_WORD,true
 7800,beretta_px4,ベレッタPx4,ASCII_WORD,false
 7819,bible_black's_school_uniform,Bible Blackの制服,ASCII_WORD,true
 7862,bilibili_logo,bilibiliのロゴ,ASCII_WORD,false
@@ -205,7 +205,7 @@ row_number,canonical,display_ja,checks,already_overridden
 18061,kwon_eun-bi_waterbomb_performance_(meme),クォン・ウンビのWATERBOMBパフォーマンス（ミーム）,ASCII_WORD,true
 18069,l'avenir_academy_school_uniform,L'Avenir Academyのユニフォーム,ASCII_WORD,false
 18207,lapwing_face_tracking_redraws,Lapwing顔トラッキング再描画,ASCII_WORD,true
-18245,lat_model_(mikumikudance),Lat式ミク,ASCII_WORD,false
+18245,lat_model_(mikumikudance),Lat式モデル（MikuMikuDance）,ASCII_WORD,true
 18301,lcb_uniform_(project_moon),LCB制服（Project Moon）,ASCII_WORD,true
 18537,liebe_girls_academy_school_uniform,Liebe Girls Academyの制服,ASCII_WORD,true
 18604,limbus_kindergarten_uniform,Limbus幼稚園の制服,ASCII_WORD,true
@@ -218,7 +218,7 @@ row_number,canonical,display_ja,checks,already_overridden
 19161,marehoshi_academy_school_uniform,Marehoshi Academyの制服,ASCII_WORD,true
 19182,mark_iv_tank,マークIV戦車,ASCII_WORD,false
 19304,mayqueen_maid_uniform,Mayqueenのメイド服,ASCII_WORD,true
-19310,mazda_rx-7,サバンナRX-7,ASCII_WORD,false
+19310,mazda_rx-7,マツダRX-7,ASCII_WORD,true
 19315,mbcc_insignia_(path_to_nowhere),MBCCの紋章（無期迷途）,ASCII_WORD,true
 19508,mexico_ufo_alien_bodies_hearing_(meme),メキシコUFO宇宙人遺体公聴会（ミーム）,ASCII_WORD,true
 19526,micro_uzi,マイクロUZI,ASCII_WORD,false
@@ -229,7 +229,6 @@ row_number,canonical,display_ja,checks,already_overridden
 19555,mihuashi_logo,mihuashiのロゴ,ASCII_WORD,false
 19556,mihuashi_username,mihuashiのユーザー名,ASCII_WORD,false
 19568,miko_embrace,神無月の巫女EDパロ,ASCII_WORD,false
-19599,milkor_mgl,ダネルMGL,ASCII_WORD,false
 19629,minebea_pm-9,9mm機関けん銃,ASCII_WORD,false
 19631,minecraft_(style),Minecraft風,ASCII_WORD,true
 19632,minecraft_axe,Minecraftの斧,ASCII_WORD,true
