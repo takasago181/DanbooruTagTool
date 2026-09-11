@@ -1,0 +1,36 @@
+canonical,old_display_ja,new_display_ja,reason
+placemat,餐垫,ランチョンマット,NON_JAPANESE_RESIDUE
+plaid_bag,チェック柄のbag,チェック柄のバッグ,MIXED_ENGLISH_DEBRIS
+plaid_bow,格子縞の弓,格子縞のリボン,SEMANTIC_AMBIGUITY
+plaid_camisole,チェック柄のcamisole,チェック柄のキャミソール,MIXED_ENGLISH_DEBRIS
+plaid_cardigan,チェック柄のcardigan,チェック柄のカーディガン,MIXED_ENGLISH_DEBRIS
+plaid_dress,条格连衣裙,チェック柄のドレス,NON_JAPANESE_RESIDUE
+plaid_headscarf,チェック柄のheadscarf,チェック柄のヘッドスカーフ,MIXED_ENGLISH_DEBRIS
+plaid_hoodie,チェック柄のhoodie,チェック柄のパーカー,MIXED_ENGLISH_DEBRIS
+plaid_lapels,チェック柄のlapels,チェック柄のラペル,MIXED_ENGLISH_DEBRIS
+plaid_leg_warmers,plaid legのウォーマー,チェック柄のレッグウォーマー,MIXED_ENGLISH_DEBRIS
+plaid_male_underwear,チェック柄のmale・underwear,チェック柄の男性用下着,MIXED_ENGLISH_DEBRIS
+plaid_one-piece_swimsuit,plaid one pieceの水着,チェック柄のワンピース水着,MIXED_ENGLISH_DEBRIS
+plaid_sweater_vest,チェック柄のsweater・vest,チェック柄のセーターベスト,MIXED_ENGLISH_DEBRIS
+plaid_towel,チェック柄のtowel,チェック柄のタオル,MIXED_ENGLISH_DEBRIS
+plain,平原,無地,SEMANTIC_ERROR
+plain_epaulettes,タグ「plain epaulettes」,無地の肩章,RAW_ENGLISH_WRAPPER
+planet_necklace,planet・ネックレス,惑星のネックレス,MIXED_ENGLISH_DEBRIS
+planetary_ring,行星环,惑星環,NON_JAPANESE_RESIDUE
+plant_clothing,plant・衣類,植物の服,MIXED_ENGLISH_DEBRIS
+plant_focus,plant・焦点,植物を強調,MIXED_ENGLISH_DEBRIS
+plant_girl,アルラウネ,植物娘,SEMANTIC_NARROWING
+plant_growth,タグ「plant growth」,植物の成長,RAW_ENGLISH_WRAPPER
+plant_name,タグ「plant name」,植物名,RAW_ENGLISH_WRAPPER
+plant_on_head,頭に植えます,頭の上の植物,SEMANTIC_STATE_ACTION_ERROR
+plant_print,plantの柄,植物柄,MIXED_ENGLISH_DEBRIS
+plant_roots,ルーツ,植物の根,SEMANTIC_ERROR
+planted_arrow,植えられた矢印,地面に刺した矢,SEMANTIC_ERROR
+planted_axe,植えられたx,地面に刺した斧,SEMANTIC_ERROR
+planted_gun,タグ「planted gun」,地面に立てた銃,RAW_ENGLISH_WRAPPER
+planted_knife,植えられたナイフ,地面に刺したナイフ,SEMANTIC_ERROR
+planted_polearm,槍の植えられた槍,地面に刺した長柄武器,SEMANTIC_ERROR
+planted_shield,タグ「planted shield」,地面に立てた盾,RAW_ENGLISH_WRAPPER
+planted_shovel,タグ「planted shovel」,地面に刺したシャベル,RAW_ENGLISH_WRAPPER
+planted_umbrella,植えられた傘,地面に立てた傘,SEMANTIC_ERROR
+plasma,タグ「plasma」,プラズマ,RAW_ENGLISH_WRAPPER
