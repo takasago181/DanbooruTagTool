@@ -1,0 +1,41 @@
+canonical,old_display_ja,new_display_ja,reason
+limbus_kindergarten_uniform,limbus kindergartenの制服,Limbus幼稚園の制服,MIXED_ENGLISH_DEBRIS
+limp_wrist,limp・手首,力の抜けた手首,MIXED_ENGLISH_DEBRIS
+linea_semilunaris,タグ「linea semilunaris」,半月線,RAW_ENGLISH_WRAPPER
+linear_hatching,タグ「linear hatching」,線状ハッチング,RAW_ENGLISH_WRAPPER
+lineart_zoom_layer,タグ「lineart zoom layer」,線画拡大レイヤー,RAW_ENGLISH_WRAPPER
+lined_paper,罫線,罫線入り用紙,SEMANTIC_UNDERSPECIFICATION
+lion's_roar_(genshin_impact),ライオンのro音（genshinの衝撃）,匣中龍吟（原神）,SEMANTIC_ERROR
+lion_cub,ライオンカブ,ライオンの子,SEMANTIC_ERROR
+lion_dance,舞狮,獅子舞,NON_JAPANESE_RESIDUE
+lion_head_(ornament),タグ「lion head (ornament)」,ライオン頭の飾り,RAW_ENGLISH_WRAPPER
+lion_mane,ライオンマネ,ライオンのたてがみ,SEMANTIC_ERROR
+lion_print,lionの柄,ライオン柄,MIXED_ENGLISH_DEBRIS
+lipstick_mark_on_anus,口紅・印の上のanus,肛門の口紅跡,MIXED_ENGLISH_DEBRIS
+lipstick_mark_on_forehead,口紅・印の上のforehead,額の口紅跡,MIXED_ENGLISH_DEBRIS
+lipstick_mark_on_hand,口紅・印の上の手,手の口紅跡,AWKWARD_MACHINE_TRANSLATION
+lipstick_mark_on_stomach,胃の口紅マーク,腹部の口紅跡,SEMANTIC_ERROR
+liquid-in-glass_thermometer,液体イングラス温度計,ガラス管液体温度計,AWKWARD_MACHINE_TRANSLATION
+liquid_dress,液体・ドレス,液体のドレス,AWKWARD_MACHINE_TRANSLATION
+liquid_from_eyes,液体・からの目,目から液体,MIXED_ENGLISH_DEBRIS
+liquid_from_mouth,液体・からのmouth,口から液体,MIXED_ENGLISH_DEBRIS
+liquid_insides,液体・insides,液状の内臓,MIXED_ENGLISH_DEBRIS
+liquid_metal,液体・金属,液体金属,AWKWARD_MACHINE_TRANSLATION
+lit_fuse,照らされたヒューズ,火のついた導火線,SEMANTIC_ERROR
+little_red_riding_hood_(fairy_tale_character)_(cosplay),little red riding hood (fairy tale character) (cosplay),赤ずきん（童話）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+liu_association_south_uniform,リゥ協会,リウ協会南部の制服,SEMANTIC_UNDERSPECIFICATION
+live_tucker_reaction_(meme),live tucker reaction (meme),タッカーのライブリアクション（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+lizard_tail,蜥蜴尾巴,トカゲの尻尾,NON_JAPANESE_RESIDUE
+load-bearing_equipment,負荷ベアリング機器,ロードベアリング装備,SEMANTIC_ERROR
+load-bearing_piercing,load bearingのピアス,重量負荷ピアス,MIXED_ENGLISH_DEBRIS
+loaf_of_bread,パンのパン,パン一斤,SEMANTIC_ERROR
+lobelia_(flower),タグ「lobelia (flower)」,ロベリア,RAW_ENGLISH_WRAPPER
+lobotomy_corporation_(identity)_(project_moon),lobotomy corporation (identity) (project moon),ロボトミーコーポレーション（identity）（Project Moon）,CANONICAL_FALLBACK_TRANSLATABLE
+lobotomy_corporation_logo,lobotomy corporationのロゴ,ロボトミーコーポレーションのロゴ,MIXED_ENGLISH_DEBRIS
+lobster,えび,ロブスター,SEMANTIC_ERROR
+lobster_claw,ロブスター爪,ロブスターの爪,AWKWARD_MACHINE_TRANSLATION
+lobster_girl,タグ「lobster girl」,ロブスター娘,RAW_ENGLISH_WRAPPER
+localized_gravity,局部重力,局所重力,SEMANTIC_ERROR
+location_name,タグ「location name」,地名,RAW_ENGLISH_WRAPPER
+lock_earrings,イヤリングをロックします,鍵のイヤリング,SEMANTIC_ERROR
+lock_necklace,lock・ネックレス,鍵のネックレス,MIXED_ENGLISH_DEBRIS
