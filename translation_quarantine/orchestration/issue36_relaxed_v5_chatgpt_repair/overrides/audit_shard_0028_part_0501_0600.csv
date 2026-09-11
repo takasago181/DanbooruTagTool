@@ -1,0 +1,37 @@
+canonical,old_display_ja,new_display_ja,reason
+takizakura_school_uniform,takizakuraの学校制服,滝桜学園の制服,MIXED_ENGLISH_DEBRIS
+takoyaki_pick,タグ「takoyaki pick」,たこ焼きピック,RAW_ENGLISH_WRAPPER
+talking_animal,talking・動物,話す動物,MIXED_ENGLISH_DEBRIS
+tall_hat,tall・帽子,背の高い帽子,MIXED_ENGLISH_DEBRIS
+tall_male,高身長,背の高い男性,SEMANTIC_UNDERSPECIFICATION
+tam_o'_shanter,タグ「tam o' shanter」,タム・オ・シャンター,RAW_ENGLISH_WRAPPER
+tama_kanzashi,タグ「tama kanzashi」,玉かんざし,RAW_ENGLISH_WRAPPER
+tamamo_cat_(fate)_(cosplay),タマモ猫（運命）（コスプレ）,タマモキャット（Fate）（コスプレ）,TRANSLITERATION_ERROR
+tamamo_no_mae_(fate)_(cosplay),tamamo no mae (fate) (cosplay),玉藻の前（Fate）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+tamandua_tail,tamandua・尻尾,タマンドゥアの尻尾,MIXED_ENGLISH_DEBRIS
+tanbi_kei,タグ「tanbi kei」,耽美系,RAW_ENGLISH_WRAPPER
+tanga_panties,tanga・パンツ,タンガパンティー,MIXED_ENGLISH_DEBRIS
+tangyuan,汤圆,湯円（タンユエン）,NON_JAPANESE_RESIDUE
+tank_gun,タグ「tank gun」,戦車砲,RAW_ENGLISH_WRAPPER
+tank_interior,タンクインテリア,戦車内部,SEMANTIC_AMBIGUITY
+tank_turret,タンクタレット,戦車砲塔,SEMANTIC_AMBIGUITY
+tankard,タンダード,タンカード,TRANSLITERATION_ERROR
+tanker_jacket,tanker・ジャケット,タンカージャケット,MIXED_ENGLISH_DEBRIS
+tanline_peek,タンラインピーク,日焼け跡をちら見せ,TRANSLITERATION_ERROR
+tanling_ruqun,坦领襦裙,坦領襦裙（タンリン・ルーチュン）,NON_JAPANESE_RESIDUE
+taokaka_(cosplay),タカカ（コスプレ）,タオカカ（コスプレ）,TRANSLITERATION_ERROR
+tap_me_(meme),tap me (meme),「私をタップして」（ミーム）,CANONICAL_FALLBACK_TRANSLATABLE
+tape_blindfold,tape・目隠し,テープの目隠し,MIXED_ENGLISH_DEBRIS
+taped_arms,テープで固定した・両腕,テープで固定した両腕,MIXED_ENGLISH_DEBRIS
+taped_legs,テープで固定した・脚,テープで固定した脚,MIXED_ENGLISH_DEBRIS
+taped_note,テープで固定した・note,テープで留めたメモ,MIXED_ENGLISH_DEBRIS
+tapir_print,tapirの柄,バク柄,MIXED_ENGLISH_DEBRIS
+tapir_tail,タピールの尾,バクの尻尾,TRANSLITERATION_ERROR
+tapping_finger,タグ「tapping finger」,指でトントンする,RAW_ENGLISH_WRAPPER
+tapping_foot,tapping・足,足でトントンする,MIXED_ENGLISH_DEBRIS
+tart_slice,タグ「tart slice」,タルト一切れ,RAW_ENGLISH_WRAPPER
+tasmanian_devil_ears,タスマニアの悪魔の耳,タスマニアデビルの耳,SEMANTIC_AMBIGUITY
+tasmanian_devil_tail,タスマニアの悪魔の尾,タスマニアデビルの尻尾,SEMANTIC_AMBIGUITY
+tassel-trimmed_capelet,tassel・整えた・capelet,タッセル縁取りケープレット,MIXED_ENGLISH_DEBRIS
+tassel_choker,タグ「tassel choker」,タッセルチョーカー,RAW_ENGLISH_WRAPPER
+tassel_necklace,tassel・ネックレス,タッセルネックレス,MIXED_ENGLISH_DEBRIS
