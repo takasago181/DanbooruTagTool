@@ -1,0 +1,41 @@
+canonical,old_display_ja,new_display_ja,reason
+pentagram_cutout,タグ「pentagram cutout」,五芒星の切り抜き,RAW_ENGLISH_WRAPPER
+pentagram_earrings,五gramsイヤリング,五芒星のイヤリング,SEMANTIC_ERROR
+pentagram_hair_ornament,pentagramの髪飾り,五芒星の髪飾り,MIXED_ENGLISH_DEBRIS
+pentagram_necklace,五gram星のネックレス,五芒星のネックレス,SEMANTIC_ERROR
+pentagram_pendant,タグ「pentagram pendant」,五芒星のペンダント,RAW_ENGLISH_WRAPPER
+pentagram_tattoo,pentagramのタトゥー,五芒星のタトゥー,MIXED_ENGLISH_DEBRIS
+people's_liberation_army,人民解放军,人民解放軍,NON_JAPANESE_RESIDUE
+people's_liberation_army_air_force,人々・liberation・army・air・force,中国人民解放軍空軍,MIXED_ENGLISH_DEBRIS
+people's_liberation_army_ground_force,人々・liberation・army・ground・force,中国人民解放軍陸軍,MIXED_ENGLISH_DEBRIS
+people's_liberation_army_navy,人々・liberation・army・navy,中国人民解放軍海軍,MIXED_ENGLISH_DEBRIS
+pepperbox_revolver,Pepperboxリボルバー,ペッパーボックス・リボルバー,MIXED_ENGLISH_DEBRIS
+peppermint,タグ「peppermint」,ペパーミント,RAW_ENGLISH_WRAPPER
+perching,タグ「perching」,とまる,RAW_ENGLISH_WRAPPER
+perfume_(cosmetics),タグ「perfume (cosmetics)」,香水（化粧品）,RAW_ENGLISH_WRAPPER
+perfume_bottle,香水,香水瓶,SEMANTIC_UNDERSPECIFICATION
+perimeter_wall,perimeter・壁,外周壁,MIXED_ENGLISH_DEBRIS
+person_and_animalization,タグ「person and animalization」,人物と動物化,RAW_ENGLISH_WRAPPER
+person_and_furrification,タグ「person and furrification」,人物とケモノ化,RAW_ENGLISH_WRAPPER
+person_between_breasts,全身パイズリ,乳房の間の人物,SEMANTIC_NARROWING
+person_on_back,後ろの人,背中の上の人物,SEMANTIC_RELATION_ERROR
+person_on_hand,personの上の手,手の上の人物,SEMANTIC_RELATION_ERROR
+person_on_shoulder,personの上の肩,肩の上の人物,SEMANTIC_RELATION_ERROR
+pet_rock,タグ「pet rock」,ペットロック,RAW_ENGLISH_WRAPPER
+pet_walking,遛狗,ペットの散歩,NON_JAPANESE_RESIDUE
+petal_in_mouth,petalの中のmouth,口に花びら,MIXED_ENGLISH_DEBRIS
+petal_on_head,petalの上の頭,頭の上の花びら,SEMANTIC_RELATION_ERROR
+petal_on_nose,petalの上のnose,鼻の上の花びら,MIXED_ENGLISH_DEBRIS
+petals_on_ground,petalsの上のground,地面の上の花びら,SEMANTIC_RELATION_ERROR
+petals_on_liquid,液体の花びら,液体の上の花びら,SEMANTIC_UNDERSPECIFICATION
+petrification,固め,石化,SEMANTIC_ERROR
+petronas,タグ「petronas」,PETRONAS,RAW_ENGLISH_WRAPPER
+phalanx_ciws,タグ「phalanx ciws」,ファランクスCIWS,RAW_ENGLISH_WRAPPER
+phallic_tattoo,phallicのタトゥー,男根モチーフのタトゥー,MIXED_ENGLISH_DEBRIS
+pharaoh,法老,ファラオ,NON_JAPANESE_RESIDUE
+phoenix_wright_(cosplay),フェニックスライト（コスプレ）,成歩堂龍一（コスプレ）,SEMANTIC_ERROR
+phone_between_breasts,電話の間の胸,胸の間の電話,SEMANTIC_RELATION_ERROR
+phone_in_pocket,電話の中のpocket,ポケットの中の電話,SEMANTIC_RELATION_ERROR
+phone_light,電話・光,電話の光,MIXED_ENGLISH_DEBRIS
+phone_over_face,電話の上の顔,顔の上の電話,SEMANTIC_RELATION_ERROR
+phone_stand,電話・stand,電話スタンド,MIXED_ENGLISH_DEBRIS
