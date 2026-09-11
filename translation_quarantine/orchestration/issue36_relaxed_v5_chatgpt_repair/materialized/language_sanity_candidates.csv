@@ -635,15 +635,10 @@ row_number,canonical,display_ja,checks,already_overridden
 8927,bt-42,bt-42,ASCII_WORD,false
 8932,bubble_head_nurse_(cosplay),bubble head nurse (cosplay),ASCII_WORD,false
 8934,bubble_print,bubbleの柄,ASCII_WORD,false
-8959,bug_hunting,タグ「bug hunting」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 8960,bug_print,bugの柄,ASCII_WORD,false
-8968,building_sand_sculpture,タグ「building sand sculpture」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-8969,building_snowman,タグ「building snowman」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 8970,bulge_lift,タグ「bulge lift」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 8971,bulge_peek,bulge・覗き見,ASCII_WORD,false
 8979,bullet_earrings,bulletのイヤリング,ASCII_WORD,false
-8983,bullet_scar,タグ「bullet scar」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-8984,bullet_wound,タグ「bullet wound」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 8988,bullying_viewer,POVいじめ,ASCII_WORD,false
 8992,bunbunmaru,タグ「bunbunmaru」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 9015,burning_as_one_(umamusume),タグ「burning as one (umamusume)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
@@ -655,59 +650,39 @@ row_number,canonical,display_ja,checks,already_overridden
 9100,buttjob_over_clothes,着衣尻コキ,SIMPLIFIED_CHINESE_HINT,false
 9101,buttjob_under_clothes,着衣下の尻コキ,SIMPLIFIED_CHINESE_HINT,true
 9112,bygone_days_(e.g.o),bygone days (e.g.o),ASCII_WORD,false
-9129,cadpat,タグ「cadpat」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+9129,cadpat,CADPAT（迷彩柄）,ASCII_WORD,true
 9133,cafe_lycoreco_uniform,cafe lycorecoの制服,ASCII_WORD,false
 9135,cafe_mew_mew_uniform,cafe mew mewの制服,ASCII_WORD,false
 9139,cake_cat_(honkai:_star_rail),猫糕,SIMPLIFIED_CHINESE_HINT,false
 9147,caladbolg_(fate),caladbolg (fate),ASCII_WORD,false
 9152,caldari_state_(eve_online),caldari state (eve online),ASCII_WORD,false
 9154,calflet,タグ「calflet」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-9158,calico_m950,タグ「calico m950」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-9173,camel_girl,タグ「camel girl」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+9158,calico_m950,Calico M950,ASCII_WORD,true
 9180,camelot_academy_of_chivalry_school_uniform,キャメロット騎士学院の制服,SIMPLIFIED_CHINESE_HINT,true
-9182,camera_feed,タグ「camera feed」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 9184,camera_hold_pose_(han-0v0),タグ「camera hold pose (han-0v0)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-9186,camera_pov,タグ「camera pov」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 9188,camisole_over_clothes,重ね着,SIMPLIFIED_CHINESE_HINT,false
 9190,cammy_stretch_(meme),cammy stretch (meme),ASCII_WORD,false
-9207,camouflage_paint,タグ「camouflage paint」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-9221,can't_choose_your_own_family,タグ「can't choose your own family」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 9230,canari_(pokemon)_(cosplay),canari (pokemon) (cosplay),ASCII_WORD,false
-9234,cancer_(symbol),タグ「cancer (symbol)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-9236,candelabra,タグ「candelabra」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 9237,candied_ajilenakh_nut_(genshin_impact),candied ajilenakh nut (genshin impact),ASCII_WORD,false
 9249,candy_gore,タグ「candy gore」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 9251,candy_heart,candy・ハート,ASCII_WORD,false
-9254,candy_stick,タグ「candy stick」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 9259,caning,タグ「caning」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 9271,canon_event,タグ「canon event」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-9273,canopy_(forest),タグ「canopy (forest)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-9278,canvas_texture,タグ「canvas texture」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-9286,capelet_lift,タグ「capelet lift」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 9287,capital_ship_(eve_online),主力艦（EVE Online）,ASCII_WORD,false
 9290,capotain,タグ「capotain」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 9291,capote_(e.g.o),capote (e.g.o),ASCII_WORD,false
-9295,capricorn_(symbol),タグ「capricorn (symbol)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-9332,carddass,タグ「carddass」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 9341,cardiogram_print,cardiogramの柄,ASCII_WORD,false
 9342,caren_hortensia_(cosplay),Caren Hortensia（コスプレ）,ASCII_WORD,false
-9343,caressing_cheek,タグ「caressing cheek」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 9362,carrier_(eve_online),空母（EVE Online）,ASCII_WORD,false
-9363,carro_armato_p40,タグ「carro armato p40」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-9364,carro_veloce_cv-33,タグ「carro veloce cv-33」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-9371,carrot_juice,タグ「carrot juice」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-9376,carrot_slice,タグ「carrot slice」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+9364,carro_veloce_cv-33,カルロ・ヴェローチェ CV-33,ASCII_WORD,true
 9384,carthum_conglomerate_(eve_online),carthum conglomerate (eve online),ASCII_WORD,false
 9385,cartoon_bone,漫画の骨,SIMPLIFIED_CHINESE_HINT,false
-9386,cartoon_logic,タグ「cartoon logic」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 9387,cartoon_wings,漫画風の翼,SIMPLIFIED_CHINESE_HINT,true
 9388,cartoonized,漫画,SIMPLIFIED_CHINESE_HINT,false
-9389,cartwheel,タグ「cartwheel」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-9391,cased_tape_measure,タグ「cased tape measure」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-9407,castle_town_(deltarune),タグ「castle town (deltarune)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-9409,castrol,タグ「castrol」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+9407,castle_town_(deltarune),キャッスルタウン（DELTARUNE）,ASCII_WORD,true
+9409,castrol,Castrol（ブランド）,ASCII_WORD,true
 9410,casual_one-piece_swimsuit,カジュアルなワンピース水着,SIMPLIFIED_CHINESE_HINT,true
-9411,casull_(hellsing),タグ「casull (hellsing)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+9411,casull_(hellsing),カスール（HELLSING）,ASCII_WORD,true
 9413,cat's_tongue,猫舌,SIMPLIFIED_CHINESE_HINT,false
 9414,cat-shaped_eyewear,猫型メガネ,SIMPLIFIED_CHINESE_HINT,true
 9415,cat-shaped_pillow,猫の枕,SIMPLIFIED_CHINESE_HINT,false
@@ -752,36 +727,24 @@ row_number,canonical,display_ja,checks,already_overridden
 9457,catalyst_scimitar,タグ「catalyst scimitar」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 9469,cathead,タグ「cathead」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 9473,cats_are_liquid,猫は液体,SIMPLIFIED_CHINESE_HINT,false
-9474,cats_are_scared_of_cucumbers,タグ「cats are scared of cucumbers」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+9474,cats_are_scared_of_cucumbers,猫はキュウリを怖がる,SIMPLIFIED_CHINESE_HINT,true
 9479,catwoman_(cosplay),catwoman (cosplay),ASCII_WORD,false
 9488,caved_(touhou),caved (touhou),ASCII_WORD,false
-9490,cavewoman,タグ「cavewoman」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 9492,cavorite_ball,cavoriteボール,ASCII_WORD,false
-9493,cbj-ms,タグ「cbj-ms」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+9493,cbj-ms,CBJ-MS,ASCII_WORD,true
 9494,cbt_press,タグ「cbt press」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-9495,cd,タグ「cd」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+9495,cd,CD,ASCII_WORD,true
 9496,cd_case,CDケース,ASCII_WORD,false
 9497,cd_player,CDプレイヤー,ASCII_WORD,false
 9504,celestial_being,タグ「celestial being」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-9512,cellulite,タグ「cellulite」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-9517,censored_feet,タグ「censored feet」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-9520,censored_profanity,タグ「censored profanity」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-9521,censored_testicles,タグ「censored testicles」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-9523,censored_thought,タグ「censored thought」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 9545,cervix_punching,タグ「cervix punching」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 9547,ch-47_chinook,CH-47チヌーク,ASCII_WORD,false
-9572,chaise_longue,タグ「chaise longue」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 9573,chajinbou,chajinbou,ASCII_WORD,false
-9576,chaldea_bedroom,タグ「chaldea bedroom」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-9584,chalk_drawing,タグ「chalk drawing」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-9588,chameleon_boy,タグ「chameleon boy」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-9594,champagne_coupe,タグ「champagne coupe」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+9584,chalk_drawing,チョーク画,SIMPLIFIED_CHINESE_HINT,true
 9601,changing_clothes,着替え,SIMPLIFIED_CHINESE_HINT,false
 9603,changing_seasons_(touhou),changing seasons (touhou),ASCII_WORD,false
 9606,channel_(caststation)_(style),タグ「channel (caststation) (style)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-9611,chaos_undivided_(symbol),タグ「chaos undivided (symbol)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 9612,chaperon_hat,chaperon・帽子,ASCII_WORD,false
-9613,chapter_cover,タグ「chapter cover」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 9615,char_aznable_(cosplay),Char aznable（コスプレ）,ASCII_WORD,false
 9667,charo_(meme),charo (meme),ASCII_WORD,false
 9670,chase_my_ideal_idol!_(project_sekai),タグ「chase my ideal idol! (project sekai)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
@@ -789,49 +752,31 @@ row_number,canonical,display_ja,checks,already_overridden
 9689,checkered_bra,checkered bra,ASCII_WORD,false
 9704,checkered_kimono,市松模様の着物,SIMPLIFIED_CHINESE_HINT,false
 9724,checkered_swimsuit,チェッカー水着,SIMPLIFIED_CHINESE_HINT,false
-9732,checking_pulse,タグ「checking pulse」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-9736,checkout_(shopping),タグ「checkout (shopping)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-9738,cheek_injury,タグ「cheek injury」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-9754,cheetah_boy,タグ「cheetah boy」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+9736,checkout_(shopping),会計（買い物）,SIMPLIFIED_CHINESE_HINT,true
 9757,chemical_structure,化学式,SIMPLIFIED_CHINESE_HINT,false
 9758,chemicals,化学物質,SIMPLIFIED_CHINESE_HINT,false
 9759,chemistry,化学,SIMPLIFIED_CHINESE_HINT,false
 9760,chemistry_set,化学セット,SIMPLIFIED_CHINESE_HINT,false
-9762,chengdu_j-10,タグ「chengdu j-10」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-9763,chengdu_j-20,タグ「chengdu j-20」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-9774,cherry_pie,タグ「cherry pie」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 9780,cherub,タグ「cherub」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 9781,cheshire_(azur_lane)_(cosplay),cheshire (azur lane) (cosplay),ASCII_WORD,false
 9782,cheshire_cat_(alice_in_wonderland)_(cosplay),チェシャー猫（不思議の国のアリス）（コスプレ）,SIMPLIFIED_CHINESE_HINT,false
-9813,cheytac_m200,タグ「cheytac m200」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+9813,cheytac_m200,CheyTac M200,ASCII_WORD,true
 9814,chi-hatan_(emblem),Chi-Hatan（エンブレム）,ASCII_WORD,false
 9815,chi-hatan_military_uniform,知波単学園の軍服,SIMPLIFIED_CHINESE_HINT,true
 9816,chi-hatan_school_uniform,知波単学園の制服,SIMPLIFIED_CHINESE_HINT,true
 9828,chicken-mushroom_skewer_(genshin_impact),chicken-mushroom skewer (genshin impact),ASCII_WORD,false
-9830,chicken_boy,タグ「chicken boy」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-9831,chicken_girl,タグ「chicken girl」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-9837,chidori_(naruto),タグ「chidori (naruto)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+9837,chidori_(naruto),千鳥（NARUTO）,ASCII_WORD,true
 9843,chikage_(bloodborne),チカゲ（Bloodborne）,ASCII_WORD,true
 9845,child's_drawing,小学生が描いてみた,SIMPLIFIED_CHINESE_HINT,false
-9855,chima_(clothes),タグ「chima (clothes)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-9858,chimera_(honkai:_star_rail),タグ「chimera (honkai: star rail)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-9859,chimera_ant,タグ「chimera ant」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 9887,chinese_peony,タグ「chinese peony」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-9888,chinese_restaurant,タグ「chinese restaurant」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-9901,chipped_horns,タグ「chipped horns」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-9906,chisato_carrying_takina_(lycoris_recoil),タグ「chisato carrying takina (lycoris recoil)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-9911,chives,タグ「chives」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 9913,chloe_von_einzbern_(archer_install)_(cosplay),chloe von einzbern (archer install) (cosplay),ASCII_WORD,false
 9916,choco_girl,タグ「choco girl」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-9926,chocolate_drip,タグ「chocolate drip」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
-9929,chocolate_icing,タグ「chocolate icing」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 9930,chocolate_lady_no_karasawagi,タグ「chocolate lady no karasawagi」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 9951,choir_outfit_(utdr),タグ「choir outfit (utdr)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 9960,chopper_crying_(meme),chopper crying (meme),ASCII_WORD,false
 9966,choso_giving_toudou_a_haircut_(meme),choso giving toudou a haircut (meme),ASCII_WORD,false
 9969,chouzetsusaikawa_tenshi-chan_(cosplay),chouzetsusaikawa tenshi-chan (cosplay),ASCII_WORD,false
 9972,christmas_nightmare_(e.g.o),christmas nightmare (e.g.o),ASCII_WORD,false
-9979,chronal_accelerator_(overwatch),タグ「chronal accelerator (overwatch)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 9989,chuo_academy_school_uniform,中央学園の制服,SIMPLIFIED_CHINESE_HINT,true
 9994,church_bell,教会の鐘,SIMPLIFIED_CHINESE_HINT,false
 10008,cinderella_(fairy_tale_character)_(cosplay),cinderella (fairy tale character) (cosplay),ASCII_WORD,false
@@ -842,7 +787,6 @@ row_number,canonical,display_ja,checks,already_overridden
 10035,cirno_(cosplay),Cirno（コスプレ）,ASCII_WORD,false
 10044,clamp_(circle)_(style),野生のCLAMP,ASCII_WORD,false
 10071,cleaning_&_clearing_(blue_archive),掃除と片付け（Blue Archive）,ASCII_WORD,false
-10097,climbing_set_(zelda),タグ「climbing set (zelda)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 10129,close_game/offline_(project_sekai),タグ「close game/offline (project sekai)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 10137,clothed_bath,着衣入浴,SIMPLIFIED_CHINESE_HINT,false
 10138,clothed_male_underwear_female,着衣の男性と下着姿の女性,SIMPLIFIED_CHINESE_HINT,true
@@ -852,7 +796,7 @@ row_number,canonical,display_ja,checks,already_overridden
 10240,coil_(dimension_w),タグ「coil (dimension w)」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
 10273,collared_kimono,襟付き着物,SIMPLIFIED_CHINESE_HINT,true
 10286,colonel_sanders_(cosplay),colonel sanders (cosplay),ASCII_WORD,false
-10331,colt_9mm_smg,タグ「colt 9mm smg」,RAW_ENGLISH_WRAPPER;ASCII_WORD,false
+10331,colt_9mm_smg,コルト9mm SMG,ASCII_WORD,true
 10334,colt_single_action_army,コルトSAA,ASCII_WORD,false
 10335,columbina_(genshin_impact)_(cosplay),columbina (genshin impact) (cosplay),ASCII_WORD,false
 10343,combat_ship_(eve_online),戦闘艦（EVE Online）,ASCII_WORD,false
