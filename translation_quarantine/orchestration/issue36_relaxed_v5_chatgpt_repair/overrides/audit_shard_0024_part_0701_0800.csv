@@ -1,0 +1,41 @@
+canonical,old_display_ja,new_display_ja,reason
+red_crown,赤い・crown,赤い王冠,MIXED_ENGLISH_DEBRIS
+red_dot_sight,赤い・dot・sight,レッドドットサイト,MIXED_ENGLISH_DEBRIS
+red_dougi,赤い・dougi,赤い道着,MIXED_ENGLISH_DEBRIS
+red_facepaint,赤い・facepaint,赤いフェイスペイント,MIXED_ENGLISH_DEBRIS
+red_facial_hair,赤い・facial・髪,赤いひげ,MIXED_ENGLISH_DEBRIS
+red_garter,赤い・garter,赤いガーター,MIXED_ENGLISH_DEBRIS
+red_ginger_(flower),タグ「red ginger (flower)」,レッドジンジャー（花）,RAW_ENGLISH_WRAPPER
+red_hanfu,赤い・hanfu,赤い漢服,MIXED_ENGLISH_DEBRIS
+red_haori,赤い・haori,赤い羽織,MIXED_ENGLISH_DEBRIS
+red_happi,赤い・happi,赤い法被,MIXED_ENGLISH_DEBRIS
+red_headscarf,赤い・headscarf,赤いヘッドスカーフ,MIXED_ENGLISH_DEBRIS
+red_leaf,赤い・leaf,赤い葉,MIXED_ENGLISH_DEBRIS
+red_leg_warmers,red legのウォーマー,赤いレッグウォーマー,MIXED_ENGLISH_DEBRIS
+red_lightsaber,赤い・lightsaber,赤いライトセーバー,MIXED_ENGLISH_DEBRIS
+red_loincloth,赤い・loincloth,赤い腰布,MIXED_ENGLISH_DEBRIS
+red_male_swimwear,赤い雄の水着,赤い男性用水着,SEMANTIC_ERROR
+red_male_underwear,赤い雄の下着,赤い男性用下着,SEMANTIC_ERROR
+red_nightgown,赤い・nightgown,赤いナイトガウン,MIXED_ENGLISH_DEBRIS
+red_ocean,赤い・ocean,赤い海,MIXED_ENGLISH_DEBRIS
+red_overskirt,赤い・overskirt,赤いオーバースカート,MIXED_ENGLISH_DEBRIS
+red_paint,赤い・paint,赤い塗料,MIXED_ENGLISH_DEBRIS
+red_panda_boy,赤い・panda・boy,レッサーパンダ少年,SEMANTIC_AMBIGUITY
+red_panda_costume,赤い・panda・衣装,レッサーパンダの衣装,SEMANTIC_AMBIGUITY
+red_panda_girl,レッドパンダガール,レッサーパンダ娘,SEMANTIC_AMBIGUITY
+red_penis,赤い・penis,赤い陰茎,MIXED_ENGLISH_DEBRIS
+red_petals,赤い・petals,赤い花びら,MIXED_ENGLISH_DEBRIS
+red_pillow,赤い・pillow,赤い枕,MIXED_ENGLISH_DEBRIS
+red_plume,赤い・plume,赤い飾り羽,MIXED_ENGLISH_DEBRIS
+red_poncho,赤い・poncho,赤いポンチョ,MIXED_ENGLISH_DEBRIS
+red_prison_magic_school_uniform,red prison magicの学校制服,レッドプリズン魔法学校の制服,MIXED_ENGLISH_DEBRIS
+red_romper,赤い・romper,赤いロンパース,MIXED_ENGLISH_DEBRIS
+red_sash,赤いサッシ,赤いサッシュ,SEMANTIC_ERROR
+red_serafuku,レッドセラフク,赤いセーラー服,TRANSLITERATION_ERROR
+red_sheet,赤いシート,赤いシーツ,SEMANTIC_AMBIGUITY
+red_slippers,赤い・slippers,赤いスリッパ,MIXED_ENGLISH_DEBRIS
+red_snake,赤い・snake,赤いヘビ,MIXED_ENGLISH_DEBRIS
+red_snapper,赤い・snapper,マダイ,SEMANTIC_AMBIGUITY
+red_swim_trunks,赤い・泳ぐ・trunks,赤い水泳用トランクス,MIXED_ENGLISH_DEBRIS
+red_tailcoat,赤い・tailcoat,赤い燕尾服,MIXED_ENGLISH_DEBRIS
+red_telephone_box_(british),タグ「red telephone box (british)」,赤い電話ボックス（イギリス）,RAW_ENGLISH_WRAPPER
