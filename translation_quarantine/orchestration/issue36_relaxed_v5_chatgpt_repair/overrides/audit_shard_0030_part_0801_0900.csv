@@ -1,0 +1,47 @@
+canonical,old_display_ja,new_display_ja,reason
+whistle_in_mouth,whistleの中のmouth,口にホイッスル,MIXED_ENGLISH_DEBRIS
+white_armpit_hair,白い・armpit・髪,白い脇毛,MIXED_ENGLISH_DEBRIS
+white_babydoll,白いbabydoll,白いベビードール,MIXED_ENGLISH_DEBRIS
+white_bathrobe,白い・bathrobe,白いバスローブ,MIXED_ENGLISH_DEBRIS
+white_blanket,白い・blanket,白い毛布,MIXED_ENGLISH_DEBRIS
+white_bodice,白い・bodice,白いボディス,MIXED_ENGLISH_DEBRIS
+white_bodystocking,白い・bodystocking,白いボディストッキング,MIXED_ENGLISH_DEBRIS
+white_bonnet,白い・bonnet,白いボンネット帽,MIXED_ENGLISH_DEBRIS
+white_bustier,白い・bustier,白いビスチェ,MIXED_ENGLISH_DEBRIS
+white_car,白い・car,白い車,MIXED_ENGLISH_DEBRIS
+white_carnation,白い・carnation,白いカーネーション,MIXED_ENGLISH_DEBRIS
+white_chemise,白い・chemise,白いシュミーズ,MIXED_ENGLISH_DEBRIS
+white_crown,白い・crown,白い王冠,MIXED_ENGLISH_DEBRIS
+white_dougi,白い・dougi,白い道着,MIXED_ENGLISH_DEBRIS
+white_dragon,白い・dragon,白いドラゴン,MIXED_ENGLISH_DEBRIS
+white_ensign,白い少sign,ホワイト・エンサイン,SEMANTIC_ERROR
+white_facepaint,白い・facepaint,白いフェイスペイント,MIXED_ENGLISH_DEBRIS
+white_fence,白い・fence,白い柵,MIXED_ENGLISH_DEBRIS
+white_fire,白い・fire,白い炎,MIXED_ENGLISH_DEBRIS
+white_gown,白い・gown,白いガウン,MIXED_ENGLISH_DEBRIS
+white_hanbok,白い・hanbok,白い韓服,MIXED_ENGLISH_DEBRIS
+white_hanfu,白い・hanfu,白い漢服,MIXED_ENGLISH_DEBRIS
+white_haori,白い・haori,白い羽織,MIXED_ENGLISH_DEBRIS
+white_headscarf,白い・headscarf,白いヘッドスカーフ,MIXED_ENGLISH_DEBRIS
+white_hijab,白い・hijab,白いヒジャブ,MIXED_ENGLISH_DEBRIS
+white_java_sparrow,文鳥の日,白文鳥,SEMANTIC_ERROR
+white_jersey,白い・jersey,白いジャージ,MIXED_ENGLISH_DEBRIS
+white_knight_(nikke),タグ「white knight (nikke)」,ホワイトナイト（NIKKE）,RAW_ENGLISH_WRAPPER
+white_lightsaber,白い・lightsaber,白いライトセーバー,MIXED_ENGLISH_DEBRIS
+white_lips,白嘴唇,白い唇,NON_JAPANESE_RESIDUE
+white_mage_(final_fantasy)_(cosplay),white mage (final fantasy) (cosplay),白魔道士（ファイナルファンタジー）（コスプレ）,CANONICAL_FALLBACK_TRANSLATABLE
+white_neck_warmer,白い・首・warmer,白いネックウォーマー,MIXED_ENGLISH_DEBRIS
+white_overskirt,白い・overskirt,白いオーバースカート,MIXED_ENGLISH_DEBRIS
+white_pelvic_curtain,白い・pelvic・カーテン,白い前垂れ状の腰布,MIXED_ENGLISH_DEBRIS
+white_polka_dots,白いポルカのドット,白い水玉,SEMANTIC_ERROR
+white_poncho,白い・poncho,白いポンチョ,MIXED_ENGLISH_DEBRIS
+white_rabbit_(animal),タグ「white rabbit (animal)」,白いウサギ（動物）,RAW_ENGLISH_WRAPPER
+white_raincoat,白い・raincoat,白いレインコート,MIXED_ENGLISH_DEBRIS
+white_robe,白衣,白いローブ,SEMANTIC_NARROWING
+white_rose,白玫瑰,白いバラ,NON_JAPANESE_RESIDUE
+white_sash,白いサッシ,白いサッシュ,SEMANTIC_AMBIGUITY
+white_scales,白いスケール,白い鱗,SEMANTIC_AMBIGUITY
+white_scars,白い・scars,白い傷跡,MIXED_ENGLISH_DEBRIS
+white_serafuku,白いserafuku,白いセーラー服,MIXED_ENGLISH_DEBRIS
+white_singlet,白い・singlet,白いシングレット,MIXED_ENGLISH_DEBRIS
+white_slippers,白い・slippers,白いスリッパ,MIXED_ENGLISH_DEBRIS
