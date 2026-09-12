@@ -114,14 +114,27 @@ Corrected after age-policy and strong-condition audits.
 - #2373 `reverse trap` and #2374 `trap` are reference-only as legacy terminology/search assets.
 - #2393 `blindfold mask` is reference-only as a general accessory concept; #2394 `ribbon bondage` remains KEEP as a concrete bondage concept.
 
-## Cumulative through ID 2400
+### Batch 13 — IDs 2401–2600
+- KEEP 114
+- KEEP_REFERENCE_ONLY 85
+- OUT_OF_SCOPE_PRODUCT 1
+- REVIEW 0
+- OUT: #2483 `puffer fish vomiting water (meme)` — named generic meme/template unrelated to the adult-generation nucleus.
+- KEEP_REFERENCE_ONLY (non-alias): #2405 `colored blindfold`, #2419 `topless other`, #2424 `rear naked choke`, #2425 `vomiting rainbows`, #2431 `unworn blindfold`, #2443 `pee pad`, #2471 `holding blindfold`, #2487 `piss bottle`, #2498 `nude guy wrapped in ribbons standing (meme)`, #2501 `whipping hair`, #2505 `thong panties`, #2519 `sexually suggestive`.
+- IDs #2528–2600 are alias-preservation surfaces and remain KEEP_REFERENCE_ONLY.
+- #2501 `whipping hair` is a verified general hair action, not an adult-specific Special nucleus concept; retain for reference/search only.
+- #2424 `rear naked choke` is a martial-arts chokehold; current clothing/exposure-style metadata is not a reason to treat it as an adult core concept.
+- #2442 `negative space oral (meme)` remains KEEP because it represents a distinct niche sexual composition/template with practical generation value; meme origin alone is not a demotion reason.
+- #2526 `virgin killer sweater` and #2527 `virgin destroyer sweater` remain KEEP as distinct sexualized clothing designs with useful visual identity.
 
-- KEEP: 1480
-- KEEP_REFERENCE_ONLY: 886
-- OUT_OF_SCOPE_PRODUCT: 10
+## Cumulative through ID 2600
+
+- KEEP: 1594
+- KEEP_REFERENCE_ONLY: 971
+- OUT_OF_SCOPE_PRODUCT: 11
 - REVIEW: 24
-- Total audited: 2400
-- Remaining: 388
+- Total audited: 2600
+- Remaining: 188
 
 ## Current REVIEW set notes
 
