@@ -1,0 +1,50 @@
+{
+  "batch_id": "issue64-batch007-partial",
+  "source_global_rows": [5301, 5500],
+  "source_row_count": 200,
+  "input_total_rows": 30629,
+  "result": {"PROPOSED": 196, "UNRESOLVED": 4},
+  "confidence": {"HIGH": 178, "MEDIUM": 18, "LOW": 4},
+  "primary_genre_counts": {
+    "ACTION_CONTACT": 37,
+    "BODY_PART": 11,
+    "CLOTHING": 28,
+    "CLOTHING_STATE_EXPOSURE": 28,
+    "COLOR_APPEARANCE": 3,
+    "COMPOSITION_CAMERA": 3,
+    "EXPRESSION_EMOTION": 6,
+    "HAIR_FACE": 4,
+    "LIGHT_TIME_WEATHER": 1,
+    "LIVING_NATURE": 11,
+    "OBJECT_PROP": 39,
+    "PERSON_COUNT": 6,
+    "PLACE_BACKGROUND": 13,
+    "STYLE_QUALITY_META": 2,
+    "TEXT_SYMBOL": 4
+  },
+  "unresolved_canonical": [
+    "clockshow",
+    "close_game/offline_(project_sekai)",
+    "coco's",
+    "code:escape_(idolmaster)"
+  ],
+  "external_evidence_canonical": [],
+  "audit_notes": [
+    "partial-string traps were explicitly rechecked around coat/cock*, clothes/object, ornament/name, cloud/sky and coffee/object clusters.",
+    "object identity takes precedence over modifier fragments; concrete tools/containers remain OBJECT_PROP even when a food/clothing word is present.",
+    "relation/action tags keep ACTION_CONTACT priority over contained body/object tokens; exposure-state tags remain separate from base clothing identity.",
+    "four opaque proper/project/event names remain explicit UNRESOLVED; no external evidence was required for the accepted 196 routes."
+  ],
+  "policy": {
+    "taxonomy_version": "issue64-pilot-v2 / PILOT_ACCEPTED",
+    "max_path_depth": 2,
+    "visible_catch_all": false,
+    "runtime_llm": false,
+    "past_batch_mutation": false
+  },
+  "sha256": {
+    "input_issue64_general_30629_csv": "58f9ff128a7ca21a17de4345c36c7891b8169a66fbe3d1de5c190cf48f17d51c",
+    "raw_ledger_csv": "e02611cbf367b6564de52b4da5a4ae721050372567af12f747d84ac1bb50abfc",
+    "xz_ledger": "b191ea4d6bef7600589908b0e78bf0b28e864332721b45d81a572ba45a3c6e94"
+  }
+}
