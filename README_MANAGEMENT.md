@@ -1,132 +1,139 @@
 # DanbooruTagTool 管理骨格
 
-目的は「班を増やさず、正本・進捗・引継ぎ・Codex作業境界の所在を固定し、ユーザーの手作業を減らす」ことです。
+目的は、班を増やさず、正本・現在地・Issue・Codex作業境界を固定し、ユーザーの手作業を減らすこと。
 
 ## 最初に見るもの
 
-作業チャットは、古いhandoffや記憶ではなく最新mainから次を確認する。
+作業チャットは古いhandoffや記憶ではなくlive GitHubから確認する。
 
-1. `docs/project/CURRENT_STATE.md` — 現在地の正本
-2. `docs/project/PERMANENT_RULES.md` — Stageをまたぐ固定ルール
-3. `CURRENT_STATE.md` に記載された自班/担当の現行Issue
-4. 必要な `DECISIONS.md` / 現行Stage仕様 / main実装状態
+1. `docs/project/CURRENT_STATE.md` — 現在地/routing
+2. `docs/project/PERMANENT_RULES.md` — 恒久運用ルール
+3. `CURRENT_STATE.md` が示す自班/担当Issue
+4. `docs/PRODUCT_GOAL_LOCK.md` — 現在の製品目的
+5. 必要な `DECISIONS.md` / current Issue-specific spec / main実装状態
 
-Codexはさらに `AGENTS.md` を読み、current DEV IssueをGitHubから直接取得する。
+Codexはさらにrepo root `AGENTS.md` に従う。
 
-## 役割分担
+## 現在の製品方向
 
-- 本体開発班: 唯一の司令塔。仕様決定、Stage管理、Codex実装指示。
-- 知識班: 外部調査・知識コーパス維持。仕様決定権は持たない。
-- Prompt班: Stage10のA/B実験用Prompt設計・正式handoff。仕様決定権は持たない。
-- AUDIT: 常設班ではない。独立監査が必要な品質Gateごとに新しく起動し、PASS / HOLD / FAIL等を返した後は常時待機しない。
-- Forge Neo環境準備/TEMP: 必要な期間だけ動く臨時担当。
-- Codex: 班ではなく、本体開発班の実装担当。
-- GitHub管理・調整チャット: 班ではない。正本整合・Issue/管理文書更新・班間調整だけを行う。
+v1の中心:
 
-常設は **DEV / KNOWLEDGE / PROMPT の3班**。AUDITは独立性を維持したまま、必要時だけ起動するGateロールです。
+`理解 -> 発見 -> 選択 -> 出力`
 
-## 正本の置き場所
+- Promptを日本語で理解
+- Japanese/English検索
+- Specialを深いジャンルから発見
+- General 30,629を浅い実用ジャンルから発見
+- ユーザーが手動で選択
+- canonical-English Promptをcopy
+
+Issue #5 / Stage10 / generation-effectivenessは将来laneであり、v1 blockerではない。
+
+## 役割
+
+- **DEV**: 唯一の司令塔。仕様決定、routing、Codex実装指示、成果確認。
+- **KNOWLEDGE**: generation knowledge corpusの維持。v1へ機能を強制しない。
+- **PROMPT**: 将来のgeneration-effectiveness / controlled Prompt実験が必要な時の担当。v1の必須laneではない。
+- **AUDIT**: 常設ではなく、必要な品質Gateごとに起動する独立監査ロール。
+- **TEMP**: 期間限定担当。
+- **Codex**: DEVの実装担当。独立した仕様決定権は持たない。
+- **GitHub管理・調整チャット**: 班ではない。Issue/管理文書/routing整合を担当。
+
+常設は **DEV / KNOWLEDGE / PROMPT** の3班。
+
+## 正本
 
 - `docs/project/CURRENT_STATE.md`
-  - 「今どこにいるか」の唯一の状態表。
+  - 今どこにいるか / current DEV routing
+- live GitHub Issue
+  - task contract / scope / completion / checkpoint / evidence
 - `docs/project/PERMANENT_RULES.md`
-  - Stageをまたいで有効な固定ルール。
+  - Stageをまたぐ固定運用
+- `docs/PRODUCT_GOAL_LOCK.md`
+  - 現在の製品目的
 - `docs/project/DECISIONS.md`
-  - 重要な設計判断と理由。
-- `docs/stage9/` / `docs/stages/`
-  - 現行Stage・次Stageの仕様とGate。
-- GitHub Issues
-  - 実作業のtask contract、完了条件、結果、checkpoint履歴。
-- Pull Request / branch / commit
-  - 実際に変更されたコード・文書とreview対象。
-チャット履歴は正本ではありません。
+  - 重要な設計判断
+- branch / commit / PR
+  - 実際の変更
 
-## DEV Issueの扱い
+チャット履歴は正本ではない。
 
-- GitHub IssueがDEV作業のtask contract、完了条件、checkpoint、evidenceを担う。
-- `CURRENT_STATE.md` はcurrent DEV Issue番号とroutingを担う。
-- IssueコメントだけではCodexのtask contractを変更しない。
-- Codexは新規/再開時にlive Issueを取得し、本文と最新checkpointの関係を確認する。
+## Current DEV
 
-## 途中checkpoint
+- Issue本文が実装task contract
+- `CURRENT_STATE.md` はIssue番号/routing
+- Issueコメントはcheckpoint/evidence
+- Codexは毎回live Issueを取得
+- mismatch時はfail-closed
 
-意味のある成果をチャットだけに保持し続けない。
+`CURRENT_DEV_TASK.md` が存在してもlive Issueを置き換えない。
 
-次の場合は担当Issueへ短いcheckpointコメントを残す。
-- 重要な実装/調査/監査/環境確認が成功した
-- 後続作業の前提になる事実が確定した
-- 長時間中断・話題切替・handoffに入る
-- 会話が長く、直近の成功地点を失うと再開コストが高い
+## checkpoint
 
-最低限:
+意味のある成果をチャットだけに保持しない。
+
+Issue checkpointへ最低限:
 - 最後に成功したこと/結果
-- 未完了またはblocker
+- 未完了/blocker
 - 次作業
-- branch/commit/file/evidence（ある場合）
+- branch/commit/file/evidence
 
-通常のcheckpointはIssueコメントに置き、global stateが変わらない限り `CURRENT_STATE.md` は更新しない。
+Global routingが変わらない通常checkpointだけで `CURRENT_STATE.md` を肥大化させない。
 
-## 班間の受け渡し
+## 班間handoff
 
-DEV / KNOWLEDGE / PROMPT / 必要時のAUDIT / 現行TEMPの依頼と返却は、原則GitHub Issue経由で行う。
+DEV / KNOWLEDGE / PROMPT / 必要時AUDIT / TEMPは原則GitHub Issue経由。
 
-- 依頼側は、受取側の現行Issueへ「何をしてほしいか・理由・期待する出力・関連Issue/File」をcheckpointとして残す。
-- 受取側は、結果をチャットだけで返さず自班Issueへ「結果・根拠・判定・限界・次」を記録する。
-- 依頼元の次作業に必要な結果は、依頼元Issueへ短い返却checkpointも残し、詳細結果のIssueを参照する。
-- ユーザーを班間コピペの中継役にすることを標準運用にしない。
-- GitHubに載せられないlocal-only / binary / protected dataやconnector障害時だけfallbackを使い、その理由と代替handoffの所在をIssueへ残す。
+- REQUEST / WHY / EXPECTED OUTPUT / RELATED ISSUE・FILE
+- RESULT / EVIDENCE / VERDICT / LIMITATION / NEXT
 
-詳細形式は `docs/project/WORKFLOW.md` の「班間依頼・返却」を参照する。
+ユーザーをコピペ中継役にしない。
 
-## チャット引継ぎ
+## Codex / review
 
-会話長大化、Stage/Pilot/監査区切り、大方針変更、正式handoffでは、ユーザー指示を待たず作業チャット側から移行を提案する。
+- latest mainからtask feature branch
+- direct main implementation commitをしない
+- stable checkpointをcommit/push
+- GitHub branch/commit/PRからreviewできるならZIP不要
+- local-only/binary/push failure時だけfallback
+- Codex自己申告だけでGateを越えない
 
-順序:
+## protected data
 
-旧チャット
-→ GitHubへcheckpoint/現在地を反映
-→ 必要ならIssue本文・Decision・Stage仕様・CURRENT_STATEを更新
-→ shared management fileは最新mainへ差分統合
-→ DEV contract変更ならlive Issue本文とCURRENT_STATEのroutingを整合
-→ 更新完了確認
-→ 新チャット移行を提案
-→ 新チャットがGitHubから復元
-
-長大な手書きhandoffをユーザーへ作らせることを標準にしない。
-
-## Codex実装・review
-
-- 本体実装は原則、最新mainからtask用feature branchを作る。
-- 直接mainへ未review実装をcommitしない。
-- stable checkpointをcommitし、push可能ならremoteへpushする。
-- ChatGPT/DEV/必要時AUDITがGitHub branch/commit/PRから確認できる成果物はGitHubを標準handoffにする。
-- local-only/ignored data、binary evidence、push不能などGitHubだけで確認できない時だけ `docs/CHATGPT_CODEX_HANDOFF.md` のZIP fallbackを使う。
-
-## Local protected data
-
-GitHubは管理状態とcommit済みコード/文書の正本ですが、ローカルworkspace全体のbackupではありません。
-
-`.gitignore` には `data/source/`、`data/derived/`、`data/runtime*`、Special2788の大容量CSV等が含まれます。
-これらがGitHubに見えなくても削除・欠損とは限りません。
+GitHubはlocal workspace全体のbackupではない。
+`.gitignore` のruntime/source/derived/large Special data等を保護する。
 
 禁止:
 - `git clean -fdx`
 - `git clean -fdX`
-- ignored protected dataを広範囲に消すcleanup
+- ignored protected dataの広範囲cleanup
 
-fresh cloneだけでfull runtime/full testsを再現できるとは仮定しない。
+## 大方針変更
+
+大方針が変わった場合は、最低限:
+
+1. `PRODUCT_GOAL_LOCK.md`
+2. product-scope Issue（現在は#42）
+3. `FEATURE_PRIORITY.md`
+4. `FLOWCHARTS.md`
+5. `AGENTS.md`
+6. `DECISIONS.md`
+7. 必要なら `CURRENT_STATE.md`
+8. 影響を受けるlane Issue（例: #5 / #44 / #64）
+
+を照合する。
+
+旧Stage資料や旧実装仕様を「昔そうだった」だけで現行製品目的より優先しない。
 
 ## 最小運用
 
-1. 作業前に `CURRENT_STATE.md` と自班Issueを確認する。
-2. 新しい確定作業はIssue化する。
-3. 意味のある途中成果はIssue checkpointへ残す。
-4. 班間依頼・返却はGitHub Issueで往復し、ユーザーへ手動中継を要求しない。
-5. task contract変更はIssue本文へ反映し、CURRENT_STATEのroutingと整合させる。
-6. 仕様変更は `DECISIONS.md` またはStage仕様へ反映する。
-7. shared management docは最新mainを再取得してから統合する。
-8. 独立監査が必要なGateでは、必要時にAUDITを起動し、PASS前にGateを越えない。
-9. 承認済みStage仕様に残るsubstage/gateを暗黙に飛ばさない。
+1. current stateを読む
+2. current Issueを読む
+3. product goalを確認
+4. Issue scopeだけ作業
+5. checkpointをGitHubへ残す
+6. Gateを越える時だけrouting更新
+7. protected dataを壊さない
+8. ユーザーの操作量と管理コストを増やさない
 
-詳細は `docs/project/PERMANENT_RULES.md` / `docs/project/CHAT_START_PROTOCOL.md` / `docs/project/WORKFLOW.md` を参照する。
+詳細は `PERMANENT_RULES.md` / `AGENTS.md` / `CHAT_START_PROTOCOL.md` を参照。
