@@ -1,0 +1,75 @@
+{
+  "issue": 64,
+  "batch": 9,
+  "range": [
+    5701,
+    5900
+  ],
+  "count": 200,
+  "status_counts": {
+    "PROPOSED": 181,
+    "UNRESOLVED": 19
+  },
+  "confidence_counts": {
+    "HIGH": 143,
+    "MEDIUM": 38,
+    "LOW": 19
+  },
+  "primary_genre_counts": {
+    "ACTION_CONTACT": 32,
+    "BODY_PART": 10,
+    "CLOTHING": 20,
+    "CLOTHING_STATE_EXPOSURE": 11,
+    "COLOR_APPEARANCE": 4,
+    "COMPOSITION_CAMERA": 1,
+    "EXPRESSION_EMOTION": 3,
+    "HAIR_FACE": 5,
+    "LIGHT_TIME_WEATHER": 1,
+    "LIVING_NATURE": 8,
+    "OBJECT_PROP": 53,
+    "PERSON_COUNT": 4,
+    "PLACE_BACKGROUND": 14,
+    "POSE_MOVEMENT": 3,
+    "STYLE_QUALITY_META": 6,
+    "TEXT_SYMBOL": 6
+  },
+  "unresolved": [
+    "concept_gyarus_(idolmaster)",
+    "concept_maihime_(idolmaster)",
+    "concept_police_(idolmaster)",
+    "connect_(madoka_magica)",
+    "constellation_(love_live!)",
+    "contempt_awe_(e.g.o)",
+    "contingency_contract_(arknights)",
+    "continue",
+    "cool_&_sexy_(idolmaster)",
+    "cool_s",
+    "cool_your_head",
+    "copy_ability",
+    "core",
+    "core_(girls'_frontline)",
+    "core_crystal_(xenoblade)",
+    "coreflame_(honkai:_star_rail)",
+    "coronavirus_pandemic",
+    "corruption",
+    "cosmic_&_funny_(idolmaster)"
+  ],
+  "audit_notes": [
+    "computer/condom/construction/control/convenient/cooking/coral/corn/costume/coughing 周辺を対象identityとpilot-v2境界優先で監査。",
+    "condom_* は物体そのものを OBJECT_PROP、身体への配置・使用を ACTION_CONTACT/INTIMATE、装着具は CLOTHING/ACCESSORY と分離。",
+    "convenient_* は単なる身体部位名ではなく露出隠しの機能を主にし、convenient_censoring のみ画面表現として STYLE_QUALITY_META。",
+    "固有作品名・抽象概念など名称だけで17分類へ安全に確定できない19件はUNRESOLVED。推測で解消していない。",
+    "external evidence はこの200件では分類確定に使用していない。"
+  ],
+  "raw_csv_sha256": "47e6f0537c4d805698a2af380c72675bd1aa5f72d1142199169abcce5ad8d462",
+  "xz_sha256": "c09b98c33992ff43fa895d0120922831dd86e347d67780e58137637b5f86db54",
+  "storage_mode": "base64_text_fragments_of_xz",
+  "parts": [
+    {
+      "path": "docs/issue64/full_rollout/batches/batch009_rows05701-05900_ledger.csv.xz.b64.part001",
+      "decoded_size": 4028,
+      "decoded_sha256": "c09b98c33992ff43fa895d0120922831dd86e347d67780e58137637b5f86db54",
+      "base64_text_sha256": "194db59fc1e051bb047e32e6800a1c70ce378c6218b9dbc21b29e4015927f675"
+    }
+  ]
+}
