@@ -1,0 +1,21 @@
+{
+  "issue": 64,
+  "batch": 10,
+  "range": [5901, 6100],
+  "count": 200,
+  "status_counts": {"PROPOSED": 190, "UNRESOLVED": 10},
+  "confidence_counts": {"HIGH": 190, "MEDIUM": 0, "LOW": 10},
+  "primary_genre_counts": {"ACTION_CONTACT":52,"BODY_PART":9,"CLOTHING":31,"CLOTHING_STATE_EXPOSURE":23,"COLOR_APPEARANCE":3,"COMPOSITION_CAMERA":2,"EXPRESSION_EMOTION":5,"HAIR_FACE":1,"LIGHT_TIME_WEATHER":2,"LIVING_NATURE":7,"OBJECT_PROP":25,"PERSON_COUNT":10,"PLACE_BACKGROUND":7,"POSE_MOVEMENT":6,"STYLE_QUALITY_META":5,"TEXT_SYMBOL":2},
+  "unresolved": ["counters_(nikke)","country_connection","couter","covenant_halo_(girls'_frontline_2)","cover_them_up_slut_(meme)","cr-unit_(date_a_live)","crackling_box_(reverse:1999)","craft_essence_(fate)","crazy_b_(ensemble_stars!)","creator_connection"],
+  "audit_notes": [
+    "cover/covered/covering 周辺は対象identityと機能を分離し、covered_* は露出・隠し状態、covering_* は行為として監査。",
+    "cow/crab/creature 周辺は生物本体・身体部位・衣装装飾・接触行為を分離し、print修飾だけで色カテゴリへ流さない。",
+    "cracked_* は壊れている対象を主経路にし、身体・衣装・場所・物体・画面表現を対象別に分類。",
+    "固有作品名・connection等、名称だけでは17分類へ安全に確定できない10件はUNRESOLVED。",
+    "external evidence はこの200件では分類確定に使用していない。"
+  ],
+  "raw_csv_sha256": "eb928a265e1b3c90cb896c3399aef91efab4fa33f6b7612694b38b869630b109",
+  "xz_sha256": "5fc14007c67d496754ac85a23bcd2b35c44ab350821ee65792dd3fa0711f146c",
+  "storage_mode": "base64_text_fragments_of_xz",
+  "parts": [{"path":"docs/issue64/full_rollout/batches/batch010_rows05901-06100_ledger.csv.xz.b64.part001","decoded_size":2480,"decoded_sha256":"5fc14007c67d496754ac85a23bcd2b35c44ab350821ee65792dd3fa0711f146c","base64_text_sha256":"5373159827d2b86ad48bf1eab6934aa41f7fef35cbe211046461d681ad18d036"}]
+}
