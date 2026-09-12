@@ -1,6 +1,6 @@
 # CURRENT DEV TASK — ISSUE #63 MIRROR
 
-> The live GitHub Issue is the executable task authority. Read `CURRENT_STATE.md`, then fetch Issue #63 and its latest checkpoint before implementation. If this mirror differs from the live Issue, fail closed and use neither stale content nor chat history to guess the contract.
+> The live GitHub Issue is the executable task authority. Read `CURRENT_STATE.md`, then fetch Issue #63 and its latest checkpoint before implementation. If this mirror differs from the live Issue, fail closed and do not guess from chat history.
 
 最終同期: 2026-09-12
 
@@ -8,10 +8,9 @@
 
 - Source Issue: **#63**
 - Issue title: **[SPECIAL-DICT][PRODUCT-FIT][DEV] Integrate audited product-fit verdict sidecar**
-- Issue state: **OPEN / READY / CURRENT CORE DEV**
-- DEV state: **PRODUCT_FIT_VERDICT_INTEGRATION_READY**
-- Working branch: **Codex must create a dedicated feature branch from latest live main**
-- Stage10 production A/B: **NOT STARTED**
+- Issue state: **OPEN / CURRENT CORE DEV until accepted/merged**
+- DEV state: **PRODUCT_FIT_VERDICT_INTEGRATION**
+- Stage10 production A/B: **NOT A v1 BLOCKER / NOT STARTED**
 
 ## Authoritative inputs
 
@@ -22,12 +21,6 @@ Read after live Issue preflight:
 2. `docs/audit/SPECIAL2788_PRODUCT_FIT_VERDICT_MANIFEST_20260912.json`
 3. `docs/audit/SPECIAL2788_PRODUCT_FIT_AUDIT_20260912.md`
 4. `docs/audit/CODEX_PROMPT_PRODUCT_FIT_IMPLEMENTATION_20260912.md`
-
-Audit commits:
-- manifest `eff5c41a479062cb9f785fb9905111aeb4d1223b`
-- audit registration `b04fbcfdcb644095d9c61a86be9e665e435b5697`
-- implementation contract `487076db7e22f0b7fdbead7afa19428ede56c285`
-- Codex prompt `63d01b2c11b64568464e27522e171b934efd9b08`
 
 Expected verdict counts:
 - KEEP 1618
@@ -46,8 +39,8 @@ Expected verdict counts:
 6. Apply:
    - KEEP = normal product-facing candidate
    - KEEP_REFERENCE_ONLY = retained for exact/alias/reference/search access, not independent default recommendation/browse candidate
-   - OUT_OF_SCOPE_PRODUCT = historical/source data retained, normal product-facing candidate surfaces excluded
-   - REVIEW = inspectable but not silently normalized/auto-promoted as resolved recommendation
+   - OUT_OF_SCOPE_PRODUCT = source/history retained, normal product-facing candidate surfaces excluded
+   - REVIEW = inspectable but not silently normalized/auto-promoted
 7. Add focused tests and implementation report.
 8. Stop for DEV/AUDIT before merge.
 
@@ -59,7 +52,7 @@ Expected verdict counts:
 - No semantic re-audit of 2,788 rows.
 - Do not invent filters based on age, sexual strength, non-consent, R18G, niche intensity, or extremity.
 - Do not implement Issue #34 fuzzy/substring ranking changes here.
-- Do not start Stage10 production A/B.
+- Do not implement #42/#64 UI/product-scope changes here.
 - No runtime LLM dependency.
 
 ## Completion / return contract
@@ -73,7 +66,12 @@ Codex must provide:
 - canonical/protected data unchanged confirmation
 - unresolved items
 
-Do not merge. Return to DEV/AUDIT.
+Do not self-merge. Return to DEV/AUDIT.
 
-After accepted integration the route is:
-`#63 -> #34 bilingual search relevance/noise -> remaining #42 product-purpose narrowing -> #5 -> Stage10 prep`.
+## Post-#63 route
+
+After accepted integration:
+
+`#63 -> #34 bilingual search relevance/noise -> #42 v1 scope lock -> #64 General 30,629 practical taxonomy -> v1 UI integration / Windows acceptance`
+
+Issue #5 / Stage10 is a future generation-effectiveness lane only if an adopted feature later requires empirical image evidence.
