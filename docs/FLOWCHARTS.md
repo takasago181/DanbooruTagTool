@@ -72,21 +72,24 @@ General taxonomyはIssue #64。
 
 ## Current development route
 
-Exact execution orderの正本は `docs/project/CURRENT_STATE.md`。この図はその可視化であり、食い違う場合は `CURRENT_STATE.md` を優先する。
+Exact execution orderの正本は `docs/project/CURRENT_STATE.md`。
+Issue #42は retired / closed。最終scope reconciliationはIssue #66のacceptanceへ統合済み。
 
 ```mermaid
 flowchart TD
- A[#63 product-fit sidecar acceptance] --> B[#64 General 30,629 practical taxonomy]
- B --> C[#34 bilingual search relevance]
- C --> D[#42 v1 scope lock / current code delta]
- D --> E[v1 UI integration]
- E --> F[focused regression + real Windows UI acceptance]
- F --> G[v1 baseline]
+ A[#64 General 30,629 taxonomy] --> C[#34 bilingual search relevance]
+ B[#66 app/UI foundation] --> C
+ A --> B2[#66 consumes accepted General taxonomy]
+ C --> D[#66 final integration + scope check]
+ B2 --> D
+ D --> E[focused regression + real Windows UI acceptance]
+ E --> F[v1 baseline]
 ```
 
-Stage10 learning is parallel to this route and is not a v1 Gate.
+#64と#66 foundationは並行可能。
+#66は#64の分類データを先回りで発明せず、accepted sidecarを後からconsumeする。
 
-## Current Stage10 learning flow
+## Current Stage10 learning flow — currently paused by priority
 
 Current authority:
 - Issue #65
@@ -94,6 +97,10 @@ Current authority:
 
 Primary model:
 - NoobAI XL 1.1 EPS + Forge Neo
+
+Current user priority:
+- practical v1 app baseline first
+- then resume Stage10 unless explicitly changed
 
 ```mermaid
 flowchart TD
@@ -108,36 +115,7 @@ flowchart TD
  I --> J[10.9 自力Capstone]
 ```
 
-Stage10の実生成ループ:
-
-```mermaid
-flowchart TD
- A[日本語の意図] --> B[NoobAI中心にmodel/profile選択]
- B --> C[Prompt設計]
- C --> D[探索生成]
- D --> E[観察]
- E --> F{何が失敗?}
- F --> G[concept / presence]
- F --> H[actor-target / body-site / count / relation]
- F --> I[camera / crop / visibility]
- F --> J[Negative / weight / LoRA conflict]
- G --> K[最小の意味ある修正]
- H --> K
- I --> K
- J --> K
- K --> L{Prompt-onlyで十分?}
- L -- Yes --> M[仕上げ]
- L -- No --> N[LoRA / Hires / ADetailer / inpaint / regional / Control]
- N --> M
- M --> O[metadata/infotext保存]
- O --> P[何が効いたか説明]
-```
-
-Hard/nicheの成功判定はpresenceだけでなく、必要に応じてactor / target / ownership / body-site / relation / count / visibility / source-destination / topologyまで見る。
-
-Animaはrelation-heavy / multi-character / tag+natural-languageの比較・fallback lane。
-WAI Illustrious v17はhistorical/comparison lane。
-NoobAI V-PredはEPSと別profileとして扱う。
+Stage10は製品Gateではない。
 
 ## Optional/future product subsystem flow
 
@@ -152,14 +130,13 @@ flowchart TD
 ```
 
 v1では候補を勝手にPromptへ自動挿入しない。
-Stage10で手動学習することと、v1製品へ自動化を追加することは別判断。
 
-## KNOWLEDGE / Stage10 evidence flow
+## KNOWLEDGE evidence flow
 
 ```mermaid
 flowchart TD
- A[Stage10 practical case] --> B{単発case?}
- B -- Yes --> C[local lessonとして保持]
+ A[研究/Stage10 practical case] --> B{単発case?}
+ B -- Yes --> C[local lesson / HOLD]
  B -- No --> D[controlled repeat / scope確認]
  D --> E{durable evidence?}
  E -- No --> C
@@ -167,7 +144,7 @@ flowchart TD
  F --> G[scope付きで整理]
  G --> H{product adoptionが必要?}
  H -- No --> I[knowledge assetとして保持]
- H -- Yes --> J[DEV/productへhandoff]
+ H -- Yes --> J[DEVへhandoff]
 ```
 
 KNOWLEDGEは知識・検証を所有するが、production採用を独断で決めない。
@@ -175,8 +152,6 @@ KNOWLEDGEは知識・検証を所有するが、production採用を独断で決�
 ## Historical architecture note
 
 Stage0〜Stage9で作ったfull index、true AND、Candidate Aggregation、recommendation、Generation Profile、Prompt Composer、evaluator infrastructureは削除対象ではない。
-旧PROMPT #5のStage10/Prompt handoff資料、旧Stage10 production A/B準備、Issue #30 evaluator/calibrationもhistorical evidence/testing assetsとして保持する。
+旧PROMPT #5、旧Stage10 production A/B、Issue #30 evaluator/calibration、旧#42 commentsはhistorical evidence/provenanceとして保持する。
 
-2026-09-13以降、これらは**新Stage10のcompletion Gateではなく、教材・比較・診断道具**として扱う。
-
-旧 `Special -> true AND -> recommendation -> Prompt -> production A/B Stage10` を現在の必須ユーザーフロー/Stage10定義として扱わない。
+旧 `Special -> true AND -> recommendation -> Prompt -> production A/B Stage10` を現在の必須ユーザーフローとして扱わない。
