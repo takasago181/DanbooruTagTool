@@ -87,10 +87,22 @@ Codex自身がIssue本文を推測して書き換えない。
 44. v1の安定した主導線は **既存Promptを理解 -> 日本語/英語検索またはジャンル閲覧で発見 -> Special/Generalを自分で選択 -> Promptへ追加/削除/並べ替え -> canonical-English Promptコピー** とする。
 45. Specialは#56の深いbrowse taxonomy、Generalはproduction Japanese overlay 30,629件を対象とした#64の浅い実用taxonomyを使う。General taxonomyを日本語overlay/canonical identityへ埋め込まず別sidecarにする。
 46. v1ではhidden automatic support insertion / automatic minimum-sufficient Prompt / automatic model rewrite / automatic failure diagnosisをデフォルト挙動にしない。ユーザーが見えていない自動挿入と実際のPrompt出力を食い違わせない。
-47. Stage10 / evaluator / Generation Profile / full statistics index / former Issue #5 evidenceは将来資産として保持する。Prompt/generation-effectiveness知識と必要な狭い検証はKNOWLEDGE #44が所有し、具体的な採用featureが必要としない限りv1 completion blockerにしない。
+47. **現在のStage10はIssue #65 / `docs/stages/STAGE_10_LEARNING.md`で定義される実践画像生成学習ステージ**とする。Stage10はv1 product completion blockerではなく、v1 routeと並行して進める。旧Stage10 production A/B/evaluator資産はhistorical/testing evidenceとして保持するが、現在のStage10 completion定義には使わない。
 48. 旧文書の `PROMPT:#5` / `PROMPT班` 参照はhistorical provenanceとして扱う。新規作業を独立PROMPT班へroutingせず、必要ならKNOWLEDGE #44へ統合して扱う。
+
+## Stage10 learning invariant
+
+49. Stage10 primary learning laneは **NoobAI XL 1.1 EPS + Forge Neo**。Animaはrelation-heavy / multi-character / tag+natural-language比較・fallback、WAI Illustrious v17はhistorical/comparison、NoobAI V-PredはEPSと分離したadvanced profileとして扱う。
+50. Stage10は設定値の暗記ではなく、`意図 -> Prompt -> 生成 -> 観察 -> 原因分解 -> 修正 -> 必要な補助 -> 仕上げ -> 再現可能な保存` を自力で回せることを目的とする。
+51. hard/niche生成の評価ではpresenceだけで成功扱いせず、必要に応じてactor/target/ownership/body-site/relation/count/visibility/source-destination/topologyを分離して確認する。
+52. 診断では一度に多数の変数を変えず、原則として観測したfailure classに対応する最小の意味ある変更を試す。random seed探索とfixed-seed診断を混同しない。
+53. LoRA/Hires/ADetailer/img2img/inpaint/regional/Controlは目的を持ったinterventionとして扱う。修復後の成功をbase Prompt capabilityと同一視しない。
+54. Stage10の単発成功画像はlocal caseでありglobal/model-family truthではない。反復controlled evidenceのみ、scope付きでKNOWLEDGE #44のClaim更新候補にできる。
+55. Stage10の学習checkpointは必要以上に事務化しないが、意味のある区切りでは model/profile/runtime / target / actual Prompt・Negative / settings / Seed / tools・LoRA state / result・failure class / lesson を復元可能にする。
 
 ## Product authority
 
 現在の製品目的は `docs/PRODUCT_GOAL_LOCK.md` を正本とする。
 Historical Stage仕様、旧Codex実装仕様、旧Issueコメント、既存コードの高度機能は、単に古い/実装済みという理由でcurrent product goalより優先しない。
+
+Stage10 learningの正本は `docs/stages/STAGE_10_LEARNING.md` とIssue #65。Stage10学習成果が存在すること自体はv1 production/UI採用理由にならない。
