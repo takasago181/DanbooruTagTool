@@ -1,6 +1,6 @@
 # 10 — Complete File Map
 
-Status: `ALL_CURRENT_KNOWLEDGE_FILES_CLASSIFIED_V3 / FOCUSED_ENRICHMENT_ADDED`
+Status: `ALL_CURRENT_KNOWLEDGE_FILES_CLASSIFIED_V4 / BATCH_E_ADDED`
 
 This maps the current `docs/knowledge/` assets into the canonical topic catalog and current management layer.
 
@@ -63,6 +63,7 @@ These files are cross-topic controls, not a second genre taxonomy.
 | `BATCH_C_EVIDENCE_RELIABILITY_20260909.md` | 03 | 09 |
 | `BATCH_C_SOURCES_20260909.md` | 08 | 03 |
 | `BATCH_D_RUNTIME_PROMPT_REPRO_COMPOSITION_20260910.md` | 02 / 03 | 04 / 08 |
+| `BATCH_E_EXISTING_PROMPT_SURFACE_CLASSIFICATION_20260913.md` | 02 / 06 | 04 / 08 |
 | `DANBOORU_WIKI_SEMANTIC_AUDIT_20260909.md` | 06 | 08 |
 | `E621_WIKI_SEMANTIC_TRIGGER_AUDIT_20260909.md` | 06 | 01 / 08 |
 | `HF_MODEL_DISCUSSIONS_AUDIT_20260909.md` | 01 / 08 | 03 |
