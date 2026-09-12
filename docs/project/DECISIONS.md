@@ -1,23 +1,25 @@
 # DECISIONS
 
-重要な設計判断だけを残す。
-日々の進捗は `CURRENT_STATE.md` / 各Issueへ書く。
+重要な設計判断のみを残す。
+日々の進捗・checkpointは `CURRENT_STATE.md` / 各Issueへ置く。
+旧詳細はGit historyと各Issueに保存されている。
 
 ---
 
-## D-001 常設4班制
+## D-001 常設3班 + AUDIT on-demand
 
 Status: ADOPTED
 
 常設:
-- 本体開発班
-- 監査班
-- 知識班
-- テストPrompt班
+- DEV
+- KNOWLEDGE
+- PROMPT
 
-理由:
-- 仕様決定・第三者監査・外部調査・実験Prompt作成を分離できる。
-- これ以上の常設分割は個人開発では管理コストが増えやすい。
+AUDITは常設班ではなく、必要な品質Gateごとに起動する独立監査ロール。
+Codexは班ではなくDEVの実装担当。
+TEMPは期間限定。
+
+旧「常設4班」はSUPERSEDED。
 
 ---
 
@@ -25,147 +27,207 @@ Status: ADOPTED
 
 Status: ADOPTED
 
-Codexは開発班の実装担当。
-独立した仕様決定権を持たせない。
+CodexはDEVの実装担当。
+仕様決定・Gate PASSを代行しない。
 
 ---
 
-## D-003 Forge Neo環境準備は臨時担当
+## D-003 GitHub live authority / fail-closed
 
 Status: ADOPTED
 
-Stage10比較環境の導入・動作確認まで。
-完了後は常設しない。
+現在地は:
+
+`live main CURRENT_STATE -> live current Issue -> latest checkpoint -> PERMANENT_RULES -> task branch/local`
+
+で復元する。
+古いchat/handoff/branch-local管理文書で巻き戻さない。
+不一致時はfail-closed。
 
 ---
 
-## D-004 Stage10実験実行・記録班は保留
-
-Status: HOLD
-
-Stage10で数試験を実行後、
-Prompt作成より metadata保存・A/B評価・集計が重いと判明した場合のみ独立させる。
-
----
-
-## D-005 Stage10実験知識をStage9へ先行固定しない
+## D-004 GitHub-first proactive handoff
 
 Status: ADOPTED
 
-NoobAI / WAI / Illustrious / Anima のPrompt grammarはモデル差を保つ。
-Stage10用framing、caption順、hybrid形式などを全モデル共通ルールへ昇格させない。
+長いchatを記憶装置にしない。
+大区切り・大方針変更・handoff前にGitHub正本を更新する。
+意味のある途中成果はIssue checkpointへ残す。
 
 ---
 
-## D-006 CURRENT_DEV_TASKはCodex読取用同期ミラー
-
-Status: SUPERSEDED_BY_D-011
-
-これは、GitHub Issue APIへ直接アクセスできなかった移行前の運用決定を保存する履歴である。現在の運用では `CURRENT_DEV_TASK.md` を現行DEV task contractの同期ミラーとして扱わない。
-
----
-
-## D-011 Codex DEV IssueはGitHubから直接取得する
+## D-005 Shared management docsはlatest-mainへ差分統合
 
 Status: ADOPTED
 
-`CURRENT_STATE.md` はcurrent DEV Issue番号を示すrouting正本とし、Codexはその番号のlive GitHub Issueを `gh issue view <ISSUE_NUMBER> --comments` で直接取得する。Issue title / state / body / 最新コメント / 最新checkpoint / continuation contract / completion condition / blocker・gateを確認し、`PERMANENT_RULES.md` と照合してから作業を開始する。
-
-Fail-closed条件は、`gh` 不在、認証失敗、Issue取得失敗、番号不一致、想定外のclosed / superseded、Issue本文と最新checkpointの関係不明、または恒久ルールとの明確な矛盾である。driftや管理文書との不一致を確認した場合も、古い資料を根拠に続行しない。
+`CURRENT_STATE.md` / `PERMANENT_RULES.md` / `DECISIONS.md` 等をstaleな会話内コピーで全上書きしない。
+変更直前にlatest mainを取得し、競合時は停止する。
 
 ---
 
-## D-007 GitHub-first proactive handoff + intermediate checkpoint
+## D-006 Local protected dataをGitHub管理状態と分離
 
 Status: ADOPTED
 
-長いチャットを記憶装置として使わない。
-本プロジェクトの作業チャットは、会話長大化・Stage/Pilot/監査区切り・大方針変更・正式handoff時に、ユーザー指示を待たずGitHubを先に更新して新チャット移行を提案する。
+GitHubはlocal workspace全体のbackupではない。
+ignored runtime/source/derived/large dataを保護する。
 
-さらに、移行まで待つと失うと困る意味のある途中成果は担当Issueへcheckpointコメントとして残す。
+禁止:
+- `git clean -fdx`
+- `git clean -fdX`
+- protected ignored dataの広範囲cleanup
+
+---
+
+## D-007 Codex本体実装はfeature branch / GitHub review優先
+
+Status: ADOPTED
+
+- direct main implementation commitをしない
+- stable checkpointをcommit/push
+- GitHubからreview可能ならZIP不要
+- local-only/binary/push failure時のみfallback
+
+---
+
+## D-008 Special Core Dictionary identity / browse taxonomy
+
+Status: ADOPTED / COMPLETED
+
+- final population: 2,788
+- canonical identity/freeze chain completed
+- #56で2,788/2,788 Japanese-first UI browse mapping completed
+- UI taxonomyはsemantic ground truthではなくbrowse index
+- multi-path可
+- old oversized catch-allは解消済み
+
+---
+
+## D-009 Japanese overlay 30,629
+
+Status: ADOPTED / COMPLETED DATA BASE
+
+production Japanese overlayは30,629 canonical entries。
+用途は日本語表示/検索補助。
+Japanese wordingをcanonical semantic authorityにしない。
+
+---
+
+## D-010 Product-fit eligibilityはsidecar
+
+Status: ADOPTED
+
+Special product-purpose full audit 2,788/2,788:
+- KEEP 1618
+- KEEP_REFERENCE_ONLY 1133
+- OUT_OF_SCOPE_PRODUCT 12
+- REVIEW 25
+
+canonical rowsを書き換えずID-keyed sidecarとして実装する。
+Current implementation owner: Issue #63 until accepted/merged.
+
+---
+
+## D-011 Beginner-first v1 product reset — 2026-09-12
+
+Status: ADOPTED
+
+製品の原点を再確認し、v1目的を以下へ固定した。
+
+`理解 -> 発見 -> 選択 -> 出力`
+
+対象問題:
+- 画像生成初心者
+- 英語/Danbooruタグ知識が弱い
+- 既存Promptの意味が分かりにくい
+- ニッチタグは名前自体を知らず検索できない
+
+v1では:
+- existing Promptを日本語-firstで理解
+- Japanese/English検索
+- Specialを深いジャンルから発見
+- General 30,629を浅い実用ジャンルから発見
+- userが明示的に選択
+- canonical-English Promptをcopy
+
+する。
+
+自動最適Prompt生成をv1の目的にしない。
+
+Canonical product file: `docs/PRODUCT_GOAL_LOCK.md`。
+Scope Gate: Issue #42。
+
+---
+
+## D-012 General 30,629 practical taxonomy — separate sidecar
+
+Status: ADOPTED / RESERVED IMPLEMENTATION
+
+Issue #64。
+
+- target = exact production Japanese-overlay 30,629 population
+- canonical-tag keyed separate sidecar
+- Japanese overlay自体は変更しない
+- Specialより浅いPrompt用途中心分類
+- full 100k+ Danbooru ontologyは作らない
+- pilot -> audit -> full rollout
 
 理由:
-- 突然のチャット終了や会話上限でも再開地点を失いにくくする。
-- 長大な手書きhandoffをユーザーへ作らせない。
+検索語を知らない初心者にはsearchだけでは発見できないため。
 
 ---
 
-## D-008 Stage9C / Stage9DをStage10前に暗黙スキップしない
+## D-013 Stage10 / generation-effectiveness is not a v1 blocker
 
 Status: ADOPTED
 
-`docs/stage9/STAGE9_PROMPT_COMPOSER_SPEC_v1.md` はStage9A〜9Dを定義し、9A〜9Dのgate通過後にStage9完了としている。
-したがってStage9B監査PASSだけを理由にStage10本番A/Bへ進まない。
+Issue #5 / Stage10 / evaluator / Generation Profileは将来資産として保持するが、v1 completion必須ではない。
 
-将来DEV Issue #17でStage9C/9Dを処理し、完了後は独立AUDIT Issue #22で監査する。
-#17のDEV自己完了だけではStage9全体PASSにせず、#22 PASS後にStage9全体Gateを完了扱いにする。
+再activateするのは、採用featureが例えば以下を必要とする時だけ:
+- model-specific effectiveness
+- evidence-backed automatic support
+- image-dependent failure diagnosis
+- A/B experiment support
 
-もし9C/9Dを不要・延期へ変更するなら、DEVが根拠付きでStage9仕様そのものを正式改訂し、CURRENT_STATE / Stage10 Prepも同期し、その変更を#22監査対象に含める。
+必要な狭い実験だけ行う。
+Broad Stage10 sweepを「インフラがあるから」という理由で開始しない。
 
 ---
 
-## D-009 GitHub管理正本とlocal protected dataを分離
+## D-014 Default v1 automatic assistanceを抑制
 
 Status: ADOPTED
 
-GitHubを現在地・Issue・commit済みコード/文書の正本として使うが、ローカルworkspace全体のbackupとは扱わない。
-`.gitignore` 対象のraw/derived/runtime/Special大容量データはlocal protected dataであり、GitHubに存在しないことを削除と解釈しない。
+Default v1では以下を採用しない:
+- automatic support insertion
+- automatic minimum-sufficient Prompt construction
+- automatic conflict removal / Negative generation
+- automatic model-family rewrite
+- Prompt-only automatic failure diagnosis
+- user-facing evaluator success probability
+- model verification-status UI
+- A/B manager / local result DB
 
-`git clean -fdx` / `git clean -fdX` 等、ignored protected dataを消し得る操作は禁止する。
+既存コード/データは必要なら保持するが、実装済みであることをUI採用理由にしない。
 
 ---
 
-## D-010 Codex実装はfeature branch、ChatGPT reviewはGitHub優先
+## D-015 Full statistics index is optional for v1
 
 Status: ADOPTED
 
-Codexの本体実装は原則task用feature branchで行い、直接mainへ実装commitしない。
-review対象がGitHub branch/commit/PRから取得できる場合は、それを標準handoffとする。
+Stage5 full index / true AND / Candidate Aggregation / reliability rankingは既存資産として保持する。
 
-ZIP handoffはlocal-only/ignored data、binary evidence、push不能などGitHubだけでreviewできない場合のfallbackとする。
+ただしcore v1:
 
-理由:
-- mainを未監査実装から守る。
-- ユーザーのmanual upload作業を減らす。
-- DEV/AUDITが同一commitを確認できるようにする。
+`understand -> discover -> choose -> copy`
+
+の通常利用にfull 11M-post / ~3GB statistics indexを必須化しない。
+将来の関連候補/統計機能で必要ならoptional subsystemとして使う。
 
 ---
 
-## D-011 Shared management docsはlatest-main merge必須
+## Historical note
 
-Status: ADOPTED
-
-複数チャットが並行して動くため、`CURRENT_STATE.md` 等の共有管理文書を古い会話内コピーから丸ごと上書きしない。
-変更直前に最新mainを取得し、最新内容へ差分を統合する。競合時は停止して明示的に解消する。
-
-理由:
-- 他班/管理チャットの最新更新をstale writeで消す事故を防ぐ。
-
----
-
-## D-012 Final Special countは2,788へ固定せずpre-freeze completeness reconciliationで確定
-
-Status: ADOPTED
-
-現在の2,788件はIssue #32の**running audit用固定母数**として維持し、途中で並び替え・差し替え・母数変更をしない。
-一方で、2,788という現在件数だけを根拠に「最終Special集合も必ず2,788件」とは決めない。
-
-Issue #32のcurrent 2,788 full validation完了後、final production promotion audit / final Special dictionary freezeの前に、1回だけ明示的な**pre-freeze completeness reconciliation（漏れ監査）**を行う。
-
-少なくとも以下を突き合わせる:
-- current frozen Special Core Dictionary source/profile (physical `Special2788` identifiers retained)
-- 過去Stageで作成・記録された追加Special候補
-- canonical / Alias / Semantic辞書および関連local search/support資産
-- missing/additional word作業を記録したdurable checkpoint / decision
-
-判定ルール:
-- auxiliary/search-only/general tagをSpecialへ自動昇格しない。
-- 独立根拠で「本来Special集合へ含めるべきidentity」と確認できたものだけをmissing-Special候補にする。
-- genuine missing Specialが見つかっても、完了済み2,788監査は破棄・再実行しない。
-- missing分だけをdeltaとして追加し、Issue #32と同等の該当risk/evidence/revalidation基準で監査する。
-- missingが0ならreconciliation PASSを明示し、最終件数2,788を確定する。
-- missingが存在すればdelta監査完了後の総数を最終件数とする。
-
-理由:
-- 長期開発中に追加・補完した語彙資産がSpecial本体か補助資産かを最終freeze前に取りこぼさず再照合するため。
-- 現在までの2,788件監査成果を無駄にせず、必要な追加分だけ厳密に検証するため。
+旧Stage0–9実装判断、Stage10準備、evaluator校正、Prompt Composer研究等の詳細はGit historyと対応Issue/Stage文書に保持する。
+Historical decisionは現在の `PRODUCT_GOAL_LOCK.md` / #42 scopeより優先しない。
