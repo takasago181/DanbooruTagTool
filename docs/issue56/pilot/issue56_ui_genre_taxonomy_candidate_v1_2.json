@@ -1,6 +1,6 @@
 {
-  "version": "issue56-ui-taxonomy-candidate-v1.2",
-  "status": "PILOT_REVIEWED_CANDIDATE",
+  "version": "issue56-ui-taxonomy-candidate-v1.2.1",
+  "status": "ISSUE59_REQUIRED_FIXES_APPLIED_REAUDIT_REQUIRED",
   "display_contract": {
     "normal_ui_genre_language": "ja",
     "special_row": "ja_plus_en",
@@ -16,8 +16,6 @@
         {"id": "MALE_GENITAL", "label_ja": "男性器"},
         {"id": "BUTTOCK_ANUS", "label_ja": "臀部・肛門"},
         {"id": "INTERNAL_ANATOMY", "label_ja": "体内・断面"},
-        {"id": "BODY_FORM_STATE", "label_ja": "身体特徴・状態"},
-        {"id": "ABSENCE_VARIANT", "label_ja": "欠損・非表示"},
         {"id": "BODY_ADORNMENT_MARK", "label_ja": "装飾・印"},
         {"id": "PUBIC_HAIR", "label_ja": "陰毛"}
       ]
@@ -32,8 +30,7 @@
         {"id": "COVERED_CONCEALED", "label_ja": "隠し・覆い"},
         {"id": "THROUGH_CLOTHING_VISIBILITY", "label_ja": "透け・衣服越し"},
         {"id": "CUTOUT_OPENING", "label_ja": "開口・カットアウト"},
-        {"id": "UNDERWEAR_LINGERIE", "label_ja": "下着・ランジェリー"},
-        {"id": "REVEALING_OUTFIT", "label_ja": "露出衣装"}
+        {"id": "UNDERWEAR_LINGERIE", "label_ja": "下着・ランジェリー"}
       ]
     },
     {"id": "POSE_POSITION_COMPOSITION", "label_ja": "ポーズ・体位・構図", "subgenres": []},
@@ -60,10 +57,7 @@
         {"id": "GENERAL_INSERTION", "label_ja": "挿入全般"},
         {"id": "ANAL_SITE", "label_ja": "肛門・直腸"},
         {"id": "FEMALE_GENITAL_SITE", "label_ja": "女性器"},
-        {"id": "ORAL_SITE", "label_ja": "口・口内"},
         {"id": "URETHRAL_SITE", "label_ja": "尿道"},
-        {"id": "NIPPLE_SITE", "label_ja": "乳首"},
-        {"id": "OTHER_BODY_SITE", "label_ja": "その他部位"},
         {"id": "EXTERNAL_CONTACT", "label_ja": "外部接触"},
         {"id": "MULTIPLE_DEEP_INSERTION", "label_ja": "深部・多重挿入"}
       ]
@@ -80,8 +74,7 @@
         {"id": "CHASTITY_CONTROL", "label_ja": "貞操管理"},
         {"id": "PAIN_TORTURE", "label_ja": "苦痛・拷問"},
         {"id": "DOMINATION_SUBMISSION", "label_ja": "支配・服従"},
-        {"id": "FORCE_NONCONSENT", "label_ja": "強制・非合意"},
-        {"id": "MENTAL_CONTROL_IMPAIRMENT", "label_ja": "精神支配・意識低下"}
+        {"id": "FORCE_NONCONSENT", "label_ja": "強制・非合意"}
       ]
     },
     {"id": "FLUID_EXCRETION_SOILING", "label_ja": "体液・排泄・汚損", "subgenres": []},
