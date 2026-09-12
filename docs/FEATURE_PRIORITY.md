@@ -5,6 +5,8 @@
 Current v1 priority follows `docs/PRODUCT_GOAL_LOCK.md` and Issue #42.
 Historical Stage5/6/9 capabilities are preserved assets, not automatic v1 requirements.
 
+**Stage10 is a separate parallel learning priority**, defined by Issue #65 / `docs/stages/STAGE_10_LEARNING.md`. It does not change the v1 feature list below.
+
 ## MUST — v1の存在理由
 
 1. 既存Promptを貼り付け/読み込みできる
@@ -32,7 +34,7 @@ Historical Stage5/6/9 capabilities are preserved assets, not automatic v1 requir
 
 SHOULDはv1 completion blockerではない。
 
-## HOLD / AFTER v1
+## HOLD / AFTER v1 product features
 
 - model verification/status UI
 - 専用類似タグ比較UI
@@ -40,9 +42,11 @@ SHOULDはv1 completion blockerではない。
 - niche-tag effect判定
 - local generation success/failure DB
 - troubleshooting wizard
-- model-family-specific Prompt guidance
+- model-family-specific Prompt guidance in the product UI
 - Forge / ComfyUI direct-send adapter
 - advanced Prompt history/preset management
+
+These remain product-feature HOLDs even if the user learns the same concepts manually during Stage10.
 
 ## REJECT FROM DEFAULT v1 CORE
 
@@ -62,6 +66,28 @@ SHOULDはv1 completion blockerではない。
 - direct image generationのv1必須化
 - runtime LLM
 
+## Stage10 learning priority — parallel, not product feature scope
+
+Current learning owner:
+- Issue #65
+- `docs/stages/STAGE_10_LEARNING.md`
+
+Primary model:
+- NoobAI XL 1.1 EPS + Forge Neo
+
+Learning order:
+1. environment / metadata / reproducibility
+2. Prompt fundamentals
+3. composition / camera / visibility
+4. hard/niche relation/body-site/count structure
+5. failure diagnosis / controlled iteration
+6. seed / Negative / weights / LoRA
+7. Hires / ADetailer / img2img / inpaint
+8. regional / Control escalation
+9. independent capstone generation
+
+Stage10 completion is a **skill outcome**, not a product implementation checklist.
+
 ## Data classification depth
 
 ### Special
@@ -76,3 +102,7 @@ Prompt用途中心の実用ジャンルで「こういうタグがある」と�
 ## v1 completion shorthand
 
 `Promptを理解 -> 日本語/英語またはジャンルからタグを発見 -> 自分で選ぶ -> canonical-English Promptをコピー`
+
+## Stage10 completion shorthand
+
+`意図 -> Prompt -> 生成 -> 原因分解 -> 修正 -> 必要な補助 -> 仕上げ -> 再現可能な保存`
