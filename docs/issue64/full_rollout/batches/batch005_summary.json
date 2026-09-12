@@ -1,0 +1,24 @@
+{
+  "format_version": 1,
+  "batch": 5,
+  "range": [3301, 4300],
+  "count": 1000,
+  "result": {"PROPOSED": 967, "UNRESOLVED": 33},
+  "confidence": {"HIGH": 938, "MEDIUM": 29, "LOW": 33},
+  "primary_genre_counts": {"ACTION_CONTACT":146,"BODY_PART":65,"CLOTHING":273,"CLOTHING_STATE_EXPOSURE":30,"COLOR_APPEARANCE":24,"COMPOSITION_CAMERA":5,"EXPRESSION_EMOTION":7,"HAIR_FACE":32,"LIGHT_TIME_WEATHER":10,"LIVING_NATURE":36,"OBJECT_PROP":212,"PERSON_COUNT":20,"PLACE_BACKGROUND":44,"POSE_MOVEMENT":24,"STYLE_QUALITY_META":20,"TEXT_SYMBOL":19},
+  "unresolved": [
+    [3305,"bond_level_(fate/grand_order)"],[3364,"boqta"],[3371,"borrowed_character"],[3373,"borrowed_design"],[3375,"borrowed_inset"],[3379,"boss_coffee"],[3425,"boundless_creation_(eve_online)"],[3428,"bourbon_(kirby)"],[3445,"bow_flower"],[3480,"box_lottery_(fate/grand_order)"],[3517,"bracelet_girls"],[3604,"breast_slider"],[3620,"breasts_day"],[3650,"bridal_chest_(fate)"],[3660,"bridgestone"],[3667,"bright_me_up!!_(ensemble_stars!)"],[3676,"broken"],[3923,"buchi_holes"],[3935,"buddhism"],[3939,"budweiser"],[3972,"bullet_hole"],[3993,"bunny_day"],[4003,"burger_malfunction"],[4012,"burning_as_one_(umamusume)"],[4124,"bygone_days_(e.g.o)"],[4128,"c.c._day"],[4168,"calavera"],[4171,"caldari_state_(eve_online)"],[4191,"calvin_klein"],[4205,"cameo"],[4248,"can't_be_this_cute"],[4249,"can't_choose_your_own_family"],[4267,"candle_no_kaori_wa_omoide_to_tomo_ni_(project_sekai)"]
+  ],
+  "audit_notes": [
+    "accepted Issue #64 Pilot v2の17分類・最大2段・no visible catch-allを維持。",
+    "対象identityを部分一致より優先し、曖昧な固有名はUNRESOLVEDに保持。",
+    "bra/branch/burning/brown/breast系の部分一致・境界誤分類を重点補正。",
+    "身体の揺れはPOSE_MOVEMENT、拘束/接触はACTION_CONTACT、露出状態はCLOTHING_STATE_EXPOSUREへ分離。",
+    "印刷物はOBJECT_PROP主+TEXT_SYMBOL副、特殊器具はDAILYへ無理に押し込まない。"
+  ],
+  "hashes": {
+    "working_source_sha256": "58f9ff128a7ca21a17de4345c36c7891b8169a66fbe3d1de5c190cf48f17d51c",
+    "raw_ledger_sha256": "b38e85e07f2d907dbf99a2b01a310e6c61f17025652721f77ee2a748fe231a70",
+    "xz_ledger_sha256": "477ed45e1a37767400d42b42ea4baa418172b26770b16520b6c58bb5b715ccd9"
+  }
+}
