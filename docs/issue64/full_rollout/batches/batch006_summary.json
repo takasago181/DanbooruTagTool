@@ -1,0 +1,60 @@
+{
+  "batch_id": "issue64-batch006",
+  "source_global_rows": [4301, 5300],
+  "source_row_count": 1000,
+  "input_total_rows": 30629,
+  "result": {"PROPOSED": 963, "UNRESOLVED": 37},
+  "confidence": {"HIGH": 943, "MEDIUM": 20, "LOW": 37},
+  "primary_genre_counts": {
+    "ACTION_CONTACT": 108,
+    "BODY_PART": 62,
+    "CLOTHING": 220,
+    "CLOTHING_STATE_EXPOSURE": 12,
+    "COLOR_APPEARANCE": 22,
+    "COMPOSITION_CAMERA": 2,
+    "EXPRESSION_EMOTION": 2,
+    "HAIR_FACE": 10,
+    "LIGHT_TIME_WEATHER": 11,
+    "LIVING_NATURE": 48,
+    "OBJECT_PROP": 267,
+    "PERSON_COUNT": 39,
+    "PLACE_BACKGROUND": 43,
+    "POSE_MOVEMENT": 20,
+    "STYLE_QUALITY_META": 64,
+    "TEXT_SYMBOL": 33
+  },
+  "unresolved_canonical": [
+    "canon_(company)", "canon_event", "capote_(e.g.o)", "capsule_corp", "carcinization",
+    "carthum_conglomerate_(eve_online)", "castrol", "cathead", "caved_(touhou)", "celtic",
+    "ceremony", "cero", "chajinbou", "chaldea_boys_collection", "chaldea_summer_adventure!",
+    "chaldea_summer_memory", "chanel", "changing_seasons_(touhou)", "chaos_(warhammer)",
+    "chase_my_ideal_idol!_(project_sekai)", "chemistry", "chest_stand", "chesto_(phrase)",
+    "chinpo_ni_wa_katenakatta_yo", "chippendales", "chocolate_lady_no_karasawagi",
+    "chocolate_river_no_sono_saki_ni", "chocopuni", "christian_louboutin_(brand)",
+    "christianity", "christmas_nightmare_(e.g.o)", "chuunibyou", "circle_k_sunkus",
+    "civilight_eterna_(arknights)", "class_change", "clean", "cleaning_&_clearing_(blue_archive)"
+  ],
+  "external_evidence_canonical": [
+    "caramelldansen_(meme)", "catherine_cover_parody", "cbj-ms", "celestella_unison_(idolmaster)",
+    "cerise_bouquet", "charro", "check_my_note_(idolmaster)", "chilla_(arms)", "choco_fashion",
+    "chocoboo", "cinderella_dream_(idolmaster)", "cinderella_girls_card_parody", "clear_marine_calm_(idolmaster)"
+  ],
+  "audit_notes": [
+    "naive substring matching is prohibited; token/semantic identity was rechecked around car/card, bra, ring, cat, chain, chest, chin, cleaning/clear clusters.",
+    "object identity takes precedence over modifiers and relation/action tags keep their action/contact meaning.",
+    "ambiguous companies, events, brands, project-specific names and broad concepts remain explicit UNRESOLVED instead of being forced into a catch-all.",
+    "targeted external evidence was used only for materially ambiguous rows; runtime remains non-LLM and offline."
+  ],
+  "policy": {
+    "taxonomy_version": "issue64-pilot-v2 / PILOT_ACCEPTED",
+    "max_path_depth": 2,
+    "visible_catch_all": false,
+    "runtime_llm": false,
+    "past_batch_mutation": false
+  },
+  "sha256": {
+    "input_issue64_general_30629_csv": "58f9ff128a7ca21a17de4345c36c7891b8169a66fbe3d1de5c190cf48f17d51c",
+    "raw_ledger_csv": "aa4c8d4a0a28eb63e354cfa70d9c5dd59d73a75affe83eb8a1854e724de6a53f",
+    "xz_ledger": "55152741fbae51f92d4719d4e5ae7bf7b98756a221acfab903c2fc292460f340"
+  }
+}
