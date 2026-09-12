@@ -3,10 +3,10 @@ import json
 
 ROOT = Path(__file__).resolve().parents[1]
 
-def test_goal_lock_exists_and_mentions_core_set():
+def test_goal_lock_exists_and_mentions_current_special_dictionary():
     p = ROOT / "docs/PRODUCT_GOAL_LOCK.md"
     text = p.read_text(encoding="utf-8")
-    assert "Core Tag Set" in text
+    assert "Special Core Dictionary" in text
     assert "Special2788" in text
 
 def test_core_set_example_minimum_fields():
