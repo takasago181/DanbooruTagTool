@@ -2,75 +2,112 @@
 
 Owner: Issue #44 `KNOWLEDGE:#44`
 
-Date: 2026-09-09
+Updated: 2026-09-12
 
-Status: `HANDOFF_READY_V4 / CLAIM_LEVEL_CURRENT`
+Status: `HANDOFF_READY_V5 / PROMPT_MERGED / V1_GOAL_SYNCED`
 
 ## Purpose
 
 Compact restart point for the persistent DanbooruTagTool KNOWLEDGE lane. A future chat must recover current knowledge from GitHub without conversational memory.
 
+The former PROMPT team/lane was retired on 2026-09-12 and merged into KNOWLEDGE. This lane now owns both the knowledge corpus and future Prompt/generation-effectiveness knowledge work.
+
 ## Restore order
 
 1. `docs/project/CURRENT_STATE.md`
 2. `docs/project/PERMANENT_RULES.md`
-3. Issue #44 latest comments
-4. `docs/knowledge/KNOWLEDGE_HANDOFF_CURRENT_20260909.md` (this file)
-5. `docs/knowledge/current/CURRENT_QUICK_REFERENCE.md`
-6. `docs/knowledge/current/CLAIM_REGISTRY.csv`
-7. `docs/knowledge/KNOWLEDGE_CATALOG.md`
-8. relevant `docs/knowledge/catalog/*.md`
-9. `docs/knowledge/current/HOLD_CONFLICT_REGISTER.md` and `VERSION_FRESHNESS_LEDGER.csv` when uncertainty/version matters
-10. detailed `docs/knowledge/research/*` only when evidence/provenance is needed
-11. `docs/knowledge/GENERATION_KNOWLEDGE_CORPUS.md`
-12. `docs/knowledge/GENERATION_KNOWLEDGE_SOURCES.md`
-13. `docs/knowledge/GENERATION_KNOWLEDGE_INDEX.md` only for broad historical coverage/backlog context
+3. Issue #44 latest comments/body
+4. `docs/PRODUCT_GOAL_LOCK.md`
+5. `docs/knowledge/KNOWLEDGE_HANDOFF_CURRENT_20260909.md` (this file)
+6. `docs/knowledge/current/CURRENT_QUICK_REFERENCE.md`
+7. `docs/knowledge/current/CLAIM_REGISTRY.csv`
+8. `docs/knowledge/KNOWLEDGE_CATALOG.md`
+9. relevant `docs/knowledge/catalog/*.md`
+10. `docs/knowledge/current/HOLD_CONFLICT_REGISTER.md` and `VERSION_FRESHNESS_LEDGER.csv` when uncertainty/version matters
+11. detailed `docs/knowledge/research/*` only when evidence/provenance is needed
+12. corpus/sources/index for broad historical context
 
 ## Current source-of-truth layering
 
-- lane state / restart: Issue #44 latest comments + this handoff
-- **claim-level current verdict: `current/CLAIM_REGISTRY.csv`**
-- current uncertainty detail: `current/HOLD_CONFLICT_REGISTER.md`
-- version/freshness: `current/VERSION_FRESHNESS_LEDGER.csv`
-- readable topic explanation: `KNOWLEDGE_CATALOG.md` + `catalog/*.md`
-- evidence/provenance/history: `GENERATION_KNOWLEDGE_SOURCES.md` + `research/*`
-- broad synthesis/history: corpus/index
+- project/product routing = main `CURRENT_STATE.md` / `PRODUCT_GOAL_LOCK.md`
+- lane state / restart = Issue #44 + this handoff
+- **claim-level current verdict = `current/CLAIM_REGISTRY.csv`**
+- current uncertainty detail = `current/HOLD_CONFLICT_REGISTER.md`
+- version/freshness = `current/VERSION_FRESHNESS_LEDGER.csv`
+- readable topic explanation = `KNOWLEDGE_CATALOG.md` + `catalog/*.md`
+- evidence/provenance/history = `GENERATION_KNOWLEDGE_SOURCES.md` + `research/*`
+- broad synthesis/history = corpus/index
 
-Old document wording never overrides a newer Claim Registry row.
+Old document wording never overrides a newer Claim Registry row or current main product goal.
 
 ## Team identity / boundaries
 
 - TEAM_ID: `KNOWLEDGE:#44`
 - branch: `knowledge/generation-corpus`
-- lane: ongoing persistent corpus
+- lane: ongoing persistent knowledge + former PROMPT responsibilities
+- separate PROMPT team: **retired**
+- historical Issue #5: evidence/provenance only
 - runtime remains local and non-LLM
 - KNOWLEDGE does not directly rewrite production dictionary data
+- KNOWLEDGE does not own production/spec adoption
 - KNOWLEDGE does not own #32 validation verdicts
-- KNOWLEDGE does not authorize Stage10 production A/B
-- KNOWLEDGE does not change DEV/PROMPT/AUDIT authority
 - unresolved behavior stays `HOLD`
 - other teams receive handoffs only when requested/required by project flow
 
 ## Current product goal
 
-`short Japanese/English intent -> correct Special Core Dictionary candidate(s) -> minimum useful support/structure -> model-family-appropriate canonical-English Prompt -> safe failure diagnosis -> fewer unnecessary generation iterations`
+Canonical current v1 goal:
 
-Primary value: reduce manual trial-and-error while preserving semantic correctness, model/version scope, traceability and uncertainty.
+`Promptを日本語で理解 -> 日本語/英語検索・ジャンル閲覧でタグを発見 -> 自分で選択 -> canonical-English Promptを出力`
+
+Shorthand:
+
+`理解 -> 発見 -> 選択 -> 出力`
+
+This supersedes the older Special-first knowledge-lane product wording as the **current product goal**.
+
+The older advanced generation target remains useful as a future knowledge horizon, not as v1 routing:
+
+`intent -> tag/Special candidate(s) -> evidence-aware support/structure -> model-family-appropriate Prompt guidance -> controlled failure diagnosis`
+
+## Two knowledge horizons
+
+### v1-supporting knowledge
+
+Directly supports beginner-first understanding/discovery without requiring image-effectiveness claims:
+- canonical meaning / Alias / implication boundaries
+- Japanese understanding/search support
+- source authority
+- browse/discovery explanations
+- terminology/traceability
+- avoiding misleading search/UI claims
+
+### future/advanced generation knowledge
+
+Preserved and expanded, but non-blocking for v1:
+- Prompt composition/support/anti-support
+- minimum-sufficient Prompt
+- model-family-specific guidance
+- relation/binding/body-site/count/topology behavior
+- Negative interactions
+- LoRA/control/postprocess boundaries
+- evaluator/tagger limits
+- generation-effectiveness questions
+- narrow controlled A/B when a concrete adopted feature/research question requires evidence
+
+These are not separate teams. Product relevance, scope and validation state distinguish them.
 
 ## Claim-level organization
 
-Current management lives under:
-`docs/knowledge/current/`
+Current management lives under `docs/knowledge/current/`.
 
-Initial Registry contains **73 important current claims**:
-- 49 `ACCEPTED`
-- 4 `CANDIDATE`
-- 8 `HOLD`
-- 10 `REJECTED`
-- 2 `HISTORICAL`
+Registry fields separate:
+- `SOURCE_CLASS`
+- `STATUS`
+- `SCOPE`
+- `VALIDATION_STATE`
 
-Each row separates `SOURCE_CLASS`, `STATUS`, `SCOPE` and `VALIDATION_STATE`.
-This prevents author recommendations, project baselines and production-optimum hypotheses from being conflated.
+Legacy `PROMPT` strings in older evidence/metadata do not identify an active team after 2026-09-12; new routing goes through KNOWLEDGE #44.
 
 ## Canonical topic catalog
 
@@ -103,61 +140,36 @@ The one topic taxonomy remains `catalog/00–10`. The current management layer i
 
 Current Claim IDs and status are authoritative in Registry.
 
-## Current first empirical target — WAI Illustrious v17
+## Current first empirical target — only when image testing is justified
 
-Exact author guidance:
-- Forge Neo recommended
-- Euler a
-- Steps 15–30
-- CFG 5–7
-- integrated VAE
-- >1024×1024-area recommendation; 1024×1344 examples
-- short quality/Negative examples
-- excessive quality/aesthetic and long Negative warning
-- Hires may repair limbs
+WAI Illustrious v17 + Forge Neo remains the current local first-test lane unless a newer explicit decision changes it.
 
-Current local **isolation baseline, not optimum claim**:
-- Forge Neo
-- WAI Illustrious v17
+Current isolation baseline remains evidence context, not a product requirement or proven optimum:
 - Euler a
 - Steps 25
 - CFG 5
-- 1024×1344 portrait first candidate when appropriate
+- 1024×1344 portrait when appropriate
 - fixed paired seeds
 - Hires/ADetailer/LoRA/regional/ControlNet OFF
 
-See Registry `K-MODEL-WAI-*` and HOLD register for unresolved activation/binding/topology/count/Negative/LoRA/control questions.
-
-## Evaluator state
-
-Accepted:
-- unary taggers are side signals, not relation ground truth
-- WD EVA02 has structural rare-tail coverage limitations
-- Kagami/CL are broader-vocabulary candidates, not automatically validated ground truth
-
-HOLD:
-- final Special coverage/routing comparison after final dictionary freeze.
-
-## Legacy and labels
-
-- old research/corpus files are preserved
-- `current/LEGACY_MAP.md` says where their content is represented now
-- `current/LABEL_MIGRATION_MAP.md` explains old mixed labels
-- historical/rejected claims stay visible rather than being deleted
+Do not run broad Stage10/image sweeps merely to complete v1 or exhaust HOLD items.
 
 ## Maintenance workflow
 
 For new meaningful knowledge:
 
-`research/source evidence -> existing Claim check -> Registry update -> category explanation if needed -> HOLD/CONFLICT update -> version ledger update -> downstream handoff when required -> #44 checkpoint`
+`research/source evidence -> existing Claim check -> Registry update -> category explanation if needed -> HOLD/CONFLICT update -> version ledger update -> narrow validation only if required -> downstream DEV/product handoff when authorized -> #44 checkpoint`
 
 Do not duplicate the same verdict text into every summary.
 
-## Current checkpoint
-
-Issue #44 organization checkpoint: `5600550931`.
-
 ## Handoff readiness
 
-A future KNOWLEDGE chat is ready when it can use GitHub to identify:
-claim status, source class, model/version scope, validation requirement, current HOLD, freshness and legacy provenance without relying on chat history.
+A future KNOWLEDGE chat is ready when it can recover:
+- current v1 product goal
+- the distinction between v1-supporting and future/advanced generation knowledge
+- claim status/source/scope/validation
+- current HOLD/freshness
+- legacy provenance
+- former PROMPT work under #44 ownership
+
+without relying on chat history.
