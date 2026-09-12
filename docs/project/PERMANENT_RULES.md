@@ -4,15 +4,14 @@
 
 ### 体制・権限
 
-1. 常設は3班のみ。
+1. 常設は2班のみ。
    - DEV（開発）
-   - KNOWLEDGE（知識）
-   - PROMPT
+   - KNOWLEDGE（知識。旧PROMPT責務を含む）
 2. Codexは独立班ではなくDEVの実装担当。
 3. Forge Neo環境準備やその他TEMPは期間限定担当。
 4. 正式仕様の決定権はDEVにのみある。
 5. AUDITは常設班ではなく、必要な品質Gateごとに起動する独立監査ロール。監査完了後は常時待機させない。
-6. KNOWLEDGE / PROMPT / AUDIT / TEMPは勝手に本体仕様を変更しない。
+6. KNOWLEDGE / AUDIT / TEMPは勝手に本体仕様を変更しない。KNOWLEDGEがPrompt・generation-effectiveness知識を所有しても、production採用権限は得ない。
 7. チャット履歴を正本にしない。
 
 ### 正本・現行DEV・checkpoint
@@ -59,7 +58,7 @@ Codex自身がIssue本文を推測して書き換えない。
 
 ### 班間handoff
 
-26. DEV / KNOWLEDGE / PROMPT / 必要時AUDIT / TEMPの依頼と返却は原則GitHub Issue経由。ユーザーをコピペ中継役にしない。
+26. DEV / KNOWLEDGE / 必要時AUDIT / TEMPの依頼と返却は原則GitHub Issue経由。ユーザーをコピペ中継役にしない。
 27. 依頼は最低限 `FROM / REQUEST / WHY / EXPECTED OUTPUT / RELATED ISSUE・FILE` を含める。
 28. 結果は最低限 `RESULT / EVIDENCE / VERDICT / LIMITATION / NEXT` を含める。
 29. 依頼元の次作業に必要な結果は、依頼元Issueにも短い返却checkpointを残す。
@@ -68,11 +67,11 @@ Codex自身がIssue本文を推測して書き換えない。
 32. GitHubへ登録した班間依頼・重要返却はユーザーにも要約して見せる。
 33. 大方針変更では少なくとも `PRODUCT_GOAL_LOCK.md` / #42等product-scope Issue / `DECISIONS.md` / `FEATURE_PRIORITY.md` / `FLOWCHARTS.md` / `AGENTS.md` / 必要なlane Issueを照合する。
 
-## PROMPT lane支援ルール
+## KNOWLEDGE generation / Prompt支援ルール
 
-> この節はPROMPT班や将来のgeneration-effectiveness支援に対するルール。v1 runtimeが自動Prompt生成を行う義務ではない。
+> 旧PROMPT班は廃止され、Prompt・generation-effectiveness知識はKNOWLEDGE #44へ統合された。この節はKNOWLEDGEが将来/高度支援として扱うPrompt知識のルールであり、v1 runtimeが自動Prompt生成を行う義務ではない。
 
-34. PROMPT班が個別Prompt作成を支援する場合、ユーザーに毎回Special探索・Prompt再構築・大量手動差し替えを戻さず、対応可能な範囲を完成Promptとして組み立てる。
+34. KNOWLEDGEが個別Prompt作成・Prompt知識を支援する場合、ユーザーに毎回Special探索・Prompt再構築・大量手動差し替えを戻さず、対応可能な範囲を完成Promptとして組み立てる。
 35. 直接記述できない核心だけを最小限スロット化し、記述可能なpose/camera/visibility/binding等を無関係な別内容へ変更しない。必要ならSpecial候補を日本語付きで提示する。
 36. 安全/能力境界を理由にPrompt全体を不要に曖昧化しない一方、対応できない範囲の無制限対応は約束しない。
 37. 差し替えスロットを常にゼロにできるとは保証しないが、残るスロットの数と範囲を可能な限り減らす。
@@ -88,7 +87,8 @@ Codex自身がIssue本文を推測して書き換えない。
 44. v1の安定した主導線は **既存Promptを理解 -> 日本語/英語検索またはジャンル閲覧で発見 -> Special/Generalを自分で選択 -> Promptへ追加/削除/並べ替え -> canonical-English Promptコピー** とする。
 45. Specialは#56の深いbrowse taxonomy、Generalはproduction Japanese overlay 30,629件を対象とした#64の浅い実用taxonomyを使う。General taxonomyを日本語overlay/canonical identityへ埋め込まず別sidecarにする。
 46. v1ではhidden automatic support insertion / automatic minimum-sufficient Prompt / automatic model rewrite / automatic failure diagnosisをデフォルト挙動にしない。ユーザーが見えていない自動挿入と実際のPrompt出力を食い違わせない。
-47. Issue #5 / Stage10 / evaluator / Generation Profile / full statistics indexは将来資産として保持するが、具体的な採用featureが必要としない限りv1 completion blockerにしない。
+47. Stage10 / evaluator / Generation Profile / full statistics index / former Issue #5 evidenceは将来資産として保持する。Prompt/generation-effectiveness知識と必要な狭い検証はKNOWLEDGE #44が所有し、具体的な採用featureが必要としない限りv1 completion blockerにしない。
+48. 旧文書の `PROMPT:#5` / `PROMPT班` 参照はhistorical provenanceとして扱う。新規作業を独立PROMPT班へroutingせず、必要ならKNOWLEDGE #44へ統合して扱う。
 
 ## Product authority
 
