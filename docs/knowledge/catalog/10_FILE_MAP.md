@@ -1,6 +1,6 @@
 # 10 — Complete File Map
 
-Status: `ALL_CURRENT_KNOWLEDGE_FILES_CLASSIFIED_V7 / PRACTICAL_GENERATION_AUDIT_ADDED`
+Status: `ALL_CURRENT_KNOWLEDGE_FILES_CLASSIFIED_V8 / NOOB_ANIMA_PRACTICAL_PACKAGE_ADDED`
 
 This maps the current `docs/knowledge/` assets into the canonical topic catalog and current management layer.
 
@@ -28,15 +28,16 @@ These files are cross-topic controls, not a second genre taxonomy.
 | `../current/KNOWLEDGE_GOVERNANCE.md` | Claim schema, IDs, SOURCE_CLASS/STATUS/SCOPE/VALIDATION rules |
 | `../current/CLAIM_REGISTRY.csv` | **current claim verdict source of truth** |
 | `../current/ASSET_INVENTORY.md` | requested knowledge-domain inventory and file locations |
-| `../current/VERSION_FRESHNESS_LEDGER.csv` | version/source freshness and recheck ledger |
+| `../current/VERSION_FRESHNESS_LEDGER.csv` | version/source freshness and exact current model identities |
 | `../current/HOLD_CONFLICT_REGISTER.md` | current unresolved/conflicting knowledge |
 | `../current/LEGACY_MAP.md` | old document -> category/Claim/role |
 | `../current/LABEL_MIGRATION_MAP.md` | old mixed labels -> new field interpretation |
 | `../current/CURRENT_QUICK_REFERENCE.md` | 30–60 second overview; never verdict authority |
 | `../current/READING_ROUTES.md` | task-specific 3–5 file reading routes |
 | `../current/SELF_AUDIT_20260909.md` | GitHub-only recovery audit for this organization pass |
-| `../current/RESEARCH_BACKLOG_20260913.md` | prioritized next research/practical-generation work; planning only, not verdict authority |
-| `../current/PRACTICAL_GENERATION_READINESS_AUDIT_20260913.md` | practical generation readiness/gap audit covering daily production workflow, finishing tools, and current runtime drift |
+| `../current/RESEARCH_BACKLOG_20260913.md` | prioritized research/practical-generation work; planning only |
+| `../current/PRACTICAL_GENERATION_READINESS_AUDIT_20260913.md` | readiness/gap audit from first draft to finished image |
+| `../current/PRACTICAL_GENERATION_NOOB_ANIMA.md` | current daily-use operational guide for NoobAI EPS/V-Pred and Anima Base/Aesthetic/Turbo |
 
 ## Root knowledge files
 
@@ -71,6 +72,8 @@ These files are cross-topic controls, not a second genre taxonomy.
 | `BATCH_I_MODEL_PROMPT_CONVENTIONS_QUALITY_ARTIST_ORDER_NEGATIVE_FRESHNESS_20260913.md` | 01 / 02 | 06 / 08 / 09 |
 | `BATCH_J_EXISTING_PROMPT_CONFLICT_EXPLANATION_20260913.md` | 02 / 03 | 00 / 06 |
 | `BATCH_K_EVALUATOR_FRESHNESS_RECHECK_20260913.md` | 03 / 08 | 09 |
+| `BATCH_L_NOOB_ANIMA_PRACTICAL_GENERATION_DEEP_DIVE_20260913.md` | 01 / 04 | 02 / 03 / 05 / 08 / 09 |
+| `BATCH_M_JAPANESE_PRACTICAL_SOURCE_AUDIT_NOOB_ANIMA_20260913.md` | 08 | 01 / 04 / 09 |
 | `DANBOORU_WIKI_SEMANTIC_AUDIT_20260909.md` | 06 | 08 |
 | `E621_WIKI_SEMANTIC_TRIGGER_AUDIT_20260909.md` | 06 | 01 / 08 |
 | `HF_MODEL_DISCUSSIONS_AUDIT_20260909.md` | 01 / 08 | 03 |
@@ -90,56 +93,79 @@ These files are cross-topic controls, not a second genre taxonomy.
 | `HARD_FETISH_COMPOSITE_FAILURE_MATRIX_20260909.md` | 05 / 03 | — |
 | `HARD_FETISH_SOURCES_20260909.md` | 08 | 05 |
 
-## P0 prompt-understanding research package
+## P0 prompt-understanding package
 
-1. `BATCH_E_EXISTING_PROMPT_SURFACE_CLASSIFICATION_20260913.md`
-   - semantic tag vs runtime syntax / LoRA / embedding / template / natural language / unknown
-2. `BATCH_F_PROMPT_SEMANTIC_ROLE_DECOMPOSITION_20260913.md`
-   - identity / appearance / clothing / expression / pose / relation / camera / scene / style / meta etc.
-3. `BATCH_G_BEGINNER_SAFE_JAPANESE_EXPLANATION_20260913.md`
-   - Japanese explanation preserving canonical traceability and intrinsic predicates
-4. `BATCH_H_DANBOORU_CATEGORY_RELATION_UNKNOWN_HANDLING_20260913.md`
-   - General/Character/Copyright/Artist/Meta; Alias vs implication vs related/co-occurrence/search/model-trigger; exact-first unknown handling
+Batches E–H cover:
+- semantic tag vs runtime/model/natural-language surfaces
+- semantic roles
+- Japanese explanation
+- Danbooru categories / Alias / implication / unknown handling
 
-Durable P0 principles have now been promoted into `CLAIM_REGISTRY.csv` as `K-GOV-005`, `K-GOV-006`, `K-SEM-007`, `K-PROMPT-004`, and `K-PROMPT-005` where applicable.
+Promoted durable principles are retained in Claim Registry.
 
 ## P1 model-convention / conflict / freshness package
 
-1. `BATCH_I_MODEL_PROMPT_CONVENTIONS_QUALITY_ARTIST_ORDER_NEGATIVE_FRESHNESS_20260913.md`
-   - quality/rating/score distinction
-   - artist identity vs model artist trigger
-   - exact-model prompt ordering evidence
-   - exact-model Negative recipes vs semantic-negative principle
-   - model/source freshness recheck
-2. `BATCH_J_EXISTING_PROMPT_CONFLICT_EXPLANATION_20260913.md`
-   - conflict classes and beginner-facing `detect -> explain -> preserve -> user decides`
-3. `BATCH_K_EVALUATOR_FRESHNESS_RECHECK_20260913.md`
-   - WD EVA02 / Kagami / CL Tagger current source refresh
-   - CL Tagger `v2_01a` provisional-version warning
-
-Durable P1 source facts/principles have been promoted into Claim Registry without promoting generation-effectiveness/optimality claims.
+Batches I–K cover:
+- quality/rating/score distinction
+- artist identity vs model trigger
+- exact-model ordering
+- Negative recipe vs semantic-negative principle
+- conflict explanation
+- evaluator/source freshness
 
 ## Practical generation readiness audit
 
-`../current/PRACTICAL_GENERATION_READINESS_AUDIT_20260913.md` evaluates whether the current corpus supports a complete real-world loop from model selection through finished-image repair/polish.
+`../current/PRACTICAL_GENERATION_READINESS_AUDIT_20260913.md`
 
 Main result:
 - controlled generation / failure diagnosis = strong
 - finished-image production workflow = partial
-- LoRA / ADetailer / img2img-inpaint / regional-control / runtime-operation guidance needs practical consolidation
+- LoRA / finishing / regional-control / runtime-operation needed practical consolidation
 
-It also identified and corrected a stale Forge Neo source reference in `VERSION_FRESHNESS_LEDGER.csv`.
+## NoobAI + Anima practical package
 
-Detailed old-document-to-Claim absorption mapping:
-`../current/LEGACY_MAP.md`
+### Current operational guide
+`../current/PRACTICAL_GENERATION_NOOB_ANIMA.md`
+
+Purpose:
+- immediate model/profile choice
+- author-baseline quick cards
+- Prompt construction
+- LoRA family boundaries
+- finishing/control escalation
+- failure diagnosis
+
+### Batch L — practical deep dive
+`BATCH_L_NOOB_ANIMA_PRACTICAL_GENERATION_DEEP_DIVE_20260913.md`
+
+Covers:
+- Noob EPS 1.1 / V-Pred 1.0
+- current exact Anima Base v1.0 / Aesthetic v1.1 / Turbo v1.1 files
+- Japanese relation/multi-character workflow
+- Forge Neo / Forge Couple / ADetailer
+- LoRA boundaries
+- high-resolution finishing
+- practical failure trees
+- controlled-test backlog
+
+### Batch M — Japanese practical source audit
+`BATCH_M_JAPANESE_PRACTICAL_SOURCE_AUDIT_NOOB_ANIMA_20260913.md`
+
+Covers:
+- としあきdiffusion Wiki
+- current Note/blog comparison evidence
+- EasyForgeNeo Japanese ecosystem source
+- stale/conflicting secondary pages
+- what each source is allowed to prove
 
 ## Layer roles
 
 - `current/CLAIM_REGISTRY.csv` = current verdict/status/scope/validation authority
 - `current/HOLD_CONFLICT_REGISTER.md` = current uncertainty detail
-- `current/VERSION_FRESHNESS_LEDGER.csv` = freshness/version identity
-- `current/RESEARCH_BACKLOG_20260913.md` = prioritized planning; never overrides Claim Registry
-- `current/PRACTICAL_GENERATION_READINESS_AUDIT_20260913.md` = practical workflow coverage/gap audit; not Claim authority
+- `current/VERSION_FRESHNESS_LEDGER.csv` = current version/hash identity
+- `current/RESEARCH_BACKLOG_20260913.md` = prioritized planning
+- `current/PRACTICAL_GENERATION_READINESS_AUDIT_20260913.md` = workflow coverage/gap audit
+- `current/PRACTICAL_GENERATION_NOOB_ANIMA.md` = operational quick guide; Claim Registry wins on conflict
 - `catalog/` = current readable explanation by topic
 - `research/` = detailed evidence/provenance/history
 - `GENERATION_KNOWLEDGE_CORPUS.md` = durable cross-topic synthesis
@@ -148,6 +174,6 @@ Detailed old-document-to-Claim absorption mapping:
 
 ## Maintenance
 
-`research/source -> Claim Registry -> category explanation if needed -> HOLD/version if needed -> file map -> downstream handoff when requested -> #44 checkpoint`.
+`research/source -> Claim Registry when warranted -> category explanation -> HOLD/version -> file map -> downstream handoff when requested -> #44 checkpoint`.
 
 Do not create a parallel genre numbering scheme.
