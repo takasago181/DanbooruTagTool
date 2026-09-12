@@ -72,11 +72,13 @@ General taxonomyはIssue #64。
 
 ## Current development route
 
+Exact execution orderの正本は `docs/project/CURRENT_STATE.md`。この図はその可視化であり、食い違う場合は `CURRENT_STATE.md` を優先する。
+
 ```mermaid
 flowchart TD
- A[#63 product-fit sidecar acceptance] --> B[#34 bilingual search relevance]
- B --> C[#42 v1 scope lock / current code delta]
- C --> D[#64 General 30,629 practical taxonomy]
+ A[#63 product-fit sidecar acceptance] --> B[#64 General 30,629 practical taxonomy]
+ B --> C[#34 bilingual search relevance]
+ C --> D[#42 v1 scope lock / current code delta]
  D --> E[v1 UI integration]
  E --> F[focused regression + real Windows UI acceptance]
  F --> G[v1 baseline]
