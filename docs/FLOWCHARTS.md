@@ -1,122 +1,107 @@
 # FLOWCHARTS.md
 
-## 実装Stage
+## Current v1 user flow
 
 ```mermaid
 flowchart TD
- A[Stage 0 Source Preservation / Manifest / pytest] --> B[Stage 1 Source Dataset Decision]
- B --> C[Stage 2 AND + Candidate Aggregation Architecture Decision]
- C --> D[Stage 3 Tag Knowledge Core + Static Semantic Bridge]
- D --> E[Stage 4 Unified Japanese / English Search]
- E --> F[Stage 5 Full Index + True AND + Candidate Aggregation]
- F --> G[Stage 6 Statistics / Reliability / Ranking]
- G --> H[Stage 7 Special-first UI]
- H --> I[Stage 8 Semantic UX Refinement]
- I --> J[Stage 9 Prompt Builder / Minimal LoRA]
- J --> K[Stage 10 Final Regression / Benchmark / Packaging]
+ A[既存Promptを貼る / 空から開始] --> B[タグを日本語-first + Englishで理解]
+ B --> C{欲しいタグを知っている?}
+ C -- Yes --> D[日本語/英語検索]
+ C -- No --> E[ジャンルから発見]
+ E --> F{Special or General}
+ F -- Special --> G[Special Core Dictionary 深いbrowse]
+ F -- General --> H[General 30,629 浅い実用browse]
+ D --> I[候補を見る]
+ G --> I
+ H --> I
+ I --> J[ユーザーが手動で追加/削除/並べ替え]
+ J --> K[canonical-English Prompt preview]
+ K --> L[Copy]
 ```
 
-## Stage 1
+## Search flow
 
 ```mermaid
 flowchart TD
- A[Dataset候補] --> B[Gate 1 metadata/schema比較]
- B --> C{最低条件}
- C -- NG --> D[不採用]
- C -- OK --> E[上位1〜2候補]
- E --> F[同一subset Gate 2]
- F --> G{AND用情報が十分か}
- G -- NG --> D
- G -- OK --> H[Approved Source決定]
- H --> I[docs/decisions/DATA_SOURCE_DECISION.md]
-```
-
-## Stage 2
-
-```mermaid
-flowchart TD
- A[Approved Dataset固定] --> B[同一subset]
- B --> C[Index候補prototype]
- C --> D[AND性能]
- C --> E[Candidate Aggregation性能]
- C --> F[RAM/容量/build]
- D --> G[比較]
- E --> G
- F --> G
- G --> H[docs/architecture/INDEX_ARCHITECTURE_DECISION.md]
-```
-
-## 検索
-
-```mermaid
-flowchart TD
- A[入力] --> B[comma/newlineで候補単位に分割]
- B --> C[NFKC/lowercase/trim]
- C --> D[Exact canonical]
- D -->|なし| E[Exact alias]
- E -->|なし| F[Japanese exact]
- F -->|なし| G[Semantic exact]
- G -->|なし| H[prefix/partial]
- D -->|hit| I[canonical]
- E -->|unique| I
- F -->|hit| I
- G -->|hit| J[Semantic候補]
- H --> K[Autocomplete候補]
-```
-
-## True AND + Candidate Aggregation
-
-```mermaid
-flowchart TD
- A[Selected canonical tags] --> B[Tag→Post集合]
- B --> C[AND]
- C --> D[base_posts]
- D --> E[Post→Tag IDsを走査 または候補bitmap方式]
- E --> F[全候補co_count]
- F --> G[Selected/alias/duplicate除外]
- G --> H[statistics]
- H --> I[ranking]
- I --> J[UI]
-```
-
-## 最終ユーザーフロー
-
-```mermaid
-flowchart TD
- A[特殊辞書から日英で探す] --> B[SpecialをCore Tag Setへ追加]
- B --> C[True AND共起更新]
- C --> D[関連おすすめ]
- D --> E{足りる?}
- E -- Yes --> F[Prompt]
- E -- No --> G[全Danbooruへ広げる]
- G --> B
- F --> H[LoRA]
- H --> I[Copy]
-```
-
-
-## Core Tag Set + Auxiliary
-
-```mermaid
-flowchart TD
- A[Special Core Dictionary] --> B[Core Tag Set]
- B --> C[True multi-tag AND]
- C --> D[Candidate Aggregation]
- D --> E[Auxiliary Candidates]
- E --> F[role別表示: pose/composition/expression/etc]
- F --> G[Auxiliary Tags]
- B --> H[Prompt Builder]
+ A[日本語 / English / mixed input] --> B[normalize lookup]
+ B --> C[Exact canonical]
+ C -->|なし| D[Exact Alias]
+ D -->|なし| E[Japanese display/search]
+ E -->|なし| F[approved Semantic/search bridge]
+ F -->|なし| G[prefix / partial / fuzzy]
+ C -->|hit| H[候補]
+ D -->|unique| H
+ E -->|hit| H
+ F -->|hit| H
  G --> H
- I[LoRA] --> H
- H --> J[生成Prompt]
+ H --> I[product-fit eligibility + relevance ordering]
+ I --> J[日本語-first + canonical English表示]
 ```
 
-## 主従を壊さないUI
+Exact/word-boundary intentを incidental substring/fuzzy collision より優先する。
+Known defect `anal -> piano / analog...` はIssue #34のscope。
+
+## Special discovery
 
 ```mermaid
 flowchart TD
- A[現在の核 Core Tag Set] --> B[関連おすすめ]
- B --> C[必要な補助を追加]
- C --> D[Prompt]
- E[All Danbooru] -->|不足時だけ| C
+ A[Special] --> B[日本語ジャンル]
+ B --> C[必要ならサブジャンル]
+ C --> D[2,788 browse mapping]
+ D --> E[日本語 + English identity]
+ E --> F[Promptへ手動追加]
 ```
+
+Special taxonomyは#56で完成済み。
+UI browse indexでありcanonical semantic authorityではない。
+
+## General discovery
+
+```mermaid
+flowchart TD
+ A[General] --> B[実用ジャンル]
+ B --> C[必要な範囲だけ浅いサブジャンル]
+ C --> D[production Japanese overlay 30,629 entries]
+ D --> E[日本語 + canonical English]
+ E --> F[Promptへ手動追加]
+```
+
+General taxonomyはIssue #64。
+`japanese_overlay.json` へtaxonomyを埋め込まずcanonical-tag keyed sidecarで分離する。
+全100k+ Danbooru universeの完全分類はv1 scope外。
+
+## Current development route
+
+```mermaid
+flowchart TD
+ A[#63 product-fit sidecar acceptance] --> B[#34 bilingual search relevance]
+ B --> C[#42 v1 scope lock / current code delta]
+ C --> D[#64 General 30,629 practical taxonomy]
+ D --> E[v1 UI integration]
+ E --> F[focused regression + real Windows UI acceptance]
+ F --> G[v1 baseline]
+```
+
+Issue #5 / Stage10はこの必須経路の外。
+将来、model-specific effectivenessやevidence-backed automatic assistanceを採用した時だけ、必要な狭い実験へ再利用する。
+
+## Optional/future subsystem flow
+
+```mermaid
+flowchart TD
+ A[ユーザーが選んだtag/Special] --> B{追加支援が本当に必要?}
+ B -- No --> C[そのままPrompt]
+ B -- Yes --> D[co-occurrence / Semantic / generation knowledge]
+ D --> E[明示候補として提示]
+ E --> F[ユーザーが選択]
+ F --> C
+```
+
+v1では候補を勝手にPromptへ自動挿入しない。
+
+## Historical architecture note
+
+Stage0〜Stage9で作ったfull index、true AND、Candidate Aggregation、recommendation、Generation Profile、Prompt Composer、evaluator infrastructureは削除対象ではない。
+ただし「既に作った」ことはv1 user-facing requirementの根拠にならない。
+
+旧 `Special -> true AND -> recommendation -> Prompt -> Stage10` を現在の必須ユーザーフローとして扱わない。
