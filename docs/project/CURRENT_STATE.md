@@ -64,7 +64,7 @@ After #64 is accepted/merged:
 4. focused regression + real Windows UI acceptance
 5. v1 baseline
 
-Issue #5 / Stage10 is outside this required route unless a future adopted feature needs generation-effectiveness evidence.
+Generation-effectiveness / Prompt research is outside this required route unless a future adopted feature needs it. That future/advanced work is now owned by **KNOWLEDGE #44**. Former PROMPT Issue #5 is retired/closed and retained only as historical evidence.
 
 ## Workstreams Registry
 
@@ -74,9 +74,11 @@ Issue #5 / Stage10 is outside this required route unless a future adopted featur
 | `PRODUCT-FIT:#63` | **COMPLETED / MERGED** | product-fit verdict sidecar | Issue #63 acceptance comment + `docs/issue63/IMPLEMENTATION_REPORT.md` |
 | `UIJA-PARENT:#34` | **AFTER #64** | bilingual search relevance/noise | Issue #34 |
 | `PRODUCT:#42` | **AFTER #34 / V1 SCOPE OWNER** | beginner-first v1 narrowing | Issue #42 + `PRODUCT_GOAL_LOCK.md` |
-| `KNOWLEDGE:#44` | ONGOING / V1 NON-BLOCKING | generation knowledge corpus | Issue #44 |
-| `PROMPT:#5` | GATED / FUTURE | generation-effectiveness / Stage10 handoff only when needed | Issue #5 |
+| `KNOWLEDGE:#44` | **ONGOING / V1 NON-BLOCKING / PROMPT MERGED** | knowledge corpus + Prompt/generation-effectiveness knowledge + future narrow validation | Issue #44 + `knowledge/generation-corpus` |
 | `MAINT:#24` | OPEN / SAFETY DEBT | local protected data backup/restore | Issue #24 |
+
+Historical only:
+- `PROMPT:#5` — retired/closed on 2026-09-12; responsibilities merged into `KNOWLEDGE:#44`; comments/evidence preserved for provenance.
 
 ## Completed / frozen foundations
 
@@ -98,6 +100,7 @@ Issue #5 / Stage10 is outside this required route unless a future adopted featur
 - Japanese-first presentation pass #35 — completed
 - evaluator/calibration #30 — completed / evidence retained
 - generation knowledge desk coverage #44 — coverage ready; corpus remains ongoing
+- former PROMPT #5 work — preserved as historical evidence under KNOWLEDGE #44 ownership
 
 Do not restart completed #32/#43/#56/#63 work wholesale.
 
@@ -182,7 +185,8 @@ Known current implementation mismatches to reconcile later, not during #64/#34 u
 
 ### Statistics / generation evidence
 - full Stage5 index / co-occurrence / Generation Profile / evaluator evidence remain preserved optional assets
-- they are not v1 core runtime dependencies
+- Prompt/generation-effectiveness knowledge is owned by #44 after PROMPT-lane retirement
+- these assets are not v1 core runtime dependencies
 
 ## Source-of-Truth Rule
 
@@ -192,8 +196,9 @@ Current core DEV:
 Current route:
 - `#64 -> #34 -> #42 -> v1 UI integration/Windows acceptance`
 
-Future generation-effectiveness lane:
-- Issue #5 / Stage10 only when a concrete adopted feature requires empirical image evidence
+Future generation-effectiveness / Prompt-knowledge lane:
+- **Issue #44 KNOWLEDGE** only when a concrete adopted feature or research goal requires it
+- Issue #5 is historical/retired and must not be reactivated as an independent team
 
 Management authority:
 - `CURRENT_STATE.md` = routing
@@ -204,14 +209,13 @@ Management authority:
 
 ## Next Actions
 
-1. Start #64 from latest live main after preflight.
-2. Reproduce the exact 30,629 General target population without mutating protected overlay data.
-3. Inspect real distribution and representative examples before freezing taxonomy.
-4. Build a reproducible pilot and return it for DEV/AUDIT review before full rollout.
-5. Expand to all 30,629 only after pilot acceptance.
-6. After #64 acceptance, move to #34 and fix bilingual relevance/noise.
-7. Activate #42 only after #34, compare actual current code against the v1 ADOPT/HOLD/REJECT list, and lock v1 scope.
-8. Integrate the final beginner-first UI and perform real Windows acceptance.
+1. Continue #64 from latest live main according to its live Issue/checkpoint.
+2. Reproduce/classify the exact 30,629 General target population without mutating protected overlay data.
+3. Inspect/audit real distribution and representative examples according to #64 before full rollout.
+4. After #64 acceptance, move to #34 and fix bilingual relevance/noise.
+5. Activate #42 only after #34, compare actual current code against the v1 ADOPT/HOLD/REJECT list, and lock v1 scope.
+6. Integrate the final beginner-first UI and perform real Windows acceptance.
 
-Parallel safety debt:
+Parallel non-blocking lanes:
+- #44 may continue expanding/organizing knowledge, including former PROMPT/generation-effectiveness responsibilities, without making it a v1 Gate.
 - #24 protected-data backup/restore verification.
