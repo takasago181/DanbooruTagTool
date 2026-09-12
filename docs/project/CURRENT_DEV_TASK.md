@@ -72,6 +72,6 @@ Do not self-merge. Return to DEV/AUDIT.
 
 After accepted integration:
 
-`#63 -> #34 bilingual search relevance/noise -> #42 v1 scope lock -> #64 General 30,629 practical taxonomy -> v1 UI integration / Windows acceptance`
+`#63 -> #64 General 30,629 practical taxonomy -> #34 bilingual search relevance/noise -> #42 v1 scope lock -> v1 UI integration / Windows acceptance`
 
 Issue #5 / Stage10 is a future generation-effectiveness lane only if an adopted feature later requires empirical image evidence.
