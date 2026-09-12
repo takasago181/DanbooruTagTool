@@ -1,5 +1,5 @@
 {
-  "version": "issue64-pilot-v1",
+  "version": "issue64-pilot-v2",
   "algorithm": "high usage top16 + SHA256(seed+canonical)16; ordinary hash32; rare hash32; compound >=3 underscore pieces hash32 excluding previous draws; union boundary challenge. Seed and thresholds are fixed in tools/issue64_taxonomy_pilot.py. Challenge labels may overlap draws.",
   "challenge_tags": [
     "bow", "cross", "back", "holding", "tea", "blood", "flower", "tree",
@@ -11,5 +11,19 @@
     "under_bridge", "depth_of_field", "no_humans", "musical_note", "food",
     "vegetable", "injury", "blurry", "bad_anatomy", "dutch_angle", "facing_viewer",
     "crying", "kneeling"
-  ]
+  ],
+  "revision_request": "https://github.com/takasago181/DanbooruTagTool/issues/64#issuecomment-5644982292",
+  "revision_challenges": {
+    "color_patterns_shapes": ["polka_dot", "pastel_colors", "saturated", "triangle", "circle", "square", "hexagon", "heart_print"],
+    "gaze_orientation": ["looking_up", "looking_down", "looking_to_the_side", "looking_at_another", "looking_at_phone", "eye_contact", "facing_away", "profile"],
+    "light_time_weather": ["backlighting", "dappled_sunlight", "moonlight", "night", "dawn", "snowing", "fog", "aurora"],
+    "composition_camera": ["close-up", "full_body", "portrait", "wide_shot", "fisheye", "foreshortening", "vanishing_point", "pov"],
+    "pose_movement": ["standing", "sitting", "lying", "on_back", "on_side", "on_stomach", "jumping", "stretching"],
+    "living_nature": ["butterfly", "bird", "fish", "horse", "mushroom", "rose", "cactus", "grass"],
+    "text_symbol": ["arrow_(symbol)", "sound_effects", "logo", "watermark", "thought_bubble", "star_(symbol)"],
+    "role_attire_boundary": ["nurse", "nun", "police", "soldier", "clown", "nurse_cap"],
+    "sky_celestial": ["sky", "star_(sky)", "moon", "planet", "milky_way", "constellation"],
+    "screen_composition_boundary": ["panorama", "split_screen", "zoom_layer", "bloom", "lens_flare", "symbol-shaped_pupils"],
+    "rare_named_general": ["cancer_(constellation)", "constellation_(love_live!)", "burst_bomb_(splatoon)", "funsai_seyo!_unvalentine_no_fukushuu_(project_sekai)", "golden_deer_(fire_emblem)", "baku_(creature)", "freesia_(flower)", "blood_moon_(league)"]
+  }
 }

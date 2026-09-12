@@ -1,75 +1,64 @@
-# Issue #64 pilot boundary / error-pattern audit
+# Issue #64 boundary audit — revision 2
 
-2026-09-12 — implementation-side inspection, **pending independent DEV/AUDIT acceptance**.
+2026-09-12. Responds to [DEV/AUDIT HOLD](https://github.com/takasago181/DanbooruTagTool/issues/64#issuecomment-5644982292). Current proposal: 253 rows; 248 with paths, five unresolved; all reviewed flags false. The prior submission remains at commit `144adfd8f70718ab2eae4c76774b0bd6e86a16d9`.
 
-全173行のcanonical、production表示、usage、抽出理由、提案経路を照合した。
-分類の正解ラベル集は存在せず、独立監査も未実施のため、誤分類率・precisionは計算しない。
-以下は観察した曖昧性と、分類時に避けた誤りのパターンである。
-実稼働classifierがこれらの誤りを出したという意味ではない。regex classifierは作成していない。
-日本語表示は意味を調べる補助で、曖昧なcanonicalのsemantic authorityにはしない。
+## Rechecked definitions
 
-| 実例 | 避ける誤分類 | pilotでの扱い / 残る監査点 |
-| --- | --- | --- |
-| `bow`（リボン） | 英語の一般的多義から武器・お辞儀へ送る | 衣装/装飾が主、道具/小物が副。canonical定義との照合は独立監査対象 |
-| `back`（背中） / `looking_back`（振り返る） | backの部分一致で一括する | 身体と視線に分離 |
-| `cross`（十字） | 記号と十字架の物体を無条件に併合 | 記号を提案。物体副経路は定義確認まで追加しない |
-| `;q` | 記号列だから画中文字とする | 表情。production表示のウインク・舌の表情を参照 |
-| `heart` / `heart_hands` | heartの部分一致で同じ分類へ送る | 記号としぐさを分離。後者はポーズにも副経路 |
-| `cowboy_shot` | cowboyという役柄へ送る | 構図・画角 |
-| `from_above` / `looking_at_viewer` | カメラ位置と視線方向を併合 | 構図と視線に分離 |
-| `human_tower` | towerから建築・背景へ送る | 集団ポーズ案。人数分類とは異なる発見用途 |
-| `fruit_hair_ornament` / `fruit` | 修飾モチーフから両方を食べ物にする | 装飾と食べ物を分離 |
-| `blue_eyes` / `black_boots` / `white_background` | 色修飾をすべて色の主経路へ送る | 髪・顔 / 衣装 / 背景。色副経路を無条件に増殖しない |
-| `blood_writing` / `blood` | 材料名だけで文字を見失う | 文字を主、身体を副。血そのものは身体 |
-| `bad_neck` / `bad_anatomy` | 部位名なので身体へ送る | 作画状態の経路。品質や生成効能の保証ではない |
-| `personal_terminal`（PET） | 表示中のPETから動物へ送る | 道具案。固有装置の追加説明は作らない |
-| `cat` / `cat_ears` / `wolf_tail` | 生物全体と身体部位を混ぜる | 生き物と身体に分離。耳・尾の副経路増殖は保留 |
-| `tree` / `forest` / `bonsai` | 植物すべてを背景へ送る | 個体・植物と場所を分離 |
-| `bootes_(constellation)` | 星座を天候と同義に扱う | 光・時間・天候 + 背景の暫定案。空・星の入口を含むラベルにするかDEV要判断 |
-| `monochrome` / `greyscale` | 同義としてcanonicalを統合 | identityは別のまま画面表現が主、色が副 |
-| `maid` / `witch` / `jester` | 役柄と衣服のタグを同一視 | 人物・役柄案。衣装にも入口が必要かDEV要判断 |
-| `*_school_uniform` / `*_(cosplay)` | 固有人物や作品のontologyへ拡大 | 明示された制服・衣装の浅い経路。別canonicalへの置換なし |
-| `holding_knife_behind_back` | knifeだけを見て関係・動作を失う | 行為/物を持つが主、武器が副 |
-| `covering_breasts` / `partially_visible_vulva` | すべて身体部位一覧へ送る | 隠す・見えるという露出状態を主。前者は接触にも副経路 |
-| `naked_cloak` / `naked_dress` | naked接頭辞で同じ規則を適用 | 前者は裸マントという着方を提案、後者はデザインとの境界が不明でunresolved |
-| `screen_zoom` | screenから構図と断定 | 画面内表現とカメラ切り取りの境界が不明でunresolved |
-| `light_in_heart` / `uma_stars_(umamusume)` / `koe_naki_sakana` | light/stars/fish等から語尾分類 | 固有句の対象が未確認でunresolved |
-| `viewer_on_leash` / `hand_in_bra` | 接触語から性的行為へ断定 | 文脈・主経路が不足しunresolved。強度や年齢による除外ではない |
-| `highres` / `text` / `see-through` | 自然な例だとしてpopulation外のtagを追加 | production populationにないため選ばない。別表記への自動正規化も行わない |
-
-## Concentration / catch-all pressure
-
-- 可視catch-allカテゴリは設けていない。161件の候補にprimary path、12件に明示的なUNRESOLVEDを設定した。
-- 12/173 = **6.94%** は潜在的なcatch-all流入圧として別計上する。「その他が0だから問題なし」としない。
-- 最大主経路は衣装40/161 = **24.84%**。内訳は服・下着・靴13、衣装・コスプレ・装備12、制服8、装飾7。今回、未解釈語を衣装に押し込んで0 unresolvedにすることは避けた。
-- 道具・小物15/161 = 9.32%、画風・加工・画面表現9/161 = 5.59%。両者も曖昧語の隠れcatch-allになり得るため独立監査する。
-- 色・柄・形の主経路は1件のみ、副経路込み3件。色修飾を対象物の経路に置く方針の影響であり、このpilotだけで色カテゴリの有用性を確定できない。
-- 人物役柄、生物全体と部位、空の星座、文字の形についてラベル・副経路の受入判断が必要。
-- usage層は対象母集団より高頻度を厚く抽出している。衣装24.84%やunresolved6.94%を30,629件の予測分布に外挿しない。
-
-## Unresolved queue (12)
-
-| canonical | 必要な次の確認 |
+| Case | Observed definition and revised path |
 | --- | --- |
-| `aa-12` | 型番のcanonical定義・武器候補の確認 |
-| `hand_in_bra` | 接触と衣服状態の主経路方針 |
-| `koe_naki_sakana` | 固有句が指す物・衣装・作品等のcanonical定義 |
-| `light_in_heart` | 固有タイトルか描画現象か |
-| `minna_de_enjoy!_spojoy_park_(project_sekai)` | 公園・衣装・イベント等の対象 |
-| `naked_dress` | 衣服デザインと露出状態の区別 |
-| `nijigasaki_7th_live!_new_tokimeki_land` | イベント名とタグの具体的対象 |
-| `ribbon_bar` | 勲章・服飾等の多義の解決 |
-| `saihate_e_to_tobu_kimi_e_(project_sekai)` | 固有句の具体的対象 |
-| `screen_zoom` | 画面内の拡大表現と撮影構図の区別 |
-| `uma_stars_(umamusume)` | 衣装・マーク等の対象 |
-| `viewer_on_leash` | 視点・関係・接触の主経路方針 |
+| `aa-12` | Wiki identifies the item as a combat shotgun → OBJECT_PROP/WEAPON. [Wiki](https://danbooru.donmai.us/wiki_pages/aa-12) |
+| `hand_in_bra` | Hand in own or another's bra → ACTION_CONTACT/INTERACTION. The definition does not establish sexual purpose or clothing removal. [Wiki](https://danbooru.donmai.us/wiki_pages/hand_in_bra) |
+| `koe_naki_sakana` | Song wiki says it is recognizable by a character's distinctive outfit → CLOTHING/COSTUME discovery proposal; canonical remains the song. [Wiki](https://danbooru.donmai.us/wiki_pages/koe_naki_sakana) |
+| `light_in_heart` | A glow at the chest → LIGHT_TIME_WEATHER. [Wiki](https://danbooru.donmai.us/wiki_pages/light_in_heart) |
+| `naked_dress` | A person wears a dress but is visibly naked underneath → CLOTHING_STATE_EXPOSURE. [Wiki](https://danbooru.donmai.us/wiki_pages/naked_dress) |
+| `ribbon_bar` | Military/police uniform service ribbon → CLOTHING/ACCESSORY. [Wiki](https://danbooru.donmai.us/wiki_pages/ribbon_bar) |
+| `screen_zoom` | Stage performance projected onto a physical background screen → STYLE_QUALITY_META primary, PLACE_BACKGROUND secondary. [Wiki](https://danbooru.donmai.us/wiki_pages/screen_zoom) |
+| `zoom_layer` | Magnified layer of the illustration; explicitly distinct from the screen projection called screen_zoom → STYLE primary, composition secondary. [Wiki](https://danbooru.donmai.us/wiki_pages/zoom_layer) |
+| `viewer_on_leash` | POV image with viewer at receiving end of a leash → interaction primary, composition secondary. [Wiki](https://danbooru.donmai.us/wiki_pages/viewer_on_leash) |
+| `bootes_(constellation)`, `cancer_(constellation)` | Named star patterns → PLACE_BACKGROUND, not weather or a literal animal. [Bootes](https://danbooru.donmai.us/wiki_pages/bootes_%28constellation%29), [Cancer](https://danbooru.donmai.us/wiki_pages/cancer_%28constellation%29) |
+| `constellation_(love_live!)` | A costume set, not a celestial pattern → CLOTHING/COSTUME. [Wiki](https://danbooru.donmai.us/wiki_pages/constellation_%28love_live%21%29) |
+| `small_chastity_cage` | Specific physical device → OBJECT_PROP without DAILY subtype. Known object, unsuitable narrow subtype. [Wiki](https://danbooru.donmai.us/wiki_pages/small_chastity_cage) |
+| `maid` | Wearing a maid uniform is the tagging criterion even when not performing the job → CLOTHING/UNIFORM primary, PERSON_COUNT secondary. [Wiki](https://danbooru.donmai.us/wiki_pages/maid) |
+| `witch`, `jester` | Role remains primary; stereotypical attire enables optional costume discovery path, not a mandatory attribute. [Witch](https://danbooru.donmai.us/wiki_pages/witch), [jester](https://danbooru.donmai.us/wiki_pages/jester) |
+| `nurse`, `nun`, `soldier`, `clown`, `nurse_cap` | Roles link to clothing as secondary; a literal cap is clothing primary. Each wiki is separately linked from [external_review.md](artifacts/external_review.md). |
+| `golden_deer_(fire_emblem)` | Named student group used when all are present → PERSON_COUNT, not deer/gold/clothing. [Wiki](https://danbooru.donmai.us/wiki_pages/golden_deer_%28fire_emblem%29) |
+| `burst_bomb_(splatoon)`, `baku_(creature)`, `freesia_(flower)` | Definition distinguishes a fictional weapon, mythological creature, and flower → weapon / creature / plant. Sources in catalog. |
 
-外部wiki取得や画像サンプル検証は今回実施していない。定義の根拠が不足する行は推測で確定せず、このqueueからDEV/AUDITが確認する。
-UNRESOLVEDにはbrowse pathがなく、データが欠落したことを意味しない。対象集合には保持し、catalogにも明示する。
-残る30,456件はNOT_SAMPLEDであり、unresolved12件に混ぜない。
+## Additional-category stress cases
 
-## Proposed next Gate
+| Boundary | Sampled evidence and path rule |
+| --- | --- |
+| Color, pattern, shape | `polka_dot`, `pastel_colors`, `saturated`, `heart_print` → COLOR_APPEARANCE; geometry tags have symbol secondary. Fixed-color clothing/eye tags retain target identity and primary path |
+| Gaze vs camera | Looking up/down/side, eye contact → GAZE. `profile` is only one side of face visible, so COMPOSITION, not gaze |
+| Light vs sky | Backlight, dappled light, moonlight, night/dawn/weather, aurora → LIGHT. Sky, star, planet, constellation → PLACE_BACKGROUND |
+| Composition vs screen layout | Close-up/full body/portrait/perspective/POV/panorama → COMPOSITION. Split-screen and magnified layers → STYLE, with composition as a secondary discovery route |
+| Pose vs body part | Standing/sitting/lying orientations/jump/stretch → POSE_MOVEMENT |
+| Living things vs food/place | Animals → CREATURE; rose/cactus/grass/freesia → PLANT. Fish definition distinguishes food use. Mushroom is fungus, so LIVING_NATURE root only |
+| Text vs symbol vs eye feature | Direction arrow/sound effect/logo/watermark/thought bubble/star symbol → TEXT_SYMBOL. Symbol-shaped pupils → HAIR_FACE. Sky stars stay PLACE |
+| Role vs attire | Role main path remains for witch/jester/nun; attire secondary. Maid wiki makes worn uniform central, so uniform primary. Police spans too many role types and stays unresolved |
 
-DEV/AUDITがtaxonomy・主副経路・12件の扱い・追加pilotの必要性を判断する。
-推奨確認は色/柄、空/星、役柄/衣装、希少固有名の追加例であり、実行はpilot受入後の指示に従う。
-受入前のfull rollout、main merge、#34着手は行わない。機械的整合性のテスト成功は意味分類のGate PASSではない。
+All 97 external review rows have paraphrased observation, a separate classification inference, and a source trail in `external_evidence.json` / [review catalog](artifacts/external_review.md). Wiki evidence is not canonical authority, and no gold labels, independent acceptance, or error rate are claimed.
+
+## Post context and unresolved policy
+
+The post inspection reads tag metadata only: the first 12 available post IDs ordered ascending per tag. It did not download or inspect images. A missing co-tag is not negative evidence.
+
+| Canonical | Direct page | official_alternate_costume in 12 | Treatment |
+| --- | --- | ---: | --- |
+| `minna_de_enjoy!_spojoy_park_(project_sekai)` | Event wiki | 7 | UNRESOLVED: whether a whole event receives clothing path |
+| `saihate_e_to_tobu_kimi_e_(project_sekai)` | Event wiki | 8 | UNRESOLVED: same scope decision |
+| `uma_stars_(umamusume)` | Show/project wiki | 11 | UNRESOLVED: show/theme vs outfit path |
+| `funsai_seyo!_unvalentine_no_fukushuu_(project_sekai)` | Event wiki | 10 | UNRESOLVED under same policy |
+| `nijigasaki_7th_live!_new_tokimeki_land` | No exact page | 9; Hawaiian shirt in all 12 | CLOTHING/COSTUME proposal from context alone; needs independent check |
+| `blood_moon_(league)` | No exact page | 1 | COSTUME proposal supported by related official skin pages plus context, not an arbitrary co-tag threshold |
+
+The first four are now factually identified; they remain unresolved because event/show identity does not decide its practical browse path. Police is also unresolved because its definition covers people, places, equipment, and scenes. No category was added just to make unresolved count zero.
+
+## Concentration and stop point
+
+- Same 17 top levels, 16 optional subgenres, depth ≤2; visible catch-all remains zero.
+- Primary counts improved from V1 to V2: color 1→9, gaze 3→10, light 4→14, composition 5→15, pose 5→13, living/nature 6→16, text/symbol 10→16.
+- Largest primary remains clothing, 47/248 = 18.95%; everyday 13, costume 16, uniform 9, accessory 9.
+- Five unresolved are 1.98%, not folded into a visible “other.” Another 30,376 entries are NOT_SAMPLED, not unresolved.
+- 156 original pilot rows are outside this targeted external check. Revised paths remain proposals and all reviewed flags are false.
+- No production changes. DEV/AUDIT must decide event/theme routing, context-only attire paths, secondaries, and whether to request a different pilot. No full rollout/merge/#34/#42/Stage10 before acceptance.

@@ -63,6 +63,14 @@
     ],
     "usage_band": "rare"
   },
+  "arrow_(symbol)": {
+    "display_ja": "矢印",
+    "post_count": 39467,
+    "selection_reasons": [
+      "revision2/text_symbol"
+    ],
+    "usage_band": "ordinary"
+  },
   "arzuros_(armor)": {
     "display_ja": "アルツロス（鎧）",
     "post_count": 51,
@@ -78,6 +86,14 @@
       "rare_hash32"
     ],
     "usage_band": "rare"
+  },
+  "aurora": {
+    "display_ja": "オーロラ",
+    "post_count": 2054,
+    "selection_reasons": [
+      "revision2/light_time_weather"
+    ],
+    "usage_band": "ordinary"
   },
   "ayachi_nene_(cosplay)": {
     "display_ja": "綾地寧々のコスプレ",
@@ -103,6 +119,14 @@
     ],
     "usage_band": "high_usage"
   },
+  "backlighting": {
+    "display_ja": "逆光",
+    "post_count": 45465,
+    "selection_reasons": [
+      "revision2/light_time_weather"
+    ],
+    "usage_band": "ordinary"
+  },
   "bad_anatomy": {
     "display_ja": "人体構造の崩れ",
     "post_count": 18272,
@@ -118,6 +142,22 @@
       "rare_hash32"
     ],
     "usage_band": "rare"
+  },
+  "baku_(creature)": {
+    "display_ja": "貘",
+    "post_count": 178,
+    "selection_reasons": [
+      "revision2/rare_named_general"
+    ],
+    "usage_band": "rare"
+  },
+  "bird": {
+    "display_ja": "鳥",
+    "post_count": 150144,
+    "selection_reasons": [
+      "revision2/living_nature"
+    ],
+    "usage_band": "high_usage"
   },
   "black_boots": {
     "display_ja": "黒いブーツ",
@@ -143,6 +183,14 @@
     ],
     "usage_band": "high_usage"
   },
+  "blood_moon_(league)": {
+    "display_ja": "ブラッドムーン（リーグオブレジェンド）",
+    "post_count": 78,
+    "selection_reasons": [
+      "revision2/rare_named_general"
+    ],
+    "usage_band": "rare"
+  },
   "blood_writing": {
     "display_ja": "血文字",
     "post_count": 337,
@@ -150,6 +198,14 @@
       "rare_hash32"
     ],
     "usage_band": "rare"
+  },
+  "bloom": {
+    "display_ja": "ブルーム効果",
+    "post_count": 5400,
+    "selection_reasons": [
+      "revision2/screen_composition_boundary"
+    ],
+    "usage_band": "ordinary"
   },
   "blue_eyes": {
     "display_ja": "青い目",
@@ -239,6 +295,38 @@
     ],
     "usage_band": "ordinary"
   },
+  "burst_bomb_(splatoon)": {
+    "display_ja": "クイックボム",
+    "post_count": 143,
+    "selection_reasons": [
+      "revision2/rare_named_general"
+    ],
+    "usage_band": "rare"
+  },
+  "butterfly": {
+    "display_ja": "蝶",
+    "post_count": 76825,
+    "selection_reasons": [
+      "revision2/living_nature"
+    ],
+    "usage_band": "ordinary"
+  },
+  "cactus": {
+    "display_ja": "サボテン",
+    "post_count": 3036,
+    "selection_reasons": [
+      "revision2/living_nature"
+    ],
+    "usage_band": "ordinary"
+  },
+  "cancer_(constellation)": {
+    "display_ja": "かに座",
+    "post_count": 399,
+    "selection_reasons": [
+      "revision2/rare_named_general"
+    ],
+    "usage_band": "rare"
+  },
   "candy_bar": {
     "display_ja": "キャンディーバー",
     "post_count": 308,
@@ -287,11 +375,35 @@
     ],
     "usage_band": "ordinary"
   },
+  "circle": {
+    "display_ja": "円",
+    "post_count": 7495,
+    "selection_reasons": [
+      "revision2/color_patterns_shapes"
+    ],
+    "usage_band": "ordinary"
+  },
   "clock": {
     "display_ja": "時計",
     "post_count": 27242,
     "selection_reasons": [
       "ordinary_hash32"
+    ],
+    "usage_band": "ordinary"
+  },
+  "close-up": {
+    "display_ja": "クローズアップ",
+    "post_count": 63385,
+    "selection_reasons": [
+      "revision2/composition_camera"
+    ],
+    "usage_band": "ordinary"
+  },
+  "clown": {
+    "display_ja": "道化師",
+    "post_count": 2136,
+    "selection_reasons": [
+      "revision2/role_attire_boundary"
     ],
     "usage_band": "ordinary"
   },
@@ -310,6 +422,22 @@
       "boundary_challenge"
     ],
     "usage_band": "high_usage"
+  },
+  "constellation": {
+    "display_ja": "星座",
+    "post_count": 6785,
+    "selection_reasons": [
+      "revision2/sky_celestial"
+    ],
+    "usage_band": "ordinary"
+  },
+  "constellation_(love_live!)": {
+    "display_ja": "星座コス",
+    "post_count": 101,
+    "selection_reasons": [
+      "revision2/rare_named_general"
+    ],
+    "usage_band": "rare"
   },
   "cosplay": {
     "display_ja": "コスプレ",
@@ -350,6 +478,22 @@
       "boundary_challenge"
     ],
     "usage_band": "high_usage"
+  },
+  "dappled_sunlight": {
+    "display_ja": "木漏れ陽",
+    "post_count": 15086,
+    "selection_reasons": [
+      "revision2/light_time_weather"
+    ],
+    "usage_band": "ordinary"
+  },
+  "dawn": {
+    "display_ja": "夜明け",
+    "post_count": 1757,
+    "selection_reasons": [
+      "revision2/light_time_weather"
+    ],
+    "usage_band": "ordinary"
   },
   "depth_of_field": {
     "display_ja": "被写界深度",
@@ -407,6 +551,22 @@
     ],
     "usage_band": "rare"
   },
+  "eye_contact": {
+    "display_ja": "目が合う",
+    "post_count": 68825,
+    "selection_reasons": [
+      "revision2/gaze_orientation"
+    ],
+    "usage_band": "ordinary"
+  },
+  "facing_away": {
+    "display_ja": "背を向ける",
+    "post_count": 40287,
+    "selection_reasons": [
+      "revision2/gaze_orientation"
+    ],
+    "usage_band": "ordinary"
+  },
   "facing_viewer": {
     "display_ja": "見る人の方を向いている",
     "post_count": 102666,
@@ -431,6 +591,22 @@
     ],
     "usage_band": "rare"
   },
+  "fish": {
+    "display_ja": "さかな",
+    "post_count": 51138,
+    "selection_reasons": [
+      "revision2/living_nature"
+    ],
+    "usage_band": "ordinary"
+  },
+  "fisheye": {
+    "display_ja": "魚眼レンズ",
+    "post_count": 6771,
+    "selection_reasons": [
+      "revision2/composition_camera"
+    ],
+    "usage_band": "ordinary"
+  },
   "flower": {
     "display_ja": "花",
     "post_count": 881590,
@@ -438,6 +614,14 @@
       "boundary_challenge"
     ],
     "usage_band": "high_usage"
+  },
+  "fog": {
+    "display_ja": "霧",
+    "post_count": 7674,
+    "selection_reasons": [
+      "revision2/light_time_weather"
+    ],
+    "usage_band": "ordinary"
   },
   "food": {
     "display_ja": "食べ物",
@@ -447,6 +631,14 @@
     ],
     "usage_band": "high_usage"
   },
+  "foreshortening": {
+    "display_ja": "短縮法",
+    "post_count": 69483,
+    "selection_reasons": [
+      "revision2/composition_camera"
+    ],
+    "usage_band": "ordinary"
+  },
   "forest": {
     "display_ja": "森",
     "post_count": 49053,
@@ -454,6 +646,14 @@
       "boundary_challenge"
     ],
     "usage_band": "ordinary"
+  },
+  "freesia_(flower)": {
+    "display_ja": "フリージア",
+    "post_count": 327,
+    "selection_reasons": [
+      "revision2/rare_named_general"
+    ],
+    "usage_band": "rare"
   },
   "from_above": {
     "display_ja": "上から",
@@ -486,6 +686,38 @@
       "compound_hash32_disjoint"
     ],
     "usage_band": "rare"
+  },
+  "full_body": {
+    "display_ja": "全身",
+    "post_count": 1274313,
+    "selection_reasons": [
+      "revision2/composition_camera"
+    ],
+    "usage_band": "high_usage"
+  },
+  "funsai_seyo!_unvalentine_no_fukushuu_(project_sekai)": {
+    "display_ja": "粉砕せよ!アンヴァレンタインの復讐",
+    "post_count": 82,
+    "selection_reasons": [
+      "revision2/rare_named_general"
+    ],
+    "usage_band": "rare"
+  },
+  "golden_deer_(fire_emblem)": {
+    "display_ja": "金鹿の学級",
+    "post_count": 131,
+    "selection_reasons": [
+      "revision2/rare_named_general"
+    ],
+    "usage_band": "rare"
+  },
+  "grass": {
+    "display_ja": "草",
+    "post_count": 116665,
+    "selection_reasons": [
+      "revision2/living_nature"
+    ],
+    "usage_band": "high_usage"
   },
   "green_one-piece_swimsuit": {
     "display_ja": "緑のワンピース水着",
@@ -567,6 +799,22 @@
     ],
     "usage_band": "ordinary"
   },
+  "heart_print": {
+    "display_ja": "ハート柄",
+    "post_count": 12721,
+    "selection_reasons": [
+      "revision2/color_patterns_shapes"
+    ],
+    "usage_band": "ordinary"
+  },
+  "hexagon": {
+    "display_ja": "六角形",
+    "post_count": 2343,
+    "selection_reasons": [
+      "revision2/color_patterns_shapes"
+    ],
+    "usage_band": "ordinary"
+  },
   "high_heels": {
     "display_ja": "ハイヒール",
     "post_count": 289685,
@@ -590,6 +838,14 @@
       "compound_hash32_disjoint"
     ],
     "usage_band": "rare"
+  },
+  "horse": {
+    "display_ja": "ウマ",
+    "post_count": 15000,
+    "selection_reasons": [
+      "revision2/living_nature"
+    ],
+    "usage_band": "ordinary"
   },
   "human_tower": {
     "display_ja": "人塔",
@@ -636,6 +892,14 @@
     "post_count": 2393,
     "selection_reasons": [
       "ordinary_hash32"
+    ],
+    "usage_band": "ordinary"
+  },
+  "jumping": {
+    "display_ja": "ジャンプ",
+    "post_count": 32150,
+    "selection_reasons": [
+      "revision2/pose_movement"
     ],
     "usage_band": "ordinary"
   },
@@ -711,6 +975,14 @@
     ],
     "usage_band": "high_usage"
   },
+  "lens_flare": {
+    "display_ja": "レンズフレア",
+    "post_count": 50418,
+    "selection_reasons": [
+      "revision2/screen_composition_boundary"
+    ],
+    "usage_band": "ordinary"
+  },
   "light_in_heart": {
     "display_ja": "心の光",
     "post_count": 511,
@@ -726,6 +998,14 @@
       "compound_hash32_disjoint"
     ],
     "usage_band": "rare"
+  },
+  "logo": {
+    "display_ja": "ロゴ",
+    "post_count": 90573,
+    "selection_reasons": [
+      "revision2/text_symbol"
+    ],
+    "usage_band": "ordinary"
   },
   "long_hair": {
     "display_ja": "長い髪",
@@ -743,6 +1023,22 @@
     ],
     "usage_band": "high_usage"
   },
+  "looking_at_another": {
+    "display_ja": "別の対象を見る",
+    "post_count": 433768,
+    "selection_reasons": [
+      "revision2/gaze_orientation"
+    ],
+    "usage_band": "high_usage"
+  },
+  "looking_at_phone": {
+    "display_ja": "電話を見ています",
+    "post_count": 8984,
+    "selection_reasons": [
+      "revision2/gaze_orientation"
+    ],
+    "usage_band": "ordinary"
+  },
   "looking_at_viewer": {
     "display_ja": "こちらを見る",
     "post_count": 4883889,
@@ -756,6 +1052,38 @@
     "post_count": 363622,
     "selection_reasons": [
       "boundary_challenge"
+    ],
+    "usage_band": "high_usage"
+  },
+  "looking_down": {
+    "display_ja": "下を見る",
+    "post_count": 138573,
+    "selection_reasons": [
+      "revision2/gaze_orientation"
+    ],
+    "usage_band": "high_usage"
+  },
+  "looking_to_the_side": {
+    "display_ja": "横を見る",
+    "post_count": 279876,
+    "selection_reasons": [
+      "revision2/gaze_orientation"
+    ],
+    "usage_band": "high_usage"
+  },
+  "looking_up": {
+    "display_ja": "見上げる",
+    "post_count": 100072,
+    "selection_reasons": [
+      "revision2/gaze_orientation"
+    ],
+    "usage_band": "high_usage"
+  },
+  "lying": {
+    "display_ja": "横たわる",
+    "post_count": 620505,
+    "selection_reasons": [
+      "revision2/pose_movement"
     ],
     "usage_band": "high_usage"
   },
@@ -799,6 +1127,14 @@
     ],
     "usage_band": "ordinary"
   },
+  "milky_way": {
+    "display_ja": "天の川",
+    "post_count": 1508,
+    "selection_reasons": [
+      "revision2/sky_celestial"
+    ],
+    "usage_band": "ordinary"
+  },
   "minna_de_enjoy!_spojoy_park_(project_sekai)": {
     "display_ja": "みんなでエンジョイ!スポジョイパーク",
     "post_count": 74,
@@ -832,6 +1168,22 @@
     ],
     "usage_band": "high_usage"
   },
+  "moon": {
+    "display_ja": "月",
+    "post_count": 104671,
+    "selection_reasons": [
+      "revision2/sky_celestial"
+    ],
+    "usage_band": "high_usage"
+  },
+  "moonlight": {
+    "display_ja": "月明かり",
+    "post_count": 4789,
+    "selection_reasons": [
+      "revision2/light_time_weather"
+    ],
+    "usage_band": "ordinary"
+  },
   "multicolored_text": {
     "display_ja": "多色のテキスト",
     "post_count": 380,
@@ -839,6 +1191,14 @@
       "rare_hash32"
     ],
     "usage_band": "rare"
+  },
+  "mushroom": {
+    "display_ja": "きのこ",
+    "post_count": 15737,
+    "selection_reasons": [
+      "revision2/living_nature"
+    ],
+    "usage_band": "ordinary"
   },
   "musical_note": {
     "display_ja": "音符",
@@ -874,6 +1234,14 @@
     ],
     "usage_band": "ordinary"
   },
+  "night": {
+    "display_ja": "よる",
+    "post_count": 170080,
+    "selection_reasons": [
+      "revision2/light_time_weather"
+    ],
+    "usage_band": "high_usage"
+  },
   "nijigasaki_7th_live!_new_tokimeki_land": {
     "display_ja": "虹ヶ咲 7th Live! NEW TOKIMEKI LAND",
     "post_count": 72,
@@ -889,6 +1257,54 @@
       "boundary_challenge"
     ],
     "usage_band": "high_usage"
+  },
+  "nun": {
+    "display_ja": "シスター",
+    "post_count": 34260,
+    "selection_reasons": [
+      "revision2/role_attire_boundary"
+    ],
+    "usage_band": "ordinary"
+  },
+  "nurse": {
+    "display_ja": "ナース",
+    "post_count": 22543,
+    "selection_reasons": [
+      "revision2/role_attire_boundary"
+    ],
+    "usage_band": "ordinary"
+  },
+  "nurse_cap": {
+    "display_ja": "ナースキャップ",
+    "post_count": 34464,
+    "selection_reasons": [
+      "revision2/role_attire_boundary"
+    ],
+    "usage_band": "ordinary"
+  },
+  "on_back": {
+    "display_ja": "仰向け",
+    "post_count": 356443,
+    "selection_reasons": [
+      "revision2/pose_movement"
+    ],
+    "usage_band": "high_usage"
+  },
+  "on_side": {
+    "display_ja": "横向き",
+    "post_count": 123717,
+    "selection_reasons": [
+      "revision2/pose_movement"
+    ],
+    "usage_band": "high_usage"
+  },
+  "on_stomach": {
+    "display_ja": "うつぶせ",
+    "post_count": 91673,
+    "selection_reasons": [
+      "revision2/pose_movement"
+    ],
+    "usage_band": "ordinary"
   },
   "ooarai_marine_tower": {
     "display_ja": "大洗マリンタワー",
@@ -914,6 +1330,14 @@
       "compound_hash32_disjoint"
     ],
     "usage_band": "ordinary"
+  },
+  "panorama": {
+    "display_ja": "パノラマ",
+    "post_count": 143,
+    "selection_reasons": [
+      "revision2/screen_composition_boundary"
+    ],
+    "usage_band": "rare"
   },
   "panties": {
     "display_ja": "パンティー",
@@ -944,6 +1368,14 @@
     "post_count": 27447,
     "selection_reasons": [
       "ordinary_hash32"
+    ],
+    "usage_band": "ordinary"
+  },
+  "pastel_colors": {
+    "display_ja": "パステル",
+    "post_count": 4756,
+    "selection_reasons": [
+      "revision2/color_patterns_shapes"
     ],
     "usage_band": "ordinary"
   },
@@ -995,6 +1427,14 @@
     ],
     "usage_band": "rare"
   },
+  "planet": {
+    "display_ja": "惑星",
+    "post_count": 14487,
+    "selection_reasons": [
+      "revision2/sky_celestial"
+    ],
+    "usage_band": "ordinary"
+  },
   "pointing_sword": {
     "display_ja": "剣を向ける",
     "post_count": 509,
@@ -1002,6 +1442,46 @@
       "rare_hash32"
     ],
     "usage_band": "rare"
+  },
+  "police": {
+    "display_ja": "警察",
+    "post_count": 17012,
+    "selection_reasons": [
+      "revision2/role_attire_boundary"
+    ],
+    "usage_band": "ordinary"
+  },
+  "polka_dot": {
+    "display_ja": "水玉模様",
+    "post_count": 84329,
+    "selection_reasons": [
+      "revision2/color_patterns_shapes"
+    ],
+    "usage_band": "ordinary"
+  },
+  "portrait": {
+    "display_ja": "肖像",
+    "post_count": 142272,
+    "selection_reasons": [
+      "revision2/composition_camera"
+    ],
+    "usage_band": "high_usage"
+  },
+  "pov": {
+    "display_ja": "主観視点",
+    "post_count": 199250,
+    "selection_reasons": [
+      "revision2/composition_camera"
+    ],
+    "usage_band": "high_usage"
+  },
+  "profile": {
+    "display_ja": "横顔",
+    "post_count": 181035,
+    "selection_reasons": [
+      "revision2/gaze_orientation"
+    ],
+    "usage_band": "high_usage"
   },
   "puppet_show": {
     "display_ja": "人形劇",
@@ -1035,6 +1515,14 @@
     ],
     "usage_band": "rare"
   },
+  "rose": {
+    "display_ja": "バラ",
+    "post_count": 149445,
+    "selection_reasons": [
+      "revision2/living_nature"
+    ],
+    "usage_band": "high_usage"
+  },
   "saihate_e_to_tobu_kimi_e_(project_sekai)": {
     "display_ja": "最果てへと飛ぶキミへ",
     "post_count": 65,
@@ -1048,6 +1536,14 @@
     "post_count": 128,
     "selection_reasons": [
       "compound_hash32_disjoint"
+    ],
+    "usage_band": "rare"
+  },
+  "saturated": {
+    "display_ja": "高彩度",
+    "post_count": 701,
+    "selection_reasons": [
+      "revision2/color_patterns_shapes"
     ],
     "usage_band": "rare"
   },
@@ -1115,6 +1611,14 @@
     ],
     "usage_band": "ordinary"
   },
+  "sitting": {
+    "display_ja": "座る",
+    "post_count": 1306615,
+    "selection_reasons": [
+      "revision2/pose_movement"
+    ],
+    "usage_band": "high_usage"
+  },
   "sitting_on_wall": {
     "display_ja": "壁に座っています",
     "post_count": 256,
@@ -1122,6 +1626,14 @@
       "compound_hash32_disjoint"
     ],
     "usage_band": "rare"
+  },
+  "sky": {
+    "display_ja": "空",
+    "post_count": 616740,
+    "selection_reasons": [
+      "revision2/sky_celestial"
+    ],
+    "usage_band": "high_usage"
   },
   "sleeveless_dress": {
     "display_ja": "ノースリーブドレス",
@@ -1155,6 +1667,22 @@
     ],
     "usage_band": "ordinary"
   },
+  "snowing": {
+    "display_ja": "降雪",
+    "post_count": 37443,
+    "selection_reasons": [
+      "revision2/light_time_weather"
+    ],
+    "usage_band": "ordinary"
+  },
+  "soldier": {
+    "display_ja": "兵",
+    "post_count": 6543,
+    "selection_reasons": [
+      "revision2/role_attire_boundary"
+    ],
+    "usage_band": "ordinary"
+  },
   "solo": {
     "display_ja": "一人",
     "post_count": 7023696,
@@ -1171,6 +1699,14 @@
     ],
     "usage_band": "rare"
   },
+  "sound_effects": {
+    "display_ja": "オノマトペ",
+    "post_count": 52554,
+    "selection_reasons": [
+      "revision2/text_symbol"
+    ],
+    "usage_band": "ordinary"
+  },
   "speech_bubble": {
     "display_ja": "ふきだし",
     "post_count": 520221,
@@ -1178,6 +1714,54 @@
       "boundary_challenge"
     ],
     "usage_band": "high_usage"
+  },
+  "split_screen": {
+    "display_ja": "分割画面",
+    "post_count": 2952,
+    "selection_reasons": [
+      "revision2/screen_composition_boundary"
+    ],
+    "usage_band": "ordinary"
+  },
+  "square": {
+    "display_ja": "正方形",
+    "post_count": 1249,
+    "selection_reasons": [
+      "revision2/color_patterns_shapes"
+    ],
+    "usage_band": "ordinary"
+  },
+  "standing": {
+    "display_ja": "立つ",
+    "post_count": 1325427,
+    "selection_reasons": [
+      "revision2/pose_movement"
+    ],
+    "usage_band": "high_usage"
+  },
+  "star_(sky)": {
+    "display_ja": "星（空）",
+    "post_count": 85840,
+    "selection_reasons": [
+      "revision2/sky_celestial"
+    ],
+    "usage_band": "ordinary"
+  },
+  "star_(symbol)": {
+    "display_ja": "星（記号）",
+    "post_count": 357958,
+    "selection_reasons": [
+      "revision2/text_symbol"
+    ],
+    "usage_band": "high_usage"
+  },
+  "stretching": {
+    "display_ja": "ストレッチ",
+    "post_count": 23550,
+    "selection_reasons": [
+      "revision2/pose_movement"
+    ],
+    "usage_band": "ordinary"
   },
   "sunlight": {
     "display_ja": "日光",
@@ -1195,6 +1779,14 @@
     ],
     "usage_band": "ordinary"
   },
+  "symbol-shaped_pupils": {
+    "display_ja": "記号形の瞳孔",
+    "post_count": 250114,
+    "selection_reasons": [
+      "revision2/screen_composition_boundary"
+    ],
+    "usage_band": "high_usage"
+  },
   "tail": {
     "display_ja": "尻尾",
     "post_count": 1190752,
@@ -1209,6 +1801,14 @@
     "selection_reasons": [
       "ordinary_hash32",
       "boundary_challenge"
+    ],
+    "usage_band": "ordinary"
+  },
+  "thought_bubble": {
+    "display_ja": "思考吹き出し",
+    "post_count": 57058,
+    "selection_reasons": [
+      "revision2/text_symbol"
     ],
     "usage_band": "ordinary"
   },
@@ -1235,6 +1835,14 @@
       "boundary_challenge"
     ],
     "usage_band": "high_usage"
+  },
+  "triangle": {
+    "display_ja": "三角形",
+    "post_count": 9643,
+    "selection_reasons": [
+      "revision2/color_patterns_shapes"
+    ],
+    "usage_band": "ordinary"
   },
   "uma_stars_(umamusume)": {
     "display_ja": "UMA STARS（ウマ娘）",
@@ -1285,6 +1893,14 @@
     ],
     "usage_band": "rare"
   },
+  "vanishing_point": {
+    "display_ja": "消失点",
+    "post_count": 1549,
+    "selection_reasons": [
+      "revision2/composition_camera"
+    ],
+    "usage_band": "ordinary"
+  },
   "vegetable": {
     "display_ja": "やさい",
     "post_count": 6982,
@@ -1317,6 +1933,14 @@
     ],
     "usage_band": "rare"
   },
+  "watermark": {
+    "display_ja": "透かし",
+    "post_count": 243720,
+    "selection_reasons": [
+      "revision2/text_symbol"
+    ],
+    "usage_band": "high_usage"
+  },
   "white_background": {
     "display_ja": "白背景",
     "post_count": 2326548,
@@ -1338,6 +1962,14 @@
     "post_count": 3831,
     "selection_reasons": [
       "ordinary_hash32"
+    ],
+    "usage_band": "ordinary"
+  },
+  "wide_shot": {
+    "display_ja": "ロングショット",
+    "post_count": 23720,
+    "selection_reasons": [
+      "revision2/composition_camera"
     ],
     "usage_band": "ordinary"
   },
@@ -1378,6 +2010,14 @@
     "post_count": 3152,
     "selection_reasons": [
       "ordinary_hash32"
+    ],
+    "usage_band": "ordinary"
+  },
+  "zoom_layer": {
+    "display_ja": "ズームレイヤー",
+    "post_count": 39584,
+    "selection_reasons": [
+      "revision2/screen_composition_boundary"
     ],
     "usage_band": "ordinary"
   },

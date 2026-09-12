@@ -27,14 +27,17 @@
       "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
     },
     "aa-12": {
-      "classification_reason": "型番のみで用途を証拠付きに固定できない。武器候補だがcanonical定義の確認が必要。",
-      "classification_status": "UNRESOLVED",
-      "primary_path": null,
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiはAuto Assault-12を戦闘用散弾銃として説明。 分類判断: 型番の用途を定義で確認できたため武器へ。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "OBJECT_PROP",
+        "subgenre_id": "WEAPON"
+      },
       "reviewed": false,
       "reviewed_at": null,
       "reviewer": null,
       "secondary_paths": [],
-      "source": "Codex offline ambiguity inspection; canonical/production display insufficient; needs definition or DEV boundary decision"
+      "source": "external_evidence.json#entries/aa-12; https://danbooru.donmai.us/wiki_pages/aa-12"
     },
     "after_sex": {
       "classification_reason": "after_sex: 行為または行為後の文脈を探す。語から省略された内容を追加せずcanonicalの意味範囲を保つ。",
@@ -101,6 +104,19 @@
       "secondary_paths": [],
       "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
     },
+    "arrow_(symbol)": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiは方向を示す矢印記号と定義し、飛び道具の矢と区別。 分類判断: 記号の入口へ。武器へ送らない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "TEXT_SYMBOL",
+        "subgenre_id": "SYMBOL"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/arrow_(symbol); https://danbooru.donmai.us/wiki_pages/arrow_%28symbol%29"
+    },
     "arzuros_(armor)": {
       "classification_reason": "arzuros_(armor): cosplay/armorまたはproduction表示の装備という具体的手掛かりから衣装を提案。固有人物のidentityへ変換しない。",
       "classification_status": "PROPOSED",
@@ -126,6 +142,19 @@
       "reviewer": null,
       "secondary_paths": [],
       "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "aurora": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiの定義: 夜空に色の光が現れる大気現象。 分類判断: 光・時間・天候として探す。天体そのものや建物・背景物とは区別。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "LIGHT_TIME_WEATHER",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/aurora; https://danbooru.donmai.us/wiki_pages/aurora"
     },
     "ayachi_nene_(cosplay)": {
       "classification_reason": "ayachi_nene_(cosplay): cosplay/armorまたはproduction表示の装備という具体的手掛かりから衣装を提案。固有人物のidentityへ変換しない。",
@@ -166,6 +195,19 @@
       "secondary_paths": [],
       "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
     },
+    "backlighting": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiの定義: 被写体の後方にある光源が縁などを照らす。 分類判断: 光・時間・天候として探す。天体そのものや建物・背景物とは区別。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "LIGHT_TIME_WEATHER",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/backlighting; https://danbooru.donmai.us/wiki_pages/backlighting"
+    },
     "bad_anatomy": {
       "classification_reason": "bad_anatomy: 塗り・加工・画面形式・作画状態の経路。良い品質を保証したり生成効果を評価する意味はない。",
       "classification_status": "PROPOSED",
@@ -191,6 +233,32 @@
       "reviewer": null,
       "secondary_paths": [],
       "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "baku_(creature)": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiは夢を食べる、獏に似た妖怪と定義。 分類判断: 空想生物を主経路にする。固有キャラクターへ変換しない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "LIVING_NATURE",
+        "subgenre_id": "CREATURE"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/baku_(creature); https://danbooru.donmai.us/wiki_pages/baku_%28creature%29"
+    },
+    "bird": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiの定義: 羽毛と翼を持つ動物群。単純なV字の鳥表現は別タグ。 分類判断: 生き物全体を探す。動物部位や食べ物は別。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "LIVING_NATURE",
+        "subgenre_id": "CREATURE"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/bird; https://danbooru.donmai.us/wiki_pages/bird"
     },
     "black_boots": {
       "classification_reason": "black_boots: 身につける衣類の種類・部分的特徴を主に発見する。色・柄修飾より衣服の用途を優先。",
@@ -231,6 +299,19 @@
       "secondary_paths": [],
       "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
     },
+    "blood_moon_(league)": {
+      "classification_reason": "外部根拠（danbooru_post_context, danbooru_wiki_definition, danbooru_wiki_lookup_no_match）: 直接wikiなし。関連wikiにBlood Moon Akali / Kalistaが公式skinとして掲載。対象の先頭12投稿は衣装やmaskを含みofficial_alternate_costumeは1件。 分類判断: 関連skin定義と投稿文脈から衣装系列の発見候補を提案。共起率だけの判定ではなく、天体・血という部分一致を退ける。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "COSTUME"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/blood_moon_(league); https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=blood_moon_%28league%29, https://danbooru.donmai.us/posts.json?tags=blood_moon_%28league%29+order%3Aid_asc&limit=12&only=id%2Ctag_string_general%2Ctag_string_meta%2Crating, https://danbooru.donmai.us/wiki_pages/akali_%28league%29, https://danbooru.donmai.us/wiki_pages/kalista_%28league%29, https://danbooru.donmai.us/wiki_pages/blood_moon_akali, https://danbooru.donmai.us/wiki_pages/blood_moon_kalista"
+    },
     "blood_writing": {
       "classification_reason": "blood_writing: 画面にある文字・文章から探す。材質や色・祝日の語だけで別分類にしない。",
       "classification_status": "PROPOSED",
@@ -248,6 +329,24 @@
         }
       ],
       "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "bloom": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiは明るい光が周囲へにじむ、写真由来の視覚表現と定義。 分類判断: 光を主、加工表現を副。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "LIGHT_TIME_WEATHER",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [
+        {
+          "genre_id": "STYLE_QUALITY_META",
+          "subgenre_id": null
+        }
+      ],
+      "source": "external_evidence.json#entries/bloom; https://danbooru.donmai.us/wiki_pages/bloom"
     },
     "blue_eyes": {
       "classification_reason": "blue_eyes: 髪型・髪色・目の色または化粧を探す経路。色単独の一覧には機械的に複製しない。",
@@ -328,22 +427,17 @@
       "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
     },
     "bootes_(constellation)": {
-      "classification_reason": "bootes_(constellation): 星座を夜空の発見から探せる光・時間・天候へ仮配置し、背景にも副経路。星座と天候の境界はDEV判断が必要。",
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiは北天にあるうしかい座を説明。 分類判断: 天体・星空として背景の主経路へ移す。光の条件や天候とは区別し、従来のLIGHT副経路も残さない。",
       "classification_status": "PROPOSED",
       "primary_path": {
-        "genre_id": "LIGHT_TIME_WEATHER",
+        "genre_id": "PLACE_BACKGROUND",
         "subgenre_id": null
       },
       "reviewed": false,
       "reviewed_at": null,
       "reviewer": null,
-      "secondary_paths": [
-        {
-          "genre_id": "PLACE_BACKGROUND",
-          "subgenre_id": null
-        }
-      ],
-      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/bootes_(constellation); https://danbooru.donmai.us/wiki_pages/bootes_%28constellation%29"
     },
     "bow": {
       "classification_reason": "bow: production表示はリボン。衣装の装飾を主に、物としてのリボンを副経路に提案。弓・お辞儀という英語の別義へ送らない。",
@@ -401,6 +495,58 @@
       "reviewer": null,
       "secondary_paths": [],
       "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "burst_bomb_(splatoon)": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiはSplatoonのインクを放つ爆弾型の武器と説明。 分類判断: 水風船に似た形でも、定義された武器用途を主にする。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "OBJECT_PROP",
+        "subgenre_id": "WEAPON"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/burst_bomb_(splatoon); https://danbooru.donmai.us/wiki_pages/burst_bomb_%28splatoon%29"
+    },
+    "butterfly": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiの定義: 大きな翅を持つ昆虫の蝶。 分類判断: 生き物全体を探す。動物部位や食べ物は別。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "LIVING_NATURE",
+        "subgenre_id": "CREATURE"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/butterfly; https://danbooru.donmai.us/wiki_pages/butterfly"
+    },
+    "cactus": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiの定義: サボテンの植物群。 分類判断: 植物を主経路にする。草原という場所のタグとは分ける。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "LIVING_NATURE",
+        "subgenre_id": "PLANT"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/cactus; https://danbooru.donmai.us/wiki_pages/cactus"
+    },
+    "cancer_(constellation)": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiは北天の星座であるかに座と説明。 分類判断: 蟹という生物や病名ではなく、空・天体の入口。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "PLACE_BACKGROUND",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/cancer_(constellation); https://danbooru.donmai.us/wiki_pages/cancer_%28constellation%29"
     },
     "candy_bar": {
       "classification_reason": "candy_bar: 食べ物・飲み物を探す。植物全体・色名・食べる行為へ同一視しない。",
@@ -480,6 +626,24 @@
       "secondary_paths": [],
       "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
     },
+    "circle": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiの定義: 主要な円形の存在を表し、同人サークルの意味とは別。 分類判断: 幾何形状を主経路とし、wikiのSymbols関連から記号にも副経路を提案。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "COLOR_APPEARANCE",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [
+        {
+          "genre_id": "TEXT_SYMBOL",
+          "subgenre_id": "SYMBOL"
+        }
+      ],
+      "source": "external_evidence.json#entries/circle; https://danbooru.donmai.us/wiki_pages/circle"
+    },
     "clock": {
       "classification_reason": "clock: 独立した物・道具から発見する。固有名を残したまま浅い道具の経路を付ける。",
       "classification_status": "PROPOSED",
@@ -492,6 +656,37 @@
       "reviewer": null,
       "secondary_paths": [],
       "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "close-up": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiの定義: 主題を非常に近くから捉えた画像。 分類判断: 観察位置・切り取り・遠近の構図から探す。画像内の別画面・レイヤーとは分ける。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "COMPOSITION_CAMERA",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/close-up; https://danbooru.donmai.us/wiki_pages/close-up"
+    },
+    "clown": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiはタグ用途をサーカスの道化に限定し、jester等の別種と区別。 分類判断: 役柄主、特徴的衣装の発見を副にする。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "PERSON_COUNT",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [
+        {
+          "genre_id": "CLOTHING",
+          "subgenre_id": "COSTUME"
+        }
+      ],
+      "source": "external_evidence.json#entries/clown; https://danbooru.donmai.us/wiki_pages/clown"
     },
     "collage": {
       "classification_reason": "collage: 塗り・加工・画面形式・作画状態の経路。良い品質を保証したり生成効果を評価する意味はない。",
@@ -518,6 +713,32 @@
       "reviewer": null,
       "secondary_paths": [],
       "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "constellation": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiの定義: 星空に模様を形作る星の集まり。 分類判断: 背景・空・天体の入口。発光の条件や天候とは分ける。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "PLACE_BACKGROUND",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/constellation; https://danbooru.donmai.us/wiki_pages/constellation"
+    },
+    "constellation_(love_live!)": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiはLove Live! School Idol Festivalの衣装セットと明示。 分類判断: constellationという語を天体に機械分類せず衣装へ。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "COSTUME"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/constellation_(love_live!); https://danbooru.donmai.us/wiki_pages/constellation_%28love_live%21%29"
     },
     "cosplay": {
       "classification_reason": "cosplay: cosplay/armorまたはproduction表示の装備という具体的手掛かりから衣装を提案。固有人物のidentityへ変換しない。",
@@ -588,6 +809,32 @@
       "reviewer": null,
       "secondary_paths": [],
       "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "dappled_sunlight": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiの定義: 木や葉を通過した日光が光と影の模様を作る。 分類判断: 光・時間・天候として探す。天体そのものや建物・背景物とは区別。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "LIGHT_TIME_WEATHER",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/dappled_sunlight; https://danbooru.donmai.us/wiki_pages/dappled_sunlight"
+    },
+    "dawn": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiの定義: 太陽がまだ見えない日の出直前の明るさ。 分類判断: 光・時間・天候として探す。天体そのものや建物・背景物とは区別。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "LIGHT_TIME_WEATHER",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/dawn; https://danbooru.donmai.us/wiki_pages/dawn"
     },
     "depth_of_field": {
       "classification_reason": "depth_of_field: 撮影視点・切り取り範囲・焦点表現から探す。cowboyは人物職業の意味では扱わない。",
@@ -680,6 +927,32 @@
       "secondary_paths": [],
       "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
     },
+    "eye_contact": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiの定義: 二人の視線が互いの目へ向く。対面しているだけとは異なる。 分類判断: 視線・向きの入口へ。カメラの画角や人物の体勢から独立させる。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "GAZE_ORIENTATION",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/eye_contact; https://danbooru.donmai.us/wiki_pages/eye_contact"
+    },
+    "facing_away": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiの定義: 主被写体が観察者と逆を向き、頭の後ろが見える。 分類判断: 視線・向きの入口へ。カメラの画角や人物の体勢から独立させる。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "GAZE_ORIENTATION",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/facing_away; https://danbooru.donmai.us/wiki_pages/facing_away"
+    },
     "facing_viewer": {
       "classification_reason": "facing_viewer: 被写体の向きや視線を指定するための経路。カメラの位置と区別する。",
       "classification_status": "PROPOSED",
@@ -719,6 +992,32 @@
       "secondary_paths": [],
       "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
     },
+    "fish": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiの定義: 水中の動物で、食用の魚はfish_(food)と区別。 分類判断: 生き物全体を探す。動物部位や食べ物は別。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "LIVING_NATURE",
+        "subgenre_id": "CREATURE"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/fish; https://danbooru.donmai.us/wiki_pages/fish"
+    },
+    "fisheye": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiの定義: 魚眼レンズに似た曲線的な歪みを表現する。 分類判断: 観察位置・切り取り・遠近の構図から探す。画像内の別画面・レイヤーとは分ける。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "COMPOSITION_CAMERA",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/fisheye; https://danbooru.donmai.us/wiki_pages/fisheye"
+    },
     "flower": {
       "classification_reason": "flower: 植物そのものを探す。forestのような環境は場所へ分ける。",
       "classification_status": "PROPOSED",
@@ -731,6 +1030,19 @@
       "reviewer": null,
       "secondary_paths": [],
       "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "fog": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiの定義: 地表や水面近くの雲によって視界が下がる気象状態。 分類判断: 光・時間・天候として探す。天体そのものや建物・背景物とは区別。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "LIGHT_TIME_WEATHER",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/fog; https://danbooru.donmai.us/wiki_pages/fog"
     },
     "food": {
       "classification_reason": "food: 食べ物・飲み物を探す。植物全体・色名・食べる行為へ同一視しない。",
@@ -745,6 +1057,19 @@
       "secondary_paths": [],
       "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
     },
+    "foreshortening": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiの定義: 角度によって対象の長さが縮んで見える遠近表現。ぼけの被写界深度とは別。 分類判断: 観察位置・切り取り・遠近の構図から探す。画像内の別画面・レイヤーとは分ける。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "COMPOSITION_CAMERA",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/foreshortening; https://danbooru.donmai.us/wiki_pages/foreshortening"
+    },
     "forest": {
       "classification_reason": "forest: 場所・環境・背景の構成から探す。色や材質語があっても背景用途を主経路にする。",
       "classification_status": "PROPOSED",
@@ -757,6 +1082,19 @@
       "reviewer": null,
       "secondary_paths": [],
       "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "freesia_(flower)": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiはフリージアの花を説明。 分類判断: 括弧で示された花の意味を確認して植物へ。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "LIVING_NATURE",
+        "subgenre_id": "PLANT"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/freesia_(flower); https://danbooru.donmai.us/wiki_pages/freesia_%28flower%29"
     },
     "from_above": {
       "classification_reason": "from_above: 撮影視点・切り取り範囲・焦点表現から探す。cowboyは人物職業の意味では扱わない。",
@@ -809,6 +1147,55 @@
       "reviewer": null,
       "secondary_paths": [],
       "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "full_body": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiの定義: 人物全体が見えて画面の大部分を占める。遠景の人物とは区別。 分類判断: 観察位置・切り取り・遠近の構図から探す。画像内の別画面・レイヤーとは分ける。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "COMPOSITION_CAMERA",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/full_body; https://danbooru.donmai.us/wiki_pages/full_body"
+    },
+    "funsai_seyo!_unvalentine_no_fukushuu_(project_sekai)": {
+      "classification_reason": "外部根拠（danbooru_post_context, danbooru_wiki_definition）: wikiはProject Sekai第194イベント。先頭12投稿中official_alternate_costumeは10件。 分類判断: 衣装関連は確認できるが、イベント全体の主経路を衣装にする方針が未合意。既存イベント2件と同じ基準で保留。",
+      "classification_status": "UNRESOLVED",
+      "primary_path": null,
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/funsai_seyo!_unvalentine_no_fukushuu_(project_sekai); https://danbooru.donmai.us/wiki_pages/funsai_seyo%21_unvalentine_no_fukushuu_%28project_sekai%29, https://danbooru.donmai.us/posts.json?tags=funsai_seyo%21_unvalentine_no_fukushuu_%28project_sekai%29+order%3Aid_asc&limit=12&only=id%2Ctag_string_general%2Ctag_string_meta%2Crating"
+    },
+    "golden_deer_(fire_emblem)": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiは特定の生徒グループで全員が揃った場合に使うと定義。 分類判断: 誰が集合するかという人物・集団の入口。鹿・金色・制服と同義にはしない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "PERSON_COUNT",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/golden_deer_(fire_emblem); https://danbooru.donmai.us/wiki_pages/golden_deer_%28fire_emblem%29"
+    },
+    "grass": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiの定義: 地面に広がる草本の葉が画像に多く見える。 分類判断: 植物を主経路にする。草原という場所のタグとは分ける。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "LIVING_NATURE",
+        "subgenre_id": "PLANT"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/grass; https://danbooru.donmai.us/wiki_pages/grass"
     },
     "green_one-piece_swimsuit": {
       "classification_reason": "green_one-piece_swimsuit: 身につける衣類の種類・部分的特徴を主に発見する。色・柄修飾より衣服の用途を優先。",
@@ -881,14 +1268,17 @@
       "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
     },
     "hand_in_bra": {
-      "classification_reason": "自他の衣服への接触・物の位置・着衣状態のどれを主にするか未合意。",
-      "classification_status": "UNRESOLVED",
-      "primary_path": null,
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiは自分または他人のブラジャーの内側に手がある状態と定義。 分類判断: 行為・接触へ。定義は性的行為に限定していないためINTIMATEには固定しない。着脱も必須ではないので衣服状態の副経路は足さない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "ACTION_CONTACT",
+        "subgenre_id": "INTERACTION"
+      },
       "reviewed": false,
       "reviewed_at": null,
       "reviewer": null,
       "secondary_paths": [],
-      "source": "Codex offline ambiguity inspection; canonical/production display insufficient; needs definition or DEV boundary decision"
+      "source": "external_evidence.json#entries/hand_in_bra; https://danbooru.donmai.us/wiki_pages/hand_in_bra"
     },
     "happy_holidays": {
       "classification_reason": "happy_holidays: 画面にある文字・文章から探す。材質や色・祝日の語だけで別分類にしない。",
@@ -947,6 +1337,37 @@
       ],
       "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
     },
+    "heart_print": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiは服または物に印刷されたハートと定義。 分類判断: プリント模様を主題にする。衣服に限定せず、ハートのしぐさとも区別。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "COLOR_APPEARANCE",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/heart_print; https://danbooru.donmai.us/wiki_pages/heart_print"
+    },
+    "hexagon": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiの定義: 六辺・六角からなる多角形。 分類判断: 幾何形状を主経路とし、wikiのSymbols関連から記号にも副経路を提案。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "COLOR_APPEARANCE",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [
+        {
+          "genre_id": "TEXT_SYMBOL",
+          "subgenre_id": "SYMBOL"
+        }
+      ],
+      "source": "external_evidence.json#entries/hexagon; https://danbooru.donmai.us/wiki_pages/hexagon"
+    },
     "high_heels": {
       "classification_reason": "high_heels: 身につける衣類の種類・部分的特徴を主に発見する。色・柄修飾より衣服の用途を優先。",
       "classification_status": "PROPOSED",
@@ -990,6 +1411,19 @@
         }
       ],
       "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "horse": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiの定義: 四足の大型動物で乗用などに用いられる。 分類判断: 生き物全体を探す。動物部位や食べ物は別。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "LIVING_NATURE",
+        "subgenre_id": "CREATURE"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/horse; https://danbooru.donmai.us/wiki_pages/horse"
     },
     "human_tower": {
       "classification_reason": "human_tower: 人が積み重なる体勢・集団ポーズから探す候補。towerという部分一致で建築や背景へ送らない。",
@@ -1057,7 +1491,7 @@
       "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
     },
     "jester": {
-      "classification_reason": "jester: 人物の人数・不在または役柄・存在種別から発見する。衣服そのものを表す分類と分ける。",
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiは歴史的な道化役と、特徴的な服・帽子を説明。 分類判断: 役柄主を維持し、衣装発見への副経路を追加。",
       "classification_status": "PROPOSED",
       "primary_path": {
         "genre_id": "PERSON_COUNT",
@@ -1066,8 +1500,26 @@
       "reviewed": false,
       "reviewed_at": null,
       "reviewer": null,
+      "secondary_paths": [
+        {
+          "genre_id": "CLOTHING",
+          "subgenre_id": "COSTUME"
+        }
+      ],
+      "source": "external_evidence.json#entries/jester; https://danbooru.donmai.us/wiki_pages/jester"
+    },
+    "jumping": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiの定義: 地面などから身体を空中へ押し出す動作。 分類判断: 体勢と身体の動きから発見する。部位名だけで身体一覧に送らない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "POSE_MOVEMENT",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
       "secondary_paths": [],
-      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+      "source": "external_evidence.json#entries/jumping; https://danbooru.donmai.us/wiki_pages/jumping"
     },
     "juuban_middle_school_uniform": {
       "classification_reason": "juuban_middle_school_uniform: 固有名を含む制服・チーム衣装。固有名の意味や作品階層をtaxonomyに新設しない。",
@@ -1135,14 +1587,17 @@
       "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
     },
     "koe_naki_sakana": {
-      "classification_reason": "作品・衣装等を表す可能性のある固有句。fishの語や訳だけで生き物へ送らない。",
-      "classification_status": "UNRESOLVED",
-      "primary_path": null,
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiはGirls Band Cryの楽曲で、Iseri Ninaの特徴的な衣装で識別されると説明。 分類判断: 楽曲名を衣服名へ変換せず、定義に明示された衣装発見の経路を候補にする。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "COSTUME"
+      },
       "reviewed": false,
       "reviewed_at": null,
       "reviewer": null,
       "secondary_paths": [],
-      "source": "Codex offline ambiguity inspection; canonical/production display insufficient; needs definition or DEV boundary decision"
+      "source": "external_evidence.json#entries/koe_naki_sakana; https://danbooru.donmai.us/wiki_pages/koe_naki_sakana"
     },
     "lace_arm_warmers": {
       "classification_reason": "lace_arm_warmers: 身につける衣類の種類・部分的特徴を主に発見する。色・柄修飾より衣服の用途を優先。",
@@ -1183,15 +1638,36 @@
       "secondary_paths": [],
       "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
     },
+    "lens_flare": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiは強い光がレンズ内で反射・散乱して画像へ現れる表現と説明。 分類判断: 光の見え方を主、画面上の光学効果を副。背景物や虹そのものとは区別。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "LIGHT_TIME_WEATHER",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [
+        {
+          "genre_id": "STYLE_QUALITY_META",
+          "subgenre_id": null
+        }
+      ],
+      "source": "external_evidence.json#entries/lens_flare; https://danbooru.donmai.us/wiki_pages/lens_flare"
+    },
     "light_in_heart": {
-      "classification_reason": "固有タイトルか描画現象か未確認。light/heartの部分一致分類を保留。",
-      "classification_status": "UNRESOLVED",
-      "primary_path": null,
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiは胸に現れる発光と定義。 分類判断: 固有タイトルという保留を解除し、発光表現へ。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "LIGHT_TIME_WEATHER",
+        "subgenre_id": null
+      },
       "reviewed": false,
       "reviewed_at": null,
       "reviewer": null,
       "secondary_paths": [],
-      "source": "Codex offline ambiguity inspection; canonical/production display insufficient; needs definition or DEV boundary decision"
+      "source": "external_evidence.json#entries/light_in_heart; https://danbooru.donmai.us/wiki_pages/light_in_heart"
     },
     "live_tucker_reaction_(meme)": {
       "classification_reason": "live_tucker_reaction_(meme): 塗り・加工・画面形式・作画状態の経路。良い品質を保証したり生成効果を評価する意味はない。",
@@ -1205,6 +1681,19 @@
       "reviewer": null,
       "secondary_paths": [],
       "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "logo": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiは会社・組織・作品などを示す標章や図案と説明。 分類判断: マークを主。必ず文字を含むとは限らない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "TEXT_SYMBOL",
+        "subgenre_id": "SYMBOL"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/logo; https://danbooru.donmai.us/wiki_pages/logo"
     },
     "long_hair": {
       "classification_reason": "long_hair: 髪型・髪色・目の色または化粧を探す経路。色単独の一覧には機械的に複製しない。",
@@ -1232,6 +1721,32 @@
       "secondary_paths": [],
       "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
     },
+    "looking_at_another": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiの定義: 誰かが別の人物を見る。相互の視線はeye_contact。 分類判断: 視線・向きの入口へ。カメラの画角や人物の体勢から独立させる。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "GAZE_ORIENTATION",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/looking_at_another; https://danbooru.donmai.us/wiki_pages/looking_at_another"
+    },
+    "looking_at_phone": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiの定義: 電話へ視線を向ける。 分類判断: 視線・向きの入口へ。カメラの画角や人物の体勢から独立させる。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "GAZE_ORIENTATION",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/looking_at_phone; https://danbooru.donmai.us/wiki_pages/looking_at_phone"
+    },
     "looking_at_viewer": {
       "classification_reason": "looking_at_viewer: 被写体の向きや視線を指定するための経路。カメラの位置と区別する。",
       "classification_status": "PROPOSED",
@@ -1258,18 +1773,75 @@
       "secondary_paths": [],
       "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
     },
-    "maid": {
-      "classification_reason": "maid: 人物の人数・不在または役柄・存在種別から発見する。衣服そのものを表す分類と分ける。",
+    "looking_down": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiの定義: 頭を下げて下を見る。見下す感情の意味ではない。 分類判断: 視線・向きの入口へ。カメラの画角や人物の体勢から独立させる。",
       "classification_status": "PROPOSED",
       "primary_path": {
-        "genre_id": "PERSON_COUNT",
+        "genre_id": "GAZE_ORIENTATION",
         "subgenre_id": null
       },
       "reviewed": false,
       "reviewed_at": null,
       "reviewer": null,
       "secondary_paths": [],
-      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+      "source": "external_evidence.json#entries/looking_down; https://danbooru.donmai.us/wiki_pages/looking_down"
+    },
+    "looking_to_the_side": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiの定義: 人物自身に対して横へ向く視線で、カメラ位置基準ではない。 分類判断: 視線・向きの入口へ。カメラの画角や人物の体勢から独立させる。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "GAZE_ORIENTATION",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/looking_to_the_side; https://danbooru.donmai.us/wiki_pages/looking_to_the_side"
+    },
+    "looking_up": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiの定義: 頭を後ろへ傾けて見上げる。目だけ上向きはupturned_eyes。 分類判断: 視線・向きの入口へ。カメラの画角や人物の体勢から独立させる。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "GAZE_ORIENTATION",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/looking_up; https://danbooru.donmai.us/wiki_pages/looking_up"
+    },
+    "lying": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiの定義: 背・横・腹で主に身体を支えて横たわる。 分類判断: 体勢と身体の動きから発見する。部位名だけで身体一覧に送らない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "POSE_MOVEMENT",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/lying; https://danbooru.donmai.us/wiki_pages/lying"
+    },
+    "maid": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiはメイド制服を着た人物と定義し、仕事をしていなくても衣装の着用に使うと明示。 分類判断: 制服を主、役柄からの発見を副へ変更。制服着用が定義の中心なので単なる職業主分類を修正。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "UNIFORM"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [
+        {
+          "genre_id": "PERSON_COUNT",
+          "subgenre_id": null
+        }
+      ],
+      "source": "external_evidence.json#entries/maid; https://danbooru.donmai.us/wiki_pages/maid"
     },
     "mash_kyrielight_(enma-tei_uniform)_(cosplay)": {
       "classification_reason": "mash_kyrielight_(enma-tei_uniform)_(cosplay): cosplay/armorまたはproduction表示の装備という具体的手掛かりから衣装を提案。固有人物のidentityへ変換しない。",
@@ -1328,15 +1900,28 @@
       "secondary_paths": [],
       "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
     },
+    "milky_way": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiの定義: 空に帯状に見える銀河の描写。 分類判断: 背景・空・天体の入口。発光の条件や天候とは分ける。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "PLACE_BACKGROUND",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/milky_way; https://danbooru.donmai.us/wiki_pages/milky_way"
+    },
     "minna_de_enjoy!_spojoy_park_(project_sekai)": {
-      "classification_reason": "作品由来の名称。公園・衣装・イベント等の役割をcanonical定義で要確認。",
+      "classification_reason": "外部根拠（danbooru_post_context, danbooru_wiki_definition）: wikiはProject Sekai第63イベント。先頭12投稿中official_alternate_costumeは7件。 分類判断: 衣装関連の文脈は確認したが、イベント全体の主経路を衣装に固定する契約は未合意。定義不足ではなくbrowse方針待ちとして保留。",
       "classification_status": "UNRESOLVED",
       "primary_path": null,
       "reviewed": false,
       "reviewed_at": null,
       "reviewer": null,
       "secondary_paths": [],
-      "source": "Codex offline ambiguity inspection; canonical/production display insufficient; needs definition or DEV boundary decision"
+      "source": "external_evidence.json#entries/minna_de_enjoy!_spojoy_park_(project_sekai); https://danbooru.donmai.us/wiki_pages/minna_de_enjoy%21_spojoy_park_%28project_sekai%29, https://danbooru.donmai.us/posts.json?tags=minna_de_enjoy%21_spojoy_park_%28project_sekai%29+order%3Aid_asc&limit=12&only=id%2Ctag_string_general%2Ctag_string_meta%2Crating"
     },
     "misono_gakuen_school_uniform": {
       "classification_reason": "misono_gakuen_school_uniform: 固有名を含む制服・チーム衣装。固有名の意味や作品階層をtaxonomyに新設しない。",
@@ -1382,6 +1967,32 @@
       ],
       "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
     },
+    "moon": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiの定義: 惑星の周囲を回る天体。三日月形の記号とは区別。 分類判断: 背景・空・天体の入口。発光の条件や天候とは分ける。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "PLACE_BACKGROUND",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/moon; https://danbooru.donmai.us/wiki_pages/moon"
+    },
+    "moonlight": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiの定義: 月が放つ夜間の光。 分類判断: 光・時間・天候として探す。天体そのものや建物・背景物とは区別。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "LIGHT_TIME_WEATHER",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/moonlight; https://danbooru.donmai.us/wiki_pages/moonlight"
+    },
     "multicolored_text": {
       "classification_reason": "multicolored_text: 画面にある文字・文章から探す。材質や色・祝日の語だけで別分類にしない。",
       "classification_status": "PROPOSED",
@@ -1394,6 +2005,19 @@
       "reviewer": null,
       "secondary_paths": [],
       "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "mushroom": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiはきのこを菌類と説明し、食べられない種類も含む。 分類判断: 生き物の主経路だけ付ける。菌類を植物と定義したり全て食べ物へ分類しない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "LIVING_NATURE",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/mushroom; https://danbooru.donmai.us/wiki_pages/mushroom"
     },
     "musical_note": {
       "classification_reason": "musical_note: 画面内の記号・マークとして探す。解剖学的心臓や手のしぐさと区別する。",
@@ -1435,24 +2059,43 @@
       "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
     },
     "naked_dress": {
-      "classification_reason": "nakedが露出状態・衣服デザインのいずれを指すか要確認。naked_cloakと同じ規則を適用しない。",
-      "classification_status": "UNRESOLVED",
-      "primary_path": null,
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiはドレスを着ているが、その下が裸と視認できる状態と定義。 分類判断: デザイン名という保留を解除し着衣・露出状態へ。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING_STATE_EXPOSURE",
+        "subgenre_id": null
+      },
       "reviewed": false,
       "reviewed_at": null,
       "reviewer": null,
       "secondary_paths": [],
-      "source": "Codex offline ambiguity inspection; canonical/production display insufficient; needs definition or DEV boundary decision"
+      "source": "external_evidence.json#entries/naked_dress; https://danbooru.donmai.us/wiki_pages/naked_dress"
+    },
+    "night": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiの定義: 暗い時間帯。 分類判断: 光・時間・天候として探す。天体そのものや建物・背景物とは区別。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "LIGHT_TIME_WEATHER",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/night; https://danbooru.donmai.us/wiki_pages/night"
     },
     "nijigasaki_7th_live!_new_tokimeki_land": {
-      "classification_reason": "イベント名に見えるが衣装・ロゴ・場面等のタグ用途が未確定。",
-      "classification_status": "UNRESOLVED",
-      "primary_path": null,
+      "classification_reason": "外部根拠（danbooru_post_context, danbooru_wiki_lookup_no_match）: 直接wikiなし。先頭12投稿すべてhawaiian_shirtを含み、9件にofficial_alternate_costume。 分類判断: 投稿文脈限定の衣装browse候補。イベント名と衣装が同義とは断定せず、wiki定義より弱い推論として独立監査へ渡す。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "COSTUME"
+      },
       "reviewed": false,
       "reviewed_at": null,
       "reviewer": null,
       "secondary_paths": [],
-      "source": "Codex offline ambiguity inspection; canonical/production display insufficient; needs definition or DEV boundary decision"
+      "source": "external_evidence.json#entries/nijigasaki_7th_live!_new_tokimeki_land; https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=nijigasaki_7th_live%21_new_tokimeki_land, https://danbooru.donmai.us/posts.json?tags=nijigasaki_7th_live%21_new_tokimeki_land+order%3Aid_asc&limit=12&only=id%2Ctag_string_general%2Ctag_string_meta%2Crating"
     },
     "no_humans": {
       "classification_reason": "no_humans: 人物の人数・不在または役柄・存在種別から発見する。衣服そのものを表す分類と分ける。",
@@ -1466,6 +2109,94 @@
       "reviewer": null,
       "secondary_paths": [],
       "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "nun": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiは宗教的役割と、特徴的な修道服・頭衣を説明。 分類判断: 人物の役柄主、衣装からの発見を副にする。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "PERSON_COUNT",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [
+        {
+          "genre_id": "CLOTHING",
+          "subgenre_id": "COSTUME"
+        }
+      ],
+      "source": "external_evidence.json#entries/nun; https://danbooru.donmai.us/wiki_pages/nun"
+    },
+    "nurse": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiは看護職を説明し、典型的な制服や帽子のタグ用途も説明。 分類判断: 職業主、制服発見を副にする。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "PERSON_COUNT",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [
+        {
+          "genre_id": "CLOTHING",
+          "subgenre_id": "UNIFORM"
+        }
+      ],
+      "source": "external_evidence.json#entries/nurse; https://danbooru.donmai.us/wiki_pages/nurse"
+    },
+    "nurse_cap": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiは看護師の帽子として定義。 分類判断: 帽子という物の着用を主にする。看護職とのidentityは別。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "ACCESSORY"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/nurse_cap; https://danbooru.donmai.us/wiki_pages/nurse_cap"
+    },
+    "on_back": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiの定義: 背を下にして横たわる。 分類判断: 体勢と身体の動きから発見する。部位名だけで身体一覧に送らない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "POSE_MOVEMENT",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/on_back; https://danbooru.donmai.us/wiki_pages/on_back"
+    },
+    "on_side": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiの定義: 身体の横を下にして横たわる。 分類判断: 体勢と身体の動きから発見する。部位名だけで身体一覧に送らない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "POSE_MOVEMENT",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/on_side; https://danbooru.donmai.us/wiki_pages/on_side"
+    },
+    "on_stomach": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiの定義: 腹側を下にして横たわる。 分類判断: 体勢と身体の動きから発見する。部位名だけで身体一覧に送らない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "POSE_MOVEMENT",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/on_stomach; https://danbooru.donmai.us/wiki_pages/on_stomach"
     },
     "ooarai_marine_tower": {
       "classification_reason": "ooarai_marine_tower: 場所・環境・背景の構成から探す。色や材質語があっても背景用途を主経路にする。",
@@ -1505,6 +2236,19 @@
       "reviewer": null,
       "secondary_paths": [],
       "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "panorama": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiは一度に見渡せる範囲を超える広角の風景表現と説明。 分類判断: 広い視野・画角を主題とする。画面分割という構成とは区別。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "COMPOSITION_CAMERA",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/panorama; https://danbooru.donmai.us/wiki_pages/panorama"
     },
     "panties": {
       "classification_reason": "panties: 身につける衣類の種類・部分的特徴を主に発見する。色・柄修飾より衣服の用途を優先。",
@@ -1557,6 +2301,19 @@
       "reviewer": null,
       "secondary_paths": [],
       "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "pastel_colors": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiは淡い色調の画面配色を説明し、pale_colorsやmuted_colorsと区別。 分類判断: 配色が主題。固定対象の色修飾とは分ける。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "COLOR_APPEARANCE",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/pastel_colors; https://danbooru.donmai.us/wiki_pages/pastel_colors"
     },
     "pentagon_(shape)": {
       "classification_reason": "pentagon_(shape): 固有の色・柄・形として探す。shapeの明示がある図形であり対象物の名として推測しない。",
@@ -1636,6 +2393,19 @@
       "secondary_paths": [],
       "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
     },
+    "planet": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiの定義: 宇宙や別の天体から見える惑星。実在・架空を含む。 分類判断: 背景・空・天体の入口。発光の条件や天候とは分ける。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "PLACE_BACKGROUND",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/planet; https://danbooru.donmai.us/wiki_pages/planet"
+    },
     "pointing_sword": {
       "classification_reason": "pointing_sword: 物との関係・保持や使用状態が主題。物の名だけで分類しない。",
       "classification_status": "PROPOSED",
@@ -1653,6 +2423,68 @@
         }
       ],
       "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "police": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiは警察に関わる人物・場所・装備・場面全般に使うと明示。 分類判断: 職業だけ・制服だけでは範囲を狭める。複数の発見用途を横断するthemeの扱いが未合意なので保留。",
+      "classification_status": "UNRESOLVED",
+      "primary_path": null,
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/police; https://danbooru.donmai.us/wiki_pages/police"
+    },
+    "polka_dot": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiは等大の円を等間隔に置いた模様と説明。 分類判断: 模様から探す。印刷網点のben-day dotsやhalftoneと同一視しない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "COLOR_APPEARANCE",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/polka_dot; https://danbooru.donmai.us/wiki_pages/polka_dot"
+    },
+    "portrait": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiの定義: 人物の顔を中心とし、胸より下まで大きく含めない切り取り。 分類判断: 観察位置・切り取り・遠近の構図から探す。画像内の別画面・レイヤーとは分ける。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "COMPOSITION_CAMERA",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/portrait; https://danbooru.donmai.us/wiki_pages/portrait"
+    },
+    "pov": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiの定義: 一人称視点。相手がカメラを見るだけとは区別。 分類判断: 観察位置・切り取り・遠近の構図から探す。画像内の別画面・レイヤーとは分ける。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "COMPOSITION_CAMERA",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/pov; https://danbooru.donmai.us/wiki_pages/pov"
+    },
+    "profile": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiは顔の片側が見える図を定義し、人物プロフィール情報と区別。 分類判断: 写る顔の範囲・横顔の構図へ。眼球の視線方向は定義しないので視線経路には固定しない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "COMPOSITION_CAMERA",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/profile; https://danbooru.donmai.us/wiki_pages/profile"
     },
     "puppet_show": {
       "classification_reason": "puppet_show: 接触・しぐさ・活動から探す。身体部位や描かれた記号の存在そのものとは分ける。",
@@ -1694,24 +2526,40 @@
       "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
     },
     "ribbon_bar": {
-      "classification_reason": "服飾・勲章・画面部品等の多義候補。リボン一般と同じ分類に決めない。",
-      "classification_status": "UNRESOLVED",
-      "primary_path": null,
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiは軍服・警察制服などに付ける略綬を説明。 分類判断: 画面部品やリボン一般という多義を解除し、服の装飾へ。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "ACCESSORY"
+      },
       "reviewed": false,
       "reviewed_at": null,
       "reviewer": null,
       "secondary_paths": [],
-      "source": "Codex offline ambiguity inspection; canonical/production display insufficient; needs definition or DEV boundary decision"
+      "source": "external_evidence.json#entries/ribbon_bar; https://danbooru.donmai.us/wiki_pages/ribbon_bar"
+    },
+    "rose": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiの定義: 花の種類で、同じ読みの別文脈タグを指さない。 分類判断: 植物を主経路にする。草原という場所のタグとは分ける。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "LIVING_NATURE",
+        "subgenre_id": "PLANT"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/rose; https://danbooru.donmai.us/wiki_pages/rose"
     },
     "saihate_e_to_tobu_kimi_e_(project_sekai)": {
-      "classification_reason": "作品由来の句で用途が不明。tobuをポーズ・動きへ機械的に分類しない。",
+      "classification_reason": "外部根拠（danbooru_post_context, danbooru_wiki_definition）: wikiはProject Sekai第206イベント。先頭12投稿中official_alternate_costumeは8件。 分類判断: 衣装文脈はあるがイベント全体の扱いが未合意。共起だけで衣装と同義にせず保留。",
       "classification_status": "UNRESOLVED",
       "primary_path": null,
       "reviewed": false,
       "reviewed_at": null,
       "reviewer": null,
       "secondary_paths": [],
-      "source": "Codex offline ambiguity inspection; canonical/production display insufficient; needs definition or DEV boundary decision"
+      "source": "external_evidence.json#entries/saihate_e_to_tobu_kimi_e_(project_sekai); https://danbooru.donmai.us/wiki_pages/saihate_e_to_tobu_kimi_e_%28project_sekai%29, https://danbooru.donmai.us/posts.json?tags=saihate_e_to_tobu_kimi_e_%28project_sekai%29+order%3Aid_asc&limit=12&only=id%2Ctag_string_general%2Ctag_string_meta%2Crating"
     },
     "saliva_on_hand": {
       "classification_reason": "saliva_on_hand: 身体の部位・形状・状態または体液が主題。生き物全体や行為の名前へ広げない。",
@@ -1725,6 +2573,19 @@
       "reviewer": null,
       "secondary_paths": [],
       "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "saturated": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiは彩度の強い色を含む画像と定義。 分類判断: 色の強さとして探す。画質の良否へ読み替えない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "COLOR_APPEARANCE",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/saturated; https://danbooru.donmai.us/wiki_pages/saturated"
     },
     "scarf": {
       "classification_reason": "scarf: 衣服の装飾・着用小物から探す。単語の多義・果物等の装飾モチーフで別用途へ流さない。",
@@ -1740,14 +2601,22 @@
       "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
     },
     "screen_zoom": {
-      "classification_reason": "画面内の拡大表示かカメラの切り取りか未確認。構図/画面表現境界を保留。",
-      "classification_status": "UNRESOLVED",
-      "primary_path": null,
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiは舞台の背景スクリーンへ拡大像を投影する表現と定義しzoom_layerに関連付ける。 分類判断: 実画面への投影という画面表現を主経路、舞台背景の発見を副経路にする。一般的なカメラzoomと区別。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "STYLE_QUALITY_META",
+        "subgenre_id": null
+      },
       "reviewed": false,
       "reviewed_at": null,
       "reviewer": null,
-      "secondary_paths": [],
-      "source": "Codex offline ambiguity inspection; canonical/production display insufficient; needs definition or DEV boundary decision"
+      "secondary_paths": [
+        {
+          "genre_id": "PLACE_BACKGROUND",
+          "subgenre_id": null
+        }
+      ],
+      "source": "external_evidence.json#entries/screen_zoom; https://danbooru.donmai.us/wiki_pages/screen_zoom"
     },
     "shirt": {
       "classification_reason": "shirt: 身につける衣類の種類・部分的特徴を主に発見する。色・柄修飾より衣服の用途を優先。",
@@ -1827,6 +2696,19 @@
       "secondary_paths": [],
       "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
     },
+    "sitting": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiの定義: 尻を面に載せて支える。膝立ちとは区別。 分類判断: 体勢と身体の動きから発見する。部位名だけで身体一覧に送らない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "POSE_MOVEMENT",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/sitting; https://danbooru.donmai.us/wiki_pages/sitting"
+    },
     "sitting_on_wall": {
       "classification_reason": "sitting_on_wall: 人物の体勢・配置が主題。含まれる家具・壁・塔という語だけで道具や建築へ送らない。",
       "classification_status": "PROPOSED",
@@ -1839,6 +2721,19 @@
       "reviewer": null,
       "secondary_paths": [],
       "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "sky": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiの定義: 空が主題・注目点・背景として描かれる。 分類判断: 背景・空・天体の入口。発光の条件や天候とは分ける。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "PLACE_BACKGROUND",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/sky; https://danbooru.donmai.us/wiki_pages/sky"
     },
     "sleeveless_dress": {
       "classification_reason": "sleeveless_dress: 身につける衣類の種類・部分的特徴を主に発見する。色・柄修飾より衣服の用途を優先。",
@@ -1854,17 +2749,17 @@
       "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
     },
     "small_chastity_cage": {
-      "classification_reason": "small_chastity_cage: 独立した物・道具から発見する。固有名を残したまま浅い道具の経路を付ける。",
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiは短い管形状の貞操器具を定義。 分類判断: 道具は維持し、不自然だった日用品DAILYを外す。具体的な道具分類でありcatch-allではない。",
       "classification_status": "PROPOSED",
       "primary_path": {
         "genre_id": "OBJECT_PROP",
-        "subgenre_id": "DAILY"
+        "subgenre_id": null
       },
       "reviewed": false,
       "reviewed_at": null,
       "reviewer": null,
       "secondary_paths": [],
-      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+      "source": "external_evidence.json#entries/small_chastity_cage; https://danbooru.donmai.us/wiki_pages/small_chastity_cage"
     },
     "smile": {
       "classification_reason": "smile: 表情と口元の見え方から探す。顔文字の表記自体を画中文字と判定しない。",
@@ -1892,6 +2787,37 @@
       "secondary_paths": [],
       "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
     },
+    "snowing": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiの定義: 雪が空から降る状態。積もった雪だけとは異なる。 分類判断: 光・時間・天候として探す。天体そのものや建物・背景物とは区別。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "LIGHT_TIME_WEATHER",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/snowing; https://danbooru.donmai.us/wiki_pages/snowing"
+    },
+    "soldier": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiは正規軍の兵を定義し、制服・ヘルメット・装備を関連付ける。 分類判断: 役柄主、軍服を探す副経路。軍服だけで兵士と同義にはしない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "PERSON_COUNT",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [
+        {
+          "genre_id": "CLOTHING",
+          "subgenre_id": "UNIFORM"
+        }
+      ],
+      "source": "external_evidence.json#entries/soldier; https://danbooru.donmai.us/wiki_pages/soldier"
+    },
     "solo": {
       "classification_reason": "solo: 人物の人数・不在または役柄・存在種別から発見する。衣服そのものを表す分類と分ける。",
       "classification_status": "PROPOSED",
@@ -1918,6 +2844,19 @@
       "secondary_paths": [],
       "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
     },
+    "sound_effects": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiは音を表す文字であり、実際の音声とは別と定義。 分類判断: 描かれた文字表現の入口へ。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "TEXT_SYMBOL",
+        "subgenre_id": "TEXT"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/sound_effects; https://danbooru.donmai.us/wiki_pages/sound_effects"
+    },
     "speech_bubble": {
       "classification_reason": "speech_bubble: 文字を入れる画面内の枠を探す。カメラ構図の用語と混ぜない。",
       "classification_status": "PROPOSED",
@@ -1930,6 +2869,99 @@
       "reviewer": null,
       "secondary_paths": [],
       "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "split_screen": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiは線で画像を二つの領域に分割する表現と定義。 分類判断: 画面構成を主、構図発見を副。カメラの視点と同義ではない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "STYLE_QUALITY_META",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [
+        {
+          "genre_id": "COMPOSITION_CAMERA",
+          "subgenre_id": null
+        }
+      ],
+      "source": "external_evidence.json#entries/split_screen; https://danbooru.donmai.us/wiki_pages/split_screen"
+    },
+    "square": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiの定義: 四辺が等しく直角の形。画像の縦横比1:1とは別。 分類判断: 幾何形状を主経路とし、wikiのSymbols関連から記号にも副経路を提案。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "COLOR_APPEARANCE",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [
+        {
+          "genre_id": "TEXT_SYMBOL",
+          "subgenre_id": "SYMBOL"
+        }
+      ],
+      "source": "external_evidence.json#entries/square; https://danbooru.donmai.us/wiki_pages/square"
+    },
+    "standing": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiの定義: 一方または両方の足で身体を支えて立つ。 分類判断: 体勢と身体の動きから発見する。部位名だけで身体一覧に送らない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "POSE_MOVEMENT",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/standing; https://danbooru.donmai.us/wiki_pages/standing"
+    },
+    "star_(sky)": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiの定義: 夜空に見える宇宙の星。星形記号とは別。 分類判断: 背景・空・天体の入口。発光の条件や天候とは分ける。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "PLACE_BACKGROUND",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/star_(sky); https://danbooru.donmai.us/wiki_pages/star_%28sky%29"
+    },
+    "star_(symbol)": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiは星の形の記号で、夜空の星はstar_(sky)と区別。 分類判断: 記号を主、形からも発見できる副経路。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "TEXT_SYMBOL",
+        "subgenre_id": "SYMBOL"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [
+        {
+          "genre_id": "COLOR_APPEARANCE",
+          "subgenre_id": null
+        }
+      ],
+      "source": "external_evidence.json#entries/star_(symbol); https://danbooru.donmai.us/wiki_pages/star_%28symbol%29"
+    },
+    "stretching": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiの定義: 筋肉をほぐす等のため身体や四肢を伸ばす。 分類判断: 体勢と身体の動きから発見する。部位名だけで身体一覧に送らない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "POSE_MOVEMENT",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/stretching; https://danbooru.donmai.us/wiki_pages/stretching"
     },
     "sunlight": {
       "classification_reason": "sunlight: 空の見え方・光・天気・時間帯から発見する。星座名は空の表現として浅く位置付ける。",
@@ -1957,6 +2989,19 @@
       "secondary_paths": [],
       "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
     },
+    "symbol-shaped_pupils": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiは瞳孔自体が記号の形になると定義。眼球全体の置換や眼内文字とは異なる。 分類判断: 目の特徴から探す。記号という語だけで文字・マーク一覧に送らない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "HAIR_FACE",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/symbol-shaped_pupils; https://danbooru.donmai.us/wiki_pages/symbol-shaped_pupils"
+    },
     "tail": {
       "classification_reason": "tail: 身体の部位・形状・状態または体液が主題。生き物全体や行為の名前へ広げない。",
       "classification_status": "PROPOSED",
@@ -1982,6 +3027,19 @@
       "reviewer": null,
       "secondary_paths": [],
       "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "thought_bubble": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiは思考・想像を表す吹き出しの枠を説明。 分類判断: 文字枠から探す。人物の気持ちを推測する分類へ置換しない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "TEXT_SYMBOL",
+        "subgenre_id": "LAYOUT"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/thought_bubble; https://danbooru.donmai.us/wiki_pages/thought_bubble"
     },
     "torn_clothes": {
       "classification_reason": "torn_clothes: 露出・隠す・衣服の持ち上げ・破れが主題。衣服や身体の種類を探す経路より状態を優先。",
@@ -2022,15 +3080,33 @@
       "secondary_paths": [],
       "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
     },
+    "triangle": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiの定義: 三本の直線で構成される形。楽器や製図用具は別タグ。 分類判断: 幾何形状を主経路とし、wikiのSymbols関連から記号にも副経路を提案。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "COLOR_APPEARANCE",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [
+        {
+          "genre_id": "TEXT_SYMBOL",
+          "subgenre_id": "SYMBOL"
+        }
+      ],
+      "source": "external_evidence.json#entries/triangle; https://danbooru.donmai.us/wiki_pages/triangle"
+    },
     "uma_stars_(umamusume)": {
-      "classification_reason": "固有名で衣装・マーク・作品等の対象が未確定。starsを天候へ送らない。",
+      "classification_reason": "外部根拠（danbooru_post_context, danbooru_wiki_definition）: wikiは2024年エイプリルフールの架空アニメ企画と人物群を説明。先頭12投稿中official_alternate_costumeは11件。 分類判断: 衣装文脈は強いが企画全体と衣装系列のbrowse方針が未合意。星・天候への誤分類は退け、UNRESOLVEDを維持。",
       "classification_status": "UNRESOLVED",
       "primary_path": null,
       "reviewed": false,
       "reviewed_at": null,
       "reviewer": null,
       "secondary_paths": [],
-      "source": "Codex offline ambiguity inspection; canonical/production display insufficient; needs definition or DEV boundary decision"
+      "source": "external_evidence.json#entries/uma_stars_(umamusume); https://danbooru.donmai.us/wiki_pages/uma_stars_%28umamusume%29, https://danbooru.donmai.us/posts.json?tags=uma_stars_%28umamusume%29+order%3Aid_asc&limit=12&only=id%2Ctag_string_general%2Ctag_string_meta%2Crating"
     },
     "undead": {
       "classification_reason": "undead: 人物の人数・不在または役柄・存在種別から発見する。衣服そのものを表す分類と分ける。",
@@ -2097,6 +3173,19 @@
       "secondary_paths": [],
       "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
     },
+    "vanishing_point": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiの定義: 背景の線がある点へ収束する遠近法。単なるperspectiveではない。 分類判断: 観察位置・切り取り・遠近の構図から探す。画像内の別画面・レイヤーとは分ける。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "COMPOSITION_CAMERA",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/vanishing_point; https://danbooru.donmai.us/wiki_pages/vanishing_point"
+    },
     "vegetable": {
       "classification_reason": "vegetable: 食べ物・飲み物を探す。植物全体・色名・食べる行為へ同一視しない。",
       "classification_status": "PROPOSED",
@@ -2124,14 +3213,22 @@
       "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
     },
     "viewer_on_leash": {
-      "classification_reason": "視点側の関係を表すが接触・性的文脈・構図の主経路が未確定。語だけで性的分類を断定しない。",
-      "classification_status": "UNRESOLVED",
-      "primary_path": null,
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiは視点人物がリードにつながれているPOV画像と定義。 分類判断: リードを介した関係・接触が主、一人称の構図が副。性的行為自体は定義されていない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "ACTION_CONTACT",
+        "subgenre_id": "INTERACTION"
+      },
       "reviewed": false,
       "reviewed_at": null,
       "reviewer": null,
-      "secondary_paths": [],
-      "source": "Codex offline ambiguity inspection; canonical/production display insufficient; needs definition or DEV boundary decision"
+      "secondary_paths": [
+        {
+          "genre_id": "COMPOSITION_CAMERA",
+          "subgenre_id": null
+        }
+      ],
+      "source": "external_evidence.json#entries/viewer_on_leash; https://danbooru.donmai.us/wiki_pages/viewer_on_leash"
     },
     "wainscoting": {
       "classification_reason": "wainscoting: 場所・環境・背景の構成から探す。色や材質語があっても背景用途を主経路にする。",
@@ -2145,6 +3242,19 @@
       "reviewer": null,
       "secondary_paths": [],
       "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "watermark": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiは画像に重なる文字またはロゴの表示と定義。 分類判断: 文字と図案の双方があり、TEXTかSYMBOLに狭めず主ジャンルから発見する。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "TEXT_SYMBOL",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/watermark; https://danbooru.donmai.us/wiki_pages/watermark"
     },
     "white_background": {
       "classification_reason": "white_background: 場所・環境・背景の構成から探す。色や材質語があっても背景用途を主経路にする。",
@@ -2185,6 +3295,19 @@
       "secondary_paths": [],
       "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
     },
+    "wide_shot": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiの定義: 人物全体が見えるが画面内では小さい。 分類判断: 観察位置・切り取り・遠近の構図から探す。画像内の別画面・レイヤーとは分ける。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "COMPOSITION_CAMERA",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "external_evidence.json#entries/wide_shot; https://danbooru.donmai.us/wiki_pages/wide_shot"
+    },
     "wings": {
       "classification_reason": "wings: 身体の部位・形状・状態または体液が主題。生き物全体や行為の名前へ広げない。",
       "classification_status": "PROPOSED",
@@ -2199,7 +3322,7 @@
       "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
     },
     "witch": {
-      "classification_reason": "witch: 人物の人数・不在または役柄・存在種別から発見する。衣服そのものを表す分類と分ける。",
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiは魔法を使う人物を説明し、典型的な帽子・服・小道具を挙げる。 分類判断: 人物主は維持し、定義にある衣装連想を発見する副経路を追加。服が必須という意味ではない。",
       "classification_status": "PROPOSED",
       "primary_path": {
         "genre_id": "PERSON_COUNT",
@@ -2208,8 +3331,13 @@
       "reviewed": false,
       "reviewed_at": null,
       "reviewer": null,
-      "secondary_paths": [],
-      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+      "secondary_paths": [
+        {
+          "genre_id": "CLOTHING",
+          "subgenre_id": "COSTUME"
+        }
+      ],
+      "source": "external_evidence.json#entries/witch; https://danbooru.donmai.us/wiki_pages/witch"
     },
     "wolf_tail": {
       "classification_reason": "wolf_tail: 身体の部位・形状・状態または体液が主題。生き物全体や行為の名前へ広げない。",
@@ -2250,6 +3378,24 @@
       "secondary_paths": [],
       "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
     },
+    "zoom_layer": {
+      "classification_reason": "外部根拠（danbooru_wiki_definition）: wikiは元絵の一部を拡大した追加レイヤーと定義し、舞台スクリーン投影とは区別。 分類判断: 追加レイヤー表現を主、構図を副。screen_zoomの実画面投影へ一括しない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "STYLE_QUALITY_META",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [
+        {
+          "genre_id": "COMPOSITION_CAMERA",
+          "subgenre_id": null
+        }
+      ],
+      "source": "external_evidence.json#entries/zoom_layer; https://danbooru.donmai.us/wiki_pages/zoom_layer"
+    },
     "zwei_association_south_uniform": {
       "classification_reason": "zwei_association_south_uniform: 固有名を含む制服・チーム衣装。固有名の意味や作品階層をtaxonomyに新設しない。",
       "classification_status": "PROPOSED",
@@ -2266,5 +3412,5 @@
   },
   "format_version": 1,
   "stage": "PILOT_PROPOSAL_PENDING_DEV_AUDIT",
-  "taxonomy_version": "issue64-pilot-v1"
+  "taxonomy_version": "issue64-pilot-v2"
 }

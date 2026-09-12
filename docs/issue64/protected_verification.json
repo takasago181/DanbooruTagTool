@@ -349,6 +349,8 @@
   "all_equal": true,
   "baseline": "docs/issue64/protected_before.json",
   "changed": [],
-  "note": "Baseline taken after initial read-only population materialization, before regression tests; overlay additionally matches prior #55 promotion. Scope is listed data roots and audited V5 source, not every ignored workspace file.",
-  "removed": []
+  "note": "Before revision edits, all 86 inputs were rehashed and equaled the V1 baseline. Rehashed again after revision tests. Only the listed data roots and audited V5 source are attested.",
+  "removed": [],
+  "revision": "issue64-pilot-v2",
+  "revision_start_equals_baseline": true
 }

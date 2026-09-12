@@ -1,0 +1,534 @@
+{
+  "added_count": 80,
+  "added_tags": [
+    "arrow_(symbol)",
+    "aurora",
+    "backlighting",
+    "baku_(creature)",
+    "bird",
+    "blood_moon_(league)",
+    "bloom",
+    "burst_bomb_(splatoon)",
+    "butterfly",
+    "cactus",
+    "cancer_(constellation)",
+    "circle",
+    "close-up",
+    "clown",
+    "constellation",
+    "constellation_(love_live!)",
+    "dappled_sunlight",
+    "dawn",
+    "eye_contact",
+    "facing_away",
+    "fish",
+    "fisheye",
+    "fog",
+    "foreshortening",
+    "freesia_(flower)",
+    "full_body",
+    "funsai_seyo!_unvalentine_no_fukushuu_(project_sekai)",
+    "golden_deer_(fire_emblem)",
+    "grass",
+    "heart_print",
+    "hexagon",
+    "horse",
+    "jumping",
+    "lens_flare",
+    "logo",
+    "looking_at_another",
+    "looking_at_phone",
+    "looking_down",
+    "looking_to_the_side",
+    "looking_up",
+    "lying",
+    "milky_way",
+    "moon",
+    "moonlight",
+    "mushroom",
+    "night",
+    "nun",
+    "nurse",
+    "nurse_cap",
+    "on_back",
+    "on_side",
+    "on_stomach",
+    "panorama",
+    "pastel_colors",
+    "planet",
+    "police",
+    "polka_dot",
+    "portrait",
+    "pov",
+    "profile",
+    "rose",
+    "saturated",
+    "sitting",
+    "sky",
+    "snowing",
+    "soldier",
+    "sound_effects",
+    "split_screen",
+    "square",
+    "standing",
+    "star_(sky)",
+    "star_(symbol)",
+    "stretching",
+    "symbol-shaped_pupils",
+    "thought_bubble",
+    "triangle",
+    "vanishing_point",
+    "watermark",
+    "wide_shot",
+    "zoom_layer"
+  ],
+  "baseline_commit": "144adfd8f70718ab2eae4c76774b0bd6e86a16d9",
+  "baseline_count": 173,
+  "baseline_semantic_sha256": "0091a63fe25d5cc52f4038603f092718df055966a3549991c3e0a387ec2085db",
+  "changed_existing_count": 14,
+  "changed_existing_verdict_or_paths": {
+    "aa-12": {
+      "after": {
+        "classification_status": "PROPOSED",
+        "primary_path": {
+          "genre_id": "OBJECT_PROP",
+          "subgenre_id": "WEAPON"
+        },
+        "secondary_paths": []
+      },
+      "before": {
+        "classification_status": "UNRESOLVED",
+        "primary_path": null,
+        "secondary_paths": []
+      }
+    },
+    "bootes_(constellation)": {
+      "after": {
+        "classification_status": "PROPOSED",
+        "primary_path": {
+          "genre_id": "PLACE_BACKGROUND",
+          "subgenre_id": null
+        },
+        "secondary_paths": []
+      },
+      "before": {
+        "classification_status": "PROPOSED",
+        "primary_path": {
+          "genre_id": "LIGHT_TIME_WEATHER",
+          "subgenre_id": null
+        },
+        "secondary_paths": [
+          {
+            "genre_id": "PLACE_BACKGROUND",
+            "subgenre_id": null
+          }
+        ]
+      }
+    },
+    "hand_in_bra": {
+      "after": {
+        "classification_status": "PROPOSED",
+        "primary_path": {
+          "genre_id": "ACTION_CONTACT",
+          "subgenre_id": "INTERACTION"
+        },
+        "secondary_paths": []
+      },
+      "before": {
+        "classification_status": "UNRESOLVED",
+        "primary_path": null,
+        "secondary_paths": []
+      }
+    },
+    "jester": {
+      "after": {
+        "classification_status": "PROPOSED",
+        "primary_path": {
+          "genre_id": "PERSON_COUNT",
+          "subgenre_id": null
+        },
+        "secondary_paths": [
+          {
+            "genre_id": "CLOTHING",
+            "subgenre_id": "COSTUME"
+          }
+        ]
+      },
+      "before": {
+        "classification_status": "PROPOSED",
+        "primary_path": {
+          "genre_id": "PERSON_COUNT",
+          "subgenre_id": null
+        },
+        "secondary_paths": []
+      }
+    },
+    "koe_naki_sakana": {
+      "after": {
+        "classification_status": "PROPOSED",
+        "primary_path": {
+          "genre_id": "CLOTHING",
+          "subgenre_id": "COSTUME"
+        },
+        "secondary_paths": []
+      },
+      "before": {
+        "classification_status": "UNRESOLVED",
+        "primary_path": null,
+        "secondary_paths": []
+      }
+    },
+    "light_in_heart": {
+      "after": {
+        "classification_status": "PROPOSED",
+        "primary_path": {
+          "genre_id": "LIGHT_TIME_WEATHER",
+          "subgenre_id": null
+        },
+        "secondary_paths": []
+      },
+      "before": {
+        "classification_status": "UNRESOLVED",
+        "primary_path": null,
+        "secondary_paths": []
+      }
+    },
+    "maid": {
+      "after": {
+        "classification_status": "PROPOSED",
+        "primary_path": {
+          "genre_id": "CLOTHING",
+          "subgenre_id": "UNIFORM"
+        },
+        "secondary_paths": [
+          {
+            "genre_id": "PERSON_COUNT",
+            "subgenre_id": null
+          }
+        ]
+      },
+      "before": {
+        "classification_status": "PROPOSED",
+        "primary_path": {
+          "genre_id": "PERSON_COUNT",
+          "subgenre_id": null
+        },
+        "secondary_paths": []
+      }
+    },
+    "naked_dress": {
+      "after": {
+        "classification_status": "PROPOSED",
+        "primary_path": {
+          "genre_id": "CLOTHING_STATE_EXPOSURE",
+          "subgenre_id": null
+        },
+        "secondary_paths": []
+      },
+      "before": {
+        "classification_status": "UNRESOLVED",
+        "primary_path": null,
+        "secondary_paths": []
+      }
+    },
+    "nijigasaki_7th_live!_new_tokimeki_land": {
+      "after": {
+        "classification_status": "PROPOSED",
+        "primary_path": {
+          "genre_id": "CLOTHING",
+          "subgenre_id": "COSTUME"
+        },
+        "secondary_paths": []
+      },
+      "before": {
+        "classification_status": "UNRESOLVED",
+        "primary_path": null,
+        "secondary_paths": []
+      }
+    },
+    "ribbon_bar": {
+      "after": {
+        "classification_status": "PROPOSED",
+        "primary_path": {
+          "genre_id": "CLOTHING",
+          "subgenre_id": "ACCESSORY"
+        },
+        "secondary_paths": []
+      },
+      "before": {
+        "classification_status": "UNRESOLVED",
+        "primary_path": null,
+        "secondary_paths": []
+      }
+    },
+    "screen_zoom": {
+      "after": {
+        "classification_status": "PROPOSED",
+        "primary_path": {
+          "genre_id": "STYLE_QUALITY_META",
+          "subgenre_id": null
+        },
+        "secondary_paths": [
+          {
+            "genre_id": "PLACE_BACKGROUND",
+            "subgenre_id": null
+          }
+        ]
+      },
+      "before": {
+        "classification_status": "UNRESOLVED",
+        "primary_path": null,
+        "secondary_paths": []
+      }
+    },
+    "small_chastity_cage": {
+      "after": {
+        "classification_status": "PROPOSED",
+        "primary_path": {
+          "genre_id": "OBJECT_PROP",
+          "subgenre_id": null
+        },
+        "secondary_paths": []
+      },
+      "before": {
+        "classification_status": "PROPOSED",
+        "primary_path": {
+          "genre_id": "OBJECT_PROP",
+          "subgenre_id": "DAILY"
+        },
+        "secondary_paths": []
+      }
+    },
+    "viewer_on_leash": {
+      "after": {
+        "classification_status": "PROPOSED",
+        "primary_path": {
+          "genre_id": "ACTION_CONTACT",
+          "subgenre_id": "INTERACTION"
+        },
+        "secondary_paths": [
+          {
+            "genre_id": "COMPOSITION_CAMERA",
+            "subgenre_id": null
+          }
+        ]
+      },
+      "before": {
+        "classification_status": "UNRESOLVED",
+        "primary_path": null,
+        "secondary_paths": []
+      }
+    },
+    "witch": {
+      "after": {
+        "classification_status": "PROPOSED",
+        "primary_path": {
+          "genre_id": "PERSON_COUNT",
+          "subgenre_id": null
+        },
+        "secondary_paths": [
+          {
+            "genre_id": "CLOTHING",
+            "subgenre_id": "COSTUME"
+          }
+        ]
+      },
+      "before": {
+        "classification_status": "PROPOSED",
+        "primary_path": {
+          "genre_id": "PERSON_COUNT",
+          "subgenre_id": null
+        },
+        "secondary_paths": []
+      }
+    }
+  },
+  "external_evidence_semantic_sha256": "aebd3cb6922985d394961d845d5a267a73d92dbd860b4c662dbc2f3976f362e3",
+  "external_rechecked_rows": 97,
+  "independent_accepted_rows": 0,
+  "new_unresolved": [
+    "funsai_seyo!_unvalentine_no_fukushuu_(project_sekai)",
+    "police"
+  ],
+  "remaining_existing_unresolved": [
+    "minna_de_enjoy!_spojoy_park_(project_sekai)",
+    "saihate_e_to_tobu_kimi_e_(project_sekai)",
+    "uma_stars_(umamusume)"
+  ],
+  "removed_count": 0,
+  "resolved_existing_tags": [
+    "aa-12",
+    "hand_in_bra",
+    "koe_naki_sakana",
+    "light_in_heart",
+    "naked_dress",
+    "nijigasaki_7th_live!_new_tokimeki_land",
+    "ribbon_bar",
+    "screen_zoom",
+    "viewer_on_leash"
+  ],
+  "revised_count": 253,
+  "source_kind_reference_counts": {
+    "danbooru_post_context": 6,
+    "danbooru_wiki_definition": 99,
+    "danbooru_wiki_lookup_no_match": 2
+  },
+  "unchanged_existing_rows_without_new_external_check": [
+    "1girl",
+    ";q",
+    "after_sex",
+    "after_tribadism",
+    "animal_ears",
+    "anime_coloring",
+    "aris_(blue_archive)_(cosplay)",
+    "arzuros_(armor)",
+    "ashford_academy_swimsuit",
+    "ayachi_nene_(cosplay)",
+    "ayanokouji_martial_arts_school_uniform",
+    "back",
+    "bad_anatomy",
+    "bad_neck",
+    "black_boots",
+    "black_hair",
+    "blood",
+    "blood_writing",
+    "blue_eyes",
+    "blue_shrug",
+    "blue_trim",
+    "blurry",
+    "blush",
+    "bonsai",
+    "bow",
+    "bow_earrings",
+    "breasts",
+    "brown_hoodie",
+    "candy_bar",
+    "cat",
+    "cat_ears",
+    "center-flap_bangs",
+    "chair",
+    "cheek_pinching",
+    "clock",
+    "collage",
+    "comic",
+    "cosplay",
+    "covering_breasts",
+    "cowboy_shot",
+    "cross",
+    "crying",
+    "depth_of_field",
+    "desert_voe_set_(zelda)",
+    "dragon",
+    "dutch_angle",
+    "elbow_on_table",
+    "english_text",
+    "escudo_sword_(rayearth)",
+    "facing_viewer",
+    "fallen_down",
+    "feather_in_mouth",
+    "flower",
+    "food",
+    "forest",
+    "from_above",
+    "from_below",
+    "fruit",
+    "fruit_hair_ornament",
+    "green_one-piece_swimsuit",
+    "green_scarf",
+    "grey_eyes",
+    "greyscale",
+    "half_updo",
+    "happy_holidays",
+    "headband",
+    "heart",
+    "heart_hands",
+    "high_heels",
+    "holding",
+    "holding_knife_behind_back",
+    "human_tower",
+    "implied_after_sex",
+    "injury",
+    "intestines",
+    "japanese_national_soccer_team_uniform",
+    "juuban_middle_school_uniform",
+    "kaban_(kemono_friends)_(cosplay)",
+    "kasumi_(kancolle)_(cosplay)",
+    "kiryu_kazuma_(cosplay)",
+    "kneeling",
+    "lace_arm_warmers",
+    "landscape",
+    "large_breasts",
+    "live_tucker_reaction_(meme)",
+    "long_hair",
+    "long_sleeves",
+    "looking_at_viewer",
+    "looking_back",
+    "mash_kyrielight_(enma-tei_uniform)_(cosplay)",
+    "men's_toilet_symbol",
+    "microphone_between_breasts",
+    "military_vehicle",
+    "misono_gakuen_school_uniform",
+    "money_fan",
+    "monochrome",
+    "multicolored_text",
+    "musical_note",
+    "naka_(kancolle)_(cosplay)",
+    "naked_cloak",
+    "no_humans",
+    "ooarai_marine_tower",
+    "open_mouth",
+    "otonokizaka_school_uniform",
+    "panties",
+    "panty_lift",
+    "parted_bangs",
+    "partially_visible_vulva",
+    "pentagon_(shape)",
+    "personal_terminal",
+    "pinching_own_belly",
+    "pink_eyeliner",
+    "pinwheel",
+    "plaid_arm_warmers",
+    "pointing_sword",
+    "puppet_show",
+    "rain",
+    "recruitment_bag_(arknights)",
+    "saliva_on_hand",
+    "scarf",
+    "shirt",
+    "shirt_lift",
+    "short_hair",
+    "signature",
+    "simple_background",
+    "single_arm_warmer",
+    "sitting_on_wall",
+    "sleeveless_dress",
+    "smile",
+    "snake",
+    "solo",
+    "soul_edge_(weapon)",
+    "speech_bubble",
+    "sunlight",
+    "sunset",
+    "tail",
+    "tea",
+    "torn_clothes",
+    "touching_forehead",
+    "tree",
+    "undead",
+    "under_bridge",
+    "underwater",
+    "upper_teeth_only",
+    "usada_pekora_(cosplay)",
+    "vegetable",
+    "vibrator_over_clothes",
+    "wainscoting",
+    "white_background",
+    "white_eyes",
+    "white_tube_top",
+    "wings",
+    "wolf_tail",
+    "yae_miko_(cosplay)",
+    "yurigaoka_girls_academy_school_uniform",
+    "zwei_association_south_uniform"
+  ]
+}

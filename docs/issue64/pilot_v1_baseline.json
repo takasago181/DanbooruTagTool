@@ -1,0 +1,1403 @@
+{
+  "commit": "144adfd8f70718ab2eae4c76774b0bd6e86a16d9",
+  "entries": {
+    "1girl": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "PERSON_COUNT",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    ";q": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "EXPRESSION_EMOTION",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "aa-12": {
+      "classification_status": "UNRESOLVED",
+      "primary_path": null,
+      "secondary_paths": []
+    },
+    "after_sex": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "ACTION_CONTACT",
+        "subgenre_id": "INTIMATE"
+      },
+      "secondary_paths": []
+    },
+    "after_tribadism": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "ACTION_CONTACT",
+        "subgenre_id": "INTIMATE"
+      },
+      "secondary_paths": []
+    },
+    "animal_ears": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "BODY_PART",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "anime_coloring": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "STYLE_QUALITY_META",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "aris_(blue_archive)_(cosplay)": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "COSTUME"
+      },
+      "secondary_paths": []
+    },
+    "arzuros_(armor)": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "COSTUME"
+      },
+      "secondary_paths": []
+    },
+    "ashford_academy_swimsuit": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "UNIFORM"
+      },
+      "secondary_paths": []
+    },
+    "ayachi_nene_(cosplay)": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "COSTUME"
+      },
+      "secondary_paths": []
+    },
+    "ayanokouji_martial_arts_school_uniform": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "UNIFORM"
+      },
+      "secondary_paths": []
+    },
+    "back": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "BODY_PART",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "bad_anatomy": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "STYLE_QUALITY_META",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "bad_neck": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "STYLE_QUALITY_META",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "black_boots": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "EVERYDAY"
+      },
+      "secondary_paths": []
+    },
+    "black_hair": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "HAIR_FACE",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "blood": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "BODY_PART",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "blood_writing": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "TEXT_SYMBOL",
+        "subgenre_id": "TEXT"
+      },
+      "secondary_paths": [
+        {
+          "genre_id": "BODY_PART",
+          "subgenre_id": null
+        }
+      ]
+    },
+    "blue_eyes": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "HAIR_FACE",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "blue_shrug": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "EVERYDAY"
+      },
+      "secondary_paths": []
+    },
+    "blue_trim": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "ACCESSORY"
+      },
+      "secondary_paths": []
+    },
+    "blurry": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "STYLE_QUALITY_META",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "blush": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "EXPRESSION_EMOTION",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "bonsai": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "LIVING_NATURE",
+        "subgenre_id": "PLANT"
+      },
+      "secondary_paths": []
+    },
+    "bootes_(constellation)": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "LIGHT_TIME_WEATHER",
+        "subgenre_id": null
+      },
+      "secondary_paths": [
+        {
+          "genre_id": "PLACE_BACKGROUND",
+          "subgenre_id": null
+        }
+      ]
+    },
+    "bow": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "ACCESSORY"
+      },
+      "secondary_paths": [
+        {
+          "genre_id": "OBJECT_PROP",
+          "subgenre_id": "DAILY"
+        }
+      ]
+    },
+    "bow_earrings": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "ACCESSORY"
+      },
+      "secondary_paths": []
+    },
+    "breasts": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "BODY_PART",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "brown_hoodie": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "EVERYDAY"
+      },
+      "secondary_paths": []
+    },
+    "candy_bar": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "OBJECT_PROP",
+        "subgenre_id": "FOOD"
+      },
+      "secondary_paths": []
+    },
+    "cat": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "LIVING_NATURE",
+        "subgenre_id": "CREATURE"
+      },
+      "secondary_paths": []
+    },
+    "cat_ears": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "BODY_PART",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "center-flap_bangs": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "HAIR_FACE",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "chair": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "OBJECT_PROP",
+        "subgenre_id": "DAILY"
+      },
+      "secondary_paths": []
+    },
+    "cheek_pinching": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "ACTION_CONTACT",
+        "subgenre_id": "INTERACTION"
+      },
+      "secondary_paths": []
+    },
+    "clock": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "OBJECT_PROP",
+        "subgenre_id": "DAILY"
+      },
+      "secondary_paths": []
+    },
+    "collage": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "STYLE_QUALITY_META",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "comic": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "STYLE_QUALITY_META",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "cosplay": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "COSTUME"
+      },
+      "secondary_paths": []
+    },
+    "covering_breasts": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING_STATE_EXPOSURE",
+        "subgenre_id": null
+      },
+      "secondary_paths": [
+        {
+          "genre_id": "ACTION_CONTACT",
+          "subgenre_id": "INTERACTION"
+        }
+      ]
+    },
+    "cowboy_shot": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "COMPOSITION_CAMERA",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "cross": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "TEXT_SYMBOL",
+        "subgenre_id": "SYMBOL"
+      },
+      "secondary_paths": []
+    },
+    "crying": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "EXPRESSION_EMOTION",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "depth_of_field": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "COMPOSITION_CAMERA",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "desert_voe_set_(zelda)": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "COSTUME"
+      },
+      "secondary_paths": []
+    },
+    "dragon": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "LIVING_NATURE",
+        "subgenre_id": "CREATURE"
+      },
+      "secondary_paths": []
+    },
+    "dutch_angle": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "COMPOSITION_CAMERA",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "elbow_on_table": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "POSE_MOVEMENT",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "english_text": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "TEXT_SYMBOL",
+        "subgenre_id": "TEXT"
+      },
+      "secondary_paths": []
+    },
+    "escudo_sword_(rayearth)": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "OBJECT_PROP",
+        "subgenre_id": "WEAPON"
+      },
+      "secondary_paths": []
+    },
+    "facing_viewer": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "GAZE_ORIENTATION",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "fallen_down": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "POSE_MOVEMENT",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "feather_in_mouth": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "ACTION_CONTACT",
+        "subgenre_id": "OBJECT_USE"
+      },
+      "secondary_paths": []
+    },
+    "flower": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "LIVING_NATURE",
+        "subgenre_id": "PLANT"
+      },
+      "secondary_paths": []
+    },
+    "food": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "OBJECT_PROP",
+        "subgenre_id": "FOOD"
+      },
+      "secondary_paths": []
+    },
+    "forest": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "PLACE_BACKGROUND",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "from_above": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "COMPOSITION_CAMERA",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "from_below": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "COMPOSITION_CAMERA",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "fruit": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "OBJECT_PROP",
+        "subgenre_id": "FOOD"
+      },
+      "secondary_paths": []
+    },
+    "fruit_hair_ornament": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "ACCESSORY"
+      },
+      "secondary_paths": []
+    },
+    "green_one-piece_swimsuit": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "EVERYDAY"
+      },
+      "secondary_paths": []
+    },
+    "green_scarf": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "ACCESSORY"
+      },
+      "secondary_paths": []
+    },
+    "grey_eyes": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "HAIR_FACE",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "greyscale": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "STYLE_QUALITY_META",
+        "subgenre_id": null
+      },
+      "secondary_paths": [
+        {
+          "genre_id": "COLOR_APPEARANCE",
+          "subgenre_id": null
+        }
+      ]
+    },
+    "half_updo": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "HAIR_FACE",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "hand_in_bra": {
+      "classification_status": "UNRESOLVED",
+      "primary_path": null,
+      "secondary_paths": []
+    },
+    "happy_holidays": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "TEXT_SYMBOL",
+        "subgenre_id": "TEXT"
+      },
+      "secondary_paths": []
+    },
+    "headband": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "ACCESSORY"
+      },
+      "secondary_paths": []
+    },
+    "heart": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "TEXT_SYMBOL",
+        "subgenre_id": "SYMBOL"
+      },
+      "secondary_paths": []
+    },
+    "heart_hands": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "ACTION_CONTACT",
+        "subgenre_id": "INTERACTION"
+      },
+      "secondary_paths": [
+        {
+          "genre_id": "POSE_MOVEMENT",
+          "subgenre_id": null
+        }
+      ]
+    },
+    "high_heels": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "EVERYDAY"
+      },
+      "secondary_paths": []
+    },
+    "holding": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "ACTION_CONTACT",
+        "subgenre_id": "OBJECT_USE"
+      },
+      "secondary_paths": []
+    },
+    "holding_knife_behind_back": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "ACTION_CONTACT",
+        "subgenre_id": "OBJECT_USE"
+      },
+      "secondary_paths": [
+        {
+          "genre_id": "OBJECT_PROP",
+          "subgenre_id": "WEAPON"
+        }
+      ]
+    },
+    "human_tower": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "POSE_MOVEMENT",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "implied_after_sex": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "ACTION_CONTACT",
+        "subgenre_id": "INTIMATE"
+      },
+      "secondary_paths": []
+    },
+    "injury": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "BODY_PART",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "intestines": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "BODY_PART",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "japanese_national_soccer_team_uniform": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "UNIFORM"
+      },
+      "secondary_paths": []
+    },
+    "jester": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "PERSON_COUNT",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "juuban_middle_school_uniform": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "UNIFORM"
+      },
+      "secondary_paths": []
+    },
+    "kaban_(kemono_friends)_(cosplay)": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "COSTUME"
+      },
+      "secondary_paths": []
+    },
+    "kasumi_(kancolle)_(cosplay)": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "COSTUME"
+      },
+      "secondary_paths": []
+    },
+    "kiryu_kazuma_(cosplay)": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "COSTUME"
+      },
+      "secondary_paths": []
+    },
+    "kneeling": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "POSE_MOVEMENT",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "koe_naki_sakana": {
+      "classification_status": "UNRESOLVED",
+      "primary_path": null,
+      "secondary_paths": []
+    },
+    "lace_arm_warmers": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "EVERYDAY"
+      },
+      "secondary_paths": []
+    },
+    "landscape": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "PLACE_BACKGROUND",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "large_breasts": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "BODY_PART",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "light_in_heart": {
+      "classification_status": "UNRESOLVED",
+      "primary_path": null,
+      "secondary_paths": []
+    },
+    "live_tucker_reaction_(meme)": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "STYLE_QUALITY_META",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "long_hair": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "HAIR_FACE",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "long_sleeves": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "EVERYDAY"
+      },
+      "secondary_paths": []
+    },
+    "looking_at_viewer": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "GAZE_ORIENTATION",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "looking_back": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "GAZE_ORIENTATION",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "maid": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "PERSON_COUNT",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "mash_kyrielight_(enma-tei_uniform)_(cosplay)": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "COSTUME"
+      },
+      "secondary_paths": []
+    },
+    "men's_toilet_symbol": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "TEXT_SYMBOL",
+        "subgenre_id": "SYMBOL"
+      },
+      "secondary_paths": []
+    },
+    "microphone_between_breasts": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "ACTION_CONTACT",
+        "subgenre_id": "OBJECT_USE"
+      },
+      "secondary_paths": [
+        {
+          "genre_id": "OBJECT_PROP",
+          "subgenre_id": "DAILY"
+        }
+      ]
+    },
+    "military_vehicle": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "OBJECT_PROP",
+        "subgenre_id": "VEHICLE"
+      },
+      "secondary_paths": []
+    },
+    "minna_de_enjoy!_spojoy_park_(project_sekai)": {
+      "classification_status": "UNRESOLVED",
+      "primary_path": null,
+      "secondary_paths": []
+    },
+    "misono_gakuen_school_uniform": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "UNIFORM"
+      },
+      "secondary_paths": []
+    },
+    "money_fan": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "OBJECT_PROP",
+        "subgenre_id": "DAILY"
+      },
+      "secondary_paths": []
+    },
+    "monochrome": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "STYLE_QUALITY_META",
+        "subgenre_id": null
+      },
+      "secondary_paths": [
+        {
+          "genre_id": "COLOR_APPEARANCE",
+          "subgenre_id": null
+        }
+      ]
+    },
+    "multicolored_text": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "TEXT_SYMBOL",
+        "subgenre_id": "TEXT"
+      },
+      "secondary_paths": []
+    },
+    "musical_note": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "TEXT_SYMBOL",
+        "subgenre_id": "SYMBOL"
+      },
+      "secondary_paths": []
+    },
+    "naka_(kancolle)_(cosplay)": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "COSTUME"
+      },
+      "secondary_paths": []
+    },
+    "naked_cloak": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING_STATE_EXPOSURE",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "naked_dress": {
+      "classification_status": "UNRESOLVED",
+      "primary_path": null,
+      "secondary_paths": []
+    },
+    "nijigasaki_7th_live!_new_tokimeki_land": {
+      "classification_status": "UNRESOLVED",
+      "primary_path": null,
+      "secondary_paths": []
+    },
+    "no_humans": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "PERSON_COUNT",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "ooarai_marine_tower": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "PLACE_BACKGROUND",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "open_mouth": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "EXPRESSION_EMOTION",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "otonokizaka_school_uniform": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "UNIFORM"
+      },
+      "secondary_paths": []
+    },
+    "panties": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "EVERYDAY"
+      },
+      "secondary_paths": []
+    },
+    "panty_lift": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING_STATE_EXPOSURE",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "parted_bangs": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "HAIR_FACE",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "partially_visible_vulva": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING_STATE_EXPOSURE",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "pentagon_(shape)": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "COLOR_APPEARANCE",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "personal_terminal": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "OBJECT_PROP",
+        "subgenre_id": "DAILY"
+      },
+      "secondary_paths": []
+    },
+    "pinching_own_belly": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "ACTION_CONTACT",
+        "subgenre_id": "INTERACTION"
+      },
+      "secondary_paths": []
+    },
+    "pink_eyeliner": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "HAIR_FACE",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "pinwheel": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "OBJECT_PROP",
+        "subgenre_id": "DAILY"
+      },
+      "secondary_paths": []
+    },
+    "plaid_arm_warmers": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "EVERYDAY"
+      },
+      "secondary_paths": []
+    },
+    "pointing_sword": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "ACTION_CONTACT",
+        "subgenre_id": "OBJECT_USE"
+      },
+      "secondary_paths": [
+        {
+          "genre_id": "OBJECT_PROP",
+          "subgenre_id": "WEAPON"
+        }
+      ]
+    },
+    "puppet_show": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "ACTION_CONTACT",
+        "subgenre_id": "INTERACTION"
+      },
+      "secondary_paths": []
+    },
+    "rain": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "LIGHT_TIME_WEATHER",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "recruitment_bag_(arknights)": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "OBJECT_PROP",
+        "subgenre_id": "DAILY"
+      },
+      "secondary_paths": []
+    },
+    "ribbon_bar": {
+      "classification_status": "UNRESOLVED",
+      "primary_path": null,
+      "secondary_paths": []
+    },
+    "saihate_e_to_tobu_kimi_e_(project_sekai)": {
+      "classification_status": "UNRESOLVED",
+      "primary_path": null,
+      "secondary_paths": []
+    },
+    "saliva_on_hand": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "BODY_PART",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "scarf": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "ACCESSORY"
+      },
+      "secondary_paths": []
+    },
+    "screen_zoom": {
+      "classification_status": "UNRESOLVED",
+      "primary_path": null,
+      "secondary_paths": []
+    },
+    "shirt": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "EVERYDAY"
+      },
+      "secondary_paths": []
+    },
+    "shirt_lift": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING_STATE_EXPOSURE",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "short_hair": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "HAIR_FACE",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "signature": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "TEXT_SYMBOL",
+        "subgenre_id": "TEXT"
+      },
+      "secondary_paths": []
+    },
+    "simple_background": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "PLACE_BACKGROUND",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "single_arm_warmer": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "EVERYDAY"
+      },
+      "secondary_paths": []
+    },
+    "sitting_on_wall": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "POSE_MOVEMENT",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "sleeveless_dress": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "EVERYDAY"
+      },
+      "secondary_paths": []
+    },
+    "small_chastity_cage": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "OBJECT_PROP",
+        "subgenre_id": "DAILY"
+      },
+      "secondary_paths": []
+    },
+    "smile": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "EXPRESSION_EMOTION",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "snake": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "LIVING_NATURE",
+        "subgenre_id": "CREATURE"
+      },
+      "secondary_paths": []
+    },
+    "solo": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "PERSON_COUNT",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "soul_edge_(weapon)": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "OBJECT_PROP",
+        "subgenre_id": "WEAPON"
+      },
+      "secondary_paths": []
+    },
+    "speech_bubble": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "TEXT_SYMBOL",
+        "subgenre_id": "LAYOUT"
+      },
+      "secondary_paths": []
+    },
+    "sunlight": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "LIGHT_TIME_WEATHER",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "sunset": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "LIGHT_TIME_WEATHER",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "tail": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "BODY_PART",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "tea": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "OBJECT_PROP",
+        "subgenre_id": "FOOD"
+      },
+      "secondary_paths": []
+    },
+    "torn_clothes": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING_STATE_EXPOSURE",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "touching_forehead": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "ACTION_CONTACT",
+        "subgenre_id": "INTERACTION"
+      },
+      "secondary_paths": []
+    },
+    "tree": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "LIVING_NATURE",
+        "subgenre_id": "PLANT"
+      },
+      "secondary_paths": []
+    },
+    "uma_stars_(umamusume)": {
+      "classification_status": "UNRESOLVED",
+      "primary_path": null,
+      "secondary_paths": []
+    },
+    "undead": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "PERSON_COUNT",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "under_bridge": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "PLACE_BACKGROUND",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "underwater": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "PLACE_BACKGROUND",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "upper_teeth_only": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "EXPRESSION_EMOTION",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "usada_pekora_(cosplay)": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "COSTUME"
+      },
+      "secondary_paths": []
+    },
+    "vegetable": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "OBJECT_PROP",
+        "subgenre_id": "FOOD"
+      },
+      "secondary_paths": []
+    },
+    "vibrator_over_clothes": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "ACTION_CONTACT",
+        "subgenre_id": "INTIMATE"
+      },
+      "secondary_paths": []
+    },
+    "viewer_on_leash": {
+      "classification_status": "UNRESOLVED",
+      "primary_path": null,
+      "secondary_paths": []
+    },
+    "wainscoting": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "PLACE_BACKGROUND",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "white_background": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "PLACE_BACKGROUND",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "white_eyes": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "HAIR_FACE",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "white_tube_top": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "EVERYDAY"
+      },
+      "secondary_paths": []
+    },
+    "wings": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "BODY_PART",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "witch": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "PERSON_COUNT",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "wolf_tail": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "BODY_PART",
+        "subgenre_id": null
+      },
+      "secondary_paths": []
+    },
+    "yae_miko_(cosplay)": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "COSTUME"
+      },
+      "secondary_paths": []
+    },
+    "yurigaoka_girls_academy_school_uniform": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "UNIFORM"
+      },
+      "secondary_paths": []
+    },
+    "zwei_association_south_uniform": {
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "UNIFORM"
+      },
+      "secondary_paths": []
+    }
+  }
+}

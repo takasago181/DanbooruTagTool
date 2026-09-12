@@ -1,0 +1,2418 @@
+{
+  "entries": {
+    "aa-12": {
+      "classification_inference_ja": "型番の用途を定義で確認できたため武器へ。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiはAuto Assault-12を戦闘用散弾銃として説明。",
+      "sources": [
+        {
+          "body_sha256_utf8": "3e241bdc2d2a168b83efcf4b91209f1a87dc182361956617099f326f3fe84c5e",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=aa-12",
+          "requested_title": "aa-12",
+          "retrieved_at_utc": "2026-09-12T09:28:15Z",
+          "updated_at": "2016-11-23T15:07:05.633-05:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/aa-12",
+          "wiki_id": 40314
+        }
+      ]
+    },
+    "arrow_(symbol)": {
+      "classification_inference_ja": "記号の入口へ。武器へ送らない。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiは方向を示す矢印記号と定義し、飛び道具の矢と区別。",
+      "sources": [
+        {
+          "body_sha256_utf8": "e25a8f89b51e87041e644b09d7935b9529cebb819e055352951d4986591fc964",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=arrow_%28symbol%29",
+          "requested_title": "arrow_(symbol)",
+          "retrieved_at_utc": "2026-09-12T09:29:41Z",
+          "updated_at": "2026-01-25T14:56:07.257-05:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/arrow_%28symbol%29",
+          "wiki_id": 13326
+        }
+      ]
+    },
+    "aurora": {
+      "classification_inference_ja": "光・時間・天候として探す。天体そのものや建物・背景物とは区別。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiの定義: 夜空に色の光が現れる大気現象。",
+      "sources": [
+        {
+          "body_sha256_utf8": "3a77f2b1f807a9d2604e7e86694d05664a5c6bb9c7f34b950222026e91da83e4",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=aurora",
+          "requested_title": "aurora",
+          "retrieved_at_utc": "2026-09-12T09:29:25Z",
+          "updated_at": "2025-12-25T20:52:02.381-05:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/aurora",
+          "wiki_id": 23071
+        }
+      ]
+    },
+    "backlighting": {
+      "classification_inference_ja": "光・時間・天候として探す。天体そのものや建物・背景物とは区別。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiの定義: 被写体の後方にある光源が縁などを照らす。",
+      "sources": [
+        {
+          "body_sha256_utf8": "35930a2fe99184b7d8baffcd46baf1b7c1a1e07bc494eef606ac2f4bf9fcd42b",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=backlighting",
+          "requested_title": "backlighting",
+          "retrieved_at_utc": "2026-09-12T09:29:23Z",
+          "updated_at": "2026-04-27T23:26:22.554-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/backlighting",
+          "wiki_id": 34322
+        }
+      ]
+    },
+    "baku_(creature)": {
+      "classification_inference_ja": "空想生物を主経路にする。固有キャラクターへ変換しない。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiは夢を食べる、獏に似た妖怪と定義。",
+      "sources": [
+        {
+          "body_sha256_utf8": "a42f95515898ba2b8b4600c17a4a4546e4d4c068ade9f218254bf769e6f538be",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=baku_%28creature%29",
+          "requested_title": "baku_(creature)",
+          "retrieved_at_utc": "2026-09-12T09:30:03Z",
+          "updated_at": "2026-09-02T22:25:33.104-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/baku_%28creature%29",
+          "wiki_id": 77374
+        }
+      ]
+    },
+    "bird": {
+      "classification_inference_ja": "生き物全体を探す。動物部位や食べ物は別。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiの定義: 羽毛と翼を持つ動物群。単純なV字の鳥表現は別タグ。",
+      "sources": [
+        {
+          "body_sha256_utf8": "618d10cc62ba2b45fa44aa1e8448000a7f641f9e2e473dd8bc7d807fbe4b6edc",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=bird",
+          "requested_title": "bird",
+          "retrieved_at_utc": "2026-09-12T09:29:39Z",
+          "updated_at": "2026-04-28T04:20:50.572-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/bird",
+          "wiki_id": 32247
+        }
+      ]
+    },
+    "blood_moon_(league)": {
+      "classification_inference_ja": "関連skin定義と投稿文脈から衣装系列の発見候補を提案。共起率だけの判定ではなく、天体・血という部分一致を退ける。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "直接wikiなし。関連wikiにBlood Moon Akali / Kalistaが公式skinとして掲載。対象の先頭12投稿は衣装やmaskを含みofficial_alternate_costumeは1件。",
+      "sources": [
+        {
+          "kind": "danbooru_wiki_lookup_no_match",
+          "matching_pages": 0,
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=blood_moon_%28league%29",
+          "requested_title": "blood_moon_(league)",
+          "retrieved_at_utc": "2026-09-12T09:30:04Z"
+        },
+        {
+          "kind": "danbooru_post_context",
+          "live_tag_metadata": [
+            {
+              "category": 0,
+              "name": "blood_moon_(league)",
+              "post_count": 78
+            }
+          ],
+          "posts": [
+            {
+              "id": 1089864,
+              "relevant_general_tags": [
+                "mask"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/1089864"
+            },
+            {
+              "id": 1124754,
+              "relevant_general_tags": [
+                "mask"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/1124754"
+            },
+            {
+              "id": 1134550,
+              "relevant_general_tags": [],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/1134550"
+            },
+            {
+              "id": 1151191,
+              "relevant_general_tags": [
+                "mask"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/1151191"
+            },
+            {
+              "id": 1303593,
+              "relevant_general_tags": [
+                "mask"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/1303593"
+            },
+            {
+              "id": 1323756,
+              "relevant_general_tags": [
+                "mask"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/1323756"
+            },
+            {
+              "id": 1345163,
+              "relevant_general_tags": [
+                "mask"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/1345163"
+            },
+            {
+              "id": 1346979,
+              "relevant_general_tags": [
+                "mask",
+                "official_alternate_costume"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/1346979"
+            },
+            {
+              "id": 1356943,
+              "relevant_general_tags": [
+                "mask"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/1356943"
+            },
+            {
+              "id": 1556553,
+              "relevant_general_tags": [
+                "mask"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/1556553"
+            },
+            {
+              "id": 1650242,
+              "relevant_general_tags": [
+                "mask"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/1650242"
+            },
+            {
+              "id": 1826442,
+              "relevant_general_tags": [
+                "floral_print",
+                "mask"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/1826442"
+            }
+          ],
+          "retrieved_at_utc": "2026-09-12T09:30:45Z",
+          "sample_method": "first 12 available posts ordered by ascending ID; text metadata only; no image inspection; not representative prevalence",
+          "tag_metadata_url": "https://danbooru.donmai.us/tags.json?search%5Bname%5D=blood_moon_%28league%29",
+          "url": "https://danbooru.donmai.us/posts.json?tags=blood_moon_%28league%29+order%3Aid_asc&limit=12&only=id%2Ctag_string_general%2Ctag_string_meta%2Crating"
+        },
+        {
+          "body_sha256_utf8": "07046a69ab60990763253570cae34371e745796cd32ec993682b0da4d5ee3413",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=akali_%28league%29",
+          "requested_title": "akali_(league)",
+          "retrieved_at_utc": "2026-09-12T09:31:27Z",
+          "updated_at": "2026-06-23T14:33:35.488-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/akali_%28league%29",
+          "wiki_id": 42701
+        },
+        {
+          "body_sha256_utf8": "e6a54dc42e917f2ee2c2728bcc89789f83ea32da960f7323c60a71a094d0017e",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=kalista_%28league%29",
+          "requested_title": "kalista_(league)",
+          "retrieved_at_utc": "2026-09-12T09:31:27Z",
+          "updated_at": "2026-08-17T14:25:25.483-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/kalista_%28league%29",
+          "wiki_id": 94046
+        },
+        {
+          "body_sha256_utf8": "b79d5939e6acadf2812ae8a63a07df58513b85b7cbe855eadc2ab56406f48b9d",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=blood_moon_akali",
+          "requested_title": "blood_moon_akali",
+          "retrieved_at_utc": "2026-09-12T09:31:37Z",
+          "updated_at": "2026-06-23T13:53:47.115-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/blood_moon_akali",
+          "wiki_id": 137437
+        },
+        {
+          "body_sha256_utf8": "c52b6ab9500781c86a3565a09ba545547e635f30dc0268742cc5f7dea9ae1345",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=blood_moon_kalista",
+          "requested_title": "blood_moon_kalista",
+          "retrieved_at_utc": "2026-09-12T09:31:38Z",
+          "updated_at": "2026-06-23T14:30:41.176-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/blood_moon_kalista",
+          "wiki_id": 158044
+        }
+      ]
+    },
+    "bloom": {
+      "classification_inference_ja": "光を主、加工表現を副。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiは明るい光が周囲へにじむ、写真由来の視覚表現と定義。",
+      "sources": [
+        {
+          "body_sha256_utf8": "17b9932cc32ad629725ddf4d9f7f5667df6639025ec38b456cf6dd9c2e361b90",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=bloom",
+          "requested_title": "bloom",
+          "retrieved_at_utc": "2026-09-12T09:30:02Z",
+          "updated_at": "2026-01-22T12:47:07.002-05:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/bloom",
+          "wiki_id": 19958
+        }
+      ]
+    },
+    "bootes_(constellation)": {
+      "classification_inference_ja": "天体・星空として背景の主経路へ移す。光の条件や天候とは区別し、従来のLIGHT副経路も残さない。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiは北天にあるうしかい座を説明。",
+      "sources": [
+        {
+          "body_sha256_utf8": "65a93dc44faafb8fafae2a0c8d4d59dab1e9fa1df2aa4cf8da880944dc224ebd",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=bootes_%28constellation%29",
+          "requested_title": "bootes_(constellation)",
+          "retrieved_at_utc": "2026-09-12T09:28:18Z",
+          "updated_at": "2024-08-18T16:21:15.033-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/bootes_%28constellation%29",
+          "wiki_id": 189770
+        }
+      ]
+    },
+    "burst_bomb_(splatoon)": {
+      "classification_inference_ja": "水風船に似た形でも、定義された武器用途を主にする。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiはSplatoonのインクを放つ爆弾型の武器と説明。",
+      "sources": [
+        {
+          "body_sha256_utf8": "b755e1dc470a7b3e8f2221c06df1c6f3cfb470d8c5359026bd6a1975f23d9dc3",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=burst_bomb_%28splatoon%29",
+          "requested_title": "burst_bomb_(splatoon)",
+          "retrieved_at_utc": "2026-09-12T09:30:03Z",
+          "updated_at": "2025-08-21T15:01:12.941-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/burst_bomb_%28splatoon%29",
+          "wiki_id": 83414
+        }
+      ]
+    },
+    "butterfly": {
+      "classification_inference_ja": "生き物全体を探す。動物部位や食べ物は別。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiの定義: 大きな翅を持つ昆虫の蝶。",
+      "sources": [
+        {
+          "body_sha256_utf8": "00727a0375daff0b94b13c998613f3a3047e30be3692635096f04b1eb8457132",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=butterfly",
+          "requested_title": "butterfly",
+          "retrieved_at_utc": "2026-09-12T09:29:39Z",
+          "updated_at": "2026-07-10T20:14:40.051-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/butterfly",
+          "wiki_id": 19373
+        }
+      ]
+    },
+    "cactus": {
+      "classification_inference_ja": "植物を主経路にする。草原という場所のタグとは分ける。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiの定義: サボテンの植物群。",
+      "sources": [
+        {
+          "body_sha256_utf8": "f5b99b50761b67d148641db94f61f5d6ced68f8ce3732b2d52bf5615ecfefde1",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=cactus",
+          "requested_title": "cactus",
+          "retrieved_at_utc": "2026-09-12T09:29:40Z",
+          "updated_at": "2025-12-19T13:04:21.967-05:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/cactus",
+          "wiki_id": 88075
+        }
+      ]
+    },
+    "cancer_(constellation)": {
+      "classification_inference_ja": "蟹という生物や病名ではなく、空・天体の入口。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiは北天の星座であるかに座と説明。",
+      "sources": [
+        {
+          "body_sha256_utf8": "2a158979e2f18e4573fb0d473f8d207e8d05c0734be978779c649be04ed2ccf7",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=cancer_%28constellation%29",
+          "requested_title": "cancer_(constellation)",
+          "retrieved_at_utc": "2026-09-12T09:30:02Z",
+          "updated_at": "2024-05-02T16:45:31.397-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/cancer_%28constellation%29",
+          "wiki_id": 189758
+        }
+      ]
+    },
+    "circle": {
+      "classification_inference_ja": "幾何形状を主経路とし、wikiのSymbols関連から記号にも副経路を提案。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiの定義: 主要な円形の存在を表し、同人サークルの意味とは別。",
+      "sources": [
+        {
+          "body_sha256_utf8": "6f74d3a55bb9e255161a2d41f98972b3e8a552e997a5e623703acabfa5f4c133",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=circle",
+          "requested_title": "circle",
+          "retrieved_at_utc": "2026-09-12T09:28:54Z",
+          "updated_at": "2026-05-26T03:04:35.450-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/circle",
+          "wiki_id": 21703
+        }
+      ]
+    },
+    "close-up": {
+      "classification_inference_ja": "観察位置・切り取り・遠近の構図から探す。画像内の別画面・レイヤーとは分ける。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiの定義: 主題を非常に近くから捉えた画像。",
+      "sources": [
+        {
+          "body_sha256_utf8": "a62b5615355cce7d3fa8f9a14f044c24e23337c25f30d8b068a7dfd1935425e8",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=close-up",
+          "requested_title": "close-up",
+          "retrieved_at_utc": "2026-09-12T09:29:25Z",
+          "updated_at": "2026-07-15T13:50:22.864-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/close-up",
+          "wiki_id": 58240
+        }
+      ]
+    },
+    "clown": {
+      "classification_inference_ja": "役柄主、特徴的衣装の発見を副にする。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiはタグ用途をサーカスの道化に限定し、jester等の別種と区別。",
+      "sources": [
+        {
+          "body_sha256_utf8": "e7e3a9dc002e7e99d48c711c6d97ee63e40c0791464feea44cc3eb808a2a8b25",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=clown",
+          "requested_title": "clown",
+          "retrieved_at_utc": "2026-09-12T09:29:43Z",
+          "updated_at": "2025-06-14T21:48:24.679-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/clown",
+          "wiki_id": 114502
+        }
+      ]
+    },
+    "constellation": {
+      "classification_inference_ja": "背景・空・天体の入口。発光の条件や天候とは分ける。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiの定義: 星空に模様を形作る星の集まり。",
+      "sources": [
+        {
+          "body_sha256_utf8": "cbd42f86f5aebb23375dea8acc117e2e2b5ff94a9f077d1fe526636c2fd18b4b",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=constellation",
+          "requested_title": "constellation",
+          "retrieved_at_utc": "2026-09-12T09:29:45Z",
+          "updated_at": "2026-08-13T00:20:29.303-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/constellation",
+          "wiki_id": 17279
+        }
+      ]
+    },
+    "constellation_(love_live!)": {
+      "classification_inference_ja": "constellationという語を天体に機械分類せず衣装へ。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiはLove Live! School Idol Festivalの衣装セットと明示。",
+      "sources": [
+        {
+          "body_sha256_utf8": "c7b1c6821dfd70fa8a05c528e7a3109ce035fa0cf12bba512af56acbeade125b",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=constellation_%28love_live%21%29",
+          "requested_title": "constellation_(love_live!)",
+          "retrieved_at_utc": "2026-09-12T09:30:02Z",
+          "updated_at": "2025-06-22T18:09:33.378-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/constellation_%28love_live%21%29",
+          "wiki_id": 69649
+        }
+      ]
+    },
+    "dappled_sunlight": {
+      "classification_inference_ja": "光・時間・天候として探す。天体そのものや建物・背景物とは区別。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiの定義: 木や葉を通過した日光が光と影の模様を作る。",
+      "sources": [
+        {
+          "body_sha256_utf8": "113dbba52043f468f6ed6ee21ec18c80faa0050b094742db3e6af44b58ec5246",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=dappled_sunlight",
+          "requested_title": "dappled_sunlight",
+          "retrieved_at_utc": "2026-09-12T09:29:23Z",
+          "updated_at": "2026-05-14T05:57:13.699-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/dappled_sunlight",
+          "wiki_id": 25103
+        }
+      ]
+    },
+    "dawn": {
+      "classification_inference_ja": "光・時間・天候として探す。天体そのものや建物・背景物とは区別。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiの定義: 太陽がまだ見えない日の出直前の明るさ。",
+      "sources": [
+        {
+          "body_sha256_utf8": "4b183fc81a803d1aba1c522f54f53ff238366da51ae87e7bf0b55f0fd7acf670",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=dawn",
+          "requested_title": "dawn",
+          "retrieved_at_utc": "2026-09-12T09:29:24Z",
+          "updated_at": "2026-06-03T12:47:05.107-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/dawn",
+          "wiki_id": 3622
+        }
+      ]
+    },
+    "eye_contact": {
+      "classification_inference_ja": "視線・向きの入口へ。カメラの画角や人物の体勢から独立させる。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiの定義: 二人の視線が互いの目へ向く。対面しているだけとは異なる。",
+      "sources": [
+        {
+          "body_sha256_utf8": "e302c9a077c3aba36a84b25f5c3f0cc288e3ce970f79f2558694b24f35ba0224",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=eye_contact",
+          "requested_title": "eye_contact",
+          "retrieved_at_utc": "2026-09-12T09:28:56Z",
+          "updated_at": "2026-08-27T10:41:51.097-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/eye_contact",
+          "wiki_id": 5797
+        }
+      ]
+    },
+    "facing_away": {
+      "classification_inference_ja": "視線・向きの入口へ。カメラの画角や人物の体勢から独立させる。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiの定義: 主被写体が観察者と逆を向き、頭の後ろが見える。",
+      "sources": [
+        {
+          "body_sha256_utf8": "b6c189a1603d6bb78ac6dd5167423c87c38f93fff12365c89b7867c2e287ebd7",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=facing_away",
+          "requested_title": "facing_away",
+          "retrieved_at_utc": "2026-09-12T09:28:56Z",
+          "updated_at": "2026-02-24T01:12:11.331-05:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/facing_away",
+          "wiki_id": 91779
+        }
+      ]
+    },
+    "fish": {
+      "classification_inference_ja": "生き物全体を探す。動物部位や食べ物は別。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiの定義: 水中の動物で、食用の魚はfish_(food)と区別。",
+      "sources": [
+        {
+          "body_sha256_utf8": "82c67b4da93c2cc2f516575563eb974b425a223c6ab7a457920308b46077fcd8",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=fish",
+          "requested_title": "fish",
+          "retrieved_at_utc": "2026-09-12T09:29:39Z",
+          "updated_at": "2026-08-30T15:11:01.175-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/fish",
+          "wiki_id": 12580
+        }
+      ]
+    },
+    "fisheye": {
+      "classification_inference_ja": "観察位置・切り取り・遠近の構図から探す。画像内の別画面・レイヤーとは分ける。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiの定義: 魚眼レンズに似た曲線的な歪みを表現する。",
+      "sources": [
+        {
+          "body_sha256_utf8": "c9b395ed6dca5bd1a6f2373acdcb000e1b016856edc2a29d3cf0b0b4fbbb95fe",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=fisheye",
+          "requested_title": "fisheye",
+          "retrieved_at_utc": "2026-09-12T09:29:26Z",
+          "updated_at": "2026-04-24T10:17:26.433-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/fisheye",
+          "wiki_id": 11223
+        }
+      ]
+    },
+    "fog": {
+      "classification_inference_ja": "光・時間・天候として探す。天体そのものや建物・背景物とは区別。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiの定義: 地表や水面近くの雲によって視界が下がる気象状態。",
+      "sources": [
+        {
+          "body_sha256_utf8": "793cd807fedeb13263f95a6f13081229606e7fd282ca17243cb5a7dd0ead10db",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=fog",
+          "requested_title": "fog",
+          "retrieved_at_utc": "2026-09-12T09:29:25Z",
+          "updated_at": "2024-08-14T04:52:49.176-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/fog",
+          "wiki_id": 79965
+        }
+      ]
+    },
+    "foreshortening": {
+      "classification_inference_ja": "観察位置・切り取り・遠近の構図から探す。画像内の別画面・レイヤーとは分ける。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiの定義: 角度によって対象の長さが縮んで見える遠近表現。ぼけの被写界深度とは別。",
+      "sources": [
+        {
+          "body_sha256_utf8": "618f642362d1ed90c4ea9e3a180e40b8d88ed9efd123f0733064eaaaba29b7df",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=foreshortening",
+          "requested_title": "foreshortening",
+          "retrieved_at_utc": "2026-09-12T09:29:26Z",
+          "updated_at": "2026-02-08T14:12:15.212-05:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/foreshortening",
+          "wiki_id": 5819
+        }
+      ]
+    },
+    "freesia_(flower)": {
+      "classification_inference_ja": "括弧で示された花の意味を確認して植物へ。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiはフリージアの花を説明。",
+      "sources": [
+        {
+          "body_sha256_utf8": "dba1fc69ff7ed8286a4522a0e47a226794e7f3958a121f29a1ba6acb3b536c37",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=freesia_%28flower%29",
+          "requested_title": "freesia_(flower)",
+          "retrieved_at_utc": "2026-09-12T09:30:04Z",
+          "updated_at": "2025-06-13T12:41:49.375-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/freesia_%28flower%29",
+          "wiki_id": 104927
+        }
+      ]
+    },
+    "full_body": {
+      "classification_inference_ja": "観察位置・切り取り・遠近の構図から探す。画像内の別画面・レイヤーとは分ける。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiの定義: 人物全体が見えて画面の大部分を占める。遠景の人物とは区別。",
+      "sources": [
+        {
+          "body_sha256_utf8": "96286712b7a33f298c3f5b288e4e04ddeb788cb09ebc4ceb9cd5058727bc55cd",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=full_body",
+          "requested_title": "full_body",
+          "retrieved_at_utc": "2026-09-12T09:29:25Z",
+          "updated_at": "2026-04-24T04:28:48.844-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/full_body",
+          "wiki_id": 34356
+        }
+      ]
+    },
+    "funsai_seyo!_unvalentine_no_fukushuu_(project_sekai)": {
+      "classification_inference_ja": "衣装関連は確認できるが、イベント全体の主経路を衣装にする方針が未合意。既存イベント2件と同じ基準で保留。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiはProject Sekai第194イベント。先頭12投稿中official_alternate_costumeは10件。",
+      "sources": [
+        {
+          "body_sha256_utf8": "9bd70054ac168e0b20c92be9d887e834d775fb1efd7535f3580aaed37c5df08d",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=funsai_seyo%21_unvalentine_no_fukushuu_%28project_sekai%29",
+          "requested_title": "funsai_seyo!_unvalentine_no_fukushuu_(project_sekai)",
+          "retrieved_at_utc": "2026-09-12T09:30:03Z",
+          "updated_at": "2026-02-15T14:29:25.755-05:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/funsai_seyo%21_unvalentine_no_fukushuu_%28project_sekai%29",
+          "wiki_id": 273989
+        },
+        {
+          "kind": "danbooru_post_context",
+          "live_tag_metadata": [
+            {
+              "category": 0,
+              "name": "funsai_seyo!_unvalentine_no_fukushuu_(project_sekai)",
+              "post_count": 83
+            }
+          ],
+          "posts": [
+            {
+              "id": 10700663,
+              "relevant_general_tags": [
+                "jacket",
+                "shirt"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/10700663"
+            },
+            {
+              "id": 10703157,
+              "relevant_general_tags": [
+                "official_alternate_costume"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/10703157"
+            },
+            {
+              "id": 10703474,
+              "relevant_general_tags": [
+                "official_alternate_costume"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/10703474"
+            },
+            {
+              "id": 10703488,
+              "relevant_general_tags": [
+                "official_alternate_costume"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/10703488"
+            },
+            {
+              "id": 10703553,
+              "relevant_general_tags": [
+                "official_alternate_costume"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/10703553"
+            },
+            {
+              "id": 10703567,
+              "relevant_general_tags": [
+                "official_alternate_costume"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/10703567"
+            },
+            {
+              "id": 10703610,
+              "relevant_general_tags": [
+                "official_alternate_costume"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/10703610"
+            },
+            {
+              "id": 10705416,
+              "relevant_general_tags": [
+                "jacket",
+                "official_alternate_costume",
+                "shirt"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/10705416"
+            },
+            {
+              "id": 10712616,
+              "relevant_general_tags": [],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/10712616"
+            },
+            {
+              "id": 10712924,
+              "relevant_general_tags": [
+                "official_alternate_costume"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/10712924"
+            },
+            {
+              "id": 10712941,
+              "relevant_general_tags": [
+                "official_alternate_costume",
+                "shirt"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/10712941"
+            },
+            {
+              "id": 10714289,
+              "relevant_general_tags": [
+                "official_alternate_costume",
+                "shirt"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/10714289"
+            }
+          ],
+          "retrieved_at_utc": "2026-09-12T09:30:45Z",
+          "sample_method": "first 12 available posts ordered by ascending ID; text metadata only; no image inspection; not representative prevalence",
+          "tag_metadata_url": "https://danbooru.donmai.us/tags.json?search%5Bname%5D=funsai_seyo%21_unvalentine_no_fukushuu_%28project_sekai%29",
+          "url": "https://danbooru.donmai.us/posts.json?tags=funsai_seyo%21_unvalentine_no_fukushuu_%28project_sekai%29+order%3Aid_asc&limit=12&only=id%2Ctag_string_general%2Ctag_string_meta%2Crating"
+        }
+      ]
+    },
+    "golden_deer_(fire_emblem)": {
+      "classification_inference_ja": "誰が集合するかという人物・集団の入口。鹿・金色・制服と同義にはしない。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiは特定の生徒グループで全員が揃った場合に使うと定義。",
+      "sources": [
+        {
+          "body_sha256_utf8": "81f840ccde653bfeca25179ffb16b448c94cb9b4761c6dba9fce98e5d4208c33",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=golden_deer_%28fire_emblem%29",
+          "requested_title": "golden_deer_(fire_emblem)",
+          "retrieved_at_utc": "2026-09-12T09:30:03Z",
+          "updated_at": "2026-03-24T03:17:47.682-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/golden_deer_%28fire_emblem%29",
+          "wiki_id": 280675
+        }
+      ]
+    },
+    "grass": {
+      "classification_inference_ja": "植物を主経路にする。草原という場所のタグとは分ける。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiの定義: 地面に広がる草本の葉が画像に多く見える。",
+      "sources": [
+        {
+          "body_sha256_utf8": "0b10b46f42f6089fa3a152451d8e7b8f16151aea71511ec8a3209fb225ce14ef",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=grass",
+          "requested_title": "grass",
+          "retrieved_at_utc": "2026-09-12T09:29:41Z",
+          "updated_at": "2026-02-03T00:58:31.010-05:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/grass",
+          "wiki_id": 11883
+        }
+      ]
+    },
+    "hand_in_bra": {
+      "classification_inference_ja": "行為・接触へ。定義は性的行為に限定していないためINTIMATEには固定しない。着脱も必須ではないので衣服状態の副経路は足さない。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiは自分または他人のブラジャーの内側に手がある状態と定義。",
+      "sources": [
+        {
+          "body_sha256_utf8": "463ee59e5f0d96a5ee8c5dfa14061378ca0894d2808b975ad90f9a8840d53ca1",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=hand_in_bra",
+          "requested_title": "hand_in_bra",
+          "retrieved_at_utc": "2026-09-12T09:28:15Z",
+          "updated_at": "2026-06-01T15:31:50.508-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/hand_in_bra",
+          "wiki_id": 28891
+        }
+      ]
+    },
+    "heart_print": {
+      "classification_inference_ja": "プリント模様を主題にする。衣服に限定せず、ハートのしぐさとも区別。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiは服または物に印刷されたハートと定義。",
+      "sources": [
+        {
+          "body_sha256_utf8": "c2be1181cb58ebc7e28fcda73ecf99954a282d6cf01162aa04f78ff67b66a72c",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=heart_print",
+          "requested_title": "heart_print",
+          "retrieved_at_utc": "2026-09-12T09:28:54Z",
+          "updated_at": "2025-04-07T12:06:41.122-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/heart_print",
+          "wiki_id": 81976
+        }
+      ]
+    },
+    "hexagon": {
+      "classification_inference_ja": "幾何形状を主経路とし、wikiのSymbols関連から記号にも副経路を提案。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiの定義: 六辺・六角からなる多角形。",
+      "sources": [
+        {
+          "body_sha256_utf8": "91b2dc0801f5853aedcca46a6128b7f37885129a99758087500881df9459edf2",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=hexagon",
+          "requested_title": "hexagon",
+          "retrieved_at_utc": "2026-09-12T09:28:54Z",
+          "updated_at": "2024-09-06T13:40:40.957-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/hexagon",
+          "wiki_id": 117760
+        }
+      ]
+    },
+    "horse": {
+      "classification_inference_ja": "生き物全体を探す。動物部位や食べ物は別。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiの定義: 四足の大型動物で乗用などに用いられる。",
+      "sources": [
+        {
+          "body_sha256_utf8": "d92cea7deb7df577f3f20a615680c768f166544e8195ad698fb6f42a61a6d063",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=horse",
+          "requested_title": "horse",
+          "retrieved_at_utc": "2026-09-12T09:29:40Z",
+          "updated_at": "2026-04-14T12:08:50.673-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/horse",
+          "wiki_id": 33872
+        }
+      ]
+    },
+    "jester": {
+      "classification_inference_ja": "役柄主を維持し、衣装発見への副経路を追加。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiは歴史的な道化役と、特徴的な服・帽子を説明。",
+      "sources": [
+        {
+          "body_sha256_utf8": "f57898fe663a4738a49b3c859f8884f14fcbed7e0b70edecdfea81a00f2d2cb9",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=jester",
+          "requested_title": "jester",
+          "retrieved_at_utc": "2026-09-12T09:28:18Z",
+          "updated_at": "2020-07-02T15:07:14.426-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/jester",
+          "wiki_id": 9406
+        }
+      ]
+    },
+    "jumping": {
+      "classification_inference_ja": "体勢と身体の動きから発見する。部位名だけで身体一覧に送らない。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiの定義: 地面などから身体を空中へ押し出す動作。",
+      "sources": [
+        {
+          "body_sha256_utf8": "8dc164bf7e83567e807a62bd78b244a365267ed40a518868fe67c15bee3e2464",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=jumping",
+          "requested_title": "jumping",
+          "retrieved_at_utc": "2026-09-12T09:29:28Z",
+          "updated_at": "2026-05-11T10:42:38.364-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/jumping",
+          "wiki_id": 11897
+        }
+      ]
+    },
+    "koe_naki_sakana": {
+      "classification_inference_ja": "楽曲名を衣服名へ変換せず、定義に明示された衣装発見の経路を候補にする。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiはGirls Band Cryの楽曲で、Iseri Ninaの特徴的な衣装で識別されると説明。",
+      "sources": [
+        {
+          "body_sha256_utf8": "c3a6dd9277f548f1b100a879c8292a2fd58addbab2420769488c0bddd14c1f20",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=koe_naki_sakana",
+          "requested_title": "koe_naki_sakana",
+          "retrieved_at_utc": "2026-09-12T09:28:15Z",
+          "updated_at": "2024-09-20T02:38:36.822-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/koe_naki_sakana",
+          "wiki_id": 193240
+        }
+      ]
+    },
+    "lens_flare": {
+      "classification_inference_ja": "光の見え方を主、画面上の光学効果を副。背景物や虹そのものとは区別。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiは強い光がレンズ内で反射・散乱して画像へ現れる表現と説明。",
+      "sources": [
+        {
+          "body_sha256_utf8": "e042ef027171ad3d1bf3cdbad3fbacd6fac4ce44a7b87dc5d40aac9587490c79",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=lens_flare",
+          "requested_title": "lens_flare",
+          "retrieved_at_utc": "2026-09-12T09:30:02Z",
+          "updated_at": "2026-07-26T12:52:17.068-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/lens_flare",
+          "wiki_id": 11541
+        }
+      ]
+    },
+    "light_in_heart": {
+      "classification_inference_ja": "固有タイトルという保留を解除し、発光表現へ。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiは胸に現れる発光と定義。",
+      "sources": [
+        {
+          "body_sha256_utf8": "024e89930c6869bdaa7df7379c032b090d04bf117f9a986f86ad81ab2605f31a",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=light_in_heart",
+          "requested_title": "light_in_heart",
+          "retrieved_at_utc": "2026-09-12T09:28:15Z",
+          "updated_at": "2022-06-10T18:13:38.587-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/light_in_heart",
+          "wiki_id": 140132
+        }
+      ]
+    },
+    "logo": {
+      "classification_inference_ja": "マークを主。必ず文字を含むとは限らない。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiは会社・組織・作品などを示す標章や図案と説明。",
+      "sources": [
+        {
+          "body_sha256_utf8": "66641c0ec81fffa76dbaa294a55a4f78ce3a938b6f42e9299427130c7d3d8686",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=logo",
+          "requested_title": "logo",
+          "retrieved_at_utc": "2026-09-12T09:29:41Z",
+          "updated_at": "2026-07-02T12:23:57.474-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/logo",
+          "wiki_id": 12708
+        }
+      ]
+    },
+    "looking_at_another": {
+      "classification_inference_ja": "視線・向きの入口へ。カメラの画角や人物の体勢から独立させる。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiの定義: 誰かが別の人物を見る。相互の視線はeye_contact。",
+      "sources": [
+        {
+          "body_sha256_utf8": "522a4840ba50d8993d1f37e5d139c252dbc65c04b51f32b5bcb1b4afc451df81",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=looking_at_another",
+          "requested_title": "looking_at_another",
+          "retrieved_at_utc": "2026-09-12T09:28:55Z",
+          "updated_at": "2026-01-22T19:55:50.322-05:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/looking_at_another",
+          "wiki_id": 39785
+        }
+      ]
+    },
+    "looking_at_phone": {
+      "classification_inference_ja": "視線・向きの入口へ。カメラの画角や人物の体勢から独立させる。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiの定義: 電話へ視線を向ける。",
+      "sources": [
+        {
+          "body_sha256_utf8": "0ec05d3ddf0c57c4b52590a11259a6b8f0c58d7ea6eafb5f1b142d14cacdeff5",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=looking_at_phone",
+          "requested_title": "looking_at_phone",
+          "retrieved_at_utc": "2026-09-12T09:28:56Z",
+          "updated_at": "2026-04-28T09:55:18.650-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/looking_at_phone",
+          "wiki_id": 82901
+        }
+      ]
+    },
+    "looking_down": {
+      "classification_inference_ja": "視線・向きの入口へ。カメラの画角や人物の体勢から独立させる。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiの定義: 頭を下げて下を見る。見下す感情の意味ではない。",
+      "sources": [
+        {
+          "body_sha256_utf8": "6cc2dcaad0a70150e1210e9c61b0be135756a51c9852f3b47b3bade0c6755a92",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=looking_down",
+          "requested_title": "looking_down",
+          "retrieved_at_utc": "2026-09-12T09:28:55Z",
+          "updated_at": "2026-04-20T10:55:27.107-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/looking_down",
+          "wiki_id": 8708
+        }
+      ]
+    },
+    "looking_to_the_side": {
+      "classification_inference_ja": "視線・向きの入口へ。カメラの画角や人物の体勢から独立させる。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiの定義: 人物自身に対して横へ向く視線で、カメラ位置基準ではない。",
+      "sources": [
+        {
+          "body_sha256_utf8": "f81b394a53036d78fa94bffb33b96586f2536c6e97b6a0e506ddb23e7084b30d",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=looking_to_the_side",
+          "requested_title": "looking_to_the_side",
+          "retrieved_at_utc": "2026-09-12T09:28:55Z",
+          "updated_at": "2026-08-15T21:52:25.494-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/looking_to_the_side",
+          "wiki_id": 71111
+        }
+      ]
+    },
+    "looking_up": {
+      "classification_inference_ja": "視線・向きの入口へ。カメラの画角や人物の体勢から独立させる。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiの定義: 頭を後ろへ傾けて見上げる。目だけ上向きはupturned_eyes。",
+      "sources": [
+        {
+          "body_sha256_utf8": "b470b9a2627888fcc4959ba8142dbb8a8bae20b8f889417891b55e22fa3d9d5c",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=looking_up",
+          "requested_title": "looking_up",
+          "retrieved_at_utc": "2026-09-12T09:28:55Z",
+          "updated_at": "2026-05-09T09:26:56.640-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/looking_up",
+          "wiki_id": 8710
+        }
+      ]
+    },
+    "lying": {
+      "classification_inference_ja": "体勢と身体の動きから発見する。部位名だけで身体一覧に送らない。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiの定義: 背・横・腹で主に身体を支えて横たわる。",
+      "sources": [
+        {
+          "body_sha256_utf8": "9c39a4f89a3a3fe75ca3452b49a2188b5028fe0767ad321a92bd0f3d907bf1c5",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=lying",
+          "requested_title": "lying",
+          "retrieved_at_utc": "2026-09-12T09:29:27Z",
+          "updated_at": "2026-04-04T07:44:41.990-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/lying",
+          "wiki_id": 4526
+        }
+      ]
+    },
+    "maid": {
+      "classification_inference_ja": "制服を主、役柄からの発見を副へ変更。制服着用が定義の中心なので単なる職業主分類を修正。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiはメイド制服を着た人物と定義し、仕事をしていなくても衣装の着用に使うと明示。",
+      "sources": [
+        {
+          "body_sha256_utf8": "3a07b5c841bee681c44474ee86465c3e3af3a71d627388487bb5dbe3bd0ea452",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=maid",
+          "requested_title": "maid",
+          "retrieved_at_utc": "2026-09-12T09:28:18Z",
+          "updated_at": "2026-09-08T04:52:21.082-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/maid",
+          "wiki_id": 37
+        }
+      ]
+    },
+    "milky_way": {
+      "classification_inference_ja": "背景・空・天体の入口。発光の条件や天候とは分ける。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiの定義: 空に帯状に見える銀河の描写。",
+      "sources": [
+        {
+          "body_sha256_utf8": "3998583ee84ccc9d2119897aa00324688334de3f06beef1e8b3728f02dea071d",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=milky_way",
+          "requested_title": "milky_way",
+          "retrieved_at_utc": "2026-09-12T09:29:45Z",
+          "updated_at": "2026-03-27T00:54:01.751-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/milky_way",
+          "wiki_id": 26544
+        }
+      ]
+    },
+    "minna_de_enjoy!_spojoy_park_(project_sekai)": {
+      "classification_inference_ja": "衣装関連の文脈は確認したが、イベント全体の主経路を衣装に固定する契約は未合意。定義不足ではなくbrowse方針待ちとして保留。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiはProject Sekai第63イベント。先頭12投稿中official_alternate_costumeは7件。",
+      "sources": [
+        {
+          "body_sha256_utf8": "b19ba9f0e29a0637a16ad21657a7ef5d1fa88d435de6e075498242cd74568832",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=minna_de_enjoy%21_spojoy_park_%28project_sekai%29",
+          "requested_title": "minna_de_enjoy!_spojoy_park_(project_sekai)",
+          "retrieved_at_utc": "2026-09-12T09:28:16Z",
+          "updated_at": "2026-04-16T10:15:09.062-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/minna_de_enjoy%21_spojoy_park_%28project_sekai%29",
+          "wiki_id": 160123
+        },
+        {
+          "kind": "danbooru_post_context",
+          "live_tag_metadata": [
+            {
+              "category": 0,
+              "name": "minna_de_enjoy!_spojoy_park_(project_sekai)",
+              "post_count": 74
+            }
+          ],
+          "posts": [
+            {
+              "id": 5475494,
+              "relevant_general_tags": [
+                "official_alternate_costume"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/5475494"
+            },
+            {
+              "id": 5480788,
+              "relevant_general_tags": [
+                "shirt"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/5480788"
+            },
+            {
+              "id": 5503673,
+              "relevant_general_tags": [
+                "official_alternate_costume",
+                "shirt"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/5503673"
+            },
+            {
+              "id": 5506214,
+              "relevant_general_tags": [
+                "official_alternate_costume"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/5506214"
+            },
+            {
+              "id": 5630421,
+              "relevant_general_tags": [
+                "official_alternate_costume",
+                "shirt"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/5630421"
+            },
+            {
+              "id": 5928293,
+              "relevant_general_tags": [
+                "official_alternate_costume",
+                "shirt"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/5928293"
+            },
+            {
+              "id": 5928299,
+              "relevant_general_tags": [
+                "cosplay",
+                "official_alternate_costume",
+                "shirt"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/5928299"
+            },
+            {
+              "id": 6292933,
+              "relevant_general_tags": [
+                "official_alternate_costume",
+                "shirt"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/6292933"
+            },
+            {
+              "id": 6294321,
+              "relevant_general_tags": [
+                "jacket"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/6294321"
+            },
+            {
+              "id": 6300372,
+              "relevant_general_tags": [
+                "shirt"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/6300372"
+            },
+            {
+              "id": 6301604,
+              "relevant_general_tags": [
+                "jacket"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/6301604"
+            },
+            {
+              "id": 6306687,
+              "relevant_general_tags": [],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/6306687"
+            }
+          ],
+          "retrieved_at_utc": "2026-09-12T09:30:43Z",
+          "sample_method": "first 12 available posts ordered by ascending ID; text metadata only; no image inspection; not representative prevalence",
+          "tag_metadata_url": "https://danbooru.donmai.us/tags.json?search%5Bname%5D=minna_de_enjoy%21_spojoy_park_%28project_sekai%29",
+          "url": "https://danbooru.donmai.us/posts.json?tags=minna_de_enjoy%21_spojoy_park_%28project_sekai%29+order%3Aid_asc&limit=12&only=id%2Ctag_string_general%2Ctag_string_meta%2Crating"
+        }
+      ]
+    },
+    "moon": {
+      "classification_inference_ja": "背景・空・天体の入口。発光の条件や天候とは分ける。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiの定義: 惑星の周囲を回る天体。三日月形の記号とは区別。",
+      "sources": [
+        {
+          "body_sha256_utf8": "4c7fee6070598130a472f77a95972a4ab42be7bb960cf856b2b3b969eb46d2de",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=moon",
+          "requested_title": "moon",
+          "retrieved_at_utc": "2026-09-12T09:29:44Z",
+          "updated_at": "2026-06-06T13:04:00.448-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/moon",
+          "wiki_id": 7258
+        }
+      ]
+    },
+    "moonlight": {
+      "classification_inference_ja": "光・時間・天候として探す。天体そのものや建物・背景物とは区別。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiの定義: 月が放つ夜間の光。",
+      "sources": [
+        {
+          "body_sha256_utf8": "46905a8dbc847b9c3a9b28c2a684ba397fa257f579b915f3c4eede291afee0d8",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=moonlight",
+          "requested_title": "moonlight",
+          "retrieved_at_utc": "2026-09-12T09:29:24Z",
+          "updated_at": "2022-06-08T11:45:03.685-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/moonlight",
+          "wiki_id": 120030
+        }
+      ]
+    },
+    "mushroom": {
+      "classification_inference_ja": "生き物の主経路だけ付ける。菌類を植物と定義したり全て食べ物へ分類しない。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiはきのこを菌類と説明し、食べられない種類も含む。",
+      "sources": [
+        {
+          "body_sha256_utf8": "51d85863607df0ebbe81aecfb11aae7bf7554e817c3601040672d6692de89284",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=mushroom",
+          "requested_title": "mushroom",
+          "retrieved_at_utc": "2026-09-12T09:29:40Z",
+          "updated_at": "2025-08-09T08:56:48.693-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/mushroom",
+          "wiki_id": 27852
+        }
+      ]
+    },
+    "naked_dress": {
+      "classification_inference_ja": "デザイン名という保留を解除し着衣・露出状態へ。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiはドレスを着ているが、その下が裸と視認できる状態と定義。",
+      "sources": [
+        {
+          "body_sha256_utf8": "1e0a5a252b265e30605ab06fdd3ef2049efa793a23144f071d4dda8ef8d3f20f",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=naked_dress",
+          "requested_title": "naked_dress",
+          "retrieved_at_utc": "2026-09-12T09:28:16Z",
+          "updated_at": "2025-03-07T17:03:52.696-05:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/naked_dress",
+          "wiki_id": 225543
+        }
+      ]
+    },
+    "night": {
+      "classification_inference_ja": "光・時間・天候として探す。天体そのものや建物・背景物とは区別。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiの定義: 暗い時間帯。",
+      "sources": [
+        {
+          "body_sha256_utf8": "b44d9be66e27724acb5426e35a4dbd4570249c057429a9991a35402a87fea326",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=night",
+          "requested_title": "night",
+          "retrieved_at_utc": "2026-09-12T09:29:24Z",
+          "updated_at": "2026-01-25T06:56:34.079-05:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/night",
+          "wiki_id": 21673
+        }
+      ]
+    },
+    "nijigasaki_7th_live!_new_tokimeki_land": {
+      "classification_inference_ja": "投稿文脈限定の衣装browse候補。イベント名と衣装が同義とは断定せず、wiki定義より弱い推論として独立監査へ渡す。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "直接wikiなし。先頭12投稿すべてhawaiian_shirtを含み、9件にofficial_alternate_costume。",
+      "sources": [
+        {
+          "kind": "danbooru_wiki_lookup_no_match",
+          "matching_pages": 0,
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=nijigasaki_7th_live%21_new_tokimeki_land",
+          "requested_title": "nijigasaki_7th_live!_new_tokimeki_land",
+          "retrieved_at_utc": "2026-09-12T09:28:16Z"
+        },
+        {
+          "kind": "danbooru_post_context",
+          "live_tag_metadata": [
+            {
+              "category": 0,
+              "name": "nijigasaki_7th_live!_new_tokimeki_land",
+              "post_count": 72
+            }
+          ],
+          "posts": [
+            {
+              "id": 8307669,
+              "relevant_general_tags": [
+                "floral_print",
+                "hawaiian_shirt",
+                "official_alternate_costume",
+                "shirt"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/8307669"
+            },
+            {
+              "id": 8307716,
+              "relevant_general_tags": [
+                "floral_print",
+                "hawaiian_shirt",
+                "official_alternate_costume",
+                "shirt"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/8307716"
+            },
+            {
+              "id": 8307813,
+              "relevant_general_tags": [
+                "floral_print",
+                "hawaiian_shirt",
+                "shirt"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/8307813"
+            },
+            {
+              "id": 8307840,
+              "relevant_general_tags": [
+                "floral_print",
+                "hawaiian_shirt",
+                "official_alternate_costume",
+                "shirt"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/8307840"
+            },
+            {
+              "id": 8307908,
+              "relevant_general_tags": [
+                "hawaiian_shirt",
+                "shirt"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/8307908"
+            },
+            {
+              "id": 8307926,
+              "relevant_general_tags": [
+                "floral_print",
+                "hawaiian_shirt",
+                "official_alternate_costume",
+                "shirt"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/8307926"
+            },
+            {
+              "id": 8308155,
+              "relevant_general_tags": [
+                "floral_print",
+                "hawaiian_shirt",
+                "official_alternate_costume",
+                "shirt"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/8308155"
+            },
+            {
+              "id": 8308627,
+              "relevant_general_tags": [
+                "hawaiian_shirt",
+                "official_alternate_costume",
+                "shirt"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/8308627"
+            },
+            {
+              "id": 8310791,
+              "relevant_general_tags": [
+                "floral_print",
+                "hawaiian_shirt",
+                "official_alternate_costume",
+                "shirt"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/8310791"
+            },
+            {
+              "id": 8310825,
+              "relevant_general_tags": [
+                "hawaiian_shirt",
+                "official_alternate_costume",
+                "shirt"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/8310825"
+            },
+            {
+              "id": 8310835,
+              "relevant_general_tags": [
+                "floral_print",
+                "hawaiian_shirt",
+                "official_alternate_costume",
+                "shirt"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/8310835"
+            },
+            {
+              "id": 8310878,
+              "relevant_general_tags": [
+                "floral_print",
+                "hawaiian_shirt",
+                "jacket",
+                "shirt"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/8310878"
+            }
+          ],
+          "retrieved_at_utc": "2026-09-12T09:30:44Z",
+          "sample_method": "first 12 available posts ordered by ascending ID; text metadata only; no image inspection; not representative prevalence",
+          "tag_metadata_url": "https://danbooru.donmai.us/tags.json?search%5Bname%5D=nijigasaki_7th_live%21_new_tokimeki_land",
+          "url": "https://danbooru.donmai.us/posts.json?tags=nijigasaki_7th_live%21_new_tokimeki_land+order%3Aid_asc&limit=12&only=id%2Ctag_string_general%2Ctag_string_meta%2Crating"
+        }
+      ]
+    },
+    "nun": {
+      "classification_inference_ja": "人物の役柄主、衣装からの発見を副にする。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiは宗教的役割と、特徴的な修道服・頭衣を説明。",
+      "sources": [
+        {
+          "body_sha256_utf8": "f01289b50120122f40b9f88605a8164d880710973884127117d355b12eea8b83",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=nun",
+          "requested_title": "nun",
+          "retrieved_at_utc": "2026-09-12T09:29:42Z",
+          "updated_at": "2026-01-04T15:33:36.209-05:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/nun",
+          "wiki_id": 13635
+        }
+      ]
+    },
+    "nurse": {
+      "classification_inference_ja": "職業主、制服発見を副にする。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiは看護職を説明し、典型的な制服や帽子のタグ用途も説明。",
+      "sources": [
+        {
+          "body_sha256_utf8": "b4e5bc6acb14c9def652130efdda2c339fef412a5a8133b40a4f10377b353df1",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=nurse",
+          "requested_title": "nurse",
+          "retrieved_at_utc": "2026-09-12T09:29:42Z",
+          "updated_at": "2026-08-01T20:06:56.229-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/nurse",
+          "wiki_id": 9794
+        }
+      ]
+    },
+    "nurse_cap": {
+      "classification_inference_ja": "帽子という物の着用を主にする。看護職とのidentityは別。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiは看護師の帽子として定義。",
+      "sources": [
+        {
+          "body_sha256_utf8": "d06a501746fcc73916e4bd0afda3254b88abe7e33d2f46ee273aa0bebfbfdde4",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=nurse_cap",
+          "requested_title": "nurse_cap",
+          "retrieved_at_utc": "2026-09-12T09:29:43Z",
+          "updated_at": "2026-07-27T12:25:21.105-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/nurse_cap",
+          "wiki_id": 22712
+        }
+      ]
+    },
+    "on_back": {
+      "classification_inference_ja": "体勢と身体の動きから発見する。部位名だけで身体一覧に送らない。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiの定義: 背を下にして横たわる。",
+      "sources": [
+        {
+          "body_sha256_utf8": "9429b9a4bc90eb8f6fc74e248fad2c38c44da4dc8f59d6409ec7dbe7d70e260e",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=on_back",
+          "requested_title": "on_back",
+          "retrieved_at_utc": "2026-09-12T09:29:28Z",
+          "updated_at": "2026-06-08T22:08:18.344-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/on_back",
+          "wiki_id": 9211
+        }
+      ]
+    },
+    "on_side": {
+      "classification_inference_ja": "体勢と身体の動きから発見する。部位名だけで身体一覧に送らない。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiの定義: 身体の横を下にして横たわる。",
+      "sources": [
+        {
+          "body_sha256_utf8": "95128385b1112bdd0b931617f3c0d2b9a3404ab66782b3eeb1f8041d2c04f379",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=on_side",
+          "requested_title": "on_side",
+          "retrieved_at_utc": "2026-09-12T09:29:28Z",
+          "updated_at": "2026-05-09T09:18:39.247-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/on_side",
+          "wiki_id": 9212
+        }
+      ]
+    },
+    "on_stomach": {
+      "classification_inference_ja": "体勢と身体の動きから発見する。部位名だけで身体一覧に送らない。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiの定義: 腹側を下にして横たわる。",
+      "sources": [
+        {
+          "body_sha256_utf8": "b5904a2dd5fe7c15f96da60ace561307ff0127200a8ead65b22cac70170d1455",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=on_stomach",
+          "requested_title": "on_stomach",
+          "retrieved_at_utc": "2026-09-12T09:29:28Z",
+          "updated_at": "2026-05-09T09:12:27.221-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/on_stomach",
+          "wiki_id": 8341
+        }
+      ]
+    },
+    "panorama": {
+      "classification_inference_ja": "広い視野・画角を主題とする。画面分割という構成とは区別。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiは一度に見渡せる範囲を超える広角の風景表現と説明。",
+      "sources": [
+        {
+          "body_sha256_utf8": "ab2c42fd27e5fd6315655124bcddbdef51e7ed50b114f7eaf59e72fae74d163c",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=panorama",
+          "requested_title": "panorama",
+          "retrieved_at_utc": "2026-09-12T09:30:01Z",
+          "updated_at": "2026-09-11T09:21:09.275-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/panorama",
+          "wiki_id": 106089
+        }
+      ]
+    },
+    "pastel_colors": {
+      "classification_inference_ja": "配色が主題。固定対象の色修飾とは分ける。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiは淡い色調の画面配色を説明し、pale_colorsやmuted_colorsと区別。",
+      "sources": [
+        {
+          "body_sha256_utf8": "d6396e00f8294d32bc6a5192e4f149c949b4078456c8fc4db5fac04a86a50e88",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=pastel_colors",
+          "requested_title": "pastel_colors",
+          "retrieved_at_utc": "2026-09-12T09:28:53Z",
+          "updated_at": "2026-05-14T15:03:04.216-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/pastel_colors",
+          "wiki_id": 103713
+        }
+      ]
+    },
+    "planet": {
+      "classification_inference_ja": "背景・空・天体の入口。発光の条件や天候とは分ける。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiの定義: 宇宙や別の天体から見える惑星。実在・架空を含む。",
+      "sources": [
+        {
+          "body_sha256_utf8": "5091f3bece13177b9b409d9bd5c2fa31aeb86ea4b9b5a232e7d536f40af40dee",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=planet",
+          "requested_title": "planet",
+          "retrieved_at_utc": "2026-09-12T09:29:44Z",
+          "updated_at": "2025-12-22T13:47:00.266-05:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/planet",
+          "wiki_id": 44790
+        }
+      ]
+    },
+    "police": {
+      "classification_inference_ja": "職業だけ・制服だけでは範囲を狭める。複数の発見用途を横断するthemeの扱いが未合意なので保留。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiは警察に関わる人物・場所・装備・場面全般に使うと明示。",
+      "sources": [
+        {
+          "body_sha256_utf8": "7e7e1e8aad9f7dbefdc407eb558ffb3a5ef5b1276c578ee0c01ed8769848e18b",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=police",
+          "requested_title": "police",
+          "retrieved_at_utc": "2026-09-12T09:29:43Z",
+          "updated_at": "2026-08-09T21:26:57.566-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/police",
+          "wiki_id": 20955
+        }
+      ]
+    },
+    "polka_dot": {
+      "classification_inference_ja": "模様から探す。印刷網点のben-day dotsやhalftoneと同一視しない。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiは等大の円を等間隔に置いた模様と説明。",
+      "sources": [
+        {
+          "body_sha256_utf8": "c29a338f8ea70d3cb060249cfab2dfefd2bb67c5245e566c490049acea35788f",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=polka_dot",
+          "requested_title": "polka_dot",
+          "retrieved_at_utc": "2026-09-12T09:28:53Z",
+          "updated_at": "2025-07-27T15:35:18.393-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/polka_dot",
+          "wiki_id": 12826
+        }
+      ]
+    },
+    "portrait": {
+      "classification_inference_ja": "観察位置・切り取り・遠近の構図から探す。画像内の別画面・レイヤーとは分ける。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiの定義: 人物の顔を中心とし、胸より下まで大きく含めない切り取り。",
+      "sources": [
+        {
+          "body_sha256_utf8": "60c04fa9d074f94d8898577d1e3b98fb0e9eff17f4cc5cf3dbeac77f5b3a57be",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=portrait",
+          "requested_title": "portrait",
+          "retrieved_at_utc": "2026-09-12T09:29:26Z",
+          "updated_at": "2025-05-11T10:51:03.699-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/portrait",
+          "wiki_id": 7334
+        }
+      ]
+    },
+    "pov": {
+      "classification_inference_ja": "観察位置・切り取り・遠近の構図から探す。画像内の別画面・レイヤーとは分ける。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiの定義: 一人称視点。相手がカメラを見るだけとは区別。",
+      "sources": [
+        {
+          "body_sha256_utf8": "5bfa61d48f3c53d1d1811f40304c9f46f1609a07ac66cea2b635ef4c1d11ecec",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=pov",
+          "requested_title": "pov",
+          "retrieved_at_utc": "2026-09-12T09:29:27Z",
+          "updated_at": "2026-08-01T11:03:17.863-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/pov",
+          "wiki_id": 4130
+        }
+      ]
+    },
+    "profile": {
+      "classification_inference_ja": "写る顔の範囲・横顔の構図へ。眼球の視線方向は定義しないので視線経路には固定しない。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiは顔の片側が見える図を定義し、人物プロフィール情報と区別。",
+      "sources": [
+        {
+          "body_sha256_utf8": "0b8273f8c8d21a63c202d786fd7a9337326b938398cf962fa922556588440939",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=profile",
+          "requested_title": "profile",
+          "retrieved_at_utc": "2026-09-12T09:28:56Z",
+          "updated_at": "2026-08-22T05:29:26.395-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/profile",
+          "wiki_id": 8988
+        }
+      ]
+    },
+    "ribbon_bar": {
+      "classification_inference_ja": "画面部品やリボン一般という多義を解除し、服の装飾へ。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiは軍服・警察制服などに付ける略綬を説明。",
+      "sources": [
+        {
+          "body_sha256_utf8": "c75c89b34378b85a72b709a09c1d36fd285925f97a18be6133044d86a61b7b32",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=ribbon_bar",
+          "requested_title": "ribbon_bar",
+          "retrieved_at_utc": "2026-09-12T09:28:16Z",
+          "updated_at": "2025-08-13T13:19:40.864-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/ribbon_bar",
+          "wiki_id": 109125
+        }
+      ]
+    },
+    "rose": {
+      "classification_inference_ja": "植物を主経路にする。草原という場所のタグとは分ける。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiの定義: 花の種類で、同じ読みの別文脈タグを指さない。",
+      "sources": [
+        {
+          "body_sha256_utf8": "1098443e7f361a8fd416d568480fb0f3cbf1e343ad9d7bed3844f1dd52a5816d",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=rose",
+          "requested_title": "rose",
+          "retrieved_at_utc": "2026-09-12T09:29:40Z",
+          "updated_at": "2026-02-28T11:30:54.967-05:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/rose",
+          "wiki_id": 22770
+        }
+      ]
+    },
+    "saihate_e_to_tobu_kimi_e_(project_sekai)": {
+      "classification_inference_ja": "衣装文脈はあるがイベント全体の扱いが未合意。共起だけで衣装と同義にせず保留。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiはProject Sekai第206イベント。先頭12投稿中official_alternate_costumeは8件。",
+      "sources": [
+        {
+          "body_sha256_utf8": "3220675d522622ecaa3951aad00c5d68d9de1dad6b906439628fe1cdf895d615",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=saihate_e_to_tobu_kimi_e_%28project_sekai%29",
+          "requested_title": "saihate_e_to_tobu_kimi_e_(project_sekai)",
+          "retrieved_at_utc": "2026-09-12T09:28:17Z",
+          "updated_at": "2026-06-03T14:22:58.108-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/saihate_e_to_tobu_kimi_e_%28project_sekai%29",
+          "wiki_id": 290098
+        },
+        {
+          "kind": "danbooru_post_context",
+          "live_tag_metadata": [
+            {
+              "category": 0,
+              "name": "saihate_e_to_tobu_kimi_e_(project_sekai)",
+              "post_count": 65
+            }
+          ],
+          "posts": [
+            {
+              "id": 11490993,
+              "relevant_general_tags": [
+                "official_alternate_costume"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/11490993"
+            },
+            {
+              "id": 11491026,
+              "relevant_general_tags": [
+                "official_alternate_costume",
+                "shirt"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/11491026"
+            },
+            {
+              "id": 11491081,
+              "relevant_general_tags": [
+                "floral_print",
+                "jacket",
+                "official_alternate_costume",
+                "shirt"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/11491081"
+            },
+            {
+              "id": 11491105,
+              "relevant_general_tags": [
+                "official_alternate_costume"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/11491105"
+            },
+            {
+              "id": 11491129,
+              "relevant_general_tags": [
+                "floral_print",
+                "official_alternate_costume"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/11491129"
+            },
+            {
+              "id": 11491175,
+              "relevant_general_tags": [],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/11491175"
+            },
+            {
+              "id": 11491193,
+              "relevant_general_tags": [
+                "shirt"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/11491193"
+            },
+            {
+              "id": 11491213,
+              "relevant_general_tags": [
+                "floral_print",
+                "jacket"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/11491213"
+            },
+            {
+              "id": 11491235,
+              "relevant_general_tags": [
+                "shirt"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/11491235"
+            },
+            {
+              "id": 11494854,
+              "relevant_general_tags": [
+                "jacket",
+                "official_alternate_costume",
+                "shirt"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/11494854"
+            },
+            {
+              "id": 11497457,
+              "relevant_general_tags": [
+                "official_alternate_costume"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/11497457"
+            },
+            {
+              "id": 11497768,
+              "relevant_general_tags": [
+                "official_alternate_costume"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/11497768"
+            }
+          ],
+          "retrieved_at_utc": "2026-09-12T09:30:43Z",
+          "sample_method": "first 12 available posts ordered by ascending ID; text metadata only; no image inspection; not representative prevalence",
+          "tag_metadata_url": "https://danbooru.donmai.us/tags.json?search%5Bname%5D=saihate_e_to_tobu_kimi_e_%28project_sekai%29",
+          "url": "https://danbooru.donmai.us/posts.json?tags=saihate_e_to_tobu_kimi_e_%28project_sekai%29+order%3Aid_asc&limit=12&only=id%2Ctag_string_general%2Ctag_string_meta%2Crating"
+        }
+      ]
+    },
+    "saturated": {
+      "classification_inference_ja": "色の強さとして探す。画質の良否へ読み替えない。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiは彩度の強い色を含む画像と定義。",
+      "sources": [
+        {
+          "body_sha256_utf8": "d1911bd5dc0df665392486d89f1dcff1bba37900c6c1bb4e4444fdc3b8e09696",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=saturated",
+          "requested_title": "saturated",
+          "retrieved_at_utc": "2026-09-12T09:28:53Z",
+          "updated_at": "2026-09-10T00:13:49.783-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/saturated",
+          "wiki_id": 204568
+        }
+      ]
+    },
+    "screen_zoom": {
+      "classification_inference_ja": "実画面への投影という画面表現を主経路、舞台背景の発見を副経路にする。一般的なカメラzoomと区別。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiは舞台の背景スクリーンへ拡大像を投影する表現と定義しzoom_layerに関連付ける。",
+      "sources": [
+        {
+          "body_sha256_utf8": "a46b1706caa5652bd8ba4cbbff222c9a2657bb2695dbe1b8f80a9db263541ba9",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=screen_zoom",
+          "requested_title": "screen_zoom",
+          "retrieved_at_utc": "2026-09-12T09:28:17Z",
+          "updated_at": "2026-09-01T15:07:30.509-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/screen_zoom",
+          "wiki_id": 164973
+        }
+      ]
+    },
+    "sitting": {
+      "classification_inference_ja": "体勢と身体の動きから発見する。部位名だけで身体一覧に送らない。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiの定義: 尻を面に載せて支える。膝立ちとは区別。",
+      "sources": [
+        {
+          "body_sha256_utf8": "1ae123e4fd9cfd68e761c8bfa21ea1920696deb13ce9f98ad5b619770fbb83df",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=sitting",
+          "requested_title": "sitting",
+          "retrieved_at_utc": "2026-09-12T09:29:27Z",
+          "updated_at": "2026-08-24T16:20:50.480-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/sitting",
+          "wiki_id": 4538
+        }
+      ]
+    },
+    "sky": {
+      "classification_inference_ja": "背景・空・天体の入口。発光の条件や天候とは分ける。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiの定義: 空が主題・注目点・背景として描かれる。",
+      "sources": [
+        {
+          "body_sha256_utf8": "6d75b6b5424acbfaa777f97010be22e27b29230997548e07c55ed36dfbb65372",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=sky",
+          "requested_title": "sky",
+          "retrieved_at_utc": "2026-09-12T09:29:43Z",
+          "updated_at": "2026-04-25T15:11:01.237-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/sky",
+          "wiki_id": 5690
+        }
+      ]
+    },
+    "small_chastity_cage": {
+      "classification_inference_ja": "道具は維持し、不自然だった日用品DAILYを外す。具体的な道具分類でありcatch-allではない。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiは短い管形状の貞操器具を定義。",
+      "sources": [
+        {
+          "body_sha256_utf8": "e5e22418da75d297eda76192e6b3a5be8431d9657303ff18f8219b0e410c4ba4",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=small_chastity_cage",
+          "requested_title": "small_chastity_cage",
+          "retrieved_at_utc": "2026-09-12T09:28:18Z",
+          "updated_at": "2026-01-04T04:17:18.916-05:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/small_chastity_cage",
+          "wiki_id": 223959
+        }
+      ]
+    },
+    "snowing": {
+      "classification_inference_ja": "光・時間・天候として探す。天体そのものや建物・背景物とは区別。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiの定義: 雪が空から降る状態。積もった雪だけとは異なる。",
+      "sources": [
+        {
+          "body_sha256_utf8": "f56c37cc70f4cdf67d79084f4855f764cca6b0d787f7181b8ffbebe1f15d58d6",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=snowing",
+          "requested_title": "snowing",
+          "retrieved_at_utc": "2026-09-12T09:29:24Z",
+          "updated_at": "2026-07-23T20:35:44.824-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/snowing",
+          "wiki_id": 18741
+        }
+      ]
+    },
+    "soldier": {
+      "classification_inference_ja": "役柄主、軍服を探す副経路。軍服だけで兵士と同義にはしない。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiは正規軍の兵を定義し、制服・ヘルメット・装備を関連付ける。",
+      "sources": [
+        {
+          "body_sha256_utf8": "c9606bdf4bbf473389235c7ab8da9e6b621b0400dc376ff252c3188a04072ba6",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=soldier",
+          "requested_title": "soldier",
+          "retrieved_at_utc": "2026-09-12T09:29:43Z",
+          "updated_at": "2026-09-04T12:30:35.191-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/soldier",
+          "wiki_id": 35240
+        }
+      ]
+    },
+    "sound_effects": {
+      "classification_inference_ja": "描かれた文字表現の入口へ。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiは音を表す文字であり、実際の音声とは別と定義。",
+      "sources": [
+        {
+          "body_sha256_utf8": "a39fda5c3f442bbdaf8a65768d7f24206e6bc2ee813077b5e8bab6104c9708db",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=sound_effects",
+          "requested_title": "sound_effects",
+          "retrieved_at_utc": "2026-09-12T09:29:41Z",
+          "updated_at": "2026-04-17T07:55:32.199-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/sound_effects",
+          "wiki_id": 84854
+        }
+      ]
+    },
+    "split_screen": {
+      "classification_inference_ja": "画面構成を主、構図発見を副。カメラの視点と同義ではない。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiは線で画像を二つの領域に分割する表現と定義。",
+      "sources": [
+        {
+          "body_sha256_utf8": "ceb0a4c87b7295a04336def5d61c68422e091fe5746ad0ff72aac2fa82eb73a7",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=split_screen",
+          "requested_title": "split_screen",
+          "retrieved_at_utc": "2026-09-12T09:30:01Z",
+          "updated_at": "2026-04-17T08:37:45.705-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/split_screen",
+          "wiki_id": 51515
+        }
+      ]
+    },
+    "square": {
+      "classification_inference_ja": "幾何形状を主経路とし、wikiのSymbols関連から記号にも副経路を提案。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiの定義: 四辺が等しく直角の形。画像の縦横比1:1とは別。",
+      "sources": [
+        {
+          "body_sha256_utf8": "07cf42b5243accc7053532c59a402db06af5380f4cd6fab8483e2f113d9abf09",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=square",
+          "requested_title": "square",
+          "retrieved_at_utc": "2026-09-12T09:28:54Z",
+          "updated_at": "2026-02-10T21:11:37.310-05:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/square",
+          "wiki_id": 120243
+        }
+      ]
+    },
+    "standing": {
+      "classification_inference_ja": "体勢と身体の動きから発見する。部位名だけで身体一覧に送らない。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiの定義: 一方または両方の足で身体を支えて立つ。",
+      "sources": [
+        {
+          "body_sha256_utf8": "6a6cbace61914664969e3ce924b022ca528fdb2f81d1843c633dd8f884103d32",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=standing",
+          "requested_title": "standing",
+          "retrieved_at_utc": "2026-09-12T09:29:27Z",
+          "updated_at": "2026-08-16T06:49:10.364-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/standing",
+          "wiki_id": 4539
+        }
+      ]
+    },
+    "star_(sky)": {
+      "classification_inference_ja": "背景・空・天体の入口。発光の条件や天候とは分ける。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiの定義: 夜空に見える宇宙の星。星形記号とは別。",
+      "sources": [
+        {
+          "body_sha256_utf8": "421de4eef5447609bc8a5c7c4d554c8529cd85f379ee1434fe2fbef9f1136481",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=star_%28sky%29",
+          "requested_title": "star_(sky)",
+          "retrieved_at_utc": "2026-09-12T09:29:44Z",
+          "updated_at": "2026-05-28T00:36:12.395-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/star_%28sky%29",
+          "wiki_id": 23928
+        }
+      ]
+    },
+    "star_(symbol)": {
+      "classification_inference_ja": "記号を主、形からも発見できる副経路。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiは星の形の記号で、夜空の星はstar_(sky)と区別。",
+      "sources": [
+        {
+          "body_sha256_utf8": "a8d700e67095c5320d87aa4055e65638a8645b0157fb505eea08b2a38872e553",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=star_%28symbol%29",
+          "requested_title": "star_(symbol)",
+          "retrieved_at_utc": "2026-09-12T09:29:42Z",
+          "updated_at": "2026-09-01T17:25:46.919-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/star_%28symbol%29",
+          "wiki_id": 10503
+        }
+      ]
+    },
+    "stretching": {
+      "classification_inference_ja": "体勢と身体の動きから発見する。部位名だけで身体一覧に送らない。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiの定義: 筋肉をほぐす等のため身体や四肢を伸ばす。",
+      "sources": [
+        {
+          "body_sha256_utf8": "2410921d069bdf6bc66c84a56515282344dcee7ff9a29c6e038cc6587dd30ca9",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=stretching",
+          "requested_title": "stretching",
+          "retrieved_at_utc": "2026-09-12T09:29:29Z",
+          "updated_at": "2026-07-21T09:55:19.347-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/stretching",
+          "wiki_id": 9455
+        }
+      ]
+    },
+    "symbol-shaped_pupils": {
+      "classification_inference_ja": "目の特徴から探す。記号という語だけで文字・マーク一覧に送らない。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiは瞳孔自体が記号の形になると定義。眼球全体の置換や眼内文字とは異なる。",
+      "sources": [
+        {
+          "body_sha256_utf8": "e1f463f012083df326c98736d063446971d3bc9bab8c6156167fb8ce641cfe07",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=symbol-shaped_pupils",
+          "requested_title": "symbol-shaped_pupils",
+          "retrieved_at_utc": "2026-09-12T09:30:02Z",
+          "updated_at": "2026-07-13T16:11:33.330-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/symbol-shaped_pupils",
+          "wiki_id": 17534
+        }
+      ]
+    },
+    "thought_bubble": {
+      "classification_inference_ja": "文字枠から探す。人物の気持ちを推測する分類へ置換しない。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiは思考・想像を表す吹き出しの枠を説明。",
+      "sources": [
+        {
+          "body_sha256_utf8": "76ce1c59eb51292756a07aeca2758dc0f8a4ead24f59b8d6221ad299c79fd423",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=thought_bubble",
+          "requested_title": "thought_bubble",
+          "retrieved_at_utc": "2026-09-12T09:29:42Z",
+          "updated_at": "2026-08-11T14:27:12.189-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/thought_bubble",
+          "wiki_id": 26795
+        }
+      ]
+    },
+    "triangle": {
+      "classification_inference_ja": "幾何形状を主経路とし、wikiのSymbols関連から記号にも副経路を提案。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiの定義: 三本の直線で構成される形。楽器や製図用具は別タグ。",
+      "sources": [
+        {
+          "body_sha256_utf8": "2899ab61f67864c8e9fa847d1bce81ec05e0be5e512bf8543da98847d0dca77f",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=triangle",
+          "requested_title": "triangle",
+          "retrieved_at_utc": "2026-09-12T09:28:54Z",
+          "updated_at": "2022-01-04T11:07:21.232-05:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/triangle",
+          "wiki_id": 25742
+        }
+      ]
+    },
+    "uma_stars_(umamusume)": {
+      "classification_inference_ja": "衣装文脈は強いが企画全体と衣装系列のbrowse方針が未合意。星・天候への誤分類は退け、UNRESOLVEDを維持。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiは2024年エイプリルフールの架空アニメ企画と人物群を説明。先頭12投稿中official_alternate_costumeは11件。",
+      "sources": [
+        {
+          "body_sha256_utf8": "c028bf15292e8b815d615e0aed3996913b27643d8033230cb4454bf68d718b64",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=uma_stars_%28umamusume%29",
+          "requested_title": "uma_stars_(umamusume)",
+          "retrieved_at_utc": "2026-09-12T09:28:17Z",
+          "updated_at": "2026-02-19T00:20:04.709-05:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/uma_stars_%28umamusume%29",
+          "wiki_id": 188626
+        },
+        {
+          "kind": "danbooru_post_context",
+          "live_tag_metadata": [
+            {
+              "category": 0,
+              "name": "uma_stars_(umamusume)",
+              "post_count": 57
+            }
+          ],
+          "posts": [
+            {
+              "id": 7400383,
+              "relevant_general_tags": [
+                "official_alternate_costume",
+                "shirt"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/7400383"
+            },
+            {
+              "id": 7400538,
+              "relevant_general_tags": [
+                "jacket",
+                "official_alternate_costume"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/7400538"
+            },
+            {
+              "id": 7401183,
+              "relevant_general_tags": [
+                "jacket",
+                "official_alternate_costume"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/7401183"
+            },
+            {
+              "id": 7401195,
+              "relevant_general_tags": [
+                "official_alternate_costume"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/7401195"
+            },
+            {
+              "id": 7401198,
+              "relevant_general_tags": [
+                "jacket",
+                "official_alternate_costume"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/7401198"
+            },
+            {
+              "id": 7401202,
+              "relevant_general_tags": [
+                "official_alternate_costume"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/7401202"
+            },
+            {
+              "id": 7404090,
+              "relevant_general_tags": [
+                "jacket",
+                "official_alternate_costume",
+                "shirt"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/7404090"
+            },
+            {
+              "id": 7404125,
+              "relevant_general_tags": [
+                "jacket",
+                "official_alternate_costume"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/7404125"
+            },
+            {
+              "id": 7406455,
+              "relevant_general_tags": [
+                "shirt"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/7406455"
+            },
+            {
+              "id": 7408013,
+              "relevant_general_tags": [
+                "jacket",
+                "official_alternate_costume"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/7408013"
+            },
+            {
+              "id": 7408014,
+              "relevant_general_tags": [
+                "jacket",
+                "official_alternate_costume",
+                "shirt"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/7408014"
+            },
+            {
+              "id": 7412395,
+              "relevant_general_tags": [
+                "jacket",
+                "official_alternate_costume"
+              ],
+              "target_tag_present": true,
+              "url": "https://danbooru.donmai.us/posts/7412395"
+            }
+          ],
+          "retrieved_at_utc": "2026-09-12T09:30:44Z",
+          "sample_method": "first 12 available posts ordered by ascending ID; text metadata only; no image inspection; not representative prevalence",
+          "tag_metadata_url": "https://danbooru.donmai.us/tags.json?search%5Bname%5D=uma_stars_%28umamusume%29",
+          "url": "https://danbooru.donmai.us/posts.json?tags=uma_stars_%28umamusume%29+order%3Aid_asc&limit=12&only=id%2Ctag_string_general%2Ctag_string_meta%2Crating"
+        }
+      ]
+    },
+    "vanishing_point": {
+      "classification_inference_ja": "観察位置・切り取り・遠近の構図から探す。画像内の別画面・レイヤーとは分ける。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiの定義: 背景の線がある点へ収束する遠近法。単なるperspectiveではない。",
+      "sources": [
+        {
+          "body_sha256_utf8": "b2da92f1c41c8ca8fadc8899541861c6fe63d2ba3499e31acc4a03a37b138975",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=vanishing_point",
+          "requested_title": "vanishing_point",
+          "retrieved_at_utc": "2026-09-12T09:29:27Z",
+          "updated_at": "2025-10-22T10:17:26.611-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/vanishing_point",
+          "wiki_id": 47870
+        }
+      ]
+    },
+    "viewer_on_leash": {
+      "classification_inference_ja": "リードを介した関係・接触が主、一人称の構図が副。性的行為自体は定義されていない。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiは視点人物がリードにつながれているPOV画像と定義。",
+      "sources": [
+        {
+          "body_sha256_utf8": "333636ca8e46f41069d8ae794a9c239f9e86009392f62d5a20ab587b7ecb20f9",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=viewer_on_leash",
+          "requested_title": "viewer_on_leash",
+          "retrieved_at_utc": "2026-09-12T09:28:17Z",
+          "updated_at": "2026-05-09T07:53:44.068-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/viewer_on_leash",
+          "wiki_id": 125821
+        }
+      ]
+    },
+    "watermark": {
+      "classification_inference_ja": "文字と図案の双方があり、TEXTかSYMBOLに狭めず主ジャンルから発見する。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiは画像に重なる文字またはロゴの表示と定義。",
+      "sources": [
+        {
+          "body_sha256_utf8": "e258e6d47bbf6189158af05259a63d60fbe6b9ebade793db83ed98814f40c1e2",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=watermark",
+          "requested_title": "watermark",
+          "retrieved_at_utc": "2026-09-12T09:29:41Z",
+          "updated_at": "2026-09-08T18:45:07.856-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/watermark",
+          "wiki_id": 3824
+        }
+      ]
+    },
+    "wide_shot": {
+      "classification_inference_ja": "観察位置・切り取り・遠近の構図から探す。画像内の別画面・レイヤーとは分ける。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiの定義: 人物全体が見えるが画面内では小さい。",
+      "sources": [
+        {
+          "body_sha256_utf8": "0afcfc6a7ebee6e8f98515f7e9d2df2d1fe78366097819bb15f7be63f04c0125",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=wide_shot",
+          "requested_title": "wide_shot",
+          "retrieved_at_utc": "2026-09-12T09:29:26Z",
+          "updated_at": "2024-08-18T01:43:53.153-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/wide_shot",
+          "wiki_id": 102380
+        }
+      ]
+    },
+    "witch": {
+      "classification_inference_ja": "人物主は維持し、定義にある衣装連想を発見する副経路を追加。服が必須という意味ではない。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiは魔法を使う人物を説明し、典型的な帽子・服・小道具を挙げる。",
+      "sources": [
+        {
+          "body_sha256_utf8": "6233704ecde704786c674c88e8ef708fccf6c099993b1c0bd063d2f7145bd41e",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=witch",
+          "requested_title": "witch",
+          "retrieved_at_utc": "2026-09-12T09:28:18Z",
+          "updated_at": "2026-06-12T22:15:47.035-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/witch",
+          "wiki_id": 11017
+        }
+      ]
+    },
+    "zoom_layer": {
+      "classification_inference_ja": "追加レイヤー表現を主、構図を副。screen_zoomの実画面投影へ一括しない。",
+      "independent_semantic_acceptance": false,
+      "observed_summary_ja": "wikiは元絵の一部を拡大した追加レイヤーと定義し、舞台スクリーン投影とは区別。",
+      "sources": [
+        {
+          "body_sha256_utf8": "25a66b6ee49a1030bac125dfbd38c12c9e36a1fd1315ae614f2e20939be7aecd",
+          "kind": "danbooru_wiki_definition",
+          "request_url": "https://danbooru.donmai.us/wiki_pages.json?search%5Btitle%5D=zoom_layer",
+          "requested_title": "zoom_layer",
+          "retrieved_at_utc": "2026-09-12T09:30:01Z",
+          "updated_at": "2026-08-10T23:13:48.172-04:00",
+          "url": "https://danbooru.donmai.us/wiki_pages/zoom_layer",
+          "wiki_id": 5712
+        }
+      ]
+    }
+  },
+  "format_version": 1,
+  "method": "Development-only public Danbooru wiki JSON and limited post-tag metadata. No image retrieval. Summaries are paraphrases; taxonomy is an inference, not Danbooru semantic authority. Runtime/build never fetches these sources.",
+  "review_request": "https://github.com/takasago181/DanbooruTagTool/issues/64#issuecomment-5644982292",
+  "revision": "issue64-pilot-v2"
+}

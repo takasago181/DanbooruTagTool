@@ -7,6 +7,7 @@ import csv
 import hashlib
 import json
 from pathlib import Path
+from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
 WORK = ROOT / "docs/issue64"
@@ -77,7 +78,7 @@ def load_population(overlay_path, usage_path, source_path, promotion_path):
     return entries, usage
 
 
-def select_pilot(entries, usage, challenge_tags):
+def select_pilot(entries, usage, challenge_tags, revision_challenges=None):
     if len(challenge_tags) != len(set(challenge_tags)) or set(challenge_tags) - set(entries):
         raise ValueError("Duplicate or non-population challenge tag")
     selected = {}
@@ -92,6 +93,14 @@ def select_pilot(entries, usage, challenge_tags):
         add(hashed(t for t in entries if band(usage[t]["post_count"]) == name)[:32], name + "_hash32")
     add(hashed(t for t in entries if t.count("_") >= 2 and t not in selected)[:32], "compound_hash32_disjoint")
     add(challenge_tags, "boundary_challenge")
+    if revision_challenges is not None:
+        added = [tag for tags in revision_challenges.values() for tag in tags]
+        if not 64 <= len(added) <= 96:
+            raise ValueError("Revision must add 64–96 targeted challenge rows")
+        if len(added) != len(set(added)) or set(added) & set(selected) or set(added) - set(entries):
+            raise ValueError("Revision challenge must be unique, new and in population")
+        for group, tags in sorted(revision_challenges.items()):
+            add(tags, "revision2/" + group)
     if len(selected) > MAX_PILOT:
         raise ValueError("Pilot size cap exceeded; full rollout requires separate accepted work")
     return dict(sorted(selected.items()))
@@ -179,6 +188,63 @@ def audit(sidecar, selected, usage, taxonomy):
     }
 
 
+def revision_audit(sidecar, selected, baseline, external):
+    rows = sidecar["entries"]
+    old = baseline["entries"]
+    evidence = external["entries"]
+    added = set(rows) - set(old)
+    required_evidence = added | {t for t,r in old.items() if r["classification_status"] == "UNRESOLVED"}
+    if not set(old) <= set(rows) or not 64 <= len(added) <= 96:
+        raise ValueError("Revision must preserve original pilot and add only a small supplement")
+    selected_added = {t for t,reasons in selected.items() if any(r.startswith("revision2/") for r in reasons)}
+    if selected_added != added:
+        raise ValueError("Revision selection/baseline mismatch")
+    if not required_evidence <= set(evidence) or not set(evidence) <= set(rows):
+        raise ValueError("Missing or out-of-pilot external evidence")
+    for tag, record in evidence.items():
+        if not record["observed_summary_ja"].strip() or not record["classification_inference_ja"].strip():
+            raise ValueError("External observation and inference must both be explicit")
+        if record["independent_semantic_acceptance"] is not False:
+            raise ValueError("External lookup is not independent acceptance")
+        if f"external_evidence.json#entries/{tag}" not in rows[tag]["source"]:
+            raise ValueError("Sidecar lacks external evidence reference")
+        if not record["sources"]:
+            raise ValueError("External evidence has no sources")
+        for source in record["sources"]:
+            kind = source["kind"]
+            if kind not in {"danbooru_wiki_definition", "danbooru_wiki_lookup_no_match", "danbooru_post_context"}:
+                raise ValueError("Unknown external evidence kind")
+            url = source.get("url", source.get("request_url"))
+            if not url or urlparse(url).hostname != "danbooru.donmai.us" or not source["retrieved_at_utc"]:
+                raise ValueError("External source provenance missing or invalid")
+            if kind == "danbooru_wiki_definition":
+                digest = source["body_sha256_utf8"]
+                if not source["wiki_id"] or len(digest) != 64 or any(c not in "0123456789abcdef" for c in digest):
+                    raise ValueError("Wiki snapshot identity/hash missing")
+            if kind == "danbooru_post_context":
+                posts = source["posts"]
+                if not posts or len(posts) > 12 or len({p["id"] for p in posts}) != len(posts) or any(not p["target_tag_present"] for p in posts):
+                    raise ValueError("Invalid limited post context sample")
+    fields = ("classification_status", "primary_path", "secondary_paths")
+    current = {t: {f:r[f] for f in fields} for t,r in rows.items()}
+    changed = {t: {"before":old[t], "after":current[t]} for t in sorted(old) if old[t] != current[t]}
+    resolved = [t for t in sorted(old) if old[t]["classification_status"] == "UNRESOLVED" and rows[t]["classification_status"] == "PROPOSED"]
+    return {
+        "baseline_commit": baseline["commit"], "baseline_count": len(old), "revised_count": len(rows),
+        "added_count": len(added), "added_tags": sorted(added), "removed_count": 0,
+        "changed_existing_verdict_or_paths": changed, "changed_existing_count": len(changed),
+        "resolved_existing_tags": resolved,
+        "remaining_existing_unresolved": [t for t in sorted(old) if rows[t]["classification_status"] == "UNRESOLVED"],
+        "new_unresolved": [t for t in sorted(added) if rows[t]["classification_status"] == "UNRESOLVED"],
+        "external_rechecked_rows": len(evidence),
+        "source_kind_reference_counts": dict(Counter(s["kind"] for r in evidence.values() for s in r["sources"])),
+        "unchanged_existing_rows_without_new_external_check": sorted(set(old)-set(evidence)),
+        "external_evidence_semantic_sha256": hashlib.sha256(encoded(external)).hexdigest(),
+        "baseline_semantic_sha256": hashlib.sha256(encoded(baseline)).hexdigest(),
+        "independent_accepted_rows": 0,
+    }
+
+
 def build(source_path):
     overlay = ROOT / "data/runtime/japanese_overlay.json"
     usage_path = ROOT / "data/source/danbooru-2026-09-02.csv"
@@ -186,7 +252,7 @@ def build(source_path):
     entries, usage = load_population(overlay, usage_path, source_path, promotion)
     names = ("\n".join(sorted(entries)) + "\n").encode("utf-8")
     selection = read_json(WORK / "selection.json")
-    selected = select_pilot(entries, usage, selection["challenge_tags"])
+    selected = select_pilot(entries, usage, selection["challenge_tags"], selection.get("revision_challenges"))
     evidence = {
         "format_version": 1, "base_main": "293181686260a91398334a0fe2d794a5998388cc",
         "source_evidence": {"overlay_sha256": sha256(overlay), "overlay_bytes": overlay.stat().st_size,
@@ -205,6 +271,9 @@ def build(source_path):
     taxonomy = read_json(WORK / "taxonomy.json")
     validate_sidecar(sidecar, selected, taxonomy)
     outputs["pilot_audit.json"] = encoded(audit(sidecar, selected, usage, taxonomy))
+    external = read_json(WORK / "external_evidence.json")
+    baseline = read_json(WORK / "pilot_v1_baseline.json")
+    outputs["revision_audit.json"] = encoded(revision_audit(sidecar, selected, baseline, external))
     lines = ["# Issue #64 pilot discovery catalog", "", "Offline review view only. All paths are proposals; no production/UI integration or accepted review.", "", "| canonical English | production 日本語表示 | usage | 主経路案 | 副経路案 | 状態 |", "| --- | --- | ---: | --- | --- | --- |"]
     def label(path):
         if path is None:
@@ -217,6 +286,18 @@ def build(source_path):
         columns = [tag, entries[tag]["display_ja"], usage[tag]["post_count"], label(row["primary_path"]), " / ".join(label(p) for p in row["secondary_paths"]), row["classification_status"]]
         lines.append("| " + " | ".join(escape(c) for c in columns) + " |")
     outputs["pilot_catalog.md"] = ("\n".join(lines) + "\n").encode("utf-8")
+    lines = ["# Issue #64 external definition review — revision 2", "", "Observed source summaries and classification inferences are separate. All rows remain proposals, not independently accepted. Post metadata is a limited context sample; no images were inspected.", "", "| canonical | 観察した根拠（要約） | 分類判断 | 参照元 |", "| --- | --- | --- | --- |"]
+    for tag, record in external["entries"].items():
+        links = []
+        for source in record["sources"]:
+            kind = source["kind"]
+            url = source.get("url", source.get("request_url"))
+            title = source.get("requested_title", "post metadata (12)")
+            if kind == "danbooru_wiki_lookup_no_match":
+                title += " (wiki未検出)"
+            links.append(f"[{escape(title)}]({url})")
+        lines.append("| " + " | ".join([escape(tag), escape(record["observed_summary_ja"]), escape(record["classification_inference_ja"]), " / ".join(links)]) + " |")
+    outputs["external_review.md"] = ("\n".join(lines) + "\n").encode("utf-8")
     return outputs
 
 

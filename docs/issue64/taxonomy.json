@@ -34,13 +34,13 @@
       "subgenres": {}
     },
     "COLOR_APPEARANCE": {
-      "boundary_ja": "blue_eyesは髪・顔、白背景は背景が主。単なる色修飾には全件の副経路を付けない。",
+      "boundary_ja": "独立した色調・模様・幾何形を扱う。幾何形は記号にも副経路可。物や目の色修飾は対象側を主とする。星の天体と星形記号は区別。",
       "discovery_question_ja": "色・模様・形の独立した特徴を探す",
       "label_ja": "色・柄・形",
       "subgenres": {}
     },
     "COMPOSITION_CAMERA": {
-      "boundary_ja": "被写体が向く先は視線・向き。漫画形式・合成は画面表現。",
+      "boundary_ja": "観察位置・写る範囲・遠近法が主。profileは顔の見える範囲であり眼球の視線ではない。レイヤーや画面分割は画面表現主。",
       "discovery_question_ja": "どこから・どこまで写すかを探す",
       "label_ja": "構図・画角",
       "subgenres": {}
@@ -64,13 +64,13 @@
       "subgenres": {}
     },
     "LIGHT_TIME_WEATHER": {
-      "boundary_ja": "固有タイトルにlight等があっても推測しない。",
+      "boundary_ja": "光の状態・時間・気象現象を扱う。星・月・星座そのものは場所・背景。固有名のlight等から推測しない。",
       "discovery_question_ja": "光の当たり方や天気・時間を探す",
       "label_ja": "光・時間・天候",
       "subgenres": {}
     },
     "LIVING_NATURE": {
-      "boundary_ja": "耳・尻尾などの部位は身体。森などの場は場所。",
+      "boundary_ja": "部位は身体、森は場所。菌類は植物・食べ物と断定せず主ジャンルのみ可。生物全体と食用表現をwiki定義で分ける。",
       "discovery_question_ja": "動物・空想生物・植物を探す",
       "label_ja": "生き物・植物",
       "subgenres": {
@@ -79,7 +79,7 @@
       }
     },
     "OBJECT_PROP": {
-      "boundary_ja": "着用アクセサリは衣装。生物・植物は別分類。行為は主経路を行為にする。",
+      "boundary_ja": "着用アクセサリは衣装。生物は別。用途が日用品に合わない器具は主ジャンルのみを使い、DAILYへ押し込まない。",
       "discovery_question_ja": "画面に置く物・持たせる物を探す",
       "label_ja": "道具・小物",
       "subgenres": {
@@ -90,14 +90,14 @@
       }
     },
     "PERSON_COUNT": {
-      "boundary_ja": "職業・役柄はここ。着ている物は衣装。動物単体は生き物。",
+      "boundary_ja": "人物・役柄・集団はここ。maid等、wikiが衣装着用を定義の中心にする場合は衣装を主にする。必要な衣装副経路は発見用途であり服の必須条件ではない。",
       "discovery_question_ja": "誰を・何人描くかを探す",
       "label_ja": "人物・人数・役柄",
       "subgenres": {}
     },
     "PLACE_BACKGROUND": {
-      "boundary_ja": "個体の木・花は生き物・植物。天候や時間は別分類。",
-      "discovery_question_ja": "どこにいるか・背景に何を置くかを探す",
+      "boundary_ja": "空・星・天体自体はここ。光の当たり方・時間・天候は別。生物・植物の個体は生き物。",
+      "discovery_question_ja": "場所・背景・空・天体を探す",
       "label_ja": "場所・背景",
       "subgenres": {}
     },
@@ -108,7 +108,7 @@
       "subgenres": {}
     },
     "STYLE_QUALITY_META": {
-      "boundary_ja": "文字・記号は独立分類。General population外のhighres等を追加しない。",
+      "boundary_ja": "レイヤー・分割・実画面投影などの画面表現。切り取り・観察視点は構図。文字・記号は独立。population外のMetaタグを追加しない。",
       "discovery_question_ja": "塗り方、漫画形式、加工、作画上の特徴を探す",
       "label_ja": "画風・加工・画面表現",
       "subgenres": {}
@@ -127,5 +127,5 @@
   "max_path_depth": 2,
   "no_visible_catch_all": true,
   "status": "PROPOSED_PENDING_DEV_AUDIT",
-  "version": "issue64-pilot-v1"
+  "version": "issue64-pilot-v2"
 }
