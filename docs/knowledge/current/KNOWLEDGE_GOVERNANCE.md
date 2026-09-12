@@ -13,9 +13,11 @@ The registry answers:
 - exactly where it applies;
 - whether revalidation is required;
 - where the evidence lives;
-- which downstream lane may consume it.
+- which downstream domain may consume it.
 
 Readable category files explain the claims. Research files preserve proof/history. Neither silently overrides the Registry.
+
+The separate PROMPT team was retired on 2026-09-12. Prompt/generation-effectiveness claims remain KNOWLEDGE claims rather than becoming a second authority system.
 
 ## 2. Claim ID rule
 
@@ -43,6 +45,8 @@ Current domains include:
 - `HIST`
 - `REJECT`
 
+`PROMPT` in a Claim ID is a **knowledge domain name**, not an active team identifier.
+
 IDs are never recycled. A changed claim is updated in place when meaning remains the same; a materially different claim receives a new ID and uses `supersedes/contradicted_by`.
 
 ## 3. Required registry columns
@@ -59,6 +63,8 @@ IDs are never recycled. A changed claim is updated in place when meaning remains
 10. `downstream_relevance`
 
 These columns are fixed so the CSV can later be converted to JSON/YAML without changing semantics.
+
+Legacy `downstream_relevance=PROMPT` values may remain for provenance. After 2026-09-12 they mean the Prompt/generation-guidance consumption domain inside KNOWLEDGE, not a separate team. New routing goes through Issue #44.
 
 ## 4. SOURCE_CLASS — what kind of evidence is this?
 
@@ -112,7 +118,7 @@ Never drop scope when copying a claim to a downstream handoff.
 - `NOT_REQUIRED` — no local validation required for the stated narrow fact/principle
 - `LOCAL_RECHECK` — verify local installation/config/hash when environment changes
 - `CONTROLLED_TEST_REQUIRED` — generation-effect claim needs controlled test
-- `STAGE10_REQUIRED` — specifically unresolved for Stage10 representative evaluation
+- `STAGE10_REQUIRED` — historically Stage10-scoped unresolved evidence; after PROMPT merge this still means image-dependent controlled validation is needed, not that broad Stage10 is automatically authorized
 - `SOURCE_RECHECK_REQUIRED` — source/version can change and should be rechecked before promotion-critical use
 
 A claim can be `ACCEPTED` and still have `SOURCE_RECHECK_REQUIRED` because freshness is separate from current interpretation.
@@ -130,6 +136,7 @@ Never collapse:
 8. Prompt-only capability
 9. LoRA/control/postprocess-assisted capability
 10. evaluator/human judgement
+11. product/runtime adoption
 
 “Tag is semantically correct” and “this checkpoint responds well to this surface” require separate claims.
 
@@ -145,6 +152,8 @@ To move `CANDIDATE/HOLD/CONFLICT` -> `ACCEPTED`:
 
 General reusable generation rules require E3-level evidence under the existing evidence framework. Local practical rules may be accepted only under pinned local context.
 
+Image-dependent validation should be as narrow as the concrete claim/question. Do not convert every HOLD into a broad sweep requirement.
+
 ## 10. Authority boundary
 
 A KNOWLEDGE `ACCEPTED` claim means “the KNOWLEDGE lane currently accepts this statement within its scope.”
@@ -152,12 +161,16 @@ A KNOWLEDGE `ACCEPTED` claim means “the KNOWLEDGE lane currently accepts this 
 It does **not** automatically:
 - edit production `data/**`;
 - change DEV implementation;
-- change PROMPT production grammar;
+- change runtime/UI Prompt behavior;
 - alter AUDIT verdicts;
-- authorize Stage10 production A/B/scoring.
+- authorize broad Stage10 production A/B/scoring;
+- make future/advanced knowledge a v1 requirement.
 
-Downstream fields are routing metadata, not cross-team commands.
+Downstream fields are routing metadata, not production commands.
+Product adoption remains controlled by main product/DEV routing.
 
-## 11. Old labels
+## 11. Old labels / old team names
 
-Do not bulk-rewrite old research documents. Interpret them through `LABEL_MIGRATION_MAP.md`; current verdict always comes from the Registry.
+Do not bulk-rewrite old research documents. Interpret legacy evidence labels through `LABEL_MIGRATION_MAP.md`; current verdict always comes from the Registry.
+
+Likewise, old `PROMPT:#5` / `PROMPT班` references remain historical provenance. They must not be interpreted as an active team after 2026-09-12; current work routes through KNOWLEDGE #44.
