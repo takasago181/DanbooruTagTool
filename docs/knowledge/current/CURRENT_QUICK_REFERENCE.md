@@ -13,7 +13,28 @@ Current v1 goal:
 
 A beginner should be able to understand an existing Prompt in Japanese, discover Special/General tags through Japanese/English search or browsing, choose manually, and copy canonical English.
 
-The old knowledge-lane wording `intent -> Special -> support -> optimized Prompt -> diagnosis` is **not the current v1 product goal**. It remains a future/advanced generation-knowledge target only.
+The old knowledge-lane wording `intent -> Special -> support -> optimized Prompt -> diagnosis` is **not the current v1 product goal**.
+
+## Current Stage10 relationship
+
+2026-09-13以降、Stage10は **practical image-generation learning**。
+
+Current authority:
+- Issue #65 `[STAGE10][LEARNING][ACTIVE] Practical image-generation mastery with NoobAI`
+- main `docs/stages/STAGE_10_LEARNING.md`
+
+Primary learning lane:
+- **NoobAI XL 1.1 EPS + Forge Neo**
+
+Secondary:
+- Anima — relation-heavy / multi-character / tag + natural-language comparison/fallback
+- WAI Illustrious v17 — historical/comparison
+- NoobAI V-Pred — separate advanced profile
+
+Stage10 is parallel to v1 and does not block v1 completion.
+Old Stage10 production A/B/evaluator assets are historical/testing material, not current Stage10 completion criteria.
+
+KNOWLEDGE #44 supplies the evidence/knowledge base. Stage10 can feed durable practical lessons back to #44, but one successful image remains a local case.
 
 ## Team ownership
 
@@ -26,7 +47,7 @@ KNOWLEDGE #44 now owns:
 - model-family Prompt conventions
 - practical generation knowledge
 - generation-effectiveness questions
-- narrow controlled validation when a concrete research/product question requires it
+- controlled validation when a concrete research/product/Stage10 question requires it
 
 KNOWLEDGE does not own production/spec adoption.
 Historical Issue #5 is provenance only.
@@ -35,11 +56,11 @@ Historical Issue #5 is provenance only.
 
 # Practical generation focus — NoobAI + Anima
 
-Current source-research priority:
-1. **NoobAI XL 1.1 EPS** — tag-first practical workhorse
-2. **Anima official family** — hybrid/relation-explicit practical family
+Current practical priority:
+1. **NoobAI XL 1.1 EPS** — Stage10 primary / tag-first practical workhorse
+2. **Anima official family** — hybrid/relation-explicit fallback/comparison family
 3. NoobAI V-Pred 1.0 — separate V-Pred alternate lane
-4. WAI17 — comparison/reference and existing local-test history
+4. WAI17 — comparison/reference and historical local-test lane
 
 Operational guide:
 `PRACTICAL_GENERATION_NOOB_ANIMA.md`
@@ -59,7 +80,7 @@ Author baseline:
 - Danbooru + e621 native-tag training context
 
 Practical rule:
-- use for tag-centric generation and mature Illustrious/SDXL ecosystem access
+- use as Stage10 first-line model for tag-centric generation
 - author example Negative includes `nsfw`; do not use that blindly when the intended image itself is adult-rated
 - exact hard relation/body-site/count ceiling remains HOLD
 
@@ -131,6 +152,43 @@ Assisted success remains distinct from plain-Prompt capability.
 
 ---
 
+## Stage10 learning quick rules
+
+Current learning loop:
+
+`意図 -> Prompt -> 生成 -> 観察 -> failure class -> 最小修正 -> 必要なら補助 -> 仕上げ -> metadata保存`
+
+For hard/niche targets, evaluate when relevant:
+- presence
+- actor / target / ownership
+- body-site
+- relation
+- count
+- visibility
+- source / destination
+- topology
+
+Default diagnosis order:
+1. exact model/profile
+2. exact tag/trigger
+3. crop/visibility
+4. target presence
+5. actor-target/body-site/count/relation
+6. composition conflict
+7. Negative collision
+8. Prompt density/weight conflict
+9. seed sensitivity
+10. LoRA/context leakage
+11. assisted-control/edit escalation
+
+Learning evidence rule:
+- one image = local case
+- fixed-seed comparison = useful diagnosis
+- repeated controlled results = stronger evidence
+- only scope-preserving evidence can update durable Claims
+
+---
+
 ## Existing Prompt interpretation — current quick rules
 
 ### 1. Classify the surface before assigning meaning
@@ -199,12 +257,14 @@ Preserve actor/receiver/owner, body-site, exact count, source/destination and im
 
 ### WAI Illustrious v17
 Short quality/Negative author baseline and rating surfaces are WAI17 conventions, not universal grammar.
+WAI17 is no longer the Stage10 primary lane.
 
 ### Illustrious early/base
 Official base guidance includes quality vocabulary and composition-conflict warning. Derivatives require revalidation.
 
 ### NoobAI
 Exact caption structure and quality/date conventions are model-specific. EPS and V-Pred remain separate.
+NoobAI XL 1.1 EPS is the current Stage10 primary lane.
 
 ### Anima
 Official grouping:
@@ -239,18 +299,21 @@ Important current facts:
 
 ## Current empirical state
 
-Source research now prioritizes NoobAI + Anima.
+Stage10 practical generation now starts with **NoobAI XL 1.1 EPS**.
 
-Existing local controlled evidence remains model/version-specific; do **not** pretend Noob/Anima hard-target performance is proven until exact local checkpoints/runtime are tested.
+Existing WAI17 controlled evidence remains valid only within its original scope and is now comparison/history, not the default learning baseline.
 
-Recommended future controlled lanes:
-- Noob EPS vs V-Pred
+High-value future controlled lanes:
+- Noob simple baseline / camera / visibility
 - Noob hard relation/body-site/count
+- Noob EPS vs V-Pred
 - Anima Base vs Aesthetic v1.1 vs Turbo v1.1
 - Anima tag-only vs concise hybrid relation
 - Noob/Illustrious LoRA cross-use
 - Anima LoRA x profile
 - Forge Couple escalation
+
+Do not turn Stage10 into a broad 2,788-entry sweep.
 
 ---
 
@@ -286,7 +349,7 @@ Recommended future controlled lanes:
 ## Current research backlog state
 
 See `RESEARCH_BACKLOG_20260913.md`.
-Practical Noob/Anima source synthesis is complete; next high-value additions are exact local controlled comparisons, not another broad generic web overview.
+Practical Noob/Anima source synthesis is complete; next high-value additions are exact local controlled comparisons and Stage10 learning observations, not another broad generic web overview.
 
 ---
 
@@ -296,8 +359,9 @@ Practical Noob/Anima source synthesis is complete; next high-value additions are
 - model trigger/convention: exact model evidence / controlled tests
 - runtime behavior: official runtime docs/version + pinned local identity when critical
 - generation effectiveness: controlled scoped evidence
+- Stage10 local result: learning evidence unless promoted with scope
 - evaluator result: measurement aid, not semantic authority
-- product adoption: DEV/product routing, not automatic from KNOWLEDGE
+- product adoption: DEV/product routing, not automatic from KNOWLEDGE or Stage10
 
 ## Legacy PROMPT labels
 
@@ -305,4 +369,4 @@ Old files/Registry metadata may still say `PROMPT` or `PROMPT:#5`.
 Treat those as historical Prompt/generation-guidance provenance, **not an active team**. New work routes to KNOWLEDGE #44.
 
 Restore:
-`main CURRENT_STATE/PRODUCT_GOAL -> Issue #44 -> this file -> PRACTICAL_GENERATION_NOOB_ANIMA -> Claim Registry -> Version Ledger -> relevant Catalog -> evidence as needed`.
+`main CURRENT_STATE -> Issue #65/STAGE_10_LEARNING when learning -> Issue #44 -> this file -> PRACTICAL_GENERATION_NOOB_ANIMA -> Claim Registry -> Version Ledger -> relevant Catalog -> evidence as needed`.
