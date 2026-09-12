@@ -8,9 +8,9 @@
 
 ## D-001 常設3班 + AUDIT on-demand
 
-Status: ADOPTED
+Status: **SUPERSEDED BY D-016**
 
-常設:
+Historical decision:
 - DEV
 - KNOWLEDGE
 - PROMPT
@@ -19,7 +19,7 @@ AUDITは常設班ではなく、必要な品質Gateごとに起動する独立�
 Codexは班ではなくDEVの実装担当。
 TEMPは期間限定。
 
-旧「常設4班」はSUPERSEDED。
+2026-09-12にPROMPT班を廃止し、KNOWLEDGEへ統合したため現在の体制はD-016を参照する。
 
 ---
 
@@ -179,9 +179,12 @@ Issue #64。
 
 ## D-013 Stage10 / generation-effectiveness is not a v1 blocker
 
-Status: ADOPTED
+Status: ADOPTED / UPDATED BY D-016
 
-Issue #5 / Stage10 / evaluator / Generation Profileは将来資産として保持するが、v1 completion必須ではない。
+Stage10 / evaluator / Generation Profile / former Issue #5 evidenceは将来資産として保持するが、v1 completion必須ではない。
+
+Prompt/generation-effectiveness knowledge and future narrow validation are now owned by **KNOWLEDGE #44**.
+Former Issue #5 is retired/closed and historical only.
 
 再activateするのは、採用featureが例えば以下を必要とする時だけ:
 - model-specific effectiveness
@@ -224,6 +227,39 @@ Stage5 full index / true AND / Candidate Aggregation / reliability rankingは既
 
 の通常利用にfull 11M-post / ~3GB statistics indexを必須化しない。
 将来の関連候補/統計機能で必要ならoptional subsystemとして使う。
+
+---
+
+## D-016 PROMPT班廃止 / KNOWLEDGEへ統合 — 2026-09-12
+
+Status: ADOPTED
+
+常設体制を以下へ変更する。
+
+- DEV
+- KNOWLEDGE
+
+AUDITはon-demand独立監査ロール、TEMPは期間限定担当、CodexはDEV実装担当のまま。
+
+旧PROMPT班は廃止し、その責務を `KNOWLEDGE:#44` へ統合する。
+
+KNOWLEDGE #44が所有する範囲:
+- generation knowledge corpus
+- Prompt composition knowledge
+- minimum-sufficient Prompt / support / anti-support research
+- model-family-specific Prompt guidance
+- generation-effectiveness research
+- relation/binding/count/topology failure knowledge
+- evaluator/tool/LoRA/control knowledge
+- concrete adopted featureが必要とする場合のnarrow controlled validation / Stage10-style evidence handoff
+
+ただしKNOWLEDGEはproduction/spec authorityを持たない。
+知識・実証結果をruntime/UIへ採用する判断はDEV/product routingが行う。
+
+Issue #5はretired/closedとし、comments/docs/resultsはhistorical evidenceとして保持する。
+旧文書の`PROMPT:#5`参照は新しい独立班を意味せず、必要に応じて#44から参照する。
+
+v1 knowledgeとfuture/advanced generation knowledgeは別チームに分けず、同じKNOWLEDGE内でproduct relevance / scope / validation stateを明示して管理する。
 
 ---
 
