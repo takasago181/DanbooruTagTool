@@ -17,14 +17,14 @@ Accepted basis: Issue #64 pilot revision 2, commit `5064429018123c80c32ac41af715
 
 ## Checkpoint 2026-09-13 JST
 
-Completed sequential rows: 1-5,300 / 30,629 (17.30%)
+Completed sequential rows: 1-5,500 / 30,629 (17.96%)
 
-- PROPOSED: 5,153
-- UNRESOLVED: 147
-- HIGH: 4,675
-- MEDIUM: 478
-- LOW: 147
-- remaining: 25,329
+- PROPOSED: 5,349
+- UNRESOLVED: 151
+- HIGH: 4,853
+- MEDIUM: 496
+- LOW: 151
+- remaining: 25,129
 
 Batches:
 
@@ -34,13 +34,15 @@ Batches:
 - 2,301-3,300: 982 proposed / 18 unresolved
 - 3,301-4,300: 967 proposed / 33 unresolved
 - 4,301-5,300: 963 proposed / 37 unresolved
+- 5,301-5,500: 196 proposed / 4 unresolved (Batch 7 partial checkpoint)
 
-Batch 6 audit重点:
-- `car/card`, `bra`, `ring`, `cat`, `chain`, `chest`, `chin`, `clean/clear` 周辺の部分一致誤爆を重点監査
-- 対象物identityを修飾語より優先し、`champagne_*`, `cereal_box`, `cleaning_*`, `*_print`, `caterpillar_tracks` 等を用途別に分離
-- `card_between_*`, `card_in_*`, `caressing_testicles` 等の関係・行為タグは、内包する物体/身体語よりACTION_CONTACTを優先
-- `cbj-ms`, `chilla_(arms)`, `cerise_bouquet`, `clear_marine_calm_(idolmaster)` 等は必要箇所だけ外部定義で境界確認
-- 企業名・ブランド・固有イベント・抽象概念など37件は無理に分類せずUNRESOLVEDを維持
+Batch 7 partial audit重点:
+- `coat/cock*`, `clothes/object`, `ornament/name`, `cloud/sky`, `coffee/object` 周辺の部分一致誤爆を明示的に再監査
+- `cobra_(animal)` / `cockatiel` を `coat` 部分一致で衣装へ誤送しない、`*_hair_ornament` を `name` 部分一致で文字へ誤送しない等、語境界と対象identityを優先
+- `clothes_dryer`, `clothes_hanger`, `coffee_mug` 等は修飾語より具体物identityを優先して OBJECT_PROP に分離
+- 行為・接触は内包する身体/物体語より ACTION_CONTACT を優先し、着脱・露出状態は base clothing と分離
+- `clockshow`, `close_game/offline_(project_sekai)`, `coco's`, `code:escape_(idolmaster)` の4件は名称だけで安全に実用経路を確定できないため UNRESOLVED を維持
+- external evidence はこの200件では未使用
 
 ## Rules
 
@@ -75,4 +77,4 @@ Recovery order for a new chat:
 4. `docs/issue64/full_rollout/MANIFEST.json`
 5. this `PROGRESS.md`
 
-Next unprocessed global row: **5,301**.
+Next unprocessed global row: **5,501**.
