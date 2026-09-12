@@ -27,10 +27,10 @@ A beginner with limited English/Danbooru-tag knowledge should be able to:
 - copy the final canonical-English Prompt
 
 Current product-scope owner:
-- Issue #42 `[PRODUCT][V1-NARROWING][RESERVED] Beginner-first product scope and implementation path`
+- Issue #42 `[PRODUCT][V1-NARROWING][AFTER-34] Beginner-first product scope and implementation path`
 
-New General taxonomy lane:
-- Issue #64 `[GENERAL-DICT][UI-TAXONOMY][RESERVED] Practical genre browsing for 30,629 Japanese-overlay entries`
+General taxonomy lane:
+- Issue #64 `[GENERAL-DICT][UI-TAXONOMY][NEXT-AFTER-63] Practical genre browsing for 30,629 Japanese-overlay entries`
 
 ## Current Core DEV
 
@@ -60,9 +60,9 @@ Current continuation:
 
 After #63 is accepted/merged:
 
-1. **Issue #34** — bilingual search relevance/noise
-2. **Issue #42** — reconcile current code/UI against the new v1 scope and lock `V1_SCOPE_LOCKED`
-3. **Issue #64** — General 30,629 practical browse taxonomy sidecar
+1. **Issue #64** — General 30,629 practical browse taxonomy sidecar
+2. **Issue #34** — bilingual search relevance/noise
+3. **Issue #42** — reconcile current code/UI against the new v1 scope and lock `V1_SCOPE_LOCKED`
 4. **v1 UI integration** — `understand -> discover -> choose -> copy`
 5. focused regression + real Windows UI acceptance
 6. v1 baseline
@@ -74,9 +74,9 @@ Issue #5 / Stage10 is outside this required route unless a future adopted featur
 | TEAM_ID | Status | Scope | Restore anchor |
 | --- | --- | --- | --- |
 | `PRODUCT-FIT:#63` | **CURRENT CORE DEV / OPEN** | product-fit verdict sidecar | Issue #63 body + latest checkpoint |
-| `UIJA-PARENT:#34` | **NEXT AFTER #63** | bilingual search relevance/noise | Issue #34 |
-| `PRODUCT:#42` | **RESERVED / V1 SCOPE OWNER** | beginner-first v1 narrowing | Issue #42 + `PRODUCT_GOAL_LOCK.md` |
-| `GENERAL-DICT:#64` | **RESERVED** | 30,629 General practical taxonomy | Issue #64 |
+| `GENERAL-DICT:#64` | **NEXT AFTER #63** | 30,629 General practical taxonomy | Issue #64 |
+| `UIJA-PARENT:#34` | **AFTER #64** | bilingual search relevance/noise | Issue #34 |
+| `PRODUCT:#42` | **AFTER #34 / V1 SCOPE OWNER** | beginner-first v1 narrowing | Issue #42 + `PRODUCT_GOAL_LOCK.md` |
 | `KNOWLEDGE:#44` | ONGOING / V1 NON-BLOCKING | generation knowledge corpus | Issue #44 |
 | `PROMPT:#5` | GATED / FUTURE | generation-effectiveness / Stage10 handoff only when needed | Issue #5 |
 | `MAINT:#24` | OPEN / SAFETY DEBT | local protected data backup/restore | Issue #24 |
@@ -147,7 +147,7 @@ Existing assets may remain internally. Do not delete evidence merely because a v
 
 ## Important current code delta for #42
 
-Known current implementation mismatches to reconcile later, not during #63/#34 unless explicitly in scope:
+Known current implementation mismatches to reconcile later, not during #63/#64/#34 unless explicitly in scope:
 
 1. UI is still primarily `Specialを探す` / Special-first and lacks the final existing-Prompt-understanding + General-browse entry flow.
 2. Recommendation UI still exposes `よく使われる / 珍しい関連 / 意味から補助` as prominent product surfaces.
@@ -177,7 +177,7 @@ Current core DEV:
 - Issue #63
 
 Current route:
-- `#63 acceptance -> #34 -> #42 -> #64 -> v1 UI integration/Windows acceptance`
+- `#63 acceptance -> #64 -> #34 -> #42 -> v1 UI integration/Windows acceptance`
 
 Future generation-effectiveness lane:
 - Issue #5 / Stage10 only when a concrete adopted feature requires empirical image evidence
@@ -193,9 +193,9 @@ Management authority:
 
 1. Retrieve/verify the Codex #63 branch/commit/report/tests.
 2. If reviewable and correct, perform required DEV/AUDIT acceptance and merge #63.
-3. Move current core DEV to #34 and fix bilingual relevance/noise.
-4. Activate #42 only after #34, compare actual current code against the v1 ADOPT/HOLD/REJECT list, and lock v1 scope.
-5. Route to #64 for General 30,629 practical taxonomy.
+3. Move current core DEV to #64 and build/audit the General 30,629 practical taxonomy sidecar.
+4. After #64 acceptance, move to #34 and fix bilingual relevance/noise.
+5. Activate #42 only after #34, compare actual current code against the v1 ADOPT/HOLD/REJECT list, and lock v1 scope.
 6. Integrate the final beginner-first UI and perform real Windows acceptance.
 
 Parallel safety debt:
