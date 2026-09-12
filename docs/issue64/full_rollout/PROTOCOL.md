@@ -11,12 +11,11 @@ This directory is the recoverable source for the ChatGPT-led 30,629-row General 
 
 ## Persistence unit
 
-Each completed batch is immutable after checkpointing and is stored under `batches/` as:
+Each completed batch is immutable after checkpointing and is stored under `batches/` as a row ledger containing canonical + proposed/unresolved + primary/secondary path + confidence.
 
-- row ledger — canonical + proposed/unresolved + primary/secondary path + confidence
-- summary JSON — counts, unresolved list, audit notes, source/output hashes
-
-Do not rewrite an older batch merely to make later logic cleaner. If a semantic correction is needed, record it as a later correction/audit artifact that names the affected canonical rows and preserves traceability.
+- Batches 1-4 were persisted before this protocol was finalized; their immutable row ledgers plus MANIFEST row ranges and SHA-256 are the accepted recovery record.
+- Batch 5 onward additionally stores a summary JSON with counts, unresolved list, and audit notes.
+- Do not rewrite an older batch merely to make later logic cleaner. If a semantic correction is needed, record it as a later correction/audit artifact that names the affected canonical rows and preserves traceability.
 
 ## Checkpoint files
 
@@ -24,11 +23,11 @@ Do not rewrite an older batch merely to make later logic cleaner. If a semantic 
 - `PROGRESS.md` is the human-readable current stop point and routing note.
 - Issue #64 receives milestone comments at meaningful checkpoints so the work itself is discoverable from the project management trail.
 
-A batch is considered persisted only when:
-1. its row ledger is stored,
-2. its summary JSON is stored,
-3. `MANIFEST.json` includes its exact range and SHA-256,
-4. `PROGRESS.md` points through the same final global row.
+A batch is considered persisted when:
+1. its immutable row ledger is stored,
+2. `MANIFEST.json` includes its exact range and ledger SHA-256,
+3. `PROGRESS.md` points through the same final global row,
+4. for Batch 5 onward, its summary JSON is also stored.
 
 ## Resume procedure for a fresh chat
 
@@ -52,6 +51,6 @@ A batch is considered persisted only when:
 
 ## Commit cadence
 
-During rollout, persist every 1,000 classified rows or sooner before any chat handoff/continuity risk. Smaller initial batches remain valid historical checkpoints.
+During rollout, persist every 1,000 classified rows or sooner before any chat handoff/continuity risk.
 
 Do not commit a repeatedly regenerated cumulative CSV on every batch. Immutable batch ledgers + `MANIFEST.json` are the canonical recoverable detail. A combined full sidecar/CSV is generated only at major audit checkpoints or at 30,629/30,629 completion.
