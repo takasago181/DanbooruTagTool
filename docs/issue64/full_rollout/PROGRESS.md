@@ -17,14 +17,14 @@ Accepted basis: Issue #64 pilot revision 2, commit `5064429018123c80c32ac41af715
 
 ## Checkpoint 2026-09-13 JST
 
-Completed sequential rows: 1-5,700 / 30,629 (18.61%)
+Completed sequential rows: 1-5,900 / 30,629 (19.26%)
 
-- PROPOSED: 5,539
-- UNRESOLVED: 161
-- HIGH: 5,027
-- MEDIUM: 512
-- LOW: 161
-- remaining: 24,929
+- PROPOSED: 5,720
+- UNRESOLVED: 180
+- HIGH: 5,170
+- MEDIUM: 550
+- LOW: 180
+- remaining: 24,729
 
 Batches:
 
@@ -35,13 +35,14 @@ Batches:
 - 3,301-4,300: 967 proposed / 33 unresolved
 - 4,301-5,300: 963 proposed / 37 unresolved
 - 5,301-5,500: 196 proposed / 4 unresolved
-- 5,501-5,700: 190 proposed / 10 unresolved (Batch 8 partial checkpoint)
+- 5,501-5,700: 190 proposed / 10 unresolved
+- 5,701-5,900: 181 proposed / 19 unresolved
 
-Batch 8 audit重点:
-- `coffee/coin/collar/color/comic/compass` 周辺を語境界と対象identity優先で再監査
-- `colored_*` は色語だけで `COLOR_APPEARANCE` へ送らず、身体・髪顔・衣装・文字等の対象identityを主経路にし、必要な場合のみ色をsecondary pathに保持
-- 武器・乗り物・日用品は修飾語より具体物identityを優先
-- 作品固有名・歴史題材・関係性メタなど10件は、名称だけで安全に分類できないためUNRESOLVED
+Batch 9 audit重点:
+- `computer/condom/construction/control/convenient/cooking/coral/corn/costume/coughing` 周辺を対象identityとpilot-v2境界優先で再監査
+- `condom_*` は物体そのもの、身体への配置・使用、装着具をそれぞれ OBJECT_PROP / ACTION_CONTACT / CLOTHING に分離
+- `convenient_*` は露出隠しの機能を主にし、`convenient_censoring` のみ画面表現として STYLE_QUALITY_META
+- 作品固有名・抽象概念等19件は名称だけで安全に分類できないためUNRESOLVED
 - external evidence はこの200件では未使用
 
 ## Rules
@@ -77,4 +78,4 @@ Recovery order for a new chat:
 4. `docs/issue64/full_rollout/MANIFEST.json`
 5. this `PROGRESS.md`
 
-Next unprocessed global row: **5,701**.
+Next unprocessed global row: **5,901**.
