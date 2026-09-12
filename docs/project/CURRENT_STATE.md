@@ -4,19 +4,21 @@
 
 ## Current Stage
 
-Stage 9 overall Gate 完了 / Stage10 準備Gate実施中 / Special Core Dictionary practical completion (#56) 完了 / bilingual search relevance (#34) 残Gate / automated E2E PASS / Special Core Dictionary freeze 完了
+Stage 9 overall Gate 完了 / Stage10 準備Gate実施中 / Special Core Dictionary practical completion (#56) 完了 / product-fit sidecar integration (#63) 実装待ち / bilingual search relevance (#34) 後続Gate / automated E2E PASS / Special Core Dictionary freeze 完了
 
 本ファイルは現在地のrouting正本。task contract / completion criteria / result evidenceは対応Issueを正本とし、更新競合時はlive Issue / branch / checkpointを優先して同期する。
 
 ## Current Core DEV
 
-**NONE / MANAGEMENT_HANDOFF — #34 SEARCH GATE REMAINS**
+**Issue #63 — PRODUCT_FIT_VERDICT_INTEGRATION_READY**
 
 Issue #56 Special Core Dictionary practical completion は、full 2,788 UI browse mapping、Pilot/Full独立監査、main統合まで完了した。Final Audit Issue #61 は `PASS`、監査commentは `5642860927`。監査済みfeature HEAD `3a76cac0c77ac53c8b5c88f1650731ad6390a9f2` は PR #62 で main へ統合され、merge commit は `ce7b20dad40190ebd0c67fcc7f53def297df523c`。
 
-#56はclosed/completed。#42はまだactivateしない。残るmaterial Gateは Issue #34 bilingual search relevance/noiseであり、完了またはStage10 Gateからの明示分離が必要。Stage10 production A/Bは開始しない。
+2026-09-12 post-#56 の Special Core Dictionary 製品目的適合性フル監査を 2,788 / 2,788 完了した。最終内訳は `KEEP 1618 / KEEP_REFERENCE_ONLY 1133 / OUT_OF_SCOPE_PRODUCT 12 / REVIEW 25`。production辞書・Special ID・canonical identity・Alias関係・provenance/layerは未変更。年齢、性的強度、非合意、R18G、ニッチ/過激さ自体を自動降格理由にはしていない。
 
-2026-09-12 post-#56 の Special Core Dictionary 製品目的適合性フル監査を 2,788 / 2,788 完了した。最終内訳は `KEEP 1618 / KEEP_REFERENCE_ONLY 1133 / OUT_OF_SCOPE_PRODUCT 12 / REVIEW 25`。監査証跡は branch `audit/special2788-product-fit-20260912`、`docs/audit/SPECIAL2788_PRODUCT_FIT_AUDIT_20260912.md`、final checkpoint `b39b986a6720d40fdac974386c08dddc4e9058b0`。これは #42 への入力証跡であり、production辞書・Special ID・canonical identity・Alias関係・provenance/layerは未変更。年齢、性的強度、非合意、R18G、ニッチ/過激さ自体を自動降格理由にはしていない。#42はこの監査だけではactivateせず、#34 Gate条件は従来どおり維持する。
+実装用の機械可読verdict authorityを branch `audit/special2788-product-fit-20260912` に固定した。manifestは `docs/audit/SPECIAL2788_PRODUCT_FIT_VERDICT_MANIFEST_20260912.json`、audit logは `docs/audit/SPECIAL2788_PRODUCT_FIT_AUDIT_20260912.md`。Issue #63 がこのverdictを非破壊sidecarとして実装する現行DEVである。
+
+ユーザー指示により順序を明示変更した。まず #63 で audited product-fit eligibility layer を実装・監査し、その後 #34 bilingual search relevance/noise を最終product-facing候補集合に対して修正する。#42本体の残るproduct-purpose narrowingは #34 の後。Stage10 production A/Bは開始しない。
 
 Machine Triage Audit `2660c3106d2252c8aa8f3006f2a1040fd95004db` をDEV受入れ済み。既存Generation Batch 12画像ではWD14 / Kagami-24k / CL Tagger v2.00のraw evaluatorは36/36成功、raw artifact image-ID bindingはPASS。一方、旧Generation Batch reportのevaluator referenceは33件不一致で、reporting/provenance参照 defectだった。retrospective machine-first reductionは0%で、前Batchがrelation/binding/body-site/low-confidence中心だったことによるbatch selection失敗と判定した。
 
@@ -25,14 +27,22 @@ Generation Batch 2は完了。execution/report `7e516bd1ca27c862cdaf023c023bed74
 Issue #30 accepted integration checkpoint `5629477164`により、16 experiments / 64 images、32 pairs、全件visual audit、既存rawからのevaluator serialization repair、machine-vs-visual calibrationを完了した。Wave 1の再生成・evaluator再実行・Wave 2は行わない。
 
 Current restore anchors:
-- **current DEV contract: NONE / management handoff**
-- **next material Gate: Issue #34 body + latest checkpoints**
+- **current DEV contract: Issue #63 body + latest checkpoints**
+- **current DEV Issue: #63**
+- **next after #63: Issue #34 bilingual search relevance/noise**
+- #63 title: `[SPECIAL-DICT][PRODUCT-FIT][DEV] Integrate audited product-fit verdict sidecar`
 - #56 completion checkpoint: `5642882451`
 - #56 Final Audit PASS: Issue #61 comment `5642860927`
 - #56 production/main merge: PR #62 / `ce7b20dad40190ebd0c67fcc7f53def297df523c`
-- product-fit full audit branch: `audit/special2788-product-fit-20260912`
-- product-fit full audit log: `docs/audit/SPECIAL2788_PRODUCT_FIT_AUDIT_20260912.md`
-- product-fit full audit final checkpoint: `b39b986a6720d40fdac974386c08dddc4e9058b0`
+- product-fit audit branch: `audit/special2788-product-fit-20260912`
+- product-fit audit log: `docs/audit/SPECIAL2788_PRODUCT_FIT_AUDIT_20260912.md`
+- product-fit verdict manifest: `docs/audit/SPECIAL2788_PRODUCT_FIT_VERDICT_MANIFEST_20260912.json`
+- product-fit implementation contract: `docs/audit/SPECIAL2788_PRODUCT_FIT_IMPLEMENTATION_CONTRACT_20260912.md`
+- product-fit Codex prompt: `docs/audit/CODEX_PROMPT_PRODUCT_FIT_IMPLEMENTATION_20260912.md`
+- manifest commit: `eff5c41a479062cb9f785fb9905111aeb4d1223b`
+- audit registration commit: `b04fbcfdcb644095d9c61a86be9e665e435b5697`
+- implementation contract commit: `487076db7e22f0b7fdbead7afa19428ede56c285`
+- Codex prompt commit: `63d01b2c11b64568464e27522e171b934efd9b08`
 - #42 audit handoff comment: `5644037104`
 - #56 source data: `data/special2788/prompt_reference/`
 - #56 generation-structure boundary: `docs/GENERATION_PROFILE_SCHEMA.md`
@@ -44,7 +54,7 @@ Current restore anchors:
 - Generation Batch 2 execution/report: `7e516bd1ca27c862cdaf023c023bed74e34e6833`
 - Generation Batch 2 human review: `1cd33c7ebec445c3e3870ebce360f9cfee1ffbf9`
 - Issue #30 accepted repair/integration: `9be3fe764c77b7dd6eaba4f791dfb5c3282c8e8b`
-- **current continuation: `MANAGEMENT_HANDOFF / ISSUE34_SEARCH_GATE_REMAINS`**
+- **current continuation: `ISSUE63_PRODUCT_FIT_VERDICT_INTEGRATION`**
 - supporting policy: `docs/project/AUDIT_ARTIFACT_CACHE_POLICY.md`
 - broad direction: `docs/project/ISSUE30_BROAD_COVERAGE_AUTOMATION_DIRECTION_20260911.md`
 - historical #30 branch: `codex/issue30-calibration-design`
@@ -55,12 +65,13 @@ Current restore anchors:
 | --- | --- | --- | --- | --- | --- |
 | `DICT:#32:R2` | COMPLETED / PROMOTED / CARRY_FORWARD_ONLY | #32 Special Core Dictionary historical validation | `dict-validation/quarantine` | 2,788/2,788 validation complete。approved effective subsetは#49でproduction反映済み。REVIEW/ITRはparked evidenceとして保持 | Issue #32 + #48 + #49 + #43 freeze |
 | `SPECIAL-DICT:#56` | **COMPLETED / FINAL_AUDIT_PASS / MERGED** | human-usable Japanese-first Special Core Dictionary practical completion | `main @ ce7b20d` / historical branch `dev/issue56-special-dict-ui-taxonomy` | 2,788/2,788 UI browse mapping、old その他 1,404/1,404、Final Audit #61 PASS、PR #62 main統合完了 | Issue #56 completion `5642882451` + Issue #61 PASS `5642860927` |
+| `PRODUCT-FIT:#63` | **OPEN / CURRENT CORE DEV / READY** | audited product-fit verdict sidecar integration | Issue #63 / task branch pending Codex | manifest -> 2,788-row CSV -> central eligibility layer -> tests -> DEV/AUDIT stop | Issue #63 + audit branch `audit/special2788-product-fit-20260912` |
 | `KNOWLEDGE:#44` | ACTIVE / ONGOING / COVERAGE_COMPLETE | persistent generation knowledge corpus | `knowledge/generation-corpus` | 2,788 × WD14 / Kagami-24k / CL Tagger v2.00 desk coverage完了。#30 handoff済み。必要な追加知識/校正返却を担当 | Issue #44 correction checkpoint `5614819866` + commit `557aa4c` |
 | `UIJA:#36:V5` | COMPLETED / PROMOTED / POST_WRITE_AUDITED | Japanese overlay final convergence / production promotion | `ui-ja/issue36-relaxed-v5-chatgpt-repair` + `main` | 30,629 rowsのV5をIssue #55でproduction反映・独立post-write監査・main統合済み。V4はimmutable evidenceとして保持 | Issue #36 completion checkpoint |
 | `UIJA-ORCH:#46` | SUPERSEDED / CLOSED | historical independent Codex orchestration for V3.1/V4 | Issue #46 / `codex/issue46-orchestrator` | historical evidence only | Issue #46 superseded checkpoint |
-| `UIJA-PARENT:#34` | OPEN / CROSS-CUTTING / **SEARCH_RELEVANCE_REMAINS** | bilingual search relevance and remaining parent UI concerns | Issue #34 | `anal -> piano/analog_clock/...` 等のsubstring/fuzzy search noiseが主要残件。#56 completion返却済み | Issue #34 current body + return checkpoint `5642896366` |
+| `UIJA-PARENT:#34` | OPEN / CROSS-CUTTING / **NEXT AFTER #63** | bilingual search relevance and remaining parent UI concerns | Issue #34 | `anal -> piano/analog_clock/...` 等のsubstring/fuzzy search noise。#63 accepted integration後に最終product-facing候補集合へ対して修正 | Issue #34 current body + return checkpoint `5642896366` |
 | `TEMP:#30` | COMPLETED / ACCEPTED / INTEGRATED | Forge Neo evaluator calibration & A/B automation | `main @ 9be3fe7` / historical branch `codex/issue30-calibration-design` | Wave 1 16 experiments / 64 images、full visual audit、raw-based evaluator serialization repair、machine-vs-visual calibration完了。再生成・再評価・Wave 2なし | Issue #30 checkpoint `5629477164` / repaired calibration artifacts |
-| `PREP:#42` | RESERVED / GATED | Stage10 pre-evaluation product-purpose improvement | Issue #42 | **#56 SATISFIED。product-fit full audit 2,788/2,788 handoff済み。#34 material homework完了または明示分離後**にactivate | Issue #42 comment `5644037104` + audit branch `audit/special2788-product-fit-20260912` |
+| `PREP:#42` | RESERVED / GATED | Stage10 pre-evaluation product-purpose improvement | Issue #42 | #56 + full product-fit audit SATISFIED。#63 integration -> #34 search Gate後に残りnarrowingをactivate | Issue #42 comment `5644037104` + audit branch |
 | `PROMPT:#5` | GATED | Stage10 formal Prompt handoff | Issue #5 | #42 result後にformal handoff | Issue #5 |
 | `MAINT:#24` | OPEN / SAFETY_DEBT | Local protected data backup / restore verification | Issue #24 | GitHub外protected dataのbackup/restore・manifest・非破壊restore検証 | Issue #24 |
 
@@ -85,10 +96,9 @@ Current restore anchors:
   - main merge `ce7b20dad40190ebd0c67fcc7f53def297df523c`
 - Post-#56 Special Core Dictionary product-fit full audit: **COMPLETED / 2,788 / 2,788**
   - KEEP 1,618 / KEEP_REFERENCE_ONLY 1,133 / OUT_OF_SCOPE_PRODUCT 12 / REVIEW 25
-  - production data unchanged
-  - evidence branch `audit/special2788-product-fit-20260912`
-  - final checkpoint `b39b986a6720d40fdac974386c08dddc4e9058b0`
-  - #42 handoff comment `5644037104`
+  - machine-readable verdict manifest complete on audit branch
+  - production canonical data unchanged
+  - #63 implementation contract ready
 - Issue #30 Phase 1 representative evaluator calibration: **COMPLETED / FROZEN EVIDENCE**
   - 32 Special cases × 4 = 128 unique images
   - WD14 / Kagami / CL each 128/128
@@ -216,13 +226,23 @@ Audit artifact cleanup carry-forward:
 
 ## Active / Ready Work
 
+### #63 Product-fit verdict integration — CURRENT CORE DEV
+
+- machine-readable audit manifestを意味再判断せず実装する。
+- latest mainからCodex task branchを作る。
+- `data/special2788/product_fit_verdicts.csv` を決定論的生成し、2,788行・ID 1..2788・件数 `1618/1133/12/25` を検証する。
+- verdictをcanonical dictionaryへ上書きせずID-keyed sidecarとしてロードする。
+- `KEEP / KEEP_REFERENCE_ONLY / OUT_OF_SCOPE_PRODUCT / REVIEW` のproduct-facing eligibilityを中央化する。
+- #34 fuzzy/substring rankingは触らない。
+- 実装後はmergeせずDEV/AUDITへ返す。
+
 ### #56 Special Core Dictionary practical completion — COMPLETED
 
 - Japanese-first UI browsing taxonomyはcanonical semanticsとは分離したsidecarとしてmainへ統合済み。
 - formal 150-row Pilot Gateとfull 2,788 Final Gateはいずれも独立監査PASS。
 - exact 2,788 mapping、old その他 1,404/1,404、Alias pending 0。
 - 監査済みfeature HEADをPR #62でmainへ統合済み。再実行しない。
-- post-#56 product-fit full audit 2,788/2,788 も完了し、#42へ証跡handoff済み。ただしproduction辞書反映は未実施であり、#56を再openしない。
+- post-#56 product-fit full audit 2,788/2,788 も完了。production canonical dataは未変更。
 
 ### #36 UI-JA V5 — ChatGPT-led repair/audit
 
@@ -235,11 +255,11 @@ Current policy (historical completion record):
 - Codex/Luna is not used for translation-quality judgment or semantic audit in the current lane.
 - after all shards: integration/revalidation -> separate independent production-promotion gate -> Issue #55 production promotion and post-write audit complete.
 
-### #34 UI-JA parent remaining concerns — NEXT MATERIAL GATE
+### #34 UI-JA parent remaining concerns — NEXT AFTER #63
 
 Primary remaining concern is bilingual search relevance/noise, including substring/fuzzy collisions such as `anal -> piano / analog_clock / analogous_colors`。
-#56 completionは返却済み。#42 activation前にmaterial concernを完了またはStage10 Gateから明示分離する。
-現時点ではcurrent core DEVへ自動activateせず、次の管理/実装開始時にIssue #34 body + latest checkpointをpreflightする。
+#63 accepted integration後に、最終product-facing eligibility layerを含む状態で修正・検証する。
+#63実装中に#34 rankingを先取りしない。
 
 ### #24 protected-data maintenance
 
@@ -254,12 +274,11 @@ Dictionary promotion/freeze prerequisite: **SATISFIED**。
 #44 evaluator coverage prerequisite: **SATISFIED**。
 #30 Phase 1 representative calibration prerequisite: **SATISFIED**。
 #56 Special Core Dictionary practical completion: **SATISFIED / Final Audit PASS / main merged**。
-Post-#56 Special Core Dictionary product-fit full audit: **SATISFIED / 2,788 / 2,788 / handoff comment `5644037104`**。
+Post-#56 product-fit full audit: **SATISFIED / 2,788 / 2,788**。
 
-Phase 2は追加 refinement laneであり、#42 Gateを自動解除しない。
-
-残るactivation Gate:
-- #34 material bilingual-search/search-noise concern complete or explicitly separated
+Current prerequisite order before remaining #42 narrowing:
+1. #63 product-fit verdict integration accepted/merged
+2. #34 material bilingual-search/search-noise concern completed or explicitly separated
 
 ### #5 PROMPT formal handoff
 
@@ -268,7 +287,9 @@ Formal completionは以下の後:
 2. #44 evaluator coverage return — SATISFIED
 3. #30 representative routing/calibration Phase 1 — SATISFIED
 4. #56 Special Core Dictionary practical completion — SATISFIED
-5. #42 product-purpose improvement result — REMAINS
+5. #63 product-fit verdict integration — CURRENT
+6. #34 search relevance — REMAINS
+7. #42 product-purpose improvement result — REMAINS
 
 ## Current Gates
 
@@ -286,58 +307,54 @@ Formal completionは以下の後:
 12. #30 Phase 2 Generation Batch 2 machine-first — **SATISFIED / HUMAN REVIEW COMPLETE**
 13. #30 Broad Coverage Wave 1 — **SATISFIED / COMPLETED / REPAIR_ACCEPTED / INTEGRATED**
 14. #36 V5 repair/audit -> integration/revalidation -> independent promotion gate — **SATISFIED / #55 production promotion + post-write audit + main integration COMPLETE**
-15. **#56 Special Core Dictionary practical completion — SATISFIED / Final Audit #61 PASS / PR #62 MERGED**
-16. Post-#56 Special Core Dictionary product-fit full audit — **SATISFIED / 2,788 / 2,788 / #42 HANDOFF COMPLETE**
-17. #34 bilingual search relevance/noise — **REMAINS / resolve or explicitly separate before #42**
-18. #42 product-purpose improvement pass — REMAINS / after #34 Gate condition
-19. #5 formal Prompt handoff — REMAINS / after #42
-20. `docs/stages/STAGE_10_PREP.md` remaining checks — REMAINS
-21. Stage10 production A/B — NOT STARTED
+15. #56 Special Core Dictionary practical completion — **SATISFIED / Final Audit #61 PASS / PR #62 MERGED**
+16. Post-#56 product-fit full audit — **SATISFIED / 2,788 / 2,788 / MANIFEST MATERIALIZED**
+17. **#63 product-fit verdict integration — CURRENT / READY FOR CODEX**
+18. #34 bilingual search relevance/noise — REMAINS / after #63 accepted integration
+19. #42 product-purpose improvement pass — REMAINS / after #34 Gate
+20. #5 formal Prompt handoff — REMAINS / after #42
+21. `docs/stages/STAGE_10_PREP.md` remaining checks — REMAINS
+22. Stage10 production A/B — NOT STARTED
 
 ## Canonical dependency order
 
 Current core DEV:
-- **NONE / management handoff**
+- **Issue #63 product-fit verdict integration**
 
-Next material Gate:
-- `#34 bilingual search relevance`
+Then:
+`#63 -> #34 bilingual search relevance -> #42 remaining product-purpose narrowing -> #5 formal Prompt handoff -> remaining STAGE_10_PREP checks -> Stage10 production A/B`
 
 Parallel safety:
 - `#24 protected-data safety`
 
-#30 Wave 1と#56は完了済みで、#42 activation Gateを自動解除しない。product-fit full auditも#42への入力証跡として完了済みだが、それ単独ではactivation Gateを解除しない。
-
-#42 activation waits for:
-- material #34 work completion or explicit separation from Stage10 Gate
-
-Then:
-`#42 product-purpose improvement -> #5 formal Prompt handoff -> remaining STAGE_10_PREP checks -> Stage10 production A/B`
-
 ## Next Actions
 
-1. Issue #34 body + latest checkpointをGitHub liveでpreflightし、bilingual search relevance/noiseの現行欠陥とacceptanceを復元
-2. #34を実装対象としてactivateする場合は、CURRENT_STATEとlive Issueを同一管理操作で同期し、最新mainからtask branchを作る
-3. representative `anal -> piano / analog_clock / analogous_colors` 等を含むsearch ranking/noise修正を、canonical identity・recommendation semanticsを変えずに実施
-4. focused search tests + applicable regression + 必要なreal UI確認を完了し、指定された独立AUDIT Gateがあればfresh auditへ返す
-5. #34 material concern完了またはStage10 Gateからの明示分離後のみ #42 をactivate
-6. #42では product-fit full audit (`KEEP 1618 / KEEP_REFERENCE_ONLY 1133 / OUT 12 / REVIEW 25`) を入力証跡として読み、production反映要否を別change setで決める
-7. #42 product-purpose improvement pass -> #5 formal Prompt handoff -> STAGE_10_PREP close -> Stage10 production A/B
+1. Codexはlive main `CURRENT_STATE.md` -> `CURRENT_DEV_TASK.md` -> Issue #63 body/latest checkpoint -> `PERMANENT_RULES.md` をpreflightする
+2. latest mainから専用feature branchを作る
+3. audit branchのmanifest/implementation contractを取り込み、意味再判断なしで2,788-row CSVを生成・検証する
+4. central product-fit eligibility sidecarを実装し、4 verdict classのfocused test + applicable regressionを実行する
+5. implementation reportとreviewable commitをpushし、mergeせずDEV/AUDITへ返す
+6. #63 accepted integration後に #34 search relevance/noiseを実施
+7. #34完了後、#42 remaining narrowing -> #5 -> STAGE_10_PREP close -> Stage10 production A/B
 8. parallel safety debt: #24 protected-data backup / restore verification
 
 ## Source-of-Truth Rule
 
-- current core DEV = **NONE / MANAGEMENT_HANDOFF**
-- current DEV Issue number = **NONE**
-- current continuation = **`MANAGEMENT_HANDOFF / ISSUE34_SEARCH_GATE_REMAINS`**
-- current DEV branch = **NONE**
-- next material Gate = **Issue #34 bilingual search relevance/noise**
+- current core DEV = **Issue #63**
+- current DEV Issue number = **63**
+- current continuation = **`ISSUE63_PRODUCT_FIT_VERDICT_INTEGRATION`**
+- current DEV branch = **Codex task branch pending**
+- next material Gate after current DEV = **Issue #34 bilingual search relevance/noise**
+- current DEV mirror = `docs/project/CURRENT_DEV_TASK.md` Source Issue #63
+- product-fit audit branch = `audit/special2788-product-fit-20260912`
+- product-fit verdict manifest = `docs/audit/SPECIAL2788_PRODUCT_FIT_VERDICT_MANIFEST_20260912.json`
+- product-fit implementation contract = `docs/audit/SPECIAL2788_PRODUCT_FIT_IMPLEMENTATION_CONTRACT_20260912.md`
+- product-fit Codex prompt = `docs/audit/CODEX_PROMPT_PRODUCT_FIT_IMPLEMENTATION_20260912.md`
+- manifest commit = `eff5c41a479062cb9f785fb9905111aeb4d1223b`
+- audit registration commit = `b04fbcfdcb644095d9c61a86be9e665e435b5697`
 - #56 completion checkpoint = `5642882451`
 - #56 Final Audit PASS = Issue #61 comment `5642860927`
 - #56 main merge = PR #62 / `ce7b20dad40190ebd0c67fcc7f53def297df523c`
-- product-fit full audit branch = `audit/special2788-product-fit-20260912`
-- product-fit full audit file = `docs/audit/SPECIAL2788_PRODUCT_FIT_AUDIT_20260912.md`
-- product-fit full audit final checkpoint = `b39b986a6720d40fdac974386c08dddc4e9058b0`
-- product-fit full audit #42 handoff = comment `5644037104`
 - Issue #30 accepted integration checkpoint = `5629477164`
 - Issue #30 accepted main commit = `9be3fe764c77b7dd6eaba4f791dfb5c3282c8e8b`
 - audit cleanup policy = `docs/project/AUDIT_ARTIFACT_CACHE_POLICY.md`
@@ -353,5 +370,5 @@ Then:
 - #32 parked REVIEW / IMAGE_TEST_REQUIRED evidence is carry-forward asset and must not be discarded
 - #44 exact evaluator desk coverage is completed
 - Issue #46 is superseded historical evidence; current UI-JA route = Issue #36 V5
-- DEV切替時は live GitHub Issue + CURRENT_STATE を同一管理操作で整合させる
+- DEV切替時は live GitHub Issue + CURRENT_STATE + CURRENT_DEV_TASK を同一管理操作で整合させる
 - completion reportだけで次Gateへ進まない。live GitHub stateを再確認する
