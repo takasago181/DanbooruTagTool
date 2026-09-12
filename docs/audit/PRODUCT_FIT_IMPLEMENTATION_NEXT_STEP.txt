@@ -1,0 +1,1 @@
+NEXT: create/activate a dedicated DEV Issue for audited product-fit verdict integration, then hand `docs/audit/CODEX_PROMPT_PRODUCT_FIT_IMPLEMENTATION_20260912.md` to Codex. Do not start #34 until this eligibility layer is integrated and reviewed; #34 should validate/fix search relevance against the resulting product-facing candidate set.
