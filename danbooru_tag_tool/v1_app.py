@@ -25,7 +25,7 @@ class V1App:
         self.knowledge = knowledge or TagKnowledgeCore.load(ROOT)
         self.workspace = PromptWorkspace(self.knowledge)
         self.search_service = V1SearchService(TagSearchEngine(self.knowledge))
-        self.special_provider = SpecialBrowseProvider(self.knowledge)
+        self.special_provider = SpecialBrowseProvider(self.knowledge, ROOT)
         self.general_provider = PendingGeneralBrowseProvider()
         self._search_results: dict[str, SearchResult] = {}
         self._special_rows: dict[str, str] = {}
@@ -99,14 +99,21 @@ class V1App:
         entry.bind("<Return>", lambda _event: self._run_search())
         ttk.Button(line, text="検索", command=self._run_search).grid(row=0, column=1, padx=(6, 0))
 
-        self.search_tree = ttk.Treeview(tab, columns=("ja", "en", "match"), show="headings", selectmode="browse", height=14)
+        search_frame = ttk.Frame(tab)
+        search_frame.grid(row=1, column=0, sticky="nsew")
+        search_frame.columnconfigure(0, weight=1)
+        search_frame.rowconfigure(0, weight=1)
+        self.search_tree = ttk.Treeview(search_frame, columns=("ja", "en", "match"), show="headings", selectmode="browse", height=14)
         self.search_tree.heading("ja", text="日本語")
         self.search_tree.heading("en", text="English / canonical")
         self.search_tree.heading("match", text="一致")
         self.search_tree.column("ja", width=170, anchor="w")
         self.search_tree.column("en", width=260, anchor="w")
         self.search_tree.column("match", width=80, anchor="w")
-        self.search_tree.grid(row=1, column=0, sticky="nsew")
+        self.search_tree.grid(row=0, column=0, sticky="nsew")
+        search_scroll = ttk.Scrollbar(search_frame, orient="vertical", command=self.search_tree.yview)
+        search_scroll.grid(row=0, column=1, sticky="ns")
+        self.search_tree.configure(yscrollcommand=search_scroll.set)
         self.search_tree.bind("<Double-1>", lambda _event: self._add_search_selected())
         self.search_status = ttk.Label(tab, text="日本語 / English / mixed で検索できます。")
         self.search_status.grid(row=2, column=0, sticky="w", pady=(5, 0))
@@ -119,26 +126,42 @@ class V1App:
         tab.rowconfigure(2, weight=1)
         controls = ttk.Frame(tab)
         controls.grid(row=0, column=0, sticky="ew")
-        controls.columnconfigure(2, weight=1)
-        ttk.Label(controls, text="カテゴリ").grid(row=0, column=0, sticky="w")
+        controls.columnconfigure(4, weight=1)
+        ttk.Label(controls, text="ジャンル").grid(row=0, column=0, sticky="w")
         self.special_category = tk.StringVar(value="すべて")
-        combo = ttk.Combobox(controls, textvariable=self.special_category, values=("すべて", *self.special_provider.categories()), state="readonly", width=24)
-        combo.grid(row=0, column=1, sticky="w", padx=(6, 10))
-        combo.bind("<<ComboboxSelected>>", lambda _event: self._refresh_special())
+        category_combo = ttk.Combobox(controls, textvariable=self.special_category,
+                                      values=("すべて", *self.special_provider.categories()),
+                                      state="readonly", width=20)
+        category_combo.grid(row=0, column=1, sticky="w", padx=(5, 8))
+        category_combo.bind("<<ComboboxSelected>>", self._special_category_changed)
+        ttk.Label(controls, text="詳細").grid(row=0, column=2, sticky="w")
+        self.special_subcategory = tk.StringVar(value="すべて")
+        self.special_subcategory_combo = ttk.Combobox(controls, textvariable=self.special_subcategory,
+                                                      values=("すべて",), state="readonly", width=18)
+        self.special_subcategory_combo.grid(row=0, column=3, sticky="w", padx=(5, 8))
+        self.special_subcategory_combo.bind("<<ComboboxSelected>>", lambda _event: self._refresh_special())
         self.special_query = tk.StringVar()
         query = ttk.Entry(controls, textvariable=self.special_query)
-        query.grid(row=0, column=2, sticky="ew")
+        query.grid(row=0, column=4, sticky="ew")
         query.bind("<Return>", lambda _event: self._refresh_special())
-        ttk.Button(controls, text="絞り込み", command=self._refresh_special).grid(row=0, column=3, padx=(6, 0))
-        ttk.Label(tab, text="日本語名を主表示し、EnglishはPrompt出力値として追跡できます。").grid(row=1, column=0, sticky="w", pady=(5, 5))
-        self.special_tree = ttk.Treeview(tab, columns=("ja", "en", "canonical"), show="headings", selectmode="browse", height=14)
+        ttk.Button(controls, text="絞り込み", command=self._refresh_special).grid(row=0, column=5, padx=(6, 0))
+        ttk.Label(tab, text="Issue #56で監査済みのジャンル/詳細経路です。日本語を主表示し、Englishを併記します。").grid(row=1, column=0, sticky="w", pady=(5, 5))
+
+        tree_frame = ttk.Frame(tab)
+        tree_frame.grid(row=2, column=0, sticky="nsew")
+        tree_frame.columnconfigure(0, weight=1)
+        tree_frame.rowconfigure(0, weight=1)
+        self.special_tree = ttk.Treeview(tree_frame, columns=("ja", "en", "path"), show="headings", selectmode="browse", height=14)
         self.special_tree.heading("ja", text="日本語")
         self.special_tree.heading("en", text="English")
-        self.special_tree.heading("canonical", text="canonical link")
-        self.special_tree.column("ja", width=180, anchor="w")
-        self.special_tree.column("en", width=230, anchor="w")
-        self.special_tree.column("canonical", width=170, anchor="w")
-        self.special_tree.grid(row=2, column=0, sticky="nsew")
+        self.special_tree.heading("path", text="分類")
+        self.special_tree.column("ja", width=170, anchor="w")
+        self.special_tree.column("en", width=210, anchor="w")
+        self.special_tree.column("path", width=210, anchor="w")
+        self.special_tree.grid(row=0, column=0, sticky="nsew")
+        special_scroll = ttk.Scrollbar(tree_frame, orient="vertical", command=self.special_tree.yview)
+        special_scroll.grid(row=0, column=1, sticky="ns")
+        self.special_tree.configure(yscrollcommand=special_scroll.set)
         self.special_tree.bind("<Double-1>", lambda _event: self._add_special_selected())
         ttk.Button(tab, text="選択をPromptへ追加", command=self._add_special_selected).grid(row=3, column=0, sticky="e", pady=(6, 0))
         self._refresh_special()
@@ -154,14 +177,21 @@ class V1App:
         parent.columnconfigure(0, weight=1)
         parent.rowconfigure(1, weight=1)
         ttk.Label(parent, text="選択中のPrompt", font=("TkDefaultFont", 12, "bold")).grid(row=0, column=0, sticky="w", pady=(0, 6))
-        self.workspace_tree = ttk.Treeview(parent, columns=("ja", "en", "source"), show="headings", selectmode="browse", height=20)
+        tree_frame = ttk.Frame(parent)
+        tree_frame.grid(row=1, column=0, sticky="nsew")
+        tree_frame.columnconfigure(0, weight=1)
+        tree_frame.rowconfigure(0, weight=1)
+        self.workspace_tree = ttk.Treeview(tree_frame, columns=("ja", "en", "source"), show="headings", selectmode="browse", height=20)
         self.workspace_tree.heading("ja", text="日本語")
         self.workspace_tree.heading("en", text="English")
         self.workspace_tree.heading("source", text="由来")
         self.workspace_tree.column("ja", width=145, anchor="w")
         self.workspace_tree.column("en", width=220, anchor="w")
         self.workspace_tree.column("source", width=110, anchor="w")
-        self.workspace_tree.grid(row=1, column=0, sticky="nsew")
+        self.workspace_tree.grid(row=0, column=0, sticky="nsew")
+        workspace_scroll = ttk.Scrollbar(tree_frame, orient="vertical", command=self.workspace_tree.yview)
+        workspace_scroll.grid(row=0, column=1, sticky="ns")
+        self.workspace_tree.configure(yscrollcommand=workspace_scroll.set)
         buttons = ttk.Frame(parent)
         buttons.grid(row=2, column=0, sticky="ew", pady=(6, 0))
         ttk.Button(buttons, text="↑ 上へ", command=lambda: self._move_selected(-1)).pack(side="left")
@@ -191,9 +221,11 @@ class V1App:
         if not response.results:
             text = "一致する候補がありません。"
         elif response.suppressed_loose_count:
-            text = f"強い一致を優先表示中（substring候補 {response.suppressed_loose_count}件を非表示）"
+            text = f"強い一致を優先表示中（弱いsubstring候補 {response.suppressed_loose_count}件を非表示）"
         else:
             text = f"{len(response.results)}件"
+        if response.mixed_fallback_used:
+            text += " / 日本語+Englishを同じ検索欄で照合"
         self.search_status.configure(text=text)
 
     def _add_search_selected(self) -> None:
@@ -207,6 +239,13 @@ class V1App:
             return
         self._refresh_workspace()
 
+    def _special_category_changed(self, _event=None) -> None:
+        category = self.special_category.get()
+        values = () if category == "すべて" else self.special_provider.subcategories(category)
+        self.special_subcategory_combo.configure(values=("すべて", *values))
+        self.special_subcategory.set("すべて")
+        self._refresh_special()
+
     def _refresh_special(self) -> None:
         if not hasattr(self, "special_tree"):
             return
@@ -215,11 +254,14 @@ class V1App:
         self._special_rows.clear()
         category = self.special_category.get()
         category = "" if category == "すべて" else category
-        rows = self.special_provider.browse(category=category, query=self.special_query.get(), limit=300)
+        subcategory = self.special_subcategory.get()
+        subcategory = "" if subcategory == "すべて" else subcategory
+        rows = self.special_provider.browse(category=category, subcategory=subcategory,
+                                            query=self.special_query.get(), limit=500)
         for index, row in enumerate(rows):
             row_id = f"s{index}"
             self._special_rows[row_id] = row.item_id
-            self.special_tree.insert("", "end", iid=row_id, values=(row.japanese, row.english, row.canonical or "—"))
+            self.special_tree.insert("", "end", iid=row_id, values=(row.japanese, row.english, row.category))
 
     def _add_special_selected(self) -> None:
         selected = self.special_tree.selection()
@@ -235,8 +277,11 @@ class V1App:
         for item in self.workspace.items:
             if not item.resolved:
                 unresolved += 1
-            self.workspace_tree.insert("", "end", iid=item.item_id, values=(item.japanese or "—", item.english, item.source))
-        self.workspace_status.configure(text=f"{len(self.workspace.items)}件" + (f" / 未解決 {unresolved}件" if unresolved else ""))
+            japanese = item.japanese or "—"
+            if not item.resolved:
+                japanese = "⚠ " + japanese
+            self.workspace_tree.insert("", "end", iid=item.item_id, values=(japanese, item.english, item.source))
+        self.workspace_status.configure(text=f"{len(self.workspace.items)}件" + (f" / ⚠ 未解決 {unresolved}件（原文保持）" if unresolved else ""))
         self.preview.configure(state="normal")
         self.preview.delete("1.0", "end")
         self.preview.insert("1.0", self.workspace.preview)

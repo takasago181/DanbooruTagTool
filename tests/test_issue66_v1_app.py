@@ -4,7 +4,7 @@ from types import SimpleNamespace
 from danbooru_tag_tool.knowledge import TagKnowledgeCore
 from danbooru_tag_tool.models import CanonicalTag, SpecialTag
 from danbooru_tag_tool.search import SearchResult, TagSearchEngine
-from danbooru_tag_tool.v1_browse import PendingGeneralBrowseProvider
+from danbooru_tag_tool.v1_browse import PendingGeneralBrowseProvider, SpecialBrowseProvider
 from danbooru_tag_tool.v1_search import V1SearchService
 from danbooru_tag_tool.v1_workspace import PromptWorkspace
 
@@ -146,3 +146,17 @@ def test_real_anal_query_does_not_surface_known_piano_or_analog_noise():
     canonicals = tuple(result.canonical or "" for result in response.results)
     assert not any("piano" in canonical for canonical in canonicals)
     assert not any(canonical.startswith("analog") for canonical in canonicals)
+
+
+def test_special_browse_consumes_complete_issue56_mapping_and_product_browse_policy():
+    knowledge = TagKnowledgeCore.load(ROOT)
+    provider = SpecialBrowseProvider(knowledge, ROOT)
+    assert provider.mapped_count == 2788
+    assert provider.browsable_count == 2788 - 43
+    assert len(provider.categories()) == 14
+    assert "身体・解剖" in provider.categories()
+    assert "臀部・肛門" in provider.subcategories("身体・解剖")
+    rows = provider.browse(category="身体・解剖", subcategory="臀部・肛門", limit=500)
+    assert rows
+    assert all(knowledge.product_fit.allows(row.item_id, "browse") for row in rows)
+    assert all("身体・解剖" in row.category for row in rows)
