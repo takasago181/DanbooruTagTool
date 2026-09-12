@@ -64,9 +64,32 @@ v1でデフォルトにしない:
 - full 11M-post / ~3GB statistics indexの必須化
 - Forge/ComfyUI direct generation integrationの必須化
 
-Stage10 / generation-effectivenessはv1の必須Gateではない。旧Issue #5はretired/closedで、将来generation-effectivenessを主張する機能を採用した時はKNOWLEDGE #44が既存claimsを確認し、必要な最小実験だけを扱う。
+**Stage10 is not a v1 product Gate.**
+2026-09-13以降、Stage10はIssue #65 / `docs/stages/STAGE_10_LEARNING.md`で定義される実践画像生成学習ステージ。
+旧Stage10 production A/B/evaluator資産はhistorical/testing evidenceであり、新Stage10 completion定義ではない。
 
-## 4. Special / Generalの役割
+## 4. Stage10 learning relationship
+
+Stage10はcurrent core DEVとは別のparallel learning lane。
+
+Primary learning model:
+- NoobAI XL 1.1 EPS + Forge Neo
+
+Secondary:
+- Anima = relation-heavy / multi-character / tag+natural-language比較/fallback
+- WAI Illustrious v17 = historical/comparison
+- NoobAI V-Pred = separate advanced profile
+
+Stage10の目標は:
+
+`意図 -> Prompt -> 生成 -> 観察 -> 原因分解 -> 修正 -> 必要な補助 -> 仕上げ -> 再現可能な保存`
+
+をユーザーが自力で回せること。
+
+CodexはStage10学習を理由に、本体v1へ自動Prompt最適化・direct generation・evaluator UI等を勝手に実装しない。
+Stage10からproduction変更が必要になった場合は、別途DEV Issue / product routingを作る。
+
+## 5. Special / Generalの役割
 
 ### Special
 - 2,788 identityはfreeze済み
@@ -81,7 +104,7 @@ Stage10 / generation-effectivenessはv1の必須Gateではない。旧Issue #5�
 - Specialより浅いPrompt用途中心の分類にする
 - 全100k+ Danbooru universeへ勝手に拡張しない
 
-## 5. 現行Issueが最優先
+## 6. 現行Issueが最優先
 
 このファイルはrouting/invariantを示すだけ。
 実装scope・禁止事項・completion criteriaはlive current DEV Issue本文が正本。
@@ -89,9 +112,11 @@ Stage10 / generation-effectivenessはv1の必須Gateではない。旧Issue #5�
 current DEVが#64なら#64だけを実装し、#34/#42を先取りしない。
 製品方向変更があっても、現行Issueの実装境界を勝手に拡張しない。
 
-KNOWLEDGE #44はcurrent core DEVとは別のnon-blocking lane。Prompt/generation-effectiveness知識を所有していても、Codexがそこからproduction仕様を推測して実装しない。
+KNOWLEDGE #44はcurrent core DEVとは別のnon-blocking lane。Prompt/generation-effectiveness知識を所有し、Stage10へ知識を供給しても、Codexがそこからproduction仕様を推測して実装しない。
 
-## 6. protected data safety
+Issue #65はStage10 learning ownerであり、DEV implementation slotではない。
+
+## 7. protected data safety
 
 GitHubは管理状態とcommit済みcode/docsの正本であり、local workspace全体のbackupではない。
 
@@ -112,7 +137,7 @@ GitHubに見えないことを削除・不要と解釈しない。
 - ignored protected dataの広範囲cleanup
 - 復元可能性を確認しない上書き/削除
 
-## 7. branch / handoff
+## 8. branch / handoff
 
 - 本体実装は原則latest mainからtask feature branch
 - 直接mainへ未review実装をcommitしない
@@ -123,7 +148,7 @@ GitHubに見えないことを削除・不要と解釈しない。
 - GitHubからreview可能ならユーザーへZIP uploadを要求しない
 - local-only/binary/push失敗時のみ `docs/CHATGPT_CODEX_HANDOFF.md` fallback
 
-## 8. 読む仕様を必要最小限にする
+## 9. 読む仕様を必要最小限にする
 
 常時読む:
 1. `docs/project/CURRENT_STATE.md`
@@ -138,7 +163,14 @@ v1 product scope確認時:
 - Issue #42
 - Issue #64（General taxonomy作業時）
 
-KNOWLEDGE / generation-effectivenessを参照する必要がある時だけ:
+Stage10 learningを扱う時:
+1. Issue #65
+2. `docs/stages/STAGE_10_LEARNING.md`
+3. Issue #44 / `knowledge/generation-corpus` のcurrent knowledge
+4. 必要なexact model/tool source
+5. old Stage10 docs only as historical/testing reference
+
+KNOWLEDGE / generation-effectivenessを参照する必要がある時:
 - Issue #44
 - `knowledge/generation-corpus` のcurrent/catalog/research
 - historical Issue #5 はprovenance確認が必要な時だけ
@@ -148,12 +180,12 @@ KNOWLEDGE / generation-effectivenessを参照する必要がある時だけ:
 - `docs/STATISTICS_POLICY.md`
 - `docs/SEMANTIC_BRIDGE_SCHEMA.md`
 - `docs/AUXILIARY_TAG_ROLE_POLICY.md`
-- Generation Profile / Stage8 / Stage9 / Stage10資料
+- Generation Profile / Stage8 / Stage9 / legacy Stage10 A/B資料
 - co-occurrence / full-index architecture資料
 
 過去に実装済みだからという理由だけで、subsystemをv1 UI/runtime必須へ戻さない。
 
-## 9. 実装原則
+## 10. 実装原則
 
 - canonical identityを日本語UX都合で変更しない
 - 日本語は理解/検索/表示補助でありsemantic authorityではない
@@ -164,7 +196,9 @@ KNOWLEDGE / generation-effectivenessを参照する必要がある時だけ:
 - runtime LLM dependencyを導入しない
 - focused test + applicable regression + user-visible UI変更時の実Windows確認を行う
 
-## 10. 報告
+Stage10学習のlocal resultは、単発成功だけでglobal model truthへ昇格させない。
+
+## 11. 報告
 
 最低限:
 - branch / commit SHA / push状況
@@ -173,5 +207,7 @@ KNOWLEDGE / generation-effectivenessを参照する必要がある時だけ:
 - protected/canonical dataへの影響
 - 未解決事項
 - stop point / next Gate
+
+Stage10 learning checkpointはIssue #65の形式に従い、model/profile/runtime / target / actual Prompt・Negative / settings / Seed / tools・LoRA / result / failure class / lesson を復元可能にする。
 
 詳細運用は `docs/project/PERMANENT_RULES.md` を正本とする。
