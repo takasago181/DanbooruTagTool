@@ -24,7 +24,7 @@
 - 見つけたタグを自分で追加・削除して試したい
 
 「ニッチなタグが実際の生成で効くか知りたい」という動機は保持するが、モデル別成功判定・A/B実験管理・ローカル結果記録は v1 必須機能にはしない。
-生成効果・Prompt構成・モデル差の知識は **KNOWLEDGE #44** が管理し、実践学習は **Stage10 / Issue #65** で並行して行う。独立PROMPT班は置かない。
+生成効果・Prompt構成・モデル差の知識は **KNOWLEDGE #44** が管理し、実践学習は **Stage10 / Issue #65** で扱う。独立PROMPT班は置かない。
 
 ## 主従
 
@@ -134,6 +134,14 @@ Specialと同じ深さの意味ontologyは要求しない。Generalは Prompt �
 -> Promptへ追加・削除する
 -> canonical English Promptをコピーする
 
+## 実装上の現在の所有関係
+
+- `docs/PRODUCT_GOAL_LOCK.md` — product goal / scopeの正本
+- Issue #66 — 実アプリ/UI実装と最終v1 acceptance
+- Issue #64 — General 30,629 taxonomy
+- Issue #34 — bilingual search relevance/noise
+- Issue #42 — retired / historical only
+
 ## KNOWLEDGE / Stage10 / generation-effectiveness の位置づけ
 
 Generation knowledge、Prompt composition/support研究、旧Stage10 A/B/evaluator資産は捨てない。
@@ -143,7 +151,8 @@ Generation knowledge、Prompt composition/support研究、旧Stage10 A/B/evaluat
 
 Stage10の主教材は NoobAI XL 1.1 EPS + Forge Neo とし、Prompt構成、camera/visibility、hard/niche relation/body-site/count、Negative/Seed/LoRA、Hires/ADetailer/img2img/inpaint、regional/control、failure diagnosisまで実生成を通して学ぶ。
 
-このStage10はv1 product routeと並行して進み、**v1完成の必須Gateではない**。
+Stage10はv1 product routeとは独立した学習であり、**v1完成の必須Gateではない**。
+現在のユーザー優先順位では、まずIssue #66で実用v1アプリを完成させ、その後にStage10を再開する。
 逆に、v1完成もStage10学習完了を意味しない。
 
 旧Stage10 production A/B、Issue #30 evaluator/calibration、Generation Profile、fixed-seed比較基盤等はhistorical/testing assetsとして保持し、Stage10学習の教材・比較道具として再利用できるが、新Stage10のcompletion criteriaそのものではない。
