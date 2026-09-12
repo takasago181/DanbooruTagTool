@@ -4,8 +4,9 @@
 
 ## Current Stage
 
-**Stage9 completed / beginner-first v1 product narrowing active as management direction / current core DEV remains Issue #63 until its implementation is retrieved, accepted and merged.**
+**Stage9 completed / beginner-first v1 product narrowing active as management direction / current core DEV is Issue #64.**
 
+Issue #63 product-fit verdict sidecar integration is **ACCEPTED / MERGED / CLOSED**.
 Stage10 production A/B is **not started and is no longer a v1 completion blocker**.
 
 This file is the routing state. Task scope/completion/evidence belongs to the corresponding live GitHub Issue.
@@ -29,43 +30,39 @@ A beginner with limited English/Danbooru-tag knowledge should be able to:
 Current product-scope owner:
 - Issue #42 `[PRODUCT][V1-NARROWING][AFTER-34] Beginner-first product scope and implementation path`
 
-General taxonomy lane:
-- Issue #64 `[GENERAL-DICT][UI-TAXONOMY][NEXT-AFTER-63] Practical genre browsing for 30,629 Japanese-overlay entries`
-
 ## Current Core DEV
 
-**Issue #63 — product-fit verdict sidecar integration**
+**Issue #64 — General 30,629 practical browse taxonomy sidecar**
 
-Live GitHub still owns acceptance/routing for #63.
-Do not advance the core DEV state merely from chat/Codex self-report.
-Retrieve and verify the reviewable branch/commit/report/tests first.
+Goal:
+- turn the exact production Japanese-overlay population into a shallow, practical Japanese-first browse dictionary
+- keep taxonomy separate from canonical identity and `japanese_overlay.json`
+- validate the taxonomy against real data before full rollout
 
-Authoritative product-fit audit counts:
-- KEEP 1,618
-- KEEP_REFERENCE_ONLY 1,133
-- OUT_OF_SCOPE_PRODUCT 12
-- REVIEW 25
-- total 2,788
-
-Required behavior remains as defined by Issue #63:
-- ID-keyed sidecar
-- no canonical/Special ID/Alias/provenance mutation
-- centralized product-facing eligibility
-- #34 search ranking remains out of scope for #63
+Required process:
+1. reproduce/materialize exact 30,629 target population
+2. inspect distribution and representative samples
+3. freeze a small practical taxonomy
+4. run a reproducible pilot
+5. audit boundary/error patterns
+6. expand only after pilot acceptance
+7. validate full reachability or explicit unresolved accounting
 
 Current continuation:
-`ISSUE63_PRODUCT_FIT_VERDICT_INTEGRATION`
+`ISSUE64_GENERAL_30629_PRACTICAL_TAXONOMY`
+
+Do not implement #34 ranking redesign or #42 broad UI/product-scope work inside #64.
+Do not expand to the full 100k+ Danbooru universe.
 
 ## Next required route
 
-After #63 is accepted/merged:
+After #64 is accepted/merged:
 
-1. **Issue #64** — General 30,629 practical browse taxonomy sidecar
-2. **Issue #34** — bilingual search relevance/noise
-3. **Issue #42** — reconcile current code/UI against the new v1 scope and lock `V1_SCOPE_LOCKED`
-4. **v1 UI integration** — `understand -> discover -> choose -> copy`
-5. focused regression + real Windows UI acceptance
-6. v1 baseline
+1. **Issue #34** — bilingual search relevance/noise
+2. **Issue #42** — reconcile current code/UI against the new v1 scope and lock `V1_SCOPE_LOCKED`
+3. **v1 UI integration** — `understand -> discover -> choose -> copy`
+4. focused regression + real Windows UI acceptance
+5. v1 baseline
 
 Issue #5 / Stage10 is outside this required route unless a future adopted feature needs generation-effectiveness evidence.
 
@@ -73,8 +70,8 @@ Issue #5 / Stage10 is outside this required route unless a future adopted featur
 
 | TEAM_ID | Status | Scope | Restore anchor |
 | --- | --- | --- | --- |
-| `PRODUCT-FIT:#63` | **CURRENT CORE DEV / OPEN** | product-fit verdict sidecar | Issue #63 body + latest checkpoint |
-| `GENERAL-DICT:#64` | **NEXT AFTER #63** | 30,629 General practical taxonomy | Issue #64 |
+| `GENERAL-DICT:#64` | **CURRENT CORE DEV / OPEN** | 30,629 General practical taxonomy | Issue #64 body + latest checkpoint |
+| `PRODUCT-FIT:#63` | **COMPLETED / MERGED** | product-fit verdict sidecar | Issue #63 acceptance comment + `docs/issue63/IMPLEMENTATION_REPORT.md` |
 | `UIJA-PARENT:#34` | **AFTER #64** | bilingual search relevance/noise | Issue #34 |
 | `PRODUCT:#42` | **AFTER #34 / V1 SCOPE OWNER** | beginner-first v1 narrowing | Issue #42 + `PRODUCT_GOAL_LOCK.md` |
 | `KNOWLEDGE:#44` | ONGOING / V1 NON-BLOCKING | generation knowledge corpus | Issue #44 |
@@ -91,12 +88,28 @@ Issue #5 / Stage10 is outside this required route unless a future adopted featur
   - old `その他・文脈` 1,404 / 1,404
   - unmapped 0 / Alias pending 0
 - Special product-fit full audit — completed 2,788 / 2,788
+- Issue #63 product-fit sidecar — accepted/merged
+  - KEEP 1,618
+  - KEEP_REFERENCE_ONLY 1,133
+  - OUT_OF_SCOPE_PRODUCT 12
+  - REVIEW 25
+  - CSV SHA-256 `357427dfd542a4e582f6fe57bc966539210e794796e9ad93d6350950e1f61f68`
 - Japanese overlay #36/#55 — completed / production 30,629 entries
 - Japanese-first presentation pass #35 — completed
 - evaluator/calibration #30 — completed / evidence retained
 - generation knowledge desk coverage #44 — coverage ready; corpus remains ongoing
 
-Do not restart completed #32/#43/#56 work wholesale.
+Do not restart completed #32/#43/#56/#63 work wholesale.
+
+## Known test debt
+
+Issue #63 acceptance review confirmed:
+- focused product-fit suite: 122 passed (reported by implementation handoff)
+- full suite on refreshed main base before acceptance: 360 passed / 10 failed
+- 9 failures matched the pre-existing task-start baseline
+- the additional product-goal wording mismatch in `tests/test_final_spec.py` was synchronized to current terminology on main in commit `390528bdf884f5394ae9465e0f38f9143b2b1661`
+
+The remaining historical 9 failures are not silently reclassified as PASS. They remain separate maintenance/evidence debt and do not reopen #63 unless a direct #63 regression is demonstrated.
 
 ## Frozen terminology
 
@@ -147,7 +160,7 @@ Existing assets may remain internally. Do not delete evidence merely because a v
 
 ## Important current code delta for #42
 
-Known current implementation mismatches to reconcile later, not during #63/#64/#34 unless explicitly in scope:
+Known current implementation mismatches to reconcile later, not during #64/#34 unless explicitly in scope:
 
 1. UI is still primarily `Specialを探す` / Special-first and lacks the final existing-Prompt-understanding + General-browse entry flow.
 2. Recommendation UI still exposes `よく使われる / 珍しい関連 / 意味から補助` as prominent product surfaces.
@@ -159,7 +172,7 @@ Known current implementation mismatches to reconcile later, not during #63/#64/#
 ### Special
 - frozen 2,788 identities
 - #56 taxonomy sidecar
-- #63 product-fit sidecar
+- #63 product-fit sidecar merged to production
 
 ### General
 - production Japanese overlay: 30,629 canonical entries
@@ -174,10 +187,10 @@ Known current implementation mismatches to reconcile later, not during #63/#64/#
 ## Source-of-Truth Rule
 
 Current core DEV:
-- Issue #63
+- Issue #64
 
 Current route:
-- `#63 acceptance -> #64 -> #34 -> #42 -> v1 UI integration/Windows acceptance`
+- `#64 -> #34 -> #42 -> v1 UI integration/Windows acceptance`
 
 Future generation-effectiveness lane:
 - Issue #5 / Stage10 only when a concrete adopted feature requires empirical image evidence
@@ -191,12 +204,14 @@ Management authority:
 
 ## Next Actions
 
-1. Retrieve/verify the Codex #63 branch/commit/report/tests.
-2. If reviewable and correct, perform required DEV/AUDIT acceptance and merge #63.
-3. Move current core DEV to #64 and build/audit the General 30,629 practical taxonomy sidecar.
-4. After #64 acceptance, move to #34 and fix bilingual relevance/noise.
-5. Activate #42 only after #34, compare actual current code against the v1 ADOPT/HOLD/REJECT list, and lock v1 scope.
-6. Integrate the final beginner-first UI and perform real Windows acceptance.
+1. Start #64 from latest live main after preflight.
+2. Reproduce the exact 30,629 General target population without mutating protected overlay data.
+3. Inspect real distribution and representative examples before freezing taxonomy.
+4. Build a reproducible pilot and return it for DEV/AUDIT review before full rollout.
+5. Expand to all 30,629 only after pilot acceptance.
+6. After #64 acceptance, move to #34 and fix bilingual relevance/noise.
+7. Activate #42 only after #34, compare actual current code against the v1 ADOPT/HOLD/REJECT list, and lock v1 scope.
+8. Integrate the final beginner-first UI and perform real Windows acceptance.
 
 Parallel safety debt:
 - #24 protected-data backup/restore verification.
