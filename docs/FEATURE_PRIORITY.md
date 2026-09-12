@@ -2,10 +2,13 @@
 
 ## Status
 
-Current v1 priority follows `docs/PRODUCT_GOAL_LOCK.md` and Issue #42.
+Current v1 priority follows `docs/PRODUCT_GOAL_LOCK.md`.
+Issue #66 owns actual app/UI completion and final v1 acceptance against that goal.
 Historical Stage5/6/9 capabilities are preserved assets, not automatic v1 requirements.
 
-**Stage10 is a separate parallel learning priority**, defined by Issue #65 / `docs/stages/STAGE_10_LEARNING.md`. It does not change the v1 feature list below.
+Issue #42 is retired/closed and no longer participates in routing.
+
+Stage10 remains defined by Issue #65 / `docs/stages/STAGE_10_LEARNING.md`, but is currently paused by user priority until the practical v1 app baseline is complete.
 
 ## MUST — v1の存在理由
 
@@ -46,8 +49,6 @@ SHOULDはv1 completion blockerではない。
 - Forge / ComfyUI direct-send adapter
 - advanced Prompt history/preset management
 
-These remain product-feature HOLDs even if the user learns the same concepts manually during Stage10.
-
 ## REJECT FROM DEFAULT v1 CORE
 
 - automatic support insertion
@@ -66,27 +67,22 @@ These remain product-feature HOLDs even if the user learns the same concepts man
 - direct image generationのv1必須化
 - runtime LLM
 
-## Stage10 learning priority — parallel, not product feature scope
+## Current implementation order
 
-Current learning owner:
-- Issue #65
-- `docs/stages/STAGE_10_LEARNING.md`
+Parallel now:
+- Issue #64 — General 30,629 shallow practical taxonomy
+- Issue #66 — beginner-first app/UI foundation
 
-Primary model:
-- NoobAI XL 1.1 EPS + Forge Neo
+Then:
+1. Issue #34 — bilingual search relevance/noise
+2. Issue #66 — consume accepted #64/#34 behavior
+3. Issue #66 — final ADOPT/HOLD/REJECT reconciliation against `PRODUCT_GOAL_LOCK.md`
+4. focused regression + real Windows UI acceptance
+5. v1 baseline
 
-Learning order:
-1. environment / metadata / reproducibility
-2. Prompt fundamentals
-3. composition / camera / visibility
-4. hard/niche relation/body-site/count structure
-5. failure diagnosis / controlled iteration
-6. seed / Negative / weights / LoRA
-7. Hires / ADetailer / img2img / inpaint
-8. regional / Control escalation
-9. independent capstone generation
+Short form:
 
-Stage10 completion is a **skill outcome**, not a product implementation checklist.
+`#64 + #66 foundation -> #34 -> #66 final integration -> Windows acceptance -> v1`
 
 ## Data classification depth
 
@@ -103,6 +99,14 @@ Prompt用途中心の実用ジャンルで「こういうタグがある」と�
 
 `Promptを理解 -> 日本語/英語またはジャンルからタグを発見 -> 自分で選ぶ -> canonical-English Promptをコピー`
 
-## Stage10 completion shorthand
+## Stage10 — after current app priority
 
-`意図 -> Prompt -> 生成 -> 原因分解 -> 修正 -> 必要な補助 -> 仕上げ -> 再現可能な保存`
+Current learning owner:
+- Issue #65
+- `docs/stages/STAGE_10_LEARNING.md`
+
+Primary model:
+- NoobAI XL 1.1 EPS + Forge Neo
+
+Stage10 completion is a skill outcome, not a product implementation checklist.
+Current user priority is to resume it after the practical v1 app baseline unless explicitly changed.
