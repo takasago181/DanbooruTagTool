@@ -17,7 +17,7 @@
 ### 正本・現行DEV・checkpoint
 
 8. 全体Stage/Gate/担当/大方針が変わった時、または正式handoff前に `CURRENT_STATE.md` を更新する。
-9. CodexはGitHub live `main` の `CURRENT_STATE.md` からcurrent DEV Issue番号を取得し、そのlive GitHub Issue本文と最新コメントを直接読む。
+9. CodexはGitHub live `main` の `CURRENT_STATE.md` から対象DEV laneを取得し、そのlive GitHub Issue本文と最新コメントを直接読む。
 10. DEV開始時はIssue title / state / body / latest checkpoint / continuation / completion / blockerを確認し、本ファイルと照合する。
 11. GitHub/Issue取得失敗、番号不一致、unexpected closed/superseded、task contract不明、恒久ルールとの矛盾がある場合はfail-closed。古い資料で続行しない。
 12. 会話長大化・大区切り・大方針変更時は、ユーザーの明示依頼を待たずチャット移行を提案してよい。ただし先にGitHub正本を更新する。
@@ -65,7 +65,7 @@ Codex自身がIssue本文を推測して書き換えない。
 30. local-only/binary/protected dataやconnector障害時だけ合理的fallbackを許可し、その理由/所在をIssueへ残す。
 31. task contract自体が変わる場合、Issueコメントだけで済ませずIssue本文/Decision/必要な仕様/CURRENT_STATEを同期する。
 32. GitHubへ登録した班間依頼・重要返却はユーザーにも要約して見せる。
-33. 大方針変更では少なくとも `PRODUCT_GOAL_LOCK.md` / #42等product-scope Issue / `DECISIONS.md` / `FEATURE_PRIORITY.md` / `FLOWCHARTS.md` / `AGENTS.md` / 必要なlane Issueを照合する。
+33. 大方針変更では少なくとも `PRODUCT_GOAL_LOCK.md` / `CURRENT_STATE.md` / `DECISIONS.md` / `FEATURE_PRIORITY.md` / `FLOWCHARTS.md` / `AGENTS.md` / 現行lane Issueを照合する。Retired Issue #42/#34を現行Gateとして復活させない。
 
 ## KNOWLEDGE generation / Prompt支援ルール
 
@@ -79,30 +79,32 @@ Codex自身がIssue本文を推測して書き換えない。
 
 ## Product search / UI invariant
 
-39. 検索入力は**日本語・英語の両対応**を恒久要件とする。日本語-first UIを日本語専用検索へ狭めない。
-40. 日本語/英語は原則同じ検索欄・同じcandidate workflowへ入り、言語モード切替を要求しない。
-41. exact canonical / exact English / word-boundary intentを incidental substring/fuzzy collisionより優先する。Alias/Japanese overlay/Semantic等を使ってもcanonical identityを変えない。
+39. 検索入力は**日本語・英語・混在の対応**を恒久要件とする。日本語-first UIを日本語専用検索へ狭めない。
+40. 日本語/英語/混在は原則同じ検索欄・同じcandidate workflowへ入り、言語モード切替を要求しない。
+41. exact canonical / exact English / exact approved Alias / strong Japanese intent / word-boundary intentを incidental substring/fuzzy collisionより優先する。Alias/Japanese overlay/Semantic等を使ってもcanonical identityを変えない。
 42. 候補表示は日本語-first + canonical English併記を基本とし、最終Prompt payloadはcanonical Englishを維持する。
-43. 検索/UI回帰では日本語queryと英語canonical queryの両方を確認する。
+43. 検索/UI回帰では日本語queryと英語canonical queryの両方を確認し、代表的なsubstring/fuzzy誤爆も確認する。
 44. v1の安定した主導線は **既存Promptを理解 -> 日本語/英語検索またはジャンル閲覧で発見 -> Special/Generalを自分で選択 -> Promptへ追加/削除/並べ替え -> canonical-English Promptコピー** とする。
 45. Specialは#56の深いbrowse taxonomy、Generalはproduction Japanese overlay 30,629件を対象とした#64の浅い実用taxonomyを使う。General taxonomyを日本語overlay/canonical identityへ埋め込まず別sidecarにする。
 46. v1ではhidden automatic support insertion / automatic minimum-sufficient Prompt / automatic model rewrite / automatic failure diagnosisをデフォルト挙動にしない。ユーザーが見えていない自動挿入と実際のPrompt出力を食い違わせない。
-47. **現在のStage10はIssue #65 / `docs/stages/STAGE_10_LEARNING.md`で定義される実践画像生成学習ステージ**とする。Stage10はv1 product completion blockerではなく、v1 routeと並行して進める。旧Stage10 production A/B/evaluator資産はhistorical/testing evidenceとして保持するが、現在のStage10 completion定義には使わない。
-48. 旧文書の `PROMPT:#5` / `PROMPT班` 参照はhistorical provenanceとして扱う。新規作業を独立PROMPT班へroutingせず、必要ならKNOWLEDGE #44へ統合して扱う。
+47. **Issue #66はv1 app/UI/search/final acceptanceの統合owner** とする。Retired Issue #34の検索品質要件とRetired Issue #42のscope reconciliationを別Gateとして再分離しない。
+48. 旧文書の `PROMPT:#5` / `PROMPT班` / retired #34 / retired #42 参照はhistorical provenanceとして扱う。新規作業をそれらへroutingしない。
 
 ## Stage10 learning invariant
 
-49. Stage10 primary learning laneは **NoobAI XL 1.1 EPS + Forge Neo**。Animaはrelation-heavy / multi-character / tag+natural-language比較・fallback、WAI Illustrious v17はhistorical/comparison、NoobAI V-PredはEPSと分離したadvanced profileとして扱う。
-50. Stage10は設定値の暗記ではなく、`意図 -> Prompt -> 生成 -> 観察 -> 原因分解 -> 修正 -> 必要な補助 -> 仕上げ -> 再現可能な保存` を自力で回せることを目的とする。
-51. hard/niche生成の評価ではpresenceだけで成功扱いせず、必要に応じてactor/target/ownership/body-site/relation/count/visibility/source-destination/topologyを分離して確認する。
-52. 診断では一度に多数の変数を変えず、原則として観測したfailure classに対応する最小の意味ある変更を試す。random seed探索とfixed-seed診断を混同しない。
-53. LoRA/Hires/ADetailer/img2img/inpaint/regional/Controlは目的を持ったinterventionとして扱う。修復後の成功をbase Prompt capabilityと同一視しない。
-54. Stage10の単発成功画像はlocal caseでありglobal/model-family truthではない。反復controlled evidenceのみ、scope付きでKNOWLEDGE #44のClaim更新候補にできる。
-55. Stage10の学習checkpointは必要以上に事務化しないが、意味のある区切りでは model/profile/runtime / target / actual Prompt・Negative / settings / Seed / tools・LoRA state / result・failure class / lesson を復元可能にする。
+49. 現在のStage10はIssue #65 / `docs/stages/STAGE_10_LEARNING.md`で定義される実践画像生成学習ステージ。v1 product completion blockerではない。現在はユーザー優先によりpractical v1 app baselineまで一時停止中。
+50. Stage10 primary learning laneは **NoobAI XL 1.1 EPS + Forge Neo**。Animaはrelation-heavy / multi-character / tag+natural-language比較・fallback、WAI Illustrious v17はhistorical/comparison、NoobAI V-PredはEPSと分離したadvanced profileとして扱う。
+51. Stage10は設定値の暗記ではなく、`意図 -> Prompt -> 生成 -> 観察 -> 原因分解 -> 修正 -> 必要な補助 -> 仕上げ -> 再現可能な保存` を自力で回せることを目的とする。
+52. hard/niche生成の評価ではpresenceだけで成功扱いせず、必要に応じてactor/target/ownership/body-site/relation/count/visibility/source-destination/topologyを分離して確認する。
+53. 診断では一度に多数の変数を変えず、原則として観測したfailure classに対応する最小の意味ある変更を試す。random seed探索とfixed-seed診断を混同しない。
+54. LoRA/Hires/ADetailer/img2img/inpaint/regional/Controlは目的を持ったinterventionとして扱う。修復後の成功をbase Prompt capabilityと同一視しない。
+55. Stage10の単発成功画像はlocal caseでありglobal/model-family truthではない。反復controlled evidenceのみ、scope付きでKNOWLEDGE #44のClaim更新候補にできる。
+56. Stage10の学習checkpointは必要以上に事務化しないが、意味のある区切りでは model/profile/runtime / target / actual Prompt・Negative / settings / Seed / tools・LoRA state / result・failure class / lesson を復元可能にする。
 
 ## Product authority
 
 現在の製品目的は `docs/PRODUCT_GOAL_LOCK.md` を正本とする。
 Historical Stage仕様、旧Codex実装仕様、旧Issueコメント、既存コードの高度機能は、単に古い/実装済みという理由でcurrent product goalより優先しない。
 
+v1 app/search/UI/final acceptanceの現行実装ownerはIssue #66。
 Stage10 learningの正本は `docs/stages/STAGE_10_LEARNING.md` とIssue #65。Stage10学習成果が存在すること自体はv1 production/UI採用理由にならない。
