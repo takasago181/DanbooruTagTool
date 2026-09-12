@@ -3,12 +3,11 @@
 ## Status
 
 Current v1 priority follows `docs/PRODUCT_GOAL_LOCK.md`.
-Issue #66 owns actual app/UI completion and final v1 acceptance against that goal.
+Issue #66 owns actual app/search/UI completion and final v1 acceptance against that goal.
 Historical Stage5/6/9 capabilities are preserved assets, not automatic v1 requirements.
 
-Issue #42 is retired/closed and no longer participates in routing.
-
-Stage10 remains defined by Issue #65 / `docs/stages/STAGE_10_LEARNING.md`, but is currently paused by user priority until the practical v1 app baseline is complete.
+Issues #42 and #34 are retired/closed and no longer participate in routing.
+Stage10 remains defined by Issue #65 / `docs/stages/STAGE_10_LEARNING.md`, but is currently paused until the practical v1 app baseline is complete.
 
 ## MUST — v1の存在理由
 
@@ -16,7 +15,7 @@ Stage10 remains defined by Issue #65 / `docs/stages/STAGE_10_LEARNING.md`, but i
 2. Prompt内の既知タグを日本語-first + canonical Englishで理解できる
 3. 不要タグを手動で外せる
 4. 日本語/英語/混在検索ができる
-5. exact canonical / Aliasを安全に扱う
+5. exact canonical / Alias / strong intentを安全に優先し、incidental fuzzy/substring noiseを抑える
 6. Special Core Dictionaryを深いジャンル/サブジャンルから閲覧・発見できる
 7. production Japanese overlay 30,629件のGeneralタグを浅い実用ジャンルから閲覧・発見できる
 8. Special/Generalをユーザーが明示的に追加・削除・並べ替えできる
@@ -25,6 +24,8 @@ Stage10 remains defined by Issue #65 / `docs/stages/STAGE_10_LEARNING.md`, but i
 11. runtime非LLM・ローカル完結
 12. Forge等の生成環境と同時常駐して邪魔にならない軽量runtime
 13. focused test / regression / 実Windows UI確認を維持
+
+Known search regression such as `anal -> piano / analog...` は#66のv1 completion条件として修正・テストする。
 
 ## SHOULD — v1内で実使用から価値が確認できれば
 
@@ -71,18 +72,18 @@ SHOULDはv1 completion blockerではない。
 
 Parallel now:
 - Issue #64 — General 30,629 shallow practical taxonomy
-- Issue #66 — beginner-first app/UI foundation
+- Issue #66 — beginner-first app/UI/search foundation
 
 Then:
-1. Issue #34 — bilingual search relevance/noise
-2. Issue #66 — consume accepted #64/#34 behavior
-3. Issue #66 — final ADOPT/HOLD/REJECT reconciliation against `PRODUCT_GOAL_LOCK.md`
+1. Issue #66 consumes accepted #64 taxonomy
+2. Issue #66 reruns product-facing search/browse relevance against the final General population
+3. Issue #66 performs final ADOPT/HOLD/REJECT reconciliation against `PRODUCT_GOAL_LOCK.md`
 4. focused regression + real Windows UI acceptance
 5. v1 baseline
 
 Short form:
 
-`#64 + #66 foundation -> #34 -> #66 final integration -> Windows acceptance -> v1`
+`#64 + #66 in parallel -> #66 consumes #64 -> #66 final integration/acceptance -> Windows acceptance -> v1`
 
 ## Data classification depth
 
