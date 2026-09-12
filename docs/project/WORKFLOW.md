@@ -5,7 +5,7 @@
 Backlog
 → Ready
 → Working
-→ Audit
+→ Audit（必要なGateのみ）
 → Done
 
 必要時:
@@ -15,159 +15,122 @@ Backlog
 ## 役割
 
 ### DEV
-実装・仕様整理・Stage管理。
+実装・仕様整理・routing・Gate管理。
 
 ### AUDIT
-完了条件、回帰、正本整合性を確認。
+常設ではない。必要な品質Gateで、完了条件・回帰・正本整合性を独立確認する。
 
 ### KNOWLEDGE
-外部調査と根拠整理。
-出力は FACT / ADOPT候補 / HOLD / REJECT を基本とする。
+外部調査とgeneration knowledge corpus維持。
+出力は FACT / ADOPT候補 / HOLD / REJECT を基本とし、v1へ機能を自動昇格しない。
 
 ### PROMPT
-Stage10の実験Promptを作る。
-原則1実験1疑問。
-A/B間で比較対象以外を固定。
+将来、採用済みgeneration-effectiveness機能が画像依存の検証を必要とする場合に、controlled Prompt / A-B実験設計を担当する。
+原則1実験1疑問、比較対象以外を固定する。
+**v1の必須laneではない。**
+
+### Codex
+DEVの実装担当。独立した仕様決定権・Gate PASS権限は持たない。
 
 ## 途中checkpoint
 
-意味のある成果が出た時、長時間中断・話題切替・handoff前、または直近成果を失うと再開コストが高い時は、担当Issueへ短いcheckpointコメントを残す。
+意味のある成果が出た時、長時間中断・話題切替・handoff前、または直近成果を失うと再開コストが高い時は、担当Issueへ短いcheckpointを残す。
 
 最低限:
 - 最後に成功したこと / 結果
 - 未完了またはblocker
 - 次作業
-- branch / commit / file / evidence（ある場合）
+- branch / commit / file / evidence
 
-通常のcheckpointはIssueコメントに置く。コメントは履歴・証跡であり、task contractを変更しない。
-目的・scope・禁止事項・完了条件を変える場合はlive Issue本文を更新する。`CURRENT_STATE.md` のcurrent DEV routingと整合させる。
+通常checkpointはIssueコメントに置く。
+コメントは履歴・証跡でありtask contractを変更しない。
+目的・scope・禁止事項・完了条件を変える場合はlive Issue本文を更新し、`CURRENT_STATE.md` routingと整合させる。
 
 ## 班間依頼・返却
 
-班間の情報受け渡しはGitHub Issueを標準経路とする。ユーザーを手動コピペの中継役にしない。
+GitHub Issueを標準経路とし、ユーザーを手動コピペ中継役にしない。
 
-### 依頼側
-
-班Aが班Bへ依頼する時は、班Bの現行Issueへ依頼checkpointを残す。
-
+### 依頼
 最低限:
-- `FROM`: 依頼元班 / Issue
-- `REQUEST`: 何をしてほしいか
-- `WHY`: なぜ必要か
-- `EXPECTED OUTPUT`: 返してほしい形式・判定
-- `RELATED`: 関連Issue / file / commit / evidence
+- `FROM`
+- `REQUEST`
+- `WHY`
+- `EXPECTED OUTPUT`
+- `RELATED`
 
-GitHubへ依頼を登録した後、チャット側でもユーザーへ依頼内容を見せる。
-ユーザーに再投稿・転記は求めないが、少なくとも「依頼先 / 依頼内容 / 理由 / 欲しい結果」が分かる形で本文または要約を提示する。
+登録後はユーザーにも依頼内容を要約して見せる。
 
-### 受取側
-
-班Bは作業結果をチャットだけで終わらせず、自班Issueへ結果checkpointを残す。
-
+### 結果
 最低限:
 - `RESULT`
 - `EVIDENCE / SOURCE`
-- `DECISION`: FACT / ADOPT候補 / HOLD / REJECT / PASS / FAIL 等、班に応じた判定
+- `DECISION`
 - `LIMITATION / BLOCKER`
 - `NEXT`
 
-### 返却
-
-結果が依頼元班の次作業に必要なら、班Bまたは管理側が班Aの現行Issueにも短い返却checkpointを残す。
-詳細は班BのIssueを参照させ、同じ長文を複製しない。
-
-ユーザーの判断や次作業に影響する重要な返却結果は、GitHubへ記録した上でチャット側でも要約して知らせる。
-GitHubを正本としつつ、ユーザーから依頼・返却内容が見えない運用にはしない。
-
-標準の流れ:
-
-班A Issue
-→ 班B Issueへ依頼checkpoint
-→ ユーザーへ依頼内容を可視化
-→ 班Bが作業
-→ 班B Issueへ詳細結果checkpoint
-→ 班A Issueへ短い返却checkpoint + 班B Issue参照
-→ 必要な結果をユーザーへ要約
-→ 班AがGitHubから再開
+依頼元の次作業に必要なら依頼元Issueにも短い返却checkpointを残す。
 
 対象:
 - DEV
-- AUDIT
 - KNOWLEDGE
 - PROMPT
-- 現行Issueを持つTEMP
+- 必要時AUDIT
+- current TEMP
 
 例外:
 - local-only / binary / protected data
-- GitHub connector障害
-- push不能などGitHubに成果物を置けない合理的理由
+- connector障害
+- push不能等
 
-例外時も、理由・代替handoffの所在・次に誰が回収するかをIssueへ記録する。
+例外時も理由・代替handoff所在・回収担当をIssueへ残す。
 
 ## DEV → Codex preflight
 
-Codexは新規実装・再開時に `AGENTS.md` のstartup gateを実行する。current DEV Issueのlive取得、確認項目、番号不一致・closed / superseded・取得失敗等のfail-closed条件は、`AGENTS.md` と `PERMANENT_RULES.md` の正本に従う。
+Codexは新規実装・再開時に `AGENTS.md` startup gateを実行する。
+current DEV Issueのlive取得とfail-closed条件は `AGENTS.md` / `PERMANENT_RULES.md` に従う。
 
-## Shared management docsの更新
+## Shared management docs
 
-`CURRENT_STATE.md` / `PERMANENT_RULES.md` / `DECISIONS.md` / Stage Gate文書を変更する前に、必ず最新mainを再取得する。
+`CURRENT_STATE.md` / `PERMANENT_RULES.md` / `DECISIONS.md` / product scope / Stage Gate文書を変更する前にlatest mainを再取得する。
 
-- staleなチャット内コピーで全体上書きしない。
-- 競合があれば勝手に一方を採用しない。
-- 通常の班内進捗は自班Issueに置き、global stateが変わった時だけ `CURRENT_STATE.md` を更新する。
+- stale chat copyで全上書きしない
+- conflict時は停止
+- 通常進捗はIssue checkpointへ
+- global routing/大方針が変わった時だけshared docsを更新
+
+大方針変更では `PRODUCT_GOAL_LOCK.md`、#42等product-scope Issue、`AGENTS.md`、`FEATURE_PRIORITY.md`、`FLOWCHARTS.md`、影響lane Issueを照合する。
 
 ## Codex implementation branch
 
-本体実装は原則、最新mainからtask用feature branchを作る。
+- latest mainからtask feature branch
+- direct main implementation commit禁止
+- stable checkpointをcommit
+- push可能ならremoteへpush
+- GitHubから確認できる成果物でmanual ZIPを要求しない
+- local-only/binary/push failure時だけfallback
 
-- 直接mainへ実装commitしない。
-- stable checkpointをcommitする。
-- push可能ならremoteへpushしてDEV/ChatGPT/AUDITがGitHubから確認できるようにする。
-- GitHubから確認できる成果物について、ユーザーへ手動ZIP uploadを要求しない。
-- local-only/ignored dataやbinary evidenceが監査に必要な時だけZIP handoffを使う。
-
-## Audit結果の戻り方
+## Audit結果
 
 ### PASS
-- 完了条件を満たした証拠をIssueへ残す。
-- CURRENT_STATE / 次Stage Gateを必要に応じて更新する。
-- 次のStage/Issueへ進める。
+証拠をIssueへ残し、必要ならroutingを更新して次へ。
 
 ### CONDITIONAL PASS
-- 条件・未解決事項をAUDIT Issueへ明記する。
-- 条件が次Stage開始を妨げるかDEVが確認する。
-- 修正が必要なら現行DEV Issueへ戻すか、明示的なrepair Issueを作る。
-- task contractが変わる場合はDEV Issue本文を更新し、`CURRENT_STATE.md` のroutingと整合させる。
-- 条件を満たす前に無条件PASSとして扱わない。
+条件・未解決事項を明記し、DEVが次Gate開始可否を判断する。無条件PASSとして扱わない。
 
 ### FAIL
-- Stageを進めない。
-- 指摘と根拠をAUDIT Issueへ残す。
-- DEVは現行DEV Issueを再開するか、必要ならrepair Issueを明示的に作る。
-- scope/禁止/完了条件が変わる場合はIssue本文を更新し、`CURRENT_STATE.md` と整合させる。
-- live Issue preflight後にCodexへ修正を渡す。
-- 再監査でPASSするまで次Stageを正式開始しない。
+次へ進めない。指摘と根拠を残し、DEV/repair Issueへ戻す。再監査PASSまでGateを越えない。
 
 ## GitHubとlocal protected data
 
-GitHubはmanagement stateとcommit済みコード/文書の正本だが、local workspace全体のbackupではない。
-`.gitignore` 対象のraw/derived/runtime/Special大容量データ等はlocal protected dataとして別に存在する。
+GitHubはmanagement stateとcommit済みcode/docsの正本だが、local workspace全体のbackupではない。
 
-- GitHub上に見えないことを削除と解釈しない。
-- `git clean -fdx` / `git clean -fdX` 等のignored file一括削除は禁止。
-- fresh cloneだけでfull runtime/full testsが成立するとは仮定しない。
+- ignored raw/derived/runtime/Special large dataを保護
+- GitHubに見えないことを削除と解釈しない
+- `git clean -fdx` / `git clean -fdX` 禁止
+- fresh cloneだけでfull runtime/full tests成立と仮定しない
 
 ## GitHub Project
 
-**現在は未採用。**
-
-Issue #47で検討したGitHub Project管理ボードは、`CURRENT_STATE.md` + live GitHub Issuesで十分と判断し、2026-09-10に `NOT PLANNED` でcloseした。
-
-したがって現在は:
-- Projectのfield/viewを作成・同期しない
-- Projectをtask contractやGate authorityとして扱わない
-- 管理正本を増やさない
-
-将来、現行3層で実際に管理不能・高頻度の見落としが発生した場合のみ、別Issueで再検討する。
-
-過去のProject field/view案はGit履歴と `CONTROL_BOARD_MIGRATION_DESIGN.md` に履歴として残す。
+現在は未採用。
+Issue #47で管理ボードはNOT PLANNEDとなった。
+`CURRENT_STATE.md` + live Issuesを管理正本とし、Projectをtask contract/Gate authorityにしない。
