@@ -6,7 +6,7 @@
 flowchart TD
  A[既存Promptを貼る / 空から開始] --> B[タグを日本語-first + Englishで理解]
  B --> C{欲しいタグを知っている?}
- C -- Yes --> D[日本語/英語検索]
+ C -- Yes --> D[日本語/英語/混在検索]
  C -- No --> E[ジャンルから発見]
  E --> F{Special or General}
  F -- Special --> G[Special Core Dictionary 深いbrowse]
@@ -24,13 +24,13 @@ flowchart TD
 ```mermaid
 flowchart TD
  A[日本語 / English / mixed input] --> B[normalize lookup]
- B --> C[Exact canonical]
- C -->|なし| D[Exact Alias]
+ B --> C[Exact canonical / exact English]
+ C -->|なし| D[Exact approved Alias]
  D -->|なし| E[Japanese display/search]
  E -->|なし| F[approved Semantic/search bridge]
  F -->|なし| G[prefix / partial / fuzzy]
  C -->|hit| H[候補]
- D -->|unique| H
+ D -->|hit| H
  E -->|hit| H
  F -->|hit| H
  G --> H
@@ -38,8 +38,8 @@ flowchart TD
  I --> J[日本語-first + canonical English表示]
 ```
 
-Exact/word-boundary intentを incidental substring/fuzzy collision より優先する。
-Known defect `anal -> piano / analog...` はIssue #34のscope。
+Exact / strong Japanese intent / word-boundary intent を incidental substring/fuzzy collision より優先する。
+Known regression `anal -> piano / analog...` を含む検索品質はIssue #66のacceptance scope。
 
 ## Special discovery
 
@@ -73,17 +73,16 @@ General taxonomyはIssue #64。
 ## Current development route
 
 Exact execution orderの正本は `docs/project/CURRENT_STATE.md`。
-Issue #42は retired / closed。最終scope reconciliationはIssue #66のacceptanceへ統合済み。
+Issues #42 / #34 は retired / closed。製品scope・検索品質・最終acceptanceはIssue #66へ統合済み。
 
 ```mermaid
 flowchart TD
- A[#64 General 30,629 taxonomy] --> C[#34 bilingual search relevance]
- B[#66 app/UI foundation] --> C
- A --> B2[#66 consumes accepted General taxonomy]
- C --> D[#66 final integration + scope check]
- B2 --> D
+ A[#64 General 30,629 taxonomy] --> C[#66 consumes accepted General taxonomy]
+ B[#66 app/UI/search foundation] --> C
+ C --> D[#66 final scope + search + integration check]
  D --> E[focused regression + real Windows UI acceptance]
  E --> F[v1 baseline]
+ F --> G[Stage10 #65 resume]
 ```
 
 #64と#66 foundationは並行可能。
@@ -152,6 +151,6 @@ KNOWLEDGEは知識・検証を所有するが、production採用を独断で決�
 ## Historical architecture note
 
 Stage0〜Stage9で作ったfull index、true AND、Candidate Aggregation、recommendation、Generation Profile、Prompt Composer、evaluator infrastructureは削除対象ではない。
-旧PROMPT #5、旧Stage10 production A/B、Issue #30 evaluator/calibration、旧#42 commentsはhistorical evidence/provenanceとして保持する。
+旧PROMPT #5、旧Stage10 production A/B、Issue #30 evaluator/calibration、旧#42/#34 commentsはhistorical evidence/provenanceとして保持する。
 
 旧 `Special -> true AND -> recommendation -> Prompt -> production A/B Stage10` を現在の必須ユーザーフローとして扱わない。
