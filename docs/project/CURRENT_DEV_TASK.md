@@ -1,46 +1,79 @@
-# CURRENT DEV TASK — COMPLETED ISSUE RECORD / FALLBACK DIAGNOSTIC ONLY
+# CURRENT DEV TASK — ISSUE #63 MIRROR
 
-> The live GitHub Issue is the executable task authority. Read `CURRENT_STATE.md`, then fetch Issue #55 and its latest checkpoint before implementation. If this mirror differs from the live Issue, fail closed and use neither stale content nor chat history to guess the contract.
+> The live GitHub Issue is the executable task authority. Read `CURRENT_STATE.md`, then fetch Issue #63 and its latest checkpoint before implementation. If this mirror differs from the live Issue, fail closed and use neither stale content nor chat history to guess the contract.
 
 最終同期: 2026-09-12
 
 ## Source
 
-- Source Issue: **#55**
-- Issue title: **[UI-JA][PRODUCTION][DEV] Promote audited Issue #36 V5 Japanese overlay**
-- Issue state: **COMPLETED / CLOSED**
-- DEV state: **ISSUE55_ISSUE36_PRODUCTION_PROMOTION_COMPLETE**
-- Working branch: `codex/issue55-ui-ja-production-promotion`
-- Production base: live `main` `4ccf87cbe461779b9296d115fce19fc169b84a66`; audited branch integrated by fast-forward
-- Audited input branch: `ui-ja/issue36-relaxed-v5-chatgpt-repair`
-- Audited input HEAD at activation: `c221b3bcf97ad117482b4e8c411cf2edf419b5df`
-- Independent audit checkpoint: Issue #36 comment `5633982018`, verdict `PROMOTION_AUDIT_PASS`
-- Audited branch HEAD: `f577b8c95c683e228440622d9de318a51dd1bf4d`
-- Independent post-write audit: `APPROVE_ISSUE55_POST_WRITE` (Issue #55 checkpoint `5641419849`)
-- Completion checkpoints: Issue #55 and Issue #36 closed after main integration
-- Stop point: `ISSUE55_ISSUE36_PRODUCTION_PROMOTION_COMPLETE`
+- Source Issue: **#63**
+- Issue title: **[SPECIAL-DICT][PRODUCT-FIT][DEV] Integrate audited product-fit verdict sidecar**
+- Issue state: **OPEN / READY / CURRENT CORE DEV**
+- DEV state: **PRODUCT_FIT_VERDICT_INTEGRATION_READY**
+- Working branch: **Codex must create a dedicated feature branch from latest live main**
 - Stage10 production A/B: **NOT STARTED**
+
+## Authoritative inputs
+
+Audit branch: `audit/special2788-product-fit-20260912`
+
+Read after live Issue preflight:
+1. `docs/audit/SPECIAL2788_PRODUCT_FIT_IMPLEMENTATION_CONTRACT_20260912.md`
+2. `docs/audit/SPECIAL2788_PRODUCT_FIT_VERDICT_MANIFEST_20260912.json`
+3. `docs/audit/SPECIAL2788_PRODUCT_FIT_AUDIT_20260912.md`
+4. `docs/audit/CODEX_PROMPT_PRODUCT_FIT_IMPLEMENTATION_20260912.md`
+
+Audit commits:
+- manifest `eff5c41a479062cb9f785fb9905111aeb4d1223b`
+- audit registration `b04fbcfdcb644095d9c61a86be9e665e435b5697`
+- implementation contract `487076db7e22f0b7fdbead7afa19428ede56c285`
+- Codex prompt `63d01b2c11b64568464e27522e171b934efd9b08`
+
+Expected verdict counts:
+- KEEP 1618
+- KEEP_REFERENCE_ONLY 1133
+- OUT_OF_SCOPE_PRODUCT 12
+- REVIEW 25
+- total 2788
 
 ## Scope
 
-1. Identify the actual local Windows repo/runtime used to launch DanbooruTagTool.
-2. Establish `LOCAL_ISSUE49_SYNC_PASS` before any Japanese-overlay write.
-3. Confirm audited V5 artifacts are unchanged after the independent audit.
-4. Back up the protected production overlay and record hashes/counts.
-5. Materialize and fully validate a temporary format-version-1 overlay.
-6. Atomically replace the actual production overlay.
-7. Run deterministic post-write checks and relevant tests.
-8. Perform focused real Windows UI acceptance against the same runtime.
-9. Commit only non-protected evidence and stop for a fresh independent post-write audit.
+1. Import the audited verdict manifest without semantic re-judgment.
+2. Deterministically generate `data/special2788/product_fit_verdicts.csv` with one row per Special ID.
+3. Validate 2,788 contiguous unique IDs, no overlap, exact verdict counts.
+4. Load verdicts as a Special-ID-keyed sidecar; do not overwrite canonical Special data.
+5. Centralize product-facing eligibility behavior.
+6. Apply:
+   - KEEP = normal product-facing candidate
+   - KEEP_REFERENCE_ONLY = retained for exact/alias/reference/search access, not independent default recommendation/browse candidate
+   - OUT_OF_SCOPE_PRODUCT = historical/source data retained, normal product-facing candidate surfaces excluded
+   - REVIEW = inspectable but not silently normalized/auto-promoted as resolved recommendation
+7. Add focused tests and implementation report.
+8. Stop for DEV/AUDIT before merge.
 
 ## Hard boundaries
 
-- Do not merge the quarantine branch into `main`; it remains read-only evidence/input.
-- Do not re-audit or rewrite 30,629 Japanese translations.
-- Do not change #34 ranking, #35 UI, #32/#49 generation data, semantic support, recommendation behavior, Prompt syntax, or Stage10 state.
-- Do not commit protected `data/runtime/japanese_overlay.json` or its contents.
-- Do not use `git clean -fdx` or `git clean -fdX`.
-- No partial production write and no write without a rollback copy.
-- Do not activate #42 or start Stage10 as part of this completion.
+- No Special ID deletion/renumbering.
+- No canonical identity or Alias relation mutation.
+- No provenance/source/layer mutation.
+- No semantic re-audit of 2,788 rows.
+- Do not invent filters based on age, sexual strength, non-consent, R18G, niche intensity, or extremity.
+- Do not implement Issue #34 fuzzy/substring ranking changes here.
+- Do not start Stage10 production A/B.
+- No runtime LLM dependency.
 
-Implementation and audit evidence are recorded in `docs/project/ISSUE55_PRODUCTION_PROMOTION_REPORT.md` and `docs/testing/ISSUE55_PRODUCTION_PROMOTION_MANIFEST.json`. This record is historical; the live Issues and `CURRENT_STATE.md` remain authoritative for future routing.
+## Completion / return contract
+
+Codex must provide:
+- task branch and commit SHA
+- changed files
+- generated CSV counts/coverage validation
+- tests and results
+- product-facing behavior changes
+- canonical/protected data unchanged confirmation
+- unresolved items
+
+Do not merge. Return to DEV/AUDIT.
+
+After accepted integration the route is:
+`#63 -> #34 bilingual search relevance/noise -> remaining #42 product-purpose narrowing -> #5 -> Stage10 prep`.
