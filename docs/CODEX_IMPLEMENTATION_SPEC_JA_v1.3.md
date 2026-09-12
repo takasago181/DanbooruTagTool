@@ -1,447 +1,168 @@
-# Codex 初期実装仕様書 v1.3 FINAL
+# Codex 実装仕様 — current v1 product contract
 
-## 1. 最終目的
+> Path compatibility note: filename `CODEX_IMPLEMENTATION_SPEC_JA_v1.3.md` is retained so existing references do not break. The old Stage0–10 implementation plan is historical and remains recoverable from Git history. This file now describes the current v1 product contract.
 
-これは万能Danbooru検索ツールではない。
+## 1. 正本
 
-ユーザーはまず特殊2,788語から1語または複数語を選び、Core Tag Setとして生成の核を作る。
-その核だけでは固定しにくい要素を、実postデータのtrue multi-tag ANDとCandidate Aggregationで補助する。
-特殊辞書に足りないものだけ全Danbooruへ広げる。
-最後に画像生成用英語Promptへ落とす。
+優先順位:
 
-ユーザー体験:
-特殊辞書から日英で探す
-→ 選ぶ
-→ 実共起が更新
-→ 関連タグを追加
-→ 必要なら全Danbooru
-→ LoRA
-→ Copy
+1. `docs/project/CURRENT_STATE.md`
+2. live current DEV GitHub Issue
+3. `docs/project/PERMANENT_RULES.md`
+4. `docs/PRODUCT_GOAL_LOCK.md`
+5. this file / `docs/FEATURE_PRIORITY.md`
+6. current Issue-specific design docs
 
-## 2. Special-first
+Issue-specific scope always wins over this general product contract.
 
-### Core Tag Setを第一級にする
+## 2. v1の目的
 
-単語1個だけでなく、Special Core Dictionaryの複数Specialの組み合わせを「核」として保持する。
+画像生成初心者で、英語/Danbooruタグ知識が弱くても:
 
-内部区分:
-- Core Tag Set
-- Auxiliary Tags
-- LoRA
+`理解 -> 発見 -> 選択 -> 出力`
 
-v1 minimumは `docs/CORE_TAG_SET_SCHEMA.md` に従う。
-高機能preset managerへ拡張しない。
+できること。
 
+具体的には:
 
-メインUI:
-- 特殊辞書
-- 関連おすすめ
-- 全Danbooru
+1. 既存Promptを貼る、または空から始める
+2. 既知タグを日本語-first + canonical Englishで理解する
+3. 不要タグを外す
+4. 日本語/英語で検索する
+5. Specialをジャンルから深く発見する
+6. General 30,629件を実用ジャンルから浅く発見する
+7. 欲しいタグを自分で追加/削除/並べ替えする
+8. canonical-English Promptをコピーする
 
-特殊辞書は別添えではなく主画面。
+## 3. v1 data surfaces
 
-ただし検索関連度をSpecialだから捏造しない。
+### Special Core Dictionary
 
-Exact matchは常に最優先。
-その後にSpecialをUI上優遇する。
+- frozen identity population: 2,788
+- #56 Japanese-first UI browse taxonomyを使用
+- deep niche/complex discovery surface
+- canonical/Alias identityは保護
+- product-facing eligibilityは#63 sidecarを使用
 
-## 3. 固定production snapshot（互換識別子: Special2788）
+### General Japanese overlay
 
-total 2,788
-Core 759
-Extended 915
-Alias 778
-Semantic 336
+- production target population: 30,629 canonical entries
+- Japanese display/search assistance
+- canonical identityはEnglish
+- General browse taxonomyは#64で別sidecarとして作る
+- `japanese_overlay.json` 自体へtaxonomy fieldを混ぜない
 
-normalized linkage:
-canonical 1,674
-alias_unique 767
-alias_ambiguous_curated 2
-alias_ambiguous_multiple 9
-semantic_unmapped 336
+## 4. Search
 
-unique canonical resolved:
-2,443 / 2,788
+- Japanese / English / mixedを同じsearch pathで扱う
+- exact canonical / exact English / word-boundary intentを incidental substring/fuzzyより優先
+- Aliasをsilent ambiguous resolveしない
+- Japanese wordingはsemantic authorityではない
+- SpecialをUI上見つけやすくしてよいが、match qualityを捏造しない
+- current ranking/noise defectは#34がowner
 
-audit:
-post_count mismatch 0
-Layer mismatch 0
-English pairing 2,788/2,788
-source category pairing 2,788/2,788
-Japanese description pairing 2,788/2,788
+## 5. Prompt workbench
 
-translation review candidates:
-676
-
-## 4. Source / Derived / Provenance
-
-正本:
-- data/source/danbooru-2026-09-02.csv
-- data/special2788/illustrious_tag_knowledge_base_2788.csv
-- data/special2788/illustrious_tag_knowledge_base_2788.xlsx
-- data/special2788/illustrious_tag_knowledge_base_2788_README.md
-
-監査済み派生:
-- data/derived/*
-
-由来:
-- archive/provenance/*
-通常実装では使用しない。
-
-## 5. Stage 0 — Source Preservation / Manifest / pytest基盤
-
-成果物:
-- docs/architecture/IMPLEMENTATION_BASELINE.md
-- source hash確認
-- raw schema test
-- pytest baseline
-- BUILD_MANIFEST初期化方針
-
-ここからpytestを使う。
-
-## 6. Stage 1 — Source Dataset Decision
-
-目的:
-post-level dataの正本だけを決める。
-
-Gate 1:
-- snapshot
-- coverage
-- total posts
-- max post id
-- schema
-- tag fields
-- category fields
-- null
-- duplicate
-- deleted post handling
-- license
-- source credibility
-- update continuity
-- download practicality
-
-Gate 2:
-Gate 1上位1〜2候補だけ。
-同一100万〜数百万post程度のsubsetで:
-- 必要tag情報が再現可能か
-- malformed/null処理
-- AND用前処理可能性
-を検証。
-
-禁止:
-- 全候補full build
-- Runtime Index方式比較
-- production index
-
-成果物:
-docs/decisions/DATA_SOURCE_DECISION.md
-
-Approved Sourceを一度決めたら、
-新snapshotごとにDataset Decisionを開き直さない。
-
-再評価条件:
-- source停止
-- schema大変更
-- 品質劣化
-- 明確に優れた新候補
-- ユーザーによる再評価指示
-
-## 7. Stage 2 — AND + Candidate Aggregation Architecture Decision
-
-同一のApproved Dataset、同一subsetで比較。
-
-重要:
-ANDそのものより、AND後の候補tag頻度集計がボトルネックになり得る。
-
-比較候補例:
-- Roaring Bitmap
-- sorted integer arrays
-- mmap binary
-- SQLite
-- tag->posts + post->tags 双方向index
-
-測定:
-- build time
-- build peak RAM
-- runtime RAM
-- index size
-- 1-tag
-- 2-tag AND
-- 3-tag AND
-- 5-tag AND
-- Candidate Aggregation:
-  base=1
-  base≈100
-  base≈10,000
-  base≈100,000
-- Forge同時使用を想定した常駐RAM影響
-- 実装複雑度
-
-成果物:
-docs/architecture/INDEX_ARCHITECTURE_DECISION.md
-
-## 8. Stage 3 — Tag Knowledge Core
-
-実装:
-- Canonical
-- Alias
-- Special Core Dictionary
-- Translation layer
-- Static Semantic Bridge schema
-- normalization
-- PromptTag
-
-normalization:
-NFKC
-lowercase
-trim
-underscore/space normalized lookup key
-canonical exact優先
-alias exact
-Japanese exact
-Semantic exact
-prefix/partial
-
-Prompt文字列をspaceでtokenizeしない。
-
-Prompt-level input:
-comma/newlineでtag候補単位に分割。
-
-## 9. Semantic 336
-
-Semantic bridgeはruntime AI推論で作らない。
-
-静的表:
-semantic_id
-semantic_term
-ja_label
-en_concept
-candidate_canonical
-relation_type
-notes
-review_status
-
-1 candidate = 1 row。
-
-relation:
-exact-ish
-alias-like
-broader
-narrower
-related
-
-Stage 3:
-schema / loader / validator / search integrationを完成。
-
-Stage 8:
-mapping内容とUXを充実。
-
-336件全レビューをStage 1/2のblockerにしない。
-
-## 10. Stage 4 — Unified Japanese / English Search
-
-1検索欄。
-
-対応:
-Japanese
-English
-mixed
-underscore
-Prompt-space
-
-検索priority:
-1. Exact
-2. Special候補
-3. All Danbooru候補
-4. Semantic「意味から探す」
-
-match qualityをSpecial boostより優先。
-
-## 11. Stage 5 — Full Index + True AND + Candidate Aggregation
-
-Approved Datasetをfull build。
+v1ではuser explicit choiceが中心。
 
 必要:
-- true A AND B AND C...
-- base_count
-- candidate/global count
-- co_count
-- candidate aggregation
-- runtime global counts
+- existing Prompt parse/display
+- manual add
+- manual remove
+- reorder
+- final preview
+- copy
 
-runtime global countsはApproved Dataset自身から算出。
+最終payload:
+- canonical English / model-facing existing formatter rules
 
-2026-09 tag CSVのpost_countを統計母数へ使用禁止。
+日本語ラベルをPrompt payloadへ混ぜない。
 
-## 12. Stage 6 — Statistics / Reliability / Ranking
+## 6. Automatic behavior boundary
 
-表示値はraw:
-- base_count
-- co_count
-- co_count/base_count
-- current_post_count
-- relative multiplier
+Default v1では以下を実装/有効化しない:
 
-ranking内部だけ少数標本補正。
+- automatic support insertion
+- automatic minimum-sufficient Prompt construction
+- automatic conflict removal
+- automatic Negative generation
+- automatic model-family rewrite
+- Prompt-only automatic failure diagnosis
+- hidden generation rule injection
 
-比較候補:
-- minimum support
-- Wilson lower bound
-- Beta/Bayesian shrinkage
+既存コードに同様のautomatic/default-on behaviorが残っている場合は、current Issueのscope内で明示的にdisable/remove planを作り、ユーザー選択と表示状態を一致させる。
 
-1/1=100%を表示上は100%としても、
-ランキング首位へ暴走させない。
+## 7. Optional existing subsystems
 
-generic suppressionもここでDecision。
+以下は既存資産として保持してよいが、v1通常起動の必須dependencyにしない:
 
-単純ブラックリストだけに依存しない。
-global frequency / relative multiplier / small manual noise listを評価。
+- full Stage5 runtime index / true multi-tag AND
+- Candidate Aggregation
+- co-occurrence recommendation
+- reliability ranking
+- Semantic Support
+- Generation Profile
+- Stage9 Composer advanced variants
+- evaluator/tagger stack
+- Stage10 A/B infrastructure
 
-成果物:
-docs/decisions/RECOMMENDATION_RANKING_DECISION.md
+必要なfeatureが採用された時だけ利用する。
 
-## 12.5 Auxiliary Role Classification
+## 8. Runtime / architecture
 
-補助候補は可能ならrole別に整理する。
+- local / non-LLM runtime
+- Windows desktop first
+- Forge等と同時常駐して邪魔にならないRAM/起動性
+- full ~3GB statistics indexが無くてもv1 core pathが起動すること
+- optional data不在で`understand -> discover -> choose -> copy`を壊さない
+- overengineering禁止
+- external/existing tool first
 
-例:
-- composition
-- pose
-- expression
-- clothing
-- background
-- situation
-- detail
-- other
+## 9. General taxonomy #64
 
-ただし全124,016タグを先に分類しない。
-Recommendation上位に出るGeneralタグから段階的に分類し、未分類はother。
-低共起を「相性が悪い」と断定しない。
-詳細は `docs/AUXILIARY_TAG_ROLE_POLICY.md`。
+General 30,629はSpecialと同じ深さにしない。
 
-## 13. Stage 7 — Special-first UI
+目的:
+- 検索語を知らない初心者が「こういうタグがある」と発見できる
 
-主画面:
-[特殊辞書]
-[関連おすすめ]
-[全Danbooru]
+方針:
+- broad practical Prompt-role genres
+- useful subgenres only
+- multi-path allowed where useful
+- visible giant catch-allを避ける
+- separate canonical-tag keyed sidecar
+- reproducible pilot -> boundary audit -> full rollout
+- full 100k+ Danbooru ontologyを作らない
 
-画面中央または常時視認位置に:
-[現在の核 / Core Tag Set]
-を表示する。
+## 10. Stage10 relationship
 
-操作:
-入力
-→ Enter
-→ 関連を見る
-→ +
-→ Copy
+Issue #5 / Stage10はv1 completion blockerではない。
 
-不要:
-language mode
-statistics mode
-複数ranking mode
-大量modal
+将来次のようなfeatureを採用した場合のみ再activate:
+- model-specific tag effectiveness
+- evidence-backed support recommendation
+- automatic Prompt assistance
+- image-dependent failure diagnosis
+- A/B experiment support
 
-## 14. Stage 8 — Semantic UX Refinement
+その場合もone experiment = one questionで最小限にする。
 
-静的bridge mapping拡充。
-relation typeを見せるかはUX評価。
-Semanticをactual Danbooru tagのように偽装しない。
+## 11. Safety / integrity
 
-## 15. Stage 9 — Prompt Builder / Minimal LoRA
+- protected local dataを破壊しない
+- `git clean -fdx` / `git clean -fdX` 禁止
+- Special ID / canonical / Alias / provenanceをpresentation都合で変更しない
+- existing audit/freeze evidenceを消さない
+- Japanese overlay / taxonomy / generation metadataを別レイヤーとして保つ
+- runtime LLM dependencyを導入しない
 
-内部canonical:
-school_uniform
+## 12. v1 completion
 
-output:
-school uniform
+v1は次が実機で成立すればよい:
 
-LoRA別layer:
-name
-weight
-trigger
+`Promptを日本語で理解`
+`-> 日本語/英語検索またはSpecial/Generalジャンル閲覧`
+`-> ユーザーがタグを選択`
+`-> canonical-English Promptをcopy`
 
-output:
-tag, tag, <lora:name:weight>
-
-LoRA directory crawlerは後。
-
-## 16. Stage 10 — Final Regression / Benchmark / Packaging
-
-pytest全回帰。
-性能benchmark。
-manifest検証。
-packaging。
-
-Stage 10までテストを待たない。
-
-## 17. Snapshot architecture
-
-別物として保持:
-
-current tag dictionary:
-2026-09-02 post_count
-用途=現在使用数/検索
-
-statistics dataset:
-Approved post snapshot
-用途=base/co/global/lift/ranking
-
-statistics index群:
-同じstatistics_dataset_snapshot_id必須。
-
-tag dictionary snapshotは異なってよい。
-
-## 18. Version Manifest
-
-BUILD_MANIFESTに最低限:
-app_version
-statistics_dataset_name
-statistics_dataset_snapshot_id
-statistics_dataset_hash
-statistics_total_posts
-statistics_max_post_id
-tag_dictionary_snapshot
-tag_dictionary_hash
-special2788_version
-special2788_hash
-semantic_bridge_version
-semantic_bridge_hash
-index_format_version
-index_build_timestamp
-total_canonical_tags
-
-起動時:
-statistics index / runtime counts / aggregation indexのsnapshot idが違えば拒否。
-
-## 19. 初版でやらない
-
-- incremental update
-- advanced fuzzy
-- Artist recommendation
-- Meta recommendation
-- image metadata extraction
-- full TagComplete replacement
-- plugin manager
-- event bus
-- cloud sync
-- multi DB abstraction
-- complex LoRA crawler
-- AI automatic prompt rewriting
-
-## 20. Completion
-
-v1:
-Special-first日英検索
-→ Core Tag Set形成
-→ canonical
-→ true multi-tag AND
-→ candidate aggregation
-→ reliable recommendation
-→ 必要ならAll Danbooru
-→ Prompt
-→ LoRA
-→ Copy
-
-これがend-to-endで動くこと。
+co-occurrence、Stage10、model verification、automatic optimizationはv1 completion conditionではない。
