@@ -1,0 +1,88 @@
+{
+  "version": "issue56-ui-taxonomy-candidate-v1.2.1",
+  "status": "ISSUE59_REQUIRED_FIXES_APPLIED_REAUDIT_REQUIRED",
+  "display_contract": {
+    "normal_ui_genre_language": "ja",
+    "special_row": "ja_plus_en",
+    "internal_ids": "stable_ascii"
+  },
+  "genres": [
+    {
+      "id": "BODY_ANATOMY",
+      "label_ja": "身体・解剖",
+      "subgenres": [
+        {"id": "BREAST_NIPPLE", "label_ja": "乳房・乳首"},
+        {"id": "FEMALE_GENITAL", "label_ja": "女性器"},
+        {"id": "MALE_GENITAL", "label_ja": "男性器"},
+        {"id": "BUTTOCK_ANUS", "label_ja": "臀部・肛門"},
+        {"id": "INTERNAL_ANATOMY", "label_ja": "体内・断面"},
+        {"id": "BODY_ADORNMENT_MARK", "label_ja": "装飾・印"},
+        {"id": "PUBIC_HAIR", "label_ja": "陰毛"}
+      ]
+    },
+    {
+      "id": "NUDITY_CLOTHING_EXPOSURE",
+      "label_ja": "裸体・衣服・露出",
+      "subgenres": [
+        {"id": "NUDITY_LEVEL", "label_ja": "裸体・半裸"},
+        {"id": "UNDRESSING_ADJUSTMENT", "label_ja": "脱衣・着崩し"},
+        {"id": "PARTIAL_EXPOSURE", "label_ja": "部分露出"},
+        {"id": "COVERED_CONCEALED", "label_ja": "隠し・覆い"},
+        {"id": "THROUGH_CLOTHING_VISIBILITY", "label_ja": "透け・衣服越し"},
+        {"id": "CUTOUT_OPENING", "label_ja": "開口・カットアウト"},
+        {"id": "UNDERWEAR_LINGERIE", "label_ja": "下着・ランジェリー"}
+      ]
+    },
+    {"id": "POSE_POSITION_COMPOSITION", "label_ja": "ポーズ・体位・構図", "subgenres": []},
+    {
+      "id": "SEXUAL_ACTIVITY_STIMULATION",
+      "label_ja": "性行為・性的刺激",
+      "subgenres": [
+        {"id": "GENERAL_SEX_ACT", "label_ja": "性交・性行為"},
+        {"id": "MASTURBATION", "label_ja": "自慰"},
+        {"id": "ORAL_ACTIVITY", "label_ja": "口淫"},
+        {"id": "HAND_FOOT_BODY_STIMULATION", "label_ja": "手・足・身体刺激"},
+        {"id": "RUBBING_GRINDING", "label_ja": "擦り・挟み・こすり"},
+        {"id": "LOCAL_STIMULATION", "label_ja": "局所刺激"},
+        {"id": "ORGASM_RESPONSE", "label_ja": "絶頂・反応"},
+        {"id": "BEFORE_AFTER_ACT", "label_ja": "直前・事後"},
+        {"id": "IMPLIED_GESTURE", "label_ja": "示唆・仕草"},
+        {"id": "COOPERATIVE_MULTI_ACT", "label_ja": "協力・複数行為"}
+      ]
+    },
+    {
+      "id": "CONTACT_INSERTION_BODY_SITE",
+      "label_ja": "接触・挿入・部位行為",
+      "subgenres": [
+        {"id": "GENERAL_INSERTION", "label_ja": "挿入全般"},
+        {"id": "ANAL_SITE", "label_ja": "肛門・直腸"},
+        {"id": "FEMALE_GENITAL_SITE", "label_ja": "女性器"},
+        {"id": "URETHRAL_SITE", "label_ja": "尿道"},
+        {"id": "EXTERNAL_CONTACT", "label_ja": "外部接触"},
+        {"id": "MULTIPLE_DEEP_INSERTION", "label_ja": "深部・多重挿入"}
+      ]
+    },
+    {"id": "TOOLS_TOYS_MACHINES", "label_ja": "道具・性具・機械", "subgenres": []},
+    {
+      "id": "BONDAGE_BDSM_DOMINATION",
+      "label_ja": "拘束・BDSM・支配",
+      "subgenres": [
+        {"id": "BONDAGE_STATE", "label_ja": "拘束状態"},
+        {"id": "BONDAGE_POSITION", "label_ja": "緊縛姿勢"},
+        {"id": "RESTRAINT_DEVICE", "label_ja": "拘束具"},
+        {"id": "GAG_MOUTH_RESTRAINT", "label_ja": "口枷"},
+        {"id": "CHASTITY_CONTROL", "label_ja": "貞操管理"},
+        {"id": "PAIN_TORTURE", "label_ja": "苦痛・拷問"},
+        {"id": "DOMINATION_SUBMISSION", "label_ja": "支配・服従"},
+        {"id": "FORCE_NONCONSENT", "label_ja": "強制・非合意"}
+      ]
+    },
+    {"id": "FLUID_EXCRETION_SOILING", "label_ja": "体液・排泄・汚損", "subgenres": []},
+    {"id": "REPRODUCTION_PREGNANCY_LACTATION", "label_ja": "生殖・妊娠・授乳", "subgenres": []},
+    {"id": "NONHUMAN_TENTACLE_TRANSFORMATION", "label_ja": "異形・非人間・触手・変形", "subgenres": []},
+    {"id": "INJURY_R18G", "label_ja": "損傷・R18G", "subgenres": []},
+    {"id": "PERSON_RELATION_ROLE", "label_ja": "属性・関係・役割", "subgenres": []},
+    {"id": "META_RATING", "label_ja": "メタ・レーティング", "subgenres": []},
+    {"id": "SITUATION_SCENE", "label_ja": "状況・場面", "subgenres": []}
+  ]
+}

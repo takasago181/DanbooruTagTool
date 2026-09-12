@@ -1,0 +1,50 @@
+name: Issue56 UI Genre Rollout
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - dev/issue56-special-dict-ui-taxonomy
+    paths:
+      - tools/issue56_ui_genre_rollout.py
+      - tools/issue56_ui_genre_pilot_selector.py
+      - tests/test_issue56_ui_genre_rollout.py
+      - docs/issue56/rollout/**
+      - docs/issue56/pilot/issue56_ui_genre_pilot_v1_classification_map.csv
+      - data/special2788/prompt_reference/**
+      - .github/workflows/issue56_ui_genre_rollout.yml
+
+permissions:
+  contents: read
+
+jobs:
+  validate-rollout:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install pytest
+        run: python -m pip install --disable-pip-version-check pytest
+
+      - name: Run rollout tests
+        run: python -m pytest -q tests/test_issue56_ui_genre_rollout.py
+
+      - name: Build complete rollout state
+        run: python -m tools.issue56_ui_genre_rollout --require-complete
+
+      - name: Show rollout metadata
+        run: cat docs/issue56/rollout/generated/issue56_ui_genre_rollout_meta_v1.json
+
+      - name: Upload rollout review artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: issue56-ui-genre-rollout
+          path: docs/issue56/rollout/generated/
+          if-no-files-found: error
+          retention-days: 14
