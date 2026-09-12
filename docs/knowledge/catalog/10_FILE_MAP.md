@@ -35,6 +35,7 @@ These files are cross-topic controls, not a second genre taxonomy.
 | `../current/CURRENT_QUICK_REFERENCE.md` | 30–60 second overview; never verdict authority |
 | `../current/READING_ROUTES.md` | task-specific 3–5 file reading routes |
 | `../current/SELF_AUDIT_20260909.md` | GitHub-only recovery audit for this organization pass |
+| `../current/RESEARCH_BACKLOG_20260913.md` | post-PROMPT-merge gap audit and prioritized next research themes; planning only, not verdict authority |
 
 ## Root knowledge files
 
@@ -89,6 +90,7 @@ Detailed old-document-to-Claim absorption mapping:
 - `current/CLAIM_REGISTRY.csv` = current verdict/status/scope/validation authority
 - `current/HOLD_CONFLICT_REGISTER.md` = current uncertainty detail
 - `current/VERSION_FRESHNESS_LEDGER.csv` = freshness/version identity
+- `current/RESEARCH_BACKLOG_20260913.md` = prioritized planning after product/PROMPT-lane reorganization; never overrides Claim Registry
 - `catalog/` = current readable explanation by topic
 - `research/` = detailed evidence/provenance/history
 - `GENERATION_KNOWLEDGE_CORPUS.md` = durable cross-topic synthesis
