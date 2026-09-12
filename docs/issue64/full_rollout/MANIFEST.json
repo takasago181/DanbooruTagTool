@@ -1,0 +1,66 @@
+{
+  "format_version": 1,
+  "issue": 64,
+  "branch": "chatgpt/issue64-full-rollout",
+  "population_count": 30629,
+  "accepted_basis": {
+    "pilot_commit": "5064429018123c80c32ac41af715668fb67fb74e",
+    "verdict": "PILOT_ACCEPTED"
+  },
+  "working_source_sha256": "58f9ff128a7ca21a17de4345c36c7891b8169a66fbe3d1de5c190cf48f17d51c",
+  "checkpoint": {
+    "completed_through_global_row": 3300,
+    "completed_count": 3300,
+    "remaining": 27329
+  },
+  "storage": {
+    "format": "xz-compressed UTF-8-SIG CSV ledgers",
+    "decompress": "xz -d <file>.xz",
+    "past_batches_immutable": true
+  },
+  "batches": [
+    {
+      "batch": 1,
+      "range": [1, 500],
+      "count": 500,
+      "path": "docs/issue64/full_rollout/batches/batch001_rows00001-00500_ledger.csv.xz",
+      "raw_csv_sha256": "f6e4a13c2e6d718e170c6c62f7c37f6e1db6f49e75a48cd25f05304a40841189",
+      "xz_sha256": "3815ac24eaeca804ed8b1bf438389911626283842efb6ec8cc0d62e64122536b",
+      "columns": ["global_row", "canonical", "classification_status", "primary_genre_id", "primary_subgenre_id", "secondary_paths", "confidence", "reason_ja", "evidence_url", "reviewed"]
+    },
+    {
+      "batch": 2,
+      "range": [501, 1300],
+      "count": 800,
+      "path": "docs/issue64/full_rollout/batches/batch002_rows00501-01300_ledger.csv.xz",
+      "raw_csv_sha256": "f3347c1492fb9772ce46350e917475b2f47e88afe3204e8c7c63404619b97018",
+      "xz_sha256": "3e4671253a427e1fb189786f802b46ebb63e628f0f128e329d626bcb7594eac6",
+      "columns": ["global_row", "canonical", "classification_status", "primary_genre_id", "primary_subgenre_id", "secondary_paths", "confidence", "reason_ja", "evidence_url", "reviewed"]
+    },
+    {
+      "batch": 3,
+      "range": [1301, 2300],
+      "count": 1000,
+      "path": "docs/issue64/full_rollout/batches/batch003_rows01301-02300_ledger.csv.xz",
+      "raw_csv_sha256": "0ac7d9d7fc8ac65322721e030a69b7eccf26fb0986ebe284c4420042005408b6",
+      "xz_sha256": "c21d4deab36c89ffa83c07d006d7682a0ec0b43b9bacb40fb83879636ce63888",
+      "columns": ["global_row", "canonical", "classification_status", "primary_genre_id", "primary_subgenre_id", "secondary_paths", "confidence", "reason_ja", "evidence_url", "reviewed"]
+    },
+    {
+      "batch": 4,
+      "range": [2301, 3300],
+      "count": 1000,
+      "path": "docs/issue64/full_rollout/batches/batch004_rows02301-03300_ledger.csv.xz",
+      "raw_csv_sha256": "a3984e22a7b73479d748951d3451d25e9cdfe8a869d90248adea9cef3e931448",
+      "xz_sha256": "f73166a86b52e233c886da2097e7caac8858c9f597c1baef7d1ded36b473250a",
+      "columns": ["global_row", "canonical", "classification_status", "primary_genre_id", "primary_subgenre_id", "secondary_paths", "confidence", "reason_ja", "evidence_url", "reviewed"]
+    }
+  ],
+  "totals": {
+    "proposed": 3223,
+    "unresolved": 77,
+    "high": 2794,
+    "medium": 429,
+    "low": 77
+  }
+}
