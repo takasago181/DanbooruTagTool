@@ -9,9 +9,9 @@
   },
   "working_source_sha256": "58f9ff128a7ca21a17de4345c36c7891b8169a66fbe3d1de5c190cf48f17d51c",
   "checkpoint": {
-    "completed_through_global_row": 3300,
-    "completed_count": 3300,
-    "remaining": 27329
+    "completed_through_global_row": 4300,
+    "completed_count": 4300,
+    "remaining": 26329
   },
   "storage": {
     "format": "xz-compressed UTF-8-SIG CSV ledgers",
@@ -54,13 +54,23 @@
       "raw_csv_sha256": "a3984e22a7b73479d748951d3451d25e9cdfe8a869d90248adea9cef3e931448",
       "xz_sha256": "f73166a86b52e233c886da2097e7caac8858c9f597c1baef7d1ded36b473250a",
       "columns": ["global_row", "canonical", "classification_status", "primary_genre_id", "primary_subgenre_id", "secondary_paths", "confidence", "reason_ja", "evidence_url", "reviewed"]
+    },
+    {
+      "batch": 5,
+      "range": [3301, 4300],
+      "count": 1000,
+      "path": "docs/issue64/full_rollout/batches/batch005_rows03301-04300_ledger.csv.xz",
+      "raw_csv_sha256": "b38e85e07f2d907dbf99a2b01a310e6c61f17025652721f77ee2a748fe231a70",
+      "xz_sha256": "477ed45e1a37767400d42b42ea4baa418172b26770b16520b6c58bb5b715ccd9",
+      "summary_path": "docs/issue64/full_rollout/batches/batch005_summary.json",
+      "columns": ["global_row", "canonical", "classification_status", "primary_genre_id", "primary_subgenre_id", "secondary_paths", "confidence", "reason_ja", "evidence_url", "reviewed"]
     }
   ],
   "totals": {
-    "proposed": 3223,
-    "unresolved": 77,
-    "high": 2794,
-    "medium": 429,
-    "low": 77
+    "proposed": 4190,
+    "unresolved": 110,
+    "high": 3732,
+    "medium": 458,
+    "low": 110
   }
 }
