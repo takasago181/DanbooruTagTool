@@ -193,6 +193,23 @@ Corrected after age-policy and strong-condition audits.
 - #1864 `convenient tentacle`
 - #2770 `serving tray (bdsm)`
 
+## Machine-readable verdict authority
+
+Implementation-facing verdict authority is now materialized as:
+
+`docs/audit/SPECIAL2788_PRODUCT_FIT_VERDICT_MANIFEST_20260912.json`
+
+Contract:
+- `default_verdict = KEEP`
+- explicit non-default ID sets cover `KEEP_REFERENCE_ONLY`, `OUT_OF_SCOPE_PRODUCT`, and `REVIEW`
+- expanding IDs 1..2788 must yield exactly `KEEP 1618 / KEEP_REFERENCE_ONLY 1133 / OUT_OF_SCOPE_PRODUCT 12 / REVIEW 25`
+- no overlaps, no missing IDs, no semantic re-judgment by downstream implementation
+- generated runtime/development sidecar target is `data/special2788/product_fit_verdicts.csv` with one row per Special ID
+
+The compact manifest is the audit authority; the 2,788-row CSV is a deterministic derived artifact. This prevents downstream Codex/runtime work from re-inferring audit semantics.
+
+Materialization note: batch-level audit summaries did not always persist complete per-ID lists. The manifest fixes row-level assignment using the same published product-fit rules and source metadata while preserving the published final aggregate. Batch 4 bookkeeping is materialized with #774 `mouth insertion` as KEEP, consistent with its direct structured insertion identity and the published Batch 4 total `KEEP 164 / KEEP_REFERENCE_ONLY 36`.
+
 ## Final interpretation
 
 - `KEEP` is the product-facing Special nucleus: distinct concepts that materially help the intended niche prompt-generation workflow.
@@ -204,5 +221,6 @@ Corrected after age-policy and strong-condition audits.
 ## Persistence / next-step boundary
 
 - Full product-fit audit is complete and checkpointed on this audit branch.
+- Machine-readable verdict manifest is complete on the same audit branch.
 - Production dictionary/data remains unchanged.
 - Any implementation of these verdicts should happen as a separate reviewed change set, preserving Special IDs, provenance, alias/history, and the distinction between product-facing candidates and reference/search assets.
