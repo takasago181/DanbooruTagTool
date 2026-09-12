@@ -152,6 +152,16 @@ def test_taxonomy_has_unique_ids_and_mandatory_japanese_labels():
         assert all(item["label_ja"].strip() for item in items.values())
 
 
+def test_taxonomy_has_no_visible_other_catchall_subgenre():
+    _, genres, subgenres = _taxonomy_indexes()
+    assert "OTHER_BODY_SITE" not in subgenres["CONTACT_INSERTION_BODY_SITE"]
+    assert all(
+        "その他" not in subgenre["label_ja"]
+        for genre in genres.values()
+        for subgenre in genre["subgenres"]
+    )
+
+
 def test_reviewed_classification_map_matches_exact_formal_pilot_ids():
     source_rows, _ = load_prompt_reference(SOURCE_DIR)
     pilot_ids = [str(item["row"].special_id) for item in select_pilot(source_rows)]
@@ -192,6 +202,19 @@ def test_reviewed_paths_reference_only_defined_taxonomy_ids():
 
         for secondary_path in row["secondary_paths"].split("|"):
             validate_path(secondary_path.strip())
+
+
+def test_issue59_remediation_uses_parent_fallback_instead_of_catchall_shelves():
+    reviewed = {row["special_id"]: row for row in _classification_rows()}
+
+    assert reviewed["2381"]["primary_genre_id"] == "BODY_ANATOMY"
+    assert reviewed["2381"]["primary_subgenre_id"] == ""
+    assert reviewed["739"]["primary_subgenre_id"] == "BREAST_NIPPLE"
+    assert reviewed["742"]["primary_subgenre_id"] == "FEMALE_GENITAL"
+    assert reviewed["2526"]["primary_genre_id"] == "NUDITY_CLOTHING_EXPOSURE"
+    assert reviewed["2526"]["primary_subgenre_id"] == ""
+    assert reviewed["1517"]["primary_genre_id"] == "CONTACT_INSERTION_BODY_SITE"
+    assert reviewed["1517"]["primary_subgenre_id"] == ""
 
 
 def test_reviewed_map_keeps_unresolved_cases_exceptional():
