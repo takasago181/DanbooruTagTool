@@ -84,10 +84,62 @@ flowchart TD
  F --> G[v1 baseline]
 ```
 
-Generation-effectiveness / Stage10はこの必須経路の外。
-旧PROMPT #5はretired/closed。将来、model-specific effectivenessやevidence-backed automatic assistanceを採用した時だけ、**KNOWLEDGE #44** から必要な狭い実験を設計・実施する。
+Stage10 learning is parallel to this route and is not a v1 Gate.
 
-## Optional/future subsystem flow
+## Current Stage10 learning flow
+
+Current authority:
+- Issue #65
+- `docs/stages/STAGE_10_LEARNING.md`
+
+Primary model:
+- NoobAI XL 1.1 EPS + Forge Neo
+
+```mermaid
+flowchart TD
+ A[10.0 環境・再現性] --> B[10.1 Prompt基礎]
+ B --> C[10.2 構図・カメラ・可視性]
+ C --> D[10.3 hard/niche 構造分解]
+ D --> E[10.4 失敗診断・controlled iteration]
+ E --> F[10.5 Seed / Negative / Weight / LoRA]
+ F --> G[10.6 Hires / ADetailer / img2img / inpaint]
+ G --> H[10.7 Regional / Control escalation]
+ H --> I[10.8 効率的な日常運用]
+ I --> J[10.9 自力Capstone]
+```
+
+Stage10の実生成ループ:
+
+```mermaid
+flowchart TD
+ A[日本語の意図] --> B[NoobAI中心にmodel/profile選択]
+ B --> C[Prompt設計]
+ C --> D[探索生成]
+ D --> E[観察]
+ E --> F{何が失敗?}
+ F --> G[concept / presence]
+ F --> H[actor-target / body-site / count / relation]
+ F --> I[camera / crop / visibility]
+ F --> J[Negative / weight / LoRA conflict]
+ G --> K[最小の意味ある修正]
+ H --> K
+ I --> K
+ J --> K
+ K --> L{Prompt-onlyで十分?}
+ L -- Yes --> M[仕上げ]
+ L -- No --> N[LoRA / Hires / ADetailer / inpaint / regional / Control]
+ N --> M
+ M --> O[metadata/infotext保存]
+ O --> P[何が効いたか説明]
+```
+
+Hard/nicheの成功判定はpresenceだけでなく、必要に応じてactor / target / ownership / body-site / relation / count / visibility / source-destination / topologyまで見る。
+
+Animaはrelation-heavy / multi-character / tag+natural-languageの比較・fallback lane。
+WAI Illustrious v17はhistorical/comparison lane。
+NoobAI V-PredはEPSと別profileとして扱う。
+
+## Optional/future product subsystem flow
 
 ```mermaid
 flowchart TD
@@ -100,17 +152,22 @@ flowchart TD
 ```
 
 v1では候補を勝手にPromptへ自動挿入しない。
+Stage10で手動学習することと、v1製品へ自動化を追加することは別判断。
 
-## Future knowledge / generation-effectiveness flow
+## KNOWLEDGE / Stage10 evidence flow
 
 ```mermaid
 flowchart TD
- A[具体的な採用feature / research question] --> B[KNOWLEDGE #44 existing claimsを確認]
- B --> C{既存evidenceで足りる?}
- C -- Yes --> D[scope/limitations付きでDEVへhandoff]
- C -- No --> E[必要最小限のcontrolled validation]
- E --> F[Claim Registry / HOLD / evidence更新]
- F --> D
+ A[Stage10 practical case] --> B{単発case?}
+ B -- Yes --> C[local lessonとして保持]
+ B -- No --> D[controlled repeat / scope確認]
+ D --> E{durable evidence?}
+ E -- No --> C
+ E -- Yes --> F[KNOWLEDGE #44 Claim/HOLD候補]
+ F --> G[scope付きで整理]
+ G --> H{product adoptionが必要?}
+ H -- No --> I[knowledge assetとして保持]
+ H -- Yes --> J[DEV/productへhandoff]
 ```
 
 KNOWLEDGEは知識・検証を所有するが、production採用を独断で決めない。
@@ -118,7 +175,8 @@ KNOWLEDGEは知識・検証を所有するが、production採用を独断で決�
 ## Historical architecture note
 
 Stage0〜Stage9で作ったfull index、true AND、Candidate Aggregation、recommendation、Generation Profile、Prompt Composer、evaluator infrastructureは削除対象ではない。
-旧PROMPT #5のStage10/Prompt handoff資料もhistorical evidenceとして保持し、今後はKNOWLEDGE #44から参照する。
-ただし「既に作った」ことはv1 user-facing requirementの根拠にならない。
+旧PROMPT #5のStage10/Prompt handoff資料、旧Stage10 production A/B準備、Issue #30 evaluator/calibrationもhistorical evidence/testing assetsとして保持する。
 
-旧 `Special -> true AND -> recommendation -> Prompt -> Stage10` を現在の必須ユーザーフローとして扱わない。
+2026-09-13以降、これらは**新Stage10のcompletion Gateではなく、教材・比較・診断道具**として扱う。
+
+旧 `Special -> true AND -> recommendation -> Prompt -> production A/B Stage10` を現在の必須ユーザーフロー/Stage10定義として扱わない。
