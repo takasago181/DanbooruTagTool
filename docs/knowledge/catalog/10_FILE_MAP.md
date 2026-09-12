@@ -1,6 +1,6 @@
 # 10 — Complete File Map
 
-Status: `ALL_CURRENT_KNOWLEDGE_FILES_CLASSIFIED_V5 / P0_PROMPT_UNDERSTANDING_RESEARCH_COMPLETE`
+Status: `ALL_CURRENT_KNOWLEDGE_FILES_CLASSIFIED_V6 / P0_P1_RESEARCH_CONSOLIDATED`
 
 This maps the current `docs/knowledge/` assets into the canonical topic catalog and current management layer.
 
@@ -41,13 +41,13 @@ These files are cross-topic controls, not a second genre taxonomy.
 
 | File | Primary catalog | Role |
 |---|---|---|
-| `CURRENT_PRODUCT_GOAL_20260909.md` | 00 | current product goal evidence/context |
+| `CURRENT_PRODUCT_GOAL_20260909.md` | 00 | historical product-goal evidence/context; current main `PRODUCT_GOAL_LOCK.md` wins |
 | `PRODUCT_GOAL_EVOLUTION_20260909.md` | 00 | original -> current evolution/history |
 | `KNOWLEDGE_REASSESSMENT_20260909.md` | 00 / 09 | legacy KEEP/HOLD/REJECT reassessment evidence |
-| `GENERATION_KNOWLEDGE_CORPUS.md` | cross-cutting | durable consolidated corpus/evidence |
+| `GENERATION_KNOWLEDGE_CORPUS.md` | cross-cutting | durable consolidated generation corpus/evidence |
 | `GENERATION_KNOWLEDGE_SOURCES.md` | 08 | source registry/provenance |
 | `GENERATION_KNOWLEDGE_INDEX.md` | cross-cutting | historical coverage/backlog index |
-| `KNOWLEDGE_HANDOFF_CURRENT_20260909.md` | cross-cutting | restart handoff |
+| `KNOWLEDGE_HANDOFF_CURRENT_20260909.md` | cross-cutting | restart handoff; current main/product routing wins on conflict |
 | `KNOWLEDGE_CATALOG.md` | cross-cutting | master human-readable topic entry |
 
 ## Focused research files
@@ -67,6 +67,9 @@ These files are cross-topic controls, not a second genre taxonomy.
 | `BATCH_F_PROMPT_SEMANTIC_ROLE_DECOMPOSITION_20260913.md` | 02 / 06 | 00 / 08 |
 | `BATCH_G_BEGINNER_SAFE_JAPANESE_EXPLANATION_20260913.md` | 00 / 06 | 02 / 08 |
 | `BATCH_H_DANBOORU_CATEGORY_RELATION_UNKNOWN_HANDLING_20260913.md` | 00 / 06 | 02 / 08 |
+| `BATCH_I_MODEL_PROMPT_CONVENTIONS_QUALITY_ARTIST_ORDER_NEGATIVE_FRESHNESS_20260913.md` | 01 / 02 | 06 / 08 / 09 |
+| `BATCH_J_EXISTING_PROMPT_CONFLICT_EXPLANATION_20260913.md` | 02 / 03 | 00 / 06 |
+| `BATCH_K_EVALUATOR_FRESHNESS_RECHECK_20260913.md` | 03 / 08 | 09 |
 | `DANBOORU_WIKI_SEMANTIC_AUDIT_20260909.md` | 06 | 08 |
 | `E621_WIKI_SEMANTIC_TRIGGER_AUDIT_20260909.md` | 06 | 01 / 08 |
 | `HF_MODEL_DISCUSSIONS_AUDIT_20260909.md` | 01 / 08 | 03 |
@@ -88,18 +91,32 @@ These files are cross-topic controls, not a second genre taxonomy.
 
 ## P0 prompt-understanding research package
 
-The first beginner-first knowledge gap is now covered by four focused research files:
-
 1. `BATCH_E_EXISTING_PROMPT_SURFACE_CLASSIFICATION_20260913.md`
    - semantic tag vs runtime syntax / LoRA / embedding / template / natural language / unknown
 2. `BATCH_F_PROMPT_SEMANTIC_ROLE_DECOMPOSITION_20260913.md`
-   - what Prompt content describes: identity / appearance / clothing / expression / pose / relation / camera / scene / style / meta etc.
+   - identity / appearance / clothing / expression / pose / relation / camera / scene / style / meta etc.
 3. `BATCH_G_BEGINNER_SAFE_JAPANESE_EXPLANATION_20260913.md`
-   - Japanese explanation rules preserving canonical traceability and intrinsic predicates
+   - Japanese explanation preserving canonical traceability and intrinsic predicates
 4. `BATCH_H_DANBOORU_CATEGORY_RELATION_UNKNOWN_HANDLING_20260913.md`
    - General/Character/Copyright/Artist/Meta; Alias vs implication vs related/co-occurrence/search/model-trigger; exact-first unknown handling
 
-These are research/evidence until current Claim/Catalog consolidation is explicitly performed. They do not change DEV/product/runtime behavior by themselves.
+Durable P0 principles have now been promoted into `CLAIM_REGISTRY.csv` as `K-GOV-005`, `K-GOV-006`, `K-SEM-007`, `K-PROMPT-004`, and `K-PROMPT-005` where applicable.
+
+## P1 model-convention / conflict / freshness package
+
+1. `BATCH_I_MODEL_PROMPT_CONVENTIONS_QUALITY_ARTIST_ORDER_NEGATIVE_FRESHNESS_20260913.md`
+   - quality/rating/score distinction
+   - artist identity vs model artist trigger
+   - exact-model prompt ordering evidence
+   - exact-model Negative recipes vs semantic-negative principle
+   - model/source freshness recheck
+2. `BATCH_J_EXISTING_PROMPT_CONFLICT_EXPLANATION_20260913.md`
+   - conflict classes and beginner-facing `detect -> explain -> preserve -> user decides`
+3. `BATCH_K_EVALUATOR_FRESHNESS_RECHECK_20260913.md`
+   - WD EVA02 / Kagami / CL Tagger current source refresh
+   - CL Tagger `v2_01a` provisional-version warning
+
+Durable P1 source facts/principles have been promoted into Claim Registry without promoting generation-effectiveness/optimality claims.
 
 Detailed old-document-to-Claim absorption mapping:
 `../current/LEGACY_MAP.md`
@@ -109,7 +126,7 @@ Detailed old-document-to-Claim absorption mapping:
 - `current/CLAIM_REGISTRY.csv` = current verdict/status/scope/validation authority
 - `current/HOLD_CONFLICT_REGISTER.md` = current uncertainty detail
 - `current/VERSION_FRESHNESS_LEDGER.csv` = freshness/version identity
-- `current/RESEARCH_BACKLOG_20260913.md` = prioritized planning after product/PROMPT-lane reorganization; never overrides Claim Registry
+- `current/RESEARCH_BACKLOG_20260913.md` = prioritized planning; never overrides Claim Registry
 - `catalog/` = current readable explanation by topic
 - `research/` = detailed evidence/provenance/history
 - `GENERATION_KNOWLEDGE_CORPUS.md` = durable cross-topic synthesis
