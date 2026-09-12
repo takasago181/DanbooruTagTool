@@ -24,7 +24,7 @@
 - 見つけたタグを自分で追加・削除して試したい
 
 「ニッチなタグが実際の生成で効くか知りたい」という動機は保持するが、モデル別成功判定・A/B実験管理・ローカル結果記録は v1 必須機能にはしない。
-生成効果・Prompt構成・モデル差の知識と必要な狭い実証は **KNOWLEDGE #44** の future/advanced knowledge として保持する。独立PROMPT班は置かない。
+生成効果・Prompt構成・モデル差の知識は **KNOWLEDGE #44** が管理し、実践学習は **Stage10 / Issue #65** で並行して行う。独立PROMPT班は置かない。
 
 ## 主従
 
@@ -136,11 +136,18 @@ Specialと同じ深さの意味ontologyは要求しない。Generalは Prompt �
 
 ## KNOWLEDGE / Stage10 / generation-effectiveness の位置づけ
 
-Generation knowledge、Prompt composition/support研究、Stage10準備資産は捨てない。
-2026-09-12以降は、これらを独立PROMPT班ではなく **KNOWLEDGE #44** が一体で管理する。
+Generation knowledge、Prompt composition/support研究、旧Stage10 A/B/evaluator資産は捨てない。
+2026-09-12以降は、Prompt/generation-effectiveness知識を独立PROMPT班ではなく **KNOWLEDGE #44** が一体で管理する。
 
-ただし、v1が「モデルごとの成功率」「自動最適Prompt」「効く/効かない判定」を約束しない限り、Stage10 production A/Bをv1完成の必須Gateにはしない。
+2026-09-13以降、**Stage10は製品Gateではなく、ユーザー自身の実践画像生成学習ステージ**としてIssue #65 / `docs/stages/STAGE_10_LEARNING.md`で定義する。
 
-将来、モデル別有効性表示、support提案、A/B支援、失敗診断などを製品へ追加する場合は、KNOWLEDGE #44 が既存knowledge/claims/HOLDを確認し、必要な狭い検証だけを設計・実施・証拠化してDEV/productへhandoffする。
+Stage10の主教材は NoobAI XL 1.1 EPS + Forge Neo とし、Prompt構成、camera/visibility、hard/niche relation/body-site/count、Negative/Seed/LoRA、Hires/ADetailer/img2img/inpaint、regional/control、failure diagnosisまで実生成を通して学ぶ。
 
-知識が存在すること自体はruntime/UI採用理由にならず、KNOWLEDGEのclaimとproduct decisionは分離する。
+このStage10はv1 product routeと並行して進み、**v1完成の必須Gateではない**。
+逆に、v1完成もStage10学習完了を意味しない。
+
+旧Stage10 production A/B、Issue #30 evaluator/calibration、Generation Profile、fixed-seed比較基盤等はhistorical/testing assetsとして保持し、Stage10学習の教材・比較道具として再利用できるが、新Stage10のcompletion criteriaそのものではない。
+
+将来、モデル別有効性表示、support提案、A/B支援、失敗診断などを製品へ追加する場合は、KNOWLEDGE #44 が既存knowledge/claims/HOLDとStage10で得たscope付きevidenceを確認し、必要な狭い検証だけをDEV/productへhandoffする。
+
+知識・Stage10学習成果が存在すること自体はruntime/UI採用理由にならず、KNOWLEDGE claim / Stage10 local evidence / product decisionは分離する。
