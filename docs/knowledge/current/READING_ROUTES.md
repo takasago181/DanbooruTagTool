@@ -2,71 +2,88 @@
 
 Start every route with project current state/rules + Issue #44 when current routing matters. The files below are the **knowledge-specific 3–5 file route** after that preflight.
 
-## 1. WAI17 knowledge
+## 1. Practical generation — NoobAI / Anima
+1. `CURRENT_QUICK_REFERENCE.md`
+2. `PRACTICAL_GENERATION_NOOB_ANIMA.md`
+3. `../research/BATCH_L_NOOB_ANIMA_PRACTICAL_GENERATION_DEEP_DIVE_20260913.md`
+4. `VERSION_FRESHNESS_LEDGER.csv`
+5. `CLAIM_REGISTRY.csv` / `HOLD_CONFLICT_REGISTER.md` only for verdict/effectiveness questions
+
+Use Batch M when Japanese-source authority/freshness matters:
+`../research/BATCH_M_JAPANESE_PRACTICAL_SOURCE_AUDIT_NOOB_ANIMA_20260913.md`.
+
+## 2. Anima knowledge
+1. `PRACTICAL_GENERATION_NOOB_ANIMA.md`
+2. `CLAIM_REGISTRY.csv` — `K-MODEL-ANIMA-*`, `K-SEM-005`
+3. `../catalog/01_MODEL_FAMILIES.md`
+4. `VERSION_FRESHNESS_LEDGER.csv`
+5. `HOLD_CONFLICT_REGISTER.md`
+
+For detailed practical evidence add Batch L/M.
+
+## 3. NoobAI knowledge
+1. `PRACTICAL_GENERATION_NOOB_ANIMA.md`
+2. `CLAIM_REGISTRY.csv` — `K-MODEL-NOOB-*`, `K-SEM-002/004`
+3. `../catalog/01_MODEL_FAMILIES.md`
+4. `VERSION_FRESHNESS_LEDGER.csv`
+5. `HOLD_CONFLICT_REGISTER.md`
+
+For detailed practical evidence add Batch L/M.
+
+## 4. WAI17 knowledge
 1. `CURRENT_QUICK_REFERENCE.md`
 2. `CLAIM_REGISTRY.csv` — filter `K-MODEL-WAI-*`, `K-NEG-*`, `K-HARD-*`
 3. `../catalog/07_WAI17_LOCAL_TEST_PROFILE.md`
 4. `VERSION_FRESHNESS_LEDGER.csv`
 5. `HOLD_CONFLICT_REGISTER.md`
 
-## 2. Anima knowledge
-1. `CLAIM_REGISTRY.csv` — `K-MODEL-ANIMA-*`, `K-SEM-005`
-2. `../catalog/01_MODEL_FAMILIES.md`
-3. `../research/HF_MODEL_DISCUSSIONS_AUDIT_20260909.md`
-4. `HOLD_CONFLICT_REGISTER.md`
-5. `VERSION_FRESHNESS_LEDGER.csv`
-
-## 3. NoobAI knowledge
-1. `CLAIM_REGISTRY.csv` — `K-MODEL-NOOB-*`, `K-SEM-002/004`
-2. `../catalog/01_MODEL_FAMILIES.md`
-3. `../catalog/06_SEMANTICS_ALIAS_TRIGGER.md`
-4. `HOLD_CONFLICT_REGISTER.md`
-5. `VERSION_FRESHNESS_LEDGER.csv`
-
-## 4. Special meaning / canonical
+## 5. Special meaning / canonical
 1. `CLAIM_REGISTRY.csv` — `K-SEM-*`
 2. `../catalog/06_SEMANTICS_ALIAS_TRIGGER.md`
 3. `../research/DANBOORU_WIKI_SEMANTIC_AUDIT_20260909.md`
 4. `../research/E621_WIKI_SEMANTIC_TRIGGER_AUDIT_20260909.md`
 5. `VERSION_FRESHNESS_LEDGER.csv`
 
-## 5. Support effectiveness
+## 6. Support effectiveness
 1. `CLAIM_REGISTRY.csv` — `K-SUPPORT-*`, `K-PROMPT-*`
 2. `../catalog/02_PROMPT_SUPPORT_AND_COMPOSITION.md`
 3. `../research/BATCH_B_MINIMUM_SUFFICIENT_PROMPT_20260909.md`
 4. `HOLD_CONFLICT_REGISTER.md`
 
-## 6. Hard target / binding
+## 7. Hard target / binding
 1. `CLAIM_REGISTRY.csv` — `K-BIND-*`, `K-HARD-*`
 2. `../catalog/05_HARD_NICHE_ADULT_GENERATION.md`
 3. relevant `../research/HARD_FETISH_*` domain file
 4. `../research/HARD_FETISH_COMPOSITE_FAILURE_MATRIX_20260909.md` for composites
 5. `HOLD_CONFLICT_REGISTER.md`
 
-## 7. Evaluator / tagger
+When choosing a practical model lane, also read `PRACTICAL_GENERATION_NOOB_ANIMA.md`.
+
+## 8. Evaluator / tagger
 1. `CLAIM_REGISTRY.csv` — `K-EVAL-*`
 2. `../catalog/03_FAILURE_TESTING_AND_EVALUATION.md`
 3. `../research/BATCH_C_EVIDENCE_RELIABILITY_20260909.md`
 4. `VERSION_FRESHNESS_LEDGER.csv`
 5. `HOLD_CONFLICT_REGISTER.md`
 
-## 8. Stage10 knowledge handoff
+## 9. Future generation-effectiveness / Stage10-style validation
 1. `CURRENT_QUICK_REFERENCE.md`
-2. `CLAIM_REGISTRY.csv` — filter downstream `Stage10`
+2. `CLAIM_REGISTRY.csv` — matching model/scope
 3. `HOLD_CONFLICT_REGISTER.md`
-4. `../../stages/STAGE_10_KNOWLEDGE_HANDOFF.md`
+4. `RESEARCH_BACKLOG_20260913.md`
 5. `../catalog/03_FAILURE_TESTING_AND_EVALUATION.md`
 
-Only `ACCEPTED` claims within matching scope can be handed off as current knowledge; `CANDIDATE/HOLD/CONFLICT` must retain those labels.
+Only `ACCEPTED` claims within matching scope can be handed downstream as current knowledge; `CANDIDATE/HOLD/CONFLICT` retain those labels.
+Broad Stage10 testing is not authorized by this route.
 
-## 9. Audit a new external site
+## 10. Audit a new external site
 1. `KNOWLEDGE_GOVERNANCE.md`
 2. `../catalog/08_SOURCE_AND_SITE_AUDITS.md`
 3. `../research/SOURCE_AUTHORITY_MATRIX_20260909.md`
 4. `../GENERATION_KNOWLEDGE_SOURCES.md`
 5. `CLAIM_REGISTRY.csv` before creating/updating claims
 
-## 10. Add a new model
+## 11. Add/update a model
 1. `KNOWLEDGE_GOVERNANCE.md`
 2. `VERSION_FRESHNESS_LEDGER.csv`
 3. `../catalog/01_MODEL_FAMILIES.md`
@@ -75,7 +92,7 @@ Only `ACCEPTED` claims within matching scope can be handed off as current knowle
 
 Create version-scoped claims first; generalize only after evidence supports it.
 
-## 11. Check whether an old theory is still valid
+## 12. Check whether an old theory is still valid
 1. `LEGACY_MAP.md`
 2. `CLAIM_REGISTRY.csv`
 3. `LABEL_MIGRATION_MAP.md`
@@ -84,11 +101,14 @@ Create version-scoped claims first; generalize only after evidence supports it.
 
 Registry wins over old prose.
 
-## 12. Receive a question from PROMPT
-1. identify the question as semantic / model / support / binding / evaluator
+## 13. Answer a KNOWLEDGE request from DEV/product/AUDIT
+1. identify the question as semantic / model / support / binding / runtime / evaluator
 2. filter `CLAIM_REGISTRY.csv` by relevant IDs/scope
 3. check `HOLD_CONFLICT_REGISTER.md`
 4. check `VERSION_FRESHNESS_LEDGER.csv` if model/runtime dependent
-5. read one relevant category/evidence file
+5. read one relevant current/research file
 
-Return `Claim ID + STATUS + SCOPE + VALIDATION_STATE + evidence`, not uncited prose. Do not silently convert a HOLD into an answer.
+Return `Claim ID + STATUS + SCOPE + VALIDATION_STATE + evidence` when a formal verdict is needed.
+Do not silently convert a HOLD into an answer.
+
+Historical `PROMPT:#5` routing is retired; new Prompt/generation-knowledge questions route through KNOWLEDGE #44.
