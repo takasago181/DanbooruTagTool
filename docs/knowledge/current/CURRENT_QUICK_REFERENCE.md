@@ -24,11 +24,112 @@ KNOWLEDGE #44 now owns:
 - existing-Prompt understanding knowledge
 - Prompt composition/support/anti-support knowledge
 - model-family Prompt conventions
+- practical generation knowledge
 - generation-effectiveness questions
-- narrow controlled validation when a concrete adopted feature/research question requires it
+- narrow controlled validation when a concrete research/product question requires it
 
 KNOWLEDGE does not own production/spec adoption.
 Historical Issue #5 is provenance only.
+
+---
+
+# Practical generation focus — NoobAI + Anima
+
+Current source-research priority:
+1. **NoobAI XL 1.1 EPS** — tag-first practical workhorse
+2. **Anima official family** — hybrid/relation-explicit practical family
+3. NoobAI V-Pred 1.0 — separate V-Pred alternate lane
+4. WAI17 — comparison/reference and existing local-test history
+
+Operational guide:
+`PRACTICAL_GENERATION_NOOB_ANIMA.md`
+
+Deep research:
+- `../research/BATCH_L_NOOB_ANIMA_PRACTICAL_GENERATION_DEEP_DIVE_20260913.md`
+- `../research/BATCH_M_JAPANESE_PRACTICAL_SOURCE_AUDIT_NOOB_ANIMA_20260913.md`
+
+## NoobAI EPS 1.1 — fast card
+
+Author baseline:
+- Euler a
+- 25–30 steps
+- CFG 5–6
+- around SDXL 1MP
+- caption structure: `count -> character -> series -> artist -> special -> general -> other`
+- Danbooru + e621 native-tag training context
+
+Practical rule:
+- use for tag-centric generation and mature Illustrious/SDXL ecosystem access
+- author example Negative includes `nsfw`; do not use that blindly when the intended image itself is adult-rated
+- exact hard relation/body-site/count ceiling remains HOLD
+
+## NoobAI V-Pred 1.0 — fast card
+
+Author baseline:
+- **Euler**
+- 28–35 steps
+- CFG 4–5
+- V-Pred-aware runtime required
+
+Do not mix with EPS inference settings or pool results.
+Community reports about stronger dark/contrast rendering remain practical hypotheses until controlled local comparison.
+
+## Anima current exact profiles
+
+### Base v1.0
+SHA-256:
+`bd43b7cffe1ed1153d9c41e7beb2f18cb1273eafbaa3af3edd6a173dc90a006e`
+
+Role:
+- maximum flexibility/diversity
+- official LoRA training base
+- normal guidance: 30–50 steps / CFG 4–5
+
+### Aesthetic v1.1
+SHA-256:
+`3c1868387a3a1ff504bbb87c33678321965ead381fcf87afbd0264daa600c082`
+
+Role:
+- stronger consistency/default quality
+- quality tags unnecessary
+- author recommends avoiding `score_*` in Positive and Negative
+
+### Turbo v1.1
+SHA-256:
+`fba11953276b57edf59d1dc4f1857ac05aa079c56f982b4d7c20298d57d3f7eb`
+
+Role:
+- fast Prompt/seed exploration
+- CFG 1 / 8–12 steps
+- stronger default style/stability, reduced diversity
+- ordinary Negative-conditioning workflow is not transferable unchanged
+
+## Anima relation rule
+
+High-value practical lane:
+- explicit actor identities
+- explicit visible distinguishing features when multiple actors matter
+- concise factual relation wording when tags alone are ambiguous
+- do not rely on tag distance for ownership
+- BREAK is runtime/parser syntax, not semantic character binding
+
+Exact tag-only vs hybrid success rate remains HOLD.
+
+## Anima assisted-control escalation
+
+`plain explicit Prompt -> concise hybrid -> Forge Couple Basic -> Advanced/Mask -> Anima Region/LLLite ControlNet`
+
+Current Forge Couple officially supports Anima.
+Assisted success remains distinct from plain-Prompt capability.
+
+## LoRA family boundary
+
+- Anima LoRA != SDXL/Illustrious/Noob LoRA family
+- official Anima LoRA training base = Base
+- Illustrious-family LoRAs are reasonable **candidates** on Noob, not guaranteed compatible
+- always preserve adapter training base, trigger and weight
+
+---
 
 ## Existing Prompt interpretation — current quick rules
 
@@ -44,18 +145,10 @@ First distinguish, where evidence allows:
 - natural-language fragment
 - unknown / ambiguous text
 
-Examples of runtime/wrapper surfaces include weighting/emphasis syntax, `BREAK`, LoRA/embedding-like syntax, and template/dynamic syntax.
-
 ### 2. Search can be permissive; interpretation is conservative
 
 Search/discovery may use partial/fuzzy/Semantic support.
-
-Pasted-Prompt interpretation is exact-first:
-- exact canonical
-- exact approved Alias
-- exact known runtime/model syntax
-- otherwise ambiguous/unknown
-
+Pasted-Prompt interpretation is exact-first.
 A fuzzy candidate must never silently become asserted meaning.
 
 ### 3. Wrapper and semantic payload are separate
@@ -63,44 +156,32 @@ A fuzzy candidate must never silently become asserted meaning.
 Example:
 `(looking_at_viewer:1.2)`
 
-Interpret separately as:
-- runtime emphasis/weight wrapper
-- inner semantic payload `looking_at_viewer`
-
+Interpret separately as runtime emphasis/weight wrapper + inner semantic payload.
 Runtime syntax is not canonical semantic authority.
 
 ### 4. Keep three axes separate
 
-- **Danbooru tag category** — General / Character / Copyright / Artist / Meta
-- **semantic/explanation role** — appearance / clothing / expression / pose / action / relation / camera / background / style etc.
-- **generation effect** — what an exact checkpoint actually does with the surface
+- Danbooru tag category
+- semantic/explanation role
+- generation effect
 
 One axis does not redefine the others.
 
 ### 5. Preserve unknowns
 
 If meaning cannot be resolved confidently:
-- keep the raw text
-- show unknown/ambiguous state
-- do not fabricate a Japanese meaning
-- do not force the closest fuzzy tag
+- keep raw text
+- show unknown/ambiguous
+- do not invent Japanese meaning
+- do not force the nearest fuzzy tag
 
 ### 6. Explain conflict; do not auto-rewrite
 
-Current beginner-first rule:
-
 `detect -> explain -> preserve -> user decides`
 
-Useful explanation classes include:
-- same-role composition tension
-- count contradiction
-- canonical/Alias duplicate identity
-- implication / broad+specific overlap
-- Positive/Negative semantic overlap
-- actor/target/ownership ambiguity
-- malformed/unknown runtime syntax
+Do not silently turn conflict detection into deletion/rewrite/failure probability.
 
-Do not translate those automatically into deletion, rewrite, or predicted failure probability.
+---
 
 ## Beginner-safe Japanese explanation
 
@@ -110,168 +191,104 @@ Keep separate:
 - Japanese search synonyms
 
 Canonical English identity remains visible/traceable.
+Preserve actor/receiver/owner, body-site, exact count, source/destination and implication-vs-Alias distinctions.
 
-Do not lose intrinsic distinctions such as:
-- actor / receiver / owner
-- body-site
-- exact count
-- object vs wearer-state vs action
-- source/destination
-- parent/child implication vs Alias identity
+---
 
-Awkward but understandable Japanese does not require endless stylistic repair; clear semantic error, role inversion, broken composition, or non-Japanese residue does.
-
-## Model Prompt conventions — quick boundary
+## Model Prompt convention boundary
 
 ### WAI Illustrious v17
-
-Current author guidance includes:
-- short positive quality baseline
-- short Negative quality/artifact baseline
-- safety/rating-like Prompt surfaces
-
-Treat these as **WAI17 Prompt conventions**, not universal Danbooru semantics or universal Prompt grammar.
+Short quality/Negative author baseline and rating surfaces are WAI17 conventions, not universal grammar.
 
 ### Illustrious early/base
+Official base guidance includes quality vocabulary and composition-conflict warning. Derivatives require revalidation.
 
-Official base guidance includes:
-- explicit quality-tag vocabulary
-- warning about conflicting critical composition tags
-- no default style in the base
-
-Derivative behavior requires revalidation.
-
-### NoobAI XL 1.1 EPS / V-Pred
-
-Documented caption organization:
-`count -> character -> series -> artist -> special -> general -> other`
-
-Quality labels are documented as NoobAI project training/Prompt conventions based on popularity/recency processing, not Danbooru `score:` metadata.
-
-EPS and V-Pred remain separate inference regimes.
+### NoobAI
+Exact caption structure and quality/date conventions are model-specific. EPS and V-Pred remain separate.
 
 ### Anima
-
-Current author guidance documents grouped ordering:
+Official grouping:
 `quality/meta/year/safety -> count -> character -> series -> artist -> general`
 
-Important exact-model conventions:
-- `score_*` is a learned Prompt surface, not Danbooru `score:` metadata
-- artist Prompt surface uses `@artist`
-- Danbooru Artist canonical identity itself is not rewritten to `@artist`
-- Anima-Aesthetic is a profile exception: quality tags are unnecessary and author guidance recommends avoiding `score_*` in Positive and Negative
+Model conventions include spaces/lowercase, `@artist`, mixed tags/NL, and profile-specific quality behavior.
 
-Base / Aesthetic / Turbo remain separately scoped.
-
-## Artist/style boundary
-
-Keep separate:
-1. Danbooru Artist identity — creator identity
-2. model artist/style trigger — checkpoint-specific generation surface
-3. generic style description
-4. style LoRA/adapter
-
-A Danbooru Artist tag does not semantically mean `apply this style`, even when a checkpoint learns that surface as a style/content trigger.
-
-## `score:` / `rating:` / `score_*` boundary
-
-Do not collapse:
-- Danbooru post/search metadata such as `score:` / `rating:`
-- Danbooru Meta tag identity
-- model-learned surfaces such as `score_7`
-- model safety/rating Prompt surfaces such as `safe`, `nsfw`, `explicit`
-
-They require separate source/model evidence.
+---
 
 ## Negative Prompt boundary
 
 Two layers:
-
-1. semantic principle — Negative conditioning is an active intervention and may overlap intended meaning
-2. exact-model recipe — author-recommended Negative baselines are model/profile-scoped guidance
+1. semantic principle — Negative conditioning can suppress intended meaning
+2. exact-model recipe — author baseline is model/profile/intent scoped
 
 Never promote one model's Negative recipe to a universal default.
 
-## Current source freshness note
+---
 
-Primary public model/Danbooru/Forge-Neo sources were rechecked on 2026-09-13.
+## Current source freshness
 
-Important evaluator update:
-- CL Tagger stable `v2.00`
-- current `v2_01a` is provisional
-- author/model card states provisional versions may be updated in place under the same version label
+Primary model/runtime sources rechecked on 2026-09-13.
 
-Therefore promotion-critical CL Tagger evidence must preserve exact sub-version + retrieval/artifact identity.
+Important current facts:
+- Anima Base v1.0 / Aesthetic v1.1 / Turbo v1.1 exact file hashes are pinned in `VERSION_FRESHNESS_LEDGER.csv`
+- current maintained Forge Neo = `Haoming02/sd-webui-forge-classic` branch `neo`
+- current Forge Neo explicitly supports Anima and updated Anima control paths
+- exact local Forge Neo remote/commit is still unpinned
+- CL Tagger `v2_01a` remains provisional/in-place-update risk
 
-The user's exact local Forge Neo remote/commit and installed-extension identities are still not pinned; local promotion-critical runtime claims remain gated on that capture.
+---
 
-## Current empirical lane — only when justified
+## Current empirical state
 
-Primary local test lane remains **WAI Illustrious v17 + Forge Neo**.
+Source research now prioritizes NoobAI + Anima.
 
-Project isolation baseline:
-- Euler a
-- 25 steps
-- CFG 5
-- 1024×1344 portrait when appropriate
-- fixed paired seeds
-- Hires / ADetailer / LoRA / regional / Control OFF
+Existing local controlled evidence remains model/version-specific; do **not** pretend Noob/Anima hard-target performance is proven until exact local checkpoints/runtime are tested.
 
-**25 steps is a baseline, not a proven hard-target optimum.**
-Do not run broad image tests merely to complete v1.
+Recommended future controlled lanes:
+- Noob EPS vs V-Pred
+- Noob hard relation/body-site/count
+- Anima Base vs Aesthetic v1.1 vs Turbo v1.1
+- Anima tag-only vs concise hybrid relation
+- Noob/Illustrious LoRA cross-use
+- Anima LoRA x profile
+- Forge Couple escalation
 
-## Important ACCEPTED knowledge
+---
+
+## Important ACCEPTED principles
 
 - model family/version/profile is part of every generation claim
 - canonical/Alias/implication/UI-JA/model-trigger/generation-support are separate
-- existing Prompt surface type must be classified before meaning is asserted
 - search permissive != interpretation permissive
 - tag category != semantic role != generation effect
-- unknown text remains unknown rather than guessed
-- conflict handling for v1 is explain/preserve/user-choice, not auto-rewrite
 - presence != relation/body-site/topology/count success
 - minimum sufficient != shortest Prompt
 - support can become anti-support
 - Negative is an active semantic intervention
-- author Negative recipes are exact-model guidance, not universal defaults
 - one seed != reliability
-- fixed seed alone != exact cross-environment reproducibility
-- runtime preprocessing != Danbooru semantics or checkpoint behavior
+- runtime preprocessing != model semantics
 - Prompt-only / LoRA-control-assisted / postprocess-repaired are separate evidence lanes
-- evaluator vocabulary/calibration/OOD must be checked before interpreting confidence
+- evaluator vocabulary/calibration/OOD must be checked before confidence is interpreted
 
-## Important CANDIDATE/HOLD areas
+## Important HOLD areas
 
-CANDIDATE examples:
-- Anima natural-language/mixed prompting may help some relation expression but does not solve binding generally
-- exact quality/meta effectiveness beyond documented author conventions
-- Kagami/CL broad vocabulary usefulness for this project's final calibration
+- Noob canonical/Alias/trigger response
+- Noob hard actor/body-site/count ceiling
+- Noob EPS vs V-Pred practical delta
+- Illustrious-LoRA -> Noob reliability
+- Anima tag-only vs concise hybrid delta
+- Anima Base/Aesthetic/Turbo hard-target delta
+- Anima profile-specific LoRA behavior
+- exact Prompt-only -> assisted-control threshold
+- final evaluator coverage/calibration
 
-HOLD examples:
-- WAI17 canonical vs Alias/trigger response
-- rare Special activation
-- broad+specific effect
-- actor-target/body-site/topology/device/tentacle relation ceilings
-- simultaneous Special/count breakpoints
-- unusual anatomy/count Negative ON/OFF
-- LoRA interaction
-- Prompt-only -> assisted-control threshold
-- NoobAI exact camera/relation/trigger behavior
-- Anima tag-only vs concise-hybrid delta
-- final WD EVA02/Kagami/CL coverage/calibration
-
-See `HOLD_CONFLICT_REGISTER.md`.
+---
 
 ## Current research backlog state
 
-`RESEARCH_BACKLOG_20260913.md` status:
+See `RESEARCH_BACKLOG_20260913.md`.
+Practical Noob/Anima source synthesis is complete; next high-value additions are exact local controlled comparisons, not another broad generic web overview.
 
-`P0_P1_COMPLETE / P2_ON_DEMAND`
-
-Do not automatically start broad P2 image testing.
-Pull one unresolved generation question only when:
-- the user explicitly wants it, or
-- a concrete adopted feature needs the evidence.
+---
 
 ## Semantic / runtime / evaluator / product boundary
 
@@ -282,27 +299,10 @@ Pull one unresolved generation question only when:
 - evaluator result: measurement aid, not semantic authority
 - product adoption: DEV/product routing, not automatic from KNOWLEDGE
 
-## What can be handed downstream as settled knowledge
-
-Safe:
-- `ACCEPTED` Claim IDs with matching scope
-- source-authority conclusions
-- existing-Prompt interpretation principles
-- exact author-guide facts
-- explicit REJECTED defaults to avoid
-
-Not settled:
-- Registry `CANDIDATE/HOLD/CONFLICT`
-- hard-relation success rates by model
-- final evaluator allocation/thresholds
-- exact optimal Prompt density/support count
-- canonical-vs-trigger activation equivalence
-- WAI17 generation benefit from unresolved support/runtime constructs
-
 ## Legacy PROMPT labels
 
 Old files/Registry metadata may still say `PROMPT` or `PROMPT:#5`.
-Treat those as historical Prompt/generation-guidance provenance or downstream-domain labels, **not an active team**. New work routes to KNOWLEDGE #44.
+Treat those as historical Prompt/generation-guidance provenance, **not an active team**. New work routes to KNOWLEDGE #44.
 
 Restore:
-`main CURRENT_STATE/PRODUCT_GOAL -> Issue #44 -> handoff -> this file -> Claim Registry -> relevant Catalog -> HOLD/Version -> evidence only as needed`.
+`main CURRENT_STATE/PRODUCT_GOAL -> Issue #44 -> this file -> PRACTICAL_GENERATION_NOOB_ANIMA -> Claim Registry -> Version Ledger -> relevant Catalog -> evidence as needed`.
