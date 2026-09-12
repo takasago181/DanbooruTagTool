@@ -1,6 +1,6 @@
 # CURRENT DEV TASK — ISSUE #64 MIRROR
 
-> The live GitHub Issue is the executable task authority. Read `CURRENT_STATE.md`, then fetch Issue #64 and its latest checkpoint before implementation. If this mirror differs from the live Issue, fail closed and do not guess from chat history.
+> This file mirrors Issue #64 only. The project currently has a second active DEV lane, Issue #66, for app/search/UI completion. Always read `CURRENT_STATE.md` first and then fetch the live Issue for the lane you are actually working on.
 
 最終同期: 2026-09-13
 
@@ -8,10 +8,11 @@
 
 - Source Issue: **#64**
 - Issue title: **[GENERAL-DICT][UI-TAXONOMY][DEV] Practical genre browsing for 30,629 Japanese-overlay entries**
-- Issue state: **OPEN / CURRENT CORE DEV**
+- Issue state: **OPEN / ACTIVE PARALLEL DEV**
 - DEV state: **GENERAL_30629_PRACTICAL_TAXONOMY / FULL ROLLOUT CANDIDATE BUILD**
 - Upstream #63: **ACCEPTED / MERGED / CLOSED**
-- Stage10 learning: **ACTIVE IN PARALLEL under #65 / NOT A v1 BLOCKER / NOT PART OF #64 SCOPE**
+- Parallel app lane: **#66 ACTIVE**
+- Stage10 #65: **PAUSED BY USER PRIORITY until practical v1 app baseline**
 
 ## Current continuation checkpoint
 
@@ -61,8 +62,7 @@ Fixed boundaries:
 
 Pilot is already accepted. Current work is the full candidate-build rollout under the accepted pilot-v2 taxonomy/boundaries.
 
-Current rollout requirements:
-1. Continue sequentially from the latest live checkpoint; do not restart rows already persisted.
+1. Continue sequentially from the latest live checkpoint; do not restart persisted rows.
 2. Preserve accepted 17 top-level practical genres and max path depth 2 unless a new explicit review decision changes them.
 3. Keep no visible catch-all.
 4. Prefer semantic/object identity over incidental substring matches.
@@ -71,34 +71,25 @@ Current rollout requirements:
 7. Keep canonical/Japanese overlay/Special production data unchanged during candidate build.
 8. After all 30,629 candidate rows are complete, perform the required distribution/boundary/unresolved audit before production acceptance.
 
-## Product behavior target
-
-Examples:
-
-`General -> 構図・画角 -> ...`
-
-`General -> 表情・感情 -> ...`
-
-Visible identity remains Japanese-first + canonical English. Final Prompt payload remains canonical English.
-
 ## Hard boundaries
 
 - No Special taxonomy redesign (#56 completed).
 - No retranslation of the 30,629 Japanese overlay.
-- No #34 bilingual ranking redesign.
-- No #42 broad v1 UI/product-scope implementation.
+- No Issue #66 UI/search implementation inside #64.
 - No automatic support insertion or Prompt optimization/rewrite.
 - No generation-effectiveness implementation inside #64.
-- No Stage10 learning work inside #64; Issue #65 runs independently in parallel.
+- No Stage10 learning work inside #64.
 - No recommendation-score redesign.
 - No full 11M-post/~3GB statistics index requirement.
 - No full 100k+ Danbooru taxonomy expansion.
 - No canonical identity mutation.
 - No protected overlay mutation.
 
+Retired Issues #34/#42 are historical only and must not be treated as future Gates.
+
 ## Acceptance / return contract
 
-Implementation/full-rollout completion must provide:
+Completion must provide:
 - task branch and final commit SHA
 - exact target population/source reproduction evidence
 - accepted taxonomy and final distribution
@@ -109,12 +100,12 @@ Implementation/full-rollout completion must provide:
 - protected/canonical data unchanged confirmation
 - unresolved items and required review disposition
 
-Do not self-merge or continue to #34 before #64 acceptance.
+Do not self-merge.
 
 ## Post-#64 route
 
 After accepted integration:
 
-`#64 -> #34 bilingual search relevance/noise -> #42 v1 scope lock -> v1 UI integration / Windows acceptance`
+`#64 accepted -> #66 consumes General taxonomy -> #66 final app/search/UI acceptance -> Windows acceptance -> v1 baseline`
 
-Stage10 is separately defined by Issue #65 / `docs/stages/STAGE_10_LEARNING.md` and continues as a parallel learning lane. Historical Issue #5 / old Stage10 production-A/B assets remain provenance/testing evidence only and do not alter the #64 contract.
+Issue #66 may continue dependency-independent UI/search work in parallel while #64 is running.
