@@ -2,7 +2,7 @@
 
 > The live GitHub Issue is the executable task authority. Read `CURRENT_STATE.md`, then fetch Issue #64 and its latest checkpoint before implementation. If this mirror differs from the live Issue, fail closed and do not guess from chat history.
 
-最終同期: 2026-09-12
+最終同期: 2026-09-13
 
 ## Source
 
@@ -11,7 +11,7 @@
 - Issue state: **OPEN / CURRENT CORE DEV**
 - DEV state: **GENERAL_30629_PRACTICAL_TAXONOMY**
 - Upstream #63: **ACCEPTED / MERGED / CLOSED**
-- Stage10 production A/B: **NOT A v1 BLOCKER / NOT STARTED**
+- Stage10 learning: **ACTIVE IN PARALLEL under #65 / NOT A v1 BLOCKER / NOT PART OF #64 SCOPE**
 
 ## Goal
 
@@ -69,7 +69,8 @@ Visible identity remains Japanese-first + canonical English. Final Prompt payloa
 - No #34 bilingual ranking redesign.
 - No #42 broad v1 UI/product-scope implementation.
 - No automatic support insertion or Prompt optimization/rewrite.
-- No generation-effectiveness / Stage10 work.
+- No generation-effectiveness implementation inside #64.
+- No Stage10 learning work inside #64; Issue #65 runs independently in parallel.
 - No recommendation-score redesign.
 - No full 11M-post/~3GB statistics index requirement.
 - No full 100k+ Danbooru taxonomy expansion.
@@ -97,4 +98,4 @@ After accepted integration:
 
 `#64 -> #34 bilingual search relevance/noise -> #42 v1 scope lock -> v1 UI integration / Windows acceptance`
 
-Issue #5 / Stage10 is a future generation-effectiveness lane only if an adopted feature later requires empirical image evidence.
+Stage10 is separately defined by Issue #65 / `docs/stages/STAGE_10_LEARNING.md` and continues as a parallel learning lane. Historical Issue #5 / old Stage10 production-A/B assets remain provenance/testing evidence only and do not alter the #64 contract.
