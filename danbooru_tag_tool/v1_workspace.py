@@ -84,10 +84,20 @@ class PromptWorkspace:
 
     def add_special(self, special_id: str, *, source: str = "Special browse") -> PromptItem:
         special = self.knowledge.special[special_id]
+        canonical = special.chosen_canonical
+        if canonical is None and len(special.canonical_candidates) == 1:
+            canonical = special.canonical_candidates[0]
+        if canonical is not None:
+            english = PromptFormatter.format_tag(self.knowledge.canonical[canonical]).text
+            resolved = True
+        else:
+            # Preserve an explicitly selected unresolved Special surface rather
+            # than pretending that it has a canonical identity.
+            english = PromptFormatter.format_special(special).text
+            resolved = False
         item = PromptItem(
-            self._new_id("special"), special.japanese,
-            PromptFormatter.format_special(special).text,
-            special.chosen_canonical, special.special_id, source, special.term, True,
+            self._new_id("special"), special.japanese, english,
+            canonical, special.special_id, source, special.term, resolved,
         )
         return self._append(item)
 
@@ -139,7 +149,7 @@ class PromptWorkspace:
             return PromptItem(
                 self._new_id("existing-special"), special.japanese,
                 PromptFormatter.format_special(special).text, special.chosen_canonical,
-                special.special_id, "既存Prompt", text, True,
+                special.special_id, "既存Prompt", text, False,
             )
         return PromptItem(
             self._new_id("existing-raw"), "未解決", text.strip(), None, None,
