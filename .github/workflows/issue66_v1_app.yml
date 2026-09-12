@@ -1,0 +1,25 @@
+name: Issue 66 v1 app
+
+on:
+  push:
+    branches:
+      - feature/issue66-v1-app-shell
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+      - run: python -m pip install -r requirements-dev.txt
+      - name: Issue 66 focused tests
+        run: >-
+          python -m pytest -q
+          tests/test_issue66_v1_app.py
+          tests/test_stage4_search.py
+          tests/test_stage7a_ui.py
+          tests/test_stage9c_session.py
