@@ -36,7 +36,7 @@ jobs:
         run: python -m pytest -q tests/test_issue56_ui_genre_rollout.py
 
       - name: Build partial rollout state
-        run: python tools/issue56_ui_genre_rollout.py
+        run: python -m tools.issue56_ui_genre_rollout
 
       - name: Show rollout metadata
         run: cat docs/issue56/rollout/generated/issue56_ui_genre_rollout_meta_v1.json
