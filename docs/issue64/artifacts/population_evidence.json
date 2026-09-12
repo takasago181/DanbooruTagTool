@@ -1,0 +1,46 @@
+{
+  "base_main": "293181686260a91398334a0fe2d794a5998388cc",
+  "distribution": {
+    "category_counts": {
+      "0": 30629
+    },
+    "compound_3plus_pieces": 8017,
+    "display_without_kana_or_cjk_heuristic": 687,
+    "note": "Usage snapshot 2026-09-02; lexical flags are sampling cues, not semantic classifications or translation verdicts.",
+    "parenthesis_qualified": 3557,
+    "population_count": 30629,
+    "underscore_piece_counts_capped_at_5": {
+      "1": 5780,
+      "2": 16832,
+      "3": 5727,
+      "4": 1596,
+      "5": 694
+    },
+    "usage_bands": {
+      "high_usage": 581,
+      "ordinary": 9160,
+      "rare": 20888
+    },
+    "usage_quantiles_floor_index_q_times_n_minus_1": {
+      "0": 50,
+      "0.25": 114,
+      "0.5": 339,
+      "0.75": 1700,
+      "0.9": 9734,
+      "0.99": 196931,
+      "1": 8363808
+    }
+  },
+  "duplicate_canonicals": 0,
+  "format_version": 1,
+  "identity_order_and_display_search_equal_v5": true,
+  "population_sha256_sorted_utf8_lf": "ca5cc065c92aa38f9daa6b6c8a1f1c13db135057ebfabca076479dfa96872e2b",
+  "source_evidence": {
+    "overlay_bytes": 4114120,
+    "overlay_sha256": "999b42fa76e036ad79f68ef7cd3ff958c94bd42c08ab00dd0394898d0205de76",
+    "promotion_manifest_semantic_sha256": "6e8f81bb5d7cbb18f74dccace787f20899f4fa15a1086d5817acd5e5b8044c7d",
+    "usage_sha256": "9b32d5ac0713ab252e7470ba6af9cb34de56878b6b3b13dfbbf6a4a37d82d95b",
+    "v5_sha256": "a307a354f6e7c9fb2387464713765795d9949802b345b00eb3cb64659df7fdce"
+  },
+  "target_only_usage_join_missing": 0
+}

@@ -1,0 +1,2270 @@
+{
+  "entries": {
+    "1girl": {
+      "classification_reason": "1girl: 人物の人数・不在または役柄・存在種別から発見する。衣服そのものを表す分類と分ける。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "PERSON_COUNT",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    ";q": {
+      "classification_reason": ";q: 表情と口元の見え方から探す。顔文字の表記自体を画中文字と判定しない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "EXPRESSION_EMOTION",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "aa-12": {
+      "classification_reason": "型番のみで用途を証拠付きに固定できない。武器候補だがcanonical定義の確認が必要。",
+      "classification_status": "UNRESOLVED",
+      "primary_path": null,
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline ambiguity inspection; canonical/production display insufficient; needs definition or DEV boundary decision"
+    },
+    "after_sex": {
+      "classification_reason": "after_sex: 行為または行為後の文脈を探す。語から省略された内容を追加せずcanonicalの意味範囲を保つ。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "ACTION_CONTACT",
+        "subgenre_id": "INTIMATE"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "after_tribadism": {
+      "classification_reason": "after_tribadism: 行為または行為後の文脈を探す。語から省略された内容を追加せずcanonicalの意味範囲を保つ。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "ACTION_CONTACT",
+        "subgenre_id": "INTIMATE"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "animal_ears": {
+      "classification_reason": "animal_ears: 身体の部位・形状・状態または体液が主題。生き物全体や行為の名前へ広げない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "BODY_PART",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "anime_coloring": {
+      "classification_reason": "anime_coloring: 塗り・加工・画面形式・作画状態の経路。良い品質を保証したり生成効果を評価する意味はない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "STYLE_QUALITY_META",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "aris_(blue_archive)_(cosplay)": {
+      "classification_reason": "aris_(blue_archive)_(cosplay): cosplay/armorまたはproduction表示の装備という具体的手掛かりから衣装を提案。固有人物のidentityへ変換しない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "COSTUME"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "arzuros_(armor)": {
+      "classification_reason": "arzuros_(armor): cosplay/armorまたはproduction表示の装備という具体的手掛かりから衣装を提案。固有人物のidentityへ変換しない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "COSTUME"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "ashford_academy_swimsuit": {
+      "classification_reason": "ashford_academy_swimsuit: 固有名を含む制服・チーム衣装。固有名の意味や作品階層をtaxonomyに新設しない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "UNIFORM"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "ayachi_nene_(cosplay)": {
+      "classification_reason": "ayachi_nene_(cosplay): cosplay/armorまたはproduction表示の装備という具体的手掛かりから衣装を提案。固有人物のidentityへ変換しない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "COSTUME"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "ayanokouji_martial_arts_school_uniform": {
+      "classification_reason": "ayanokouji_martial_arts_school_uniform: 固有名を含む制服・チーム衣装。固有名の意味や作品階層をtaxonomyに新設しない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "UNIFORM"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "back": {
+      "classification_reason": "back: 身体の部位・形状・状態または体液が主題。生き物全体や行為の名前へ広げない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "BODY_PART",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "bad_anatomy": {
+      "classification_reason": "bad_anatomy: 塗り・加工・画面形式・作画状態の経路。良い品質を保証したり生成効果を評価する意味はない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "STYLE_QUALITY_META",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "bad_neck": {
+      "classification_reason": "bad_neck: 塗り・加工・画面形式・作画状態の経路。良い品質を保証したり生成効果を評価する意味はない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "STYLE_QUALITY_META",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "black_boots": {
+      "classification_reason": "black_boots: 身につける衣類の種類・部分的特徴を主に発見する。色・柄修飾より衣服の用途を優先。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "EVERYDAY"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "black_hair": {
+      "classification_reason": "black_hair: 髪型・髪色・目の色または化粧を探す経路。色単独の一覧には機械的に複製しない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "HAIR_FACE",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "blood": {
+      "classification_reason": "blood: 身体の部位・形状・状態または体液が主題。生き物全体や行為の名前へ広げない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "BODY_PART",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "blood_writing": {
+      "classification_reason": "blood_writing: 画面にある文字・文章から探す。材質や色・祝日の語だけで別分類にしない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "TEXT_SYMBOL",
+        "subgenre_id": "TEXT"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [
+        {
+          "genre_id": "BODY_PART",
+          "subgenre_id": null
+        }
+      ],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "blue_eyes": {
+      "classification_reason": "blue_eyes: 髪型・髪色・目の色または化粧を探す経路。色単独の一覧には機械的に複製しない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "HAIR_FACE",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "blue_shrug": {
+      "classification_reason": "blue_shrug: 身につける衣類の種類・部分的特徴を主に発見する。色・柄修飾より衣服の用途を優先。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "EVERYDAY"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "blue_trim": {
+      "classification_reason": "blue_trim: 衣服の装飾・着用小物から探す。単語の多義・果物等の装飾モチーフで別用途へ流さない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "ACCESSORY"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "blurry": {
+      "classification_reason": "blurry: 塗り・加工・画面形式・作画状態の経路。良い品質を保証したり生成効果を評価する意味はない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "STYLE_QUALITY_META",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "blush": {
+      "classification_reason": "blush: 表情と口元の見え方から探す。顔文字の表記自体を画中文字と判定しない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "EXPRESSION_EMOTION",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "bonsai": {
+      "classification_reason": "bonsai: 植物そのものを探す。forestのような環境は場所へ分ける。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "LIVING_NATURE",
+        "subgenre_id": "PLANT"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "bootes_(constellation)": {
+      "classification_reason": "bootes_(constellation): 星座を夜空の発見から探せる光・時間・天候へ仮配置し、背景にも副経路。星座と天候の境界はDEV判断が必要。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "LIGHT_TIME_WEATHER",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [
+        {
+          "genre_id": "PLACE_BACKGROUND",
+          "subgenre_id": null
+        }
+      ],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "bow": {
+      "classification_reason": "bow: production表示はリボン。衣装の装飾を主に、物としてのリボンを副経路に提案。弓・お辞儀という英語の別義へ送らない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "ACCESSORY"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [
+        {
+          "genre_id": "OBJECT_PROP",
+          "subgenre_id": "DAILY"
+        }
+      ],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "bow_earrings": {
+      "classification_reason": "bow_earrings: 衣服の装飾・着用小物から探す。単語の多義・果物等の装飾モチーフで別用途へ流さない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "ACCESSORY"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "breasts": {
+      "classification_reason": "breasts: 身体の部位・形状・状態または体液が主題。生き物全体や行為の名前へ広げない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "BODY_PART",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "brown_hoodie": {
+      "classification_reason": "brown_hoodie: 身につける衣類の種類・部分的特徴を主に発見する。色・柄修飾より衣服の用途を優先。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "EVERYDAY"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "candy_bar": {
+      "classification_reason": "candy_bar: 食べ物・飲み物を探す。植物全体・色名・食べる行為へ同一視しない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "OBJECT_PROP",
+        "subgenre_id": "FOOD"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "cat": {
+      "classification_reason": "cat: 動物・空想生物の全体から探す。耳や尾などの部位と区別する。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "LIVING_NATURE",
+        "subgenre_id": "CREATURE"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "cat_ears": {
+      "classification_reason": "cat_ears: 身体の部位・形状・状態または体液が主題。生き物全体や行為の名前へ広げない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "BODY_PART",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "center-flap_bangs": {
+      "classification_reason": "center-flap_bangs: 髪型・髪色・目の色または化粧を探す経路。色単独の一覧には機械的に複製しない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "HAIR_FACE",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "chair": {
+      "classification_reason": "chair: 独立した物・道具から発見する。固有名を残したまま浅い道具の経路を付ける。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "OBJECT_PROP",
+        "subgenre_id": "DAILY"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "cheek_pinching": {
+      "classification_reason": "cheek_pinching: 接触・しぐさ・活動から探す。身体部位や描かれた記号の存在そのものとは分ける。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "ACTION_CONTACT",
+        "subgenre_id": "INTERACTION"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "clock": {
+      "classification_reason": "clock: 独立した物・道具から発見する。固有名を残したまま浅い道具の経路を付ける。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "OBJECT_PROP",
+        "subgenre_id": "DAILY"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "collage": {
+      "classification_reason": "collage: 塗り・加工・画面形式・作画状態の経路。良い品質を保証したり生成効果を評価する意味はない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "STYLE_QUALITY_META",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "comic": {
+      "classification_reason": "comic: 塗り・加工・画面形式・作画状態の経路。良い品質を保証したり生成効果を評価する意味はない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "STYLE_QUALITY_META",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "cosplay": {
+      "classification_reason": "cosplay: cosplay/armorまたはproduction表示の装備という具体的手掛かりから衣装を提案。固有人物のidentityへ変換しない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "COSTUME"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "covering_breasts": {
+      "classification_reason": "covering_breasts: 露出・隠す・衣服の持ち上げ・破れが主題。衣服や身体の種類を探す経路より状態を優先。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING_STATE_EXPOSURE",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [
+        {
+          "genre_id": "ACTION_CONTACT",
+          "subgenre_id": "INTERACTION"
+        }
+      ],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "cowboy_shot": {
+      "classification_reason": "cowboy_shot: 撮影視点・切り取り範囲・焦点表現から探す。cowboyは人物職業の意味では扱わない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "COMPOSITION_CAMERA",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "cross": {
+      "classification_reason": "cross: production表示の十字記号を根拠に記号を主経路とする。十字架という物を探す副経路は定義確認まで足さない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "TEXT_SYMBOL",
+        "subgenre_id": "SYMBOL"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "crying": {
+      "classification_reason": "crying: 表情と口元の見え方から探す。顔文字の表記自体を画中文字と判定しない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "EXPRESSION_EMOTION",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "depth_of_field": {
+      "classification_reason": "depth_of_field: 撮影視点・切り取り範囲・焦点表現から探す。cowboyは人物職業の意味では扱わない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "COMPOSITION_CAMERA",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "desert_voe_set_(zelda)": {
+      "classification_reason": "desert_voe_set_(zelda): cosplay/armorまたはproduction表示の装備という具体的手掛かりから衣装を提案。固有人物のidentityへ変換しない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "COSTUME"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "dragon": {
+      "classification_reason": "dragon: 動物・空想生物の全体から探す。耳や尾などの部位と区別する。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "LIVING_NATURE",
+        "subgenre_id": "CREATURE"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "dutch_angle": {
+      "classification_reason": "dutch_angle: 撮影視点・切り取り範囲・焦点表現から探す。cowboyは人物職業の意味では扱わない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "COMPOSITION_CAMERA",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "elbow_on_table": {
+      "classification_reason": "elbow_on_table: 人物の体勢・配置が主題。含まれる家具・壁・塔という語だけで道具や建築へ送らない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "POSE_MOVEMENT",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "english_text": {
+      "classification_reason": "english_text: 画面にある文字・文章から探す。材質や色・祝日の語だけで別分類にしない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "TEXT_SYMBOL",
+        "subgenre_id": "TEXT"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "escudo_sword_(rayearth)": {
+      "classification_reason": "escudo_sword_(rayearth): 明示的なsword/weaponの手掛かりから武器の経路を提案。作品別ontologyは作らない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "OBJECT_PROP",
+        "subgenre_id": "WEAPON"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "facing_viewer": {
+      "classification_reason": "facing_viewer: 被写体の向きや視線を指定するための経路。カメラの位置と区別する。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "GAZE_ORIENTATION",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "fallen_down": {
+      "classification_reason": "fallen_down: 人物の体勢・配置が主題。含まれる家具・壁・塔という語だけで道具や建築へ送らない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "POSE_MOVEMENT",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "feather_in_mouth": {
+      "classification_reason": "feather_in_mouth: 物との関係・保持や使用状態が主題。物の名だけで分類しない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "ACTION_CONTACT",
+        "subgenre_id": "OBJECT_USE"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "flower": {
+      "classification_reason": "flower: 植物そのものを探す。forestのような環境は場所へ分ける。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "LIVING_NATURE",
+        "subgenre_id": "PLANT"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "food": {
+      "classification_reason": "food: 食べ物・飲み物を探す。植物全体・色名・食べる行為へ同一視しない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "OBJECT_PROP",
+        "subgenre_id": "FOOD"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "forest": {
+      "classification_reason": "forest: 場所・環境・背景の構成から探す。色や材質語があっても背景用途を主経路にする。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "PLACE_BACKGROUND",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "from_above": {
+      "classification_reason": "from_above: 撮影視点・切り取り範囲・焦点表現から探す。cowboyは人物職業の意味では扱わない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "COMPOSITION_CAMERA",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "from_below": {
+      "classification_reason": "from_below: 撮影視点・切り取り範囲・焦点表現から探す。cowboyは人物職業の意味では扱わない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "COMPOSITION_CAMERA",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "fruit": {
+      "classification_reason": "fruit: 食べ物・飲み物を探す。植物全体・色名・食べる行為へ同一視しない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "OBJECT_PROP",
+        "subgenre_id": "FOOD"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "fruit_hair_ornament": {
+      "classification_reason": "fruit_hair_ornament: 衣服の装飾・着用小物から探す。単語の多義・果物等の装飾モチーフで別用途へ流さない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "ACCESSORY"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "green_one-piece_swimsuit": {
+      "classification_reason": "green_one-piece_swimsuit: 身につける衣類の種類・部分的特徴を主に発見する。色・柄修飾より衣服の用途を優先。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "EVERYDAY"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "green_scarf": {
+      "classification_reason": "green_scarf: 衣服の装飾・着用小物から探す。単語の多義・果物等の装飾モチーフで別用途へ流さない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "ACCESSORY"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "grey_eyes": {
+      "classification_reason": "grey_eyes: 髪型・髪色・目の色または化粧を探す経路。色単独の一覧には機械的に複製しない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "HAIR_FACE",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "greyscale": {
+      "classification_reason": "greyscale: 塗り・加工・画面形式・作画状態の経路。良い品質を保証したり生成効果を評価する意味はない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "STYLE_QUALITY_META",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [
+        {
+          "genre_id": "COLOR_APPEARANCE",
+          "subgenre_id": null
+        }
+      ],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "half_updo": {
+      "classification_reason": "half_updo: 髪型・髪色・目の色または化粧を探す経路。色単独の一覧には機械的に複製しない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "HAIR_FACE",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "hand_in_bra": {
+      "classification_reason": "自他の衣服への接触・物の位置・着衣状態のどれを主にするか未合意。",
+      "classification_status": "UNRESOLVED",
+      "primary_path": null,
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline ambiguity inspection; canonical/production display insufficient; needs definition or DEV boundary decision"
+    },
+    "happy_holidays": {
+      "classification_reason": "happy_holidays: 画面にある文字・文章から探す。材質や色・祝日の語だけで別分類にしない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "TEXT_SYMBOL",
+        "subgenre_id": "TEXT"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "headband": {
+      "classification_reason": "headband: 衣服の装飾・着用小物から探す。単語の多義・果物等の装飾モチーフで別用途へ流さない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "ACCESSORY"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "heart": {
+      "classification_reason": "heart: 画面内の記号・マークとして探す。解剖学的心臓や手のしぐさと区別する。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "TEXT_SYMBOL",
+        "subgenre_id": "SYMBOL"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "heart_hands": {
+      "classification_reason": "heart_hands: 接触・しぐさ・活動から探す。身体部位や描かれた記号の存在そのものとは分ける。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "ACTION_CONTACT",
+        "subgenre_id": "INTERACTION"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [
+        {
+          "genre_id": "POSE_MOVEMENT",
+          "subgenre_id": null
+        }
+      ],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "high_heels": {
+      "classification_reason": "high_heels: 身につける衣類の種類・部分的特徴を主に発見する。色・柄修飾より衣服の用途を優先。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "EVERYDAY"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "holding": {
+      "classification_reason": "holding: 物との関係・保持や使用状態が主題。物の名だけで分類しない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "ACTION_CONTACT",
+        "subgenre_id": "OBJECT_USE"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "holding_knife_behind_back": {
+      "classification_reason": "holding_knife_behind_back: 物との関係・保持や使用状態が主題。物の名だけで分類しない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "ACTION_CONTACT",
+        "subgenre_id": "OBJECT_USE"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [
+        {
+          "genre_id": "OBJECT_PROP",
+          "subgenre_id": "WEAPON"
+        }
+      ],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "human_tower": {
+      "classification_reason": "human_tower: 人が積み重なる体勢・集団ポーズから探す候補。towerという部分一致で建築や背景へ送らない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "POSE_MOVEMENT",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "implied_after_sex": {
+      "classification_reason": "implied_after_sex: 行為または行為後の文脈を探す。語から省略された内容を追加せずcanonicalの意味範囲を保つ。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "ACTION_CONTACT",
+        "subgenre_id": "INTIMATE"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "injury": {
+      "classification_reason": "injury: 身体の部位・形状・状態または体液が主題。生き物全体や行為の名前へ広げない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "BODY_PART",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "intestines": {
+      "classification_reason": "intestines: 身体の部位・形状・状態または体液が主題。生き物全体や行為の名前へ広げない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "BODY_PART",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "japanese_national_soccer_team_uniform": {
+      "classification_reason": "japanese_national_soccer_team_uniform: 固有名を含む制服・チーム衣装。固有名の意味や作品階層をtaxonomyに新設しない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "UNIFORM"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "jester": {
+      "classification_reason": "jester: 人物の人数・不在または役柄・存在種別から発見する。衣服そのものを表す分類と分ける。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "PERSON_COUNT",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "juuban_middle_school_uniform": {
+      "classification_reason": "juuban_middle_school_uniform: 固有名を含む制服・チーム衣装。固有名の意味や作品階層をtaxonomyに新設しない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "UNIFORM"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "kaban_(kemono_friends)_(cosplay)": {
+      "classification_reason": "kaban_(kemono_friends)_(cosplay): cosplay/armorまたはproduction表示の装備という具体的手掛かりから衣装を提案。固有人物のidentityへ変換しない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "COSTUME"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "kasumi_(kancolle)_(cosplay)": {
+      "classification_reason": "kasumi_(kancolle)_(cosplay): cosplay/armorまたはproduction表示の装備という具体的手掛かりから衣装を提案。固有人物のidentityへ変換しない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "COSTUME"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "kiryu_kazuma_(cosplay)": {
+      "classification_reason": "kiryu_kazuma_(cosplay): cosplay/armorまたはproduction表示の装備という具体的手掛かりから衣装を提案。固有人物のidentityへ変換しない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "COSTUME"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "kneeling": {
+      "classification_reason": "kneeling: 人物の体勢・配置が主題。含まれる家具・壁・塔という語だけで道具や建築へ送らない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "POSE_MOVEMENT",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "koe_naki_sakana": {
+      "classification_reason": "作品・衣装等を表す可能性のある固有句。fishの語や訳だけで生き物へ送らない。",
+      "classification_status": "UNRESOLVED",
+      "primary_path": null,
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline ambiguity inspection; canonical/production display insufficient; needs definition or DEV boundary decision"
+    },
+    "lace_arm_warmers": {
+      "classification_reason": "lace_arm_warmers: 身につける衣類の種類・部分的特徴を主に発見する。色・柄修飾より衣服の用途を優先。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "EVERYDAY"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "landscape": {
+      "classification_reason": "landscape: 場所・環境・背景の構成から探す。色や材質語があっても背景用途を主経路にする。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "PLACE_BACKGROUND",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "large_breasts": {
+      "classification_reason": "large_breasts: 身体の部位・形状・状態または体液が主題。生き物全体や行為の名前へ広げない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "BODY_PART",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "light_in_heart": {
+      "classification_reason": "固有タイトルか描画現象か未確認。light/heartの部分一致分類を保留。",
+      "classification_status": "UNRESOLVED",
+      "primary_path": null,
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline ambiguity inspection; canonical/production display insufficient; needs definition or DEV boundary decision"
+    },
+    "live_tucker_reaction_(meme)": {
+      "classification_reason": "live_tucker_reaction_(meme): 塗り・加工・画面形式・作画状態の経路。良い品質を保証したり生成効果を評価する意味はない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "STYLE_QUALITY_META",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "long_hair": {
+      "classification_reason": "long_hair: 髪型・髪色・目の色または化粧を探す経路。色単独の一覧には機械的に複製しない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "HAIR_FACE",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "long_sleeves": {
+      "classification_reason": "long_sleeves: 身につける衣類の種類・部分的特徴を主に発見する。色・柄修飾より衣服の用途を優先。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "EVERYDAY"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "looking_at_viewer": {
+      "classification_reason": "looking_at_viewer: 被写体の向きや視線を指定するための経路。カメラの位置と区別する。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "GAZE_ORIENTATION",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "looking_back": {
+      "classification_reason": "looking_back: 被写体の向きや視線を指定するための経路。カメラの位置と区別する。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "GAZE_ORIENTATION",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "maid": {
+      "classification_reason": "maid: 人物の人数・不在または役柄・存在種別から発見する。衣服そのものを表す分類と分ける。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "PERSON_COUNT",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "mash_kyrielight_(enma-tei_uniform)_(cosplay)": {
+      "classification_reason": "mash_kyrielight_(enma-tei_uniform)_(cosplay): cosplay/armorまたはproduction表示の装備という具体的手掛かりから衣装を提案。固有人物のidentityへ変換しない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "COSTUME"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "men's_toilet_symbol": {
+      "classification_reason": "men's_toilet_symbol: 画面内の記号・マークとして探す。解剖学的心臓や手のしぐさと区別する。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "TEXT_SYMBOL",
+        "subgenre_id": "SYMBOL"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "microphone_between_breasts": {
+      "classification_reason": "microphone_between_breasts: 物との関係・保持や使用状態が主題。物の名だけで分類しない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "ACTION_CONTACT",
+        "subgenre_id": "OBJECT_USE"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [
+        {
+          "genre_id": "OBJECT_PROP",
+          "subgenre_id": "DAILY"
+        }
+      ],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "military_vehicle": {
+      "classification_reason": "military_vehicle: 乗り物自体から探す。軍服や背景へ機械的に混ぜない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "OBJECT_PROP",
+        "subgenre_id": "VEHICLE"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "minna_de_enjoy!_spojoy_park_(project_sekai)": {
+      "classification_reason": "作品由来の名称。公園・衣装・イベント等の役割をcanonical定義で要確認。",
+      "classification_status": "UNRESOLVED",
+      "primary_path": null,
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline ambiguity inspection; canonical/production display insufficient; needs definition or DEV boundary decision"
+    },
+    "misono_gakuen_school_uniform": {
+      "classification_reason": "misono_gakuen_school_uniform: 固有名を含む制服・チーム衣装。固有名の意味や作品階層をtaxonomyに新設しない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "UNIFORM"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "money_fan": {
+      "classification_reason": "money_fan: 独立した物・道具から発見する。固有名を残したまま浅い道具の経路を付ける。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "OBJECT_PROP",
+        "subgenre_id": "DAILY"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "monochrome": {
+      "classification_reason": "monochrome: 塗り・加工・画面形式・作画状態の経路。良い品質を保証したり生成効果を評価する意味はない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "STYLE_QUALITY_META",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [
+        {
+          "genre_id": "COLOR_APPEARANCE",
+          "subgenre_id": null
+        }
+      ],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "multicolored_text": {
+      "classification_reason": "multicolored_text: 画面にある文字・文章から探す。材質や色・祝日の語だけで別分類にしない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "TEXT_SYMBOL",
+        "subgenre_id": "TEXT"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "musical_note": {
+      "classification_reason": "musical_note: 画面内の記号・マークとして探す。解剖学的心臓や手のしぐさと区別する。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "TEXT_SYMBOL",
+        "subgenre_id": "SYMBOL"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "naka_(kancolle)_(cosplay)": {
+      "classification_reason": "naka_(kancolle)_(cosplay): cosplay/armorまたはproduction表示の装備という具体的手掛かりから衣装を提案。固有人物のidentityへ変換しない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "COSTUME"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "naked_cloak": {
+      "classification_reason": "naked_cloak: 露出・隠す・衣服の持ち上げ・破れが主題。衣服や身体の種類を探す経路より状態を優先。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING_STATE_EXPOSURE",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "naked_dress": {
+      "classification_reason": "nakedが露出状態・衣服デザインのいずれを指すか要確認。naked_cloakと同じ規則を適用しない。",
+      "classification_status": "UNRESOLVED",
+      "primary_path": null,
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline ambiguity inspection; canonical/production display insufficient; needs definition or DEV boundary decision"
+    },
+    "nijigasaki_7th_live!_new_tokimeki_land": {
+      "classification_reason": "イベント名に見えるが衣装・ロゴ・場面等のタグ用途が未確定。",
+      "classification_status": "UNRESOLVED",
+      "primary_path": null,
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline ambiguity inspection; canonical/production display insufficient; needs definition or DEV boundary decision"
+    },
+    "no_humans": {
+      "classification_reason": "no_humans: 人物の人数・不在または役柄・存在種別から発見する。衣服そのものを表す分類と分ける。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "PERSON_COUNT",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "ooarai_marine_tower": {
+      "classification_reason": "ooarai_marine_tower: 場所・環境・背景の構成から探す。色や材質語があっても背景用途を主経路にする。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "PLACE_BACKGROUND",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "open_mouth": {
+      "classification_reason": "open_mouth: 表情と口元の見え方から探す。顔文字の表記自体を画中文字と判定しない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "EXPRESSION_EMOTION",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "otonokizaka_school_uniform": {
+      "classification_reason": "otonokizaka_school_uniform: 固有名を含む制服・チーム衣装。固有名の意味や作品階層をtaxonomyに新設しない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "UNIFORM"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "panties": {
+      "classification_reason": "panties: 身につける衣類の種類・部分的特徴を主に発見する。色・柄修飾より衣服の用途を優先。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "EVERYDAY"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "panty_lift": {
+      "classification_reason": "panty_lift: 露出・隠す・衣服の持ち上げ・破れが主題。衣服や身体の種類を探す経路より状態を優先。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING_STATE_EXPOSURE",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "parted_bangs": {
+      "classification_reason": "parted_bangs: 髪型・髪色・目の色または化粧を探す経路。色単独の一覧には機械的に複製しない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "HAIR_FACE",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "partially_visible_vulva": {
+      "classification_reason": "partially_visible_vulva: 露出・隠す・衣服の持ち上げ・破れが主題。衣服や身体の種類を探す経路より状態を優先。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING_STATE_EXPOSURE",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "pentagon_(shape)": {
+      "classification_reason": "pentagon_(shape): 固有の色・柄・形として探す。shapeの明示がある図形であり対象物の名として推測しない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "COLOR_APPEARANCE",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "personal_terminal": {
+      "classification_reason": "personal_terminal: canonicalのterminalとproduction表示PET(ロックマンエグゼ)から道具を提案。petという表示断片で動物へ送らない。具体的装置の説明はこのpilotで追加しない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "OBJECT_PROP",
+        "subgenre_id": "DAILY"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "pinching_own_belly": {
+      "classification_reason": "pinching_own_belly: 接触・しぐさ・活動から探す。身体部位や描かれた記号の存在そのものとは分ける。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "ACTION_CONTACT",
+        "subgenre_id": "INTERACTION"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "pink_eyeliner": {
+      "classification_reason": "pink_eyeliner: 髪型・髪色・目の色または化粧を探す経路。色単独の一覧には機械的に複製しない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "HAIR_FACE",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "pinwheel": {
+      "classification_reason": "pinwheel: 独立した物・道具から発見する。固有名を残したまま浅い道具の経路を付ける。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "OBJECT_PROP",
+        "subgenre_id": "DAILY"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "plaid_arm_warmers": {
+      "classification_reason": "plaid_arm_warmers: 身につける衣類の種類・部分的特徴を主に発見する。色・柄修飾より衣服の用途を優先。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "EVERYDAY"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "pointing_sword": {
+      "classification_reason": "pointing_sword: 物との関係・保持や使用状態が主題。物の名だけで分類しない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "ACTION_CONTACT",
+        "subgenre_id": "OBJECT_USE"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [
+        {
+          "genre_id": "OBJECT_PROP",
+          "subgenre_id": "WEAPON"
+        }
+      ],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "puppet_show": {
+      "classification_reason": "puppet_show: 接触・しぐさ・活動から探す。身体部位や描かれた記号の存在そのものとは分ける。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "ACTION_CONTACT",
+        "subgenre_id": "INTERACTION"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "rain": {
+      "classification_reason": "rain: 空の見え方・光・天気・時間帯から発見する。星座名は空の表現として浅く位置付ける。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "LIGHT_TIME_WEATHER",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "recruitment_bag_(arknights)": {
+      "classification_reason": "recruitment_bag_(arknights): 独立した物・道具から発見する。固有名を残したまま浅い道具の経路を付ける。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "OBJECT_PROP",
+        "subgenre_id": "DAILY"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "ribbon_bar": {
+      "classification_reason": "服飾・勲章・画面部品等の多義候補。リボン一般と同じ分類に決めない。",
+      "classification_status": "UNRESOLVED",
+      "primary_path": null,
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline ambiguity inspection; canonical/production display insufficient; needs definition or DEV boundary decision"
+    },
+    "saihate_e_to_tobu_kimi_e_(project_sekai)": {
+      "classification_reason": "作品由来の句で用途が不明。tobuをポーズ・動きへ機械的に分類しない。",
+      "classification_status": "UNRESOLVED",
+      "primary_path": null,
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline ambiguity inspection; canonical/production display insufficient; needs definition or DEV boundary decision"
+    },
+    "saliva_on_hand": {
+      "classification_reason": "saliva_on_hand: 身体の部位・形状・状態または体液が主題。生き物全体や行為の名前へ広げない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "BODY_PART",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "scarf": {
+      "classification_reason": "scarf: 衣服の装飾・着用小物から探す。単語の多義・果物等の装飾モチーフで別用途へ流さない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "ACCESSORY"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "screen_zoom": {
+      "classification_reason": "画面内の拡大表示かカメラの切り取りか未確認。構図/画面表現境界を保留。",
+      "classification_status": "UNRESOLVED",
+      "primary_path": null,
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline ambiguity inspection; canonical/production display insufficient; needs definition or DEV boundary decision"
+    },
+    "shirt": {
+      "classification_reason": "shirt: 身につける衣類の種類・部分的特徴を主に発見する。色・柄修飾より衣服の用途を優先。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "EVERYDAY"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "shirt_lift": {
+      "classification_reason": "shirt_lift: 露出・隠す・衣服の持ち上げ・破れが主題。衣服や身体の種類を探す経路より状態を優先。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING_STATE_EXPOSURE",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "short_hair": {
+      "classification_reason": "short_hair: 髪型・髪色・目の色または化粧を探す経路。色単独の一覧には機械的に複製しない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "HAIR_FACE",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "signature": {
+      "classification_reason": "signature: 画面にある文字・文章から探す。材質や色・祝日の語だけで別分類にしない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "TEXT_SYMBOL",
+        "subgenre_id": "TEXT"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "simple_background": {
+      "classification_reason": "simple_background: 場所・環境・背景の構成から探す。色や材質語があっても背景用途を主経路にする。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "PLACE_BACKGROUND",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "single_arm_warmer": {
+      "classification_reason": "single_arm_warmer: 身につける衣類の種類・部分的特徴を主に発見する。色・柄修飾より衣服の用途を優先。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "EVERYDAY"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "sitting_on_wall": {
+      "classification_reason": "sitting_on_wall: 人物の体勢・配置が主題。含まれる家具・壁・塔という語だけで道具や建築へ送らない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "POSE_MOVEMENT",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "sleeveless_dress": {
+      "classification_reason": "sleeveless_dress: 身につける衣類の種類・部分的特徴を主に発見する。色・柄修飾より衣服の用途を優先。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "EVERYDAY"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "small_chastity_cage": {
+      "classification_reason": "small_chastity_cage: 独立した物・道具から発見する。固有名を残したまま浅い道具の経路を付ける。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "OBJECT_PROP",
+        "subgenre_id": "DAILY"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "smile": {
+      "classification_reason": "smile: 表情と口元の見え方から探す。顔文字の表記自体を画中文字と判定しない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "EXPRESSION_EMOTION",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "snake": {
+      "classification_reason": "snake: 動物・空想生物の全体から探す。耳や尾などの部位と区別する。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "LIVING_NATURE",
+        "subgenre_id": "CREATURE"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "solo": {
+      "classification_reason": "solo: 人物の人数・不在または役柄・存在種別から発見する。衣服そのものを表す分類と分ける。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "PERSON_COUNT",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "soul_edge_(weapon)": {
+      "classification_reason": "soul_edge_(weapon): 明示的なsword/weaponの手掛かりから武器の経路を提案。作品別ontologyは作らない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "OBJECT_PROP",
+        "subgenre_id": "WEAPON"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "speech_bubble": {
+      "classification_reason": "speech_bubble: 文字を入れる画面内の枠を探す。カメラ構図の用語と混ぜない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "TEXT_SYMBOL",
+        "subgenre_id": "LAYOUT"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "sunlight": {
+      "classification_reason": "sunlight: 空の見え方・光・天気・時間帯から発見する。星座名は空の表現として浅く位置付ける。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "LIGHT_TIME_WEATHER",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "sunset": {
+      "classification_reason": "sunset: 空の見え方・光・天気・時間帯から発見する。星座名は空の表現として浅く位置付ける。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "LIGHT_TIME_WEATHER",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "tail": {
+      "classification_reason": "tail: 身体の部位・形状・状態または体液が主題。生き物全体や行為の名前へ広げない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "BODY_PART",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "tea": {
+      "classification_reason": "tea: 食べ物・飲み物を探す。植物全体・色名・食べる行為へ同一視しない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "OBJECT_PROP",
+        "subgenre_id": "FOOD"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "torn_clothes": {
+      "classification_reason": "torn_clothes: 露出・隠す・衣服の持ち上げ・破れが主題。衣服や身体の種類を探す経路より状態を優先。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING_STATE_EXPOSURE",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "touching_forehead": {
+      "classification_reason": "touching_forehead: 接触・しぐさ・活動から探す。身体部位や描かれた記号の存在そのものとは分ける。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "ACTION_CONTACT",
+        "subgenre_id": "INTERACTION"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "tree": {
+      "classification_reason": "tree: 植物そのものを探す。forestのような環境は場所へ分ける。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "LIVING_NATURE",
+        "subgenre_id": "PLANT"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "uma_stars_(umamusume)": {
+      "classification_reason": "固有名で衣装・マーク・作品等の対象が未確定。starsを天候へ送らない。",
+      "classification_status": "UNRESOLVED",
+      "primary_path": null,
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline ambiguity inspection; canonical/production display insufficient; needs definition or DEV boundary decision"
+    },
+    "undead": {
+      "classification_reason": "undead: 人物の人数・不在または役柄・存在種別から発見する。衣服そのものを表す分類と分ける。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "PERSON_COUNT",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "under_bridge": {
+      "classification_reason": "under_bridge: 場所・環境・背景の構成から探す。色や材質語があっても背景用途を主経路にする。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "PLACE_BACKGROUND",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "underwater": {
+      "classification_reason": "underwater: 場所・環境・背景の構成から探す。色や材質語があっても背景用途を主経路にする。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "PLACE_BACKGROUND",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "upper_teeth_only": {
+      "classification_reason": "upper_teeth_only: 表情と口元の見え方から探す。顔文字の表記自体を画中文字と判定しない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "EXPRESSION_EMOTION",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "usada_pekora_(cosplay)": {
+      "classification_reason": "usada_pekora_(cosplay): cosplay/armorまたはproduction表示の装備という具体的手掛かりから衣装を提案。固有人物のidentityへ変換しない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "COSTUME"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "vegetable": {
+      "classification_reason": "vegetable: 食べ物・飲み物を探す。植物全体・色名・食べる行為へ同一視しない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "OBJECT_PROP",
+        "subgenre_id": "FOOD"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "vibrator_over_clothes": {
+      "classification_reason": "vibrator_over_clothes: 行為または行為後の文脈を探す。語から省略された内容を追加せずcanonicalの意味範囲を保つ。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "ACTION_CONTACT",
+        "subgenre_id": "INTIMATE"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "viewer_on_leash": {
+      "classification_reason": "視点側の関係を表すが接触・性的文脈・構図の主経路が未確定。語だけで性的分類を断定しない。",
+      "classification_status": "UNRESOLVED",
+      "primary_path": null,
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline ambiguity inspection; canonical/production display insufficient; needs definition or DEV boundary decision"
+    },
+    "wainscoting": {
+      "classification_reason": "wainscoting: 場所・環境・背景の構成から探す。色や材質語があっても背景用途を主経路にする。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "PLACE_BACKGROUND",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "white_background": {
+      "classification_reason": "white_background: 場所・環境・背景の構成から探す。色や材質語があっても背景用途を主経路にする。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "PLACE_BACKGROUND",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "white_eyes": {
+      "classification_reason": "white_eyes: 髪型・髪色・目の色または化粧を探す経路。色単独の一覧には機械的に複製しない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "HAIR_FACE",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "white_tube_top": {
+      "classification_reason": "white_tube_top: 身につける衣類の種類・部分的特徴を主に発見する。色・柄修飾より衣服の用途を優先。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "EVERYDAY"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "wings": {
+      "classification_reason": "wings: 身体の部位・形状・状態または体液が主題。生き物全体や行為の名前へ広げない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "BODY_PART",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "witch": {
+      "classification_reason": "witch: 人物の人数・不在または役柄・存在種別から発見する。衣服そのものを表す分類と分ける。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "PERSON_COUNT",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "wolf_tail": {
+      "classification_reason": "wolf_tail: 身体の部位・形状・状態または体液が主題。生き物全体や行為の名前へ広げない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "BODY_PART",
+        "subgenre_id": null
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "yae_miko_(cosplay)": {
+      "classification_reason": "yae_miko_(cosplay): cosplay/armorまたはproduction表示の装備という具体的手掛かりから衣装を提案。固有人物のidentityへ変換しない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "COSTUME"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "yurigaoka_girls_academy_school_uniform": {
+      "classification_reason": "yurigaoka_girls_academy_school_uniform: 固有名を含む制服・チーム衣装。固有名の意味や作品階層をtaxonomyに新設しない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "UNIFORM"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    },
+    "zwei_association_south_uniform": {
+      "classification_reason": "zwei_association_south_uniform: 固有名を含む制服・チーム衣装。固有名の意味や作品階層をtaxonomyに新設しない。",
+      "classification_status": "PROPOSED",
+      "primary_path": {
+        "genre_id": "CLOTHING",
+        "subgenre_id": "UNIFORM"
+      },
+      "reviewed": false,
+      "reviewed_at": null,
+      "reviewer": null,
+      "secondary_paths": [],
+      "source": "Codex offline per-row candidate inspection; canonical name + production display + usage-source aliases; Issue #64 pilot v1"
+    }
+  },
+  "format_version": 1,
+  "stage": "PILOT_PROPOSAL_PENDING_DEV_AUDIT",
+  "taxonomy_version": "issue64-pilot-v1"
+}

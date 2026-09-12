@@ -91,6 +91,17 @@ Implementation must provide:
 
 Codex/implementation work must stop for DEV/AUDIT before merge. Do not self-merge.
 
+## Implementation checkpoint — pilot ready for review, not accepted
+
+- Branch: `codex/issue64-general-taxonomy-pilot`; base live main `293181686260a91398334a0fe2d794a5998388cc`.
+- Report: `docs/issue64/PILOT_REPORT.md`; semantic boundary audit: `docs/issue64/BOUNDARY_AUDIT.md`.
+- Exact #55 population 30,629 verified; pilot 173 = proposed 161 + unresolved 12.
+- 17 shallow genres, 10 multi-path rows; all `reviewed=false`.
+- 64 focused/relevant regression tests passed; 5 artifacts reproduce byte-for-byte.
+- 86 protected files unchanged; production taxonomy rollout and UI integration not started.
+- Stop for DEV/AUDIT pilot acceptance. Do not expand or merge from this implementation checkpoint alone.
+- Final submitted SHA and push evidence belong to the Issue #64 handoff comment.
+
 ## Post-#64 route
 
 After accepted integration:

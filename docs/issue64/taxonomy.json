@@ -1,0 +1,131 @@
+{
+  "genres": {
+    "ACTION_CONTACT": {
+      "boundary_ja": "体勢だけならポーズ。道具の種類だけなら道具・小物。",
+      "discovery_question_ja": "何をしている・何に触れているかを探す",
+      "label_ja": "行為・接触",
+      "subgenres": {
+        "INTERACTION": "接触・しぐさ・活動",
+        "INTIMATE": "性的行為・その前後",
+        "OBJECT_USE": "物を持つ・使う"
+      }
+    },
+    "BODY_PART": {
+      "boundary_ja": "髪・顔の見た目は髪・顔。露出の仕方は着脱・露出。作画不良は画面表現。",
+      "discovery_question_ja": "身体の特徴、部位、傷や体液を探す",
+      "label_ja": "身体・部位・状態",
+      "subgenres": {}
+    },
+    "CLOTHING": {
+      "boundary_ja": "色修飾より衣服の種類を主経路とする。着脱・破れ・露出は別分類。",
+      "discovery_question_ja": "服・制服・衣装の種類や装飾を探す",
+      "label_ja": "衣装",
+      "subgenres": {
+        "ACCESSORY": "装飾・服の細部",
+        "COSTUME": "衣装・コスプレ・装備",
+        "EVERYDAY": "服・下着・靴",
+        "UNIFORM": "制服・ユニフォーム"
+      }
+    },
+    "CLOTHING_STATE_EXPOSURE": {
+      "boundary_ja": "衣服名にnakedが含まれるだけではここに決めない。",
+      "discovery_question_ja": "衣服の着方、ずれ、破れ、隠し方を探す",
+      "label_ja": "着脱・露出",
+      "subgenres": {}
+    },
+    "COLOR_APPEARANCE": {
+      "boundary_ja": "blue_eyesは髪・顔、白背景は背景が主。単なる色修飾には全件の副経路を付けない。",
+      "discovery_question_ja": "色・模様・形の独立した特徴を探す",
+      "label_ja": "色・柄・形",
+      "subgenres": {}
+    },
+    "COMPOSITION_CAMERA": {
+      "boundary_ja": "被写体が向く先は視線・向き。漫画形式・合成は画面表現。",
+      "discovery_question_ja": "どこから・どこまで写すかを探す",
+      "label_ja": "構図・画角",
+      "subgenres": {}
+    },
+    "EXPRESSION_EMOTION": {
+      "boundary_ja": "視線の先・顔の向きは視線・向き。顔の固定特徴は髪・顔。",
+      "discovery_question_ja": "笑う・泣く、目や口の表情を探す",
+      "label_ja": "表情・感情",
+      "subgenres": {}
+    },
+    "GAZE_ORIENTATION": {
+      "boundary_ja": "上から撮る等の観察位置は構図・画角。",
+      "discovery_question_ja": "どちらを向く・どこを見るかを探す",
+      "label_ja": "視線・向き",
+      "subgenres": {}
+    },
+    "HAIR_FACE": {
+      "boundary_ja": "表情・口の開閉は表情。髪飾りは衣装の装飾小物。",
+      "discovery_question_ja": "髪型、髪色、目の色、化粧を探す",
+      "label_ja": "髪・顔",
+      "subgenres": {}
+    },
+    "LIGHT_TIME_WEATHER": {
+      "boundary_ja": "固有タイトルにlight等があっても推測しない。",
+      "discovery_question_ja": "光の当たり方や天気・時間を探す",
+      "label_ja": "光・時間・天候",
+      "subgenres": {}
+    },
+    "LIVING_NATURE": {
+      "boundary_ja": "耳・尻尾などの部位は身体。森などの場は場所。",
+      "discovery_question_ja": "動物・空想生物・植物を探す",
+      "label_ja": "生き物・植物",
+      "subgenres": {
+        "CREATURE": "動物・空想生物",
+        "PLANT": "植物"
+      }
+    },
+    "OBJECT_PROP": {
+      "boundary_ja": "着用アクセサリは衣装。生物・植物は別分類。行為は主経路を行為にする。",
+      "discovery_question_ja": "画面に置く物・持たせる物を探す",
+      "label_ja": "道具・小物",
+      "subgenres": {
+        "DAILY": "日用品・家具・小物",
+        "FOOD": "食べ物・飲み物",
+        "VEHICLE": "乗り物",
+        "WEAPON": "武器・戦闘道具"
+      }
+    },
+    "PERSON_COUNT": {
+      "boundary_ja": "職業・役柄はここ。着ている物は衣装。動物単体は生き物。",
+      "discovery_question_ja": "誰を・何人描くかを探す",
+      "label_ja": "人物・人数・役柄",
+      "subgenres": {}
+    },
+    "PLACE_BACKGROUND": {
+      "boundary_ja": "個体の木・花は生き物・植物。天候や時間は別分類。",
+      "discovery_question_ja": "どこにいるか・背景に何を置くかを探す",
+      "label_ja": "場所・背景",
+      "subgenres": {}
+    },
+    "POSE_MOVEMENT": {
+      "boundary_ja": "他者や物との接触が主題なら行為・接触。カメラ視点は構図。",
+      "discovery_question_ja": "立ち方・座り方・体の動かし方を探す",
+      "label_ja": "ポーズ・動き",
+      "subgenres": {}
+    },
+    "STYLE_QUALITY_META": {
+      "boundary_ja": "文字・記号は独立分類。General population外のhighres等を追加しない。",
+      "discovery_question_ja": "塗り方、漫画形式、加工、作画上の特徴を探す",
+      "label_ja": "画風・加工・画面表現",
+      "subgenres": {}
+    },
+    "TEXT_SYMBOL": {
+      "boundary_ja": "笑顔の顔文字タグは表情。heart_handsはしぐさ。",
+      "discovery_question_ja": "画面内の文字、ふきだし、記号を探す",
+      "label_ja": "文字・記号・マーク",
+      "subgenres": {
+        "LAYOUT": "ふきだし・文字枠",
+        "SYMBOL": "記号・図形・マーク",
+        "TEXT": "文章・書き文字"
+      }
+    }
+  },
+  "max_path_depth": 2,
+  "no_visible_catch_all": true,
+  "status": "PROPOSED_PENDING_DEV_AUDIT",
+  "version": "issue64-pilot-v1"
+}

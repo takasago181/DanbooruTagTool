@@ -1,0 +1,15 @@
+{
+  "version": "issue64-pilot-v1",
+  "algorithm": "high usage top16 + SHA256(seed+canonical)16; ordinary hash32; rare hash32; compound >=3 underscore pieces hash32 excluding previous draws; union boundary challenge. Seed and thresholds are fixed in tools/issue64_taxonomy_pilot.py. Challenge labels may overlap draws.",
+  "challenge_tags": [
+    "bow", "cross", "back", "holding", "tea", "blood", "flower", "tree",
+    "landscape", "forest", "rain", "sunset", "from_above", "cowboy_shot",
+    "looking_back", "open_mouth", "naked_dress", "naked_cloak", "after_sex",
+    "cosplay", "maid", "witch", "dragon", "cat", "wings", "tail", "animal_ears",
+    "greyscale", "monochrome", "signature", "comic", "english_text", "speech_bubble",
+    "heart", "heart_hands", "covering_breasts", "shirt_lift", "underwater",
+    "under_bridge", "depth_of_field", "no_humans", "musical_note", "food",
+    "vegetable", "injury", "blurry", "bad_anatomy", "dutch_angle", "facing_viewer",
+    "crying", "kneeling"
+  ]
+}

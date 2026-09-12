@@ -1,0 +1,354 @@
+{
+  "added": [],
+  "after_files": {
+    "AUDITED_V5_SOURCE": {
+      "bytes": 4701622,
+      "sha256": "a307a354f6e7c9fb2387464713765795d9949802b345b00eb3cb64659df7fdce"
+    },
+    "data/derived/KNOWLEDGE_BASE_FULL_AUDIT_MANIFEST.json": {
+      "bytes": 2273,
+      "sha256": "44c546f19b77a01ce1553c43540cd1fc78361241ba19ac435b581de680eaa78a"
+    },
+    "data/derived/KNOWLEDGE_BASE_FULL_AUDIT_REPORT.md": {
+      "bytes": 5190,
+      "sha256": "798e215920e92aaab6cf41e4cf84cdff032375d307302cc8783af66459e7779f"
+    },
+    "data/derived/danbooru_alias_normalized_index_VERIFIED_34417.csv": {
+      "bytes": 3348194,
+      "sha256": "3f942704a10bb342ae7368024337849d392d54745061cf9259e51b9f6080a394"
+    },
+    "data/derived/danbooru_alias_occurrences_VERIFIED_34630.csv": {
+      "bytes": 5100613,
+      "sha256": "3e0c172227612247bc0ba89de16f79b48765b4adb81be5e168c42d0ad65ebe0b"
+    },
+    "data/derived/danbooru_full_tag_knowledge_base_VERIFIED_124016.csv": {
+      "bytes": 12813000,
+      "sha256": "23f951c82e3a25a1d7089711d629b4ab6bb3adad17a130e077044da8871feba0"
+    },
+    "data/derived/ruleset2/01_SPECIAL2788_JAPANESE_COMPLETE_CANDIDATE.csv": {
+      "bytes": 989918,
+      "sha256": "12f6ccdc5d2dba33123cdfa97a636b2fdd49a519ed89d327d330471696762e02"
+    },
+    "data/derived/ruleset2/06_SEMANTIC336_ROUTING_OVERLAY.csv": {
+      "bytes": 204221,
+      "sha256": "deb17fd928e7af9fed4a3542fd90d83c96c83e4c4cde9a2d9045b85a2f08e624"
+    },
+    "data/derived/ruleset2/10_MODEL_AUX_CROSSMATCH_UNIQUE_TERMS_2811.csv": {
+      "bytes": 174503,
+      "sha256": "bc9223d1fbcacdbc19bd41a54b7a093fad8382534707fc858e039aa656a65d81"
+    },
+    "data/derived/ruleset2/24_MODEL_AUX_SOURCE_POLICY_MATRIX.csv": {
+      "bytes": 988,
+      "sha256": "789650ca4d83aac9b3942e302de2b2b9c9e14106525ef745013da69f530f27b7"
+    },
+    "data/derived/ruleset2/31_METADATA_RULESET2_MIGRATIONS_v3.0.csv": {
+      "bytes": 460233,
+      "sha256": "b9bcf31768e4340b58cc4e6a501d8f398df1f3aa3d15b1e6c72ba696bd8e45a5"
+    },
+    "data/derived/ruleset2/37_ALIAS_SEMANTIC_RELATIONSHIP_v3.0.csv": {
+      "bytes": 198908,
+      "sha256": "9cb6d667ce4894a8df4e2a9579e0bf9adabd93ccc54ecf28ac57e9dc2581b1d5"
+    },
+    "data/derived/ruleset2/38_ALIAS_STATISTICS_POLICY_v3.0.csv": {
+      "bytes": 152089,
+      "sha256": "e092014c196bf2406054f7c78c03e63a1cd8cdfdba59c059d2baf50222e7727d"
+    },
+    "data/derived/ruleset2/RULESET2_MANIFEST.json": {
+      "bytes": 1460,
+      "sha256": "71ca6b039a045fab57be4a3d377a64fc3e1c7638fea98bbc47c1da0c40c444cf"
+    },
+    "data/derived/special2788_VERIFIED_LINKAGE.csv": {
+      "bytes": 1544698,
+      "sha256": "d2691e774df0da762dbbf644c8aee4d68fe7d370ea91121c9ad083ccd3728ec2"
+    },
+    "data/derived/special2788_semantic_unmapped_VERIFIED_336.csv": {
+      "bytes": 146462,
+      "sha256": "80fac2f3315666bdbb93b68e086011a12c74b4c597e5a987b81d581a4e882b90"
+    },
+    "data/derived/special2788_translation_review_candidates_676.csv": {
+      "bytes": 193643,
+      "sha256": "7fb0c679af76ec56439e7e3f8cdc3cec8b782b8a465b9ac662c4268f21fe40bb"
+    },
+    "data/generation/audit/APPROVED_STATIC_1352_REVIEW_v1.csv": {
+      "bytes": 546994,
+      "sha256": "c7321362439bb7afe3adf4629c42625580e1826c811fe4df5f266ad837bca581"
+    },
+    "data/generation/audit/EXPLICIT_STRUCTURAL_OVERRIDES_240_v1.csv": {
+      "bytes": 94802,
+      "sha256": "e6f20275258c5ad1eb8d40ba21b100c709e457996ba078d7c5bf44270bec09dd"
+    },
+    "data/generation/audit/FAMILY_AUDIT_VALIDATION_v1.json": {
+      "bytes": 1002,
+      "sha256": "67af388ac98d8414e3a89c0d8e9fff220b2ccf25bdd4830faf1ffe995a05a5dd"
+    },
+    "data/generation/audit/FAMILY_RULE_AUDIT_25_v1.csv": {
+      "bytes": 7738,
+      "sha256": "70e49f7d1a5ef71167b2ea30bea6bc0ee75a79f60e105575d8ccc3adc49d9975"
+    },
+    "data/generation/audit/HIGH_CONFIDENCE_CORRECTIONS_v1.csv": {
+      "bytes": 36157,
+      "sha256": "7bf6218f4d9456596c19e32a79ca02cb747c07371b859e5b565ff7a7e2231c64"
+    },
+    "data/generation/audit/PROMOTION_COUNTS_v1.json": {
+      "bytes": 297,
+      "sha256": "c6056909e0ed89ef54e386d201f9adeeafe1af7169d5a90913268273b27eb206"
+    },
+    "data/generation/audit/PROMOTION_PLAN_v1.csv": {
+      "bytes": 1241747,
+      "sha256": "a1eba3166318bb314c4ac3cb83d85d49b5e60b0bece6300a2fa74022d0197315"
+    },
+    "data/generation/generation_family_rules.csv": {
+      "bytes": 5518,
+      "sha256": "0f0e2e9f1f001d12e421324a6356bab42293fb206fe53a3e642495d5765c6936"
+    },
+    "data/generation/generation_model_observations.csv": {
+      "bytes": 3605,
+      "sha256": "ee036aac810ef94b9f0376a23d0159f4275d6d2feac7ccd689ca297d361164c8"
+    },
+    "data/generation/special2788_generation_profile.csv": {
+      "bytes": 558215,
+      "sha256": "55490940378e15d8e41454e701d0c202abbab307a08fb6e56841171e0edec1fd"
+    },
+    "data/runtime/japanese_overlay.json": {
+      "bytes": 4114120,
+      "sha256": "999b42fa76e036ad79f68ef7cd3ff958c94bd42c08ab00dd0394898d0205de76"
+    },
+    "data/runtime_index/BUILD_MANIFEST.json": {
+      "bytes": 2255,
+      "sha256": "848be737f2c5269b98687194d164fb26fc81e9a868b32a4f4ce1157e157cad89"
+    },
+    "data/runtime_index/build_report.json": {
+      "bytes": 1352,
+      "sha256": "2f96162f813df38e1d9ffa499638629fa8318a88b5a32147cd9fd9306db10877"
+    },
+    "data/runtime_index/canonical_overlay.json": {
+      "bytes": 14220678,
+      "sha256": "815e23dc4666b80f4d33374e30f4f7a8f4850cc3cffdfdeff671da46818c050d"
+    },
+    "data/runtime_index/index_metadata.json": {
+      "bytes": 1187,
+      "sha256": "237f93b497ef2fda8c0abeb99dac81cd53b790b0fdc81581821f962884cbc2db"
+    },
+    "data/runtime_index/post_ids.u32": {
+      "bytes": 44873448,
+      "sha256": "f2a1bc0f7a66359efd6131241e9685796215d5f1b28b2411e74717402882e9bc"
+    },
+    "data/runtime_index/post_tag_ids.u32": {
+      "bytes": 1418284880,
+      "sha256": "5723dbad4112462c5199e9d0e5a76fa9cdfa9909b01b19762588a0d836546290"
+    },
+    "data/runtime_index/post_tag_offsets.u64": {
+      "bytes": 89746904,
+      "sha256": "cce3557b8ffaa590cf3d8b30ef97387a3d7751ed52380c2ed732cbd96b0d163e"
+    },
+    "data/runtime_index/runtime_global_counts.u32": {
+      "bytes": 412792,
+      "sha256": "2b5896da23c0c6c58e39a3fdced01aa4bf4cd7cb62b70d7d8c218cfe6d4662f1"
+    },
+    "data/runtime_index/tag_post_offsets.u64": {
+      "bytes": 825592,
+      "sha256": "e35ebb6bec5871a3be11fb517eceaa67fa72fe7d4a90e25ae97be395fa01435c"
+    },
+    "data/runtime_index/tag_post_ordinals.u32": {
+      "bytes": 1418284880,
+      "sha256": "f9a65e470dc0cc221a1e18ac0b95735b9197aeb23be178cde7323c9ff4261d84"
+    },
+    "data/runtime_index/tags.json": {
+      "bytes": 2552325,
+      "sha256": "b8be4780f5d21bcd938ddace58220d0a003418407e29d1563f937a60b9a867aa"
+    },
+    "data/runtime_source/posts-snapshot-ebb02a630201c7b51487e45fb90b3fcf4cbedc20.parquet": {
+      "bytes": 4088245636,
+      "sha256": "5b6b2671dc0fa966de71af76dfd342f485f76581447cec9e26c313ba9fb1c2fd"
+    },
+    "data/semantic/family_support_rules.csv": {
+      "bytes": 610,
+      "sha256": "85907d03a5425675d1afc87177a8c99fe846d941718780a6b86baa10373c5465"
+    },
+    "data/semantic/recommendation_generation_hints.csv": {
+      "bytes": 1658,
+      "sha256": "5ae09ddb0267f0a6de563ea5b49d76725795724500938552666e3c591f6ecd79"
+    },
+    "data/semantic/recommendation_semantic_labels.csv": {
+      "bytes": 2024,
+      "sha256": "57459defccb4ac0fe8f55a938557531dad2d067ea45d36a1655f8cd5824cbe0f"
+    },
+    "data/semantic/semantic_bridge_v1.csv": {
+      "bytes": 47913,
+      "sha256": "d34df85810641447f39e4b12f9dcecab6983b2e1a4384439fa3934dba8c35247"
+    },
+    "data/semantic/semantic_support_profiles.csv": {
+      "bytes": 15959,
+      "sha256": "2ecddf3fa35fe7e1f2c2a32b201cd016f2d2df7f8672f25bed37237aa996afc2"
+    },
+    "data/semantic/stage10_test_slots.csv": {
+      "bytes": 161,
+      "sha256": "ddac136b3c6839c8f31e60298d6551fd6d16ed48effa4cffa2c7ad4744789a49"
+    },
+    "data/semantic/stage8c_exit_pilot_family_assessment.csv": {
+      "bytes": 1716,
+      "sha256": "8e699ae1111a17498d67d23e858e65c57fc35b7ae8e98f4156fffd02cd591241"
+    },
+    "data/semantic/stage8c_exit_pilot_scope.csv": {
+      "bytes": 2468,
+      "sha256": "458678b49066cdd6dcfcc3bc9d41e80c34a2094c83be8f9d73a0004f6c6a9009"
+    },
+    "data/semantic/stage8c_family_candidate_applicability.csv": {
+      "bytes": 3854,
+      "sha256": "4365211b4c15d858d3a6004d35ca15392852b30cdacdb839107b2afc2fbd01e5"
+    },
+    "data/semantic/stage8c_family_relation_proposals.csv": {
+      "bytes": 627,
+      "sha256": "7dc74464b67fed6fe73e6d70707974e8bf5c9d3facf9dea7da0f3a5e9e455ef2"
+    },
+    "data/semantic/stage8c_family_rule_review.csv": {
+      "bytes": 3929,
+      "sha256": "681537dbdc17869bc4a70ce8ef8725efdeebd3bc859c9ad154933154203e832a"
+    },
+    "data/semantic/stage8c_model_familiarity.csv": {
+      "bytes": 231,
+      "sha256": "b9fa2c16a55f04aa584c8013db76209f5edffc77797a915ba1fcce966e92dc33"
+    },
+    "data/semantic/stage8c_non_tag_strategy.csv": {
+      "bytes": 137,
+      "sha256": "4cafc8042676ec3cd9c0be6ea73ed47b1e91e05f3d2086fadccb3a8c4b267399"
+    },
+    "data/semantic/stage8c_pilot001_frozen_expectations.json": {
+      "bytes": 955,
+      "sha256": "ebe872ed84429227fc3351750549c18ba93f4f15af3cd2e1c27b78ecf35a4818"
+    },
+    "data/semantic/stage8c_practical_use.csv": {
+      "bytes": 150,
+      "sha256": "7415f73372277a2d1c1be682c4a78960b4016e9f5640e8de06cf1324bc45e499"
+    },
+    "data/semantic/stage8c_relation_evidence_events.csv": {
+      "bytes": 265,
+      "sha256": "99448e2bfa508b3ee877a639f7505a67c1dcf27a3bb8d692ee411596aa0ca730"
+    },
+    "data/semantic/stage8c_research_sources.csv": {
+      "bytes": 4677,
+      "sha256": "dcfedd028648e7519ee7814d497118e69d477a4da5c0f1a6682a556d86852036"
+    },
+    "data/semantic/stage8c_review_status.csv": {
+      "bytes": 164687,
+      "sha256": "42360a05641ed738b0f80925171e9f0a80d72ed3279b7bfac8e95ec28d11fe33"
+    },
+    "data/semantic/stage8c_static_family_coverage_strategy.csv": {
+      "bytes": 3220,
+      "sha256": "f7d9b5749ff669a4930544104b0936e9a40498913599d6858fd04ce1a24f1a02"
+    },
+    "data/source/danbooru-2026-09-02.csv": {
+      "bytes": 3436154,
+      "sha256": "9b32d5ac0713ab252e7470ba6af9cb34de56878b6b3b13dfbbf6a4a37d82d95b"
+    },
+    "data/special2788/illustrious_tag_knowledge_base_2788.csv": {
+      "bytes": 1199815,
+      "sha256": "07584b365d5a68dbadd3f5e80859e768c2718b18746e32de02ce4b8bd60935e3"
+    },
+    "data/special2788/illustrious_tag_knowledge_base_2788.xlsx": {
+      "bytes": 310602,
+      "sha256": "70a2705644cbe8503c33f4b5fad16e57b3ab2dc8601d65ae881822226471054a"
+    },
+    "data/special2788/illustrious_tag_knowledge_base_2788_README.md": {
+      "bytes": 1146,
+      "sha256": "691f896b37ad8eaaad76f0d22a111a0b6da852d96b76e190201e2c07c4476461"
+    },
+    "data/special2788/product_fit_verdicts.csv": {
+      "bytes": 44041,
+      "sha256": "357427dfd542a4e582f6fe57bc966539210e794796e9ad93d6350950e1f61f68"
+    },
+    "data/special2788/prompt_reference/01_身体・解剖.txt": {
+      "bytes": 10209,
+      "sha256": "aad835fdd986bfb04a66ba2914dee9c3fd67ecaea0e8b67df3672e0661b31d60"
+    },
+    "data/special2788/prompt_reference/02_裸体・衣服・露出.txt": {
+      "bytes": 15689,
+      "sha256": "e9161fbfdf18440e16e4d39edf6b4017f9e1e39fdfec633ed928c03ac77ade7b"
+    },
+    "data/special2788/prompt_reference/03_ポーズ・体位・構図.txt": {
+      "bytes": 4770,
+      "sha256": "73eb5ef3ed609739ce24643d4ba0574679b2de7d8bd602b8ffa525d680da6a4c"
+    },
+    "data/special2788/prompt_reference/04_性行為・性的刺激.txt": {
+      "bytes": 18635,
+      "sha256": "cd86e749c5de2bb4011e28960c43f161d2ab8df0883f15a937faf4a3a153cbc8"
+    },
+    "data/special2788/prompt_reference/05_挿入・性具・機械.txt": {
+      "bytes": 11057,
+      "sha256": "2db8a2ea4d3a5c1013d3796b730e4b0fb0b8f285f63ff6b468a55bee502238f8"
+    },
+    "data/special2788/prompt_reference/06_拘束・BDSM・支配.txt": {
+      "bytes": 11482,
+      "sha256": "2672cd610142f8f044677401936fc24203165d42d9f47782b69a9b668e1f4172"
+    },
+    "data/special2788/prompt_reference/07_体液・排泄・汚損.txt": {
+      "bytes": 9625,
+      "sha256": "e68af4ddff7621a8ecf4a0988c66705e1963ebb01d9617421682d1628da9a22b"
+    },
+    "data/special2788/prompt_reference/08_異形・触手・非人間.txt": {
+      "bytes": 5063,
+      "sha256": "9e1c7357dda81066c6e317b4558ece521390ecf1fa711087e7372ec02b2fb1a9"
+    },
+    "data/special2788/prompt_reference/09_生殖・妊娠・授乳.txt": {
+      "bytes": 1086,
+      "sha256": "de947c0e3a344f2fc51f18b03f2466d2272a4ea03c555a832a4bd37ac8869966"
+    },
+    "data/special2788/prompt_reference/10_R18G・損傷・グロ.txt": {
+      "bytes": 5207,
+      "sha256": "96b7de2714c5693af1240c647def80a3e14ffe74597db9499210dc6b63514a11"
+    },
+    "data/special2788/prompt_reference/11_年齢・関係性・役割.txt": {
+      "bytes": 3244,
+      "sha256": "868222cc1002525a9e1bb5e1116657bf7970485983a5bdf776b2252dc6078075"
+    },
+    "data/special2788/prompt_reference/12_メタ・レーティング.txt": {
+      "bytes": 1856,
+      "sha256": "41201329181693e7476515765482a47c673763deb0477c6b6afd8cc37d0f7dd9"
+    },
+    "data/special2788/prompt_reference/13_その他・文脈_part01.txt": {
+      "bytes": 17691,
+      "sha256": "e9289bfbdbfe47ac6163b69236b3259dc7d78ddfd4404e36db0f5f81738dfb8a"
+    },
+    "data/special2788/prompt_reference/13_その他・文脈_part02.txt": {
+      "bytes": 18534,
+      "sha256": "cc07fd100894ff812b1450fb85d8880ffc65c73842df7d15f0bec6ede5dffe88"
+    },
+    "data/special2788/prompt_reference/13_その他・文脈_part03.txt": {
+      "bytes": 20078,
+      "sha256": "2c593c03fccec4ad325a67066b2b4d48af6a315a5ce8f7897d9e627bfda10029"
+    },
+    "data/special2788/prompt_reference/13_その他・文脈_part04.txt": {
+      "bytes": 22750,
+      "sha256": "0cb5ae9b9c824b1f9fb36b7535c1550b2f706b19bfd4274732dafa6b8091e9e0"
+    },
+    "data/special2788/prompt_reference/13_その他・文脈_part05.txt": {
+      "bytes": 21978,
+      "sha256": "ea485b4b72d67bceeb45532b4168f628dfc1c90dcc82bfb9ade267d6ecf92a33"
+    },
+    "data/special2788/prompt_reference/13_その他・文脈_part06.txt": {
+      "bytes": 19033,
+      "sha256": "198ffa4abecc5b635bc765ab31064c916e4d6155f9c74bb58cf9161ff6c34d8c"
+    },
+    "data/special2788/prompt_reference/13_その他・文脈_part07.txt": {
+      "bytes": 21146,
+      "sha256": "5386bee02a682ed5dceee10a1bfb2262f5e95b8437cf99e79518d836ecfbe3cd"
+    },
+    "data/special2788/prompt_reference/13_その他・文脈_part08.txt": {
+      "bytes": 370,
+      "sha256": "f2f95168fec7e79f4f0affcdbd1a5f4e72adcf276d2ab6840e4a08eb9473d179"
+    },
+    "data/special2788/prompt_reference/MANIFEST.txt": {
+      "bytes": 2573,
+      "sha256": "9e53322fb65ca4e26aedeecbb76242b44b095167c533e93c67a90e96dafecc6b"
+    },
+    "data/special2788/prompt_reference/README.md": {
+      "bytes": 2540,
+      "sha256": "8e9d71459a5cafb785dba13b494fc56f3890829ac2d845870c4a02d64e2c6fb0"
+    }
+  },
+  "all_equal": true,
+  "baseline": "docs/issue64/protected_before.json",
+  "changed": [],
+  "note": "Baseline taken after initial read-only population materialization, before regression tests; overlay additionally matches prior #55 promotion. Scope is listed data roots and audited V5 source, not every ignored workspace file.",
+  "removed": []
+}

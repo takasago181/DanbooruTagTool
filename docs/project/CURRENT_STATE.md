@@ -54,6 +54,15 @@ Current continuation:
 Do not implement #34 ranking redesign or #42 broad UI/product-scope work inside #64.
 Do not expand to the full 100k+ Danbooru universe.
 
+### Issue #64 implementation checkpoint — pilot submitted, acceptance pending
+
+Task branch: `codex/issue64-general-taxonomy-pilot` (base live main `293181686260a91398334a0fe2d794a5998388cc`).
+Report: `docs/issue64/PILOT_REPORT.md`; boundary queue: `docs/issue64/BOUNDARY_AUDIT.md`.
+Exact #55 population verified: 30,629; reproducible pilot: 173 rows, 161 proposed paths, 12 explicit unresolved.
+Taxonomy proposal: 17 shallow genres; reviewed/accepted classifications: 0; full rollout: not started.
+Focused + relevant regression: 64 passed; 86 protected input files unchanged.
+Stop: DEV/AUDIT pilot review. This branch checkpoint is implementation evidence, not an acceptance or routing advancement.
+
 ## Next required route
 
 After #64 is accepted/merged:
@@ -204,10 +213,10 @@ Management authority:
 
 ## Next Actions
 
-1. Start #64 from latest live main after preflight.
-2. Reproduce the exact 30,629 General target population without mutating protected overlay data.
-3. Inspect real distribution and representative examples before freezing taxonomy.
-4. Build a reproducible pilot and return it for DEV/AUDIT review before full rollout.
+1. Retrieve the #64 pilot branch/commit from the live Issue checkpoint.
+2. Verify exact population, protected-data hashes and reproducible artifacts in `docs/issue64/`.
+3. Review the taxonomy proposal, boundary cases, concentration and 12 unresolved rows.
+4. Record DEV/AUDIT pilot acceptance or requested revisions before full rollout.
 5. Expand to all 30,629 only after pilot acceptance.
 6. After #64 acceptance, move to #34 and fix bilingual relevance/noise.
 7. Activate #42 only after #34, compare actual current code against the v1 ADOPT/HOLD/REJECT list, and lock v1 scope.
