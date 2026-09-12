@@ -179,21 +179,16 @@ Issue #64。
 
 ## D-013 Stage10 / generation-effectiveness is not a v1 blocker
 
-Status: ADOPTED / UPDATED BY D-016
+Status: **ADOPTED FOR v1 BOUNDARY / OLD STAGE10 MEANING SUPERSEDED BY D-017**
 
-Stage10 / evaluator / Generation Profile / former Issue #5 evidenceは将来資産として保持するが、v1 completion必須ではない。
+The v1 boundary remains valid:
+- generation-effectiveness is not a v1 completion blocker
+- evaluator / Generation Profile / historical Stage10 A/B evidence remain optional assets for the product
+- Prompt/generation knowledge remains owned by **KNOWLEDGE #44**
+- former Issue #5 remains retired/closed and historical only
 
-Prompt/generation-effectiveness knowledge and future narrow validation are now owned by **KNOWLEDGE #44**.
-Former Issue #5 is retired/closed and historical only.
-
-再activateするのは、採用featureが例えば以下を必要とする時だけ:
-- model-specific effectiveness
-- evidence-backed automatic support
-- image-dependent failure diagnosis
-- A/B experiment support
-
-必要な狭い実験だけ行う。
-Broad Stage10 sweepを「インフラがあるから」という理由で開始しない。
+However, the old definition of `Stage10 = future production A/B validation lane` is superseded by D-017.
+Old A/B/evaluator infrastructure remains preserved as evidence/testing tooling and can be used inside the new learning Stage10 when useful.
 
 ---
 
@@ -263,7 +258,69 @@ v1 knowledgeとfuture/advanced generation knowledgeは別チームに分けず�
 
 ---
 
+## D-017 Stage10を実践画像生成学習ステージへ再定義 — 2026-09-13
+
+Status: **ADOPTED**
+
+Stage10の目的を、Special Core Dictionaryの広範囲production A/B検証から、**ユーザー自身が画像生成を実践的に習得するための学習ステージ**へ変更する。
+
+Canonical Stage10 definition:
+- `docs/stages/STAGE_10_LEARNING.md`
+- Issue #65 `[STAGE10][LEARNING][ACTIVE] Practical image-generation mastery with NoobAI`
+
+目標:
+
+`日本語の意図 -> Prompt設計 -> 生成 -> 観察 -> 原因分解 -> 修正 -> 必要ならLoRA/修復/領域制御 -> 仕上げ -> 再現可能な保存`
+
+を初心者が自力で回せるようにする。
+
+最終的には、成人の架空/二次元を前提としたハード・ニッチな表現を含む難しい生成でも、単なるレシピコピーではなく、
+- model/profile選択
+- Prompt構成
+- camera/visibility
+- actor-target/body-site/count/relation
+- Negative/Seed/weight
+- LoRA
+- Hires/ADetailer/img2img/inpaint
+- regional/control
+- failure diagnosis
+
+を使い分け、狙った絵へ修正しながら完成させられる状態をStage10 completionとする。
+
+Primary learning lane:
+- **NoobAI XL 1.1 EPS + Forge Neo**
+
+Secondary lanes:
+- Anima = relation-heavy / multi-character / tag+NL comparison/fallback
+- WAI Illustrious v17 = historical/comparison
+- NoobAI V-Pred = separate advanced profile
+
+Curriculum:
+- 10.0 environment/reproducibility
+- 10.1 Prompt fundamentals
+- 10.2 composition/camera/visibility
+- 10.3 hard/niche structural generation
+- 10.4 failure diagnosis/controlled iteration
+- 10.5 seed/Negative/weights/LoRA
+- 10.6 finishing/local repair
+- 10.7 regional/control escalation
+- 10.8 efficient daily workflow
+- 10.9 independent capstone
+
+Old Stage10 production A/B assets are **not deleted**. They become:
+- teaching material
+- controlled-comparison tooling
+- provenance/evidence
+- failure-diagnosis aids
+
+Stage10 is parallel to the v1 product route and remains **not a v1 completion blocker**.
+Likewise, v1 completion does not imply Stage10 learning completion.
+
+KNOWLEDGE #44 supplies the research/claims; Stage10 may feed repeated practical observations back to #44. One successful image must not be promoted to universal model truth.
+
+---
+
 ## Historical note
 
-旧Stage0–9実装判断、Stage10準備、evaluator校正、Prompt Composer研究等の詳細はGit historyと対応Issue/Stage文書に保持する。
-Historical decisionは現在の `PRODUCT_GOAL_LOCK.md` / #42 scopeより優先しない。
+旧Stage0–9実装判断、旧Stage10 A/B準備、evaluator校正、Prompt Composer研究等の詳細はGit historyと対応Issue/Stage文書に保持する。
+Historical decisionは現在の `PRODUCT_GOAL_LOCK.md` / #42 scope / D-017 Stage10 definitionより優先しない。
