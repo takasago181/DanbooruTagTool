@@ -15,17 +15,20 @@ Each completed batch is immutable after checkpointing and is stored under `batch
 
 - Batches 1-4 were persisted before this protocol was finalized; their immutable row ledgers plus MANIFEST row ranges and SHA-256 are the accepted recovery record.
 - Batch 5 onward additionally stores a summary JSON with counts, unresolved list, and audit notes.
+- Normal storage is one xz-compressed CSV ledger (`*.csv.xz`).
+- If connector payload handling makes direct binary persistence impractical, the same xz bytes may be split into ordered base64 text fragments (`*.xz.b64.partNNN`). `MANIFEST.json` must then record fragment order, decoded size/hash, base64-text hash, the reconstructed whole-xz SHA-256, and raw CSV SHA-256.
+- To restore a fragmented batch: concatenate the base64 text fragments in listed order, base64-decode once, verify the whole xz SHA-256, decompress xz, then verify the raw CSV SHA-256.
 - Do not rewrite an older batch merely to make later logic cleaner. If a semantic correction is needed, record it as a later correction/audit artifact that names the affected canonical rows and preserves traceability.
 
 ## Checkpoint files
 
-- `MANIFEST.json` is the machine-readable batch ledger: exact global row ranges, row counts, hashes, and totals.
+- `MANIFEST.json` is the machine-readable batch ledger: exact global row ranges, row counts, hashes, storage details, and totals.
 - `PROGRESS.md` is the human-readable current stop point and routing note.
 - Issue #64 receives milestone comments at meaningful checkpoints so the work itself is discoverable from the project management trail.
 
 A batch is considered persisted when:
-1. its immutable row ledger is stored,
-2. `MANIFEST.json` includes its exact range and ledger SHA-256,
+1. its immutable row ledger (single xz or complete ordered fragment set) is stored,
+2. `MANIFEST.json` includes its exact range and verification hashes,
 3. `PROGRESS.md` points through the same final global row,
 4. for Batch 5 onward, its summary JSON is also stored.
 
