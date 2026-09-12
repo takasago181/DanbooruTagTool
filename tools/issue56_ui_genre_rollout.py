@@ -54,6 +54,17 @@ MAPPING_FIELDS = [
     "ambiguity_note",
 ]
 
+# The audited Pilot map predates classification_reason. Keep it as a valid
+# evidence seed while requiring the core fields from every mapping source.
+REQUIRED_MAPPING_FIELDS = [
+    "special_id",
+    "primary_genre_id",
+    "primary_subgenre_id",
+    "secondary_paths",
+    "classification_status",
+    "ambiguity_note",
+]
+
 QUEUE_FIELDS = [
     "source_file",
     "old_reference_row",
@@ -77,10 +88,13 @@ def _read_csv(path: Path) -> list[dict[str, str]]:
         reader = csv.DictReader(handle)
         if reader.fieldnames is None:
             raise RolloutError(f"{path}: missing header")
-        missing = [field for field in MAPPING_FIELDS if field not in reader.fieldnames]
+        missing = [field for field in REQUIRED_MAPPING_FIELDS if field not in reader.fieldnames]
         if missing:
             raise RolloutError(f"{path}: missing mapping columns {missing}")
-        return [{key: (value or "").strip() for key, value in row.items()} for row in reader]
+        return [
+            {field: str(row.get(field) or "").strip() for field in MAPPING_FIELDS}
+            for row in reader
+        ]
 
 
 def _write_csv(path: Path, fieldnames: Sequence[str], rows: Iterable[dict[str, object]]) -> None:
@@ -332,7 +346,6 @@ def build_outputs(output_dir: Path, *, require_complete: bool = False) -> dict[s
     mappings, origins = merge_mapping_sources()
     meta = validate_mapping(rows, mappings, genres, subgenres, require_complete=require_complete)
 
-    source_by_id = {row.special_id: row for row in rows}
     old_other_unmapped = [
         row
         for row in rows
