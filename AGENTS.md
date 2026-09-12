@@ -5,7 +5,7 @@
 Codexは独立班ではなくDEV（開発班）の実装担当。
 仕様・現在地・Gateをチャット記憶から推測しない。
 
-常設班はDEVとKNOWLEDGE。旧PROMPT班は2026-09-12に廃止され、Prompt/generation-effectiveness知識はKNOWLEDGE #44へ統合された。
+常設班はDEVとKNOWLEDGE。旧PROMPT班は廃止され、Prompt/generation-effectiveness知識はKNOWLEDGE #44へ統合された。
 
 ## 2. 作業開始ゲート
 
@@ -16,19 +16,19 @@ Codexは独立班ではなくDEV（開発班）の実装担当。
 3. GitHub live `origin/main` のHEADを確認
 4. `origin/main:docs/project/CURRENT_STATE.md`
 5. `origin/main:docs/project/PERMANENT_RULES.md`
-6. `CURRENT_STATE.md` が示すcurrent DEV Issueを `gh issue view <ISSUE> --comments` で取得
+6. `CURRENT_STATE.md` が示す対象DEV laneのlive GitHub Issue本文と最新コメントを取得
 7. Issue title / state / body / latest checkpoint / completion condition / blockerを確認
 8. 必要なら `docs/PRODUCT_GOAL_LOCK.md` と当該Issueが参照する現行仕様を読む
 9. branch-local管理文書との差分はその後に確認する
 
 現在地の優先順位:
 
-`live main CURRENT_STATE -> live Issue -> latest checkpoint -> PERMANENT_RULES -> task branch/local worktree`
+`live main CURRENT_STATE -> target live Issue -> latest checkpoint -> PERMANENT_RULES -> task branch/local worktree`
 
 古いbranch、旧handoff、過去Stage資料で現在地を巻き戻さない。
 矛盾時はfail-closedで停止する。
 
-`NO_CURRENT_DEV / MANAGEMENT_HANDOFF` は正常な停止状態。open Issueを勝手にcurrent DEVへ昇格しない。
+CURRENT_STATEが複数のactive DEV laneを示す場合、**ユーザーが依頼したlaneだけを選ぶ**。別laneを勝手に混ぜない。
 
 ## 3. 現在の製品目的
 
@@ -42,7 +42,8 @@ v1の中心は:
 
 v1で必須:
 - 既存Promptのタグを日本語-first + canonical Englishで理解できる
-- 日本語/英語の両方で検索できる
+- 日本語/英語/混在で検索できる
+- exact/strong intentをincidental fuzzy/substring noiseより優先できる
 - Special Core Dictionaryをジャンル/サブジャンルから深く発見できる
 - production Japanese overlay 30,629件のGeneralタグを浅い実用ジャンルから発見できる
 - Special/Generalをユーザー自身が追加・削除・並べ替えできる
@@ -64,32 +65,54 @@ v1でデフォルトにしない:
 - full 11M-post / ~3GB statistics indexの必須化
 - Forge/ComfyUI direct generation integrationの必須化
 
-**Stage10 is not a v1 product Gate.**
-2026-09-13以降、Stage10はIssue #65 / `docs/stages/STAGE_10_LEARNING.md`で定義される実践画像生成学習ステージ。
-旧Stage10 production A/B/evaluator資産はhistorical/testing evidenceであり、新Stage10 completion定義ではない。
+## 4. Current active DEV lanes
 
-## 4. Stage10 learning relationship
+### Issue #64 — General taxonomy
 
-Stage10はcurrent core DEVとは別のparallel learning lane。
+Owns only:
+- exact General 30,629 target population
+- shallow practical taxonomy classification
+- sidecar data/audit
+- unresolved accounting
+
+Do not implement UI/search behavior inside #64.
+`docs/project/CURRENT_DEV_TASK.md` is an Issue #64 mirror only.
+
+### Issue #66 — app/search/UI completion
+
+Owns:
+- beginner-first desktop UI
+- existing-Prompt understanding/workspace
+- bilingual/mixed search quality and ranking/noise fixes
+- Special browse integration
+- General browse provider/UI that later consumes accepted #64 output
+- explicit add/remove/reorder
+- canonical-English preview/copy
+- hidden automatic insertion cleanup
+- final ADOPT/HOLD/REJECT reconciliation against `PRODUCT_GOAL_LOCK.md`
+- focused regression and real Windows acceptance
+
+Known search regression such as `anal -> piano / analog...` is part of #66 acceptance.
+
+Issues #34 and #42 are retired/closed historical provenance only. Do not use them as future Gates.
+
+## 5. Stage10 relationship
+
+Stage10 is not a v1 product Gate.
+It is defined by Issue #65 / `docs/stages/STAGE_10_LEARNING.md` as a practical image-generation learning stage.
+Current user priority pauses Stage10 until the practical v1 app baseline is complete.
 
 Primary learning model:
 - NoobAI XL 1.1 EPS + Forge Neo
 
 Secondary:
-- Anima = relation-heavy / multi-character / tag+natural-language比較/fallback
+- Anima = relation-heavy / multi-character / tag+natural-language comparison/fallback
 - WAI Illustrious v17 = historical/comparison
 - NoobAI V-Pred = separate advanced profile
 
-Stage10の目標は:
-
-`意図 -> Prompt -> 生成 -> 観察 -> 原因分解 -> 修正 -> 必要な補助 -> 仕上げ -> 再現可能な保存`
-
-をユーザーが自力で回せること。
-
 CodexはStage10学習を理由に、本体v1へ自動Prompt最適化・direct generation・evaluator UI等を勝手に実装しない。
-Stage10からproduction変更が必要になった場合は、別途DEV Issue / product routingを作る。
 
-## 5. Special / Generalの役割
+## 6. Special / Generalの役割
 
 ### Special
 - 2,788 identityはfreeze済み
@@ -103,18 +126,6 @@ Stage10からproduction変更が必要になった場合は、別途DEV Issue / 
 - #64でcanonical-tag keyedの別taxonomy sidecarを作る
 - Specialより浅いPrompt用途中心の分類にする
 - 全100k+ Danbooru universeへ勝手に拡張しない
-
-## 6. 現行Issueが最優先
-
-このファイルはrouting/invariantを示すだけ。
-実装scope・禁止事項・completion criteriaはlive current DEV Issue本文が正本。
-
-current DEVが#64なら#64だけを実装し、#34/#42を先取りしない。
-製品方向変更があっても、現行Issueの実装境界を勝手に拡張しない。
-
-KNOWLEDGE #44はcurrent core DEVとは別のnon-blocking lane。Prompt/generation-effectiveness知識を所有し、Stage10へ知識を供給しても、Codexがそこからproduction仕様を推測して実装しない。
-
-Issue #65はStage10 learning ownerであり、DEV implementation slotではない。
 
 ## 7. protected data safety
 
@@ -140,6 +151,7 @@ GitHubに見えないことを削除・不要と解釈しない。
 ## 8. branch / handoff
 
 - 本体実装は原則latest mainからtask feature branch
+- #64 rollout branchと#66 app branchを混ぜない
 - 直接mainへ未review実装をcommitしない
 - stable checkpointはcommit
 - push可能ならremoteへpush
@@ -153,15 +165,24 @@ GitHubに見えないことを削除・不要と解釈しない。
 常時読む:
 1. `docs/project/CURRENT_STATE.md`
 2. `docs/project/PERMANENT_RULES.md`
-3. current DEV Issue
+3. target live DEV Issue
 4. `docs/PRODUCT_GOAL_LOCK.md`
-5. current Issueが指定する仕様
+5. target Issueが指定する仕様
 
-v1 product scope確認時:
+Issue #64作業時:
+- `docs/project/CURRENT_DEV_TASK.md`
+- live Issue #64 latest checkpoint
+- `docs/issue64/full_rollout/PROGRESS.md`
+- 必要なrollout files
+
+Issue #66作業時:
+- live Issue #66
 - `docs/FEATURE_PRIORITY.md`
 - `docs/FLOWCHARTS.md`
-- Issue #42
-- Issue #64（General taxonomy作業時）
+- `danbooru_tag_tool/ui.py`
+- search/session/composer/presenter modules
+- relevant tests
+- Issue #64はdependency/boundary確認に必要な範囲だけ
 
 Stage10 learningを扱う時:
 1. Issue #65
@@ -175,7 +196,7 @@ KNOWLEDGE / generation-effectivenessを参照する必要がある時:
 - `knowledge/generation-corpus` のcurrent/catalog/research
 - historical Issue #5 はprovenance確認が必要な時だけ
 
-以下は**該当Issueが必要とする時だけ**読む subsystem / historical architecture docs:
+以下は該当Issueが必要とする時だけ読む:
 - `docs/CORE_TAG_SET_SCHEMA.md`
 - `docs/STATISTICS_POLICY.md`
 - `docs/SEMANTIC_BRIDGE_SCHEMA.md`
@@ -183,20 +204,17 @@ KNOWLEDGE / generation-effectivenessを参照する必要がある時:
 - Generation Profile / Stage8 / Stage9 / legacy Stage10 A/B資料
 - co-occurrence / full-index architecture資料
 
-過去に実装済みだからという理由だけで、subsystemをv1 UI/runtime必須へ戻さない。
-
 ## 10. 実装原則
 
 - canonical identityを日本語UX都合で変更しない
 - 日本語は理解/検索/表示補助でありsemantic authorityではない
-- Japanese + English searchを維持
+- Japanese + English + mixed searchを維持
+- exact/strong intentをincidental fuzzy/substringより優先
 - user explicit choiceを優先し、v1で隠れたautomatic insertionを作らない
 - 既存機能が目的を満たすなら重複実装しない
 - overengineeringしない
 - runtime LLM dependencyを導入しない
 - focused test + applicable regression + user-visible UI変更時の実Windows確認を行う
-
-Stage10学習のlocal resultは、単発成功だけでglobal model truthへ昇格させない。
 
 ## 11. 報告
 
@@ -207,7 +225,5 @@ Stage10学習のlocal resultは、単発成功だけでglobal model truthへ昇�
 - protected/canonical dataへの影響
 - 未解決事項
 - stop point / next Gate
-
-Stage10 learning checkpointはIssue #65の形式に従い、model/profile/runtime / target / actual Prompt・Negative / settings / Seed / tools・LoRA / result / failure class / lesson を復元可能にする。
 
 詳細運用は `docs/project/PERMANENT_RULES.md` を正本とする。
