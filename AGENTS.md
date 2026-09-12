@@ -5,6 +5,8 @@
 Codexは独立班ではなくDEV（開発班）の実装担当。
 仕様・現在地・Gateをチャット記憶から推測しない。
 
+常設班はDEVとKNOWLEDGE。旧PROMPT班は2026-09-12に廃止され、Prompt/generation-effectiveness知識はKNOWLEDGE #44へ統合された。
+
 ## 2. 作業開始ゲート
 
 新規セッション・再開・task branch作成前に必ず:
@@ -62,7 +64,7 @@ v1でデフォルトにしない:
 - full 11M-post / ~3GB statistics indexの必須化
 - Forge/ComfyUI direct generation integrationの必須化
 
-Stage10 / Issue #5 はv1の必須Gateではない。将来、generation-effectivenessを主張する機能を採用した時だけ必要な最小実験へ再利用する。
+Stage10 / generation-effectivenessはv1の必須Gateではない。旧Issue #5はretired/closedで、将来generation-effectivenessを主張する機能を採用した時はKNOWLEDGE #44が既存claimsを確認し、必要な最小実験だけを扱う。
 
 ## 4. Special / Generalの役割
 
@@ -84,8 +86,10 @@ Stage10 / Issue #5 はv1の必須Gateではない。将来、generation-effectiv
 このファイルはrouting/invariantを示すだけ。
 実装scope・禁止事項・completion criteriaはlive current DEV Issue本文が正本。
 
-current DEVが#63なら#63だけを実装し、#34/#42/#64を先取りしない。
+current DEVが#64なら#64だけを実装し、#34/#42を先取りしない。
 製品方向変更があっても、現行Issueの実装境界を勝手に拡張しない。
+
+KNOWLEDGE #44はcurrent core DEVとは別のnon-blocking lane。Prompt/generation-effectiveness知識を所有していても、Codexがそこからproduction仕様を推測して実装しない。
 
 ## 6. protected data safety
 
@@ -133,6 +137,11 @@ v1 product scope確認時:
 - `docs/FLOWCHARTS.md`
 - Issue #42
 - Issue #64（General taxonomy作業時）
+
+KNOWLEDGE / generation-effectivenessを参照する必要がある時だけ:
+- Issue #44
+- `knowledge/generation-corpus` のcurrent/catalog/research
+- historical Issue #5 はprovenance確認が必要な時だけ
 
 以下は**該当Issueが必要とする時だけ**読む subsystem / historical architecture docs:
 - `docs/CORE_TAG_SET_SCHEMA.md`
