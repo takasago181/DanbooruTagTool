@@ -4,19 +4,17 @@
 
 ## Current Stage
 
-Stage 9 overall Gate 完了 / Stage10 準備Gate実施中 / Special Core Dictionary practical completion (#56) 実施中 / automated E2E PASS / Special Core Dictionary freeze 完了
+Stage 9 overall Gate 完了 / Stage10 準備Gate実施中 / Special Core Dictionary practical completion (#56) 完了 / bilingual search relevance (#34) 残Gate / automated E2E PASS / Special Core Dictionary freeze 完了
 
 本ファイルは現在地のrouting正本。task contract / completion criteria / result evidenceは対応Issueを正本とし、更新競合時はlive Issue / branch / checkpointを優先して同期する。
 
 ## Current Core DEV
 
-**Issue #56 / Special Core Dictionary practical completion**
+**NONE / MANAGEMENT_HANDOFF — #34 SEARCH GATE REMAINS**
 
-ユーザー指示により、Stage10前段として Issue #56 をcurrent core DEVへactivateした。目的は、freeze済み2,788 Special identityを再検証・再定義することではなく、日本語ユーザーが理解・検索・閲覧できる実用辞書としてUI分類・日本語表示・Alias閲覧経路を完成させること。canonical Special ID / canonical English identity / Alias関係 / protected production data / #32/#43 evidenceは保護し、UI taxonomyはread-only sidecarとして設計する。
+Issue #56 Special Core Dictionary practical completion は、full 2,788 UI browse mapping、Pilot/Full独立監査、main統合まで完了した。Final Audit Issue #61 は `PASS`、監査commentは `5642860927`。監査済みfeature HEAD `3a76cac0c77ac53c8b5c88f1650731ad6390a9f2` は PR #62 で main へ統合され、merge commit は `ce7b20dad40190ebd0c67fcc7f53def297df523c`。
 
-Current #56 feature branch: `dev/issue56-special-dict-ui-taxonomy`。
-
-#34 bilingual search relevanceはparallel cross-cuttingとして継続可能。#42は #56 完了に加え、#34 material concern完了またはStage10 Gateからの明示分離までactivateしない。Stage10 production A/Bは開始しない。
+#56はclosed/completed。#42はまだactivateしない。残るmaterial Gateは Issue #34 bilingual search relevance/noiseであり、完了またはStage10 Gateからの明示分離が必要。Stage10 production A/Bは開始しない。
 
 Machine Triage Audit `2660c3106d2252c8aa8f3006f2a1040fd95004db` をDEV受入れ済み。既存Generation Batch 12画像ではWD14 / Kagami-24k / CL Tagger v2.00のraw evaluatorは36/36成功、raw artifact image-ID bindingはPASS。一方、旧Generation Batch reportのevaluator referenceは33件不一致で、reporting/provenance参照 defectだった。retrospective machine-first reductionは0%で、前Batchがrelation/binding/body-site/low-confidence中心だったことによるbatch selection失敗と判定した。
 
@@ -25,8 +23,11 @@ Generation Batch 2は完了。execution/report `7e516bd1ca27c862cdaf023c023bed74
 Issue #30 accepted integration checkpoint `5629477164`により、16 experiments / 64 images、32 pairs、全件visual audit、既存rawからのevaluator serialization repair、machine-vs-visual calibrationを完了した。Wave 1の再生成・evaluator再実行・Wave 2は行わない。
 
 Current restore anchors:
-- **current DEV contract: Issue #56 body + latest checkpoints**
-- **current branch: `dev/issue56-special-dict-ui-taxonomy`**
+- **current DEV contract: NONE / management handoff**
+- **next material Gate: Issue #34 body + latest checkpoints**
+- #56 completion checkpoint: `5642882451`
+- #56 Final Audit PASS: Issue #61 comment `5642860927`
+- #56 production/main merge: PR #62 / `ce7b20dad40190ebd0c67fcc7f53def297df523c`
 - #56 source data: `data/special2788/prompt_reference/`
 - #56 generation-structure boundary: `docs/GENERATION_PROFILE_SCHEMA.md`
 - Phase 1: `docs/project/ISSUE30_HANDOFF_20260910.md`
@@ -37,7 +38,7 @@ Current restore anchors:
 - Generation Batch 2 execution/report: `7e516bd1ca27c862cdaf023c023bed74e34e6833`
 - Generation Batch 2 human review: `1cd33c7ebec445c3e3870ebce360f9cfee1ffbf9`
 - Issue #30 accepted repair/integration: `9be3fe764c77b7dd6eaba4f791dfb5c3282c8e8b`
-- **current continuation: `ISSUE56_SPECIAL_DICTIONARY_PRACTICAL_COMPLETION`**
+- **current continuation: `MANAGEMENT_HANDOFF / ISSUE34_SEARCH_GATE_REMAINS`**
 - supporting policy: `docs/project/AUDIT_ARTIFACT_CACHE_POLICY.md`
 - broad direction: `docs/project/ISSUE30_BROAD_COVERAGE_AUTOMATION_DIRECTION_20260911.md`
 - historical #30 branch: `codex/issue30-calibration-design`
@@ -47,13 +48,13 @@ Current restore anchors:
 | TEAM_ID | Status | Issue / scope | Branch / locator | Current phase | Restore anchor |
 | --- | --- | --- | --- | --- | --- |
 | `DICT:#32:R2` | COMPLETED / PROMOTED / CARRY_FORWARD_ONLY | #32 Special Core Dictionary historical validation | `dict-validation/quarantine` | 2,788/2,788 validation complete。approved effective subsetは#49でproduction反映済み。REVIEW/ITRはparked evidenceとして保持 | Issue #32 + #48 + #49 + #43 freeze |
-| `SPECIAL-DICT:#56` | **ACTIVE / CURRENT CORE DEV** | human-usable Japanese-first Special Core Dictionary practical completion | `dev/issue56-special-dict-ui-taxonomy` | UI taxonomy/subgenre design -> reproducible 150-row pilot selector -> pilot judgement -> old その他 expansion -> 01–12 cross-audit -> full 2,788 mapping | Issue #56 body + latest checkpoints |
+| `SPECIAL-DICT:#56` | **COMPLETED / FINAL_AUDIT_PASS / MERGED** | human-usable Japanese-first Special Core Dictionary practical completion | `main @ ce7b20d` / historical branch `dev/issue56-special-dict-ui-taxonomy` | 2,788/2,788 UI browse mapping、old その他 1,404/1,404、Final Audit #61 PASS、PR #62 main統合完了 | Issue #56 completion `5642882451` + Issue #61 PASS `5642860927` |
 | `KNOWLEDGE:#44` | ACTIVE / ONGOING / COVERAGE_COMPLETE | persistent generation knowledge corpus | `knowledge/generation-corpus` | 2,788 × WD14 / Kagami-24k / CL Tagger v2.00 desk coverage完了。#30 handoff済み。必要な追加知識/校正返却を担当 | Issue #44 correction checkpoint `5614819866` + commit `557aa4c` |
 | `UIJA:#36:V5` | COMPLETED / PROMOTED / POST_WRITE_AUDITED | Japanese overlay final convergence / production promotion | `ui-ja/issue36-relaxed-v5-chatgpt-repair` + `main` | 30,629 rowsのV5をIssue #55でproduction反映・独立post-write監査・main統合済み。V4はimmutable evidenceとして保持 | Issue #36 completion checkpoint |
 | `UIJA-ORCH:#46` | SUPERSEDED / CLOSED | historical independent Codex orchestration for V3.1/V4 | Issue #46 / `codex/issue46-orchestrator` | historical evidence only | Issue #46 superseded checkpoint |
-| `UIJA-PARENT:#34` | OPEN / CROSS-CUTTING / SEARCH_RELEVANCE_REMAINS | bilingual search relevance and remaining parent UI concerns | Issue #34 | `anal -> piano/analog_clock/...` 等のsubstring/fuzzy search noiseが主要残件。#56とはparallel可 | Issue #34 current body |
+| `UIJA-PARENT:#34` | OPEN / CROSS-CUTTING / **SEARCH_RELEVANCE_REMAINS** | bilingual search relevance and remaining parent UI concerns | Issue #34 | `anal -> piano/analog_clock/...` 等のsubstring/fuzzy search noiseが主要残件。#56 completion返却済み | Issue #34 current body + return checkpoint `5642896366` |
 | `TEMP:#30` | COMPLETED / ACCEPTED / INTEGRATED | Forge Neo evaluator calibration & A/B automation | `main @ 9be3fe7` / historical branch `codex/issue30-calibration-design` | Wave 1 16 experiments / 64 images、full visual audit、raw-based evaluator serialization repair、machine-vs-visual calibration完了。再生成・再評価・Wave 2なし | Issue #30 checkpoint `5629477164` / repaired calibration artifacts |
-| `PREP:#42` | RESERVED / GATED | Stage10 pre-evaluation product-purpose improvement | Issue #42 | **#56 practical dictionary completion + #34 material homework完了または明示分離後**にactivate | Issue #42 |
+| `PREP:#42` | RESERVED / GATED | Stage10 pre-evaluation product-purpose improvement | Issue #42 | **#56 SATISFIED。#34 material homework完了または明示分離後**にactivate | Issue #42 |
 | `PROMPT:#5` | GATED | Stage10 formal Prompt handoff | Issue #5 | #42 result後にformal handoff | Issue #5 |
 | `MAINT:#24` | OPEN / SAFETY_DEBT | Local protected data backup / restore verification | Issue #24 | GitHub外protected dataのbackup/restore・manifest・非破壊restore検証 | Issue #24 |
 
@@ -70,6 +71,12 @@ Current restore anchors:
 - Issue #36 V5 Japanese overlay convergence and production promotion: **completed / 30,629 entries / closed**
 - Issue #43 Special Core Dictionary naming/freeze: **PASS_ISSUE43_FREEZE / completed**
 - Issue #44 final evaluator desk coverage: **SATISFIED / HANDOFF COMPLETE**
+- Issue #56 Special Core Dictionary practical completion: **COMPLETED / Final Audit #61 PASS / PR #62 merged**
+  - full UI browse mapping 2,788 / 2,788
+  - old `その他・文脈` 1,404 / 1,404
+  - unmapped 0 / Alias pending 0
+  - Final Audit comment `5642860927`
+  - main merge `ce7b20dad40190ebd0c67fcc7f53def297df523c`
 - Issue #30 Phase 1 representative evaluator calibration: **COMPLETED / FROZEN EVIDENCE**
   - 32 Special cases × 4 = 128 unique images
   - WD14 / Kagami / CL each 128/128
@@ -197,14 +204,12 @@ Audit artifact cleanup carry-forward:
 
 ## Active / Ready Work
 
-### #56 Special Core Dictionary practical completion — CURRENT CORE DEV
+### #56 Special Core Dictionary practical completion — COMPLETED
 
-- Japanese-first UI browsing taxonomyをcanonical semanticsとは分離したsidecarとして設計する。
-- normal UI genre/subgenre labelsは日本語のみ、Special行は日本語 + English tagを維持する。
-- formal 150-row pilotは全source materialize後にreproducible selectorで抽出する。
-- exploratory checkpoints A/B/Cはtaxonomy evidenceとして保持するが、正式150件sampleとは数えない。
-- first implementation targetはpilot selectorのみ。canonical/production dataを書き換えない。
-- pilot結果からtaxonomyをADOPT/RENAME/MERGE/SPLIT/DROP/NEEDS_MORE_SAMPLEで確定後、old その他 -> old 01–12 cross-audit -> full 2,788 mappingへ進む。
+- Japanese-first UI browsing taxonomyはcanonical semanticsとは分離したsidecarとしてmainへ統合済み。
+- formal 150-row Pilot Gateとfull 2,788 Final Gateはいずれも独立監査PASS。
+- exact 2,788 mapping、old その他 1,404/1,404、Alias pending 0。
+- 監査済みfeature HEADをPR #62でmainへ統合済み。再実行しない。
 
 ### #36 UI-JA V5 — ChatGPT-led repair/audit
 
@@ -217,10 +222,11 @@ Current policy (historical completion record):
 - Codex/Luna is not used for translation-quality judgment or semantic audit in the current lane.
 - after all shards: integration/revalidation -> separate independent production-promotion gate -> Issue #55 production promotion and post-write audit complete.
 
-### #34 UI-JA parent remaining concerns
+### #34 UI-JA parent remaining concerns — NEXT MATERIAL GATE
 
-Primary remaining concern is bilingual search relevance/noise, including substring/fuzzy collisions such as `anal -> piano / analog_clock / analogous_colors`.
-#56とparallelに進行可能。#42 activation前にmaterial concernを完了またはStage10 Gateから明示分離する。
+Primary remaining concern is bilingual search relevance/noise, including substring/fuzzy collisions such as `anal -> piano / analog_clock / analogous_colors`。
+#56 completionは返却済み。#42 activation前にmaterial concernを完了またはStage10 Gateから明示分離する。
+現時点ではcurrent core DEVへ自動activateせず、次の管理/実装開始時にIssue #34 body + latest checkpointをpreflightする。
 
 ### #24 protected-data maintenance
 
@@ -234,11 +240,11 @@ GitHub外local protected dataについて、backup location / freshness / manife
 Dictionary promotion/freeze prerequisite: **SATISFIED**。
 #44 evaluator coverage prerequisite: **SATISFIED**。
 #30 Phase 1 representative calibration prerequisite: **SATISFIED**。
+#56 Special Core Dictionary practical completion: **SATISFIED / Final Audit PASS / main merged**。
 
 Phase 2は追加 refinement laneであり、#42 Gateを自動解除しない。
 
 残るactivation Gate:
-- **#56 Special Core Dictionary practical completion — ACTIVE / must complete first**
 - #34 material bilingual-search/search-noise concern complete or explicitly separated
 
 ### #5 PROMPT formal handoff
@@ -247,7 +253,7 @@ Formal completionは以下の後:
 1. #43 final freeze handoff — SATISFIED
 2. #44 evaluator coverage return — SATISFIED
 3. #30 representative routing/calibration Phase 1 — SATISFIED
-4. #56 Special Core Dictionary practical completion — ACTIVE / REMAINS
+4. #56 Special Core Dictionary practical completion — SATISFIED
 5. #42 product-purpose improvement result — REMAINS
 
 ## Current Gates
@@ -266,23 +272,27 @@ Formal completionは以下の後:
 12. #30 Phase 2 Generation Batch 2 machine-first — **SATISFIED / HUMAN REVIEW COMPLETE**
 13. #30 Broad Coverage Wave 1 — **SATISFIED / COMPLETED / REPAIR_ACCEPTED / INTEGRATED**
 14. #36 V5 repair/audit -> integration/revalidation -> independent promotion gate — **SATISFIED / #55 production promotion + post-write audit + main integration COMPLETE**
-15. **#56 Special Core Dictionary practical completion — ACTIVE / CURRENT CORE DEV**
-16. #34 bilingual search relevance/noise — **REMAINS / parallel; resolve or explicitly separate before #42**
-17. #42 product-purpose improvement pass — REMAINS / after #56 and #34 Gate condition
+15. **#56 Special Core Dictionary practical completion — SATISFIED / Final Audit #61 PASS / PR #62 MERGED**
+16. #34 bilingual search relevance/noise — **REMAINS / resolve or explicitly separate before #42**
+17. #42 product-purpose improvement pass — REMAINS / after #34 Gate condition
 18. #5 formal Prompt handoff — REMAINS / after #42
 19. `docs/stages/STAGE_10_PREP.md` remaining checks — REMAINS
 20. Stage10 production A/B — NOT STARTED
 
 ## Canonical dependency order
 
-Parallel now:
-- current core DEV: `#56 Special Core Dictionary practical completion`
-- cross-cutting: `#34 bilingual search relevance`, `#24 protected-data safety`
+Current core DEV:
+- **NONE / management handoff**
 
-#30 Wave 1は完了済みで、#42 activation Gateを自動解除しない。
+Next material Gate:
+- `#34 bilingual search relevance`
+
+Parallel safety:
+- `#24 protected-data safety`
+
+#30 Wave 1と#56は完了済みで、#42 activation Gateを自動解除しない。
 
 #42 activation waits for:
-- #56 practical dictionary completion
 - material #34 work completion or explicit separation from Stage10 Gate
 
 Then:
@@ -290,22 +300,24 @@ Then:
 
 ## Next Actions
 
-1. #56 feature branchでreproducible formal 150-row pilot selectorを実装（canonical/production mutationなし）
-2. selectorで全prompt_referenceをmaterializeし、正式sampleを生成・ID/hashを固定
-3. formal pilotを日本語browse観点でreviewし、top-level/subgenreをADOPT/RENAME/MERGE/SPLIT/DROP/NEEDS_MORE_SAMPLEで決定
-4. taxonomy確定後、old `その他・文脈`を展開し、old 01–12をcross-audit
-5. full 2,788 UI mapping + distribution/unresolved auditを完了して#56 Gateをclose
-6. parallel: #34 bilingual search relevance/noiseをresolveまたはStage10 Gateから明示分離
-7. #56完了かつ#34条件成立後のみ #42 をactivate
-8. #42 product-purpose improvement pass -> #5 formal Prompt handoff -> STAGE_10_PREP close -> Stage10 production A/B
-9. parallel safety debt: #24 protected-data backup / restore verification
+1. Issue #34 body + latest checkpointをGitHub liveでpreflightし、bilingual search relevance/noiseの現行欠陥とacceptanceを復元
+2. #34を実装対象としてactivateする場合は、CURRENT_STATEとlive Issueを同一管理操作で同期し、最新mainからtask branchを作る
+3. representative `anal -> piano / analog_clock / analogous_colors` 等を含むsearch ranking/noise修正を、canonical identity・recommendation semanticsを変えずに実施
+4. focused search tests + applicable regression + 必要なreal UI確認を完了し、指定された独立AUDIT Gateがあればfresh auditへ返す
+5. #34 material concern完了またはStage10 Gateからの明示分離後のみ #42 をactivate
+6. #42 product-purpose improvement pass -> #5 formal Prompt handoff -> STAGE_10_PREP close -> Stage10 production A/B
+7. parallel safety debt: #24 protected-data backup / restore verification
 
 ## Source-of-Truth Rule
 
-- current core DEV = **Issue #56 / Special Core Dictionary practical completion**
-- current DEV Issue number = **56**
-- current continuation = **`ISSUE56_SPECIAL_DICTIONARY_PRACTICAL_COMPLETION`**
-- current DEV branch = **`dev/issue56-special-dict-ui-taxonomy`**
+- current core DEV = **NONE / MANAGEMENT_HANDOFF**
+- current DEV Issue number = **NONE**
+- current continuation = **`MANAGEMENT_HANDOFF / ISSUE34_SEARCH_GATE_REMAINS`**
+- current DEV branch = **NONE**
+- next material Gate = **Issue #34 bilingual search relevance/noise**
+- #56 completion checkpoint = `5642882451`
+- #56 Final Audit PASS = Issue #61 comment `5642860927`
+- #56 main merge = PR #62 / `ce7b20dad40190ebd0c67fcc7f53def297df523c`
 - Issue #30 accepted integration checkpoint = `5629477164`
 - Issue #30 accepted main commit = `9be3fe764c77b7dd6eaba4f791dfb5c3282c8e8b`
 - audit cleanup policy = `docs/project/AUDIT_ARTIFACT_CACHE_POLICY.md`
