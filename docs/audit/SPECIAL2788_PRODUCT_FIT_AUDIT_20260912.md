@@ -103,14 +103,25 @@ Corrected after age-policy and strong-condition audits.
 - REVIEW 0
 - General fashion/support items were commonly demoted to reference-only; niche exposure/fetish clothing and concrete sexual/reproductive conditions remain KEEP.
 
-## Cumulative through ID 2200
+### Batch 12 — IDs 2201–2400
+- KEEP 112
+- KEEP_REFERENCE_ONLY 88
+- OUT_OF_SCOPE_PRODUCT 0
+- REVIEW 0
+- General clothing/fashion/body-part/search surfaces were kept as reference-only when they do not form the Special adult-generation nucleus.
+- #2317 `wringing clothes` is reference-only: it is a general wet-clothes action, not an adult-specific Special concept.
+- Age-related semantic descriptors (#2351–2357, #2375, #2379–2380) are reference-only because they are semantic/search descriptors, not because of age policy.
+- #2373 `reverse trap` and #2374 `trap` are reference-only as legacy terminology/search assets.
+- #2393 `blindfold mask` is reference-only as a general accessory concept; #2394 `ribbon bondage` remains KEEP as a concrete bondage concept.
 
-- KEEP: 1368
-- KEEP_REFERENCE_ONLY: 798
+## Cumulative through ID 2400
+
+- KEEP: 1480
+- KEEP_REFERENCE_ONLY: 886
 - OUT_OF_SCOPE_PRODUCT: 10
 - REVIEW: 24
-- Total audited: 2200
-- Remaining: 588
+- Total audited: 2400
+- Remaining: 388
 
 ## Current REVIEW set notes
 
