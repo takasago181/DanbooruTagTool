@@ -9,6 +9,9 @@ on:
       - tools/issue56_ui_genre_pilot_selector.py
       - tests/test_issue56_ui_genre_pilot_selector.py
       - data/special2788/prompt_reference/**
+      - docs/issue56/pilot/issue56_ui_genre_taxonomy_candidate_v1_2.json
+      - docs/issue56/pilot/issue56_ui_genre_pilot_v1_classification_map.csv
+      - docs/issue56/pilot/ISSUE56_UI_GENRE_PILOT_REVIEW_v1.md
       - .github/workflows/issue56_ui_genre_pilot.yml
 
 permissions:
