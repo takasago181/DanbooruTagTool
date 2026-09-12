@@ -33,8 +33,6 @@ Batches:
 - 1,301-2,300: 974 proposed / 26 unresolved
 - 2,301-3,300: 982 proposed / 18 unresolved
 
-Cumulative working CSV SHA-256: `a3fc76194252b6ed532547fd98b5a0a06ce8bab062d344bb03c3e9b78df69a30`
-
 ## Rules
 
 - accepted 17 top-level genres
@@ -48,4 +46,23 @@ Cumulative working CSV SHA-256: `a3fc76194252b6ed532547fd98b5a0a06ce8bab062d344b
 
 ## Persistence
 
-Detailed row-level results are generated as sequential batch CSVs and a cumulative CSV. The GitHub Issue and this progress file record the recoverable routing/checkpoint. Detailed row data should be committed periodically during the rollout, before chat continuity becomes a risk.
+Detailed row-level results are now persisted directly in this GitHub work branch.
+
+- branch: `chatgpt/issue64-full-rollout`
+- manifest: `docs/issue64/full_rollout/MANIFEST.json`
+- immutable detailed ledgers: `docs/issue64/full_rollout/batches/*.csv.xz`
+- each manifest entry records global row range, row count, raw CSV SHA-256, compressed SHA-256, and schema
+- past batch files are not overwritten; corrections are recorded as later review/correction artifacts
+- PROGRESS.md records the current sequential stop point
+- Issue #64 records major checkpoints and review gates
+- main is not updated until the full 30,629 candidate and audit are accepted
+
+Recovery order for a new chat:
+
+1. `docs/project/CURRENT_STATE.md`
+2. Issue #64 latest comments
+3. `docs/issue64/full_rollout/PROTOCOL.md`
+4. `docs/issue64/full_rollout/MANIFEST.json`
+5. this `PROGRESS.md`
+
+Next unprocessed global row: **3,301**.
