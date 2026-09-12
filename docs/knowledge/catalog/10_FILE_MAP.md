@@ -1,6 +1,6 @@
 # 10 — Complete File Map
 
-Status: `ALL_CURRENT_KNOWLEDGE_FILES_CLASSIFIED_V6 / P0_P1_RESEARCH_CONSOLIDATED`
+Status: `ALL_CURRENT_KNOWLEDGE_FILES_CLASSIFIED_V7 / PRACTICAL_GENERATION_AUDIT_ADDED`
 
 This maps the current `docs/knowledge/` assets into the canonical topic catalog and current management layer.
 
@@ -35,7 +35,8 @@ These files are cross-topic controls, not a second genre taxonomy.
 | `../current/CURRENT_QUICK_REFERENCE.md` | 30–60 second overview; never verdict authority |
 | `../current/READING_ROUTES.md` | task-specific 3–5 file reading routes |
 | `../current/SELF_AUDIT_20260909.md` | GitHub-only recovery audit for this organization pass |
-| `../current/RESEARCH_BACKLOG_20260913.md` | post-PROMPT-merge gap audit and prioritized next research themes; planning only, not verdict authority |
+| `../current/RESEARCH_BACKLOG_20260913.md` | prioritized next research/practical-generation work; planning only, not verdict authority |
+| `../current/PRACTICAL_GENERATION_READINESS_AUDIT_20260913.md` | practical generation readiness/gap audit covering daily production workflow, finishing tools, and current runtime drift |
 
 ## Root knowledge files
 
@@ -118,6 +119,17 @@ Durable P0 principles have now been promoted into `CLAIM_REGISTRY.csv` as `K-GOV
 
 Durable P1 source facts/principles have been promoted into Claim Registry without promoting generation-effectiveness/optimality claims.
 
+## Practical generation readiness audit
+
+`../current/PRACTICAL_GENERATION_READINESS_AUDIT_20260913.md` evaluates whether the current corpus supports a complete real-world loop from model selection through finished-image repair/polish.
+
+Main result:
+- controlled generation / failure diagnosis = strong
+- finished-image production workflow = partial
+- LoRA / ADetailer / img2img-inpaint / regional-control / runtime-operation guidance needs practical consolidation
+
+It also identified and corrected a stale Forge Neo source reference in `VERSION_FRESHNESS_LEDGER.csv`.
+
 Detailed old-document-to-Claim absorption mapping:
 `../current/LEGACY_MAP.md`
 
@@ -127,6 +139,7 @@ Detailed old-document-to-Claim absorption mapping:
 - `current/HOLD_CONFLICT_REGISTER.md` = current uncertainty detail
 - `current/VERSION_FRESHNESS_LEDGER.csv` = freshness/version identity
 - `current/RESEARCH_BACKLOG_20260913.md` = prioritized planning; never overrides Claim Registry
+- `current/PRACTICAL_GENERATION_READINESS_AUDIT_20260913.md` = practical workflow coverage/gap audit; not Claim authority
 - `catalog/` = current readable explanation by topic
 - `research/` = detailed evidence/provenance/history
 - `GENERATION_KNOWLEDGE_CORPUS.md` = durable cross-topic synthesis
