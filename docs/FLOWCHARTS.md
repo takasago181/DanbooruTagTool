@@ -84,8 +84,8 @@ flowchart TD
  F --> G[v1 baseline]
 ```
 
-Issue #5 / Stage10はこの必須経路の外。
-将来、model-specific effectivenessやevidence-backed automatic assistanceを採用した時だけ、必要な狭い実験へ再利用する。
+Generation-effectiveness / Stage10はこの必須経路の外。
+旧PROMPT #5はretired/closed。将来、model-specific effectivenessやevidence-backed automatic assistanceを採用した時だけ、**KNOWLEDGE #44** から必要な狭い実験を設計・実施する。
 
 ## Optional/future subsystem flow
 
@@ -101,9 +101,24 @@ flowchart TD
 
 v1では候補を勝手にPromptへ自動挿入しない。
 
+## Future knowledge / generation-effectiveness flow
+
+```mermaid
+flowchart TD
+ A[具体的な採用feature / research question] --> B[KNOWLEDGE #44 existing claimsを確認]
+ B --> C{既存evidenceで足りる?}
+ C -- Yes --> D[scope/limitations付きでDEVへhandoff]
+ C -- No --> E[必要最小限のcontrolled validation]
+ E --> F[Claim Registry / HOLD / evidence更新]
+ F --> D
+```
+
+KNOWLEDGEは知識・検証を所有するが、production採用を独断で決めない。
+
 ## Historical architecture note
 
 Stage0〜Stage9で作ったfull index、true AND、Candidate Aggregation、recommendation、Generation Profile、Prompt Composer、evaluator infrastructureは削除対象ではない。
+旧PROMPT #5のStage10/Prompt handoff資料もhistorical evidenceとして保持し、今後はKNOWLEDGE #44から参照する。
 ただし「既に作った」ことはv1 user-facing requirementの根拠にならない。
 
 旧 `Special -> true AND -> recommendation -> Prompt -> Stage10` を現在の必須ユーザーフローとして扱わない。
