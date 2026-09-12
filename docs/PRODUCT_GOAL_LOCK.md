@@ -23,7 +23,8 @@
 - 既存Promptに何が書かれているかを日本語で理解したい
 - 見つけたタグを自分で追加・削除して試したい
 
-「ニッチなタグが実際の生成で効くか知りたい」という動機は保持するが、モデル別成功判定・A/B実験管理・ローカル結果記録は v1 必須機能にはしない。生成効果の実証は将来の独立レーンで扱う。
+「ニッチなタグが実際の生成で効くか知りたい」という動機は保持するが、モデル別成功判定・A/B実験管理・ローカル結果記録は v1 必須機能にはしない。
+生成効果・Prompt構成・モデル差の知識と必要な狭い実証は **KNOWLEDGE #44** の future/advanced knowledge として保持する。独立PROMPT班は置かない。
 
 ## 主従
 
@@ -133,9 +134,13 @@ Specialと同じ深さの意味ontologyは要求しない。Generalは Prompt �
 -> Promptへ追加・削除する
 -> canonical English Promptをコピーする
 
-## Stage10 / generation-effectiveness の位置づけ
+## KNOWLEDGE / Stage10 / generation-effectiveness の位置づけ
 
-Stage10やgeneration knowledgeは捨てない。
+Generation knowledge、Prompt composition/support研究、Stage10準備資産は捨てない。
+2026-09-12以降は、これらを独立PROMPT班ではなく **KNOWLEDGE #44** が一体で管理する。
+
 ただし、v1が「モデルごとの成功率」「自動最適Prompt」「効く/効かない判定」を約束しない限り、Stage10 production A/Bをv1完成の必須Gateにはしない。
 
-将来、モデル別有効性表示、support提案、A/B支援、失敗診断などを製品へ追加する場合に、必要な狭い検証だけを独立して行う。
+将来、モデル別有効性表示、support提案、A/B支援、失敗診断などを製品へ追加する場合は、KNOWLEDGE #44 が既存knowledge/claims/HOLDを確認し、必要な狭い検証だけを設計・実施・証拠化してDEV/productへhandoffする。
+
+知識が存在すること自体はruntime/UI採用理由にならず、KNOWLEDGEのclaimとproduct decisionは分離する。
