@@ -1,6 +1,6 @@
 # 10 — Complete File Map
 
-Status: `ALL_CURRENT_KNOWLEDGE_FILES_CLASSIFIED_V4 / BATCH_E_ADDED`
+Status: `ALL_CURRENT_KNOWLEDGE_FILES_CLASSIFIED_V5 / P0_PROMPT_UNDERSTANDING_RESEARCH_COMPLETE`
 
 This maps the current `docs/knowledge/` assets into the canonical topic catalog and current management layer.
 
@@ -64,6 +64,9 @@ These files are cross-topic controls, not a second genre taxonomy.
 | `BATCH_C_SOURCES_20260909.md` | 08 | 03 |
 | `BATCH_D_RUNTIME_PROMPT_REPRO_COMPOSITION_20260910.md` | 02 / 03 | 04 / 08 |
 | `BATCH_E_EXISTING_PROMPT_SURFACE_CLASSIFICATION_20260913.md` | 02 / 06 | 04 / 08 |
+| `BATCH_F_PROMPT_SEMANTIC_ROLE_DECOMPOSITION_20260913.md` | 02 / 06 | 00 / 08 |
+| `BATCH_G_BEGINNER_SAFE_JAPANESE_EXPLANATION_20260913.md` | 00 / 06 | 02 / 08 |
+| `BATCH_H_DANBOORU_CATEGORY_RELATION_UNKNOWN_HANDLING_20260913.md` | 00 / 06 | 02 / 08 |
 | `DANBOORU_WIKI_SEMANTIC_AUDIT_20260909.md` | 06 | 08 |
 | `E621_WIKI_SEMANTIC_TRIGGER_AUDIT_20260909.md` | 06 | 01 / 08 |
 | `HF_MODEL_DISCUSSIONS_AUDIT_20260909.md` | 01 / 08 | 03 |
@@ -82,6 +85,21 @@ These files are cross-topic controls, not a second genre taxonomy.
 | `HARD_FETISH_MODEL_FAMILY_MATRIX_20260909.md` | 05 / 01 | 09 |
 | `HARD_FETISH_COMPOSITE_FAILURE_MATRIX_20260909.md` | 05 / 03 | — |
 | `HARD_FETISH_SOURCES_20260909.md` | 08 | 05 |
+
+## P0 prompt-understanding research package
+
+The first beginner-first knowledge gap is now covered by four focused research files:
+
+1. `BATCH_E_EXISTING_PROMPT_SURFACE_CLASSIFICATION_20260913.md`
+   - semantic tag vs runtime syntax / LoRA / embedding / template / natural language / unknown
+2. `BATCH_F_PROMPT_SEMANTIC_ROLE_DECOMPOSITION_20260913.md`
+   - what Prompt content describes: identity / appearance / clothing / expression / pose / relation / camera / scene / style / meta etc.
+3. `BATCH_G_BEGINNER_SAFE_JAPANESE_EXPLANATION_20260913.md`
+   - Japanese explanation rules preserving canonical traceability and intrinsic predicates
+4. `BATCH_H_DANBOORU_CATEGORY_RELATION_UNKNOWN_HANDLING_20260913.md`
+   - General/Character/Copyright/Artist/Meta; Alias vs implication vs related/co-occurrence/search/model-trigger; exact-first unknown handling
+
+These are research/evidence until current Claim/Catalog consolidation is explicitly performed. They do not change DEV/product/runtime behavior by themselves.
 
 Detailed old-document-to-Claim absorption mapping:
 `../current/LEGACY_MAP.md`
