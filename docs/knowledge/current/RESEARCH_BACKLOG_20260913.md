@@ -2,24 +2,23 @@
 
 Owner: Issue #44 `KNOWLEDGE:#44`
 
-Status: `P0_P1_COMPLETE / P2_ON_DEMAND`
+Status: `P0_P1_COMPLETE / PRACTICAL_GENERATION_ENRICHMENT_NEXT / P2_ON_DEMAND`
 
 This file is a planning/backlog layer only. It does **not** override `CLAIM_REGISTRY.csv`, create product requirements, or promote HOLD/CANDIDATE claims.
 
 ## Current conclusion
 
-The major post-2026-09-12 knowledge imbalance has now been addressed.
+The major post-2026-09-12 beginner-facing knowledge imbalance has been addressed by P0 + P1.
 
-Previously, generation/evaluation research was much deeper than knowledge for:
+A fresh practical-generation audit found a different imbalance:
 
-`理解 -> 発見 -> 選択 -> 出力`
+- controlled generation / failure diagnosis = strong
+- ordinary creative production from first draft to finished image = only partially consolidated
 
-The completed P0 + P1 work now covers both:
+Durable audit:
+`PRACTICAL_GENERATION_READINESS_AUDIT_20260913.md`
 
-1. **beginner-facing Prompt understanding knowledge**
-2. **model-specific Prompt-convention boundaries needed to explain what the user pasted**
-
-without turning KNOWLEDGE into an automatic Prompt optimizer or a second UI-taxonomy owner.
+Therefore the next useful KNOWLEDGE work is **not broad P2 image testing**. First consolidate practical operation knowledge for the user's local generation workflow.
 
 ## P0 — COMPLETE / consolidated
 
@@ -88,7 +87,109 @@ Important freshness finding:
 - CL Tagger latest current `v2_01a` is provisional and may be updated in place under the same version label
 - promotion-critical evidence must pin exact evaluator sub-version/retrieval identity
 
-`VERSION_FRESHNESS_LEDGER.csv` was refreshed on 2026-09-13 for current model/evaluator/Danbooru/Forge-Neo public sources.
+`VERSION_FRESHNESS_LEDGER.csv` was refreshed on 2026-09-13 for current model/evaluator/Danbooru/runtime public sources.
+
+## PRACTICAL_GENERATION — NEXT
+
+Audit verdict:
+Current knowledge answers **"why did this fail?"** better than **"what should I do next to finish the picture?"**.
+
+### PG-01 Daily generation loop
+Build a durable first-draft -> finished-image workflow:
+- choose exact model/profile
+- author baseline
+- exploratory seeds
+- lock seed only for diagnosis
+- fix composition/visibility before prompt piles
+- LoRA one at a time
+- Hires only after base structure is acceptable
+- local repair with ADetailer/inpaint
+- regional/control escalation only when needed
+- preserve final infotext/preset
+
+### PG-02 Exact-model quick-start cards
+Create short practical cards for:
+- WAI17
+- NoobAI XL 1.1 EPS / V-Pred
+- Anima Base / Aesthetic / Turbo
+
+Each card should separate:
+- author baseline
+- Prompt convention
+- resolution
+- sampler/scheduler
+- known practical cautions
+- what remains unproven
+
+### PG-03 Resolution + sampler/scheduler + seed workflow
+Consolidate practical choices without inventing universal winners.
+
+Needed:
+- portrait / landscape / group / close-up aspect-ratio choices
+- when crop/visibility means change resolution rather than Prompt
+- sampler/scheduler exact-model defaults and safe variations
+- random seed discovery -> fixed-seed diagnosis -> random exploration return
+- batch/X-Y-Z use for bounded search
+
+### PG-04 LoRA practical operations
+Consolidate daily-use guidance:
+- character/style/concept role
+- trigger placement
+- starting weight
+- one-LoRA-first isolation
+- stacking
+- context leakage / overpowering diagnosis
+- lower weight vs adding Negative
+- interaction with Hires/ADetailer/regional
+
+### PG-05 Hires + ADetailer finishing workflow
+WAI17 author Hires recipe already exists and should be surfaced operationally.
+
+Add:
+- when to enable Hires
+- denoise interpretation
+- preserve vs redraw expectations
+- Hires ordering with ADetailer
+- ADetailer face/hand/person detector selection
+- separate ADetailer Prompt/Negative boundaries
+- damage/regression checks
+
+### PG-06 img2img / inpaint repair ladder
+Consolidate:
+- whole-image revision vs local repair
+- mask scope
+- denoise bands as operational concepts
+- when repeated inpaint should stop
+- metadata preservation
+
+### PG-07 Forge Couple / current ControlNet escalation
+Current Forge Couple supports Basic / Advanced / Mask / Global Effect / Common Prompts and Anima.
+Current Forge Neo documents LLLite / Union / Region ControlNet support.
+
+Need:
+- plain Prompt -> Basic Couple -> Advanced/Mask -> Control escalation
+- total-subject-count handling
+- global/background prompts
+- Hires compatibility
+- limitation: regional conditioning cannot create composition knowledge the checkpoint lacks
+
+### PG-08 Forge Neo presets / X-Y-Z / infotext workflow
+Current maintained Forge Neo includes current Preset, X/Y/Z Plot, updated infotext and related workflow features.
+
+Need a repeatable daily iteration pattern instead of treating all batching as formal Stage10 evidence.
+
+### PG-09 Local-runtime identity / performance
+Only after exact local Forge Neo remote/commit is captured.
+
+Scope may include:
+- attention backend choices
+- tiled VAE
+- mixed precision
+- torch.compile
+- memory behavior
+- current GPU-generation compatibility notes
+
+Do not generalize runtime-performance advice without exact build/hardware scope.
 
 ## P2 — advanced generation research / pull only when needed
 
@@ -110,11 +211,20 @@ Pin adapter/checkpoint/runtime identity before testing.
 
 ### K-RB-17 Prompt-only -> regional/control/inpaint escalation threshold
 Maps to `H-K-016`.
-Use only when a concrete advanced-assistance feature needs an escalation policy.
+Practical guidance can be documented first; promotion of exact effectiveness thresholds still requires controlled evidence.
 
 ### K-RB-18 Evaluator coverage/calibration
 Maps to `H-K-014` / `H-K-015`.
 Source freshness is complete; project-specific calibration/coverage remains future evidence work.
+
+## Important source correction from practical audit
+
+The freshness ledger previously treated `gi0baro/forge-neo` as current Forge Neo upstream.
+
+Current maintained upstream is:
+`Haoming02/sd-webui-forge-classic` branch `neo`.
+
+The ledger has been corrected. The user's exact local remote/commit is still unpinned.
 
 ## Explicitly deprioritized
 
@@ -129,13 +239,12 @@ Do not create another broad pass on:
 
 ## Recommended next behavior
 
-There is no need to start P2 automatically.
+While core DEV continues #64, proceed with:
 
-While core DEV continues #64, useful KNOWLEDGE work can now be one of:
+`PG-01 -> PG-02 -> PG-03 -> PG-04 -> PG-05 -> PG-06 -> PG-07 -> PG-08`
 
-1. **current-product support:** inspect #42/#34 future needs against the new Prompt-understanding Claims and prepare evidence only where a concrete gap exists;
-2. **knowledge maintenance:** source freshness / new model-version changes / new high-quality practical evidence;
-3. **advanced pull:** take one P2 HOLD only when the user or an adopted feature specifically needs it.
+PG-09 only after exact local runtime identity is available.
+P2 remains on-demand.
 
 For each future substantial batch:
 1. preserve source/evidence with version/date
@@ -144,7 +253,7 @@ For each future substantial batch:
 4. keep unresolved items HOLD/CANDIDATE
 5. update Catalog only when needed
 6. update freshness ledger for versioned sources
-7. register research in `catalog/10_FILE_MAP.md`
+7. register research/audit in `catalog/10_FILE_MAP.md`
 8. add #44 checkpoint
 
 No new knowledge automatically changes DEV/product behavior.
