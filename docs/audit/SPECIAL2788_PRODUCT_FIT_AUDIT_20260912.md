@@ -1,6 +1,6 @@
 # Special2788 Product-Fit Full Audit — 2026-09-12
 
-Status: IN PROGRESS
+Status: COMPLETE
 Scope: Special Core Dictionary IDs 1–2788
 Audit purpose: product-purpose fit for the local DanbooruTagTool prompt workflow.
 Production data/code modifications: NONE. This file is an audit log only.
@@ -62,6 +62,7 @@ Corrected after the age-policy audit.
 - OUT_OF_SCOPE_PRODUCT 6
 - REVIEW 8
 - OUT: #1012 `poke ball insertion`, #1040 `masturbation day`, #1055 `slave visor (tsmg nao!)`, #1084 `arm slave`, #1166 `exs-slave`, #1171 `instance domination`
+- REVIEW: #1005 `body onahole`, #1027 `poking penis`, #1028 `penis face`, #1117 `fake penis shadow`, #1122 `handjob gesture (not ok)`, #1139 `game controller nipples (meme)`, #1173 `off-color cum`, #1186 `insertion threshold (meme)`
 
 ### Batch 7 — IDs 1201–1400
 Corrected after age-policy and strong-condition audits.
@@ -70,7 +71,8 @@ Corrected after age-policy and strong-condition audits.
 - OUT_OF_SCOPE_PRODUCT 0
 - REVIEW 6
 - #1237 `sexualized chibi`, #1238 `lolidom`, #1239 `shotadom` are KEEP.
-- #1308 `gang rape` moved from reference-only to REVIEW because non-consent may be lost by normalization to `gangbang`.
+- REVIEW: #1204 `penis envy`, #1218 `inconspicuous sex toy`, #1228 `dilation insertion`, #1231 `pussy steam`, #1235 `folding paizuri`, #1308 `gang rape`.
+- #1308 moved from reference-only to REVIEW because non-consent may be lost by normalization to `gangbang`.
 
 ### Batch 8 — IDs 1401–1600
 - KEEP 0
@@ -127,22 +129,80 @@ Corrected after age-policy and strong-condition audits.
 - #2442 `negative space oral (meme)` remains KEEP because it represents a distinct niche sexual composition/template with practical generation value; meme origin alone is not a demotion reason.
 - #2526 `virgin killer sweater` and #2527 `virgin destroyer sweater` remain KEEP as distinct sexualized clothing designs with useful visual identity.
 
-## Cumulative through ID 2600
+### Final Batch — IDs 2601–2788
+- KEEP 24
+- KEEP_REFERENCE_ONLY 162
+- OUT_OF_SCOPE_PRODUCT 1
+- REVIEW 1
+- IDs #2601–2733 are overwhelmingly alias-preservation surfaces. They remain reference-only except #2626.
+- OUT: #2626 `puffer fish vomiting water` because it is the alias surface for the already out-of-scope generic meme/template #2483.
+- KEEP: #2734 `areola piercing`, #2736 `caning`, #2737 `chastity key`, #2740 `colored pubic hair`, #2742 `erection under blanket`, #2743 `erection under towel`, #2745 `female pubic hair`, #2746 `futanari pov`, #2747 `glans`, #2749 `hymen`, #2750 `imminent facesitting`, #2751 `implied erection`, #2753 `jinki-style restrained`, #2754 `large areolae`, #2758 `male pubic hair`, #2759 `mind break`, #2763 `pubic cutout`, #2764 `pubic hair pull`, #2765 `pubic stubble`, #2766 `pubic tattoo`, #2767 `rectum`, #2777 `sparse pubic hair`, #2786 `x-cross (bdsm)`, #2787 `yoke (bdsm)`.
+- #2753 `jinki-style restrained` is retained as a distinct current restraint composition/reference in the Danbooru restraint taxonomy; the named origin is not by itself a product-fit reason to discard it.
+- REVIEW: #2770 `serving tray (bdsm)` because the concept is plausible and adult-relevant but current evidence does not establish a sufficiently authoritative/stable Danbooru identity boundary.
+- #2788 `sensitive` is KEEP_REFERENCE_ONLY as a broad semantic modifier rather than an independent visual Special nucleus concept.
 
-- KEEP: 1594
-- KEEP_REFERENCE_ONLY: 971
-- OUT_OF_SCOPE_PRODUCT: 11
-- REVIEW: 24
-- Total audited: 2600
-- Remaining: 188
+## Final cumulative result — IDs 1–2788
 
-## Current REVIEW set notes
+- KEEP: 1618
+- KEEP_REFERENCE_ONLY: 1133
+- OUT_OF_SCOPE_PRODUCT: 12
+- REVIEW: 25
+- Total audited: 2788
+- Remaining: 0
 
-Known long-lived REVIEW examples include #70 `automatic sex` and #309 `mecha on girl`.
-Additional REVIEW items were added where identity is insufficiently evidenced or normalization could erase material meaning/conditions.
+## OUT_OF_SCOPE_PRODUCT set
 
-## Persistence policy from this point
+- #876 `slave gear (tsmg nao!)`
+- #939 `bad vulva`
+- #950 `slave crest (shield hero)`
+- #953 `paizuri day`
+- #1012 `poke ball insertion`
+- #1040 `masturbation day`
+- #1055 `slave visor (tsmg nao!)`
+- #1084 `arm slave`
+- #1166 `exs-slave`
+- #1171 `instance domination`
+- #2483 `puffer fish vomiting water (meme)`
+- #2626 `puffer fish vomiting water`
 
-- Update this audit log after every completed ~200-ID batch.
-- Do not write verdict changes into production dictionary data during the audit.
-- Final audit output should distinguish: product removal candidates, reference/search-only assets, true unresolved semantic identity, and ordinary KEEP concepts.
+## REVIEW set
+
+- #70 `automatic sex`
+- #309 `mecha on girl`
+- #438 `attempted rape`
+- #444 `dubcon`
+- #445 `dubious consent`
+- #1005 `body onahole`
+- #1027 `poking penis`
+- #1028 `penis face`
+- #1117 `fake penis shadow`
+- #1122 `handjob gesture (not ok)`
+- #1139 `game controller nipples (meme)`
+- #1173 `off-color cum`
+- #1186 `insertion threshold (meme)`
+- #1204 `penis envy`
+- #1218 `inconspicuous sex toy`
+- #1228 `dilation insertion`
+- #1231 `pussy steam`
+- #1235 `folding paizuri`
+- #1308 `gang rape`
+- #1577 `erect nipplees`
+- #1616 `gangrape`
+- #1635 `forced blowjob`
+- #1792 `penectomy`
+- #1864 `convenient tentacle`
+- #2770 `serving tray (bdsm)`
+
+## Final interpretation
+
+- `KEEP` is the product-facing Special nucleus: distinct concepts that materially help the intended niche prompt-generation workflow.
+- `KEEP_REFERENCE_ONLY` is not deletion. It preserves aliases, legacy/search surfaces, broad semantic bridges, and useful auxiliary concepts without treating all 2,788 rows as equally independent product-facing Special choices.
+- `OUT_OF_SCOPE_PRODUCT` identifies clear product-scope contamination or quality/event/meme concepts that should not be treated as product-facing Special candidates.
+- `REVIEW` is reserved for unresolved identity or normalization cases where silently choosing a canonical meaning could lose material specificity, consent/intensity conditions, or concept boundaries.
+- The audit deliberately does not use age, sexual strength, non-consent, R18G, niche intensity, or extremity as automatic demotion reasons.
+
+## Persistence / next-step boundary
+
+- Full product-fit audit is complete and checkpointed on this audit branch.
+- Production dictionary/data remains unchanged.
+- Any implementation of these verdicts should happen as a separate reviewed change set, preserving Special IDs, provenance, alias/history, and the distinction between product-facing candidates and reference/search assets.
