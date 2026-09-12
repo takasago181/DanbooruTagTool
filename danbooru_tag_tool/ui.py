@@ -86,7 +86,7 @@ class Stage7AApp(ttk.Frame):
             self.statistics_snapshot_id = index.snapshot_id
             overlay = CanonicalOverlay(index, index_dir / "canonical_overlay.json")
             self.recommendation_controller = RecommendationController(
-                RecommendationEngine(overlay, self.knowledge)
+                RecommendationEngine(overlay, self.knowledge), product_fit=self.knowledge.product_fit
             )
         except Exception:
             # A missing/incompatible optional statistics index must not prevent
@@ -252,7 +252,8 @@ class Stage7AApp(ttk.Frame):
         self.special_list.delete(0, "end")
         self.general_list.delete(0, "end")
         for item in self.special_rows:
-            self.special_list.insert("end", f"{item.japanese or item.original_term}　/　{item.original_term}")
+            badge = f'[{item.product_fit_label}] ' if item.product_fit_label else ''
+            self.special_list.insert("end", f"{badge}{item.japanese or item.original_term}　/　{item.original_term}")
         for item in self.general_rows:
             label = item.display_japanese or item.prompt_text
             self.general_list.insert("end", f"{label}　/　{item.canonical}")

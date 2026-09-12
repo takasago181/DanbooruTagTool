@@ -28,6 +28,8 @@ class Stage7ASession:
         """
         canonicals = []
         for special_id in self._special_ids:
+            if not self.knowledge.product_fit.allows(special_id, 'statistics'):
+                return None
             chosen = self.knowledge.special[special_id].statistics_canonical
             if not chosen:
                 return None
@@ -41,6 +43,8 @@ class Stage7ASession:
     def add_special(self, special_id: str) -> bool:
         if special_id not in self.knowledge.special:
             raise KeyError(special_id)
+        if not self.knowledge.product_fit.allows(special_id, 'selection'):
+            raise ValueError('Special is retained for historical inspection only')
         if special_id in self._special_ids:
             return False
         self._special_ids.append(special_id)

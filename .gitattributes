@@ -1,0 +1,3 @@
+# Issue #63 audit hashes and deterministic CSV bytes must survive Windows checkout.
+docs/audit/SPECIAL2788_PRODUCT_FIT_VERDICT_MANIFEST_20260912.json text eol=lf
+data/special2788/product_fit_verdicts.csv text eol=lf

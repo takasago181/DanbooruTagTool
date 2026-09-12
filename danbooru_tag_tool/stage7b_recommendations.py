@@ -34,8 +34,10 @@ class RecommendationController:
     """
 
     def __init__(self, engine: RecommendationEngine | None,
-                 *, max_common: int = 8, max_rare: int = 5):
+                 *, max_common: int = 8, max_rare: int = 5, product_fit=None):
         self.engine = engine
+        self.product_fit = (product_fit if product_fit is not None else
+                            getattr(getattr(engine, 'knowledge', None), 'product_fit', None))
         self.max_common = max_common
         self.max_rare = max_rare
         self._executor = ThreadPoolExecutor(max_workers=1, thread_name_prefix="stage7b")
@@ -103,6 +105,9 @@ class RecommendationController:
         try:
             raw = self.engine.candidates(key)
             base_count = raw[0].base_count if raw else self.engine.overlay.intersect(key).base_count
+            if self.product_fit is not None:
+                raw = tuple(item for item in raw if self.product_fit.canonical_allows(
+                    item.canonical, 'recommendation'))
             common = RecommendationEngine.rank(raw, "conditional_rate")[:self.max_common]
             rare = RecommendationEngine.rank(raw, "raw_lift")[:self.max_rare]
             return RecommendationResult(request_id, key, int(base_count), common, rare)

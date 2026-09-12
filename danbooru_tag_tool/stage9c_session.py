@@ -109,6 +109,8 @@ class Stage9ComposerSession:
     def add_special(self, special_id):
         if special_id not in self.knowledge.special:
             raise KeyError(special_id)
+        if not self.knowledge.product_fit.allows(special_id, 'selection'):
+            raise ValueError('Special is retained for historical inspection only')
         if special_id in self._special_ids:
             return False
         self._special_ids.append(special_id)
@@ -150,6 +152,8 @@ class Stage9ComposerSession:
         for item in decorated:
             if item.candidate.canonical not in self.knowledge.canonical:
                 raise KeyError(item.candidate.canonical)
+        decorated = tuple(item for item in decorated if self.knowledge.product_fit.canonical_allows(
+            item.candidate.canonical, 'recommendation'))
         semantic = tuple(semantic_auxiliary_candidate(item) for item in decorated)
         cooccurrence = tuple(cooccurrence_candidate(item.candidate, snapshot_id=snapshot_id)
                              for item in decorated)
@@ -181,6 +185,8 @@ class Stage9ComposerSession:
     def statistics_core_canonicals(self):
         canonicals = []
         for special_id in self._special_ids:
+            if not self.knowledge.product_fit.allows(special_id, 'statistics'):
+                return None
             canonical = self.knowledge.special[special_id].statistics_canonical
             if not canonical:
                 return None

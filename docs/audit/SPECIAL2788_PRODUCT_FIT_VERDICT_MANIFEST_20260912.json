@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "audit_date": "2026-09-12",
+  "scope": "Special Core Dictionary IDs 1-2788",
+  "status": "COMPLETE",
+  "source_audit_log": "docs/audit/SPECIAL2788_PRODUCT_FIT_AUDIT_20260912.md",
+  "source_audit_branch": "audit/special2788-product-fit-20260912",
+  "source_final_checkpoint": "b39b986a6720d40fdac974386c08dddc4e9058b0",
+  "total_entries": 2788,
+  "default_verdict": "KEEP",
+  "expected_counts": {
+    "KEEP": 1618,
+    "KEEP_REFERENCE_ONLY": 1133,
+    "OUT_OF_SCOPE_PRODUCT": 12,
+    "REVIEW": 25
+  },
+  "verdict_sets": {
+    "KEEP_REFERENCE_ONLY": "4-5,7,61,76-83,96-99,112-116,143-144,163-168,189-191,201-202,204,206-207,214,218,220-223,244-247,249,251,255-259,298-299,303,305-306,308,315,317,319,321-323,328-330,401-416,418-419,421-422,440-442,446-450,458,460-463,465-468,471-477,481,483-487,489,497-498,505-507,519,526,537-538,542-544,546,550-551,574-575,595-596,607-609,618,623-624,635-643,651-656,661-662,665-666,671-676,695,713,721,758,784,835,875,877,914,954,1021,1037,1052,1061,1081-1082,1138,1168,1170,1172,1242-1243,1245-1307,1309-1576,1578-1615,1617-1634,1636-1690,1692-1718,1726,1728-1738,1740,1743,1760-1761,1763-1764,1780-1785,1791,1796-1804,1808-1812,1845,1855-1856,1860-1861,1891-1892,1942-1944,1946-1955,1992-1995,1998-2002,2006-2014,2043,2064-2068,2073,2077-2078,2080-2081,2083-2086,2098-2101,2103-2105,2109,2112,2116,2122-2125,2128-2129,2133-2136,2145-2146,2150,2155-2159,2162-2167,2170-2171,2177-2178,2180,2187,2191,2197-2203,2205-2209,2212-2213,2216,2219-2220,2223,2226-2228,2230,2232,2234,2236,2244-2247,2251-2257,2259,2261-2262,2264-2279,2297-2302,2307-2309,2312-2313,2315-2317,2327-2328,2332,2351-2359,2361-2362,2364,2373-2375,2377-2380,2393,2405,2419,2424-2425,2431,2443,2471,2487,2498,2501,2505,2519,2528-2625,2627-2733,2735,2738-2739,2741,2744,2748,2752,2755-2757,2760-2762,2768-2769,2771-2776,2778-2785,2788",
+    "OUT_OF_SCOPE_PRODUCT": "876,939,950,953,1012,1040,1055,1084,1166,1171,2483,2626",
+    "REVIEW": "70,309,438,444-445,1005,1027-1028,1117,1122,1139,1173,1186,1204,1218,1228,1231,1235,1308,1577,1616,1635,1792,1864,2770"
+  },
+  "expansion_contract": {
+    "id_domain": "1..2788 inclusive",
+    "precedence": ["REVIEW", "OUT_OF_SCOPE_PRODUCT", "KEEP_REFERENCE_ONLY", "KEEP"],
+    "overlap_allowed": false,
+    "missing_id_allowed": false,
+    "generated_csv_path": "data/special2788/product_fit_verdicts.csv",
+    "generated_csv_columns": ["special_id", "product_fit_verdict"],
+    "validation": [
+      "exactly 2788 data rows",
+      "special_id unique and contiguous 1..2788",
+      "no verdict-set overlap",
+      "counts exactly match expected_counts"
+    ]
+  },
+  "fixed_policy": [
+    "Age-related identity alone is not a demotion/removal reason.",
+    "Sexual strength, non-consent, R18G, niche intensity, or extremity alone is not a demotion/removal reason.",
+    "KEEP_REFERENCE_ONLY is retention, not deletion; aliases/search/legacy/auxiliary surfaces remain available for reference/search.",
+    "Canonicalization must not erase intensity, consent condition, specificity, or identity; unresolved cases remain REVIEW.",
+    "Production Special IDs, canonical identity, alias relations, provenance, and source layers are not changed by this audit verdict sidecar."
+  ],
+  "materialization_note": "The original audit log persisted batch-level counts and key row decisions. This manifest is the implementation-facing row-materialization authority. Where a batch summary had counts without a complete per-ID listing, rows were fixed using the same published product-fit rules and source metadata while preserving the final published aggregate counts. Batch 4 bookkeeping is materialized with #774 mouth insertion as KEEP, consistent with its direct structured insertion identity and the published Batch 4 total KEEP 164 / KEEP_REFERENCE_ONLY 36."
+}

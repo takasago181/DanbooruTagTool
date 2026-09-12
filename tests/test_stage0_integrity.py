@@ -22,7 +22,10 @@ def test_protected_source_files_match_hash_manifest():
     reference_dir = ROOT / "data/special2788/prompt_reference"
     assert [path for path in special_children if path.is_dir()] == [reference_dir]
     protected = sorted((ROOT / "data/source").glob("*"))
-    protected += [path for path in special_children if path.is_file()]
+    # The Issue #63 derived sidecar has its own pinned audit authority. It is
+    # not an extra source-dictionary row/file in the historical Stage-0 corpus.
+    protected += [path for path in special_children
+                  if path.is_file() and path.name != 'product_fit_verdicts.csv']
     expected = {name for name in manifest
                 if name.startswith(("data/source/", "data/special2788/"))}
     assert {path.relative_to(ROOT).as_posix() for path in protected} == expected

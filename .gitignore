@@ -49,6 +49,7 @@ data/runtime_index/
 data/runtime_source/
 data/derived/
 data/special2788/*.csv
+!data/special2788/product_fit_verdicts.csv
 data/special2788/*.xlsx
 data/generation/audit/
 

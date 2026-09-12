@@ -32,6 +32,13 @@ class Stage7AWarningPresenter:
         ids = tuple(dict.fromkeys(selected_special_ids))
         notices = []
         for special_id in ids:
+            policy = self.knowledge.product_fit
+            if policy.label(special_id):
+                message = ("要確認：原語を保持しています。確定した意味への置換や関連候補の自動計算は行いません"
+                           if not policy.allows(special_id, 'statistics') else
+                           "参照用：検索・明示選択で利用できます。独立した通常候補には表示しません")
+                notices.append(WarningNotice('product_fit_' + policy.verdict(special_id).lower(),
+                                             message, 'information', (special_id,)))
             profile = self.profile_store.profiles.get(special_id)
             if profile is not None:
                 for field, code, message in REQUIREMENT_MESSAGES:

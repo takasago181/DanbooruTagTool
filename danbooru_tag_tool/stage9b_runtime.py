@@ -147,6 +147,11 @@ class Stage9BRuntime:
             raise ValueError("semantic_auxiliary accepts only SEMANTIC_AUX lane candidates")
         if any(item.lane != "COOCCURRENCE" for item in cooccurrence):
             raise ValueError("cooccurrence accepts only COOCCURRENCE lane candidates")
+        policy = self.composer.knowledge.product_fit
+        semantic_auxiliary = tuple(item for item in semantic_auxiliary
+                                   if policy.canonical_allows(item.canonical, 'recommendation'))
+        cooccurrence = tuple(item for item in cooccurrence
+                             if policy.canonical_allows(item.canonical, 'recommendation'))
         return self.composer.compose(
             selected_special_ids,
             inputs=(*self._inputs((*semantic_auxiliary, *cooccurrence), selection_state), *inputs),

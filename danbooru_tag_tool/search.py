@@ -114,7 +114,8 @@ class TagSearchEngine:
             raise ValueError("limit must be positive")
         return tuple(self.search_one(query, limit=limit) for query in split_prompt_input(text))
 
-    def search_one(self, text: str, *, limit: int = 50) -> tuple[SearchResult, ...]:
+    def search_one(self, text: str, *, limit: int = 50,
+                   product_facing: bool = False) -> tuple[SearchResult, ...]:
         if limit < 1:
             raise ValueError("limit must be positive")
         key = normalize_lookup(text)
@@ -137,6 +138,11 @@ class TagSearchEngine:
                    "partial", entry.provenance)
             for entry in self._entries if key in entry.key and not entry.key.startswith(key)
         )
+        if product_facing:
+            policy = self.knowledge.product_fit
+            matches = [entry for entry in matches
+                       if (entry.special_id is None or policy.allows(entry.special_id, 'search'))
+                       and (entry.canonical is None or policy.canonical_allows(entry.canonical, 'search'))]
         return self._deduplicate_and_rank(matches, limit)
 
     def _special_targets(self, special_id: str) -> tuple[str, ...]:

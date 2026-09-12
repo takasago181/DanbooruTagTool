@@ -171,6 +171,9 @@ class PromptComposer:
         ids = tuple(dict.fromkeys(selected_special_ids))
         if any(sid not in self.knowledge.special for sid in ids):
             raise ValueError("Unknown selected Special identity")
+        policy = self.knowledge.product_fit
+        if any(not policy.allows(sid, 'selection') for sid in ids):
+            raise ValueError('Special is retained for historical inspection only')
         if len({item.input_id for item in inputs}) != len(inputs):
             raise ValueError("Duplicate input identity")
         warnings = []
@@ -182,12 +185,17 @@ class PromptComposer:
         atoms = []
         for sid in ids:
             tag = self.knowledge.special[sid]
+            if not policy.allows(sid, 'statistics'):
+                warnings.append(ComposerWarning('PRODUCT_FIT_REVIEW', 'CAUTION', (f'special:{sid}',),
+                                                '要確認：原語を保持し、確定した意味への置換は行いません。'))
             atoms.append(ComposerAtom(
                 f"special:{sid}", PromptFormatter.format_special(tag).text, None,
                 "SPECIAL", ("SPECIAL",), True, special_owners=(sid,),
                 provenance=(f"special:{sid}",), reason="selected Special identity",
             ))
-        candidates = self.support.candidates(ids)
+        candidates = tuple(candidate for candidate in self.support.candidates(
+            sid for sid in ids if policy.allows(sid, 'support'))
+                           if policy.canonical_allows(candidate.canonical, 'support'))
         override_by_canonical = {}
         for override in overrides:
             canonical = self._canonical(override.canonical)

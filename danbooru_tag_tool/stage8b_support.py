@@ -240,10 +240,11 @@ class SupportKnowledgeStore:
     """Validated explicit support profiles and deterministic union resolver."""
 
     def __init__(self, special_rows: Iterable[SupportKnowledgeRow],
-                 family_rows: Iterable[SupportKnowledgeRow], profile_store):
+                 family_rows: Iterable[SupportKnowledgeRow], profile_store, product_fit=None):
         self.special_rows = tuple(special_rows)
         self.family_rows = tuple(family_rows)
         self.profile_store = profile_store
+        self.product_fit = product_fit
         self._special: dict[str, tuple[SupportKnowledgeRow, ...]] = {}
         self._family: dict[str, tuple[SupportKnowledgeRow, ...]] = {}
         for owner_id in {row.owner_id for row in self.special_rows}:
@@ -266,12 +267,14 @@ class SupportKnowledgeStore:
         family_rows = load_family_support_rules(
             directory / "family_support_rules.csv", knowledge, profile_store
         )
-        return cls(special_rows, family_rows, profile_store)
+        return cls(special_rows, family_rows, profile_store, knowledge.product_fit)
 
     def candidates(self, selected_special_ids: Iterable[str]) -> tuple[SemanticSupportCandidate, ...]:
         selected = tuple(dict.fromkeys(selected_special_ids))
         gathered: dict[str, list[tuple[int, str, SupportKnowledgeRow]]] = {}
         for special_id in selected:
+            if self.product_fit is not None and not self.product_fit.allows(special_id, 'support'):
+                continue
             explicit = self._special.get(special_id, ())
             profile = self.profile_store.profiles.get(special_id)
             family_id = profile.FamilyRuleId if profile is not None else None
@@ -279,6 +282,9 @@ class SupportKnowledgeStore:
             explicit_canonicals = {row.candidate_canonical for row in explicit}
             for source_rank, rows in ((0, explicit), (1, family)):
                 for row in rows:
+                    if self.product_fit is not None and not self.product_fit.canonical_allows(
+                            row.candidate_canonical, 'support'):
+                        continue
                     if source_rank and row.candidate_canonical in explicit_canonicals:
                         continue
                     gathered.setdefault(row.candidate_canonical, []).append(

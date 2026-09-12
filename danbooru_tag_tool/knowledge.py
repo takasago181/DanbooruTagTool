@@ -10,6 +10,7 @@ from .generation_profile import (
     GenerationProfileStore, load_generation_profiles, join_generation_profiles,
 )
 from .ruleset2 import Ruleset2Store
+from .product_fit import ProductFitPolicy
 
 
 def _rows(path: Path):
@@ -139,10 +140,12 @@ class ExactResolution:
 
 class TagKnowledgeCore:
     def __init__(self, canonical, aliases, special, semantic, translations=(), japanese_overlay=None,
-                 ruleset2=None):
+                 ruleset2=None, product_fit=None):
         self.canonical = canonical
         self.aliases = aliases
         self.special = special
+        self.product_fit = (product_fit if product_fit is not None else
+                            ProductFitPolicy({sid: 'KEEP' for sid in special}, special))
         self.semantic = semantic
         self.translations = tuple(translations)
         self.japanese_overlay = japanese_overlay or JapaneseOverlay.empty()
@@ -192,7 +195,8 @@ class TagKnowledgeCore:
         overlay_path = (data / "runtime/japanese_overlay.json" if japanese_overlay_path is None
                         else japanese_overlay_path)
         return cls(canonical, aliases, special, semantic, translations,
-                   JapaneseOverlay.load(overlay_path, canonical), ruleset2)
+                   JapaneseOverlay.load(overlay_path, canonical), ruleset2,
+                   ProductFitPolicy.load(root, special))
 
     def load_generation_profile(self, path: Path | None = None):
         """Return a separate metadata view; existing knowledge is never mutated."""
