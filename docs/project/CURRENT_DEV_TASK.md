@@ -2,16 +2,36 @@
 
 > The live GitHub Issue is the executable task authority. Read `CURRENT_STATE.md`, then fetch Issue #64 and its latest checkpoint before implementation. If this mirror differs from the live Issue, fail closed and do not guess from chat history.
 
-最終同期: 2026-09-12
+最終同期: 2026-09-13
 
 ## Source
 
 - Source Issue: **#64**
 - Issue title: **[GENERAL-DICT][UI-TAXONOMY][DEV] Practical genre browsing for 30,629 Japanese-overlay entries**
 - Issue state: **OPEN / CURRENT CORE DEV**
-- DEV state: **GENERAL_30629_PRACTICAL_TAXONOMY**
+- DEV state: **GENERAL_30629_PRACTICAL_TAXONOMY / FULL ROLLOUT CANDIDATE BUILD**
 - Upstream #63: **ACCEPTED / MERGED / CLOSED**
-- Stage10 production A/B: **NOT A v1 BLOCKER / NOT STARTED**
+- Stage10 learning: **ACTIVE IN PARALLEL under #65 / NOT A v1 BLOCKER / NOT PART OF #64 SCOPE**
+
+## Current continuation checkpoint
+
+Latest durable recovery checkpoint at this sync:
+- Issue #64 checkpoint: **comment `5647331312`**
+- Working branch: `chatgpt/issue64-full-rollout`
+- Branch HEAD at checkpoint: `9683e4fe6ac035c601d545813c84deffdc187c3d`
+- Accepted pilot basis: `PILOT_ACCEPTED` / commit `5064429018123c80c32ac41af715668fb67fb74e`
+- Completed sequential rows: **5,300 / 30,629 (17.30%)**
+- Cumulative: **5,153 PROPOSED / 147 UNRESOLVED**
+- Remaining: **25,329**
+- Next unprocessed global row: **5,301**
+
+Branch recovery files:
+1. `docs/issue64/full_rollout/PROTOCOL.md`
+2. `docs/issue64/full_rollout/MANIFEST.json`
+3. `docs/issue64/full_rollout/PROGRESS.md`
+4. immutable batch ledgers under `docs/issue64/full_rollout/batches/`
+
+If the live Issue/branch reports newer progress, the newer live checkpoint wins.
 
 ## Goal
 
@@ -39,18 +59,17 @@ Fixed boundaries:
 
 ## Required process
 
-Do not classify all 30,629 blindly in one pass.
+Pilot is already accepted. Current work is the full candidate-build rollout under the accepted pilot-v2 taxonomy/boundaries.
 
-1. Reproduce/materialize the exact target population.
-2. Inspect distribution and representative samples across high-usage, ordinary, rare, compound and ambiguous tags.
-3. Propose/freeze a small practical taxonomy based on user discovery value, not ontology purity.
-4. Run a reproducible pilot.
-5. Audit boundary/error patterns.
-6. Stop for DEV/AUDIT pilot acceptance.
-7. Expand to all 30,629 only after pilot acceptance.
-8. Validate 30,629/30,629 reachability or explicit unresolved accounting.
-
-Initial top-level genre candidates from the live Issue are suggestions, not frozen truth. Merge/split/rename them if real data shows a better practical structure.
+Current rollout requirements:
+1. Continue sequentially from the latest live checkpoint; do not restart rows already persisted.
+2. Preserve accepted 17 top-level practical genres and max path depth 2 unless a new explicit review decision changes them.
+3. Keep no visible catch-all.
+4. Prefer semantic/object identity over incidental substring matches.
+5. Keep ambiguous proper names/events/projects explicit as `UNRESOLVED` rather than force-fitting them.
+6. Persist row-level results durably on the working branch and do not overwrite past immutable batch ledgers.
+7. Keep canonical/Japanese overlay/Special production data unchanged during candidate build.
+8. After all 30,629 candidate rows are complete, perform the required distribution/boundary/unresolved audit before production acceptance.
 
 ## Product behavior target
 
@@ -69,7 +88,8 @@ Visible identity remains Japanese-first + canonical English. Final Prompt payloa
 - No #34 bilingual ranking redesign.
 - No #42 broad v1 UI/product-scope implementation.
 - No automatic support insertion or Prompt optimization/rewrite.
-- No generation-effectiveness / Stage10 work.
+- No generation-effectiveness implementation inside #64.
+- No Stage10 learning work inside #64; Issue #65 runs independently in parallel.
 - No recommendation-score redesign.
 - No full 11M-post/~3GB statistics index requirement.
 - No full 100k+ Danbooru taxonomy expansion.
@@ -78,31 +98,18 @@ Visible identity remains Japanese-first + canonical English. Final Prompt payloa
 
 ## Acceptance / return contract
 
-Implementation must provide:
-- task branch and commit SHA
+Implementation/full-rollout completion must provide:
+- task branch and final commit SHA
 - exact target population/source reproduction evidence
-- proposed/frozen taxonomy and rationale
-- pilot selection/method/results
-- taxonomy distribution / catch-all pressure / unresolved counts
+- accepted taxonomy and final distribution
+- full coverage / catch-all pressure / unresolved accounting
+- boundary/error audit
 - changed files
 - tests and results
 - protected/canonical data unchanged confirmation
-- unresolved items
+- unresolved items and required review disposition
 
-Codex/implementation work must stop for DEV/AUDIT before merge. Do not self-merge.
-
-## Implementation checkpoint — revision 2 ready for re-review, not accepted
-
-- Branch: `codex/issue64-general-taxonomy-pilot`; base live main `293181686260a91398334a0fe2d794a5998388cc`.
-- Report: `docs/issue64/PILOT_REPORT.md`; semantic boundary audit: `docs/issue64/BOUNDARY_AUDIT.md`.
-- Latest DEV/AUDIT request: Issue #64 comment `5644982292`, HOLD before full rollout.
-- Exact #55 population 30,629 unchanged; original 173 + 80 targeted additions = 253, proposed 248 + unresolved 5.
-- All 12 old unresolved + 5 flagged paths rechecked; 97 evidence rows; 9 prior unresolved now have proposed paths, 14 original verdicts/paths changed.
-- Same 17 shallow genres, 27 multi-path rows; all `reviewed=false`; independent semantic acceptance remains pending.
-- 74 focused/relevant regression tests passed; 7 artifacts reproduce byte-for-byte.
-- 86 protected files unchanged; production taxonomy rollout and UI integration not started.
-- Stop for DEV/AUDIT pilot acceptance. Do not expand or merge from this implementation checkpoint alone.
-- Final submitted SHA and push evidence belong to the Issue #64 handoff comment.
+Do not self-merge or continue to #34 before #64 acceptance.
 
 ## Post-#64 route
 
@@ -110,4 +117,4 @@ After accepted integration:
 
 `#64 -> #34 bilingual search relevance/noise -> #42 v1 scope lock -> v1 UI integration / Windows acceptance`
 
-Issue #5 / Stage10 is a future generation-effectiveness lane only if an adopted feature later requires empirical image evidence.
+Stage10 is separately defined by Issue #65 / `docs/stages/STAGE_10_LEARNING.md` and continues as a parallel learning lane. Historical Issue #5 / old Stage10 production-A/B assets remain provenance/testing evidence only and do not alter the #64 contract.
