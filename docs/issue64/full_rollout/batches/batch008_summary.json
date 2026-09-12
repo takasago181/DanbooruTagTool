@@ -1,0 +1,65 @@
+{
+  "issue": 64,
+  "batch": 8,
+  "range": [
+    5501,
+    5700
+  ],
+  "count": 200,
+  "status_counts": {
+    "PROPOSED": 190,
+    "UNRESOLVED": 10
+  },
+  "confidence_counts": {
+    "HIGH": 174,
+    "MEDIUM": 16,
+    "LOW": 10
+  },
+  "primary_genre_counts": {
+    "ACTION_CONTACT": 11,
+    "BODY_PART": 24,
+    "CLOTHING": 48,
+    "CLOTHING_STATE_EXPOSURE": 2,
+    "COLOR_APPEARANCE": 11,
+    "COMPOSITION_CAMERA": 1,
+    "EXPRESSION_EMOTION": 4,
+    "HAIR_FACE": 10,
+    "LIGHT_TIME_WEATHER": 2,
+    "LIVING_NATURE": 2,
+    "OBJECT_PROP": 33,
+    "PLACE_BACKGROUND": 9,
+    "POSE_MOVEMENT": 5,
+    "STYLE_QUALITY_META": 17,
+    "TEXT_SYMBOL": 11
+  },
+  "unresolved": [
+    "coil_(dimension_w)",
+    "cold_war",
+    "colorful_festival_(project_sekai)",
+    "colossus",
+    "cometik_(idolmaster)",
+    "cometik_note_(idolmaster)",
+    "communism",
+    "companion/af",
+    "company_connection",
+    "complex_exterior"
+  ],
+  "audit_notes": [
+    "coffee/coin/collar/color/comic/compass周辺を語境界と対象identity優先で監査。",
+    "colored_* は色語だけでCOLOR_APPEARANCEへ送らず、身体・髪顔・衣装・文字等の対象identityを主経路にし、必要な場合のみ色をsecondary pathに保持。",
+    "作品固有名・歴史題材・関係性メタなど名称だけで安全に17分類へ確定できない10件はUNRESOLVED。",
+    "武器・乗り物・日用品は修飾語より具体物identityを優先。UI/search/productionデータは変更していない。",
+    "external evidence はこの200件では分類確定に使用していない。"
+  ],
+  "raw_csv_sha256": "8f0a10a32139697fc52998cec69478a6e144ce1e0c17b86a0da7bce6a45fc125",
+  "xz_sha256": "327d7361caf64160401dc84241b3d6d21b55b083057073a532ea0021f75f5760",
+  "storage_mode": "base64_text_fragments_of_xz",
+  "parts": [
+    {
+      "path": "docs/issue64/full_rollout/batches/batch008_rows05501-05700_ledger.csv.xz.b64.part001",
+      "decoded_size": 3392,
+      "decoded_sha256": "327d7361caf64160401dc84241b3d6d21b55b083057073a532ea0021f75f5760",
+      "base64_text_sha256": "cf7d68e103884d1e1ea9869da87f0863a48ae90b02948be88aa0d58d0b66071f"
+    }
+  ]
+}
