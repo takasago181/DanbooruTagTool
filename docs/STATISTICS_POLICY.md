@@ -1,14 +1,23 @@
 # STATISTICS_POLICY.md
 
+## Status
+
+This policy governs the optional statistics/co-occurrence subsystem.
+It is **not a v1 runtime requirement** under the current beginner-first product scope.
+
+If statistics are surfaced, the correctness rules below remain mandatory.
+
 ## 2種類の件数を混ぜない
 
 ### current_post_count
 source:
-2026-09-02 tag dictionary
+current tag dictionary snapshot
 
 用途:
-- autocomplete
-- 現在使用数表示
+- optional usage-count display
+- search/autocomplete assistance where adopted
+
+This is usage evidence, not model-recognition or generation-success evidence.
 
 ### runtime_global_count
 source:
@@ -17,52 +26,53 @@ Approved post-level statistics dataset
 用途:
 - global_rate
 - relative multiplier
-- recommendation ranking
+- optional recommendation ranking
 
 ## Raw display
 
-ユーザーへ見せる生データ:
+If raw statistics are shown, keep the raw values distinct:
 - base_count
 - co_count
 - together_rate = co_count / base_count
 - current_post_count
 - relative_multiplier
 
-raw値をshrinkして表示しない。
-
-例:
-21 / 29 = 72.4%
-はそのまま表示。
+Do not present any of them as generation success probability.
+Do not shrink/transform a displayed raw fraction without labeling the transformed metric.
 
 ## Ranking reliability
 
-1/1=100%等の少数標本暴走はranking内部で抑える。
+1/1=100%等の少数標本をranking上で過大評価しない。
+Existing ranking/reliability machinery may remain for the optional recommendation subsystem.
 
-Stage 6で比較:
-- minimum support
-- Wilson lower bound
-- Beta/Bayesian shrinkage
-
-方式をStage 1で固定しない。
+It must not become a reason to require the full statistics index for normal v1 use.
 
 ## Generic tags
 
-固定大規模blacklistだけに依存しない。
-
-評価:
+If recommendation is enabled, do not rely only on a large fixed blacklist.
+Possible signals:
 - global frequency
 - conditional frequency
 - relative multiplier
 - small manual noise list
 
-## Snapshot
+## Snapshot integrity
 
-relative multiplier計算に使う:
-base_count
-co_count
-runtime_global_count
-total_posts
+Any relative-multiplier calculation must use:
+- base_count
+- co_count
+- runtime_global_count
+- total_posts
 
-はすべて同一statistics dataset snapshot由来。
+from the same statistics dataset snapshot.
+Mixed snapshots => reject the calculation.
 
-異なるsnapshotなら計算拒否。
+## v1 boundary
+
+The following are optional/hidden for v1:
+- raw co-occurrence dashboard
+- rare/Lift main tabs
+- aggregate recommendation score explanation UI
+- full ~3GB statistics index as a normal-use dependency
+
+The core `understand -> discover -> choose -> copy` path must work without them.
