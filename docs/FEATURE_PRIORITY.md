@@ -1,38 +1,78 @@
 # FEATURE_PRIORITY.md
 
+## Status
+
+Current v1 priority follows `docs/PRODUCT_GOAL_LOCK.md` and Issue #42.
+Historical Stage5/6/9 capabilities are preserved assets, not automatic v1 requirements.
+
 ## MUST — v1の存在理由
 
-1. Special Core Dictionaryを主役として選べる
-2. 複数SpecialをCore Tag Setとして扱える
-3. 日本語/英語/混在検索
-4. canonical/alias安全解決
-5. true multi-tag AND
-6. Candidate Aggregation
-7. raw co-occurrence counts/rates
-8. runtime snapshot整合性
-9. reliability-aware recommendation
-10. 必要時のみAll Danbooruへ拡張
-11. Core / Auxiliary / LoRAを分離
-12. Prompt出力
-13. pytest継続
-14. Forge同時利用を意識したRAM
+1. 既存Promptを貼り付け/読み込みできる
+2. Prompt内の既知タグを日本語-first + canonical Englishで理解できる
+3. 不要タグを手動で外せる
+4. 日本語/英語/混在検索ができる
+5. exact canonical / Aliasを安全に扱う
+6. Special Core Dictionaryを深いジャンル/サブジャンルから閲覧・発見できる
+7. production Japanese overlay 30,629件のGeneralタグを浅い実用ジャンルから閲覧・発見できる
+8. Special/Generalをユーザーが明示的に追加・削除・並べ替えできる
+9. 最終Promptをcanonical Englishとしてpreview/copyできる
+10. 日本語表示/検索、canonical identity、UI taxonomyを別レイヤーとして保つ
+11. runtime非LLM・ローカル完結
+12. Forge等の生成環境と同時常駐して邪魔にならない軽量runtime
+13. focused test / regression / 実Windows UI確認を維持
 
-## SHOULD — v1内で余力があれば
+## SHOULD — v1内で実使用から価値が確認できれば
 
-- Core Set保存/呼出
-- role別Auxiliary表示
-- Semantic Bridgeの有用mapping拡充
-- UIで統計snapshot/current count snapshotを確認可能
-- 小規模manual generic noise list
+- Alias/詳細表示
+- Danbooru current post countの補助表示
+- co-occurrence候補を控えめな「関連タグ」として表示
+- Semantic Bridgeを検索補助として利用
+- Prompt履歴/お気に入り
+- Core/General選択状態の保存
 
-## LATER
+SHOULDはv1 completion blockerではない。
 
-- 全124,016タグの完全role分類
-- advanced fuzzy
-- LoRA folder crawler
-- incremental index update
-- Core Set version history
-- nested templates
-- cloud sync
-- plugin manager
-- automatic AI prompt rewrite
+## HOLD / AFTER v1
+
+- model verification/status UI
+- 専用類似タグ比較UI
+- A/B Prompt experiment manager
+- niche-tag effect判定
+- local generation success/failure DB
+- troubleshooting wizard
+- model-family-specific Prompt guidance
+- Forge / ComfyUI direct-send adapter
+- advanced Prompt history/preset management
+
+## REJECT FROM DEFAULT v1 CORE
+
+- automatic support insertion
+- automatic minimum-sufficient Prompt construction
+- automatic conflict removal
+- automatic Negative生成
+- automatic model-family Prompt rewrite
+- Prompt文字列だけからのautomatic failure diagnosis
+- evaluator confidenceをsuccess probabilityとして表示
+- Raw Lift / rare-relationを主UIにする
+- aggregate recommendation score/ranking-method dashboard
+- always-on Semantic Support / Generation Profile dashboard
+- runtime WD14/Kagami/CL tagger stackの必須化
+- full 11M-post / ~3GB statistics indexの通常利用必須化
+- full 100k+ Danbooru taxonomy化
+- direct image generationのv1必須化
+- runtime LLM
+
+## Data classification depth
+
+### Special
+深く分類する。
+ニッチ・複雑概念を「検索語を知らなくても発見できる」ことが目的。
+
+### General 30,629
+浅く分類する。
+Prompt用途中心の実用ジャンルで「こういうタグがある」と発見できればよい。
+完全ontologyは作らない。
+
+## v1 completion shorthand
+
+`Promptを理解 -> 日本語/英語またはジャンルからタグを発見 -> 自分で選ぶ -> canonical-English Promptをコピー`
