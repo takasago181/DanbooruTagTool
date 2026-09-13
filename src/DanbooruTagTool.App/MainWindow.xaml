@@ -363,7 +363,7 @@
         <TabControl x:Name="Workspaces" SelectedIndex="{Binding WorkspaceIndex}" SelectionChanged="WorkspaceChanged" Margin="0,8,0,0">
             <TabItem Header="辞書・検索">
                 <Grid Margin="0,8,0,0">
-                    <Grid.ColumnDefinitions><ColumnDefinition x:Name="NavColumn" Width="230" MinWidth="180"/><ColumnDefinition Width="8"/><ColumnDefinition Width="*" MinWidth="320"/><ColumnDefinition Width="8"/><ColumnDefinition x:Name="PromptColumn" Width="300" MinWidth="250"/></Grid.ColumnDefinitions>
+                    <Grid.ColumnDefinitions><ColumnDefinition x:Name="NavColumn" Width="230" MinWidth="180"/><ColumnDefinition Width="8"/><ColumnDefinition Width="*" MinWidth="320"/><ColumnDefinition Width="8"/><ColumnDefinition x:Name="PromptColumn" Width="230" MinWidth="200"/></Grid.ColumnDefinitions>
                     <Border Grid.Column="0" Style="{StaticResource PanelCard}" Padding="12">
                         <DockPanel>
                             <StackPanel DockPanel.Dock="Top"><TextBlock Text="タグを探す" Style="{StaticResource PanelTitle}" FontSize="16"/><TextBlock Text="Specialはジャンルから発見できます。" Style="{StaticResource PanelSubtitle}" Margin="0,0,0,6"/></StackPanel>

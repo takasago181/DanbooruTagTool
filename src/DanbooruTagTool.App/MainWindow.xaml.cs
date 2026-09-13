@@ -27,8 +27,11 @@ public partial class MainWindow : Window
         Left = Math.Clamp(vm.Ui.Left, SystemParameters.VirtualScreenLeft, SystemParameters.VirtualScreenLeft + SystemParameters.VirtualScreenWidth - 100);
         Top = Math.Clamp(vm.Ui.Top, SystemParameters.VirtualScreenTop, SystemParameters.VirtualScreenTop + SystemParameters.VirtualScreenHeight - 100);
         var navWidth = Math.Abs(vm.Ui.NavWidth - 210) < 0.5 ? 230 : vm.Ui.NavWidth;
-        var promptWidth = Math.Abs(vm.Ui.PromptWidth - 340) < 0.5 ? 300 : vm.Ui.PromptWidth;
-        NavColumn.Width = new(Math.Max(180, navWidth)); PromptColumn.Width = new(Math.Max(250, promptWidth));
+        // Values written by the previous layout were 300 (old XAML default) or
+        // 340 (the persisted UiState default). Migrate only those legacy
+        // defaults; a wider splitter value is an explicit user choice.
+        var promptWidth = IsLegacyPromptWidth(vm.Ui.PromptWidth) ? 230 : vm.Ui.PromptWidth;
+        NavColumn.Width = new(Math.Max(180, navWidth)); PromptColumn.Width = new(Math.Max(200, promptWidth));
         EditorColumn.Width = new(Math.Clamp(vm.Ui.EditRatio, .25, .85), GridUnitType.Star); EnglishColumn.Width = new(1 - Math.Clamp(vm.Ui.EditRatio, .25, .85), GridUnitType.Star);
         searchTimer.Tick += (_, _) => { searchTimer.Stop(); vm.RefreshResults(); };
         feedbackTimer.Tick += (_, _) => { feedbackTimer.Stop(); if (vm.Status == "✓ コピーしました") vm.Status = ""; };
@@ -51,6 +54,7 @@ public partial class MainWindow : Window
         Closing += (_, _) => { SaveGeometry(); searchTimer.Stop(); feedbackTimer.Stop(); uiTimer.Stop(); };
         Loaded += (_, _) => { vm.UpdateChipLanguage(); FindChild<ScrollViewer>(DictionaryList)?.ScrollToVerticalOffset(vm.RestoreScroll); };
     }
+    private static bool IsLegacyPromptWidth(double width) => Math.Abs(width - 300) < 0.5 || Math.Abs(width - 340) < 0.5;
     private void QueueUiSave() { if (!IsLoaded) return; uiTimer.Stop(); uiTimer.Start(); }
     private void SaveGeometry()
     {
