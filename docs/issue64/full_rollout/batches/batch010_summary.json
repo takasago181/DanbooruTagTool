@@ -1,21 +1,28 @@
 {
   "issue": 64,
   "batch": 10,
-  "range": [5901, 6100],
-  "count": 200,
-  "status_counts": {"PROPOSED": 190, "UNRESOLVED": 10},
-  "confidence_counts": {"HIGH": 190, "MEDIUM": 0, "LOW": 10},
-  "primary_genre_counts": {"ACTION_CONTACT":52,"BODY_PART":9,"CLOTHING":31,"CLOTHING_STATE_EXPOSURE":23,"COLOR_APPEARANCE":3,"COMPOSITION_CAMERA":2,"EXPRESSION_EMOTION":5,"HAIR_FACE":1,"LIGHT_TIME_WEATHER":2,"LIVING_NATURE":7,"OBJECT_PROP":25,"PERSON_COUNT":10,"PLACE_BACKGROUND":7,"POSE_MOVEMENT":6,"STYLE_QUALITY_META":5,"TEXT_SYMBOL":2},
-  "unresolved": ["counters_(nikke)","country_connection","couter","covenant_halo_(girls'_frontline_2)","cover_them_up_slut_(meme)","cr-unit_(date_a_live)","crackling_box_(reverse:1999)","craft_essence_(fate)","crazy_b_(ensemble_stars!)","creator_connection"],
+  "range": [5901, 6900],
+  "count": 1000,
+  "status_counts": {"PROPOSED": 939, "UNRESOLVED": 61},
+  "confidence_counts": {"HIGH": 910, "MEDIUM": 29, "LOW": 61},
+  "primary_genre_counts": {"CLOTHING":211,"OBJECT_PROP":166,"ACTION_CONTACT":150,"CLOTHING_STATE_EXPOSURE":79,"BODY_PART":68,"LIVING_NATURE":40,"PERSON_COUNT":38,"TEXT_SYMBOL":34,"STYLE_QUALITY_META":27,"PLACE_BACKGROUND":25,"HAIR_FACE":25,"POSE_MOVEMENT":22,"EXPRESSION_EMOTION":21,"COMPOSITION_CAMERA":11,"COLOR_APPEARANCE":11,"LIGHT_TIME_WEATHER":11},
+  "unresolved": ["counters_(nikke)","couter","cowboy_western","cr-unit_(date_a_live)","crackling_box_(reverse:1999)","craft_essence_(fate)","crazy_b_(ensemble_stars!)","creodron_(eve_online)","crescent_cutout","crescent_rose","crescent_wing_ornament","crest_worm","crimson_moon's_semblance_(genshin_impact)","crimson_scar_(e.g.o)","crisis_management_form_(machikado_mazoku)","cross_ornament","crow's_eye_view_(e.g.o)","crychic_(bang_dream!)","crypters_(fate/grand_order)","crystal_night_party_(idolmaster)","crystal_star_(sailor_moon)","cs/ls06","cunny_(meme)","curse","cursed_energy_(jujutsu_kaisen)","curtain_call_challenge_(meme)","cute_&_girly_(idolmaster)","cyaron!_(love_live!)","cyber-elf_(mega_man)","d3a","d4y_suisei","da_capo_(e.g.o)","da_qian_lu","daddycool's_tan'yao_(meme)","daga_kotowaru","daijoubu?_oppai_momu?_(meme)","daijoubu_da_mondai_nai","dance_on_the_galaxy_(idolmaster)","dancing_pallbearers_(meme)","dao_fu","dark_angels","dark_matter_(kakine_teitoku)","dark_orb_(madoka_magica)","dark_type_theme_(pokemon)","dash_store_touhou_collaboration","dawn_office_(identity)_(project_moon)","dawnmaker_(honkai:_star_rail)","dead_heat_summer_race!","dearly_stars_(idolmaster)","death_devil_(k-on!)","death_momoi_(meme)","debt","deception","deez_nuts_(meme)","defy_(girls'_frontline)","deku's_photo_of_hagakure_toru","deku_(zelda)","dell","delusion_(genshin_impact)","denpa_song","designer's_reflection_(shining_nikki)"],
   "audit_notes": [
-    "cover/covered/covering 周辺は対象identityと機能を分離し、covered_* は露出・隠し状態、covering_* は行為として監査。",
-    "cow/crab/creature 周辺は生物本体・身体部位・衣装装飾・接触行為を分離し、print修飾だけで色カテゴリへ流さない。",
-    "cracked_* は壊れている対象を主経路にし、身体・衣装・場所・物体・画面表現を対象別に分類。",
-    "固有作品名・connection等、名称だけでは17分類へ安全に確定できない10件はUNRESOLVED。",
-    "external evidence はこの200件では分類確定に使用していない。"
+    "counter→detective帯を1,000件連続監査。object/concept identityをmodifier fragmentより優先。",
+    "covered/covering/crotchless/cutout等は着脱・露出、体液配置・性的行為はACTION_CONTACT(INTIMATE)、衣装名はCLOTHINGへ分離。",
+    "cross/crescent/crown等は記号・衣装・身体・武器・柄を対象identityで分離し、substring一括分類を禁止。",
+    "固有作品名・抽象語・語義不明の61件はUNRESOLVED。外部証拠は今回未使用。",
+    "canonical/Japanese overlay/Special/#66 UI/searchは変更しないcandidate-buildのみ。",
+    "以前の未checkpoint 5901-6100 artifactは正式checkpointとして採用せず、本1,000件ledgerで置換して継続する。"
   ],
-  "raw_csv_sha256": "eb928a265e1b3c90cb896c3399aef91efab4fa33f6b7612694b38b869630b109",
-  "xz_sha256": "5fc14007c67d496754ac85a23bcd2b35c44ab350821ee65792dd3fa0711f146c",
+  "raw_csv_sha256": "ed45231697e91e7ebf81662eb2d8b5c92b995a5dd00de7094e86eeb6531363dd",
+  "xz_sha256": "c11338c9047898d7104d60e8a53e36f1b16aa8ec279a0b8ddfd5bafbb004aaf5",
   "storage_mode": "base64_text_fragments_of_xz",
-  "parts": [{"path":"docs/issue64/full_rollout/batches/batch010_rows05901-06100_ledger.csv.xz.b64.part001","decoded_size":2480,"decoded_sha256":"5fc14007c67d496754ac85a23bcd2b35c44ab350821ee65792dd3fa0711f146c","base64_text_sha256":"5373159827d2b86ad48bf1eab6934aa41f7fef35cbe211046461d681ad18d036"}]
+  "parts": [
+    {"path":"docs/issue64/full_rollout/batches/batch010_rows05901-06900_ledger.csv.xz.b64.part001","decoded_size":6000,"decoded_sha256":"45c34a1f1b222aa5f74a7f4d1717dadb556e54b39d34c20b178191c52bee1505","base64_text_sha256":"14df96d007c954695ef81354b348fba38424e10f209f2a35afb907523b1d1c12"},
+    {"path":"docs/issue64/full_rollout/batches/batch010_rows05901-06900_ledger.csv.xz.b64.part002","decoded_size":2250,"decoded_sha256":"4ea30a69349abe1952d02a2f101de883dd62e1b34028a3a060388aed85d16310","base64_text_sha256":"4dd095944f6da6cb9ae2aeb048019b540fe47ba694e1da8c5e9d4de78f04f3cf"},
+    {"path":"docs/issue64/full_rollout/batches/batch010_rows05901-06900_ledger.csv.xz.b64.part003","decoded_size":900,"decoded_sha256":"c0e3e5dbcec5def4093c276e872c2f1c2a32378874deacbd866412b15fcc8a6f","base64_text_sha256":"32e9f2adb1b46e84237e862bcc805724ae33fe91e32a3e20b207ce39226f2b0b"},
+    {"path":"docs/issue64/full_rollout/batches/batch010_rows05901-06900_ledger.csv.xz.b64.part004","decoded_size":900,"decoded_sha256":"e75257e3a5df9757155edd825e85c5ec54718866d9bd1f27ccc6086909455f52","base64_text_sha256":"12c91c6e7a2e0cc7a5506e99c988734503e717a327872c606cfbf5c1a5bcc509"},
+    {"path":"docs/issue64/full_rollout/batches/batch010_rows05901-06900_ledger.csv.xz.b64.part005","decoded_size":98,"decoded_sha256":"d52889a04d4705d9b9603f932efaca60454be6e94b5257f01260f290c851f1a0","base64_text_sha256":"00bcdc4fdca24da4b3f3f21cde851a2e88852d579812e700911baca194a71e86"}
+  ]
 }
