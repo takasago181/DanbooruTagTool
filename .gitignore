@@ -41,6 +41,9 @@ docs/handoff_archive/
 # Generated benchmark and audit output
 benchmarks/
 
+# Local WPF validation screenshots and optional publish output
+/artifacts/
+
 # Raw/large datasets and generated runtime indexes
 data/source/
 data/japanese/

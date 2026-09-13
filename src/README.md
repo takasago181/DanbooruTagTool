@@ -26,13 +26,20 @@ The importer consumes the accepted Special/Japanese/Alias/usage assets, Issue #5
 
 ## Portable publish
 
-`publish-portable.ps1` creates a new folder (it refuses to overwrite an existing folder), publishes a Windows x64 self-contained application, and places the supplied catalog at `Data/catalog.db`.
+Portable publish is optional and is not required for each UI iteration. Routine UI work should use the Debug/Release build, tests, and Windows launch. When a local portable output is explicitly needed, `publish-portable.ps1` reuses one of the fixed repository-root paths below:
+
+- `../artifacts/current/` for the current local validation output (default);
+- `../artifacts/publish/` only when explicitly requested with `-Destination publish`.
+
+The script stages a fresh Windows x64 self-contained publish, synchronizes runtime files into the selected fixed directory, refreshes `Data/catalog.db`, and preserves any existing `UserData/` directory. Close the application before updating an output that is currently running. The temporary staging directory is removed after the command finishes.
 
 ```powershell
 ./publish-portable.ps1 `
   -Catalog <path-to-catalog.db> `
-  -Output ./artifacts/portable `
+  -Destination current `
   -Dotnet dotnet
 ```
 
-The output is a copyable folder containing the executable and runtime files, `Data/catalog.db`, and `UserData/`. No Python/Tk runtime or separate .NET Desktop Runtime is required for the self-contained output. `UserData/user.db` is created on first launch and is portable with the folder.
+For an explicitly requested distribution publish, use `-Destination publish`. The output contains the executable and runtime files, `Data/catalog.db`, and `UserData/`. No Python/Tk runtime or separate .NET Desktop Runtime is required for the self-contained output. `UserData/user.db` is created on first launch and is kept when that fixed output is updated.
+
+Windows UI screenshots belong in the repository-root `artifacts/screenshots/`. Keep current screenshots there and move retained older validation captures under `archive/artifacts/screenshots/`; do not add numbered screenshot folders for ordinary UI work.
