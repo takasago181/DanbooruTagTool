@@ -1,0 +1,25 @@
+{
+  "issue": 64,
+  "batch": 13,
+  "range": [8901, 9900],
+  "count": 1000,
+  "status_counts": {"PROPOSED": 953, "UNRESOLVED": 47},
+  "confidence_counts": {"HIGH": 814, "MEDIUM": 139, "LOW": 47},
+  "primary_genre_counts": {"PLACE_BACKGROUND":26,"TEXT_SYMBOL":30,"PERSON_COUNT":16,"COMPOSITION_CAMERA":19,"BODY_PART":67,"COLOR_APPEARANCE":18,"CLOTHING":379,"OBJECT_PROP":167,"POSE_MOVEMENT":15,"ACTION_CONTACT":102,"LIVING_NATURE":27,"LIGHT_TIME_WEATHER":10,"STYLE_QUALITY_META":29,"CLOTHING_STATE_EXPOSURE":9,"HAIR_FACE":22,"EXPRESSION_EMOTION":16,"GAZE_ORIENTATION":1},
+  "unresolved": ["flamestrider_(genshin_impact)","flandre_day","fledglings_class_(blue_archive)","fling_posse","floral_(idolmaster)","floro_(7th_dragon)","flow_glow_(hololive)","flower_knot","flower_tact","fluffy_sweet_(idolmaster)","fluffy_white_puppy_expressions_(meme)","fluid_sac_(e.g.o)","flushed_face_emoji_shirt_(meme)","flying_type_theme_(pokemon)","focus_(horizon)","food_name","for_the_better_right?_(meme)","forbidden_list_(yu-gi-oh!)","foreclosure_task_force_(blue_archive)","forest_for_the_flames_(e.g.o)","four_beasts_(nikke)","four_of_a_kind_(touhou)","fox_platoon_(blue_archive)","fragarach_(fate)","frame_(idolmaster)","freaky_satono_diamond_(meme)","freikugel_(fire_emblem)","fresh_china_(idolmaster)","fresh_fruits_parlor_(love_live!)","fried_rice_prank_(meme)","friendship_club_(princess_connect!)","frieren's_three-day_tantrum","frieren_lap_pillow_(meme)","frieren_stuck_in_a_mimic_(meme)","frigate_(eve_online)","frilled_square_(idolmaster)","frolicking_fairies_of_gensokyo_(touhou)","from_hat_trick","frost_shard_(e.g.o)","frostbite_set_(zelda)","fubumicomet_(hololive)","fujin_yumi_(fire_emblem)","full-stop_office_(identity)_(project_moon)","full_cowling_(boku_no_hero_academia)","fundoshi_day","funnels_(gundam)","funsai_seyo!_unvalentine_no_fukushuu_(project_sekai)"],
+  "audit_notes": [
+    "fitness_gym→futa_on_male帯を1,000件連続監査し、accepted pilot-v2 taxonomyとprotected/canonical boundariesを維持した。",
+    "floating/flying/folding/floral_print/flower/food/foot/forced/frilled/front/fox/frog/fruit系を語幹一括で処理せず、対象identityと初心者向け実用発見経路を優先して再監査した。",
+    "chair内のhair、frostmourne内のfrost、floor_lamp内のfloor等、部分文字列による誤分類候補を明示的に検出・修正した。",
+    "固有作品内概念・イベント・ミーム、flower_knot/food_name等の語義が名称だけでは確定できない47件はUNRESOLVEDに保持した。外部証拠は今回未使用。",
+    "canonical identity / production Japanese overlay / Special / #66 UI・search / mainは変更しないcandidate-buildのみ。"
+  ],
+  "raw_csv_sha256": "2b9b88ca65bba884a6ad5586190dbf6065ab26cd30ac4d11948fb3afd62b98cb",
+  "xz_sha256": "b8d29f7d6b15889c515d2594843ad35879988392fbc2cd76a4f156f6515fd9d1",
+  "storage_mode": "base64_text_fragments_of_xz",
+  "parts": [
+    {"path":"docs/issue64/full_rollout/batches/batch013_rows08901-09900_ledger.csv.xz.b64.part001","decoded_size":6000,"decoded_sha256":"59b18c98690389bdf60f4df0eaf6271ef5aa1eebcef08723ea6e80b040107e44","base64_text_sha256":"e6ebbdf8776d018bc862a983623aacedb7450bd51307b2e3dffade0a5e0ddb21"},
+    {"path":"docs/issue64/full_rollout/batches/batch013_rows08901-09900_ledger.csv.xz.b64.part002","decoded_size":6000,"decoded_sha256":"2597e06d03ab483285d94f2230c7ea16b2b35d9ee286654af9d8c2d2d5e8719a","base64_text_sha256":"eabb3eab10d611f07313384c830afb30fc1b7cdba2958fc64f659e9847f133e3"},
+    {"path":"docs/issue64/full_rollout/batches/batch013_rows08901-09900_ledger.csv.xz.b64.part003","decoded_size":212,"decoded_sha256":"f10d3eee203ea50f1b1b8a56399153f63ae5cd82cd2b604da3d3fa33255f7984","base64_text_sha256":"e8fe7d17a678058f613e027d4ea5381a41bb242dd9352509c2f02a8347fca7ad"}
+  ]
+}
