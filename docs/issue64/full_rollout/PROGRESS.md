@@ -17,14 +17,14 @@ Accepted basis: Issue #64 pilot revision 2, commit `5064429018123c80c32ac41af715
 
 ## Checkpoint 2026-09-13 JST
 
-Completed sequential rows: 1-10,900 / 30,629 (35.59%)
+Completed sequential rows: 1-11,150 / 30,629 (36.40%)
 
-- PROPOSED: 10,378
-- UNRESOLVED: 522
-- HIGH: 9,309
-- MEDIUM: 1,069
-- LOW: 522
-- remaining: 19,729
+- PROPOSED: 10,623
+- UNRESOLVED: 527
+- HIGH: 9,542
+- MEDIUM: 1,081
+- LOW: 527
+- remaining: 19,479
 
 Batches:
 
@@ -42,15 +42,16 @@ Batches:
 - 7,901-8,900: 929 proposed / 71 unresolved
 - 8,901-9,900: 953 proposed / 47 unresolved
 - 9,901-10,900: 906 proposed / 94 unresolved
+- 10,901-11,150: 245 proposed / 5 unresolved
 
-Batch 14 audit重点:
-- `futa_with_female`〜`green_necktie` の1,000件をpopulation正本から再構築・再監査し、前回の未永続draftは正式成果として再利用していない
-- accepted pilot-v2 taxonomy と protected/canonical boundaries を維持
-- `ghost / giraffe / goat / gold / golden / gradient / grass / green` 系を語幹だけで一括分類せず、対象identityと初心者向け実用発見経路で個別に再監査
-- `goosebumps` を生物ではなく身体状態、`golf_course` を行為ではなく場所、`grasshopper` を植物ではなく生物、`green_lightsaber` を色ではなく武器として修正するなど、部分一致由来の誤分類を除去
-- hair ornament は衣装アクセサリ、`*_print` は柄、gogglesの着用位置は着脱・露出として境界を再確認
-- 固有作品内概念・イベント・ミームおよび名称だけでは安全に確定できない94件はUNRESOLVED
-- direct binary blob経由で通常形式の単一 `.csv.xz` ledgerを保存し、前回のconnector fragment write障害を回避
+Batch 15 audit重点:
+- `green_nightgown`〜`groom` の250件を連続監査し、accepted pilot-v2 taxonomy と protected/canonical boundaries を維持
+- `green / grey` 系を色修飾だけで一括分類せず、衣服・身体・生物・背景・道具など対象identityを優先
+- `green_snake` は生物、`grey_car` は乗り物、`grey_hair` は髪・顔、`green_tea` は食べ物・飲み物として、modifierではなく主対象側へ分類
+- `green_outline / grey_outline / grey_border` は色より画面表現、`green_screen / grid_background` は背景identityとして境界を再確認
+- `green_stem_(e.g.o)` / `greenery_day` / `grills` / `grimace_shake_(meme)` / `grind_fiction` の5件は名称だけで安全に確定できずUNRESOLVED
+- 今回は1,000件を無理に満たさず、色修飾帯からhair/hand帯へ境界が大きく変わる前の250件で完全検証・永続化checkpointを切った
+- direct binary blob経由で通常形式の単一 `.csv.xz` ledgerを保存
 - canonical/Japanese overlay/Special/#66 UI/search/mainは変更しないcandidate-buildのみ
 
 ## Rules
@@ -86,4 +87,4 @@ Recovery order for a new chat:
 4. `docs/issue64/full_rollout/MANIFEST.json`
 5. this `PROGRESS.md`
 
-Next unprocessed global row: **10,901**.
+Next unprocessed global row: **11,151**.

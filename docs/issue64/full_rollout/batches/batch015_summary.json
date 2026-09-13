@@ -1,0 +1,51 @@
+{
+  "issue": 64,
+  "batch": 15,
+  "range": [
+    10901,
+    11150
+  ],
+  "count": 250,
+  "status_counts": {
+    "PROPOSED": 245,
+    "UNRESOLVED": 5
+  },
+  "confidence_counts": {
+    "HIGH": 233,
+    "MEDIUM": 12,
+    "LOW": 5
+  },
+  "primary_genre_counts": {
+    "ACTION_CONTACT": 3,
+    "BODY_PART": 21,
+    "CLOTHING": 149,
+    "COLOR_APPEARANCE": 5,
+    "COMPOSITION_CAMERA": 1,
+    "EXPRESSION_EMOTION": 2,
+    "HAIR_FACE": 14,
+    "LIVING_NATURE": 11,
+    "OBJECT_PROP": 24,
+    "PERSON_COUNT": 1,
+    "PLACE_BACKGROUND": 8,
+    "STYLE_QUALITY_META": 5,
+    "TEXT_SYMBOL": 1
+  },
+  "unresolved": [
+    "green_stem_(e.g.o)",
+    "greenery_day",
+    "grills",
+    "grimace_shake_(meme)",
+    "grind_fiction"
+  ],
+  "audit_notes": [
+    "green_nightgown〜groom帯の250件を連続監査し、accepted pilot-v2 taxonomyとprotected/canonical boundariesを維持した。",
+    "green/grey系は色修飾へ一括吸収せず、衣服・身体・生物・背景・道具など対象identityを優先した。例: green_snake→LIVING_NATURE/CREATURE、grey_car→OBJECT_PROP/VEHICLE、grey_hair→HAIR_FACE。",
+    "green_outline/grey_outline・grey_borderは色より画面表現、green_screen/grid_backgroundは背景identityとして境界を再確認した。",
+    "名称だけで安全に確定できないgreen_stem_(e.g.o)、greenery_day、grills、grimace_shake_(meme)、grind_fictionの5件はUNRESOLVEDに保持した。",
+    "canonical identity / production Japanese overlay / Special / #66 UI・search / mainは変更しないcandidate-buildのみ。"
+  ],
+  "raw_csv_sha256": "88a4267e1942043d500155fc484fd5abe0f460136aa3c1f4b2e8f9793e931e13",
+  "xz_sha256": "e35b73f6b69f90c18ea4220c20e6c5efce4fb5f41bbbc73b75723fb075c87ec6",
+  "storage_mode": "xz-compressed UTF-8-SIG CSV ledger",
+  "path": "docs/issue64/full_rollout/batches/batch015_rows10901-11150_ledger.csv.xz"
+}
