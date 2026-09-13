@@ -68,6 +68,15 @@ Batches:
 - direct Git data binary blob経由で通常形式の単一 `.csv.xz` ledgerを保存
 - canonical/Japanese overlay/Special/#66 UI/search/mainは変更しないcandidate-buildのみ
 
+## Batch 26 attempt / quality stop before formal checkpoint
+
+- intended range: **20,401-21,400** (`pinstripe_skirt` -> `pumpkin_ornament`), 1,000 rows
+- formal completed row remains **20,400**; no Batch 26 ledger/summary/MANIFEST checkpoint was created and nothing from this attempt may be counted
+- preflight re-read live `main`, Issue #64 comments, `PROTOCOL.md`, accepted pilot-v2 taxonomy, branch `PROGRESS.md`, and all 1,000 fixed canonical identities from `population.txt`
+- concrete stop reason: this execution could retrieve the 1,000 identities but could not safely complete row-level classification + independent audit + immutable ledger construction within the remaining execution budget without falling back to broad lexical/substring heuristics; doing so would violate the explicit quality rule against rough partial-match/bulk inference and would materially weaken handling of dense proper-name/meme/project and identity-vs-modifier boundaries in this range
+- no partial/in-memory classifications were persisted or accepted; the next run must resume at row **20,401** and re-audit the full 1,000-row Batch 26 target
+- no production/canonical/Japanese overlay/Special/#66 UI/search/main mutation was made
+
 ## Prior Batch 21 blocker clarification
 
 The earlier attempt that stopped at row 15,400 treated unavailable historical `post_count` as a per-batch blocker. That stop condition is superseded by the routing correction already recorded in Issue #64 and commit `3be2e2c1565e56362bdd445cab4d69eb75e84309`: `PROTOCOL.md` requires canonical + classification status + primary/secondary path + confidence, and the fixed row identity/order source is `docs/issue64/artifacts/population.txt`.
