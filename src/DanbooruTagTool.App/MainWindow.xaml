@@ -291,6 +291,10 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <Style x:Key="RightDetailsTabItem" TargetType="{x:Type TabItem}" BasedOn="{StaticResource {x:Type TabItem}}">
+            <Setter Property="Padding" Value="10,8"/>
+            <Setter Property="Margin" Value="0,0,4,0"/>
+        </Style>
         <Style x:Key="NavigationItem" TargetType="{x:Type TreeViewItem}">
             <Setter Property="Padding" Value="5,2"/>
             <Setter Property="Margin" Value="0,1"/>
@@ -390,7 +394,7 @@
                     <GridSplitter Grid.Column="3" DragCompleted="SplitterChanged"/>
                     <Border Grid.Column="4" Style="{StaticResource PanelCard}" Padding="0">
                         <TabControl x:Name="RightDetailsTabs" Margin="0" Padding="0">
-                        <TabItem Header="タグ詳細">
+                        <TabItem Header="タグ詳細" Style="{StaticResource RightDetailsTabItem}">
                             <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Padding="12,8">
                                 <StackPanel>
                                     <TextBlock Text="選択中のタグ" Style="{StaticResource HintText}"/>
@@ -411,7 +415,7 @@
                                 </StackPanel>
                             </ScrollViewer>
                         </TabItem>
-                        <TabItem Header="現在のPrompt">
+                        <TabItem Header="現在のPrompt" Style="{StaticResource RightDetailsTabItem}">
                             <Grid Margin="12,8,12,12">
                                 <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="*"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
                                 <StackPanel Grid.Row="0"><DockPanel><TextBlock Text="{Binding Count}" Style="{StaticResource HintText}" VerticalAlignment="Center"/><CheckBox DockPanel.Dock="Right" Content="EN表示" IsChecked="{Binding EnglishChips}" Margin="8,0,0,0" VerticalAlignment="Center"/></DockPanel><TextBlock Text="{Binding Unresolved}" Style="{StaticResource HintText}" Foreground="#8A6A37"/></StackPanel>
