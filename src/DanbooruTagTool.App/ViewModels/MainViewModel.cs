@@ -13,6 +13,9 @@ public sealed class EntryViewModel(CatalogEntry entry, PromptWorkspace workspace
     public string Label => (entry.IsSpecial ? "◆ " : "") + entry.Label;
     public string English => entry.Canonical ?? entry.English;
     public string Usage => entry.UsageText;
+    public string Category => entry.IsSpecial ? "Special" : "General";
+    public string Breadcrumb => string.IsNullOrWhiteSpace(entry.Breadcrumb) ? "—" : entry.Breadcrumb;
+    public string Description => string.IsNullOrWhiteSpace(entry.Description) ? "説明はありません。" : entry.Description;
     public string AddLabel => entry.Canonical != null && workspace.Contains(entry.Canonical) ? "✓ 追加済み" : entry.CanAdd ? "＋" : "参照";
     public RelayCommand Add { get; } = new(_ => add(entry), _ => entry.CanAdd && !workspace.Contains(entry.Canonical!));
     public void Refresh() { Notify(nameof(AddLabel)); Add.Refresh(); }
