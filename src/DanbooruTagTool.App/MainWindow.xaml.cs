@@ -22,10 +22,13 @@ public partial class MainWindow : Window
     public MainWindow(MainViewModel vm)
     {
         this.vm = vm; InitializeComponent(); DataContext = vm;
-        Width = Math.Max(MinWidth, vm.Ui.Width); Height = Math.Max(MinHeight, vm.Ui.Height);
+        var defaultHeight = Math.Abs(vm.Ui.Height - 820) < 0.5 ? 720 : vm.Ui.Height;
+        Width = Math.Max(MinWidth, vm.Ui.Width); Height = Math.Max(MinHeight, defaultHeight);
         Left = Math.Clamp(vm.Ui.Left, SystemParameters.VirtualScreenLeft, SystemParameters.VirtualScreenLeft + SystemParameters.VirtualScreenWidth - 100);
         Top = Math.Clamp(vm.Ui.Top, SystemParameters.VirtualScreenTop, SystemParameters.VirtualScreenTop + SystemParameters.VirtualScreenHeight - 100);
-        NavColumn.Width = new(Math.Max(145, vm.Ui.NavWidth)); PromptColumn.Width = new(Math.Max(210, vm.Ui.PromptWidth));
+        var navWidth = Math.Abs(vm.Ui.NavWidth - 210) < 0.5 ? 230 : vm.Ui.NavWidth;
+        var promptWidth = Math.Abs(vm.Ui.PromptWidth - 340) < 0.5 ? 300 : vm.Ui.PromptWidth;
+        NavColumn.Width = new(Math.Max(180, navWidth)); PromptColumn.Width = new(Math.Max(250, promptWidth));
         EditorColumn.Width = new(Math.Clamp(vm.Ui.EditRatio, .25, .85), GridUnitType.Star); EnglishColumn.Width = new(1 - Math.Clamp(vm.Ui.EditRatio, .25, .85), GridUnitType.Star);
         searchTimer.Tick += (_, _) => { searchTimer.Stop(); vm.RefreshResults(); };
         feedbackTimer.Tick += (_, _) => { feedbackTimer.Stop(); if (vm.Status == "✓ コピーしました") vm.Status = ""; };

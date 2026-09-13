@@ -71,7 +71,9 @@ public sealed class MainViewModel : Observable
     public bool HasSelection => Chips.Any(c => c.Selected);
     public string SelectionSummary => HasSelection ? $"{Chips.Count(c => c.Selected)}件選択中" : "選択なし";
     public string English => Workspace.English;
-    public string Count => $"現在のPrompt · {Chips.Count} items";
+    public string Count => $"現在のPrompt · {Chips.Count}件";
+    public bool HasPrompt => Chips.Count > 0;
+    public string ResultSummary => $"{Results.Count:N0}件";
     public string Unresolved => Chips.Count(c => c.Item.Kind == PromptItemKind.Raw) is var n && n > 0 ? $"未解決 {n}" : "";
     public string Status { get => status; set => Set(ref status, value); }
     public string Find { get => find; set { if (Set(ref find, value)) { UpdateMatches(); FindNext(false); } } }
@@ -139,7 +141,7 @@ public sealed class MainViewModel : Observable
                 (browse == "special" || e.Paths.Any(p => "special:" + p.Key == browse || (browse.EndsWith('>') && browse == "special:" + p.GenreId + ">"))));
             entries = SortIndex == 1 ? entries.OrderBy(e => e.Label, StringComparer.Create(CultureInfo.GetCultureInfo("ja-JP"), false)) : entries.OrderByDescending(e => e.Usage);
         }
-        Results = Rows(entries); SelectedEntry = Results.FirstOrDefault(e => e.Entry.Id == (Query.Length == 0 ? browseSelection ?? selected : selected));
+        Results = Rows(entries); Notify(nameof(ResultSummary)); SelectedEntry = Results.FirstOrDefault(e => e.Entry.Id == (Query.Length == 0 ? browseSelection ?? selected : selected));
         Notify(nameof(Pending)); Notify(nameof(BrowseLabel));
         if (Query.Length == 0) ResultsRestored?.Invoke();
     }
@@ -156,7 +158,7 @@ public sealed class MainViewModel : Observable
     {
         RefreshChips(); foreach (var row in Results.Concat(Related)) row.Refresh(); SelectedEntry?.Refresh();
         foreach (var command in new[] { Undo, Redo, Recover }) command.Refresh();
-        Notify(nameof(English)); Notify(nameof(Count)); Notify(nameof(Unresolved)); Persist();
+        Notify(nameof(English)); Notify(nameof(Count)); Notify(nameof(HasPrompt)); Notify(nameof(Unresolved)); Persist();
     }
     private void RefreshChips()
     {
