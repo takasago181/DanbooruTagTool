@@ -1,269 +1,242 @@
-# V1 WPF / PORTABLE ARCHITECTURE — FIRST IMPLEMENTATION BASELINE
+# V1 WPF ARCHITECTURE — FIRST IMPLEMENTATION BASELINE
 
-最終更新: 2026-09-13
+最終更新: 2026-09-14
 
-> **USER-ACCEPTED / FIRST IMPLEMENTATION ARCHITECTURE BASELINE**
+> **USER-ACCEPTED / CURRENT ARCHITECTURE BASELINE**
 >
-> 本書は Issue #66 の第一実装におけるアプリ形式・移行・配布構成の正本である。
+> 本書は Issue #66 のWPFアプリ形式・runtime境界・data分離・移行方針の正本である。
 > 製品目的は `docs/PRODUCT_GOAL_LOCK.md`、UI/interaction は `docs/product/V1_UI_FIRST_IMPLEMENTATION_BASELINE.md` を優先する。
-> 既存 Python/Tk 実装を無理に改造せず、新しい WPF アプリを同一 repository 内へ新設する。
+> Portable/self-contained配布は2026-09-14のユーザー決定により practical v1 completion Gate から外れ、optional/post-v1へ変更された。
 
 ## 1. Architecture decision
 
-v1 first implementation は以下を標準とする。
+WPF v1は以下を標準とする。
 
 - C#
 - .NET
 - WPF
 - SQLite
-- CommunityToolkit.Mvvm 等の軽量 MVVM 補助
 - Windows x64
 - local / non-LLM runtime
 
-既存アプリは Python + Tkinter であり、Stage7A/8/9 系UI・recommendation・composer等を含む歴史的実装である。
-新v1は情報設計・UI・runtime形式が大きく異なるため、Tk UIを継ぎ足して完成形へ変形することを標準方針にしない。
+既存Python + Tkinter実装はlegacy/referenceであり、新WPF runtimeの必須依存にしない。
 
 ## 2. New app is a clean implementation, not a Python wrapper
 
-新WPFアプリは新規実装とする。
-
 禁止:
-- WPF から Python runtime を必須呼出しする構成
-- Python/Tcl/Tkのインストールを新アプリ利用条件にすること
-- 旧Stage UIをそのままWPFへ移植すること
-- 旧recommendation / automatic support / Generation Profile等を「既にある」という理由だけで移植すること
+- WPFからPython runtimeを必須呼出しする構成
+- Python/Tcl/Tk installationを新WPFアプリ利用条件にすること
+- 旧Stage-number UI / recommendation-first UIを実装済みという理由だけで移植すること
+- hidden automatic support / automatic Prompt optimizer / evaluator UIをv1 defaultへ戻すこと
 
-再利用対象は主に **data / identity / taxonomy / search rules / regression evidence / accepted behavior** であり、Pythonコードそのものをruntime dependencyにはしない。
+再利用対象:
+- accepted data
+- canonical identity
+- Japanese overlay
+- Alias/search support
+- #56 Special taxonomy
+- #63 product-fit sidecar
+- usage count
+- accepted search rules/regression evidence
+- Prompt preservation rules
+- accepted #64 output after acceptance
 
-旧Pythonコードは第一実装中:
-- reference
-- regression comparison
-- accepted behaviorの確認元
-- historical implementation
+## 3. Repository coexistence during active migration
 
-として保持する。
-
-## 3. Repository coexistence during migration
-
-第一実装では既存ファイルを大規模移動しない。
-
-推奨構成:
+Current structure:
 
 ```text
 DanbooruTagTool/
   src/
-    DanbooruTagTool.App/        # WPF executable / Views / ViewModels
-    DanbooruTagTool.Core/       # Prompt model, search contracts, application logic
-    DanbooruTagTool.Data/       # SQLite, Data Pack import/read layer
-    DanbooruTagTool.Tests/      # new .NET tests
+    DanbooruTagTool.App/
+    DanbooruTagTool.Core/
+    DanbooruTagTool.Data/
+    DanbooruTagTool.Tests/
 
-  data/                         # existing source-of-truth / accepted data assets
-  docs/                         # project/product authority
+  data/
+  docs/
 
-  danbooru_tag_tool/            # existing Python/Tk legacy/reference; keep intact first
-  tests/                        # existing Python regression/evidence tests
-  START_DANBOORU_TAG_TOOL.bat   # old Python launcher during coexistence
+  danbooru_tag_tool/    # legacy/reference
+  tests/                # historical/regression evidence
 ```
 
-実装上必要なら solution/project名は調整してよいが、以下の境界は保持する:
-- new WPF code と legacy Python code を混在させない
-- source-of-truth data を不必要に複製しない
-- #64 の進行中データを UI rewrite のために移動・改変しない
+Active rules:
+- WPF codeとlegacy Python codeをruntime上で混在させない
+- source-of-truth dataを不必要に複製しない
+- #64進行中dataをUI作業の都合で移動・改変しない
+- protected/ignored local dataをGitHubだけで復元できると仮定しない
 
-## 4. Do not reorganize existing data before the WPF baseline
+Broad legacy/data tree cleanup is separate from current #66 completion.
 
-`data/` は第一実装開始時点では現位置を維持する。
-
-理由:
-- #64 General 30,629 taxonomy が進行中
-- existing Python tests / workflows / docs / scripts が相対pathを参照している
-- 大規模moveは新アプリ実装とは独立のmigration riskを増やす
-- protected / ignored local data がGitHubだけでは完全復元できない
-
-したがって第一実装では:
-
-`existing GitHub/local data -> import/build step -> catalog.db -> WPF app`
-
-とする。
-
-WPF baselineが実Windowsでacceptされた後、必要なら別のcleanup/migration taskとして legacy/source treeの整理を行う。
-
-## 5. Data/runtime separation
-
-標準runtime境界:
+## 4. Data/runtime separation
 
 ### catalog.db
 
-再生成可能なcatalog knowledge。
+再生成可能なread-mostly catalog knowledge。
 
-候補:
-- Special canonical identity
-- Special Japanese presentation
+主対象:
+- Special identity/Japanese presentation
 - #56 taxonomy
-- #63 product-fit sidecar
+- #63 product fit
 - General 30,629 Japanese overlay
-- accepted #64 taxonomy
-- approved Alias / search support
+- accepted #64 taxonomy after acceptance
+- approved Alias/search support
 - usage count
-- 必要なsearch index
+- required lightweight search index
 
-`catalog.db` は通常利用時 read-mostly とする。
+### user.db / UserData
 
-### user.db
+ユーザー固有・失いたくない状態。
 
-ユーザー固有・再生成して失ってはいけない状態。
-
-第一実装候補:
+対象:
 - current Prompt/session
-- one-generation recovery snapshot
-- unresolved review queue
+- recovery snapshot
 - window/workspace state
 - splitter widths
 - settings
+- unresolved/user-state items where applicable
 
-将来のfavorite/history/saved Promptは、実使用で必要性が確認されてから追加する。
+Favorite/history/saved Prompt等は実利用で必要性が確認されてから追加する。
 
 ### Data Pack / importer
 
-GitHub上のCSV/JSON/sidecar等をsource-of-truthとして保持し、build/importで `catalog.db` へ変換する。
-通常アプリ起動時に分類・監査・CSV全再構築を走らせない。
+GitHub/local source assetsをbuild/importで `catalog.db` へ変換する。
+通常起動時にtaxonomy classification / audit / large CSV rebuildを行わない。
 
-## 6. Portable distribution is the standard user format
+## 5. Practical v1 runtime requirements
 
-標準配布形式:
+Practical v1で必須:
+- current user Windows環境でWPF appが正常起動する
+- Python/Tcl/Tkが通常WPF runtimeの必須依存ではない
+- catalog knowledgeとuser-specific stateが分離される
+- normal startupがaudit/taxonomy rebuildを要求しない
+- machine-specific absolute pathへの不要な固定依存を増やさない
+- protected/canonical dataを移行都合で弱めない
 
-> **Windows x64 / self-contained / portable folder**
+`.NET self-contained` 自体は既に動作確認済みの能力として保持してよいが、practical v1の必須配布条件ではない。
 
-別PCへフォルダごとコピーし、そのまま起動できることを目標とする。
+## 6. Portable/self-contained distribution is optional
 
-標準要件:
-- target PCへのPython installation不要
-- target PCへの.NET Desktop Runtime installation不要（self-contained publish）
-- installer必須にしない
-- registryを通常状態保存の必須先にしない
-- machine-specific absolute pathを通常データに保存しない
-- executable folderからのrelative pathを基本にする
-- network/cloud serviceを通常起動の必須条件にしない
+2026-09-14のユーザー決定:
 
-想定配布例:
+> Portable化は実用v1の完成条件から外す。必要になったら最後またはpost-v1で扱う。
+
+したがって以下は**practical v1 Gateではない**:
+- self-contained publishを毎iteration実行すること
+- portable folderを標準user formatに固定すること
+- separate .NET Desktop RuntimeなしPCでの検証
+- second Windows PCへのfolder-copy起動検証
+- UserDataを別PCへcopyして継続できることのacceptance test
+- installer/portable配布方式の最終決定
+
+既存のself-contained publish能力は削除する必要はない。
+将来必要ならoptional distribution taskとして再利用する。
+
+## 7. Artifact policy for development
+
+Routine UI work:
+- Debug/Release build
+- relevant tests
+- real Windows launch/manual interaction
+
+を優先する。
+
+**明示要求がない限りportable publishを毎回行わない。**
+
+Local disposable artifactsは固定pathを使う:
 
 ```text
-DanbooruTagTool/
-  DanbooruTagTool.exe
-  *.dll / runtime files
-  Data/
-    catalog.db
-  UserData/
-    user.db
-    settings.json   # 必要なら。DBへ統合してもよい
+artifacts/current/
+artifacts/screenshots/
+artifacts/publish/    # publishが明示要求された場合のみ
 ```
 
-`UserData` を一緒にコピーすれば、別PCでもcurrent Prompt・設定・recovery state等を継続できる構成を目指す。
+禁止/非推奨:
+- `dictionary-...-v1`, `v2`, `v3` のようなversioned publish directory増殖
+- `screenshots-v4`, `screenshots-v5` 等を毎回追加
+- artifactsをGit commit対象にすること
+- cleanup目的の `git clean -fdx` / `git clean -fdX`
 
-## 7. Portable does not mean single-file executable
-
-`.exe` 1個へ全資産を埋め込むことはv1要件にしない。
-
-優先するもの:
-- copyしやすい1フォルダ
-- catalog更新のしやすさ
-- user data保護
-- troubleshootingのしやすさ
-- DB/data境界の明確さ
-
-Self-containedにより配布サイズが増えることは許容する。
-目標は「最小バイト数」ではなく「数百MB以内程度の実用的な軽量portable Windows tool」。
+Cleanupはtracked/protectedでないことを確認したうえで、既知のdisposable artifact pathだけを個別削除する。
 
 ## 8. Legacy Python lifecycle
 
-### Before WPF baseline acceptance
-
-旧Python/Tk一式を削除・legacyフォルダ移動しない。
+Current active #64/#66中は旧Python/Tk一式を大規模移動・削除しない。
 
 理由:
-- regression referenceとして価値がある
-- path churnを避ける
-- source/protected dataとの関係を壊さない
-- WPF完成前にcleanup作業を主目的化しない
+- regression/reference価値
+- existing scripts/tests/docsのpath churn回避
+- protected/source dataとの関係保護
 
-### After WPF baseline acceptance
+Practical WPF baseline acceptance後、必要なら別taskとして:
+- `legacy/python/` 移動
+- obsolete launcher整理
+- obsolete runtime code削除/archive
+- Python-specific historical tests整理
 
-別taskとして初めて以下を検討する:
-- `legacy/python/` 等への移動
-- old launcherの明確なlegacy化
-- obsolete runtime code削除
-- Python-specific dependencies/testsのhistorical/archive扱い
+を検討する。
 
-削除はaccepted data/evidence/provenanceを失わないことを確認してから行う。
+## 9. Phase B implementation status
 
-## 9. First implementation dependency rule
+Issue #66 clean WPF Phase B baselineはlive mainへmerge済み。
 
-新WPFは既存Pythonアプリのmodule import/APIを前提にしない。
+Implemented baseline:
+1. App/Core/Data/Tests separation
+2. catalog import/read
+3. Prompt workspace
+4. conservative Prompt import/raw preservation
+5. Special browse + usage count
+6. Japanese/English/mixed search
+7. known-noise regression fixes
+8. explicit add/edit/reorder/Undo/Redo
+9. English visible-state copy
+10. autosave/recovery
+11. General provider boundary
 
-引き継ぐべきもの:
-- canonical identity
-- Japanese overlay
-- Alias/search synonyms
-- #56 Special taxonomy
-- #63 product fit
-- usage count
-- accepted search behavior
-- search regression cases
-- Prompt preservation rules
-- visible-state = copied-Prompt invariant
-- #64 accepted output after acceptance
+Self-contained publishは過去にvalidation済みだが、今後のroutine Gateではない。
 
-原則移植しないもの:
-- Stage-number oriented UI
-- recommendation-first UI
-- hidden automatic support insertion
-- automatic Prompt optimizer
-- Generation Profile dashboard
-- evaluator UI
-- full statistics runtime dependency
+## 10. Current #66 completion route
 
-## 10. First WPF build route
-
-Issue #66 Phase B first implementation:
-
-1. create new .NET/WPF solution under `src/`
-2. establish App / Core / Data / Tests boundaries
-3. define catalog import/read contract from existing data assets
-4. implement lightweight Prompt workspace shell
-5. conservative Prompt import / raw preservation
-6. Special browse + usage count
-7. Japanese/English/mixed search + known-noise regression fixes
-8. explicit add/edit/reorder + English copy
-9. autosave/recovery in user storage
-10. General provider boundary while #64 continues
-11. publish `win-x64` self-contained portable folder
-12. Windows acceptance including folder-copy launch test
+Before #64 acceptance:
+- practical UX/functionality refinement may continue on the dedicated #66 usability branch
+- do not reclassify #64 data
+- do not clean-merge the current usability branch until user-facing UX review is accepted
 
 After #64 acceptance:
 - consume accepted General taxonomy
-- rebuild catalog
-- final search/browse acceptance
+- rebuild/refresh catalog
+- final search/browse regression
+- real Windows practical interaction acceptance
+- Prompt round-trip / visible-state copy verification
+- practical v1 baseline
 
-## 11. Acceptance checks specific to architecture/distribution
+Portable/second-PC validation does not block this route.
 
-First practical v1 baseline must verify:
-- new app launches without Python/Tk
-- self-contained publish launches on a Windows x64 machine without separate .NET runtime install
-- app can be copied as one folder to another PC/location and start there
-- no essential state depends on original absolute path
-- catalog and user data are separated
-- copying UserData carries user state as designed
-- missing legacy Python runtime does not block normal v1 operation
+## 11. Practical-v1 architecture acceptance
+
+Must verify:
+- WPF app starts and functions on the actual user Windows environment
+- WPF normal runtime does not require Python/Tk
+- catalog/user-state separation is intact
+- Prompt state and output invariants are preserved
 - normal startup does not rebuild taxonomy/audit data
-- #64/protected/canonical source data were not weakened by migration
+- #64/protected/canonical source data are not weakened
+- current UI workflow is practically usable
+
+Optional/post-v1:
+- self-contained distribution packaging
+- second-PC copy
+- .NET-runtime-absent target validation
+- portable UserData migration acceptance
 
 ## 12. Source-of-truth relationship
 
 - Product goal: `docs/PRODUCT_GOAL_LOCK.md`
 - UI/interaction: `docs/product/V1_UI_FIRST_IMPLEMENTATION_BASELINE.md`
-- Architecture/migration/portable distribution: **this file**
+- Architecture/runtime/data/distribution boundary: **this file**
 - Routing: `docs/project/CURRENT_STATE.md`
+- Permanent workflow/safety: `docs/project/PERMANENT_RULES.md`
 - Implementation owner: Issue #66
 - General taxonomy owner: Issue #64
 
-Implementation details may evolve after real use, but the first build must not silently revert to Python/Tk runtime dependency or destructive legacy/data migration without a new explicit DEV decision.
+Historical portable-first language is superseded where it conflicts with this 2026-09-14 update.
