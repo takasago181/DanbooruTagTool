@@ -10,16 +10,8 @@
 
 Status: **SUPERSEDED BY D-016**
 
-Historical decision:
-- DEV
-- KNOWLEDGE
-- PROMPT
-
-AUDITは常設班ではなく、必要な品質Gateごとに起動する独立監査ロール。
-Codexは班ではなくDEVの実装担当。
-TEMPは期間限定。
-
-2026-09-12にPROMPT班を廃止し、KNOWLEDGEへ統合したため現在の体制はD-016を参照する。
+Historical decision: DEV / KNOWLEDGE / PROMPT + on-demand AUDIT。
+2026-09-12にPROMPT班を廃止しKNOWLEDGEへ統合。現在はD-016を参照する。
 
 ---
 
@@ -27,8 +19,7 @@ TEMPは期間限定。
 
 Status: ADOPTED
 
-CodexはDEVの実装担当。
-仕様決定・Gate PASSを代行しない。
+CodexはDEVの実装担当。仕様決定・Gate PASSを代行しない。
 
 ---
 
@@ -36,13 +27,11 @@ CodexはDEVの実装担当。
 
 Status: ADOPTED
 
-現在地は:
+現在地は原則:
 
 `live main CURRENT_STATE -> live current Issue -> latest checkpoint -> PERMANENT_RULES -> task branch/local`
 
-で復元する。
-古いchat/handoff/branch-local管理文書で巻き戻さない。
-不一致時はfail-closed。
+で復元する。古いchat/handoff/branch-local管理文書で巻き戻さない。不一致時はfail-closed。
 
 ---
 
@@ -50,9 +39,7 @@ Status: ADOPTED
 
 Status: ADOPTED
 
-長いchatを記憶装置にしない。
-大区切り・大方針変更・handoff前にGitHub正本を更新する。
-意味のある途中成果はIssue checkpointへ残す。
+長いchatを記憶装置にしない。大区切り・大方針変更・handoff前にGitHub正本を更新し、意味のある途中成果をIssue checkpointへ残す。
 
 ---
 
@@ -60,8 +47,7 @@ Status: ADOPTED
 
 Status: ADOPTED
 
-`CURRENT_STATE.md` / `PERMANENT_RULES.md` / `DECISIONS.md` 等をstaleな会話内コピーで全上書きしない。
-変更直前にlatest mainを取得し、競合時は停止する。
+`CURRENT_STATE.md` / `PERMANENT_RULES.md` / `DECISIONS.md` 等をstaleな会話内コピーで全上書きしない。変更直前にlatest mainを取得し、競合時は停止する。
 
 ---
 
@@ -69,8 +55,7 @@ Status: ADOPTED
 
 Status: ADOPTED
 
-GitHubはlocal workspace全体のbackupではない。
-ignored runtime/source/derived/large dataを保護する。
+GitHubはlocal workspace全体のbackupではない。ignored runtime/source/derived/large dataを保護する。
 
 禁止:
 - `git clean -fdx`
@@ -83,7 +68,7 @@ ignored runtime/source/derived/large dataを保護する。
 
 Status: ADOPTED
 
-- direct main implementation commitをしない
+- direct main implementation commitを避ける
 - stable checkpointをcommit/push
 - GitHubからreview可能ならZIP不要
 - local-only/binary/push failure時のみfallback
@@ -94,12 +79,12 @@ Status: ADOPTED
 
 Status: ADOPTED / COMPLETED
 
-- final population: 2,788
+- final population 2,788
 - canonical identity/freeze chain completed
 - #56で2,788/2,788 Japanese-first UI browse mapping completed
 - UI taxonomyはsemantic ground truthではなくbrowse index
 - multi-path可
-- old oversized catch-allは解消済み
+- old oversized catch-all解消済み
 
 ---
 
@@ -107,15 +92,13 @@ Status: ADOPTED / COMPLETED
 
 Status: ADOPTED / COMPLETED DATA BASE
 
-production Japanese overlayは30,629 canonical entries。
-用途は日本語表示/検索補助。
-Japanese wordingをcanonical semantic authorityにしない。
+Production Japanese overlayは30,629 canonical entries。用途は日本語表示/検索補助。Japanese wordingをcanonical semantic authorityにしない。
 
 ---
 
 ## D-010 Product-fit eligibilityはsidecar
 
-Status: ADOPTED
+Status: ADOPTED / COMPLETED
 
 Special product-purpose full audit 2,788/2,788:
 - KEEP 1618
@@ -123,8 +106,7 @@ Special product-purpose full audit 2,788/2,788:
 - OUT_OF_SCOPE_PRODUCT 12
 - REVIEW 25
 
-canonical rowsを書き換えずID-keyed sidecarとして実装する。
-Current implementation owner: Issue #63 until accepted/merged.
+Canonical rowsを書き換えずID-keyed sidecarとして実装。Issue #63は完了/merged。
 
 ---
 
@@ -132,36 +114,28 @@ Current implementation owner: Issue #63 until accepted/merged.
 
 Status: ADOPTED
 
-製品の原点を再確認し、v1目的を以下へ固定した。
+v1目的を以下へ固定:
 
 `理解 -> 発見 -> 選択 -> 出力`
 
-対象問題:
-- 画像生成初心者
-- 英語/Danbooruタグ知識が弱い
-- 既存Promptの意味が分かりにくい
-- ニッチタグは名前自体を知らず検索できない
-
-v1では:
 - existing Promptを日本語-firstで理解
-- Japanese/English検索
+- Japanese/English/mixed検索
 - Specialを深いジャンルから発見
 - General 30,629を浅い実用ジャンルから発見
-- userが明示的に選択
+- userが明示的に選択/編集
 - canonical-English Promptをcopy
-
-する。
 
 自動最適Prompt生成をv1の目的にしない。
 
 Canonical product file: `docs/PRODUCT_GOAL_LOCK.md`。
-Scope Gate: Issue #42。
+Current app/search/final acceptance owner: Issue #66。
+Historical Issue #42/#34はactive Gateではない。
 
 ---
 
 ## D-012 General 30,629 practical taxonomy — separate sidecar
 
-Status: ADOPTED / RESERVED IMPLEMENTATION
+Status: ADOPTED / ACTIVE IMPLEMENTATION
 
 Issue #64。
 
@@ -172,8 +146,7 @@ Issue #64。
 - full 100k+ Danbooru ontologyは作らない
 - pilot -> audit -> full rollout
 
-理由:
-検索語を知らない初心者にはsearchだけでは発見できないため。
+検索語を知らない初心者にもbrowse discoveryを提供するため。
 
 ---
 
@@ -181,14 +154,12 @@ Issue #64。
 
 Status: **ADOPTED FOR v1 BOUNDARY / OLD STAGE10 MEANING SUPERSEDED BY D-017**
 
-The v1 boundary remains valid:
-- generation-effectiveness is not a v1 completion blocker
-- evaluator / Generation Profile / historical Stage10 A/B evidence remain optional assets for the product
-- Prompt/generation knowledge remains owned by **KNOWLEDGE #44**
-- former Issue #5 remains retired/closed and historical only
+- generation-effectivenessはv1 completion blockerではない
+- evaluator / Generation Profile / historical Stage10 A/B evidenceはoptional assets
+- Prompt/generation knowledgeはKNOWLEDGE #44が所有
+- former Issue #5はretired/closed
 
-However, the old definition of `Stage10 = future production A/B validation lane` is superseded by D-017.
-Old A/B/evaluator infrastructure remains preserved as evidence/testing tooling and can be used inside the new learning Stage10 when useful.
+旧 `Stage10 = production A/B validation lane` 定義はD-017で置換。
 
 ---
 
@@ -206,7 +177,7 @@ Default v1では以下を採用しない:
 - model verification-status UI
 - A/B manager / local result DB
 
-既存コード/データは必要なら保持するが、実装済みであることをUI採用理由にしない。
+既存資産は保持可だが、実装済みであることをUI採用理由にしない。
 
 ---
 
@@ -214,14 +185,11 @@ Default v1では以下を採用しない:
 
 Status: ADOPTED
 
-Stage5 full index / true AND / Candidate Aggregation / reliability rankingは既存資産として保持する。
-
-ただしcore v1:
+Stage5 full index / true AND / Candidate Aggregation / reliability rankingは既存資産として保持するが、通常の
 
 `understand -> discover -> choose -> copy`
 
-の通常利用にfull 11M-post / ~3GB statistics indexを必須化しない。
-将来の関連候補/統計機能で必要ならoptional subsystemとして使う。
+にfull 11M-post / ~3GB indexを必須化しない。
 
 ---
 
@@ -229,145 +197,90 @@ Stage5 full index / true AND / Candidate Aggregation / reliability rankingは既
 
 Status: ADOPTED
 
-常設体制を以下へ変更する。
-
+常設体制:
 - DEV
 - KNOWLEDGE
 
-AUDITはon-demand独立監査ロール、TEMPは期間限定担当、CodexはDEV実装担当のまま。
-
-旧PROMPT班は廃止し、その責務を `KNOWLEDGE:#44` へ統合する。
-
-KNOWLEDGE #44が所有する範囲:
-- generation knowledge corpus
-- Prompt composition knowledge
-- minimum-sufficient Prompt / support / anti-support research
-- model-family-specific Prompt guidance
-- generation-effectiveness research
-- relation/binding/count/topology failure knowledge
-- evaluator/tool/LoRA/control knowledge
-- concrete adopted featureが必要とする場合のnarrow controlled validation / Stage10-style evidence handoff
-
-ただしKNOWLEDGEはproduction/spec authorityを持たない。
-知識・実証結果をruntime/UIへ採用する判断はDEV/product routingが行う。
-
-Issue #5はretired/closedとし、comments/docs/resultsはhistorical evidenceとして保持する。
-旧文書の`PROMPT:#5`参照は新しい独立班を意味せず、必要に応じて#44から参照する。
-
-v1 knowledgeとfuture/advanced generation knowledgeは別チームに分けず、同じKNOWLEDGE内でproduct relevance / scope / validation stateを明示して管理する。
+AUDITはon-demand、TEMPは期間限定、CodexはDEV実装担当。
+旧PROMPT班のPrompt/generation-effectiveness責務はKNOWLEDGE #44へ統合。
+KNOWLEDGEはproduction/spec authorityを持たず、runtime/UI採用判断はDEV/product routingが行う。
 
 ---
 
 ## D-017 Stage10を実践画像生成学習ステージへ再定義 — 2026-09-13
 
-Status: **ADOPTED**
+Status: ADOPTED
 
-Stage10の目的を、Special Core Dictionaryの広範囲production A/B検証から、**ユーザー自身が画像生成を実践的に習得するための学習ステージ**へ変更する。
+Stage10をSpecial Core Dictionaryの広範囲production A/B検証から、ユーザー自身の**実践画像生成学習**へ変更。
 
-Canonical Stage10 definition:
+Canonical:
 - `docs/stages/STAGE_10_LEARNING.md`
-- Issue #65 `[STAGE10][LEARNING][ACTIVE] Practical image-generation mastery with NoobAI`
+- Issue #65
 
-目標:
+Primary:
+- NoobAI XL 1.1 EPS + Forge Neo
 
-`日本語の意図 -> Prompt設計 -> 生成 -> 観察 -> 原因分解 -> 修正 -> 必要ならLoRA/修復/領域制御 -> 仕上げ -> 再現可能な保存`
-
-を初心者が自力で回せるようにする。
-
-最終的には、成人の架空/二次元を前提としたハード・ニッチな表現を含む難しい生成でも、単なるレシピコピーではなく、
-- model/profile選択
-- Prompt構成
-- camera/visibility
-- actor-target/body-site/count/relation
-- Negative/Seed/weight
-- LoRA
-- Hires/ADetailer/img2img/inpaint
-- regional/control
-- failure diagnosis
-
-を使い分け、狙った絵へ修正しながら完成させられる状態をStage10 completionとする。
-
-Primary learning lane:
-- **NoobAI XL 1.1 EPS + Forge Neo**
-
-Secondary lanes:
-- Anima = relation-heavy / multi-character / tag+NL comparison/fallback
+Secondary:
+- Anima = relation-heavy / multi-character fallback/comparison
 - WAI Illustrious v17 = historical/comparison
 - NoobAI V-Pred = separate advanced profile
 
-Curriculum:
-- 10.0 environment/reproducibility
-- 10.1 Prompt fundamentals
-- 10.2 composition/camera/visibility
-- 10.3 hard/niche structural generation
-- 10.4 failure diagnosis/controlled iteration
-- 10.5 seed/Negative/weights/LoRA
-- 10.6 finishing/local repair
-- 10.7 regional/control escalation
-- 10.8 efficient daily workflow
-- 10.9 independent capstone
-
-Old Stage10 production A/B assets are **not deleted**. They become:
-- teaching material
-- controlled-comparison tooling
-- provenance/evidence
-- failure-diagnosis aids
-
-Stage10 is parallel to the v1 product route and remains **not a v1 completion blocker**.
-Likewise, v1 completion does not implyStage10 learning completion。
-
-KNOWLEDGE #44 supplies the research/claims; Stage10 may feed repeated practical observations back to #44. One successful image must not be promoted to universal model truth.
+Curriculumは10.0–10.9。Old A/B/evaluator assetsは教材・controlled comparison・provenanceとして保持する。
+Stage10はv1 blockerではない。現在の優先順位ではpractical v1 app baselineまでpause。
 
 ---
 
-## D-018 Clean WPF rewrite + self-contained portable folder — 2026-09-13
+## D-018 Clean WPF rewrite — 2026-09-13
 
-Status: **ADOPTED**
+Status: **ADOPTED / PORTABLE SUBDECISION SUPERSEDED BY D-019**
 
-Issue #66の第一実装は、既存Python/Tk UIを継ぎ足して完成させるのではなく、**同一repository内に新しいC#/.NET/WPFアプリを新設する**。
+Issue #66は既存Python/Tk UIを継ぎ足すのではなく、同一repository内にC#/.NET/WPFアプリを新設する。
 
-Current Python/Tk implementation:
-- legacy/reference
-- regression comparison source
-- accepted behavior/evidence source
-
-として第一実装中は保持する。
-
-新WPFの原則:
-- new `src/` treeにclean implementation
+原則:
+- `src/` treeにclean implementation
 - WPF runtimeからPython/Tcl/Tkを必須呼出ししない
-- accepted data / identity / taxonomy / search rules / regression evidenceを再利用する
-- existing `data/` とlegacy Python pathsはWPF baseline acceptance前に大規模移動しない
-- #64 General rolloutをUI rewriteのために妨害しない
-- `catalog.db` をrebuildable/read-mostly catalog knowledgeとして扱う
-- `user.db` / `UserData` をuser-specific stateとして分離する
+- accepted data / identity / taxonomy / search rules / regression evidenceを再利用
+- existing `data/` とlegacy Python pathsをactive migration中に大規模移動しない
+- `catalog.db` = rebuildable/read-mostly catalog knowledge
+- `user.db` / `UserData` = user-specific state
 - normal startupでtaxonomy/audit/source rebuildを走らせない
 
-標準配布形式:
+Phase B baselineはmainへmerge済み。
 
-**Windows x64 / .NET self-contained / portable folder**
-
-要件:
-- target PCへのPython install不要
-- target PCへのseparate .NET Desktop Runtime install不要
-- installer不要でfolder copyから起動可能
-- essential stateをregistryやmachine-specific absolute pathへ依存させない
-- `UserData`を含めてcopyすれば作業状態を持ち運べる構造を目指す
-
-Single-file EXEは要求しない。
-「1ファイル」より「1フォルダでportable / catalogとuser dataを明確分離」を優先する。
-
-WPF practical baseline acceptance後にのみ、legacy Python treeの移動・削除・archive化を別taskとして検討する。
+2026-09-13時点の「self-contained portable folderを標準配布形式/acceptance要件にする」部分はD-019で置換する。
 
 Canonical architecture file:
 - `docs/product/V1_WPF_ARCHITECTURE_BASELINE.md`
 
-Implementation owner:
-- Issue #66
+---
+
+## D-019 Portableをpractical v1 Gateから外す — 2026-09-14
+
+Status: ADOPTED
+
+DanbooruTagToolは現状ユーザー個人のlocal Windows利用が主目的であり、portable/別PC配布検証をpractical v1完成条件にしない。
+
+Keep:
+- clean WPF architecture
+- Python/Tcl/Tk runtime非依存
+- catalog/user-data分離
+- relative/local path設計
+- 既に動くself-contained publish能力は削除不要
+
+practical v1では必須にしない:
+- every-iteration self-contained publish
+- portable folderをstandard user formatにすること
+- second-PC folder-copy validation
+- .NET-runtime-absent PC validation
+- UserDataの別PC移行acceptance
+
+Portable/self-contained distributionはoptional/post-v1。必要になった場合のみ再度扱う。
+
+Development artifactsもversioned folderを毎回増殖させず、固定disposable pathを使う。Routine UI workではbuild/test/actual Windows launchを優先し、publishは明示要求時のみ。
 
 ---
 
 ## Historical note
 
 旧Stage0–9実装判断、旧Stage10 A/B準備、evaluator校正、Prompt Composer研究等の詳細はGit historyと対応Issue/Stage文書に保持する。
-Historical decisionは現在の `PRODUCT_GOAL_LOCK.md` / #66 app route / D-017 Stage10 definition / D-018 architectureより優先しない。
+Historical decisionは現在の `PRODUCT_GOAL_LOCK.md` / `CURRENT_STATE.md` / #66 / D-017 / D-018 / D-019 より優先しない。
