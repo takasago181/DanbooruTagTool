@@ -19,14 +19,14 @@ Accepted basis: Issue #64 pilot revision 2, commit `5064429018123c80c32ac41af715
 
 ## Checkpoint 2026-09-14 JST
 
-Completed sequential rows: 1-20,400 / 30,629 (66.60%)
+Completed sequential rows: 1-21,400 / 30,629 (69.87%)
 
-- PROPOSED: 19,004
-- UNRESOLVED: 1,396
-- HIGH: 17,035
-- MEDIUM: 1,969
-- LOW: 1,396
-- remaining: 10,229
+- PROPOSED: 19,927
+- UNRESOLVED: 1,473
+- HIGH: 17,909
+- MEDIUM: 2,018
+- LOW: 1,473
+- remaining: 9,229
 
 Batches:
 
@@ -55,27 +55,22 @@ Batches:
 - 17,401-18,400: 898 proposed / 102 unresolved
 - 18,401-19,400: 948 proposed / 52 unresolved
 - 19,401-20,400: 940 proposed / 60 unresolved
+- 20,401-21,400: 923 proposed / 77 unresolved
 
-## Batch 25 audit重点
+## Batch 26 audit重点
 
-- `paizuri_invitation`〜`pinstripe_shorts` の1,000件を連続監査し、accepted pilot-v2 taxonomy と protected/canonical boundaries を維持
-- `panties*` / `pants*` / `pantyhose*` は衣服identityと、around / pull / lift / layering等の着脱・露出状態を分離
-- `penis*` / `pectoral*` は身体部位そのものと、接触・配置・性的行為、構図（out_of_frame）を分離し、語幹だけでBODY_PARTへ一括しない
-- `pink_*` は色modifierで一括せず、衣装・髪顔・身体・生物植物・背景・光・物体等の対象identityを主経路に分類
-- 固有イベント・作品固有概念・ミーム・不透明な固有名称など、安全に実用経路を確定できない60件はUNRESOLVEDに保持
+- `pinstripe_skirt`〜`pumpkin_ornament` の1,000件を連続監査し、accepted pilot-v2 taxonomy と protected/canonical boundaries を維持
+- `pinstripe*` / `plaid*` / `polka_dot*` / `print*` は柄modifierで一括せず、衣服・背景・髪・物体・画面枠など対象identityを主経路に分類
+- `pokemon*` / `pov*` / `power*` / `public*` は語幹一括せず、生物・衣装・物体・行為・構図・身体・画面表現等へ意味分離
+- 固有イベント・作品固有概念・ミーム・ブランド・抽象語など、安全に実用経路を確定できない77件はUNRESOLVEDに保持
 - historical usage / `post_count` は通常ledger必須でないため未使用。global row identity/orderは固定 `population.txt` を使用
 - external evidence はこの1,000件では未使用
 - direct Git data binary blob経由で通常形式の単一 `.csv.xz` ledgerを保存
 - canonical/Japanese overlay/Special/#66 UI/search/mainは変更しないcandidate-buildのみ
 
-## Batch 26 attempt / quality stop before formal checkpoint
+## Prior Batch 26 quality stop clarification
 
-- intended range: **20,401-21,400** (`pinstripe_skirt` -> `pumpkin_ornament`), 1,000 rows
-- formal completed row remains **20,400**; no Batch 26 ledger/summary/MANIFEST checkpoint was created and nothing from this attempt may be counted
-- preflight re-read live `main`, Issue #64 comments, `PROTOCOL.md`, accepted pilot-v2 taxonomy, branch `PROGRESS.md`, and all 1,000 fixed canonical identities from `population.txt`
-- concrete stop reason: this execution could retrieve the 1,000 identities but could not safely complete row-level classification + independent audit + immutable ledger construction within the remaining execution budget without falling back to broad lexical/substring heuristics; doing so would violate the explicit quality rule against rough partial-match/bulk inference and would materially weaken handling of dense proper-name/meme/project and identity-vs-modifier boundaries in this range
-- no partial/in-memory classifications were persisted or accepted; the next run must resume at row **20,401** and re-audit the full 1,000-row Batch 26 target
-- no production/canonical/Japanese overlay/Special/#66 UI/search/main mutation was made
+前回の20,401–21,400 attemptは実行予算内で監査密度を維持できず、正式成果を保存せず20,400で停止した。今回、同じ固定1,000件を先頭から再監査し、未完成の前回分類は再利用せず正式Batch 26として完成させた。
 
 ## Prior Batch 21 blocker clarification
 
@@ -114,4 +109,4 @@ Recovery order for a new chat:
 4. `docs/issue64/full_rollout/MANIFEST.json`
 5. this `PROGRESS.md`
 
-Next unprocessed global row: **20,401**.
+Next unprocessed global row: **21,401**.
