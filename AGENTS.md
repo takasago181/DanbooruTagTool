@@ -75,13 +75,14 @@ Owns only:
 - sidecar data/audit
 - unresolved accounting
 
-Do not implement UI/search behavior inside #64.
+Do not implement UI/search behavior inside #64。
 `docs/project/CURRENT_DEV_TASK.md` is an Issue #64 mirror only.
 
 ### Issue #66 — app/search/UI completion
 
 Owns:
 - beginner-first desktop UI
+- **clean C#/.NET/WPF v1 implementation under a new `src/` tree**
 - existing-Prompt understanding/workspace
 - bilingual/mixed search quality and ranking/noise fixes
 - Special browse integration
@@ -89,10 +90,36 @@ Owns:
 - explicit add/remove/reorder
 - canonical-English preview/copy
 - hidden automatic insertion cleanup
+- self-contained portable Windows x64 packaging
 - final ADOPT/HOLD/REJECT reconciliation against `PRODUCT_GOAL_LOCK.md`
 - focused regression and real Windows acceptance
 
+Issue #66 first implementation authorities:
+- `docs/product/V1_UI_FIRST_IMPLEMENTATION_BASELINE.md`
+- `docs/product/V1_WPF_ARCHITECTURE_BASELINE.md`
+
 Known search regression such as `anal -> piano / analog...` is part of #66 acceptance.
+
+### #66 architecture invariant
+
+Current `danbooru_tag_tool/` Python/Tk code is **legacy/reference during the first WPF build**。
+
+Do:
+- create new WPF projects under `src/`
+- reuse accepted data / identity / taxonomy / search rules / regression evidence / behavior
+- keep current Python/data paths intact during first build
+- keep #64 data ownership untouched
+- target `catalog.db` + `user.db/UserData` separation
+- target `win-x64` self-contained portable folder
+
+Do not:
+- make WPF depend on Python/Tcl/Tk at runtime
+- refactor the old Tk UI into the new product shell
+- move/delete legacy Python or broad `data/` trees before WPF baseline acceptance
+- port old recommendation/automatic-support/Stage-oriented UI merely because it exists
+- require a separate .NET Desktop Runtime installation for the standard portable build
+
+Single-file EXE is not required. One copyable portable folder is preferred.
 
 Issues #34 and #42 are retired/closed historical provenance only. Do not use them as future Gates.
 
@@ -148,6 +175,8 @@ GitHubに見えないことを削除・不要と解釈しない。
 - ignored protected dataの広範囲cleanup
 - 復元可能性を確認しない上書き/削除
 
+WPF migrationを理由にexisting `data/` を先に移動・整理しない。
+
 ## 8. branch / handoff
 
 - 本体実装は原則latest mainからtask feature branch
@@ -176,13 +205,15 @@ Issue #64作業時:
 - 必要なrollout files
 
 Issue #66作業時:
-- live Issue #66
-- `docs/FEATURE_PRIORITY.md`
-- `docs/FLOWCHARTS.md`
-- `danbooru_tag_tool/ui.py`
-- search/session/composer/presenter modules
-- relevant tests
-- Issue #64はdependency/boundary確認に必要な範囲だけ
+1. live Issue #66
+2. `docs/product/V1_UI_FIRST_IMPLEMENTATION_BASELINE.md`
+3. `docs/product/V1_WPF_ARCHITECTURE_BASELINE.md`
+4. `docs/FEATURE_PRIORITY.md`
+5. `docs/FLOWCHARTS.md`
+6. Issue #64はdependency/boundary確認に必要な範囲だけ
+7. existing `danbooru_tag_tool/` / Python tests は **legacy/reference・behavior/regression evidenceとして必要な箇所だけ**読む
+
+Issue #66では旧Python `ui.py` をnew UI implementation baseと解釈しない。
 
 Stage10 learningを扱う時:
 1. Issue #65
@@ -211,10 +242,17 @@ KNOWLEDGE / generation-effectivenessを参照する必要がある時:
 - Japanese + English + mixed searchを維持
 - exact/strong intentをincidental fuzzy/substringより優先
 - user explicit choiceを優先し、v1で隠れたautomatic insertionを作らない
-- 既存機能が目的を満たすなら重複実装しない
+- existing Promptの順序・raw surfaceを明示編集なしに壊さない
+- dictionary追加はaccepted UI baselineどおりPrompt末尾 + canonical English
+- 日本語表示を意味が欠けるellipsisで省略しない
+- 既存機能/データが目的を満たすならbehavior/dataは再利用するが、Python runtime dependencyは移植しない
 - overengineeringしない
 - runtime LLM dependencyを導入しない
+- normal startupでtaxonomy/audit/catalog source rebuildを走らせない
+- WPF standard distributionはself-contained portable win-x64を目標にする
+- machine-specific absolute path / registry必須設計を避ける
 - focused test + applicable regression + user-visible UI変更時の実Windows確認を行う
+- portable acceptanceでは別location/PCへのfolder copy起動を確認する
 
 ## 11. 報告
 
@@ -223,6 +261,8 @@ KNOWLEDGE / generation-effectivenessを参照する必要がある時:
 - changed files
 - 実施テストと結果
 - protected/canonical dataへの影響
+- legacy/data pathを移動・削除していないこと（#66 first WPF build中）
+- portable publish / Windows validation状況（該当時）
 - 未解決事項
 - stop point / next Gate
 
