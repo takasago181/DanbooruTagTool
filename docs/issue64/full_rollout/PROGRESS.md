@@ -56,6 +56,15 @@ Batch 18 audit重点:
 - direct binary blob経由で通常形式の単一 `.csv.xz` ledgerを保存
 - canonical/Japanese overlay/Special/#66 UI/search/mainは変更しないcandidate-buildのみ
 
+## Latest run stop note (2026-09-13 JST)
+
+- Intended target for this run: rows **13,401-14,400** (1,000 rows).
+- Live `main`, Issue #64 latest checkpoint, `PROTOCOL.md`, `MANIFEST.json`, this `PROGRESS.md`, accepted pilot-v2 taxonomy, and the exact 1,000 canonical identities were re-read before classification.
+- The run reached its execution/tool-context limit while completing preflight and loading the full 1,000-row identity set, before a complete row-level classification/audit ledger could be safely produced and verified.
+- Per the user rule, no partial/unverified classification is persisted merely to increase row count. The last fully verified checkpoint therefore remains **13,400**.
+- No ledger, summary, MANIFEST totals, canonical identity, Japanese overlay, Special data, #66 UI/search, or `main` were changed by this stopped attempt.
+- Resume from **13,401** and target the full 1,000 rows; an internal checkpoint may be used, but do not end below 1,000 without another concrete stop condition.
+
 ## Rules
 
 - accepted 17 top-level genres
