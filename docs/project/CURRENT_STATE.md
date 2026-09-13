@@ -4,7 +4,7 @@
 
 ## Current Stage
 
-**Stage9 completed / beginner-first v1 product direction locked / two active DEV lanes run in parallel: Issue #64 data taxonomy + Issue #66 app/search/UI completion. Issue #66 first UI/interaction baseline and clean WPF/portable architecture baseline are user-accepted; Phase B implementation is ready to start.**
+**Stage9 completed / beginner-first v1 product direction locked / Issue #66 Phase B clean WPF baseline is merged to live main at `837d08f259c52811ec7a97ae6235cd22e4e2d35c`. Current active route: Issue #64 continues the General 30,629 practical taxonomy; Issue #66 remains open for accepted #64 integration and final v1 acceptance.**
 
 Current active implementation owners:
 - **Issue #64** — General 30,629 practical browse taxonomy
@@ -13,6 +13,18 @@ Current active implementation owners:
 Issue #66 first implementation authorities:
 - UI / interaction: `docs/product/V1_UI_FIRST_IMPLEMENTATION_BASELINE.md`
 - architecture / migration / portable distribution: `docs/product/V1_WPF_ARCHITECTURE_BASELINE.md`
+
+Merged WPF Phase B baseline:
+- live main commit: `837d08f259c52811ec7a97ae6235cd22e4e2d35c`
+- clean C#/.NET/WPF implementation under `src/`
+- App/Core/Data/Tests separation
+- conservative existing-Prompt import with raw-surface preservation
+- Special deep browse + Japanese/English/mixed search
+- explicit add/remove/reorder/multi-select/Undo/Redo
+- actual English preview/copy from visible Prompt state
+- General provider/UI boundary ready for accepted #64 sidecar
+- self-contained Windows x64 portable publish validated on the development Windows machine
+- protected/canonical/legacy/#64 data left unchanged by the merge
 
 Design provenance only:
 - `docs/product/V1_UI_DESIGN_DISCUSSION_DRAFT.md`
@@ -82,11 +94,7 @@ Do not restart already persisted rows.
 - final ADOPT/HOLD/REJECT reconciliation against `PRODUCT_GOAL_LOCK.md`
 - focused regression and real Windows acceptance
 
-The first interaction-design discussion is complete enough for implementation. Phase B must use:
-- `docs/product/V1_UI_FIRST_IMPLEMENTATION_BASELINE.md`
-- `docs/product/V1_WPF_ARCHITECTURE_BASELINE.md`
-
-Do not keep expanding pre-implementation UX scope merely because additional ideas are possible. Build the accepted baseline first; revise after real generation use.
+The dependency-independent Phase B WPF first implementation is now merged to main. Do not restart or broadly redesign it while #64 is still running. The next #66 implementation step is to consume the accepted #64 General taxonomy through the existing provider boundary, then perform the final product-facing regression and Windows/portable acceptance.
 
 Search requirements inherited from retired #34 include:
 - exact canonical / exact English / exact approved Alias / strong Japanese intent outrank incidental fuzzy/substring matches
@@ -97,16 +105,14 @@ Search requirements inherited from retired #34 include:
 
 ## Architecture / migration decision
 
-The current shipped/dev app is Python + Tkinter and remains as **legacy/reference during the first WPF implementation**.
+The legacy Python + Tkinter implementation remains in the repository as **legacy/reference**. Live main now also contains the accepted clean C#/.NET/WPF v1 baseline under `src/`; ordinary WPF runtime must not require Python/Tcl/Tk.
 
-The new v1 app is a clean C#/.NET/WPF implementation under a new `src/` tree. It must not require Python/Tcl/Tk at runtime.
-
-First-build migration rules:
+Migration rules:
 - do not refactor the existing Python package into the new app
 - do not make WPF call Python as a required runtime dependency
 - reuse accepted data, taxonomy, identity, search rules, regression evidence and useful behavior
-- keep existing `data/` and legacy Python paths in place while #64 and the WPF first build are active
-- do not perform a broad legacy/data move before WPF baseline acceptance
+- keep existing `data/` and legacy Python paths in place while #64 and the WPF v1 work are active
+- do not perform a broad legacy/data move before final WPF baseline acceptance
 - build/read a runtime `catalog.db` from accepted source assets
 - keep user-specific state separate in `user.db` / `UserData`
 
@@ -124,32 +130,33 @@ A single-file executable is not required. One portable folder with EXE/runtime f
 
 ## Current route
 
-Parallel now:
-- **#64** — General 30,629 full taxonomy candidate/audit
-- **#66 Phase B** — clean WPF first implementation from the accepted UI + architecture baselines
+Current state:
+- **#64** — General 30,629 full taxonomy candidate/audit continues from its latest live checkpoint
+- **#66 Phase B** — clean WPF first implementation is **MERGED TO MAIN** at `837d08f259c52811ec7a97ae6235cd22e4e2d35c`
+- **#66 Phase C/D** — waits for accepted #64 output, then General integration + final v1 acceptance
 
-First #66 build route:
-`new WPF solution -> App/Core/Data/Tests boundaries -> catalog import/read -> Prompt workspace -> conservative Prompt import -> Special browse -> bilingual search -> add/edit/reorder -> actual English preview/copy -> autosave/recovery -> General provider boundary -> self-contained portable publish`
+Merged #66 Phase B route completed:
+`new WPF solution -> App/Core/Data/Tests boundaries -> catalog import/read -> Prompt workspace -> conservative Prompt import -> Special browse -> bilingual search -> add/edit/reorder -> actual English preview/copy -> autosave/recovery -> General provider boundary -> self-contained portable publish -> main merge`
 
 After #64 acceptance:
-1. #66 consumes accepted General taxonomy sidecar
+1. #66 consumes accepted General taxonomy sidecar through the existing provider boundary
 2. rebuild/refresh product catalog from accepted data
-3. #66 reruns search relevance against the final product-facing General population
-4. #66 performs final scope reconciliation, cleanup, regression and real Windows UI acceptance
-5. verify portable folder copy/start behavior
-6. practical v1 baseline
+3. rerun General browse and search relevance against the final product-facing General population
+4. perform final scope reconciliation, focused regression and real Windows UI acceptance
+5. verify portable folder-copy launch/state behavior, including a second Windows PC/location if available
+6. declare the practical v1 baseline
 7. resume Stage10 #65 unless the user changes priority
 
 Short form:
 
-`#64 + #66 WPF in parallel -> #66 consumes #64 -> #66 final acceptance -> Windows + portable acceptance -> v1 baseline -> Stage10 resume`
+`#64 continues -> #64 accepted -> #66 consumes General taxonomy -> #66 final acceptance -> Windows + portable acceptance -> v1 baseline -> Stage10 resume`
 
 ## Workstreams Registry
 
 | TEAM_ID | Status | Scope | Restore anchor |
 | --- | --- | --- | --- |
-| `GENERAL-DICT:#64` | **ACTIVE DEV / PARALLEL** | 30,629 General practical taxonomy | Issue #64 + latest checkpoint + rollout PROGRESS |
-| `V1-APP:#66` | **ACTIVE DEV / PHASE B CLEAN WPF FIRST IMPLEMENTATION / APP+SEARCH+FINAL ACCEPTANCE OWNER** | beginner-first WPF desktop app/search/UI completion | Issue #66 body + latest checkpoint + UI baseline + WPF architecture baseline |
+| `GENERAL-DICT:#64` | **ACTIVE DEV / PRIMARY NEXT WORK** | 30,629 General practical taxonomy | Issue #64 + latest checkpoint + rollout PROGRESS |
+| `V1-APP:#66` | **ACTIVE / PHASE B MERGED / WAITING #64 INTEGRATION + FINAL ACCEPTANCE** | beginner-first WPF desktop app/search/UI completion | Issue #66 body + latest checkpoint + merged main + UI baseline + WPF architecture baseline |
 | `STAGE10-LEARNING:#65` | **PAUSED BY USER PRIORITY / RESUME AFTER APP BASELINE** | practical image-generation mastery, NoobAI-first | Issue #65 + `docs/stages/STAGE_10_LEARNING.md` |
 | `KNOWLEDGE:#44` | **ONGOING / V1 NON-BLOCKING** | knowledge corpus + Prompt/generation knowledge | Issue #44 + `knowledge/generation-corpus` |
 | `MAINT:#24` | OPEN / SAFETY DEBT | local protected data backup/restore | Issue #24 |
@@ -170,8 +177,9 @@ Historical only:
 - Japanese overlay #36/#55 — completed / production 30,629 entries
 - Japanese-first presentation pass #35 — completed
 - evaluator/calibration #30 — completed / evidence retained
+- Issue #66 Phase B clean WPF first implementation — reviewed PASS and merged to main at `837d08f259c52811ec7a97ae6235cd22e4e2d35c`
 
-Do not restart completed #32/#43/#56/#63 work wholesale.
+Do not restart completed #32/#43/#56/#63 work wholesale. Do not restart the merged #66 Phase B baseline without a demonstrated regression or explicit design decision.
 
 ## Known test debt
 
@@ -182,6 +190,14 @@ Issue #63 acceptance review confirmed:
 - product-goal wording mismatch in `tests/test_final_spec.py` was synchronized on main in commit `390528bdf884f5394ae9465e0f38f9143b2b1661`
 
 The remaining historical 9 failures are not silently reclassified as PASS.
+
+Issue #66 WPF Phase B acceptance evidence includes:
+- production catalog: 30,629 General + 2,788 Special = 33,417 entries
+- Release/Debug focused WPF tests PASS at the merge checkpoint
+- production Prompt parse benchmark for 80 items: median about 67 ms, max under 100 ms in the recorded run
+- self-contained `win-x64` portable publish validated on the development Windows machine
+- General provider/UI boundary validated with isolated fixture data while #64 production taxonomy remains unconsumed
+- second physical Windows PC validation remains a final acceptance item, not a Phase B merge blocker
 
 ## v1 ADOPT
 
@@ -228,14 +244,14 @@ Existing assets may remain internally; do not delete evidence merely because a v
 
 ## Important current code delta owned by #66
 
-1. Current `danbooru_tag_tool/ui.py` is still Python/Tk Stage7A/Special-first and is now legacy/reference for the new v1 implementation.
-2. Existing-Prompt understanding is not the current Python main entry flow.
-3. General browsing is not yet a current Python product flow.
-4. Old recommendation surfaces (`よく使われる / 珍しい関連 / 意味から補助`) are too prominent for the narrowed v1 goal and are not to be ported by default.
-5. `PromptComposer` may allow hidden default support insertion while the visible session reports none; new v1 must make copied Prompt match explicit visible state.
-6. Search has known incidental substring/fuzzy false-positive behavior; accepted behavior/regressions should be reimplemented/tested in the new core.
-7. General 30,629 browse taxonomy is not yet accepted; #64 owns the data, #66 owns eventual UI consumption.
-8. Existing Python/Tk code/data/tests remain available for comparison and evidence during the first WPF build; do not reorganize them first.
+1. Live main now contains the clean WPF implementation under `src/`; the old Python/Tk UI remains only as legacy/reference and is not the target v1 runtime.
+2. WPF existing-Prompt import preserves surface/order/duplicates and recognizes supported Special identities while keeping unknown/ambiguous text raw.
+3. Special browse is product-facing; General browse has a tested provider/navigation boundary but still waits for accepted #64 production taxonomy.
+4. Old recommendation surfaces (`よく使われる / 珍しい関連 / 意味から補助`) were not promoted into the WPF default v1 workflow.
+5. WPF Prompt output is derived from the explicit visible workspace; hidden automatic support insertion is not part of the v1 WPF flow.
+6. WPF search includes the accepted intent-first ranking/regression behavior, including `anal` noise coverage; final rerun after #64 integration is still required.
+7. General 30,629 browse taxonomy is not yet accepted; #64 owns the data, #66 owns eventual UI consumption through the merged provider boundary.
+8. Existing Python/Tk code/data/tests remain available for comparison and evidence; do not reorganize them before final WPF baseline acceptance.
 
 ## Data boundaries
 
@@ -256,6 +272,7 @@ Existing assets may remain internally; do not delete evidence merely because a v
 - `catalog.db` is rebuildable runtime catalog knowledge
 - `user.db` / `UserData` contains user-specific state
 - runtime startup does not perform taxonomy/audit rebuilds
+- #56 accepted mapping inputs are pinned by an explicit SHA-256 allowlist in the merged WPF importer
 
 ### Statistics / generation evidence
 - full Stage5 index / co-occurrence / Generation Profile / evaluator evidence remain optional assets
@@ -272,7 +289,7 @@ Routing:
 
 Active executable work:
 - Issue #64 — General taxonomy
-- Issue #66 — app/search/UI completion and final acceptance
+- Issue #66 — accepted #64 integration + final app/search/UI acceptance
 
 Issue #66 first implementation UI/interaction baseline:
 - `docs/product/V1_UI_FIRST_IMPLEMENTATION_BASELINE.md`
@@ -290,16 +307,11 @@ Issues #42 and #34 are historical only and must not be reactivated as required G
 
 ## Next Actions
 
-1. Continue #64 from its latest live checkpoint/PROGRESS without restarting persisted rows.
-2. Start #66 Phase B from latest live main using both first-implementation baseline docs as contracts.
-3. Create a clean WPF solution under a new `src/` tree; keep current Python/Tk code and existing data paths intact as legacy/reference during the first build.
-4. Implement App/Core/Data/Tests boundaries and catalog import/read path without introducing a required Python runtime dependency.
-5. Implement Prompt workspace / conservative import / Special browse / bilingual search / explicit add-edit-reorder / actual English preview-copy / autosave-recovery / General provider boundary without waiting for #64 completion.
-6. Fix dependency-independent bilingual search relevance/noise inside #66, including representative substring/fuzzy regressions.
-7. Publish a `win-x64` self-contained portable folder and verify it does not require Python or separate .NET Desktop Runtime installation.
-8. Codex/DEV returns branch / commit / changed files / tests / validation and does not self-merge the broad first implementation.
-9. DEV reviews against both accepted baselines, then performs real Windows/generation-workflow use before expanding UX scope.
-10. After #64 acceptance, wire accepted General taxonomy into the catalog and rerun product-facing search/browse checks.
-11. Perform final scope reconciliation, focused regression, real Windows UI acceptance, and a portable folder-copy launch/state test.
-12. Only after WPF baseline acceptance, consider separate cleanup/migration of legacy Python paths.
-13. Resume Stage10 #65 after the app baseline unless the user changes priority.
+1. Continue Issue #64 from its latest **live Issue / branch / `PROGRESS.md` checkpoint** without restarting persisted rows; do not rely on an older mirrored row count when newer live progress exists.
+2. Keep Issue #66 open but do not restart or broadly redesign the merged WPF Phase B baseline while #64 is still running.
+3. After #64 acceptance, integrate only the accepted General taxonomy sidecar through the existing General provider/catalog boundary; do not fork or reclassify #64 data inside #66.
+4. Rebuild/refresh the product catalog and rerun General browse plus Japanese/English/mixed search/regression checks against the final product-facing General population.
+5. Perform final scope reconciliation, real Windows interaction acceptance, Prompt round-trip/copy checks, and portable folder-copy launch/state validation.
+6. Declare the first practical v1 baseline only after those final #66 acceptance checks pass.
+7. Resume Stage10 #65 after the app baseline unless the user changes priority.
+8. Consider legacy Python/data cleanup only as a separate post-baseline task/decision.
