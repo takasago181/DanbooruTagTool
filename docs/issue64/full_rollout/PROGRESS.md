@@ -17,14 +17,14 @@ Accepted basis: Issue #64 pilot revision 2, commit `5064429018123c80c32ac41af715
 
 ## Checkpoint 2026-09-13 JST
 
-Completed sequential rows: 1-6,900 / 30,629 (22.53%)
+Completed sequential rows: 1-7,900 / 30,629 (25.79%)
 
-- PROPOSED: 6,659
-- UNRESOLVED: 241
-- HIGH: 6,080
-- MEDIUM: 579
-- LOW: 241
-- remaining: 23,729
+- PROPOSED: 7,590
+- UNRESOLVED: 310
+- HIGH: 6,910
+- MEDIUM: 680
+- LOW: 310
+- remaining: 22,729
 
 Batches:
 
@@ -38,14 +38,15 @@ Batches:
 - 5,501-5,700: 190 proposed / 10 unresolved
 - 5,701-5,900: 181 proposed / 19 unresolved
 - 5,901-6,900: 939 proposed / 61 unresolved
+- 6,901-7,900: 931 proposed / 69 unresolved
 
-Batch 10 audit重点:
-- `counter`〜`detective` の1,000件を連続監査し、object/concept identityをmodifier fragmentより優先
-- `covered/covering/crotchless/cutout` は着脱・露出、体液配置・性的行為は ACTION_CONTACT(INTIMATE)、衣装名は CLOTHING に分離
-- `cross/crescent/crown` 周辺は記号・衣装・身体・武器・柄を対象identityで分離し、substring一括分類を禁止
-- 固有作品名・抽象語・語義不明の61件は名称だけで無理に確定せずUNRESOLVED
+Batch 11 audit重点:
+- `detergent`〜`elizabeth_tower` の1,000件を連続監査し、substring一致より対象identity・実用発見経路を優先
+- `digital / dragon / dog / draw / dress / ear / electric` 系を語幹だけで一括分類せず、物体・生物・衣装・行為・身体・画面表現へ分離
+- `on_head / around_neck / under_clothes / cutout` 等は配置・着脱状態を対象identityと分離し、pilot-v2境界を維持
+- 固有作品名・ミーム・語義不明の69件は名称だけで無理に確定せずUNRESOLVED
 - external evidence はこの1,000件では未使用
-- 以前の未checkpoint 5,901-6,100 artifactは正式checkpointとして採用せず、本Batch 10（5,901-6,900）で置換して継続
+- canonical/Japanese overlay/Special/#66 UI/searchは変更しないcandidate-buildのみ
 
 ## Rules
 
@@ -80,4 +81,4 @@ Recovery order for a new chat:
 4. `docs/issue64/full_rollout/MANIFEST.json`
 5. this `PROGRESS.md`
 
-Next unprocessed global row: **6,901**.
+Next unprocessed global row: **7,901**.
