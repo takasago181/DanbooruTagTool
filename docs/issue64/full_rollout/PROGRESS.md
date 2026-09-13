@@ -19,14 +19,14 @@ Accepted basis: Issue #64 pilot revision 2, commit `5064429018123c80c32ac41af715
 
 ## Checkpoint 2026-09-14 JST
 
-Completed sequential rows: 1-17,400 / 30,629 (56.81%)
+Completed sequential rows: 1-18,400 / 30,629 (60.07%)
 
-- PROPOSED: 16,218
-- UNRESOLVED: 1,182
-- HIGH: 14,547
-- MEDIUM: 1,671
-- LOW: 1,182
-- remaining: 13,229
+- PROPOSED: 17,116
+- UNRESOLVED: 1,284
+- HIGH: 15,340
+- MEDIUM: 1,776
+- LOW: 1,284
+- remaining: 12,229
 
 Batches:
 
@@ -52,13 +52,16 @@ Batches:
 - 14,401-15,400: 878 proposed / 122 unresolved
 - 15,401-16,400: 893 proposed / 107 unresolved
 - 16,401-17,400: 897 proposed / 103 unresolved
+- 17,401-18,400: 898 proposed / 102 unresolved
 
-## Batch 22 audit重点
+## Batch 23 audit重点
 
-- `marble_sculpture`〜`motoyui` の1,000件を連続監査し、accepted pilot-v2 taxonomy と protected/canonical boundaries を維持
-- M帯の衣装・身体・道具・武器・乗り物・生物・場所・文字記号を対象identity優先で分類
-- `military_*` / `mismatched_*` / `mole_*` / `moon_*` は語幹一括ではなく、対象identity・着用状態・身体部位・記号・天体/光の境界を個別再監査
-- 作品固有概念・イベント・ミーム・不透明な固有名など、安全に確定できない103件はUNRESOLVEDに保持
+- `motteke!_serafuku`〜`northern_parliament_(emblem)` の1,000件を連続監査し、accepted pilot-v2 taxonomy と protected/canonical boundaries を維持
+- M後半〜N帯の衣装・身体・道具・生物・場所・文字記号・画面表現を対象identity優先で分類
+- `multicolored_*` / `multiple_*` / `naked_*` / `neck*` / `night*` / `no_*` は語幹・接頭辞で一括せず、対象identity・着用状態・身体部位・行為・場所・画面表現・記号の境界を個別再監査
+- `musical_note-themed_food`→FOOD、`musical_note-shaped_pupils`→HAIR_FACE、`night_city_(cyberpunk)`→PLACE_BACKGROUND、`night_sky_sword`→WEAPON、`night_vision_effect`→STYLE_QUALITY_METAなど、modifierより対象identityを優先
+- 菌類`mushroom`はpilot-v2境界どおりLIVING_NATURE主ジャンルのみ
+- 固有イベント・作品固有概念・ミーム・組織/製品名など、安全に実用経路を確定できない102件はUNRESOLVEDに保持
 - historical usage / `post_count` は通常ledger必須でないため未使用。global row identity/orderは固定 `population.txt` を使用
 - external evidence はこの1,000件では未使用
 - direct Git data binary blob経由で通常形式の単一 `.csv.xz` ledgerを保存
@@ -101,4 +104,4 @@ Recovery order for a new chat:
 4. `docs/issue64/full_rollout/MANIFEST.json`
 5. this `PROGRESS.md`
 
-Next unprocessed global row: **17,401**.
+Next unprocessed global row: **18,401**.
