@@ -17,14 +17,14 @@ Accepted basis: Issue #64 pilot revision 2, commit `5064429018123c80c32ac41af715
 
 ## Checkpoint 2026-09-13 JST
 
-Completed sequential rows: 1-11,150 / 30,629 (36.40%)
+Completed sequential rows: 1-12,150 / 30,629 (39.67%)
 
-- PROPOSED: 10,623
-- UNRESOLVED: 527
-- HIGH: 9,542
-- MEDIUM: 1,081
-- LOW: 527
-- remaining: 19,479
+- PROPOSED: 11,531
+- UNRESOLVED: 619
+- HIGH: 10,397
+- MEDIUM: 1,134
+- LOW: 619
+- remaining: 18,479
 
 Batches:
 
@@ -43,14 +43,16 @@ Batches:
 - 8,901-9,900: 953 proposed / 47 unresolved
 - 9,901-10,900: 906 proposed / 94 unresolved
 - 10,901-11,150: 245 proposed / 5 unresolved
+- 11,151-12,150: 908 proposed / 92 unresolved
 
-Batch 15 audit重点:
-- `green_nightgown`〜`groom` の250件を連続監査し、accepted pilot-v2 taxonomy と protected/canonical boundaries を維持
-- `green / grey` 系を色修飾だけで一括分類せず、衣服・身体・生物・背景・道具など対象identityを優先
-- `green_snake` は生物、`grey_car` は乗り物、`grey_hair` は髪・顔、`green_tea` は食べ物・飲み物として、modifierではなく主対象側へ分類
-- `green_outline / grey_outline / grey_border` は色より画面表現、`green_screen / grid_background` は背景identityとして境界を再確認
-- `green_stem_(e.g.o)` / `greenery_day` / `grills` / `grimace_shake_(meme)` / `grind_fiction` の5件は名称だけで安全に確定できずUNRESOLVED
-- 今回は1,000件を無理に満たさず、色修飾帯からhair/hand帯へ境界が大きく変わる前の250件で完全検証・永続化checkpointを切った
+Batch 16 audit重点:
+- `grooming`〜`heartbreak_(futsuu_no_keion-bu)` の1,000件を連続監査し、accepted pilot-v2 taxonomy と protected/canonical boundaries を維持
+- `hair / hand / head / heart` 系は語頭や部分一致で一括分類せず、対象identity・接触関係・露出・構図・装飾を個別に再監査
+- `hair_over_eyes / hair_over_one_eye` は髪・顔、`hair_over_breasts / hair_over_crotch` は着脱・露出、`hair_tie_in_mouth` は行為・接触、`hair_tie_on_wrist` は着脱・露出として境界を分離
+- `head_between_*` は身体部位名ではなく関係・接触、`head_out_of_frame / head_only` は構図・画角、`head_removed / headache` は身体状態として主対象を優先
+- `hanging_food` は食べ物、`hanging_lantern / hanging_scroll` は道具・小物、`hanging_sign` は文字・記号として `hanging` 修飾より対象identityを優先
+- `heart_print` は柄、`heart_print_panties` は衣装、`heart_border / heart_frame` は画面表現として境界を再確認
+- 固有作品内概念・イベント・ミーム・名称だけでは安全に確定できない92件はUNRESOLVEDに保持し、件数優先の強制分類は行っていない
 - direct binary blob経由で通常形式の単一 `.csv.xz` ledgerを保存
 - canonical/Japanese overlay/Special/#66 UI/search/mainは変更しないcandidate-buildのみ
 
@@ -87,4 +89,4 @@ Recovery order for a new chat:
 4. `docs/issue64/full_rollout/MANIFEST.json`
 5. this `PROGRESS.md`
 
-Next unprocessed global row: **11,151**.
+Next unprocessed global row: **12,151**.
