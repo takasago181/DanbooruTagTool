@@ -1,0 +1,23 @@
+{
+  "issue": 64,
+  "batch": 29,
+  "range": [23401, 24400],
+  "count": 1000,
+  "status_counts": {"PROPOSED": 887, "UNRESOLVED": 113},
+  "confidence_counts": {"HIGH": 860, "MEDIUM": 27, "LOW": 113},
+  "primary_genre_counts": {"ACTION_CONTACT": 79, "BODY_PART": 69, "CLOTHING": 347, "CLOTHING_STATE_EXPOSURE": 27, "COLOR_APPEARANCE": 20, "COMPOSITION_CAMERA": 3, "EXPRESSION_EMOTION": 8, "GAZE_ORIENTATION": 3, "HAIR_FACE": 45, "LIGHT_TIME_WEATHER": 11, "LIVING_NATURE": 24, "OBJECT_PROP": 153, "PERSON_COUNT": 23, "PLACE_BACKGROUND": 27, "POSE_MOVEMENT": 11, "STYLE_QUALITY_META": 17, "TEXT_SYMBOL": 20},
+  "unresolved": ["seeing_stars","seele_(evangelion)","sefirot","seggs_(meme)","seidouzan","seikan_hikou","seiza","sekai_wo_kakumei_suru_chikara_wo","sekibanki_day","sekiha_love-love_tenkyoken","self-pornography","seminar_(blue_archive)","sengoku_driver","sennin_mode","senpai_kinshi!_(love_live!)","seraphim_(one_piece)","serasuku","serie_a","servant_card_(fate/grand_order)","servant_summer_festival!_2018","servant_summer_festival!_2023","servants_holding_aphrodite's_breasts_(meme)","setsubun","setsubun_shuen_emaki","seven_association_south_(identity)_(project_moon)","seven_deadly_sins","seven_dwarves_zero_(nikke)","seventh_holy_scripture","sex_ed","sexually_suggestive","sexy_beautiful_(idolmaster)","sexy_guilty_(idolmaster)","sexy_no_jutsu","sexy_spy_(idolmaster)","seyana_(meme)","shadaloo_dolls","shadow_(persona)","shadow_(shadows_house)","shadow_ball_(pokemon)","shake_shake_fries","shampoo_challenge","share_crystal_(neptunia)","shared_sense","sharingan","she_holds_my_weakness_(meme)","sheeeh!","sheikah","shell_(company)","shi_association_south_(identity)_(project_moon)","shichi-go-san","shijuuhatte","shikai","shikai_no_sumi_kuchiru_oto","shikairo_days","shikairo_days_dance_(meme)","shimaidon","shimousa_(fate/grand_order)","shindan_maker","shine_sprite","shining_finger","shining_needle_castle","shining_resonance_collection_of_visual_materials","shinji_in_a_chair_(meme)","shinjuku_(fate/grand_order)","shinkon_santaku","shinnen_kotohogu_inori_no_mai_(project_sekai)","shinsengumi_(fate)","shinsengumi_(gintama)","shinsengumi_swords_(touken_ranbu)","shinshun!_shishimai_robo_no_oshougatsu_show!_(project_sekai)","shinsoo_(tower_of_god)","shinto","shiny_cats_pact","shiny_rod_(little_witch_academia)","shiny_tambourine_(heartcatch_precure!)","shiny_trinity_(idolmaster)","shinzou_(ado)","shipping_(fandom)","shiranui_kensetsu","shiritori","shirt_cut_meme","shitty_admiral_(phrase)","shitty_t-shirt_naval_base","shochuumimai","shocked_black_guy_(meme)","shocker_(kamen_rider)","shoujo_kitou-chuu","shouryuuken","shouten_pegasus_mix_mori","showdown","showing_baby_to_a_supermarket_camera_(meme)","shrine_team_(len'en)","shroomling_(infinity_nikki)","shroud_of_magdalene","shroud_of_martin","shuangyaji","shun_goku_satsu","sidetail_miku_noodle_stopper_(meme)","siegfried_(fire_emblem)","siegrunen","sig_san_511","sig_sauer","sign_of_khorne","signet_of_ego","silence_glaive","silent_princess","silicon_creature_(blame!)","silk_flower_(genshin_impact)","silver_bow_(kid_icarus)","silver_sword_(genshin_impact)","simulacrum_(titanfall)","sin_devil_trigger","single_couter"],
+  "audit_notes": [
+    "`see-through_cape`〜`single_mechanical_hand` の1,000件を連続監査し、accepted pilot-v2 taxonomy と protected/canonical boundaries を維持した。",
+    "`see-through_*` は透明modifierだけで一括せず、衣服本体・着脱露出・髪/身体部位・物体など対象identityを優先した。",
+    "`shark_*` / `sheep_*` / `shirt_*` / `shorts_*` / `shoulder_*` / `side-*` / `silver_*` / `single_*` は語幹一括を避け、対象identityごとに生物・身体・人物役柄・衣装・着脱露出・物体・場所・記号等へ分離した。",
+    "`shackle_piercing` / `sentient_stuffed_toy` / `seraphim_(one_piece)` など、部分文字列で誤経路になり得る例を対象identityで再監査した。",
+    "固有イベント・作品固有概念・ミーム・ブランド・抽象語など、安全に実用経路を確定できない113件はUNRESOLVEDに保持した。",
+    "historical usage / `post_count` は通常ledger必須でないため未使用。global row identity/orderは固定 `population.txt` を使用した。",
+    "single `.csv.xz` ledgerをGit data binary blobで保存した。canonical identity / production Japanese overlay / Special / #66 UI・search / main は変更しないcandidate-buildのみ。"
+  ],
+  "raw_csv_sha256": "4dc1199ce24771f98b9df2d381c1df5b4e4ee34715ae0645d7e8a3c4cc8da765",
+  "xz_sha256": "ca325264b74c268a74e0da00f3f08352abd5c7e422922f9b6bb6d47ce1a9ca91",
+  "storage_mode": "git_data_binary_blob",
+  "path": "docs/issue64/full_rollout/batches/batch029_rows23401-24400_ledger.csv.xz"
+}
