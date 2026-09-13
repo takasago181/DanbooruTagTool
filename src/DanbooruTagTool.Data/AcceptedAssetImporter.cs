@@ -58,8 +58,12 @@ public static class AcceptedAssetImporter
                 paths[id + ">" + subId] = new(id, label, subId, sub.GetProperty("label_ja").GetString()!);
             }
         }
-        var mappingFiles = new[] { Authority("docs/issue56/pilot/issue56_ui_genre_pilot_v1_classification_map.csv") }
-            .Concat(Directory.GetFiles(Path.Combine(authorityRoot, "docs/issue56/rollout/reviewed"), "*.csv").OrderBy(p => p, StringComparer.Ordinal)).ToArray();
+        var mappingFiles = Issue56Inputs.MappingHashes.Select(input =>
+        {
+            var path = Authority(input.Key);
+            if (hashes[input.Key] != input.Value) throw new InvalidDataException("#56 accepted mapping hash mismatch: " + input.Key);
+            return path;
+        }).ToArray();
         var mapping = new Dictionary<string, BrowsePath[]>();
         foreach (var file in mappingFiles)
         {

@@ -83,5 +83,5 @@ public sealed class GeneralBrowseProvider(ICatalog catalog, IReadOnlyDictionary<
     public string Status => "";
     public IReadOnlyList<BrowsePath> Paths => acceptedMappings.Values.SelectMany(p => p).Distinct().ToArray();
     public IReadOnlyList<CatalogEntry> Browse(string path) => catalog.Entries.Where(e => !e.IsSpecial && e.CanBrowse && e.Canonical != null
-        && acceptedMappings.TryGetValue(e.Canonical, out var paths) && paths.Any(p => p.Key == path)).OrderByDescending(e => e.Usage).ToArray();
+        && acceptedMappings.TryGetValue(e.Canonical, out var paths) && paths.Any(p => path.Length == 0 || p.Key == path || (path.EndsWith('>') && p.GenreId + ">" == path))).OrderByDescending(e => e.Usage).ToArray();
 }

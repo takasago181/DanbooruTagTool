@@ -18,10 +18,7 @@ public partial class App : Application
             if (e.Args.FirstOrDefault() == "--build-catalog")
             {
                 if (e.Args.Length != 4) throw new ArgumentException("--build-catalog <protected-source-root> <authority-root> <output-directory>");
-                var output = Path.GetFullPath(e.Args[3]);
-                foreach (var root in e.Args.Skip(1).Take(2))
-                    if (output.StartsWith(Path.GetFullPath(Path.Combine(root, "data")) + Path.DirectorySeparatorChar, StringComparison.OrdinalIgnoreCase))
-                        throw new ArgumentException("Catalog output must not be inside source data.");
+                var output = CatalogOutputGuard.Validate(e.Args[3], e.Args[1], e.Args[2]);
                 var result = AcceptedAssetImporter.Read(e.Args[1], e.Args[2]);
                 CatalogDatabase.Build(Path.Combine(output, "catalog.db"), result.Entries, JsonSerializer.Serialize(result.SourceHashes));
                 File.WriteAllText(Path.Combine(output, "import-report.json"), JsonSerializer.Serialize(new { Total = result.Entries.Length, General = result.Entries.Count(x => !x.IsSpecial), Special = result.Entries.Count(x => x.IsSpecial), GeneralTaxonomy = "PENDING / not imported", Sources = result.SourceHashes }, new JsonSerializerOptions { WriteIndented = true }));

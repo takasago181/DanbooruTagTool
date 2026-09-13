@@ -5,7 +5,7 @@ namespace DanbooruTagTool.Core;
 
 public enum PromptItemKind { Normal, Weighted, Lora, Control, Raw }
 public sealed record PromptItem(Guid Id, string Surface, string? Canonical, string? Japanese,
-    PromptItemKind Kind, string? StructuredName = null, decimal? Weight = null)
+    PromptItemKind Kind, string? StructuredName = null, decimal? Weight = null, string? CatalogId = null)
 {
     public string Display => Kind switch
     {
@@ -56,10 +56,10 @@ public sealed class PromptParser(ICatalog catalog)
         if (w.Success && decimal.TryParse(w.Groups[2].Value, CultureInfo.InvariantCulture, out var weight))
         {
             var entry = catalog.Resolve(w.Groups[1].Value);
-            return new(Guid.NewGuid(), surface, entry?.Canonical, entry?.Japanese, PromptItemKind.Weighted, w.Groups[1].Value, weight);
+            return new(Guid.NewGuid(), surface, entry?.Canonical, entry?.Japanese, PromptItemKind.Weighted, w.Groups[1].Value, weight, entry?.Id);
         }
         var tag = catalog.Resolve(t);
-        return new(Guid.NewGuid(), surface, tag?.Canonical, tag?.Japanese, tag == null ? PromptItemKind.Raw : PromptItemKind.Normal);
+        return new(Guid.NewGuid(), surface, tag?.Canonical, tag?.Japanese, tag == null ? PromptItemKind.Raw : PromptItemKind.Normal, CatalogId: tag?.Id);
     }
     public static string Serialize(IEnumerable<PromptItem> items) => string.Join(",", items.Select(i => i.Surface));
 }

@@ -26,13 +26,23 @@ public sealed class Catalog(IReadOnlyList<CatalogEntry> entries) : ICatalog
 {
     public IReadOnlyList<CatalogEntry> Entries { get; } = entries;
     private readonly Dictionary<string, CatalogEntry> canonical = entries.Where(e => e.Canonical != null)
-        .GroupBy(e => SearchEngine.Normalize(e.Canonical!)).ToDictionary(g => g.Key, g => g.OrderBy(e => e.IsSpecial).First());
+        .GroupBy(e => SearchEngine.Normalize(e.Canonical!)).ToDictionary(g => g.Key, g => Preferred(g));
+    private static CatalogEntry Preferred(IEnumerable<CatalogEntry> rows) => rows
+        .OrderByDescending(e => e.IsSpecial && (!string.IsNullOrWhiteSpace(e.Japanese) || e.Paths.Length > 0 || e.Description.Length > 0 || e.ProductFit.Length > 0))
+        .ThenBy(e => e.Id, StringComparer.Ordinal).First();
     public CatalogEntry? Resolve(string surface)
     {
         var key = SearchEngine.Normalize(surface);
-        if (canonical.TryGetValue(key, out var entry)) return entry;
-        var hits = Entries.Where(e => e.Canonical != null && e.Aliases.Any(a => SearchEngine.Normalize(a) == key)).ToArray();
-        return hits.Select(e => e.Canonical).Distinct().Count() == 1 ? hits.FirstOrDefault() : null;
+        var exact = Entries.Where(e => e.IsSpecial && SearchEngine.Normalize(e.English) == key).ToList();
+        if (canonical.TryGetValue(key, out var entry)) exact.Add(entry);
+        if (exact.Count > 0) return Unique(exact);
+        return Unique(Entries.Where(e => e.Canonical != null && e.Aliases.Any(a => SearchEngine.Normalize(a) == key)));
+    }
+    private static CatalogEntry? Unique(IEnumerable<CatalogEntry> rows)
+    {
+        var hits = rows.ToArray();
+        // Semantic-only Special identities stay distinct; never manufacture a canonical.
+        return hits.Select(e => e.Canonical is {} c ? "C:" + c : "S:" + e.Id).Distinct().Count() == 1 ? Preferred(hits) : null;
     }
 }
 

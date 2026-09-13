@@ -23,10 +23,10 @@ public class ProductionTests(ITestOutputHelper output)
         Assert.Equal(1618,special.Count(e=>e.CanBrowse)); Assert.Equal(12,special.Count(e=>!e.CanSearch));
         output.WriteLine($"Special paths: {special.Count(e=>e.Paths.Length>0)} classified / {special.Count(e=>e.Paths.Length==0)} explicitly unresolved");
         var search=new SearchEngine(catalog);
-        foreach (var q in new[]{"青い髪","blue_hair","blue hair","青い hair","anal","anal_sex","blu","lue","blie hair"})
+        foreach (var q in new[]{"blue_hair","青い髪","anal","a","s","hair","blue hair","青い hair","anal_sex","blu","lue","blie hair"})
         {
             watch.Restart(); var hits=search.Search(q); Assert.NotEmpty(hits);
-            output.WriteLine($"{q}: {watch.ElapsedMilliseconds} ms; " + string.Join(" | ",hits.Take(5).Select(h=>$"{h.Entry.English} [{h.Rank}]")));
+            output.WriteLine($"{q}: {watch.Elapsed.TotalMilliseconds:F2} ms; hits={hits.Count}; " + string.Join(" | ",hits.Take(5).Select(h=>$"{h.Entry.English} [{h.Rank}]")));
             if(q=="anal") { Assert.Equal("anal",hits[0].Entry.Canonical); Assert.DoesNotContain(hits,h=>h.Entry.Canonical=="piano" || h.Entry.Canonical?.StartsWith("analog",StringComparison.Ordinal)==true); }
         }
         var sourceRoot=Environment.GetEnvironmentVariable("DTT_SOURCE_ROOT"); var authorityRoot=Environment.GetEnvironmentVariable("DTT_AUTHORITY_ROOT");

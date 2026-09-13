@@ -79,7 +79,7 @@ public partial class MainWindow : Window
         if (sender is not FrameworkElement { DataContext: ChipViewModel chip }) return;
         Keyboard.ClearFocus(); Focus(); pendingChip = chip; dragStart = e.GetPosition(EditorItems);
         bool ctrl = Keyboard.Modifiers.HasFlag(ModifierKeys.Control), shift = Keyboard.Modifiers.HasFlag(ModifierKeys.Shift);
-        deferredSelection = chip.Selected && !ctrl && !shift && !vm.MultiSelect;
+        deferredSelection = chip.Selected && !ctrl && !shift;
         if (!deferredSelection) vm.Select(chip.Id, ctrl, shift);
         e.Handled = true;
     }

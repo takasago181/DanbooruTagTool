@@ -62,7 +62,7 @@ public sealed class MainViewModel : Observable
     public event Action<Guid>? ScrollToChip;
     public UiState Ui => ui;
     public string Query { get => query; set { if (query.Length == 0 && value.Length > 0) { browseSelection = SelectedEntry?.Entry.Id; RestoreScroll = BrowseScroll; } if (Set(ref query, value)) { Persist(); } } }
-    public string BrowseLabel => browse == "general" ? "General" : browse == "special" ? "◆ Special" : catalog.Entries.SelectMany(e => e.Paths).FirstOrDefault(p => "special:" + p.Key == browse)?.Label ?? "◆ Special";
+    public string BrowseLabel => browse.StartsWith("general:", StringComparison.Ordinal) ? general.Paths.FirstOrDefault(p => "general:" + p.Key == browse)?.Label ?? general.Paths.FirstOrDefault(p => "general:" + p.GenreId + ">" == browse)?.Genre ?? "General" : browse == "general" ? "General" : browse == "special" ? "◆ Special" : catalog.Entries.SelectMany(e => e.Paths).FirstOrDefault(p => "special:" + p.Key == browse)?.Label ?? "◆ Special";
     public string Pending => browse == "general" && Query.Length == 0 ? general.Status : "";
     public int WorkspaceIndex { get => workspaceIndex; set { if (Set(ref workspaceIndex, value)) Persist(); } }
     public int SortIndex { get => sortIndex; set { if (Set(ref sortIndex, value)) RefreshResults(); } }
@@ -104,7 +104,7 @@ public sealed class MainViewModel : Observable
         query = ui.Query; browse = ui.Browse; workspaceIndex = ui.Workspace; englishChips = ui.EnglishChips; RestoreScroll = ui.BrowseScroll; BrowseScroll = ui.BrowseScroll;
         Navigation = [new("special", "◆ Special", catalog.Entries.Where(e => e.IsSpecial).SelectMany(e => e.Paths).GroupBy(p => p.GenreId)
             .Select(g => new NavigationNode("special:" + g.Key + ">", g.First().Genre, g.Where(p => p.SubgenreId.Length > 0).DistinctBy(p => p.Key)
-                .Select(p => new NavigationNode("special:" + p.Key, p.Subgenre, [])).ToArray())).ToArray()), new("general", "General", [])];
+                .Select(p => new NavigationNode("special:" + p.Key, p.Subgenre, [])).ToArray())).ToArray()), new("general", "General", this.general.IsPending ? [] : BuildNavigation(this.general.Paths, "general:"))];
         Copy = new(_ => Safe(() => { clipboard.Write(Workspace.ClipboardPayload); Status = "✓ コピーしました"; }));
         Import = new(_ => Safe(() => Workspace.Replace(clipboard.Read())));
         New = new(_ => Workspace.Replace("")); Recover = new(_ => Workspace.Recover(), _ => Workspace.HasRecovery);
@@ -122,6 +122,10 @@ public sealed class MainViewModel : Observable
         Workspace.Changed += OnPromptChanged;
         RefreshChips(); RefreshResults(); SelectedEntry = Results.FirstOrDefault(e => e.Entry.Id == ui.SelectedEntry);
     }
+    private static NavigationNode[] BuildNavigation(IEnumerable<BrowsePath> paths, string prefix) => paths
+        .GroupBy(p => p.GenreId).Select(g => new NavigationNode(prefix + g.Key + ">", g.First().Genre,
+            g.Where(p => p.SubgenreId.Length > 0).DistinctBy(p => p.Key)
+                .Select(p => new NavigationNode(prefix + p.Key, p.Subgenre, [])).ToArray())).ToArray();
     private void Safe(Action action) { try { action(); } catch (Exception e) when (e is System.Runtime.InteropServices.ExternalException or IOException) { Status = "操作できませんでした: " + e.Message; } }
     private IReadOnlyList<EntryViewModel> Rows(IEnumerable<CatalogEntry> entries) => entries.Select(e => new EntryViewModel(e, Workspace, Add)).ToArray();
     public void RefreshResults()
@@ -131,7 +135,7 @@ public sealed class MainViewModel : Observable
         if (!string.IsNullOrWhiteSpace(Query)) entries = search.Search(Query).Select(h => h.Entry);
         else
         {
-            entries = browse == "general" ? general.Browse("") : catalog.Entries.Where(e => e.IsSpecial && e.CanBrowse &&
+            entries = browse == "general" || browse.StartsWith("general:", StringComparison.Ordinal) ? general.Browse(browse == "general" ? "" : browse[8..]) : catalog.Entries.Where(e => e.IsSpecial && e.CanBrowse &&
                 (browse == "special" || e.Paths.Any(p => "special:" + p.Key == browse || (browse.EndsWith('>') && browse == "special:" + p.GenreId + ">"))));
             entries = SortIndex == 1 ? entries.OrderBy(e => e.Label, StringComparer.Create(CultureInfo.GetCultureInfo("ja-JP"), false)) : entries.OrderByDescending(e => e.Usage);
         }
@@ -144,7 +148,7 @@ public sealed class MainViewModel : Observable
     public void Add(CatalogEntry entry) => Workspace.Add(entry);
     private void InspectChip(ChipViewModel chip)
     {
-        var entry = catalog.Resolve(chip.Item.Canonical ?? chip.Item.Surface.Trim());
+        var entry = catalog.Resolve(chip.Item.StructuredName ?? chip.Item.Surface.Trim());
         if (entry == null) { Query = chip.Item.StructuredName ?? chip.Item.Surface.Trim(); RefreshResults(); return; }
         SelectedEntry = new(entry, Workspace, Add);
     }
