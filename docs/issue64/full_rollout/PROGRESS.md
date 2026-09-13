@@ -17,14 +17,14 @@ Accepted basis: Issue #64 pilot revision 2, commit `5064429018123c80c32ac41af715
 
 ## Checkpoint 2026-09-13 JST
 
-Completed sequential rows: 1-8,900 / 30,629 (29.06%)
+Completed sequential rows: 1-9,900 / 30,629 (32.32%)
 
-- PROPOSED: 8,519
-- UNRESOLVED: 381
-- HIGH: 7,651
-- MEDIUM: 868
-- LOW: 381
-- remaining: 21,729
+- PROPOSED: 9,472
+- UNRESOLVED: 428
+- HIGH: 8,465
+- MEDIUM: 1,007
+- LOW: 428
+- remaining: 20,729
 
 Batches:
 
@@ -40,14 +40,16 @@ Batches:
 - 5,901-6,900: 939 proposed / 61 unresolved
 - 6,901-7,900: 931 proposed / 69 unresolved
 - 7,901-8,900: 929 proposed / 71 unresolved
+- 8,901-9,900: 953 proposed / 47 unresolved
 
-Batch 12 audit重点:
-- `ellen_joe_(cosplay)`〜`fisting` の1,000件を連続監査し、substring一致より対象identity・実用発見経路を優先
-- `eye / face / finger / fire / fish / fan / fat / father` 系は語幹だけで一括分類せず、身体・衣装・行為・小物・生物・背景・画面表現へ個別に分離
-- `firefighter / fire_truck / fire_escape`、`fishnet / fishing / fish_(food)`、`finger_gun / finger_tattoo` などの部分一致誤分類候補を再監査して修正
-- 固有作品名・イベント・ミーム・語義不明の71件は名称だけで無理に確定せずUNRESOLVED
+Batch 13 audit重点:
+- `fitness_gym`〜`futa_on_male` の1,000件を連続監査し、accepted pilot-v2 taxonomy と protected/canonical boundaries を維持
+- `floating / flying / folding / floral_print / flower / food / foot / forced / frilled / front / fox / frog / fruit` 系を語幹だけで一括分類せず、対象identityと初心者向け実用発見経路で個別に再監査
+- `folded_chair / folding_chair` の `hair` 部分一致、`frostmourne` の `frost` 部分一致、`floor_lamp` の `floor` 部分一致など、文字列一致由来の誤分類候補を検出・修正
+- `flying_car / flying_train / folding_bicycle` は乗り物identity、`flying_spittle / flying_teardrops` は身体状態、`free_sex_sign` は文字要素など、修飾語より主対象を優先して境界を再確認
+- 固有作品名・イベント・ミームおよび語義を名称だけで安全に確定できない47件はUNRESOLVED
 - external evidence はこの1,000件では未使用
-- canonical/Japanese overlay/Special/#66 UI/searchは変更しないcandidate-buildのみ
+- canonical/Japanese overlay/Special/#66 UI/search/mainは変更しないcandidate-buildのみ
 
 ## Rules
 
@@ -82,4 +84,4 @@ Recovery order for a new chat:
 4. `docs/issue64/full_rollout/MANIFEST.json`
 5. this `PROGRESS.md`
 
-Next unprocessed global row: **8,901**.
+Next unprocessed global row: **9,901**.
