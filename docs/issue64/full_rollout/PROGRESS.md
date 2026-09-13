@@ -59,6 +59,16 @@ Batch 20 audit重点:
 - direct binary blob経由で通常形式の単一 `.csv.xz` ledgerを保存
 - canonical/Japanese overlay/Special/#66 UI/search/mainは変更しないcandidate-buildのみ
 
+## Batch 21 attempt / blocked before formal checkpoint
+
+- intended range: **15,401-16,400** (`leather_belt` -> `marble_phantasm`), 1,000 rows
+- formal completed row remains **15,400**; this attempt produced no ledger/summary/MANIFEST checkpoint and must not be counted
+- preflight re-read live `main`, Issue #64 latest comments, `PROTOCOL.md`, `MANIFEST.json`, `PROGRESS.md`, accepted pilot-v2 taxonomy, and the 1,000 canonical identities
+- blocker: the frozen usage source required for ledger `post_count` is `data/source/danbooru-2026-09-02.csv`, fixed by the pilot code at SHA-256 `9b32d5ac0713ab252e7470ba6af9cb34de56878b6b3b13dfbbf6a4a37d82d95b`; that untracked/local source is not available through the connected GitHub worktree in this run
+- a public historical dataset for the same date was identified, but the exact file bytes could not be downloaded in this execution environment to verify the required SHA-256; current/live counts were deliberately **not** substituted because that would create input drift
+- classification work performed in-memory during this attempt is **not persisted or accepted**; next run must resume from row 15,401 and re-audit before formal persistence
+- no production/canonical/Japanese overlay/Special/#66 UI/search/main mutation was made
+
 ## Rules
 
 - accepted 17 top-level genres
