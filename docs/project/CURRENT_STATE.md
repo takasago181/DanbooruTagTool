@@ -4,11 +4,17 @@
 
 ## Current Stage
 
-**Stage9 completed / beginner-first v1 product direction locked / two active DEV lanes run in parallel: Issue #64 data taxonomy + Issue #66 app/search/UI completion.**
+**Stage9 completed / beginner-first v1 product direction locked / two active DEV lanes run in parallel: Issue #64 data taxonomy + Issue #66 app/search/UI completion. Issue #66 first UI/interaction implementation baseline is user-accepted and Phase B implementation is ready to start.**
 
 Current active implementation owners:
 - **Issue #64** — General 30,629 practical browse taxonomy
 - **Issue #66** — beginner-first app completion, bilingual search quality, final v1 acceptance
+
+Issue #66 first implementation UI/interaction authority:
+- `docs/product/V1_UI_FIRST_IMPLEMENTATION_BASELINE.md`
+
+Design provenance only:
+- `docs/product/V1_UI_DESIGN_DISCUSSION_DRAFT.md`
 
 Retired/superseded:
 - Issue #42 — retired/closed; product-scope Gate absorbed into `PRODUCT_GOAL_LOCK.md` + #66 acceptance
@@ -71,7 +77,12 @@ Do not restart already persisted rows.
 - removal/de-emphasis of obsolete Stage-first/recommendation-first default UI
 - visible-state vs actual-Prompt consistency, including hidden automatic insertion checks
 - final ADOPT/HOLD/REJECT reconciliation against `PRODUCT_GOAL_LOCK.md`
-- focused regression and real Windows/Tk acceptance
+- focused regression and real Windows acceptance
+
+The first interaction-design discussion is complete enough for implementation. Phase B must use:
+- `docs/product/V1_UI_FIRST_IMPLEMENTATION_BASELINE.md`
+
+Do not keep expanding pre-implementation UX scope merely because additional ideas are possible. Build the accepted baseline first; revise after real generation use.
 
 Search requirements inherited from retired #34 include:
 - exact canonical / exact English / exact approved Alias / strong Japanese intent outrank incidental fuzzy/substring matches
@@ -84,7 +95,10 @@ Search requirements inherited from retired #34 include:
 
 Parallel now:
 - **#64** — General 30,629 full taxonomy candidate/audit
-- **#66 Phase A/B** — app/UI/search audit, design and dependency-independent implementation
+- **#66 Phase B** — dependency-independent first implementation from the accepted UI/interaction baseline
+
+First #66 build route:
+`WPF foundation -> Prompt workspace -> conservative Prompt import -> Special browse -> bilingual search -> add/edit/reorder -> actual English preview/copy -> General provider boundary`
 
 After #64 acceptance:
 1. #66 consumes accepted General taxonomy sidecar
@@ -102,7 +116,7 @@ Short form:
 | TEAM_ID | Status | Scope | Restore anchor |
 | --- | --- | --- | --- |
 | `GENERAL-DICT:#64` | **ACTIVE DEV / PARALLEL** | 30,629 General practical taxonomy | Issue #64 + latest checkpoint + rollout PROGRESS |
-| `V1-APP:#66` | **ACTIVE DEV / PARALLEL / APP+SEARCH+FINAL ACCEPTANCE OWNER** | beginner-first desktop app/search/UI completion | Issue #66 body + latest checkpoint |
+| `V1-APP:#66` | **ACTIVE DEV / PHASE B FIRST IMPLEMENTATION / APP+SEARCH+FINAL ACCEPTANCE OWNER** | beginner-first desktop app/search/UI completion | Issue #66 body + latest checkpoint + `docs/product/V1_UI_FIRST_IMPLEMENTATION_BASELINE.md` |
 | `STAGE10-LEARNING:#65` | **PAUSED BY USER PRIORITY / RESUME AFTER APP BASELINE** | practical image-generation mastery, NoobAI-first | Issue #65 + `docs/stages/STAGE_10_LEARNING.md` |
 | `KNOWLEDGE:#44` | **ONGOING / V1 NON-BLOCKING** | knowledge corpus + Prompt/generation knowledge | Issue #44 + `knowledge/generation-corpus` |
 | `MAINT:#24` | OPEN / SAFETY DEBT | local protected data backup/restore | Issue #24 |
@@ -149,7 +163,7 @@ The remaining historical 9 failures are not silently reclassified as PASS.
 ## v1 HOLD / optional
 
 - co-occurrence suggestions
-- usage-count/detail views
+- usage-count/detail views beyond the accepted first-implementation list/detail presentation
 - Semantic Bridge beyond search needs
 - Prompt history/favorites
 - advanced hints
@@ -182,6 +196,7 @@ Existing assets may remain internally; do not delete evidence merely because a v
 3. `PromptComposer` may allow hidden default support insertion while the visible session reports none; v1 must make copied Prompt match explicit visible state.
 4. Search has known incidental substring/fuzzy false-positive behavior.
 5. General 30,629 browse taxonomy is not yet accepted; #64 owns the data, #66 owns eventual UI consumption.
+6. The accepted first implementation targets a new lightweight WPF workspace while preserving old Tk/code/data assets until migration/reuse decisions are proven in implementation.
 
 ## Data boundaries
 
@@ -214,6 +229,9 @@ Active executable work:
 - Issue #64 — General taxonomy
 - Issue #66 — app/search/UI completion and final acceptance
 
+Issue #66 first implementation UI/interaction baseline:
+- `docs/product/V1_UI_FIRST_IMPLEMENTATION_BASELINE.md`
+
 Permanent workflow/safety:
 - `docs/project/PERMANENT_RULES.md`
 
@@ -225,9 +243,12 @@ Issues #42 and #34 are historical only and must not be reactivated as required G
 ## Next Actions
 
 1. Continue #64 from its latest live checkpoint/PROGRESS without restarting persisted rows.
-2. Start/continue #66 from latest live main: audit current UI/search/code and implement the simplest coherent v1 interaction design.
-3. Fix dependency-independent bilingual search relevance/noise inside #66, including representative substring/fuzzy regressions.
-4. Keep #66 General browse behind a clean provider/interface until #64 output is accepted.
-5. After #64 acceptance, wire accepted General taxonomy into #66 and rerun product-facing search/browse checks.
-6. In #66, perform final scope reconciliation against `PRODUCT_GOAL_LOCK.md`, focused regression, real Windows UI acceptance and establish v1 baseline.
-7. Resume Stage10 #65 after the app baseline unless the user changes priority.
+2. Start #66 Phase B from latest live main using `docs/product/V1_UI_FIRST_IMPLEMENTATION_BASELINE.md` as the first-build UI/interaction contract.
+3. Implement the WPF foundation / Prompt workspace / conservative import / Special browse / bilingual search / explicit add-edit-reorder / actual English preview-copy / General provider boundary without waiting for #64 classification completion.
+4. Fix dependency-independent bilingual search relevance/noise inside #66, including representative substring/fuzzy regressions.
+5. Keep #66 General browse behind a clean provider/interface until #64 output is accepted.
+6. Codex/DEV returns branch / commit / changed files / tests / validation and does not self-merge the broad first implementation.
+7. DEV reviews against the accepted baseline, then perform real Windows/generation-workflow use before expanding UX scope.
+8. After #64 acceptance, wire accepted General taxonomy into #66 and rerun product-facing search/browse checks.
+9. In #66, perform final scope reconciliation against `PRODUCT_GOAL_LOCK.md`, focused regression, real Windows UI acceptance and establish v1 baseline.
+10. Resume Stage10 #65 after the app baseline unless the user changes priority.
