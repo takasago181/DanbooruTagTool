@@ -1,0 +1,24 @@
+{
+  "issue": 64,
+  "batch": 11,
+  "range": [6901, 7900],
+  "count": 1000,
+  "status_counts": {"PROPOSED": 931, "UNRESOLVED": 69},
+  "confidence_counts": {"HIGH": 830, "MEDIUM": 101, "LOW": 69},
+  "primary_genre_counts": {"OBJECT_PROP":233,"CLOTHING":166,"ACTION_CONTACT":117,"BODY_PART":83,"STYLE_QUALITY_META":49,"TEXT_SYMBOL":44,"PERSON_COUNT":40,"CLOTHING_STATE_EXPOSURE":40,"PLACE_BACKGROUND":34,"LIVING_NATURE":34,"POSE_MOVEMENT":22,"HAIR_FACE":22,"COLOR_APPEARANCE":18,"EXPRESSION_EMOTION":15,"LIGHT_TIME_WEATHER":9,"COMPOSITION_CAMERA":4,"GAZE_ORIENTATION":1},
+  "unresolved": ["diamond_dust_(girls_band_cry)","dianzi","diatrekhon_aster_lonkhe","did_you_want_to_talk?_(meme)","diddle_diddle","diet_coke_and_mentos_(meme)","digimoji","digimon_day","digital_hazard","digitama","dior","discrimination","distracted_boyfriend_(meme)","do_you_want_to_pet_my_cat_(meme)","dodge_(company)","dodododo","dokuzuhonsha","doll_(nikke)","dollchestra","domain_expansion_(jujutsu_kaisen)","don't_you_ever_stop_(meme)","doppel_(madoka_magica)","dotabata_cafe_rec!!_(project_sekai)","dou","doufang","doukyo's","down_boy!!_(meme)","dragon_(arms)","dragon_boat_festival","dragon_install","dragon_type_theme_(pokemon)","dragonstone","drakeposting_(meme)","dramatic_stars_(idolmaster)","draw_me_like_one_of_your_french_girls_(meme)","dreadnought_(warhammer_40k)","dream-space_occult_class_(touhou)","dream_ball","dream_eater_(kingdom_hearts)","dream_soul","dream_world_(touhou)","dromas_(honkai:_star_rail)","dshk","dual_persona","durumagi","duvolle_laboratories_(eve_online)","dvddvd_(meme)","dx","dyson_(company)","dytica_(nijisanji)","e.g.o_(project_moon)","e_pluribus_unum_(fate/grand_order)","earth_eleven","east_japan_railway_company","easy_breezy","edel_note","eden-gumi","eden_gross_cooking_reaction_(meme)","edo_tensei","egasumi","egyptian_trend_(meme)","ehho_ehho_(meme)","ei_ei_mun!","ei_ei_okotta?_(meme)","eighteen_(fate)","eisei_sankyou_(umamusume)","electric_screaming_(e.g.o)","electric_shock_(nikke)","electric_type_theme_(pokemon)"],
+  "audit_notes": [
+    "detergent→elizabeth_tower帯を1,000件連続監査。substring一致より対象identity・実用発見経路を優先。",
+    "digital/dragon/dog/draw/dress/ear/electric 系は語幹一括分類せず、物体・生物・衣装・行為・身体・画面表現へ分離。",
+    "on_head/around_neck/under_clothes/cutout等は配置・着脱状態を対象identityと区別し、既存pilot-v2境界を維持。",
+    "固有作品名・ミーム・意味不明な69件は名称だけで押し込まずUNRESOLVED。外部証拠は今回未使用。",
+    "canonical/Japanese overlay/Special/#66 UI/searchは変更しないcandidate-buildのみ。"
+  ],
+  "raw_csv_sha256": "947b0ff50a3cb6792a1db52ad9c99ca02cb9896b2369e6b1b99675f4d14f972b",
+  "xz_sha256": "95f5baac77ccd4f496581ab3c5d747f8fd74bd17e41bd2bc0579e3332fcbd9b8",
+  "storage_mode": "base64_text_fragments_of_xz",
+  "parts": [
+    {"path":"docs/issue64/full_rollout/batches/batch011_rows06901-07900_ledger.csv.xz.b64.part001","decoded_size":6000,"decoded_sha256":"fa7265ca1c8cf037b9cd431f1fbefa4703074a61b321f31d62db77553fd0c766","base64_text_sha256":"dd865c1a462e964c0c22ca2bf7fae5d797e12969972dfb3e02c0dc3f57272c01"},
+    {"path":"docs/issue64/full_rollout/batches/batch011_rows06901-07900_ledger.csv.xz.b64.part002","decoded_size":4124,"decoded_sha256":"7fbef04a1086230301448691da5ffa04e6995341ca22658d51f2a589fe6608d2","base64_text_sha256":"1b17e4b7f035f00fe645fc5206908d3bbe2ff5d0255c5de4641b2ab6585566bb"}
+  ]
+}
