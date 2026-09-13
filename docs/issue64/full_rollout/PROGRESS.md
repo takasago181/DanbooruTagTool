@@ -17,14 +17,14 @@ Accepted basis: Issue #64 pilot revision 2, commit `5064429018123c80c32ac41af715
 
 ## Checkpoint 2026-09-13 JST
 
-Completed sequential rows: 1-12,150 / 30,629 (39.67%)
+Completed sequential rows: 1-13,150 / 30,629 (42.93%)
 
-- PROPOSED: 11,531
-- UNRESOLVED: 619
-- HIGH: 10,397
-- MEDIUM: 1,134
-- LOW: 619
-- remaining: 18,479
+- PROPOSED: 12,463
+- UNRESOLVED: 687
+- HIGH: 11,306
+- MEDIUM: 1,157
+- LOW: 687
+- remaining: 17,479
 
 Batches:
 
@@ -44,15 +44,15 @@ Batches:
 - 9,901-10,900: 906 proposed / 94 unresolved
 - 10,901-11,150: 245 proposed / 5 unresolved
 - 11,151-12,150: 908 proposed / 92 unresolved
+- 12,151-13,150: 932 proposed / 68 unresolved
 
-Batch 16 audit重点:
-- `grooming`〜`heartbreak_(futsuu_no_keion-bu)` の1,000件を連続監査し、accepted pilot-v2 taxonomy と protected/canonical boundaries を維持
-- `hair / hand / head / heart` 系は語頭や部分一致で一括分類せず、対象identity・接触関係・露出・構図・装飾を個別に再監査
-- `hair_over_eyes / hair_over_one_eye` は髪・顔、`hair_over_breasts / hair_over_crotch` は着脱・露出、`hair_tie_in_mouth` は行為・接触、`hair_tie_on_wrist` は着脱・露出として境界を分離
-- `head_between_*` は身体部位名ではなく関係・接触、`head_out_of_frame / head_only` は構図・画角、`head_removed / headache` は身体状態として主対象を優先
-- `hanging_food` は食べ物、`hanging_lantern / hanging_scroll` は道具・小物、`hanging_sign` は文字・記号として `hanging` 修飾より対象identityを優先
-- `heart_print` は柄、`heart_print_panties` は衣装、`heart_border / heart_frame` は画面表現として境界を再確認
-- 固有作品内概念・イベント・ミーム・名称だけでは安全に確定できない92件はUNRESOLVEDに保持し、件数優先の強制分類は行っていない
+Batch 17 audit重点:
+- `hearthian`〜`hololive_gamers` の1,000件を連続監査し、accepted pilot-v2 taxonomy と protected/canonical boundaries を維持
+- `heart / heat / heel / height / hex / high / hip / holo` 系を語幹だけで一括分類せず、対象identity・身体状態・衣装・画面表現・背景を個別に再監査
+- `holding_*` は保持行為を表すため ACTION_CONTACT を主経路とし、武器・食物・生物・衣装・身体部位など明確な対象identityのみ secondary path に保持
+- `holding_unworn_*` は保持行為を主にしつつ未着用状態を CLOTHING_STATE_EXPOSURE の副経路へ、`holding_another's_*` / `holding_own_*` / `holding_hands` は接触関係として INTERACTION に分離
+- 固有作品内概念・イベント・ミーム・抽象概念など名称だけでは安全に確定できない68件はUNRESOLVED
+- external evidence はこの1,000件では未使用
 - direct binary blob経由で通常形式の単一 `.csv.xz` ledgerを保存
 - canonical/Japanese overlay/Special/#66 UI/search/mainは変更しないcandidate-buildのみ
 
@@ -89,4 +89,4 @@ Recovery order for a new chat:
 4. `docs/issue64/full_rollout/MANIFEST.json`
 5. this `PROGRESS.md`
 
-Next unprocessed global row: **12,151**.
+Next unprocessed global row: **13,151**.
