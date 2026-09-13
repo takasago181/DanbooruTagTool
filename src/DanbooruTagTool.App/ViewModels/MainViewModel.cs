@@ -68,6 +68,8 @@ public sealed class MainViewModel : Observable
     public int SortIndex { get => sortIndex; set { if (Set(ref sortIndex, value)) RefreshResults(); } }
     public bool EnglishChips { get => englishChips; set { if (Set(ref englishChips, value)) { foreach (var c in Chips) c.English = value && WorkspaceIndex == 0; Persist(); } } }
     public bool MultiSelect { get => multiSelect; set => Set(ref multiSelect, value); }
+    public bool HasSelection => Chips.Any(c => c.Selected);
+    public string SelectionSummary => HasSelection ? $"{Chips.Count(c => c.Selected)}件選択中" : "選択なし";
     public string English => Workspace.English;
     public string Count => $"現在のPrompt · {Chips.Count} items";
     public string Unresolved => Chips.Count(c => c.Item.Kind == PromptItemKind.Raw) is var n && n > 0 ? $"未解決 {n}" : "";
@@ -107,7 +109,7 @@ public sealed class MainViewModel : Observable
         Import = new(_ => Safe(() => Workspace.Replace(clipboard.Read())));
         New = new(_ => Workspace.Replace("")); Recover = new(_ => Workspace.Recover(), _ => Workspace.HasRecovery);
         Undo = new(_ => Workspace.Undo(), _ => Workspace.CanUndo); Redo = new(_ => Workspace.Redo(), _ => Workspace.CanRedo);
-        Delete = new(_ => Workspace.Delete(Chips.Where(c => c.Selected).Select(c => c.Id)));
+        Delete = new(_ => Workspace.Delete(Chips.Where(c => c.Selected).Select(c => c.Id)), _ => HasSelection);
         DeleteOne = new(p => { if (p is ChipViewModel c) Workspace.Delete([c.Id]); });
         Inspect = new(p => { if (p is ChipViewModel c) InspectChip(c); });
         Navigate = new(p => { if (p is NavigationNode n) NavigateTo(n.Key); });
@@ -176,7 +178,14 @@ public sealed class MainViewModel : Observable
         SelectionChanged(); return Chips.Where(c => c.Selected).Select(c => c.Id).ToArray();
     }
     public void Move(Guid[] ids, int gap) => Workspace.Move(ids, gap);
-    private void SelectionChanged() { Notify(nameof(WeightVisible)); Weight = WeightVisible ? Chips.Single(c => c.Selected).Item.Weight?.ToString(CultureInfo.InvariantCulture) ?? "" : ""; }
+    private void SelectionChanged()
+    {
+        Notify(nameof(HasSelection));
+        Notify(nameof(SelectionSummary));
+        Notify(nameof(WeightVisible));
+        Weight = WeightVisible ? Chips.Single(c => c.Selected).Item.Weight?.ToString(CultureInfo.InvariantCulture) ?? "" : "";
+        Delete.Refresh();
+    }
     private void UpdateMatches() { foreach (var chip in Chips) chip.Match = Find.Length > 0 && (chip.Item.Display.Contains(Find, StringComparison.OrdinalIgnoreCase) || chip.Item.Surface.Contains(Find, StringComparison.OrdinalIgnoreCase)); }
     private Guid? lastMatch;
     public void FindNext(bool previous)

@@ -30,7 +30,18 @@ public partial class MainWindow : Window
         searchTimer.Tick += (_, _) => { searchTimer.Stop(); vm.RefreshResults(); };
         feedbackTimer.Tick += (_, _) => { feedbackTimer.Stop(); if (vm.Status == "✓ コピーしました") vm.Status = ""; };
         uiTimer.Tick += (_, _) => { uiTimer.Stop(); SaveGeometry(); };
-        vm.PropertyChanged += (_, e) => { if (e.PropertyName == nameof(vm.Status) && vm.Status == "✓ コピーしました") { feedbackTimer.Stop(); feedbackTimer.Start(); } };
+        vm.PropertyChanged += (_, e) =>
+        {
+            if (e.PropertyName == nameof(vm.Status) && vm.Status == "✓ コピーしました")
+            {
+                feedbackTimer.Stop();
+                feedbackTimer.Start();
+            }
+            if (e.PropertyName == nameof(vm.DirectEditing) && vm.DirectEditing)
+            {
+                Dispatcher.BeginInvoke(() => { DirectEditor.Focus(); DirectEditor.SelectAll(); }, DispatcherPriority.Input);
+            }
+        };
         vm.ResultsRestored += () => Dispatcher.BeginInvoke(() => FindChild<ScrollViewer>(DictionaryList)?.ScrollToVerticalOffset(vm.RestoreScroll), DispatcherPriority.Loaded);
         vm.ScrollToChip += id => { var index = vm.Chips.ToList().FindIndex(c => c.Id == id); if (index >= 0 && EditorItems.ItemContainerGenerator.ContainerFromIndex(index) is FrameworkElement item) item.BringIntoView(); };
         SizeChanged += (_, _) => QueueUiSave(); LocationChanged += (_, _) => QueueUiSave();
