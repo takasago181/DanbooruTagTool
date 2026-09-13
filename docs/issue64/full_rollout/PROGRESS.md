@@ -17,14 +17,14 @@ Accepted basis: Issue #64 pilot revision 2, commit `5064429018123c80c32ac41af715
 
 ## Checkpoint 2026-09-13 JST
 
-Completed sequential rows: 1-13,400 / 30,629 (43.75%)
+Completed sequential rows: 1-14,400 / 30,629 (47.01%)
 
-- PROPOSED: 12,679
-- UNRESOLVED: 721
-- HIGH: 11,516
-- MEDIUM: 1,163
-- LOW: 721
-- remaining: 17,229
+- PROPOSED: 13,550
+- UNRESOLVED: 850
+- HIGH: 12,204
+- MEDIUM: 1,346
+- LOW: 850
+- remaining: 16,229
 
 Batches:
 
@@ -46,24 +46,16 @@ Batches:
 - 11,151-12,150: 908 proposed / 92 unresolved
 - 12,151-13,150: 932 proposed / 68 unresolved
 - 13,151-13,400: 216 proposed / 34 unresolved
+- 13,401-14,400: 871 proposed / 129 unresolved
 
-Batch 18 audit重点:
-- `hololive_gamers_fes_outfit`〜`hug_invitation` の250件を連続監査し、accepted pilot-v2 taxonomy と protected/canonical boundaries を維持
-- `hololive / holy / honda / honey / hood / horn / horse / hot / how / hug` 系を語幹だけで一括分類せず、対象identityと初心者向け実用発見経路で個別に再監査
-- hood状態は着脱・露出、horn/horseの身体部位はBODY_PART、車種/hover系はVEHICLE、食物はFOOD、hug系はACTION_CONTACTとしてmodifier断片より対象・行為identityを優先
-- 固有グループ名・作品固有概念・イベント・ミーム等、名称だけでは安全に確定できない34件はUNRESOLVED
-- external evidence はこの250件では未使用
+Batch 19 audit重点:
+- `huge_ahoge`〜`jumpsuit_pull` の1,000件を連続監査し、accepted pilot-v2 taxonomy と protected/canonical boundaries を維持
+- `imminent_*` / `implied_*` / `in_*` / jacket系などの意味系列は語幹だけで一括分類せず、行為・身体状態・衣装状態・場所/容器内位置のidentityを個別に分離
+- cosplay / uniform / 髪飾り / 武器 / 乗り物 / 食物 / 生物など対象identityが明確なものはmodifierより対象を優先
+- 固有イベント・作品固有語・ミーム・組織名など、安全に確定できない129件はUNRESOLVEDに保持
+- external evidence はこの1,000件では未使用
 - direct binary blob経由で通常形式の単一 `.csv.xz` ledgerを保存
 - canonical/Japanese overlay/Special/#66 UI/search/mainは変更しないcandidate-buildのみ
-
-## Latest run stop note (2026-09-13 JST)
-
-- Intended target for this run: rows **13,401-14,400** (1,000 rows).
-- Live `main`, Issue #64 latest checkpoint, `PROTOCOL.md`, `MANIFEST.json`, this `PROGRESS.md`, accepted pilot-v2 taxonomy, and the exact 1,000 canonical identities were re-read before classification.
-- The run reached its execution/tool-context limit while completing preflight and loading the full 1,000-row identity set, before a complete row-level classification/audit ledger could be safely produced and verified.
-- Per the user rule, no partial/unverified classification is persisted merely to increase row count. The last fully verified checkpoint therefore remains **13,400**.
-- No ledger, summary, MANIFEST totals, canonical identity, Japanese overlay, Special data, #66 UI/search, or `main` were changed by this stopped attempt.
-- Resume from **13,401** and target the full 1,000 rows; an internal checkpoint may be used, but do not end below 1,000 without another concrete stop condition.
 
 ## Rules
 
@@ -98,4 +90,4 @@ Recovery order for a new chat:
 4. `docs/issue64/full_rollout/MANIFEST.json`
 5. this `PROGRESS.md`
 
-Next unprocessed global row: **13,401**.
+Next unprocessed global row: **14,401**.
