@@ -19,14 +19,14 @@ Accepted basis: Issue #64 pilot revision 2, commit `5064429018123c80c32ac41af715
 
 ## Checkpoint 2026-09-14 JST
 
-Completed sequential rows: 1-21,400 / 30,629 (69.87%)
+Completed sequential rows: 1-22,400 / 30,629 (73.13%)
 
-- PROPOSED: 19,927
-- UNRESOLVED: 1,473
-- HIGH: 17,909
-- MEDIUM: 2,018
-- LOW: 1,473
-- remaining: 9,229
+- PROPOSED: 20,842
+- UNRESOLVED: 1,558
+- HIGH: 18,764
+- MEDIUM: 2,078
+- LOW: 1,558
+- remaining: 8,229
 
 Batches:
 
@@ -56,21 +56,23 @@ Batches:
 - 18,401-19,400: 948 proposed / 52 unresolved
 - 19,401-20,400: 940 proposed / 60 unresolved
 - 20,401-21,400: 923 proposed / 77 unresolved
+- 21,401-22,400: 915 proposed / 85 unresolved
 
-## Batch 26 audit重点
+## Batch 27 audit重点
 
-- `pinstripe_skirt`〜`pumpkin_ornament` の1,000件を連続監査し、accepted pilot-v2 taxonomy と protected/canonical boundaries を維持
-- `pinstripe*` / `plaid*` / `polka_dot*` / `print*` は柄modifierで一括せず、衣服・背景・髪・物体・画面枠など対象identityを主経路に分類
-- `pokemon*` / `pov*` / `power*` / `public*` は語幹一括せず、生物・衣装・物体・行為・構図・身体・画面表現等へ意味分離
-- 固有イベント・作品固有概念・ミーム・ブランド・抽象語など、安全に実用経路を確定できない77件はUNRESOLVEDに保持
+- `pumpkin_pie`〜`reverse_amazon_position` の1,000件を連続監査し、accepted pilot-v2 taxonomy と protected/canonical boundaries を維持
+- `purple_*` / `red_*` は色modifierで一括せず、衣服・身体・髪顔・生物・道具・場所・光・記号など末尾の対象identityを主経路に分類
+- `rabbit_*` / `raccoon_*` / `reindeer_*` も動物語幹で一括せず、人物役柄・身体特徴・衣装・背景・物体・記号を意味分離
+- `reflective_*` は反射modifierより対象identityを優先し、clothes/eyewearは衣装、weaponは道具・武器、floor/table/wallは場所・背景、liquidは色・外観へ分離
+- 固有イベント・作品固有概念・ミーム・ブランド・抽象語など、安全に実用経路を確定できない85件はUNRESOLVEDに保持
 - historical usage / `post_count` は通常ledger必須でないため未使用。global row identity/orderは固定 `population.txt` を使用
-- external evidence はこの1,000件では未使用
+- 外部検索は曖昧語の確認を試みたが有効証拠を得られず、分類根拠には使用していない
 - direct Git data binary blob経由で通常形式の単一 `.csv.xz` ledgerを保存
 - canonical/Japanese overlay/Special/#66 UI/search/mainは変更しないcandidate-buildのみ
 
 ## Prior Batch 26 quality stop clarification
 
-前回の20,401–21,400 attemptは実行予算内で監査密度を維持できず、正式成果を保存せず20,400で停止した。今回、同じ固定1,000件を先頭から再監査し、未完成の前回分類は再利用せず正式Batch 26として完成させた。
+前回の20,401–21,400 attemptは実行予算内で監査密度を維持できず、正式成果を保存せず20,400で停止した。その後、同じ固定1,000件を先頭から再監査し、未完成の分類を再利用せず正式Batch 26として完成させた。
 
 ## Prior Batch 21 blocker clarification
 
@@ -109,4 +111,4 @@ Recovery order for a new chat:
 4. `docs/issue64/full_rollout/MANIFEST.json`
 5. this `PROGRESS.md`
 
-Next unprocessed global row: **21,401**.
+Next unprocessed global row: **22,401**.
