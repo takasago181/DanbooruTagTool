@@ -19,14 +19,14 @@ Accepted basis: Issue #64 pilot revision 2, commit `5064429018123c80c32ac41af715
 
 ## Checkpoint 2026-09-14 JST
 
-Completed sequential rows: 1-19,400 / 30,629 (63.34%)
+Completed sequential rows: 1-20,400 / 30,629 (66.60%)
 
-- PROPOSED: 18,064
-- UNRESOLVED: 1,336
-- HIGH: 16,132
-- MEDIUM: 1,932
-- LOW: 1,336
-- remaining: 11,229
+- PROPOSED: 19,004
+- UNRESOLVED: 1,396
+- HIGH: 17,035
+- MEDIUM: 1,969
+- LOW: 1,396
+- remaining: 10,229
 
 Batches:
 
@@ -54,14 +54,15 @@ Batches:
 - 16,401-17,400: 897 proposed / 103 unresolved
 - 17,401-18,400: 898 proposed / 102 unresolved
 - 18,401-19,400: 948 proposed / 52 unresolved
+- 19,401-20,400: 940 proposed / 60 unresolved
 
-## Batch 24 audit重点
+## Batch 25 audit重点
 
-- `norway`〜`paizuri_gesture` の1,000件を連続監査し、accepted pilot-v2 taxonomy と protected/canonical boundaries を維持
-- `orange_*` は色modifierで一括せず、衣装・髪顔・身体・生物植物・背景・食品等の対象identityを主経路に分類
-- `open_*` / `opening_*` は衣服の開閉ならCLOTHING_STATE_EXPOSURE、口・目はEXPRESSION_EMOTION、手はPOSE_MOVEMENT、扉・窓等はPLACE_BACKGROUND、その他は対象物identityを優先
-- `on_*` は「何の上/上にいるか」という位置・体勢identityをPOSE_MOVEMENTとして監査し、対象物語幹への誤分類を避けた
-- 固有イベント・作品固有概念・ミーム・不透明な固有名称など、安全に実用経路を確定できない52件はUNRESOLVEDに保持
+- `paizuri_invitation`〜`pinstripe_shorts` の1,000件を連続監査し、accepted pilot-v2 taxonomy と protected/canonical boundaries を維持
+- `panties*` / `pants*` / `pantyhose*` は衣服identityと、around / pull / lift / layering等の着脱・露出状態を分離
+- `penis*` / `pectoral*` は身体部位そのものと、接触・配置・性的行為、構図（out_of_frame）を分離し、語幹だけでBODY_PARTへ一括しない
+- `pink_*` は色modifierで一括せず、衣装・髪顔・身体・生物植物・背景・光・物体等の対象identityを主経路に分類
+- 固有イベント・作品固有概念・ミーム・不透明な固有名称など、安全に実用経路を確定できない60件はUNRESOLVEDに保持
 - historical usage / `post_count` は通常ledger必須でないため未使用。global row identity/orderは固定 `population.txt` を使用
 - external evidence はこの1,000件では未使用
 - direct Git data binary blob経由で通常形式の単一 `.csv.xz` ledgerを保存
@@ -104,4 +105,4 @@ Recovery order for a new chat:
 4. `docs/issue64/full_rollout/MANIFEST.json`
 5. this `PROGRESS.md`
 
-Next unprocessed global row: **19,401**.
+Next unprocessed global row: **20,401**.
