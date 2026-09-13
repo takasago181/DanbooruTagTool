@@ -17,14 +17,14 @@ Accepted basis: Issue #64 pilot revision 2, commit `5064429018123c80c32ac41af715
 
 ## Checkpoint 2026-09-13 JST
 
-Completed sequential rows: 1-9,900 / 30,629 (32.32%)
+Completed sequential rows: 1-10,900 / 30,629 (35.59%)
 
-- PROPOSED: 9,472
-- UNRESOLVED: 428
-- HIGH: 8,465
-- MEDIUM: 1,007
-- LOW: 428
-- remaining: 20,729
+- PROPOSED: 10,378
+- UNRESOLVED: 522
+- HIGH: 9,309
+- MEDIUM: 1,069
+- LOW: 522
+- remaining: 19,729
 
 Batches:
 
@@ -41,14 +41,16 @@ Batches:
 - 6,901-7,900: 931 proposed / 69 unresolved
 - 7,901-8,900: 929 proposed / 71 unresolved
 - 8,901-9,900: 953 proposed / 47 unresolved
+- 9,901-10,900: 906 proposed / 94 unresolved
 
-Batch 13 audit重点:
-- `fitness_gym`〜`futa_on_male` の1,000件を連続監査し、accepted pilot-v2 taxonomy と protected/canonical boundaries を維持
-- `floating / flying / folding / floral_print / flower / food / foot / forced / frilled / front / fox / frog / fruit` 系を語幹だけで一括分類せず、対象identityと初心者向け実用発見経路で個別に再監査
-- `folded_chair / folding_chair` の `hair` 部分一致、`frostmourne` の `frost` 部分一致、`floor_lamp` の `floor` 部分一致など、文字列一致由来の誤分類候補を検出・修正
-- `flying_car / flying_train / folding_bicycle` は乗り物identity、`flying_spittle / flying_teardrops` は身体状態、`free_sex_sign` は文字要素など、修飾語より主対象を優先して境界を再確認
-- 固有作品名・イベント・ミームおよび語義を名称だけで安全に確定できない47件はUNRESOLVED
-- external evidence はこの1,000件では未使用
+Batch 14 audit重点:
+- `futa_with_female`〜`green_necktie` の1,000件をpopulation正本から再構築・再監査し、前回の未永続draftは正式成果として再利用していない
+- accepted pilot-v2 taxonomy と protected/canonical boundaries を維持
+- `ghost / giraffe / goat / gold / golden / gradient / grass / green` 系を語幹だけで一括分類せず、対象identityと初心者向け実用発見経路で個別に再監査
+- `goosebumps` を生物ではなく身体状態、`golf_course` を行為ではなく場所、`grasshopper` を植物ではなく生物、`green_lightsaber` を色ではなく武器として修正するなど、部分一致由来の誤分類を除去
+- hair ornament は衣装アクセサリ、`*_print` は柄、gogglesの着用位置は着脱・露出として境界を再確認
+- 固有作品内概念・イベント・ミームおよび名称だけでは安全に確定できない94件はUNRESOLVED
+- direct binary blob経由で通常形式の単一 `.csv.xz` ledgerを保存し、前回のconnector fragment write障害を回避
 - canonical/Japanese overlay/Special/#66 UI/search/mainは変更しないcandidate-buildのみ
 
 ## Rules
@@ -84,4 +86,4 @@ Recovery order for a new chat:
 4. `docs/issue64/full_rollout/MANIFEST.json`
 5. this `PROGRESS.md`
 
-Next unprocessed global row: **9,901**.
+Next unprocessed global row: **10,901**.
