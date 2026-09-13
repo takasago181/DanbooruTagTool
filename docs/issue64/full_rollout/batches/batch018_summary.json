@@ -1,0 +1,82 @@
+{
+  "issue": 64,
+  "batch": 18,
+  "range": [
+    13151,
+    13400
+  ],
+  "count": 250,
+  "status_counts": {
+    "PROPOSED": 216,
+    "UNRESOLVED": 34
+  },
+  "confidence_counts": {
+    "HIGH": 210,
+    "MEDIUM": 6,
+    "LOW": 34
+  },
+  "primary_genre_counts": {
+    "ACTION_CONTACT": 17,
+    "BODY_PART": 12,
+    "CLOTHING": 84,
+    "CLOTHING_STATE_EXPOSURE": 8,
+    "COLOR_APPEARANCE": 7,
+    "EXPRESSION_EMOTION": 1,
+    "HAIR_FACE": 2,
+    "LIGHT_TIME_WEATHER": 1,
+    "LIVING_NATURE": 2,
+    "OBJECT_PROP": 47,
+    "PERSON_COUNT": 9,
+    "PLACE_BACKGROUND": 9,
+    "POSE_MOVEMENT": 8,
+    "STYLE_QUALITY_META": 3,
+    "TEXT_SYMBOL": 6
+  },
+  "unresolved": [
+    "holomyth",
+    "holonatsu_paradise",
+    "holopromise",
+    "holoro",
+    "holotempus",
+    "holotori",
+    "holox",
+    "holy_grail_(fate)",
+    "holy_quintet",
+    "holy_ring",
+    "homophobia",
+    "homu",
+    "honda",
+    "honey_strap",
+    "hongyuan_(identity)_(project_moon)",
+    "hook_office_(identity)_(project_moon)",
+    "hope's_dusk_(apex_legends)",
+    "horn_(e.g.o)",
+    "hornet_(e.g.o)",
+    "horosho",
+    "hoshi_no_sanzang-chan_tenjiku_ni_iku",
+    "hoshi_no_tsue",
+    "hoshino_crunchy_(meme)",
+    "hot_limit",
+    "houkago_climax_girls_(idolmaster)",
+    "hounskull",
+    "how_to_draw_an_owl_(meme)",
+    "how_to_draw_manga_redraw_challenge_(meme)",
+    "how_to_hold_x_(meme)",
+    "how_to_make_sushi_(meme)",
+    "how_to_talk_to_short_people_(meme)",
+    "hoyofair",
+    "hoyolab_sticker_redraw",
+    "hufflepuff"
+  ],
+  "audit_notes": [
+    "hololive_gamers_fes_outfit〜hug_invitation帯を250件連続監査し、accepted pilot-v2 taxonomyとprotected/canonical boundariesを維持した。",
+    "hololive/holy/honda/honey/hood/horn/horse/hot/how/hug系を語幹一括で処理せず、対象identityと初心者向け実用発見経路を優先して個別監査した。",
+    "hood状態は衣装状態、horn/horseの部位はBODY_PART、車種やhover系はVEHICLE、食物はFOOD、hug系はACTION_CONTACTとしてmodifierより対象・行為identityを優先した。",
+    "固有グループ名・作品固有概念・イベント・ミーム等、名称だけでは安全に確定できない34件はUNRESOLVEDに保持した。外部証拠は未使用。",
+    "canonical identity / production Japanese overlay / Special / #66 UI・search / mainは変更しないcandidate-buildのみ。"
+  ],
+  "raw_csv_sha256": "fd377cd203a0611e163e0dc7e27e60cd6a2944191eea5a9fafe7b2896ed392a1",
+  "xz_sha256": "e51c753597d41ea2221f516c3e336bdd32af860670a192d64fbc721f8c19bcc1",
+  "storage_mode": "xz-compressed UTF-8-SIG CSV ledger",
+  "path": "docs/issue64/full_rollout/batches/batch018_rows13151-13400_ledger.csv.xz"
+}

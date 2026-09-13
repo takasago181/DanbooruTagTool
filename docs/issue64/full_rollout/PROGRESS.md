@@ -17,14 +17,14 @@ Accepted basis: Issue #64 pilot revision 2, commit `5064429018123c80c32ac41af715
 
 ## Checkpoint 2026-09-13 JST
 
-Completed sequential rows: 1-13,150 / 30,629 (42.93%)
+Completed sequential rows: 1-13,400 / 30,629 (43.75%)
 
-- PROPOSED: 12,463
-- UNRESOLVED: 687
-- HIGH: 11,306
-- MEDIUM: 1,157
-- LOW: 687
-- remaining: 17,479
+- PROPOSED: 12,679
+- UNRESOLVED: 721
+- HIGH: 11,516
+- MEDIUM: 1,163
+- LOW: 721
+- remaining: 17,229
 
 Batches:
 
@@ -45,14 +45,14 @@ Batches:
 - 10,901-11,150: 245 proposed / 5 unresolved
 - 11,151-12,150: 908 proposed / 92 unresolved
 - 12,151-13,150: 932 proposed / 68 unresolved
+- 13,151-13,400: 216 proposed / 34 unresolved
 
-Batch 17 audit重点:
-- `hearthian`〜`hololive_gamers` の1,000件を連続監査し、accepted pilot-v2 taxonomy と protected/canonical boundaries を維持
-- `heart / heat / heel / height / hex / high / hip / holo` 系を語幹だけで一括分類せず、対象identity・身体状態・衣装・画面表現・背景を個別に再監査
-- `holding_*` は保持行為を表すため ACTION_CONTACT を主経路とし、武器・食物・生物・衣装・身体部位など明確な対象identityのみ secondary path に保持
-- `holding_unworn_*` は保持行為を主にしつつ未着用状態を CLOTHING_STATE_EXPOSURE の副経路へ、`holding_another's_*` / `holding_own_*` / `holding_hands` は接触関係として INTERACTION に分離
-- 固有作品内概念・イベント・ミーム・抽象概念など名称だけでは安全に確定できない68件はUNRESOLVED
-- external evidence はこの1,000件では未使用
+Batch 18 audit重点:
+- `hololive_gamers_fes_outfit`〜`hug_invitation` の250件を連続監査し、accepted pilot-v2 taxonomy と protected/canonical boundaries を維持
+- `hololive / holy / honda / honey / hood / horn / horse / hot / how / hug` 系を語幹だけで一括分類せず、対象identityと初心者向け実用発見経路で個別に再監査
+- hood状態は着脱・露出、horn/horseの身体部位はBODY_PART、車種/hover系はVEHICLE、食物はFOOD、hug系はACTION_CONTACTとしてmodifier断片より対象・行為identityを優先
+- 固有グループ名・作品固有概念・イベント・ミーム等、名称だけでは安全に確定できない34件はUNRESOLVED
+- external evidence はこの250件では未使用
 - direct binary blob経由で通常形式の単一 `.csv.xz` ledgerを保存
 - canonical/Japanese overlay/Special/#66 UI/search/mainは変更しないcandidate-buildのみ
 
@@ -89,4 +89,4 @@ Recovery order for a new chat:
 4. `docs/issue64/full_rollout/MANIFEST.json`
 5. this `PROGRESS.md`
 
-Next unprocessed global row: **13,151**.
+Next unprocessed global row: **13,401**.
