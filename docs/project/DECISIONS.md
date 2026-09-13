@@ -314,13 +314,60 @@ Old Stage10 production A/B assets are **not deleted**. They become:
 - failure-diagnosis aids
 
 Stage10 is parallel to the v1 product route and remains **not a v1 completion blocker**.
-Likewise, v1 completion does not imply Stage10 learning completion.
+Likewise, v1 completion does not implyStage10 learning completion。
 
 KNOWLEDGE #44 supplies the research/claims; Stage10 may feed repeated practical observations back to #44. One successful image must not be promoted to universal model truth.
+
+---
+
+## D-018 Clean WPF rewrite + self-contained portable folder — 2026-09-13
+
+Status: **ADOPTED**
+
+Issue #66の第一実装は、既存Python/Tk UIを継ぎ足して完成させるのではなく、**同一repository内に新しいC#/.NET/WPFアプリを新設する**。
+
+Current Python/Tk implementation:
+- legacy/reference
+- regression comparison source
+- accepted behavior/evidence source
+
+として第一実装中は保持する。
+
+新WPFの原則:
+- new `src/` treeにclean implementation
+- WPF runtimeからPython/Tcl/Tkを必須呼出ししない
+- accepted data / identity / taxonomy / search rules / regression evidenceを再利用する
+- existing `data/` とlegacy Python pathsはWPF baseline acceptance前に大規模移動しない
+- #64 General rolloutをUI rewriteのために妨害しない
+- `catalog.db` をrebuildable/read-mostly catalog knowledgeとして扱う
+- `user.db` / `UserData` をuser-specific stateとして分離する
+- normal startupでtaxonomy/audit/source rebuildを走らせない
+
+標準配布形式:
+
+**Windows x64 / .NET self-contained / portable folder**
+
+要件:
+- target PCへのPython install不要
+- target PCへのseparate .NET Desktop Runtime install不要
+- installer不要でfolder copyから起動可能
+- essential stateをregistryやmachine-specific absolute pathへ依存させない
+- `UserData`を含めてcopyすれば作業状態を持ち運べる構造を目指す
+
+Single-file EXEは要求しない。
+「1ファイル」より「1フォルダでportable / catalogとuser dataを明確分離」を優先する。
+
+WPF practical baseline acceptance後にのみ、legacy Python treeの移動・削除・archive化を別taskとして検討する。
+
+Canonical architecture file:
+- `docs/product/V1_WPF_ARCHITECTURE_BASELINE.md`
+
+Implementation owner:
+- Issue #66
 
 ---
 
 ## Historical note
 
 旧Stage0–9実装判断、旧Stage10 A/B準備、evaluator校正、Prompt Composer研究等の詳細はGit historyと対応Issue/Stage文書に保持する。
-Historical decisionは現在の `PRODUCT_GOAL_LOCK.md` / #42 scope / D-017 Stage10 definitionより優先しない。
+Historical decisionは現在の `PRODUCT_GOAL_LOCK.md` / #66 app route / D-017 Stage10 definition / D-018 architectureより優先しない。
