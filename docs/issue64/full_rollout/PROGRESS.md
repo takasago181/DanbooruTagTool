@@ -19,14 +19,14 @@ Accepted basis: Issue #64 pilot revision 2, commit `5064429018123c80c32ac41af715
 
 ## Checkpoint 2026-09-14 JST
 
-Completed sequential rows: 1-16,400 / 30,629 (53.54%)
+Completed sequential rows: 1-17,400 / 30,629 (56.81%)
 
-- PROPOSED: 15,321
-- UNRESOLVED: 1,079
-- HIGH: 13,849
-- MEDIUM: 1,472
-- LOW: 1,079
-- remaining: 14,229
+- PROPOSED: 16,218
+- UNRESOLVED: 1,182
+- HIGH: 14,547
+- MEDIUM: 1,671
+- LOW: 1,182
+- remaining: 13,229
 
 Batches:
 
@@ -51,17 +51,17 @@ Batches:
 - 13,401-14,400: 871 proposed / 129 unresolved
 - 14,401-15,400: 878 proposed / 122 unresolved
 - 15,401-16,400: 893 proposed / 107 unresolved
+- 16,401-17,400: 897 proposed / 103 unresolved
 
-## Batch 21 audit重点
+## Batch 22 audit重点
 
-- `leather_belt`〜`marble_phantasm` の1,000件を連続監査し、accepted pilot-v2 taxonomy と protected/canonical boundaries を維持
-- L/M帯の衣装・身体・視線・行為・武器・生物・場所・文字記号を対象identity優先で分類
-- `licking*` / `looking*` / `loose*` / `long*` / `male*` 系列は語幹一括ではなく、対象・行為・着用状態・視線方向を分離
-- `looking_for_glasses` は視線方向ではなく活動、`leg_lift` は衣服liftではなくpose、`male_pubic_hair` は髪型ではなく身体状態など、modifier断片による誤分類を監査で除外
-- 固有イベント・作品固有概念・ミーム・不透明な固有名など、安全に確定できない107件はUNRESOLVEDに保持
+- `marble_sculpture`〜`motoyui` の1,000件を連続監査し、accepted pilot-v2 taxonomy と protected/canonical boundaries を維持
+- M帯の衣装・身体・道具・武器・乗り物・生物・場所・文字記号を対象identity優先で分類
+- `military_*` / `mismatched_*` / `mole_*` / `moon_*` は語幹一括ではなく、対象identity・着用状態・身体部位・記号・天体/光の境界を個別再監査
+- 作品固有概念・イベント・ミーム・不透明な固有名など、安全に確定できない103件はUNRESOLVEDに保持
 - historical usage / `post_count` は通常ledger必須でないため未使用。global row identity/orderは固定 `population.txt` を使用
 - external evidence はこの1,000件では未使用
-- direct binary payloadの安定した投入ができなかったため、PROTOCOL既定のordered base64 fragments 3分割で同一`.csv.xz` bytesを保存
+- direct Git data binary blob経由で通常形式の単一 `.csv.xz` ledgerを保存
 - canonical/Japanese overlay/Special/#66 UI/search/mainは変更しないcandidate-buildのみ
 
 ## Prior Batch 21 blocker clarification
@@ -101,4 +101,4 @@ Recovery order for a new chat:
 4. `docs/issue64/full_rollout/MANIFEST.json`
 5. this `PROGRESS.md`
 
-Next unprocessed global row: **16,401**.
+Next unprocessed global row: **17,401**.
