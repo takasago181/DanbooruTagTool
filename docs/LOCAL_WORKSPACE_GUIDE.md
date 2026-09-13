@@ -12,7 +12,7 @@ rootにある `START_DANBOORU_TAG_TOOL.bat` は、現在もlegacy Python/Tk版�
 .worktrees/issue66-wpf/artifacts/current/DanbooruTagTool.exe
 ```
 
-このbuildの `Data/catalog.db` はruntime catalogです。`artifacts/current/UserData/` は今回新しく作った独立領域で、初回起動時に `user.db` が作られます。以前のWPF stateは移行していません。従来のstateを含むportableは `.worktrees/issue66-wpf/artifacts/dictionary-selection-usability-v6/` にそのまま保持してあり、その `UserData/user.db` は旧build用として保全しています。旧buildと現在source buildを混同せず、どちらの `UserData` も移動・削除・置換しないでください。
+このbuildの `Data/catalog.db` はruntime catalogです。`artifacts/current/UserData/` は今回新しく作った独立領域で、初回起動時に `user.db` が作られます。以前のWPF stateは移行していません。従来のstateを含むportableは `.worktrees/issue66-wpf/archive/artifacts/portable/dictionary-selection-usability-v6/` に保全してあり、その `UserData/user.db` は旧build用として保持しています。旧buildと現在source buildを混同せず、どちらの `UserData` も移動・削除・置換しないでください。
 
 ## WPFのsourceと検証出力
 
