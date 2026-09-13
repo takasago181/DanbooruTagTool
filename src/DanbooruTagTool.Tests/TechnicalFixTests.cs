@@ -41,6 +41,15 @@ public class TechnicalFixTests(ITestOutputHelper output)
         using var external = new TempDirectory();
         Assert.Equal(external.Path, CatalogOutputGuard.Validate(external.Path, root.Path, authority.Path));
     }
+    [Fact] public void OutputGuardRejectsAuthorityIssue56AndAllowsSiblings()
+    {
+        using var authority = new TempDirectory(); using var source = new TempDirectory(); using var external = new TempDirectory();
+        foreach (var relative in new[] { "docs/issue56", "docs/issue56/rollout", "docs/issue56/rollout/reviewed" })
+            Assert.Throws<ArgumentException>(() => CatalogOutputGuard.Validate(Path.Combine(authority.Path, relative), source.Path, authority.Path));
+        Assert.Equal(Path.GetFullPath(Path.Combine(authority.Path, "docs2")), CatalogOutputGuard.Validate(Path.Combine(authority.Path, "docs2"), source.Path, authority.Path));
+        Assert.Equal(Path.GetFullPath(Path.Combine(source.Path, "src", "artifacts", "build")), CatalogOutputGuard.Validate(Path.Combine(source.Path, "src", "artifacts", "build"), source.Path, authority.Path));
+        Assert.Equal(external.Path, CatalogOutputGuard.Validate(external.Path, source.Path, authority.Path));
+    }
     [Fact] public void SpecialExactCanonicalNullAndPrecedencePreserveSurface()
     {
         var general = Fixtures.Entry("blue_hair", "General display");

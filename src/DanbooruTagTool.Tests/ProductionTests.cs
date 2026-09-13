@@ -37,4 +37,21 @@ public class ProductionTests(ITestOutputHelper output)
             { var root=AcceptedAssetImporter.ProtectedInputs.Contains(p.Name)?sourceRoot:authorityRoot; Assert.Equal(p.Value.GetString(),AcceptedAssetImporter.Hash(Path.Combine(root,p.Name))); }
         }
     }
+    [ProductionFact] public void ProductionPromptParserEightyItemBenchmark()
+    {
+        var catalog=CatalogDatabase.Open(Environment.GetEnvironmentVariable("DTT_PRODUCTION_CATALOG")!);
+        var parser=new PromptParser(catalog);
+        var normal=catalog.Entries.Where(e=>e.CanSearch && e.Canonical is not null).OrderBy(e=>e.Id,StringComparer.Ordinal).Take(76).Select(e=>e.Canonical!).ToArray();
+        Assert.Equal(76,normal.Length);
+        var prompt=string.Join(",",normal.Append($"({normal[0]}:1.1)").Append("<lora:benchmark_style:0.8>").Append("BREAK").Append("custom_trigger"));
+        Assert.Equal(80,parser.Parse(prompt).Length);
+        var times=new List<double>();
+        for(var i=0;i<5;i++)
+        {
+            var watch=Stopwatch.StartNew(); var items=parser.Parse(prompt); watch.Stop();
+            Assert.Equal(80,items.Length); times.Add(watch.Elapsed.TotalMilliseconds);
+        }
+        times.Sort();
+        output.WriteLine($"PromptParser.Parse 80 items: min={times[0]:F2} ms; median={times[2]:F2} ms; max={times[^1]:F2} ms");
+    }
 }
