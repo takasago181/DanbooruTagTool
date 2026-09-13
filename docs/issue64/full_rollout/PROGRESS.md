@@ -17,14 +17,14 @@ Accepted basis: Issue #64 pilot revision 2, commit `5064429018123c80c32ac41af715
 
 ## Checkpoint 2026-09-13 JST
 
-Completed sequential rows: 1-14,400 / 30,629 (47.01%)
+Completed sequential rows: 1-15,400 / 30,629 (50.28%)
 
-- PROPOSED: 13,550
-- UNRESOLVED: 850
-- HIGH: 12,204
-- MEDIUM: 1,346
-- LOW: 850
-- remaining: 16,229
+- PROPOSED: 14,428
+- UNRESOLVED: 972
+- HIGH: 13,001
+- MEDIUM: 1,427
+- LOW: 972
+- remaining: 15,229
 
 Batches:
 
@@ -47,12 +47,14 @@ Batches:
 - 12,151-13,150: 932 proposed / 68 unresolved
 - 13,151-13,400: 216 proposed / 34 unresolved
 - 13,401-14,400: 871 proposed / 129 unresolved
+- 14,401-15,400: 878 proposed / 122 unresolved
 
-Batch 19 audit重点:
-- `huge_ahoge`〜`jumpsuit_pull` の1,000件を連続監査し、accepted pilot-v2 taxonomy と protected/canonical boundaries を維持
-- `imminent_*` / `implied_*` / `in_*` / jacket系などの意味系列は語幹だけで一括分類せず、行為・身体状態・衣装状態・場所/容器内位置のidentityを個別に分離
-- cosplay / uniform / 髪飾り / 武器 / 乗り物 / 食物 / 生物など対象identityが明確なものはmodifierより対象を優先
-- 固有イベント・作品固有語・ミーム・組織名など、安全に確定できない129件はUNRESOLVEDに保持
+Batch 20 audit重点:
+- `june`〜`leather_bag` の1,000件を連続監査し、accepted pilot-v2 taxonomy と protected/canonical boundaries を維持
+- J/K/L帯の cosplay / uniform / weapon / food / living / place / text-symbol は対象identityをmodifier断片より優先
+- `kiss*` / `knee*` / `lace*` / `latex*` / `leaf*` / `leaning*` 系列は語幹一括ではなく対象・行為・状態を分離
+- 素材単体の `lace` / `latex` / `leather` は衣服名へ押し込まず COLOR_APPEARANCE、`lace_background` は PLACE_BACKGROUND として境界再監査
+- 固有イベント・作品固有概念・ミーム・組織名など、安全に確定できない122件はUNRESOLVEDに保持
 - external evidence はこの1,000件では未使用
 - direct binary blob経由で通常形式の単一 `.csv.xz` ledgerを保存
 - canonical/Japanese overlay/Special/#66 UI/search/mainは変更しないcandidate-buildのみ
@@ -90,4 +92,4 @@ Recovery order for a new chat:
 4. `docs/issue64/full_rollout/MANIFEST.json`
 5. this `PROGRESS.md`
 
-Next unprocessed global row: **14,401**.
+Next unprocessed global row: **15,401**.
