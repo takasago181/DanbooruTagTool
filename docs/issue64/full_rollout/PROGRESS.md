@@ -17,16 +17,16 @@ Accepted basis: Issue #64 pilot revision 2, commit `5064429018123c80c32ac41af715
 - 7GB post/runtime index not used for this pass
 - runtime LLM dependency: none
 
-## Checkpoint 2026-09-13 JST
+## Checkpoint 2026-09-14 JST
 
-Completed sequential rows: 1-15,400 / 30,629 (50.28%)
+Completed sequential rows: 1-16,400 / 30,629 (53.54%)
 
-- PROPOSED: 14,428
-- UNRESOLVED: 972
-- HIGH: 13,001
-- MEDIUM: 1,427
-- LOW: 972
-- remaining: 15,229
+- PROPOSED: 15,321
+- UNRESOLVED: 1,079
+- HIGH: 13,849
+- MEDIUM: 1,472
+- LOW: 1,079
+- remaining: 14,229
 
 Batches:
 
@@ -50,27 +50,23 @@ Batches:
 - 13,151-13,400: 216 proposed / 34 unresolved
 - 13,401-14,400: 871 proposed / 129 unresolved
 - 14,401-15,400: 878 proposed / 122 unresolved
+- 15,401-16,400: 893 proposed / 107 unresolved
 
-Batch 20 audit重点:
-- `june`〜`leather_bag` の1,000件を連続監査し、accepted pilot-v2 taxonomy と protected/canonical boundaries を維持
-- J/K/L帯の cosplay / uniform / weapon / food / living / place / text-symbol は対象identityをmodifier断片より優先
-- `kiss*` / `knee*` / `lace*` / `latex*` / `leaf*` / `leaning*` 系列は語幹一括ではなく対象・行為・状態を分離
-- 素材単体の `lace` / `latex` / `leather` は衣服名へ押し込まず COLOR_APPEARANCE、`lace_background` は PLACE_BACKGROUND として境界再監査
-- 固有イベント・作品固有概念・ミーム・組織名など、安全に確定できない122件はUNRESOLVEDに保持
+## Batch 21 audit重点
+
+- `leather_belt`〜`marble_phantasm` の1,000件を連続監査し、accepted pilot-v2 taxonomy と protected/canonical boundaries を維持
+- L/M帯の衣装・身体・視線・行為・武器・生物・場所・文字記号を対象identity優先で分類
+- `licking*` / `looking*` / `loose*` / `long*` / `male*` 系列は語幹一括ではなく、対象・行為・着用状態・視線方向を分離
+- `looking_for_glasses` は視線方向ではなく活動、`leg_lift` は衣服liftではなくpose、`male_pubic_hair` は髪型ではなく身体状態など、modifier断片による誤分類を監査で除外
+- 固有イベント・作品固有概念・ミーム・不透明な固有名など、安全に確定できない107件はUNRESOLVEDに保持
+- historical usage / `post_count` は通常ledger必須でないため未使用。global row identity/orderは固定 `population.txt` を使用
 - external evidence はこの1,000件では未使用
-- direct binary blob経由で通常形式の単一 `.csv.xz` ledgerを保存
+- direct binary payloadの安定した投入ができなかったため、PROTOCOL既定のordered base64 fragments 3分割で同一`.csv.xz` bytesを保存
 - canonical/Japanese overlay/Special/#66 UI/search/mainは変更しないcandidate-buildのみ
 
-## Batch 21 prior attempt / blocker clarification
+## Prior Batch 21 blocker clarification
 
-- intended range remains **15,401-16,400** (`leather_belt` -> `marble_phantasm`), 1,000 rows
-- formal completed row remains **15,400**; the prior attempt produced no ledger/summary/MANIFEST checkpoint and must not be counted
-- the prior stop treated the unavailable frozen usage CSV / `post_count` as a mandatory per-batch input
-- after re-reading `PROTOCOL.md`, that stop condition is **superseded**: the immutable rollout ledger requires canonical + classification status + primary/secondary path + confidence, not `post_count`
-- future batches must use `docs/issue64/artifacts/population.txt` as the fixed canonical row identity/order source and continue without requiring the frozen usage CSV unless a later audit explicitly needs usage counts
-- current/live usage counts must still not be substituted for the historical snapshot when usage counts are actually required
-- classification work from the blocked attempt remains non-persisted/non-accepted; Batch 21 must restart from row 15,401
-- no production/canonical/Japanese overlay/Special/#66 UI/search/main mutation was made
+The earlier attempt that stopped at row 15,400 treated unavailable historical `post_count` as a per-batch blocker. That stop condition is superseded by the routing correction already recorded in Issue #64 and commit `3be2e2c1565e56362bdd445cab4d69eb75e84309`: `PROTOCOL.md` requires canonical + classification status + primary/secondary path + confidence, and the fixed row identity/order source is `docs/issue64/artifacts/population.txt`.
 
 ## Rules
 
@@ -105,4 +101,4 @@ Recovery order for a new chat:
 4. `docs/issue64/full_rollout/MANIFEST.json`
 5. this `PROGRESS.md`
 
-Next unprocessed global row: **15,401**.
+Next unprocessed global row: **16,401**.
