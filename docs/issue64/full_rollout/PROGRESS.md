@@ -17,14 +17,14 @@ Accepted basis: Issue #64 pilot revision 2, commit `5064429018123c80c32ac41af715
 
 ## Checkpoint 2026-09-13 JST
 
-Completed sequential rows: 1-7,900 / 30,629 (25.79%)
+Completed sequential rows: 1-8,900 / 30,629 (29.06%)
 
-- PROPOSED: 7,590
-- UNRESOLVED: 310
-- HIGH: 6,910
-- MEDIUM: 680
-- LOW: 310
-- remaining: 22,729
+- PROPOSED: 8,519
+- UNRESOLVED: 381
+- HIGH: 7,651
+- MEDIUM: 868
+- LOW: 381
+- remaining: 21,729
 
 Batches:
 
@@ -39,12 +39,13 @@ Batches:
 - 5,701-5,900: 181 proposed / 19 unresolved
 - 5,901-6,900: 939 proposed / 61 unresolved
 - 6,901-7,900: 931 proposed / 69 unresolved
+- 7,901-8,900: 929 proposed / 71 unresolved
 
-Batch 11 audit重点:
-- `detergent`〜`elizabeth_tower` の1,000件を連続監査し、substring一致より対象identity・実用発見経路を優先
-- `digital / dragon / dog / draw / dress / ear / electric` 系を語幹だけで一括分類せず、物体・生物・衣装・行為・身体・画面表現へ分離
-- `on_head / around_neck / under_clothes / cutout` 等は配置・着脱状態を対象identityと分離し、pilot-v2境界を維持
-- 固有作品名・ミーム・語義不明の69件は名称だけで無理に確定せずUNRESOLVED
+Batch 12 audit重点:
+- `ellen_joe_(cosplay)`〜`fisting` の1,000件を連続監査し、substring一致より対象identity・実用発見経路を優先
+- `eye / face / finger / fire / fish / fan / fat / father` 系は語幹だけで一括分類せず、身体・衣装・行為・小物・生物・背景・画面表現へ個別に分離
+- `firefighter / fire_truck / fire_escape`、`fishnet / fishing / fish_(food)`、`finger_gun / finger_tattoo` などの部分一致誤分類候補を再監査して修正
+- 固有作品名・イベント・ミーム・語義不明の71件は名称だけで無理に確定せずUNRESOLVED
 - external evidence はこの1,000件では未使用
 - canonical/Japanese overlay/Special/#66 UI/searchは変更しないcandidate-buildのみ
 
@@ -81,4 +82,4 @@ Recovery order for a new chat:
 4. `docs/issue64/full_rollout/MANIFEST.json`
 5. this `PROGRESS.md`
 
-Next unprocessed global row: **7,901**.
+Next unprocessed global row: **8,901**.
