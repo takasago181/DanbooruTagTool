@@ -4,7 +4,7 @@
         xmlns:vm="clr-namespace:DanbooruTagTool.App.ViewModels"
         xmlns:core="clr-namespace:DanbooruTagTool.Core;assembly=DanbooruTagTool.Core"
         Title="DanbooruTagTool v1"
-        Width="1280" Height="820" MinWidth="900" MinHeight="560"
+        Width="1280" Height="720" MinWidth="900" MinHeight="560"
         FontFamily="Yu Gothic UI" FontSize="14"
         Background="#F4F7FA"
         PreviewKeyDown="WindowKeyDown">
@@ -91,6 +91,24 @@
             <Setter Property="Background" Value="{StaticResource DangerBrush}"/>
             <Setter Property="BorderBrush" Value="{StaticResource DangerBorderBrush}"/>
             <Setter Property="Foreground" Value="#8A3F39"/>
+        </Style>
+        <Style x:Key="CompactButton" TargetType="{x:Type Button}" BasedOn="{StaticResource {x:Type Button}}">
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="MinHeight" Value="30"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="Margin" Value="0,0,6,0"/>
+        </Style>
+        <Style x:Key="CompactPrimaryButton" TargetType="{x:Type Button}" BasedOn="{StaticResource PrimaryButton}">
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="MinHeight" Value="30"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="Margin" Value="0,0,6,0"/>
+        </Style>
+        <Style x:Key="CompactSecondaryButton" TargetType="{x:Type Button}" BasedOn="{StaticResource SecondaryButton}">
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="MinHeight" Value="30"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="Margin" Value="0,0,6,0"/>
         </Style>
         <Style x:Key="ModeToggleButton" TargetType="{x:Type ToggleButton}">
             <Setter Property="Background" Value="{StaticResource SoftBlueBrush}"/>
@@ -273,71 +291,104 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <Style x:Key="NavigationItem" TargetType="{x:Type TreeViewItem}">
+            <Setter Property="Padding" Value="5,2"/>
+            <Setter Property="Margin" Value="0,1"/>
+            <Setter Property="MinHeight" Value="31"/>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="Foreground" Value="{StaticResource InkBrush}"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#F0F7FF"/>
+                </Trigger>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="Background" Value="{StaticResource SoftBlueBrush}"/>
+                    <Setter Property="Foreground" Value="{StaticResource PrimaryBrush}"/>
+                    <Setter Property="FontWeight" Value="SemiBold"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="DictionaryRow" TargetType="{x:Type ListBoxItem}">
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Margin" Value="0,1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                        <Border x:Name="RowChrome" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="6">
+                            <ContentPresenter/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True"><Setter TargetName="RowChrome" Property="Background" Value="#F0F7FF"/></Trigger>
+                            <Trigger Property="IsSelected" Value="True"><Setter TargetName="RowChrome" Property="Background" Value="#DDEEFF"/><Setter TargetName="RowChrome" Property="BorderBrush" Value="#8DBCF0"/><Setter TargetName="RowChrome" Property="BorderThickness" Value="1"/></Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
         <DataTemplate x:Key="EntryTemplate">
-            <Border Background="#FBFDFF" BorderBrush="#E2EBF3" BorderThickness="1" CornerRadius="8" Padding="10" Margin="3">
+            <Border Background="Transparent" BorderBrush="Transparent" BorderThickness="1" CornerRadius="6" Padding="8,5" Margin="1">
                 <Grid>
-                    <Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="110"/><ColumnDefinition Width="105"/></Grid.ColumnDefinitions>
-                    <StackPanel><TextBlock Text="{Binding Label}" FontWeight="SemiBold"/><TextBlock Text="{Binding English}" Foreground="{StaticResource MutedInkBrush}" FontSize="12"/></StackPanel>
-                    <TextBlock Grid.Column="1" Text="{Binding Usage}" Foreground="{StaticResource MutedInkBrush}" TextAlignment="Right" VerticalAlignment="Center" Margin="8"/>
-                    <Button Grid.Column="2" Content="{Binding AddLabel}" Command="{Binding Add}" Style="{StaticResource SecondaryButton}" VerticalAlignment="Center"/>
+                    <Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="94"/><ColumnDefinition Width="86"/></Grid.ColumnDefinitions>
+                    <StackPanel VerticalAlignment="Center"><TextBlock Text="{Binding Label}" FontWeight="SemiBold"/><TextBlock Text="{Binding English}" Foreground="{StaticResource MutedInkBrush}" FontSize="12"/></StackPanel>
+                    <TextBlock Grid.Column="1" Text="{Binding Usage}" Foreground="{StaticResource MutedInkBrush}" TextAlignment="Right" VerticalAlignment="Center" Margin="4,0,8,0"/>
+                    <Button Grid.Column="2" Content="{Binding AddLabel}" Command="{Binding Add}" Style="{StaticResource CompactSecondaryButton}" Width="80" VerticalAlignment="Center" Margin="0"/>
                 </Grid>
             </Border>
         </DataTemplate>
     </Window.Resources>
 
     <DockPanel Margin="20">
-        <Border DockPanel.Dock="Top" Style="{StaticResource HeaderCard}">
+        <Border DockPanel.Dock="Top" Style="{StaticResource HeaderCard}" Padding="16,10">
             <Grid>
-                <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
-                <StackPanel Grid.Row="0">
-                    <TextBlock Text="DanbooruTagTool v1" Style="{StaticResource PageTitle}"/>
-                    <TextBlock Text="Promptを理解・整理して、実際に使うEnglish Promptへ戻します。" Style="{StaticResource PanelSubtitle}" Margin="0,3,0,0"/>
+                <Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
+                <StackPanel VerticalAlignment="Center">
+                    <TextBlock Text="DanbooruTagTool v1" Style="{StaticResource PageTitle}" FontSize="20"/>
+                    <TextBlock Text="タグを探して、選んで、Promptへ追加します。" Style="{StaticResource PanelSubtitle}" Margin="0,2,0,0"/>
                 </StackPanel>
-                <WrapPanel Grid.Row="1" Margin="0,14,0,0" VerticalAlignment="Center">
+                <WrapPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right">
                     <TextBlock Text="共通操作" Style="{StaticResource HintText}" VerticalAlignment="Center" Margin="0,0,14,0"/>
-                    <Button Content="クリップボードから読込" Command="{Binding Import}" Style="{StaticResource PrimaryButton}"/>
-                    <Button Content="新規Prompt" Command="{Binding New}" Style="{StaticResource SecondaryButton}"/>
-                    <Button Content="直前のPromptを復元" Command="{Binding Recover}" Style="{StaticResource SecondaryButton}"/>
-                    <Button Content="英語Promptをコピー" Command="{Binding Copy}" Style="{StaticResource GhostButton}"/>
+                    <Button Content="クリップボードから読込" Command="{Binding Import}" Style="{StaticResource CompactPrimaryButton}"/>
+                    <Button Content="新規Prompt" Command="{Binding New}" Style="{StaticResource CompactSecondaryButton}"/>
+                    <Button Content="直前のPromptを復元" Command="{Binding Recover}" Style="{StaticResource CompactSecondaryButton}"/>
+                    <Button Content="英語Promptをコピー" Command="{Binding Copy}" Style="{StaticResource CompactButton}"/>
                 </WrapPanel>
             </Grid>
         </Border>
         <TextBlock DockPanel.Dock="Bottom" Text="{Binding Status}" Style="{StaticResource StatusText}"/>
 
-        <TabControl x:Name="Workspaces" SelectedIndex="{Binding WorkspaceIndex}" SelectionChanged="WorkspaceChanged" Margin="0,16,0,0">
+        <TabControl x:Name="Workspaces" SelectedIndex="{Binding WorkspaceIndex}" SelectionChanged="WorkspaceChanged" Margin="0,8,0,0">
             <TabItem Header="辞書・検索">
-                <Grid Margin="0,12,0,0">
-                    <Grid.ColumnDefinitions><ColumnDefinition x:Name="NavColumn" Width="210" MinWidth="145"/><ColumnDefinition Width="8"/><ColumnDefinition Width="*" MinWidth="260"/><ColumnDefinition Width="8"/><ColumnDefinition x:Name="PromptColumn" Width="340" MinWidth="210"/></Grid.ColumnDefinitions>
-                    <Border Grid.Column="0" Style="{StaticResource PanelCard}">
+                <Grid Margin="0,8,0,0">
+                    <Grid.ColumnDefinitions><ColumnDefinition x:Name="NavColumn" Width="230" MinWidth="180"/><ColumnDefinition Width="8"/><ColumnDefinition Width="*" MinWidth="320"/><ColumnDefinition Width="8"/><ColumnDefinition x:Name="PromptColumn" Width="300" MinWidth="250"/></Grid.ColumnDefinitions>
+                    <Border Grid.Column="0" Style="{StaticResource PanelCard}" Padding="12">
                         <DockPanel>
-                            <StackPanel DockPanel.Dock="Top"><TextBlock Text="タグを探す" Style="{StaticResource PanelTitle}"/><TextBlock Text="Specialはジャンルから深く発見できます。" Style="{StaticResource PanelSubtitle}"/></StackPanel>
-                            <Button DockPanel.Dock="Top" Content="← 戻る" Command="{Binding Back}" Style="{StaticResource GhostButton}" HorizontalContentAlignment="Left"/>
-                            <TreeView x:Name="NavigationTree" ItemsSource="{Binding Navigation}" SelectedItemChanged="NavigationChanged" Background="Transparent" BorderThickness="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled"/>
+                            <StackPanel DockPanel.Dock="Top"><TextBlock Text="タグを探す" Style="{StaticResource PanelTitle}" FontSize="16"/><TextBlock Text="Specialはジャンルから発見できます。" Style="{StaticResource PanelSubtitle}" Margin="0,0,0,6"/></StackPanel>
+                            <Button DockPanel.Dock="Top" Content="← 戻る" Command="{Binding Back}" Style="{StaticResource CompactButton}" HorizontalContentAlignment="Left"/>
+                            <TreeView x:Name="NavigationTree" ItemsSource="{Binding Navigation}" ItemContainerStyle="{StaticResource NavigationItem}" SelectedItemChanged="NavigationChanged" Background="Transparent" BorderThickness="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Padding="2,0,8,0"/>
                         </DockPanel>
                     </Border>
                     <GridSplitter Grid.Column="1" DragCompleted="SplitterChanged"/>
-                    <Border Grid.Column="2" Style="{StaticResource PanelCard}">
+                    <Border Grid.Column="2" Style="{StaticResource PanelCard}" Padding="12">
                         <Grid>
-                            <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="*"/><RowDefinition Height="8"/><RowDefinition Height="0.65*" MinHeight="120"/></Grid.RowDefinitions>
-                            <StackPanel Grid.Row="0"><TextBlock Text="タグ辞書" Style="{StaticResource PanelTitle}"/><TextBlock Text="日本語・English・混在の1本の検索欄から探せます。" Style="{StaticResource PanelSubtitle}"/></StackPanel>
-                            <DockPanel Grid.Row="1" Margin="0,0,0,10"><Button DockPanel.Dock="Right" Content="クリア" Command="{Binding ClearQuery}" Style="{StaticResource GhostButton}"/><TextBox x:Name="SearchBox" Text="{Binding Query, UpdateSourceTrigger=PropertyChanged}" TextChanged="SearchChanged" AutomationProperties.Name="日本語・English・混在検索" ToolTip="日本語・English・混在検索"/></DockPanel>
-                            <Grid Grid.Row="2">
-                                <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="*"/></Grid.RowDefinitions>
-                                <DockPanel Grid.Row="0" Margin="0,0,0,8"><ComboBox DockPanel.Dock="Right" SelectedIndex="{Binding SortIndex}" Width="125" Margin="5,0,0,0"><ComboBoxItem Content="使用数 ↓"/><ComboBoxItem Content="日本語名"/></ComboBox><TextBlock Text="{Binding BrowseLabel}" Style="{StaticResource PanelTitle}" FontSize="15" VerticalAlignment="Center"/></DockPanel>
-                                <TextBlock Grid.Row="1" Text="{Binding Pending}" Style="{StaticResource HintText}" Margin="4,0,4,0"/>
-                                <Border Grid.Row="1" Style="{StaticResource WorkSurfaceCard}" Padding="4" Margin="0,28,0,0"><ListBox x:Name="DictionaryList" ItemsSource="{Binding Results}" SelectedItem="{Binding SelectedEntry}" ItemTemplate="{StaticResource EntryTemplate}" HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.ScrollChanged="BrowseScrolled" VirtualizingPanel.IsVirtualizing="True" VirtualizingPanel.VirtualizationMode="Recycling" Background="Transparent" BorderThickness="0"/></Border>
-                            </Grid>
-                            <GridSplitter Grid.Row="3" Height="8" ResizeDirection="Rows"/>
-                            <Border Grid.Row="4" Style="{StaticResource WorkSurfaceCard}" Padding="12"><ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled"><StackPanel><TextBlock Text="詳細" Style="{StaticResource PanelTitle}" FontSize="15"/><TextBlock Text="{Binding Detail}"/><Button Content="Promptへ追加" Command="{Binding SelectedEntry.Add}" Style="{StaticResource PrimaryButton}" HorizontalAlignment="Left" Margin="0,12,0,0"/><TextBlock Text="同じ分類のSpecial" Style="{StaticResource PanelTitle}" FontSize="15" Margin="0,18,0,4"/><ItemsControl ItemsSource="{Binding Related}" ItemTemplate="{StaticResource EntryTemplate}"/></StackPanel></ScrollViewer></Border>
+                            <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="*"/><RowDefinition Height="8"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
+                            <DockPanel Grid.Row="0" Margin="0,0,0,5"><TextBlock Text="タグ辞書" Style="{StaticResource PanelTitle}" FontSize="16"/><TextBlock DockPanel.Dock="Right" Text="日本語・English・混在検索" Style="{StaticResource HintText}" VerticalAlignment="Center"/></DockPanel>
+                            <DockPanel Grid.Row="1" Margin="0,0,0,7"><Button DockPanel.Dock="Right" Content="クリア" Command="{Binding ClearQuery}" Style="{StaticResource CompactButton}"/><TextBox x:Name="SearchBox" Text="{Binding Query, UpdateSourceTrigger=PropertyChanged}" TextChanged="SearchChanged" AutomationProperties.Name="日本語・English・混在検索" ToolTip="日本語・English・混在検索" Padding="9,6"/></DockPanel>
+                            <DockPanel Grid.Row="2" Margin="0,0,0,6"><ComboBox DockPanel.Dock="Right" SelectedIndex="{Binding SortIndex}" Width="116" Margin="8,0,0,0" Height="30"><ComboBoxItem Content="使用数 ↓"/><ComboBoxItem Content="日本語名"/></ComboBox><TextBlock Text="{Binding BrowseLabel}" FontWeight="SemiBold" VerticalAlignment="Center"/><TextBlock Text="  ·  " Foreground="{StaticResource MutedInkBrush}" VerticalAlignment="Center"/><TextBlock Text="{Binding ResultSummary}" Style="{StaticResource HintText}" VerticalAlignment="Center"/><TextBlock Text="{Binding Pending}" Style="{StaticResource HintText}" Margin="8,0,0,0" VerticalAlignment="Center"/></DockPanel>
+                            <Border Grid.Row="3" Style="{StaticResource WorkSurfaceCard}" Padding="4"><ListBox x:Name="DictionaryList" ItemsSource="{Binding Results}" SelectedItem="{Binding SelectedEntry}" ItemContainerStyle="{StaticResource DictionaryRow}" ItemTemplate="{StaticResource EntryTemplate}" HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.CanContentScroll="True" ScrollViewer.ScrollChanged="BrowseScrolled" VirtualizingPanel.IsVirtualizing="True" VirtualizingPanel.VirtualizationMode="Recycling" Background="Transparent" BorderThickness="0"/></Border>
+                            <GridSplitter Grid.Row="4" Height="8" ResizeDirection="Rows"/>
+                            <Border Grid.Row="5" Style="{StaticResource WorkSurfaceCard}" Padding="10" MaxHeight="210"><ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled"><StackPanel><TextBlock Text="詳細" Style="{StaticResource PanelTitle}" FontSize="14"/><TextBlock Text="{Binding Detail}"/><Button Content="Promptへ追加" Command="{Binding SelectedEntry.Add}" HorizontalAlignment="Left" Margin="0,8,0,0"><Button.Style><Style TargetType="{x:Type Button}" BasedOn="{StaticResource CompactPrimaryButton}"><Style.Triggers><DataTrigger Binding="{Binding SelectedEntry}" Value="{x:Null}"><Setter Property="Visibility" Value="Collapsed"/></DataTrigger></Style.Triggers></Style></Button.Style></Button><TextBlock Text="同じ分類のSpecial" Margin="0,12,0,3"><TextBlock.Style><Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PanelTitle}"><Setter Property="FontSize" Value="14"/><Setter Property="Margin" Value="0,12,0,3"/><Style.Triggers><DataTrigger Binding="{Binding SelectedEntry}" Value="{x:Null}"><Setter Property="Visibility" Value="Collapsed"/></DataTrigger></Style.Triggers></Style></TextBlock.Style></TextBlock><ItemsControl ItemsSource="{Binding Related}" ItemTemplate="{StaticResource EntryTemplate}"/></StackPanel></ScrollViewer></Border>
                         </Grid>
                     </Border>
                     <GridSplitter Grid.Column="3" DragCompleted="SplitterChanged"/>
-                    <Border Grid.Column="4" Style="{StaticResource PanelCard}">
+                    <Border Grid.Column="4" Style="{StaticResource PanelCard}" Padding="12">
                         <Grid>
                             <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="*"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
-                            <StackPanel Grid.Row="0"><TextBlock Text="現在のPrompt" Style="{StaticResource PanelTitle}"/><DockPanel Margin="0,2,0,10"><TextBlock Text="{Binding Count}" Style="{StaticResource HintText}" VerticalAlignment="Center"/><CheckBox DockPanel.Dock="Right" Content="EN表示" IsChecked="{Binding EnglishChips}" Margin="8,0,0,0" VerticalAlignment="Center"/></DockPanel><TextBlock Text="{Binding Unresolved}" Style="{StaticResource HintText}" Foreground="#8A6A37"/></StackPanel>
-                            <Border Grid.Row="1" Style="{StaticResource WorkSurfaceCard}" Padding="8" Margin="0,4,0,12"><ScrollViewer x:Name="CurrentScroll" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled"><StackPanel><ItemsControl ItemsSource="{Binding Chips}"><ItemsControl.ItemsPanel><ItemsPanelTemplate><WrapPanel/></ItemsPanelTemplate></ItemsControl.ItemsPanel><ItemsControl.ItemTemplate><DataTemplate><Button Style="{StaticResource PromptPreviewChip}" Command="{Binding DataContext.Inspect, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding}" MaxWidth="360"><TextBlock Text="{Binding Label}" TextWrapping="Wrap"/></Button></DataTemplate></ItemsControl.ItemTemplate></ItemsControl><TextBlock Text="Promptを読み込むか、辞書からタグを追加してください。" Style="{StaticResource HintText}" Margin="6,14,6,6"/></StackPanel></ScrollViewer></Border>
-                            <StackPanel Grid.Row="2"><Button Content="Prompt編集を開く" Command="{Binding OpenEditor}" Style="{StaticResource PrimaryButton}"/><Button Content="英語Promptをコピー" Command="{Binding Copy}" Style="{StaticResource SecondaryButton}" Margin="0,6,0,0"/></StackPanel>
+                            <StackPanel Grid.Row="0"><TextBlock Text="現在のPrompt" Style="{StaticResource PanelTitle}" FontSize="16"/><DockPanel Margin="0,2,0,7"><TextBlock Text="{Binding Count}" Style="{StaticResource HintText}" VerticalAlignment="Center"/><CheckBox DockPanel.Dock="Right" Content="EN表示" IsChecked="{Binding EnglishChips}" Margin="8,0,0,0" VerticalAlignment="Center"/></DockPanel><TextBlock Text="{Binding Unresolved}" Style="{StaticResource HintText}" Foreground="#8A6A37"/></StackPanel>
+                            <Border Grid.Row="1" Style="{StaticResource WorkSurfaceCard}" Padding="6" Margin="0,4,0,8"><ScrollViewer x:Name="CurrentScroll" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled"><StackPanel><ItemsControl ItemsSource="{Binding Chips}"><ItemsControl.ItemsPanel><ItemsPanelTemplate><WrapPanel/></ItemsPanelTemplate></ItemsControl.ItemsPanel><ItemsControl.ItemTemplate><DataTemplate><Button Style="{StaticResource PromptPreviewChip}" Command="{Binding DataContext.Inspect, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding}" MaxWidth="320"><TextBlock Text="{Binding Label}" TextWrapping="Wrap"/></Button></DataTemplate></ItemsControl.ItemTemplate></ItemsControl><TextBlock Text="まだPromptがありません。辞書から追加するか、Promptを読み込んでください。" Margin="6,10,6,6"><TextBlock.Style><Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource HintText}"><Style.Triggers><DataTrigger Binding="{Binding HasPrompt}" Value="True"><Setter Property="Visibility" Value="Collapsed"/></DataTrigger></Style.Triggers></Style></TextBlock.Style></TextBlock></StackPanel></ScrollViewer></Border>
+                            <StackPanel Grid.Row="2"><Button Content="Prompt編集を開く" Command="{Binding OpenEditor}" Style="{StaticResource CompactPrimaryButton}"/><Button Content="英語Promptをコピー" Command="{Binding Copy}" Style="{StaticResource CompactSecondaryButton}" Margin="0,5,0,0"/></StackPanel>
                         </Grid>
                     </Border>
                 </Grid>
