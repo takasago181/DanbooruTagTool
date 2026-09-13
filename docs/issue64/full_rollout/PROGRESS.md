@@ -9,9 +9,11 @@ Accepted basis: Issue #64 pilot revision 2, commit `5064429018123c80c32ac41af715
 ## Working set
 
 - exact General population: 30,629 rows
-- local working CSV: `issue64_general_30629.csv`
-- columns: canonical / display_ja / search_ja / post_count
-- SHA-256: `58f9ff128a7ca21a17de4345c36c7891b8169a66fbe3d1de5c190cf48f17d51c`
+- canonical row identity / resume source: `docs/issue64/artifacts/population.txt`
+- historical local working CSV: `issue64_general_30629.csv`
+- historical working columns: canonical / display_ja / search_ja / post_count
+- historical working SHA-256: `58f9ff128a7ca21a17de4345c36c7891b8169a66fbe3d1de5c190cf48f17d51c`
+- `post_count` is not a required field of the immutable rollout ledger under `PROTOCOL.md`; normal classification batches must not block merely because the frozen usage CSV is unavailable
 - 7GB post/runtime index not used for this pass
 - runtime LLM dependency: none
 
@@ -59,14 +61,15 @@ Batch 20 audit重点:
 - direct binary blob経由で通常形式の単一 `.csv.xz` ledgerを保存
 - canonical/Japanese overlay/Special/#66 UI/search/mainは変更しないcandidate-buildのみ
 
-## Batch 21 attempt / blocked before formal checkpoint
+## Batch 21 prior attempt / blocker clarification
 
-- intended range: **15,401-16,400** (`leather_belt` -> `marble_phantasm`), 1,000 rows
-- formal completed row remains **15,400**; this attempt produced no ledger/summary/MANIFEST checkpoint and must not be counted
-- preflight re-read live `main`, Issue #64 latest comments, `PROTOCOL.md`, `MANIFEST.json`, `PROGRESS.md`, accepted pilot-v2 taxonomy, and the 1,000 canonical identities
-- blocker: the frozen usage source required for ledger `post_count` is `data/source/danbooru-2026-09-02.csv`, fixed by the pilot code at SHA-256 `9b32d5ac0713ab252e7470ba6af9cb34de56878b6b3b13dfbbf6a4a37d82d95b`; that untracked/local source is not available through the connected GitHub worktree in this run
-- a public historical dataset for the same date was identified, but the exact file bytes could not be downloaded in this execution environment to verify the required SHA-256; current/live counts were deliberately **not** substituted because that would create input drift
-- classification work performed in-memory during this attempt is **not persisted or accepted**; next run must resume from row 15,401 and re-audit before formal persistence
+- intended range remains **15,401-16,400** (`leather_belt` -> `marble_phantasm`), 1,000 rows
+- formal completed row remains **15,400**; the prior attempt produced no ledger/summary/MANIFEST checkpoint and must not be counted
+- the prior stop treated the unavailable frozen usage CSV / `post_count` as a mandatory per-batch input
+- after re-reading `PROTOCOL.md`, that stop condition is **superseded**: the immutable rollout ledger requires canonical + classification status + primary/secondary path + confidence, not `post_count`
+- future batches must use `docs/issue64/artifacts/population.txt` as the fixed canonical row identity/order source and continue without requiring the frozen usage CSV unless a later audit explicitly needs usage counts
+- current/live usage counts must still not be substituted for the historical snapshot when usage counts are actually required
+- classification work from the blocked attempt remains non-persisted/non-accepted; Batch 21 must restart from row 15,401
 - no production/canonical/Japanese overlay/Special/#66 UI/search/main mutation was made
 
 ## Rules
