@@ -17,14 +17,14 @@ Accepted basis: Issue #64 pilot revision 2, commit `5064429018123c80c32ac41af715
 
 ## Checkpoint 2026-09-13 JST
 
-Completed sequential rows: 1-5,900 / 30,629 (19.26%)
+Completed sequential rows: 1-6,900 / 30,629 (22.53%)
 
-- PROPOSED: 5,720
-- UNRESOLVED: 180
-- HIGH: 5,170
-- MEDIUM: 550
-- LOW: 180
-- remaining: 24,729
+- PROPOSED: 6,659
+- UNRESOLVED: 241
+- HIGH: 6,080
+- MEDIUM: 579
+- LOW: 241
+- remaining: 23,729
 
 Batches:
 
@@ -37,13 +37,15 @@ Batches:
 - 5,301-5,500: 196 proposed / 4 unresolved
 - 5,501-5,700: 190 proposed / 10 unresolved
 - 5,701-5,900: 181 proposed / 19 unresolved
+- 5,901-6,900: 939 proposed / 61 unresolved
 
-Batch 9 audit重点:
-- `computer/condom/construction/control/convenient/cooking/coral/corn/costume/coughing` 周辺を対象identityとpilot-v2境界優先で再監査
-- `condom_*` は物体そのもの、身体への配置・使用、装着具をそれぞれ OBJECT_PROP / ACTION_CONTACT / CLOTHING に分離
-- `convenient_*` は露出隠しの機能を主にし、`convenient_censoring` のみ画面表現として STYLE_QUALITY_META
-- 作品固有名・抽象概念等19件は名称だけで安全に分類できないためUNRESOLVED
-- external evidence はこの200件では未使用
+Batch 10 audit重点:
+- `counter`〜`detective` の1,000件を連続監査し、object/concept identityをmodifier fragmentより優先
+- `covered/covering/crotchless/cutout` は着脱・露出、体液配置・性的行為は ACTION_CONTACT(INTIMATE)、衣装名は CLOTHING に分離
+- `cross/crescent/crown` 周辺は記号・衣装・身体・武器・柄を対象identityで分離し、substring一括分類を禁止
+- 固有作品名・抽象語・語義不明の61件は名称だけで無理に確定せずUNRESOLVED
+- external evidence はこの1,000件では未使用
+- 以前の未checkpoint 5,901-6,100 artifactは正式checkpointとして採用せず、本Batch 10（5,901-6,900）で置換して継続
 
 ## Rules
 
@@ -65,7 +67,7 @@ Detailed row-level results are persisted directly in this GitHub work branch.
 - immutable detailed ledgers: `docs/issue64/full_rollout/batches/`
 - normal batches may use `.csv.xz`; connector-limited batches may use ordered `.xz.b64.partNNN` text fragments with exact reconstruction hashes in MANIFEST
 - batch 5+ summary JSON: `docs/issue64/full_rollout/batches/batchNNN_summary.json`
-- past batch files are not overwritten; corrections are recorded as later review/correction artifacts
+- past checkpointed batch files are not overwritten; corrections are recorded as later review/correction artifacts
 - PROGRESS.md records the current sequential stop point
 - Issue #64 records major checkpoints and review gates
 - main is not updated until the full 30,629 candidate and audit are accepted
@@ -78,4 +80,4 @@ Recovery order for a new chat:
 4. `docs/issue64/full_rollout/MANIFEST.json`
 5. this `PROGRESS.md`
 
-Next unprocessed global row: **5,901**.
+Next unprocessed global row: **6,901**.
