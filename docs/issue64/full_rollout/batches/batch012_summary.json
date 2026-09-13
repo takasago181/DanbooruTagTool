@@ -1,0 +1,24 @@
+{
+  "issue": 64,
+  "batch": 12,
+  "range": [7901, 8900],
+  "count": 1000,
+  "status_counts": {"PROPOSED": 929, "UNRESOLVED": 71},
+  "confidence_counts": {"HIGH": 741, "MEDIUM": 188, "LOW": 71},
+  "primary_genre_counts": {"OBJECT_PROP":175,"CLOTHING":163,"ACTION_CONTACT":141,"BODY_PART":96,"STYLE_QUALITY_META":75,"TEXT_SYMBOL":45,"LIVING_NATURE":40,"HAIR_FACE":36,"PLACE_BACKGROUND":30,"PERSON_COUNT":23,"CLOTHING_STATE_EXPOSURE":22,"EXPRESSION_EMOTION":19,"LIGHT_TIME_WEATHER":16,"COLOR_APPEARANCE":15,"GAZE_ORIENTATION":12,"POSE_MOVEMENT":12,"COMPOSITION_CAMERA":9},
+  "unresolved": ["em-2","em_wave_change_(mega_man)","ema","ember_celica_(rwby)","emblem_(fire_emblem_engage)","emerald_splash","emiya_family_(fate)","emo_fashion","emotional_engine_-_full_drive","en'enra","ena_(species)","enamel_leather_dark_nurse","endless_eight","energon","engineering_department_(blue_archive)","engulfing_lightning_(genshin_impact)","enkephalin_(project_moon)","enmaided","enpera","ensis_exorcizans","enter_enter_mission!","entity_(lethal_company)","eridian","erune","esseling_(infinity_nikki)","eternal_moon_article","ether_aria_(love_live!)","ethereal_(zenless_zone_zero)","etherlite","ethyria","etoile_brilliant_(idolmaster)","etwahl","even_though_you_lost_your_virginity_to_me_(meme)","event_follow-up","everlasting_(e.g.o)","evil_container_(meme)","evo_grim","evoker","exciting_animal_(love_live!)","excuse_me_he_asked_for_no_pickles_(meme)","extreme_dangling","eye_of_senri","eye_slugger","eyes_of_grima","f-lags_(idolmaster)","f6_(osomatsu-san)","face_of_the_people_who_sank_all_their_money_into_the_fx_(meme)","facial_recognition","faded_memories_(e.g.o)","faerie_knights_(fate)","faint_aroma_(e.g.o)","fairy_kei","fairy_tale_(love_live!)","fairy_type_theme_(pokemon)","family_burger_(chainsaw_man)","family_guy_death_pose_(meme)","fan_screaming_at_madison_beer_(meme)","fanghunt_office_(identity)_(project_moon)","fat_mons","fat_pikachu","fatass_teto_(meme)","feather_(magia_record)","feature_scout_1_(ensemble_stars!)","feature_scout_2_(ensemble_stars!)","femboy_hooters_(meme)","fender_musical_instruments_corporation","figures_taking_selfie_(meme)","final_chapter_(fate/grand_order)","find_the_dream_view_(project_sekai)","fine_(ensemble_stars!)","first_ken"],
+  "audit_notes": [
+    "ellen_joe_(cosplay)→fisting帯を1,000件連続監査。substring一致よりタグ全体の対象identity・実用発見経路を優先。",
+    "eye/face/finger/fire/fish/fan/fat/father系は語幹一括分類を避け、身体・衣装・行為・小物・生物・背景・画面表現へ個別に再監査。",
+    "firefighter/fire_truck/fire_escape、fishnet/fishing/fish_(food)、finger_gun/finger_tattoo等の部分一致誤分類候補を明示修正。",
+    "固有作品名・イベント・ミーム・語義不明の71件は名称だけで押し込まずUNRESOLVED。外部証拠は今回未使用。",
+    "canonical/Japanese overlay/Special/#66 UI/searchは変更しないcandidate-buildのみ。"
+  ],
+  "raw_csv_sha256": "34e9782b2a56a036de69cb986ce502c47f48ab40c429a6cca3acec9e1da97132",
+  "xz_sha256": "564e1f07d0807d1c8ccbf3c787f6b07ad7f51eebaa1245d8031e07b6ab4be19b",
+  "storage_mode": "base64_text_fragments_of_xz",
+  "parts": [
+    {"path":"docs/issue64/full_rollout/batches/batch012_rows07901-08900_ledger.csv.xz.b64.part001","decoded_size":6000,"decoded_sha256":"98706b8f119327d1275c1a5e6fa34a25fdf13c125f9287083e7adcd75ef845cf","base64_text_sha256":"f99624aa53c6fa30cb6ae75bd2f1bd7de853d37b9405081910ff2ecd45db8395"},
+    {"path":"docs/issue64/full_rollout/batches/batch012_rows07901-08900_ledger.csv.xz.b64.part002","decoded_size":5112,"decoded_sha256":"e1b8f0c1e94dd6a2b4e71a636fedde285496850ca398ce1cb9db0c21acb21150","base64_text_sha256":"c56bad89117d20c6259773c1e9da386480903fd2e2667109c1f2baa0f4896bb8"}
+  ]
+}
