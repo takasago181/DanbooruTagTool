@@ -19,14 +19,14 @@ Accepted basis: Issue #64 pilot revision 2, commit `5064429018123c80c32ac41af715
 
 ## Checkpoint 2026-09-14 JST
 
-Completed sequential rows: 1-22,400 / 30,629 (73.13%)
+Completed sequential rows: 1-23,400 / 30,629 (76.40%)
 
-- PROPOSED: 20,842
-- UNRESOLVED: 1,558
-- HIGH: 18,764
-- MEDIUM: 2,078
-- LOW: 1,558
-- remaining: 8,229
+- PROPOSED: 21,744
+- UNRESOLVED: 1,656
+- HIGH: 19,566
+- MEDIUM: 2,178
+- LOW: 1,656
+- remaining: 7,229
 
 Batches:
 
@@ -57,17 +57,17 @@ Batches:
 - 19,401-20,400: 940 proposed / 60 unresolved
 - 20,401-21,400: 923 proposed / 77 unresolved
 - 21,401-22,400: 915 proposed / 85 unresolved
+- 22,401-23,400: 902 proposed / 98 unresolved
 
-## Batch 27 audit重点
+## Batch 28 audit重点
 
-- `pumpkin_pie`〜`reverse_amazon_position` の1,000件を連続監査し、accepted pilot-v2 taxonomy と protected/canonical boundaries を維持
-- `purple_*` / `red_*` は色modifierで一括せず、衣服・身体・髪顔・生物・道具・場所・光・記号など末尾の対象identityを主経路に分類
-- `rabbit_*` / `raccoon_*` / `reindeer_*` も動物語幹で一括せず、人物役柄・身体特徴・衣装・背景・物体・記号を意味分離
-- `reflective_*` は反射modifierより対象identityを優先し、clothes/eyewearは衣装、weaponは道具・武器、floor/table/wallは場所・背景、liquidは色・外観へ分離
-- 固有イベント・作品固有概念・ミーム・ブランド・抽象語など、安全に実用経路を確定できない85件はUNRESOLVEDに保持
+- `reverse_bikini_armor`〜`see-through_camisole` の1,000件を連続監査し、accepted pilot-v2 taxonomy と protected/canonical boundaries を維持
+- `ribbed_*` / `ribbon-trimmed_*` / `satin_*` / `see-through_*` はmodifierだけで一括せず、衣服本体・装飾・着脱露出・背景/物体など対象identityを優先
+- `riding_*` / `running_*` / `scratching_*` は語幹一括を避け、行為・ポーズ・衣装・場所・物体を意味分離
+- `sea_*` / `robot_*` / `scorpion_*` も生物語幹だけで一括せず、身体部位・人物役柄・物体・場所・天候を対象identityで分離
+- 固有イベント・作品固有概念・ミーム・ブランド・抽象語など、安全に実用経路を確定できない98件はUNRESOLVEDに保持
 - historical usage / `post_count` は通常ledger必須でないため未使用。global row identity/orderは固定 `population.txt` を使用
-- 外部検索は曖昧語の確認を試みたが有効証拠を得られず、分類根拠には使用していない
-- direct Git data binary blob経由で通常形式の単一 `.csv.xz` ledgerを保存
+- direct binary blobはconnector側のbinary再読検証に失敗したため、PROTOCOLのfallbackに従い同一`.csv.xz`をordered base64 3分割で保存
 - canonical/Japanese overlay/Special/#66 UI/search/mainは変更しないcandidate-buildのみ
 
 ## Prior Batch 26 quality stop clarification
@@ -111,4 +111,4 @@ Recovery order for a new chat:
 4. `docs/issue64/full_rollout/MANIFEST.json`
 5. this `PROGRESS.md`
 
-Next unprocessed global row: **22,401**.
+Next unprocessed global row: **23,401**.
