@@ -49,7 +49,7 @@ def test_normalized_alias_collision_keeps_both_targets(knowledge):
 def test_all_stage3_input_hashes_unchanged():
     import hashlib
     import json
-    manifest = json.loads((ROOT / "FILE_HASHES.json").read_text(encoding="utf-8"))
+    manifest = json.loads((ROOT / "docs/integrity/FILE_HASHES.json").read_text(encoding="utf-8"))
     for name in ("data/derived/special2788_VERIFIED_LINKAGE.csv",
                  "data/derived/danbooru_alias_normalized_index_VERIFIED_34417.csv",
                  "data/semantic/semantic_bridge_v1.csv",

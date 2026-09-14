@@ -4,6 +4,8 @@ import hashlib
 import json
 from pathlib import Path
 
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools" / "legacy" / "python"))
 from danbooru_tag_tool.product_fit import COUNTS, CSV_PATH, MANIFEST_PATH, csv_bytes, load_authority
 
 

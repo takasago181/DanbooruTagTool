@@ -52,8 +52,8 @@ def _hash(relative):
 def test_stage8b_resolver_and_accepted_stage8c_production_hashes_are_protected():
     assert _hash("data/semantic/semantic_support_profiles.csv") == "33f9142333db867d53096cf2f11ba411aefa13996560326fa174803a2d8c2755"
     assert _hash("data/semantic/family_support_rules.csv") == "59609aadc82f9f4be97b82008159b55e4d738f41dbb9625c59be8a826fe7c4fd"
-    assert _hash("danbooru_tag_tool/stage8b_support.py") == "83f5617a36d48dfb730e21e2ac2957c8e4f6c00857b0971f6af6724f4e105dd2"
-    assert _hash("danbooru_tag_tool/ui.py") == "cb7fa90dceff84c41d895a0744bdade3da5343c5aaa5dbb5a13db486cecd6258"
+    assert _hash("tools/legacy/python/danbooru_tag_tool/stage8b_support.py") == "83f5617a36d48dfb730e21e2ac2957c8e4f6c00857b0971f6af6724f4e105dd2"
+    assert _hash("tools/legacy/python/danbooru_tag_tool/ui.py") == "5376397ce7ccd1cdee0fef1e83a5841848299c814f82d0e1eb8cda77bf5a65ea"
     assert _hash("tests/test_stage8b_support.py") == "ceafd9916a9b09fe093a527dbd985042af46be1558f7414801a05f018bc0a34f"
 
 
@@ -405,5 +405,5 @@ def test_generated_coverage_and_summaries_match_pilot001():
 
 
 def test_stage8c_is_not_imported_by_runtime_ui_or_resolver():
-    assert "stage8c" not in (ROOT / "danbooru_tag_tool/ui.py").read_text(encoding="utf-8").lower()
-    assert "stage8c" not in (ROOT / "danbooru_tag_tool/stage8b_support.py").read_text(encoding="utf-8").lower()
+    assert "stage8c" not in (ROOT / "tools/legacy/python/danbooru_tag_tool/ui.py").read_text(encoding="utf-8").lower()
+    assert "stage8c" not in (ROOT / "tools/legacy/python/danbooru_tag_tool/stage8b_support.py").read_text(encoding="utf-8").lower()

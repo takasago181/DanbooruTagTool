@@ -8,6 +8,7 @@ import numpy as np
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
 from tools.stage5_post_audit import OUT, save, table, fingerprints
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools" / "legacy" / "python"))
 from danbooru_tag_tool.runtime_index import RuntimeIndex
 
 def main():

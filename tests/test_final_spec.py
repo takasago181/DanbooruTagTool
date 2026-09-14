@@ -10,7 +10,7 @@ def test_goal_lock_exists_and_mentions_current_special_dictionary():
     assert "Special2788" in text
 
 def test_core_set_example_minimum_fields():
-    p = ROOT / "templates/core_set.example.json"
+    p = ROOT / "tools/templates/core_set.example.json"
     obj = json.loads(p.read_text(encoding="utf-8"))
     assert set(["core_set_id","core_set_name","special_tag_ids","memo","created_at"]) <= set(obj)
     assert isinstance(obj["special_tag_ids"], list)

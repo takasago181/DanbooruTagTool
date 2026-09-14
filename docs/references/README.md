@@ -12,6 +12,6 @@ Legacy prototype:
 pair scoreをtrue ANDとして採用しない。
 
 Important:
-`references/` 内のtestファイルは過去prototypeの参考資料であり、
+`docs/references/` 内のtestファイルは過去prototypeの参考資料であり、
 正式なproject regression suiteには含めない。
 pytest discoveryはルート `tests/` のみに固定する。

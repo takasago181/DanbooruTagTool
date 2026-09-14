@@ -11,6 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools" / "legacy" / "python"))
 from danbooru_tag_tool.ui import Stage7AApp, create_window
 from tools.stage7a_real_tk_smoke import capture_window_png
 

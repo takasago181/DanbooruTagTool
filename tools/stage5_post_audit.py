@@ -14,6 +14,7 @@ import numpy as np
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools" / "legacy" / "python"))
 from danbooru_tag_tool.knowledge import TagKnowledgeCore
 from danbooru_tag_tool.normalization import normalize_lookup
 from danbooru_tag_tool.runtime_index import RuntimeIndex
@@ -30,7 +31,7 @@ def table(name, rows):
         writer.writeheader(); writer.writerows(rows)
 
 def fingerprints():
-    paths = list((ROOT / 'data/runtime_index').iterdir()) + list((ROOT / 'danbooru_tag_tool').glob('*.py'))
+    paths = list((ROOT / 'data/runtime_index').iterdir()) + list((ROOT / 'tools/legacy/python/danbooru_tag_tool').glob('*.py'))
     paths += list((ROOT / 'data/source').iterdir()) + list((ROOT / 'data/special2788').iterdir())
     paths += [ROOT / 'data/derived/danbooru_alias_normalized_index_VERIFIED_34417.csv']
     result = {}

@@ -12,6 +12,7 @@ import time
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools" / "legacy" / "python"))
 from danbooru_tag_tool.knowledge import TagKnowledgeCore
 from danbooru_tag_tool.runtime_index import RuntimeIndex
 from danbooru_tag_tool.canonical_overlay import CanonicalOverlay
@@ -35,8 +36,8 @@ def main():
     with (folder / "top20_by_method.csv").open(encoding="utf-8-sig", newline="") as f:
         rows = list(csv.DictReader(f))
     paths = [ROOT / name for name in (
-        "docs/stage_reports/RECOMMENDATION_RANKING_EVALUATION.md", "danbooru_tag_tool/recommendations.py",
-        "tests/test_stage6_recommendations.py", "danbooru_tag_tool/canonical_overlay.py",
+        "docs/stage_reports/RECOMMENDATION_RANKING_EVALUATION.md", "tools/legacy/python/danbooru_tag_tool/recommendations.py",
+        "tests/test_stage6_recommendations.py", "tools/legacy/python/danbooru_tag_tool/canonical_overlay.py",
         "tools/stage6_ranking_evaluation.py", "benchmarks/stage6/ranking_evaluation.json",
         "benchmarks/stage6/top20_by_method.csv")]
     def hashes():
@@ -44,7 +45,10 @@ def main():
     before = hashes()
     stored_hashes = json.loads((folder / "input_hashes.json").read_text(encoding="utf-8"))
     for name, expected in stored_hashes.items():
-        assert hashlib.sha256((ROOT / name).read_bytes()).hexdigest() == expected
+        current_name = name
+        if name.startswith("danbooru_tag_tool/"):
+            current_name = "tools/legacy/python/" + name
+        assert hashlib.sha256((ROOT / current_name).read_bytes()).hexdigest() == expected
     index = RuntimeIndex(ROOT / "data/runtime_index", expected_snapshot_id=data["snapshot_id"])
     assert data["total_posts"] == index.total_posts == 11218362
     overlay = CanonicalOverlay(index, ROOT / "data/runtime_index/canonical_overlay.json")

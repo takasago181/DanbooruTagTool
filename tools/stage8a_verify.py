@@ -12,6 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools" / "legacy" / "python"))
 from danbooru_tag_tool.canonical_overlay import CanonicalOverlay
 from danbooru_tag_tool.knowledge import TagKnowledgeCore
 from danbooru_tag_tool.recommendations import RecommendationEngine
@@ -30,8 +31,8 @@ PROTECTED = (
     "data/generation/generation_family_rules.csv",
     "data/generation/generation_model_observations.csv",
     "data/runtime/japanese_overlay.json",
-    "danbooru_tag_tool/recommendations.py",
-    "danbooru_tag_tool/stage7b_recommendations.py",
+    "tools/legacy/python/danbooru_tag_tool/recommendations.py",
+    "tools/legacy/python/danbooru_tag_tool/stage7b_recommendations.py",
 )
 
 
@@ -123,11 +124,11 @@ def main() -> int:
         / "CHATGPT_HANDOFF"
     )
     payload["stage6_source_matches_stage7b_final"] = (
-        hashes["danbooru_tag_tool/recommendations.py"]
+        hashes["tools/legacy/python/danbooru_tag_tool/recommendations.py"]
         == sha256(previous / "danbooru_tag_tool" / "recommendations.py")
     )
     payload["stage7b_async_source_matches_stage7b_final"] = (
-        hashes["danbooru_tag_tool/stage7b_recommendations.py"]
+        hashes["tools/legacy/python/danbooru_tag_tool/stage7b_recommendations.py"]
         == sha256(previous / "danbooru_tag_tool" / "stage7b_recommendations.py")
     )
 

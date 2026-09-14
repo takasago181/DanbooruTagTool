@@ -122,7 +122,7 @@ def test_deterministic_and_no_score_mixing(runtime):
     atom = first.provenance_map["anus"]
     assert ("conditional_rate", 5 / 8) in atom.evidence
     assert ("raw_lift", 10.0) in atom.evidence
-    source = (ROOT / "danbooru_tag_tool" / "stage9b_runtime.py").read_text(encoding="utf-8")
+    source = (ROOT / "tools/legacy/python/danbooru_tag_tool" / "stage9b_runtime.py").read_text(encoding="utf-8")
     assert "combined_score" not in source and "score(" not in source
 
 
@@ -144,5 +144,5 @@ def test_no_network_or_llm_dependency(monkeypatch, runtime):
         raise AssertionError("network forbidden")
     monkeypatch.setattr("socket.socket", forbidden)
     assert runtime.compose(("311",)).positive_prompt
-    source = (ROOT / "danbooru_tag_tool" / "stage9b_runtime.py").read_text(encoding="utf-8")
+    source = (ROOT / "tools/legacy/python/danbooru_tag_tool" / "stage9b_runtime.py").read_text(encoding="utf-8")
     assert not any(name in source for name in ("requests", "openai", "urllib", "httpx"))

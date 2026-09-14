@@ -13,6 +13,7 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools" / "legacy" / "python"))
 from danbooru_tag_tool.generation_profile import (
     FAMILY_RULE_COLUMNS, OBSERVATION_COLUMNS, PROFILE_COLUMNS,
 )

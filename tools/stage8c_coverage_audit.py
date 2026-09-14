@@ -12,6 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools" / "legacy" / "python"))
 from danbooru_tag_tool.knowledge import TagKnowledgeCore
 from danbooru_tag_tool.stage8b_support import SupportKnowledgeStore
 from danbooru_tag_tool.stage8c_audit import (
@@ -27,15 +28,15 @@ from danbooru_tag_tool.stage8c_audit import (
 OUT = ROOT / "benchmarks/stage8c"
 SEMANTIC = ROOT / "data/semantic"
 EXPECTED_STAGE8B_PACKAGE = {
-    "danbooru_tag_tool/stage8b_support.py": "83f5617a36d48dfb730e21e2ac2957c8e4f6c00857b0971f6af6724f4e105dd2",
-    "danbooru_tag_tool/ui.py": "5c83f6ca7dae2f164403cb13d3112a8ad85a8f201de351354c980daf31f98450",
+    "tools/legacy/python/danbooru_tag_tool/stage8b_support.py": "83f5617a36d48dfb730e21e2ac2957c8e4f6c00857b0971f6af6724f4e105dd2",
+    "tools/legacy/python/danbooru_tag_tool/ui.py": "5376397ce7ccd1cdee0fef1e83a5841848299c814f82d0e1eb8cda77bf5a65ea",
     "tests/test_stage8b_support.py": "792eab534dfb971d4f05b8a116b7b9ff8f98a41229a73f7d958e9e9aa40e02d7",
 }
 PROTECTED_EXTRA = (
     "data/semantic/semantic_support_profiles.csv",
     "data/semantic/family_support_rules.csv",
-    "danbooru_tag_tool/stage8b_support.py",
-    "danbooru_tag_tool/ui.py",
+    "tools/legacy/python/danbooru_tag_tool/stage8b_support.py",
+    "tools/legacy/python/danbooru_tag_tool/ui.py",
     "tests/test_stage8b_support.py",
 )
 COVERAGE_FIELDS = (

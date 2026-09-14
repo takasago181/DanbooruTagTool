@@ -17,7 +17,7 @@ def _sha256(path: Path) -> str:
 
 
 def test_protected_source_files_match_hash_manifest():
-    manifest = json.loads((ROOT / "FILE_HASHES.json").read_text(encoding="utf-8"))
+    manifest = json.loads((ROOT / "docs/integrity/FILE_HASHES.json").read_text(encoding="utf-8"))
     special_children = sorted((ROOT / "data/special2788").glob("*"))
     reference_dir = ROOT / "data/special2788/prompt_reference"
     assert [path for path in special_children if path.is_dir()] == [reference_dir]
@@ -59,7 +59,9 @@ def test_protected_check_rejects_missing_modified_and_unexpected_sources(tmp_pat
         path.write_bytes(b"original")
         manifest[path.relative_to(tmp_path).as_posix()] = {
             "bytes": path.stat().st_size, "sha256": _sha256(path)}
-    (tmp_path / "FILE_HASHES.json").write_text(json.dumps(manifest), encoding="utf-8")
+    manifest_path = tmp_path / "docs/integrity/FILE_HASHES.json"
+    manifest_path.parent.mkdir(parents=True)
+    manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
     if mutation == "missing":
         special.unlink()
     elif mutation == "size":
@@ -80,7 +82,7 @@ def test_protected_check_rejects_missing_modified_and_unexpected_sources(tmp_pat
 
 def test_build_manifest_template_has_required_snapshot_fields():
     template = json.loads(
-        (ROOT / "templates/BUILD_MANIFEST.template.json").read_text(encoding="utf-8")
+        (ROOT / "tools/templates/BUILD_MANIFEST.template.json").read_text(encoding="utf-8")
     )
     required = {
         "app_version",

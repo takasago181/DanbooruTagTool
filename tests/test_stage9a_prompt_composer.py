@@ -188,7 +188,7 @@ def test_18_no_network_or_llm_runtime(monkeypatch, composer):
     monkeypatch.setattr("socket.socket", forbidden)
     monkeypatch.setattr("socket.create_connection", forbidden)
     assert composer.compose(("88",)).positive_prompt
-    source = (ROOT / "danbooru_tag_tool/prompt_composer.py").read_text(encoding="utf-8")
+    source = (ROOT / "tools/legacy/python/danbooru_tag_tool/prompt_composer.py").read_text(encoding="utf-8")
     assert not any(name in source for name in ("import requests", "import openai", "urllib", "httpx"))
 
 

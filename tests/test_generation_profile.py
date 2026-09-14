@@ -232,7 +232,7 @@ def test_source_bytes_unchanged_and_v2_load_is_read_only(knowledge):
     original = dict(knowledge.special)
     knowledge.load_generation_profile_store(ROOT)
     assert knowledge.special == original and SOURCE.read_bytes() == before
-    manifest = json.loads((ROOT / "FILE_HASHES.json").read_text(encoding="utf-8"))
+    manifest = json.loads((ROOT / "docs/integrity/FILE_HASHES.json").read_text(encoding="utf-8"))
     assert hashlib.sha256(before).hexdigest() == manifest[SOURCE.relative_to(ROOT).as_posix()]["sha256"]
 
 

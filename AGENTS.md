@@ -102,7 +102,7 @@ Known search regression such as `anal -> piano / analog...` is part of #66 accep
 
 ### #66 architecture invariant
 
-Current `danbooru_tag_tool/` Python/Tk code is **legacy/reference during the first WPF build**。
+Current `tools/legacy/python/danbooru_tag_tool/` Python/Tk code is **legacy/reference during the first WPF build**。
 
 Do:
 - create new WPF projects under `src/`
@@ -211,7 +211,7 @@ Issue #66作業時:
 4. `docs/FEATURE_PRIORITY.md`
 5. `docs/FLOWCHARTS.md`
 6. Issue #64はdependency/boundary確認に必要な範囲だけ
-7. existing `danbooru_tag_tool/` / Python tests は **legacy/reference・behavior/regression evidenceとして必要な箇所だけ**読む
+7. existing `tools/legacy/python/danbooru_tag_tool/` / Python tests は **legacy/reference・behavior/regression evidenceとして必要な箇所だけ**読む
 
 Issue #66では旧Python `ui.py` をnew UI implementation baseと解釈しない。
 

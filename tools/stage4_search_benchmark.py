@@ -8,8 +8,10 @@ import math
 import platform
 import statistics
 from pathlib import Path
+import sys
 from time import perf_counter
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools" / "legacy" / "python"))
 from danbooru_tag_tool.knowledge import TagKnowledgeCore
 from danbooru_tag_tool.search import TagSearchEngine
 

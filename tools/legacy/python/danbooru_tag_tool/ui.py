@@ -45,7 +45,7 @@ def set_general_results_visible(results_frame, general_box, visible):
 class Stage7AApp(ttk.Frame):
     def __init__(self, master, *, root_path: Path | None = None):
         super().__init__(master, padding=18)
-        self.root_path = root_path or Path(__file__).resolve().parents[1]
+        self.root_path = root_path or Path(__file__).resolve().parents[4]
         self.knowledge = TagKnowledgeCore.load(self.root_path)
         self.profile_store = self.knowledge.load_generation_profile_store(self.root_path)
         self.presenter = SpecialSearchPresenter(

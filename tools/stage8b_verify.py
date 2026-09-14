@@ -12,6 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools" / "legacy" / "python"))
 from danbooru_tag_tool.knowledge import TagKnowledgeCore
 from danbooru_tag_tool.stage8b_support import SupportKnowledgeStore
 
@@ -27,9 +28,9 @@ PROTECTED = (
     "data/generation/generation_family_rules.csv",
     "data/generation/generation_model_observations.csv",
     "data/runtime/japanese_overlay.json",
-    "danbooru_tag_tool/recommendations.py",
-    "danbooru_tag_tool/stage7b_recommendations.py",
-    "danbooru_tag_tool/stage8a_semantics.py",
+    "tools/legacy/python/danbooru_tag_tool/recommendations.py",
+    "tools/legacy/python/danbooru_tag_tool/stage7b_recommendations.py",
+    "tools/legacy/python/danbooru_tag_tool/stage8a_semantics.py",
 )
 
 

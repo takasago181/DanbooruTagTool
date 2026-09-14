@@ -56,7 +56,7 @@ DanbooruTagTool/
   data/
   docs/
 
-  danbooru_tag_tool/    # legacy/reference
+  tools/legacy/python/danbooru_tag_tool/  # legacy/reference
   tests/                # historical/regression evidence
 ```
 

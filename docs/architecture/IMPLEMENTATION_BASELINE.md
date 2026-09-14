@@ -4,6 +4,17 @@
 対象: `C:\Codex\DanbooruTagTool`  
 実施範囲: Stage 0 および Stage 1 の前提確認のみ
 
+## Issue #68 root consolidation note (2026-09-14)
+
+The inventory and paths below record the 2026-09-05 baseline. Current locations after the reviewed structural consolidation are:
+
+- integrity manifest: `docs/integrity/FILE_HASHES.json`
+- Python development requirements: `tools/python/requirements-dev.txt`
+- reference material: `docs/references/`
+- reusable templates: `tools/templates/`
+- legacy Python/Tk package: `tools/legacy/python/danbooru_tag_tool/`
+- pytest evidence plugin: `tests/conftest.py`
+
 ## 1. 製品目的と境界
 
 - 主役は Special Core Dictionary の Special entry・組み合わせから成る Core Tag Set。

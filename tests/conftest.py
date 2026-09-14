@@ -51,9 +51,11 @@ class E2EReport:
                        "commit": read_git("rev-parse", "HEAD"),
                        "working_tree": read_git("status", "--short"),
                        "scope": "local protected-data environment; withdrawn real Tk; no mocks"}
-        paths = ["conftest.py", "tools/e2e_verdict.py", "tests/test_e2e_functional.py",
-                 "danbooru_tag_tool/ui.py", "danbooru_tag_tool/stage9c_session.py",
-                 "danbooru_tag_tool/stage9b_runtime.py", "danbooru_tag_tool/prompt_composer.py"]
+        paths = ["tests/conftest.py", "tools/e2e_verdict.py", "tests/test_e2e_functional.py",
+                 "tools/legacy/python/danbooru_tag_tool/ui.py",
+                 "tools/legacy/python/danbooru_tag_tool/stage9c_session.py",
+                 "tools/legacy/python/danbooru_tag_tool/stage9b_runtime.py",
+                 "tools/legacy/python/danbooru_tag_tool/prompt_composer.py"]
         environment["tested_file_sha256"] = {
             name: hashlib.sha256((Path(root) / name).read_bytes()).hexdigest() for name in paths}
         result = build_result(self.reports, int(exitstatus), environment)

@@ -2,6 +2,12 @@
 
 pytestをStage 0から使う。
 
+Python開発依存の導入:
+
+```powershell
+python -m pip install -r tools/python/requirements-dev.txt
+```
+
 ## invariant tests
 
 snapshotが更新されても原則通る:
