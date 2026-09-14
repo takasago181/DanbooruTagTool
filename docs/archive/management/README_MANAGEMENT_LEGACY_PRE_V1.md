@@ -1,3 +1,9 @@
+> **Historical archive — pre-v1 management guidance.** This document is retained for historical context and does not define current routing or authority.
+
+For current instructions, see [CURRENT_STATE](../../project/CURRENT_STATE.md), [PERMANENT_RULES](../../project/PERMANENT_RULES.md), and [the current live Issue #68](https://github.com/takasago181/DanbooruTagTool/issues/68).
+
+---
+
 # DanbooruTagTool 管理骨格
 
 目的は、班を増やさず、正本・現在地・Issue・Codex作業境界を固定し、ユーザーの手作業を減らすこと。

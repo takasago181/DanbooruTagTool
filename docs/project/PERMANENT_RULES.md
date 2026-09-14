@@ -87,12 +87,12 @@ Codex自身がIssue本文を推測して書き換えない。
 44. v1の安定した主導線は **既存Promptを理解 -> 日本語/英語検索またはジャンル閲覧で発見 -> Special/Generalを自分で選択 -> Promptへ追加/削除/並べ替え -> canonical-English Promptコピー** とする。
 45. Specialは#56の深いbrowse taxonomy、Generalはproduction Japanese overlay 30,629件を対象とした#64の浅い実用taxonomyを使う。General taxonomyを日本語overlay/canonical identityへ埋め込まず別sidecarにする。
 46. v1ではhidden automatic support insertion / automatic minimum-sufficient Prompt / automatic model rewrite / automatic failure diagnosisをデフォルト挙動にしない。ユーザーが見えていない自動挿入と実際のPrompt出力を食い違わせない。
-47. **Issue #66はv1 app/UI/search/final acceptanceの統合owner** とする。Retired Issue #34の検索品質要件とRetired Issue #42のscope reconciliationを別Gateとして再分離しない。
+47. **Issue #66はv1 app/UI/search/final acceptanceの完了済みowner** として記録し、active routing targetとはしない。Retired Issue #34の検索品質要件とRetired Issue #42のscope reconciliationを別Gateとして再分離しない。
 48. 旧文書の `PROMPT:#5` / `PROMPT班` / retired #34 / retired #42 参照はhistorical provenanceとして扱う。新規作業をそれらへroutingしない。
 
 ## Stage10 learning invariant
 
-49. 現在のStage10はIssue #65 / `docs/stages/STAGE_10_LEARNING.md`で定義される実践画像生成学習ステージ。v1 product completion blockerではない。現在はユーザー優先によりpractical v1 app baselineまで一時停止中。
+49. 現在のStage10はIssue #65 / `docs/stages/STAGE_10_LEARNING.md`で定義される実践画像生成学習ステージ。v1 product completion blockerではない。practical-v1 app baselineはIssue #66で完成済み。ユーザー優先によりIssue #68 repository/workspace cleanupを先行し、cleanup完了後にStage10を再開する（優先度が変更された場合を除く）。
 50. Stage10 primary learning laneは **NoobAI XL 1.1 EPS + Forge Neo**。Animaはrelation-heavy / multi-character / tag+natural-language比較・fallback、WAI Illustrious v17はhistorical/comparison、NoobAI V-PredはEPSと分離したadvanced profileとして扱う。
 51. Stage10は設定値の暗記ではなく、`意図 -> Prompt -> 生成 -> 観察 -> 原因分解 -> 修正 -> 必要な補助 -> 仕上げ -> 再現可能な保存` を自力で回せることを目的とする。
 52. hard/niche生成の評価ではpresenceだけで成功扱いせず、必要に応じてactor/target/ownership/body-site/relation/count/visibility/source-destination/topologyを分離して確認する。
@@ -106,5 +106,5 @@ Codex自身がIssue本文を推測して書き換えない。
 現在の製品目的は `docs/PRODUCT_GOAL_LOCK.md` を正本とする。
 Historical Stage仕様、旧Codex実装仕様、旧Issueコメント、既存コードの高度機能は、単に古い/実装済みという理由でcurrent product goalより優先しない。
 
-v1 app/search/UI/final acceptanceの現行実装ownerはIssue #66。
+v1 app/search/UI/final acceptanceはIssue #66で完了済み。
 Stage10 learningの正本は `docs/stages/STAGE_10_LEARNING.md` とIssue #65。Stage10学習成果が存在すること自体はv1 production/UI採用理由にならない。

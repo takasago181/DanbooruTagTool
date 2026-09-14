@@ -1,6 +1,8 @@
 @echo off
 setlocal
-cd /d "%~dp0"
+rem Legacy Python/Tk entrypoint; this is not the accepted WPF practical-v1 app.
+echo This is the legacy Python/Tk entrypoint, not the accepted WPF practical-v1 app.
+cd /d "%~dp0..\.."
 
 where py >nul 2>nul
 if errorlevel 1 goto use_python
