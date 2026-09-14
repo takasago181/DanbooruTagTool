@@ -1,0 +1,24 @@
+{
+  "issue": 64,
+  "batch": 31,
+  "range": [25401, 26400],
+  "count": 1000,
+  "status_counts": {"PROPOSED": 919, "UNRESOLVED": 81},
+  "confidence_counts": {"HIGH": 878, "MEDIUM": 41, "LOW": 81},
+  "primary_genre_counts": {"ACTION_CONTACT": 99, "BODY_PART": 66, "CLOTHING": 244, "CLOTHING_STATE_EXPOSURE": 11, "COLOR_APPEARANCE": 18, "COMPOSITION_CAMERA": 3, "EXPRESSION_EMOTION": 6, "GAZE_ORIENTATION": 3, "HAIR_FACE": 23, "LIGHT_TIME_WEATHER": 20, "LIVING_NATURE": 27, "OBJECT_PROP": 256, "PERSON_COUNT": 15, "PLACE_BACKGROUND": 37, "POSE_MOVEMENT": 50, "STYLE_QUALITY_META": 22, "TEXT_SYMBOL": 19},
+  "unresolved": ["sprite", "sputnik_and_pogrom", "squeans", "staccato_2011", "stack", "stack_bond", "stage_connection", "stage_of_magic_(idolmaster)", "stand_(jojo)", "star_guardian_(league)", "star_guardian_pet", "star_of_lakshmi", "star_wars_day", "stardust_breaker", "starpiece_memories_(idolmaster)", "starry_sky_bright_(idolmaster)", "startend_(hololive)", "starter_five_(kancolle)", "starter_pokemon_trio", "starter_squad_(azur_lane)", "starting_brighty_(idolmaster)", "starting_future_(umamusume)", "stay_gold_clan_(umamusume)", "steel_type_theme_(pokemon)", "stellar_jade", "stellaron_hunters_(honkai:_star_rail)", "sternritter", "stille_(sousou_no_frieren)", "stock_market", "stomach_day", "stonks_(meme)", "storm_attacker", "straight_flush_(poker)", "stratagem_(helldivers)", "straw_hats_jolly_roger", "strawberry_pop_moon_(idolmaster)", "strawpage", "straylight_(idolmaster)", "street_fighter_6_new_challenger_art_contest", "strength_(tarot)", "string_play_spider_baby_(meme)", "stronghold_protocol_(arknights)", "stuck_in_the_past", "stuffing", "stutter", "su----per_cute", "sub_for_couple", "subachocolunatan_(hololive)", "subaru_(brand)", "subaru_brz", "subaru_impreza", "subaru_wrx", "substitute_(pokemon)", "substitution_technique", "subway_(company)", "sugar_lyric", "sugar_song_and_bitter_step", "sugoi_dekai", "suiten_nikkou_amaterasu_yanoshisu_ishi", "sukusuku_hakutaku", "sulong_form", "sumimi_(bang_dream!)", "summary", "summer_highschool_(idolmaster)", "summer_junior_highschool_(idolmaster)", "sunset_nostalgie_(idolmaster)", "sunshower_(e.g.o)", "super_affection", "super_full_power_saiyan_4_limit_breaker", "super_saiyan", "super_saiyan_1", "super_saiyan_2", "super_saiyan_3", "super_saiyan_4", "super_saiyan_blue", "super_saiyan_blue_evolved", "super_saiyan_god", "super_saiyan_rose", "super_sass", "supportasse", "supreme_(brand)"],
+  "audit_notes": [
+    "`sports_*` / `star_*` / `stomach_*` / `striped_*` / `stuffed_*` / `sun_*` / `super_*` は語幹一括せず、対象identityを主経路判断に使用した。",
+    "`star_(sky)` / `star_(symbol)`、`sun` / `sun_symbol`、`steam` / `steam_censor` のような sky/light/symbol/style 境界を分離した。",
+    "`striped_*` は柄modifierより衣服・身体・背景など対象identityを優先し、独立した柄表現のみ COLOR_APPEARANCE とした。",
+    "作品固有イベント・ミーム・プロジェクト・意味を安全に確定できない固有語81件はUNRESOLVEDに保持した。",
+    "historical usage / post_count は通常ledger必須でないため未使用。global row identity/orderは固定 population.txt を使用した。",
+    "canonical identity / production Japanese overlay / Special / #66 UI・search / main は変更しないcandidate-buildのみ。"
+  ],
+  "raw_csv_sha256": "a007704975c45c8605f7eb77f4e973f9c3f83eff2a1fff570350ab9bcc93a4fd",
+  "xz_sha256": "1d024337547e7f94736c618378041a84e4f85a53194bd67e354ec783a10ff713",
+  "storage_mode": "git_data_binary_blob",
+  "path": "docs/issue64/full_rollout/batches/batch031_rows25401-26400_ledger.csv.xz",
+  "formal_checkpoint": false,
+  "formalization_blocker": "MANIFEST.json atomic replacement not safely completed in this run; keep formal checkpoint at row 25400 until manifest/progress/hash agreement is reverified."
+}

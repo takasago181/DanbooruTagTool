@@ -17,64 +17,49 @@ Accepted basis: Issue #64 pilot revision 2, commit `5064429018123c80c32ac41af715
 - 7GB post/runtime index not used for this pass
 - runtime LLM dependency: none
 
-## Checkpoint 2026-09-14 JST
+## Formal checkpoint
 
-Completed sequential rows: 1-25,400 / 30,629 (82.93%)
+Completed sequential rows: **1-25,400 / 30,629 (82.93%)**
 
-- PROPOSED: 23,556
-- UNRESOLVED: 1,844
-- HIGH: 21,238
-- MEDIUM: 2,318
-- LOW: 1,844
-- remaining: 5,229
+- PROPOSED: **23,556**
+- UNRESOLVED: **1,844**
+- HIGH: **21,238**
+- MEDIUM: **2,318**
+- LOW: **1,844**
+- remaining: **5,229**
+- next formal unprocessed global row: **25,401**
 
-Batches:
+## Batch 31 staged result — NOT YET A FORMAL CHECKPOINT
 
-- 1-500: 484 proposed / 16 unresolved
-- 501-1,300: 783 proposed / 17 unresolved
-- 1,301-2,300: 974 proposed / 26 unresolved
-- 2,301-3,300: 982 proposed / 18 unresolved
-- 3,301-4,300: 967 proposed / 33 unresolved
-- 4,301-5,300: 963 proposed / 37 unresolved
-- 5,301-5,500: 196 proposed / 4 unresolved
-- 5,501-5,700: 190 proposed / 10 unresolved
-- 5,701-5,900: 181 proposed / 19 unresolved
-- 5,901-6,900: 939 proposed / 61 unresolved
-- 6,901-7,900: 931 proposed / 69 unresolved
-- 7,901-8,900: 929 proposed / 71 unresolved
-- 8,901-9,900: 953 proposed / 47 unresolved
-- 9,901-10,900: 906 proposed / 94 unresolved
-- 10,901-11,150: 245 proposed / 5 unresolved
-- 11,151-12,150: 908 proposed / 92 unresolved
-- 12,151-13,150: 932 proposed / 68 unresolved
-- 13,151-13,400: 216 proposed / 34 unresolved
-- 13,401-14,400: 871 proposed / 129 unresolved
-- 14,401-15,400: 878 proposed / 122 unresolved
-- 15,401-16,400: 893 proposed / 107 unresolved
-- 16,401-17,400: 897 proposed / 103 unresolved
-- 17,401-18,400: 898 proposed / 102 unresolved
-- 18,401-19,400: 948 proposed / 52 unresolved
-- 19,401-20,400: 940 proposed / 60 unresolved
-- 20,401-21,400: 923 proposed / 77 unresolved
-- 21,401-22,400: 915 proposed / 85 unresolved
-- 22,401-23,400: 902 proposed / 98 unresolved
-- 23,401-24,400: 887 proposed / 113 unresolved
-- 24,401-25,400: 925 proposed / 75 unresolved
+Rows **25,401-26,400** (`sports_bra_peek` -> `surgeon_cuffs`) were fully classified and audited in this execution:
 
-## Batch 30 audit重点
+- processed: **1,000**
+- PROPOSED: **919**
+- UNRESOLVED: **81**
+- confidence: **878 HIGH / 41 MEDIUM / 81 LOW**
+- staged ledger: `docs/issue64/full_rollout/batches/batch031_rows25401-26400_ledger.csv.xz`
+- staged summary: `docs/issue64/full_rollout/batches/batch031_summary.json`
+- raw CSV SHA-256: `a007704975c45c8605f7eb77f4e973f9c3f83eff2a1fff570350ab9bcc93a4fd`
+- XZ SHA-256: `1d024337547e7f94736c618378041a84e4f85a53194bd67e354ec783a10ff713`
 
-- `single_mechanical_leg`〜`sports_bra_lift` の1,000件を連続監査し、accepted pilot-v2 taxonomy と protected/canonical boundaries を維持
-- `single_*` / `sitting_*` / `skeleton/skull_*` / `sleeve/skirt_*` / `slime/snake/snow_*` / `spiked_*` / `spoken_*` は語幹一括せず、対象identityを主経路判断に使用
-- `split-color_clothes` は色modifierより衣服identityを優先してCLOTHING、`space_skin` はspace文字列よりskinの身体identityを優先
-- `sitting_on_*` は支持対象の名詞だけで物体分類せず、座位姿勢をPOSE_MOVEMENT中心にし、人物・身体への接触が主なものはACTION_CONTACTへ分離
-- cosplay / school_uniform / weapon / animal / flower のようにidentityが明示された固有語は経路を確定し、作品固有イベント・ミーム・抽象概念など75件はUNRESOLVEDに保持
-- historical usage / `post_count` は通常ledger必須でないため未使用。global row identity/orderは固定 `population.txt` を使用
-- single `.csv.xz` ledgerをGit data binary blobで保存
-- canonical/Japanese overlay/Special/#66 UI/search/mainは変更しないcandidate-buildのみ
+### Why Batch 31 is staged rather than formal
+
+The row ledger and summary could be safely persisted, but the current connector could not safely perform the required atomic replacement of the existing large, minified one-line `MANIFEST.json` without reconstructing its complete prior content. Rather than risk truncating or corrupting the immutable batch registry, formalization stopped.
+
+Per `PROTOCOL.md`, Batch 31 must **not** be treated as a formal checkpoint until `MANIFEST.json` is updated to include the same row range/hashes/totals and then reverified together with this `PROGRESS.md`. Do not reclassify these 1,000 staged rows unless an audit detects an error; resume work by finishing Batch 31 manifest formalization first.
+
+## Batch 31 audit focus
+
+- `sports_*` / `star_*` / `stomach_*` / `striped_*` / `stuffed_*` / `sun_*` / `super_*` were not classified by stem alone; object/concept identity remained primary.
+- `star_(sky)` / `star_(symbol)`, `sun` / `sun_symbol`, and `steam` / `steam_censor` preserve sky/light/symbol/style boundaries.
+- `striped_*` routes by the modified object (clothing/body/background/etc.); only independent pattern concepts go to `COLOR_APPEARANCE`.
+- 81 work-specific events, memes, projects, brands, transformations, or otherwise ambiguous concepts remain explicit `UNRESOLVED`.
+- historical usage / `post_count` was not used or substituted.
+- canonical identity / production Japanese overlay / Special / #66 UI-search / main were not modified.
 
 ## Prior Batch 26 quality stop clarification
 
-前回の20,401–21,400 attemptは実行予算内で監査密度を維持できず、正式成果を保存せず20,400で停止した。その後、同じ固定1,000件を先頭から再監査し、未完成の分類を再利用せず正式Batch 26として完成させた。
+The earlier 20,401-21,400 attempt stopped without formal output when audit density could not be maintained. The same fixed 1,000 rows were later re-audited from the start and completed as formal Batch 26.
 
 ## Prior Batch 21 blocker clarification
 
@@ -93,24 +78,18 @@ The earlier attempt that stopped at row 15,400 treated unavailable historical `p
 
 ## Persistence
 
-Detailed row-level results are persisted directly in this GitHub work branch.
-
 - branch: `chatgpt/issue64-full-rollout`
 - manifest: `docs/issue64/full_rollout/MANIFEST.json`
 - immutable detailed ledgers: `docs/issue64/full_rollout/batches/`
-- normal batches may use `.csv.xz`; connector-limited batches may use ordered `.xz.b64.partNNN` text fragments with exact reconstruction hashes in MANIFEST
-- batch 5+ summary JSON: `docs/issue64/full_rollout/batches/batchNNN_summary.json`
-- past checkpointed batch files are not overwritten; corrections are recorded as later review/correction artifacts
-- PROGRESS.md records the current sequential stop point
-- Issue #64 records major checkpoints and review gates
+- Batch 5+ summary JSON: `docs/issue64/full_rollout/batches/batchNNN_summary.json`
+- past checkpointed batch files are not overwritten
+- `PROGRESS.md` records both the formal stop point and any explicitly staged-but-not-formal work
 - main is not updated until the full 30,629 candidate and audit are accepted
 
-Recovery order for a new chat:
-
+Recovery order:
 1. `docs/project/CURRENT_STATE.md`
 2. Issue #64 latest comments
 3. `docs/issue64/full_rollout/PROTOCOL.md`
 4. `docs/issue64/full_rollout/MANIFEST.json`
 5. this `PROGRESS.md`
-
-Next unprocessed global row: **25,401**.
+6. if Batch 31 is still staged, verify its ledger + summary hashes and formalize MANIFEST before classifying row 26,401+
