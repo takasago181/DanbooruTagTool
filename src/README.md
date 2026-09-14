@@ -22,7 +22,9 @@ Catalog import is an explicit operation. It reads the existing protected source 
 DanbooruTagTool.exe --build-catalog <repository-root> <authority-root> <output-directory>
 ```
 
-The importer consumes the accepted Special/Japanese/Alias/usage assets, Issue #56 browse taxonomy, and Issue #63 product-fit sidecar. General browsing remains a provider boundary with a pending state until Issue #64 is accepted.
+The importer consumes the accepted Special/Japanese/Alias/usage assets, Issue #56 browse taxonomy, Issue #63 product-fit sidecar, and the hash-pinned Issue #64 production candidate files under `docs/issue64/production_candidate/`. It places only `PROPOSED` General taxonomy paths into the rebuildable catalog; the 2,403 `UNRESOLVED` rows retain an explicit status and no browse paths. Primary and accepted secondary paths share the existing `IGeneralBrowseProvider` contract. The existing #63 product-fit gate remains active: six proposed entries retain their taxonomy paths but remain excluded from browse, search, and Prompt addition under their existing `OUT_OF_SCOPE_PRODUCT` status. Source files and the Japanese overlay remain separate and unchanged.
+
+The taxonomy is loaded only by the explicit `--build-catalog` operation. Normal application startup reads the resulting `Data/catalog.db` and selects the General browse provider from catalog metadata; it does not re-read CSV/JSON sources or rebuild indexes.
 
 ## Portable publish
 

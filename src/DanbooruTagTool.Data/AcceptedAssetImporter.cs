@@ -82,16 +82,21 @@ public static class AcceptedAssetImporter
             }
         }
         if (source.Count != 2788 || !source.Keys.ToHashSet().SetEquals(mapping.Keys) || !source.Keys.ToHashSet().SetEquals(fit.Keys)) throw new InvalidDataException("Special/#56/#63 coverage mismatch");
+        var generalTaxonomy = AcceptedGeneralTaxonomyImporter.Read(authorityRoot);
+        foreach (var hash in generalTaxonomy.SourceHashes) hashes.Add(hash.Key, hash.Value);
         using var overlay = JsonDocument.Parse(File.ReadAllText(Source(ProtectedInputs[5])));
         if (overlay.RootElement.GetProperty("format_version").GetInt32() != 1) throw new InvalidDataException("Overlay version");
         var general = overlay.RootElement.GetProperty("entries");
-        if (general.EnumerateObject().Count() != 30629) throw new InvalidDataException("Production overlay must contain exactly 30,629 entries");
+        if (general.EnumerateObject().Count() != 30629 || !general.EnumerateObject().Select(p => p.Name).ToHashSet(StringComparer.Ordinal).SetEquals(generalTaxonomy.Assignments.Keys))
+            throw new InvalidDataException("Production overlay and accepted Issue #64 canonical population must match exactly");
         var entries = new List<CatalogEntry>();
         foreach (var property in general.EnumerateObject())
         {
             if (!canonical.TryGetValue(property.Name, out var count)) throw new InvalidDataException("Overlay canonical mismatch");
+            var classification = generalTaxonomy.Assignments[property.Name];
             entries.Add(new("G:" + property.Name, property.Name, property.Name, property.Value.GetProperty("display_ja").GetString(), false, count,
-                aliases.GetValueOrDefault(property.Name)?.ToArray() ?? [], property.Value.GetProperty("search_ja").EnumerateArray().Select(v => v.GetString()!).ToArray(), []));
+                aliases.GetValueOrDefault(property.Name)?.ToArray() ?? [], property.Value.GetProperty("search_ja").EnumerateArray().Select(v => v.GetString()!).ToArray(),
+                classification.Paths, BrowseClassification: classification.Status));
         }
         foreach (var (id, row) in source.OrderBy(p => int.Parse(p.Key, CultureInfo.InvariantCulture)))
         {

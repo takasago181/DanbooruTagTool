@@ -79,6 +79,14 @@ public static class CatalogDatabase
 // Future accepted #64 sidecar adapter: no production loader is activated in Phase B.
 public sealed class GeneralBrowseProvider(ICatalog catalog, IReadOnlyDictionary<string, BrowsePath[]> acceptedMappings) : IGeneralBrowseProvider
 {
+    public static IGeneralBrowseProvider FromCatalog(ICatalog catalog)
+    {
+        var mappings = catalog.Entries
+            .Where(e => !e.IsSpecial && e.Canonical != null && e.BrowseClassification == BrowseClassificationStatus.Proposed && e.Paths.Length > 0)
+            .ToDictionary(e => e.Canonical!, e => e.Paths, StringComparer.Ordinal);
+        return mappings.Count == 0 ? new PendingGeneralBrowseProvider() : new GeneralBrowseProvider(catalog, mappings);
+    }
+
     public bool IsPending => false;
     public string Status => "";
     public IReadOnlyList<BrowsePath> Paths => acceptedMappings.Values.SelectMany(p => p).Distinct().ToArray();

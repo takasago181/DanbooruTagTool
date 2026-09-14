@@ -21,14 +21,26 @@ public partial class App : Application
                 var output = CatalogOutputGuard.Validate(e.Args[3], e.Args[1], e.Args[2]);
                 var result = AcceptedAssetImporter.Read(e.Args[1], e.Args[2]);
                 CatalogDatabase.Build(Path.Combine(output, "catalog.db"), result.Entries, JsonSerializer.Serialize(result.SourceHashes));
-                File.WriteAllText(Path.Combine(output, "import-report.json"), JsonSerializer.Serialize(new { Total = result.Entries.Length, General = result.Entries.Count(x => !x.IsSpecial), Special = result.Entries.Count(x => x.IsSpecial), GeneralTaxonomy = "PENDING / not imported", Sources = result.SourceHashes }, new JsonSerializerOptions { WriteIndented = true }));
+                File.WriteAllText(Path.Combine(output, "import-report.json"), JsonSerializer.Serialize(new
+                {
+                    Total = result.Entries.Length,
+                    General = result.Entries.Count(x => !x.IsSpecial),
+                    Special = result.Entries.Count(x => x.IsSpecial),
+                    GeneralTaxonomy = new
+                    {
+                        Proposed = result.Entries.Count(x => !x.IsSpecial && x.BrowseClassification == BrowseClassificationStatus.Proposed),
+                        Unresolved = result.Entries.Count(x => !x.IsSpecial && x.BrowseClassification == BrowseClassificationStatus.Unresolved),
+                        EligibleForBrowse = result.Entries.Count(x => !x.IsSpecial && x.BrowseClassification == BrowseClassificationStatus.Proposed && x.CanBrowse)
+                    },
+                    Sources = result.SourceHashes
+                }, new JsonSerializerOptions { WriteIndented = true }));
                 Shutdown(0); return;
             }
             var paths = new PortablePaths(AppContext.BaseDirectory);
             ICatalog catalog; string? warning = null;
             try { catalog = CatalogDatabase.Open(paths.Catalog); }
             catch (FileNotFoundException ex) { catalog = new Catalog([]); warning = ex.Message; }
-            var vm = new MainViewModel(catalog, new UserStateStore(paths.User), new ClipboardService());
+            var vm = new MainViewModel(catalog, new UserStateStore(paths.User), new ClipboardService(), GeneralBrowseProvider.FromCatalog(catalog));
             if (warning != null) vm.Status = warning;
             var window = new MainWindow(vm); MainWindow = window; window.Show();
         }
