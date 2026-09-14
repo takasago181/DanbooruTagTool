@@ -11,21 +11,23 @@
     5,
     9,
     13,
-    17
+    17,
+    21
   ],
-  "completed_rows": 2000,
+  "completed_rows": 2500,
   "status_totals": {
-    "ACCEPTED_AI": 1719,
-    "REVIEW_REQUIRED": 281
+    "ACCEPTED_AI": 2091,
+    "REVIEW_REQUIRED": 409
   },
   "review_required": {
-    "count": 281,
+    "count": 409,
     "selection_rule": "translation_status == REVIEW_REQUIRED",
     "result_files": [
       "docs/issue70/data/results/lane3/lane3_chunk005_I70-002001_I70-002500.csv",
       "docs/issue70/data/results/lane3/lane3_chunk009_I70-004001_I70-004500.csv",
       "docs/issue70/data/results/lane3/lane3_chunk013_I70-006001_I70-006500.csv",
-      "docs/issue70/data/results/lane3/lane3_chunk017_I70-008001_I70-008500.csv"
+      "docs/issue70/data/results/lane3/lane3_chunk017_I70-008001_I70-008500.csv",
+      "docs/issue70/data/results/lane3/lane3_chunk021_I70-010001_I70-010500.csv"
     ],
     "prior_explicit_queue_checkpoint": "65ee9a6149fa3b2cea5ef2b8e9d06614aa3d3086"
   },
@@ -63,7 +65,16 @@
       "result_sha256": "3cf68afe7565882715da657aaca4bf68fc85974de16fe6c4f01d1db18cec3ca3",
       "result_git_blob_sha": "52487c4f9c4db3160e11c0d00a75030c6c467865",
       "row_count": 500
+    },
+    {
+      "chunk_index": 21,
+      "source_path": "docs/issue70/data/source_chunks/source_010001_010500.csv",
+      "source_sha256": "f08036c38e5a42ab06f8bdcc3d67bae0d579b381c83cb5cb0eb9c159c08a90ca",
+      "result_path": "docs/issue70/data/results/lane3/lane3_chunk021_I70-010001_I70-010500.csv",
+      "result_sha256": null,
+      "result_git_blob_sha": "265aea9ea5698723bc9ffe9f2d30e99d2b32d3b6",
+      "row_count": 500
     }
   ],
-  "next_chunk_index": 21
+  "next_chunk_index": 25
 }
