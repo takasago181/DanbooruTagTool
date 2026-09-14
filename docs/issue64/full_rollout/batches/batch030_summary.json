@@ -1,0 +1,22 @@
+{
+  "issue": 64,
+  "batch": 30,
+  "range": [24401, 25400],
+  "count": 1000,
+  "status_counts": {"PROPOSED": 925, "UNRESOLVED": 75},
+  "confidence_counts": {"HIGH": 812, "MEDIUM": 113, "LOW": 75},
+  "primary_genre_counts": {"ACTION_CONTACT": 90, "BODY_PART": 88, "CLOTHING": 214, "CLOTHING_STATE_EXPOSURE": 38, "COLOR_APPEARANCE": 24, "COMPOSITION_CAMERA": 4, "EXPRESSION_EMOTION": 11, "HAIR_FACE": 22, "LIGHT_TIME_WEATHER": 15, "LIVING_NATURE": 66, "OBJECT_PROP": 145, "PERSON_COUNT": 14, "PLACE_BACKGROUND": 26, "POSE_MOVEMENT": 69, "STYLE_QUALITY_META": 24, "TEXT_SYMBOL": 75},
+  "unresolved": ["siren_(azur_lane)","siscon","sisterhood_(blue_archive)","site_of_grace","six_fanarts_challenge","skullgirls_1st_dlc_character_poll","slasher_route_(hundred_line)","slave_gear_(tsmg_nao!)","slave_visor_(tsmg_nao!)","slice_of_life","slime_girls_(omori)","sloppy_blowjob_devil_(meme)","slosher_(splatoon)","sloshing_(e.g.o)","sloshing_machine_(splatoon)","small_module_(eve_online)","smalldom","smash_ball","smash_invitation","smash_is_for_good_boys_and_girls","smc-gumi_(nijisanji)","smile_(e.g.o)","smile_of_dreamer_(project_sekai)","smok_(hololive)","smug_inori_(meme)","snagharpoon_(e.g.o)","snap_my_choker_(phrase)","snapchat","snickers_(brand)","snoot_challenge","snow_strawberry_(idolmaster)","snowdin_(undertale)","snowflake_liliput_(idolmaster)","soda_(e.g.o)","sode_no_shirayuki_(shikai)","sol_emerald","solemn_lament_(e.g.o)","solomon_(singularity)_(fate/grand_order)","somehow_has_time-traveled_(meme)","sometimes_like_this/also_like_that_(meme)","song_dynasty","song_of_broken_pines_(genshin_impact)","songover","sonic_surrounded_by_amy_plush_dolls_(meme)","sons_of_horus","sopheria_flower_(tales)","sorganeil","sorry_for_being_sexy_yuni","sos_brigade","soshite_hari_wa_ugokidasu_(project_sekai)","soshite_ima_ribbon_wo_musunde_(project_sekai)","soul","sound_of_a_star_(e.g.o)","sour_model_(mikumikudance)","space_cat_(meme)","space_phantas-moon_another_christmas","space_wolves","sparkling_daydream","speakiposting_(meme)","special_feeling_(meme)","special_present_for_you!_(project_sekai)","species_connection","speedo_(company)","spicebush_(e.g.o)","spidersona","spiegel_replica","spin-spin_(site)","spinning_cat_(meme)","spirit_(super_smash_bros.)","spirit_blossom_(league)","splashtag_(splatoon)","splatoonification","splendor_of_onyx_(umamusume)","splendor_of_tranquil_waters_(genshin_impact)","sponsor"],
+  "audit_notes": [
+    "`single_*` / `sitting_*` / `skeleton/skull_*` / `sleeve/skirt_*` / `slime/snake/snow_*` / `spiked_*` / `spoken_*` を語幹一括せず、対象identityとaccepted pilot-v2 boundaryで監査した。",
+    "`split-color_clothes` は色modifierより衣服identityを優先しCLOTHING、`space_skin` はspace文字列よりskinの身体identityを優先した。",
+    "`sitting_on_*` は支持対象の語だけで物体分類せず、座位姿勢をPOSE_MOVEMENT中心にし、人物・身体への接触が主なものはACTION_CONTACTへ分離した。",
+    "cosplay / school_uniform / weapon / animal / flower のようにidentityが明示された固有語は経路を確定し、作品固有イベント・ミーム・抽象概念など75件はUNRESOLVEDに保持した。",
+    "historical usage / post_count は通常ledger必須でないため未使用。global row identity/orderは固定 population.txt を使用した。",
+    "canonical identity / production Japanese overlay / Special / #66 UI・search / main は変更しないcandidate-buildのみ。"
+  ],
+  "raw_csv_sha256": "faee97f7b313bf359641bb392bc9cb8171f1f07dd3e2f1c5300866d3767e9fb6",
+  "xz_sha256": "fe288f0c59a339cbe8f6e0d711c9aac7fedd95e89f0a8b328daf590e0dcf1007",
+  "storage_mode": "git_data_binary_blob",
+  "path": "docs/issue64/full_rollout/batches/batch030_rows24401-25400_ledger.csv.xz"
+}

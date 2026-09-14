@@ -19,14 +19,14 @@ Accepted basis: Issue #64 pilot revision 2, commit `5064429018123c80c32ac41af715
 
 ## Checkpoint 2026-09-14 JST
 
-Completed sequential rows: 1-24,400 / 30,629 (79.66%)
+Completed sequential rows: 1-25,400 / 30,629 (82.93%)
 
-- PROPOSED: 22,631
-- UNRESOLVED: 1,769
-- HIGH: 20,426
-- MEDIUM: 2,205
-- LOW: 1,769
-- remaining: 6,229
+- PROPOSED: 23,556
+- UNRESOLVED: 1,844
+- HIGH: 21,238
+- MEDIUM: 2,318
+- LOW: 1,844
+- remaining: 5,229
 
 Batches:
 
@@ -59,14 +59,15 @@ Batches:
 - 21,401-22,400: 915 proposed / 85 unresolved
 - 22,401-23,400: 902 proposed / 98 unresolved
 - 23,401-24,400: 887 proposed / 113 unresolved
+- 24,401-25,400: 925 proposed / 75 unresolved
 
-## Batch 29 audit重点
+## Batch 30 audit重点
 
-- `see-through_cape`〜`single_mechanical_hand` の1,000件を連続監査し、accepted pilot-v2 taxonomy と protected/canonical boundaries を維持
-- `see-through_*` は透明modifierだけで一括せず、衣服本体・着脱露出・髪/身体部位・物体など対象identityを優先
-- `shark_*` / `sheep_*` / `shirt_*` / `shorts_*` / `shoulder_*` / `side-*` / `silver_*` / `single_*` は語幹一括を避け、対象identityごとに生物・身体・人物役柄・衣装・着脱露出・物体・場所・記号等へ分離
-- `shackle_piercing` / `sentient_stuffed_toy` / `seraphim_(one_piece)` など、部分文字列で誤経路になり得る例を対象identityで再監査
-- 固有イベント・作品固有概念・ミーム・ブランド・抽象語など、安全に実用経路を確定できない113件はUNRESOLVEDに保持
+- `single_mechanical_leg`〜`sports_bra_lift` の1,000件を連続監査し、accepted pilot-v2 taxonomy と protected/canonical boundaries を維持
+- `single_*` / `sitting_*` / `skeleton/skull_*` / `sleeve/skirt_*` / `slime/snake/snow_*` / `spiked_*` / `spoken_*` は語幹一括せず、対象identityを主経路判断に使用
+- `split-color_clothes` は色modifierより衣服identityを優先してCLOTHING、`space_skin` はspace文字列よりskinの身体identityを優先
+- `sitting_on_*` は支持対象の名詞だけで物体分類せず、座位姿勢をPOSE_MOVEMENT中心にし、人物・身体への接触が主なものはACTION_CONTACTへ分離
+- cosplay / school_uniform / weapon / animal / flower のようにidentityが明示された固有語は経路を確定し、作品固有イベント・ミーム・抽象概念など75件はUNRESOLVEDに保持
 - historical usage / `post_count` は通常ledger必須でないため未使用。global row identity/orderは固定 `population.txt` を使用
 - single `.csv.xz` ledgerをGit data binary blobで保存
 - canonical/Japanese overlay/Special/#66 UI/search/mainは変更しないcandidate-buildのみ
@@ -112,4 +113,4 @@ Recovery order for a new chat:
 4. `docs/issue64/full_rollout/MANIFEST.json`
 5. this `PROGRESS.md`
 
-Next unprocessed global row: **24,401**.
+Next unprocessed global row: **25,401**.
