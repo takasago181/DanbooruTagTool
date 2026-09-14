@@ -16,7 +16,7 @@ dotnet test DanbooruTagTool.sln -c Release --no-build
 
 ## Explicit catalog build
 
-Catalog import is an explicit operation. It reads the existing protected source assets and writes a new SQLite catalog to the requested output directory. It does not modify the source assets and does not import the unaccepted Issue #64 General taxonomy.
+Catalog import is an explicit operation. It reads the existing protected source assets and writes a new SQLite catalog to the requested output directory. It does not modify the source assets and imports the accepted Issue #64 General taxonomy only during this explicit build.
 
 ```powershell
 DanbooruTagTool.exe --build-catalog <repository-root> <authority-root> <output-directory>
