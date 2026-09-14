@@ -65,3 +65,14 @@ data/generation/audit/
 
 # Keep small curated application data/configuration under data/generation and
 # data/semantic; keep the Special dictionary README while excluding its corpus.
+
+# Local workstation-only runtime, preservation, and validation state
+/.audit/
+/.dotnet-home/
+/.tools/
+/.worktrees/
+/artifacts/
+/translation_quarantine/
+/_local/
+/DanbooruTagTool.lnk
+
