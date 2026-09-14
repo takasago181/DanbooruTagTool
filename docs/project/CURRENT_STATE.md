@@ -4,11 +4,10 @@
 
 ## Current Stage
 
-**Stage9 completed / beginner-first v1 direction locked / #64 bounded rollout review complete with clean integration candidate pending DEV review / #66 UX refinement accepted and merged; General integration and final Windows acceptance remain.**
+**Stage9 completed / beginner-first v1 direction locked / #64 General taxonomy accepted, integrated, and complete / #66 is the sole active practical-v1 DEV lane.**
 
 Current active implementation owners:
-- **Issue #64** — final bounded audit verdict and clean production-integration candidate review
-- **Issue #66** — consume the accepted #64 taxonomy after it reaches main, then complete practical-v1 Windows acceptance
+- **Issue #66** — integrate the accepted General taxonomy into the WPF catalog/provider, then complete practical-v1 Windows acceptance
 
 Current Stage10 definition:
 - Issue #65
@@ -35,21 +34,21 @@ The practical v1 must let the user:
 - explicitly add/remove/reorder/undo/redo;
 - copy the canonical-English Prompt represented by the visible workspace.
 
-## Lane A — Issue #64 General 30,629 taxonomy
+## Completed Lane A — Issue #64 General 30,629 taxonomy
 
-#64 owns the exact production General 30,629 population, the shallow browse taxonomy, its sidecar, and unresolved accounting.
+Issue #64 production taxonomy was accepted and fast-forwarded to main at `d69e8b06916b637efd03c05b820ad13dd05e8ec1`; its latest DEV acceptance is comment **`5661435196`**. The Issue is complete. The accepted taxonomy is available in the repository, while WPF catalog/provider integration remains #66 work.
 
-Latest live DEV review and bounded result:
-- Issue #64 latest DEV review comment: **`5660957158`**
-- Full effective population: **30,629 / 30,629**, ordered and unique
+Accepted production evidence:
+- Effective population: **30,629 / 30,629**, ordered and unique
 - PROPOSED: **28,226** / UNRESOLVED: **2,403**
 - Confidence: **25,097 HIGH / 3,129 MEDIUM / 2,403 LOW**
-- Residual semantic candidates reviewed: **76**; no population-wide semantic reread
-- Final bounded verdict: **`ACCEPT_FOR_PRODUCTION_INTEGRATION`**
-- Rework branch: `codex/issue64-bounded-rework` at `7e10185a311ae8f0239cad0eb1bc879f7c69a2da`
-- Clean candidate branch: `codex/issue64-clean-integration-candidate`, based on live main `3f4e47d7331809b2e6a234824799fb3bc179bae8`
+- Residual semantic review: **76 bounded candidates**; no population-wide semantic reread
+- Effective sidecar SHA-256: `a118f5f904c38cee5b63f0c83b06a56f50ee8afdb623c52eb354731bc0b846d9`
+- Taxonomy SHA-256: `7311fa1bf1523fcd83134c975b579289d7dbc8aa4cdb1313952d906fc2beb70f`
+- Canonical sequence SHA-256: `ca5cc065c92aa38f9daa6b6c8a1f1c13db135057ebfabca076479dfa96872e2b`
+- Post-merge validator: PASS; focused test: **1 passed**; `git diff --check`: PASS
 
-The clean candidate contains only the accepted taxonomy, effective sidecar, concise provenance, focused validation, and this minimal routing sync. It is pending DEV review and remains unmerged. Do not start #66 General catalog/UI integration until that clean candidate is accepted.
+The sidecar is separate from canonical identity and Japanese overlay data. UNRESOLVED rows remain explicit and non-browsable; no catch-all taxonomy node was added.
 
 ## Lane B — Issue #66 WPF app/search/UI
 
@@ -87,9 +86,9 @@ Validation on the accepted source: Debug/Release builds PASS, Debug/Release test
 
 ### Remaining #66 scope
 
-Issue #66 remains open for consuming the accepted General taxonomy through the existing provider/catalog boundary and completing final practical-v1 Windows acceptance. Do not begin General integration until the accepted #64 candidate is merged to main.
+Issue #66 is now the sole active practical-v1 DEV lane. Its accepted UX refinement is in main at `3f4e47d7331809b2e6a234824799fb3bc179bae8`, and the accepted #64 sidecar is in main at `d69e8b06916b637efd03c05b820ad13dd05e8ec1`. The WPF catalog/provider has not yet consumed the sidecar.
 
-After that integration, verify General browse and bilingual search, then complete the final Prompt/copy and Windows workflow checks. No further UX refinement pass is currently required unless a concrete regression is found.
+Next, integrate only that accepted sidecar through the existing provider/catalog boundary, expose shallow General browse, rebuild/refresh the product catalog, and rerun General browse plus Japanese/English/mixed search regressions. Then complete final Prompt/copy and practical Windows workflow acceptance. No further UX refinement pass is required unless a concrete regression appears.
 
 ## Portable / artifact decision — 2026-09-14
 
@@ -122,7 +121,7 @@ Artifacts remain untracked. Cleanup must be scoped to known disposable artifact 
 
 - Legacy Python/Tk remains reference/evidence during active WPF work.
 - Do not make WPF call Python as a required runtime dependency.
-- Keep existing protected/source data paths stable while #64 and #66 are active.
+- Keep existing protected/source data paths stable during #66 integration.
 - `catalog.db` is rebuildable catalog knowledge.
 - `user.db` / `UserData` is user-specific state.
 - Normal startup must not perform taxonomy/audit rebuilds.
@@ -132,9 +131,9 @@ Artifacts remain untracked. Cleanup must be scoped to known disposable artifact 
 
 Current route:
 
-`#64 accepted/merged -> #66 General integration -> final Windows acceptance -> practical v1 baseline -> Stage10 resume`
+`#64 accepted/merged/completed -> #66 General integration -> final Windows acceptance -> practical v1 baseline -> Stage10 resume`
 
-After #64 acceptance:
+After #64 acceptance and integration to main:
 1. #66 consumes only the accepted General taxonomy sidecar through the existing provider/catalog boundary;
 2. rebuild/refresh catalog;
 3. rerun General browse + Japanese/English/mixed search regressions;
@@ -153,8 +152,8 @@ Portable/second-PC acceptance is not in this critical path.
 
 | TEAM_ID | Status | Scope | Restore anchor |
 | --- | --- | --- | --- |
-| `GENERAL-DICT:#64` | **ACTIVE DEV** | General 30,629 practical taxonomy | Issue #64 latest checkpoint + rollout PROGRESS/MANIFEST |
-| `V1-APP:#66` | **ACTIVE / PHASE B + UX REFINEMENT MERGED / GENERAL INTEGRATION + FINAL ACCEPTANCE** | WPF app/search/UI + accepted #64 integration + final v1 | Issue #66 body/latest comments + live main WPF implementation |
+| `GENERAL-DICT:#64` | **COMPLETED / ACCEPTED + INTEGRATED** | General 30,629 practical taxonomy | Issue #64 acceptance comment + production candidate on main |
+| `V1-APP:#66` | **SOLE ACTIVE PRACTICAL-V1 DEV LANE** | accepted General integration + final WPF/Windows acceptance | Issue #66 body/latest comments + live main WPF implementation |
 | `STAGE10-LEARNING:#65` | **PAUSED BY CURRENT PRIORITY** | practical image-generation mastery | Issue #65 + `STAGE_10_LEARNING.md` |
 | `KNOWLEDGE:#44` | **ONGOING / V1 NON-BLOCKING** | knowledge corpus + Prompt/generation knowledge | Issue #44 |
 | `MAINT:#24` | OPEN / SAFETY DEBT | protected-data backup/restore | Issue #24 |
@@ -172,6 +171,7 @@ Historical only:
 - Special Core Dictionary practical taxonomy #56 — completed
 - Special product-fit #63 — completed/merged
 - Japanese overlay production 30,629 — completed
+- Issue #64 General taxonomy — accepted and integrated at `d69e8b06916b637efd03c05b820ad13dd05e8ec1`
 - Issue #66 Phase B clean WPF baseline — merged
 - Issue #66 accepted UX refinement — merged at `3f4e47d7331809b2e6a234824799fb3bc179bae8`
 
