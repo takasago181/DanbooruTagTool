@@ -1,0 +1,22 @@
+{
+  "validator": "issue64-effective-sidecar-validator-v1",
+  "pass": true,
+  "population_count": 30629,
+  "population_sha256": "ca5cc065c92aa38f9daa6b6c8a1f1c13db135057ebfabca076479dfa96872e2b",
+  "effective_sidecar_sha256": "b1665bd672c26935e54670b3a87f547f0cf50f6e00581a9f8cfcdf0390c8ad86",
+  "effective_row_count": 30629,
+  "status_confidence_totals": {
+    "PROPOSED": 28232,
+    "UNRESOLVED": 2397,
+    "HIGH": 25099,
+    "MEDIUM": 3133,
+    "LOW": 2397
+  },
+  "invalid_path_counts": {},
+  "batch_count": 36,
+  "recovered_rows": 1200,
+  "batch034_path_correction_rows": 721,
+  "source_hash_verification": "PASS",
+  "warnings": [],
+  "errors": []
+}

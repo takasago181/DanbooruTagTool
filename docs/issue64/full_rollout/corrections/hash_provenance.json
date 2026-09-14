@@ -1,0 +1,11 @@
+{
+  "manifest_working_source_sha256": "58f9ff128a7ca21a17de4345c36c7891b8169a66fbe3d1de5c190cf48f17d51c",
+  "population_sha256_sorted_utf8_lf": "ca5cc065c92aa38f9daa6b6c8a1f1c13db135057ebfabca076479dfa96872e2b",
+  "working_source_semantics": "UTF-8-SIG CSV, sorted canonical rows with canonical/display_ja/search_ja/post_count columns, materialized from the Japanese overlay and usage snapshot",
+  "population_semantics": "UTF-8/LF canonical-only sorted list; derived from the same target population, not byte-identical to the richer source CSV",
+  "verification": "PASS",
+  "local_materialized_source_path": "issue64_general_30629.csv",
+  "local_materialized_source_note": "Untracked local extraction used only to verify source hash and canonical membership; not included in this change.",
+  "local_materialized_source_sha256": "58f9ff128a7ca21a17de4345c36c7891b8169a66fbe3d1de5c190cf48f17d51c",
+  "local_materialized_source_rows": 30629
+}

@@ -1,0 +1,2057 @@
+{
+  "format_version": 1,
+  "candidate_base_commit": "7d15f856cdf6b1dab509b2bcb6706623eba968b0",
+  "effective_population_count": 30629,
+  "population_sha256_sorted_utf8_lf": "ca5cc065c92aa38f9daa6b6c8a1f1c13db135057ebfabca076479dfa96872e2b",
+  "accepted_taxonomy": {
+    "path": "docs/issue64/taxonomy.json",
+    "version": "issue64-pilot-v2",
+    "sha256": "7311fa1bf1523fcd83134c975b579289d7dbc8aa4cdb1313952d906fc2beb70f"
+  },
+  "immutable_history_policy": "Historical batch ledgers and summaries remain unchanged; all fixes are superseding artifacts in corrections/ plus effective_sidecar.csv.",
+  "unreadable_original_batches": [
+    {
+      "batch": 9,
+      "range": [
+        5701,
+        5900
+      ],
+      "error": "ValueError: cannot base64-decode docs/issue64/full_rollout/batches/batch009_rows05701-05900_ledger.csv.xz.b64.part001: Excess padding not allowed"
+    },
+    {
+      "batch": 17,
+      "range": [
+        12151,
+        13150
+      ],
+      "error": "LZMAError: Corrupt input data"
+    }
+  ],
+  "original_artifact_integrity": [
+    {
+      "batch": 9,
+      "path": "docs/issue64/full_rollout/batches/batch009_rows05701-05900_ledger.csv.xz.b64.part001",
+      "expected_base64_text_sha256": "194db59fc1e051bb047e32e6800a1c70ce378c6218b9dbc21b29e4015927f675",
+      "actual_base64_text_sha256": "fcb5a33fad26d83a9f0467404195794ac8648351e525f0f5ed2bbb46e3408827",
+      "status": "RECOVERED_BY_SUPERSEDING_REVIEW"
+    },
+    {
+      "batch": 17,
+      "path": "docs/issue64/full_rollout/batches/batch017_rows12151-13150_ledger.csv.xz",
+      "expected_xz_sha256": "e163710369f5586d5eb3aa1fa868907079d2ac4f34f8f376794c48a1388fe4a9",
+      "actual_file_sha256": "b750acbf8ca569867f326c5af394c8cd4f347e4fd7dd0ce922a21e68f79e01ba",
+      "status": "RECOVERED_BY_SUPERSEDING_REVIEW"
+    }
+  ],
+  "recovery_review": {
+    "path": "docs/issue64/full_rollout/corrections/recovery_batch009_17.csv",
+    "rows": 1200,
+    "sha256": "62df30de0a57ae19b7039992a41639c1e4a154c4e31257f4b3d0e7cfd1407b04",
+    "scope": [
+      [
+        5701,
+        5900
+      ],
+      [
+        12151,
+        13150
+      ]
+    ],
+    "method": "bounded row-by-row recovery review of only the two unrecoverable historical ledgers; no full-population LLM reread"
+  },
+  "batch008_repair": {
+    "method": "canonical-key remap to exact population position; choose the duplicate decision whose source row is nearest that position; preserve raw source ledgers",
+    "reindexed_rows": [
+      {
+        "canonical": "coffee_table",
+        "source_batch": 8,
+        "source_global_row": 5503,
+        "effective_global_row": 5501
+      },
+      {
+        "canonical": "coffin",
+        "source_batch": 8,
+        "source_global_row": 5504,
+        "effective_global_row": 5502
+      },
+      {
+        "canonical": "coif",
+        "source_batch": 8,
+        "source_global_row": 5505,
+        "effective_global_row": 5503
+      },
+      {
+        "canonical": "coil",
+        "source_batch": 8,
+        "source_global_row": 5506,
+        "effective_global_row": 5504
+      },
+      {
+        "canonical": "coil_(dimension_w)",
+        "source_batch": 8,
+        "source_global_row": 5507,
+        "effective_global_row": 5505
+      },
+      {
+        "canonical": "coiled",
+        "source_batch": 8,
+        "source_global_row": 5508,
+        "effective_global_row": 5506
+      },
+      {
+        "canonical": "coiled_cord",
+        "source_batch": 8,
+        "source_global_row": 5509,
+        "effective_global_row": 5507
+      },
+      {
+        "canonical": "coin",
+        "source_batch": 8,
+        "source_global_row": 5510,
+        "effective_global_row": 5508
+      },
+      {
+        "canonical": "coin_(ornament)",
+        "source_batch": 8,
+        "source_global_row": 5511,
+        "effective_global_row": 5509
+      },
+      {
+        "canonical": "coin_flip",
+        "source_batch": 8,
+        "source_global_row": 5512,
+        "effective_global_row": 5510
+      },
+      {
+        "canonical": "coin_hair_ornament",
+        "source_batch": 8,
+        "source_global_row": 5513,
+        "effective_global_row": 5511
+      },
+      {
+        "canonical": "coin_mask",
+        "source_batch": 8,
+        "source_global_row": 5514,
+        "effective_global_row": 5512
+      },
+      {
+        "canonical": "coin_on_string",
+        "source_batch": 8,
+        "source_global_row": 5515,
+        "effective_global_row": 5513
+      },
+      {
+        "canonical": "coin_purse",
+        "source_batch": 8,
+        "source_global_row": 5516,
+        "effective_global_row": 5514
+      },
+      {
+        "canonical": "coin_slot",
+        "source_batch": 8,
+        "source_global_row": 5517,
+        "effective_global_row": 5515
+      },
+      {
+        "canonical": "coin_stack",
+        "source_batch": 8,
+        "source_global_row": 5518,
+        "effective_global_row": 5516
+      },
+      {
+        "canonical": "coin_sword",
+        "source_batch": 8,
+        "source_global_row": 5519,
+        "effective_global_row": 5517
+      },
+      {
+        "canonical": "coke-bottle_glasses",
+        "source_batch": 8,
+        "source_global_row": 5520,
+        "effective_global_row": 5518
+      },
+      {
+        "canonical": "cola",
+        "source_batch": 8,
+        "source_global_row": 5521,
+        "effective_global_row": 5519
+      },
+      {
+        "canonical": "cold",
+        "source_batch": 8,
+        "source_global_row": 5522,
+        "effective_global_row": 5520
+      },
+      {
+        "canonical": "cold_pack",
+        "source_batch": 8,
+        "source_global_row": 5523,
+        "effective_global_row": 5521
+      },
+      {
+        "canonical": "cold_war",
+        "source_batch": 8,
+        "source_global_row": 5524,
+        "effective_global_row": 5522
+      },
+      {
+        "canonical": "collage",
+        "source_batch": 8,
+        "source_global_row": 5525,
+        "effective_global_row": 5523
+      },
+      {
+        "canonical": "collage_background",
+        "source_batch": 8,
+        "source_global_row": 5526,
+        "effective_global_row": 5524
+      },
+      {
+        "canonical": "collapsed",
+        "source_batch": 8,
+        "source_global_row": 5527,
+        "effective_global_row": 5525
+      },
+      {
+        "canonical": "collapsing",
+        "source_batch": 8,
+        "source_global_row": 5528,
+        "effective_global_row": 5526
+      },
+      {
+        "canonical": "collar",
+        "source_batch": 8,
+        "source_global_row": 5529,
+        "effective_global_row": 5527
+      },
+      {
+        "canonical": "collar_chain_(jewelry)",
+        "source_batch": 8,
+        "source_global_row": 5530,
+        "effective_global_row": 5528
+      },
+      {
+        "canonical": "collar_grab",
+        "source_batch": 8,
+        "source_global_row": 5531,
+        "effective_global_row": 5529
+      },
+      {
+        "canonical": "collar_jewel",
+        "source_batch": 8,
+        "source_global_row": 5532,
+        "effective_global_row": 5530
+      },
+      {
+        "canonical": "collar_tabs",
+        "source_batch": 8,
+        "source_global_row": 5533,
+        "effective_global_row": 5531
+      },
+      {
+        "canonical": "collar_tug",
+        "source_batch": 8,
+        "source_global_row": 5534,
+        "effective_global_row": 5532
+      },
+      {
+        "canonical": "collarbone",
+        "source_batch": 8,
+        "source_global_row": 5535,
+        "effective_global_row": 5533
+      },
+      {
+        "canonical": "collarbone_peek",
+        "source_batch": 8,
+        "source_global_row": 5536,
+        "effective_global_row": 5534
+      },
+      {
+        "canonical": "collarbone_piercing",
+        "source_batch": 8,
+        "source_global_row": 5537,
+        "effective_global_row": 5535
+      },
+      {
+        "canonical": "collarbone_tattoo",
+        "source_batch": 8,
+        "source_global_row": 5538,
+        "effective_global_row": 5536
+      },
+      {
+        "canonical": "collared_apron",
+        "source_batch": 8,
+        "source_global_row": 5539,
+        "effective_global_row": 5537
+      },
+      {
+        "canonical": "collared_bikini",
+        "source_batch": 8,
+        "source_global_row": 5540,
+        "effective_global_row": 5538
+      },
+      {
+        "canonical": "collared_bodysuit",
+        "source_batch": 8,
+        "source_global_row": 5541,
+        "effective_global_row": 5539
+      },
+      {
+        "canonical": "collared_cape",
+        "source_batch": 8,
+        "source_global_row": 5542,
+        "effective_global_row": 5540
+      },
+      {
+        "canonical": "collared_capelet",
+        "source_batch": 8,
+        "source_global_row": 5543,
+        "effective_global_row": 5541
+      },
+      {
+        "canonical": "collared_cloak",
+        "source_batch": 8,
+        "source_global_row": 5544,
+        "effective_global_row": 5542
+      },
+      {
+        "canonical": "collared_coat",
+        "source_batch": 8,
+        "source_global_row": 5545,
+        "effective_global_row": 5543
+      },
+      {
+        "canonical": "collared_dress",
+        "source_batch": 8,
+        "source_global_row": 5546,
+        "effective_global_row": 5544
+      },
+      {
+        "canonical": "collared_halterneck",
+        "source_batch": 8,
+        "source_global_row": 5547,
+        "effective_global_row": 5545
+      },
+      {
+        "canonical": "collared_jacket",
+        "source_batch": 8,
+        "source_global_row": 5548,
+        "effective_global_row": 5546
+      },
+      {
+        "canonical": "collared_jumpsuit",
+        "source_batch": 8,
+        "source_global_row": 5549,
+        "effective_global_row": 5547
+      },
+      {
+        "canonical": "collared_kimono",
+        "source_batch": 8,
+        "source_global_row": 5550,
+        "effective_global_row": 5548
+      },
+      {
+        "canonical": "collared_leotard",
+        "source_batch": 8,
+        "source_global_row": 5551,
+        "effective_global_row": 5549
+      },
+      {
+        "canonical": "collared_pajamas",
+        "source_batch": 8,
+        "source_global_row": 5552,
+        "effective_global_row": 5550
+      },
+      {
+        "canonical": "collared_robe",
+        "source_batch": 8,
+        "source_global_row": 5553,
+        "effective_global_row": 5551
+      },
+      {
+        "canonical": "collared_shirt",
+        "source_batch": 8,
+        "source_global_row": 5554,
+        "effective_global_row": 5552
+      },
+      {
+        "canonical": "collared_shrug",
+        "source_batch": 8,
+        "source_global_row": 5555,
+        "effective_global_row": 5553
+      },
+      {
+        "canonical": "collared_socks",
+        "source_batch": 8,
+        "source_global_row": 5556,
+        "effective_global_row": 5554
+      },
+      {
+        "canonical": "collared_sweater",
+        "source_batch": 8,
+        "source_global_row": 5557,
+        "effective_global_row": 5555
+      },
+      {
+        "canonical": "collared_tunic",
+        "source_batch": 8,
+        "source_global_row": 5558,
+        "effective_global_row": 5556
+      },
+      {
+        "canonical": "collared_vest",
+        "source_batch": 8,
+        "source_global_row": 5559,
+        "effective_global_row": 5557
+      },
+      {
+        "canonical": "collateral_damage",
+        "source_batch": 8,
+        "source_global_row": 5560,
+        "effective_global_row": 5558
+      },
+      {
+        "canonical": "collision",
+        "source_batch": 8,
+        "source_global_row": 5561,
+        "effective_global_row": 5559
+      },
+      {
+        "canonical": "colombia",
+        "source_batch": 8,
+        "source_global_row": 5562,
+        "effective_global_row": 5560
+      },
+      {
+        "canonical": "colombia_pose_(meme)",
+        "source_batch": 8,
+        "source_global_row": 5563,
+        "effective_global_row": 5561
+      },
+      {
+        "canonical": "colombian_clothes",
+        "source_batch": 8,
+        "source_global_row": 5564,
+        "effective_global_row": 5562
+      },
+      {
+        "canonical": "colonel_sanders_(cosplay)",
+        "source_batch": 8,
+        "source_global_row": 5565,
+        "effective_global_row": 5563
+      },
+      {
+        "canonical": "colonnade",
+        "source_batch": 8,
+        "source_global_row": 5566,
+        "effective_global_row": 5564
+      },
+      {
+        "canonical": "colony_interior",
+        "source_batch": 8,
+        "source_global_row": 5567,
+        "effective_global_row": 5565
+      },
+      {
+        "canonical": "colophon",
+        "source_batch": 8,
+        "source_global_row": 5568,
+        "effective_global_row": 5566
+      },
+      {
+        "canonical": "color-coded",
+        "source_batch": 8,
+        "source_global_row": 5569,
+        "effective_global_row": 5567
+      },
+      {
+        "canonical": "color_connection",
+        "source_batch": 8,
+        "source_global_row": 5570,
+        "effective_global_row": 5568
+      },
+      {
+        "canonical": "color_coordination",
+        "source_batch": 8,
+        "source_global_row": 5571,
+        "effective_global_row": 5569
+      },
+      {
+        "canonical": "color_drain",
+        "source_batch": 8,
+        "source_global_row": 5572,
+        "effective_global_row": 5570
+      },
+      {
+        "canonical": "color_filter",
+        "source_batch": 8,
+        "source_global_row": 5573,
+        "effective_global_row": 5571
+      },
+      {
+        "canonical": "color_guide",
+        "source_batch": 8,
+        "source_global_row": 5574,
+        "effective_global_row": 5572
+      },
+      {
+        "canonical": "color_picker",
+        "source_batch": 8,
+        "source_global_row": 5575,
+        "effective_global_row": 5573
+      },
+      {
+        "canonical": "color_switch",
+        "source_batch": 8,
+        "source_global_row": 5576,
+        "effective_global_row": 5574
+      },
+      {
+        "canonical": "color_timer",
+        "source_batch": 8,
+        "source_global_row": 5577,
+        "effective_global_row": 5575
+      },
+      {
+        "canonical": "color_trace",
+        "source_batch": 8,
+        "source_global_row": 5578,
+        "effective_global_row": 5576
+      },
+      {
+        "canonical": "color_wheel",
+        "source_batch": 8,
+        "source_global_row": 5579,
+        "effective_global_row": 5577
+      },
+      {
+        "canonical": "color_wheel_challenge",
+        "source_batch": 8,
+        "source_global_row": 5580,
+        "effective_global_row": 5578
+      },
+      {
+        "canonical": "colored_anus",
+        "source_batch": 8,
+        "source_global_row": 5581,
+        "effective_global_row": 5579
+      },
+      {
+        "canonical": "colored_armpit_hair",
+        "source_batch": 8,
+        "source_global_row": 5582,
+        "effective_global_row": 5580
+      },
+      {
+        "canonical": "colored_bangs",
+        "source_batch": 8,
+        "source_global_row": 5583,
+        "effective_global_row": 5581
+      },
+      {
+        "canonical": "colored_blindfold",
+        "source_batch": 8,
+        "source_global_row": 5584,
+        "effective_global_row": 5582
+      },
+      {
+        "canonical": "colored_blood",
+        "source_batch": 8,
+        "source_global_row": 5585,
+        "effective_global_row": 5583
+      },
+      {
+        "canonical": "colored_blush",
+        "source_batch": 8,
+        "source_global_row": 5586,
+        "effective_global_row": 5584
+      },
+      {
+        "canonical": "colored_chastity_cage",
+        "source_batch": 8,
+        "source_global_row": 5587,
+        "effective_global_row": 5585
+      },
+      {
+        "canonical": "colored_condom",
+        "source_batch": 8,
+        "source_global_row": 5588,
+        "effective_global_row": 5586
+      },
+      {
+        "canonical": "colored_cum",
+        "source_batch": 8,
+        "source_global_row": 5589,
+        "effective_global_row": 5587
+      },
+      {
+        "canonical": "colored_extremities",
+        "source_batch": 8,
+        "source_global_row": 5590,
+        "effective_global_row": 5588
+      },
+      {
+        "canonical": "colored_eyebrows",
+        "source_batch": 8,
+        "source_global_row": 5591,
+        "effective_global_row": 5589
+      },
+      {
+        "canonical": "colored_eyelashes",
+        "source_batch": 8,
+        "source_global_row": 5592,
+        "effective_global_row": 5590
+      },
+      {
+        "canonical": "colored_eyepatch",
+        "source_batch": 8,
+        "source_global_row": 5593,
+        "effective_global_row": 5591
+      },
+      {
+        "canonical": "colored_fingertips",
+        "source_batch": 8,
+        "source_global_row": 5594,
+        "effective_global_row": 5592
+      },
+      {
+        "canonical": "colored_inner_animal_ears",
+        "source_batch": 8,
+        "source_global_row": 5595,
+        "effective_global_row": 5593
+      },
+      {
+        "canonical": "colored_inner_hair",
+        "source_batch": 8,
+        "source_global_row": 5596,
+        "effective_global_row": 5594
+      },
+      {
+        "canonical": "colored_lights",
+        "source_batch": 8,
+        "source_global_row": 5597,
+        "effective_global_row": 5595
+      },
+      {
+        "canonical": "colored_lineart",
+        "source_batch": 8,
+        "source_global_row": 5598,
+        "effective_global_row": 5596
+      },
+      {
+        "canonical": "colored_mouth",
+        "source_batch": 8,
+        "source_global_row": 5599,
+        "effective_global_row": 5597
+      },
+      {
+        "canonical": "colored_nipples",
+        "source_batch": 8,
+        "source_global_row": 5600,
+        "effective_global_row": 5598
+      },
+      {
+        "canonical": "colored_pencil",
+        "source_batch": 8,
+        "source_global_row": 5601,
+        "effective_global_row": 5599
+      },
+      {
+        "canonical": "colored_penis",
+        "source_batch": 8,
+        "source_global_row": 5602,
+        "effective_global_row": 5600
+      },
+      {
+        "canonical": "colored_petticoat",
+        "source_batch": 8,
+        "source_global_row": 5603,
+        "effective_global_row": 5601
+      },
+      {
+        "canonical": "colored_pubic_hair",
+        "source_batch": 8,
+        "source_global_row": 5604,
+        "effective_global_row": 5602
+      },
+      {
+        "canonical": "colored_pussy",
+        "source_batch": 8,
+        "source_global_row": 5605,
+        "effective_global_row": 5603
+      },
+      {
+        "canonical": "colored_saliva",
+        "source_batch": 8,
+        "source_global_row": 5606,
+        "effective_global_row": 5604
+      },
+      {
+        "canonical": "colored_sclera",
+        "source_batch": 8,
+        "source_global_row": 5607,
+        "effective_global_row": 5605
+      },
+      {
+        "canonical": "colored_shadow",
+        "source_batch": 8,
+        "source_global_row": 5608,
+        "effective_global_row": 5606
+      },
+      {
+        "canonical": "colored_shoe_interior",
+        "source_batch": 8,
+        "source_global_row": 5609,
+        "effective_global_row": 5607
+      },
+      {
+        "canonical": "colored_shoe_soles",
+        "source_batch": 8,
+        "source_global_row": 5610,
+        "effective_global_row": 5608
+      },
+      {
+        "canonical": "colored_skin",
+        "source_batch": 8,
+        "source_global_row": 5611,
+        "effective_global_row": 5609
+      },
+      {
+        "canonical": "colored_smoke",
+        "source_batch": 8,
+        "source_global_row": 5612,
+        "effective_global_row": 5610
+      },
+      {
+        "canonical": "colored_speech_bubble",
+        "source_batch": 8,
+        "source_global_row": 5613,
+        "effective_global_row": 5611
+      },
+      {
+        "canonical": "colored_stripes",
+        "source_batch": 8,
+        "source_global_row": 5614,
+        "effective_global_row": 5612
+      },
+      {
+        "canonical": "colored_tears",
+        "source_batch": 8,
+        "source_global_row": 5615,
+        "effective_global_row": 5613
+      },
+      {
+        "canonical": "colored_teeth",
+        "source_batch": 8,
+        "source_global_row": 5616,
+        "effective_global_row": 5614
+      },
+      {
+        "canonical": "colored_text_highlight",
+        "source_batch": 8,
+        "source_global_row": 5617,
+        "effective_global_row": 5615
+      },
+      {
+        "canonical": "colored_tips",
+        "source_batch": 8,
+        "source_global_row": 5618,
+        "effective_global_row": 5616
+      },
+      {
+        "canonical": "colored_tongue",
+        "source_batch": 8,
+        "source_global_row": 5619,
+        "effective_global_row": 5617
+      },
+      {
+        "canonical": "colored_veins",
+        "source_batch": 8,
+        "source_global_row": 5620,
+        "effective_global_row": 5618
+      },
+      {
+        "canonical": "colorful",
+        "source_batch": 8,
+        "source_global_row": 5621,
+        "effective_global_row": 5619
+      },
+      {
+        "canonical": "colorful_background",
+        "source_batch": 8,
+        "source_global_row": 5622,
+        "effective_global_row": 5620
+      },
+      {
+        "canonical": "colorful_clouds",
+        "source_batch": 8,
+        "source_global_row": 5623,
+        "effective_global_row": 5621
+      },
+      {
+        "canonical": "colorful_festival_(project_sekai)",
+        "source_batch": 8,
+        "source_global_row": 5624,
+        "effective_global_row": 5622
+      },
+      {
+        "canonical": "colorpoint_(pattern)",
+        "source_batch": 8,
+        "source_global_row": 5625,
+        "effective_global_row": 5623
+      },
+      {
+        "canonical": "colosseum",
+        "source_batch": 8,
+        "source_global_row": 5626,
+        "effective_global_row": 5624
+      },
+      {
+        "canonical": "colossus",
+        "source_batch": 8,
+        "source_global_row": 5627,
+        "effective_global_row": 5625
+      },
+      {
+        "canonical": "colt_1851_navy",
+        "source_batch": 8,
+        "source_global_row": 5628,
+        "effective_global_row": 5626
+      },
+      {
+        "canonical": "colt_9mm_smg",
+        "source_batch": 8,
+        "source_global_row": 5629,
+        "effective_global_row": 5627
+      },
+      {
+        "canonical": "colt_commando",
+        "source_batch": 8,
+        "source_global_row": 5630,
+        "effective_global_row": 5628
+      },
+      {
+        "canonical": "colt_python",
+        "source_batch": 8,
+        "source_global_row": 5631,
+        "effective_global_row": 5629
+      },
+      {
+        "canonical": "colt_single_action_army",
+        "source_batch": 8,
+        "source_global_row": 5632,
+        "effective_global_row": 5630
+      },
+      {
+        "canonical": "columbina_(genshin_impact)_(cosplay)",
+        "source_batch": 8,
+        "source_global_row": 5633,
+        "effective_global_row": 5631
+      },
+      {
+        "canonical": "columbine_(flower)",
+        "source_batch": 8,
+        "source_global_row": 5634,
+        "effective_global_row": 5632
+      },
+      {
+        "canonical": "column",
+        "source_batch": 8,
+        "source_global_row": 5635,
+        "effective_global_row": 5633
+      },
+      {
+        "canonical": "column_lineup",
+        "source_batch": 8,
+        "source_global_row": 5636,
+        "effective_global_row": 5634
+      },
+      {
+        "canonical": "column_lineup_background",
+        "source_batch": 8,
+        "source_global_row": 5637,
+        "effective_global_row": 5635
+      },
+      {
+        "canonical": "comb",
+        "source_batch": 8,
+        "source_global_row": 5638,
+        "effective_global_row": 5636
+      },
+      {
+        "canonical": "comb_over",
+        "source_batch": 8,
+        "source_global_row": 5639,
+        "effective_global_row": 5637
+      },
+      {
+        "canonical": "combat_boots",
+        "source_batch": 8,
+        "source_global_row": 5640,
+        "effective_global_row": 5638
+      },
+      {
+        "canonical": "combat_helmet",
+        "source_batch": 8,
+        "source_global_row": 5641,
+        "effective_global_row": 5639
+      },
+      {
+        "canonical": "combat_knife",
+        "source_batch": 8,
+        "source_global_row": 5642,
+        "effective_global_row": 5640
+      },
+      {
+        "canonical": "combat_ship_(eve_online)",
+        "source_batch": 8,
+        "source_global_row": 5643,
+        "effective_global_row": 5641
+      },
+      {
+        "canonical": "combat_shirt",
+        "source_batch": 8,
+        "source_global_row": 5644,
+        "effective_global_row": 5642
+      },
+      {
+        "canonical": "combination_wrench",
+        "source_batch": 8,
+        "source_global_row": 5645,
+        "effective_global_row": 5643
+      },
+      {
+        "canonical": "combined_attack",
+        "source_batch": 8,
+        "source_global_row": 5646,
+        "effective_global_row": 5644
+      },
+      {
+        "canonical": "combo_counter",
+        "source_batch": 8,
+        "source_global_row": 5647,
+        "effective_global_row": 5645
+      },
+      {
+        "canonical": "come_at_me_bro",
+        "source_batch": 8,
+        "source_global_row": 5648,
+        "effective_global_row": 5646
+      },
+      {
+        "canonical": "come_hither",
+        "source_batch": 8,
+        "source_global_row": 5649,
+        "effective_global_row": 5647
+      },
+      {
+        "canonical": "comedic_sweatdrop",
+        "source_batch": 8,
+        "source_global_row": 5650,
+        "effective_global_row": 5648
+      },
+      {
+        "canonical": "comedy_and_tragedy_masks",
+        "source_batch": 8,
+        "source_global_row": 5651,
+        "effective_global_row": 5649
+      },
+      {
+        "canonical": "comet",
+        "source_batch": 8,
+        "source_global_row": 5652,
+        "effective_global_row": 5650
+      },
+      {
+        "canonical": "cometik_(idolmaster)",
+        "source_batch": 8,
+        "source_global_row": 5653,
+        "effective_global_row": 5651
+      },
+      {
+        "canonical": "cometik_note_(idolmaster)",
+        "source_batch": 8,
+        "source_global_row": 5654,
+        "effective_global_row": 5652
+      },
+      {
+        "canonical": "comforter",
+        "source_batch": 8,
+        "source_global_row": 5655,
+        "effective_global_row": 5653
+      },
+      {
+        "canonical": "comforting",
+        "source_batch": 8,
+        "source_global_row": 5656,
+        "effective_global_row": 5654
+      },
+      {
+        "canonical": "comfy",
+        "source_batch": 8,
+        "source_global_row": 5657,
+        "effective_global_row": 5655
+      },
+      {
+        "canonical": "comic",
+        "source_batch": 8,
+        "source_global_row": 5658,
+        "effective_global_row": 5656
+      },
+      {
+        "canonical": "comic_background",
+        "source_batch": 8,
+        "source_global_row": 5659,
+        "effective_global_row": 5657
+      },
+      {
+        "canonical": "comic_cover",
+        "source_batch": 8,
+        "source_global_row": 5660,
+        "effective_global_row": 5658
+      },
+      {
+        "canonical": "comic_panel_inset",
+        "source_batch": 8,
+        "source_global_row": 5661,
+        "effective_global_row": 5659
+      },
+      {
+        "canonical": "comic_sans",
+        "source_batch": 8,
+        "source_global_row": 5662,
+        "effective_global_row": 5660
+      },
+      {
+        "canonical": "comically_large_ears",
+        "source_batch": 8,
+        "source_global_row": 5663,
+        "effective_global_row": 5661
+      },
+      {
+        "canonical": "comically_serious",
+        "source_batch": 8,
+        "source_global_row": 5664,
+        "effective_global_row": 5662
+      },
+      {
+        "canonical": "comically_sharp_chin",
+        "source_batch": 8,
+        "source_global_row": 5665,
+        "effective_global_row": 5663
+      },
+      {
+        "canonical": "comiket",
+        "source_batch": 8,
+        "source_global_row": 5666,
+        "effective_global_row": 5664
+      },
+      {
+        "canonical": "command_input",
+        "source_batch": 8,
+        "source_global_row": 5667,
+        "effective_global_row": 5665
+      },
+      {
+        "canonical": "command_spell",
+        "source_batch": 8,
+        "source_global_row": 5668,
+        "effective_global_row": 5666
+      },
+      {
+        "canonical": "commercial",
+        "source_batch": 8,
+        "source_global_row": 5669,
+        "effective_global_row": 5667
+      },
+      {
+        "canonical": "commissioner_insert",
+        "source_batch": 8,
+        "source_global_row": 5670,
+        "effective_global_row": 5668
+      },
+      {
+        "canonical": "commissioner_name",
+        "source_batch": 8,
+        "source_global_row": 5671,
+        "effective_global_row": 5669
+      },
+      {
+        "canonical": "common_kingfisher",
+        "source_batch": 8,
+        "source_global_row": 5672,
+        "effective_global_row": 5670
+      },
+      {
+        "canonical": "communism",
+        "source_batch": 8,
+        "source_global_row": 5673,
+        "effective_global_row": 5671
+      },
+      {
+        "canonical": "comp_(megami_tensei)",
+        "source_batch": 8,
+        "source_global_row": 5674,
+        "effective_global_row": 5672
+      },
+      {
+        "canonical": "compact_(cosmetics)",
+        "source_batch": 8,
+        "source_global_row": 5675,
+        "effective_global_row": 5673
+      },
+      {
+        "canonical": "companion/af",
+        "source_batch": 8,
+        "source_global_row": 5676,
+        "effective_global_row": 5674
+      },
+      {
+        "canonical": "company_connection",
+        "source_batch": 8,
+        "source_global_row": 5677,
+        "effective_global_row": 5675
+      },
+      {
+        "canonical": "company_logo",
+        "source_batch": 8,
+        "source_global_row": 5678,
+        "effective_global_row": 5676
+      },
+      {
+        "canonical": "company_name",
+        "source_batch": 8,
+        "source_global_row": 5679,
+        "effective_global_row": 5677
+      },
+      {
+        "canonical": "comparison",
+        "source_batch": 8,
+        "source_global_row": 5680,
+        "effective_global_row": 5678
+      },
+      {
+        "canonical": "compass",
+        "source_batch": 8,
+        "source_global_row": 5681,
+        "effective_global_row": 5679
+      },
+      {
+        "canonical": "compass_(instrument)",
+        "source_batch": 8,
+        "source_global_row": 5682,
+        "effective_global_row": 5680
+      },
+      {
+        "canonical": "compass_rose",
+        "source_batch": 8,
+        "source_global_row": 5683,
+        "effective_global_row": 5681
+      },
+      {
+        "canonical": "compass_uniform",
+        "source_batch": 8,
+        "source_global_row": 5684,
+        "effective_global_row": 5682
+      },
+      {
+        "canonical": "compensated_molestation",
+        "source_batch": 8,
+        "source_global_row": 5685,
+        "effective_global_row": 5683
+      },
+      {
+        "canonical": "competition",
+        "source_batch": 8,
+        "source_global_row": 5686,
+        "effective_global_row": 5684
+      },
+      {
+        "canonical": "competition_school_swimsuit",
+        "source_batch": 8,
+        "source_global_row": 5687,
+        "effective_global_row": 5685
+      },
+      {
+        "canonical": "competition_swimsuit",
+        "source_batch": 8,
+        "source_global_row": 5688,
+        "effective_global_row": 5686
+      },
+      {
+        "canonical": "competitive_sex",
+        "source_batch": 8,
+        "source_global_row": 5689,
+        "effective_global_row": 5687
+      },
+      {
+        "canonical": "compilation",
+        "source_batch": 8,
+        "source_global_row": 5690,
+        "effective_global_row": 5688
+      },
+      {
+        "canonical": "complementary_colors",
+        "source_batch": 8,
+        "source_global_row": 5691,
+        "effective_global_row": 5689
+      },
+      {
+        "canonical": "completely_nude",
+        "source_batch": 8,
+        "source_global_row": 5692,
+        "effective_global_row": 5690
+      },
+      {
+        "canonical": "completely_unamused",
+        "source_batch": 8,
+        "source_global_row": 5693,
+        "effective_global_row": 5691
+      },
+      {
+        "canonical": "completionist_cape_(runescape)",
+        "source_batch": 8,
+        "source_global_row": 5694,
+        "effective_global_row": 5692
+      },
+      {
+        "canonical": "complex_exterior",
+        "source_batch": 8,
+        "source_global_row": 5695,
+        "effective_global_row": 5693
+      },
+      {
+        "canonical": "compound_bow",
+        "source_batch": 8,
+        "source_global_row": 5696,
+        "effective_global_row": 5694
+      },
+      {
+        "canonical": "compound_eyes",
+        "source_batch": 8,
+        "source_global_row": 5697,
+        "effective_global_row": 5695
+      },
+      {
+        "canonical": "compressed_breasts",
+        "source_batch": 8,
+        "source_global_row": 5698,
+        "effective_global_row": 5696
+      },
+      {
+        "canonical": "compression_shirt",
+        "source_batch": 8,
+        "source_global_row": 5699,
+        "effective_global_row": 5697
+      },
+      {
+        "canonical": "compression_sleeve",
+        "source_batch": 8,
+        "source_global_row": 5700,
+        "effective_global_row": 5698
+      }
+    ],
+    "duplicate_decisions_dropped": [
+      {
+        "canonical": "coffee_pot",
+        "selected_batch": 7,
+        "selected_global_row": 5499,
+        "discarded_batch": 8,
+        "discarded_global_row": 5501,
+        "reason": "duplicate canonical row; selected source row nearest to the fixed population index"
+      },
+      {
+        "canonical": "coffee_siphon",
+        "selected_batch": 7,
+        "selected_global_row": 5500,
+        "discarded_batch": 8,
+        "discarded_global_row": 5502,
+        "reason": "duplicate canonical row; selected source row nearest to the fixed population index"
+      }
+    ],
+    "missing_edge_rows_recovered": [
+      5699,
+      5700
+    ]
+  },
+  "batch016_summary_replacement": "effective_batch_summaries.json#16",
+  "batch034_path_correction": {
+    "corrected_rows": 721,
+    "distinct_source_path_rules": 52,
+    "direct_aliases": {
+      "ACTION_CONTACT/CONTACT": "INTERACTION",
+      "ACTION_CONTACT/HOLDING_CARRYING": "OBJECT_USE",
+      "CLOTHING/ACCESSORIES": "ACCESSORY",
+      "CLOTHING/BOTTOMS": "EVERYDAY",
+      "CLOTHING/FOOTWEAR": "EVERYDAY",
+      "CLOTHING/HAIR_ORNAMENT": "ACCESSORY",
+      "CLOTHING/HEADWEAR": "EVERYDAY",
+      "CLOTHING/LEGWEAR": "EVERYDAY",
+      "CLOTHING/OUTERWEAR": "EVERYDAY",
+      "CLOTHING/TOPS": "EVERYDAY",
+      "CLOTHING/UNDERWEAR": "EVERYDAY",
+      "LIVING_NATURE/ANIMAL": "CREATURE",
+      "OBJECT_PROP/FURNITURE_OBJECT": "DAILY"
+    },
+    "fallback": "When a subgenre is not in accepted pilot-v2 and has no direct alias, keep its accepted top-level genre only."
+  },
+  "semantic_corrections": [
+    {
+      "canonical": "smoking_pipe_in_mouth",
+      "old_status": "PROPOSED",
+      "old_path": "BODY_PART",
+      "old_confidence": "MEDIUM",
+      "new_status": "PROPOSED",
+      "new_path": "ACTION_CONTACT/OBJECT_USE",
+      "new_confidence": "MEDIUM",
+      "reason_ja": "口にくわえたパイプを使う行為・物との関係を主経路にする。",
+      "evidence_url": "",
+      "review_note": "Luna risk audit: object/contact boundary; BODY_PART is incidental."
+    },
+    {
+      "canonical": "pink_nails",
+      "old_status": "PROPOSED",
+      "old_path": "HAIR_FACE",
+      "old_confidence": "HIGH",
+      "new_status": "PROPOSED",
+      "new_path": "BODY_PART",
+      "new_confidence": "HIGH",
+      "reason_ja": "爪という身体部位の色を表すため身体・部位から探す。",
+      "evidence_url": "https://safebooru.donmai.us/wiki_pages/pink_nails",
+      "review_note": "Wiki defines colored fingernails/toenails; HAIR_FACE is outside the tag identity."
+    },
+    {
+      "canonical": "orange_nails",
+      "old_status": "PROPOSED",
+      "old_path": "HAIR_FACE",
+      "old_confidence": "HIGH",
+      "new_status": "PROPOSED",
+      "new_path": "BODY_PART",
+      "new_confidence": "HIGH",
+      "reason_ja": "爪という身体部位の色を表すため身体・部位から探す。",
+      "evidence_url": "https://safebooru.donmai.us/wiki_pages/pink_nails",
+      "review_note": "Analogous nail-color tag; same body-part identity as pink_nails."
+    },
+    {
+      "canonical": "red_nails",
+      "old_status": "PROPOSED",
+      "old_path": "HAIR_FACE",
+      "old_confidence": "HIGH",
+      "new_status": "PROPOSED",
+      "new_path": "BODY_PART",
+      "new_confidence": "HIGH",
+      "reason_ja": "爪という身体部位の色を表すため身体・部位から探す。",
+      "evidence_url": "https://safebooru.donmai.us/wiki_pages/pink_nails",
+      "review_note": "Analogous nail-color tag; same body-part identity as pink_nails."
+    },
+    {
+      "canonical": "standing_on_chair",
+      "old_status": "PROPOSED",
+      "old_path": "HAIR_FACE",
+      "old_confidence": "HIGH",
+      "new_status": "PROPOSED",
+      "new_path": "ACTION_CONTACT/INTERACTION",
+      "new_confidence": "MEDIUM",
+      "reason_ja": "椅子との接触関係を含むため、姿勢単独でなく行為・接触から探す。",
+      "evidence_url": "",
+      "review_note": "Pilot boundary sends posture involving contact with an object to ACTION_CONTACT."
+    },
+    {
+      "canonical": "sitting_on_creature",
+      "old_status": "PROPOSED",
+      "old_path": "POSE_MOVEMENT",
+      "old_confidence": "MEDIUM",
+      "new_status": "PROPOSED",
+      "new_path": "ACTION_CONTACT/INTERACTION",
+      "new_confidence": "MEDIUM",
+      "reason_ja": "生き物の上に座る対象間の関係を主経路にする。",
+      "evidence_url": "",
+      "review_note": "Pilot boundary: contact with another entity takes precedence over pose-only routing."
+    },
+    {
+      "canonical": "sarcophagus",
+      "old_status": "PROPOSED",
+      "old_path": "PLACE_BACKGROUND",
+      "old_confidence": "HIGH",
+      "new_status": "PROPOSED",
+      "new_path": "OBJECT_PROP",
+      "new_confidence": "HIGH",
+      "reason_ja": "石棺という具体的な物品identityを主経路にする。",
+      "evidence_url": "",
+      "review_note": "Object identity is clearer than a place/background route; no new related graph added."
+    },
+    {
+      "canonical": "beer_can",
+      "old_status": "PROPOSED",
+      "old_path": "OBJECT_PROP/FOOD",
+      "old_confidence": "MEDIUM",
+      "new_status": "PROPOSED",
+      "new_path": "OBJECT_PROP/DAILY",
+      "new_confidence": "MEDIUM",
+      "reason_ja": "ビール入り飲料缶という容器・小物identityを主経路にする。",
+      "evidence_url": "https://safebooru.donmai.us/wiki_pages/beer_can",
+      "review_note": "Tag wiki defines an aluminum drink can containing beer and implicates drink_can."
+    },
+    {
+      "canonical": "optical_camouflage",
+      "old_status": "PROPOSED",
+      "old_path": "TEXT_SYMBOL/SYMBOL",
+      "old_confidence": "MEDIUM",
+      "new_status": "PROPOSED",
+      "new_path": "STYLE_QUALITY_META",
+      "new_confidence": "MEDIUM",
+      "reason_ja": "背景投影による不可視化という視覚効果を画面表現から探す。",
+      "evidence_url": "https://safebooru.donmai.us/wiki_pages/optical_camouflage",
+      "review_note": "Tag wiki describes a visual concealment effect, not text or a symbol."
+    },
+    {
+      "canonical": "waiter",
+      "old_status": "UNRESOLVED",
+      "old_path": "",
+      "old_confidence": "LOW",
+      "new_status": "PROPOSED",
+      "new_path": "PERSON_COUNT",
+      "new_confidence": "HIGH",
+      "reason_ja": "飲食店の職業・役柄を人物の種類から探す。",
+      "evidence_url": "https://safebooru.donmai.us/wiki_pages/waiter",
+      "review_note": "Luna risk audit: clear role/person candidate."
+    },
+    {
+      "canonical": "umpire",
+      "old_status": "UNRESOLVED",
+      "old_path": "",
+      "old_confidence": "LOW",
+      "new_status": "PROPOSED",
+      "new_path": "PERSON_COUNT",
+      "new_confidence": "MEDIUM",
+      "reason_ja": "審判という人物の役割を人物の種類から探す。",
+      "evidence_url": "",
+      "review_note": "Occupation/role tag; accepted PERSON_COUNT route includes roles."
+    },
+    {
+      "canonical": "veterinarian",
+      "old_status": "UNRESOLVED",
+      "old_path": "",
+      "old_confidence": "LOW",
+      "new_status": "PROPOSED",
+      "new_path": "PERSON_COUNT",
+      "new_confidence": "MEDIUM",
+      "reason_ja": "獣医師という人物の職業を人物の種類から探す。",
+      "evidence_url": "",
+      "review_note": "Occupation/role tag; accepted PERSON_COUNT route includes roles."
+    },
+    {
+      "canonical": "warrior",
+      "old_status": "UNRESOLVED",
+      "old_path": "",
+      "old_confidence": "LOW",
+      "new_status": "PROPOSED",
+      "new_path": "PERSON_COUNT",
+      "new_confidence": "MEDIUM",
+      "reason_ja": "戦士という人物の役柄を人物の種類から探す。",
+      "evidence_url": "",
+      "review_note": "Role tag; accepted PERSON_COUNT route includes roles."
+    },
+    {
+      "canonical": "witch",
+      "old_status": "UNRESOLVED",
+      "old_path": "",
+      "old_confidence": "LOW",
+      "new_status": "PROPOSED",
+      "new_path": "PERSON_COUNT",
+      "new_confidence": "MEDIUM",
+      "reason_ja": "魔女という人物の役柄を人物の種類から探す。",
+      "evidence_url": "",
+      "review_note": "Role tag; kept at top level because taxonomy has no role subgenre."
+    },
+    {
+      "canonical": "wizard",
+      "old_status": "UNRESOLVED",
+      "old_path": "",
+      "old_confidence": "LOW",
+      "new_status": "PROPOSED",
+      "new_path": "PERSON_COUNT",
+      "new_confidence": "MEDIUM",
+      "reason_ja": "魔法使いという人物の役柄を人物の種類から探す。",
+      "evidence_url": "",
+      "review_note": "Role tag; kept at top level because taxonomy has no role subgenre."
+    },
+    {
+      "canonical": "seiza",
+      "old_status": "UNRESOLVED",
+      "old_path": "",
+      "old_confidence": "LOW",
+      "new_status": "PROPOSED",
+      "new_path": "POSE_MOVEMENT",
+      "new_confidence": "MEDIUM",
+      "reason_ja": "正座という座り方・姿勢をポーズから探す。",
+      "evidence_url": "",
+      "review_note": "Luna risk audit: common sitting posture candidate."
+    },
+    {
+      "canonical": "kneeling_on_liquid",
+      "old_status": "PROPOSED",
+      "old_path": "POSE_MOVEMENT",
+      "old_confidence": "HIGH",
+      "new_status": "PROPOSED",
+      "new_path": "ACTION_CONTACT/INTERACTION",
+      "new_confidence": "MEDIUM",
+      "reason_ja": "対象となる人・生き物・物との接触関係を行為・接触から探す。",
+      "evidence_url": "",
+      "review_note": "Deterministic analogue rule: relational contact with another entity/object; pure body-posture suffixes are excluded."
+    },
+    {
+      "canonical": "lying_on_ball",
+      "old_status": "PROPOSED",
+      "old_path": "POSE_MOVEMENT",
+      "old_confidence": "HIGH",
+      "new_status": "PROPOSED",
+      "new_path": "ACTION_CONTACT/INTERACTION",
+      "new_confidence": "MEDIUM",
+      "reason_ja": "対象となる人・生き物・物との接触関係を行為・接触から探す。",
+      "evidence_url": "",
+      "review_note": "Deterministic analogue rule: relational contact with another entity/object; pure body-posture suffixes are excluded."
+    },
+    {
+      "canonical": "lying_on_branch",
+      "old_status": "PROPOSED",
+      "old_path": "POSE_MOVEMENT",
+      "old_confidence": "HIGH",
+      "new_status": "PROPOSED",
+      "new_path": "ACTION_CONTACT/INTERACTION",
+      "new_confidence": "MEDIUM",
+      "reason_ja": "対象となる人・生き物・物との接触関係を行為・接触から探す。",
+      "evidence_url": "",
+      "review_note": "Deterministic analogue rule: relational contact with another entity/object; pure body-posture suffixes are excluded."
+    },
+    {
+      "canonical": "lying_on_clothes",
+      "old_status": "PROPOSED",
+      "old_path": "POSE_MOVEMENT",
+      "old_confidence": "HIGH",
+      "new_status": "PROPOSED",
+      "new_path": "ACTION_CONTACT/INTERACTION",
+      "new_confidence": "MEDIUM",
+      "reason_ja": "対象となる人・生き物・物との接触関係を行為・接触から探す。",
+      "evidence_url": "",
+      "review_note": "Deterministic analogue rule: relational contact with another entity/object; pure body-posture suffixes are excluded."
+    },
+    {
+      "canonical": "lying_on_water",
+      "old_status": "PROPOSED",
+      "old_path": "POSE_MOVEMENT",
+      "old_confidence": "HIGH",
+      "new_status": "PROPOSED",
+      "new_path": "ACTION_CONTACT/INTERACTION",
+      "new_confidence": "MEDIUM",
+      "reason_ja": "対象となる人・生き物・物との接触関係を行為・接触から探す。",
+      "evidence_url": "",
+      "review_note": "Deterministic analogue rule: relational contact with another entity/object; pure body-posture suffixes are excluded."
+    },
+    {
+      "canonical": "sitting_on_animal",
+      "old_status": "PROPOSED",
+      "old_path": "POSE_MOVEMENT",
+      "old_confidence": "MEDIUM",
+      "new_status": "PROPOSED",
+      "new_path": "ACTION_CONTACT/INTERACTION",
+      "new_confidence": "MEDIUM",
+      "reason_ja": "対象となる人・生き物・物との接触関係を行為・接触から探す。",
+      "evidence_url": "",
+      "review_note": "Deterministic analogue rule: relational contact with another entity/object; pure body-posture suffixes are excluded."
+    },
+    {
+      "canonical": "sitting_on_ball",
+      "old_status": "PROPOSED",
+      "old_path": "POSE_MOVEMENT",
+      "old_confidence": "MEDIUM",
+      "new_status": "PROPOSED",
+      "new_path": "ACTION_CONTACT/INTERACTION",
+      "new_confidence": "MEDIUM",
+      "reason_ja": "対象となる人・生き物・物との接触関係を行為・接触から探す。",
+      "evidence_url": "",
+      "review_note": "Deterministic analogue rule: relational contact with another entity/object; pure body-posture suffixes are excluded."
+    },
+    {
+      "canonical": "sitting_on_book",
+      "old_status": "PROPOSED",
+      "old_path": "POSE_MOVEMENT",
+      "old_confidence": "MEDIUM",
+      "new_status": "PROPOSED",
+      "new_path": "ACTION_CONTACT/INTERACTION",
+      "new_confidence": "MEDIUM",
+      "reason_ja": "対象となる人・生き物・物との接触関係を行為・接触から探す。",
+      "evidence_url": "",
+      "review_note": "Deterministic analogue rule: relational contact with another entity/object; pure body-posture suffixes are excluded."
+    },
+    {
+      "canonical": "sitting_on_box",
+      "old_status": "PROPOSED",
+      "old_path": "POSE_MOVEMENT",
+      "old_confidence": "MEDIUM",
+      "new_status": "PROPOSED",
+      "new_path": "ACTION_CONTACT/INTERACTION",
+      "new_confidence": "MEDIUM",
+      "reason_ja": "対象となる人・生き物・物との接触関係を行為・接触から探す。",
+      "evidence_url": "",
+      "review_note": "Deterministic analogue rule: relational contact with another entity/object; pure body-posture suffixes are excluded."
+    },
+    {
+      "canonical": "sitting_on_branch",
+      "old_status": "PROPOSED",
+      "old_path": "POSE_MOVEMENT",
+      "old_confidence": "MEDIUM",
+      "new_status": "PROPOSED",
+      "new_path": "ACTION_CONTACT/INTERACTION",
+      "new_confidence": "MEDIUM",
+      "reason_ja": "対象となる人・生き物・物との接触関係を行為・接触から探す。",
+      "evidence_url": "",
+      "review_note": "Deterministic analogue rule: relational contact with another entity/object; pure body-posture suffixes are excluded."
+    },
+    {
+      "canonical": "sitting_on_drum",
+      "old_status": "PROPOSED",
+      "old_path": "POSE_MOVEMENT",
+      "old_confidence": "MEDIUM",
+      "new_status": "PROPOSED",
+      "new_path": "ACTION_CONTACT/INTERACTION",
+      "new_confidence": "MEDIUM",
+      "reason_ja": "対象となる人・生き物・物との接触関係を行為・接触から探す。",
+      "evidence_url": "",
+      "review_note": "Deterministic analogue rule: relational contact with another entity/object; pure body-posture suffixes are excluded."
+    },
+    {
+      "canonical": "sitting_on_fence",
+      "old_status": "PROPOSED",
+      "old_path": "POSE_MOVEMENT",
+      "old_confidence": "MEDIUM",
+      "new_status": "PROPOSED",
+      "new_path": "ACTION_CONTACT/INTERACTION",
+      "new_confidence": "MEDIUM",
+      "reason_ja": "対象となる人・生き物・物との接触関係を行為・接触から探す。",
+      "evidence_url": "",
+      "review_note": "Deterministic analogue rule: relational contact with another entity/object; pure body-posture suffixes are excluded."
+    },
+    {
+      "canonical": "sitting_on_food",
+      "old_status": "PROPOSED",
+      "old_path": "POSE_MOVEMENT",
+      "old_confidence": "MEDIUM",
+      "new_status": "PROPOSED",
+      "new_path": "ACTION_CONTACT/INTERACTION",
+      "new_confidence": "MEDIUM",
+      "reason_ja": "対象となる人・生き物・物との接触関係を行為・接触から探す。",
+      "evidence_url": "",
+      "review_note": "Deterministic analogue rule: relational contact with another entity/object; pure body-posture suffixes are excluded."
+    },
+    {
+      "canonical": "sitting_on_hair",
+      "old_status": "PROPOSED",
+      "old_path": "HAIR_FACE",
+      "old_confidence": "HIGH",
+      "new_status": "PROPOSED",
+      "new_path": "ACTION_CONTACT/INTERACTION",
+      "new_confidence": "MEDIUM",
+      "reason_ja": "対象となる人・生き物・物との接触関係を行為・接触から探す。",
+      "evidence_url": "",
+      "review_note": "Deterministic analogue rule: relational contact with another entity/object; pure body-posture suffixes are excluded."
+    },
+    {
+      "canonical": "sitting_on_liquid",
+      "old_status": "PROPOSED",
+      "old_path": "POSE_MOVEMENT",
+      "old_confidence": "MEDIUM",
+      "new_status": "PROPOSED",
+      "new_path": "ACTION_CONTACT/INTERACTION",
+      "new_confidence": "MEDIUM",
+      "reason_ja": "対象となる人・生き物・物との接触関係を行為・接触から探す。",
+      "evidence_url": "",
+      "review_note": "Deterministic analogue rule: relational contact with another entity/object; pure body-posture suffixes are excluded."
+    },
+    {
+      "canonical": "sitting_on_log",
+      "old_status": "PROPOSED",
+      "old_path": "POSE_MOVEMENT",
+      "old_confidence": "MEDIUM",
+      "new_status": "PROPOSED",
+      "new_path": "ACTION_CONTACT/INTERACTION",
+      "new_confidence": "MEDIUM",
+      "reason_ja": "対象となる人・生き物・物との接触関係を行為・接触から探す。",
+      "evidence_url": "",
+      "review_note": "Deterministic analogue rule: relational contact with another entity/object; pure body-posture suffixes are excluded."
+    },
+    {
+      "canonical": "sitting_on_mecha",
+      "old_status": "PROPOSED",
+      "old_path": "POSE_MOVEMENT",
+      "old_confidence": "MEDIUM",
+      "new_status": "PROPOSED",
+      "new_path": "ACTION_CONTACT/INTERACTION",
+      "new_confidence": "MEDIUM",
+      "reason_ja": "対象となる人・生き物・物との接触関係を行為・接触から探す。",
+      "evidence_url": "",
+      "review_note": "Deterministic analogue rule: relational contact with another entity/object; pure body-posture suffixes are excluded."
+    },
+    {
+      "canonical": "sitting_on_mushroom",
+      "old_status": "PROPOSED",
+      "old_path": "POSE_MOVEMENT",
+      "old_confidence": "MEDIUM",
+      "new_status": "PROPOSED",
+      "new_path": "ACTION_CONTACT/INTERACTION",
+      "new_confidence": "MEDIUM",
+      "reason_ja": "対象となる人・生き物・物との接触関係を行為・接触から探す。",
+      "evidence_url": "",
+      "review_note": "Deterministic analogue rule: relational contact with another entity/object; pure body-posture suffixes are excluded."
+    },
+    {
+      "canonical": "sitting_on_object",
+      "old_status": "PROPOSED",
+      "old_path": "POSE_MOVEMENT",
+      "old_confidence": "MEDIUM",
+      "new_status": "PROPOSED",
+      "new_path": "ACTION_CONTACT/INTERACTION",
+      "new_confidence": "MEDIUM",
+      "reason_ja": "対象となる人・生き物・物との接触関係を行為・接触から探す。",
+      "evidence_url": "",
+      "review_note": "Deterministic analogue rule: relational contact with another entity/object; pure body-posture suffixes are excluded."
+    },
+    {
+      "canonical": "sitting_on_own_tail",
+      "old_status": "PROPOSED",
+      "old_path": "POSE_MOVEMENT",
+      "old_confidence": "MEDIUM",
+      "new_status": "PROPOSED",
+      "new_path": "ACTION_CONTACT/INTERACTION",
+      "new_confidence": "MEDIUM",
+      "reason_ja": "対象となる人・生き物・物との接触関係を行為・接触から探す。",
+      "evidence_url": "",
+      "review_note": "Deterministic analogue rule: relational contact with another entity/object; pure body-posture suffixes are excluded."
+    },
+    {
+      "canonical": "sitting_on_piano",
+      "old_status": "PROPOSED",
+      "old_path": "POSE_MOVEMENT",
+      "old_confidence": "MEDIUM",
+      "new_status": "PROPOSED",
+      "new_path": "ACTION_CONTACT/INTERACTION",
+      "new_confidence": "MEDIUM",
+      "reason_ja": "対象となる人・生き物・物との接触関係を行為・接触から探す。",
+      "evidence_url": "",
+      "review_note": "Deterministic analogue rule: relational contact with another entity/object; pure body-posture suffixes are excluded."
+    },
+    {
+      "canonical": "sitting_on_pillow",
+      "old_status": "PROPOSED",
+      "old_path": "POSE_MOVEMENT",
+      "old_confidence": "MEDIUM",
+      "new_status": "PROPOSED",
+      "new_path": "ACTION_CONTACT/INTERACTION",
+      "new_confidence": "MEDIUM",
+      "reason_ja": "対象となる人・生き物・物との接触関係を行為・接触から探す。",
+      "evidence_url": "",
+      "review_note": "Deterministic analogue rule: relational contact with another entity/object; pure body-posture suffixes are excluded."
+    },
+    {
+      "canonical": "sitting_on_pokemon",
+      "old_status": "PROPOSED",
+      "old_path": "POSE_MOVEMENT",
+      "old_confidence": "MEDIUM",
+      "new_status": "PROPOSED",
+      "new_path": "ACTION_CONTACT/INTERACTION",
+      "new_confidence": "MEDIUM",
+      "reason_ja": "対象となる人・生き物・物との接触関係を行為・接触から探す。",
+      "evidence_url": "",
+      "review_note": "Deterministic analogue rule: relational contact with another entity/object; pure body-posture suffixes are excluded."
+    },
+    {
+      "canonical": "sitting_on_robot",
+      "old_status": "PROPOSED",
+      "old_path": "POSE_MOVEMENT",
+      "old_confidence": "MEDIUM",
+      "new_status": "PROPOSED",
+      "new_path": "ACTION_CONTACT/INTERACTION",
+      "new_confidence": "MEDIUM",
+      "reason_ja": "対象となる人・生き物・物との接触関係を行為・接触から探す。",
+      "evidence_url": "",
+      "review_note": "Deterministic analogue rule: relational contact with another entity/object; pure body-posture suffixes are excluded."
+    },
+    {
+      "canonical": "sitting_on_roof",
+      "old_status": "PROPOSED",
+      "old_path": "POSE_MOVEMENT",
+      "old_confidence": "MEDIUM",
+      "new_status": "PROPOSED",
+      "new_path": "ACTION_CONTACT/INTERACTION",
+      "new_confidence": "MEDIUM",
+      "reason_ja": "対象となる人・生き物・物との接触関係を行為・接触から探す。",
+      "evidence_url": "",
+      "review_note": "Deterministic analogue rule: relational contact with another entity/object; pure body-posture suffixes are excluded."
+    },
+    {
+      "canonical": "sitting_on_stairs",
+      "old_status": "PROPOSED",
+      "old_path": "POSE_MOVEMENT",
+      "old_confidence": "MEDIUM",
+      "new_status": "PROPOSED",
+      "new_path": "ACTION_CONTACT/INTERACTION",
+      "new_confidence": "MEDIUM",
+      "reason_ja": "対象となる人・生き物・物との接触関係を行為・接触から探す。",
+      "evidence_url": "",
+      "review_note": "Deterministic analogue rule: relational contact with another entity/object; pure body-posture suffixes are excluded."
+    },
+    {
+      "canonical": "sitting_on_table",
+      "old_status": "PROPOSED",
+      "old_path": "POSE_MOVEMENT",
+      "old_confidence": "MEDIUM",
+      "new_status": "PROPOSED",
+      "new_path": "ACTION_CONTACT/INTERACTION",
+      "new_confidence": "MEDIUM",
+      "reason_ja": "対象となる人・生き物・物との接触関係を行為・接触から探す。",
+      "evidence_url": "",
+      "review_note": "Deterministic analogue rule: relational contact with another entity/object; pure body-posture suffixes are excluded."
+    },
+    {
+      "canonical": "sitting_on_torii",
+      "old_status": "PROPOSED",
+      "old_path": "POSE_MOVEMENT",
+      "old_confidence": "MEDIUM",
+      "new_status": "PROPOSED",
+      "new_path": "ACTION_CONTACT/INTERACTION",
+      "new_confidence": "MEDIUM",
+      "reason_ja": "対象となる人・生き物・物との接触関係を行為・接触から探す。",
+      "evidence_url": "",
+      "review_note": "Deterministic analogue rule: relational contact with another entity/object; pure body-posture suffixes are excluded."
+    },
+    {
+      "canonical": "sitting_on_wall",
+      "old_status": "PROPOSED",
+      "old_path": "POSE_MOVEMENT",
+      "old_confidence": "MEDIUM",
+      "new_status": "PROPOSED",
+      "new_path": "ACTION_CONTACT/INTERACTION",
+      "new_confidence": "MEDIUM",
+      "reason_ja": "対象となる人・生き物・物との接触関係を行為・接触から探す。",
+      "evidence_url": "",
+      "review_note": "Deterministic analogue rule: relational contact with another entity/object; pure body-posture suffixes are excluded."
+    },
+    {
+      "canonical": "sitting_on_water",
+      "old_status": "PROPOSED",
+      "old_path": "POSE_MOVEMENT",
+      "old_confidence": "MEDIUM",
+      "new_status": "PROPOSED",
+      "new_path": "ACTION_CONTACT/INTERACTION",
+      "new_confidence": "MEDIUM",
+      "reason_ja": "対象となる人・生き物・物との接触関係を行為・接触から探す。",
+      "evidence_url": "",
+      "review_note": "Deterministic analogue rule: relational contact with another entity/object; pure body-posture suffixes are excluded."
+    },
+    {
+      "canonical": "sitting_on_weapon",
+      "old_status": "PROPOSED",
+      "old_path": "POSE_MOVEMENT",
+      "old_confidence": "MEDIUM",
+      "new_status": "PROPOSED",
+      "new_path": "ACTION_CONTACT/INTERACTION",
+      "new_confidence": "MEDIUM",
+      "reason_ja": "対象となる人・生き物・物との接触関係を行為・接触から探す。",
+      "evidence_url": "",
+      "review_note": "Deterministic analogue rule: relational contact with another entity/object; pure body-posture suffixes are excluded."
+    },
+    {
+      "canonical": "standing_on_animal",
+      "old_status": "PROPOSED",
+      "old_path": "POSE_MOVEMENT",
+      "old_confidence": "HIGH",
+      "new_status": "PROPOSED",
+      "new_path": "ACTION_CONTACT/INTERACTION",
+      "new_confidence": "MEDIUM",
+      "reason_ja": "対象となる人・生き物・物との接触関係を行為・接触から探す。",
+      "evidence_url": "",
+      "review_note": "Deterministic analogue rule: relational contact with another entity/object; pure body-posture suffixes are excluded."
+    },
+    {
+      "canonical": "standing_on_box",
+      "old_status": "PROPOSED",
+      "old_path": "POSE_MOVEMENT",
+      "old_confidence": "HIGH",
+      "new_status": "PROPOSED",
+      "new_path": "ACTION_CONTACT/INTERACTION",
+      "new_confidence": "MEDIUM",
+      "reason_ja": "対象となる人・生き物・物との接触関係を行為・接触から探す。",
+      "evidence_url": "",
+      "review_note": "Deterministic analogue rule: relational contact with another entity/object; pure body-posture suffixes are excluded."
+    },
+    {
+      "canonical": "standing_on_branch",
+      "old_status": "PROPOSED",
+      "old_path": "POSE_MOVEMENT",
+      "old_confidence": "HIGH",
+      "new_status": "PROPOSED",
+      "new_path": "ACTION_CONTACT/INTERACTION",
+      "new_confidence": "MEDIUM",
+      "reason_ja": "対象となる人・生き物・物との接触関係を行為・接触から探す。",
+      "evidence_url": "",
+      "review_note": "Deterministic analogue rule: relational contact with another entity/object; pure body-posture suffixes are excluded."
+    },
+    {
+      "canonical": "standing_on_desk",
+      "old_status": "PROPOSED",
+      "old_path": "POSE_MOVEMENT",
+      "old_confidence": "HIGH",
+      "new_status": "PROPOSED",
+      "new_path": "ACTION_CONTACT/INTERACTION",
+      "new_confidence": "MEDIUM",
+      "reason_ja": "対象となる人・生き物・物との接触関係を行為・接触から探す。",
+      "evidence_url": "",
+      "review_note": "Deterministic analogue rule: relational contact with another entity/object; pure body-posture suffixes are excluded."
+    },
+    {
+      "canonical": "standing_on_liquid",
+      "old_status": "PROPOSED",
+      "old_path": "POSE_MOVEMENT",
+      "old_confidence": "HIGH",
+      "new_status": "PROPOSED",
+      "new_path": "ACTION_CONTACT/INTERACTION",
+      "new_confidence": "MEDIUM",
+      "reason_ja": "対象となる人・生き物・物との接触関係を行為・接触から探す。",
+      "evidence_url": "",
+      "review_note": "Deterministic analogue rule: relational contact with another entity/object; pure body-posture suffixes are excluded."
+    },
+    {
+      "canonical": "standing_on_magic_circle",
+      "old_status": "PROPOSED",
+      "old_path": "POSE_MOVEMENT",
+      "old_confidence": "HIGH",
+      "new_status": "PROPOSED",
+      "new_path": "ACTION_CONTACT/INTERACTION",
+      "new_confidence": "MEDIUM",
+      "reason_ja": "対象となる人・生き物・物との接触関係を行為・接触から探す。",
+      "evidence_url": "",
+      "review_note": "Deterministic analogue rule: relational contact with another entity/object; pure body-posture suffixes are excluded."
+    },
+    {
+      "canonical": "standing_on_object",
+      "old_status": "PROPOSED",
+      "old_path": "POSE_MOVEMENT",
+      "old_confidence": "HIGH",
+      "new_status": "PROPOSED",
+      "new_path": "ACTION_CONTACT/INTERACTION",
+      "new_confidence": "MEDIUM",
+      "reason_ja": "対象となる人・生き物・物との接触関係を行為・接触から探す。",
+      "evidence_url": "",
+      "review_note": "Deterministic analogue rule: relational contact with another entity/object; pure body-posture suffixes are excluded."
+    },
+    {
+      "canonical": "standing_on_rock",
+      "old_status": "PROPOSED",
+      "old_path": "POSE_MOVEMENT",
+      "old_confidence": "HIGH",
+      "new_status": "PROPOSED",
+      "new_path": "ACTION_CONTACT/INTERACTION",
+      "new_confidence": "MEDIUM",
+      "reason_ja": "対象となる人・生き物・物との接触関係を行為・接触から探す。",
+      "evidence_url": "",
+      "review_note": "Deterministic analogue rule: relational contact with another entity/object; pure body-posture suffixes are excluded."
+    },
+    {
+      "canonical": "standing_on_roof",
+      "old_status": "PROPOSED",
+      "old_path": "POSE_MOVEMENT",
+      "old_confidence": "HIGH",
+      "new_status": "PROPOSED",
+      "new_path": "ACTION_CONTACT/INTERACTION",
+      "new_confidence": "MEDIUM",
+      "reason_ja": "対象となる人・生き物・物との接触関係を行為・接触から探す。",
+      "evidence_url": "",
+      "review_note": "Deterministic analogue rule: relational contact with another entity/object; pure body-posture suffixes are excluded."
+    },
+    {
+      "canonical": "standing_on_shoulder",
+      "old_status": "PROPOSED",
+      "old_path": "POSE_MOVEMENT",
+      "old_confidence": "HIGH",
+      "new_status": "PROPOSED",
+      "new_path": "ACTION_CONTACT/INTERACTION",
+      "new_confidence": "MEDIUM",
+      "reason_ja": "対象となる人・生き物・物との接触関係を行為・接触から探す。",
+      "evidence_url": "",
+      "review_note": "Deterministic analogue rule: relational contact with another entity/object; pure body-posture suffixes are excluded."
+    },
+    {
+      "canonical": "standing_on_swing",
+      "old_status": "PROPOSED",
+      "old_path": "POSE_MOVEMENT",
+      "old_confidence": "HIGH",
+      "new_status": "PROPOSED",
+      "new_path": "ACTION_CONTACT/INTERACTION",
+      "new_confidence": "MEDIUM",
+      "reason_ja": "対象となる人・生き物・物との接触関係を行為・接触から探す。",
+      "evidence_url": "",
+      "review_note": "Deterministic analogue rule: relational contact with another entity/object; pure body-posture suffixes are excluded."
+    },
+    {
+      "canonical": "standing_on_sword",
+      "old_status": "PROPOSED",
+      "old_path": "POSE_MOVEMENT",
+      "old_confidence": "HIGH",
+      "new_status": "PROPOSED",
+      "new_path": "ACTION_CONTACT/INTERACTION",
+      "new_confidence": "MEDIUM",
+      "reason_ja": "対象となる人・生き物・物との接触関係を行為・接触から探す。",
+      "evidence_url": "",
+      "review_note": "Deterministic analogue rule: relational contact with another entity/object; pure body-posture suffixes are excluded."
+    },
+    {
+      "canonical": "standing_on_torii",
+      "old_status": "PROPOSED",
+      "old_path": "POSE_MOVEMENT",
+      "old_confidence": "HIGH",
+      "new_status": "PROPOSED",
+      "new_path": "ACTION_CONTACT/INTERACTION",
+      "new_confidence": "MEDIUM",
+      "reason_ja": "対象となる人・生き物・物との接触関係を行為・接触から探す。",
+      "evidence_url": "",
+      "review_note": "Deterministic analogue rule: relational contact with another entity/object; pure body-posture suffixes are excluded."
+    },
+    {
+      "canonical": "standing_on_weapon",
+      "old_status": "PROPOSED",
+      "old_path": "POSE_MOVEMENT",
+      "old_confidence": "HIGH",
+      "new_status": "PROPOSED",
+      "new_path": "ACTION_CONTACT/INTERACTION",
+      "new_confidence": "MEDIUM",
+      "reason_ja": "対象となる人・生き物・物との接触関係を行為・接触から探す。",
+      "evidence_url": "",
+      "review_note": "Deterministic analogue rule: relational contact with another entity/object; pure body-posture suffixes are excluded."
+    }
+  ],
+  "effective_sidecar": {
+    "path": "docs/issue64/full_rollout/effective_sidecar.csv",
+    "sha256": "b1665bd672c26935e54670b3a87f547f0cf50f6e00581a9f8cfcdf0390c8ad86",
+    "counts": {
+      "PROPOSED": 28232,
+      "UNRESOLVED": 2397,
+      "HIGH": 25099,
+      "MEDIUM": 3133,
+      "LOW": 2397
+    }
+  },
+  "effective_batch_summaries_path": "docs/issue64/full_rollout/corrections/effective_batch_summaries.json",
+  "source_hash_provenance_path": "docs/issue64/full_rollout/corrections/hash_provenance.json",
+  "source_hash_provenance": {
+    "manifest_working_source_sha256": "58f9ff128a7ca21a17de4345c36c7891b8169a66fbe3d1de5c190cf48f17d51c",
+    "population_sha256_sorted_utf8_lf": "ca5cc065c92aa38f9daa6b6c8a1f1c13db135057ebfabca076479dfa96872e2b",
+    "working_source_semantics": "UTF-8-SIG CSV, sorted canonical rows with canonical/display_ja/search_ja/post_count columns, materialized from the Japanese overlay and usage snapshot",
+    "population_semantics": "UTF-8/LF canonical-only sorted list; derived from the same target population, not byte-identical to the richer source CSV",
+    "verification": "PASS",
+    "local_materialized_source_path": "issue64_general_30629.csv",
+    "local_materialized_source_note": "Untracked local extraction used only to verify source hash and canonical membership; not included in this change.",
+    "local_materialized_source_sha256": "58f9ff128a7ca21a17de4345c36c7891b8169a66fbe3d1de5c190cf48f17d51c",
+    "local_materialized_source_rows": 30629
+  },
+  "protected_data": "Read-only inputs; no canonical, overlay, Special, #64 production, or #66 files changed."
+}
