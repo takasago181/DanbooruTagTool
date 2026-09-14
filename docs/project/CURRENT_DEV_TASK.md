@@ -1,20 +1,22 @@
-# CURRENT DEV TASK — NONE ASSIGNED
+# CURRENT DEV TASK — ISSUE #69 LOCAL MAINTENANCE
 
 最終同期: 2026-09-14
 
 ## Routing status
 
-- **Active Codex DEV implementation Issue: none assigned.** Do not promote an unrelated open Issue into the current DEV lane.
-- Issue #68, **[MAINT][POST-V1][CLEANUP] Repository/workspace cleanup and root normalization**, is complete. The tracked root is normalized at `e9dae6d82b6db9fe22afe3f123b50405883801a4`; Phase 2E was reviewed and accepted as a safe no-op. The old #64 shell checkout's local-only `benchmarks/`, `backups/`, and `_handoff/` remain in place because their consumers or protected provenance remain active.
-- The next user route is Stage10 learning Issue #65. It may resume and is a practical image-generation learning lane, **not a Codex implementation task** unless the user separately assigns implementation work.
+- **Active lane: Issue #69 — [MAINT][LOCAL][FINAL] One-pass local workspace cleanup.** This is an explicitly user-prioritized local-maintenance pass, not product-code implementation.
+- Latest DEV routing override: comment `5665797636`. Complete this one-pass cleanup before returning to Stage10.
+- Issue #68 is completed at live main closeout commit `0fe636319e90947e0813388cbe7251e0057f7a9d`. Its Phase 2E result was a safe no-op; the old #64 primary checkout still needs a unique-material preservation check before normalization.
+- Stage10 learning Issue #65 is paused by current priority until #69 completes. It remains a user learning lane, not a Codex implementation task.
 
-## Current WPF daily launch
+## One-pass objective
 
-The current WPF app was published under local `artifacts/current/` with its required runtime files and production `Data/catalog.db`. The local root shortcut `DanbooruTagTool.lnk` targets that WPF executable. Both are workstation-local convenience artifacts and are not tracked product files. The app uses its adjacent `UserData/user.db` for user state.
+Inventory the actual primary checkout and registered worktrees, preserve unique local-only evidence before retiring anything, normalize the primary checkout to current live `main`, retire only stale worktrees/material proven safe, keep required protected assets in place, and validate the current WPF shortcut/catalog/UserData flow. Finish and close #69 in this pass if no concrete unsafe path remains.
 
-## Boundaries
+## Preserve boundaries
 
-- Read `CURRENT_STATE.md` first, then fetch the live Issue and latest DEV comment before any newly assigned work.
-- Preserve protected/local source data, accepted #56/#63/#64 assets, audit provenance, and user `UserData`.
+- Preserve protected/local source data and accepted #56/#63/#64 assets, Japanese overlay data, audit provenance, current production catalog, real `UserData`, local `artifacts/current/`, and root `DanbooruTagTool.lnk`.
+- Do not delete unrecoverable or unique local-only evidence. If it cannot remain at its current path during normalization, preserve it in a clearly named ignored location with a hash manifest where practical.
+- Do not duplicate multi-gigabyte protected datasets for appearance.
 - Never use `git clean -fdx` or `git clean -fdX`.
-- Stage10 learning is user-directed and must not be reclassified as a DEV implementation gate.
+- The current user-facing launcher remains WPF; do not restore the legacy Python/Tk launcher.
