@@ -1,3 +1,8 @@
 # Issue #63 audit hashes and deterministic CSV bytes must survive Windows checkout.
 docs/audit/SPECIAL2788_PRODUCT_FIT_VERDICT_MANIFEST_20260912.json text eol=lf
 data/special2788/product_fit_verdicts.csv text eol=lf
+
+# Issue #64 accepted production inputs are byte-hashed by the validator.
+docs/issue64/production_candidate/general_taxonomy.json text eol=lf
+docs/issue64/production_candidate/effective_sidecar.csv text eol=lf
+docs/issue64/production_candidate/manifest.json text eol=lf
