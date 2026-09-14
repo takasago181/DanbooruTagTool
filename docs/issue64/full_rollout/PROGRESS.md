@@ -43,44 +43,6 @@ Rows **30,401-30,629** (`yo-yo` -> `|_|`) were classified, audited, persisted, a
 - XZ SHA-256: `fca16c3c3d40c460cf02575a28646848e8ddfa74c3940663f065636b77427ddd`
 - storage: Git data binary blob
 
-## Batch 36 audit focus
-
-- `y*` / `z*` was not bulk-classified by prefix; object/concept identity remained primary.
-- school-specific swimwear/uniforms stayed in clothing/uniform paths; cosplay and named suits were separated from ordinary clothing.
-- specialized devices that do not fit daily-use semantics were kept at `OBJECT_PROP` without forcing `DAILY`.
-- zebra ears/tail were kept as body parts, while zebra print / zig-zag pattern were treated as independent appearance/pattern concepts.
-- 43 proper-name memes, project/work-specific concepts, uncertain named techniques/items, or otherwise unsafe concepts remain explicit `UNRESOLVED`.
-- historical usage / `post_count` was not used or substituted.
-- canonical identity / production Japanese overlay / Special / #66 UI-search / main were not modified.
-
 ## Completion state / stop gate
 
-The sequential 30,629-row candidate classification is now complete and fully accounted for. This is **not production acceptance** and does not authorize #66 integration yet.
-
-Next Issue #64 work is the completion audit / acceptance lane:
-1. verify MANIFEST range continuity, row counts, hashes, and totals across all batches;
-2. generate/verify a combined full sidecar or equivalent completion artifact if required by the acceptance review;
-3. review unresolved accounting and boundary samples;
-4. record DEV/AUDIT acceptance or correction request in Issue #64.
-
-Do **not** proceed automatically to #66. Stop here for user/DEV-AUDIT review after the population-complete checkpoint.
-
-## Rules
-
-- accepted 17 top-level genres
-- max path depth 2
-- no visible catch-all
-- beginner practical discovery path takes precedence over substring matching
-- object identity takes precedence over modifier fragments
-- keep pilot-v2 boundaries for role/clothing, sky/light, screen/composition, body/exposure
-- ambiguous proper names/events/projects remain UNRESOLVED when evidence is insufficient
-- canonical/Japanese overlay/Special data are not mutated during candidate build
-
-## Persistence
-
-- branch: `chatgpt/issue64-full-rollout`
-- manifest: `docs/issue64/full_rollout/MANIFEST.json`
-- immutable detailed ledgers: `docs/issue64/full_rollout/batches/`
-- Batch 5+ summary JSON: `docs/issue64/full_rollout/batches/batchNNN_summary.json`
-- past checkpointed batch files are not overwritten
-- main is not updated until the full candidate and audit are accepted
+The sequential 30,629-row candidate classification is complete. Production acceptance has not occurred. Do not proceed automatically to #66; next work is Issue #64 completion audit / acceptance.
