@@ -1,0 +1,23 @@
+{
+  "issue": 64,
+  "batch": 36,
+  "range": [30401, 30629],
+  "count": 229,
+  "status_counts": {"PROPOSED": 186, "UNRESOLVED": 43},
+  "confidence_counts": {"HIGH": 140, "MEDIUM": 46, "LOW": 43},
+  "primary_genre_counts": {"ACTION_CONTACT": 6, "BODY_PART": 3, "CLOTHING": 67, "CLOTHING_STATE_EXPOSURE": 3, "COLOR_APPEARANCE": 2, "COMPOSITION_CAMERA": 2, "EXPRESSION_EMOTION": 1, "HAIR_FACE": 2, "LIVING_NATURE": 2, "OBJECT_PROP": 38, "PERSON_COUNT": 20, "PLACE_BACKGROUND": 4, "POSE_MOVEMENT": 9, "STYLE_QUALITY_META": 8, "TEXT_SYMBOL": 19},
+  "unresolved": ["yodaka_(ado)", "yoshi_and_toad_kissing_(meme)", "you're_doing_it_wrong", "you're_not_helping", "you_and_i!_(idolmaster)", "you_are_an_idiot_(virus)", "you_are_my_hero!!_(project_sekai)", "you_can_just_give_this_kind_of_thing_to_men_and_they_will_be_thrilled_(meme)", "you_dress_weird_(meme)", "you_gonna_get_eaten", "you_gonna_get_raped", "you_know_other_men?_(meme)", "you_look_lonely_(meme)", "you_should_kill_yourself_now_(meme)", "youkai_pad", "youmu_day", "your_bra_strap_is_showing_(meme)", "your_present_is_me", "yuanbao", "yubi_yubi_(inugami_korone)", "yugakshetra_(fate/grand_order)", "yukadon", "yukadon_on_viewer", "yukari_is_merry_theory_(touhou)", "yukianesa", "yukkuri_shiteitte_ne", "yume_no_tsue", "yuri_(object)", "yuruyuri's_starting", "yusuf_dikec_(meme)", "z-move", "za_warudo", "zabaniya_(fate)", "zekkyou!?_ookami_no_mori_e_youkoso!_(project_sekai)", "zeknova", "zero_(inazuma_eleven)", "zesty_sonic_(meme)", "zeus_(inazuma_eleven)", "zhijupao", "zodiac", "zuiyin", "zuo_wang_dao", "zushiri_(nijisanji)"],
+  "audit_notes": [
+    "`y*` / `z*` の語頭では一括せず、制服・コスプレ・武器・記号・役柄・食べ物・場所など対象identityを優先して個別分類した。",
+    "用途が日用品に限定できない固有器具（Z-Crystal / transformation driver / Zonai device等）は OBJECT_PROP の主ジャンルのみとし、DAILYへ押し込まなかった。",
+    "学校指定水着は制服系、伝統衣装・特殊スーツは衣装系、zebra ears/tailは身体部位、zebra print / zig-zag patternは独立した柄として境界を分離した。",
+    "固有ミーム・作品固有イベント/技名・意味が安全に確定できない43件はUNRESOLVEDを維持した。",
+    "historical usage / post_count は通常ledger必須でないため未使用。global row identity/orderは population.txt を使用した。",
+    "canonical identity / production Japanese overlay / Special / #66 UI-search / main は変更していない。"
+  ],
+  "raw_csv_sha256": "8207c9d554f3598555847eace8e333da20d4075b40bedf6d4d4b34ac22317aa2",
+  "xz_sha256": "fca16c3c3d40c460cf02575a28646848e8ddfa74c3940663f065636b77427ddd",
+  "storage_mode": "git_data_binary_blob",
+  "path": "docs/issue64/full_rollout/batches/batch036_rows30401-30629_ledger.csv.xz",
+  "formal_checkpoint": true
+}
