@@ -8,12 +8,13 @@
     "first_chunk_index": 4
   },
   "completed_chunk_indices": [
-    4
+    4,
+    8
   ],
-  "completed_rows": 500,
+  "completed_rows": 1000,
   "status_totals": {
-    "ACCEPTED_AI": 472,
-    "REVIEW_REQUIRED": 28
+    "ACCEPTED_AI": 925,
+    "REVIEW_REQUIRED": 75
   },
   "review_required": [
     {"row_id":"I70-001527","canonical_tag":"prisma_illya","display_ja":"プリズマ☆イリヤ","note":"日本語表示名・表記の確定に追加確認が必要"},
@@ -43,7 +44,54 @@
     {"row_id":"I70-001883","canonical_tag":"employee_(project_moon)","display_ja":"自職員","note":"日本語表示名・表記の確定に追加確認が必要"},
     {"row_id":"I70-001900","canonical_tag":"mizi_(zombie_stage)","display_ja":"ミジ","note":"日本語表示名・表記の確定に追加確認が必要"},
     {"row_id":"I70-001931","canonical_tag":"uruha_rushia_(1st_costume)","display_ja":"潤羽るしあ（通常）","note":"日本語表示名・表記の確定に追加確認が必要"},
-    {"row_id":"I70-001974","canonical_tag":"isoi_reiji","display_ja":"磯井麗慈","note":"日本語表示名・表記の確定に追加確認が必要"}
+    {"row_id":"I70-001974","canonical_tag":"isoi_reiji","display_ja":"磯井麗慈","note":"日本語表示名・表記の確定に追加確認が必要"},
+    {"row_id":"I70-003517","canonical_tag":"male_endministrator_(arknights)","display_ja":"男管理人","note":"日本語公式表記の追加確認が必要"},
+    {"row_id":"I70-003543","canonical_tag":"enraku_tsubakura","display_ja":"燕楽玄鳥","note":"日本語表記と読みの追加確認が必要"},
+    {"row_id":"I70-003545","canonical_tag":"li_yuting_(male)","display_ja":"li yuting（male）","note":"中国語固有名の日本語表示方針確認が必要"},
+    {"row_id":"I70-003569","canonical_tag":"mr._c.b._(clear_bliss)_(umamusume)","display_ja":"Mr. C.B.（Clear Bliss）","note":"衣装名の日本語公式表記確認が必要"},
+    {"row_id":"I70-003594","canonical_tag":"player_character_(degrees_of_lewdity)","display_ja":"player character（Degrees of Lewdity）","note":"日本語定着呼称を確認できず原語保持"},
+    {"row_id":"I70-003598","canonical_tag":"lappland_(refined_horrormare)_(arknights)","display_ja":"ラップランド（Refined Horrormare）","note":"衣装名の日本語公式表記確認が必要"},
+    {"row_id":"I70-003599","canonical_tag":"shiver_(deep_cut_outfit)_(splatoon)","display_ja":"フウカ（すりみ連合衣装）","note":"衣装ラベルの日本語公式表記確認が必要"},
+    {"row_id":"I70-003614","canonical_tag":"fallenshadow","display_ja":"Fallenshadow","note":"日本語定着表記の追加確認が必要"},
+    {"row_id":"I70-003633","canonical_tag":"elizabeth_rose_bloodflame_(1st_costume)","display_ja":"Elizabeth Rose Bloodflame（1st costume）","note":"日本語定着表記と衣装表記の追加確認が必要"},
+    {"row_id":"I70-003659","canonical_tag":"sayama_saho","display_ja":"茶山沙穂","note":"canonicalと日本語候補の姓表記差を追加確認"},
+    {"row_id":"I70-003674","canonical_tag":"elysia_(miss_pink)_(honkai_impact)","display_ja":"エリシア（ピンクの妖精さん♪）","note":"形態名の公式日本語対応を追加確認"},
+    {"row_id":"I70-003685","canonical_tag":"almond_eye_(the_changer)_(umamusume)","display_ja":"アーモンドアイ（The Changer）","note":"衣装名の日本語公式表記確認が必要"},
+    {"row_id":"I70-003715","canonical_tag":"mr._plantegg_(omori)","display_ja":"Mr. Plantegg","note":"日本語定着表記を確認できず原語保持"},
+    {"row_id":"I70-003723","canonical_tag":"sothis_(young)_(fire_emblem)","display_ja":"ソティス（幼少）","note":"形態ラベルの日本語公式表記確認が必要"},
+    {"row_id":"I70-003736","canonical_tag":"evil_neuro-sama_(1st_costume)","display_ja":"Evil Neuro-sama（1st costume）","note":"日本語定着表記と衣装表記の追加確認が必要"},
+    {"row_id":"I70-003737","canonical_tag":"neko_(minato_aqua)","display_ja":"neko（minato aqua）","note":"既存語がファンアート用語のためキャラクター名確認が必要"},
+    {"row_id":"I70-003754","canonical_tag":"angelina_the_mellow_wish_(arknights)","display_ja":"Angelina the Mellow Wish","note":"日本語公式名を確認できず原語保持"},
+    {"row_id":"I70-003765","canonical_tag":"demon_king_of_salvation","display_ja":"Demon King of Salvation","note":"日本語公式訳名の追加確認が必要"},
+    {"row_id":"I70-003770","canonical_tag":"marina_(off_the_hook_outfit)_(splatoon)","display_ja":"イイダ（テンタクルズ衣装）","note":"衣装ラベルの日本語公式表記確認が必要"},
+    {"row_id":"I70-003779","canonical_tag":"li_yuting_(female)","display_ja":"li yuting（female）","note":"中国語固有名の日本語表示方針確認が必要"},
+    {"row_id":"I70-003795","canonical_tag":"hinata_hideki","display_ja":"日向秀樹","note":"既存候補が姓のみのためフルネーム表記を追加確認"},
+    {"row_id":"I70-003803","canonical_tag":"paxton_(pokemon)","display_ja":"キョウヤ","note":"新作キャラクターの日本語公式名を追加確認"},
+    {"row_id":"I70-003807","canonical_tag":"bubba_(watson_amelia)","display_ja":"Bubba（ワトソン・アメリア）","note":"日本語定着表記の追加確認が必要"},
+    {"row_id":"I70-003811","canonical_tag":"tord_(eddsworld)","display_ja":"Tord","note":"既存候補のカナ表記が別名と衝突し得るため追加確認"},
+    {"row_id":"I70-003816","canonical_tag":"alice_thymefield_(sea_of_thyme)","display_ja":"アリス・タイムフィールド（タイム香る海辺）","note":"衣装名と日本語キャラクター表記の追加確認が必要"},
+    {"row_id":"I70-003819","canonical_tag":"liv_(pgr)","display_ja":"リーフ","note":"日本語版キャラクター名対応の追加確認が必要"},
+    {"row_id":"I70-003826","canonical_tag":"lebanne_(pokemon)","display_ja":"ハルジオ","note":"新作キャラクターの日本語公式名を追加確認"},
+    {"row_id":"I70-003847","canonical_tag":"blue_poison_(shoal_beat)_(arknights)","display_ja":"ブルーポイズン（浅瀬）","note":"衣装名の公式日本語対応を追加確認"},
+    {"row_id":"I70-003856","canonical_tag":"amiya_(medic)_(arknights)","display_ja":"アーミヤ（医療）","note":"形態名の日本語公式表記確認が必要"},
+    {"row_id":"I70-003864","canonical_tag":"flower_(vocaloid4)","display_ja":"v flower","note":"日本語表示名としての定着表記を追加確認"},
+    {"row_id":"I70-003872","canonical_tag":"zentreya_(dragon)","display_ja":"Zentreya（Dragon）","note":"日本語定着表記と形態名の追加確認が必要"},
+    {"row_id":"I70-003891","canonical_tag":"gilgamesh_(casual_wear)_(fate/zero)","display_ja":"ギルガメッシュ（私服・Fate/Zero）","note":"衣装ラベルの日本語公式表記確認が必要"},
+    {"row_id":"I70-003921","canonical_tag":"acheron_(slashed_dream)_(honkai:_star_rail)","display_ja":"黄泉（Slashed Dream）","note":"形態名の日本語公式表記確認が必要"},
+    {"row_id":"I70-003925","canonical_tag":"meisho_doto_(turbulent_blue)_(umamusume)","display_ja":"メイショウドトウ（ブルー/レイジング）","note":"衣装名とcanonical形態名の対応確認が必要"},
+    {"row_id":"I70-003934","canonical_tag":"vedal987","display_ja":"Vedal","note":"日本語定着表記の追加確認が必要"},
+    {"row_id":"I70-003943","canonical_tag":"march_7th_(hunt)_(honkai:_star_rail)","display_ja":"三月なのか（巡狩）","note":"形態名の日本語公式表記確認が必要"},
+    {"row_id":"I70-003953","canonical_tag":"angelica_(project_moon)","display_ja":"アンジェリカ","note":"日本語公式表記の追加確認が必要"},
+    {"row_id":"I70-003962","canonical_tag":"big_bad_wolf","display_ja":"大きな悪いオオカミ","note":"日本語定着訳の追加確認が必要"},
+    {"row_id":"I70-003968","canonical_tag":"yae_sakura_(gyakushinn_miko)","display_ja":"八重桜（逆神の巫女）","note":"形態名とキャラクター日本語名の対応確認が必要"},
+    {"row_id":"I70-003969","canonical_tag":"yao_guang_(honkai:_star_rail)","display_ja":"爻光","note":"日本語版での読み・公式表記確認が必要"},
+    {"row_id":"I70-003972","canonical_tag":"gilgamesh_(immoral_biker_jacket)_(fate)","display_ja":"ギルガメッシュ（Immoral Biker Jacket）","note":"衣装名の日本語公式表記確認が必要"},
+    {"row_id":"I70-003977","canonical_tag":"protagonist_(metaphor:_refantazio)","display_ja":"主人公（メタファー：リファンタジオ）","note":"公式名と主人公ラベルの運用確認が必要"},
+    {"row_id":"I70-003983","canonical_tag":"ariane_yeong","display_ja":"Ariane Yeong","note":"日本語公式表記を確認できず原語保持"},
+    {"row_id":"I70-003986","canonical_tag":"arcane_caitlyn","display_ja":"ケイトリン・キラマン（Arcane）","note":"日本語版フルネーム表記の追加確認が必要"},
+    {"row_id":"I70-003992","canonical_tag":"tsukumo_sana_(1st_costume)","display_ja":"Tsukumo Sana（1st costume）","note":"日本語定着表記と衣装表記の追加確認が必要"},
+    {"row_id":"I70-003995","canonical_tag":"houlen_yabusame","display_ja":"鳳聯藪雨","note":"日本語表記と読みの追加確認が必要"},
+    {"row_id":"I70-003998","canonical_tag":"ukinami_yuzuha_(tanuki_in_broad_daylight)","display_ja":"浮波柚葉（晴天の化け狸）","note":"新規キャラクターと衣装名の日本語公式表記確認が必要"}
   ],
   "result_files": [
     {
@@ -53,7 +101,15 @@
       "result_path": "docs/issue70/data/results/lane2/lane2_chunk004_I70-001501_I70-002000.csv",
       "result_sha256": "2d1684fce55dfc99d169b230e967cd55358945f2eda1707346fa750d33930933",
       "row_count": 500
+    },
+    {
+      "chunk_index": 8,
+      "source_path": "docs/issue70/data/source_chunks/source_003501_004000.csv",
+      "source_sha256": "852754b896757cbf7b784d733b372a20a482d0ed3a4969fbcf04bb7ea987069c",
+      "result_path": "docs/issue70/data/results/lane2/lane2_chunk008_I70-003501_I70-004000.csv",
+      "result_sha256": "1b465783c26c17047ea6225e64a2ba55ccd04b84805d0fd90ad41b41d0ced90e",
+      "row_count": 500
     }
   ],
-  "next_chunk_index": 8
+  "next_chunk_index": 12
 }
