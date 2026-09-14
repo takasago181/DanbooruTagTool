@@ -1,11 +1,12 @@
-# Issue #66 — Windows UI review screenshots
+# Issue #66 — UX Refinement Pass 1 review screenshots
 
-These full-window screenshots were captured from the current #66 usability branch on the actual Windows desktop. They are intended for visual review; no UI or application code was changed for this capture.
+These full-window screenshots were captured from the Release WPF build of the current #66 branch on Windows after the UX Refinement Pass 1 changes.
 
-- Capture commit (branch HEAD at capture): `766652d56e0669bf079360b11a61d3a273d8db6d`
 - Source branch: `codex/issue66-dictionary-selection-usability`
-- Latest WPF source commit: `82844336197f1a0430e86b7b1ed285f8c0ed91bb`
-- Executable launched: `artifacts/current/DanbooruTagTool.exe`
+- Source commit: `e3284e12604b9dc253fb455ef88ca0ccb177e520`
+- Screenshot commit: `0ff23cb573ee01c865cabc694cb3007ff996f36e`
+- Executable launched: Release build output from `src/DanbooruTagTool.App/bin/Release/net10.0-windows/`
+- Target: `.NET 10.0-windows`; SDK `10.0.401`
 - Windows display scaling: 150% (`LogPixels=144`, `Win8DpiScaling=1`)
 - Window state and captured size: maximized, 1707 × 912 pixels
 
@@ -13,18 +14,29 @@ These full-window screenshots were captured from the current #66 usability branc
 
 | File | Visible state |
 | --- | --- |
-| `dictionary.png` | Dictionary/Search workspace; `blue_hair` query, three result rows, first row selected, and Tag Details tab. |
-| `current-prompt.png` | Dictionary/Search workspace; Current Prompt tab with five mixed item types, per-item delete controls, and copy action. |
-| `prompt-editor.png` | Prompt Edit workspace; five visible items, Undo/Redo controls, Prompt-local find, and the actual English preview/copy area. |
+| `dictionary.png` | Dictionary/Search workspace; `blue hair` query, three result rows, the first row selected, and Tag Details. |
+| `current-prompt.png` | Dictionary/Search workspace; Current Prompt tab with normal, weighted, LoRA, `BREAK`, and unresolved raw items; per-item `×` and copy actions are visible. |
+| `prompt-editor.png` | Prompt Edit workspace; the five mixed items are selected, showing `5件選択中`, the edit toolbar, and the actual English preview/copy area. |
 
-The review Prompt was temporary and contained a normal tag, a weighted tag, a LoRA, `BREAK`, and an unresolved raw trigger:
+The temporary review Prompt was:
 
 ```text
 blue_hair, (looking_at_viewer:1.2), <lora:sample_lora:0.7>, BREAK, custom_trigger
 ```
 
-The screenshots have no open tooltip, popup, or error dialog. The maximized window shows all five Prompt items in the editor. At the smaller restored window size, the Current Prompt pane may need internal scrolling.
+No tooltip, popup, or error dialog is open. All images show the entire maximized window at 1707 × 912.
 
-## Validation note
+## Validation
 
-The WPF executable launched and all three workspaces/states displayed normally. A fresh Release build was attempted with `dotnet build .\src\DanbooruTagTool.sln -c Release`, but this environment has no installed .NET SDK, so that command could not run. The current artifact was the already-built `artifacts/current` executable from this branch. The pre-capture `UserData` directory was backed up outside the repository and restored byte-for-byte after capture.
+- Debug build: PASS
+- Debug tests: PASS (74 passed, 0 failed)
+- Release build: PASS
+- Release tests: PASS (74 passed, 0 failed)
+- `git diff --check`: PASS
+- Windows launch: PASS from the branch's Release output
+- Manually confirmed: search and selected-result details; Prompt-chip inspection opens Tag Details; mixed English direct-edit Apply and Cancel; conflicting actions are disabled during direct edit; dictionary add then Prompt Undo; restart and saved mixed Prompt restoration; multi-select `Ctrl+A` shows five selected items.
+- Exercised through automated tests, but not manually confirmed in this capture: empty-clipboard no-op and Prompt-item delete/Undo. A drag attempt did not visibly reorder the items, so drag reorder remains unconfirmed on this Windows interaction pass.
+
+Search inspection showed distinct `sex` identities in the production catalog rather than duplicate canonical results emitted by SearchEngine: General `G:sex` plus Special IDs `S:54`, `S:66`, and `S:67`. Search results remain canonical-deduped; no Search/Core change was made.
+
+No #64 classification, canonical/source asset, or protected catalog data was changed for this pass. The screenshot Prompt was stored in the isolated Release-output UserData copy, not the current portable UserData.
