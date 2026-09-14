@@ -13,12 +13,13 @@
     "`striped_*` は柄modifierより衣服・身体・背景など対象identityを優先し、独立した柄表現のみ COLOR_APPEARANCE とした。",
     "作品固有イベント・ミーム・プロジェクト・意味を安全に確定できない固有語81件はUNRESOLVEDに保持した。",
     "historical usage / post_count は通常ledger必須でないため未使用。global row identity/orderは固定 population.txt を使用した。",
-    "canonical identity / production Japanese overlay / Special / #66 UI・search / main は変更しないcandidate-buildのみ。"
+    "canonical identity / production Japanese overlay / Special / #66 UI・search / main は変更しないcandidate-buildのみ。",
+    "MANIFEST.json の完全blobを取得してBatch 1-30を保持したままBatch 31を追記し、row 26,400の正式checkpointへ昇格した。"
   ],
   "raw_csv_sha256": "a007704975c45c8605f7eb77f4e973f9c3f83eff2a1fff570350ab9bcc93a4fd",
   "xz_sha256": "1d024337547e7f94736c618378041a84e4f85a53194bd67e354ec783a10ff713",
   "storage_mode": "git_data_binary_blob",
   "path": "docs/issue64/full_rollout/batches/batch031_rows25401-26400_ledger.csv.xz",
-  "formal_checkpoint": false,
-  "formalization_blocker": "MANIFEST.json atomic replacement not safely completed in this run; keep formal checkpoint at row 25400 until manifest/progress/hash agreement is reverified."
+  "formal_checkpoint": true,
+  "formalization_blocker": null
 }
