@@ -4,11 +4,11 @@
 
 ## Current Stage
 
-**Stage9 completed / beginner-first v1 direction locked / #64 bounded rollout review complete with clean integration candidate pending DEV review / #66 WPF usability completion continues.**
+**Stage9 completed / beginner-first v1 direction locked / #64 bounded rollout review complete with clean integration candidate pending DEV review / #66 UX refinement accepted and merged; General integration and final Windows acceptance remain.**
 
 Current active implementation owners:
 - **Issue #64** — final bounded audit verdict and clean production-integration candidate review
-- **Issue #66** — beginner-first WPF app/search/UI completion; consume the #64 candidate only after DEV review accepts it
+- **Issue #66** — consume the accepted #64 taxonomy after it reaches main, then complete practical-v1 Windows acceptance
 
 Current Stage10 definition:
 - Issue #65
@@ -75,52 +75,21 @@ Accepted baseline includes:
 - autosave/recovery;
 - General provider boundary waiting for accepted #64.
 
-### Current usability refinement branch
+### Accepted UX refinement merged to live main
 
-Branch:
+Issue #66 UX Refinement Passes 1/2 were accepted and integrated into live main at:
 
-`codex/issue66-dictionary-selection-usability`
+`3f4e47d7331809b2e6a234824799fb3bc179bae8`
 
-Latest remote branch head:
+The reviewed source was branch `codex/issue66-dictionary-selection-usability` at `ed389e976e48d98309a01b10bc11bae9e42fbdaf`. The accepted refinement includes the clearer dictionary result/detail layout, Current Prompt actions, safer direct-English editing, Prompt Edit toolbar/find/navigation polish, and manually verified drag reorder with Undo/Redo.
 
-`6e3905b0c9b0c40a127d138d61967cf572439d15`
+Validation on the accepted source: Debug/Release builds PASS, Debug/Release tests 75/75 PASS, `git diff --check` PASS, and Windows drag reorder + Undo/Redo PASS. No #64 taxonomy or protected/canonical data was included.
 
-Relative to main, the branch changes only:
-- `src/DanbooruTagTool.App/MainWindow.xaml`
-- `src/DanbooruTagTool.App/MainWindow.xaml.cs`
-- `src/DanbooruTagTool.App/ViewModels/MainViewModel.cs`
+### Remaining #66 scope
 
-Current branch improvements include:
-- central dictionary result list promoted over the old bottom detail pane;
-- right `タグ詳細 / 現在のPrompt` tabbed pane;
-- narrower right pane and denser list;
-- softer selection styling;
-- dictionary-workspace Undo access;
-- Current Prompt item-level `×` delete using existing PromptItem ID deletion;
-- existing Undo restores deletion;
-- no new history mechanism;
-- no Core/Data/Search/#64/canonical/protected changes.
+Issue #66 remains open for consuming the accepted General taxonomy through the existing provider/catalog boundary and completing final practical-v1 Windows acceptance. Do not begin General integration until the accepted #64 candidate is merged to main.
 
-Latest reported validation:
-- Debug build PASS
-- Release build PASS
-- Debug tests 65/65 PASS
-- Release tests 65/65 PASS
-- `git diff --check` PASS
-- Windows manual checks for dictionary add -> Undo, item delete -> Undo, duplicate/raw/weighted/LoRA/BREAK item-level handling PASS
-
-### Important current decision
-
-**Do not clean-merge the current usability branch yet.**
-
-The user wants more practical feature/UX refinement first.
-
-Next #66 action:
-1. audit the current dictionary/search and Prompt-editing workflow as an actual user;
-2. list concrete friction / missing-function candidates with priority;
-3. do **not** implement the candidate list until user review;
-4. implement only agreed changes on the existing usability lane;
-5. when usability is accepted, prepare a clean reviewable integration delta for main.
+After that integration, verify General browse and bilingual search, then complete the final Prompt/copy and Windows workflow checks. No further UX refinement pass is currently required unless a concrete regression is found.
 
 ## Portable / artifact decision — 2026-09-14
 
@@ -161,9 +130,9 @@ Artifacts remain untracked. Cleanup must be scoped to known disposable artifact 
 
 ## Current route
 
-Parallel now:
+Current route:
 
-`#64 full rollout`  +  `#66 practical UX/functionality refinement`
+`#64 accepted/merged -> #66 General integration -> final Windows acceptance -> practical v1 baseline -> Stage10 resume`
 
 After #64 acceptance:
 1. #66 consumes only the accepted General taxonomy sidecar through the existing provider/catalog boundary;
@@ -185,7 +154,7 @@ Portable/second-PC acceptance is not in this critical path.
 | TEAM_ID | Status | Scope | Restore anchor |
 | --- | --- | --- | --- |
 | `GENERAL-DICT:#64` | **ACTIVE DEV** | General 30,629 practical taxonomy | Issue #64 latest checkpoint + rollout PROGRESS/MANIFEST |
-| `V1-APP:#66` | **ACTIVE / PHASE B MERGED / UX REFINEMENT ACTIVE** | WPF app/search/UI + later #64 integration + final v1 | Issue #66 body/latest comments + current usability branch |
+| `V1-APP:#66` | **ACTIVE / PHASE B + UX REFINEMENT MERGED / GENERAL INTEGRATION + FINAL ACCEPTANCE** | WPF app/search/UI + accepted #64 integration + final v1 | Issue #66 body/latest comments + live main WPF implementation |
 | `STAGE10-LEARNING:#65` | **PAUSED BY CURRENT PRIORITY** | practical image-generation mastery | Issue #65 + `STAGE_10_LEARNING.md` |
 | `KNOWLEDGE:#44` | **ONGOING / V1 NON-BLOCKING** | knowledge corpus + Prompt/generation knowledge | Issue #44 |
 | `MAINT:#24` | OPEN / SAFETY DEBT | protected-data backup/restore | Issue #24 |
@@ -204,6 +173,7 @@ Historical only:
 - Special product-fit #63 — completed/merged
 - Japanese overlay production 30,629 — completed
 - Issue #66 Phase B clean WPF baseline — merged
+- Issue #66 accepted UX refinement — merged at `3f4e47d7331809b2e6a234824799fb3bc179bae8`
 
 Do not restart completed foundations wholesale without demonstrated regression or explicit redesign decision.
 
