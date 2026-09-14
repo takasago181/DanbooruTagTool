@@ -1,15 +1,15 @@
 # CURRENT STATE
 
-最終更新: 2026-09-14
+最終更新: 2026-09-15
 
 ## Current Stage
 
-**Stage9 completed / beginner-first practical v1 accepted / #64 General taxonomy accepted and integrated / #66 completed / #68 completed / #69 active local final cleanup.**
+**Stage9 completed / beginner-first practical v1 accepted / #64 General taxonomy accepted and integrated / #66 completed / #68 completed / #69 local final cleanup completed.**
 
 Current maintenance route:
-- **Issue #69** — one-pass local workspace cleanup, explicitly prioritized before Stage10. Its latest DEV routing override is comment `5665797636`.
-- Issue #68 is complete. The tracked root was normalized at `e9dae6d82b6db9fe22afe3f123b50405883801a4`; Phase 2E was accepted as a safe no-op. The old #64 checkout's local-only `benchmarks/`, `backups/`, and `_handoff/` remain protected by active consumers/provenance until this final local pass can preserve and safely normalize the primary checkout.
-- **Stage10 learning Issue #65 is paused by current user priority until #69 completes.** Stage10 remains a user learning lane, not a Codex product implementation task.
+- **No active DEV implementation issue.** Issue #69 one-pass local cleanup completed on 2026-09-15 after preserving unique evidence, normalizing the primary checkout to live `main`, and validating the current WPF runtime and production catalog.
+- Issue #68 is complete. Phase 2E was accepted as a safe no-op. Protected local `benchmarks/`, `backups/`, `_handoff/`, audit provenance, local tooling, and translation quarantine remain in place for their consumers; safe stale worktrees and reproducible caches were retired.
+- **Stage10 learning Issue #65 may resume as the user's learning route.** It is not a Codex product implementation task unless separately requested.
 
 Current workstation WPF launch:
 - The current WPF runtime and production `Data/catalog.db` are available under local `artifacts/current/`.
@@ -19,7 +19,7 @@ Current Stage10 definition:
 - Issue #65
 - `docs/stages/STAGE_10_LEARNING.md`
 
-Stage10 is the practical image-generation learning stage (NoobAI XL 1.1 EPS + Forge Neo primary), **not** the old broad Special production A/B stage. It may resume after #69 completion; it is not a Codex implementation gate unless separately assigned by the user.
+Stage10 is the practical image-generation learning stage (NoobAI XL 1.1 EPS + Forge Neo primary), **not** the old broad Special production A/B stage. It resumed after #69 completion; it is not a Codex implementation gate unless separately assigned by the user.
 
 ## Product goal
 
@@ -139,15 +139,15 @@ Artifacts remain untracked. Cleanup must be scoped to known disposable artifact 
 
 ## Current route
 
-`#66 practical v1 accepted -> #68 cleanup completed -> #69 local final cleanup -> Stage10 #65 learning may resume`
+`#66 practical v1 accepted -> #68 cleanup completed -> #69 local final cleanup completed -> Stage10 #65 learning resumed`
 
-Issue #69 is the active one-pass local-maintenance lane, explicitly prioritized before Stage10. Preserve unique local evidence first, normalize the primary checkout to live main only after the preserve check, and leave protected data/audit/tooling/UserData/current WPF runtime intact.
+Issue #69 completed the one-pass local-maintenance lane. The primary checkout is current `main`; unique local-only evidence is preserved with hashes, and protected data, audit/tooling state, production catalog, and current WPF UserData remain in place. The root shortcut was opened successfully after normalization and the app reopened against its adjacent user state.
 
-Stage10 #65 remains paused until #69 completes. Afterward it returns as the user's practical image-generation learning route; it is not a Codex implementation task unless separately assigned.
+Stage10 #65 is available again as the user's practical image-generation learning route; it is not a Codex implementation task unless separately assigned.
 
 Short form:
 
-`#64 accepted/integrated + #66 practical v1 accepted -> #68 completed -> #69 local final cleanup -> Stage10 #65 may resume`
+`#64 accepted/integrated + #66 practical v1 accepted -> #68 completed -> #69 local final cleanup completed -> Stage10 #65 may resume`
 
 Portable/second-PC acceptance is not in this critical path.
 
@@ -158,8 +158,8 @@ Portable/second-PC acceptance is not in this critical path.
 | `GENERAL-DICT:#64` | **COMPLETED / ACCEPTED + INTEGRATED** | General 30,629 practical taxonomy | Issue #64 acceptance comment + production candidate on main |
 | `V1-APP:#66` | **COMPLETED / PRACTICAL_V1_ACCEPTED** | beginner-first WPF app, accepted General integration, final Windows acceptance | Issue #66 acceptance comment `5662680719` + main `1486fc242d2eadf9ca24ed803e50ad7af7294004` |
 | `MAINT:#68` | **COMPLETED** | tracked-root normalization complete; Phase 2E accepted safe no-op | Issue #68 completion checkpoint `5665690628` |
-| `MAINT:#69` | **ACTIVE / ONE-PASS LOCAL FINAL CLEANUP** | normalize primary everyday checkout and safely retire/preserve local workspace material | Issue #69 latest DEV routing override `5665797636` |
-| `STAGE10-LEARNING:#65` | **PAUSED BY CURRENT PRIORITY (#69)** | practical image-generation mastery; not a Codex implementation task | Issue #65 + `STAGE_10_LEARNING.md` |
+| `MAINT:#69` | **COMPLETED** | preserve unique local evidence, retire safe stale worktrees/caches, normalize primary root to live main, validate WPF/catalog/data | Issue #69 final DEV closeout comment |
+| `STAGE10-LEARNING:#65` | **READY / USER LEARNING LANE** | practical image-generation mastery; not a Codex implementation task | Issue #65 + `STAGE_10_LEARNING.md` |
 | `KNOWLEDGE:#44` | **ONGOING / V1 NON-BLOCKING** | knowledge corpus + Prompt/generation knowledge | Issue #44 |
 | `MAINT:#24` | OPEN / SAFETY DEBT | protected-data backup/restore | Issue #24 |
 
