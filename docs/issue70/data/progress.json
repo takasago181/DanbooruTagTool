@@ -1,0 +1,36 @@
+﻿{
+    "format_version":  1,
+    "issue":  70,
+    "total_rows":  92739,
+    "source_chunk_size":  500,
+    "source_chunk_count":  186,
+    "automation_rows_per_run":  2000,
+    "completed_rows":  1000,
+    "next_row_number":  1001,
+    "next_row_id":  "I70-001001",
+    "next_chunk_index":  3,
+    "completed_source_chunks":  2,
+    "status_totals":  {
+                          "ACCEPTED_AI":  996,
+                          "REVIEW_REQUIRED":  4
+                      },
+    "completed_batches":  [
+                              {
+                                  "batch_id":  "I70-B001",
+                                  "first_row_id":  "I70-000001",
+                                  "last_row_id":  "I70-001000",
+                                  "row_count":  1000,
+                                  "result_files":  [
+                                                       "docs/issue70/data/results/batch001/batch001_part1_I70-000001_I70-000500.csv",
+                                                       "docs/issue70/data/results/batch001/batch001_part2_I70-000501_I70-001000.csv"
+                                                   ],
+                                  "manifest":  "docs/issue70/data/results/batch001/batch001_manifest.json"
+                              }
+                          ],
+    "review_required":  [
+                            "cyrene_(demiurge)_(honkai:_star_rail)",
+                            "t-head_trainer_(umamusume)",
+                            "cyrene_(philia093)_(honkai:_star_rail)",
+                            "p-head_producer"
+                        ]
+}

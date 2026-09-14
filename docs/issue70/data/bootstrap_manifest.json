@@ -1,0 +1,36 @@
+﻿{
+    "format_version":  1,
+    "generated_from_local_protected_assets":  true,
+    "target_population":  {
+                              "Character":  35890,
+                              "Copyright":  8536,
+                              "Artist":  48313,
+                              "total":  92739
+                          },
+    "source_files":  {
+                         "translation_source_with_relations":  {
+                                                                   "path":  "docs/issue70/data/source/issue70_translation_source_with_relations.csv",
+                                                                   "sha256":  "c2872d32300b445f7896becdbaec0e27028d3401d90aac13156de3b50d822f4e"
+                                                               },
+                         "character_copyright_top5":  {
+                                                          "path":  "docs/issue70/data/source/character_copyright_top5.csv",
+                                                          "sha256":  "c3da54f45b1d4a54056ea1e8348c342c1e2624aec72806fc252b61ee4aa92be6"
+                                                      },
+                         "character_copyright_extraction_summary":  {
+                                                                        "path":  "docs/issue70/data/source/character_copyright_extraction_summary.json",
+                                                                        "sha256":  "12f4aef7efb07f685e8e82b4705201d3e3963dd7849df9aadef2266b65e22854"
+                                                                    },
+                         "character_copyright_unresolved_source_tags":  {
+                                                                            "path":  "docs/issue70/data/source/character_copyright_unresolved_source_tags.csv",
+                                                                            "sha256":  "dcce01b31b3619526d0de517471511382bfc83ee221da317a735d9bd52206c7a"
+                                                                        },
+                         "character_copyright_evidence_full":  {
+                                                                   "path":  "docs/issue70/data/source/character_copyright_evidence_full.csv.gz",
+                                                                   "sha256":  "893fbf07c7d0250e1c30d43b9e01aca69d56e2e6f3d742dcc233e889dfec5aec"
+                                                               }
+                     },
+    "large_local_sources_not_committed":  [
+                                              "data/runtime_source/posts-snapshot-ebb02a630201c7b51487e45fb90b3fcf4cbedc20.parquet",
+                                              "data/runtime_index/"
+                                          ]
+}

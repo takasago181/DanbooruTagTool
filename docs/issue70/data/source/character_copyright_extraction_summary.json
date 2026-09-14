@@ -1,0 +1,54 @@
+{
+  "format_version": 1,
+  "purpose": "Issue #70 Character-Copyright co-occurrence evidence; not semantic authority",
+  "source": {
+    "parquet": "data/runtime_source/posts-snapshot-ebb02a630201c7b51487e45fb90b3fcf4cbedc20.parquet",
+    "parquet_sha256": "5b6b2671dc0fa966de71af76dfd342f485f76581447cec9e26c313ba9fb1c2fd",
+    "canonical": "data/source/danbooru-2026-09-02.csv",
+    "canonical_sha256": "9b32d5ac0713ab252e7470ba6af9cb34de56878b6b3b13dfbbf6a4a37d82d95b",
+    "alias": "data/derived/danbooru_alias_normalized_index_VERIFIED_34417.csv",
+    "alias_sha256": "3f942704a10bb342ae7368024337849d392d54745061cf9259e51b9f6080a394",
+    "population_predicate": "is_deleted IS NOT TRUE"
+  },
+  "population": {
+    "parquet_rows": 11740666,
+    "rows_seen": 11740666,
+    "rows_included": 11218362,
+    "rows_deleted_true": 522304,
+    "posts_with_resolved_character": 9140242,
+    "posts_with_resolved_character_and_copyright": 9138437
+  },
+  "dictionary": {
+    "character_count": 35890,
+    "copyright_count": 8536,
+    "verified_alias_rows": 34417,
+    "ambiguous_alias_rows_not_used": 44,
+    "character_unique_alias_count": 7664,
+    "copyright_unique_alias_count": 3457
+  },
+  "resolution": {
+    "character": {
+      "exact": 16785015,
+      "unresolved": 1864396,
+      "unique_alias": 1190
+    },
+    "copyright": {
+      "exact": 13297511,
+      "unresolved": 119285,
+      "unique_alias": 1929
+    },
+    "unresolved_character_unique": 280725,
+    "unresolved_copyright_unique": 19817
+  },
+  "evidence": {
+    "unique_character_copyright_pairs": 1841273,
+    "characters_with_any_pair": 35597,
+    "top_n_for_translation": 5
+  },
+  "translation_enrichment": {
+    "source_present": true,
+    "rows_written": 92739,
+    "character_rows_with_candidates": 35597
+  },
+  "warning": "Co-occurrence is evidence only. It must not be treated as canonical identity or a Danbooru semantic implication without separate review."
+}

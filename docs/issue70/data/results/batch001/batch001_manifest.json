@@ -1,0 +1,67 @@
+{
+  "format_version": 1,
+  "issue": 70,
+  "batch_id": "I70-B001",
+  "range": {
+    "first_row_id": "I70-000001",
+    "last_row_id": "I70-001000",
+    "row_count": 1000,
+    "category": "Character"
+  },
+  "source": {
+    "canonical_source_sha256": "9b32d5ac0713ab252e7470ba6af9cb34de56878b6b3b13dfbbf6a4a37d82d95b",
+    "verified_alias_source_sha256": "3f942704a10bb342ae7368024337849d392d54745061cf9259e51b9f6080a394",
+    "relation_parquet_sha256": "5b6b2671dc0fa966de71af76dfd342f485f76581447cec9e26c313ba9fb1c2fd",
+    "translation_source": "issue70_translation_source_with_relations.csv"
+  },
+  "result": {
+    "status_counts": {
+      "ACCEPTED_AI": 996,
+      "REVIEW_REQUIRED": 4
+    },
+    "csv_sha256": "7bd4af9c5ef10dd89a16eb726557a2195f241c8db5ea7b17c29583ce9c048eb4",
+    "review_required": [
+      {
+        "row_id": "I70-000456",
+        "canonical_tag": "cyrene_(demiurge)_(honkai:_star_rail)",
+        "display_ja": "キュレネ（デミウルゴス）",
+        "note": "AI監修：最新ストーリー由来の形態ラベル確認候補"
+      },
+      {
+        "row_id": "I70-000706",
+        "canonical_tag": "t-head_trainer_(umamusume)",
+        "display_ja": "Tヘッドトレーナー（ウマ娘）",
+        "note": "AI監修：日本語ファン呼称の表記揺れ確認候補"
+      },
+      {
+        "row_id": "I70-000796",
+        "canonical_tag": "cyrene_(philia093)_(honkai:_star_rail)",
+        "display_ja": "キュレネ（PhiLia093）",
+        "note": "AI監修：最新ストーリー由来の形態ラベル確認候補"
+      },
+      {
+        "row_id": "I70-000917",
+        "canonical_tag": "p-head_producer",
+        "display_ja": "Pヘッドプロデューサー",
+        "note": "AI監修：日本語ファン呼称の表記揺れ確認候補"
+      }
+    ]
+  },
+  "integrity": {
+    "canonical_identity_preserved": true,
+    "row_order_preserved": true,
+    "source_context_columns_preserved": true,
+    "only_translation_fields_changed": [
+      "display_ja",
+      "search_ja",
+      "translation_status",
+      "translation_note"
+    ]
+  },
+  "policy": {
+    "character_and_series_context_used": true,
+    "existing_japanese_terms_used_as_evidence_not_authority": true,
+    "fan_or_chinese_only_candidates_not_blindly_adopted": true,
+    "runtime_llm_required": false
+  }
+}
