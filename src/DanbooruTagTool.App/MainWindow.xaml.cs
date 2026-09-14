@@ -27,12 +27,12 @@ public partial class MainWindow : Window
         Left = Math.Clamp(vm.Ui.Left, SystemParameters.VirtualScreenLeft, SystemParameters.VirtualScreenLeft + SystemParameters.VirtualScreenWidth - 100);
         Top = Math.Clamp(vm.Ui.Top, SystemParameters.VirtualScreenTop, SystemParameters.VirtualScreenTop + SystemParameters.VirtualScreenHeight - 100);
         var navWidth = Math.Abs(vm.Ui.NavWidth - 210) < 0.5 ? 230 : vm.Ui.NavWidth;
-        // Values written by the previous layout were 300 (old XAML default) or
-        // 340 (the persisted UiState default). Migrate only those legacy
-        // defaults; a wider splitter value is an explicit user choice.
-        var promptWidth = IsLegacyPromptWidth(vm.Ui.PromptWidth) ? 230 : vm.Ui.PromptWidth;
-        NavColumn.Width = new(Math.Max(180, navWidth)); PromptColumn.Width = new(Math.Max(200, promptWidth));
-        EditorColumn.Width = new(Math.Clamp(vm.Ui.EditRatio, .25, .85), GridUnitType.Star); EnglishColumn.Width = new(1 - Math.Clamp(vm.Ui.EditRatio, .25, .85), GridUnitType.Star);
+        var promptWidth = IsLegacyPromptWidth(vm.Ui.PromptWidth) ? 280 : vm.Ui.PromptWidth;
+        NavColumn.Width = new(Math.Max(180, navWidth)); PromptColumn.Width = new(Math.Max(260, promptWidth));
+        // Hidden editor geometry used to persist zero, then clamp it to 25%.
+        // Repair that collapsed state while retaining usable splitter choices.
+        var ratio = vm.Ui.EditRatio <= .251 ? .7 : Math.Clamp(vm.Ui.EditRatio, .3, .85);
+        EditorColumn.Width = new(ratio, GridUnitType.Star); EnglishColumn.Width = new(1 - ratio, GridUnitType.Star);
         searchTimer.Tick += (_, _) => { searchTimer.Stop(); vm.RefreshResults(); };
         feedbackTimer.Tick += (_, _) => { feedbackTimer.Stop(); if (vm.Status == "✓ コピーしました") vm.Status = ""; };
         uiTimer.Tick += (_, _) => { uiTimer.Stop(); SaveGeometry(); };
@@ -54,21 +54,35 @@ public partial class MainWindow : Window
         Closing += (_, _) => { SaveGeometry(); searchTimer.Stop(); feedbackTimer.Stop(); uiTimer.Stop(); };
         Loaded += (_, _) => { vm.UpdateChipLanguage(); FindChild<ScrollViewer>(DictionaryList)?.ScrollToVerticalOffset(vm.RestoreScroll); };
     }
-    private static bool IsLegacyPromptWidth(double width) => Math.Abs(width - 300) < 0.5 || Math.Abs(width - 340) < 0.5;
+    private static bool IsLegacyPromptWidth(double width) => Math.Abs(width - 230) < 0.5 || Math.Abs(width - 300) < 0.5 || Math.Abs(width - 340) < 0.5;
     private void QueueUiSave() { if (!IsLoaded) return; uiTimer.Stop(); uiTimer.Start(); }
     private void SaveGeometry()
     {
         var rect = WindowState == WindowState.Normal ? new Rect(Left, Top, ActualWidth, ActualHeight) : RestoreBounds;
-        vm.SaveUi(vm.Ui with { Width = rect.Width, Height = rect.Height, Left = rect.Left, Top = rect.Top, NavWidth = NavColumn.ActualWidth, PromptWidth = PromptColumn.ActualWidth, EditRatio = EditorColumn.ActualWidth / Math.Max(1, EditorColumn.ActualWidth + EnglishColumn.ActualWidth) });
+        var ratio = EditorColumn.Width.Value / (EditorColumn.Width.Value + EnglishColumn.Width.Value);
+        vm.SaveUi(vm.Ui with { Width = rect.Width, Height = rect.Height, Left = rect.Left, Top = rect.Top,
+            NavWidth = vm.WorkspaceIndex == 0 ? NavColumn.ActualWidth : vm.Ui.NavWidth,
+            PromptWidth = vm.WorkspaceIndex == 0 ? PromptColumn.ActualWidth : vm.Ui.PromptWidth,
+            EditRatio = ratio });
     }
     private void SearchChanged(object sender, TextChangedEventArgs e) { if (DataContext == null) return; searchTimer.Stop(); searchTimer.Start(); }
     private void NavigationChanged(object sender, RoutedPropertyChangedEventArgs<object> e) { if (e.NewValue is NavigationNode node) vm.Navigate.Execute(node); }
     private void WorkspaceChanged(object sender, SelectionChangedEventArgs e) { if (DataContext != null && e.Source == Workspaces) vm.UpdateChipLanguage(); }
     private void SplitterChanged(object sender, System.Windows.Controls.Primitives.DragCompletedEventArgs e) => SaveGeometry();
     private void BrowseScrolled(object sender, ScrollChangedEventArgs e) { if (DataContext != null) { vm.BrowseScroll = e.VerticalOffset; QueueUiSave(); } }
+    private void DictionaryMouseUp(object sender, MouseButtonEventArgs e)
+    {
+        if (FindAncestor<Button>(e.OriginalSource as DependencyObject) != null) return;
+        if (FindAncestor<ListBoxItem>(e.OriginalSource as DependencyObject)?.DataContext is EntryViewModel row) vm.InspectEntry.Execute(row);
+    }
+    private void DictionaryKeyUp(object sender, KeyEventArgs e)
+    {
+        if (e.Key is Key.Up or Key.Down or Key.Home or Key.End or Key.PageUp or Key.PageDown or Key.Enter && DictionaryList.SelectedItem is EntryViewModel row) vm.InspectEntry.Execute(row);
+    }
     private void FindKeyDown(object sender, KeyEventArgs e) { if (e.Key == Key.Enter) { vm.FindNext(Keyboard.Modifiers.HasFlag(ModifierKeys.Shift)); e.Handled = true; } }
     private void WindowKeyDown(object sender, KeyEventArgs e)
     {
+        if (vm.DirectEditing) return;
         bool ctrl = Keyboard.Modifiers.HasFlag(ModifierKeys.Control);
         if (ctrl && e.Key == Key.F) { if (vm.WorkspaceIndex == 1) FindBox.Focus(); else SearchBox.Focus(); e.Handled = true; return; }
         if (Keyboard.FocusedElement is TextBox) return;
@@ -82,6 +96,7 @@ public partial class MainWindow : Window
     }
     private void ChipMouseDown(object sender, MouseButtonEventArgs e)
     {
+        if (!vm.CanEditPrompt) return;
         if (FindAncestor<Button>(e.OriginalSource as DependencyObject) != null) return;
         if (sender is not FrameworkElement { DataContext: ChipViewModel chip }) return;
         Keyboard.ClearFocus(); Focus(); pendingChip = chip; dragStart = e.GetPosition(EditorItems);
@@ -94,7 +109,7 @@ public partial class MainWindow : Window
     { if (pendingChip != null && deferredSelection) vm.Select(pendingChip.Id); pendingChip = null; }
     private void ChipMouseMove(object sender, MouseEventArgs e)
     {
-        if (pendingChip == null || e.LeftButton != MouseButtonState.Pressed) return;
+        if (!vm.CanEditPrompt || pendingChip == null || e.LeftButton != MouseButtonState.Pressed) return;
         var p = e.GetPosition(EditorItems);
         if (Math.Abs(p.X - dragStart.X) < SystemParameters.MinimumHorizontalDragDistance && Math.Abs(p.Y - dragStart.Y) < SystemParameters.MinimumVerticalDragDistance) return;
         var ids = vm.BeginDrag(pendingChip.Id); pendingChip = null;
@@ -103,7 +118,7 @@ public partial class MainWindow : Window
     }
     private void EditorDragOver(object sender, DragEventArgs e)
     {
-        if (!e.Data.GetDataPresent("PromptItemIds")) { e.Effects = DragDropEffects.None; return; }
+        if (!vm.CanEditPrompt || !e.Data.GetDataPresent("PromptItemIds")) { e.Effects = DragDropEffects.None; return; }
         var pointer = e.GetPosition(EditorScroll);
         if (pointer.Y < 35) EditorScroll.ScrollToVerticalOffset(EditorScroll.VerticalOffset - 18);
         else if (pointer.Y > EditorScroll.ActualHeight - 35) EditorScroll.ScrollToVerticalOffset(EditorScroll.VerticalOffset + 18);
