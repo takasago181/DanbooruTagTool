@@ -4,11 +4,11 @@
 
 ## Current Stage
 
-**Stage9 completed / beginner-first v1 direction locked / #64 General taxonomy rollout and #66 WPF usability completion are the active parallel lanes.**
+**Stage9 completed / beginner-first v1 direction locked / #64 bounded rollout review complete with clean integration candidate pending DEV review / #66 WPF usability completion continues.**
 
 Current active implementation owners:
-- **Issue #64** — General 30,629 practical browse taxonomy
-- **Issue #66** — beginner-first WPF app/search/UI completion, accepted #64 integration, final practical-v1 acceptance
+- **Issue #64** — final bounded audit verdict and clean production-integration candidate review
+- **Issue #66** — beginner-first WPF app/search/UI completion; consume the #64 candidate only after DEV review accepts it
 
 Current Stage10 definition:
 - Issue #65
@@ -37,23 +37,19 @@ The practical v1 must let the user:
 
 ## Lane A — Issue #64 General 30,629 taxonomy
 
-#64 solely owns:
-- exact production General 30,629 population;
-- shallow practical taxonomy classification;
-- taxonomy sidecar data/audit;
-- unresolved accounting.
+#64 owns the exact production General 30,629 population, the shallow browse taxonomy, its sidecar, and unresolved accounting.
 
-Latest live formal checkpoint verified on 2026-09-14:
-- completed: **1–15,400 / 30,629**
-- remaining: **15,229**
-- next unprocessed global row: **15,401**
-- cumulative PROPOSED: **14,428**
-- cumulative UNRESOLVED: **972**
-- confidence: **13,001 HIGH / 1,427 MEDIUM / 972 LOW**
+Latest live DEV review and bounded result:
+- Issue #64 latest DEV review comment: **`5660957158`**
+- Full effective population: **30,629 / 30,629**, ordered and unique
+- PROPOSED: **28,226** / UNRESOLVED: **2,403**
+- Confidence: **25,097 HIGH / 3,129 MEDIUM / 2,403 LOW**
+- Residual semantic candidates reviewed: **76**; no population-wide semantic reread
+- Final bounded verdict: **`ACCEPT_FOR_PRODUCTION_INTEGRATION`**
+- Rework branch: `codex/issue64-bounded-rework` at `7e10185a311ae8f0239cad0eb1bc879f7c69a2da`
+- Clean candidate branch: `codex/issue64-clean-integration-candidate`, based on live main `3f4e47d7331809b2e6a234824799fb3bc179bae8`
 
-Batch 21 attempted 15,401–16,400 but **no new formal checkpoint was accepted**. Resume from 15,401. Use live Issue #64 latest checkpoint plus branch `PROGRESS.md` / `MANIFEST.json`; do not restart persisted rows.
-
-#66 must not edit/fork #64 classifications or integrate candidate data before #64 acceptance.
+The clean candidate contains only the accepted taxonomy, effective sidecar, concise provenance, focused validation, and this minimal routing sync. It is pending DEV review and remains unmerged. Do not start #66 General catalog/UI integration until that clean candidate is accepted.
 
 ## Lane B — Issue #66 WPF app/search/UI
 

@@ -1,0 +1,48 @@
+{
+  "format_version": 1,
+  "candidate_status": "REVIEWABLE_NOT_MERGED",
+  "issue": 64,
+  "base_main_sha": "3f4e47d7331809b2e6a234824799fb3bc179bae8",
+  "source_rework_branch": "codex/issue64-bounded-rework",
+  "source_rework_commit": "7e10185a311ae8f0239cad0eb1bc879f7c69a2da",
+  "source_candidate_base_commit": "7d15f856cdf6b1dab509b2bcb6706623eba968b0",
+  "dev_review_comment": "https://github.com/takasago181/DanbooruTagTool/issues/64#issuecomment-5660957158",
+  "final_verdict": "ACCEPT_FOR_PRODUCTION_INTEGRATION",
+  "taxonomy": {
+    "path": "docs/issue64/production_candidate/general_taxonomy.json",
+    "version": "issue64-pilot-v2",
+    "sha256": "7311fa1bf1523fcd83134c975b579289d7dbc8aa4cdb1313952d906fc2beb70f"
+  },
+  "effective_sidecar": {
+    "path": "docs/issue64/production_candidate/effective_sidecar.csv",
+    "sha256": "a118f5f904c38cee5b63f0c83b06a56f50ee8afdb623c52eb354731bc0b846d9",
+    "row_count": 30629,
+    "proposed": 28226,
+    "unresolved": 2403,
+    "confidence": {
+      "HIGH": 25097,
+      "MEDIUM": 3129,
+      "LOW": 2403
+    }
+  },
+  "population": {
+    "count": 30629,
+    "canonical_sequence_sha256_utf8_lf": "ca5cc065c92aa38f9daa6b6c8a1f1c13db135057ebfabca076479dfa96872e2b",
+    "working_source_csv_sha256": "58f9ff128a7ca21a17de4345c36c7891b8169a66fbe3d1de5c190cf48f17d51c",
+    "working_source_format": "UTF-8-SIG CSV with canonical, display_ja, search_ja, and post_count columns; canonical sequence matches the sorted UTF-8/LF population list"
+  },
+  "bounded_review": {
+    "path_on_source_branch": "docs/issue64/full_rollout/corrections/residual_candidate_review.csv",
+    "sha256": "4741dad80ca641fc36e35077cf493195eb280e113801f9b52d4e41d6a018564e",
+    "reviewed_candidates": 76,
+    "full_population_semantic_reread": false
+  },
+  "runtime_contract": {
+    "canonical_identity_mutated": false,
+    "japanese_overlay_mutated": false,
+    "special_dictionary_mutated": false,
+    "unresolved_rows_should_be_browsable": false,
+    "runtime_llm_required": false,
+    "consumer_boundary": "Issue #66 existing IGeneralBrowseProvider / catalog import boundary; no App/Core/Data implementation is included in this candidate"
+  }
+}

@@ -2,33 +2,34 @@
 
 > This file mirrors Issue #64 only. Issue #66 remains open for post-#64 General integration and final v1 acceptance. Always read `CURRENT_STATE.md` first and then fetch the live Issue for the lane you are actually working on.
 
-最終同期: 2026-09-13
+最終同期: 2026-09-14
 
 ## Source
 
 - Source Issue: **#64**
 - Issue title: **[GENERAL-DICT][UI-TAXONOMY][DEV] Practical genre browsing for 30,629 Japanese-overlay entries**
-- Issue state: **OPEN / ACTIVE DEV**
-- DEV state: **GENERAL_30629_PRACTICAL_TAXONOMY / FULL ROLLOUT CANDIDATE BUILD**
+- Issue state: **OPEN / FINAL BOUNDED REVIEW COMPLETE / CLEAN CANDIDATE PENDING DEV REVIEW**
+- DEV state: **GENERAL_30629_PRACTICAL_TAXONOMY / ACCEPT_FOR_PRODUCTION_INTEGRATION CANDIDATE**
 - Upstream #63: **ACCEPTED / MERGED / CLOSED**
 - Parallel app lane #66: **PHASE B WPF BASELINE MERGED TO MAIN / OPEN FOR POST-#64 INTEGRATION + FINAL ACCEPTANCE**
 - Stage10 #65: **PAUSED BY USER PRIORITY until practical v1 app baseline**
 
 ## Current continuation checkpoint
 
-Latest durable recovery checkpoint at this sync:
-- Issue #64 latest stop/checkpoint comment: **`5652768534`**
-- Working branch: `chatgpt/issue64-full-rollout`
-- Last fully verified formal checkpoint: **rows 1–13,400 / 30,629 (43.75%)**
-- PROPOSED: **12,679**
-- UNRESOLVED: **721**
-- confidence: **11,516 HIGH / 1,163 MEDIUM / 721 LOW**
-- remaining: **17,229**
-- next unprocessed global row: **13,401**
-- latest `PROGRESS.md` stop-record commit: **`02fe457139fe5dc04e8e4caaf9bfff1d8d9816eb`**
-- accepted pilot basis: `PILOT_ACCEPTED` / commit `5064429018123c80c32ac41af715668fb67fb74e`
+Latest DEV review: Issue #64 comment **`5660957158`**. The full effective candidate and final bounded review are on:
+- Rework branch: `codex/issue64-bounded-rework`
+- Rework commit: **`7e10185a311ae8f0239cad0eb1bc879f7c69a2da`**
+- Clean integration candidate: `codex/issue64-clean-integration-candidate`, based on live main **`3f4e47d7331809b2e6a234824799fb3bc179bae8`**
 
-The attempted 13,401–14,400 continuation reached the execution/tool-context limit before a complete verified ledger could be finalized. No partial classifications from that attempt are official. Resume from **13,401** and again target a full 1,000-row run. Internal checkpoints are allowed, but do not end below 1,000 without a concrete allowed stop condition.
+Effective state:
+- population: **30,629 / 30,629**, exact ordered unique target
+- PROPOSED: **28,226**
+- UNRESOLVED: **2,403**
+- confidence: **25,097 HIGH / 3,129 MEDIUM / 2,403 LOW**
+- bounded residual candidates: **76 reviewed**, no full-population semantic reread
+- final bounded verdict: **`ACCEPT_FOR_PRODUCTION_INTEGRATION`**
+
+The candidate is pending DEV review. Issue #64 remains open; do not merge it or start #66 General integration until the clean candidate is accepted.
 
 Branch recovery files:
 1. `docs/issue64/full_rollout/PROTOCOL.md`
@@ -62,23 +63,17 @@ Fixed boundaries:
 - no runtime LLM dependency
 - unresolved/ambiguous rows may remain explicit during development
 
-Issue #66 Phase B WPF baseline is already merged to main and includes the General provider/UI boundary. #64 must continue producing only its accepted taxonomy sidecar/audit artifacts; do not implement or redesign the WPF UI here.
+Issue #66 Phase B WPF baseline is already merged to main and includes the General provider/UI boundary. This candidate contains no #66 code; after DEV accepts it, #66 may consume the sidecar through that existing boundary.
 
 ## Required process
 
-Pilot is already accepted. Current work is the full candidate-build rollout under the accepted pilot-v2 taxonomy/boundaries.
+The 30,629-row effective candidate and bounded correction audit are complete. The final DEV-side verdict is `ACCEPT_FOR_PRODUCTION_INTEGRATION`; the clean candidate is awaiting DEV review.
 
-1. Continue sequentially from the latest live checkpoint; do not restart persisted rows.
-2. Current formal resume point is row **13,401** unless a newer live checkpoint exists.
-3. Target a full **1,000-row** continuation per run. Internal durable checkpoints are allowed, but do not stop below 1,000 without a concrete allowed stop condition.
-4. Preserve accepted 17 top-level practical genres and max path depth 2 unless a new explicit review decision changes them.
-5. Keep no visible catch-all.
-6. Prefer semantic/object identity over incidental substring matches.
-7. Keep ambiguous proper names/events/projects opaque or uncertain cases explicit as `UNRESOLVED` rather than force-fitting them.
-8. Persist row-level results durably on the working branch and do not overwrite past immutable batch ledgers.
-9. Treat a batch as formal only when ledger, summary, `MANIFEST.json`, and `PROGRESS.md` agree and can be re-read from GitHub.
-10. Keep canonical/Japanese overlay/Special production data unchanged during candidate build.
-11. After all 30,629 candidate rows are complete, perform the required distribution/boundary/unresolved audit before production acceptance.
+1. Review branch `codex/issue64-clean-integration-candidate` against its declared live-main base.
+2. Verify the candidate validator and provenance manifest.
+3. Do not restart classification or perform a full-population semantic reread.
+4. Do not merge, close Issue #64, or start #66 General integration before DEV accepts the clean candidate.
+5. Preserve unresolved rows as explicit unresolved; do not add taxonomy nodes to force coverage.
 
 ## Hard boundaries
 
@@ -114,6 +109,6 @@ Do not self-merge.
 
 ## Post-#64 route
 
-After accepted integration:
+After DEV accepts the clean candidate:
 
-`#64 accepted -> #66 consumes General taxonomy through merged provider boundary -> #66 final app/search/UI acceptance -> Windows/portable acceptance -> practical v1 baseline -> Stage10 resume`
+`#64 clean candidate accepted -> #66 consumes General taxonomy through the existing provider boundary -> #66 final app/search/UI acceptance -> practical v1 baseline -> Stage10 resume`
