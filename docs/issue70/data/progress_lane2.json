@@ -1,0 +1,59 @@
+{
+  "format_version": 1,
+  "issue": 70,
+  "lane": 2,
+  "assignment": {
+    "chunk_modulus": 4,
+    "chunk_remainder": 0,
+    "first_chunk_index": 4
+  },
+  "completed_chunk_indices": [
+    4
+  ],
+  "completed_rows": 500,
+  "status_totals": {
+    "ACCEPTED_AI": 472,
+    "REVIEW_REQUIRED": 28
+  },
+  "review_required": [
+    {"row_id":"I70-001527","canonical_tag":"prisma_illya","display_ja":"プリズマ☆イリヤ","note":"日本語表示名・表記の確定に追加確認が必要"},
+    {"row_id":"I70-001550","canonical_tag":"remielle_dan_(moonlight_whispers)","display_ja":"remielle dan","note":"日本語表示名・表記の確定に追加確認が必要"},
+    {"row_id":"I70-001553","canonical_tag":"dimitri_alexandre_blaiddyd_(timeskip)","display_ja":"ディミトリ＝アレクサンドル＝ブレーダッド（5年後）","note":"日本語表示名・表記の確定に追加確認が必要"},
+    {"row_id":"I70-001556","canonical_tag":"baobhan_sith_(first_ascension)_(fate)","display_ja":"バーゲスト","note":"日本語表示名・表記の確定に追加確認が必要"},
+    {"row_id":"I70-001585","canonical_tag":"velina_airgid","display_ja":"ヴェリナ","note":"日本語表示名・表記の確定に追加確認が必要"},
+    {"row_id":"I70-001590","canonical_tag":"scaramouche_(cat)_(genshin_impact)","display_ja":"スカラマシュ（猫）","note":"日本語表示名・表記の確定に追加確認が必要"},
+    {"row_id":"I70-001618","canonical_tag":"tokoyami_towa_(jirai_kei)","display_ja":"常闇トワ（私服）","note":"日本語表示名・表記の確定に追加確認が必要"},
+    {"row_id":"I70-001651","canonical_tag":"nugget_(project_moon)","display_ja":"自職員","note":"日本語表示名・表記の確定に追加確認が必要"},
+    {"row_id":"I70-001658","canonical_tag":"something_(omori)","display_ja":"SOMETHING","note":"日本語表示名・表記の確定に追加確認が必要"},
+    {"row_id":"I70-001667","canonical_tag":"bloop_(gawr_gura)","display_ja":"Bloop","note":"日本語表示名・表記の確定に追加確認が必要"},
+    {"row_id":"I70-001674","canonical_tag":"sparxie_(honkai:_star_rail)","display_ja":"スパーキー","note":"日本語表示名・表記の確定に追加確認が必要"},
+    {"row_id":"I70-001691","canonical_tag":"miyo_(blue_archive)","display_ja":"桜井ミヨ","note":"日本語表示名・表記の確定に追加確認が必要"},
+    {"row_id":"I70-001698","canonical_tag":"neuro-sama","display_ja":"Neuro-sama","note":"日本語表示名・表記の確定に追加確認が必要"},
+    {"row_id":"I70-001724","canonical_tag":"kanoe_(blue_archive)","display_ja":"板垣カノエ","note":"日本語表示名・表記の確定に追加確認が必要"},
+    {"row_id":"I70-001726","canonical_tag":"durin_(genshin_impact)","display_ja":"ドゥリン","note":"日本語表示名・表記の確定に追加確認が必要"},
+    {"row_id":"I70-001763","canonical_tag":"okita_souji_(third_ascension)_(fate)","display_ja":"沖田総司（第三再臨）","note":"日本語表示名・表記の確定に追加確認が必要"},
+    {"row_id":"I70-001771","canonical_tag":"classic_d.va","display_ja":"D.Va（クラシック）","note":"日本語表示名・表記の確定に追加確認が必要"},
+    {"row_id":"I70-001789","canonical_tag":"dokibird","display_ja":"Dokibird","note":"日本語表示名・表記の確定に追加確認が必要"},
+    {"row_id":"I70-001806","canonical_tag":"gwynn_(pokemon)","display_ja":"ムク","note":"日本語表示名・表記の確定に追加確認が必要"},
+    {"row_id":"I70-001830","canonical_tag":"vi_(league)","display_ja":"ヴァイ","note":"日本語表示名・表記の確定に追加確認が必要"},
+    {"row_id":"I70-001832","canonical_tag":"falin_touden_(tallman)","display_ja":"ファリン・トーデン（トールマン）","note":"日本語表示名・表記の確定に追加確認が必要"},
+    {"row_id":"I70-001838","canonical_tag":"sua_(zombie_stage)","display_ja":"スア","note":"日本語表示名・表記の確定に追加確認が必要"},
+    {"row_id":"I70-001845","canonical_tag":"reiuji_utsuho_(bird)","display_ja":"おキューちゃん","note":"日本語表示名・表記の確定に追加確認が必要"},
+    {"row_id":"I70-001857","canonical_tag":"astolfo_(rider)_(fate)","display_ja":"アストルフォ（ライダー）","note":"日本語表示名・表記の確定に追加確認が必要"},
+    {"row_id":"I70-001883","canonical_tag":"employee_(project_moon)","display_ja":"自職員","note":"日本語表示名・表記の確定に追加確認が必要"},
+    {"row_id":"I70-001900","canonical_tag":"mizi_(zombie_stage)","display_ja":"ミジ","note":"日本語表示名・表記の確定に追加確認が必要"},
+    {"row_id":"I70-001931","canonical_tag":"uruha_rushia_(1st_costume)","display_ja":"潤羽るしあ（通常）","note":"日本語表示名・表記の確定に追加確認が必要"},
+    {"row_id":"I70-001974","canonical_tag":"isoi_reiji","display_ja":"磯井麗慈","note":"日本語表示名・表記の確定に追加確認が必要"}
+  ],
+  "result_files": [
+    {
+      "chunk_index": 4,
+      "source_path": "docs/issue70/data/source_chunks/source_001501_002000.csv",
+      "source_sha256": "2408b16e788554df17bce20e4e56da6c0ebc0bcb98f4d1c4522694c8451ad49c",
+      "result_path": "docs/issue70/data/results/lane2/lane2_chunk004_I70-001501_I70-002000.csv",
+      "result_sha256": "2d1684fce55dfc99d169b230e967cd55358945f2eda1707346fa750d33930933",
+      "row_count": 500
+    }
+  ],
+  "next_chunk_index": 8
+}
