@@ -11,7 +11,7 @@ The rework also:
 - reindexes 198 surviving Batch 8 decisions by canonical identity, records two duplicate decisions, and explicitly recovers its two missing edge rows;
 - replaces the two unreadable 1,200-row ledger ranges with the bounded review CSV, retaining 125 ambiguous rows as `UNRESOLVED` / `LOW`;
 - corrects 721 Batch 34 rows that used 52 subgenre IDs absent from accepted pilot-v2, mapping only reviewed direct aliases and otherwise keeping the accepted top-level genre;
-- records 61 targeted semantic corrections, including the reviewed relation/contact pattern, without adding taxonomy nodes;
+- records 69 targeted semantic corrections, including the reviewed relation/contact and image-cropping patterns, without adding taxonomy nodes. The fresh risk sample also moved `studio_microphone` to objects/equipment and `vocaloid_boxart_pose` to pose; clothing tags such as `cropped_hoodie` remain clothing;
 - records the local working-source CSV hash separately from `population.txt`: the former is a richer UTF-8-SIG CSV, while the latter is the sorted canonical-only UTF-8/LF identity list. Their bytes differ, but the locally available CSV hash and canonical sequence match the manifest and fixed population.
 
 ## Rebuild and verify

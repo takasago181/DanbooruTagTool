@@ -143,6 +143,19 @@ def test_targeted_review_corrections_and_ambiguous_rows_are_preserved():
         rows = {row["canonical"]: row for row in csv.DictReader(stream)}
 
     assert rows["pink_nails"]["primary_path"] == "BODY_PART"
+    for canonical in (
+        "cropped_arm",
+        "cropped_arms",
+        "cropped_head",
+        "cropped_legs",
+        "cropped_shoulders",
+        "cropped_torso",
+    ):
+        assert rows[canonical]["primary_path"] == "COMPOSITION_CAMERA"
+    assert rows["cropped_cardigan"]["primary_path"] == "CLOTHING/ACCESSORY"
+    assert rows["cropped_hoodie"]["primary_path"] == "CLOTHING/EVERYDAY"
+    assert rows["studio_microphone"]["primary_path"] == "OBJECT_PROP/DAILY"
+    assert rows["vocaloid_boxart_pose"]["primary_path"] == "POSE_MOVEMENT"
     assert rows["standing_on_chair"]["primary_path"] == "ACTION_CONTACT/INTERACTION"
     assert rows["sarcophagus"]["primary_path"] == "OBJECT_PROP"
     assert rows["waiter"]["primary_path"] == "PERSON_COUNT"

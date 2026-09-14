@@ -1321,6 +1321,78 @@
       "review_note": "Wiki defines colored fingernails/toenails; HAIR_FACE is outside the tag identity."
     },
     {
+      "canonical": "cropped_head",
+      "old_status": "PROPOSED",
+      "old_path": "BODY_PART",
+      "old_confidence": "HIGH",
+      "new_status": "PROPOSED",
+      "new_path": "COMPOSITION_CAMERA",
+      "new_confidence": "HIGH",
+      "reason_ja": "頭部が画面内で切られる構図・フレーミングを表すため構図から探す。",
+      "evidence_url": "https://safebooru.donmai.us/posts?page=12&tags=cropped_torso",
+      "review_note": "Danbooru cropped-torso wiki defines an in-image crop and links cropped_head under Image composition."
+    },
+    {
+      "canonical": "cropped_arm",
+      "old_status": "PROPOSED",
+      "old_path": "BODY_PART",
+      "old_confidence": "HIGH",
+      "new_status": "PROPOSED",
+      "new_path": "COMPOSITION_CAMERA",
+      "new_confidence": "MEDIUM",
+      "reason_ja": "腕が画面内で切られる構図を表すため構図から探す。",
+      "evidence_url": "https://safebooru.donmai.us/posts?page=12&tags=cropped_torso",
+      "review_note": "Singular variant of the cropped-body-part framing family; corroborated by the official cropped-torso tag family."
+    },
+    {
+      "canonical": "cropped_arms",
+      "old_status": "PROPOSED",
+      "old_path": "BODY_PART",
+      "old_confidence": "HIGH",
+      "new_status": "PROPOSED",
+      "new_path": "COMPOSITION_CAMERA",
+      "new_confidence": "HIGH",
+      "reason_ja": "腕が画面内で切られる構図・フレーミングを表すため構図から探す。",
+      "evidence_url": "https://safebooru.donmai.us/posts?page=12&tags=cropped_torso",
+      "review_note": "Danbooru cropped-torso wiki lists cropped_arms and links the family to Image composition."
+    },
+    {
+      "canonical": "cropped_legs",
+      "old_status": "PROPOSED",
+      "old_path": "BODY_PART",
+      "old_confidence": "HIGH",
+      "new_status": "PROPOSED",
+      "new_path": "COMPOSITION_CAMERA",
+      "new_confidence": "HIGH",
+      "reason_ja": "脚が画面内で切られる構図・フレーミングを表すため構図から探す。",
+      "evidence_url": "https://safebooru.donmai.us/posts?page=12&tags=cropped_torso",
+      "review_note": "Danbooru cropped-torso wiki lists cropped_legs and links the family to Image composition."
+    },
+    {
+      "canonical": "cropped_shoulders",
+      "old_status": "PROPOSED",
+      "old_path": "BODY_PART",
+      "old_confidence": "HIGH",
+      "new_status": "PROPOSED",
+      "new_path": "COMPOSITION_CAMERA",
+      "new_confidence": "HIGH",
+      "reason_ja": "肩から上で切り取る構図・フレーミングを表すため構図から探す。",
+      "evidence_url": "https://safebooru.donmai.us/posts?page=12&tags=cropped_torso",
+      "review_note": "Danbooru cropped-torso wiki distinguishes cropped_shoulders as an image crop and links the family to Image composition."
+    },
+    {
+      "canonical": "cropped_torso",
+      "old_status": "PROPOSED",
+      "old_path": "BODY_PART",
+      "old_confidence": "HIGH",
+      "new_status": "PROPOSED",
+      "new_path": "COMPOSITION_CAMERA",
+      "new_confidence": "HIGH",
+      "reason_ja": "胴体を画像内で切り取る構図・フレーミングを表すため構図から探す。",
+      "evidence_url": "https://safebooru.donmai.us/posts?page=12&tags=cropped_torso",
+      "review_note": "Danbooru wiki defines this as a character cropped within the image and links it to Image composition."
+    },
+    {
       "canonical": "orange_nails",
       "old_status": "PROPOSED",
       "old_path": "HAIR_FACE",
@@ -1391,6 +1463,30 @@
       "reason_ja": "ビール入り飲料缶という容器・小物identityを主経路にする。",
       "evidence_url": "https://safebooru.donmai.us/wiki_pages/beer_can",
       "review_note": "Tag wiki defines an aluminum drink can containing beer and implicates drink_can."
+    },
+    {
+      "canonical": "studio_microphone",
+      "old_status": "PROPOSED",
+      "old_path": "PLACE_BACKGROUND",
+      "old_confidence": "HIGH",
+      "new_status": "PROPOSED",
+      "new_path": "OBJECT_PROP/DAILY",
+      "new_confidence": "HIGH",
+      "reason_ja": "録音ブースで使うマイク機材という具体的な物品から探す。",
+      "evidence_url": "https://shima.donmai.us/wiki_pages/studio_microphone?z=1",
+      "review_note": "Danbooru wiki defines studio microphones as recording equipment and the technology group lists them under microphones."
+    },
+    {
+      "canonical": "vocaloid_boxart_pose",
+      "old_status": "PROPOSED",
+      "old_path": "COMPOSITION_CAMERA",
+      "old_confidence": "HIGH",
+      "new_status": "PROPOSED",
+      "new_path": "POSE_MOVEMENT",
+      "new_confidence": "HIGH",
+      "reason_ja": "Vocaloidなどの箱絵に使われるポーズを表すためポーズから探す。",
+      "evidence_url": "https://safebooru.donmai.us/posts?page=14&tags=vocaloid_boxart_pose",
+      "review_note": "Danbooru wiki defines the tag by the character pose used for Vocaloid or vocal-synth box art."
     },
     {
       "canonical": "optical_camouflage",
@@ -2031,12 +2127,12 @@
   ],
   "effective_sidecar": {
     "path": "docs/issue64/full_rollout/effective_sidecar.csv",
-    "sha256": "b1665bd672c26935e54670b3a87f547f0cf50f6e00581a9f8cfcdf0390c8ad86",
+    "sha256": "3ce45857dba46b3cf8a60983a7cb80b3b0a861dcb0f18b4a8a39d98fdfd256d4",
     "counts": {
       "PROPOSED": 28232,
       "UNRESOLVED": 2397,
-      "HIGH": 25099,
-      "MEDIUM": 3133,
+      "HIGH": 25098,
+      "MEDIUM": 3134,
       "LOW": 2397
     }
   },

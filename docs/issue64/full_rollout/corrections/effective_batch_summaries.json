@@ -1,12 +1,12 @@
 {
   "format_version": 1,
-  "sidecar_sha256": "b1665bd672c26935e54670b3a87f547f0cf50f6e00581a9f8cfcdf0390c8ad86",
+  "sidecar_sha256": "3ce45857dba46b3cf8a60983a7cb80b3b0a861dcb0f18b4a8a39d98fdfd256d4",
   "population_sha256_sorted_utf8_lf": "ca5cc065c92aa38f9daa6b6c8a1f1c13db135057ebfabca076479dfa96872e2b",
   "totals": {
     "PROPOSED": 28232,
     "UNRESOLVED": 2397,
-    "HIGH": 25099,
-    "MEDIUM": 3133,
+    "HIGH": 25098,
+    "MEDIUM": 3134,
     "LOW": 2397
   },
   "batches": {
@@ -533,17 +533,17 @@
         "UNRESOLVED": 61
       },
       "confidence_counts": {
-        "HIGH": 910,
-        "MEDIUM": 29,
+        "HIGH": 909,
+        "MEDIUM": 30,
         "LOW": 61
       },
       "primary_genre_counts": {
         "ACTION_CONTACT": 150,
-        "BODY_PART": 68,
+        "BODY_PART": 62,
         "CLOTHING": 211,
         "CLOTHING_STATE_EXPOSURE": 79,
         "COLOR_APPEARANCE": 11,
-        "COMPOSITION_CAMERA": 11,
+        "COMPOSITION_CAMERA": 17,
         "EXPRESSION_EMOTION": 21,
         "HAIR_FACE": 25,
         "LIGHT_TIME_WEATHER": 11,
@@ -2997,9 +2997,9 @@
         "HAIR_FACE": 22,
         "LIGHT_TIME_WEATHER": 20,
         "LIVING_NATURE": 27,
-        "OBJECT_PROP": 256,
+        "OBJECT_PROP": 257,
         "PERSON_COUNT": 15,
-        "PLACE_BACKGROUND": 37,
+        "PLACE_BACKGROUND": 36,
         "POSE_MOVEMENT": 36,
         "STYLE_QUALITY_META": 22,
         "TEXT_SYMBOL": 19
@@ -3356,7 +3356,7 @@
         "CLOTHING": 161,
         "CLOTHING_STATE_EXPOSURE": 141,
         "COLOR_APPEARANCE": 10,
-        "COMPOSITION_CAMERA": 14,
+        "COMPOSITION_CAMERA": 13,
         "EXPRESSION_EMOTION": 9,
         "HAIR_FACE": 22,
         "LIGHT_TIME_WEATHER": 9,
@@ -3364,7 +3364,7 @@
         "OBJECT_PROP": 185,
         "PERSON_COUNT": 7,
         "PLACE_BACKGROUND": 35,
-        "POSE_MOVEMENT": 26,
+        "POSE_MOVEMENT": 27,
         "STYLE_QUALITY_META": 59,
         "TEXT_SYMBOL": 44
       },
