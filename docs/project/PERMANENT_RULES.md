@@ -92,7 +92,7 @@ Codex自身がIssue本文を推測して書き換えない。
 
 ## Stage10 learning invariant
 
-49. 現在のStage10はIssue #65 / `docs/stages/STAGE_10_LEARNING.md`で定義される実践画像生成学習ステージ。v1 product completion blockerではない。practical-v1 app baselineはIssue #66で完成済み。ユーザー優先によりIssue #68 repository/workspace cleanupを先行し、cleanup完了後にStage10を再開する（優先度が変更された場合を除く）。
+49. 現在のStage10はIssue #65 / `docs/stages/STAGE_10_LEARNING.md`で定義される実践画像生成学習ステージ。v1 product completion blockerではない。practical-v1 app baselineはIssue #66で完成済み。Issue #68 repository/workspace cleanupは完了し、Phase 2Eは安全なno-opとして受理された。Stage10 #65はユーザーの学習ルートとして再開可能であり、ユーザーが別途実装を依頼しない限りCodex DEV implementation taskではない。
 50. Stage10 primary learning laneは **NoobAI XL 1.1 EPS + Forge Neo**。Animaはrelation-heavy / multi-character / tag+natural-language比較・fallback、WAI Illustrious v17はhistorical/comparison、NoobAI V-PredはEPSと分離したadvanced profileとして扱う。
 51. Stage10は設定値の暗記ではなく、`意図 -> Prompt -> 生成 -> 観察 -> 原因分解 -> 修正 -> 必要な補助 -> 仕上げ -> 再現可能な保存` を自力で回せることを目的とする。
 52. hard/niche生成の評価ではpresenceだけで成功扱いせず、必要に応じてactor/target/ownership/body-site/relation/count/visibility/source-destination/topologyを分離して確認する。
