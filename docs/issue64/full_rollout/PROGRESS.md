@@ -19,36 +19,38 @@ Accepted basis: Issue #64 pilot revision 2, commit `5064429018123c80c32ac41af715
 
 ## Formal checkpoint
 
-Completed sequential rows: **1-28,400 / 30,629 (92.72%)**
+Completed sequential rows: **1-29,400 / 30,629 (95.99%)**
 
-- PROPOSED: **26,300**
-- UNRESOLVED: **2,100**
-- HIGH: **23,732**
-- MEDIUM: **2,568**
-- LOW: **2,100**
-- remaining: **2,229**
-- next formal unprocessed global row: **28,401**
+- PROPOSED: **27,164**
+- UNRESOLVED: **2,236**
+- HIGH: **24,495**
+- MEDIUM: **2,669**
+- LOW: **2,236**
+- remaining: **1,229**
+- next formal unprocessed global row: **29,401**
 
-## Batch 33 — FORMAL
+## Batch 34 — FORMAL
 
-Rows **27,401-28,400** (`tiger_lily` -> `type_100_smg`) were classified, audited, persisted, and formally registered:
+Rows **28,401-29,400** (`type_10_(tank)` -> `waving_hands`) were classified, audited, persisted, and formally registered:
 
 - processed: **1,000**
-- PROPOSED: **903**
-- UNRESOLVED: **97**
-- confidence: **783 HIGH / 120 MEDIUM / 97 LOW**
-- ledger: `docs/issue64/full_rollout/batches/batch033_rows27401-28400_ledger.csv.xz`
-- summary: `docs/issue64/full_rollout/batches/batch033_summary.json`
-- raw CSV SHA-256: `37e758d3170e62bdbf6fb9f124dc88a569f0803422203fae1454e10ec26bc886`
-- XZ SHA-256: `defebed18ecb49001292da2e83e0cfac682810fb51a8d648168db024b7c96521`
+- PROPOSED: **864**
+- UNRESOLVED: **136**
+- confidence: **763 HIGH / 101 MEDIUM / 136 LOW**
+- ledger: `docs/issue64/full_rollout/batches/batch034_rows28401-29400_ledger.csv.xz`
+- summary: `docs/issue64/full_rollout/batches/batch034_summary.json`
+- raw CSV SHA-256: `4be1a11f64d64b8ecc682265a8e22d4040ff3f64b4f4c3b6e08278ce4d770dc3`
+- XZ SHA-256: `bbbf4fd74559e1c092b2e8c722d9d663cf3c2c96df8a90b7875765ed2c47e943`
 - storage: Git data binary blob
 
-## Batch 33 audit focus
+## Batch 34 audit focus
 
-- `tiger_*` / `torn_*` / `transparent_*` / `triangle_*` / `two-tone_*` were not classified by stem alone; object/concept identity remained primary.
-- `torn_*` and `two-tone_*` route by the modified target (clothing/body/hair/object/etc.); only independent state/appearance concepts use the corresponding state/appearance genre.
-- tattoo/symbol/UI/accessory/place/action boundaries were explicitly separated where the same modifier family crossed top-level genres.
-- 97 work-specific events, memes, projects, brands, organizations, or otherwise ambiguous concepts remain explicit `UNRESOLVED`.
+- `under_*` / `vampire_*` / `viewer_*` / `waist_*` / `water_*` were not classified by stem alone; object/concept identity remained primary.
+- `vampire_bite` was corrected to `ACTION_CONTACT/contact` rather than being pulled into creature classification by the `vampire_*` stem.
+- `very_big_eyes` / `very_hairy` were corrected to face/body identity paths rather than expression/hair-style shortcuts.
+- role concepts without a safe accepted pilot-v2 path (`waiter`, `waitress`, `warrior`, `viking`, `voice_actor`, `virtual_youtuber`, etc.) remain explicit `UNRESOLVED` rather than being forced into metadata.
+- explicit `_(style)` tags use `STYLE_QUALITY_META/style`; explicit `_(cosplay)` tags use `CLOTHING/dresses_outfits`.
+- ambiguous work-specific events, memes, projects, organizations, transformations, or otherwise unsafe concepts remain `UNRESOLVED`.
 - historical usage / `post_count` was not used or substituted.
 - canonical identity / production Japanese overlay / Special / #66 UI-search / main were not modified.
 
@@ -85,4 +87,4 @@ Recovery order:
 3. `docs/issue64/full_rollout/PROTOCOL.md`
 4. `docs/issue64/full_rollout/MANIFEST.json`
 5. this `PROGRESS.md`
-6. continue from row **28,401**
+6. continue from row **29,401**
