@@ -8,12 +8,13 @@
     "first_chunk_index": 5
   },
   "completed_chunk_indices": [
-    5
+    5,
+    9
   ],
-  "completed_rows": 500,
+  "completed_rows": 1000,
   "status_totals": {
-    "ACCEPTED_AI": 469,
-    "REVIEW_REQUIRED": 31
+    "ACCEPTED_AI": 905,
+    "REVIEW_REQUIRED": 95
   },
   "review_required": [
     {"row_id":"I70-002002","canonical_tag":"haru_urara_(bestest_prize)_(umamusume)","display_ja":"ハルウララ（一等賞）","note":"日本語表示名・表記の確定に追加確認が必要"},
@@ -46,7 +47,71 @@
     {"row_id":"I70-002439","canonical_tag":"nekomiya_mana","display_ja":"猫宮又奈","note":"日本語表示名・表記の確定に追加確認が必要"},
     {"row_id":"I70-002452","canonical_tag":"chief_(path_to_nowhere)","display_ja":"局長（無期迷途）","note":"日本語表示名・表記の確定に追加確認が必要"},
     {"row_id":"I70-002455","canonical_tag":"lucia_(pgr)","display_ja":"ルシア","note":"日本語表示名・表記の確定に追加確認が必要"},
-    {"row_id":"I70-002466","canonical_tag":"adashino_adami","display_ja":"化野あだみ","note":"日本語表示名・表記の確定に追加確認が必要"}
+    {"row_id":"I70-002466","canonical_tag":"adashino_adami","display_ja":"化野あだみ","note":"日本語表示名・表記の確定に追加確認が必要"},
+    {"row_id":"I70-004009","canonical_tag":"mint_fantome_(minto_2.0)","display_ja":"Mint Fantôme（Minto 2.0）","note":"日本語での確立した表示名を追加確認"},
+    {"row_id":"I70-004017","canonical_tag":"azki_(4th_costume)_(hololive)","display_ja":"AZKi（4th衣装）","note":"衣装呼称の公式表記を追加確認"},
+    {"row_id":"I70-004033","canonical_tag":"han_sooyoung","display_ja":"ハン・スヨン","note":"日本語版での表記を追加確認"},
+    {"row_id":"I70-004044","canonical_tag":"marina_(fear_&_hunger)","display_ja":"Marina","note":"日本語版での公式表記を追加確認"},
+    {"row_id":"I70-004058","canonical_tag":"otonose_kanade_(1st_costume)","display_ja":"音乃瀬奏（通常衣装）","note":"衣装呼称の公式表記を追加確認"},
+    {"row_id":"I70-004060","canonical_tag":"shirakami_fubuki_(loungewear)","display_ja":"白上フブキ（部屋着）","note":"衣装呼称の公式表記を追加確認"},
+    {"row_id":"I70-004063","canonical_tag":"kokoro_(hakui_koyori)","display_ja":"ココロ","note":"白上ではなく博衣こより関連キャラクターの公式表記を追加確認"},
+    {"row_id":"I70-004071","canonical_tag":"taihou_(forbidden_fruit)_(azur_lane)","display_ja":"大鳳（禁断の宴）","note":"着せ替え名と現行canonicalの対応を追加確認"},
+    {"row_id":"I70-004073","canonical_tag":"iwanaga_ariya","display_ja":"岩永ありや","note":"日本語での正式表記を追加確認"},
+    {"row_id":"I70-004083","canonical_tag":"yuiman_asama","display_ja":"ユイマン・浅間","note":"二次創作系キャラクターの日本語正式表記を追加確認"},
+    {"row_id":"I70-004110","canonical_tag":"skadi_(waverider)_(arknights)","display_ja":"スカジ（Waverider）","note":"コーデ名の日本語公式表記を追加確認"},
+    {"row_id":"I70-004113","canonical_tag":"benikurage_(cookie)","display_ja":"BNKRG姉貴","note":"ファン呼称系キャラクターの表示名を追加確認"},
+    {"row_id":"I70-004132","canonical_tag":"nekomata_okayu_(school_uniform)","display_ja":"猫又おかゆ（制服衣装）","note":"衣装の公式名称を追加確認"},
+    {"row_id":"I70-004154","canonical_tag":"alpha_(pgr)","display_ja":"アルファ","note":"日本語版PGRでの正式キャラクター／機体名を追加確認"},
+    {"row_id":"I70-004155","canonical_tag":"anastasya_feodorovna_snezhnaya","display_ja":"アナスターシャ・フョードロヴナ・スネージナヤ","note":"原神の最新公式日本語名を追加確認"},
+    {"row_id":"I70-004168","canonical_tag":"ao-chan_(ninomae_ina'nis)","display_ja":"Ao-chan","note":"公式日本語表記を追加確認"},
+    {"row_id":"I70-004171","canonical_tag":"vivian_banshee_(iris_of_the_shore)","display_ja":"ビビアン（イチハツは水辺に咲いて）","note":"衣装・形態名の公式表記を追加確認"},
+    {"row_id":"I70-004182","canonical_tag":"shiranui_flare_(1st_costume)","display_ja":"不知火フレア（通常衣装）","note":"衣装呼称の公式表記を追加確認"},
+    {"row_id":"I70-004183","canonical_tag":"sunny_(shadow_slave)","display_ja":"Sunny","note":"日本語版・邦訳での確立した表記を追加確認"},
+    {"row_id":"I70-004190","canonical_tag":"rice_shower_(vampire_makeover!)_(umamusume)","display_ja":"ライスシャワー（Make up Vampire!）","note":"衣装・カード名の現行公式表記を追加確認"},
+    {"row_id":"I70-004193","canonical_tag":"sukoya_kana_(1st_costume)","display_ja":"健屋花那（通常衣装）","note":"衣装呼称の公式表記を追加確認"},
+    {"row_id":"I70-004197","canonical_tag":"heixiu","display_ja":"ヘイシュウ","note":"日本語公式表記を追加確認"},
+    {"row_id":"I70-004198","canonical_tag":"surtr_(colorful_wonderland)_(arknights)","display_ja":"スルト（Colorful Wonderland）","note":"コーデ名の日本語公式表記を追加確認"},
+    {"row_id":"I70-004202","canonical_tag":"hilda_valentine_goneril_(timeskip)","display_ja":"ヒルダ＝ヴァレンティン＝ゴネリル（5年後）","note":"時系列別表記を追加確認"},
+    {"row_id":"I70-004209","canonical_tag":"smol_ame","display_ja":"スモールアメ","note":"ファン形態名の日本語表記を追加確認"},
+    {"row_id":"I70-004211","canonical_tag":"chloe_von_einzbern_(archer_install)","display_ja":"クロエ・フォン・アインツベルン（アーチャーインストール）","note":"形態名の公式日本語表記を追加確認"},
+    {"row_id":"I70-004214","canonical_tag":"female_mage_(dungeon_and_fighter)","display_ja":"女メイジ","note":"日本語公式職名を追加確認"},
+    {"row_id":"I70-004218","canonical_tag":"jeanne_d'arc_(swimsuit_archer)_(second_ascension)_(fate)","display_ja":"ジャンヌ・ダルク（水着アーチャー・第二再臨）","note":"再臨別表記を追加確認"},
+    {"row_id":"I70-004235","canonical_tag":"noelle_holiday_(dark_world)","display_ja":"ノエル（ダークワールド）","note":"形態区分の日本語表記を追加確認"},
+    {"row_id":"I70-004240","canonical_tag":"medusa_(casual_wear)_(fate)","display_ja":"メドゥーサ（私服）","note":"衣装名の公式日本語表記を追加確認"},
+    {"row_id":"I70-004241","canonical_tag":"minamoto_no_raikou_(first_ascension)_(fate)","display_ja":"源頼光（第一再臨）","note":"再臨別表記を追加確認"},
+    {"row_id":"I70-004251","canonical_tag":"fuwa_minato","display_ja":"不破湊","note":"既存候補がファンタグのみのため表記を追加確認"},
+    {"row_id":"I70-004252","canonical_tag":"hat_kid","display_ja":"ハットキッド","note":"日本語公式表記を追加確認"},
+    {"row_id":"I70-004257","canonical_tag":"katarina_(league)","display_ja":"カタリナ","note":"日本語公式表記を追加確認"},
+    {"row_id":"I70-004258","canonical_tag":"lilith_(second_ascension)_(fate)","display_ja":"リリス（第二再臨）","note":"再臨別表記を追加確認"},
+    {"row_id":"I70-004273","canonical_tag":"z3_max_schultz_(swimsuit)_(kancolle)","display_ja":"Z3 マックス・シュルツ（水着）","note":"水着形態の表記を追加確認"},
+    {"row_id":"I70-004274","canonical_tag":"admire_vega_(starry_nocturne)_(umamusume)","display_ja":"アドマイヤベガ（Starry Nocturne）","note":"衣装名の公式日本語表記を追加確認"},
+    {"row_id":"I70-004285","canonical_tag":"wuxian_(the_legend_of_luo_xiaohei)","display_ja":"無限","note":"日本語版での固有名表記を追加確認"},
+    {"row_id":"I70-004288","canonical_tag":"cinderella_(crystal_wave)_(nikke)","display_ja":"シンデレラ：クリスタルウェーブ","note":"衣装名の公式表記を追加確認"},
+    {"row_id":"I70-004294","canonical_tag":"sister_claire_(1st_costume)","display_ja":"シスター・クレア（通常衣装）","note":"衣装区分の表記を追加確認"},
+    {"row_id":"I70-004313","canonical_tag":"melody_(projektmelody)","display_ja":"メロディー","note":"VTuber名の日本語表示を追加確認"},
+    {"row_id":"I70-004323","canonical_tag":"symphony_miku","display_ja":"初音ミク（シンフォニー）","note":"派生衣装・形態の公式表示名を追加確認"},
+    {"row_id":"I70-004339","canonical_tag":"venti_(archon)_(genshin_impact)","display_ja":"ウェンティ（風神）","note":"Archon形態の表示名を追加確認"},
+    {"row_id":"I70-004345","canonical_tag":"tamamo_cat_(third_ascension)_(fate)","display_ja":"タマモキャット（第三再臨）","note":"再臨別表記を追加確認"},
+    {"row_id":"I70-004360","canonical_tag":"shameimaru_aya_(newsboy)","display_ja":"射命丸文（鴉天狗のジャーナリスト）","note":"派生衣装・形態名を追加確認"},
+    {"row_id":"I70-004363","canonical_tag":"jailbird_(nerissa_ravencroft)","display_ja":"Jailbird","note":"ファン呼称の日本語表示を追加確認"},
+    {"row_id":"I70-004365","canonical_tag":"meguru_(cookie)","display_ja":"MGR姉貴","note":"ファン呼称タグのため追加確認"},
+    {"row_id":"I70-004367","canonical_tag":"bae_minah_(chaesu)","display_ja":"ミナ","note":"創作キャラクター名の日本語表記を追加確認"},
+    {"row_id":"I70-004386","canonical_tag":"kei_(orange_robot)_(blue_archive)","display_ja":"ケイ（オレンジロボット）","note":"形態・機体区分の公式表記を追加確認"},
+    {"row_id":"I70-004388","canonical_tag":"limealicious","display_ja":"Limealicious","note":"VTuber名の日本語表示を追加確認"},
+    {"row_id":"I70-004390","canonical_tag":"moona_hoshinova_(1st_costume)","display_ja":"ムーナ・ホシノヴァ（通常衣装）","note":"衣装区分の表記を追加確認"},
+    {"row_id":"I70-004391","canonical_tag":"tomoe_gozen_(swimsuit_saber)_(first_ascension)_(fate)","display_ja":"巴御前（水着・第一再臨）","note":"再臨別表記を追加確認"},
+    {"row_id":"I70-004395","canonical_tag":"luo_xiaohei_(human)","display_ja":"羅小黒（人間）","note":"日本語版の固有名表記を追加確認"},
+    {"row_id":"I70-004396","canonical_tag":"rei_(cookie)","display_ja":"RIくん","note":"ファン呼称タグのため追加確認"},
+    {"row_id":"I70-004416","canonical_tag":"cheval_grand_(grand_itineraire)_(umamusume)","display_ja":"シュヴァルグラン（Grand Itinéraire）","note":"衣装名の公式日本語表記を追加確認"},
+    {"row_id":"I70-004426","canonical_tag":"bao_the_whale","display_ja":"Bao the Whale","note":"VTuber名の表示表記を追加確認"},
+    {"row_id":"I70-004430","canonical_tag":"zen'in_maki_(post-shibuya)","display_ja":"禪院真希（渋谷事変後）","note":"時系列別表記を追加確認"},
+    {"row_id":"I70-004442","canonical_tag":"boota_(ttgl)","display_ja":"ブータ","note":"日本語公式表記を追加確認"},
+    {"row_id":"I70-004447","canonical_tag":"ashveil_(honkai:_star_rail)","display_ja":"不死途","note":"日本語公式表記を追加確認"},
+    {"row_id":"I70-004449","canonical_tag":"death_(entity)","display_ja":"死","note":"抽象キャラクター名の表示を追加確認"},
+    {"row_id":"I70-004456","canonical_tag":"boudica_(first_ascension)_(fate)","display_ja":"ブーディカ（第一再臨）","note":"再臨別表記を追加確認"},
+    {"row_id":"I70-004475","canonical_tag":"skadi_(elite_ii)_(arknights)","display_ja":"スカジ（昇進2）","note":"昇進段階の表示名を追加確認"},
+    {"row_id":"I70-004485","canonical_tag":"pombon","display_ja":"ポムケン","note":"新規ポケモン固有名の表記を追加確認"},
+    {"row_id":"I70-004488","canonical_tag":"uzuki_(cookie)","display_ja":"UDK姉貴","note":"ファン呼称タグのため追加確認"}
   ],
   "result_files": [
     {
@@ -56,7 +121,15 @@
       "result_path": "docs/issue70/data/results/lane3/lane3_chunk005_I70-002001_I70-002500.csv",
       "result_sha256": "12b054d277e5e9307dc07c08391a1080184fe692cf1ac795cbf229dbb1f214ce",
       "row_count": 500
+    },
+    {
+      "chunk_index": 9,
+      "source_path": "docs/issue70/data/source_chunks/source_004001_004500.csv",
+      "source_sha256": "c120bd507f0e6d07d8a44647136db67dfeefba5008f1b2256c6819d383a8c804",
+      "result_path": "docs/issue70/data/results/lane3/lane3_chunk009_I70-004001_I70-004500.csv",
+      "result_sha256": "0441e8cbb6c79e96c265ee9e53b3e1ef7712a147c993cc05df7e22a0392bca5b",
+      "row_count": 500
     }
   ],
-  "next_chunk_index": 9
+  "next_chunk_index": 13
 }
