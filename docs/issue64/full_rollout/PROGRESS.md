@@ -19,34 +19,31 @@ Accepted basis: Issue #64 pilot revision 2, commit `5064429018123c80c32ac41af715
 
 ## Formal checkpoint
 
-Completed sequential rows: **1-25,400 / 30,629 (82.93%)**
+Completed sequential rows: **1-26,400 / 30,629 (86.19%)**
 
-- PROPOSED: **23,556**
-- UNRESOLVED: **1,844**
-- HIGH: **21,238**
-- MEDIUM: **2,318**
-- LOW: **1,844**
-- remaining: **5,229**
-- next formal unprocessed global row: **25,401**
+- PROPOSED: **24,475**
+- UNRESOLVED: **1,925**
+- HIGH: **22,116**
+- MEDIUM: **2,359**
+- LOW: **1,925**
+- remaining: **4,229**
+- next formal unprocessed global row: **26,401**
 
-## Batch 31 staged result — NOT YET A FORMAL CHECKPOINT
+## Batch 31 — FORMAL
 
-Rows **25,401-26,400** (`sports_bra_peek` -> `surgeon_cuffs`) were fully classified and audited in this execution:
+Rows **25,401-26,400** (`sports_bra_peek` -> `surgeon_cuffs`) were classified, audited, persisted, and formally registered:
 
 - processed: **1,000**
 - PROPOSED: **919**
 - UNRESOLVED: **81**
 - confidence: **878 HIGH / 41 MEDIUM / 81 LOW**
-- staged ledger: `docs/issue64/full_rollout/batches/batch031_rows25401-26400_ledger.csv.xz`
-- staged summary: `docs/issue64/full_rollout/batches/batch031_summary.json`
+- ledger: `docs/issue64/full_rollout/batches/batch031_rows25401-26400_ledger.csv.xz`
+- summary: `docs/issue64/full_rollout/batches/batch031_summary.json`
 - raw CSV SHA-256: `a007704975c45c8605f7eb77f4e973f9c3f83eff2a1fff570350ab9bcc93a4fd`
 - XZ SHA-256: `1d024337547e7f94736c618378041a84e4f85a53194bd67e354ec783a10ff713`
+- storage: Git data binary blob
 
-### Why Batch 31 is staged rather than formal
-
-The row ledger and summary could be safely persisted, but the current connector could not safely perform the required atomic replacement of the existing large, minified one-line `MANIFEST.json` without reconstructing its complete prior content. Rather than risk truncating or corrupting the immutable batch registry, formalization stopped.
-
-Per `PROTOCOL.md`, Batch 31 must **not** be treated as a formal checkpoint until `MANIFEST.json` is updated to include the same row range/hashes/totals and then reverified together with this `PROGRESS.md`. Do not reclassify these 1,000 staged rows unless an audit detects an error; resume work by finishing Batch 31 manifest formalization first.
+The prior staged-state blocker is resolved. The complete existing `MANIFEST.json` blob was retrieved, Batch 1-30 entries were preserved, and Batch 31 was appended without reclassification or rewriting older batch records. `MANIFEST.json`, Batch 31 summary, ledger hashes, and this `PROGRESS.md` now target the same final row 26,400.
 
 ## Batch 31 audit focus
 
@@ -57,13 +54,11 @@ Per `PROTOCOL.md`, Batch 31 must **not** be treated as a formal checkpoint until
 - historical usage / `post_count` was not used or substituted.
 - canonical identity / production Japanese overlay / Special / #66 UI-search / main were not modified.
 
-## Prior Batch 26 quality stop clarification
+## Prior stop clarifications
 
-The earlier 20,401-21,400 attempt stopped without formal output when audit density could not be maintained. The same fixed 1,000 rows were later re-audited from the start and completed as formal Batch 26.
-
-## Prior Batch 21 blocker clarification
-
-The earlier attempt that stopped at row 15,400 treated unavailable historical `post_count` as a per-batch blocker. That stop condition is superseded by the routing correction already recorded in Issue #64 and commit `3be2e2c1565e56362bdd445cab4d69eb75e84309`: `PROTOCOL.md` requires canonical + classification status + primary/secondary path + confidence, and the fixed row identity/order source is `docs/issue64/artifacts/population.txt`.
+- The earlier 20,401-21,400 attempt stopped without formal output when audit density could not be maintained. The same fixed 1,000 rows were later re-audited from the start and completed as formal Batch 26.
+- The earlier attempt that stopped at row 15,400 treated unavailable historical `post_count` as a per-batch blocker. That stop condition is superseded by the routing correction recorded in Issue #64 and commit `3be2e2c1565e56362bdd445cab4d69eb75e84309`.
+- Batch 31 was initially staged because safe atomic replacement of the minified one-line MANIFEST had not been completed. That blocker is now resolved without reclassifying Batch 31.
 
 ## Rules
 
@@ -83,7 +78,7 @@ The earlier attempt that stopped at row 15,400 treated unavailable historical `p
 - immutable detailed ledgers: `docs/issue64/full_rollout/batches/`
 - Batch 5+ summary JSON: `docs/issue64/full_rollout/batches/batchNNN_summary.json`
 - past checkpointed batch files are not overwritten
-- `PROGRESS.md` records both the formal stop point and any explicitly staged-but-not-formal work
+- `PROGRESS.md` records the formal sequential stop point
 - main is not updated until the full 30,629 candidate and audit are accepted
 
 Recovery order:
@@ -92,4 +87,4 @@ Recovery order:
 3. `docs/issue64/full_rollout/PROTOCOL.md`
 4. `docs/issue64/full_rollout/MANIFEST.json`
 5. this `PROGRESS.md`
-6. if Batch 31 is still staged, verify its ledger + summary hashes and formalize MANIFEST before classifying row 26,401+
+6. continue from row **26,401**
