@@ -1,13 +1,13 @@
 {
   "format_version": 1,
-  "sidecar_sha256": "3ce45857dba46b3cf8a60983a7cb80b3b0a861dcb0f18b4a8a39d98fdfd256d4",
+  "sidecar_sha256": "a118f5f904c38cee5b63f0c83b06a56f50ee8afdb623c52eb354731bc0b846d9",
   "population_sha256_sorted_utf8_lf": "ca5cc065c92aa38f9daa6b6c8a1f1c13db135057ebfabca076479dfa96872e2b",
   "totals": {
-    "PROPOSED": 28232,
-    "UNRESOLVED": 2397,
-    "HIGH": 25098,
-    "MEDIUM": 3134,
-    "LOW": 2397
+    "PROPOSED": 28226,
+    "UNRESOLVED": 2403,
+    "HIGH": 25097,
+    "MEDIUM": 3129,
+    "LOW": 2403
   },
   "batches": {
     "1": {
@@ -17,13 +17,13 @@
       ],
       "count": 500,
       "status_counts": {
-        "PROPOSED": 484,
-        "UNRESOLVED": 16
+        "PROPOSED": 483,
+        "UNRESOLVED": 17
       },
       "confidence_counts": {
         "HIGH": 323,
-        "MEDIUM": 161,
-        "LOW": 16
+        "MEDIUM": 160,
+        "LOW": 17
       },
       "primary_genre_counts": {
         "ACTION_CONTACT": 88,
@@ -34,7 +34,7 @@
         "COMPOSITION_CAMERA": 1,
         "EXPRESSION_EMOTION": 58,
         "HAIR_FACE": 8,
-        "LIGHT_TIME_WEATHER": 39,
+        "LIGHT_TIME_WEATHER": 38,
         "LIVING_NATURE": 4,
         "OBJECT_PROP": 71,
         "PERSON_COUNT": 47,
@@ -46,6 +46,7 @@
       "unresolved": [
         "12_billion_yen_incident",
         "15-nin_no_richiteki_na_megane-tachi",
+        "2011",
         "2011_tohoku_earthquake_and_tsunami",
         "2024_attempted_assassination_of_donald_trump",
         "2024_niconico_cyberattack",
@@ -732,13 +733,13 @@
       ],
       "count": 1000,
       "status_counts": {
-        "PROPOSED": 929,
-        "UNRESOLVED": 71
+        "PROPOSED": 928,
+        "UNRESOLVED": 72
       },
       "confidence_counts": {
         "HIGH": 741,
-        "MEDIUM": 188,
-        "LOW": 71
+        "MEDIUM": 187,
+        "LOW": 72
       },
       "primary_genre_counts": {
         "ACTION_CONTACT": 141,
@@ -750,7 +751,7 @@
         "EXPRESSION_EMOTION": 19,
         "GAZE_ORIENTATION": 12,
         "HAIR_FACE": 36,
-        "LIGHT_TIME_WEATHER": 16,
+        "LIGHT_TIME_WEATHER": 15,
         "LIVING_NATURE": 40,
         "OBJECT_PROP": 175,
         "PERSON_COUNT": 23,
@@ -821,6 +822,7 @@
         "fat_mons",
         "fat_pikachu",
         "fatass_teto_(meme)",
+        "father's_day",
         "feather_(magia_record)",
         "feature_scout_1_(ensemble_stars!)",
         "feature_scout_2_(ensemble_stars!)",
@@ -3213,16 +3215,16 @@
         "UNRESOLVED": 97
       },
       "confidence_counts": {
-        "HIGH": 783,
-        "MEDIUM": 120,
+        "HIGH": 784,
+        "MEDIUM": 119,
         "LOW": 97
       },
       "primary_genre_counts": {
         "ACTION_CONTACT": 49,
         "BODY_PART": 71,
-        "CLOTHING": 238,
+        "CLOTHING": 239,
         "CLOTHING_STATE_EXPOSURE": 92,
-        "COLOR_APPEARANCE": 61,
+        "COLOR_APPEARANCE": 60,
         "COMPOSITION_CAMERA": 4,
         "EXPRESSION_EMOTION": 7,
         "HAIR_FACE": 32,
@@ -3342,30 +3344,30 @@
       ],
       "count": 1000,
       "status_counts": {
-        "PROPOSED": 868,
-        "UNRESOLVED": 132
+        "PROPOSED": 864,
+        "UNRESOLVED": 136
       },
       "confidence_counts": {
-        "HIGH": 764,
-        "MEDIUM": 104,
-        "LOW": 132
+        "HIGH": 762,
+        "MEDIUM": 102,
+        "LOW": 136
       },
       "primary_genre_counts": {
         "ACTION_CONTACT": 66,
         "BODY_PART": 46,
-        "CLOTHING": 161,
+        "CLOTHING": 162,
         "CLOTHING_STATE_EXPOSURE": 141,
         "COLOR_APPEARANCE": 10,
-        "COMPOSITION_CAMERA": 13,
+        "COMPOSITION_CAMERA": 12,
         "EXPRESSION_EMOTION": 9,
-        "HAIR_FACE": 22,
+        "HAIR_FACE": 21,
         "LIGHT_TIME_WEATHER": 9,
-        "LIVING_NATURE": 34,
+        "LIVING_NATURE": 32,
         "OBJECT_PROP": 185,
         "PERSON_COUNT": 7,
         "PLACE_BACKGROUND": 35,
         "POSE_MOVEMENT": 27,
-        "STYLE_QUALITY_META": 59,
+        "STYLE_QUALITY_META": 58,
         "TEXT_SYMBOL": 44
       },
       "unresolved": [
@@ -3499,6 +3501,10 @@
         "wanwan_wonderful_(idolmaster)",
         "warp_star",
         "watashi_kininarimasu",
+        "water_drop",
+        "water_on_glass",
+        "water_stream",
+        "water_type_theme_(pokemon)",
         "waterfall_(undertale)",
         "waterskiing_(meme)"
       ]

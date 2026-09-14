@@ -132,6 +132,7 @@ def test_effective_rollout_validates_all_30629_rows():
     assert report["batch_count"] == 36
     assert report["recovered_rows"] == 1_200
     assert report["batch034_path_correction_rows"] == 721
+    assert report["residual_candidate_review_rows"] == 76
     assert report["invalid_path_counts"] == {}
     assert report["source_hash_verification"] == "PASS"
     assert report["warnings"] == []
@@ -161,3 +162,33 @@ def test_targeted_review_corrections_and_ambiguous_rows_are_preserved():
     assert rows["waiter"]["primary_path"] == "PERSON_COUNT"
     assert rows["waitress"]["classification_status"] == "UNRESOLVED"
     assert rows["headshot"]["classification_status"] == "UNRESOLVED"
+
+
+def test_final_residual_review_is_bounded_and_matches_effective_sidecar():
+    review_path = REPO_ROOT / FULL_ROOT / "corrections/residual_candidate_review.csv"
+    sidecar_path = REPO_ROOT / FULL_ROOT / "effective_sidecar.csv"
+    with review_path.open("r", encoding="utf-8-sig", newline="") as stream:
+        candidates = list(csv.DictReader(stream))
+    with sidecar_path.open("r", encoding="utf-8-sig", newline="") as stream:
+        effective = {row["canonical"]: row for row in csv.DictReader(stream)}
+
+    assert len(candidates) == 76
+    assert len({row["canonical"] for row in candidates}) == 76
+    assert sum(row["candidate_family"].startswith("relation_contact_") for row in candidates) == 48
+    assert sum(row["candidate_family"] == "batch034_water_identity" for row in candidates) == 25
+    assert sum(row["candidate_family"] == "calendar_event_boundary" for row in candidates) == 2
+
+    unresolved = {row["canonical"] for row in candidates if row["disposition"] == "UNRESOLVED"}
+    assert unresolved == {
+        "2011",
+        "father's_day",
+        "water_drop",
+        "water_on_glass",
+        "water_stream",
+        "water_type_theme_(pokemon)",
+    }
+    assert effective["two-tone_leg_warmers"]["primary_path"] == "CLOTHING"
+    assert effective["water_drop_hair_ornament"]["primary_path"] == "CLOTHING/ACCESSORY"
+    for canonical in unresolved:
+        assert effective[canonical]["classification_status"] == "UNRESOLVED"
+        assert effective[canonical]["primary_path"] == ""

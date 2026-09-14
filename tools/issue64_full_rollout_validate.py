@@ -563,6 +563,64 @@ def validate_effective(root: Path = REPO_ROOT) -> dict[str, Any]:
     if totals["UNRESOLVED"] != totals["LOW"]:
         errors.append("effective unresolved count and LOW confidence count differ")
 
+    residual_review_path = root / FULL_ROOT / "corrections/residual_candidate_review.csv"
+    residual_manifest = corrections.get("residual_candidate_review", {})
+    residual_count = 0
+    if not residual_review_path.is_file():
+        errors.append("bounded residual candidate review CSV is missing")
+    else:
+        try:
+            with residual_review_path.open("r", encoding="utf-8-sig", newline="") as stream:
+                residual_rows = list(csv.DictReader(stream))
+            residual_count = len(residual_rows)
+            if residual_count != 76 or residual_count != int(residual_manifest.get("rows", -1)):
+                errors.append(f"residual candidate review contains {residual_count} rows, expected 76")
+            if sha256(residual_review_path.read_bytes()) != residual_manifest.get("sha256"):
+                errors.append("residual candidate review SHA-256 mismatch")
+            residual_by_canonical = {item["canonical"]: item for item in residual_rows}
+            if len(residual_by_canonical) != residual_count:
+                errors.append("residual candidate review contains duplicate canonicals")
+            family_counts = dict(sorted(Counter(item["candidate_family"] for item in residual_rows).items()))
+            disposition_counts = dict(sorted(Counter(item["disposition"] for item in residual_rows).items()))
+            if family_counts != residual_manifest.get("families"):
+                errors.append("residual candidate family counts differ from correction manifest")
+            if disposition_counts != residual_manifest.get("dispositions"):
+                errors.append("residual candidate disposition counts differ from correction manifest")
+            if family_counts != {
+                "batch034_water_identity": 25,
+                "calendar_event_boundary": 2,
+                "modifier_object_identity": 1,
+                "relation_contact_control": 3,
+                "relation_contact_rule": 45,
+            }:
+                errors.append("residual candidate scope differs from the fixed bounded review set")
+            if disposition_counts != {"KEEP": 68, "RECLASSIFY": 2, "UNRESOLVED": 6}:
+                errors.append("residual candidate decisions differ from the reviewed bounded outcome")
+
+            effective_by_canonical = {item["canonical"]: item for item in rows}
+            changed_candidates = set()
+            for canonical, item in residual_by_canonical.items():
+                final_row = effective_by_canonical.get(canonical)
+                if final_row is None:
+                    errors.append(f"residual candidate is absent from effective sidecar: {canonical}")
+                    continue
+                expected_path = parse_path(item["new_path"])
+                if (
+                    final_row["status"], final_row["primary_path"], final_row["confidence"]
+                ) != (
+                    item["new_status"], expected_path, item["new_confidence"]
+                ):
+                    errors.append(f"effective result differs from residual review for {canonical}")
+                if item["disposition"] != "KEEP":
+                    changed_candidates.add(canonical)
+            declared_changes = {
+                item.get("canonical") for item in residual_manifest.get("changed_rows", [])
+            }
+            if changed_candidates != declared_changes:
+                errors.append("residual changed-row list differs from explicit candidate decisions")
+        except Exception as exc:
+            errors.append(f"residual candidate review cannot be validated: {type(exc).__name__}: {exc}")
+
     recovery_path = root / FULL_ROOT / "corrections/recovery_batch009_17.csv"
     if not recovery_path.is_file():
         errors.append("bounded recovery review CSV is missing")
@@ -659,6 +717,7 @@ def validate_effective(root: Path = REPO_ROOT) -> dict[str, Any]:
         "batch_count": len(by_batch),
         "recovered_rows": recovery_count,
         "batch034_path_correction_rows": path_correction_count,
+        "residual_candidate_review_rows": residual_count,
         "source_hash_verification": hash_provenance.get("verification"),
         "warnings": warnings,
         "errors": errors,

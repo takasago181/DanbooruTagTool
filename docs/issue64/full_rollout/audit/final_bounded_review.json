@@ -1,0 +1,57 @@
+{
+  "format_version": 1,
+  "review_date": "2026-09-14",
+  "dev_review_comment_id": 5660957158,
+  "reviewed_branch": "codex/issue64-bounded-rework",
+  "reviewed_pre_review_head": "ad1461fc01cfbfc438692020e139d01d8aff2edd",
+  "residual_review_path": "docs/issue64/full_rollout/corrections/residual_candidate_review.csv",
+  "residual_review_rows": 76,
+  "residual_review_sha256": "4741dad80ca641fc36e35077cf493195eb280e113801f9b52d4e41d6a018564e",
+  "residual_families": {
+    "relation_contact_rule": 45,
+    "relation_contact_control": 3,
+    "batch034_water_identity": 25,
+    "calendar_event_boundary": 2,
+    "modifier_object_identity": 1
+  },
+  "dispositions": {
+    "KEEP": 68,
+    "RECLASSIFY": 2,
+    "UNRESOLVED": 6
+  },
+  "changed_rows": [
+    "2011",
+    "father's_day",
+    "two-tone_leg_warmers",
+    "water_drop",
+    "water_drop_hair_ornament",
+    "water_on_glass",
+    "water_stream",
+    "water_type_theme_(pokemon)"
+  ],
+  "effective_sidecar": {
+    "path": "docs/issue64/full_rollout/effective_sidecar.csv",
+    "sha256": "a118f5f904c38cee5b63f0c83b06a56f50ee8afdb623c52eb354731bc0b846d9",
+    "population": 30629,
+    "proposed": 28226,
+    "unresolved": 2403,
+    "confidence": {
+      "HIGH": 25097,
+      "MEDIUM": 3129,
+      "LOW": 2403
+    }
+  },
+  "validation": {
+    "effective_validator": "PASS",
+    "invalid_taxonomy_paths": 0,
+    "missing_extra_duplicate_rows": 0,
+    "source_hash": "PASS",
+    "warnings": 0,
+    "errors": 0,
+    "focused_tests": "10 passed",
+    "full_population_semantic_reread": false
+  },
+  "verdict": "ACCEPT_FOR_PRODUCTION_INTEGRATION",
+  "candidate_base_main": "3f4e47d7331809b2e6a234824799fb3bc179bae8",
+  "merge_or_issue_close": false
+}

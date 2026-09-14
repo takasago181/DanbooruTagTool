@@ -48,6 +48,7 @@ EFFECTIVE_SUMMARIES_PATH = REWORK_ROOT / "effective_batch_summaries.json"
 PATH_CORRECTIONS_PATH = REWORK_ROOT / "batch034_path_corrections.csv"
 SEMANTIC_CORRECTIONS_PATH = REWORK_ROOT / "semantic_corrections.csv"
 HASH_PROVENANCE_PATH = REWORK_ROOT / "hash_provenance.json"
+RESIDUAL_REVIEW_PATH = REWORK_ROOT / "residual_candidate_review.csv"
 
 
 # Only direct semantic equivalents enter a pilot-v2 subgenre. Other rejected
@@ -460,6 +461,107 @@ def _apply_semantic_corrections(rows: dict[str, dict[str, Any]], taxonomy: dict[
     return changes
 
 
+def _apply_residual_candidate_review(
+    rows: dict[str, dict[str, Any]], taxonomy: dict[str, Any], root: Path
+) -> dict[str, Any]:
+    """Apply only the explicit residual review list, failing closed on drift."""
+    path = root / RESIDUAL_REVIEW_PATH
+    if not path.is_file():
+        raise FileNotFoundError(f"bounded residual candidate review is required: {path}")
+
+    reviewed: set[str] = set()
+    families: Counter[str] = Counter()
+    dispositions: Counter[str] = Counter()
+    changed: list[dict[str, str]] = []
+
+    def parse_review_path(value: str) -> tuple[str, str | None] | None:
+        if not value:
+            return None
+        parts = value.split("/")
+        if len(parts) == 1:
+            return parts[0], None
+        if len(parts) == 2:
+            return parts[0], parts[1]
+        raise ValueError(f"residual review path has invalid depth: {value!r}")
+
+    with path.open("r", encoding="utf-8-sig", newline="") as stream:
+        for review in csv.DictReader(stream):
+            canonical = review["canonical"]
+            if canonical in reviewed:
+                raise ValueError(f"duplicate residual candidate: {canonical}")
+            if canonical not in rows:
+                raise ValueError(f"residual candidate is outside effective population: {canonical}")
+            reviewed.add(canonical)
+            families[review["candidate_family"]] += 1
+
+            row = rows[canonical]
+            expected = (
+                review["expected_status"],
+                review["expected_path"],
+                review["expected_confidence"],
+            )
+            actual = (row["status"], _path_text(row["primary_path"]), row["confidence"])
+            if actual != expected:
+                raise ValueError(f"residual candidate baseline drift for {canonical}: {actual!r} != {expected!r}")
+
+            disposition = review["disposition"]
+            dispositions[disposition] += 1
+            new_status = review["new_status"]
+            new_path = parse_review_path(review["new_path"])
+            new_confidence = review["new_confidence"]
+            if disposition == "KEEP":
+                if (new_status, _path_text(new_path), new_confidence) != actual:
+                    raise ValueError(f"KEEP candidate attempts to change output: {canonical}")
+                continue
+
+            if disposition == "UNRESOLVED":
+                if new_status != "UNRESOLVED" or new_path is not None or new_confidence != "LOW":
+                    raise ValueError(f"invalid UNRESOLVED residual decision for {canonical}")
+            elif disposition == "RECLASSIFY":
+                if new_status != "PROPOSED" or new_path is None or new_confidence not in {"HIGH", "MEDIUM"}:
+                    raise ValueError(f"invalid RECLASSIFY residual decision for {canonical}")
+                error = _taxonomy_path_error(new_path, taxonomy)
+                if error:
+                    raise ValueError(f"residual review path for {canonical} is invalid: {error}")
+            else:
+                raise ValueError(f"unknown residual review disposition {disposition!r}")
+
+            old_status, old_path, old_confidence = actual
+            row.update({
+                "status": new_status,
+                "primary_path": new_path,
+                "secondary_paths": [],
+                "confidence": new_confidence,
+                "reason": review["reason_ja"],
+                "evidence_url": review["evidence_url"],
+            })
+            row["source_correction_ids"].append("SEMANTIC_RESIDUAL_REVIEW")
+            changed.append({
+                "canonical": canonical,
+                "old_status": old_status,
+                "old_path": old_path,
+                "old_confidence": old_confidence,
+                "new_status": new_status,
+                "new_path": _path_text(new_path),
+                "new_confidence": new_confidence,
+                "reason_ja": review["reason_ja"],
+                "evidence_url": review["evidence_url"],
+                "review_note": review["review_note"],
+            })
+
+    if len(reviewed) != 76:
+        raise ValueError(f"residual review must contain the fixed 76-row bounded set, got {len(reviewed)}")
+    return {
+        "path": str(RESIDUAL_REVIEW_PATH).replace("\\", "/"),
+        "rows": len(reviewed),
+        "sha256": sha256(path.read_bytes()),
+        "families": dict(sorted(families.items())),
+        "dispositions": dict(sorted(dispositions.items())),
+        "changed_rows": changed,
+        "scope_note": "Exact residual families from the fresh Luna review notes, materialized by canonical identity: reviewed relation/contact correction rows, Batch 34 water-prefixed rows, two named time/event candidates, and the named modifier+object candidate. No population-wide semantic rescan.",
+    }
+
+
 def _write_csv(path: Path, fieldnames: list[str], rows: list[dict[str, Any]]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8-sig", newline="") as stream:
@@ -535,6 +637,8 @@ def build(root: Path) -> dict[str, Any]:
     if set(effective_by_canonical) != set(population):
         raise ValueError("effective row membership differs from the fixed population")
     semantic_corrections = _apply_semantic_corrections(effective_by_canonical, taxonomy)
+    residual_review = _apply_residual_candidate_review(effective_by_canonical, taxonomy, root)
+    semantic_corrections.extend(residual_review["changed_rows"])
 
     # Ensure every effective row is in the accepted schema and has no invalid
     # paths before writing any output.
@@ -695,6 +799,7 @@ def build(root: Path) -> dict[str, Any]:
             "fallback": "When a subgenre is not in accepted pilot-v2 and has no direct alias, keep its accepted top-level genre only.",
         },
         "semantic_corrections": semantic_corrections,
+        "residual_candidate_review": residual_review,
         "effective_sidecar": {
             "path": str(EFFECTIVE_PATH).replace("\\", "/"),
             "sha256": effective_hash,
@@ -743,6 +848,11 @@ def main() -> int:
         },
         "batch034": result["batch034_path_correction"],
         "semantic_correction_count": len(result["semantic_corrections"]),
+        "residual_candidate_review": {
+            "rows": result["residual_candidate_review"]["rows"],
+            "dispositions": result["residual_candidate_review"]["dispositions"],
+            "changed_rows": [item["canonical"] for item in result["residual_candidate_review"]["changed_rows"]],
+        },
         "source_hash_verification": result["source_hash_provenance"],
     }, ensure_ascii=False, indent=2) + "\n")
     return 0

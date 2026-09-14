@@ -2123,17 +2123,229 @@
       "reason_ja": "対象となる人・生き物・物との接触関係を行為・接触から探す。",
       "evidence_url": "",
       "review_note": "Deterministic analogue rule: relational contact with another entity/object; pure body-posture suffixes are excluded."
+    },
+    {
+      "canonical": "water_drop",
+      "old_status": "PROPOSED",
+      "old_path": "LIVING_NATURE",
+      "old_confidence": "HIGH",
+      "new_status": "UNRESOLVED",
+      "new_path": "",
+      "new_confidence": "LOW",
+      "reason_ja": "水滴という非生物の液体特徴を表す。受理済みtaxonomyに水・液体の自然特徴用genreがなく、LIVING_NATUREへの押し込みはしない。",
+      "evidence_url": "",
+      "review_note": "Residual review: no defensible current node; preserve as unresolved."
+    },
+    {
+      "canonical": "water_drop_hair_ornament",
+      "old_status": "PROPOSED",
+      "old_path": "HAIR_FACE",
+      "old_confidence": "HIGH",
+      "new_status": "PROPOSED",
+      "new_path": "CLOTHING/ACCESSORY",
+      "new_confidence": "HIGH",
+      "reason_ja": "髪飾りという装飾品のidentityから衣装・アクセサリーへ分類する。",
+      "evidence_url": "",
+      "review_note": "Taxonomy HAIR_FACE boundary routes hair ornaments to clothing accessories."
+    },
+    {
+      "canonical": "water_on_glass",
+      "old_status": "PROPOSED",
+      "old_path": "COMPOSITION_CAMERA",
+      "old_confidence": "MEDIUM",
+      "new_status": "UNRESOLVED",
+      "new_path": "",
+      "new_confidence": "LOW",
+      "reason_ja": "ガラス面上の水の見え方を示すが、構図・画面効果・背景のどれが主かをcanonical名だけで確定できない。",
+      "evidence_url": "",
+      "review_note": "Residual review; avoid guessing among existing nodes."
+    },
+    {
+      "canonical": "water_stream",
+      "old_status": "PROPOSED",
+      "old_path": "LIVING_NATURE",
+      "old_confidence": "HIGH",
+      "new_status": "UNRESOLVED",
+      "new_path": "",
+      "new_confidence": "LOW",
+      "reason_ja": "水の流れを示すが、自然背景・画面内の液体効果のどちらを主にするか決められない。LIVING_NATUREへ押し込まない。",
+      "evidence_url": "",
+      "review_note": "Residual review; no accepted liquid/water natural-feature node."
+    },
+    {
+      "canonical": "water_type_theme_(pokemon)",
+      "old_status": "PROPOSED",
+      "old_path": "STYLE_QUALITY_META",
+      "old_confidence": "MEDIUM",
+      "new_status": "UNRESOLVED",
+      "new_path": "",
+      "new_confidence": "LOW",
+      "reason_ja": "Pokémonのタイプテーマという作品固有の分類で、画像中の生物・水表現そのものと同一視できない。既存genreに安全な割当先がない。",
+      "evidence_url": "https://safebooru.donmai.us/posts/7772830",
+      "review_note": "Danbooru post records it as a General theme tag alongside Pokémon and water; keep unresolved rather than invent taxonomy."
+    },
+    {
+      "canonical": "2011",
+      "old_status": "PROPOSED",
+      "old_path": "LIGHT_TIME_WEATHER",
+      "old_confidence": "MEDIUM",
+      "new_status": "UNRESOLVED",
+      "new_path": "",
+      "new_confidence": "LOW",
+      "reason_ja": "年号タグだが、画像の時間設定と投稿時期メタデータのどちらを表すかを安全に決められない。時間ジャンルへ推測で割り当てず未解決にする。",
+      "evidence_url": "",
+      "review_note": "Explicit residual candidate from fresh Luna review; unresolved is valid and no taxonomy node is added."
+    },
+    {
+      "canonical": "father's_day",
+      "old_status": "PROPOSED",
+      "old_path": "LIGHT_TIME_WEATHER",
+      "old_confidence": "MEDIUM",
+      "new_status": "UNRESOLVED",
+      "new_path": "",
+      "new_confidence": "LOW",
+      "reason_ja": "祝日・イベント名だが、浅い17ジャンル内に安全なイベント分類先がないため未解決を維持する。",
+      "evidence_url": "",
+      "review_note": "Explicit residual candidate from fresh Luna review; no forced LIGHT_TIME_WEATHER route."
+    },
+    {
+      "canonical": "two-tone_leg_warmers",
+      "old_status": "PROPOSED",
+      "old_path": "COLOR_APPEARANCE",
+      "old_confidence": "MEDIUM",
+      "new_status": "PROPOSED",
+      "new_path": "CLOTHING",
+      "new_confidence": "HIGH",
+      "reason_ja": "レッグウォーマーという衣服の種類を主経路にする。two-toneは色修飾なのでCOLOR_APPEARANCEへは分けない。",
+      "evidence_url": "https://safebooru.donmai.us/posts/11946290",
+      "review_note": "Danbooru post indexes the tag alongside leg_warmers and color variants; accepted CLOTHING boundary says object identity before modifier."
     }
   ],
+  "residual_candidate_review": {
+    "path": "docs/issue64/full_rollout/corrections/residual_candidate_review.csv",
+    "rows": 76,
+    "sha256": "4741dad80ca641fc36e35077cf493195eb280e113801f9b52d4e41d6a018564e",
+    "families": {
+      "batch034_water_identity": 25,
+      "calendar_event_boundary": 2,
+      "modifier_object_identity": 1,
+      "relation_contact_control": 3,
+      "relation_contact_rule": 45
+    },
+    "dispositions": {
+      "KEEP": 68,
+      "RECLASSIFY": 2,
+      "UNRESOLVED": 6
+    },
+    "changed_rows": [
+      {
+        "canonical": "water_drop",
+        "old_status": "PROPOSED",
+        "old_path": "LIVING_NATURE",
+        "old_confidence": "HIGH",
+        "new_status": "UNRESOLVED",
+        "new_path": "",
+        "new_confidence": "LOW",
+        "reason_ja": "水滴という非生物の液体特徴を表す。受理済みtaxonomyに水・液体の自然特徴用genreがなく、LIVING_NATUREへの押し込みはしない。",
+        "evidence_url": "",
+        "review_note": "Residual review: no defensible current node; preserve as unresolved."
+      },
+      {
+        "canonical": "water_drop_hair_ornament",
+        "old_status": "PROPOSED",
+        "old_path": "HAIR_FACE",
+        "old_confidence": "HIGH",
+        "new_status": "PROPOSED",
+        "new_path": "CLOTHING/ACCESSORY",
+        "new_confidence": "HIGH",
+        "reason_ja": "髪飾りという装飾品のidentityから衣装・アクセサリーへ分類する。",
+        "evidence_url": "",
+        "review_note": "Taxonomy HAIR_FACE boundary routes hair ornaments to clothing accessories."
+      },
+      {
+        "canonical": "water_on_glass",
+        "old_status": "PROPOSED",
+        "old_path": "COMPOSITION_CAMERA",
+        "old_confidence": "MEDIUM",
+        "new_status": "UNRESOLVED",
+        "new_path": "",
+        "new_confidence": "LOW",
+        "reason_ja": "ガラス面上の水の見え方を示すが、構図・画面効果・背景のどれが主かをcanonical名だけで確定できない。",
+        "evidence_url": "",
+        "review_note": "Residual review; avoid guessing among existing nodes."
+      },
+      {
+        "canonical": "water_stream",
+        "old_status": "PROPOSED",
+        "old_path": "LIVING_NATURE",
+        "old_confidence": "HIGH",
+        "new_status": "UNRESOLVED",
+        "new_path": "",
+        "new_confidence": "LOW",
+        "reason_ja": "水の流れを示すが、自然背景・画面内の液体効果のどちらを主にするか決められない。LIVING_NATUREへ押し込まない。",
+        "evidence_url": "",
+        "review_note": "Residual review; no accepted liquid/water natural-feature node."
+      },
+      {
+        "canonical": "water_type_theme_(pokemon)",
+        "old_status": "PROPOSED",
+        "old_path": "STYLE_QUALITY_META",
+        "old_confidence": "MEDIUM",
+        "new_status": "UNRESOLVED",
+        "new_path": "",
+        "new_confidence": "LOW",
+        "reason_ja": "Pokémonのタイプテーマという作品固有の分類で、画像中の生物・水表現そのものと同一視できない。既存genreに安全な割当先がない。",
+        "evidence_url": "https://safebooru.donmai.us/posts/7772830",
+        "review_note": "Danbooru post records it as a General theme tag alongside Pokémon and water; keep unresolved rather than invent taxonomy."
+      },
+      {
+        "canonical": "2011",
+        "old_status": "PROPOSED",
+        "old_path": "LIGHT_TIME_WEATHER",
+        "old_confidence": "MEDIUM",
+        "new_status": "UNRESOLVED",
+        "new_path": "",
+        "new_confidence": "LOW",
+        "reason_ja": "年号タグだが、画像の時間設定と投稿時期メタデータのどちらを表すかを安全に決められない。時間ジャンルへ推測で割り当てず未解決にする。",
+        "evidence_url": "",
+        "review_note": "Explicit residual candidate from fresh Luna review; unresolved is valid and no taxonomy node is added."
+      },
+      {
+        "canonical": "father's_day",
+        "old_status": "PROPOSED",
+        "old_path": "LIGHT_TIME_WEATHER",
+        "old_confidence": "MEDIUM",
+        "new_status": "UNRESOLVED",
+        "new_path": "",
+        "new_confidence": "LOW",
+        "reason_ja": "祝日・イベント名だが、浅い17ジャンル内に安全なイベント分類先がないため未解決を維持する。",
+        "evidence_url": "",
+        "review_note": "Explicit residual candidate from fresh Luna review; no forced LIGHT_TIME_WEATHER route."
+      },
+      {
+        "canonical": "two-tone_leg_warmers",
+        "old_status": "PROPOSED",
+        "old_path": "COLOR_APPEARANCE",
+        "old_confidence": "MEDIUM",
+        "new_status": "PROPOSED",
+        "new_path": "CLOTHING",
+        "new_confidence": "HIGH",
+        "reason_ja": "レッグウォーマーという衣服の種類を主経路にする。two-toneは色修飾なのでCOLOR_APPEARANCEへは分けない。",
+        "evidence_url": "https://safebooru.donmai.us/posts/11946290",
+        "review_note": "Danbooru post indexes the tag alongside leg_warmers and color variants; accepted CLOTHING boundary says object identity before modifier."
+      }
+    ],
+    "scope_note": "Exact residual families from the fresh Luna review notes, materialized by canonical identity: reviewed relation/contact correction rows, Batch 34 water-prefixed rows, two named time/event candidates, and the named modifier+object candidate. No population-wide semantic rescan."
+  },
   "effective_sidecar": {
     "path": "docs/issue64/full_rollout/effective_sidecar.csv",
-    "sha256": "3ce45857dba46b3cf8a60983a7cb80b3b0a861dcb0f18b4a8a39d98fdfd256d4",
+    "sha256": "a118f5f904c38cee5b63f0c83b06a56f50ee8afdb623c52eb354731bc0b846d9",
     "counts": {
-      "PROPOSED": 28232,
-      "UNRESOLVED": 2397,
-      "HIGH": 25098,
-      "MEDIUM": 3134,
-      "LOW": 2397
+      "PROPOSED": 28226,
+      "UNRESOLVED": 2403,
+      "HIGH": 25097,
+      "MEDIUM": 3129,
+      "LOW": 2403
     }
   },
   "effective_batch_summaries_path": "docs/issue64/full_rollout/corrections/effective_batch_summaries.json",

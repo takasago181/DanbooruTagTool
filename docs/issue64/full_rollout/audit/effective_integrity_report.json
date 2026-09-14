@@ -3,19 +3,20 @@
   "pass": true,
   "population_count": 30629,
   "population_sha256": "ca5cc065c92aa38f9daa6b6c8a1f1c13db135057ebfabca076479dfa96872e2b",
-  "effective_sidecar_sha256": "3ce45857dba46b3cf8a60983a7cb80b3b0a861dcb0f18b4a8a39d98fdfd256d4",
+  "effective_sidecar_sha256": "a118f5f904c38cee5b63f0c83b06a56f50ee8afdb623c52eb354731bc0b846d9",
   "effective_row_count": 30629,
   "status_confidence_totals": {
-    "PROPOSED": 28232,
-    "UNRESOLVED": 2397,
-    "HIGH": 25098,
-    "MEDIUM": 3134,
-    "LOW": 2397
+    "PROPOSED": 28226,
+    "UNRESOLVED": 2403,
+    "HIGH": 25097,
+    "MEDIUM": 3129,
+    "LOW": 2403
   },
   "invalid_path_counts": {},
   "batch_count": 36,
   "recovered_rows": 1200,
   "batch034_path_correction_rows": 721,
+  "residual_candidate_review_rows": 76,
   "source_hash_verification": "PASS",
   "warnings": [],
   "errors": []
