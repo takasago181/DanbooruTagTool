@@ -19,38 +19,36 @@ Accepted basis: Issue #64 pilot revision 2, commit `5064429018123c80c32ac41af715
 
 ## Formal checkpoint
 
-Completed sequential rows: **1-26,400 / 30,629 (86.19%)**
+Completed sequential rows: **1-27,400 / 30,629 (89.46%)**
 
-- PROPOSED: **24,475**
-- UNRESOLVED: **1,925**
-- HIGH: **22,116**
-- MEDIUM: **2,359**
-- LOW: **1,925**
-- remaining: **4,229**
-- next formal unprocessed global row: **26,401**
+- PROPOSED: **25,397**
+- UNRESOLVED: **2,003**
+- HIGH: **22,949**
+- MEDIUM: **2,448**
+- LOW: **2,003**
+- remaining: **3,229**
+- next formal unprocessed global row: **27,401**
 
-## Batch 31 — FORMAL
+## Batch 32 — FORMAL
 
-Rows **25,401-26,400** (`sports_bra_peek` -> `surgeon_cuffs`) were classified, audited, persisted, and formally registered:
+Rows **26,401-27,400** (`surgeonfish` -> `tiger_ii`) were classified, audited, persisted, and formally registered:
 
 - processed: **1,000**
-- PROPOSED: **919**
-- UNRESOLVED: **81**
-- confidence: **878 HIGH / 41 MEDIUM / 81 LOW**
-- ledger: `docs/issue64/full_rollout/batches/batch031_rows25401-26400_ledger.csv.xz`
-- summary: `docs/issue64/full_rollout/batches/batch031_summary.json`
-- raw CSV SHA-256: `a007704975c45c8605f7eb77f4e973f9c3f83eff2a1fff570350ab9bcc93a4fd`
-- XZ SHA-256: `1d024337547e7f94736c618378041a84e4f85a53194bd67e354ec783a10ff713`
+- PROPOSED: **922**
+- UNRESOLVED: **78**
+- confidence: **833 HIGH / 89 MEDIUM / 78 LOW**
+- ledger: `docs/issue64/full_rollout/batches/batch032_rows26401-27400_ledger.csv.xz`
+- summary: `docs/issue64/full_rollout/batches/batch032_summary.json`
+- raw CSV SHA-256: `abb8967a6252c933db2dec13bd7e81fc1a0c961e6cccf67f94f0c16f7ab5b558`
+- XZ SHA-256: `c084637eb9dedbbc51e8869e2289d29c209351090cd3574708974cb7d203a38b`
 - storage: Git data binary blob
 
-The prior staged-state blocker is resolved. The complete existing `MANIFEST.json` blob was retrieved, Batch 1-30 entries were preserved, and Batch 31 was appended without reclassification or rewriting older batch records. `MANIFEST.json`, Batch 31 summary, ledger hashes, and this `PROGRESS.md` now target the same final row 26,400.
+## Batch 32 audit focus
 
-## Batch 31 audit focus
-
-- `sports_*` / `star_*` / `stomach_*` / `striped_*` / `stuffed_*` / `sun_*` / `super_*` were not classified by stem alone; object/concept identity remained primary.
-- `star_(sky)` / `star_(symbol)`, `sun` / `sun_symbol`, and `steam` / `steam_censor` preserve sky/light/symbol/style boundaries.
-- `striped_*` routes by the modified object (clothing/body/background/etc.); only independent pattern concepts go to `COLOR_APPEARANCE`.
-- 81 work-specific events, memes, projects, brands, transformations, or otherwise ambiguous concepts remain explicit `UNRESOLVED`.
+- `sword_*` / `tail_*` / `tentacle_*` / `thigh_*` / `tied_*` were not classified by stem alone; object/body/action/clothing-state identity remained primary.
+- `team_*` group/role identity was separated from corresponding `*_uniform` clothing entries.
+- `taurus_(constellation)` / `taurus_(symbol)` / `taurus_(zodiac)`, tarot arcana, flags, and text entries preserve sky/symbol/text boundaries rather than sharing a lexical route.
+- 78 work-specific events, memes, projects, brands, transformations, or otherwise ambiguous concepts remain explicit `UNRESOLVED`.
 - historical usage / `post_count` was not used or substituted.
 - canonical identity / production Japanese overlay / Special / #66 UI-search / main were not modified.
 
@@ -58,7 +56,7 @@ The prior staged-state blocker is resolved. The complete existing `MANIFEST.json
 
 - The earlier 20,401-21,400 attempt stopped without formal output when audit density could not be maintained. The same fixed 1,000 rows were later re-audited from the start and completed as formal Batch 26.
 - The earlier attempt that stopped at row 15,400 treated unavailable historical `post_count` as a per-batch blocker. That stop condition is superseded by the routing correction recorded in Issue #64 and commit `3be2e2c1565e56362bdd445cab4d69eb75e84309`.
-- Batch 31 was initially staged because safe atomic replacement of the minified one-line MANIFEST had not been completed. That blocker is now resolved without reclassifying Batch 31.
+- Batch 31 was initially staged because safe atomic replacement of the minified one-line MANIFEST had not been completed. That blocker was resolved without reclassifying Batch 31.
 
 ## Rules
 
@@ -87,4 +85,4 @@ Recovery order:
 3. `docs/issue64/full_rollout/PROTOCOL.md`
 4. `docs/issue64/full_rollout/MANIFEST.json`
 5. this `PROGRESS.md`
-6. continue from row **26,401**
+6. continue from row **27,401**

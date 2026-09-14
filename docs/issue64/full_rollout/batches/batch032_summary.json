@@ -1,0 +1,23 @@
+{
+  "issue": 64,
+  "batch": 32,
+  "range": [26401, 27400],
+  "count": 1000,
+  "status_counts": {"PROPOSED": 922, "UNRESOLVED": 78},
+  "confidence_counts": {"HIGH": 833, "MEDIUM": 89, "LOW": 78},
+  "primary_genre_counts": {"ACTION_CONTACT": 132, "BODY_PART": 99, "CLOTHING": 227, "CLOTHING_STATE_EXPOSURE": 55, "COLOR_APPEARANCE": 8, "COMPOSITION_CAMERA": 4, "EXPRESSION_EMOTION": 14, "HAIR_FACE": 17, "LIGHT_TIME_WEATHER": 2, "LIVING_NATURE": 25, "OBJECT_PROP": 168, "PERSON_COUNT": 36, "PLACE_BACKGROUND": 23, "POSE_MOVEMENT": 21, "STYLE_QUALITY_META": 32, "TEXT_SYMBOL": 59},
+  "unresolved": ["survey_corps", "suspended_congress", "suspension", "suuankou", "suzu_head", "suzuki_(company)", "suzume_no_oyado_no_katsudou_nisshi", "suzumebachi_(shikai)", "sv-001_(metal_slug)", "swarm", "sweet_madame_(genshin_impact)", "sweets_bird", "sword_school_reunion_(touken_ranbu)", "symphony_no._765_(idolmaster)", "syngup!_(idolmaster)", "t.t._star_(nikke)", "t_corp._(identity)_(project_moon)", "tabletop_troupe_(genshin_impact)", "taguel", "taito_four_seasons_figure_(vocaloid)", "takarazuka_kinen", "take_the_best_shot!_(project_sekai)", "tales_of_festival", "tam_(ragnarok_online)", "tap_me_(meme)", "tartarus", "tarutaru", "taste_of_a_liar_(meme)", "tasukete_eirin", "taur_exoskeleton", "tawawa_challenge", "tawawa_group", "taxidermy", "tbf_avenger", "tbh_creature_(meme)", "tda_model_(mikumikudance)", "tea_party_(blue_archive)", "tear_troughs", "tears_of_the_tarnished_blood_(e.g.o)", "technology_liberation_alliance_(identity)_(project_moon)", "teikoku", "tekoki_karaoke", "telepole_(e.g.o)", "tengu-geta", "tenno_sho", "tenshi_kaiwai", "teri_derp_(meme)", "tesla_(company)", "tanbi_kei", "thank_you_chainsaw_man_(meme)", "thanksgiving", "thaumiel_(zenless_zone_zero)", "the_best_schoolmate_(idolmaster)", "the_children_(zettai_karen_children)", "the_dazzlings_(my_little_pony)", "the_fun_gang", "the_game_awards", "the_gate_(fma)", "the_genesis", "the_kogado_(idolmaster)", "the_north_face", "the_process_of_affection_level_upgrades_(meme)", "the_sword_sharpened_with_tears_(e.g.o)", "the_vivid_old_tale_(project_sekai)", "the_wild_strawberry_(idolmaster)", "think_mark_think!_(meme)", "thirteen_flame-chasers_(honkai_impact)", "this_is_fine_(meme)", "thoracalgia_(e.g.o)", "thorn_(elizabeth_rose_bloodflame)", "thour_(meme)", "thousand_sons", "three_ramen_musketeers", "tidal_elegy_(e.g.o)", "tiger_(p)", "tiger_dojo", "tiger_i", "tiger_ii"],
+  "audit_notes": [
+    "`sword_*` / `tail_*` / `tentacle_*` / `thigh_*` / `tied_*` は語幹一括せず、対象identityと行為・衣服状態・身体部位の境界を個別に監査した。",
+    "`team_*` は人物・集団identityを主経路とし、対応する `*_uniform` は衣装・制服へ分離した。",
+    "`taurus_(constellation)` / `taurus_(symbol)` / `taurus_(zodiac)`、tarot arcana、flag/text類は天体・記号・文字の境界を分離した。",
+    "作品固有イベント・ミーム・ブランド・意味を安全に確定できない固有語78件はUNRESOLVEDに保持した。",
+    "historical usage / post_count は通常ledger必須でないため未使用。global row identity/orderは固定 population.txt を使用した。",
+    "canonical identity / production Japanese overlay / Special / #66 UI・search / main は変更しないcandidate-buildのみ。"
+  ],
+  "raw_csv_sha256": "abb8967a6252c933db2dec13bd7e81fc1a0c961e6cccf67f94f0c16f7ab5b558",
+  "xz_sha256": "c084637eb9dedbbc51e8869e2289d29c209351090cd3574708974cb7d203a38b",
+  "storage_mode": "git_data_binary_blob",
+  "path": "docs/issue64/full_rollout/batches/batch032_rows26401-27400_ledger.csv.xz",
+  "formal_checkpoint": true
+}
