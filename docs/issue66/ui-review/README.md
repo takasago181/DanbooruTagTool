@@ -1,12 +1,12 @@
-# Issue #66 — UX Refinement Pass 1 review screenshots
+# Issue #66 — UX Refinement review screenshots
 
-These full-window screenshots were captured from the Release WPF build of the current #66 branch on Windows after the UX Refinement Pass 1 changes.
+These screenshots show the Windows Release WPF application after DEV review and UX Refinement Pass 2. They were captured from an isolated copy of the current branch's Release output; the user's current portable `UserData` was not used.
 
 - Source branch: `codex/issue66-dictionary-selection-usability`
-- Source commit: `e3284e12604b9dc253fb455ef88ca0ccb177e520`
-- Screenshot commit: `0ff23cb573ee01c865cabc694cb3007ff996f36e`
-- Executable launched: Release build output from `src/DanbooruTagTool.App/bin/Release/net10.0-windows/`
-- Target: `.NET 10.0-windows`; SDK `10.0.401`
+- Source commit: `261525e378bb81df1d4613d411eb7ae4421d9217` (`fix(wpf): polish prompt find and browse navigation`)
+- Screenshot commit: `3387f66357cf9d515bd40af8bffddd427f358404`
+- Executable: isolated copy of `src/DanbooruTagTool.App/bin/Release/net10.0-windows/DanbooruTagTool.exe`
+- Target: `net10.0-windows`; SDK `10.0.401`
 - Windows display scaling: 150% (`LogPixels=144`, `Win8DpiScaling=1`)
 - Window state and captured size: maximized, 1707 × 912 pixels
 
@@ -14,29 +14,28 @@ These full-window screenshots were captured from the Release WPF build of the cu
 
 | File | Visible state |
 | --- | --- |
-| `dictionary.png` | Dictionary/Search workspace; `blue hair` query, three result rows, the first row selected, and Tag Details. |
-| `current-prompt.png` | Dictionary/Search workspace; Current Prompt tab with normal, weighted, LoRA, `BREAK`, and unresolved raw items; per-item `×` and copy actions are visible. |
-| `prompt-editor.png` | Prompt Edit workspace; the five mixed items are selected, showing `5件選択中`, the edit toolbar, and the actual English preview/copy area. |
+| `dictionary.png` | Dictionary/Search workspace; `blue hair` query, three results, first result selected, Tag Details visible, Prompt history controls separated from search. |
+| `current-prompt.png` | Dictionary/Search workspace; Current Prompt tab with normal, weighted, LoRA, `BREAK`, and unresolved raw items; per-item delete and copy controls visible. |
+| `prompt-editor.png` | Prompt Edit workspace; six mixed items, local-find count and previous/next controls, edit toolbar, and actual English preview visible. |
 
-The temporary review Prompt was:
+The isolated review Prompt was:
 
 ```text
-blue_hair, (looking_at_viewer:1.2), <lora:sample_lora:0.7>, BREAK, custom_trigger
+blue_hair, red_hair, (looking_at_viewer:1.2), <lora:sample_lora:0.7>, BREAK, custom_trigger
 ```
 
-No tooltip, popup, or error dialog is open. All images show the entire maximized window at 1707 × 912.
+No tooltip, popup, or error dialog is open. All images show the full maximized window at 1707 × 912.
 
 ## Validation
 
 - Debug build: PASS
-- Debug tests: PASS (74 passed, 0 failed)
+- Debug tests with production catalog: PASS (75 passed, 0 failed, 0 skipped)
 - Release build: PASS
-- Release tests: PASS (74 passed, 0 failed)
-- `git diff --check`: PASS
-- Windows launch: PASS from the branch's Release output
-- Manually confirmed: search and selected-result details; Prompt-chip inspection opens Tag Details; mixed English direct-edit Apply and Cancel; conflicting actions are disabled during direct edit; dictionary add then Prompt Undo; restart and saved mixed Prompt restoration; multi-select `Ctrl+A` shows five selected items.
-- Exercised through automated tests, but not manually confirmed in this capture: empty-clipboard no-op and Prompt-item delete/Undo. A drag attempt did not visibly reorder the items, so drag reorder remains unconfirmed on this Windows interaction pass.
+- Release tests with production catalog: PASS (75 passed, 0 failed, 0 skipped)
+- Windows launch from an isolated Release copy: PASS
+- Prompt local find `hair`: 2 matches; next/previous updates `1/2` and `2/2` and scrolls to each match.
+- Browse Back: tree selection follows navigation to General and back to Special; Back disables at the root.
+- Drag reorder: PASS; moving `blue_hair` after the weighted item changed the English preview order; Undo restored the initial order and Redo reapplied it.
+- Prompt edits and persistence during screenshot setup used only the isolated Release-copy `UserData`.
 
-Search inspection showed distinct `sex` identities in the production catalog rather than duplicate canonical results emitted by SearchEngine: General `G:sex` plus Special IDs `S:54`, `S:66`, and `S:67`. Search results remain canonical-deduped; no Search/Core change was made.
-
-No #64 classification, canonical/source asset, or protected catalog data was changed for this pass. The screenshot Prompt was stored in the isolated Release-output UserData copy, not the current portable UserData.
+No Core/Data/Search, #64 taxonomy, canonical/source assets, protected catalog, or user's current portable data were changed for this pass. The production catalog contains 33,417 entries; the General taxonomy remains unintegrated pending #64 acceptance.
