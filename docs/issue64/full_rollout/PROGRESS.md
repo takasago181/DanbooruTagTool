@@ -19,36 +19,36 @@ Accepted basis: Issue #64 pilot revision 2, commit `5064429018123c80c32ac41af715
 
 ## Formal checkpoint
 
-Completed sequential rows: **1-27,400 / 30,629 (89.46%)**
+Completed sequential rows: **1-28,400 / 30,629 (92.72%)**
 
-- PROPOSED: **25,397**
-- UNRESOLVED: **2,003**
-- HIGH: **22,949**
-- MEDIUM: **2,448**
-- LOW: **2,003**
-- remaining: **3,229**
-- next formal unprocessed global row: **27,401**
+- PROPOSED: **26,300**
+- UNRESOLVED: **2,100**
+- HIGH: **23,732**
+- MEDIUM: **2,568**
+- LOW: **2,100**
+- remaining: **2,229**
+- next formal unprocessed global row: **28,401**
 
-## Batch 32 — FORMAL
+## Batch 33 — FORMAL
 
-Rows **26,401-27,400** (`surgeonfish` -> `tiger_ii`) were classified, audited, persisted, and formally registered:
+Rows **27,401-28,400** (`tiger_lily` -> `type_100_smg`) were classified, audited, persisted, and formally registered:
 
 - processed: **1,000**
-- PROPOSED: **922**
-- UNRESOLVED: **78**
-- confidence: **833 HIGH / 89 MEDIUM / 78 LOW**
-- ledger: `docs/issue64/full_rollout/batches/batch032_rows26401-27400_ledger.csv.xz`
-- summary: `docs/issue64/full_rollout/batches/batch032_summary.json`
-- raw CSV SHA-256: `abb8967a6252c933db2dec13bd7e81fc1a0c961e6cccf67f94f0c16f7ab5b558`
-- XZ SHA-256: `c084637eb9dedbbc51e8869e2289d29c209351090cd3574708974cb7d203a38b`
+- PROPOSED: **903**
+- UNRESOLVED: **97**
+- confidence: **783 HIGH / 120 MEDIUM / 97 LOW**
+- ledger: `docs/issue64/full_rollout/batches/batch033_rows27401-28400_ledger.csv.xz`
+- summary: `docs/issue64/full_rollout/batches/batch033_summary.json`
+- raw CSV SHA-256: `37e758d3170e62bdbf6fb9f124dc88a569f0803422203fae1454e10ec26bc886`
+- XZ SHA-256: `defebed18ecb49001292da2e83e0cfac682810fb51a8d648168db024b7c96521`
 - storage: Git data binary blob
 
-## Batch 32 audit focus
+## Batch 33 audit focus
 
-- `sword_*` / `tail_*` / `tentacle_*` / `thigh_*` / `tied_*` were not classified by stem alone; object/body/action/clothing-state identity remained primary.
-- `team_*` group/role identity was separated from corresponding `*_uniform` clothing entries.
-- `taurus_(constellation)` / `taurus_(symbol)` / `taurus_(zodiac)`, tarot arcana, flags, and text entries preserve sky/symbol/text boundaries rather than sharing a lexical route.
-- 78 work-specific events, memes, projects, brands, transformations, or otherwise ambiguous concepts remain explicit `UNRESOLVED`.
+- `tiger_*` / `torn_*` / `transparent_*` / `triangle_*` / `two-tone_*` were not classified by stem alone; object/concept identity remained primary.
+- `torn_*` and `two-tone_*` route by the modified target (clothing/body/hair/object/etc.); only independent state/appearance concepts use the corresponding state/appearance genre.
+- tattoo/symbol/UI/accessory/place/action boundaries were explicitly separated where the same modifier family crossed top-level genres.
+- 97 work-specific events, memes, projects, brands, organizations, or otherwise ambiguous concepts remain explicit `UNRESOLVED`.
 - historical usage / `post_count` was not used or substituted.
 - canonical identity / production Japanese overlay / Special / #66 UI-search / main were not modified.
 
@@ -85,4 +85,4 @@ Recovery order:
 3. `docs/issue64/full_rollout/PROTOCOL.md`
 4. `docs/issue64/full_rollout/MANIFEST.json`
 5. this `PROGRESS.md`
-6. continue from row **27,401**
+6. continue from row **28,401**
