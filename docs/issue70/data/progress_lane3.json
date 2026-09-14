@@ -1,0 +1,62 @@
+{
+  "format_version": 1,
+  "issue": 70,
+  "lane": 3,
+  "assignment": {
+    "chunk_modulus": 4,
+    "chunk_remainder": 1,
+    "first_chunk_index": 5
+  },
+  "completed_chunk_indices": [
+    5
+  ],
+  "completed_rows": 500,
+  "status_totals": {
+    "ACCEPTED_AI": 469,
+    "REVIEW_REQUIRED": 31
+  },
+  "review_required": [
+    {"row_id":"I70-002002","canonical_tag":"haru_urara_(bestest_prize)_(umamusume)","display_ja":"ハルウララ（一等賞）","note":"日本語表示名・表記の確定に追加確認が必要"},
+    {"row_id":"I70-002011","canonical_tag":"silence_suzuka_(innocent_silence)_(umamusume)","display_ja":"サイレンススズカ（サイレントイノセンス）","note":"日本語表示名・表記の確定に追加確認が必要"},
+    {"row_id":"I70-002045","canonical_tag":"kama_(young)_(fate)","display_ja":"カーマ（幼少）","note":"日本語表示名・表記の確定に追加確認が必要"},
+    {"row_id":"I70-002059","canonical_tag":"female_byleth_(awakened)_(fire_emblem)","display_ja":"ベレス（ニルヴァーナ）","note":"日本語表示名・表記の確定に追加確認が必要"},
+    {"row_id":"I70-002062","canonical_tag":"soul_(utdr)","display_ja":"ソウル","note":"日本語表示名・表記の確定に追加確認が必要"},
+    {"row_id":"I70-002101","canonical_tag":"tokiko_(touhou)","display_ja":"朱鷺子","note":"日本語表示名・表記の確定に追加確認が必要"},
+    {"row_id":"I70-002117","canonical_tag":"merlin_(fate/prototype)","display_ja":"マーリン〔プロトタイプ〕","note":"日本語表示名・表記の確定に追加確認が必要"},
+    {"row_id":"I70-002139","canonical_tag":"artoria_pendragon_(swimsuit_ruler)_(first_ascension)_(fate)","display_ja":"アルトリア・ペンドラゴン（水着ルーラー・第一再臨）","note":"日本語表示名・表記の確定に追加確認が必要"},
+    {"row_id":"I70-002140","canonical_tag":"ellen_joe_(on_campus)","display_ja":"エレン・ジョー（学園）","note":"日本語表示名・表記の確定に追加確認が必要"},
+    {"row_id":"I70-002168","canonical_tag":"callie_(squid_sisters_outfit)_(splatoon)","display_ja":"アオリ（シオカラーズ衣装）","note":"日本語表示名・表記の確定に追加確認が必要"},
+    {"row_id":"I70-002177","canonical_tag":"hiyuki_(wuthering_waves)","display_ja":"緋雪","note":"日本語表示名・表記の確定に追加確認が必要"},
+    {"row_id":"I70-002180","canonical_tag":"protagonist_(love_and_deepspace)","display_ja":"主人公（恋と深空）","note":"日本語表示名・表記の確定に追加確認が必要"},
+    {"row_id":"I70-002205","canonical_tag":"marie_(squid_sisters_outfit)_(splatoon)","display_ja":"ホタル（シオカラーズ衣装）","note":"日本語表示名・表記の確定に追加確認が必要"},
+    {"row_id":"I70-002215","canonical_tag":"norma_hollowell","display_ja":"ノーマ・ホロウェル","note":"日本語表示名・表記の確定に追加確認が必要"},
+    {"row_id":"I70-002222","canonical_tag":"green_(pokemon)","display_ja":"ブルー","note":"日本語表示名・表記の確定に追加確認が必要"},
+    {"row_id":"I70-002235","canonical_tag":"enemy_aircraft_(kancolle)","display_ja":"敵航空機","note":"日本語表示名・表記の確定に追加確認が必要"},
+    {"row_id":"I70-002236","canonical_tag":"firefly_(spring_missive)_(honkai:_star_rail)","display_ja":"ホタル（春の贈り物）","note":"日本語表示名・表記の確定に追加確認が必要"},
+    {"row_id":"I70-002274","canonical_tag":"raora_panthera_(1st_costume)","display_ja":"ラオーラ・パンテーラ（通常衣装）","note":"日本語表示名・表記の確定に追加確認が必要"},
+    {"row_id":"I70-002293","canonical_tag":"tailless_(zenless_zone_zero)","display_ja":"無尾","note":"日本語表示名・表記の確定に追加確認が必要"},
+    {"row_id":"I70-002299","canonical_tag":"homu_(honkai_impact)","display_ja":"ホム","note":"日本語表示名・表記の確定に追加確認が必要"},
+    {"row_id":"I70-002312","canonical_tag":"clumsy_nun_(diva)","display_ja":"不器用な修道女","note":"日本語表示名・表記の確定に追加確認が必要"},
+    {"row_id":"I70-002314","canonical_tag":"red_soul_(utdr)","display_ja":"赤いソウル","note":"日本語表示名・表記の確定に追加確認が必要"},
+    {"row_id":"I70-002333","canonical_tag":"saber_alter_(swimsuit_rider)_(second_ascension)","display_ja":"アルトリア・ペンドラゴン〔オルタ〕（水着ライダー・第二再臨）","note":"日本語表示名・表記の確定に追加確認が必要"},
+    {"row_id":"I70-002362","canonical_tag":"kinomoto_sakura_(magician)","display_ja":"木之本桜（マジシャン）","note":"日本語表示名・表記の確定に追加確認が必要"},
+    {"row_id":"I70-002379","canonical_tag":"kama_(teenager)_(fate)","display_ja":"カーマ（少女）","note":"日本語表示名・表記の確定に追加確認が必要"},
+    {"row_id":"I70-002385","canonical_tag":"wei_wuxian_(yiling_laozu)","display_ja":"魏無羨（夷陵老祖）","note":"日本語表示名・表記の確定に追加確認が必要"},
+    {"row_id":"I70-002438","canonical_tag":"evanescia_(honkai:_star_rail)","display_ja":"緋英","note":"日本語表示名・表記の確定に追加確認が必要"},
+    {"row_id":"I70-002439","canonical_tag":"nekomiya_mana","display_ja":"猫宮又奈","note":"日本語表示名・表記の確定に追加確認が必要"},
+    {"row_id":"I70-002452","canonical_tag":"chief_(path_to_nowhere)","display_ja":"局長（無期迷途）","note":"日本語表示名・表記の確定に追加確認が必要"},
+    {"row_id":"I70-002455","canonical_tag":"lucia_(pgr)","display_ja":"ルシア","note":"日本語表示名・表記の確定に追加確認が必要"},
+    {"row_id":"I70-002466","canonical_tag":"adashino_adami","display_ja":"化野あだみ","note":"日本語表示名・表記の確定に追加確認が必要"}
+  ],
+  "result_files": [
+    {
+      "chunk_index": 5,
+      "source_path": "docs/issue70/data/source_chunks/source_002001_002500.csv",
+      "source_sha256": "376cead41bd4692f47e91605686dbf9b689a3c6ef2c826a4375e238a712414ba",
+      "result_path": "docs/issue70/data/results/lane3/lane3_chunk005_I70-002001_I70-002500.csv",
+      "result_sha256": "12b054d277e5e9307dc07c08391a1080184fe692cf1ac795cbf229dbb1f214ce",
+      "row_count": 500
+    }
+  ],
+  "next_chunk_index": 9
+}
