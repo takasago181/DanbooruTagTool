@@ -4,16 +4,16 @@
 
 ## Current Stage
 
-**Stage9 completed / beginner-first v1 direction locked / #64 General taxonomy accepted, integrated, and complete / #66 is the sole active practical-v1 DEV lane.**
+**Stage9 completed / beginner-first practical v1 accepted / #64 General taxonomy accepted and integrated / #66 completed / #68 is the next post-v1 maintenance lane.**
 
 Current active implementation owners:
-- **Issue #66** — integrate the accepted General taxonomy into the WPF catalog/provider, then complete practical-v1 Windows acceptance
+- **Issue #68** — inventory-first repository/workspace cleanup; first pass is report-only and stops for review before any move or deletion
 
 Current Stage10 definition:
 - Issue #65
 - `docs/stages/STAGE_10_LEARNING.md`
 
-Stage10 is the practical image-generation learning stage (NoobAI XL 1.1 EPS + Forge Neo primary), **not** the old broad Special production A/B stage. By current user priority it remains paused until the practical v1 app baseline unless the user explicitly changes priority.
+Stage10 is the practical image-generation learning stage (NoobAI XL 1.1 EPS + Forge Neo primary), **not** the old broad Special production A/B stage. By current user priority it remains paused until the Issue #68 inventory-first cleanup lane is completed or the user explicitly changes priority.
 
 ## Product goal
 
@@ -72,7 +72,7 @@ Accepted baseline includes:
 - explicit Prompt add/remove/reorder/multi-select/Undo/Redo;
 - visible-state = copied-English-Prompt invariant;
 - autosave/recovery;
-- General provider boundary waiting for accepted #64.
+- accepted #64 General taxonomy consumed through the explicit catalog build/provider boundary.
 
 ### Accepted UX refinement merged to live main
 
@@ -84,11 +84,15 @@ The reviewed source was branch `codex/issue66-dictionary-selection-usability` at
 
 Validation on the accepted source: Debug/Release builds PASS, Debug/Release tests 75/75 PASS, `git diff --check` PASS, and Windows drag reorder + Undo/Redo PASS. No #64 taxonomy or protected/canonical data was included.
 
-### Remaining #66 scope
+### Phase C and practical-v1 acceptance — completed
 
-Issue #66 is now the sole active practical-v1 DEV lane. Its accepted UX refinement is in main at `3f4e47d7331809b2e6a234824799fb3bc179bae8`, and the accepted #64 sidecar is in main at `d69e8b06916b637efd03c05b820ad13dd05e8ec1`. The WPF catalog/provider has not yet consumed the sidecar.
+The accepted #64 General taxonomy was integrated through the WPF catalog/provider boundary and is present in the live-main baseline `1486fc242d2eadf9ca24ed803e50ad7af7294004`. Catalog refresh remains an explicit build operation; normal app startup opens the built catalog.
 
-Next, integrate only that accepted sidecar through the existing provider/catalog boundary, expose shallow General browse, rebuild/refresh the product catalog, and rerun General browse plus Japanese/English/mixed search regressions. Then complete final Prompt/copy and practical Windows workflow acceptance. No further UX refinement pass is required unless a concrete regression appears.
+Final Windows click-through acceptance passed on an isolated Release publish/UserData. It verified General browse/back navigation; Japanese `青い髪` and canonical `blue_hair` search; continued exclusion of all six #63 `OUT_OF_SCOPE_PRODUCT` rows; mixed Prompt preservation of raw/weighted/LoRA/BREAK/duplicates/order; reorder Undo/Redo; Prompt-local find navigation; copy matching the visible English preview; direct-edit operation lock and cancel; restart persistence; and item-level `long_hair` delete/Undo/Redo/final Undo restoring the original eight items. No obvious clipping was observed at the tested app area.
+
+Release tests passed **77/77**. Protected/canonical/source data, real user `UserData`, and accepted #64/#63 assets were unchanged. The acceptance used only an isolated temporary publish/UserData.
+
+DEV verdict: **PRACTICAL_V1_ACCEPTED**. Issue #66 is complete; do not reopen completed foundations or add another refinement pass without a concrete regression.
 
 ## Portable / artifact decision — 2026-09-14
 
@@ -131,20 +135,13 @@ Artifacts remain untracked. Cleanup must be scoped to known disposable artifact 
 
 Current route:
 
-`#64 accepted/merged/completed -> #66 General integration -> final Windows acceptance -> practical v1 baseline -> Stage10 resume`
+`#66 practical v1 accepted -> #68 inventory/report and review -> Stage10 #65 resume`
 
-After #64 acceptance and integration to main:
-1. #66 consumes only the accepted General taxonomy sidecar through the existing provider/catalog boundary;
-2. rebuild/refresh catalog;
-3. rerun General browse + Japanese/English/mixed search regressions;
-4. finish practical UI/Prompt interaction acceptance on Windows;
-5. verify Prompt round-trip / visible-state copy behavior;
-6. declare practical v1 baseline;
-7. resume Stage10 #65 unless user priority changes.
+Issue #68's first pass is inventory/report only. No deletion or broad move is authorized in that pass; stop for review before cleanup execution.
 
 Short form:
 
-`#64 + #66 UX in parallel -> #64 accepted -> General integration -> final practical Windows acceptance -> v1 baseline -> Stage10 resume`
+`#64 accepted/integrated + #66 practical v1 accepted -> #68 inventory-first cleanup -> Stage10 resume`
 
 Portable/second-PC acceptance is not in this critical path.
 
@@ -153,7 +150,8 @@ Portable/second-PC acceptance is not in this critical path.
 | TEAM_ID | Status | Scope | Restore anchor |
 | --- | --- | --- | --- |
 | `GENERAL-DICT:#64` | **COMPLETED / ACCEPTED + INTEGRATED** | General 30,629 practical taxonomy | Issue #64 acceptance comment + production candidate on main |
-| `V1-APP:#66` | **SOLE ACTIVE PRACTICAL-V1 DEV LANE** | accepted General integration + final WPF/Windows acceptance | Issue #66 body/latest comments + live main WPF implementation |
+| `V1-APP:#66` | **COMPLETED / PRACTICAL_V1_ACCEPTED** | beginner-first WPF app, accepted General integration, final Windows acceptance | Issue #66 acceptance comment `5662680719` + main `1486fc242d2eadf9ca24ed803e50ad7af7294004` |
+| `MAINT:#68` | **NEXT ACTIVE / INVENTORY FIRST** | post-v1 repository/workspace cleanup; first pass is report-only | Issue #68 inventory-first contract |
 | `STAGE10-LEARNING:#65` | **PAUSED BY CURRENT PRIORITY** | practical image-generation mastery | Issue #65 + `STAGE_10_LEARNING.md` |
 | `KNOWLEDGE:#44` | **ONGOING / V1 NON-BLOCKING** | knowledge corpus + Prompt/generation knowledge | Issue #44 |
 | `MAINT:#24` | OPEN / SAFETY DEBT | protected-data backup/restore | Issue #24 |
@@ -174,6 +172,7 @@ Historical only:
 - Issue #64 General taxonomy — accepted and integrated at `d69e8b06916b637efd03c05b820ad13dd05e8ec1`
 - Issue #66 Phase B clean WPF baseline — merged
 - Issue #66 accepted UX refinement — merged at `3f4e47d7331809b2e6a234824799fb3bc179bae8`
+- Issue #66 Phase C General integration and practical-v1 acceptance — completed at main `1486fc242d2eadf9ca24ed803e50ad7af7294004`; final Windows acceptance PASS, Release tests 77/77 PASS
 
 Do not restart completed foundations wholesale without demonstrated regression or explicit redesign decision.
 
