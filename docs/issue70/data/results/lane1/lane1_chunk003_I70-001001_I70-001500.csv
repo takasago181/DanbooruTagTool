@@ -1,0 +1,501 @@
+row_id,canonical_tag,category,display_ja,search_ja,translation_status,translation_note
+I70-001001,uzuki_(kancolle),4,卯月,卯月 | 卯月(艦これ),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001002,albedo_(genshin_impact),4,アルベド,アルベド | アルベド(原神),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001003,dantsu_flame_(umamusume),4,ダンツフレーム,ダンツフレーム | ダンツフレーム(ウマ娘),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001004,kamijou_touma,4,上条当麻,上条当麻,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001005,tomoe_gozen_(fate),4,巴御前,巴御前 | アーチャー・インフェルノ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001006,satsuki_(kancolle),4,皐月,皐月 | 皐月(艦これ),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001007,mogami_(kancolle),4,最上,最上 | 最上(艦これ),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001008,ukinami_yuzuha,4,浮波柚葉,浮波柚葉,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001009,lyn_(fire_emblem),4,リン,リン | リンディス,ACCEPTED_AI,公式日本語名と別名を整理
+I70-001010,urakaze_(kancolle),4,浦風,浦風 | 浦風(艦これ),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001011,air_groove_(umamusume),4,エアグルーヴ,エアグルーヴ | エアグルーヴ(ウマ娘),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001012,izumi_sagiri,4,和泉紗霧,和泉紗霧 | 紗霧,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001013,sonia_(pokemon),4,ソニア,ソニア | ソニア(ポケモン),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001014,shihouin_yoruichi,4,四楓院夜一,四楓院夜一,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001015,tighnari_(genshin_impact),4,ティナリ,ティナリ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001016,sakamata_chloe_(1st_costume),4,沙花叉クロヱ（通常衣装）,沙花叉クロヱ | 沙花叉クロヱ(通常),ACCEPTED_AI,キャラクター名と衣装区分を明示
+I70-001017,seia_(swimsuit)_(blue_archive),4,百合園セイア（水着）,百合園セイア(水着) | セイア(水着),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001018,specter_(arknights),4,スペクター,スペクター | スペクター(アークナイツ),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001019,unzan,4,雲山,雲山,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001020,neuvillette_(genshin_impact),4,ヌヴィレット,ヌヴィレット,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001021,mitaka_asa,4,三鷹アサ,三鷹アサ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001022,hayami_kanade,4,速水奏,速水奏,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001023,lyra_(pokemon),4,コトネ,コトネ | コトネ(ポケモン),ACCEPTED_AI,公式日本語名を採用
+I70-001024,mash_kyrielight_(dangerous_beast),4,マシュ・キリエライト（デンジャラス・ビースト）,マシュ・キリエライト | デンジャラス・ビースト,ACCEPTED_AI,キャラクター名と衣装名を明示
+I70-001025,matikanetannhauser_(umamusume),4,マチカネタンホイザ,マチカネタンホイザ | マチカネタンホイザ(ウマ娘),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001026,camilla_(fire_emblem),4,カミラ,カミラ | カミラ(FEif),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001027,monokuma,4,モノクマ,モノクマ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001028,hanekawa_tsubasa,4,羽川翼,羽川翼,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001029,android_18,4,人造人間18号,人造人間18号 | 18号 | ラズリ,ACCEPTED_AI,公式日本語名と通称を整理
+I70-001030,himari_(blue_archive),4,明星ヒマリ,明星ヒマリ | ヒマリ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001031,basil_(headspace)_(omori),4,バジル（HEADSPACE）,バジル | バジル(HEADSPACE),ACCEPTED_AI,同名形態を区別
+I70-001032,laffey_(azur_lane),4,ラフィー,ラフィー | ラフィー(アズールレーン),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001033,meisho_doto_(umamusume),4,メイショウドトウ,メイショウドトウ | メイショウドトウ(ウマ娘),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001034,kiyoshimo_(kancolle),4,清霜,清霜 | 清霜(艦これ),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001035,nangong_yu,4,南宮羽,南宮羽,REVIEW_REQUIRED,日本語公式表記の最終確認が必要
+I70-001036,hatsuyuki_(kancolle),4,初雪,初雪 | 初雪(艦これ),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001037,alice_thymefield,4,アリス・タイムフィールド,アリス・タイムフィールド,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001038,rapi_(nikke),4,ラピ,ラピ | ラピ(NIKKE),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001039,grass_wonder_(umamusume),4,グラスワンダー,グラスワンダー | グラスワンダー(ウマ娘),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001040,shiori_novella_(1st_costume),4,シオリ・ノヴェラ（通常衣装）,シオリ・ノヴェラ | シオリ・ノヴェラ(通常),ACCEPTED_AI,キャラクター名と衣装区分を明示
+I70-001041,jintsuu_(kancolle),4,神通,神通 | 神通(艦これ),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001042,katsushika_hokusai_(fate),4,葛飾北斎,葛飾北斎 | お栄 | 葛飾応為,ACCEPTED_AI,公式日本語名と関連名を整理
+I70-001043,takamaki_ann,4,高巻杏,高巻杏,ACCEPTED_AI,公式日本語名を採用
+I70-001044,yuutenji_nyamu,4,祐天寺にゃむ,祐天寺にゃむ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001045,cecilia_immergreen,4,セシリア・イマーグリーン,セシリア・イマーグリーン,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001046,futami_mami,4,双海真美,双海真美,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001047,isekaijoucho,4,ヰ世界情緒,ヰ世界情緒,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001048,espeon,4,エーフィ,エーフィ,ACCEPTED_AI,公式日本語名を採用
+I70-001049,heathcliff_(project_moon),4,ヒースクリフ,ヒースクリフ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001050,shiomi_kotone,4,汐見琴音,汐見琴音 | ハム子,ACCEPTED_AI,公式・一般的日本語名を採用
+I70-001051,yang_xiao_long,4,ヤン・シャオロン,ヤン・シャオロン,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001052,emiya_kiritsugu,4,衛宮切嗣,衛宮切嗣 | 切嗣,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001053,hyuuga_(kancolle),4,日向,日向 | 日向(艦これ),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001054,chitanda_eru,4,千反田える,千反田える,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001055,tachibana_kanade,4,立華かなで,立華かなで | 天使,ACCEPTED_AI,公式日本語名を採用
+I70-001056,saratoga_(kancolle),4,サラトガ,サラトガ | サラトガ(艦これ),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001057,midorikawa_nao,4,緑川なお,緑川なお,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001058,kanroji_mitsuri,4,甘露寺蜜璃,甘露寺蜜璃,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001059,ame-chan_(needy_girl_overdose),4,あめちゃん,あめちゃん | あめちゃん(NEEDY GIRL OVERDOSE),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001060,dodoco_(genshin_impact),4,ドドコ,ドドコ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001061,mimikyu,4,ミミッキュ,ミミッキュ,ACCEPTED_AI,公式日本語名を採用
+I70-001062,mizuno_ami,4,水野亜美,水野亜美,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001063,akai_haato,4,赤井はあと,赤井はあと | はあちゃま,ACCEPTED_AI,公式名と定着通称を整理
+I70-001064,mr._c.b._(umamusume),4,ミスターシービー,ミスターシービー | ミスターシービー(ウマ娘),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001065,kujikawa_rise,4,久慈川りせ,久慈川りせ | りせちー,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001066,dante_(devil_may_cry),4,ダンテ,ダンテ | ダンテ(DMC),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001067,raphtalia,4,ラフタリア,ラフタリア,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001068,todoroki_shoto,4,轟焦凍,轟焦凍,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001069,hatsuzuki_(kancolle),4,初月,初月 | 初月(艦これ),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001070,kirlia,4,キルリア,キルリア,ACCEPTED_AI,公式日本語名を採用
+I70-001071,kise_yayoi,4,黄瀬やよい,黄瀬やよい,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001072,miyafuji_yoshika,4,宮藤芳佳,宮藤芳佳,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001073,female_robin_(fire_emblem),4,ルフレ（女性）,ルフレ♀ | ルフレ(女性),ACCEPTED_AI,公式日本語名と性別区分を明示
+I70-001074,shiina_yuika,4,椎名唯華,椎名唯華 | しぃしぃ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001075,kousaka_kirino,4,高坂桐乃,高坂桐乃,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001076,michishio_(kancolle),4,満潮,満潮 | 満潮(艦これ),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001077,kurosawa_ruby,4,黒澤ルビィ,黒澤ルビィ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001078,haro,4,ハロ,ハロ | ハロ(ガンダム),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001079,high_priest_(ragnarok_online),4,ハイプリースト,ハイプリースト | ハイプリ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001080,ju_fufu,4,橘福福,橘福福 | チー・フーフー,REVIEW_REQUIRED,日本語公式表記の確認が必要
+I70-001081,isokaze_(kancolle),4,磯風,磯風 | 磯風(艦これ),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001082,yahagi_(kancolle),4,矢矧,矢矧 | 矢矧(艦これ),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001083,stark_(sousou_no_frieren),4,シュタルク,シュタルク,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001084,kaga_(azur_lane),4,加賀,加賀 | 加賀(アズールレーン),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001085,yuffie_kisaragi,4,ユフィ・キサラギ,ユフィ・キサラギ | ユフィ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001086,mortis_(bang_dream!),4,モーティス,モーティス,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001087,sendai_kai_ni_(kancolle),4,川内改二,川内改二,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001088,barghest_(fate),4,バーゲスト,バーゲスト | 妖精騎士ガウェイン,ACCEPTED_AI,公式日本語名と旧呼称を整理
+I70-001089,johnny_joestar,4,ジョニィ・ジョースター,ジョニィ・ジョースター,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001090,lusamine_(pokemon),4,ルザミーネ,ルザミーネ,ACCEPTED_AI,公式日本語名を採用
+I70-001091,saten_ruiko,4,佐天涙子,佐天涙子,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001092,orfevre_(umamusume),4,オルフェーヴル,オルフェーヴル | オルフェーヴル(ウマ娘),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001093,haruna_(blue_archive),4,黒舘ハルナ,黒舘ハルナ | ハルナ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001094,osaka_shizuku,4,桜坂しずく,桜坂しずく,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001095,zundamon,4,ずんだもん,ずんだもん,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001096,geto_suguru,4,夏油傑,夏油傑,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001097,accelerator_(toaru_majutsu_no_index),4,一方通行,一方通行 | アクセラレータ,ACCEPTED_AI,公式日本語名と読みを整理
+I70-001098,tippy_(gochiusa),4,ティッピー,ティッピー,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001099,ump9_(girls'_frontline),4,UMP9,UMP9 | UMP9(ドールズフロントライン),ACCEPTED_AI,公式日本語表記を採用
+I70-001100,non-human_admiral_(kancolle),4,人外提督,人外提督 | 非人間提督,REVIEW_REQUIRED,ファン呼称系タグのため日本語定着名を要確認
+I70-001101,kunikida_hanamaru,4,国木田花丸,国木田花丸,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001102,shinjou_akane,4,新条アカネ,新条アカネ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001103,harusame_(kancolle),4,春雨,春雨 | 春雨(艦これ),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001104,ohtsuki_yui,4,大槻唯,大槻唯,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001105,dante_(limbus_company),4,ダンテ,ダンテ | ダンテ(Limbus Company),ACCEPTED_AI,作品区別用検索語を付与
+I70-001106,unryuu_(kancolle),4,雲龍,雲龍 | 雲龍(艦これ),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001107,skadi_the_corrupting_heart_(arknights),4,濁心スカジ,濁心スカジ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001108,takasaki_yu,4,高咲侑,高咲侑,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001109,sessyoin_kiara,4,殺生院キアラ,殺生院キアラ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001110,akuma_homura,4,悪魔ほむら,悪魔ほむら,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001111,makinami_mari_illustrious,4,真希波・マリ・イラストリアス,真希波・マリ・イラストリアス,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001112,enterprise_(azur_lane),4,エンタープライズ,エンタープライズ | エンタープライズ(アズールレーン),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001113,clorinde_(genshin_impact),4,クロリンデ,クロリンデ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001114,hoshimachi_suisei_(1st_costume),4,星街すいせい（通常衣装）,星街すいせい | 星街すいせい(通常),ACCEPTED_AI,キャラクター名と衣装区分を明示
+I70-001115,magical_mirai_miku,4,初音ミク（マジカルミライ）,初音ミク(マジカルミライ) | マジカルミライミク,ACCEPTED_AI,誤訳候補を避けイベント文脈を明示
+I70-001116,lysithea_von_ordelia,4,リシテア＝フォン＝コーデリア,リシテア | リシテア=フォン=コーデリア,ACCEPTED_AI,公式日本語名を採用
+I70-001117,jeanne_d'arc_alter_(swimsuit_berserker)_(fate),4,ジャンヌ・ダルク〔オルタ〕（水着）,ジャンヌ・オルタ(水着) | 水着ジャンヌオルタ,ACCEPTED_AI,キャラクター名と水着形態を明示
+I70-001118,nakayama_festa_(umamusume),4,ナカヤマフェスタ,ナカヤマフェスタ | ナカヤマフェスタ(ウマ娘),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001119,commander_(nikke),4,指揮官,指揮官 | 指揮官(NIKKE),ACCEPTED_AI,作品文脈で役割名を確定
+I70-001120,kasumi_kai_ni_(kancolle),4,霞改二,霞改二,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001121,erica_hartmann,4,エーリカ・ハルトマン,エーリカ・ハルトマン,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001122,fukumaru_koito,4,福丸小糸,福丸小糸,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001123,momo_(nikki),4,モモ,モモ | モモ(ニキ),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001124,tamamo_cat_(fate),4,タマモキャット,タマモキャット,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001125,toutetsu_yuuma,4,饕餮尤魔,饕餮尤魔,ACCEPTED_AI,公式日本語名を採用
+I70-001126,sakata_gintoki,4,坂田銀時,坂田銀時 | 銀時,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001127,akagi_miria,4,赤城みりあ,赤城みりあ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001128,hachimiya_meguru,4,八宮めぐる,八宮めぐる,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001129,himemori_luna,4,姫森ルーナ,姫森ルーナ,ACCEPTED_AI,公式日本語名を採用
+I70-001130,chara_(undertale),4,キャラ,キャラ | キャラ(UNDERTALE),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001131,sprigatito,4,ニャオハ,ニャオハ,ACCEPTED_AI,公式日本語名を採用
+I70-001132,komano_aunn,4,高麗野あうん,高麗野あうん | あうん,ACCEPTED_AI,公式日本語名を採用
+I70-001133,spider-man,4,スパイダーマン,スパイダーマン,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001134,takao_(azur_lane),4,高雄,高雄 | 高雄(アズールレーン),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001135,9s_(nier:automata),4,9S,9S | ヨルハ九号S型,ACCEPTED_AI,公式日本語表記を採用
+I70-001136,gran_(granblue_fantasy),4,グラン,グラン | グラン(グラブル),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001137,hanamura_yousuke,4,花村陽介,花村陽介,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001138,sakura_futaba,4,佐倉双葉,佐倉双葉,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001139,morpeko,4,モルペコ,モルペコ,ACCEPTED_AI,公式日本語名を採用
+I70-001140,natori_sana,4,名取さな,名取さな,ACCEPTED_AI,公式日本語名を採用
+I70-001141,brendan_(pokemon),4,ユウキ,ユウキ | ユウキ(ポケモン),ACCEPTED_AI,公式日本語名を採用
+I70-001142,kotonoha_akane,4,琴葉茜,琴葉茜,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001143,narita_brian_(umamusume),4,ナリタブライアン,ナリタブライアン | ナリタブライアン(ウマ娘),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001144,nero_claudius_(fate/extra),4,ネロ・クラウディウス,ネロ・クラウディウス | 赤セイバー,ACCEPTED_AI,公式日本語名を採用
+I70-001145,mari_(track)_(blue_archive),4,伊落マリー（体操服）,伊落マリー(体操服) | マリー(体操服),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001146,navia_(genshin_impact),4,ナヴィア,ナヴィア,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001147,yuzuki_choco,4,癒月ちょこ,癒月ちょこ,ACCEPTED_AI,公式日本語名を採用
+I70-001148,kurokoma_saki,4,驪駒早鬼,驪駒早鬼 | 黒駒早鬼,ACCEPTED_AI,公式日本語名を採用
+I70-001149,fou_(fate),4,フォウ,フォウ | フォウくん,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001150,evernight_(honkai:_star_rail),4,長夜月,長夜月,REVIEW_REQUIRED,日本語公式名が新規要素のため最終確認が必要
+I70-001151,ootori_emu,4,鳳えむ,鳳えむ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001152,ryougi_shiki,4,両儀式,両儀式,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001153,toshinou_kyouko,4,歳納京子,歳納京子,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001154,kaveh_(genshin_impact),4,カーヴェ,カーヴェ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001155,akitsu_maru_(kancolle),4,あきつ丸,あきつ丸 | あきつ丸(艦これ),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001156,ia_(vocaloid),4,IA,IA | IA -ARIA ON THE PLANETES-,ACCEPTED_AI,公式表記を採用
+I70-001157,luciana_de_montefio,4,ルーシー,ルーシー | ルシアーナ・デ・モンテフィオ,REVIEW_REQUIRED,フルネーム日本語表記に揺れがあるため要確認
+I70-001158,shorekeeper_(wuthering_waves),4,ショアキーパー,ショアキーパー,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001159,kagari_atsuko,4,カガリ・アツコ,カガリ・アツコ | アッコ,ACCEPTED_AI,公式日本語名を採用
+I70-001160,ningguang_(genshin_impact),4,凝光,凝光 | ギョウコウ,ACCEPTED_AI,公式日本語名と読みを整理
+I70-001161,eris_greyrat,4,エリス・ボレアス・グレイラット,エリス・グレイラット | エリス・ボレアス・グレイラット,ACCEPTED_AI,公式日本語名を採用
+I70-001162,theresa_apocalypse,4,テレサ・アポカリプス,テレサ・アポカリプス | テレサ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001163,tsukimura_temari,4,月村手毬,月村手毬,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001164,yura_(kancolle),4,由良,由良 | 由良(艦これ),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001165,taigei_(kancolle),4,大鯨,大鯨 | 大鯨(艦これ),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001166,iizunamaru_megumu,4,飯綱丸龍,飯綱丸龍,ACCEPTED_AI,公式日本語名を採用
+I70-001167,kamado_tanjirou,4,竈門炭治郎,竈門炭治郎,ACCEPTED_AI,公式日本語名を採用
+I70-001168,tamaki_iroha,4,環いろは,環いろは,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001169,oumae_kumiko,4,黄前久美子,黄前久美子,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001170,akane_(blue_archive),4,室笠アカネ,室笠アカネ | アカネ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001171,gertrud_barkhorn,4,ゲルトルート・バルクホルン,ゲルトルート・バルクホルン | トゥルーデ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001172,commander_(girls'_frontline),4,指揮官,指揮官 | 指揮官(ドールズフロントライン),ACCEPTED_AI,作品文脈で役割名を確定
+I70-001173,akagi_(azur_lane),4,赤城,赤城 | 赤城(アズールレーン),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001174,palutena,4,パルテナ,パルテナ | パルテナ様,ACCEPTED_AI,公式日本語名を採用
+I70-001175,shinku,4,真紅,真紅,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001176,tachibana_sherry,4,橘シェリー,橘シェリー,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001177,shikinami_(kancolle),4,敷波,敷波 | 敷波(艦これ),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001178,edward_elric,4,エドワード・エルリック,エドワード・エルリック,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001179,aino_minako,4,愛野美奈子,愛野美奈子,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001180,shana,4,シャナ,シャナ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001181,akizuki_(kancolle),4,秋月,秋月 | 秋月(艦これ),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001182,silver_(pokemon),4,シルバー,シルバー | シルバー(ポケモン),ACCEPTED_AI,公式日本語名を採用
+I70-001183,higuchi_kaede,4,樋口楓,樋口楓,ACCEPTED_AI,公式日本語名を採用
+I70-001184,daitaku_helios_(umamusume),4,ダイタクヘリオス,ダイタクヘリオス | ダイタクヘリオス(ウマ娘),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001185,canari_(pokemon),4,カナリィ,カナリィ,REVIEW_REQUIRED,新規作品由来の日本語公式表記を要確認
+I70-001186,phosphophyllite,4,フォスフォフィライト,フォスフォフィライト | フォス,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001187,roxy_migurdia,4,ロキシー・ミグルディア,ロキシー・ミグルディア | ロキシー,ACCEPTED_AI,公式日本語名を採用
+I70-001188,yae_sakura,4,八重桜,八重桜,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001189,amagi_yukiko,4,天城雪子,天城雪子,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001190,hishikawa_rikka,4,菱川六花,菱川六花,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001191,hyacine_(honkai:_star_rail),4,ヒアンシー,ヒアンシー,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001192,mutsuki_(kancolle),4,睦月,睦月 | 睦月(艦これ),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001193,aoki_reika,4,青木れいか,青木れいか,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001194,ruan_mei_(honkai:_star_rail),4,ルアン・メェイ,ルアン・メェイ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001195,seiran_(touhou),4,清蘭,清蘭,ACCEPTED_AI,公式日本語名を採用
+I70-001196,noelle_holiday,4,ノエル・ホリデー,ノエル・ホリデー | ノエル,ACCEPTED_AI,作品文脈から正式名を採用
+I70-001197,hanami_saki,4,花海咲季,花海咲季,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001198,ak-12_(girls'_frontline),4,AK-12,AK-12 | AK-12(ドールズフロントライン),ACCEPTED_AI,公式表記を採用
+I70-001199,futami_ami,4,双海亜美,双海亜美,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001200,la+_darknesss_(1st_costume),4,ラプラス・ダークネス（通常衣装）,ラプラス・ダークネス | ラプラス・ダークネス(通常),ACCEPTED_AI,キャラクター名と衣装区分を明示
+I70-001201,goldenglow_(arknights),4,ゴールデングロー,ゴールデングロー | ゴールデングロウ,ACCEPTED_AI,公式日本語表記を優先
+I70-001202,monika_(doki_doki_literature_club),4,モニカ,モニカ | モニカ(DDLC),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001203,ohara_mari,4,小原鞠莉,小原鞠莉,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001204,kotonoha_aoi,4,琴葉葵,琴葉葵,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001205,cipher_(honkai:_star_rail),4,サフェル,サフェル | サフェル(スターレイル),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001206,mallow_(pokemon),4,マオ,マオ | マオ(ポケモン),ACCEPTED_AI,公式日本語名を採用
+I70-001207,tenma_tsukasa,4,天馬司,天馬司,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001208,leonardo_da_vinci_(fate),4,レオナルド・ダ・ヴィンチ,レオナルド・ダ・ヴィンチ | ダ・ヴィンチちゃん,ACCEPTED_AI,公式日本語名を採用
+I70-001209,haguro_(kancolle),4,羽黒,羽黒 | 羽黒(艦これ),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001210,koyanskaya_(fate),4,コヤンスカヤ,コヤンスカヤ | タマモヴィッチ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001211,sameko_saba,4,サメコサバ,サメコサバ,REVIEW_REQUIRED,活動名の公式日本語表記を要確認
+I70-001212,narita_taishin_(umamusume),4,ナリタタイシン,ナリタタイシン | ナリタタイシン(ウマ娘),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001213,junketsu,4,純潔,純潔 | 純潔(KILL la KILL),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001214,liko_(pokemon),4,リコ,リコ | リコ(ポケモン),ACCEPTED_AI,公式日本語名を採用
+I70-001215,nakano_itsuki,4,中野五月,中野五月,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001216,t-head_admiral,4,T督,T督 | Tヘッド提督,REVIEW_REQUIRED,ファン呼称系タグのため定着表記を要確認
+I70-001217,ibaraki_douji_(fate),4,茨木童子,茨木童子 | 茨木童子(Fate),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001218,asui_tsuyu,4,蛙吹梅雨,蛙吹梅雨 | 梅雨ちゃん,ACCEPTED_AI,公式日本語名を採用
+I70-001219,shinomiya_kaguya,4,四宮かぐや,四宮かぐや,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001220,simon_(ttgl),4,シモン,シモン | シモン(グレンラガン),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001221,irene_(arknights),4,アイリーニ,アイリーニ | アイリーニ(アークナイツ),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001222,leafeon,4,リーフィア,リーフィア,ACCEPTED_AI,公式日本語名を採用
+I70-001223,springfield_(girls'_frontline),4,スプリングフィールド,スプリングフィールド | スプリングフィールド(ドールズフロントライン),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001224,perlica_(arknights),4,ペリカ,ペリカ,REVIEW_REQUIRED,Endfield日本語公式表記の最終確認が必要
+I70-001225,hoshikawa_sara,4,星川サラ,星川サラ,ACCEPTED_AI,公式日本語名を採用
+I70-001226,jessie_(pokemon),4,ムサシ,ムサシ | ムサシ(ポケモン),ACCEPTED_AI,公式日本語名を採用
+I70-001227,levi_(shingeki_no_kyojin),4,リヴァイ,リヴァイ | リヴァイ・アッカーマン,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001228,ubel_(sousou_no_frieren),4,ユーベル,ユーベル,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001229,marina_(splatoon),4,イイダ,イイダ | イイダ(スプラトゥーン),ACCEPTED_AI,公式日本語名を採用
+I70-001230,slime_(genshin_impact),4,スライム,スライム | スライム(原神),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001231,kayoko_(dress)_(blue_archive),4,鬼方カヨコ（ドレス）,鬼方カヨコ(ドレス) | カヨコ(ドレス),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001232,anaxa_(honkai:_star_rail),4,アナイクス,アナイクス | アナイクス(スターレイル),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001233,atsuko_(blue_archive),4,秤アツコ,秤アツコ | アツコ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001234,diarmuid_ua_duibhne_(fate),4,ディルムッド・オディナ,ディルムッド・オディナ | ディルムッド,ACCEPTED_AI,公式日本語名を採用
+I70-001235,naegi_makoto,4,苗木誠,苗木誠,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001236,kugisaki_nobara,4,釘崎野薔薇,釘崎野薔薇,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001237,isuzu_hana,4,五十鈴華,五十鈴華,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001238,tokisaki_kurumi,4,時崎狂三,時崎狂三,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001239,vivlos_(umamusume),4,ヴィブロス,ヴィブロス | ヴィブロス(ウマ娘),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001240,pekomama,4,ぺこらマミー,ぺこらマミー | ぺこママ,ACCEPTED_AI,一般的呼称を採用
+I70-001241,susie_(deltarune),4,スージィ,スージィ | スージィ(DELTARUNE),ACCEPTED_AI,公式日本語表記を採用
+I70-001242,elegg_(nikke),4,エレグ,エレグ | エレグ(NIKKE),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001243,shiver_(splatoon),4,フウカ,フウカ | フウカ(スプラトゥーン),ACCEPTED_AI,公式日本語名を採用
+I70-001244,sussurro_(arknights),4,ススーロ,ススーロ | ススーロ(アークナイツ),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001245,yoshimi_(blue_archive),4,伊原木ヨシミ,伊原木ヨシミ | ヨシミ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001246,asakura_ryoko,4,朝倉涼子,朝倉涼子,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001247,louise_francoise_le_blanc_de_la_valliere,4,ルイズ・フランソワーズ・ル・ブラン・ド・ラ・ヴァリエール,ルイズ・フランソワーズ・ル・ブラン・ド・ラ・ヴァリエール | ルイズ,ACCEPTED_AI,公式日本語名を採用
+I70-001248,pochita_(chainsaw_man),4,ポチタ,ポチタ | チェンソーの悪魔,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001249,shibuya_kanon,4,澁谷かのん,澁谷かのん,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001250,scaramouche_(kabukimono)_(genshin_impact),4,傾奇者,傾奇者,ACCEPTED_AI,公式日本語呼称を採用
+I70-001251,ryu_(street_fighter),4,リュウ,リュウ | リュウ(ストリートファイター),ACCEPTED_AI,公式日本語名を採用
+I70-001252,tennoji_rina,4,天王寺璃奈,天王寺璃奈,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001253,meltryllis_(swimsuit_lancer)_(fate),4,謎のアルターエゴ・Λ,謎のアルターエゴ・Λ | ラムダリリス | メルトリリス(水着),ACCEPTED_AI,公式形態名と通称を整理
+I70-001254,mavuika_(genshin_impact),4,マーヴィカ,マーヴィカ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001255,rebecca_(cyberpunk),4,レベッカ,レベッカ | レベッカ(エッジランナーズ),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001256,rice_shower_(rosy_dreams)_(umamusume),4,ライスシャワー（ローゼスドリーム）,ライスシャワー(ローゼスドリーム) | ローゼスドリーム,ACCEPTED_AI,キャラクター名と衣装名を明示
+I70-001257,female_endministrator_(arknights),4,管理人（女性）,管理人(女性) | 女性管理人,REVIEW_REQUIRED,日本語公式プレイヤー呼称の確認が必要
+I70-001258,anastasia_(fate),4,アナスタシア,アナスタシア | アナスタシア(Fate),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001259,little_red_riding_hood_(fairy_tale_character),4,赤ずきん,赤ずきん,ACCEPTED_AI,一般的日本語名を採用
+I70-001260,elira_pendora,4,エリーラ・ペンドラ,エリーラ・ペンドラ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001261,ciel_(tsukihime),4,シエル,シエル | シエル先輩,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001262,ushiromiya_battler,4,右代宮戦人,右代宮戦人,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001263,madotsuki,4,窓付き,窓付き | まどつき,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001264,shinki_(touhou),4,神綺,神綺,ACCEPTED_AI,公式日本語名を採用
+I70-001265,outis_(project_moon),4,ウーティス,ウーティス,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001266,roll_(mega_man),4,ロール,ロール | ロールちゃん,ACCEPTED_AI,公式日本語名を採用
+I70-001267,nakasu_kasumi,4,中須かすみ,中須かすみ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001268,cyno_(genshin_impact),4,セノ,セノ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001269,kero_(cardcaptor_sakura),4,ケルベロス,ケルベロス | ケロちゃん,ACCEPTED_AI,公式名と定着通称を整理
+I70-001270,char_aznable,4,シャア・アズナブル,シャア・アズナブル | シャア,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001271,mejiro_ardan_(umamusume),4,メジロアルダン,メジロアルダン | メジロアルダン(ウマ娘),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001272,kashiwazaki_sena,4,柏崎星奈,柏崎星奈,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001273,nonna_(girls_und_panzer),4,ノンナ,ノンナ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001274,tony_tony_chopper,4,トニートニー・チョッパー,トニートニー・チョッパー | チョッパー,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001275,von_lycaon,4,フォン・ライカン,フォン・ライカン | ライカン,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001276,hornet_(hollow_knight),4,ホーネット,ホーネット,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001277,komi_shouko,4,古見硝子,古見硝子,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001278,pola_(kancolle),4,ポーラ,ポーラ | ポーラ(艦これ),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001279,yu_mei-ren_(fate),4,虞美人,虞美人 | 虞美人(Fate),ACCEPTED_AI,公式日本語名を採用
+I70-001280,sonozaki_mion,4,園崎魅音,園崎魅音,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001281,verxina_(umamusume),4,ヴィルシーナ,ヴィルシーナ | ヴィルシーナ(ウマ娘),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001282,elizabeth_rose_bloodflame,4,エリザベス・ローズ・ブラッドフレイム,エリザベス・ローズ・ブラッドフレイム,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001283,lopunny,4,ミミロップ,ミミロップ,ACCEPTED_AI,公式日本語名を採用
+I70-001284,endeavor_(boku_no_hero_academia),4,エンデヴァー,エンデヴァー | 轟炎司,ACCEPTED_AI,ヒーロー名を優先し本名も検索語に保持
+I70-001285,ye_shunguang,4,葉瞬光,葉瞬光,REVIEW_REQUIRED,日本語公式表記が新規要素のため最終確認が必要
+I70-001286,bulma,4,ブルマ,ブルマ | ブルマ(ドラゴンボール),ACCEPTED_AI,公式日本語名を採用
+I70-001287,dream_journey_(umamusume),4,ドリームジャーニー,ドリームジャーニー | ドリームジャーニー(ウマ娘),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001288,diarmuid_ua_duibhne_(lancer)_(fate),4,ディルムッド・オディナ（ランサー）,ディルムッド | ランサー(Fate/Zero),ACCEPTED_AI,キャラクター名とクラスを明示
+I70-001289,emma_verde,4,エマ・ヴェルデ,エマ・ヴェルデ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001290,lynette_(genshin_impact),4,リネット,リネット,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001291,momota_kaito,4,百田解斗,百田解斗,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001292,morikubo_nono,4,森久保乃々,森久保乃々,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001293,tsunade_(naruto),4,綱手,綱手 | 千手綱手,ACCEPTED_AI,公式日本語名を採用
+I70-001294,yaoyorozu_momo,4,八百万百,八百万百,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001295,matikanefukukitaru_(umamusume),4,マチカネフクキタル,マチカネフクキタル | マチカネフクキタル(ウマ娘),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001296,enkidu_(fate),4,エルキドゥ,エルキドゥ | エルキドゥ(Fate),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001297,miyuki_(kancolle),4,深雪,深雪 | 深雪(艦これ),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001298,oblivionis_(bang_dream!),4,オブリビオニス,オブリビオニス,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001299,ushiwakamaru_(fate),4,牛若丸,牛若丸 | 牛若丸(Fate),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001300,gotland_(kancolle),4,ゴトランド,ゴトランド | ゴトランド(艦これ),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001301,haniyasushin_keiki,4,埴安神袿姫,埴安神袿姫 | 袿姫,ACCEPTED_AI,公式日本語名を採用
+I70-001302,shima_rin,4,志摩リン,志摩リン,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001303,takanashi_rikka,4,小鳥遊六花,小鳥遊六花,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001304,lio_fotia,4,リオ・フォーティア,リオ・フォーティア,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001305,lisa_(genshin_impact),4,リサ,リサ | リサ(原神),ACCEPTED_AI,公式日本語名を採用
+I70-001306,moogle,4,モーグリ,モーグリ,ACCEPTED_AI,公式日本語名を採用
+I70-001307,ranka_lee,4,ランカ・リー,ランカ・リー | ランカ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001308,cartethyia_(wuthering_waves),4,カルテジア,カルテジア,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001309,hina_(swimsuit)_(blue_archive),4,空崎ヒナ（水着）,空崎ヒナ(水着) | ヒナ(水着),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001310,kinugasa_(kancolle),4,衣笠,衣笠 | 衣笠(艦これ),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001311,eimi_(blue_archive),4,和泉元エイミ,和泉元エイミ | エイミ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001312,morpeko_(full),4,モルペコ（まんぷくもよう）,モルペコ(まんぷくもよう) | まんぷくもよう,ACCEPTED_AI,公式形態名を採用
+I70-001313,son_gohan,4,孫悟飯,孫悟飯 | 悟飯,ACCEPTED_AI,公式日本語名を採用
+I70-001314,u-511_(kancolle),4,U-511,U-511 | U-511(艦これ),ACCEPTED_AI,公式表記を採用
+I70-001315,hikawa_sayo,4,氷川紗夜,氷川紗夜,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001316,senshi_(dungeon_meshi),4,センシ,センシ | イズガンダのセンシ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001317,aria_(human)_(zenless_zone_zero),4,アリア（人間）,アリア(人間) | アリア(ゼンゼロ),REVIEW_REQUIRED,日本語公式の形態区分表記を要確認
+I70-001318,st._louis_(azur_lane),4,セントルイス,セントルイス | セントルイス(アズールレーン),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001319,charmander,4,ヒトカゲ,ヒトカゲ,ACCEPTED_AI,公式日本語名を採用
+I70-001320,kamikaze_(kancolle),4,神風,神風 | 神風(艦これ),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001321,sasaki_chie,4,佐々木千枝,佐々木千枝,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001322,jill_valentine,4,ジル・バレンタイン,ジル・バレンタイン,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001323,felicia_(darkstalkers),4,フェリシア,フェリシア | フェリシア(ヴァンパイア),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001324,oyama_mihari,4,緒山みはり,緒山みはり,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001325,fubuki_(one-punch_man),4,地獄のフブキ,地獄のフブキ | フブキ,ACCEPTED_AI,公式ヒーロー名を優先
+I70-001326,hoshino_ai,4,星野アイ,星野アイ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001327,tokino_sora,4,ときのそら,ときのそら,ACCEPTED_AI,公式日本語名を採用
+I70-001328,kureiji_ollie,4,クレイジー・オリー,クレイジー・オリー,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001329,akaza_akari,4,赤座あかり,赤座あかり,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001330,midna,4,ミドナ,ミドナ,ACCEPTED_AI,公式日本語名を採用
+I70-001331,raising_heart,4,レイジングハート,レイジングハート,ACCEPTED_AI,公式日本語名を採用
+I70-001332,shun_(small)_(blue_archive),4,春原シュン（幼女）,春原シュン(幼女) | シュン(幼女),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001333,terra_branford,4,ティナ・ブランフォード,ティナ・ブランフォード | ティナ,ACCEPTED_AI,日本版公式名を採用
+I70-001334,blaze_the_cat,4,ブレイズ・ザ・キャット,ブレイズ・ザ・キャット | ブレイズ,ACCEPTED_AI,公式日本語名を採用
+I70-001335,spider-man_(original_suit),4,スパイダーマン（オリジナルスーツ）,スパイダーマン(オリジナルスーツ),REVIEW_REQUIRED,variantラベルの日本語定着表記を要確認
+I70-001336,lynette_bishop,4,リネット・ビショップ,リネット・ビショップ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001337,kyonko,4,キョン子,キョン子,ACCEPTED_AI,一般的ファン呼称を採用
+I70-001338,osaki_amana,4,大崎甘奈,大崎甘奈,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001339,tachibana_hibiki_(symphogear),4,立花響,立花響,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001340,tone_(kancolle),4,利根,利根 | 利根(艦これ),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001341,kisaragi_(kancolle),4,如月,如月 | 如月(艦これ),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001342,neptune_(neptunia),4,ネプテューヌ,ネプテューヌ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001343,squirtle,4,ゼニガメ,ゼニガメ,ACCEPTED_AI,公式日本語名を採用
+I70-001344,denia_(wuthering_waves),4,ダーニャ,ダーニャ,REVIEW_REQUIRED,日本語公式表記の最終確認が必要
+I70-001345,gambier_bay_(kancolle),4,ガンビア・ベイ,ガンビア・ベイ | ガンビア・ベイ(艦これ),ACCEPTED_AI,公式日本語表記を優先
+I70-001346,mint_fantome,4,ミント・ファントーム,ミント・ファントーム,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001347,kirijou_mitsuru,4,桐条美鶴,桐条美鶴,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001348,i-168_(kancolle),4,伊168,伊168 | いむや,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001349,almond_eye_(umamusume),4,アーモンドアイ,アーモンドアイ | アーモンドアイ(ウマ娘),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001350,mysterious_heroine_xx_(fate),4,謎のヒロインXX,謎のヒロインXX | ヒロインXX,ACCEPTED_AI,公式日本語名を採用
+I70-001351,niwatari_kutaka,4,庭渡久侘歌,庭渡久侘歌 | 久侘歌,ACCEPTED_AI,公式日本語名を採用
+I70-001352,suiseiseki,4,翠星石,翠星石,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001353,napoleon_bonaparte_(fate),4,ナポレオン,ナポレオン | ナポレオン(Fate),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001354,kujou_sara,4,九条裟羅,九条裟羅 | 九条サラ,ACCEPTED_AI,公式日本語表記を採用
+I70-001355,i-8_(kancolle),4,伊8,伊8 | はっちゃん,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001356,meowscarada,4,マスカーニャ,マスカーニャ,ACCEPTED_AI,公式日本語名を採用
+I70-001357,abukuma_(kancolle),4,阿武隈,阿武隈 | 阿武隈(艦これ),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001358,mima_(touhou),4,魅魔,魅魔,ACCEPTED_AI,公式日本語名を採用
+I70-001359,hino_akane_(precure),4,日野あかね,日野あかね,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001360,scorbunny,4,ヒバニー,ヒバニー,ACCEPTED_AI,公式日本語名を採用
+I70-001361,sinon,4,シノン,シノン | 朝田詩乃,ACCEPTED_AI,公式名と本名を整理
+I70-001362,yanfei_(genshin_impact),4,煙緋,煙緋,ACCEPTED_AI,公式日本語名を採用
+I70-001363,rodion_(project_moon),4,ロージャ,ロージャ | ロージャ(Limbus Company),ACCEPTED_AI,公式日本語名を採用
+I70-001364,makigumo_(kancolle),4,巻雲,巻雲 | 巻雲(艦これ),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001365,shantae,4,シャンティ,シャンティ,ACCEPTED_AI,公式日本語表記を採用
+I70-001366,himmel_(sousou_no_frieren),4,ヒンメル,ヒンメル,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001367,jigglypuff,4,プリン,プリン | プリン(ポケモン),ACCEPTED_AI,公式日本語名を採用
+I70-001368,saria_(arknights),4,サリア,サリア | サリア(アークナイツ),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001369,perrine_h._clostermann,4,ペリーヌ・クロステルマン,ペリーヌ・クロステルマン,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001370,houshou_marine_(summer),4,宝鐘マリン（水着）,宝鐘マリン(水着),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001371,blake_belladonna,4,ブレイク・ベラドンナ,ブレイク・ベラドンナ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001372,hozuki_momiji,4,穂月もみじ,穂月もみじ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001373,mococo_abyssgard_(1st_costume),4,モココ・アビスガード（通常衣装）,モココ・アビスガード | モココ・アビスガード(通常),ACCEPTED_AI,キャラクター名と衣装区分を明示
+I70-001374,sora_(kingdom_hearts),4,ソラ,ソラ | ソラ(キングダムハーツ),ACCEPTED_AI,公式日本語名を採用
+I70-001375,kitazawa_shiho,4,北沢志保,北沢志保,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001376,fubuki_kai_ni_(kancolle),4,吹雪改二,吹雪改二,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001377,ryoumen_sukuna_(jujutsu_kaisen),4,両面宿儺,両面宿儺 | 宿儺,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001378,chiyoda_momo,4,千代田桃,千代田桃,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001379,charlotte_e._yeager,4,シャーロット・E・イェーガー,シャーロット・E・イェーガー,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001380,yamato_(one_piece),4,ヤマト,ヤマト | ヤマト(ONE PIECE),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001381,james_(pokemon),4,コジロウ,コジロウ | コジロウ(ポケモン),ACCEPTED_AI,公式日本語名を採用
+I70-001382,nishizumi_shiho,4,西住しほ,西住しほ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001383,serizawa_asahi,4,芹沢あさひ,芹沢あさひ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001384,re-class_battleship,4,戦艦レ級,戦艦レ級 | レ級,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001385,tedeza_rize,4,天々座理世,天々座理世 | リゼ,ACCEPTED_AI,公式日本語名を採用
+I70-001386,camellya_(wuthering_waves),4,ツバキ,ツバキ | ツバキ(鳴潮),ACCEPTED_AI,公式日本語名を採用
+I70-001387,houjou_hibiki,4,北条響,北条響,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001388,tiki_(fire_emblem),4,チキ,チキ | チキ(ファイアーエムブレム),ACCEPTED_AI,公式日本語名を採用
+I70-001389,anby_demara,4,アンビー・デマラ,アンビー・デマラ | アンビー,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001390,nero_claudius_(swimsuit_caster)_(fate),4,ネロ・クラウディウス（水着）,ネロ・クラウディウス(水着) | 水着ネロ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001391,carlotta_(wuthering_waves),4,カルロッタ,カルロッタ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001392,takanashi_kiara_(1st_costume),4,小鳥遊キアラ（通常衣装）,小鳥遊キアラ | 小鳥遊キアラ(通常),ACCEPTED_AI,キャラクター名と衣装区分を明示
+I70-001393,himesaki_rinami,4,姫崎莉波,姫崎莉波,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001394,narita_top_road_(umamusume),4,ナリタトップロード,ナリタトップロード | ナリタトップロード(ウマ娘),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001395,an-94_(girls'_frontline),4,AN-94,AN-94 | AN-94(ドールズフロントライン),ACCEPTED_AI,公式表記を採用
+I70-001396,smart_falcon_(umamusume),4,スマートファルコン,スマートファルコン | スマートファルコン(ウマ娘),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001397,satsuki_(blue_archive),4,京極サツキ,京極サツキ | サツキ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001398,ada_wong,4,エイダ・ウォン,エイダ・ウォン,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001399,adventurer_(ff11),4,冒険者（FFXI）,冒険者(FFXI),REVIEW_REQUIRED,汎用プレイヤー役割タグの日本語運用を要確認
+I70-001400,hino_rei,4,火野レイ,火野レイ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001401,honda_mio,4,本田未央,本田未央,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001402,tsurugi_(blue_archive),4,剣先ツルギ,剣先ツルギ | ツルギ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001403,bowser,4,クッパ,クッパ,ACCEPTED_AI,公式日本語名を採用
+I70-001404,kurumi_erika,4,来海えりか,来海えりか,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001405,mari_(faraway)_(omori),4,マリ（FARAWAY）,マリ | マリ(FARAWAY),ACCEPTED_AI,同名形態を区別
+I70-001406,pomni_(the_amazing_digital_circus),4,ポムニ,ポムニ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001407,akatsuki_kirika,4,暁切歌,暁切歌,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001408,nakano_ichika,4,中野一花,中野一花,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001409,hoshiguma_(arknights),4,ホシグマ,ホシグマ | ホシグマ(アークナイツ),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001410,priest_(ragnarok_online),4,プリースト,プリースト | プリ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001411,ashido_mina,4,芦戸三奈,芦戸三奈,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001412,ho'olheyak_(arknights),4,ホルハイヤ,ホルハイヤ | ホルハイヤ(アークナイツ),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001413,kino_makoto,4,木野まこと,木野まこと,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001414,kusanagi_nene,4,草薙寧々,草薙寧々,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001415,katsuragi_ace_(umamusume),4,カツラギエース,カツラギエース | カツラギエース(ウマ娘),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001416,tamamo_no_mae_(swimsuit_lancer)_(fate),4,玉藻の前（水着）,玉藻の前(水着) | 水着玉藻,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001417,kuwayama_chiyuki,4,桑山千雪,桑山千雪,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001418,justice_task_force_member_(blue_archive),4,正義実現委員会モブ,正義実現委員会モブ | 正実モブ,REVIEW_REQUIRED,ファン定着名と公式役割名の境界を要確認
+I70-001419,lilith_(fate),4,リリス,リリス | リリス(Fate),REVIEW_REQUIRED,新規Fateキャラクターの公式日本語表記を要確認
+I70-001420,suzutsuki_(kancolle),4,涼月,涼月 | 涼月(艦これ),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001421,sans_(undertale),4,サンズ,サンズ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001422,eri_(blue_archive),4,白尾エリ,白尾エリ | エリ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001423,dr._ratio_(honkai:_star_rail),4,Dr.レイシオ,Dr.レイシオ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001424,horikawa_raiko,4,堀川雷鼓,堀川雷鼓,ACCEPTED_AI,公式日本語名を採用
+I70-001425,shirase_sakuya,4,白瀬咲耶,白瀬咲耶,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001426,aglaea_(honkai:_star_rail),4,アグライア,アグライア | アグライア(スターレイル),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001427,backbeako_(torotei),4,バックベア子,バックベア子 | ベア子,ACCEPTED_AI,定着日本語呼称を採用
+I70-001428,brazilian_miku,4,ブラジルミク,ブラジルミク | ブラジリアンミク,ACCEPTED_AI,一般的ファン呼称を採用
+I70-001429,oshawott,4,ミジュマル,ミジュマル,ACCEPTED_AI,公式日本語名を採用
+I70-001430,miyashita_ai,4,宮下愛,宮下愛,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001431,hibiki_(cheer_squad)_(blue_archive),4,猫塚ヒビキ（応援団）,猫塚ヒビキ(応援団) | ヒビキ(応援団),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001432,mortis_(costume)_(bang_dream!),4,モーティス（衣装）,モーティス(衣装),REVIEW_REQUIRED,variantタグの具体的な公式衣装名を要確認
+I70-001433,air_shakur_(umamusume),4,エアシャカール,エアシャカール | エアシャカール(ウマ娘),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001434,aida_mana,4,相田マナ,相田マナ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001435,eyjafjalla_(arknights),4,エイヤフィヤトラ,エイヤフィヤトラ | エイヤフィヤトラ(アークナイツ),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001436,iuno_(wuthering_waves),4,ユーノ,ユーノ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001437,koyuki_(blue_archive),4,黒崎コユキ,黒崎コユキ | コユキ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001438,nagatoro_hayase,4,長瀞早瀬,長瀞早瀬 | 長瀞さん,ACCEPTED_AI,公式日本語名を採用
+I70-001439,fujiwara_chika,4,藤原千花,藤原千花 | 藤原書記,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001440,ranni_the_witch,4,魔女ラニ,魔女ラニ | ラニ,ACCEPTED_AI,公式日本語呼称を採用
+I70-001441,morino_rinze,4,杜野凛世,杜野凛世,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001442,ashiya_douman_(fate),4,蘆屋道満,蘆屋道満 | キャスター・リンボ,ACCEPTED_AI,公式日本語名と旧呼称を整理
+I70-001443,wolverine_(x-men),4,ウルヴァリン,ウルヴァリン,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001444,fuwawa_abyssgard_(1st_costume),4,フワワ・アビスガード（通常衣装）,フワワ・アビスガード | フワワ・アビスガード(通常),ACCEPTED_AI,キャラクター名と衣装区分を明示
+I70-001445,niijima_makoto,4,新島真,新島真,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001446,ikamusume,4,イカ娘,イカ娘 | イカちゃん,ACCEPTED_AI,公式日本語名を採用
+I70-001447,wriothesley_(genshin_impact),4,リオセスリ,リオセスリ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001448,snivy,4,ツタージャ,ツタージャ,ACCEPTED_AI,公式日本語名を採用
+I70-001449,kanna_(swimsuit)_(blue_archive),4,尾刃カンナ（水着）,尾刃カンナ(水着) | カンナ(水着),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001450,himeko_(honkai:_star_rail),4,姫子,姫子 | 姫子(スターレイル),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001451,nemona_(pokemon),4,ネモ,ネモ | ネモ(ポケモン),ACCEPTED_AI,公式日本語名を採用
+I70-001452,yukihana_lamy_(1st_costume),4,雪花ラミィ（通常衣装）,雪花ラミィ | 雪花ラミィ(通常),ACCEPTED_AI,キャラクター名と衣装区分を明示
+I70-001453,yuugumo_(kancolle),4,夕雲,夕雲 | 夕雲(艦これ),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001454,elesa_(pokemon),4,カミツレ,カミツレ | カミツレ(ポケモン),ACCEPTED_AI,公式日本語名を採用
+I70-001455,miyamoto_frederica,4,宮本フレデリカ,宮本フレデリカ | フレデリカ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001456,akita_neru,4,亞北ネル,亞北ネル,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001457,backbeard,4,バックベアード,バックベアード,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001458,fuji_kiseki_(umamusume),4,フジキセキ,フジキセキ | フジキセキ(ウマ娘),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001459,angel_devil_(chainsaw_man),4,天使の悪魔,天使の悪魔,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001460,flareon,4,ブースター,ブースター | ブースター(ポケモン),ACCEPTED_AI,公式日本語名を採用
+I70-001461,hassan_of_serenity_(fate),4,静謐のハサン,静謐のハサン,ACCEPTED_AI,公式日本語名を採用
+I70-001462,mithrun,4,ミスルン,ミスルン | ミスルン隊長,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001463,ringo_(touhou),4,鈴瑚,鈴瑚,ACCEPTED_AI,公式日本語名を採用
+I70-001464,ujimatsu_chiya,4,宇治松千夜,宇治松千夜 | 千夜,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001465,artoria_pendragon_(lancer_alter)_(fate),4,アルトリア・ペンドラゴン〔オルタ〕（ランサー）,アルトリア・オルタ(ランサー) | 槍トリア,ACCEPTED_AI,公式キャラクター名とクラスを整理
+I70-001466,tohru_(maidragon),4,トール,トール | トール(小林さんちのメイドラゴン),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001467,shoebill_(kemono_friends),4,ハシビロコウ,ハシビロコウ | ハシビロコウ(けものフレンズ),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001468,aubrey_(headspace)_(omori),4,オーブリー（HEADSPACE）,オーブリー | オーブリー(HEADSPACE),ACCEPTED_AI,作品文脈からキャラクター名を補完
+I70-001469,g11_(girls'_frontline),4,G11,G11 | G11(ドールズフロントライン),ACCEPTED_AI,公式表記を採用
+I70-001470,irida_(pokemon),4,カイ,カイ | カイ(ポケモン),ACCEPTED_AI,公式日本語名を採用
+I70-001471,minato_aqua_(1st_costume),4,湊あくあ（通常衣装）,湊あくあ | 湊あくあ(通常),ACCEPTED_AI,キャラクター名と衣装区分を明示
+I70-001472,irisviel_von_einzbern,4,アイリスフィール・フォン・アインツベルン,アイリスフィール・フォン・アインツベルン | アイリスフィール,ACCEPTED_AI,公式日本語名を採用
+I70-001473,x_(mega_man),4,エックス,エックス | エックス(ロックマンX),ACCEPTED_AI,公式日本語名を採用
+I70-001474,atou_haruki,4,阿藤春樹,阿藤春樹,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001475,marie_antoinette_(fate),4,マリー・アントワネット,マリー・アントワネット | マリー・アントワネット(Fate),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001476,mifune_shioriko,4,三船栞子,三船栞子 | しお子,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001477,etna_(disgaea),4,エトナ,エトナ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001478,kousaka_tamaki,4,向坂環,向坂環 | タマ姉,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001479,daidouji_tomoyo,4,大道寺知世,大道寺知世,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001480,nanasaki_ai,4,七咲逢,七咲逢 | 七咲,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001481,asaka_karin,4,朝香果林,朝香果林,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001482,marianne_von_edmund,4,マリアンヌ＝フォン＝エドマンド,マリアンヌ＝フォン＝エドマンド | マリアンヌ,ACCEPTED_AI,公式日本語名を採用
+I70-001483,america_(hetalia),4,アメリカ,アメリカ | アルフレッド・F・ジョーンズ,ACCEPTED_AI,キャラクター国名と人名を整理
+I70-001484,frye_(splatoon),4,ウツホ,ウツホ | ウツホ(スプラトゥーン),ACCEPTED_AI,公式日本語名を採用
+I70-001485,katsuragi_lilja,4,葛城リーリヤ,葛城リーリヤ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001486,mon3tr_(arknights),4,Mon3tr,Mon3tr | Mon3tr(アークナイツ),ACCEPTED_AI,固有表記を原文維持
+I70-001487,female_alear_(fire_emblem),4,リュール（女性）,リュール(女性) | 女性リュール,ACCEPTED_AI,公式日本語名と性別区分を明示
+I70-001488,moona_hoshinova,4,ムーナ・ホシノヴァ,ムーナ・ホシノヴァ | ムーナ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001489,popuko,4,ポプ子,ポプ子,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001490,kaguya_(tsukuyomi)_(cho_kaguya-hime!),4,かぐや,かぐや | かぐや(超かぐや姫！),REVIEW_REQUIRED,作品側の公式キャラクター表記を要確認
+I70-001491,hoshizora_miyuki,4,星空みゆき,星空みゆき,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001492,javelin_(azur_lane),4,ジャベリン,ジャベリン | ジャベリン(アズールレーン),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001493,noumi_kudryavka,4,能美クドリャフカ,能美クドリャフカ | クド,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001494,sonoda_chiyoko,4,園田智代子,園田智代子,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001495,hakos_baelz_(1st_costume),4,ハコス・ベールズ（通常衣装）,ハコス・ベールズ | ハコス・ベールズ(通常),ACCEPTED_AI,キャラクター名と衣装区分を明示
+I70-001496,manhattan_cafe_(creeping_shadow)_(umamusume),4,マンハッタンカフェ（Creeping Shadow）,マンハッタンカフェ(Creeping Shadow),REVIEW_REQUIRED,衣装・形態名の日本語公式表記を要確認
+I70-001497,suou_momoko,4,周防桃子,周防桃子,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001498,ise_(kancolle),4,伊勢,伊勢 | 伊勢(艦これ),ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001499,chibi_usa,4,ちびうさ,ちびうさ,ACCEPTED_AI,既存日本語候補・作品文脈を確認
+I70-001500,kayamori_ruka,4,茅森月歌,茅森月歌,ACCEPTED_AI,既存日本語候補・作品文脈を確認

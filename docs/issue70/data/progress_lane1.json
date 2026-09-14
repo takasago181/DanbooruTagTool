@@ -1,0 +1,51 @@
+{
+  "format_version": 1,
+  "issue": 70,
+  "lane": 1,
+  "assignment_rule": "chunk_index % 4 == 3",
+  "completed_chunk_indices": [3],
+  "processed_rows": 500,
+  "status_totals": {
+    "ACCEPTED_AI": 480,
+    "REVIEW_REQUIRED": 20
+  },
+  "next_chunk_index": 7,
+  "remaining_assigned_chunks": [7,11,15,19,23,27,31,35,39,43,47,51,55,59,63,67,71,75,79,83,87,91,95,99,103,107,111,115,119,123,127,131,135,139,143,147,151,155,159,163,167,171,175,179,183],
+  "result_paths": [
+    "docs/issue70/data/results/lane1/lane1_chunk003_I70-001001_I70-001500.csv"
+  ],
+  "chunks": [
+    {
+      "chunk_index": 3,
+      "first_row_id": "I70-001001",
+      "last_row_id": "I70-001500",
+      "row_count": 500,
+      "source_path": "docs/issue70/data/source_chunks/source_001001_001500.csv",
+      "source_sha256": "7110979f6c38bf1eed6fbce906504ef09a92486de8b11dbffd7f573de4f72da7",
+      "result_path": "docs/issue70/data/results/lane1/lane1_chunk003_I70-001001_I70-001500.csv",
+      "result_git_blob_sha": "4ee9ee0c77430a2345a5bf25df59d40a4783d924"
+    }
+  ],
+  "review_queue": [
+    {"row_id":"I70-001035","canonical_tag":"nangong_yu"},
+    {"row_id":"I70-001080","canonical_tag":"ju_fufu"},
+    {"row_id":"I70-001100","canonical_tag":"non-human_admiral_(kancolle)"},
+    {"row_id":"I70-001150","canonical_tag":"evernight_(honkai:_star_rail)"},
+    {"row_id":"I70-001157","canonical_tag":"luciana_de_montefio"},
+    {"row_id":"I70-001185","canonical_tag":"canari_(pokemon)"},
+    {"row_id":"I70-001211","canonical_tag":"sameko_saba"},
+    {"row_id":"I70-001216","canonical_tag":"t-head_admiral"},
+    {"row_id":"I70-001224","canonical_tag":"perlica_(arknights)"},
+    {"row_id":"I70-001257","canonical_tag":"female_endministrator_(arknights)"},
+    {"row_id":"I70-001285","canonical_tag":"ye_shunguang"},
+    {"row_id":"I70-001317","canonical_tag":"aria_(human)_(zenless_zone_zero)"},
+    {"row_id":"I70-001335","canonical_tag":"spider-man_(original_suit)"},
+    {"row_id":"I70-001344","canonical_tag":"denia_(wuthering_waves)"},
+    {"row_id":"I70-001399","canonical_tag":"adventurer_(ff11)"},
+    {"row_id":"I70-001418","canonical_tag":"justice_task_force_member_(blue_archive)"},
+    {"row_id":"I70-001419","canonical_tag":"lilith_(fate)"},
+    {"row_id":"I70-001432","canonical_tag":"mortis_(costume)_(bang_dream!)"},
+    {"row_id":"I70-001490","canonical_tag":"kaguya_(tsukuyomi)_(cho_kaguya-hime!)"},
+    {"row_id":"I70-001496","canonical_tag":"manhattan_cafe_(creeping_shadow)_(umamusume)"}
+  ]
+}
