@@ -11,7 +11,7 @@ Target population from the fixed 2026-09-02 canonical dictionary:
 - Artist: 48,313
 - Total: 92,739
 
-Batch 001 (`I70-000001`..`I70-001000`) has already been manually piloted in ChatGPT. The remaining work should be processed in roughly 2,000 rows per automation run while keeping smaller source/result files for reliable GitHub I/O.
+Batch 001 (`I70-000001`..`I70-001000`) has already been manually piloted in ChatGPT. The remaining work is processed by four independent automation lanes. Each lane may process at most four assigned 500-row chunks (2,000 rows) per run.
 
 ## Source identity
 
@@ -36,11 +36,14 @@ Bootstrap should populate:
 - `docs/issue70/data/source/character_copyright_extraction_summary.json`
 - `docs/issue70/data/source/character_copyright_unresolved_source_tags.csv`
 - `docs/issue70/data/source/character_copyright_evidence_full.csv.gz`
-- `docs/issue70/data/source_chunks/` — deterministic 500-row slices of the translation source for automation reads
-- `docs/issue70/data/results/` — compact accepted/review translation results
-- `docs/issue70/data/progress.json` — resumable progress authority
+- `docs/issue70/data/source_chunks/` — deterministic 500-row slices of the translation source
+- `docs/issue70/data/results/lane1/` .. `lane4/` — compact result files
+- `docs/issue70/data/progress_lane1.json` .. `progress_lane4.json` — independent lane checkpoints
+- `docs/issue70/data/final_completion.json` — written only after all four lanes are complete and coverage audit passes
 
-Large source/evidence files are provenance/recovery assets. Automation should read the 500-row chunks rather than the whole 20+ MB master CSV.
+`docs/issue70/data/progress.json` is the bootstrap/pilot checkpoint only. After the four-lane mode starts, scheduled lanes must not modify it.
+
+Large source/evidence files are provenance/recovery assets. Automation reads the 500-row chunks rather than the whole master CSV.
 
 ## Translation policy
 
@@ -56,11 +59,37 @@ The task is dictionary curation, not blind machine translation.
 - Accepted rows are immutable unless a later explicit correction is recorded.
 - Runtime remains local/non-LLM.
 
-## Automation unit
+## Four-lane assignment
 
-Each scheduled run should process at most 2,000 next-unfinished rows. It may read four 500-row source chunks and write compact 500-row result files so GitHub connector/file operations remain manageable.
+Source chunks are numbered starting at 1. Chunks 1 and 2 are already covered by the manual Batch 001 pilot. Scheduled work starts at chunk 3.
 
-Result rows should contain only the compact canonical overlay fields needed for the final merge, e.g.:
+A source chunk belongs to exactly one lane by this rule:
+
+- Lane 1: `chunk_index % 4 == 3`  → 3, 7, 11, 15, ...
+- Lane 2: `chunk_index % 4 == 0`  → 4, 8, 12, 16, ...
+- Lane 3: `chunk_index % 4 == 1`  → 5, 9, 13, 17, ...
+- Lane 4: `chunk_index % 4 == 2`  → 6, 10, 14, 18, ...
+
+The rule is immutable for this run. A lane must never process a chunk assigned to another lane.
+
+Each lane may process at most four of its own unfinished chunks in one scheduled run, so each lane handles at most 2,000 rows per run. The four lanes together can therefore process at most 8,000 rows per hourly cycle.
+
+## Non-interference rules
+
+The four lanes must remain independent:
+
+1. each lane writes only under its own `results/laneN/` directory;
+2. each lane writes only its own `progress_laneN.json`;
+3. no lane modifies another lane's result or progress files;
+4. no scheduled lane modifies the bootstrap `progress.json`;
+5. result filenames include lane and source chunk index, so paths cannot collide;
+6. every run restores live main before work and re-checks its assigned source chunk hashes/row identities;
+7. commits go directly to main only after re-reading current main; if a non-fast-forward/write conflict occurs, the lane must stop and retry on its next scheduled run rather than force-push or overwrite;
+8. scheduled lanes are intentionally time-staggered within the hour to reduce GitHub main push races while still providing four runs per hour.
+
+## Result shape
+
+Result rows contain only the compact canonical overlay fields needed for the final merge:
 
 - `row_id`
 - `canonical_tag`
@@ -72,14 +101,31 @@ Result rows should contain only the compact canonical overlay fields needed for 
 
 Do not duplicate `post_count`, verified alias data, or full relation evidence into the final Japanese master; those remain separate authorities.
 
-## Checkpoint rules
+## Lane checkpoint rules
 
-After each successful run:
+For each successful lane run:
 
-1. validate that source row IDs/canonicals match the expected chunk(s);
-2. write result file(s);
-3. update `docs/issue70/data/progress.json` atomically in the same GitHub work unit;
-4. commit the result/checkpoint;
-5. never overwrite previously accepted rows simply because model behavior changes later.
+1. validate the source chunk manifest SHA and expected row IDs/canonicals;
+2. validate that every chunk belongs to that lane;
+3. skip any chunk that already has a valid accepted result for that lane;
+4. write one compact result CSV per source chunk;
+5. update only `progress_laneN.json` with completed chunk indices, processed rows, status totals, review queue, result paths, and source/result hashes;
+6. commit the lane result/checkpoint together;
+7. never overwrite previously accepted rows because model behavior changes later.
 
-If a source chunk is missing, hashes/row identity disagree, or progress is inconsistent, stop that run instead of guessing.
+If a source chunk is missing, hashes/row identity disagree, GitHub main changes underneath the write, or lane progress is inconsistent, stop that run instead of guessing.
+
+## Completion audit
+
+Lane 4 additionally checks completion state after its normal lane work. Only when all four lane progress files report no remaining assigned chunks may it perform the final coverage audit.
+
+The final audit must verify:
+
+- manual Batch 001 covers rows 1..1,000 exactly;
+- the four lanes together cover every source chunk from 3 through the final chunk exactly once;
+- no duplicate `row_id` or `canonical_tag` result identity exists;
+- result canonical identities match the source chunks;
+- total result coverage equals 92,739 rows;
+- unresolved rows exist only as explicit `REVIEW_REQUIRED` (or another explicitly documented non-accepted status), never as silently missing rows.
+
+If all checks pass, write `docs/issue70/data/final_completion.json` and report completion. If any check fails, do not mark completion; report the exact gap/conflict for repair.
