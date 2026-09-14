@@ -19,38 +19,37 @@ Accepted basis: Issue #64 pilot revision 2, commit `5064429018123c80c32ac41af715
 
 ## Formal checkpoint
 
-Completed sequential rows: **1-29,400 / 30,629 (95.99%)**
+Completed sequential rows: **1-30,400 / 30,629 (99.25%)**
 
-- PROPOSED: **27,164**
-- UNRESOLVED: **2,236**
-- HIGH: **24,495**
-- MEDIUM: **2,669**
-- LOW: **2,236**
-- remaining: **1,229**
-- next formal unprocessed global row: **29,401**
+- PROPOSED: **28,077**
+- UNRESOLVED: **2,323**
+- HIGH: **25,324**
+- MEDIUM: **2,753**
+- LOW: **2,323**
+- remaining: **229**
+- next formal unprocessed global row: **30,401**
 
-## Batch 34 — FORMAL
+## Batch 35 — FORMAL
 
-Rows **28,401-29,400** (`type_10_(tank)` -> `waving_hands`) were classified, audited, persisted, and formally registered:
+Rows **29,401-30,400** (`wavy_background` -> `yjsnpi_interview_(meme)`) were classified, audited, persisted, and formally registered:
 
 - processed: **1,000**
-- PROPOSED: **864**
-- UNRESOLVED: **136**
-- confidence: **763 HIGH / 101 MEDIUM / 136 LOW**
-- ledger: `docs/issue64/full_rollout/batches/batch034_rows28401-29400_ledger.csv.xz`
-- summary: `docs/issue64/full_rollout/batches/batch034_summary.json`
-- raw CSV SHA-256: `4be1a11f64d64b8ecc682265a8e22d4040ff3f64b4f4c3b6e08278ce4d770dc3`
-- XZ SHA-256: `bbbf4fd74559e1c092b2e8c722d9d663cf3c2c96df8a90b7875765ed2c47e943`
+- PROPOSED: **913**
+- UNRESOLVED: **87**
+- confidence: **829 HIGH / 84 MEDIUM / 87 LOW**
+- ledger: `docs/issue64/full_rollout/batches/batch035_rows29401-30400_ledger.csv.xz`
+- summary: `docs/issue64/full_rollout/batches/batch035_summary.json`
+- raw CSV SHA-256: `58c5bee143594a6b637b9b6bcd25c71d94056c66e92e029a92364dc495b6c700`
+- XZ SHA-256: `c19a4a3a81af33c01c3e8e468a3e0e4371f0fe5c40c5fa0fda205c99938b3efb`
 - storage: Git data binary blob
 
-## Batch 34 audit focus
+## Batch 35 audit focus
 
-- `under_*` / `vampire_*` / `viewer_*` / `waist_*` / `water_*` were not classified by stem alone; object/concept identity remained primary.
-- `vampire_bite` was corrected to `ACTION_CONTACT/contact` rather than being pulled into creature classification by the `vampire_*` stem.
-- `very_big_eyes` / `very_hairy` were corrected to face/body identity paths rather than expression/hair-style shortcuts.
-- role concepts without a safe accepted pilot-v2 path (`waiter`, `waitress`, `warrior`, `viking`, `voice_actor`, `virtual_youtuber`, etc.) remain explicit `UNRESOLVED` rather than being forced into metadata.
-- explicit `_(style)` tags use `STYLE_QUALITY_META/style`; explicit `_(cosplay)` tags use `CLOTHING/dresses_outfits`.
-- ambiguous work-specific events, memes, projects, organizations, transformations, or otherwise unsafe concepts remain `UNRESOLVED`.
+- `white_*` / `yellow_*` were not classified by color prefix alone; clothing, body, hair/face, living nature, background, light, and object identity stayed primary.
+- `wet_*` / `wide_*` / `wing_*` / `winged_*` / `wooden_*` were audited by target identity rather than stem.
+- `x-wing` and `yamato_(battleship)` route as vehicles; `yamato_(sword)`, `yato_(fire_emblem)`, and `wolf's_gravestone_(genshin_impact)` route as weapons.
+- `xd` / `x_x` were treated as expression/emoticon concepts, while `x_(symbol)` / `yen_sign` / `yin_yang` remain symbol paths.
+- 87 ambiguous proper names, events, projects, memes, role concepts, or otherwise unsafe concepts remain explicit `UNRESOLVED`.
 - historical usage / `post_count` was not used or substituted.
 - canonical identity / production Japanese overlay / Special / #66 UI-search / main were not modified.
 
@@ -87,4 +86,4 @@ Recovery order:
 3. `docs/issue64/full_rollout/PROTOCOL.md`
 4. `docs/issue64/full_rollout/MANIFEST.json`
 5. this `PROGRESS.md`
-6. continue from row **29,401**
+6. continue from row **30,401**; only **229 rows remain**, so the next normal run may finish the population in a sub-1,000 final batch.
