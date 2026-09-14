@@ -1,6 +1,6 @@
 # Issue #64 full rollout progress
 
-Status: IN PROGRESS / candidate build only / not production accepted.
+Status: FULL POPULATION CANDIDATE BUILD COMPLETE / candidate build only / not production accepted.
 
 Worker: ChatGPT (development-time classification/review). Codex paused after pilot revision 2.
 
@@ -19,45 +19,51 @@ Accepted basis: Issue #64 pilot revision 2, commit `5064429018123c80c32ac41af715
 
 ## Formal checkpoint
 
-Completed sequential rows: **1-30,400 / 30,629 (99.25%)**
+Completed sequential rows: **1-30,629 / 30,629 (100.00%)**
 
-- PROPOSED: **28,077**
-- UNRESOLVED: **2,323**
-- HIGH: **25,324**
-- MEDIUM: **2,753**
-- LOW: **2,323**
-- remaining: **229**
-- next formal unprocessed global row: **30,401**
+- PROPOSED: **28,263**
+- UNRESOLVED: **2,366**
+- HIGH: **25,464**
+- MEDIUM: **2,799**
+- LOW: **2,366**
+- remaining: **0**
+- next formal unprocessed global row: **none**
 
-## Batch 35 — FORMAL
+## Batch 36 — FINAL POPULATION BATCH
 
-Rows **29,401-30,400** (`wavy_background` -> `yjsnpi_interview_(meme)`) were classified, audited, persisted, and formally registered:
+Rows **30,401-30,629** (`yo-yo` -> `|_|`) were classified, audited, persisted, and formally registered:
 
-- processed: **1,000**
-- PROPOSED: **913**
-- UNRESOLVED: **87**
-- confidence: **829 HIGH / 84 MEDIUM / 87 LOW**
-- ledger: `docs/issue64/full_rollout/batches/batch035_rows29401-30400_ledger.csv.xz`
-- summary: `docs/issue64/full_rollout/batches/batch035_summary.json`
-- raw CSV SHA-256: `58c5bee143594a6b637b9b6bcd25c71d94056c66e92e029a92364dc495b6c700`
-- XZ SHA-256: `c19a4a3a81af33c01c3e8e468a3e0e4371f0fe5c40c5fa0fda205c99938b3efb`
+- processed: **229**
+- PROPOSED: **186**
+- UNRESOLVED: **43**
+- confidence: **140 HIGH / 46 MEDIUM / 43 LOW**
+- ledger: `docs/issue64/full_rollout/batches/batch036_rows30401-30629_ledger.csv.xz`
+- summary: `docs/issue64/full_rollout/batches/batch036_summary.json`
+- raw CSV SHA-256: `8207c9d554f3598555847eace8e333da20d4075b40bedf6d4d4b34ac22317aa2`
+- XZ SHA-256: `fca16c3c3d40c460cf02575a28646848e8ddfa74c3940663f065636b77427ddd`
 - storage: Git data binary blob
 
-## Batch 35 audit focus
+## Batch 36 audit focus
 
-- `white_*` / `yellow_*` were not classified by color prefix alone; clothing, body, hair/face, living nature, background, light, and object identity stayed primary.
-- `wet_*` / `wide_*` / `wing_*` / `winged_*` / `wooden_*` were audited by target identity rather than stem.
-- `x-wing` and `yamato_(battleship)` route as vehicles; `yamato_(sword)`, `yato_(fire_emblem)`, and `wolf's_gravestone_(genshin_impact)` route as weapons.
-- `xd` / `x_x` were treated as expression/emoticon concepts, while `x_(symbol)` / `yen_sign` / `yin_yang` remain symbol paths.
-- 87 ambiguous proper names, events, projects, memes, role concepts, or otherwise unsafe concepts remain explicit `UNRESOLVED`.
+- `y*` / `z*` was not bulk-classified by prefix; object/concept identity remained primary.
+- school-specific swimwear/uniforms stayed in clothing/uniform paths; cosplay and named suits were separated from ordinary clothing.
+- specialized devices that do not fit daily-use semantics were kept at `OBJECT_PROP` without forcing `DAILY`.
+- zebra ears/tail were kept as body parts, while zebra print / zig-zag pattern were treated as independent appearance/pattern concepts.
+- 43 proper-name memes, project/work-specific concepts, uncertain named techniques/items, or otherwise unsafe concepts remain explicit `UNRESOLVED`.
 - historical usage / `post_count` was not used or substituted.
 - canonical identity / production Japanese overlay / Special / #66 UI-search / main were not modified.
 
-## Prior stop clarifications
+## Completion state / stop gate
 
-- The earlier 20,401-21,400 attempt stopped without formal output when audit density could not be maintained. The same fixed 1,000 rows were later re-audited from the start and completed as formal Batch 26.
-- The earlier attempt that stopped at row 15,400 treated unavailable historical `post_count` as a per-batch blocker. That stop condition is superseded by the routing correction recorded in Issue #64 and commit `3be2e2c1565e56362bdd445cab4d69eb75e84309`.
-- Batch 31 was initially staged because safe atomic replacement of the minified one-line MANIFEST had not been completed. That blocker was resolved without reclassifying Batch 31.
+The sequential 30,629-row candidate classification is now complete and fully accounted for. This is **not production acceptance** and does not authorize #66 integration yet.
+
+Next Issue #64 work is the completion audit / acceptance lane:
+1. verify MANIFEST range continuity, row counts, hashes, and totals across all batches;
+2. generate/verify a combined full sidecar or equivalent completion artifact if required by the acceptance review;
+3. review unresolved accounting and boundary samples;
+4. record DEV/AUDIT acceptance or correction request in Issue #64.
+
+Do **not** proceed automatically to #66. Stop here for user/DEV-AUDIT review after the population-complete checkpoint.
 
 ## Rules
 
@@ -77,13 +83,4 @@ Rows **29,401-30,400** (`wavy_background` -> `yjsnpi_interview_(meme)`) were cla
 - immutable detailed ledgers: `docs/issue64/full_rollout/batches/`
 - Batch 5+ summary JSON: `docs/issue64/full_rollout/batches/batchNNN_summary.json`
 - past checkpointed batch files are not overwritten
-- `PROGRESS.md` records the formal sequential stop point
-- main is not updated until the full 30,629 candidate and audit are accepted
-
-Recovery order:
-1. `docs/project/CURRENT_STATE.md`
-2. Issue #64 latest comments
-3. `docs/issue64/full_rollout/PROTOCOL.md`
-4. `docs/issue64/full_rollout/MANIFEST.json`
-5. this `PROGRESS.md`
-6. continue from row **30,401**; only **229 rows remain**, so the next normal run may finish the population in a sub-1,000 final batch.
+- main is not updated until the full candidate and audit are accepted
