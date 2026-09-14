@@ -18,6 +18,7 @@ public partial class MainWindow : Window
     private Point dragStart;
     private ChipViewModel? pendingChip;
     private bool deferredSelection;
+    private bool syncingNavigation;
     private int dropGap;
     public MainWindow(MainViewModel vm)
     {
@@ -47,12 +48,13 @@ public partial class MainWindow : Window
             {
                 Dispatcher.BeginInvoke(() => { DirectEditor.Focus(); DirectEditor.SelectAll(); }, DispatcherPriority.Input);
             }
+            if (e.PropertyName == nameof(vm.BrowseKey)) Dispatcher.BeginInvoke(SyncNavigationSelection, DispatcherPriority.Loaded);
         };
         vm.ResultsRestored += () => Dispatcher.BeginInvoke(() => FindChild<ScrollViewer>(DictionaryList)?.ScrollToVerticalOffset(vm.RestoreScroll), DispatcherPriority.Loaded);
         vm.ScrollToChip += id => { var index = vm.Chips.ToList().FindIndex(c => c.Id == id); if (index >= 0 && EditorItems.ItemContainerGenerator.ContainerFromIndex(index) is FrameworkElement item) item.BringIntoView(); };
         SizeChanged += (_, _) => QueueUiSave(); LocationChanged += (_, _) => QueueUiSave();
         Closing += (_, _) => { SaveGeometry(); searchTimer.Stop(); feedbackTimer.Stop(); uiTimer.Stop(); };
-        Loaded += (_, _) => { vm.UpdateChipLanguage(); FindChild<ScrollViewer>(DictionaryList)?.ScrollToVerticalOffset(vm.RestoreScroll); };
+        Loaded += (_, _) => { vm.UpdateChipLanguage(); FindChild<ScrollViewer>(DictionaryList)?.ScrollToVerticalOffset(vm.RestoreScroll); SyncNavigationSelection(); };
     }
     private static bool IsLegacyPromptWidth(double width) => Math.Abs(width - 230) < 0.5 || Math.Abs(width - 300) < 0.5 || Math.Abs(width - 340) < 0.5;
     private void QueueUiSave() { if (!IsLoaded) return; uiTimer.Stop(); uiTimer.Start(); }
@@ -66,7 +68,40 @@ public partial class MainWindow : Window
             EditRatio = ratio });
     }
     private void SearchChanged(object sender, TextChangedEventArgs e) { if (DataContext == null) return; searchTimer.Stop(); searchTimer.Start(); }
-    private void NavigationChanged(object sender, RoutedPropertyChangedEventArgs<object> e) { if (e.NewValue is NavigationNode node) vm.Navigate.Execute(node); }
+    private void NavigationChanged(object sender, RoutedPropertyChangedEventArgs<object> e) { if (!syncingNavigation && e.NewValue is NavigationNode node) vm.Navigate.Execute(node); }
+    private void SyncNavigationSelection()
+    {
+        if (!IsLoaded) return;
+        var path = new List<NavigationNode>();
+        if (!TryFindNavigationPath(vm.Navigation, vm.BrowseKey, path)) return;
+        syncingNavigation = true;
+        try
+        {
+            ItemsControl owner = NavigationTree;
+            TreeViewItem? item = null;
+            for (int i = 0; i < path.Count; i++)
+            {
+                item = owner.ItemContainerGenerator.ContainerFromItem(path[i]) as TreeViewItem;
+                if (item == null) { owner.UpdateLayout(); item = owner.ItemContainerGenerator.ContainerFromItem(path[i]) as TreeViewItem; }
+                if (item == null) return;
+                if (i < path.Count - 1) { item.IsExpanded = true; item.UpdateLayout(); owner = item; }
+            }
+            if (item == null) return;
+            item.IsSelected = true;
+            item.BringIntoView();
+        }
+        finally { syncingNavigation = false; }
+    }
+    private static bool TryFindNavigationPath(IReadOnlyList<NavigationNode> nodes, string key, List<NavigationNode> path)
+    {
+        foreach (var node in nodes)
+        {
+            path.Add(node);
+            if (node.Key == key || TryFindNavigationPath(node.Children, key, path)) return true;
+            path.RemoveAt(path.Count - 1);
+        }
+        return false;
+    }
     private void WorkspaceChanged(object sender, SelectionChangedEventArgs e) { if (DataContext != null && e.Source == Workspaces) vm.UpdateChipLanguage(); }
     private void SplitterChanged(object sender, System.Windows.Controls.Primitives.DragCompletedEventArgs e) => SaveGeometry();
     private void BrowseScrolled(object sender, ScrollChangedEventArgs e) { if (DataContext != null) { vm.BrowseScroll = e.VerticalOffset; QueueUiSave(); } }

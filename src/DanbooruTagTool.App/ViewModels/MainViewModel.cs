@@ -89,6 +89,8 @@ public sealed class MainViewModel : Observable
     private string? browseSelection;
     public double BrowseScroll { get; set; }
     public double RestoreScroll { get; private set; }
+    public string BrowseKey => browse;
+    public bool CanGoBack => back.Count > 0;
     public event Action? ResultsRestored;
     public event Action<Guid>? ScrollToChip;
     public UiState Ui => ui;
@@ -110,7 +112,19 @@ public sealed class MainViewModel : Observable
     public string ResultSummary => $"{Results.Count:N0}件";
     public string Unresolved => Chips.Count(c => c.Item.Kind == PromptItemKind.Raw) is var n && n > 0 ? $"未解決 {n}" : "";
     public string Status { get => status; set => Set(ref status, value); }
-    public string Find { get => find; set { if (Set(ref find, value)) { UpdateMatches(); FindNext(false); } } }
+    public string Find { get => find; set { if (Set(ref find, value)) { lastMatch = null; Notify(nameof(HasFindQuery)); UpdateMatches(); FindNext(false); } } }
+    public bool HasFindQuery => Find.Length > 0;
+    public string FindMatchSummary
+    {
+        get
+        {
+            if (!HasFindQuery) return "";
+            var matches = Chips.Where(c => c.Match).ToArray();
+            if (matches.Length == 0) return "0件一致";
+            var index = Array.FindIndex(matches, c => c.Id == lastMatch);
+            return $"{matches.Length}件一致 · {(index >= 0 ? index + 1 : 0)}/{matches.Length}";
+        }
+    }
     public bool CanEditPrompt => !DirectEditing;
     public bool DirectEditing { get => directEditing; private set { if (Set(ref directEditing, value)) { Notify(nameof(CanEditPrompt)); RefreshCommands(); } } }
     public string DirectText { get => directText; set => Set(ref directText, value); }
@@ -129,6 +143,8 @@ public sealed class MainViewModel : Observable
     public RelayCommand Navigate { get; }
     public RelayCommand Back { get; }
     public RelayCommand ClearQuery { get; }
+    public RelayCommand FindPrevious { get; }
+    public RelayCommand FindNextCommand { get; }
     public RelayCommand OpenEditor { get; }
     public RelayCommand StartDirect { get; }
     public RelayCommand ApplyDirect { get; }
@@ -152,8 +168,10 @@ public sealed class MainViewModel : Observable
         Inspect = Normal(p => { if (p is ChipViewModel c) InspectChip(c); });
         InspectEntry = Normal(p => { if (p is EntryViewModel row) { SelectedEntry = row; DetailsTabIndex = 0; } });
         Navigate = Normal(p => { if (p is NavigationNode n) NavigateTo(n.Key); });
-        Back = Normal(_ => { if (back.TryPop(out var key)) NavigateTo(key, false); });
+        Back = Normal(_ => { if (back.TryPop(out var key)) { Notify(nameof(CanGoBack)); Back?.Refresh(); NavigateTo(key, false); } }, _ => CanGoBack);
         ClearQuery = Normal(_ => { Query = ""; RefreshResults(); });
+        FindPrevious = Normal(_ => FindNext(true), _ => Chips.Any(c => c.Match));
+        FindNextCommand = Normal(_ => FindNext(false), _ => Chips.Any(c => c.Match));
         OpenEditor = Normal(_ => { WorkspaceIndex = 1; UpdateChipLanguage(); });
         StartDirect = Normal(_ => { WorkspaceIndex = 1; UpdateChipLanguage(); DirectText = English; DirectEditing = true; });
         ApplyDirect = new(_ => { if (!DirectEditing) return; Workspace.DirectEdit(DirectText); DirectEditing = false; }, _ => DirectEditing);
@@ -170,7 +188,7 @@ public sealed class MainViewModel : Observable
     private RelayCommand Normal(Action<object?> action, Predicate<object?>? enabled = null) => new(p => { if (CanEditPrompt && (enabled?.Invoke(p) ?? true)) action(p); }, p => CanEditPrompt && (enabled?.Invoke(p) ?? true));
     private void RefreshCommands()
     {
-        foreach (var command in new[] { Copy, Import, New, Recover, Undo, Redo, Delete, DeleteOne, Inspect, InspectEntry, Navigate, Back, ClearQuery, OpenEditor, StartDirect, ApplyDirect, CancelDirect, ApplyWeight }) command.Refresh();
+        foreach (var command in new[] { Copy, Import, New, Recover, Undo, Redo, Delete, DeleteOne, Inspect, InspectEntry, Navigate, Back, ClearQuery, FindPrevious, FindNextCommand, OpenEditor, StartDirect, ApplyDirect, CancelDirect, ApplyWeight }) command.Refresh();
         foreach (var row in Results.Concat(Related)) row.Refresh(); SelectedEntry?.Refresh();
     }
     private IReadOnlyList<EntryViewModel> Rows(IEnumerable<CatalogEntry> entries) => entries.Select(e => new EntryViewModel(e, Workspace, Add, () => CanEditPrompt)).ToArray();
@@ -190,7 +208,7 @@ public sealed class MainViewModel : Observable
         if (Query.Length == 0) ResultsRestored?.Invoke();
     }
     public void NavigateTo(string key, bool remember = true)
-    { if (!CanEditPrompt) return; if (remember && browse != key) back.Push(browse); browse = key; browseSelection = null; RestoreScroll = 0; Query = ""; RefreshResults(); Persist(); }
+    { if (!CanEditPrompt) return; if (remember && browse != key) { back.Push(browse); Notify(nameof(CanGoBack)); Back.Refresh(); } browse = key; Notify(nameof(BrowseKey)); browseSelection = null; RestoreScroll = 0; Query = ""; RefreshResults(); Persist(); }
     public void Add(CatalogEntry entry) { if (CanEditPrompt) Workspace.Add(entry); }
     private void InspectChip(ChipViewModel chip)
     {
@@ -238,13 +256,17 @@ public sealed class MainViewModel : Observable
         Weight = WeightVisible ? Chips.Single(c => c.Selected).Item.Weight?.ToString(CultureInfo.InvariantCulture) ?? "" : "";
         Delete.Refresh();
     }
-    private void UpdateMatches() { foreach (var chip in Chips) chip.Match = Find.Length > 0 && (chip.Item.Display.Contains(Find, StringComparison.OrdinalIgnoreCase) || chip.Item.Surface.Contains(Find, StringComparison.OrdinalIgnoreCase)); }
+    private void UpdateMatches()
+    {
+        foreach (var chip in Chips) chip.Match = Find.Length > 0 && (chip.Item.Display.Contains(Find, StringComparison.OrdinalIgnoreCase) || chip.Item.Surface.Contains(Find, StringComparison.OrdinalIgnoreCase));
+        Notify(nameof(FindMatchSummary)); FindPrevious.Refresh(); FindNextCommand.Refresh();
+    }
     private Guid? lastMatch;
     public void FindNext(bool previous)
     {
-        var matches = Chips.Where(c => c.Match).ToArray(); if (matches.Length == 0) return;
+        var matches = Chips.Where(c => c.Match).ToArray(); if (matches.Length == 0) { lastMatch = null; Notify(nameof(FindMatchSummary)); return; }
         int index = Array.FindIndex(matches, c => c.Id == lastMatch); index = (index + (previous ? -1 : 1) + matches.Length) % matches.Length;
-        lastMatch = matches[index].Id; ScrollToChip?.Invoke(lastMatch.Value);
+        lastMatch = matches[index].Id; Notify(nameof(FindMatchSummary)); ScrollToChip?.Invoke(lastMatch.Value);
     }
     public void SaveUi(UiState value) { ui = value; Persist(); }
     public void Persist()

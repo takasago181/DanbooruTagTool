@@ -82,6 +82,26 @@ public class UxRefinementTests(ITestOutputHelper output)
     }
 
     [Fact]
+    public void PromptFindShowsMatchPositionAndBrowseBackTracksAvailability()
+    {
+        var vm = Fixtures.Vm();
+        Assert.False(vm.Back.CanExecute(null)); Assert.False(vm.CanGoBack);
+        vm.NavigateTo("special:APPEARANCE>HAIR");
+        Assert.Equal("special:APPEARANCE>HAIR", vm.BrowseKey); Assert.True(vm.Back.CanExecute(null));
+        vm.Back.Execute(null);
+        Assert.Equal("special", vm.BrowseKey); Assert.False(vm.Back.CanExecute(null));
+
+        vm.Workspace.Replace("blue_hair,red_hair,blue_eye");
+        vm.Find = "hair";
+        Assert.Equal("2件一致 · 1/2", vm.FindMatchSummary);
+        Assert.True(vm.FindPrevious.CanExecute(null)); Assert.True(vm.FindNextCommand.CanExecute(null));
+        vm.FindNextCommand.Execute(null); Assert.Equal("2件一致 · 2/2", vm.FindMatchSummary);
+        vm.FindPrevious.Execute(null); Assert.Equal("2件一致 · 1/2", vm.FindMatchSummary);
+        vm.Find = "no_such_tag"; Assert.Equal("0件一致", vm.FindMatchSummary);
+        Assert.False(vm.FindPrevious.CanExecute(null)); Assert.False(vm.FindNextCommand.CanExecute(null));
+    }
+
+    [Fact]
     public void ItemDeleteAndUndoRetainDuplicatesRawSurfaceAndOrder()
     {
         var vm = Fixtures.Vm(); vm.Workspace.Replace(Mixed); var ids = vm.Chips.Select(c => c.Id).ToArray();
