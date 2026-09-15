@@ -13,7 +13,8 @@ public sealed record UiState(int Workspace = 0, string Browse = "special", strin
     string? SelectedEntry = null, double BrowseScroll = 0, double NavWidth = 300, double PromptWidth = 400,
     double EditRatio = 0.75, double Width = 1280, double Height = 820, double Left = 80, double Top = 60,
     bool EnglishChips = false, PromptOutputProfile OutputProfile = PromptOutputProfile.Canonical);
-public sealed record UserState(WorkspaceSnapshot Prompt, UiState Ui);
+public sealed record GenerationPreset(Guid Id, string Name, string Description, string Positive, string Negative);
+public sealed record UserState(WorkspaceSnapshot Prompt, UiState Ui, GenerationPreset[]? Presets = null);
 public interface IUserStateStore { UserState? Load(); void Save(UserState state); }
 
 public sealed class UserStateStore : IUserStateStore

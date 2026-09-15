@@ -94,6 +94,9 @@ public static class PromptOutputFormatter
     public static string Serialize(IEnumerable<PromptItem> items, PromptOutputProfile profile) =>
         string.Join(",", items.Select(item => Format(item, profile)));
 
+    public static string SerializeCanonical(IEnumerable<PromptItem> items) =>
+        string.Join(",", items.Select(CanonicalSurface));
+
     public static string Format(PromptItem item, PromptOutputProfile profile)
     {
         if (profile == PromptOutputProfile.Canonical || item.Canonical == null || item.Kind is not (PromptItemKind.Normal or PromptItemKind.Weighted))
@@ -119,6 +122,29 @@ public static class PromptOutputFormatter
             return surface;
         }
         return leading + core + trailing;
+    }
+
+    private static string CanonicalSurface(PromptItem item)
+    {
+        if (item.Canonical == null || item.Kind is not (PromptItemKind.Normal or PromptItemKind.Weighted)) return item.Surface;
+        var surface = item.Surface;
+        var start = 0;
+        while (start < surface.Length && char.IsWhiteSpace(surface[start])) start++;
+        var end = surface.Length;
+        while (end > start && char.IsWhiteSpace(surface[end - 1])) end--;
+        var leading = surface[..start];
+        var trailing = surface[end..];
+        if (item.Kind == PromptItemKind.Weighted)
+        {
+            var trimmed = surface[start..end];
+            if (Weighted.IsMatch(trimmed))
+            {
+                var colon = trimmed.LastIndexOf(':');
+                return leading + "(" + item.Canonical + trimmed[colon..] + trailing;
+            }
+            return surface;
+        }
+        return leading + item.Canonical + trailing;
     }
 
     private static string FormatCanonicalCore(string canonical) => canonical.Replace("(", "\\(").Replace(")", "\\)").Replace('_', ' ');
@@ -151,6 +177,21 @@ public sealed class PromptWorkspace(PromptParser parser)
         Change(() => items = [..items, new(Guid.NewGuid(), (items.Length == 0 ? "" : " ") + entry.Canonical, entry.Canonical, entry.Japanese, PromptItemKind.Normal)]);
         return true;
     }
+    public PresetApplyResult AppendPreset(IEnumerable<PromptItem> presetItems)
+    {
+        var existingCanonical = items.Where(item => item.Canonical != null)
+            .Select(item => item.Canonical!)
+            .ToHashSet(StringComparer.Ordinal);
+        var additions = new List<PromptItem>();
+        var skipped = 0;
+        foreach (var source in presetItems)
+        {
+            if (source.Canonical is { } canonical && !existingCanonical.Add(canonical)) { skipped++; continue; }
+            additions.Add(source with { Id = Guid.NewGuid() });
+        }
+        if (additions.Count > 0) Change(() => items = [..items, ..additions]);
+        return new(additions.Count, skipped);
+    }
     public void Delete(IEnumerable<Guid> ids)
     {
         var set = ids.ToHashSet();
@@ -179,3 +220,5 @@ public sealed class PromptWorkspace(PromptParser parser)
     public void Undo() { if (undo.TryPop(out var s)) { redo.Push(Snapshot()); items = s.Items.ToArray(); recovery = s.Recovery?.ToArray(); Changed?.Invoke(); } }
     public void Redo() { if (redo.TryPop(out var s)) { undo.Push(Snapshot()); items = s.Items.ToArray(); recovery = s.Recovery?.ToArray(); Changed?.Invoke(); } }
 }
+
+public sealed record PresetApplyResult(int Added, int Skipped);

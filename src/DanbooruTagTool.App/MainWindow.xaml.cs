@@ -20,9 +20,11 @@ public partial class MainWindow : Window
     private bool deferredSelection;
     private bool syncingNavigation;
     private int dropGap;
+    private GenerationPresetDialog? presetDialog;
     public MainWindow(MainViewModel vm)
     {
         this.vm = vm; InitializeComponent(); DataContext = vm;
+        vm.PresetsRequested += OpenPresetDialog;
         var defaultHeight = Math.Abs(vm.Ui.Height - 820) < 0.5 ? 720 : vm.Ui.Height;
         Width = Math.Max(MinWidth, vm.Ui.Width); Height = Math.Max(MinHeight, defaultHeight);
         Left = Math.Clamp(vm.Ui.Left, SystemParameters.VirtualScreenLeft, SystemParameters.VirtualScreenLeft + SystemParameters.VirtualScreenWidth - 100);
@@ -53,7 +55,7 @@ public partial class MainWindow : Window
         vm.ResultsRestored += () => Dispatcher.BeginInvoke(() => FindChild<ScrollViewer>(DictionaryList)?.ScrollToVerticalOffset(vm.RestoreScroll), DispatcherPriority.Loaded);
         vm.ScrollToChip += id => { var index = vm.Chips.ToList().FindIndex(c => c.Id == id); if (index >= 0 && EditorItems.ItemContainerGenerator.ContainerFromIndex(index) is FrameworkElement item) item.BringIntoView(); };
         SizeChanged += (_, _) => QueueUiSave(); LocationChanged += (_, _) => QueueUiSave();
-        Closing += (_, _) => { SaveGeometry(); searchTimer.Stop(); feedbackTimer.Stop(); uiTimer.Stop(); };
+        Closing += (_, _) => { SaveGeometry(); searchTimer.Stop(); feedbackTimer.Stop(); uiTimer.Stop(); if (presetDialog != null) presetDialog.Close(); };
         Loaded += (_, _) => { vm.UpdateChipLanguage(); FindChild<ScrollViewer>(DictionaryList)?.ScrollToVerticalOffset(vm.RestoreScroll); SyncNavigationSelection(); };
     }
     private static bool IsLegacyNavWidth(double width) => Math.Abs(width - 210) < 0.5 || Math.Abs(width - 230) < 0.5;
@@ -178,6 +180,13 @@ public partial class MainWindow : Window
     }
     private void EditorDrop(object sender, DragEventArgs e) { if (e.Data.GetData("PromptItemIds") is Guid[] ids) vm.Move(ids, dropGap); InsertionMarker.Visibility = Visibility.Collapsed; e.Handled = true; }
     private void EditorDragLeave(object sender, DragEventArgs e) => InsertionMarker.Visibility = Visibility.Collapsed;
+    private void OpenPresetDialog()
+    {
+        if (presetDialog is { IsVisible: true }) { presetDialog.Activate(); return; }
+        presetDialog = new GenerationPresetDialog(vm) { Owner = this };
+        presetDialog.Closed += (_, _) => presetDialog = null;
+        presetDialog.Show();
+    }
     private static T? FindChild<T>(DependencyObject parent) where T : DependencyObject
     { for (int i = 0; i < VisualTreeHelper.GetChildrenCount(parent); i++) { var child = VisualTreeHelper.GetChild(parent, i); if (child is T result) return result; if (FindChild<T>(child) is T nested) return nested; } return null; }
     private static T? FindAncestor<T>(DependencyObject? child) where T : DependencyObject

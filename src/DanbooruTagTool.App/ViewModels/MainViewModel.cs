@@ -115,9 +115,11 @@ public sealed class MainViewModel : Observable
         selectedEntry.Entry.ProductFit == "KEEP" ? "" : selectedEntry.Entry.ProductFit == "KEEP_REFERENCE_ONLY" ? "参照用" : "要確認",
         selectedEntry.Entry.Canonical == null ? "canonicalへの安全な追加先が確定していない参照項目です。" : "" }.Where(s => s.Length > 0));
     private string query = "", browse = "special", status = "", find = "", directText = "", weight = "";
+    private string presetName = "", presetDescription = "", presetPositive = "", presetNegative = "";
     private int workspaceIndex, sortIndex, detailsTabIndex;
     private bool englishChips, multiSelect, directEditing, categoryView, categoryEnglish;
     private PromptOutputProfile outputProfile = PromptOutputProfile.Canonical;
+    private GenerationPreset? selectedPreset;
     private Guid? anchor;
     private UiState ui = new();
     private readonly Stack<string> back = new();
@@ -128,7 +130,25 @@ public sealed class MainViewModel : Observable
     public bool CanGoBack => back.Count > 0;
     public event Action? ResultsRestored;
     public event Action<Guid>? ScrollToChip;
+    public event Action? PresetsRequested;
     public UiState Ui => ui;
+    public ObservableCollection<GenerationPreset> Presets { get; } = [];
+    public GenerationPreset? SelectedPreset
+    {
+        get => selectedPreset;
+        set
+        {
+            if (!Set(ref selectedPreset, value)) return;
+            PresetName = value?.Name ?? "";
+            PresetDescription = value?.Description ?? "";
+            PresetPositive = value?.Positive ?? "";
+            PresetNegative = value?.Negative ?? "";
+        }
+    }
+    public string PresetName { get => presetName; set { if (Set(ref presetName, value)) SavePreset?.Refresh(); } }
+    public string PresetDescription { get => presetDescription; set => Set(ref presetDescription, value); }
+    public string PresetPositive { get => presetPositive; set => Set(ref presetPositive, value); }
+    public string PresetNegative { get => presetNegative; set => Set(ref presetNegative, value); }
     public string Query { get => query; set { if (query.Length == 0 && value.Length > 0) { browseSelection = SelectedEntry?.Entry.Id; RestoreScroll = BrowseScroll; } if (Set(ref query, value)) { Notify(nameof(IsSearching)); Notify(nameof(CanBrowseSort)); Persist(); } } }
     public bool IsSearching => !string.IsNullOrWhiteSpace(Query);
     public bool CanBrowseSort => !IsSearching;
@@ -199,11 +219,18 @@ public sealed class MainViewModel : Observable
     public RelayCommand ApplyDirect { get; }
     public RelayCommand CancelDirect { get; }
     public RelayCommand ApplyWeight { get; }
+    public RelayCommand OpenPresets { get; }
+    public RelayCommand NewPreset { get; }
+    public RelayCommand ApplyPreset { get; }
+    public RelayCommand CopyPresetNegative { get; }
+    public RelayCommand CapturePresetPositive { get; }
+    public RelayCommand SavePreset { get; }
+    public RelayCommand DeletePreset { get; }
     public MainViewModel(ICatalog catalog, IUserStateStore store, IClipboardService clipboard, IGeneralBrowseProvider? general = null)
     {
         this.catalog = catalog; this.store = store; this.clipboard = clipboard; this.general = general ?? new PendingGeneralBrowseProvider();
         search = new(catalog); Workspace = new(new(catalog));
-        var state = store.Load(); if (state != null) { Workspace.Restore(state.Prompt); ui = state.Ui; }
+        var state = store.Load(); if (state != null) { Workspace.Restore(state.Prompt); ui = state.Ui; foreach (var preset in state.Presets ?? []) Presets.Add(preset); }
         query = ui.Query; browse = ui.Browse; workspaceIndex = ui.Workspace; englishChips = ui.EnglishChips; outputProfile = ui.OutputProfile; RestoreScroll = ui.BrowseScroll; BrowseScroll = ui.BrowseScroll;
         Navigation = [new("special", "◆ Special", catalog.Entries.Where(e => e.IsSpecial).SelectMany(e => e.Paths).GroupBy(p => p.GenreId)
             .Select(g => new NavigationNode("special:" + g.Key + ">", g.First().Genre, g.Where(p => p.SubgenreId.Length > 0).DistinctBy(p => p.Key)
@@ -226,6 +253,13 @@ public sealed class MainViewModel : Observable
         ApplyDirect = new(_ => { if (!DirectEditing) return; Workspace.DirectEdit(DirectText); DirectEditing = false; }, _ => DirectEditing);
         CancelDirect = new(_ => { DirectText = English; DirectEditing = false; }, _ => DirectEditing);
         ApplyWeight = Ordered(_ => { if (WeightVisible && decimal.TryParse(Weight, NumberStyles.Number, CultureInfo.InvariantCulture, out var w)) Workspace.EditWeight(Chips.Single(c => c.Selected).Id, w); else Status = "weightは数値で入力してください。"; });
+        OpenPresets = Normal(_ => PresetsRequested?.Invoke());
+        NewPreset = Normal(_ => BeginNewPreset());
+        ApplyPreset = Normal(p => ApplyPresetToPrompt(p as GenerationPreset), p => p is GenerationPreset);
+        CopyPresetNegative = Normal(p => CopyPresetNegativeText(p as GenerationPreset), p => p is GenerationPreset);
+        CapturePresetPositive = Normal(_ => PresetPositive = PromptParser.Serialize(Workspace.Items));
+        SavePreset = Normal(_ => SavePresetValue(), _ => !string.IsNullOrWhiteSpace(PresetName));
+        DeletePreset = Normal(p => DeletePresetValue(p as GenerationPreset ?? SelectedPreset), p => p is GenerationPreset || SelectedPreset != null);
         Workspace.Changed += OnPromptChanged;
         RefreshChips(); RefreshCategoryGroups(); RefreshResults(); SelectedEntry = Results.FirstOrDefault(e => e.Entry.Id == ui.SelectedEntry);
     }
@@ -238,7 +272,7 @@ public sealed class MainViewModel : Observable
     private RelayCommand Ordered(Action<object?> action, Predicate<object?>? enabled = null) => new(p => { if (CanEditOrderedPrompt && (enabled?.Invoke(p) ?? true)) action(p); }, p => CanEditOrderedPrompt && (enabled?.Invoke(p) ?? true));
     private void RefreshCommands()
     {
-        foreach (var command in new[] { Copy, Import, New, Recover, Undo, Redo, Delete, DeleteOne, Inspect, InspectEntry, Navigate, Back, ClearQuery, FindPrevious, FindNextCommand, OpenEditor, StartDirect, ApplyDirect, CancelDirect, ApplyWeight }) command.Refresh();
+        foreach (var command in new[] { Copy, Import, New, Recover, Undo, Redo, Delete, DeleteOne, Inspect, InspectEntry, Navigate, Back, ClearQuery, FindPrevious, FindNextCommand, OpenEditor, StartDirect, ApplyDirect, CancelDirect, ApplyWeight, OpenPresets, NewPreset, ApplyPreset, CopyPresetNegative, CapturePresetPositive, SavePreset, DeletePreset }) command.Refresh();
         foreach (var row in Results.Concat(Related)) row.Refresh(); SelectedEntry?.Refresh();
     }
     private IReadOnlyList<EntryViewModel> Rows(IEnumerable<CatalogEntry> entries) => entries.Select(e => new EntryViewModel(e, Workspace, Add, () => CanEditPrompt)).ToArray();
@@ -320,9 +354,42 @@ public sealed class MainViewModel : Observable
         lastMatch = matches[index].Id; Notify(nameof(FindMatchSummary)); ScrollToChip?.Invoke(lastMatch.Value);
     }
     public void SaveUi(UiState value) { ui = value; Persist(); }
+    private void BeginNewPreset()
+    {
+        SelectedPreset = null;
+        PresetName = ""; PresetDescription = ""; PresetPositive = ""; PresetNegative = "";
+    }
+    private void ApplyPresetToPrompt(GenerationPreset? preset)
+    {
+        if (preset == null) return;
+        var parsed = new PromptParser(catalog).Parse(preset.Positive);
+        var result = Workspace.AppendPreset(parsed);
+        Status = $"{result.Added}件追加 / {result.Skipped}件スキップ";
+    }
+    private void CopyPresetNegativeText(GenerationPreset? preset)
+    {
+        if (preset == null) return;
+        try { clipboard.Write(preset.Negative); Status = "✓ Negativeをコピーしました"; }
+        catch (Exception e) when (e is System.Runtime.InteropServices.ExternalException or IOException) { Status = "操作できませんでした: " + e.Message; }
+    }
+    private void SavePresetValue()
+    {
+        if (string.IsNullOrWhiteSpace(PresetName)) { Status = "プリセット名を入力してください。"; return; }
+        var parsed = new PromptParser(catalog).Parse(PresetPositive);
+        var saved = new GenerationPreset(SelectedPreset?.Id ?? Guid.NewGuid(), PresetName.Trim(), PresetDescription, PromptOutputFormatter.SerializeCanonical(parsed), PresetNegative);
+        var index = SelectedPreset == null ? -1 : Presets.IndexOf(SelectedPreset);
+        if (index < 0) Presets.Add(saved); else Presets[index] = saved;
+        SelectedPreset = saved;
+        Persist(); Status = "プリセットを保存しました";
+    }
+    private void DeletePresetValue(GenerationPreset? preset)
+    {
+        if (preset == null || !Presets.Remove(preset)) return;
+        Persist(); BeginNewPreset(); Status = "プリセットを削除しました";
+    }
     public void Persist()
     {
         ui = ui with { Workspace = WorkspaceIndex, Browse = browse, Query = Query, SelectedEntry = SelectedEntry?.Entry.Id, BrowseScroll = Query.Length == 0 ? BrowseScroll : RestoreScroll, EnglishChips = EnglishChips, OutputProfile = OutputProfile };
-        try { store.Save(new(Workspace.Snapshot(), ui)); } catch (Exception e) when (e is IOException or Microsoft.Data.Sqlite.SqliteException) { Status = "自動保存できません: " + e.Message; }
+        try { store.Save(new(Workspace.Snapshot(), ui, Presets.ToArray())); } catch (Exception e) when (e is IOException or Microsoft.Data.Sqlite.SqliteException) { Status = "自動保存できません: " + e.Message; }
     }
 }
