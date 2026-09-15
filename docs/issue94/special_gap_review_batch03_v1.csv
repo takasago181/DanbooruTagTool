@@ -1,0 +1,41 @@
+canonical,post_count,aliases,mechanical_status,nearest_special,lex_sim,review_status,review_reason,content_filter_used
+large_breasts,2245881,big_breasts|/lb|large_boobs|large_breast|large_tits,GENERAL_ONLY_GAP,breasts,0.9,OUTSIDE_SPECIAL_NONCONTENT,common broad body-size descriptor; General search is sufficient and Special depth is not improved by duplicating baseline size vocabulary,NO
+medium_breasts,1209874,,GENERAL_ONLY_GAP,breasts,0.9,OUTSIDE_SPECIAL_NONCONTENT,common broad body-size descriptor; keep in General rather than expanding Special with baseline size vocabulary,NO
+small_breasts,713639,,GENERAL_ONLY_GAP,breasts,0.9,OUTSIDE_SPECIAL_NONCONTENT,common broad body-size descriptor; keep in General rather than expanding Special with baseline size vocabulary,NO
+bikini,697865,,GENERAL_ONLY_GAP,bikini bottom aside,0.9,OUTSIDE_SPECIAL_NONCONTENT,ordinary base garment identity already discoverable through General; Special should keep deeper structural/relational bikini concepts,NO
+thigh_strap,249323,thighband|thigh_band|thigh_straps,GENERAL_ONLY_GAP,vibrator in thigh strap,0.9,OUTSIDE_SPECIAL_NONCONTENT,ordinary accessory identity; lacks the deep relation/state specificity targeted by Special,NO
+white_panties,242720,,GENERAL_ONLY_GAP,panties,0.9,OUTSIDE_SPECIAL_NONCONTENT,color-only ordinary underwear variant; General is sufficient,NO
+black_panties,181159,,GENERAL_ONLY_GAP,panties,0.9,OUTSIDE_SPECIAL_NONCONTENT,color-only ordinary underwear variant; General is sufficient,NO
+black_bikini,164627,black_bikini_top|black_bikini_bottom,GENERAL_ONLY_GAP,black chastity cage,0.855,OUTSIDE_SPECIAL_NONCONTENT,color-only ordinary garment variant; General is sufficient,NO
+white_bikini,136739,white_bikini_top|white_bikini_bottom,GENERAL_ONLY_GAP,bikini bottom aside,0.855,OUTSIDE_SPECIAL_NONCONTENT,color-only ordinary garment variant; General is sufficient,NO
+thigh_boots,123284,thighhigh_boots|thighboots,GENERAL_ONLY_GAP,footjob with boots,0.855,OUTSIDE_SPECIAL_NONCONTENT,ordinary footwear subtype; General discovery is sufficient,NO
+alternate_breast_size_(larger),93118,larger_breasts_than_canon,GENERAL_ONLY_GAP,breast,0.9,OUTSIDE_SPECIAL_NONCONTENT,character-deviation/meta comparison rather than a reusable deep discovery concept,NO
+pink_panties,61892,,GENERAL_ONLY_GAP,panties,0.9,OUTSIDE_SPECIAL_NONCONTENT,color-only ordinary underwear variant; General is sufficient,NO
+sports_bra,51301,,GENERAL_ONLY_GAP,bra,0.9,OUTSIDE_SPECIAL_NONCONTENT,ordinary garment subtype with no special relation/state requirement; General is sufficient,NO
+bikini_top_only,43620,bikini_top,GENERAL_ONLY_GAP,anal only,0.855,CANDIDATE,specific partial-garment/exposure state rather than ordinary bikini identity,NO
+highleg_panties,28671,,GENERAL_ONLY_GAP,panties,0.9,CANDIDATE,specific revealing garment structure rather than color/style-only underwear variant,NO
+hand_on_own_thigh,20643,,GENERAL_ONLY_GAP,thigh sex,0.855,NEEDS_REVIEW,"specific self-contact pose, but may be common enough that General pose discovery is sufficient",NO
+swimsuit_under_clothes,18977,/suc,GENERAL_ONLY_GAP,cum in clothes,0.855,CANDIDATE,specific garment-layer relation difficult to infer from ordinary swimsuit/clothes identities,NO
+gigantic_breasts,16189,gigantic_breast,GENERAL_ONLY_GAP,breasts,0.9,NEEDS_REVIEW,"extreme morphology may fit Special depth, but boundary with broad General size vocabulary needs consistency review",NO
+bra_strap,13438,,GENERAL_ONLY_GAP,bra,0.9,OUTSIDE_SPECIAL_NONCONTENT,ordinary garment-part identity; General discovery is sufficient,NO
+bikini_bottom_only,11780,bikini_bottom,GENERAL_ONLY_GAP,anal only,0.855,CANDIDATE,specific partial-garment/exposure state rather than ordinary bikini identity,NO
+hair_over_breasts,11472,hair_on_breasts,GENERAL_ONLY_GAP,breasts,0.9,CANDIDATE,specific hair/body covering relation rather than ordinary hair or breast identity,NO
+thigh_holster,10703,,GENERAL_ONLY_GAP,vibrator in thigh strap,0.855,OUTSIDE_SPECIAL_NONCONTENT,ordinary equipment/accessory identity; not a deep Special concept by itself,NO
+leotard_under_clothes,10499,,GENERAL_ONLY_GAP,cum in clothes,0.855,CANDIDATE,specific garment-layer relation useful for niche clothing discovery,NO
+sagging_breasts,10045,,GENERAL_ONLY_GAP,breasts,0.9,CANDIDATE,specific breast shape/state identity beyond baseline size vocabulary,NO
+thighhighs_under_boots,9455,,GENERAL_ONLY_GAP,thighhigh,0.9,CANDIDATE,specific garment-layer relation rather than an ordinary garment identity,NO
+breast_lift,9093,,GENERAL_ONLY_GAP,breast,0.9,CANDIDATE,specific breast manipulation/position state beyond generic breast identity,NO
+mole_on_thigh,8976,,GENERAL_ONLY_GAP,vibrator in thigh strap,0.855,CANDIDATE,specific body-mark + site relation; analogous site-specific body-mark identities exist in Special,NO
+breast_tattoo,8521,tattooed_breast,GENERAL_ONLY_GAP,breast,0.9,CANDIDATE,specific body-mark + site identity; fits deep anatomy/adornment discovery,NO
+bursting_breasts,8434,,GENERAL_ONLY_GAP,breasts,0.9,CANDIDATE,specific extreme breast-state/action concept rather than baseline morphology,NO
+breast_suppress,8344,,GENERAL_ONLY_GAP,breast,0.9,CANDIDATE,specific breast compression/concealment state useful for deep body/clothing discovery,NO
+armpit_peek,8023,,GENERAL_ONLY_GAP,pee,0.9,CANDIDATE,specific partial-visibility body-site state; fits deep exposure/visibility discovery,NO
+tail_through_clothes,7638,tail_slit_clothes|tail_cutout,GENERAL_ONLY_GAP,anal tail,0.855,CANDIDATE,specific body/clothing structural relation; distinct from ordinary tail or clothing identities,NO
+bikini_top_lift,7366,bikini_lift,GENERAL_ONLY_GAP,top (sexual preference),0.855,CANDIDATE,specific garment displacement/exposure action beyond ordinary bikini identity,NO
+grabbing_another's_thighs,7269,holding_another's_thighs,GENERAL_ONLY_GAP,grabbing another's penis,0.857,CANDIDATE,specific actor/body-site contact action beyond generic grabbing or thigh identity,NO
+framed_breasts,7268,,GENERAL_ONLY_GAP,breasts,0.9,CANDIDATE,specific composition/exposure framing state involving breasts,NO
+hand_under_clothes,7084,hands_under_clothes,GENERAL_ONLY_GAP,handjob under clothes,0.923,CANDIDATE,specific body-part/clothing spatial relation useful for action/exposure discovery,NO
+unaligned_breasts,6846,,GENERAL_ONLY_GAP,breasts,0.9,CANDIDATE,specific asymmetrical breast-position state,NO
+thigh_pouch,6797,,GENERAL_ONLY_GAP,vibrator in thigh strap,0.855,OUTSIDE_SPECIAL_NONCONTENT,ordinary accessory/location identity; General is sufficient,NO
+unworn_bra,6765,bra_removed|bra_off,GENERAL_ONLY_GAP,bra,0.9,CANDIDATE,specific unworn garment state analogous to other unworn-state Special concepts,NO
+bodysuit_under_clothes,6319,,GENERAL_ONLY_GAP,bodysuit,0.9,CANDIDATE,specific garment-layer relation useful for niche clothing discovery,NO
