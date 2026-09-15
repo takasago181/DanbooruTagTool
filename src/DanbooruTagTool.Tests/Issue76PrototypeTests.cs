@@ -15,6 +15,7 @@ public sealed class Issue76PrototypeTests
         new("S:681", "ACTION_CONTACT", Set("MOUTH_ORAL", "FEMALE_GENITAL"), Set(), SpecialBrowseV2Status.AutoCandidate),
         new("S:266", "TOOL_OBJECT", Set("BUTTOCK_ANAL"), Set(), SpecialBrowseV2Status.AutoCandidate),
         new("S:1814", "TOOL_OBJECT", Set("MOUTH_ORAL"), Set("BDSM_RESTRAINT"), SpecialBrowseV2Status.AutoCandidate),
+        new("S:1814-duplicate", "TOOL_OBJECT", Set("MOUTH_ORAL"), Set("BDSM_RESTRAINT"), SpecialBrowseV2Status.AutoCandidate),
         new("S:416", null, Set(), Set("BDSM_RESTRAINT"), SpecialBrowseV2Status.AutoCandidate),
         new("S:470", null, Set(), Set("INJURY_R18G"), SpecialBrowseV2Status.AutoCandidate),
         new("S:9991", "TOOL_OBJECT", Set("BUTTOCK_ANAL"), Set(), SpecialBrowseV2Status.ReferenceOnlyNoDirectBrowse),
@@ -27,6 +28,7 @@ public sealed class Issue76PrototypeTests
         Entry("S:681", "cunnilingus", "クンニリングス", 16303),
         Entry("S:266", "anal beads", "アナルビーズ", 5000),
         Entry("S:1814", "ball gag", "ボールギャグ", 4000),
+        Entry("S:1814-duplicate", "ball gag", "ボールギャグ", 4000),
         Entry("S:416", "bdsm", "BDSM", 3000),
         Entry("S:470", "guro", "グロ", 2000)
     ]);
@@ -118,8 +120,24 @@ public sealed class Issue76PrototypeTests
         var current = SpecialBrowseV2Filter.Empty.ToggleBodySite("MOUTH_ORAL");
 
         Assert.Equal(1, index.CountWithBodySite(current, "MALE_GENITAL"));
-        Assert.Equal(1, index.CountWithTheme(current, "BDSM_RESTRAINT"));
+        Assert.Equal(2, index.CountWithTheme(current, "BDSM_RESTRAINT"));
         Assert.Equal(2, index.CountWithKind(current, "ACTION_CONTACT"));
+    }
+
+    [Fact]
+    public void Prototype_browse_dedupes_same_canonical_identity_and_count()
+    {
+        var vm = new Issue76BrowsePrototypeViewModel(TestCatalog(), Index());
+        vm.ToggleFacet.Execute(vm.KindOptions.Single(option => option.Id == "TOOL_OBJECT"));
+        vm.ToggleFacet.Execute(vm.BodyOptions.Single(option => option.Id == "MOUTH_ORAL"));
+        vm.ToggleFacet.Execute(vm.ThemeOptions.Single(option => option.Id == "BDSM_RESTRAINT"));
+
+        Assert.Single(vm.Results);
+        Assert.Equal("ball gag", vm.Results[0].Entry.Canonical);
+        Assert.Equal("1件", vm.ResultSummary);
+        Assert.Equal(1, vm.KindOptions.Single(option => option.Id == "TOOL_OBJECT").Count);
+        Assert.Equal(1, vm.BodyOptions.Single(option => option.Id == "MOUTH_ORAL").Count);
+        Assert.Equal(1, vm.ThemeOptions.Single(option => option.Id == "BDSM_RESTRAINT").Count);
     }
 
     [Fact]
