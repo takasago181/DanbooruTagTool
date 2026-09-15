@@ -1,0 +1,93 @@
+{
+  "format_version": 1,
+  "issue": 70,
+  "chunk_index": 153,
+  "source_file": "docs/issue70/data/source_chunks/source_076001_076500.csv",
+  "source_sha256": "00d3692f2216ffe7fb9baa549e7f2107bd09845b572ed412c123b95fac873615",
+  "row_count": 500,
+  "first_row_id": "I70-076001",
+  "last_row_id": "I70-076500",
+  "shard_size": 50,
+  "shards": [
+    {
+      "shard_index": 1,
+      "path": "docs/issue70/data/source_shards/chunk_153/shard_01.csv",
+      "row_count": 50,
+      "first_row_id": "I70-076001",
+      "last_row_id": "I70-076050",
+      "sha256": "e87c41b00e370ff854d9bf8390d6e710e771da945dbf01a10c5c9f91d4a08bc0"
+    },
+    {
+      "shard_index": 2,
+      "path": "docs/issue70/data/source_shards/chunk_153/shard_02.csv",
+      "row_count": 50,
+      "first_row_id": "I70-076051",
+      "last_row_id": "I70-076100",
+      "sha256": "6fa1aec06f6b7c304909d85ccd905136d4db10d79b8d7f6e1993588989e62b19"
+    },
+    {
+      "shard_index": 3,
+      "path": "docs/issue70/data/source_shards/chunk_153/shard_03.csv",
+      "row_count": 50,
+      "first_row_id": "I70-076101",
+      "last_row_id": "I70-076150",
+      "sha256": "d0349231208845c50ff31731bd6c2ec9dcc6779e094b530732881d7bdc3f9ba7"
+    },
+    {
+      "shard_index": 4,
+      "path": "docs/issue70/data/source_shards/chunk_153/shard_04.csv",
+      "row_count": 50,
+      "first_row_id": "I70-076151",
+      "last_row_id": "I70-076200",
+      "sha256": "429102bdd93b8b2684a96869a944c7ce4913b9df17c9bc6f15f447ee06c786d7"
+    },
+    {
+      "shard_index": 5,
+      "path": "docs/issue70/data/source_shards/chunk_153/shard_05.csv",
+      "row_count": 50,
+      "first_row_id": "I70-076201",
+      "last_row_id": "I70-076250",
+      "sha256": "521165c4787bc0206fd06caab1ef79b7a05dee4d1880bb0173433f22f7e9d3be"
+    },
+    {
+      "shard_index": 6,
+      "path": "docs/issue70/data/source_shards/chunk_153/shard_06.csv",
+      "row_count": 50,
+      "first_row_id": "I70-076251",
+      "last_row_id": "I70-076300",
+      "sha256": "79b8133415b239dd5c1d24dc8e9d38dab694bee68da047e7a13a542de700fccf"
+    },
+    {
+      "shard_index": 7,
+      "path": "docs/issue70/data/source_shards/chunk_153/shard_07.csv",
+      "row_count": 50,
+      "first_row_id": "I70-076301",
+      "last_row_id": "I70-076350",
+      "sha256": "fdeec7b97466a0b91bc03eecf7b3012f3aefc06fd19e03cea5cba9fa8337799e"
+    },
+    {
+      "shard_index": 8,
+      "path": "docs/issue70/data/source_shards/chunk_153/shard_08.csv",
+      "row_count": 50,
+      "first_row_id": "I70-076351",
+      "last_row_id": "I70-076400",
+      "sha256": "d2fece611c09c6b321f2267f8be4dbf3df097b79f34416946d90a05c446deaac"
+    },
+    {
+      "shard_index": 9,
+      "path": "docs/issue70/data/source_shards/chunk_153/shard_09.csv",
+      "row_count": 50,
+      "first_row_id": "I70-076401",
+      "last_row_id": "I70-076450",
+      "sha256": "2679d1ea51730cf0ece98e799c2389716dd5f526939b08f70896cd0e7ccb7e87"
+    },
+    {
+      "shard_index": 10,
+      "path": "docs/issue70/data/source_shards/chunk_153/shard_10.csv",
+      "row_count": 50,
+      "first_row_id": "I70-076451",
+      "last_row_id": "I70-076500",
+      "sha256": "9f2df59ec87094156bb45aeae0c8bfe450981c3e55c9872869c137359f72a09d"
+    }
+  ]
+}

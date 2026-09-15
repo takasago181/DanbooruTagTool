@@ -1,8 +1,8 @@
 {
-  "format_version": 1,
+  "format_version": 2,
   "issue": 70,
   "source_manifest_sha256": "66b880c9599818f022b4184a7ca4494b9c6567cc35e1dfcc6f6b2099e141b32a",
-  "source_shards_manifest_sha256": "35a23102941b41af6f5731aeada9e9c4ad79f6ba79703b1427b95843d56aa2a9",
+  "source_shards_manifest_sha256": "dbf98b0362b662ca1f80d1890fe8dcac23da073ac3cb35f39ca03620ba4820c8",
   "queue_state_sha256_at_generation": "963c3e7e4f3253e435f884796abacb1dad086a55298d5e9f94da35391dba1646",
   "completed_chunks_at_generation": [
     1,
@@ -32,5 +32,6 @@
   "chunk_count": 186,
   "claim_protocol": "per_chunk_create_file",
   "claim_directory": "docs/issue70/data/automation_claims",
-  "result_directory": "docs/issue70/data/results/queue"
+  "result_directory": "docs/issue70/data/results/queue",
+  "chunk_manifest_pattern": "docs/issue70/data/source_shards/chunk_{chunk_index:03d}/manifest.json"
 }
