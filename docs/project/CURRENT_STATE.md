@@ -7,23 +7,23 @@
 **Stage9 completed / beginner-first practical v1 accepted / #64 General taxonomy accepted and integrated / #66 completed / #68 completed / #69 local final cleanup completed.**
 
 Current maintenance route:
-- **Issue #76 — Special browse taxonomy v2 final production implementation is active on `codex/issue76-special-v2-production`.** This explicit DEV activation supersedes the no-successor maintenance state for this feature branch only.
+- **Issue #76 — Special browse taxonomy v2 is completed and integrated into `main` via PR #81 at merge commit `0a1e94c8268cde97cfbc2305b3f2869d6919b5d6`.** The accepted v2 classification is baked only during explicit catalog build; normal startup reads precomputed `CatalogEntry.SpecialBrowseV2` from `catalog.db`.
 - **Issue #80 — Forge bridge v1 is completed and integrated into `main` at `f5ced15e3a368cae29f869527a20bcb41c7237b4`.**
 - **Issue #79 — Generation presets (reusable Positive sets + Negative copy) is completed and integrated into `main` at `8f0ba2a1133e4ad63f0a6ccd08eb17a3dda58d93`.**
 - **Issue #77 — Prompt output profile switch + tolerant one-click import is completed and integrated into `main` at `60b15d8fef877c70eac5e4f0f5d67ebd358904d7`.**
 - **Issue #75 — WQHD visual polish pass is completed and integrated into `main` at `a315bdf6933e5e089174bc32c3ad6a8abc021082`.**
 - No successor active DEV implementation issue is designated. Do not infer one from this document.
-- Integrated branch: `codex/issue80-forge-bridge-v1`.
 - Issue #74 — WQHD-first dictionary workspace redesign is completed and integrated into `main` at `f6e8345391cb445010c5fe23f2b1e480b4c514fd`.
 - Issue #73 — English Prompt pane density + dictionary add/remove toggle is completed and integrated into `main` at `079964b69192b5191b1bda5e9894b7138f8c75c2`.
 - Issue #72 — Prompt category view prototype remains completed and integrated into `main` at `174fee90b23e4a350ffe71d7b60aa834b8cb1296`.
-- Issue #70 translation/data work is a separate lane. #72 must not modify #70 outputs, canonical/protected data, or translation lane state.
+- Issue #70 translation/data work is a separate lane. Post-v1 UI/taxonomy work must not modify #70 outputs, canonical/protected data, or translation lane state.
 - Issue #68 is complete. Phase 2E was accepted as a safe no-op. Protected local `benchmarks/`, `backups/`, `_handoff/`, audit provenance, local tooling, and translation quarantine remain in place for their consumers; safe stale worktrees and reproducible caches were retired.
-- **Stage10 learning Issue #65 may resume as the user's learning route.** It is not part of #72.
+- **Stage10 learning Issue #65 may resume as the user's learning route.** It is not part of completed #76.
 
 Current workstation WPF launch:
 - The current WPF runtime and production `Data/catalog.db` are available under local `artifacts/current/`.
 - The local root shortcut `DanbooruTagTool.lnk` launches that WPF app; this shortcut and runtime output are workstation-local conveniences, not tracked product files.
+- A pre-#76 local `catalog.db` must be explicitly rebuilt once before the new Special v2 browse data is available; it is never overwritten automatically.
 
 Current Stage10 definition:
 - Issue #65
@@ -45,7 +45,7 @@ The practical v1 must let the user:
 - understand recognized content Japanese-first while retaining canonical English;
 - preserve unknown/raw/duplicate surfaces unless explicitly edited;
 - search Japanese / English / mixed;
-- discover Special through deep browse;
+- discover Special through the accepted v2 `種類 / 部位 / テーマ` browse facets;
 - discover General through shallow practical browse after #64 acceptance;
 - explicitly add/remove/reorder/undo/redo;
 - copy the canonical-English Prompt represented by the visible workspace.
@@ -83,7 +83,7 @@ Accepted baseline includes:
 - App/Core/Data/Tests separation;
 - no required Python/Tcl/Tk runtime dependency;
 - conservative Prompt import with raw/order/duplicate preservation;
-- Special deep browse;
+- Special browse;
 - Japanese/English/mixed search with intent-first regression coverage;
 - explicit Prompt add/remove/reorder/multi-select/Undo/Redo;
 - visible-state = copied-English-Prompt invariant;
@@ -109,6 +109,33 @@ Final Windows click-through acceptance passed on an isolated Release publish/Use
 Release tests passed **77/77**. Protected/canonical/source data, real user `UserData`, and accepted #64/#63 assets were unchanged. The acceptance used only an isolated temporary publish/UserData.
 
 DEV verdict: **PRACTICAL_V1_ACCEPTED**. Issue #66 is complete; do not reopen completed foundations or add another refinement pass without a concrete regression.
+
+## Special browse v2 — Issue #76 completed
+
+Issue #76 replaced the old visible Special 14/38 browse tree with the user-accepted shallow three-axis model while preserving canonical identity and search behavior.
+
+Accepted production shape:
+- `種類から探す`: 9 broad kind homes
+- `部位から探す`: 6 body-site facets
+- `テーマから探す`: 3 theme facets
+- facets combine with AND semantics
+- no visible catch-all `その他`
+- canonical duplicates are deduplicated in result display
+- `1つ戻す` removes only the latest facet condition
+- `全解除` clears facet/history state without deleting ordinary search text
+- fixed axis groups remain expanded while the Special root is open
+
+Accepted data/runtime boundary:
+- Special population remains 2,788 identities
+- accepted status distribution: `2745 / 15 / 6 / 1 / 21`
+- Issue #56 v1 evidence remains preserved as provenance
+- Issue #76 evidence is parsed only during explicit `--build-catalog`
+- baked v2 classification is stored in `catalog.db` as `CatalogEntry.SpecialBrowseV2`
+- normal startup reads only precomputed classification data
+
+Final implementation branch tip: `cf6f34919d163d346411d562e9075b3843f4b170`.
+Merged through PR #81 at main merge commit `0a1e94c8268cde97cfbc2305b3f2869d6919b5d6`.
+Issue #76 is closed completed; final checkpoint comment is `5679492819`.
 
 ## Portable / artifact decision — 2026-09-14
 
@@ -139,9 +166,9 @@ Artifacts remain untracked. Cleanup must be scoped to known disposable artifact 
 
 ## Architecture / migration boundaries
 
-- Legacy Python/Tk remains reference/evidence during active WPF work.
+- Legacy Python/Tk remains reference/evidence until a separately approved cleanup task retires it.
 - Do not make WPF call Python as a required runtime dependency.
-- Keep existing protected/source data paths stable during #66 integration.
+- Keep protected/source data paths stable unless a dedicated maintenance task proves safe movement/deletion.
 - `catalog.db` is rebuildable catalog knowledge.
 - `user.db` / `UserData` is user-specific state.
 - Normal startup must not perform taxonomy/audit rebuilds.
@@ -149,15 +176,15 @@ Artifacts remain untracked. Cleanup must be scoped to known disposable artifact 
 
 ## Current route
 
-`#66 practical v1 accepted -> #68 cleanup completed -> #69 local final cleanup completed -> #72 completed/merged -> #73 completed/merged -> #74 completed/merged -> #75 completed/merged -> #77 completed/merged -> #79 completed/merged -> #80 completed/merged`
+`#66 practical v1 accepted -> #68 cleanup completed -> #69 local final cleanup completed -> #72 completed/merged -> #73 completed/merged -> #74 completed/merged -> #75 completed/merged -> #77 completed/merged -> #79 completed/merged -> #80 completed/merged -> #76 completed/merged`
 
-Issue #69 completed the one-pass local-maintenance lane. The primary checkout is current `main`; unique local-only evidence is preserved with hashes, and protected data, audit/tooling state, production catalog, and current WPF UserData remain in place. The root shortcut was opened successfully after normalization and the app reopened against its adjacent user state.
+Issue #69 completed the previous one-pass local-maintenance lane. Protected local evidence, production catalog, and current WPF UserData remain protected from broad cleanup. Any new broad cleanup must be a separately scoped maintenance task and must inventory local-only/protected dependencies before deletion.
 
-Issue #72 is completed and integrated into `main`. Its category view reuses accepted #64/Special category metadata while preserving the ordered Prompt, copied-English invariant, existing architecture, and repository hygiene. Issue #73 is completed and integrated into `main`; its pane refinement and safe dictionary add/remove toggle preserve the existing Prompt/canonical invariants. Issue #70 remains a separate translation/data lane and Stage10 #65 remains a separate learning lane.
+Issue #70 remains a separate translation/data lane and Stage10 #65 remains a separate learning lane.
 
 Short form:
 
-`#64 accepted/integrated + #66 practical v1 accepted -> #68/#69 completed -> #72/#73/#74/#75/#77/#79/#80 completed/merged -> #76 active on feature branch`
+`#64 accepted/integrated + #66 practical v1 accepted -> #68/#69 completed -> #72/#73/#74/#75/#77/#79/#80/#76 completed/merged`
 
 Portable/second-PC acceptance is not in this critical path.
 
@@ -165,6 +192,7 @@ Portable/second-PC acceptance is not in this critical path.
 
 | TEAM_ID | Status | Scope | Restore anchor |
 | --- | --- | --- | --- |
+| `POST-V1:#76` | **COMPLETED / MERGED** | Special browse taxonomy v2, shallow kind/body/theme facets, catalog bake-in | Issue #76 + PR #81 + main `0a1e94c8268cde97cfbc2305b3f2869d6919b5d6` |
 | `POST-V1:#73` | **COMPLETED / MERGED** | English Prompt pane density and safe dictionary add/remove toggle | Issue #73 + main `079964b69192b5191b1bda5e9894b7138f8c75c2` |
 | `POST-V1:#72` | **COMPLETED / MERGED** | Japanese Prompt category reading view in existing WPF Prompt editor | Issue #72 + main `174fee90b23e4a350ffe71d7b60aa834b8cb1296` |
 | `GENERAL-DICT:#64` | **COMPLETED / ACCEPTED + INTEGRATED** | General 30,629 practical taxonomy | Issue #64 acceptance comment + production candidate on main |
@@ -190,6 +218,7 @@ Historical only:
 - Special validation/promotion/freeze #32 -> #48 -> #49 -> #43 — completed
 - Special Core Dictionary practical taxonomy #56 — completed
 - Special product-fit #63 — completed/merged
+- Special browse taxonomy v2 #76 — completed/merged
 - Japanese overlay production 30,629 — completed
 - Issue #64 General taxonomy — accepted and integrated at `d69e8b06916b637efd03c05b820ad13dd05e8ec1`
 - Issue #66 Phase B clean WPF baseline — merged
@@ -217,12 +246,8 @@ Product goal:
 #66 WPF architecture/runtime boundary:
 - `docs/product/V1_WPF_ARCHITECTURE_BASELINE.md`
 
-Completed post-v1 refinements:
-- Issue #73
+Current DEV mirror:
 - `docs/project/CURRENT_DEV_TASK.md`
-
-Completed post-v1 prototype:
-- Issue #72
 
 Stage10 definition:
 - Issue #65 + `docs/stages/STAGE_10_LEARNING.md`
