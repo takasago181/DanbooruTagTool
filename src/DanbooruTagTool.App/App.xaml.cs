@@ -36,10 +36,24 @@ public partial class App : Application
                 }, new JsonSerializerOptions { WriteIndented = true }));
                 Shutdown(0); return;
             }
+
             var paths = new PortablePaths(AppContext.BaseDirectory);
             ICatalog catalog; string? warning = null;
             try { catalog = CatalogDatabase.Open(paths.Catalog); }
             catch (FileNotFoundException ex) { catalog = new Catalog([]); warning = ex.Message; }
+
+            if (e.Args.FirstOrDefault() == "--issue76-v2-prototype")
+            {
+                if (e.Args.Length != 2) throw new ArgumentException("--issue76-v2-prototype <issue76_v2_candidate_mapping_v0_8.csv>");
+                if (warning != null) throw new FileNotFoundException(warning, paths.Catalog);
+                var index = Issue76SpecialBrowseV2Loader.Load(e.Args[1]);
+                var prototype = new Issue76BrowsePrototypeViewModel(catalog, index);
+                var prototypeWindow = new Issue76BrowsePrototypeWindow(prototype);
+                MainWindow = prototypeWindow;
+                prototypeWindow.Show();
+                return;
+            }
+
             var vm = new MainViewModel(catalog, new UserStateStore(paths.User), new ClipboardService(), GeneralBrowseProvider.FromCatalog(catalog));
             if (warning != null) vm.Status = warning;
             var window = new MainWindow(vm); MainWindow = window; window.Show();
