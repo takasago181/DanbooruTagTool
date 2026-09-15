@@ -1,0 +1,65 @@
+{
+  "version": "issue76-v2-candidate-v0.4",
+  "source": "Issue #56 final rollout artifact + Issue #76 buttock/anal and CHASTITY_CONTROL audits",
+  "source_total": 2788,
+  "kind_counts": {
+    "行為・接触": 904,
+    "衣服・露出": 503,
+    "身体・状態": 319,
+    "道具・物": 284,
+    "体液・排泄": 274,
+    "ポーズ・構図・場面": 154,
+    "人物・関係": 123,
+    "異形・変形": 118,
+    "表現・メタ": 66,
+    "REVIEW_REQUIRED": 43
+  },
+  "body_site_counts": {
+    "尻・肛門": 111,
+    "口・口内": 174,
+    "乳房・乳首": 257,
+    "尿道": 20,
+    "女性器": 173,
+    "男性器": 250
+  },
+  "theme_counts": {
+    "損傷・R18G": 66,
+    "拘束・BDSM": 366,
+    "生殖・妊娠・授乳": 25
+  },
+  "body_site_multiplicity": {
+    "0": 1827,
+    "1": 937,
+    "2": 24
+  },
+  "theme_multiplicity": {
+    "0": 2332,
+    "1": 455,
+    "2": 1
+  },
+  "combined_facet_multiplicity": {
+    "0": 1502,
+    "1": 1130,
+    "2": 156
+  },
+  "candidate_status_counts": {
+    "AUTO_CANDIDATE": 2745,
+    "REVIEW_V1_UNRESOLVED": 43
+  },
+  "review_queue_rows": 43,
+  "review_class_counts": {
+    "REVIEW_V1_UNRESOLVED": 43
+  },
+  "resolved_this_pass": {
+    "CHASTITY_CONTROL": 21,
+    "BUTTOCK_ANUS_SITE_AUDIT_CARRIED_FORWARD": 62
+  },
+  "notes": [
+    "No canonical Special identity changed.",
+    "All 21 CHASTITY_CONTROL rows are resolved into semantic home + body-site/theme facets.",
+    "17 rows remain object/device-oriented, 3 move to action/contact, 1 moves to fluid/excretion.",
+    "Male-genital facet increases from 234 to 250 because penis/chastity-cage variants are now reachable from the body-site route.",
+    "Generic chastity device/key remain without a body-site facet.",
+    "Only the 43 pre-existing v1 REVIEW_REQUIRED rows remain in the bounded review queue."
+  ]
+}
