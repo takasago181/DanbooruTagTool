@@ -1,0 +1,46 @@
+name: Issue96 Live Canonical Validation
+
+on:
+  push:
+    branches:
+      - prep/issue96-special-expansion
+    paths:
+      - scripts/issue96/validate_live_danbooru.py
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: prep/issue96-special-expansion
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate 195 identities against live Danbooru tags API
+        run: |
+          set -euo pipefail
+          python -m py_compile scripts/issue96/validate_live_danbooru.py
+          python scripts/issue96/validate_live_danbooru.py \
+            --input docs/issue96/special_expansion_ja_queue_v1.csv \
+            --output docs/issue96/special_expansion_live_canonical_validation_v1.csv \
+            --summary docs/issue96/ISSUE96_LIVE_CANONICAL_VALIDATION_SUMMARY_v1.md
+          git diff --check
+      - name: Commit live validation evidence
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/issue96/special_expansion_live_canonical_validation_v1.csv docs/issue96/ISSUE96_LIVE_CANONICAL_VALIDATION_SUMMARY_v1.md
+          if git diff --cached --quiet; then
+            echo 'No generated changes to commit'
+          else
+            git commit -m 'issue96: validate 195 candidates against live Danbooru'
+            git push origin HEAD:prep/issue96-special-expansion
+          fi
