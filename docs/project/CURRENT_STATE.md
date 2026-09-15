@@ -7,24 +7,24 @@
 **Stage9 completed / beginner-first practical v1 accepted / #64 General taxonomy accepted and integrated / #66 completed / #68 completed / #69 local final cleanup completed.**
 
 Current maintenance route:
-- **Issue #83 — aggressive local cleanup is active in this workspace.** It may retire obsolete/reproducible local assets and tracked legacy Python/Tk artifacts after current-dependency proof. Current WPF, catalog inputs, #70 queue/results, and active #64 worktree state remain protected.
+- **Issue #83 — aggressive local cleanup is completed and integrated into `main` via PR #84 at merge commit `7ef69e6c7ffa6a76037f97226a9ed067d59c360d`.** The cleanup retired obsolete legacy Python/Tk/runtime-index assets and reclaimed `14,195,842,291` bytes while preserving the current WPF/catalog/UserData and active #70 dependencies.
 - **Issue #76 — Special browse taxonomy v2 is completed and integrated into `main` via PR #81 at merge commit `0a1e94c8268cde97cfbc2305b3f2869d6919b5d6`.** The accepted v2 classification is baked only during explicit catalog build; normal startup reads precomputed `CatalogEntry.SpecialBrowseV2` from `catalog.db`.
 - **Issue #80 — Forge bridge v1 is completed and integrated into `main` at `f5ced15e3a368cae29f869527a20bcb41c7237b4`.**
 - **Issue #79 — Generation presets (reusable Positive sets + Negative copy) is completed and integrated into `main` at `8f0ba2a1133e4ad63f0a6ccd08eb17a3dda58d93`.**
 - **Issue #77 — Prompt output profile switch + tolerant one-click import is completed and integrated into `main` at `60b15d8fef877c70eac5e4f0f5d67ebd358904d7`.**
 - **Issue #75 — WQHD visual polish pass is completed and integrated into `main` at `a315bdf6933e5e089174bc32c3ad6a8abc021082`.**
-- Issue #83 is the active maintenance successor for this cleanup task only. Do not infer another DEV implementation lane from this document.
+- No successor active DEV implementation issue is designated. Do not infer one from this document.
 - Issue #74 — WQHD-first dictionary workspace redesign is completed and integrated into `main` at `f6e8345391cb445010c5fe23f2b1e480b4c514fd`.
 - Issue #73 — English Prompt pane density + dictionary add/remove toggle is completed and integrated into `main` at `079964b69192b5191b1bda5e9894b7138f8c75c2`.
 - Issue #72 — Prompt category view prototype remains completed and integrated into `main` at `174fee90b23e4a350ffe71d7b60aa834b8cb1296`.
-- Issue #70 translation/data work is a separate lane. Post-v1 UI/taxonomy work must not modify #70 outputs, canonical/protected data, or translation lane state. Its operational authority is now the deterministic dynamic-claim queue in `docs/issue70/data/queue_state.json` with `scripts/issue70/queue_manager.py`; legacy four-lane progress remains immutable migration provenance. Bootstrap currently validates 21 / 186 chunks (10,500 / 92,739 rows), with 82,239 rows remaining.
-- Issue #68 is complete. Phase 2E was accepted as a safe no-op. Protected local `benchmarks/`, `backups/`, `_handoff/`, audit provenance, local tooling, and translation quarantine remain in place for their consumers; safe stale worktrees and reproducible caches were retired.
-- **Stage10 learning Issue #65 may resume as the user's learning route.** It is not part of completed #76.
+- Issue #70 translation/data work is a separate lane. Post-v1 UI/taxonomy/cleanup work must not modify #70 outputs, canonical/protected data, or translation lane state. Its operational authority is now the deterministic dynamic-claim queue in `docs/issue70/data/queue_state.json` with `scripts/issue70/queue_manager.py`; legacy four-lane progress remains immutable migration provenance. Bootstrap currently validates 21 / 186 chunks (10,500 / 92,739 rows), with 82,239 rows remaining.
+- Issue #68/#69 cleanup foundations are completed. Issue #83 later retired additional obsolete/reproducible local and tracked legacy assets after dependency proof; active #70 data, current catalog inputs, modified #64 worktree state, current SDK/NuGet, and #24 backups were intentionally retained.
+- **Stage10 learning Issue #65 may resume as the user's learning route.** It is not part of completed #76/#83.
 
 Current workstation WPF launch:
 - The current WPF runtime and production `Data/catalog.db` are available under local `artifacts/current/`.
 - The local root shortcut `DanbooruTagTool.lnk` launches that WPF app; this shortcut and runtime output are workstation-local conveniences, not tracked product files.
-- A pre-#76 local `catalog.db` must be explicitly rebuilt once before the new Special v2 browse data is available; it is never overwritten automatically.
+- The current local `catalog.db` has already been explicitly rebuilt after #76 and validated with Special v2 `2,788 / 2,788`; current `UserData/user.db` remained unchanged through #83 cleanup.
 
 Current Stage10 definition:
 - Issue #65
@@ -138,6 +138,34 @@ Final implementation branch tip: `cf6f34919d163d346411d562e9075b3843f4b170`.
 Merged through PR #81 at main merge commit `0a1e94c8268cde97cfbc2305b3f2869d6919b5d6`.
 Issue #76 is closed completed; final checkpoint comment is `5679492819`.
 
+## Aggressive local cleanup — Issue #83 completed
+
+Issue #83 performed a dependency-proven retirement of obsolete local and tracked legacy assets after the current WPF/#76 baseline was validated.
+
+Accepted result:
+- before: `16,183,761,657` bytes
+- after: `1,987,919,366` bytes
+- reclaimed: `14,195,842,291` bytes (`14.196 GB` / `13.221 GiB`)
+- retired obsolete 11M-post Parquet/runtime source, CSR/runtime index, stale worktrees, old publish/bin/obj, quarantine/archive/handoff/audit/benchmarks, and retired Python/Tk runtime/tests/tools/workflows
+- current `catalog.db` and current `UserData/user.db` hashes unchanged
+- catalog remains Special `2,788` / General `30,629`
+- WPF startup PASS
+- full .NET: `126 passed / 6 skipped`
+- #76 focused: `13 passed / 1 skipped`
+- #70 queue bootstrap/status PASS; 10 tests PASS; claimed 0
+- `git diff --check`: PASS
+
+Intentionally retained/HOLD:
+- modified `.worktrees/issue64-full-rollout-audit`
+- current SDK/NuGet under `.tools`
+- #24 backups
+- active #70 queue/source/results
+- small #44/#65 candidates where current dependency was not disproven
+
+Final implementation branch tip: `28ab39f111e438288619781f98311f3414a090ec`.
+Merged through PR #84 at main merge commit `7ef69e6c7ffa6a76037f97226a9ed067d59c360d`.
+Issue #83 DEV acceptance: comment `5680343047`.
+
 ## Portable / artifact decision — 2026-09-14
 
 Portable/self-contained packaging is **not a practical-v1 completion Gate** for this personal local tool.
@@ -167,25 +195,24 @@ Artifacts remain untracked. Cleanup must be scoped to known disposable artifact 
 
 ## Architecture / migration boundaries
 
-- Legacy Python/Tk remains reference/evidence until a separately approved cleanup task retires it.
-- Do not make WPF call Python as a required runtime dependency.
-- Keep protected/source data paths stable unless a dedicated maintenance task proves safe movement/deletion.
+- Legacy Python/Tk runtime/tooling is retired from the current product by Issue #83; do not reintroduce it as a required runtime dependency without an explicit new decision.
+- Keep current catalog build inputs and active-lane dependencies stable unless a dedicated maintenance task proves safe movement/deletion.
 - `catalog.db` is rebuildable catalog knowledge.
 - `user.db` / `UserData` is user-specific state.
 - Normal startup must not perform taxonomy/audit rebuilds.
-- Broad legacy/data cleanup is a separate post-baseline decision.
+- Future cleanup should again be dependency-based rather than preserving or deleting assets solely because they are ignored/local.
 
 ## Current route
 
-`#66 practical v1 accepted -> #68 cleanup completed -> #69 local final cleanup completed -> #72 completed/merged -> #73 completed/merged -> #74 completed/merged -> #75 completed/merged -> #77 completed/merged -> #79 completed/merged -> #80 completed/merged -> #76 completed/merged`
+`#66 practical v1 accepted -> #68 cleanup completed -> #69 local final cleanup completed -> #72 completed/merged -> #73 completed/merged -> #74 completed/merged -> #75 completed/merged -> #77 completed/merged -> #79 completed/merged -> #80 completed/merged -> #76 completed/merged -> #83 completed/merged`
 
-Issue #69 completed the previous one-pass local-maintenance lane. Protected local evidence, production catalog, and current WPF UserData remain protected from broad cleanup. Any new broad cleanup must be a separately scoped maintenance task and must inventory local-only/protected dependencies before deletion.
+Issue #83 superseded the earlier broad-cleanup hold state: obsolete/reproducible legacy assets were removed after dependency proof while current product state, active #70, current catalog inputs, and unresolved HOLD items were preserved.
 
 Issue #70 remains a separate translation/data lane and Stage10 #65 remains a separate learning lane.
 
 Short form:
 
-`#64 accepted/integrated + #66 practical v1 accepted -> #68/#69 completed -> #72/#73/#74/#75/#77/#79/#80/#76 completed/merged -> #83 active cleanup`
+`#64 accepted/integrated + #66 practical v1 accepted -> #68/#69 completed -> #72/#73/#74/#75/#77/#79/#80/#76/#83 completed/merged`
 
 Portable/second-PC acceptance is not in this critical path.
 
@@ -200,7 +227,7 @@ Portable/second-PC acceptance is not in this critical path.
 | `V1-APP:#66` | **COMPLETED / PRACTICAL_V1_ACCEPTED** | beginner-first WPF app, accepted General integration, final Windows acceptance | Issue #66 acceptance comment `5662680719` + main `1486fc242d2eadf9ca24ed803e50ad7af7294004` |
 | `MAINT:#68` | **COMPLETED** | tracked-root normalization complete; Phase 2E accepted safe no-op | Issue #68 completion checkpoint `5665690628` |
 | `MAINT:#69` | **COMPLETED** | preserve unique local evidence, retire safe stale worktrees/caches, normalize primary root to live main, validate WPF/catalog/data | Issue #69 final DEV closeout comment |
-| `MAINT:#83` | **ACTIVE / CODEX EXECUTION** | dependency-proven aggressive cleanup of obsolete/reproducible local assets and retired legacy runtime artifacts | Issue #83 + latest activation comments |
+| `MAINT:#83` | **COMPLETED / MERGED** | dependency-proven aggressive cleanup of obsolete/reproducible local assets and retired legacy runtime artifacts | Issue #83 + PR #84 + main `7ef69e6c7ffa6a76037f97226a9ed067d59c360d` |
 | `POST-V1:#77` | **COMPLETED / MERGED** | generic persistent Prompt output profiles and conservative one-click import | Issue #77 + main `60b15d8fef877c70eac5e4f0f5d67ebd358904d7` |
 | `POST-V1:#79` | **COMPLETED / MERGED** | local reusable Positive presets paired with opaque Negative Prompt copy | Issue #79 + main `8f0ba2a1133e4ad63f0a6ccd08eb17a3dda58d93` |
 | `POST-V1:#80` | **COMPLETED / MERGED** | local Forge bridge for visible English Prompt delivery to txt2img fields without generation | Issue #80 + main `f5ced15e3a368cae29f869527a20bcb41c7237b4` |
@@ -226,6 +253,7 @@ Historical only:
 - Issue #66 Phase B clean WPF baseline — merged
 - Issue #66 accepted UX refinement — merged at `3f4e47d7331809b2e6a234824799fb3bc179bae8`
 - Issue #66 Phase C General integration and practical-v1 acceptance — completed at main `1486fc242d2eadf9ca24ed803e50ad7af7294004`; final Windows acceptance PASS, Release tests 77/77 PASS
+- Issue #83 aggressive local cleanup — completed/merged; obsolete legacy/runtime-index assets retired and 14.196 GB reclaimed
 
 Do not restart completed foundations wholesale without demonstrated regression or explicit redesign decision.
 
