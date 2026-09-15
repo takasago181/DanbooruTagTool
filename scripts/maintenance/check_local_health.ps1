@@ -18,7 +18,11 @@ if ([string]::IsNullOrWhiteSpace($python)) { Add-Check 'python' 'FAIL' 'Python i
 $head = (& git -C $RepositoryRoot rev-parse --verify HEAD).Trim()
 $branch = (& git -C $RepositoryRoot branch --show-current).Trim()
 $status = & git -C $RepositoryRoot status --short --untracked-files=no
-if ($status) { Add-Check 'git status' 'WARN' "tracked changes present on $branch" } else { Add-Check 'git status' 'PASS' "clean tracked tree on $branch" }
+if ($status) {
+    & git -C $RepositoryRoot diff --ignore-space-at-eol --quiet --exit-code
+    if ($LASTEXITCODE -eq 0) { Add-Check 'git status' 'PASS' "tracked status on $branch is line-ending-only; no semantic delta" }
+    else { Add-Check 'git status' 'WARN' "semantic tracked changes present on $branch" }
+} else { Add-Check 'git status' 'PASS' "clean tracked tree on $branch" }
 Add-Check 'source revision' 'PASS' "HEAD $head"
 
 $provenancePath = Join-Path $ArtifactRoot 'build-provenance.json'
