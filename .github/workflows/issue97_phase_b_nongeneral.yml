@@ -26,6 +26,7 @@ jobs:
         run: |
           set -euo pipefail
           python3 -m py_compile scripts/issue97/phase_b_nongeneral_audit.py
+          python3 -m py_compile scripts/issue97/phase_b_materialize_review.py
 
       - name: Fetch pinned 2026-09-02 Danbooru snapshot
         shell: bash
@@ -58,6 +59,14 @@ jobs:
             --out-dir artifacts/issue97/phase_b \
             2>&1 | tee artifacts/issue97/phase_b/run.log
 
+      - name: Materialize bounded human review
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 scripts/issue97/phase_b_materialize_review.py \
+            --audit-dir artifacts/issue97/phase_b \
+            2>&1 | tee artifacts/issue97/phase_b/human_review.log
+
       - name: Validate protected boundaries and identity closure
         shell: bash
         run: |
@@ -65,10 +74,10 @@ jobs:
           python3 - <<'PY'
           import json
           from pathlib import Path
-          p = Path('artifacts/issue97/phase_b/summary.json')
-          s = json.loads(p.read_text(encoding='utf-8'))
-          assert s['special_rows'] == 2983, s['special_rows']
-          assert not s['unresolved_nonsemantic_rows'], s['unresolved_nonsemantic_rows']
+          audit = json.loads(Path('artifacts/issue97/phase_b/summary.json').read_text(encoding='utf-8'))
+          review = json.loads(Path('artifacts/issue97/phase_b/phase_b_human_review_summary_v1.json').read_text(encoding='utf-8'))
+          assert audit['special_rows'] == 2983, audit['special_rows']
+          assert not audit['unresolved_nonsemantic_rows'], audit['unresolved_nonsemantic_rows']
           for key in (
               'general_canonical_reopened',
               'artist_catalog_imported',
@@ -80,7 +89,10 @@ jobs:
               'userdata_mutated',
               'phase_c_recipes_mixed_in',
           ):
-              assert s[key] == 'NO', (key, s[key])
+              assert audit[key] == 'NO', (key, audit[key])
+          for key in ('production_mutation', 'candidate_is_automatic_promotion', 'phase_c_mixed_in', 'issue70_mutated', 'userdata_mutated', 'content_filter_used'):
+              assert review[key] == 'NO', (key, review[key])
+          assert review['candidate_total'] == review['candidate_aliases'] + review['candidate_meta_canonicals']
           print('PHASE_B_BOUNDARY_GATE=PASS')
           PY
 
