@@ -1,0 +1,53 @@
+name: Issue76 Special Browse v2 Prototype
+
+on:
+  push:
+    branches:
+      - design/issue76-special-taxonomy-v2
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: windows-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Materialize and validate Issue76 v0.8 sidecar
+        shell: pwsh
+        run: |
+          $out = Join-Path $env:RUNNER_TEMP 'issue76_v2_candidate_mapping_v0_8.csv'
+          $meta = Join-Path $env:RUNNER_TEMP 'issue76_v2_candidate_meta_v0_8.json'
+          python tools/issue76_build_v2_integrated.py --output $out --meta $meta
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          $sha = (Get-FileHash $out -Algorithm SHA256).Hash.ToLowerInvariant()
+          Write-Host "Issue76 full mapping SHA256: $sha"
+          if ($sha -ne 'de5ef4cb712c31425b77fcc8bf2d8f56917356d79b3720845c81d46d8142d5d0') {
+            throw "Issue76 v0.8 full mapping hash drift: $sha"
+          }
+
+      - name: Setup .NET 10
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Restore
+        shell: pwsh
+        run: dotnet restore src/DanbooruTagTool.sln
+
+      - name: Release build
+        shell: pwsh
+        run: dotnet build src/DanbooruTagTool.sln -c Release --no-restore
+
+      - name: Tests
+        shell: pwsh
+        run: dotnet test src/DanbooruTagTool.sln -c Release --no-build --no-restore --logger "console;verbosity=normal"
