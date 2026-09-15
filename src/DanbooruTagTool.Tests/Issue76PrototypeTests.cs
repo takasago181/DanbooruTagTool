@@ -1,4 +1,6 @@
+using DanbooruTagTool.App.ViewModels;
 using DanbooruTagTool.Core;
+using DanbooruTagTool.Data;
 
 namespace DanbooruTagTool.Tests;
 
@@ -17,6 +19,18 @@ public sealed class Issue76PrototypeTests
         new("S:9992", "ACTION_CONTACT", Set(), Set(), SpecialBrowseV2Status.DeferProductFitReview),
         new("S:9993", "BODY_STATE", Set(), Set(), SpecialBrowseV2Status.OutOfScopeNoBrowse)
     ]);
+
+    private static Catalog TestCatalog() => new([
+        Entry("S:104", "fellatio", "フェラチオ", 97833),
+        Entry("S:681", "cunnilingus", "クンニリングス", 16303),
+        Entry("S:266", "anal beads", "アナルビーズ", 5000),
+        Entry("S:1814", "ball gag", "ボールギャグ", 4000),
+        Entry("S:416", "bdsm", "BDSM", 3000),
+        Entry("S:470", "guro", "グロ", 2000)
+    ]);
+
+    private static CatalogEntry Entry(string id, string english, string japanese, long usage) =>
+        new(id, english, english, japanese, true, usage, [], [], [], "KEEP");
 
     [Fact]
     public void Body_sites_use_and_semantics()
@@ -115,5 +129,58 @@ public sealed class Issue76PrototypeTests
             .ToggleTheme("BDSM_RESTRAINT");
 
         Assert.True(filter.Clear().IsEmpty);
+    }
+
+    [Fact]
+    public void Prototype_tree_start_clears_query_and_previous_facets()
+    {
+        var vm = new Issue76BrowsePrototypeViewModel(TestCatalog(), Index());
+        var mouth = vm.BodyOptions.Single(option => option.Id == "MOUTH_ORAL");
+        var male = vm.BodyOptions.Single(option => option.Id == "MALE_GENITAL");
+        vm.ToggleFacet.Execute(mouth);
+        vm.ToggleFacet.Execute(male);
+        vm.Query = "fellatio";
+
+        vm.StartFromTree("v2:body:BUTTOCK_ANAL");
+
+        Assert.Equal("", vm.Query);
+        Assert.Equal("適用中: 尻・肛門", vm.AppliedSummary);
+        Assert.Equal(["S:266"], vm.Results.Select(row => row.Entry.Id).ToArray());
+    }
+
+    [Fact]
+    public void Clearing_facets_does_not_clear_search_query()
+    {
+        var vm = new Issue76BrowsePrototypeViewModel(TestCatalog(), Index());
+        var mouth = vm.BodyOptions.Single(option => option.Id == "MOUTH_ORAL");
+        vm.ToggleFacet.Execute(mouth);
+        vm.Query = "fellatio";
+
+        vm.ClearFacets.Execute(null);
+
+        Assert.Equal("fellatio", vm.Query);
+        Assert.Equal(["S:104"], vm.Results.Select(row => row.Entry.Id).ToArray());
+    }
+
+    [Fact]
+    public void Prototype_loader_parses_generated_sidecar_shape_without_promoting_reference_rows()
+    {
+        var path = Path.GetTempFileName();
+        try
+        {
+            File.WriteAllText(path,
+                "special_id,v2_kind_id,v2_body_sites,v2_themes,v2_status\n" +
+                "104,ACTION_CONTACT,MOUTH_ORAL | MALE_GENITAL,,AUTO_CANDIDATE\n" +
+                "9991,TOOL_OBJECT,BUTTOCK_ANAL,,REFERENCE_ONLY_NO_DIRECT_BROWSE\n");
+
+            var index = Issue76SpecialBrowseV2Loader.Load(path, requireFullCoverage: false);
+
+            Assert.True(index.Matches("S:104", SpecialBrowseV2Filter.Empty.ToggleBodySite("MOUTH_ORAL")));
+            Assert.False(index.Matches("S:9991", SpecialBrowseV2Filter.Empty));
+        }
+        finally
+        {
+            File.Delete(path);
+        }
     }
 }
