@@ -1,0 +1,47 @@
+{
+  "format_version": 1,
+  "issue": 70,
+  "batch_id": "manual_chat_2000_chunks_032_033_034_035_20260916a",
+  "files": [
+    {
+      "path": "docs/issue70/data/results/queue/queue_chunk032_I70-015501_I70-016000.csv",
+      "sha256": "49c40f0306c7cc25f75a518ece79eab70dc1683cdffd46066666c243389f43f9",
+      "gzip_base64_parts": [
+        "docs/issue70/data/local_batch_payloads/manual_chat_2000_chunks_032_033_034_035_20260916a_queue_chunk032_I70-015501_I70-016000.part01.b64",
+        "docs/issue70/data/local_batch_payloads/manual_chat_2000_chunks_032_033_034_035_20260916a_queue_chunk032_I70-015501_I70-016000.part02.b64",
+        "docs/issue70/data/local_batch_payloads/manual_chat_2000_chunks_032_033_034_035_20260916a_queue_chunk032_I70-015501_I70-016000.part03.b64",
+        "docs/issue70/data/local_batch_payloads/manual_chat_2000_chunks_032_033_034_035_20260916a_queue_chunk032_I70-015501_I70-016000.part04.b64"
+      ]
+    },
+    {
+      "path": "docs/issue70/data/results/queue/queue_chunk033_I70-016001_I70-016500.csv",
+      "sha256": "82c719d607aa426c41541c2a234026b50f1a6aaf96afa0829e88f24a3a2c7ce3",
+      "gzip_base64_parts": [
+        "docs/issue70/data/local_batch_payloads/manual_chat_2000_chunks_032_033_034_035_20260916a_queue_chunk033_I70-016001_I70-016500.part01.b64",
+        "docs/issue70/data/local_batch_payloads/manual_chat_2000_chunks_032_033_034_035_20260916a_queue_chunk033_I70-016001_I70-016500.part02.b64",
+        "docs/issue70/data/local_batch_payloads/manual_chat_2000_chunks_032_033_034_035_20260916a_queue_chunk033_I70-016001_I70-016500.part03.b64",
+        "docs/issue70/data/local_batch_payloads/manual_chat_2000_chunks_032_033_034_035_20260916a_queue_chunk033_I70-016001_I70-016500.part04.b64"
+      ]
+    },
+    {
+      "path": "docs/issue70/data/results/queue/queue_chunk034_I70-016501_I70-017000.csv",
+      "sha256": "13e74faa07acbeba6ca5cfba0cd0a2e6aa674c6df103431308b5d3130ffad0d4",
+      "gzip_base64_parts": [
+        "docs/issue70/data/local_batch_payloads/manual_chat_2000_chunks_032_033_034_035_20260916a_queue_chunk034_I70-016501_I70-017000.part01.b64",
+        "docs/issue70/data/local_batch_payloads/manual_chat_2000_chunks_032_033_034_035_20260916a_queue_chunk034_I70-016501_I70-017000.part02.b64",
+        "docs/issue70/data/local_batch_payloads/manual_chat_2000_chunks_032_033_034_035_20260916a_queue_chunk034_I70-016501_I70-017000.part03.b64",
+        "docs/issue70/data/local_batch_payloads/manual_chat_2000_chunks_032_033_034_035_20260916a_queue_chunk034_I70-016501_I70-017000.part04.b64"
+      ]
+    },
+    {
+      "path": "docs/issue70/data/results/queue/queue_chunk035_I70-017001_I70-017500.csv",
+      "sha256": "be67ddf6918c193345c01cd0fc0658b2d7f61c55195fd7b2a700fb692845bdfe",
+      "gzip_base64_parts": [
+        "docs/issue70/data/local_batch_payloads/manual_chat_2000_chunks_032_033_034_035_20260916a_queue_chunk035_I70-017001_I70-017500.part01.b64",
+        "docs/issue70/data/local_batch_payloads/manual_chat_2000_chunks_032_033_034_035_20260916a_queue_chunk035_I70-017001_I70-017500.part02.b64",
+        "docs/issue70/data/local_batch_payloads/manual_chat_2000_chunks_032_033_034_035_20260916a_queue_chunk035_I70-017001_I70-017500.part03.b64",
+        "docs/issue70/data/local_batch_payloads/manual_chat_2000_chunks_032_033_034_035_20260916a_queue_chunk035_I70-017001_I70-017500.part04.b64"
+      ]
+    }
+  ]
+}
