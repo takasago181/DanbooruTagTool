@@ -1,0 +1,21 @@
+{
+  "mode": "ISSUE97_PHASE_C_PRODUCT_REVIEW_V1",
+  "raw_candidate_total": 49,
+  "final_candidate_total": 15,
+  "rejected_total": 47,
+  "final_domain_counts": {
+    "ANAL_RECTAL": 5,
+    "NONHUMAN_TENTACLE": 6,
+    "BDSM_RESTRAINT": 1,
+    "BREAST_NIPPLE": 1,
+    "FLUID_EXCRETION": 1,
+    "URETHRAL": 1
+  },
+  "review_principle": "retain shared-body-site/topology/target-destination/actor-relation/pose-equipment structural combinations; reject trivial independent stacking",
+  "recipe_components_direct_accepted_only": "YES",
+  "automatic_production_integration": "NO",
+  "production_mutation": "NO",
+  "issue70_mutated": "NO",
+  "userdata_mutated": "NO",
+  "content_filter_used": "NO"
+}

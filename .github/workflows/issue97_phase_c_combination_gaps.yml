@@ -1,0 +1,135 @@
+name: Issue97 Phase C Combination Gap Audit
+
+on:
+  push:
+    branches:
+      - audit/issue97-phase-c-combination-gaps
+    paths:
+      - scripts/issue97/**
+      - data/generation/special2788_generation_profile.csv
+      - .github/workflows/issue97_phase_c_combination_gaps.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  phase-c-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout audit branch
+        uses: actions/checkout@v4
+
+      - name: Validate scanner syntax
+        run: |
+          python3 -m py_compile scripts/issue97/phase_c_combination_gap_audit.py
+          python3 -m py_compile scripts/issue97/phase_c_materialize_review.py
+
+      - name: Run bounded Phase C discovery
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/issue97/phase_c
+          python3 scripts/issue97/phase_c_combination_gap_audit.py \
+            --profile data/generation/special2788_generation_profile.csv \
+            --expected-special 2983 \
+            --out-dir artifacts/issue97/phase_c \
+            2>&1 | tee artifacts/issue97/phase_c/run.log
+
+      - name: Apply product-value review
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 scripts/issue97/phase_c_materialize_review.py \
+            --audit-dir artifacts/issue97/phase_c \
+            --profile data/generation/special2788_generation_profile.csv \
+            2>&1 | tee artifacts/issue97/phase_c/review.log
+
+      - name: Validate Phase C boundaries
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import csv, json
+          from pathlib import Path
+          root = Path('artifacts/issue97/phase_c')
+          discovery = json.loads((root / 'phase_c_summary_v1.json').read_text(encoding='utf-8'))
+          review = json.loads((root / 'phase_c_product_review_summary_v1.json').read_text(encoding='utf-8'))
+          assert discovery['special_rows'] == 2983
+          for key in ('production_mutation','issue70_mutated','userdata_mutated','general_reaudit','phase_b_auto_promotion','pseudo_canonical_created','content_filter_used'):
+              assert discovery[key] == 'NO', (key, discovery[key])
+          assert discovery['generic_prompt_recipe_scope'] == 'EXCLUDED'
+          assert review['final_candidate_total'] > 0
+          assert review['final_candidate_total'] < discovery['candidate_total']
+          assert review['recipe_components_direct_accepted_only'] == 'YES'
+          assert review['automatic_production_integration'] == 'NO'
+          for key in ('production_mutation','issue70_mutated','userdata_mutated','content_filter_used'):
+              assert review[key] == 'NO', (key, review[key])
+          rows = list(csv.DictReader((root / 'phase_c_candidate_subset_v1.csv').open(encoding='utf-8')))
+          rejects = list(csv.DictReader((root / 'phase_c_rejected_ledger_v1.csv').open(encoding='utf-8')))
+          assert len(rows) == review['final_candidate_total']
+          assert len(rejects) == review['rejected_total']
+          for r in rows:
+              assert r['route'] == 'COMBINATION_RECIPE_REVIEW_CANDIDATE'
+              assert r['review_status'] == 'CANDIDATE'
+              assert ' + ' in r['canonical_components']
+              assert r['product_fit_reason'].strip()
+          print('PHASE_C_PRODUCT_VALUE_GATE=PASS')
+          PY
+
+      - name: Persist reviewed Phase C evidence on audit branch
+        if: github.event_name == 'push'
+        shell: bash
+        run: |
+          set -euo pipefail
+          dst=docs/issue97/phase_c
+          src=artifacts/issue97/phase_c
+          mkdir -p "$dst"
+          cp "$src/phase_c_candidate_queue_v1.csv" "$dst/"
+          cp "$src/phase_c_candidate_subset_v1.csv" "$dst/"
+          cp "$src/phase_c_rejected_ledger_v1.csv" "$dst/"
+          cp "$src/phase_c_summary_v1.json" "$dst/"
+          cp "$src/phase_c_product_review_summary_v1.json" "$dst/"
+          python3 - <<'PY'
+          import csv, json
+          from pathlib import Path
+          root=Path('docs/issue97/phase_c')
+          s=json.loads((root/'phase_c_product_review_summary_v1.json').read_text(encoding='utf-8'))
+          rows=list(csv.DictReader((root/'phase_c_candidate_subset_v1.csv').open(encoding='utf-8')))
+          lines=[
+            '# Issue #97 Phase C combination-concept / recipe gap audit v1','',
+            '## Result','',
+            f"- raw bounded discovery queue: **{s['raw_candidate_total']}**",
+            f"- final product-fit recipe candidates: **{s['final_candidate_total']}**",
+            f"- rejected/routed away: **{s['rejected_total']}**",
+            '- automatic production integration: **NO**','',
+            '## Product-fit rule','',
+            'Phase C is intentionally centered on the user’s niche adult/fetish discovery needs. It keeps only combinations where components materially share a body-site, topology, target/destination, actor relation, or pose/equipment structure. Generic `X + bondage`, `X + blindfold`, accessory stacking, and other Cartesian Prompt-library expansion are rejected.','',
+            'Every retained recipe component is an accepted direct Special surface. Semantic-support-only rows are not emitted as direct Prompt components. No pseudo-Danbooru canonical tag is created.','',
+            '## Candidate domains',''
+          ]
+          for k,v in sorted(s['final_domain_counts'].items()): lines.append(f'- `{k}`: {v}')
+          lines += ['', '## Reviewed candidates','']
+          for r in rows: lines.append(f"- `{r['audit_id']}` {r['intent_ja']} -> `{r['recipe_prompt']}`")
+          lines += ['', '## Boundaries','', '- production mutation: **NO**', '- Issue #70 mutation: **NO**', '- `UserData/user.db` mutation: **NO**', '- content filter used: **NO**', '- model effectiveness certified: **NO**', '', '## Next gate','', 'These are recipe/search-product candidates, not production behavior. Any integration into runtime search or Generation Profile requires a separate deterministic product/design decision. Stage10 may later provide model-scoped evidence, but is not assumed here.', '']
+          (root/'PHASE_C_AUDIT_SUMMARY_v1.md').write_text('\n'.join(lines),encoding='utf-8')
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/issue97/phase_c
+          if git diff --cached --quiet; then
+            echo 'No Phase C evidence changes to persist.'
+          else
+            git commit -m 'Issue #97 Phase C: persist reviewed audit evidence'
+            git push origin HEAD:audit/issue97-phase-c-combination-gaps
+          fi
+
+      - name: Upload Phase C evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: issue97-phase-c-${{ github.sha }}
+          path: artifacts/issue97/phase_c
+          if-no-files-found: error
+          retention-days: 14
