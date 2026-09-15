@@ -164,6 +164,127 @@ def load_full_input(args: argparse.Namespace) -> tuple[list[dict[str, str]], dic
     }
 
 
+def profile_row_is_semantic(row: dict[str, str]) -> bool:
+    promotion = (row.get("PromotionStatus") or "").strip().upper()
+    meaning = (row.get("MeaningStatus") or "").strip().upper()
+    flags = (row.get("SpecialFlags") or "").strip().upper()
+    return (
+        promotion == "APPROVED_SEMANTIC_ROLE"
+        or meaning == "SEMANTIC_SUPPORT"
+        or "SEMANTIC_NOT_DIRECT_CANONICAL" in flags
+    )
+
+
+def load_special_input(
+    args: argparse.Namespace,
+) -> tuple[list[dict[str, str]], dict[str, object]]:
+    if args.special:
+        special = read_csv(args.special)
+        require_columns(
+            special,
+            {"ID", "Tag", "Danbooru種別", "canonical_target"},
+            "special",
+        )
+        return special, {
+            "special_source_mode": "PROTECTED_SPECIAL_SOURCE",
+            "special": str(args.special),
+            "special_profile": None,
+            "special_profile_semantic_rows": None,
+        }
+
+    profile = read_csv(args.special_profile)
+    require_columns(
+        profile,
+        {"SpecialID", "Tag", "PromotionStatus", "MeaningStatus", "SpecialFlags"},
+        "special-profile",
+    )
+    special: list[dict[str, str]] = []
+    semantic_count = 0
+    for row in profile:
+        semantic = profile_row_is_semantic(row)
+        if semantic:
+            semantic_count += 1
+        special.append(
+            {
+                "ID": row["SpecialID"],
+                "Tag": row["Tag"],
+                "Danbooru種別": "Semantic/General" if semantic else "Derived/Identity",
+                "canonical_target": "",
+            }
+        )
+    if semantic_count != args.expected_profile_semantic:
+        raise ValueError(
+            "special-profile semantic row count mismatch: "
+            f"expected {args.expected_profile_semantic}, got {semantic_count}"
+        )
+    return special, {
+        "special_source_mode": "TRACKED_GENERATION_PROFILE_DERIVED_IDENTITY",
+        "special": None,
+        "special_profile": str(args.special_profile),
+        "special_profile_semantic_rows": semantic_count,
+    }
+
+
+def derive_profile_canonical_targets(
+    special: list[dict[str, str]],
+    full: list[dict[str, str]],
+    expected_alias_count: int,
+) -> tuple[dict[str, list[str]], dict[str, object]]:
+    canonical_norms = {norm(row["Tag"]) for row in full}
+    alias_to_canonicals: dict[str, set[str]] = {}
+    for row in full:
+        canonical_norm = norm(row["Tag"])
+        for alias in split_aliases(row.get("Aliases", "")):
+            alias_to_canonicals.setdefault(norm(alias), set()).add(canonical_norm)
+
+    canonical_targets: dict[str, list[str]] = {}
+    exact_count = 0
+    alias_count = 0
+    unresolved: list[str] = []
+    ambiguous: list[str] = []
+
+    for row in special:
+        if (row["Danbooru種別"] or "").strip().casefold() == "semantic/general":
+            continue
+        tag_norm = norm(row["Tag"])
+        evidence = f"{row['ID']}:{row['Tag']}"
+        if tag_norm in canonical_norms:
+            exact_count += 1
+            continue
+        targets = alias_to_canonicals.get(tag_norm, set())
+        if len(targets) == 1:
+            target_norm = next(iter(targets))
+            canonical_targets.setdefault(target_norm, []).append(evidence)
+            alias_count += 1
+        elif len(targets) > 1:
+            ambiguous.append(evidence)
+        else:
+            unresolved.append(evidence)
+
+    if ambiguous or unresolved:
+        details: list[str] = []
+        if ambiguous:
+            details.append(f"ambiguous={len(ambiguous)} sample={ambiguous[:5]}")
+        if unresolved:
+            details.append(f"unresolved={len(unresolved)} sample={unresolved[:5]}")
+        raise ValueError(
+            "special-profile identity closure is incomplete; protected canonical_target "
+            "fallback is required: " + "; ".join(details)
+        )
+    if alias_count != expected_alias_count:
+        raise ValueError(
+            "special-profile alias closure count mismatch: "
+            f"expected {expected_alias_count}, got {alias_count}"
+        )
+
+    return canonical_targets, {
+        "special_profile_exact_canonical_rows": exact_count,
+        "special_profile_alias_target_rows": alias_count,
+        "special_profile_unresolved_identity_rows": 0,
+        "special_profile_ambiguous_identity_rows": 0,
+    }
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(
         description="Issue #94 read-only Danbooru General -> Special identity gap scanner"
@@ -179,20 +300,27 @@ def main() -> int:
             "only uniquely resolved aliases are admitted to identity closure"
         ),
     )
-    parser.add_argument("--special", type=Path, required=True)
+    special_source = parser.add_mutually_exclusive_group(required=True)
+    special_source.add_argument("--special", type=Path)
+    special_source.add_argument(
+        "--special-profile",
+        type=Path,
+        help=(
+            "Tracked data/generation/special2788_generation_profile.csv fallback. "
+            "Semantic rows are identified from approved semantic markers; non-semantic "
+            "alias targets are reconstructed fail-closed from the current canonical alias closure."
+        ),
+    )
     parser.add_argument("--alias-map", type=Path)
     parser.add_argument("--out-dir", type=Path, required=True)
     parser.add_argument("--expected-general", type=int, default=30743)
     parser.add_argument("--expected-special", type=int, default=2788)
+    parser.add_argument("--expected-profile-semantic", type=int, default=336)
+    parser.add_argument("--expected-profile-alias", type=int, default=778)
     args = parser.parse_args()
 
     full, source_meta = load_full_input(args)
-    special = read_csv(args.special)
-    require_columns(
-        special,
-        {"ID", "Tag", "Danbooru種別", "canonical_target"},
-        "special",
-    )
+    special, special_meta = load_special_input(args)
 
     if len(special) != args.expected_special:
         raise ValueError(
@@ -218,6 +346,12 @@ def main() -> int:
         target_norm = norm(row.get("canonical_target", ""))
         if target_norm:
             canonical_targets.setdefault(target_norm, []).append(evidence)
+
+    if args.special_profile:
+        canonical_targets, derived_meta = derive_profile_canonical_targets(
+            special, full, args.expected_profile_alias
+        )
+        special_meta.update(derived_meta)
 
     alias_special_by_canonical: dict[str, list[str]] = {}
     if args.alias_map:
@@ -286,7 +420,11 @@ def main() -> int:
 
         status_counts[identity_status] += 1
         legacy_marker = (row.get("Special2788") or "").strip().upper()
-        if source_meta["legacy_marker_available"] and legacy_marker != "YES" and identity_status.startswith("PRESENT_"):
+        if (
+            source_meta["legacy_marker_available"]
+            and legacy_marker != "YES"
+            and identity_status.startswith("PRESENT_")
+        ):
             legacy_false_gap_count += 1
 
         inventory.append(
@@ -309,7 +447,11 @@ def main() -> int:
         "PRESENT_EXACT": 4,
     }
     inventory.sort(
-        key=lambda row: (order[str(row["identity_status"])], -int(row["post_count"]), str(row["canonical"]))
+        key=lambda row: (
+            order[str(row["identity_status"])],
+            -int(row["post_count"]),
+            str(row["canonical"]),
+        )
     )
 
     args.out_dir.mkdir(parents=True, exist_ok=True)
@@ -322,7 +464,7 @@ def main() -> int:
     summary = {
         "mode": "ISSUE94_READ_ONLY_IDENTITY_AUDIT",
         **source_meta,
-        "special": str(args.special),
+        **special_meta,
         "alias_map": str(args.alias_map) if args.alias_map else None,
         "total_general_scanned": len(general),
         "special_rows": len(special),
@@ -338,7 +480,9 @@ def main() -> int:
             "broader semantic similarity still requires human review. GENERAL_ONLY_GAP "
             "is an identity gap inventory, not automatic product-fit approval. "
             "Canonical-source mode admits only uniquely resolved aliases from the verified "
-            "normalized alias index; ambiguous aliases are never silently resolved."
+            "normalized alias index; ambiguous aliases are never silently resolved. "
+            "Special-profile mode is fail-closed: every non-semantic Special term must resolve "
+            "as a canonical identity or one unique alias target before scanning begins."
         ),
     }
     with (args.out_dir / "coverage_summary.json").open("w", encoding="utf-8") as handle:
