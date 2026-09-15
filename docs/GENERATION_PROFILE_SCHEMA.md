@@ -1,15 +1,16 @@
-# Special Core Dictionary Generation Profile v2.1
+# Special Core Dictionary Generation Profile v2.1 / accepted expansion
 
 ## 境界
 
 production snapshot/corpusの正本は `data/special2788/illustrious_tag_knowledge_base_2788.csv`。
 この path と `Special2788` は互換上の snapshot identifier であり、formal concept name ではない。
+現在の accepted Special population は、base 2,788件にIssue #96のhash-pinned promotion proposal 195件を加えた2,983件である。
 Generation Profileは、正本へ書き戻さないread-only sidecarである。
 Tag、日本語、Layer、カテゴリ、canonical_target、post_count、Prompt identityを変更しない。
 
 v2は次の3レイヤーを分離する。
 
-1. `data/generation/special2788_generation_profile.csv`: モデル非依存のstatic metadataとpromotion status。
+1. `data/generation/special2788_generation_profile.csv`: モデル非依存のstatic metadataとpromotion status。accepted expansion後は2,983行。
 2. `data/generation/generation_family_rules.csv`: family分類とdefault PromptUseMode。物理要件defaultは未確定。
 3. `data/generation/generation_model_observations.csv`: checkpoint・設定・試行に依存する観察。
 
@@ -47,7 +48,7 @@ PromotionStatus:
 - `PROVISIONAL` / `PROVISIONAL_CORRECTION`: identity/status/evidenceだけを保持。production意味は空欄。
 - `REVIEW_REQUIRED`: identity/status/evidenceだけを保持。意味を補完しない。
 
-件数は順に1352 / 778 / 336 / 13 / 294 / 1 / 14、合計2,788。
+base 2,788行の件数は順に1352 / 778 / 336 / 13 / 294 / 1 / 14。Issue #96 accepted canonical 195行は `APPROVED_STATIC` として追加され、expanded profileは `APPROVED_STATIC` 1547 / `APPROVED_IDENTITY_ONLY` 778 / `APPROVED_SEMANTIC_ROLE` 336 / `APPROVED_CORRECTION_METADATA` 13 / `PROVISIONAL` 294 / `PROVISIONAL_CORRECTION` 1 / `REVIEW_REQUIRED` 14、合計2,983行。
 audit-only 309件へMeaning/Family/Role/Mode/Rule/Override/RecommendedHandlingを設定するとloaderが拒否する。
 全行は検索、Core選択、保存、統計解決、Prompt exportから失われない。
 
@@ -93,7 +94,7 @@ requirementは補助候補を考えるための構造情報であり、support t
 数値や成功率は捏造せず、`Result=REPORTED` として原文観察をNotesに保持する。
 Phase 1のanal fisting + vaginal object insertion組合せ報告を、複数SpecialIDsの1行として追加した。
 
-観察loaderはSpecialID存在性を検証するが、static profileを変更しない。
+Issue #96の195行には新規モデル観察を捏造せず、既存の17観察行を維持する。観察loaderはexpanded SpecialID存在性を検証するが、static profileを変更しない。
 
 ## Loader
 

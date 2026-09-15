@@ -1,7 +1,9 @@
-"""Build reviewed v2 generation metadata from PROMOTION_PLAN v1.
+"""Build reviewed v2 generation metadata from the base plan plus Issue #96.
 
-This does not edit the immutable Special2788 dictionary.  Audit-only rows keep
-identity/status/evidence but do not receive production semantic fields.
+The original 2,788-row profile remains the audit-backed base. Issue #96 adds
+195 explicitly accepted canonical identities from its hash-pinned promotion
+proposal; no model observation or automatic Prompt expansion is invented for
+the added rows.
 """
 from __future__ import annotations
 
@@ -26,6 +28,7 @@ FAMILY_AUDIT = ROOT / "data/generation/audit/FAMILY_RULE_AUDIT_25_v1.csv"
 CORRECTIONS = ROOT / "data/generation/audit/HIGH_CONFIDENCE_CORRECTIONS_v1.csv"
 STRUCTURAL_OVERRIDES = ROOT / "data/generation/audit/EXPLICIT_STRUCTURAL_OVERRIDES_240_v1.csv"
 STATIC_REVIEW = ROOT / "data/generation/audit/APPROVED_STATIC_1352_REVIEW_v1.csv"
+SPECIAL_EXPANSION = ROOT / "docs/issue96/special_expansion_promotion_proposal_v1.csv"
 OUT = ROOT / "data/generation"
 
 EXPECTED_COUNTS = {
@@ -241,6 +244,48 @@ def observation_rows(plan_rows):
     return rows
 
 
+def issue96_static_rows(rows):
+    if len(rows) != 195 or [int(row["proposed_special_id"]) for row in rows] != list(range(2789, 2984)):
+        raise ValueError("Expected contiguous Issue #96 promotion IDs 2789..2983")
+    mapping = {
+        "ACTION_CONTACT": ("ACTION_INTERACTION", "action", "STRUCTURED", "GFR_ACTION_INTERACTION"),
+        "CLOTHING_EXPOSURE": ("CLOTHING_EXPOSURE", "visual_state", "DIRECT", "GFR_CLOTHING_EXPOSURE"),
+        "BODY_STATE": ("BODY_STATE", "body_state", "DIRECT", "GFR_BODY_STATE"),
+        "FLUID_EXCRETION": ("FLUID_STATE_ACTION", "effect_or_action", "DIRECT", "GFR_FLUID_STATE_ACTION"),
+        "POSE_SCENE": ("POSE_COMPOSITION", "pose_camera", "STRUCTURED", "GFR_POSE_COMPOSITION"),
+        "META_EXPRESSION": ("META_CONTEXT", "meta", "SUPPORT", "GFR_META_CONTEXT"),
+        "TOOL_OBJECT": ("IMPLEMENT_OBJECT", "implement", "DIRECT", "GFR_IMPLEMENT_OBJECT"),
+    }
+    rows_out = []
+    for proposal in rows:
+        kind = proposal["kind_id"]
+        family, role, mode, rule = mapping[kind]
+        if proposal["theme_ids"] == "BDSM_RESTRAINT" and kind == "ACTION_CONTACT":
+            family, role, mode, rule = "RESTRAINT_ACTION", "restraint_action", "STRUCTURED", "GFR_RESTRAINT_ACTION"
+        elif proposal["theme_ids"] == "BDSM_RESTRAINT" and kind == "TOOL_OBJECT":
+            family, role, mode, rule = "RESTRAINT_IMPLEMENT", "restraint_implement", "DIRECT", "GFR_RESTRAINT_IMPLEMENT"
+        elif proposal["theme_ids"] == "INJURY_R18G" and kind == "FLUID_EXCRETION":
+            family, role, mode, rule = "DAMAGE_STATE_ACTION", "state_or_action", "STRUCTURED", "GFR_DAMAGE_STATE_ACTION"
+        row = dict.fromkeys(PROFILE_COLUMNS, "")
+        row.update(
+            SpecialID=proposal["proposed_special_id"],
+            Tag=proposal["canonical_tag"],
+            PromotionStatus="APPROVED_STATIC",
+            MeaningStatus="SOURCE_CLEAR",
+            MeaningConfidence="HIGH",
+            SourceGlossQuality="GOOD",
+            GenerationFamily=family,
+            GenerationRole=role,
+            PromptUseMode=mode,
+            FamilyRuleId=rule,
+            RecommendedHandling="Accepted Issue #96 metadata; use as structural inspection data only; do not auto-add support tags.",
+            EvidenceClass="ISSUE96_ACCEPTED_SPECIAL_EXPANSION",
+            EvidenceRefs=f"ISSUE96:{proposal['proposed_special_id']};ISSUE94:{proposal['source_issue94_commit']}",
+        )
+        rows_out.append(row)
+    return rows_out
+
+
 def main():
     source = read_csv(SOURCE)
     plan = read_csv(PLAN)
@@ -248,6 +293,7 @@ def main():
     corrections = read_csv(CORRECTIONS)
     structural_overrides = read_csv(STRUCTURAL_OVERRIDES)
     static_review = read_csv(STATIC_REVIEW)
+    special_expansion = read_csv(SPECIAL_EXPANSION)
     if len(source) != 2788 or len(plan) != 2788:
         raise ValueError("Expected exactly 2,788 source/plan rows")
     for source_row, plan_row in zip(source, plan):
@@ -262,6 +308,9 @@ def main():
         raise ValueError("Promotion status counts do not match the reviewed decision")
     static = [static_row(row) for row in plan]
     apply_family_audit(static, source, corrections, structural_overrides, static_review)
+    static.extend(issue96_static_rows(special_expansion))
+    if [int(row["SpecialID"]) for row in static] != list(range(1, 2984)):
+        raise ValueError("Generation profile IDs must be contiguous 1..2983")
     write_csv(OUT / "special2788_generation_profile.csv", PROFILE_COLUMNS, static)
     write_csv(OUT / "generation_family_rules.csv", FAMILY_RULE_COLUMNS,
               family_rows(family_audit))
