@@ -19,6 +19,7 @@ RESULT_FIELDS = [
     "translation_note",
 ]
 VALID_STATUSES = {"ACCEPTED_AI", "REVIEW_REQUIRED"}
+PAYLOAD_ROOT = Path("docs/issue70/data/local_batch_payloads")
 
 
 def load_csv(path: Path):
@@ -66,6 +67,37 @@ def validate_result(repo: Path, path: Path):
     return entry, rows
 
 
+def read_encoded_payload(repo: Path, item: dict) -> bytes:
+    if "gzip_base64" in item:
+        encoded = item["gzip_base64"]
+    else:
+        parts = item.get("gzip_base64_parts")
+        if not isinstance(parts, list) or not parts:
+            raise SystemExit("payload item has neither gzip_base64 nor gzip_base64_parts")
+        chunks = []
+        for rel in parts:
+            part = Path(rel)
+            try:
+                part.relative_to(PAYLOAD_ROOT)
+            except ValueError:
+                raise SystemExit(f"illegal payload part path: {part}")
+            chunks.append((repo / part).read_text(encoding="ascii").strip())
+        encoded = "".join(chunks)
+    raw = gzip.decompress(base64.b64decode(encoded))
+    expected = item.get("sha256")
+    if expected and hashlib.sha256(raw).hexdigest() != expected:
+        raise SystemExit(f"payload sha256 mismatch for {item.get('path')}")
+    return raw
+
+
+def referenced_parts(payload: dict) -> list[str]:
+    found = []
+    for item in payload.get("files") or []:
+        for rel in item.get("gzip_base64_parts") or []:
+            found.append(rel)
+    return found
+
+
 def main() -> int:
     if len(sys.argv) != 2:
         raise SystemExit("usage: publish_local_batch.py PAYLOAD.json")
@@ -83,7 +115,7 @@ def main() -> int:
         dst = repo / rel
         if dst.exists():
             raise SystemExit(f"immutable result already exists: {rel}")
-        raw = gzip.decompress(base64.b64decode(item["gzip_base64"]))
+        raw = read_encoded_payload(repo, item)
         dst.parent.mkdir(parents=True, exist_ok=True)
         dst.write_bytes(raw)
         try:
@@ -92,7 +124,11 @@ def main() -> int:
             dst.unlink(missing_ok=True)
             raise
         written.append((rel, entry["chunk_index"], len(rows)))
-    print(json.dumps({"batch_id": payload.get("batch_id"), "written": [(str(p), c, n) for p,c,n in written]}, ensure_ascii=False))
+    print(json.dumps({
+        "batch_id": payload.get("batch_id"),
+        "written": [(str(p), c, n) for p, c, n in written],
+        "payload_parts": referenced_parts(payload),
+    }, ensure_ascii=False))
     return 0
 
 if __name__ == "__main__":
