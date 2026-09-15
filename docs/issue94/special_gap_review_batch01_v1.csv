@@ -1,0 +1,35 @@
+canonical,post_count,aliases,mechanical_status,nearest_special,lex_sim,review_status,review_reason,content_filter_used
+breast_press,68311,,GENERAL_ONLY_GAP,breast,0.722276,CANDIDATE,specific body-contact/action concept rather than ordinary anatomy,NO
+blood_on_face,59531,bloody_face,GENERAL_ONLY_GAP,blood,0.670280,CANDIDATE,localized blood/body-site state fits deep R18G discovery; broad blood does not identify the site relation,NO
+micro_shorts,18389,,GENERAL_ONLY_GAP,micro pasties,0.515322,CANDIDATE,specific micro-garment subtype; distinct canonical discovery term,NO
+blood_on_hand,18256,blood_on_hands|blood_on_fingers|bloody_hands|bloody_fingers,GENERAL_ONLY_GAP,blood,0.576479,CANDIDATE,specific localized blood/body-site state for deep R18G discovery,NO
+blood_from_mouth,12426,bloody_mouth|mouthbleed,GENERAL_ONLY_GAP,blood,0.452820,CANDIDATE,specific bleeding source/body-site relation for deep R18G discovery,NO
+blood_from_eyes,4970,bloody_tears|crying_blood|blood_tears,GENERAL_ONLY_GAP,blood,0.688390,CANDIDATE,specific bleeding source/body-site relation for deep R18G discovery,NO
+projectile_lactation,3294,,GENERAL_ONLY_GAP,lactation,0.684179,CANDIDATE,specific lactation behavior/visual subtype beyond generic lactation,NO
+micro_panties,3160,,GENERAL_ONLY_GAP,panties,0.674746,CANDIDATE,specific micro-garment subtype; distinct canonical discovery term,NO
+standing_doggystyle,1581,standing_doggy_style,GENERAL_ONLY_GAP,doggystyle,0.734158,CANDIDATE,specific real canonical sex-position subtype beyond generic doggystyle,NO
+see-through_panties,1496,transparent_panties|sheer_panties,GENERAL_ONLY_GAP,panties,0.753643,CANDIDATE,specific transparent underwear/exposure subtype useful for deep discovery,NO
+blood_on_breasts,1400,bloody_breasts,GENERAL_ONLY_GAP,breasts,0.759877,CANDIDATE,specific localized blood/body-site state for deep R18G discovery,NO
+pubic_tattoo_visible_through_clothes,1310,pubic_tattoo_through_clothing,GENERAL_ONLY_GAP,pubic tattoo,0.702449,CANDIDATE,specific body-site tattoo visibility-through-clothing relation; pubic tattoo alone does not cover it,NO
+micro_bra,1257,,GENERAL_ONLY_GAP,micro pasties,0.600395,CANDIDATE,specific micro-garment subtype; Special has micro pasties but no micro bra identity,NO
+implied_pregnancy,1109,,GENERAL_ONLY_GAP,pregnant,0.536837,CANDIDATE,specific implied-state reproductive concept beyond generic pregnant,NO
+panties_visible_through_clothes,736,,GENERAL_ONLY_GAP,cum through clothes,0.612684,CANDIDATE,specific visibility-through-clothing relation; complex concept useful for deep discovery,NO
+clothes_between_exposed_breasts,607,,GENERAL_ONLY_GAP,exposed breasts,0.741097,CANDIDATE,specific clothing/body geometry and exposure relation,NO
+bra_slip,415,,GENERAL_ONLY_GAP,nip slip,0.673145,CANDIDATE,specific garment displacement/exposure state not equivalent to generic nip slip or bra peek,NO
+male_lactation,414,lactation_(male),GENERAL_ONLY_GAP,lactation,0.888596,CANDIDATE,specific reproduction/lactation subtype with sex attribute,NO
+public_urination,244,,GENERAL_ONLY_GAP,urination,0.760325,CANDIDATE,specific excretion + public-scene relation distinct from generic urination,NO
+spread_eagle_position,236,,GENERAL_ONLY_GAP,ass spread,0.472454,CANDIDATE,specific pose identity useful for deep pose/BDSM discovery,NO
+breast_sucking_through_clothes,196,,GENERAL_ONLY_GAP,breast sucking,0.715783,CANDIDATE,specific sexual action + clothing barrier relation; breast sucking alone does not cover it,NO
+leash_in_mouth,189,,GENERAL_ONLY_GAP,leash,0.739321,CANDIDATE,specific BDSM device/body-site relation distinct from generic leash,NO
+holding_butt_plug,62,,GENERAL_ONLY_GAP,butt plug,0.853704,CANDIDATE,specific device interaction distinct from butt plug identity alone,NO
+no_bra,124019,,GENERAL_ONLY_GAP,bra no,1.000000,DUPLICATE_ALREADY_COVERED,Special semantic braless / bra no already substantively expresses the same absence state,NO
+spread_ass,7369,,GENERAL_ONLY_GAP,ass spread,1.000000,DUPLICATE_ALREADY_COVERED,Special semantic ass spread is the same substantive concept with word order reversed,NO
+wide_spread_legs,6737,,GENERAL_ONLY_GAP,legs spread,0.824336,DUPLICATE_ALREADY_COVERED,Special spread legs / legs spread already substantively covers this pose; width modifier needs no separate deep identity,NO
+open_towel,350,,GENERAL_ONLY_GAP,towel open,1.000000,DUPLICATE_ALREADY_COVERED,Special semantic towel open is the same substantive concept with word order reversed,NO
+no_pants,76159,no_shorts|pantless|skirtless|no_skirt|pantsless,GENERAL_ONLY_GAP,pants no,0.392341,NEEDS_REVIEW,bottomless overlaps but is not necessarily identical to no-pants garment state,NO
+same-sex_bathing,14489,,GENERAL_ONLY_GAP,sex,0.397893,NEEDS_REVIEW,specific relationship/scene identity but ordinary bathing may belong in General rather than deep Special,NO
+mixed-sex_bathing,9158,mixed_bathing|coed_bathing,GENERAL_ONLY_GAP,cum bath,0.294682,NEEDS_REVIEW,specific relationship/scene identity but ordinary bathing may belong in General rather than deep Special,NO
+sperm_cell,2940,,GENERAL_ONLY_GAP,sperm,0.779632,NEEDS_REVIEW,distinct biological identity beyond broad sperm; boundary between deep reproductive discovery and ordinary biology,NO
+pregnancy_test,1233,,GENERAL_ONLY_GAP,pregnant,0.592022,NEEDS_REVIEW,pregnancy-related object/scene canonical; plausible discovery value but may remain ordinary General,NO
+single_thighhigh,82762,one_thighhigh,GENERAL_ONLY_GAP,thighhigh,0.928766,OUTSIDE_SPECIAL_NONCONTENT,ordinary clothing/asymmetry canonical; General discovery is sufficient despite ambiguous historical thighhigh alias,NO
+curvy,76023,voluptuous|curvaceous,GENERAL_ONLY_GAP,curved penis,0.261673,OUTSIDE_SPECIAL_NONCONTENT,broad body-aesthetic descriptor better served by General; not a deep/niche Special concept,NO
