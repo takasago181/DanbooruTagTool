@@ -1,7 +1,7 @@
 {
   "format_version": 1,
   "issue": 70,
-  "batch_id": "manual_chat_2000_chunks_028_029_030_031_20260916b",
+  "batch_id": "manual_chat_2000_chunks_028_029_030_031_20260916b_repair1",
   "files": [
     {
       "path": "docs/issue70/data/results/queue/queue_chunk028_I70-013501_I70-014000.csv",
@@ -14,7 +14,10 @@
       "path": "docs/issue70/data/results/queue/queue_chunk029_I70-014001_I70-014500.csv",
       "sha256": "6d3068a255684aeb99ecf0eae5a1b072dd8101414721e5fd5b2ab41642ea8d95",
       "gzip_base64_parts": [
-        "docs/issue70/data/local_batch_payloads/manual_chat_2000_chunks_028_029_030_031_20260916b_queue_chunk029_I70-014001_I70-014500.part01.b64"
+        "docs/issue70/data/local_batch_payloads/manual_chat_2000_chunks_028_029_030_031_20260916b_chunk029_fix.part01.b64",
+        "docs/issue70/data/local_batch_payloads/manual_chat_2000_chunks_028_029_030_031_20260916b_chunk029_fix.part02.b64",
+        "docs/issue70/data/local_batch_payloads/manual_chat_2000_chunks_028_029_030_031_20260916b_chunk029_fix.part03.b64",
+        "docs/issue70/data/local_batch_payloads/manual_chat_2000_chunks_028_029_030_031_20260916b_chunk029_fix.part04.b64"
       ]
     },
     {
