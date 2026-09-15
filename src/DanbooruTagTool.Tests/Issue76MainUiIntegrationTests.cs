@@ -97,6 +97,40 @@ public sealed class Issue76MainUiIntegrationTests
     }
 
     [Fact]
+    public void One_step_back_removes_only_the_latest_special_filter_condition()
+    {
+        var vm = Vm();
+        vm.NavigateTo("special-v2:kind:TOOL_OBJECT");
+        vm.ToggleSpecialFacet.Execute(vm.SpecialBodyOptions.Single(option => option.Id == "MOUTH_ORAL"));
+        vm.ToggleSpecialFacet.Execute(vm.SpecialThemeOptions.Single(option => option.Id == "BDSM_RESTRAINT"));
+
+        vm.UndoSpecialFacet.Execute(null);
+        Assert.Equal("道具・物 × 口・口内", vm.BrowseLabel);
+        Assert.True(vm.HasSpecialFacets);
+
+        vm.UndoSpecialFacet.Execute(null);
+        Assert.Equal("道具・物", vm.BrowseLabel);
+
+        vm.UndoSpecialFacet.Execute(null);
+        Assert.Equal("special", vm.BrowseKey);
+        Assert.False(vm.HasSpecialFacets);
+    }
+
+    [Fact]
+    public void Fixed_special_axis_headings_do_not_replace_the_active_leaf_filter()
+    {
+        var vm = Vm();
+        vm.NavigateTo("special-v2:kind:TOOL_OBJECT");
+        var special = Assert.Single(vm.Navigation, node => node.Key == "special");
+        var heading = Assert.Single(special.Children, node => node.Key == "special-v2:body");
+
+        vm.Navigate.Execute(heading);
+
+        Assert.Equal("special-v2:kind:TOOL_OBJECT", vm.BrowseKey);
+        Assert.Equal("道具・物", vm.BrowseLabel);
+    }
+
+    [Fact]
     public void Persisted_old_special_path_is_migrated_to_v2_root_without_touching_prompt_state()
     {
         var state = new UserState(new WorkspaceSnapshot([], null), new UiState(Browse: "special:OLD>OLD_CHILD"));

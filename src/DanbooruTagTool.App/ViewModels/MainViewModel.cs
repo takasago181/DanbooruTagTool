@@ -105,6 +105,7 @@ public sealed class MainViewModel : Observable
     private readonly IForgeBridgeClient forgeBridge;
     private readonly SpecialBrowseV2Index? specialBrowse;
     private SpecialBrowseV2Filter specialFilter = SpecialBrowseV2Filter.Empty;
+    private readonly Stack<SpecialBrowseV2Filter> specialFilterHistory = new();
     public PromptWorkspace Workspace { get; }
     public ObservableCollection<ChipViewModel> Chips { get; } = [];
     public ObservableCollection<SpecialBrowseFacetOptionViewModel> SpecialKindOptions { get; } = [];
@@ -266,6 +267,7 @@ public sealed class MainViewModel : Observable
     public RelayCommand Back { get; }
     public RelayCommand ClearQuery { get; }
     public RelayCommand ToggleSpecialFacet { get; }
+    public RelayCommand UndoSpecialFacet { get; }
     public RelayCommand ClearSpecialFacets { get; }
     public RelayCommand FindPrevious { get; }
     public RelayCommand FindNextCommand { get; }
@@ -312,24 +314,36 @@ public sealed class MainViewModel : Observable
         DeleteOne = Normal(p => { if (p is ChipViewModel c) Workspace.Delete([c.Id]); });
         Inspect = Normal(p => { if (p is ChipViewModel c) InspectChip(c); });
         InspectEntry = Normal(p => { if (p is EntryViewModel row) { SelectedEntry = row; DetailsTabIndex = 0; } });
-        Navigate = Normal(p => { if (p is NavigationNode n) NavigateTo(n.Key); });
+        Navigate = Normal(p => { if (p is NavigationNode n && !IsSpecialAxisHeading(n.Key)) NavigateTo(n.Key); });
         Back = Normal(_ => { if (back.TryPop(out var key)) { Notify(nameof(CanGoBack)); Back?.Refresh(); NavigateTo(key, false); } }, _ => CanGoBack);
         ClearQuery = Normal(_ => { Query = ""; RefreshResults(); });
         ToggleSpecialFacet = Normal(p =>
         {
             if (specialBrowse == null || p is not SpecialBrowseFacetOptionViewModel option) return;
-            specialFilter = option.Axis switch
+            var next = option.Axis switch
             {
                 SpecialBrowseV2Axis.Kind => specialFilter.WithKind(specialFilter.KindId == option.Id ? null : option.Id),
                 SpecialBrowseV2Axis.BodySite => specialFilter.ToggleBodySite(option.Id),
                 SpecialBrowseV2Axis.Theme => specialFilter.ToggleTheme(option.Id),
                 _ => specialFilter
             };
+            ApplySpecialFilter(next, remember: true);
             RefreshResults(); Persist();
         }, p => specialBrowse != null && p is SpecialBrowseFacetOptionViewModel);
+        UndoSpecialFacet = Normal(_ =>
+        {
+            if (specialBrowse == null || specialFilter.IsEmpty) return;
+            if (specialFilterHistory.TryPop(out var previous)) specialFilter = previous;
+            else if (specialFilter.ThemeIds.Count > 0) specialFilter = specialFilter.ToggleTheme(specialFilter.ThemeIds.Last());
+            else if (specialFilter.BodySiteIds.Count > 0) specialFilter = specialFilter.ToggleBodySite(specialFilter.BodySiteIds.Last());
+            else specialFilter = specialFilter.WithKind(null);
+            if (specialFilter.IsEmpty) { browse = "special"; Notify(nameof(BrowseKey)); }
+            RefreshResults(); Persist();
+        }, _ => specialBrowse != null && !specialFilter.IsEmpty);
         ClearSpecialFacets = Normal(_ =>
         {
             if (specialBrowse == null) return;
+            specialFilterHistory.Clear();
             specialFilter = SpecialBrowseV2Filter.Empty;
             browse = "special";
             Notify(nameof(BrowseKey));
@@ -366,6 +380,15 @@ public sealed class MainViewModel : Observable
         new("special-v2:body", "部位から探す", SpecialBrowseV2Taxonomy.BodySites.Select(item => new NavigationNode("special-v2:body:" + item.Id, item.Label, [])).ToArray()),
         new("special-v2:themes", "テーマから探す", SpecialBrowseV2Taxonomy.Themes.Select(item => new NavigationNode("special-v2:theme:" + item.Id, item.Label, [])).ToArray())
     ];
+    private static bool IsSpecialAxisHeading(string key) => key is "special-v2:kinds" or "special-v2:body" or "special-v2:themes";
+    private static bool SameSpecialFilter(SpecialBrowseV2Filter left, SpecialBrowseV2Filter right) =>
+        left.KindId == right.KindId && left.BodySiteIds.SetEquals(right.BodySiteIds) && left.ThemeIds.SetEquals(right.ThemeIds);
+    private void ApplySpecialFilter(SpecialBrowseV2Filter next, bool remember)
+    {
+        if (SameSpecialFilter(next, specialFilter)) return;
+        if (remember) specialFilterHistory.Push(specialFilter);
+        specialFilter = next;
+    }
     private static SpecialBrowseV2Filter SpecialFilterFromBrowse(string key)
     {
         if (key.StartsWith("special-v2:kind:", StringComparison.Ordinal)) return SpecialBrowseV2Filter.Empty.WithKind(key[16..]);
@@ -378,7 +401,7 @@ public sealed class MainViewModel : Observable
     private RelayCommand Ordered(Action<object?> action, Predicate<object?>? enabled = null) => new(p => { if (CanEditOrderedPrompt && (enabled?.Invoke(p) ?? true)) action(p); }, p => CanEditOrderedPrompt && (enabled?.Invoke(p) ?? true));
     private void RefreshCommands()
     {
-        foreach (var command in new[] { Copy, Import, New, Recover, Undo, Redo, Delete, DeleteOne, Inspect, InspectEntry, Navigate, Back, ClearQuery, ToggleSpecialFacet, ClearSpecialFacets, FindPrevious, FindNextCommand, OpenEditor, StartDirect, ApplyDirect, CancelDirect, ApplyWeight, OpenPresets, NewPreset, ApplyPreset, CopyPresetNegative, CapturePresetPositive, SavePreset, DeletePreset, OpenForgeSettings, SaveForgeSettings }) command.Refresh();
+        foreach (var command in new[] { Copy, Import, New, Recover, Undo, Redo, Delete, DeleteOne, Inspect, InspectEntry, Navigate, Back, ClearQuery, ToggleSpecialFacet, UndoSpecialFacet, ClearSpecialFacets, FindPrevious, FindNextCommand, OpenEditor, StartDirect, ApplyDirect, CancelDirect, ApplyWeight, OpenPresets, NewPreset, ApplyPreset, CopyPresetNegative, CapturePresetPositive, SavePreset, DeletePreset, OpenForgeSettings, SaveForgeSettings }) command.Refresh();
         SendToForge.Refresh(); SendPresetToForge.Refresh();
         foreach (var row in Results.Concat(Related)) row.Refresh(); SelectedEntry?.Refresh();
     }
@@ -412,7 +435,7 @@ public sealed class MainViewModel : Observable
         Results = Rows(entries); Notify(nameof(ResultSummary)); SelectedEntry = Results.FirstOrDefault(e => e.Entry.Id == (Query.Length == 0 ? browseSelection ?? selected : selected));
         RefreshSpecialFacetOptions();
         Notify(nameof(Pending)); Notify(nameof(BrowseLabel)); Notify(nameof(SpecialFacetSummary)); Notify(nameof(HasSpecialFacets)); Notify(nameof(ShowSpecialFacetBar)); Notify(nameof(ShowSpecialKindOptions));
-        ClearSpecialFacets.Refresh();
+        UndoSpecialFacet.Refresh(); ClearSpecialFacets.Refresh();
         if (Query.Length == 0) ResultsRestored?.Invoke();
     }
     public void NavigateTo(string key, bool remember = true)
@@ -422,9 +445,13 @@ public sealed class MainViewModel : Observable
         browse = key;
         if (specialBrowse != null)
         {
-            specialFilter = key.StartsWith("special-v2:", StringComparison.Ordinal) ? SpecialFilterFromBrowse(key)
-                : key == "special" ? SpecialBrowseV2Filter.Empty
-                : key.StartsWith("general", StringComparison.Ordinal) ? SpecialBrowseV2Filter.Empty : specialFilter;
+            if (key.StartsWith("special-v2:kind:", StringComparison.Ordinal) || key.StartsWith("special-v2:body:", StringComparison.Ordinal) || key.StartsWith("special-v2:theme:", StringComparison.Ordinal))
+                ApplySpecialFilter(SpecialFilterFromBrowse(key), remember);
+            else if (key == "special" || key.StartsWith("general", StringComparison.Ordinal))
+            {
+                if (remember) specialFilterHistory.Clear();
+                specialFilter = SpecialBrowseV2Filter.Empty;
+            }
         }
         Notify(nameof(BrowseKey)); browseSelection = null; RestoreScroll = 0; Query = ""; RefreshResults(); Persist();
     }
