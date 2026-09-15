@@ -1,0 +1,6 @@
+﻿category,rows,phase_b_policy,reason
+General,30743,NOT_REOPENED,Issue #94 canonical General audit is complete
+Artist,48313,CATALOG_EXCLUDED,do not import Artist catalog into Special
+Copyright,8536,CATALOG_EXCLUDED,do not import Copyright catalog into Special
+Character,35890,CATALOG_EXCLUDED,do not import Character catalog into Special
+Meta,534,BOUNDED_PRESCREEN,review only visible/generation-relevant structural Meta identities

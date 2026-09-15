@@ -1,0 +1,180 @@
+name: Issue97 Phase B Non-General Audit
+
+on:
+  push:
+    branches:
+      - audit/issue97-phase-b-nongeneral
+    paths:
+      - scripts/issue97/**
+      - data/generation/special2788_generation_profile.csv
+      - .github/workflows/issue97_phase_b_nongeneral.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  phase-b-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout audit branch
+        uses: actions/checkout@v4
+
+      - name: Validate scanner syntax
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m py_compile scripts/issue97/phase_b_nongeneral_audit.py
+          python3 -m py_compile scripts/issue97/phase_b_materialize_review.py
+
+      - name: Fetch pinned 2026-09-02 Danbooru snapshot
+        shell: bash
+        env:
+          SOURCE_URL: https://huggingface.co/datasets/HDiffusion/historical-danbooru-tag-counts/resolve/e243474/danbooru-2026-09-02.csv?download=true
+          EXPECTED_SHA256: 9b32d5ac0713ab252e7470ba6af9cb34de56878b6b3b13dfbbf6a4a37d82d95b
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/issue97/phase_b
+          SOURCE="$RUNNER_TEMP/danbooru-2026-09-02.csv"
+          curl --fail --location --retry 3 --retry-delay 2 "$SOURCE_URL" --output "$SOURCE"
+          echo "$EXPECTED_SHA256  $SOURCE" | sha256sum --check
+          printf 'source_url=%s\nexpected_sha256=%s\nactual_sha256=%s\n' \
+            "$SOURCE_URL" \
+            "$EXPECTED_SHA256" \
+            "$(sha256sum "$SOURCE" | awk '{print $1}')" \
+            > artifacts/issue97/phase_b/source_provenance.txt
+
+      - name: Run Phase B read-only audit
+        shell: bash
+        run: |
+          set -euo pipefail
+          SOURCE="$RUNNER_TEMP/danbooru-2026-09-02.csv"
+          python3 scripts/issue97/phase_b_nongeneral_audit.py \
+            --canonical-source "$SOURCE" \
+            --special-profile data/generation/special2788_generation_profile.csv \
+            --expected-special 2983 \
+            --alias-review-limit 600 \
+            --meta-review-limit 400 \
+            --out-dir artifacts/issue97/phase_b \
+            2>&1 | tee artifacts/issue97/phase_b/run.log
+
+      - name: Materialize bounded human review
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 scripts/issue97/phase_b_materialize_review.py \
+            --audit-dir artifacts/issue97/phase_b \
+            2>&1 | tee artifacts/issue97/phase_b/human_review.log
+
+      - name: Validate protected boundaries and identity closure
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          audit = json.loads(Path('artifacts/issue97/phase_b/summary.json').read_text(encoding='utf-8'))
+          review = json.loads(Path('artifacts/issue97/phase_b/phase_b_human_review_summary_v1.json').read_text(encoding='utf-8'))
+          assert audit['special_rows'] == 2983, audit['special_rows']
+          assert not audit['unresolved_nonsemantic_rows'], audit['unresolved_nonsemantic_rows']
+          for key in (
+              'general_canonical_reopened',
+              'artist_catalog_imported',
+              'character_catalog_imported',
+              'copyright_catalog_imported',
+              'content_filter_used',
+              'production_files_changed',
+              'issue70_mutated',
+              'userdata_mutated',
+              'phase_c_recipes_mixed_in',
+          ):
+              assert audit[key] == 'NO', (key, audit[key])
+          for key in ('production_mutation', 'candidate_is_automatic_promotion', 'phase_c_mixed_in', 'issue70_mutated', 'userdata_mutated', 'content_filter_used'):
+              assert review[key] == 'NO', (key, review[key])
+          assert review['candidate_total'] == review['candidate_aliases'] + review['candidate_meta_canonicals']
+          assert review['reviewed_total'] == review['candidate_total'] + review['rejected_total'] + review['already_covered_total']
+          print('PHASE_B_BOUNDARY_GATE=PASS')
+          PY
+
+      - name: Persist reviewed Phase B evidence on audit branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          DEST=docs/issue97/phase_b
+          mkdir -p "$DEST"
+          cp artifacts/issue97/phase_b/phase_b_candidate_subset_v1.csv "$DEST/"
+          cp artifacts/issue97/phase_b/phase_b_rejected_ledger_v1.csv "$DEST/"
+          cp artifacts/issue97/phase_b/phase_b_human_review_summary_v1.json "$DEST/"
+          cp artifacts/issue97/phase_b/source_provenance.txt "$DEST/"
+          cp artifacts/issue97/phase_b/category_policy_summary.csv "$DEST/"
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          root = Path('docs/issue97/phase_b')
+          s = json.loads((root / 'phase_b_human_review_summary_v1.json').read_text(encoding='utf-8'))
+          lines = [
+              '# Issue #97 Phase B non-General coverage audit v1',
+              '',
+              '## Result',
+              '',
+              'Phase B discovery/review is complete as an **audit candidate set**, with no production mutation.',
+              '',
+              '- pinned Danbooru source: `2026-09-02`',
+              '- accepted Special baseline: `2,983` IDs (`1..2983`)',
+              f"- reviewed alias inventory rows: **{s['reviewed_alias_inventory_rows']:,}**",
+              f"- reviewed Meta rows: **{s['reviewed_meta_rows']:,}**",
+              f"- final candidate subset: **{s['candidate_total']:,}**",
+              f"  - verified search-alias candidates: **{s['candidate_aliases']:,}**",
+              f"  - current Meta canonical candidates: **{s['candidate_meta_canonicals']:,}**",
+              f"- explicit rejected/excluded rows: **{s['rejected_total']:,}**",
+              f"- already-covered/no-gap rows: **{s['already_covered_total']:,}**",
+              '',
+              '## Interpretation',
+              '',
+              'The alias rows are search-surface candidates only. They must continue to resolve to the existing accepted canonical Special identity; they do not create new canonical identities.',
+              '',
+              'The Meta rows are current Danbooru Meta canonicals that survived a bounded product-relevance screen for visible medium, image type, layout/state, rendering artifact, or related generation-relevant structure. They are **not automatically approved for Special promotion**.',
+              '',
+              "Artist, Character, and Copyright catalogs were not imported or row-by-row reopened. Issue #94's completed General canonical audit was not reopened. Phase C combination recipes were not mixed into this audit.",
+              '',
+              '## Durable artifacts',
+              '',
+              '- `phase_b_candidate_subset_v1.csv` — candidate subset',
+              '- `phase_b_rejected_ledger_v1.csv` — explicit rejected/excluded rows',
+              '- `phase_b_human_review_summary_v1.json` — exact counts and boundary flags',
+              '- `category_policy_summary.csv` — category-level policy',
+              '- `source_provenance.txt` — pinned source URL and SHA-256',
+              '',
+              '## Protected boundaries',
+              '',
+              '- production mutation: **NO**',
+              '- Issue #70 mutation: **NO**',
+              '- `UserData/user.db` mutation: **NO**',
+              '- content filter used: **NO**',
+              '- Phase C mixed in: **NO**',
+              '',
+              '## Next gate',
+              '',
+              'Do not silently promote these candidates. Any production integration must be a separate deterministic proposal/review step that decides whether each alias belongs in search metadata and whether each Meta canonical actually belongs in Special.',
+          ]
+          (root / 'PHASE_B_AUDIT_SUMMARY_v1.md').write_text('\n'.join(lines) + '\n', encoding='utf-8')
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "$DEST"
+          if git diff --cached --quiet; then
+            echo 'No durable Phase B artifact changes to commit.'
+          else
+            git commit -m 'Issue #97 Phase B: persist reviewed audit evidence'
+            git push origin HEAD:audit/issue97-phase-b-nongeneral
+          fi
+
+      - name: Upload Phase B evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: issue97-phase-b-nongeneral-${{ github.sha }}
+          path: artifacts/issue97/phase_b
+          if-no-files-found: error
+          retention-days: 14
