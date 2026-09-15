@@ -1,0 +1,63 @@
+name: Issue76 Integrated UI Test Package
+
+on:
+  push:
+    branches:
+      - feature/issue76-special-v2-main-ui
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: windows-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET 10
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Restore
+        shell: pwsh
+        run: dotnet restore src/DanbooruTagTool.sln
+
+      - name: Release build and tests
+        shell: pwsh
+        run: |
+          dotnet build src/DanbooruTagTool.sln -c Release --no-restore
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          dotnet test src/DanbooruTagTool.sln -c Release --no-build --no-restore
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      - name: Publish portable test package
+        shell: pwsh
+        run: |
+          $out = Join-Path $env:RUNNER_TEMP 'DanbooruTagTool-Issue76-Integrated-UI'
+          dotnet publish src/DanbooruTagTool.App/DanbooruTagTool.App.csproj -c Release -r win-x64 --self-contained true -p:PublishSingleFile=false -o $out
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          New-Item -ItemType Directory -Path (Join-Path $out 'Data'),(Join-Path $out 'UserData') -Force | Out-Null
+          Set-Content -LiteralPath (Join-Path $out 'Data/COPY_CURRENT_catalog.db_HERE.txt') -Encoding utf8 -Value '現在使用中の DanbooruTagTool/Data/catalog.db を、この Data フォルダへコピーしてください。元のファイルは移動・削除しません。'
+          @'
+          Issue #76 current MainWindow + Special Browse v2 test build
+
+          1. 普段使っている DanbooruTagTool の Data\catalog.db を、このフォルダの Data\catalog.db へコピーします。
+          2. DanbooruTagTool.exe を起動します。
+          3. UI本体は現行版のまま、Special左ツリーだけ「種類・部位・テーマ」方式です。
+          4. 分類を選ぶと中央上部に小さい追加絞り込み欄が出ます。
+          5. このテストフォルダの UserData は本番とは別です。
+
+          本番フォルダ・本番catalog.db・本番UserDataは変更しません。
+          '@ | Set-Content -LiteralPath (Join-Path $out 'README_ISSUE76.txt') -Encoding utf8
+          "PACKAGE=$out" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+
+      - name: Upload integrated UI package
+        uses: actions/upload-artifact@v4
+        with:
+          name: DanbooruTagTool-Issue76-Integrated-UI
+          path: ${{ env.PACKAGE }}
+          retention-days: 7
+          if-no-files-found: error
