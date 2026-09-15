@@ -1,36 +1,37 @@
-# CURRENT DEV TASK — ISSUE #77 PROMPT OUTPUT PROFILES
+# CURRENT DEV TASK — ISSUE #77 PROMPT OUTPUT PROFILES (COMPLETED / MERGED)
 
 最終同期: 2026-09-15
 
-## Routing status
+## Completion
 
-- **Issue #77 — Prompt output profile switch + tolerant one-click import is ACTIVE DEV.**
-- Activation authority: live Issue #77 and comment `5674780449`.
-- Branch: `codex/issue77-prompt-output-profiles`.
+- **Issue #77 is completed and integrated into `main` at `60b15d8fef877c70eac5e4f0f5d67ebd358904d7`.**
+- Feature branch: `codex/issue77-prompt-output-profiles`.
 - Activation baseline: `da3726f966e88876d101d9c23086cf8e44550574`.
-- User approved implementation through main integration if all validation passes.
-- No successor should be selected by Codex after completion; #70 and #65 remain separate lanes.
+- Integration: live main was unchanged after implementation, so `main` advanced by fast-forward; no force push.
+- Issue #77 was user-approved through main integration and closed after post-merge validation.
 
-## Scope
+## Delivered scope
 
-Add the generic user-facing profiles `生成向け` and `原形優先` with persistent selection, one-click copy/import, profile-specific English preview, and conservative recognition of generation-style tokens. Keep canonical/internal Prompt identity, order, duplicates, raw/unresolved, LoRA, BREAK, weights, Undo/Redo, autosave, and accepted #72/#73/#74/#75 behavior intact.
+- Added generic profile selector labels `生成向け` and `原形優先` near the common one-click operations.
+- Persisted the selected profile through the existing `UiState` / `UserData/user.db` boundary; old state defaults to `原形優先`.
+- Kept the internal `PromptWorkspace` canonical serialization, item identity, order, duplicate/raw/LoRA/BREAK/weight behavior unchanged.
+- `生成向け` transforms recognized canonical Normal/Weighted tag cores only: `_` to spaces, literal parentheses to escaped `\\(` / `\\)`, and preserves weighted numeric text/wrappers and surrounding whitespace.
+- Raw, unresolved, LoRA, BREAK, and unsupported syntax remain unchanged.
+- Import tries the existing exact canonical/English/alias resolver first, then only for unresolved tokens tries escaped-parenthesis removal and a space-to-underscore lookup candidate; non-unique or non-matching candidates remain raw with their original surface.
+- English preview and one-click copy both use the selected profile output.
+- Direct English edit uses the same tolerant parser.
 
-## Safety boundaries
+## Validation
 
-- Do not expose NoobAI, WAI, Danbooru, or implementation-facing profile names in normal UI.
-- Do not rewrite arbitrary raw/natural-language text or modify #70 translation data, taxonomy, canonical data, or protected data.
-- Work only inside the existing `src/App`, `src/Core`, `src/Data`, and `src/Tests` structure plus this routing document.
-- Do not add top-level folders or versioned artifact/screenshot/build directories.
+- Release build: PASS, 0 warnings / 0 errors.
+- All .NET tests: PASS, **92 passed / 5 skipped / 97 total**.
+- Issue #77 focused tests: PASS, **9 passed**.
+- #72/#73/#74/#75 regression tests: PASS, **20 total / 19 passed / 1 existing production skip**.
+- `git diff --check`: PASS.
+- Windows launch: PASS. Existing root shortcut launched `DanbooruTagTool v1` from `artifacts/current/DanbooruTagTool.exe`; the fixed local catalog and UserData were retained.
 
-## Required validation
+## Repository safety
 
-- Release build.
-- All .NET tests.
-- Focused #77 profile/import tests.
-- #72/#73/#74/#75 regression tests.
-- `git diff --check`.
-- Practical Windows launch/UI check if available.
-
-## Integration gate
-
-If all validation passes, re-fetch live main, reconcile safely without force if main advanced, integrate with fast-forward where possible, push main, sync this document and `CURRENT_STATE.md` to completed/merged, then close Issue #77. Do not select a successor Active DEV lane.
+- Only existing `src/...` and project management docs were changed.
+- No #70 translation data, canonical/protected data, taxonomy, legacy data path, or new top-level/artifact folder was changed.
+- No successor Active DEV issue is selected. #70 and #65 remain separate lanes.
