@@ -1,39 +1,61 @@
-# CURRENT DEV TASK — ISSUE #76 SPECIAL BROWSE V2 (ACTIVE / PRODUCTION IMPLEMENTATION)
+# CURRENT DEV TASK — ISSUE #76 SPECIAL BROWSE V2 (COMPLETED / MERGED)
 
 最終同期: 2026-09-15
 
 ## Routing status
 
-- **Issue #76 — Special browse taxonomy v2 final production implementation is active on this feature branch.**
+- **Issue #76 — Special browse taxonomy v2 is completed and integrated into `main`.**
 - Implementation branch: `codex/issue76-special-v2-production`.
-- Activation baseline: `24fafff4dbbef4a8cc81ac1f3e21c892b07a6d64`.
-- Activation authority: latest Issue #76 comment `5678941812`.
-- Integration: intentionally not performed; DEV review is the stop point.
-- No successor Active DEV is designated after #76.
-- #70, #64, #63, protected data, and canonical identity remain separate boundaries.
+- Final branch tip: `cf6f34919d163d346411d562e9075b3843f4b170`.
+- Merged PR: `#81`.
+- Main merge commit: `0a1e94c8268cde97cfbc2305b3f2869d6919b5d6`.
+- Issue #76 is closed as completed.
+- No successor Active DEV implementation issue is designated.
+- #70 translation/data, #65 Stage10 learning, #44 KNOWLEDGE, and #24 safety debt remain separate lanes.
 
-## Scope
+## Accepted scope
 
-Replace only the Special browse/navigation surface with the accepted v2 three-axis browse: `種類から探す`, `部位から探す`, and `テーマから探す`. Facets intersect with AND semantics while preserving existing search ranking/order and all existing Prompt/output/preset/Forge behavior.
+The production WPF MainWindow keeps the existing overall UI while Special browse now uses the accepted shallow v2 facets:
 
-## Safety boundaries
+- `種類から探す`
+- `部位から探す`
+- `テーマから探す`
 
-- Preserve the existing #56 Special v1 sidecar/evidence. Parse the accepted #76 evidence only at the explicit catalog-build boundary, then persist the resulting v2 mapping in `catalog.db`.
-- Normal startup reads the precomputed `SpecialBrowseV2` classification from the catalog and does not parse or reconstruct the 2,788-row audit CSV overlay.
-- Fixed-expanded axis headings are navigation labels only; only the Special root opens/closes. `1つ戻す` removes one latest facet condition and `全解除` clears v2 facets/history without changing an ordinary query.
-- Preserve #72/#73/#74/#75/#77/#79/#80 behavior, including output-profile preview/copy equality and Forge bridge invariants.
-- No new top-level folders, artifacts, WPF copy, #70/#64 data, taxonomy reclassification, canonical data, or protected data changes.
+Facet conditions intersect with AND semantics. Existing search ranking/order, Prompt editing/output, presets, Forge bridge, General browse, and canonical identity are preserved.
 
-## Required validation
+The user-accepted interaction is also integrated:
 
-- Release build.
-- All .NET tests.
-- Focused #76 Special v2 navigation/overlay tests.
-- #72/#73/#74/#75/#77/#79/#80 regression tests.
-- `git diff --check`.
-- Practical Windows/WQHD launch and Special v2 click-through where the environment permits.
+- the three Special axis groups stay expanded while the Special root is open;
+- `1つ戻す` removes only the latest facet condition;
+- `全解除` clears Special facet/history state without clearing ordinary search text;
+- canonical duplicate rows are deduplicated in the result surface.
+
+## Runtime / data boundary
+
+- Existing Issue #56 v1 sidecar/evidence remains preserved as provenance.
+- Accepted Issue #76 audit evidence is parsed only during explicit `--build-catalog`.
+- The accepted v2 classification is persisted into each Special catalog row as `CatalogEntry.SpecialBrowseV2` in `catalog.db`.
+- Normal startup reads the precomputed classification and does not reconstruct the 2,788-row mapping from audit CSVs.
+- Existing pre-#76 `catalog.db` files are not overwritten automatically and require one explicit rebuild to contain v2 browse data.
+
+## Validation
+
+Final implementation evidence:
+
+- Release build: PASS, 0 warnings / 0 errors
+- full .NET tests: `126 passed / 6 skipped / 132 total`
+- Issue #76 focused: `13 passed`
+- production bake/persistence: `1 passed`
+- regression: `63 passed / 2 skipped / 65 total`
+- `git diff --check`: PASS
+- Special identities: 2,788 preserved
+- accepted status distribution: `2745 / 15 / 6 / 1 / 21`
+- #70/#64/#63, canonical/protected data: unchanged
 
 ## Completion
 
-- DEV acceptance: pending DEV audit; report marker is `READY_FOR_DEV_AUDIT`.
-- Main integration: not authorized for this implementation request; do not merge or close Issue #76.
+- Final implementation return: Issue #76 comment `5679455508`.
+- Final merge/close checkpoint: Issue #76 comment `5679492819`.
+- Main integration: PR #81 -> `0a1e94c8268cde97cfbc2305b3f2869d6919b5d6`.
+- Issue #76: **COMPLETED / CLOSED**.
+- No separate AUDIT lane is active.
