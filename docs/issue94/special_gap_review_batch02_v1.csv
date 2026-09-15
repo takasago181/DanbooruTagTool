@@ -1,0 +1,41 @@
+canonical,post_count,aliases,mechanical_status,nearest_special,lex_sim,review_status,review_reason,content_filter_used
+clothes_lift,286238,,GENERAL_ONLY_GAP,masturbation through clothes,0.855,CANDIDATE,specific clothing-lift/exposure action; Special has adjacent clothes adjustment/removal identities but not the lift relation itself,NO
+covered_navel,196931,clothed_navel,GENERAL_ONLY_GAP,covered erect nipples,0.855,CANDIDATE,specific covered body-site state; complements existing navel and covering/exposure families,NO
+thick_thighs,159807,huge_thighs|fat_thighs|big_thighs|thunder_thighs|thighthick,GENERAL_ONLY_GAP,thick testicle hair,0.855,CANDIDATE,specific body-morphology identity; Special has detailed morphology families but no thigh-thickness identity,NO
+clothes_pull,108268,,GENERAL_ONLY_GAP,masturbation through clothes,0.855,NEEDS_REVIEW,"real clothing-manipulation canonical, but Special clothes grab/adjusting clothes may already cover much of the discovery intent",NO
+eyes_visible_through_hair,104042,eye_through_hair,GENERAL_ONLY_GAP,visible genitals,0.855,CANDIDATE,specific visibility-through-material/body relation; fits deep relation/visibility discovery rather than ordinary appearance,NO
+lifting_own_clothes,88148,lifted_by_self,GENERAL_ONLY_GAP,pussy juice drip through clothes,0.855,CANDIDATE,self-actor + clothing-lift relation is more specific than generic clothes adjustment/removal,NO
+between_breasts,64738,,GENERAL_ONLY_GAP,cum between breasts,0.95,CANDIDATE,generic between-breasts spatial relation; Special contains several object-specific variants but not the reusable relation identity,NO
+breasts_apart,61893,,GENERAL_ONLY_GAP,breasts,0.9,CANDIDATE,specific breast-position/body-state identity not represented by generic breasts,NO
+mole_on_breast,58430,,GENERAL_ONLY_GAP,breast,0.9,CANDIDATE,specific body-mark + site relation; Special already carries analogous site-specific mole identities,NO
+bouncing_breasts,38896,,GENERAL_ONLY_GAP,breasts,0.9,CANDIDATE,specific breast-motion state; Special has analogous bouncing penis/testicles but not breasts,NO
+breasts_squeezed_together,37542,breast_squeeze|breasts_squeeze,GENERAL_ONLY_GAP,breasts,0.9,CANDIDATE,specific breast-position/compression state useful for body/pose discovery,NO
+huge_ass,36503,thick_ass|big_ass|big_butt,GENERAL_ONLY_GAP,ass,0.9,CANDIDATE,specific body-morphology identity; Special already treats other huge anatomy variants as deep dictionary entries,NO
+hand_between_own_legs,36500,hand_between_own_thighs|hand_between_thighs|arm_between_own_legs|hand_between_legs,GENERAL_ONLY_GAP,cum on legs,0.855,CANDIDATE,specific self body-part spatial pose relation beyond generic hand/leg pose tags,NO
+blood_on_clothes,35529,bloody_clothes|blood-stained_clothes,GENERAL_ONLY_GAP,blood,0.9,CANDIDATE,localized blood-on-material state; distinct from broad blood and useful in R18G discovery,NO
+panties_under_pantyhose,35495,panties_under_pantiehose|panties_behind_pantyhose|panties_below_pantyhose|panties_underneath_pantyhose,GENERAL_ONLY_GAP,panties,0.9,CANDIDATE,specific layered-underwear relation difficult to discover from ordinary garment tags,NO
+arm_under_breasts,34473,,GENERAL_ONLY_GAP,breasts,0.9,CANDIDATE,specific body-part/breast spatial relation useful for pose discovery,NO
+midriff_peek,31330,stomach_peek|belly_peek,GENERAL_ONLY_GAP,pee,0.9,CANDIDATE,specific partial-exposure state; distinct from generic midriff,NO
+pov_crotch,31126,,GENERAL_ONLY_GAP,crotch,0.9,CANDIDATE,specific camera/body-site composition identity,NO
+crotch_seam,29610,,GENERAL_ONLY_GAP,crotch,0.9,CANDIDATE,specific garment/body-site structural feature useful in clothing/exposure discovery,NO
+bikini_under_clothes,28667,,GENERAL_ONLY_GAP,pussy juice drip through clothes,0.855,CANDIDATE,specific garment-layer relation; fits deep clothing/exposure discovery,NO
+hanging_breasts,27904,hanging_boob|hangingboob,GENERAL_ONLY_GAP,breasts,0.9,CANDIDATE,specific breast shape/state identity beyond generic breasts,NO
+panties_around_one_leg,27261,panties_around_leg|/paol,GENERAL_ONLY_GAP,panties,0.9,CANDIDATE,specific displaced-garment/body relation; Special already supports analogous around-one-leg clothing states,NO
+highleg_bikini,23531,,GENERAL_ONLY_GAP,bikini pull,0.671,CANDIDATE,specific revealing garment subtype rather than a color/style-only variant,NO
+clothes_between_breasts,18555,clothing_between_breasts,GENERAL_ONLY_GAP,breasts,0.9,CANDIDATE,specific clothing/body spatial relation distinct from generic clothes or breasts,NO
+necktie_between_breasts,15420,,GENERAL_ONLY_GAP,breasts,0.9,CANDIDATE,specific object/body spatial relation; a concrete reusable composition concept,NO
+arms_under_breasts,14767,,GENERAL_ONLY_GAP,breasts,0.9,CANDIDATE,specific multi-arm/breast spatial relation useful for pose discovery,NO
+unworn_panties,13158,panties_removed|panties_off,GENERAL_ONLY_GAP,panties,0.9,CANDIDATE,specific unworn garment state; Special already treats unworn device states as discoverable identities,NO
+breast_rest,12595,,GENERAL_ONLY_GAP,breast,0.9,NEEDS_REVIEW,"likely specific breast/support relation, but surface meaning is terse enough to require semantic-boundary review",NO
+bra_visible_through_clothes,11756,bra_through_clothes,GENERAL_ONLY_GAP,visible genitals,0.855,CANDIDATE,specific visibility-through-clothing relation distinct from generic see-through clothes,NO
+hand_on_own_ass,10594,hand_on_ass,GENERAL_ONLY_GAP,ass,0.9,CANDIDATE,specific self-contact/body-site pose relation not covered by generic ass identity,NO
+grabbing_own_ass,9301,,GENERAL_ONLY_GAP,ass,0.9,CANDIDATE,specific self-contact action; Special has grabbing another person and other own-ass actions but not this identity,NO
+wet_panties,7955,drenched_panties|/wp,GENERAL_ONLY_GAP,panties,0.9,CANDIDATE,specific garment/material-state identity useful in exposure/clothing discovery,NO
+cloth_gag,4746,otm_gag,GENERAL_ONLY_GAP,gag,0.9,CANDIDATE,real gag subtype; Special has a deep gag device family but not this canonical subtype,NO
+holding_pregnancy_test,902,,GENERAL_ONLY_GAP,holding cum,0.855,CANDIDATE,specific reproduction-scene object/action identity beyond generic pregnancy,NO
+piercing_through_clothes,494,,GENERAL_ONLY_GAP,piercing,0.9,CANDIDATE,specific visibility/material relation for body adornment through clothing,NO
+forced_lactation,464,,GENERAL_ONLY_GAP,forced,0.9,CANDIDATE,specific coercion + lactation compound identity; distinct from broad lactation,NO
+clitoral_stimulation_through_clothes,292,clitoral_stimulation_through_clothing,GENERAL_ONLY_GAP,clitoral stimulation,0.9,CANDIDATE,specific body-site stimulation + clothing-barrier relation matching Special deep action patterns,NO
+male_pregnancy,225,pregnant_man|mpreg|pregnancy_(male),GENERAL_ONLY_GAP,female fingers in male anus,0.855,CANDIDATE,specific reproductive identity distinct from generic pregnant; strongly niche/discovery-oriented,NO
+unworn_butt_plug,224,,GENERAL_ONLY_GAP,butt plug,0.9,CANDIDATE,specific device-state variant in an already deep Special butt-plug family,NO
+heart_butt_plug,102,,GENERAL_ONLY_GAP,butt plug,0.9,CANDIDATE,specific device subtype in an already deep Special butt-plug family,NO
