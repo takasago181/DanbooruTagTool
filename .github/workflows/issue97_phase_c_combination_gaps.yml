@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   phase-c-audit:
@@ -77,6 +77,53 @@ jobs:
               assert r['product_fit_reason'].strip()
           print('PHASE_C_PRODUCT_VALUE_GATE=PASS')
           PY
+
+      - name: Persist reviewed Phase C evidence on audit branch
+        if: github.event_name == 'push'
+        shell: bash
+        run: |
+          set -euo pipefail
+          dst=docs/issue97/phase_c
+          src=artifacts/issue97/phase_c
+          mkdir -p "$dst"
+          cp "$src/phase_c_candidate_queue_v1.csv" "$dst/"
+          cp "$src/phase_c_candidate_subset_v1.csv" "$dst/"
+          cp "$src/phase_c_rejected_ledger_v1.csv" "$dst/"
+          cp "$src/phase_c_summary_v1.json" "$dst/"
+          cp "$src/phase_c_product_review_summary_v1.json" "$dst/"
+          python3 - <<'PY'
+          import csv, json
+          from pathlib import Path
+          root=Path('docs/issue97/phase_c')
+          s=json.loads((root/'phase_c_product_review_summary_v1.json').read_text(encoding='utf-8'))
+          rows=list(csv.DictReader((root/'phase_c_candidate_subset_v1.csv').open(encoding='utf-8')))
+          lines=[
+            '# Issue #97 Phase C combination-concept / recipe gap audit v1','',
+            '## Result','',
+            f"- raw bounded discovery queue: **{s['raw_candidate_total']}**",
+            f"- final product-fit recipe candidates: **{s['final_candidate_total']}**",
+            f"- rejected/routed away: **{s['rejected_total']}**",
+            '- automatic production integration: **NO**','',
+            '## Product-fit rule','',
+            'Phase C is intentionally centered on the user’s niche adult/fetish discovery needs. It keeps only combinations where components materially share a body-site, topology, target/destination, actor relation, or pose/equipment structure. Generic `X + bondage`, `X + blindfold`, accessory stacking, and other Cartesian Prompt-library expansion are rejected.','',
+            'Every retained recipe component is an accepted direct Special surface. Semantic-support-only rows are not emitted as direct Prompt components. No pseudo-Danbooru canonical tag is created.','',
+            '## Candidate domains',''
+          ]
+          for k,v in sorted(s['final_domain_counts'].items()): lines.append(f'- `{k}`: {v}')
+          lines += ['', '## Reviewed candidates','']
+          for r in rows: lines.append(f"- `{r['audit_id']}` {r['intent_ja']} -> `{r['recipe_prompt']}`")
+          lines += ['', '## Boundaries','', '- production mutation: **NO**', '- Issue #70 mutation: **NO**', '- `UserData/user.db` mutation: **NO**', '- content filter used: **NO**', '- model effectiveness certified: **NO**', '', '## Next gate','', 'These are recipe/search-product candidates, not production behavior. Any integration into runtime search or Generation Profile requires a separate deterministic product/design decision. Stage10 may later provide model-scoped evidence, but is not assumed here.', '']
+          (root/'PHASE_C_AUDIT_SUMMARY_v1.md').write_text('\n'.join(lines),encoding='utf-8')
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/issue97/phase_c
+          if git diff --cached --quiet; then
+            echo 'No Phase C evidence changes to persist.'
+          else
+            git commit -m 'Issue #97 Phase C: persist reviewed audit evidence'
+            git push origin HEAD:audit/issue97-phase-c-combination-gaps
+          fi
 
       - name: Upload Phase C evidence
         if: always()
