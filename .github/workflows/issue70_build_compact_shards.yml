@@ -45,9 +45,15 @@ jobs:
           assert bs['completed_rows_at_generation'] == 10500
           assert len(bs['completed_chunks_at_generation']) == 21
           total = 0
-          for chunk in sm['chunks']:
+          for chunk_index_entry in sm['chunks']:
+              cm_path = root / chunk_index_entry['manifest']
+              cm = json.loads(cm_path.read_text(encoding='utf-8'))
+              assert cm['chunk_index'] == chunk_index_entry['chunk_index']
+              assert cm['row_count'] == chunk_index_entry['row_count']
+              assert cm['first_row_id'] == chunk_index_entry['first_row_id']
+              assert cm['last_row_id'] == chunk_index_entry['last_row_id']
               rows = []
-              for shard in chunk['shards']:
+              for shard in cm['shards']:
                   p = root / shard['path']
                   data = p.read_bytes()
                   assert hashlib.sha256(data).hexdigest() == shard['sha256']
@@ -57,15 +63,16 @@ jobs:
                   assert part[0]['row_id'] == shard['first_row_id']
                   assert part[-1]['row_id'] == shard['last_row_id']
                   rows.extend(part)
-              assert len(rows) == chunk['row_count']
-              assert rows[0]['row_id'] == chunk['first_row_id']
-              assert rows[-1]['row_id'] == chunk['last_row_id']
+              assert len(rows) == cm['row_count']
+              assert rows[0]['row_id'] == cm['first_row_id']
+              assert rows[-1]['row_id'] == cm['last_row_id']
               assert len({r['row_id'] for r in rows}) == len(rows)
               assert len({r['canonical_tag'] for r in rows}) == len(rows)
               total += len(rows)
           assert total == 92739
-          c18 = sm['chunks'][17]
-          assert c18['chunk_index'] == 18
+          c18_index = sm['chunks'][17]
+          assert c18_index['chunk_index'] == 18
+          c18 = json.loads((root/c18_index['manifest']).read_text(encoding='utf-8'))
           assert len(c18['shards']) == 10
           assert sum(x['row_count'] for x in c18['shards']) == 500
           print('Issue70 compact shard integrity PASS')
