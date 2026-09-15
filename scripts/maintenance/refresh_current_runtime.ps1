@@ -33,6 +33,7 @@ $stamp = [Guid]::NewGuid().ToString('N')
 $tempRoot = Join-Path $env:TEMP "DanbooruTagTool-issue91-refresh-$stamp"
 $publishRoot = Join-Path $tempRoot 'publish'
 $validationRoot = Join-Path $tempRoot 'validation'
+$validationRuntime = Join-Path $validationRoot 'runtime'
 $buildRoot = Join-Path $tempRoot 'build-catalog'
 $postBuildRoot = Join-Path $tempRoot 'post-build-catalog'
 $dotnet = Join-Path $RepositoryRoot '.tools/dotnet/sdk/dotnet.exe'
@@ -66,7 +67,7 @@ function Wait-ForCatalogHealth([string] $Catalog, [string] $UserDb) {
 }
 
 try {
-    New-Item -ItemType Directory -Path $publishRoot, "$validationRoot/Data", "$validationRoot/UserData", $buildRoot, $postBuildRoot -Force | Out-Null
+    New-Item -ItemType Directory -Path $publishRoot, "$validationRoot/Data", "$validationRoot/UserData", $validationRuntime, $buildRoot, $postBuildRoot -Force | Out-Null
     if (-not $SkipRestore) { Invoke-Checked $dotnet @('restore', (Join-Path $RepositoryRoot 'src/DanbooruTagTool.sln'), '--runtime', 'win-x64') }
     Invoke-Checked $dotnet @('publish', (Join-Path $RepositoryRoot 'src/DanbooruTagTool.App/DanbooruTagTool.App.csproj'), '-c', 'Release', '-r', 'win-x64', '--self-contained', 'true', '--no-restore', '-o', $publishRoot)
     $publishedExe = Join-Path $publishRoot 'DanbooruTagTool.exe'
@@ -77,7 +78,12 @@ try {
     Invoke-Checked $publishedExe @('--build-catalog', $RepositoryRoot, $RepositoryRoot, $buildRoot)
     Wait-ForFile (Join-Path $buildRoot 'catalog.db')
     Wait-ForCatalogHealth (Join-Path $buildRoot 'catalog.db') (Join-Path $validationRoot 'UserData/user.db')
-    $process = Start-Process -FilePath $publishedExe -WorkingDirectory $validationRoot -PassThru
+    Copy-Item -Path (Join-Path $publishRoot '*') -Destination $validationRuntime -Recurse -Force
+    New-Item -ItemType Directory -Path "$validationRuntime/Data", "$validationRuntime/UserData" -Force | Out-Null
+    Copy-Item -LiteralPath $catalogPath -Destination "$validationRuntime/Data/catalog.db"
+    Copy-Item -LiteralPath $userDbPath -Destination "$validationRuntime/UserData/user.db"
+    $validationExe = Join-Path $validationRuntime 'DanbooruTagTool.exe'
+    $process = Start-Process -FilePath $validationExe -WorkingDirectory $validationRuntime -PassThru
     try {
         $title = ''
         for ($i = 0; $i -lt 30; $i++) { Start-Sleep -Milliseconds 500; $process.Refresh(); $title = $process.MainWindowTitle; if ($title) { break } }
