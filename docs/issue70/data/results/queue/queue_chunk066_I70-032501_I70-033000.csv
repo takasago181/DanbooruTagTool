@@ -1,0 +1,501 @@
+row_id,canonical_tag,category,display_ja,search_ja,translation_status,translation_note
+I70-032501,furioso_(triumphant_return_of_the_auspicious_star)_(umamusume),4,衣錦還郷の瑞星,,REVIEW_REQUIRED,variant/form rendering plausible but not independently verified
+I70-032502,gaeun_(counter:side),4,ユキ,,REVIEW_REQUIRED,short kana-only candidate is too ambiguous without contextual search evidence
+I70-032503,gentiana_(ff15),4,ゲンティアナ,,REVIEW_REQUIRED,variant/form rendering plausible but not independently verified
+I70-032504,george_joestar_ii,4,ジョージ・ジョースターII世,,REVIEW_REQUIRED,Latin-heavy candidate requires verification
+I70-032505,geumgang_(odd_snail),4,金剛,,REVIEW_REQUIRED,short kanji-only candidate is too ambiguous without contextual search evidence
+I70-032506,ghost_girl_(niyeye2019),4,ghost girl (niyeye2019),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032507,giancarlo_bourbon_del_monte,4,ジャンカルロ・ブルボン・デル・モンテ,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032508,gilbert_bougainvillea,4,ギルベルト・ブーゲンビリ,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032509,gilbert_g.p._guilford,4,gilbert g.p. guilford,,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032510,gina_boyd,4,ジーナ・ボイド,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032511,ging_freecss,4,ジン=フリークス,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032512,glunk_(kirby),4,グランク,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032513,gm_sniper_ii,4,ジム・スナイパーII,,REVIEW_REQUIRED,Latin-heavy candidate requires verification
+I70-032514,godrose_(aotu_world),4,godrose (aotu world),,REVIEW_REQUIRED,non-Japanese/simplified-Chinese evidence
+I70-032515,gokotai_(kiwame),4,gokotai (kiwame),,REVIEW_REQUIRED,no reliable Japanese evidence
+I70-032516,goose_(untitled_goose_game),4,ガチョウ,ガチョウ（無題のガチョウのゲーム）,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032517,gosetsu_daito,4,gosetsu daito,,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032518,gotland_(saury_festival)_(kancolle),4,gotland (saury festival) (kancolle),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032519,grandpa_gohan,4,孫悟飯(じいちゃん),,REVIEW_REQUIRED,parenthetical candidate does not map cleanly to a copyright disambiguator
+I70-032520,grass_wonder_(racehorse),4,グラスワンダー,,REVIEW_REQUIRED,variant/form rendering plausible but not independently verified
+I70-032521,great_sabrecub,4,ベビーパンサー,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032522,gridknight_(ssss.gridman),4,グリッドナイト,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032523,griffon_(devil_may_cry_5),4,グリフォン,グリフォン（デビルメイクライ5）,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032524,grisha_yeager,4,グリシャ・イェーガー,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032525,guanyin,4,観音,,REVIEW_REQUIRED,short kanji-only candidate is too ambiguous without contextual search evidence
+I70-032526,guild_sweetheart,4,ギルドの看板娘,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032527,gustavo_fring,4,グスタボ・フリング,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032528,guu_(jungle_wa_itsumo),4,グウ（ジャングルwa itsumo）,,REVIEW_REQUIRED,short kana-only candidate is too ambiguous without contextual search evidence
+I70-032529,gwyn_(sait0moriyama),4,gwyn (sait0moriyama),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032530,hagurumon,4,ハグルモン,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032531,hanakuma_chifuyu_(sv),4,hanakuma chifuyu (sv),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032532,hanao_akari,4,はなおあかり,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032533,hanesaki_ayano,4,羽咲綾乃,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032534,hanyang_type_88_(girls'_frontline),4,漢陽88式,漢陽88式(ドールズフロントライン),ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032535,haruka_(stranded_in_utopia)_(arknights),4,haruka (stranded in utopia) (arknights),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032536,haruka-chan_(pan_(mimi)),4,Haruka-chan（パン（ミミ））,,REVIEW_REQUIRED,Latin-heavy candidate requires verification
+I70-032537,hasebe_aya,4,hasebe aya,,REVIEW_REQUIRED,no reliable Japanese evidence
+I70-032538,hattori_hanzo_uruka,4,服部半蔵鮎香,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032539,helena_harper,4,ヘレナ・ハーパー,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032540,heng_(nine_sols),4,heng (nine sols),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032541,henri_(helbai),4,henri (helbai),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032542,herrscher_of_sentience_(ooh!_summer!),4,herrscher of sentience (ooh! summer!),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032543,hibino_kafka_(kaiju_form),4,hibino kafka (kaiju form),,REVIEW_REQUIRED,non-Japanese/simplified-Chinese evidence
+I70-032544,hifumi_suu,4,一二三数,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032545,hiiragi_asuka_(tokyo_xanadu),4,柊明日香,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032546,hijiki_(deriku4),4,hijiki (deriku4),,REVIEW_REQUIRED,no reliable Japanese evidence
+I70-032547,himukai_rin,4,日向リン,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032548,hinaki_eiji,4,ヒナキ・エイジ,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032549,hino_matsuri_(osananajimi_ni_najimitai),4,日野まつり,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032550,hiwagishiakari_ai,4,平和岸灯愛,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032551,icey,4,艾希,,REVIEW_REQUIRED,short kanji-only candidate is too ambiguous without contextual search evidence
+I70-032552,illya_(christmas)_(princess_connect!),4,イリヤ(クリスマス),,REVIEW_REQUIRED,short kana-only candidate is too ambiguous without contextual search evidence
+I70-032553,iris_(ryou@ryou),4,アイリス（ryou@ryou）,,REVIEW_REQUIRED,parenthetical candidate does not map cleanly to a copyright disambiguator
+I70-032554,isabeau_de_baviere_(madoka_magica),4,イザボー・ド・バヴィエール,,REVIEW_REQUIRED,variant/form rendering plausible but not independently verified
+I70-032555,ishtar_(lawson_2018)_(fate),4,ishtar (lawson 2018) (fate),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032556,isolde_(the_last_fluttering_beat)_(reverse:1999),4,isolde (the last fluttering beat) (reverse:1999),,REVIEW_REQUIRED,non-Japanese/simplified-Chinese evidence
+I70-032557,ivis,4,アイヴィス,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032558,janus_(fear_of_changing...clothes)_(azur_lane),4,フィッティング・ラブ,,REVIEW_REQUIRED,variant/form rendering plausible but not independently verified
+I70-032559,jax_(league),4,jax (league),,REVIEW_REQUIRED,no reliable Japanese evidence
+I70-032560,jeanie_(master_of_eternity),4,ジニー,,REVIEW_REQUIRED,short kana-only candidate is too ambiguous without contextual search evidence
+I70-032561,josette_capua,4,ジョゼット・カプア,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032562,juliana_eberhardt,4,ユリアナ・エーベルハルト,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032563,kadence_(veyonis),4,kadence (veyonis),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032564,kagami_kyosuke,4,鑑恭介,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032565,kaito_(rei_no_sakura_sousetsu)_(vocaloid),4,零ノ桜・蒼雪,,REVIEW_REQUIRED,variant/form rendering plausible but not independently verified
+I70-032566,kallen_kaslana_(ritual_imayoh),4,カレン・カスラナ(聖儀装・今様),,REVIEW_REQUIRED,parenthetical candidate does not map cleanly to a copyright disambiguator
+I70-032567,kamen_rider_mach,4,仮面ライダーマッハ,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032568,kamino_saori,4,カミノ・サオリ,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032569,karasuma_kyousuke,4,烏丸京介,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032570,katagiri_nanase,4,片桐奈々瀬,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032571,katayama_minami,4,片山実波,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032572,kawai_honoka,4,カワイ・ホノカ,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032573,kawai_mona,4,川井モナ,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032574,kawaihara_yae,4,kawaihara yae,,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032575,kazan_(azur_lane),4,カザン,,REVIEW_REQUIRED,short kana-only candidate is too ambiguous without contextual search evidence
+I70-032576,killer_bee,4,キラービー,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032577,kinkaku_(kemono_friends),4,キンカク,キンカク(けものフレンズ),ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032578,kirara_tamako_(2nd_costume),4,kirara tamako (2nd costume),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032579,kirishima_ayato,4,霧嶋絢都,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032580,kirishima_mana,4,霧島マナ,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032581,kiryuu_shino,4,kiryuu shino,,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032582,kizaki_emi,4,城崎絵美,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032583,kizuna_akari_(moe),4,紲星あかり萌,,REVIEW_REQUIRED,variant/form rendering plausible but not independently verified
+I70-032584,klein_(sao-alo),4,クライン（sao-alo）,,REVIEW_REQUIRED,parenthetical candidate does not map cleanly to a copyright disambiguator
+I70-032585,kohanai_momomi,4,ももまーと,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032586,kotetsu_kiyone,4,虎徹清音,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032587,koyomi_(kamen_rider_wizard),4,コヨミ（カメンライダーウィザード）,,REVIEW_REQUIRED,short kana-only candidate is too ambiguous without contextual search evidence
+I70-032588,kudou_yukiko,4,工藤有希子,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032589,kujou_tsukiyo,4,九条月夜,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032590,kukuchi_heisuke,4,久々知兵助,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032591,kumano_(fancy_waves)_(azur_lane),4,ファンシーウェーブ,,REVIEW_REQUIRED,variant/form rendering plausible but not independently verified
+I70-032592,kurihara_mari,4,kurihara mari,,REVIEW_REQUIRED,no reliable Japanese evidence
+I70-032593,kuro_(miku_plus),4,クロ（ミクプラス）,,REVIEW_REQUIRED,short kana-only candidate is too ambiguous without contextual search evidence
+I70-032594,kurokona,4,黒こなさん,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032595,kuromaru_(mugen),4,クロマル,,REVIEW_REQUIRED,variant/form rendering plausible but not independently verified
+I70-032596,kuzuha_(12th_costume)_(nijisanji),4,kuzuha (12th costume) (nijisanji),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032597,kyarot_(trickcal),4,キャロット,キャロット(トリッカル),ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032598,kyuketsuki-chan_(mitsuba_choco),4,kyuketsuki-chan (mitsuba choco),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032599,lady_labrynth_of_the_silver_castle_(alternate_art),4,lady labrynth of the silver castle (alternate art),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032600,lain_paterson_(2nd_costume),4,レイン・パターソン(メイド服),,REVIEW_REQUIRED,parenthetical candidate does not map cleanly to a copyright disambiguator
+I70-032601,leilan_(hitozuma_fuumashi_leilan),4,leilan (hitozuma fuumashi leilan),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032602,lelie_(lelie_navigation),4,lelie (lelie navigation),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032603,li_meifon,4,李美鳳,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032604,libra_douko,4,天秤座の童虎,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032605,lila_rossi,4,lila rossi,,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032606,lilith_clawthorne,4,リリス・クロウソーン,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032607,lillie_(holiday_2024)_(pokemon),4,リーリエ(24シーズン),,REVIEW_REQUIRED,parenthetical candidate does not map cleanly to a copyright disambiguator
+I70-032608,little_nurse,4,メンソレータム,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032609,lucy_(ninjala),4,ルーシー,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032610,ludwig_grimm_(grimms_notes),4,ルートヴィッヒ・グリム,ルートヴィッヒ・グリム(グリムノーツ),ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032611,lumian_lee,4,卢米安,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032612,luna_(arcaea),4,ルナ,,REVIEW_REQUIRED,short kana-only candidate is too ambiguous without contextual search evidence
+I70-032613,machida_(ojimashu),4,machida (ojimashu),,REVIEW_REQUIRED,no reliable Japanese evidence
+I70-032614,maid_marian_(disney),4,maid marian (disney),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032615,maizuru,4,マイヅル,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032616,makishima_shougo,4,槙島聖護,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032617,male_alear_(gifted_dragons)_(fire_emblem),4,male alear (gifted dragons) (fire emblem),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032618,mami_(jonsun),4,mami (jonsun),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032619,manabe_yoshihisa,4,真鍋義久,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032620,mannen_ranko,4,万年嵐子,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032621,marc_(orange_juice),4,マール,,REVIEW_REQUIRED,short kana-only candidate is too ambiguous without contextual search evidence
+I70-032622,mario_disel,4,マリオ・ディゼル,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032623,matsukawa_issei,4,松川一静,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032624,meat_(vtuber),4,meat (vtuber),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032625,melantha_(letters_from_wessex)_(arknights),4,メランタ（ウェセックスからの手紙）（arknights）,,REVIEW_REQUIRED,parenthetical candidate does not map cleanly to a copyright disambiguator
+I70-032626,melfina_(outlaw_star),4,メルフィナ,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032627,memento_(sennen_sensou_aigis),4,記念品,記念品（Sennen Sensou Aigis）,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032628,mia_alice,4,ミア・アリス,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032629,mighty_morphin_red_ranger,4,マイティ・モーフィン・レッドレンジャー,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032630,minase_iori_(idolmaster_xenoglossia),4,ゼノ伊織,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032631,mingyin_meion_(vtuber),4,铭音MeIoN,,REVIEW_REQUIRED,Latin-heavy candidate requires verification
+I70-032632,mion_(htol#niq),4,ミオン,,REVIEW_REQUIRED,short kana-only candidate is too ambiguous without contextual search evidence
+I70-032633,misa_(hoshi_wo_miru_hito),4,みさ,,REVIEW_REQUIRED,short kana-only candidate is too ambiguous without contextual search evidence
+I70-032634,mitsumo,4,照雲,,REVIEW_REQUIRED,short kanji-only candidate is too ambiguous without contextual search evidence
+I70-032635,miyaguchi_hiromi,4,宮口hiromi,,REVIEW_REQUIRED,Latin-heavy candidate requires verification
+I70-032636,miyoshi_(joker_game),4,三好(ジョーカー・ゲーム),,REVIEW_REQUIRED,short kanji-only candidate is too ambiguous without contextual search evidence
+I70-032637,miyouji,4,米游姬,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032638,momose_riko,4,百瀬莉子,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032639,mother_brain,4,マザーブレイン,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032640,mousse_(campfire_cooking_smoke)_(arknights),4,mousse (campfire cooking smoke) (arknights),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032641,muelsyse_(golden_reverie)_(arknights),4,muelsyse (golden reverie) (arknights),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032642,murano_sayaka_(mahou_shoujo_rhythmic_heart),4,魔法少女リズミックハート,,REVIEW_REQUIRED,variant/form rendering plausible but not independently verified
+I70-032643,murasamemon,4,ムラサメモン,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032644,n_(summer_2022)_(pokemon),4,N_(22シーズン),,REVIEW_REQUIRED,romanized handle plus generated qualifier
+I70-032645,n102_(miracle_fairy)_(nikke),4,エヌ:ミラクルフェアリー,,REVIEW_REQUIRED,variant/form rendering plausible but not independently verified
+I70-032646,nanaka_(princess_connect!),4,ナナカ(プリコネ),,REVIEW_REQUIRED,short kana-only candidate is too ambiguous without contextual search evidence
+I70-032647,nanakusa_nazuna_(kouji_(campus_life)),4,ナナクーサ・ナズナ（Kouji（キャンパスライフ））,,REVIEW_REQUIRED,Latin-heavy candidate requires verification
+I70-032648,naoise,4,ノイシュ,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032649,nazume_mikuru,4,爲妹みくる,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032650,necrozma_(dawn_wings),4,ネクロズマ（あかつきのつばさ）,あかつきのつばさ,ACCEPTED_AI,manual chat curation selected reliable Japanese identity
+I70-032651,nee_(majo_no_ochakai),4,nee (majo no ochakai),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032652,nelu_(rob_ishi),4,nelu (rob ishi),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032653,neo_universe_(casual)_(umamusume),4,neo universe (casual) (umamusume),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032654,new_orleans_(azur_lane),4,ニューオリンズ,ニューオリンズ(アズールレーン),ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032655,neytharone_(drill_(emilio)),4,ネタロン（ドリル（エミリオ））,,REVIEW_REQUIRED,parenthetical candidate does not map cleanly to a copyright disambiguator
+I70-032656,nikaidou_kouhei,4,二階堂浩平,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032657,nira-chan_(kuraku_kuroku)_(zutomayo),4,にらメイド,,REVIEW_REQUIRED,variant/form rendering plausible but not independently verified
+I70-032658,nishimura_nanami,4,西村ななみ,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032659,nishino_flower_(sweet_juneberry)_(umamusume),4,宣誓、戦う君へのプロポーズ,,REVIEW_REQUIRED,variant/form rendering plausible but not independently verified
+I70-032660,nishiro_nya,4,ニャニシロ,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032661,noel_maresse_ascot,4,ノエル・マーレス・アスコット,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032662,oda_nobunaga_(drifters),4,織田信長,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032663,ojou_(nameo),4,ojou (nameo),,REVIEW_REQUIRED,no reliable Japanese evidence
+I70-032664,okiya_subaru,4,沖矢昴,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032665,oktyabrskaya_revolyutsiya_(kancolle),4,オクチャブリスカヤ・レヴォリューツィヤ,,REVIEW_REQUIRED,variant/form rendering plausible but not independently verified
+I70-032666,okuda_nao,4,奥田直,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032667,old_dorothy,4,古いドロシー,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032668,omegamon_x-antibody,4,オメガモンX,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032669,oohara_misaki_(koushinchou_no_kouhai_to_teishinchou_no_senpai_ga_renai_ni_hatten_suru_made),4,大原美咲,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032670,ootsuka_rihito,4,大塚理人,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032671,ophion_(housamo),4,オピオーン,,REVIEW_REQUIRED,variant/form rendering plausible but not independently verified
+I70-032672,osaka_shizuku_(odaiba_beach_girl),4,osaka shizuku (odaiba beach girl),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032673,osoko_(osomatsu-san),4,おそ子,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032674,otonashi_etsuko,4,乙名史悦子,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032675,otto_(nanoha),4,オットー（ナノハ）,,REVIEW_REQUIRED,parenthetical candidate does not map cleanly to a copyright disambiguator
+I70-032676,pariston_hill,4,パリストン,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032677,parn_(lodoss),4,パーン(ロードス島戦記),,REVIEW_REQUIRED,short kana-only candidate is too ambiguous without contextual search evidence
+I70-032678,pest_(jejejunum),4,pest (jejejunum),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032679,"pete_""maverick""_mitchell",4,ピート・ミッチェル,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032680,pink_delmo,4,ピンクデルモ,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032681,pokatto_(squchan),4,pokatto (squchan),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032682,princess_silver,4,シルバー王女,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032683,puklipo,4,プクリポ,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032684,pusheen_the_cat,4,プシーン,,ACCEPTED_AI,manual chat curation selected reliable Japanese identity
+I70-032685,qian_xiao_(jiang_qian_xiao),4,千晓,,REVIEW_REQUIRED,short kanji-only candidate is too ambiguous without contextual search evidence
+I70-032686,qiang_lei_(kingdom),4,羌瘣,,REVIEW_REQUIRED,short kanji-only candidate is too ambiguous without contextual search evidence
+I70-032687,qt_(space_dandy),4,QT（スペースダンディ）,,REVIEW_REQUIRED,Latin-heavy candidate requires verification
+I70-032688,queen_of_pain_(dota),4,クイーン・オブ・ペイン,,ACCEPTED_AI,manual chat curation selected reliable Japanese identity
+I70-032689,rachel_amber,4,rachel amber,,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032690,radiance_(hollow_knight),4,radiance (hollow knight),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032691,rafael_(coral_island),4,rafael (coral island),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032692,rei_membami,4,村雨葉織,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032693,reina_(phantom_rose),4,レイナ（ファントムローズ）,,REVIEW_REQUIRED,short kana-only candidate is too ambiguous without contextual search evidence
+I70-032694,richelieu_(swimsuit)_(kancolle),4,リシュリュー(水着),,REVIEW_REQUIRED,parenthetical candidate does not map cleanly to a copyright disambiguator
+I70-032695,riko_solari,4,ソラリリコ,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032696,rosalina_(halloween),4,rosalina (halloween),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032697,rosarian_(elizabeth_rose_bloodflame),4,rosarian (elizabeth rose bloodflame),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032698,rosemary_(wuthering_waves),4,ローズマリー,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032699,rosetta:_arete_(pgr),4,rosetta: arete (pgr),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032700,roy_(brave_lion)_(fire_emblem),4,roy (brave lion) (fire emblem),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032701,ruru_(phantom_world),4,ルル(ファントム・ワールド),,REVIEW_REQUIRED,short kana-only candidate is too ambiguous without contextual search evidence
+I70-032702,saber_(second_ascension)_(fate),4,saber (second ascension) (fate),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032703,safu,4,沙布,,REVIEW_REQUIRED,short kanji-only candidate is too ambiguous without contextual search evidence
+I70-032704,sagara_kazuto,4,サガラ・カズト,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032705,sakae_izumi,4,sakae izumi,,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032706,sakaki_takaya,4,さかきたかや,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032707,sakura_kyoko_(swimsuit_ver.),4,sakura kyoko (swimsuit ver.),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032708,sam_(a_summer's_end:_hong_kong_1986),4,黃嘉欣,,REVIEW_REQUIRED,variant/form rendering plausible but not independently verified
+I70-032709,sam_manson,4,sam manson,,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032710,saratoga_(swimsuit)_(kancolle),4,サラトガ(水着),,REVIEW_REQUIRED,parenthetical candidate does not map cleanly to a copyright disambiguator
+I70-032711,sasuke_(ganbare_goemon),4,サスケ,,REVIEW_REQUIRED,short kana-only candidate is too ambiguous without contextual search evidence
+I70-032712,satsukitane_mikako,4,五月田根美香子,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032713,sawashiro_tsubaki,4,沢代椿,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032714,sawsbuck_(summer),4,Sawsbuck（夏）,,REVIEW_REQUIRED,Latin-heavy candidate requires verification
+I70-032715,scathach-skadi_(swimsuit_ruler)_(third_ascension)_(fate),4,スカサハ=スカディ(水着),,REVIEW_REQUIRED,parenthetical candidate does not map cleanly to a copyright disambiguator
+I70-032716,seadramon,4,シードラモン,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032717,seitokaichou-chan_(minato_ojitan),4,セトカイチョウちゃん（港オジタン）,,REVIEW_REQUIRED,parenthetical candidate does not map cleanly to a copyright disambiguator
+I70-032718,sena_yuumi_(wantan_meo),4,sena yuumi (wantan meo),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032719,serizawa_ulala,4,芹沢うらら,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032720,shaomei_rin,4,リン・シャオメイ,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032721,sharuru_(precure)_(human),4,シャルル（dokidoki！precure）（人間）,,REVIEW_REQUIRED,Latin-heavy candidate requires verification
+I70-032722,sheba_(golden_sun),4,シバ(黄金の太陽),,REVIEW_REQUIRED,short kana-only candidate is too ambiguous without contextual search evidence
+I70-032723,shiina_aki,4,椎名亜樹,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032724,shiraishi_(nemuri_nemu),4,白石さん,,REVIEW_REQUIRED,variant/form rendering plausible but not independently verified
+I70-032725,shiraishi_saki,4,白石沙季,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032726,shirakawa_miyako,4,白川京,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032727,shoggoth,4,ショゴス,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032728,shuppo_(blue_archive),4,シュッポ,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032729,shuten_douji_(onmyoji),4,酒吞童子,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032730,sideswipe,4,ランボル,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032731,sinder_(old_design)_(vtuber),4,sinder (old design) (vtuber),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032732,singed_(league),4,歌った,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032733,sohma_akito,4,草摩慊人,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032734,souma_ren_(kuromiya),4,蒼午漣,,REVIEW_REQUIRED,variant/form rendering plausible but not independently verified
+I70-032735,spinner_(boku_no_hero_academia),4,スピナー,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032736,spriggan_(last_origin),4,A-14Bスプリガン,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032737,spyro_the_dragon,4,スパイロ,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032738,stan_(honkai_impact),4,スタン（ホンカイインパクト）,,REVIEW_REQUIRED,short kana-only candidate is too ambiguous without contextual search evidence
+I70-032739,stella_(flou),4,ステラ（flou）,,REVIEW_REQUIRED,short kana-only candidate is too ambiguous without contextual search evidence
+I70-032740,steven_seagal,4,スティーブンセガール,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032741,subaru_(maid)_(blue_archive),4,subaru (maid) (blue archive),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032742,succubus_(monster_girl_encyclopedia),4,サキュバス,サキュバス(魔物娘図鑑),ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032743,surfer_(arknights),4,サーファー,サーファー(アークナイツ),ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032744,taihou_(warship_girls_r),4,大凤,,REVIEW_REQUIRED,short kanji-only candidate is too ambiguous without contextual search evidence
+I70-032745,takahashi_fuuko,4,始業式澪の後ろの子,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032746,takane_lui_(qipao),4,鷹嶺ルイ(オリエンタル衣装),,REVIEW_REQUIRED,parenthetical candidate does not map cleanly to a copyright disambiguator
+I70-032747,takashima_remi,4,高島レミ,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032748,takatsu_kokone,4,鷹津ココネ,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032749,takatsuki_kasumi,4,高槻かすみ,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032750,talon_feather_(last_origin),4,E-16タロンフェザー,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032751,talos_(nikke),4,T.A.L.O.S.(勝利の女神:NIKKE),,REVIEW_REQUIRED,parenthetical candidate does not map cleanly to a copyright disambiguator
+I70-032752,tanaka_ryuunosuke,4,田中龍之介,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032753,tanuki_mario,4,タヌキマリオ,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032754,tarisa_manandal,4,タリサ・マナンダル,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032755,tendo_hayate,4,天堂はやて,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032756,tetsukawa_toa,4,鉄川兎愛,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032757,thelema_nutriscu_(roseate_summer),4,夏を染める薔薇,,REVIEW_REQUIRED,variant/form rendering plausible but not independently verified
+I70-032758,tim_rhymeless,4,ティム・ライムレス,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032759,tin_(mixflavor),4,スズ（ミックスフレーバー）,,REVIEW_REQUIRED,short kana-only candidate is too ambiguous without contextual search evidence
+I70-032760,tlipoca,4,tlipoca,,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032761,tohru_(dragon)_(maidragon),4,tohru (dragon) (maidragon),,REVIEW_REQUIRED,no reliable Japanese evidence
+I70-032762,tohsaka_rin_(unlimited_blade_works),4,大人凛,,REVIEW_REQUIRED,variant/form rendering plausible but not independently verified
+I70-032763,tokimori_aoi,4,時守あおい,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032764,tokoro_tennosuke,4,ところ天の助,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032765,topman_warcury,4,トップマン・ウォーキュリー聖,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032766,tornadus_(therian),4,トルネロス(れいじゅう),,REVIEW_REQUIRED,parenthetical candidate does not map cleanly to a copyright disambiguator
+I70-032767,toto_(the_wizard_of_oz),4,トト,,REVIEW_REQUIRED,short kana-only candidate is too ambiguous without contextual search evidence
+I70-032768,tristan_(chicken_of_luluhawa)_(fate),4,ルルハワの鶏,,REVIEW_REQUIRED,variant/form rendering plausible but not independently verified
+I70-032769,tsujikura_spica,4,辻倉朱比華,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032770,tsuki_no_iwakasa,4,津波いいえ,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032771,tsukishima_ruriko,4,月島瑠璃子,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032772,unozawa_shiori,4,宇野沢栞,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032773,utatane_nasa_(nasa_2.0),4,utatane nasa (nasa 2.0),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032774,v1_(ultrakill),4,v1 (ultrakill),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032775,vampire's_sister_(gogalking),4,ヴァンパイアの妹（ゴーガルキング）,,REVIEW_REQUIRED,parenthetical candidate does not map cleanly to a copyright disambiguator
+I70-032776,venator_(deadlock),4,venator (deadlock),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032777,vi3_(ex_astris),4,薇3,,REVIEW_REQUIRED,short kanji-only candidate is too ambiguous without contextual search evidence
+I70-032778,vice_(kamen_rider_revice),4,バイス(仮面ライダーリバイス),,REVIEW_REQUIRED,short kana-only candidate is too ambiguous without contextual search evidence
+I70-032779,vit,4,ヴィット,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032780,wanderer_(resplendent_feast)_(genshin_impact),4,wanderer (resplendent feast) (genshin impact),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032781,watanabe_saki,4,渡辺早季,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032782,wis'adel_(supernova)_(arknights),4,wis'adel (supernova) (arknights),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032783,wisp_(sonic),4,ウィスプ,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032784,wreck-it_ralph_(character),4,レック・イット・ラルフ,,REVIEW_REQUIRED,variant/form rendering plausible but not independently verified
+I70-032785,xia_yu_yao,4,夏語遙,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032786,xuan_(mixflavor),4,xuan (mixflavor),,REVIEW_REQUIRED,no reliable Japanese evidence
+I70-032787,yamada_ayumi,4,山田あゆみ,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032788,yomiuri_nikei,4,ヨミウリニケイ,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032789,yosano_akiko_(bungou_stray_dogs),4,yosano akiko (bungou stray dogs),,REVIEW_REQUIRED,non-Japanese/simplified-Chinese evidence
+I70-032790,yosumi_(vtuber),4,yosumi (vtuber),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032791,yui_(kuro_kosyou),4,結,,REVIEW_REQUIRED,short kanji-only candidate is too ambiguous without contextual search evidence
+I70-032792,yukimura_shinya,4,雪村心夜,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032793,yumeshiro_miya,4,夢城美夜,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032794,yuuri_shachi,4,夕莉シャチ,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032795,yuzumoto_hitomi,4,リトルアーミー,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032796,zeorymer,4,ゼオライマー,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032797,5pb_(neptunia),4,5pb.ちゃん,,REVIEW_REQUIRED,Latin-heavy candidate requires verification
+I70-032798,acheron_(star_rail_live_2025)_(honkai:_star_rail),4,acheron (star rail live 2025) (honkai: star rail),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032799,adilisia_lenn_mathers,4,アディリシア・レン・メイザース,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032800,admiral_nakhimov_(cheerleading_mechanic?)_(azur_lane),4,チアリング・チューナー?,,REVIEW_REQUIRED,variant/form rendering plausible but not independently verified
+I70-032801,ahisha_(di_le_to),4,アヒシャちゃん,,REVIEW_REQUIRED,variant/form rendering plausible but not independently verified
+I70-032802,air_shakur_(belphegor's_prime)_(umamusume),4,フェアウェルを継ぎ接いで,,REVIEW_REQUIRED,variant/form rendering plausible but not independently verified
+I70-032803,aircraft_carrier_summer_princess,4,空母夏姫,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032804,airi_(quilt),4,アイリ(きると),,REVIEW_REQUIRED,short kana-only candidate is too ambiguous without contextual search evidence
+I70-032805,aisha_(saga),4,アイシャ,アイシャ（サガ）,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032806,akamine_yuuna,4,赤嶺友奈,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032807,akebono_(race_queen)_(kancolle),4,レースクイーン曙,,REVIEW_REQUIRED,variant/form rendering plausible but not independently verified
+I70-032808,akiyama_akane,4,akiyama akane,,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032809,akuru-chan_(ado),4,あくるちゃん,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032810,albus_severus_potter,4,アルバス・セブルス・ポッター,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032811,alexander_(veil),4,alexander (veil),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032812,alice_garnet_nakata,4,アリス・ガーネット・中田,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032813,amatsuka_fubuki,4,アマツカフブキ,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032814,ambriel_(holiday)_(arknights),4,ambriel (holiday) (arknights),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032815,ami_dixie,4,アミディクシー,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032816,amity_blight_(timeskip),4,amity blight (timeskip),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032817,anfang_(chihuri),4,アンファン（チフリ）,,REVIEW_REQUIRED,parenthetical candidate does not map cleanly to a copyright disambiguator
+I70-032818,ann_(pokemon),4,アン(アニポケ),,REVIEW_REQUIRED,short kana-only candidate is too ambiguous without contextual search evidence
+I70-032819,anna_(gekkou_no_carnevale),4,アンナ（gekkou no carnevale）,,REVIEW_REQUIRED,short kana-only candidate is too ambiguous without contextual search evidence
+I70-032820,ant-man,4,アントマン,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032821,aoba_anoa,4,空羽亜乃亜,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032822,aohitsugi_samatoki_(tdd_era),4,aohitsugi samatoki (tdd era),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032823,aoi_saki_(senpai_wa_otokonoko),4,蒼井咲,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032824,aojiru_(yume_2kki),4,青汁,,REVIEW_REQUIRED,short kanji-only candidate is too ambiguous without contextual search evidence
+I70-032825,aoyama_kazuki,4,aoyama kazuki,,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032826,archerfish_(warship_girls_r),4,アーチャーフィッシュ,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032827,ardyn_izunia,4,アーデン・イズニア,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032828,aria_(nikke),4,アリア(勝利の女神:NIKKE),,REVIEW_REQUIRED,short kana-only candidate is too ambiguous without contextual search evidence
+I70-032829,aria_tenetorisu,4,アリア・テネトリス,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032830,artia,4,アティア,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032831,arvis_(fire_emblem),4,アルヴィス,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032832,asakura_yuuna,4,朝倉ゆうな,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032833,ashton_marten_(vtuber),4,アシュトンマーチン,,REVIEW_REQUIRED,variant/form rendering plausible but not independently verified
+I70-032834,avatar_(sonic_forces),4,アバター,アバター(ソニックフォース),ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032835,aventurine_(bullseye)_(honkai:_star_rail),4,aventurine (bullseye) (honkai: star rail),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032836,aventurine_(stoneheart's_oath_ring)_(honkai:_star_rail),4,aventurine (stoneheart's oath ring) (honkai: star rail),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032837,aya_(project_moon),4,aya (project moon),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032838,ayasaki_yuu,4,ayasaki yuu,,REVIEW_REQUIRED,no reliable Japanese evidence
+I70-032839,baek_changpo,4,ペク・チャンポ,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032840,battle_magician_(elsword),4,バトルマジシャン,バトルマジシャン（エルワード）,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032841,bearded_seal_(kemono_friends),4,アゴヒゲアザラシ,アゴヒゲアザラシ(けものフレンズ),ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032842,black_knife_assassin,4,黒き刃の刺客,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032843,blade_(brown_dust),4,ブレイド,ブレイド(ブラウンダスト),ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032844,blaze_(burst_feline)_(arknights),4,Blaze（ネコのバースト）（arknights）,,REVIEW_REQUIRED,Latin-heavy candidate requires verification
+I70-032845,blazermate,4,ブレザーメイツ,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032846,bo-katan_kryze,4,bo-katan kryze,,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032847,brynhild_(third_ascension)_(fate),4,brynhild (third ascension) (fate),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032848,bulma_(future),4,未来ブルマ,,REVIEW_REQUIRED,variant/form rendering plausible but not independently verified
+I70-032849,burmy_(sandy),4,burmy (sandy),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032850,c.q._cumber_(splatoon),4,ナマコ車掌,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032851,carmen_(persona_5),4,カルメン,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032852,cat_(ghost_trick),4,猫(ゴーストトリック),,REVIEW_REQUIRED,short kanji-only candidate is too ambiguous without contextual search evidence
+I70-032853,catherine_(granblue_fantasy),4,キャサリン,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032854,cattleya_yvette_la_baume_le_blanc_de_la_fontaine,4,カトレア・イヴェット・ラ・ボーム・ル・ブラン・ド・ラ・フォンティーヌ,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032855,chaldea_no_mono,4,カルデアの者,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032856,changyu_(pgr),4,常羽,,REVIEW_REQUIRED,short kanji-only candidate is too ambiguous without contextual search evidence
+I70-032857,charles_xavier,4,プロフェッサーX,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032858,charlotte_(black_survival),4,charlotte (black survival),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032859,chinese_water_dragon_(kemono_friends),4,インドシナウォータードラゴン,インドシナウォータードラゴン(けものフレンズ),ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032860,chizuru_(chaos_zero_nightmare),4,chizuru (chaos zero nightmare),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032861,coral_(summon_night),4,コーラル,コーラル(SN4),ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032862,cupsy_yummy,4,カプシー☆ヤミー,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032863,daisy_mae_(animal_crossing),4,ウリ,,REVIEW_REQUIRED,short kana-only candidate is too ambiguous without contextual search evidence
+I70-032864,darkchylde,4,darkchylde,,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032865,darkness_devil,4,闇の悪魔,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032866,darth_wooser,4,ダースウーザー,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032867,devout,4,導師,,REVIEW_REQUIRED,short kanji-only candidate is too ambiguous without contextual search evidence
+I70-032868,diana_(brown_dust),4,ディアナ,ディアナ(ブラウンダスト),ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032869,dooby_(summer),4,dooby (summer),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032870,dozle_zabi,4,ドズル・ザビ,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032871,dracomon,4,ドラコモン,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032872,dragreder,4,ドラグレッダー,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032873,durandal_(purrfect_holiday)_(honkai_impact),4,durandal (purrfect holiday) (honkai impact),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032874,ebisumaru,4,エビス丸,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032875,echo_(apex_legends),4,echo (apex legends),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032876,elena_(grandia),4,エレナ,,REVIEW_REQUIRED,short kana-only candidate is too ambiguous without contextual search evidence
+I70-032877,ender_dragon,4,エンダードラゴン,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032878,enid_(tagua),4,enid (tagua),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032879,enomoto_rion,4,榎本凛音,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032880,erasa_(dragon_ball),4,イレーザ,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032881,estella_(dq10),4,エステラ,,REVIEW_REQUIRED,variant/form rendering plausible but not independently verified
+I70-032882,etra_(etra-chan_wa_mita!),4,エトラちゃん,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032883,eua_(higurashi),4,エウア,,REVIEW_REQUIRED,short kana-only candidate is too ambiguous without contextual search evidence
+I70-032884,evarella_(berserk),4,エヴァレラ,エヴァレラ（バーセルク）,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032885,eve_(rurudo),4,イヴちゃん,,REVIEW_REQUIRED,variant/form rendering plausible but not independently verified
+I70-032886,evil_aqua,4,イビルアクア,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032887,eyeball_(yui930),4,eyeball (yui930),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032888,falke_(street_fighter),4,ファルケ,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032889,fatui_agent_(genshin_impact),4,fatui agent (genshin impact),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032890,fellow_honest,4,フェロー・オネスト,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032891,ferrus_manus,4,フェルス・マヌス,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032892,fiamma_of_the_right,4,右方のフィアンマ,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032893,fidelio_(metaphor:_refantazio),4,フィデリオ・マグナス,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032894,fitoria_(tate_no_yuusha_no_nariagari),4,フィトリア,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032895,flare_earlgrande_gioral,4,フレア・アールグランデ・ジオラル,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032896,fujieda_honami,4,藤田名誉,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032897,fujimaru_myriam_(altermagna),4,fujimaru myriam (altermagna),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032898,fujimaru_ritsuka_(male)_(fgo_fes._2025),4,fujimaru ritsuka (male) (fgo fes. 2025),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032899,fujin_(ff8),4,風神(FF8),,REVIEW_REQUIRED,short kanji-only candidate is too ambiguous without contextual search evidence
+I70-032900,fuyuki_yuka,4,冬木唯花,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032901,g36_(mini_maid)_(girls'_frontline),4,g36 (mini maid) (girls' frontline),,REVIEW_REQUIRED,machine-like or identity-mismatched wording
+I70-032902,gallant_(express-ive_delivery)_(azur_lane),4,想いの特急便,,REVIEW_REQUIRED,variant/form rendering plausible but not independently verified
+I70-032903,gigan,4,ガイガン,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032904,gnome_(project_moon),4,gnome (project moon),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032905,goidou_yui,4,五位堂結,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032906,goldlewis_dickinson,4,ゴールドルイス=ディキンソン,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032907,gordin_(fire_emblem),4,ゴードン,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032908,grace_(identity_v),4,グレイス,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032909,grace_thompson,4,グレース・トンプソン,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032910,gregory_edgeworth,4,御剣信,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032911,guider_to_the_eternal_edge,4,永遠の端へのガイダー,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032912,guinevere_(fire_emblem),4,ギネヴィア,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032913,gun_devil_(chainsaw_man),4,銃の悪魔,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032914,gyaru_landsknecht_(centurii-chan),4,gyaru landsknecht (centurii-chan),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032915,ha_yun,4,ハユン,,REVIEW_REQUIRED,short kana-only candidate is too ambiguous without contextual search evidence
+I70-032916,hanasaki_kokona,4,hanasaki kokona,,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032917,hanazuki_(kancolle),4,花月(艦これ),,REVIEW_REQUIRED,short kanji-only candidate is too ambiguous without contextual search evidence
+I70-032918,haneame,4,haneame,,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032919,hank_anderson,4,ハンク・アンダーソン,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032920,harpy_(nucomas),4,harpy (nucomas),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032921,haruhina_urara,4,春雛うらら,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032922,hasebe_yutaka,4,長谷ルシ,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032923,hatsune_miku_(conflict),4,hatsune miku (conflict),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032924,hatsune_miku_(pierretta),4,ピエレッタ,,REVIEW_REQUIRED,variant/form rendering plausible but not independently verified
+I70-032925,haures_clifford,4,ハウレス・クリフォード,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032926,henried_socie_rouen,4,henried socie rouen,,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032927,herikawa_koishi,4,ヘレカワ・コイシ,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032928,herta_(rubert_iii)_(honkai:_star_rail),4,ルパート3世,,REVIEW_REQUIRED,variant/form rendering plausible but not independently verified
+I70-032929,higashikata_tsurugi,4,東方つるぎ,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032930,hikifune_kirio,4,曳舟桐生,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032931,himeka_chiyako,4,姫歌千夜子,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032932,hina_momo,4,雛桃,,REVIEW_REQUIRED,short kanji-only candidate is too ambiguous without contextual search evidence
+I70-032933,hinomori_anzu,4,あんずちゃん,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032934,hirokawa_takemi,4,広川武美,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032935,hope_stelar_(mega_man),4,星河あかね,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032936,hresvelgr,4,フレズヴェルク,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032937,hu_pen_(azur_lane),4,虎賁(アズールレーン),,REVIEW_REQUIRED,short kanji-only candidate is too ambiguous without contextual search evidence
+I70-032938,iceman_(x-men),4,アイスマン,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032939,ihara_saeko,4,イハラ・ソーコ,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032940,illaoi_(league),4,イラオイ,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032941,inae_koron,4,稲枝ころん,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032942,indian_rhinoceros_(kemono_friends),4,インドサイ,インドサイ(けものフレンズ),ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032943,inner_mongolia_(nanimonothing),4,inner mongolia (nanimonothing),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032944,inuakari_suzu_(inuakarisan),4,inuakari suzu (inuakarisan),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032945,invincible_marisa,4,八頭身魔理沙,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032946,iris.exe_(mega_man),4,アイリス,アイリス(ロックマンエグゼ),ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032947,iroha_(rune_factory),4,いろは(ルーンファクトリー),,REVIEW_REQUIRED,short kana-only candidate is too ambiguous without contextual search evidence
+I70-032948,iru_may_(akairiot),4,iru may (akairiot),,REVIEW_REQUIRED,no reliable Japanese evidence
+I70-032949,iscan_(pokemon),4,ススキ,,REVIEW_REQUIRED,short kana-only candidate is too ambiguous without contextual search evidence
+I70-032950,italian_wolf_(kemono_friends),4,イタリアオオカミ,イタリアオオカミ(けものフレンズ),ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032951,izumi_houka,4,和泉朋花,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032952,jamie_siu_(outfit_3),4,jamie siu (outfit 3),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032953,jet_(shadow_slave),4,jet (shadow slave),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032954,jun_(hamunezuko_(nezukonezu32)),4,jun (hamunezuko (nezukonezu32)),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032955,juno_(fire_emblem),4,ユーノ(封印の剣),,REVIEW_REQUIRED,short kana-only candidate is too ambiguous without contextual search evidence
+I70-032956,junyou_(azur_lane),4,隼鷹(アズールレーン),,REVIEW_REQUIRED,short kanji-only candidate is too ambiguous without contextual search evidence
+I70-032957,kadota_hiromi,4,門田ヒロミ,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032958,kamen_rider_skull,4,仮面ライダースカル,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032959,kamen_rider_super-1,4,仮面ライダースーパー1,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032960,kamishiro_ouka,4,上代桜花,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032961,kamiya_tsurugi,4,狼谷吊戯,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032962,katen_kyoukotsu,4,花天狂骨,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032963,kawamoto_momo,4,川本モモ,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032964,kawamura_ami,4,川村アミ,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032965,kawasumi_itsuki,4,川澄樹,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032966,kayama_tamami,4,カヤマタマミ,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032967,kayna_(monster_hunter),4,ケイナ,,REVIEW_REQUIRED,short kana-only candidate is too ambiguous without contextual search evidence
+I70-032968,kazamatsuri_kazari,4,風祭かざり,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032969,kazuradrop_(third_ascension)_(fate),4,kazuradrop (third ascension) (fate),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032970,kei_sakuragi,4,kei sakuragi,,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032971,keltan,4,ケルタン,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032972,kemomiku,4,kemomiku,,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032973,keppi,4,keppi,,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032974,kiki_(splatoon),4,キクラ,,REVIEW_REQUIRED,short kana-only candidate is too ambiguous without contextual search evidence
+I70-032975,kingprotea_(second_ascension)_(fate),4,kingprotea（第二性性能）（運命）,,REVIEW_REQUIRED,Latin-heavy candidate requires verification
+I70-032976,kinomiya_takao,4,木ノ宮タカオ,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032977,kiriko_(black_jack),4,ドクターキリコ,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032978,kirisaki_kyouko_(toloveru),4,霧崎恭子,,REVIEW_REQUIRED,variant/form rendering plausible but not independently verified
+I70-032979,kohinata_miku_(shenshoujing),4,シェンショウジン,,REVIEW_REQUIRED,variant/form rendering plausible but not independently verified
+I70-032980,kokorowa-hime,4,ココロワヒメ,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032981,komano_manato_(white_heart_silhouette),4,komano manato (white heart silhouette),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032982,komazawa_noi_(real),4,駒沢乃依,,REVIEW_REQUIRED,variant/form rendering plausible but not independently verified
+I70-032983,kongou_(nakau)_(kancolle),4,金剛(なか卯),,REVIEW_REQUIRED,short kanji-only candidate is too ambiguous without contextual search evidence
+I70-032984,konoha_(nozomi_tsubame),4,このは,,REVIEW_REQUIRED,short kana-only candidate is too ambiguous without contextual search evidence
+I70-032985,kosaka_shizuru,4,高坂静流,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032986,koucha_latte,4,絵ラテ,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032987,kouga_(inuyasha),4,鋼牙,,REVIEW_REQUIRED,short kanji-only candidate is too ambiguous without contextual search evidence
+I70-032988,kowata_shunki_(megechan),4,虎渡駿輝,,REVIEW_REQUIRED,variant/form rendering plausible but not independently verified
+I70-032989,kson_(person),4,kson (person),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032990,kume_(touhou),4,くめ,,REVIEW_REQUIRED,short kana-only candidate is too ambiguous without contextual search evidence
+I70-032991,kurara-chan_(suzutsuki_kurara),4,kurara-chan (suzutsuki kurara),,REVIEW_REQUIRED,no reliable Japanese evidence
+I70-032992,kureha_(senran_kagura),4,紅葉(閃乱カグラ),,REVIEW_REQUIRED,short kanji-only candidate is too ambiguous without contextual search evidence
+I70-032993,kurosawa_yae,4,kurosawa yae,,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032994,kurumi_noah_(8th_costume),4,kurumi noah (8th costume),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032995,kuybyshev_(azur_lane),4,クイビシェフ,クイビシェフ(アズールレーン),ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032996,kyoshi_(avatar),4,kyoshi (avatar),,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
+I70-032997,lappland_(young)_(arknights),4,拉普兰德(幼年期),,REVIEW_REQUIRED,parenthetical candidate does not map cleanly to a copyright disambiguator
+I70-032998,lee_jaheon,4,李慈宪,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-032999,lee_nabi,4,リー・ナビ,,ACCEPTED_AI,single Japanese candidate with no conflicting evidence
+I70-033000,legato_bluesummers,4,legato bluesummers,,REVIEW_REQUIRED,multiple/conflicting Japanese candidates
