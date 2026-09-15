@@ -3,6 +3,7 @@ import argparse
 import csv
 import json
 import time
+import urllib.error
 import urllib.parse
 import urllib.request
 from datetime import datetime, timezone
@@ -11,17 +12,33 @@ from pathlib import Path
 EXPECTED_ROWS = 195
 API = "https://danbooru.donmai.us/tags.json"
 USER_AGENT = "DanbooruTagTool-Issue96-Audit/1.0"
+REQUEST_DELAY_SECONDS = 0.45
+MAX_ATTEMPTS = 7
 
 
 def fetch_tag(name: str) -> dict | None:
     params = urllib.parse.urlencode({"search[name]": name, "limit": "5"})
-    req = urllib.request.Request(f"{API}?{params}", headers={"User-Agent": USER_AGENT})
-    with urllib.request.urlopen(req, timeout=20) as resp:
-        data = json.load(resp)
-    for row in data:
-        if row.get("name") == name:
-            return row
-    return None
+    url = f"{API}?{params}"
+    for attempt in range(1, MAX_ATTEMPTS + 1):
+        req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+        try:
+            with urllib.request.urlopen(req, timeout=30) as resp:
+                data = json.load(resp)
+            for row in data:
+                if row.get("name") == name:
+                    return row
+            return None
+        except urllib.error.HTTPError as exc:
+            if exc.code != 429 or attempt == MAX_ATTEMPTS:
+                raise
+            retry_after = exc.headers.get("Retry-After")
+            try:
+                wait = float(retry_after) if retry_after else min(4.0 * attempt, 20.0)
+            except ValueError:
+                wait = min(4.0 * attempt, 20.0)
+            print(f"rate limited for {name}; retry {attempt}/{MAX_ATTEMPTS} after {wait:.1f}s")
+            time.sleep(wait)
+    raise RuntimeError("unreachable")
 
 
 def main() -> None:
@@ -74,7 +91,7 @@ def main() -> None:
         })
         if i % 25 == 0:
             print(f"checked {i}/{EXPECTED_ROWS}")
-        time.sleep(0.08)
+        time.sleep(REQUEST_DELAY_SECONDS)
 
     if failures:
         details = "\n".join(f"- {name}: {why}" for name, why in failures[:100])
