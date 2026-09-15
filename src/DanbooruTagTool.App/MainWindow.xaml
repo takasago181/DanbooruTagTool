@@ -388,7 +388,7 @@
             <TabItem Header="辞書・検索" IsEnabled="{Binding CanEditPrompt}">
                 <DockPanel>
                 <Grid Margin="0,8,0,0">
-                    <Grid.ColumnDefinitions><ColumnDefinition x:Name="NavColumn" Width="230" MinWidth="180"/><ColumnDefinition Width="8"/><ColumnDefinition Width="*" MinWidth="320"/><ColumnDefinition Width="8"/><ColumnDefinition x:Name="PromptColumn" Width="280" MinWidth="260"/></Grid.ColumnDefinitions>
+                    <Grid.ColumnDefinitions><ColumnDefinition x:Name="NavColumn" Width="230" MinWidth="180"/><ColumnDefinition Width="8"/><ColumnDefinition Width="3*" MinWidth="320"/><ColumnDefinition Width="8"/><ColumnDefinition x:Name="PromptColumn" Width="1*" MinWidth="260"/></Grid.ColumnDefinitions>
                     <Border Grid.Column="0" Style="{StaticResource PanelCard}" Padding="12">
                         <DockPanel>
                             <StackPanel DockPanel.Dock="Top"><TextBlock Text="タグを探す" Style="{StaticResource PanelTitle}" FontSize="16"/><TextBlock Text="Specialはジャンルから発見できます。" Style="{StaticResource PanelSubtitle}" Margin="0,0,0,6"/></StackPanel>
@@ -445,7 +445,7 @@
                                         <TextBlock Grid.Row="2" Text="分類階層" Style="{StaticResource HintText}" Margin="0,0,12,0"/><TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding SelectedEntry.Breadcrumb}"/>
                                     </Grid>
                                     <TextBlock Text="{Binding SelectedEntry.Description}" Margin="0,0,0,10"/>
-                                    <Button Content="{Binding SelectedEntry.DetailAddLabel}" Command="{Binding SelectedEntry.Add}" HorizontalAlignment="Left" Margin="0,0,0,12"><Button.Style><Style TargetType="{x:Type Button}" BasedOn="{StaticResource AddStateButton}"><Setter Property="FontSize" Value="13"/><Setter Property="Background" Value="{StaticResource PrimaryBrush}"/><Setter Property="Foreground" Value="White"/><Style.Triggers><DataTrigger Binding="{Binding SelectedEntry}" Value="{x:Null}"><Setter Property="Visibility" Value="Collapsed"/></DataTrigger></Style.Triggers></Style></Button.Style></Button>
+                                    <Button Content="{Binding SelectedEntry.DetailAddLabel}" ToolTip="{Binding SelectedEntry.DetailAddLabel}" ToolTipService.ShowOnDisabled="True" Command="{Binding SelectedEntry.Add}" HorizontalAlignment="Left" Margin="0,0,0,12"><Button.Style><Style TargetType="{x:Type Button}" BasedOn="{StaticResource AddStateButton}"><Setter Property="FontSize" Value="13"/><Setter Property="Background" Value="{StaticResource PrimaryBrush}"/><Setter Property="Foreground" Value="White"/><Style.Triggers><DataTrigger Binding="{Binding SelectedEntry}" Value="{x:Null}"><Setter Property="Visibility" Value="Collapsed"/></DataTrigger></Style.Triggers></Style></Button.Style></Button>
                                     <StackPanel>
                                         <StackPanel.Style><Style TargetType="StackPanel"><Style.Triggers><DataTrigger Binding="{Binding Related.Count}" Value="0"><Setter Property="Visibility" Value="Collapsed"/></DataTrigger></Style.Triggers></Style></StackPanel.Style>
                                         <TextBlock Text="同じ分類のSpecial" FontWeight="SemiBold" Margin="0,0,0,6"/>
@@ -476,7 +476,7 @@
 
             <TabItem Header="Prompt編集">
                 <Grid Margin="0,12,0,0">
-                    <Grid.ColumnDefinitions><ColumnDefinition x:Name="EditorColumn" Width="7*" MinWidth="350"/><ColumnDefinition Width="8"/><ColumnDefinition x:Name="EnglishColumn" Width="3*" MinWidth="225"/></Grid.ColumnDefinitions>
+                    <Grid.ColumnDefinitions><ColumnDefinition x:Name="EditorColumn" Width="3*" MinWidth="350"/><ColumnDefinition Width="8"/><ColumnDefinition x:Name="EnglishColumn" Width="1*" MinWidth="225"/></Grid.ColumnDefinitions>
                     <Border Grid.Column="0" Style="{StaticResource PanelCard}" IsEnabled="{Binding CanEditPrompt}">
                         <Grid>
                             <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="*"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>

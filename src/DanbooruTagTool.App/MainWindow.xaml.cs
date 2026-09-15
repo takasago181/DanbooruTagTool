@@ -28,11 +28,11 @@ public partial class MainWindow : Window
         Left = Math.Clamp(vm.Ui.Left, SystemParameters.VirtualScreenLeft, SystemParameters.VirtualScreenLeft + SystemParameters.VirtualScreenWidth - 100);
         Top = Math.Clamp(vm.Ui.Top, SystemParameters.VirtualScreenTop, SystemParameters.VirtualScreenTop + SystemParameters.VirtualScreenHeight - 100);
         var navWidth = Math.Abs(vm.Ui.NavWidth - 210) < 0.5 ? 230 : vm.Ui.NavWidth;
-        var promptWidth = IsLegacyPromptWidth(vm.Ui.PromptWidth) ? 280 : vm.Ui.PromptWidth;
+        var promptWidth = IsLegacyPromptWidth(vm.Ui.PromptWidth) ? 260 : vm.Ui.PromptWidth;
         NavColumn.Width = new(Math.Max(180, navWidth)); PromptColumn.Width = new(Math.Max(260, promptWidth));
         // Hidden editor geometry used to persist zero, then clamp it to 25%.
-        // Repair that collapsed state while retaining usable splitter choices.
-        var ratio = vm.Ui.EditRatio <= .251 ? .7 : Math.Clamp(vm.Ui.EditRatio, .3, .85);
+        // Repair that collapsed state and migrate the old 70:30 default to 75:25.
+        var ratio = vm.Ui.EditRatio <= .251 || Math.Abs(vm.Ui.EditRatio - .7) < .001 ? .75 : Math.Clamp(vm.Ui.EditRatio, .3, .85);
         EditorColumn.Width = new(ratio, GridUnitType.Star); EnglishColumn.Width = new(1 - ratio, GridUnitType.Star);
         searchTimer.Tick += (_, _) => { searchTimer.Stop(); vm.RefreshResults(); };
         feedbackTimer.Tick += (_, _) => { feedbackTimer.Stop(); if (vm.Status == "✓ コピーしました") vm.Status = ""; };
@@ -56,7 +56,7 @@ public partial class MainWindow : Window
         Closing += (_, _) => { SaveGeometry(); searchTimer.Stop(); feedbackTimer.Stop(); uiTimer.Stop(); };
         Loaded += (_, _) => { vm.UpdateChipLanguage(); FindChild<ScrollViewer>(DictionaryList)?.ScrollToVerticalOffset(vm.RestoreScroll); SyncNavigationSelection(); };
     }
-    private static bool IsLegacyPromptWidth(double width) => Math.Abs(width - 230) < 0.5 || Math.Abs(width - 300) < 0.5 || Math.Abs(width - 340) < 0.5;
+    private static bool IsLegacyPromptWidth(double width) => Math.Abs(width - 230) < 0.5 || Math.Abs(width - 260) < 0.5 || Math.Abs(width - 280) < 0.5 || Math.Abs(width - 300) < 0.5 || Math.Abs(width - 340) < 0.5;
     private void QueueUiSave() { if (!IsLoaded) return; uiTimer.Stop(); uiTimer.Start(); }
     private void SaveGeometry()
     {

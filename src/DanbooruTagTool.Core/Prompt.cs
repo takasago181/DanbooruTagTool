@@ -84,6 +84,7 @@ public sealed class PromptWorkspace(PromptParser parser)
     public void DirectEdit(string text) => Change(() => items = parser.Parse(text));
     public void Recover() { if (recovery != null) Change(() => (items, recovery) = (recovery!, items)); }
     public bool Contains(string canonical) => items.Any(i => i.Canonical == canonical);
+    public IReadOnlyList<PromptItem> FindByCanonical(string canonical) => items.Where(i => i.Canonical == canonical).ToArray();
     public bool Add(CatalogEntry entry)
     {
         if (!entry.CanAdd || Contains(entry.Canonical!)) return false;

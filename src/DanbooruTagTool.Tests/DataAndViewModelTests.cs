@@ -33,8 +33,8 @@ public class DataAndViewModelTests
     { var vm=Fixtures.Vm(); vm.NavigateTo("special:APPEARANCE>HAIR"); Assert.All(vm.Results,r=>Assert.True(r.Entry.IsSpecial && r.Entry.Paths.Contains(Fixtures.HairPath))); Assert.Equal("blue_hair",vm.Results[0].Entry.Canonical); vm.SelectedEntry=vm.Results[0]; Assert.Contains(vm.Related,r=>r.Entry.Id=="S:semantic"); }
     [Fact] public void VmClipboardEqualsVisibleWorkspaceAndPreview()
     { var clip=new MemoryClipboard { Value="blue hair, raw,blue_hair" }; var vm=Fixtures.Vm(clipboard:clip); vm.Import.Execute(null); vm.Copy.Execute(null); Assert.Equal(PromptParser.Serialize(vm.Chips.Select(c=>c.Item)),vm.English); Assert.Equal(vm.English,clip.Value); Assert.Equal("✓ コピーしました",vm.Status); }
-    [Fact] public void VmDuplicateStateUpdatesImmediately()
-    { var vm=Fixtures.Vm(); var row=vm.Results.First(r=>r.Entry.Canonical=="blue_hair"); row.Add.Execute(null); Assert.Equal("✓ 追加済み",row.AddLabel); Assert.False(row.Add.CanExecute(null)); Assert.Single(vm.Chips); }
+    [Fact] public void VmToggleStateUpdatesImmediately()
+    { var vm=Fixtures.Vm(); var row=vm.Results.First(r=>r.Entry.Canonical=="blue_hair"); row.Add.Execute(null); Assert.Equal("✓ 追加済み（クリックで取消）",row.AddLabel); Assert.True(row.Add.CanExecute(null)); Assert.Single(vm.Chips); row.Add.Execute(null); Assert.Empty(vm.Chips); }
     [Fact] public void SingleCtrlShiftVisibleMultiSelectAndClear()
     { var vm=Fixtures.Vm(); vm.Workspace.Replace("a,b,c,d,e"); vm.Select(vm.Chips[1].Id); vm.Select(vm.Chips[3].Id,ctrl:true); Assert.Equal(2,vm.Chips.Count(c=>c.Selected)); vm.Select(vm.Chips[4].Id,shift:true); Assert.Equal(new[]{false,false,false,true,true},vm.Chips.Select(c=>c.Selected)); vm.MultiSelect=true; vm.Select(vm.Chips[0].Id); Assert.Equal(3,vm.Chips.Count(c=>c.Selected)); vm.SelectAll(); Assert.All(vm.Chips,c=>Assert.True(c.Selected)); vm.ClearSelection(); Assert.All(vm.Chips,c=>Assert.False(c.Selected)); }
     [Fact] public void SelectedDragMovesSelectionUnselectedDragReplacesSelection()

@@ -10,8 +10,8 @@ public sealed record PortablePaths(string Root)
     public string User => Path.Combine(Root, "UserData", "user.db");
 }
 public sealed record UiState(int Workspace = 0, string Browse = "special", string Query = "",
-    string? SelectedEntry = null, double BrowseScroll = 0, double NavWidth = 210, double PromptWidth = 340,
-    double EditRatio = 0.7, double Width = 1280, double Height = 820, double Left = 80, double Top = 60,
+    string? SelectedEntry = null, double BrowseScroll = 0, double NavWidth = 210, double PromptWidth = 260,
+    double EditRatio = 0.75, double Width = 1280, double Height = 820, double Left = 80, double Top = 60,
     bool EnglishChips = false);
 public sealed record UserState(WorkspaceSnapshot Prompt, UiState Ui);
 public interface IUserStateStore { UserState? Load(); void Save(UserState state); }

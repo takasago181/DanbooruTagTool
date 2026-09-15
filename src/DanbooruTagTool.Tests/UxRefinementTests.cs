@@ -106,7 +106,7 @@ public class UxRefinementTests(ITestOutputHelper output)
     {
         var vm = Fixtures.Vm(); vm.Workspace.Replace(Mixed); var ids = vm.Chips.Select(c => c.Id).ToArray();
         var row = vm.Results.First(r => r.Entry.Canonical == "blue_hair");
-        Assert.Equal("✓", row.AddSymbol); Assert.Equal("✓ 追加済み", row.DetailAddLabel);
+        Assert.Equal("✓", row.AddSymbol); Assert.Contains("追加済み", row.DetailAddLabel);
         foreach (var id in ids)
         {
             vm.DeleteOne.Execute(vm.Chips.Single(c => c.Id == id));

@@ -42,10 +42,25 @@ public sealed class EntryViewModel(CatalogEntry entry, PromptWorkspace workspace
             return text;
         }
     }
-    public string AddLabel => entry.Canonical != null && workspace.Contains(entry.Canonical) ? "✓ 追加済み" : entry.CanAdd ? "＋" : "参照";
-    public string AddSymbol => entry.Canonical != null && workspace.Contains(entry.Canonical) ? "✓" : entry.CanAdd ? "＋" : "参照";
-    public string DetailAddLabel => AddLabel == "＋" ? "＋ Promptへ追加" : AddLabel == "参照" ? "参照のみ" : AddLabel;
-    public RelayCommand Add { get; } = new(_ => add(entry), _ => (canMutate?.Invoke() ?? true) && entry.CanAdd && !workspace.Contains(entry.Canonical!));
+    private int CanonicalMatchCount => entry.Canonical is { } canonical ? workspace.FindByCanonical(canonical).Count : 0;
+    public string AddLabel => !entry.CanAdd ? "参照のみ" : CanonicalMatchCount switch
+    {
+        0 => "＋ Promptへ追加",
+        1 => "✓ 追加済み（クリックで取消）",
+        _ => $"✓ {CanonicalMatchCount}件追加済み（Prompt編集から削除）"
+    };
+    public string AddSymbol => !entry.CanAdd ? "参照" : CanonicalMatchCount > 0 ? "✓" : "＋";
+    public string DetailAddLabel => AddLabel;
+    private RelayCommand? addCommand;
+    public RelayCommand Add => addCommand ??= new(_ => TogglePromptItem(), _ => CanTogglePromptItem());
+    private bool CanTogglePromptItem() => (canMutate?.Invoke() ?? true) && entry.CanAdd && CanonicalMatchCount <= 1;
+    private void TogglePromptItem()
+    {
+        if (!CanTogglePromptItem() || entry.Canonical is not { } canonical) return;
+        var matches = workspace.FindByCanonical(canonical);
+        if (matches.Count == 0) add(entry);
+        else if (matches.Count == 1) workspace.Delete([matches[0].Id]);
+    }
     public void Refresh() { Notify(nameof(AddLabel)); Notify(nameof(AddSymbol)); Notify(nameof(DetailAddLabel)); Add.Refresh(); }
 }
 public sealed class ChipViewModel(PromptItem item) : Observable
