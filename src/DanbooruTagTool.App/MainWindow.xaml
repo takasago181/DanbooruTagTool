@@ -525,16 +525,19 @@
                                                         <ItemsControl.ItemTemplate>
                                                             <DataTemplate>
                                                                 <Border x:Name="CategoryChip" Style="{StaticResource CategoryChipCard}" ToolTip="{Binding English}">
-                                                                    <Grid>
+                                                                    <StackPanel>
                                                                         <TextBlock x:Name="CategoryJapanese" Text="{Binding Japanese}" TextWrapping="Wrap" FontSize="12"/>
                                                                         <TextBlock x:Name="CategoryEnglish" Text="{Binding English}" TextWrapping="Wrap" FontSize="11" Foreground="{StaticResource MutedInkBrush}" Visibility="Collapsed"/>
-                                                                    </Grid>
+                                                                    </StackPanel>
                                                                 </Border>
                                                                 <DataTemplate.Triggers>
-                                                                    <DataTrigger Binding="{Binding DataContext.CategoryEnglish, RelativeSource={RelativeSource AncestorType=Window}}" Value="True">
-                                                                        <Setter TargetName="CategoryJapanese" Property="Visibility" Value="Collapsed"/>
+                                                                    <MultiDataTrigger>
+                                                                        <MultiDataTrigger.Conditions>
+                                                                            <Condition Binding="{Binding DataContext.CategoryEnglish, RelativeSource={RelativeSource AncestorType=Window}}" Value="True"/>
+                                                                            <Condition Binding="{Binding HasEnglish}" Value="True"/>
+                                                                        </MultiDataTrigger.Conditions>
                                                                         <Setter TargetName="CategoryEnglish" Property="Visibility" Value="Visible"/>
-                                                                    </DataTrigger>
+                                                                    </MultiDataTrigger>
                                                                 </DataTemplate.Triggers>
                                                             </DataTemplate>
                                                         </ItemsControl.ItemTemplate>
