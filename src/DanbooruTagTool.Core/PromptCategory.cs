@@ -26,17 +26,23 @@ public static class PromptCategoryProjection
 
     public static IReadOnlyList<PromptCategoryGroup> Build(ICatalog catalog, IEnumerable<PromptItem> items)
     {
-        var categoryOrder = catalog.Entries
+        var generalOrder = catalog.Entries
             .Where(entry => !entry.IsSpecial)
             .SelectMany(entry => entry.Paths)
             .GroupBy(path => path.GenreId, StringComparer.Ordinal)
-            .Select(group =>
-            {
-                var path = group.First();
-                return new CategoryDefinition("general:" + path.GenreId, path.Genre);
-            })
+            .Select(group => DefinitionFor(false, group.First()))
             .ToList();
 
+        var specialOrder = catalog.Entries
+            .Where(entry => entry.IsSpecial)
+            .Select(entry => entry.Paths.FirstOrDefault())
+            .Where(path => path is not null)
+            .Select(path => path!)
+            .GroupBy(path => path.GenreId, StringComparer.Ordinal)
+            .Select(group => DefinitionFor(true, group.First()))
+            .ToList();
+
+        var categoryOrder = generalOrder.Concat(specialOrder).ToList();
         var definitions = categoryOrder.ToDictionary(category => category.Key, StringComparer.Ordinal);
         definitions[SpecialKey] = new(SpecialKey, SpecialLabel);
         definitions[OtherKey] = new(OtherKey, OtherLabel);
@@ -46,22 +52,22 @@ public static class PromptCategoryProjection
         var index = 0;
         foreach (var item in items)
         {
-            var key = Classify(catalog, item);
+            var entry = Resolve(catalog, item);
+            var key = Classify(entry, item);
             if (!grouped.TryGetValue(key, out var target))
             {
                 // A catalog may contain a future accepted path not present in
-                // the initial order. Keep it deterministic without inventing
-                // a new category: append the existing path label once.
-                var entry = Resolve(catalog, item);
+                // the initial order. Keep it deterministic using that accepted
+                // path instead of inventing a new semantic category.
                 var path = entry?.Paths.FirstOrDefault();
                 if (path is null)
                 {
-                    key = OtherKey;
+                    key = entry?.IsSpecial == true ? SpecialKey : OtherKey;
                     target = grouped[key];
                 }
                 else
                 {
-                    var definition = new CategoryDefinition("general:" + path.GenreId, path.Genre);
+                    var definition = DefinitionFor(entry!.IsSpecial, path);
                     if (!definitions.ContainsKey(definition.Key))
                     {
                         definitions.Add(definition.Key, definition);
@@ -86,17 +92,21 @@ public static class PromptCategoryProjection
         return result;
     }
 
-    private static string Classify(ICatalog catalog, PromptItem item)
+    private static string Classify(CatalogEntry? entry, PromptItem item)
     {
         if (item.Kind is PromptItemKind.Raw or PromptItemKind.Lora or PromptItemKind.Control)
             return OtherKey;
-
-        var entry = Resolve(catalog, item);
         if (entry is null) return OtherKey;
-        if (entry.IsSpecial) return SpecialKey;
+
         var path = entry.Paths.FirstOrDefault();
+        if (entry.IsSpecial)
+            return path is null ? SpecialKey : "special:" + path.GenreId;
         return path is null ? OtherKey : "general:" + path.GenreId;
     }
+
+    private static CategoryDefinition DefinitionFor(bool special, BrowsePath path) =>
+        new((special ? "special:" : "general:") + path.GenreId,
+            special ? "◆ " + path.Genre : path.Genre);
 
     private static CatalogEntry? Resolve(ICatalog catalog, PromptItem item) =>
         (item.CatalogId is not null
