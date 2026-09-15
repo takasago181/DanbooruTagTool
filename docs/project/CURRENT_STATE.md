@@ -7,6 +7,7 @@
 **Stage9 completed / beginner-first practical v1 accepted / #64 General taxonomy accepted and integrated / #66 completed / #68 completed / #69 local final cleanup completed.**
 
 Current maintenance route:
+- **Issue #76 — Special browse taxonomy v2 final production implementation is active on `codex/issue76-special-v2-production`.** This explicit DEV activation supersedes the no-successor maintenance state for this feature branch only.
 - **Issue #80 — Forge bridge v1 is completed and integrated into `main` at `f5ced15e3a368cae29f869527a20bcb41c7237b4`.**
 - **Issue #79 — Generation presets (reusable Positive sets + Negative copy) is completed and integrated into `main` at `8f0ba2a1133e4ad63f0a6ccd08eb17a3dda58d93`.**
 - **Issue #77 — Prompt output profile switch + tolerant one-click import is completed and integrated into `main` at `60b15d8fef877c70eac5e4f0f5d67ebd358904d7`.**
@@ -156,7 +157,7 @@ Issue #72 is completed and integrated into `main`. Its category view reuses acce
 
 Short form:
 
-`#64 accepted/integrated + #66 practical v1 accepted -> #68/#69 completed -> #72 completed/merged -> #73 completed/merged -> #74/#75/#77/#79/#80 completed/merged`
+`#64 accepted/integrated + #66 practical v1 accepted -> #68/#69 completed -> #72/#73/#74/#75/#77/#79/#80 completed/merged -> #76 active on feature branch`
 
 Portable/second-PC acceptance is not in this critical path.
 
