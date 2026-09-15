@@ -7,9 +7,11 @@
 **Stage9 completed / beginner-first practical v1 accepted / #64 General taxonomy accepted and integrated / #66 completed / #68 completed / #69 local final cleanup completed.**
 
 Current maintenance route:
-- **No active DEV implementation issue.** Issue #69 one-pass local cleanup completed on 2026-09-15 after preserving unique evidence, normalizing the primary checkout to live `main`, and validating the current WPF runtime and production catalog.
+- **Active DEV implementation issue: #72 — Prompt category view prototype.** This is a narrow post-v1 prototype requested by the user and does not reopen completed #66 foundations.
+- Prepared branch: `codex/issue72-prompt-category-view-prototype`. Codex must still verify live `main` before work because #70 translation/data checkpoints may advance main concurrently.
+- Issue #70 translation/data work is a separate lane. #72 must not modify #70 outputs, canonical/protected data, or translation lane state.
 - Issue #68 is complete. Phase 2E was accepted as a safe no-op. Protected local `benchmarks/`, `backups/`, `_handoff/`, audit provenance, local tooling, and translation quarantine remain in place for their consumers; safe stale worktrees and reproducible caches were retired.
-- **Stage10 learning Issue #65 may resume as the user's learning route.** It is not a Codex product implementation task unless separately requested.
+- **Stage10 learning Issue #65 may resume as the user's learning route.** It is not part of #72.
 
 Current workstation WPF launch:
 - The current WPF runtime and production `Data/catalog.db` are available under local `artifacts/current/`.
@@ -139,15 +141,15 @@ Artifacts remain untracked. Cleanup must be scoped to known disposable artifact 
 
 ## Current route
 
-`#66 practical v1 accepted -> #68 cleanup completed -> #69 local final cleanup completed -> Stage10 #65 learning resumed`
+`#66 practical v1 accepted -> #68 cleanup completed -> #69 local final cleanup completed -> #72 Prompt category view prototype active`
 
 Issue #69 completed the one-pass local-maintenance lane. The primary checkout is current `main`; unique local-only evidence is preserved with hashes, and protected data, audit/tooling state, production catalog, and current WPF UserData remain in place. The root shortcut was opened successfully after normalization and the app reopened against its adjacent user state.
 
-Stage10 #65 is available again as the user's practical image-generation learning route; it is not a Codex implementation task unless separately assigned.
+Issue #72 is now the narrow active DEV prototype. It may reuse accepted #64/Special category metadata but must preserve the ordered Prompt, copied-English invariant, existing architecture, and repository hygiene. Issue #70 remains a separate translation/data lane and Stage10 #65 remains a separate learning lane.
 
 Short form:
 
-`#64 accepted/integrated + #66 practical v1 accepted -> #68 completed -> #69 local final cleanup completed -> Stage10 #65 may resume`
+`#64 accepted/integrated + #66 practical v1 accepted -> #68/#69 completed -> #72 prototype active`
 
 Portable/second-PC acceptance is not in this critical path.
 
@@ -155,6 +157,7 @@ Portable/second-PC acceptance is not in this critical path.
 
 | TEAM_ID | Status | Scope | Restore anchor |
 | --- | --- | --- | --- |
+| `POST-V1:#72` | **ACTIVE DEV PROTOTYPE** | Japanese Prompt category reading view in existing WPF Prompt editor | Issue #72 + `codex/issue72-prompt-category-view-prototype` |
 | `GENERAL-DICT:#64` | **COMPLETED / ACCEPTED + INTEGRATED** | General 30,629 practical taxonomy | Issue #64 acceptance comment + production candidate on main |
 | `V1-APP:#66` | **COMPLETED / PRACTICAL_V1_ACCEPTED** | beginner-first WPF app, accepted General integration, final Windows acceptance | Issue #66 acceptance comment `5662680719` + main `1486fc242d2eadf9ca24ed803e50ad7af7294004` |
 | `MAINT:#68` | **COMPLETED** | tracked-root normalization complete; Phase 2E accepted safe no-op | Issue #68 completion checkpoint `5665690628` |
@@ -201,6 +204,10 @@ Product goal:
 
 #66 WPF architecture/runtime boundary:
 - `docs/product/V1_WPF_ARCHITECTURE_BASELINE.md`
+
+Current post-v1 prototype:
+- Issue #72
+- `docs/project/CURRENT_DEV_TASK.md`
 
 Stage10 definition:
 - Issue #65 + `docs/stages/STAGE_10_LEARNING.md`
