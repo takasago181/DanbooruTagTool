@@ -57,8 +57,8 @@ public static class SpecialBrowseV2Overlay
     {
         var specials = catalog.Entries.Where(entry => entry.IsSpecial)
             .OrderBy(entry => ParseSpecialId(entry.Id)).ToArray();
-        if (specials.Length != 2788 || specials.Select(entry => ParseSpecialId(entry.Id)).SequenceEqual(Enumerable.Range(1, 2788)) == false)
-            throw new InvalidDataException("Special v2 overlay requires exact Special IDs 1..2788");
+        if (specials.Length != AcceptedAssetImporter.ExpandedSpecialCount || specials.Select(entry => ParseSpecialId(entry.Id)).SequenceEqual(Enumerable.Range(1, AcceptedAssetImporter.ExpandedSpecialCount)) == false)
+            throw new InvalidDataException($"Special v2 overlay requires exact Special IDs 1..{AcceptedAssetImporter.ExpandedSpecialCount}");
 
         var rows = specials.ToDictionary(entry => ParseSpecialId(entry.Id), DeriveBase);
         ApplyChastity(rows);
@@ -120,6 +120,18 @@ public static class SpecialBrowseV2Overlay
 
     private static Working DeriveBase(CatalogEntry entry)
     {
+        if (entry.SpecialBrowseV2 is { } accepted)
+        {
+            return new Working
+            {
+                CatalogId = entry.Id,
+                Canonical = entry.Canonical,
+                KindId = accepted.KindId,
+                Body = accepted.BodySiteIds.ToHashSet(StringComparer.Ordinal),
+                Themes = accepted.ThemeIds.ToHashSet(StringComparer.Ordinal),
+                Status = accepted.Status
+            };
+        }
         var paths = entry.Paths;
         var primary = paths.FirstOrDefault();
         var working = new Working { CatalogId = entry.Id, Canonical = entry.Canonical };
@@ -252,7 +264,7 @@ public static class SpecialBrowseV2Overlay
 
         var counts = rows.Values.GroupBy(row => row.Status).ToDictionary(group => group.Key, group => group.Count());
         Expect(counts, SpecialBrowseV2Status.AutoCandidate, 2745);
-        Expect(counts, SpecialBrowseV2Status.HumanResolved, 15);
+        Expect(counts, SpecialBrowseV2Status.HumanResolved, 210);
         Expect(counts, SpecialBrowseV2Status.DeferProductFitReview, 6);
         Expect(counts, SpecialBrowseV2Status.OutOfScopeNoBrowse, 1);
         Expect(counts, SpecialBrowseV2Status.ReferenceOnlyNoDirectBrowse, 21);

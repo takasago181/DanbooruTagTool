@@ -210,20 +210,20 @@ public sealed class Issue76MainUiIntegrationTests
         var persisted = CatalogDatabase.Open(catalogPath);
         var index = SpecialBrowseV2Overlay.FromCatalog(persisted);
 
-        Assert.Equal(2788, index.Entries.Count);
+        Assert.Equal(2983, index.Entries.Count);
         Assert.Equal(2745, index.Entries.Count(entry => entry.Status == SpecialBrowseV2Status.AutoCandidate));
-        Assert.Equal(15, index.Entries.Count(entry => entry.Status == SpecialBrowseV2Status.HumanResolved));
+        Assert.Equal(210, index.Entries.Count(entry => entry.Status == SpecialBrowseV2Status.HumanResolved));
         Assert.Equal(6, index.Entries.Count(entry => entry.Status == SpecialBrowseV2Status.DeferProductFitReview));
         Assert.Equal(1, index.Entries.Count(entry => entry.Status == SpecialBrowseV2Status.OutOfScopeNoBrowse));
         Assert.Equal(21, index.Entries.Count(entry => entry.Status == SpecialBrowseV2Status.ReferenceOnlyNoDirectBrowse));
         Assert.Equal(
-            new[] { 907, 503, 299, 298, 275, 156, 123, 119, 66 },
+            new[] { 938, 593, 310, 328, 299, 164, 123, 119, 67 },
             SpecialBrowseV2Taxonomy.Kinds.Select(kind => index.Entries.Count(entry => entry.KindId == kind.Id)).ToArray());
         Assert.Equal(
-            new[] { 307, 266, 183, 175, 113, 20 },
+            new[] { 307, 311, 184, 185, 135, 20 },
             SpecialBrowseV2Taxonomy.BodySites.Select(body => index.Entries.Count(entry => entry.BodySiteIds.Contains(body.Id))).ToArray());
         Assert.Equal(
-            new[] { 366, 66, 25 },
+            new[] { 376, 83, 41 },
             SpecialBrowseV2Taxonomy.Themes.Select(theme => index.Entries.Count(entry => entry.ThemeIds.Contains(theme.Id))).ToArray());
         Assert.Equal(14, index.Entries.Count(entry => entry.CanBrowse && entry.KindId is null));
 

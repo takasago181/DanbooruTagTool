@@ -20,7 +20,7 @@ STATUS_NAMES = {
 }
 EXPECTED_STATUS = {
     "AutoCandidate": 2745,
-    "HumanResolved": 15,
+    "HumanResolved": 210,
     "ReferenceOnlyNoDirectBrowse": 21,
     "DeferProductFitReview": 6,
     "OutOfScopeNoBrowse": 1,
@@ -74,10 +74,10 @@ def check_db(path: Path, *, catalog: bool) -> dict[str, Any]:
                 "general_canonical_unique": len({payload.get("Canonical") for payload in general}) == len(general),
             }
             expected = {
-                "total": 33417,
-                "special": 2788,
+                "total": 33612,
+                "special": 2983,
                 "general": 30629,
-                "special_browse_v2": 2788,
+                "special_browse_v2": 2983,
             }
             for key, value in expected.items():
                 if result[key] != value:

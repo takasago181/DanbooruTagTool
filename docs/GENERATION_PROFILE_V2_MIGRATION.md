@@ -2,14 +2,14 @@
 
 ## 変更
 
-Phase 1の14行static fixtureを、2,788行のpromotion-aware static profileへ置き換えた。
-Special Core Dictionary の現行production snapshot（元 `Special2788` corpus）は不変。
-v2のprimary keyとPrompt identityも既存SpecialID/Tagを使用する。
+Phase 1の14行static fixtureを、base 2,788行 + Issue #96 accepted 195行の2,983行promotion-aware static profileへ拡張した。
+Special Core Dictionary のbase production snapshot（元 `Special2788` corpus）は互換上維持し、accepted canonical expansionはhash-pinned proposalから明示build時に追加する。
+v2のprimary keyとPrompt identityもSpecialID/Tagを使用する。既存ID 1..2788は不変、新規IDはappend-onlyの2789..2983。
 
 Phase 1 static列のうち、S/A/B/C、model-dependent score、CoexistenceScore、
 ModelProfile、経験的Confidenceはv2 staticから削除した。Phase 1ではscore/classがすべて空欄だったため、
 数値データの損失はない。Needs系はfamily default + optional per-tag overrideへ置き換え、
-全2,788行への同値複製を避けた。
+base 2,788行への同値複製を避け、accepted expansion 195行だけを明示的に追加した。
 
 `RecommendedSupport` / `ExpansionHint` はPrompt自動注入へ誤用され得るためstaticから外した。
 v2はfamily requirementをinspection APIで返すだけで、supportを追加しない。
