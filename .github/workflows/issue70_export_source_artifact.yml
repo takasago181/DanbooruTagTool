@@ -1,0 +1,61 @@
+name: Issue70 Export Source Artifact
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - '.github/workflows/issue70_export_source_artifact.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  PYTHONUTF8: '1'
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build compact source bundle
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p issue70_source_bundle
+          cp docs/issue70/data/automation_bootstrap.json issue70_source_bundle/
+          cp docs/issue70/data/source_shards_manifest.json issue70_source_bundle/
+          cp -R docs/issue70/data/source_shards issue70_source_bundle/
+          python - <<'PY'
+          import csv, json, pathlib
+          root = pathlib.Path('docs/issue70/data/source_shards')
+          out = pathlib.Path('issue70_source_bundle/issue70_compact_source.csv')
+          fields = None
+          total = 0
+          with out.open('w', encoding='utf-8', newline='') as f:
+              writer = None
+              for chunk_dir in sorted(root.glob('chunk_*')):
+                  for shard in sorted(chunk_dir.glob('shard_*.csv')):
+                      with shard.open(encoding='utf-8-sig', newline='') as sf:
+                          reader = csv.DictReader(sf)
+                          if fields is None:
+                              fields = reader.fieldnames
+                              writer = csv.DictWriter(f, fieldnames=fields)
+                              writer.writeheader()
+                          elif reader.fieldnames != fields:
+                              raise SystemExit(f'field mismatch: {shard}')
+                          for row in reader:
+                              writer.writerow(row)
+                              total += 1
+          if total != 92739:
+              raise SystemExit(f'row count mismatch: {total}')
+          print(f'rows={total}')
+          PY
+          sha256sum issue70_source_bundle/issue70_compact_source.csv > issue70_source_bundle/SHA256SUMS.txt
+      - name: Upload source bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: issue70-source-bundle
+          path: issue70_source_bundle
+          if-no-files-found: error
+          retention-days: 7
