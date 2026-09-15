@@ -1,17 +1,20 @@
 """Issue #97 read-only Special expansion quality audit.
 
-This audit verifies the committed post-#96 authority surfaces without mutating
-production data or UserData. It intentionally does not rewrite legacy
-`special2788` path names: those paths are compatibility/authority names, while
-live cardinality must be 2,983.
+Checks the committed #96 authority sidecars and, when --catalog is supplied,
+the built production catalog. The script never opens or mutates UserData/user.db.
+Legacy `special2788` path names remain valid compatibility/authority names;
+live cardinality is 2,983.
 """
 
 from __future__ import annotations
 
+import argparse
 import csv
 import json
 import re
+import sqlite3
 import sys
+from collections import Counter
 from pathlib import Path
 from typing import Iterable
 
@@ -26,6 +29,21 @@ TAXONOMY = Path("docs/issue96/special_expansion_taxonomy_final_v1.csv")
 DUPLICATE_VALIDATED = Path("docs/issue96/special_expansion_duplicate_validated_v1.csv")
 GENERATION_PROFILE = Path("data/generation/special2788_generation_profile.csv")
 PRODUCT_FIT = Path("data/special2788/product_fit_verdicts.csv")
+
+STATUS_NAMES = {
+    0: "AutoCandidate",
+    1: "HumanResolved",
+    2: "ReferenceOnlyNoDirectBrowse",
+    3: "DeferProductFitReview",
+    4: "OutOfScopeNoBrowse",
+}
+EXPECTED_STATUS = {
+    "AutoCandidate": 2745,
+    "HumanResolved": 210,
+    "ReferenceOnlyNoDirectBrowse": 21,
+    "DeferProductFitReview": 6,
+    "OutOfScopeNoBrowse": 1,
+}
 
 ACTIVE_2788_SCAN = (
     Path("src/DanbooruTagTool.Data/AcceptedAssetImporter.cs"),
@@ -46,11 +64,7 @@ def read_csv(root: Path, relative: Path) -> list[dict[str, str]]:
 
 
 def exact_id_map(
-    rows: Iterable[dict[str, str]],
-    *,
-    field: str,
-    expected: range,
-    label: str,
+    rows: Iterable[dict[str, str]], *, field: str, expected: range, label: str
 ) -> dict[int, dict[str, str]]:
     result: dict[int, dict[str, str]] = {}
     for row in rows:
@@ -78,42 +92,24 @@ def require_nonblank(row: dict[str, str], fields: Iterable[str], label: str) -> 
 
 def check_promoted_authority(root: Path) -> tuple[dict[int, dict[str, str]], dict[str, int]]:
     promoted_ids = range(PROMOTION_START_ID, EXPANDED_SPECIAL_COUNT + 1)
-    promotion = exact_id_map(
-        read_csv(root, PROMOTION), field="proposed_special_id", expected=promoted_ids, label="promotion"
-    )
-    ja = exact_id_map(
-        read_csv(root, JA_METADATA), field="proposed_special_id", expected=promoted_ids, label="ja metadata"
-    )
-    taxonomy = exact_id_map(
-        read_csv(root, TAXONOMY), field="proposed_special_id", expected=promoted_ids, label="taxonomy"
-    )
+    promotion = exact_id_map(read_csv(root, PROMOTION), field="proposed_special_id", expected=promoted_ids, label="promotion")
+    ja = exact_id_map(read_csv(root, JA_METADATA), field="proposed_special_id", expected=promoted_ids, label="ja metadata")
+    taxonomy = exact_id_map(read_csv(root, TAXONOMY), field="proposed_special_id", expected=promoted_ids, label="taxonomy")
     duplicate = exact_id_map(
-        read_csv(root, DUPLICATE_VALIDATED),
-        field="proposed_special_id",
-        expected=promoted_ids,
-        label="duplicate validation",
+        read_csv(root, DUPLICATE_VALIDATED), field="proposed_special_id", expected=promoted_ids, label="duplicate validation"
     )
 
-    canonical_seen: set[str] = set()
-    alias_seen: set[str] = set()
+    surfaces_seen: set[str] = set()
     for item_id in promoted_ids:
         row = promotion[item_id]
         label = f"promotion {item_id}"
-        require_nonblank(
-            row,
-            ("canonical_tag", "display_ja", "search_ja", "kind_id", "duplicate_guard", "proposal_status"),
-            label,
-        )
+        require_nonblank(row, ("canonical_tag", "display_ja", "search_ja", "kind_id", "duplicate_guard", "proposal_status"), label)
         canonical = row["canonical_tag"]
-        if canonical in canonical_seen:
-            raise RuntimeError(f"{label}: duplicate promoted canonical {canonical}")
-        canonical_seen.add(canonical)
         aliases = [value.strip() for value in row.get("canonical_aliases", "").split("|") if value.strip()]
         for surface in [canonical, *aliases]:
-            if surface in alias_seen:
+            if surface in surfaces_seen:
                 raise RuntimeError(f"{label}: duplicate promoted canonical/alias surface {surface}")
-            alias_seen.add(surface)
-
+            surfaces_seen.add(surface)
         if row["duplicate_guard"] != "CURRENT_SPECIAL_GAP_PASS":
             raise RuntimeError(f"{label}: promotion duplicate_guard={row['duplicate_guard']!r}")
         if row["proposal_status"] != "PREP_READY_FOR_DEV_REVIEW":
@@ -121,29 +117,16 @@ def check_promoted_authority(root: Path) -> tuple[dict[int, dict[str, str]], dic
 
         ja_row = ja[item_id]
         require_nonblank(ja_row, ("canonical_tag", "display_ja", "search_ja", "ja_status"), f"ja {item_id}")
-        if any(
-            ja_row[field] != row[field]
-            for field in ("canonical_tag", "display_ja", "search_ja")
-        ):
+        if any(ja_row[field] != row[field] for field in ("canonical_tag", "display_ja", "search_ja")):
             raise RuntimeError(f"ja {item_id}: metadata differs from promotion authority")
 
         taxonomy_row = taxonomy[item_id]
-        require_nonblank(
-            taxonomy_row,
-            ("canonical_tag", "kind_id", "browse_status", "validation_status"),
-            f"taxonomy {item_id}",
-        )
-        if taxonomy_row["canonical_tag"] != canonical:
-            raise RuntimeError(f"taxonomy {item_id}: canonical differs from promotion authority")
-        if taxonomy_row["validation_status"] != "TAXONOMY_RESOLVED":
-            raise RuntimeError(f"taxonomy {item_id}: unresolved taxonomy")
+        require_nonblank(taxonomy_row, ("canonical_tag", "kind_id", "browse_status", "validation_status"), f"taxonomy {item_id}")
+        if taxonomy_row["canonical_tag"] != canonical or taxonomy_row["validation_status"] != "TAXONOMY_RESOLVED":
+            raise RuntimeError(f"taxonomy {item_id}: authority mismatch or unresolved taxonomy")
 
         duplicate_row = duplicate[item_id]
-        require_nonblank(
-            duplicate_row,
-            ("canonical_tag", "duplicate_guard", "validation_status"),
-            f"duplicate {item_id}",
-        )
+        require_nonblank(duplicate_row, ("canonical_tag", "duplicate_guard", "validation_status"), f"duplicate {item_id}")
         if duplicate_row["canonical_tag"] != canonical:
             raise RuntimeError(f"duplicate {item_id}: canonical differs from promotion authority")
         if duplicate_row["duplicate_guard"] != "PASS_GENERAL_ONLY_GAP_CURRENT_SPECIAL_2788":
@@ -161,35 +144,106 @@ def check_promoted_authority(root: Path) -> tuple[dict[int, dict[str, str]], dic
 
 def check_expanded_sidecars(root: Path, promotion: dict[int, dict[str, str]]) -> dict[str, int]:
     all_ids = range(1, EXPANDED_SPECIAL_COUNT + 1)
-    profile = exact_id_map(
-        read_csv(root, GENERATION_PROFILE), field="SpecialID", expected=all_ids, label="generation profile"
-    )
-    fit = exact_id_map(
-        read_csv(root, PRODUCT_FIT), field="special_id", expected=all_ids, label="product fit"
-    )
-
+    profile = exact_id_map(read_csv(root, GENERATION_PROFILE), field="SpecialID", expected=all_ids, label="generation profile")
+    fit = exact_id_map(read_csv(root, PRODUCT_FIT), field="special_id", expected=all_ids, label="product fit")
+    for item_id, row in fit.items():
+        require_nonblank(row, ("product_fit_verdict",), f"product fit {item_id}")
     for item_id, promoted in promotion.items():
         profile_row = profile[item_id]
         if profile_row.get("Tag") != promoted["canonical_tag"]:
             raise RuntimeError(f"generation profile {item_id}: tag differs from promotion authority")
         if profile_row.get("EvidenceClass") != "ISSUE96_ACCEPTED_SPECIAL_EXPANSION":
             raise RuntimeError(f"generation profile {item_id}: missing Issue96 evidence class")
-        require_nonblank(fit[item_id], ("product_fit_verdict",), f"product fit {item_id}")
+    return {"generation_profile": len(profile), "product_fit": len(fit)}
+
+
+def parse_special_id(value: str) -> int:
+    if not value.startswith("S:"):
+        raise RuntimeError(f"invalid Special catalog id: {value}")
+    try:
+        return int(value[2:])
+    except ValueError as error:
+        raise RuntimeError(f"invalid Special catalog id: {value}") from error
+
+
+def check_catalog(path: Path) -> dict[str, object]:
+    if not path.is_file():
+        raise RuntimeError(f"catalog not found: {path}")
+    uri = f"file:{path.resolve()}?mode=ro&immutable=1"
+    with sqlite3.connect(uri, uri=True) as connection:
+        rows = connection.execute("SELECT id, payload FROM entries ORDER BY ordinal").fetchall()
+    specials: dict[int, dict[str, object]] = {}
+    for catalog_id, payload_text in rows:
+        payload = json.loads(payload_text)
+        if payload.get("IsSpecial") is not True:
+            continue
+        item_id = parse_special_id(catalog_id)
+        if item_id in specials:
+            raise RuntimeError(f"catalog duplicate Special id: {item_id}")
+        specials[item_id] = payload
+    expected_ids = set(range(1, EXPANDED_SPECIAL_COUNT + 1))
+    if set(specials) != expected_ids:
+        raise RuntimeError("catalog Special IDs are not exact 1..2983")
+
+    for item_id, payload in specials.items():
+        if not str(payload.get("Japanese") or "").strip():
+            raise RuntimeError(f"catalog Japanese display missing at {item_id}")
+        if not payload.get("JapaneseSearch"):
+            raise RuntimeError(f"catalog Japanese search missing at {item_id}")
+        if not str(payload.get("ProductFit") or "").strip():
+            raise RuntimeError(f"catalog product fit missing at {item_id}")
+        browse = payload.get("SpecialBrowseV2")
+        if not isinstance(browse, dict):
+            raise RuntimeError(f"catalog Browse v2 missing at {item_id}")
+        status = browse.get("Status")
+        has_route = bool(browse.get("KindId") or browse.get("BodySiteIds") or browse.get("ThemeIds"))
+        if status in (0, 1) and not has_route:
+            raise RuntimeError(f"catalog browsable Special has no v2 route at {item_id}")
+        if status in (2, 3, 4) and has_route:
+            raise RuntimeError(f"catalog non-browse Special still has v2 route at {item_id}")
+        if status not in STATUS_NAMES:
+            raise RuntimeError(f"catalog unknown Browse v2 status at {item_id}: {status!r}")
+
+    statuses = Counter(STATUS_NAMES[specials[item_id]["SpecialBrowseV2"]["Status"]] for item_id in specials)
+    if dict(statuses) != EXPECTED_STATUS:
+        raise RuntimeError(f"catalog Browse v2 status distribution drift: {dict(statuses)}")
+
+    promoted_ids = range(PROMOTION_START_ID, EXPANDED_SPECIAL_COUNT + 1)
+    if any(specials[item_id]["SpecialBrowseV2"]["Status"] != 1 for item_id in promoted_ids):
+        raise RuntimeError("promoted Special rows are not all HumanResolved in Browse v2")
+
+    base_surfaces: set[str] = set()
+    for item_id in range(1, BASE_SPECIAL_COUNT + 1):
+        payload = specials[item_id]
+        for surface in [payload.get("English"), payload.get("Canonical"), *(payload.get("Aliases") or [])]:
+            if surface:
+                base_surfaces.add(str(surface))
+    promoted_surfaces: set[str] = set()
+    for item_id in promoted_ids:
+        payload = specials[item_id]
+        for surface in [payload.get("English"), payload.get("Canonical"), *(payload.get("Aliases") or [])]:
+            if not surface:
+                continue
+            value = str(surface)
+            if value in base_surfaces:
+                raise RuntimeError(f"promoted canonical/alias overlaps base Special at {item_id}: {value}")
+            if value in promoted_surfaces:
+                raise RuntimeError(f"promoted canonical/alias collision at {item_id}: {value}")
+            promoted_surfaces.add(value)
 
     return {
-        "generation_profile": len(profile),
-        "product_fit": len(fit),
+        "special": len(specials),
+        "japanese_display": len(specials),
+        "japanese_search": len(specials),
+        "browse_v2": len(specials),
+        "product_fit_catalog": len(specials),
+        "status": dict(statuses),
+        "promoted_human_resolved": PROMOTION_COUNT,
+        "promoted_base_surface_overlap": 0,
     }
 
 
 def stale_2788_candidates(root: Path) -> list[dict[str, object]]:
-    """Return active-code 2788 literals that are not the intentional base boundary.
-
-    Legacy file/directory names such as `special2788` are not matched because the
-    digits are embedded in an identifier. `BaseSpecialCount = 2788` is explicitly
-    retained as the pre-promotion boundary used to validate IDs 2789..2983.
-    """
-
     number = re.compile(r"(?<![A-Za-z0-9_])(?:2788|2,788)(?![A-Za-z0-9_])")
     allowed = re.compile(r"\bBaseSpecialCount\s*=\s*(?:2788|2,788)\b")
     candidates: list[dict[str, object]] = []
@@ -198,24 +252,25 @@ def stale_2788_candidates(root: Path) -> list[dict[str, object]]:
         if not path.is_file():
             continue
         for line_no, line in enumerate(path.read_text(encoding="utf-8-sig").splitlines(), start=1):
-            if not number.search(line) or allowed.search(line):
-                continue
-            candidates.append({"path": relative.as_posix(), "line": line_no, "text": line.strip()})
+            if number.search(line) and not allowed.search(line):
+                candidates.append({"path": relative.as_posix(), "line": line_no, "text": line.strip()})
     return candidates
 
 
-def audit(root: Path) -> dict[str, object]:
+def audit(root: Path, catalog: Path | None) -> dict[str, object]:
     promotion, promoted_counts = check_promoted_authority(root)
     expanded_counts = check_expanded_sidecars(root, promotion)
     stale = stale_2788_candidates(root)
     result: dict[str, object] = {
         "issue": 97,
         "read_only": True,
+        "user_db_opened": False,
         "base_special_count": BASE_SPECIAL_COUNT,
         "expanded_special_count": EXPANDED_SPECIAL_COUNT,
         "promotion_range": [PROMOTION_START_ID, EXPANDED_SPECIAL_COUNT],
         "promotion_count": PROMOTION_COUNT,
         "counts": {**promoted_counts, **expanded_counts},
+        "catalog": check_catalog(catalog) if catalog is not None else None,
         "stale_2788_candidates": stale,
         "human_audit_candidates": stale,
     }
@@ -224,9 +279,12 @@ def audit(root: Path) -> dict[str, object]:
 
 
 def main() -> int:
+    parser = argparse.ArgumentParser(description="Issue #97 read-only Special quality audit")
+    parser.add_argument("--catalog", type=Path, help="optional built catalog.db for full 2,983-row verification")
+    args = parser.parse_args()
     root = Path(__file__).resolve().parents[2]
     try:
-        result = audit(root)
+        result = audit(root, args.catalog)
     except Exception as error:  # noqa: BLE001 - concise audit CLI failure is intentional
         print(json.dumps({"ok": False, "issue": 97, "error": str(error)}, ensure_ascii=False, sort_keys=True))
         return 1
