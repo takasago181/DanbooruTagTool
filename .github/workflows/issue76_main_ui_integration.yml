@@ -22,7 +22,9 @@ jobs:
 
       - name: Apply current MainWindow integration
         shell: pwsh
-        run: python tools/issue76_apply_main_ui_integration.py
+        run: |
+          python tools/issue76_apply_main_ui_integration.py
+          python tools/issue76_fix_main_ui_integration.py
 
       - name: Setup .NET 10
         uses: actions/setup-dotnet@v4
@@ -50,7 +52,7 @@ jobs:
         run: |
           git config user.name "takasago181"
           git config user.email "61348957+takasago181@users.noreply.github.com"
-          git rm tools/issue76_apply_main_ui_integration.py .github/workflows/issue76_main_ui_integration.yml
+          git rm tools/issue76_apply_main_ui_integration.py tools/issue76_fix_main_ui_integration.py .github/workflows/issue76_main_ui_integration.yml
           git add -A
           git commit -m "Issue 76 integrate v2 classification into current MainWindow"
           git push origin HEAD:feature/issue76-special-v2-main-ui
