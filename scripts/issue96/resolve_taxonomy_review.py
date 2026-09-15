@@ -48,7 +48,7 @@ RESOLUTIONS = {
     "stuffed_gag": ("TOOL_OBJECT", None, []),
     "grabbing_multiple_others'_breasts": ("ACTION_CONTACT", None, []),
     "cooperative_breast_sucking": ("ACTION_CONTACT", None, []),
-    "explosion_gag": ("TOOL_OBJECT", None, []),
+    "explosion_gag": ("META_EXPRESSION", [], []),
     "bite_mark_on_ass": ("BODY_STATE", None, []),
     "applying_gag": ("ACTION_CONTACT", None, []),
     "public_urination": ("FLUID_EXCRETION", None, []),
@@ -118,11 +118,17 @@ def main() -> None:
         if body_override is not None:
             row["body_site_ids"] = "|".join(body_override)
         themes = set(split(row["theme_ids"]))
+        if tag == "explosion_gag":
+            # Danbooru `gag` here means a visual/comedic explosion gag, not a mouth gag.
+            themes.clear()
         themes.update(extra_themes)
         row["theme_ids"] = "|".join(sorted(themes))
         row["browse_status"] = "HUMAN_RESOLVED"
         row["validation_status"] = "TAXONOMY_RESOLVED"
-        row["notes"] = "Issue96 bounded human taxonomy resolution; semantic home chosen independently from body/theme facets"
+        if tag == "explosion_gag":
+            row["notes"] = "Issue96 semantic correction: visual/comedic explosion gag; META_EXPRESSION, no MOUTH_ORAL or BDSM facet"
+        else:
+            row["notes"] = "Issue96 bounded human taxonomy resolution; semantic home chosen independently from body/theme facets"
         human_resolved += 1
 
     if human_resolved != EXPECTED_REVIEW:
@@ -159,6 +165,7 @@ def main() -> None:
         "", "## Resolution notes", "",
         "The 58 mixed/boundary rows were reviewed as a bounded set. Semantic home is independent from body-site/theme facets: gag objects stay TOOL_OBJECT, applying_gag stays ACTION_CONTACT, presenting/legs-back relations use POSE_SCENE, and morphology/mark states use BODY_STATE.",
         "`gag_around_neck` and `holding_gag` explicitly clear the lexical MOUTH_ORAL prescreen hint because the gag is not located in the mouth in those identities.",
+        "`explosion_gag` is explicitly corrected to META_EXPRESSION with no MOUTH_ORAL/BDSM facet: Danbooru `gag` here means a visual/comedic explosion gag, not a restraint device.",
         "`blood_on_hand`, `holding_pregnancy_test`, and `leash_in_mouth` receive their relevant cross-cutting theme even though their #94 concept-area family did not mechanically supply it.",
         "", "`CONTENT_FILTER_USED=NO`  ", "`PRODUCTION_FILES_CHANGED=NO`  ", "`ISSUE70_MUTATED=NO`", "",
     ]
