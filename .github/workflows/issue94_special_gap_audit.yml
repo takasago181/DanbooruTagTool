@@ -56,6 +56,9 @@ jobs:
             "$EXPECTED_SHA256" \
             "$(sha256sum "$SOURCE" | awk '{print $1}')" \
             > artifacts/issue94/full_scan/source_provenance.txt
+          cp "$SOURCE" artifacts/issue94/full_scan/danbooru-2026-09-02.csv
+          cp data/generation/special2788_generation_profile.csv \
+            artifacts/issue94/full_scan/special2788_generation_profile.csv
 
       - name: Run deterministic Issue94 full scan
         shell: bash
