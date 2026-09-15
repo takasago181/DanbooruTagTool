@@ -10,7 +10,7 @@
         PreviewKeyDown="WindowKeyDown">
     <Window.Resources>
         <HierarchicalDataTemplate DataType="{x:Type vm:NavigationNode}" ItemsSource="{Binding Children}">
-            <TextBlock Text="{Binding Label}" Margin="3,7" MaxWidth="250"/>
+            <TextBlock Text="{Binding Label}" Margin="3,4" MaxWidth="270" FontSize="13"/>
         </HierarchicalDataTemplate>
         <SolidColorBrush x:Key="AppBackground" Color="#F4F7FA"/>
         <SolidColorBrush x:Key="SurfaceBrush" Color="#FFFFFF"/>
@@ -112,6 +112,9 @@
         </Style>
         <Style x:Key="AddStateButton" TargetType="Button" BasedOn="{StaticResource CompactSecondaryButton}">
             <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Background" Value="#F7FAFD"/>
+            <Setter Property="BorderBrush" Value="#C4D5E2"/>
+            <Setter Property="Foreground" Value="{StaticResource InkBrush}"/>
             <Setter Property="Template"><Setter.Value><ControlTemplate TargetType="Button">
                 <Border x:Name="Chrome" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" CornerRadius="8" Padding="{TemplateBinding Padding}">
                     <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -121,6 +124,18 @@
                     <Trigger Property="IsEnabled" Value="False"><Setter TargetName="Chrome" Property="Background" Value="#F0F4F8"/><Setter Property="Foreground" Value="#49627B"/></Trigger>
                 </ControlTemplate.Triggers>
             </ControlTemplate></Setter.Value></Setter>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding AddSymbol}" Value="✓">
+                    <Setter Property="Background" Value="{StaticResource PrimaryBrush}"/>
+                    <Setter Property="BorderBrush" Value="{StaticResource PrimaryBrush}"/>
+                    <Setter Property="Foreground" Value="White"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding AddSymbol}" Value="参照">
+                    <Setter Property="Background" Value="#F2F5F8"/>
+                    <Setter Property="BorderBrush" Value="#D5DEE6"/>
+                    <Setter Property="Foreground" Value="{StaticResource MutedInkBrush}"/>
+                </DataTrigger>
+            </Style.Triggers>
         </Style>
         <Style x:Key="ModeToggleButton" TargetType="{x:Type ToggleButton}">
             <Setter Property="Background" Value="{StaticResource SoftBlueBrush}"/>
@@ -204,8 +219,8 @@
             <Setter Property="Margin" Value="0,4,0,12"/>
         </Style>
         <Style x:Key="WorkSurfaceCard" TargetType="{x:Type Border}">
-            <Setter Property="Background" Value="{StaticResource WorkSurfaceBrush}"/>
-            <Setter Property="BorderBrush" Value="{StaticResource BorderBrushSoft}"/>
+            <Setter Property="Background" Value="#F6FAFD"/>
+            <Setter Property="BorderBrush" Value="#CFDDE8"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="CornerRadius" Value="10"/>
             <Setter Property="Padding" Value="12"/>
@@ -236,10 +251,10 @@
         </Style>
         <Style x:Key="ChipCard" TargetType="{x:Type Border}">
             <Setter Property="Background" Value="{StaticResource SurfaceBrush}"/>
-            <Setter Property="BorderBrush" Value="{StaticResource BorderBrushSoft}"/>
+            <Setter Property="BorderBrush" Value="#C4D5E2"/>
             <Setter Property="BorderThickness" Value="1"/>
-            <Setter Property="CornerRadius" Value="9"/>
-            <Setter Property="Padding" Value="12,9"/>
+            <Setter Property="CornerRadius" Value="7"/>
+            <Setter Property="Padding" Value="10,7"/>
             <Setter Property="Margin" Value="4"/>
             <Style.Triggers>
                 <DataTrigger Binding="{Binding Item.Kind}" Value="{x:Static core:PromptItemKind.Raw}">
@@ -267,13 +282,41 @@
             <Setter Property="MaxWidth" Value="280"/>
         </Style>
         <Style x:Key="PromptPreviewChip" TargetType="{x:Type Button}" BasedOn="{StaticResource GhostButton}">
-            <Setter Property="Background" Value="#F2F7FC"/>
-            <Setter Property="BorderBrush" Value="#E0EAF2"/>
+            <Setter Property="Background" Value="#FFFFFF"/>
+            <Setter Property="BorderBrush" Value="#C4D5E2"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="Foreground" Value="{StaticResource InkBrush}"/>
             <Setter Property="HorizontalContentAlignment" Value="Left"/>
             <Setter Property="Margin" Value="3"/>
-            <Setter Property="Padding" Value="11,8"/>
+            <Setter Property="Padding" Value="9,6"/>
+        </Style>
+        <Style x:Key="ItemDeleteButton" TargetType="{x:Type Button}" BasedOn="{StaticResource GhostButton}">
+            <Setter Property="Background" Value="#FFF6F4"/>
+            <Setter Property="BorderBrush" Value="#E6C1BC"/>
+            <Setter Property="Foreground" Value="#8A3F39"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Width" Value="22"/>
+            <Setter Property="Height" Value="22"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="0,3,3,0"/>
+        </Style>
+        <Style x:Key="SectionSurface" TargetType="{x:Type Border}" BasedOn="{StaticResource WorkSurfaceCard}">
+            <Setter Property="Background" Value="#FBFDFF"/>
+            <Setter Property="BorderBrush" Value="#C6D9E8"/>
+        </Style>
+        <Style x:Key="PromptSectionSurface" TargetType="{x:Type Border}" BasedOn="{StaticResource WorkSurfaceCard}">
+            <Setter Property="Background" Value="#F2F8FD"/>
+            <Setter Property="BorderBrush" Value="#B9D3E7"/>
+        </Style>
+        <Style x:Key="SectionHeader" TargetType="{x:Type Border}">
+            <Setter Property="Background" Value="#EAF4FC"/>
+            <Setter Property="BorderBrush" Value="#D2E3F0"/>
+            <Setter Property="BorderThickness" Value="0,0,0,1"/>
+            <Setter Property="CornerRadius" Value="5"/>
+            <Setter Property="Padding" Value="7,5"/>
+            <Setter Property="Margin" Value="0,0,0,7"/>
         </Style>
         <Style TargetType="{x:Type GridSplitter}">
             <Setter Property="Background" Value="#D7E2EC"/>
@@ -313,7 +356,7 @@
             <Setter Property="Margin" Value="0,0,4,0"/>
         </Style>
         <Style x:Key="NavigationItem" TargetType="{x:Type TreeViewItem}">
-            <Setter Property="Padding" Value="5,2"/>
+            <Setter Property="Padding" Value="8,3"/>
             <Setter Property="Margin" Value="0,1"/>
             <Setter Property="MinHeight" Value="31"/>
             <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
@@ -322,13 +365,19 @@
             <Setter Property="BorderThickness" Value="2,0,0,0"/>
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="#F2F6FA"/>
+                    <Setter Property="Background" Value="#EDF5FB"/>
+                </Trigger>
+                <Trigger Property="HasItems" Value="True">
+                    <Setter Property="FontWeight" Value="SemiBold"/>
+                    <Setter Property="Padding" Value="8,4"/>
+                    <Setter Property="Background" Value="#F5F9FC"/>
                 </Trigger>
                 <Trigger Property="IsSelected" Value="True">
-                    <Setter Property="Background" Value="#F7F9FB"/>
-                    <Setter Property="BorderBrush" Value="#9DBDDF"/>
+                    <Setter Property="Background" Value="#E5F2FF"/>
+                    <Setter Property="BorderBrush" Value="{StaticResource PrimaryBrush}"/>
+                    <Setter Property="BorderThickness" Value="3,0,0,0"/>
                     <Setter Property="Foreground" Value="{StaticResource InkBrush}"/>
-                    <Setter Property="FontWeight" Value="Normal"/>
+                    <Setter Property="FontWeight" Value="SemiBold"/>
                 </Trigger>
             </Style.Triggers>
         </Style>
@@ -347,19 +396,38 @@
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True"><Setter TargetName="RowChrome" Property="Background" Value="#F4F7FA"/></Trigger>
-                            <Trigger Property="IsSelected" Value="True"><Setter TargetName="RowChrome" Property="Background" Value="#F1F5F9"/><Setter TargetName="RowChrome" Property="BorderBrush" Value="#9DBDDF"/><Setter TargetName="RowChrome" Property="BorderThickness" Value="2,0,0,0"/></Trigger>
+                            <Trigger Property="IsSelected" Value="True"><Setter TargetName="RowChrome" Property="Background" Value="#EAF4FC"/><Setter TargetName="RowChrome" Property="BorderBrush" Value="{StaticResource PrimaryBrush}"/><Setter TargetName="RowChrome" Property="BorderThickness" Value="2,0,0,0"/></Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
         </Style>
+        <Style x:Key="DictionaryCard" TargetType="{x:Type Border}">
+            <Setter Property="Background" Value="#FFFFFF"/>
+            <Setter Property="BorderBrush" Value="#C4D5E2"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="7"/>
+            <Setter Property="Padding" Value="8,6"/>
+            <Setter Property="Margin" Value="0,0,4,8"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding IsSelected, RelativeSource={RelativeSource AncestorType=ListBoxItem}}" Value="True">
+                    <Setter Property="Background" Value="#E5F2FF"/>
+                    <Setter Property="BorderBrush" Value="{StaticResource PrimaryBrush}"/>
+                    <Setter Property="BorderThickness" Value="2"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="True">
+                    <Setter Property="Background" Value="#F2F8FD"/>
+                    <Setter Property="BorderBrush" Value="#82B7EC"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
         <DataTemplate x:Key="EntryTemplate">
-            <Border Background="Transparent" BorderBrush="Transparent" BorderThickness="1" CornerRadius="6" Padding="8,6" Margin="0,0,4,8" MinHeight="68" Width="{Binding DataContext.DictionaryCardWidth, RelativeSource={RelativeSource AncestorType=Window}}">
+            <Border Style="{StaticResource DictionaryCard}" MinHeight="68" Width="{Binding DataContext.DictionaryCardWidth, RelativeSource={RelativeSource AncestorType=Window}}">
                 <Grid>
                     <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
                     <Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="Auto"/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
-                    <TextBlock Text="{Binding Label}" FontWeight="SemiBold" TextWrapping="Wrap" Margin="0,0,8,4"/>
-                    <TextBlock Grid.Column="1" Text="{Binding Usage}" Foreground="{StaticResource MutedInkBrush}" TextAlignment="Right" VerticalAlignment="Top" Margin="4,0,8,4"/>
+                    <TextBlock Text="{Binding Label}" FontSize="14" FontWeight="SemiBold" TextWrapping="Wrap" Margin="0,0,8,4"/>
+                    <TextBlock Grid.Column="1" Text="{Binding Usage}" FontSize="12" FontWeight="SemiBold" Foreground="{StaticResource MutedInkBrush}" TextAlignment="Right" VerticalAlignment="Top" Margin="4,0,8,4"/>
                     <Button Grid.Column="2" Content="{Binding AddSymbol}" ToolTip="{Binding DetailAddLabel}" ToolTipService.ShowOnDisabled="True" Command="{Binding Add}" Style="{StaticResource AddStateButton}" MinWidth="40" Padding="8,3" VerticalAlignment="Top" Margin="0"/>
                     <TextBlock Grid.Row="1" Text="{Binding English}" Foreground="{StaticResource MutedInkBrush}" FontSize="12" TextWrapping="Wrap"/>
                 </Grid>
@@ -379,8 +447,8 @@
                     <TextBlock Text="共通操作" Style="{StaticResource HintText}" VerticalAlignment="Center" Margin="0,0,14,0"/>
                     <Button Content="クリップボードから読込" Command="{Binding Import}" Style="{StaticResource CompactPrimaryButton}"/>
                     <Button Content="新規Prompt" Command="{Binding New}" Style="{StaticResource CompactSecondaryButton}"/>
-                    <Button Content="直前のPromptを復元" Command="{Binding Recover}" Style="{StaticResource CompactSecondaryButton}"/>
-                    <Button Content="英語Promptをコピー" Command="{Binding Copy}" Style="{StaticResource CompactButton}"/>
+                    <Button Content="直前のPromptを復元" Command="{Binding Recover}" Style="{StaticResource CompactButton}"/>
+                    <Button Content="英語Promptをコピー" Command="{Binding Copy}" Style="{StaticResource CompactSecondaryButton}"/>
                 </WrapPanel>
             </Grid>
         </Border>
@@ -434,12 +502,16 @@
                     <Border Grid.Column="4" Style="{StaticResource PanelCard}" Padding="10">
                         <Grid>
                             <Grid.RowDefinitions><RowDefinition Height="2*"/><RowDefinition Height="8"/><RowDefinition Height="3*"/></Grid.RowDefinitions>
-                            <Border Grid.Row="0" Style="{StaticResource WorkSurfaceCard}" Padding="10">
+                            <Border Grid.Row="0" Style="{StaticResource SectionSurface}" Padding="10">
                             <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
                                 <StackPanel>
-                                    <TextBlock Text="タグ詳細" Style="{StaticResource PanelTitle}" FontSize="16"/>
-                                    <TextBlock Text="選択中のタグ" Style="{StaticResource HintText}" Margin="0,2,0,0"/>
-                                    <TextBlock Text="{Binding SelectedEntry.Label}" Style="{StaticResource PanelTitle}" FontSize="20" Margin="0,2,0,0"/>
+                                    <Border Style="{StaticResource SectionHeader}">
+                                        <StackPanel>
+                                            <TextBlock Text="タグ詳細" Style="{StaticResource PanelTitle}" FontSize="16" Margin="0"/>
+                                            <TextBlock Text="選択中のタグ" Style="{StaticResource HintText}" Margin="0,2,0,0"/>
+                                        </StackPanel>
+                                    </Border>
+                                    <TextBlock Text="{Binding SelectedEntry.Label}" Style="{StaticResource PanelTitle}" FontSize="20" Margin="0,0,0,0"/>
                                     <TextBlock Text="{Binding SelectedEntry.English}" Foreground="{StaticResource MutedInkBrush}" FontSize="13" Margin="0,0,0,10"/>
                                     <Grid Margin="0,0,0,10">
                                         <Grid.ColumnDefinitions><ColumnDefinition Width="Auto"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
@@ -464,11 +536,11 @@
                                 </StackPanel>
                             </ScrollViewer>
                             </Border>
-                            <Border Grid.Row="2" Style="{StaticResource WorkSurfaceCard}" Padding="10">
+                            <Border Grid.Row="2" Style="{StaticResource PromptSectionSurface}" Padding="10">
                             <Grid>
                                 <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="*"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
-                                <StackPanel Grid.Row="0"><DockPanel><TextBlock Text="現在のPrompt" Style="{StaticResource PanelTitle}" FontSize="16"/><TextBlock Text="{Binding Count}" Style="{StaticResource HintText}" VerticalAlignment="Center" Margin="8,0,0,0"/><CheckBox DockPanel.Dock="Right" Content="EN表示" IsChecked="{Binding EnglishChips}" Margin="8,0,0,0" VerticalAlignment="Center"/></DockPanel><TextBlock Text="{Binding Unresolved}" Style="{StaticResource HintText}" Foreground="#8A6A37"/></StackPanel>
-                                <Border Grid.Row="1" Style="{StaticResource WorkSurfaceCard}" Padding="6" Margin="0,4,0,8"><ScrollViewer x:Name="CurrentScroll" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled"><StackPanel><ItemsControl ItemsSource="{Binding Chips}"><ItemsControl.ItemsPanel><ItemsPanelTemplate><WrapPanel/></ItemsPanelTemplate></ItemsControl.ItemsPanel><ItemsControl.ItemTemplate><DataTemplate><Grid Margin="3"><Button Style="{StaticResource PromptPreviewChip}" Command="{Binding DataContext.Inspect, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding}" MaxWidth="320" Padding="11,8,30,8" Margin="0"><TextBlock Text="{Binding Label}" TextWrapping="Wrap"/></Button><Button Content="×" Command="{Binding DataContext.DeleteOne, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding}" ToolTip="このPrompt項目を削除" Width="22" Height="22" Padding="0" Margin="0,3,3,0" HorizontalAlignment="Right" VerticalAlignment="Top" Panel.ZIndex="1"><Button.Style><Style TargetType="{x:Type Button}" BasedOn="{StaticResource GhostButton}"><Setter Property="Foreground" Value="{StaticResource MutedInkBrush}"/><Setter Property="FontSize" Value="13"/><Setter Property="FontWeight" Value="Bold"/></Style></Button.Style></Button></Grid></DataTemplate></ItemsControl.ItemTemplate></ItemsControl><TextBlock Text="まだPromptがありません。辞書から追加するか、Promptを読み込んでください。" Margin="6,10,6,6"><TextBlock.Style><Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource HintText}"><Style.Triggers><DataTrigger Binding="{Binding HasPrompt}" Value="True"><Setter Property="Visibility" Value="Collapsed"/></DataTrigger></Style.Triggers></Style></TextBlock.Style></TextBlock></StackPanel></ScrollViewer></Border>
+                                <Border Grid.Row="0" Style="{StaticResource SectionHeader}" Padding="7,5" Margin="0,0,0,4"><StackPanel><DockPanel><TextBlock Text="現在のPrompt" Style="{StaticResource PanelTitle}" FontSize="16" Margin="0"/><TextBlock Text="{Binding Count}" Style="{StaticResource HintText}" VerticalAlignment="Center" Margin="8,0,0,0"/><CheckBox DockPanel.Dock="Right" Content="EN表示" IsChecked="{Binding EnglishChips}" Margin="8,0,0,0" VerticalAlignment="Center"/></DockPanel><TextBlock Text="{Binding Unresolved}" Style="{StaticResource HintText}" Foreground="#8A6A37"/></StackPanel></Border>
+                                <Border Grid.Row="1" Style="{StaticResource WorkSurfaceCard}" Padding="6" Margin="0,4,0,8"><ScrollViewer x:Name="CurrentScroll" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled"><StackPanel><ItemsControl ItemsSource="{Binding Chips}"><ItemsControl.ItemsPanel><ItemsPanelTemplate><WrapPanel/></ItemsPanelTemplate></ItemsControl.ItemsPanel><ItemsControl.ItemTemplate><DataTemplate><Grid Margin="3"><Button Style="{StaticResource PromptPreviewChip}" Command="{Binding DataContext.Inspect, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding}" MaxWidth="320" Padding="9,6" Margin="0"><TextBlock Text="{Binding Label}" TextWrapping="Wrap"/></Button><Button Content="×" Style="{StaticResource ItemDeleteButton}" Command="{Binding DataContext.DeleteOne, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding}" ToolTip="このPrompt項目を削除" HorizontalAlignment="Right" VerticalAlignment="Top" Panel.ZIndex="1"/></Grid></DataTemplate></ItemsControl.ItemTemplate></ItemsControl><TextBlock Text="まだPromptがありません。辞書から追加するか、Promptを読み込んでください。" Margin="6,10,6,6"><TextBlock.Style><Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource HintText}"><Style.Triggers><DataTrigger Binding="{Binding HasPrompt}" Value="True"><Setter Property="Visibility" Value="Collapsed"/></DataTrigger></Style.Triggers></Style></TextBlock.Style></TextBlock></StackPanel></ScrollViewer></Border>
                                 <StackPanel Grid.Row="2"><Button Content="Prompt編集を開く" Command="{Binding OpenEditor}" Style="{StaticResource CompactPrimaryButton}"/><Button Content="英語Promptをコピー" Command="{Binding Copy}" Style="{StaticResource CompactSecondaryButton}" Margin="0,5,0,0"/></StackPanel>
                             </Grid>
                             </Border>
