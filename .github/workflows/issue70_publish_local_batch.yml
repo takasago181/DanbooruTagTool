@@ -1,0 +1,55 @@
+name: Issue70 Publish Local Translation Batch
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'docs/issue70/data/local_batch_payloads/*.json'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: issue70-local-batch-publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Find payloads
+        id: payloads
+        shell: bash
+        run: |
+          set -euo pipefail
+          mapfile -t files < <(find docs/issue70/data/local_batch_payloads -maxdepth 1 -type f -name '*.json' 2>/dev/null | sort || true)
+          printf '%s\n' "${files[@]}" > /tmp/issue70_payloads.txt
+          echo "count=${#files[@]}" >> "$GITHUB_OUTPUT"
+      - name: Decode and validate payloads
+        if: steps.payloads.outputs.count != '0'
+        shell: bash
+        run: |
+          set -euo pipefail
+          while IFS= read -r payload; do
+            [ -n "$payload" ] || continue
+            python scripts/issue70/publish_local_batch.py "$payload"
+          done < /tmp/issue70_payloads.txt
+      - name: Commit promoted results and consume payloads
+        if: steps.payloads.outputs.count != '0'
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          while IFS= read -r payload; do
+            [ -n "$payload" ] || continue
+            git rm "$payload"
+          done < /tmp/issue70_payloads.txt
+          git add docs/issue70/data/results/queue
+          git diff --cached --check
+          git commit -m 'Issue70: promote local translation batch [skip ci]'
+          git push origin HEAD:main
