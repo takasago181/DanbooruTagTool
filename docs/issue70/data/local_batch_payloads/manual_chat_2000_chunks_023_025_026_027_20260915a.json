@@ -1,0 +1,39 @@
+{
+  "format_version": 1,
+  "issue": 70,
+  "batch_id": "manual_chat_2000_chunks_023_025_026_027_20260915a",
+  "files": [
+    {
+      "path": "docs/issue70/data/results/queue/queue_chunk023_I70-011001_I70-011500.csv",
+      "sha256": "51b68264c0f4703a083ace78d9e9757b7b51e80da240f01fcc8225fc046d103e",
+      "gzip_base64_parts": [
+        "docs/issue70/data/local_batch_payloads/manual_chat_2000_chunks_023_025_026_027_20260915a_chunk023_I70-011001_I70-011500.part01.b64",
+        "docs/issue70/data/local_batch_payloads/manual_chat_2000_chunks_023_025_026_027_20260915a_chunk023_I70-011001_I70-011500.part02.b64"
+      ]
+    },
+    {
+      "path": "docs/issue70/data/results/queue/queue_chunk025_I70-012001_I70-012500.csv",
+      "sha256": "12e84cc853ad9ebf411320854a8ea8428d28bf7b92859febb05223912d1b2b27",
+      "gzip_base64_parts": [
+        "docs/issue70/data/local_batch_payloads/manual_chat_2000_chunks_023_025_026_027_20260915a_chunk025_I70-012001_I70-012500.part01.b64",
+        "docs/issue70/data/local_batch_payloads/manual_chat_2000_chunks_023_025_026_027_20260915a_chunk025_I70-012001_I70-012500.part02.b64"
+      ]
+    },
+    {
+      "path": "docs/issue70/data/results/queue/queue_chunk026_I70-012501_I70-013000.csv",
+      "sha256": "bfd1f98438afc8dc5f3963e540c7a1be05daa6951650ffb6518631065219c337",
+      "gzip_base64_parts": [
+        "docs/issue70/data/local_batch_payloads/manual_chat_2000_chunks_023_025_026_027_20260915a_chunk026_I70-012501_I70-013000.part01.b64",
+        "docs/issue70/data/local_batch_payloads/manual_chat_2000_chunks_023_025_026_027_20260915a_chunk026_I70-012501_I70-013000.part02.b64"
+      ]
+    },
+    {
+      "path": "docs/issue70/data/results/queue/queue_chunk027_I70-013001_I70-013500.csv",
+      "sha256": "2a55ace4745eadc9ef18c3238aa8fef1ec0178f06eff0393de2e57f5fa23972b",
+      "gzip_base64_parts": [
+        "docs/issue70/data/local_batch_payloads/manual_chat_2000_chunks_023_025_026_027_20260915a_chunk027_I70-013001_I70-013500.part01.b64",
+        "docs/issue70/data/local_batch_payloads/manual_chat_2000_chunks_023_025_026_027_20260915a_chunk027_I70-013001_I70-013500.part02.b64"
+      ]
+    }
+  ]
+}
