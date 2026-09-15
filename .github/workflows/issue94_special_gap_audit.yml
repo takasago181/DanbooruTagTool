@@ -8,6 +8,13 @@ on:
       - scripts/issue94/**
       - data/generation/special2788_generation_profile.csv
       - .github/workflows/issue94_special_gap_audit.yml
+  pull_request:
+    branches:
+      - main
+    paths:
+      - scripts/issue94/**
+      - data/generation/special2788_generation_profile.csv
+      - .github/workflows/issue94_special_gap_audit.yml
   workflow_dispatch:
 
 permissions:
@@ -15,6 +22,7 @@ permissions:
 
 jobs:
   full-gap-audit:
+    if: github.event_name != 'pull_request' || github.head_ref == 'audit/issue94-special-gap-audit'
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
