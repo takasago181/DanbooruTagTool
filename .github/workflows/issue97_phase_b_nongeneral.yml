@@ -1,0 +1,94 @@
+name: Issue97 Phase B Non-General Audit
+
+on:
+  push:
+    branches:
+      - audit/issue97-phase-b-nongeneral
+    paths:
+      - scripts/issue97/**
+      - data/generation/special2788_generation_profile.csv
+      - .github/workflows/issue97_phase_b_nongeneral.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  phase-b-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout audit branch
+        uses: actions/checkout@v4
+
+      - name: Validate scanner syntax
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m py_compile scripts/issue97/phase_b_nongeneral_audit.py
+
+      - name: Fetch pinned 2026-09-02 Danbooru snapshot
+        shell: bash
+        env:
+          SOURCE_URL: https://huggingface.co/datasets/HDiffusion/historical-danbooru-tag-counts/resolve/e243474/danbooru-2026-09-02.csv?download=true
+          EXPECTED_SHA256: 9b32d5ac0713ab252e7470ba6af9cb34de56878b6b3b13dfbbf6a4a37d82d95b
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/issue97/phase_b
+          SOURCE="$RUNNER_TEMP/danbooru-2026-09-02.csv"
+          curl --fail --location --retry 3 --retry-delay 2 "$SOURCE_URL" --output "$SOURCE"
+          echo "$EXPECTED_SHA256  $SOURCE" | sha256sum --check
+          printf 'source_url=%s\nexpected_sha256=%s\nactual_sha256=%s\n' \
+            "$SOURCE_URL" \
+            "$EXPECTED_SHA256" \
+            "$(sha256sum "$SOURCE" | awk '{print $1}')" \
+            > artifacts/issue97/phase_b/source_provenance.txt
+
+      - name: Run Phase B read-only audit
+        shell: bash
+        run: |
+          set -euo pipefail
+          SOURCE="$RUNNER_TEMP/danbooru-2026-09-02.csv"
+          python3 scripts/issue97/phase_b_nongeneral_audit.py \
+            --canonical-source "$SOURCE" \
+            --special-profile data/generation/special2788_generation_profile.csv \
+            --expected-special 2983 \
+            --alias-review-limit 600 \
+            --meta-review-limit 400 \
+            --out-dir artifacts/issue97/phase_b \
+            2>&1 | tee artifacts/issue97/phase_b/run.log
+
+      - name: Validate protected boundaries and identity closure
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          p = Path('artifacts/issue97/phase_b/summary.json')
+          s = json.loads(p.read_text(encoding='utf-8'))
+          assert s['special_rows'] == 2983, s['special_rows']
+          assert not s['unresolved_nonsemantic_rows'], s['unresolved_nonsemantic_rows']
+          for key in (
+              'general_canonical_reopened',
+              'artist_catalog_imported',
+              'character_catalog_imported',
+              'copyright_catalog_imported',
+              'content_filter_used',
+              'production_files_changed',
+              'issue70_mutated',
+              'userdata_mutated',
+              'phase_c_recipes_mixed_in',
+          ):
+              assert s[key] == 'NO', (key, s[key])
+          print('PHASE_B_BOUNDARY_GATE=PASS')
+          PY
+
+      - name: Upload Phase B evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: issue97-phase-b-nongeneral-${{ github.sha }}
+          path: artifacts/issue97/phase_b
+          if-no-files-found: error
+          retention-days: 14
