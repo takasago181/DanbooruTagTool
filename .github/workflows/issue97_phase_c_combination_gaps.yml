@@ -1,0 +1,74 @@
+name: Issue97 Phase C Combination Gap Audit
+
+on:
+  push:
+    branches:
+      - audit/issue97-phase-c-combination-gaps
+    paths:
+      - scripts/issue97/phase_c_combination_gap_audit.py
+      - data/generation/special2788_generation_profile.csv
+      - .github/workflows/issue97_phase_c_combination_gaps.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  phase-c-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout audit branch
+        uses: actions/checkout@v4
+
+      - name: Validate scanner syntax
+        run: python3 -m py_compile scripts/issue97/phase_c_combination_gap_audit.py
+
+      - name: Run bounded Phase C discovery
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/issue97/phase_c
+          python3 scripts/issue97/phase_c_combination_gap_audit.py \
+            --profile data/generation/special2788_generation_profile.csv \
+            --expected-special 2983 \
+            --out-dir artifacts/issue97/phase_c \
+            2>&1 | tee artifacts/issue97/phase_c/run.log
+
+      - name: Validate Phase C boundaries
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import csv, json
+          from pathlib import Path
+          root = Path('artifacts/issue97/phase_c')
+          s = json.loads((root / 'phase_c_summary_v1.json').read_text(encoding='utf-8'))
+          assert s['special_rows'] == 2983
+          assert s['intent_inventory'] > 0
+          assert s['candidate_total'] > 0
+          for key in ('production_mutation','issue70_mutated','userdata_mutated','general_reaudit','phase_b_auto_promotion','pseudo_canonical_created','content_filter_used'):
+              assert s[key] == 'NO', (key, s[key])
+          assert s['generic_prompt_recipe_scope'] == 'EXCLUDED'
+          rows = list(csv.DictReader((root / 'phase_c_candidate_queue_v1.csv').open(encoding='utf-8')))
+          assert len(rows) == s['candidate_total']
+          seen = set()
+          for r in rows:
+              assert r['route'] == 'COMBINATION_RECIPE_CANDIDATE'
+              assert ' + ' in r['canonical_components']
+              assert ',' in r['recipe_prompt']
+              assert r['review_status'] == 'REVIEW_REQUIRED'
+              key = r['intent_ja'].strip()
+              assert key and key not in seen
+              seen.add(key)
+          print('PHASE_C_BOUNDARY_GATE=PASS')
+          PY
+
+      - name: Upload Phase C evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: issue97-phase-c-${{ github.sha }}
+          path: artifacts/issue97/phase_c
+          if-no-files-found: error
+          retention-days: 14
