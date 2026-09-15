@@ -85,7 +85,7 @@ public sealed class MainViewModel : Observable
         selectedEntry.Entry.Canonical == null ? "canonicalへの安全な追加先が確定していない参照項目です。" : "" }.Where(s => s.Length > 0));
     private string query = "", browse = "special", status = "", find = "", directText = "", weight = "";
     private int workspaceIndex, sortIndex, detailsTabIndex;
-    private bool englishChips, multiSelect, directEditing, categoryView;
+    private bool englishChips, multiSelect, directEditing, categoryView, categoryEnglish;
     private Guid? anchor;
     private UiState ui = new();
     private readonly Stack<string> back = new();
@@ -108,6 +108,7 @@ public sealed class MainViewModel : Observable
     public bool EnglishChips { get => englishChips; set { if (Set(ref englishChips, value)) { foreach (var c in Chips) c.English = value && WorkspaceIndex == 0; Persist(); } } }
     public bool IsCategoryView { get => categoryView; set { if (Set(ref categoryView, value)) { Notify(nameof(IsOrderedView)); Notify(nameof(CanEditOrderedPrompt)); Notify(nameof(SelectionSummary)); Notify(nameof(WeightVisible)); RefreshCommands(); } } }
     public bool IsOrderedView { get => !IsCategoryView; set { if (value != IsOrderedView) IsCategoryView = !value; } }
+    public bool CategoryEnglish { get => categoryEnglish; set => Set(ref categoryEnglish, value); }
     public bool MultiSelect { get => multiSelect; set => Set(ref multiSelect, value); }
     public bool HasSelection => Chips.Any(c => c.Selected);
     public string SelectionSummary => IsCategoryView ? "カテゴリ別表示（読み取り専用）" : HasSelection ? $"{Chips.Count(c => c.Selected)}件選択中" : "選択なし";

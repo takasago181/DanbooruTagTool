@@ -261,6 +261,11 @@
                 </DataTrigger>
             </Style.Triggers>
         </Style>
+        <Style x:Key="CategoryChipCard" TargetType="{x:Type Border}" BasedOn="{StaticResource ChipCard}">
+            <Setter Property="Padding" Value="9,4"/>
+            <Setter Property="Margin" Value="3,2"/>
+            <Setter Property="MaxWidth" Value="280"/>
+        </Style>
         <Style x:Key="PromptPreviewChip" TargetType="{x:Type Button}" BasedOn="{StaticResource GhostButton}">
             <Setter Property="Background" Value="#F2F7FC"/>
             <Setter Property="BorderBrush" Value="#E0EAF2"/>
@@ -481,6 +486,7 @@
                                     <TextBlock Text="表示:" Style="{StaticResource HintText}" VerticalAlignment="Center" Margin="0,0,6,0"/>
                                     <ToggleButton Content="並び順" IsChecked="{Binding IsOrderedView, Mode=TwoWay}" Style="{StaticResource ModeToggleButton}" Padding="9,5" MinHeight="32" FontSize="13" Margin="0,0,4,0" AutomationProperties.Name="並び順表示"/>
                                     <ToggleButton Content="カテゴリ別" IsChecked="{Binding IsCategoryView, Mode=TwoWay}" Style="{StaticResource ModeToggleButton}" Padding="9,5" MinHeight="32" FontSize="13" Margin="0" AutomationProperties.Name="カテゴリ別表示"/>
+                                    <CheckBox Content="EN表示" IsChecked="{Binding CategoryEnglish, Mode=TwoWay}" VerticalAlignment="Center" Margin="8,0,2,0" Visibility="{Binding IsCategoryView, Converter={StaticResource BoolVisibility}}" AutomationProperties.Name="カテゴリ別English表示"/>
                                 </StackPanel>
                                 <StackPanel DockPanel.Dock="Left" Orientation="Horizontal" IsEnabled="{Binding CanEditOrderedPrompt}">
                                     <ToggleButton Content="複数選択" IsChecked="{Binding MultiSelect}" Style="{StaticResource ModeToggleButton}" Padding="8,5" MinHeight="32" FontSize="13" Margin="0,0,6,0"/>
@@ -505,22 +511,31 @@
                                     <ItemsControl ItemsSource="{Binding CategoryGroups}">
                                         <ItemsControl.ItemTemplate>
                                             <DataTemplate>
-                                                <Expander IsExpanded="True" Margin="0,0,0,10">
+                                                <Expander IsExpanded="True" Margin="0,0,0,4">
                                                     <Expander.Header>
                                                         <StackPanel Orientation="Horizontal">
-                                                            <TextBlock Text="{Binding Label}" FontWeight="SemiBold"/>
-                                                            <TextBlock Text="{Binding CountText}" Style="{StaticResource HintText}" Margin="10,0,0,0"/>
+                                                            <TextBlock Text="{Binding Label}" FontWeight="SemiBold" FontSize="13"/>
+                                                            <TextBlock Text="{Binding CountText}" Style="{StaticResource HintText}" FontSize="12" Margin="8,0,0,0"/>
                                                         </StackPanel>
                                                     </Expander.Header>
                                                     <ItemsControl ItemsSource="{Binding Items}">
+                                                        <ItemsControl.ItemsPanel>
+                                                            <ItemsPanelTemplate><WrapPanel/></ItemsPanelTemplate>
+                                                        </ItemsControl.ItemsPanel>
                                                         <ItemsControl.ItemTemplate>
                                                             <DataTemplate>
-                                                                <Border Style="{StaticResource ChipCard}" Margin="3,3,3,5" Padding="12,8">
-                                                                    <StackPanel>
-                                                                        <TextBlock Text="{Binding Japanese}" TextWrapping="Wrap"/>
-                                                                        <TextBlock Text="{Binding English}" Style="{StaticResource HintText}" Margin="0,3,0,0" Visibility="{Binding HasEnglish, Converter={StaticResource BoolVisibility}}"/>
-                                                                    </StackPanel>
+                                                                <Border x:Name="CategoryChip" Style="{StaticResource CategoryChipCard}" ToolTip="{Binding English}">
+                                                                    <Grid>
+                                                                        <TextBlock x:Name="CategoryJapanese" Text="{Binding Japanese}" TextWrapping="Wrap" FontSize="12"/>
+                                                                        <TextBlock x:Name="CategoryEnglish" Text="{Binding English}" TextWrapping="Wrap" FontSize="11" Foreground="{StaticResource MutedInkBrush}" Visibility="Collapsed"/>
+                                                                    </Grid>
                                                                 </Border>
+                                                                <DataTemplate.Triggers>
+                                                                    <DataTrigger Binding="{Binding DataContext.CategoryEnglish, RelativeSource={RelativeSource AncestorType=Window}}" Value="True">
+                                                                        <Setter TargetName="CategoryJapanese" Property="Visibility" Value="Collapsed"/>
+                                                                        <Setter TargetName="CategoryEnglish" Property="Visibility" Value="Visible"/>
+                                                                    </DataTrigger>
+                                                                </DataTemplate.Triggers>
                                                             </DataTemplate>
                                                         </ItemsControl.ItemTemplate>
                                                     </ItemsControl>
