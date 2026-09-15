@@ -1,64 +1,68 @@
-# CURRENT DEV TASK — ISSUE #83 AGGRESSIVE LOCAL CLEANUP (ACTIVE)
+# CURRENT DEV TASK — ISSUE #83 AGGRESSIVE LOCAL CLEANUP (COMPLETED / MERGED)
 
 最終同期: 2026-09-15
 
 ## Routing status
 
-- **Issue #83 is the active maintenance task for this workspace.** It runs from latest live `main`, requires inventory and current-dependency proof, and permits targeted deletion of obsolete/reproducible local assets in the same task.
-- Preserve the current WPF runtime/catalog, accepted catalog build inputs, Issue #70 queue/source/results, current #44/#65 data, and any unproven/active worktree state.
-- Do not use `git clean -fdx` or `git clean -fdX`; do not delete active #70 queue state or accepted rows.
-- **Issue #76 — Special browse taxonomy v2 is completed and integrated into `main`.**
-- Implementation branch: `codex/issue76-special-v2-production`.
-- Final branch tip: `cf6f34919d163d346411d562e9075b3843f4b170`.
-- Merged PR: `#81`.
-- Main merge commit: `0a1e94c8268cde97cfbc2305b3f2869d6919b5d6`.
-- Issue #76 is closed as completed.
-- Issue #83 is the current maintenance successor for this task only; #76 remains completed and must not be reopened.
-- #70 translation/data, #65 Stage10 learning, #44 KNOWLEDGE, and #24 safety debt remain separate lanes.
+- **Issue #83 — aggressive local cleanup is completed and integrated into `main`.**
+- Implementation branch: `codex/issue83-aggressive-cleanup`.
+- Final branch tip: `28ab39f111e438288619781f98311f3414a090ec`.
+- Merged PR: `#84`.
+- Main merge commit: `7ef69e6c7ffa6a76037f97226a9ed067d59c360d`.
+- DEV acceptance: Issue #83 comment `5680343047`.
+- No successor active DEV implementation issue is designated by this file.
+- Issue #70 translation/data, #65 Stage10 learning, #44 KNOWLEDGE, and #24 safety debt remain separate lanes.
 
-## Accepted scope
+## Accepted cleanup result
 
-The production WPF MainWindow keeps the existing overall UI while Special browse now uses the accepted shallow v2 facets:
+Issue #83 retired obsolete/reproducible local and tracked legacy assets after current-dependency proof.
 
-- `種類から探す`
-- `部位から探す`
-- `テーマから探す`
+Local disk usage for the measured project-related roots changed from:
 
-Facet conditions intersect with AND semantics. Existing search ranking/order, Prompt editing/output, presets, Forge bridge, General browse, and canonical identity are preserved.
+- before: `16,183,761,657` bytes
+- after: `1,987,919,366` bytes
+- reclaimed: `14,195,842,291` bytes (`14.196 GB` / `13.221 GiB`)
 
-The user-accepted interaction is also integrated:
+Major retired assets included:
+- old 11M-post Parquet / runtime source;
+- CSR/runtime index data;
+- obsolete Python/Tk runtime, launcher, tools, tests and retired workflows;
+- old publish/bin/obj and reproducible build scratch;
+- obsolete quarantine/archive/handoff/audit/benchmark outputs;
+- stale worktrees proven safe to remove.
 
-- the three Special axis groups stay expanded while the Special root is open;
-- `1つ戻す` removes only the latest facet condition;
-- `全解除` clears Special facet/history state without clearing ordinary search text;
-- canonical duplicate rows are deduplicated in the result surface.
+## Preserved / HOLD boundaries
 
-## Runtime / data boundary
+Preserved:
+- current `artifacts/current/Data/catalog.db`;
+- current `artifacts/current/UserData/user.db`;
+- current catalog build inputs and accepted Special/General/#63/#64/#76 assets;
+- active Issue #70 queue/source/results and queue manager;
+- current #44/#65 data with concrete or unresolved current dependency;
+- current SDK/NuGet required for local builds;
+- #24 backups.
 
-- Existing Issue #56 v1 sidecar/evidence remains preserved as provenance.
-- Accepted Issue #76 audit evidence is parsed only during explicit `--build-catalog`.
-- The accepted v2 classification is persisted into each Special catalog row as `CatalogEntry.SpecialBrowseV2` in `catalog.db`.
-- Normal startup reads the precomputed classification and does not reconstruct the 2,788-row mapping from audit CSVs.
-- Existing pre-#76 `catalog.db` files are not overwritten automatically and require one explicit rebuild to contain v2 browse data.
+HOLD rather than guessed-away:
+- `.worktrees/issue64-full-rollout-audit` because tracked modifications exist;
+- remaining `.tools` SDK/NuGet state;
+- #24 backups;
+- small #44/#65 candidate tools without enough evidence for safe deletion.
 
 ## Validation
 
-Final implementation evidence:
-
-- Release build: PASS, 0 warnings / 0 errors
-- full .NET tests: `126 passed / 6 skipped / 132 total`
-- Issue #76 focused: `13 passed`
-- production bake/persistence: `1 passed`
-- regression: `63 passed / 2 skipped / 65 total`
+- full .NET: `126 passed / 6 skipped`
+- Issue #76 focused: `13 passed / 1 skipped`
+- Issue #70 queue: bootstrap/status PASS; 10 tests PASS; claimed `0`
+- catalog: Special `2,788`; General `30,629`
+- WPF startup: PASS (`DanbooruTagTool v1` window confirmed)
+- current `user.db` hash: unchanged
+- current `catalog.db` hash: unchanged
 - `git diff --check`: PASS
-- Special identities: 2,788 preserved
-- accepted status distribution: `2745 / 15 / 6 / 1 / 21`
-- #70/#64/#63, canonical/protected data: unchanged
 
 ## Completion
 
-- Final implementation return: Issue #76 comment `5679455508`.
-- Final merge/close checkpoint: Issue #76 comment `5679492819`.
-- Main integration: PR #81 -> `0a1e94c8268cde97cfbc2305b3f2869d6919b5d6`.
-- Issue #76: **COMPLETED / CLOSED**.
-- Issue #83 cleanup execution is active; no separate AUDIT lane is active.
+- Codex final checkpoint: Issue #83 comment `5680261954`.
+- DEV acceptance: Issue #83 comment `5680343047`.
+- Main integration: PR #84 -> `7ef69e6c7ffa6a76037f97226a9ed067d59c360d`.
+- Issue #83: **COMPLETED / CLOSED**.
+- No separate AUDIT lane was required.
