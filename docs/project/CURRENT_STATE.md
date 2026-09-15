@@ -7,8 +7,9 @@
 **Stage9 completed / beginner-first practical v1 accepted / #64 General taxonomy accepted and integrated / #66 completed / #68 completed / #69 local final cleanup completed.**
 
 Current maintenance route:
-- **Issue #75 — WQHD visual polish pass is the active DEV implementation lane.** Its activation checkpoint is live Issue #75 comment `5674584468`; management documents were intentionally one checkpoint behind at task start.
-- Active branch: `codex/issue75-wqhd-visual-polish`.
+- **Issue #75 — WQHD visual polish pass is completed and integrated into `main` at `a315bdf6933e5e089174bc32c3ad6a8abc021082`.**
+- No successor active DEV implementation issue is designated. Do not infer one from this document.
+- Integrated branch: `codex/issue75-wqhd-visual-polish`.
 - Issue #74 — WQHD-first dictionary workspace redesign is completed and integrated into `main` at `f6e8345391cb445010c5fe23f2b1e480b4c514fd`.
 - Issue #73 — English Prompt pane density + dictionary add/remove toggle is completed and integrated into `main` at `079964b69192b5191b1bda5e9894b7138f8c75c2`.
 - Issue #72 — Prompt category view prototype remains completed and integrated into `main` at `174fee90b23e4a350ffe71d7b60aa834b8cb1296`.
@@ -144,7 +145,7 @@ Artifacts remain untracked. Cleanup must be scoped to known disposable artifact 
 
 ## Current route
 
-`#66 practical v1 accepted -> #68 cleanup completed -> #69 local final cleanup completed -> #72 completed/merged -> #73 completed/merged -> #74 completed/merged -> #75 active`
+`#66 practical v1 accepted -> #68 cleanup completed -> #69 local final cleanup completed -> #72 completed/merged -> #73 completed/merged -> #74 completed/merged -> #75 completed/merged`
 
 Issue #69 completed the one-pass local-maintenance lane. The primary checkout is current `main`; unique local-only evidence is preserved with hashes, and protected data, audit/tooling state, production catalog, and current WPF UserData remain in place. The root shortcut was opened successfully after normalization and the app reopened against its adjacent user state.
 
