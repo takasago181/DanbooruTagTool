@@ -1,0 +1,31 @@
+task_id,priority,user_intent,start_route,additional_filters,query,expected_scope_or_example,knowledge_basis,acceptance
+T01,P0,アナル系の道具を探す,部位:尻・肛門,種類:道具・物,,14件; anal beads / butt plug 等,K-HARD-002; body-site is intrinsic predicate,old ontology knowledgeなしで対象群へ到達できる
+T02,P0,アナル系の行為を探す,部位:尻・肛門,種類:行為・接触,,43件; anal object insertion 等,K-HARD-002,道具と行為を同じ部位routeから自然に分けられる
+T03,P0,尿道用の道具を探す,部位:尿道,種類:道具・物,,5件; urethral beads 等,K-HARD-002; K-HARD-004,尿道という目的から道具へ直接到達できる
+T04,P0,口に関係するBDSM道具を探す,テーマ:拘束・BDSM,部位:口・口内 | 種類:道具・物,,43件; ball gag / dildo gag 等,K-HARD-003; restraint topology,theme/body/kindの交差だけで実用候補集合になる
+T05,P0,BDSM道具全体を眺める,テーマ:拘束・BDSM,種類:道具・物,,139件; handcuffs / shackles / clamps 等,K-HARD-003; K-HARD-004,BDSMをforced semantic homeにせず道具としても見つかる
+T06,P0,口と男性器の両方が本質的な概念を探す,部位:口・口内,部位:男性器,,22件; fellatio / testicle sucking 等,K-BIND-001; K-HARD-002,同一軸body facetのANDがunionではなくintersectionになる
+T07,P0,口と女性器の両方が本質的な概念を探す,部位:口・口内,部位:女性器,,4件; cunnilingus 等,K-BIND-001; K-HARD-002,複数body条件のANDで少数の意味ある候補へ絞れる
+T08,P0,乳房と男性器の接触系を探す,部位:乳房・乳首,部位:男性器,,10件; paizuri 等,K-BIND-001; K-HARD-002,複数部位関係を旧subgenreなしで発見できる
+T09,P0,妊娠・授乳系全体を眺める,テーマ:生殖・妊娠・授乳,,,25件; pregnant / breastfeeding / lactation 等,K-HARD-001; structural decomposition,body/action/toolが同じthemeから横断発見できる
+T10,P0,R18Gの行為だけ探す,テーマ:損傷・R18G,種類:行為・接触,,19件; dissection / impalement / strangling 等,K-HARD-001,static body stateとdynamic actionを自然に分けられる
+T11,P0,R18Gの身体状態だけ探す,テーマ:損傷・R18G,種類:身体・状態,,30件; corpse / amputee 等,K-HARD-001,themeを維持したままkindで状態に絞れる
+T12,P0,theme-native BDSMを見つける,テーマ:拘束・BDSM,,,bdsm; kindなしでもbrowse可能,K-GOV-002; K-HARD-003,kindを無理に付けなくても1 route以上から発見できる
+T13,P0,theme-native guro/ryonaを見つける,テーマ:損傷・R18G,,,guro / ryona; kindなしでもbrowse可能,K-GOV-002; K-HARD-001,theme-native行をfake kindなしで発見できる
+T14,P0,handjobを生成準備の観点から探す,種類:行為・接触,部位:男性器,handjob,handjob,K-HARD-002; K-MODEL-NOOB-004,検索+facetでtarget-siteを保ちつつ既存rankingを変えない
+T15,P0,fellatioを日本語/英語検索から探す,部位:口・口内,部位:男性器,フェラ / fellatio,fellatio,K-MODEL-NOOB-002; K-SEM-001,facet有効中でも日本語/英語検索の既存能力を失わない
+T16,P1,anal beadsを日本語意図から探す,部位:尻・肛門,種類:道具・物,ビーズ,anal beads,K-HARD-002,search hitをfacetで絞りrelative rankingを保つ
+T17,P1,使用数順でアナル道具を眺める,部位:尻・肛門,種類:道具・物,,14件を使用数↓,product discovery goal,queryなしでは既存usage sortが使える
+T18,P1,日本語名順でBDSM道具を眺める,テーマ:拘束・BDSM,種類:道具・物,,139件を日本語名順,product discovery goal,facet countsや分類がsortへ混入しない
+T19,P0,新しい左tree routeを選び直す,部位:尻・肛門,その後 treeでテーマ:損傷・R18G,,旧body filterを残さずR18G単独状態へ,visibility of applied state,tree leafは新しいstart contextとしてprior facetsをclearする
+T20,P0,追加filterだけ外す,部位:尻・肛門,種類:道具・物を追加後に種類chipだけ削除,,14件から113件相当のbody routeへ戻る,faceted-search applied-filter visibility,削除した条件だけが外れ他条件は保持される
+T21,P0,全filter解除,テーマ:拘束・BDSM,部位:口・口内 | 種類:道具・物を追加後にすべて解除,,Special全browseへ戻る,faceted-search usability,一操作でhidden stateを残さず解除できる
+T22,P0,検索文字だけクリア,部位:口・口内,部位:男性器,fellatio,口+男性器facetは残る,K-GOV-002,ClearQueryがfacet状態を消さない
+T23,P0,facetだけクリア,部位:口・口内,部位:男性器,fellatio,global fellatio search結果へ戻る,K-GOV-002,ClearFacetsがqueryを消さない
+T24,P0,General閲覧が壊れていないことを確認,General既存route,,,現行General結果,hard boundary #64 General untouched,Special v2 state導入後もGeneral navigation/browse不変
+T25,P0,参照専用tagをdefault browseへ混ぜない,Special全体,,,KEEP_REFERENCE_ONLY 21件はdefault facet browse非表示,K-GOV-002; Issue #63 product-fit,browse除外だがcanonical/reference policy自体は削除されない
+T26,P0,product-fit REVIEWを勝手に昇格しない,Special全体,,,DEFER_PRODUCT_FIT_REVIEW 6件はnormal browse非表示,K-GOV-002; Issue #63,分類都合でproduct-fit保留を解消しない
+T27,P0,out-of-scopeをnormal browseへ出さない,Special全体,,,OUT_OF_SCOPE_NO_BROWSE 1件はnormal browse非表示,Issue #63 product-fit,canonical data削除とbrowse除外を混同しない
+T28,P1,kindなしbody-only行を探す,部位:男性器,,,penis awe 等のhuman-resolved kindless行,kind optional decision,kindなしでもusable routeがあれば取りこぼさない
+T29,P1,907件の行為棚で普通のtext searchを使う,種類:行為・接触,,,373件のbody/themeなし行も検索可能,Noob tag-first + product search goal,facetを持たない行を細分類なしでも検索で発見できる
+T30,P1,backで前のbrowse状態へ戻る,部位:尻・肛門,種類:道具・物を追加→別route→Back,,filter/query/selection/scrollの整合したsnapshot,WPF current back-stack gap,表示ラベルだけ戻ってstale facetが残る状態を起こさない
