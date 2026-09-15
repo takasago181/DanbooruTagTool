@@ -89,7 +89,6 @@ def main() -> None:
     ja_rows = []
     proposal_rows = []
     kind_counts = Counter()
-    corrected_tags = []
     for key in sorted(keys):
         ident = identity[key]
         tax = taxonomy[key]
@@ -99,7 +98,6 @@ def main() -> None:
             corr = corrections[key]
             for field in ("display_ja", "search_ja", "ja_status", "ja_note"):
                 ja[field] = corr[field]
-            corrected_tags.append(key[1])
 
         if not ja.get("display_ja") or not ja.get("search_ja"):
             raise SystemExit(f"empty Japanese metadata: {key}")
