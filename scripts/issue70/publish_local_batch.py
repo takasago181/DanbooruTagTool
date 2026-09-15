@@ -29,7 +29,7 @@ def load_csv(path: Path):
 
 
 def source_for_result(repo: Path, rows):
-    manifest = json.loads((repo / "docs/issue70/data/source_chunks_manifest.json").read_text(encoding="utf-8"))
+    manifest = json.loads((repo / "docs/issue70/data/source_chunks_manifest.json").read_text(encoding="utf-8-sig"))
     first = rows[0]["row_id"]
     for entry in manifest["chunks"]:
         if entry["first_row_id"] == first:
