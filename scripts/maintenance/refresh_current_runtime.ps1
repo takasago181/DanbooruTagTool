@@ -48,6 +48,13 @@ function Invoke-Checked([string] $FilePath, [string[]] $Arguments) {
     if ($exitCode -ne 0) { throw "Command failed ($exitCode): $FilePath $($Arguments -join ' ')`n$($output -join [Environment]::NewLine)" }
 }
 function Relative([string] $Base, [string] $Path) { return $Path.Substring($Base.Length + 1).Replace('\', '/') }
+function Wait-ForFile([string] $Path) {
+    for ($i = 0; $i -lt 40; $i++) {
+        if (Test-Path -LiteralPath $Path -PathType Leaf) { return }
+        Start-Sleep -Milliseconds 250
+    }
+    throw "Expected generated file did not appear: $Path"
+}
 
 try {
     New-Item -ItemType Directory -Path $publishRoot, "$validationRoot/Data", "$validationRoot/UserData", $buildRoot, $postBuildRoot -Force | Out-Null
@@ -59,6 +66,7 @@ try {
     Copy-Item -LiteralPath $catalogPath -Destination "$validationRoot/Data/catalog.db"
     Copy-Item -LiteralPath $userDbPath -Destination "$validationRoot/UserData/user.db"
     Invoke-Checked $publishedExe @('--build-catalog', $RepositoryRoot, $RepositoryRoot, $buildRoot)
+    Wait-ForFile (Join-Path $buildRoot 'catalog.db')
     Invoke-Checked $python @('-B', (Join-Path $RepositoryRoot 'scripts/maintenance/catalog_health.py'), '--catalog', (Join-Path $buildRoot 'catalog.db'), '--userdb', (Join-Path $validationRoot 'UserData/user.db'))
     $process = Start-Process -FilePath $publishedExe -WorkingDirectory $validationRoot -PassThru
     try {
@@ -83,6 +91,7 @@ try {
     Get-ChildItem -LiteralPath $ArtifactRoot -Directory -Recurse | Sort-Object FullName -Descending | Where-Object { $_.FullName -notmatch '\(Data|UserData)(\\|$)' } | ForEach-Object { if (-not (Get-ChildItem -LiteralPath $_.FullName -Force)) { Remove-Item -LiteralPath $_.FullName -Force } }
 
     Invoke-Checked (Join-Path $ArtifactRoot 'DanbooruTagTool.exe') @('--build-catalog', $RepositoryRoot, $RepositoryRoot, $postBuildRoot)
+    Wait-ForFile (Join-Path $postBuildRoot 'catalog.db')
     Invoke-Checked $python @('-B', (Join-Path $RepositoryRoot 'scripts/maintenance/catalog_health.py'), '--catalog', (Join-Path $postBuildRoot 'catalog.db'), '--userdb', $userDbPath)
     $shortcut = Join-Path $RepositoryRoot 'DanbooruTagTool.lnk'
     if (Test-Path -LiteralPath $shortcut) {
@@ -98,5 +107,10 @@ try {
     $provenance | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath (Join-Path $ArtifactRoot 'build-provenance.json') -Encoding utf8
     Write-Output "PASS runtime refresh source=$resolvedRevision files=$($newFiles.Count) exe_sha256=$exeHash catalog_sha256=$catalogAfter userdb_sha256=$userAfter"
 } finally {
-    if (Test-Path -LiteralPath $tempRoot) { Remove-Item -LiteralPath $tempRoot -Recurse -Force }
+    if (Test-Path -LiteralPath $tempRoot) {
+        for ($i = 0; $i -lt 10; $i++) {
+            try { Remove-Item -LiteralPath $tempRoot -Recurse -Force -ErrorAction Stop; break } catch { Start-Sleep -Milliseconds 500 }
+        }
+        if (Test-Path -LiteralPath $tempRoot) { Write-Warning "Could not remove known disposable temp path: $tempRoot" }
+    }
 }
