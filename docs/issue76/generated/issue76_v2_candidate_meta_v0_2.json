@@ -1,0 +1,63 @@
+{
+  "version": "issue76-v2-candidate-v0.2",
+  "source": "Issue #56 final rollout artifact",
+  "source_total": 2788,
+  "kind_counts": {
+    "身体・状態": 319,
+    "行為・接触": 901,
+    "衣服・露出": 503,
+    "ポーズ・構図・場面": 154,
+    "道具・物": 288,
+    "異形・変形": 118,
+    "体液・排泄": 273,
+    "人物・関係": 123,
+    "表現・メタ": 66,
+    "REVIEW_REQUIRED": 43
+  },
+  "body_site_counts": {
+    "臀部・肛門（暫定）": 111,
+    "口・口内": 174,
+    "乳房・乳首": 257,
+    "尿道": 20,
+    "女性器": 173,
+    "男性器": 234
+  },
+  "theme_counts": {
+    "損傷・R18G": 66,
+    "拘束・BDSM": 366,
+    "生殖・妊娠・授乳": 25
+  },
+  "body_site_multiplicity": {
+    "0": 1843,
+    "1": 921,
+    "2": 24
+  },
+  "theme_multiplicity": {
+    "0": 2332,
+    "1": 455,
+    "2": 1
+  },
+  "combined_facet_multiplicity": {
+    "0": 1502,
+    "1": 1146,
+    "2": 140
+  },
+  "candidate_status_counts": {
+    "AUTO_CANDIDATE": 2724,
+    "REVIEW_V1_UNRESOLVED": 43,
+    "REVIEW_MIXED_FAMILY": 21
+  },
+  "review_queue_rows": 126,
+  "review_class_counts": {
+    "SITE_FACET_AUDIT": 62,
+    "REVIEW_V1_UNRESOLVED": 43,
+    "REVIEW_MIXED_FAMILY": 21
+  },
+  "notes": [
+    "Counts are route-derived from accepted v1 primary/secondary paths and therefore conservative for facets.",
+    "No canonical Special identity is changed.",
+    "BUTTOCK_ANUS-derived rows are flagged for a dedicated site naming/split audit.",
+    "CHASTITY_CONTROL is flagged as a mixed device/state family rather than force-frozen.",
+    "43 v1 REVIEW_REQUIRED rows remain fail-closed."
+  ]
+}
