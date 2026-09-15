@@ -1,0 +1,26 @@
+{
+  "mode": "ISSUE97_PHASE_C_BOUNDED_DISCOVERY_V1",
+  "special_rows": 2983,
+  "intent_inventory": 49,
+  "candidate_total": 49,
+  "routed_or_held_total": 0,
+  "domains": {
+    "ANAL_RECTAL": 9,
+    "URETHRAL": 6,
+    "BDSM_RESTRAINT": 9,
+    "BREAST_NIPPLE": 2,
+    "FLUID_EXCRETION": 6,
+    "NONHUMAN_TENTACLE": 10,
+    "BODY_STATE_EXTREME": 3,
+    "R18G_DAMAGE": 1,
+    "MULTI_ACTOR": 3
+  },
+  "production_mutation": "NO",
+  "issue70_mutated": "NO",
+  "userdata_mutated": "NO",
+  "general_reaudit": "NO",
+  "phase_b_auto_promotion": "NO",
+  "pseudo_canonical_created": "NO",
+  "content_filter_used": "NO",
+  "generic_prompt_recipe_scope": "EXCLUDED"
+}
