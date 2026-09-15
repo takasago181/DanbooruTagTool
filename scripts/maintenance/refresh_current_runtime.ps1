@@ -103,7 +103,7 @@ try {
         New-Item -ItemType Directory -Path (Split-Path -Parent $destination) -Force | Out-Null
         Copy-Item -LiteralPath $newFiles[$rel] -Destination $destination -Force
     }
-    Get-ChildItem -LiteralPath $ArtifactRoot -Directory -Recurse | Sort-Object FullName -Descending | Where-Object { $_.FullName -notmatch '\(Data|UserData)(\\|$)' } | ForEach-Object { if (-not (Get-ChildItem -LiteralPath $_.FullName -Force)) { Remove-Item -LiteralPath $_.FullName -Force } }
+    Get-ChildItem -LiteralPath $ArtifactRoot -Directory -Recurse | Sort-Object FullName -Descending | Where-Object { $_.FullName -notmatch '\\(Data|UserData)(\\|$)' } | ForEach-Object { if (-not (Get-ChildItem -LiteralPath $_.FullName -Force)) { Remove-Item -LiteralPath $_.FullName -Force } }
 
     Invoke-Checked (Join-Path $ArtifactRoot 'DanbooruTagTool.exe') @('--build-catalog', $RepositoryRoot, $RepositoryRoot, $postBuildRoot)
     Wait-ForFile (Join-Path $postBuildRoot 'catalog.db')
