@@ -55,23 +55,11 @@ jobs:
       - name: Build runnable prototype package
         shell: pwsh
         run: |
-          $catalogDir = Join-Path $env:RUNNER_TEMP 'issue76-catalog'
-          New-Item -ItemType Directory -Path $catalogDir -Force | Out-Null
-          dotnet run --project src/DanbooruTagTool.App/DanbooruTagTool.App.csproj -c Release --no-build -- --build-catalog "$PWD" "$PWD" "$catalogDir"
-          if ($LASTEXITCODE -ne 0) {
-            $errorLog = Join-Path $PWD 'src/DanbooruTagTool.App/bin/Release/net10.0-windows/catalog-build-error.txt'
-            if (Test-Path -LiteralPath $errorLog) {
-              Write-Host '--- catalog-build-error.txt ---'
-              Get-Content -LiteralPath $errorLog
-              Write-Host '--- end catalog-build-error.txt ---'
-            }
-            throw 'Issue76 prototype catalog build failed'
-          }
-
           $portable = Join-Path $env:RUNNER_TEMP 'Issue76-Special-Browse-v2-Prototype'
-          & ./src/publish-portable.ps1 -Catalog (Join-Path $catalogDir 'catalog.db') -Output $portable -Dotnet 'dotnet'
+          dotnet publish src/DanbooruTagTool.App/DanbooruTagTool.App.csproj -c Release -r win-x64 --self-contained true -p:PublishSingleFile=false -o $portable
           if ($LASTEXITCODE -ne 0) { throw 'Issue76 portable publish failed' }
 
+          New-Item -ItemType Directory -Path (Join-Path $portable 'Data'),(Join-Path $portable 'UserData') -Force | Out-Null
           $issue76 = Join-Path $portable 'Issue76'
           New-Item -ItemType Directory -Path $issue76 -Force | Out-Null
           Copy-Item (Join-Path $env:RUNNER_TEMP 'issue76_v2_candidate_mapping_v0_8.csv') (Join-Path $issue76 'issue76_v2_candidate_mapping_v0_8.csv')
@@ -82,20 +70,39 @@ jobs:
           @'
           @echo off
           cd /d "%~dp0"
+          if not exist "%~dp0Data\catalog.db" (
+            echo.
+            echo [Issue76 prototype]
+            echo Data\catalog.db がありません。
+            echo 現在使っている DanbooruTagTool の Data\catalog.db を、この試作フォルダの Data フォルダへコピーしてください。
+            echo 本番側の catalog.db / UserData は変更しません。
+            echo.
+            pause
+            exit /b 1
+          )
           DanbooruTagTool.exe --issue76-v2-prototype "%~dp0Issue76\issue76_v2_candidate_mapping_v0_8.csv"
-          '@ | Set-Content -LiteralPath (Join-Path $portable 'RUN_ISSUE76_PROTOTYPE.bat') -Encoding ascii
+          '@ | Set-Content -LiteralPath (Join-Path $portable 'RUN_ISSUE76_PROTOTYPE.bat') -Encoding utf8
 
           @'
           Issue #76 Special Browse v2 isolated prototype
 
-          1. RUN_ISSUE76_PROTOTYPE.bat をダブルクリックしてください。
-          2. これは試作用UIです。通常起動の本番UI・本番taxonomyは置き換えません。
-          3. Issue76 フォルダ内の 30-task matrix / practical test document を見ながら実際の探しやすさを確認してください。
-          4. 分類が細かすぎる・自然な入口から見つからない・絞り込みが不自然、のどれかが出た箇所だけ修正対象にします。
+          最初の1回だけ:
+          - 現在使っている DanbooruTagTool の Data\catalog.db を、このフォルダの Data\catalog.db へコピーします。
+          - コピーなので本番の catalog.db / UserData は変更されません。
+
+          起動:
+          1. RUN_ISSUE76_PROTOTYPE.bat をダブルクリックします。
+          2. Issue76 フォルダ内の 30-task matrix / practical test document を見ながら実際の探しやすさを確認します。
+          3. 「自然な入口から見つからない」「絞り込みが不自然」「細かすぎる」のどれかが出た箇所だけ修正対象にします。
+
+          この試作は本番UI・本番taxonomy・検索ランキングを置き換えません。
 
           Frozen v0.8 mapping SHA256:
           de5ef4cb712c31425b77fcc8bf2d8f56917356d79b3720845c81d46d8142d5d0
           '@ | Set-Content -LiteralPath (Join-Path $portable 'README_ISSUE76.txt') -Encoding utf8
+
+          Set-Content -LiteralPath (Join-Path $portable 'Data/COPY_CURRENT_catalog.db_HERE.txt') -Value '現在使用中の DanbooruTagTool/Data/catalog.db をこの Data フォルダへコピーしてください。' -Encoding utf8
+          Set-Content -LiteralPath (Join-Path $portable 'UserData/README.txt') -Value 'Issue76 prototype user state only. The production UserData folder is not used.' -Encoding utf8
 
           "ISSUE76_PORTABLE=$portable" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
 
