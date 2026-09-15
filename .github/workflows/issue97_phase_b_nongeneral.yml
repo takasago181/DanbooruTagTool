@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   phase-b-audit:
@@ -93,8 +93,81 @@ jobs:
           for key in ('production_mutation', 'candidate_is_automatic_promotion', 'phase_c_mixed_in', 'issue70_mutated', 'userdata_mutated', 'content_filter_used'):
               assert review[key] == 'NO', (key, review[key])
           assert review['candidate_total'] == review['candidate_aliases'] + review['candidate_meta_canonicals']
+          assert review['reviewed_total'] == review['candidate_total'] + review['rejected_total'] + review['already_covered_total']
           print('PHASE_B_BOUNDARY_GATE=PASS')
           PY
+
+      - name: Persist reviewed Phase B evidence on audit branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          DEST=docs/issue97/phase_b
+          mkdir -p "$DEST"
+          cp artifacts/issue97/phase_b/phase_b_candidate_subset_v1.csv "$DEST/"
+          cp artifacts/issue97/phase_b/phase_b_rejected_ledger_v1.csv "$DEST/"
+          cp artifacts/issue97/phase_b/phase_b_human_review_summary_v1.json "$DEST/"
+          cp artifacts/issue97/phase_b/source_provenance.txt "$DEST/"
+          cp artifacts/issue97/phase_b/category_policy_summary.csv "$DEST/"
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          root = Path('docs/issue97/phase_b')
+          s = json.loads((root / 'phase_b_human_review_summary_v1.json').read_text(encoding='utf-8'))
+          md = f'''# Issue #97 Phase B non-General coverage audit v1
+
+## Result
+
+Phase B discovery/review is complete as an **audit candidate set**, with no production mutation.
+
+- pinned Danbooru source: `2026-09-02`
+- accepted Special baseline: `2,983` IDs (`1..2983`)
+- reviewed alias inventory rows: **{s['reviewed_alias_inventory_rows']:,}**
+- reviewed Meta rows: **{s['reviewed_meta_rows']:,}**
+- final candidate subset: **{s['candidate_total']:,}**
+  - verified search-alias candidates: **{s['candidate_aliases']:,}**
+  - current Meta canonical candidates: **{s['candidate_meta_canonicals']:,}**
+- explicit rejected/excluded rows: **{s['rejected_total']:,}**
+- already-covered/no-gap rows: **{s['already_covered_total']:,}**
+
+## Interpretation
+
+The 311 alias rows are search-surface candidates only. They must continue to resolve to the existing accepted canonical Special identity; they do not create new canonical identities.
+
+The 68 Meta rows are current Danbooru Meta canonicals that survived a bounded product-relevance screen for visible medium, image type, layout/state, rendering artifact, or related generation-relevant structure. They are **not automatically approved for Special promotion**.
+
+Artist, Character, and Copyright catalogs were not imported or row-by-row reopened. Issue #94's completed General canonical audit was not reopened. Phase C combination recipes were not mixed into this audit.
+
+## Durable artifacts
+
+- `phase_b_candidate_subset_v1.csv` — 379 candidate rows
+- `phase_b_rejected_ledger_v1.csv` — 499 explicit rejected/excluded rows
+- `phase_b_human_review_summary_v1.json` — exact counts and boundary flags
+- `category_policy_summary.csv` — category-level inclusion/exclusion policy
+- `source_provenance.txt` — pinned source URL and SHA-256
+
+## Protected boundaries
+
+- production mutation: **NO**
+- Issue #70 mutation: **NO**
+- `UserData/user.db` mutation: **NO**
+- content filter used: **NO**
+- Phase C mixed in: **NO**
+
+## Next gate
+
+Do not silently promote these 379 rows. Any production integration must be a separate deterministic proposal/review step that decides whether each alias belongs in search metadata and whether each Meta canonical actually belongs in Special.
+'''
+          (root / 'PHASE_B_AUDIT_SUMMARY_v1.md').write_text(md, encoding='utf-8')
+          PY
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add "$DEST"
+          if git diff --cached --quiet; then
+            echo 'No durable Phase B artifact changes to commit.'
+          else
+            git commit -m 'Issue #97 Phase B: persist reviewed audit evidence'
+            git push origin HEAD:audit/issue97-phase-b-nongeneral
+          fi
 
       - name: Upload Phase B evidence
         if: always()
