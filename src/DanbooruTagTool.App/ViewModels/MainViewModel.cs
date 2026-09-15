@@ -74,6 +74,7 @@ public sealed class ChipViewModel(PromptItem item) : Observable
     public string Label => English ? item.Surface : item.Display;
 }
 public sealed record NavigationNode(string Key, string Label, IReadOnlyList<NavigationNode> Children);
+public sealed record PromptOutputProfileOption(PromptOutputProfile Value, string Label);
 
 public static class DictionaryLayoutMetrics
 {
@@ -116,6 +117,7 @@ public sealed class MainViewModel : Observable
     private string query = "", browse = "special", status = "", find = "", directText = "", weight = "";
     private int workspaceIndex, sortIndex, detailsTabIndex;
     private bool englishChips, multiSelect, directEditing, categoryView, categoryEnglish;
+    private PromptOutputProfile outputProfile = PromptOutputProfile.Canonical;
     private Guid? anchor;
     private UiState ui = new();
     private readonly Stack<string> back = new();
@@ -142,7 +144,17 @@ public sealed class MainViewModel : Observable
     public bool MultiSelect { get => multiSelect; set => Set(ref multiSelect, value); }
     public bool HasSelection => Chips.Any(c => c.Selected);
     public string SelectionSummary => IsCategoryView ? "カテゴリ別表示（読み取り専用）" : HasSelection ? $"{Chips.Count(c => c.Selected)}件選択中" : "選択なし";
-    public string English => Workspace.English;
+    public string English => PromptOutputFormatter.Serialize(Workspace.Items, OutputProfile);
+    public IReadOnlyList<PromptOutputProfileOption> OutputProfiles { get; } =
+    [new(PromptOutputProfile.GenerationFriendly, "生成向け"), new(PromptOutputProfile.Canonical, "原形優先")];
+    public PromptOutputProfile OutputProfile
+    {
+        get => outputProfile;
+        set
+        {
+            if (Set(ref outputProfile, value)) { Notify(nameof(English)); Persist(); }
+        }
+    }
     public string Count => $"現在のPrompt · {Chips.Count}件";
     public bool HasPrompt => Chips.Count > 0;
     public string ResultSummary => $"{Results.Count:N0}件";
@@ -192,11 +204,11 @@ public sealed class MainViewModel : Observable
         this.catalog = catalog; this.store = store; this.clipboard = clipboard; this.general = general ?? new PendingGeneralBrowseProvider();
         search = new(catalog); Workspace = new(new(catalog));
         var state = store.Load(); if (state != null) { Workspace.Restore(state.Prompt); ui = state.Ui; }
-        query = ui.Query; browse = ui.Browse; workspaceIndex = ui.Workspace; englishChips = ui.EnglishChips; RestoreScroll = ui.BrowseScroll; BrowseScroll = ui.BrowseScroll;
+        query = ui.Query; browse = ui.Browse; workspaceIndex = ui.Workspace; englishChips = ui.EnglishChips; outputProfile = ui.OutputProfile; RestoreScroll = ui.BrowseScroll; BrowseScroll = ui.BrowseScroll;
         Navigation = [new("special", "◆ Special", catalog.Entries.Where(e => e.IsSpecial).SelectMany(e => e.Paths).GroupBy(p => p.GenreId)
             .Select(g => new NavigationNode("special:" + g.Key + ">", g.First().Genre, g.Where(p => p.SubgenreId.Length > 0).DistinctBy(p => p.Key)
                 .Select(p => new NavigationNode("special:" + p.Key, p.Subgenre, [])).ToArray())).ToArray()), new("general", "General", this.general.IsPending ? [] : BuildNavigation(this.general.Paths, "general:"))];
-        Copy = Normal(_ => Safe(() => { clipboard.Write(Workspace.ClipboardPayload); Status = "✓ コピーしました"; }));
+        Copy = Normal(_ => Safe(() => { clipboard.Write(English); Status = "✓ コピーしました"; }));
         Import = Normal(_ => Safe(() => { var text = clipboard.Read(); if (string.IsNullOrWhiteSpace(text)) Status = "クリップボードにPrompt文字列がありません"; else Workspace.Replace(text); }));
         New = Normal(_ => Workspace.Replace("")); Recover = Normal(_ => Workspace.Recover(), _ => Workspace.HasRecovery);
         Undo = Ordered(_ => Workspace.Undo(), _ => Workspace.CanUndo); Redo = Ordered(_ => Workspace.Redo(), _ => Workspace.CanRedo);
@@ -310,7 +322,7 @@ public sealed class MainViewModel : Observable
     public void SaveUi(UiState value) { ui = value; Persist(); }
     public void Persist()
     {
-        ui = ui with { Workspace = WorkspaceIndex, Browse = browse, Query = Query, SelectedEntry = SelectedEntry?.Entry.Id, BrowseScroll = Query.Length == 0 ? BrowseScroll : RestoreScroll, EnglishChips = EnglishChips };
+        ui = ui with { Workspace = WorkspaceIndex, Browse = browse, Query = Query, SelectedEntry = SelectedEntry?.Entry.Id, BrowseScroll = Query.Length == 0 ? BrowseScroll : RestoreScroll, EnglishChips = EnglishChips, OutputProfile = OutputProfile };
         try { store.Save(new(Workspace.Snapshot(), ui)); } catch (Exception e) when (e is IOException or Microsoft.Data.Sqlite.SqliteException) { Status = "自動保存できません: " + e.Message; }
     }
 }

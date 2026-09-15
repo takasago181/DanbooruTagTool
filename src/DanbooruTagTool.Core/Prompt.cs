@@ -4,6 +4,7 @@ using System.Text.RegularExpressions;
 namespace DanbooruTagTool.Core;
 
 public enum PromptItemKind { Normal, Weighted, Lora, Control, Raw }
+public enum PromptOutputProfile { Canonical, GenerationFriendly }
 public sealed record PromptItem(Guid Id, string Surface, string? Canonical, string? Japanese,
     PromptItemKind Kind, string? StructuredName = null, decimal? Weight = null, string? CatalogId = null)
 {
@@ -19,7 +20,7 @@ public sealed record PromptItem(Guid Id, string Surface, string? Canonical, stri
 
 public sealed class PromptParser(ICatalog catalog)
 {
-    private static readonly Regex Weighted = new(@"^\(([^():\[\]<>\\,]+):(-?\d+(?:\.\d+)?)\)$", RegexOptions.CultureInvariant);
+    private static readonly Regex Weighted = new(@"^\(((?:[^():\[\]<>\\]|\\[()])+):(-?\d+(?:\.\d+)?)\)$", RegexOptions.CultureInvariant);
     private static readonly Regex Lora = new(@"^<lora:([^:<>\r\n]+):(-?\d+(?:\.\d+)?)>$", RegexOptions.CultureInvariant);
     public PromptItem[] Parse(string text)
     {
@@ -55,13 +56,72 @@ public sealed class PromptParser(ICatalog catalog)
         var w = Weighted.Match(t);
         if (w.Success && decimal.TryParse(w.Groups[2].Value, CultureInfo.InvariantCulture, out var weight))
         {
-            var entry = catalog.Resolve(w.Groups[1].Value);
+            var entry = ResolveRecognized(w.Groups[1].Value);
             return new(Guid.NewGuid(), surface, entry?.Canonical, entry?.Japanese, PromptItemKind.Weighted, w.Groups[1].Value, weight, entry?.Id);
         }
-        var tag = catalog.Resolve(t);
+        var tag = ResolveRecognized(t);
         return new(Guid.NewGuid(), surface, tag?.Canonical, tag?.Japanese, tag == null ? PromptItemKind.Raw : PromptItemKind.Normal, CatalogId: tag?.Id);
     }
+    private CatalogEntry? ResolveRecognized(string value)
+    {
+        var exact = catalog.Resolve(value);
+        if (exact != null) return exact;
+
+        // Generation-friendly output escapes literal parentheses. Only use the
+        // unescaped form as a catalog lookup candidate; never rewrite the
+        // stored Prompt surface.
+        var unescaped = UnescapeLiteralParentheses(value);
+        if (unescaped == value) return null;
+        return catalog.Resolve(unescaped) ?? catalog.Resolve(unescaped.Replace(' ', '_'));
+    }
+    private static string UnescapeLiteralParentheses(string value)
+    {
+        var result = new System.Text.StringBuilder(value.Length);
+        for (int i = 0; i < value.Length; i++)
+        {
+            if (value[i] == '\\' && i + 1 < value.Length && value[i + 1] is '(' or ')') { result.Append(value[++i]); continue; }
+            result.Append(value[i]);
+        }
+        return result.ToString();
+    }
     public static string Serialize(IEnumerable<PromptItem> items) => string.Join(",", items.Select(i => i.Surface));
+}
+
+public static class PromptOutputFormatter
+{
+    private static readonly Regex Weighted = new(@"^\(((?:[^():\[\]<>\\]|\\[()])+):-?\d+(?:\.\d+)?\)$", RegexOptions.CultureInvariant);
+
+    public static string Serialize(IEnumerable<PromptItem> items, PromptOutputProfile profile) =>
+        string.Join(",", items.Select(item => Format(item, profile)));
+
+    public static string Format(PromptItem item, PromptOutputProfile profile)
+    {
+        if (profile == PromptOutputProfile.Canonical || item.Canonical == null || item.Kind is not (PromptItemKind.Normal or PromptItemKind.Weighted))
+            return item.Surface;
+
+        var surface = item.Surface;
+        var start = 0;
+        while (start < surface.Length && char.IsWhiteSpace(surface[start])) start++;
+        var end = surface.Length;
+        while (end > start && char.IsWhiteSpace(surface[end - 1])) end--;
+        var leading = surface[..start];
+        var trailing = surface[end..];
+        var core = FormatCanonicalCore(item.Canonical);
+
+        if (item.Kind == PromptItemKind.Weighted)
+        {
+            var trimmed = surface[start..end];
+            if (Weighted.IsMatch(trimmed))
+            {
+                var colon = trimmed.LastIndexOf(':');
+                return leading + "(" + core + trimmed[colon..] + trailing;
+            }
+            return surface;
+        }
+        return leading + core + trailing;
+    }
+
+    private static string FormatCanonicalCore(string canonical) => canonical.Replace("(", "\\(").Replace(")", "\\)").Replace('_', ' ');
 }
 
 public sealed record WorkspaceSnapshot(PromptItem[] Items, PromptItem[]? Recovery);

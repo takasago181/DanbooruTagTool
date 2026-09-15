@@ -1,43 +1,36 @@
-# CURRENT DEV TASK — ISSUE #75 WQHD VISUAL POLISH (COMPLETED / MERGED)
+# CURRENT DEV TASK — ISSUE #77 PROMPT OUTPUT PROFILES
 
 最終同期: 2026-09-15
 
 ## Routing status
 
-- **Issue #75 is completed and integrated into `main` at `a315bdf6933e5e089174bc32c3ad6a8abc021082`** — `[DEV][POST-V1] WQHD visual polish pass`.
-- User Visual Review: **ACCEPT**.
-- Integrated branch: `codex/issue75-wqhd-visual-polish`.
-- Creation-time live main: `28fdbe4ff47d2c22ba1e6e4b876cd98b79cb4cbb`.
-- Main advanced by the existing maximized-launch commit; it was reconciled into the feature branch without force push, then main was fast-forwarded.
-- Issue #74 WQHD two-column layout and maximized launch baseline remain intact.
-- Issue #73 safe `＋ / ✓` toggle and Issue #72 Prompt category view remain intact.
-- Issue #70 translation/data work remains separate. #75 did not modify #70 outputs, canonical/protected data, or taxonomy.
-- No successor active DEV implementation issue is designated; do not infer one.
+- **Issue #77 — Prompt output profile switch + tolerant one-click import is ACTIVE DEV.**
+- Activation authority: live Issue #77 and comment `5674780449`.
+- Branch: `codex/issue77-prompt-output-profiles`.
+- Activation baseline: `da3726f966e88876d101d9c23086cf8e44550574`.
+- User approved implementation through main integration if all validation passes.
+- No successor should be selected by Codex after completion; #70 and #65 remain separate lanes.
 
-## Delivered scope
+## Scope
 
-1. Stronger compact Prompt chip boundaries and surface separation across Current Prompt, ordered Prompt Edit, and category view shared styles.
-2. Neutral/muted item-level `×` at rest with stronger danger treatment only on hover/press; practical hit target retained.
-3. Long Japanese Prompt labels can use the right-pane viewport width and wrap naturally without ellipsis.
-4. Clearer dictionary card borders/selection, `＋ / ✓` visual states, simultaneous right-pane sections, typography hierarchy, left navigation hierarchy, and common-action priority.
+Add the generic user-facing profiles `生成向け` and `原形優先` with persistent selection, one-click copy/import, profile-specific English preview, and conservative recognition of generation-style tokens. Keep canonical/internal Prompt identity, order, duplicates, raw/unresolved, LoRA, BREAK, weights, Undo/Redo, autosave, and accepted #72/#73/#74/#75 behavior intact.
 
-## Validation
+## Safety boundaries
 
-- Release build: PASS (0 warnings / 0 errors).
-- All .NET tests: **83 passed / 5 skipped**.
-- #72/#73/#74 focused regression tests: **8 passed**.
-- `git diff --check`: PASS.
-- Existing fixed shortcut target `artifacts/current` was republished and launched successfully.
-- Windows UI bridge could not enumerate the WPF window, so an automated screenshot was unavailable; user Visual Review supplied acceptance.
+- Do not expose NoobAI, WAI, Danbooru, or implementation-facing profile names in normal UI.
+- Do not rewrite arbitrary raw/natural-language text or modify #70 translation data, taxonomy, canonical data, or protected data.
+- Work only inside the existing `src/App`, `src/Core`, `src/Data`, and `src/Tests` structure plus this routing document.
+- Do not add top-level folders or versioned artifact/screenshot/build directories.
 
-## Repository hygiene
+## Required validation
 
-- No new top-level folders, parallel WPF app, prototype/temp/tmp/output/build directories, or versioned artifact/screenshot folders were added.
-- Changes stayed within existing `src/...` and project docs.
-- #70 translation data, canonical/protected data, taxonomy classification, and legacy data paths were not changed.
-- No `git clean -fdx` or `git clean -fdX` was run.
+- Release build.
+- All .NET tests.
+- Focused #77 profile/import tests.
+- #72/#73/#74/#75 regression tests.
+- `git diff --check`.
+- Practical Windows launch/UI check if available.
 
-## Completion / next route
+## Integration gate
 
-- Issue #75 was integrated after user acceptance and is closed after post-merge validation.
-- There is no active DEV implementation issue selected by this synchronization. #70 and #65 remain separate lanes.
+If all validation passes, re-fetch live main, reconcile safely without force if main advanced, integrate with fast-forward where possible, push main, sync this document and `CURRENT_STATE.md` to completed/merged, then close Issue #77. Do not select a successor Active DEV lane.
