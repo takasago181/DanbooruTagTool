@@ -11,10 +11,17 @@ public sealed record BrowsePath(string GenreId, string Genre, string SubgenreId 
 
 public enum BrowseClassificationStatus { NotApplicable, Proposed, Unresolved }
 
+public sealed record SpecialBrowseV2Classification(
+    string? KindId,
+    string[] BodySiteIds,
+    string[] ThemeIds,
+    SpecialBrowseV2Status Status);
+
 public sealed record CatalogEntry(string Id, string? Canonical, string English, string? Japanese,
     bool IsSpecial, long? Usage, string[] Aliases, string[] JapaneseSearch, BrowsePath[] Paths,
     string ProductFit = "KEEP", string Description = "",
-    BrowseClassificationStatus BrowseClassification = BrowseClassificationStatus.NotApplicable)
+    BrowseClassificationStatus BrowseClassification = BrowseClassificationStatus.NotApplicable,
+    SpecialBrowseV2Classification? SpecialBrowseV2 = null)
 {
     public string Label => Japanese ?? English;
     public string UsageText => Usage?.ToString("N0", System.Globalization.CultureInfo.InvariantCulture) ?? "—";

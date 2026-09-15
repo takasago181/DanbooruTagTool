@@ -7,14 +7,22 @@ using DanbooruTagTool.Data;
 namespace DanbooruTagTool.App.ViewModels;
 
 public interface IClipboardService { string Read(); void Write(string text); }
-public sealed class EntryViewModel(CatalogEntry entry, PromptWorkspace workspace, Action<CatalogEntry> add, Func<bool>? canMutate = null) : Observable
+public sealed class EntryViewModel(CatalogEntry entry, PromptWorkspace workspace, Action<CatalogEntry> add, Func<bool>? canMutate = null, Func<CatalogEntry, string?>? browseBreadcrumb = null) : Observable
 {
     public CatalogEntry Entry => entry;
     public string Label => (entry.IsSpecial ? "◆ " : "") + entry.Label;
     public string English => entry.Canonical ?? entry.English;
     public string Usage => entry.UsageText;
     public string Category => entry.IsSpecial ? "Special" : "General";
-    public string Breadcrumb => string.IsNullOrWhiteSpace(entry.Breadcrumb) ? "—" : entry.Breadcrumb;
+    public string Breadcrumb
+    {
+        get
+        {
+            var current = browseBreadcrumb?.Invoke(entry);
+            if (!string.IsNullOrWhiteSpace(current)) return current;
+            return string.IsNullOrWhiteSpace(entry.Breadcrumb) ? "—" : entry.Breadcrumb;
+        }
+    }
     public string Description
     {
         get
@@ -95,8 +103,14 @@ public sealed class MainViewModel : Observable
     private readonly IClipboardService clipboard;
     private readonly IGeneralBrowseProvider general;
     private readonly IForgeBridgeClient forgeBridge;
+    private readonly SpecialBrowseV2Index? specialBrowse;
+    private SpecialBrowseV2Filter specialFilter = SpecialBrowseV2Filter.Empty;
+    private readonly Stack<SpecialBrowseV2Filter> specialFilterHistory = new();
     public PromptWorkspace Workspace { get; }
     public ObservableCollection<ChipViewModel> Chips { get; } = [];
+    public ObservableCollection<SpecialBrowseFacetOptionViewModel> SpecialKindOptions { get; } = [];
+    public ObservableCollection<SpecialBrowseFacetOptionViewModel> SpecialBodyOptions { get; } = [];
+    public ObservableCollection<SpecialBrowseFacetOptionViewModel> SpecialThemeOptions { get; } = [];
     public IReadOnlyList<NavigationNode> Navigation { get; }
     private IReadOnlyList<PromptCategoryGroup> categoryGroups = [];
     public IReadOnlyList<PromptCategoryGroup> CategoryGroups { get => categoryGroups; private set => Set(ref categoryGroups, value); }
@@ -108,10 +122,10 @@ public sealed class MainViewModel : Observable
     public double DictionaryCardWidth { get => dictionaryCardWidth; set => Set(ref dictionaryCardWidth, value); }
     public IReadOnlyList<EntryViewModel> Related { get => related; private set => Set(ref related, value); }
     private EntryViewModel? selectedEntry;
-    public EntryViewModel? SelectedEntry { get => selectedEntry; set { if (Set(ref selectedEntry, value)) { Notify(nameof(Detail)); Related = value == null ? [] : Rows(catalog.Entries.Where(e => e.IsSpecial && e.CanBrowse && e.Id != value.Entry.Id && e.Paths.Any(p => value.Entry.Paths.Any(v => v.Key == p.Key))).OrderByDescending(e => e.Usage).Take(6)); Persist(); } } }
+    public EntryViewModel? SelectedEntry { get => selectedEntry; set { if (Set(ref selectedEntry, value)) { Notify(nameof(Detail)); Related = value == null ? [] : RelatedFor(value.Entry); Persist(); } } }
     public string Detail => selectedEntry == null ? "タグを選ぶと詳細を表示します。" : string.Join("\n\n", new[] {
         selectedEntry.Entry.Label, selectedEntry.Entry.Canonical ?? selectedEntry.Entry.English,
-        "使用数 " + selectedEntry.Entry.UsageText, selectedEntry.Entry.Breadcrumb, selectedEntry.Entry.Description,
+        "使用数 " + selectedEntry.Entry.UsageText, selectedEntry.Breadcrumb, selectedEntry.Entry.Description,
         selectedEntry.Entry.BrowseClassification == BrowseClassificationStatus.Unresolved ? "General分類は未解決のため、カテゴリ閲覧の対象外です。" : "",
         selectedEntry.Entry.ProductFit == "KEEP" ? "" : selectedEntry.Entry.ProductFit == "KEEP_REFERENCE_ONLY" ? "参照用" : "要確認",
         selectedEntry.Entry.Canonical == null ? "canonicalへの安全な追加先が確定していない参照項目です。" : "" }.Where(s => s.Length > 0));
@@ -130,6 +144,20 @@ public sealed class MainViewModel : Observable
     public double RestoreScroll { get; private set; }
     public string BrowseKey => browse;
     public bool CanGoBack => back.Count > 0;
+    public bool HasSpecialFacets => specialBrowse != null && !specialFilter.IsEmpty;
+    public bool ShowSpecialFacetBar => HasSpecialFacets && !browse.StartsWith("general", StringComparison.Ordinal);
+    public bool ShowSpecialKindOptions => ShowSpecialFacetBar && specialFilter.KindId is null;
+    public string SpecialFacetSummary
+    {
+        get
+        {
+            var labels = new List<string>();
+            if (specialFilter.KindId is { } kind) labels.Add(SpecialBrowseV2Taxonomy.Label(SpecialBrowseV2Axis.Kind, kind));
+            labels.AddRange(specialFilter.BodySiteIds.Select(id => SpecialBrowseV2Taxonomy.Label(SpecialBrowseV2Axis.BodySite, id)));
+            labels.AddRange(specialFilter.ThemeIds.Select(id => SpecialBrowseV2Taxonomy.Label(SpecialBrowseV2Axis.Theme, id)));
+            return labels.Count == 0 ? "◆ Special" : string.Join(" × ", labels);
+        }
+    }
     public event Action? ResultsRestored;
     public event Action<Guid>? ScrollToChip;
     public event Action? PresetsRequested;
@@ -158,7 +186,28 @@ public sealed class MainViewModel : Observable
     public bool IsSearching => !string.IsNullOrWhiteSpace(Query);
     public bool CanBrowseSort => !IsSearching;
     public int DetailsTabIndex { get => detailsTabIndex; set => Set(ref detailsTabIndex, value); }
-    public string BrowseLabel => browse.StartsWith("general:", StringComparison.Ordinal) ? general.Paths.FirstOrDefault(p => "general:" + p.Key == browse)?.Label ?? general.Paths.FirstOrDefault(p => "general:" + p.GenreId + ">" == browse)?.Genre ?? "General" : browse == "general" ? "General" : browse == "special" ? "◆ Special" : catalog.Entries.SelectMany(e => e.Paths).FirstOrDefault(p => "special:" + p.Key == browse)?.Label ?? "◆ Special";
+    public string BrowseLabel
+    {
+        get
+        {
+            if (browse.StartsWith("general:", StringComparison.Ordinal))
+                return general.Paths.FirstOrDefault(p => "general:" + p.Key == browse)?.Label
+                    ?? general.Paths.FirstOrDefault(p => "general:" + p.GenreId + ">" == browse)?.Genre ?? "General";
+            if (browse == "general") return "General";
+            if (specialBrowse != null)
+            {
+                if (!specialFilter.IsEmpty) return SpecialFacetSummary;
+                return browse switch
+                {
+                    "special-v2:kinds" => "種類から探す",
+                    "special-v2:body" => "部位から探す",
+                    "special-v2:themes" => "テーマから探す",
+                    _ => "◆ Special"
+                };
+            }
+            return browse == "special" ? "◆ Special" : catalog.Entries.SelectMany(e => e.Paths).FirstOrDefault(p => "special:" + p.Key == browse)?.Label ?? "◆ Special";
+        }
+    }
     public string Pending => browse == "general" && Query.Length == 0 ? general.Status : "";
     public int WorkspaceIndex { get => workspaceIndex; set { if (!DirectEditing && Set(ref workspaceIndex, value)) Persist(); } }
     public int SortIndex { get => sortIndex; set { if (Set(ref sortIndex, value)) RefreshResults(); } }
@@ -217,6 +266,9 @@ public sealed class MainViewModel : Observable
     public RelayCommand Navigate { get; }
     public RelayCommand Back { get; }
     public RelayCommand ClearQuery { get; }
+    public RelayCommand ToggleSpecialFacet { get; }
+    public RelayCommand UndoSpecialFacet { get; }
+    public RelayCommand ClearSpecialFacets { get; }
     public RelayCommand FindPrevious { get; }
     public RelayCommand FindNextCommand { get; }
     public RelayCommand OpenEditor { get; }
@@ -235,15 +287,25 @@ public sealed class MainViewModel : Observable
     public AsyncRelayCommand SendPresetToForge { get; }
     public RelayCommand OpenForgeSettings { get; }
     public RelayCommand SaveForgeSettings { get; }
-    public MainViewModel(ICatalog catalog, IUserStateStore store, IClipboardService clipboard, IGeneralBrowseProvider? general = null, IForgeBridgeClient? forgeBridge = null)
+    public MainViewModel(ICatalog catalog, IUserStateStore store, IClipboardService clipboard, IGeneralBrowseProvider? general = null, IForgeBridgeClient? forgeBridge = null, SpecialBrowseV2Index? specialBrowse = null)
     {
-        this.catalog = catalog; this.store = store; this.clipboard = clipboard; this.general = general ?? new PendingGeneralBrowseProvider(); this.forgeBridge = forgeBridge ?? new ForgeBridgeClient();
+        this.catalog = catalog; this.store = store; this.clipboard = clipboard; this.general = general ?? new PendingGeneralBrowseProvider(); this.forgeBridge = forgeBridge ?? new ForgeBridgeClient(); this.specialBrowse = specialBrowse;
         search = new(catalog); Workspace = new(new(catalog));
+        if (specialBrowse != null)
+        {
+            foreach (var item in SpecialBrowseV2Taxonomy.Kinds) SpecialKindOptions.Add(new(SpecialBrowseV2Axis.Kind, item.Id, item.Label));
+            foreach (var item in SpecialBrowseV2Taxonomy.BodySites) SpecialBodyOptions.Add(new(SpecialBrowseV2Axis.BodySite, item.Id, item.Label));
+            foreach (var item in SpecialBrowseV2Taxonomy.Themes) SpecialThemeOptions.Add(new(SpecialBrowseV2Axis.Theme, item.Id, item.Label));
+        }
         var state = store.Load(); if (state != null) { Workspace.Restore(state.Prompt); ui = state.Ui; foreach (var preset in state.Presets ?? []) Presets.Add(preset); }
         query = ui.Query; browse = ui.Browse; workspaceIndex = ui.Workspace; englishChips = ui.EnglishChips; outputProfile = ui.OutputProfile; forgeUrl = ui.ForgeUrl; forgeExtensionPath = ui.ForgeExtensionPath; RestoreScroll = ui.BrowseScroll; BrowseScroll = ui.BrowseScroll;
-        Navigation = [new("special", "◆ Special", catalog.Entries.Where(e => e.IsSpecial).SelectMany(e => e.Paths).GroupBy(p => p.GenreId)
-            .Select(g => new NavigationNode("special:" + g.Key + ">", g.First().Genre, g.Where(p => p.SubgenreId.Length > 0).DistinctBy(p => p.Key)
-                .Select(p => new NavigationNode("special:" + p.Key, p.Subgenre, [])).ToArray())).ToArray()), new("general", "General", this.general.IsPending ? [] : BuildNavigation(this.general.Paths, "general:"))];
+        if (specialBrowse != null && browse.StartsWith("special:", StringComparison.Ordinal) && !browse.StartsWith("special-v2:", StringComparison.Ordinal)) browse = "special";
+        specialFilter = SpecialFilterFromBrowse(browse);
+        Navigation = [new("special", "◆ Special", specialBrowse == null
+            ? catalog.Entries.Where(e => e.IsSpecial).SelectMany(e => e.Paths).GroupBy(p => p.GenreId)
+                .Select(g => new NavigationNode("special:" + g.Key + ">", g.First().Genre, g.Where(p => p.SubgenreId.Length > 0).DistinctBy(p => p.Key)
+                    .Select(p => new NavigationNode("special:" + p.Key, p.Subgenre, [])).ToArray())).ToArray()
+            : BuildSpecialNavigation()), new("general", "General", this.general.IsPending ? [] : BuildNavigation(this.general.Paths, "general:"))];
         Copy = Normal(_ => Safe(() => { clipboard.Write(English); Status = "✓ コピーしました"; }));
         Import = Normal(_ => Safe(() => { var text = clipboard.Read(); if (string.IsNullOrWhiteSpace(text)) Status = "クリップボードにPrompt文字列がありません"; else Workspace.Replace(text); }));
         New = Normal(_ => Workspace.Replace("")); Recover = Normal(_ => Workspace.Recover(), _ => Workspace.HasRecovery);
@@ -252,9 +314,41 @@ public sealed class MainViewModel : Observable
         DeleteOne = Normal(p => { if (p is ChipViewModel c) Workspace.Delete([c.Id]); });
         Inspect = Normal(p => { if (p is ChipViewModel c) InspectChip(c); });
         InspectEntry = Normal(p => { if (p is EntryViewModel row) { SelectedEntry = row; DetailsTabIndex = 0; } });
-        Navigate = Normal(p => { if (p is NavigationNode n) NavigateTo(n.Key); });
+        Navigate = Normal(p => { if (p is NavigationNode n && !IsSpecialAxisHeading(n.Key)) NavigateTo(n.Key); });
         Back = Normal(_ => { if (back.TryPop(out var key)) { Notify(nameof(CanGoBack)); Back?.Refresh(); NavigateTo(key, false); } }, _ => CanGoBack);
         ClearQuery = Normal(_ => { Query = ""; RefreshResults(); });
+        ToggleSpecialFacet = Normal(p =>
+        {
+            if (specialBrowse == null || p is not SpecialBrowseFacetOptionViewModel option) return;
+            var next = option.Axis switch
+            {
+                SpecialBrowseV2Axis.Kind => specialFilter.WithKind(specialFilter.KindId == option.Id ? null : option.Id),
+                SpecialBrowseV2Axis.BodySite => specialFilter.ToggleBodySite(option.Id),
+                SpecialBrowseV2Axis.Theme => specialFilter.ToggleTheme(option.Id),
+                _ => specialFilter
+            };
+            ApplySpecialFilter(next, remember: true);
+            RefreshResults(); Persist();
+        }, p => specialBrowse != null && p is SpecialBrowseFacetOptionViewModel);
+        UndoSpecialFacet = Normal(_ =>
+        {
+            if (specialBrowse == null || specialFilter.IsEmpty) return;
+            if (specialFilterHistory.TryPop(out var previous)) specialFilter = previous;
+            else if (specialFilter.ThemeIds.Count > 0) specialFilter = specialFilter.ToggleTheme(specialFilter.ThemeIds.Last());
+            else if (specialFilter.BodySiteIds.Count > 0) specialFilter = specialFilter.ToggleBodySite(specialFilter.BodySiteIds.Last());
+            else specialFilter = specialFilter.WithKind(null);
+            if (specialFilter.IsEmpty) { browse = "special"; Notify(nameof(BrowseKey)); }
+            RefreshResults(); Persist();
+        }, _ => specialBrowse != null && !specialFilter.IsEmpty);
+        ClearSpecialFacets = Normal(_ =>
+        {
+            if (specialBrowse == null) return;
+            specialFilterHistory.Clear();
+            specialFilter = SpecialBrowseV2Filter.Empty;
+            browse = "special";
+            Notify(nameof(BrowseKey));
+            RefreshResults(); Persist();
+        }, _ => specialBrowse != null && !specialFilter.IsEmpty);
         FindPrevious = Normal(_ => FindNext(true), _ => Chips.Any(c => c.Match));
         FindNextCommand = Normal(_ => FindNext(false), _ => Chips.Any(c => c.Match));
         OpenEditor = Normal(_ => { IsOrderedView = true; WorkspaceIndex = 1; UpdateChipLanguage(); });
@@ -280,39 +374,127 @@ public sealed class MainViewModel : Observable
         .GroupBy(p => p.GenreId).Select(g => new NavigationNode(prefix + g.Key + ">", g.First().Genre,
             g.Where(p => p.SubgenreId.Length > 0).DistinctBy(p => p.Key)
                 .Select(p => new NavigationNode(prefix + p.Key, p.Subgenre, [])).ToArray())).ToArray();
+    private static NavigationNode[] BuildSpecialNavigation() =>
+    [
+        new("special-v2:kinds", "種類から探す", SpecialBrowseV2Taxonomy.Kinds.Select(item => new NavigationNode("special-v2:kind:" + item.Id, item.Label, [])).ToArray()),
+        new("special-v2:body", "部位から探す", SpecialBrowseV2Taxonomy.BodySites.Select(item => new NavigationNode("special-v2:body:" + item.Id, item.Label, [])).ToArray()),
+        new("special-v2:themes", "テーマから探す", SpecialBrowseV2Taxonomy.Themes.Select(item => new NavigationNode("special-v2:theme:" + item.Id, item.Label, [])).ToArray())
+    ];
+    private static bool IsSpecialAxisHeading(string key) => key is "special-v2:kinds" or "special-v2:body" or "special-v2:themes";
+    private static bool SameSpecialFilter(SpecialBrowseV2Filter left, SpecialBrowseV2Filter right) =>
+        left.KindId == right.KindId && left.BodySiteIds.SetEquals(right.BodySiteIds) && left.ThemeIds.SetEquals(right.ThemeIds);
+    private void ApplySpecialFilter(SpecialBrowseV2Filter next, bool remember)
+    {
+        if (SameSpecialFilter(next, specialFilter)) return;
+        if (remember) specialFilterHistory.Push(specialFilter);
+        specialFilter = next;
+    }
+    private static SpecialBrowseV2Filter SpecialFilterFromBrowse(string key)
+    {
+        if (key.StartsWith("special-v2:kind:", StringComparison.Ordinal)) return SpecialBrowseV2Filter.Empty.WithKind(key[16..]);
+        if (key.StartsWith("special-v2:body:", StringComparison.Ordinal)) return SpecialBrowseV2Filter.Empty.ToggleBodySite(key[16..]);
+        if (key.StartsWith("special-v2:theme:", StringComparison.Ordinal)) return SpecialBrowseV2Filter.Empty.ToggleTheme(key[17..]);
+        return SpecialBrowseV2Filter.Empty;
+    }
     private void Safe(Action action) { try { action(); } catch (Exception e) when (e is System.Runtime.InteropServices.ExternalException or IOException) { Status = "操作できませんでした: " + e.Message; } }
     private RelayCommand Normal(Action<object?> action, Predicate<object?>? enabled = null) => new(p => { if (CanEditPrompt && (enabled?.Invoke(p) ?? true)) action(p); }, p => CanEditPrompt && (enabled?.Invoke(p) ?? true));
     private RelayCommand Ordered(Action<object?> action, Predicate<object?>? enabled = null) => new(p => { if (CanEditOrderedPrompt && (enabled?.Invoke(p) ?? true)) action(p); }, p => CanEditOrderedPrompt && (enabled?.Invoke(p) ?? true));
     private void RefreshCommands()
     {
-        foreach (var command in new[] { Copy, Import, New, Recover, Undo, Redo, Delete, DeleteOne, Inspect, InspectEntry, Navigate, Back, ClearQuery, FindPrevious, FindNextCommand, OpenEditor, StartDirect, ApplyDirect, CancelDirect, ApplyWeight, OpenPresets, NewPreset, ApplyPreset, CopyPresetNegative, CapturePresetPositive, SavePreset, DeletePreset, OpenForgeSettings, SaveForgeSettings }) command.Refresh();
+        foreach (var command in new[] { Copy, Import, New, Recover, Undo, Redo, Delete, DeleteOne, Inspect, InspectEntry, Navigate, Back, ClearQuery, ToggleSpecialFacet, UndoSpecialFacet, ClearSpecialFacets, FindPrevious, FindNextCommand, OpenEditor, StartDirect, ApplyDirect, CancelDirect, ApplyWeight, OpenPresets, NewPreset, ApplyPreset, CopyPresetNegative, CapturePresetPositive, SavePreset, DeletePreset, OpenForgeSettings, SaveForgeSettings }) command.Refresh();
         SendToForge.Refresh(); SendPresetToForge.Refresh();
         foreach (var row in Results.Concat(Related)) row.Refresh(); SelectedEntry?.Refresh();
     }
-    private IReadOnlyList<EntryViewModel> Rows(IEnumerable<CatalogEntry> entries) => entries.Select(e => new EntryViewModel(e, Workspace, Add, () => CanEditPrompt)).ToArray();
+    private IReadOnlyList<EntryViewModel> Rows(IEnumerable<CatalogEntry> entries) => entries.Select(e => new EntryViewModel(e, Workspace, Add, () => CanEditPrompt, SpecialBreadcrumb)).ToArray();
     public void RefreshResults()
     {
         var selected = SelectedEntry?.Entry.Id;
         IEnumerable<CatalogEntry> entries;
-        if (!string.IsNullOrWhiteSpace(Query)) entries = search.Search(Query).Select(h => h.Entry);
+        if (!string.IsNullOrWhiteSpace(Query))
+        {
+            entries = search.Search(Query).Select(h => h.Entry);
+            if (specialBrowse != null && !specialFilter.IsEmpty) entries = specialBrowse.IntersectInInputOrder(entries, specialFilter);
+        }
+        else if (browse == "general" || browse.StartsWith("general:", StringComparison.Ordinal))
+        {
+            entries = general.Browse(browse == "general" ? "" : browse[8..]);
+            entries = SortIndex == 1 ? entries.OrderBy(e => e.Label, StringComparer.Create(CultureInfo.GetCultureInfo("ja-JP"), false)) : entries.OrderByDescending(e => e.Usage);
+        }
+        else if (specialBrowse != null)
+        {
+            entries = catalog.Entries.Where(e => e.IsSpecial && e.CanBrowse);
+            entries = SortIndex == 1 ? entries.OrderBy(e => e.Label, StringComparer.Create(CultureInfo.GetCultureInfo("ja-JP"), false)) : entries.OrderByDescending(e => e.Usage);
+            entries = specialBrowse.IntersectInInputOrder(entries, specialFilter);
+        }
         else
         {
-            entries = browse == "general" || browse.StartsWith("general:", StringComparison.Ordinal) ? general.Browse(browse == "general" ? "" : browse[8..]) : catalog.Entries.Where(e => e.IsSpecial && e.CanBrowse &&
+            entries = catalog.Entries.Where(e => e.IsSpecial && e.CanBrowse &&
                 (browse == "special" || e.Paths.Any(p => "special:" + p.Key == browse || (browse.EndsWith('>') && browse == "special:" + p.GenreId + ">"))));
             entries = SortIndex == 1 ? entries.OrderBy(e => e.Label, StringComparer.Create(CultureInfo.GetCultureInfo("ja-JP"), false)) : entries.OrderByDescending(e => e.Usage);
         }
         Results = Rows(entries); Notify(nameof(ResultSummary)); SelectedEntry = Results.FirstOrDefault(e => e.Entry.Id == (Query.Length == 0 ? browseSelection ?? selected : selected));
-        Notify(nameof(Pending)); Notify(nameof(BrowseLabel));
+        RefreshSpecialFacetOptions();
+        Notify(nameof(Pending)); Notify(nameof(BrowseLabel)); Notify(nameof(SpecialFacetSummary)); Notify(nameof(HasSpecialFacets)); Notify(nameof(ShowSpecialFacetBar)); Notify(nameof(ShowSpecialKindOptions));
+        UndoSpecialFacet.Refresh(); ClearSpecialFacets.Refresh();
         if (Query.Length == 0) ResultsRestored?.Invoke();
     }
     public void NavigateTo(string key, bool remember = true)
-    { if (!CanEditPrompt) return; if (remember && browse != key) { back.Push(browse); Notify(nameof(CanGoBack)); Back.Refresh(); } browse = key; Notify(nameof(BrowseKey)); browseSelection = null; RestoreScroll = 0; Query = ""; RefreshResults(); Persist(); }
+    {
+        if (!CanEditPrompt) return;
+        if (remember && browse != key) { back.Push(browse); Notify(nameof(CanGoBack)); Back.Refresh(); }
+        browse = key;
+        if (specialBrowse != null)
+        {
+            if (key.StartsWith("special-v2:kind:", StringComparison.Ordinal) || key.StartsWith("special-v2:body:", StringComparison.Ordinal) || key.StartsWith("special-v2:theme:", StringComparison.Ordinal))
+                ApplySpecialFilter(SpecialFilterFromBrowse(key), remember);
+            else if (key == "special" || key.StartsWith("general", StringComparison.Ordinal))
+            {
+                if (remember) specialFilterHistory.Clear();
+                specialFilter = SpecialBrowseV2Filter.Empty;
+            }
+        }
+        Notify(nameof(BrowseKey)); browseSelection = null; RestoreScroll = 0; Query = ""; RefreshResults(); Persist();
+    }
+    private void RefreshSpecialFacetOptions()
+    {
+        if (specialBrowse == null) return;
+        foreach (var option in SpecialKindOptions) { option.Selected = specialFilter.KindId == option.Id; option.Count = specialBrowse.CountWithKind(specialFilter, option.Id); }
+        foreach (var option in SpecialBodyOptions) { option.Selected = specialFilter.BodySiteIds.Contains(option.Id); option.Count = specialBrowse.CountWithBodySite(specialFilter, option.Id); }
+        foreach (var option in SpecialThemeOptions) { option.Selected = specialFilter.ThemeIds.Contains(option.Id); option.Count = specialBrowse.CountWithTheme(specialFilter, option.Id); }
+    }
+    private string? SpecialBreadcrumb(CatalogEntry entry)
+    {
+        if (specialBrowse == null || !entry.IsSpecial) return null;
+        var route = specialBrowse.Get(entry.Id);
+        if (route == null || !route.CanBrowse) return null;
+        var parts = new List<string>();
+        if (route.KindId is { } kind) parts.Add("種類 > " + SpecialBrowseV2Taxonomy.Label(SpecialBrowseV2Axis.Kind, kind));
+        if (route.BodySiteIds.Count > 0) parts.Add("部位 > " + string.Join(" + ", route.BodySiteIds.Select(id => SpecialBrowseV2Taxonomy.Label(SpecialBrowseV2Axis.BodySite, id))));
+        if (route.ThemeIds.Count > 0) parts.Add("テーマ > " + string.Join(" + ", route.ThemeIds.Select(id => SpecialBrowseV2Taxonomy.Label(SpecialBrowseV2Axis.Theme, id))));
+        return parts.Count == 0 ? null : string.Join(" / ", parts);
+    }
+    private IReadOnlyList<EntryViewModel> RelatedFor(CatalogEntry entry)
+    {
+        if (specialBrowse == null || !entry.IsSpecial)
+            return Rows(catalog.Entries.Where(e => e.IsSpecial && e.CanBrowse && e.Id != entry.Id && e.Paths.Any(p => entry.Paths.Any(v => v.Key == p.Key))).OrderByDescending(e => e.Usage).Take(6));
+        var route = specialBrowse.Get(entry.Id);
+        if (route == null || !route.CanBrowse) return [];
+        var candidates = catalog.Entries.Where(e => e.IsSpecial && e.CanBrowse && e.Id != entry.Id).Where(e =>
+        {
+            var other = specialBrowse.Get(e.Id);
+            return other != null && other.CanBrowse &&
+                ((route.KindId != null && route.KindId == other.KindId)
+                 || route.BodySiteIds.Overlaps(other.BodySiteIds)
+                 || route.ThemeIds.Overlaps(other.ThemeIds));
+        }).OrderByDescending(e => e.Usage);
+        return Rows(specialBrowse.IntersectInInputOrder(candidates, SpecialBrowseV2Filter.Empty).Take(6));
+    }
     public void Add(CatalogEntry entry) { if (CanEditPrompt) Workspace.Add(entry); }
     private void InspectChip(ChipViewModel chip)
     {
         var entry = catalog.Entries.FirstOrDefault(e => e.Id == chip.Item.CatalogId) ?? catalog.Resolve(chip.Item.StructuredName ?? chip.Item.Surface.Trim());
         if (entry == null) { Query = chip.Item.StructuredName ?? chip.Item.Surface.Trim(); RefreshResults(); return; }
-        SelectedEntry = new(entry, Workspace, Add, () => CanEditPrompt); DetailsTabIndex = 0;
+        SelectedEntry = new(entry, Workspace, Add, () => CanEditPrompt, SpecialBreadcrumb); DetailsTabIndex = 0;
     }
     private void OnPromptChanged()
     {

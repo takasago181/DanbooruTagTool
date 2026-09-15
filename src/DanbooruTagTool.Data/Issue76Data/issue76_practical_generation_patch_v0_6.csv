@@ -1,0 +1,112 @@
+special_id,canonical,dimension,before,after,practical_rationale
+12,buttjob,body_site,,男性器,Intrinsic target site for the generation concept; old v1 route omitted the cross-cutting body-site facet.
+13,cloth glansjob,body_site,,男性器,Intrinsic target site for the generation concept; old v1 route omitted the cross-cutting body-site facet.
+16,cooperative footjob,body_site,,男性器,Intrinsic target site for the generation concept; old v1 route omitted the cross-cutting body-site facet.
+17,cooperative handjob,body_site,,男性器,Intrinsic target site for the generation concept; old v1 route omitted the cross-cutting body-site facet.
+19,cuddling handjob,body_site,,男性器,Intrinsic target site for the generation concept; old v1 route omitted the cross-cutting body-site facet.
+20,double footjob,body_site,,男性器,Intrinsic target site for the generation concept; old v1 route omitted the cross-cutting body-site facet.
+21,double handjob,body_site,,男性器,Intrinsic target site for the generation concept; old v1 route omitted the cross-cutting body-site facet.
+24,footjob,body_site,,男性器,Intrinsic target site for the generation concept; old v1 route omitted the cross-cutting body-site facet.
+25,footjob from behind,body_site,,男性器,Intrinsic target site for the generation concept; old v1 route omitted the cross-cutting body-site facet.
+26,footjob under table,body_site,,男性器,Intrinsic target site for the generation concept; old v1 route omitted the cross-cutting body-site facet.
+27,footjob with boots,body_site,,男性器,Intrinsic target site for the generation concept; old v1 route omitted the cross-cutting body-site facet.
+28,footjob with footwear,body_site,,男性器,Intrinsic target site for the generation concept; old v1 route omitted the cross-cutting body-site facet.
+29,footjob with legwear,body_site,,男性器,Intrinsic target site for the generation concept; old v1 route omitted the cross-cutting body-site facet.
+30,footjob with sandals,body_site,,男性器,Intrinsic target site for the generation concept; old v1 route omitted the cross-cutting body-site facet.
+31,footjob with shoes,body_site,,男性器,Intrinsic target site for the generation concept; old v1 route omitted the cross-cutting body-site facet.
+33,glansjob,body_site,,男性器,Intrinsic target site for the generation concept; old v1 route omitted the cross-cutting body-site facet.
+37,hairjob,body_site,,男性器,Intrinsic target site for the generation concept; old v1 route omitted the cross-cutting body-site facet.
+38,handjob,body_site,,男性器,Intrinsic target site for the generation concept; old v1 route omitted the cross-cutting body-site facet.
+41,implied footjob,body_site,,男性器,Intrinsic target site for the generation concept; old v1 route omitted the cross-cutting body-site facet.
+43,kneepit sex,body_site,,男性器,Intrinsic target site for the generation concept; old v1 route omitted the cross-cutting body-site facet.
+44,legjob,body_site,,男性器,Intrinsic target site for the generation concept; old v1 route omitted the cross-cutting body-site facet.
+48,nursing handjob,body_site,,男性器,Intrinsic target site for the generation concept; old v1 route omitted the cross-cutting body-site facet.
+50,reach-around,body_site,,男性器,Intrinsic target site for the generation concept; old v1 route omitted the cross-cutting body-site facet.
+51,reverse footjob,body_site,,男性器,Intrinsic target site for the generation concept; old v1 route omitted the cross-cutting body-site facet.
+52,reverse nursing handjob,body_site,,男性器,Intrinsic target site for the generation concept; old v1 route omitted the cross-cutting body-site facet.
+55,simulated footjob,body_site,,男性器,Intrinsic target site for the generation concept; old v1 route omitted the cross-cutting body-site facet.
+56,tailjob,body_site,,男性器,Intrinsic target site for the generation concept; old v1 route omitted the cross-cutting body-site facet.
+60,thigh sex,body_site,,男性器,Intrinsic target site for the generation concept; old v1 route omitted the cross-cutting body-site facet.
+62,two-footed footjob,body_site,,男性器,Intrinsic target site for the generation concept; old v1 route omitted the cross-cutting body-site facet.
+63,two-handed handjob,body_site,,男性器,Intrinsic target site for the generation concept; old v1 route omitted the cross-cutting body-site facet.
+100,after fellatio,body_site,口・口内,口・口内 | 男性器,Oral concept intrinsically targets male genital/testicle anatomy.
+102,cooperative fellatio,body_site,口・口内,口・口内 | 男性器,Oral concept intrinsically targets male genital/testicle anatomy.
+103,deepthroat,body_site,口・口内,口・口内 | 男性器,Oral concept intrinsically targets male genital/testicle anatomy.
+104,fellatio,body_site,口・口内,口・口内 | 男性器,Oral concept intrinsically targets male genital/testicle anatomy.
+105,implied fellatio,body_site,口・口内,口・口内 | 男性器,Oral concept intrinsically targets male genital/testicle anatomy.
+106,irrumatio,body_site,口・口内,口・口内 | 男性器,Oral concept intrinsically targets male genital/testicle anatomy.
+107,oral sandwich,body_site,口・口内,口・口内 | 男性器,Oral concept intrinsically targets male genital/testicle anatomy.
+109,blowjob,body_site,口・口内,口・口内 | 男性器,Oral concept intrinsically targets male genital/testicle anatomy.
+110,face fucking,body_site,口・口内,口・口内 | 男性器,Oral concept intrinsically targets male genital/testicle anatomy.
+416,bdsm,kind,行為・接触,,Theme/style/context umbrella is more naturally discovered through its theme facet; forced semantic home harms browse clarity.
+422,torture instruments,kind,行為・接触,道具・物,Concrete instrument/device/object; practical prompt intent is object presence plus optional BDSM/body-site facets.
+470,guro,kind,身体・状態,,Theme/style/context umbrella is more naturally discovered through its theme facet; forced semantic home harms browse clarity.
+471,gore,kind,身体・状態,,Theme/style/context umbrella is more naturally discovered through its theme facet; forced semantic home harms browse clarity.
+472,amputation,kind,身体・状態,行為・接触,Dynamic event/process/action; generation evaluation depends on the act/process rather than a static body state.
+473,dissection,kind,身体・状態,行為・接触,Dynamic event/process/action; generation evaluation depends on the act/process rather than a static body state.
+475,eye gouging,kind,身体・状態,行為・接触,Dynamic event/process/action; generation evaluation depends on the act/process rather than a static body state.
+476,impalement,kind,身体・状態,行為・接触,Dynamic event/process/action; generation evaluation depends on the act/process rather than a static body state.
+477,vivisection,kind,身体・状態,行為・接触,Dynamic event/process/action; generation evaluation depends on the act/process rather than a static body state.
+480,ero guro,kind,身体・状態,,Theme/style/context umbrella is more naturally discovered through its theme facet; forced semantic home harms browse clarity.
+481,eroguro,kind,身体・状態,,Theme/style/context umbrella is more naturally discovered through its theme facet; forced semantic home harms browse clarity.
+486,sexual gore,kind,行為・接触,,Cross-cutting sexual-gore theme/expression; theme route is sufficient and avoids a fake action home.
+523,cooperative pussyjob,body_site,,女性器,Pussyjob family intrinsically uses external female genital contact.
+523,cooperative pussyjob,body_site,女性器,女性器 | 男性器,Pussyjob family intrinsically targets male genital anatomy.
+524,paizuri,body_site,,乳房・乳首,Paizuri family intrinsically uses breast/chest as the contact body site.
+524,paizuri,body_site,乳房・乳首,乳房・乳首 | 男性器,Paizuri family intrinsically targets male genital anatomy.
+525,pussyjob,body_site,,女性器,Pussyjob family intrinsically uses external female genital contact.
+525,pussyjob,body_site,女性器,女性器 | 男性器,Pussyjob family intrinsically targets male genital anatomy.
+527,cooperative paizuri,body_site,,乳房・乳首,Paizuri family intrinsically uses breast/chest as the contact body site.
+527,cooperative paizuri,body_site,乳房・乳首,乳房・乳首 | 男性器,Paizuri family intrinsically targets male genital anatomy.
+528,female footjob,body_site,,男性器,Intrinsic target site for the generation concept; old v1 route omitted the cross-cutting body-site facet.
+529,handsfree paizuri,body_site,,乳房・乳首,Paizuri family intrinsically uses breast/chest as the contact body site.
+529,handsfree paizuri,body_site,乳房・乳首,乳房・乳首 | 男性器,Paizuri family intrinsically targets male genital anatomy.
+530,paizuri on lap,body_site,,乳房・乳首,Paizuri family intrinsically uses breast/chest as the contact body site.
+530,paizuri on lap,body_site,乳房・乳首,乳房・乳首 | 男性器,Paizuri family intrinsically targets male genital anatomy.
+531,paizuri over clothes,body_site,,乳房・乳首,Paizuri family intrinsically uses breast/chest as the contact body site.
+531,paizuri over clothes,body_site,乳房・乳首,乳房・乳首 | 男性器,Paizuri family intrinsically targets male genital anatomy.
+532,paizuri under clothes,body_site,,乳房・乳首,Paizuri family intrinsically uses breast/chest as the contact body site.
+532,paizuri under clothes,body_site,乳房・乳首,乳房・乳首 | 男性器,Paizuri family intrinsically targets male genital anatomy.
+533,perpendicular paizuri,body_site,,乳房・乳首,Paizuri family intrinsically uses breast/chest as the contact body site.
+533,perpendicular paizuri,body_site,乳房・乳首,乳房・乳首 | 男性器,Paizuri family intrinsically targets male genital anatomy.
+534,sideways perpendicular paizuri,body_site,,乳房・乳首,Paizuri family intrinsically uses breast/chest as the contact body site.
+534,sideways perpendicular paizuri,body_site,乳房・乳首,乳房・乳首 | 男性器,Paizuri family intrinsically targets male genital anatomy.
+535,straddling paizuri,body_site,,乳房・乳首,Paizuri family intrinsically uses breast/chest as the contact body site.
+535,straddling paizuri,body_site,乳房・乳首,乳房・乳首 | 男性器,Paizuri family intrinsically targets male genital anatomy.
+536,tribadism,body_site,,女性器,Tribadism intrinsically depends on female-genital-to-female-genital contact.
+568,clitoral circular saw,kind,行為・接触,道具・物,Concrete instrument/device/object; practical prompt intent is object presence plus optional BDSM/body-site facets.
+625,ball busting machine,kind,行為・接触,道具・物,Concrete instrument/device/object; practical prompt intent is object presence plus optional BDSM/body-site facets.
+626,testicle crusher,kind,行為・接触,道具・物,Concrete instrument/device/object; practical prompt intent is object presence plus optional BDSM/body-site facets.
+629,testicle weights,kind,行為・接触,道具・物,Concrete instrument/device/object; practical prompt intent is object presence plus optional BDSM/body-site facets.
+631,reverse ryona,kind,身体・状態,,Theme/style/context umbrella is more naturally discovered through its theme facet; forced semantic home harms browse clarity.
+680,autocunnilingus,body_site,口・口内,口・口内 | 女性器,Cunnilingus family intrinsically targets female genital anatomy.
+681,cunnilingus,body_site,口・口内,口・口内 | 女性器,Cunnilingus family intrinsically targets female genital anatomy.
+682,implied cunnilingus,body_site,口・口内,口・口内 | 女性器,Cunnilingus family intrinsically targets female genital anatomy.
+696,licking testicle,body_site,口・口内,口・口内 | 男性器,Oral concept intrinsically targets male genital/testicle anatomy.
+697,multiple penis fellatio,body_site,口・口内,口・口内 | 男性器,Oral concept intrinsically targets male genital/testicle anatomy.
+698,testicle sucking,body_site,口・口内,口・口内 | 男性器,Oral concept intrinsically targets male genital/testicle anatomy.
+1719,judas cradle,kind,行為・接触,道具・物,Concrete instrument/device/object; practical prompt intent is object presence plus optional BDSM/body-site facets.
+1720,clitoris clamp,kind,行為・接触,道具・物,Concrete instrument/device/object; practical prompt intent is object presence plus optional BDSM/body-site facets.
+1723,nipple clamps,kind,行為・接触,道具・物,Concrete instrument/device/object; practical prompt intent is object presence plus optional BDSM/body-site facets.
+1766,decapitation,kind,身体・状態,行為・接触,Dynamic event/process/action; generation evaluation depends on the act/process rather than a static body state.
+1770,candy gore,kind,身体・状態,,Theme/style/context umbrella is more naturally discovered through its theme facet; forced semantic home harms browse clarity.
+1771,body horror,kind,身体・状態,,Theme/style/context umbrella is more naturally discovered through its theme facet; forced semantic home harms browse clarity.
+1773,disembowelment,kind,身体・状態,行為・接触,Dynamic event/process/action; generation evaluation depends on the act/process rather than a static body state.
+1774,dismemberment,kind,身体・状態,行為・接触,Dynamic event/process/action; generation evaluation depends on the act/process rather than a static body state.
+1777,mutilation,kind,身体・状態,行為・接触,Dynamic event/process/action; generation evaluation depends on the act/process rather than a static body state.
+1781,body mutilation,kind,身体・状態,行為・接触,Dynamic event/process/action; generation evaluation depends on the act/process rather than a static body state.
+1784,gory,kind,身体・状態,,Theme/style/context umbrella is more naturally discovered through its theme facet; forced semantic home harms browse clarity.
+1786,snuff,kind,身体・状態,,Theme/style/context umbrella is more naturally discovered through its theme facet; forced semantic home harms browse clarity.
+1824,flogger,kind,行為・接触,道具・物,Concrete instrument/device/object; practical prompt intent is object presence plus optional BDSM/body-site facets.
+1836,riding crop,kind,行為・接触,道具・物,Concrete instrument/device/object; practical prompt intent is object presence plus optional BDSM/body-site facets.
+1843,whip,kind,行為・接触,道具・物,Concrete instrument/device/object; practical prompt intent is object presence plus optional BDSM/body-site facets.
+1844,wooden horse,kind,行為・接触,道具・物,Concrete instrument/device/object; practical prompt intent is object presence plus optional BDSM/body-site facets.
+1846,wartenberg wheel,kind,行為・接触,道具・物,Concrete instrument/device/object; practical prompt intent is object presence plus optional BDSM/body-site facets.
+1956,asphyxiation,kind,身体・状態,行為・接触,Dynamic event/process/action; generation evaluation depends on the act/process rather than a static body state.
+1958,ryona,kind,身体・状態,,Theme/style/context umbrella is more naturally discovered through its theme facet; forced semantic home harms browse clarity.
+1961,strangling,kind,身体・状態,行為・接触,Dynamic event/process/action; generation evaluation depends on the act/process rather than a static body state.
+1973,trampling table,kind,行為・接触,道具・物,Concrete instrument/device/object; practical prompt intent is object presence plus optional BDSM/body-site facets.
+2184,giving birth,kind,身体・状態,行為・接触,Dynamic process/action in actual image intent; body-state home hides the action predicate.
+2188,breeding kink,kind,行為・接触,,Kink/theme concept is naturally found through the reproduction theme; no forced kind needed.
+2193,breastfeeding,kind,身体・状態,行為・接触,Dynamic process/action in actual image intent; body-state home hides the action predicate.
+2686,whips,kind,行為・接触,道具・物,Concrete instrument/device/object; practical prompt intent is object presence plus optional BDSM/body-site facets.
