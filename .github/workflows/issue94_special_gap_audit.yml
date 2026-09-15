@@ -1,0 +1,70 @@
+name: Issue94 Special Gap Audit
+
+on:
+  push:
+    branches:
+      - audit/issue94-special-gap-audit
+    paths:
+      - scripts/issue94/**
+      - data/generation/special2788_generation_profile.csv
+      - .github/workflows/issue94_special_gap_audit.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  full-gap-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout audit branch
+        uses: actions/checkout@v4
+
+      - name: Prepare audit paths
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/issue94/full_scan
+
+      - name: Validate scanner syntax
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m py_compile scripts/issue94/special_gap_audit.py
+
+      - name: Fetch pinned 2026-09-02 Danbooru snapshot
+        shell: bash
+        env:
+          SOURCE_URL: https://huggingface.co/datasets/HDiffusion/historical-danbooru-tag-counts/resolve/e243474/danbooru-2026-09-02.csv?download=true
+          EXPECTED_SHA256: 9b32d5ac0713ab252e7470ba6af9cb34de56878b6b3b13dfbbf6a4a37d82d95b
+        run: |
+          set -euo pipefail
+          SOURCE="$RUNNER_TEMP/danbooru-2026-09-02.csv"
+          curl --fail --location --retry 3 --retry-delay 2 "$SOURCE_URL" --output "$SOURCE"
+          echo "$EXPECTED_SHA256  $SOURCE" | sha256sum --check
+          printf 'source_url=%s\nexpected_sha256=%s\nactual_sha256=%s\n' \
+            "$SOURCE_URL" \
+            "$EXPECTED_SHA256" \
+            "$(sha256sum "$SOURCE" | awk '{print $1}')" \
+            > artifacts/issue94/full_scan/source_provenance.txt
+
+      - name: Run deterministic Issue94 full scan
+        shell: bash
+        run: |
+          set -euo pipefail
+          SOURCE="$RUNNER_TEMP/danbooru-2026-09-02.csv"
+          python3 scripts/issue94/special_gap_audit.py \
+            --canonical-source "$SOURCE" \
+            --special-profile data/generation/special2788_generation_profile.csv \
+            --out-dir artifacts/issue94/full_scan \
+            2>&1 | tee artifacts/issue94/full_scan/run.log
+
+      - name: Upload audit evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: issue94-special-gap-audit-${{ github.sha }}
+          path: artifacts/issue94/full_scan
+          if-no-files-found: error
+          retention-days: 14
