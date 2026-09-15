@@ -59,7 +59,7 @@ def read_canonical_source(path: Path) -> list[dict[str, str]]:
                     f"canonical-source: expected headerless four-column rows; "
                     f"line {line_no} has {len(raw)} columns"
                 )
-            tag, category_id, post_count, _unused = raw
+            tag, category_id, post_count, raw_aliases = raw
             category_id = category_id.strip()
             rows.append(
                 {
@@ -67,6 +67,7 @@ def read_canonical_source(path: Path) -> list[dict[str, str]]:
                     "DanbooruCategory": CATEGORY_NAMES.get(category_id, category_id),
                     "post_count": post_count,
                     "Aliases": "",
+                    "RawAliases": raw_aliases,
                     "Special2788": "",
                 }
             )
@@ -128,11 +129,56 @@ def attach_unique_aliases(
     return canonical_rows, stats
 
 
+def attach_embedded_unique_aliases(
+    canonical_rows: list[dict[str, str]],
+) -> tuple[list[dict[str, str]], dict[str, int]]:
+    canonical_by_norm = {norm(row["Tag"]): row for row in canonical_rows}
+    alias_targets: dict[str, set[str]] = {}
+    alias_surfaces: dict[tuple[str, str], str] = {}
+    raw_alias_entries = 0
+    canonical_precedence_rows = 0
+
+    for row in canonical_rows:
+        canonical_norm = norm(row["Tag"])
+        for alias in split_aliases(row.get("RawAliases", "")):
+            alias_norm = norm(alias)
+            if not alias_norm:
+                continue
+            raw_alias_entries += 1
+            if alias_norm in canonical_by_norm:
+                canonical_precedence_rows += 1
+                continue
+            alias_targets.setdefault(alias_norm, set()).add(canonical_norm)
+            alias_surfaces.setdefault((alias_norm, canonical_norm), alias)
+
+    aliases_by_canonical: dict[str, list[str]] = {}
+    unique_rows = 0
+    ambiguous_rows = 0
+    for alias_norm, targets in alias_targets.items():
+        if len(targets) != 1:
+            ambiguous_rows += 1
+            continue
+        canonical_norm = next(iter(targets))
+        surface = alias_surfaces[(alias_norm, canonical_norm)]
+        aliases_by_canonical.setdefault(canonical_norm, []).append(surface)
+        unique_rows += 1
+
+    for canonical_norm, aliases in aliases_by_canonical.items():
+        canonical_by_norm[canonical_norm]["Aliases"] = ",".join(dict.fromkeys(aliases))
+
+    return canonical_rows, {
+        "embedded_alias_entries_seen": raw_alias_entries,
+        "unique_alias_rows_used": unique_rows,
+        "ambiguous_alias_rows_skipped": ambiguous_rows,
+        "canonical_precedence_rows_skipped": canonical_precedence_rows,
+    }
+
+
 def load_full_input(args: argparse.Namespace) -> tuple[list[dict[str, str]], dict[str, object]]:
     if args.full_kb:
         if args.canonical_source or args.alias_index:
             raise ValueError(
-                "choose one source mode: --full-kb OR --canonical-source + --alias-index"
+                "choose one source mode: --full-kb OR --canonical-source [--alias-index]"
             )
         full = read_csv(args.full_kb)
         require_columns(
@@ -148,17 +194,24 @@ def load_full_input(args: argparse.Namespace) -> tuple[list[dict[str, str]], dic
             "legacy_marker_available": True,
         }
 
-    if not args.canonical_source or not args.alias_index:
+    if not args.canonical_source:
         raise ValueError(
-            "source input required: --full-kb OR both --canonical-source and --alias-index"
+            "source input required: --full-kb OR --canonical-source [--alias-index]"
         )
     full = read_canonical_source(args.canonical_source)
-    full, alias_stats = attach_unique_aliases(full, args.alias_index)
+    if args.alias_index:
+        full, alias_stats = attach_unique_aliases(full, args.alias_index)
+        source_mode = "CANONICAL_SOURCE_PLUS_VERIFIED_ALIAS_INDEX"
+        alias_index = str(args.alias_index)
+    else:
+        full, alias_stats = attach_embedded_unique_aliases(full)
+        source_mode = "CANONICAL_SOURCE_PLUS_EMBEDDED_UNIQUE_ALIAS_CLOSURE"
+        alias_index = None
     return full, {
-        "source_mode": "CANONICAL_SOURCE_PLUS_VERIFIED_ALIAS_INDEX",
+        "source_mode": source_mode,
         "full_kb": None,
         "canonical_source": str(args.canonical_source),
-        "alias_index": str(args.alias_index),
+        "alias_index": alias_index,
         "legacy_marker_available": False,
         **alias_stats,
     }
@@ -296,8 +349,9 @@ def main() -> int:
         "--alias-index",
         type=Path,
         help=(
-            "Verified normalized alias index used with --canonical-source; "
-            "only uniquely resolved aliases are admitted to identity closure"
+            "Optional verified normalized alias index used with --canonical-source. "
+            "When omitted, the scanner derives a unique alias closure from the fourth "
+            "column embedded in the historical canonical source."
         ),
     )
     special_source = parser.add_mutually_exclusive_group(required=True)
@@ -479,8 +533,8 @@ def main() -> int:
             "SEMANTIC_EXACT_OVERLAP_ONLY means exact normalized term overlap only; "
             "broader semantic similarity still requires human review. GENERAL_ONLY_GAP "
             "is an identity gap inventory, not automatic product-fit approval. "
-            "Canonical-source mode admits only uniquely resolved aliases from the verified "
-            "normalized alias index; ambiguous aliases are never silently resolved. "
+            "Canonical-source modes admit only aliases with one normalized canonical target; "
+            "canonical-name collisions and ambiguous aliases are never silently resolved. "
             "Special-profile mode is fail-closed: every non-semantic Special term must resolve "
             "as a canonical identity or one unique alias target before scanning begins."
         ),
