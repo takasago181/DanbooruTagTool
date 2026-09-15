@@ -1,6 +1,7 @@
 using DanbooruTagTool.App.ViewModels;
 using DanbooruTagTool.Core;
 using DanbooruTagTool.Data;
+using Xunit;
 
 namespace DanbooruTagTool.Tests;
 
