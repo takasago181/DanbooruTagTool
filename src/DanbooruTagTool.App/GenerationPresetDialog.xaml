@@ -59,7 +59,6 @@
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
-                <TextBlock DockPanel.Dock="Bottom" Text="一覧のボタンから直接適用・コピーできます。" Foreground="{StaticResource MutedInkBrush}" FontSize="12" Margin="2,8,2,0"/>
             </DockPanel>
         </Border>
         <Border Grid.Row="1" Grid.Column="2" Style="{StaticResource PanelBorder}" Padding="12">
