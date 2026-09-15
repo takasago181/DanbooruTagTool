@@ -1,0 +1,75 @@
+name: Issue96 Duplicate Validation
+
+on:
+  push:
+    branches:
+      - prep/issue96-special-expansion
+    paths:
+      - scripts/issue96/validate_current_overlap.py
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: prep/issue96-special-expansion
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Fetch pinned scanner and Danbooru snapshot
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/issue96_scan" artifacts/issue96/duplicate_validation
+          curl --fail --location --retry 3 \
+            'https://raw.githubusercontent.com/takasago181/DanbooruTagTool/b505f34956dc60e189e8c749fbe0cb187ad5154e/scripts/issue94/special_gap_audit.py' \
+            -o "$RUNNER_TEMP/issue96_scan/special_gap_audit.py"
+          curl --fail --location --retry 3 --retry-delay 2 \
+            'https://huggingface.co/datasets/HDiffusion/historical-danbooru-tag-counts/resolve/e243474/danbooru-2026-09-02.csv?download=true' \
+            -o "$RUNNER_TEMP/issue96_scan/danbooru-2026-09-02.csv"
+          echo '9b32d5ac0713ab252e7470ba6af9cb34de56878b6b3b13dfbbf6a4a37d82d95b  '"$RUNNER_TEMP/issue96_scan/danbooru-2026-09-02.csv" | sha256sum --check
+          python -m py_compile "$RUNNER_TEMP/issue96_scan/special_gap_audit.py"
+      - name: Re-run canonical and alias-closure scan against current Special profile
+        run: |
+          set -euo pipefail
+          python "$RUNNER_TEMP/issue96_scan/special_gap_audit.py" \
+            --canonical-source "$RUNNER_TEMP/issue96_scan/danbooru-2026-09-02.csv" \
+            --special-profile data/generation/special2788_generation_profile.csv \
+            --out-dir "$RUNNER_TEMP/issue96_scan/out"
+      - name: Validate all 195 proposed identities remain General-only gaps
+        run: |
+          set -euo pipefail
+          python -m py_compile scripts/issue96/validate_current_overlap.py
+          python scripts/issue96/validate_current_overlap.py \
+            --proposal docs/issue96/special_expansion_taxonomy_final_v1.csv \
+            --inventory "$RUNNER_TEMP/issue96_scan/out/general_special_identity_inventory.csv" \
+            --scan-summary "$RUNNER_TEMP/issue96_scan/out/coverage_summary.json" \
+            --output docs/issue96/special_expansion_duplicate_validated_v1.csv \
+            --summary docs/issue96/ISSUE96_DUPLICATE_VALIDATION_SUMMARY_v1.md
+          cp "$RUNNER_TEMP/issue96_scan/out/coverage_summary.json" artifacts/issue96/duplicate_validation/current_scan_summary.json
+          git diff --check
+      - name: Upload duplicate-validation evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: issue96-duplicate-validation-${{ github.sha }}
+          path: artifacts/issue96/duplicate_validation
+          if-no-files-found: error
+          retention-days: 14
+      - name: Commit validated PREP artifacts
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/issue96/special_expansion_duplicate_validated_v1.csv docs/issue96/ISSUE96_DUPLICATE_VALIDATION_SUMMARY_v1.md
+          if git diff --cached --quiet; then
+            echo 'No generated changes to commit'
+          else
+            git commit -m 'issue96: validate 195 identities against current Special closure'
+            git push origin HEAD:prep/issue96-special-expansion
+          fi
