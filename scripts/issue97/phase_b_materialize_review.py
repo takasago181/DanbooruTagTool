@@ -133,6 +133,7 @@ def main() -> int:
 
     candidates: list[dict[str, object]] = []
     rejected: list[dict[str, object]] = []
+    already_covered: list[dict[str, object]] = []
     review: list[dict[str, object]] = []
 
     for row in alias_rows:
@@ -154,6 +155,8 @@ def main() -> int:
         review.append(record)
         if decision == "CANDIDATE_SEARCH_ALIAS":
             candidates.append(record)
+        elif decision == "NO_GAP_ALREADY_COVERED":
+            already_covered.append(record)
         else:
             rejected.append(record)
 
@@ -192,11 +195,14 @@ def main() -> int:
         review.append(record)
         if decision == "CANDIDATE_META_CANONICAL":
             candidates.append(record)
+        elif decision == "NO_GAP_ALREADY_COVERED":
+            already_covered.append(record)
         else:
             rejected.append(record)
 
     candidates.sort(key=lambda r: (r["lane"], -int(r["post_count"]), r["surface_or_canonical"]))
     rejected.sort(key=lambda r: (r["lane"], r["decision"], -int(r["post_count"]), r["surface_or_canonical"]))
+    already_covered.sort(key=lambda r: (r["lane"], -int(r["post_count"]), r["surface_or_canonical"]))
     review.sort(key=lambda r: (r["lane"], -int(r["post_count"]), r["surface_or_canonical"]))
 
     fields = [
@@ -205,6 +211,7 @@ def main() -> int:
     write_csv(args.audit_dir / "phase_b_human_review_v1.csv", review, fields)
     write_csv(args.audit_dir / "phase_b_candidate_subset_v1.csv", candidates, fields)
     write_csv(args.audit_dir / "phase_b_rejected_ledger_v1.csv", rejected, fields)
+    write_csv(args.audit_dir / "phase_b_already_covered_v1.csv", already_covered, fields)
 
     counts = Counter(row["decision"] for row in review)
     summary = {
@@ -216,7 +223,8 @@ def main() -> int:
         "candidate_aliases": sum(1 for r in candidates if r["decision"] == "CANDIDATE_SEARCH_ALIAS"),
         "candidate_meta_canonicals": sum(1 for r in candidates if r["decision"] == "CANDIDATE_META_CANONICAL"),
         "candidate_total": len(candidates),
-        "rejected_or_already_covered_total": len(rejected),
+        "rejected_total": len(rejected),
+        "already_covered_total": len(already_covered),
         "production_mutation": "NO",
         "candidate_is_automatic_promotion": "NO",
         "phase_c_mixed_in": "NO",
