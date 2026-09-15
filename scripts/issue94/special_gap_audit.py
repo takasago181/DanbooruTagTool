@@ -9,6 +9,15 @@ from collections import Counter
 from pathlib import Path
 
 
+CATEGORY_NAMES = {
+    "0": "General",
+    "1": "Artist",
+    "3": "Copyright",
+    "4": "Character",
+    "5": "Meta",
+}
+
+
 def norm(value: object) -> str:
     text = "" if value is None else str(value)
     text = unicodedata.normalize("NFKC", text).strip().casefold().replace("_", " ")
@@ -41,11 +50,135 @@ def as_int(value: str) -> int:
     return int(float(text))
 
 
+def read_canonical_source(path: Path) -> list[dict[str, str]]:
+    rows: list[dict[str, str]] = []
+    with path.open("r", encoding="utf-8-sig", newline="") as handle:
+        for line_no, raw in enumerate(csv.reader(handle), start=1):
+            if len(raw) != 4:
+                raise ValueError(
+                    f"canonical-source: expected headerless four-column rows; "
+                    f"line {line_no} has {len(raw)} columns"
+                )
+            tag, category_id, post_count, _unused = raw
+            category_id = category_id.strip()
+            rows.append(
+                {
+                    "Tag": tag,
+                    "DanbooruCategory": CATEGORY_NAMES.get(category_id, category_id),
+                    "post_count": post_count,
+                    "Aliases": "",
+                    "Special2788": "",
+                }
+            )
+    if not rows:
+        raise ValueError("canonical-source: no rows")
+    return rows
+
+
+def attach_unique_aliases(
+    canonical_rows: list[dict[str, str]], alias_index_path: Path
+) -> tuple[list[dict[str, str]], dict[str, int]]:
+    alias_rows = read_csv(alias_index_path)
+    require_columns(
+        alias_rows,
+        {"NormalizedAlias", "TargetCount", "CanonicalTargets"},
+        "alias-index",
+    )
+    canonical_by_norm = {norm(row["Tag"]): row for row in canonical_rows}
+    aliases_by_canonical: dict[str, list[str]] = {}
+    unique_rows = 0
+    ambiguous_rows = 0
+    canonical_precedence_rows = 0
+    unresolved_targets = 0
+
+    for row in alias_rows:
+        target_count = as_int(row.get("TargetCount", ""))
+        status = (row.get("ResolutionStatus") or "").strip().upper()
+        if status == "CANONICAL_PRECEDENCE":
+            canonical_precedence_rows += 1
+            continue
+        if target_count != 1:
+            ambiguous_rows += 1
+            continue
+        target = (row.get("CanonicalTargets") or "").strip()
+        target_row = canonical_by_norm.get(norm(target))
+        if target_row is None:
+            unresolved_targets += 1
+            continue
+        alias = (row.get("NormalizedAlias") or "").strip()
+        if not alias:
+            continue
+        aliases_by_canonical.setdefault(norm(target_row["Tag"]), []).append(alias)
+        unique_rows += 1
+
+    for canonical_norm, aliases in aliases_by_canonical.items():
+        canonical_by_norm[canonical_norm]["Aliases"] = ",".join(dict.fromkeys(aliases))
+
+    if unresolved_targets:
+        raise ValueError(
+            f"alias-index: {unresolved_targets} unique alias targets are absent from canonical source"
+        )
+
+    stats = {
+        "alias_index_rows": len(alias_rows),
+        "unique_alias_rows_used": unique_rows,
+        "ambiguous_alias_rows_skipped": ambiguous_rows,
+        "canonical_precedence_rows_skipped": canonical_precedence_rows,
+    }
+    return canonical_rows, stats
+
+
+def load_full_input(args: argparse.Namespace) -> tuple[list[dict[str, str]], dict[str, object]]:
+    if args.full_kb:
+        if args.canonical_source or args.alias_index:
+            raise ValueError(
+                "choose one source mode: --full-kb OR --canonical-source + --alias-index"
+            )
+        full = read_csv(args.full_kb)
+        require_columns(
+            full,
+            {"Tag", "DanbooruCategory", "post_count", "Aliases", "Special2788"},
+            "full-kb",
+        )
+        return full, {
+            "source_mode": "FULL_KB",
+            "full_kb": str(args.full_kb),
+            "canonical_source": None,
+            "alias_index": None,
+            "legacy_marker_available": True,
+        }
+
+    if not args.canonical_source or not args.alias_index:
+        raise ValueError(
+            "source input required: --full-kb OR both --canonical-source and --alias-index"
+        )
+    full = read_canonical_source(args.canonical_source)
+    full, alias_stats = attach_unique_aliases(full, args.alias_index)
+    return full, {
+        "source_mode": "CANONICAL_SOURCE_PLUS_VERIFIED_ALIAS_INDEX",
+        "full_kb": None,
+        "canonical_source": str(args.canonical_source),
+        "alias_index": str(args.alias_index),
+        "legacy_marker_available": False,
+        **alias_stats,
+    }
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(
         description="Issue #94 read-only Danbooru General -> Special identity gap scanner"
     )
-    parser.add_argument("--full-kb", type=Path, required=True)
+    source = parser.add_mutually_exclusive_group(required=False)
+    source.add_argument("--full-kb", type=Path)
+    source.add_argument("--canonical-source", type=Path)
+    parser.add_argument(
+        "--alias-index",
+        type=Path,
+        help=(
+            "Verified normalized alias index used with --canonical-source; "
+            "only uniquely resolved aliases are admitted to identity closure"
+        ),
+    )
     parser.add_argument("--special", type=Path, required=True)
     parser.add_argument("--alias-map", type=Path)
     parser.add_argument("--out-dir", type=Path, required=True)
@@ -53,13 +186,8 @@ def main() -> int:
     parser.add_argument("--expected-special", type=int, default=2788)
     args = parser.parse_args()
 
-    full = read_csv(args.full_kb)
+    full, source_meta = load_full_input(args)
     special = read_csv(args.special)
-    require_columns(
-        full,
-        {"Tag", "DanbooruCategory", "post_count", "Aliases", "Special2788"},
-        "full-kb",
-    )
     require_columns(
         special,
         {"ID", "Tag", "Danbooru種別", "canonical_target"},
@@ -158,7 +286,7 @@ def main() -> int:
 
         status_counts[identity_status] += 1
         legacy_marker = (row.get("Special2788") or "").strip().upper()
-        if legacy_marker != "YES" and identity_status.startswith("PRESENT_"):
+        if source_meta["legacy_marker_available"] and legacy_marker != "YES" and identity_status.startswith("PRESENT_"):
             legacy_false_gap_count += 1
 
         inventory.append(
@@ -193,20 +321,24 @@ def main() -> int:
 
     summary = {
         "mode": "ISSUE94_READ_ONLY_IDENTITY_AUDIT",
-        "full_kb": str(args.full_kb),
+        **source_meta,
         "special": str(args.special),
         "alias_map": str(args.alias_map) if args.alias_map else None,
         "total_general_scanned": len(general),
         "special_rows": len(special),
         "identity_status_counts": dict(sorted(status_counts.items())),
-        "legacy_blank_but_identity_covered": legacy_false_gap_count,
+        "legacy_blank_but_identity_covered": (
+            legacy_false_gap_count if source_meta["legacy_marker_available"] else None
+        ),
         "content_filter_used": "NO",
         "production_files_changed": "NO",
         "issue70_mutated": "NO",
         "important_note": (
             "SEMANTIC_EXACT_OVERLAP_ONLY means exact normalized term overlap only; "
             "broader semantic similarity still requires human review. GENERAL_ONLY_GAP "
-            "is an identity gap inventory, not automatic product-fit approval."
+            "is an identity gap inventory, not automatic product-fit approval. "
+            "Canonical-source mode admits only uniquely resolved aliases from the verified "
+            "normalized alias index; ambiguous aliases are never silently resolved."
         ),
     }
     with (args.out_dir / "coverage_summary.json").open("w", encoding="utf-8") as handle:
