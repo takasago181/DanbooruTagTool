@@ -1,0 +1,57 @@
+name: Issue96 Build Japanese Metadata Queue
+
+on:
+  push:
+    branches:
+      - prep/issue96-special-expansion
+    paths:
+      - .github/workflows/issue96_make_ja_queue.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: prep/issue96-special-expansion
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build compact queue
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import csv
+          from pathlib import Path
+          src=Path('docs/issue96/special_expansion_duplicate_validated_v1.csv')
+          dst=Path('docs/issue96/special_expansion_ja_queue_v1.csv')
+          with src.open(encoding='utf-8-sig', newline='') as f:
+              rows=list(csv.DictReader(f))
+          if len(rows)!=195:
+              raise SystemExit(f'row drift: {len(rows)}')
+          fields=['proposed_special_id','canonical_tag','canonical_aliases','post_count','proposed_layer','kind_id','body_site_ids','theme_ids']
+          with dst.open('w',encoding='utf-8',newline='') as f:
+              w=csv.DictWriter(f,fieldnames=fields,lineterminator='\n')
+              w.writeheader()
+              for r in rows:
+                  w.writerow({k:r[k] for k in fields})
+          print('ISSUE96_JA_QUEUE_PASS rows=195')
+          PY
+          git diff --check
+      - name: Commit queue
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/issue96/special_expansion_ja_queue_v1.csv
+          if git diff --cached --quiet; then
+            echo 'No change'
+          else
+            git commit -m 'issue96: materialize compact Japanese metadata queue'
+            git push origin HEAD:prep/issue96-special-expansion
+          fi
