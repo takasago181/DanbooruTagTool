@@ -1,10 +1,11 @@
 [CmdletBinding()]
 param(
-    [string] $RepositoryRoot = (Split-Path -Parent (Split-Path -Parent $PSScriptRoot)),
+    [string] $RepositoryRoot = '',
     [string] $ArtifactRoot = ''
 )
 
 $ErrorActionPreference = 'Stop'
+if ([string]::IsNullOrWhiteSpace($RepositoryRoot)) { $RepositoryRoot = Split-Path -Parent (Split-Path -Parent $PSScriptRoot) }
 $RepositoryRoot = (Resolve-Path -LiteralPath $RepositoryRoot).Path
 if ([string]::IsNullOrWhiteSpace($ArtifactRoot)) { $ArtifactRoot = Join-Path $RepositoryRoot 'artifacts/current' }
 $ArtifactRoot = (Resolve-Path -LiteralPath $ArtifactRoot).Path
