@@ -1,0 +1,64 @@
+name: Issue96 Materialize Promotion Proposal
+
+on:
+  push:
+    branches:
+      - prep/issue96-special-expansion
+    paths:
+      - scripts/issue96/materialize_promotion_proposal.py
+      - docs/issue96/special_expansion_identity_layer_proposal_v1.csv
+      - docs/issue96/special_expansion_taxonomy_final_v1.csv
+      - docs/issue96/special_expansion_live_canonical_validation_v1.csv
+      - docs/issue96/ja_batches/ja_batch01_2789_2837_v1.csv
+      - docs/issue96/ja_batches/ja_batch02_2838_2886_v1.csv
+      - docs/issue96/ja_batches/ja_batch03_2887_2935_v1.csv
+      - docs/issue96/ja_batches/ja_batch04_2936_2983_v1.csv
+      - docs/issue96/ja_batches/ja_semantic_corrections_v1.csv
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: prep/issue96-special-expansion
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Materialize and validate final PREP proposal
+        run: |
+          set -euo pipefail
+          python -m py_compile scripts/issue96/materialize_promotion_proposal.py
+          python scripts/issue96/materialize_promotion_proposal.py \
+            --identity docs/issue96/special_expansion_identity_layer_proposal_v1.csv \
+            --taxonomy docs/issue96/special_expansion_taxonomy_final_v1.csv \
+            --live docs/issue96/special_expansion_live_canonical_validation_v1.csv \
+            --ja-batch docs/issue96/ja_batches/ja_batch01_2789_2837_v1.csv \
+            --ja-batch docs/issue96/ja_batches/ja_batch02_2838_2886_v1.csv \
+            --ja-batch docs/issue96/ja_batches/ja_batch03_2887_2935_v1.csv \
+            --ja-batch docs/issue96/ja_batches/ja_batch04_2936_2983_v1.csv \
+            --ja-corrections docs/issue96/ja_batches/ja_semantic_corrections_v1.csv \
+            --ja-output docs/issue96/special_expansion_ja_metadata_v1.csv \
+            --proposal-output docs/issue96/special_expansion_promotion_proposal_v1.csv \
+            --summary docs/issue96/ISSUE96_PROMOTION_PROPOSAL_SUMMARY_v1.md
+          git diff --check
+      - name: Commit validated PREP proposal artifacts
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add \
+            docs/issue96/special_expansion_ja_metadata_v1.csv \
+            docs/issue96/special_expansion_promotion_proposal_v1.csv \
+            docs/issue96/ISSUE96_PROMOTION_PROPOSAL_SUMMARY_v1.md
+          if git diff --cached --quiet; then
+            echo 'No generated changes to commit'
+          else
+            git commit -m 'issue96: materialize validated 195-row promotion proposal'
+            git push origin HEAD:prep/issue96-special-expansion
+          fi
