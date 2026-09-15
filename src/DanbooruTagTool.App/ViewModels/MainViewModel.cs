@@ -94,6 +94,7 @@ public sealed class MainViewModel : Observable
     private readonly IUserStateStore store;
     private readonly IClipboardService clipboard;
     private readonly IGeneralBrowseProvider general;
+    private readonly IForgeBridgeClient forgeBridge;
     public PromptWorkspace Workspace { get; }
     public ObservableCollection<ChipViewModel> Chips { get; } = [];
     public IReadOnlyList<NavigationNode> Navigation { get; }
@@ -116,6 +117,7 @@ public sealed class MainViewModel : Observable
         selectedEntry.Entry.Canonical == null ? "canonicalへの安全な追加先が確定していない参照項目です。" : "" }.Where(s => s.Length > 0));
     private string query = "", browse = "special", status = "", find = "", directText = "", weight = "";
     private string presetName = "", presetDescription = "", presetPositive = "", presetNegative = "";
+    private string forgeUrl = ForgeBridgeProtocol.DefaultUrl, forgeExtensionPath = "";
     private int workspaceIndex, sortIndex, detailsTabIndex;
     private bool englishChips, multiSelect, directEditing, categoryView, categoryEnglish;
     private PromptOutputProfile outputProfile = PromptOutputProfile.Canonical;
@@ -131,6 +133,7 @@ public sealed class MainViewModel : Observable
     public event Action? ResultsRestored;
     public event Action<Guid>? ScrollToChip;
     public event Action? PresetsRequested;
+    public event Action? ForgeSettingsRequested;
     public UiState Ui => ui;
     public ObservableCollection<GenerationPreset> Presets { get; } = [];
     public GenerationPreset? SelectedPreset
@@ -149,6 +152,8 @@ public sealed class MainViewModel : Observable
     public string PresetDescription { get => presetDescription; set => Set(ref presetDescription, value); }
     public string PresetPositive { get => presetPositive; set => Set(ref presetPositive, value); }
     public string PresetNegative { get => presetNegative; set => Set(ref presetNegative, value); }
+    public string ForgeUrl { get => forgeUrl; set => Set(ref forgeUrl, value); }
+    public string ForgeExtensionPath { get => forgeExtensionPath; set => Set(ref forgeExtensionPath, value); }
     public string Query { get => query; set { if (query.Length == 0 && value.Length > 0) { browseSelection = SelectedEntry?.Entry.Id; RestoreScroll = BrowseScroll; } if (Set(ref query, value)) { Notify(nameof(IsSearching)); Notify(nameof(CanBrowseSort)); Persist(); } } }
     public bool IsSearching => !string.IsNullOrWhiteSpace(Query);
     public bool CanBrowseSort => !IsSearching;
@@ -226,12 +231,16 @@ public sealed class MainViewModel : Observable
     public RelayCommand CapturePresetPositive { get; }
     public RelayCommand SavePreset { get; }
     public RelayCommand DeletePreset { get; }
-    public MainViewModel(ICatalog catalog, IUserStateStore store, IClipboardService clipboard, IGeneralBrowseProvider? general = null)
+    public AsyncRelayCommand SendToForge { get; }
+    public AsyncRelayCommand SendPresetToForge { get; }
+    public RelayCommand OpenForgeSettings { get; }
+    public RelayCommand SaveForgeSettings { get; }
+    public MainViewModel(ICatalog catalog, IUserStateStore store, IClipboardService clipboard, IGeneralBrowseProvider? general = null, IForgeBridgeClient? forgeBridge = null)
     {
-        this.catalog = catalog; this.store = store; this.clipboard = clipboard; this.general = general ?? new PendingGeneralBrowseProvider();
+        this.catalog = catalog; this.store = store; this.clipboard = clipboard; this.general = general ?? new PendingGeneralBrowseProvider(); this.forgeBridge = forgeBridge ?? new ForgeBridgeClient();
         search = new(catalog); Workspace = new(new(catalog));
         var state = store.Load(); if (state != null) { Workspace.Restore(state.Prompt); ui = state.Ui; foreach (var preset in state.Presets ?? []) Presets.Add(preset); }
-        query = ui.Query; browse = ui.Browse; workspaceIndex = ui.Workspace; englishChips = ui.EnglishChips; outputProfile = ui.OutputProfile; RestoreScroll = ui.BrowseScroll; BrowseScroll = ui.BrowseScroll;
+        query = ui.Query; browse = ui.Browse; workspaceIndex = ui.Workspace; englishChips = ui.EnglishChips; outputProfile = ui.OutputProfile; forgeUrl = ui.ForgeUrl; forgeExtensionPath = ui.ForgeExtensionPath; RestoreScroll = ui.BrowseScroll; BrowseScroll = ui.BrowseScroll;
         Navigation = [new("special", "◆ Special", catalog.Entries.Where(e => e.IsSpecial).SelectMany(e => e.Paths).GroupBy(p => p.GenreId)
             .Select(g => new NavigationNode("special:" + g.Key + ">", g.First().Genre, g.Where(p => p.SubgenreId.Length > 0).DistinctBy(p => p.Key)
                 .Select(p => new NavigationNode("special:" + p.Key, p.Subgenre, [])).ToArray())).ToArray()), new("general", "General", this.general.IsPending ? [] : BuildNavigation(this.general.Paths, "general:"))];
@@ -260,6 +269,10 @@ public sealed class MainViewModel : Observable
         CapturePresetPositive = Normal(_ => PresetPositive = PromptParser.Serialize(Workspace.Items));
         SavePreset = Normal(_ => SavePresetValue());
         DeletePreset = Normal(p => DeletePresetValue(p as GenerationPreset ?? SelectedPreset), p => p is GenerationPreset || SelectedPreset != null);
+        SendToForge = new(_ => SendToForgeAsync(), _ => CanEditPrompt);
+        SendPresetToForge = new(p => SendToForgeAsync(p as GenerationPreset), p => CanEditPrompt && p is GenerationPreset);
+        OpenForgeSettings = Normal(_ => ForgeSettingsRequested?.Invoke());
+        SaveForgeSettings = Normal(_ => SaveForgeSettingsValue());
         Workspace.Changed += OnPromptChanged;
         RefreshChips(); RefreshCategoryGroups(); RefreshResults(); SelectedEntry = Results.FirstOrDefault(e => e.Entry.Id == ui.SelectedEntry);
     }
@@ -272,7 +285,8 @@ public sealed class MainViewModel : Observable
     private RelayCommand Ordered(Action<object?> action, Predicate<object?>? enabled = null) => new(p => { if (CanEditOrderedPrompt && (enabled?.Invoke(p) ?? true)) action(p); }, p => CanEditOrderedPrompt && (enabled?.Invoke(p) ?? true));
     private void RefreshCommands()
     {
-        foreach (var command in new[] { Copy, Import, New, Recover, Undo, Redo, Delete, DeleteOne, Inspect, InspectEntry, Navigate, Back, ClearQuery, FindPrevious, FindNextCommand, OpenEditor, StartDirect, ApplyDirect, CancelDirect, ApplyWeight, OpenPresets, NewPreset, ApplyPreset, CopyPresetNegative, CapturePresetPositive, SavePreset, DeletePreset }) command.Refresh();
+        foreach (var command in new[] { Copy, Import, New, Recover, Undo, Redo, Delete, DeleteOne, Inspect, InspectEntry, Navigate, Back, ClearQuery, FindPrevious, FindNextCommand, OpenEditor, StartDirect, ApplyDirect, CancelDirect, ApplyWeight, OpenPresets, NewPreset, ApplyPreset, CopyPresetNegative, CapturePresetPositive, SavePreset, DeletePreset, OpenForgeSettings, SaveForgeSettings }) command.Refresh();
+        SendToForge.Refresh(); SendPresetToForge.Refresh();
         foreach (var row in Results.Concat(Related)) row.Refresh(); SelectedEntry?.Refresh();
     }
     private IReadOnlyList<EntryViewModel> Rows(IEnumerable<CatalogEntry> entries) => entries.Select(e => new EntryViewModel(e, Workspace, Add, () => CanEditPrompt)).ToArray();
@@ -372,6 +386,18 @@ public sealed class MainViewModel : Observable
         try { clipboard.Write(preset.Negative); Status = "✓ Negativeをコピーしました"; }
         catch (Exception e) when (e is System.Runtime.InteropServices.ExternalException or IOException) { Status = "操作できませんでした: " + e.Message; }
     }
+    public async Task SendToForgeAsync(GenerationPreset? preset = null, CancellationToken cancellationToken = default)
+    {
+        if (!CanEditPrompt) return;
+        var request = new ForgeBridgeSendRequest(English, preset == null ? ForgeNegativeMode.Unchanged : ForgeNegativeMode.Replace, preset?.Negative);
+        var result = await forgeBridge.SendAsync(ForgeUrl, request, cancellationToken);
+        Status = result.Status;
+    }
+    private void SaveForgeSettingsValue()
+    {
+        Persist();
+        Status = "Forge設定を保存しました";
+    }
     private void SavePresetValue()
     {
         var parsed = new PromptParser(catalog).Parse(PresetPositive);
@@ -388,7 +414,7 @@ public sealed class MainViewModel : Observable
     }
     public void Persist()
     {
-        ui = ui with { Workspace = WorkspaceIndex, Browse = browse, Query = Query, SelectedEntry = SelectedEntry?.Entry.Id, BrowseScroll = Query.Length == 0 ? BrowseScroll : RestoreScroll, EnglishChips = EnglishChips, OutputProfile = OutputProfile };
+        ui = ui with { Workspace = WorkspaceIndex, Browse = browse, Query = Query, SelectedEntry = SelectedEntry?.Entry.Id, BrowseScroll = Query.Length == 0 ? BrowseScroll : RestoreScroll, EnglishChips = EnglishChips, OutputProfile = OutputProfile, ForgeUrl = ForgeUrl, ForgeExtensionPath = ForgeExtensionPath };
         try { store.Save(new(Workspace.Snapshot(), ui, Presets.ToArray())); } catch (Exception e) when (e is IOException or Microsoft.Data.Sqlite.SqliteException) { Status = "自動保存できません: " + e.Message; }
     }
 }

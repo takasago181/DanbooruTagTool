@@ -1,6 +1,7 @@
 using System.IO;
 using System.Text.Json;
 using System.Windows;
+using Application = System.Windows.Application;
 using DanbooruTagTool.App.ViewModels;
 using DanbooruTagTool.Core;
 using DanbooruTagTool.Data;

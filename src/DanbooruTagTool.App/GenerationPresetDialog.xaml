@@ -52,6 +52,7 @@
                                     <WrapPanel>
                                         <Button Content="Positive追加" Command="{Binding DataContext.ApplyPreset, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding}" Padding="8,4" MinHeight="28"/>
                                         <Button Content="Negativeコピー" Command="{Binding DataContext.CopyPresetNegative, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding}" Padding="8,4" MinHeight="28" Margin="0"/>
+                                        <Button Content="Forgeへ送る" Command="{Binding DataContext.SendPresetToForge, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding}" Padding="8,4" MinHeight="28" Margin="0" ToolTip="現在のvisible English Promptと、このプリセットのNegativeをForgeへ送ります。"/>
                                     </WrapPanel>
                                 </StackPanel>
                             </Border>

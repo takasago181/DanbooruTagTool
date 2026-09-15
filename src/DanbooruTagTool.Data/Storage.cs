@@ -12,7 +12,8 @@ public sealed record PortablePaths(string Root)
 public sealed record UiState(int Workspace = 0, string Browse = "special", string Query = "",
     string? SelectedEntry = null, double BrowseScroll = 0, double NavWidth = 300, double PromptWidth = 400,
     double EditRatio = 0.75, double Width = 1280, double Height = 820, double Left = 80, double Top = 60,
-    bool EnglishChips = false, PromptOutputProfile OutputProfile = PromptOutputProfile.Canonical);
+    bool EnglishChips = false, PromptOutputProfile OutputProfile = PromptOutputProfile.Canonical,
+    string ForgeUrl = ForgeBridgeProtocol.DefaultUrl, string ForgeExtensionPath = "");
 public sealed record GenerationPreset(Guid Id, string Name, string Description, string Positive, string Negative);
 public sealed record UserState(WorkspaceSnapshot Prompt, UiState Ui, GenerationPreset[]? Presets = null);
 public interface IUserStateStore { UserState? Load(); void Save(UserState state); }

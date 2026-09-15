@@ -4,6 +4,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Threading;
 using DanbooruTagTool.App.ViewModels;
+using DragEventArgs = System.Windows.DragEventArgs;
+using KeyEventArgs = System.Windows.Input.KeyEventArgs;
+using MouseEventArgs = System.Windows.Input.MouseEventArgs;
+using Point = System.Windows.Point;
 
 namespace DanbooruTagTool.App;
 
@@ -21,10 +25,12 @@ public partial class MainWindow : Window
     private bool syncingNavigation;
     private int dropGap;
     private GenerationPresetDialog? presetDialog;
+    private ForgeSettingsDialog? forgeSettingsDialog;
     public MainWindow(MainViewModel vm)
     {
         this.vm = vm; InitializeComponent(); DataContext = vm;
         vm.PresetsRequested += OpenPresetDialog;
+        vm.ForgeSettingsRequested += OpenForgeSettingsDialog;
         var defaultHeight = Math.Abs(vm.Ui.Height - 820) < 0.5 ? 720 : vm.Ui.Height;
         Width = Math.Max(MinWidth, vm.Ui.Width); Height = Math.Max(MinHeight, defaultHeight);
         Left = Math.Clamp(vm.Ui.Left, SystemParameters.VirtualScreenLeft, SystemParameters.VirtualScreenLeft + SystemParameters.VirtualScreenWidth - 100);
@@ -55,7 +61,7 @@ public partial class MainWindow : Window
         vm.ResultsRestored += () => Dispatcher.BeginInvoke(() => FindChild<ScrollViewer>(DictionaryList)?.ScrollToVerticalOffset(vm.RestoreScroll), DispatcherPriority.Loaded);
         vm.ScrollToChip += id => { var index = vm.Chips.ToList().FindIndex(c => c.Id == id); if (index >= 0 && EditorItems.ItemContainerGenerator.ContainerFromIndex(index) is FrameworkElement item) item.BringIntoView(); };
         SizeChanged += (_, _) => QueueUiSave(); LocationChanged += (_, _) => QueueUiSave();
-        Closing += (_, _) => { SaveGeometry(); searchTimer.Stop(); feedbackTimer.Stop(); uiTimer.Stop(); if (presetDialog != null) presetDialog.Close(); };
+        Closing += (_, _) => { SaveGeometry(); searchTimer.Stop(); feedbackTimer.Stop(); uiTimer.Stop(); if (presetDialog != null) presetDialog.Close(); if (forgeSettingsDialog != null) forgeSettingsDialog.Close(); };
         Loaded += (_, _) => { vm.UpdateChipLanguage(); FindChild<ScrollViewer>(DictionaryList)?.ScrollToVerticalOffset(vm.RestoreScroll); SyncNavigationSelection(); };
     }
     private static bool IsLegacyNavWidth(double width) => Math.Abs(width - 210) < 0.5 || Math.Abs(width - 230) < 0.5;
@@ -186,6 +192,13 @@ public partial class MainWindow : Window
         presetDialog = new GenerationPresetDialog(vm) { Owner = this };
         presetDialog.Closed += (_, _) => presetDialog = null;
         presetDialog.Show();
+    }
+    private void OpenForgeSettingsDialog()
+    {
+        if (forgeSettingsDialog is { IsVisible: true }) { forgeSettingsDialog.Activate(); return; }
+        forgeSettingsDialog = new ForgeSettingsDialog(vm) { Owner = this };
+        forgeSettingsDialog.Closed += (_, _) => forgeSettingsDialog = null;
+        forgeSettingsDialog.Show();
     }
     private static T? FindChild<T>(DependencyObject parent) where T : DependencyObject
     { for (int i = 0; i < VisualTreeHelper.GetChildrenCount(parent); i++) { var child = VisualTreeHelper.GetChild(parent, i); if (child is T result) return result; if (FindChild<T>(child) is T nested) return nested; } return null; }

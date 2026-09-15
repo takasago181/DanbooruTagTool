@@ -17,3 +17,24 @@ public sealed class RelayCommand(Action<object?> execute, Predicate<object?>? ca
     public event EventHandler? CanExecuteChanged;
     public void Refresh() => CanExecuteChanged?.Invoke(this, EventArgs.Empty);
 }
+public sealed class AsyncRelayCommand(Func<object?, Task> execute, Predicate<object?>? canExecute = null) : ICommand
+{
+    private bool running;
+    public bool CanExecute(object? parameter) => !running && (canExecute?.Invoke(parameter) ?? true);
+    public async void Execute(object? parameter)
+    {
+        if (!CanExecute(parameter)) return;
+        running = true; Refresh();
+        try { await execute(parameter); }
+        finally { running = false; Refresh(); }
+    }
+    public async Task ExecuteAsync(object? parameter)
+    {
+        if (!CanExecute(parameter)) return;
+        running = true; Refresh();
+        try { await execute(parameter); }
+        finally { running = false; Refresh(); }
+    }
+    public event EventHandler? CanExecuteChanged;
+    public void Refresh() => CanExecuteChanged?.Invoke(this, EventArgs.Empty);
+}
