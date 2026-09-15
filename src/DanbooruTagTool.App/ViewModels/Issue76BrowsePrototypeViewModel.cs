@@ -173,6 +173,13 @@ public sealed class Issue76BrowsePrototypeViewModel : Observable
                 ? source.OrderBy(entry => entry.Label, StringComparer.Create(CultureInfo.GetCultureInfo("ja-JP"), false))
                 : source.OrderByDescending(entry => entry.Usage);
         }
+
+        // The accepted catalog can contain multiple Special rows that resolve to the
+        // same canonical prompt identity (for example a canonical row plus an alias
+        // row). Browse must show one discovery result per canonical identity, just as
+        // SearchEngine already does, while semantic-only rows remain distinct by ID.
+        source = DistinctPromptIdentities(source);
+
         Results = source.Select(entry => new Issue76BrowseRowViewModel(entry)).ToArray();
         RefreshOptions();
         Notify(nameof(ResultSummary));
@@ -186,18 +193,36 @@ public sealed class Issue76BrowsePrototypeViewModel : Observable
         foreach (var option in KindOptions)
         {
             option.Selected = filter.KindId == option.Id;
-            option.Count = index.CountWithKind(filter, option.Id);
+            option.Count = VisibleCount(filter.WithKind(option.Id));
         }
         foreach (var option in BodyOptions)
         {
             option.Selected = filter.BodySiteIds.Contains(option.Id);
-            option.Count = index.CountWithBodySite(filter, option.Id);
+            var next = option.Selected ? filter : filter.ToggleBodySite(option.Id);
+            option.Count = VisibleCount(next);
         }
         foreach (var option in ThemeOptions)
         {
             option.Selected = filter.ThemeIds.Contains(option.Id);
-            option.Count = index.CountWithTheme(filter, option.Id);
+            var next = option.Selected ? filter : filter.ToggleTheme(option.Id);
+            option.Count = VisibleCount(next);
         }
+    }
+
+    private int VisibleCount(SpecialBrowseV2Filter candidate)
+        => DistinctPromptIdentities(index.IntersectInInputOrder(
+            catalog.Entries.Where(entry => entry.IsSpecial), candidate)).Count();
+
+    private static IReadOnlyList<CatalogEntry> DistinctPromptIdentities(IEnumerable<CatalogEntry> entries)
+    {
+        var seen = new HashSet<string>(StringComparer.Ordinal);
+        var output = new List<CatalogEntry>();
+        foreach (var entry in entries)
+        {
+            var key = entry.Canonical is { Length: > 0 } canonical ? "C:" + canonical : "S:" + entry.Id;
+            if (seen.Add(key)) output.Add(entry);
+        }
+        return output;
     }
 
     private static string LabelFor(Issue76FacetAxis axis, string id)
