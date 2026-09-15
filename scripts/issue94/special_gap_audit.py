@@ -290,11 +290,19 @@ def derive_profile_canonical_targets(
         for alias in split_aliases(row.get("Aliases", "")):
             alias_to_canonicals.setdefault(norm(alias), set()).add(canonical_norm)
 
+    raw_alias_targets: dict[str, set[str]] = {}
+    for row in full:
+        canonical_norm = norm(row["Tag"])
+        for alias in split_aliases(row.get("RawAliases", "")):
+            alias_norm = norm(alias)
+            if alias_norm:
+                raw_alias_targets.setdefault(alias_norm, set()).add(canonical_norm)
+
     canonical_targets: dict[str, list[str]] = {}
     exact_count = 0
     alias_count = 0
     unresolved: list[str] = []
-    ambiguous: list[str] = []
+    ambiguous: list[dict[str, object]] = []
 
     for row in special:
         if (row["Danbooru種別"] or "").strip().casefold() == "semantic/general":
@@ -309,32 +317,44 @@ def derive_profile_canonical_targets(
             target_norm = next(iter(targets))
             canonical_targets.setdefault(target_norm, []).append(evidence)
             alias_count += 1
-        elif len(targets) > 1:
-            ambiguous.append(evidence)
+            continue
+
+        raw_targets = raw_alias_targets.get(tag_norm, set())
+        if len(raw_targets) > 1:
+            ambiguous.append(
+                {
+                    "special": evidence,
+                    "targets": sorted(raw_targets),
+                }
+            )
+        elif len(raw_targets) == 1:
+            # A raw alias that has one target should have survived unique alias closure.
+            # Treat divergence as a data-integrity failure instead of guessing.
+            unresolved.append(f"{evidence}: unique raw alias missing from closure")
         else:
             unresolved.append(evidence)
 
-    if ambiguous or unresolved:
-        details: list[str] = []
-        if ambiguous:
-            details.append(f"ambiguous={len(ambiguous)} sample={ambiguous[:5]}")
-        if unresolved:
-            details.append(f"unresolved={len(unresolved)} sample={unresolved[:5]}")
+    if unresolved:
         raise ValueError(
-            "special-profile identity closure is incomplete; protected canonical_target "
-            "fallback is required: " + "; ".join(details)
+            "special-profile identity closure has unresolved non-semantic rows; "
+            f"protected canonical_target fallback is required: {unresolved}"
         )
-    if alias_count != expected_alias_count:
+
+    alias_layer_count = alias_count + len(ambiguous)
+    if alias_layer_count != expected_alias_count:
         raise ValueError(
-            "special-profile alias closure count mismatch: "
-            f"expected {expected_alias_count}, got {alias_count}"
+            "special-profile Alias layer count mismatch: "
+            f"expected {expected_alias_count}, got {alias_layer_count} "
+            f"(unique={alias_count}, ambiguous={len(ambiguous)})"
         )
 
     return canonical_targets, {
         "special_profile_exact_canonical_rows": exact_count,
-        "special_profile_alias_target_rows": alias_count,
+        "special_profile_unique_alias_target_rows": alias_count,
+        "special_profile_ambiguous_alias_rows": len(ambiguous),
+        "special_profile_alias_layer_rows": alias_layer_count,
         "special_profile_unresolved_identity_rows": 0,
-        "special_profile_ambiguous_identity_rows": 0,
+        "special_profile_ambiguous_aliases": ambiguous,
     }
 
 
@@ -362,7 +382,8 @@ def main() -> int:
         help=(
             "Tracked data/generation/special2788_generation_profile.csv fallback. "
             "Semantic rows are identified from approved semantic markers; non-semantic "
-            "alias targets are reconstructed fail-closed from the current canonical alias closure."
+            "alias targets are reconstructed from the selected Danbooru alias closure. "
+            "Known multi-target aliases remain ambiguous and do not cover any one canonical."
         ),
     )
     parser.add_argument("--alias-map", type=Path)
@@ -535,8 +556,9 @@ def main() -> int:
             "is an identity gap inventory, not automatic product-fit approval. "
             "Canonical-source modes admit only aliases with one normalized canonical target; "
             "canonical-name collisions and ambiguous aliases are never silently resolved. "
-            "Special-profile mode is fail-closed: every non-semantic Special term must resolve "
-            "as a canonical identity or one unique alias target before scanning begins."
+            "Special-profile mode preserves known multi-target Alias rows as ambiguous and "
+            "does not use them to claim coverage of any one canonical. Unresolved non-semantic "
+            "Special rows still abort the scan."
         ),
     }
     with (args.out_dir / "coverage_summary.json").open("w", encoding="utf-8") as handle:
