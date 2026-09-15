@@ -20,7 +20,7 @@
         <Style x:Key="PanelBorder" TargetType="Border"><Setter Property="Background" Value="{StaticResource SurfaceBrush}"/><Setter Property="BorderBrush" Value="{StaticResource BorderBrushSoft}"/><Setter Property="BorderThickness" Value="1"/><Setter Property="CornerRadius" Value="8"/></Style>
     </Window.Resources>
     <Grid Margin="14">
-        <Grid.ColumnDefinitions><ColumnDefinition Width="290"/><ColumnDefinition Width="12"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+        <Grid.ColumnDefinitions><ColumnDefinition Width="320"/><ColumnDefinition Width="12"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
         <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="*"/></Grid.RowDefinitions>
         <DockPanel Grid.ColumnSpan="3" Margin="0,0,0,10">
             <Button DockPanel.Dock="Right" Content="新規" Command="{Binding NewPreset}" Style="{StaticResource PrimaryButton}" Margin="0"/>
