@@ -90,17 +90,25 @@ def write_csv(path: Path, rows: list[dict[str, str]]) -> None:
         writer.writerows(rows)
 
 
+def write_json(path: Path, value) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", encoding="utf-8") as f:
+        json.dump(value, f, ensure_ascii=False, indent=2)
+        f.write("\n")
+
+
 def main() -> None:
     manifest = load_json(MANIFEST_PATH)
     queue = load_json(QUEUE_PATH)
     chunks = manifest["chunks"]
 
     shard_manifest = {
-        "format_version": 1,
+        "format_version": 2,
         "issue": 70,
         "shard_size": SHARD_SIZE,
         "source_manifest": "docs/issue70/data/source_chunks_manifest.json",
         "source_manifest_sha256": sha256(MANIFEST_PATH),
+        "chunk_manifest_pattern": "docs/issue70/data/source_shards/chunk_{chunk_index:03d}/manifest.json",
         "chunks": [],
     }
 
@@ -119,6 +127,7 @@ def main() -> None:
 
         compact_rows = [compact(r) for r in rows]
         shard_entries = []
+        chunk_dir = OUT_ROOT / f"chunk_{chunk_index:03d}"
         for offset in range(0, len(compact_rows), SHARD_SIZE):
             part = compact_rows[offset : offset + SHARD_SIZE]
             shard_no = offset // SHARD_SIZE + 1
@@ -134,29 +143,41 @@ def main() -> None:
                 "sha256": sha256(out),
             })
 
-        shard_manifest["chunks"].append({
+        chunk_manifest = {
+            "format_version": 1,
+            "issue": 70,
             "chunk_index": chunk_index,
             "source_file": chunk["file"],
             "source_sha256": chunk["sha256"],
             "row_count": len(rows),
             "first_row_id": rows[0]["row_id"],
             "last_row_id": rows[-1]["row_id"],
+            "shard_size": SHARD_SIZE,
             "shards": shard_entries,
+        }
+        chunk_manifest_path = chunk_dir / "manifest.json"
+        write_json(chunk_manifest_path, chunk_manifest)
+
+        shard_manifest["chunks"].append({
+            "chunk_index": chunk_index,
+            "manifest": str(chunk_manifest_path.relative_to(ROOT)).replace("\\", "/"),
+            "source_file": chunk["file"],
+            "source_sha256": chunk["sha256"],
+            "row_count": len(rows),
+            "first_row_id": rows[0]["row_id"],
+            "last_row_id": rows[-1]["row_id"],
         })
         total_rows += len(rows)
 
     if total_rows != 92739:
         raise SystemExit(f"total rows {total_rows} != 92739")
 
-    OUT_MANIFEST.parent.mkdir(parents=True, exist_ok=True)
-    with OUT_MANIFEST.open("w", encoding="utf-8") as f:
-        json.dump(shard_manifest, f, ensure_ascii=False, indent=2)
-        f.write("\n")
+    write_json(OUT_MANIFEST, shard_manifest)
 
     completed = [int(c["chunk_index"]) for c in queue["chunks"] if c.get("state") == "COMPLETED"]
     completed_rows = sum(int(c["row_count"]) for c in queue["chunks"] if c.get("state") == "COMPLETED")
     bootstrap = {
-        "format_version": 1,
+        "format_version": 2,
         "issue": 70,
         "source_manifest_sha256": sha256(MANIFEST_PATH),
         "source_shards_manifest_sha256": sha256(OUT_MANIFEST),
@@ -168,17 +189,16 @@ def main() -> None:
         "claim_protocol": "per_chunk_create_file",
         "claim_directory": "docs/issue70/data/automation_claims",
         "result_directory": "docs/issue70/data/results/queue",
+        "chunk_manifest_pattern": "docs/issue70/data/source_shards/chunk_{chunk_index:03d}/manifest.json",
     }
-    with BOOTSTRAP_PATH.open("w", encoding="utf-8") as f:
-        json.dump(bootstrap, f, ensure_ascii=False, indent=2)
-        f.write("\n")
+    write_json(BOOTSTRAP_PATH, bootstrap)
 
     if completed_rows != 10500:
         raise SystemExit(f"bootstrap completed rows changed unexpectedly: {completed_rows}")
     if len(completed) != 21:
         raise SystemExit(f"bootstrap completed chunk count changed unexpectedly: {len(completed)}")
 
-    print(f"generated compact shards for {len(chunks)} chunks / {total_rows} rows")
+    print(f"generated compact shards + per-chunk manifests for {len(chunks)} chunks / {total_rows} rows")
     print(f"bootstrap completed: {len(completed)} chunks / {completed_rows} rows")
 
 
