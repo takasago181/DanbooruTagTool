@@ -1,13 +1,14 @@
-# CURRENT DEV TASK — ISSUE #73 PANE TOGGLE REFINEMENT
+# CURRENT DEV TASK — ISSUE #73 PANE TOGGLE REFINEMENT (COMPLETED / MERGED)
 
 最終同期: 2026-09-15
 
 ## Routing status
 
-- **Active DEV implementation issue: #73** — `[DEV][POST-V1] English Prompt pane density + dictionary add/remove toggle`.
-- This is a narrow post-v1 refinement on the accepted #72 main baseline. It does not reopen completed Issue #66 foundations.
+- **Issue #73 is completed and integrated into `main` at `079964b69192b5191b1bda5e9894b7138f8c75c2`** — `[DEV][POST-V1] English Prompt pane density + dictionary add/remove toggle`.
+- This was a narrow post-v1 refinement on the accepted #72 main baseline. It did not reopen completed Issue #66 foundations.
+- No successor active DEV implementation issue is designated; do not infer one from this document.
 - Roadmap parent: Issue #71.
-- Prepared branch: `codex/issue73-pane-toggle-refinement`.
+- Integrated branch: `codex/issue73-pane-toggle-refinement`.
 - Creation-time live main: `67c582504797dbda27dec41ea582d88e15a7d54c`.
 - Issue #72 remains completed and integrated into `main` at `174fee90b23e4a350ffe71d7b60aa834b8cb1296`.
 - Issue #70 translation/data work is separate. #73 must not modify #70 outputs, canonical/protected data, or translation lane state.
@@ -41,4 +42,7 @@ Detailed scope, invariants, validation, and return contract are owned by live Is
 
 ## Completion / return
 
-Run Release build, all .NET tests, #73 focused tests, and `git diff --check`. If all pass, integrate to `main` without force-push, synchronize this file and `CURRENT_STATE.md` to completed/merged without selecting a successor active DEV issue, and close Issue #73. Keep #70 and #65 as separate lanes.
+- Final implementation commit `079964b69192b5191b1bda5e9894b7138f8c75c2` is integrated into `main` by fast-forward.
+- Release build, all .NET tests, #73 focused tests, and `git diff --check` passed on the integrated source.
+- #70 translation/data work remains a separate lane; Stage10 learning Issue #65 remains a separate lane.
+- No successor active DEV implementation issue was selected.

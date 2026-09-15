@@ -7,8 +7,9 @@
 **Stage9 completed / beginner-first practical v1 accepted / #64 General taxonomy accepted and integrated / #66 completed / #68 completed / #69 local final cleanup completed.**
 
 Current maintenance route:
-- **Active DEV implementation issue: #73 — English Prompt pane density + dictionary add/remove toggle.** This is a narrow post-v1 refinement on the accepted #72 baseline and does not reopen completed #66 foundations.
-- Prepared branch: `codex/issue73-pane-toggle-refinement`.
+- **Issue #73 — English Prompt pane density + dictionary add/remove toggle is completed and integrated into `main` at `079964b69192b5191b1bda5e9894b7138f8c75c2`.** This was a narrow post-v1 refinement on the accepted #72 baseline and did not reopen completed #66 foundations.
+- No successor active DEV implementation issue is designated. Do not infer one from this document.
+- Integrated branch: `codex/issue73-pane-toggle-refinement`.
 - Issue #72 — Prompt category view prototype remains completed and integrated into `main` at `174fee90b23e4a350ffe71d7b60aa834b8cb1296`.
 - Issue #70 translation/data work is a separate lane. #72 must not modify #70 outputs, canonical/protected data, or translation lane state.
 - Issue #68 is complete. Phase 2E was accepted as a safe no-op. Protected local `benchmarks/`, `backups/`, `_handoff/`, audit provenance, local tooling, and translation quarantine remain in place for their consumers; safe stale worktrees and reproducible caches were retired.
@@ -142,15 +143,15 @@ Artifacts remain untracked. Cleanup must be scoped to known disposable artifact 
 
 ## Current route
 
-`#66 practical v1 accepted -> #68 cleanup completed -> #69 local final cleanup completed -> #72 completed/merged -> #73 active`
+`#66 practical v1 accepted -> #68 cleanup completed -> #69 local final cleanup completed -> #72 completed/merged -> #73 completed/merged`
 
 Issue #69 completed the one-pass local-maintenance lane. The primary checkout is current `main`; unique local-only evidence is preserved with hashes, and protected data, audit/tooling state, production catalog, and current WPF UserData remain in place. The root shortcut was opened successfully after normalization and the app reopened against its adjacent user state.
 
-Issue #72 is completed and integrated into `main`. Its category view reuses accepted #64/Special category metadata while preserving the ordered Prompt, copied-English invariant, existing architecture, and repository hygiene. Issue #73 is the active narrow refinement lane for pane density and safe dictionary add/remove toggles. Issue #70 remains a separate translation/data lane and Stage10 #65 remains a separate learning lane.
+Issue #72 is completed and integrated into `main`. Its category view reuses accepted #64/Special category metadata while preserving the ordered Prompt, copied-English invariant, existing architecture, and repository hygiene. Issue #73 is completed and integrated into `main`; its pane refinement and safe dictionary add/remove toggle preserve the existing Prompt/canonical invariants. Issue #70 remains a separate translation/data lane and Stage10 #65 remains a separate learning lane.
 
 Short form:
 
-`#64 accepted/integrated + #66 practical v1 accepted -> #68/#69 completed -> #72 completed/merged -> #73 active`
+`#64 accepted/integrated + #66 practical v1 accepted -> #68/#69 completed -> #72 completed/merged -> #73 completed/merged`
 
 Portable/second-PC acceptance is not in this critical path.
 
@@ -158,7 +159,7 @@ Portable/second-PC acceptance is not in this critical path.
 
 | TEAM_ID | Status | Scope | Restore anchor |
 | --- | --- | --- | --- |
-| `POST-V1:#73` | **ACTIVE DEV** | English Prompt pane density and safe dictionary add/remove toggle | Issue #73 + `codex/issue73-pane-toggle-refinement` |
+| `POST-V1:#73` | **COMPLETED / MERGED** | English Prompt pane density and safe dictionary add/remove toggle | Issue #73 + main `079964b69192b5191b1bda5e9894b7138f8c75c2` |
 | `POST-V1:#72` | **COMPLETED / MERGED** | Japanese Prompt category reading view in existing WPF Prompt editor | Issue #72 + main `174fee90b23e4a350ffe71d7b60aa834b8cb1296` |
 | `GENERAL-DICT:#64` | **COMPLETED / ACCEPTED + INTEGRATED** | General 30,629 practical taxonomy | Issue #64 acceptance comment + production candidate on main |
 | `V1-APP:#66` | **COMPLETED / PRACTICAL_V1_ACCEPTED** | beginner-first WPF app, accepted General integration, final Windows acceptance | Issue #66 acceptance comment `5662680719` + main `1486fc242d2eadf9ca24ed803e50ad7af7294004` |
@@ -207,7 +208,7 @@ Product goal:
 #66 WPF architecture/runtime boundary:
 - `docs/product/V1_WPF_ARCHITECTURE_BASELINE.md`
 
-Current post-v1 DEV task:
+Completed post-v1 refinements:
 - Issue #73
 - `docs/project/CURRENT_DEV_TASK.md`
 
