@@ -446,7 +446,7 @@ def build_summary(
         f"- calibration rows outside the 29,021-row input: **{len(out_of_input)}**",
         f"- raw heuristic matches before applying calibration anchors: **{len(matches)} / {len(raw_calibration)} ({(100 * len(matches) / len(raw_calibration)):.1f}%)**",
         f"- raw heuristic mismatches: **{len(mismatches)}**",
-        "- final output retains the effective human-reviewed status for these 130 rows as calibration anchors; this does not turn them into a population-wide human review.",
+        "- final output retains the effective human-reviewed status for the 118 in-scope rows as calibration anchors; the 12 out-of-input rows remain listed separately and are not duplicated into this CSV.",
         "",
         "Human anchor distribution:",
         "",

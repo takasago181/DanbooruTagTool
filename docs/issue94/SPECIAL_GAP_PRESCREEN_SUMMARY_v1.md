@@ -53,7 +53,7 @@ This is a content-neutral first-pass prioritisation of the deterministic `GENERA
 - calibration rows outside the 29,021-row input: **12**
 - raw heuristic matches before applying calibration anchors: **118 / 118 (100.0%)**
 - raw heuristic mismatches: **0**
-- final output retains the effective human-reviewed status for these 130 rows as calibration anchors; this does not turn them into a population-wide human review.
+- final output retains the effective human-reviewed status for the 118 in-scope rows as calibration anchors; the 12 out-of-input rows remain listed separately and are not duplicated into this CSV.
 
 Human anchor distribution:
 
