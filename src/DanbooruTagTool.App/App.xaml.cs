@@ -41,7 +41,8 @@ public partial class App : Application
             ICatalog catalog; string? warning = null;
             try { catalog = CatalogDatabase.Open(paths.Catalog); }
             catch (FileNotFoundException ex) { catalog = new Catalog([]); warning = ex.Message; }
-            var vm = new MainViewModel(catalog, new UserStateStore(paths.User), new ClipboardService(), GeneralBrowseProvider.FromCatalog(catalog));
+            var specialBrowse = warning == null ? SpecialBrowseV2Overlay.Load(catalog) : null;
+            var vm = new MainViewModel(catalog, new UserStateStore(paths.User), new ClipboardService(), GeneralBrowseProvider.FromCatalog(catalog), specialBrowse: specialBrowse);
             if (warning != null) vm.Status = warning;
             var window = new MainWindow(vm); MainWindow = window; window.Show();
         }

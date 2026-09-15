@@ -111,6 +111,15 @@
             <Setter Property="FontSize" Value="13"/>
             <Setter Property="Margin" Value="0,0,6,0"/>
         </Style>
+        <Style x:Key="SpecialFacetButton" TargetType="{x:Type Button}" BasedOn="{StaticResource CompactButton}">
+            <Setter Property="Padding" Value="8,4"/>
+            <Setter Property="MinHeight" Value="27"/>
+            <Setter Property="Margin" Value="0,0,5,4"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding IsVisible}" Value="False"><Setter Property="Visibility" Value="Collapsed"/></DataTrigger>
+                <DataTrigger Binding="{Binding Selected}" Value="True"><Setter Property="Background" Value="{StaticResource PrimaryBrush}"/><Setter Property="BorderBrush" Value="{StaticResource PrimaryBrush}"/><Setter Property="Foreground" Value="White"/></DataTrigger>
+            </Style.Triggers>
+        </Style>
         <Style x:Key="AddStateButton" TargetType="Button" BasedOn="{StaticResource CompactSecondaryButton}">
             <Setter Property="FontSize" Value="16"/>
             <Setter Property="Background" Value="#F7FAFD"/>
@@ -434,6 +443,9 @@
                 </DataTrigger>
             </Style.Triggers>
         </Style>
+        <DataTemplate x:Key="SpecialFacetOptionTemplate">
+            <Button Content="{Binding Label}" ToolTip="{Binding ToolTip}" Command="{Binding DataContext.ToggleSpecialFacet, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding}" Style="{StaticResource SpecialFacetButton}"/>
+        </DataTemplate>
         <DataTemplate x:Key="EntryTemplate">
             <Border Style="{StaticResource DictionaryCard}" MinHeight="68" Width="{Binding DataContext.DictionaryCardWidth, RelativeSource={RelativeSource AncestorType=Window}}">
                 <Grid>
@@ -481,7 +493,7 @@
                     <Grid.ColumnDefinitions><ColumnDefinition x:Name="NavColumn" Width="300" MinWidth="240"/><ColumnDefinition Width="8"/><ColumnDefinition Width="3*" MinWidth="320"/><ColumnDefinition Width="8"/><ColumnDefinition x:Name="PromptColumn" Width="400" MinWidth="360"/></Grid.ColumnDefinitions>
                     <Border Grid.Column="0" Style="{StaticResource PanelCard}" Padding="12">
                         <DockPanel>
-                            <StackPanel DockPanel.Dock="Top"><TextBlock Text="タグを探す" Style="{StaticResource PanelTitle}" FontSize="16"/><TextBlock Text="Specialはジャンルから発見できます。" Style="{StaticResource PanelSubtitle}" Margin="0,0,0,6"/></StackPanel>
+                            <StackPanel DockPanel.Dock="Top"><TextBlock Text="タグを探す" Style="{StaticResource PanelTitle}" FontSize="16"/><TextBlock Text="Specialは種類・部位・テーマから探せます。" Style="{StaticResource PanelSubtitle}" Margin="0,0,0,6"/></StackPanel>
                             <Button DockPanel.Dock="Top" Content="← 戻る" Command="{Binding Back}" Style="{StaticResource CompactButton}" HorizontalContentAlignment="Left"/>
                             <TreeView x:Name="NavigationTree" ItemsSource="{Binding Navigation}" ItemContainerStyle="{StaticResource NavigationItem}" SelectedItemChanged="NavigationChanged" Background="Transparent" BorderThickness="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Padding="2,0,8,0">
                                 <TreeView.Resources>
@@ -496,7 +508,7 @@
                     <GridSplitter Grid.Column="1" DragCompleted="SplitterChanged"/>
                     <Border Grid.Column="2" Style="{StaticResource PanelCard}" Padding="12">
                         <Grid>
-                            <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="*"/></Grid.RowDefinitions>
+                            <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="*"/></Grid.RowDefinitions>
                             <Grid Grid.Row="0" Margin="0,0,0,5">
                                 <Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
                                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center"><TextBlock Text="タグ辞書" Style="{StaticResource PanelTitle}" FontSize="16"/><TextBlock Text="日本語・English・混在検索" Style="{StaticResource HintText}" VerticalAlignment="Center" Margin="12,0,0,0"/></StackPanel>
@@ -515,7 +527,15 @@
                                 </Grid>
                             </Grid>
                             <DockPanel Grid.Row="2" Margin="0,0,0,6"><TextBlock Text="{Binding BrowseLabel}" FontWeight="SemiBold" VerticalAlignment="Center"/><TextBlock Text="  ·  " Foreground="{StaticResource MutedInkBrush}" VerticalAlignment="Center"/><TextBlock Text="{Binding Pending}" Style="{StaticResource HintText}" VerticalAlignment="Center"/></DockPanel>
-                            <Border Grid.Row="3" Style="{StaticResource WorkSurfaceCard}" Padding="4"><ListBox x:Name="DictionaryList" PreviewMouseLeftButtonUp="DictionaryMouseUp" SizeChanged="DictionaryListSizeChanged" KeyUp="DictionaryKeyUp" ItemsSource="{Binding Results}" SelectedItem="{Binding SelectedEntry}" ItemContainerStyle="{StaticResource DictionaryRow}" ItemTemplate="{StaticResource EntryTemplate}" HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.CanContentScroll="True" ScrollViewer.ScrollChanged="BrowseScrolled" VirtualizingPanel.IsVirtualizing="True" VirtualizingPanel.VirtualizationMode="Recycling" Background="Transparent" BorderThickness="0"><ListBox.ItemsPanel><ItemsPanelTemplate><WrapPanel Orientation="Horizontal"/></ItemsPanelTemplate></ListBox.ItemsPanel></ListBox></Border>
+                            <Border Grid.Row="3" Background="#F8FBFD" BorderBrush="{StaticResource BorderBrushSoft}" BorderThickness="1" CornerRadius="8" Padding="7,5" Margin="0,0,0,6" Visibility="{Binding ShowSpecialFacetBar, Converter={StaticResource BoolVisibility}}">
+                                <StackPanel>
+                                    <DockPanel Margin="0,0,0,2"><TextBlock Text="追加で絞り込み" Style="{StaticResource HintText}" FontWeight="SemiBold" VerticalAlignment="Center"/><Button DockPanel.Dock="Right" Content="すべて解除" Command="{Binding ClearSpecialFacets}" Style="{StaticResource CompactButton}" Padding="8,3" MinHeight="25" Margin="8,0,0,0"/></DockPanel>
+                                    <DockPanel Visibility="{Binding ShowSpecialKindOptions, Converter={StaticResource BoolVisibility}}"><TextBlock DockPanel.Dock="Left" Text="種類" Style="{StaticResource HintText}" Width="42" Margin="0,5,4,0"/><ItemsControl ItemsSource="{Binding SpecialKindOptions}" ItemTemplate="{StaticResource SpecialFacetOptionTemplate}"><ItemsControl.ItemsPanel><ItemsPanelTemplate><WrapPanel/></ItemsPanelTemplate></ItemsControl.ItemsPanel></ItemsControl></DockPanel>
+                                    <DockPanel><TextBlock DockPanel.Dock="Left" Text="部位" Style="{StaticResource HintText}" Width="42" Margin="0,5,4,0"/><ItemsControl ItemsSource="{Binding SpecialBodyOptions}" ItemTemplate="{StaticResource SpecialFacetOptionTemplate}"><ItemsControl.ItemsPanel><ItemsPanelTemplate><WrapPanel/></ItemsPanelTemplate></ItemsControl.ItemsPanel></ItemsControl></DockPanel>
+                                    <DockPanel><TextBlock DockPanel.Dock="Left" Text="テーマ" Style="{StaticResource HintText}" Width="42" Margin="0,5,4,0"/><ItemsControl ItemsSource="{Binding SpecialThemeOptions}" ItemTemplate="{StaticResource SpecialFacetOptionTemplate}"><ItemsControl.ItemsPanel><ItemsPanelTemplate><WrapPanel/></ItemsPanelTemplate></ItemsControl.ItemsPanel></ItemsControl></DockPanel>
+                                </StackPanel>
+                            </Border>
+                            <Border Grid.Row="4" Style="{StaticResource WorkSurfaceCard}" Padding="4"><ListBox x:Name="DictionaryList" PreviewMouseLeftButtonUp="DictionaryMouseUp" SizeChanged="DictionaryListSizeChanged" KeyUp="DictionaryKeyUp" ItemsSource="{Binding Results}" SelectedItem="{Binding SelectedEntry}" ItemContainerStyle="{StaticResource DictionaryRow}" ItemTemplate="{StaticResource EntryTemplate}" HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.CanContentScroll="True" ScrollViewer.ScrollChanged="BrowseScrolled" VirtualizingPanel.IsVirtualizing="True" VirtualizingPanel.VirtualizationMode="Recycling" Background="Transparent" BorderThickness="0"><ListBox.ItemsPanel><ItemsPanelTemplate><WrapPanel Orientation="Horizontal"/></ItemsPanelTemplate></ListBox.ItemsPanel></ListBox></Border>
                         </Grid>
                     </Border>
                     <GridSplitter Grid.Column="3" DragCompleted="SplitterChanged"/>
