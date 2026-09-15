@@ -62,6 +62,5 @@ jobs:
             git rm "$payload"
           done < /tmp/issue70_payloads.txt
           git add docs/issue70/data/results/queue
-          git diff --cached --check
           git commit -m 'Issue70: promote local translation batch [skip ci]'
           git push origin HEAD:main
