@@ -21,7 +21,8 @@ public partial class App : Application
                 if (e.Args.Length != 4) throw new ArgumentException("--build-catalog <protected-source-root> <authority-root> <output-directory>");
                 var output = CatalogOutputGuard.Validate(e.Args[3], e.Args[1], e.Args[2]);
                 var result = AcceptedAssetImporter.Read(e.Args[1], e.Args[2]);
-                CatalogDatabase.Build(Path.Combine(output, "catalog.db"), result.Entries, JsonSerializer.Serialize(result.SourceHashes));
+                var bakedEntries = SpecialBrowseV2Overlay.Bake(new Catalog(result.Entries));
+                CatalogDatabase.Build(Path.Combine(output, "catalog.db"), bakedEntries, JsonSerializer.Serialize(result.SourceHashes));
                 File.WriteAllText(Path.Combine(output, "import-report.json"), JsonSerializer.Serialize(new
                 {
                     Total = result.Entries.Length,
@@ -41,7 +42,12 @@ public partial class App : Application
             ICatalog catalog; string? warning = null;
             try { catalog = CatalogDatabase.Open(paths.Catalog); }
             catch (FileNotFoundException ex) { catalog = new Catalog([]); warning = ex.Message; }
-            var specialBrowse = warning == null ? SpecialBrowseV2Overlay.Load(catalog) : null;
+            SpecialBrowseV2Index? specialBrowse = null;
+            if (warning == null)
+            {
+                try { specialBrowse = SpecialBrowseV2Overlay.FromCatalog(catalog); }
+                catch (InvalidDataException ex) { warning = ex.Message; }
+            }
             var vm = new MainViewModel(catalog, new UserStateStore(paths.User), new ClipboardService(), GeneralBrowseProvider.FromCatalog(catalog), specialBrowse: specialBrowse);
             if (warning != null) vm.Status = warning;
             var window = new MainWindow(vm); MainWindow = window; window.Show();

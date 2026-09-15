@@ -75,6 +75,49 @@ public static class SpecialBrowseV2Overlay
             pair.Value.Canonical)));
     }
 
+    /// <summary>
+    /// Explicit catalog-build boundary. Evidence CSVs are parsed here only,
+    /// then the accepted mapping is persisted inside each Special catalog row.
+    /// Normal application startup must use <see cref="FromCatalog"/> instead.
+    /// </summary>
+    public static CatalogEntry[] Bake(ICatalog catalog)
+    {
+        var index = Load(catalog);
+        var byId = index.Entries.ToDictionary(entry => entry.CatalogId, StringComparer.Ordinal);
+        return catalog.Entries.Select(entry =>
+        {
+            if (!entry.IsSpecial || !byId.TryGetValue(entry.Id, out var mapped)) return entry;
+            return entry with
+            {
+                SpecialBrowseV2 = new SpecialBrowseV2Classification(
+                    mapped.KindId,
+                    mapped.BodySiteIds.OrderBy(value => value, StringComparer.Ordinal).ToArray(),
+                    mapped.ThemeIds.OrderBy(value => value, StringComparer.Ordinal).ToArray(),
+                    mapped.Status)
+            };
+        }).ToArray();
+    }
+
+    /// <summary>
+    /// Runtime catalog boundary. This reads only precomputed classifications
+    /// serialized in catalog.db; it never parses Issue #76 evidence CSVs.
+    /// </summary>
+    public static SpecialBrowseV2Index FromCatalog(ICatalog catalog)
+    {
+        var specials = catalog.Entries.Where(entry => entry.IsSpecial).ToArray();
+        if (specials.Length == 0) return new SpecialBrowseV2Index([]);
+        if (specials.Any(entry => entry.SpecialBrowseV2 is null))
+            throw new InvalidDataException("Catalog is missing baked Special v2 browse data; run an explicit catalog build.");
+
+        return new SpecialBrowseV2Index(specials.Select(entry => new SpecialBrowseV2Entry(
+            entry.Id,
+            entry.SpecialBrowseV2!.KindId,
+            entry.SpecialBrowseV2.BodySiteIds.ToHashSet(StringComparer.Ordinal),
+            entry.SpecialBrowseV2.ThemeIds.ToHashSet(StringComparer.Ordinal),
+            entry.SpecialBrowseV2.Status,
+            entry.Canonical)));
+    }
+
     private static Working DeriveBase(CatalogEntry entry)
     {
         var paths = entry.Paths;

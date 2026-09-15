@@ -18,7 +18,8 @@ Replace only the Special browse/navigation surface with the accepted v2 three-ax
 
 ## Safety boundaries
 
-- Preserve the existing #56 Special v1 sidecar/evidence and derive the v2 overlay in existing `src/Core` and `src/Data` boundaries.
+- Preserve the existing #56 Special v1 sidecar/evidence. Parse the accepted #76 evidence only at the explicit catalog-build boundary, then persist the resulting v2 mapping in `catalog.db`.
+- Normal startup reads the precomputed `SpecialBrowseV2` classification from the catalog and does not parse or reconstruct the 2,788-row audit CSV overlay.
 - Fixed-expanded axis headings are navigation labels only; only the Special root opens/closes. `1つ戻す` removes one latest facet condition and `全解除` clears v2 facets/history without changing an ordinary query.
 - Preserve #72/#73/#74/#75/#77/#79/#80 behavior, including output-profile preview/copy equality and Forge bridge invariants.
 - No new top-level folders, artifacts, WPF copy, #70/#64 data, taxonomy reclassification, canonical data, or protected data changes.

@@ -200,10 +200,15 @@ public sealed class Issue76MainUiIntegrationTests
     }
 
     [ProductionFact]
-    public void Production_overlay_preserves_special_population_statuses_and_examples()
+    public void Production_baked_special_mapping_preserves_population_statuses_and_examples()
     {
         var catalog = CatalogDatabase.Open(Environment.GetEnvironmentVariable("DTT_PRODUCTION_CATALOG")!);
-        var index = SpecialBrowseV2Overlay.Load(catalog);
+        var baked = new Catalog(SpecialBrowseV2Overlay.Bake(catalog));
+        using var temp = new TempDirectory();
+        var catalogPath = new PortablePaths(temp.Path).Catalog;
+        CatalogDatabase.Build(catalogPath, baked.Entries, "Issue #76 production bake test");
+        var persisted = CatalogDatabase.Open(catalogPath);
+        var index = SpecialBrowseV2Overlay.FromCatalog(persisted);
 
         Assert.Equal(2788, index.Entries.Count);
         Assert.Equal(2745, index.Entries.Count(entry => entry.Status == SpecialBrowseV2Status.AutoCandidate));
@@ -211,6 +216,16 @@ public sealed class Issue76MainUiIntegrationTests
         Assert.Equal(6, index.Entries.Count(entry => entry.Status == SpecialBrowseV2Status.DeferProductFitReview));
         Assert.Equal(1, index.Entries.Count(entry => entry.Status == SpecialBrowseV2Status.OutOfScopeNoBrowse));
         Assert.Equal(21, index.Entries.Count(entry => entry.Status == SpecialBrowseV2Status.ReferenceOnlyNoDirectBrowse));
+        Assert.Equal(
+            new[] { 907, 503, 299, 298, 275, 156, 123, 119, 66 },
+            SpecialBrowseV2Taxonomy.Kinds.Select(kind => index.Entries.Count(entry => entry.KindId == kind.Id)).ToArray());
+        Assert.Equal(
+            new[] { 307, 266, 183, 175, 113, 20 },
+            SpecialBrowseV2Taxonomy.BodySites.Select(body => index.Entries.Count(entry => entry.BodySiteIds.Contains(body.Id))).ToArray());
+        Assert.Equal(
+            new[] { 366, 66, 25 },
+            SpecialBrowseV2Taxonomy.Themes.Select(theme => index.Entries.Count(entry => entry.ThemeIds.Contains(theme.Id))).ToArray());
+        Assert.Equal(14, index.Entries.Count(entry => entry.CanBrowse && entry.KindId is null));
 
         var analBeads = catalog.Resolve("anal_beads");
         Assert.NotNull(analBeads);
