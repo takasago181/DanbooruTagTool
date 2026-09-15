@@ -1,0 +1,27 @@
+{
+  "mode": "ISSUE97_PHASE_B_HUMAN_REVIEW_V1",
+  "reviewed_alias_inventory_rows": 1112,
+  "reviewed_meta_rows": 534,
+  "reviewed_total": 1646,
+  "decision_counts": {
+    "CANDIDATE_META_CANONICAL": 68,
+    "CANDIDATE_SEARCH_ALIAS": 311,
+    "NO_GAP_ALREADY_COVERED": 768,
+    "REJECT_META_NONPRODUCT": 465,
+    "REJECT_OVERBROAD_ALIAS": 6,
+    "REJECT_SHORTCUT": 21,
+    "REJECT_TYPO_NOISE": 7
+  },
+  "candidate_aliases": 311,
+  "candidate_meta_canonicals": 68,
+  "candidate_total": 379,
+  "rejected_total": 499,
+  "already_covered_total": 768,
+  "production_mutation": "NO",
+  "candidate_is_automatic_promotion": "NO",
+  "phase_c_mixed_in": "NO",
+  "issue70_mutated": "NO",
+  "userdata_mutated": "NO",
+  "content_filter_used": "NO",
+  "note": "Alias candidates are search-only surfaces and must continue to resolve to the current canonical target. Meta candidates are canonical identities only because they exist as current Danbooru Meta canonicals; this review does not approve promotion. Artist/Character/Copyright catalogs remain excluded by Phase B policy."
+}
