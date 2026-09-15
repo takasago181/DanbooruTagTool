@@ -33,6 +33,36 @@ Accepted Special baseline:
 
 The historical full-KB `Special2788=YES/blank` column is **not authoritative enough by itself** for gap detection. It misses some identity relationships that are reachable through normalization or alias/canonical closure.
 
+## Deterministic source modes
+
+`scripts/issue94/special_gap_audit.py` supports two source modes. They share the same downstream identity-classification logic.
+
+### A. Full-KB mode
+
+Use the verified derived full knowledge base directly:
+
+- `--full-kb <danbooru_full_tag_knowledge_base_...csv>`
+- `--special <illustrious_tag_knowledge_base_2788.csv>`
+- optional `--alias-map <danbooru_alias_map_34630.csv>`
+
+This mode preserves the historical `Special2788` marker only as a diagnostic field. The marker is never authoritative for identity coverage.
+
+### B. Protected canonical-source mode
+
+When the derived full-KB file is not available in the active checkout, use the protected source-of-truth inputs already present in the local repository:
+
+- `--canonical-source data/source/danbooru-2026-09-02.csv`
+- `--alias-index data/derived/danbooru_alias_normalized_index_VERIFIED_34417.csv`
+- `--special <illustrious_tag_knowledge_base_2788.csv>`
+
+The canonical source is the same 124,016-row snapshot identified by SHA-256 `9b32d5ac0713ab252e7470ba6af9cb34de56878b6b3b13dfbbf6a4a37d82d95b`.
+
+In this mode the scanner reconstructs alias closure from the verified normalized alias index and admits **only uniquely resolved aliases**. `AMBIGUOUS_ALIAS` entries are not silently assigned to a canonical. Canonical-precedence aliases are also excluded from alias closure because the canonical identity wins by definition.
+
+The historical full-KB `Special2788` marker is unavailable in this mode, so `legacy_blank_but_identity_covered` is reported as `null`. This does **not** affect `PRESENT_EXACT`, `PRESENT_CANONICAL_TARGET`, `PRESENT_ALIAS_CLOSURE`, `SEMANTIC_EXACT_OVERLAP_ONLY`, or `GENERAL_ONLY_GAP` classification.
+
+The full scan remains fail-closed on `General == 30,743` and `Special == 2,788` unless explicit test-only expected counts are supplied.
+
 ## Normalization and identity closure
 
 For comparison, use this order:
