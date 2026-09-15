@@ -1,16 +1,19 @@
-# CURRENT DEV TASK — ISSUE #76 SPECIAL BROWSE V2 (COMPLETED / MERGED)
+# CURRENT DEV TASK — ISSUE #83 AGGRESSIVE LOCAL CLEANUP (ACTIVE)
 
 最終同期: 2026-09-15
 
 ## Routing status
 
+- **Issue #83 is the active maintenance task for this workspace.** It runs from latest live `main`, requires inventory and current-dependency proof, and permits targeted deletion of obsolete/reproducible local assets in the same task.
+- Preserve the current WPF runtime/catalog, accepted catalog build inputs, Issue #70 queue/source/results, current #44/#65 data, and any unproven/active worktree state.
+- Do not use `git clean -fdx` or `git clean -fdX`; do not delete active #70 queue state or accepted rows.
 - **Issue #76 — Special browse taxonomy v2 is completed and integrated into `main`.**
 - Implementation branch: `codex/issue76-special-v2-production`.
 - Final branch tip: `cf6f34919d163d346411d562e9075b3843f4b170`.
 - Merged PR: `#81`.
 - Main merge commit: `0a1e94c8268cde97cfbc2305b3f2869d6919b5d6`.
 - Issue #76 is closed as completed.
-- No successor Active DEV implementation issue is designated.
+- Issue #83 is the current maintenance successor for this task only; #76 remains completed and must not be reopened.
 - #70 translation/data, #65 Stage10 learning, #44 KNOWLEDGE, and #24 safety debt remain separate lanes.
 
 ## Accepted scope
@@ -58,4 +61,4 @@ Final implementation evidence:
 - Final merge/close checkpoint: Issue #76 comment `5679492819`.
 - Main integration: PR #81 -> `0a1e94c8268cde97cfbc2305b3f2869d6919b5d6`.
 - Issue #76: **COMPLETED / CLOSED**.
-- No separate AUDIT lane is active.
+- Issue #83 cleanup execution is active; no separate AUDIT lane is active.

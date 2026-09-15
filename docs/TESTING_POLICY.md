@@ -1,14 +1,19 @@
 # TESTING_POLICY.md
 
-pytestをStage 0から使う。
+The current product test gate is the clean WPF/.NET solution under `src/`.
+The former root Python/Tk suite and runtime-index tests were retired by Issue
+#83 after the WPF runtime and current catalog build were proven independent.
 
-Python開発依存の導入:
+Current commands:
 
 ```powershell
-python -m pip install -r tools/python/requirements-dev.txt
+dotnet test src/DanbooruTagTool.sln -c Release
+dotnet test src/DanbooruTagTool.Tests/DanbooruTagTool.Tests.csproj -c Release --filter FullyQualifiedName~Issue76
+python scripts/issue70/queue_manager.py bootstrap
+python -m unittest discover -s tests/issue70 -v
 ```
 
-## invariant tests
+## Current invariants
 
 snapshotが更新されても原則通る:
 - layer counts sum == total
@@ -21,7 +26,7 @@ snapshotが更新されても原則通る:
 - raw source schema
 - PromptFormatterのみunderscore->space
 
-## snapshot regression tests
+## Historical snapshot evidence
 
 特定versionの固定値:
 Special v2026-09-02:
@@ -34,6 +39,10 @@ Special v2026-09-02:
 - ambiguous alias 9
 
 正式辞書更新時はfixture/versionと一緒に更新する。
+
+The following stage descriptions are historical evidence, not current WPF
+completion gates. Issue #70 queue tests remain active because that lane is
+still in progress.
 
 ## Stage別
 

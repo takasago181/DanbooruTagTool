@@ -15,6 +15,14 @@ The inventory and paths below record the 2026-09-05 baseline. Current locations 
 - legacy Python/Tk package: `tools/legacy/python/danbooru_tag_tool/`
 - pytest evidence plugin: `tests/conftest.py`
 
+## Issue #83 cleanup note (2026-09-15)
+
+The paths above are historical baseline locations. The old Python/Tk package,
+root Python/Tk test suite, and obsolete runtime-index/build tools were retired
+after the current WPF/.NET runtime and explicit catalog build were verified to
+have no dependency on them. Active Issue #70 queue tests remain under
+`tests/issue70/`; current WPF tests are under `src/DanbooruTagTool.Tests/`.
+
 ## 1. 製品目的と境界
 
 - 主役は Special Core Dictionary の Special entry・組み合わせから成る Core Tag Set。

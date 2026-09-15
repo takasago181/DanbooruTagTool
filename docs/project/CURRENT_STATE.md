@@ -7,12 +7,13 @@
 **Stage9 completed / beginner-first practical v1 accepted / #64 General taxonomy accepted and integrated / #66 completed / #68 completed / #69 local final cleanup completed.**
 
 Current maintenance route:
+- **Issue #83 — aggressive local cleanup is active in this workspace.** It may retire obsolete/reproducible local assets and tracked legacy Python/Tk artifacts after current-dependency proof. Current WPF, catalog inputs, #70 queue/results, and active #64 worktree state remain protected.
 - **Issue #76 — Special browse taxonomy v2 is completed and integrated into `main` via PR #81 at merge commit `0a1e94c8268cde97cfbc2305b3f2869d6919b5d6`.** The accepted v2 classification is baked only during explicit catalog build; normal startup reads precomputed `CatalogEntry.SpecialBrowseV2` from `catalog.db`.
 - **Issue #80 — Forge bridge v1 is completed and integrated into `main` at `f5ced15e3a368cae29f869527a20bcb41c7237b4`.**
 - **Issue #79 — Generation presets (reusable Positive sets + Negative copy) is completed and integrated into `main` at `8f0ba2a1133e4ad63f0a6ccd08eb17a3dda58d93`.**
 - **Issue #77 — Prompt output profile switch + tolerant one-click import is completed and integrated into `main` at `60b15d8fef877c70eac5e4f0f5d67ebd358904d7`.**
 - **Issue #75 — WQHD visual polish pass is completed and integrated into `main` at `a315bdf6933e5e089174bc32c3ad6a8abc021082`.**
-- No successor active DEV implementation issue is designated. Do not infer one from this document.
+- Issue #83 is the active maintenance successor for this cleanup task only. Do not infer another DEV implementation lane from this document.
 - Issue #74 — WQHD-first dictionary workspace redesign is completed and integrated into `main` at `f6e8345391cb445010c5fe23f2b1e480b4c514fd`.
 - Issue #73 — English Prompt pane density + dictionary add/remove toggle is completed and integrated into `main` at `079964b69192b5191b1bda5e9894b7138f8c75c2`.
 - Issue #72 — Prompt category view prototype remains completed and integrated into `main` at `174fee90b23e4a350ffe71d7b60aa834b8cb1296`.
@@ -184,7 +185,7 @@ Issue #70 remains a separate translation/data lane and Stage10 #65 remains a sep
 
 Short form:
 
-`#64 accepted/integrated + #66 practical v1 accepted -> #68/#69 completed -> #72/#73/#74/#75/#77/#79/#80/#76 completed/merged`
+`#64 accepted/integrated + #66 practical v1 accepted -> #68/#69 completed -> #72/#73/#74/#75/#77/#79/#80/#76 completed/merged -> #83 active cleanup`
 
 Portable/second-PC acceptance is not in this critical path.
 
@@ -199,6 +200,7 @@ Portable/second-PC acceptance is not in this critical path.
 | `V1-APP:#66` | **COMPLETED / PRACTICAL_V1_ACCEPTED** | beginner-first WPF app, accepted General integration, final Windows acceptance | Issue #66 acceptance comment `5662680719` + main `1486fc242d2eadf9ca24ed803e50ad7af7294004` |
 | `MAINT:#68` | **COMPLETED** | tracked-root normalization complete; Phase 2E accepted safe no-op | Issue #68 completion checkpoint `5665690628` |
 | `MAINT:#69` | **COMPLETED** | preserve unique local evidence, retire safe stale worktrees/caches, normalize primary root to live main, validate WPF/catalog/data | Issue #69 final DEV closeout comment |
+| `MAINT:#83` | **ACTIVE / CODEX EXECUTION** | dependency-proven aggressive cleanup of obsolete/reproducible local assets and retired legacy runtime artifacts | Issue #83 + latest activation comments |
 | `POST-V1:#77` | **COMPLETED / MERGED** | generic persistent Prompt output profiles and conservative one-click import | Issue #77 + main `60b15d8fef877c70eac5e4f0f5d67ebd358904d7` |
 | `POST-V1:#79` | **COMPLETED / MERGED** | local reusable Positive presets paired with opaque Negative Prompt copy | Issue #79 + main `8f0ba2a1133e4ad63f0a6ccd08eb17a3dda58d93` |
 | `POST-V1:#80` | **COMPLETED / MERGED** | local Forge bridge for visible English Prompt delivery to txt2img fields without generation | Issue #80 + main `f5ced15e3a368cae29f869527a20bcb41c7237b4` |
