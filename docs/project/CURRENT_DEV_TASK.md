@@ -1,14 +1,14 @@
-# CURRENT DEV TASK — ISSUE #79 GENERATION PRESETS
+# CURRENT DEV TASK — ISSUE #79 GENERATION PRESETS (COMPLETED / MERGED)
 
 最終同期: 2026-09-15
 
 ## Routing status
 
-- **Issue #79 — Generation presets (reusable Positive sets + Negative copy) is ACTIVE DEV.**
-- Activation authority: live Issue #79 and comment `5674972661`.
-- Branch: `codex/issue79-generation-presets`.
+- **Issue #79 — Generation presets (reusable Positive sets + Negative copy) is completed and integrated into `main` at `8f0ba2a1133e4ad63f0a6ccd08eb17a3dda58d93`.**
+- Implementation branch: `codex/issue79-generation-presets`.
 - Activation baseline: `a8c1411eb1c89bff8b0f32ff66c6413dce6fe2b5`.
-- First pass stops at `READY_FOR_DEV_REVIEW`; do not merge to main or close #79.
+- Integration: fast-forward with `--ff-only`; no force push.
+- No successor Active DEV is designated.
 - #70 and #76 remain separate lanes; no taxonomy or translation data changes.
 
 ## Scope
@@ -35,4 +35,6 @@ Add a compact `生成プリセット` dialog using the existing WPF App/Core/Dat
 
 ## Completion
 
-Commit and push the feature branch with a `READY_FOR_DEV_REVIEW` report. Main integration and Issue close require a later explicit acceptance.
+- DEV acceptance: Issue #79 latest comment `5675235948`.
+- Main integration: completed by fast-forward; implementation commit `8f0ba2a1133e4ad63f0a6ccd08eb17a3dda58d93` is included in `main`.
+- Issue #79 is ready to close after final post-merge validation.

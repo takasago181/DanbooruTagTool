@@ -7,10 +7,10 @@
 **Stage9 completed / beginner-first practical v1 accepted / #64 General taxonomy accepted and integrated / #66 completed / #68 completed / #69 local final cleanup completed.**
 
 Current maintenance route:
-- **Issue #79 — Generation presets (reusable Positive sets + Negative copy) is the active DEV lane.** Work is routed from live Issue #79 and activation comment `5674972661` on branch `codex/issue79-generation-presets` from main `a8c1411eb1c89bff8b0f32ff66c6413dce6fe2b5`.
+- **Issue #79 — Generation presets (reusable Positive sets + Negative copy) is completed and integrated into `main` at `8f0ba2a1133e4ad63f0a6ccd08eb17a3dda58d93`.**
 - **Issue #77 — Prompt output profile switch + tolerant one-click import is completed and integrated into `main` at `60b15d8fef877c70eac5e4f0f5d67ebd358904d7`.**
 - **Issue #75 — WQHD visual polish pass is completed and integrated into `main` at `a315bdf6933e5e089174bc32c3ad6a8abc021082`.**
-- #79 is the explicit successor selected by the user and live Issue authority for this task only.
+- No successor active DEV implementation issue is designated. Do not infer one from this document.
 - Integrated branch: `codex/issue77-prompt-output-profiles`.
 - Issue #74 — WQHD-first dictionary workspace redesign is completed and integrated into `main` at `f6e8345391cb445010c5fe23f2b1e480b4c514fd`.
 - Issue #73 — English Prompt pane density + dictionary add/remove toggle is completed and integrated into `main` at `079964b69192b5191b1bda5e9894b7138f8c75c2`.
@@ -147,7 +147,7 @@ Artifacts remain untracked. Cleanup must be scoped to known disposable artifact 
 
 ## Current route
 
-`#66 practical v1 accepted -> #68 cleanup completed -> #69 local final cleanup completed -> #72 completed/merged -> #73 completed/merged -> #74 completed/merged -> #75 completed/merged -> #77 completed/merged -> #79 active DEV`
+`#66 practical v1 accepted -> #68 cleanup completed -> #69 local final cleanup completed -> #72 completed/merged -> #73 completed/merged -> #74 completed/merged -> #75 completed/merged -> #77 completed/merged -> #79 completed/merged`
 
 Issue #69 completed the one-pass local-maintenance lane. The primary checkout is current `main`; unique local-only evidence is preserved with hashes, and protected data, audit/tooling state, production catalog, and current WPF UserData remain in place. The root shortcut was opened successfully after normalization and the app reopened against its adjacent user state.
 
@@ -155,7 +155,7 @@ Issue #72 is completed and integrated into `main`. Its category view reuses acce
 
 Short form:
 
-`#64 accepted/integrated + #66 practical v1 accepted -> #68/#69 completed -> #72 completed/merged -> #73 completed/merged`
+`#64 accepted/integrated + #66 practical v1 accepted -> #68/#69 completed -> #72 completed/merged -> #73 completed/merged -> #74/#75/#77/#79 completed/merged`
 
 Portable/second-PC acceptance is not in this critical path.
 
@@ -170,7 +170,7 @@ Portable/second-PC acceptance is not in this critical path.
 | `MAINT:#68` | **COMPLETED** | tracked-root normalization complete; Phase 2E accepted safe no-op | Issue #68 completion checkpoint `5665690628` |
 | `MAINT:#69` | **COMPLETED** | preserve unique local evidence, retire safe stale worktrees/caches, normalize primary root to live main, validate WPF/catalog/data | Issue #69 final DEV closeout comment |
 | `POST-V1:#77` | **COMPLETED / MERGED** | generic persistent Prompt output profiles and conservative one-click import | Issue #77 + main `60b15d8fef877c70eac5e4f0f5d67ebd358904d7` |
-| `POST-V1:#79` | **ACTIVE DEV** | local reusable Positive presets paired with opaque Negative Prompt copy | Issue #79 + activation comment `5674972661` |
+| `POST-V1:#79` | **COMPLETED / MERGED** | local reusable Positive presets paired with opaque Negative Prompt copy | Issue #79 + main `8f0ba2a1133e4ad63f0a6ccd08eb17a3dda58d93` |
 | `STAGE10-LEARNING:#65` | **READY / USER LEARNING LANE** | practical image-generation mastery; not a Codex implementation task | Issue #65 + `STAGE_10_LEARNING.md` |
 | `KNOWLEDGE:#44` | **ONGOING / V1 NON-BLOCKING** | knowledge corpus + Prompt/generation knowledge | Issue #44 |
 | `MAINT:#24` | OPEN / SAFETY DEBT | protected-data backup/restore | Issue #24 |
