@@ -16,7 +16,7 @@ Current maintenance route:
 - Issue #74 — WQHD-first dictionary workspace redesign is completed and integrated into `main` at `f6e8345391cb445010c5fe23f2b1e480b4c514fd`.
 - Issue #73 — English Prompt pane density + dictionary add/remove toggle is completed and integrated into `main` at `079964b69192b5191b1bda5e9894b7138f8c75c2`.
 - Issue #72 — Prompt category view prototype remains completed and integrated into `main` at `174fee90b23e4a350ffe71d7b60aa834b8cb1296`.
-- Issue #70 translation/data work is a separate lane. Post-v1 UI/taxonomy work must not modify #70 outputs, canonical/protected data, or translation lane state.
+- Issue #70 translation/data work is a separate lane. Post-v1 UI/taxonomy work must not modify #70 outputs, canonical/protected data, or translation lane state. Its operational authority is now the deterministic dynamic-claim queue in `docs/issue70/data/queue_state.json` with `scripts/issue70/queue_manager.py`; legacy four-lane progress remains immutable migration provenance. Bootstrap currently validates 21 / 186 chunks (10,500 / 92,739 rows), with 82,239 rows remaining.
 - Issue #68 is complete. Phase 2E was accepted as a safe no-op. Protected local `benchmarks/`, `backups/`, `_handoff/`, audit provenance, local tooling, and translation quarantine remain in place for their consumers; safe stale worktrees and reproducible caches were retired.
 - **Stage10 learning Issue #65 may resume as the user's learning route.** It is not part of completed #76.
 
