@@ -13,7 +13,7 @@ public sealed class SpecialBrowseFacetOptionViewModel(
     private bool selected;
     private int count;
 
-    public bool Selected { get => selected; set => Set(ref selected, value); }
+    public bool Selected { get => selected; set { if (Set(ref selected, value)) Notify(nameof(IsVisible)); } }
     public int Count { get => count; set { if (Set(ref count, value)) { Notify(nameof(IsVisible)); Notify(nameof(ToolTip)); } } }
     public bool IsVisible => Selected || Count > 0;
     public string ToolTip => $"{Count:N0}件";
