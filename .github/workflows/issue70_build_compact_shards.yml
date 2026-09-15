@@ -1,0 +1,88 @@
+name: Issue70 Build Compact Source Shards
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/issue70/build_compact_shards.py
+      - .github/workflows/issue70_build_compact_shards.yml
+      - docs/issue70/AUTOMATION_LIGHTWEIGHT_PROTOCOL.md
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Generate compact shards
+        run: python scripts/issue70/build_compact_shards.py
+
+      - name: Basic integrity checks
+        shell: bash
+        run: |
+          python - <<'PY'
+          import csv, hashlib, json
+          from pathlib import Path
+
+          root = Path('.')
+          sm = json.loads((root/'docs/issue70/data/source_shards_manifest.json').read_text(encoding='utf-8'))
+          bs = json.loads((root/'docs/issue70/data/automation_bootstrap.json').read_text(encoding='utf-8'))
+          assert sm['issue'] == 70
+          assert sm['shard_size'] == 50
+          assert len(sm['chunks']) == 186
+          assert bs['completed_rows_at_generation'] == 10500
+          assert len(bs['completed_chunks_at_generation']) == 21
+          total = 0
+          for chunk in sm['chunks']:
+              rows = []
+              for shard in chunk['shards']:
+                  p = root / shard['path']
+                  data = p.read_bytes()
+                  assert hashlib.sha256(data).hexdigest() == shard['sha256']
+                  with p.open(encoding='utf-8', newline='') as f:
+                      part = list(csv.DictReader(f))
+                  assert len(part) == shard['row_count']
+                  assert part[0]['row_id'] == shard['first_row_id']
+                  assert part[-1]['row_id'] == shard['last_row_id']
+                  rows.extend(part)
+              assert len(rows) == chunk['row_count']
+              assert rows[0]['row_id'] == chunk['first_row_id']
+              assert rows[-1]['row_id'] == chunk['last_row_id']
+              assert len({r['row_id'] for r in rows}) == len(rows)
+              assert len({r['canonical_tag'] for r in rows}) == len(rows)
+              total += len(rows)
+          assert total == 92739
+          c18 = sm['chunks'][17]
+          assert c18['chunk_index'] == 18
+          assert len(c18['shards']) == 10
+          assert sum(x['row_count'] for x in c18['shards']) == 500
+          print('Issue70 compact shard integrity PASS')
+          PY
+          git diff --check
+
+      - name: Commit generated transport artifacts
+        shell: bash
+        run: |
+          git add docs/issue70/data/source_shards \
+                  docs/issue70/data/source_shards_manifest.json \
+                  docs/issue70/data/automation_bootstrap.json
+          if git diff --cached --quiet; then
+            echo 'No generated changes.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Issue70: generate compact automation source shards'
+          git push origin HEAD:main
