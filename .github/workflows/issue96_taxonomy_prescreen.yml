@@ -1,0 +1,48 @@
+name: Issue96 Taxonomy Prescreen
+
+on:
+  push:
+    branches:
+      - prep/issue96-special-expansion
+    paths:
+      - scripts/issue96/prescreen_taxonomy.py
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  prescreen:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: prep/issue96-special-expansion
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Prescreen accepted Issue76 taxonomy
+        run: |
+          set -euo pipefail
+          python -m py_compile scripts/issue96/prescreen_taxonomy.py
+          python scripts/issue96/prescreen_taxonomy.py \
+            --input docs/issue96/special_expansion_identity_layer_proposal_v1.csv \
+            --output docs/issue96/special_expansion_taxonomy_prescreen_v1.csv \
+            --review docs/issue96/special_expansion_taxonomy_review_queue_v1.csv \
+            --summary docs/issue96/ISSUE96_TAXONOMY_PRESCREEN_SUMMARY_v1.md
+          git diff --check
+      - name: Commit generated PREP artifacts
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/issue96/special_expansion_taxonomy_prescreen_v1.csv \
+                  docs/issue96/special_expansion_taxonomy_review_queue_v1.csv \
+                  docs/issue96/ISSUE96_TAXONOMY_PRESCREEN_SUMMARY_v1.md
+          if git diff --cached --quiet; then
+            echo 'No generated changes to commit'
+          else
+            git commit -m 'issue96: prescreen 195 taxonomy assignments'
+            git push origin HEAD:prep/issue96-special-expansion
+          fi
