@@ -1,0 +1,52 @@
+name: Issue96 Materialize Identity Layer Proposal
+
+on:
+  push:
+    branches:
+      - prep/issue96-special-expansion
+    paths:
+      - scripts/issue96/materialize_identity_layer_proposal.py
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: prep/issue96-special-expansion
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Fetch frozen Issue94 candidate source
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/issue96
+          curl --fail --location --retry 3 \
+            'https://raw.githubusercontent.com/takasago181/DanbooruTagTool/b505f34956dc60e189e8c749fbe0cb187ad5154e/docs/issue94/special_gap_candidates_v1.csv' \
+            -o artifacts/issue96/special_gap_candidates_v1.csv
+      - name: Materialize deterministic ID/layer proposal
+        run: |
+          set -euo pipefail
+          python -m py_compile scripts/issue96/materialize_identity_layer_proposal.py
+          python scripts/issue96/materialize_identity_layer_proposal.py \
+            --input artifacts/issue96/special_gap_candidates_v1.csv \
+            --output docs/issue96/special_expansion_identity_layer_proposal_v1.csv \
+            --summary docs/issue96/ISSUE96_IDENTITY_LAYER_SUMMARY_v1.md
+          git diff --check
+      - name: Commit generated PREP artifacts
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/issue96/special_expansion_identity_layer_proposal_v1.csv docs/issue96/ISSUE96_IDENTITY_LAYER_SUMMARY_v1.md
+          if git diff --cached --quiet; then
+            echo 'No generated changes to commit'
+          else
+            git commit -m 'issue96: materialize 195 identity-layer proposal rows'
+            git push origin HEAD:prep/issue96-special-expansion
+          fi
