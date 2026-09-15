@@ -55,6 +55,15 @@ function Wait-ForFile([string] $Path) {
     }
     throw "Expected generated file did not appear: $Path"
 }
+function Wait-ForCatalogHealth([string] $Catalog, [string] $UserDb) {
+    $last = ''
+    for ($i = 0; $i -lt 80; $i++) {
+        $last = @(& $python -B (Join-Path $RepositoryRoot 'scripts/maintenance/catalog_health.py') '--catalog' $Catalog '--userdb' $UserDb 2>&1)
+        if ($LASTEXITCODE -eq 0) { $last | ForEach-Object { Write-Output $_ }; return }
+        Start-Sleep -Milliseconds 250
+    }
+    throw "Generated catalog did not pass read-only validation.`n$($last -join [Environment]::NewLine)"
+}
 
 try {
     New-Item -ItemType Directory -Path $publishRoot, "$validationRoot/Data", "$validationRoot/UserData", $buildRoot, $postBuildRoot -Force | Out-Null
@@ -67,7 +76,7 @@ try {
     Copy-Item -LiteralPath $userDbPath -Destination "$validationRoot/UserData/user.db"
     Invoke-Checked $publishedExe @('--build-catalog', $RepositoryRoot, $RepositoryRoot, $buildRoot)
     Wait-ForFile (Join-Path $buildRoot 'catalog.db')
-    Invoke-Checked $python @('-B', (Join-Path $RepositoryRoot 'scripts/maintenance/catalog_health.py'), '--catalog', (Join-Path $buildRoot 'catalog.db'), '--userdb', (Join-Path $validationRoot 'UserData/user.db'))
+    Wait-ForCatalogHealth (Join-Path $buildRoot 'catalog.db') (Join-Path $validationRoot 'UserData/user.db')
     $process = Start-Process -FilePath $publishedExe -WorkingDirectory $validationRoot -PassThru
     try {
         $title = ''
@@ -92,7 +101,7 @@ try {
 
     Invoke-Checked (Join-Path $ArtifactRoot 'DanbooruTagTool.exe') @('--build-catalog', $RepositoryRoot, $RepositoryRoot, $postBuildRoot)
     Wait-ForFile (Join-Path $postBuildRoot 'catalog.db')
-    Invoke-Checked $python @('-B', (Join-Path $RepositoryRoot 'scripts/maintenance/catalog_health.py'), '--catalog', (Join-Path $postBuildRoot 'catalog.db'), '--userdb', $userDbPath)
+    Wait-ForCatalogHealth (Join-Path $postBuildRoot 'catalog.db') $userDbPath
     $shortcut = Join-Path $RepositoryRoot 'DanbooruTagTool.lnk'
     if (Test-Path -LiteralPath $shortcut) {
         $shell = New-Object -ComObject WScript.Shell
