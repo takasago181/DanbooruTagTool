@@ -1,0 +1,22 @@
+special_id,japanese_display,english_tag,resolved_kind_id,resolved_kind_ja,resolved_body_site_id,resolved_body_site_ja,resolved_theme_id,resolved_theme_ja,audit_type,reason,audit_status
+633,陰茎を覆って性行為を制限する貞操ケージ,chastity cage,TOOL_OBJECT,道具・物,MALE_GENITAL,男性器,BDSM_RESTRAINT,拘束・BDSM,DEVICE,貞操ケージそのもの。男性器に対する器具。,RESOLVED
+786,小型の男性用貞操ケージ,small chastity cage,TOOL_OBJECT,道具・物,MALE_GENITAL,男性器,BDSM_RESTRAINT,拘束・BDSM,DEVICE,男性用貞操ケージの形状バリエーション。,RESOLVED
+810,平坦・薄型の男性用貞操ケージ,flat chastity cage,TOOL_OBJECT,道具・物,MALE_GENITAL,男性器,BDSM_RESTRAINT,拘束・BDSM,DEVICE,男性用貞操ケージの形状バリエーション。,RESOLVED
+856,貞操ケージ装着中に液体・分泌物が出る描写,chastity cage emission,FLUID_EXCRETION,体液・排泄,MALE_GENITAL,男性器,BDSM_RESTRAINT,拘束・BDSM,FLUID_STATE,主概念は器具ではなく分泌・排出の描写。,RESOLVED
+882,筒状の男性用貞操ケージ,tube chastity cage,TOOL_OBJECT,道具・物,MALE_GENITAL,男性器,BDSM_RESTRAINT,拘束・BDSM,DEVICE,男性用貞操ケージの形状バリエーション。,RESOLVED
+921,南京錠で施錠された男性用貞操ケージ,padlocked chastity cage,TOOL_OBJECT,道具・物,MALE_GENITAL,男性器,BDSM_RESTRAINT,拘束・BDSM,DEVICE,施錠状態を含むが中心概念はケージ。,RESOLVED
+929,陰茎を極小スペースに収める短い・突起状の男性用貞操ケージ,nub chastity cage,TOOL_OBJECT,道具・物,MALE_GENITAL,男性器,BDSM_RESTRAINT,拘束・BDSM,DEVICE,男性用貞操ケージの形状バリエーション。,RESOLVED
+949,露出させる・貞操・貞操器具・ケージに関係する表現,revealing chastity cage,ACTION_CONTACT,行為・接触,MALE_GENITAL,男性器,BDSM_RESTRAINT,拘束・BDSM,ACTION_VISIBILITY,主概念はケージを露出・提示する行為。,RESOLVED
+951,貞操・貞操器具・ケージ・ストラップに関係する表現,chastity cage strap,TOOL_OBJECT,道具・物,MALE_GENITAL,男性器,BDSM_RESTRAINT,拘束・BDSM,DEVICE_ACCESSORY,ケージ用ストラップという器具・部品。,RESOLVED
+974,通常とは異なる色に着色された男性用貞操ケージ,colored chastity cage,TOOL_OBJECT,道具・物,MALE_GENITAL,男性器,BDSM_RESTRAINT,拘束・BDSM,DEVICE,男性用貞操ケージの外観バリエーション。,RESOLVED
+1059,金色の・貞操・貞操器具・ケージに関係する表現,gold chastity cage,TOOL_OBJECT,道具・物,MALE_GENITAL,男性器,BDSM_RESTRAINT,拘束・BDSM,DEVICE,男性用貞操ケージの外観バリエーション。,RESOLVED
+1066,黒い・貞操・貞操器具・ケージに関係する表現,black chastity cage,TOOL_OBJECT,道具・物,MALE_GENITAL,男性器,BDSM_RESTRAINT,拘束・BDSM,DEVICE,男性用貞操ケージの外観バリエーション。,RESOLVED
+1089,未着用の・貞操・貞操器具・ケージに関係する表現,unworn chastity cage,TOOL_OBJECT,道具・物,MALE_GENITAL,男性器,BDSM_RESTRAINT,拘束・BDSM,DEVICE_STATE,未着用でも概念中心は男性器用ケージ。,RESOLVED
+1119,装飾の多い・貞操・貞操器具・ケージに関係する表現,ornate chastity cage,TOOL_OBJECT,道具・物,MALE_GENITAL,男性器,BDSM_RESTRAINT,拘束・BDSM,DEVICE,男性用貞操ケージの外観バリエーション。,RESOLVED
+1194,接触する・他人の・貞操・貞操器具・ケージに関係する表現,touching another's chastity cage,ACTION_CONTACT,行為・接触,MALE_GENITAL,男性器,BDSM_RESTRAINT,拘束・BDSM,ACTION_CONTACT,主概念は他者のケージへ触れる行為。,RESOLVED
+1225,未着用の・貞操・貞操器具・ケージを手に持っている描写,holding unworn chastity cage,ACTION_CONTACT,行為・接触,MALE_GENITAL,男性器,BDSM_RESTRAINT,拘束・BDSM,ACTION_HOLDING,主概念はケージを持つ行為。,RESOLVED
+1558,貞操・貞操器具・ケージ・外した・取り除いたに関係する表現,chastity cage removed,TOOL_OBJECT,道具・物,MALE_GENITAL,男性器,BDSM_RESTRAINT,拘束・BDSM,ALIAS_DEVICE_STATE,unworn chastity cage のAliasなので同じbrowse分類を継承。,RESOLVED
+1818,性器への接触を制限する貞操帯,chastity belt,TOOL_OBJECT,道具・物,FEMALE_GENITAL,女性器,BDSM_RESTRAINT,拘束・BDSM,DEVICE,v1の女性器副経路を保持。器具がsemantic home。,RESOLVED
+1819,乳房・乳首への接触を制限する貞操ブラ,chastity bra,TOOL_OBJECT,道具・物,BREAST_NIPPLE,乳房・乳首,BDSM_RESTRAINT,拘束・BDSM,DEVICE,v1の乳房・乳首副経路を保持。器具がsemantic home。,RESOLVED
+1845,貞操器具,chastity device,TOOL_OBJECT,道具・物,,,BDSM_RESTRAINT,拘束・BDSM,GENERIC_DEVICE,部位を特定しない総称なので部位facetは付けない。,RESOLVED
+2737,貞操器具の鍵,chastity key,TOOL_OBJECT,道具・物,,,BDSM_RESTRAINT,拘束・BDSM,DEVICE_ACCESSORY,貞操テーマの器具アクセサリだが部位自体は特定しない。,RESOLVED
