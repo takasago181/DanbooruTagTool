@@ -35,14 +35,14 @@ The historical full-KB `Special2788=YES/blank` column is **not authoritative eno
 
 ## Deterministic source modes
 
-`scripts/issue94/special_gap_audit.py` supports two source modes. They share the same downstream identity-classification logic.
+`scripts/issue94/special_gap_audit.py` supports two Danbooru source modes. They share the same downstream identity-classification logic.
 
 ### A. Full-KB mode
 
 Use the verified derived full knowledge base directly:
 
 - `--full-kb <danbooru_full_tag_knowledge_base_...csv>`
-- `--special <illustrious_tag_knowledge_base_2788.csv>`
+- `--special <illustrious_tag_knowledge_base_2788.csv>` or the tracked profile fallback described below
 - optional `--alias-map <danbooru_alias_map_34630.csv>`
 
 This mode preserves the historical `Special2788` marker only as a diagnostic field. The marker is never authoritative for identity coverage.
@@ -53,7 +53,7 @@ When the derived full-KB file is not available in the active checkout, use the p
 
 - `--canonical-source data/source/danbooru-2026-09-02.csv`
 - `--alias-index data/derived/danbooru_alias_normalized_index_VERIFIED_34417.csv`
-- `--special <illustrious_tag_knowledge_base_2788.csv>`
+- `--special <illustrious_tag_knowledge_base_2788.csv>` or the tracked profile fallback described below
 
 The canonical source is the same 124,016-row snapshot identified by SHA-256 `9b32d5ac0713ab252e7470ba6af9cb34de56878b6b3b13dfbbf6a4a37d82d95b`.
 
@@ -62,6 +62,39 @@ In this mode the scanner reconstructs alias closure from the verified normalized
 The historical full-KB `Special2788` marker is unavailable in this mode, so `legacy_blank_but_identity_covered` is reported as `null`. This does **not** affect `PRESENT_EXACT`, `PRESENT_CANONICAL_TARGET`, `PRESENT_ALIAS_CLOSURE`, `SEMANTIC_EXACT_OVERLAP_ONLY`, or `GENERAL_ONLY_GAP` classification.
 
 The full scan remains fail-closed on `General == 30,743` and `Special == 2,788` unless explicit test-only expected counts are supplied.
+
+## Deterministic Special input modes
+
+The scanner now also supports two Special source modes.
+
+### S1. Protected Special source
+
+Preferred when the original accepted Special CSV is available locally:
+
+- `--special <illustrious_tag_knowledge_base_2788.csv>`
+
+Required columns are `ID`, `Tag`, `Danbooru種別`, and `canonical_target`. This is the direct historical path.
+
+### S2. Tracked Generation Profile fallback
+
+When the protected Special source is not mounted in the active execution environment, use the tracked 2,788-row generation profile:
+
+- `--special-profile data/generation/special2788_generation_profile.csv`
+
+This is **not** a looser heuristic replacement. It is a fail-closed reconstruction path:
+
+1. `SpecialID` + `Tag` provide all 2,788 accepted identities.
+2. Semantic rows are recognized only through approved tracked semantic markers (`APPROVED_SEMANTIC_ROLE`, `SEMANTIC_SUPPORT`, or `SEMANTIC_NOT_DIRECT_CANONICAL`).
+3. The semantic count must equal the frozen baseline of **336**.
+4. Every non-semantic Special term must resolve either to an exact canonical identity in the selected Danbooru snapshot or to exactly one alias target in the selected alias closure.
+5. Alias-target reconstructions must total the frozen Alias baseline of **778**.
+6. Any unresolved or ambiguous non-semantic Special term aborts the run. It is never guessed or silently downgraded to a gap.
+
+With the 2,788 total, 336 semantic, and 778 alias-target checks satisfied, the remaining 1,674 rows are canonical Core + Extended identities, matching the frozen `759 + 915` baseline.
+
+The fallback reconstructs canonical-target evidence from the same selected Danbooru alias closure before General gap classification, so a Special alias does not become a false `GENERAL_ONLY_GAP` merely because the protected `canonical_target` column is unavailable.
+
+The two Special modes are mutually exclusive. Final closeout should record which mode produced the inventory.
 
 ## Normalization and identity closure
 
@@ -73,7 +106,7 @@ For comparison, use this order:
 4. `_` and space treated as equivalent for comparison only
 5. collapse repeated whitespace
 6. exact normalized Special Tag match
-7. Special `canonical_target` match where available
+7. Special `canonical_target` match where available, or fail-closed reconstructed target in tracked-profile mode
 8. Danbooru Alias -> canonical closure
 9. semantic overlap checked separately from exact identity coverage
 
@@ -120,6 +153,7 @@ This checkpoint is **not** a completed scan of all 30,743 General canonicals. Fi
 `RESULT`
 `LIVE_MAIN`
 `DANBOORU_SOURCE`
+`SPECIAL_SOURCE_MODE`
 `TOTAL_CANONICAL_SCANNED`
 `SPECIAL_PRESENT`
 `ALIAS_OR_SEMANTIC_OVERLAP`
