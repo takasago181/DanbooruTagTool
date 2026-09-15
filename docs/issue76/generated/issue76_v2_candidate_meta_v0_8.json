@@ -1,0 +1,91 @@
+{
+  "version": "issue76-v2-integrated-candidate-v0.8",
+  "base_semantics": "v0.6 practical-generation candidate",
+  "knowledge_priority": "knowledge #44 + official/current web evidence > historical local WAI17 image sample",
+  "source_total": 2788,
+  "integrity": {
+    "row_count": 2788,
+    "unique_special_ids": 2788,
+    "exact_id_sequence_1_2788": true,
+    "taxonomy_unresolved_rows": 0,
+    "browse_rows_without_route": 0,
+    "invalid_kind_ids": [],
+    "invalid_body_ids": [],
+    "invalid_theme_ids": [],
+    "invalid_statuses": [],
+    "stale_buttock_review_notes": 0,
+    "duplicate_reason_tokens": 0
+  },
+  "status_counts": {
+    "AUTO_CANDIDATE": 2745,
+    "REFERENCE_ONLY_NO_DIRECT_BROWSE": 21,
+    "HUMAN_RESOLVED": 15,
+    "DEFER_PRODUCT_FIT_REVIEW": 6,
+    "OUT_OF_SCOPE_NO_BROWSE": 1
+  },
+  "kind_counts": {
+    "行為・接触": 907,
+    "衣服・露出": 503,
+    "道具・物": 299,
+    "身体・状態": 298,
+    "体液・排泄": 275,
+    "ポーズ・構図・場面": 156,
+    "人物・関係": 123,
+    "異形・変形": 119,
+    "表現・メタ": 66
+  },
+  "body_site_counts": {
+    "男性器": 307,
+    "乳房・乳首": 266,
+    "女性器": 183,
+    "口・口内": 175,
+    "尻・肛門": 113,
+    "尿道": 20
+  },
+  "theme_counts": {
+    "拘束・BDSM": 366,
+    "損傷・R18G": 66,
+    "生殖・妊娠・授乳": 25
+  },
+  "kindless_browse_rows": 14,
+  "kindless_browse_without_facet": 0,
+  "action_shelf": {
+    "rows": 907,
+    "with_body_or_theme": 534,
+    "without_body_or_theme": 373
+  },
+  "representative_intersections": {
+    "尻・肛門 × 道具・物": 14,
+    "尻・肛門 × 行為・接触": 43,
+    "尿道 × 道具・物": 5,
+    "拘束・BDSM × 道具・物": 139,
+    "拘束・BDSM × 口・口内 × 道具・物": 43,
+    "生殖・妊娠・授乳": 25,
+    "損傷・R18G × 行為・接触": 19,
+    "損傷・R18G × 身体・状態": 30,
+    "口・口内 AND 男性器": 22,
+    "口・口内 AND 女性器": 4,
+    "乳房・乳首 AND 男性器": 10
+  },
+  "cleanup_from_v0_6": {
+    "resolved_buttock_anal_review_notes_removed": 62,
+    "duplicate_reason_rows_normalized": 11,
+    "semantic_route_changes": 0
+  },
+  "evidence_policy": [
+    "Issue #44 accepted claims K-GOV-001/002/004, K-MODEL-NOOB-001/002/004, K-PROMPT-003, K-BIND-001, K-HARD-001..006",
+    "NoobAI XL 1.1 official model card: native Danbooru/e621 tags and special->general caption order",
+    "Anima official model card: tags + natural language + mixed prompting; multi-character identity/appearance guidance",
+    "Illustrious paper: refined multi-level captions support richer contextual representation",
+    "NN/g and Baymard faceted-search research: filters should match user-important attributes; avoid over-categorization when combinable facets work",
+    "Historical Issue #30 WAI17 generation is secondary structural evidence only"
+  ],
+  "verdict": {
+    "mapping_bake": "PASS",
+    "three_axis_structure": "PASS_FOR_WPF_PROTOTYPE",
+    "restore_old_38_visible_subgenres": "NO",
+    "production_freeze": "NOT_YET",
+    "next_gate": "WPF browse/filter prototype with knowledge-derived tasks; verify AND/OR facet interaction and applied-filter visibility"
+  },
+  "local_reference_output_sha256": "de5ef4cb712c31425b77fcc8bf2d8f56917356d79b3720845c81d46d8142d5d0"
+}
