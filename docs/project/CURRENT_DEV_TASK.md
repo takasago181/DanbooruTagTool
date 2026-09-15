@@ -1,17 +1,41 @@
-# CURRENT DEV TASK — NO_CURRENT_DEV / MANAGEMENT_HANDOFF
+# CURRENT DEV TASK — ISSUE #72 PROMPT CATEGORY VIEW PROTOTYPE
 
 最終同期: 2026-09-15
 
 ## Routing status
 
-- **No active DEV implementation issue.** Issue #69 one-pass local workspace cleanup is complete; its final verification and closeout are recorded in the live Issue.
-- Stage10 learning Issue #65 is available again as the user's practical learning route. It is not a Codex implementation task unless the user separately assigns implementation work.
-- New DEV work starts only from the next live routing decision in `docs/project/CURRENT_STATE.md` and the corresponding GitHub Issue.
+- **Active DEV implementation issue: #72** — `[DEV][POST-V1] Prompt category view prototype`.
+- This is a narrow post-v1 prototype requested by the user. It does not reopen completed Issue #66 foundations.
+- Roadmap parent: Issue #71.
+- Prepared branch: `codex/issue72-prompt-category-view-prototype`.
+- The branch was created from live main HEAD `a11edb8c6ff1e0aa230d353d95184de5a0c59f83`; Codex must verify live main again before work and reconcile safely if main has advanced.
+- Issue #70 translation/data work is separate. #72 must not modify #70 outputs, canonical/protected data, or translation lane state.
+- Stage10 learning Issue #65 remains a separate user-learning route and is not part of #72.
 
-## Completed local cleanup
+## Task summary
 
-- The primary checkout is normalized to live `main` with clean tracked status.
-- Unique local audit/extraction artifacts and Issue #64 pytest evidence are preserved in ignored workstation storage with SHA-256 manifests.
-- Protected data, local audit/tooling folders, `artifacts/current/`, the root WPF shortcut, and adjacent real `UserData` remain in place.
-- Stale clean worktrees and pure bytecode caches were retired; dirty or unique-evidence worktrees remain registered.
-- The root shortcut launched the current WPF executable after normalization; the production catalog and Release .NET tests were validated.
+Add a display-only Japanese category view to the existing WPF `Prompt編集` workspace:
+
+`表示: [並び順] [カテゴリ別]`
+
+The ordered Prompt remains the only Prompt source of truth. Category view groups items for reading without mutating, normalizing, or reordering the serialized Prompt. The existing right-side `実際のEnglish Prompt` and copied Prompt must remain unchanged for an unchanged Prompt state.
+
+## Repository hygiene
+
+The user explicitly requires a clean folder structure.
+
+- No new top-level folders.
+- No parallel/prototype app copy.
+- No `prototype/`, `temp/`, `tmp/`, `output/`, `build/`, versioned artifact or screenshot directories.
+- Keep code changes within the existing `src/DanbooruTagTool.App`, `Core`, `Data`, and `Tests` architecture.
+- Prefer existing ViewModel/provider structures and accepted catalog/taxonomy metadata.
+- Do not duplicate the #64 30,629 taxonomy into a new runtime data file.
+- Do not run broad cleanup commands; `git clean -fdx` / `git clean -fdX` remain forbidden.
+
+## Authority
+
+Detailed scope, invariants, validation, and return contract are owned by live Issue #72. Codex must read the live Issue body and latest comments before implementation.
+
+## Completion / return
+
+Do not merge to `main`. Return branch, commit SHA(s), changed files, build/tests, UI validation if available, folder-hygiene confirmation, protected/#70 data confirmation, classification limitations, and `READY_FOR_DEV_REVIEW` or blocker.
