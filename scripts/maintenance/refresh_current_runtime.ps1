@@ -15,7 +15,10 @@ $catalogPath = Join-Path $ArtifactRoot 'Data/catalog.db'
 $userDbPath = Join-Path $ArtifactRoot 'UserData/user.db'
 $trackedStatus = & git -C $RepositoryRoot status --short --untracked-files=no
 if ($LASTEXITCODE -ne 0) { throw 'Unable to read git status.' }
-if ($trackedStatus) { throw 'Source checkout has tracked changes; commit or stash them before runtime refresh.' }
+if ($trackedStatus) {
+    & git -C $RepositoryRoot diff --ignore-space-at-eol --quiet --exit-code
+    if ($LASTEXITCODE -ne 0) { throw 'Source checkout has semantic tracked changes; commit or stash them before runtime refresh.' }
+}
 $head = (& git -C $RepositoryRoot rev-parse --verify HEAD).Trim()
 $resolvedRevision = (& git -C $RepositoryRoot rev-parse --verify "$SourceRevision^{commit}").Trim()
 if ($LASTEXITCODE -ne 0 -or $resolvedRevision -ne $head) {
