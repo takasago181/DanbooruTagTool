@@ -1,0 +1,501 @@
+row_id,canonical_tag,category,display_ja,search_ja,translation_status,translation_note
+I70-036001,sonic_(series),3,オリソニ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036002,strike_witches,3,ストライクウィッチーズ,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036003,persona_5,3,ペルソナ5,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036004,toaru_kagaku_no_railgun,3,toaru kagaku no railgun,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036005,touken_ranbu,3,とうらぶ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036006,final_fantasy_vii_remake,3,FF7リメイク,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036007,fate/apocrypha,3,アポクリファ,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036008,arknights:_endfield,3,アークナイツ:エンドフィールド,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036009,fire_emblem_awakening,3,ファイアーエムブレム覚醒,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036010,nier_(series),3,ニーア,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036011,science_adventure,3,science adventure,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036012,pokemon_diamond/pearl/platinum,3,ポケットモンスター ダイヤモンド・パール・プラチナ,,ACCEPTED_AI,manual chat curation selected high-confidence Japanese copyright title
+I70-036013,gochuumon_wa_usagi_desu_ka?,3,ごちうさ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036014,spy_x_family,3,スパイファミリー,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036015,the_king_of_fighters,3,キングオブファイターズ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036016,nijisanji_en,3,にじさんじEN,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036017,touhou_(pc-98),3,東方旧作,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036018,kill_la_kill,3,キルラキル,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036019,idolmaster_cinderella_girls_starlight_stage,3,スターライトステージ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036020,fate/zero,3,フェイト／ゼロ,,ACCEPTED_AI,manual chat curation selected high-confidence Japanese copyright title
+I70-036021,tsukihime,3,月姫,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036022,persona_4,3,ペルソナ4,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036023,persona_3,3,ペルソナ3,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036024,alien_stage,3,异形舞台,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036025,kirby_(series),3,擬カビ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036026,shingeki_no_kyojin,3,進撃の巨人,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036027,code_geass,3,コードギアス,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036028,mahou_shoujo_no_majo_saiban,3,魔法少女ノ魔女裁判,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036029,bang_dream!_girls_band_party!,3,バンドリ!_ガールズバンドパーティ!,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036030,nier:automata,3,ニーアオートマタ,,ACCEPTED_AI,manual chat curation selected high-confidence Japanese copyright title
+I70-036031,danganronpa:_trigger_happy_havoc,3,ダンガンロンパ 希望の学園と絶望の高校生,,ACCEPTED_AI,manual chat curation selected high-confidence Japanese copyright title
+I70-036032,dc_comics,3,DCコミック,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036033,lucky_star,3,らき☆すた,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036034,dungeon_meshi,3,ダンジョン飯,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036035,neptune_(series),3,ネプテューヌ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036036,idolmaster_million_live!_theater_days,3,アイドルマスターミリオンライブ!シアターデイズ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036037,higurashi_no_naku_koro_ni,3,ひぐらし,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036038,saibou_shinkyoku,3,さぼしき,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036039,pokemon_legends:_z-a,3,Pokémon LEGENDS Z-A,,ACCEPTED_AI,manual chat curation selected high-confidence Japanese copyright title
+I70-036040,go-toubun_no_hanayome,3,五等分の花嫁,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036041,tokyo_afterschool_summoners,3,放サモ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036042,vspo!,3,ぶいすぽ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036043,resident_evil,3,バイオハザード,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036044,dragon_ball_z,3,この世で一番強いヤツ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036045,ranma_1/2,3,らんま1/2,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036046,elden_ring,3,エルデンリング,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036047,ensemble_stars!,3,あんさんぶるスターズ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036048,darkstalkers,3,ダークストーカーズ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036049,cho_kaguya-hime!,3,超かぐや姫!,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036050,assault_lily,3,アサルトリリィ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036051,magia_record:_mahou_shoujo_madoka_magica_gaiden,3,マギアレコード,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036052,pokemon_black_2_and_white_2,3,ポケットモンスター ブラック2・ホワイト2,,ACCEPTED_AI,manual chat curation selected high-confidence Japanese copyright title
+I70-036053,fire_emblem_engage,3,FEエンゲージ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036054,stardust_crusaders,3,スターダストクルセイダース,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036055,eiyuu_densetsu,3,英雄伝説,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036056,girls_band_cry,3,ガルクラ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036057,kamen_rider,3,オリジナルライダー,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036058,rwby,3,rwby,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036059,monster_hunter_(series),3,モンスターハンター,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036060,blazblue,3,ブレイブルー,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036061,nikki_(series),3,ニキシリーズ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036062,umineko_no_naku_koro_ni,3,うみねこのなく頃に,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036063,rebuild_of_evangelion,3,ヱヴァンゲリヲン新劇場版,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036064,cookie_(touhou),3,クッキー☆,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036065,pokemon_x_and_y,3,ポケットモンスター X・Y,,ACCEPTED_AI,manual chat curation selected high-confidence Japanese copyright title
+I70-036066,fate/kaleid_liner_prisma_illya,3,Fate/kaleidlinerプリズマ☆イリヤ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036067,mahou_shoujo_lyrical_nanoha,3,魔法少女リリカルなのは,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036068,mahou_shoujo_lyrical_nanoha_strikers,3,魔法少女リリカルなのはStrikerS,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036069,inazuma_eleven_(series),3,イナイレ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036070,gundam_suisei_no_majo,3,機動戦士ガンダム_水星の魔女,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036071,senki_zesshou_symphogear,3,シンフォギア,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036072,super_smash_bros.,3,スマッシュブラザーズ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036073,deltarune,3,デルタルーン,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036074,hololive_indonesia,3,ホロライブID,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036075,rozen_maiden,3,ローゼンメイデン,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036076,cardcaptor_sakura,3,CCさくら,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036077,tengen_toppa_gurren_lagann,3,グレンラガン,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036078,onii-chan_wa_oshimai!,3,おにまい,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036079,the_legend_of_zelda:_breath_of_the_wild,3,ゼルダの伝説ブレスオブザワイルド,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036080,atelier_(series),3,アトリエ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036081,guilty_gear_strive,3,ギルティギアストライヴ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036082,macross,3,マクロス,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036083,pretty_series,3,プリティーシリーズ,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036084,vento_aureo,3,黄金の風,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036085,naruto_shippuuden,3,ザ・ロストタワー,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036086,heaven_burns_red,3,ヘブバン,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036087,axis_powers_hetalia,3,にょたりあ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036088,girls'_frontline_2:_exilium,3,ドルフロ2,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036089,lycoris_recoil,3,リコリコ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036090,hololive_dev_is,3,ホロライブDEV_IS,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036091,pokemon_masters_ex,3,ポケマス,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036092,last_origin,3,ラスオリ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036093,naruto_(classic),3,ナルト,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036094,battle_tendency,3,ジョジョ2部,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036095,pokemon_heartgold_and_soulsilver,3,ポケットモンスター ハートゴールド・ソウルシルバー,,ACCEPTED_AI,manual chat curation selected high-confidence Japanese copyright title
+I70-036096,fate/extra_ccc,3,Fate/EXTRA CCC,,ACCEPTED_AI,manual chat curation selected high-confidence Japanese copyright title
+I70-036097,splatoon_3,3,スプラトゥーン3,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036098,pokemon_legends:_arceus,3,Pokémon LEGENDS アルセウス,,ACCEPTED_AI,manual chat curation selected high-confidence Japanese copyright title
+I70-036099,smile_precure!,3,スマイルプリキュア,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036100,oshi_no_ko,3,【推しの子】,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036101,undertale,3,あんだーてーる,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036102,steins;gate,3,シュタインズゲート,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036103,the_legend_of_zelda:_tears_of_the_kingdom,3,ゼルダの伝説ティアーズオブザキングダム,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036104,a.i._voice,3,アイボス,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036105,helltaker,3,ヘルテイカー,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036106,panty_&_stocking_with_garterbelt,3,パンスト,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036107,spider-man_(series),3,スパイダーマン,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036108,street_fighter_6,3,スト6,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036109,kobayashi-san_chi_no_maidragon,3,メイドラゴン,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036110,aikatsu!_(series),3,アイカツ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036111,ace_attorney,3,逆転裁判,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036112,one-punch_man,3,ワンパンマン,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036113,yuruyuri,3,ゆるゆり,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036114,mushoku_tensei,3,無職転生,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036115,gridman_universe,3,古立特宇宙,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036116,punishing:_gray_raven,3,パニグレ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036117,pokemon_omega_ruby_and_alpha_sapphire,3,ポケットモンスター オメガルビー・アルファサファイア,,ACCEPTED_AI,manual chat curation selected high-confidence Japanese copyright title
+I70-036118,love_live!_superstar!!,3,ハロー!!!ラブライブ!,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036119,senran_kagura_new_wave,3,閃乱カグラNewWave,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036120,bakemonogatari,3,化物語,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036121,stellive,3,stellive,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036122,hunter_x_hunter,3,ハンター×ハンター,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036123,x-men,3,X-メン,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036124,twisted_wonderland,3,ツイステ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036125,gundam_gquuuuuux,3,機動戦士ガンダムジークアクス,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036126,sanrio,3,サンリオ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036127,the_hundred_line_-last_defense_academy-,3,ハンドラ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036128,metroid,3,メトロイド,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036129,diamond_wa_kudakenai,3,ダイヤモンドは砕けない,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036130,synthesizer_v,3,シンセサイザーv,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036131,high_school_dxd,3,ハイスクールD×D,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036132,sono_bisque_doll_wa_koi_wo_suru,3,その着せ替え人形は恋をする,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036133,to_heart_(series),3,to heart (series),,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036134,fatal_fury,3,餓狼,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036135,ore_no_imouto_ga_konna_ni_kawaii_wake_ga_nai,3,俺の妹がこんなに可愛いわけがない,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036136,saki_(manga),3,咲,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036137,kemono_friends_3,3,けものフレンズ3,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036138,hibike!_euphonium,3,響け!ユーフォニアム,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036139,nanashi_inc.,3,ななしいんく,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036140,tiger_&_bunny,3,タイガーアンドバニー,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036141,marvel_rivals,3,マーベルライバルズ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036142,to_love-ru,3,ToLoveる,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036143,pixiv_fantasia,3,pixivファンタジア,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036144,apex_legends,3,Apexモバイル,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036145,elsword,3,エルソード,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036146,warship_girls_r,3,戦艦少女,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036147,gundam_seed,3,ガンダムSEED,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036148,inazuma_eleven_go,3,イナGO,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036149,dead_or_alive,3,デッドオアアライブ,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036150,pokemon_firered_and_leafgreen,3,ポケットモンスター ファイアレッド・リーフグリーン,,ACCEPTED_AI,manual chat curation selected high-confidence Japanese copyright title
+I70-036151,little_busters!,3,リトバス,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036152,library_of_ruina,3,ライブラリーオブルイナ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036153,kamitsubaki_studio,3,神椿スタジオ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036154,watashi_ga_motenai_no_wa_dou_kangaetemo_omaera_ga_warui!,3,わたモテ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036155,kaguya-sama_wa_kokurasetai_~tensai-tachi_no_renai_zunousen~,3,かぐや様,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036156,kingdom_hearts,3,キングダムハーツ,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036157,dungeon_ni_deai_wo_motomeru_no_wa_machigatteiru_darou_ka,3,ダンまち,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036158,disgaea,3,ディスガイア,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036159,holostars,3,ホロスターズ,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036160,omniscient_reader's_viewpoint,3,全知的な読者の視点から,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036161,angel_beats!,3,エンジェルビーツ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036162,ssss.gridman,3,グリッドマン,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036163,dragon_ball_super,3,ドラゴンボール超,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036164,tekken,3,鉄拳,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036165,animal_crossing,3,あつまれどうぶつの森,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036166,pripara,3,ダンプリ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036167,mahou_shoujo_lyrical_nanoha_a's,3,魔法少女リリカルなのはA's,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036168,black_rock_shooter,3,ブラック★ロックシューター,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036169,amagami,3,アマガミ,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036170,fullmetal_alchemist,3,ハガレン,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036171,fire_emblem:_the_blazing_blade,3,ファイアーエムブレム烈火の剣,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036172,fire_emblem:_radiant_dawn,3,暁の女神,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036173,mahou_shoujo_madoka_magica:_hangyaku_no_monogatari,3,叛逆の物語,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036174,splatoon_1,3,スプラトゥーン1,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036175,shoujo_kageki_revue_starlight,3,スタァライト,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036176,phase_connect,3,フェーズコネクト,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036177,lobotomy_corporation,3,ロボトミーコーポレーション,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036178,dandadan,3,ダンダダン,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036179,to_heart_2,3,同班同學2,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036180,clannad,3,クラナド,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036181,aikatsu!,3,アイカツ!,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036182,needy_girl_overdose,3,にーでぃがーる,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036183,megami_magazine,3,メガミマガジン,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036184,fire_emblem:_genealogy_of_the_holy_war,3,聖戦の系譜,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036185,gintama,3,銀魂,,ACCEPTED_AI,manual chat curation selected high-confidence Japanese copyright title
+I70-036186,date_a_live,3,DATE・A・LIVE,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036187,splatoon_2,3,スプラトゥーン2,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036188,stone_ocean,3,ストーンオーシャン,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036189,transformers,3,トランスフォーマー,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036190,batman_(series),3,バットマン,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036191,darling_in_the_franxx,3,ダリフラ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036192,infinity_nikki,3,インフィニティニキ,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036193,new_super_mario_bros._u_deluxe,3,NewスーパーマリオブラザーズUデラックス,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036194,path_to_nowhere,3,無期迷途,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036195,gundam_00,3,ガンダム00,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036196,phantasy_star,3,ファンタシースター,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036197,cyberpunk_(series),3,cyberpunk (series),,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036198,doki_doki_literature_club,3,ドキドキ文芸部,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036199,macross_frontier,3,マクロスF,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036200,len'en,3,连缘,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036201,xenoblade_chronicles_3,3,ゼノブレイド3,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036202,dark_souls_(series),3,だーくそうる,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036203,golden_kamuy,3,ゴールデンカムイ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036204,mobile_suit_gundam,3,機動戦士ガンダム,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036205,dokidoki!_precure,3,ドキドキ!プリキュア,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036206,yahari_ore_no_seishun_lovecome_wa_machigatteiru.,3,はまち,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036207,cookie_run,3,クキロン,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036208,puyopuyo,3,ぷよぷよ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036209,star_wars,3,スターウォーズ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036210,queen's_blade,3,クィーンズブレイド,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036211,meitantei_conan,3,名探偵コナン,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036212,hellaverse,3,hellaverse,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036213,grandmaster_of_demonic_cultivation,3,grandmaster of demonic cultivation,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036214,heartcatch_precure!,3,ハトプリ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036215,fire_emblem:_path_of_radiance,3,蒼炎の軌跡,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036216,flower_knight_girl,3,フラワーナイトガール,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036217,steel_ball_run,3,スティール・ボール・ラン,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036218,pokemon_ruby/sapphire/emerald,3,ポケットモンスター ルビー・サファイア・エメラルド,,ACCEPTED_AI,manual chat curation selected high-confidence Japanese copyright title
+I70-036219,houseki_no_kuni,3,寶石之國,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036220,haikyuu!!,3,ハイキュ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036221,dungeons_&_dragons,3,ダンジョンズ&ドラゴンズ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036222,monster_musume_no_iru_nichijou,3,モンスター娘のいる日常,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036223,love_live!_school_idol_festival,3,スクフェス,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036224,puzzle_&_dragons,3,パスドラ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036225,vshojo,3,V少女,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036226,devil_may_cry_(series),3,デビルメイクライ,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036227,yurucamp,3,ゆるキャン,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036228,mega_man_(classic),3,mega man (classic),,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036229,skullgirls,3,スカルガールズ,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036230,kagerou_project,3,カゲプロ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036231,the_legend_of_zelda:_twilight_princess,3,トワイライトプリンセス,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036232,pokemon_(classic_anime),3,pokemon (classic anime),,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036233,osomatsu_(series),3,おそ松さん/くん,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036234,cevio,3,Cevio,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036235,monster_girl_encyclopedia,3,monster girl encyclopedia,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036236,mega_man_x_(series),3,ロックマンX,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036237,touqi_guaitan,3,头七,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036238,idolmaster_1,3,アケマス,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036239,super_robot_wars,3,スパロボ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036240,guilty_gear_xrd,3,ギルティギアXrd,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036241,kouyoku_senki_exs-tia,3,光翼戦姫エクスティア,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036242,hirogaru_sky!_precure,3,ひろがるスカイ!プリキュア,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036243,kemono_friends_v_project,3,けもV,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036244,sekaiju_no_meikyuu,3,世界樹の迷宮,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036245,atelier_ryza,3,ライザのアトリエ,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036246,tsukihime_(remake),3,月姫リメイク,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036247,sen_no_kiseki_(series),3,sen no kiseki (series),,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036248,gegege_no_kitarou,3,ゲゲゲの鬼太郎,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036249,fire_emblem:_mystery_of_the_emblem,3,ファイアーエムブレム紋章の謎,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036250,osomatsu-san,3,おそ松さん,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036251,koha-ace,3,コハエース,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036252,minecraft,3,マイクラ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036253,machikado_mazoku,3,まちカドまぞく,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036254,little_witch_academia,3,リトルウィッチアカデミア,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036255,alice's_adventures_in_wonderland,3,alice's adventures in wonderland,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036256,phantasy_star_online_2,3,ファンタシースターオンライン2,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036257,touhou_lostword,3,東ロワ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036258,warhammer_40k,3,"Warhammer 40,000",,ACCEPTED_AI,manual chat curation selected high-confidence Japanese copyright title
+I70-036259,taimanin_(series),3,对魔忍,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036260,cyberpunk:_edgerunners,3,サイバーパンク:エッジランナーズ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036261,made_in_abyss,3,メイドインアビス,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036262,dungeon_and_fighter,3,アラド戦記,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036263,meitantei_precure!,3,名探偵プリキュア!,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036264,bemani,3,ベマイ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036265,nitroplus,3,nitroplus,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036266,pokemon_horizons,3,ポケットモンスター（2023年アニメ）,,ACCEPTED_AI,manual chat curation selected high-confidence Japanese copyright title
+I70-036267,kid_icarus,3,パルテナの鏡,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036268,phantom_blood,3,ファントムブラッド,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036269,the_legend_of_zelda:_ocarina_of_time,3,ゼルダの伝説_時のオカリナ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036270,inazuma_eleven,3,イナイレ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036271,pokemon_adventures,3,ポケットモンスターSPECIAL,,ACCEPTED_AI,manual chat curation selected high-confidence Japanese copyright title
+I70-036272,pokemon_tcg,3,ポケモンカードゲーム,,ACCEPTED_AI,manual chat curation selected high-confidence Japanese copyright title
+I70-036273,idolmaster_side-m,3,アイドルマスターSideM,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036274,cyberpunk:_edgerunners_1,3,cyberpunk: edgerunners 1,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036275,hazbin_hotel,3,ハズビンホテル,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036276,spice_and_wolf,3,狼と香辛料,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036277,shadowverse,3,シャドウバース,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036278,my_little_pony,3,マイリトルポニー,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036279,fairy_tail,3,フェアリーテイル,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036280,yu-gi-oh!_duel_monsters,3,遊☆戯☆王デュエルモンスターズ,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036281,vrchat,3,VRチャット,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036282,mcdonald's,3,マクドナルド,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036283,bleach:_sennen_kessen-hen,3,千年血戦篇,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036284,my_little_pony:_friendship_is_magic,3,マイリトルポニー,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036285,fire_emblem:_the_binding_blade,3,封印の剣,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036286,os-tan,3,OSたん,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036287,shining_nikki,3,シャイニングニキ,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036288,street_fighter_v,3,スト5,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036289,yu-gi-oh!_gx,3,遊戯王GX,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036290,zeta_gundam,3,機動戦士Ζガンダム,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036291,toradora!,3,とらドラ!,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036292,metal_gear_(series),3,メタルギア,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036293,suite_precure,3,スイプリ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036294,tate_no_yuusha_no_nariagari,3,盾の勇者の成り上がり,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036295,final_fantasy_vii_rebirth,3,FF7リバース,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036296,mahjong_soul,3,雀魂,,ACCEPTED_AI,manual chat curation selected high-confidence Japanese copyright title
+I70-036297,reitaisai,3,例大祭,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036298,ado_(utaite),3,Ado,,REVIEW_REQUIRED,copyright title spelling/identity requires manual verification
+I70-036299,fate/strange_fake,3,ストレンジフェイク,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036300,pokemon_the_series:_sun_&_moon,3,ポケットモンスター サン＆ムーン,,ACCEPTED_AI,manual chat curation selected high-confidence Japanese copyright title
+I70-036301,gundam_build_fighters,3,ガンダムビルドファイターズ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036302,boruto_(series),3,boruto (series),,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036303,avatar_legends,3,降世神通,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036304,final_fantasy_vi,3,ファイナルファンタジー6,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036305,ambience_synesthesia,3,音律联觉,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036306,shin_megami_tensei,3,メガテン,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036307,youkai_watch,3,妖ウォ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036308,shingeki_no_bahamut,3,神撃のバハムート,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036309,black_survival,3,ブラサバ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036310,mega_man_zero_(series),3,ロックマンゼロ,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036311,urusei_yatsura,3,うる星やつら,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036312,summer_pockets,3,Summer Pockets,,ACCEPTED_AI,manual chat curation selected high-confidence Japanese copyright title
+I70-036313,star_ocean,3,スターオーシャン,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036314,final_fantasy_vii:_ever_crisis,3,エバークライシス,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036315,voicevox,3,VoiceVox,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036316,kuro_no_kiseki_(series),3,kuro no kiseki (series),,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036317,bloodborne,3,ブラッドボーン,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036318,fate/hollow_ataraxia,3,フェイト/ホロウアタラクシア,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036319,sennen_sensou_aigis,3,千年戦争アイギス,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036320,dragon_quest_iii,3,ドラクエ3,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036321,zombie_land_saga,3,あなたの推しゾンビ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036322,alice_gear_aegis,3,アリスギア,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036323,hollow_knight,3,ホロウナイト,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036324,eromanga_sensei,3,エロマンガ先生,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036325,final_fantasy_xi,3,ファイナルファンタジー11,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036326,identity_v,3,BL人格,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036327,koi_suru_kokoro_to_mahou_no_kotoba,3,恋するココロと魔法のコトバ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036328,evangelion:_3.0_you_can_(not)_redo,3,ヱヴァンゲリヲン新劇場版：Q,,ACCEPTED_AI,manual chat curation selected high-confidence Japanese copyright title
+I70-036329,infinite_stratos,3,インフィニット・ストラトス,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036330,ultra_series,3,ウルサマ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036331,project_diva_(series),3,project diva (series),,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036332,tales_of_vesperia,3,テイルズオブヴェスペリア,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036333,muv-luv,3,マブラヴ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036334,chuunibyou_demo_koi_ga_shitai!,3,中二病でも恋がしたい,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036335,stella_sora,3,ステラソラ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036336,pokemon_red/green/blue/yellow,3,ポケットモンスター 赤・緑・青・ピカチュウ,,ACCEPTED_AI,manual chat curation selected high-confidence Japanese copyright title
+I70-036337,baldur's_gate,3,バルダーズ・ゲート,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036338,final_fantasy_ix,3,ファイナルファンタジー9,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036339,melty_blood,3,メルティブラッド,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036340,baldur's_gate_3,3,バルダーズ・ゲート3,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036341,fire_emblem:_the_sacred_stones,3,聖魔の光石,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036342,samurai_spirits,3,サムスピ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036343,hyouka,3,冰菓,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036344,zero_no_tsukaima,3,ゼロの使い魔,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036345,boku_wa_tomodachi_ga_sukunai,3,はがない,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036346,gundam_seed_destiny,3,ガンダムSEEDDESTINY,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036347,kid_icarus_uprising,3,新・光神話パルテナの鏡,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036348,pikmin_(series),3,ピクミン,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036349,arcane:_league_of_legends,3,アーケイン,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036350,soul_eater,3,ソウルイーター,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036351,fresh_precure!,3,フレッシュプリキュア,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036352,mahou_sensei_negima!,3,ネギま,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036353,the_amazing_digital_circus,3,アメイジングデジタルサーカス,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036354,eternal_return:_black_survival,3,エターナルリターン,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036355,shinrabanshou,3,神羅万象チョコ,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036356,love_and_deepspace,3,恋と深空,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036357,mega_man_zx,3,ロックマンZX,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036358,boruto:_naruto_next_generations,3,Boruto：NARUTO-次の世代,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036359,street_fighter_zero_(series),3,ストリートファイターZERO,,ACCEPTED_AI,manual chat curation selected high-confidence Japanese copyright title
+I70-036360,pokemon_journeys,3,ポケットモンスター（2019年アニメ）,,ACCEPTED_AI,manual chat curation selected high-confidence Japanese copyright title
+I70-036361,final_fantasy_viii,3,ファイナルファンタジー8,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036362,overlord_(maruyama),3,オーバーロード,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036363,project_voltage,3,Project VOLTAGE,,ACCEPTED_AI,manual chat curation selected high-confidence Japanese copyright title
+I70-036364,yu-gi-oh!_5d's,3,遊戯王5D's,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036365,azumanga_daioh,3,あずまんが大王,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036366,death_note,3,デスノート,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036367,fire_emblem_echoes:_shadows_of_valentia,3,ファイアーエムブレムEchoes,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036368,trickcal,3,トリッカル,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036369,maria-sama_ga_miteru,3,マリア様がみてる,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036370,tokyo_ghoul,3,トーキョーグール,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036371,cookie_run:_kingdom,3,クッキーランキングダム,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036372,umamusume:_cinderella_gray,3,ウマ娘シンデレラグレイ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036373,rabbit_hole_(vocaloid),3,ラビットホール,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036374,nichijou,3,日常,,ACCEPTED_AI,manual chat curation selected high-confidence Japanese copyright title
+I70-036375,fate/prototype,3,運命/プロトタイプ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036376,mother_(series),3,MOTHERシリーズ,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036377,futari_wa_precure,3,ふたりはプリキュア,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036378,wizarding_world,3,ウィザーディング・ワールド,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036379,senran_kagura_new_link,3,シノビマスター,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036380,girlfriend_(kari),3,girlfriend (kari),,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036381,resident_evil_4,3,バイオハザード4,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036382,kara_no_kyoukai,3,空の境界,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036383,wonderful_precure!,3,わんだふるぷりきゅあ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036384,22/7,3,ナナニジ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036385,chaos;head,3,カオスヘッド,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036386,kanon,3,カノン,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036387,emil_chronicle_online,3,エミルクロニクルオンライン,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036388,mihoyo,3,米哈游,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036389,holostars_english,3,ホロスターズEnglish,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036390,yuri!!!_on_ice,3,ユーリ!!!onICE,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036391,closers,3,クローザーズ,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036392,go!_princess_precure,3,GO!プリンセスプリキュア,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036393,evangelion:_2.0_you_can_(not)_advance,3,ヱヴァンゲリヲン新劇場版:破,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036394,twitter,3,ツイッター,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036395,pokemon_gold/silver/crystal,3,ポケットモンスター 金・銀・クリスタル,,ACCEPTED_AI,manual chat curation selected high-confidence Japanese copyright title
+I70-036396,komi-san_wa_komyushou_desu,3,古見さんは、コミュ症です,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036397,final_fantasy_vii:_advent_children,3,アドベントチルドレン,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036398,inuyasha,3,犬夜叉,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036399,ikkitousen,3,一騎当千,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036400,sayonara_zetsubou_sensei,3,さよなら絶望先生,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036401,oshiro_project:re,3,城これ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036402,make_heroine_ga_oo_sugiru!,3,マケイン,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036403,danganronpa_3_(anime),3,ダンガンロンパ3,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036404,kimi_no_koto_ga_dai_dai_dai_dai_daisuki_na_100-nin_no_kanojo,3,100カノ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036405,yes!_precure_5,3,Yes!プリキュア5,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036406,grimms_notes,3,グリムノーツ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036407,spider-verse,3,蜘蛛宇宙,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036408,honkai_gakuen,3,honkai gakuen,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036409,magical_mirai_(vocaloid),3,マジカルミライ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036410,happinesscharge_precure!,3,ハピネスチャージプリキュア,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036411,persona_3_portable,3,ペルソナ3ポータブル,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036412,shakugan_no_shana,3,灼眼のシャナ,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036413,promare,3,プロメア,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036414,blue_lock,3,ブルーロック,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036415,warcraft,3,ウォークラフト,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036416,poptepipic,3,ポプテ2期,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036417,soulcalibur,3,ソウルキャリバー,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036418,gundam_zz,3,ガンダムZZ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036419,dark_souls_i,3,ダークソウル,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036420,mon-musu_quest!,3,もんむす・くえすと,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036421,brave_witches,3,ブレイブウィッチーズ,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036422,fate/samurai_remnant,3,Fate/Samurai Remnant,,ACCEPTED_AI,manual chat curation selected high-confidence Japanese copyright title
+I70-036423,working!!,3,WORKING!!,,REVIEW_REQUIRED,copyright title spelling/identity requires manual verification
+I70-036424,the_legend_of_luo_xiaohei,3,the legend of luo xiaohei,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036425,dragon_ball_(classic),3,ドラゴンボール,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036426,my_melody_(series),3,マイメロディ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036427,yume_nikki,3,ゆめにっき,,ACCEPTED_AI,manual chat curation selected high-confidence Japanese copyright title
+I70-036428,sword_art_online:_alicization,3,アリシゼーション,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036429,mob_psycho_100,3,モブサイコ100,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036430,m.u.g.e.n,3,M.U.G.E.N,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036431,tales_of_the_abyss,3,アビス,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036432,toji_no_miko,3,とじとも,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036433,girls'_frontline_neural_cloud,3,ニューラルクラウド,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036434,aria_(manga),3,アリア,,ACCEPTED_AI,manual chat curation selected high-confidence Japanese copyright title
+I70-036435,breath_of_fire,3,ブレスオブファイア,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036436,berserk,3,ベルセルク,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036437,final_fantasy_x,3,ファイナルファンタジー10,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036438,hidamari_sketch,3,ひだまりスケッチ,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036439,vedal_ai,3,ネウロ様,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036440,final_fantasy_iv,3,ファイナルファンタジー4,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036441,little_red_riding_hood_(fairy_tale),3,赤ずきん,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036442,senpai_ga_uzai_kouhai_no_hanashi,3,先輩がうざい後輩の話,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036443,sana_channel,3,ヌォンタート,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036444,superman_(series),3,スーパーマン,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036445,harry_potter_(series),3,ハリポタ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036446,shantae_(series),3,シャンティ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036447,tales_of_symphonia,3,シンフォニア,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036448,dragon_quest_iv,3,ドラクエ4,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036449,atelier_ryza_1,3,ライザのアトリエ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036450,live_a_hero,3,ライブ・ア・ヒーロー!,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036451,tokidoki_bosotto_roshia-go_de_dereru_tonari_no_alya-san,3,ロシデレ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036452,brown_dust_(series),3,brown dust (series),,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036453,tales_of_xillia,3,エクシリア,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036454,pokemon_the_series:_xy,3,ポケットモンスター XY,,ACCEPTED_AI,manual chat curation selected high-confidence Japanese copyright title
+I70-036455,seiken_densetsu,3,聖剣伝説,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036456,mahou_shoujo_ni_akogarete,3,まほあこ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036457,mega_man_legends_(series),3,ロックマンDASH,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036458,hayate_no_gotoku!,3,ハヤテのごとく,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036459,dragon_quest_xi,3,ドラゴンクエストXI,,ACCEPTED_AI,manual chat curation selected high-confidence Japanese copyright title
+I70-036460,dairoku_ryouhei,3,第六猟兵,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036461,choukou_(alicesoft),3,超昂シリーズ,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036462,onmyoji,3,onmyoji,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036463,final_fantasy_v,3,ファイナルファンタジー5,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036464,macross_delta,3,マクロスΔ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036465,fire_emblem_cipher,3,ファイアーエムブレム0,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036466,brown_dust_2,3,ブラウンダスト2,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036467,street_fighter_iv_(series),3,ウル4,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036468,di_gi_charat,3,でじきゃらあーと,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036469,elden_ring_nightreign,3,エルデンリング:ナイトレイン,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036470,cinderella_series,3,シンデレラシリーズ,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036471,new_game!,3,NEW GAME!,,ACCEPTED_AI,manual chat curation selected high-confidence Japanese copyright title
+I70-036472,teen_titans,3,ティーンタイタンズ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036473,to_love-ru_darkness,3,ToLOVEるダークネス,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036474,rune_factory,3,ルンファク,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036475,durarara!!,3,デュラララ!!,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036476,world_of_warcraft,3,ワールド・オブ・ウォークラフト,,ACCEPTED_AI,manual chat curation selected high-confidence Japanese copyright title
+I70-036477,hachigatsu_no_cinderella_nine,3,ハチナイ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036478,saenai_heroine_no_sodatekata,3,さえないヒロインのそだてかた,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036479,watashi_ni_tenshi_ga_maiorita!,3,わたてん,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036480,zombie_stage,3,血鬼舞台,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036481,lawson,3,ローソン,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036482,final_fantasy_tactics,3,ファイナルファンタジータクティクス,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036483,uzaki-chan_wa_asobitai!,3,宇崎ちゃんは遊びたい,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036484,star_twinkle_precure,3,スタプリ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036485,microsoft_windows,3,マイクロソフトウィンドウズ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036486,mahou_tsukai_no_yoru,3,まほよ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036487,adventure_time,3,アドベンチャータイム,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036488,muv-luv_alternative,3,マブラヴオルタネイティヴ,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036489,dolphin_wave,3,ドルウェブ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036490,mabinogi,3,マビノギ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036491,shinryaku!_ikamusume,3,侵略!イカ娘,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036492,coca-cola,3,コカコーラ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036493,ghost_in_the_shell,3,攻殻機動隊,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036494,.live,3,アイドル部,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036495,godzilla_(series),3,ゴジラ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036496,funamusea,3,海底囚人,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036497,steins;gate_0,3,シュタインズゲートゼロ,,REVIEW_REQUIRED,copyright title not uniquely resolved; manual verification required
+I70-036498,fire_emblem_warriors:_three_hopes,3,ファイアーエムブレム無双風花雪月,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036499,super_sentai,3,スーパー戦隊シリーズ,,ACCEPTED_AI,single clean Japanese copyright search title
+I70-036500,under_night_in-birth,3,UNDER NIGHT IN-BIRTH,,ACCEPTED_AI,manual chat curation selected high-confidence Japanese copyright title
