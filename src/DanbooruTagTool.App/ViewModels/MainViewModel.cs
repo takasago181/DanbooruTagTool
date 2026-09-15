@@ -70,6 +70,8 @@ public sealed class MainViewModel : Observable
     public PromptWorkspace Workspace { get; }
     public ObservableCollection<ChipViewModel> Chips { get; } = [];
     public IReadOnlyList<NavigationNode> Navigation { get; }
+    private IReadOnlyList<PromptCategoryGroup> categoryGroups = [];
+    public IReadOnlyList<PromptCategoryGroup> CategoryGroups { get => categoryGroups; private set => Set(ref categoryGroups, value); }
     private IReadOnlyList<EntryViewModel> results = [], related = [];
     public IReadOnlyList<EntryViewModel> Results { get => results; private set => Set(ref results, value); }
     public IReadOnlyList<EntryViewModel> Related { get => related; private set => Set(ref related, value); }
@@ -83,7 +85,7 @@ public sealed class MainViewModel : Observable
         selectedEntry.Entry.Canonical == null ? "canonicalへの安全な追加先が確定していない参照項目です。" : "" }.Where(s => s.Length > 0));
     private string query = "", browse = "special", status = "", find = "", directText = "", weight = "";
     private int workspaceIndex, sortIndex, detailsTabIndex;
-    private bool englishChips, multiSelect, directEditing;
+    private bool englishChips, multiSelect, directEditing, categoryView;
     private Guid? anchor;
     private UiState ui = new();
     private readonly Stack<string> back = new();
@@ -104,9 +106,11 @@ public sealed class MainViewModel : Observable
     public int WorkspaceIndex { get => workspaceIndex; set { if (!DirectEditing && Set(ref workspaceIndex, value)) Persist(); } }
     public int SortIndex { get => sortIndex; set { if (Set(ref sortIndex, value)) RefreshResults(); } }
     public bool EnglishChips { get => englishChips; set { if (Set(ref englishChips, value)) { foreach (var c in Chips) c.English = value && WorkspaceIndex == 0; Persist(); } } }
+    public bool IsCategoryView { get => categoryView; set { if (Set(ref categoryView, value)) { Notify(nameof(IsOrderedView)); Notify(nameof(CanEditOrderedPrompt)); Notify(nameof(SelectionSummary)); Notify(nameof(WeightVisible)); RefreshCommands(); } } }
+    public bool IsOrderedView { get => !IsCategoryView; set { if (value != IsOrderedView) IsCategoryView = !value; } }
     public bool MultiSelect { get => multiSelect; set => Set(ref multiSelect, value); }
     public bool HasSelection => Chips.Any(c => c.Selected);
-    public string SelectionSummary => HasSelection ? $"{Chips.Count(c => c.Selected)}件選択中" : "選択なし";
+    public string SelectionSummary => IsCategoryView ? "カテゴリ別表示（読み取り専用）" : HasSelection ? $"{Chips.Count(c => c.Selected)}件選択中" : "選択なし";
     public string English => Workspace.English;
     public string Count => $"現在のPrompt · {Chips.Count}件";
     public bool HasPrompt => Chips.Count > 0;
@@ -127,10 +131,11 @@ public sealed class MainViewModel : Observable
         }
     }
     public bool CanEditPrompt => !DirectEditing;
-    public bool DirectEditing { get => directEditing; private set { if (Set(ref directEditing, value)) { Notify(nameof(CanEditPrompt)); RefreshCommands(); } } }
+    public bool CanEditOrderedPrompt => CanEditPrompt && IsOrderedView;
+    public bool DirectEditing { get => directEditing; private set { if (Set(ref directEditing, value)) { Notify(nameof(CanEditPrompt)); Notify(nameof(CanEditOrderedPrompt)); RefreshCommands(); } } }
     public string DirectText { get => directText; set => Set(ref directText, value); }
     public string Weight { get => weight; set => Set(ref weight, value); }
-    public bool WeightVisible => Chips.Count(c => c.Selected) == 1 && Chips.Single(c => c.Selected).Item.CanEditWeight;
+    public bool WeightVisible => IsOrderedView && Chips.Count(c => c.Selected) == 1 && Chips.Single(c => c.Selected).Item.CanEditWeight;
     public RelayCommand Copy { get; }
     public RelayCommand Import { get; }
     public RelayCommand New { get; }
@@ -163,8 +168,8 @@ public sealed class MainViewModel : Observable
         Copy = Normal(_ => Safe(() => { clipboard.Write(Workspace.ClipboardPayload); Status = "✓ コピーしました"; }));
         Import = Normal(_ => Safe(() => { var text = clipboard.Read(); if (string.IsNullOrWhiteSpace(text)) Status = "クリップボードにPrompt文字列がありません"; else Workspace.Replace(text); }));
         New = Normal(_ => Workspace.Replace("")); Recover = Normal(_ => Workspace.Recover(), _ => Workspace.HasRecovery);
-        Undo = Normal(_ => Workspace.Undo(), _ => Workspace.CanUndo); Redo = Normal(_ => Workspace.Redo(), _ => Workspace.CanRedo);
-        Delete = Normal(_ => Workspace.Delete(Chips.Where(c => c.Selected).Select(c => c.Id)), _ => HasSelection);
+        Undo = Ordered(_ => Workspace.Undo(), _ => Workspace.CanUndo); Redo = Ordered(_ => Workspace.Redo(), _ => Workspace.CanRedo);
+        Delete = Ordered(_ => Workspace.Delete(Chips.Where(c => c.Selected).Select(c => c.Id)), _ => HasSelection);
         DeleteOne = Normal(p => { if (p is ChipViewModel c) Workspace.Delete([c.Id]); });
         Inspect = Normal(p => { if (p is ChipViewModel c) InspectChip(c); });
         InspectEntry = Normal(p => { if (p is EntryViewModel row) { SelectedEntry = row; DetailsTabIndex = 0; } });
@@ -173,13 +178,13 @@ public sealed class MainViewModel : Observable
         ClearQuery = Normal(_ => { Query = ""; RefreshResults(); });
         FindPrevious = Normal(_ => FindNext(true), _ => Chips.Any(c => c.Match));
         FindNextCommand = Normal(_ => FindNext(false), _ => Chips.Any(c => c.Match));
-        OpenEditor = Normal(_ => { WorkspaceIndex = 1; UpdateChipLanguage(); });
+        OpenEditor = Normal(_ => { IsOrderedView = true; WorkspaceIndex = 1; UpdateChipLanguage(); });
         StartDirect = Normal(_ => { WorkspaceIndex = 1; UpdateChipLanguage(); DirectText = English; DirectEditing = true; });
         ApplyDirect = new(_ => { if (!DirectEditing) return; Workspace.DirectEdit(DirectText); DirectEditing = false; }, _ => DirectEditing);
         CancelDirect = new(_ => { DirectText = English; DirectEditing = false; }, _ => DirectEditing);
-        ApplyWeight = Normal(_ => { if (WeightVisible && decimal.TryParse(Weight, NumberStyles.Number, CultureInfo.InvariantCulture, out var w)) Workspace.EditWeight(Chips.Single(c => c.Selected).Id, w); else Status = "weightは数値で入力してください。"; });
+        ApplyWeight = Ordered(_ => { if (WeightVisible && decimal.TryParse(Weight, NumberStyles.Number, CultureInfo.InvariantCulture, out var w)) Workspace.EditWeight(Chips.Single(c => c.Selected).Id, w); else Status = "weightは数値で入力してください。"; });
         Workspace.Changed += OnPromptChanged;
-        RefreshChips(); RefreshResults(); SelectedEntry = Results.FirstOrDefault(e => e.Entry.Id == ui.SelectedEntry);
+        RefreshChips(); RefreshCategoryGroups(); RefreshResults(); SelectedEntry = Results.FirstOrDefault(e => e.Entry.Id == ui.SelectedEntry);
     }
     private static NavigationNode[] BuildNavigation(IEnumerable<BrowsePath> paths, string prefix) => paths
         .GroupBy(p => p.GenreId).Select(g => new NavigationNode(prefix + g.Key + ">", g.First().Genre,
@@ -187,6 +192,7 @@ public sealed class MainViewModel : Observable
                 .Select(p => new NavigationNode(prefix + p.Key, p.Subgenre, [])).ToArray())).ToArray();
     private void Safe(Action action) { try { action(); } catch (Exception e) when (e is System.Runtime.InteropServices.ExternalException or IOException) { Status = "操作できませんでした: " + e.Message; } }
     private RelayCommand Normal(Action<object?> action, Predicate<object?>? enabled = null) => new(p => { if (CanEditPrompt && (enabled?.Invoke(p) ?? true)) action(p); }, p => CanEditPrompt && (enabled?.Invoke(p) ?? true));
+    private RelayCommand Ordered(Action<object?> action, Predicate<object?>? enabled = null) => new(p => { if (CanEditOrderedPrompt && (enabled?.Invoke(p) ?? true)) action(p); }, p => CanEditOrderedPrompt && (enabled?.Invoke(p) ?? true));
     private void RefreshCommands()
     {
         foreach (var command in new[] { Copy, Import, New, Recover, Undo, Redo, Delete, DeleteOne, Inspect, InspectEntry, Navigate, Back, ClearQuery, FindPrevious, FindNextCommand, OpenEditor, StartDirect, ApplyDirect, CancelDirect, ApplyWeight }) command.Refresh();
@@ -221,7 +227,7 @@ public sealed class MainViewModel : Observable
     {
         RefreshChips(); foreach (var row in Results.Concat(Related)) row.Refresh(); SelectedEntry?.Refresh();
         foreach (var command in new[] { Undo, Redo, Recover }) command.Refresh();
-        Notify(nameof(English)); Notify(nameof(Count)); Notify(nameof(HasPrompt)); Notify(nameof(Unresolved)); Persist();
+        RefreshCategoryGroups(); Notify(nameof(English)); Notify(nameof(Count)); Notify(nameof(HasPrompt)); Notify(nameof(Unresolved)); Persist();
     }
     private void RefreshChips()
     {
@@ -229,10 +235,11 @@ public sealed class MainViewModel : Observable
         foreach (var item in Workspace.Items) Chips.Add(new(item) { Selected = selection.Contains(item.Id), English = EnglishChips && WorkspaceIndex == 0 });
         UpdateMatches(); SelectionChanged();
     }
+    private void RefreshCategoryGroups() => CategoryGroups = PromptCategoryProjection.Build(catalog, Workspace.Items);
     public void UpdateChipLanguage() { foreach (var chip in Chips) chip.English = EnglishChips && WorkspaceIndex == 0; }
     public void Select(Guid id, bool ctrl = false, bool shift = false)
     {
-        if (!CanEditPrompt) return;
+        if (!CanEditOrderedPrompt) return;
         int index = Chips.ToList().FindIndex(c => c.Id == id); if (index < 0) return;
         int start = anchor == null ? index : Chips.ToList().FindIndex(c => c.Id == anchor);
         if (shift && start >= 0) { if (!ctrl) foreach (var c in Chips) c.Selected = false; for (int i = Math.Min(start, index); i <= Math.Max(start, index); i++) Chips[i].Selected = true; }
@@ -240,15 +247,15 @@ public sealed class MainViewModel : Observable
         else { foreach (var c in Chips) c.Selected = c.Id == id; anchor = id; }
         SelectionChanged();
     }
-    public void SelectAll() { if (!CanEditPrompt) return; foreach (var c in Chips) c.Selected = true; SelectionChanged(); }
-    public void ClearSelection() { if (!CanEditPrompt) return; foreach (var c in Chips) c.Selected = false; anchor = null; SelectionChanged(); }
+    public void SelectAll() { if (!CanEditOrderedPrompt) return; foreach (var c in Chips) c.Selected = true; SelectionChanged(); }
+    public void ClearSelection() { if (!CanEditOrderedPrompt) return; foreach (var c in Chips) c.Selected = false; anchor = null; SelectionChanged(); }
     public Guid[] BeginDrag(Guid id)
     {
-        if (!CanEditPrompt) return [];
+        if (!CanEditOrderedPrompt) return [];
         if (!Chips.Any(c => c.Id == id && c.Selected)) { ClearSelection(); Chips.First(c => c.Id == id).Selected = true; }
         SelectionChanged(); return Chips.Where(c => c.Selected).Select(c => c.Id).ToArray();
     }
-    public void Move(Guid[] ids, int gap) { if (CanEditPrompt) Workspace.Move(ids, gap); }
+    public void Move(Guid[] ids, int gap) { if (CanEditOrderedPrompt) Workspace.Move(ids, gap); }
     private void SelectionChanged()
     {
         Notify(nameof(HasSelection));

@@ -131,7 +131,7 @@ public partial class MainWindow : Window
     }
     private void ChipMouseDown(object sender, MouseButtonEventArgs e)
     {
-        if (!vm.CanEditPrompt) return;
+        if (!vm.CanEditOrderedPrompt) return;
         if (FindAncestor<Button>(e.OriginalSource as DependencyObject) != null) return;
         if (sender is not FrameworkElement { DataContext: ChipViewModel chip }) return;
         Keyboard.ClearFocus(); Focus(); pendingChip = chip; dragStart = e.GetPosition(EditorItems);
@@ -144,7 +144,7 @@ public partial class MainWindow : Window
     { if (pendingChip != null && deferredSelection) vm.Select(pendingChip.Id); pendingChip = null; }
     private void ChipMouseMove(object sender, MouseEventArgs e)
     {
-        if (!vm.CanEditPrompt || pendingChip == null || e.LeftButton != MouseButtonState.Pressed) return;
+        if (!vm.CanEditOrderedPrompt || pendingChip == null || e.LeftButton != MouseButtonState.Pressed) return;
         var p = e.GetPosition(EditorItems);
         if (Math.Abs(p.X - dragStart.X) < SystemParameters.MinimumHorizontalDragDistance && Math.Abs(p.Y - dragStart.Y) < SystemParameters.MinimumVerticalDragDistance) return;
         var ids = vm.BeginDrag(pendingChip.Id); pendingChip = null;
@@ -153,7 +153,7 @@ public partial class MainWindow : Window
     }
     private void EditorDragOver(object sender, DragEventArgs e)
     {
-        if (!vm.CanEditPrompt || !e.Data.GetDataPresent("PromptItemIds")) { e.Effects = DragDropEffects.None; return; }
+        if (!vm.CanEditOrderedPrompt || !e.Data.GetDataPresent("PromptItemIds")) { e.Effects = DragDropEffects.None; return; }
         var pointer = e.GetPosition(EditorScroll);
         if (pointer.Y < 35) EditorScroll.ScrollToVerticalOffset(EditorScroll.VerticalOffset - 18);
         else if (pointer.Y > EditorScroll.ActualHeight - 35) EditorScroll.ScrollToVerticalOffset(EditorScroll.VerticalOffset + 18);

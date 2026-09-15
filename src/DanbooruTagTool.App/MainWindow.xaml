@@ -476,23 +476,61 @@
                         <Grid>
                             <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="*"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
                             <StackPanel Grid.Row="0"><DockPanel><TextBlock Text="{Binding Count}" Style="{StaticResource HintText}" DockPanel.Dock="Right" VerticalAlignment="Center"/><TextBlock Text="Prompt編集" Style="{StaticResource PageTitle}" FontSize="22"/></DockPanel><TextBlock Text="日本語表示のPromptを並べ替え・削除できます。見えている順序がそのままコピーされます。" Style="{StaticResource PanelSubtitle}" Margin="0,3,0,10"/></StackPanel>
-                            <Border Grid.Row="1" Style="{StaticResource ToolbarCard}" Padding="8" Margin="0,4,0,6"><DockPanel IsEnabled="{Binding CanEditPrompt}">
-                                <StackPanel DockPanel.Dock="Left" Orientation="Horizontal">
+                            <Border Grid.Row="1" Style="{StaticResource ToolbarCard}" Padding="8" Margin="0,4,0,6"><DockPanel>
+                                <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" VerticalAlignment="Center">
+                                    <TextBlock Text="表示:" Style="{StaticResource HintText}" VerticalAlignment="Center" Margin="0,0,6,0"/>
+                                    <ToggleButton Content="並び順" IsChecked="{Binding IsOrderedView, Mode=TwoWay}" Style="{StaticResource ModeToggleButton}" Padding="9,5" MinHeight="32" FontSize="13" Margin="0,0,4,0" AutomationProperties.Name="並び順表示"/>
+                                    <ToggleButton Content="カテゴリ別" IsChecked="{Binding IsCategoryView, Mode=TwoWay}" Style="{StaticResource ModeToggleButton}" Padding="9,5" MinHeight="32" FontSize="13" Margin="0" AutomationProperties.Name="カテゴリ別表示"/>
+                                </StackPanel>
+                                <StackPanel DockPanel.Dock="Left" Orientation="Horizontal" IsEnabled="{Binding CanEditOrderedPrompt}">
                                     <ToggleButton Content="複数選択" IsChecked="{Binding MultiSelect}" Style="{StaticResource ModeToggleButton}" Padding="8,5" MinHeight="32" FontSize="13" Margin="0,0,6,0"/>
                                     <Button Content="選択を削除" Command="{Binding Delete}" Style="{StaticResource CompactButton}"/>
                                     <Button Content="Undo" Command="{Binding Undo}" Style="{StaticResource CompactSecondaryButton}"/>
                                     <Button Content="Redo" Command="{Binding Redo}" Style="{StaticResource CompactSecondaryButton}"/>
                                 </StackPanel>
-                                <TextBlock DockPanel.Dock="Left" Text="Prompt内検索" Style="{StaticResource HintText}" VerticalAlignment="Center" Margin="4,0,8,0"/>
-                                <StackPanel DockPanel.Dock="Left" Orientation="Horizontal" VerticalAlignment="Center" Visibility="{Binding HasFindQuery, Converter={StaticResource BoolVisibility}}" Margin="0,0,5,0">
-                                    <TextBlock Text="{Binding FindMatchSummary}" Style="{StaticResource HintText}" VerticalAlignment="Center" Margin="0,0,4,0"/>
-                                    <Button Content="↑" Command="{Binding FindPrevious}" Style="{StaticResource CompactButton}" ToolTip="前の一致（Shift+Enter）" AutomationProperties.Name="前の一致" Padding="7,4" MinHeight="28" Margin="0,0,3,0"/>
-                                    <Button Content="↓" Command="{Binding FindNextCommand}" Style="{StaticResource CompactButton}" ToolTip="次の一致（Enter）" AutomationProperties.Name="次の一致" Padding="7,4" MinHeight="28" Margin="0"/>
+                                <StackPanel DockPanel.Dock="Left" Orientation="Horizontal" VerticalAlignment="Center" IsEnabled="{Binding CanEditOrderedPrompt}">
+                                    <TextBlock Text="Prompt内検索" Style="{StaticResource HintText}" VerticalAlignment="Center" Margin="4,0,8,0"/>
+                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Visibility="{Binding HasFindQuery, Converter={StaticResource BoolVisibility}}" Margin="0,0,5,0">
+                                        <TextBlock Text="{Binding FindMatchSummary}" Style="{StaticResource HintText}" VerticalAlignment="Center" Margin="0,0,4,0"/>
+                                        <Button Content="↑" Command="{Binding FindPrevious}" Style="{StaticResource CompactButton}" ToolTip="前の一致（Shift+Enter）" AutomationProperties.Name="前の一致" Padding="7,4" MinHeight="28" Margin="0,0,3,0"/>
+                                        <Button Content="↓" Command="{Binding FindNextCommand}" Style="{StaticResource CompactButton}" ToolTip="次の一致（Enter）" AutomationProperties.Name="次の一致" Padding="7,4" MinHeight="28" Margin="0"/>
+                                    </StackPanel>
+                                    <TextBox x:Name="FindBox" MinWidth="80" Text="{Binding Find, UpdateSourceTrigger=PropertyChanged}" KeyDown="FindKeyDown" Padding="7,5" AutomationProperties.Name="Prompt内検索" ToolTip="Prompt内検索"/>
                                 </StackPanel>
-                                <TextBox x:Name="FindBox" MinWidth="80" Text="{Binding Find, UpdateSourceTrigger=PropertyChanged}" KeyDown="FindKeyDown" Padding="7,5" AutomationProperties.Name="Prompt内検索" ToolTip="Prompt内検索"/>
                             </DockPanel></Border>
                             <DockPanel Grid.Row="2" Margin="2,0,2,8"><TextBlock Text="{Binding SelectionSummary}" FontWeight="SemiBold"/></DockPanel>
-                            <Border Grid.Row="3" Style="{StaticResource WorkSurfaceCard}" Padding="12"><Grid><ScrollViewer x:Name="EditorScroll" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" AllowDrop="True" DragOver="EditorDragOver" Drop="EditorDrop" DragLeave="EditorDragLeave" Margin="0,0,0,26"><ItemsControl x:Name="EditorItems" ItemsSource="{Binding Chips}"><ItemsControl.ItemsPanel><ItemsPanelTemplate><WrapPanel/></ItemsPanelTemplate></ItemsControl.ItemsPanel><ItemsControl.ItemTemplate><DataTemplate><Border x:Name="EditorChip" Style="{StaticResource ChipCard}" MaxWidth="{Binding ActualWidth, ElementName=EditorScroll}" PreviewMouseLeftButtonDown="ChipMouseDown" PreviewMouseLeftButtonUp="ChipMouseUp" PreviewMouseMove="ChipMouseMove"><DockPanel><TextBlock Text="⋮⋮" Foreground="#7B93AA" FontWeight="Bold" Margin="0,0,8,0" VerticalAlignment="Top"/><Button DockPanel.Dock="Right" Content="×" Command="{Binding DataContext.DeleteOne, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding}" Padding="2" Margin="8,0,0,0" MinHeight="22" Width="24"><Button.Style><Style TargetType="{x:Type Button}" BasedOn="{StaticResource {x:Type Button}}"><Setter Property="Visibility" Value="Hidden"/><Setter Property="Background" Value="Transparent"/><Setter Property="BorderBrush" Value="Transparent"/><Setter Property="Foreground" Value="{StaticResource MutedInkBrush}"/><Setter Property="Margin" Value="8,0,0,0"/><Style.Triggers><DataTrigger Binding="{Binding IsMouseOver, ElementName=EditorChip}" Value="True"><Setter Property="Visibility" Value="Visible"/></DataTrigger></Style.Triggers></Style></Button.Style></Button><TextBlock Text="{Binding Item.Display}" TextWrapping="Wrap" VerticalAlignment="Center"/></DockPanel></Border></DataTemplate></ItemsControl.ItemTemplate></ItemsControl></ScrollViewer><TextBlock Text="タグをドラッグして順序を変更できます。少ないPromptでもここが作業面です。" Style="{StaticResource HintText}" VerticalAlignment="Bottom" Margin="6,0,6,2" IsHitTestVisible="False"/><Canvas IsHitTestVisible="False" ClipToBounds="True"><Border x:Name="InsertionMarker" Background="{StaticResource PrimaryBrush}" Width="4" Height="38" Visibility="Collapsed" CornerRadius="2"/></Canvas></Grid></Border>
+                            <Border Grid.Row="3" Style="{StaticResource WorkSurfaceCard}" Padding="12" Visibility="{Binding IsOrderedView, Converter={StaticResource BoolVisibility}}"><Grid><ScrollViewer x:Name="EditorScroll" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" AllowDrop="True" DragOver="EditorDragOver" Drop="EditorDrop" DragLeave="EditorDragLeave" Margin="0,0,0,26"><ItemsControl x:Name="EditorItems" ItemsSource="{Binding Chips}"><ItemsControl.ItemsPanel><ItemsPanelTemplate><WrapPanel/></ItemsPanelTemplate></ItemsControl.ItemsPanel><ItemsControl.ItemTemplate><DataTemplate><Border x:Name="EditorChip" Style="{StaticResource ChipCard}" MaxWidth="{Binding ActualWidth, ElementName=EditorScroll}" PreviewMouseLeftButtonDown="ChipMouseDown" PreviewMouseLeftButtonUp="ChipMouseUp" PreviewMouseMove="ChipMouseMove"><DockPanel><TextBlock Text="⋮⋮" Foreground="#7B93AA" FontWeight="Bold" Margin="0,0,8,0" VerticalAlignment="Top"/><Button DockPanel.Dock="Right" Content="×" Command="{Binding DataContext.DeleteOne, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding}" Padding="2" Margin="8,0,0,0" MinHeight="22" Width="24"><Button.Style><Style TargetType="{x:Type Button}" BasedOn="{StaticResource {x:Type Button}}"><Setter Property="Visibility" Value="Hidden"/><Setter Property="Background" Value="Transparent"/><Setter Property="BorderBrush" Value="Transparent"/><Setter Property="Foreground" Value="{StaticResource MutedInkBrush}"/><Setter Property="Margin" Value="8,0,0,0"/><Style.Triggers><DataTrigger Binding="{Binding IsMouseOver, ElementName=EditorChip}" Value="True"><Setter Property="Visibility" Value="Visible"/></DataTrigger></Style.Triggers></Style></Button.Style></Button><TextBlock Text="{Binding Item.Display}" TextWrapping="Wrap" VerticalAlignment="Center"/></DockPanel></Border></DataTemplate></ItemsControl.ItemTemplate></ItemsControl></ScrollViewer><TextBlock Text="タグをドラッグして順序を変更できます。少ないPromptでもここが作業面です。" Style="{StaticResource HintText}" VerticalAlignment="Bottom" Margin="6,0,6,2" IsHitTestVisible="False"/><Canvas IsHitTestVisible="False" ClipToBounds="True"><Border x:Name="InsertionMarker" Background="{StaticResource PrimaryBrush}" Width="4" Height="38" Visibility="Collapsed" CornerRadius="2"/></Canvas></Grid></Border>
+                            <Border Grid.Row="3" Style="{StaticResource WorkSurfaceCard}" Padding="12" Visibility="{Binding IsCategoryView, Converter={StaticResource BoolVisibility}}"><Grid>
+                                <ScrollViewer x:Name="CategoryScroll" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Margin="0,0,0,26">
+                                    <ItemsControl ItemsSource="{Binding CategoryGroups}">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <Expander IsExpanded="True" Margin="0,0,0,10">
+                                                    <Expander.Header>
+                                                        <StackPanel Orientation="Horizontal">
+                                                            <TextBlock Text="{Binding Label}" FontWeight="SemiBold"/>
+                                                            <TextBlock Text="{Binding CountText}" Style="{StaticResource HintText}" Margin="10,0,0,0"/>
+                                                        </StackPanel>
+                                                    </Expander.Header>
+                                                    <ItemsControl ItemsSource="{Binding Items}">
+                                                        <ItemsControl.ItemTemplate>
+                                                            <DataTemplate>
+                                                                <Border Style="{StaticResource ChipCard}" Margin="3,3,3,5" Padding="12,8">
+                                                                    <StackPanel>
+                                                                        <TextBlock Text="{Binding Japanese}" TextWrapping="Wrap"/>
+                                                                        <TextBlock Text="{Binding English}" Style="{StaticResource HintText}" Margin="0,3,0,0" Visibility="{Binding HasEnglish, Converter={StaticResource BoolVisibility}}"/>
+                                                                    </StackPanel>
+                                                                </Border>
+                                                            </DataTemplate>
+                                                        </ItemsControl.ItemTemplate>
+                                                    </ItemsControl>
+                                                </Expander>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </ScrollViewer>
+                                <TextBlock Text="カテゴリ別表示は読み取り専用です。元の並び順・内容・コピー結果は変わりません。" Style="{StaticResource HintText}" VerticalAlignment="Bottom" Margin="6,0,6,2" IsHitTestVisible="False"/>
+                            </Grid></Border>
                             <Border Grid.Row="4" Style="{StaticResource AuxiliaryCard}" Visibility="{Binding WeightVisible, Converter={StaticResource BoolVisibility}}"><Grid><Grid.ColumnDefinitions><ColumnDefinition Width="Auto"/><ColumnDefinition Width="110"/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions><TextBlock Text="選択タグのweight" Style="{StaticResource HintText}" VerticalAlignment="Center" Margin="0,0,12,0"/><TextBox Grid.Column="1" Text="{Binding Weight}"/><Button Grid.Column="2" Content="適用" Command="{Binding ApplyWeight}" Style="{StaticResource SecondaryButton}" Margin="10,0,0,0"/></Grid></Border>
                         </Grid>
                     </Border>
