@@ -1,0 +1,68 @@
+{
+  "version": "issue76-v2-candidate-v0.5",
+  "source": "Issue #56 final rollout + Issue #63 product-fit sidecar + Issue #76 manual audit of former 43 v1 unresolved rows",
+  "source_total": 2788,
+  "kind_counts": {
+    "身体・状態": 322,
+    "行為・接触": 911,
+    "衣服・露出": 503,
+    "ポーズ・構図・場面": 156,
+    "道具・物": 284,
+    "異形・変形": 119,
+    "体液・排泄": 275,
+    "人物・関係": 123,
+    "表現・メタ": 66
+  },
+  "kindless_rows": 29,
+  "body_site_counts": {
+    "尻・肛門": 113,
+    "口・口内": 175,
+    "乳房・乳首": 257,
+    "尿道": 20,
+    "女性器": 177,
+    "男性器": 253
+  },
+  "theme_counts": {
+    "損傷・R18G": 66,
+    "拘束・BDSM": 366,
+    "生殖・妊娠・授乳": 25
+  },
+  "body_site_multiplicity": {
+    "0": 1818,
+    "1": 945,
+    "2": 25
+  },
+  "theme_multiplicity": {
+    "0": 2332,
+    "1": 455,
+    "2": 1
+  },
+  "combined_facet_multiplicity": {
+    "0": 1493,
+    "1": 1138,
+    "2": 157
+  },
+  "candidate_status_counts": {
+    "AUTO_CANDIDATE": 2745,
+    "HUMAN_RESOLVED": 15,
+    "DEFER_PRODUCT_FIT_REVIEW": 6,
+    "OUT_OF_SCOPE_NO_BROWSE": 1,
+    "REFERENCE_ONLY_NO_DIRECT_BROWSE": 21
+  },
+  "taxonomy_review_queue_rows": 0,
+  "product_fit_dependency_rows": 6,
+  "former_v1_unresolved_resolution_counts": {
+    "REFERENCE_ONLY_NO_DIRECT_BROWSE": 21,
+    "BROWSE_RESOLVED": 15,
+    "DEFER_PRODUCT_FIT_REVIEW": 6,
+    "OUT_OF_SCOPE_NO_BROWSE": 1
+  },
+  "notes": [
+    "No canonical Special identity, Alias relation, or product-fit verdict changed.",
+    "15 KEEP rows received human-reviewed v2 browse routes.",
+    "21 KEEP_REFERENCE_ONLY rows are not required to become independent visible browse candidates; exact/alias/reference/search access remains governed by Issue #63.",
+    "1 OUT_OF_SCOPE_PRODUCT row remains excluded from normal product-facing browse surfaces.",
+    "6 REVIEW rows remain explicit product-fit dependencies and are not silently promoted by Issue #76.",
+    "The Issue #76 taxonomy-specific review queue is now zero; remaining unresolvedness belongs to the pre-existing product-fit REVIEW gate, not the v2 taxonomy."
+  ]
+}
