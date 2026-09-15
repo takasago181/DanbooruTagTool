@@ -47,6 +47,18 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           while IFS= read -r payload; do
             [ -n "$payload" ] || continue
+            python - "$payload" <<'PY' >/tmp/issue70_parts.txt
+          import json, pathlib, sys
+          payload = pathlib.Path(sys.argv[1])
+          data = json.loads(payload.read_text(encoding='utf-8'))
+          for item in data.get('files') or []:
+              for part in item.get('gzip_base64_parts') or []:
+                  print(part)
+          PY
+            while IFS= read -r part; do
+              [ -n "$part" ] || continue
+              git rm "$part"
+            done </tmp/issue70_parts.txt
             git rm "$payload"
           done < /tmp/issue70_payloads.txt
           git add docs/issue70/data/results/queue
