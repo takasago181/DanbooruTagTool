@@ -42,8 +42,10 @@ $python = (Get-Command python -ErrorAction SilentlyContinue).Source
 if ([string]::IsNullOrWhiteSpace($python)) { throw 'Python is required for read-only SQLite semantic validation.' }
 
 function Invoke-Checked([string] $FilePath, [string[]] $Arguments) {
-    & $FilePath @Arguments
-    if ($LASTEXITCODE -ne 0) { throw "Command failed ($LASTEXITCODE): $FilePath $($Arguments -join ' ')" }
+    $output = @(& $FilePath @Arguments 2>&1)
+    $exitCode = $LASTEXITCODE
+    if ($output.Count -gt 0) { $output | ForEach-Object { Write-Output $_ } }
+    if ($exitCode -ne 0) { throw "Command failed ($exitCode): $FilePath $($Arguments -join ' ')`n$($output -join [Environment]::NewLine)" }
 }
 function Relative([string] $Base, [string] $Path) { return $Path.Substring($Base.Length + 1).Replace('\', '/') }
 
