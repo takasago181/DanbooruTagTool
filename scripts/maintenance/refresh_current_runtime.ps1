@@ -43,10 +43,15 @@ $python = (Get-Command python -ErrorAction SilentlyContinue).Source
 if ([string]::IsNullOrWhiteSpace($python)) { throw 'Python is required for read-only SQLite semantic validation.' }
 
 function Invoke-Checked([string] $FilePath, [string[]] $Arguments) {
-    $output = @(& $FilePath @Arguments 2>&1)
-    $exitCode = $LASTEXITCODE
+    $id = [Guid]::NewGuid().ToString('N')
+    $stdout = Join-Path $tempRoot "stdout-$id.log"
+    $stderr = Join-Path $tempRoot "stderr-$id.log"
+    $process = Start-Process -FilePath $FilePath -ArgumentList $Arguments -WorkingDirectory $RepositoryRoot -Wait -PassThru -NoNewWindow -RedirectStandardOutput $stdout -RedirectStandardError $stderr
+    $output = @()
+    if (Test-Path -LiteralPath $stdout) { $output += Get-Content -LiteralPath $stdout }
+    if (Test-Path -LiteralPath $stderr) { $output += Get-Content -LiteralPath $stderr }
     if ($output.Count -gt 0) { $output | ForEach-Object { Write-Output $_ } }
-    if ($exitCode -ne 0) { throw "Command failed ($exitCode): $FilePath $($Arguments -join ' ')`n$($output -join [Environment]::NewLine)" }
+    if ($process.ExitCode -ne 0) { throw "Command failed ($($process.ExitCode)): $FilePath $($Arguments -join ' ')`n$($output -join [Environment]::NewLine)" }
 }
 function Relative([string] $Base, [string] $Path) { return $Path.Substring($Base.Length + 1).Replace('\', '/') }
 function Wait-ForFile([string] $Path) {
