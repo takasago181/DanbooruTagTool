@@ -37,6 +37,12 @@ Restore procedure:
 
 `LIMITATION`: the snapshot is on the same physical disk as the workspace and therefore does not protect against disk loss. It is still useful for accidental deletion, replacement, and local restore verification.
 
+After the latest-main checkout and runtime refresh, a second current-state snapshot was created at:
+
+`backups/issue91-final-20260915-235923/`
+
+It covers 2,841 files / 361,687,227 bytes. Its `backup_manifest.json` SHA-256 is `2C42EAE53CAFC7D41CD6CF435AEBCB95E377E1AE574E4107109733E41694BC87`. The local read-only queue snapshot hash is `9EBC7FC40E75BACA18D8B0255A69CDF48822DF6A41243651E4D729AB745B3A05`; the local queue manager reported 21 completed chunks / 10,500 rows, 165 pending, 0 claimed, 0 retryable. This snapshot includes the current `docs/issue70` source-shard/result/state tree and the refreshed runtime. The live Issue #70 checkpoint separately reports 11,500 / 92,739 rows; no attempt was made to reconcile or mutate the local queue during this task.
+
 ## Phase 2 — retained #64 worktree
 
 Worktree: `.worktrees/issue64-full-rollout-audit` on branch `codex/issue64-bounded-rework`, HEAD `7e10185a311ae8f0239cad0eb1bc879f7c69a2da`.
