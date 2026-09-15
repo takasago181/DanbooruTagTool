@@ -1,0 +1,55 @@
+name: Issue94 Materialize Final Artifacts
+
+on:
+  push:
+    branches:
+      - audit/issue94-special-gap-audit
+    paths:
+      - scripts/issue94/materialize_final_review_artifacts.py
+      - docs/issue94/SPECIAL_GAP_FINAL_REVIEW_v1.md
+      - docs/issue94/special_gap_final_review_queue_v1.csv
+      - .github/workflows/issue94_materialize_final_artifacts.yml
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    if: github.ref_name == 'audit/issue94-special-gap-audit'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: audit/issue94-special-gap-audit
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Materialize final Issue94 artifacts
+        run: |
+          python -m py_compile scripts/issue94/materialize_final_review_artifacts.py
+          python scripts/issue94/materialize_final_review_artifacts.py
+          python - <<'PY'
+          import csv
+          from pathlib import Path
+          c = list(csv.DictReader(Path('docs/issue94/special_gap_candidates_v1.csv').open(encoding='utf-8-sig')))
+          e = list(csv.DictReader(Path('docs/issue94/special_gap_exclusion_ledger_v1.csv').open(encoding='utf-8-sig')))
+          assert len(c) == 195, len(c)
+          assert len(e) == 129, len(e)
+          assert len({r['canonical_tag'] for r in c + e}) == 324
+          assert sum(r['final_status'] == 'GENERAL_ONLY' for r in e) == 124
+          assert sum(r['final_status'] == 'DUPLICATE_ALREADY_COVERED' for r in e) == 5
+          print('FINAL_ARTIFACT_VALIDATION_PASS')
+          PY
+          git diff --check
+      - name: Commit generated audit deliverables
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/issue94/special_gap_candidates_v1.csv docs/issue94/special_gap_exclusion_ledger_v1.csv docs/issue94/SPECIAL_GAP_FINAL_ARTIFACT_SUMMARY_v1.md
+          if git diff --cached --quiet; then
+            echo "No generated changes to commit"
+          else
+            git commit -m "issue94: materialize final candidate and exclusion artifacts"
+            git push origin HEAD:audit/issue94-special-gap-audit
+          fi
