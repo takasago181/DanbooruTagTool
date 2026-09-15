@@ -75,6 +75,17 @@ public sealed class ChipViewModel(PromptItem item) : Observable
 }
 public sealed record NavigationNode(string Key, string Label, IReadOnlyList<NavigationNode> Children);
 
+public static class DictionaryLayoutMetrics
+{
+    public const double TwoColumnThreshold = 760;
+    public const double MinimumCardWidth = 280;
+    public static double CardWidth(double availableWidth)
+    {
+        var available = Math.Max(MinimumCardWidth, availableWidth);
+        return available >= TwoColumnThreshold ? (available - 8) / 2 : available;
+    }
+}
+
 public sealed class MainViewModel : Observable
 {
     private readonly ICatalog catalog;
@@ -89,6 +100,10 @@ public sealed class MainViewModel : Observable
     public IReadOnlyList<PromptCategoryGroup> CategoryGroups { get => categoryGroups; private set => Set(ref categoryGroups, value); }
     private IReadOnlyList<EntryViewModel> results = [], related = [];
     public IReadOnlyList<EntryViewModel> Results { get => results; private set => Set(ref results, value); }
+    private double dictionaryCardWidth = 480;
+    // The view updates this from the available result surface. It is deliberately
+    // transient: layout density is a display concern, not persisted user data.
+    public double DictionaryCardWidth { get => dictionaryCardWidth; set => Set(ref dictionaryCardWidth, value); }
     public IReadOnlyList<EntryViewModel> Related { get => related; private set => Set(ref related, value); }
     private EntryViewModel? selectedEntry;
     public EntryViewModel? SelectedEntry { get => selectedEntry; set { if (Set(ref selectedEntry, value)) { Notify(nameof(Detail)); Related = value == null ? [] : Rows(catalog.Entries.Where(e => e.IsSpecial && e.CanBrowse && e.Id != value.Entry.Id && e.Paths.Any(p => value.Entry.Paths.Any(v => v.Key == p.Key))).OrderByDescending(e => e.Usage).Take(6)); Persist(); } } }

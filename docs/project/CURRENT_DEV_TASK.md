@@ -1,48 +1,34 @@
-# CURRENT DEV TASK — ISSUE #73 PANE TOGGLE REFINEMENT (COMPLETED / MERGED)
+# CURRENT DEV TASK — ISSUE #74 WQHD DICTIONARY REDESIGN (ACTIVE)
 
 最終同期: 2026-09-15
 
 ## Routing status
 
-- **Issue #73 is completed and integrated into `main` at `079964b69192b5191b1bda5e9894b7138f8c75c2`** — `[DEV][POST-V1] English Prompt pane density + dictionary add/remove toggle`.
-- This was a narrow post-v1 refinement on the accepted #72 main baseline. It did not reopen completed Issue #66 foundations.
-- No successor active DEV implementation issue is designated; do not infer one from this document.
-- Roadmap parent: Issue #71.
-- Integrated branch: `codex/issue73-pane-toggle-refinement`.
-- Creation-time live main: `67c582504797dbda27dec41ea582d88e15a7d54c`.
-- Issue #72 remains completed and integrated into `main` at `174fee90b23e4a350ffe71d7b60aa834b8cb1296`.
-- Issue #70 translation/data work is separate. #73 must not modify #70 outputs, canonical/protected data, or translation lane state.
-- Stage10 learning Issue #65 remains a separate user-learning route and is not part of #73.
+- **Issue #74 is the active DEV implementation lane** — `[DEV][POST-V1] WQHD-first dictionary workspace redesign`.
+- Activation authority: live Issue #74 comment **`5674415910`**.
+- Working branch: `codex/issue74-wqhd-dictionary-redesign`.
+- Creation-time live main: `c42a7a61214c3acd5ea0160ef3206fc98f5c58db`.
+- Issue #73 is completed and integrated into `main`; its English pane and safe `＋ / ✓` toggle are the accepted baseline for this work.
+- Issue #72 is completed and integrated into `main`; its Prompt category view is a regression invariant.
+- Issue #70 translation/data work remains separate. #74 must not modify #70 outputs, canonical/protected data, or translation lane state.
+- Stage10 learning Issue #65 remains a separate user-learning route and is not part of #74.
 
 ## Task summary
 
-1. Narrow the shared right-side `実際のEnglish Prompt` pane toward a 75:25 left:right layout while retaining a readable minimum width and preserving English content, copy, and direct-edit behavior.
-2. Make dictionary `＋ / ✓` a safe add/remove toggle using exact recognized Prompt item identity:
-   - absent canonical: `＋` appends;
-   - exactly one recognized match: `✓` removes that exact item and supports Undo/re-add;
-   - duplicate canonical matches: keep duplicates, do not guess or bulk-delete, and guide the user to Prompt editing;
-   - raw/unresolved lookalikes remain untouched;
-   - dictionary rows and Tag Details use the same behavior.
+1. Use a WQHD-first three-column dictionary workspace: practical 280–320px navigation, denser two-column results, and a practical 360–420px right pane.
+2. Keep the existing Results order, search/ranking semantics, Prompt serialization, taxonomy, and #72/#73 behavior unchanged.
+3. Show Tag Details above Current Prompt simultaneously in the right pane, retaining safe item-level Prompt operations and the Prompt Edit route.
+4. Fall back to one result column at narrower widths without clipping Japanese labels or controls.
 
 ## Repository hygiene
 
-The user explicitly requires a clean folder structure.
-
-- No new top-level folders.
-- No parallel/prototype app copy.
-- No `prototype/`, `temp/`, `tmp/`, `output/`, `build/`, versioned artifact or screenshot directories.
-- Keep code changes within the existing `src/DanbooruTagTool.App`, `Core`, `Data`, and `Tests` architecture.
-- Prefer existing ViewModel/provider structures and accepted catalog/taxonomy metadata.
-- Do not duplicate the #64 30,629 taxonomy into a new runtime data file.
-- Do not run broad cleanup commands; `git clean -fdx` / `git clean -fdX` remain forbidden.
-
-## Authority
-
-Detailed scope, invariants, validation, and return contract are owned by live Issue #73. Codex must read the live Issue body and latest comments before implementation.
+- No new top-level folders, parallel WPF app, prototype/temp/tmp/output/build directories, or versioned artifact/screenshot folders.
+- Keep implementation within the existing `src/DanbooruTagTool.App`, `Core`, `Data`, and `Tests` architecture.
+- Do not change #70 translation data, canonical/protected data, taxonomy classification, or legacy data paths.
+- Do not run `git clean -fdx` or `git clean -fdX`.
 
 ## Completion / return
 
-- Final implementation commit `079964b69192b5191b1bda5e9894b7138f8c75c2` is integrated into `main` by fast-forward.
-- Release build, all .NET tests, #73 focused tests, and `git diff --check` passed on the integrated source.
-- #70 translation/data work remains a separate lane; Stage10 learning Issue #65 remains a separate lane.
-- No successor active DEV implementation issue was selected.
+- Validate Release build, all .NET tests, #74 focused tests, and `git diff --check`.
+- If all validation passes, integrate into live `main` using fast-forward when possible (force push prohibited), push, synchronize this document and `CURRENT_STATE.md` to completed/merged with no successor active DEV selected, and close Issue #74.
+- Final report must include branch, commit, changed files, WQHD widths/layout and fallback behavior, tests, UI confirmation, merge method/final main HEAD, docs sync, Issue close, protected-data check, hygiene, and clean working tree.

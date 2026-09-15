@@ -27,9 +27,9 @@ public partial class MainWindow : Window
         Width = Math.Max(MinWidth, vm.Ui.Width); Height = Math.Max(MinHeight, defaultHeight);
         Left = Math.Clamp(vm.Ui.Left, SystemParameters.VirtualScreenLeft, SystemParameters.VirtualScreenLeft + SystemParameters.VirtualScreenWidth - 100);
         Top = Math.Clamp(vm.Ui.Top, SystemParameters.VirtualScreenTop, SystemParameters.VirtualScreenTop + SystemParameters.VirtualScreenHeight - 100);
-        var navWidth = Math.Abs(vm.Ui.NavWidth - 210) < 0.5 ? 230 : vm.Ui.NavWidth;
-        var promptWidth = IsLegacyPromptWidth(vm.Ui.PromptWidth) ? 260 : vm.Ui.PromptWidth;
-        NavColumn.Width = new(Math.Max(180, navWidth)); PromptColumn.Width = new(Math.Max(260, promptWidth));
+        var navWidth = IsLegacyNavWidth(vm.Ui.NavWidth) ? 300 : vm.Ui.NavWidth;
+        var promptWidth = IsLegacyPromptWidth(vm.Ui.PromptWidth) ? 400 : vm.Ui.PromptWidth;
+        NavColumn.Width = new(Math.Max(240, navWidth)); PromptColumn.Width = new(Math.Max(360, promptWidth));
         // Hidden editor geometry used to persist zero, then clamp it to 25%.
         // Repair that collapsed state and migrate the old 70:30 default to 75:25.
         var ratio = vm.Ui.EditRatio <= .251 || Math.Abs(vm.Ui.EditRatio - .7) < .001 ? .75 : Math.Clamp(vm.Ui.EditRatio, .3, .85);
@@ -56,6 +56,7 @@ public partial class MainWindow : Window
         Closing += (_, _) => { SaveGeometry(); searchTimer.Stop(); feedbackTimer.Stop(); uiTimer.Stop(); };
         Loaded += (_, _) => { vm.UpdateChipLanguage(); FindChild<ScrollViewer>(DictionaryList)?.ScrollToVerticalOffset(vm.RestoreScroll); SyncNavigationSelection(); };
     }
+    private static bool IsLegacyNavWidth(double width) => Math.Abs(width - 210) < 0.5 || Math.Abs(width - 230) < 0.5;
     private static bool IsLegacyPromptWidth(double width) => Math.Abs(width - 230) < 0.5 || Math.Abs(width - 260) < 0.5 || Math.Abs(width - 280) < 0.5 || Math.Abs(width - 300) < 0.5 || Math.Abs(width - 340) < 0.5;
     private void QueueUiSave() { if (!IsLoaded) return; uiTimer.Stop(); uiTimer.Start(); }
     private void SaveGeometry()
@@ -105,6 +106,13 @@ public partial class MainWindow : Window
     private void WorkspaceChanged(object sender, SelectionChangedEventArgs e) { if (DataContext != null && e.Source == Workspaces) vm.UpdateChipLanguage(); }
     private void SplitterChanged(object sender, System.Windows.Controls.Primitives.DragCompletedEventArgs e) => SaveGeometry();
     private void BrowseScrolled(object sender, ScrollChangedEventArgs e) { if (DataContext != null) { vm.BrowseScroll = e.VerticalOffset; QueueUiSave(); } }
+    private void DictionaryListSizeChanged(object sender, SizeChangedEventArgs e)
+    {
+        // Below the threshold, a single full-width card keeps Japanese labels
+        // and the toggle readable.
+        var available = e.NewSize.Width - SystemParameters.VerticalScrollBarWidth - 12;
+        vm.DictionaryCardWidth = DictionaryLayoutMetrics.CardWidth(available);
+    }
     private void DictionaryMouseUp(object sender, MouseButtonEventArgs e)
     {
         if (FindAncestor<Button>(e.OriginalSource as DependencyObject) != null) return;
