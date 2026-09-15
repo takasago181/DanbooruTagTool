@@ -34,7 +34,20 @@
                         <DataTemplate>
                             <Border Background="{StaticResource WorkSurfaceBrush}" BorderBrush="{StaticResource BorderBrushSoft}" BorderThickness="1" CornerRadius="7" Padding="8" Margin="0,0,0,7">
                                 <StackPanel>
-                                    <TextBlock Text="{Binding Name}" FontWeight="SemiBold"/>
+                                    <TextBlock FontWeight="SemiBold">
+                                        <TextBlock.Style>
+                                            <Style TargetType="TextBlock">
+                                                <Setter Property="Text" Value="{Binding Name}"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Name}" Value="">
+                                                        <Setter Property="Text" Value="（名前なし）"/>
+                                                        <Setter Property="FontStyle" Value="Italic"/>
+                                                        <Setter Property="Foreground" Value="{StaticResource MutedInkBrush}"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
                                     <TextBlock Text="{Binding Description}" Foreground="{StaticResource MutedInkBrush}" FontSize="12" MaxHeight="38" Margin="0,2,0,6"/>
                                     <WrapPanel>
                                         <Button Content="Positive追加" Command="{Binding DataContext.ApplyPreset, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding}" Padding="8,4" MinHeight="28"/>
@@ -45,7 +58,7 @@
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
-                <TextBlock Text="一覧のボタンから直接適用・コピーできます。" Foreground="{StaticResource MutedInkBrush}" FontSize="12" Margin="2,8,2,0"/>
+                <TextBlock DockPanel.Dock="Bottom" Text="一覧のボタンから直接適用・コピーできます。" Foreground="{StaticResource MutedInkBrush}" FontSize="12" Margin="2,8,2,0"/>
             </DockPanel>
         </Border>
         <Border Grid.Row="1" Grid.Column="2" Style="{StaticResource PanelBorder}" Padding="12">

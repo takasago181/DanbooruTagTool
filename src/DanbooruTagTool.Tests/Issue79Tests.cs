@@ -39,6 +39,23 @@ public class Issue79Tests
     }
 
     [Fact]
+    public void PresetCanBeSavedWithoutAName()
+    {
+        var store = new MemoryStore();
+        var vm = Fixtures.Vm(store: store);
+        vm.NewPreset.Execute(null);
+        vm.PresetPositive = "long_hair";
+
+        Assert.True(vm.SavePreset.CanExecute(null));
+        vm.SavePreset.Execute(null);
+
+        var saved = Assert.Single(vm.Presets);
+        Assert.Equal("", saved.Name);
+        Assert.Equal("long_hair", saved.Positive);
+        Assert.Equal("プリセットを保存しました", vm.Status);
+    }
+
+    [Fact]
     public void PositiveCaptureUsesCanonicalInternalPromptNotOutputProfile()
     {
         var vm = Fixtures.Vm();

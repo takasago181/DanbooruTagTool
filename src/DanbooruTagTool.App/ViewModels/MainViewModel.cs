@@ -258,7 +258,7 @@ public sealed class MainViewModel : Observable
         ApplyPreset = Normal(p => ApplyPresetToPrompt(p as GenerationPreset), p => p is GenerationPreset);
         CopyPresetNegative = Normal(p => CopyPresetNegativeText(p as GenerationPreset), p => p is GenerationPreset);
         CapturePresetPositive = Normal(_ => PresetPositive = PromptParser.Serialize(Workspace.Items));
-        SavePreset = Normal(_ => SavePresetValue(), _ => !string.IsNullOrWhiteSpace(PresetName));
+        SavePreset = Normal(_ => SavePresetValue());
         DeletePreset = Normal(p => DeletePresetValue(p as GenerationPreset ?? SelectedPreset), p => p is GenerationPreset || SelectedPreset != null);
         Workspace.Changed += OnPromptChanged;
         RefreshChips(); RefreshCategoryGroups(); RefreshResults(); SelectedEntry = Results.FirstOrDefault(e => e.Entry.Id == ui.SelectedEntry);
@@ -374,7 +374,6 @@ public sealed class MainViewModel : Observable
     }
     private void SavePresetValue()
     {
-        if (string.IsNullOrWhiteSpace(PresetName)) { Status = "プリセット名を入力してください。"; return; }
         var parsed = new PromptParser(catalog).Parse(PresetPositive);
         var saved = new GenerationPreset(SelectedPreset?.Id ?? Guid.NewGuid(), PresetName.Trim(), PresetDescription, PromptOutputFormatter.SerializeCanonical(parsed), PresetNegative);
         var index = SelectedPreset == null ? -1 : Presets.IndexOf(SelectedPreset);
