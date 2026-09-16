@@ -88,6 +88,32 @@ public static class DictionaryLayoutMetrics
         var available = Math.Max(MinimumCardWidth, availableWidth);
         return available >= TwoColumnThreshold ? (available - 8) / 2 : available;
     }
+    public static int ColumnCount(double availableWidth) => availableWidth >= TwoColumnThreshold ? 2 : 1;
+}
+
+public sealed record DictionaryResultRow(EntryViewModel First, EntryViewModel? Second)
+{
+    public int FirstColumnSpan => Second is null ? 2 : 1;
+}
+
+/// <summary>
+/// Display-only projection over existing card references. Results remains the
+/// flat semantic sequence and is never replaced by this row structure.
+/// </summary>
+public static class DictionaryResultProjection
+{
+    public static IReadOnlyList<DictionaryResultRow> Project(IReadOnlyList<EntryViewModel> results, int columnCount)
+    {
+        if (columnCount is < 1 or > 2) throw new ArgumentOutOfRangeException(nameof(columnCount));
+        var rows = new List<DictionaryResultRow>((results.Count + columnCount - 1) / columnCount);
+        for (var i = 0; i < results.Count; i += columnCount)
+            rows.Add(new(results[i], columnCount == 2 && i + 1 < results.Count ? results[i + 1] : null));
+        return rows;
+    }
+    public static IEnumerable<EntryViewModel> Flatten(IEnumerable<DictionaryResultRow> rows)
+    {
+        foreach (var row in rows) { yield return row.First; if (row.Second is not null) yield return row.Second; }
+    }
 }
 
 /// <summary>
@@ -112,24 +138,36 @@ public sealed class DictionaryWorkspaceViewModel : Observable
     private double browseScroll;
     private double restoreScroll;
     private IReadOnlyList<EntryViewModel> results = [], related = [];
+    private IReadOnlyList<DictionaryResultRow> dictionaryRows = [];
+    private int dictionaryColumnCount = 1;
+    private readonly Dictionary<string, List<EntryViewModel>> activeResultIndex = new(StringComparer.Ordinal);
+    private Dictionary<string, int> promptCanonicalCounts = new(StringComparer.Ordinal);
     private EntryViewModel? selectedEntry;
 
     public ObservableCollection<SpecialBrowseFacetOptionViewModel> SpecialKindOptions { get; } = [];
     public ObservableCollection<SpecialBrowseFacetOptionViewModel> SpecialBodyOptions { get; } = [];
     public ObservableCollection<SpecialBrowseFacetOptionViewModel> SpecialThemeOptions { get; } = [];
     public IReadOnlyList<NavigationNode> Navigation { get; }
-    public IReadOnlyList<EntryViewModel> Results { get => results; private set => Set(ref results, value); }
-    public IReadOnlyList<EntryViewModel> Related { get => related; private set => Set(ref related, value); }
+    public IReadOnlyList<EntryViewModel> Results
+    {
+        get => results;
+        private set
+        {
+            if (!Set(ref results, value)) return;
+            RebuildActiveResultIndex(); RebuildDictionaryRows();
+        }
+    }
+    public IReadOnlyList<DictionaryResultRow> DictionaryRows => dictionaryRows;
+    public int DictionaryColumnCount => dictionaryColumnCount;
+    public IReadOnlyList<EntryViewModel> Related
+    {
+        get => related;
+        private set { if (!Set(ref related, value)) return; RebuildActiveResultIndex(); }
+    }
     public EntryViewModel? SelectedEntry
     {
         get => selectedEntry;
-        set
-        {
-            if (!Set(ref selectedEntry, value)) return;
-            Notify(nameof(Detail));
-            Related = value == null ? [] : RelatedFor(value.Entry);
-            persist();
-        }
+        set => SetSelectedEntry(value);
     }
     public double DictionaryCardWidth { get => dictionaryCardWidth; set => Set(ref dictionaryCardWidth, value); }
     public double BrowseScroll { get => browseScroll; set => Set(ref browseScroll, value); }
@@ -140,7 +178,7 @@ public sealed class DictionaryWorkspaceViewModel : Observable
         set
         {
             if (query.Length == 0 && value.Length > 0) { browseSelection = SelectedEntry?.Entry.Id; RestoreScroll = BrowseScroll; }
-            if (Set(ref query, value)) { Notify(nameof(IsSearching)); Notify(nameof(CanBrowseSort)); persist(); }
+            if (Set(ref query, value)) { Notify(nameof(IsSearching)); Notify(nameof(CanBrowseSort)); }
         }
     }
     public string BrowseKey => browse;
@@ -222,7 +260,7 @@ public sealed class DictionaryWorkspaceViewModel : Observable
         InspectEntry = new(p => { if (p is EntryViewModel row) { SelectedEntry = row; DetailsTabIndex = 0; } }, p => canMutate() && p is EntryViewModel);
         Navigate = new(p => { if (p is NavigationNode n && !IsSpecialAxisHeading(n.Key)) NavigateTo(n.Key); }, p => canMutate() && p is NavigationNode);
         Back = new(_ => { if (back.TryPop(out var key)) { Notify(nameof(CanGoBack)); Back?.Refresh(); NavigateTo(key, false); } }, _ => canMutate() && CanGoBack);
-        ClearQuery = new(_ => { Query = ""; RefreshResults(); }, _ => canMutate());
+        ClearQuery = new(_ => { Query = ""; RefreshResults(); persist(); }, _ => canMutate());
         ToggleSpecialFacet = new(ToggleFacet, p => canMutate() && specialBrowse != null && p is SpecialBrowseFacetOptionViewModel);
         UndoSpecialFacet = new(_ => UndoFacet(), _ => canMutate() && specialBrowse != null && !specialFilter.IsEmpty);
         ClearSpecialFacets = new(_ => ClearFacets(), _ => canMutate() && specialBrowse != null && !specialFilter.IsEmpty);
@@ -233,6 +271,7 @@ public sealed class DictionaryWorkspaceViewModel : Observable
         query = ui.Query; browse = ui.Browse; restoreScroll = ui.BrowseScroll; browseScroll = ui.BrowseScroll;
         if (specialBrowse != null && browse.StartsWith("special:", StringComparison.Ordinal) && !browse.StartsWith("special-v2:", StringComparison.Ordinal)) browse = "special";
         specialFilter = SpecialFilterFromBrowse(browse);
+        promptCanonicalCounts = CaptureCanonicalCounts(workspace.Items);
     }
 
     public void RefreshResults()
@@ -267,7 +306,7 @@ public sealed class DictionaryWorkspaceViewModel : Observable
             entries = SortIndex == 1 ? entries.OrderBy(e => e.Label, StringComparer.Create(CultureInfo.GetCultureInfo("ja-JP"), false)) : entries.OrderByDescending(e => e.Usage);
         }
         Results = Rows(entries); Notify(nameof(ResultSummary));
-        SelectedEntry = Results.FirstOrDefault(e => e.Entry.Id == (Query.Length == 0 ? browseSelection ?? selected : selected));
+        SetSelectedEntry(Results.FirstOrDefault(e => e.Entry.Id == (Query.Length == 0 ? browseSelection ?? selected : selected)), persist: false);
         RefreshSpecialFacetOptions();
         Notify(nameof(Pending)); Notify(nameof(BrowseLabel)); Notify(nameof(SpecialFacetSummary)); Notify(nameof(HasSpecialFacets)); Notify(nameof(ShowSpecialFacetBar)); Notify(nameof(ShowSpecialKindOptions));
         UndoSpecialFacet.Refresh(); ClearSpecialFacets.Refresh();
@@ -296,10 +335,70 @@ public sealed class DictionaryWorkspaceViewModel : Observable
         SelectedEntry = new(entry, workspace, Add, canMutate, SpecialBreadcrumb); DetailsTabIndex = 0;
     }
 
+    public void SetSurfaceWidth(double availableWidth)
+    {
+        DictionaryCardWidth = DictionaryLayoutMetrics.CardWidth(availableWidth);
+        var columns = DictionaryLayoutMetrics.ColumnCount(availableWidth);
+        if (columns == dictionaryColumnCount) return;
+        dictionaryColumnCount = columns; Notify(nameof(DictionaryColumnCount)); RebuildDictionaryRows();
+    }
+
+    public void MoveResultSelection(int offset)
+    {
+        if (Results.Count == 0 || offset == 0) return;
+        var current = selectedEntry == null ? -1 : Array.FindIndex(Results.ToArray(), row => ReferenceEquals(row, selectedEntry));
+        if (current < 0) current = offset > 0 ? -1 : Results.Count;
+        SetSelectedEntry(Results[Math.Clamp(current + offset, 0, Results.Count - 1)]);
+    }
+    public void SelectResultBoundary(bool last) { if (Results.Count > 0) SetSelectedEntry(Results[last ? Results.Count - 1 : 0]); }
+
     public void RefreshPromptState()
     {
-        foreach (var row in Results.Concat(Related)) row.Refresh();
-        SelectedEntry?.Refresh();
+        var next = CaptureCanonicalCounts(workspace.Items);
+        var changed = ChangedCanonicals(promptCanonicalCounts, next);
+        promptCanonicalCounts = next;
+        RefreshRowsForCanonicals(changed);
+        if (selectedEntry?.Entry.Canonical is { } selectedCanonical && changed.Contains(selectedCanonical)) selectedEntry.Refresh();
+    }
+
+    private void SetSelectedEntry(EntryViewModel? value, bool persist = true)
+    {
+        if (!Set(ref selectedEntry, value)) return;
+        Notify(nameof(Detail)); Related = value == null ? [] : RelatedFor(value.Entry);
+        if (persist) this.persist();
+    }
+    private void RebuildDictionaryRows()
+    {
+        dictionaryRows = DictionaryResultProjection.Project(Results, dictionaryColumnCount); Notify(nameof(DictionaryRows));
+    }
+    private void RebuildActiveResultIndex()
+    {
+        activeResultIndex.Clear();
+        foreach (var row in Results.Concat(Related))
+        {
+            if (row.Entry.Canonical is not { } canonical) continue;
+            if (!activeResultIndex.TryGetValue(canonical, out var rows)) activeResultIndex[canonical] = rows = [];
+            if (!rows.Contains(row)) rows.Add(row);
+        }
+    }
+    private void RefreshRowsForCanonicals(IReadOnlySet<string> changedCanonicals)
+    {
+        var refreshed = new HashSet<EntryViewModel>();
+        foreach (var canonical in changedCanonicals)
+            if (activeResultIndex.TryGetValue(canonical, out var rows))
+                foreach (var row in rows) if (refreshed.Add(row)) row.Refresh();
+    }
+    private static Dictionary<string, int> CaptureCanonicalCounts(IEnumerable<PromptItem> items)
+    {
+        var counts = new Dictionary<string, int>(StringComparer.Ordinal);
+        foreach (var item in items)
+            if (item.Canonical is { } canonical) counts[canonical] = counts.TryGetValue(canonical, out var count) ? count + 1 : 1;
+        return counts;
+    }
+    private static HashSet<string> ChangedCanonicals(IReadOnlyDictionary<string, int> previous, IReadOnlyDictionary<string, int> current)
+    {
+        var changed = new HashSet<string>(previous.Keys, StringComparer.Ordinal); changed.UnionWith(current.Keys);
+        changed.RemoveWhere(c => previous.GetValueOrDefault(c) == current.GetValueOrDefault(c)); return changed;
     }
 
     private IReadOnlyList<EntryViewModel> Rows(IEnumerable<CatalogEntry> entries) => entries.Select(e => new EntryViewModel(e, workspace, Add, canMutate, SpecialBreadcrumb)).ToArray();

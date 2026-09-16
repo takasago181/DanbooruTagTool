@@ -56,6 +56,9 @@ public sealed class MainViewModel : Observable
     }
     private void OnPromptChanged() { Prompt.RefreshFromWorkspace(); Dictionary.RefreshPromptState(); Persist(); }
     public void RefreshResults() => Dictionary.RefreshResults();
+    public void SetDictionarySurfaceWidth(double availableWidth) => Dictionary.SetSurfaceWidth(availableWidth);
+    public void MoveResultSelection(int offset) => Dictionary.MoveResultSelection(offset);
+    public void SelectResultBoundary(bool last) => Dictionary.SelectResultBoundary(last);
     public void NavigateTo(string key, bool remember = true) => Dictionary.NavigateTo(key, remember);
     public void Add(CatalogEntry entry) => Dictionary.Add(entry);
     public void InspectChip(ChipViewModel chip) => Dictionary.InspectChip(chip);
@@ -75,6 +78,8 @@ public sealed class MainViewModel : Observable
 
     // Phase 3 will move MainWindow bindings to Dictionary/Prompt/PresetEditor/Forge.
     public IReadOnlyList<EntryViewModel> Results => Dictionary.Results;
+    public IReadOnlyList<DictionaryResultRow> DictionaryRows => Dictionary.DictionaryRows;
+    public int DictionaryColumnCount => Dictionary.DictionaryColumnCount;
     public IReadOnlyList<EntryViewModel> Related => Dictionary.Related;
     public EntryViewModel? SelectedEntry { get => Dictionary.SelectedEntry; set => Dictionary.SelectedEntry = value; }
     public double DictionaryCardWidth { get => Dictionary.DictionaryCardWidth; set => Dictionary.DictionaryCardWidth = value; }
