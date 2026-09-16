@@ -1,0 +1,131 @@
+{
+  "mode": "ISSUE102_PRODUCT_COMPLETE_OMISSION_AUDIT_V1",
+  "source_rows": 124016,
+  "danbooru_general_rows": 30743,
+  "product_general_rows": 30629,
+  "product_general_canonical_field": "canonical",
+  "special": {
+    "special_rows": 2983,
+    "exact_canonical_rows": 1869,
+    "unique_alias_identity_rows": 767,
+    "semantic_rows": 336,
+    "ambiguous_alias_rows": 11,
+    "unresolved_nonsemantic_rows": []
+  },
+  "product_complete_omission_count": 108,
+  "adult_priority_count": 10,
+  "top_20_omissions": [
+    {
+      "tag": "soul_gem_(madoka_magica)",
+      "post_count": 7349,
+      "priority": "UNFLAGGED_REVIEW_REQUIRED"
+    },
+    {
+      "tag": "ship_class_reunion",
+      "post_count": 6016,
+      "priority": "HIGH"
+    },
+    {
+      "tag": "speckled_areolae",
+      "post_count": 1839,
+      "priority": "HIGH"
+    },
+    {
+      "tag": "crossover_pairing",
+      "post_count": 1593,
+      "priority": "UNFLAGGED_REVIEW_REQUIRED"
+    },
+    {
+      "tag": "chaotic_scene",
+      "post_count": 892,
+      "priority": "UNFLAGGED_REVIEW_REQUIRED"
+    },
+    {
+      "tag": "unexpectedly_evil",
+      "post_count": 872,
+      "priority": "UNFLAGGED_REVIEW_REQUIRED"
+    },
+    {
+      "tag": "kita_high_school_uniform_(subarashiki_hibi)",
+      "post_count": 823,
+      "priority": "UNFLAGGED_REVIEW_REQUIRED"
+    },
+    {
+      "tag": "multiple_cutouts",
+      "post_count": 757,
+      "priority": "UNFLAGGED_REVIEW_REQUIRED"
+    },
+    {
+      "tag": "himematsu_academy_school_uniform",
+      "post_count": 631,
+      "priority": "UNFLAGGED_REVIEW_REQUIRED"
+    },
+    {
+      "tag": "dorfic",
+      "post_count": 629,
+      "priority": "UNFLAGGED_REVIEW_REQUIRED"
+    },
+    {
+      "tag": "grabbing_one_of_another's_twintails",
+      "post_count": 516,
+      "priority": "UNFLAGGED_REVIEW_REQUIRED"
+    },
+    {
+      "tag": "character_and_character_item",
+      "post_count": 469,
+      "priority": "UNFLAGGED_REVIEW_REQUIRED"
+    },
+    {
+      "tag": "tachyon's_shady_new_drug_(umamusume)",
+      "post_count": 446,
+      "priority": "UNFLAGGED_REVIEW_REQUIRED"
+    },
+    {
+      "tag": "collapsed_bipod",
+      "post_count": 373,
+      "priority": "UNFLAGGED_REVIEW_REQUIRED"
+    },
+    {
+      "tag": "gender_transitioning_(ftm)",
+      "post_count": 346,
+      "priority": "UNFLAGGED_REVIEW_REQUIRED"
+    },
+    {
+      "tag": "unexpectedly_good",
+      "post_count": 296,
+      "priority": "UNFLAGGED_REVIEW_REQUIRED"
+    },
+    {
+      "tag": "gender_transitioning_(mtf)",
+      "post_count": 277,
+      "priority": "UNFLAGGED_REVIEW_REQUIRED"
+    },
+    {
+      "tag": "gun_on_bipod",
+      "post_count": 269,
+      "priority": "UNFLAGGED_REVIEW_REQUIRED"
+    },
+    {
+      "tag": "long_unitard",
+      "post_count": 265,
+      "priority": "UNFLAGGED_REVIEW_REQUIRED"
+    },
+    {
+      "tag": "anakt_arts_high_school_uniform",
+      "post_count": 259,
+      "priority": "UNFLAGGED_REVIEW_REQUIRED"
+    }
+  ],
+  "adult_heuristic_is_exclusion_filter": "NO",
+  "all_omissions_require_human_review": "YES",
+  "production_mutation": "NO",
+  "issue70_mutated": "NO",
+  "userdata_mutated": "NO",
+  "pseudo_canonical_created": "NO",
+  "content_filter_used": "NO",
+  "pre_strict_omission_count": 108,
+  "special_all_surface_count": 2983,
+  "removed_exact_special_surface_count": 0,
+  "removed_exact_special_surfaces": [],
+  "special_surface_semantics_included_in_absence_test": "YES"
+}
