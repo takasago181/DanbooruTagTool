@@ -9,8 +9,8 @@
 - already reviewed/excluded by Issue #94: **11**
 - missed by the old Issue #94 final-review prescreen and reviewed here: **206**
 - additional high-frequency/opaque rescue rows reviewed: **30**
-- Special candidates after product-fit review: **95**
-- definition-level review queue: **16**
+- Special candidates after product-fit review: **105**
+- definition-level review queue: **0**
 
 ## Interpretation
 

@@ -4,23 +4,23 @@
   "supplemental_high_frequency_rescue_reviewed": 30,
   "total_reviewed": 236,
   "decision_counts": {
-    "GENERAL_ONLY_APPROPRIATE": 109,
-    "NEEDS_DEFINITION_REVIEW": 16,
-    "REJECT_NONCONTENT_REASON": 16,
-    "SPECIAL_CANDIDATE": 95
+    "ALREADY_SUBSTANTIVELY_COVERED": 1,
+    "GENERAL_ONLY_APPROPRIATE": 113,
+    "REJECT_NONCONTENT_REASON": 17,
+    "SPECIAL_CANDIDATE": 105
   },
   "strict_decision_counts": {
-    "GENERAL_ONLY_APPROPRIATE": 109,
-    "NEEDS_DEFINITION_REVIEW": 12,
-    "REJECT_NONCONTENT_REASON": 16,
-    "SPECIAL_CANDIDATE": 69
+    "GENERAL_ONLY_APPROPRIATE": 112,
+    "REJECT_NONCONTENT_REASON": 17,
+    "SPECIAL_CANDIDATE": 77
   },
   "supplemental_decision_counts": {
-    "NEEDS_DEFINITION_REVIEW": 4,
-    "SPECIAL_CANDIDATE": 26
+    "ALREADY_SUBSTANTIVELY_COVERED": 1,
+    "GENERAL_ONLY_APPROPRIATE": 1,
+    "SPECIAL_CANDIDATE": 28
   },
-  "special_candidate_count": 95,
-  "needs_definition_review_count": 16,
+  "special_candidate_count": 105,
+  "needs_definition_review_count": 0,
   "top_special_candidates": [
     {
       "tag": "presenting_own_armpit",
@@ -71,6 +71,11 @@
       "tag": "sweaty_breasts",
       "post_count": 3394,
       "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "pointless_condom",
+      "post_count": 3231,
+      "source": "HIGH_FREQUENCY_UNFLAGGED_RESCUE"
     },
     {
       "tag": "single_breast_curtain",
@@ -188,6 +193,11 @@
       "source": "HIGH_FREQUENCY_UNFLAGGED_RESCUE"
     },
     {
+      "tag": "rope_around_neck",
+      "post_count": 572,
+      "source": "HIGH_FREQUENCY_UNFLAGGED_RESCUE"
+    },
+    {
       "tag": "condom_thigh_strap",
       "post_count": 568,
       "source": "HIGH_FREQUENCY_UNFLAGGED_RESCUE"
@@ -228,8 +238,18 @@
       "source": "HIGH_FREQUENCY_UNFLAGGED_RESCUE"
     },
     {
+      "tag": "breast_drop",
+      "post_count": 341,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
       "tag": "extreme_gaping",
       "post_count": 341,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "groping_motion",
+      "post_count": 336,
       "source": "STRICT_CANONICAL_ADULT_PRIORITY"
     },
     {
@@ -266,6 +286,11 @@
       "tag": "smelling_armpit",
       "post_count": 314,
       "source": "HIGH_FREQUENCY_UNFLAGGED_RESCUE"
+    },
+    {
+      "tag": "powerful_breasts",
+      "post_count": 312,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
     },
     {
       "tag": "broken_condom",
@@ -358,6 +383,11 @@
       "source": "STRICT_CANONICAL_ADULT_PRIORITY"
     },
     {
+      "tag": "offering_leash",
+      "post_count": 159,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
       "tag": "drinking_from_condom",
       "post_count": 149,
       "source": "HIGH_FREQUENCY_UNFLAGGED_RESCUE"
@@ -365,6 +395,16 @@
     {
       "tag": "kissing_breast",
       "post_count": 142,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "uterus_pose",
+      "post_count": 140,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "single_breast",
+      "post_count": 125,
       "source": "STRICT_CANONICAL_ADULT_PRIORITY"
     },
     {
@@ -380,6 +420,16 @@
     {
       "tag": "cunt_punt",
       "post_count": 120,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "breast_reduction",
+      "post_count": 117,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "female_fertilization",
+      "post_count": 109,
       "source": "STRICT_CANONICAL_ADULT_PRIORITY"
     },
     {
@@ -503,6 +553,13 @@
     "body_parts": "https://shima.donmai.us/wiki_pages/tag_group%3Abody_parts",
     "tag_checklist": "https://safebooru.donmai.us/wiki_pages/howto%3Atag_checklist",
     "leash": "https://safebooru.donmai.us/wiki_pages/leash?z=2",
+    "holding_own_leash": "https://safebooru.donmai.us/wiki_pages/holding_own_leash",
+    "groping_motion": "https://safebooru.donmai.us/wiki_pages/groping_motion",
+    "cuffs": "https://safebooru.donmai.us/wiki_pages/cuffs",
+    "bound_wrists": "https://safebooru.donmai.us/wiki_pages/bound_wrists",
+    "male_underwear": "https://shima.donmai.us/wiki_pages/male_underwear",
+    "saliva_pool": "https://safebooru.donmai.us/posts?tags=saliva_pool",
+    "gameplay_mechanics": "https://safebooru.donmai.us/posts?page=9&tags=gameplay_mechanics",
     "standing_restraints": "https://safebooru.donmai.us/wiki_pages/standing_restraints?z=2",
     "breast_zipper": "https://safebooru.donmai.us/wiki_pages/breast_zipper?z=2",
     "breast_curtains": "https://safebooru.donmai.us/posts?tags=breast_curtains",
@@ -510,7 +567,8 @@
     "hand_in_anothers_panties": "https://safebooru.donmai.us/wiki_pages/hand_in_another%27s_panties?z=1"
   },
   "all_issue94_prescreen_missed_strict_rows_reviewed": "YES",
-  "top_queue_rescue_is_exhaustive_all_5000": "NO",
+  "definition_review_queue_resolved": "YES",
+  "uncovered_inventory_used_for_rescue": "YES",
   "adult_content_used_as_rejection_reason": "NO",
   "automatic_production_promotion": "NO",
   "production_mutation": "NO",
