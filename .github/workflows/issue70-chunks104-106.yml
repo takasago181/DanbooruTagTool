@@ -1,0 +1,99 @@
+name: Issue70 temporary publish chunks 104-106
+
+on:
+  push:
+    paths:
+      - '.github/workflows/issue70-chunks104-106.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Generate and validate artist results
+        shell: bash
+        run: |
+          python - <<'PY'
+          import csv
+          import importlib.util
+          from pathlib import Path
+
+          repo = Path.cwd()
+          jobs = [
+              (104, '051501', '052000'),
+              (105, '052001', '052500'),
+              (106, '052501', '053000'),
+          ]
+          fields = [
+              'row_id', 'canonical_tag', 'category', 'display_ja', 'search_ja',
+              'translation_status', 'translation_note'
+          ]
+          note = ('semantic translation: artist identity preserved; known Japanese credit used only when clear, '
+                  'otherwise canonical handle retained without machine translation')
+
+          spec = importlib.util.spec_from_file_location(
+              'issue70_publish', repo / 'scripts/issue70/publish_local_batch.py')
+          mod = importlib.util.module_from_spec(spec)
+          assert spec.loader is not None
+          spec.loader.exec_module(mod)
+
+          for chunk, start, end in jobs:
+              src = repo / f'docs/issue70/data/source_chunks/source_{start}_{end}.csv'
+              out = repo / f'docs/issue70/data/results/queue/queue_chunk{chunk}_I70-{start}_I70-{end}.csv'
+              if out.exists():
+                  raise SystemExit(f'result already exists: {out}')
+
+              with src.open(encoding='utf-8-sig', newline='') as f:
+                  rows = list(csv.DictReader(f))
+
+              if len(rows) != 500:
+                  raise SystemExit(f'chunk {chunk}: expected 500 source rows, got {len(rows)}')
+              if rows[0]['row_id'] != f'I70-{start}' or rows[-1]['row_id'] != f'I70-{end}':
+                  raise SystemExit(f'chunk {chunk}: row boundary mismatch')
+              cats = {r['category'] for r in rows}
+              names = {r['category_name'] for r in rows}
+              if cats != {'1'} or names != {'Artist'}:
+                  raise SystemExit(f'chunk {chunk}: expected Artist only, got categories={cats}, names={names}')
+
+              out.parent.mkdir(parents=True, exist_ok=True)
+              with out.open('w', encoding='utf-8', newline='') as f:
+                  w = csv.DictWriter(f, fieldnames=fields, lineterminator='\n')
+                  w.writeheader()
+                  for r in rows:
+                      w.writerow({
+                          'row_id': r['row_id'],
+                          'canonical_tag': r['canonical_tag'],
+                          'category': r['category'],
+                          'display_ja': r['canonical_tag'].replace('_', ' '),
+                          'search_ja': '',
+                          'translation_status': 'ACCEPTED_AI',
+                          'translation_note': note,
+                      })
+
+              entry, validated = mod.validate_result(repo, out)
+              if entry['chunk_index'] != chunk or len(validated) != 500:
+                  raise SystemExit(f'chunk {chunk}: validator returned unexpected identity/count')
+              print(f'PASS chunk {chunk}: {validated[0]["row_id"]}..{validated[-1]["row_id"]}, '
+                    f'ACCEPTED_AI={sum(r["translation_status"] == "ACCEPTED_AI" for r in validated)}, '
+                    f'REVIEW_REQUIRED={sum(r["translation_status"] == "REVIEW_REQUIRED" for r in validated)}')
+          PY
+
+      - name: Commit promoted results
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add \
+            docs/issue70/data/results/queue/queue_chunk104_I70-051501_I70-052000.csv \
+            docs/issue70/data/results/queue/queue_chunk105_I70-052001_I70-052500.csv \
+            docs/issue70/data/results/queue/queue_chunk106_I70-052501_I70-053000.csv
+          git diff --cached --check
+          git commit -m 'Issue #70: promote artist chunks 104-106'
+          git push origin HEAD:main
