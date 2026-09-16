@@ -1,0 +1,3 @@
+source_url=https://huggingface.co/datasets/HDiffusion/historical-danbooru-tag-counts/resolve/e243474/danbooru-2026-09-02.csv?download=true
+expected_sha256=9b32d5ac0713ab252e7470ba6af9cb34de56878b6b3b13dfbbf6a4a37d82d95b
+actual_sha256=9b32d5ac0713ab252e7470ba6af9cb34de56878b6b3b13dfbbf6a4a37d82d95b

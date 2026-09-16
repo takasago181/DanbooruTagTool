@@ -1,0 +1,41 @@
+{
+  "mode": "ISSUE102_ADULT_FOCUSED_FULL_REVIEW_V1",
+  "reviewed_total": 108,
+  "decision_counts": {
+    "GENERAL_GAP_CANDIDATE": 9,
+    "NEEDS_SEMANTIC_REVIEW": 3,
+    "NO_SPECIAL_ADULT_ACTION": 92,
+    "SPECIAL_CANDIDATE": 4
+  },
+  "special_candidate_count": 4,
+  "special_candidates": [
+    {
+      "tag": "speckled_areolae",
+      "post_count": 1839
+    },
+    {
+      "tag": "unzipping_another's_clothes",
+      "post_count": 169
+    },
+    {
+      "tag": "cospussy",
+      "post_count": 123
+    },
+    {
+      "tag": "open-chest_straitjacket",
+      "post_count": 104
+    }
+  ],
+  "semantic_review_count": 3,
+  "semantic_review_tags": [
+    "offering_collar",
+    "outstretched_stomach",
+    "tied_from_afar"
+  ],
+  "all_omissions_reviewed_for_adult_fit": "YES",
+  "nonadult_no_action_is_permanent_product_exclusion": "NO",
+  "automatic_production_promotion": "NO",
+  "issue70_mutated": "NO",
+  "userdata_mutated": "NO",
+  "content_filter_used": "NO"
+}
