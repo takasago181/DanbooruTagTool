@@ -1,7 +1,6 @@
 <UserControl x:Class="DanbooruTagTool.App.Views.DictionaryWorkspaceView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             DataContext="{Binding Dictionary, RelativeSource={RelativeSource AncestorType={x:Type Window}}}">
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <UserControl.Resources>
         <BooleanToVisibilityConverter x:Key="BoolVisibilityLocal"/>
         <DataTemplate x:Key="DictionaryResultRowTemplateLocal">

@@ -507,7 +507,7 @@
                         </DockPanel>
                     </Border>
                     <GridSplitter Grid.Column="1" DragCompleted="SplitterChanged"/>
-                    <views:DictionaryWorkspaceView x:Name="DictionaryWorkspace" Grid.Column="2"/>
+                    <views:DictionaryWorkspaceView x:Name="DictionaryWorkspace" DataContext="{Binding Dictionary}" Grid.Column="2"/>
                     <GridSplitter Grid.Column="3" DragCompleted="SplitterChanged"/>
                     <Border Grid.Column="4" Style="{StaticResource PanelCard}" Padding="10">
                         <Grid>
@@ -561,7 +561,7 @@
             </TabItem>
 
             <TabItem Header="Prompt編集">
-               <views:PromptEditorView x:Name="PromptEditor"/>
+               <views:PromptEditorView x:Name="PromptEditor" DataContext="{Binding Prompt}"/>
             </TabItem>
         </TabControl>
     </DockPanel>

@@ -1,7 +1,6 @@
 <UserControl x:Class="DanbooruTagTool.App.Views.PromptEditorView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             DataContext="{Binding Prompt, RelativeSource={RelativeSource AncestorType={x:Type Window}}}">
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <UserControl.Resources><BooleanToVisibilityConverter x:Key="BoolVisibilityLocal"/></UserControl.Resources>
     <Grid Margin="0,12,0,0">
         <Grid.ColumnDefinitions><ColumnDefinition x:Name="EditorColumn" Width="3*" MinWidth="350"/><ColumnDefinition Width="8"/><ColumnDefinition x:Name="EnglishColumn" Width="1*" MinWidth="225"/></Grid.ColumnDefinitions>
