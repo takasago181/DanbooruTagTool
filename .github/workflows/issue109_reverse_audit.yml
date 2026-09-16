@@ -22,7 +22,7 @@ jobs:
       - name: Materialize audit-only Special vs General ledger
         run: |
           set -euo pipefail
-          python3 scripts/issue109/materialize_reverse_audit.py | tee issue109-summary.log
+          python3 scripts/issue109/materialize_reverse_audit.py
 
       - name: Validate audit boundaries
         run: |
@@ -46,8 +46,7 @@ jobs:
       - name: Ensure production and independent lanes are untouched
         run: |
           set -euo pipefail
-          changed="$(git status --short)"
-          printf '%s\n' "$changed"
+          git status --short --untracked-files=all
           python3 - <<'PY'
           import subprocess
           allowed={
@@ -55,11 +54,16 @@ jobs:
             'docs/issue109/review_queue_v1.csv',
             'docs/issue109/mechanical_triage_summary_v1.json',
           }
-          lines=subprocess.check_output(['git','status','--porcelain'], text=True).splitlines()
+          lines=subprocess.check_output(
+              ['git','status','--porcelain','--untracked-files=all'], text=True
+          ).splitlines()
           paths={line[3:] for line in lines if line.strip()}
           unexpected=paths-allowed
+          missing=allowed-paths
           if unexpected:
               raise SystemExit(f'unexpected generated paths: {sorted(unexpected)}')
+          if missing:
+              raise SystemExit(f'expected audit outputs missing: {sorted(missing)}')
           print('ISSUE109_GENERATED_PATH_GATE=PASS')
           PY
 
