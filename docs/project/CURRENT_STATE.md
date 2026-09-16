@@ -14,8 +14,9 @@ Current maintenance route:
 - **Issue #77 — Prompt output profile switch + tolerant one-click import is completed and integrated into `main` at `60b15d8fef877c70eac5e4f0f5d67ebd358904d7`.**
 - **Issue #75 — WQHD visual polish pass is completed and integrated into `main` at `a315bdf6933e5e089174bc32c3ad6a8abc021082`.**
 - **Issue #114 `[DEV][ARCH][PERF] WPF architecture stabilization and runtime catalog index refactor` is completed and integrated into `main`.** Accepted Phase 1–4 source was developed on `codex/issue114-phase3-wpf-performance` through `6880f0a23ca594f8a3e673537a22389543e1124d`, following the live activation authority `5697124968` and DEV Phase 4 acceptance `5699672455`.
+- **Post-#114 two-column WPF hotfix is completed and integrated into `main` at `7376b9d48e29af06ecd1c8604676a0611e974aa4`.** Real workstation use exposed two follow-up layout defects: the effective column count was not recomputed after final/maximized layout, and the second card could remain collapsed because its XAML null-check bound to the wrong scope. The accepted three-commit sequence is `0cadf04799607bf942d623b830e549c34ccae826` -> `0ab8f085d81e9539ef074506848fcf7be097a6ea` -> `7376b9d48e29af06ecd1c8604676a0611e974aa4`; it was fast-forwarded to main without force-push, squash, or merge commit after the user confirmed the two-column runtime display was fixed.
 - Issue #74 — WQHD-first dictionary workspace redesign is completed and integrated into `main` at `f6e8345391cb445010c5fe23f2b1e480b4c514fd`.
-- Issue #73 — English Prompt pane density + dictionary add/remove toggle is completed and integrated into `main` at `079964b69192b5191b1bda5e9894b7138f8c75c2`.
+- Issue #73 — English Prompt pane density + safe dictionary add/remove toggle is completed and integrated into `main` at `079964b69192b5191b1bda5e9894b7138f8c75c2`.
 - Issue #72 — Prompt category view prototype remains completed and integrated into `main` at `174fee90b23e4a350ffe71d7b60aa834b8cb1296`.
 - **Issue #109 — Special reverse audit and production decision are completed.** Production Special is now **3,059 rows** with maximum Special ID **3,088**; the 29 user-approved removals remain stable-ID gaps and no IDs were renumbered. The production source is `data/generation/special2788_generation_profile.csv`; the legacy filename is retained for compatibility.
 - **Issue #109 local integration is completed in the workstation runtime.** The catalog was explicitly rebuilt once from the completed production profile and the WPF runtime in `artifacts/current/` was refreshed from the same Release build; local Special is 3,059 and General is 30,629.
@@ -34,6 +35,7 @@ Issue #114 completion scope now integrated into main:
 - MainViewModel feature separation into Dictionary, Prompt, Presets, Forge, and user-state coordination;
 - explicit Dictionary/Prompt view composition and DataContext regression coverage;
 - WPF virtualized Dictionary result rows, Prompt canonical targeted refresh, Query per-keystroke persistence suppression, General Paths cache, and column-aware keyboard navigation.
+- post-integration two-column regression coverage: recompute column count after final/maximized layout and verify both cards in a two-entry visual row are visible with non-zero width; source anchor `7376b9d48e29af06ecd1c8604676a0611e974aa4`.
 
 Practical WPF validation covered the available **33,688-entry** catalog. The **126,427-entry** production WPF workstation validation remains unverified and must not be inferred from the integrated code.
 
@@ -216,7 +218,7 @@ Artifacts remain untracked. Cleanup must be scoped to known disposable artifact 
 
 ## Current route
 
-`#66 practical v1 accepted -> #68 cleanup completed -> #69 local final cleanup completed -> #72 completed/merged -> #73 completed/merged -> #74 completed/merged -> #75 completed/merged -> #77 completed/merged -> #79 completed/merged -> #80 completed/merged -> #76 completed/merged -> #83 completed/merged -> #114 Phase 1–4 completed/merged`
+`#66 practical v1 accepted -> #68 cleanup completed -> #69 local final cleanup completed -> #72 completed/merged -> #73 completed/merged -> #74 completed/merged -> #75 completed/merged -> #77 completed/merged -> #79 completed/merged -> #80 completed/merged -> #76 completed/merged -> #83 completed/merged -> #114 Phase 1–4 completed/merged -> post-#114 two-column hotfix merged`
 
 Issue #83 superseded the earlier broad-cleanup hold state: obsolete/reproducible legacy assets were removed after dependency proof while current product state, active #70, current catalog inputs, and unresolved HOLD items were preserved.
 
@@ -224,7 +226,7 @@ Issue #70 GitHub data/integration work is complete; only the workstation catalog
 
 Short form:
 
-`#64 accepted/integrated + #66 practical v1 accepted -> #68/#69 completed -> #72/#73/#74/#75/#77/#79/#80/#76/#83 completed/merged -> #114 Phase 1–4 completed/merged`
+`#64 accepted/integrated + #66 practical v1 accepted -> #68/#69 completed -> #72/#73/#74/#75/#77/#79/#80/#76/#83 completed/merged -> #114 Phase 1–4 + two-column hotfix completed/merged`
 
 Portable/second-PC acceptance is not in this critical path.
 
@@ -240,7 +242,7 @@ Portable/second-PC acceptance is not in this critical path.
 | `MAINT:#68` | **COMPLETED** | tracked-root normalization complete; Phase 2E accepted safe no-op | Issue #68 completion checkpoint `5665690628` |
 | `MAINT:#69` | **COMPLETED** | preserve unique local evidence, retire safe stale worktrees/caches, normalize primary root to live main, validate WPF/catalog/data | Issue #69 final DEV closeout comment |
 | `MAINT:#83` | **COMPLETED / MERGED** | dependency-proven aggressive cleanup of obsolete/reproducible local assets and retired legacy runtime artifacts | Issue #83 + PR #84 + main `7ef69e6c7ffa6a76037f97226a9ed067d59c360d` |
-| `ARCH:#114` | **COMPLETED / ACCEPTED + MERGED** | WPF runtime catalog/index boundary, feature ViewModel separation, virtualized Dictionary rows, targeted Prompt refresh, durable Query policy, view composition, and keyboard navigation | Issue #114 DEV Phase 4 acceptance `5699672455` + accepted source `6880f0a23ca594f8a3e673537a22389543e1124d` |
+| `ARCH:#114` | **COMPLETED / ACCEPTED + MERGED** | WPF runtime catalog/index boundary, feature ViewModel separation, virtualized Dictionary rows, targeted Prompt refresh, durable Query policy, view composition, keyboard navigation, and post-integration two-column layout regression fix | Issue #114 DEV Phase 4 acceptance `5699672455` + accepted Phase 1–4 source `6880f0a23ca594f8a3e673537a22389543e1124d` + hotfix main `7376b9d48e29af06ecd1c8604676a0611e974aa4` |
 | `POST-V1:#77` | **COMPLETED / MERGED** | generic persistent Prompt output profiles and conservative one-click import | Issue #77 + main `60b15d8fef877c70eac5e4f0f5d67ebd358904d7` |
 | `POST-V1:#79` | **COMPLETED / MERGED** | local reusable Positive presets paired with opaque Negative Prompt copy | Issue #79 + main `8f0ba2a1133e4ad63f0a6ccd08eb17a3dda58d93` |
 | `POST-V1:#80` | **COMPLETED / MERGED** | local Forge bridge for visible English Prompt delivery to txt2img fields without generation | Issue #80 + main `f5ced15e3a368cae29f869527a20bcb41c7237b4` |
@@ -268,6 +270,7 @@ Historical only:
 - Issue #66 Phase C General integration and practical-v1 acceptance — completed at main `1486fc242d2eadf9ca24ed803e50ad7af7294004`; final Windows acceptance PASS, Release tests 77/77 PASS
 - Issue #83 aggressive local cleanup — completed/merged; obsolete legacy/runtime-index assets retired and 14.196 GB reclaimed
 - Issue #114 architecture stabilization Phase 1–4 — completed/accepted/merged; practical validation used 33,688 catalog entries, while 126,427-entry production WPF validation remains open as follow-up
+- Post-#114 two-column WPF hotfix — completed/merged at `7376b9d48e29af06ecd1c8604676a0611e974aa4`; wide-window layout recomputation and second-card visibility regressions are covered by WPF composition tests and were confirmed fixed in the workstation runtime before main fast-forward.
 
 Do not restart completed foundations wholesale without demonstrated regression or explicit redesign decision.
 
