@@ -22,11 +22,12 @@ jobs:
 
       - name: Materialize exact 105-row promotion preflight
         run: |
+          mkdir -p artifacts/issue107
           python3 scripts/issue107/materialize_promotion_preflight.py \
             --candidates docs/issue104/special_candidate_subset_v1.csv \
             --profile data/generation/special2788_generation_profile.csv \
             --out-dir artifacts/issue107 \
-            | tee artifacts/issue107_preflight.log
+            | tee artifacts/issue107/preflight.log
 
       - name: Validate fixed preflight contract
         run: |
