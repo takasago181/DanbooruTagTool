@@ -15,7 +15,8 @@ Base live-main: `a8d19e23483f10c4eb7c87b3a0dfa89ff24e4f41`
 ## Build and tests
 
 - Release build: PASS, 0 warnings / 0 errors
-- Full .NET tests: `141 passed / 7 skipped / 0 failed` (`148 total`)
+- Full .NET tests: `134 passed / 7 skipped / 0 failed` (`141 total`)
+- The test total is seven lower because the former eight-case Theory was consolidated into one Fact covering the required 12-query legacy-vs-runtime comparison; no coverage cases were removed.
 - Issue #114 focused tests: `5 passed / 0 skipped / 0 failed` (including the full 12-query equivalence test and synthetic measurement)
 - Issue73 / Issue74 / Issue76 / DataAndViewModel focused regressions: `36 passed / 1 skipped / 0 failed`
 - `git diff --check`: PASS
