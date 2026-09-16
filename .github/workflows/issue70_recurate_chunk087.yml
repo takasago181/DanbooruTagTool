@@ -1,0 +1,277 @@
+name: Issue70 Recurate Chunk 87 One Shot
+
+on:
+  push:
+    paths:
+      - '.github/workflows/issue70_recurate_chunk087.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  recurate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Re-curate chunk 87 semantically
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from __future__ import annotations
+          import csv, sys
+          from pathlib import Path
+
+          ROOT = Path('.')
+          path = ROOT / 'docs/issue70/data/results/queue/queue_chunk087_I70-043001_I70-043500.csv'
+          fields = ['row_id','canonical_tag','category','display_ja','search_ja','translation_status','translation_note']
+
+          corrections = {
+              'I70-043003': 'Project QT',
+              'I70-043004': 'Reactivate Majestical Imperial',
+              'I70-043010': 'Street Fighter: Duel',
+              'I70-043024': 'Call of Duty: Mobile',
+              'I70-043025': '小さな森のオオカミちゃん',
+              'I70-043026': 'Deep Rock Galactic',
+              'I70-043027': 'ドラゴンボールZ 神と神',
+              'I70-043028': 'DREAM C CLUB Gogo.',
+              'I70-043033': 'HAND MAID メイ',
+              'I70-043035': '悲劇の元凶となる最強外道ラスボス女王は民の為に尽くします。',
+              'I70-043036': 'ゼルダ無双 封印戦記',
+              'I70-043037': 'IRIS OUT',
+              'I70-043039': 'ジョジョの奇妙な冒険 未来への遺産',
+              'I70-043045': 'ラブライブ！スクールアイドルフェスティバル ～after school ACTIVITY～',
+              'I70-043047': 'Monster High（G3）',
+              'I70-043048': 'Nikki UP2U',
+              'I70-043049': 'NKshoujo',
+              'I70-043050': 'Nuye',
+              'I70-043052': 'Orange Memories',
+              'I70-043055': 'Project A.D.A.',
+              'I70-043056': 'QP Shooting',
+              'I70-043057': 'Quartett!',
+              'I70-043059': 'ランス01 光をもとめて',
+              'I70-043066': 'スパイダーマン（2002年映画）',
+              'I70-043067': 'Sweetest Music',
+              'I70-043068': 'テイルズ オブ ザ ワールド レディアント マイソロジー3',
+              'I70-043070': 'The Hungry Lamb: Traveling in the Late Ming Dynasty',
+              'I70-043071': 'The Office',
+              'I70-043078': 'Virtual Insanity',
+              'I70-043081': 'NARAKA: BLADEPOINT',
+              'I70-043083': "A Summer's End: Hong Kong 1986",
+              'I70-043085': 'ANANTA',
+              'I70-043090': 'コズミックブレイク2',
+              'I70-043093': 'ガイキング LEGEND OF DAIKU-MARYU',
+              'I70-043095': '機動戦士ガンダム 水星の魔女 青春フロンティア',
+              'I70-043098': 'Insomniac Workers',
+              'I70-043099': '遺作',
+              'I70-043100': 'かみさまみならい ヒミツのここたま',
+              'I70-043104': '暗く黒く',
+              'I70-043119': 'ポケモンレンジャー バトナージ',
+              'I70-043120': 'Power Rangers（BOOM! Studios）',
+              'I70-043121': 'Radiohead',
+              'I70-043122': 'バイオハザード CODE:Veronica',
+              'I70-043123': 'Saimoe',
+              'I70-043130': 'START!! True dreams',
+              'I70-043131': 'Sucking Up to Death',
+              'I70-043133': 'The Rolling Riceball',
+              'I70-043135': 'Tragic Drops',
+              'I70-043136': 'Transformers: War for Cybertron',
+              'I70-043139': 'ZYTOKINE',
+              'I70-043142': 'Archie',
+              'I70-043143': 'ARIEL',
+              'I70-043146': '魂斗羅',
+              'I70-043149': 'ドクター・ストレンジ／マルチバース・オブ・マッドネス',
+              'I70-043153': 'Falslander',
+              'I70-043157': 'GIRL FRIENDS',
+              'I70-043162': 'ヒックとドラゴン',
+              'I70-043163': '怒',
+              'I70-043164': 'JINX',
+              'I70-043165': 'Jump King',
+              'I70-043167': 'Kaiserreich',
+              'I70-043169': 'KDE',
+              'I70-043172': 'Last Episode（Fate）',
+              'I70-043176': 'No Home',
+              'I70-043178': 'Office Workers（BlushySpicy）',
+              'I70-043183': 'PSYREN -サイレン-',
+              'I70-043185': 'Secret Agent ～騎士学園の忍びなるもの～',
+              'I70-043189': 'Suica',
+              'I70-043192': 'ゼルダの伝説（CD-i）',
+              'I70-043198': 'Vlad Grimms',
+              'I70-043199': 'X-COM',
+              'I70-043200': 'Xross Stars',
+              'I70-043202': 'Angel Notes',
+              'I70-043205': 'BALATRO',
+              'I70-043208': '超次元大戦 ネプテューヌVSセガ・ハード・ガールズ 夢の合体スペシャル',
+              'I70-043209': 'Colorfulness',
+              'I70-043211': 'Corruption of Champions II',
+              'I70-043212': 'CRACKLE CRADLE',
+              'I70-043215': 'EMOTION',
+              'I70-043217': 'ファイト・クラブ',
+              'I70-043218': 'Flying Red Barrel',
+              'I70-043220': 'ヘンタイ・プリズン',
+              'I70-043225': 'こっち向いて Baby',
+              'I70-043227': 'リーグ オブ エンジェルズ',
+              'I70-043231': 'マリオゴルフ スーパーラッシュ',
+              'I70-043232': 'MOBIUS FINAL FANTASY',
+              'I70-043235': '舞-乙HiME 0～S.ifr～',
+              'I70-043237': 'Nyanyanyanyanyanyanya!',
+              'I70-043239': 'PEAK',
+              'I70-043240': 'ポケモンレンジャー 光の軌跡',
+              'I70-043241': '劇場版ポケットモンスター 幻のポケモン ルギア爆誕',
+              'I70-043244': 'REGRETEVATOR',
+              'I70-043245': 'バイオハザード：デスアイランド',
+              'I70-043250': '秘封活動記録',
+              'I70-043252': 'Tower Defense Simulator',
+              'I70-043255': 'Unbalance Unbalance',
+              'I70-043256': '黄昏酒場 ～Uwabami Breakers～',
+              'I70-043261': 'Asura Fantasy Online',
+              'I70-043263': 'Awakening Promise',
+              'I70-043264': '幕末浪漫第二幕 月華の剣士',
+              'I70-043268': '悪魔城ドラキュラ黙示録外伝 LEGEND OF CORNELL',
+              'I70-043272': 'FREELY TOMORROW',
+              'I70-043275': 'GANGNAM STYLE',
+              'I70-043281': '十二戦支 爆烈エトレンジャー',
+              'I70-043284': 'Kemono Friends Opening Day',
+              'I70-043289': 'MAMAMOO',
+              'I70-043292': 'MONGIL: STAR DIVE',
+              'I70-043294': 'NanaWind',
+              'I70-043299': 'PASH!',
+              'I70-043300': 'PHIGHTING!',
+              'I70-043301': 'プロミス',
+              'I70-043303': 'RAIDEEN（シリーズ）',
+              'I70-043309': '閃乱忍忍忍者大戦ネプテューヌ -少女達の響艶-',
+              'I70-043316': 'WATER BLUE NEW WORLD',
+              'I70-043319': 'Yumyverse',
+              'I70-043320': 'AniLive',
+              'I70-043321': 'ASUS',
+              'I70-043324': 'Battle for Dream Island',
+              'I70-043325': 'バンブルビー',
+              'I70-043328': 'CANNONBALL ～ねこねこマシン猛レース!～',
+              'I70-043331': 'Electric Hearts',
+              'I70-043334': 'グリムノーツ The Animation',
+              'I70-043335': 'Halo 3',
+              'I70-043336': 'Handymonsters',
+              'I70-043337': 'Hedon Bloodrite',
+              'I70-043339': '南京市紅山森林動物園',
+              'I70-043340': "I Can't Wait",
+              'I70-043342': 'IMITATION BLACK',
+              'I70-043343': '日本民間放送連盟',
+              'I70-043346': '奇々怪界',
+              'I70-043350': "Mirror's Edge",
+              'I70-043356': 'クイーンズブレイド スパイラルカオス',
+              'I70-043358': 'REVENGER',
+              'I70-043360': 'Routes -ルーツ-',
+              'I70-043361': 'RWBY 氷雪帝国',
+              'I70-043365': 'The Summoning',
+              'I70-043368': 'Versen',
+              'I70-043371': 'ヨルハ',
+              'I70-043372': 'イース セルセタの樹海',
+              'I70-043374': 'After School Lessons for Unripe Apples',
+              'I70-043375': 'アサシン クリード ユニティ',
+              'I70-043376': 'CONERU -DIMENSION GIRL-',
+              'I70-043377': '男子禁制ゲーム世界で俺がやるべき唯一のこと ～百合の間に挟まる男として転生してしまいました～',
+              'I70-043379': 'Duel Masters LOST',
+              'I70-043380': 'Eternal-E',
+              'I70-043387': 'htoL#NiQ -ホタルノニッキ-',
+              'I70-043388': 'itemLabel',
+              'I70-043389': '実は監禁満喫？くるみちゃん！',
+              'I70-043390': 'ジョジョの奇妙な冒険 オールスターバトル',
+              'I70-043391': 'Just Because!',
+              'I70-043397': 'Ladymade Star',
+              'I70-043400': 'Master of Epic',
+              'I70-043403': 'MEKPARK',
+              'I70-043404': 'メトロ・ゴールドウィン・メイヤー',
+              'I70-043407': 'MITAMA ～忍～',
+              'I70-043412': 'クイーンズブレイド リミットブレイク',
+              'I70-043418': 'Sakura Tale',
+              'I70-043419': 'シザー・セブン',
+              'I70-043423': 'SIREN',
+              'I70-043427': '最強の王様、二度目の人生は何をする？',
+              'I70-043428': 'The Fire Rises',
+              'I70-043429': 'The Scramble Vice',
+              'I70-043431': 'TRICK & CUTE',
+              'I70-043432': 'ウマ娘 プリティーダービー 熱血ハチャメチャ大感謝祭！',
+              'I70-043438': "You're Under My Skin!",
+              'I70-043439': 'ACE COMBAT 6 解放への戦火',
+              'I70-043440': "ALiCE'S EMOTiON",
+              'I70-043442': 'ALTER EGO',
+              'I70-043447': 'Beyond Citadel',
+              'I70-043450': 'ドラキュラ（1992年映画）',
+              'I70-043452': 'Chronicle of Myers',
+              'I70-043455': 'Devilish Hairdresser',
+              'I70-043460': 'Forza',
+              'I70-043463': 'ハリー・ポッターと呪いの子',
+              'I70-043464': 'Hojo Studio',
+              'I70-043466': 'Hylics',
+              'I70-043467': 'ICEY',
+              'I70-043470': 'イナズマイレブン クロス',
+              'I70-043474': 'Kiss to Lord to Darjeeling',
+              'I70-043476': 'Memories Off 6 ～T-wave～',
+              'I70-043477': 'Mighty（シリーズ）',
+              'I70-043478': 'MySlot',
+              'I70-043479': 'Mythbreakers（hololive English）',
+              'I70-043485': 'PRINCESS WALTZ',
+              'I70-043488': 'Re:ゼロからツギハグ異世界生活',
+              'I70-043489': 'バイオハザード／ダークサイド・クロニクルズ',
+              'I70-043494': 'ソニック・ザ・ヘッジホッグ（OVA）',
+              'I70-043496': 'Star Linker',
+              'I70-043500': 'The Raven Cycle',
+          }
+
+          explicit_review = {
+              'I70-043002',  # police_and_lady: candidate is unrelated and exact work identity/title remains unresolved
+              'I70-043177',  # obsession_(movie): film identity/year is underspecified
+          }
+
+          with path.open(encoding='utf-8-sig', newline='') as f:
+              rows = list(csv.DictReader(f))
+          if len(rows) != 500:
+              raise SystemExit(f'expected 500 rows, found {len(rows)}')
+          ids = {r['row_id'] for r in rows}
+          if set(corrections) - ids or explicit_review - ids:
+              raise SystemExit('row-id mismatch in correction/review map')
+
+          counts = {'ACCEPTED_AI': 0, 'REVIEW_REQUIRED': 0}
+          corrected = promoted = 0
+          for row in rows:
+              rid = row['row_id']
+              old_display = row['display_ja']
+              old_status = row['translation_status']
+              if rid in explicit_review:
+                  row['translation_status'] = 'REVIEW_REQUIRED'
+                  row['translation_note'] = 'semantic re-curation: genuinely ambiguous/unresolved; manual verification still required'
+              else:
+                  if rid in corrections:
+                      row['display_ja'] = corrections[rid]
+                      if row['display_ja'] != old_display:
+                          corrected += 1
+                  row['translation_status'] = 'ACCEPTED_AI'
+                  row['translation_note'] = 'semantic re-curation: title/name judged usable; official/common rendering preferred over literal candidate'
+                  if old_status != 'ACCEPTED_AI':
+                      promoted += 1
+              counts[row['translation_status']] += 1
+
+          with path.open('w', encoding='utf-8', newline='') as f:
+              w = csv.DictWriter(f, fieldnames=fields, lineterminator='\n')
+              w.writeheader(); w.writerows(rows)
+
+          sys.path.insert(0, str(ROOT))
+          from scripts.issue70.publish_local_batch import validate_result
+          entry, validated_rows = validate_result(ROOT, path)
+          if int(entry['chunk_index']) != 87 or len(validated_rows) != 500:
+              raise SystemExit('validator mismatch for chunk 87')
+          print({'counts': counts, 'corrected_display': corrected, 'promoted_to_accepted': promoted})
+          PY
+
+      - name: Commit re-curated result
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/issue70/data/results/queue/queue_chunk087_I70-043001_I70-043500.csv
+          git commit -m 'Issue70: semantically re-curate chunk 87 [skip ci]'
+          git pull --rebase origin main
+          git push origin HEAD:main
