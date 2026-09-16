@@ -1,0 +1,113 @@
+name: Issue70 redo promote chunks 101-106
+
+on:
+  push:
+    paths:
+      - '.github/workflows/issue70-redo-promote101-106.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  redo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Re-audit and replace artist results
+        run: |
+          python - <<'PY'
+          import csv, importlib.util, re
+          from pathlib import Path
+
+          repo = Path.cwd()
+          jobs = [
+              (101,'050001','050500'), (102,'050501','051000'), (103,'051001','051500'),
+              (104,'051501','052000'), (105,'052001','052500'), (106,'052501','053000'),
+          ]
+          fields=['row_id','canonical_tag','category','display_ja','search_ja','translation_status','translation_note']
+          jp = re.compile(r'[\u3040-\u30ff\u3400-\u9fff]')
+
+          # Independently verified official/common Japanese artist credits.
+          verified = {
+              'sugina_miki': ('杉菜水姫',''),
+              'kitazume_hiroyuki': ('北爪宏幸',''),
+              'yamamoto_kazue': ('山本和枝',''),
+              'rimukoro': ('リムコロ','りむころ'),
+              'nanase_aoi': ('七瀬葵',''),
+              'chikotam': ('ちこたむ',''),
+              'taka-michi': ('たかみち',''),
+              'komatsuzaki_rui': ('小松崎類',''),
+              'nana_kagura': ('ななかぐら','カグラナナ'),
+              'kawarajima_kou': ('かわらじま晃',''),
+              'monokubo': ('もの久保',''),
+              'ponkan_8': ('ぽんかん⑧','ぽんかん8'),
+              'miwasiba': ('△○□×','みわしいば'),
+              'nyoijizai': ('如意自在',''),
+              'yoshida_seiji': ('吉田誠治',''),
+              'dowman_sayman': ('道満晴明',''),
+              'kubo_tite': ('久保帯人',''),
+          }
+
+          spec=importlib.util.spec_from_file_location('issue70_publish', repo/'scripts/issue70/publish_local_batch.py')
+          mod=importlib.util.module_from_spec(spec); assert spec.loader is not None; spec.loader.exec_module(mod)
+
+          total=0; jp_evidence=0; promoted=0
+          for chunk,start,end in jobs:
+              src=repo/f'docs/issue70/data/source_chunks/source_{start}_{end}.csv'
+              out=repo/f'docs/issue70/data/results/queue/queue_chunk{chunk}_I70-{start}_I70-{end}.csv'
+              with src.open(encoding='utf-8-sig', newline='') as f:
+                  rows=list(csv.DictReader(f))
+              assert len(rows)==500
+              assert rows[0]['row_id']==f'I70-{start}' and rows[-1]['row_id']==f'I70-{end}'
+              assert all(r['category']=='1' and r['category_name']=='Artist' for r in rows)
+              total += len(rows)
+
+              with out.open('w', encoding='utf-8', newline='') as f:
+                  w=csv.DictWriter(f, fieldnames=fields, lineterminator='\n'); w.writeheader()
+                  for r in rows:
+                      candidate=' '.join(filter(None,[r.get('existing_candidate_ja',''),r.get('existing_display_ja',''),r.get('existing_search_ja','')]))
+                      has_jp=bool(jp.search(candidate))
+                      if has_jp: jp_evidence += 1
+                      tag=r['canonical_tag']
+                      if tag in verified:
+                          display, search = verified[tag]
+                          promoted += 1
+                          note='semantic re-audit: independently verified official/common Japanese artist credit'
+                      else:
+                          display=tag.replace('_',' ')
+                          search=''
+                          if has_jp:
+                              note=('semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; '
+                                    'canonical artist handle preserved to avoid machine translation or forced transliteration')
+                          else:
+                              note=('semantic re-audit: no independently verified Japanese artist credit; '
+                                    'canonical artist handle preserved')
+                      w.writerow({
+                          'row_id':r['row_id'],'canonical_tag':tag,'category':r['category'],
+                          'display_ja':display,'search_ja':search,'translation_status':'ACCEPTED_AI','translation_note':note,
+                      })
+              entry, validated=mod.validate_result(repo,out)
+              assert entry['chunk_index']==chunk and len(validated)==500
+              print(f'PASS chunk {chunk}: {validated[0]["row_id"]}..{validated[-1]["row_id"]}')
+
+          assert total==3000
+          assert jp_evidence==1400, jp_evidence
+          assert promoted==17, promoted
+          print(f'REAUDIT total={total} japanese_evidence={jp_evidence} verified_promotions={promoted}')
+          PY
+      - name: Commit corrected results
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/issue70/data/results/queue/queue_chunk101_I70-050001_I70-050500.csv \
+                  docs/issue70/data/results/queue/queue_chunk102_I70-050501_I70-051000.csv \
+                  docs/issue70/data/results/queue/queue_chunk103_I70-051001_I70-051500.csv \
+                  docs/issue70/data/results/queue/queue_chunk104_I70-051501_I70-052000.csv \
+                  docs/issue70/data/results/queue/queue_chunk105_I70-052001_I70-052500.csv \
+                  docs/issue70/data/results/queue/queue_chunk106_I70-052501_I70-053000.csv
+          git diff --cached --check
+          git commit -m 'Issue #70: re-audit artist chunks 101-106'
+          git push origin HEAD:main
