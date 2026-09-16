@@ -2,9 +2,9 @@
 """Issue #70 semantic risk census v2.
 
 This wrapper keeps the v1 I/O/ledger machinery but replaces the deliberately
-broad first-pass screening with category-aware rules learned from the first
-real 92,739-row census. In particular, blank search_ja and normal Artist
-romanization are not treated as defects.
+broad first-pass screening with category-aware, runtime-aware rules learned
+from the first real 92,739-row census. Blank search_ja, normal Artist
+romanization, and omission of display_ja from search_ja are not defects.
 """
 
 from __future__ import annotations
@@ -15,9 +15,6 @@ from collections import defaultdict
 from pathlib import Path
 from typing import Any
 
-# Running this file directly makes scripts/issue70 the initial sys.path entry.
-# Add repository root explicitly so the shared Issue70 module is importable in
-# GitHub Actions and local direct execution alike.
 ROOT = Path(__file__).resolve().parents[2]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
@@ -44,10 +41,13 @@ def score_row(record: dict[str, Any]) -> None:
 
     search_terms = base.split_pipe(search)
     search_norm = base.uniq_norm(search_terms)
-    # Blank search_ja is valid in the current overlay. Only a populated search
-    # field that omits display is a search-quality signal.
+    # RuntimeCatalogIndex.SearchDocument.Create() always indexes entry.Japanese
+    # separately from entry.JapaneseSearch. Therefore blank search_ja or search_ja
+    # omitting display_ja is not a semantic defect. Keep the diagnostic flag for
+    # analysis only when a populated search list omits display, but do not select
+    # ACCEPTED_AI solely because of it.
     if search_terms and display and base.norm(display) not in search_norm:
-        base.add_flag(record, "DISPLAY_MISSING_FROM_SEARCH", 2)
+        base.add_flag(record, "DISPLAY_MISSING_FROM_SEARCH", 0)
     if len(search_terms) > 8:
         base.add_flag(record, "SEARCH_TOO_MANY_TERMS", 2)
     if len(search_norm) != len(search_terms):
@@ -121,21 +121,18 @@ def is_accepted_risk(row: dict[str, Any]) -> bool:
         "UNICODE_REPLACEMENT_CHAR",
         "UNBALANCED_BRACKETS",
     }
+    # High-impact rows remain deliberately covered regardless of flags.
     if impact == "TOP_1_PERCENT" or flags & structural:
         return True
     if "DUPLICATE_DISPLAY_WITHIN_CATEGORY" in flags:
         return True
     if flags & {"DISPLAY_MATCHES_REJECTED_JA", "SEARCH_CONTAINS_REJECTED_JA"}:
         return True
-    if "DISPLAY_MISSING_FROM_SEARCH" in flags:
-        return True
 
     if category == "Artist":
-        if "ARTIST_JA_DISPLAY_UNSUPPORTED_BY_SOURCE" in flags:
-            return True
-        if impact == "TOP_10_PERCENT" and "NO_SOURCE_JA_EVIDENCE_OVERLAP" in flags:
-            return True
-        return False
+        # ASCII/romanized handles are normal. Only Japanese readings unsupported
+        # by preserved source evidence are singled out beyond the top-1% impact set.
+        return "ARTIST_JA_DISPLAY_UNSUPPORTED_BY_SOURCE" in flags
 
     if (
         "JA_DISPLAY_NOT_EXACT_SOURCE_EVIDENCE" in flags
@@ -155,15 +152,16 @@ def rewrite_summary(out: Path) -> None:
     path = out / "risk_summary.json"
     data = json.loads(path.read_text(encoding="utf-8"))
     data["format_version"] = 2
-    data["mode"] = "read_only_semantic_risk_census_v2_category_aware"
+    data["mode"] = "read_only_semantic_risk_census_v2_category_and_runtime_aware"
     data["selection_policy"]["accepted_risk"] = (
-        "category-aware: all top-1%-impact + structural/conflict/collision signals; "
-        "blank search_ja and normal Artist romanization are not defects; top-10% "
-        "evidence gaps are prioritized"
+        "runtime-aware category screening: all top-1%-impact + structural/conflict/"
+        "collision signals; blank search_ja and display omission from search_ja are "
+        "valid because RuntimeCatalogIndex indexes display_ja separately; normal "
+        "Artist romanization is not a defect"
     )
     data["selection_policy"]["v1_disposition"] = (
-        "superseded: v1 over-selected Artist because blank search and canonical-like "
-        "romanization were incorrectly treated as risk"
+        "superseded: v1 over-selected Artist and search fields; v2 is constrained "
+        "by the actual RuntimeCatalogIndex search contract"
     )
     path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
