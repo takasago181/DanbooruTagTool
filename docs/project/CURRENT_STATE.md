@@ -12,6 +12,7 @@
 - Deferred: SoftwareOnly/rendering mode, SearchEngine ranking/normalization/index changes, database schemas, Prompt parser/output semantics, taxonomy, Issue #70 runtime data, and production Special identities.
 - `CURRENT_DEV_TASK.md` on live main is the completed #83 mirror; the active branch mirror is synchronized to Issue #113 and must not be used to alter live main.
 - Issue #70 is integrated on GitHub, but this task must not claim workstation performance against the expected 126,427-entry catalog without an explicit local rebuild and smoke test.
+- Branch checkpoint `223f8a5f` passes the full Release regression (136 passed / 7 skipped) and Issue #113 focused coverage (7/7); the branch remains unmerged and unpushed to `main`.
 
 ## Current Stage
 

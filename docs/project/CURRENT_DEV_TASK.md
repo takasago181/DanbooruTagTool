@@ -33,9 +33,12 @@ Pre-edit baseline on the clean branch used the bundled SDK `10.0.401`:
 - Release full .NET tests: 129 passed / 7 skipped / 0 failed, 3,878 ms.
 - No production catalog was supplied; production facts remained skipped.
 
-## Required evidence before handoff
+## Current implementation checkpoint
 
-- Release build and full .NET regression.
-- Focused Issue #113 plus Issue73/Issue74/Issue76/DataAndViewModel/Production test coverage.
-- Synthetic large-result projection measurement and available responsiveness/persistence measurements.
-- `git diff --check`, protected/canonical/taxonomy/schema boundary confirmation, and clean working-tree status.
+- Implementation commit: `223f8a5f` (`perf: virtualize WPF dictionary results`).
+- Release solution build: PASS, 0 warnings / 0 errors.
+- Full .NET tests: 136 passed / 7 skipped / 0 failed.
+- Focused: Issue #113 7/7; Issue73 6/6; Issue74 2/2; Issue76 13 passed / 1 skipped; DataAndViewModel 15/15; Production facts 3 skipped because the protected catalog was not supplied.
+- Synthetic 126,427-entry projection: 63,214 display rows in 2.03 ms; row projection creates no WPF card/container instances.
+- WPF actual realized-container inspection was not available because the provided CUA helper lacked the target-app binding API; no workstation 126,427-entry claim is made.
+- `git diff --check`: PASS; #70 data/importer, canonical data, taxonomy, catalog.db schema, and user.db schema are untouched.
