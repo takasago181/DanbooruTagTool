@@ -1,0 +1,34 @@
+name: issue70-chunk117-118-auditprep
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/issue70_chunk117_118_auditprep.yml'
+permissions:
+  contents: read
+jobs:
+  auditprep:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Extract Japanese candidates
+        shell: python
+        run: |
+          import csv, re
+          from pathlib import Path
+          files=[
+            Path('docs/issue70/data/source_chunks/source_058001_058500.csv'),
+            Path('docs/issue70/data/source_chunks/source_058501_059000.csv'),
+          ]
+          jp=re.compile(r'[\u3040-\u30ff\u3400-\u9fff]')
+          rows=[]
+          for p in files:
+            with p.open('r',encoding='utf-8-sig',newline='') as f:
+              for r in csv.DictReader(f):
+                assert r['category_name']=='Artist'
+                c=r['existing_candidate_ja'].strip()
+                if c and jp.search(c):
+                  rows.append((r['row_id'],r['canonical_tag'],r['verified_aliases'],c))
+          print('JP_CANDIDATE_COUNT',len(rows))
+          for row in rows:
+            print('CAND\t'+'\t'.join(row))
