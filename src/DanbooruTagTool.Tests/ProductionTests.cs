@@ -19,11 +19,11 @@ public class ProductionTests(ITestOutputHelper output)
     {
         var path=Environment.GetEnvironmentVariable("DTT_PRODUCTION_CATALOG")!; var watch=Stopwatch.StartNew();
         var catalog=CatalogDatabase.Open(path); output.WriteLine($"Catalog open {watch.ElapsedMilliseconds} ms");
-        Assert.Equal(30629,catalog.Entries.Count(e=>!e.IsSpecial)); Assert.Equal(3088,catalog.Entries.Count(e=>e.IsSpecial));
+        Assert.Equal(30629,catalog.Entries.Count(e=>!e.IsSpecial)); Assert.Equal(AcceptedAssetImporter.ProductionSpecialCount,catalog.Entries.Count(e=>e.IsSpecial));
         Assert.Equal(28226,catalog.Entries.Count(e=>!e.IsSpecial && e.BrowseClassification==BrowseClassificationStatus.Proposed));
         Assert.Equal(2403,catalog.Entries.Count(e=>!e.IsSpecial && e.BrowseClassification==BrowseClassificationStatus.Unresolved));
         var special=catalog.Entries.Where(e=>e.IsSpecial).ToArray();
-        Assert.Equal(1918,special.Count(e=>e.CanBrowse)); Assert.Equal(12,special.Count(e=>!e.CanSearch));
+        Assert.Equal(1916,special.Count(e=>e.CanBrowse)); Assert.Equal(4,special.Count(e=>!e.CanSearch));
         output.WriteLine($"Special paths: {special.Count(e=>e.Paths.Length>0)} classified / {special.Count(e=>e.Paths.Length==0)} explicitly unresolved");
         var search=new SearchEngine(catalog);
         foreach (var q in new[]{"blue_hair","青い髪","anal","a","s","hair","blue hair","青い hair","anal_sex","blu","lue","blie hair"})
@@ -64,8 +64,8 @@ public class ProductionTests(ITestOutputHelper output)
         var provider=GeneralBrowseProvider.FromCatalog(catalog);
         Assert.False(provider.IsPending);
         Assert.Equal(28226,catalog.Entries.Count(e=>!e.IsSpecial && e.BrowseClassification==BrowseClassificationStatus.Proposed));
-        Assert.Equal(28220,provider.Browse("").Count);
-        Assert.Equal(6,catalog.Entries.Count(e=>!e.IsSpecial && e.BrowseClassification==BrowseClassificationStatus.Proposed && !e.CanBrowse));
+        Assert.Equal(28222,provider.Browse("").Count);
+        Assert.Equal(4,catalog.Entries.Count(e=>!e.IsSpecial && e.BrowseClassification==BrowseClassificationStatus.Proposed && !e.CanBrowse));
         Assert.DoesNotContain(provider.Browse(""),e=>e.BrowseClassification!=BrowseClassificationStatus.Proposed);
         using var temp=new TempDirectory();
         var store=new UserStateStore(Path.Combine(temp.Path,"UserData","user.db"));

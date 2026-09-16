@@ -96,7 +96,7 @@ public class TechnicalFixTests(ITestOutputHelper output)
         using var isolated = new TempDirectory();
         var files = Issue56Inputs.MappingHashes.Keys.Concat(new[]
         {
-            "data/special2788/product_fit_verdicts.csv", AcceptedAssetImporter.PromotionRelativePath, AcceptedAssetImporter.Issue107PromotionRelativePath,
+            "data/special2788/product_fit_verdicts.csv", AcceptedAssetImporter.ProductionProfileRelativePath, AcceptedAssetImporter.PromotionRelativePath, AcceptedAssetImporter.Issue107PromotionRelativePath,
             "docs/issue56/rollout/issue56_ui_genre_taxonomy_v1.json",
             AcceptedGeneralTaxonomyImporter.TaxonomyRelativePath, AcceptedGeneralTaxonomyImporter.SidecarRelativePath,
             AcceptedGeneralTaxonomyImporter.ManifestRelativePath
@@ -108,7 +108,7 @@ public class TechnicalFixTests(ITestOutputHelper output)
         Assert.All(before.Entries.Where(e=>!e.IsSpecial && e.BrowseClassification==BrowseClassificationStatus.Unresolved), e=>Assert.Empty(e.Paths));
         File.WriteAllText(Path.Combine(isolated.Path,"docs/issue56/rollout/reviewed/stray.csv"), "invalid unexpected input");
         var after = AcceptedAssetImporter.Read(source!, isolated.Path);
-        Assert.Equal(33717, after.Entries.Length); Assert.Equal(3088, after.Entries.Count(e => e.IsSpecial));
+        Assert.Equal(33688, after.Entries.Length); Assert.Equal(AcceptedAssetImporter.ProductionSpecialCount, after.Entries.Count(e => e.IsSpecial));
         Assert.Equal(JsonSerializer.Serialize(before), JsonSerializer.Serialize(after));
         Assert.DoesNotContain(after.SourceHashes.Keys, k => k.Contains("stray"));
         Assert.All(Issue56Inputs.MappingHashes, p => Assert.Equal(p.Value, after.SourceHashes[p.Key]));

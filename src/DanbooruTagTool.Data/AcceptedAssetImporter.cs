@@ -12,6 +12,8 @@ public static class AcceptedAssetImporter
     public const int BaseSpecialCount = 2788;
     public const int Issue96ExpandedSpecialCount = 2983;
     public const int ExpandedSpecialCount = 3088;
+    public const int ProductionSpecialCount = 3059;
+    public const string ProductionProfileRelativePath = "data/generation/special2788_generation_profile.csv";
     public const string PromotionRelativePath = "docs/issue96/special_expansion_promotion_proposal_v1.csv";
     public const string Issue107PromotionRelativePath = "docs/issue107/promotion_metadata_v1.csv";
     private const string PromotionHash = "cdeef93802f8b1ebf0e70b2fe82211e2fd8955b064b063f10093a3ff0642dc1f";
@@ -51,7 +53,7 @@ public static class AcceptedAssetImporter
         if (Hash(japanesePath) != "12f6ccdc5d2dba33123cdfa97a636b2fdd49a519ed89d327d330471696762e02") throw new InvalidDataException("Ruleset2 accepted Japanese hash mismatch");
         var japanese = Csv(japanesePath).ToDictionary(r => r["ID"]);
         var fitPath = Authority("data/special2788/product_fit_verdicts.csv");
-        if (Hash(fitPath) != "db612169f807e3d42851def381006d4eac2e00789d6cb81fa9a55862b12595f6") throw new InvalidDataException("#63 accepted sidecar hash mismatch");
+        if (Hash(fitPath) != "d1c3d3fff12f48169458fa9967674022dc42456f2ee8ed9bee5156e53ced7834") throw new InvalidDataException("#63 accepted sidecar hash mismatch");
         var fit = Csv(fitPath).ToDictionary(r => r["special_id"], r => r["product_fit_verdict"]);
         var promotionPath = Authority(PromotionRelativePath);
         if (Hash(promotionPath) != PromotionHash) throw new InvalidDataException("Issue #96 promotion proposal hash mismatch");
@@ -61,6 +63,9 @@ public static class AcceptedAssetImporter
         if (Hash(issue107PromotionPath) != Issue107PromotionHash) throw new InvalidDataException("Issue #107 promotion metadata hash mismatch");
         var issue107Promotion = Csv(issue107PromotionPath).OrderBy(row => int.Parse(row["proposed_special_id"], CultureInfo.InvariantCulture)).ToArray();
         ValidateIssue107Promotion(source, canonical, promotion, issue107Promotion);
+        var productionProfilePath = Authority(ProductionProfileRelativePath);
+        var productionProfile = Csv(productionProfilePath);
+        ValidateProductionProfile(productionProfile, source, promotion, issue107Promotion);
         using var taxonomy = JsonDocument.Parse(File.ReadAllText(Authority("docs/issue56/rollout/issue56_ui_genre_taxonomy_v1.json")));
         var paths = new Dictionary<string, BrowsePath>();
         foreach (var genre in taxonomy.RootElement.GetProperty("genres").EnumerateArray())
@@ -151,12 +156,39 @@ public static class AcceptedAssetImporter
                 BrowseClassificationStatus.NotApplicable,
                 new SpecialBrowseV2Classification(row["kind_id"], bodySites, themes, SpecialBrowseV2Status.HumanResolved)));
         }
+        var productionIds = productionProfile
+            .Select(row => int.Parse(row["SpecialID"], CultureInfo.InvariantCulture))
+            .ToHashSet();
+        entries = entries.Where(entry => !entry.IsSpecial || productionIds.Contains(ParseSpecialId(entry.Id))).ToList();
         // #63 canonical eligibility must also prevent General duplicates from bypassing exclusion.
         var specialGroups = entries.Where(e => e.IsSpecial && e.Canonical != null).GroupBy(e => e.Canonical!).ToDictionary(g => g.Key, g => g.ToArray());
         for (int i = 0; i < entries.Count; i++)
             if (!entries[i].IsSpecial && specialGroups.TryGetValue(entries[i].Canonical!, out var related) && related.All(e => !e.CanSearch))
                 entries[i] = entries[i] with { ProductFit = "OUT_OF_SCOPE_PRODUCT" };
         return new(entries.ToArray(), hashes);
+    }
+
+    private static void ValidateProductionProfile(
+        IReadOnlyList<Dictionary<string, string>> profile,
+        IReadOnlyDictionary<string, Dictionary<string, string>> source,
+        IReadOnlyList<Dictionary<string, string>> issue96Promotion,
+        IReadOnlyList<Dictionary<string, string>> issue107Promotion)
+    {
+        if (profile.Count != ProductionSpecialCount)
+            throw new InvalidDataException($"Production Special profile count drift: {profile.Count} != {ProductionSpecialCount}");
+        var ids = profile.Select(row => int.Parse(row["SpecialID"], CultureInfo.InvariantCulture)).ToArray();
+        if (ids.Distinct().Count() != ids.Length || ids.Any(id => id < 1 || id > ExpandedSpecialCount) || ids.Max() != ExpandedSpecialCount)
+            throw new InvalidDataException("Production Special profile IDs are not a stable subset of 1..3088");
+        var allTags = source.Values.ToDictionary(row => int.Parse(row["ID"], CultureInfo.InvariantCulture), row => row["Tag"]);
+        foreach (var row in issue96Promotion.Concat(issue107Promotion))
+            allTags[int.Parse(row["proposed_special_id"], CultureInfo.InvariantCulture)] = row["canonical_tag"];
+        foreach (var row in profile)
+        {
+            var id = int.Parse(row["SpecialID"], CultureInfo.InvariantCulture);
+            var tag = row["Tag"];
+            if (!allTags.TryGetValue(id, out var expectedTag) || expectedTag != tag)
+                throw new InvalidDataException("Production Special profile identity mismatch at " + id);
+        }
     }
     private static void ValidatePromotion(
         IReadOnlyDictionary<string, Dictionary<string, string>> source,
@@ -214,6 +246,9 @@ public static class AcceptedAssetImporter
         if (themes.Any(value => !SpecialBrowseV2Taxonomy.Themes.Any(item => item.Id == value))) throw new InvalidDataException("Invalid Issue #96 theme at " + id);
     }
     private static string[] SplitPipe(string value) => value.Split('|', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
+    private static int ParseSpecialId(string catalogId)
+        => catalogId.StartsWith("S:", StringComparison.Ordinal) && int.TryParse(catalogId.AsSpan(2), out var id)
+            ? id : throw new InvalidDataException("Invalid Special catalog id: " + catalogId);
     public static string Hash(string path) => Convert.ToHexStringLower(SHA256.HashData(File.ReadAllBytes(path)));
     public static IReadOnlyList<Dictionary<string, string>> Csv(string path, bool header = true)
     {

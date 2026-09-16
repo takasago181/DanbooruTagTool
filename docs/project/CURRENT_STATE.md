@@ -1,6 +1,6 @@
 # CURRENT STATE
 
-最終更新: 2026-09-15
+最終更新: 2026-09-16
 
 ## Current Stage
 
@@ -17,6 +17,8 @@ Current maintenance route:
 - Issue #74 — WQHD-first dictionary workspace redesign is completed and integrated into `main` at `f6e8345391cb445010c5fe23f2b1e480b4c514fd`.
 - Issue #73 — English Prompt pane density + dictionary add/remove toggle is completed and integrated into `main` at `079964b69192b5191b1bda5e9894b7138f8c75c2`.
 - Issue #72 — Prompt category view prototype remains completed and integrated into `main` at `174fee90b23e4a350ffe71d7b60aa834b8cb1296`.
+- **Issue #109 — Special reverse audit and production decision are completed.** Production Special is now **3,059 rows** with maximum Special ID **3,088**; the 29 user-approved removals remain stable-ID gaps and no IDs were renumbered. The production source is `data/generation/special2788_generation_profile.csv`; the legacy filename is retained for compatibility.
+- **Issue #109 local integration is completed in the workstation runtime.** The catalog was explicitly rebuilt once from the completed production profile and the WPF runtime in `artifacts/current/` was refreshed from the same Release build; local Special is 3,059 and General is 30,629.
 - Issue #70 translation/data work is a separate lane. Post-v1 UI/taxonomy/cleanup work must not modify #70 outputs, canonical/protected data, or translation lane state. Its operational authority is now the deterministic dynamic-claim queue in `docs/issue70/data/queue_state.json` with `scripts/issue70/queue_manager.py`; legacy four-lane progress remains immutable migration provenance. Bootstrap currently validates 21 / 186 chunks (10,500 / 92,739 rows), with 82,239 rows remaining.
 - Issue #68/#69 cleanup foundations are completed. Issue #83 later retired additional obsolete/reproducible local and tracked legacy assets after dependency proof; active #70 data, current catalog inputs, modified #64 worktree state, current SDK/NuGet, and #24 backups were intentionally retained.
 - **Stage10 learning Issue #65 may resume as the user's learning route.** It is not part of completed #76/#83.
@@ -24,7 +26,7 @@ Current maintenance route:
 Current workstation WPF launch:
 - The current WPF runtime and production `Data/catalog.db` are available under local `artifacts/current/`.
 - The local root shortcut `DanbooruTagTool.lnk` launches that WPF app; this shortcut and runtime output are workstation-local conveniences, not tracked product files.
-- The current local `catalog.db` has already been explicitly rebuilt after #76 and validated with Special v2 `2,788 / 2,788`; current `UserData/user.db` remained unchanged through #83 cleanup.
+- The pre-integration local `catalog.db` was the historical **2,788 Special** catalog. It was replaced once by the completed **3,059 Special** production profile; the 29 deleted IDs remain absent as stable-ID gaps. Existing `UserData/user.db` remains user-owned state and its hash was unchanged through the integration.
 
 Current Stage10 definition:
 - Issue #65
@@ -127,8 +129,9 @@ Accepted production shape:
 - fixed axis groups remain expanded while the Special root is open
 
 Accepted data/runtime boundary:
-- Special population remains 2,788 identities
-- accepted status distribution: `2745 / 15 / 6 / 1 / 21`
+- Current production Special population is 3,059 stable identities drawn from the 1..3,088 ID space; the 29 Issue #109 removals remain gaps.
+- Current baked v2 status distribution is `2718 / 315 / 5 / 0 / 21` for `AutoCandidate / HumanResolved / DeferProductFitReview / OutOfScopeNoBrowse / ReferenceOnlyNoDirectBrowse`.
+- The historical 2,788 base identity set, Issue #96 expansion, and Issue #107 expansion remain provenance layers; they are not the current production population.
 - Issue #56 v1 evidence remains preserved as provenance
 - Issue #76 evidence is parsed only during explicit `--build-catalog`
 - baked v2 classification is stored in `catalog.db` as `CatalogEntry.SpecialBrowseV2`
@@ -148,7 +151,7 @@ Accepted result:
 - reclaimed: `14,195,842,291` bytes (`14.196 GB` / `13.221 GiB`)
 - retired obsolete 11M-post Parquet/runtime source, CSR/runtime index, stale worktrees, old publish/bin/obj, quarantine/archive/handoff/audit/benchmarks, and retired Python/Tk runtime/tests/tools/workflows
 - current `catalog.db` and current `UserData/user.db` hashes unchanged
-- catalog remains Special `2,788` / General `30,629`
+- at the time of #83, the local catalog remained Special `2,788` / General `30,629`; Issue #109 later established the current production Special population as 3,059
 - WPF startup PASS
 - full .NET: `126 passed / 6 skipped`
 - #76 focused: `13 passed / 1 skipped`
