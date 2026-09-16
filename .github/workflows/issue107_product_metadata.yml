@@ -1,0 +1,69 @@
+name: Issue107 Product Metadata
+
+on:
+  push:
+    branches:
+      - prod/issue107-promote-adult-special-gaps
+    paths:
+      - scripts/issue107/materialize_product_metadata.py
+      - docs/issue107/promotion_preflight_v1.csv
+      - .github/workflows/issue107_product_metadata.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  product-metadata:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Materialize explicit 105-row metadata
+        run: |
+          mkdir -p artifacts/issue107
+          python3 scripts/issue107/materialize_product_metadata.py \
+            --preflight docs/issue107/promotion_preflight_v1.csv \
+            --out-dir artifacts/issue107 \
+            | tee artifacts/issue107/metadata.log
+
+      - name: Validate metadata contract
+        run: |
+          python3 - <<'PY'
+          import csv, json
+          from pathlib import Path
+          root=Path('artifacts/issue107')
+          s=json.loads((root/'promotion_metadata_summary_v1.json').read_text(encoding='utf-8'))
+          rows=list(csv.DictReader((root/'promotion_metadata_v1.csv').open(encoding='utf-8-sig')))
+          allowed_kinds={'BODY_STATE','CLOTHING_EXPOSURE','POSE_SCENE','ACTION_CONTACT','TOOL_OBJECT','FLUID_EXCRETION','NONHUMAN_TRANSFORMATION','PERSON_RELATION','META_EXPRESSION'}
+          allowed_body={'BREAST_NIPPLE','FEMALE_GENITAL','MALE_GENITAL','BUTTOCK_ANAL','MOUTH_ORAL','URETHRA'}
+          allowed_theme={'BDSM_RESTRAINT','REPRO_PREGNANCY_LACTATION','INJURY_R18G'}
+          allowed_modes={'DIRECT','STRUCTURED','SUPPORT'}
+          assert s['rows']==105 and s['ids']==[2984,3088]
+          assert s['unresolved_rows']==0
+          assert len(rows)==105
+          assert [int(r['proposed_special_id']) for r in rows]==list(range(2984,3089))
+          assert all(r['metadata_status']=='HUMAN_BOUNDED_RESOLVED' for r in rows)
+          assert all(r['display_ja'].strip() and r['search_ja'].strip() for r in rows)
+          assert all(r['kind_id'] in allowed_kinds for r in rows)
+          assert all(set(filter(None,r['body_site_ids'].split('|'))) <= allowed_body for r in rows)
+          assert all(set(filter(None,r['theme_ids'].split('|'))) <= allowed_theme for r in rows)
+          assert all(r['prompt_use_mode'] in allowed_modes for r in rows)
+          assert all(r['generation_family'].strip() and r['generation_role'].strip() and r['family_rule_id'].strip() for r in rows)
+          assert s['hidden_prompt_insertion']=='NO'
+          for key in ('production_mutation','issue70_mutated','userdata_mutated','content_filter_used'):
+              assert s[key]=='NO'
+          print('ISSUE107_METADATA_GATE=PASS')
+          PY
+
+      - name: Persist metadata evidence
+        run: |
+          cp artifacts/issue107/promotion_metadata_v1.csv docs/issue107/promotion_metadata_v1.csv
+          cp artifacts/issue107/promotion_metadata_summary_v1.json docs/issue107/promotion_metadata_summary_v1.json
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/issue107
+          if ! git diff --cached --quiet; then
+            git commit -m 'Issue #107: persist resolved promotion metadata'
+            git push origin HEAD:prod/issue107-promote-adult-special-gaps
+          fi
