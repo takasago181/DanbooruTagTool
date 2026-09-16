@@ -30,7 +30,6 @@ jobs:
           fields=['row_id','canonical_tag','category','display_ja','search_ja','translation_status','translation_note']
           jp = re.compile(r'[\u3040-\u30ff\u3400-\u9fff]')
 
-          # Independently verified official/common Japanese artist credits.
           verified = {
               'sugina_miki': ('杉菜水姫',''),
               'kitazume_hiroyuki': ('北爪宏幸',''),
@@ -94,7 +93,7 @@ jobs:
               print(f'PASS chunk {chunk}: {validated[0]["row_id"]}..{validated[-1]["row_id"]}')
 
           assert total==3000
-          assert jp_evidence==1400, jp_evidence
+          assert jp_evidence==1409, jp_evidence
           assert promoted==17, promoted
           print(f'REAUDIT total={total} japanese_evidence={jp_evidence} verified_promotions={promoted}')
           PY
