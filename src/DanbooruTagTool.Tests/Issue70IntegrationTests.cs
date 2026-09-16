@@ -61,6 +61,35 @@ public class Issue70IntegrationTests
         Assert.Contains(vm.Results, r => r.Entry.Canonical == "nagano_mamoru" && r.Entry.Japanese == "永野護");
     }
 
+    [Fact]
+    public void CatalogDatabaseRoundTripPreservesIssue70CategoryRelationsAndSearchMetadata()
+    {
+        using var temp = new TempDirectory();
+        var path = Path.Combine(temp.Path, "catalog.db");
+        var character = new CatalogEntry("C:hatsune_miku", "hatsune_miku", "hatsune_miku", "初音ミク", false, 145166, ["miku"], ["ミク"], [])
+        { TagCategory = "Character", RelatedCopyright = ["vocaloid"] };
+        var copyright = new CatalogEntry("R:vocaloid", "vocaloid", "vocaloid", "VOCALOID", false, 200000, [], ["ボーカロイド"], [])
+        { TagCategory = "Copyright" };
+        var artist = new CatalogEntry("A:nagano_mamoru", "nagano_mamoru", "nagano_mamoru", "永野護", false, 1000, ["mamoru nagano"], ["ながのまもる"], [])
+        { TagCategory = "Artist" };
+
+        CatalogDatabase.Build(path, [character, copyright, artist], "issue70-roundtrip-test");
+        var reopened = CatalogDatabase.Open(path);
+
+        var miku = reopened.Entries.Single(e => e.Canonical == "hatsune_miku");
+        Assert.Equal("Character", miku.EffectiveCategory);
+        Assert.Equal(["vocaloid"], miku.RelatedCopyright);
+        Assert.Contains("miku", miku.Aliases);
+        Assert.Contains("ミク", miku.JapaneseSearch);
+        Assert.Equal("Copyright", reopened.Entries.Single(e => e.Canonical == "vocaloid").EffectiveCategory);
+        Assert.Equal("Artist", reopened.Entries.Single(e => e.Canonical == "nagano_mamoru").EffectiveCategory);
+
+        var search = new SearchEngine(reopened);
+        Assert.Contains(search.Search("ミク"), hit => hit.Entry.Canonical == "hatsune_miku");
+        Assert.Contains(search.Search("miku"), hit => hit.Entry.Canonical == "hatsune_miku");
+        Assert.Contains(search.Search("ながのまもる"), hit => hit.Entry.Canonical == "nagano_mamoru");
+    }
+
     private static string FindRepoRoot()
     {
         DirectoryInfo? dir = new(AppContext.BaseDirectory);
