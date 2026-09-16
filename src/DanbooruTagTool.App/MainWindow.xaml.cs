@@ -4,10 +4,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Threading;
 using DanbooruTagTool.App.ViewModels;
-using DragEventArgs = System.Windows.DragEventArgs;
 using KeyEventArgs = System.Windows.Input.KeyEventArgs;
-using MouseEventArgs = System.Windows.Input.MouseEventArgs;
-using Point = System.Windows.Point;
 
 namespace DanbooruTagTool.App;
 
@@ -16,14 +13,9 @@ namespace DanbooruTagTool.App;
 public partial class MainWindow : Window
 {
     private readonly MainViewModel vm;
-    private readonly DispatcherTimer searchTimer = new() { Interval = TimeSpan.FromMilliseconds(150) };
     private readonly DispatcherTimer feedbackTimer = new() { Interval = TimeSpan.FromSeconds(2) };
     private readonly DispatcherTimer uiTimer = new() { Interval = TimeSpan.FromMilliseconds(400) };
-    private Point dragStart;
-    private ChipViewModel? pendingChip;
-    private bool deferredSelection;
     private bool syncingNavigation;
-    private int dropGap;
     private GenerationPresetDialog? presetDialog;
     private ForgeSettingsDialog? forgeSettingsDialog;
     public MainWindow(MainViewModel vm)
@@ -41,8 +33,7 @@ public partial class MainWindow : Window
         // Hidden editor geometry used to persist zero, then clamp it to 25%.
         // Repair that collapsed state and migrate the old 70:30 default to 75:25.
         var ratio = vm.Ui.EditRatio <= .251 || Math.Abs(vm.Ui.EditRatio - .7) < .001 ? .75 : Math.Clamp(vm.Ui.EditRatio, .3, .85);
-        EditorColumn.Width = new(ratio, GridUnitType.Star); EnglishColumn.Width = new(1 - ratio, GridUnitType.Star);
-        searchTimer.Tick += (_, _) => { searchTimer.Stop(); vm.RefreshResults(); };
+        PromptEditor.ApplyEditRatio(ratio);
         feedbackTimer.Tick += (_, _) => { feedbackTimer.Stop(); if (vm.Status == "✓ コピーしました") vm.Status = ""; };
         uiTimer.Tick += (_, _) => { uiTimer.Stop(); SaveGeometry(); };
         vm.PropertyChanged += (_, e) =>
@@ -54,15 +45,16 @@ public partial class MainWindow : Window
             }
             if (e.PropertyName == nameof(vm.DirectEditing) && vm.DirectEditing)
             {
-                Dispatcher.BeginInvoke(() => { DirectEditor.Focus(); DirectEditor.SelectAll(); }, DispatcherPriority.Input);
+                Dispatcher.BeginInvoke(PromptEditor.FocusDirectEditor, DispatcherPriority.Input);
             }
             if (e.PropertyName == nameof(vm.BrowseKey)) Dispatcher.BeginInvoke(SyncNavigationSelection, DispatcherPriority.Loaded);
         };
-        vm.ResultsRestored += () => Dispatcher.BeginInvoke(() => FindChild<ScrollViewer>(DictionaryList)?.ScrollToVerticalOffset(vm.RestoreScroll), DispatcherPriority.Loaded);
-        vm.ScrollToChip += id => { var index = vm.Chips.ToList().FindIndex(c => c.Id == id); if (index >= 0 && EditorItems.ItemContainerGenerator.ContainerFromIndex(index) is FrameworkElement item) item.BringIntoView(); };
+        vm.ScrollToChip += PromptEditor.BringChipIntoView;
+        DictionaryWorkspace.BrowseScrollChanged += QueueUiSave;
+        PromptEditor.EditRatioChanged += SaveGeometry;
         SizeChanged += (_, _) => QueueUiSave(); LocationChanged += (_, _) => QueueUiSave();
-        Closing += (_, _) => { SaveGeometry(); searchTimer.Stop(); feedbackTimer.Stop(); uiTimer.Stop(); if (presetDialog != null) presetDialog.Close(); if (forgeSettingsDialog != null) forgeSettingsDialog.Close(); };
-        Loaded += (_, _) => { vm.UpdateChipLanguage(); FindChild<ScrollViewer>(DictionaryList)?.ScrollToVerticalOffset(vm.RestoreScroll); SyncNavigationSelection(); ExpandFixedSpecialGroups(); };
+        Closing += (_, _) => { SaveGeometry(); feedbackTimer.Stop(); uiTimer.Stop(); if (presetDialog != null) presetDialog.Close(); if (forgeSettingsDialog != null) forgeSettingsDialog.Close(); };
+        Loaded += (_, _) => { vm.UpdateChipLanguage(); SyncNavigationSelection(); ExpandFixedSpecialGroups(); };
     }
     private static bool IsLegacyNavWidth(double width) => Math.Abs(width - 210) < 0.5 || Math.Abs(width - 230) < 0.5;
     private static bool IsLegacyPromptWidth(double width) => Math.Abs(width - 230) < 0.5 || Math.Abs(width - 260) < 0.5 || Math.Abs(width - 280) < 0.5 || Math.Abs(width - 300) < 0.5 || Math.Abs(width - 340) < 0.5;
@@ -70,13 +62,12 @@ public partial class MainWindow : Window
     private void SaveGeometry()
     {
         var rect = WindowState == WindowState.Normal ? new Rect(Left, Top, ActualWidth, ActualHeight) : RestoreBounds;
-        var ratio = EditorColumn.Width.Value / (EditorColumn.Width.Value + EnglishColumn.Width.Value);
+        var ratio = PromptEditor.EditRatio;
         vm.SaveUi(vm.Ui with { Width = rect.Width, Height = rect.Height, Left = rect.Left, Top = rect.Top,
             NavWidth = vm.WorkspaceIndex == 0 ? NavColumn.ActualWidth : vm.Ui.NavWidth,
             PromptWidth = vm.WorkspaceIndex == 0 ? PromptColumn.ActualWidth : vm.Ui.PromptWidth,
             EditRatio = ratio });
     }
-    private void SearchChanged(object sender, TextChangedEventArgs e) { if (DataContext == null) return; searchTimer.Stop(); searchTimer.Start(); }
     private void NavigationChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
     {
         if (syncingNavigation || e.NewValue is not NavigationNode node) return;
@@ -148,29 +139,12 @@ public partial class MainWindow : Window
     }
     private void WorkspaceChanged(object sender, SelectionChangedEventArgs e) { if (DataContext != null && e.Source == Workspaces) vm.UpdateChipLanguage(); }
     private void SplitterChanged(object sender, System.Windows.Controls.Primitives.DragCompletedEventArgs e) => SaveGeometry();
-    private void BrowseScrolled(object sender, ScrollChangedEventArgs e) { if (DataContext != null) { vm.BrowseScroll = e.VerticalOffset; QueueUiSave(); } }
-    private void DictionaryListSizeChanged(object sender, SizeChangedEventArgs e)
-    {
-        // Below the threshold, a single full-width card keeps Japanese labels
-        // and the toggle readable.
-        var available = e.NewSize.Width - SystemParameters.VerticalScrollBarWidth - 12;
-        vm.DictionaryCardWidth = DictionaryLayoutMetrics.CardWidth(available);
-    }
-    private void DictionaryMouseUp(object sender, MouseButtonEventArgs e)
-    {
-        if (FindAncestor<Button>(e.OriginalSource as DependencyObject) != null) return;
-        if (FindAncestor<ListBoxItem>(e.OriginalSource as DependencyObject)?.DataContext is EntryViewModel row) vm.InspectEntry.Execute(row);
-    }
-    private void DictionaryKeyUp(object sender, KeyEventArgs e)
-    {
-        if (e.Key is Key.Up or Key.Down or Key.Home or Key.End or Key.PageUp or Key.PageDown or Key.Enter && DictionaryList.SelectedItem is EntryViewModel row) vm.InspectEntry.Execute(row);
-    }
     private void FindKeyDown(object sender, KeyEventArgs e) { if (e.Key == Key.Enter) { vm.FindNext(Keyboard.Modifiers.HasFlag(ModifierKeys.Shift)); e.Handled = true; } }
     private void WindowKeyDown(object sender, KeyEventArgs e)
     {
         if (vm.DirectEditing) return;
         bool ctrl = Keyboard.Modifiers.HasFlag(ModifierKeys.Control);
-        if (ctrl && e.Key == Key.F) { if (vm.WorkspaceIndex == 1) FindBox.Focus(); else SearchBox.Focus(); e.Handled = true; return; }
+        if (ctrl && e.Key == Key.F) { if (vm.WorkspaceIndex == 1) PromptEditor.FocusFind(); else DictionaryWorkspace.FocusSearch(); e.Handled = true; return; }
         if (Keyboard.FocusedElement is TextBox) return;
         if (ctrl && e.Key == Key.Z) vm.Undo.Execute(null);
         else if (ctrl && e.Key == Key.Y) vm.Redo.Execute(null);
@@ -180,47 +154,6 @@ public partial class MainWindow : Window
         else return;
         e.Handled = true;
     }
-    private void ChipMouseDown(object sender, MouseButtonEventArgs e)
-    {
-        if (!vm.CanEditOrderedPrompt) return;
-        if (FindAncestor<Button>(e.OriginalSource as DependencyObject) != null) return;
-        if (sender is not FrameworkElement { DataContext: ChipViewModel chip }) return;
-        Keyboard.ClearFocus(); Focus(); pendingChip = chip; dragStart = e.GetPosition(EditorItems);
-        bool ctrl = Keyboard.Modifiers.HasFlag(ModifierKeys.Control), shift = Keyboard.Modifiers.HasFlag(ModifierKeys.Shift);
-        deferredSelection = chip.Selected && !ctrl && !shift;
-        if (!deferredSelection) vm.Select(chip.Id, ctrl, shift);
-        e.Handled = true;
-    }
-    private void ChipMouseUp(object sender, MouseButtonEventArgs e)
-    { if (pendingChip != null && deferredSelection) vm.Select(pendingChip.Id); pendingChip = null; }
-    private void ChipMouseMove(object sender, MouseEventArgs e)
-    {
-        if (!vm.CanEditOrderedPrompt || pendingChip == null || e.LeftButton != MouseButtonState.Pressed) return;
-        var p = e.GetPosition(EditorItems);
-        if (Math.Abs(p.X - dragStart.X) < SystemParameters.MinimumHorizontalDragDistance && Math.Abs(p.Y - dragStart.Y) < SystemParameters.MinimumVerticalDragDistance) return;
-        var ids = vm.BeginDrag(pendingChip.Id); pendingChip = null;
-        DragDrop.DoDragDrop((DependencyObject)sender, new DataObject("PromptItemIds", ids), DragDropEffects.Move);
-        InsertionMarker.Visibility = Visibility.Collapsed;
-    }
-    private void EditorDragOver(object sender, DragEventArgs e)
-    {
-        if (!vm.CanEditOrderedPrompt || !e.Data.GetDataPresent("PromptItemIds")) { e.Effects = DragDropEffects.None; return; }
-        var pointer = e.GetPosition(EditorScroll);
-        if (pointer.Y < 35) EditorScroll.ScrollToVerticalOffset(EditorScroll.VerticalOffset - 18);
-        else if (pointer.Y > EditorScroll.ActualHeight - 35) EditorScroll.ScrollToVerticalOffset(EditorScroll.VerticalOffset + 18);
-        dropGap = vm.Chips.Count; Point marker = new(4, 4); double height = 35;
-        for (int i = 0; i < vm.Chips.Count; i++)
-        {
-            if (EditorItems.ItemContainerGenerator.ContainerFromIndex(i) is not FrameworkElement item) continue;
-            var point = item.TranslatePoint(new(0, 0), EditorScroll); height = item.ActualHeight;
-            marker = new(point.X + item.ActualWidth, point.Y);
-            if (pointer.Y < point.Y + height && (pointer.Y < point.Y || pointer.X < point.X + item.ActualWidth / 2)) { dropGap = i; marker = point; break; }
-        }
-        Canvas.SetLeft(InsertionMarker, Math.Max(0, marker.X)); Canvas.SetTop(InsertionMarker, marker.Y); InsertionMarker.Height = height; InsertionMarker.Visibility = Visibility.Visible;
-        e.Effects = DragDropEffects.Move; e.Handled = true;
-    }
-    private void EditorDrop(object sender, DragEventArgs e) { if (e.Data.GetData("PromptItemIds") is Guid[] ids) vm.Move(ids, dropGap); InsertionMarker.Visibility = Visibility.Collapsed; e.Handled = true; }
-    private void EditorDragLeave(object sender, DragEventArgs e) => InsertionMarker.Visibility = Visibility.Collapsed;
     private void OpenPresetDialog()
     {
         if (presetDialog is { IsVisible: true }) { presetDialog.Activate(); return; }
@@ -235,8 +168,4 @@ public partial class MainWindow : Window
         forgeSettingsDialog.Closed += (_, _) => forgeSettingsDialog = null;
         forgeSettingsDialog.Show();
     }
-    private static T? FindChild<T>(DependencyObject parent) where T : DependencyObject
-    { for (int i = 0; i < VisualTreeHelper.GetChildrenCount(parent); i++) { var child = VisualTreeHelper.GetChild(parent, i); if (child is T result) return result; if (FindChild<T>(child) is T nested) return nested; } return null; }
-    private static T? FindAncestor<T>(DependencyObject? child) where T : DependencyObject
-    { while (child != null) { if (child is T value) return value; child = VisualTreeHelper.GetParent(child); } return null; }
 }
