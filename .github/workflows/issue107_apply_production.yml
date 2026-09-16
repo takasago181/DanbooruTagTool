@@ -7,6 +7,9 @@ on:
     paths:
       - scripts/issue107/apply_production_promotion.py
       - docs/issue107/promotion_metadata_v1.csv
+      - src/DanbooruTagTool.Tests/Issue76MainUiIntegrationTests.cs
+      - src/DanbooruTagTool.Tests/TechnicalFixTests.cs
+      - src/DanbooruTagTool.Tests/ProductionTests.cs
       - .github/workflows/issue107_apply_production.yml
   workflow_dispatch:
 
@@ -88,7 +91,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          dotnet test src/DanbooruTagTool.Tests/DanbooruTagTool.Tests.csproj -c Release --nologo
+          dotnet test src/DanbooruTagTool.Tests/DanbooruTagTool.Tests.csproj -c Release --nologo -p:EnableWindowsTargeting=true
 
       - name: Persist validated production expansion
         shell: bash
