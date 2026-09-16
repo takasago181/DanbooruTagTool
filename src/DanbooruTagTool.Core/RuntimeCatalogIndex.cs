@@ -35,7 +35,6 @@ public sealed class RuntimeCatalogIndex : IRuntimeCatalogQuery
     private readonly IReadOnlyDictionary<string, IReadOnlyList<CatalogEntry>> copyrightEntries;
     private readonly IReadOnlyDictionary<string, IReadOnlyList<CatalogEntry>> charactersByCopyright;
     private readonly IReadOnlyList<SearchDocument> searchDocuments;
-    private readonly IReadOnlyDictionary<string, IReadOnlyList<string>> prefixWordsById;
     private readonly IReadOnlyList<BrowsePath> generalPaths;
     private readonly IReadOnlyList<BrowsePath> specialPaths;
     private readonly IReadOnlyList<BrowsePath> specialNavigationPaths;
@@ -57,7 +56,6 @@ public sealed class RuntimeCatalogIndex : IRuntimeCatalogQuery
         var copyrightRows = new Dictionary<string, List<CatalogEntry>>(StringComparer.Ordinal);
         var charactersByCopyrightRows = new Dictionary<string, List<CatalogEntry>>(StringComparer.Ordinal);
         var documents = new List<SearchDocument>(Entries.Count);
-        var prefixWords = new Dictionary<string, IReadOnlyList<string>>(StringComparer.Ordinal);
 
         foreach (var entry in Entries)
         {
@@ -65,18 +63,22 @@ public sealed class RuntimeCatalogIndex : IRuntimeCatalogQuery
             Add(categoryRows, entry.EffectiveCategory, entry);
             if (entry.CanBrowse) Add(browsableCategoryRows, entry.EffectiveCategory, entry);
 
+            string? normalizedCanonical = null;
+            string[] normalizedAliases = [];
             if (entry.Canonical is { } canonicalValue)
             {
-                var canonicalKey = SearchEngine.Normalize(canonicalValue);
-                Add(canonicalRows, canonicalKey, entry);
+                normalizedCanonical = SearchEngine.Normalize(canonicalValue);
+                Add(canonicalRows, normalizedCanonical, entry);
                 if (entry.EffectiveCategory == "Copyright") Add(copyrightRows, canonicalValue, entry);
+                normalizedAliases = entry.Aliases.Select(SearchEngine.Normalize).ToArray();
             }
 
-            if (entry.IsSpecial) Add(englishRows, SearchEngine.Normalize(entry.English), entry);
+            var normalizedEnglish = entry.IsSpecial || entry.CanSearch ? SearchEngine.Normalize(entry.English) : "";
+            if (entry.IsSpecial) Add(englishRows, normalizedEnglish, entry);
             if (entry.Canonical is not null)
             {
-                foreach (var alias in entry.Aliases)
-                    Add(aliasRows, SearchEngine.Normalize(alias), entry);
+                foreach (var alias in normalizedAliases)
+                    Add(aliasRows, alias, entry);
             }
 
             if (entry.IsSpecial && entry.CanBrowse)
@@ -96,9 +98,7 @@ public sealed class RuntimeCatalogIndex : IRuntimeCatalogQuery
 
             if (entry.CanSearch)
             {
-                var document = SearchDocument.Create(entry);
-                documents.Add(document);
-                prefixWords.TryAdd(entry.Id, document.Prefixes);
+                documents.Add(SearchDocument.Create(entry, normalizedCanonical, normalizedEnglish, normalizedAliases));
             }
         }
 
@@ -112,7 +112,6 @@ public sealed class RuntimeCatalogIndex : IRuntimeCatalogQuery
         copyrightEntries = FreezeLists(copyrightRows);
         charactersByCopyright = FreezeLists(charactersByCopyrightRows);
         searchDocuments = Freeze(documents);
-        prefixWordsById = FreezeDictionary(prefixWords);
         generalPaths = FreezePaths(false);
         specialPaths = FreezePaths(true);
         specialNavigationPaths = Freeze(Entries.Where(entry => entry.IsSpecial).SelectMany(entry => entry.Paths).Distinct().ToArray());
@@ -151,7 +150,7 @@ public sealed class RuntimeCatalogIndex : IRuntimeCatalogQuery
         foreach (var document in searchDocuments)
         {
             var rank = Rank(document, normalizedQuery);
-            if (rank < 100) hits.Add(new(document.Entry, rank));
+            if (rank < 100) hits.Add(new SearchHit(document.Entry, rank) { PrefixWords = document.Prefixes });
         }
 
         // Strong whole-word intent suppresses embedded prefix/substring and
@@ -165,7 +164,7 @@ public sealed class RuntimeCatalogIndex : IRuntimeCatalogQuery
                 .ThenByDescending(hit => hit.Entry.Usage)
                 .First())
             .OrderBy(hit => hit.Rank)
-            .ThenBy(hit => PrefixDistance(hit.Entry, normalizedQuery))
+            .ThenBy(hit => PrefixDistance(hit.PrefixWords, normalizedQuery))
             .ThenByDescending(hit => hit.Entry.Usage)
             .ThenBy(hit => hit.Entry.English, StringComparer.Ordinal)
             .ToArray();
@@ -239,9 +238,8 @@ public sealed class RuntimeCatalogIndex : IRuntimeCatalogQuery
             .Distinct(StringComparer.Ordinal).Count() == 1 ? Preferred(hits) : null;
     }
 
-    private int PrefixDistance(CatalogEntry entry, string query)
+    private static int PrefixDistance(IReadOnlyList<string> words, string query)
     {
-        var words = prefixWordsById.GetValueOrDefault(entry.Id) ?? [];
         return words.Where(word => word.StartsWith(query, StringComparison.Ordinal))
             .Select(word => word.Length - query.Length).DefaultIfEmpty(1000).Min();
     }
@@ -289,18 +287,18 @@ public sealed class RuntimeCatalogIndex : IRuntimeCatalogQuery
         public IReadOnlyList<string> JapaneseTerms { get; }
         public IReadOnlyList<string> Prefixes { get; }
 
-        public static SearchDocument Create(CatalogEntry entry)
+        public static SearchDocument Create(CatalogEntry entry, string? normalizedCanonical,
+            string normalizedEnglish, IReadOnlyList<string> normalizedAliases)
         {
-            var english = entry.JapaneseSearch.Where(term => !HasJapanese(term));
-            var japanese = new[] { entry.Japanese ?? "" }.Concat(entry.JapaneseSearch.Where(HasJapanese));
-            return new(entry,
-                Freeze(new[] { entry.Canonical ?? "", entry.English }.Concat(entry.Aliases).Concat(english).Select(SearchEngine.Normalize).Where(value => value.Length > 0)),
-                Freeze(japanese.Select(SearchEngine.Normalize).Where(value => value.Length > 0)),
-                CreatePrefixWords(entry));
+            var englishSearch = entry.JapaneseSearch.Where(term => !HasJapanese(term)).Select(SearchEngine.Normalize);
+            var japaneseSearch = entry.JapaneseSearch.Where(HasJapanese).Select(SearchEngine.Normalize);
+            var baseTerms = new[] { normalizedCanonical ?? "", normalizedEnglish }.Concat(normalizedAliases).ToArray();
+            var englishTerms = baseTerms.Concat(englishSearch).Where(value => value.Length > 0).ToArray();
+            var japaneseTerms = new[] { SearchEngine.Normalize(entry.Japanese ?? "") }.Concat(japaneseSearch)
+                .Where(value => value.Length > 0).ToArray();
+            var prefixWords = baseTerms.Where(value => value.Length > 0)
+                .SelectMany(value => value.Split(' ', StringSplitOptions.RemoveEmptyEntries)).ToArray();
+            return new(entry, englishTerms, japaneseTerms, prefixWords);
         }
-
-        private static IReadOnlyList<string> CreatePrefixWords(CatalogEntry entry) =>
-            Freeze(new[] { entry.Canonical ?? "", entry.English }.Concat(entry.Aliases)
-                .SelectMany(value => SearchEngine.Normalize(value).Split(' ', StringSplitOptions.RemoveEmptyEntries)));
     }
 }

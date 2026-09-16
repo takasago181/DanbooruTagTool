@@ -6,27 +6,32 @@ namespace DanbooruTagTool.Tests;
 
 public sealed class Issue114RuntimeIndexTests
 {
-    [Theory]
-    [InlineData("blue_hair", "blue_hair", 0)]
-    [InlineData("青い髪", "blue_hair", 1)]
-    [InlineData("blue hair", "blue_hair", 0)]
-    [InlineData("青い hair", "blue_hair", 3)]
-    [InlineData("anal_sex", "anal", 0)]
-    [InlineData("blu", "blue_hair", 4)]
-    [InlineData("lue", "blue_hair", 5)]
-    [InlineData("blie hair", "blue_hair", 6)]
-    public void RuntimeSearchPreservesExistingCharacterization(string query, string expectedCanonical, int expectedRank)
+    [Fact]
+    public void LegacyAndRuntimeSearchMatchForAllCharacterizationQueries()
     {
-        var catalog = Fixtures.Catalog();
-        var hits = catalog.Search(query);
-        Assert.NotEmpty(hits);
-        var first = hits.First();
+        var catalog = CharacterizationCatalog();
+        var queries = new[] { "blue_hair", "青い髪", "anal", "a", "s", "hair", "blue hair", "青い hair", "anal_sex", "blu", "lue", "blie hair" };
+        foreach (var query in queries)
+        {
+            var legacy = Issue114LegacySearch.Search(catalog.Entries, query);
+            var runtime = catalog.Search(query);
+            Assert.Equal(legacy.Count, runtime.Count);
+            Assert.Equal(legacy.Select(hit => hit.Entry.Id), runtime.Select(hit => hit.Entry.Id));
+            Assert.Equal(legacy.Select(hit => hit.Rank), runtime.Select(hit => hit.Rank));
+        }
 
-        Assert.Equal(expectedCanonical, first.Entry.Canonical);
-        Assert.Equal(expectedRank, first.Rank);
-        Assert.Equal(
-            new SearchEngine(catalog).Search(query).Select(hit => (hit.Entry.Id, hit.Rank)),
-            hits.Select(hit => (hit.Entry.Id, hit.Rank)));
+        var anal = catalog.Search("anal");
+        Assert.Equal("anal", anal[0].Entry.Canonical);
+        Assert.DoesNotContain(anal, hit => hit.Entry.Canonical is "piano" or "analog_clock");
+    }
+
+    private static Catalog CharacterizationCatalog()
+    {
+        var entries = Fixtures.Catalog().Entries.ToList();
+        entries.Add(new CatalogEntry("G:blue_hair_overlay", "blue_hair", "blue_hair", "青い髪", false, 200, ["azure_locks"], ["青い髪", "blue hair"], []));
+        entries.Add(Fixtures.Entry("blue_eyes", "青い目", 80, ["azure_eyes"]) with { JapaneseSearch = ["ブルーアイズ", "blue eyes"] });
+        entries.Add(Fixtures.Entry("blond_hair", "金髪", 70) with { JapaneseSearch = ["ブロンドヘア"] });
+        return new Catalog(entries);
     }
 
     [Fact]

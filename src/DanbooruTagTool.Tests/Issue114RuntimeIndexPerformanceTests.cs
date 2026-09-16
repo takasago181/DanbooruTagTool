@@ -13,11 +13,8 @@ public sealed class Issue114RuntimeIndexPerformanceTests(ITestOutputHelper outpu
     {
         const int total = 126_427;
         var entries = Enumerable.Range(0, total).Select(CreateEntry).ToArray();
-        var buildAllocationsBefore = GC.GetAllocatedBytesForCurrentThread();
-        var buildTimer = Stopwatch.StartNew();
-        var catalog = new Catalog(entries);
-        buildTimer.Stop();
-        var buildAllocations = GC.GetAllocatedBytesForCurrentThread() - buildAllocationsBefore;
+        var legacyMeasurement = MeasureLegacyCatalogIndex(entries);
+        var (catalog, runtimeMeasurement) = MeasureRuntimeCatalogIndex(entries);
 
         var indexedSearchTimer = Stopwatch.StartNew();
         var indexedSearchHits = 0;
@@ -45,8 +42,12 @@ public sealed class Issue114RuntimeIndexPerformanceTests(ITestOutputHelper outpu
         legacyBrowseTimer.Stop();
 
         output.WriteLine($"entries={catalog.Entries.Count.ToString("N0", CultureInfo.InvariantCulture)}");
-        output.WriteLine($"index_build_ms={buildTimer.Elapsed.TotalMilliseconds.ToString("F3", CultureInfo.InvariantCulture)}");
-        output.WriteLine($"index_build_allocations={buildAllocations.ToString("N0", CultureInfo.InvariantCulture)}");
+        output.WriteLine($"legacy_catalog_index_build_ms={legacyMeasurement.BuildMilliseconds.ToString("F3", CultureInfo.InvariantCulture)}");
+        output.WriteLine($"runtime_index_build_ms={runtimeMeasurement.BuildMilliseconds.ToString("F3", CultureInfo.InvariantCulture)}");
+        output.WriteLine($"legacy_catalog_index_transient_allocations={legacyMeasurement.TransientAllocations.ToString("N0", CultureInfo.InvariantCulture)}");
+        output.WriteLine($"runtime_index_transient_allocations={runtimeMeasurement.TransientAllocations.ToString("N0", CultureInfo.InvariantCulture)}");
+        output.WriteLine($"legacy_catalog_index_retained_heap_delta={legacyMeasurement.RetainedHeapDelta.ToString("N0", CultureInfo.InvariantCulture)}");
+        output.WriteLine($"runtime_index_retained_heap_delta={runtimeMeasurement.RetainedHeapDelta.ToString("N0", CultureInfo.InvariantCulture)}");
         output.WriteLine($"indexed_search_4_queries_ms={indexedSearchTimer.Elapsed.TotalMilliseconds.ToString("F3", CultureInfo.InvariantCulture)} hits={indexedSearchHits}");
         output.WriteLine($"legacy_search_4_queries_ms={legacySearchTimer.Elapsed.TotalMilliseconds.ToString("F3", CultureInfo.InvariantCulture)} hits={legacySearchHits}");
         output.WriteLine($"indexed_character_browse_ms={indexedBrowseTimer.Elapsed.TotalMilliseconds.ToString("F3", CultureInfo.InvariantCulture)} count={indexedBrowseCount}");
@@ -59,6 +60,49 @@ public sealed class Issue114RuntimeIndexPerformanceTests(ITestOutputHelper outpu
         Assert.Equal(8_536, catalog.BrowseCategory("Copyright", false).Count);
         Assert.Equal(48_313, catalog.BrowseCategory("Artist", false).Count);
         Assert.Equal(legacyBrowseCount, indexedBrowseCount);
+    }
+
+    private static (Catalog Catalog, MemoryMeasurement Measurement) MeasureRuntimeCatalogIndex(IReadOnlyList<CatalogEntry> entries)
+    {
+        ForceFullCollection();
+        var baseline = GC.GetTotalMemory(true);
+        var allocationsBefore = GC.GetAllocatedBytesForCurrentThread();
+        var timer = Stopwatch.StartNew();
+        var catalog = new Catalog(entries);
+        timer.Stop();
+        var transientAllocations = GC.GetAllocatedBytesForCurrentThread() - allocationsBefore;
+        ForceFullCollection();
+        var retainedHeapDelta = GC.GetTotalMemory(true) - baseline;
+        GC.KeepAlive(catalog);
+        return (catalog, new MemoryMeasurement(timer.Elapsed.TotalMilliseconds, transientAllocations, retainedHeapDelta));
+    }
+
+    private static MemoryMeasurement MeasureLegacyCatalogIndex(IReadOnlyList<CatalogEntry> entries)
+    {
+        ForceFullCollection();
+        var baseline = GC.GetTotalMemory(true);
+        var allocationsBefore = GC.GetAllocatedBytesForCurrentThread();
+        var timer = Stopwatch.StartNew();
+        var canonical = entries.Where(entry => entry.Canonical != null)
+            .GroupBy(entry => SearchEngine.Normalize(entry.Canonical!), StringComparer.Ordinal)
+            .ToDictionary(group => group.Key, group => Preferred(group), StringComparer.Ordinal);
+        timer.Stop();
+        var transientAllocations = GC.GetAllocatedBytesForCurrentThread() - allocationsBefore;
+        ForceFullCollection();
+        var retainedHeapDelta = GC.GetTotalMemory(true) - baseline;
+        GC.KeepAlive(canonical);
+        return new MemoryMeasurement(timer.Elapsed.TotalMilliseconds, transientAllocations, retainedHeapDelta);
+    }
+
+    private static CatalogEntry Preferred(IEnumerable<CatalogEntry> entries) => entries
+        .OrderByDescending(entry => entry.IsSpecial && (!string.IsNullOrWhiteSpace(entry.Japanese) || entry.Paths.Length > 0 || entry.Description.Length > 0 || entry.ProductFit.Length > 0))
+        .ThenBy(entry => entry.Id, StringComparer.Ordinal).First();
+
+    private static void ForceFullCollection()
+    {
+        GC.Collect(GC.MaxGeneration, GCCollectionMode.Forced, blocking: true, compacting: true);
+        GC.WaitForPendingFinalizers();
+        GC.Collect(GC.MaxGeneration, GCCollectionMode.Forced, blocking: true, compacting: true);
     }
 
     private static IReadOnlyList<SearchHit> LegacySearch(IReadOnlyList<CatalogEntry> entries, string query)
@@ -134,4 +178,6 @@ public sealed class Issue114RuntimeIndexPerformanceTests(ITestOutputHelper outpu
             $"synthetic:{index}", $"synthetic_tag_{index}", $"synthetic_tag_{index}", $"タグ{index}",
             special, index, [], [], [] ) with { TagCategory = category };
     }
+
+    private sealed record MemoryMeasurement(double BuildMilliseconds, long TransientAllocations, long RetainedHeapDelta);
 }

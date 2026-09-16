@@ -16,7 +16,7 @@ Base live-main: `a8d19e23483f10c4eb7c87b3a0dfa89ff24e4f41`
 
 - Release build: PASS, 0 warnings / 0 errors
 - Full .NET tests: `141 passed / 7 skipped / 0 failed` (`148 total`)
-- Issue #114 focused tests: `12 passed / 0 skipped / 0 failed`
+- Issue #114 focused tests: `5 passed / 0 skipped / 0 failed` (including the full 12-query equivalence test and synthetic measurement)
 - Issue73 / Issue74 / Issue76 / DataAndViewModel focused regressions: `36 passed / 1 skipped / 0 failed`
 - `git diff --check`: PASS
 
@@ -26,16 +26,20 @@ The seven skipped tests are existing opt-in production/protected-catalog tests. 
 
 The performance test creates exactly 126,427 lightweight catalog entries with the target category counts: General 30,629, Special 3,059, Character 35,890, Copyright 8,536, and Artist 48,313.
 
-| Path | Measurement |
-| --- | ---: |
-| One-time `RuntimeCatalogIndex` construction | 783.349 ms |
-| Index construction allocations | 311,254,608 bytes |
-| Indexed search, four representative queries | 830.237 ms |
-| Legacy full-entry normalization + rank, four queries | 1,693.125 ms |
-| Indexed Character browse | 0.279 ms |
-| Legacy Character filter scan | 2.355 ms |
+| Path | Before / baseline | Current |
+| --- | ---: | ---: |
+| Catalog/index construction time | 783.349 ms (pre-optimization runtime index) | 509.628 ms |
+| Runtime index transient allocation | 311,254,608 bytes (pre-optimization runtime index) | 235,964,400 bytes |
+| Runtime index retained heap delta | not measured in the earlier run | 85,315,664 bytes |
+| Pre-#114 canonical-only index build / transient / retained | 110.609 ms / 76,281,904 bytes / 24,642,808 bytes | — |
+| Indexed search, four representative queries | 830.237 ms (pre-optimization indexed search) | 526.742 ms |
+| Legacy full normalization + rank, four queries | 1,693.125 ms (earlier run) | 1,629.462 ms |
+| Indexed Character browse | 0.279 ms (pre-optimization indexed browse) | 0.271 ms |
+| Legacy Character filter scan | 2.355 ms (earlier run) | 2.188 ms |
 
-The new and legacy search paths returned identical `(entry ID, rank)` sequences for all four synthetic queries. The allocation number includes the synthetic entry payload and all one-time immutable index/search-document structures; it is not a WPF container or steady-state heap measurement.
+The current transient allocation is measured after the synthetic `entries` array already exists, so it is runtime-index/search-document construction allocation only; it does not include the synthetic entry payload. The retained-heap measurement keeps both the synthetic entries and resulting `Catalog` strongly reachable across forced full GC and reports the post-build live-heap delta. Both numbers are separate from WPF container and steady-state UI measurements. The pre-#114 baseline is the old canonical-only catalog dictionary; live-heap values are process-level GC measurements and are reported without an arbitrary pass threshold.
+
+The new and test-local pre-#114 legacy search paths returned identical full `(entry ID, rank)` sequences for all 12 required characterization queries, including aliases, JapaneseSearch, General/Special canonical duplication, substring candidates, fuzzy candidates, and `anal` false-positive suppression.
 
 ## Protected data and scope
 

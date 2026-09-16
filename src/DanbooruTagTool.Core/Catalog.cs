@@ -66,7 +66,12 @@ public sealed class PendingGeneralBrowseProvider : IGeneralBrowseProvider
     public IReadOnlyList<CatalogEntry> Browse(string path) => [];
 }
 
-public sealed record SearchHit(CatalogEntry Entry, int Rank);
+public sealed record SearchHit(CatalogEntry Entry, int Rank)
+{
+    // Kept internal so the runtime index can carry precomputed prefix data to
+    // the final ordering step without another entry-id index.
+    internal IReadOnlyList<string> PrefixWords { get; init; } = [];
+}
 public sealed class SearchEngine
 {
     private readonly Func<string, IReadOnlyList<SearchHit>> search;
