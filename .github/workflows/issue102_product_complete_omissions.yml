@@ -26,6 +26,7 @@ jobs:
         run: |
           python3 -m py_compile scripts/issue102/product_complete_omission_audit.py
           python3 -m py_compile scripts/issue102/strict_special_surface_filter.py
+          python3 -m py_compile scripts/issue102/materialize_adult_review.py
 
       - name: Fetch pinned 2026-09-02 Danbooru snapshot
         shell: bash
@@ -77,7 +78,16 @@ jobs:
               w=csv.DictWriter(f,fieldnames=fields); w.writeheader(); w.writerows([r for r in rows if r['adult_review_priority']=='HIGH'])
           PY
 
-      - name: Validate audit boundaries
+      - name: Materialize full adult-focused review
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 scripts/issue102/materialize_adult_review.py \
+            --omissions artifacts/issue102/complete_omissions_v1.csv \
+            --out-dir artifacts/issue102 \
+            2>&1 | tee artifacts/issue102/review.log
+
+      - name: Validate audit and review boundaries
         shell: bash
         run: |
           set -euo pipefail
@@ -86,6 +96,7 @@ jobs:
           from pathlib import Path
           root = Path('artifacts/issue102')
           s = json.loads((root/'summary_v1.json').read_text(encoding='utf-8'))
+          r = json.loads((root/'adult_focused_review_summary_v1.json').read_text(encoding='utf-8'))
           assert s['danbooru_general_rows'] == 30743, s['danbooru_general_rows']
           assert s['product_general_rows'] == 30629, s['product_general_rows']
           assert s['special']['special_rows'] == 2983, s['special']['special_rows']
@@ -96,12 +107,21 @@ jobs:
           for key in ('production_mutation','issue70_mutated','userdata_mutated','pseudo_canonical_created','content_filter_used'):
               assert s[key] == 'NO', (key, s[key])
           rows = list(csv.DictReader((root/'complete_omissions_v1.csv').open(encoding='utf-8-sig')))
-          assert len(rows) == s['product_complete_omission_count']
-          assert all(r['coverage_status'] == 'PRODUCT_COMPLETE_OMISSION' for r in rows)
-          assert all(r['human_review_status'] == 'REVIEW_REQUIRED' for r in rows)
-          counts = [int(r['post_count']) for r in rows]
+          reviewed = list(csv.DictReader((root/'adult_focused_review_v1.csv').open(encoding='utf-8-sig')))
+          candidates = list(csv.DictReader((root/'special_candidate_subset_v1.csv').open(encoding='utf-8-sig')))
+          semantic = list(csv.DictReader((root/'semantic_review_queue_v1.csv').open(encoding='utf-8-sig')))
+          assert len(rows) == s['product_complete_omission_count'] == 108
+          assert len(reviewed) == r['reviewed_total'] == 108
+          assert {x['canonical_tag'] for x in rows} == {x['canonical_tag'] for x in reviewed}
+          assert len(candidates) == r['special_candidate_count'] == 4
+          assert len(semantic) == r['semantic_review_count'] == 3
+          assert r['all_omissions_reviewed_for_adult_fit'] == 'YES'
+          assert r['automatic_production_promotion'] == 'NO'
+          assert r['nonadult_no_action_is_permanent_product_exclusion'] == 'NO'
+          assert r['issue70_mutated'] == r['userdata_mutated'] == r['content_filter_used'] == 'NO'
+          counts = [int(x['post_count']) for x in rows]
           assert counts == sorted(counts, reverse=True)
-          print('ISSUE102_OMISSION_GATE=PASS')
+          print('ISSUE102_ADULT_REVIEW_GATE=PASS')
           PY
 
       - name: Upload audit evidence
