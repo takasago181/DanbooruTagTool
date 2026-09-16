@@ -19,21 +19,22 @@ public class Issue97SpecialAuditTests
             .OrderBy(entry => ParseSpecialId(entry.Id))
             .ToArray();
 
-        Assert.Equal(AcceptedAssetImporter.ExpandedSpecialCount, special.Length);
-        Assert.Equal(
-            Enumerable.Range(1, AcceptedAssetImporter.ExpandedSpecialCount),
-            special.Select(entry => ParseSpecialId(entry.Id)));
+        Assert.Equal(AcceptedAssetImporter.ProductionSpecialCount, special.Length);
+        var specialIds = special.Select(entry => ParseSpecialId(entry.Id)).ToArray();
+        Assert.Equal(specialIds.Length, specialIds.Distinct().Count());
+        Assert.All(specialIds, id => Assert.InRange(id, 1, AcceptedAssetImporter.ExpandedSpecialCount));
+        Assert.Equal(AcceptedAssetImporter.ExpandedSpecialCount, specialIds.Max());
 
         Assert.All(special, entry => Assert.False(string.IsNullOrWhiteSpace(entry.Japanese)));
         Assert.All(special, entry => Assert.NotEmpty(entry.JapaneseSearch));
         Assert.All(special, entry => Assert.False(string.IsNullOrWhiteSpace(entry.ProductFit)));
         Assert.All(special, entry => Assert.NotNull(entry.SpecialBrowseV2));
 
-        Assert.Equal(2745, special.Count(entry => entry.SpecialBrowseV2!.Status == SpecialBrowseV2Status.AutoCandidate));
-        Assert.Equal(210, special.Count(entry => entry.SpecialBrowseV2!.Status == SpecialBrowseV2Status.HumanResolved));
+        Assert.Equal(2718, special.Count(entry => entry.SpecialBrowseV2!.Status == SpecialBrowseV2Status.AutoCandidate));
+        Assert.Equal(315, special.Count(entry => entry.SpecialBrowseV2!.Status == SpecialBrowseV2Status.HumanResolved));
         Assert.Equal(21, special.Count(entry => entry.SpecialBrowseV2!.Status == SpecialBrowseV2Status.ReferenceOnlyNoDirectBrowse));
-        Assert.Equal(6, special.Count(entry => entry.SpecialBrowseV2!.Status == SpecialBrowseV2Status.DeferProductFitReview));
-        Assert.Equal(1, special.Count(entry => entry.SpecialBrowseV2!.Status == SpecialBrowseV2Status.OutOfScopeNoBrowse));
+        Assert.Equal(5, special.Count(entry => entry.SpecialBrowseV2!.Status == SpecialBrowseV2Status.DeferProductFitReview));
+        Assert.Equal(0, special.Count(entry => entry.SpecialBrowseV2!.Status == SpecialBrowseV2Status.OutOfScopeNoBrowse));
 
         foreach (var entry in special)
         {

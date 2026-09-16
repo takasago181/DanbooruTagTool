@@ -19,14 +19,11 @@ STATUS_NAMES = {
     4: "OutOfScopeNoBrowse",
 }
 EXPECTED_STATUS = {
-    "AutoCandidate": 2745,
-    "HumanResolved": 210,
+    "AutoCandidate": 2718,
+    "HumanResolved": 315,
     "ReferenceOnlyNoDirectBrowse": 21,
-    "DeferProductFitReview": 6,
-    "OutOfScopeNoBrowse": 1,
+    "DeferProductFitReview": 5,
 }
-
-
 def check_db(path: Path, *, catalog: bool) -> dict[str, Any]:
     if not path.is_file():
         raise FileNotFoundError(path)
@@ -74,10 +71,10 @@ def check_db(path: Path, *, catalog: bool) -> dict[str, Any]:
                 "general_canonical_unique": len({payload.get("Canonical") for payload in general}) == len(general),
             }
             expected = {
-                "total": 33612,
-                "special": 2983,
+                "total": 33688,
+                "special": 3059,
                 "general": 30629,
-                "special_browse_v2": 2983,
+                "special_browse_v2": 3059,
             }
             for key, value in expected.items():
                 if result[key] != value:

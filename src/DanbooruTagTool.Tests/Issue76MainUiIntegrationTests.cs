@@ -210,20 +210,20 @@ public sealed class Issue76MainUiIntegrationTests
         var persisted = CatalogDatabase.Open(catalogPath);
         var index = SpecialBrowseV2Overlay.FromCatalog(persisted);
 
-        Assert.Equal(3088, index.Entries.Count);
-        Assert.Equal(2745, index.Entries.Count(entry => entry.Status == SpecialBrowseV2Status.AutoCandidate));
+        Assert.Equal(AcceptedAssetImporter.ProductionSpecialCount, index.Entries.Count);
+        Assert.Equal(2718, index.Entries.Count(entry => entry.Status == SpecialBrowseV2Status.AutoCandidate));
         Assert.Equal(315, index.Entries.Count(entry => entry.Status == SpecialBrowseV2Status.HumanResolved));
-        Assert.Equal(6, index.Entries.Count(entry => entry.Status == SpecialBrowseV2Status.DeferProductFitReview));
-        Assert.Equal(1, index.Entries.Count(entry => entry.Status == SpecialBrowseV2Status.OutOfScopeNoBrowse));
+        Assert.Equal(5, index.Entries.Count(entry => entry.Status == SpecialBrowseV2Status.DeferProductFitReview));
+        Assert.Equal(0, index.Entries.Count(entry => entry.Status == SpecialBrowseV2Status.OutOfScopeNoBrowse));
         Assert.Equal(21, index.Entries.Count(entry => entry.Status == SpecialBrowseV2Status.ReferenceOnlyNoDirectBrowse));
         Assert.Equal(
-            new[] { 977, 605, 326, 352, 304, 172, 123, 120, 67 },
+            new[] { 977, 597, 324, 347, 304, 171, 119, 120, 60 },
             SpecialBrowseV2Taxonomy.Kinds.Select(kind => index.Entries.Count(entry => entry.KindId == kind.Id)).ToArray());
         Assert.Equal(
-            new[] { 312, 361, 187, 189, 141, 20 },
+            new[] { 307, 361, 187, 189, 140, 20 },
             SpecialBrowseV2Taxonomy.BodySites.Select(body => index.Entries.Count(entry => entry.BodySiteIds.Contains(body.Id))).ToArray());
         Assert.Equal(
-            new[] { 391, 87, 46 },
+            new[] { 385, 87, 46 },
             SpecialBrowseV2Taxonomy.Themes.Select(theme => index.Entries.Count(entry => entry.ThemeIds.Contains(theme.Id))).ToArray());
         Assert.Equal(14, index.Entries.Count(entry => entry.CanBrowse && entry.KindId is null));
 

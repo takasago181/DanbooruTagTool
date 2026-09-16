@@ -57,8 +57,9 @@ public static class SpecialBrowseV2Overlay
     {
         var specials = catalog.Entries.Where(entry => entry.IsSpecial)
             .OrderBy(entry => ParseSpecialId(entry.Id)).ToArray();
-        if (specials.Length != AcceptedAssetImporter.ExpandedSpecialCount || specials.Select(entry => ParseSpecialId(entry.Id)).SequenceEqual(Enumerable.Range(1, AcceptedAssetImporter.ExpandedSpecialCount)) == false)
-            throw new InvalidDataException($"Special v2 overlay requires exact Special IDs 1..{AcceptedAssetImporter.ExpandedSpecialCount}");
+        var specialIds = specials.Select(entry => ParseSpecialId(entry.Id)).ToArray();
+        if (specials.Length != AcceptedAssetImporter.ProductionSpecialCount || specialIds.Distinct().Count() != specialIds.Length || specialIds.Any(id => id < 1 || id > AcceptedAssetImporter.ExpandedSpecialCount) || specialIds.Max() != AcceptedAssetImporter.ExpandedSpecialCount)
+            throw new InvalidDataException($"Special v2 overlay requires {AcceptedAssetImporter.ProductionSpecialCount} stable Special IDs within 1..{AcceptedAssetImporter.ExpandedSpecialCount}");
 
         var rows = specials.ToDictionary(entry => ParseSpecialId(entry.Id), DeriveBase);
         ApplyChastity(rows);
@@ -193,7 +194,7 @@ public static class SpecialBrowseV2Overlay
     {
         foreach (var patch in CsvResource("issue76_chastity_control_patch_v0_4.csv"))
         {
-            var row = rows[ParseId(patch)];
+            if (!rows.TryGetValue(ParseId(patch), out var row)) continue;
             row.KindId = EmptyToNull(patch["resolved_kind_id"]);
             row.Body = Split(patch["resolved_body_site_id"]);
             row.Themes = Split(patch["resolved_theme_id"]);
@@ -205,7 +206,7 @@ public static class SpecialBrowseV2Overlay
     {
         foreach (var patch in CsvResource("issue76_v1_unresolved_audit_v0_5.csv"))
         {
-            var row = rows[ParseId(patch)];
+            if (!rows.TryGetValue(ParseId(patch), out var row)) continue;
             row.KindId = EmptyToNull(patch["v2_kind_id"]);
             row.Body = Split(patch["v2_body_sites"]);
             row.Themes = Split(patch["v2_themes"]);
@@ -224,7 +225,7 @@ public static class SpecialBrowseV2Overlay
     {
         foreach (var patch in CsvResource("issue76_practical_generation_patch_v0_6.csv"))
         {
-            var row = rows[ParseId(patch)];
+            if (!rows.TryGetValue(ParseId(patch), out var row)) continue;
             if (patch["dimension"] == "kind")
             {
                 var value = patch["after"].Trim();
@@ -262,11 +263,13 @@ public static class SpecialBrowseV2Overlay
             else if (hasRoute) throw new InvalidDataException($"Non-browse Special v2 row still has route: {id}");
         }
 
+        if (rows.Count != AcceptedAssetImporter.ProductionSpecialCount)
+            throw new InvalidDataException($"Special v2 row count drift: {rows.Count} != {AcceptedAssetImporter.ProductionSpecialCount}");
         var counts = rows.Values.GroupBy(row => row.Status).ToDictionary(group => group.Key, group => group.Count());
-        Expect(counts, SpecialBrowseV2Status.AutoCandidate, 2745);
+        Expect(counts, SpecialBrowseV2Status.AutoCandidate, 2718);
         Expect(counts, SpecialBrowseV2Status.HumanResolved, 315);
-        Expect(counts, SpecialBrowseV2Status.DeferProductFitReview, 6);
-        Expect(counts, SpecialBrowseV2Status.OutOfScopeNoBrowse, 1);
+        Expect(counts, SpecialBrowseV2Status.DeferProductFitReview, 5);
+        Expect(counts, SpecialBrowseV2Status.OutOfScopeNoBrowse, 0);
         Expect(counts, SpecialBrowseV2Status.ReferenceOnlyNoDirectBrowse, 21);
     }
 
