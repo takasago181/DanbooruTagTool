@@ -12,7 +12,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   omission-audit:
@@ -123,6 +123,76 @@ jobs:
           assert counts == sorted(counts, reverse=True)
           print('ISSUE102_ADULT_REVIEW_GATE=PASS')
           PY
+
+      - name: Persist reviewed evidence on audit branch
+        if: github.event_name == 'push'
+        shell: bash
+        run: |
+          set -euo pipefail
+          src=artifacts/issue102
+          dst=docs/issue102
+          mkdir -p "$dst"
+          cp "$src/complete_omissions_v1.csv" "$dst/"
+          cp "$src/adult_focused_review_v1.csv" "$dst/"
+          cp "$src/special_candidate_subset_v1.csv" "$dst/"
+          cp "$src/semantic_review_queue_v1.csv" "$dst/"
+          cp "$src/summary_v1.json" "$dst/"
+          cp "$src/adult_focused_review_summary_v1.json" "$dst/"
+          cp "$src/source_provenance.txt" "$dst/"
+          python3 - <<'PY'
+          import csv, json
+          from pathlib import Path
+          root=Path('docs/issue102')
+          scan=json.loads((root/'summary_v1.json').read_text(encoding='utf-8'))
+          rev=json.loads((root/'adult_focused_review_summary_v1.json').read_text(encoding='utf-8'))
+          cand=list(csv.DictReader((root/'special_candidate_subset_v1.csv').open(encoding='utf-8-sig')))
+          sem=list(csv.DictReader((root/'semantic_review_queue_v1.csv').open(encoding='utf-8-sig')))
+          lines=[
+            '# Issue #102 — Danbooru product-complete omission audit', '',
+            '## Result', '',
+            f"- pinned Danbooru General canonical rows: **{scan['danbooru_general_rows']:,}**",
+            f"- product General rows: **{scan['product_general_rows']:,}**",
+            f"- accepted Special rows checked: **{scan['special']['special_rows']:,}**",
+            f"- canonical tags absent from both product General and every Special surface: **{scan['product_complete_omission_count']}**",
+            f"- full adult/fetish/R18G fit review: **{rev['reviewed_total']}/{rev['reviewed_total']}**",
+            f"- Special candidates: **{rev['special_candidate_count']}**",
+            f"- definition-level semantic review: **{rev['semantic_review_count']}**",
+            f"- General freshness candidates selected in this adult-focused pass: **{rev['decision_counts'].get('GENERAL_GAP_CANDIDATE',0)}**",
+            '', '## Special candidates', ''
+          ]
+          for r in cand:
+              lines.append(f"- `{r['canonical_tag']}` — post_count `{r['post_count']}` — {r['reason']}")
+          lines += ['', '## Semantic review queue', '']
+          for r in sem:
+              lines.append(f"- `{r['canonical_tag']}` — post_count `{r['post_count']}` — {r['reason']}")
+          lines += [
+            '', '## Interpretation', '',
+            'This audit directly tested the failure mode: a real Danbooru General canonical identity exists but is absent from both product General and Special. The omission set is bounded to 108 rows and every row was reviewed for adult/fetish/BDSM/body-site/fluid/nonhuman/R18G Special fit. Keyword heuristics were used only as a review aid and never as an exclusion filter.', '',
+            'The result does **not** show a large high-frequency adult vocabulary collapse: the highest-count omission overall is 7,349 posts, while the strongest adult anatomy omission is `speckled_areolae` at 1,839 posts. However, the four Special candidates are real coverage gaps and should receive a separate promotion decision.', '',
+            'Rows marked `NO_SPECIAL_ADULT_ACTION` are not permanently rejected from product General. This pass only decides whether they expose an adult/niche Special coverage problem.', '',
+            '## Boundaries', '',
+            '- automatic production promotion: **NO**',
+            '- Issue #70 mutation: **NO**',
+            '- `UserData/user.db` mutation: **NO**',
+            '- pseudo-canonical creation: **NO**',
+            '- content filter used: **NO**',
+            '', '## Source', '',
+            '- Danbooru snapshot: `2026-09-02`',
+            '- SHA-256: `9b32d5ac0713ab252e7470ba6af9cb34de56878b6b3b13dfbbf6a4a37d82d95b`',
+            '- source provenance is preserved in `source_provenance.txt`.',
+            ''
+          ]
+          (root/'ISSUE102_AUDIT_SUMMARY_v1.md').write_text('\n'.join(lines),encoding='utf-8')
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/issue102
+          if git diff --cached --quiet; then
+            echo 'No Issue #102 evidence changes to persist.'
+          else
+            git commit -m 'Issue #102: persist reviewed omission audit evidence'
+            git push origin HEAD:audit/issue102-product-complete-omissions
+          fi
 
       - name: Upload audit evidence
         if: always()
