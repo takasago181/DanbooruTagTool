@@ -20,7 +20,9 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Materialize explicit 105-row metadata
+        shell: bash
         run: |
+          set -euo pipefail
           mkdir -p artifacts/issue107
           python3 scripts/issue107/materialize_product_metadata.py \
             --preflight docs/issue107/promotion_preflight_v1.csv \
