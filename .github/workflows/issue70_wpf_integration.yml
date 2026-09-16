@@ -14,6 +14,18 @@ jobs:
       - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.0.x'
+      - name: Pin Issue 70 deterministic runtime bytes
+        shell: python
+        run: |
+          from pathlib import Path
+          g=Path('.gitattributes')
+          s=g.read_text(encoding='utf-8')
+          block='\n# Issue #70 consolidated runtime pack is byte-hashed by the WPF importer.\ndocs/issue70/data/runtime/*.csv text eol=lf\ndocs/issue70/data/runtime/*.json text eol=lf\ndocs/issue70/data/queue_state.json text eol=lf\n'
+          if 'docs/issue70/data/runtime/*.csv text eol=lf' not in s:
+              g.write_text(s.rstrip()+block,encoding='utf-8',newline='\n')
+          p=Path('docs/issue70/data/runtime/issue70_catalog_overlay.csv')
+          text=p.read_text(encoding='utf-8-sig')
+          p.write_text(text,encoding='utf-8-sig',newline='\n')
       - name: Fix temporary integration test imports
         shell: python
         run: |
@@ -36,6 +48,6 @@ jobs:
           git diff --check
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add src/DanbooruTagTool.Core/Catalog.cs src/DanbooruTagTool.Data/Storage.cs src/DanbooruTagTool.Data/AcceptedAssetImporter.cs src/DanbooruTagTool.Data/Issue70CatalogOverlayImporter.cs src/DanbooruTagTool.App/App.xaml.cs src/DanbooruTagTool.App/ViewModels/MainViewModel.cs src/DanbooruTagTool.Tests/ProductionTests.cs src/DanbooruTagTool.Tests/Issue70IntegrationTests.cs
+          git add .gitattributes src/DanbooruTagTool.Core/Catalog.cs src/DanbooruTagTool.Data/Storage.cs src/DanbooruTagTool.Data/AcceptedAssetImporter.cs src/DanbooruTagTool.Data/Issue70CatalogOverlayImporter.cs src/DanbooruTagTool.App/App.xaml.cs src/DanbooruTagTool.App/ViewModels/MainViewModel.cs src/DanbooruTagTool.Tests/ProductionTests.cs src/DanbooruTagTool.Tests/Issue70IntegrationTests.cs
           git commit -m 'issue70: integrate Character Copyright Artist into WPF catalog'
           git push origin HEAD:main
