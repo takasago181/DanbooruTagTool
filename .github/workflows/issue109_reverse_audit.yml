@@ -1,0 +1,75 @@
+name: Issue109 Reverse Audit Triage
+
+on:
+  push:
+    branches:
+      - audit/issue109-special-reverse-audit
+    paths:
+      - scripts/issue109/**
+      - .github/workflows/issue109_reverse_audit.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Materialize audit-only Special vs General ledger
+        run: |
+          set -euo pipefail
+          python3 scripts/issue109/materialize_reverse_audit.py | tee issue109-summary.log
+
+      - name: Validate audit boundaries
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import csv, json
+          from pathlib import Path
+          summary=json.loads(Path('docs/issue109/mechanical_triage_summary_v1.json').read_text(encoding='utf-8'))
+          rows=list(csv.DictReader(Path('docs/issue109/mechanical_triage_v1.csv').open(encoding='utf-8-sig', newline='')))
+          review=list(csv.DictReader(Path('docs/issue109/review_queue_v1.csv').open(encoding='utf-8-sig', newline='')))
+          assert len(rows)==3088
+          assert [int(r['special_id']) for r in rows]==list(range(1,3089))
+          assert len(review)==summary['review_queue_rows']
+          assert sum(summary['triage_counts'].values())==3088
+          b=summary['boundaries']
+          assert set(b.values())=={'NO'}
+          assert all(r['human_final']=='' for r in rows)
+          print('ISSUE109_AUDIT_BOUNDARY_GATE=PASS')
+          PY
+
+      - name: Ensure production and independent lanes are untouched
+        run: |
+          set -euo pipefail
+          changed="$(git status --short)"
+          printf '%s\n' "$changed"
+          python3 - <<'PY'
+          import subprocess
+          allowed={
+            'docs/issue109/mechanical_triage_v1.csv',
+            'docs/issue109/review_queue_v1.csv',
+            'docs/issue109/mechanical_triage_summary_v1.json',
+          }
+          lines=subprocess.check_output(['git','status','--porcelain'], text=True).splitlines()
+          paths={line[3:] for line in lines if line.strip()}
+          unexpected=paths-allowed
+          if unexpected:
+              raise SystemExit(f'unexpected generated paths: {sorted(unexpected)}')
+          print('ISSUE109_GENERATED_PATH_GATE=PASS')
+          PY
+
+      - name: Persist audit evidence on audit branch only
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/issue109/mechanical_triage_v1.csv \
+                  docs/issue109/review_queue_v1.csv \
+                  docs/issue109/mechanical_triage_summary_v1.json
+          git commit -m 'Issue #109: materialize reverse-audit triage'
+          git push origin HEAD:audit/issue109-special-reverse-audit
