@@ -1,0 +1,77 @@
+name: Issue70 Semantic Risk Census v2
+
+on:
+  push:
+    branches:
+      - audit/issue70-semantic-final
+    paths:
+      - scripts/issue70/audit_semantic_risk.py
+      - scripts/issue70/audit_semantic_risk_v2.py
+      - .github/workflows/issue70_semantic_risk_census_v2.yml
+      - docs/issue70/data/runtime/issue70_translation_results.csv
+      - docs/issue70/data/source/issue70_translation_source_with_relations.csv
+  pull_request:
+    branches: [main]
+    paths:
+      - scripts/issue70/audit_semantic_risk.py
+      - scripts/issue70/audit_semantic_risk_v2.py
+      - .github/workflows/issue70_semantic_risk_census_v2.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  census-v2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Compile scanners
+        run: |
+          python -m py_compile scripts/issue70/audit_semantic_risk.py
+          python -m py_compile scripts/issue70/audit_semantic_risk_v2.py
+
+      - name: Run category-aware read-only census
+        run: |
+          python scripts/issue70/audit_semantic_risk_v2.py \
+            --out artifacts/issue70-semantic-audit-v2 \
+            --sample-per-category 300
+
+      - name: Validate census outputs
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s artifacts/issue70-semantic-audit-v2/risk_summary.json
+          test -s artifacts/issue70-semantic-audit-v2/review_required.csv
+          test -s artifacts/issue70-semantic-audit-v2/accepted_risk.csv
+          test -s artifacts/issue70-semantic-audit-v2/accepted_clean_sample.csv
+          test -s artifacts/issue70-semantic-audit-v2/audit_ledger_template.csv
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p = Path('artifacts/issue70-semantic-audit-v2/risk_summary.json')
+          data = json.loads(p.read_text(encoding='utf-8'))
+          assert data['format_version'] == 2
+          assert data['totals']['rows_scanned'] == 92739
+          assert data['totals']['review_required'] == 13221
+          assert data['totals']['accepted_ai'] == 79518
+          assert data['production_modified'] is False
+          assert data['totals']['accepted_risk'] < 56501
+          print(json.dumps(data, ensure_ascii=False, indent=2))
+          PY
+          git diff --exit-code -- docs/issue70/data/runtime docs/issue70/data/source
+
+      - name: Upload audit artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: issue70-semantic-risk-census-v2
+          path: artifacts/issue70-semantic-audit-v2/
+          if-no-files-found: error
+          retention-days: 14
