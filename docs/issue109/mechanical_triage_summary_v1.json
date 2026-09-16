@@ -1,0 +1,56 @@
+{
+  "issue": 109,
+  "source_special_rows": 3088,
+  "source_general_rows": 30629,
+  "special_ids": [
+    1,
+    3088
+  ],
+  "general_exact_overlap": 1962,
+  "triage_counts": {
+    "GENERAL_SUFFICIENT_CANDIDATE": 10,
+    "KEEP_SPECIAL": 2171,
+    "NEEDS_REVIEW": 907
+  },
+  "review_queue_rows": 917,
+  "general_fields": [
+    "global_row",
+    "canonical",
+    "classification_status",
+    "primary_path",
+    "secondary_paths",
+    "confidence",
+    "classification_reason",
+    "source_batch",
+    "source_global_row",
+    "correction_ids"
+  ],
+  "resolved_general_fields": {
+    "canonical": "canonical",
+    "display_ja": null,
+    "search_ja": null,
+    "post_count": null,
+    "status": "classification_status",
+    "confidence": "confidence",
+    "primary_path": "primary_path",
+    "secondary_paths": "secondary_paths"
+  },
+  "input_sha256": {
+    "data/generation/special2788_generation_profile.csv": "1f82ec20578a98a2d68338e6d4c386734c3b008b827fd68cc2b0cc0c3607b0a8",
+    "data/special2788/product_fit_verdicts.csv": "d1c3d3fff12f48169458fa9967674022dc42456f2ee8ed9bee5156e53ced7834",
+    "docs/issue64/production_candidate/effective_sidecar.csv": "a118f5f904c38cee5b63f0c83b06a56f50ee8afdb623c52eb354731bc0b846d9"
+  },
+  "output_sha256": {
+    "docs/issue109/mechanical_triage_v1.csv": "d6d53b820ab3dc02f31e5a50a64f2000c5105e2f9847ed86febbfdc220ef28b1",
+    "docs/issue109/review_queue_v1.csv": "d4afddf3172c00f0203e85761c6ae20341150bca799fb2a1a13ba406b6cb67da"
+  },
+  "boundaries": {
+    "production_special_mutated": "NO",
+    "local_catalog_mutated": "NO",
+    "issue70_mutated": "NO",
+    "userdata_mutated": "NO",
+    "ids_deleted_or_renumbered": "NO",
+    "automatic_demotion_authority": "NO"
+  },
+  "note": "Mechanical triage is review prioritization only; human review decides any General-sufficient candidate."
+}
