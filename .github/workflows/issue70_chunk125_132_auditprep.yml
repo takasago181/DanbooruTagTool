@@ -1,0 +1,66 @@
+name: issue70-chunk125-132-auditprep
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/issue70_chunk125_132_auditprep.yml'
+permissions:
+  contents: read
+jobs:
+  auditprep:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Extract Japanese candidates for 4000 rows
+        shell: python
+        run: |
+          import csv, re
+          from pathlib import Path
+          files=[
+            Path('docs/issue70/data/source_chunks/source_062001_062500.csv'),
+            Path('docs/issue70/data/source_chunks/source_062501_063000.csv'),
+            Path('docs/issue70/data/source_chunks/source_063001_063500.csv'),
+            Path('docs/issue70/data/source_chunks/source_063501_064000.csv'),
+            Path('docs/issue70/data/source_chunks/source_064001_064500.csv'),
+            Path('docs/issue70/data/source_chunks/source_064501_065000.csv'),
+            Path('docs/issue70/data/source_chunks/source_065001_065500.csv'),
+            Path('docs/issue70/data/source_chunks/source_065501_066000.csv'),
+          ]
+          outputs=[
+            Path('docs/issue70/data/results/queue/queue_chunk125_I70-062001_I70-062500.csv'),
+            Path('docs/issue70/data/results/queue/queue_chunk126_I70-062501_I70-063000.csv'),
+            Path('docs/issue70/data/results/queue/queue_chunk127_I70-063001_I70-063500.csv'),
+            Path('docs/issue70/data/results/queue/queue_chunk128_I70-063501_I70-064000.csv'),
+            Path('docs/issue70/data/results/queue/queue_chunk129_I70-064001_I70-064500.csv'),
+            Path('docs/issue70/data/results/queue/queue_chunk130_I70-064501_I70-065000.csv'),
+            Path('docs/issue70/data/results/queue/queue_chunk131_I70-065001_I70-065500.csv'),
+            Path('docs/issue70/data/results/queue/queue_chunk132_I70-065501_I70-066000.csv'),
+          ]
+          assert not any(p.exists() for p in outputs), 'one or more target queue files already exist'
+          jp=re.compile(r'[\u3040-\u30ff\u3400-\u9fff]')
+          nameish=re.compile(r"^[a-z][a-z0-9']+_[a-z][a-z0-9']+$")
+          candidates=[]; total=0
+          for p in files:
+            with p.open('r',encoding='utf-8-sig',newline='') as f:
+              rows=list(csv.DictReader(f))
+            assert len(rows)==500
+            assert all(r['category_name']=='Artist' and r['category']=='1' for r in rows)
+            total += len(rows)
+            for r in rows:
+              c=r['existing_candidate_ja'].strip()
+              if c and jp.search(c):
+                candidates.append(r)
+          assert total==4000
+          print('TOTAL_ROWS',total)
+          print('JP_CANDIDATE_COUNT',len(candidates))
+          promising=[]
+          for r in candidates:
+            tag=r['canonical_tag']
+            c=r['existing_candidate_ja'].strip()
+            aliases=r['verified_aliases'].strip()
+            # Prioritize romanized two-part personal-name shapes and alias-backed rows.
+            if nameish.match(tag) or aliases:
+              promising.append((r['row_id'],tag,aliases,c))
+          print('PROMISING_COUNT',len(promising))
+          for row in promising:
+            print('CAND\t'+'\t'.join(row))
