@@ -1,0 +1,92 @@
+name: Issue104 Adult General Gap Audit
+
+on:
+  push:
+    branches:
+      - audit/issue104-adult-general-missing-special
+    paths:
+      - scripts/issue104/**
+      - data/generation/special2788_generation_profile.csv
+      - .github/workflows/issue104_adult_general_gap.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  adult-general-gap:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout audit branch
+        uses: actions/checkout@v4
+
+      - name: Validate scanner syntax
+        run: python3 -m py_compile scripts/issue104/adult_general_gap_audit.py
+
+      - name: Fetch pinned 2026-09-02 Danbooru snapshot
+        shell: bash
+        env:
+          SOURCE_URL: https://huggingface.co/datasets/HDiffusion/historical-danbooru-tag-counts/resolve/e243474/danbooru-2026-09-02.csv?download=true
+          EXPECTED_SHA256: 9b32d5ac0713ab252e7470ba6af9cb34de56878b6b3b13dfbbf6a4a37d82d95b
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/issue104
+          SOURCE="$RUNNER_TEMP/danbooru-2026-09-02.csv"
+          curl --fail --location --retry 3 --retry-delay 2 "$SOURCE_URL" --output "$SOURCE"
+          echo "$EXPECTED_SHA256  $SOURCE" | sha256sum --check
+          printf 'source_url=%s\nexpected_sha256=%s\nactual_sha256=%s\n' \
+            "$SOURCE_URL" "$EXPECTED_SHA256" "$(sha256sum "$SOURCE" | awk '{print $1}')" \
+            > artifacts/issue104/source_provenance.txt
+
+      - name: Run General-to-Special adult gap audit
+        shell: bash
+        run: |
+          set -euo pipefail
+          SOURCE="$RUNNER_TEMP/danbooru-2026-09-02.csv"
+          python3 scripts/issue104/adult_general_gap_audit.py \
+            --canonical-source "$SOURCE" \
+            --special-profile data/generation/special2788_generation_profile.csv \
+            --expected-special 2983 \
+            --top-uncovered 5000 \
+            --out-dir artifacts/issue104 \
+            2>&1 | tee artifacts/issue104/run.log
+
+      - name: Validate audit boundaries
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import csv, json
+          from pathlib import Path
+          root = Path('artifacts/issue104')
+          s = json.loads((root/'summary_v1.json').read_text(encoding='utf-8'))
+          assert s['danbooru_general_rows'] == 30743, s['danbooru_general_rows']
+          assert s['special']['rows'] == 2983, s['special']['rows']
+          assert not s['special']['unresolved_nonsemantic_rows'], s['special']['unresolved_nonsemantic_rows']
+          assert s['general_canonical_covered_by_special'] + s['general_not_in_special_count'] == 30743
+          assert s['adult_heuristic_is_exclusion_filter'] == 'NO'
+          assert s['post_count_is_accept_reject_threshold'] == 'NO'
+          assert s['product_general_membership_used_to_exclude'] == 'NO'
+          for key in ('production_mutation','issue70_mutated','userdata_mutated','pseudo_canonical_created','content_filter_used'):
+              assert s[key] == 'NO', (key, s[key])
+          all_rows = list(csv.DictReader((root/'general_not_in_special_v1.csv').open(encoding='utf-8-sig')))
+          adult = list(csv.DictReader((root/'adult_fetish_priority_v1.csv').open(encoding='utf-8-sig')))
+          top = list(csv.DictReader((root/'top_uncovered_by_post_count_v1.csv').open(encoding='utf-8-sig')))
+          assert len(all_rows) == s['general_not_in_special_count']
+          assert len(adult) == s['adult_fetish_priority_count']
+          assert len(top) == min(5000, len(all_rows))
+          assert all(r['coverage_status'] == 'GENERAL_CANONICAL_NOT_IN_SPECIAL' for r in all_rows)
+          counts = [int(r['post_count']) for r in all_rows]
+          assert counts == sorted(counts, reverse=True)
+          print('ISSUE104_ADULT_GENERAL_GAP_GATE=PASS')
+          PY
+
+      - name: Upload audit evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: issue104-adult-general-gap-${{ github.sha }}
+          path: artifacts/issue104
+          if-no-files-found: error
+          retention-days: 14
