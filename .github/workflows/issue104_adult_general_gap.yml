@@ -84,7 +84,7 @@ jobs:
           set -euo pipefail
           python3 scripts/issue104/materialize_product_fit_review.py \
             --strict-crosswalk artifacts/issue104/adult_priority_issue94_crosswalk_v1.csv \
-            --top-uncovered artifacts/issue104/top_uncovered_issue94_crosswalk_v1.csv \
+            --top-uncovered artifacts/issue104/general_not_in_special_v2.csv \
             --out-dir artifacts/issue104 \
             2>&1 | tee artifacts/issue104/product_fit_review.log
 
@@ -157,7 +157,7 @@ jobs:
             f"- strict canonical adult/fetish priority: **{a['canonical_adult_fetish_priority_count']:,}**",
             f"- already reviewed/excluded by Issue #94: **{x['crosswalk_counts'].get('ISSUE94_REVIEWED_EXCLUDED',0):,}**",
             f"- missed by the old Issue #94 final-review prescreen and reviewed here: **{r['strict_new_reviewed']:,}**",
-            f"- additional high-frequency rescue rows reviewed: **{r['supplemental_high_frequency_rescue_reviewed']:,}**",
+            f"- additional high-frequency/opaque rescue rows reviewed: **{r['supplemental_high_frequency_rescue_reviewed']:,}**",
             f"- Special candidates after product-fit review: **{r['special_candidate_count']:,}**",
             f"- definition-level review queue: **{r['needs_definition_review_count']:,}**", '',
             '## Interpretation', '',
