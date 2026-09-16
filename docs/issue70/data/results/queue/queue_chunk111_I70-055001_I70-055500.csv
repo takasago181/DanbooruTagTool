@@ -1,0 +1,501 @@
+row_id,canonical_tag,category,display_ja,search_ja,translation_status,translation_note
+I70-055001,kakaobataa,1,kakaobataa,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055002,kanisawa_yuuki,1,kanisawa yuuki,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055003,karlwolf,1,karlwolf,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055004,kasukabe_akira,1,kasukabe akira,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055005,katuko_deluxe,1,katuko deluxe,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055006,kobayashi_hiyoko,1,こばやしひよこ,,ACCEPTED_AI,semantic re-audit: independently verified official/common artist credit
+I70-055007,kobi420,1,kobi420,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055008,koto_(shiberia39),1,koto (shiberia39),,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055009,kusakihara_toshiyuki,1,草木原俊行,,ACCEPTED_AI,semantic re-audit: independently verified official/common artist credit
+I70-055010,minarai_zouhyou,1,minarai zouhyou,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055011,minimaru,1,minimaru,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055012,mizutani_megumi,1,mizutani megumi,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055013,morisshii_(morishiey),1,morisshii (morishiey),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055014,nagomurasan,1,nagomurasan,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055015,nakamura_kumarin,1,nakamura kumarin,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055016,natu_zame,1,natu zame,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055017,nishikikope,1,nishikikope,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055018,nishiuri_warito,1,nishiuri warito,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055019,pagong,1,pagong,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055020,pepoyo,1,pepoyo,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055021,rockthebull,1,rockthebull,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055022,shijima_(shijima_tc),1,shijima (shijima tc),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055023,shiromaru_(maniado),1,shiromaru (maniado),,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055024,shooko,1,shooko,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055025,sugar_you,1,sugar you,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055026,tabunshake,1,tabunshake,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055027,tamagawa_yukimaru,1,tamagawa yukimaru,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055028,tansui_san_(tcjp4784),1,tansui san (tcjp4784),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055029,toba_hiyoko,1,toba hiyoko,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055030,tsubameyado,1,tsubameyado,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055031,uni_(unnny),1,uni (unnny),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055032,wadani_hitonori,1,wadani hitonori,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055033,weiic,1,weiic,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055034,wincalblanke,1,wincalblanke,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055035,xaxaxa,1,xaxaxa,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055036,yuu_(arcadia),1,yuu (arcadia),,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055037,zhixie,1,zhixie,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055038,zunta,1,zunta,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055039,agekichi_(heart_shape),1,agekichi (heart shape),,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055040,aikura_(twilight_dusk),1,aikura (twilight dusk),,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055041,alpaitham,1,alpaitham,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055042,aya_carmine,1,aya carmine,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055043,beni_kurage,1,beni kurage,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055044,comala_(komma_la),1,comala (komma la),,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055045,dan_nako,1,dan nako,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055046,dasoku_sentarou,1,dasoku sentarou,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055047,daydream_(zhdkffk21),1,daydream (zhdkffk21),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055048,fakkuma,1,fakkuma,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055049,flowerxl,1,flowerxl,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055050,fuji_tarawi,1,fuji tarawi,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055051,genjitsu_o_miro,1,genjitsu o miro,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055052,gyoukan_(jfxc),1,gyoukan (jfxc),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055053,hashiko_nowoto,1,hashiko nowoto,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055054,henoopd,1,henoopd,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055055,hetareeji,1,hetareeji,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055056,hplay,1,hplay,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055057,ikayaki_(ikayaki4),1,ikayaki (ikayaki4),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055058,inre_kemomimi,1,inre kemomimi,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055059,inuinuo_gataken,1,inuinuo gataken,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055060,jack_(slaintheva),1,jack (slaintheva),,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055061,jane_mere,1,jane mere,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055062,jianmo_sl,1,jianmo sl,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055063,kamishiro_noa,1,kamishiro noa,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055064,kaoru_(gensou_yuugen-an),1,kaoru (gensou yuugen-an),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055065,katsukare,1,katsukare,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055066,kimidorix32,1,kimidorix32,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055067,kyuri,1,kyuri,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055068,longmei_er_de_tuzi,1,longmei er de tuzi,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055069,lordol,1,lordol,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055070,mhunter_45,1,mhunter 45,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055071,mikuning,1,mikuning,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055072,na_(naneesan1),1,na (naneesan1),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055073,nishiya_futoshi,1,西屋太志,,ACCEPTED_AI,semantic re-audit: independently verified official/common artist credit
+I70-055074,noccu,1,noccu,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055075,note_nii,1,note nii,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055076,oborotsuki_kakeru,1,oborotsuki kakeru,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055077,okuma707,1,okuma707,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055078,otoutogimi,1,otoutogimi,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055079,patzzi,1,patzzi,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055080,profitwalrus,1,profitwalrus,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055081,rahime,1,rahime,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055082,raito_taisha,1,raito taisha,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055083,rottenpizza,1,rottenpizza,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055084,rrtion,1,rrtion,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055085,saga_inu,1,saga inu,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055086,sakiika0513,1,sakiika0513,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055087,saruchitan,1,saruchitan,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055088,sasanomesi,1,sasanomesi,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055089,sengoku_aky,1,sengoku aky,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055090,sima_naoteng,1,sima naoteng,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055091,sleepyowl_(jobkung15),1,sleepyowl (jobkung15),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055092,stars_4993,1,stars 4993,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055093,superappleman,1,superappleman,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055094,tamute_(2580rs),1,tamute (2580rs),,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055095,tetsuo_(tashirosu),1,tetsuo (tashirosu),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055096,tomodachi_(tomofanart),1,tomodachi (tomofanart),,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055097,unizou,1,unizou,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055098,unxi,1,unxi,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055099,uzou_(uzooooooooo),1,uzou (uzooooooooo),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055100,uzumibi,1,uzumibi,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055101,whitydragon,1,whitydragon,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055102,womi,1,womi,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055103,yasunoharu,1,yasunoharu,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055104,2drr,1,2drr,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055105,69_(tranquilo),1,69 (tranquilo),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055106,akisaka_yamoka,1,akisaka yamoka,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055107,andanden,1,andanden,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055108,anegawa_eiji,1,anegawa eiji,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055109,a-nya,1,a-nya,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055110,asahi_kuroi,1,asahi kuroi,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055111,asicah,1,asicah,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055112,asukaru_(magika_ru),1,asukaru (magika ru),,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055113,asususususu,1,asususususu,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055114,azu_(kirara310),1,azu (kirara310),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055115,beruko14,1,beruko14,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055116,chokopaii,1,chokopaii,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055117,cototiworld,1,cototiworld,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055118,dantes_ward,1,dantes ward,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055119,dokonjou_(odossan),1,dokonjou (odossan),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055120,fuka_(hk_nemo),1,fuka (hk nemo),,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055121,grel_(r6hgvu5),1,grel (r6hgvu5),,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055122,haishiki,1,haishiki,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055123,hanaon,1,hanaon,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055124,haruaki_(onkai_planaria),1,haruaki (onkai planaria),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055125,hatski.sin,1,hatski.sin,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055126,heilanshuimuchu,1,heilanshuimuchu,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055127,homare_(suzu_no_oka),1,homare (suzu no oka),,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055128,i_a_n,1,i a n,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055129,inarou_(rakugakiproject),1,inarou (rakugakiproject),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055130,isemagu,1,isemagu,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055131,isome,1,isome,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055132,junny,1,junny,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055133,kaeranu_kaeru,1,kaeranu kaeru,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055134,kanyoko_(yuzukano_17),1,kanyoko (yuzukano 17),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055135,kaya_rio,1,kaya rio,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055136,kiari_art,1,kiari art,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055137,kobassy,1,kobassy,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055138,koucha_indian,1,koucha indian,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055139,lomocya,1,lomocya,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055140,lowe_(slow),1,lowe (slow),,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055141,majima_yuki,1,majima yuki,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055142,masayu,1,masayu,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055143,mimix,1,mimix,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055144,miyata_sou,1,miyata sou,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055145,n3moni,1,n3moni,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055146,na_insoo,1,na insoo,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055147,nanami_ayane_(kusunoki5050),1,nanami ayane (kusunoki5050),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055148,nazuka_(mikkamisaki),1,nazuka (mikkamisaki),,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055149,ninoude_(ninoude44),1,ninoude (ninoude44),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055150,nishino_eri,1,nishino eri,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055151,nogisaka_kushio,1,nogisaka kushio,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055152,noki_(affabile),1,noki (affabile),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055153,nootomo,1,nootomo,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055154,ogura_tubuan,1,ogura tubuan,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055155,otton,1,otton,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055156,panzer_(p.z),1,panzer (p.z),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055157,pasoputi,1,pasoputi,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055158,porupurucha,1,porupurucha,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055159,psyche3313,1,psyche3313,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055160,rcs_4,1,rcs 4,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055161,risai,1,risai,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055162,runamonet,1,runamonet,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055163,ryuusui_arumo,1,ryuusui arumo,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055164,sasanoneko,1,sasanoneko,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055165,sekiyu_(spartan),1,sekiyu (spartan),,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055166,sese_nagi,1,sese nagi,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055167,shadman,1,shadman,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055168,shironeko_haru,1,shironeko haru,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055169,sika,1,sika,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055170,snatti,1,snatti,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055171,soy-chan,1,soy-chan,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055172,suecovsky,1,suecovsky,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055173,suikaels,1,suikaels,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055174,sutoroa,1,sutoroa,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055175,suzuno_(bookshelf),1,suzuno (bookshelf),,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055176,takasugi_heppu,1,takasugi heppu,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055177,takubon,1,takubon,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055178,takurada,1,takurada,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055179,tanemaki_monaka,1,tanemaki monaka,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055180,totte,1,totte,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055181,tousaki_shiina,1,tousaki shiina,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055182,tsukaasa,1,tsukaasa,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055183,utamaro,1,utamaro,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055184,uu-tan_(hushigi10),1,uu-tan (hushigi10),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055185,veryhardloco,1,veryhardloco,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055186,yatsuka_(846),1,yatsuka (846),,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055187,yokoyari_mengo,1,横槍メンゴ,,ACCEPTED_AI,semantic re-audit: independently verified official/common artist credit
+I70-055188,zenoo,1,zenoo,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055189,108_gou,1,108 gou,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055190,aiwo_o_lite,1,aiwo o lite,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055191,arion_canvas,1,arion canvas,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055192,artnip,1,artnip,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055193,asya,1,asya,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055194,binxngchng1,1,binxngchng1,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055195,blaparky,1,blaparky,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055196,chachi_(azuzu),1,chachi (azuzu),,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055197,charamells,1,charamells,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055198,chirisazame1,1,chirisazame1,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055199,ddog,1,ddog,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055200,emptyayya,1,emptyayya,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055201,enu_illustip,1,enu illustip,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055202,geneva_bowers,1,geneva bowers,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055203,habu_rin,1,habu rin,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055204,happyongdal,1,happyongdal,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055205,heimu_(heim_kstr),1,heimu (heim kstr),,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055206,hk_(hk),1,hk (hk),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055207,ichiryuu_tsumiki,1,ichiryuu tsumiki,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055208,irori_(irorixc),1,irori (irorixc),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055209,kaginoni,1,kaginoni,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055210,kamishiro_mai_(capti-no),1,kamishiro mai (capti-no),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055211,kibinago_(kibinago614),1,kibinago (kibinago614),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055212,klash,1,klash,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055213,kobayashi_yoshitaka,1,kobayashi yoshitaka,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055214,koki_(ryoushikiha),1,koki (ryoushikiha),,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055215,kooei,1,kooei,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055216,kubong,1,kubong,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055217,kurageso,1,kurageso,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055218,love_mintchoco,1,love mintchoco,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055219,lunamoon,1,lunamoon,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055220,m_a_a_m_8,1,m a a m 8,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055221,mahito,1,mahito,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055222,mino_tarou,1,箕星太朗,,ACCEPTED_AI,semantic re-audit: independently verified official/common artist credit
+I70-055223,mirage_(rairudiseu),1,mirage (rairudiseu),,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055224,momomo_906,1,momomo 906,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055225,mozuwaka,1,mozuwaka,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055226,ms06s,1,ms06s,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055227,mzet,1,mzet,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055228,nanana_(chicken_union),1,nanana (chicken union),,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055229,neverland+,1,neverland+,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055230,ninniku_(ninnniku105),1,ninniku (ninnniku105),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055231,notfuji,1,notfuji,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055232,nuudoru,1,nuudoru,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055233,otowa_(otoha4634),1,otowa (otoha4634),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055234,panch4989new,1,panch4989new,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055235,penya,1,penya,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055236,piikeisandaa,1,piikeisandaa,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055237,project_pochama,1,project pochama,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055238,rayingiri,1,rayingiri,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055239,red_leopard,1,red leopard,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055240,reiei_8,1,reiei 8,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055241,risutaru,1,risutaru,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055242,rurisuke,1,rurisuke,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055243,ryuki@maguro-ex,1,ryuki@maguro-ex,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055244,saikachi_(ogre_tree),1,saikachi (ogre tree),,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055245,sainohikari,1,sainohikari,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055246,sakamina,1,sakamina,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055247,seizou_hidzuke,1,seizou hidzuke,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055248,seuga,1,seuga,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055249,shapam_(zeepgalae),1,shapam (zeepgalae),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055250,shinae,1,shinae,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055251,tobi_(nekomata_homara),1,tobi (nekomata homara),,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055252,totaku_(musha_prune),1,totaku (musha prune),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055253,wara_(warapro),1,wara (warapro),,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055254,white-paka,1,white-paka,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055255,xiumu_pianzhou,1,xiumu pianzhou,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055256,yasai_(getsu),1,yasai (getsu),,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055257,yobi_(ybpac18),1,yobi (ybpac18),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055258,yoshida_on,1,yoshida on,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055259,you2,1,you2,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055260,youbi_(0ver_sd),1,youbi (0ver sd),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055261,yuno_ff,1,yuno ff,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055262,afuron,1,afuron,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055263,aosaki_yukina,1,aosaki yukina,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055264,ariso_kaoru,1,ariso kaoru,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055265,aspara,1,aspara,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055266,binayu,1,binayu,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055267,buuwa,1,buuwa,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055268,changgong8745,1,changgong8745,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055269,chideno,1,chideno,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055270,cong1991,1,cong1991,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055271,copituji,1,copituji,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055272,daisy_mitsumata,1,daisy mitsumata,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055273,emia_wang,1,emia wang,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055274,fiz-rot,1,fiz-rot,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055275,fukuro_ooji,1,fukuro ooji,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055276,ge_xi,1,ge xi,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055277,ghost_(tama),1,ghost (tama),,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055278,ginji_(sakaki_summer),1,ginji (sakaki summer),,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055279,gusu,1,gusu,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055280,hakua_ugetsu,1,白亜右月,,ACCEPTED_AI,semantic re-audit: independently verified official/common artist credit
+I70-055281,hamahama,1,hamahama,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055282,han0579,1,han0579,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055283,hayu_(hayu0305),1,hayu (hayu0305),,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055284,hiiragisensei,1,hiiragisensei,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055285,illust_mi,1,illust mi,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055286,jinroku,1,jinroku,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055287,kamiya_tadato,1,kamiya tadato,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055288,katsura_ichiho,1,katsura ichiho,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055289,kirikan_(cokekiri),1,kirikan (cokekiri),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055290,kodama_(wa-ka-me),1,kodama (wa-ka-me),,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055291,kometubu0712,1,kometubu0712,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055292,komowata_haruka,1,こもわた遙華,,ACCEPTED_AI,semantic re-audit: independently verified official/common artist credit
+I70-055293,love_makira,1,love makira,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055294,m_alexa,1,m alexa,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055295,maca_(macaca12),1,maca (macaca12),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055296,mahou_kyuuri,1,mahou kyuuri,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055297,mashiro_kta,1,mashiro kta,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055298,matsubara_tsuyoshi,1,matsubara tsuyoshi,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055299,mesuosushi,1,mesuosushi,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055300,miel_(lessontome),1,miel (lessontome),,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055301,na!_(na'mr),1,na! (na'mr),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055302,namiki_itsuki,1,namiki itsuki,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055303,natsupa,1,natsupa,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055304,nemuaki,1,nemuaki,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055305,noomaru_(nomorepeople),1,noomaru (nomorepeople),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055306,nori20170709,1,nori20170709,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055307,ookamiuo,1,ookamiuo,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055308,ozaki_(tsukiko3),1,ozaki (tsukiko3),,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055309,pok_(pok_0002),1,pok (pok 0002),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055310,renian,1,renian,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055311,ria_(baka-neearts),1,ria (baka-neearts),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055312,rra_(yj),1,rra (yj),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055313,ruppu,1,ruppu,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055314,sahi00000,1,sahi00000,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055315,sakura_(39ra),1,sakura (39ra),,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055316,shg_(hiomaika),1,shg (hiomaika),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055317,shiono_(0303),1,shiono (0303),,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055318,shirayuiii,1,shirayuiii,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055319,shitsugaikotsu,1,shitsugaikotsu,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055320,shoochiku_bai,1,shoochiku bai,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055321,smilesmile1312,1,smilesmile1312,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055322,sn_(sn_utu00),1,sn (sn utu00),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055323,sucui_qiuqiu,1,sucui qiuqiu,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055324,takano_masayuki,1,takano masayuki,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055325,tamanegiinyo,1,tamanegiinyo,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055326,terumii,1,terumii,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055327,thxzmgn,1,thxzmgn,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055328,tsuyudashimirin,1,tsuyudashimirin,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055329,waisshu_(sougyokyuu),1,waisshu (sougyokyuu),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055330,wanko_sora,1,wanko sora,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055331,yoshino_(q_sci),1,yoshino (q sci),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055332,yukiharu,1,yukiharu,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055333,yukimaru_nun,1,yukimaru nun,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055334,yukimi,1,yukimi,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055335,zasha,1,zasha,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055336,zer0.zer0,1,zer0.zer0,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055337,ziling,1,ziling,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055338,7nite,1,7nite,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055339,akai_ringo_(eveyuno),1,akai ringo (eveyuno),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055340,amakawa_sakko,1,amakawa sakko,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055341,anglediana,1,anglediana,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055342,any_(lucky_denver_mint),1,any (lucky denver mint),,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055343,anzen_robo_(474zz),1,anzen robo (474zz),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055344,asagao_minoru,1,asagao minoru,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055345,bails,1,bails,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055346,berryverrine,1,berryverrine,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055347,blue_notuki,1,blue notuki,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055348,chikage_(kinokodou),1,chikage (kinokodou),,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055349,devil_yanghyeok,1,devil yanghyeok,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055350,ebanoniwa,1,ebanoniwa,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055351,ebon,1,ebon,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055352,etsunami_kumita,1,etsunami kumita,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055353,gachitamago,1,gachitamago,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055354,gozaemon,1,gozaemon,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055355,grape_(grapedraws),1,grape (grapedraws),,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055356,heibonkaeru,1,heibonkaeru,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055357,hiro_(hirohiro_gorira),1,hiro (hirohiro gorira),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055358,hisho_(rythm_hisho),1,hisho (rythm hisho),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055359,hrna,1,hrna,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055360,hukahito,1,hukahito,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055361,ibaraki_shun,1,ibaraki shun,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055362,jun_project,1,jun project,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055363,kanke_(yonkuma),1,kanke (yonkuma),,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055364,kiirokuma,1,kiirokuma,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055365,komasi,1,komasi,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055366,kuro_yanagi,1,kuro yanagi,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055367,maydrawfag,1,maydrawfag,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055368,mcbox,1,mcbox,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055369,meji_aniki,1,meji aniki,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055370,meto_(metrin),1,meto (metrin),,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055371,miyamoto_ryuuichi,1,miyamoto ryuuichi,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055372,morncolour,1,morncolour,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055373,necono_(nekonosora1207),1,necono (nekonosora1207),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055374,nukoyarou,1,nukoyarou,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055375,ooshima_ryou,1,ooshima ryou,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055376,pia_(botamochinjufu),1,pia (botamochinjufu),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055377,qurami,1,qurami,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055378,ri_o_ne_su,1,ri o ne su,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055379,richard-kun,1,richard-kun,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055380,sakana_(fishchunk),1,sakana (fishchunk),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055381,sauvignon,1,sauvignon,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055382,sazare_(sazozo0),1,sazare (sazozo0),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055383,shino_duka,1,shino duka,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055384,shirogane_(cufsser),1,shirogane (cufsser),,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055385,shungikuten,1,shungikuten,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055386,simon_(n.s_craft),1,simon (n.s craft),,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055387,steb,1,steb,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055388,suzumeko,1,suzumeko,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055389,takutaku12364,1,takutaku12364,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055390,tanobou,1,tanobou,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055391,tatapopo,1,tatapopo,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055392,temachii,1,temachii,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055393,t-okada,1,t-okada,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055394,toriyarou,1,toriyarou,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055395,un_do,1,un do,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055396,usako_(umauma0602),1,usako (umauma0602),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055397,w_(1999_kyu),1,w (1999 kyu),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055398,wu_yu_wanwan,1,wu yu wanwan,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055399,yah_yah_6,1,yah yah 6,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055400,yakka,1,yakka,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055401,yocchi_(tenyunkel),1,yocchi (tenyunkel),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055402,yorugami_rei,1,yorugami rei,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055403,yuu_(masarunomori),1,yuu (masarunomori),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055404,zinfian,1,zinfian,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055405,afe.,1,afe.,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055406,aizen_(syoshiyuki),1,aizen (syoshiyuki),,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055407,amyucheu,1,amyucheu,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055408,aoba_(akibajun),1,aoba (akibajun),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055409,arupaka5tuki,1,arupaka5tuki,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055410,axe_r18,1,axe r18,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055411,axia-chan,1,axia-chan,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055412,azusa_(azusa0325),1,azusa (azusa0325),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055413,banjou_azusa,1,banjou azusa,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055414,bnari,1,bnari,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055415,chii_(chi_pppuri),1,chii (chi pppuri),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055416,chuuou_higashiguchi,1,chuuou higashiguchi,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055417,cloudyman,1,cloudyman,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055418,dizdoodz,1,dizdoodz,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055419,fe_(tetsu),1,fe (tetsu),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055420,fenqury,1,fenqury,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055421,fov_ps,1,fov ps,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055422,gcg,1,gcg,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055423,goth_risuto,1,goth risuto,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055424,grandia_koori,1,grandia koori,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055425,harada_miyuki,1,harada miyuki,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055426,hirota_tsuu,1,hirota tsuu,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055427,ichi27ichi,1,ichi27ichi,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055428,inkspirate,1,inkspirate,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055429,kaiaik_(zheliakaina),1,kaiaik (zheliakaina),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055430,kazuboh,1,kazuboh,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055431,kazuo_daisuke,1,kazuo daisuke,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055432,kujira_lorant,1,kujira lorant,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055433,kurami_(kohaku.),1,kurami (kohaku.),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055434,kurosaki_kousuke,1,kurosaki kousuke,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055435,linhangwei,1,linhangwei,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055436,magako,1,magako,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055437,makki_do,1,makki do,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055438,maozi_tutu,1,maozi tutu,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055439,matsu_(fu6ide2),1,matsu (fu6ide2),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055440,matsuo_(matuonoie),1,matsuo (matuonoie),,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055441,mellozzo,1,mellozzo,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055442,morokoshi_(tekku),1,morokoshi (tekku),,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055443,myapanpan,1,myapanpan,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055444,myumi,1,myumi,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055445,namu_(nurui_cha),1,namu (nurui cha),,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055446,natsumiya_yuzu,1,natsumiya yuzu,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055447,natsuo_(720ge),1,natsuo (720ge),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055448,noir_(nowaru),1,noir (nowaru),,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055449,panatisia,1,panatisia,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055450,pontaro18,1,pontaro18,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055451,ponymoe,1,ponymoe,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055452,poper_(arin_sel),1,poper (arin sel),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055453,ranka_(tonbo),1,ranka (tonbo),,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055454,redol,1,redol,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055455,reit,1,reit,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055456,renshirenji,1,renshirenji,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055457,rikoma,1,rikoma,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055458,sa1k0p,1,sa1k0p,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055459,saino_misaki,1,saino misaki,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055460,satelyte,1,satelyte,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055461,shikimiya_life,1,shikimiya life,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055462,shirosaba,1,shirosaba,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055463,shiwasu_takashi,1,shiwasu takashi,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055464,shiwo_(siwosi),1,shiwo (siwosi),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055465,shourin_bonzu,1,shourin bonzu,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055466,signo_aaa,1,signo aaa,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055467,snozaki,1,snozaki,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055468,srro_yo,1,srro yo,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055469,starkamisan,1,starkamisan,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055470,steve_zheng,1,steve zheng,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055471,tabayashi,1,tabayashi,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055472,tadano_natsu,1,tadano natsu,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055473,takase_kanan,1,takase kanan,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055474,tatuhiro,1,tatuhiro,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055475,toode_rusu,1,toode rusu,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055476,touya_(konpekitou),1,touya (konpekitou),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055477,wato_(ko),1,wato (ko),,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055478,xox_xxxxxx,1,xox xxxxxx,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055479,yamakaze_ran,1,yamakaze ran,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055480,yasukuni_kazumasa,1,yasukuni kazumasa,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055481,yono_neie,1,yono neie,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055482,zuzu_(ywpd8853),1,zuzu (ywpd8853),,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055483,4me3ba_niku,1,4me3ba niku,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055484,amano_kokoko,1,amano kokoko,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055485,ark_(morita_hitomi),1,ark (morita hitomi),,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055486,atsumi_jun,1,atsumi jun,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055487,azunyart,1,azunyart,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055488,bacheally,1,bacheally,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055489,billbung,1,billbung,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055490,bokyo,1,bokyo,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055491,buresu,1,buresu,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055492,chasai,1,chasai,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055493,curry_gohan,1,curry gohan,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055494,dior-zi,1,dior-zi,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055495,emduck,1,emduck,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055496,epic_armageddon,1,epic armageddon,,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055497,fpsblyck,1,fpsblyck,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055498,gummyrise,1,gummyrise,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
+I70-055499,gyoju_(only_arme_nim),1,gyoju (only arme nim),,ACCEPTED_AI,semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration
+I70-055500,henkawa,1,henkawa,,ACCEPTED_AI,semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved
