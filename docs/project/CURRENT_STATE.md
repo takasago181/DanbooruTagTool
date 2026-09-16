@@ -13,6 +13,7 @@
 - `CURRENT_DEV_TASK.md` on live main is the completed #83 mirror; the active branch mirror is synchronized to Issue #113 and must not be used to alter live main.
 - Issue #70 is integrated on GitHub, but this task must not claim workstation performance against the expected 126,427-entry catalog without an explicit local rebuild and smoke test.
 - Branch checkpoint `223f8a5f` passes the full Release regression (136 passed / 7 skipped) and Issue #113 focused coverage (7/7); the branch remains unmerged and unpushed to `main`.
+- DEV audit `5696590891` requested three blocker corrections; the active branch now carries those corrections and remains NOT MERGED. The synthetic 126,427→63,214 measurement is projection-only, not full EntryViewModel/WPF realization performance.
 
 ## Current Stage
 

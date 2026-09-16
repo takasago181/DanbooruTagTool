@@ -162,24 +162,43 @@ public partial class MainWindow : Window
         var source = e.OriginalSource as DependencyObject;
         while (source != null)
         {
-            if (source is FrameworkElement { DataContext: EntryViewModel row }) { vm.InspectEntry.Execute(row); return; }
+            if (source is FrameworkElement { DataContext: EntryViewModel row }) { vm.InspectEntry.Execute(row); BringSelectedResultIntoView(); return; }
             source = VisualTreeHelper.GetParent(source);
         }
     }
-    private void DictionaryKeyUp(object sender, KeyEventArgs e)
+    private void DictionarySelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        switch (e.Key)
+        // Display rows are never the product selection authority. Clear the
+        // ListBox's transient row selection so only SelectedEntry is retained.
+        if (DictionaryList.SelectedIndex >= 0) DictionaryList.SelectedIndex = -1;
+    }
+    private void DictionaryPreviewKeyDown(object sender, KeyEventArgs e)
+    {
+        int? offset = e.Key switch
         {
-            case Key.Up: vm.MoveResultSelection(-1); break;
-            case Key.Down: vm.MoveResultSelection(1); break;
-            case Key.PageUp: vm.MoveResultSelection(-10); break;
-            case Key.PageDown: vm.MoveResultSelection(10); break;
-            case Key.Home: vm.SelectResultBoundary(false); break;
-            case Key.End: vm.SelectResultBoundary(true); break;
-            case Key.Enter when vm.SelectedEntry is { } row: vm.InspectEntry.Execute(row); break;
-            default: return;
-        }
+            Key.Left when vm.DictionaryColumnCount == 2 => -1,
+            Key.Right when vm.DictionaryColumnCount == 2 => 1,
+            Key.Up => -vm.DictionaryColumnCount,
+            Key.Down => vm.DictionaryColumnCount,
+            Key.PageUp => -10 * vm.DictionaryColumnCount,
+            Key.PageDown => 10 * vm.DictionaryColumnCount,
+            _ => null
+        };
+        if (offset.HasValue) vm.MoveResultSelection(offset.Value);
+        else if (e.Key == Key.Home) vm.SelectResultBoundary(false);
+        else if (e.Key == Key.End) vm.SelectResultBoundary(true);
+        else if (e.Key == Key.Enter && vm.SelectedEntry is { } row) vm.InspectEntry.Execute(row);
+        else return;
         e.Handled = true;
+        BringSelectedResultIntoView();
+    }
+    private void BringSelectedResultIntoView()
+    {
+        if (vm.SelectedEntry is not { } selected) return;
+        var row = vm.DictionaryRows.FirstOrDefault(item => ReferenceEquals(item.First, selected) || ReferenceEquals(item.Second, selected));
+        if (row == null) return;
+        DictionaryList.ScrollIntoView(row);
+        Dispatcher.BeginInvoke(() => (DictionaryList.ItemContainerGenerator.ContainerFromItem(row) as FrameworkElement)?.BringIntoView(), DispatcherPriority.Loaded);
     }
     private void FindKeyDown(object sender, KeyEventArgs e) { if (e.Key == Key.Enter) { vm.FindNext(Keyboard.Modifiers.HasFlag(ModifierKeys.Shift)); e.Handled = true; } }
     private void WindowKeyDown(object sender, KeyEventArgs e)

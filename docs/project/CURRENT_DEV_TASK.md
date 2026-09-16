@@ -42,3 +42,13 @@ Pre-edit baseline on the clean branch used the bundled SDK `10.0.401`:
 - Synthetic 126,427-entry projection: 63,214 display rows in 2.03 ms; row projection creates no WPF card/container instances.
 - WPF actual realized-container inspection was not available because the provided CUA helper lacked the target-app binding API; no workstation 126,427-entry claim is made.
 - `git diff --check`: PASS; #70 data/importer, canonical data, taxonomy, catalog.db schema, and user.db schema are untouched.
+
+## DEV audit correction checkpoint
+
+DEV audit comment `5696590891` identified three blockers. The correction keeps the work on this branch and does not merge it:
+
+1. Internal `RefreshResults()` selection restoration now uses `persist: false`; explicit selection and durable save still persist the latest Query/SelectedEntry.
+2. A changed selected canonical always refreshes the actual `SelectedEntry` instance, including detached detail VMs.
+3. Dictionary `PreviewKeyDown` owns navigation before ListBox processing; flat offsets are column-aware, transient ListBox row selection is cleared, and the selected display row is brought into view.
+
+Added regressions cover Query+Refresh no-save, detached selection refresh, and column-aware navigation. The `RefreshCommands()` full-row refresh remains an intentional non-blocking follow-up candidate.

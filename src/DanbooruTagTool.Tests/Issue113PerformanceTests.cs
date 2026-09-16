@@ -60,6 +60,27 @@ public sealed class Issue113PerformanceTests(ITestOutputHelper output)
     }
 
     [Fact]
+    public void ResultNavigationUsesFlatIndicesAndDictionaryColumnCount()
+    {
+        var vm = Fixtures.Vm();
+        vm.Query = "hair";
+        vm.RefreshResults();
+        vm.SetDictionarySurfaceWidth(1400);
+        vm.SelectedEntry = vm.Results[0];
+
+        vm.MoveResultSelection(vm.DictionaryColumnCount);
+        Assert.Same(vm.Results[2], vm.SelectedEntry);
+        vm.MoveResultSelection(-1);
+        Assert.Same(vm.Results[1], vm.SelectedEntry);
+
+        vm.SetDictionarySurfaceWidth(600);
+        vm.MoveResultSelection(1);
+        Assert.Same(vm.Results[2], vm.SelectedEntry);
+        vm.SelectResultBoundary(true);
+        Assert.Same(vm.Results[^1], vm.SelectedEntry);
+    }
+
+    [Fact]
     public void PromptCanonicalCountChangesRefreshOnlyAffectedRowsAndRemainDuplicateSafe()
     {
         var vm = Fixtures.Vm();
@@ -100,16 +121,37 @@ public sealed class Issue113PerformanceTests(ITestOutputHelper output)
     }
 
     [Fact]
-    public void QuerySetterDoesNotPersistUntilExplicitUiSave()
+    public void QueryAndRefreshResultsDoNotPersistUntilExplicitUiSave()
     {
         var store = new MemoryStore();
         var vm = Fixtures.Vm(store);
 
         vm.Query = "blue_hair";
+        vm.RefreshResults();
         Assert.Null(store.State);
 
         vm.Persist();
         Assert.Equal("blue_hair", store.State?.Ui.Query);
+    }
+
+    [Fact]
+    public void DetachedSelectedEntryRefreshesWhenItsCanonicalChanges()
+    {
+        var vm = Fixtures.Vm();
+        vm.Query = "blue_hair";
+        vm.RefreshResults();
+        var active = vm.Results.Single(row => row.Entry.Canonical == "blue_hair");
+        var detached = new EntryViewModel(active.Entry, vm.Workspace, vm.Add);
+        var addSymbolNotifications = 0;
+        detached.PropertyChanged += (_, args) => addSymbolNotifications += args.PropertyName == nameof(EntryViewModel.AddSymbol) ? 1 : 0;
+        vm.SelectedEntry = detached;
+
+        vm.Workspace.Replace("blue_hair");
+
+        Assert.Equal("✓", active.AddSymbol);
+        Assert.Equal("✓", detached.AddSymbol);
+        Assert.Equal("✓ 追加済み（クリックで取消）", detached.DetailAddLabel);
+        Assert.True(addSymbolNotifications > 0);
     }
 
     [Fact]

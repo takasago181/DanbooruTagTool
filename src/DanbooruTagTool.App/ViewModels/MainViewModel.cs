@@ -176,16 +176,7 @@ public sealed class MainViewModel : Observable
     public EntryViewModel? SelectedEntry
     {
         get => selectedEntry;
-        set
-        {
-            var previous = selectedEntry;
-            if (!Set(ref selectedEntry, value)) return;
-            previous?.Refresh();
-            value?.Refresh();
-            Notify(nameof(Detail));
-            Related = value == null ? [] : RelatedFor(value.Entry);
-            Persist();
-        }
+        set => SetSelectedEntry(value);
     }
     public string Detail => selectedEntry == null ? "タグを選ぶと詳細を表示します。" : string.Join("\n\n", new[] {
         selectedEntry.Entry.Label, selectedEntry.Entry.Canonical ?? selectedEntry.Entry.English,
@@ -386,7 +377,7 @@ public sealed class MainViewModel : Observable
         InspectEntry = Normal(p => { if (p is EntryViewModel row) { SelectedEntry = row; DetailsTabIndex = 0; } });
         Navigate = Normal(p => { if (p is NavigationNode n && !IsSpecialAxisHeading(n.Key)) NavigateTo(n.Key); });
         Back = Normal(_ => { if (back.TryPop(out var key)) { Notify(nameof(CanGoBack)); Back?.Refresh(); NavigateTo(key, false); } }, _ => CanGoBack);
-        ClearQuery = Normal(_ => { Query = ""; RefreshResults(); });
+        ClearQuery = Normal(_ => { Query = ""; RefreshResults(); Persist(); });
         ToggleSpecialFacet = Normal(p =>
         {
             if (specialBrowse == null || p is not SpecialBrowseFacetOptionViewModel option) return;
@@ -438,7 +429,7 @@ public sealed class MainViewModel : Observable
         OpenForgeSettings = Normal(_ => ForgeSettingsRequested?.Invoke());
         SaveForgeSettings = Normal(_ => SaveForgeSettingsValue());
         Workspace.Changed += OnPromptChanged;
-        RefreshChips(); RefreshCategoryGroups(); RefreshResults(); SelectedEntry = Results.FirstOrDefault(e => e.Entry.Id == ui.SelectedEntry);
+        RefreshChips(); RefreshCategoryGroups(); RefreshResults(); SetSelectedEntry(Results.FirstOrDefault(e => e.Entry.Id == ui.SelectedEntry), persist: false);
     }
     private static NavigationNode[] BuildNavigation(IEnumerable<BrowsePath> paths, string prefix) => paths
         .GroupBy(p => p.GenreId).Select(g => new NavigationNode(prefix + g.Key + ">", g.First().Genre,
@@ -482,6 +473,16 @@ public sealed class MainViewModel : Observable
         return row;
     }
     private IReadOnlyList<EntryViewModel> Rows(IEnumerable<CatalogEntry> entries) => entries.Select(Row).ToArray();
+    private void SetSelectedEntry(EntryViewModel? value, bool persist = true)
+    {
+        var previous = selectedEntry;
+        if (!Set(ref selectedEntry, value)) return;
+        previous?.Refresh();
+        value?.Refresh();
+        Notify(nameof(Detail));
+        Related = value == null ? [] : RelatedFor(value.Entry);
+        if (persist) Persist();
+    }
     private void RebuildDictionaryRows()
     {
         dictionaryRows = DictionaryResultProjection.Project(Results, dictionaryColumnCount);
@@ -565,7 +566,7 @@ public sealed class MainViewModel : Observable
                 (browse == "special" || e.Paths.Any(p => "special:" + p.Key == browse || (browse.EndsWith('>') && browse == "special:" + p.GenreId + ">"))));
             entries = SortIndex == 1 ? entries.OrderBy(e => e.Label, StringComparer.Create(CultureInfo.GetCultureInfo("ja-JP"), false)) : entries.OrderByDescending(e => e.Usage);
         }
-        Results = Rows(entries); Notify(nameof(ResultSummary)); SelectedEntry = Results.FirstOrDefault(e => e.Entry.Id == (Query.Length == 0 ? browseSelection ?? selected : selected));
+        Results = Rows(entries); Notify(nameof(ResultSummary)); SetSelectedEntry(Results.FirstOrDefault(e => e.Entry.Id == (Query.Length == 0 ? browseSelection ?? selected : selected)), persist: false);
         RefreshSpecialFacetOptions();
         Notify(nameof(Pending)); Notify(nameof(BrowseLabel)); Notify(nameof(SpecialFacetSummary)); Notify(nameof(HasSpecialFacets)); Notify(nameof(ShowSpecialFacetBar)); Notify(nameof(ShowSpecialKindOptions));
         UndoSpecialFacet.Refresh(); ClearSpecialFacets.Refresh();
@@ -645,7 +646,7 @@ public sealed class MainViewModel : Observable
         promptCanonicalCounts = nextCanonicalCounts;
         RefreshChips();
         RefreshRowsForCanonicals(changedCanonicals);
-        if (SelectedEntry?.Entry.Canonical is { } selectedCanonical && changedCanonicals.Contains(selectedCanonical) && !activeResultIndex.ContainsKey(selectedCanonical)) SelectedEntry.Refresh();
+        if (SelectedEntry?.Entry.Canonical is { } selectedCanonical && changedCanonicals.Contains(selectedCanonical)) SelectedEntry.Refresh();
         foreach (var command in new[] { Undo, Redo, Recover }) command.Refresh();
         RefreshCategoryGroups(); Notify(nameof(English)); Notify(nameof(Count)); Notify(nameof(HasPrompt)); Notify(nameof(Unresolved)); Persist();
     }
