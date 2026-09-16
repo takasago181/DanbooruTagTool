@@ -30,6 +30,34 @@ The risk census and semantic audit must not rewrite production translation data.
 
 Only then may approved corrections be batch-applied and the Issue #70 runtime overlay regenerated. The workstation catalog rebuild happens once after that final correction pass.
 
+## Final read-only census baseline
+
+The first broad census was intentionally treated as exploratory and was rejected because it over-selected Artist rows and search-field rows. The accepted census is the category-aware, runtime-aware v2 pass on audit branch commit `610701266693600abbc56983eb6f453a2aa064dd`.
+
+The runtime search contract was checked in `RuntimeCatalogIndex.SearchDocument.Create()`: `entry.Japanese` is indexed separately from `entry.JapaneseSearch`. Therefore a blank `search_ja`, or a `search_ja` that does not repeat `display_ja`, is not itself an error.
+
+Accepted census outcome:
+
+- rows scanned: 92,739
+- REVIEW_REQUIRED: 13,221
+- ACCEPTED_AI risk: 4,186
+- clean ACCEPTED_AI deterministic sample: 900
+- unique initial audit ledger: 18,307
+
+Ledger by category:
+
+- Character: 14,869
+- Copyright: 2,412
+- Artist: 1,026
+
+The 4,186 ACCEPTED_AI risk rows comprise:
+
+- Character: 2,410
+- Copyright: 1,050
+- Artist: 726
+
+Risk selection is a screening signal, not a verdict. A flagged row may still be `KEEP`.
+
 ## Audit population
 
 The initial ledger is the union of:
@@ -37,9 +65,25 @@ The initial ledger is the union of:
 - every `REVIEW_REQUIRED` row,
 - `ACCEPTED_AI` rows selected by deterministic semantic-risk rules,
 - every `ACCEPTED_AI` row in the top 1% post-count impact tier,
-- deterministic clean ACCEPTED_AI sampling (default 300 per category, split between top-10%-excluding-top-1% and the remaining population).
+- deterministic clean ACCEPTED_AI sampling (300 per category, split between top-10%-excluding-top-1% and the remaining population).
 
-Risk selection is a screening signal, not a verdict. A flagged row may still be `KEEP`.
+The ACCEPTED_AI screening deliberately does **not** treat normal Artist romanization as an error and does **not** require `search_ja` to duplicate `display_ja`.
+
+## Semantic audit order
+
+Do not review the 18,307 rows as one arbitrary row-order stream. Review by repeatable problem family so one confirmed error pattern can be expanded across all 92,739 rows:
+
+1. structural corruption / malformed display (`_`, broken brackets, replacement characters),
+2. strong Japanese source evidence but current Latin/canonical fallback,
+3. duplicate/colliding display names and lost disambiguation,
+4. source-evidence conflicts and suspicious search-only terms,
+5. Character variant/identity/name-order issues using related Copyright context,
+6. Copyright official-title / franchise / installment naming issues,
+7. Artist Japanese readings not supported by preserved evidence,
+8. remaining REVIEW_REQUIRED ambiguity groups,
+9. clean ACCEPTED_AI stratified sample.
+
+Whenever a semantic error pattern is confirmed, run a full-dataset pattern expansion before considering that pattern closed.
 
 ## Audit verdicts
 
@@ -68,11 +112,15 @@ Do not invent readings. Handles, circles, pseudonyms and established romanized f
 
 ## Impact policy
 
-`post_count` changes audit priority, not correctness. Low-post-count rows may still require correction. High-impact rows are deliberately oversampled/audited because mistakes there affect more practical searches.
+`post_count` changes audit priority, not correctness. Low-post-count rows may still require correction. High-impact rows are deliberately covered because mistakes there affect more practical searches.
+
+## External verification policy
+
+Do not research all rows externally. Use external verification when the preserved evidence cannot safely resolve identity or official Japanese naming, especially for high-impact rows. Danbooru aliases/wiki/identity evidence and official sources take priority over generic web results.
 
 ## Output
 
-`python scripts/issue70/audit_semantic_risk.py` emits read-only files under `artifacts/issue70-semantic-audit/`:
+`python scripts/issue70/audit_semantic_risk_v2.py` emits read-only files under `artifacts/issue70-semantic-audit-v2/`:
 
 - `risk_summary.json`
 - `review_required.csv`
