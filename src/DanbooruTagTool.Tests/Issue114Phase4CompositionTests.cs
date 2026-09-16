@@ -29,7 +29,7 @@ public sealed class Issue114Phase4CompositionTests
             {
                 var vm = Fixtures.Vm();
                 var app = new Application { ShutdownMode = ShutdownMode.OnExplicitShutdown };
-                var window = new MainWindow(vm) { WindowState = WindowState.Normal, Width = 1920, Height = 820, ShowInTaskbar = false };
+                var window = new MainWindow(vm) { WindowState = WindowState.Maximized, Width = 1280, Height = 720, ShowInTaskbar = false };
                 window.Show();
                 Pump(window.Dispatcher, 150);
                 window.UpdateLayout();
