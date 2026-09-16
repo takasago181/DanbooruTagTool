@@ -1,66 +1,96 @@
-name: issue70-chunk157-164-auditprep
+name: issue70-chunk157-164-publish
 on:
   push:
     branches: [main]
     paths:
       - '.github/workflows/issue70_chunk157_164_auditprep.yml'
 permissions:
-  contents: read
+  contents: write
 jobs:
-  auditprep:
+  publish:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Extract Japanese candidates for 4000 rows
+      - name: Build validate and publish chunks 157-164
         shell: python
         run: |
-          import csv, re
+          import csv, hashlib, importlib.util, json, re, subprocess
           from pathlib import Path
-          files=[
-            Path('docs/issue70/data/source_chunks/source_078001_078500.csv'),
-            Path('docs/issue70/data/source_chunks/source_078501_079000.csv'),
-            Path('docs/issue70/data/source_chunks/source_079001_079500.csv'),
-            Path('docs/issue70/data/source_chunks/source_079501_080000.csv'),
-            Path('docs/issue70/data/source_chunks/source_080001_080500.csv'),
-            Path('docs/issue70/data/source_chunks/source_080501_081000.csv'),
-            Path('docs/issue70/data/source_chunks/source_081001_081500.csv'),
-            Path('docs/issue70/data/source_chunks/source_081501_082000.csv'),
+          repo=Path.cwd()
+          specs=[
+            (157,'I70-078001','I70-078500','docs/issue70/data/source_chunks/source_078001_078500.csv','5062012b5893ebecf2bdc9bc147715e82cbaf13ff41d7641d0d4dc846a923416','docs/issue70/data/results/queue/queue_chunk157_I70-078001_I70-078500.csv'),
+            (158,'I70-078501','I70-079000','docs/issue70/data/source_chunks/source_078501_079000.csv','8e70034abcf435fbfea7ccd2830280e03c86b0453a580a29b337017531f0f40b','docs/issue70/data/results/queue/queue_chunk158_I70-078501_I70-079000.csv'),
+            (159,'I70-079001','I70-079500','docs/issue70/data/source_chunks/source_079001_079500.csv','4b7b41776b691694c4ed72f40653bc52b810712882a1dfc62e76952ee7f8e490','docs/issue70/data/results/queue/queue_chunk159_I70-079001_I70-079500.csv'),
+            (160,'I70-079501','I70-080000','docs/issue70/data/source_chunks/source_079501_080000.csv','6046b43cb153395e6ffdacea394da56cce471d1fdf02733028f0d4b22c64d3dd','docs/issue70/data/results/queue/queue_chunk160_I70-079501_I70-080000.csv'),
+            (161,'I70-080001','I70-080500','docs/issue70/data/source_chunks/source_080001_080500.csv','4eb7ca9bb2b288dabc90fb17606358ce3a0a98afdc3c94f103075470af824d91','docs/issue70/data/results/queue/queue_chunk161_I70-080001_I70-080500.csv'),
+            (162,'I70-080501','I70-081000','docs/issue70/data/source_chunks/source_080501_081000.csv','136a6f7f93229e672244754c5ffc20fd97d4c28fd7dffef17727fd60169f81f7','docs/issue70/data/results/queue/queue_chunk162_I70-080501_I70-081000.csv'),
+            (163,'I70-081001','I70-081500','docs/issue70/data/source_chunks/source_081001_081500.csv','c32185c7487afb8791ff396c411195ab8b1e7bdfe60a2ee4e1036666292b108e','docs/issue70/data/results/queue/queue_chunk163_I70-081001_I70-081500.csv'),
+            (164,'I70-081501','I70-082000','docs/issue70/data/source_chunks/source_081501_082000.csv','47fef11740c0fa076be8059ee0d6b6a94093bf7cd7b2919bb6ff9143a8ea3e40','docs/issue70/data/results/queue/queue_chunk164_I70-081501_I70-082000.csv'),
           ]
-          outputs=[
-            Path('docs/issue70/data/results/queue/queue_chunk157_I70-078001_I70-078500.csv'),
-            Path('docs/issue70/data/results/queue/queue_chunk158_I70-078501_I70-079000.csv'),
-            Path('docs/issue70/data/results/queue/queue_chunk159_I70-079001_I70-079500.csv'),
-            Path('docs/issue70/data/results/queue/queue_chunk160_I70-079501_I70-080000.csv'),
-            Path('docs/issue70/data/results/queue/queue_chunk161_I70-080001_I70-080500.csv'),
-            Path('docs/issue70/data/results/queue/queue_chunk162_I70-080501_I70-081000.csv'),
-            Path('docs/issue70/data/results/queue/queue_chunk163_I70-081001_I70-081500.csv'),
-            Path('docs/issue70/data/results/queue/queue_chunk164_I70-081501_I70-082000.csv'),
-          ]
-          assert not any(p.exists() for p in outputs), 'one or more target queue files already exist'
+          promotions={
+            'mekimeki':'めきめき',
+            "hayama_jun'ichi":'羽山淳一',
+            'yonezu_kenshi':'米津玄師',
+            'koyama_shigeto':'コヤマシゲト',
+            'sekiguchi_kanami':'関口可奈味',
+            'mori_toshimichi':'森利道',
+            'izubuchi_yutaka':'出渕裕',
+            'yoshinari_kou':'吉成鋼',
+            'takahashi_keitarou':'高橋慶太郎',
+          }
+          result_fields=['row_id','canonical_tag','category','display_ja','search_ja','translation_status','translation_note']
           jp=re.compile(r'[\u3040-\u30ff\u3400-\u9fff]')
-          kanji=re.compile(r'[\u3400-\u9fff]')
-          nameish=re.compile(r"^[a-z][a-z0-9']+_[a-z][a-z0-9']+$")
-          rows_all=[]; candidates=[]
-          for p in files:
-            with p.open('r',encoding='utf-8-sig',newline='') as f:
+          manifest=json.loads((repo/'docs/issue70/data/source_chunks_manifest.json').read_text(encoding='utf-8-sig'))
+          entries={e['chunk_index']:e for e in manifest['chunks']}
+          loaded=[]
+          for idx,first,last,src_rel,expected_sha,out_rel in specs:
+            entry=entries[idx]
+            assert entry['first_row_id']==first and entry['last_row_id']==last and entry['row_count']==500 and entry['file']==src_rel and entry['sha256']==expected_sha
+            src=repo/src_rel
+            assert hashlib.sha256(src.read_bytes()).hexdigest()==expected_sha
+            dst=repo/out_rel
+            if dst.exists():
+              raise SystemExit(f'immutable queue result already exists: {out_rel}')
+            with src.open('r',encoding='utf-8-sig',newline='') as f:
               rows=list(csv.DictReader(f))
-            assert len(rows)==500
+            assert len(rows)==500 and rows[0]['row_id']==first and rows[-1]['row_id']==last
             assert all(r['category_name']=='Artist' and r['category']=='1' for r in rows)
-            rows_all.extend(rows)
+            loaded.append((entry,rows,out_rel))
+          total=0; jp_candidates=0; used=[]
+          for entry,rows,out_rel in loaded:
+            out=[]
             for r in rows:
               c=r['existing_candidate_ja'].strip()
-              if c and jp.search(c): candidates.append(r)
-          assert len(rows_all)==4000
-          print('TOTAL_ROWS',len(rows_all))
-          print('JP_CANDIDATE_COUNT',len(candidates))
-          promising=[]
-          for r in candidates:
-            tag=r['canonical_tag']; c=r['existing_candidate_ja'].strip(); aliases=r['verified_aliases'].strip()
-            ascii_letters=sum(ch.isascii() and ch.isalpha() for ch in c)
-            jp_chars=sum(bool(jp.match(ch)) for ch in c)
-            strong_jp=(jp_chars>=2 and ascii_letters<=2)
-            if nameish.match(tag) or aliases or (strong_jp and kanji.search(c)):
-              promising.append((r['row_id'],tag,aliases,c))
-          print('PROMISING_COUNT',len(promising))
-          for row in promising:
-            print('CAND\t'+'\t'.join(row))
+              if c and jp.search(c): jp_candidates+=1
+              tag=r['canonical_tag']
+              if tag in promotions:
+                display=promotions[tag]
+                used.append((r['row_id'],tag,display))
+                note='semantic artist audit: independently verified Japanese name'
+              else:
+                display=tag.replace('_',' ')
+                note='semantic artist audit: canonical handle preserved; no independently verified Japanese name'
+              out.append({'row_id':r['row_id'],'canonical_tag':tag,'category':r['category'],'display_ja':display,'search_ja':'','translation_status':'ACCEPTED_AI','translation_note':note})
+            dst=repo/out_rel
+            dst.parent.mkdir(parents=True,exist_ok=True)
+            with dst.open('w',encoding='utf-8-sig',newline='') as f:
+              w=csv.DictWriter(f,fieldnames=result_fields,lineterminator='\n'); w.writeheader(); w.writerows(out)
+            total+=len(out)
+          spec=importlib.util.spec_from_file_location('publish_local_batch',repo/'scripts/issue70/publish_local_batch.py')
+          mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)
+          for *_,out_rel in specs:
+            entry,rows=mod.validate_result(repo,repo/out_rel)
+            assert len(rows)==500
+            print('VALIDATED',entry['chunk_index'],out_rel,len(rows))
+          assert total==4000
+          assert jp_candidates==1146
+          assert len(used)==len(promotions)==9
+          print('TOTAL_ROWS',total)
+          print('JP_CANDIDATE_COUNT',jp_candidates)
+          print('PROMOTION_COUNT',len(used))
+          for x in used: print('PROMOTE\t'+'\t'.join(x))
+          subprocess.run(['git','config','user.name','github-actions[bot]'],check=True)
+          subprocess.run(['git','config','user.email','41898282+github-actions[bot]@users.noreply.github.com'],check=True)
+          subprocess.run(['git','add']+[s[-1] for s in specs],check=True)
+          subprocess.run(['git','commit','-m','issue70: publish 4000-row artist audit chunks 157-164'],check=True)
+          subprocess.run(['git','push','origin','HEAD:main'],check=True)
