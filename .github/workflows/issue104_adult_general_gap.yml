@@ -22,7 +22,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Validate scanner syntax
-        run: python3 -m py_compile scripts/issue104/adult_general_gap_audit.py
+        run: |
+          python3 -m py_compile scripts/issue104/adult_general_gap_audit.py
+          python3 -m py_compile scripts/issue104/crosswalk_issue94_review.py
 
       - name: Fetch pinned 2026-09-02 Danbooru snapshot
         shell: bash
@@ -39,6 +41,17 @@ jobs:
             "$SOURCE_URL" "$EXPECTED_SHA256" "$(sha256sum "$SOURCE" | awk '{print $1}')" \
             > artifacts/issue104/source_provenance.txt
 
+      - name: Fetch pinned Issue 94 final review outcomes
+        shell: bash
+        env:
+          ISSUE94_COMMIT: b505f34956dc60e189e8c749fbe0cb187ad5154e
+        run: |
+          set -euo pipefail
+          BASE="https://raw.githubusercontent.com/takasago181/DanbooruTagTool/${ISSUE94_COMMIT}/docs/issue94"
+          curl --fail --location --retry 3 "$BASE/special_gap_candidates_v1.csv" -o "$RUNNER_TEMP/issue94_candidates.csv"
+          curl --fail --location --retry 3 "$BASE/special_gap_exclusion_ledger_v1.csv" -o "$RUNNER_TEMP/issue94_exclusions.csv"
+          printf 'issue94_review_commit=%s\n' "$ISSUE94_COMMIT" > artifacts/issue104/issue94_review_provenance.txt
+
       - name: Run General-to-Special adult gap audit
         shell: bash
         run: |
@@ -52,6 +65,18 @@ jobs:
             --out-dir artifacts/issue104 \
             2>&1 | tee artifacts/issue104/run.log
 
+      - name: Crosswalk with Issue 94 final human review
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 scripts/issue104/crosswalk_issue94_review.py \
+            --adult-priority artifacts/issue104/adult_fetish_canonical_priority_v2.csv \
+            --top-uncovered artifacts/issue104/top_uncovered_by_post_count_v2.csv \
+            --issue94-candidates "$RUNNER_TEMP/issue94_candidates.csv" \
+            --issue94-exclusions "$RUNNER_TEMP/issue94_exclusions.csv" \
+            --out-dir artifacts/issue104 \
+            2>&1 | tee artifacts/issue104/crosswalk.log
+
       - name: Validate audit boundaries
         shell: bash
         run: |
@@ -61,6 +86,7 @@ jobs:
           from pathlib import Path
           root = Path('artifacts/issue104')
           s = json.loads((root/'summary_v2.json').read_text(encoding='utf-8'))
+          x = json.loads((root/'issue94_crosswalk_summary_v1.json').read_text(encoding='utf-8'))
           assert s['danbooru_general_rows'] == 30743, s['danbooru_general_rows']
           assert s['special']['rows'] == 2983, s['special']['rows']
           assert not s['special']['unresolved_nonsemantic_rows'], s['special']['unresolved_nonsemantic_rows']
@@ -69,22 +95,27 @@ jobs:
           assert s['canonical_and_alias_adult_signals_separated'] == 'YES'
           assert s['post_count_is_accept_reject_threshold'] == 'NO'
           assert s['product_general_membership_used_to_exclude'] == 'NO'
-          for key in ('production_mutation','issue70_mutated','userdata_mutated','pseudo_canonical_created','content_filter_used'):
+          assert x['issue94_candidate_still_missing_count'] == 0, x
+          for obj in (s, x):
+              for key in ('production_mutation','issue70_mutated','content_filter_used'):
+                  assert obj[key] == 'NO', (key, obj[key])
+          for key in ('userdata_mutated','pseudo_canonical_created'):
               assert s[key] == 'NO', (key, s[key])
           all_rows = list(csv.DictReader((root/'general_not_in_special_v2.csv').open(encoding='utf-8-sig')))
           adult = list(csv.DictReader((root/'adult_fetish_canonical_priority_v2.csv').open(encoding='utf-8-sig')))
           alias = list(csv.DictReader((root/'adult_alias_signal_only_v2.csv').open(encoding='utf-8-sig')))
           top = list(csv.DictReader((root/'top_uncovered_by_post_count_v2.csv').open(encoding='utf-8-sig')))
+          cross = list(csv.DictReader((root/'adult_priority_issue94_crosswalk_v1.csv').open(encoding='utf-8-sig')))
+          new = list(csv.DictReader((root/'adult_priority_new_since_issue94_prescreen_v1.csv').open(encoding='utf-8-sig')))
           assert len(all_rows) == s['general_not_in_special_count']
-          assert len(adult) == s['canonical_adult_fetish_priority_count']
+          assert len(adult) == s['canonical_adult_fetish_priority_count'] == len(cross)
           assert len(alias) == s['alias_adult_signal_only_count']
           assert len(top) == min(5000, len(all_rows))
+          assert len(new) == x['new_to_adult_focused_review_count']
           assert all(r['coverage_status'] == 'GENERAL_CANONICAL_NOT_IN_SPECIAL' for r in all_rows)
-          assert all(r['review_priority'] == 'CANONICAL_ADULT_FETISH_PRIORITY' for r in adult)
-          assert all(r['review_priority'] == 'ALIAS_ADULT_SIGNAL_ONLY' for r in alias)
           counts = [int(r['post_count']) for r in all_rows]
           assert counts == sorted(counts, reverse=True)
-          print('ISSUE104_ADULT_GENERAL_GAP_V2_GATE=PASS')
+          print('ISSUE104_ADULT_GENERAL_GAP_CROSSWALK_GATE=PASS')
           PY
 
       - name: Upload audit evidence
