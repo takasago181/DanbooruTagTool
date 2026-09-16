@@ -28,14 +28,14 @@ jobs:
         run: |
           set -euo pipefail
           python scripts/issue107/apply_production_promotion.py --repo-root . \
-            | tee /tmp/issue107-production-apply.log
+            | tee issue107-production-apply.log
 
       - name: Validate changed-file boundary and frozen Issue 96 authority
         shell: bash
         run: |
           set -euo pipefail
           echo 'Changed files:'
-          git diff --name-only | tee /tmp/issue107-changed-files.txt
+          git diff --name-only | tee issue107-changed-files.txt
           python - <<'PY'
           from pathlib import Path
           allowed={
@@ -45,7 +45,7 @@ jobs:
             'src/DanbooruTagTool.Data/SpecialBrowseV2Overlay.cs',
             'docs/issue107/production_apply_summary_v1.json',
           }
-          changed={line.strip() for line in Path('/tmp/issue107-changed-files.txt').read_text().splitlines() if line.strip()}
+          changed={line.strip() for line in Path('issue107-changed-files.txt').read_text().splitlines() if line.strip()}
           unexpected=changed-allowed
           if unexpected: raise SystemExit(f'unexpected production paths changed: {sorted(unexpected)}')
           required=allowed-{'docs/issue107/production_apply_summary_v1.json'}
