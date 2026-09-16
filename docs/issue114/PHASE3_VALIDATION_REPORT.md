@@ -17,9 +17,9 @@ Base accepted Phase 2: `f2a8bfa0e1b898723d6f2b453320beca2e9579a2`
 ## Tests and measurements
 
 - Release build: PASS, 0 warnings / 0 errors.
-- Full .NET tests: `145 passed / 7 skipped / 0 failed` (`152 total`).
-- Issue #114 focused tests: `16 passed / 0 skipped / 0 failed`.
-- Phase 3 focused tests: `6 passed / 0 skipped / 0 failed`.
+- Full .NET tests: `158 passed / 7 skipped / 0 failed` (`165 total`).
+- Issue #114 focused tests: `29 passed / 0 skipped / 0 failed`.
+- Phase 3 focused tests: `19 passed / 0 skipped / 0 failed`.
 - Issue73 / Issue74 / Issue76 / DataAndViewModel / preset / Forge regressions: `55 passed / 1 skipped / 0 failed`.
 - `git diff --check`: PASS.
 
@@ -34,6 +34,10 @@ Synthetic Phase 3 characterization used 126,427 existing lightweight `EntryViewM
 | Prompt changed canonical result rows refreshed | 1 |
 | Detached selected instance refreshed | 1 |
 | Query setter + `RefreshResults()` save-count delta | 0 |
+
+The audit follow-up adds a pure `DictionaryKeyboardNavigation.Resolve` mapping used by both the WPF `PreviewKeyDown` handler and tests: one-column Up/Down/PageUp/PageDown are `-1/+1/-10/+10`; two-column Left/Right/Up/Down/PageUp/PageDown are `-1/+1/-2/+2/-20/+20`; Home/End/Enter and one-column horizontal no-op are covered. Boundary movement is clamped to the flat Results range.
+
+Card selection now resolves `ContentPresenter.Content` first and walks OriginalSource ancestors for an EntryViewModel fallback, while button clicks remain excluded. Active selected instances receive one refresh; detached selected instances still receive their required refresh.
 
 The Phase 1 production-sized runtime-index characterization was also rerun: 126,427 synthetic catalog entries, runtime index build `488.867 ms`, transient allocation `234,876,568 bytes`, retained heap delta `85,315,664 bytes`, four-query indexed search `536.195 ms`, and indexed Character browse `0.319 ms`. These are runtime/index measurements, not WPF container realization measurements. No production workstation claim is made for a real 126,427-entry WPF catalog; that remains Phase 4 practical acceptance.
 
