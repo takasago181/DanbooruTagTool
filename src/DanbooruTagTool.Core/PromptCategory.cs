@@ -24,23 +24,13 @@ public static class PromptCategoryProjection
     public const string SpecialLabel = "◆ Special";
     public const string OtherLabel = "その他・未解決";
 
-    public static IReadOnlyList<PromptCategoryGroup> Build(ICatalog catalog, IEnumerable<PromptItem> items)
-    {
-        var generalOrder = catalog.Entries
-            .Where(entry => !entry.IsSpecial)
-            .SelectMany(entry => entry.Paths)
-            .GroupBy(path => path.GenreId, StringComparer.Ordinal)
-            .Select(group => DefinitionFor(false, group.First()))
-            .ToList();
+    public static IReadOnlyList<PromptCategoryGroup> Build(ICatalog catalog, IEnumerable<PromptItem> items) =>
+        Build(RuntimeCatalogIndex.Create(catalog), items);
 
-        var specialOrder = catalog.Entries
-            .Where(entry => entry.IsSpecial)
-            .Select(entry => entry.Paths.FirstOrDefault())
-            .Where(path => path is not null)
-            .Select(path => path!)
-            .GroupBy(path => path.GenreId, StringComparer.Ordinal)
-            .Select(group => DefinitionFor(true, group.First()))
-            .ToList();
+    public static IReadOnlyList<PromptCategoryGroup> Build(IRuntimeCatalogQuery catalog, IEnumerable<PromptItem> items)
+    {
+        var generalOrder = catalog.BrowsePaths(false).Select(path => DefinitionFor(false, path)).ToList();
+        var specialOrder = catalog.BrowsePaths(true).Select(path => DefinitionFor(true, path)).ToList();
 
         var categoryOrder = generalOrder.Concat(specialOrder).ToList();
         var definitions = categoryOrder.ToDictionary(category => category.Key, StringComparer.Ordinal);
@@ -108,9 +98,9 @@ public static class PromptCategoryProjection
         new((special ? "special:" : "general:") + path.GenreId,
             special ? "◆ " + path.Genre : path.Genre);
 
-    private static CatalogEntry? Resolve(ICatalog catalog, PromptItem item) =>
+    private static CatalogEntry? Resolve(IRuntimeCatalogQuery catalog, PromptItem item) =>
         (item.CatalogId is not null
-            ? catalog.Entries.FirstOrDefault(entry => entry.Id == item.CatalogId)
+            ? catalog.FindById(item.CatalogId)
             : null)
         ?? catalog.Resolve(item.Canonical ?? item.StructuredName ?? item.Surface.Trim());
 

@@ -1,68 +1,27 @@
-# CURRENT DEV TASK — ISSUE #83 AGGRESSIVE LOCAL CLEANUP (COMPLETED / MERGED)
+# CURRENT DEV TASK — ISSUE #114 RUNTIME CATALOG INDEX PHASE 1 (ACTIVE)
 
-最終同期: 2026-09-15
+最終同期: 2026-09-16
 
 ## Routing status
 
-- **Issue #83 — aggressive local cleanup is completed and integrated into `main`.**
-- Implementation branch: `codex/issue83-aggressive-cleanup`.
-- Final branch tip: `28ab39f111e438288619781f98311f3414a090ec`.
-- Merged PR: `#84`.
-- Main merge commit: `7ef69e6c7ffa6a76037f97226a9ed067d59c360d`.
-- DEV acceptance: Issue #83 comment `5680343047`.
-- No successor active DEV implementation issue is designated by this file.
-- Issue #70 translation/data, #65 Stage10 learning, #44 KNOWLEDGE, and #24 safety debt remain separate lanes.
+- Issue #114 `[DEV][ARCH][PERF] WPF architecture stabilization and runtime catalog index refactor` is the active DEV implementation lane.
+- Phase 1 branch: `codex/issue114-runtime-index-phase1`.
+- Base live-main SHA: `a8d19e23483f10c4eb7c87b3a0dfa89ff24e4f41`.
+- Activation authority: Issue #114 activation comment `5697124968`.
+- Issue #113 branch `codex/issue113-wpf-performance-pass` at `9cfad5d8c21fe379badc88c7831e61359865a919` is reference-only and is not a base or merge source.
+- Phase 1 scope is the small runtime catalog/query/index boundary: one-time lookup/category/path/relation indexes and precomputed search documents, with existing behavior and schemas preserved.
+- MainViewModel full split, WPF virtualization, targeted Prompt refresh, query persistence, FTS, catalog schema changes, and #70 data changes are out of scope.
+- Do not merge or close Issue #114 from this branch.
 
-## Accepted cleanup result
+## Protected boundaries
 
-Issue #83 retired obsolete/reproducible local and tracked legacy assets after current-dependency proof.
+- Issue #70 source/results, accepted rows, translation status, canonical identity, and import content remain untouched.
+- `catalog.db` schema v1 and `user.db` schema remain unchanged.
+- General and Special taxonomy, Prompt parser/output semantics, Forge protocol, and SoftwareOnly remain unchanged.
 
-Local disk usage for the measured project-related roots changed from:
+## Validation target
 
-- before: `16,183,761,657` bytes
-- after: `1,987,919,366` bytes
-- reclaimed: `14,195,842,291` bytes (`14.196 GB` / `13.221 GiB`)
-
-Major retired assets included:
-- old 11M-post Parquet / runtime source;
-- CSR/runtime index data;
-- obsolete Python/Tk runtime, launcher, tools, tests and retired workflows;
-- old publish/bin/obj and reproducible build scratch;
-- obsolete quarantine/archive/handoff/audit/benchmark outputs;
-- stale worktrees proven safe to remove.
-
-## Preserved / HOLD boundaries
-
-Preserved:
-- current `artifacts/current/Data/catalog.db`;
-- current `artifacts/current/UserData/user.db`;
-- current catalog build inputs and accepted Special/General/#63/#64/#76 assets;
-- active Issue #70 queue/source/results and queue manager;
-- current #44/#65 data with concrete or unresolved current dependency;
-- current SDK/NuGet required for local builds;
-- #24 backups.
-
-HOLD rather than guessed-away:
-- `.worktrees/issue64-full-rollout-audit` because tracked modifications exist;
-- remaining `.tools` SDK/NuGet state;
-- #24 backups;
-- small #44/#65 candidate tools without enough evidence for safe deletion.
-
-## Validation
-
-- full .NET: `126 passed / 6 skipped`
-- Issue #76 focused: `13 passed / 1 skipped`
-- Issue #70 queue: bootstrap/status PASS; 10 tests PASS; claimed `0`
-- catalog: Special `2,788`; General `30,629`
-- WPF startup: PASS (`DanbooruTagTool v1` window confirmed)
-- current `user.db` hash: unchanged
-- current `catalog.db` hash: unchanged
-- `git diff --check`: PASS
-
-## Completion
-
-- Codex final checkpoint: Issue #83 comment `5680261954`.
-- DEV acceptance: Issue #83 comment `5680343047`.
-- Main integration: PR #84 -> `7ef69e6c7ffa6a76037f97226a9ed067d59c360d`.
-- Issue #83: **COMPLETED / CLOSED**.
-- No separate AUDIT lane was required.
+- Preserve SearchEngine ranking and characterization queries (`blue_hair`, `青い髪`, `anal`, `a`, `s`, `hair`, `blue hair`, `青い hair`, `anal_sex`, `blu`, `lue`, `blie hair`).
+- Preserve General top/genre/subgenre, Special, Character, Copyright, Artist, and Character↔Copyright result membership/order.
+- Record Release build, full/focused .NET tests, `git diff --check`, and index/search/browse before/after measurements when the workstation SDK/runtime allows them.
+- If protected production catalog inputs or the .NET SDK are unavailable, report that limitation explicitly; do not infer workstation performance.

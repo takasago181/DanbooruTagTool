@@ -97,8 +97,7 @@ public static class DictionaryLayoutMetrics
 
 public sealed class MainViewModel : Observable
 {
-    private readonly ICatalog catalog;
-    private readonly SearchEngine search;
+    private readonly IRuntimeCatalogQuery catalog;
     private readonly IUserStateStore store;
     private readonly IClipboardService clipboard;
     private readonly IGeneralBrowseProvider general;
@@ -208,7 +207,7 @@ public sealed class MainViewModel : Observable
                     _ => "◆ Special"
                 };
             }
-            return browse == "special" ? "◆ Special" : catalog.Entries.SelectMany(e => e.Paths).FirstOrDefault(p => "special:" + p.Key == browse)?.Label ?? "◆ Special";
+            return browse == "special" ? "◆ Special" : catalog.SpecialNavigationPaths.FirstOrDefault(p => "special:" + p.Key == browse)?.Label ?? "◆ Special";
         }
     }
     public string Pending => browse == "general" && Query.Length == 0 ? general.Status : "";
@@ -292,8 +291,8 @@ public sealed class MainViewModel : Observable
     public RelayCommand SaveForgeSettings { get; }
     public MainViewModel(ICatalog catalog, IUserStateStore store, IClipboardService clipboard, IGeneralBrowseProvider? general = null, IForgeBridgeClient? forgeBridge = null, SpecialBrowseV2Index? specialBrowse = null)
     {
-        this.catalog = catalog; this.store = store; this.clipboard = clipboard; this.general = general ?? new PendingGeneralBrowseProvider(); this.forgeBridge = forgeBridge ?? new ForgeBridgeClient(); this.specialBrowse = specialBrowse;
-        search = new(catalog); Workspace = new(new(catalog));
+        this.catalog = RuntimeCatalogIndex.Create(catalog); this.store = store; this.clipboard = clipboard; this.general = general ?? new PendingGeneralBrowseProvider(); this.forgeBridge = forgeBridge ?? new ForgeBridgeClient(); this.specialBrowse = specialBrowse;
+        Workspace = new(new(this.catalog));
         if (specialBrowse != null)
         {
             foreach (var item in SpecialBrowseV2Taxonomy.Kinds) SpecialKindOptions.Add(new(SpecialBrowseV2Axis.Kind, item.Id, item.Label));
@@ -305,7 +304,7 @@ public sealed class MainViewModel : Observable
         if (specialBrowse != null && browse.StartsWith("special:", StringComparison.Ordinal) && !browse.StartsWith("special-v2:", StringComparison.Ordinal)) browse = "special";
         specialFilter = SpecialFilterFromBrowse(browse);
         Navigation = [new("special", "◆ Special", specialBrowse == null
-            ? catalog.Entries.Where(e => e.IsSpecial).SelectMany(e => e.Paths).GroupBy(p => p.GenreId)
+            ? this.catalog.SpecialNavigationPaths.GroupBy(p => p.GenreId)
                 .Select(g => new NavigationNode("special:" + g.Key + ">", g.First().Genre, g.Where(p => p.SubgenreId.Length > 0).DistinctBy(p => p.Key)
                     .Select(p => new NavigationNode("special:" + p.Key, p.Subgenre, [])).ToArray())).ToArray()
             : BuildSpecialNavigation()),
@@ -417,7 +416,7 @@ public sealed class MainViewModel : Observable
         IEnumerable<CatalogEntry> entries;
         if (!string.IsNullOrWhiteSpace(Query))
         {
-            entries = search.Search(Query).Select(h => h.Entry);
+            entries = catalog.Search(Query).Select(h => h.Entry);
             if (specialBrowse != null && !specialFilter.IsEmpty) entries = specialBrowse.IntersectInInputOrder(entries, specialFilter);
         }
         else if (browse == "general" || browse.StartsWith("general:", StringComparison.Ordinal))
@@ -428,19 +427,18 @@ public sealed class MainViewModel : Observable
         else if (browse is "character" or "copyright" or "artist")
         {
             var category = browse switch { "character" => "Character", "copyright" => "Copyright", _ => "Artist" };
-            entries = catalog.Entries.Where(e => e.EffectiveCategory == category && e.CanBrowse);
+            entries = catalog.BrowseCategory(category);
             entries = SortIndex == 1 ? entries.OrderBy(e => e.Label, StringComparer.Create(CultureInfo.GetCultureInfo("ja-JP"), false)) : entries.OrderByDescending(e => e.Usage);
         }
         else if (specialBrowse != null)
         {
-            entries = catalog.Entries.Where(e => e.IsSpecial && e.CanBrowse);
+            entries = catalog.BrowseCategory("Special");
             entries = SortIndex == 1 ? entries.OrderBy(e => e.Label, StringComparer.Create(CultureInfo.GetCultureInfo("ja-JP"), false)) : entries.OrderByDescending(e => e.Usage);
             entries = specialBrowse.IntersectInInputOrder(entries, specialFilter);
         }
         else
         {
-            entries = catalog.Entries.Where(e => e.IsSpecial && e.CanBrowse &&
-                (browse == "special" || e.Paths.Any(p => "special:" + p.Key == browse || (browse.EndsWith('>') && browse == "special:" + p.GenreId + ">"))));
+            entries = browse == "special" ? catalog.BrowseCategory("Special") : catalog.BrowseSpecialPath(browse[8..]);
             entries = SortIndex == 1 ? entries.OrderBy(e => e.Label, StringComparer.Create(CultureInfo.GetCultureInfo("ja-JP"), false)) : entries.OrderByDescending(e => e.Usage);
         }
         Results = Rows(entries); Notify(nameof(ResultSummary)); SelectedEntry = Results.FirstOrDefault(e => e.Entry.Id == (Query.Length == 0 ? browseSelection ?? selected : selected));
@@ -488,18 +486,15 @@ public sealed class MainViewModel : Observable
     {
         if (entry.EffectiveCategory == "Character")
         {
-            var order = entry.RelatedCopyright.Select((canonical, index) => (canonical, index)).ToDictionary(x => x.canonical, x => x.index, StringComparer.Ordinal);
-            return Rows(catalog.Entries.Where(e => e.EffectiveCategory == "Copyright" && e.Canonical != null && order.ContainsKey(e.Canonical))
-                .OrderBy(e => order[e.Canonical!]));
+            return Rows(catalog.RelatedByCatalogMetadata(entry));
         }
-        if (entry.EffectiveCategory == "Copyright" && entry.Canonical is { } copyright)
-            return Rows(catalog.Entries.Where(e => e.EffectiveCategory == "Character" && e.RelatedCopyright.Contains(copyright, StringComparer.Ordinal))
-                .OrderByDescending(e => e.Usage).Take(6));
+        if (entry.EffectiveCategory == "Copyright" && entry.Canonical is not null)
+            return Rows(catalog.RelatedByCatalogMetadata(entry));
         if (specialBrowse == null || !entry.IsSpecial)
-            return Rows(catalog.Entries.Where(e => e.IsSpecial && e.CanBrowse && e.Id != entry.Id && e.Paths.Any(p => entry.Paths.Any(v => v.Key == p.Key))).OrderByDescending(e => e.Usage).Take(6));
+            return Rows(catalog.RelatedByCatalogMetadata(entry));
         var route = specialBrowse.Get(entry.Id);
         if (route == null || !route.CanBrowse) return [];
-        var candidates = catalog.Entries.Where(e => e.IsSpecial && e.CanBrowse && e.Id != entry.Id).Where(e =>
+        var candidates = catalog.BrowseCategory("Special").Where(e => e.Id != entry.Id).Where(e =>
         {
             var other = specialBrowse.Get(e.Id);
             return other != null && other.CanBrowse &&
@@ -512,7 +507,8 @@ public sealed class MainViewModel : Observable
     public void Add(CatalogEntry entry) { if (CanEditPrompt) Workspace.Add(entry); }
     private void InspectChip(ChipViewModel chip)
     {
-        var entry = catalog.Entries.FirstOrDefault(e => e.Id == chip.Item.CatalogId) ?? catalog.Resolve(chip.Item.StructuredName ?? chip.Item.Surface.Trim());
+        var entry = chip.Item.CatalogId is { } catalogId ? catalog.FindById(catalogId) : null;
+        entry ??= catalog.Resolve(chip.Item.StructuredName ?? chip.Item.Surface.Trim());
         if (entry == null) { Query = chip.Item.StructuredName ?? chip.Item.Surface.Trim(); RefreshResults(); return; }
         SelectedEntry = new(entry, Workspace, Add, () => CanEditPrompt, SpecialBreadcrumb); DetailsTabIndex = 0;
     }
