@@ -34,15 +34,17 @@ public sealed class Issue114Phase3PerformanceTests(ITestOutputHelper output)
         var entries = Enumerable.Range(0, count)
             .Select(index => new EntryViewModel(Fixtures.Entry("synthetic_" + index, "合成" + index), workspace, _ => { }))
             .ToArray();
+        var allocatedBefore = GC.GetAllocatedBytesForCurrentThread();
         var stopwatch = Stopwatch.StartNew();
         var rows = DictionaryResultProjection.Project(entries, 2);
         stopwatch.Stop();
+        var projectionAllocations = GC.GetAllocatedBytesForCurrentThread() - allocatedBefore;
 
         Assert.Equal(63_214, rows.Count);
         Assert.Equal(count, DictionaryResultProjection.Flatten(rows).Count());
         Assert.Same(entries[0], rows[0].First);
         Assert.Same(entries[^1], rows[^1].First);
-        output.WriteLine($"synthetic projection: {count:N0} entries -> {rows.Count:N0} rows in {stopwatch.Elapsed.TotalMilliseconds:F2} ms; projection creates no EntryViewModel instances");
+        output.WriteLine($"synthetic projection: {count:N0} entries -> {rows.Count:N0} rows in {stopwatch.Elapsed.TotalMilliseconds:F2} ms; allocations={projectionAllocations:N0} bytes; projection creates no EntryViewModel instances");
     }
 
     [Fact]
@@ -93,7 +95,10 @@ public sealed class Issue114Phase3PerformanceTests(ITestOutputHelper output)
         Assert.True(detachedNotifications > 0);
         Assert.Equal("✓", affected.AddSymbol);
         Assert.Equal("✓", detached.AddSymbol);
-        output.WriteLine($"targeted refresh: canonical=blue_hair, refreshed rows={refreshedRowCount}, detached selected=1, elapsed={refreshTimer.Elapsed.TotalMilliseconds:F3} ms; full candidate rows={vm.Dictionary.Results.Count + vm.Dictionary.Related.Count}");
+        var fullRefreshTimer = Stopwatch.StartNew();
+        foreach (var row in vm.Dictionary.Results.Concat(vm.Dictionary.Related)) row.Refresh();
+        fullRefreshTimer.Stop();
+        output.WriteLine($"targeted refresh: canonical=blue_hair, refreshed rows={refreshedRowCount}, detached selected=1, elapsed={refreshTimer.Elapsed.TotalMilliseconds:F3} ms; full candidate rows={vm.Dictionary.Results.Count + vm.Dictionary.Related.Count}, old-style full sweep={fullRefreshTimer.Elapsed.TotalMilliseconds:F3} ms");
 
         vm.Workspace.Replace("blue_hair,blue_hair"); // 1 -> 2
         Assert.Contains("2件", affected.DetailAddLabel);
