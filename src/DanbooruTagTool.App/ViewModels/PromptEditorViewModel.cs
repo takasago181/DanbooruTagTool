@@ -48,7 +48,18 @@ public sealed class PromptEditorViewModel : Observable
     public IReadOnlyList<PromptOutputProfileOption> OutputProfiles { get; } =
         [new(PromptOutputProfile.GenerationFriendly, "生成向け"), new(PromptOutputProfile.Canonical, "原形優先")];
     public PromptOutputProfile OutputProfile { get => outputProfile; set { if (Set(ref outputProfile, value)) { Notify(nameof(English)); persist(); } } }
-    public int WorkspaceIndex { get => workspaceIndex; set { if (!DirectEditing && Set(ref workspaceIndex, value)) UpdateChipLanguage(); } }
+    public int WorkspaceIndex
+    {
+        get => workspaceIndex;
+        set
+        {
+            if (!DirectEditing && Set(ref workspaceIndex, value))
+            {
+                UpdateChipLanguage();
+                persist();
+            }
+        }
+    }
     public bool EnglishChips { get => englishChips; set { if (Set(ref englishChips, value)) { UpdateChipLanguage(); persist(); } } }
     public bool IsCategoryView { get => categoryView; set { if (Set(ref categoryView, value)) { Notify(nameof(IsOrderedView)); Notify(nameof(CanEditOrderedPrompt)); Notify(nameof(SelectionSummary)); Notify(nameof(WeightVisible)); RefreshCommands(); } } }
     public bool IsOrderedView { get => !IsCategoryView; set { if (value != IsOrderedView) IsCategoryView = !value; } }

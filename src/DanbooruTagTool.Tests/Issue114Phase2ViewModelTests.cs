@@ -1,11 +1,33 @@
 using DanbooruTagTool.App.ViewModels;
 using DanbooruTagTool.Core;
+using DanbooruTagTool.Data;
 using Xunit;
 
 namespace DanbooruTagTool.Tests;
 
 public sealed class Issue114Phase2ViewModelTests
 {
+    [Fact]
+    public void WorkspaceIndexChangePersistsTheNewWorkspaceExactlyOnce()
+    {
+        var store = new CountingStore();
+        var vm = new MainViewModel(Fixtures.Catalog(), store, new MemoryClipboard());
+        var before = store.SaveCount;
+
+        vm.WorkspaceIndex = 1;
+
+        Assert.Equal(before + 1, store.SaveCount);
+        Assert.Equal(1, store.State!.Ui.Workspace);
+        vm.WorkspaceIndex = 1;
+        Assert.Equal(before + 1, store.SaveCount);
+
+        vm.StartDirect.Execute(null);
+        var duringDirectEdit = store.SaveCount;
+        vm.WorkspaceIndex = 0;
+        Assert.Equal(1, vm.WorkspaceIndex);
+        Assert.Equal(duringDirectEdit, store.SaveCount);
+    }
+
     [Fact]
     public void MainShellComposesFeatureOwnersAndSharesCoreWorkspace()
     {
@@ -62,5 +84,13 @@ public sealed class Issue114Phase2ViewModelTests
         Assert.Equal("special:APPEARANCE>HAIR", restored.Dictionary.BrowseKey);
         Assert.Equal(PromptOutputProfile.GenerationFriendly, restored.Prompt.OutputProfile);
         Assert.Equal("http://127.0.0.1:7861", restored.Forge.ForgeUrl);
+    }
+
+    private sealed class CountingStore : IUserStateStore
+    {
+        public UserState? State { get; private set; }
+        public int SaveCount { get; private set; }
+        public UserState? Load() => State;
+        public void Save(UserState state) { State = state; SaveCount++; }
     }
 }
