@@ -1,0 +1,113 @@
+name: Issue107 Apply Production
+
+on:
+  push:
+    branches:
+      - prod/issue107-promote-adult-special-gaps
+    paths:
+      - scripts/issue107/apply_production_promotion.py
+      - docs/issue107/promotion_metadata_v1.csv
+      - src/DanbooruTagTool.Tests/Issue76MainUiIntegrationTests.cs
+      - src/DanbooruTagTool.Tests/TechnicalFixTests.cs
+      - src/DanbooruTagTool.Tests/ProductionTests.cs
+      - .github/workflows/issue107_apply_production.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  apply-production:
+    runs-on: windows-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Apply deterministic Issue 107 production expansion
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/issue107/apply_production_promotion.py --repo-root . \
+            | tee issue107-production-apply.log
+
+      - name: Validate changed-file boundary and frozen Issue 96 authority
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo 'Changed files:'
+          git diff --name-only | tee issue107-changed-files.txt
+          python - <<'PY'
+          import hashlib, subprocess
+          from pathlib import Path
+          allowed={
+            'data/generation/special2788_generation_profile.csv',
+            'data/special2788/product_fit_verdicts.csv',
+            'src/DanbooruTagTool.Data/AcceptedAssetImporter.cs',
+            'src/DanbooruTagTool.Data/SpecialBrowseV2Overlay.cs',
+            'docs/issue107/production_apply_summary_v1.json',
+          }
+          changed={line.strip() for line in Path('issue107-changed-files.txt').read_text().splitlines() if line.strip()}
+          unexpected=changed-allowed
+          if unexpected: raise SystemExit(f'unexpected production paths changed: {sorted(unexpected)}')
+          required=allowed-{'docs/issue107/production_apply_summary_v1.json'}
+          missing=required-changed
+          if missing: raise SystemExit(f'expected production paths did not change: {sorted(missing)}')
+          frozen=subprocess.check_output(['git','show','HEAD:docs/issue96/special_expansion_promotion_proposal_v1.csv'])
+          digest=hashlib.sha256(frozen).hexdigest()
+          expected='cdeef93802f8b1ebf0e70b2fe82211e2fd8955b064b063f10093a3ff0642dc1f'
+          if digest != expected: raise SystemExit(f'Issue #96 frozen blob hash drift: {digest}')
+          print('ISSUE96_FROZEN_BLOB_GATE=PASS')
+          PY
+
+      - name: Validate production CSV contracts
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import csv, hashlib, json
+          from pathlib import Path
+          def rows(p):
+              with Path(p).open(encoding='utf-8-sig',newline='') as f: return list(csv.DictReader(f))
+          profile=rows('data/generation/special2788_generation_profile.csv')
+          fit=rows('data/special2788/product_fit_verdicts.csv')
+          meta=rows('docs/issue107/promotion_metadata_v1.csv')
+          assert len(profile)==3088 and [int(r['SpecialID']) for r in profile]==list(range(1,3089))
+          assert len(fit)==3088 and [int(r['special_id']) for r in fit]==list(range(1,3089))
+          assert all(r['product_fit_verdict']=='KEEP' for r in fit[2983:])
+          assert [r['Tag'] for r in profile[2983:]]==[r['canonical_tag'] for r in meta]
+          assert [r['GenerationFamily'] for r in profile[2983:]]==[r['generation_family'] for r in meta]
+          assert all(r['EvidenceClass']=='ISSUE107_ACCEPTED_SPECIAL_EXPANSION' for r in profile[2983:])
+          assert hashlib.sha256(Path('docs/issue107/promotion_metadata_v1.csv').read_bytes()).hexdigest()=='84a31353d438001985b76793570417b6501f8ada220466c8508bf989544f26f5'
+          s=json.loads(Path('docs/issue107/production_apply_summary_v1.json').read_text(encoding='utf-8'))
+          assert s['special_before']==2983 and s['special_after']==3088 and s['added']==105 and s['id_range']==[2984,3088]
+          assert s['issue96_authority_mutated']=='NO' and s['issue70_mutated']=='NO' and s['userdata_mutated']=='NO'
+          assert s['existing_id_prefix_preserved']=='YES' and s['hidden_prompt_insertion']=='NO'
+          print('ISSUE107_PRODUCTION_CSV_GATE=PASS')
+          PY
+
+      - name: Inspect stale count contracts
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo 'References to historical 2983/2_983 and HumanResolved 210 after apply:'
+          grep -RInE '2983|2_983|HumanResolved, 210|HumanResolved.*210' src/DanbooruTagTool.Data src/DanbooruTagTool.Tests || true
+
+      - name: Run production test suite
+        shell: bash
+        run: |
+          set -euo pipefail
+          dotnet test src/DanbooruTagTool.Tests/DanbooruTagTool.Tests.csproj -c Release --nologo
+
+      - name: Persist validated production expansion
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/generation/special2788_generation_profile.csv \
+                  data/special2788/product_fit_verdicts.csv \
+                  src/DanbooruTagTool.Data/AcceptedAssetImporter.cs \
+                  src/DanbooruTagTool.Data/SpecialBrowseV2Overlay.cs \
+                  docs/issue107/production_apply_summary_v1.json
+          git commit -m 'Issue #107: apply validated Special expansion to 3088'
+          git push origin HEAD:prod/issue107-promote-adult-special-gaps

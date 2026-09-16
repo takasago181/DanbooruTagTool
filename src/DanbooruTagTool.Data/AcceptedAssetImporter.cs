@@ -10,9 +10,12 @@ public sealed record ImportResult(CatalogEntry[] Entries, Dictionary<string, str
 public static class AcceptedAssetImporter
 {
     public const int BaseSpecialCount = 2788;
-    public const int ExpandedSpecialCount = 2983;
+    public const int Issue96ExpandedSpecialCount = 2983;
+    public const int ExpandedSpecialCount = 3088;
     public const string PromotionRelativePath = "docs/issue96/special_expansion_promotion_proposal_v1.csv";
+    public const string Issue107PromotionRelativePath = "docs/issue107/promotion_metadata_v1.csv";
     private const string PromotionHash = "cdeef93802f8b1ebf0e70b2fe82211e2fd8955b064b063f10093a3ff0642dc1f";
+    private const string Issue107PromotionHash = "84a31353d438001985b76793570417b6501f8ada220466c8508bf989544f26f5";
     public static readonly string[] ProtectedInputs = [
         "data/source/danbooru-2026-09-02.csv", "data/derived/danbooru_alias_normalized_index_VERIFIED_34417.csv",
         "data/special2788/illustrious_tag_knowledge_base_2788.csv", "data/derived/special2788_VERIFIED_LINKAGE.csv",
@@ -54,6 +57,10 @@ public static class AcceptedAssetImporter
         if (Hash(promotionPath) != PromotionHash) throw new InvalidDataException("Issue #96 promotion proposal hash mismatch");
         var promotion = Csv(promotionPath).OrderBy(row => int.Parse(row["proposed_special_id"], CultureInfo.InvariantCulture)).ToArray();
         ValidatePromotion(source, canonical, promotion);
+        var issue107PromotionPath = Authority(Issue107PromotionRelativePath);
+        if (Hash(issue107PromotionPath) != Issue107PromotionHash) throw new InvalidDataException("Issue #107 promotion metadata hash mismatch");
+        var issue107Promotion = Csv(issue107PromotionPath).OrderBy(row => int.Parse(row["proposed_special_id"], CultureInfo.InvariantCulture)).ToArray();
+        ValidateIssue107Promotion(source, canonical, promotion, issue107Promotion);
         using var taxonomy = JsonDocument.Parse(File.ReadAllText(Authority("docs/issue56/rollout/issue56_ui_genre_taxonomy_v1.json")));
         var paths = new Dictionary<string, BrowsePath>();
         foreach (var genre in taxonomy.RootElement.GetProperty("genres").EnumerateArray())
@@ -131,6 +138,19 @@ public static class AcceptedAssetImporter
                 BrowseClassificationStatus.NotApplicable,
                 new SpecialBrowseV2Classification(row["kind_id"], bodySites, themes, SpecialBrowseV2Status.HumanResolved)));
         }
+        foreach (var row in issue107Promotion)
+        {
+            var id = row["proposed_special_id"];
+            var canonicalTag = row["canonical_tag"];
+            var bodySites = SplitPipe(row["body_site_ids"]);
+            var themes = SplitPipe(row["theme_ids"]);
+            ValidatePromotionFacets(id, row["kind_id"], bodySites, themes);
+            entries.Add(new("S:" + id, canonicalTag, canonicalTag, row["display_ja"], true,
+                canonical[canonicalTag], aliases.GetValueOrDefault(canonicalTag)?.ToArray() ?? [],
+                SplitPipe(row["search_ja"]), [], fit[id], "",
+                BrowseClassificationStatus.NotApplicable,
+                new SpecialBrowseV2Classification(row["kind_id"], bodySites, themes, SpecialBrowseV2Status.HumanResolved)));
+        }
         // #63 canonical eligibility must also prevent General duplicates from bypassing exclusion.
         var specialGroups = entries.Where(e => e.IsSpecial && e.Canonical != null).GroupBy(e => e.Canonical!).ToDictionary(g => g.Key, g => g.ToArray());
         for (int i = 0; i < entries.Count; i++)
@@ -144,7 +164,7 @@ public static class AcceptedAssetImporter
         IReadOnlyList<Dictionary<string, string>> promotion)
     {
         var ids = promotion.Select(row => int.Parse(row["proposed_special_id"], CultureInfo.InvariantCulture)).ToArray();
-        if (promotion.Count != ExpandedSpecialCount - BaseSpecialCount || !ids.SequenceEqual(Enumerable.Range(BaseSpecialCount + 1, ExpandedSpecialCount - BaseSpecialCount)))
+        if (promotion.Count != Issue96ExpandedSpecialCount - BaseSpecialCount || !ids.SequenceEqual(Enumerable.Range(BaseSpecialCount + 1, Issue96ExpandedSpecialCount - BaseSpecialCount)))
             throw new InvalidDataException("Issue #96 promotion IDs must be contiguous 2789..2983");
         var existingSpecialSurfaces = source.Values.Select(row => row["Tag"]).ToHashSet(StringComparer.Ordinal);
         foreach (var row in promotion)
@@ -158,6 +178,35 @@ public static class AcceptedAssetImporter
                 throw new InvalidDataException("Issue #96 Japanese metadata incomplete: " + tag);
         }
     }
+    private static void ValidateIssue107Promotion(
+        IReadOnlyDictionary<string, Dictionary<string, string>> source,
+        IReadOnlyDictionary<string, long> canonical,
+        IReadOnlyList<Dictionary<string, string>> issue96Promotion,
+        IReadOnlyList<Dictionary<string, string>> issue107Promotion)
+    {
+        var ids = issue107Promotion.Select(row => int.Parse(row["proposed_special_id"], CultureInfo.InvariantCulture)).ToArray();
+        if (issue107Promotion.Count != ExpandedSpecialCount - Issue96ExpandedSpecialCount ||
+            !ids.SequenceEqual(Enumerable.Range(Issue96ExpandedSpecialCount + 1, ExpandedSpecialCount - Issue96ExpandedSpecialCount)))
+            throw new InvalidDataException("Issue #107 promotion IDs must be contiguous 2984..3088");
+        var existing = source.Values.Select(row => row["Tag"]).Concat(issue96Promotion.Select(row => row["canonical_tag"])).ToHashSet(StringComparer.Ordinal);
+        var seen = new HashSet<string>(StringComparer.Ordinal);
+        foreach (var row in issue107Promotion)
+        {
+            var tag = row["canonical_tag"];
+            if (!seen.Add(tag)) throw new InvalidDataException("Duplicate Issue #107 promotion canonical: " + tag);
+            if (!canonical.TryGetValue(tag, out var postCount)) throw new InvalidDataException("Issue #107 promotion is not a current General canonical: " + tag);
+            if (existing.Contains(tag)) throw new InvalidDataException("Issue #107 promotion overlaps existing Special identity: " + tag);
+            if (long.Parse(row["frozen_post_count_2026_09_02"], CultureInfo.InvariantCulture) != postCount)
+                throw new InvalidDataException("Issue #107 frozen post_count drift: " + tag);
+            if (row["metadata_status"] != "HUMAN_BOUNDED_RESOLVED" || string.IsNullOrWhiteSpace(row["display_ja"]) || string.IsNullOrWhiteSpace(row["search_ja"]))
+                throw new InvalidDataException("Issue #107 product metadata incomplete: " + tag);
+            if (string.IsNullOrWhiteSpace(row["generation_family"]) || string.IsNullOrWhiteSpace(row["generation_role"]) ||
+                string.IsNullOrWhiteSpace(row["prompt_use_mode"]) || string.IsNullOrWhiteSpace(row["family_rule_id"]))
+                throw new InvalidDataException("Issue #107 generation metadata incomplete: " + tag);
+            ValidatePromotionFacets(row["proposed_special_id"], row["kind_id"], SplitPipe(row["body_site_ids"]), SplitPipe(row["theme_ids"]));
+        }
+    }
+
     private static void ValidatePromotionFacets(string id, string kind, string[] bodySites, string[] themes)
     {
         if (!SpecialBrowseV2Taxonomy.Kinds.Any(item => item.Id == kind)) throw new InvalidDataException("Invalid Issue #96 kind at " + id);

@@ -264,7 +264,7 @@ public static class SpecialBrowseV2Overlay
 
         var counts = rows.Values.GroupBy(row => row.Status).ToDictionary(group => group.Key, group => group.Count());
         Expect(counts, SpecialBrowseV2Status.AutoCandidate, 2745);
-        Expect(counts, SpecialBrowseV2Status.HumanResolved, 210);
+        Expect(counts, SpecialBrowseV2Status.HumanResolved, 315);
         Expect(counts, SpecialBrowseV2Status.DeferProductFitReview, 6);
         Expect(counts, SpecialBrowseV2Status.OutOfScopeNoBrowse, 1);
         Expect(counts, SpecialBrowseV2Status.ReferenceOnlyNoDirectBrowse, 21);
