@@ -1,0 +1,90 @@
+name: Issue102 Product Complete Omission Audit
+
+on:
+  push:
+    branches:
+      - audit/issue102-product-complete-omissions
+    paths:
+      - scripts/issue102/**
+      - data/generation/special2788_generation_profile.csv
+      - docs/issue64/production_candidate/effective_sidecar.csv
+      - .github/workflows/issue102_product_complete_omissions.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  omission-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout audit branch
+        uses: actions/checkout@v4
+
+      - name: Validate scanner syntax
+        run: python3 -m py_compile scripts/issue102/product_complete_omission_audit.py
+
+      - name: Fetch pinned 2026-09-02 Danbooru snapshot
+        shell: bash
+        env:
+          SOURCE_URL: https://huggingface.co/datasets/HDiffusion/historical-danbooru-tag-counts/resolve/e243474/danbooru-2026-09-02.csv?download=true
+          EXPECTED_SHA256: 9b32d5ac0713ab252e7470ba6af9cb34de56878b6b3b13dfbbf6a4a37d82d95b
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/issue102
+          SOURCE="$RUNNER_TEMP/danbooru-2026-09-02.csv"
+          curl --fail --location --retry 3 --retry-delay 2 "$SOURCE_URL" --output "$SOURCE"
+          echo "$EXPECTED_SHA256  $SOURCE" | sha256sum --check
+          printf 'source_url=%s\nexpected_sha256=%s\nactual_sha256=%s\n' \
+            "$SOURCE_URL" "$EXPECTED_SHA256" "$(sha256sum "$SOURCE" | awk '{print $1}')" \
+            > artifacts/issue102/source_provenance.txt
+
+      - name: Run complete-omission audit
+        shell: bash
+        run: |
+          set -euo pipefail
+          SOURCE="$RUNNER_TEMP/danbooru-2026-09-02.csv"
+          python3 scripts/issue102/product_complete_omission_audit.py \
+            --canonical-source "$SOURCE" \
+            --product-general docs/issue64/production_candidate/effective_sidecar.csv \
+            --special-profile data/generation/special2788_generation_profile.csv \
+            --expected-general 30629 \
+            --expected-special 2983 \
+            --out-dir artifacts/issue102 \
+            2>&1 | tee artifacts/issue102/run.log
+
+      - name: Validate audit boundaries
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import csv, json
+          from pathlib import Path
+          root = Path('artifacts/issue102')
+          s = json.loads((root/'summary_v1.json').read_text(encoding='utf-8'))
+          assert s['danbooru_general_rows'] == 30743, s['danbooru_general_rows']
+          assert s['product_general_rows'] == 30629, s['product_general_rows']
+          assert s['special']['special_rows'] == 2983, s['special']['special_rows']
+          assert not s['special']['unresolved_nonsemantic_rows'], s['special']['unresolved_nonsemantic_rows']
+          assert s['adult_heuristic_is_exclusion_filter'] == 'NO'
+          assert s['all_omissions_require_human_review'] == 'YES'
+          for key in ('production_mutation','issue70_mutated','userdata_mutated','pseudo_canonical_created','content_filter_used'):
+              assert s[key] == 'NO', (key, s[key])
+          rows = list(csv.DictReader((root/'complete_omissions_v1.csv').open(encoding='utf-8-sig')))
+          assert len(rows) == s['product_complete_omission_count']
+          assert all(r['coverage_status'] == 'PRODUCT_COMPLETE_OMISSION' for r in rows)
+          assert all(r['human_review_status'] == 'REVIEW_REQUIRED' for r in rows)
+          counts = [int(r['post_count']) for r in rows]
+          assert counts == sorted(counts, reverse=True)
+          print('ISSUE102_OMISSION_GATE=PASS')
+          PY
+
+      - name: Upload audit evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: issue102-product-complete-omissions-${{ github.sha }}
+          path: artifacts/issue102
+          if-no-files-found: error
+          retention-days: 14
