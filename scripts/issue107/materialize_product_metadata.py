@@ -16,7 +16,7 @@ SEARCH_EXTRA = {
 'presenting_own_armpit':['腋見せ','脇見せ','自分の脇を見せる'],'breast_curtains':['乳房カーテン'],'condom_in_mouth':['口内コンドーム'],'perky_breasts':['上向きの胸','張った胸'],'sweaty_armpits':['汗ばんだ脇','脇汗'],'veiny_breasts':['胸の血管'],'armpit_focus':['脇フォーカス','腋アップ'],'pointless_condom':['役に立たないコンドーム'],'stained_panties':['汚れパンツ','染み付きパンツ'],'pointy_breasts':['尖った乳房'],'futa_without_balls':['タマなしふたなり','睾丸のないふたなり'],'straitjacket':['ストレートジャケット'],'breast_milk_in_container':['容器の母乳','搾乳容器'],'male_with_breasts':['男性の胸','乳房のある男性'],'breast_zipper':['乳房ジッパー'],'extended_downblouse':['胸元を深く覗く','ダウンブラウス'],'buttjob_over_clothes':['着衣尻コキ'],'sweaty_feet':['足汗'],'rope_around_neck':['首縄'],'rope_marks':['縄の跡','縛り跡'],'upright_restraints':['立位拘束'],'male_underwear_aside':['男性下着をずらす'],'wet_male_underwear':['濡れた男物下着'],'breast_drop':['胸がこぼれる','乳房がこぼれる'],'extreme_gaping':['極端な肛門開き','大きく開いた肛門'],'groping_motion':['揉む手つき','胸を揉むジェスチャー'],'extra_breasts':['複数乳房','多乳房'],'electrostimulation':['電気責め'],'saliva_swap':['唾交換'],'smelly_armpits':['臭い脇'],'smelling_armpit':['脇の匂いを嗅ぐ'],'broken_condom':['破損コンドーム'],'sabotaged_condom':['穴を開けたコンドーム'],'shared_handcuffs':['共有手錠'],'shackle_piercing':['枷ピアス'],'intestine_clothing':['腸の服','内臓衣装'],"feet_on_another's_face":['顔に足','他人の顔を踏む'],'extended_upskirt':['深いアップスカート'],'offering_leash':['リードを渡す'],'uterus_pose':['子宮ポーズ構図'],'cospussy':['コスプレ女性器'],'cunt_punt':['股間を蹴る','女性器キック'],'breast_reduction':['胸が縮む','乳房を小さくする'],'female_fertilization':['女性受精'],'open-chest_straitjacket':['胸開き拘束衣'],'condom_on_ass':['お尻にコンドーム'],'breast_size_switch':['胸サイズ交換'],'putting_on_condom':['コンドーム装着'],'face_in_armpit':['顔を脇にうずめる'],'artificial_insemination':['人工受精'],'shibarikini':['縄ビキニ','緊縛ビキニ'],'condom_in_ass':['お尻にコンドーム','尻の間のコンドーム'],'implied_egg_laying':['産卵示唆','産卵を暗示'],'tied_breast':['胸縛り','乳房拘束']
 }
 
-BODY_BREAST = {t for t in LABELS if 'breast' in t or 'areola' in t} | {'powerful_breasts'}
+BODY_BREAST = {t for t in LABELS if 'breast' in t or 'areola' in t}
 BODY_BUTTOCK = {'buttjob_over_clothes','buttjob_under_clothes','cooperative_buttjob','extreme_gaping','condom_on_ass','condom_in_ass'}
 BODY_MOUTH = {'condom_in_mouth','condom_on_tongue','drinking_from_condom','saliva_swap'}
 BODY_FEMALE = {'cospussy','cunt_punt','female_fertilization'}
@@ -26,10 +26,10 @@ THEME_BDSM = {'viewer_holding_leash','viewer_on_leash','straitjacket','breast_zi
 THEME_REPRO = {'breast_milk_in_container','uterus_pose','female_fertilization','artificial_insemination','implied_egg_laying'}
 THEME_R18G = {'intestine_clothing','cunt_punt','breast_punch','breast_crush'}
 
-K_BODY = {'perky_breasts','sweaty_armpits','veiny_breasts','sweaty_breasts','pointy_breasts','futa_without_balls','light_areolae','speckled_areolae','male_with_breasts','dark_areolae','sweaty_feet','asymmetrical_breasts','extreme_gaping','extra_breasts','breast_size_difference','smelly_armpits','powerful_breasts','mole_on_areola','single_breast','cospussy','breast_reduction','compressed_breasts','breast_implants'}
-K_CLOTHING = {'breast_curtains','stained_panties','covering_one_breast','extended_downblouse','male_underwear_aside','wet_male_underwear','used_condom_in_clothes','condom_wrapper_in_clothes','breast_drop','extended_upskirt',"unzipping_another's_clothes"}
+K_BODY = {'perky_breasts','sweaty_armpits','veiny_breasts','sweaty_breasts','pointy_breasts','futa_without_balls','light_areolae','speckled_areolae','male_with_breasts','dark_areolae','sweaty_feet','rope_marks','asymmetrical_breasts','extreme_gaping','extra_breasts','breast_size_difference','smelly_armpits','powerful_breasts','mole_on_areola','single_breast','cospussy','breast_reduction','compressed_breasts','breast_implants'}
+K_CLOTHING = {'breast_curtains','stained_panties','covering_one_breast','extended_downblouse','male_underwear_aside','wet_male_underwear','used_condom_in_clothes','condom_wrapper_in_clothes','breast_drop','intestine_clothing','extended_upskirt',"unzipping_another's_clothes"}
 K_POSE = {'presenting_own_armpit','armpit_focus','viewer_holding_leash','pov_breasts','viewer_on_leash','upright_restraints','standing_restraints','uterus_pose'}
-K_TOOL = {'pointless_condom','straitjacket','breast_zipper','condom_thigh_strap','electrostimulation','broken_condom','sabotaged_condom','shared_handcuffs','shackle_piercing','open-chest_straitjacket','shibarikini','breast_implants'}
+K_TOOL = {'condom_in_mouth','pointless_condom','straitjacket','breast_zipper','rope_around_neck','condom_thigh_strap','electrostimulation','broken_condom','sabotaged_condom','shared_handcuffs','shackle_piercing','open-chest_straitjacket','condom_on_ass','shibarikini','condom_in_ass','condom_on_tongue'}
 K_FLUID = {'breast_milk_in_container','saliva_on_breasts','saliva_swap','lube_on_breasts','fluid_on_breasts'}
 K_NONHUMAN = {'implied_egg_laying'}
 K_ACTION = set(LABELS) - K_BODY - K_CLOTHING - K_POSE - K_TOOL - K_FLUID - K_NONHUMAN
@@ -39,9 +39,9 @@ G_BODY_ATTRIBUTE = {'perky_breasts','veiny_breasts','pointy_breasts','futa_witho
 G_BODY_STATE = K_BODY - G_BODY_ATTRIBUTE
 G_CLOTHING = K_CLOTHING
 G_FLUID = K_FLUID
-G_RESTRAINT_IMPLEMENT = {'straitjacket','breast_zipper','rope_around_neck','condom_thigh_strap','shared_handcuffs','shackle_piercing','open-chest_straitjacket','shibarikini','tied_breast'}
-G_RESTRAINT_ACTION = {'viewer_holding_leash','viewer_on_leash','rope_marks','upright_restraints','standing_restraints','offering_leash','electrostimulation'}
-G_IMPLEMENT = {'pointless_condom','broken_condom','sabotaged_condom','breast_implants'}
+G_RESTRAINT_IMPLEMENT = {'straitjacket','breast_zipper','rope_around_neck','shared_handcuffs','shackle_piercing','open-chest_straitjacket','shibarikini','tied_breast'}
+G_RESTRAINT_ACTION = {'viewer_holding_leash','viewer_on_leash','upright_restraints','standing_restraints','offering_leash','electrostimulation'}
+G_IMPLEMENT = {'pointless_condom','condom_thigh_strap','broken_condom','sabotaged_condom'}
 G_POSE = {'presenting_own_armpit','armpit_focus','pov_breasts','uterus_pose'}
 G_CONTEXT = {'implied_egg_laying'}
 G_DAMAGE = {'intestine_clothing','cunt_punt','breast_punch','breast_crush'}
@@ -97,17 +97,17 @@ def main():
     if len(source)!=105 or len(set(tags))!=105: raise ValueError('expected 105 unique preflight rows')
     if set(tags)!=set(LABELS):
         raise ValueError(f'Japanese metadata set mismatch missing={sorted(set(tags)-set(LABELS))} extra={sorted(set(LABELS)-set(tags))}')
-    # Verify both independent classification partitions cover the exact fixed source set.
-    if K_BODY|K_CLOTHING|K_POSE|K_TOOL|K_FLUID|K_NONHUMAN|K_ACTION != set(tags): raise ValueError('browse partition does not cover exact source')
-    g_union=G_BODY_ATTRIBUTE|G_BODY_STATE|G_CLOTHING|G_FLUID|G_RESTRAINT_IMPLEMENT|G_RESTRAINT_ACTION|G_IMPLEMENT|G_POSE|G_CONTEXT|G_DAMAGE|G_DIRECT_COMPOSITE|G_ACTION
-    if g_union!=set(tags): raise ValueError('generation partition does not cover exact source')
+    browse_groups=[K_BODY,K_CLOTHING,K_POSE,K_TOOL,K_FLUID,K_NONHUMAN,K_ACTION]
+    if set().union(*browse_groups)!=set(tags) or sum(len(g) for g in browse_groups)!=105: raise ValueError('browse partition does not form an exact disjoint source partition')
+    gen_groups=[G_BODY_ATTRIBUTE,G_BODY_STATE,G_CLOTHING,G_FLUID,G_RESTRAINT_IMPLEMENT,G_RESTRAINT_ACTION,G_IMPLEMENT,G_POSE,G_CONTEXT,G_DAMAGE,G_DIRECT_COMPOSITE,G_ACTION]
+    if set().union(*gen_groups)!=set(tags) or sum(len(g) for g in gen_groups)!=105: raise ValueError('generation partition does not form an exact disjoint source partition')
 
     out=[]
     for r in source:
         tag=r['canonical_tag']; fam,role,mode,rule=generation(tag)
-        ja=[LABELS[tag],*SEARCH_EXTRA.get(tag,[])]
-        # stable de-duplication, preserve human-first order
-        seen=set(); ja=[v for v in ja if v and not (v in seen or seen.add(v))]
+        ja=[]
+        for value in [LABELS[tag],*SEARCH_EXTRA.get(tag,[])]:
+            if value and value not in ja: ja.append(value)
         row=dict(r); row.update({
             'display_ja':LABELS[tag], 'search_ja':'|'.join(ja),
             'kind_id':browse_kind(tag), 'body_site_ids':body_sites(tag), 'theme_ids':themes(tag),
