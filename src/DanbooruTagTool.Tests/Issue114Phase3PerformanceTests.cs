@@ -1,5 +1,7 @@
 using System.Diagnostics;
+using System.Windows.Input;
 using DanbooruTagTool.App.ViewModels;
+using DanbooruTagTool.App.Views;
 using DanbooruTagTool.Core;
 using DanbooruTagTool.Data;
 using Xunit;
@@ -140,6 +142,66 @@ public sealed class Issue114Phase3PerformanceTests(ITestOutputHelper output)
         Assert.Same(vm.Dictionary.Results[^1], vm.Dictionary.SelectedEntry);
         vm.Dictionary.SelectResultBoundary(false);
         Assert.Same(vm.Dictionary.Results[0], vm.Dictionary.SelectedEntry);
+    }
+
+    [Theory]
+    [InlineData(1, Key.Up, -1)]
+    [InlineData(1, Key.Down, 1)]
+    [InlineData(1, Key.PageUp, -10)]
+    [InlineData(1, Key.PageDown, 10)]
+    [InlineData(2, Key.Left, -1)]
+    [InlineData(2, Key.Right, 1)]
+    [InlineData(2, Key.Up, -2)]
+    [InlineData(2, Key.Down, 2)]
+    [InlineData(2, Key.PageUp, -20)]
+    [InlineData(2, Key.PageDown, 20)]
+    public void KeyboardMappingUsesColumnAwareOffsets(int columns, Key key, int expectedOffset)
+    {
+        var action = DictionaryKeyboardNavigation.Resolve(key, columns);
+        Assert.Equal(DictionaryKeyboardActionKind.Move, action.Kind);
+        Assert.Equal(expectedOffset, action.Offset);
+    }
+
+    [Fact]
+    public void KeyboardMappingCoversBoundariesInspectAndSingleColumnHorizontalNoOp()
+    {
+        Assert.Equal(DictionaryKeyboardActionKind.Home, DictionaryKeyboardNavigation.Resolve(Key.Home, 1).Kind);
+        Assert.Equal(DictionaryKeyboardActionKind.End, DictionaryKeyboardNavigation.Resolve(Key.End, 2).Kind);
+        Assert.Equal(DictionaryKeyboardActionKind.Inspect, DictionaryKeyboardNavigation.Resolve(Key.Enter, 2).Kind);
+        Assert.Equal(DictionaryKeyboardActionKind.None, DictionaryKeyboardNavigation.Resolve(Key.Left, 1).Kind);
+        Assert.Equal(DictionaryKeyboardActionKind.None, DictionaryKeyboardNavigation.Resolve(Key.Right, 1).Kind);
+
+        var vm = Fixtures.Vm();
+        vm.Query = "hair";
+        vm.RefreshResults();
+        vm.Dictionary.SelectedEntry = vm.Dictionary.Results[0];
+        vm.Dictionary.MoveResultSelection(-20);
+        Assert.Same(vm.Dictionary.Results[0], vm.Dictionary.SelectedEntry);
+        vm.Dictionary.MoveResultSelection(20);
+        Assert.Same(vm.Dictionary.Results[^1], vm.Dictionary.SelectedEntry);
+    }
+
+    [Fact]
+    public void CardContentResolvesTheEntrySuppliedToEitherContentPresenter()
+    {
+        var entry = new EntryViewModel(Fixtures.Catalog().Entries[0], Fixtures.Workspace(), _ => { });
+        Assert.Same(entry, DictionaryWorkspaceView.ResolveCardEntry(entry, null));
+    }
+
+    [Fact]
+    public void ActiveSelectedEntryIsRefreshedOnceWhileDetachedSelectionStillRefreshes()
+    {
+        var vm = Fixtures.Vm();
+        vm.Query = "hair";
+        vm.RefreshResults();
+        var selected = vm.Dictionary.Results.Single(row => row.Entry.Canonical == "blue_hair");
+        vm.Dictionary.SelectedEntry = selected;
+        var notifications = 0;
+        selected.PropertyChanged += (_, _) => notifications++;
+
+        vm.Workspace.Replace("blue_hair");
+
+        Assert.Equal(3, notifications); // AddLabel, AddSymbol, DetailAddLabel
     }
 
     private sealed class CountingStore : IUserStateStore

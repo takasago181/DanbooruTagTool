@@ -48,7 +48,9 @@ public partial class DictionaryWorkspaceView : UserControl
     private void DictionaryCardMouseUp(object sender, MouseButtonEventArgs e)
     {
         if (FindAncestor<Button>(e.OriginalSource as DependencyObject) != null) return;
-        if (sender is FrameworkElement { DataContext: EntryViewModel row } && ViewModel is { } vm)
+        var content = sender is ContentPresenter presenter ? presenter.Content : null;
+        var row = ResolveCardEntry(content, e.OriginalSource as DependencyObject);
+        if (row != null && ViewModel is { } vm)
         {
             vm.InspectEntry.Execute(row);
             e.Handled = true;
@@ -61,21 +63,16 @@ public partial class DictionaryWorkspaceView : UserControl
     private void DictionaryPreviewKeyDown(object sender, KeyEventArgs e)
     {
         if (ViewModel is not { } vm) return;
-        int? offset = e.Key switch
-        {
-            Key.Left when vm.DictionaryColumnCount == 2 => -1,
-            Key.Right when vm.DictionaryColumnCount == 2 => 1,
-            Key.Up => -vm.DictionaryColumnCount,
-            Key.Down => vm.DictionaryColumnCount,
-            Key.PageUp => -10 * vm.DictionaryColumnCount,
-            Key.PageDown => 10 * vm.DictionaryColumnCount,
-            _ => null
-        };
-        if (offset.HasValue) vm.MoveResultSelection(offset.Value);
-        else if (e.Key == Key.Home) vm.SelectResultBoundary(false);
-        else if (e.Key == Key.End) vm.SelectResultBoundary(true);
-        else if (e.Key == Key.Enter && vm.SelectedEntry is { } selected) vm.InspectEntry.Execute(selected);
-        else return;
+        var action = DictionaryKeyboardNavigation.Resolve(e.Key, vm.DictionaryColumnCount);
+        if (action.Kind == DictionaryKeyboardActionKind.None) return;
+        if (action.Kind == DictionaryKeyboardActionKind.Move)
+            vm.MoveResultSelection(action.Offset);
+        else if (action.Kind == DictionaryKeyboardActionKind.Home)
+            vm.SelectResultBoundary(false);
+        else if (action.Kind == DictionaryKeyboardActionKind.End)
+            vm.SelectResultBoundary(true);
+        else if (action.Kind == DictionaryKeyboardActionKind.Inspect && vm.SelectedEntry is { } selected)
+            vm.InspectEntry.Execute(selected);
         e.Handled = true;
         if (vm.SelectedEntry is not { } current) return;
         var row = vm.DictionaryRows.FirstOrDefault(candidate => ReferenceEquals(candidate.First, current) || ReferenceEquals(candidate.Second, current));
@@ -83,6 +80,16 @@ public partial class DictionaryWorkspaceView : UserControl
         DictionaryList.ScrollIntoView(row);
         Dispatcher.BeginInvoke(() => (DictionaryList.ItemContainerGenerator.ContainerFromItem(row) as FrameworkElement)?.BringIntoView(), DispatcherPriority.Loaded);
     }
+    private static EntryViewModel? FindEntryDataContext(DependencyObject? source)
+    {
+        while (source != null)
+        {
+            if (source is FrameworkElement { DataContext: EntryViewModel row }) return row;
+            source = VisualTreeHelper.GetParent(source);
+        }
+        return null;
+    }
+    public static EntryViewModel? ResolveCardEntry(object? content, DependencyObject? source) => content as EntryViewModel ?? FindEntryDataContext(source);
     private void RestoreScroll()
     {
         if (ViewModel == null) return;

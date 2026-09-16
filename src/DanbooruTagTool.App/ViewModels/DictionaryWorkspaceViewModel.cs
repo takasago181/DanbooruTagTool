@@ -357,8 +357,8 @@ public sealed class DictionaryWorkspaceViewModel : Observable
         var next = CaptureCanonicalCounts(workspace.Items);
         var changed = ChangedCanonicals(promptCanonicalCounts, next);
         promptCanonicalCounts = next;
-        RefreshRowsForCanonicals(changed);
-        if (selectedEntry?.Entry.Canonical is { } selectedCanonical && changed.Contains(selectedCanonical)) selectedEntry.Refresh();
+        var refreshed = RefreshRowsForCanonicals(changed);
+        if (selectedEntry?.Entry.Canonical is { } selectedCanonical && changed.Contains(selectedCanonical) && !refreshed.Contains(selectedEntry)) selectedEntry.Refresh();
     }
 
     private void SetSelectedEntry(EntryViewModel? value, bool persist = true)
@@ -381,12 +381,13 @@ public sealed class DictionaryWorkspaceViewModel : Observable
             if (!rows.Contains(row)) rows.Add(row);
         }
     }
-    private void RefreshRowsForCanonicals(IReadOnlySet<string> changedCanonicals)
+    private HashSet<EntryViewModel> RefreshRowsForCanonicals(IReadOnlySet<string> changedCanonicals)
     {
         var refreshed = new HashSet<EntryViewModel>();
         foreach (var canonical in changedCanonicals)
             if (activeResultIndex.TryGetValue(canonical, out var rows))
                 foreach (var row in rows) if (refreshed.Add(row)) row.Refresh();
+        return refreshed;
     }
     private static Dictionary<string, int> CaptureCanonicalCounts(IEnumerable<PromptItem> items)
     {
