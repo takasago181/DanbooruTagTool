@@ -1,0 +1,21 @@
+{
+  "mode": "ISSUE107_PROMOTION_PREFLIGHT_V1",
+  "base_special_count": 2983,
+  "candidate_count": 105,
+  "proposed_special_count": 3088,
+  "id_range": "2984..3088",
+  "layer_counts": {
+    "Core": 29,
+    "Extended": 76
+  },
+  "candidate_source_sha256": "f739339345b0d5d2f48f986a059ec2dc8aa46e30fe778256d3c4b4939f06b3a3",
+  "base_profile_sha256": "e74f1e5ac6255a67a7ca1ad5d8cb8db9a328a9457696d1499144d62c8527b6cd",
+  "proposal_sha256": "bfaf50b7656c73890904a51e1a627d89189ff769a58d3ad59b7d2b2585f3432b",
+  "normalized_overlap_count": 0,
+  "source_set_exact": "YES",
+  "existing_ids_stable": "YES",
+  "production_mutation": "NO",
+  "issue70_mutated": "NO",
+  "userdata_mutated": "NO",
+  "content_filter_used": "NO"
+}
