@@ -1,0 +1,28 @@
+{
+  "before_sha256": {
+    "data/generation/special2788_generation_profile.csv": "9dfa07987bb3bb2e6cb7186b65494fb46f49137e0af62b4da24daed9c66493a3",
+    "data/special2788/product_fit_verdicts.csv": "e5ff476fb37799c4dfab35ee8da146aaeb9a736a29a27849b5785355fbb12732",
+    "src/DanbooruTagTool.Data/AcceptedAssetImporter.cs": "fb6e61dba9764042dbb24e1a7ccaef5b340b08c035c57b96559939f941f10ea0",
+    "src/DanbooruTagTool.Data/SpecialBrowseV2Overlay.cs": "47b1c86fd8c4561e0d8bd90fc7dcfacc749f7b8d8a10128f9baa2af22be5803f"
+  },
+  "after_sha256": {
+    "data/generation/special2788_generation_profile.csv": "1f82ec20578a98a2d68338e6d4c386734c3b008b827fd68cc2b0cc0c3607b0a8",
+    "data/special2788/product_fit_verdicts.csv": "d1c3d3fff12f48169458fa9967674022dc42456f2ee8ed9bee5156e53ced7834",
+    "src/DanbooruTagTool.Data/AcceptedAssetImporter.cs": "33b18a83b2d5cc21107710559f06d5180a6c254dfecbc9a167e163c334ba8c02",
+    "src/DanbooruTagTool.Data/SpecialBrowseV2Overlay.cs": "3c7decca0ca59468a38a026982cfab17faf699fb49e13ee709947c91ada00bec"
+  },
+  "special_before": 2983,
+  "special_after": 3088,
+  "added": 105,
+  "id_range": [
+    2984,
+    3088
+  ],
+  "metadata_sha256": "84a31353d438001985b76793570417b6501f8ada220466c8508bf989544f26f5",
+  "issue96_authority_mutated": "NO",
+  "issue70_mutated": "NO",
+  "userdata_mutated": "NO",
+  "existing_id_prefix_preserved": "YES",
+  "hidden_prompt_insertion": "NO",
+  "content_filter_used": "NO"
+}
