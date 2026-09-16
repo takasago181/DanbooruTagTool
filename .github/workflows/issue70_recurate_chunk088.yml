@@ -1,0 +1,59 @@
+name: Issue70 Recurate Chunk 88 One Shot
+on:
+  push:
+    paths: ['.github/workflows/issue70_recurate_chunk088.yml']
+permissions:
+  contents: write
+jobs:
+  recurate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Re-curate chunk 88 semantically
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import csv, sys
+          from pathlib import Path
+          ROOT=Path('.')
+          path=ROOT/'docs/issue70/data/results/queue/queue_chunk088_I70-043501_I70-044000.csv'
+          fields=['row_id','canonical_tag','category','display_ja','search_ja','translation_status','translation_note']
+          corrections={
+          'I70-043502':'Tiny Stars','I70-043505':'ウマ娘 プリティーダービー ピスピス☆スピスピ ゴルシちゃん','I70-043509':'Yumemi Channel','I70-043512':'A.O.Z Re-Boot ガンダム・インレ -くろうさぎのみた夢-','I70-043514':'AniLive Jumpstart Program','I70-043516':'Betty Boop','I70-043518':'牧場物語 やすらぎの樹','I70-043523':'CrossCode','I70-043524':'デジモンアドベンチャー LAST EVOLUTION 絆','I70-043525':'Disventure Camp','I70-043527':'ドラゴンボールZ 復活の「F」','I70-043531':'Exitus','I70-043532':'Fate/type Redline','I70-043533':'Harry Potter: Hogwarts Mystery','I70-043535':'Heinz','I70-043537':'Inspector Gadget','I70-043540':'人狼 JIN-ROH','I70-043547':'MAJOR 2nd','I70-043551':'Memories Off ～それから～','I70-043552':'MerMay 2024','I70-043553':'機動戦士ガンダム ククルス・ドアンの島','I70-043554':'Mystery Skulls','I70-043557':'Papa Wolf and the Puppy','I70-043560':'Quake','I70-043565':'Salvika','I70-043570':'テイルズ オブ ザ ワールド レディアント マイソロジー','I70-043575':'Tokimeki Check-in!','I70-043577':'隣の席の陰キャ女子が推し歌い手だった ～俺の曲を歌ってくれ！～','I70-043578':'Tone Sphere','I70-043580':'トランスフォーマー／リベンジ','I70-043584':'UNDERTALE YELLOW','I70-043586':'吸血姫美夕','I70-043588':'忘川風華録','I70-043589':'Warhammer 40,000: Rogue Trader','I70-043590':'野郎フェス2023','I70-043592':'Absolute Superman','I70-043594':'タワー オブ アイオン','I70-043595':'アカシッククロニクル～黎明の黙示録','I70-043598':'青空の見える丘','I70-043600':'アサシン クリード IV ブラック フラッグ','I70-043601':'Black&White（Senano-yu）','I70-043602':'Book of the Cafe','I70-043603':'Boy Meets Girl','I70-043604':'悪魔城ドラキュラ（1986）','I70-043607':'DREAM C CLUB ZERO','I70-043608':'機動戦士ガンダム エコール・デュ・シエル','I70-043611':'Fate:Lost Einherjar 極光のアスラウグ','I70-043614':'Halo 2','I70-043616':'ハウス・オブ・ザ・ドラゴン','I70-043617':'どこいったん','I70-043620':'JAPAN WORLD CUP','I70-043627':'MADK','I70-043628':'Magi in Wanchin Basilica','I70-043630':'マリオ＆ルイージRPG2','I70-043631':'魔探偵ロキ RAGNAROK','I70-043635':'MIRAGE','I70-043637':'moonlit bear','I70-043638':'My Mom and Sister Are Size Queen Sluts','I70-043642':'Pathways','I70-043643':'PHOENIX','I70-043645':'Pokémon Ruby/Sapphire/Emerald（prototype）','I70-043647':'RDG レッドデータガール','I70-043650':'PEACH BALL 閃乱カグラ','I70-043655':'スズノネセブン！','I70-043656':'ソード・ワールド2.0','I70-043657':'タツノコ VS. CAPCOM','I70-043658':'t.A.T.u.','I70-043661':'マイティ・ソー バトルロイヤル','I70-043662':'東方異文石','I70-043663':'闘神伝2','I70-043666':'聖剣伝説 VISIONS of MANA','I70-043667':'Weezer','I70-043679':'Bomb Rush Cyberfunk','I70-043680':'Chronicle 2nd','I70-043682':'コップクラフト DRAGNET MIRAGE RELOADED','I70-043683':'コララインとボタンの魔女','I70-043685':'Cylinders: Trampled Heroines','I70-043686':'D.C.5 ～ダ・カーポ5～','I70-043687':'D・N・A²','I70-043688':'DOOM: The Dark Ages','I70-043690':'Equestria Girls: Better Together','I70-043691':'ファンタジーライフｉ グルグルの竜と時をぬすむ少女','I70-043698':'HOP? STOP? NONSTOP!','I70-043704':'Kenshi','I70-043707':'Leviathan（Project Moon）','I70-043708':'Love Delivery','I70-043711':'MECONOPSIS','I70-043714':'My Co-worker Is an Eldritch X','I70-043715':"My Daily Life in the Otaku Club Isn't Normal",'I70-043722':'パルフェ ～ショコラ second brew～','I70-043723':'Plumaos Academy','I70-043724':'PROJECT:ANEMONE','I70-043728':'Scarlet Police','I70-043730':'Shining World','I70-043731':'Special Color','I70-043735':'宇宙戦艦ヤマト2202 愛の戦士たち','I70-043736':'Ultimate X-Men（2024）','I70-043739':'VALKYRIE DRIVE -BHIKKHUNI-','I70-043740':'VFleet','I70-043741':'VIVIZ','I70-043742':'Websickness','I70-043747':'AFTER L!FE','I70-043754':'Club Penguin','I70-043757':'Cytus I','I70-043758':'DOOM II','I70-043759':"Five Nights at Freddy's 4",'I70-043767':'HEXIA','I70-043770':'KartRider','I70-043776':'ラブライブ！虹ヶ咲学園スクールアイドル同好会 NEXT SKY','I70-043777':'Lunar Wing','I70-043778':'超時空要塞マクロスII -LOVERS AGAIN-','I70-043779':'Magic Maid','I70-043785':'Miracle Snack Shop','I70-043789':'R.E.P.O.','I70-043791':'龍が如く7外伝 名を消した男','I70-043797':'ジョジョの奇妙な冒険 スターダストクルセイダース（OVA）','I70-043808':'Transformers（Skybound）','I70-043810':'WISH SONG','I70-043811':'Yellow','I70-043813':'1/6 -out of the gravity-','I70-043814':'A KITE','I70-043815':'Adventures of Sonic the Hedgehog','I70-043821':'Believe Again','I70-043822':'BLUE REVOLVER','I70-043823':'Bommina the Maidroid','I70-043826':'Cloud Nine Inc.','I70-043831':'デジモンアドベンチャー -BEYOND-','I70-043832':'DIGIMON ALYSION','I70-043833':'Dmyotic','I70-043834':'Dolce','I70-043837':'Equestria Girls: Friendship Games','I70-043840':'GODZILLA 怪獣惑星','I70-043841':'GTO','I70-043842':'HAMHAMPANGPANG','I70-043843':'Higan: Eruthyll','I70-043849':'獣装機攻ダンクーガノヴァ','I70-043851':'仮面ライダーBLACK SUN','I70-043861':'Mega Man: Dual Override','I70-043862':'Men Play Channel','I70-043863':'MEZZO -メゾ-','I70-043870':'Pusheen the Cat','I70-043871':'QUEEN','I70-043872':'Reverse Falls','I70-043876':'Serious Sam','I70-043879':'SpaceX','I70-043881':'Superman: The Animated Series','I70-043883':'涼風','I70-043884':'ソードアート・オンライン -ホロウ・リアリゼーション-','I70-043886':'Taratabong','I70-043896':'世界スポーツカー選手権','I70-043897':'XP-PEN','I70-043898':'Yasha: Legends of the Demon Blade','I70-043908':'デート・ア・ライブ 或守インストール','I70-043910':'Displayer','I70-043912':'ドキピポ☆EMOTION','I70-043913':'ECHO','I70-043914':'EGOIST','I70-043915':'Fate/EXTRA Last Encore','I70-043918':'FRONT INNOCENT','I70-043922':'白き鋼鉄のX（イクス）2','I70-043923':'貧民超人カネナシくん','I70-043926':'東方鬼葬剣 ～ Infinite Blade Pavilion','I70-043932':'Mage Arena','I70-043935':'マリオ＆ソニック AT ロンドンオリンピック','I70-043936':'マリオ＆ソニック AT 北京オリンピック','I70-043939':'ロックマンX（漫画）','I70-043945':'NeoBaka','I70-043946':'Newgrounds','I70-043950':'THE 3rd BIRTHDAY','I70-043951':'PAYDAY 2','I70-043952':'ファンタシースター 千年紀の終りに','I70-043953':'ピクミン','I70-043954':'Power of Three','I70-043956':'Project BLUE','I70-043957':'RETROFUTURE','I70-043958':'リズム天国ゴールド','I70-043959':'リンちゃんなう！','I70-043960':'Rio RainbowGate!','I70-043961':'ルーンファクトリー オーシャンズ','I70-043963':'Star Wars: Knights of the Old Republic','I70-043964':'MAPPA','I70-043968':'ゼルダの伝説 トライフォース3銃士','I70-043969':'Tick! Tack!','I70-043972':'UNDERFELL','I70-043974':'1日だけ君になりたい','I70-043975':'イースIII ワンダラーズフロムイース','I70-043976':'イース・オリジン','I70-043978':'A Knight of the Seven Kingdoms','I70-043982':'ASTLIBRA Revision','I70-043987':'BlueJump','I70-043988':'Brain Rot','I70-043990':'機動戦士ガンダム C.D.A. 若き彗星の肖像','I70-043993':'カラフル×メロディ','I70-044000':'FurryBar'}
+          explicit_review={'I70-043571','I70-043997'}
+          with path.open(encoding='utf-8-sig',newline='') as f: rows=list(csv.DictReader(f))
+          if len(rows)!=500: raise SystemExit(f'expected 500 rows, found {len(rows)}')
+          ids={r['row_id'] for r in rows}
+          if set(corrections)-ids or explicit_review-ids: raise SystemExit('row-id mismatch')
+          counts={'ACCEPTED_AI':0,'REVIEW_REQUIRED':0}; corrected=promoted=0
+          for row in rows:
+              rid=row['row_id']; old=row['display_ja']; oldst=row['translation_status']
+              if rid in explicit_review:
+                  row['translation_status']='REVIEW_REQUIRED'; row['translation_note']='semantic re-curation: genuinely ambiguous/unresolved; manual verification still required'
+              else:
+                  if rid in corrections:
+                      row['display_ja']=corrections[rid]
+                      corrected += row['display_ja'] != old
+                  row['translation_status']='ACCEPTED_AI'; row['translation_note']='semantic re-curation: title/name judged usable; official/common rendering preferred over literal candidate'
+                  promoted += oldst!='ACCEPTED_AI'
+              counts[row['translation_status']]+=1
+          with path.open('w',encoding='utf-8',newline='') as f:
+              w=csv.DictWriter(f,fieldnames=fields,lineterminator='\n'); w.writeheader(); w.writerows(rows)
+          sys.path.insert(0,str(ROOT)); from scripts.issue70.publish_local_batch import validate_result
+          entry,validated_rows=validate_result(ROOT,path)
+          if int(entry['chunk_index'])!=88 or len(validated_rows)!=500: raise SystemExit('validator mismatch')
+          print({'counts':counts,'corrected_display':corrected,'promoted_to_accepted':promoted})
+          PY
+      - name: Commit re-curated result
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/issue70/data/results/queue/queue_chunk088_I70-043501_I70-044000.csv
+          git commit -m 'Issue70: semantically re-curate chunk 88 [skip ci]'
+          git pull --rebase origin main
+          git push origin HEAD:main
