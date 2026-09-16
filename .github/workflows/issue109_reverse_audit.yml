@@ -23,6 +23,7 @@ jobs:
         run: |
           set -euo pipefail
           python3 scripts/issue109/materialize_reverse_audit.py
+          python3 scripts/issue109/extract_b2_focus.py
 
       - name: Validate audit boundaries
         run: |
@@ -33,10 +34,12 @@ jobs:
           summary=json.loads(Path('docs/issue109/mechanical_triage_summary_v1.json').read_text(encoding='utf-8'))
           rows=list(csv.DictReader(Path('docs/issue109/mechanical_triage_v1.csv').open(encoding='utf-8-sig', newline='')))
           review=list(csv.DictReader(Path('docs/issue109/review_queue_v1.csv').open(encoding='utf-8-sig', newline='')))
+          focus=list(csv.DictReader(Path('docs/issue109/b2_focus_801_1600.csv').open(encoding='utf-8-sig', newline='')))
           assert len(rows)==3088
           assert [int(r['special_id']) for r in rows]==list(range(1,3089))
           assert len(review)==summary['review_queue_rows']
           assert sum(summary['triage_counts'].values())==3088
+          assert all(801 <= int(r['special_id']) <= 1600 for r in focus)
           b=summary['boundaries']
           assert set(b.values())=={'NO'}
           assert all(r['human_final']=='' for r in rows)
@@ -53,6 +56,7 @@ jobs:
             'docs/issue109/mechanical_triage_v1.csv',
             'docs/issue109/review_queue_v1.csv',
             'docs/issue109/mechanical_triage_summary_v1.json',
+            'docs/issue109/b2_focus_801_1600.csv',
           }
           lines=subprocess.check_output(
               ['git','status','--porcelain','--untracked-files=all'], text=True
@@ -74,6 +78,7 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add docs/issue109/mechanical_triage_v1.csv \
                   docs/issue109/review_queue_v1.csv \
-                  docs/issue109/mechanical_triage_summary_v1.json
-          git commit -m 'Issue #109: materialize reverse-audit triage'
+                  docs/issue109/mechanical_triage_summary_v1.json \
+                  docs/issue109/b2_focus_801_1600.csv
+          git commit -m 'Issue #109: materialize reverse-audit B2 focus'
           git push origin HEAD:audit/issue109-special-reverse-audit
