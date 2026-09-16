@@ -7,7 +7,7 @@ using DanbooruTagTool.Data;
 namespace DanbooruTagTool.App.ViewModels;
 
 public interface IClipboardService { string Read(); void Write(string text); }
-public sealed class EntryViewModel(CatalogEntry entry, PromptWorkspace workspace, Action<CatalogEntry> add, Func<bool>? canMutate = null, Func<CatalogEntry, string?>? browseBreadcrumb = null) : Observable
+public sealed class EntryViewModel(CatalogEntry entry, PromptWorkspace workspace, Action<CatalogEntry> add, Func<bool>? canMutate = null, Func<CatalogEntry, string?>? browseBreadcrumb = null, Func<bool>? isSelected = null) : Observable
 {
     public CatalogEntry Entry => entry;
     public string Label => (entry.IsSpecial ? "◆ " : "") + entry.Label;
@@ -59,6 +59,7 @@ public sealed class EntryViewModel(CatalogEntry entry, PromptWorkspace workspace
     };
     public string AddSymbol => !entry.CanAdd ? "参照" : CanonicalMatchCount > 0 ? "✓" : "＋";
     public string DetailAddLabel => AddLabel;
+    public bool IsSelected => isSelected?.Invoke() ?? false;
     private RelayCommand? addCommand;
     public RelayCommand Add => addCommand ??= new(_ => TogglePromptItem(), _ => CanTogglePromptItem());
     private bool CanTogglePromptItem() => (canMutate?.Invoke() ?? true) && entry.CanAdd && CanonicalMatchCount <= 1;
@@ -69,7 +70,7 @@ public sealed class EntryViewModel(CatalogEntry entry, PromptWorkspace workspace
         if (matches.Count == 0) add(entry);
         else if (matches.Count == 1) workspace.Delete([matches[0].Id]);
     }
-    public void Refresh() { Notify(nameof(AddLabel)); Notify(nameof(AddSymbol)); Notify(nameof(DetailAddLabel)); Add.Refresh(); }
+    public void Refresh() { Notify(nameof(AddLabel)); Notify(nameof(AddSymbol)); Notify(nameof(DetailAddLabel)); Notify(nameof(IsSelected)); Add.Refresh(); }
 }
 public sealed class ChipViewModel(PromptItem item) : Observable
 {
@@ -93,6 +94,33 @@ public static class DictionaryLayoutMetrics
         var available = Math.Max(MinimumCardWidth, availableWidth);
         return available >= TwoColumnThreshold ? (available - 8) / 2 : available;
     }
+    public static int ColumnCount(double availableWidth) => availableWidth >= TwoColumnThreshold ? 2 : 1;
+}
+
+public sealed record DictionaryResultRow(EntryViewModel First, EntryViewModel? Second)
+{
+    public int FirstColumnSpan => Second is null ? 2 : 1;
+}
+
+public static class DictionaryResultProjection
+{
+    public static IReadOnlyList<DictionaryResultRow> Project(IReadOnlyList<EntryViewModel> results, int columnCount)
+    {
+        if (columnCount is < 1 or > 2) throw new ArgumentOutOfRangeException(nameof(columnCount));
+        var rows = new List<DictionaryResultRow>((results.Count + columnCount - 1) / columnCount);
+        for (var i = 0; i < results.Count; i += columnCount)
+            rows.Add(new(results[i], i + 1 < results.Count && columnCount == 2 ? results[i + 1] : null));
+        return rows;
+    }
+
+    public static IEnumerable<EntryViewModel> Flatten(IEnumerable<DictionaryResultRow> rows)
+    {
+        foreach (var row in rows)
+        {
+            yield return row.First;
+            if (row.Second is not null) yield return row.Second;
+        }
+    }
 }
 
 public sealed class MainViewModel : Observable
@@ -115,14 +143,50 @@ public sealed class MainViewModel : Observable
     private IReadOnlyList<PromptCategoryGroup> categoryGroups = [];
     public IReadOnlyList<PromptCategoryGroup> CategoryGroups { get => categoryGroups; private set => Set(ref categoryGroups, value); }
     private IReadOnlyList<EntryViewModel> results = [], related = [];
-    public IReadOnlyList<EntryViewModel> Results { get => results; private set => Set(ref results, value); }
+    private IReadOnlyList<DictionaryResultRow> dictionaryRows = [];
+    private int dictionaryColumnCount = 1;
+    private readonly Dictionary<string, List<EntryViewModel>> activeResultIndex = new(StringComparer.Ordinal);
+    private Dictionary<string, int> promptCanonicalCounts = new(StringComparer.Ordinal);
+    public IReadOnlyList<EntryViewModel> Results
+    {
+        get => results;
+        private set
+        {
+            if (!Set(ref results, value)) return;
+            RebuildActiveResultIndex();
+            RebuildDictionaryRows();
+        }
+    }
+    public IReadOnlyList<DictionaryResultRow> DictionaryRows => dictionaryRows;
+    public int DictionaryColumnCount => dictionaryColumnCount;
     private double dictionaryCardWidth = 480;
     // The view updates this from the available result surface. It is deliberately
     // transient: layout density is a display concern, not persisted user data.
     public double DictionaryCardWidth { get => dictionaryCardWidth; set => Set(ref dictionaryCardWidth, value); }
-    public IReadOnlyList<EntryViewModel> Related { get => related; private set => Set(ref related, value); }
+    public IReadOnlyList<EntryViewModel> Related
+    {
+        get => related;
+        private set
+        {
+            if (!Set(ref related, value)) return;
+            RebuildActiveResultIndex();
+        }
+    }
     private EntryViewModel? selectedEntry;
-    public EntryViewModel? SelectedEntry { get => selectedEntry; set { if (Set(ref selectedEntry, value)) { Notify(nameof(Detail)); Related = value == null ? [] : RelatedFor(value.Entry); Persist(); } } }
+    public EntryViewModel? SelectedEntry
+    {
+        get => selectedEntry;
+        set
+        {
+            var previous = selectedEntry;
+            if (!Set(ref selectedEntry, value)) return;
+            previous?.Refresh();
+            value?.Refresh();
+            Notify(nameof(Detail));
+            Related = value == null ? [] : RelatedFor(value.Entry);
+            Persist();
+        }
+    }
     public string Detail => selectedEntry == null ? "タグを選ぶと詳細を表示します。" : string.Join("\n\n", new[] {
         selectedEntry.Entry.Label, selectedEntry.Entry.Canonical ?? selectedEntry.Entry.English,
         "使用数 " + selectedEntry.Entry.UsageText, selectedEntry.Breadcrumb, selectedEntry.Entry.Description,
@@ -182,7 +246,7 @@ public sealed class MainViewModel : Observable
     public string PresetNegative { get => presetNegative; set => Set(ref presetNegative, value); }
     public string ForgeUrl { get => forgeUrl; set => Set(ref forgeUrl, value); }
     public string ForgeExtensionPath { get => forgeExtensionPath; set => Set(ref forgeExtensionPath, value); }
-    public string Query { get => query; set { if (query.Length == 0 && value.Length > 0) { browseSelection = SelectedEntry?.Entry.Id; RestoreScroll = BrowseScroll; } if (Set(ref query, value)) { Notify(nameof(IsSearching)); Notify(nameof(CanBrowseSort)); Persist(); } } }
+    public string Query { get => query; set { if (query.Length == 0 && value.Length > 0) { browseSelection = SelectedEntry?.Entry.Id; RestoreScroll = BrowseScroll; } if (Set(ref query, value)) { Notify(nameof(IsSearching)); Notify(nameof(CanBrowseSort)); } } }
     public bool IsSearching => !string.IsNullOrWhiteSpace(Query);
     public bool CanBrowseSort => !IsSearching;
     public int DetailsTabIndex { get => detailsTabIndex; set => Set(ref detailsTabIndex, value); }
@@ -301,6 +365,7 @@ public sealed class MainViewModel : Observable
             foreach (var item in SpecialBrowseV2Taxonomy.Themes) SpecialThemeOptions.Add(new(SpecialBrowseV2Axis.Theme, item.Id, item.Label));
         }
         var state = store.Load(); if (state != null) { Workspace.Restore(state.Prompt); ui = state.Ui; foreach (var preset in state.Presets ?? []) Presets.Add(preset); }
+        promptCanonicalCounts = CaptureCanonicalCounts(Workspace.Items);
         query = ui.Query; browse = ui.Browse; workspaceIndex = ui.Workspace; englishChips = ui.EnglishChips; outputProfile = ui.OutputProfile; forgeUrl = ui.ForgeUrl; forgeExtensionPath = ui.ForgeExtensionPath; RestoreScroll = ui.BrowseScroll; BrowseScroll = ui.BrowseScroll;
         if (specialBrowse != null && browse.StartsWith("special:", StringComparison.Ordinal) && !browse.StartsWith("special-v2:", StringComparison.Ordinal)) browse = "special";
         specialFilter = SpecialFilterFromBrowse(browse);
@@ -410,7 +475,64 @@ public sealed class MainViewModel : Observable
         SendToForge.Refresh(); SendPresetToForge.Refresh();
         foreach (var row in Results.Concat(Related)) row.Refresh(); SelectedEntry?.Refresh();
     }
-    private IReadOnlyList<EntryViewModel> Rows(IEnumerable<CatalogEntry> entries) => entries.Select(e => new EntryViewModel(e, Workspace, Add, () => CanEditPrompt, SpecialBreadcrumb)).ToArray();
+    private EntryViewModel Row(CatalogEntry entry)
+    {
+        EntryViewModel? row = null;
+        row = new(entry, Workspace, Add, () => CanEditPrompt, SpecialBreadcrumb, () => ReferenceEquals(selectedEntry, row));
+        return row;
+    }
+    private IReadOnlyList<EntryViewModel> Rows(IEnumerable<CatalogEntry> entries) => entries.Select(Row).ToArray();
+    private void RebuildDictionaryRows()
+    {
+        dictionaryRows = DictionaryResultProjection.Project(Results, dictionaryColumnCount);
+        Notify(nameof(DictionaryRows));
+    }
+    private void RebuildActiveResultIndex()
+    {
+        activeResultIndex.Clear();
+        foreach (var row in Results.Concat(Related))
+        {
+            if (row.Entry.Canonical is not { } canonical) continue;
+            if (!activeResultIndex.TryGetValue(canonical, out var rows)) activeResultIndex[canonical] = rows = [];
+            if (!rows.Contains(row)) rows.Add(row);
+        }
+    }
+    public void SetDictionarySurfaceWidth(double availableWidth)
+    {
+        DictionaryCardWidth = DictionaryLayoutMetrics.CardWidth(availableWidth);
+        var columns = DictionaryLayoutMetrics.ColumnCount(availableWidth);
+        if (columns == dictionaryColumnCount) return;
+        dictionaryColumnCount = columns;
+        Notify(nameof(DictionaryColumnCount));
+        RebuildDictionaryRows();
+    }
+    private static Dictionary<string, int> CaptureCanonicalCounts(IEnumerable<PromptItem> items)
+    {
+        var counts = new Dictionary<string, int>(StringComparer.Ordinal);
+        foreach (var item in items)
+        {
+            if (item.Canonical is not { } canonical) continue;
+            counts[canonical] = counts.TryGetValue(canonical, out var count) ? count + 1 : 1;
+        }
+        return counts;
+    }
+    private static HashSet<string> ChangedCanonicals(IReadOnlyDictionary<string, int> previous, IReadOnlyDictionary<string, int> current)
+    {
+        var changed = new HashSet<string>(previous.Keys, StringComparer.Ordinal);
+        changed.UnionWith(current.Keys);
+        changed.RemoveWhere(c => previous.GetValueOrDefault(c) == current.GetValueOrDefault(c));
+        return changed;
+    }
+    private void RefreshRowsForCanonicals(IReadOnlySet<string> changedCanonicals)
+    {
+        var refreshed = new HashSet<EntryViewModel>();
+        foreach (var canonical in changedCanonicals)
+        {
+            if (!activeResultIndex.TryGetValue(canonical, out var rows)) continue;
+            foreach (var row in rows)
+                if (refreshed.Add(row)) row.Refresh();
+        }
+    }
     public void RefreshResults()
     {
         var selected = SelectedEntry?.Entry.Id;
@@ -518,7 +640,12 @@ public sealed class MainViewModel : Observable
     }
     private void OnPromptChanged()
     {
-        RefreshChips(); foreach (var row in Results.Concat(Related)) row.Refresh(); SelectedEntry?.Refresh();
+        var nextCanonicalCounts = CaptureCanonicalCounts(Workspace.Items);
+        var changedCanonicals = ChangedCanonicals(promptCanonicalCounts, nextCanonicalCounts);
+        promptCanonicalCounts = nextCanonicalCounts;
+        RefreshChips();
+        RefreshRowsForCanonicals(changedCanonicals);
+        if (SelectedEntry?.Entry.Canonical is { } selectedCanonical && changedCanonicals.Contains(selectedCanonical) && !activeResultIndex.ContainsKey(selectedCanonical)) SelectedEntry.Refresh();
         foreach (var command in new[] { Undo, Redo, Recover }) command.Refresh();
         RefreshCategoryGroups(); Notify(nameof(English)); Notify(nameof(Count)); Notify(nameof(HasPrompt)); Notify(nameof(Unresolved)); Persist();
     }
@@ -549,6 +676,17 @@ public sealed class MainViewModel : Observable
         SelectionChanged(); return Chips.Where(c => c.Selected).Select(c => c.Id).ToArray();
     }
     public void Move(Guid[] ids, int gap) { if (CanEditOrderedPrompt) Workspace.Move(ids, gap); }
+    public void MoveResultSelection(int offset)
+    {
+        if (Results.Count == 0 || offset == 0) return;
+        var current = selectedEntry == null ? -1 : Array.FindIndex(Results.ToArray(), row => ReferenceEquals(row, selectedEntry));
+        if (current < 0) current = offset > 0 ? -1 : Results.Count;
+        SelectedEntry = Results[Math.Clamp(current + offset, 0, Results.Count - 1)];
+    }
+    public void SelectResultBoundary(bool last)
+    {
+        if (Results.Count > 0) SelectedEntry = Results[last ? Results.Count - 1 : 0];
+    }
     private void SelectionChanged()
     {
         Notify(nameof(HasSelection));

@@ -2,6 +2,17 @@
 
 最終更新: 2026-09-16
 
+## Current active DEV lane — Issue #113
+
+**Issue #113 — WPF dictionary virtualization and UI responsiveness pass is ACTIVE DEV / user-approved for branch implementation.**
+
+- Activation authority is live Issue #113 body plus activation comment `5696309332`.
+- Implementation branch: `codex/issue113-wpf-performance-pass` from freshly fetched live main `a8d19e23483f10c4eb7c87b3a0dfa89ff24e4f41`.
+- First pass is P0-only: real dictionary virtualization with the #74 one/two-column behavior, targeted Prompt canonical refresh, cached General browse Paths, and no synchronous per-keystroke Query SQLite persistence.
+- Deferred: SoftwareOnly/rendering mode, SearchEngine ranking/normalization/index changes, database schemas, Prompt parser/output semantics, taxonomy, Issue #70 runtime data, and production Special identities.
+- `CURRENT_DEV_TASK.md` on live main is the completed #83 mirror; the active branch mirror is synchronized to Issue #113 and must not be used to alter live main.
+- Issue #70 is integrated on GitHub, but this task must not claim workstation performance against the expected 126,427-entry catalog without an explicit local rebuild and smoke test.
+
 ## Current Stage
 
 **Stage9 completed / beginner-first practical v1 accepted / #64 General taxonomy accepted and integrated / #66 completed / #68 completed / #69 local final cleanup completed.**

@@ -79,8 +79,19 @@ public static class CatalogDatabase
 }
 
 // Future accepted #64 sidecar adapter: no production loader is activated in Phase B.
-public sealed class GeneralBrowseProvider(ICatalog catalog, IReadOnlyDictionary<string, BrowsePath[]> acceptedMappings) : IGeneralBrowseProvider
+public sealed class GeneralBrowseProvider : IGeneralBrowseProvider
 {
+    private readonly ICatalog catalog;
+    private readonly IReadOnlyDictionary<string, BrowsePath[]> acceptedMappings;
+    private readonly IReadOnlyList<BrowsePath> cachedPaths;
+
+    public GeneralBrowseProvider(ICatalog catalog, IReadOnlyDictionary<string, BrowsePath[]> acceptedMappings)
+    {
+        this.catalog = catalog;
+        this.acceptedMappings = acceptedMappings;
+        cachedPaths = Array.AsReadOnly(acceptedMappings.Values.SelectMany(p => p).Distinct().ToArray());
+    }
+
     public static IGeneralBrowseProvider FromCatalog(ICatalog catalog)
     {
         var mappings = catalog.Entries
@@ -91,7 +102,7 @@ public sealed class GeneralBrowseProvider(ICatalog catalog, IReadOnlyDictionary<
 
     public bool IsPending => false;
     public string Status => "";
-    public IReadOnlyList<BrowsePath> Paths => acceptedMappings.Values.SelectMany(p => p).Distinct().ToArray();
+    public IReadOnlyList<BrowsePath> Paths => cachedPaths;
     public IReadOnlyList<CatalogEntry> Browse(string path) => catalog.Entries.Where(e => e.EffectiveCategory == "General" && e.CanBrowse && e.Canonical != null
         && acceptedMappings.TryGetValue(e.Canonical, out var paths) && paths.Any(p => path.Length == 0 || p.Key == path || (path.EndsWith('>') && p.GenreId + ">" == path))).OrderByDescending(e => e.Usage).ToArray();
 }

@@ -1,68 +1,41 @@
-# CURRENT DEV TASK — ISSUE #83 AGGRESSIVE LOCAL CLEANUP (COMPLETED / MERGED)
+# CURRENT DEV TASK — ISSUE #113 WPF PERFORMANCE PASS (ACTIVE)
 
-最終同期: 2026-09-15
+最終同期: 2026-09-16
 
 ## Routing status
 
-- **Issue #83 — aggressive local cleanup is completed and integrated into `main`.**
-- Implementation branch: `codex/issue83-aggressive-cleanup`.
-- Final branch tip: `28ab39f111e438288619781f98311f3414a090ec`.
-- Merged PR: `#84`.
-- Main merge commit: `7ef69e6c7ffa6a76037f97226a9ed067d59c360d`.
-- DEV acceptance: Issue #83 comment `5680343047`.
-- No successor active DEV implementation issue is designated by this file.
-- Issue #70 translation/data, #65 Stage10 learning, #44 KNOWLEDGE, and #24 safety debt remain separate lanes.
+- **Issue #113 — WPF dictionary virtualization and UI responsiveness pass** is the active DEV lane.
+- Activation authority: live Issue #113 body and activation comment `5696309332`.
+- Base live-main SHA: `a8d19e23483f10c4eb7c87b3a0dfa89ff24e4f41`.
+- Implementation branch: `codex/issue113-wpf-performance-pass`.
+- `CURRENT_DEV_TASK.md` on live main still mirrors completed Issue #83; that is stale for this activation.
+- Do not merge, push to `main`, or close Issue #113 from this task.
 
-## Accepted cleanup result
+## P0 scope lock
 
-Issue #83 retired obsolete/reproducible local and tracked legacy assets after current-dependency proof.
+1. Keep flat authoritative `Results`, but render display-only one/two-card rows through standard WPF `VirtualizingStackPanel` recycling.
+2. Preserve `SelectedEntry` identity, result order, card-level selection, keyboard navigation, add/remove, odd-result handling, and duplicate/raw safety.
+3. Diff Prompt canonical counts and refresh only affected active result/detail/related rows.
+4. Cache immutable General browse Paths without changing content or order.
+5. Stop synchronous SQLite persistence from the per-character `Query` setter while preserving debounce, explicit save, and normal-close persistence.
 
-Local disk usage for the measured project-related roots changed from:
+## Explicitly deferred
 
-- before: `16,183,761,657` bytes
-- after: `1,987,919,366` bytes
-- reclaimed: `14,195,842,291` bytes (`14.196 GB` / `13.221 GiB`)
+Do not change rendering mode, SearchEngine ranking/normalization/index architecture, catalog.db or user.db schemas, Prompt parser/output semantics, Special/General taxonomy, Issue #70 runtime data, or production Special identities.
 
-Major retired assets included:
-- old 11M-post Parquet / runtime source;
-- CSR/runtime index data;
-- obsolete Python/Tk runtime, launcher, tools, tests and retired workflows;
-- old publish/bin/obj and reproducible build scratch;
-- obsolete quarantine/archive/handoff/audit/benchmark outputs;
-- stale worktrees proven safe to remove.
+## Scale and validation boundary
 
-## Preserved / HOLD boundaries
+Issue #70 GitHub integration is complete (92,739 overlay rows); the expected rebuilt catalog is 126,427 entries with General 30,629 and Special 3,059. The workstation runtime has not been explicitly rebuilt with #70 in this task environment, so no workstation 126,427-entry performance claim is permitted.
 
-Preserved:
-- current `artifacts/current/Data/catalog.db`;
-- current `artifacts/current/UserData/user.db`;
-- current catalog build inputs and accepted Special/General/#63/#64/#76 assets;
-- active Issue #70 queue/source/results and queue manager;
-- current #44/#65 data with concrete or unresolved current dependency;
-- current SDK/NuGet required for local builds;
-- #24 backups.
+Pre-edit baseline on the clean branch used the bundled SDK `10.0.401`:
 
-HOLD rather than guessed-away:
-- `.worktrees/issue64-full-rollout-audit` because tracked modifications exist;
-- remaining `.tools` SDK/NuGet state;
-- #24 backups;
-- small #44/#65 candidate tools without enough evidence for safe deletion.
+- Release solution build: PASS, 4,264 ms.
+- Release full .NET tests: 129 passed / 7 skipped / 0 failed, 3,878 ms.
+- No production catalog was supplied; production facts remained skipped.
 
-## Validation
+## Required evidence before handoff
 
-- full .NET: `126 passed / 6 skipped`
-- Issue #76 focused: `13 passed / 1 skipped`
-- Issue #70 queue: bootstrap/status PASS; 10 tests PASS; claimed `0`
-- catalog: Special `2,788`; General `30,629`
-- WPF startup: PASS (`DanbooruTagTool v1` window confirmed)
-- current `user.db` hash: unchanged
-- current `catalog.db` hash: unchanged
-- `git diff --check`: PASS
-
-## Completion
-
-- Codex final checkpoint: Issue #83 comment `5680261954`.
-- DEV acceptance: Issue #83 comment `5680343047`.
-- Main integration: PR #84 -> `7ef69e6c7ffa6a76037f97226a9ed067d59c360d`.
-- Issue #83: **COMPLETED / CLOSED**.
-- No separate AUDIT lane was required.
+- Release build and full .NET regression.
+- Focused Issue #113 plus Issue73/Issue74/Issue76/DataAndViewModel/Production test coverage.
+- Synthetic large-result projection measurement and available responsiveness/persistence measurements.
+- `git diff --check`, protected/canonical/taxonomy/schema boundary confirmation, and clean working-tree status.

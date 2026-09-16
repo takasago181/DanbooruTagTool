@@ -154,16 +154,32 @@ public partial class MainWindow : Window
         // Below the threshold, a single full-width card keeps Japanese labels
         // and the toggle readable.
         var available = e.NewSize.Width - SystemParameters.VerticalScrollBarWidth - 12;
-        vm.DictionaryCardWidth = DictionaryLayoutMetrics.CardWidth(available);
+        vm.SetDictionarySurfaceWidth(available);
     }
     private void DictionaryMouseUp(object sender, MouseButtonEventArgs e)
     {
         if (FindAncestor<Button>(e.OriginalSource as DependencyObject) != null) return;
-        if (FindAncestor<ListBoxItem>(e.OriginalSource as DependencyObject)?.DataContext is EntryViewModel row) vm.InspectEntry.Execute(row);
+        var source = e.OriginalSource as DependencyObject;
+        while (source != null)
+        {
+            if (source is FrameworkElement { DataContext: EntryViewModel row }) { vm.InspectEntry.Execute(row); return; }
+            source = VisualTreeHelper.GetParent(source);
+        }
     }
     private void DictionaryKeyUp(object sender, KeyEventArgs e)
     {
-        if (e.Key is Key.Up or Key.Down or Key.Home or Key.End or Key.PageUp or Key.PageDown or Key.Enter && DictionaryList.SelectedItem is EntryViewModel row) vm.InspectEntry.Execute(row);
+        switch (e.Key)
+        {
+            case Key.Up: vm.MoveResultSelection(-1); break;
+            case Key.Down: vm.MoveResultSelection(1); break;
+            case Key.PageUp: vm.MoveResultSelection(-10); break;
+            case Key.PageDown: vm.MoveResultSelection(10); break;
+            case Key.Home: vm.SelectResultBoundary(false); break;
+            case Key.End: vm.SelectResultBoundary(true); break;
+            case Key.Enter when vm.SelectedEntry is { } row: vm.InspectEntry.Execute(row); break;
+            default: return;
+        }
+        e.Handled = true;
     }
     private void FindKeyDown(object sender, KeyEventArgs e) { if (e.Key == Key.Enter) { vm.FindNext(Keyboard.Modifiers.HasFlag(ModifierKeys.Shift)); e.Handled = true; } }
     private void WindowKeyDown(object sender, KeyEventArgs e)

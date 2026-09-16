@@ -418,7 +418,6 @@
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True"><Setter TargetName="RowChrome" Property="Background" Value="#F4F7FA"/></Trigger>
-                            <Trigger Property="IsSelected" Value="True"><Setter TargetName="RowChrome" Property="Background" Value="#EAF4FC"/><Setter TargetName="RowChrome" Property="BorderBrush" Value="{StaticResource PrimaryBrush}"/><Setter TargetName="RowChrome" Property="BorderThickness" Value="2,0,0,0"/></Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
@@ -432,7 +431,7 @@
             <Setter Property="Padding" Value="8,6"/>
             <Setter Property="Margin" Value="0,0,4,8"/>
             <Style.Triggers>
-                <DataTrigger Binding="{Binding IsSelected, RelativeSource={RelativeSource AncestorType=ListBoxItem}}" Value="True">
+                <DataTrigger Binding="{Binding IsSelected}" Value="True">
                     <Setter Property="Background" Value="#E5F2FF"/>
                     <Setter Property="BorderBrush" Value="{StaticResource PrimaryBrush}"/>
                     <Setter Property="BorderThickness" Value="2"/>
@@ -457,6 +456,22 @@
                     <TextBlock Grid.Row="1" Text="{Binding English}" Foreground="{StaticResource MutedInkBrush}" FontSize="12" TextWrapping="Wrap"/>
                 </Grid>
             </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="DictionaryResultRowTemplate">
+            <Grid HorizontalAlignment="Stretch">
+                <Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+                <ContentControl Content="{Binding First}" ContentTemplate="{StaticResource EntryTemplate}" Grid.ColumnSpan="{Binding FirstColumnSpan}" HorizontalContentAlignment="Stretch"/>
+                <ContentControl Grid.Column="1" Content="{Binding Second}" ContentTemplate="{StaticResource EntryTemplate}" HorizontalContentAlignment="Stretch">
+                    <ContentControl.Style>
+                        <Style TargetType="{x:Type ContentControl}">
+                            <Setter Property="Visibility" Value="Visible"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Second}" Value="{x:Null}"><Setter Property="Visibility" Value="Collapsed"/></DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ContentControl.Style>
+                </ContentControl>
+            </Grid>
         </DataTemplate>
     </Window.Resources>
 
@@ -535,7 +550,7 @@
                                     <DockPanel><TextBlock DockPanel.Dock="Left" Text="テーマ" Style="{StaticResource HintText}" Width="42" Margin="0,5,4,0"/><ItemsControl ItemsSource="{Binding SpecialThemeOptions}" ItemTemplate="{StaticResource SpecialFacetOptionTemplate}"><ItemsControl.ItemsPanel><ItemsPanelTemplate><WrapPanel/></ItemsPanelTemplate></ItemsControl.ItemsPanel></ItemsControl></DockPanel>
                                 </StackPanel>
                             </Border>
-                            <Border Grid.Row="4" Style="{StaticResource WorkSurfaceCard}" Padding="4"><ListBox x:Name="DictionaryList" PreviewMouseLeftButtonUp="DictionaryMouseUp" SizeChanged="DictionaryListSizeChanged" KeyUp="DictionaryKeyUp" ItemsSource="{Binding Results}" SelectedItem="{Binding SelectedEntry}" ItemContainerStyle="{StaticResource DictionaryRow}" ItemTemplate="{StaticResource EntryTemplate}" HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.CanContentScroll="True" ScrollViewer.ScrollChanged="BrowseScrolled" VirtualizingPanel.IsVirtualizing="True" VirtualizingPanel.VirtualizationMode="Recycling" Background="Transparent" BorderThickness="0"><ListBox.ItemsPanel><ItemsPanelTemplate><WrapPanel Orientation="Horizontal"/></ItemsPanelTemplate></ListBox.ItemsPanel></ListBox></Border>
+                            <Border Grid.Row="4" Style="{StaticResource WorkSurfaceCard}" Padding="4"><ListBox x:Name="DictionaryList" PreviewMouseLeftButtonUp="DictionaryMouseUp" SizeChanged="DictionaryListSizeChanged" KeyUp="DictionaryKeyUp" ItemsSource="{Binding DictionaryRows}" ItemContainerStyle="{StaticResource DictionaryRow}" ItemTemplate="{StaticResource DictionaryResultRowTemplate}" HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.CanContentScroll="True" ScrollViewer.ScrollChanged="BrowseScrolled" VirtualizingPanel.IsVirtualizing="True" VirtualizingPanel.VirtualizationMode="Recycling" Background="Transparent" BorderThickness="0"><ListBox.ItemsPanel><ItemsPanelTemplate><VirtualizingStackPanel Orientation="Vertical"/></ItemsPanelTemplate></ListBox.ItemsPanel></ListBox></Border>
                         </Grid>
                     </Border>
                     <GridSplitter Grid.Column="3" DragCompleted="SplitterChanged"/>
