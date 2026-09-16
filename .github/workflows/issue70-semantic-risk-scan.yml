@@ -6,9 +6,11 @@ on:
       - audit/issue70-semantic-risk-scan-20260916
     paths:
       - scripts/issue70/semantic_risk_scan.py
+      - scripts/issue70/validate_semantic_audit_ledger.py
       - .github/workflows/issue70-semantic-risk-scan.yml
       - docs/issue70/data/source/issue70_translation_source_with_relations.csv
       - docs/issue70/data/runtime/issue70_translation_results.csv
+      - docs/issue70/audit/semantic_review/**
   workflow_dispatch:
 
 permissions:
@@ -24,6 +26,8 @@ jobs:
           python-version: '3.12'
       - name: Run non-mutating semantic risk scan
         run: python scripts/issue70/semantic_risk_scan.py
+      - name: Validate P0 Copyright semantic ledger
+        run: python scripts/issue70/validate_semantic_audit_ledger.py
       - name: Upload audit outputs
         uses: actions/upload-artifact@v4
         with:
