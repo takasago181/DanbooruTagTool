@@ -61,6 +61,8 @@ jobs:
             done </tmp/issue70_parts.txt
             git rm "$payload"
           done < /tmp/issue70_payloads.txt
+          python scripts/issue70/queue_manager.py reconcile
           git add docs/issue70/data/results/queue
+          git add docs/issue70/data/queue_state.json
           git commit -m 'Issue70: promote local translation batch [skip ci]'
           git push origin HEAD:main

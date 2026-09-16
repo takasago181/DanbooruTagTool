@@ -49,7 +49,7 @@
 
 ## 6. DATA MODEL CONSEQUENCES
 
-33. `Tag` in the current Special2788 table is treated as a **source term snapshot**, not necessarily the forever Prompt output string.
+33. `Tag` in the historical Special2788 base table (and its current legacy-compatible profile path) is treated as a **source term snapshot**, not necessarily the forever Prompt output string. Current production is the 3,059-row stable-gap subset defined by #109.
 34. A future schema should expose dedicated fields/records for `prompt_output_form` / `prompt_owner` instead of inferring them from `Tag` or alias sidecars.
 35. Alias sidecars must not be the source of truth for Prompt ownership. Legacy `prompt_owner=ORIGINAL_SPECIAL_TERM` fields are compatibility snapshots only.
 36. Search keys should not be required to contain the full Japanese gloss verbatim.

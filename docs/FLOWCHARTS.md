@@ -47,13 +47,14 @@ Known regression `anal -> piano / analog...` を含む検索品質はIssue #66�
 flowchart TD
  A[Special] --> B[日本語ジャンル]
  B --> C[必要ならサブジャンル]
- C --> D[2,788 browse mapping]
+ C --> D[3,059 production population / Issue #76 v2 browse]
  D --> E[日本語 + English identity]
  E --> F[Promptへ手動追加]
 ```
 
-Special taxonomyは#56で完成済み。
-UI browse indexでありcanonical semantic authorityではない。
+Current Special browseはIssue #76 v2（種類9 / 部位6 / テーマ3）。#56の
+2,788 mappingはbase identityのhistorical/provenanceであり、UI browse indexは
+canonical semantic authorityではない。
 
 ## General discovery
 
@@ -73,22 +74,19 @@ General taxonomyはIssue #64。
 ## Current development route
 
 Exact execution orderの正本は `docs/project/CURRENT_STATE.md`。
-Issues #42 / #34 は retired / closed。製品scope・検索品質・最終acceptanceはIssue #66へ統合済み。
+Issues #42 / #34 は retired / closed。#64/#66はcompleted/integrated、製品の
+current maintenance routingはIssue #70、独立学習は#65、知識は#44。
 
 ```mermaid
 flowchart TD
- A[#64 General 30,629 taxonomy] --> C[#66 consumes accepted General taxonomy]
- B[#66 app/UI/search foundation] --> C
- C --> D[#66 final scope + search + integration check]
- D --> E[focused regression + real Windows UI acceptance]
- E --> F[v1 baseline]
- F --> G[Stage10 #65 resume]
+ A[#64 General 30,629 completed/integrated] --> B[#66 practical v1 completed]
+ B --> C[Special 3,059 + #76 Browse v2 integrated]
+ C --> D[#70 post-v1 dictionary/i18n lane]
+ B --> E[#65 independent Stage10 learning]
+ B --> F[#44 ongoing KNOWLEDGE]
 ```
 
-#64と#66 foundationは並行可能。
-#66は#64の分類データを先回りで発明せず、accepted sidecarを後からconsumeする。
-
-## Current Stage10 learning flow — currently paused by priority
+## Current Stage10 learning flow — independent active lane
 
 Current authority:
 - Issue #65
@@ -97,9 +95,8 @@ Current authority:
 Primary model:
 - NoobAI XL 1.1 EPS + Forge Neo
 
-Current user priority:
-- practical v1 app baseline first
-- then resume Stage10 unless explicitly changed
+Current user priority: practical v1 is accepted; Stage10 can proceed independently
+under Issue #65 unless explicitly reprioritized.
 
 ```mermaid
 flowchart TD

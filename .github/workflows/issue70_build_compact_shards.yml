@@ -42,8 +42,14 @@ jobs:
           assert sm['issue'] == 70
           assert sm['shard_size'] == 50
           assert len(sm['chunks']) == 186
-          assert bs['completed_rows_at_generation'] == 10500
-          assert len(bs['completed_chunks_at_generation']) == 21
+          completed = bs['completed_chunks_at_generation']
+          assert completed == sorted(set(completed))
+          assert all(1 <= index <= 186 for index in completed)
+          assert bs['completed_rows_at_generation'] == sum(
+              sm['chunks'][index - 1]['row_count'] for index in completed
+          )
+          assert bs['rollout_bootstrap']['completed_rows'] == 10500
+          assert len(bs['rollout_bootstrap']['completed_chunks']) == 21
           total = 0
           for chunk_index_entry in sm['chunks']:
               cm_path = root / chunk_index_entry['manifest']

@@ -85,14 +85,16 @@ Codex自身がIssue本文を推測して書き換えない。
 42. 候補表示は日本語-first + canonical English併記を基本とし、最終Prompt payloadはcanonical Englishを維持する。
 43. 検索/UI回帰では日本語queryと英語canonical queryの両方を確認し、代表的なsubstring/fuzzy誤爆も確認する。
 44. v1の安定した主導線は **既存Promptを理解 -> 日本語/英語検索またはジャンル閲覧で発見 -> Special/Generalを自分で選択 -> Promptへ追加/削除/並べ替え -> canonical-English Promptコピー** とする。
-45. Specialは#56の深いbrowse taxonomy、Generalはproduction Japanese overlay 30,629件を対象とした#64の浅い実用taxonomyを使う。General taxonomyを日本語overlay/canonical identityへ埋め込まず別sidecarにする。
+45. Specialのcurrent production populationは3,059 stable identities（ID space 1..3,088、29 stable gaps、ID compactionなし）であり、current browseはIssue #76 v2（種類9 / 部位6 / テーマ3）を使う。#56は2,788 baseのhistorical/provenance inputである。Generalはproduction Japanese overlay 30,629件を対象とした#64の浅い実用taxonomyを使い、General taxonomyを日本語overlay/canonical identityへ埋め込まず別sidecarにする。
 46. v1ではhidden automatic support insertion / automatic minimum-sufficient Prompt / automatic model rewrite / automatic failure diagnosisをデフォルト挙動にしない。ユーザーが見えていない自動挿入と実際のPrompt出力を食い違わせない。
 47. **Issue #66はv1 app/UI/search/final acceptanceの完了済みowner** として記録し、active routing targetとはしない。Retired Issue #34の検索品質要件とRetired Issue #42のscope reconciliationを別Gateとして再分離しない。
 48. 旧文書の `PROMPT:#5` / `PROMPT班` / retired #34 / retired #42 参照はhistorical provenanceとして扱う。新規作業をそれらへroutingしない。
 
+48a. Issue #70の進捗authorityは`queue_state.json`単独ではない。source manifest、identity/order/schemaを検証したaccepted immutable result CSV群、result SHA/件数を再構成したdeterministic queue stateの順で扱う。`queue_manager.py reconcile`はidempotentで、pending/valid claimを不必要に破壊せず、UserData・General・Special・翻訳済みCSV本文には触れない。
+
 ## Stage10 learning invariant
 
-49. 現在のStage10はIssue #65 / `docs/stages/STAGE_10_LEARNING.md`で定義される実践画像生成学習ステージ。v1 product completion blockerではない。practical-v1 app baselineはIssue #66で完成済み。Issue #68 repository/workspace cleanupは完了し、Phase 2Eは安全なno-opとして受理された。Stage10 #65はユーザーの学習ルートとして再開可能であり、ユーザーが別途実装を依頼しない限りCodex DEV implementation taskではない。
+49. 現在のStage10はIssue #65 / `docs/stages/STAGE_10_LEARNING.md`で定義される実践画像生成学習ステージ。v1 product completion blockerではない。practical-v1 app baselineはIssue #66で完成済み。Issue #68 repository/workspace cleanupは完了し、Phase 2Eは安全なno-opとして受理された。Stage10 #65はv1完了待ちではない独立したユーザー学習laneであり、ユーザーが別途実装を依頼しない限りCodex DEV implementation taskではない。
 50. Stage10 primary learning laneは **NoobAI XL 1.1 EPS + Forge Neo**。Animaはrelation-heavy / multi-character / tag+natural-language比較・fallback、WAI Illustrious v17はhistorical/comparison、NoobAI V-PredはEPSと分離したadvanced profileとして扱う。
 51. Stage10は設定値の暗記ではなく、`意図 -> Prompt -> 生成 -> 観察 -> 原因分解 -> 修正 -> 必要な補助 -> 仕上げ -> 再現可能な保存` を自力で回せることを目的とする。
 52. hard/niche生成の評価ではpresenceだけで成功扱いせず、必要に応じてactor/target/ownership/body-site/relation/count/visibility/source-destination/topologyを分離して確認する。

@@ -71,7 +71,7 @@ def write_result(path: Path, rows: list[dict[str, str]]) -> None:
         writer.writerows(rows)
 
 
-def test_repo(name: str) -> Path:
+def _test_repo(name: str) -> Path:
     path = ROOT / "tests" / "issue70" / f"_{name}"
     if path.exists():
         shutil.rmtree(path)
@@ -107,7 +107,7 @@ class QueueManagerTests(unittest.TestCase):
         self.assertEqual([], claim(state, "other-worker", datetime(2026, 9, 15, 2, tzinfo=timezone.utc)))
 
     def test_result_promotion_is_idempotent_and_preserves_identity(self) -> None:
-        repo = test_repo("promotion")
+        repo = _test_repo("promotion")
         try:
             source_rows = [
                 {"row_id": "I70-000001", "canonical_tag": "alpha", "category": "Character"},
@@ -156,7 +156,7 @@ class QueueManagerTests(unittest.TestCase):
     def test_unrelated_main_change_does_not_affect_queue_state(self) -> None:
         # Queue state is keyed to the source manifest, not the whole repository
         # HEAD.  An unrelated UI file may advance main without invalidating it.
-        repo = test_repo("unrelated_main")
+        repo = _test_repo("unrelated_main")
         try:
             (repo / "docs/issue70/data").mkdir(parents=True)
             manifest = {"issue": 70, "chunk_count": 1, "chunks": [{"chunk_index": 1, "first_row_number": 1, "last_row_number": 92739, "row_count": 92739, "first_row_id": "I70-000001", "last_row_id": "I70-092739", "file": "source.csv", "sha256": "unused"}]}
