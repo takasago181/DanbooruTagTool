@@ -1,0 +1,143 @@
+name: Issue70 chunk114 semantic Artist audit
+
+on:
+  push:
+    paths:
+      - '.github/workflows/issue70_chunk114_publish.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Build and validate chunk 114 result
+        shell: bash
+        run: |
+          python - <<'PY'
+          import csv
+          import hashlib
+          import importlib.util
+          import json
+          import re
+          from pathlib import Path
+
+          src = Path('docs/issue70/data/source_chunks/source_056501_057000.csv')
+          manifest_path = Path('docs/issue70/data/source_chunks_manifest.json')
+          out = Path('docs/issue70/data/results/queue/queue_chunk114_I70-056501_I70-057000.csv')
+
+          if out.exists():
+              raise SystemExit(f'immutable result already exists: {out}')
+
+          manifest = json.loads(manifest_path.read_text(encoding='utf-8-sig'))
+          entry = next(e for e in manifest['chunks'] if e['first_row_id'] == 'I70-056501')
+          assert entry['chunk_index'] == 114, entry
+          assert entry['last_row_id'] == 'I70-057000', entry
+          assert entry['row_count'] == 500, entry
+          actual_sha = hashlib.sha256(src.read_bytes()).hexdigest()
+          assert actual_sha == entry['sha256'], (actual_sha, entry['sha256'])
+
+          with src.open(encoding='utf-8-sig', newline='') as f:
+              source = list(csv.DictReader(f))
+          assert len(source) == 500
+          assert source[0]['row_id'] == 'I70-056501'
+          assert source[-1]['row_id'] == 'I70-057000'
+          assert all(r['category'] == '1' and r['category_name'] == 'Artist' for r in source)
+
+          # High-precision promotion only. Each entry below was independently
+          # cross-checked against an official/authoritative Japanese credit.
+          promotions = {
+              'hyogonosuke': 'ヒョーゴノスケ',
+              'kurosaki_coco': '黒崎ココ',
+              'afuro': 'あｆろ',
+              'kakifly': 'かきふらい',
+          }
+
+          jp_re = re.compile(r'[ぁ-んァ-ヶ一-龠々〆〤]')
+          fields = ['row_id','canonical_tag','category','display_ja','search_ja','translation_status','translation_note']
+          result = []
+          jp_candidate_count = 0
+          promoted = []
+          rejected_examples = []
+
+          source_tags = {r['canonical_tag'] for r in source}
+          assert set(promotions).issubset(source_tags), set(promotions) - source_tags
+
+          for r in source:
+              tag = r['canonical_tag']
+              candidate = (r.get('existing_candidate_ja') or '').strip()
+              has_jp_candidate = bool(candidate and jp_re.search(candidate))
+              if has_jp_candidate:
+                  jp_candidate_count += 1
+
+              if tag in promotions:
+                  display = promotions[tag]
+                  note = 'semantic re-audit: independently verified official/common Japanese artist credit'
+                  promoted.append((r['row_id'], tag, display))
+              else:
+                  display = tag.replace('_', ' ')
+                  if has_jp_candidate:
+                      note = 'semantic re-audit: Japanese-looking candidate reviewed but not independently trusted; canonical artist handle preserved to avoid machine translation or forced transliteration'
+                      if len(rejected_examples) < 30:
+                          rejected_examples.append((r['row_id'], tag, candidate))
+                  else:
+                      note = 'semantic re-audit: no independently verified Japanese artist credit; canonical artist handle preserved'
+
+              result.append({
+                  'row_id': r['row_id'],
+                  'canonical_tag': tag,
+                  'category': r['category'],
+                  'display_ja': display,
+                  'search_ja': '',
+                  'translation_status': 'ACCEPTED_AI',
+                  'translation_note': note,
+              })
+
+          assert len(promoted) == len(promotions), (len(promoted), len(promotions))
+          assert len(result) == 500
+          assert len({r['row_id'] for r in result}) == 500
+          assert len({r['canonical_tag'] for r in result}) == 500
+          assert [(r['row_id'], r['canonical_tag'], r['category']) for r in result] == [
+              (r['row_id'], r['canonical_tag'], r['category']) for r in source
+          ]
+          assert all(r['display_ja'].strip() for r in result)
+          assert all(r['translation_status'] == 'ACCEPTED_AI' for r in result)
+
+          out.parent.mkdir(parents=True, exist_ok=True)
+          with out.open('w', encoding='utf-8', newline='') as f:
+              w = csv.DictWriter(f, fieldnames=fields, lineterminator='\n')
+              w.writeheader()
+              w.writerows(result)
+
+          spec = importlib.util.spec_from_file_location('publish_local_batch', 'scripts/issue70/publish_local_batch.py')
+          mod = importlib.util.module_from_spec(spec)
+          spec.loader.exec_module(mod)
+          validated_entry, validated_rows = mod.validate_result(Path.cwd(), out)
+          assert validated_entry['chunk_index'] == 114
+          assert len(validated_rows) == 500
+
+          print(json.dumps({
+              'chunk': 114,
+              'range': 'I70-056501..I70-057000',
+              'rows': len(result),
+              'japanese_looking_candidates': jp_candidate_count,
+              'promoted_count': len(promoted),
+              'promoted': promoted,
+              'rejected_examples': rejected_examples,
+              'output': str(out),
+          }, ensure_ascii=False, indent=2))
+          PY
+
+      - name: Commit immutable queue result
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/issue70/data/results/queue/queue_chunk114_I70-056501_I70-057000.csv
+          git commit -m 'issue70: publish chunk114 semantic artist audit'
+          git push
