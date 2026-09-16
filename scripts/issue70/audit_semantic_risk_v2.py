@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Issue #70 semantic risk census v2.
 
-Category-aware, runtime-aware, read-only semantic screening over all 92,739
-Issue #70 rows. The scanner never rewrites production translation data.
+Category-aware, runtime-aware, family-aware, read-only semantic screening over
+all 92,739 Issue #70 rows. The scanner never rewrites production data.
 """
 
 from __future__ import annotations
@@ -42,8 +42,7 @@ def score_row(record: dict[str, Any]) -> None:
 
     search_terms = base.split_pipe(search)
     search_norm = base.uniq_norm(search_terms)
-    # RuntimeCatalogIndex.SearchDocument.Create() indexes entry.Japanese
-    # separately from entry.JapaneseSearch. This is diagnostic only.
+    # RuntimeCatalogIndex indexes display_ja separately from search_ja.
     if search_terms and display and base.norm(display) not in search_norm:
         base.add_flag(record, "DISPLAY_MISSING_FROM_SEARCH", 0)
     if len(search_terms) > 8:
@@ -77,6 +76,19 @@ def score_row(record: dict[str, Any]) -> None:
     source_ja_norm = base.uniq_norm([x for x in accepted_evidence if base.contains_ja(x)])
     if source_ja_norm and not (current_all & source_ja_norm):
         base.add_flag(record, "NO_SOURCE_JA_EVIDENCE_OVERLAP", 2)
+
+    # Existing search evidence is stronger for discoverability than a raw
+    # machine candidate. If neither final display nor final search contains
+    # Japanese, but preserved existing_search_ja does, a Japanese query may
+    # have become undiscoverable and deserves review.
+    trusted_source_search = record.get("existing_search_ja", "") or ""
+    if (
+        category in {"Character", "Copyright"}
+        and not base.contains_ja(display)
+        and not base.contains_ja(search)
+        and base.contains_ja(trusted_source_search)
+    ):
+        base.add_flag(record, "SOURCE_JA_SEARCH_NOT_INDEXED", 4)
 
     if category == "Artist" and base.contains_ja(display) and display_norm not in accepted_norm:
         base.add_flag(record, "ARTIST_JA_DISPLAY_UNSUPPORTED_BY_SOURCE", 5)
@@ -124,8 +136,6 @@ def add_character_family_flags(records: list[dict[str, Any]]) -> None:
     for rows in groups.values():
         if len(rows) < 2:
             continue
-        # The least-qualified, highest-usage row is the best available internal
-        # identity anchor. This is evidence for audit, never an automatic fix.
         base_row = min(
             rows,
             key=lambda r: (qualifier_count(r["canonical_tag"]), -r["post_count"], len(r["canonical_tag"]), r["row_id"]),
@@ -135,9 +145,7 @@ def add_character_family_flags(records: list[dict[str, Any]]) -> None:
         if not base_identity or len(base.norm(base_identity)) < 2:
             continue
         for row in rows:
-            if row is base_row:
-                continue
-            if qualifier_count(row["canonical_tag"]) <= base_q:
+            if row is base_row or qualifier_count(row["canonical_tag"]) <= base_q:
                 continue
             row["family_base_canonical"] = base_row["canonical_tag"]
             row["family_base_display_ja"] = base_row["display_ja"]
@@ -182,7 +190,7 @@ def is_accepted_risk(row: dict[str, Any]) -> bool:
         return True
     if "DUPLICATE_DISPLAY_WITHIN_CATEGORY" in flags:
         return True
-    if flags & {"DISPLAY_MATCHES_REJECTED_JA", "SEARCH_CONTAINS_REJECTED_JA"}:
+    if flags & {"DISPLAY_MATCHES_REJECTED_JA", "SEARCH_CONTAINS_REJECTED_JA", "SOURCE_JA_SEARCH_NOT_INDEXED"}:
         return True
 
     if category == "Artist":
@@ -208,10 +216,10 @@ def rewrite_summary(out: Path) -> None:
     data["format_version"] = 2
     data["mode"] = "read_only_semantic_risk_census_v2_category_runtime_family_aware"
     data["selection_policy"]["accepted_risk"] = (
-        "runtime-aware category screening + Character family consistency: all top-1%-impact, "
-        "structural/conflict/collision signals, variant rows missing the internal base identity "
-        "or qualifier, unsupported Japanese Artist readings, and selected source-evidence gaps. "
-        "Blank search_ja and display omission from search_ja are valid."
+        "runtime-aware category screening + Character family consistency: top-1%-impact, "
+        "structural/conflict/collision signals, variant identity/qualifier loss, preserved "
+        "Japanese search evidence made undiscoverable, unsupported Japanese Artist readings, "
+        "and selected source-evidence gaps. Blank search_ja alone is valid."
     )
     data["selection_policy"]["v1_disposition"] = (
         "superseded: v1 over-selected Artist and search fields; v2 is constrained by the actual "
