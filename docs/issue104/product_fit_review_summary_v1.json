@@ -1,0 +1,521 @@
+{
+  "mode": "ISSUE104_PRODUCT_FIT_REVIEW_V1",
+  "strict_new_reviewed": 206,
+  "supplemental_high_frequency_rescue_reviewed": 30,
+  "total_reviewed": 236,
+  "decision_counts": {
+    "GENERAL_ONLY_APPROPRIATE": 109,
+    "NEEDS_DEFINITION_REVIEW": 16,
+    "REJECT_NONCONTENT_REASON": 16,
+    "SPECIAL_CANDIDATE": 95
+  },
+  "strict_decision_counts": {
+    "GENERAL_ONLY_APPROPRIATE": 109,
+    "NEEDS_DEFINITION_REVIEW": 12,
+    "REJECT_NONCONTENT_REASON": 16,
+    "SPECIAL_CANDIDATE": 69
+  },
+  "supplemental_decision_counts": {
+    "NEEDS_DEFINITION_REVIEW": 4,
+    "SPECIAL_CANDIDATE": 26
+  },
+  "special_candidate_count": 95,
+  "needs_definition_review_count": 16,
+  "top_special_candidates": [
+    {
+      "tag": "presenting_own_armpit",
+      "post_count": 16082,
+      "source": "HIGH_FREQUENCY_UNFLAGGED_RESCUE"
+    },
+    {
+      "tag": "breast_curtains",
+      "post_count": 9137,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "condom_in_mouth",
+      "post_count": 7211,
+      "source": "HIGH_FREQUENCY_UNFLAGGED_RESCUE"
+    },
+    {
+      "tag": "perky_breasts",
+      "post_count": 5418,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "sweaty_armpits",
+      "post_count": 4884,
+      "source": "HIGH_FREQUENCY_UNFLAGGED_RESCUE"
+    },
+    {
+      "tag": "veiny_breasts",
+      "post_count": 4797,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "breasts_on_glass",
+      "post_count": 4505,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "armpit_focus",
+      "post_count": 4263,
+      "source": "HIGH_FREQUENCY_UNFLAGGED_RESCUE"
+    },
+    {
+      "tag": "face_to_breasts",
+      "post_count": 3675,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "sweaty_breasts",
+      "post_count": 3394,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "single_breast_curtain",
+      "post_count": 3129,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "viewer_holding_leash",
+      "post_count": 3055,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "breasts_on_head",
+      "post_count": 3000,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "stained_panties",
+      "post_count": 2998,
+      "source": "HIGH_FREQUENCY_UNFLAGGED_RESCUE"
+    },
+    {
+      "tag": "pointy_breasts",
+      "post_count": 2272,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "hand_in_another's_panties",
+      "post_count": 2174,
+      "source": "HIGH_FREQUENCY_UNFLAGGED_RESCUE"
+    },
+    {
+      "tag": "futa_without_balls",
+      "post_count": 2021,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "light_areolae",
+      "post_count": 1998,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "straitjacket",
+      "post_count": 1907,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "speckled_areolae",
+      "post_count": 1839,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "handsfree_breast_squeeze",
+      "post_count": 1487,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "covering_one_breast",
+      "post_count": 1485,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "breast_milk_in_container",
+      "post_count": 1219,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "pov_breasts",
+      "post_count": 1207,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "male_with_breasts",
+      "post_count": 1088,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "poking_another's_breast",
+      "post_count": 1048,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "viewer_on_leash",
+      "post_count": 1019,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "dark_areolae",
+      "post_count": 1012,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "breast_zipper",
+      "post_count": 968,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "breast_pillow",
+      "post_count": 800,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "extended_downblouse",
+      "post_count": 680,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "buttjob_over_clothes",
+      "post_count": 679,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "sweaty_feet",
+      "post_count": 589,
+      "source": "HIGH_FREQUENCY_UNFLAGGED_RESCUE"
+    },
+    {
+      "tag": "condom_thigh_strap",
+      "post_count": 568,
+      "source": "HIGH_FREQUENCY_UNFLAGGED_RESCUE"
+    },
+    {
+      "tag": "rope_marks",
+      "post_count": 515,
+      "source": "HIGH_FREQUENCY_UNFLAGGED_RESCUE"
+    },
+    {
+      "tag": "upright_restraints",
+      "post_count": 495,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "male_underwear_aside",
+      "post_count": 465,
+      "source": "HIGH_FREQUENCY_UNFLAGGED_RESCUE"
+    },
+    {
+      "tag": "wet_male_underwear",
+      "post_count": 377,
+      "source": "HIGH_FREQUENCY_UNFLAGGED_RESCUE"
+    },
+    {
+      "tag": "asymmetrical_breasts",
+      "post_count": 361,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "used_condom_in_clothes",
+      "post_count": 354,
+      "source": "HIGH_FREQUENCY_UNFLAGGED_RESCUE"
+    },
+    {
+      "tag": "condom_wrapper_in_clothes",
+      "post_count": 348,
+      "source": "HIGH_FREQUENCY_UNFLAGGED_RESCUE"
+    },
+    {
+      "tag": "extreme_gaping",
+      "post_count": 341,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "extra_breasts",
+      "post_count": 332,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "electrostimulation",
+      "post_count": 327,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "breast_size_difference",
+      "post_count": 325,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "saliva_on_breasts",
+      "post_count": 325,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "saliva_swap",
+      "post_count": 321,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "smelly_armpits",
+      "post_count": 319,
+      "source": "HIGH_FREQUENCY_UNFLAGGED_RESCUE"
+    },
+    {
+      "tag": "smelling_armpit",
+      "post_count": 314,
+      "source": "HIGH_FREQUENCY_UNFLAGGED_RESCUE"
+    },
+    {
+      "tag": "broken_condom",
+      "post_count": 294,
+      "source": "HIGH_FREQUENCY_UNFLAGGED_RESCUE"
+    },
+    {
+      "tag": "sabotaged_condom",
+      "post_count": 266,
+      "source": "HIGH_FREQUENCY_UNFLAGGED_RESCUE"
+    },
+    {
+      "tag": "breast_on_breast",
+      "post_count": 263,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "cooperative_buttjob",
+      "post_count": 263,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "covering_another's_breasts",
+      "post_count": 229,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "mole_on_areola",
+      "post_count": 223,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "shared_handcuffs",
+      "post_count": 215,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "tickling_breasts",
+      "post_count": 212,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "shackle_piercing",
+      "post_count": 206,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "intestine_clothing",
+      "post_count": 194,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "feet_on_another's_face",
+      "post_count": 192,
+      "source": "HIGH_FREQUENCY_UNFLAGGED_RESCUE"
+    },
+    {
+      "tag": "breast_massage",
+      "post_count": 178,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "extended_upskirt",
+      "post_count": 178,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "buttjob_under_clothes",
+      "post_count": 171,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "condom_pull",
+      "post_count": 169,
+      "source": "HIGH_FREQUENCY_UNFLAGGED_RESCUE"
+    },
+    {
+      "tag": "unzipping_another's_clothes",
+      "post_count": 169,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "standing_restraints",
+      "post_count": 166,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "slapping_breasts",
+      "post_count": 161,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "drinking_from_condom",
+      "post_count": 149,
+      "source": "HIGH_FREQUENCY_UNFLAGGED_RESCUE"
+    },
+    {
+      "tag": "kissing_breast",
+      "post_count": 142,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "cospussy",
+      "post_count": 123,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "areola_measuring",
+      "post_count": 121,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "cunt_punt",
+      "post_count": 120,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "open-chest_straitjacket",
+      "post_count": 104,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "foot_on_another's_breast",
+      "post_count": 101,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "condom_on_ass",
+      "post_count": 100,
+      "source": "HIGH_FREQUENCY_UNFLAGGED_RESCUE"
+    },
+    {
+      "tag": "lube_on_breasts",
+      "post_count": 97,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "breast_size_switch",
+      "post_count": 96,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "breast_pull",
+      "post_count": 91,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "putting_on_condom",
+      "post_count": 90,
+      "source": "HIGH_FREQUENCY_UNFLAGGED_RESCUE"
+    },
+    {
+      "tag": "face_in_armpit",
+      "post_count": 78,
+      "source": "HIGH_FREQUENCY_UNFLAGGED_RESCUE"
+    },
+    {
+      "tag": "slapping_with_breasts",
+      "post_count": 78,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "weighing_breasts",
+      "post_count": 72,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "artificial_insemination",
+      "post_count": 71,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "compressed_breasts",
+      "post_count": 69,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "shibarikini",
+      "post_count": 68,
+      "source": "HIGH_FREQUENCY_UNFLAGGED_RESCUE"
+    },
+    {
+      "tag": "breasts_on_thighs",
+      "post_count": 66,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "condom_in_ass",
+      "post_count": 66,
+      "source": "HIGH_FREQUENCY_UNFLAGGED_RESCUE"
+    },
+    {
+      "tag": "condom_on_tongue",
+      "post_count": 65,
+      "source": "HIGH_FREQUENCY_UNFLAGGED_RESCUE"
+    },
+    {
+      "tag": "breast_punch",
+      "post_count": 64,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "fluid_on_breasts",
+      "post_count": 63,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "breast_implants",
+      "post_count": 62,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "breast_crush",
+      "post_count": 58,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "breast_shake",
+      "post_count": 55,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "implied_egg_laying",
+      "post_count": 50,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    },
+    {
+      "tag": "tied_breast",
+      "post_count": 50,
+      "source": "STRICT_CANONICAL_ADULT_PRIORITY"
+    }
+  ],
+  "official_evidence": {
+    "breast_group": "https://shima.donmai.us/wiki_pages/tag_group%3Abreasts_tags",
+    "body_parts": "https://shima.donmai.us/wiki_pages/tag_group%3Abody_parts",
+    "tag_checklist": "https://safebooru.donmai.us/wiki_pages/howto%3Atag_checklist",
+    "leash": "https://safebooru.donmai.us/wiki_pages/leash?z=2",
+    "standing_restraints": "https://safebooru.donmai.us/wiki_pages/standing_restraints?z=2",
+    "breast_zipper": "https://safebooru.donmai.us/wiki_pages/breast_zipper?z=2",
+    "breast_curtains": "https://safebooru.donmai.us/posts?tags=breast_curtains",
+    "shibarikini": "https://safebooru.donmai.us/wiki_pages/shibarikini",
+    "hand_in_anothers_panties": "https://safebooru.donmai.us/wiki_pages/hand_in_another%27s_panties?z=1"
+  },
+  "all_issue94_prescreen_missed_strict_rows_reviewed": "YES",
+  "top_queue_rescue_is_exhaustive_all_5000": "NO",
+  "adult_content_used_as_rejection_reason": "NO",
+  "automatic_production_promotion": "NO",
+  "production_mutation": "NO",
+  "issue70_mutated": "NO",
+  "userdata_mutated": "NO",
+  "pseudo_canonical_created": "NO",
+  "content_filter_used": "NO"
+}
