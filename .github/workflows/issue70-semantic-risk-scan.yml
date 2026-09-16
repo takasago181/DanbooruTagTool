@@ -1,0 +1,32 @@
+name: Issue70 Semantic Risk Scan
+
+on:
+  push:
+    branches:
+      - audit/issue70-semantic-risk-scan-20260916
+    paths:
+      - scripts/issue70/semantic_risk_scan.py
+      - .github/workflows/issue70-semantic-risk-scan.yml
+      - docs/issue70/data/source/issue70_translation_source_with_relations.csv
+      - docs/issue70/data/runtime/issue70_translation_results.csv
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run non-mutating semantic risk scan
+        run: python scripts/issue70/semantic_risk_scan.py
+      - name: Upload audit outputs
+        uses: actions/upload-artifact@v4
+        with:
+          name: issue70-semantic-risk-scan
+          path: artifacts/issue70-semantic-risk-scan/
+          if-no-files-found: error
