@@ -1,4 +1,4 @@
-name: issue70-catalog-roundtrip-final-check
+name: issue70-final-state-cleanup
 on:
   push:
     branches: [main]
@@ -7,33 +7,36 @@ on:
 permissions:
   contents: write
 jobs:
-  validate:
-    runs-on: windows-latest
+  finalize:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: '8.0.x'
-      - name: Add catalog.db roundtrip regression
+      - name: Synchronize CURRENT_STATE and remove temporary Issue 70 helpers
         shell: python
         run: |
           from pathlib import Path
-          p=Path('src/DanbooruTagTool.Tests/Issue70IntegrationTests.cs')
+          p=Path('docs/project/CURRENT_STATE.md')
           s=p.read_text(encoding='utf-8-sig')
-          anchor='''    private static string FindRepoRoot()\n    {'''
-          test='''    [Fact]\n    public void CatalogDatabaseRoundTripPreservesIssue70CategoryRelationsAndSearchMetadata()\n    {\n        using var temp = new TempDirectory();\n        var path = Path.Combine(temp.Path, "catalog.db");\n        var character = new CatalogEntry("C:hatsune_miku", "hatsune_miku", "hatsune_miku", "初音ミク", false, 145166, ["miku"], ["ミク"], [])\n        { TagCategory = "Character", RelatedCopyright = ["vocaloid"] };\n        var copyright = new CatalogEntry("R:vocaloid", "vocaloid", "vocaloid", "VOCALOID", false, 200000, [], ["ボーカロイド"], [])\n        { TagCategory = "Copyright" };\n        var artist = new CatalogEntry("A:nagano_mamoru", "nagano_mamoru", "nagano_mamoru", "永野護", false, 1000, ["mamoru nagano"], ["ながのまもる"], [])\n        { TagCategory = "Artist" };\n\n        CatalogDatabase.Build(path, [character, copyright, artist], "issue70-roundtrip-test");\n        var reopened = CatalogDatabase.Open(path);\n\n        var miku = reopened.Entries.Single(e => e.Canonical == "hatsune_miku");\n        Assert.Equal("Character", miku.EffectiveCategory);\n        Assert.Equal(["vocaloid"], miku.RelatedCopyright);\n        Assert.Contains("miku", miku.Aliases);\n        Assert.Contains("ミク", miku.JapaneseSearch);\n        Assert.Equal("Copyright", reopened.Entries.Single(e => e.Canonical == "vocaloid").EffectiveCategory);\n        Assert.Equal("Artist", reopened.Entries.Single(e => e.Canonical == "nagano_mamoru").EffectiveCategory);\n\n        var search = new SearchEngine(reopened);\n        Assert.Contains(search.Search("ミク"), hit => hit.Entry.Canonical == "hatsune_miku");\n        Assert.Contains(search.Search("miku"), hit => hit.Entry.Canonical == "hatsune_miku");\n        Assert.Contains(search.Search("ながのまもる"), hit => hit.Entry.Canonical == "nagano_mamoru");\n    }\n\n'''
-          assert anchor in s
-          assert 'CatalogDatabaseRoundTripPreservesIssue70CategoryRelationsAndSearchMetadata' not in s
-          p.write_text(s.replace(anchor,test+anchor,1),encoding='utf-8',newline='\n')
-      - name: Test Release
-        shell: pwsh
-        run: dotnet test src/DanbooruTagTool.sln -c Release --nologo
-      - name: Diff check and commit regression
+          old='- Issue #70 translation/data work is a separate lane. Post-v1 UI/taxonomy/cleanup work must not modify #70 outputs, canonical/protected data, or translation lane state. Its operational authority is now the deterministic dynamic-claim queue in `docs/issue70/data/queue_state.json` with `scripts/issue70/queue_manager.py`; legacy four-lane progress remains immutable migration provenance. Bootstrap currently validates 21 / 186 chunks (10,500 / 92,739 rows), with 82,239 rows remaining.'
+          new='- **Issue #70 tracked translation/data + WPF integration is complete on GitHub main.** All **92,739 / 92,739 rows** across **186 / 186 chunks** are completed and independently revalidated; `docs/issue70/data/queue_state.json` is reconciled to 186 completed chunks / 0 remaining rows. The compact runtime pack is tracked under `docs/issue70/data/runtime/`. Explicit catalog build now imports **Character 35,890 / Copyright 8,536 / Artist 48,313** with Japanese/English/mixed search, dedicated category browse, aliases/post counts, and Character↔Copyright related navigation. Consolidation commit: `99af4d8`; WPF integration: `13ea55e`; catalog.db roundtrip regression: `3643858`; latest Release CI: **129 passed / 7 skipped / 0 failed**.'
+          assert s.count(old)==1, 'stale Issue #70 checkpoint line missing/non-unique'
+          s=s.replace(old,new,1)
+          workstation='- The pre-integration local `catalog.db` was the historical **2,788 Special** catalog. It was replaced once by the completed **3,059 Special** production profile; the 29 deleted IDs remain absent as stable-ID gaps. Existing `UserData/user.db` remains user-owned state and its hash was unchanged through the integration.'
+          addition=workstation+'\n- **Issue #70 workstation runtime is still pending one explicit rebuild.** GitHub main contains the accepted 92,739-row overlay and importer, but the current tool environment cannot access the protected workstation source inputs required by `--build-catalog`. Do not claim `artifacts/current/Data/catalog.db` contains Character/Copyright/Artist until that local rebuild, WPF launch, and practical search/navigation smoke pass are completed.'
+          assert s.count(workstation)==1, 'workstation anchor missing/non-unique'
+          s=s.replace(workstation,addition,1)
+          old_route='Issue #70 remains a separate translation/data lane and Stage10 #65 remains a separate learning lane.'
+          new_route='Issue #70 GitHub data/integration work is complete; only the workstation catalog rebuild/smoke gate remains. Stage10 #65 remains a separate learning lane.'
+          assert s.count(old_route)==1, 'Issue #70 route line missing/non-unique'
+          s=s.replace(old_route,new_route,1)
+          p.write_text(s,encoding='utf-8',newline='\n')
+      - name: Commit final state cleanup
         shell: bash
         run: |
-          git diff --check
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add src/DanbooruTagTool.Tests/Issue70IntegrationTests.cs
-          git commit -m 'issue70: cover catalog db roundtrip for overlay metadata'
+          git rm .github/workflows/issue70_wpf_integration.yml .github/workflows/issue70_finalize_runtime_pack.yml scripts/issue70/apply_wpf_integration.py
+          git add docs/project/CURRENT_STATE.md
+          git diff --check --cached
+          git commit -m 'issue70: sync completed GitHub state and remove temporary helpers'
           git push origin HEAD:main
