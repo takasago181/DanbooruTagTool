@@ -1,0 +1,268 @@
+name: Issue70 Recurate Chunk 82 One Shot
+
+on:
+  push:
+    branches: [ main ]
+
+permissions:
+  contents: write
+
+jobs:
+  recurate:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Re-curate chunk 82 semantically
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from __future__ import annotations
+          import csv, sys
+          from pathlib import Path
+
+          ROOT = Path('.')
+          path = ROOT / 'docs/issue70/data/results/queue/queue_chunk082_I70-040501_I70-041000.csv'
+          fields = ['row_id','canonical_tag','category','display_ja','search_ja','translation_status','translation_note']
+
+          corrections = {
+              'I70-040502': 'BLOOD-C',
+              'I70-040503': 'コードギアス 奪還のロゼ',
+              'I70-040507': '一騎当千 Dragon Destiny',
+              'I70-040509': 'Killing Magician',
+              'I70-040511': '桃太郎伝説',
+              'I70-040514': 'SCARZ',
+              'I70-040517': '真・三國無双 ORIGINS',
+              'I70-040518': 'Sonic Forces: Speed Battle',
+              'I70-040520': 'ミュータント・タートルズ（1987）',
+              'I70-040521': 'THE BATMAN－ザ・バットマン－',
+              'I70-040524': 'AcFun',
+              'I70-040529': 'ジェームズ・ボンド',
+              'I70-040531': 'M@GICAL CURE! LOVE SHOT!',
+              'I70-040535': 'Project Nebula',
+              'I70-040544': '機動戦士ガンダムSEED ASTRAY',
+              'I70-040546': 'ID:INVADED イド：インヴェイデッド',
+              'I70-040547': 'Iron Lung',
+              'I70-040548': 'ケンガン',
+              'I70-040550': 'ポケットランド',
+              'I70-040552': '怪盗スライ・クーパー',
+              'I70-040553': 'スーパーロボット大戦J',
+              'I70-040555': 'The Elder Scrolls III: Morrowind',
+              'I70-040560': 'Fii-tan the Figure',
+              'I70-040561': 'Ghost of Tsushima',
+              'I70-040566': '『ヒプノシスマイク -Division Rap Battle-』Rule the Stage',
+              'I70-040568': 'jubeat',
+              'I70-040569': '恋騎士 Purely☆Kiss',
+              'I70-040571': 'なんでも実況J（なんJ）',
+              'I70-040574': '森永',
+              'I70-040576': '劇場版ポケットモンスター ミュウツーの逆襲',
+              'I70-040579': 'Virtual Ant Channel',
+              'I70-040580': 'Winged Fusiliers',
+              'I70-040582': '世界ラリー選手権',
+              'I70-040584': '黒神話：悟空',
+              'I70-040585': 'BLEACH: The High School Warfare',
+              'I70-040586': 'Circle of Inevitability',
+              'I70-040591': 'Mac音シリーズ',
+              'I70-040598': '悪魔城ドラキュラ －キャッスルヴァニア－：月夜のノクターン',
+              'I70-040599': 'Demonherd',
+              'I70-040602': 'バイオハザード7 レジデント イービル',
+              'I70-040604': 'SKET DANCE',
+              'I70-040605': 'STARLESS',
+              'I70-040608': '英雄伝説 暁の軌跡',
+              'I70-040609': "ALIA's CARNIVAL!",
+              'I70-040613': 'Flesh, Blood, & Concrete',
+              'I70-040615': 'Holiday∞Holiday',
+              'I70-040617': '星のカービィ',
+              'I70-040620': '魔法つかいプリキュア!! ～MIRAI DAYS～',
+              'I70-040625': 'Netflix',
+              'I70-040627': 'PRISM+',
+              'I70-040630': '新・世界樹の迷宮2 ファフニールの騎士',
+              'I70-040634': 'トリガーハート エグゼリカ',
+              'I70-040639': 'COMIC TENMA',
+              'I70-040641': 'ディシディア ファイナルファンタジー オペラオムニア',
+              'I70-040642': 'どきどき魔女神判!',
+              'I70-040643': 'Fit Boxing',
+              'I70-040647': 'HeartSync',
+              'I70-040648': 'HELLSING外伝 THE DAWN',
+              'I70-040649': '究極!!変態仮面',
+              'I70-040650': '崩壊：ネクサスアニマ',
+              'I70-040658': 'Omariposa',
+              'I70-040662': 'StarDust星云社',
+              'I70-040664': 'Treasure Cafe',
+              'I70-040667': '1HP Club',
+              'I70-040670': 'Canvas2 ～茜色のパレット～',
+              'I70-040672': "燕石博物誌 ～ Dr. Latency's Freak Report.",
+              'I70-040676': 'Horizon Zero Dawn',
+              'I70-040677': 'Incise Soul',
+              'I70-040679': 'マクロス ゼロ',
+              'I70-040680': 'ROAD TO NINJA -NARUTO THE MOVIE-',
+              'I70-040684': '機動天使エンジェリックレイヤー',
+              'I70-040686': 'Camp Buddy: Scoutmaster Season',
+              'I70-040687': '中国神話',
+              'I70-040689': 'Demon Days',
+              'I70-040690': 'ディアブロ III',
+              'I70-040691': 'FL Studio',
+              'I70-040692': 'Full Service',
+              'I70-040696': '星のカービィ 参上! ドロッチェ団',
+              'I70-040697': '星のカービィ 鏡の大迷宮',
+              'I70-040699': 'らんま1/2 決戦桃幻郷! 花嫁を奪りもどせ!!',
+              'I70-040703': 'STEINS;GATE 比翼恋理のだーりん',
+              'I70-040704': 'スーパーロボット大戦α',
+              'I70-040705': 'THE FIRST TAKE',
+              'I70-040708': 'ウマ娘 プリティーダービー スターブロッサム',
+              'I70-040711': 'アナスタシア',
+              'I70-040713': 'バットマン：アニメイテッド・シリーズ',
+              'I70-040715': "Girl's Avenue",
+              'I70-040718': '劇場版 機動戦艦ナデシコ -The prince of darkness-',
+              'I70-040722': 'ソウ',
+              'I70-040723': '戦国†恋姫 ～乙女絢爛☆戦国絵巻～',
+              'I70-040724': 'SQ 君の名前から始まる',
+              'I70-040726': 'アルティメットニッパー',
+              'I70-040729': 'BATTLETECH',
+              'I70-040731': 'コードギアス Genesic Re;CODE',
+              'I70-040733': 'エド エッド エディ',
+              'I70-040735': '一週間フレンズ。',
+              'I70-040739': 'Milk inside a bag of milk inside a bag of milk',
+              'I70-040745': 'PROTOTYPE',
+              'I70-040753': 'キャッツ♥アイ',
+              'I70-040757': '善意の競争',
+              'I70-040759': '魔物娘との性活 ～ラミアの場合～',
+              'I70-040763': 'Princess Royale',
+              'I70-040766': 'ソードアート・オンライン -ホロウ・フラグメント-',
+              'I70-040769': 'Awoke',
+              'I70-040770': 'BLAZBLUE PHASE 0',
+              'I70-040773': 'CIRCUS',
+              'I70-040774': 'サイバーV',
+              'I70-040775': 'Demons Roots',
+              'I70-040777': 'HARDCORE TANO*C',
+              'I70-040779': 'Hi-Fi RUSH',
+              'I70-040785': 'Muv-Luv Unlimited: The Day After',
+              'I70-040793': 'ルパン三世 カリオストロの城',
+              'I70-040795': 'DIVE TO ZONe',
+              'I70-040805': 'ラプンツェル ザ・シリーズ',
+              'I70-040809': 'TOMB RAIDER',
+              'I70-040812': 'エースコンバット04 シャッタードスカイ',
+              'I70-040816': 'COEIROINK',
+              'I70-040819': '銀河漂流バイファム',
+              'I70-040823': 'Homestay à la mode',
+              'I70-040824': 'KINGDOM HEARTS IV',
+              'I70-040827': 'Memories Off',
+              'I70-040829': '無責任集合体',
+              'I70-040833': 'SILENT HILL 4 -THE ROOM-',
+              'I70-040837': '宇宙海賊キャプテンハーロック',
+              'I70-040838': '1925',
+              'I70-040844': 'Fate Trigger: The Novita',
+              'I70-040847': 'グウェント ウィッチャーカードゲーム',
+              'I70-040857': '超時空世紀オーガス',
+              'I70-040861': 'ロビン・フッド',
+              'I70-040864': 'UQ HOLDER! ～魔法先生ネギま!2～',
+              'I70-040866': 'VIOLET',
+              'I70-040870': '攻殻機動隊 SAC_2045',
+              'I70-040873': 'グランド・セフト・オート：サンアンドレアス',
+              'I70-040878': 'Making*Lovers',
+              'I70-040879': 'NEEDY GIRL OVERDOSE',
+              'I70-040882': '劇場版ポケットモンスター 結晶塔の帝王 ENTEI',
+              'I70-040883': 'パンプキン・シザーズ',
+              'I70-040886': 'Windows 2000',
+              'I70-040888': '300〈スリーハンドレッド〉',
+              'I70-040889': 'AMBITIOUS MISSION',
+              'I70-040892': "Don't Starve",
+              'I70-040902': '戦隊大失格',
+              'I70-040903': 'serial experiments lain',
+              'I70-040906': '囚われの神様と旅の少女',
+              'I70-040913': 'BLAZBLUE CALAMITY TRIGGER',
+              'I70-040914': 'Boyfriend to Death',
+              'I70-040916': 'Fearless Night',
+              'I70-040917': 'ゴジラxコング 新たなる帝国',
+              'I70-040920': 'ONE PIECE novel HEROINES',
+              'I70-040923': 'Stellar Blade: BLOOD RAIN（ステラーブレイド ブラッドレイン）',
+              'I70-040924': 'テンカイチ 日本最強武芸者決定戦',
+              'I70-040925': 'ゼルダの伝説 4つの剣',
+              'I70-040926': "ときめきメモリアル Girl's Side 2nd Kiss",
+              'I70-040934': 'Cryamore',
+              'I70-040937': 'グリザイア：ファントムトリガー',
+              'I70-040938': '機動戦士ガンダム外伝 THE BLUE DESTINY',
+              'I70-040940': 'ひらけ!ポンキッキ',
+              'I70-040941': 'I Became a God in a Horror Game',
+              'I70-040949': 'メトロイド',
+              'I70-040950': '新世紀エヴァンゲリオン 学園堕天録',
+              'I70-040959': 'Callsign: Cedar',
+              'I70-040961': 'DAME×PRINCE',
+              'I70-040965': 'Guild Wars',
+              'I70-040970': 'Phantom -PHANTOM OF INFERNO-',
+              'I70-040971': 'Pink Bitch Club',
+              'I70-040972': 'Re:ゼロから重ねる異世界生活',
+              'I70-040974': 'SEVENTEEN',
+              'I70-040980': "Witch's Island",
+              'I70-040981': 'ぜっしゃか！-私立四ツ輪女子学院絶滅危惧車学科-',
+              'I70-040982': 'Abbey Road',
+              'I70-040984': '青鬼',
+              'I70-040988': 'Empty × Embryo',
+              'I70-040990': '＊ハロー、プラネット。',
+              'I70-040992': 'Jerma985',
+              'I70-040993': 'ジョジョの奇妙な冒険 アイズオブヘブン',
+              'I70-040998': 'ロストソード',
+          }
+
+          explicit_review = {
+              'I70-040895',  # huayangshan_jishi: no reliable Japanese rendering established
+              'I70-040908',  # tsuyaza_no_tengu: exact Japanese title unresolved
+              'I70-040918',  # hua_jianghu_zhi_bei_mo_ting: Japanese rendering unresolved
+              'I70-040952',  # Taiwan/local title: Japanese rendering unresolved
+              'I70-040979',  # wild_flower: generic identity/rendering ambiguous
+          }
+
+          with path.open(encoding='utf-8-sig', newline='') as f:
+              rows = list(csv.DictReader(f))
+          if len(rows) != 500:
+              raise SystemExit(f'expected 500 rows, found {len(rows)}')
+
+          ids = {r['row_id'] for r in rows}
+          if set(corrections) - ids or explicit_review - ids:
+              raise SystemExit('row-id mismatch in correction/review map')
+
+          counts = {'ACCEPTED_AI': 0, 'REVIEW_REQUIRED': 0}
+          corrected = promoted = 0
+          for row in rows:
+              rid = row['row_id']
+              old_display = row['display_ja']
+              old_status = row['translation_status']
+              if rid in explicit_review:
+                  row['translation_status'] = 'REVIEW_REQUIRED'
+                  row['translation_note'] = 'semantic re-curation: genuinely ambiguous/unresolved; manual verification still required'
+              else:
+                  if rid in corrections:
+                      row['display_ja'] = corrections[rid]
+                      if row['display_ja'] != old_display:
+                          corrected += 1
+                  row['translation_status'] = 'ACCEPTED_AI'
+                  row['translation_note'] = 'semantic re-curation: title/name judged usable; official/common rendering preferred over literal candidate'
+                  if old_status != 'ACCEPTED_AI':
+                      promoted += 1
+              counts[row['translation_status']] += 1
+
+          with path.open('w', encoding='utf-8', newline='') as f:
+              w = csv.DictWriter(f, fieldnames=fields, lineterminator='\n')
+              w.writeheader(); w.writerows(rows)
+
+          sys.path.insert(0, str(ROOT))
+          from scripts.issue70.publish_local_batch import validate_result
+          entry, validated_rows = validate_result(ROOT, path)
+          if int(entry['chunk_index']) != 82 or len(validated_rows) != 500:
+              raise SystemExit('validator mismatch for chunk 82')
+          print({'counts': counts, 'corrected_display': corrected, 'promoted_to_accepted': promoted})
+          PY
+
+      - name: Commit re-curated result
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/issue70/data/results/queue/queue_chunk082_I70-040501_I70-041000.csv
+          git commit -m 'Issue70: semantically re-curate chunk 82 [skip ci]'
+          git pull --rebase origin main
+          git push origin HEAD:main
