@@ -18,7 +18,7 @@ permissions:
 
 jobs:
   apply-production:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
@@ -27,7 +27,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          python3 scripts/issue107/apply_production_promotion.py --repo-root . \
+          python scripts/issue107/apply_production_promotion.py --repo-root . \
             | tee /tmp/issue107-production-apply.log
 
       - name: Validate changed-file boundary and frozen Issue 96 authority
@@ -36,7 +36,7 @@ jobs:
           set -euo pipefail
           echo 'Changed files:'
           git diff --name-only | tee /tmp/issue107-changed-files.txt
-          python3 - <<'PY'
+          python - <<'PY'
           from pathlib import Path
           allowed={
             'data/generation/special2788_generation_profile.csv',
@@ -58,7 +58,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          python3 - <<'PY'
+          python - <<'PY'
           import csv, hashlib, json
           from pathlib import Path
           def rows(p):
@@ -91,7 +91,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          dotnet test src/DanbooruTagTool.Tests/DanbooruTagTool.Tests.csproj -c Release --nologo -p:EnableWindowsTargeting=true
+          dotnet test src/DanbooruTagTool.Tests/DanbooruTagTool.Tests.csproj -c Release --nologo
 
       - name: Persist validated production expansion
         shell: bash
