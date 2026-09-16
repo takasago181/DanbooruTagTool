@@ -1,15 +1,14 @@
 #!/usr/bin/env python3
 """Issue #70 semantic risk census v2.
 
-This wrapper keeps the v1 I/O/ledger machinery but replaces the deliberately
-broad first-pass screening with category-aware, runtime-aware rules learned
-from the first real 92,739-row census. Blank search_ja, normal Artist
-romanization, and omission of display_ja from search_ja are not defects.
+Category-aware, runtime-aware, read-only semantic screening over all 92,739
+Issue #70 rows. The scanner never rewrites production translation data.
 """
 
 from __future__ import annotations
 
 import json
+import re
 import sys
 from collections import defaultdict
 from pathlib import Path
@@ -20,6 +19,8 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from scripts.issue70 import audit_semantic_risk as base
+
+TRAILING_PAREN_RE = re.compile(r"(?:\([^()]*\)|（[^（）]*）)$")
 
 
 def score_row(record: dict[str, Any]) -> None:
@@ -41,11 +42,8 @@ def score_row(record: dict[str, Any]) -> None:
 
     search_terms = base.split_pipe(search)
     search_norm = base.uniq_norm(search_terms)
-    # RuntimeCatalogIndex.SearchDocument.Create() always indexes entry.Japanese
-    # separately from entry.JapaneseSearch. Therefore blank search_ja or search_ja
-    # omitting display_ja is not a semantic defect. Keep the diagnostic flag for
-    # analysis only when a populated search list omits display, but do not select
-    # ACCEPTED_AI solely because of it.
+    # RuntimeCatalogIndex.SearchDocument.Create() indexes entry.Japanese
+    # separately from entry.JapaneseSearch. This is diagnostic only.
     if search_terms and display and base.norm(display) not in search_norm:
         base.add_flag(record, "DISPLAY_MISSING_FROM_SEARCH", 0)
     if len(search_terms) > 8:
@@ -70,8 +68,6 @@ def score_row(record: dict[str, Any]) -> None:
     accepted_norm = base.uniq_norm(accepted_evidence)
     rejected_norm = base.uniq_norm(rejected_evidence)
 
-    # The source 'rejected' bucket can contain legitimate official English
-    # titles/handles, so it is a review clue rather than proof of wrongness.
     if display_norm and display_norm in rejected_norm:
         base.add_flag(record, "DISPLAY_MATCHES_REJECTED_JA", 4)
     if search_norm & rejected_norm:
@@ -94,6 +90,65 @@ def score_row(record: dict[str, Any]) -> None:
         base.add_flag(record, "SEARCH_UNUSUALLY_LONG", 2)
 
 
+def qualifier_count(tag: str) -> int:
+    return tag.count("_(")
+
+
+def canonical_stem(tag: str) -> str:
+    return tag.split("_(", 1)[0]
+
+
+def identity_display(value: str) -> str:
+    value = (value or "").strip()
+    while value:
+        stripped = TRAILING_PAREN_RE.sub("", value).strip()
+        if stripped == value:
+            break
+        value = stripped
+    return value
+
+
+def add_character_family_flags(records: list[dict[str, Any]]) -> None:
+    groups: dict[tuple[str, str], list[dict[str, Any]]] = defaultdict(list)
+    for row in records:
+        row["family_base_canonical"] = ""
+        row["family_base_display_ja"] = ""
+        if row["category_name"] != "Character":
+            continue
+        stem = canonical_stem(row["canonical_tag"])
+        if not stem:
+            continue
+        key = (stem, row.get("related_copyright_top1") or "")
+        groups[key].append(row)
+
+    for rows in groups.values():
+        if len(rows) < 2:
+            continue
+        # The least-qualified, highest-usage row is the best available internal
+        # identity anchor. This is evidence for audit, never an automatic fix.
+        base_row = min(
+            rows,
+            key=lambda r: (qualifier_count(r["canonical_tag"]), -r["post_count"], len(r["canonical_tag"]), r["row_id"]),
+        )
+        base_q = qualifier_count(base_row["canonical_tag"])
+        base_identity = identity_display(base_row["display_ja"])
+        if not base_identity or len(base.norm(base_identity)) < 2:
+            continue
+        for row in rows:
+            if row is base_row:
+                continue
+            if qualifier_count(row["canonical_tag"]) <= base_q:
+                continue
+            row["family_base_canonical"] = base_row["canonical_tag"]
+            row["family_base_display_ja"] = base_row["display_ja"]
+            current = base.norm(row["display_ja"])
+            anchor = base.norm(base_identity)
+            if anchor not in current:
+                base.add_flag(row, "VARIANT_DISPLAY_MISSING_BASE_IDENTITY", 5)
+            elif current in {anchor, base.norm(base_row["display_ja"])}:
+                base.add_flag(row, "VARIANT_DISPLAY_LOST_QUALIFIER", 3)
+
+
 def add_duplicate_display_flags(records: list[dict[str, Any]]) -> None:
     groups: dict[tuple[str, str], list[dict[str, Any]]] = defaultdict(list)
     for row in records:
@@ -106,6 +161,7 @@ def add_duplicate_display_flags(records: list[dict[str, Any]]) -> None:
         weight = 3 if category in {"Character", "Copyright"} else 2
         for row in rows:
             base.add_flag(row, "DUPLICATE_DISPLAY_WITHIN_CATEGORY", weight)
+    add_character_family_flags(records)
 
 
 def is_accepted_risk(row: dict[str, Any]) -> bool:
@@ -121,8 +177,8 @@ def is_accepted_risk(row: dict[str, Any]) -> bool:
         "UNICODE_REPLACEMENT_CHAR",
         "UNBALANCED_BRACKETS",
     }
-    # High-impact rows remain deliberately covered regardless of flags.
-    if impact == "TOP_1_PERCENT" or flags & structural:
+    family = {"VARIANT_DISPLAY_MISSING_BASE_IDENTITY", "VARIANT_DISPLAY_LOST_QUALIFIER"}
+    if impact == "TOP_1_PERCENT" or flags & structural or flags & family:
         return True
     if "DUPLICATE_DISPLAY_WITHIN_CATEGORY" in flags:
         return True
@@ -130,8 +186,6 @@ def is_accepted_risk(row: dict[str, Any]) -> bool:
         return True
 
     if category == "Artist":
-        # ASCII/romanized handles are normal. Only Japanese readings unsupported
-        # by preserved source evidence are singled out beyond the top-1% impact set.
         return "ARTIST_JA_DISPLAY_UNSUPPORTED_BY_SOURCE" in flags
 
     if (
@@ -152,16 +206,16 @@ def rewrite_summary(out: Path) -> None:
     path = out / "risk_summary.json"
     data = json.loads(path.read_text(encoding="utf-8"))
     data["format_version"] = 2
-    data["mode"] = "read_only_semantic_risk_census_v2_category_and_runtime_aware"
+    data["mode"] = "read_only_semantic_risk_census_v2_category_runtime_family_aware"
     data["selection_policy"]["accepted_risk"] = (
-        "runtime-aware category screening: all top-1%-impact + structural/conflict/"
-        "collision signals; blank search_ja and display omission from search_ja are "
-        "valid because RuntimeCatalogIndex indexes display_ja separately; normal "
-        "Artist romanization is not a defect"
+        "runtime-aware category screening + Character family consistency: all top-1%-impact, "
+        "structural/conflict/collision signals, variant rows missing the internal base identity "
+        "or qualifier, unsupported Japanese Artist readings, and selected source-evidence gaps. "
+        "Blank search_ja and display omission from search_ja are valid."
     )
     data["selection_policy"]["v1_disposition"] = (
-        "superseded: v1 over-selected Artist and search fields; v2 is constrained "
-        "by the actual RuntimeCatalogIndex search contract"
+        "superseded: v1 over-selected Artist and search fields; v2 is constrained by the actual "
+        "RuntimeCatalogIndex search contract and internal Character family evidence"
     )
     path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
@@ -175,6 +229,11 @@ def output_path_from_argv() -> Path:
 
 
 def main() -> int:
+    for field in ("family_base_canonical", "family_base_display_ja"):
+        if field not in base.OUTPUT_FIELDS:
+            base.OUTPUT_FIELDS.append(field)
+        if field not in base.LEDGER_FIELDS:
+            base.LEDGER_FIELDS.append(field)
     base.score_row = score_row
     base.add_duplicate_display_flags = add_duplicate_display_flags
     base.is_accepted_risk = is_accepted_risk
