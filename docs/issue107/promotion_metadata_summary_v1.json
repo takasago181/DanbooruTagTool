@@ -1,0 +1,50 @@
+{
+  "rows": 105,
+  "ids": [
+    2984,
+    3088
+  ],
+  "kind_counts": {
+    "ACTION_CONTACT": 39,
+    "BODY_STATE": 24,
+    "CLOTHING_EXPOSURE": 12,
+    "FLUID_EXCRETION": 5,
+    "NONHUMAN_TRANSFORMATION": 1,
+    "POSE_SCENE": 8,
+    "TOOL_OBJECT": 16
+  },
+  "body_facet_counts": {
+    "BREAST_NIPPLE": 50,
+    "BUTTOCK_ANAL": 6,
+    "FEMALE_GENITAL": 3,
+    "MALE_GENITAL": 5,
+    "MOUTH_ORAL": 4
+  },
+  "theme_counts": {
+    "BDSM_RESTRAINT": 15,
+    "INJURY_R18G": 4,
+    "REPRO_PREGNANCY_LACTATION": 5
+  },
+  "generation_family_counts": {
+    "ACTION_INTERACTION": 28,
+    "BODY_ATTRIBUTE": 15,
+    "BODY_STATE": 9,
+    "CLOTHING_EXPOSURE": 11,
+    "CONTEXT_MODIFIER": 1,
+    "DAMAGE_STATE_ACTION": 4,
+    "DIRECT_COMPOSITE": 10,
+    "FLUID_STATE_ACTION": 5,
+    "IMPLEMENT_OBJECT": 4,
+    "POSE_COMPOSITION": 4,
+    "RESTRAINT_ACTION": 6,
+    "RESTRAINT_IMPLEMENT": 8
+  },
+  "source_sha256": "bfaf50b7656c73890904a51e1a627d89189ff769a58d3ad59b7d2b2585f3432b",
+  "metadata_sha256": "84a31353d438001985b76793570417b6501f8ada220466c8508bf989544f26f5",
+  "unresolved_rows": 0,
+  "hidden_prompt_insertion": "NO",
+  "content_filter_used": "NO",
+  "production_mutation": "NO",
+  "issue70_mutated": "NO",
+  "userdata_mutated": "NO"
+}
