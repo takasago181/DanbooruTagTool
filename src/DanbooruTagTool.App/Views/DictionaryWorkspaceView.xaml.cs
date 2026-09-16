@@ -25,7 +25,12 @@ public partial class DictionaryWorkspaceView : UserControl
                 attached = true;
                 vm.ResultsRestored += RestoreScroll;
             }
+            UpdateSurfaceWidth();
             RestoreScroll();
+        };
+        DataContextChanged += (_, _) =>
+        {
+            if (IsLoaded) Dispatcher.BeginInvoke(UpdateSurfaceWidth, DispatcherPriority.Loaded);
         };
         Unloaded += (_, _) => searchTimer.Stop();
     }
@@ -36,8 +41,13 @@ public partial class DictionaryWorkspaceView : UserControl
     private void SearchChanged(object sender, TextChangedEventArgs e) { searchTimer.Stop(); searchTimer.Start(); }
     private void DictionaryListSizeChanged(object sender, SizeChangedEventArgs e)
     {
-        var available = e.NewSize.Width - SystemParameters.VerticalScrollBarWidth - 12;
-        ViewModel?.SetSurfaceWidth(available);
+        UpdateSurfaceWidth(e.NewSize.Width);
+    }
+    private void UpdateSurfaceWidth(double? width = null)
+    {
+        var actualWidth = width ?? DictionaryList.ActualWidth;
+        if (actualWidth <= 0) return;
+        ViewModel?.SetSurfaceWidth(actualWidth - SystemParameters.VerticalScrollBarWidth - 12);
     }
     private void BrowseScrolled(object sender, ScrollChangedEventArgs e)
     {

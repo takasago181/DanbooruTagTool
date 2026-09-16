@@ -29,7 +29,7 @@ public sealed class Issue114Phase4CompositionTests
             {
                 var vm = Fixtures.Vm();
                 var app = new Application { ShutdownMode = ShutdownMode.OnExplicitShutdown };
-                var window = new MainWindow(vm) { WindowState = WindowState.Normal, Width = 1280, Height = 720, ShowInTaskbar = false };
+                var window = new MainWindow(vm) { WindowState = WindowState.Normal, Width = 1920, Height = 820, ShowInTaskbar = false };
                 window.Show();
                 Pump(window.Dispatcher, 150);
                 window.UpdateLayout();
@@ -46,6 +46,8 @@ public sealed class Issue114Phase4CompositionTests
                 dictionarySource = list.ItemsSource?.GetType().Name ?? "null";
                 Assert.NotEmpty(vm.Dictionary.DictionaryRows);
                 Assert.NotEmpty(list.Items);
+                Assert.Equal(2, dictionaryVm.DictionaryColumnCount);
+                Assert.Equal((dictionaryVm.Results.Count + 1) / 2, dictionaryVm.DictionaryRows.Count);
 
                 var englishPreview = GetField<TextBox>(promptView, "EnglishPreview");
                 promptEnglishBinding = englishPreview.GetBindingExpression(TextBox.TextProperty)?.ParentBinding.Path.Path ?? "none";
