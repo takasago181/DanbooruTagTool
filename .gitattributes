@@ -6,3 +6,7 @@ data/special2788/product_fit_verdicts.csv text eol=lf
 docs/issue64/production_candidate/general_taxonomy.json text eol=lf
 docs/issue64/production_candidate/effective_sidecar.csv text eol=lf
 docs/issue64/production_candidate/manifest.json text eol=lf
+# Issue #70 consolidated runtime pack is byte-hashed by the WPF importer.
+docs/issue70/data/runtime/*.csv text eol=lf
+docs/issue70/data/runtime/*.json text eol=lf
+docs/issue70/data/queue_state.json text eol=lf

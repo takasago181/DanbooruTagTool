@@ -13,7 +13,7 @@ public sealed class EntryViewModel(CatalogEntry entry, PromptWorkspace workspace
     public string Label => (entry.IsSpecial ? "◆ " : "") + entry.Label;
     public string English => entry.Canonical ?? entry.English;
     public string Usage => entry.UsageText;
-    public string Category => entry.IsSpecial ? "Special" : "General";
+    public string Category => entry.EffectiveCategory;
     public string Breadcrumb
     {
         get
@@ -194,6 +194,9 @@ public sealed class MainViewModel : Observable
                 return general.Paths.FirstOrDefault(p => "general:" + p.Key == browse)?.Label
                     ?? general.Paths.FirstOrDefault(p => "general:" + p.GenreId + ">" == browse)?.Genre ?? "General";
             if (browse == "general") return "General";
+            if (browse == "character") return "キャラクター";
+            if (browse == "copyright") return "作品";
+            if (browse == "artist") return "作者";
             if (specialBrowse != null)
             {
                 if (!specialFilter.IsEmpty) return SpecialFacetSummary;
@@ -305,7 +308,9 @@ public sealed class MainViewModel : Observable
             ? catalog.Entries.Where(e => e.IsSpecial).SelectMany(e => e.Paths).GroupBy(p => p.GenreId)
                 .Select(g => new NavigationNode("special:" + g.Key + ">", g.First().Genre, g.Where(p => p.SubgenreId.Length > 0).DistinctBy(p => p.Key)
                     .Select(p => new NavigationNode("special:" + p.Key, p.Subgenre, [])).ToArray())).ToArray()
-            : BuildSpecialNavigation()), new("general", "General", this.general.IsPending ? [] : BuildNavigation(this.general.Paths, "general:"))];
+            : BuildSpecialNavigation()),
+            new("general", "General", this.general.IsPending ? [] : BuildNavigation(this.general.Paths, "general:")),
+            new("character", "キャラクター", []), new("copyright", "作品", []), new("artist", "作者", [])];
         Copy = Normal(_ => Safe(() => { clipboard.Write(English); Status = "✓ コピーしました"; }));
         Import = Normal(_ => Safe(() => { var text = clipboard.Read(); if (string.IsNullOrWhiteSpace(text)) Status = "クリップボードにPrompt文字列がありません"; else Workspace.Replace(text); }));
         New = Normal(_ => Workspace.Replace("")); Recover = Normal(_ => Workspace.Recover(), _ => Workspace.HasRecovery);
@@ -420,6 +425,12 @@ public sealed class MainViewModel : Observable
             entries = general.Browse(browse == "general" ? "" : browse[8..]);
             entries = SortIndex == 1 ? entries.OrderBy(e => e.Label, StringComparer.Create(CultureInfo.GetCultureInfo("ja-JP"), false)) : entries.OrderByDescending(e => e.Usage);
         }
+        else if (browse is "character" or "copyright" or "artist")
+        {
+            var category = browse switch { "character" => "Character", "copyright" => "Copyright", _ => "Artist" };
+            entries = catalog.Entries.Where(e => e.EffectiveCategory == category && e.CanBrowse);
+            entries = SortIndex == 1 ? entries.OrderBy(e => e.Label, StringComparer.Create(CultureInfo.GetCultureInfo("ja-JP"), false)) : entries.OrderByDescending(e => e.Usage);
+        }
         else if (specialBrowse != null)
         {
             entries = catalog.Entries.Where(e => e.IsSpecial && e.CanBrowse);
@@ -447,7 +458,7 @@ public sealed class MainViewModel : Observable
         {
             if (key.StartsWith("special-v2:kind:", StringComparison.Ordinal) || key.StartsWith("special-v2:body:", StringComparison.Ordinal) || key.StartsWith("special-v2:theme:", StringComparison.Ordinal))
                 ApplySpecialFilter(SpecialFilterFromBrowse(key), remember);
-            else if (key == "special" || key.StartsWith("general", StringComparison.Ordinal))
+            else if (key == "special" || key.StartsWith("general", StringComparison.Ordinal) || key is "character" or "copyright" or "artist")
             {
                 if (remember) specialFilterHistory.Clear();
                 specialFilter = SpecialBrowseV2Filter.Empty;
@@ -475,6 +486,15 @@ public sealed class MainViewModel : Observable
     }
     private IReadOnlyList<EntryViewModel> RelatedFor(CatalogEntry entry)
     {
+        if (entry.EffectiveCategory == "Character")
+        {
+            var order = entry.RelatedCopyright.Select((canonical, index) => (canonical, index)).ToDictionary(x => x.canonical, x => x.index, StringComparer.Ordinal);
+            return Rows(catalog.Entries.Where(e => e.EffectiveCategory == "Copyright" && e.Canonical != null && order.ContainsKey(e.Canonical))
+                .OrderBy(e => order[e.Canonical!]));
+        }
+        if (entry.EffectiveCategory == "Copyright" && entry.Canonical is { } copyright)
+            return Rows(catalog.Entries.Where(e => e.EffectiveCategory == "Character" && e.RelatedCopyright.Contains(copyright, StringComparer.Ordinal))
+                .OrderByDescending(e => e.Usage).Take(6));
         if (specialBrowse == null || !entry.IsSpecial)
             return Rows(catalog.Entries.Where(e => e.IsSpecial && e.CanBrowse && e.Id != entry.Id && e.Paths.Any(p => entry.Paths.Any(v => v.Key == p.Key))).OrderByDescending(e => e.Usage).Take(6));
         var route = specialBrowse.Get(entry.Id);

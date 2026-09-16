@@ -19,7 +19,10 @@ public class ProductionTests(ITestOutputHelper output)
     {
         var path=Environment.GetEnvironmentVariable("DTT_PRODUCTION_CATALOG")!; var watch=Stopwatch.StartNew();
         var catalog=CatalogDatabase.Open(path); output.WriteLine($"Catalog open {watch.ElapsedMilliseconds} ms");
-        Assert.Equal(30629,catalog.Entries.Count(e=>!e.IsSpecial)); Assert.Equal(AcceptedAssetImporter.ProductionSpecialCount,catalog.Entries.Count(e=>e.IsSpecial));
+        Assert.Equal(30629,catalog.Entries.Count(e=>e.EffectiveCategory=="General")); Assert.Equal(AcceptedAssetImporter.ProductionSpecialCount,catalog.Entries.Count(e=>e.EffectiveCategory=="Special"));
+        Assert.Equal(Issue70CatalogOverlayImporter.CharacterCount,catalog.Entries.Count(e=>e.EffectiveCategory=="Character"));
+        Assert.Equal(Issue70CatalogOverlayImporter.CopyrightCount,catalog.Entries.Count(e=>e.EffectiveCategory=="Copyright"));
+        Assert.Equal(Issue70CatalogOverlayImporter.ArtistCount,catalog.Entries.Count(e=>e.EffectiveCategory=="Artist"));
         Assert.Equal(28226,catalog.Entries.Count(e=>!e.IsSpecial && e.BrowseClassification==BrowseClassificationStatus.Proposed));
         Assert.Equal(2403,catalog.Entries.Count(e=>!e.IsSpecial && e.BrowseClassification==BrowseClassificationStatus.Unresolved));
         var special=catalog.Entries.Where(e=>e.IsSpecial).ToArray();

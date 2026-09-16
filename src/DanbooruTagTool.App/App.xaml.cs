@@ -26,8 +26,11 @@ public partial class App : Application
                 File.WriteAllText(Path.Combine(output, "import-report.json"), JsonSerializer.Serialize(new
                 {
                     Total = result.Entries.Length,
-                    General = result.Entries.Count(x => !x.IsSpecial),
-                    Special = result.Entries.Count(x => x.IsSpecial),
+                    General = result.Entries.Count(x => x.EffectiveCategory == "General"),
+                    Special = result.Entries.Count(x => x.EffectiveCategory == "Special"),
+                    Character = result.Entries.Count(x => x.EffectiveCategory == "Character"),
+                    Copyright = result.Entries.Count(x => x.EffectiveCategory == "Copyright"),
+                    Artist = result.Entries.Count(x => x.EffectiveCategory == "Artist"),
                     GeneralTaxonomy = new
                     {
                         Proposed = result.Entries.Count(x => !x.IsSpecial && x.BrowseClassification == BrowseClassificationStatus.Proposed),

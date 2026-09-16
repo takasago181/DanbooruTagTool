@@ -23,6 +23,11 @@ public sealed record CatalogEntry(string Id, string? Canonical, string English, 
     BrowseClassificationStatus BrowseClassification = BrowseClassificationStatus.NotApplicable,
     SpecialBrowseV2Classification? SpecialBrowseV2 = null)
 {
+    // General/Special keep their historical shape; Issue #70 adds the three Danbooru identity categories.
+    // EffectiveCategory preserves backward compatibility with older catalog.db JSON that has no TagCategory field.
+    public string TagCategory { get; init; } = "";
+    public string EffectiveCategory => string.IsNullOrWhiteSpace(TagCategory) ? (IsSpecial ? "Special" : "General") : TagCategory;
+    public string[] RelatedCopyright { get; init; } = [];
     public string Label => Japanese ?? English;
     public string UsageText => Usage?.ToString("N0", System.Globalization.CultureInfo.InvariantCulture) ?? "—";
     public bool CanBrowse => ProductFit == "KEEP";

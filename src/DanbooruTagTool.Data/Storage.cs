@@ -84,7 +84,7 @@ public sealed class GeneralBrowseProvider(ICatalog catalog, IReadOnlyDictionary<
     public static IGeneralBrowseProvider FromCatalog(ICatalog catalog)
     {
         var mappings = catalog.Entries
-            .Where(e => !e.IsSpecial && e.Canonical != null && e.BrowseClassification == BrowseClassificationStatus.Proposed && e.Paths.Length > 0)
+            .Where(e => e.EffectiveCategory == "General" && e.Canonical != null && e.BrowseClassification == BrowseClassificationStatus.Proposed && e.Paths.Length > 0)
             .ToDictionary(e => e.Canonical!, e => e.Paths, StringComparer.Ordinal);
         return mappings.Count == 0 ? new PendingGeneralBrowseProvider() : new GeneralBrowseProvider(catalog, mappings);
     }
@@ -92,6 +92,6 @@ public sealed class GeneralBrowseProvider(ICatalog catalog, IReadOnlyDictionary<
     public bool IsPending => false;
     public string Status => "";
     public IReadOnlyList<BrowsePath> Paths => acceptedMappings.Values.SelectMany(p => p).Distinct().ToArray();
-    public IReadOnlyList<CatalogEntry> Browse(string path) => catalog.Entries.Where(e => !e.IsSpecial && e.CanBrowse && e.Canonical != null
+    public IReadOnlyList<CatalogEntry> Browse(string path) => catalog.Entries.Where(e => e.EffectiveCategory == "General" && e.CanBrowse && e.Canonical != null
         && acceptedMappings.TryGetValue(e.Canonical, out var paths) && paths.Any(p => path.Length == 0 || p.Key == path || (path.EndsWith('>') && p.GenreId + ">" == path))).OrderByDescending(e => e.Usage).ToArray();
 }

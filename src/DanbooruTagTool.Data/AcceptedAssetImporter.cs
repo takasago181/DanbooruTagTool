@@ -165,6 +165,13 @@ public static class AcceptedAssetImporter
         for (int i = 0; i < entries.Count; i++)
             if (!entries[i].IsSpecial && specialGroups.TryGetValue(entries[i].Canonical!, out var related) && related.All(e => !e.CanSearch))
                 entries[i] = entries[i] with { ProductFit = "OUT_OF_SCOPE_PRODUCT" };
+
+        var issue70Path = Authority(Issue70CatalogOverlayImporter.RelativePath);
+        var issue70 = Issue70CatalogOverlayImporter.Read(issue70Path);
+        var existingCanonical = entries.Where(e => e.Canonical != null).Select(e => e.Canonical!).ToHashSet(StringComparer.Ordinal);
+        var overlap = issue70.Where(e => e.Canonical != null && existingCanonical.Contains(e.Canonical)).Select(e => e.Canonical!).Take(5).ToArray();
+        if (overlap.Length > 0) throw new InvalidDataException("Issue #70 canonical overlaps existing General/Special: " + string.Join(", ", overlap));
+        entries.AddRange(issue70);
         return new(entries.ToArray(), hashes);
     }
 
