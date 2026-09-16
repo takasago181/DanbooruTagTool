@@ -14,6 +14,16 @@ jobs:
       - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.0.x'
+      - name: Fix temporary integration test imports
+        shell: python
+        run: |
+          from pathlib import Path
+          p=Path('scripts/issue70/apply_wpf_integration.py')
+          s=p.read_text(encoding='utf-8')
+          old="tests='''using DanbooruTagTool.App.ViewModels;"
+          new="tests='''using System.IO;\nusing DanbooruTagTool.App.ViewModels;"
+          assert old in s
+          p.write_text(s.replace(old,new,1),encoding='utf-8')
       - name: Apply Issue 70 WPF integration patch
         shell: pwsh
         run: python scripts/issue70/apply_wpf_integration.py
