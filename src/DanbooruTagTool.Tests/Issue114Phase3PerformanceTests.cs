@@ -83,13 +83,17 @@ public sealed class Issue114Phase3PerformanceTests(ITestOutputHelper output)
         unrelated.PropertyChanged += (_, _) => unrelatedNotifications++;
         detached.PropertyChanged += (_, _) => detachedNotifications++;
 
+        var refreshedRowCount = vm.Dictionary.Results.Concat(vm.Dictionary.Related).Count(row => row.Entry.Canonical == "blue_hair");
+        var refreshTimer = Stopwatch.StartNew();
         affected.Add.Execute(null); // canonical count 0 -> 1
+        refreshTimer.Stop();
 
         Assert.True(affectedNotifications > 0);
         Assert.Equal(0, unrelatedNotifications);
         Assert.True(detachedNotifications > 0);
         Assert.Equal("✓", affected.AddSymbol);
         Assert.Equal("✓", detached.AddSymbol);
+        output.WriteLine($"targeted refresh: canonical=blue_hair, refreshed rows={refreshedRowCount}, detached selected=1, elapsed={refreshTimer.Elapsed.TotalMilliseconds:F3} ms; full candidate rows={vm.Dictionary.Results.Count + vm.Dictionary.Related.Count}");
 
         vm.Workspace.Replace("blue_hair,blue_hair"); // 1 -> 2
         Assert.Contains("2件", affected.DetailAddLabel);
@@ -108,6 +112,7 @@ public sealed class Issue114Phase3PerformanceTests(ITestOutputHelper output)
         vm.RefreshResults();
 
         Assert.Equal(before, store.SaveCount);
+        output.WriteLine($"query refresh save count delta={store.SaveCount - before}");
         vm.Persist();
         Assert.Equal(before + 1, store.SaveCount);
         Assert.Equal("blue", store.State!.Ui.Query);
