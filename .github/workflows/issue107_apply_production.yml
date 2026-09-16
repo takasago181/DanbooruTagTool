@@ -37,6 +37,7 @@ jobs:
           echo 'Changed files:'
           git diff --name-only | tee issue107-changed-files.txt
           python - <<'PY'
+          import hashlib, subprocess
           from pathlib import Path
           allowed={
             'data/generation/special2788_generation_profile.csv',
@@ -51,8 +52,12 @@ jobs:
           required=allowed-{'docs/issue107/production_apply_summary_v1.json'}
           missing=required-changed
           if missing: raise SystemExit(f'expected production paths did not change: {sorted(missing)}')
+          frozen=subprocess.check_output(['git','show','HEAD:docs/issue96/special_expansion_promotion_proposal_v1.csv'])
+          digest=hashlib.sha256(frozen).hexdigest()
+          expected='cdeef93802f8b1ebf0e70b2fe82211e2fd8955b064b063f10093a3ff0642dc1f'
+          if digest != expected: raise SystemExit(f'Issue #96 frozen blob hash drift: {digest}')
+          print('ISSUE96_FROZEN_BLOB_GATE=PASS')
           PY
-          echo 'cdeef93802f8b1ebf0e70b2fe82211e2fd8955b064b063f10093a3ff0642dc1f  docs/issue96/special_expansion_promotion_proposal_v1.csv' | sha256sum --check
 
       - name: Validate production CSV contracts
         shell: bash
