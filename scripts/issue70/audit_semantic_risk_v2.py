@@ -15,6 +15,13 @@ from collections import defaultdict
 from pathlib import Path
 from typing import Any
 
+# Running this file directly makes scripts/issue70 the initial sys.path entry.
+# Add repository root explicitly so the shared Issue70 module is importable in
+# GitHub Actions and local direct execution alike.
+ROOT = Path(__file__).resolve().parents[2]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
 from scripts.issue70 import audit_semantic_risk as base
 
 
