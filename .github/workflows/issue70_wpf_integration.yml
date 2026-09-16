@@ -1,4 +1,4 @@
-name: issue70-wpf-integration
+name: issue70-catalog-roundtrip-final-check
 on:
   push:
     branches: [main]
@@ -7,47 +7,33 @@ on:
 permissions:
   contents: write
 jobs:
-  integrate:
+  validate:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.0.x'
-      - name: Pin Issue 70 deterministic runtime bytes
+      - name: Add catalog.db roundtrip regression
         shell: python
         run: |
           from pathlib import Path
-          g=Path('.gitattributes')
-          s=g.read_text(encoding='utf-8')
-          block='\n# Issue #70 consolidated runtime pack is byte-hashed by the WPF importer.\ndocs/issue70/data/runtime/*.csv text eol=lf\ndocs/issue70/data/runtime/*.json text eol=lf\ndocs/issue70/data/queue_state.json text eol=lf\n'
-          if 'docs/issue70/data/runtime/*.csv text eol=lf' not in s:
-              g.write_text(s.rstrip()+block,encoding='utf-8',newline='\n')
-          p=Path('docs/issue70/data/runtime/issue70_catalog_overlay.csv')
-          text=p.read_text(encoding='utf-8-sig')
-          p.write_text(text,encoding='utf-8-sig',newline='\n')
-      - name: Fix temporary integration test imports
-        shell: python
-        run: |
-          from pathlib import Path
-          p=Path('scripts/issue70/apply_wpf_integration.py')
-          s=p.read_text(encoding='utf-8')
-          old="tests='''using DanbooruTagTool.App.ViewModels;"
-          new="tests='''using System.IO;\nusing DanbooruTagTool.App.ViewModels;"
-          assert old in s
-          p.write_text(s.replace(old,new,1),encoding='utf-8')
-      - name: Apply Issue 70 WPF integration patch
-        shell: pwsh
-        run: python scripts/issue70/apply_wpf_integration.py
+          p=Path('src/DanbooruTagTool.Tests/Issue70IntegrationTests.cs')
+          s=p.read_text(encoding='utf-8-sig')
+          anchor='''    private static string FindRepoRoot()\n    {'''
+          test='''    [Fact]\n    public void CatalogDatabaseRoundTripPreservesIssue70CategoryRelationsAndSearchMetadata()\n    {\n        using var temp = new TempDirectory();\n        var path = Path.Combine(temp.Path, "catalog.db");\n        var character = new CatalogEntry("C:hatsune_miku", "hatsune_miku", "hatsune_miku", "初音ミク", false, 145166, ["miku"], ["ミク"], [])\n        { TagCategory = "Character", RelatedCopyright = ["vocaloid"] };\n        var copyright = new CatalogEntry("R:vocaloid", "vocaloid", "vocaloid", "VOCALOID", false, 200000, [], ["ボーカロイド"], [])\n        { TagCategory = "Copyright" };\n        var artist = new CatalogEntry("A:nagano_mamoru", "nagano_mamoru", "nagano_mamoru", "永野護", false, 1000, ["mamoru nagano"], ["ながのまもる"], [])\n        { TagCategory = "Artist" };\n\n        CatalogDatabase.Build(path, [character, copyright, artist], "issue70-roundtrip-test");\n        var reopened = CatalogDatabase.Open(path);\n\n        var miku = reopened.Entries.Single(e => e.Canonical == "hatsune_miku");\n        Assert.Equal("Character", miku.EffectiveCategory);\n        Assert.Equal(["vocaloid"], miku.RelatedCopyright);\n        Assert.Contains("miku", miku.Aliases);\n        Assert.Contains("ミク", miku.JapaneseSearchTerms);\n        Assert.Equal("Copyright", reopened.Entries.Single(e => e.Canonical == "vocaloid").EffectiveCategory);\n        Assert.Equal("Artist", reopened.Entries.Single(e => e.Canonical == "nagano_mamoru").EffectiveCategory);\n\n        var search = new SearchEngine(reopened);\n        Assert.Contains(search.Search("ミク"), hit => hit.Entry.Canonical == "hatsune_miku");\n        Assert.Contains(search.Search("miku"), hit => hit.Entry.Canonical == "hatsune_miku");\n        Assert.Contains(search.Search("ながのまもる"), hit => hit.Entry.Canonical == "nagano_mamoru");\n    }\n\n'''
+          assert anchor in s
+          assert 'CatalogDatabaseRoundTripPreservesIssue70CategoryRelationsAndSearchMetadata' not in s
+          p.write_text(s.replace(anchor,test+anchor,1),encoding='utf-8',newline='\n')
       - name: Test Release
         shell: pwsh
         run: dotnet test src/DanbooruTagTool.sln -c Release --nologo
-      - name: Diff check and commit
+      - name: Diff check and commit regression
         shell: bash
         run: |
           git diff --check
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add .gitattributes src/DanbooruTagTool.Core/Catalog.cs src/DanbooruTagTool.Data/Storage.cs src/DanbooruTagTool.Data/AcceptedAssetImporter.cs src/DanbooruTagTool.Data/Issue70CatalogOverlayImporter.cs src/DanbooruTagTool.App/App.xaml.cs src/DanbooruTagTool.App/ViewModels/MainViewModel.cs src/DanbooruTagTool.Tests/ProductionTests.cs src/DanbooruTagTool.Tests/Issue70IntegrationTests.cs
-          git commit -m 'issue70: integrate Character Copyright Artist into WPF catalog'
+          git add src/DanbooruTagTool.Tests/Issue70IntegrationTests.cs
+          git commit -m 'issue70: cover catalog db roundtrip for overlay metadata'
           git push origin HEAD:main
