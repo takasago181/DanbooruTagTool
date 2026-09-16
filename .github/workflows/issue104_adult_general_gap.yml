@@ -103,26 +103,40 @@ jobs:
           assert s['special']['rows'] == 2983
           assert not s['special']['unresolved_nonsemantic_rows']
           assert s['general_canonical_covered_by_special'] + s['general_not_in_special_count'] == 30743
+          assert s['general_not_in_special_count'] == 28826
+          assert s['canonical_adult_fetish_priority_count'] == 217
           assert s['adult_heuristic_is_exclusion_filter'] == 'NO'
           assert s['canonical_and_alias_adult_signals_separated'] == 'YES'
           assert s['product_general_membership_used_to_exclude'] == 'NO'
           assert x['issue94_candidate_still_missing_count'] == 0
           assert x['new_to_adult_focused_review_count'] == 206
           assert r['strict_new_reviewed'] == 206
+          assert r['supplemental_high_frequency_rescue_reviewed'] == 30
+          assert r['total_reviewed'] == 236
           assert r['all_issue94_prescreen_missed_strict_rows_reviewed'] == 'YES'
-          assert r['special_candidate_count'] > 0
+          assert r['definition_review_queue_resolved'] == 'YES'
+          assert r['needs_definition_review_count'] == 0
+          assert r['special_candidate_count'] == 105
+          assert r['decision_counts'] == {
+              'ALREADY_SUBSTANTIVELY_COVERED': 1,
+              'GENERAL_ONLY_APPROPRIATE': 113,
+              'REJECT_NONCONTENT_REASON': 17,
+              'SPECIAL_CANDIDATE': 105,
+          }, r['decision_counts']
           assert r['adult_content_used_as_rejection_reason'] == 'NO'
           for obj in (s, x, r):
               for key in ('production_mutation','issue70_mutated','content_filter_used'):
                   assert obj[key] == 'NO', (key, obj[key])
           for key in ('userdata_mutated','pseudo_canonical_created'):
               assert s[key] == r[key] == 'NO', key
+          full = list(csv.DictReader((root/'general_not_in_special_v2.csv').open(encoding='utf-8-sig')))
           review = list(csv.DictReader((root/'product_fit_review_v1.csv').open(encoding='utf-8-sig')))
           candidates = list(csv.DictReader((root/'special_candidate_subset_v1.csv').open(encoding='utf-8-sig')))
           needs = list(csv.DictReader((root/'definition_review_queue_v1.csv').open(encoding='utf-8-sig')))
+          assert len(full) == 28826
           assert len(review) == r['total_reviewed']
           assert len(candidates) == r['special_candidate_count']
-          assert len(needs) == r['needs_definition_review_count']
+          assert len(needs) == 0
           assert len({row['canonical_tag'] for row in review}) == len(review)
           print('ISSUE104_PRODUCT_FIT_REVIEW_GATE=PASS')
           PY
@@ -135,10 +149,12 @@ jobs:
           mkdir -p "$DEST"
           for f in \
             source_provenance.txt issue94_review_provenance.txt summary_v2.json \
-            issue94_crosswalk_summary_v1.json adult_priority_issue94_crosswalk_v1.csv \
-            adult_priority_new_since_issue94_prescreen_v1.csv product_fit_review_v1.csv \
-            special_candidate_subset_v1.csv definition_review_queue_v1.csv \
-            supplemental_rescue_review_v1.csv product_fit_review_summary_v1.json; do
+            general_not_in_special_v2.csv adult_fetish_canonical_priority_v2.csv \
+            top_uncovered_by_post_count_v2.csv issue94_crosswalk_summary_v1.json \
+            adult_priority_issue94_crosswalk_v1.csv adult_priority_new_since_issue94_prescreen_v1.csv \
+            product_fit_review_v1.csv special_candidate_subset_v1.csv \
+            definition_review_queue_v1.csv supplemental_rescue_review_v1.csv \
+            product_fit_review_summary_v1.json; do
             cp "artifacts/issue104/$f" "$DEST/$f"
           done
           python3 - <<'PY'
@@ -153,21 +169,27 @@ jobs:
             '## Result', '',
             f"- Danbooru General canonical: **{a['danbooru_general_rows']:,}**",
             f"- accepted Special baseline: **{a['special']['rows']:,}**",
-            f"- General canonical not literally/identity-covered by Special: **{a['general_not_in_special_count']:,}**",
+            f"- General canonical not identity-covered by Special: **{a['general_not_in_special_count']:,}**",
             f"- strict canonical adult/fetish priority: **{a['canonical_adult_fetish_priority_count']:,}**",
             f"- already reviewed/excluded by Issue #94: **{x['crosswalk_counts'].get('ISSUE94_REVIEWED_EXCLUDED',0):,}**",
             f"- missed by the old Issue #94 final-review prescreen and reviewed here: **{r['strict_new_reviewed']:,}**",
-            f"- additional high-frequency/opaque rescue rows reviewed: **{r['supplemental_high_frequency_rescue_reviewed']:,}**",
-            f"- Special candidates after product-fit review: **{r['special_candidate_count']:,}**",
-            f"- definition-level review queue: **{r['needs_definition_review_count']:,}**", '',
+            f"- additional opaque rescue rows reviewed: **{r['supplemental_high_frequency_rescue_reviewed']:,}**",
+            f"- total product-fit reviewed: **{r['total_reviewed']:,}**",
+            f"- Special candidates after final product-fit review: **{r['special_candidate_count']:,}**",
+            f"- definition-level review remaining: **{r['needs_definition_review_count']:,}**", '',
             '## Interpretation', '',
-            'The old Issue #94 bounded prescreen did not expose most of the strict adult/fetish-named General gaps to final human review. This audit therefore confirms a real Special deep-discovery coverage gap, while also rejecting broad General descriptors, memes, arbitrary object placements and lexical false positives instead of promoting every adult-looking tag.', '',
-            'The candidate subset is **audit evidence only**. It does not certify model-generation effectiveness and does not mutate production Special.', '',
+            'The old Issue #94 bounded prescreen did not expose most of the strict adult/fetish-named General gaps to final human review. This audit confirms a real Special deep-discovery coverage gap while rejecting broad General descriptors, ordinary variants, memes, UI/game concepts and lexical false positives instead of promoting every adult-looking tag.', '',
+            'All 206 strict prescreen-missed rows plus 30 independent opaque rescue rows have now received an explicit product-fit decision. The remaining definition-review queue is zero.', '',
+            'The 105-row candidate subset is **audit evidence only**. It does not certify model-generation effectiveness and does not mutate production Special.', '',
             '## Important source checks', '',
-            '- Danbooru Tagging Checklist identifies sex, BDSM, sex objects, body parts and guro as explicit/basic tagging areas.',
-            '- Danbooru `Tag group:Breasts tags` explicitly lists deep breast morphology, actions, body-part relations and breast-bondage identities used in this review.',
-            '- Danbooru leash documentation explicitly lists `viewer_on_leash` and `viewer_holding_leash` as perspective/action variants.',
-            '- Danbooru `standing_restraints`, `breast_zipper`, `breast_curtains`, `shibarikini`, and `hand_in_another\'s_panties` definitions were used as spot checks for the product-fit boundary.', '',
+            '- Danbooru `Tag group:Breasts tags` explicitly lists deep breast morphology, actions, relations and transformation concepts used in the review.',
+            '- `breast_drop` is a distinct visual reveal/motion state rather than a generic breast descriptor.',
+            '- `groping_motion` is a defined two-hand gesture indicating intent to grope.',
+            '- leash documentation distinguishes holding/offering/viewer relations and ties them to pet-play usage.',
+            '- `cuffed` is not promoted separately because current Special already contains direct `cuffs`, `handcuffs`, `shackles` and structured `bound wrists` coverage.',
+            '- `edging_underwear` is routed to General because Danbooru places it with male-underwear color/trim variants, not sexual edging.',
+            '- `breast_slider` is rejected as a product-fit false positive because Danbooru places it under gameplay/UI attribute sliders.',
+            '- `saliva_pool` remains General: its definition is a broad saliva accumulation state and is not inherently an adult/fetish identity.', '',
             '## Boundaries', '',
             '- automatic production promotion: **NO**',
             '- content filter: **NO**',
@@ -175,7 +197,7 @@ jobs:
             '- UserData mutation: **NO**',
             '- pseudo-canonical tags: **NO**', '',
             '## Next gate', '',
-            'Review the remaining definition queue, then decide promotion of the candidate subset as a separate deterministic Special-expansion change. Do not silently add all General tags and do not treat post count alone as a promotion rule.',
+            'Integrate this audit evidence, then handle promotion of the 105 candidates as a separate deterministic Special-expansion change with ID assignment, alias/metadata checks, browse/search routing and rollback validation. Do not silently add all General tags and do not use post count alone as a promotion rule.',
           ]
           (root/'ISSUE104_AUDIT_SUMMARY_v1.md').write_text('\n'.join(lines)+'\n',encoding='utf-8')
           PY
@@ -183,7 +205,7 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add "$DEST"
           if ! git diff --cached --quiet; then
-            git commit -m 'Issue #104: persist adult Special gap review evidence'
+            git commit -m 'Issue #104: persist final adult Special gap audit evidence'
             git push origin HEAD:audit/issue104-adult-general-missing-special
           fi
 
