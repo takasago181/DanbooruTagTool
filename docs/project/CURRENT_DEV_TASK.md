@@ -53,7 +53,7 @@ HOLD rather than guessed-away:
 - full .NET: `126 passed / 6 skipped`
 - Issue #76 focused: `13 passed / 1 skipped`
 - Issue #70 queue: bootstrap/status PASS; 10 tests PASS; claimed `0`
-- catalog: Special `2,788`; General `30,629`
+- catalog: Special `3,059` (stable ID space 1..3,088, 29 gaps); General `30,629`; total `33,688`
 - WPF startup: PASS (`DanbooruTagTool v1` window confirmed)
 - current `user.db` hash: unchanged
 - current `catalog.db` hash: unchanged

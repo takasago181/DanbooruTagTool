@@ -14,12 +14,18 @@ Current maintenance route:
 - **Issue #77 — Prompt output profile switch + tolerant one-click import is completed and integrated into `main` at `60b15d8fef877c70eac5e4f0f5d67ebd358904d7`.**
 - **Issue #75 — WQHD visual polish pass is completed and integrated into `main` at `a315bdf6933e5e089174bc32c3ad6a8abc021082`.**
 - No successor active DEV implementation issue is designated. Do not infer one from this document.
+
+Current production facts:
+- Special: 3,059 rows; stable ID space 1..3,088; 29 removed IDs are stable gaps; no compaction.
+- Local catalog: Special 3,059 / General 30,629 / total 33,688.
+- Special browse authority: Issue #76 Browse v2 (9 kinds / 6 body / 3 themes).
+- UserData is unchanged and remains user-owned state.
 - Issue #74 — WQHD-first dictionary workspace redesign is completed and integrated into `main` at `f6e8345391cb445010c5fe23f2b1e480b4c514fd`.
 - Issue #73 — English Prompt pane density + dictionary add/remove toggle is completed and integrated into `main` at `079964b69192b5191b1bda5e9894b7138f8c75c2`.
 - Issue #72 — Prompt category view prototype remains completed and integrated into `main` at `174fee90b23e4a350ffe71d7b60aa834b8cb1296`.
 - **Issue #109 — Special reverse audit and production decision are completed.** Production Special is now **3,059 rows** with maximum Special ID **3,088**; the 29 user-approved removals remain stable-ID gaps and no IDs were renumbered. The production source is `data/generation/special2788_generation_profile.csv`; the legacy filename is retained for compatibility.
 - **Issue #109 local integration is completed in the workstation runtime.** The catalog was explicitly rebuilt once from the completed production profile and the WPF runtime in `artifacts/current/` was refreshed from the same Release build; local Special is 3,059 and General is 30,629.
-- Issue #70 translation/data work is a separate lane. Post-v1 UI/taxonomy/cleanup work must not modify #70 outputs, canonical/protected data, or translation lane state. Its operational authority is now the deterministic dynamic-claim queue in `docs/issue70/data/queue_state.json` with `scripts/issue70/queue_manager.py`; legacy four-lane progress remains immutable migration provenance. Bootstrap currently validates 21 / 186 chunks (10,500 / 92,739 rows), with 82,239 rows remaining.
+- Issue #70 translation/data work is a separate active post-v1 lane. Its authority is the source manifest plus validated immutable result CSVs; `docs/issue70/data/queue_state.json` is the deterministic reconciled operational view maintained by `scripts/issue70/queue_manager.py reconcile`. The current scan validates 180 / 186 chunks (90,000 / 92,739 rows), with 2,739 rows remaining (next chunk 181); accepted 76,779 and review 13,221. Legacy four-lane progress and the 21-chunk / 10,500-row bootstrap are historical migration provenance only.
 - Issue #68/#69 cleanup foundations are completed. Issue #83 later retired additional obsolete/reproducible local and tracked legacy assets after dependency proof; active #70 data, current catalog inputs, modified #64 worktree state, current SDK/NuGet, and #24 backups were intentionally retained.
 - **Stage10 learning Issue #65 may resume as the user's learning route.** It is not part of completed #76/#83.
 
@@ -55,7 +61,7 @@ The practical v1 must let the user:
 
 ## Completed Lane A — Issue #64 General 30,629 taxonomy
 
-Issue #64 production taxonomy was accepted and fast-forwarded to main at `d69e8b06916b637efd03c05b820ad13dd05e8ec1`; its latest DEV acceptance is comment **`5661435196`**. The Issue is complete. The accepted taxonomy is available in the repository, while WPF catalog/provider integration remains #66 work.
+Issue #64 production taxonomy was accepted and fast-forwarded to main at `d69e8b06916b637efd03c05b820ad13dd05e8ec1`; its latest DEV acceptance is comment **`5661435196`**. The Issue is complete and integrated through the accepted #66 catalog/provider boundary. Do not route new implementation work to #64.
 
 Accepted production evidence:
 - Effective population: **30,629 / 30,629**, ordered and unique

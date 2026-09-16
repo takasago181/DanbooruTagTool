@@ -1,15 +1,8 @@
 name: Issue107 Promotion Preflight
 
-on:
-  push:
-    branches:
-      - prod/issue107-promote-adult-special-gaps
-    paths:
-      - scripts/issue107/**
-      - docs/issue104/special_candidate_subset_v1.csv
-      - data/generation/special2788_generation_profile.csv
-      - .github/workflows/issue107_promotion_preflight.yml
-  workflow_dispatch:
+# Historical Issue #107 promotion workflow. Intentionally disabled;
+# current production is the 3,059-row stable-gap state from Issue #109.
+on: {}
 
 permissions:
   contents: write

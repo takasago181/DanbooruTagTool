@@ -4,9 +4,13 @@ from __future__ import annotations
 import csv
 import hashlib
 import json
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT))
+
+from scripts.issue70.queue_manager import discover_valid_results, manifest_entries  # noqa: E402
 MANIFEST_PATH = ROOT / "docs/issue70/data/source_chunks_manifest.json"
 QUEUE_PATH = ROOT / "docs/issue70/data/queue_state.json"
 OUT_ROOT = ROOT / "docs/issue70/data/source_shards"
@@ -99,7 +103,7 @@ def write_json(path: Path, value) -> None:
 
 def main() -> None:
     manifest = load_json(MANIFEST_PATH)
-    queue = load_json(QUEUE_PATH)
+    previous_bootstrap = load_json(BOOTSTRAP_PATH) if BOOTSTRAP_PATH.is_file() else {}
     chunks = manifest["chunks"]
 
     shard_manifest = {
@@ -174,8 +178,18 @@ def main() -> None:
 
     write_json(OUT_MANIFEST, shard_manifest)
 
-    completed = [int(c["chunk_index"]) for c in queue["chunks"] if c.get("state") == "COMPLETED"]
-    completed_rows = sum(int(c["row_count"]) for c in queue["chunks"] if c.get("state") == "COMPLETED")
+    _, validated_entries = manifest_entries(ROOT)
+    discovered = discover_valid_results(ROOT, validated_entries)
+    entry_by_index = {int(entry["chunk_index"]): entry for entry in validated_entries}
+    completed = sorted(discovered)
+    completed_rows = sum(int(entry_by_index[index]["row_count"]) for index in completed)
+    historical_bootstrap = previous_bootstrap.get("rollout_bootstrap")
+    if not isinstance(historical_bootstrap, dict):
+        historical_bootstrap = {
+            "completed_chunks": previous_bootstrap.get("completed_chunks_at_generation", []),
+            "completed_rows": previous_bootstrap.get("completed_rows_at_generation"),
+            "note": "Historical rollout bootstrap baseline; not current progress authority.",
+        }
     bootstrap = {
         "format_version": 2,
         "issue": 70,
@@ -184,6 +198,7 @@ def main() -> None:
         "queue_state_sha256_at_generation": sha256(QUEUE_PATH),
         "completed_chunks_at_generation": completed,
         "completed_rows_at_generation": completed_rows,
+        "rollout_bootstrap": historical_bootstrap,
         "total_rows": 92739,
         "chunk_count": len(chunks),
         "claim_protocol": "per_chunk_create_file",
@@ -192,11 +207,6 @@ def main() -> None:
         "chunk_manifest_pattern": "docs/issue70/data/source_shards/chunk_{chunk_index:03d}/manifest.json",
     }
     write_json(BOOTSTRAP_PATH, bootstrap)
-
-    if completed_rows != 10500:
-        raise SystemExit(f"bootstrap completed rows changed unexpectedly: {completed_rows}")
-    if len(completed) != 21:
-        raise SystemExit(f"bootstrap completed chunk count changed unexpectedly: {len(completed)}")
 
     print(f"generated compact shards + per-chunk manifests for {len(chunks)} chunks / {total_rows} rows")
     print(f"bootstrap completed: {len(completed)} chunks / {completed_rows} rows")

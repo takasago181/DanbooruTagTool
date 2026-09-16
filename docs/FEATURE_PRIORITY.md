@@ -2,12 +2,13 @@
 
 ## Status
 
-Current v1 priority follows `docs/PRODUCT_GOAL_LOCK.md`.
-Issue #66 owns actual app/search/UI completion and final v1 acceptance against that goal.
+Current priority follows `docs/PRODUCT_GOAL_LOCK.md`. Practical v1 is accepted
+and integrated; Special 3,059 and Browse v2 are current production facts.
 Historical Stage5/6/9 capabilities are preserved assets, not automatic v1 requirements.
 
 Issues #42 and #34 are retired/closed and no longer participate in routing.
-Stage10 remains defined by Issue #65 / `docs/stages/STAGE_10_LEARNING.md`, but is currently paused until the practical v1 app baseline is complete.
+Stage10 remains defined by Issue #65 / `docs/stages/STAGE_10_LEARNING.md` as an
+independent active/available learning lane, not a v1 completion gate.
 
 ## MUST — v1の存在理由
 
@@ -25,7 +26,8 @@ Stage10 remains defined by Issue #65 / `docs/stages/STAGE_10_LEARNING.md`, but i
 12. Forge等の生成環境と同時常駐して邪魔にならない軽量runtime
 13. focused test / regression / 実Windows UI確認を維持
 
-Known search regression such as `anal -> piano / analog...` は#66のv1 completion条件として修正・テストする。
+Known search regression such as `anal -> piano / analog...` was an accepted #66
+completion condition and is not an open implementation task.
 
 ## SHOULD — v1内で実使用から価値が確認できれば
 
@@ -70,20 +72,15 @@ SHOULDはv1 completion blockerではない。
 
 ## Current implementation order
 
-Parallel now:
-- Issue #64 — General 30,629 shallow practical taxonomy
-- Issue #66 — beginner-first app/UI/search foundation
+Current:
+1. v1 accepted; #64 General taxonomy and #66 WPF app/search/UI are completed.
+2. Special 3,059 production and #76 Browse v2 are integrated.
+3. Issue #70 continues as the post-v1 dictionary/i18n expansion lane.
+4. Issue #65 remains an independent practical learning lane; #44 remains ongoing
+   KNOWLEDGE work.
 
-Then:
-1. Issue #66 consumes accepted #64 taxonomy
-2. Issue #66 reruns product-facing search/browse relevance against the final General population
-3. Issue #66 performs final ADOPT/HOLD/REJECT reconciliation against `PRODUCT_GOAL_LOCK.md`
-4. focused regression + real Windows UI acceptance
-5. v1 baseline
-
-Short form:
-
-`#64 + #66 in parallel -> #66 consumes #64 -> #66 final integration/acceptance -> Windows acceptance -> v1`
+The former `#64 + #66 parallel -> integration -> v1` sequence is retained only
+as completed history, not as current routing.
 
 ## Data classification depth
 
@@ -100,7 +97,7 @@ Prompt用途中心の実用ジャンルで「こういうタグがある」と�
 
 `Promptを理解 -> 日本語/英語またはジャンルからタグを発見 -> 自分で選ぶ -> canonical-English Promptをコピー`
 
-## Stage10 — after current app priority
+## Stage10 — independent learning lane
 
 Current learning owner:
 - Issue #65
@@ -110,4 +107,5 @@ Primary model:
 - NoobAI XL 1.1 EPS + Forge Neo
 
 Stage10 completion is a skill outcome, not a product implementation checklist.
-Current user priority is to resume it after the practical v1 app baseline unless explicitly changed.
+It is available independently after practical v1 acceptance and is not blocked by
+v1 routing unless the user explicitly changes priority.

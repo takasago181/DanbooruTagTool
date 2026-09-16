@@ -38,7 +38,7 @@ Special Core Dictionary は、検索語そのものを知らないニッチ・�
 - 必要な複数閲覧経路
 - canonical English identity の追跡可能性
 
-現在のproduction snapshot/corpusは、互換上 `Special2788` として保持する。
+現在のproduction Specialは3,059件。ID spaceは1..3,088で、#109の29件はstable gapsとして残り、ID compactionは行わない。`special2788`というlegacy filename/pathは互換性・provenanceのため保持するが、current populationを意味しない。current browse authorityはIssue #76 Browse v2（種類9 / 部位6 / テーマ3）であり、#56は2,788 baseのhistorical/provenance inputである。
 
 ### 主役 2: General Japanese overlay population
 
@@ -137,8 +137,9 @@ Specialと同じ深さの意味ontologyは要求しない。Generalは Prompt �
 ## 実装上の現在の所有関係
 
 - `docs/PRODUCT_GOAL_LOCK.md` — product goal / scopeの正本
-- Issue #66 — 実アプリ/UI実装と最終v1 acceptance
-- Issue #64 — General 30,629 taxonomy
+- Issue #66 — 実アプリ/UI実装と最終v1 acceptance（completed）
+- Issue #64 — General 30,629 taxonomy（completed/integrated）
+- Issue #70 — post-v1 dictionary/i18n expansion（active）
 - Issue #34 — bilingual search relevance/noise
 - Issue #42 — retired / historical only
 
@@ -151,8 +152,7 @@ Generation knowledge、Prompt composition/support研究、旧Stage10 A/B/evaluat
 
 Stage10の主教材は NoobAI XL 1.1 EPS + Forge Neo とし、Prompt構成、camera/visibility、hard/niche relation/body-site/count、Negative/Seed/LoRA、Hires/ADetailer/img2img/inpaint、regional/control、failure diagnosisまで実生成を通して学ぶ。
 
-Stage10はv1 product routeとは独立した学習であり、**v1完成の必須Gateではない**。
-現在のユーザー優先順位では、まずIssue #66で実用v1アプリを完成させ、その後にStage10を再開する。
+Stage10はv1 product routeとは独立した学習であり、**v1完成の必須Gateではない**。Issue #66の実用v1完成後も、Issue #65として独立したactive/available learning laneである。
 逆に、v1完成もStage10学習完了を意味しない。
 
 旧Stage10 production A/B、Issue #30 evaluator/calibration、Generation Profile、fixed-seed比較基盤等はhistorical/testing assetsとして保持し、Stage10学習の教材・比較道具として再利用できるが、新Stage10のcompletion criteriaそのものではない。

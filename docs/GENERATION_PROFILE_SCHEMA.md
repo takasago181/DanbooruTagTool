@@ -2,15 +2,13 @@
 
 ## 境界
 
-production snapshot/corpusの正本は `data/special2788/illustrious_tag_knowledge_base_2788.csv`。
-この path と `Special2788` は互換上の snapshot identifier であり、formal concept name ではない。
-現在の accepted Special population は、base 2,788件にIssue #96のhash-pinned promotion proposal 195件を加えた2,983件である。
+current production Specialの正本は3,059件のproduction profileであり、ID spaceは1..3,088、29件のstable gapsを持つ。`data/special2788/illustrious_tag_knowledge_base_2788.csv`と`Special2788`は2,788 baseの互換性・provenance identifierであり、current populationを意味しない。Issue #96の2,983件とIssue #107の3,088件はcurrent productionへ至るhistorical expansion layersである。
 Generation Profileは、正本へ書き戻さないread-only sidecarである。
 Tag、日本語、Layer、カテゴリ、canonical_target、post_count、Prompt identityを変更しない。
 
 v2は次の3レイヤーを分離する。
 
-1. `data/generation/special2788_generation_profile.csv`: モデル非依存のstatic metadataとpromotion status。accepted expansion後は2,983行。
+1. `data/generation/special2788_generation_profile.csv`: モデル非依存のstatic metadataとpromotion status。legacy filenameを維持したcurrent production profileは3,059行。
 2. `data/generation/generation_family_rules.csv`: family分類とdefault PromptUseMode。物理要件defaultは未確定。
 3. `data/generation/generation_model_observations.csv`: checkpoint・設定・試行に依存する観察。
 

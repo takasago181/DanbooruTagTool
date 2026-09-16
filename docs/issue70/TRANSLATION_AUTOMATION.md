@@ -5,21 +5,23 @@ Copyright / Artist Japanese overlay. The translation candidate is produced by
 the worker, but queue state, identity, promotion, and completion are
 deterministic and repository-backed.
 
-## Current bootstrap checkpoint
+## Current reconciled checkpoint
 
 - Source manifest: `docs/issue70/data/source_chunks_manifest.json`
 - Population: 92,739 rows in 186 chunks (normally 500 rows; final chunk 239)
 - Category counts: Character 35,890; Copyright 8,536; Artist 48,313
-- Existing validated completed chunks: 21 / 186
-- Existing validated completed rows: 10,500 / 92,739
-- Existing status totals: `ACCEPTED_AI` 9,338; `REVIEW_REQUIRED` 1,162
-- Remaining after bootstrap: 82,239 rows
+- Validated completed chunks: 180 / 186
+- Validated completed rows: 90,000 / 92,739
+- Current status totals: `ACCEPTED_AI` 76,779; `REVIEW_REQUIRED` 13,221
+- Remaining rows: 2,739 (chunks 181-186; next chunk 181)
 - Durable queue state: `docs/issue70/data/queue_state.json`
 - Final marker: `docs/issue70/data/final_completion.json` (must not exist until
   the full audit passes)
 
-The numbers above are generated from result CSV validation, not copied from a
-legacy lane checkpoint. Re-run `status` for the current numbers.
+The source manifest and validated immutable result CSVs are the authority.
+`queue_state.json` is a deterministic reconciled operational view, not a
+standalone progress authority. Re-run `python scripts/issue70/queue_manager.py
+reconcile` and then `status` to refresh/inspect the current numbers.
 
 ## Queue model
 
@@ -88,7 +90,8 @@ continue the queue.
 
 ## GitHub checkpoint protocol
 
-The queue file and promoted result must be committed together. Before a push,
+The immutable result is the publish checkpoint; the reconciled queue file may
+be updated in the same commit by the publish workflow. Before a push,
 the worker must fetch the current `origin/main`, revalidate its source/result,
 and replay its own change on the latest main. An unrelated main commit is
 normal and does not cancel the worker. If the same queue/result identity was
@@ -112,13 +115,19 @@ An unrelated UI/data change on main must be preserved during rebase.
 ## Existing data migration
 
 `bootstrap` validates every source chunk and discovers valid existing result
-CSV files, including Manual Batch 001 and all legacy lane results. It computes
-their current hashes and status totals and records them as `COMPLETED`. It
-does not translate or rewrite them. Existing `progress.json` and
+CSV files under all result lanes, including Manual Batch 001 and all legacy
+lane results. It computes their current hashes and status totals and records
+them as `COMPLETED`. It does not translate or rewrite them. Existing `progress.json` and
 `progress_lane1.json` through `progress_lane4.json` are retained as migration
 provenance only; their incomplete/partially missing counters are not used as
-the new queue authority. Re-running `bootstrap` is idempotent and only repairs
-an interrupted queue-result promotion.
+the new queue authority. `reconcile` is the explicit deterministic repair
+command and is idempotent:
+
+```powershell
+python scripts/issue70/queue_manager.py reconcile
+```
+
+Re-running `reconcile` after no result change produces `changed: false`.
 
 ## Translation policy
 
