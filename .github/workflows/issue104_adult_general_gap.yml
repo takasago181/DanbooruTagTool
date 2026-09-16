@@ -60,26 +60,31 @@ jobs:
           import csv, json
           from pathlib import Path
           root = Path('artifacts/issue104')
-          s = json.loads((root/'summary_v1.json').read_text(encoding='utf-8'))
+          s = json.loads((root/'summary_v2.json').read_text(encoding='utf-8'))
           assert s['danbooru_general_rows'] == 30743, s['danbooru_general_rows']
           assert s['special']['rows'] == 2983, s['special']['rows']
           assert not s['special']['unresolved_nonsemantic_rows'], s['special']['unresolved_nonsemantic_rows']
           assert s['general_canonical_covered_by_special'] + s['general_not_in_special_count'] == 30743
           assert s['adult_heuristic_is_exclusion_filter'] == 'NO'
+          assert s['canonical_and_alias_adult_signals_separated'] == 'YES'
           assert s['post_count_is_accept_reject_threshold'] == 'NO'
           assert s['product_general_membership_used_to_exclude'] == 'NO'
           for key in ('production_mutation','issue70_mutated','userdata_mutated','pseudo_canonical_created','content_filter_used'):
               assert s[key] == 'NO', (key, s[key])
-          all_rows = list(csv.DictReader((root/'general_not_in_special_v1.csv').open(encoding='utf-8-sig')))
-          adult = list(csv.DictReader((root/'adult_fetish_priority_v1.csv').open(encoding='utf-8-sig')))
-          top = list(csv.DictReader((root/'top_uncovered_by_post_count_v1.csv').open(encoding='utf-8-sig')))
+          all_rows = list(csv.DictReader((root/'general_not_in_special_v2.csv').open(encoding='utf-8-sig')))
+          adult = list(csv.DictReader((root/'adult_fetish_canonical_priority_v2.csv').open(encoding='utf-8-sig')))
+          alias = list(csv.DictReader((root/'adult_alias_signal_only_v2.csv').open(encoding='utf-8-sig')))
+          top = list(csv.DictReader((root/'top_uncovered_by_post_count_v2.csv').open(encoding='utf-8-sig')))
           assert len(all_rows) == s['general_not_in_special_count']
-          assert len(adult) == s['adult_fetish_priority_count']
+          assert len(adult) == s['canonical_adult_fetish_priority_count']
+          assert len(alias) == s['alias_adult_signal_only_count']
           assert len(top) == min(5000, len(all_rows))
           assert all(r['coverage_status'] == 'GENERAL_CANONICAL_NOT_IN_SPECIAL' for r in all_rows)
+          assert all(r['review_priority'] == 'CANONICAL_ADULT_FETISH_PRIORITY' for r in adult)
+          assert all(r['review_priority'] == 'ALIAS_ADULT_SIGNAL_ONLY' for r in alias)
           counts = [int(r['post_count']) for r in all_rows]
           assert counts == sorted(counts, reverse=True)
-          print('ISSUE104_ADULT_GENERAL_GAP_GATE=PASS')
+          print('ISSUE104_ADULT_GENERAL_GAP_V2_GATE=PASS')
           PY
 
       - name: Upload audit evidence
