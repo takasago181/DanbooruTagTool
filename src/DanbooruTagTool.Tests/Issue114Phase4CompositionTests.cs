@@ -1,6 +1,7 @@
 using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using System.Windows.Threading;
 using DanbooruTagTool.App;
 using DanbooruTagTool.App.ViewModels;
@@ -48,6 +49,16 @@ public sealed class Issue114Phase4CompositionTests
                 Assert.NotEmpty(list.Items);
                 Assert.Equal(2, dictionaryVm.DictionaryColumnCount);
                 Assert.Equal((dictionaryVm.Results.Count + 1) / 2, dictionaryVm.DictionaryRows.Count);
+                Assert.NotNull(dictionaryVm.DictionaryRows[0].Second);
+                var firstItem = list.ItemContainerGenerator.ContainerFromIndex(0) as ListBoxItem;
+                Assert.NotNull(firstItem);
+                var cardPresenters = FindVisualChildren<ContentPresenter>(firstItem!).Where(p => p.Content is EntryViewModel).ToArray();
+                Assert.Equal(2, cardPresenters.Length);
+                Assert.All(cardPresenters, presenter =>
+                {
+                    Assert.Equal(Visibility.Visible, presenter.Visibility);
+                    Assert.True(presenter.ActualWidth > 0);
+                });
 
                 var englishPreview = GetField<TextBox>(promptView, "EnglishPreview");
                 promptEnglishBinding = englishPreview.GetBindingExpression(TextBox.TextProperty)?.ParentBinding.Path.Path ?? "none";
@@ -77,6 +88,16 @@ public sealed class Issue114Phase4CompositionTests
                 ?? throw new InvalidOperationException($"Field {name} not found"))
             : (target.GetType().GetField(name, BindingFlags.Instance | BindingFlags.NonPublic)?.GetValue(target) as T
                 ?? throw new InvalidOperationException($"Field {name} not found"));
+
+    private static IEnumerable<T> FindVisualChildren<T>(DependencyObject parent) where T : DependencyObject
+    {
+        for (var i = 0; i < VisualTreeHelper.GetChildrenCount(parent); i++)
+        {
+            var child = VisualTreeHelper.GetChild(parent, i);
+            if (child is T match) yield return match;
+            foreach (var nested in FindVisualChildren<T>(child)) yield return nested;
+        }
+    }
 
     private static void Pump(Dispatcher dispatcher, int milliseconds)
     {
