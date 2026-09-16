@@ -1,10 +1,10 @@
 # CURRENT STATE
 
-最終更新: 2026-09-16
+最終更新: 2026-09-17
 
 ## Current Stage
 
-**Stage9 completed / beginner-first practical v1 accepted / #64 General taxonomy accepted and integrated / #66 completed / #68 completed / #69 local final cleanup completed.**
+**Stage9 completed / beginner-first practical v1 accepted / #64 General taxonomy accepted and integrated / #66 completed / #68 completed / #69 local final cleanup completed / #114 WPF architecture stabilization Phase 1–4 completed and integrated.**
 
 Current maintenance route:
 - **Issue #83 — aggressive local cleanup is completed and integrated into `main` via PR #84 at merge commit `7ef69e6c7ffa6a76037f97226a9ed067d59c360d`.** The cleanup retired obsolete legacy Python/Tk/runtime-index assets and reclaimed `14,195,842,291` bytes while preserving the current WPF/catalog/UserData and active #70 dependencies.
@@ -13,7 +13,7 @@ Current maintenance route:
 - **Issue #79 — Generation presets (reusable Positive sets + Negative copy) is completed and integrated into `main` at `8f0ba2a1133e4ad63f0a6ccd08eb17a3dda58d93`.**
 - **Issue #77 — Prompt output profile switch + tolerant one-click import is completed and integrated into `main` at `60b15d8fef877c70eac5e4f0f5d67ebd358904d7`.**
 - **Issue #75 — WQHD visual polish pass is completed and integrated into `main` at `a315bdf6933e5e089174bc32c3ad6a8abc021082`.**
-- Issue #114 `[DEV][ARCH][PERF] WPF architecture stabilization and runtime catalog index refactor` is the active DEV implementation lane for Phase 1 on branch `codex/issue114-runtime-index-phase1`; its live activation comment is `5697124968`. Do not infer unrelated lanes from this document.
+- **Issue #114 `[DEV][ARCH][PERF] WPF architecture stabilization and runtime catalog index refactor` is completed and integrated into `main`.** Accepted Phase 1–4 source was developed on `codex/issue114-phase3-wpf-performance` through `6880f0a23ca594f8a3e673537a22389543e1124d`, following the live activation authority `5697124968` and DEV Phase 4 acceptance `5699672455`.
 - Issue #74 — WQHD-first dictionary workspace redesign is completed and integrated into `main` at `f6e8345391cb445010c5fe23f2b1e480b4c514fd`.
 - Issue #73 — English Prompt pane density + dictionary add/remove toggle is completed and integrated into `main` at `079964b69192b5191b1bda5e9894b7138f8c75c2`.
 - Issue #72 — Prompt category view prototype remains completed and integrated into `main` at `174fee90b23e4a350ffe71d7b60aa834b8cb1296`.
@@ -28,6 +28,14 @@ Current workstation WPF launch:
 - The local root shortcut `DanbooruTagTool.lnk` launches that WPF app; this shortcut and runtime output are workstation-local conveniences, not tracked product files.
 - The pre-integration local `catalog.db` was the historical **2,788 Special** catalog. It was replaced once by the completed **3,059 Special** production profile; the 29 deleted IDs remain absent as stable-ID gaps. Existing `UserData/user.db` remains user-owned state and its hash was unchanged through the integration.
 - **Issue #70 workstation runtime is still pending one explicit rebuild.** GitHub main contains the accepted 92,739-row overlay and importer, but the current tool environment cannot access the protected workstation source inputs required by `--build-catalog`. Do not claim `artifacts/current/Data/catalog.db` contains Character/Copyright/Artist until that local rebuild, WPF launch, and practical search/navigation smoke pass are completed.
+
+Issue #114 completion scope now integrated into main:
+- runtime catalog/query/index boundary with one-time runtime indexes and precomputed search documents;
+- MainViewModel feature separation into Dictionary, Prompt, Presets, Forge, and user-state coordination;
+- explicit Dictionary/Prompt view composition and DataContext regression coverage;
+- WPF virtualized Dictionary result rows, Prompt canonical targeted refresh, Query per-keystroke persistence suppression, General Paths cache, and column-aware keyboard navigation.
+
+Practical WPF validation covered the available **33,688-entry** catalog. The **126,427-entry** production WPF workstation validation remains unverified and must not be inferred from the integrated code.
 
 Current Stage10 definition:
 - Issue #65
@@ -208,7 +216,7 @@ Artifacts remain untracked. Cleanup must be scoped to known disposable artifact 
 
 ## Current route
 
-`#66 practical v1 accepted -> #68 cleanup completed -> #69 local final cleanup completed -> #72 completed/merged -> #73 completed/merged -> #74 completed/merged -> #75 completed/merged -> #77 completed/merged -> #79 completed/merged -> #80 completed/merged -> #76 completed/merged -> #83 completed/merged -> #114 Phase 1 active`
+`#66 practical v1 accepted -> #68 cleanup completed -> #69 local final cleanup completed -> #72 completed/merged -> #73 completed/merged -> #74 completed/merged -> #75 completed/merged -> #77 completed/merged -> #79 completed/merged -> #80 completed/merged -> #76 completed/merged -> #83 completed/merged -> #114 Phase 1–4 completed/merged`
 
 Issue #83 superseded the earlier broad-cleanup hold state: obsolete/reproducible legacy assets were removed after dependency proof while current product state, active #70, current catalog inputs, and unresolved HOLD items were preserved.
 
@@ -216,7 +224,7 @@ Issue #70 GitHub data/integration work is complete; only the workstation catalog
 
 Short form:
 
-`#64 accepted/integrated + #66 practical v1 accepted -> #68/#69 completed -> #72/#73/#74/#75/#77/#79/#80/#76/#83 completed/merged`
+`#64 accepted/integrated + #66 practical v1 accepted -> #68/#69 completed -> #72/#73/#74/#75/#77/#79/#80/#76/#83 completed/merged -> #114 Phase 1–4 completed/merged`
 
 Portable/second-PC acceptance is not in this critical path.
 
@@ -232,6 +240,7 @@ Portable/second-PC acceptance is not in this critical path.
 | `MAINT:#68` | **COMPLETED** | tracked-root normalization complete; Phase 2E accepted safe no-op | Issue #68 completion checkpoint `5665690628` |
 | `MAINT:#69` | **COMPLETED** | preserve unique local evidence, retire safe stale worktrees/caches, normalize primary root to live main, validate WPF/catalog/data | Issue #69 final DEV closeout comment |
 | `MAINT:#83` | **COMPLETED / MERGED** | dependency-proven aggressive cleanup of obsolete/reproducible local assets and retired legacy runtime artifacts | Issue #83 + PR #84 + main `7ef69e6c7ffa6a76037f97226a9ed067d59c360d` |
+| `ARCH:#114` | **COMPLETED / ACCEPTED + MERGED** | WPF runtime catalog/index boundary, feature ViewModel separation, virtualized Dictionary rows, targeted Prompt refresh, durable Query policy, view composition, and keyboard navigation | Issue #114 DEV Phase 4 acceptance `5699672455` + accepted source `6880f0a23ca594f8a3e673537a22389543e1124d` |
 | `POST-V1:#77` | **COMPLETED / MERGED** | generic persistent Prompt output profiles and conservative one-click import | Issue #77 + main `60b15d8fef877c70eac5e4f0f5d67ebd358904d7` |
 | `POST-V1:#79` | **COMPLETED / MERGED** | local reusable Positive presets paired with opaque Negative Prompt copy | Issue #79 + main `8f0ba2a1133e4ad63f0a6ccd08eb17a3dda58d93` |
 | `POST-V1:#80` | **COMPLETED / MERGED** | local Forge bridge for visible English Prompt delivery to txt2img fields without generation | Issue #80 + main `f5ced15e3a368cae29f869527a20bcb41c7237b4` |
@@ -258,6 +267,7 @@ Historical only:
 - Issue #66 accepted UX refinement — merged at `3f4e47d7331809b2e6a234824799fb3bc179bae8`
 - Issue #66 Phase C General integration and practical-v1 acceptance — completed at main `1486fc242d2eadf9ca24ed803e50ad7af7294004`; final Windows acceptance PASS, Release tests 77/77 PASS
 - Issue #83 aggressive local cleanup — completed/merged; obsolete legacy/runtime-index assets retired and 14.196 GB reclaimed
+- Issue #114 architecture stabilization Phase 1–4 — completed/accepted/merged; practical validation used 33,688 catalog entries, while 126,427-entry production WPF validation remains open as follow-up
 
 Do not restart completed foundations wholesale without demonstrated regression or explicit redesign decision.
 
