@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Non-mutating audit helper for Issue #70 semantic review.
 import csv
 import json
 import re
@@ -137,12 +138,10 @@ for row in combined:
                 flags.append("CHAR_WEAK_TOP_COPYRIGHT_CONTEXT")
                 score += 20
 
-    # Parenthetical identity can be lost when a disambiguated canonical tag becomes a bare display.
     if PAREN_RE.search(canonical) and "（" not in display and "(" not in display:
         flags.append("CANONICAL_DISAMBIG_NOT_VISIBLE")
         score += 12
 
-    # Impact is a review priority, never a correctness decision.
     if post_count >= 10000:
         impact_tier = "P0"
     elif post_count >= 1000:
@@ -185,7 +184,6 @@ with (OUTDIR / "audit_candidates.csv").open("w", encoding="utf-8-sig", newline="
     w.writeheader()
     w.writerows(candidates)
 
-# A compact head is easy to inspect without loading the whole candidate CSV.
 with (OUTDIR / "top_candidates.csv").open("w", encoding="utf-8-sig", newline="") as f:
     w = csv.DictWriter(f, fieldnames=fields)
     w.writeheader()
