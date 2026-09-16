@@ -6,7 +6,7 @@ Previous fixed point: Stage8C FINAL / Pilot001 ACCEPTED / Exit Pilot PASS / Pilo
 
 ## 0. Stage9 goal
 
-Stage9 creates the Prompt Composer layer that converts the user's selected Special Core Dictionary entries and supporting knowledge into a practical English Danbooru-style Prompt without weakening Special meaning. The current production snapshot/corpus remains technically identified as `Special2788`.
+Stage9 creates the Prompt Composer layer that converts the user's selected Special Core Dictionary entries and supporting knowledge into a practical English Danbooru-style Prompt without weakening Special meaning. This historical Stage9 specification used `Special2788` for its base snapshot; current production is the 3,059-row stable-gap Special subset and current browse is #76 v2.
 
 Runtime remains fully local and non-LLM.
 Stage8C is not reopened.

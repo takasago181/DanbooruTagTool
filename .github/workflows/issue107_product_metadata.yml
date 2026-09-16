@@ -1,14 +1,8 @@
 name: Issue107 Product Metadata
 
-on:
-  push:
-    branches:
-      - prod/issue107-promote-adult-special-gaps
-    paths:
-      - scripts/issue107/materialize_product_metadata.py
-      - docs/issue107/promotion_preflight_v1.csv
-      - .github/workflows/issue107_product_metadata.yml
-  workflow_dispatch:
+# Historical Issue #107 production mutation workflow. Intentionally disabled;
+# current production is the 3,059-row stable-gap state from Issue #109.
+on: {}
 
 permissions:
   contents: write

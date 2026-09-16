@@ -243,14 +243,25 @@ def result_candidates(repo: Path) -> list[Path]:
 def discover_valid_results(repo: Path, chunks: list[dict[str, Any]]) -> dict[int, tuple[Path, dict[str, int]]]:
     by_first_id = {entry["first_row_id"]: entry for entry in chunks}
     discovered: dict[int, tuple[Path, dict[str, int]]] = {}
+    seen_row_ids: dict[str, Path] = {}
+    seen_canonicals: dict[str, Path] = {}
     for path in result_candidates(repo):
         rows = read_csv(path)
         if not rows:
-            continue
+            raise QueueError(f"result file is empty: {path}")
         entry = by_first_id.get(rows[0].get("row_id"))
         if entry is None:
-            continue
+            raise QueueError(f"result file does not start with a manifest row_id: {path}")
         counts = validate_result_file(repo, entry, path)
+        for row in rows:
+            row_id = row.get("row_id", "")
+            canonical = row.get("canonical_tag", "")
+            if row_id in seen_row_ids:
+                raise QueueError(f"duplicate result row_id {row_id}: {seen_row_ids[row_id]} and {path}")
+            if canonical in seen_canonicals:
+                raise QueueError(f"duplicate result canonical_tag {canonical}: {seen_canonicals[canonical]} and {path}")
+            seen_row_ids[row_id] = path
+            seen_canonicals[canonical] = path
         chunk_index = entry["chunk_index"]
         if chunk_index in discovered:
             previous = discovered[chunk_index][0]
@@ -393,39 +404,53 @@ def queue_result_path(repo: Path, chunk: dict[str, Any]) -> Path:
 
 
 def reconcile_queue_results(repo: Path, state: dict[str, Any]) -> bool:
+    manifest, entries = manifest_entries(repo)
+    del manifest
+    for entry in entries:
+        validate_source_chunk(repo, entry)
+    discovered = discover_valid_results(repo, entries)
+    by_index = chunk_map(state)
+    expected_indices = {entry["chunk_index"] for entry in entries}
+    if set(by_index) != expected_indices:
+        raise QueueError("queue state chunk indices do not match source manifest")
+
     changed = False
-    for chunk in state["chunks"]:
-        final_path = queue_result_path(repo, chunk)
-        if not final_path.is_file():
+    for entry in entries:
+        chunk = by_index[entry["chunk_index"]]
+        result_info = discovered.get(entry["chunk_index"])
+        if result_info is None:
+            if chunk["state"] == "COMPLETED":
+                raise QueueError(
+                    f"queue state marks chunk {entry['chunk_index']} completed but no tracked result exists"
+                )
+            if chunk.get("result_path") or chunk.get("result_sha256"):
+                raise QueueError(
+                    f"queue state has result metadata without a tracked result for chunk {entry['chunk_index']}"
+                )
             continue
-        counts = validate_result_file(repo, {
-            "chunk_index": chunk["chunk_index"],
-            "file": chunk["source_file"],
-            "sha256": chunk["source_sha256"],
-            "row_count": chunk["row_count"],
-            "first_row_id": chunk["first_row_id"],
-            "last_row_id": chunk["last_row_id"],
-        }, final_path)
-        result_hash = sha256_file(final_path)
-        if chunk["state"] == "COMPLETED" and chunk.get("result_sha256") not in (None, result_hash):
-            raise QueueError(f"queue result conflicts with completed chunk {chunk['chunk_index']}")
-        if chunk.get("result_path") not in (None, str(final_path.relative_to(repo)).replace("\\", "/")):
-            raise QueueError(f"queue result path conflicts with chunk {chunk['chunk_index']}")
-        if chunk["state"] != "COMPLETED" or chunk.get("result_sha256") != result_hash:
-            chunk.update({
-                "state": "COMPLETED",
-                "claimed_by": None,
-                "claimed_at": None,
-                "heartbeat_at": None,
-                "result_path": str(final_path.relative_to(repo)).replace("\\", "/"),
-                "result_sha256": result_hash,
-                "accepted_count": counts["ACCEPTED_AI"],
-                "review_count": counts["REVIEW_REQUIRED"],
-                "last_error": None,
-            })
+
+        result_path, counts = result_info
+        result_hash = sha256_file(result_path)
+        relative_path = str(result_path.relative_to(repo)).replace("\\", "/")
+        desired = {
+            "state": "COMPLETED",
+            "claimed_by": None,
+            "claimed_at": None,
+            "heartbeat_at": None,
+            "result_path": relative_path,
+            "result_sha256": result_hash,
+            "accepted_count": counts["ACCEPTED_AI"],
+            "review_count": counts["REVIEW_REQUIRED"],
+            "last_error": None,
+        }
+        if any(chunk.get(key) != value for key, value in desired.items()):
+            chunk.update(desired)
             changed = True
-    if changed:
-        state["summary"] = summary_for(state["chunks"])
+
+    summary = summary_for(state["chunks"])
+    if state.get("summary") != summary:
+        state["summary"] = summary
+        changed = True
     return changed
 
 
@@ -662,6 +687,11 @@ def command(args: argparse.Namespace) -> int:
     with StateLock(state_path.with_suffix(state_path.suffix + ".lock")):
         state = load_state(repo, state_path)
         changed = reconcile_queue_results(repo, state)
+        if args.action == "reconcile":
+            if changed:
+                write_json_atomic(state_path, state)
+            print(json.dumps({"changed": changed, "summary": state["summary"]}, ensure_ascii=False, indent=2))
+            return 0
         if args.action == "claim":
             recovered = recover_stale_claims(state, utc_now(), timedelta(seconds=args.stale_after_seconds))
             selected = claim(state, args.worker_id, utc_now(), args.count)
@@ -719,6 +749,7 @@ def build_parser() -> argparse.ArgumentParser:
     fail_parser.add_argument("--chunk-index", type=int, required=True)
     fail_parser.add_argument("--worker-id", required=True)
     fail_parser.add_argument("--error", required=True)
+    sub.add_parser("reconcile")
     return parser
 
 

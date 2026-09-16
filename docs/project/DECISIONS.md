@@ -75,9 +75,9 @@ Status: ADOPTED
 
 ---
 
-## D-008 Special Core Dictionary identity / browse taxonomy
+## D-008 Special Core Dictionary identity / browse taxonomy — historical baseline
 
-Status: ADOPTED / COMPLETED
+Status: HISTORICAL BASELINE / SUPERSEDED AS CURRENT POPULATION BY D-020
 
 - final population 2,788
 - canonical identity/freeze chain completed
@@ -135,9 +135,10 @@ Historical Issue #42/#34はactive Gateではない。
 
 ## D-012 General 30,629 practical taxonomy — separate sidecar
 
-Status: ADOPTED / ACTIVE IMPLEMENTATION
+Status: ADOPTED / COMPLETED + INTEGRATED
 
-Issue #64。
+Issue #64 is completed and integrated; its accepted sidecar remains the current
+General taxonomy artifact.
 
 - target = exact production Japanese-overlay 30,629 population
 - canonical-tag keyed separate sidecar
@@ -226,7 +227,8 @@ Secondary:
 - NoobAI V-Pred = separate advanced profile
 
 Curriculumは10.0–10.9。Old A/B/evaluator assetsは教材・controlled comparison・provenanceとして保持する。
-Stage10はv1 blockerではない。現在の優先順位ではpractical v1 app baselineまでpause。
+Stage10はv1 blockerではなく、practical-v1 completion待ちではないIssue #65の
+独立learning laneである。
 
 ---
 
@@ -277,6 +279,34 @@ practical v1では必須にしない:
 Portable/self-contained distributionはoptional/post-v1。必要になった場合のみ再度扱う。
 
 Development artifactsもversioned folderを毎回増殖させず、固定disposable pathを使う。Routine UI workではbuild/test/actual Windows launchを優先し、publishは明示要求時のみ。
+
+---
+
+## D-020 Special production 3,059 stable subset after #109 — 2026-09-16
+
+Status: ADOPTED / CURRENT PRODUCTION AUTHORITY
+
+- 2,788 is the historical base provenance set.
+- Issue #96 expanded the historical line to 2,983; Issue #107 expanded it to 3,088.
+- Issue #109 removed 29 user-approved rows.
+- Current production Special is 3,059 rows in stable ID space 1..3,088.
+- The 29 IDs remain gaps; IDs are not compacted or renumbered.
+- Current browse authority is Issue #76 v2: 9 kinds / 6 body facets / 3 themes.
+- Legacy `special2788` filenames and paths remain compatibility/provenance names.
+
+---
+
+## D-021 Issue #70 result-ledger and reconciled queue authority — 2026-09-16
+
+Status: ADOPTED / CURRENT ACTIVE LANE
+
+Issue #70 progress is derived from the source chunk manifest and validated
+immutable result CSVs, including legacy result lanes and queue results. The
+deterministic `queue_manager.py reconcile` command verifies identity/order,
+duplicates, result SHA, and accepted/review counts, then rebuilds completed
+queue records while preserving pending/valid claims. `queue_state.json` is the
+reconciled operational view, not a standalone authority. UserData, General,
+Special, and accepted result CSV contents are outside this lane.
 
 ---
 

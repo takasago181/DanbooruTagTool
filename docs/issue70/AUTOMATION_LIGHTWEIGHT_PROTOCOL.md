@@ -51,11 +51,14 @@ GitHub's create-file operation is the compare-and-swap boundary: only one worker
 
 A worker determines pending work from:
 
-1. `docs/issue70/data/automation_bootstrap.json` immutable completed chunk list at rollout,
-2. immutable result files already present under `docs/issue70/data/results/queue/`,
+1. `docs/issue70/data/source_chunks_manifest.json`,
+2. all validated immutable result files under `docs/issue70/data/results/` (including
+   batch001 and legacy lanes),
 3. active claim files under `docs/issue70/data/automation_claims/`.
 
-The rollout bootstrap is generated from the validated `queue_state.json`; it must report exactly 21 completed chunks / 10,500 completed rows at this migration point.
+`automation_bootstrap.json` retains the original 21-chunk / 10,500-row rollout
+baseline under `rollout_bootstrap` for provenance only. Its current checkpoint
+fields are regenerated from the manifest and immutable result files.
 
 ## Stale claims
 
@@ -91,7 +94,18 @@ After successful immutable result creation, delete the worker's claim file. This
 
 ## Reconciliation
 
-`queue_state.json` remains the deterministic local/Codex queue representation used by `queue_manager.py`, but it is no longer the remote Automation claim CAS boundary.
+`queue_state.json` remains the deterministic local/Codex queue representation
+used by `queue_manager.py`, but it is no longer the remote Automation claim CAS
+boundary. Its progress is derived by reconciliation, never by trusting an old
+summary:
+
+```powershell
+python scripts/issue70/queue_manager.py reconcile
+```
+
+The command validates manifest identity/order, result identity/order/schema,
+duplicate row coverage, result hashes, and accepted/review counts; it preserves
+pending and valid claims and does not touch UserData or translation CSVs.
 
 The queue manager's bootstrap/audit can rediscover valid result CSVs and reconcile them later. Final completion still requires the existing full 92,739-row audit against the original source manifest. Compact shards cannot create `final_completion.json` by themselves.
 

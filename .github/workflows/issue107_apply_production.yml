@@ -1,17 +1,8 @@
 name: Issue107 Apply Production
 
-on:
-  push:
-    branches:
-      - prod/issue107-promote-adult-special-gaps
-    paths:
-      - scripts/issue107/apply_production_promotion.py
-      - docs/issue107/promotion_metadata_v1.csv
-      - src/DanbooruTagTool.Tests/Issue76MainUiIntegrationTests.cs
-      - src/DanbooruTagTool.Tests/TechnicalFixTests.cs
-      - src/DanbooruTagTool.Tests/ProductionTests.cs
-      - .github/workflows/issue107_apply_production.yml
-  workflow_dispatch:
+# Historical Issue #107 production mutation workflow. Intentionally disabled;
+# current production is the 3,059-row stable-gap state from Issue #109.
+on: {}
 
 permissions:
   contents: write

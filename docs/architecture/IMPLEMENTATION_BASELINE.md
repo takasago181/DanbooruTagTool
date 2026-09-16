@@ -36,7 +36,7 @@ have no dependency on them. Active Issue #70 queue tests remain under
 | 区分 | 場所 | 状態・用途 |
 |---|---|---|
 | 正本タグ辞書 | `data/source/danbooru-2026-09-02.csv` | headerless 4列、3,436,154 bytes、124,016 canonical |
-| production snapshot/corpus | `data/special2788/` | 互換上の `Special2788` path。CSV / XLSX / README、合計2,788語 |
+| production Special | `data/generation/special2788_generation_profile.csv` | current 3,059 rows; legacy `special2788` filename/path is compatibility/provenance |
 | Semantic Bridge | `data/semantic/semantic_bridge_v1.csv` | 336行、初期値は全件UNMAPPED |
 | 監査済み派生物 | `data/derived/` | canonical・alias・Special linkage・監査報告。正本の代替ではない |
 | 参考コード | `references/` | trial v0.2 / legacy prototype。通常実装の入力・正式pytest対象にしない |
@@ -78,7 +78,7 @@ have no dependency on them. Active Issue #70 queue tests remain under
 
 ## 5. Special / Derived baseline
 
-- Special layer: Core 759 / Extended 915 / Alias 778 / Semantic 336、合計2,788
+- Historical Special base layer: Core 759 / Extended 915 / Alias 778 / Semantic 336、合計2,788。Current production is 3,059 stable IDs after #109.
 - 一意canonical解決: 2,443
 - ambiguous alias: 9（silent resolve禁止）
 - Semantic Bridge: 336 unique ID、fake canonical / fake countなし

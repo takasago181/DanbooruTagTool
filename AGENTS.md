@@ -65,61 +65,36 @@ v1でデフォルトにしない:
 - full 11M-post / ~3GB statistics indexの必須化
 - Forge/ComfyUI direct generation integrationの必須化
 
-## 4. Current active DEV lanes
+## 4. Current lanes
 
-### Issue #64 — General taxonomy
+### Completed v1 foundations
 
-Owns only:
-- exact General 30,629 target population
-- shallow practical taxonomy classification
-- sidecar data/audit
-- unresolved accounting
+- Issue #64 General 30,629 practical taxonomy is completed and integrated.
+- Issue #66 beginner-first WPF app/search/UI and practical-v1 acceptance are completed.
+- Issue #76 Special Browse v2 is the current Special browse authority.
+- Issue #83 cleanup and Issue #109 Special production integration are completed.
 
-Do not implement UI/search behavior inside #64。
-`docs/project/CURRENT_DEV_TASK.md` is an Issue #64 mirror only.
+Do not reopen #64 or #66, or infer an active implementation task from their
+historical build specifications, without an explicit new request and a concrete
+regression.
 
-### Issue #66 — app/search/UI completion
+### Independent active lanes
 
-Owns:
-- beginner-first desktop UI
-- **clean C#/.NET/WPF v1 implementation under a new `src/` tree**
-- existing-Prompt understanding/workspace
-- bilingual/mixed search quality and ranking/noise fixes
-- Special browse integration
-- General browse provider/UI that later consumes accepted #64 output
-- explicit add/remove/reorder
-- canonical-English preview/copy
-- hidden automatic insertion cleanup
-- self-contained portable Windows x64 packaging
-- final ADOPT/HOLD/REJECT reconciliation against `PRODUCT_GOAL_LOCK.md`
-- focused regression and real Windows acceptance
+- Issue #70 — post-v1 Character/Copyright/Artist Japanese dictionary expansion
+  and i18n result ledger; reconcile from the source manifest and immutable
+  accepted result files.
+- Issue #65 — independent practical Stage10 learning lane.
+- Issue #44 — ongoing KNOWLEDGE lane.
 
-Issue #66 first implementation authorities:
-- `docs/product/V1_UI_FIRST_IMPLEMENTATION_BASELINE.md`
-- `docs/product/V1_WPF_ARCHITECTURE_BASELINE.md`
+If no active DEV implementation issue is designated, do not restart an old
+Issue #64/#66 task by inference.
 
-Known search regression such as `anal -> piano / analog...` is part of #66 acceptance.
+### Completed architecture invariant
 
-### #66 architecture invariant
-
-Current `tools/legacy/python/danbooru_tag_tool/` Python/Tk code is **legacy/reference during the first WPF build**。
-
-Do:
-- create new WPF projects under `src/`
-- reuse accepted data / identity / taxonomy / search rules / regression evidence / behavior
-- keep current Python/data paths intact during first build
-- keep #64 data ownership untouched
-- target `catalog.db` + `user.db/UserData` separation
-- target `win-x64` self-contained portable folder
-
-Do not:
-- make WPF depend on Python/Tcl/Tk at runtime
-- refactor the old Tk UI into the new product shell
-- move/delete legacy Python or broad `data/` trees before WPF baseline acceptance
-- port old recommendation/automatic-support/Stage-oriented UI merely because it exists
-- require a separate .NET Desktop Runtime installation for the standard portable build
-
-Single-file EXE is not required. One copyable portable folder is preferred.
+The current WPF product is clean C#/.NET under `src/`, has no Python/Tcl/Tk
+runtime dependency, and separates rebuildable `catalog.db` from user-owned
+`user.db`/`UserData`. Legacy Python/Tk paths and compatibility data remain
+historical/reference assets; do not move or delete them as a routing shortcut.
 
 Issues #34 and #42 are retired/closed historical provenance only. Do not use them as future Gates.
 
@@ -127,7 +102,8 @@ Issues #34 and #42 are retired/closed historical provenance only. Do not use the
 
 Stage10 is not a v1 product Gate.
 It is defined by Issue #65 / `docs/stages/STAGE_10_LEARNING.md` as a practical image-generation learning stage.
-Current user priority pauses Stage10 until the practical v1 app baseline is complete.
+Practical v1 is complete; Stage10 is an independent active/available learning
+lane and is not a v1 completion gate.
 
 Primary learning model:
 - NoobAI XL 1.1 EPS + Forge Neo
@@ -142,15 +118,16 @@ CodexはStage10学習を理由に、本体v1へ自動Prompt最適化・direct ge
 ## 6. Special / Generalの役割
 
 ### Special
-- 2,788 identityはfreeze済み
-- ニッチ/複雑概念の深い発見面
-- #56のUI browse taxonomyを使う
-- product-fit eligibilityは#63のsidecarを使う
+- production is 3,059 stable identities in ID space 1..3,088, with 29 stable gaps
+- niche/complex discovery surface
+- current browse authority is Issue #76 Browse v2 (9 kinds / 6 body / 3 themes)
+- #56 is historical/base provenance for the original 2,788 identity set
+- product-fit eligibility is the #63 sidecar
 
 ### General
 - production Japanese overlay 30,629 canonical entriesが対象
 - 日本語表示/検索overlayとtaxonomyを混ぜない
-- #64でcanonical-tag keyedの別taxonomy sidecarを作る
+- #64 canonical-tag keyed taxonomy sidecar is completed and integrated
 - Specialより浅いPrompt用途中心の分類にする
 - 全100k+ Danbooru universeへ勝手に拡張しない
 
@@ -198,22 +175,14 @@ WPF migrationを理由にexisting `data/` を先に移動・整理しない。
 4. `docs/PRODUCT_GOAL_LOCK.md`
 5. target Issueが指定する仕様
 
-Issue #64作業時:
-- `docs/project/CURRENT_DEV_TASK.md`
-- live Issue #64 latest checkpoint
-- `docs/issue64/full_rollout/PROGRESS.md`
-- 必要なrollout files
+Issue #64/#66 are completed historical authorities. Read their evidence only
+when a regression or explicit maintenance request requires it; do not route new
+implementation work there by inference.
 
-Issue #66作業時:
-1. live Issue #66
-2. `docs/product/V1_UI_FIRST_IMPLEMENTATION_BASELINE.md`
-3. `docs/product/V1_WPF_ARCHITECTURE_BASELINE.md`
-4. `docs/FEATURE_PRIORITY.md`
-5. `docs/FLOWCHARTS.md`
-6. Issue #64はdependency/boundary確認に必要な範囲だけ
-7. existing `tools/legacy/python/danbooru_tag_tool/` / Python tests は **legacy/reference・behavior/regression evidenceとして必要な箇所だけ**読む
-
-Issue #66では旧Python `ui.py` をnew UI implementation baseと解釈しない。
+Issue #70 work additionally reads `docs/issue70/TRANSLATION_AUTOMATION.md`,
+`docs/issue70/AUTOMATION_LIGHTWEIGHT_PROTOCOL.md`, the source manifest, and
+the live Issue #70 checkpoint. Its queue authority is source manifest + accepted
+immutable results + deterministic reconciled queue state.
 
 Stage10 learningを扱う時:
 1. Issue #65
@@ -261,7 +230,7 @@ KNOWLEDGE / generation-effectivenessを参照する必要がある時:
 - changed files
 - 実施テストと結果
 - protected/canonical dataへの影響
-- legacy/data pathを移動・削除していないこと（#66 first WPF build中）
+- legacy/data pathを移動・削除していないこと（必要な場合）
 - portable publish / Windows validation状況（該当時）
 - 未解決事項
 - stop point / next Gate
