@@ -34,10 +34,9 @@ K_FLUID = {'breast_milk_in_container','saliva_on_breasts','saliva_swap','lube_on
 K_NONHUMAN = {'implied_egg_laying'}
 K_ACTION = set(LABELS) - K_BODY - K_CLOTHING - K_POSE - K_TOOL - K_FLUID - K_NONHUMAN
 
-# Generation families deliberately reuse only established profile families/rules.
 G_BODY_ATTRIBUTE = {'perky_breasts','veiny_breasts','pointy_breasts','futa_without_balls','light_areolae','speckled_areolae','male_with_breasts','dark_areolae','asymmetrical_breasts','extra_breasts','breast_size_difference','mole_on_areola','single_breast','cospussy','breast_implants'}
 G_BODY_STATE = K_BODY - G_BODY_ATTRIBUTE
-G_CLOTHING = K_CLOTHING
+G_CLOTHING = K_CLOTHING - {'intestine_clothing'}
 G_FLUID = K_FLUID
 G_RESTRAINT_IMPLEMENT = {'straitjacket','breast_zipper','rope_around_neck','shared_handcuffs','shackle_piercing','open-chest_straitjacket','shibarikini','tied_breast'}
 G_RESTRAINT_ACTION = {'viewer_holding_leash','viewer_on_leash','upright_restraints','standing_restraints','offering_leash','electrostimulation'}
