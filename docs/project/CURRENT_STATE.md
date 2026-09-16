@@ -19,7 +19,7 @@ Current maintenance route:
 - Issue #72 — Prompt category view prototype remains completed and integrated into `main` at `174fee90b23e4a350ffe71d7b60aa834b8cb1296`.
 - **Issue #109 — Special reverse audit and production decision are completed.** Production Special is now **3,059 rows** with maximum Special ID **3,088**; the 29 user-approved removals remain stable-ID gaps and no IDs were renumbered. The production source is `data/generation/special2788_generation_profile.csv`; the legacy filename is retained for compatibility.
 - **Issue #109 local integration is completed in the workstation runtime.** The catalog was explicitly rebuilt once from the completed production profile and the WPF runtime in `artifacts/current/` was refreshed from the same Release build; local Special is 3,059 and General is 30,629.
-- Issue #70 translation/data work is a separate lane. Post-v1 UI/taxonomy/cleanup work must not modify #70 outputs, canonical/protected data, or translation lane state. Its operational authority is now the deterministic dynamic-claim queue in `docs/issue70/data/queue_state.json` with `scripts/issue70/queue_manager.py`; legacy four-lane progress remains immutable migration provenance. Bootstrap currently validates 21 / 186 chunks (10,500 / 92,739 rows), with 82,239 rows remaining.
+- **Issue #70 tracked translation/data + WPF integration is complete on GitHub main.** All **92,739 / 92,739 rows** across **186 / 186 chunks** are completed and independently revalidated; `docs/issue70/data/queue_state.json` is reconciled to 186 completed chunks / 0 remaining rows. The compact runtime pack is tracked under `docs/issue70/data/runtime/`. Explicit catalog build now imports **Character 35,890 / Copyright 8,536 / Artist 48,313** with Japanese/English/mixed search, dedicated category browse, aliases/post counts, and Character↔Copyright related navigation. Consolidation commit: `99af4d8`; WPF integration: `13ea55e`; catalog.db roundtrip regression: `3643858`; latest Release CI: **129 passed / 7 skipped / 0 failed**.
 - Issue #68/#69 cleanup foundations are completed. Issue #83 later retired additional obsolete/reproducible local and tracked legacy assets after dependency proof; active #70 data, current catalog inputs, modified #64 worktree state, current SDK/NuGet, and #24 backups were intentionally retained.
 - **Stage10 learning Issue #65 may resume as the user's learning route.** It is not part of completed #76/#83.
 
@@ -27,6 +27,7 @@ Current workstation WPF launch:
 - The current WPF runtime and production `Data/catalog.db` are available under local `artifacts/current/`.
 - The local root shortcut `DanbooruTagTool.lnk` launches that WPF app; this shortcut and runtime output are workstation-local conveniences, not tracked product files.
 - The pre-integration local `catalog.db` was the historical **2,788 Special** catalog. It was replaced once by the completed **3,059 Special** production profile; the 29 deleted IDs remain absent as stable-ID gaps. Existing `UserData/user.db` remains user-owned state and its hash was unchanged through the integration.
+- **Issue #70 workstation runtime is still pending one explicit rebuild.** GitHub main contains the accepted 92,739-row overlay and importer, but the current tool environment cannot access the protected workstation source inputs required by `--build-catalog`. Do not claim `artifacts/current/Data/catalog.db` contains Character/Copyright/Artist until that local rebuild, WPF launch, and practical search/navigation smoke pass are completed.
 
 Current Stage10 definition:
 - Issue #65
@@ -211,7 +212,7 @@ Artifacts remain untracked. Cleanup must be scoped to known disposable artifact 
 
 Issue #83 superseded the earlier broad-cleanup hold state: obsolete/reproducible legacy assets were removed after dependency proof while current product state, active #70, current catalog inputs, and unresolved HOLD items were preserved.
 
-Issue #70 remains a separate translation/data lane and Stage10 #65 remains a separate learning lane.
+Issue #70 GitHub data/integration work is complete; only the workstation catalog rebuild/smoke gate remains. Stage10 #65 remains a separate learning lane.
 
 Short form:
 
