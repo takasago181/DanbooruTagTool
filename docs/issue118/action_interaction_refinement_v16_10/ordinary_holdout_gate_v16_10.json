@@ -1,0 +1,19 @@
+{
+  "issue": 118,
+  "mode": "INDEPENDENT_ACTION_ORDINARY_HOLDOUT_REVIEW_V16_10",
+  "source": "docs/issue118/action_interaction_refinement_v16_10/ordinary_fresh_holdout_template_v16_10.csv",
+  "reviewed_rows": 120,
+  "gate": "FAIL_STOP_WHOLE_CLUSTER_PROMOTION",
+  "observed_counterexamples": [
+    "ass_smack",
+    "ass_shake",
+    "sword_between_thighs",
+    "bottle_between_thighs",
+    "cream_on_body"
+  ],
+  "decision": "Do not continue one-counterexample-at-a-time whole-cluster refinement. Split a narrower low-risk subcluster and leave body/interpersonal residual UNCLASSIFIED.",
+  "review_verdicts_generated_by_materializer": "NO",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO"
+}
