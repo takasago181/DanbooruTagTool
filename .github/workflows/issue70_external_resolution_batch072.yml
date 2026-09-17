@@ -1,3 +1,4 @@
+# Re-run after removing the superseded lilith_(fate) external overlay.
 name: Issue70 External Resolution Batch 072
 on:
   push:
