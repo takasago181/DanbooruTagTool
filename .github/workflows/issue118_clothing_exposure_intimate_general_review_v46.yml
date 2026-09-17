@@ -1,0 +1,47 @@
+name: Issue118 Clothing Exposure Intimate General Review V46
+
+on:
+  push:
+    branches:
+      - research/issue118-cluster-triage-v8
+    paths:
+      - scripts/issue118/materialize_clothing_exposure_intimate_general_review_v46.py
+      - docs/issue118/research_sidecar_v27.csv
+      - .github/workflows/issue118_clothing_exposure_intimate_general_review_v46.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  clothing-exposure-intimate-general-review-v46:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Materialize v46 review candidate
+        run: |
+          python3 -m py_compile scripts/issue118/materialize_clothing_exposure_intimate_general_review_v46.py
+          python3 scripts/issue118/materialize_clothing_exposure_intimate_general_review_v46.py
+      - name: Validate v46
+        run: |
+          python3 - <<'PY'
+          import csv,json
+          from pathlib import Path
+          rows=list(csv.DictReader(Path('docs/issue118/clothing_exposure_intimate_general_review_v46/full_review_candidate_v46.csv').open(encoding='utf-8')))
+          s=json.loads(Path('docs/issue118/clothing_exposure_intimate_general_review_v46/summary_v46.json').read_text(encoding='utf-8'))
+          assert len(rows)==37
+          assert s['candidate_rows']==37
+          assert s['auto_promotion_performed']=='NO'
+          assert s['production_authority']=='NO'
+          print('ISSUE118_CLOTHING_EXPOSURE_INTIMATE_GENERAL_V46_GATE=PASS')
+          PY
+      - name: Persist research evidence only
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/issue118/clothing_exposure_intimate_general_review_v46/
+          if ! git diff --cached --quiet; then
+            git commit -m 'Issue #118: materialize general clothing exposure intimate review v46'
+            git push origin HEAD:research/issue118-cluster-triage-v8
+          fi
