@@ -1,0 +1,22 @@
+{
+  "issue": 118,
+  "mode": "ACTION_INTERACTION_REFINEMENT_V16",
+  "source_cluster": "GENERAL_ONLY|ACTION_CONTACT/INTERACTION|NONE",
+  "source_rows": 1852,
+  "bucket_counts": {
+    "INTIMATE_GENERAL": 71,
+    "ORDINARY_INTERACTION": 1734,
+    "SEXUAL_BOUNDARY": 6,
+    "VIOLENCE_NONSEX_AXIS": 41
+  },
+  "ordinary_fresh_holdout_rows": 120,
+  "bucket_rules_use": "TRIAGE_ONLY_NOT_CLASSIFICATION_AUTHORITY",
+  "holdout_verdicts_generated": "NO",
+  "auto_promotion_performed": "NO",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO",
+  "next_gate": "review ordinary holdout; keep intimate/violence/sexual-boundary buckets separate until independently validated"
+}
