@@ -1,0 +1,33 @@
+{
+  "issue": 118,
+  "mode": "ACTION_INTERACTION_REFINEMENT_V16_9_FINAL_ADVERSARIAL_SWEEP",
+  "source_ordinary_rows_v16_8": 1583,
+  "adversarial_boundary_rows": 13,
+  "ordinary_clean_rows_v16_9": 1570,
+  "risk_flag_counts": {
+    "ear_intimate_contact": 2,
+    "foot_toe_fetish_contact": 1,
+    "hands_on_neck": 2,
+    "intimate_clothing_manipulation": 2,
+    "restraint_context": 5,
+    "sexualized_language": 1
+  },
+  "fresh_holdout_template_rows": 120,
+  "required_counterexamples_captured": [
+    "blowing_in_ear",
+    "cover_them_up_slut_(meme)",
+    "fingers_between_toes",
+    "hand_chains",
+    "hands_on_another's_neck",
+    "whispering_in_ear"
+  ],
+  "risk_rules_use": "DISCOVERY_ONLY_NOT_CLASSIFICATION_AUTHORITY",
+  "holdout_verdicts_generated": "NO",
+  "auto_promotion_performed": "NO",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO",
+  "next_gate": "independently review fresh 120-row holdout; promote only if no sexual-intent counterexample remains"
+}
