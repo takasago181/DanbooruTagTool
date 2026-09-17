@@ -1,0 +1,133 @@
+{
+  "issue": 118,
+  "mode": "SAFE_GENERAL_CANDIDATES_V2",
+  "reviewed_evidence_rows": 924,
+  "learned_risk_token_count": 78,
+  "total_risk_token_count": 154,
+  "target_paths": [
+    "ACTION_CONTACT/OBJECT_USE",
+    "CLOTHING/ACCESSORY",
+    "CLOTHING/COSTUME",
+    "CLOTHING/EVERYDAY",
+    "CLOTHING/UNIFORM",
+    "OBJECT_PROP",
+    "OBJECT_PROP/DAILY",
+    "OBJECT_PROP/FOOD",
+    "OBJECT_PROP/VEHICLE",
+    "OBJECT_PROP/WEAPON",
+    "PERSON_COUNT",
+    "STYLE_QUALITY_META"
+  ],
+  "accepted_paths": [
+    "ACTION_CONTACT/OBJECT_USE",
+    "CLOTHING/ACCESSORY",
+    "CLOTHING/COSTUME",
+    "CLOTHING/UNIFORM",
+    "OBJECT_PROP",
+    "OBJECT_PROP/DAILY",
+    "OBJECT_PROP/FOOD",
+    "OBJECT_PROP/VEHICLE",
+    "OBJECT_PROP/WEAPON",
+    "PERSON_COUNT"
+  ],
+  "accepted_candidate_rows": 10258,
+  "accepted_path_counts": {
+    "ACTION_CONTACT/OBJECT_USE": 700,
+    "CLOTHING/ACCESSORY": 1874,
+    "CLOTHING/COSTUME": 1188,
+    "CLOTHING/UNIFORM": 636,
+    "OBJECT_PROP": 228,
+    "OBJECT_PROP/DAILY": 2629,
+    "OBJECT_PROP/FOOD": 779,
+    "OBJECT_PROP/VEHICLE": 456,
+    "OBJECT_PROP/WEAPON": 1035,
+    "PERSON_COUNT": 733
+  },
+  "validation_sample_rows": 120,
+  "validation_chunks": 2,
+  "existing_review_validation": {
+    "ACTION_CONTACT/OBJECT_USE": {
+      "counts": {
+        "NON_SEXUAL": 6
+      },
+      "non_target_examples": []
+    },
+    "CLOTHING/ACCESSORY": {
+      "counts": {
+        "NON_SEXUAL": 22
+      },
+      "non_target_examples": []
+    },
+    "CLOTHING/COSTUME": {
+      "counts": {
+        "NON_SEXUAL": 15
+      },
+      "non_target_examples": []
+    },
+    "CLOTHING/EVERYDAY": {
+      "counts": {
+        "CONTEXTUAL": 1,
+        "NON_SEXUAL": 31
+      },
+      "non_target_examples": [
+        "wet_fundoshi"
+      ]
+    },
+    "CLOTHING/UNIFORM": {
+      "counts": {
+        "NON_SEXUAL": 10
+      },
+      "non_target_examples": []
+    },
+    "OBJECT_PROP": {
+      "counts": {
+        "NON_SEXUAL": 3
+      },
+      "non_target_examples": []
+    },
+    "OBJECT_PROP/DAILY": {
+      "counts": {
+        "NON_SEXUAL": 29
+      },
+      "non_target_examples": []
+    },
+    "OBJECT_PROP/FOOD": {
+      "counts": {
+        "NON_SEXUAL": 12
+      },
+      "non_target_examples": []
+    },
+    "OBJECT_PROP/VEHICLE": {
+      "counts": {
+        "NON_SEXUAL": 4
+      },
+      "non_target_examples": []
+    },
+    "OBJECT_PROP/WEAPON": {
+      "counts": {
+        "NON_SEXUAL": 11
+      },
+      "non_target_examples": []
+    },
+    "PERSON_COUNT": {
+      "counts": {
+        "NON_SEXUAL": 11
+      },
+      "non_target_examples": []
+    },
+    "STYLE_QUALITY_META": {
+      "counts": {
+        "CONTEXTUAL": 1,
+        "NON_SEXUAL": 11,
+        "SEXUAL": 1
+      },
+      "non_target_examples": [
+        "boobs?_wanna_touch_boobs?_(meme)",
+        "yaoi"
+      ]
+    }
+  },
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO"
+}
