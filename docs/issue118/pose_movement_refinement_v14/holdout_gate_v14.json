@@ -1,0 +1,20 @@
+{
+  "issue": 118,
+  "mode": "INDEPENDENT_POSE_HOLDOUT_REVIEW_V14",
+  "source": "docs/issue118/pose_movement_refinement_v14/fresh_holdout_template_v14.csv",
+  "reviewed_rows": 120,
+  "gate": "FAIL_REFINEMENT_REQUIRED",
+  "observed_counterexamples": {
+    "object_on_bulge": "CONTEXTUAL_OR_BOUNDARY",
+    "presenting_tanlines": "CONTEXTUAL_OR_BOUNDARY",
+    "hips_in_air": "CONTEXTUAL_OR_BOUNDARY",
+    "huge_ass_lying_on_couch_pose_(meme)": "CONTEXTUAL_OR_BOUNDARY",
+    "arched_back": "CONTEXTUAL_OR_BOUNDARY",
+    "pole_dancing": "CONTEXTUAL_OR_BOUNDARY"
+  },
+  "note": "These rows are removed from AUTO_HIGH_CONF NON_SEXUAL bulk candidacy; this artifact does not itself assign production semantic authority.",
+  "review_verdicts_generated_by_materializer": "NO",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO"
+}
