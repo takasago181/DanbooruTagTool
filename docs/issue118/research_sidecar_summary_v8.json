@@ -1,0 +1,29 @@
+{
+  "issue": 118,
+  "mode": "RESEARCH_SIDECAR_V8_BODY_PART_REVIEW_GATED",
+  "identity_rows": 31752,
+  "source_base": "docs/issue118/research_sidecar_v7.csv",
+  "new_body_part_auto_promotions": 1456,
+  "review_status_counts": {
+    "AUTO_HIGH_CONF": 22371,
+    "HUMAN_REVIEWED": 1166,
+    "UNCLASSIFIED": 8215
+  },
+  "sexual_intent_counts": {
+    "CONTEXTUAL": 201,
+    "NON_SEXUAL": 22750,
+    "NULL": 8215,
+    "SEXUAL": 586
+  },
+  "remaining_unclassified": 8215,
+  "body_part_candidate_source": "docs/issue118/body_part_refinement_v19_2/low_risk_body_candidate_v19_2.csv",
+  "body_part_holdout_gate_source": "docs/issue118/body_part_refinement_v19_2/holdout_gate_v19_2.json",
+  "body_part_holdout_gate_sha256": "13658ca5024fd12d3fb5ab9b0d46ec979af246c4bac3304957e642cdddd971a4",
+  "review_verdicts_generated_by_materializer": "NO",
+  "review_artifacts_are_external_inputs": "YES",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO"
+}
