@@ -1,0 +1,56 @@
+name: Issue118 BODY_PART Low Risk V19
+
+on:
+  push:
+    branches:
+      - research/issue118-cluster-triage-v8
+    paths:
+      - scripts/issue118/materialize_body_part_low_risk_v19.py
+      - docs/issue118/research_sidecar_v7.csv
+      - .github/workflows/issue118_body_part_low_risk_v19.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  body-part-v19:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Materialize BODY_PART low-risk v19
+        run: |
+          python3 -m py_compile scripts/issue118/materialize_body_part_low_risk_v19.py
+          python3 scripts/issue118/materialize_body_part_low_risk_v19.py
+      - name: Validate v19
+        run: |
+          python3 - <<'PY'
+          import csv, json
+          from pathlib import Path
+          p = Path('docs/issue118/body_part_low_risk_v19')
+          s = json.loads((p / 'summary_v19.json').read_text(encoding='utf-8'))
+          low = list(csv.DictReader((p / 'low_risk_body_candidate_v19.csv').open(encoding='utf-8')))
+          residual = list(csv.DictReader((p / 'body_boundary_residual_v19.csv').open(encoding='utf-8')))
+          holdout = list(csv.DictReader((p / 'fresh_holdout_template_v19.csv').open(encoding='utf-8')))
+          assert s['source_rows'] == 1697
+          assert len(low) + len(residual) == 1697
+          assert len(holdout) == 120
+          assert s['low_risk_candidate_rows'] == len(low)
+          assert s['boundary_residual_rows'] == len(residual)
+          assert s['production_authority'] == 'NO'
+          assert s['main_mutated'] == 'NO'
+          assert s['issue117_code_mutated'] == 'NO'
+          assert s['catalog_mutated'] == 'NO'
+          assert s['user_db_mutated'] == 'NO'
+          print('ISSUE118_BODY_PART_V19_GATE=PASS')
+          PY
+      - name: Persist research evidence only
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/issue118/body_part_low_risk_v19
+          if ! git diff --cached --quiet; then
+            git commit -m 'Issue #118: materialize BODY_PART low-risk v19'
+            git push origin HEAD:research/issue118-cluster-triage-v8
+          fi
