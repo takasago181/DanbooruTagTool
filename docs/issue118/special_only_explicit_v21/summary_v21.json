@@ -1,0 +1,27 @@
+{
+  "issue": 118,
+  "mode": "SPECIAL_ONLY_EXPLICIT_SEXUAL_DISCOVERY_V21",
+  "source_cluster": "SPECIAL_ONLY|(none)|(none)|NONE",
+  "source_rows": 563,
+  "explicit_candidate_rows": 96,
+  "residual_unclassified_rows": 467,
+  "evidence_flag_counts": {
+    "adult_content_or_toy": 7,
+    "explicit_act_variant": 20,
+    "explicit_group_sex": 3,
+    "genital_slang": 27,
+    "sexual_assault_variant": 2,
+    "sexual_compound_or_state": 26,
+    "sexual_fluid_variant": 14
+  },
+  "fresh_holdout_template_rows": 96,
+  "selection_rules_use": "DISCOVERY_ONLY_NOT_CLASSIFICATION_AUTHORITY",
+  "holdout_verdicts_generated": "NO",
+  "auto_promotion_performed": "NO",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO",
+  "next_gate": "independently review explicit-sexual holdout; promote only concept-level explicit candidates if clean"
+}
