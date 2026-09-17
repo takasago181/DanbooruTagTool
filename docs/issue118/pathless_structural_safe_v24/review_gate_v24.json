@@ -1,0 +1,13 @@
+{
+  "issue": 118,
+  "mode": "PATHLESS_STRUCTURAL_SAFE_V24_FULL_REVIEW",
+  "reviewed_source": "docs/issue118/pathless_structural_safe_v24/fresh_holdout_template_v24.csv",
+  "reviewed_source_git_blob_sha1": "90fa40026c9fa8855ab16bfb0fb33fb56d79c222",
+  "reviewed_rows": 83,
+  "decision_counts": {
+    "NON_SEXUAL": 83
+  },
+  "decision": "PASS_FOR_RESEARCH_PROMOTION",
+  "review_note": "Full review of all 83 structural-safe pathless candidates. Calendar/theme days, public events, live/tour/festival/collaboration labels, and brand/company/culture disambiguators are non-sexual concepts even when related artwork can be suggestive.",
+  "production_authority": "NO"
+}
