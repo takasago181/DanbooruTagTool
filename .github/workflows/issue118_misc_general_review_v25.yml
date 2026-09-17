@@ -1,0 +1,54 @@
+name: Issue118 Misc General Review V25
+
+on:
+  push:
+    branches:
+      - research/issue118-cluster-triage-v8
+    paths:
+      - scripts/issue118/materialize_misc_general_review_v25.py
+      - docs/issue118/research_sidecar_v12.csv
+      - .github/workflows/issue118_misc_general_review_v25.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  misc-general-v25:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Materialize misc General review candidates v25
+        run: |
+          python3 -m py_compile scripts/issue118/materialize_misc_general_review_v25.py
+          python3 scripts/issue118/materialize_misc_general_review_v25.py
+      - name: Validate v25
+        run: |
+          python3 - <<'PY'
+          import csv, json
+          from pathlib import Path
+          p = Path('docs/issue118/misc_general_review_v25')
+          s = json.loads((p / 'summary_v25.json').read_text(encoding='utf-8'))
+          cand = list(csv.DictReader((p / 'full_review_candidate_v25.csv').open(encoding='utf-8')))
+          eject = list(csv.DictReader((p / 'risk_ejected_v25.csv').open(encoding='utf-8')))
+          assert len(cand) == s['candidate_rows']
+          assert len(eject) == s['risk_ejected_rows']
+          assert s['selection_rules_use'] == 'DISCOVERY_ONLY_NOT_CLASSIFICATION_AUTHORITY'
+          assert s['auto_promotion_performed'] == 'NO'
+          assert s['production_authority'] == 'NO'
+          assert s['main_mutated'] == 'NO'
+          assert s['issue117_code_mutated'] == 'NO'
+          assert s['catalog_mutated'] == 'NO'
+          assert s['user_db_mutated'] == 'NO'
+          print('ISSUE118_MISC_GENERAL_V25_GATE=PASS')
+          PY
+      - name: Persist research evidence only
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/issue118/misc_general_review_v25
+          if ! git diff --cached --quiet; then
+            git commit -m 'Issue #118: materialize misc General review candidates v25'
+            git push origin HEAD:research/issue118-cluster-triage-v8
+          fi
