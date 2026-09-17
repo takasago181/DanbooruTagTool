@@ -4,8 +4,8 @@
 Runs the current v3 census, scans all proposal CSVs under docs/issue70/audit,
 deduplicates by row_id, and reports remaining rows plus any conflicting audit
 verdict/proposal combinations. It also emits the remaining translation-note,
-risk-flag, status and impact distributions so the next audit batches can be
-selected from live evidence rather than guessed.
+risk-flag, status, impact and exact note×flag signature distributions so the
+next audit batches can be selected from live evidence rather than guessed.
 
 This script is read-only with respect to the production Issue #70 data.
 """
@@ -59,6 +59,11 @@ def top_counter(counter: Counter[str], limit: int = 30) -> list[dict[str, object
     return [{"value": key, "count": count} for key, count in counter.most_common(limit)]
 
 
+def normalized_flag_signature(row: dict[str, str]) -> str:
+    flags = sorted(x.strip() for x in (row.get("risk_flags") or "").split("|") if x.strip())
+    return "|".join(flags) if flags else "<none>"
+
+
 def remaining_patterns(rows: list[dict[str, str]]) -> dict[str, object]:
     by_category: dict[str, object] = {}
     for category in CATEGORIES:
@@ -68,11 +73,27 @@ def remaining_patterns(rows: list[dict[str, str]]) -> dict[str, object]:
         impacts = Counter((row.get("impact_tier") or "").strip() for row in subset)
         buckets = Counter((row.get("audit_bucket") or "").strip() for row in subset)
         flags: Counter[str] = Counter()
+        signatures: Counter[tuple[str, str, str, str]] = Counter()
         for row in subset:
+            note = (row.get("translation_note") or "").strip() or "<blank>"
+            status = (row.get("translation_status") or "").strip()
+            bucket = (row.get("audit_bucket") or "").strip()
+            signature = normalized_flag_signature(row)
+            signatures[(note, signature, status, bucket)] += 1
             for flag in (row.get("risk_flags") or "").split("|"):
                 flag = flag.strip()
                 if flag:
                     flags[flag] += 1
+        top_signatures = [
+            {
+                "translation_note": note,
+                "risk_flags": signature,
+                "translation_status": status,
+                "audit_bucket": bucket,
+                "count": count,
+            }
+            for (note, signature, status, bucket), count in signatures.most_common(60)
+        ]
         by_category[category] = {
             "rows": len(subset),
             "status_counts": dict(sorted(statuses.items())),
@@ -80,6 +101,7 @@ def remaining_patterns(rows: list[dict[str, str]]) -> dict[str, object]:
             "audit_bucket_counts": dict(sorted(buckets.items())),
             "top_translation_notes": top_counter(notes),
             "risk_flag_counts": dict(flags.most_common()),
+            "top_note_risk_signatures": top_signatures,
         }
     return by_category
 
@@ -136,8 +158,6 @@ def main() -> int:
                 "entries": entries,
             })
 
-    # Conflicted rows are considered audited-but-not-resolved. They stay out of
-    # remaining-to-audit but remain a separate blocking queue.
     audited_ids = set(observations)
     remaining = [row for row in ledger if row["row_id"] not in audited_ids]
 
@@ -148,7 +168,7 @@ def main() -> int:
     unresolved_user = [rid for rid, e in resolved.items() if e["audit_verdict"] == "NEEDS_USER_DECISION"]
 
     result = {
-        "format_version": 2,
+        "format_version": 3,
         "issue": 70,
         "production_modified": False,
         "initial_ledger_rows": len(ledger),
@@ -166,7 +186,7 @@ def main() -> int:
         "source_files": source_files,
         "ignored_nonledger_rows_by_file": dict(ignored_nonledger),
         "conflicts": conflicts,
-        "next_step": "continue highest-volume safe pattern batches, then resolve external/user queues before production correction",
+        "next_step": "continue highest-volume safe pattern batches using note-risk signatures, then resolve external/user queues before production correction",
     }
     OUT.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(result, ensure_ascii=False, indent=2))
