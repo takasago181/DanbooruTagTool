@@ -1,0 +1,28 @@
+{
+  "issue": 118,
+  "mode": "ACTION_INTERACTION_REFINEMENT_V16_6_FETISH_INTIMATE_SPLIT",
+  "source_ordinary_rows_v16_5": 1611,
+  "new_boundary_rows": 7,
+  "moved_intimate_rows": 3,
+  "ordinary_clean_rows_v16_6": 1601,
+  "fresh_holdout_template_rows": 120,
+  "required_boundary_counterexamples_captured": [
+    "foot_on_another's_chest",
+    "licking_another's_arm",
+    "smelling_shoe",
+    "thigh_straddling"
+  ],
+  "required_intimate_moves_captured": [
+    "arms_around_neck",
+    "shared_bed"
+  ],
+  "rules_use": "DISCOVERY_ONLY_NOT_CLASSIFICATION_AUTHORITY",
+  "holdout_verdicts_generated": "NO",
+  "auto_promotion_performed": "NO",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO",
+  "next_gate": "independently review new fixed 120-row ordinary holdout before any research-sidecar promotion"
+}
