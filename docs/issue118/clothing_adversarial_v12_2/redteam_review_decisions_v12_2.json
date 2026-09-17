@@ -1,0 +1,25 @@
+{
+  "issue": 118,
+  "mode": "INDEPENDENT_CLOTHING_REDTEAM_REVIEW_V12_2",
+  "inventory": "docs/issue118/clothing_adversarial_v12_2/redteam_review_v12_2.csv",
+  "inventory_blob_sha": "315e12e7ecf749a4821e8fb0dd3db0303d350d16",
+  "reviewed_rows": 10,
+  "decisions": {
+    "wet_hat": "NON_SEXUAL",
+    "wet_jacket": "NON_SEXUAL",
+    "wet_kimono": "NON_SEXUAL",
+    "wet_pants": "NON_SEXUAL",
+    "wet_shorts": "NON_SEXUAL",
+    "wet_socks": "NON_SEXUAL",
+    "wet_buruma": "KEEP_UNCLASSIFIED",
+    "wet_dress": "KEEP_UNCLASSIFIED",
+    "wet_shirt": "KEEP_UNCLASSIFIED",
+    "wet_skirt": "KEEP_UNCLASSIFIED"
+  },
+  "decision_counts": {
+    "NON_SEXUAL": 6,
+    "KEEP_UNCLASSIFIED": 4
+  },
+  "review_verdicts_generated_by_materializer": "NO",
+  "production_authority": "NO"
+}
