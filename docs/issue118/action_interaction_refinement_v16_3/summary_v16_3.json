@@ -1,0 +1,30 @@
+{
+  "issue": 118,
+  "mode": "ACTION_INTERACTION_REFINEMENT_V16_3_BODY_CONTACT_REDTEAM",
+  "source_ordinary_rows_v16_2": 1715,
+  "body_contact_boundary_rows": 81,
+  "ordinary_clean_rows_v16_3": 1634,
+  "fresh_holdout_template_rows": 120,
+  "required_counterexamples_captured": [
+    "ass_support",
+    "biting_another's_tongue",
+    "biting_ear",
+    "finger_sucking",
+    "giving_wedgie",
+    "hands_on_another's_chest",
+    "pectoral_squeeze",
+    "tail_stimulation",
+    "tickling_ass",
+    "tickling_navel",
+    "womb_massage"
+  ],
+  "risk_rules_use": "DISCOVERY_ONLY_NOT_CLASSIFICATION_AUTHORITY",
+  "holdout_verdicts_generated": "NO",
+  "auto_promotion_performed": "NO",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO",
+  "next_gate": "independently review new fixed 120-row holdout before any research-sidecar promotion"
+}
