@@ -1,0 +1,24 @@
+{
+  "issue": 118,
+  "mode": "OBJECT_PROP_LOW_RISK_V26",
+  "source_rows": 161,
+  "low_risk_candidate_rows": 141,
+  "boundary_residual_rows": 20,
+  "candidate_path_counts": {
+    "OBJECT_PROP": 3,
+    "OBJECT_PROP/DAILY": 87,
+    "OBJECT_PROP/FOOD": 24,
+    "OBJECT_PROP/VEHICLE": 6,
+    "OBJECT_PROP/WEAPON": 21
+  },
+  "fresh_holdout_template_rows": 120,
+  "risk_rules_use": "DISCOVERY_ONLY_NOT_CLASSIFICATION_AUTHORITY",
+  "holdout_verdicts_generated": "NO",
+  "auto_promotion_performed": "NO",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO",
+  "next_gate": "independently review fixed holdout; if clean, promote only low-risk object-prop candidate set"
+}
