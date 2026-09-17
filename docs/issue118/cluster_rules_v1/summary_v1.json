@@ -1,0 +1,195 @@
+{
+  "issue": 118,
+  "mode": "VALIDATED_CLUSTER_RULE_DISCOVERY_V1",
+  "pilot_reviewed": 684,
+  "independent_holdout_reviewed": 240,
+  "source_unclassified": 26044,
+  "candidate_rules_100pct_both": 11,
+  "selected_conflict_free_rules": 1,
+  "selected_new_coverage": 9,
+  "remaining_after_selected": 26035,
+  "selected_class_counts": {
+    "NON_SEXUAL": 9
+  },
+  "top_candidates": [
+    {
+      "signature_type": "GENERAL_ROOT",
+      "signature_value": "LIVING_NATURE",
+      "target_class": "NON_SEXUAL",
+      "pilot_support": 19,
+      "holdout_support": 20,
+      "pilot_precision": 1.0,
+      "holdout_precision": 1.0,
+      "unclassified_coverage": 9,
+      "coverage_examples": [
+        "impaled",
+        "impregnation",
+        "improvised_gag",
+        "octopus_boy",
+        "onii-shota",
+        "scylla",
+        "skeleton",
+        "snake_bondage",
+        "spider_gag"
+      ]
+    },
+    {
+      "signature_type": "GENERAL_PATH",
+      "signature_value": "LIVING_NATURE/CREATURE",
+      "target_class": "NON_SEXUAL",
+      "pilot_support": 15,
+      "holdout_support": 15,
+      "pilot_precision": 1.0,
+      "holdout_precision": 1.0,
+      "unclassified_coverage": 9,
+      "coverage_examples": [
+        "impaled",
+        "impregnation",
+        "improvised_gag",
+        "octopus_boy",
+        "onii-shota",
+        "scylla",
+        "skeleton",
+        "snake_bondage",
+        "spider_gag"
+      ]
+    },
+    {
+      "signature_type": "GENERAL_ROOT+NO_RISK_LEX",
+      "signature_value": "LIVING_NATURE",
+      "target_class": "NON_SEXUAL",
+      "pilot_support": 19,
+      "holdout_support": 20,
+      "pilot_precision": 1.0,
+      "holdout_precision": 1.0,
+      "unclassified_coverage": 6,
+      "coverage_examples": [
+        "impaled",
+        "impregnation",
+        "octopus_boy",
+        "onii-shota",
+        "scylla",
+        "skeleton"
+      ]
+    },
+    {
+      "signature_type": "GENERAL_PATH",
+      "signature_value": "PLACE_BACKGROUND",
+      "target_class": "NON_SEXUAL",
+      "pilot_support": 11,
+      "holdout_support": 20,
+      "pilot_precision": 1.0,
+      "holdout_precision": 1.0,
+      "unclassified_coverage": 4,
+      "coverage_examples": [
+        "glory_wall",
+        "nude_beach",
+        "tentacle_pit",
+        "walk-in"
+      ]
+    },
+    {
+      "signature_type": "GENERAL_ROOT",
+      "signature_value": "PLACE_BACKGROUND",
+      "target_class": "NON_SEXUAL",
+      "pilot_support": 11,
+      "holdout_support": 20,
+      "pilot_precision": 1.0,
+      "holdout_precision": 1.0,
+      "unclassified_coverage": 4,
+      "coverage_examples": [
+        "glory_wall",
+        "nude_beach",
+        "tentacle_pit",
+        "walk-in"
+      ]
+    },
+    {
+      "signature_type": "MEMBERSHIP+LEX",
+      "signature_value": "OVERLAP|EXPLICIT_SEX",
+      "target_class": "SEXUAL",
+      "pilot_support": 19,
+      "holdout_support": 47,
+      "pilot_precision": 1.0,
+      "holdout_precision": 1.0,
+      "unclassified_coverage": 3,
+      "coverage_examples": [
+        "oyakodon_(sex)",
+        "piledriver_(sex)",
+        "silicone_chainsaw_(sex_tool)"
+      ]
+    },
+    {
+      "signature_type": "GENERAL_ROOT+NO_RISK_LEX",
+      "signature_value": "PLACE_BACKGROUND",
+      "target_class": "NON_SEXUAL",
+      "pilot_support": 11,
+      "holdout_support": 20,
+      "pilot_precision": 1.0,
+      "holdout_precision": 1.0,
+      "unclassified_coverage": 3,
+      "coverage_examples": [
+        "glory_wall",
+        "tentacle_pit",
+        "walk-in"
+      ]
+    },
+    {
+      "signature_type": "GENERAL_PATH",
+      "signature_value": "HAIR_FACE",
+      "target_class": "NON_SEXUAL",
+      "pilot_support": 9,
+      "holdout_support": 20,
+      "pilot_precision": 1.0,
+      "holdout_precision": 1.0,
+      "unclassified_coverage": 1,
+      "coverage_examples": [
+        "tentacle_hair"
+      ]
+    },
+    {
+      "signature_type": "GENERAL_ROOT",
+      "signature_value": "HAIR_FACE",
+      "target_class": "NON_SEXUAL",
+      "pilot_support": 9,
+      "holdout_support": 20,
+      "pilot_precision": 1.0,
+      "holdout_precision": 1.0,
+      "unclassified_coverage": 1,
+      "coverage_examples": [
+        "tentacle_hair"
+      ]
+    },
+    {
+      "signature_type": "GENERAL_ROOT+NO_RISK_LEX",
+      "signature_value": "HAIR_FACE",
+      "target_class": "NON_SEXUAL",
+      "pilot_support": 9,
+      "holdout_support": 20,
+      "pilot_precision": 1.0,
+      "holdout_precision": 1.0,
+      "unclassified_coverage": 1,
+      "coverage_examples": [
+        "tentacle_hair"
+      ]
+    },
+    {
+      "signature_type": "SPECIAL_FAMILY+LEX",
+      "signature_value": "ACTION_INTERACTION|EXPLICIT_SEX",
+      "target_class": "SEXUAL",
+      "pilot_support": 7,
+      "holdout_support": 6,
+      "pilot_precision": 1.0,
+      "holdout_precision": 1.0,
+      "unclassified_coverage": 1,
+      "coverage_examples": [
+        "oyakodon_(sex)"
+      ]
+    }
+  ],
+  "guard": "Candidate rules require 100% precision on pilot and independent holdout with minimum support; still research-only.",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO"
+}

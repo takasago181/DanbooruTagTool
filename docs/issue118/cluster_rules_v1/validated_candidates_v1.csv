@@ -1,0 +1,12 @@
+signature_type,signature_value,target_class,pilot_support,holdout_support,pilot_precision,holdout_precision,unclassified_coverage,coverage_examples
+GENERAL_ROOT,LIVING_NATURE,NON_SEXUAL,19,20,1.0,1.0,9,impaled;impregnation;improvised_gag;octopus_boy;onii-shota;scylla;skeleton;snake_bondage;spider_gag
+GENERAL_PATH,LIVING_NATURE/CREATURE,NON_SEXUAL,15,15,1.0,1.0,9,impaled;impregnation;improvised_gag;octopus_boy;onii-shota;scylla;skeleton;snake_bondage;spider_gag
+GENERAL_ROOT+NO_RISK_LEX,LIVING_NATURE,NON_SEXUAL,19,20,1.0,1.0,6,impaled;impregnation;octopus_boy;onii-shota;scylla;skeleton
+GENERAL_PATH,PLACE_BACKGROUND,NON_SEXUAL,11,20,1.0,1.0,4,glory_wall;nude_beach;tentacle_pit;walk-in
+GENERAL_ROOT,PLACE_BACKGROUND,NON_SEXUAL,11,20,1.0,1.0,4,glory_wall;nude_beach;tentacle_pit;walk-in
+MEMBERSHIP+LEX,OVERLAP|EXPLICIT_SEX,SEXUAL,19,47,1.0,1.0,3,oyakodon_(sex);piledriver_(sex);silicone_chainsaw_(sex_tool)
+GENERAL_ROOT+NO_RISK_LEX,PLACE_BACKGROUND,NON_SEXUAL,11,20,1.0,1.0,3,glory_wall;tentacle_pit;walk-in
+GENERAL_PATH,HAIR_FACE,NON_SEXUAL,9,20,1.0,1.0,1,tentacle_hair
+GENERAL_ROOT,HAIR_FACE,NON_SEXUAL,9,20,1.0,1.0,1,tentacle_hair
+GENERAL_ROOT+NO_RISK_LEX,HAIR_FACE,NON_SEXUAL,9,20,1.0,1.0,1,tentacle_hair
+SPECIAL_FAMILY+LEX,ACTION_INTERACTION|EXPLICIT_SEX,SEXUAL,7,6,1.0,1.0,1,oyakodon_(sex)
