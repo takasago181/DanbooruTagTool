@@ -1,0 +1,46 @@
+name: Issue118 Risk Exclusion Wave3 Audit
+
+on:
+  push:
+    branches:
+      - research/issue118-efficiency-mining
+    paths:
+      - scripts/issue118/audit_risk_exclusion_wave3_existing_reviews.py
+      - .github/workflows/issue118_risk_exclusion_wave3_audit.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout research branch
+        uses: actions/checkout@v4
+      - name: Validate script
+        run: python3 -m py_compile scripts/issue118/audit_risk_exclusion_wave3_existing_reviews.py
+      - name: Audit exact predicate against existing reviews
+        run: python3 scripts/issue118/audit_risk_exclusion_wave3_existing_reviews.py
+      - name: Validate research boundary
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('docs/issue118/risk_exclusion_wave3/existing_review_audit_summary_v1.json')
+          s=json.loads(p.read_text(encoding='utf-8'))
+          assert s['loaded_review_rows']==924
+          assert s['promotion_performed']=='NO' and s['production_authority']=='NO'
+          assert s['main_mutated']=='NO' and s['issue117_code_mutated']=='NO'
+          print('ISSUE118_RISK_EXCLUSION_WAVE3_EXISTING_REVIEW_AUDIT=MATERIALIZED')
+          PY
+      - name: Persist research evidence
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/issue118/risk_exclusion_wave3/existing_review_audit_v1.csv docs/issue118/risk_exclusion_wave3/existing_review_contradictions_v1.csv docs/issue118/risk_exclusion_wave3/existing_review_audit_summary_v1.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Issue #118: materialize wave3 exact-predicate audit'
+            git push origin HEAD:research/issue118-efficiency-mining
+          fi
