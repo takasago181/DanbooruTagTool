@@ -11,12 +11,13 @@ OUT = Path("docs/issue118/remaining_cluster_triage_v8")
 
 # These roots are NOT declared NON_SEXUAL.
 # They are only low-risk candidates for the next adversarial validation stage.
+# PERSON_COUNT is intentionally excluded after v8's first materialization showed
+# mixed concepts such as bisexual_male / blacked_male / male_harem in one cluster.
 LOW_RISK_BULK_ROOTS = {
     "STYLE_QUALITY_META",
     "COLOR_APPEARANCE",
     "EXPRESSION_EMOTION",
     "GAZE_ORIENTATION",
-    "PERSON_COUNT",
     "COMPOSITION_CAMERA",
     "PLACE_BACKGROUND",
     "LIVING_NATURE",
