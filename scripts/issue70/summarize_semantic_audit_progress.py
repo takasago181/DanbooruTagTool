@@ -7,6 +7,11 @@ verdict/proposal combinations. It also emits the remaining translation-note,
 risk-flag, status, impact and exact note×flag signature distributions so the
 next audit batches can be selected from live evidence rather than guessed.
 
+External verification uses dedicated ``external_resolution_*.csv`` overlays.
+Such an overlay may replace an earlier NEEDS_EXTERNAL_CHECK observation for the
+same row_id without erasing the original audit history. Any other divergent
+multi-file decision remains a conflict.
+
 This script is read-only with respect to the production Issue #70 data.
 """
 from __future__ import annotations
@@ -28,6 +33,7 @@ VALID_VERDICTS = {
     "KEEP", "FIX_DISPLAY", "FIX_SEARCH", "FIX_BOTH",
     "NEEDS_EXTERNAL_CHECK", "NEEDS_USER_DECISION",
 }
+EXTERNAL_PREFIX = "external_resolution_"
 
 
 def read_csv(path: Path) -> list[dict[str, str]]:
@@ -106,6 +112,30 @@ def remaining_patterns(rows: list[dict[str, str]]) -> dict[str, object]:
     return by_category
 
 
+def resolve_entries(entries: list[dict[str, str]]) -> tuple[dict[str, str] | None, bool, bool]:
+    """Return (resolved_entry, is_conflict, duplicate_same_decision)."""
+    decisions = {
+        (e["audit_verdict"], e["proposed_display_ja"], e["proposed_search_ja"])
+        for e in entries
+    }
+    if len(decisions) == 1:
+        return entries[-1], False, len(entries) > 1
+
+    overlays = [e for e in entries if e.get("is_external_resolution") == "1"]
+    base = [e for e in entries if e.get("is_external_resolution") != "1"]
+    if overlays:
+        overlay_decisions = {
+            (e["audit_verdict"], e["proposed_display_ja"], e["proposed_search_ja"])
+            for e in overlays
+        }
+        base_verdicts = {e["audit_verdict"] for e in base}
+        # External resolution is allowed only to close a previously explicit
+        # NEEDS_EXTERNAL_CHECK state. Multiple overlays must agree exactly.
+        if len(overlay_decisions) == 1 and base and base_verdicts == {"NEEDS_EXTERNAL_CHECK"}:
+            return overlays[-1], False, len(overlays) > 1
+    return None, True, False
+
+
 def main() -> int:
     ledger = run_census()
     ledger_by_id = {row["row_id"]: row for row in ledger}
@@ -118,6 +148,7 @@ def main() -> int:
     for path in sorted(AUDIT_DIR.glob("*.csv")):
         rows = read_csv(path)
         used = 0
+        is_external_resolution = path.name.startswith(EXTERNAL_PREFIX)
         for row in rows:
             row_id = (row.get("row_id") or "").strip()
             verdict = (row.get("audit_verdict") or "").strip()
@@ -133,6 +164,7 @@ def main() -> int:
                 "proposed_search_ja": (row.get("proposed_search_ja") or "").strip(),
                 "reason_code": (row.get("reason_code") or "").strip(),
                 "confidence": (row.get("confidence") or "").strip(),
+                "is_external_resolution": "1" if is_external_resolution else "0",
             })
             used += 1
         if used:
@@ -142,21 +174,18 @@ def main() -> int:
     conflicts = []
     duplicate_same_decision = 0
     for row_id, entries in observations.items():
-        decisions = {
-            (e["audit_verdict"], e["proposed_display_ja"], e["proposed_search_ja"])
-            for e in entries
-        }
-        if len(decisions) == 1:
-            resolved[row_id] = entries[-1]
-            if len(entries) > 1:
-                duplicate_same_decision += 1
-        else:
+        entry, is_conflict, is_duplicate = resolve_entries(entries)
+        if is_conflict:
             conflicts.append({
                 "row_id": row_id,
                 "canonical_tag": ledger_by_id[row_id]["canonical_tag"],
                 "category": ledger_by_id[row_id]["category_name"],
                 "entries": entries,
             })
+        elif entry is not None:
+            resolved[row_id] = entry
+            if is_duplicate:
+                duplicate_same_decision += 1
 
     audited_ids = set(observations)
     remaining = [row for row in ledger if row["row_id"] not in audited_ids]
@@ -168,7 +197,7 @@ def main() -> int:
     unresolved_user = [rid for rid, e in resolved.items() if e["audit_verdict"] == "NEEDS_USER_DECISION"]
 
     result = {
-        "format_version": 3,
+        "format_version": 4,
         "issue": 70,
         "production_modified": False,
         "initial_ledger_rows": len(ledger),
@@ -186,7 +215,7 @@ def main() -> int:
         "source_files": source_files,
         "ignored_nonledger_rows_by_file": dict(ignored_nonledger),
         "conflicts": conflicts,
-        "next_step": "continue highest-volume safe pattern batches using note-risk signatures, then resolve external/user queues before production correction",
+        "next_step": "resolve NEEDS_EXTERNAL_CHECK via external_resolution overlays, then apply approved corrections only after final audit close",
     }
     OUT.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(result, ensure_ascii=False, indent=2))
