@@ -1,0 +1,47 @@
+name: Issue118 Overlap Action Anatomy Review V43
+
+on:
+  push:
+    branches:
+      - research/issue118-cluster-triage-v8
+    paths:
+      - scripts/issue118/materialize_overlap_action_anatomy_review_v43.py
+      - docs/issue118/research_sidecar_v26.csv
+      - .github/workflows/issue118_overlap_action_anatomy_review_v43.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  overlap-action-anatomy-review-v43:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Materialize v43 review candidate
+        run: |
+          python3 -m py_compile scripts/issue118/materialize_overlap_action_anatomy_review_v43.py
+          python3 scripts/issue118/materialize_overlap_action_anatomy_review_v43.py
+      - name: Validate v43
+        run: |
+          python3 - <<'PY'
+          import json,csv
+          from pathlib import Path
+          rows=list(csv.DictReader(Path('docs/issue118/overlap_action_anatomy_review_v43/full_review_candidate_v43.csv').open(encoding='utf-8')))
+          s=json.loads(Path('docs/issue118/overlap_action_anatomy_review_v43/summary_v43.json').read_text(encoding='utf-8'))
+          assert len(rows)==53
+          assert s['candidate_rows']==53
+          assert s['auto_promotion_performed']=='NO'
+          assert s['production_authority']=='NO'
+          print('ISSUE118_OVERLAP_ACTION_ANATOMY_V43_GATE=PASS')
+          PY
+      - name: Persist research evidence only
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/issue118/overlap_action_anatomy_review_v43/
+          if ! git diff --cached --quiet; then
+            git commit -m 'Issue #118: materialize overlap action anatomy review v43'
+            git push origin HEAD:research/issue118-cluster-triage-v8
+          fi
