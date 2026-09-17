@@ -1,0 +1,29 @@
+{
+  "issue": 118,
+  "mode": "MISC_GENERAL_FULL_REVIEW_CANDIDATES_V25",
+  "target_roots": [
+    "COLOR_APPEARANCE",
+    "COMPOSITION_CAMERA",
+    "EXPRESSION_EMOTION",
+    "GAZE_ORIENTATION",
+    "HAIR_FACE",
+    "LIVING_NATURE",
+    "PLACE_BACKGROUND",
+    "STYLE_QUALITY_META",
+    "TEXT_SYMBOL"
+  ],
+  "candidate_rows": 6,
+  "risk_ejected_rows": 4,
+  "candidate_root_counts": {
+    "EXPRESSION_EMOTION": 2,
+    "STYLE_QUALITY_META": 4
+  },
+  "selection_rules_use": "DISCOVERY_ONLY_NOT_CLASSIFICATION_AUTHORITY",
+  "auto_promotion_performed": "NO",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO",
+  "next_gate": "full manual review of every candidate row; do not bulk promote from root membership alone"
+}
