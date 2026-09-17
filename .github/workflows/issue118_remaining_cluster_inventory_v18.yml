@@ -1,0 +1,52 @@
+name: Issue118 Remaining Cluster Inventory V18
+
+on:
+  push:
+    branches:
+      - research/issue118-cluster-triage-v8
+    paths:
+      - scripts/issue118/materialize_remaining_cluster_inventory_v18.py
+      - docs/issue118/research_sidecar_v7.csv
+      - .github/workflows/issue118_remaining_cluster_inventory_v18.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  materialize-v18:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Materialize remaining cluster inventory v18
+        run: |
+          python3 -m py_compile scripts/issue118/materialize_remaining_cluster_inventory_v18.py
+          python3 scripts/issue118/materialize_remaining_cluster_inventory_v18.py
+      - name: Validate v18
+        run: |
+          python3 - <<'PY'
+          import csv, json
+          from pathlib import Path
+          p = Path('docs/issue118/remaining_cluster_inventory_v18')
+          s = json.loads((p / 'summary_v18.json').read_text(encoding='utf-8'))
+          inv = list(csv.DictReader((p / 'cluster_inventory_v18.csv').open(encoding='utf-8')))
+          assert s['remaining_unclassified_rows'] == 9671
+          assert sum(int(r['rows']) for r in inv) == 9671
+          assert len(inv) == s['cluster_count']
+          assert s['production_authority'] == 'NO'
+          assert s['main_mutated'] == 'NO'
+          assert s['issue117_code_mutated'] == 'NO'
+          assert s['catalog_mutated'] == 'NO'
+          assert s['user_db_mutated'] == 'NO'
+          print('ISSUE118_REMAINING_CLUSTERS_V18_GATE=PASS')
+          PY
+      - name: Persist research evidence only
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/issue118/remaining_cluster_inventory_v18
+          if ! git diff --cached --quiet; then
+            git commit -m 'Issue #118: materialize remaining cluster inventory v18'
+            git push origin HEAD:research/issue118-cluster-triage-v8
+          fi
