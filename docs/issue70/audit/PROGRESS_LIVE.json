@@ -3,25 +3,25 @@
   "issue": 70,
   "production_modified": false,
   "initial_ledger_rows": 18270,
-  "audited_unique_rows": 13119,
-  "resolved_unique_rows": 13119,
+  "audited_unique_rows": 13719,
+  "resolved_unique_rows": 13719,
   "conflicted_unique_rows": 0,
-  "remaining_unaudited_rows": 5151,
+  "remaining_unaudited_rows": 4551,
   "duplicate_same_decision_rows": 0,
   "verdict_counts_resolved": {
     "FIX_BOTH": 69,
-    "FIX_DISPLAY": 4704,
+    "FIX_DISPLAY": 5304,
     "FIX_SEARCH": 241,
     "KEEP": 7726,
     "NEEDS_EXTERNAL_CHECK": 379
   },
   "audited_by_category": {
-    "Character": 10567,
+    "Character": 11167,
     "Copyright": 1526,
     "Artist": 1026
   },
   "remaining_by_category": {
-    "Character": 4361,
+    "Character": 3761,
     "Copyright": 790,
     "Artist": 0
   },
@@ -29,32 +29,32 @@
   "unresolved_user_decision_rows": 0,
   "remaining_patterns": {
     "Character": {
-      "rows": 4361,
+      "rows": 3761,
       "status_counts": {
         "ACCEPTED_AI": 541,
-        "REVIEW_REQUIRED": 3820
+        "REVIEW_REQUIRED": 3220
       },
       "impact_counts": {
-        "REST": 4141,
+        "REST": 3541,
         "TOP_10_PERCENT": 220
       },
       "audit_bucket_counts": {
         "ACCEPTED_CLEAN_SAMPLE": 108,
         "ACCEPTED_RISK": 433,
-        "REVIEW_REQUIRED": 3820
+        "REVIEW_REQUIRED": 3220
       },
       "top_translation_notes": [
         {
-          "value": "parenthetical candidate does not map cleanly to a copyright disambiguator",
-          "count": 934
-        },
-        {
           "value": "variant/form rendering plausible but not independently verified",
-          "count": 865
+          "count": 765
         },
         {
           "value": "要確認",
           "count": 579
+        },
+        {
+          "value": "parenthetical candidate does not map cleanly to a copyright disambiguator",
+          "count": 434
         },
         {
           "value": "Latin-heavy candidate requires verification",
@@ -166,33 +166,32 @@
         }
       ],
       "risk_flag_counts": {
-        "STATUS_REVIEW_REQUIRED": 3820,
-        "DISAMBIGUATOR_NOT_VISIBLE": 1782,
+        "STATUS_REVIEW_REQUIRED": 3220,
+        "DISAMBIGUATOR_NOT_VISIBLE": 1705,
         "JA_DISPLAY_NOT_EXACT_SOURCE_EVIDENCE": 1096,
         "NO_SOURCE_JA_EVIDENCE_OVERLAP": 562,
-        "VARIANT_DISPLAY_MISSING_BASE_IDENTITY": 430,
-        "DUPLICATE_DISPLAY_WITHIN_CATEGORY": 274,
+        "VARIANT_DISPLAY_MISSING_BASE_IDENTITY": 314,
+        "DUPLICATE_DISPLAY_WITHIN_CATEGORY": 253,
         "CHARACTER_NO_COPYRIGHT_CONTEXT": 134,
         "DISPLAY_MISSING_FROM_SEARCH": 40,
-        "RAW_TAG_SYNTAX_IN_DISPLAY": 39,
+        "RAW_TAG_SYNTAX_IN_DISPLAY": 37,
         "ASCII_ONLY_DISPLAY_NON_ARTIST": 26,
-        "DISPLAY_CANONICAL_LIKE": 25,
-        "UNBALANCED_BRACKETS": 1
+        "DISPLAY_CANONICAL_LIKE": 25
       },
       "top_note_risk_signatures": [
-        {
-          "translation_note": "parenthetical candidate does not map cleanly to a copyright disambiguator",
-          "risk_flags": "STATUS_REVIEW_REQUIRED",
-          "translation_status": "REVIEW_REQUIRED",
-          "audit_bucket": "REVIEW_REQUIRED",
-          "count": 745
-        },
         {
           "translation_note": "variant/form rendering plausible but not independently verified",
           "risk_flags": "DISAMBIGUATOR_NOT_VISIBLE|STATUS_REVIEW_REQUIRED",
           "translation_status": "REVIEW_REQUIRED",
           "audit_bucket": "REVIEW_REQUIRED",
-          "count": 655
+          "count": 579
+        },
+        {
+          "translation_note": "parenthetical candidate does not map cleanly to a copyright disambiguator",
+          "risk_flags": "STATUS_REVIEW_REQUIRED",
+          "translation_status": "REVIEW_REQUIRED",
+          "audit_bucket": "REVIEW_REQUIRED",
+          "count": 381
         },
         {
           "translation_note": "short kanji-only candidate is too ambiguous without contextual search evidence",
@@ -223,13 +222,6 @@
           "count": 163
         },
         {
-          "translation_note": "parenthetical candidate does not map cleanly to a copyright disambiguator",
-          "risk_flags": "STATUS_REVIEW_REQUIRED|VARIANT_DISPLAY_MISSING_BASE_IDENTITY",
-          "translation_status": "REVIEW_REQUIRED",
-          "audit_bucket": "REVIEW_REQUIRED",
-          "count": 125
-        },
-        {
           "translation_note": "romanized handle plus generated qualifier",
           "risk_flags": "STATUS_REVIEW_REQUIRED",
           "translation_status": "REVIEW_REQUIRED",
@@ -255,7 +247,7 @@
           "risk_flags": "DISAMBIGUATOR_NOT_VISIBLE|DUPLICATE_DISPLAY_WITHIN_CATEGORY|STATUS_REVIEW_REQUIRED",
           "translation_status": "REVIEW_REQUIRED",
           "audit_bucket": "REVIEW_REQUIRED",
-          "count": 88
+          "count": 87
         },
         {
           "translation_note": "要確認",
@@ -277,13 +269,6 @@
           "translation_status": "REVIEW_REQUIRED",
           "audit_bucket": "REVIEW_REQUIRED",
           "count": 65
-        },
-        {
-          "translation_note": "variant/form rendering plausible but not independently verified",
-          "risk_flags": "STATUS_REVIEW_REQUIRED",
-          "translation_status": "REVIEW_REQUIRED",
-          "audit_bucket": "REVIEW_REQUIRED",
-          "count": 62
         },
         {
           "translation_note": "variant/form rendering plausible but not independently verified",
@@ -314,18 +299,18 @@
           "count": 42
         },
         {
+          "translation_note": "variant/form rendering plausible but not independently verified",
+          "risk_flags": "STATUS_REVIEW_REQUIRED",
+          "translation_status": "REVIEW_REQUIRED",
+          "audit_bucket": "REVIEW_REQUIRED",
+          "count": 41
+        },
+        {
           "translation_note": "<blank>",
           "risk_flags": "<none>",
           "translation_status": "ACCEPTED_AI",
           "audit_bucket": "ACCEPTED_CLEAN_SAMPLE",
           "count": 40
-        },
-        {
-          "translation_note": "parenthetical candidate does not map cleanly to a copyright disambiguator",
-          "risk_flags": "DUPLICATE_DISPLAY_WITHIN_CATEGORY|STATUS_REVIEW_REQUIRED",
-          "translation_status": "REVIEW_REQUIRED",
-          "audit_bucket": "REVIEW_REQUIRED",
-          "count": 34
         },
         {
           "translation_note": "日本語表示名・表記の確定に追加確認が必要",
@@ -398,6 +383,13 @@
           "count": 15
         },
         {
+          "translation_note": "parenthetical candidate does not map cleanly to a copyright disambiguator",
+          "risk_flags": "DUPLICATE_DISPLAY_WITHIN_CATEGORY|STATUS_REVIEW_REQUIRED",
+          "translation_status": "REVIEW_REQUIRED",
+          "audit_bucket": "REVIEW_REQUIRED",
+          "count": 15
+        },
+        {
           "translation_note": "malformed or low-confidence Japanese evidence requires manual verification",
           "risk_flags": "STATUS_REVIEW_REQUIRED",
           "translation_status": "REVIEW_REQUIRED",
@@ -442,6 +434,13 @@
         {
           "translation_note": "要確認",
           "risk_flags": "DISAMBIGUATOR_NOT_VISIBLE|STATUS_REVIEW_REQUIRED|VARIANT_DISPLAY_MISSING_BASE_IDENTITY",
+          "translation_status": "REVIEW_REQUIRED",
+          "audit_bucket": "REVIEW_REQUIRED",
+          "count": 10
+        },
+        {
+          "translation_note": "parenthetical candidate does not map cleanly to a copyright disambiguator",
+          "risk_flags": "STATUS_REVIEW_REQUIRED|VARIANT_DISPLAY_MISSING_BASE_IDENTITY",
           "translation_status": "REVIEW_REQUIRED",
           "audit_bucket": "REVIEW_REQUIRED",
           "count": 10
@@ -1107,6 +1106,10 @@
     {
       "file": "artist_initial_audit_batch008.csv",
       "ledger_rows": 1026
+    },
+    {
+      "file": "character_canonical_variant_fallback_batch028.csv",
+      "ledger_rows": 600
     },
     {
       "file": "character_context_disambiguation_batch013.csv",
