@@ -12,6 +12,7 @@ PILOT=Path('docs/issue118/reviews')
 HOLDOUT=Path('docs/issue118/holdout/reviews')
 OUT=Path('docs/issue118/general_subpath_candidates_v1')
 VALID={'SEXUAL','NON_SEXUAL','CONTEXTUAL'}
+SAFE_ROOTS={'COMPOSITION_CAMERA','HAIR_FACE','LIGHT_TIME_WEATHER','LIVING_NATURE','PLACE_BACKGROUND','TEXT_SYMBOL'}
 
 
 def read_csv(path):
@@ -42,11 +43,17 @@ def main():
 
     accepted=[]
     for path,by in ev.items():
-        p=by['PILOT']; h=by['HOLDOUT']; total=p+h
-        if sum(p.values())<4 or sum(h.values())<4: continue
-        if set(k for k,v in total.items() if v)!={'NON_SEXUAL'}: continue
-        accepted.append({'primary_path':path,'pilot_support':sum(p.values()),'holdout_support':sum(h.values()),'total_support':sum(total.values())})
-    accepted.sort(key=lambda r:(-r['total_support'],r['primary_path']))
+        p=by['PILOT']; h=by['HOLDOUT']
+        ps=sum(p.values()); hs=sum(h.values())
+        if ps<4: continue
+        if set(k for k,v in p.items() if v)!={'NON_SEXUAL'}: continue
+        # Existing holdout may be sparse, but any contradiction vetoes the path.
+        if any(h.get(c,0) for c in ('SEXUAL','CONTEXTUAL')): continue
+        root=path.split('/',1)[0]
+        # Already-covered safe roots do not add useful coverage.
+        if root in SAFE_ROOTS: continue
+        accepted.append({'primary_path':path,'pilot_support':ps,'holdout_support':hs,'training_nonsexual_support':ps+hs})
+    accepted.sort(key=lambda r:(-r['training_nonsexual_support'],r['primary_path']))
 
     candidates=[]
     bypath=defaultdict(list)
@@ -62,8 +69,12 @@ def main():
     validation=[]
     for path in sorted(bypath):
         rows=sorted(bypath[path],key=lambda r:r['identity_key'])
-        # up to 10 spread samples: first 5 + last 5.
-        sample=rows if len(rows)<=10 else rows[:5]+rows[-5:]
+        # Fresh holdout: 10 deterministic spread examples from previously unclassified rows.
+        if len(rows)<=10:
+            sample=rows
+        else:
+            idxs=sorted({0,1,2,3,4,len(rows)//2,max(0,len(rows)-4),max(0,len(rows)-3),max(0,len(rows)-2),len(rows)-1})
+            sample=[rows[i] for i in idxs]
         for r in sample:
             validation.append({**r,'path_candidate_rows':str(len(rows)),'reviewed_class':'','review_status_check':'','review_note':''})
 
@@ -75,10 +86,10 @@ def main():
     write(OUT/'accepted_training_paths.csv',accepted)
     write(OUT/'candidate_rows.csv',candidates)
     write(OUT/'validation_sample_v1.csv',validation)
-    summary={'issue':118,'mode':'GENERAL_SUBPATH_CANDIDATE_V1','accepted_training_paths':len(accepted),
+    summary={'issue':118,'mode':'GENERAL_SUBPATH_CANDIDATE_V2_FRESH_HOLDOUT','accepted_training_paths':len(accepted),
              'candidate_rows':len(candidates),'validation_rows':len(validation),
              'candidate_rows_by_path':{k:len(v) for k,v in sorted(bypath.items())},
-             'safety':'candidate only; no production or sidecar promotion until new validation review',
+             'safety':'pilot-pure candidate only; any prior contradiction vetoes; fresh unclassified holdout required before promotion',
              'production_promotion_performed':'NO'}
     (OUT/'summary_v1.json').write_text(json.dumps(summary,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     print(json.dumps(summary,ensure_ascii=False,sort_keys=True))
