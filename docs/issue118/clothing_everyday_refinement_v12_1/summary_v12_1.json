@@ -1,0 +1,28 @@
+{
+  "issue": 118,
+  "mode": "CLOTHING_EVERYDAY_REFINEMENT_V12_1_SEPARATOR_AWARE",
+  "source_cluster": "GENERAL_ONLY|CLOTHING/EVERYDAY|NONE",
+  "source_rows": 3298,
+  "boundary_rows": 594,
+  "clean_candidate_rows": 2704,
+  "fresh_holdout_template_rows": 120,
+  "separator_pattern_counts": {
+    "fetish_material": 1,
+    "garter_compound": 17,
+    "intimate_compound": 14,
+    "see_through": 43,
+    "swim_suit": 86,
+    "tube_top": 16
+  },
+  "supersedes_for_promotion_gate": "clothing_everyday_refinement_v12",
+  "boundary_rules_use": "DISCOVERY_ONLY_NOT_CLASSIFICATION_AUTHORITY",
+  "holdout_verdicts_generated": "NO",
+  "semantic_authority": "NO",
+  "auto_promotion_performed": "NO",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO",
+  "next_gate": "independently review fixed v12.1 120-row holdout; refine again on any counterexample before research promotion"
+}
