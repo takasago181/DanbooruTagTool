@@ -1,0 +1,34 @@
+{
+  "issue": 118,
+  "mode": "RESEARCH_SIDECAR_V13_PATHLESS_V23_BOUNDARY_FULL_REVIEW",
+  "identity_rows": 31752,
+  "source_base": "docs/issue118/research_sidecar_v12.csv",
+  "new_promotions": {
+    "CONTEXTUAL": 2,
+    "NON_SEXUAL": 9,
+    "SEXUAL": 1
+  },
+  "new_total_promotions": 12,
+  "kept_unclassified": 2,
+  "review_status_counts": {
+    "AUTO_HIGH_CONF": 22371,
+    "HUMAN_REVIEWED": 1567,
+    "UNCLASSIFIED": 7814
+  },
+  "sexual_intent_counts": {
+    "CONTEXTUAL": 240,
+    "NON_SEXUAL": 22842,
+    "NULL": 7814,
+    "SEXUAL": 856
+  },
+  "remaining_unclassified": 7814,
+  "review_source": "docs/issue118/pathless_low_risk_v23/boundary_review_policy_v23.json",
+  "review_sha256": "e856f14ae670db71337273420b931495cf1ede066c4e8cb1772b3578aa17ee4c",
+  "review_verdicts_generated_by_materializer": "NO",
+  "review_artifacts_are_external_inputs": "YES",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO"
+}
