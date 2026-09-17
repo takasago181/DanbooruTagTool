@@ -1,0 +1,17 @@
+{
+  "issue": 118,
+  "mode": "INDEPENDENT_POSE_HOLDOUT_REVIEW_V14_2",
+  "source": "docs/issue118/pose_movement_refinement_v14_2/fresh_holdout_template_v14_2.csv",
+  "reviewed_rows": 120,
+  "decision_counts": {
+    "NON_SEXUAL": 120,
+    "CONTEXTUAL": 0,
+    "SEXUAL": 0
+  },
+  "gate": "PASS_FOR_RESEARCH_PROMOTION",
+  "note": "Fresh holdout found no sexual-intent counterexamples after v14/v14.1/v14.2 boundary refinements.",
+  "review_verdicts_generated_by_materializer": "NO",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO"
+}
