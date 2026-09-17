@@ -1,0 +1,24 @@
+{
+  "issue": 118,
+  "mode": "CLOTHING_REFINEMENT_V12_7_SEXUALIZED_FASHION_BOUNDARY",
+  "source_clean_rows_v12_6": 2608,
+  "new_boundary_rows": 8,
+  "clean_candidate_rows_v12_7": 2600,
+  "fresh_holdout_template_rows": 120,
+  "required_counterexamples_captured": [
+    "dongtan_dress",
+    "microdress",
+    "pantsing",
+    "tight_bottoms",
+    "tight_clothes"
+  ],
+  "boundary_rules_use": "DISCOVERY_ONLY_NOT_CLASSIFICATION_AUTHORITY",
+  "holdout_verdicts_generated": "NO",
+  "auto_promotion_performed": "NO",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO",
+  "next_gate": "independently review new fixed 120-row holdout before any research-sidecar promotion"
+}
