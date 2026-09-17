@@ -1,0 +1,31 @@
+{
+  "issue": 118,
+  "mode": "ACTION_INTERACTION_REFINEMENT_V16_5_FINAL_FAMILY_SPLIT",
+  "source_ordinary_rows_v16_4": 1624,
+  "new_boundary_rows": 7,
+  "moved_intimate_rows": 6,
+  "ordinary_clean_rows_v16_5": 1611,
+  "fresh_holdout_template_rows": 120,
+  "required_boundary_counterexamples_captured": [
+    "babydoll_lift",
+    "licking_tip",
+    "mating_season",
+    "riding_person",
+    "strip_mahjong",
+    "towel_tug"
+  ],
+  "required_intimate_moves_captured": [
+    "hand_on_another's_hip",
+    "hand_on_another's_stomach",
+    "hand_on_another's_waist"
+  ],
+  "rules_use": "DISCOVERY_ONLY_NOT_CLASSIFICATION_AUTHORITY",
+  "holdout_verdicts_generated": "NO",
+  "auto_promotion_performed": "NO",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO",
+  "next_gate": "independently review new fixed 120-row ordinary holdout before any research-sidecar promotion"
+}
