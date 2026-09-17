@@ -1,0 +1,60 @@
+name: Issue118 Action Interaction Refinement V16.10
+
+on:
+  push:
+    branches:
+      - research/issue118-cluster-triage-v8
+    paths:
+      - scripts/issue118/materialize_action_interaction_refinement_v16_10.py
+      - docs/issue118/action_interaction_refinement_v16_9/ordinary_clean_v16_9.csv
+      - .github/workflows/issue118_action_interaction_refinement_v16_10.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  materialize-v16-10:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Materialize action convergence sweep v16.10
+        run: |
+          python3 -m py_compile scripts/issue118/materialize_action_interaction_refinement_v16_10.py
+          python3 scripts/issue118/materialize_action_interaction_refinement_v16_10.py
+      - name: Validate v16.10
+        run: |
+          python3 - <<'PY'
+          import csv, json
+          from pathlib import Path
+          p = Path('docs/issue118/action_interaction_refinement_v16_10')
+          s = json.loads((p / 'summary_v16_10.json').read_text(encoding='utf-8'))
+          b = list(csv.DictReader((p / 'boundary_review_v16_10.csv').open(encoding='utf-8')))
+          c = list(csv.DictReader((p / 'ordinary_clean_v16_10.csv').open(encoding='utf-8')))
+          h = list(csv.DictReader((p / 'ordinary_fresh_holdout_template_v16_10.csv').open(encoding='utf-8')))
+          assert s['source_ordinary_rows_v16_9'] == 1570
+          assert len(b) == s['conservative_boundary_rows']
+          assert len(c) == s['ordinary_clean_rows_v16_10']
+          assert len(b) + len(c) == 1570
+          assert set(s['required_counterexamples_captured']) <= {r['identity_key'] for r in b}
+          assert len(h) == 120
+          assert all(not r['human_intent'] for r in h)
+          assert s['holdout_verdicts_generated'] == 'NO'
+          assert s['auto_promotion_performed'] == 'NO'
+          assert s['production_authority'] == 'NO'
+          assert s['main_mutated'] == 'NO'
+          assert s['issue117_code_mutated'] == 'NO'
+          assert s['catalog_mutated'] == 'NO'
+          assert s['user_db_mutated'] == 'NO'
+          print('ISSUE118_ACTION_INTERACTION_V16_10_GATE=PASS')
+          PY
+      - name: Persist research evidence only
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/issue118/action_interaction_refinement_v16_10
+          if ! git diff --cached --quiet; then
+            git commit -m 'Issue #118: materialize action convergence sweep v16.10'
+            git push origin HEAD:research/issue118-cluster-triage-v8
+          fi
