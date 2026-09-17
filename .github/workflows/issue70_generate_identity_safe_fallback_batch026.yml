@@ -1,0 +1,68 @@
+name: Issue70 Generate Identity-safe Fallback Batch 026
+
+on:
+  push:
+    branches:
+      - audit/issue70-semantic-final
+    paths:
+      - scripts/issue70/generate_identity_safe_canonical_fallback_keep_batch026.py
+      - .github/workflows/issue70_generate_identity_safe_fallback_batch026.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: issue70-fallback-batch026
+  cancel-in-progress: false
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: audit/issue70-semantic-final
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python scripts/issue70/generate_identity_safe_canonical_fallback_keep_batch026.py
+      - name: Validate proposal-only output
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s docs/issue70/audit/identity_safe_canonical_fallback_keep_batch026.csv
+          python - <<'PY'
+          import csv
+          from pathlib import Path
+          with Path('docs/issue70/audit/identity_safe_canonical_fallback_keep_batch026.csv').open(encoding='utf-8-sig',newline='') as f: rows=list(csv.DictReader(f))
+          assert len(rows)>=1
+          assert all(r['audit_verdict']=='KEEP' for r in rows)
+          assert all(r['display_ja']==r['canonical_tag'].replace('_',' ').strip() for r in rows)
+          print({'rows':len(rows),'Character':sum(r['category_name']=='Character' for r in rows),'Copyright':sum(r['category_name']=='Copyright' for r in rows)})
+          PY
+          git diff --exit-code -- docs/issue70/data/runtime docs/issue70/data/source
+      - name: Refresh exact progress summary
+        run: python scripts/issue70/summarize_semantic_audit_progress.py
+      - name: Validate progress summary
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path('docs/issue70/audit/PROGRESS_LIVE.json').read_text(encoding='utf-8'))
+          assert d['production_modified'] is False
+          assert d['audited_unique_rows']+d['remaining_unaudited_rows']==d['initial_ledger_rows']
+          assert d['conflicted_unique_rows']==0
+          print({k:d[k] for k in ['audited_unique_rows','remaining_unaudited_rows','remaining_by_category','verdict_counts_resolved']})
+          PY
+          git diff --exit-code -- docs/issue70/data/runtime docs/issue70/data/source
+      - name: Commit audit batch and progress only
+        shell: bash
+        run: |
+          set -euo pipefail
+          git add docs/issue70/audit/identity_safe_canonical_fallback_keep_batch026.csv docs/issue70/audit/PROGRESS_LIVE.json
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Issue70: persist identity-safe fallback batch 026 and progress'
+          git push origin HEAD:audit/issue70-semantic-final
