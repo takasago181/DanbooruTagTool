@@ -22,8 +22,15 @@ SAFE_GENERAL_ROOTS = {
     "TEXT_SYMBOL",
 }
 
-EXPLICIT_SPECIAL_PATTERNS = [
+EXPLICIT_SPECIAL_PATTERNS_V1 = [
     re.compile(r"(^|_)(handjob|blowjob|fellatio|paizuri|irrumatio|cum|cumshot|ejaculation|orgasm|masturbation|vibrator|dildo|buttjob|threesome|zoophilia|prostitution|penetration|condom)($|_)"),
+    re.compile(r"(^|_)sex($|_)"),
+]
+
+# V2 deliberately removes generic condom-token promotion because the pilot found
+# condom_thigh_strap to be CONTEXTUAL rather than SEXUAL.
+EXPLICIT_SPECIAL_PATTERNS_V2 = [
+    re.compile(r"(^|_)(handjob|blowjob|fellatio|paizuri|irrumatio|cum|cumshot|ejaculation|orgasm|masturbation|vibrator|dildo|buttjob|threesome|zoophilia|prostitution|penetration)($|_)"),
     re.compile(r"(^|_)sex($|_)"),
 ]
 
@@ -99,7 +106,16 @@ def main() -> int:
         "SEXUAL",
         lambda r: (
             r["is_special"] == "YES"
-            and any(p.search(r["identity_key"]) for p in EXPLICIT_SPECIAL_PATTERNS)
+            and any(p.search(r["identity_key"]) for p in EXPLICIT_SPECIAL_PATTERNS_V1)
+        ),
+    ))
+    rules.append(evaluate(
+        rows,
+        "AUTO_SEXUAL_EXPLICIT_SPECIAL_LEXEMES_V2",
+        "SEXUAL",
+        lambda r: (
+            r["is_special"] == "YES"
+            and any(p.search(r["identity_key"]) for p in EXPLICIT_SPECIAL_PATTERNS_V2)
         ),
     ))
 
