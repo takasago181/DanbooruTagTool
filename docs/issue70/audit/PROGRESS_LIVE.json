@@ -3,25 +3,25 @@
   "issue": 70,
   "production_modified": false,
   "initial_ledger_rows": 18270,
-  "audited_unique_rows": 10097,
-  "resolved_unique_rows": 10097,
+  "audited_unique_rows": 10195,
+  "resolved_unique_rows": 10195,
   "conflicted_unique_rows": 0,
-  "remaining_unaudited_rows": 8173,
+  "remaining_unaudited_rows": 8075,
   "duplicate_same_decision_rows": 0,
   "verdict_counts_resolved": {
     "FIX_BOTH": 69,
     "FIX_DISPLAY": 2060,
     "FIX_SEARCH": 241,
-    "KEEP": 7348,
+    "KEEP": 7446,
     "NEEDS_EXTERNAL_CHECK": 379
   },
   "audited_by_category": {
-    "Character": 7555,
+    "Character": 7653,
     "Copyright": 1516,
     "Artist": 1026
   },
   "remaining_by_category": {
-    "Character": 7373,
+    "Character": 7275,
     "Copyright": 800,
     "Artist": 0
   },
@@ -29,18 +29,18 @@
   "unresolved_user_decision_rows": 0,
   "remaining_patterns": {
     "Character": {
-      "rows": 7373,
+      "rows": 7275,
       "status_counts": {
-        "ACCEPTED_AI": 1662,
+        "ACCEPTED_AI": 1564,
         "REVIEW_REQUIRED": 5711
       },
       "impact_counts": {
-        "REST": 7008,
+        "REST": 6910,
         "TOP_10_PERCENT": 338,
         "TOP_1_PERCENT": 27
       },
       "audit_bucket_counts": {
-        "ACCEPTED_CLEAN_SAMPLE": 208,
+        "ACCEPTED_CLEAN_SAMPLE": 110,
         "ACCEPTED_RISK": 1454,
         "REVIEW_REQUIRED": 5711
       },
@@ -62,12 +62,12 @@
           "count": 865
         },
         {
-          "value": "single Japanese candidate with no conflicting evidence",
-          "count": 731
-        },
-        {
           "value": "<blank>",
           "count": 653
+        },
+        {
+          "value": "single Japanese candidate with no conflicting evidence",
+          "count": 633
         },
         {
           "value": "要確認",
@@ -283,6 +283,10 @@
     {
       "file": "character_no_trusted_ja_batch010.csv",
       "ledger_rows": 4987
+    },
+    {
+      "file": "character_single_candidate_keep_batch019.csv",
+      "ledger_rows": 98
     },
     {
       "file": "character_unreliable_candidate_fallback_batch011.csv",
