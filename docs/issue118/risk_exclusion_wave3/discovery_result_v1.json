@@ -1,0 +1,19 @@
+{
+  "issue": 118,
+  "mode": "RISK_EXCLUSION_WAVE3_DISCOVERY_REVIEW",
+  "reviewed_rows": 36,
+  "class_counts": {
+    "NON_SEXUAL": 36,
+    "SEXUAL": 0,
+    "CONTEXTUAL": 0,
+    "UNCLASSIFIED": 0
+  },
+  "counterexamples": [],
+  "risk_rule_changed_after_discovery": "NO",
+  "decision": "FREEZE_RULE_AND_GENERATE_FRESH_HOLDOUT",
+  "holdout_reviewed": "NO",
+  "promotion_performed": "NO",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO"
+}
