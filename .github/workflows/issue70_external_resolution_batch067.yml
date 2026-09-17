@@ -1,0 +1,72 @@
+name: Issue70 External Resolution Batch 067
+
+on:
+  push:
+    branches:
+      - audit/issue70-semantic-final
+    paths:
+      - docs/issue70/audit/external_resolution_high_impact_batch067.csv
+      - scripts/issue70/summarize_semantic_audit_progress.py
+      - .github/workflows/issue70_external_resolution_batch067.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: issue70-external-resolution-batch067
+  cancel-in-progress: false
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: audit/issue70-semantic-final
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate external-resolution CSV
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import csv
+          from pathlib import Path
+          p=Path('docs/issue70/audit/external_resolution_high_impact_batch067.csv')
+          with p.open(encoding='utf-8-sig', newline='') as f: rows=list(csv.DictReader(f))
+          assert len(rows)==7
+          assert all(r['prior_audit_verdict']=='NEEDS_EXTERNAL_CHECK' for r in rows)
+          assert all(r['confidence']=='HIGH' for r in rows)
+          assert all((r['evidence_refs'] or '').startswith('http') for r in rows)
+          assert {r['audit_verdict'] for r in rows} <= {'KEEP','FIX_SEARCH','FIX_DISPLAY','FIX_BOTH'}
+          print({'rows':len(rows),'verdicts':{v:sum(r['audit_verdict']==v for r in rows) for v in sorted({r['audit_verdict'] for r in rows})}})
+          PY
+          git diff --exit-code -- docs/issue70/data/runtime docs/issue70/data/source
+      - name: Refresh exact progress summary
+        run: python scripts/issue70/summarize_semantic_audit_progress.py
+      - name: Validate overlay resolution
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path('docs/issue70/audit/PROGRESS_LIVE.json').read_text(encoding='utf-8'))
+          assert d['format_version'] == 4
+          assert d['production_modified'] is False
+          assert d['remaining_unaudited_rows'] == 0
+          assert d['conflicted_unique_rows'] == 0
+          assert d['unresolved_external_check_rows'] <= 1475
+          print({k:d[k] for k in ['resolved_unique_rows','conflicted_unique_rows','unresolved_external_check_rows','verdict_counts_resolved']})
+          PY
+          git diff --exit-code -- docs/issue70/data/runtime docs/issue70/data/source
+      - name: Commit refreshed progress only
+        shell: bash
+        run: |
+          set -euo pipefail
+          git add docs/issue70/audit/PROGRESS_LIVE.json
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Issue70: refresh progress after external resolution batch 067'
+          git push origin HEAD:audit/issue70-semantic-final
