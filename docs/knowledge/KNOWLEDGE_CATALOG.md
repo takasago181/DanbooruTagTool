@@ -2,7 +2,7 @@
 
 Owner: Issue #44 `KNOWLEDGE:#44`
 
-Status: `TOPIC_CATALOG_V4 / CLAIM_REGISTRY_LINKED / PROMPT_MERGED`
+Status: `TOPIC_CATALOG_V5 / CLAIM_REGISTRY_LINKED / PROMPT_MERGED / NOOB_FIRST_CURRENT`
 
 このファイルは、知識班が蓄積した知識を**ジャンルから引く人間向け入口**である。
 
@@ -22,6 +22,21 @@ KNOWLEDGEは以下を一体で保持する:
 - 将来/高度向けのPrompt composition / support / model behavior / failure diagnosis / evaluator / image-dependent evidence
 
 ただし知識の存在はproduct/runtime採用を自動決定しない。
+
+## 2026-09-17 organization update
+
+成人・relation-heavy生成知識を棚卸しし、以下5レイヤーを明示的に分離した。
+
+1. canonical semantic identity
+2. human scene-construction order
+3. browse/discovery entry path
+4. model-specific Prompt serialization
+5. generation diagnosis/evaluation
+
+scene-planning synthesis:
+`research/BATCH_N_SCENE_INTENT_DISCOVERY_WORKFLOW_20260917.md`
+
+この整理は既存 `K-PROMPT-* / K-BIND-* / K-HARD-* / K-MODEL-*` のprojectionであり、新しいuniversal Prompt grammarではない。
 
 ## 最短復元順
 
@@ -60,9 +75,9 @@ v1 core:
 | 02 | Prompt・Support・構成 | `catalog/02_PROMPT_SUPPORT_AND_COMPOSITION.md` | 最小十分Prompt、support、anti-support、複合構成 |
 | 03 | 失敗診断・テスト・評価 | `catalog/03_FAILURE_TESTING_AND_EVALUATION.md` | binding、seed、E0-E3、WD/Kagami/CL、TIE/UNCLEAR |
 | 04 | ツール・後処理・LoRA | `catalog/04_TOOLS_POSTPROCESS_AND_LORA.md` | Forge/Hires/ADetailer/img2img/Control/regional/LoRA |
-| 05 | 特殊・ハード系成人生成 | `catalog/05_HARD_NICHE_ADULT_GENERATION.md` | body-site、BDSM、機械、触手、体液、rare/extreme |
+| 05 | 特殊・ハード系成人生成 | `catalog/05_HARD_NICHE_ADULT_GENERATION.md` | scene planning、body-site、BDSM、機械、触手、体液、rare/extreme |
 | 06 | 意味・Alias・Trigger | `catalog/06_SEMANTICS_ALIAS_TRIGGER.md` | Danbooru canonical、Alias、implication、e621/Gelbooru、trigger drift |
-| 07 | WAI17ローカル実証 | `catalog/07_WAI17_LOCAL_TEST_PROFILE.md` | 現在環境、固定baseline、最初のテスト順 |
+| 07 | WAI17ローカル実証 | `catalog/07_WAI17_LOCAL_TEST_PROFILE.md` | historical/comparison local baseline、固定test profile |
 | 08 | 情報源・サイト監査 | `catalog/08_SOURCE_AND_SITE_AUDITS.md` | source hierarchy、AIArtRecipe、としあきWiki、HF、Danbooru/e621 |
 | 09 | HOLD・未解決 | `catalog/09_OPEN_QUESTIONS_AND_HOLD.md` | 人間向けHOLD説明。current registerへ誘導 |
 | 10 | 全ファイル地図 | `catalog/10_FILE_MAP.md` | root/research/current管理ファイルの対応 |
@@ -75,6 +90,7 @@ v1 core:
 
 - **model family/version/profileは主張の一部。** 別モデルへ自動一般化しない。
 - **canonical意味、Alias、implication、UI日本語、model trigger、generation supportは別レイヤー。**
+- **human planning order、browse entry、model Prompt serializationは別。**
 - **presence != relation success.**
 - **minimum sufficient != shortest.**
 - **supportはanti-supportになり得る。**
@@ -87,17 +103,30 @@ v1 core:
 
 個々の原則の現在状態・scope・source class・validationは `current/CLAIM_REGISTRY.csv` を参照する。
 
-## 現在の実証優先
+## 現在の実践・実証優先
 
-画像依存の検証が本当に必要な場合の第一候補は **WAI Illustrious v17 + Forge Neo**。
+2026-09-13以降の current Stage10 / practical-generation priority:
+
+1. **NoobAI XL 1.1 EPS + Forge Neo** — primary practical / learning lane
+2. **Anima official Base/Aesthetic/Turbo family** — relation-heavy / multi-character / tag+NL comparison/fallback
+3. NoobAI V-Pred — separate advanced profile
+4. WAI Illustrious v17 — historical/comparison/local-evidence lane
+
 これはv1 completion requirementではない。
 
-読む順:
+実践生成を読む順:
 1. `current/CURRENT_QUICK_REFERENCE.md`
-2. `current/CLAIM_REGISTRY.csv` の該当Claim
-3. 関連 `catalog/*.md`
-4. 未確定は `current/HOLD_CONFLICT_REGISTER.md`
-5. 根拠が必要な時だけ `research/*`
+2. `current/PRACTICAL_GENERATION_NOOB_ANIMA.md`
+3. `current/CLAIM_REGISTRY.csv` の該当Claim
+4. `current/VERSION_FRESHNESS_LEDGER.csv`
+5. 未確定は `current/HOLD_CONFLICT_REGISTER.md`
+6. 根拠が必要な時だけ `research/*`
+
+成人scene planning / browse設計質問では:
+1. `catalog/05_HARD_NICHE_ADULT_GENERATION.md`
+2. `research/BATCH_N_SCENE_INTENT_DISCOVERY_WORKFLOW_20260917.md`
+3. `current/CLAIM_REGISTRY.csv`
+4. product採用が絡む場合はmainのcurrent Issue/PRODUCT_GOALを再確認
 
 ## 6層構造
 
