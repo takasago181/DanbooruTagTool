@@ -1,0 +1,26 @@
+{
+  "issue": 118,
+  "mode": "ACTION_INTERACTION_REFINEMENT_V16_8_BODY_DISPLAY_PLAY_SPLIT",
+  "source_ordinary_rows_v16_7": 1590,
+  "new_boundary_rows": 7,
+  "ordinary_clean_rows_v16_8": 1583,
+  "fresh_holdout_template_rows": 120,
+  "required_counterexamples_captured": [
+    "adjusting_buruma",
+    "bulge_lift",
+    "bulge_press",
+    "face_in_ass",
+    "finger_in_navel",
+    "lotion_play",
+    "twerking"
+  ],
+  "rules_use": "DISCOVERY_ONLY_NOT_CLASSIFICATION_AUTHORITY",
+  "holdout_verdicts_generated": "NO",
+  "auto_promotion_performed": "NO",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO",
+  "next_gate": "independently review new fixed 120-row ordinary holdout before any research-sidecar promotion"
+}
