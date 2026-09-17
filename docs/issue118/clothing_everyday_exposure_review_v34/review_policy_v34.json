@@ -1,0 +1,28 @@
+{
+  "issue": 118,
+  "mode": "CLOTHING_EVERYDAY_EXPOSURE_FULL_REVIEW_V34",
+  "source": "docs/issue118/clothing_everyday_exposure_review_v34/full_review_candidate_v34.csv",
+  "source_rows": 180,
+  "decision_counts": {
+    "SEXUAL": 8,
+    "CONTEXTUAL": 172,
+    "NON_SEXUAL": 0
+  },
+  "sexual": [
+    "nude_guy_wrapped_in_ribbons_standing_(meme)",
+    "object_in_bra",
+    "object_in_panties",
+    "panty_bulge",
+    "panty_spread",
+    "ribbon_as_bra",
+    "wet_bra",
+    "wet_panties"
+  ],
+  "contextual_rule": "all other identities in the fixed 180-row source",
+  "review_method": "full manual review of all 180 rows; generic bras, panties, underwear and lingerie are CONTEXTUAL because they have genuine general and sexual-image uses; explicit sexualized states listed above are SEXUAL",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO"
+}
