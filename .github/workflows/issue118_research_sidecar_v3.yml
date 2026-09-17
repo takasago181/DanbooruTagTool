@@ -1,0 +1,66 @@
+name: Issue118 Research Sidecar V3
+
+on:
+  push:
+    branches:
+      - research/issue118-efficiency-mining
+    paths:
+      - scripts/issue118/materialize_research_sidecar_v3.py
+      - .github/workflows/issue118_research_sidecar_v3.yml
+      - docs/issue118/risk_exclusion_wave3/fresh_holdout_result_v2.json
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  materialize-v3:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout research branch
+        uses: actions/checkout@v4
+      - name: Validate script
+        run: python3 -m py_compile scripts/issue118/materialize_research_sidecar_v3.py
+      - name: Materialize validated research sidecar v3
+        run: python3 scripts/issue118/materialize_research_sidecar_v3.py
+      - name: Validate output and production boundary
+        run: |
+          python3 - <<'PY'
+          import csv, json
+          from pathlib import Path
+          p=Path('docs/issue118')
+          s=json.loads((p/'research_sidecar_summary_v3.json').read_text(encoding='utf-8'))
+          rows=list(csv.DictReader((p/'research_sidecar_v3.csv').open(encoding='utf-8')))
+          assert len(rows)==31752 and s['identity_rows']==31752
+          assert s['new_wave3_candidates']==5845
+          assert s['new_wave3_human_reviewed']==108
+          assert s['new_wave3_auto_high_conf']==5737
+          assert s['remaining_unclassified']==18303
+          assert s['review_status_counts']=={
+              'AUTO_HIGH_CONF':12417,
+              'HUMAN_REVIEWED':1032,
+              'UNCLASSIFIED':18303,
+          }
+          assert s['sexual_intent_counts']=={
+              'CONTEXTUAL':189,
+              'NON_SEXUAL':12626,
+              'NULL':18303,
+              'SEXUAL':634,
+          }
+          assert s['validation']['existing_exact_predicate_contradictions']==0
+          assert s['validation']['final_holdout_prior_sample_overlap']==0
+          assert s['production_authority']=='NO'
+          assert s['main_mutated']=='NO' and s['issue117_code_mutated']=='NO'
+          assert s['catalog_mutated']=='NO' and s['user_db_mutated']=='NO'
+          print('ISSUE118_RESEARCH_SIDECAR_V3=PASS')
+          PY
+      - name: Persist research sidecar v3
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/issue118/research_sidecar_v3.csv docs/issue118/research_sidecar_summary_v3.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Issue #118: materialize validated research sidecar v3'
+            git push origin HEAD:research/issue118-efficiency-mining
+          fi
