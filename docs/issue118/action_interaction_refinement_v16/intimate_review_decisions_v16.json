@@ -1,0 +1,26 @@
+{
+  "issue": 118,
+  "mode": "INDEPENDENT_INTIMATE_GENERAL_REVIEW_V16",
+  "source": "docs/issue118/action_interaction_refinement_v16/intimate_general_v16.csv",
+  "reviewed_rows": 71,
+  "decision_rule": "All source rows are NON_SEXUAL except the explicitly listed KEEP_UNCLASSIFIED identities below.",
+  "keep_unclassified": [
+    "hugging_ass",
+    "kissing_ass",
+    "kissing_ear",
+    "kissing_foot",
+    "kissing_leg",
+    "kissing_neck",
+    "kissing_stomach",
+    "kissing_thigh"
+  ],
+  "decision_counts": {
+    "NON_SEXUAL": 63,
+    "KEEP_UNCLASSIFIED": 8
+  },
+  "rationale": "Ordinary affection/romance such as hugging, hand-holding, dating and generic kissing is non-sexual on this intent axis. Body-site variants with meaningful fetish/sexual ambiguity remain unclassified rather than being forced into NON_SEXUAL.",
+  "review_verdicts_generated_by_materializer": "NO",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO"
+}
