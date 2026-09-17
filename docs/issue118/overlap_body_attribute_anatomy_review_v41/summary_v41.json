@@ -1,0 +1,13 @@
+{
+  "issue": 118,
+  "mode": "OVERLAP_BODY_ATTRIBUTE_ANATOMY_FULL_REVIEW_V41",
+  "candidate_rows": 53,
+  "selection_rules_use": "DISCOVERY_ONLY_NOT_CLASSIFICATION_AUTHORITY",
+  "auto_promotion_performed": "NO",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO",
+  "next_gate": "full manual review of all 53 rows"
+}
