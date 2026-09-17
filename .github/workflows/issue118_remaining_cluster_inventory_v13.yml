@@ -1,0 +1,54 @@
+name: Issue118 Remaining Cluster Inventory V13
+
+on:
+  push:
+    branches:
+      - research/issue118-cluster-triage-v8
+    paths:
+      - scripts/issue118/materialize_remaining_cluster_inventory_v13.py
+      - docs/issue118/research_sidecar_v5.csv
+      - .github/workflows/issue118_remaining_cluster_inventory_v13.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  materialize-v13:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Materialize remaining cluster inventory v13
+        run: |
+          python3 -m py_compile scripts/issue118/materialize_remaining_cluster_inventory_v13.py
+          python3 scripts/issue118/materialize_remaining_cluster_inventory_v13.py
+      - name: Validate v13
+        run: |
+          python3 - <<'PY'
+          import csv, json
+          from pathlib import Path
+
+          p = Path('docs/issue118/remaining_cluster_inventory_v13')
+          s = json.loads((p / 'summary_v13.json').read_text(encoding='utf-8'))
+          inv = list(csv.DictReader((p / 'cluster_inventory_v13.csv').open(encoding='utf-8')))
+          assert s['remaining_unclassified_rows'] == 11434
+          assert sum(int(r['rows']) for r in inv) == 11434
+          assert len(inv) == s['cluster_count']
+          assert s['lexical_flags_are_discovery_only'] == 'YES'
+          assert s['production_authority'] == 'NO'
+          assert s['main_mutated'] == 'NO'
+          assert s['issue117_code_mutated'] == 'NO'
+          assert s['catalog_mutated'] == 'NO'
+          assert s['user_db_mutated'] == 'NO'
+          print('ISSUE118_REMAINING_CLUSTER_INVENTORY_V13_GATE=PASS')
+          PY
+      - name: Persist research evidence only
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/issue118/remaining_cluster_inventory_v13
+          if ! git diff --cached --quiet; then
+            git commit -m 'Issue #118: materialize remaining cluster inventory v13'
+            git push origin HEAD:research/issue118-cluster-triage-v8
+          fi
