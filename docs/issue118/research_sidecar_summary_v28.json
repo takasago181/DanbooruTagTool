@@ -1,0 +1,51 @@
+{
+  "issue": 118,
+  "mode": "RESEARCH_SIDECAR_V28_V45_V46_V47_FULL_REVIEWS",
+  "identity_rows": 31752,
+  "source_base": "docs/issue118/research_sidecar_v27.csv",
+  "new_promotions": {
+    "CONTEXTUAL": 20,
+    "NON_SEXUAL": 10,
+    "SEXUAL": 90
+  },
+  "new_total_promotions": 120,
+  "review_status_counts": {
+    "AUTO_HIGH_CONF": 22371,
+    "HUMAN_REVIEWED": 3364,
+    "UNCLASSIFIED": 6017
+  },
+  "sexual_intent_counts": {
+    "CONTEXTUAL": 901,
+    "NON_SEXUAL": 23408,
+    "NULL": 6017,
+    "SEXUAL": 1426
+  },
+  "remaining_unclassified": 6017,
+  "review_inputs": [
+    {
+      "label": "V45",
+      "review_source": "docs/issue118/overlap_action_interaction_none_review_v45/review_policy_v45.json",
+      "review_sha256": "e3a1e812f4bcf370b0ad5beab46c54d9d427fbd6f2a560b518a6e15f74dd1e2e",
+      "source_rows": 45
+    },
+    {
+      "label": "V46",
+      "review_source": "docs/issue118/clothing_exposure_intimate_general_review_v46/review_policy_v46.json",
+      "review_sha256": "ce820545438d289abc985c4d2abd0b0077e95da63784b09ccf3d54a8c388cba5",
+      "source_rows": 38
+    },
+    {
+      "label": "V47",
+      "review_source": "docs/issue118/special_explicit_sex_review_v47/review_policy_v47.json",
+      "review_sha256": "af023fae13d118c53c32b3485f80d58a7d0af25fb590437c72abc997e93651b8",
+      "source_rows": 37
+    }
+  ],
+  "review_verdicts_generated_by_materializer": "NO",
+  "review_artifacts_are_external_inputs": "YES",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO"
+}
