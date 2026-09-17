@@ -1,0 +1,26 @@
+{
+  "issue": 118,
+  "mode": "POSE_MOVEMENT_REFINEMENT_V14",
+  "source_cluster": "GENERAL_ONLY|POSE_MOVEMENT|NONE",
+  "source_rows": 726,
+  "boundary_rows": 9,
+  "clean_candidate_rows": 717,
+  "fresh_holdout_template_rows": 120,
+  "boundary_reason_counts": {
+    "all_fours": 1,
+    "bent_over": 1,
+    "named_sex_position": 2,
+    "pelvic_hip_thrust": 1,
+    "spread_or_raised_legs": 3,
+    "straddling": 1
+  },
+  "boundary_rules_use": "DISCOVERY_ONLY_NOT_CLASSIFICATION_AUTHORITY",
+  "holdout_verdicts_generated": "NO",
+  "auto_promotion_performed": "NO",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO",
+  "next_gate": "independently review fixed 120-row pose holdout; refine only on observed counterexamples"
+}

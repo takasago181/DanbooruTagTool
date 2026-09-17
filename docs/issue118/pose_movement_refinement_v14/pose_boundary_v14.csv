@@ -1,0 +1,10 @@
+identity_key,boundary_flags,candidate_state
+all_fours,all_fours,POSE_BOUNDARY
+bent_over_furniture,bent_over,POSE_BOUNDARY
+leg_up,spread_or_raised_legs,POSE_BOUNDARY
+legs_apart,spread_or_raised_legs,POSE_BOUNDARY
+pelvic_thrust,pelvic_hip_thrust,POSE_BOUNDARY
+piledriver_(wrestling),named_sex_position,POSE_BOUNDARY
+reverse_amazon_position,named_sex_position,POSE_BOUNDARY
+straddling,straddling,POSE_BOUNDARY
+wide_spread_legs,spread_or_raised_legs,POSE_BOUNDARY
