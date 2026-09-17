@@ -1,0 +1,32 @@
+{
+  "issue": 118,
+  "mode": "OVERLAP_RESTRAINT_ACTION_FULL_REVIEW_V50_POLICY",
+  "source_rows": 38,
+  "decision_counts": {
+    "SEXUAL": 8,
+    "CONTEXTUAL": 27,
+    "NON_SEXUAL": 3
+  },
+  "sexual": [
+    "ball_busting",
+    "bound_puppy_pose",
+    "cbt",
+    "cbt_press",
+    "cervix_punching",
+    "cunt_busting",
+    "neglect_play",
+    "wax_play"
+  ],
+  "non_sexual": [
+    "asphyxiation",
+    "strangling",
+    "torture"
+  ],
+  "policy": "All 38 rows were manually reviewed. Explicit genital torture/stimulation, fetish play, and bound sexual-pose concepts are SEXUAL. Pure violence/asphyxiation/torture concepts are NON_SEXUAL on the sexual-intent axis. Generic restraint techniques, binding states, shibari, spanking, stepping, ryona and similar concepts have substantial both nonsexual and fetishized use and are CONTEXTUAL.",
+  "unclassified": [],
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO"
+}
