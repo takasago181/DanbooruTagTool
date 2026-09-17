@@ -1,0 +1,72 @@
+{
+  "issue": 118,
+  "mode": "READ_ONLY_DETERMINISTIC_INTENT_PILOT_SAMPLING",
+  "seed": "issue118-intent-pilot-v1",
+  "pilot_size": 700,
+  "general_rows": 30629,
+  "special_rows": 3059,
+  "normalized_union_rows": 31752,
+  "normalized_exact_overlap_rows": 1936,
+  "issue104_review_rows_total": 236,
+  "issue104_review_rows_in_current_general": 232,
+  "stratum_counts": {
+    "BOUNDARY_GENERAL_ONLY": 120,
+    "BOUNDARY_OVERLAP": 120,
+    "BOUNDARY_SPECIAL_ONLY": 10,
+    "ISSUE104_REVIEWED_RISK": 232,
+    "ORDINARY_GENERAL_CONTROL": 100,
+    "UNION_FILL": 118
+  },
+  "general_boundary_roots": [
+    "ACTION_CONTACT",
+    "BODY_PART",
+    "CLOTHING",
+    "CLOTHING_STATE_EXPOSURE"
+  ],
+  "general_control_roots": [
+    "COLOR_APPEARANCE",
+    "COMPOSITION_CAMERA",
+    "EXPRESSION_EMOTION",
+    "GAZE_ORIENTATION",
+    "HAIR_FACE",
+    "LIGHT_TIME_WEATHER",
+    "LIVING_NATURE",
+    "PERSON_COUNT",
+    "PLACE_BACKGROUND",
+    "STYLE_QUALITY_META",
+    "TEXT_SYMBOL"
+  ],
+  "special_boundary_families": [
+    "ACTION_INTERACTION",
+    "BODY_ATTRIBUTE",
+    "BODY_STATE",
+    "CLOTHING_EXPOSURE",
+    "CONTEXT_MODIFIER",
+    "DIRECT_COMPOSITE",
+    "FLUID_STATE_ACTION",
+    "IMPLEMENT_OBJECT",
+    "INSERTION_STRUCTURED",
+    "MULTI_ACTOR_INTERACTION",
+    "POSE_COMPOSITION",
+    "REACTION_STATE",
+    "RELATION_ROLE_CONTEXT",
+    "REPRO_BODY_STATE",
+    "RESTRAINT_ACTION",
+    "RESTRAINT_IMPLEMENT",
+    "SELF_ACTION"
+  ],
+  "input_sha256": {
+    "docs/issue64/production_candidate/effective_sidecar.csv": "a118f5f904c38cee5b63f0c83b06a56f50ee8afdb623c52eb354731bc0b846d9",
+    "data/generation/special2788_generation_profile.csv": "1f954ceafc8c87cd44ecde8ff74218de33e63124e002c7e9031a8edf3c00bd9e",
+    "docs/issue104/product_fit_review_v1.csv": "65879600cfb6d844d8da8d7e04d6c143b47db17b3e92329289ff49109fdf45fc"
+  },
+  "output_sha256": {
+    "docs/issue118/intent_pilot_sample_v1.csv": "ca6bb1a9dc8eceb1830478fb88a13a9d6a9ee28447d4c183223df90b96d8a21a"
+  },
+  "boundaries": {
+    "sexual_intent_classification_performed": "NO",
+    "production_data_mutated": "NO",
+    "issue117_code_mutated": "NO",
+    "user_db_mutated": "NO"
+  }
+}
