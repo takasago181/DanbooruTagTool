@@ -1,0 +1,31 @@
+{
+  "issue": 118,
+  "mode": "OBJECT_PROP_V26_FULL_141_REVIEW",
+  "source": "docs/issue118/object_prop_low_risk_v26/low_risk_candidate_v26.csv",
+  "source_rows": 141,
+  "default_intent": "NON_SEXUAL",
+  "sexual": [
+    "living_fleshlight",
+    "multiple_condoms",
+    "okamoto_condoms",
+    "too_many_condoms"
+  ],
+  "contextual": [
+    "head_cage",
+    "laddered_bodystocking",
+    "one-finger_caress",
+    "shock_collar"
+  ],
+  "keep_unclassified": [
+    "open_cuffs",
+    "pregnancy_test"
+  ],
+  "decision_counts": {
+    "NON_SEXUAL": 131,
+    "CONTEXTUAL": 4,
+    "SEXUAL": 4,
+    "UNCLASSIFIED": 2
+  },
+  "review_note": "Full manual review of all 141 v26 candidates after holdout exposed missed condom, fetish-clothing, reproductive, and restraint concepts. Default NON_SEXUAL applies only because every candidate row was individually inspected; risk rules remain discovery-only.",
+  "production_authority": "NO"
+}
