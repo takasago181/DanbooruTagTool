@@ -1,0 +1,48 @@
+{
+  "issue": 118,
+  "mode": "RESEARCH_SIDECAR_V3_RISK_EXCLUSION_WAVE3",
+  "identity_rows": 31752,
+  "base_checkpoint": "RESEARCH_SIDECAR_V2_EFFICIENCY_EXPANDED",
+  "new_wave3_candidates": 5845,
+  "new_wave3_human_reviewed": 108,
+  "new_wave3_auto_high_conf": 5737,
+  "validation": {
+    "existing_exact_predicate_nonsexual": 68,
+    "existing_exact_predicate_contradictions": 0,
+    "discovery_nonsexual": 36,
+    "first_holdout_nonsexual": 36,
+    "final_fresh_holdout_nonsexual": 36,
+    "final_holdout_prior_sample_overlap": 0
+  },
+  "rule": {
+    "rule_id": "AUTO_NONSEX_RISK_EXCLUSION_WAVE3_V2",
+    "risk_token_count": 118,
+    "exact_exclusions": [
+      "frogtie",
+      "riding_crop",
+      "shibarikini"
+    ],
+    "paths": [
+      "CLOTHING/ACCESSORY",
+      "CLOTHING/COSTUME",
+      "OBJECT_PROP/DAILY"
+    ]
+  },
+  "review_status_counts": {
+    "AUTO_HIGH_CONF": 12417,
+    "HUMAN_REVIEWED": 1032,
+    "UNCLASSIFIED": 18303
+  },
+  "sexual_intent_counts": {
+    "CONTEXTUAL": 189,
+    "NON_SEXUAL": 12626,
+    "NULL": 18303,
+    "SEXUAL": 634
+  },
+  "remaining_unclassified": 18303,
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO"
+}
