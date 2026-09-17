@@ -1,0 +1,18 @@
+{
+  "issue": 118,
+  "mode": "CLOTHING_V12_7_HOLDOUT_GATE",
+  "holdout_rows": 120,
+  "verdict_counts": {
+    "NON_SEXUAL": 120,
+    "CONTEXTUAL": 0,
+    "SEXUAL": 0,
+    "KEEP_UNCLASSIFIED": 0
+  },
+  "result": "PASS_FOR_RESEARCH_PROMOTION",
+  "promotion_scope": "docs/issue118/clothing_refinement_v12_7/clothing_clean_v12_7.csv only",
+  "promotion_allowed": "RESEARCH_ONLY",
+  "review_verdicts_generated_by_materializer": "NO",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO"
+}
