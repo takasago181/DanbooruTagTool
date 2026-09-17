@@ -1,0 +1,27 @@
+{
+  "issue": 118,
+  "mode": "OVERLAP_BODY_ANATOMY_FULL_REVIEW_V35",
+  "source": "docs/issue118/overlap_body_anatomy_review_v35/full_review_candidate_v35.csv",
+  "source_rows": 66,
+  "decision_counts": {
+    "SEXUAL": 7,
+    "CONTEXTUAL": 59,
+    "NON_SEXUAL": 0
+  },
+  "sexual": [
+    "pussy_juice_in_container",
+    "pussy_steam",
+    "smelly_penis",
+    "smelly_pussy",
+    "tweaking_own_nipple",
+    "twitching_pussy",
+    "twitching_testicles"
+  ],
+  "contextual_rule": "all other identities in the fixed 66-row source",
+  "review_method": "full manual review of all 66 rows; genital/nipple anatomy and body attributes are CONTEXTUAL because they have genuine anatomical/general and sexual-image uses; explicit sexualized states listed above are SEXUAL",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO"
+}
