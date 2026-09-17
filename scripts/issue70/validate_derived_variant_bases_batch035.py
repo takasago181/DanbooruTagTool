@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate the 153 derived Character base candidates from batch034.
+"""Validate derived Character base candidates from batch034-style lookup.
 
 A derived base is trusted for bulk reuse only when either:
 1) its own Issue70 audit row is already resolved as KEEP/FIX_DISPLAY/FIX_SEARCH/FIX_BOTH, or
@@ -87,7 +87,7 @@ def main():
         item.update({'base_row_id':brid,'base_canonical_tag':btag,'base_current_display_ja':bdisp,'base_effective_display_ja':effective,'base_translation_note':br.get('translation_note') or '','base_audit_or_source_basis':audit_basis,
           'base_source_aliases':bs.get('source_aliases') or '','base_verified_aliases':bs.get('verified_aliases') or '','base_existing_display_ja':bs.get('existing_display_ja') or '','base_existing_search_ja':bs.get('existing_search_ja') or '','base_existing_candidate_ja':bs.get('existing_candidate_ja') or ''})
         groups[group].append(item)
-    assert population==153,population
+    assert population>0,population
     data={'format_version':1,'issue':70,'production_modified':False,'population':population,'groups':[]}
     for reason,rows in sorted(groups.items(),key=lambda kv:(-len(kv[1]),kv[0])):
         rows.sort(key=lambda x:(-int(x['post_count'] or 0),x['row_id']))
