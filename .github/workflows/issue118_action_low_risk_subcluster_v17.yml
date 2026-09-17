@@ -1,0 +1,59 @@
+name: Issue118 Action Low Risk Subcluster V17
+
+on:
+  push:
+    branches:
+      - research/issue118-cluster-triage-v8
+    paths:
+      - scripts/issue118/materialize_action_low_risk_subcluster_v17.py
+      - docs/issue118/action_interaction_refinement_v16_10/ordinary_clean_v16_10.csv
+      - .github/workflows/issue118_action_low_risk_subcluster_v17.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  materialize-v17:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Materialize action low-risk subcluster v17
+        run: |
+          python3 -m py_compile scripts/issue118/materialize_action_low_risk_subcluster_v17.py
+          python3 scripts/issue118/materialize_action_low_risk_subcluster_v17.py
+      - name: Validate v17
+        run: |
+          python3 - <<'PY'
+          import csv, json
+          from pathlib import Path
+          p = Path('docs/issue118/action_low_risk_subcluster_v17')
+          s = json.loads((p / 'summary_v17.json').read_text(encoding='utf-8'))
+          low = list(csv.DictReader((p / 'low_risk_candidate_v17.csv').open(encoding='utf-8')))
+          residual = list(csv.DictReader((p / 'residual_unclassified_v17.csv').open(encoding='utf-8')))
+          holdout = list(csv.DictReader((p / 'fresh_holdout_template_v17.csv').open(encoding='utf-8')))
+          assert s['source_rows_v16_10'] == 1509
+          assert len(low) == s['low_risk_candidate_rows']
+          assert len(residual) == s['residual_unclassified_rows']
+          assert len(low) + len(residual) == 1509
+          assert len(holdout) == 120
+          assert all(not r['human_intent'] for r in holdout)
+          assert s['holdout_verdicts_generated'] == 'NO'
+          assert s['auto_promotion_performed'] == 'NO'
+          assert s['production_authority'] == 'NO'
+          assert s['main_mutated'] == 'NO'
+          assert s['issue117_code_mutated'] == 'NO'
+          assert s['catalog_mutated'] == 'NO'
+          assert s['user_db_mutated'] == 'NO'
+          print('ISSUE118_ACTION_LOW_RISK_V17_GATE=PASS')
+          PY
+      - name: Persist research evidence only
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/issue118/action_low_risk_subcluster_v17
+          if ! git diff --cached --quiet; then
+            git commit -m 'Issue #118: materialize action low-risk subcluster v17'
+            git push origin HEAD:research/issue118-cluster-triage-v8
+          fi
