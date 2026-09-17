@@ -1,6 +1,0 @@
-row_id,canonical_tag,post_count,display_ja,search_ja,translation_note,audit_verdict,proposed_display_ja,proposed_search_ja,reason_code,confidence,evidence_refs,audit_note,approval_status
-I70-001150,evernight_(honkai:_star_rail),2720,長夜月,長夜月,日本語公式名が新規要素のため最終確認が必要,KEEP,,,OFFICIAL_JA_NAME_CONFIRMED,HIGH,https://www.hoyolab.com/article/40351051?lang=ja-jp,崩壊：スターレイル公式HoYoLABが日本語名「長夜月」を明記。現表示を維持。,PROPOSED
-I70-001257,female_endministrator_(arknights),2508,管理人（女性）,管理人(女性) | 女性管理人,日本語公式プレイヤー呼称の確認が必要,KEEP,,,OFFICIAL_BASE_ROLE_CONFIRMED_CANONICAL_GENDER_QUALIFIER,HIGH,https://endfield.gryphline.com/ja-jp/news/7017,エンドフィールド公式日本語でプレイヤー呼称「管理人」を確認。female canonical qualifierを日本語補足した現表示はidentityを保つため維持。,PROPOSED
-I70-001399,adventurer_(ff11),2310,冒険者（FFXI）,冒険者(FFXI),汎用プレイヤー役割タグの日本語運用を要確認,KEEP,,,OFFICIAL_PLAYER_ROLE_CONFIRMED,HIGH,https://we-are-vanadiel.finalfantasyxi.com/post/?id=42,FFXI公式記念サイトでプレイヤーを「冒険者」と継続して呼称。作品識別を付けた現表示を維持。,PROPOSED
-I70-001419,lilith_(fate),2291,リリス,リリス | リリス(Fate),新規Fateキャラクターの公式日本語表記を要確認,KEEP,,,OFFICIAL_JA_NAME_CONFIRMED,HIGH,https://www.fate-go.jp/trajectory/servant/,Fate/Grand Order公式サーヴァント一覧で「リリス」を確認。検索文脈のFate補助も妥当なため現状維持。,PROPOSED
-I70-001527,prisma_illya,2137,プリズマ☆イリヤ,プリズマ☆イリヤ,日本語表示名・表記の確定に追加確認が必要,KEEP,,,OFFICIAL_SERIES_SHORT_TITLE_CONFIRMED,HIGH,https://www.prisma-illya.jp/portal/archives/5681,公式ポータルがシリーズ呼称として「プリズマ☆イリヤ」を使用。現表示を維持。,PROPOSED
