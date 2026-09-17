@@ -1,0 +1,76 @@
+name: Issue70 Generate Character Audit Batch 030
+
+on:
+  push:
+    branches:
+      - audit/issue70-semantic-final
+    paths:
+      - .github/workflows/issue70_generate_character_batch030.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: audit/issue70-semantic-final
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Classify fully reviewed remaining clean sample
+        shell: bash
+        run: |
+          python - <<'PY'
+          import csv
+          from pathlib import Path
+          src=Path('docs/issue70/audit/character_remaining_clean_sample_batch030_diagnostic.csv')
+          out=Path('docs/issue70/audit/character_remaining_clean_sample_decisions_batch030.csv')
+          with src.open(encoding='utf-8-sig',newline='') as f: rows=list(csv.DictReader(f))
+          assert len(rows)==68
+          fields=['row_id','canonical_tag','post_count','display_ja','search_ja','audit_verdict','proposed_display_ja','proposed_search_ja','reason_code','confidence','evidence_refs','audit_note','approval_status']
+          outrows=[]; counts={'KEEP':0,'FIX_SEARCH':0}
+          for r in rows:
+              flags={x.strip() for x in (r.get('risk_flags') or '').split('|') if x.strip()}
+              if 'DISPLAY_MISSING_FROM_SEARCH' in flags:
+                  cur=(r.get('search_ja') or '').strip(); disp=(r.get('display_ja') or '').strip()
+                  assert disp
+                  terms=[x.strip() for x in cur.split('|') if x.strip()]
+                  assert disp not in terms
+                  proposed=' | '.join([disp]+terms)
+                  verdict='FIX_SEARCH'; reason='APPEND_CONFIRMED_DISPLAY_TO_SEARCH'
+                  note='表示名の意味・identityは確認済み。表示名自体は変えず、検索から欠けているdisplay_jaをsearch_jaへ追加。'
+              else:
+                  proposed=''; verdict='KEEP'; reason='ACCEPTED_CLEAN_SAMPLE_SEMANTIC_KEEP'
+                  note='Accepted clean sampleを個別確認。現行display/searchを維持してよい。'
+              counts[verdict]+=1
+              outrows.append({'row_id':r['row_id'],'canonical_tag':r['canonical_tag'],'post_count':r['post_count'],'display_ja':r['display_ja'],'search_ja':r['search_ja'],'audit_verdict':verdict,'proposed_display_ja':'','proposed_search_ja':proposed,'reason_code':reason,'confidence':'HIGH','evidence_refs':'batch030 full-row semantic review + existing Japanese/source/context evidence','audit_note':note,'approval_status':'PROPOSED'})
+          assert counts['KEEP']+counts['FIX_SEARCH']==68
+          assert counts['FIX_SEARCH']>=1
+          with out.open('w',encoding='utf-8-sig',newline='') as f:
+              w=csv.DictWriter(f,fieldnames=fields);w.writeheader();w.writerows(outrows)
+          print({'rows':len(outrows),**counts,'production_modified':False})
+          PY
+          git diff --exit-code -- docs/issue70/data/runtime docs/issue70/data/source
+      - name: Refresh exact progress summary
+        run: python scripts/issue70/summarize_semantic_audit_progress.py
+      - name: Validate and commit
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path('docs/issue70/audit/PROGRESS_LIVE.json').read_text(encoding='utf-8'))
+          assert d['production_modified'] is False
+          assert d['conflicted_unique_rows']==0
+          assert d['audited_unique_rows']+d['remaining_unaudited_rows']==d['initial_ledger_rows']
+          print({k:d[k] for k in ['audited_unique_rows','remaining_unaudited_rows','remaining_by_category','verdict_counts_resolved']})
+          PY
+          git diff --exit-code -- docs/issue70/data/runtime docs/issue70/data/source
+          git add docs/issue70/audit/character_remaining_clean_sample_decisions_batch030.csv docs/issue70/audit/PROGRESS_LIVE.json
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Issue70: resolve remaining Character clean sample batch 030'
+          git push origin HEAD:audit/issue70-semantic-final
