@@ -1,32 +1,264 @@
 {
-  "format_version": 1,
+  "format_version": 2,
   "issue": 70,
   "production_modified": false,
   "initial_ledger_rows": 18270,
-  "audited_unique_rows": 9859,
-  "resolved_unique_rows": 9859,
+  "audited_unique_rows": 10097,
+  "resolved_unique_rows": 10097,
   "conflicted_unique_rows": 0,
-  "remaining_unaudited_rows": 8411,
+  "remaining_unaudited_rows": 8173,
   "duplicate_same_decision_rows": 0,
   "verdict_counts_resolved": {
     "FIX_BOTH": 69,
     "FIX_DISPLAY": 2060,
     "FIX_SEARCH": 241,
-    "KEEP": 7129,
-    "NEEDS_EXTERNAL_CHECK": 360
+    "KEEP": 7348,
+    "NEEDS_EXTERNAL_CHECK": 379
   },
   "audited_by_category": {
     "Character": 7555,
-    "Copyright": 1278,
+    "Copyright": 1516,
     "Artist": 1026
   },
   "remaining_by_category": {
     "Character": 7373,
-    "Copyright": 1038,
+    "Copyright": 800,
     "Artist": 0
   },
-  "unresolved_external_check_rows": 360,
+  "unresolved_external_check_rows": 379,
   "unresolved_user_decision_rows": 0,
+  "remaining_patterns": {
+    "Character": {
+      "rows": 7373,
+      "status_counts": {
+        "ACCEPTED_AI": 1662,
+        "REVIEW_REQUIRED": 5711
+      },
+      "impact_counts": {
+        "REST": 7008,
+        "TOP_10_PERCENT": 338,
+        "TOP_1_PERCENT": 27
+      },
+      "audit_bucket_counts": {
+        "ACCEPTED_CLEAN_SAMPLE": 208,
+        "ACCEPTED_RISK": 1454,
+        "REVIEW_REQUIRED": 5711
+      },
+      "top_translation_notes": [
+        {
+          "value": "short kana-only candidate is too ambiguous without contextual search evidence",
+          "count": 1236
+        },
+        {
+          "value": "parenthetical candidate does not map cleanly to a copyright disambiguator",
+          "count": 934
+        },
+        {
+          "value": "short kanji-only candidate is too ambiguous without contextual search evidence",
+          "count": 871
+        },
+        {
+          "value": "variant/form rendering plausible but not independently verified",
+          "count": 865
+        },
+        {
+          "value": "single Japanese candidate with no conflicting evidence",
+          "count": 731
+        },
+        {
+          "value": "<blank>",
+          "count": 653
+        },
+        {
+          "value": "要確認",
+          "count": 579
+        },
+        {
+          "value": "Latin-heavy candidate requires verification",
+          "count": 380
+        },
+        {
+          "value": "romanized handle plus generated qualifier",
+          "count": 108
+        },
+        {
+          "value": "日本語表示名・表記の確定に追加確認が必要",
+          "count": 79
+        },
+        {
+          "value": "full-width parenthetical candidate looks machine-generated or unverified",
+          "count": 78
+        },
+        {
+          "value": "malformed or low-confidence Japanese evidence requires manual verification",
+          "count": 61
+        },
+        {
+          "value": "multiple/conflicting Japanese candidates",
+          "count": 57
+        },
+        {
+          "value": "AI監修：既存候補・Alias・作品関係を確認し表示名を確定",
+          "count": 44
+        },
+        {
+          "value": "日本語公式表記の追加確認が必要",
+          "count": 38
+        },
+        {
+          "value": "既存日本語候補・Alias・作品文脈を確認して採用",
+          "count": 33
+        },
+        {
+          "value": "確定",
+          "count": 25
+        },
+        {
+          "value": "identity mismatch or low-confidence mapping identified during chat review",
+          "count": 20
+        },
+        {
+          "value": "既存日本語候補と作品文脈を確認",
+          "count": 17
+        },
+        {
+          "value": "fan-art/search tag is not character identity",
+          "count": 15
+        },
+        {
+          "value": "公式日本語名を採用",
+          "count": 15
+        },
+        {
+          "value": "既存日本語候補を確認",
+          "count": 14
+        },
+        {
+          "value": "manual chat curation selected reliable Japanese identity",
+          "count": 12
+        },
+        {
+          "value": "日本語衣装名の追加確認が必要",
+          "count": 11
+        },
+        {
+          "value": "non-Japanese punctuation/orthography",
+          "count": 10
+        },
+        {
+          "value": "既存日本語候補とAliasを確認",
+          "count": 8
+        },
+        {
+          "value": "AI監修：作品公式名を確認",
+          "count": 8
+        },
+        {
+          "value": "AI監修：衣装名の公式表記を要確認",
+          "count": 7
+        },
+        {
+          "value": "AI監修：衣装名の公式対応を要確認",
+          "count": 7
+        },
+        {
+          "value": "AI監修：既存日本語候補を確認",
+          "count": 7
+        }
+      ],
+      "risk_flag_counts": {
+        "STATUS_REVIEW_REQUIRED": 5711,
+        "DISAMBIGUATOR_NOT_VISIBLE": 2175,
+        "JA_DISPLAY_NOT_EXACT_SOURCE_EVIDENCE": 1590,
+        "DUPLICATE_DISPLAY_WITHIN_CATEGORY": 1177,
+        "NO_SOURCE_JA_EVIDENCE_OVERLAP": 851,
+        "VARIANT_DISPLAY_MISSING_BASE_IDENTITY": 454,
+        "DISPLAY_MISSING_FROM_SEARCH": 316,
+        "ASCII_ONLY_DISPLAY_NON_ARTIST": 176,
+        "DISPLAY_CANONICAL_LIKE": 175,
+        "CHARACTER_NO_COPYRIGHT_CONTEXT": 134,
+        "RAW_TAG_SYNTAX_IN_DISPLAY": 39,
+        "UNBALANCED_BRACKETS": 1
+      }
+    },
+    "Copyright": {
+      "rows": 800,
+      "status_counts": {
+        "ACCEPTED_AI": 248,
+        "REVIEW_REQUIRED": 552
+      },
+      "impact_counts": {
+        "REST": 579,
+        "TOP_10_PERCENT": 204,
+        "TOP_1_PERCENT": 17
+      },
+      "audit_bucket_counts": {
+        "ACCEPTED_CLEAN_SAMPLE": 41,
+        "ACCEPTED_RISK": 207,
+        "REVIEW_REQUIRED": 552
+      },
+      "top_translation_notes": [
+        {
+          "value": "Japanese rendering requires manual verification or source evidence is insufficient",
+          "count": 315
+        },
+        {
+          "value": "copyright title not uniquely resolved; manual verification required",
+          "count": 153
+        },
+        {
+          "value": "semantic re-curation: title/name judged usable; official/common rendering preferred over literal candidate",
+          "count": 112
+        },
+        {
+          "value": "established/common Japanese title or official rendering",
+          "count": 94
+        },
+        {
+          "value": "semantic re-curation: genuinely ambiguous/unresolved; manual verification still required",
+          "count": 42
+        },
+        {
+          "value": "conservative fallback; Japanese title evidence is absent or ambiguous",
+          "count": 41
+        },
+        {
+          "value": "manual chat curation selected high-confidence Japanese copyright title",
+          "count": 18
+        },
+        {
+          "value": "semantic re-curation: title/name judged usable; official/common rendering or identity-safe original preferred over literal candidate",
+          "count": 13
+        },
+        {
+          "value": "single clean Japanese copyright search title",
+          "count": 11
+        },
+        {
+          "value": "copyright title spelling/identity requires manual verification",
+          "count": 1
+        }
+      ],
+      "risk_flag_counts": {
+        "STATUS_REVIEW_REQUIRED": 552,
+        "DISAMBIGUATOR_NOT_VISIBLE": 196,
+        "NO_SOURCE_JA_EVIDENCE_OVERLAP": 180,
+        "DUPLICATE_DISPLAY_WITHIN_CATEGORY": 166,
+        "ASCII_ONLY_DISPLAY_NON_ARTIST": 130,
+        "JA_DISPLAY_NOT_EXACT_SOURCE_EVIDENCE": 123,
+        "DISPLAY_CANONICAL_LIKE": 111,
+        "RAW_TAG_SYNTAX_IN_DISPLAY": 4
+      }
+    },
+    "Artist": {
+      "rows": 0,
+      "status_counts": {},
+      "impact_counts": {},
+      "audit_bucket_counts": {},
+      "top_translation_notes": [],
+      "risk_flag_counts": {}
+    }
+  },
   "source_files": [
     {
       "file": "artist_initial_audit_batch008.csv",
@@ -105,6 +337,10 @@
       "ledger_rows": 688
     },
     {
+      "file": "copyright_no_trusted_ja_batch018.csv",
+      "ledger_rows": 238
+    },
+    {
       "file": "search_dedup_batch007.csv",
       "ledger_rows": 81
     },
@@ -131,5 +367,5 @@
   ],
   "ignored_nonledger_rows_by_file": {},
   "conflicts": [],
-  "next_step": "resolve conflicts, continue remaining pattern batches, then resolve external/user queues before production correction"
+  "next_step": "continue highest-volume safe pattern batches, then resolve external/user queues before production correction"
 }
