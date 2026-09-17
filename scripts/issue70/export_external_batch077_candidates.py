@@ -3,6 +3,7 @@ from __future__ import annotations
 import csv
 from pathlib import Path
 
+# Batch077 candidate export trigger checkpoint.
 ROOT = Path(__file__).resolve().parents[2]
 AUDIT = ROOT / 'docs/issue70/audit'
 OUT = AUDIT / 'EXTERNAL_QUEUE_BATCH077_CANDIDATES.csv'
