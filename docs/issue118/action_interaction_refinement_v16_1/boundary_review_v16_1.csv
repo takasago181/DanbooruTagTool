@@ -1,0 +1,10 @@
+identity_key,candidate_state,reason
+armpit_onigiri,BOUNDARY_REVIEW,armpit_onigiri
+chocolate_on_body,BOUNDARY_REVIEW,chocolate_on_body
+hand_in_another's_pants,BOUNDARY_REVIEW,hand_inside_clothing
+hand_in_another's_shirt,BOUNDARY_REVIEW,hand_inside_clothing
+hand_in_pants,BOUNDARY_REVIEW,hand_inside_clothing
+hand_under_shorts,BOUNDARY_REVIEW,hand_under_shorts
+mutual_skirt_lift,BOUNDARY_REVIEW,mutual_skirt_lift
+pectorals_on_glass,BOUNDARY_REVIEW,pectorals_on_glass
+pillow_bite,BOUNDARY_REVIEW,pillow_bite
