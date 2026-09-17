@@ -1,0 +1,47 @@
+name: Issue70 Export Character Latin Heavy Batch 031
+
+on:
+  push:
+    branches:
+      - audit/issue70-semantic-final
+    paths:
+      - scripts/issue70/export_character_latin_heavy_batch031_diagnostic.py
+      - .github/workflows/issue70_export_character_latin_heavy_batch031.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: audit/issue70-semantic-final
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python scripts/issue70/export_character_latin_heavy_batch031_diagnostic.py
+      - name: Validate diagnostic only
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s docs/issue70/audit/character_latin_heavy_batch031_diagnostic.csv
+          test -s docs/issue70/audit/character_latin_heavy_batch031_summary.json
+          python - <<'PY'
+          import csv,json
+          from pathlib import Path
+          with Path('docs/issue70/audit/character_latin_heavy_batch031_diagnostic.csv').open(encoding='utf-8-sig',newline='') as f: rows=list(csv.DictReader(f))
+          d=json.loads(Path('docs/issue70/audit/character_latin_heavy_batch031_summary.json').read_text(encoding='utf-8'))
+          assert len(rows)==380==d['population']; assert d['production_modified'] is False
+          print({'rows':len(rows),'signatures':len(d['signatures'])})
+          PY
+          git diff --exit-code -- docs/issue70/data/runtime docs/issue70/data/source
+      - name: Commit diagnostic only
+        shell: bash
+        run: |
+          git add docs/issue70/audit/character_latin_heavy_batch031_diagnostic.csv docs/issue70/audit/character_latin_heavy_batch031_summary.json
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Issue70: persist Latin-heavy Character diagnostic batch 031'
+          git push origin HEAD:audit/issue70-semantic-final
