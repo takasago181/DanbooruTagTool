@@ -1,0 +1,63 @@
+name: Issue118 Clothing Refinement V12.5
+
+on:
+  push:
+    branches:
+      - research/issue118-cluster-triage-v8
+    paths:
+      - scripts/issue118/materialize_clothing_refinement_v12_5.py
+      - docs/issue118/clothing_refinement_v12_4/clothing_clean_v12_4.csv
+      - .github/workflows/issue118_clothing_refinement_v12_5.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  materialize-v12-5:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Materialize clothing refinement v12.5
+        run: |
+          python3 -m py_compile scripts/issue118/materialize_clothing_refinement_v12_5.py
+          python3 scripts/issue118/materialize_clothing_refinement_v12_5.py
+      - name: Validate v12.5
+        run: |
+          python3 - <<'PY'
+          import csv, json
+          from pathlib import Path
+
+          p = Path('docs/issue118/clothing_refinement_v12_5')
+          s = json.loads((p / 'summary_v12_5.json').read_text(encoding='utf-8'))
+          boundary = list(csv.DictReader((p / 'clothing_boundary_v12_5.csv').open(encoding='utf-8')))
+          clean = list(csv.DictReader((p / 'clothing_clean_v12_5.csv').open(encoding='utf-8')))
+          holdout = list(csv.DictReader((p / 'fresh_holdout_template_v12_5.csv').open(encoding='utf-8')))
+
+          assert s['source_clean_rows_v12_4'] == 2682
+          assert len(boundary) == s['new_boundary_rows']
+          assert len(clean) == s['clean_candidate_rows_v12_5']
+          assert len(boundary) + len(clean) == 2682
+          keys = {r['identity_key'] for r in boundary}
+          assert {'buruma', 'girdle', 'sideless_shirt'} <= keys
+          assert len(holdout) == 120
+          assert all(not r['human_intent'] for r in holdout)
+          assert s['holdout_verdicts_generated'] == 'NO'
+          assert s['auto_promotion_performed'] == 'NO'
+          assert s['production_authority'] == 'NO'
+          assert s['main_mutated'] == 'NO'
+          assert s['issue117_code_mutated'] == 'NO'
+          assert s['catalog_mutated'] == 'NO'
+          assert s['user_db_mutated'] == 'NO'
+          print('ISSUE118_CLOTHING_REFINEMENT_V12_5_GATE=PASS')
+          PY
+      - name: Persist research evidence only
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/issue118/clothing_refinement_v12_5
+          if ! git diff --cached --quiet; then
+            git commit -m 'Issue #118: materialize clothing refinement v12.5'
+            git push origin HEAD:research/issue118-cluster-triage-v8
+          fi
