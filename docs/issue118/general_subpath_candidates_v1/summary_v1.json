@@ -1,10 +1,14 @@
 {
   "issue": 118,
-  "mode": "GENERAL_SUBPATH_CANDIDATE_V1",
-  "accepted_training_paths": 5,
-  "candidate_rows": 0,
-  "validation_rows": 0,
-  "candidate_rows_by_path": {},
-  "safety": "candidate only; no production or sidecar promotion until new validation review",
+  "mode": "GENERAL_SUBPATH_CANDIDATE_V2_FRESH_HOLDOUT",
+  "accepted_training_paths": 3,
+  "candidate_rows": 1846,
+  "validation_rows": 30,
+  "candidate_rows_by_path": {
+    "CLOTHING/UNIFORM": 637,
+    "OBJECT_PROP/VEHICLE": 462,
+    "PERSON_COUNT": 747
+  },
+  "safety": "pilot-pure candidate only; any prior contradiction vetoes; fresh unclassified holdout required before promotion",
   "production_promotion_performed": "NO"
 }
