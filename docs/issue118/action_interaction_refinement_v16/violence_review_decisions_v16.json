@@ -1,0 +1,15 @@
+{
+  "issue": 118,
+  "mode": "INDEPENDENT_VIOLENCE_NONSEX_REVIEW_V16",
+  "source": "docs/issue118/action_interaction_refinement_v16/violence_nonsex_axis_v16.csv",
+  "reviewed_rows": 41,
+  "decision_counts": {
+    "NON_SEXUAL": 41
+  },
+  "decision": "ALL_SOURCE_ROWS_NON_SEXUAL",
+  "rationale": "Violence/coercion severity is a separate axis from sexual intent. These source concepts do not themselves denote sexual intent; sexual-abuse-specific concepts would require separate evidence and are not inferred from generic violence terms.",
+  "review_verdicts_generated_by_materializer": "NO",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO"
+}
