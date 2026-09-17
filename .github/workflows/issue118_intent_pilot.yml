@@ -7,6 +7,8 @@ on:
     paths:
       - scripts/issue118/materialize_intent_pilot.py
       - scripts/issue118/split_review_chunks.py
+      - scripts/issue118/summarize_intent_pilot.py
+      - docs/issue118/reviews/**
       - .github/workflows/issue118_intent_pilot.yml
   workflow_dispatch:
 
@@ -25,6 +27,7 @@ jobs:
         run: |
           python3 -m py_compile scripts/issue118/materialize_intent_pilot.py
           python3 -m py_compile scripts/issue118/split_review_chunks.py
+          python3 -m py_compile scripts/issue118/summarize_intent_pilot.py
 
       - name: Materialize deterministic 700-row pilot
         run: |
@@ -62,14 +65,29 @@ jobs:
           print('ISSUE118_PILOT_SAMPLING_GATE=PASS')
           PY
 
+      - name: Summarize completed semantic review
+        run: |
+          set -euo pipefail
+          python3 scripts/issue118/summarize_intent_pilot.py
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          s=json.loads(Path('docs/issue118/intent_pilot_review_summary_v1.json').read_text(encoding='utf-8'))
+          assert s['pilot_rows'] == 700
+          assert s['reviewed_rows'] + s['unclassified_rows'] == 700
+          assert s['production_mutated'] == 'NO'
+          assert s['issue117_code_mutated'] == 'NO'
+          print('ISSUE118_REVIEW_SUMMARY_GATE=PASS')
+          PY
+
       - name: Persist research artifacts on research branch
         run: |
           set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add docs/issue118/intent_pilot_sample_v1.csv docs/issue118/intent_pilot_sample_summary_v1.json docs/issue118/review_chunks
+          git add docs/issue118/intent_pilot_sample_v1.csv docs/issue118/intent_pilot_sample_summary_v1.json docs/issue118/review_chunks docs/issue118/intent_pilot_review_summary_v1.json docs/issue118/intent_pilot_review_ledger_v1.csv
           if ! git diff --cached --quiet; then
-            git commit -m 'Issue #118: materialize deterministic intent pilot review chunks'
+            git commit -m 'Issue #118: summarize reviewed intent pilot'
             git push origin HEAD:research/issue118-intent-pilot
           fi
 
@@ -82,5 +100,7 @@ jobs:
             docs/issue118/intent_pilot_sample_v1.csv
             docs/issue118/intent_pilot_sample_summary_v1.json
             docs/issue118/review_chunks/*.csv
+            docs/issue118/intent_pilot_review_summary_v1.json
+            docs/issue118/intent_pilot_review_ledger_v1.csv
           if-no-files-found: error
           retention-days: 14
