@@ -1,0 +1,20 @@
+{
+  "issue": 118,
+  "mode": "INDEPENDENT_CLOTHING_FRESH_HOLDOUT_REVIEW_V12_2",
+  "inventory": "docs/issue118/clothing_adversarial_v12_2/fresh_holdout_template_v12_2.csv",
+  "inventory_blob_sha": "2982bb5bcd99189634442a149c9a46fc89a962bc",
+  "reviewed_rows": 120,
+  "default_decision": "NON_SEXUAL",
+  "default_decision_count": 119,
+  "overrides": {
+    "panty_straps": "CONTEXTUAL"
+  },
+  "decision_counts": {
+    "NON_SEXUAL": 119,
+    "CONTEXTUAL": 1
+  },
+  "gate_result": "FAIL_BULK_PROMOTION_REFINE_RULES",
+  "required_refinement": "capture singular panty boundary before taking a new fresh holdout",
+  "review_verdicts_generated_by_materializer": "NO",
+  "production_authority": "NO"
+}
