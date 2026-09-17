@@ -22,18 +22,29 @@ def sha256(path):return hashlib.sha256(path.read_bytes()).hexdigest()
 
 def policy_groups(review, source_set):
     counts=review['decision_counts']
-    sexual=set(review.get('sexual') or [])
-    contextual=set(review.get('contextual') or [])
-    nonsexual=set(review.get('non_sexual') or [])
-    if counts['SEXUAL']==len(source_set) and not sexual and not contextual and not nonsexual:
-        sexual=set(source_set)
-    else:
-        if not nonsexual:
-            nonsexual=source_set-sexual-contextual
-    if sexual&contextual or sexual&nonsexual or contextual&nonsexual:raise SystemExit('policy groups overlap')
-    if sexual|contextual|nonsexual != source_set:raise SystemExit('policy groups do not cover source')
-    if {'SEXUAL':len(sexual),'CONTEXTUAL':len(contextual),'NON_SEXUAL':len(nonsexual)}!=counts:raise SystemExit(f'policy count drift: {counts}')
-    return sexual,contextual,nonsexual
+    groups={
+        'SEXUAL':set(review.get('sexual') or []),
+        'CONTEXTUAL':set(review.get('contextual') or []),
+        'NON_SEXUAL':set(review.get('non_sexual') or []),
+    }
+    union=set()
+    for intent,group in groups.items():
+        if not group<=source_set:raise SystemExit(f'{intent} policy contains key outside source')
+        if union&group:raise SystemExit('policy groups overlap')
+        union|=group
+    missing=source_set-union
+    deficits={intent:int(counts[intent])-len(groups[intent]) for intent in groups}
+    if any(v<0 for v in deficits.values()):raise SystemExit(f'policy explicit rows exceed decision counts: {deficits}')
+    positive=[intent for intent,v in deficits.items() if v>0]
+    if missing:
+        if len(positive)!=1 or deficits[positive[0]]!=len(missing):
+            raise SystemExit(f'cannot safely infer omitted policy group: missing={len(missing)} deficits={deficits}')
+        groups[positive[0]]|=missing
+    elif positive:
+        raise SystemExit(f'policy decision counts require missing rows but source is fully enumerated: {deficits}')
+    actual={intent:len(group) for intent,group in groups.items()}
+    if actual!=counts:raise SystemExit(f'policy count drift: expected={counts} actual={actual}')
+    return groups['SEXUAL'],groups['CONTEXTUAL'],groups['NON_SEXUAL']
 
 def main():
     base=read_csv(BASE)
