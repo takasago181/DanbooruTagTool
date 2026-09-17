@@ -1,0 +1,197 @@
+{
+  "issue": 118,
+  "mode": "UNCLASSIFIED_SPECIAL_CLUSTER_REVIEW_V1",
+  "source_rows": 2327,
+  "cluster_count": 215,
+  "clusters_ge_8": 47,
+  "top20_rows": 1628,
+  "sample_rows": 240,
+  "sampled_cluster_population": 1628,
+  "sampled_cluster_count": 20,
+  "review_chunks": 4,
+  "top_clusters": [
+    {
+      "cluster_key": "SPECIAL_ONLY|(none)|(none)|NONE",
+      "rows": 637,
+      "membership": "SPECIAL_ONLY",
+      "general_root": "(none)",
+      "generation_family": "(none)",
+      "lex_flags": "NONE",
+      "examples": "toddlersex;dissection;self_facial;mutual_rape;mars_symbol_penetrating_venus_symbol;analbeads;precum_trail;handgag;penetrated;kimono_down"
+    },
+    {
+      "cluster_key": "SPECIAL_ONLY|(none)|(none)|ANATOMY",
+      "rows": 165,
+      "membership": "SPECIAL_ONLY",
+      "general_root": "(none)",
+      "generation_family": "(none)",
+      "lex_flags": "ANATOMY",
+      "examples": "licking_own_penis;pussy_juice_string;licking_nipples;nipple;clitoris_pump;nipple_sleeve;anal_plug;penis_pump;pierced_nipples;breast_feed"
+    },
+    {
+      "cluster_key": "OVERLAP|CLOTHING_STATE_EXPOSURE|CLOTHING_EXPOSURE|NONE",
+      "rows": 118,
+      "membership": "OVERLAP",
+      "general_root": "CLOTHING_STATE_EXPOSURE",
+      "generation_family": "CLOTHING_EXPOSURE",
+      "lex_flags": "NONE",
+      "examples": "pasties_under_clothes;open_clothes;pants_around_thighs;low-cut_armhole;shorts_aside;crotchless_swimsuit;leotard_aside;kimono_pull;armpit_cutout;center_opening"
+    },
+    {
+      "cluster_key": "SPECIAL_ONLY|(none)|(none)|EXPOSURE",
+      "rows": 69,
+      "membership": "SPECIAL_ONLY",
+      "general_root": "(none)",
+      "generation_family": "(none)",
+      "lex_flags": "EXPOSURE",
+      "examples": "half_naked;nude_hoodie;nude_shirt;naked_gakuran;nude_apron;nearly_nude_apron;naked_track_jacket;strap_cleavage;nude_coat;nude_suspenders"
+    },
+    {
+      "cluster_key": "OVERLAP|ACTION_CONTACT|ACTION_INTERACTION|NONE",
+      "rows": 68,
+      "membership": "OVERLAP",
+      "general_root": "ACTION_CONTACT",
+      "generation_family": "ACTION_INTERACTION",
+      "lex_flags": "NONE",
+      "examples": "hand_on_own_crotch;reverse_nursing_fingering;reverse_footjob;footjob_with_sandals;pussyjob;footjob_under_table;grabbing_another's_thighs;pubic_hair_pull;spreading_own_ass;anilingus"
+    },
+    {
+      "cluster_key": "OVERLAP|BODY_PART|(none)|ANATOMY",
+      "rows": 66,
+      "membership": "OVERLAP",
+      "general_root": "BODY_PART",
+      "generation_family": "(none)",
+      "lex_flags": "ANATOMY",
+      "examples": "blue_penis;mechanical_pussy;cleft_anus;light_nipples;x_anus;grey_nipples;tail_pussy;nipple_hair;horse_penis;blue_anus"
+    },
+    {
+      "cluster_key": "OVERLAP|CLOTHING_STATE_EXPOSURE|CLOTHING_EXPOSURE|EXPOSURE",
+      "rows": 59,
+      "membership": "OVERLAP",
+      "general_root": "CLOTHING_STATE_EXPOSURE",
+      "generation_family": "CLOTHING_EXPOSURE",
+      "lex_flags": "EXPOSURE",
+      "examples": "male_underwear_pull;crotchless_panties;naked_bandage;naked_school_attendance;clothed_male_nude_female;clothed_female_nude_female;naked_cloak;sports_bra_lift;clothed_male_nude_male;naked_necktie"
+    },
+    {
+      "cluster_key": "OVERLAP|ACTION_CONTACT|ACTION_INTERACTION|ANATOMY",
+      "rows": 47,
+      "membership": "OVERLAP",
+      "general_root": "ACTION_CONTACT",
+      "generation_family": "ACTION_INTERACTION",
+      "lex_flags": "ANATOMY",
+      "examples": "anal_grip;sucking_on_multiple_breasts;anal_only;caressing_testicles;grabbing_own_breast;nipple_stimulation;grabbing_multiple_others'_breasts;nipple_rub;penis_hug;breast_rest"
+    },
+    {
+      "cluster_key": "OVERLAP|BODY_PART|BODY_ATTRIBUTE|ANATOMY",
+      "rows": 47,
+      "membership": "OVERLAP",
+      "general_root": "BODY_PART",
+      "generation_family": "BODY_ATTRIBUTE",
+      "lex_flags": "ANATOMY",
+      "examples": "small_penis;colored_nipples;no_nipples;huge_testicles;no_anus;sagging_testicles;large_testicles;knotted_penis;large_clitoris;puffy_nipples"
+    },
+    {
+      "cluster_key": "OVERLAP|ACTION_CONTACT|(none)|NONE",
+      "rows": 45,
+      "membership": "OVERLAP",
+      "general_root": "ACTION_CONTACT",
+      "generation_family": "(none)",
+      "lex_flags": "NONE",
+      "examples": "double_fingering;stealth_footjob;assisted_object_insertion;penetrating_while_penetrated;whipping_hair;guided_footjob;standing_footjob;forced_cunnilingus;shared_onahole;masturbating_together"
+    },
+    {
+      "cluster_key": "OVERLAP|ACTION_CONTACT|CONTEXT_MODIFIER|NONE",
+      "rows": 42,
+      "membership": "OVERLAP",
+      "general_root": "ACTION_CONTACT",
+      "generation_family": "CONTEXT_MODIFIER",
+      "lex_flags": "NONE",
+      "examples": "after_insertion;implied_fingering;implied_footjob;imminent_fingering;imminent_cunnilingus;imminent_bukkake;after_vaginal;after_gangbang;fingering_gesture;wakamezake"
+    },
+    {
+      "cluster_key": "OVERLAP|CLOTHING|CLOTHING_EXPOSURE|NONE",
+      "rows": 42,
+      "membership": "OVERLAP",
+      "general_root": "CLOTHING",
+      "generation_family": "CLOTHING_EXPOSURE",
+      "lex_flags": "NONE",
+      "examples": "fishnets;reverse_bunnysuit;fuck-me_shirt;one-piece_swimsuit_pull;nightgown;micro_pasties;highleg_bikini;gimp_mask;heart_pasties;micro_bikini"
+    },
+    {
+      "cluster_key": "OVERLAP|ACTION_CONTACT|RESTRAINT_ACTION|NONE",
+      "rows": 38,
+      "membership": "OVERLAP",
+      "general_root": "ACTION_CONTACT",
+      "generation_family": "RESTRAINT_ACTION",
+      "lex_flags": "NONE",
+      "examples": "bound_calves;reverse_ryona;cbt;strangling;smother;bound_torso;stepped_on;wax_play;hogtie;bound_arms"
+    },
+    {
+      "cluster_key": "SPECIAL_ONLY|(none)|(none)|RESTRAINT",
+      "rows": 31,
+      "membership": "SPECIAL_ONLY",
+      "general_root": "(none)",
+      "generation_family": "(none)",
+      "lex_flags": "RESTRAINT",
+      "examples": "clit_leash;mechanical_restraints;panty_gagged;restraint_devices;green_blindfold;over_the_mouth_gagged;shackle;rope_bondage;restraint_device;orange_blindfold"
+    },
+    {
+      "cluster_key": "OVERLAP|ACTION_CONTACT|RELATION_ROLE_CONTEXT|NONE",
+      "rows": 29,
+      "membership": "OVERLAP",
+      "general_root": "ACTION_CONTACT",
+      "generation_family": "RELATION_ROLE_CONTEXT",
+      "lex_flags": "NONE",
+      "examples": "oppai_loli;imminent_rape;submission;rape;adult_baby;implied_rape;incest;ageplay;femdom;futa_with_newhalf"
+    },
+    {
+      "cluster_key": "OVERLAP|ACTION_CONTACT|DIRECT_COMPOSITE|ANATOMY",
+      "rows": 28,
+      "membership": "OVERLAP",
+      "general_root": "ACTION_CONTACT",
+      "generation_family": "DIRECT_COMPOSITE",
+      "lex_flags": "ANATOMY",
+      "examples": "penis_in_unworn_legwear;chocolate_on_penis;penis_on_stomach;hair_on_penis;testicles_on_face;penis_to_navel;penis_on_shoulder;hand_on_own_penis;penis_to_breast;penis_in_another's_thighhigh"
+    },
+    {
+      "cluster_key": "OVERLAP|ACTION_CONTACT|FLUID_STATE_ACTION|NONE",
+      "rows": 28,
+      "membership": "OVERLAP",
+      "general_root": "ACTION_CONTACT",
+      "generation_family": "FLUID_STATE_ACTION",
+      "lex_flags": "NONE",
+      "examples": "pseudo_scat;cumdrip;autofacial;bukkake;felching;cumdump;peeing_self;pee_in_container;peed_self;public_urination"
+    },
+    {
+      "cluster_key": "OVERLAP|BODY_PART|BODY_ATTRIBUTE|NONE",
+      "rows": 24,
+      "membership": "OVERLAP",
+      "general_root": "BODY_PART",
+      "generation_family": "BODY_ATTRIBUTE",
+      "lex_flags": "NONE",
+      "examples": "vaginal_prolapse;extra_penises;phimosis;mons_pubis;flaccid;male_pubic_hair;prostate;futanari;sparse_pubic_hair;backboob"
+    },
+    {
+      "cluster_key": "OVERLAP|ACTION_CONTACT|(none)|ANATOMY",
+      "rows": 23,
+      "membership": "OVERLAP",
+      "general_root": "ACTION_CONTACT",
+      "generation_family": "(none)",
+      "lex_flags": "ANATOMY",
+      "examples": "pussy_grip;pussy_squeeze;tickling_nipples;poking_penis;clitoris_chain;penis_slip;bound_testicles;nipple_stimulation_through_clothes;breast-to-pectoral_docking;nipple_flick"
+    },
+    {
+      "cluster_key": "OVERLAP|ACTION_CONTACT|POSE_COMPOSITION|NONE",
+      "rows": 22,
+      "membership": "OVERLAP",
+      "general_root": "ACTION_CONTACT",
+      "generation_family": "POSE_COMPOSITION",
+      "lex_flags": "NONE",
+      "examples": "presenting_own_ass;reverse_upright_straddle;doggystyle;take_your_pick;69;girl_on_top;boy_on_top;prone_bone;amazon_position;standing_missionary"
+    }
+  ],
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO"
+}
