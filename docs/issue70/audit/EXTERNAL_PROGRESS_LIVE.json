@@ -1,7 +1,11 @@
 {
-  "format_version": 2,
+  "format_version": 3,
   "issue": 70,
   "production_modified": false,
+  "primary_rows_with_observations": 18270,
+  "effective_primary_rows": 18270,
+  "primary_conflicted_rows": 0,
+  "primary_defer_markers_suppressed_by_concrete": 0,
   "initial_external_rows": 1495,
   "resolved_external_rows": 29,
   "remaining_external_rows": 1466,
@@ -324,6 +328,7 @@
       "primary_source_file": "copyright_review_external_batch062.csv"
     }
   ],
+  "primary_conflicts": [],
   "conflicts": [],
-  "next_step": "continue official-source verification in EXTERNAL_QUEUE_LIVE.csv impact order; keep production read-only until external closure"
+  "next_step": "resolve only effective NEEDS_EXTERNAL_CHECK rows from EXTERNAL_QUEUE_LIVE.csv; keep production read-only until external closure"
 }
