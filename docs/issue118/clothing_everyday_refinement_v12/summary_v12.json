@@ -1,0 +1,23 @@
+{
+  "issue": 118,
+  "mode": "CLOTHING_EVERYDAY_REFINEMENT_V12",
+  "source_cluster": "GENERAL_ONLY|CLOTHING/EVERYDAY|NONE",
+  "source_rows": 3298,
+  "boundary_rows": 542,
+  "clean_candidate_rows": 2756,
+  "fresh_holdout_template_rows": 120,
+  "boundary_reason_counts": {
+    "clothing_pattern": 32,
+    "clothing_token": 542
+  },
+  "boundary_rules_use": "DISCOVERY_ONLY_NOT_CLASSIFICATION_AUTHORITY",
+  "holdout_verdicts_generated": "NO",
+  "semantic_authority": "NO",
+  "auto_promotion_performed": "NO",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO",
+  "next_gate": "independently review the fixed 120-row clothing holdout; on any counterexample refine only the responsible clothing boundary family"
+}
