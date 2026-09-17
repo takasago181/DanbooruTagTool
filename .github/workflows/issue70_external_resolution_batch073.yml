@@ -1,3 +1,4 @@
+# Re-run with root external_resolution overlay progress summarizer.
 name: Issue70 External Resolution Batch 073
 on:
   push:
