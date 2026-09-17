@@ -6,24 +6,24 @@
   "source_remaining_unclassified_rows": 15880,
   "triage_cluster_counts": {
     "BOUNDARY_REVIEW": 301,
-    "BULK_CANDIDATE": 5,
-    "SPLIT_REQUIRED": 17
+    "BULK_CANDIDATE": 4,
+    "SPLIT_REQUIRED": 18
   },
   "triage_identity_counts": {
     "BOUNDARY_REVIEW": 5188,
-    "BULK_CANDIDATE": 1857,
-    "SPLIT_REQUIRED": 8835
+    "BULK_CANDIDATE": 1843,
+    "SPLIT_REQUIRED": 8849
   },
   "triage_identity_share": {
     "BOUNDARY_REVIEW": 0.3267,
-    "BULK_CANDIDATE": 0.11694,
-    "SPLIT_REQUIRED": 0.55636
+    "BULK_CANDIDATE": 0.116058,
+    "SPLIT_REQUIRED": 0.557242
   },
   "triage_reason_identity_counts": {
     "explicit_risk_flag": 523,
-    "mixed_semantic_cluster": 8835,
+    "mixed_semantic_cluster": 8849,
     "no_accepted_general_path": 2338,
-    "ordinary_general_root_no_risk_signal": 1857,
+    "ordinary_general_root_no_risk_signal": 1843,
     "special_or_overlap_membership": 2327
   },
   "bulk_candidate_roots": [
@@ -33,7 +33,6 @@
     "GAZE_ORIENTATION",
     "HAIR_FACE",
     "LIVING_NATURE",
-    "PERSON_COUNT",
     "PLACE_BACKGROUND",
     "STYLE_QUALITY_META",
     "TEXT_SYMBOL"
@@ -185,12 +184,6 @@
         "rows": 41,
         "examples": "averting_eyes;downcast_eyes;eye_focus;facing_ahead;facing_animal;facing_away;facing_back;facing_down;facing_up;facing_viewer;forward-facing_horns;head_back",
         "reason": "ordinary_general_root_no_risk_signal"
-      },
-      {
-        "cluster_key": "GENERAL_ONLY|PERSON_COUNT|NONE",
-        "rows": 14,
-        "examples": "after-school_sweets_club_(blue_archive);bisexual_male;blacked_male;cowgirl_(western);dark-skinned_male;giant_male;male_harem;male_yandere;mature_male;multiple_reverse_traps;other_with_male;short_male",
-        "reason": "ordinary_general_root_no_risk_signal"
       }
     ],
     "SPLIT_REQUIRED": [
@@ -276,6 +269,12 @@
         "cluster_key": "GENERAL_ONLY|OBJECT_PROP/WEAPON|NONE",
         "rows": 17,
         "examples": "double-barreled_shotgun;double-sided_axe;double-sided_polearm;double_beam_cannon;double_blade;double_bladed_lightsaber;double_soul_(mega_man);extended_magazine;gun_between_thighs;gun_in_another's_mouth;gun_in_own_mouth;gun_on_back",
+        "reason": "mixed_semantic_cluster"
+      },
+      {
+        "cluster_key": "GENERAL_ONLY|PERSON_COUNT|NONE",
+        "rows": 14,
+        "examples": "after-school_sweets_club_(blue_archive);bisexual_male;blacked_male;cowgirl_(western);dark-skinned_male;giant_male;male_harem;male_yandere;mature_male;multiple_reverse_traps;other_with_male;short_male",
         "reason": "mixed_semantic_cluster"
       },
       {
