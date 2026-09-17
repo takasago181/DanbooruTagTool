@@ -1,0 +1,43 @@
+{
+  "issue": 118,
+  "mode": "SAFE_GENERAL_ADVERSARIAL_V4",
+  "input_candidate_rows": 10258,
+  "adversarial_excluded_rows": 104,
+  "clean_candidate_rows": 10154,
+  "risk_family_counts": {
+    "CLOTHING_CONTEXTUAL_RISK": 68,
+    "CONTRACEPTION_SEX_RELATED": 3,
+    "FETISH_CODED_WEAR": 32,
+    "PREVIOUS_V3_RISK": 8,
+    "SEXUALIZED_COSTUME": 8,
+    "SEXUAL_MEDIA_OR_ROLE": 4
+  },
+  "excluded_path_counts": {
+    "ACTION_CONTACT/OBJECT_USE": 1,
+    "CLOTHING/ACCESSORY": 85,
+    "CLOTHING/COSTUME": 6,
+    "OBJECT_PROP": 1,
+    "OBJECT_PROP/DAILY": 7,
+    "PERSON_COUNT": 4
+  },
+  "risk_discovery_rows": 45,
+  "clean_holdout_rows": 120,
+  "clean_holdout_paths": 10,
+  "prior_validation_overlap": 0,
+  "known_leaks_removed": [
+    "multiple_condoms",
+    "o-ring_slingshot_swimsuit",
+    "okamoto_condoms",
+    "playboy_bunny",
+    "pornstar",
+    "stripper",
+    "too_many_condoms"
+  ],
+  "review_verdicts_generated_by_materializer": "NO",
+  "promotion_performed": "NO",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO"
+}
