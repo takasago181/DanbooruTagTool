@@ -3,22 +3,22 @@
   "mode": "SAFE_GENERAL_V2_MANUAL_VALIDATION",
   "sample_rows": 120,
   "class_counts": {
-    "NON_SEXUAL": 118,
-    "SEXUAL": 1,
-    "CONTEXTUAL": 1
+    "NON_SEXUAL": 119,
+    "SEXUAL": 1
   },
   "counterexamples": [
     {
       "identity_key": "stripper",
       "general_path": "PERSON_COUNT",
       "reviewed_class": "SEXUAL",
-      "reason": "the concept itself denotes an erotic/sexualized performer role; do not bulk-classify the entire PERSON_COUNT safe candidate set without excluding this semantic risk"
-    },
+      "reason": "the concept itself denotes an erotic/sexualized performer role; exclude this semantic risk before bulk-classifying PERSON_COUNT"
+    }
+  ],
+  "supplemental_cluster_risk_examples": [
     {
       "identity_key": "head_cage",
-      "general_path": "OBJECT_PROP/DAILY",
-      "reviewed_class": "CONTEXTUAL",
-      "reason": "the concept can naturally serve ordinary/restraint contexts and sexual/BDSM discovery; do not bulk-classify the entire OBJECT_PROP/DAILY safe candidate set without excluding restraint-device risk"
+      "source": "general_cluster_review_v1 representative sample, not the 120-row v2 validation sample",
+      "reason": "restraint/BDSM ambiguity motivated adding the conservative risk token cage"
     }
   ],
   "passed_paths_12_of_12": [
@@ -27,15 +27,15 @@
     "CLOTHING/COSTUME",
     "CLOTHING/UNIFORM",
     "OBJECT_PROP",
+    "OBJECT_PROP/DAILY",
     "OBJECT_PROP/FOOD",
     "OBJECT_PROP/VEHICLE",
     "OBJECT_PROP/WEAPON"
   ],
   "failed_paths": {
-    "OBJECT_PROP/DAILY": "11/12 NON_SEXUAL; head_cage CONTEXTUAL",
     "PERSON_COUNT": "11/12 NON_SEXUAL; stripper SEXUAL"
   },
-  "decision": "REFINE_NOT_REJECT_WHOLE_PATH",
+  "decision": "REFINE_RISK_TOKENS_THEN_FRESH_HOLDOUT",
   "next_risk_tokens": ["cage", "stripper"],
   "production_authority": "NO",
   "main_mutated": "NO",
