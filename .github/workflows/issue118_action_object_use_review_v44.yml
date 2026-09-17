@@ -1,0 +1,47 @@
+name: Issue118 Action Object Use Review V44
+
+on:
+  push:
+    branches:
+      - research/issue118-cluster-triage-v8
+    paths:
+      - scripts/issue118/materialize_action_object_use_review_v44.py
+      - docs/issue118/research_sidecar_v26.csv
+      - .github/workflows/issue118_action_object_use_review_v44.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  action-object-use-review-v44:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Materialize v44 review candidate
+        run: |
+          python3 -m py_compile scripts/issue118/materialize_action_object_use_review_v44.py
+          python3 scripts/issue118/materialize_action_object_use_review_v44.py
+      - name: Validate v44
+        run: |
+          python3 - <<'PY'
+          import csv,json
+          from pathlib import Path
+          rows=list(csv.DictReader(Path('docs/issue118/action_object_use_review_v44/full_review_candidate_v44.csv').open(encoding='utf-8')))
+          s=json.loads(Path('docs/issue118/action_object_use_review_v44/summary_v44.json').read_text(encoding='utf-8'))
+          assert len(rows)==49
+          assert s['candidate_rows']==49
+          assert s['auto_promotion_performed']=='NO'
+          assert s['production_authority']=='NO'
+          print('ISSUE118_ACTION_OBJECT_USE_V44_GATE=PASS')
+          PY
+      - name: Persist research evidence only
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/issue118/action_object_use_review_v44/
+          if ! git diff --cached --quiet; then
+            git commit -m 'Issue #118: materialize action object-use review v44'
+            git push origin HEAD:research/issue118-cluster-triage-v8
+          fi
