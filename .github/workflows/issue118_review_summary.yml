@@ -7,6 +7,7 @@ on:
     paths:
       - 'scripts/issue118/summarize_intent_reviews.py'
       - 'scripts/issue118/evaluate_pilot_rules.py'
+      - 'scripts/issue118/estimate_population_coverage.py'
       - 'docs/issue118/reviews/chunk_*_review_v1.csv'
       - '.github/workflows/issue118_review_summary.yml'
   workflow_dispatch:
@@ -26,21 +27,26 @@ jobs:
         run: |
           python3 -m py_compile scripts/issue118/summarize_intent_reviews.py
           python3 -m py_compile scripts/issue118/evaluate_pilot_rules.py
+          python3 -m py_compile scripts/issue118/estimate_population_coverage.py
 
-      - name: Validate and summarize 700 semantic reviews
+      - name: Validate and summarize semantic evidence
         run: |
           set -euo pipefail
           python3 scripts/issue118/summarize_intent_reviews.py
           python3 scripts/issue118/evaluate_pilot_rules.py
+          python3 scripts/issue118/estimate_population_coverage.py
 
       - name: Persist semantic review evidence
         run: |
           set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add docs/issue118/reviews/semantic_pilot_summary_v1.json docs/issue118/reviews/pilot_rule_evaluation_v1.json
+          git add \
+            docs/issue118/reviews/semantic_pilot_summary_v1.json \
+            docs/issue118/reviews/pilot_rule_evaluation_v1.json \
+            docs/issue118/reviews/population_rule_coverage_v1.json
           if ! git diff --cached --quiet; then
-            git commit -m 'Issue #118: persist semantic pilot summary and rule evaluation'
+            git commit -m 'Issue #118: persist pilot and population coverage evidence'
             git push origin HEAD:research/issue118-intent-pilot
           fi
 
@@ -53,5 +59,6 @@ jobs:
             docs/issue118/reviews/chunk_*_review_v1.csv
             docs/issue118/reviews/semantic_pilot_summary_v1.json
             docs/issue118/reviews/pilot_rule_evaluation_v1.json
+            docs/issue118/reviews/population_rule_coverage_v1.json
           if-no-files-found: error
           retention-days: 14
