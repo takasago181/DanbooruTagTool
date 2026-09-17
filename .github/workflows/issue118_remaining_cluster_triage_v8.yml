@@ -1,0 +1,69 @@
+name: Issue118 Remaining Cluster Triage V8
+
+on:
+  push:
+    branches:
+      - research/issue118-cluster-triage-v8
+    paths:
+      - scripts/issue118/materialize_remaining_cluster_triage_v8.py
+      - .github/workflows/issue118_remaining_cluster_triage_v8.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  materialize-v8:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Materialize triage
+        run: |
+          python3 -m py_compile scripts/issue118/materialize_remaining_cluster_triage_v8.py
+          python3 scripts/issue118/materialize_remaining_cluster_triage_v8.py
+      - name: Validate triage
+        run: |
+          python3 - <<'PY'
+          import csv, json
+          from pathlib import Path
+
+          p = Path('docs/issue118/remaining_cluster_triage_v8')
+          s = json.loads((p / 'summary_v8.json').read_text(encoding='utf-8'))
+          rows = list(csv.DictReader((p / 'cluster_triage_v8.csv').open(encoding='utf-8')))
+
+          assert s['source_cluster_count'] == 323
+          assert s['source_remaining_unclassified_rows'] == 15880
+          assert len(rows) == 323
+          assert sum(int(r['rows']) for r in rows) == 15880
+          assert set(r['triage_bucket'] for r in rows) <= {
+              'BULK_CANDIDATE', 'SPLIT_REQUIRED', 'BOUNDARY_REVIEW'
+          }
+          assert sum(s['triage_cluster_counts'].values()) == 323
+          assert sum(s['triage_identity_counts'].values()) == 15880
+          assert s['semantic_authority'] == 'NO'
+          assert s['auto_promotion_performed'] == 'NO'
+          assert s['review_verdicts_generated'] == 'NO'
+          assert s['production_authority'] == 'NO'
+          assert s['main_mutated'] == 'NO'
+          assert s['issue117_code_mutated'] == 'NO'
+          assert s['catalog_mutated'] == 'NO'
+          assert s['user_db_mutated'] == 'NO'
+
+          for r in rows:
+              if r['triage_bucket'] == 'BULK_CANDIDATE':
+                  assert r['membership'] == 'GENERAL_ONLY'
+                  assert r['lex_flags'] == 'NONE'
+                  assert r['general_path'] != '(none)'
+
+          print('ISSUE118_REMAINING_CLUSTER_TRIAGE_V8_GATE=PASS')
+          PY
+      - name: Persist research triage only
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/issue118/remaining_cluster_triage_v8
+          if ! git diff --cached --quiet; then
+            git commit -m 'Issue #118: materialize remaining cluster triage v8'
+            git push origin HEAD:research/issue118-cluster-triage-v8
+          fi
