@@ -1,0 +1,23 @@
+{
+  "issue": 118,
+  "mode": "ACTION_FIVE_CLUSTER_FULL_REVIEW_V58",
+  "source_sidecar": "research_sidecar_v32.csv",
+  "candidate_rows": 95,
+  "cluster_counts": {
+    "OVERLAP|ACTION_CONTACT|(none)|ANATOMY": 23,
+    "OVERLAP|ACTION_CONTACT|(none)|EXPLICIT_SEX": 17,
+    "OVERLAP|ACTION_CONTACT|ACTION_INTERACTION|EXPLICIT_SEX": 18,
+    "OVERLAP|ACTION_CONTACT|CONTEXT_MODIFIER|EXPLICIT_SEX": 17,
+    "OVERLAP|ACTION_CONTACT|NONHUMAN_INTERACTION|NONE": 20
+  },
+  "selection_rules_use": "DISCOVERY_ONLY_NOT_CLASSIFICATION_AUTHORITY",
+  "auto_promotion_performed": "NO",
+  "review_verdicts_generated_by_materializer": "NO",
+  "review_artifacts_are_external_inputs": "YES",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO",
+  "next_gate": "full manual review of all 95 rows"
+}
