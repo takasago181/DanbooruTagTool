@@ -1,0 +1,131 @@
+{
+  "issue": 118,
+  "mode": "REVIEWED_700_IDENTITY_SEMANTIC_PILOT",
+  "pilot_rows": 700,
+  "overall_counts": {
+    "CONTEXTUAL": 187,
+    "NON_SEXUAL": 411,
+    "SEXUAL": 86,
+    "UNCLASSIFIED": 16
+  },
+  "overall_rates": {
+    "CONTEXTUAL": 0.267143,
+    "NON_SEXUAL": 0.587143,
+    "SEXUAL": 0.122857,
+    "UNCLASSIFIED": 0.022857
+  },
+  "stratum_counts": {
+    "BOUNDARY_GENERAL_ONLY": {
+      "CONTEXTUAL": 7,
+      "NON_SEXUAL": 112,
+      "UNCLASSIFIED": 1
+    },
+    "BOUNDARY_OVERLAP": {
+      "CONTEXTUAL": 60,
+      "NON_SEXUAL": 22,
+      "SEXUAL": 36,
+      "UNCLASSIFIED": 2
+    },
+    "BOUNDARY_SPECIAL_ONLY": {
+      "CONTEXTUAL": 2,
+      "NON_SEXUAL": 1,
+      "SEXUAL": 6,
+      "UNCLASSIFIED": 1
+    },
+    "ISSUE104_REVIEWED_RISK": {
+      "CONTEXTUAL": 111,
+      "NON_SEXUAL": 74,
+      "SEXUAL": 38,
+      "UNCLASSIFIED": 9
+    },
+    "ORDINARY_GENERAL_CONTROL": {
+      "NON_SEXUAL": 100
+    },
+    "UNION_FILL": {
+      "CONTEXTUAL": 7,
+      "NON_SEXUAL": 102,
+      "SEXUAL": 6,
+      "UNCLASSIFIED": 3
+    }
+  },
+  "membership_counts": {
+    "GENERAL_ONLY": {
+      "CONTEXTUAL": 69,
+      "NON_SEXUAL": 369,
+      "SEXUAL": 12,
+      "UNCLASSIFIED": 11
+    },
+    "OVERLAP": {
+      "CONTEXTUAL": 114,
+      "NON_SEXUAL": 40,
+      "SEXUAL": 65,
+      "UNCLASSIFIED": 4
+    },
+    "SPECIAL_ONLY": {
+      "CONTEXTUAL": 4,
+      "NON_SEXUAL": 2,
+      "SEXUAL": 9,
+      "UNCLASSIFIED": 1
+    }
+  },
+  "per_chunk_counts": {
+    "chunk_001_review_v1.csv": {
+      "CONTEXTUAL": 49,
+      "NON_SEXUAL": 32,
+      "SEXUAL": 15,
+      "UNCLASSIFIED": 4
+    },
+    "chunk_002_review_v1.csv": {
+      "CONTEXTUAL": 47,
+      "NON_SEXUAL": 27,
+      "SEXUAL": 21,
+      "UNCLASSIFIED": 5
+    },
+    "chunk_003_review_v1.csv": {
+      "CONTEXTUAL": 50,
+      "NON_SEXUAL": 23,
+      "SEXUAL": 26,
+      "UNCLASSIFIED": 1
+    },
+    "chunk_004_review_v1.csv": {
+      "CONTEXTUAL": 27,
+      "NON_SEXUAL": 60,
+      "SEXUAL": 12,
+      "UNCLASSIFIED": 1
+    },
+    "chunk_005_review_v1.csv": {
+      "CONTEXTUAL": 7,
+      "NON_SEXUAL": 85,
+      "SEXUAL": 6,
+      "UNCLASSIFIED": 2
+    },
+    "chunk_006_review_v1.csv": {
+      "NON_SEXUAL": 98,
+      "SEXUAL": 1,
+      "UNCLASSIFIED": 1
+    },
+    "chunk_007_review_v1.csv": {
+      "CONTEXTUAL": 7,
+      "NON_SEXUAL": 86,
+      "SEXUAL": 5,
+      "UNCLASSIFIED": 2
+    }
+  },
+  "validation": {
+    "sample_rows": 700,
+    "review_rows": 700,
+    "review_files": 7,
+    "unique_sample_identity_keys": 700,
+    "unique_review_identity_keys": 700,
+    "exact_identity_coverage": "PASS",
+    "allowed_classes_only": "PASS"
+  },
+  "boundaries": {
+    "production_data_mutated": "NO",
+    "main_mutated": "NO",
+    "issue117_code_mutated": "NO",
+    "catalog_mutated": "NO",
+    "user_db_mutated": "NO",
+    "pilot_results_are_population_prevalence_estimate": "NO"
+  }
+}
