@@ -3,25 +3,25 @@
   "issue": 70,
   "production_modified": false,
   "initial_ledger_rows": 18270,
-  "audited_unique_rows": 16073,
-  "resolved_unique_rows": 16073,
+  "audited_unique_rows": 16091,
+  "resolved_unique_rows": 16091,
   "conflicted_unique_rows": 0,
-  "remaining_unaudited_rows": 2197,
+  "remaining_unaudited_rows": 2179,
   "duplicate_same_decision_rows": 0,
   "verdict_counts_resolved": {
     "FIX_BOTH": 75,
     "FIX_DISPLAY": 7524,
     "FIX_SEARCH": 254,
-    "KEEP": 7841,
+    "KEEP": 7859,
     "NEEDS_EXTERNAL_CHECK": 379
   },
   "audited_by_category": {
-    "Character": 13495,
+    "Character": 13513,
     "Copyright": 1552,
     "Artist": 1026
   },
   "remaining_by_category": {
-    "Character": 1433,
+    "Character": 1415,
     "Copyright": 764,
     "Artist": 0
   },
@@ -29,17 +29,17 @@
   "unresolved_user_decision_rows": 0,
   "remaining_patterns": {
     "Character": {
-      "rows": 1433,
+      "rows": 1415,
       "status_counts": {
-        "ACCEPTED_AI": 433,
+        "ACCEPTED_AI": 415,
         "REVIEW_REQUIRED": 1000
       },
       "impact_counts": {
-        "REST": 1242,
-        "TOP_10_PERCENT": 191
+        "REST": 1226,
+        "TOP_10_PERCENT": 189
       },
       "audit_bucket_counts": {
-        "ACCEPTED_RISK": 433,
+        "ACCEPTED_RISK": 415,
         "REVIEW_REQUIRED": 1000
       },
       "top_translation_notes": [
@@ -49,7 +49,7 @@
         },
         {
           "value": "<blank>",
-          "count": 299
+          "count": 288
         },
         {
           "value": "single Japanese candidate with no conflicting evidence",
@@ -88,15 +88,15 @@
           "count": 6
         },
         {
-          "value": "確定",
-          "count": 6
-        },
-        {
           "value": "日本語公式表記を追加確認",
           "count": 5
         },
         {
           "value": "衣装呼称の公式表記を追加確認",
+          "count": 5
+        },
+        {
+          "value": "確定",
           "count": 5
         },
         {
@@ -168,14 +168,14 @@
         "JA_DISPLAY_NOT_EXACT_SOURCE_EVIDENCE": 1081,
         "STATUS_REVIEW_REQUIRED": 1000,
         "NO_SOURCE_JA_EVIDENCE_OVERLAP": 562,
-        "DISAMBIGUATOR_NOT_VISIBLE": 472,
-        "VARIANT_DISPLAY_MISSING_BASE_IDENTITY": 177,
-        "DUPLICATE_DISPLAY_WITHIN_CATEGORY": 100,
+        "DISAMBIGUATOR_NOT_VISIBLE": 464,
+        "VARIANT_DISPLAY_MISSING_BASE_IDENTITY": 167,
+        "DUPLICATE_DISPLAY_WITHIN_CATEGORY": 93,
         "DISPLAY_MISSING_FROM_SEARCH": 27,
         "ASCII_ONLY_DISPLAY_NON_ARTIST": 26,
         "CHARACTER_NO_COPYRIGHT_CONTEXT": 26,
         "DISPLAY_CANONICAL_LIKE": 25,
-        "RAW_TAG_SYNTAX_IN_DISPLAY": 24
+        "RAW_TAG_SYNTAX_IN_DISPLAY": 22
       },
       "top_note_risk_signatures": [
         {
@@ -277,13 +277,6 @@
           "count": 14
         },
         {
-          "translation_note": "<blank>",
-          "risk_flags": "DISAMBIGUATOR_NOT_VISIBLE|VARIANT_DISPLAY_MISSING_BASE_IDENTITY",
-          "translation_status": "ACCEPTED_AI",
-          "audit_bucket": "ACCEPTED_RISK",
-          "count": 13
-        },
-        {
           "translation_note": "要確認",
           "risk_flags": "DISAMBIGUATOR_NOT_VISIBLE|DUPLICATE_DISPLAY_WITHIN_CATEGORY|JA_DISPLAY_NOT_EXACT_SOURCE_EVIDENCE|STATUS_REVIEW_REQUIRED",
           "translation_status": "REVIEW_REQUIRED",
@@ -307,6 +300,13 @@
         {
           "translation_note": "single Japanese candidate with no conflicting evidence",
           "risk_flags": "RAW_TAG_SYNTAX_IN_DISPLAY",
+          "translation_status": "ACCEPTED_AI",
+          "audit_bucket": "ACCEPTED_RISK",
+          "count": 7
+        },
+        {
+          "translation_note": "<blank>",
+          "risk_flags": "DISAMBIGUATOR_NOT_VISIBLE|VARIANT_DISPLAY_MISSING_BASE_IDENTITY",
           "translation_status": "ACCEPTED_AI",
           "audit_bucket": "ACCEPTED_RISK",
           "count": 7
@@ -1109,6 +1109,10 @@
     {
       "file": "character_accepted_clean_keep_batch029b.csv",
       "ledger_rows": 40
+    },
+    {
+      "file": "character_accepted_source_supported_keep_batch045.csv",
+      "ledger_rows": 18
     },
     {
       "file": "character_canonical_variant_fallback_batch028.csv",
