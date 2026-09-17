@@ -1,0 +1,52 @@
+name: Issue118 Clothing Accessory Review V27
+
+on:
+  push:
+    branches:
+      - research/issue118-cluster-triage-v8
+    paths:
+      - scripts/issue118/materialize_clothing_accessory_review_v27.py
+      - docs/issue118/research_sidecar_v14.csv
+      - .github/workflows/issue118_clothing_accessory_review_v27.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  accessory-v27:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Materialize clothing accessory review v27
+        run: |
+          python3 -m py_compile scripts/issue118/materialize_clothing_accessory_review_v27.py
+          python3 scripts/issue118/materialize_clothing_accessory_review_v27.py
+      - name: Validate v27
+        run: |
+          python3 - <<'PY'
+          import csv, json
+          from pathlib import Path
+          p = Path('docs/issue118/clothing_accessory_review_v27')
+          s = json.loads((p / 'summary_v27.json').read_text(encoding='utf-8'))
+          rows = list(csv.DictReader((p / 'full_review_candidate_v27.csv').open(encoding='utf-8')))
+          assert len(rows) == 96
+          assert s['candidate_rows'] == 96
+          assert s['auto_promotion_performed'] == 'NO'
+          assert s['production_authority'] == 'NO'
+          assert s['main_mutated'] == 'NO'
+          assert s['issue117_code_mutated'] == 'NO'
+          assert s['catalog_mutated'] == 'NO'
+          assert s['user_db_mutated'] == 'NO'
+          print('ISSUE118_CLOTHING_ACCESSORY_V27_GATE=PASS')
+          PY
+      - name: Persist research evidence only
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/issue118/clothing_accessory_review_v27
+          if ! git diff --cached --quiet; then
+            git commit -m 'Issue #118: materialize clothing accessory review v27'
+            git push origin HEAD:research/issue118-cluster-triage-v8
+          fi
