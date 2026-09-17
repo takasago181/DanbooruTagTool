@@ -11,6 +11,7 @@ on:
       - 'scripts/issue118/materialize_rule_holdout.py'
       - 'scripts/issue118/materialize_holdout_review.py'
       - 'scripts/issue118/evaluate_holdout_rules.py'
+      - 'scripts/issue118/evaluate_candidate_rules_v2.py'
       - 'docs/issue118/reviews/chunk_*_review_v1.csv'
       - '.github/workflows/issue118_review_summary.yml'
   workflow_dispatch:
@@ -34,6 +35,7 @@ jobs:
           python3 -m py_compile scripts/issue118/materialize_rule_holdout.py
           python3 -m py_compile scripts/issue118/materialize_holdout_review.py
           python3 -m py_compile scripts/issue118/evaluate_holdout_rules.py
+          python3 -m py_compile scripts/issue118/evaluate_candidate_rules_v2.py
 
       - name: Validate and summarize semantic evidence
         run: |
@@ -44,21 +46,25 @@ jobs:
           python3 scripts/issue118/materialize_rule_holdout.py
           python3 scripts/issue118/materialize_holdout_review.py
           python3 scripts/issue118/evaluate_holdout_rules.py
+          python3 scripts/issue118/evaluate_candidate_rules_v2.py
 
-      - name: Validate holdout contract
+      - name: Validate holdout and refined-rule contract
         run: |
           python3 - <<'PY'
           import json
           from pathlib import Path
-          p=Path('docs/issue118/holdout/rule_holdout_evaluation_v1.json')
-          s=json.loads(p.read_text(encoding='utf-8'))
-          assert s['holdout_rows'] == 240
-          assert s['by_candidate_rule']['AUTO_SEXUAL_EXPLICIT_SPECIAL_LEXEMES_V2']['matched'] == 80
-          assert s['by_candidate_rule']['AUTO_SEXUAL_EXPLICIT_SPECIAL_LEXEMES_V2']['target_precision'] == 1.0
-          assert s['refined_nonsexual_v2']['matched'] == 120
-          assert s['refined_nonsexual_v2']['target_precision'] == 1.0
-          assert s['production_classification_written'] == 'NO'
-          print('ISSUE118_HOLDOUT_REVIEW_GATE=PASS')
+          h=json.loads(Path('docs/issue118/holdout/rule_holdout_evaluation_v1.json').read_text(encoding='utf-8'))
+          assert h['holdout_rows'] == 240
+          assert h['by_candidate_rule']['AUTO_SEXUAL_EXPLICIT_SPECIAL_LEXEMES_V2']['matched'] == 80
+          assert h['by_candidate_rule']['AUTO_SEXUAL_EXPLICIT_SPECIAL_LEXEMES_V2']['target_precision'] == 1.0
+          assert h['refined_nonsexual_v2']['matched'] == 120
+          assert h['refined_nonsexual_v2']['target_precision'] == 1.0
+          v=json.loads(Path('docs/issue118/reviews/candidate_rules_v2_evaluation.json').read_text(encoding='utf-8'))
+          assert v['pilot']['AUTO_NONSEX_SAFE_GENERAL_ROOTS_V2']['target_precision'] == 1.0
+          assert v['pilot']['AUTO_SEXUAL_EXPLICIT_SPECIAL_LEXEMES_V2']['target_precision'] == 1.0
+          assert v['candidate_coverage']['rule_conflicts'] == 0
+          assert v['production_classification_written'] == 'NO'
+          print('ISSUE118_REFINED_RULE_GATE=PASS')
           PY
 
       - name: Persist semantic review evidence
@@ -70,9 +76,10 @@ jobs:
             docs/issue118/reviews/semantic_pilot_summary_v1.json \
             docs/issue118/reviews/pilot_rule_evaluation_v1.json \
             docs/issue118/reviews/population_rule_coverage_v1.json \
+            docs/issue118/reviews/candidate_rules_v2_evaluation.json \
             docs/issue118/holdout
           if ! git diff --cached --quiet; then
-            git commit -m 'Issue #118: persist reviewed rule holdout evidence'
+            git commit -m 'Issue #118: persist refined candidate-rule evaluation'
             git push origin HEAD:research/issue118-intent-pilot
           fi
 
@@ -86,6 +93,7 @@ jobs:
             docs/issue118/reviews/semantic_pilot_summary_v1.json
             docs/issue118/reviews/pilot_rule_evaluation_v1.json
             docs/issue118/reviews/population_rule_coverage_v1.json
+            docs/issue118/reviews/candidate_rules_v2_evaluation.json
             docs/issue118/holdout/*.csv
             docs/issue118/holdout/*.json
             docs/issue118/holdout/review_chunks/*.csv
