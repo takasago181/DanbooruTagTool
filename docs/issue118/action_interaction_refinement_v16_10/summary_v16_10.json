@@ -1,0 +1,37 @@
+{
+  "issue": 118,
+  "mode": "ACTION_INTERACTION_REFINEMENT_V16_10_CONVERGENCE_SWEEP",
+  "source_ordinary_rows_v16_9": 1570,
+  "conservative_boundary_rows": 61,
+  "ordinary_clean_rows_v16_10": 1509,
+  "risk_flag_counts": {
+    "body_site_x_contact_or_display": 51,
+    "foot_kabedon_boundary": 1,
+    "relationship_sexual_context_cue": 1,
+    "restraint_like_wrist_holding": 2,
+    "substance_on_body_site": 4,
+    "undergarment_inside_or_manipulation": 3
+  },
+  "fresh_holdout_template_rows": 120,
+  "required_counterexamples_captured": [
+    "chocolate_on_legs",
+    "foot_kabedon",
+    "hand_in_own_pantyhose",
+    "hand_in_pantyhose",
+    "hand_on_another's_nape",
+    "holding_another's_wrists",
+    "implied_hetero",
+    "licking_back",
+    "pectoral_pillow",
+    "poking_ass"
+  ],
+  "risk_rules_use": "DISCOVERY_ONLY_NOT_CLASSIFICATION_AUTHORITY",
+  "holdout_verdicts_generated": "NO",
+  "auto_promotion_performed": "NO",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO",
+  "next_gate": "review fresh holdout; if it still leaks sexual/contextual counterexamples, stop whole-cluster bulk promotion and split into narrower safe subclusters"
+}
