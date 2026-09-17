@@ -1,0 +1,24 @@
+{
+  "issue": 118,
+  "mode": "BODY_PART_LOW_RISK_SUBCLUSTER_V19",
+  "source_cluster": "GENERAL_ONLY|BODY_PART|NONE",
+  "source_rows": 1697,
+  "low_risk_candidate_rows": 1470,
+  "boundary_residual_rows": 227,
+  "boundary_flag_counts": {
+    "intimate_mark_or_secretion": 6,
+    "intimate_or_fetish_body_site": 191,
+    "sexualized_body_site": 23,
+    "sexualized_shape_or_emphasis": 10
+  },
+  "fresh_holdout_template_rows": 120,
+  "selection_rules_use": "DISCOVERY_ONLY_NOT_CLASSIFICATION_AUTHORITY",
+  "holdout_verdicts_generated": "NO",
+  "auto_promotion_performed": "NO",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO",
+  "next_gate": "independently review fixed 120-row low-risk body holdout; promote only if clean"
+}
