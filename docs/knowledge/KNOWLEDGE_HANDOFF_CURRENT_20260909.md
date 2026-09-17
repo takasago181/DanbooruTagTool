@@ -2,9 +2,9 @@
 
 Owner: Issue #44 `KNOWLEDGE:#44`
 
-Updated: 2026-09-13
+Updated: 2026-09-17
 
-Status: `HANDOFF_READY_V6 / PROMPT_MERGED / V1_GOAL_SYNCED / STAGE10_NOOB_ACTIVE`
+Status: `HANDOFF_READY_V7 / PROMPT_MERGED / V1_GOAL_SYNCED / STAGE10_NOOB_ACTIVE / SCENE_WORKFLOW_SYNTHESIZED`
 
 ## Purpose
 
@@ -28,6 +28,11 @@ The former PROMPT team/lane was retired on 2026-09-12 and merged into KNOWLEDGE.
 12. `docs/knowledge/current/HOLD_CONFLICT_REGISTER.md` and `VERSION_FRESHNESS_LEDGER.csv` when uncertainty/version matters
 13. detailed `docs/knowledge/research/*` only when evidence/provenance is needed
 14. corpus/sources/index for broad historical context
+
+Scene planning / browse-order questions should additionally read:
+- `docs/knowledge/catalog/05_HARD_NICHE_ADULT_GENERATION.md`
+- `docs/knowledge/research/BATCH_N_SCENE_INTENT_DISCOVERY_WORKFLOW_20260917.md`
+- `docs/knowledge/current/RESEARCH_BACKLOG_20260913.md` (`SW-01..04`)
 
 ## Current source-of-truth layering
 
@@ -126,7 +131,7 @@ The one topic taxonomy remains `catalog/00–10`. The current management layer i
 2 Prompt/support/composition
 3 failure/testing/evaluation
 4 tools/postprocess/LoRA
-5 hard/niche generation
+5 hard/niche generation + current scene-planning synthesis
 6 semantics/Alias/trigger
 7 WAI17 local test profile — retained historical/comparison profile
 8 source/site audits
@@ -137,6 +142,7 @@ The one topic taxonomy remains `catalog/00–10`. The current management layer i
 
 - model family/version/profile is part of every generation claim
 - canonical identity, Alias, implication, UI Japanese, trigger and generation support are separate
+- human scene-construction order, browse/discovery entry, model-specific Prompt serialization and generation diagnosis are separate layers
 - presence is not relation success
 - minimum sufficient is not shortest
 - support can become anti-support
@@ -147,6 +153,26 @@ The one topic taxonomy remains `catalog/00–10`. The current management layer i
 - unsupported cases remain HOLD/REVIEW
 
 Current Claim IDs and status are authoritative in Registry.
+
+## Scene-planning synthesis — 2026-09-17
+
+Current reusable semantic skeleton, derived from existing accepted Claims/research:
+
+`subjects/count/identity -> core action/state -> relation/role/ownership -> body-site -> geometry/position/topology -> implement/device/appendage -> state/timing/count/source-destination -> visibility/framing -> appearance/clothing/expression -> setting/background/light/style`
+
+Use this as an analysis/planning coordinate system, **not** as:
+- mandatory tag order;
+- canonical ontology;
+- universal model Prompt grammar;
+- automatically accepted WPF flow.
+
+A default human planning order can follow the skeleton, but current usability questions remain open:
+- `SW-01` fixed default order
+- `SW-02` adaptive next-facet ranking
+- `SW-03` ordinary adult-scene coverage
+- `SW-04` General/Special unified-discovery projection
+
+No existing model-effectiveness HOLD was closed by this synthesis.
 
 ## Current practical / empirical target
 
@@ -176,6 +202,20 @@ High-value unresolved local comparisons include:
 
 Do not run a broad 2,788-entry sweep merely because old Stage10 infrastructure exists.
 
+## Freshness checkpoint — 2026-09-17
+
+Rechecked:
+- NoobAI XL 1.1 EPS author card
+- Anima official family author card
+- Illustrious early/base official card
+- Forge Neo current `neo` branch
+- Forge Couple current README
+- Danbooru current discovery/tagging structure relevant to scene axes
+- e621 tag-group index as secondary browse evidence
+- current Japanese Anima practical page
+
+Current Forge Neo Sep. feature list supports Anima 2B / 2.9B / 3.8B plus Anima LLLite / Region ControlNet paths. This is runtime support only; community 2.9B/3.8B derivatives remain `ADVANCED_WATCH`, not the default CircleStone official-family project baseline.
+
 ## Maintenance workflow
 
 For new meaningful knowledge:
@@ -189,9 +229,10 @@ Do not duplicate the same verdict text into every summary.
 A future KNOWLEDGE / Stage10 chat is ready when it can recover:
 - current v1 product goal
 - current Stage10 NoobAI-first learning definition
-- #64 product work remains separate/parallel
+- completed #64/#76 product data is separate from KNOWLEDGE adoption authority
 - the distinction between source facts, Claims, HOLD, and local Stage10 evidence
 - current Noob/Anima practical guidance
+- current scene-planning vs browse vs Prompt-order separation
 - current HOLD/freshness
 - legacy WAI/old Stage10 provenance
 - former PROMPT work under #44 ownership
