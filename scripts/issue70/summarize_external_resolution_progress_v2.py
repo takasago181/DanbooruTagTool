@@ -1,15 +1,17 @@
 #!/usr/bin/env python3
 """Summarize Issue #70 second-stage external verification progress.
 
-Counts both legacy/root ``external_resolution_*.csv`` overlays and the canonical
-``external_resolutions/*.csv`` directory. Emits an exact unresolved queue sorted
-by impact so verification can continue without re-checking completed rows.
+Counts both root ``external_resolution_*.csv`` overlays and the canonical
+``external_resolutions/*.csv`` directory. Later numbered batches supersede
+older external checks for the same row; disagreement inside the latest batch
+remains a conflict. Emits an unresolved queue sorted by impact.
 Production Issue #70 data is read-only.
 """
 from __future__ import annotations
 
 import csv
 import json
+import re
 from collections import Counter
 from pathlib import Path
 
@@ -21,6 +23,7 @@ RUNTIME = ROOT / "docs/issue70/data/runtime/issue70_translation_results.csv"
 OUT = AUDIT / "EXTERNAL_PROGRESS_LIVE.json"
 QUEUE = AUDIT / "EXTERNAL_QUEUE_LIVE.csv"
 FINAL_VALID = {"KEEP", "FIX_DISPLAY", "FIX_SEARCH", "FIX_BOTH"}
+BATCH_RE = re.compile(r"batch(\d+)", re.I)
 
 
 def read_csv(path: Path) -> list[dict[str, str]]:
@@ -28,12 +31,13 @@ def read_csv(path: Path) -> list[dict[str, str]]:
         return list(csv.DictReader(fh))
 
 
+def batch_number(path: Path) -> int:
+    m = BATCH_RE.search(path.name)
+    return int(m.group(1)) if m else 0
+
+
 def decision_tuple(entry: dict[str, str]) -> tuple[str, str, str]:
-    return (
-        entry["external_verdict"],
-        entry["proposed_display_ja"],
-        entry["proposed_search_ja"],
-    )
+    return (entry["external_verdict"], entry["proposed_display_ja"], entry["proposed_search_ja"])
 
 
 def main() -> int:
@@ -41,8 +45,6 @@ def main() -> int:
     runtime = {r["row_id"]: r for r in read_csv(RUNTIME)}
 
     external_ids: dict[str, dict[str, str]] = {}
-    # Primary audit files live at the audit root. External overlay files also live
-    # there, but never contain NEEDS_EXTERNAL_CHECK and therefore do not seed the queue.
     for path in sorted(AUDIT.glob("*.csv")):
         try:
             rows = read_csv(path)
@@ -50,8 +52,7 @@ def main() -> int:
             continue
         for row in rows:
             rid = (row.get("row_id") or "").strip()
-            verdict = (row.get("audit_verdict") or "").strip()
-            if not rid or verdict != "NEEDS_EXTERNAL_CHECK":
+            if not rid or (row.get("audit_verdict") or "").strip() != "NEEDS_EXTERNAL_CHECK":
                 continue
             s = source.get(rid, {})
             rt = runtime.get(rid, {})
@@ -78,15 +79,13 @@ def main() -> int:
             "proposed_display_ja": (row.get("proposed_display_ja") or "").strip(),
             "proposed_search_ja": (row.get("proposed_search_ja") or "").strip(),
             "source_file": str(path.relative_to(AUDIT)),
+            "batch": batch_number(path),
         })
 
-    # Root overlays (batches 065+ and legacy external-resolution files).
     for path in sorted(AUDIT.glob("external_resolution_*.csv")):
         for row in read_csv(path):
             add_overlay(path, row, "audit_verdict")
 
-    # Canonical external-resolution directory. Accept either historical
-    # external_verdict or audit_verdict column names.
     if EXT.exists():
         for path in sorted(EXT.glob("*.csv")):
             for row in read_csv(path):
@@ -96,17 +95,25 @@ def main() -> int:
     resolved: dict[str, dict[str, str]] = {}
     conflicts: list[dict[str, object]] = []
     duplicate_same_decision_rows = 0
+    superseded_external_rows = 0
     for rid, entries in observations.items():
-        decisions = {decision_tuple(e) for e in entries}
+        latest_batch = max(e["batch"] for e in entries)
+        latest = [e for e in entries if e["batch"] == latest_batch]
+        superseded_external_rows += len(entries) - len(latest)
+        decisions = {decision_tuple(e) for e in latest}
         if len(decisions) == 1:
-            resolved[rid] = entries[-1]
-            if len(entries) > 1:
+            resolved[rid] = latest[-1]
+            if len(latest) > 1:
                 duplicate_same_decision_rows += 1
         else:
-            conflicts.append({"row_id": rid, "canonical_tag": external_ids[rid]["canonical_tag"], "entries": entries})
+            conflicts.append({
+                "row_id": rid,
+                "canonical_tag": external_ids[rid]["canonical_tag"],
+                "latest_batch": latest_batch,
+                "entries": latest,
+            })
 
-    remaining_ids = set(external_ids) - set(resolved)
-    remaining = [external_ids[rid] for rid in remaining_ids]
+    remaining = [external_ids[rid] for rid in set(external_ids) - set(resolved)]
     remaining.sort(key=lambda r: (-int(r.get("post_count") or 0), r["row_id"]))
 
     fields = ["row_id", "canonical_tag", "category", "post_count", "display_ja", "search_ja", "translation_note", "primary_source_file"]
@@ -127,6 +134,7 @@ def main() -> int:
         "remaining_external_rows": len(remaining),
         "conflicted_external_rows": len(conflicts),
         "duplicate_same_decision_rows": duplicate_same_decision_rows,
+        "superseded_external_rows": superseded_external_rows,
         "resolved_verdict_counts": dict(sorted(by_verdict.items())),
         "resolved_by_category": dict(sorted(by_cat_resolved.items())),
         "remaining_by_category": dict(sorted(by_cat_remaining.items())),
