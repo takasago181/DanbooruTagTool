@@ -1,0 +1,21 @@
+{
+  "format_version": 1,
+  "issue": 70,
+  "production_modified": false,
+  "initial_external_rows": 1495,
+  "resolved_external_rows": 7,
+  "remaining_external_rows": 1488,
+  "conflicted_external_rows": 0,
+  "resolved_verdict_counts": {
+    "FIX_SEARCH": 2,
+    "KEEP": 5
+  },
+  "resolved_by_category": {
+    "<unknown>": 7
+  },
+  "remaining_by_category": {
+    "<unknown>": 1488
+  },
+  "conflicts": [],
+  "next_step": "continue official-source verification in impact order; do not mutate production until external queue reaches closure or an explicit stop rule is accepted"
+}
