@@ -1,6 +1,6 @@
 # 10 — Complete File Map
 
-Status: `ALL_CURRENT_KNOWLEDGE_FILES_CLASSIFIED_V8 / NOOB_ANIMA_PRACTICAL_PACKAGE_ADDED`
+Status: `ALL_CURRENT_KNOWLEDGE_FILES_CLASSIFIED_V9 / SCENE_WORKFLOW_SYNTHESIS_ADDED`
 
 This maps the current `docs/knowledge/` assets into the canonical topic catalog and current management layer.
 
@@ -74,6 +74,7 @@ These files are cross-topic controls, not a second genre taxonomy.
 | `BATCH_K_EVALUATOR_FRESHNESS_RECHECK_20260913.md` | 03 / 08 | 09 |
 | `BATCH_L_NOOB_ANIMA_PRACTICAL_GENERATION_DEEP_DIVE_20260913.md` | 01 / 04 | 02 / 03 / 05 / 08 / 09 |
 | `BATCH_M_JAPANESE_PRACTICAL_SOURCE_AUDIT_NOOB_ANIMA_20260913.md` | 08 | 01 / 04 / 09 |
+| `BATCH_N_SCENE_INTENT_DISCOVERY_WORKFLOW_20260917.md` | 05 / 02 | 00 / 01 / 03 / 08 / 09 |
 | `DANBOORU_WIKI_SEMANTIC_AUDIT_20260909.md` | 06 | 08 |
 | `E621_WIKI_SEMANTIC_TRIGGER_AUDIT_20260909.md` | 06 | 01 / 08 |
 | `HF_MODEL_DISCUSSIONS_AUDIT_20260909.md` | 01 / 08 | 03 |
@@ -157,6 +158,23 @@ Covers:
 - EasyForgeNeo Japanese ecosystem source
 - stale/conflicting secondary pages
 - what each source is allowed to prove
+
+## Scene intent / discovery workflow package — 2026-09-17
+
+### Batch N
+`BATCH_N_SCENE_INTENT_DISCOVERY_WORKFLOW_20260917.md`
+
+Purpose:
+- fill the gap between existing hard-target diagnosis and human scene construction;
+- separate canonical semantics / human planning / browse entry / model serialization / generation diagnosis;
+- organize existing accepted predicates into a reusable scene semantic skeleton;
+- recheck Danbooru/e621 discovery structure and current NoobAI/Anima/Illustrious/Forge evidence;
+- preserve UX order as an open product-validation question rather than falsely promoting it as model grammar.
+
+Current synthesis:
+`intent entry -> semantic scene skeleton -> optional refinements -> model-specific serialization -> generation/evaluation`
+
+No new production behavior is authorized by this package.
 
 ## Layer roles
 
