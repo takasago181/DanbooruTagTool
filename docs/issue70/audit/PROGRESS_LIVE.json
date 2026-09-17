@@ -4,16 +4,16 @@
   "production_modified": false,
   "initial_ledger_rows": 18270,
   "audited_unique_rows": 18270,
-  "resolved_unique_rows": 18269,
-  "conflicted_unique_rows": 1,
+  "resolved_unique_rows": 18270,
+  "conflicted_unique_rows": 0,
   "remaining_unaudited_rows": 0,
-  "duplicate_same_decision_rows": 4,
+  "duplicate_same_decision_rows": 0,
   "verdict_counts_resolved": {
-    "FIX_BOTH": 650,
-    "FIX_DISPLAY": 7963,
+    "FIX_BOTH": 664,
+    "FIX_DISPLAY": 7968,
     "FIX_SEARCH": 257,
-    "KEEP": 7945,
-    "NEEDS_EXTERNAL_CHECK": 1454
+    "KEEP": 7954,
+    "NEEDS_EXTERNAL_CHECK": 1427
   },
   "audited_by_category": {
     "Character": 14928,
@@ -25,7 +25,7 @@
     "Copyright": 0,
     "Artist": 0
   },
-  "unresolved_external_check_rows": 1454,
+  "unresolved_external_check_rows": 1427,
   "unresolved_user_decision_rows": 0,
   "remaining_patterns": {
     "Character": {
@@ -254,16 +254,24 @@
       "ledger_rows": 5
     },
     {
-      "file": "external_resolution_character_official_batch066.csv",
-      "ledger_rows": 5
-    },
-    {
       "file": "external_resolution_copyright_official_batch070.csv",
       "ledger_rows": 12
     },
     {
-      "file": "external_resolution_high_impact_batch066.csv",
+      "file": "external_resolution_copyright_official_batch071.csv",
       "ledger_rows": 8
+    },
+    {
+      "file": "external_resolution_copyright_official_batch072.csv",
+      "ledger_rows": 8
+    },
+    {
+      "file": "external_resolution_copyright_official_batch073.csv",
+      "ledger_rows": 12
+    },
+    {
+      "file": "external_resolution_high_impact_batch066.csv",
+      "ledger_rows": 7
     },
     {
       "file": "external_resolution_high_impact_batch067.csv",
@@ -307,41 +315,6 @@
     }
   ],
   "ignored_nonledger_rows_by_file": {},
-  "conflicts": [
-    {
-      "row_id": "I70-001419",
-      "canonical_tag": "lilith_(fate)",
-      "category": "Character",
-      "entries": [
-        {
-          "source_file": "character_review_final_batch061.csv",
-          "audit_verdict": "NEEDS_EXTERNAL_CHECK",
-          "proposed_display_ja": "",
-          "proposed_search_ja": "",
-          "reason_code": "REVIEW_HIGH_IMPACT_UNRESOLVED_EVIDENCE",
-          "confidence": "MEDIUM",
-          "is_external_resolution": "0"
-        },
-        {
-          "source_file": "external_resolution_character_official_batch066.csv",
-          "audit_verdict": "KEEP",
-          "proposed_display_ja": "",
-          "proposed_search_ja": "",
-          "reason_code": "OFFICIAL_JA_NAME_CONFIRMED",
-          "confidence": "HIGH",
-          "is_external_resolution": "1"
-        },
-        {
-          "source_file": "external_resolution_high_impact_batch066.csv",
-          "audit_verdict": "FIX_DISPLAY",
-          "proposed_display_ja": "リリス（Fate）",
-          "proposed_search_ja": "",
-          "reason_code": "OFFICIAL_JA_NAME_PLUS_CANONICAL_CONTEXT",
-          "confidence": "HIGH",
-          "is_external_resolution": "1"
-        }
-      ]
-    }
-  ],
+  "conflicts": [],
   "next_step": "resolve NEEDS_EXTERNAL_CHECK via external_resolution overlays, then apply approved corrections only after final audit close"
 }
