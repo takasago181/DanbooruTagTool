@@ -1,0 +1,28 @@
+{
+  "issue": 118,
+  "mode": "MISC_GENERAL_V25_FULL_REVIEW",
+  "reviewed_rows": 10,
+  "non_sexual": [
+    "major_injury_underreaction",
+    "blood_censor",
+    "feet_burger_(meme)",
+    "stylized_blood",
+    "clamp_(circle)_(style)"
+  ],
+  "contextual": [
+    "foot_blush",
+    "rope_around_waist",
+    "shaped_pubic_hair",
+    "looking_at_crotch"
+  ],
+  "keep_unclassified": [
+    "bad_ass"
+  ],
+  "decision_counts": {
+    "NON_SEXUAL": 5,
+    "CONTEXTUAL": 4,
+    "UNCLASSIFIED": 1
+  },
+  "review_note": "Full manual review of all 6 candidates and all 4 risk-ejected rows. Root membership and lexical risk are discovery signals only.",
+  "production_authority": "NO"
+}
