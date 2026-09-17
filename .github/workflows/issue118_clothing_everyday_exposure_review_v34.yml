@@ -1,0 +1,52 @@
+name: Issue118 Clothing Everyday Exposure Review V34
+
+on:
+  push:
+    branches:
+      - research/issue118-cluster-triage-v8
+    paths:
+      - scripts/issue118/materialize_clothing_everyday_exposure_review_v34.py
+      - docs/issue118/research_sidecar_v21.csv
+      - .github/workflows/issue118_clothing_everyday_exposure_review_v34.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  clothing-everyday-exposure-v34:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Materialize clothing everyday exposure v34
+        run: |
+          python3 -m py_compile scripts/issue118/materialize_clothing_everyday_exposure_review_v34.py
+          python3 scripts/issue118/materialize_clothing_everyday_exposure_review_v34.py
+      - name: Validate v34
+        run: |
+          python3 - <<'PY'
+          import csv, json
+          from pathlib import Path
+          p=Path('docs/issue118/clothing_everyday_exposure_review_v34')
+          rows=list(csv.DictReader((p/'full_review_candidate_v34.csv').open(encoding='utf-8')))
+          s=json.loads((p/'summary_v34.json').read_text(encoding='utf-8'))
+          assert len(rows)==180
+          assert s['candidate_rows']==180
+          assert s['auto_promotion_performed']=='NO'
+          assert s['production_authority']=='NO'
+          assert s['main_mutated']=='NO'
+          assert s['issue117_code_mutated']=='NO'
+          assert s['catalog_mutated']=='NO'
+          assert s['user_db_mutated']=='NO'
+          print('ISSUE118_CLOTHING_EVERYDAY_EXPOSURE_V34_GATE=PASS')
+          PY
+      - name: Persist research evidence only
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/issue118/clothing_everyday_exposure_review_v34
+          if ! git diff --cached --quiet; then
+            git commit -m 'Issue #118: materialize clothing everyday exposure review v34'
+            git push origin HEAD:research/issue118-cluster-triage-v8
+          fi
