@@ -1,0 +1,28 @@
+{
+  "issue": 118,
+  "mode": "RISK_EXCLUSION_WAVE3_DISCOVERY",
+  "source_sidecar": "research_sidecar_v2.csv (efficiency checkpoint)",
+  "target_paths": [
+    "CLOTHING/ACCESSORY",
+    "CLOTHING/COSTUME",
+    "OBJECT_PROP/DAILY"
+  ],
+  "risk_token_count": 118,
+  "candidate_rows_total": 5845,
+  "candidate_rows_by_path": {
+    "CLOTHING/ACCESSORY": 1920,
+    "CLOTHING/COSTUME": 1219,
+    "OBJECT_PROP/DAILY": 2706
+  },
+  "risk_excluded_by_path": {
+    "CLOTHING/ACCESSORY": 62,
+    "CLOTHING/COSTUME": 3,
+    "OBJECT_PROP/DAILY": 23
+  },
+  "discovery_rows": 36,
+  "holdout_generated": "NO",
+  "promotion_performed": "NO",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO"
+}
