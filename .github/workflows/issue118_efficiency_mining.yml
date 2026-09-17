@@ -9,6 +9,7 @@ on:
       - scripts/issue118/cluster_coverage_queue.py
       - scripts/issue118/evaluate_lexeme_expansion_v3.py
       - scripts/issue118/evaluate_general_subpath_candidates.py
+      - scripts/issue118/materialize_research_sidecar_v2.py
       - .github/workflows/issue118_efficiency_mining.yml
   workflow_dispatch:
 
@@ -29,6 +30,7 @@ jobs:
           python3 -m py_compile scripts/issue118/cluster_coverage_queue.py
           python3 -m py_compile scripts/issue118/evaluate_lexeme_expansion_v3.py
           python3 -m py_compile scripts/issue118/evaluate_general_subpath_candidates.py
+          python3 -m py_compile scripts/issue118/materialize_research_sidecar_v2.py
 
       - name: Mine cross-validated candidate rules
         run: python3 scripts/issue118/mine_crossvalidated_rules.py
@@ -41,6 +43,9 @@ jobs:
 
       - name: Evaluate General subpath candidates
         run: python3 scripts/issue118/evaluate_general_subpath_candidates.py
+
+      - name: Materialize research sidecar v2
+        run: python3 scripts/issue118/materialize_research_sidecar_v2.py
 
       - name: Validate outputs
         run: |
@@ -61,6 +66,11 @@ jobs:
           assert l['source_unclassified']==26044 and l['production_promotion_performed']=='NO'
           g=json.loads(Path('docs/issue118/general_subpath_candidates_v1/summary_v1.json').read_text(encoding='utf-8'))
           assert g['production_promotion_performed']=='NO'
+          v2=json.loads(Path('docs/issue118/research_sidecar_summary_v2.json').read_text(encoding='utf-8'))
+          assert v2['identity_rows']==31752
+          assert v2['new_promotions_total']==1896
+          assert v2['review_status_counts']['UNCLASSIFIED']==24148
+          assert v2['production_authority']=='NO'
           print('ISSUE118_EFFICIENCY_MINING_GATE=PASS')
           PY
 
@@ -68,8 +78,8 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add docs/issue118/efficiency_mining_v1 docs/issue118/efficiency_clustering_v1 docs/issue118/lexeme_expansion_v3 docs/issue118/general_subpath_candidates_v1
+          git add docs/issue118/efficiency_mining_v1 docs/issue118/efficiency_clustering_v1 docs/issue118/lexeme_expansion_v3 docs/issue118/general_subpath_candidates_v1 docs/issue118/research_sidecar_v2.csv docs/issue118/research_sidecar_summary_v2.json
           if ! git diff --cached --quiet; then
-            git commit -m 'Issue #118: materialize efficiency mining evidence'
+            git commit -m 'Issue #118: materialize efficiency-expanded research sidecar v2'
             git push origin HEAD:research/issue118-efficiency-mining
           fi
