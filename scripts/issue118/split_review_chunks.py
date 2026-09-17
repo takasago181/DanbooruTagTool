@@ -32,7 +32,7 @@ def main() -> int:
     for i in range(0, len(rows), CHUNK):
         path = OUT / f"chunk_{i // CHUNK + 1:03d}.csv"
         with path.open("w", encoding="utf-8-sig", newline="") as f:
-            w = csv.DictWriter(f, fieldnames=FIELDS)
+            w = csv.DictWriter(f, fieldnames=FIELDS, lineterminator="\n")
             w.writeheader()
             for row in rows[i:i + CHUNK]:
                 w.writerow({field: row.get(field, "") for field in FIELDS})
