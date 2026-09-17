@@ -1,0 +1,55 @@
+name: Issue118 Object Prop Low Risk V26
+
+on:
+  push:
+    branches:
+      - research/issue118-cluster-triage-v8
+    paths:
+      - scripts/issue118/materialize_object_prop_low_risk_v26.py
+      - docs/issue118/research_sidecar_v13.csv
+      - .github/workflows/issue118_object_prop_low_risk_v26.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  object-prop-v26:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Materialize object-prop low-risk v26
+        run: |
+          python3 -m py_compile scripts/issue118/materialize_object_prop_low_risk_v26.py
+          python3 scripts/issue118/materialize_object_prop_low_risk_v26.py
+      - name: Validate v26
+        run: |
+          python3 - <<'PY'
+          import csv, json
+          from pathlib import Path
+          p = Path('docs/issue118/object_prop_low_risk_v26')
+          s = json.loads((p / 'summary_v26.json').read_text(encoding='utf-8'))
+          low = list(csv.DictReader((p / 'low_risk_candidate_v26.csv').open(encoding='utf-8')))
+          residual = list(csv.DictReader((p / 'boundary_residual_v26.csv').open(encoding='utf-8')))
+          holdout = list(csv.DictReader((p / 'fresh_holdout_template_v26.csv').open(encoding='utf-8')))
+          assert len(low) + len(residual) == 227
+          assert len(holdout) == min(120, len(low))
+          assert s['holdout_verdicts_generated'] == 'NO'
+          assert s['auto_promotion_performed'] == 'NO'
+          assert s['production_authority'] == 'NO'
+          assert s['main_mutated'] == 'NO'
+          assert s['issue117_code_mutated'] == 'NO'
+          assert s['catalog_mutated'] == 'NO'
+          assert s['user_db_mutated'] == 'NO'
+          print('ISSUE118_OBJECT_PROP_V26_GATE=PASS')
+          PY
+      - name: Persist research evidence only
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/issue118/object_prop_low_risk_v26
+          if ! git diff --cached --quiet; then
+            git commit -m 'Issue #118: materialize object-prop low-risk v26'
+            git push origin HEAD:research/issue118-cluster-triage-v8
+          fi
