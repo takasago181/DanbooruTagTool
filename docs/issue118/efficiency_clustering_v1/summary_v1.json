@@ -1,0 +1,168 @@
+{
+  "issue": 118,
+  "mode": "SEMANTIC_QUEUE_CLUSTERING_V1",
+  "queue_rows": 1000,
+  "clusters": 195,
+  "representative_review_rows": 339,
+  "compression_ratio": 0.339,
+  "cluster_size_bands": {
+    "20+": 8,
+    "10-19": 10,
+    "5-9": 19,
+    "2-4": 62,
+    "1": 96
+  },
+  "largest_clusters": [
+    {
+      "cluster_id": "C001",
+      "rows": "174",
+      "priority_scope": "P1+",
+      "membership": "SPECIAL_ONLY",
+      "semantic_bucket": "OTHER",
+      "generation_family": "(none)",
+      "general_root": "(none)",
+      "representatives": "18+;adult_content;adult_toy"
+    },
+    {
+      "cluster_id": "C002",
+      "rows": "84",
+      "priority_scope": "P1+",
+      "membership": "SPECIAL_ONLY",
+      "semantic_bucket": "GENITAL",
+      "generation_family": "(none)",
+      "general_root": "(none)",
+      "representatives": "alcohol_between_breasts;anal_beads_pull;anal_creampie"
+    },
+    {
+      "cluster_id": "C003",
+      "rows": "54",
+      "priority_scope": "P1+",
+      "membership": "SPECIAL_ONLY",
+      "semantic_bucket": "SEX_ACT",
+      "generation_family": "(none)",
+      "general_root": "(none)",
+      "representatives": "about_to_be_raped;after_frottage;anal_insertion"
+    },
+    {
+      "cluster_id": "C004",
+      "rows": "41",
+      "priority_scope": "P1+",
+      "membership": "OVERLAP",
+      "semantic_bucket": "EXPOSURE_CLOTHING",
+      "generation_family": "CLOTHING_EXPOSURE",
+      "general_root": "CLOTHING_STATE_EXPOSURE",
+      "representatives": "arm_cutout;armpit_cutout;bikini_bottom_aside"
+    },
+    {
+      "cluster_id": "C005",
+      "rows": "35",
+      "priority_scope": "P1+",
+      "membership": "SPECIAL_ONLY",
+      "semantic_bucket": "EXPOSURE_CLOTHING",
+      "generation_family": "(none)",
+      "general_root": "(none)",
+      "representatives": "above_cleavage_cutout;bare_naked;beaded_panties"
+    },
+    {
+      "cluster_id": "C006",
+      "rows": "32",
+      "priority_scope": "P1+",
+      "membership": "OVERLAP",
+      "semantic_bucket": "GENITAL",
+      "generation_family": "(none)",
+      "general_root": "BODY_PART",
+      "representatives": "beaded_penis;blood_from_vagina;blue_anus"
+    },
+    {
+      "cluster_id": "C007",
+      "rows": "32",
+      "priority_scope": "P1+",
+      "membership": "OVERLAP",
+      "semantic_bucket": "OTHER",
+      "generation_family": "CLOTHING_EXPOSURE",
+      "general_root": "CLOTHING_STATE_EXPOSURE",
+      "representatives": "backless_outfit;backless_pants;bare_back"
+    },
+    {
+      "cluster_id": "C008",
+      "rows": "25",
+      "priority_scope": "P1+",
+      "membership": "SPECIAL_ONLY",
+      "semantic_bucket": "RESTRAINT_BDSM",
+      "generation_family": "(none)",
+      "general_root": "(none)",
+      "representatives": "aqua_blindfold;ballgag;blindfolded"
+    },
+    {
+      "cluster_id": "C009",
+      "rows": "19",
+      "priority_scope": "P1+",
+      "membership": "OVERLAP",
+      "semantic_bucket": "OTHER",
+      "generation_family": "ACTION_INTERACTION",
+      "general_root": "ACTION_CONTACT",
+      "representatives": "anilingus;asymmetrical_docking;biting_foreskin"
+    },
+    {
+      "cluster_id": "C010",
+      "rows": "17",
+      "priority_scope": "P1+",
+      "membership": "OVERLAP",
+      "semantic_bucket": "OTHER",
+      "generation_family": "RESTRAINT_ACTION",
+      "general_root": "ACTION_CONTACT",
+      "representatives": "asphyxiation;ball_busting;bound"
+    },
+    {
+      "cluster_id": "C011",
+      "rows": "17",
+      "priority_scope": "P1+",
+      "membership": "OVERLAP",
+      "semantic_bucket": "SEX_ACT",
+      "generation_family": "ACTION_INTERACTION",
+      "general_root": "ACTION_CONTACT",
+      "representatives": "autopaizuri;female_footjob;footjob"
+    },
+    {
+      "cluster_id": "C012",
+      "rows": "16",
+      "priority_scope": "P1+",
+      "membership": "OVERLAP",
+      "semantic_bucket": "GENITAL",
+      "generation_family": "ACTION_INTERACTION",
+      "general_root": "ACTION_CONTACT",
+      "representatives": "biting_breast;breast_rest;caressing_testicles"
+    },
+    {
+      "cluster_id": "C013",
+      "rows": "16",
+      "priority_scope": "P1+",
+      "membership": "OVERLAP",
+      "semantic_bucket": "GENITAL",
+      "generation_family": "BODY_ATTRIBUTE",
+      "general_root": "BODY_PART",
+      "representatives": "backboob;clitoris;clitoris_slip"
+    },
+    {
+      "cluster_id": "C014",
+      "rows": "15",
+      "priority_scope": "P1+",
+      "membership": "OVERLAP",
+      "semantic_bucket": "OTHER",
+      "generation_family": "CLOTHING_EXPOSURE",
+      "general_root": "CLOTHING",
+      "representatives": "babydoll;bitchsuit;bustier"
+    },
+    {
+      "cluster_id": "C015",
+      "rows": "14",
+      "priority_scope": "P1+",
+      "membership": "OVERLAP",
+      "semantic_bucket": "GENITAL",
+      "generation_family": "DIRECT_COMPOSITE",
+      "general_root": "ACTION_CONTACT",
+      "representatives": "chocolate_on_nipples;chocolate_on_penis;finger_on_nipple"
+    }
+  ],
+  "production_promotion_performed": "NO"
+}
