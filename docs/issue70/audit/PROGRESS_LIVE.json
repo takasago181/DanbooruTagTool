@@ -3,25 +3,25 @@
   "issue": 70,
   "production_modified": false,
   "initial_ledger_rows": 18270,
-  "audited_unique_rows": 13759,
-  "resolved_unique_rows": 13759,
+  "audited_unique_rows": 13827,
+  "resolved_unique_rows": 13827,
   "conflicted_unique_rows": 0,
-  "remaining_unaudited_rows": 4511,
+  "remaining_unaudited_rows": 4443,
   "duplicate_same_decision_rows": 0,
   "verdict_counts_resolved": {
     "FIX_BOTH": 69,
     "FIX_DISPLAY": 5304,
-    "FIX_SEARCH": 241,
-    "KEEP": 7766,
+    "FIX_SEARCH": 254,
+    "KEEP": 7821,
     "NEEDS_EXTERNAL_CHECK": 379
   },
   "audited_by_category": {
-    "Character": 11207,
+    "Character": 11275,
     "Copyright": 1526,
     "Artist": 1026
   },
   "remaining_by_category": {
-    "Character": 3721,
+    "Character": 3653,
     "Copyright": 790,
     "Artist": 0
   },
@@ -29,17 +29,16 @@
   "unresolved_user_decision_rows": 0,
   "remaining_patterns": {
     "Character": {
-      "rows": 3721,
+      "rows": 3653,
       "status_counts": {
-        "ACCEPTED_AI": 501,
+        "ACCEPTED_AI": 433,
         "REVIEW_REQUIRED": 3220
       },
       "impact_counts": {
-        "REST": 3516,
-        "TOP_10_PERCENT": 205
+        "REST": 3462,
+        "TOP_10_PERCENT": 191
       },
       "audit_bucket_counts": {
-        "ACCEPTED_CLEAN_SAMPLE": 68,
         "ACCEPTED_RISK": 433,
         "REVIEW_REQUIRED": 3220
       },
@@ -66,15 +65,15 @@
         },
         {
           "value": "<blank>",
-          "count": 311
-        },
-        {
-          "value": "single Japanese candidate with no conflicting evidence",
-          "count": 113
+          "count": 299
         },
         {
           "value": "romanized handle plus generated qualifier",
           "count": 108
+        },
+        {
+          "value": "single Japanese candidate with no conflicting evidence",
+          "count": 81
         },
         {
           "value": "日本語表示名・表記の確定に追加確認が必要",
@@ -129,10 +128,6 @@
           "count": 5
         },
         {
-          "value": "既存日本語候補と作品文脈を確認",
-          "count": 5
-        },
-        {
           "value": "衣装名の日本語公式表記確認が必要",
           "count": 4
         },
@@ -153,28 +148,32 @@
           "count": 4
         },
         {
-          "value": "公式日本語名を採用",
-          "count": 4
-        },
-        {
-          "value": "既存日本語候補を確認",
-          "count": 4
-        },
-        {
           "value": "AI監修：形態名の公式表記を要確認",
+          "count": 3
+        },
+        {
+          "value": "日本語定着表記と衣装表記の追加確認が必要",
+          "count": 3
+        },
+        {
+          "value": "AI監修：オリジナルキャラクターの正式表記を要確認",
+          "count": 3
+        },
+        {
+          "value": "AI監修：日本語版公式表記の確証不足",
           "count": 3
         }
       ],
       "risk_flag_counts": {
         "STATUS_REVIEW_REQUIRED": 3220,
-        "DISAMBIGUATOR_NOT_VISIBLE": 1705,
-        "JA_DISPLAY_NOT_EXACT_SOURCE_EVIDENCE": 1096,
+        "DISAMBIGUATOR_NOT_VISIBLE": 1670,
+        "JA_DISPLAY_NOT_EXACT_SOURCE_EVIDENCE": 1081,
         "NO_SOURCE_JA_EVIDENCE_OVERLAP": 562,
         "VARIANT_DISPLAY_MISSING_BASE_IDENTITY": 314,
         "DUPLICATE_DISPLAY_WITHIN_CATEGORY": 253,
-        "CHARACTER_NO_COPYRIGHT_CONTEXT": 134,
-        "DISPLAY_MISSING_FROM_SEARCH": 40,
+        "CHARACTER_NO_COPYRIGHT_CONTEXT": 133,
         "RAW_TAG_SYNTAX_IN_DISPLAY": 37,
+        "DISPLAY_MISSING_FROM_SEARCH": 27,
         "ASCII_ONLY_DISPLAY_NON_ARTIST": 26,
         "DISPLAY_CANONICAL_LIKE": 25
       },
@@ -341,13 +340,6 @@
           "count": 22
         },
         {
-          "translation_note": "single Japanese candidate with no conflicting evidence",
-          "risk_flags": "DISAMBIGUATOR_NOT_VISIBLE",
-          "translation_status": "ACCEPTED_AI",
-          "audit_bucket": "ACCEPTED_CLEAN_SAMPLE",
-          "count": 21
-        },
-        {
           "translation_note": "malformed or low-confidence Japanese evidence requires manual verification",
           "risk_flags": "DISAMBIGUATOR_NOT_VISIBLE|STATUS_REVIEW_REQUIRED|VARIANT_DISPLAY_MISSING_BASE_IDENTITY",
           "translation_status": "REVIEW_REQUIRED",
@@ -446,13 +438,6 @@
           "count": 10
         },
         {
-          "translation_note": "single Japanese candidate with no conflicting evidence",
-          "risk_flags": "DISPLAY_MISSING_FROM_SEARCH|JA_DISPLAY_NOT_EXACT_SOURCE_EVIDENCE",
-          "translation_status": "ACCEPTED_AI",
-          "audit_bucket": "ACCEPTED_CLEAN_SAMPLE",
-          "count": 10
-        },
-        {
           "translation_note": "日本語表示名・表記の確定に追加確認が必要",
           "risk_flags": "DISAMBIGUATOR_NOT_VISIBLE|JA_DISPLAY_NOT_EXACT_SOURCE_EVIDENCE|NO_SOURCE_JA_EVIDENCE_OVERLAP|STATUS_REVIEW_REQUIRED",
           "translation_status": "REVIEW_REQUIRED",
@@ -478,13 +463,6 @@
           "risk_flags": "STATUS_REVIEW_REQUIRED",
           "translation_status": "REVIEW_REQUIRED",
           "audit_bucket": "REVIEW_REQUIRED",
-          "count": 8
-        },
-        {
-          "translation_note": "<blank>",
-          "risk_flags": "DISAMBIGUATOR_NOT_VISIBLE",
-          "translation_status": "ACCEPTED_AI",
-          "audit_bucket": "ACCEPTED_CLEAN_SAMPLE",
           "count": 8
         },
         {
@@ -597,6 +575,27 @@
           "risk_flags": "CHARACTER_NO_COPYRIGHT_CONTEXT|DISAMBIGUATOR_NOT_VISIBLE|STATUS_REVIEW_REQUIRED",
           "translation_status": "REVIEW_REQUIRED",
           "audit_bucket": "REVIEW_REQUIRED",
+          "count": 5
+        },
+        {
+          "translation_note": "再臨別表記を追加確認",
+          "risk_flags": "JA_DISPLAY_NOT_EXACT_SOURCE_EVIDENCE|STATUS_REVIEW_REQUIRED",
+          "translation_status": "REVIEW_REQUIRED",
+          "audit_bucket": "REVIEW_REQUIRED",
+          "count": 5
+        },
+        {
+          "translation_note": "short kana-only candidate is too ambiguous without contextual search evidence",
+          "risk_flags": "CHARACTER_NO_COPYRIGHT_CONTEXT|STATUS_REVIEW_REQUIRED",
+          "translation_status": "REVIEW_REQUIRED",
+          "audit_bucket": "REVIEW_REQUIRED",
+          "count": 5
+        },
+        {
+          "translation_note": "single Japanese candidate with no conflicting evidence",
+          "risk_flags": "DUPLICATE_DISPLAY_WITHIN_CATEGORY",
+          "translation_status": "ACCEPTED_AI",
+          "audit_bucket": "ACCEPTED_RISK",
           "count": 5
         }
       ]
@@ -1146,6 +1145,10 @@
     {
       "file": "character_no_trusted_ja_batch010.csv",
       "ledger_rows": 4987
+    },
+    {
+      "file": "character_remaining_clean_sample_decisions_batch030.csv",
+      "ledger_rows": 68
     },
     {
       "file": "character_single_candidate_keep_batch019.csv",
