@@ -1,0 +1,67 @@
+name: Issue118 Action Interaction Refinement V16
+
+on:
+  push:
+    branches:
+      - research/issue118-cluster-triage-v8
+    paths:
+      - scripts/issue118/materialize_action_interaction_refinement_v16.py
+      - docs/issue118/research_sidecar_v6.csv
+      - .github/workflows/issue118_action_interaction_refinement_v16.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  materialize-v16:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Materialize action interaction refinement v16
+        run: |
+          python3 -m py_compile scripts/issue118/materialize_action_interaction_refinement_v16.py
+          python3 scripts/issue118/materialize_action_interaction_refinement_v16.py
+      - name: Validate v16
+        run: |
+          python3 - <<'PY'
+          import csv, json
+          from pathlib import Path
+          p = Path('docs/issue118/action_interaction_refinement_v16')
+          s = json.loads((p / 'summary_v16.json').read_text(encoding='utf-8'))
+          files = {
+              'SEXUAL_BOUNDARY': 'sexual_boundary_v16.csv',
+              'INTIMATE_GENERAL': 'intimate_general_v16.csv',
+              'VIOLENCE_NONSEX_AXIS': 'violence_nonsex_axis_v16.csv',
+              'ORDINARY_INTERACTION': 'ordinary_interaction_v16.csv',
+          }
+          total = 0
+          for bucket, filename in files.items():
+              rows = list(csv.DictReader((p / filename).open(encoding='utf-8')))
+              assert len(rows) == s['bucket_counts'][bucket]
+              total += len(rows)
+          holdout = list(csv.DictReader((p / 'ordinary_fresh_holdout_template_v16.csv').open(encoding='utf-8')))
+          assert s['source_rows'] == 1852
+          assert total == 1852
+          assert len(holdout) == 120
+          assert all(not r['human_intent'] for r in holdout)
+          assert s['bucket_rules_use'] == 'TRIAGE_ONLY_NOT_CLASSIFICATION_AUTHORITY'
+          assert s['holdout_verdicts_generated'] == 'NO'
+          assert s['auto_promotion_performed'] == 'NO'
+          assert s['production_authority'] == 'NO'
+          assert s['main_mutated'] == 'NO'
+          assert s['issue117_code_mutated'] == 'NO'
+          assert s['catalog_mutated'] == 'NO'
+          assert s['user_db_mutated'] == 'NO'
+          print('ISSUE118_ACTION_INTERACTION_V16_GATE=PASS')
+          PY
+      - name: Persist research evidence only
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/issue118/action_interaction_refinement_v16
+          if ! git diff --cached --quiet; then
+            git commit -m 'Issue #118: materialize action interaction refinement v16'
+            git push origin HEAD:research/issue118-cluster-triage-v8
+          fi
