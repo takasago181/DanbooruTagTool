@@ -1,0 +1,25 @@
+{
+  "issue": 118,
+  "mode": "BULK_CANDIDATE_ADVERSARIAL_V9",
+  "source_bulk_candidate_identities": 1843,
+  "redteam_review_rows": 132,
+  "clean_for_fresh_holdout_rows": 1711,
+  "fresh_holdout_template_rows": 120,
+  "learned_risk_token_count": 150,
+  "risk_seed_class_counts": {
+    "SEXUAL": 584,
+    "CONTEXTUAL": 189,
+    "NON_SEXUAL": 15099
+  },
+  "learned_token_use": "DISCOVERY_ONLY_NOT_CLASSIFICATION_AUTHORITY",
+  "manual_pattern_use": "DISCOVERY_ONLY_NOT_CLASSIFICATION_AUTHORITY",
+  "holdout_verdicts_generated": "NO",
+  "semantic_authority": "NO",
+  "auto_promotion_performed": "NO",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO",
+  "next_gate": "independently review all redteam rows and the fixed 120-row fresh holdout; freeze review artifact SHA before any sidecar promotion"
+}
