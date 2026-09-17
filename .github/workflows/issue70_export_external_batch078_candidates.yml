@@ -1,0 +1,46 @@
+name: Issue70 Export External Batch078 Candidates
+on:
+  push:
+    branches: [audit/issue70-semantic-final]
+    paths:
+      - 'scripts/issue70/export_external_batch078_candidates.py'
+      - '.github/workflows/issue70_export_external_batch078_candidates.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: issue70-export-external-batch078-candidates
+  cancel-in-progress: false
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: audit/issue70-semantic-final
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Export effective unresolved candidates
+        run: python scripts/issue70/export_external_batch078_candidates.py
+      - name: Validate export
+        run: |
+          python - <<'PY'
+          import csv
+          from pathlib import Path
+          p=Path('docs/issue70/audit/EXTERNAL_QUEUE_BATCH078_CANDIDATES.csv')
+          rows=list(csv.DictReader(p.open(encoding='utf-8-sig',newline='')))
+          assert 100 <= len(rows) <= 400
+          assert len({r['row_id'] for r in rows}) == len(rows)
+          print({'candidate_rows':len(rows)})
+          PY
+          git diff --exit-code -- docs/issue70/data/runtime docs/issue70/data/source
+      - name: Commit candidate checkpoint
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add docs/issue70/audit/EXTERNAL_QUEUE_BATCH078_CANDIDATES.csv
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'Issue70: export batch078 effective unresolved candidates'
+          git push origin HEAD:audit/issue70-semantic-final
