@@ -1,0 +1,56 @@
+name: Issue118 Research Sidecar V14
+
+on:
+  push:
+    branches:
+      - research/issue118-cluster-triage-v8
+    paths:
+      - scripts/issue118/materialize_research_sidecar_v14.py
+      - docs/issue118/misc_general_review_v25/review_policy_v25.json
+      - docs/issue118/research_sidecar_v13.csv
+      - .github/workflows/issue118_research_sidecar_v14.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  materialize-v14:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Materialize research sidecar v14
+        run: |
+          python3 -m py_compile scripts/issue118/materialize_research_sidecar_v14.py
+          python3 scripts/issue118/materialize_research_sidecar_v14.py
+      - name: Validate v14
+        run: |
+          python3 - <<'PY'
+          import csv, json
+          from pathlib import Path
+          side = list(csv.DictReader(Path('docs/issue118/research_sidecar_v14.csv').open(encoding='utf-8')))
+          s = json.loads(Path('docs/issue118/research_sidecar_summary_v14.json').read_text(encoding='utf-8'))
+          assert len(side) == 31752
+          assert s['new_promotions'] == {'CONTEXTUAL': 4, 'NON_SEXUAL': 5}
+          assert s['new_total_promotions'] == 9
+          assert s['kept_unclassified'] == 1
+          assert s['remaining_unclassified'] == 7805
+          assert s['review_verdicts_generated_by_materializer'] == 'NO'
+          assert s['review_artifacts_are_external_inputs'] == 'YES'
+          assert s['production_authority'] == 'NO'
+          assert s['main_mutated'] == 'NO'
+          assert s['issue117_code_mutated'] == 'NO'
+          assert s['catalog_mutated'] == 'NO'
+          assert s['user_db_mutated'] == 'NO'
+          print('ISSUE118_RESEARCH_SIDECAR_V14_GATE=PASS')
+          PY
+      - name: Persist research evidence only
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/issue118/research_sidecar_v14.csv docs/issue118/research_sidecar_summary_v14.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Issue #118: materialize research sidecar v14'
+            git push origin HEAD:research/issue118-cluster-triage-v8
+          fi
