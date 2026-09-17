@@ -1,0 +1,17 @@
+{
+  "issue": 118,
+  "mode": "SPECIAL_EXPLICIT_SEX_FULL_REVIEW_V47_POLICY",
+  "source_rows": 37,
+  "decision_counts": {
+    "SEXUAL": 37,
+    "CONTEXTUAL": 0,
+    "NON_SEXUAL": 0
+  },
+  "policy": "All 37 rows were manually reviewed. Every row explicitly denotes a sex act, sexual device, rape/sexual-play concept, sexual fluid/state, or direct sexual penetration/stimulation; therefore all are SEXUAL.",
+  "unclassified": [],
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO"
+}
