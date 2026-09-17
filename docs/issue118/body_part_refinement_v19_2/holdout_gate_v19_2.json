@@ -1,0 +1,16 @@
+{
+  "issue": 118,
+  "mode": "BODY_PART_V19_2_FRESH_HOLDOUT_REVIEW",
+  "holdout_rows": 120,
+  "decision_counts": {
+    "NON_SEXUAL": 120
+  },
+  "result": "PASS_FOR_RESEARCH_PROMOTION",
+  "review_note": "Fresh salted holdout reviewed independently after v19.2 boundary refinement; no sexual/contextual counterexample remained.",
+  "review_verdicts_generated_by_materializer": "NO",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO"
+}
