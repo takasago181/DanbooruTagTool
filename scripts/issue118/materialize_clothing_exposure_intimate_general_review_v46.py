@@ -37,11 +37,11 @@ def main():
         if flags(key)!='EXPOSURE_INTIMATE':continue
         rows.append({'identity_key':key,'candidate_state':'FULL_REVIEW_CLOTHING_EXPOSURE_INTIMATE_GENERAL_V46','human_intent':'','review_note':''})
     rows.sort(key=lambda r:r['identity_key'])
-    if len(rows)!=37:raise SystemExit(f'expected 37 rows, got {len(rows)}')
+    if len(rows)!=38:raise SystemExit(f'expected 38 rows, got {len(rows)}')
     OUT.mkdir(parents=True,exist_ok=True)
     with (OUT/'full_review_candidate_v46.csv').open('w',encoding='utf-8',newline='') as f:
         w=csv.DictWriter(f,fieldnames=['identity_key','candidate_state','human_intent','review_note'],lineterminator='\n');w.writeheader();w.writerows(rows)
-    summary={'issue':118,'mode':'CLOTHING_EXPOSURE_INTIMATE_GENERAL_FULL_REVIEW_V46','candidate_rows':37,'selection_rules_use':'DISCOVERY_ONLY_NOT_CLASSIFICATION_AUTHORITY','auto_promotion_performed':'NO','production_authority':'NO','main_mutated':'NO','issue117_code_mutated':'NO','catalog_mutated':'NO','user_db_mutated':'NO','next_gate':'full manual review of all 37 rows'}
+    summary={'issue':118,'mode':'CLOTHING_EXPOSURE_INTIMATE_GENERAL_FULL_REVIEW_V46','candidate_rows':38,'selection_rules_use':'DISCOVERY_ONLY_NOT_CLASSIFICATION_AUTHORITY','auto_promotion_performed':'NO','production_authority':'NO','main_mutated':'NO','issue117_code_mutated':'NO','catalog_mutated':'NO','user_db_mutated':'NO','next_gate':'full manual review of all 38 rows'}
     (OUT/'summary_v46.json').write_text(json.dumps(summary,ensure_ascii=False,indent=2)+'\n',encoding='utf-8');print(json.dumps(summary,ensure_ascii=False,sort_keys=True));return 0
 
 if __name__=='__main__':raise SystemExit(main())
