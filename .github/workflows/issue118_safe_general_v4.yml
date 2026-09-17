@@ -1,0 +1,62 @@
+name: Issue118 Safe General V4
+
+on:
+  push:
+    branches:
+      - research/issue118-cluster-rules
+    paths:
+      - scripts/issue118/materialize_safe_general_adversarial_v4.py
+      - .github/workflows/issue118_safe_general_v4.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  materialize-v4:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Materialize adversarial v4
+        run: |
+          python3 -m py_compile scripts/issue118/materialize_safe_general_adversarial_v4.py
+          python3 scripts/issue118/materialize_safe_general_adversarial_v4.py
+      - name: Validate v4 contract
+        run: |
+          python3 - <<'PY'
+          import csv,json
+          from pathlib import Path
+          p=Path('docs/issue118/safe_general_adversarial_v4')
+          s=json.loads((p/'summary_v4.json').read_text(encoding='utf-8'))
+          clean=list(csv.DictReader((p/'candidate_inventory_v4.csv').open(encoding='utf-8')))
+          excluded=list(csv.DictReader((p/'adversarial_exclusions_v4.csv').open(encoding='utf-8')))
+          discovery=list(csv.DictReader((p/'risk_discovery_sample_v4.csv').open(encoding='utf-8')))
+          holdout=list(csv.DictReader((p/'clean_holdout_sample_v4.csv').open(encoding='utf-8')))
+          assert len(clean)+len(excluded)==10258
+          assert len(clean)==s['clean_candidate_rows']
+          assert len(excluded)==s['adversarial_excluded_rows']
+          assert len(discovery)==s['risk_discovery_rows']
+          assert len(holdout)==s['clean_holdout_rows']
+          assert s['prior_validation_overlap']==0
+          assert s['review_verdicts_generated_by_materializer']=='NO'
+          assert s['promotion_performed']=='NO'
+          assert s['production_authority']=='NO'
+          assert s['main_mutated']=='NO'
+          assert s['issue117_code_mutated']=='NO'
+          assert s['catalog_mutated']=='NO'
+          assert s['user_db_mutated']=='NO'
+          clean_keys={r['identity_key'] for r in clean}
+          for key in s['known_leaks_removed']:
+              assert key not in clean_keys, key
+          print('ISSUE118_SAFE_GENERAL_V4_GATE=PASS')
+          PY
+      - name: Persist research evidence only
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/issue118/safe_general_adversarial_v4
+          if ! git diff --cached --quiet; then
+            git commit -m 'Issue #118: materialize adversarial safe General v4'
+            git push origin HEAD:research/issue118-cluster-rules
+          fi
