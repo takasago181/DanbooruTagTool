@@ -1,0 +1,52 @@
+name: Issue118 Risk Exclusion Wave3 Refine V2
+
+on:
+  push:
+    branches:
+      - research/issue118-efficiency-mining
+    paths:
+      - scripts/issue118/materialize_risk_exclusion_wave3_refine_v2.py
+      - .github/workflows/issue118_risk_exclusion_wave3_refine_v2.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refine-v2:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout research branch
+        uses: actions/checkout@v4
+      - name: Validate script
+        run: python3 -m py_compile scripts/issue118/materialize_risk_exclusion_wave3_refine_v2.py
+      - name: Materialize refined predicate and fresh holdout
+        run: python3 scripts/issue118/materialize_risk_exclusion_wave3_refine_v2.py
+      - name: Validate separation and research boundary
+        run: |
+          python3 - <<'PY'
+          import csv, json
+          from pathlib import Path
+          p=Path('docs/issue118/risk_exclusion_wave3')
+          s=json.loads((p/'refine_v2_summary.json').read_text(encoding='utf-8'))
+          h=list(csv.DictReader((p/'fresh_holdout_sample_v2.csv').open(encoding='utf-8')))
+          a=list(csv.DictReader((p/'existing_review_audit_v2.csv').open(encoding='utf-8')))
+          assert len(h)==36 and s['fresh_holdout_rows']==36
+          assert {r['phase'] for r in h}=={'FRESH_HOLDOUT_WAVE3_V2'}
+          assert s['prior_sample_overlap']==0
+          assert len(s['existing_review_safe_paths'])==3
+          assert all(r['contradictions']=='0' and r['safe_for_fresh_holdout']=='YES' for r in a)
+          assert s['promotion_performed']=='NO' and s['production_authority']=='NO'
+          assert s['main_mutated']=='NO' and s['issue117_code_mutated']=='NO'
+          print('ISSUE118_RISK_EXCLUSION_WAVE3_REFINE_V2=PASS')
+          PY
+      - name: Persist research evidence
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/issue118/risk_exclusion_wave3/refined_candidate_inventory_v2.csv docs/issue118/risk_exclusion_wave3/existing_review_audit_v2.csv docs/issue118/risk_exclusion_wave3/fresh_holdout_sample_v2.csv docs/issue118/risk_exclusion_wave3/refine_v2_summary.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Issue #118: materialize refined wave3 fresh holdout'
+            git push origin HEAD:research/issue118-efficiency-mining
+          fi
