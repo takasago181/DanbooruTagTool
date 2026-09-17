@@ -8,6 +8,7 @@ on:
       - scripts/issue118/discover_validated_cluster_rules.py
       - scripts/issue118/materialize_unclassified_special_clusters.py
       - scripts/issue118/materialize_unclassified_general_clusters.py
+      - scripts/issue118/materialize_safe_general_candidates_v2.py
       - .github/workflows/issue118_cluster_rules.yml
   workflow_dispatch:
 
@@ -27,6 +28,7 @@ jobs:
           python3 -m py_compile scripts/issue118/discover_validated_cluster_rules.py
           python3 -m py_compile scripts/issue118/materialize_unclassified_special_clusters.py
           python3 -m py_compile scripts/issue118/materialize_unclassified_general_clusters.py
+          python3 -m py_compile scripts/issue118/materialize_safe_general_candidates_v2.py
 
       - name: Discover independently validated cluster rules
         run: python3 scripts/issue118/discover_validated_cluster_rules.py
@@ -36,6 +38,9 @@ jobs:
 
       - name: Materialize representative General cluster review sample
         run: python3 scripts/issue118/materialize_unclassified_general_clusters.py
+
+      - name: Materialize learned-risk General candidates
+        run: python3 scripts/issue118/materialize_safe_general_candidates_v2.py
 
       - name: Validate research-only output
         run: |
@@ -56,7 +61,13 @@ jobs:
           cg=json.loads((general/'summary_v1.json').read_text(encoding='utf-8'))
           sg=list(csv.DictReader((general/'cluster_review_sample_v1.csv').open(encoding='utf-8')))
           assert cg['source_rows']==23717 and len(sg)==cg['sample_rows'] and len({r['identity_key'] for r in sg})==len(sg)
-          assert cg['production_authority']=='NO' and cg['main_mutated']=='NO' and cg['issue117_code_mutated']=='NO'
+
+          safe=Path('docs/issue118/safe_general_candidates_v2')
+          sv=json.loads((safe/'summary_v2.json').read_text(encoding='utf-8'))
+          sample=list(csv.DictReader((safe/'validation_sample_v2.csv').open(encoding='utf-8')))
+          assert sv['accepted_candidate_rows']>=0 and len(sample)==sv['validation_sample_rows']
+          assert len({r['identity_key'] for r in sample})==len(sample)
+          assert sv['production_authority']=='NO' and sv['main_mutated']=='NO' and sv['issue117_code_mutated']=='NO'
           print('ISSUE118_CLUSTER_RULE_GATE=PASS')
           PY
 
@@ -64,7 +75,7 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add docs/issue118/cluster_rules_v1 docs/issue118/special_cluster_review_v1 docs/issue118/general_cluster_review_v1
+          git add docs/issue118/cluster_rules_v1 docs/issue118/special_cluster_review_v1 docs/issue118/general_cluster_review_v1 docs/issue118/safe_general_candidates_v2
           if ! git diff --cached --quiet; then
             git commit -m 'Issue #118: materialize validated cluster research'
             git push origin HEAD:research/issue118-cluster-rules
