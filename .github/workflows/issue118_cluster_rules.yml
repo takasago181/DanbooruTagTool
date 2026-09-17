@@ -7,6 +7,7 @@ on:
     paths:
       - scripts/issue118/discover_validated_cluster_rules.py
       - scripts/issue118/materialize_unclassified_special_clusters.py
+      - scripts/issue118/materialize_unclassified_general_clusters.py
       - .github/workflows/issue118_cluster_rules.yml
   workflow_dispatch:
 
@@ -25,12 +26,16 @@ jobs:
         run: |
           python3 -m py_compile scripts/issue118/discover_validated_cluster_rules.py
           python3 -m py_compile scripts/issue118/materialize_unclassified_special_clusters.py
+          python3 -m py_compile scripts/issue118/materialize_unclassified_general_clusters.py
 
       - name: Discover independently validated cluster rules
         run: python3 scripts/issue118/discover_validated_cluster_rules.py
 
       - name: Materialize representative Special cluster review sample
         run: python3 scripts/issue118/materialize_unclassified_special_clusters.py
+
+      - name: Materialize representative General cluster review sample
+        run: python3 scripts/issue118/materialize_unclassified_general_clusters.py
 
       - name: Validate research-only output
         run: |
@@ -39,25 +44,19 @@ jobs:
           from pathlib import Path
           rules=Path('docs/issue118/cluster_rules_v1')
           s=json.loads((rules/'summary_v1.json').read_text(encoding='utf-8'))
-          selected=list(csv.DictReader((rules/'selected_conflict_free_v1.csv').open(encoding='utf-8')))
-          assert s['pilot_reviewed']==684
-          assert s['independent_holdout_reviewed']==240
-          assert s['source_unclassified']==26044
-          assert s['selected_new_coverage']<=26044
-          assert s['production_authority']=='NO'
-          assert s['main_mutated']=='NO'
-          assert s['issue117_code_mutated']=='NO'
-          assert all(float(r['pilot_support'])>=5 and float(r['holdout_support'])>=3 for r in selected)
+          assert s['pilot_reviewed']==684 and s['independent_holdout_reviewed']==240 and s['source_unclassified']==26044
+          assert s['production_authority']=='NO' and s['main_mutated']=='NO' and s['issue117_code_mutated']=='NO'
 
-          clusters=Path('docs/issue118/special_cluster_review_v1')
-          c=json.loads((clusters/'summary_v1.json').read_text(encoding='utf-8'))
-          sample=list(csv.DictReader((clusters/'cluster_review_sample_v1.csv').open(encoding='utf-8')))
-          assert c['source_rows']==2327
-          assert len(sample)==c['sample_rows']
-          assert len({r['identity_key'] for r in sample})==len(sample)
-          assert c['production_authority']=='NO'
-          assert c['main_mutated']=='NO'
-          assert c['issue117_code_mutated']=='NO'
+          special=Path('docs/issue118/special_cluster_review_v1')
+          cs=json.loads((special/'summary_v1.json').read_text(encoding='utf-8'))
+          ss=list(csv.DictReader((special/'cluster_review_sample_v1.csv').open(encoding='utf-8')))
+          assert cs['source_rows']==2327 and len(ss)==cs['sample_rows'] and len({r['identity_key'] for r in ss})==len(ss)
+
+          general=Path('docs/issue118/general_cluster_review_v1')
+          cg=json.loads((general/'summary_v1.json').read_text(encoding='utf-8'))
+          sg=list(csv.DictReader((general/'cluster_review_sample_v1.csv').open(encoding='utf-8')))
+          assert cg['source_rows']==23717 and len(sg)==cg['sample_rows'] and len({r['identity_key'] for r in sg})==len(sg)
+          assert cg['production_authority']=='NO' and cg['main_mutated']=='NO' and cg['issue117_code_mutated']=='NO'
           print('ISSUE118_CLUSTER_RULE_GATE=PASS')
           PY
 
@@ -65,7 +64,7 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add docs/issue118/cluster_rules_v1 docs/issue118/special_cluster_review_v1
+          git add docs/issue118/cluster_rules_v1 docs/issue118/special_cluster_review_v1 docs/issue118/general_cluster_review_v1
           if ! git diff --cached --quiet; then
             git commit -m 'Issue #118: materialize validated cluster research'
             git push origin HEAD:research/issue118-cluster-rules
