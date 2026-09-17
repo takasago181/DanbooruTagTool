@@ -1,0 +1,54 @@
+name: Issue118 Research Sidecar V3
+
+on:
+  push:
+    branches:
+      - research/issue118-cluster-rules
+    paths:
+      - scripts/issue118/materialize_research_sidecar_v3.py
+      - .github/workflows/issue118_sidecar_v3.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  materialize-sidecar-v3:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Materialize corrected research sidecar v3
+        run: |
+          python3 -m py_compile scripts/issue118/materialize_research_sidecar_v3.py
+          python3 scripts/issue118/materialize_research_sidecar_v3.py
+      - name: Validate corrected provenance contract
+        run: |
+          python3 - <<'PY'
+          import csv,json
+          from pathlib import Path
+          s=json.loads(Path('docs/issue118/research_sidecar_summary_v3.json').read_text(encoding='utf-8'))
+          rows=list(csv.DictReader(Path('docs/issue118/research_sidecar_v3.csv').open(encoding='utf-8')))
+          assert len(rows)==31752==s['identity_rows']
+          assert s['new_safe_general_auto_promotions_from_v1']==10164
+          assert s['review_status_counts']=={'AUTO_HIGH_CONF':14948,'HUMAN_REVIEWED':924,'UNCLASSIFIED':15880}
+          assert s['sexual_intent_counts']=={'CONTEXTUAL':189,'NON_SEXUAL':15099,'NULL':15880,'SEXUAL':584}
+          assert s['inherits_materializer_generated_human_reviews_from_v2']=='NO'
+          assert s['new_human_review_rows_created']==0
+          assert s['review_verdicts_generated_by_materializer']=='NO'
+          assert s['production_authority']=='NO'
+          assert s['main_mutated']=='NO'
+          assert s['issue117_code_mutated']=='NO'
+          assert s['catalog_mutated']=='NO'
+          assert s['user_db_mutated']=='NO'
+          print('ISSUE118_RESEARCH_SIDECAR_V3_GATE=PASS')
+          PY
+      - name: Persist research sidecar v3 only
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/issue118/research_sidecar_v3.csv docs/issue118/research_sidecar_summary_v3.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Issue #118: materialize corrected research sidecar v3'
+            git push origin HEAD:research/issue118-cluster-rules
+          fi
