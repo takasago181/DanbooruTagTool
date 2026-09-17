@@ -1,0 +1,19 @@
+{
+  "issue": 118,
+  "mode": "INDEPENDENT_POSE_HOLDOUT_REVIEW_V14_1",
+  "source": "docs/issue118/pose_movement_refinement_v14_1/fresh_holdout_template_v14_1.csv",
+  "reviewed_rows": 120,
+  "gate": "FAIL_REFINEMENT_REQUIRED",
+  "observed_counterexamples": {
+    "jack-o'_challenge": "CONTEXTUAL_OR_BOUNDARY",
+    "leg_between_thighs": "CONTEXTUAL_OR_BOUNDARY",
+    "over_the_knee": "CONTEXTUAL_OR_BOUNDARY",
+    "presenting_foot": "CONTEXTUAL_OR_BOUNDARY",
+    "spread_armpit": "CONTEXTUAL_OR_BOUNDARY"
+  },
+  "note": "Observed fetish/sexualized-pose boundary examples are removed from AUTO_HIGH_CONF NON_SEXUAL bulk candidacy. No production semantic authority is assigned here.",
+  "review_verdicts_generated_by_materializer": "NO",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO"
+}
