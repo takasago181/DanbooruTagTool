@@ -1,0 +1,73 @@
+name: Issue118 Research Sidecar V4
+
+on:
+  push:
+    branches:
+      - research/issue118-cluster-triage-v8
+    paths:
+      - scripts/issue118/materialize_research_sidecar_v4.py
+      - docs/issue118/bulk_candidate_adversarial_v9/redteam_review_decisions_v9.json
+      - docs/issue118/relationship_boundary_refinement_v10/relationship_boundary_review_decisions_v10.json
+      - docs/issue118/relationship_boundary_refinement_v10/fresh_holdout_review_v10.json
+      - .github/workflows/issue118_research_sidecar_v4.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  materialize-v4:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Materialize review-gated research sidecar v4
+        run: |
+          python3 -m py_compile scripts/issue118/materialize_research_sidecar_v4.py
+          python3 scripts/issue118/materialize_research_sidecar_v4.py
+      - name: Validate sidecar v4
+        run: |
+          python3 - <<'PY'
+          import csv, json
+          from collections import Counter
+          from pathlib import Path
+
+          p = Path('docs/issue118')
+          s = json.loads((p / 'research_sidecar_summary_v4.json').read_text(encoding='utf-8'))
+          rows = list(csv.DictReader((p / 'research_sidecar_v4.csv').open(encoding='utf-8')))
+
+          status = Counter(r['review_status'] for r in rows)
+          intent = Counter(r['sexual_intent'] or 'NULL' for r in rows)
+          assert len(rows) == 31752
+          assert dict(sorted(status.items())) == {
+              'AUTO_HIGH_CONF': 16656,
+              'HUMAN_REVIEWED': 1056,
+              'UNCLASSIFIED': 14040,
+          }
+          assert dict(sorted(intent.items())) == {
+              'CONTEXTUAL': 201,
+              'NON_SEXUAL': 16925,
+              'NULL': 14040,
+              'SEXUAL': 586,
+          }
+          assert s['remaining_unclassified'] == 14040
+          assert s['new_v10_clean_auto_promotions'] == 1708
+          assert s['v10_holdout_gate'] == 'PASS_FOR_RESEARCH_PROMOTION'
+          assert s['review_verdicts_generated_by_materializer'] == 'NO'
+          assert s['review_artifacts_are_external_inputs'] == 'YES'
+          assert s['production_authority'] == 'NO'
+          assert s['main_mutated'] == 'NO'
+          assert s['issue117_code_mutated'] == 'NO'
+          assert s['catalog_mutated'] == 'NO'
+          assert s['user_db_mutated'] == 'NO'
+          print('ISSUE118_RESEARCH_SIDECAR_V4_GATE=PASS')
+          PY
+      - name: Persist research sidecar only
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/issue118/research_sidecar_v4.csv docs/issue118/research_sidecar_summary_v4.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Issue #118: materialize review-gated research sidecar v4'
+            git push origin HEAD:research/issue118-cluster-triage-v8
+          fi
