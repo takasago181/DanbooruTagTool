@@ -1,0 +1,13 @@
+{
+  "issue": 118,
+  "mode": "PATHLESS_LOW_RISK_V23_HOLDOUT_REVIEW",
+  "reviewed_rows": 120,
+  "decision": "FAIL_DO_NOT_PROMOTE",
+  "counterexamples": [
+    "sexy_no_jutsu",
+    "tawawa_challenge",
+    "ruined_for_marriage"
+  ],
+  "reason": "Pathless GENERAL_ONLY concepts remain semantically heterogeneous after learned-risk ejection. Whole 2318-row candidate promotion is prohibited; split narrower structural safe subclusters instead.",
+  "production_authority": "NO"
+}
