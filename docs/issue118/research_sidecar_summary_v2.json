@@ -1,0 +1,29 @@
+{
+  "issue": 118,
+  "mode": "RESEARCH_SIDECAR_V2_EFFICIENCY_EXPANDED",
+  "identity_rows": 31752,
+  "new_promotions": {
+    "SEXUAL": 50,
+    "NON_SEXUAL": 1846
+  },
+  "new_promotions_total": 1896,
+  "review_status_counts": {
+    "AUTO_HIGH_CONF": 6680,
+    "HUMAN_REVIEWED": 924,
+    "UNCLASSIFIED": 24148
+  },
+  "sexual_intent_counts": {
+    "CONTEXTUAL": 189,
+    "NON_SEXUAL": 6781,
+    "NULL": 24148,
+    "SEXUAL": 634
+  },
+  "v3_rules": {
+    "AUTO_SEXUAL_EXPLICIT_LEXEMES_V3": "50/50 full candidate identities semantically checked",
+    "AUTO_NONSEX_VALIDATED_GENERAL_SUBPATHS_V3": "3 paths; pilot-pure and fresh holdout 30/30 NON_SEXUAL"
+  },
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO"
+}
