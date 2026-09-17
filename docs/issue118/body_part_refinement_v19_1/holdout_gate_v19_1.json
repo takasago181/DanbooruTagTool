@@ -1,0 +1,19 @@
+{
+  "issue": 118,
+  "mode": "BODY_PART_V19_1_FRESH_HOLDOUT_REVIEW",
+  "holdout_rows": 120,
+  "result": "FAIL_REFINEMENT_REQUIRED",
+  "counterexamples": [
+    "suggestive_fluid",
+    "perineum_piercing",
+    "glands_of_montgomery"
+  ],
+  "reason": "Fresh holdout still contains sexual/contextual body-anatomy variants not covered by prior discovery-only ejectors.",
+  "review_verdicts_generated_by_materializer": "NO",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO",
+  "next_gate": "refine boundary variants then run a new salted fresh holdout"
+}
