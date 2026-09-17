@@ -1,0 +1,26 @@
+{
+  "issue": 118,
+  "mode": "POSE_MOVEMENT_REFINEMENT_V14_1_COUNTEREXAMPLE_SPLIT",
+  "source_clean_rows_v14": 717,
+  "new_boundary_rows": 6,
+  "clean_candidate_rows_v14_1": 711,
+  "fresh_holdout_template_rows": 120,
+  "required_counterexamples_captured": [
+    "arched_back",
+    "hips_in_air",
+    "huge_ass_lying_on_couch_pose_(meme)",
+    "object_on_bulge",
+    "pole_dancing",
+    "presenting_tanlines"
+  ],
+  "pole_dancing_pattern_morphology_fixed": "YES",
+  "boundary_rules_use": "DISCOVERY_ONLY_NOT_CLASSIFICATION_AUTHORITY",
+  "holdout_verdicts_generated": "NO",
+  "auto_promotion_performed": "NO",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO",
+  "next_gate": "independently review new fixed 120-row holdout before any research-sidecar promotion"
+}
