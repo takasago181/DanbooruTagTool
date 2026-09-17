@@ -1,0 +1,23 @@
+{
+  "issue": 118,
+  "mode": "INDEPENDENT_ACTION_ORDINARY_HOLDOUT_REVIEW_V16_3",
+  "source": "docs/issue118/action_interaction_refinement_v16_3/ordinary_fresh_holdout_template_v16_3.csv",
+  "reviewed_rows": 120,
+  "gate": "FAIL_REFINEMENT_REQUIRED",
+  "observed_counterexamples": [
+    "ass_on_glass",
+    "bust_measuring",
+    "bed_invitation",
+    "strip_poker",
+    "licking_shoulder",
+    "foot_on_another's_thigh",
+    "arm_between_another's_legs",
+    "chained_wrists",
+    "finger_to_tongue"
+  ],
+  "refinement_direction": "eject sexualized body-display, bed/strip context, restraint, licking, and between-legs interaction families from ordinary bulk candidacy",
+  "review_verdicts_generated_by_materializer": "NO",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO"
+}
