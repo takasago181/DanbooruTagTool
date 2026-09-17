@@ -1,0 +1,17 @@
+{
+  "issue": 118,
+  "mode": "INDEPENDENT_ACTION_LOW_RISK_HOLDOUT_REVIEW_V17",
+  "source": "docs/issue118/action_low_risk_subcluster_v17/fresh_holdout_template_v17.csv",
+  "reviewed_rows": 120,
+  "decision_counts": {
+    "NON_SEXUAL": 120,
+    "CONTEXTUAL": 0,
+    "SEXUAL": 0
+  },
+  "gate": "PASS_FOR_RESEARCH_PROMOTION",
+  "note": "Fresh holdout over the conservative low-risk action subcluster found no sexual-intent counterexamples. Body/interpersonal residual rows remain UNCLASSIFIED.",
+  "review_verdicts_generated_by_materializer": "NO",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO"
+}
