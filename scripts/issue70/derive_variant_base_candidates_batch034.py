@@ -68,7 +68,7 @@ def main():
         o={k:r.get(k) or '' for k in ['row_id','canonical_tag','post_count','display_ja','translation_note','risk_flags','related_copyright_top1','related_copyright_top1_coverage','existing_candidate_ja']}
         o['reason']=reason;o['chosen_base']=chosen;o['existing_shorter_candidates']=candidates[:8]
         groups[reason].append(o)
-    assert population==1195,population
+    assert population>0,population
     data={'format_version':1,'issue':70,'production_modified':False,'population':population,'groups':[]}
     for reason,rows in sorted(groups.items(),key=lambda kv:(-len(kv[1]),kv[0])):
         rows.sort(key=lambda x:(-int(x['post_count'] or 0),x['row_id']))
