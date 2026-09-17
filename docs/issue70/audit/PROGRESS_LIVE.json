@@ -1,5 +1,5 @@
 {
-  "format_version": 3,
+  "format_version": 4,
   "issue": 70,
   "production_modified": false,
   "initial_ledger_rows": 18270,
@@ -280,5 +280,5 @@
   ],
   "ignored_nonledger_rows_by_file": {},
   "conflicts": [],
-  "next_step": "continue highest-volume safe pattern batches using note-risk signatures, then resolve external/user queues before production correction"
+  "next_step": "resolve NEEDS_EXTERNAL_CHECK via external_resolution overlays, then apply approved corrections only after final audit close"
 }
