@@ -1,0 +1,19 @@
+{
+  "issue": 118,
+  "mode": "RISK_EXCLUSION_WAVE3_FRESH_HOLDOUT_V2_REVIEW",
+  "reviewed_rows": 36,
+  "class_counts": {
+    "NON_SEXUAL": 36,
+    "SEXUAL": 0,
+    "CONTEXTUAL": 0,
+    "UNCLASSIFIED": 0
+  },
+  "counterexamples": [],
+  "prior_sample_overlap": 0,
+  "rule_changed_after_holdout": "NO",
+  "decision": "ELIGIBLE_FOR_RESEARCH_SIDECAR_V3",
+  "promotion_scope": "RESEARCH_ONLY",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO"
+}
