@@ -1,0 +1,61 @@
+name: Issue118 Coverage Queue
+
+on:
+  push:
+    branches:
+      - research/issue118-intent-pilot
+    paths:
+      - scripts/issue118/materialize_unclassified_queue_v1.py
+      - .github/workflows/issue118_coverage_queue.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  materialize-coverage-queue:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout research branch
+        uses: actions/checkout@v4
+
+      - name: Validate script
+        run: python3 -m py_compile scripts/issue118/materialize_unclassified_queue_v1.py
+
+      - name: Materialize 1000-row unclassified review queue
+        run: |
+          set -euo pipefail
+          python3 scripts/issue118/materialize_unclassified_queue_v1.py
+
+      - name: Validate queue
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import csv, json
+          from pathlib import Path
+          root=Path('docs/issue118/coverage_queue_v1')
+          rows=list(csv.DictReader((root/'unclassified_review_queue_1000_v1.csv').open(encoding='utf-8-sig')))
+          s=json.loads((root/'summary_v1.json').read_text(encoding='utf-8'))
+          chunks=sorted(root.glob('chunk_*.csv'))
+          assert len(rows)==1000
+          assert len({r['identity_key'] for r in rows})==1000
+          assert len(chunks)==10
+          assert sum(len(list(csv.DictReader(p.open(encoding='utf-8-sig')))) for p in chunks)==1000
+          assert s['source_unclassified_rows']==26044
+          assert s['production_authority']=='NO'
+          assert s['main_mutated']=='NO'
+          assert s['issue117_code_mutated']=='NO'
+          print('ISSUE118_COVERAGE_QUEUE_GATE=PASS')
+          PY
+
+      - name: Persist research queue
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/issue118/coverage_queue_v1
+          if ! git diff --cached --quiet; then
+            git commit -m 'Issue #118: materialize next unclassified review queue'
+            git push origin HEAD:research/issue118-intent-pilot
+          fi
