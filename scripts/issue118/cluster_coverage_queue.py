@@ -25,6 +25,8 @@ BUCKETS = [
     ('RELATION_ROLE', re.compile(r'(incest|yuri|yaoi|futa|shota|loli|onee|relation|couple|polyamory|harem)')),
 ]
 
+PROMISING_BUCKETS = {'SEX_ACT','SEX_DEVICE'}
+
 
 def read_csv(path: Path):
     with path.open(encoding='utf-8-sig', newline='') as f:
@@ -58,24 +60,29 @@ def main() -> int:
         key=norm(r['identity_key']); gr=g.get(key); sr=s.get(key)
         fam=(sr or {}).get('GenerationFamily','').strip() or '(none)'
         rt=root(gr)
+        role=(sr or {}).get('GenerationRole','').strip() or '(none)'
         b=bucket(key)
         membership='OVERLAP' if gr and sr else 'SPECIAL_ONLY' if sr else 'GENERAL_ONLY'
-        # Keep P0 unresolved separate; otherwise cluster on semantic bucket + structural evidence.
         pri=r.get('priority_band','')
-        cluster_key=(pri if pri.startswith('P0_') else 'P1+', membership, b, fam, rt)
+        cluster_key=(pri if pri.startswith('P0_') else 'P1+', membership, b, fam, role, rt)
         groups[cluster_key].append(r)
 
-    cluster_rows=[]; reps=[]
-    for idx,(ck,rows) in enumerate(sorted(groups.items(),key=lambda kv:(-len(kv[1]),kv[0])),1):
-        pri,membership,b,fam,rt=ck
+    cluster_rows=[]; reps=[]; members=[]; validation=[]
+    ordered=sorted(groups.items(),key=lambda kv:(-len(kv[1]),kv[0]))
+    for idx,(ck,rows) in enumerate(ordered,1):
+        pri,membership,b,fam,role,rt=ck
         rows=sorted(rows,key=lambda r:r['identity_key'])
         cid=f'C{idx:03d}'
+        promising = pri == 'P1+' and b in PROMISING_BUCKETS and len(rows) >= 5
         cluster_rows.append({
             'cluster_id':cid,'rows':str(len(rows)),'priority_scope':pri,'membership':membership,
-            'semantic_bucket':b,'generation_family':fam,'general_root':rt,
+            'semantic_bucket':b,'generation_family':fam,'generation_role':role,'general_root':rt,
+            'promising_for_validation':'YES' if promising else 'NO',
             'representatives':';'.join(r['identity_key'] for r in rows[:3]),
         })
-        # 1 rep for singleton, 2 for 2-4, 3 for >=5. Large clusters also take one tail example.
+        for pos,r in enumerate(rows,1):
+            members.append({'cluster_id':cid,'cluster_position':str(pos),'semantic_bucket':b,
+                            'generation_family':fam,'generation_role':role,'general_root':rt,**r})
         take=1 if len(rows)==1 else 2 if len(rows)<=4 else 3
         selected=rows[:take]
         if len(rows)>=20:
@@ -86,16 +93,29 @@ def main() -> int:
             seen.add(r['identity_key'])
             reps.append({
                 'cluster_id':cid,'cluster_rows':str(len(rows)),'semantic_bucket':b,
-                'generation_family':fam,'general_root':rt,**r,
+                'generation_family':fam,'generation_role':role,'general_root':rt,**r,
                 'reviewed_class':'','review_status':'','review_note':''
             })
+        if promising:
+            # Three evidence examples + up to five disjoint holdout examples from the same cluster.
+            for phase, subset in [('EVIDENCE', rows[:3]), ('HOLDOUT', rows[3:8])]:
+                for r in subset:
+                    validation.append({
+                        'cluster_id':cid,'cluster_rows':str(len(rows)),'phase':phase,
+                        'semantic_bucket':b,'generation_family':fam,'generation_role':role,
+                        'general_root':rt,**r,'reviewed_class':'','review_status':'','review_note':''
+                    })
 
     OUT.mkdir(parents=True,exist_ok=True)
     def write(path, rows):
+        if not rows:
+            path.write_text('',encoding='utf-8'); return
         with path.open('w',encoding='utf-8',newline='') as f:
             w=csv.DictWriter(f,fieldnames=list(rows[0]),lineterminator='\n'); w.writeheader(); w.writerows(rows)
     write(OUT/'clusters_v1.csv',cluster_rows)
+    write(OUT/'cluster_members_v1.csv',members)
     write(OUT/'representative_review_v1.csv',reps)
+    write(OUT/'promising_cluster_validation_v1.csv',validation)
 
     sizes=Counter()
     for r in cluster_rows:
@@ -105,11 +125,15 @@ def main() -> int:
         sizes['5-9'] += 5<=n<10
         sizes['2-4'] += 2<=n<5
         sizes['1'] += n==1
+    promising_clusters=[r for r in cluster_rows if r['promising_for_validation']=='YES']
     summary={
-        'issue':118,'mode':'SEMANTIC_QUEUE_CLUSTERING_V1','queue_rows':1000,
+        'issue':118,'mode':'SEMANTIC_QUEUE_CLUSTERING_V2','queue_rows':1000,
         'clusters':len(cluster_rows),'representative_review_rows':len(reps),
         'compression_ratio':round(len(reps)/1000,4),
         'cluster_size_bands':dict(sizes),
+        'promising_clusters':len(promising_clusters),
+        'promising_cluster_rows':sum(int(r['rows']) for r in promising_clusters),
+        'promising_validation_rows':len(validation),
         'largest_clusters':cluster_rows[:15],
         'production_promotion_performed':'NO',
     }
