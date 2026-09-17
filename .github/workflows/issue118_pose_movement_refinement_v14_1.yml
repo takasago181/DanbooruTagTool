@@ -1,0 +1,62 @@
+name: Issue118 Pose Movement Refinement V14.1
+
+on:
+  push:
+    branches:
+      - research/issue118-cluster-triage-v8
+    paths:
+      - scripts/issue118/materialize_pose_movement_refinement_v14_1.py
+      - docs/issue118/pose_movement_refinement_v14/pose_clean_v14.csv
+      - .github/workflows/issue118_pose_movement_refinement_v14_1.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  materialize-v14-1:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Materialize pose refinement v14.1
+        run: |
+          python3 -m py_compile scripts/issue118/materialize_pose_movement_refinement_v14_1.py
+          python3 scripts/issue118/materialize_pose_movement_refinement_v14_1.py
+      - name: Validate v14.1
+        run: |
+          python3 - <<'PY'
+          import csv, json
+          from pathlib import Path
+          p = Path('docs/issue118/pose_movement_refinement_v14_1')
+          s = json.loads((p / 'summary_v14_1.json').read_text(encoding='utf-8'))
+          boundary = list(csv.DictReader((p / 'pose_boundary_v14_1.csv').open(encoding='utf-8')))
+          clean = list(csv.DictReader((p / 'pose_clean_v14_1.csv').open(encoding='utf-8')))
+          holdout = list(csv.DictReader((p / 'fresh_holdout_template_v14_1.csv').open(encoding='utf-8')))
+          assert s['source_clean_rows_v14'] == 717
+          assert len(boundary) == s['new_boundary_rows']
+          assert len(clean) == s['clean_candidate_rows_v14_1']
+          assert len(boundary) + len(clean) == 717
+          required = set(s['required_counterexamples_captured'])
+          assert required <= {r['identity_key'] for r in boundary}
+          assert len(holdout) == 120
+          assert all(not r['human_intent'] for r in holdout)
+          assert s['pole_dancing_pattern_morphology_fixed'] == 'YES'
+          assert s['holdout_verdicts_generated'] == 'NO'
+          assert s['auto_promotion_performed'] == 'NO'
+          assert s['production_authority'] == 'NO'
+          assert s['main_mutated'] == 'NO'
+          assert s['issue117_code_mutated'] == 'NO'
+          assert s['catalog_mutated'] == 'NO'
+          assert s['user_db_mutated'] == 'NO'
+          print('ISSUE118_POSE_MOVEMENT_V14_1_GATE=PASS')
+          PY
+      - name: Persist research evidence only
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/issue118/pose_movement_refinement_v14_1
+          if ! git diff --cached --quiet; then
+            git commit -m 'Issue #118: materialize pose movement refinement v14.1'
+            git push origin HEAD:research/issue118-cluster-triage-v8
+          fi
