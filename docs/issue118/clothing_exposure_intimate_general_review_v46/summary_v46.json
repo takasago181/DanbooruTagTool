@@ -1,0 +1,13 @@
+{
+  "issue": 118,
+  "mode": "CLOTHING_EXPOSURE_INTIMATE_GENERAL_FULL_REVIEW_V46",
+  "candidate_rows": 38,
+  "selection_rules_use": "DISCOVERY_ONLY_NOT_CLASSIFICATION_AUTHORITY",
+  "auto_promotion_performed": "NO",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO",
+  "next_gate": "full manual review of all 38 rows"
+}
