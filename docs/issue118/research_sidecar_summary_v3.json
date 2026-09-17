@@ -1,0 +1,28 @@
+{
+  "issue": 118,
+  "mode": "RESEARCH_SIDECAR_V3_CORRECTED_PROVENANCE",
+  "identity_rows": 31752,
+  "new_safe_general_auto_promotions_from_v1": 10164,
+  "review_status_counts": {
+    "AUTO_HIGH_CONF": 14948,
+    "HUMAN_REVIEWED": 924,
+    "UNCLASSIFIED": 15880
+  },
+  "sexual_intent_counts": {
+    "CONTEXTUAL": 189,
+    "NON_SEXUAL": 15099,
+    "NULL": 15880,
+    "SEXUAL": 584
+  },
+  "remaining_unclassified": 15880,
+  "source_base": "research_sidecar_v1.csv",
+  "safe_candidate_source": "safe_general_converged_v6/candidate_inventory_v6.csv",
+  "inherits_materializer_generated_human_reviews_from_v2": "NO",
+  "new_human_review_rows_created": 0,
+  "review_verdicts_generated_by_materializer": "NO",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO"
+}
