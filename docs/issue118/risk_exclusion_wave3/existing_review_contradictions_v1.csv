@@ -1,0 +1,4 @@
+identity_key,general_path,cohort,reviewed_class,source_file
+shibarikini,CLOTHING/COSTUME,PILOT,CONTEXTUAL,chunk_001_review_v1.csv
+frogtie,CLOTHING/ACCESSORY,PILOT,CONTEXTUAL,chunk_003_review_v1.csv
+riding_crop,OBJECT_PROP/DAILY,PILOT,CONTEXTUAL,chunk_004_review_v1.csv
