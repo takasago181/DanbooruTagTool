@@ -1,0 +1,39 @@
+{
+  "issue": 118,
+  "mode": "OBJECT_PROP_V26_BOUNDARY_FULL_20_REVIEW",
+  "source": "docs/issue118/object_prop_low_risk_v26/boundary_residual_v26.csv",
+  "source_rows": 20,
+  "non_sexual": [
+    "black_rope",
+    "blue_rope",
+    "green_rope",
+    "jump_rope",
+    "orange_rope",
+    "pink_rope",
+    "purple_rope",
+    "red_rope",
+    "rope",
+    "rope_ladder",
+    "white_rope",
+    "yellow_rope"
+  ],
+  "sexual": [
+    "colored_condom",
+    "condom_box",
+    "condom_packet_strip",
+    "condom_wrapper"
+  ],
+  "contextual": [
+    "ass_mousepad",
+    "clothes-dissolving_potion",
+    "shelf_bra",
+    "speculum"
+  ],
+  "decision_counts": {
+    "NON_SEXUAL": 12,
+    "CONTEXTUAL": 4,
+    "SEXUAL": 4
+  },
+  "review_note": "Full manual review of all 20 v26 risk-ejected OBJECT_PROP identities. Rope lexicon hits were mostly generic false positives; condom concepts are sexual-intent concepts; sexualized/medical dual-use objects remain CONTEXTUAL.",
+  "production_authority": "NO"
+}
