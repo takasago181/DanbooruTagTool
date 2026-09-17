@@ -1,0 +1,33 @@
+{
+  "issue": 118,
+  "mode": "INDEPENDENT_RELATIONSHIP_BOUNDARY_REVIEW_V10",
+  "inventory": "docs/issue118/relationship_boundary_refinement_v10/relationship_boundary_review_v10.csv",
+  "inventory_blob_sha": "9c6c38470bac1f67a99ffc51c9348c77e3cd51d2",
+  "reviewed_rows": 3,
+  "decisions": {
+    "brocon": {
+      "sexual_intent": "CONTEXTUAL",
+      "reason": "canonical concept has substantial ordinary sibling-complex/character-trait use and romantic/incestuous relationship discovery use"
+    },
+    "ntr_character_sheet": {
+      "sexual_intent": "SEXUAL",
+      "reason": "canonical concept is explicitly tied to netorare/NTR, which Danbooru defines as a fetish involving a close relationship being sexually/romantically stolen"
+    },
+    "top/bottom_dynamic_annotated": {
+      "sexual_intent": "CONTEXTUAL",
+      "reason": "canonical concept naturally spans ordinary relationship/ship dynamic annotation and sexual-role context"
+    }
+  },
+  "decision_counts": {
+    "NON_SEXUAL": 0,
+    "CONTEXTUAL": 2,
+    "SEXUAL": 1,
+    "KEEP_UNCLASSIFIED": 0
+  },
+  "review_verdicts_generated_by_materializer": "NO",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO"
+}
