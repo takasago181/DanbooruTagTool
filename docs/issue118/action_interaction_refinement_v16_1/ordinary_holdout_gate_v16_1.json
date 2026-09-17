@@ -1,0 +1,21 @@
+{
+  "issue": 118,
+  "mode": "INDEPENDENT_ACTION_ORDINARY_HOLDOUT_REVIEW_V16_1",
+  "source": "docs/issue118/action_interaction_refinement_v16_1/ordinary_fresh_holdout_template_v16_1.csv",
+  "reviewed_rows": 120,
+  "gate": "FAIL_REFINEMENT_REQUIRED",
+  "observed_counterexamples": {
+    "legs_on_another's_shoulders": "SEXUAL_POSITION_BOUNDARY",
+    "head_on_ass": "SEXUALIZED_BODY_CONTACT_BOUNDARY",
+    "sensory_deprivation": "BDSM_CONTEXT_BOUNDARY",
+    "finger_in_another's_mouth": "INTIMATE_OR_FETISH_BOUNDARY",
+    "imminent_licking": "INTIMATE_OR_FETISH_BOUNDARY",
+    "shorts_tug": "EXPOSURE_OR_INTIMATE_BOUNDARY",
+    "hand_wrapped_around_waist": "MOVE_TO_INTIMATE_GENERAL"
+  },
+  "note": "Observed boundary/intimate examples are removed from ordinary bulk candidacy before any promotion.",
+  "review_verdicts_generated_by_materializer": "NO",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO"
+}
