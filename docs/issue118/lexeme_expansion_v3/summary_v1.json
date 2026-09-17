@@ -37,6 +37,7 @@
     }
   },
   "unique_candidate_identities": 50,
+  "all_match_rows": 50,
   "validation_rows": 32,
   "production_promotion_performed": "NO"
 }
