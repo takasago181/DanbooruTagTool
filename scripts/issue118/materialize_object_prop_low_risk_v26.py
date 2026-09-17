@@ -59,8 +59,8 @@ def main() -> int:
     selected.sort(key=lambda r: (r['general_path'], r['identity_key']))
     residual.sort(key=lambda r: (r['general_path'], r['identity_key']))
     total = len(selected) + len(residual)
-    if total != 227:
-        raise SystemExit(f'expected 227 remaining General-only OBJECT_PROP rows, got {total}')
+    if total != 161:
+        raise SystemExit(f'expected 161 remaining General-only OBJECT_PROP rows, got {total}')
 
     holdout_n = min(120, len(selected))
     holdout_keys = sorted((r['identity_key'] for r in selected), key=stable_rank)[:holdout_n]
