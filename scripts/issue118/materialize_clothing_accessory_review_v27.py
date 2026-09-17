@@ -35,7 +35,6 @@ def main() -> int:
         path = (gr.get('primary_path') or '').strip()
         if path != 'CLOTHING/ACCESSORY':
             continue
-        # exact v22 top cluster was lex NONE; retain only rows without obvious lex-risk tokens.
         parts = set(key.lower().replace('-', '_').split('_'))
         risk = {'sex','sexual','penis','pussy','vagina','anus','anal','clit','nipple','breast','panty','panties','bra','underwear','fetish','bdsm','bondage','condom','dildo','vibrator','gag','rope','leash','handcuff','handcuffs'}
         if parts & risk:
@@ -43,8 +42,8 @@ def main() -> int:
         rows.append({'identity_key': key, 'candidate_state': 'FULL_REVIEW_CLOTHING_ACCESSORY_V27', 'human_intent': '', 'review_note': ''})
 
     rows.sort(key=lambda r: r['identity_key'])
-    if len(rows) != 96:
-        raise SystemExit(f'expected 96 General-only CLOTHING/ACCESSORY NONE rows, got {len(rows)}')
+    if len(rows) != 178:
+        raise SystemExit(f'expected 178 General-only CLOTHING/ACCESSORY review rows, got {len(rows)}')
 
     OUT.mkdir(parents=True, exist_ok=True)
     with (OUT / 'full_review_candidate_v27.csv').open('w', encoding='utf-8', newline='') as f:
@@ -61,7 +60,7 @@ def main() -> int:
         'issue117_code_mutated': 'NO',
         'catalog_mutated': 'NO',
         'user_db_mutated': 'NO',
-        'next_gate': 'full manual review of all 96 rows'
+        'next_gate': 'full manual review of all 178 rows'
     }
     (OUT / 'summary_v27.json').write_text(json.dumps(summary, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     print(json.dumps(summary, ensure_ascii=False, sort_keys=True))
