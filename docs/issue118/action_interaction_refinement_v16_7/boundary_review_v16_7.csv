@@ -1,0 +1,11 @@
+identity_key,candidate_state,reason
+chocolate_on_foot,BOUNDARY_REVIEW,food_on_foot
+hand_under_shirt,BOUNDARY_REVIEW,hand_under_clothing
+hand_under_skirt,BOUNDARY_REVIEW,hand_under_clothing
+hanging_wedgie,BOUNDARY_REVIEW,wedgie_family
+licking_another,BOUNDARY_REVIEW,licking_another
+licking_another's_cheek,BOUNDARY_REVIEW,licking_another
+licking_another's_face,BOUNDARY_REVIEW,licking_another
+licking_another's_hair,BOUNDARY_REVIEW,licking_another
+licking_another's_lips,BOUNDARY_REVIEW,licking_another
+self_wedgie,BOUNDARY_REVIEW,wedgie_family
