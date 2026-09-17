@@ -1,0 +1,27 @@
+{
+  "issue": 118,
+  "mode": "BODY_PART_REFINEMENT_V19_2_ADVERSARIAL_VARIANT_SPLIT",
+  "source_candidate_rows_v19_1": 1461,
+  "new_boundary_rows": 5,
+  "clean_candidate_rows_v19_2": 1456,
+  "boundary_flag_counts": {
+    "mammary_areolar_variant": 1,
+    "perineal_or_genital_variant": 3,
+    "suggestive_content_marker": 1
+  },
+  "required_counterexamples_captured": [
+    "glands_of_montgomery",
+    "perineum_piercing",
+    "suggestive_fluid"
+  ],
+  "fresh_holdout_template_rows": 120,
+  "rules_use": "DISCOVERY_ONLY_NOT_CLASSIFICATION_AUTHORITY",
+  "holdout_verdicts_generated": "NO",
+  "auto_promotion_performed": "NO",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO",
+  "next_gate": "independently review fresh 120-row BODY_PART holdout"
+}
