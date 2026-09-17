@@ -1,0 +1,24 @@
+{
+  "issue": 118,
+  "mode": "POSE_MOVEMENT_REFINEMENT_V14_2_FETISH_POSE_BOUNDARY",
+  "source_clean_rows_v14_1": 711,
+  "new_boundary_rows": 5,
+  "clean_candidate_rows_v14_2": 706,
+  "fresh_holdout_template_rows": 120,
+  "required_counterexamples_captured": [
+    "jack-o'_challenge",
+    "leg_between_thighs",
+    "over_the_knee",
+    "presenting_foot",
+    "spread_armpit"
+  ],
+  "boundary_rules_use": "DISCOVERY_ONLY_NOT_CLASSIFICATION_AUTHORITY",
+  "holdout_verdicts_generated": "NO",
+  "auto_promotion_performed": "NO",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO",
+  "next_gate": "independently review new fixed 120-row holdout before any research-sidecar promotion"
+}
