@@ -1,0 +1,32 @@
+{
+  "issue": 118,
+  "mode": "RESEARCH_SIDECAR_V20_CLOTHING_MISC_FULL_REVIEW",
+  "identity_rows": 31752,
+  "source_base": "docs/issue118/research_sidecar_v19.csv",
+  "new_promotions": {
+    "CONTEXTUAL": 1,
+    "NON_SEXUAL": 71
+  },
+  "new_total_promotions": 72,
+  "review_status_counts": {
+    "AUTO_HIGH_CONF": 22371,
+    "HUMAN_REVIEWED": 2313,
+    "UNCLASSIFIED": 7068
+  },
+  "sexual_intent_counts": {
+    "CONTEXTUAL": 377,
+    "NON_SEXUAL": 23205,
+    "NULL": 7068,
+    "SEXUAL": 1102
+  },
+  "remaining_unclassified": 7068,
+  "review_source": "docs/issue118/clothing_misc_review_v32/review_policy_v32.json",
+  "review_sha256": "bd4be01e3d5054025ae095d3b153538cfefb30171904bb94d56d452c2a1f7162",
+  "review_verdicts_generated_by_materializer": "NO",
+  "review_artifacts_are_external_inputs": "YES",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO"
+}
