@@ -6,6 +6,7 @@ on:
       - research/issue118-efficiency-mining
     paths:
       - scripts/issue118/mine_crossvalidated_rules.py
+      - scripts/issue118/cluster_coverage_queue.py
       - .github/workflows/issue118_efficiency_mining.yml
   workflow_dispatch:
 
@@ -20,11 +21,16 @@ jobs:
       - name: Checkout research branch
         uses: actions/checkout@v4
 
-      - name: Validate script
-        run: python3 -m py_compile scripts/issue118/mine_crossvalidated_rules.py
+      - name: Validate scripts
+        run: |
+          python3 -m py_compile scripts/issue118/mine_crossvalidated_rules.py
+          python3 -m py_compile scripts/issue118/cluster_coverage_queue.py
 
       - name: Mine cross-validated candidate rules
         run: python3 scripts/issue118/mine_crossvalidated_rules.py
+
+      - name: Cluster unclassified queue
+        run: python3 scripts/issue118/cluster_coverage_queue.py
 
       - name: Validate outputs
         run: |
@@ -42,6 +48,13 @@ jobs:
           assert s['safety_contract']['production_promotion_performed']=='NO'
           rows=list(csv.DictReader((root/'accepted_rule_candidates.csv').open(encoding='utf-8-sig')))
           assert all(int(r['pilot_support'])>=2 and int(r['holdout_support'])>=2 and int(r['total_support'])>=6 for r in rows)
+
+          croot=Path('docs/issue118/efficiency_clustering_v1')
+          c=json.loads((croot/'summary_v1.json').read_text(encoding='utf-8'))
+          reps=list(csv.DictReader((croot/'representative_review_v1.csv').open(encoding='utf-8-sig')))
+          assert c['queue_rows']==1000
+          assert len(reps)==c['representative_review_rows']
+          assert c['production_promotion_performed']=='NO'
           print('ISSUE118_EFFICIENCY_MINING_GATE=PASS')
           PY
 
@@ -49,8 +62,8 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add docs/issue118/efficiency_mining_v1
+          git add docs/issue118/efficiency_mining_v1 docs/issue118/efficiency_clustering_v1
           if ! git diff --cached --quiet; then
-            git commit -m 'Issue #118: materialize cross-validated efficiency mining'
+            git commit -m 'Issue #118: materialize efficiency mining and clustering'
             git push origin HEAD:research/issue118-efficiency-mining
           fi
