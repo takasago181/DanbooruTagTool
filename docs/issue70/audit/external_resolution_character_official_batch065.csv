@@ -1,0 +1,6 @@
+row_id,canonical_tag,post_count,display_ja,search_ja,audit_verdict,proposed_display_ja,proposed_search_ja,reason_code,confidence,evidence_refs,audit_note,approval_status
+I70-001035,nangong_yu,2951,南宮羽,南宮羽,KEEP,,,EXTERNAL_OFFICIAL_JA_NAME_CONFIRMED,HIGH,https://zenless.hoyoverse.com/ja-jp/main ; https://zenless.hoyoverse.com/ja-jp/news/166073,ゼンレスゾーンゼロ日本語公式サイトで「南宮羽」を確認。現表示・検索を維持。,PROPOSED
+I70-001080,ju_fufu,2863,橘福福,橘福福 | チー・フーフー,FIX_SEARCH,,橘福福,EXTERNAL_OFFICIAL_DISPLAY_CONFIRMED_REMOVE_UNVERIFIED_READING,HIGH,https://zenless.hoyoverse.com/ja-jp/main,日本語公式サイトで表示名「橘福福」を確認。現監査では「チー・フーフー」の日本語公式読みを一次情報で確認できないため検索から除外。,PROPOSED
+I70-001157,luciana_de_montefio,2701,ルーシー,ルーシー | ルシアーナ・デ・モンテフィオ,FIX_SEARCH,,ルーシー | ルシアーナ・オクシスィース・テオドロ・デ・モンテフィーノ,EXTERNAL_OFFICIAL_FULL_NAME_CONFIRMED,HIGH,https://zenless.hoyoverse.com/ja-jp/news/124273,ゼンレスゾーンゼロ日本語公式が「ルーシー」およびフルネーム「ルシアーナ・オクシスィース・テオドロ・デ・モンテフィーノ」を明記。検索語を公式表記へ修正。,PROPOSED
+I70-001185,canari_(pokemon),2640,カナリィ,カナリィ,KEEP,,,EXTERNAL_OFFICIAL_JA_NAME_CONFIRMED,HIGH,https://www.pokemon.co.jp/ex/legends_z-a/ja/characters/251106_01/,Pokémon LEGENDS Z-A日本語公式サイトで「カナリィ」を確認。現表示・検索を維持。,PROPOSED
+I70-001285,ye_shunguang,2460,葉瞬光,葉瞬光,KEEP,,,EXTERNAL_OFFICIAL_JA_NAME_CONFIRMED,HIGH,https://zenless.hoyoverse.com/ja-jp/news/159962 ; https://zenless.hoyoverse.com/ja-jp/main,ゼンレスゾーンゼロ日本語公式サイトで「葉瞬光（よう・しゅんこう）」を確認。現表示・検索を維持。,PROPOSED
