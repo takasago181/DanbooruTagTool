@@ -7,25 +7,25 @@
   "primary_conflicted_rows": 0,
   "primary_defer_markers_suppressed_by_concrete": 0,
   "initial_external_rows": 1495,
-  "resolved_external_rows": 81,
-  "remaining_external_rows": 1414,
+  "resolved_external_rows": 161,
+  "remaining_external_rows": 1334,
   "conflicted_external_rows": 0,
   "duplicate_same_decision_rows": 0,
   "superseded_external_rows": 0,
   "resolved_verdict_counts": {
-    "FIX_BOTH": 32,
-    "FIX_DISPLAY": 9,
+    "FIX_BOTH": 71,
+    "FIX_DISPLAY": 21,
     "FIX_SEARCH": 3,
-    "KEEP": 37
+    "KEEP": 66
   },
   "resolved_by_category": {
     "Character": 28,
-    "Copyright": 53
+    "Copyright": 133
   },
   "remaining_by_category": {
     "Artist": 291,
     "Character": 382,
-    "Copyright": 741
+    "Copyright": 661
   },
   "top_remaining": [
     {
@@ -69,16 +69,6 @@
       "primary_source_file": "copyright_batch004_01.csv"
     },
     {
-      "row_id": "I70-036010",
-      "category": "Copyright",
-      "canonical_tag": "nier_(series)",
-      "post_count": 16936,
-      "display_ja": "ニーア",
-      "search_ja": "",
-      "translation_note": "copyright title not uniquely resolved; manual verification required",
-      "primary_source_file": "copyright_review_external_batch062.csv"
-    },
-    {
       "row_id": "I70-036017",
       "category": "Copyright",
       "canonical_tag": "touhou_(pc-98)",
@@ -109,41 +99,11 @@
       "primary_source_file": "copyright_review_external_batch062.csv"
     },
     {
-      "row_id": "I70-036033",
-      "category": "Copyright",
-      "canonical_tag": "lucky_star",
-      "post_count": 14632,
-      "display_ja": "らき☆すた",
-      "search_ja": "",
-      "translation_note": "copyright title not uniquely resolved; manual verification required",
-      "primary_source_file": "copyright_review_external_batch062.csv"
-    },
-    {
       "row_id": "I70-036038",
       "category": "Copyright",
       "canonical_tag": "saibou_shinkyoku",
       "post_count": 14001,
       "display_ja": "さぼしき",
-      "search_ja": "",
-      "translation_note": "copyright title not uniquely resolved; manual verification required",
-      "primary_source_file": "copyright_review_external_batch062.csv"
-    },
-    {
-      "row_id": "I70-036049",
-      "category": "Copyright",
-      "canonical_tag": "cho_kaguya-hime!",
-      "post_count": 13201,
-      "display_ja": "超かぐや姫!",
-      "search_ja": "",
-      "translation_note": "copyright title not uniquely resolved; manual verification required",
-      "primary_source_file": "copyright_review_external_batch062.csv"
-    },
-    {
-      "row_id": "I70-036062",
-      "category": "Copyright",
-      "canonical_tag": "umineko_no_naku_koro_ni",
-      "post_count": 12267,
-      "display_ja": "うみねこのなく頃に",
       "search_ja": "",
       "translation_note": "copyright title not uniquely resolved; manual verification required",
       "primary_source_file": "copyright_review_external_batch062.csv"
@@ -159,31 +119,11 @@
       "primary_source_file": "copyright_review_external_batch062.csv"
     },
     {
-      "row_id": "I70-036072",
-      "category": "Copyright",
-      "canonical_tag": "super_smash_bros.",
-      "post_count": 11691,
-      "display_ja": "スマッシュブラザーズ",
-      "search_ja": "",
-      "translation_note": "copyright title not uniquely resolved; manual verification required",
-      "primary_source_file": "copyright_review_external_batch062.csv"
-    },
-    {
       "row_id": "I70-036080",
       "category": "Copyright",
       "canonical_tag": "atelier_(series)",
       "post_count": 10890,
       "display_ja": "アトリエ",
-      "search_ja": "",
-      "translation_note": "copyright title not uniquely resolved; manual verification required",
-      "primary_source_file": "copyright_review_external_batch062.csv"
-    },
-    {
-      "row_id": "I70-036086",
-      "category": "Copyright",
-      "canonical_tag": "heaven_burns_red",
-      "post_count": 10446,
-      "display_ja": "ヘブバン",
       "search_ja": "",
       "translation_note": "copyright title not uniquely resolved; manual verification required",
       "primary_source_file": "copyright_review_external_batch062.csv"
@@ -199,101 +139,11 @@
       "primary_source_file": "copyright_review_external_batch062.csv"
     },
     {
-      "row_id": "I70-036100",
-      "category": "Copyright",
-      "canonical_tag": "oshi_no_ko",
-      "post_count": 9405,
-      "display_ja": "【推しの子】",
-      "search_ja": "",
-      "translation_note": "copyright title not uniquely resolved; manual verification required",
-      "primary_source_file": "copyright_review_external_batch062.csv"
-    },
-    {
-      "row_id": "I70-036101",
-      "category": "Copyright",
-      "canonical_tag": "undertale",
-      "post_count": 9284,
-      "display_ja": "あんだーてーる",
-      "search_ja": "",
-      "translation_note": "copyright title not uniquely resolved; manual verification required",
-      "primary_source_file": "copyright_review_external_batch062.csv"
-    },
-    {
-      "row_id": "I70-036102",
-      "category": "Copyright",
-      "canonical_tag": "steins;gate",
-      "post_count": 9250,
-      "display_ja": "シュタインズゲート",
-      "search_ja": "",
-      "translation_note": "copyright title not uniquely resolved; manual verification required",
-      "primary_source_file": "copyright_review_external_batch062.csv"
-    },
-    {
-      "row_id": "I70-036104",
-      "category": "Copyright",
-      "canonical_tag": "a.i._voice",
-      "post_count": 9205,
-      "display_ja": "アイボス",
-      "search_ja": "",
-      "translation_note": "copyright title not uniquely resolved; manual verification required",
-      "primary_source_file": "copyright_review_external_batch062.csv"
-    },
-    {
-      "row_id": "I70-036106",
-      "category": "Copyright",
-      "canonical_tag": "panty_&_stocking_with_garterbelt",
-      "post_count": 9093,
-      "display_ja": "パンスト",
-      "search_ja": "",
-      "translation_note": "copyright title not uniquely resolved; manual verification required",
-      "primary_source_file": "copyright_review_external_batch062.csv"
-    },
-    {
-      "row_id": "I70-036108",
-      "category": "Copyright",
-      "canonical_tag": "street_fighter_6",
-      "post_count": 9058,
-      "display_ja": "スト6",
-      "search_ja": "",
-      "translation_note": "copyright title not uniquely resolved; manual verification required",
-      "primary_source_file": "copyright_review_external_batch062.csv"
-    },
-    {
-      "row_id": "I70-036109",
-      "category": "Copyright",
-      "canonical_tag": "kobayashi-san_chi_no_maidragon",
-      "post_count": 9032,
-      "display_ja": "メイドラゴン",
-      "search_ja": "",
-      "translation_note": "copyright title not uniquely resolved; manual verification required",
-      "primary_source_file": "copyright_review_external_batch062.csv"
-    },
-    {
-      "row_id": "I70-036110",
-      "category": "Copyright",
-      "canonical_tag": "aikatsu!_(series)",
-      "post_count": 9018,
-      "display_ja": "アイカツ",
-      "search_ja": "",
-      "translation_note": "copyright title not uniquely resolved; manual verification required",
-      "primary_source_file": "copyright_review_external_batch062.csv"
-    },
-    {
       "row_id": "I70-036116",
       "category": "Copyright",
       "canonical_tag": "punishing:_gray_raven",
       "post_count": 8680,
       "display_ja": "パニグレ",
-      "search_ja": "",
-      "translation_note": "copyright title not uniquely resolved; manual verification required",
-      "primary_source_file": "copyright_review_external_batch062.csv"
-    },
-    {
-      "row_id": "I70-036118",
-      "category": "Copyright",
-      "canonical_tag": "love_live!_superstar!!",
-      "post_count": 8540,
-      "display_ja": "ハロー!!!ラブライブ!",
       "search_ja": "",
       "translation_note": "copyright title not uniquely resolved; manual verification required",
       "primary_source_file": "copyright_review_external_batch062.csv"
@@ -309,21 +159,171 @@
       "primary_source_file": "copyright_batch004_02.csv"
     },
     {
-      "row_id": "I70-036124",
+      "row_id": "I70-036212",
       "category": "Copyright",
-      "canonical_tag": "twisted_wonderland",
-      "post_count": 8375,
-      "display_ja": "ツイステ",
+      "canonical_tag": "hellaverse",
+      "post_count": 5762,
+      "display_ja": "hellaverse",
+      "search_ja": "",
+      "translation_note": "copyright title not uniquely resolved; manual verification required",
+      "primary_source_file": "copyright_batch005_01.csv"
+    },
+    {
+      "row_id": "I70-036233",
+      "category": "Copyright",
+      "canonical_tag": "osomatsu_(series)",
+      "post_count": 5396,
+      "display_ja": "おそ松さん/くん",
+      "search_ja": "",
+      "translation_note": "single clean Japanese copyright search title",
+      "primary_source_file": "copyright_final_internal_external_split_batch064.csv"
+    },
+    {
+      "row_id": "I70-036237",
+      "category": "Copyright",
+      "canonical_tag": "touqi_guaitan",
+      "post_count": 5287,
+      "display_ja": "头七",
+      "search_ja": "",
+      "translation_note": "copyright title not uniquely resolved; manual verification required",
+      "primary_source_file": "copyright_batch005_02.csv"
+    },
+    {
+      "row_id": "I70-036274",
+      "category": "Copyright",
+      "canonical_tag": "cyberpunk:_edgerunners_1",
+      "post_count": 4647,
+      "display_ja": "cyberpunk: edgerunners 1",
+      "search_ja": "",
+      "translation_note": "copyright title not uniquely resolved; manual verification required",
+      "primary_source_file": "copyright_batch005_03.csv"
+    },
+    {
+      "row_id": "I70-044438",
+      "category": "Artist",
+      "canonical_tag": "yaegashi_nan",
+      "post_count": 4598,
+      "display_ja": "八重樫南",
+      "search_ja": "",
+      "translation_note": "semantic re-curation: title/name judged usable; official/common rendering or identity-safe original preferred over literal candidate",
+      "primary_source_file": "artist_initial_audit_batch008.csv"
+    },
+    {
+      "row_id": "I70-036278",
+      "category": "Copyright",
+      "canonical_tag": "my_little_pony",
+      "post_count": 4586,
+      "display_ja": "マイリトルポニー",
+      "search_ja": "",
+      "translation_note": "single clean Japanese copyright search title",
+      "primary_source_file": "copyright_final_internal_external_split_batch064.csv"
+    },
+    {
+      "row_id": "I70-036284",
+      "category": "Copyright",
+      "canonical_tag": "my_little_pony:_friendship_is_magic",
+      "post_count": 4473,
+      "display_ja": "マイリトルポニー",
+      "search_ja": "",
+      "translation_note": "single clean Japanese copyright search title",
+      "primary_source_file": "copyright_final_internal_external_split_batch064.csv"
+    },
+    {
+      "row_id": "I70-044440",
+      "category": "Artist",
+      "canonical_tag": "mizuki_hitoshi",
+      "post_count": 4382,
+      "display_ja": "みずきひとし",
+      "search_ja": "",
+      "translation_note": "semantic re-curation: title/name judged usable; official/common rendering or identity-safe original preferred over literal candidate",
+      "primary_source_file": "artist_initial_audit_batch008.csv"
+    },
+    {
+      "row_id": "I70-036290",
+      "category": "Copyright",
+      "canonical_tag": "zeta_gundam",
+      "post_count": 4371,
+      "display_ja": "機動戦士Ζガンダム",
+      "search_ja": "",
+      "translation_note": "single clean Japanese copyright search title",
+      "primary_source_file": "copyright_final_internal_external_split_batch064.csv"
+    },
+    {
+      "row_id": "I70-036303",
+      "category": "Copyright",
+      "canonical_tag": "avatar_legends",
+      "post_count": 4222,
+      "display_ja": "降世神通",
+      "search_ja": "",
+      "translation_note": "copyright title not uniquely resolved; manual verification required",
+      "primary_source_file": "copyright_batch005_04.csv"
+    },
+    {
+      "row_id": "I70-036305",
+      "category": "Copyright",
+      "canonical_tag": "ambience_synesthesia",
+      "post_count": 4173,
+      "display_ja": "音律联觉",
+      "search_ja": "",
+      "translation_note": "copyright title not uniquely resolved; manual verification required",
+      "primary_source_file": "copyright_batch005_04.csv"
+    },
+    {
+      "row_id": "I70-000706",
+      "category": "Character",
+      "canonical_tag": "t-head_trainer_(umamusume)",
+      "post_count": 4017,
+      "display_ja": "Tヘッドトレーナー（ウマ娘）",
+      "search_ja": "Tヘッドトレーナー（ウマ娘） | Tヘッド | Tヘッドトレーナー",
+      "translation_note": "AI監修：日本語ファン呼称の表記揺れ確認候補",
+      "primary_source_file": "character_review_final_batch061.csv"
+    },
+    {
+      "row_id": "I70-044443",
+      "category": "Artist",
+      "canonical_tag": "tani_takeshi",
+      "post_count": 3932,
+      "display_ja": "谷たけし",
+      "search_ja": "",
+      "translation_note": "semantic re-curation: title/name judged usable; official/common rendering or identity-safe original preferred over literal candidate",
+      "primary_source_file": "artist_initial_audit_batch008.csv"
+    },
+    {
+      "row_id": "I70-044447",
+      "category": "Artist",
+      "canonical_tag": "pageratta",
+      "post_count": 3572,
+      "display_ja": "ペゲラッタ",
+      "search_ja": "",
+      "translation_note": "semantic re-curation: title/name judged usable; official/common rendering or identity-safe original preferred over literal candidate",
+      "primary_source_file": "artist_initial_audit_batch008.csv"
+    },
+    {
+      "row_id": "I70-036373",
+      "category": "Copyright",
+      "canonical_tag": "rabbit_hole_(vocaloid)",
+      "post_count": 3356,
+      "display_ja": "ラビットホール",
+      "search_ja": "",
+      "translation_note": "single clean Japanese copyright search title",
+      "primary_source_file": "copyright_final_internal_external_split_batch064.csv"
+    },
+    {
+      "row_id": "I70-036375",
+      "category": "Copyright",
+      "canonical_tag": "fate/prototype",
+      "post_count": 3345,
+      "display_ja": "運命/プロトタイプ",
       "search_ja": "",
       "translation_note": "copyright title not uniquely resolved; manual verification required",
       "primary_source_file": "copyright_review_external_batch062.csv"
     },
     {
-      "row_id": "I70-036125",
+      "row_id": "I70-036378",
       "category": "Copyright",
-      "canonical_tag": "gundam_gquuuuuux",
-      "post_count": 8358,
-      "display_ja": "機動戦士ガンダムジークアクス",
+      "canonical_tag": "wizarding_world",
+      "post_count": 3313,
+      "display_ja": "ウィザーディング・ワールド",
       "search_ja": "",
       "translation_note": "copyright title not uniquely resolved; manual verification required",
       "primary_source_file": "copyright_review_external_batch062.csv"
