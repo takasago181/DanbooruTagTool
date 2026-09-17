@@ -1,0 +1,64 @@
+{
+  "issue": 118,
+  "mode": "REFINED_CANDIDATE_RULES_V2_EVALUATION",
+  "pilot": {
+    "AUTO_NONSEX_SAFE_GENERAL_ROOTS_V2": {
+      "matched": 61,
+      "class_counts": {
+        "NON_SEXUAL": 61
+      },
+      "target_precision": 1.0,
+      "non_target_count": 0,
+      "non_target_examples": []
+    },
+    "AUTO_SEXUAL_EXPLICIT_SPECIAL_LEXEMES_V2": {
+      "matched": 23,
+      "class_counts": {
+        "SEXUAL": 23
+      },
+      "target_precision": 1.0,
+      "non_target_count": 0,
+      "non_target_examples": []
+    }
+  },
+  "independent_holdout": {
+    "AUTO_NONSEX_SAFE_GENERAL_ROOTS_V2": {
+      "matched": 120,
+      "target_precision": 1.0,
+      "source": "docs/issue118/holdout/rule_holdout_evaluation_v1.json"
+    },
+    "AUTO_SEXUAL_EXPLICIT_SPECIAL_LEXEMES_V2": {
+      "matched": 80,
+      "target_precision": 1.0,
+      "source": "docs/issue118/holdout/rule_holdout_evaluation_v1.json"
+    }
+  },
+  "population": {
+    "union_rows": 31752,
+    "overlap_rows": 1936
+  },
+  "candidate_coverage": {
+    "AUTO_NONSEX_SAFE_GENERAL_ROOTS_V2": {
+      "candidate_rows": 4547,
+      "root_counts": {
+        "COMPOSITION_CAMERA": 161,
+        "HAIR_FACE": 778,
+        "LIGHT_TIME_WEATHER": 303,
+        "LIVING_NATURE": 1248,
+        "PLACE_BACKGROUND": 1022,
+        "TEXT_SYMBOL": 1035
+      }
+    },
+    "AUTO_SEXUAL_EXPLICIT_SPECIAL_LEXEMES_V2": {
+      "candidate_rows": 521
+    },
+    "combined_candidate_rows": 5068,
+    "combined_population_share": 0.159612,
+    "remaining_rows": 26684,
+    "rule_conflicts": 0
+  },
+  "status": "RESEARCH_CANDIDATE_ONLY_NOT_PRODUCTION_AUTHORITY",
+  "production_classification_written": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO"
+}
