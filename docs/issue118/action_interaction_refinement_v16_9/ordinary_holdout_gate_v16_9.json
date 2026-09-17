@@ -1,0 +1,24 @@
+{
+  "issue": 118,
+  "mode": "INDEPENDENT_ACTION_ORDINARY_HOLDOUT_REVIEW_V16_9",
+  "source": "docs/issue118/action_interaction_refinement_v16_9/ordinary_fresh_holdout_template_v16_9.csv",
+  "reviewed_rows": 120,
+  "gate": "FAIL_CONVERGENCE_SWEEP_REQUIRED",
+  "observed_counterexamples": [
+    "chocolate_on_legs",
+    "pectoral_pillow",
+    "hand_in_own_pantyhose",
+    "foot_kabedon",
+    "poking_ass",
+    "holding_another's_wrists",
+    "hand_in_pantyhose",
+    "licking_back",
+    "implied_hetero",
+    "hand_on_another's_nape"
+  ],
+  "refinement_direction": "conservative body-site/contact, body-food, underwear-inside, restraint-like wrist holding and relationship sexual-cue ejector; if fresh holdout still leaks, abandon whole-cluster bulk promotion and split safer subclusters",
+  "review_verdicts_generated_by_materializer": "NO",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO"
+}
