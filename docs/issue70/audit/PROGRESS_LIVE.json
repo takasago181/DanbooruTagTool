@@ -12,8 +12,8 @@
     "FIX_BOTH": 643,
     "FIX_DISPLAY": 7962,
     "FIX_SEARCH": 257,
-    "KEEP": 7933,
-    "NEEDS_EXTERNAL_CHECK": 1475
+    "KEEP": 7938,
+    "NEEDS_EXTERNAL_CHECK": 1470
   },
   "audited_by_category": {
     "Character": 14928,
@@ -25,7 +25,7 @@
     "Copyright": 0,
     "Artist": 0
   },
-  "unresolved_external_check_rows": 1475,
+  "unresolved_external_check_rows": 1470,
   "unresolved_user_decision_rows": 0,
   "remaining_patterns": {
     "Character": {
@@ -260,6 +260,10 @@
     {
       "file": "external_resolution_high_impact_batch067.csv",
       "ledger_rows": 7
+    },
+    {
+      "file": "external_resolution_high_impact_batch068.csv",
+      "ledger_rows": 5
     },
     {
       "file": "identity_safe_canonical_fallback_keep_batch026.csv",
