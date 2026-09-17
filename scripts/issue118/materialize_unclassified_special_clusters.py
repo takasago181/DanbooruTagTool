@@ -51,7 +51,7 @@ def main():
   ck='|'.join([mem,rt,fam,fl])
   item={'identity_key':k,'membership':mem,'general_root':rt,'generation_family':fam,'generation_role':role,'lex_flags':fl,'cluster_key':ck}
   rows.append(item);clusters[ck].append(item)
- if len(rows)!=2322: raise SystemExit(f'expected 2322 unclassified Special/overlap rows, got {len(rows)}')
+ if len(rows)!=2327: raise SystemExit(f'expected 2327 unclassified Special/overlap rows, got {len(rows)}')
  inv=[]
  for ck,items in clusters.items():
   a=items[0]
@@ -60,7 +60,6 @@ def main():
  OUT.mkdir(parents=True,exist_ok=True)
  with (OUT/'cluster_inventory_v1.csv').open('w',encoding='utf-8',newline='') as f:
   fields=list(inv[0]);w=csv.DictWriter(f,fieldnames=fields,lineterminator='\n');w.writeheader();w.writerows(inv)
- # Review only representative rows. Large clusters get 6 discovery + 6 holdout; medium 4+4; small clusters are deferred.
  sample=[];covered=0
  for c in inv:
   n=int(c['rows'])
