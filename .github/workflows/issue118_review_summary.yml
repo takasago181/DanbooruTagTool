@@ -9,6 +9,8 @@ on:
       - 'scripts/issue118/evaluate_pilot_rules.py'
       - 'scripts/issue118/estimate_population_coverage.py'
       - 'scripts/issue118/materialize_rule_holdout.py'
+      - 'scripts/issue118/materialize_holdout_review.py'
+      - 'scripts/issue118/evaluate_holdout_rules.py'
       - 'docs/issue118/reviews/chunk_*_review_v1.csv'
       - '.github/workflows/issue118_review_summary.yml'
   workflow_dispatch:
@@ -30,6 +32,8 @@ jobs:
           python3 -m py_compile scripts/issue118/evaluate_pilot_rules.py
           python3 -m py_compile scripts/issue118/estimate_population_coverage.py
           python3 -m py_compile scripts/issue118/materialize_rule_holdout.py
+          python3 -m py_compile scripts/issue118/materialize_holdout_review.py
+          python3 -m py_compile scripts/issue118/evaluate_holdout_rules.py
 
       - name: Validate and summarize semantic evidence
         run: |
@@ -38,6 +42,24 @@ jobs:
           python3 scripts/issue118/evaluate_pilot_rules.py
           python3 scripts/issue118/estimate_population_coverage.py
           python3 scripts/issue118/materialize_rule_holdout.py
+          python3 scripts/issue118/materialize_holdout_review.py
+          python3 scripts/issue118/evaluate_holdout_rules.py
+
+      - name: Validate holdout contract
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('docs/issue118/holdout/rule_holdout_evaluation_v1.json')
+          s=json.loads(p.read_text(encoding='utf-8'))
+          assert s['holdout_rows'] == 240
+          assert s['by_candidate_rule']['AUTO_SEXUAL_EXPLICIT_SPECIAL_LEXEMES_V2']['matched'] == 80
+          assert s['by_candidate_rule']['AUTO_SEXUAL_EXPLICIT_SPECIAL_LEXEMES_V2']['target_precision'] == 1.0
+          assert s['refined_nonsexual_v2']['matched'] == 120
+          assert s['refined_nonsexual_v2']['target_precision'] == 1.0
+          assert s['production_classification_written'] == 'NO'
+          print('ISSUE118_HOLDOUT_REVIEW_GATE=PASS')
+          PY
 
       - name: Persist semantic review evidence
         run: |
@@ -50,7 +72,7 @@ jobs:
             docs/issue118/reviews/population_rule_coverage_v1.json \
             docs/issue118/holdout
           if ! git diff --cached --quiet; then
-            git commit -m 'Issue #118: materialize independent rule holdout'
+            git commit -m 'Issue #118: persist reviewed rule holdout evidence'
             git push origin HEAD:research/issue118-intent-pilot
           fi
 
@@ -67,5 +89,6 @@ jobs:
             docs/issue118/holdout/*.csv
             docs/issue118/holdout/*.json
             docs/issue118/holdout/review_chunks/*.csv
+            docs/issue118/holdout/reviews/*.csv
           if-no-files-found: error
           retention-days: 14
