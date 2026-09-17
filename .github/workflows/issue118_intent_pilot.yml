@@ -7,6 +7,8 @@ on:
     paths:
       - scripts/issue118/materialize_intent_pilot.py
       - scripts/issue118/split_review_chunks.py
+      - scripts/issue118/summarize_intent_reviews.py
+      - docs/issue118/reviews/chunk_???_review_v1.csv
       - .github/workflows/issue118_intent_pilot.yml
   workflow_dispatch:
 
@@ -25,6 +27,7 @@ jobs:
         run: |
           python3 -m py_compile scripts/issue118/materialize_intent_pilot.py
           python3 -m py_compile scripts/issue118/split_review_chunks.py
+          python3 -m py_compile scripts/issue118/summarize_intent_reviews.py
 
       - name: Materialize deterministic 700-row pilot
         run: |
@@ -62,14 +65,19 @@ jobs:
           print('ISSUE118_PILOT_SAMPLING_GATE=PASS')
           PY
 
+      - name: Validate and summarize semantic reviews
+        run: |
+          set -euo pipefail
+          python3 scripts/issue118/summarize_intent_reviews.py
+
       - name: Persist research artifacts on research branch
         run: |
           set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add docs/issue118/intent_pilot_sample_v1.csv docs/issue118/intent_pilot_sample_summary_v1.json docs/issue118/review_chunks
+          git add docs/issue118/intent_pilot_sample_v1.csv docs/issue118/intent_pilot_sample_summary_v1.json docs/issue118/review_chunks docs/issue118/reviews/semantic_pilot_summary_v1.json
           if ! git diff --cached --quiet; then
-            git commit -m 'Issue #118: materialize deterministic intent pilot review chunks'
+            git commit -m 'Issue #118: validate completed semantic pilot reviews'
             git push origin HEAD:research/issue118-intent-pilot
           fi
 
@@ -82,5 +90,7 @@ jobs:
             docs/issue118/intent_pilot_sample_v1.csv
             docs/issue118/intent_pilot_sample_summary_v1.json
             docs/issue118/review_chunks/*.csv
+            docs/issue118/reviews/chunk_???_review_v1.csv
+            docs/issue118/reviews/semantic_pilot_summary_v1.json
           if-no-files-found: error
           retention-days: 14
