@@ -1,0 +1,50 @@
+name: Issue118 Risk Exclusion Wave3
+
+on:
+  push:
+    branches:
+      - research/issue118-efficiency-mining
+    paths:
+      - scripts/issue118/materialize_risk_exclusion_wave3_discovery.py
+      - .github/workflows/issue118_risk_exclusion_wave3.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  discovery:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout research branch
+        uses: actions/checkout@v4
+      - name: Validate script
+        run: python3 -m py_compile scripts/issue118/materialize_risk_exclusion_wave3_discovery.py
+      - name: Materialize discovery candidates
+        run: python3 scripts/issue118/materialize_risk_exclusion_wave3_discovery.py
+      - name: Validate discovery boundary
+        run: |
+          python3 - <<'PY'
+          import csv, json
+          from pathlib import Path
+          p=Path('docs/issue118/risk_exclusion_wave3')
+          s=json.loads((p/'summary_discovery_v1.json').read_text(encoding='utf-8'))
+          rows=list(csv.DictReader((p/'discovery_sample_v1.csv').open(encoding='utf-8')))
+          assert len(rows)==36 and s['discovery_rows']==36
+          assert {r['phase'] for r in rows}=={'DISCOVERY_WAVE3'}
+          assert s['holdout_generated']=='NO' and s['promotion_performed']=='NO'
+          assert s['production_authority']=='NO' and s['main_mutated']=='NO'
+          assert s['issue117_code_mutated']=='NO'
+          assert all(v >= 24 for v in s['candidate_rows_by_path'].values())
+          print('ISSUE118_RISK_EXCLUSION_WAVE3_DISCOVERY=PASS')
+          PY
+      - name: Persist research evidence
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/issue118/risk_exclusion_wave3
+          if ! git diff --cached --quiet; then
+            git commit -m 'Issue #118: materialize risk-exclusion wave3 discovery'
+            git push origin HEAD:research/issue118-efficiency-mining
+          fi
