@@ -2,9 +2,56 @@
 
 Owner: Issue #44 `KNOWLEDGE:#44`
 
-Status: `P0_P1_COMPLETE / NOOB_ANIMA_PRACTICAL_SOURCE_SYNTHESIS_COMPLETE / CONTROLLED_TESTS_NEXT_ON_DEMAND`
+Status: `P0_P1_COMPLETE / NOOB_ANIMA_PRACTICAL_SOURCE_SYNTHESIS_COMPLETE / SCENE_WORKFLOW_SYNTHESIS_COMPLETE / CONTROLLED_OR_USABILITY_TESTS_NEXT_ON_DEMAND`
 
 This file is a planning/backlog layer only. It does **not** override `CLAIM_REGISTRY.csv`, create product requirements, or promote HOLD/CANDIDATE claims.
+
+## 2026-09-17 addendum — scene intent / discovery workflow
+
+Research added:
+`../research/BATCH_N_SCENE_INTENT_DISCOVERY_WORKFLOW_20260917.md`
+
+The new audit found a distinct organization gap:
+- hard/niche failure diagnosis was strong;
+- daily NoobAI/Anima generation operation was already consolidated;
+- but human **scene construction**, dictionary **browse entry**, and model-specific **Prompt serialization** were not explicitly separated.
+
+Current synthesis:
+
+`intent entry -> semantic scene skeleton -> optional refinements -> model-specific serialization -> generation/evaluation`
+
+Scene skeleton reuses existing accepted predicates:
+- subjects/count/identity;
+- core action/state;
+- actor-target/role/ownership;
+- body-site;
+- geometry/position/topology;
+- implement/device/appendage;
+- state/timing/count/source-destination;
+- visibility/framing;
+- appearance/clothing/expression;
+- setting/background/light/style.
+
+This is an organizational/planning view over existing Claims, **not a new universal Prompt grammar**.
+
+### SW usability backlog
+
+#### SW-01 — default human selection order
+Candidate default:
+`subjects -> action -> relation -> body-site -> geometry -> implement -> state/count -> visibility -> appearance -> setting/style`.
+
+Need bounded practical WPF tasks before calling it optimal.
+
+#### SW-02 — adaptive next-facet ranking
+When a user starts from body-site / device / position / theme, determine which missing semantic axis should be surfaced next with least backtracking.
+
+#### SW-03 — ordinary adult-scene coverage
+Check whether the same skeleton covers ordinary adult scenes without adding a new ontology. Do not launch another population-wide taxonomy pass by default.
+
+#### SW-04 — General/Special unified discovery
+If DEV later considers unified browse UI, determine whether accepted #64 General + #76 Special metadata is sufficient to project this semantic workflow without canonical/reclassification churn.
+
+These are usability/product research questions. They do not close existing model-effectiveness HOLDs.
 
 ## Current conclusion
 
@@ -22,6 +69,7 @@ Durable practical entry:
 Research:
 - `../research/BATCH_L_NOOB_ANIMA_PRACTICAL_GENERATION_DEEP_DIVE_20260913.md`
 - `../research/BATCH_M_JAPANESE_PRACTICAL_SOURCE_AUDIT_NOOB_ANIMA_20260913.md`
+- `../research/BATCH_N_SCENE_INTENT_DISCOVERY_WORKFLOW_20260917.md`
 
 ## P0 — COMPLETE
 
@@ -215,16 +263,18 @@ Important stale-info guards:
 - generic “NoobAI” settings that collapse EPS and V-Pred are rejected
 - Preview-era Anima recipes do not become current Base/Aesthetic/Turbo defaults
 - Turbo LoRA and official Turbo checkpoint are distinct
+- current Forge Neo runtime support for community Anima 2.9B/3.8B does not make them the official project baseline
 
 ## Recommended next behavior
 
-No need for another broad web overview immediately.
+Another broad generic web overview is not needed after Batch N.
 
 Next useful work is one of:
-1. install/pin exact NoobAI/Anima local files and runtime identity;
-2. build current Forge Neo presets from author baselines;
-3. run one controlled test from N-T01..N-T05 or A-T01..A-T06;
-4. maintain Japanese/current source freshness while #64 DEV proceeds.
+1. run a bounded SW-01/SW-02 WPF usability exercise if unified scene-oriented discovery is being designed;
+2. install/pin exact NoobAI/Anima local files and runtime identity;
+3. build current Forge Neo presets from author baselines;
+4. run one controlled test from N-T01..N-T05 or A-T01..A-T06;
+5. maintain Japanese/current source freshness as needed.
 
 For each future batch:
 - preserve exact source/version/date
