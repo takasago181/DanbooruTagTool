@@ -1,0 +1,20 @@
+{
+  "issue": 118,
+  "mode": "UNCLASSIFIED_COVERAGE_QUEUE_V1",
+  "source_unclassified_rows": 26044,
+  "queue_rows": 1000,
+  "source_band_counts": {
+    "P0_PREVIOUSLY_REVIEWED_UNRESOLVED": 16,
+    "P1_SPECIAL_OR_OVERLAP": 2322,
+    "P3_GENERAL_RISK_ROOT": 20614,
+    "P4_REMAINDER": 3092
+  },
+  "selected_band_counts": {
+    "P0_PREVIOUSLY_REVIEWED_UNRESOLVED": 16,
+    "P1_SPECIAL_OR_OVERLAP": 984
+  },
+  "queue_chunks": 10,
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO"
+}
