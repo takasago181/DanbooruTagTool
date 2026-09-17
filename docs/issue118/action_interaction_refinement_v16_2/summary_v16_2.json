@@ -1,0 +1,29 @@
+{
+  "issue": 118,
+  "mode": "ACTION_INTERACTION_REFINEMENT_V16_2_COUNTEREXAMPLE_SPLIT",
+  "source_ordinary_rows_v16_1": 1723,
+  "new_boundary_rows": 7,
+  "moved_intimate_rows": 1,
+  "ordinary_clean_rows_v16_2": 1715,
+  "fresh_holdout_template_rows": 120,
+  "required_boundary_counterexamples_captured": [
+    "finger_in_another's_mouth",
+    "head_on_ass",
+    "imminent_licking",
+    "legs_on_another's_shoulders",
+    "sensory_deprivation",
+    "shorts_tug"
+  ],
+  "required_intimate_moves_captured": [
+    "hand_wrapped_around_waist"
+  ],
+  "rules_use": "TRIAGE_ONLY_NOT_CLASSIFICATION_AUTHORITY",
+  "holdout_verdicts_generated": "NO",
+  "auto_promotion_performed": "NO",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO",
+  "next_gate": "independently review new fixed 120-row ordinary holdout before any research-sidecar promotion"
+}
