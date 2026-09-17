@@ -1,0 +1,142 @@
+#!/usr/bin/env python3
+"""Generate Issue #70 Character audit batch 021.
+
+Closes ACCEPTED_AI Character rows whose translation note explicitly records a
+prior semantic/official-name curation and whose only remaining v3 warnings are
+source-string mismatch and/or display-term search redundancy. These warnings
+are bookkeeping, not identity uncertainty, once the name itself was curated.
+
+Proposal-only; production data is never modified.
+"""
+from __future__ import annotations
+
+import csv
+import re
+import shutil
+import subprocess
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[2]
+AUDIT_DIR = ROOT / 'docs/issue70/audit'
+TMP = ROOT / 'artifacts/issue70-semantic-audit-v3-batch021'
+OUT = AUDIT_DIR / 'character_curated_mismatch_keep_batch021.csv'
+JA_RE = re.compile(r'[\u3040-\u30ff\u3400-\u9fff々〆ヶ]')
+POSITIVE_NOTES = {
+    'AI監修：既存日本語候補・作品関係を確認して採用',
+    'AI監修：既存候補・Alias・作品関係を確認し表示名を確定',
+    '既存日本語候補・Alias・作品文脈を確認して採用',
+    'selected from contextual Japanese search evidence',
+    '確定',
+    '既存日本語候補・作品文脈を確認',
+    '既存日本語候補と作品文脈を確認',
+    'AI監修：既存日本語表記を確認',
+    'manual chat curation selected reliable Japanese identity',
+    'AI監修：日本版公式名を確認',
+    '公式日本語名を採用',
+    '既存日本語候補を確認',
+    '既存日本語候補とAliasを確認',
+    'AI監修：既存日本語候補を確認',
+    'AI監修：Alias・既存日本語候補・作品関係を確認して採用',
+}
+HARMLESS_FLAGS = {
+    'JA_DISPLAY_NOT_EXACT_SOURCE_EVIDENCE',
+    'DISPLAY_MISSING_FROM_SEARCH',
+}
+
+
+def read_csv(path: Path) -> list[dict[str, str]]:
+    with path.open(encoding='utf-8-sig', newline='') as fh:
+        return list(csv.DictReader(fh))
+
+
+def write_csv(path: Path, rows: list[dict[str, str]], fields: list[str]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open('w', encoding='utf-8-sig', newline='') as fh:
+        writer = csv.DictWriter(fh, fieldnames=fields)
+        writer.writeheader()
+        writer.writerows(rows)
+
+
+def prior_ids() -> set[str]:
+    ids: set[str] = set()
+    for path in AUDIT_DIR.glob('*.csv'):
+        if path.name == OUT.name:
+            continue
+        try:
+            rows = read_csv(path)
+        except Exception:
+            continue
+        for row in rows:
+            row_id = (row.get('row_id') or '').strip()
+            verdict = (row.get('audit_verdict') or '').strip()
+            if row_id and verdict:
+                ids.add(row_id)
+    return ids
+
+
+def run_census() -> list[dict[str, str]]:
+    if TMP.exists():
+        shutil.rmtree(TMP)
+    subprocess.run([
+        sys.executable,
+        str(ROOT / 'scripts/issue70/audit_semantic_risk_v3.py'),
+        '--out', str(TMP),
+        '--sample-per-category', '300',
+    ], cwd=ROOT, check=True)
+    return read_csv(TMP / 'audit_ledger_template.csv')
+
+
+def flagset(value: str) -> set[str]:
+    return {x.strip() for x in (value or '').split('|') if x.strip()}
+
+
+def main() -> int:
+    audited = prior_ids()
+    rows: list[dict[str, str]] = []
+    for row in run_census():
+        if row.get('row_id') in audited:
+            continue
+        if row.get('category_name') != 'Character':
+            continue
+        if row.get('translation_status') != 'ACCEPTED_AI':
+            continue
+        note = (row.get('translation_note') or '').strip()
+        if note not in POSITIVE_NOTES:
+            continue
+        display = (row.get('display_ja') or '').strip()
+        if not display or not JA_RE.search(display):
+            continue
+        flags = flagset(row.get('risk_flags') or '')
+        if not flags or not flags.issubset(HARMLESS_FLAGS):
+            continue
+        rows.append({
+            'row_id': row['row_id'],
+            'canonical_tag': row['canonical_tag'],
+            'post_count': row.get('post_count') or '',
+            'display_ja': display,
+            'search_ja': row.get('search_ja') or '',
+            'translation_note': note,
+            'risk_flags': row.get('risk_flags') or '',
+            'audit_verdict': 'KEEP',
+            'proposed_display_ja': '',
+            'proposed_search_ja': '',
+            'reason_code': 'CURATED_CHARACTER_NAME_ONLY_BOOKKEEPING_WARNINGS',
+            'confidence': 'HIGH',
+            'evidence_refs': 'prior semantic/official-name curation note + v3 warning classification',
+            'audit_note': '名前は既に文脈/公式表記を確認済み。残る警告はsource文字列差または検索重複のみで、人物同定・同名衝突・variant欠落の警告がないため現表示を維持。',
+            'approval_status': 'PROPOSED',
+        })
+    rows.sort(key=lambda r: (-int(r['post_count'] or 0), r['row_id']))
+    fields = [
+        'row_id','canonical_tag','post_count','display_ja','search_ja','translation_note','risk_flags',
+        'audit_verdict','proposed_display_ja','proposed_search_ja','reason_code','confidence',
+        'evidence_refs','audit_note','approval_status'
+    ]
+    write_csv(OUT, rows, fields)
+    print({'rows': len(rows), 'production_modified': False})
+    return 0
+
+
+if __name__ == '__main__':
+    raise SystemExit(main())
