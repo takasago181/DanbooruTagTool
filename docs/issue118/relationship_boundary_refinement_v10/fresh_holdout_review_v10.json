@@ -1,0 +1,28 @@
+{
+  "issue": 118,
+  "mode": "INDEPENDENT_FRESH_HOLDOUT_REVIEW_V10",
+  "inventory": "docs/issue118/relationship_boundary_refinement_v10/fresh_holdout_template_v10.csv",
+  "inventory_blob_sha": "bd1c235a6c830ac91d83c52935891113eed0e9fd",
+  "reviewed_rows": 120,
+  "review_method": "independent semantic review of every fixed holdout row; no materializer-generated verdicts",
+  "default_decision": "NON_SEXUAL",
+  "default_decision_count": 120,
+  "contextual": [],
+  "sexual": [],
+  "keep_unclassified": [],
+  "decision_counts": {
+    "NON_SEXUAL": 120,
+    "CONTEXTUAL": 0,
+    "SEXUAL": 0,
+    "KEEP_UNCLASSIFIED": 0
+  },
+  "gate_result": "PASS_FOR_RESEARCH_PROMOTION",
+  "gate_scope": "research sidecar only; not production authority",
+  "gate_reason": "new deterministic v10 fresh holdout contains 120/120 NON_SEXUAL after v9 counterexamples were removed by relationship-boundary refinement",
+  "review_verdicts_generated_by_materializer": "NO",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO"
+}
