@@ -1,0 +1,21 @@
+{
+  "issue": 118,
+  "mode": "OVERLAP_ACTION_THREE_CLUSTER_FULL_REVIEW_V55",
+  "source_sidecar": "research_sidecar_v30.csv",
+  "candidate_rows": 78,
+  "cluster_counts": {
+    "OVERLAP|ACTION_CONTACT|(none)|NONE": 25,
+    "OVERLAP|ACTION_CONTACT|DIRECT_COMPOSITE|ANATOMY": 26,
+    "OVERLAP|ACTION_CONTACT|FLUID_STATE_ACTION|NONE": 27
+  },
+  "selection_rules_use": "DISCOVERY_ONLY_NOT_CLASSIFICATION_AUTHORITY",
+  "auto_promotion_performed": "NO",
+  "review_verdicts_generated_by_materializer": "NO",
+  "review_artifacts_are_external_inputs": "YES",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO",
+  "next_gate": "full manual review of all 78 rows"
+}
