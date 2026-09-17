@@ -1,0 +1,21 @@
+{
+  "issue": 118,
+  "mode": "GENERAL_THREE_CLUSTER_FULL_REVIEW_V54",
+  "source_sidecar": "research_sidecar_v29.csv",
+  "candidate_rows": 72,
+  "cluster_counts": {
+    "GENERAL_ONLY|ACTION_CONTACT|NONE": 25,
+    "GENERAL_ONLY|CLOTHING/COSTUME|NONE": 27,
+    "GENERAL_ONLY|POSE_MOVEMENT|NONE": 20
+  },
+  "selection_rules_use": "DISCOVERY_ONLY_NOT_CLASSIFICATION_AUTHORITY",
+  "auto_promotion_performed": "NO",
+  "review_verdicts_generated_by_materializer": "NO",
+  "review_artifacts_are_external_inputs": "YES",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO",
+  "next_gate": "full manual review of all 72 rows"
+}
