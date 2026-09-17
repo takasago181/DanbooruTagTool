@@ -17,7 +17,7 @@ def main():
     base: dict[str, dict[str,str]] = {}
     overlays: dict[str, dict[str,str]] = {}
     for path in sorted(AUDIT.glob('*.csv')):
-        if path.name in {OUT.name}:
+        if path.name == OUT.name:
             continue
         is_overlay = path.name.startswith('external_resolution_')
         try:
@@ -48,9 +48,17 @@ def main():
         eff=overlays.get(rid,b)
         if eff['audit_verdict']!='NEEDS_EXTERNAL_CHECK':
             continue
-        row=b.copy()
-        row['effective_source_file']=eff['source_file']
-        unresolved.append(row)
+        unresolved.append({
+            'row_id':b['row_id'],
+            'canonical_tag':b['canonical_tag'],
+            'post_count':b['post_count'],
+            'display_ja':b['display_ja'],
+            'search_ja':b['search_ja'],
+            'translation_note':b['translation_note'],
+            'reason_code':b['reason_code'],
+            'source_file':b['source_file'],
+            'effective_source_file':eff['source_file'],
+        })
     unresolved.sort(key=lambda r:(-int(r.get('post_count') or 0), r['row_id']))
     fields=['row_id','canonical_tag','post_count','display_ja','search_ja','translation_note','reason_code','source_file','effective_source_file']
     with OUT.open('w',encoding='utf-8-sig',newline='') as f:
