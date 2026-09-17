@@ -1,0 +1,50 @@
+{
+  "issue": 118,
+  "mode": "CLOTHING_EXPOSURE_INTIMATE_GENERAL_FULL_REVIEW_V46_POLICY",
+  "source_rows": 38,
+  "decision_counts": {
+    "SEXUAL": 15,
+    "CONTEXTUAL": 14,
+    "NON_SEXUAL": 9
+  },
+  "sexual": [
+    "bra_aside",
+    "bra_tug",
+    "doll_panty_check",
+    "open_bra",
+    "panties_around_ankles",
+    "panties_around_knees",
+    "panties_around_one_ankle",
+    "panties_around_one_finger",
+    "panties_around_toe",
+    "panties_in_mouth",
+    "panty_tug",
+    "sports_bra_pull",
+    "underwear_locked",
+    "underwear_theft",
+    "untied_panties"
+  ],
+  "contextual": [
+    "clothed_male_underwear_female",
+    "loose_panties",
+    "no_bra",
+    "panties_on_head",
+    "see-through_bra",
+    "topless_male",
+    "torn_bra",
+    "torn_panties",
+    "torn_sports_bra",
+    "torn_underwear",
+    "underwear_on_head",
+    "unworn_bra",
+    "unworn_male_underwear",
+    "unworn_panties"
+  ],
+  "policy": "All 38 rows were manually reviewed. Direct underwear displacement, panty checking, theft, locked-underwear fetish state and similar exposure/manipulation are SEXUAL. Generic absence/torn/unworn underwear and toplessness have substantial general and sexual use and are CONTEXTUAL. Ordinary layering relations are NON_SEXUAL.",
+  "unclassified": [],
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO"
+}
