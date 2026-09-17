@@ -3,44 +3,44 @@
   "issue": 70,
   "production_modified": false,
   "initial_ledger_rows": 18270,
-  "audited_unique_rows": 16597,
-  "resolved_unique_rows": 16597,
+  "audited_unique_rows": 16664,
+  "resolved_unique_rows": 16664,
   "conflicted_unique_rows": 0,
-  "remaining_unaudited_rows": 1673,
+  "remaining_unaudited_rows": 1606,
   "duplicate_same_decision_rows": 0,
   "verdict_counts_resolved": {
-    "FIX_BOTH": 75,
-    "FIX_DISPLAY": 7907,
+    "FIX_BOTH": 110,
+    "FIX_DISPLAY": 7920,
     "FIX_SEARCH": 254,
-    "KEEP": 7868,
-    "NEEDS_EXTERNAL_CHECK": 493
+    "KEEP": 7879,
+    "NEEDS_EXTERNAL_CHECK": 501
   },
   "audited_by_category": {
-    "Character": 14019,
+    "Character": 14086,
     "Copyright": 1552,
     "Artist": 1026
   },
   "remaining_by_category": {
-    "Character": 909,
+    "Character": 842,
     "Copyright": 764,
     "Artist": 0
   },
-  "unresolved_external_check_rows": 493,
+  "unresolved_external_check_rows": 501,
   "unresolved_user_decision_rows": 0,
   "remaining_patterns": {
     "Character": {
-      "rows": 909,
+      "rows": 842,
       "status_counts": {
         "ACCEPTED_AI": 334,
-        "REVIEW_REQUIRED": 575
+        "REVIEW_REQUIRED": 508
       },
       "impact_counts": {
-        "REST": 750,
-        "TOP_10_PERCENT": 159
+        "REST": 685,
+        "TOP_10_PERCENT": 157
       },
       "audit_bucket_counts": {
         "ACCEPTED_RISK": 334,
-        "REVIEW_REQUIRED": 575
+        "REVIEW_REQUIRED": 508
       },
       "top_translation_notes": [
         {
@@ -50,10 +50,6 @@
         {
           "value": "日本語表示名・表記の確定に追加確認が必要",
           "count": 79
-        },
-        {
-          "value": "要確認",
-          "count": 67
         },
         {
           "value": "malformed or low-confidence Japanese evidence requires manual verification",
@@ -162,20 +158,24 @@
         {
           "value": "multiple candidate forms require review",
           "count": 3
+        },
+        {
+          "value": "既存日本語候補・Alias・作品文脈を確認して採用",
+          "count": 3
         }
       ],
       "risk_flag_counts": {
-        "JA_DISPLAY_NOT_EXACT_SOURCE_EVIDENCE": 708,
-        "STATUS_REVIEW_REQUIRED": 575,
-        "NO_SOURCE_JA_EVIDENCE_OVERLAP": 449,
-        "DISAMBIGUATOR_NOT_VISIBLE": 308,
-        "VARIANT_DISPLAY_MISSING_BASE_IDENTITY": 75,
-        "DUPLICATE_DISPLAY_WITHIN_CATEGORY": 58,
-        "ASCII_ONLY_DISPLAY_NON_ARTIST": 22,
-        "DISPLAY_CANONICAL_LIKE": 21,
+        "JA_DISPLAY_NOT_EXACT_SOURCE_EVIDENCE": 677,
+        "STATUS_REVIEW_REQUIRED": 508,
+        "NO_SOURCE_JA_EVIDENCE_OVERLAP": 418,
+        "DISAMBIGUATOR_NOT_VISIBLE": 287,
+        "VARIANT_DISPLAY_MISSING_BASE_IDENTITY": 69,
+        "DUPLICATE_DISPLAY_WITHIN_CATEGORY": 55,
+        "ASCII_ONLY_DISPLAY_NON_ARTIST": 16,
         "DISPLAY_MISSING_FROM_SEARCH": 16,
+        "DISPLAY_CANONICAL_LIKE": 15,
         "CHARACTER_NO_COPYRIGHT_CONTEXT": 12,
-        "RAW_TAG_SYNTAX_IN_DISPLAY": 7
+        "RAW_TAG_SYNTAX_IN_DISPLAY": 5
       },
       "top_note_risk_signatures": [
         {
@@ -207,13 +207,6 @@
           "count": 20
         },
         {
-          "translation_note": "要確認",
-          "risk_flags": "JA_DISPLAY_NOT_EXACT_SOURCE_EVIDENCE|NO_SOURCE_JA_EVIDENCE_OVERLAP|STATUS_REVIEW_REQUIRED",
-          "translation_status": "REVIEW_REQUIRED",
-          "audit_bucket": "REVIEW_REQUIRED",
-          "count": 20
-        },
-        {
           "translation_note": "日本語表示名・表記の確定に追加確認が必要",
           "risk_flags": "JA_DISPLAY_NOT_EXACT_SOURCE_EVIDENCE|NO_SOURCE_JA_EVIDENCE_OVERLAP|STATUS_REVIEW_REQUIRED",
           "translation_status": "REVIEW_REQUIRED",
@@ -226,27 +219,6 @@
           "translation_status": "REVIEW_REQUIRED",
           "audit_bucket": "REVIEW_REQUIRED",
           "count": 9
-        },
-        {
-          "translation_note": "要確認",
-          "risk_flags": "DISAMBIGUATOR_NOT_VISIBLE|STATUS_REVIEW_REQUIRED",
-          "translation_status": "REVIEW_REQUIRED",
-          "audit_bucket": "REVIEW_REQUIRED",
-          "count": 9
-        },
-        {
-          "translation_note": "要確認",
-          "risk_flags": "STATUS_REVIEW_REQUIRED",
-          "translation_status": "REVIEW_REQUIRED",
-          "audit_bucket": "REVIEW_REQUIRED",
-          "count": 8
-        },
-        {
-          "translation_note": "要確認",
-          "risk_flags": "JA_DISPLAY_NOT_EXACT_SOURCE_EVIDENCE|STATUS_REVIEW_REQUIRED",
-          "translation_status": "REVIEW_REQUIRED",
-          "audit_bucket": "REVIEW_REQUIRED",
-          "count": 7
         },
         {
           "translation_note": "日本語衣装名の追加確認が必要",
@@ -312,20 +284,6 @@
           "count": 5
         },
         {
-          "translation_note": "要確認",
-          "risk_flags": "DISAMBIGUATOR_NOT_VISIBLE|STATUS_REVIEW_REQUIRED|VARIANT_DISPLAY_MISSING_BASE_IDENTITY",
-          "translation_status": "REVIEW_REQUIRED",
-          "audit_bucket": "REVIEW_REQUIRED",
-          "count": 4
-        },
-        {
-          "translation_note": "要確認",
-          "risk_flags": "DISAMBIGUATOR_NOT_VISIBLE|JA_DISPLAY_NOT_EXACT_SOURCE_EVIDENCE|NO_SOURCE_JA_EVIDENCE_OVERLAP|STATUS_REVIEW_REQUIRED",
-          "translation_status": "REVIEW_REQUIRED",
-          "audit_bucket": "REVIEW_REQUIRED",
-          "count": 4
-        },
-        {
           "translation_note": "AI監修：日本語公式表記の確証不足",
           "risk_flags": "DISAMBIGUATOR_NOT_VISIBLE|JA_DISPLAY_NOT_EXACT_SOURCE_EVIDENCE|STATUS_REVIEW_REQUIRED",
           "translation_status": "REVIEW_REQUIRED",
@@ -347,22 +305,8 @@
           "count": 3
         },
         {
-          "translation_note": "要確認",
-          "risk_flags": "ASCII_ONLY_DISPLAY_NON_ARTIST|DISAMBIGUATOR_NOT_VISIBLE|DISPLAY_CANONICAL_LIKE|NO_SOURCE_JA_EVIDENCE_OVERLAP|STATUS_REVIEW_REQUIRED",
-          "translation_status": "REVIEW_REQUIRED",
-          "audit_bucket": "REVIEW_REQUIRED",
-          "count": 3
-        },
-        {
           "translation_note": "日本語公式表記の追加確認が必要",
           "risk_flags": "DISAMBIGUATOR_NOT_VISIBLE|DUPLICATE_DISPLAY_WITHIN_CATEGORY|JA_DISPLAY_NOT_EXACT_SOURCE_EVIDENCE|STATUS_REVIEW_REQUIRED",
-          "translation_status": "REVIEW_REQUIRED",
-          "audit_bucket": "REVIEW_REQUIRED",
-          "count": 3
-        },
-        {
-          "translation_note": "要確認",
-          "risk_flags": "NO_SOURCE_JA_EVIDENCE_OVERLAP|STATUS_REVIEW_REQUIRED",
           "translation_status": "REVIEW_REQUIRED",
           "audit_bucket": "REVIEW_REQUIRED",
           "count": 3
@@ -522,13 +466,6 @@
           "count": 2
         },
         {
-          "translation_note": "要確認",
-          "risk_flags": "STATUS_REVIEW_REQUIRED|VARIANT_DISPLAY_MISSING_BASE_IDENTITY",
-          "translation_status": "REVIEW_REQUIRED",
-          "audit_bucket": "REVIEW_REQUIRED",
-          "count": 2
-        },
-        {
           "translation_note": "日本語表示名・表記の確定に追加確認が必要",
           "risk_flags": "DISAMBIGUATOR_NOT_VISIBLE|DUPLICATE_DISPLAY_WITHIN_CATEGORY|STATUS_REVIEW_REQUIRED",
           "translation_status": "REVIEW_REQUIRED",
@@ -578,13 +515,6 @@
           "count": 2
         },
         {
-          "translation_note": "要確認",
-          "risk_flags": "DUPLICATE_DISPLAY_WITHIN_CATEGORY|STATUS_REVIEW_REQUIRED",
-          "translation_status": "REVIEW_REQUIRED",
-          "audit_bucket": "REVIEW_REQUIRED",
-          "count": 2
-        },
-        {
           "translation_note": "キャラクター表示名の採用形を追加確認",
           "risk_flags": "DISAMBIGUATOR_NOT_VISIBLE|JA_DISPLAY_NOT_EXACT_SOURCE_EVIDENCE|STATUS_REVIEW_REQUIRED",
           "translation_status": "REVIEW_REQUIRED",
@@ -594,6 +524,76 @@
         {
           "translation_note": "日本語表示名・表記の確定に追加確認が必要",
           "risk_flags": "DISAMBIGUATOR_NOT_VISIBLE|STATUS_REVIEW_REQUIRED",
+          "translation_status": "REVIEW_REQUIRED",
+          "audit_bucket": "REVIEW_REQUIRED",
+          "count": 2
+        },
+        {
+          "translation_note": "新作キャラクターの日本語公式名を追加確認",
+          "risk_flags": "JA_DISPLAY_NOT_EXACT_SOURCE_EVIDENCE|STATUS_REVIEW_REQUIRED",
+          "translation_status": "REVIEW_REQUIRED",
+          "audit_bucket": "REVIEW_REQUIRED",
+          "count": 2
+        },
+        {
+          "translation_note": "衣装区分の表記を追加確認",
+          "risk_flags": "JA_DISPLAY_NOT_EXACT_SOURCE_EVIDENCE|STATUS_REVIEW_REQUIRED",
+          "translation_status": "REVIEW_REQUIRED",
+          "audit_bucket": "REVIEW_REQUIRED",
+          "count": 2
+        },
+        {
+          "translation_note": "AI監修：新規キャラクターの日本語公式表記を要確認",
+          "risk_flags": "DISAMBIGUATOR_NOT_VISIBLE|STATUS_REVIEW_REQUIRED",
+          "translation_status": "REVIEW_REQUIRED",
+          "audit_bucket": "REVIEW_REQUIRED",
+          "count": 2
+        },
+        {
+          "translation_note": "AI監修：衣装名の日本語公式表記を要確認",
+          "risk_flags": "JA_DISPLAY_NOT_EXACT_SOURCE_EVIDENCE|STATUS_REVIEW_REQUIRED",
+          "translation_status": "REVIEW_REQUIRED",
+          "audit_bucket": "REVIEW_REQUIRED",
+          "count": 2
+        },
+        {
+          "translation_note": "AI監修：日本語公式名の確証不足",
+          "risk_flags": "JA_DISPLAY_NOT_EXACT_SOURCE_EVIDENCE|STATUS_REVIEW_REQUIRED",
+          "translation_status": "REVIEW_REQUIRED",
+          "audit_bucket": "REVIEW_REQUIRED",
+          "count": 2
+        },
+        {
+          "translation_note": "AI監修：中国語候補のみで日本語公式表記を要確認",
+          "risk_flags": "JA_DISPLAY_NOT_EXACT_SOURCE_EVIDENCE|STATUS_REVIEW_REQUIRED",
+          "translation_status": "REVIEW_REQUIRED",
+          "audit_bucket": "REVIEW_REQUIRED",
+          "count": 2
+        },
+        {
+          "translation_note": "日本語表示名・表記の確定に追加確認が必要",
+          "risk_flags": "STATUS_REVIEW_REQUIRED",
+          "translation_status": "REVIEW_REQUIRED",
+          "audit_bucket": "REVIEW_REQUIRED",
+          "count": 2
+        },
+        {
+          "translation_note": "日本語表記と読みの追加確認が必要",
+          "risk_flags": "STATUS_REVIEW_REQUIRED",
+          "translation_status": "REVIEW_REQUIRED",
+          "audit_bucket": "REVIEW_REQUIRED",
+          "count": 2
+        },
+        {
+          "translation_note": "中国語固有名の日本語表示方針確認が必要",
+          "risk_flags": "STATUS_REVIEW_REQUIRED",
+          "translation_status": "REVIEW_REQUIRED",
+          "audit_bucket": "REVIEW_REQUIRED",
+          "count": 2
+        },
+        {
+          "translation_note": "AI監修：オリジナルキャラクターの正式表記を要確認",
+          "risk_flags": "STATUS_REVIEW_REQUIRED",
           "translation_status": "REVIEW_REQUIRED",
           "audit_bucket": "REVIEW_REQUIRED",
           "count": 2
@@ -1201,6 +1201,10 @@
     {
       "file": "character_variant_identity_restore_batch014.csv",
       "ledger_rows": 575
+    },
+    {
+      "file": "character_youkakunin_final_batch055.csv",
+      "ledger_rows": 67
     },
     {
       "file": "character_youkakunin_noevidence_batch052.csv",
