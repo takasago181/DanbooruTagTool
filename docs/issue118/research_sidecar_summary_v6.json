@@ -1,0 +1,29 @@
+{
+  "issue": 118,
+  "mode": "RESEARCH_SIDECAR_V6_POSE_REVIEW_GATED",
+  "identity_rows": 31752,
+  "source_base": "docs/issue118/research_sidecar_v5.csv",
+  "new_pose_auto_promotions": 706,
+  "review_status_counts": {
+    "AUTO_HIGH_CONF": 19962,
+    "HUMAN_REVIEWED": 1062,
+    "UNCLASSIFIED": 10728
+  },
+  "sexual_intent_counts": {
+    "CONTEXTUAL": 201,
+    "NON_SEXUAL": 20237,
+    "NULL": 10728,
+    "SEXUAL": 586
+  },
+  "remaining_unclassified": 10728,
+  "pose_clean_source": "docs/issue118/pose_movement_refinement_v14_2/pose_clean_v14_2.csv",
+  "pose_holdout_gate_source": "docs/issue118/pose_movement_refinement_v14_2/holdout_gate_v14_2.json",
+  "pose_holdout_gate_sha256": "50859b9dd04268da4011b453ce0faa306f7eb5d70e80e0a45ce5ccd56de4fbd4",
+  "review_verdicts_generated_by_materializer": "NO",
+  "review_artifacts_are_external_inputs": "YES",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO"
+}
