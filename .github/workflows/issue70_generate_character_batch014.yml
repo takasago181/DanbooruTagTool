@@ -1,0 +1,56 @@
+name: Issue70 Generate Character Audit Batch 014
+
+on:
+  push:
+    branches:
+      - audit/issue70-semantic-final
+    paths:
+      - scripts/issue70/generate_character_variant_identity_batch014.py
+      - .github/workflows/issue70_generate_character_batch014.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: issue70-character-batch014
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: audit/issue70-semantic-final
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python scripts/issue70/generate_character_variant_identity_batch014.py
+      - name: Validate proposal-only output
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s docs/issue70/audit/character_variant_identity_restore_batch014.csv
+          python - <<'PY'
+          import csv
+          from pathlib import Path
+          p=Path('docs/issue70/audit/character_variant_identity_restore_batch014.csv')
+          with p.open(encoding='utf-8-sig',newline='') as f: rows=list(csv.DictReader(f))
+          assert len(rows) >= 400
+          assert all(r['audit_verdict']=='FIX_DISPLAY' for r in rows)
+          assert all(r['family_base_display_ja'] in r['proposed_display_ja'] for r in rows)
+          print({'rows':len(rows)})
+          PY
+          git diff --exit-code -- docs/issue70/data/runtime docs/issue70/data/source
+      - name: Commit audit batch only
+        shell: bash
+        run: |
+          set -euo pipefail
+          git add docs/issue70/audit/character_variant_identity_restore_batch014.csv
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Issue70: persist Character variant identity audit batch 014'
+          git push origin HEAD:audit/issue70-semantic-final
