@@ -1,0 +1,52 @@
+name: Issue118 Review Summary
+
+on:
+  push:
+    branches:
+      - research/issue118-intent-pilot
+    paths:
+      - 'scripts/issue118/summarize_intent_reviews.py'
+      - 'docs/issue118/reviews/chunk_*_review_v1.csv'
+      - '.github/workflows/issue118_review_summary.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  summarize-reviews:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout research branch
+        uses: actions/checkout@v4
+
+      - name: Validate summarizer syntax
+        run: python3 -m py_compile scripts/issue118/summarize_intent_reviews.py
+
+      - name: Validate and summarize 700 semantic reviews
+        run: |
+          set -euo pipefail
+          python3 scripts/issue118/summarize_intent_reviews.py
+
+      - name: Persist semantic review summary
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/issue118/reviews/semantic_pilot_summary_v1.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Issue #118: persist semantic pilot summary'
+            git push origin HEAD:research/issue118-intent-pilot
+          fi
+
+      - name: Upload review summary
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: issue118-review-summary-${{ github.sha }}
+          path: |
+            docs/issue118/reviews/chunk_*_review_v1.csv
+            docs/issue118/reviews/semantic_pilot_summary_v1.json
+          if-no-files-found: error
+          retention-days: 14
