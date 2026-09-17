@@ -8,6 +8,7 @@ on:
       - 'scripts/issue118/summarize_intent_reviews.py'
       - 'scripts/issue118/evaluate_pilot_rules.py'
       - 'scripts/issue118/estimate_population_coverage.py'
+      - 'scripts/issue118/materialize_rule_holdout.py'
       - 'docs/issue118/reviews/chunk_*_review_v1.csv'
       - '.github/workflows/issue118_review_summary.yml'
   workflow_dispatch:
@@ -28,6 +29,7 @@ jobs:
           python3 -m py_compile scripts/issue118/summarize_intent_reviews.py
           python3 -m py_compile scripts/issue118/evaluate_pilot_rules.py
           python3 -m py_compile scripts/issue118/estimate_population_coverage.py
+          python3 -m py_compile scripts/issue118/materialize_rule_holdout.py
 
       - name: Validate and summarize semantic evidence
         run: |
@@ -35,6 +37,7 @@ jobs:
           python3 scripts/issue118/summarize_intent_reviews.py
           python3 scripts/issue118/evaluate_pilot_rules.py
           python3 scripts/issue118/estimate_population_coverage.py
+          python3 scripts/issue118/materialize_rule_holdout.py
 
       - name: Persist semantic review evidence
         run: |
@@ -44,9 +47,10 @@ jobs:
           git add \
             docs/issue118/reviews/semantic_pilot_summary_v1.json \
             docs/issue118/reviews/pilot_rule_evaluation_v1.json \
-            docs/issue118/reviews/population_rule_coverage_v1.json
+            docs/issue118/reviews/population_rule_coverage_v1.json \
+            docs/issue118/holdout
           if ! git diff --cached --quiet; then
-            git commit -m 'Issue #118: persist pilot and population coverage evidence'
+            git commit -m 'Issue #118: materialize independent rule holdout'
             git push origin HEAD:research/issue118-intent-pilot
           fi
 
@@ -60,5 +64,8 @@ jobs:
             docs/issue118/reviews/semantic_pilot_summary_v1.json
             docs/issue118/reviews/pilot_rule_evaluation_v1.json
             docs/issue118/reviews/population_rule_coverage_v1.json
+            docs/issue118/holdout/*.csv
+            docs/issue118/holdout/*.json
+            docs/issue118/holdout/review_chunks/*.csv
           if-no-files-found: error
           retention-days: 14
