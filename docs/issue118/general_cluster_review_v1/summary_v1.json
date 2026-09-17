@@ -1,0 +1,157 @@
+{
+  "issue": 118,
+  "mode": "UNCLASSIFIED_GENERAL_CLUSTER_REVIEW_V1",
+  "source_rows": 23717,
+  "cluster_count": 62,
+  "clusters_ge_20": 26,
+  "top20_rows": 23289,
+  "sample_rows": 240,
+  "sampled_cluster_population": 23289,
+  "sampled_cluster_count": 20,
+  "review_chunks": 4,
+  "top_clusters": [
+    {
+      "cluster_key": "CLOTHING/EVERYDAY|NONE",
+      "rows": 3353,
+      "general_path": "CLOTHING/EVERYDAY",
+      "lex_flags": "NONE",
+      "examples": "vertical-striped_headwear;pink_bandana;red_male_swimwear;novelty_codpiece;swimsuit_skirt;red_tailcoat;gingham_sleeves;fold-over_collar;alternate_bottom_wear;polka_dot_pajamas"
+    },
+    {
+      "cluster_key": "OBJECT_PROP/DAILY|NONE",
+      "rows": 2714,
+      "general_path": "OBJECT_PROP/DAILY",
+      "lex_flags": "NONE",
+      "examples": "toy_robot;cookbook;party_popper;energy_barrier;print_bag;rug;animal_cutout;insulated_delivery_bag;paper_plate;trading_card"
+    },
+    {
+      "cluster_key": "(none)|NONE",
+      "rows": 2341,
+      "general_path": "(none)",
+      "lex_flags": "NONE",
+      "examples": "haru_desu_yo;gamilas;shinsoo_(tower_of_god);milo_and_akouo;morito_(sidonia_no_kishi);good_morning;yakusoku_no_passerelle_(project_sekai);neko_nabe;spin-spin_(site);hare_hare_yukai"
+    },
+    {
+      "cluster_key": "CLOTHING/ACCESSORY|NONE",
+      "rows": 1977,
+      "general_path": "CLOTHING/ACCESSORY",
+      "lex_flags": "NONE",
+      "examples": "print_scarf;green_belt;round_collar;cracked_mask;gold_chain;chain_belt;ankle_lace-up;green_headscarf;archery_shooting_glove;neck_feathers"
+    },
+    {
+      "cluster_key": "ACTION_CONTACT/INTERACTION|NONE",
+      "rows": 1860,
+      "general_path": "ACTION_CONTACT/INTERACTION",
+      "lex_flags": "NONE",
+      "examples": "lifting_person;\\n/;cutting;holding_own_ankle;homework;grabbing_another's_hand;fireman's_carry;dolls_kissing;paper_on_head;feet_on_table"
+    },
+    {
+      "cluster_key": "BODY_PART|NONE",
+      "rows": 1708,
+      "general_path": "BODY_PART",
+      "lex_flags": "NONE",
+      "examples": "glowing_hands;taped_arms;snakebite_(piercing);red_hands;scar_on_chin;alternate_wing_color;nobiiru_arm;battle_damage;moth_wings;multiple_head_bumps"
+    },
+    {
+      "cluster_key": "CLOTHING/COSTUME|NONE",
+      "rows": 1219,
+      "general_path": "CLOTHING/COSTUME",
+      "lex_flags": "NONE",
+      "examples": "akuma_homura_(cosplay);side-tie_costume;lilith_(darkstalkers)_(cosplay);kanna_(blue_archive)_(cosplay);tail_armor;cure_happy_(cosplay);hasshaku-sama_(cosplay);sailor_moon_(cosplay);inoue_takina_(cosplay);armor_under_clothes"
+    },
+    {
+      "cluster_key": "OBJECT_PROP/WEAPON|NONE",
+      "rows": 1054,
+      "general_path": "OBJECT_PROP/WEAPON",
+      "lex_flags": "NONE",
+      "examples": "plasma_pistol;h&k_mp5k;adaptive_combat_rifle;missile;see-through_magazine_(weapon);luger_p08;claw_(weapon);caliburn_(fate);h&k_hk33;power_fist"
+    },
+    {
+      "cluster_key": "STYLE_QUALITY_META|NONE",
+      "rows": 950,
+      "general_path": "STYLE_QUALITY_META",
+      "lex_flags": "NONE",
+      "examples": "buttercup_redraw_challenge_(meme);split_crop;bryan_lee_o'malley_(style);partially_colored;white_outline;dark_foreground;zun_(style);ankha_zone_(meme);ascii_art;fading_border"
+    },
+    {
+      "cluster_key": "OBJECT_PROP/FOOD|NONE",
+      "rows": 803,
+      "general_path": "OBJECT_PROP/FOOD",
+      "lex_flags": "NONE",
+      "examples": "galette_(food);hot_chocolate;bitter_melon;fanta;red_wine;tsuyu_sauce;senbei;condiment_packet;pokeblock;pineapple_slice"
+    },
+    {
+      "cluster_key": "ACTION_CONTACT/OBJECT_USE|NONE",
+      "rows": 754,
+      "general_path": "ACTION_CONTACT/OBJECT_USE",
+      "lex_flags": "NONE",
+      "examples": "holding_floatie;stop_(gesture);shopping;aiming;holding_iv_stand;holding_poker_chip;applying_sunscreen;pouring_onto_self;shaving_another;text_messaging"
+    },
+    {
+      "cluster_key": "PERSON_COUNT|NONE",
+      "rows": 745,
+      "general_path": "PERSON_COUNT",
+      "lex_flags": "NONE",
+      "examples": "landsknecht;ninja;step-siblings;4others;actor_connection;burmecian;night_lords;bad_end_precure;chipmunk_girl;animal_realm_yakuza_(touhou)"
+    },
+    {
+      "cluster_key": "POSE_MOVEMENT|NONE",
+      "rows": 727,
+      "general_path": "POSE_MOVEMENT",
+      "lex_flags": "NONE",
+      "examples": "cheek_rest;fleeing;z-move_trainer_pose;x_fingers;vocaloid_boxart_pose;clenched_hand;streaking;jonathan_joestar's_pose;onion_(pikmin);on_chair"
+    },
+    {
+      "cluster_key": "CLOTHING_STATE_EXPOSURE|NONE",
+      "rows": 726,
+      "general_path": "CLOTHING_STATE_EXPOSURE",
+      "lex_flags": "NONE",
+      "examples": "pants_tucked_in;loose_clothes;jacket_on_shoulders;clothes_tug;exploding_clothes;cross-laced_cutout;taut_leotard;kimono_on_shoulders;earphones_around_neck;torn_unitard"
+    },
+    {
+      "cluster_key": "CLOTHING/UNIFORM|NONE",
+      "rows": 636,
+      "general_path": "CLOTHING/UNIFORM",
+      "lex_flags": "NONE",
+      "examples": "tokiwadai_school_uniform;soviet_school_uniform;karate_gi;tatenashi_high_school_uniform;herensuge_girls_academy_school_uniform;makoto_mirai_academy_middle_school_uniform;kuho_girls_academy_school_uniform;cycling_uniform;brazilian_national_soccer_team_uniform;pikarigaoka_middle_school_uniform"
+    },
+    {
+      "cluster_key": "COLOR_APPEARANCE|NONE",
+      "rows": 494,
+      "general_path": "COLOR_APPEARANCE",
+      "lex_flags": "NONE",
+      "examples": "black_liquid;tomato_print;flag_nails;patterned_skin;ornate_border;camouflage_paint;metal_gear_(robot);watermelon_print;calico_(pattern);english_bond"
+    },
+    {
+      "cluster_key": "OBJECT_PROP/VEHICLE|NONE",
+      "rows": 462,
+      "general_path": "OBJECT_PROP/VEHICLE",
+      "lex_flags": "NONE",
+      "examples": "dragoon_(kirby);yamato_(battleship);honda_integra;mi-24;alfa_romeo;hot_air_balloon;wind_glider;semi_truck;human-drawn_vehicle;military_truck"
+    },
+    {
+      "cluster_key": "EXPRESSION_EMOTION|NONE",
+      "rows": 358,
+      "general_path": "EXPRESSION_EMOTION",
+      "lex_flags": "NONE",
+      "examples": "crying_with_eyes_open;o_o;wall-eyed;ecstasy;muscle_awe;;|;puckered_face;fingersmile;affectionate;eye_twitch"
+    },
+    {
+      "cluster_key": "OBJECT_PROP|NONE",
+      "rows": 232,
+      "general_path": "OBJECT_PROP",
+      "lex_flags": "NONE",
+      "examples": "valve;bauxite;watch;gn_drive;viola_(instrument);amber_(gemstone);1-up_mushroom;artifact_(genshin_impact);ventilation_fan;voodoo_doll"
+    },
+    {
+      "cluster_key": "CLOTHING/EVERYDAY|EXPOSURE",
+      "rows": 176,
+      "general_path": "CLOTHING/EVERYDAY",
+      "lex_flags": "EXPOSURE",
+      "examples": "vertical-striped_sports_bra;training_bra;striped_sports_bra;polka_dot_panties;multiple_panties;white_panties;brown_panties;lace_bra;metal_bra;leather_bra"
+    }
+  ],
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO"
+}
