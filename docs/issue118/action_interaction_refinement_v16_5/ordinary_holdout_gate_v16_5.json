@@ -1,0 +1,22 @@
+{
+  "issue": 118,
+  "mode": "INDEPENDENT_ACTION_ORDINARY_HOLDOUT_REVIEW_V16_5",
+  "source": "docs/issue118/action_interaction_refinement_v16_5/ordinary_fresh_holdout_template_v16_5.csv",
+  "reviewed_rows": 120,
+  "gate": "FAIL_REFINEMENT_REQUIRED",
+  "observed_boundary_counterexamples": [
+    "thigh_straddling",
+    "licking_another's_arm",
+    "foot_on_another's_chest",
+    "smelling_shoe"
+  ],
+  "move_to_intimate_general": [
+    "arms_around_neck",
+    "shared_bed"
+  ],
+  "refinement_direction": "eject straddling, other-person body licking, foot-on-body and footwear-fetish cues; move shared-bed/embrace cues to intimate bucket",
+  "review_verdicts_generated_by_materializer": "NO",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO"
+}
