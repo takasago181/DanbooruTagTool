@@ -1,0 +1,135 @@
+{
+  "format_version": 1,
+  "issue": 70,
+  "production_modified": false,
+  "initial_ledger_rows": 18270,
+  "audited_unique_rows": 9859,
+  "resolved_unique_rows": 9859,
+  "conflicted_unique_rows": 0,
+  "remaining_unaudited_rows": 8411,
+  "duplicate_same_decision_rows": 0,
+  "verdict_counts_resolved": {
+    "FIX_BOTH": 69,
+    "FIX_DISPLAY": 2060,
+    "FIX_SEARCH": 241,
+    "KEEP": 7129,
+    "NEEDS_EXTERNAL_CHECK": 360
+  },
+  "audited_by_category": {
+    "Character": 7555,
+    "Copyright": 1278,
+    "Artist": 1026
+  },
+  "remaining_by_category": {
+    "Character": 7373,
+    "Copyright": 1038,
+    "Artist": 0
+  },
+  "unresolved_external_check_rows": 360,
+  "unresolved_user_decision_rows": 0,
+  "source_files": [
+    {
+      "file": "artist_initial_audit_batch008.csv",
+      "ledger_rows": 1026
+    },
+    {
+      "file": "character_context_disambiguation_batch013.csv",
+      "ledger_rows": 750
+    },
+    {
+      "file": "character_curated_context_batch016.csv",
+      "ledger_rows": 555
+    },
+    {
+      "file": "character_curated_keep_batch015.csv",
+      "ledger_rows": 281
+    },
+    {
+      "file": "character_duplicate_variant_identity_batch012.csv",
+      "ledger_rows": 54
+    },
+    {
+      "file": "character_no_trusted_ja_batch010.csv",
+      "ledger_rows": 4987
+    },
+    {
+      "file": "character_unreliable_candidate_fallback_batch011.csv",
+      "ledger_rows": 146
+    },
+    {
+      "file": "character_variant_identity_restore_batch014.csv",
+      "ledger_rows": 575
+    },
+    {
+      "file": "copyright_accepted_noflag_batch009.csv",
+      "ledger_rows": 303
+    },
+    {
+      "file": "copyright_batch004_01.csv",
+      "ledger_rows": 18
+    },
+    {
+      "file": "copyright_batch004_02.csv",
+      "ledger_rows": 18
+    },
+    {
+      "file": "copyright_batch004_03.csv",
+      "ledger_rows": 17
+    },
+    {
+      "file": "copyright_batch004_04.csv",
+      "ledger_rows": 17
+    },
+    {
+      "file": "copyright_batch005_01.csv",
+      "ledger_rows": 20
+    },
+    {
+      "file": "copyright_batch005_02.csv",
+      "ledger_rows": 20
+    },
+    {
+      "file": "copyright_batch005_03.csv",
+      "ledger_rows": 20
+    },
+    {
+      "file": "copyright_batch005_04.csv",
+      "ledger_rows": 20
+    },
+    {
+      "file": "copyright_batch005_05.csv",
+      "ledger_rows": 20
+    },
+    {
+      "file": "copyright_curated_keep_batch017.csv",
+      "ledger_rows": 688
+    },
+    {
+      "file": "search_dedup_batch007.csv",
+      "ledger_rows": 81
+    },
+    {
+      "file": "search_restore_batch006.csv",
+      "ledger_rows": 160
+    },
+    {
+      "file": "variant_lost_qualifier_batch003_01.csv",
+      "ledger_rows": 21
+    },
+    {
+      "file": "variant_lost_qualifier_batch003_02.csv",
+      "ledger_rows": 21
+    },
+    {
+      "file": "variant_lost_qualifier_batch003_03.csv",
+      "ledger_rows": 21
+    },
+    {
+      "file": "variant_lost_qualifier_batch003_04.csv",
+      "ledger_rows": 20
+    }
+  ],
+  "ignored_nonledger_rows_by_file": {},
+  "conflicts": [],
+  "next_step": "resolve conflicts, continue remaining pattern batches, then resolve external/user queues before production correction"
+}
