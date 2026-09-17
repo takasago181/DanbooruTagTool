@@ -52,7 +52,7 @@ jobs:
           clusters=Path('docs/issue118/special_cluster_review_v1')
           c=json.loads((clusters/'summary_v1.json').read_text(encoding='utf-8'))
           sample=list(csv.DictReader((clusters/'cluster_review_sample_v1.csv').open(encoding='utf-8')))
-          assert c['source_rows']==2322
+          assert c['source_rows']==2327
           assert len(sample)==c['sample_rows']
           assert len({r['identity_key'] for r in sample})==len(sample)
           assert c['production_authority']=='NO'
