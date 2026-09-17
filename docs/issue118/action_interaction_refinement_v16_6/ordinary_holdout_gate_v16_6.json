@@ -1,0 +1,22 @@
+{
+  "issue": 118,
+  "mode": "INDEPENDENT_ACTION_ORDINARY_HOLDOUT_REVIEW_V16_6",
+  "source": "docs/issue118/action_interaction_refinement_v16_6/ordinary_fresh_holdout_template_v16_6.csv",
+  "reviewed_rows": 120,
+  "gate": "FAIL_REFINEMENT_REQUIRED",
+  "observed_boundary_counterexamples": [
+    "hand_under_shirt",
+    "licking_another",
+    "licking_another's_lips",
+    "chocolate_on_foot",
+    "self_wedgie"
+  ],
+  "move_to_intimate_general": [
+    "waist_hold"
+  ],
+  "refinement_direction": "eject hand-inside-clothing, licking-another, foot-food/fetish and wedgie families; move waist embrace to intimate bucket",
+  "review_verdicts_generated_by_materializer": "NO",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO"
+}
