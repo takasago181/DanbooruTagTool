@@ -3,26 +3,26 @@
   "issue": 70,
   "production_modified": false,
   "initial_ledger_rows": 18270,
-  "audited_unique_rows": 14415,
-  "resolved_unique_rows": 14415,
+  "audited_unique_rows": 14435,
+  "resolved_unique_rows": 14435,
   "conflicted_unique_rows": 0,
-  "remaining_unaudited_rows": 3855,
+  "remaining_unaudited_rows": 3835,
   "duplicate_same_decision_rows": 0,
   "verdict_counts_resolved": {
     "FIX_BOTH": 69,
     "FIX_DISPLAY": 5892,
     "FIX_SEARCH": 254,
-    "KEEP": 7821,
+    "KEEP": 7841,
     "NEEDS_EXTERNAL_CHECK": 379
   },
   "audited_by_category": {
     "Character": 11863,
-    "Copyright": 1526,
+    "Copyright": 1546,
     "Artist": 1026
   },
   "remaining_by_category": {
     "Character": 3065,
-    "Copyright": 790,
+    "Copyright": 770,
     "Artist": 0
   },
   "unresolved_external_check_rows": 379,
@@ -601,19 +601,19 @@
       ]
     },
     "Copyright": {
-      "rows": 790,
+      "rows": 770,
       "status_counts": {
-        "ACCEPTED_AI": 248,
+        "ACCEPTED_AI": 228,
         "REVIEW_REQUIRED": 542
       },
       "impact_counts": {
-        "REST": 576,
-        "TOP_10_PERCENT": 197,
-        "TOP_1_PERCENT": 17
+        "REST": 560,
+        "TOP_10_PERCENT": 196,
+        "TOP_1_PERCENT": 14
       },
       "audit_bucket_counts": {
-        "ACCEPTED_CLEAN_SAMPLE": 41,
-        "ACCEPTED_RISK": 207,
+        "ACCEPTED_CLEAN_SAMPLE": 25,
+        "ACCEPTED_RISK": 203,
         "REVIEW_REQUIRED": 542
       },
       "top_translation_notes": [
@@ -627,7 +627,7 @@
         },
         {
           "value": "semantic re-curation: title/name judged usable; official/common rendering preferred over literal candidate",
-          "count": 112
+          "count": 100
         },
         {
           "value": "established/common Japanese title or official rendering",
@@ -643,15 +643,15 @@
         },
         {
           "value": "manual chat curation selected high-confidence Japanese copyright title",
-          "count": 18
-        },
-        {
-          "value": "semantic re-curation: title/name judged usable; official/common rendering or identity-safe original preferred over literal candidate",
-          "count": 13
+          "count": 14
         },
         {
           "value": "single clean Japanese copyright search title",
           "count": 11
+        },
+        {
+          "value": "semantic re-curation: title/name judged usable; official/common rendering or identity-safe original preferred over literal candidate",
+          "count": 9
         },
         {
           "value": "copyright title spelling/identity requires manual verification",
@@ -661,11 +661,11 @@
       "risk_flag_counts": {
         "STATUS_REVIEW_REQUIRED": 542,
         "DISAMBIGUATOR_NOT_VISIBLE": 196,
-        "NO_SOURCE_JA_EVIDENCE_OVERLAP": 174,
         "DUPLICATE_DISPLAY_WITHIN_CATEGORY": 166,
+        "NO_SOURCE_JA_EVIDENCE_OVERLAP": 162,
         "JA_DISPLAY_NOT_EXACT_SOURCE_EVIDENCE": 123,
-        "ASCII_ONLY_DISPLAY_NON_ARTIST": 120,
-        "DISPLAY_CANONICAL_LIKE": 101,
+        "ASCII_ONLY_DISPLAY_NON_ARTIST": 100,
+        "DISPLAY_CANONICAL_LIKE": 83,
         "RAW_TAG_SYNTAX_IN_DISPLAY": 4
       },
       "top_note_risk_signatures": [
@@ -866,24 +866,10 @@
           "count": 5
         },
         {
-          "translation_note": "semantic re-curation: title/name judged usable; official/common rendering preferred over literal candidate",
-          "risk_flags": "ASCII_ONLY_DISPLAY_NON_ARTIST|DISPLAY_CANONICAL_LIKE|NO_SOURCE_JA_EVIDENCE_OVERLAP",
-          "translation_status": "ACCEPTED_AI",
-          "audit_bucket": "ACCEPTED_CLEAN_SAMPLE",
-          "count": 5
-        },
-        {
           "translation_note": "single clean Japanese copyright search title",
           "risk_flags": "DUPLICATE_DISPLAY_WITHIN_CATEGORY",
           "translation_status": "ACCEPTED_AI",
           "audit_bucket": "ACCEPTED_RISK",
-          "count": 5
-        },
-        {
-          "translation_note": "semantic re-curation: title/name judged usable; official/common rendering preferred over literal candidate",
-          "risk_flags": "ASCII_ONLY_DISPLAY_NON_ARTIST|DISPLAY_CANONICAL_LIKE",
-          "translation_status": "ACCEPTED_AI",
-          "audit_bucket": "ACCEPTED_CLEAN_SAMPLE",
           "count": 5
         },
         {
@@ -947,13 +933,6 @@
           "risk_flags": "DUPLICATE_DISPLAY_WITHIN_CATEGORY|STATUS_REVIEW_REQUIRED",
           "translation_status": "REVIEW_REQUIRED",
           "audit_bucket": "REVIEW_REQUIRED",
-          "count": 3
-        },
-        {
-          "translation_note": "manual chat curation selected high-confidence Japanese copyright title",
-          "risk_flags": "ASCII_ONLY_DISPLAY_NON_ARTIST|DISPLAY_CANONICAL_LIKE|NO_SOURCE_JA_EVIDENCE_OVERLAP",
-          "translation_status": "ACCEPTED_AI",
-          "audit_bucket": "ACCEPTED_RISK",
           "count": 3
         },
         {
@@ -1049,27 +1028,6 @@
         },
         {
           "translation_note": "semantic re-curation: title/name judged usable; official/common rendering or identity-safe original preferred over literal candidate",
-          "risk_flags": "ASCII_ONLY_DISPLAY_NON_ARTIST|DISPLAY_CANONICAL_LIKE|NO_SOURCE_JA_EVIDENCE_OVERLAP",
-          "translation_status": "ACCEPTED_AI",
-          "audit_bucket": "ACCEPTED_CLEAN_SAMPLE",
-          "count": 2
-        },
-        {
-          "translation_note": "semantic re-curation: title/name judged usable; official/common rendering preferred over literal candidate",
-          "risk_flags": "ASCII_ONLY_DISPLAY_NON_ARTIST|NO_SOURCE_JA_EVIDENCE_OVERLAP",
-          "translation_status": "ACCEPTED_AI",
-          "audit_bucket": "ACCEPTED_CLEAN_SAMPLE",
-          "count": 2
-        },
-        {
-          "translation_note": "semantic re-curation: title/name judged usable; official/common rendering or identity-safe original preferred over literal candidate",
-          "risk_flags": "ASCII_ONLY_DISPLAY_NON_ARTIST|DISPLAY_CANONICAL_LIKE",
-          "translation_status": "ACCEPTED_AI",
-          "audit_bucket": "ACCEPTED_CLEAN_SAMPLE",
-          "count": 2
-        },
-        {
-          "translation_note": "semantic re-curation: title/name judged usable; official/common rendering or identity-safe original preferred over literal candidate",
           "risk_flags": "DISAMBIGUATOR_NOT_VISIBLE",
           "translation_status": "ACCEPTED_AI",
           "audit_bucket": "ACCEPTED_CLEAN_SAMPLE",
@@ -1085,6 +1043,48 @@
         {
           "translation_note": "conservative fallback; Japanese title evidence is absent or ambiguous",
           "risk_flags": "ASCII_ONLY_DISPLAY_NON_ARTIST|DISAMBIGUATOR_NOT_VISIBLE|DISPLAY_CANONICAL_LIKE|NO_SOURCE_JA_EVIDENCE_OVERLAP|STATUS_REVIEW_REQUIRED",
+          "translation_status": "REVIEW_REQUIRED",
+          "audit_bucket": "REVIEW_REQUIRED",
+          "count": 1
+        },
+        {
+          "translation_note": "copyright title spelling/identity requires manual verification",
+          "risk_flags": "ASCII_ONLY_DISPLAY_NON_ARTIST|DISPLAY_CANONICAL_LIKE|NO_SOURCE_JA_EVIDENCE_OVERLAP|STATUS_REVIEW_REQUIRED",
+          "translation_status": "REVIEW_REQUIRED",
+          "audit_bucket": "REVIEW_REQUIRED",
+          "count": 1
+        },
+        {
+          "translation_note": "Japanese rendering requires manual verification or source evidence is insufficient",
+          "risk_flags": "DUPLICATE_DISPLAY_WITHIN_CATEGORY|JA_DISPLAY_NOT_EXACT_SOURCE_EVIDENCE|STATUS_REVIEW_REQUIRED",
+          "translation_status": "REVIEW_REQUIRED",
+          "audit_bucket": "REVIEW_REQUIRED",
+          "count": 1
+        },
+        {
+          "translation_note": "Japanese rendering requires manual verification or source evidence is insufficient",
+          "risk_flags": "ASCII_ONLY_DISPLAY_NON_ARTIST|DISAMBIGUATOR_NOT_VISIBLE|NO_SOURCE_JA_EVIDENCE_OVERLAP|STATUS_REVIEW_REQUIRED",
+          "translation_status": "REVIEW_REQUIRED",
+          "audit_bucket": "REVIEW_REQUIRED",
+          "count": 1
+        },
+        {
+          "translation_note": "Japanese rendering requires manual verification or source evidence is insufficient",
+          "risk_flags": "DISAMBIGUATOR_NOT_VISIBLE|DUPLICATE_DISPLAY_WITHIN_CATEGORY|STATUS_REVIEW_REQUIRED",
+          "translation_status": "REVIEW_REQUIRED",
+          "audit_bucket": "REVIEW_REQUIRED",
+          "count": 1
+        },
+        {
+          "translation_note": "copyright title not uniquely resolved; manual verification required",
+          "risk_flags": "DUPLICATE_DISPLAY_WITHIN_CATEGORY|STATUS_REVIEW_REQUIRED",
+          "translation_status": "REVIEW_REQUIRED",
+          "audit_bucket": "REVIEW_REQUIRED",
+          "count": 1
+        },
+        {
+          "translation_note": "Japanese rendering requires manual verification or source evidence is insufficient",
+          "risk_flags": "ASCII_ONLY_DISPLAY_NON_ARTIST|DISAMBIGUATOR_NOT_VISIBLE|DISPLAY_CANONICAL_LIKE|STATUS_REVIEW_REQUIRED",
           "translation_status": "REVIEW_REQUIRED",
           "audit_bucket": "REVIEW_REQUIRED",
           "count": 1
@@ -1225,6 +1225,10 @@
     {
       "file": "copyright_curated_keep_batch017.csv",
       "ledger_rows": 688
+    },
+    {
+      "file": "copyright_curated_safe_keep_batch040.csv",
+      "ledger_rows": 20
     },
     {
       "file": "copyright_no_trusted_ja_batch018.csv",
