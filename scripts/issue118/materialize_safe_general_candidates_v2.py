@@ -51,13 +51,11 @@ def main():
    excluded[path]+=1;continue
   candidates.append({'identity_key':k,'general_path':path,'confidence':(gr.get('confidence') or '').strip(),'risk_tokens':'','candidate_class':'NON_SEXUAL'})
   by_path[path]+=1
- # Validate against all existing reviewed identities using the exact same predicate.
- eval_counts=defaultdict(Counter);eval_examples=defaultdict(list)
+ eval_counts=defaultdict(Counter);eval_examples=defaultdict(list);side_idx={r['identity_key']:r for r in side}
  for k,cls in reviews.items():
   gr=g.get(k)
   if not gr:continue
-  # only General-only in current sources
-  sr=next((x for x in side if x['identity_key']==k),None)
+  sr=side_idx.get(k)
   if sr and sr['is_special']=='YES':continue
   path=(gr.get('primary_path') or '').strip()
   if path not in TARGET_PATHS or set(tokens(k)) & risk_tokens:continue
@@ -72,7 +70,6 @@ def main():
  OUT.mkdir(parents=True,exist_ok=True)
  with (OUT/'candidate_inventory_v2.csv').open('w',encoding='utf-8',newline='') as f:
   fields=['identity_key','general_path','confidence','risk_tokens','candidate_class'];w=csv.DictWriter(f,fieldnames=fields,lineterminator='\n');w.writeheader();w.writerows(accepted)
- # Dedicated discovery/holdout sample from accepted paths, 6+6 per path capped at 240.
  sample=[]
  for p in sorted(accepted_paths,key=lambda x:(-sum(1 for r in accepted if r['general_path']==x),x)):
   items=sorted([r for r in accepted if r['general_path']==p],key=lambda r:rank('issue118-safe-general-v2',r['identity_key']))
@@ -80,12 +77,13 @@ def main():
   if len(sample)+len(chosen)>240:continue
   for i,r in enumerate(chosen):
    x=dict(r);x['phase']='DISCOVERY' if i<6 else 'HOLDOUT';x['path_population']=str(by_path[p]);sample.append(x)
+ sample_fields=['identity_key','general_path','confidence','risk_tokens','candidate_class','path_population','phase']
  with (OUT/'validation_sample_v2.csv').open('w',encoding='utf-8',newline='') as f:
-  fields=['identity_key','general_path','confidence','candidate_class','path_population','phase'];w=csv.DictWriter(f,fieldnames=fields,lineterminator='\n');w.writeheader();w.writerows(sample)
+  w=csv.DictWriter(f,fieldnames=sample_fields,lineterminator='\n');w.writeheader();w.writerows(sample)
  for old in OUT.glob('validation_chunk_*.csv'):old.unlink()
  for i in range(0,len(sample),60):
   with (OUT/f'validation_chunk_{i//60+1:03d}.csv').open('w',encoding='utf-8',newline='') as f:
-   fields=['identity_key','general_path','confidence','candidate_class','path_population','phase'];w=csv.DictWriter(f,fieldnames=fields,lineterminator='\n');w.writeheader();w.writerows(sample[i:i+60])
+   w=csv.DictWriter(f,fieldnames=sample_fields,lineterminator='\n');w.writeheader();w.writerows(sample[i:i+60])
  summary={'issue':118,'mode':'SAFE_GENERAL_CANDIDATES_V2','reviewed_evidence_rows':len(reviews),'learned_risk_token_count':len(learned),'total_risk_token_count':len(risk_tokens),'target_paths':sorted(TARGET_PATHS),'accepted_paths':accepted_paths,'accepted_candidate_rows':len(accepted),'accepted_path_counts':dict(sorted(Counter(r['general_path'] for r in accepted).items())),'validation_sample_rows':len(sample),'validation_chunks':(len(sample)+59)//60,'existing_review_validation':{p:{'counts':dict(sorted(eval_counts[p].items())),'non_target_examples':eval_examples[p]} for p in sorted(TARGET_PATHS)},'production_authority':'NO','main_mutated':'NO','issue117_code_mutated':'NO'}
  (OUT/'summary_v2.json').write_text(json.dumps(summary,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
  (OUT/'risk_tokens_v2.txt').write_text('\n'.join(sorted(risk_tokens))+'\n',encoding='utf-8')
