@@ -1,0 +1,22 @@
+{
+  "issue": 118,
+  "mode": "CLOTHING_REFINEMENT_V12_5_UNDERLAYER_BOUNDARY",
+  "source_clean_rows_v12_4": 2682,
+  "new_boundary_rows": 73,
+  "clean_candidate_rows_v12_5": 2609,
+  "fresh_holdout_template_rows": 120,
+  "required_holdout_examples_captured": [
+    "buruma",
+    "girdle",
+    "sideless_shirt"
+  ],
+  "boundary_rules_use": "DISCOVERY_ONLY_NOT_CLASSIFICATION_AUTHORITY",
+  "holdout_verdicts_generated": "NO",
+  "auto_promotion_performed": "NO",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO",
+  "next_gate": "independently review new fixed 120-row holdout before any research-sidecar promotion"
+}
