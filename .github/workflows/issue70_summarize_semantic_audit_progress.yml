@@ -1,0 +1,58 @@
+name: Issue70 Summarize Semantic Audit Progress
+
+on:
+  push:
+    branches:
+      - audit/issue70-semantic-final
+    paths:
+      - scripts/issue70/summarize_semantic_audit_progress.py
+      - .github/workflows/issue70_summarize_semantic_audit_progress.yml
+      - docs/issue70/audit/*.csv
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: issue70-semantic-progress-summary
+  cancel-in-progress: true
+
+jobs:
+  summarize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: audit/issue70-semantic-final
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Generate exact progress summary
+        run: python scripts/issue70/summarize_semantic_audit_progress.py
+      - name: Validate read-only audit state
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s docs/issue70/audit/PROGRESS_LIVE.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path('docs/issue70/audit/PROGRESS_LIVE.json').read_text(encoding='utf-8'))
+          assert d['initial_ledger_rows'] == 18270
+          assert d['production_modified'] is False
+          assert d['audited_unique_rows'] + d['remaining_unaudited_rows'] == d['initial_ledger_rows']
+          assert d['audited_unique_rows'] >= 9000
+          print({k:d[k] for k in ['audited_unique_rows','resolved_unique_rows','conflicted_unique_rows','remaining_unaudited_rows','remaining_by_category','verdict_counts_resolved']})
+          PY
+          git diff --exit-code -- docs/issue70/data/runtime docs/issue70/data/source
+      - name: Commit progress summary only
+        shell: bash
+        run: |
+          set -euo pipefail
+          git add docs/issue70/audit/PROGRESS_LIVE.json
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Issue70: update exact semantic audit progress'
+          git push origin HEAD:audit/issue70-semantic-final
