@@ -1,0 +1,75 @@
+name: Issue118 Research Sidecar V7
+
+on:
+  push:
+    branches:
+      - research/issue118-cluster-triage-v8
+    paths:
+      - scripts/issue118/materialize_research_sidecar_v7.py
+      - docs/issue118/research_sidecar_v6.csv
+      - docs/issue118/action_low_risk_subcluster_v17/low_risk_candidate_v17.csv
+      - docs/issue118/action_low_risk_subcluster_v17/holdout_gate_v17.json
+      - docs/issue118/action_interaction_refinement_v16/violence_nonsex_axis_v16.csv
+      - docs/issue118/action_interaction_refinement_v16/violence_review_decisions_v16.json
+      - docs/issue118/action_interaction_refinement_v16/intimate_general_v16.csv
+      - docs/issue118/action_interaction_refinement_v16/intimate_review_decisions_v16.json
+      - .github/workflows/issue118_research_sidecar_v7.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  materialize-v7:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Materialize research sidecar v7
+        run: |
+          python3 -m py_compile scripts/issue118/materialize_research_sidecar_v7.py
+          python3 scripts/issue118/materialize_research_sidecar_v7.py
+      - name: Validate v7
+        run: |
+          python3 - <<'PY'
+          import csv, json
+          from pathlib import Path
+          side = Path('docs/issue118/research_sidecar_v7.csv')
+          summary = Path('docs/issue118/research_sidecar_summary_v7.json')
+          rows = list(csv.DictReader(side.open(encoding='utf-8')))
+          s = json.loads(summary.read_text(encoding='utf-8'))
+          assert len(rows) == 31752
+          assert s['new_action_auto_promotions'] == 953
+          assert s['new_action_human_violence_promotions'] == 41
+          assert s['new_action_human_intimate_promotions'] == 63
+          assert s['new_action_total_promotions'] == 1057
+          assert s['remaining_unclassified'] == 9671
+          assert s['review_status_counts'] == {
+              'AUTO_HIGH_CONF': 20915,
+              'HUMAN_REVIEWED': 1166,
+              'UNCLASSIFIED': 9671,
+          }
+          assert s['sexual_intent_counts'] == {
+              'CONTEXTUAL': 201,
+              'NON_SEXUAL': 21294,
+              'NULL': 9671,
+              'SEXUAL': 586,
+          }
+          assert s['review_verdicts_generated_by_materializer'] == 'NO'
+          assert s['review_artifacts_are_external_inputs'] == 'YES'
+          assert s['production_authority'] == 'NO'
+          assert s['main_mutated'] == 'NO'
+          assert s['issue117_code_mutated'] == 'NO'
+          assert s['catalog_mutated'] == 'NO'
+          assert s['user_db_mutated'] == 'NO'
+          print('ISSUE118_RESEARCH_SIDECAR_V7_GATE=PASS')
+          PY
+      - name: Persist research sidecar v7 only
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/issue118/research_sidecar_v7.csv docs/issue118/research_sidecar_summary_v7.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Issue #118: materialize research sidecar v7'
+            git push origin HEAD:research/issue118-cluster-triage-v8
+          fi
