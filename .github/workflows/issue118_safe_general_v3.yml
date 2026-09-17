@@ -1,0 +1,45 @@
+name: Issue118 Safe General V3
+
+on:
+  push:
+    branches:
+      - research/issue118-cluster-rules
+    paths:
+      - scripts/issue118/materialize_safe_general_refine_v3.py
+      - .github/workflows/issue118_safe_general_v3.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  materialize-v3:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate and materialize
+        run: |
+          python3 -m py_compile scripts/issue118/materialize_safe_general_refine_v3.py
+          python3 scripts/issue118/materialize_safe_general_refine_v3.py
+      - name: Validate output
+        run: |
+          python3 - <<'PY'
+          import csv,json
+          from pathlib import Path
+          p=Path('docs/issue118/safe_general_refine_v3')
+          s=json.loads((p/'summary_v3.json').read_text(encoding='utf-8'))
+          rows=list(csv.DictReader((p/'validation_sample_v3.csv').open(encoding='utf-8')))
+          assert len(rows)==24 and s['fresh_validation_rows']==24 and s['v2_sample_overlap']==0
+          assert s['production_authority']=='NO' and s['main_mutated']=='NO' and s['issue117_code_mutated']=='NO'
+          print('ISSUE118_SAFE_GENERAL_V3_GATE=PASS')
+          PY
+      - name: Persist research result
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/issue118/safe_general_refine_v3
+          if ! git diff --cached --quiet; then
+            git commit -m 'Issue #118: materialize focused safe General v3'
+            git push origin HEAD:research/issue118-cluster-rules
+          fi
