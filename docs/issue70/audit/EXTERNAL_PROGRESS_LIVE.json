@@ -7,25 +7,25 @@
   "primary_conflicted_rows": 0,
   "primary_defer_markers_suppressed_by_concrete": 0,
   "initial_external_rows": 1495,
-  "resolved_external_rows": 57,
-  "remaining_external_rows": 1438,
+  "resolved_external_rows": 69,
+  "remaining_external_rows": 1426,
   "conflicted_external_rows": 0,
   "duplicate_same_decision_rows": 5,
   "superseded_external_rows": 1,
   "resolved_verdict_counts": {
-    "FIX_BOTH": 20,
-    "FIX_DISPLAY": 4,
+    "FIX_BOTH": 24,
+    "FIX_DISPLAY": 8,
     "FIX_SEARCH": 3,
-    "KEEP": 30
+    "KEEP": 34
   },
   "resolved_by_category": {
     "Character": 29,
-    "Copyright": 28
+    "Copyright": 40
   },
   "remaining_by_category": {
     "Artist": 291,
     "Character": 381,
-    "Copyright": 766
+    "Copyright": 754
   },
   "top_remaining": [
     {
@@ -34,16 +34,6 @@
       "category": "Copyright",
       "post_count": "407263",
       "display_ja": "Fateシリーズ",
-      "search_ja": "",
-      "translation_note": "manual chat curation selected high-confidence Japanese copyright title",
-      "primary_source_file": "copyright_final_internal_external_split_batch064.csv"
-    },
-    {
-      "row_id": "I70-035900",
-      "canonical_tag": "idolmaster",
-      "category": "Copyright",
-      "post_count": "285555",
-      "display_ja": "アイドルマスター",
       "search_ja": "",
       "translation_note": "manual chat curation selected high-confidence Japanese copyright title",
       "primary_source_file": "copyright_final_internal_external_split_batch064.csv"
@@ -64,26 +54,6 @@
       "category": "Copyright",
       "post_count": "44384",
       "display_ja": "アイドルマスター",
-      "search_ja": "",
-      "translation_note": "manual chat curation selected high-confidence Japanese copyright title",
-      "primary_source_file": "copyright_final_internal_external_split_batch064.csv"
-    },
-    {
-      "row_id": "I70-035962",
-      "canonical_tag": "toaru_majutsu_no_index",
-      "category": "Copyright",
-      "post_count": "27877",
-      "display_ja": "とある魔術の禁書目録",
-      "search_ja": "",
-      "translation_note": "manual chat curation selected high-confidence Japanese copyright title",
-      "primary_source_file": "copyright_final_internal_external_split_batch064.csv"
-    },
-    {
-      "row_id": "I70-035971",
-      "canonical_tag": "lyrical_nanoha",
-      "category": "Copyright",
-      "post_count": "25753",
-      "display_ja": "魔法少女リリカルなのは",
       "search_ja": "",
       "translation_note": "manual chat curation selected high-confidence Japanese copyright title",
       "primary_source_file": "copyright_final_internal_external_split_batch064.csv"
@@ -169,61 +139,11 @@
       "primary_source_file": "copyright_review_external_batch062.csv"
     },
     {
-      "row_id": "I70-036036",
-      "canonical_tag": "idolmaster_million_live!_theater_days",
-      "category": "Copyright",
-      "post_count": "14325",
-      "display_ja": "アイドルマスターミリオンライブ!シアターデイズ",
-      "search_ja": "",
-      "translation_note": "copyright title not uniquely resolved; manual verification required",
-      "primary_source_file": "copyright_review_external_batch062.csv"
-    },
-    {
-      "row_id": "I70-036037",
-      "canonical_tag": "higurashi_no_naku_koro_ni",
-      "category": "Copyright",
-      "post_count": "14008",
-      "display_ja": "ひぐらし",
-      "search_ja": "",
-      "translation_note": "copyright title not uniquely resolved; manual verification required",
-      "primary_source_file": "copyright_review_external_batch062.csv"
-    },
-    {
       "row_id": "I70-036038",
       "canonical_tag": "saibou_shinkyoku",
       "category": "Copyright",
       "post_count": "14001",
       "display_ja": "さぼしき",
-      "search_ja": "",
-      "translation_note": "copyright title not uniquely resolved; manual verification required",
-      "primary_source_file": "copyright_review_external_batch062.csv"
-    },
-    {
-      "row_id": "I70-036041",
-      "canonical_tag": "tokyo_afterschool_summoners",
-      "category": "Copyright",
-      "post_count": "13821",
-      "display_ja": "放サモ",
-      "search_ja": "",
-      "translation_note": "copyright title not uniquely resolved; manual verification required",
-      "primary_source_file": "copyright_review_external_batch062.csv"
-    },
-    {
-      "row_id": "I70-036042",
-      "canonical_tag": "vspo!",
-      "category": "Copyright",
-      "post_count": "13782",
-      "display_ja": "ぶいすぽ",
-      "search_ja": "",
-      "translation_note": "copyright title not uniquely resolved; manual verification required",
-      "primary_source_file": "copyright_review_external_batch062.csv"
-    },
-    {
-      "row_id": "I70-036044",
-      "canonical_tag": "dragon_ball_z",
-      "category": "Copyright",
-      "post_count": "13737",
-      "display_ja": "この世で一番強いヤツ",
       "search_ja": "",
       "translation_note": "copyright title not uniquely resolved; manual verification required",
       "primary_source_file": "copyright_review_external_batch062.csv"
@@ -244,16 +164,6 @@
       "category": "Copyright",
       "post_count": "12902",
       "display_ja": "英雄伝説",
-      "search_ja": "",
-      "translation_note": "copyright title not uniquely resolved; manual verification required",
-      "primary_source_file": "copyright_review_external_batch062.csv"
-    },
-    {
-      "row_id": "I70-036057",
-      "canonical_tag": "kamen_rider",
-      "category": "Copyright",
-      "post_count": "12867",
-      "display_ja": "オリジナルライダー",
       "search_ja": "",
       "translation_note": "copyright title not uniquely resolved; manual verification required",
       "primary_source_file": "copyright_review_external_batch062.csv"
@@ -299,31 +209,121 @@
       "primary_source_file": "copyright_review_external_batch062.csv"
     },
     {
-      "row_id": "I70-036067",
-      "canonical_tag": "mahou_shoujo_lyrical_nanoha",
+      "row_id": "I70-036071",
+      "canonical_tag": "senki_zesshou_symphogear",
       "category": "Copyright",
-      "post_count": "12126",
-      "display_ja": "魔法少女リリカルなのは",
-      "search_ja": "",
-      "translation_note": "single clean Japanese copyright search title",
-      "primary_source_file": "copyright_final_internal_external_split_batch064.csv"
-    },
-    {
-      "row_id": "I70-036069",
-      "canonical_tag": "inazuma_eleven_(series)",
-      "category": "Copyright",
-      "post_count": "12077",
-      "display_ja": "イナイレ",
+      "post_count": "11745",
+      "display_ja": "シンフォギア",
       "search_ja": "",
       "translation_note": "copyright title not uniquely resolved; manual verification required",
       "primary_source_file": "copyright_review_external_batch062.csv"
     },
     {
-      "row_id": "I70-036070",
-      "canonical_tag": "gundam_suisei_no_majo",
+      "row_id": "I70-036072",
+      "canonical_tag": "super_smash_bros.",
       "category": "Copyright",
-      "post_count": "11820",
-      "display_ja": "機動戦士ガンダム_水星の魔女",
+      "post_count": "11691",
+      "display_ja": "スマッシュブラザーズ",
+      "search_ja": "",
+      "translation_note": "copyright title not uniquely resolved; manual verification required",
+      "primary_source_file": "copyright_review_external_batch062.csv"
+    },
+    {
+      "row_id": "I70-036076",
+      "canonical_tag": "cardcaptor_sakura",
+      "category": "Copyright",
+      "post_count": "11055",
+      "display_ja": "CCさくら",
+      "search_ja": "",
+      "translation_note": "copyright title not uniquely resolved; manual verification required",
+      "primary_source_file": "copyright_review_external_batch062.csv"
+    },
+    {
+      "row_id": "I70-036077",
+      "canonical_tag": "tengen_toppa_gurren_lagann",
+      "category": "Copyright",
+      "post_count": "11032",
+      "display_ja": "グレンラガン",
+      "search_ja": "",
+      "translation_note": "copyright title not uniquely resolved; manual verification required",
+      "primary_source_file": "copyright_review_external_batch062.csv"
+    },
+    {
+      "row_id": "I70-036078",
+      "canonical_tag": "onii-chan_wa_oshimai!",
+      "category": "Copyright",
+      "post_count": "11028",
+      "display_ja": "おにまい",
+      "search_ja": "",
+      "translation_note": "copyright title not uniquely resolved; manual verification required",
+      "primary_source_file": "copyright_review_external_batch062.csv"
+    },
+    {
+      "row_id": "I70-036080",
+      "canonical_tag": "atelier_(series)",
+      "category": "Copyright",
+      "post_count": "10890",
+      "display_ja": "アトリエ",
+      "search_ja": "",
+      "translation_note": "copyright title not uniquely resolved; manual verification required",
+      "primary_source_file": "copyright_review_external_batch062.csv"
+    },
+    {
+      "row_id": "I70-036086",
+      "canonical_tag": "heaven_burns_red",
+      "category": "Copyright",
+      "post_count": "10446",
+      "display_ja": "ヘブバン",
+      "search_ja": "",
+      "translation_note": "copyright title not uniquely resolved; manual verification required",
+      "primary_source_file": "copyright_review_external_batch062.csv"
+    },
+    {
+      "row_id": "I70-036087",
+      "canonical_tag": "axis_powers_hetalia",
+      "category": "Copyright",
+      "post_count": "10399",
+      "display_ja": "にょたりあ",
+      "search_ja": "",
+      "translation_note": "copyright title not uniquely resolved; manual verification required",
+      "primary_source_file": "copyright_review_external_batch062.csv"
+    },
+    {
+      "row_id": "I70-036088",
+      "canonical_tag": "girls'_frontline_2:_exilium",
+      "category": "Copyright",
+      "post_count": "10364",
+      "display_ja": "ドルフロ2",
+      "search_ja": "",
+      "translation_note": "copyright title not uniquely resolved; manual verification required",
+      "primary_source_file": "copyright_review_external_batch062.csv"
+    },
+    {
+      "row_id": "I70-036089",
+      "canonical_tag": "lycoris_recoil",
+      "category": "Copyright",
+      "post_count": "10358",
+      "display_ja": "リコリコ",
+      "search_ja": "",
+      "translation_note": "copyright title not uniquely resolved; manual verification required",
+      "primary_source_file": "copyright_review_external_batch062.csv"
+    },
+    {
+      "row_id": "I70-036091",
+      "canonical_tag": "pokemon_masters_ex",
+      "category": "Copyright",
+      "post_count": "10265",
+      "display_ja": "ポケマス",
+      "search_ja": "",
+      "translation_note": "copyright title not uniquely resolved; manual verification required",
+      "primary_source_file": "copyright_review_external_batch062.csv"
+    },
+    {
+      "row_id": "I70-036092",
+      "canonical_tag": "last_origin",
+      "category": "Copyright",
+      "post_count": "10036",
+      "display_ja": "ラスオリ",
       "search_ja": "",
       "translation_note": "copyright title not uniquely resolved; manual verification required",
       "primary_source_file": "copyright_review_external_batch062.csv"

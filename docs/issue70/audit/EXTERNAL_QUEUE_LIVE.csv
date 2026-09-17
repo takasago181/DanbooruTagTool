@@ -1,10 +1,7 @@
 ﻿row_id,canonical_tag,category,post_count,display_ja,search_ja,translation_note,primary_source_file
 I70-035896,fate_(series),Copyright,407263,Fateシリーズ,,manual chat curation selected high-confidence Japanese copyright title,copyright_final_internal_external_split_batch064.csv
-I70-035900,idolmaster,Copyright,285555,アイドルマスター,,manual chat curation selected high-confidence Japanese copyright title,copyright_final_internal_external_split_batch064.csv
 I70-035904,honkai_(series),Copyright,188054,崩壊,,manual chat curation selected high-confidence Japanese copyright title,copyright_final_internal_external_split_batch064.csv
 I70-035934,idolmaster_(classic),Copyright,44384,アイドルマスター,,manual chat curation selected high-confidence Japanese copyright title,copyright_final_internal_external_split_batch064.csv
-I70-035962,toaru_majutsu_no_index,Copyright,27877,とある魔術の禁書目録,,manual chat curation selected high-confidence Japanese copyright title,copyright_final_internal_external_split_batch064.csv
-I70-035971,lyrical_nanoha,Copyright,25753,魔法少女リリカルなのは,,manual chat curation selected high-confidence Japanese copyright title,copyright_final_internal_external_split_batch064.csv
 I70-035995,utdr_(toby_fox),Copyright,20287,utdr (toby fox),,copyright title not uniquely resolved; manual verification required,copyright_batch004_01.csv
 I70-036010,nier_(series),Copyright,16936,ニーア,,copyright title not uniquely resolved; manual verification required,copyright_review_external_batch062.csv
 I70-036017,touhou_(pc-98),Copyright,16614,東方旧作,,copyright title not uniquely resolved; manual verification required,copyright_review_external_batch062.csv
@@ -13,22 +10,13 @@ I70-036028,mahou_shoujo_no_majo_saiban,Copyright,14889,魔法少女ノ魔女裁�
 I70-036032,dc_comics,Copyright,14643,DCコミック,,copyright title not uniquely resolved; manual verification required,copyright_review_external_batch062.csv
 I70-036033,lucky_star,Copyright,14632,らき☆すた,,copyright title not uniquely resolved; manual verification required,copyright_review_external_batch062.csv
 I70-036035,neptune_(series),Copyright,14429,ネプテューヌ,,copyright title not uniquely resolved; manual verification required,copyright_review_external_batch062.csv
-I70-036036,idolmaster_million_live!_theater_days,Copyright,14325,アイドルマスターミリオンライブ!シアターデイズ,,copyright title not uniquely resolved; manual verification required,copyright_review_external_batch062.csv
-I70-036037,higurashi_no_naku_koro_ni,Copyright,14008,ひぐらし,,copyright title not uniquely resolved; manual verification required,copyright_review_external_batch062.csv
 I70-036038,saibou_shinkyoku,Copyright,14001,さぼしき,,copyright title not uniquely resolved; manual verification required,copyright_review_external_batch062.csv
-I70-036041,tokyo_afterschool_summoners,Copyright,13821,放サモ,,copyright title not uniquely resolved; manual verification required,copyright_review_external_batch062.csv
-I70-036042,vspo!,Copyright,13782,ぶいすぽ,,copyright title not uniquely resolved; manual verification required,copyright_review_external_batch062.csv
-I70-036044,dragon_ball_z,Copyright,13737,この世で一番強いヤツ,,copyright title not uniquely resolved; manual verification required,copyright_review_external_batch062.csv
 I70-036049,cho_kaguya-hime!,Copyright,13201,超かぐや姫!,,copyright title not uniquely resolved; manual verification required,copyright_review_external_batch062.csv
 I70-036055,eiyuu_densetsu,Copyright,12902,英雄伝説,,copyright title not uniquely resolved; manual verification required,copyright_review_external_batch062.csv
-I70-036057,kamen_rider,Copyright,12867,オリジナルライダー,,copyright title not uniquely resolved; manual verification required,copyright_review_external_batch062.csv
 I70-036059,monster_hunter_(series),Copyright,12409,モンスターハンター,,copyright title not uniquely resolved; manual verification required,copyright_review_external_batch062.csv
 I70-036062,umineko_no_naku_koro_ni,Copyright,12267,うみねこのなく頃に,,copyright title not uniquely resolved; manual verification required,copyright_review_external_batch062.csv
 I70-036064,cookie_(touhou),Copyright,12161,クッキー☆,,copyright title not uniquely resolved; manual verification required,copyright_review_external_batch062.csv
 I70-036066,fate/kaleid_liner_prisma_illya,Copyright,12143,Fate/kaleidlinerプリズマ☆イリヤ,,copyright title not uniquely resolved; manual verification required,copyright_review_external_batch062.csv
-I70-036067,mahou_shoujo_lyrical_nanoha,Copyright,12126,魔法少女リリカルなのは,,single clean Japanese copyright search title,copyright_final_internal_external_split_batch064.csv
-I70-036069,inazuma_eleven_(series),Copyright,12077,イナイレ,,copyright title not uniquely resolved; manual verification required,copyright_review_external_batch062.csv
-I70-036070,gundam_suisei_no_majo,Copyright,11820,機動戦士ガンダム_水星の魔女,,copyright title not uniquely resolved; manual verification required,copyright_review_external_batch062.csv
 I70-036071,senki_zesshou_symphogear,Copyright,11745,シンフォギア,,copyright title not uniquely resolved; manual verification required,copyright_review_external_batch062.csv
 I70-036072,super_smash_bros.,Copyright,11691,スマッシュブラザーズ,,copyright title not uniquely resolved; manual verification required,copyright_review_external_batch062.csv
 I70-036076,cardcaptor_sakura,Copyright,11055,CCさくら,,copyright title not uniquely resolved; manual verification required,copyright_review_external_batch062.csv
