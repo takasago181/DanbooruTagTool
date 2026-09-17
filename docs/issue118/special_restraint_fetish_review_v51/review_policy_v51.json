@@ -1,0 +1,30 @@
+{
+  "issue": 118,
+  "mode": "SPECIAL_RESTRAINT_FETISH_FULL_REVIEW_V51_POLICY",
+  "source_rows": 35,
+  "decision_counts": {
+    "SEXUAL": 11,
+    "CONTEXTUAL": 24,
+    "NON_SEXUAL": 0
+  },
+  "sexual": [
+    "bondage_gear",
+    "clit_clamp",
+    "clit_leash",
+    "extreme_fetish",
+    "hard_fetish",
+    "human_furniture_fetish",
+    "labia_clamp",
+    "rope_bondage",
+    "scat_fetish",
+    "sexual_bondage",
+    "spanking_machine"
+  ],
+  "policy": "All 35 rows were manually reviewed. Explicit genital clamps/leashes, named fetish concepts, sexual/bondage gear, rope bondage and spanking machinery are SEXUAL. Generic blindfolds, gags, handcuffs, shackles and restraint devices have substantial both nonsexual restraint and fetish use and are CONTEXTUAL.",
+  "unclassified": [],
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO"
+}
