@@ -1,0 +1,19 @@
+{
+  "issue": 118,
+  "mode": "CLOTHING_ADVERSARIAL_V12_2",
+  "source_clean_rows_v12_1": 2704,
+  "redteam_review_rows": 10,
+  "clean_candidate_rows_v12_2": 2694,
+  "fresh_holdout_template_rows": 120,
+  "risk_vocabulary_basis": "human-selected semantic-risk subset of learned v9 tokens plus explicit sexualized-clothing descriptors",
+  "risk_rules_use": "DISCOVERY_ONLY_NOT_CLASSIFICATION_AUTHORITY",
+  "holdout_verdicts_generated": "NO",
+  "semantic_authority": "NO",
+  "auto_promotion_performed": "NO",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO",
+  "next_gate": "independently review redteam rows and new fixed 120-row holdout; freeze both review artifacts before any research-sidecar promotion"
+}
