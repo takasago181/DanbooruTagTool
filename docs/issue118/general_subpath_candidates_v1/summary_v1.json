@@ -1,0 +1,10 @@
+{
+  "issue": 118,
+  "mode": "GENERAL_SUBPATH_CANDIDATE_V1",
+  "accepted_training_paths": 5,
+  "candidate_rows": 0,
+  "validation_rows": 0,
+  "candidate_rows_by_path": {},
+  "safety": "candidate only; no production or sidecar promotion until new validation review",
+  "production_promotion_performed": "NO"
+}
