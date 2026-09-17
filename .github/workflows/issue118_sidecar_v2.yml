@@ -1,0 +1,47 @@
+name: Issue118 Research Sidecar V2
+
+on:
+  push:
+    branches:
+      - research/issue118-cluster-rules
+    paths:
+      - scripts/issue118/materialize_research_sidecar_v2.py
+      - .github/workflows/issue118_sidecar_v2.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  materialize-sidecar-v2:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Materialize
+        run: |
+          python3 -m py_compile scripts/issue118/materialize_research_sidecar_v2.py
+          python3 scripts/issue118/materialize_research_sidecar_v2.py
+      - name: Validate
+        run: |
+          python3 - <<'PY'
+          import csv,json
+          from pathlib import Path
+          p=Path('docs/issue118')
+          s=json.loads((p/'research_sidecar_summary_v2.json').read_text(encoding='utf-8'))
+          rows=list(csv.DictReader((p/'research_sidecar_v2.csv').open(encoding='utf-8')))
+          assert len(rows)==31752
+          assert s['review_status_counts']=={'AUTO_HIGH_CONF':14894,'HUMAN_REVIEWED':1068,'UNCLASSIFIED':15790}
+          assert s['sexual_intent_counts']=={'CONTEXTUAL':190,'NON_SEXUAL':15187,'NULL':15790,'SEXUAL':585}
+          assert s['production_authority']=='NO' and s['main_mutated']=='NO' and s['issue117_code_mutated']=='NO'
+          print('ISSUE118_SIDECAR_V2_GATE=PASS')
+          PY
+      - name: Persist research result
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/issue118/research_sidecar_v2.csv docs/issue118/research_sidecar_summary_v2.json docs/issue118/safe_general_candidates_v2/validation_review_v2.csv docs/issue118/safe_general_refine_v3/validation_review_v3.csv
+          if ! git diff --cached --quiet; then
+            git commit -m 'Issue #118: materialize research sidecar v2'
+            git push origin HEAD:research/issue118-cluster-rules
+          fi
