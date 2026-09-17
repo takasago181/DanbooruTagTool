@@ -1,0 +1,56 @@
+name: Issue118 Pathless Structural Safe V24
+
+on:
+  push:
+    branches:
+      - research/issue118-cluster-triage-v8
+    paths:
+      - scripts/issue118/materialize_pathless_structural_safe_v24.py
+      - docs/issue118/pathless_low_risk_v23/low_risk_candidate_v23.csv
+      - .github/workflows/issue118_pathless_structural_safe_v24.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  pathless-v24:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Materialize pathless structural-safe v24
+        run: |
+          python3 -m py_compile scripts/issue118/materialize_pathless_structural_safe_v24.py
+          python3 scripts/issue118/materialize_pathless_structural_safe_v24.py
+      - name: Validate v24
+        run: |
+          python3 - <<'PY'
+          import csv, json
+          from pathlib import Path
+          p = Path('docs/issue118/pathless_structural_safe_v24')
+          s = json.loads((p / 'summary_v24.json').read_text(encoding='utf-8'))
+          selected = list(csv.DictReader((p / 'structural_safe_candidate_v24.csv').open(encoding='utf-8')))
+          residual = list(csv.DictReader((p / 'residual_unclassified_v24.csv').open(encoding='utf-8')))
+          holdout = list(csv.DictReader((p / 'fresh_holdout_template_v24.csv').open(encoding='utf-8')))
+          assert len(selected) + len(residual) == 2318
+          assert len(holdout) == min(120, len(selected))
+          assert s['selection_rules_use'] == 'DISCOVERY_ONLY_NOT_CLASSIFICATION_AUTHORITY'
+          assert s['holdout_verdicts_generated'] == 'NO'
+          assert s['auto_promotion_performed'] == 'NO'
+          assert s['production_authority'] == 'NO'
+          assert s['main_mutated'] == 'NO'
+          assert s['issue117_code_mutated'] == 'NO'
+          assert s['catalog_mutated'] == 'NO'
+          assert s['user_db_mutated'] == 'NO'
+          print('ISSUE118_PATHLESS_V24_GATE=PASS')
+          PY
+      - name: Persist research evidence only
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/issue118/pathless_structural_safe_v24
+          if ! git diff --cached --quiet; then
+            git commit -m 'Issue #118: materialize pathless structural-safe v24'
+            git push origin HEAD:research/issue118-cluster-triage-v8
+          fi
