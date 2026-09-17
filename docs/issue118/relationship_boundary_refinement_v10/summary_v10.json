@@ -1,0 +1,22 @@
+{
+  "issue": 118,
+  "mode": "RELATIONSHIP_BOUNDARY_REFINEMENT_V10",
+  "source_v9_clean_rows": 1711,
+  "relationship_boundary_review_rows": 3,
+  "clean_candidate_rows_v10": 1708,
+  "fresh_holdout_template_rows": 120,
+  "required_counterexamples_captured": [
+    "brocon",
+    "top/bottom_dynamic_annotated"
+  ],
+  "boundary_rules_use": "DISCOVERY_ONLY_NOT_CLASSIFICATION_AUTHORITY",
+  "holdout_verdicts_generated": "NO",
+  "semantic_authority": "NO",
+  "auto_promotion_performed": "NO",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO",
+  "next_gate": "independently review relationship-boundary rows and the new fixed 120-row holdout; only then consider promotion of the remaining clean set"
+}

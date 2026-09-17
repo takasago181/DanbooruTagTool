@@ -1,0 +1,4 @@
+identity_key,general_path,cluster_key,old_lex_flags,redteam_flags,candidate_state,v10_boundary_flags,v10_state
+brocon,EXPRESSION_EMOTION,GENERAL_ONLY|EXPRESSION_EMOTION|NONE,NONE,,CLEAN_FOR_FRESH_HOLDOUT,relationship_exact:brocon|relationship_compound:(?:^|[_/\-])brocon(?:$|[_/\-]),RELATIONSHIP_BOUNDARY_REVIEW
+ntr_character_sheet,STYLE_QUALITY_META,GENERAL_ONLY|STYLE_QUALITY_META|NONE,NONE,,CLEAN_FOR_FRESH_HOLDOUT,relationship_exact:ntr,RELATIONSHIP_BOUNDARY_REVIEW
+top/bottom_dynamic_annotated,STYLE_QUALITY_META,GENERAL_ONLY|STYLE_QUALITY_META|NONE,NONE,,CLEAN_FOR_FRESH_HOLDOUT,relationship_compound:(?:^|[_/\-])top[/_-]bottom[_/-]dynamic(?:$|[_/\-]),RELATIONSHIP_BOUNDARY_REVIEW
