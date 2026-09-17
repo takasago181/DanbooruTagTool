@@ -1,0 +1,25 @@
+{
+  "issue": 118,
+  "mode": "INDEPENDENT_ACTION_ORDINARY_HOLDOUT_REVIEW_V16_4",
+  "source": "docs/issue118/action_interaction_refinement_v16_4/ordinary_fresh_holdout_template_v16_4.csv",
+  "reviewed_rows": 120,
+  "gate": "FAIL_REFINEMENT_REQUIRED",
+  "observed_boundary_counterexamples": [
+    "strip_mahjong",
+    "babydoll_lift",
+    "towel_tug",
+    "mating_season",
+    "licking_tip",
+    "riding_person"
+  ],
+  "move_to_intimate_general": [
+    "hand_on_another's_hip",
+    "hand_on_another's_waist",
+    "hand_on_another's_stomach"
+  ],
+  "note": "Refine only observed stripping/exposure, mating, ambiguous licking/riding, and intimate-body-contact families; do not eject generic adult-associated but semantically nonsexual actions.",
+  "review_verdicts_generated_by_materializer": "NO",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO"
+}
