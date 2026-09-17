@@ -1,0 +1,10 @@
+feature,target_class,pilot_support,holdout_support,total_support
+TOK=hair,NON_SEXUAL,7,8,15
+TOK=print,NON_SEXUAL,5,7,12
+TOK=print|GROOT=COLOR_APPEARANCE,NON_SEXUAL,4,6,10
+TOK=hair|GROOT=HAIR_FACE,NON_SEXUAL,2,7,9
+TOK=flower,NON_SEXUAL,5,2,7
+TOK=white,NON_SEXUAL,5,2,7
+TOK=black,NON_SEXUAL,4,2,6
+TOK=handjob,SEXUAL,4,2,6
+TOK=vibrator,SEXUAL,2,4,6

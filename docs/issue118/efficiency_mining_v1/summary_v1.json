@@ -1,0 +1,22 @@
+{
+  "issue": 118,
+  "mode": "CROSS_VALIDATED_EFFICIENCY_MINING_V1",
+  "resolved_human_reviews": 924,
+  "accepted_crossvalidated_rules": 9,
+  "coverage_queue_rows": 1000,
+  "candidate_rows": 7,
+  "conflict_rows": 0,
+  "unresolved_rows": 993,
+  "validation_sample_rows": 4,
+  "candidate_class_counts": {
+    "NON_SEXUAL": 7
+  },
+  "safety_contract": {
+    "requires_both_pilot_and_holdout_support": true,
+    "minimum_support_total": 6,
+    "minimum_support_per_cohort": 2,
+    "training_purity_required": 1.0,
+    "taxonomy_or_family_only_rules_allowed": false,
+    "production_promotion_performed": "NO"
+  }
+}

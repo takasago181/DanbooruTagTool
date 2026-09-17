@@ -1,0 +1,5 @@
+identity_key,priority_band,is_general,is_special,general_primary_path,special_id,generation_family,issue104_risk,candidate_class,best_rule,best_rule_support,matching_rule_count
+black_chastity_cage,P1_SPECIAL_OR_OVERLAP,YES,YES,OBJECT_PROP,1066,,NO,NON_SEXUAL,TOK=black,6,1
+colored_pubic_hair,P1_SPECIAL_OR_OVERLAP,YES,YES,BODY_PART,2740,BODY_ATTRIBUTE,NO,NON_SEXUAL,TOK=hair,15,1
+hair_bondage,P1_SPECIAL_OR_OVERLAP,YES,YES,ACTION_CONTACT/INTERACTION,2446,,NO,NON_SEXUAL,TOK=hair,15,1
+hair_on_penis,P1_SPECIAL_OR_OVERLAP,YES,YES,ACTION_CONTACT/INTIMATE,1016,DIRECT_COMPOSITE,NO,NON_SEXUAL,TOK=hair,15,1
