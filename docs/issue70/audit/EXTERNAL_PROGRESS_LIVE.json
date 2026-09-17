@@ -7,53 +7,33 @@
   "primary_conflicted_rows": 0,
   "primary_defer_markers_suppressed_by_concrete": 0,
   "initial_external_rows": 1495,
-  "resolved_external_rows": 161,
-  "remaining_external_rows": 1334,
+  "resolved_external_rows": 241,
+  "remaining_external_rows": 1254,
   "conflicted_external_rows": 0,
   "duplicate_same_decision_rows": 0,
   "superseded_external_rows": 0,
   "resolved_verdict_counts": {
-    "FIX_BOTH": 71,
-    "FIX_DISPLAY": 21,
+    "FIX_BOTH": 91,
+    "FIX_DISPLAY": 29,
     "FIX_SEARCH": 3,
-    "KEEP": 66
+    "KEEP": 118
   },
   "resolved_by_category": {
     "Character": 28,
-    "Copyright": 133
+    "Copyright": 213
   },
   "remaining_by_category": {
     "Artist": 291,
     "Character": 382,
-    "Copyright": 661
+    "Copyright": 581
   },
   "top_remaining": [
-    {
-      "row_id": "I70-035896",
-      "category": "Copyright",
-      "canonical_tag": "fate_(series)",
-      "post_count": 407263,
-      "display_ja": "Fateシリーズ",
-      "search_ja": "",
-      "translation_note": "manual chat curation selected high-confidence Japanese copyright title",
-      "primary_source_file": "copyright_final_internal_external_split_batch064.csv"
-    },
     {
       "row_id": "I70-035904",
       "category": "Copyright",
       "canonical_tag": "honkai_(series)",
       "post_count": 188054,
       "display_ja": "崩壊",
-      "search_ja": "",
-      "translation_note": "manual chat curation selected high-confidence Japanese copyright title",
-      "primary_source_file": "copyright_final_internal_external_split_batch064.csv"
-    },
-    {
-      "row_id": "I70-035934",
-      "category": "Copyright",
-      "canonical_tag": "idolmaster_(classic)",
-      "post_count": 44384,
-      "display_ja": "アイドルマスター",
       "search_ja": "",
       "translation_note": "manual chat curation selected high-confidence Japanese copyright title",
       "primary_source_file": "copyright_final_internal_external_split_batch064.csv"
@@ -89,16 +69,6 @@
       "primary_source_file": "copyright_batch004_01.csv"
     },
     {
-      "row_id": "I70-036032",
-      "category": "Copyright",
-      "canonical_tag": "dc_comics",
-      "post_count": 14643,
-      "display_ja": "DCコミック",
-      "search_ja": "",
-      "translation_note": "copyright title not uniquely resolved; manual verification required",
-      "primary_source_file": "copyright_review_external_batch062.csv"
-    },
-    {
       "row_id": "I70-036038",
       "category": "Copyright",
       "canonical_tag": "saibou_shinkyoku",
@@ -114,36 +84,6 @@
       "canonical_tag": "cookie_(touhou)",
       "post_count": 12161,
       "display_ja": "クッキー☆",
-      "search_ja": "",
-      "translation_note": "copyright title not uniquely resolved; manual verification required",
-      "primary_source_file": "copyright_review_external_batch062.csv"
-    },
-    {
-      "row_id": "I70-036080",
-      "category": "Copyright",
-      "canonical_tag": "atelier_(series)",
-      "post_count": 10890,
-      "display_ja": "アトリエ",
-      "search_ja": "",
-      "translation_note": "copyright title not uniquely resolved; manual verification required",
-      "primary_source_file": "copyright_review_external_batch062.csv"
-    },
-    {
-      "row_id": "I70-036087",
-      "category": "Copyright",
-      "canonical_tag": "axis_powers_hetalia",
-      "post_count": 10399,
-      "display_ja": "にょたりあ",
-      "search_ja": "",
-      "translation_note": "copyright title not uniquely resolved; manual verification required",
-      "primary_source_file": "copyright_review_external_batch062.csv"
-    },
-    {
-      "row_id": "I70-036116",
-      "category": "Copyright",
-      "canonical_tag": "punishing:_gray_raven",
-      "post_count": 8680,
-      "display_ja": "パニグレ",
       "search_ja": "",
       "translation_note": "copyright title not uniquely resolved; manual verification required",
       "primary_source_file": "copyright_review_external_batch062.csv"
@@ -209,26 +149,6 @@
       "primary_source_file": "artist_initial_audit_batch008.csv"
     },
     {
-      "row_id": "I70-036278",
-      "category": "Copyright",
-      "canonical_tag": "my_little_pony",
-      "post_count": 4586,
-      "display_ja": "マイリトルポニー",
-      "search_ja": "",
-      "translation_note": "single clean Japanese copyright search title",
-      "primary_source_file": "copyright_final_internal_external_split_batch064.csv"
-    },
-    {
-      "row_id": "I70-036284",
-      "category": "Copyright",
-      "canonical_tag": "my_little_pony:_friendship_is_magic",
-      "post_count": 4473,
-      "display_ja": "マイリトルポニー",
-      "search_ja": "",
-      "translation_note": "single clean Japanese copyright search title",
-      "primary_source_file": "copyright_final_internal_external_split_batch064.csv"
-    },
-    {
       "row_id": "I70-044440",
       "category": "Artist",
       "canonical_tag": "mizuki_hitoshi",
@@ -237,16 +157,6 @@
       "search_ja": "",
       "translation_note": "semantic re-curation: title/name judged usable; official/common rendering or identity-safe original preferred over literal candidate",
       "primary_source_file": "artist_initial_audit_batch008.csv"
-    },
-    {
-      "row_id": "I70-036290",
-      "category": "Copyright",
-      "canonical_tag": "zeta_gundam",
-      "post_count": 4371,
-      "display_ja": "機動戦士Ζガンダム",
-      "search_ja": "",
-      "translation_note": "single clean Japanese copyright search title",
-      "primary_source_file": "copyright_final_internal_external_split_batch064.csv"
     },
     {
       "row_id": "I70-036303",
@@ -299,34 +209,124 @@
       "primary_source_file": "artist_initial_audit_batch008.csv"
     },
     {
-      "row_id": "I70-036373",
+      "row_id": "I70-036394",
       "category": "Copyright",
-      "canonical_tag": "rabbit_hole_(vocaloid)",
-      "post_count": 3356,
-      "display_ja": "ラビットホール",
-      "search_ja": "",
-      "translation_note": "single clean Japanese copyright search title",
-      "primary_source_file": "copyright_final_internal_external_split_batch064.csv"
-    },
-    {
-      "row_id": "I70-036375",
-      "category": "Copyright",
-      "canonical_tag": "fate/prototype",
-      "post_count": 3345,
-      "display_ja": "運命/プロトタイプ",
+      "canonical_tag": "twitter",
+      "post_count": 3190,
+      "display_ja": "ツイッター",
       "search_ja": "",
       "translation_note": "copyright title not uniquely resolved; manual verification required",
       "primary_source_file": "copyright_review_external_batch062.csv"
     },
     {
-      "row_id": "I70-036378",
+      "row_id": "I70-036407",
       "category": "Copyright",
-      "canonical_tag": "wizarding_world",
-      "post_count": 3313,
-      "display_ja": "ウィザーディング・ワールド",
+      "canonical_tag": "spider-verse",
+      "post_count": 3129,
+      "display_ja": "蜘蛛宇宙",
       "search_ja": "",
       "translation_note": "copyright title not uniquely resolved; manual verification required",
       "primary_source_file": "copyright_review_external_batch062.csv"
+    },
+    {
+      "row_id": "I70-044462",
+      "category": "Artist",
+      "canonical_tag": "m-da_s-tarou",
+      "post_count": 2968,
+      "display_ja": "MだSたろう",
+      "search_ja": "",
+      "translation_note": "semantic re-curation: title/name judged usable; official/common rendering or identity-safe original preferred over literal candidate",
+      "primary_source_file": "artist_initial_audit_batch008.csv"
+    },
+    {
+      "row_id": "I70-044467",
+      "category": "Artist",
+      "canonical_tag": "mitarashi_neko",
+      "post_count": 2910,
+      "display_ja": "みたらしねこ",
+      "search_ja": "",
+      "translation_note": "semantic re-curation: title/name judged usable; official/common rendering or identity-safe original preferred over literal candidate",
+      "primary_source_file": "artist_initial_audit_batch008.csv"
+    },
+    {
+      "row_id": "I70-036430",
+      "category": "Copyright",
+      "canonical_tag": "m.u.g.e.n",
+      "post_count": 2887,
+      "display_ja": "M.U.G.E.N",
+      "search_ja": "",
+      "translation_note": "copyright title not uniquely resolved; manual verification required",
+      "primary_source_file": "copyright_no_trusted_ja_batch018.csv"
+    },
+    {
+      "row_id": "I70-001100",
+      "category": "Character",
+      "canonical_tag": "non-human_admiral_(kancolle)",
+      "post_count": 2838,
+      "display_ja": "人外提督",
+      "search_ja": "人外提督 | 非人間提督",
+      "translation_note": "ファン呼称系タグのため日本語定着名を要確認",
+      "primary_source_file": "character_review_final_batch061.csv"
+    },
+    {
+      "row_id": "I70-036439",
+      "category": "Copyright",
+      "canonical_tag": "vedal_ai",
+      "post_count": 2818,
+      "display_ja": "ネウロ様",
+      "search_ja": "",
+      "translation_note": "copyright title not uniquely resolved; manual verification required",
+      "primary_source_file": "copyright_review_external_batch062.csv"
+    },
+    {
+      "row_id": "I70-036441",
+      "category": "Copyright",
+      "canonical_tag": "little_red_riding_hood_(fairy_tale)",
+      "post_count": 2787,
+      "display_ja": "赤ずきん",
+      "search_ja": "",
+      "translation_note": "copyright title not uniquely resolved; manual verification required",
+      "primary_source_file": "copyright_review_external_batch062.csv"
+    },
+    {
+      "row_id": "I70-036443",
+      "category": "Copyright",
+      "canonical_tag": "sana_channel",
+      "post_count": 2779,
+      "display_ja": "ヌォンタート",
+      "search_ja": "",
+      "translation_note": "copyright title not uniquely resolved; manual verification required",
+      "primary_source_file": "copyright_review_external_batch062.csv"
+    },
+    {
+      "row_id": "I70-036446",
+      "category": "Copyright",
+      "canonical_tag": "shantae_(series)",
+      "post_count": 2770,
+      "display_ja": "シャンティ",
+      "search_ja": "",
+      "translation_note": "copyright title not uniquely resolved; manual verification required",
+      "primary_source_file": "copyright_review_external_batch062.csv"
+    },
+    {
+      "row_id": "I70-044479",
+      "category": "Artist",
+      "canonical_tag": "minaba_hideo",
+      "post_count": 2671,
+      "display_ja": "皆葉英夫",
+      "search_ja": "",
+      "translation_note": "semantic re-curation: title/name judged usable; official/common rendering or identity-safe original preferred over literal candidate",
+      "primary_source_file": "artist_initial_audit_batch008.csv"
+    },
+    {
+      "row_id": "I70-044480",
+      "category": "Artist",
+      "canonical_tag": "kirisawa_juuzou",
+      "post_count": 2669,
+      "display_ja": "桐沢十三",
+      "search_ja": "",
+      "translation_note": "semantic re-curation: title/name judged usable; official/common rendering or identity-safe original preferred over literal candidate",
+      "primary_source_file": "artist_initial_audit_batch008.csv"
     }
   ],
   "primary_conflicts": [],
