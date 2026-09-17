@@ -1,0 +1,64 @@
+name: Issue118 Clothing Everyday Refinement V12.1
+
+on:
+  push:
+    branches:
+      - research/issue118-cluster-triage-v8
+    paths:
+      - scripts/issue118/materialize_clothing_everyday_refinement_v12_1.py
+      - docs/issue118/research_sidecar_v4.csv
+      - .github/workflows/issue118_clothing_everyday_refinement_v12_1.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  materialize-v12-1:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Materialize separator-aware clothing refinement v12.1
+        run: |
+          python3 -m py_compile scripts/issue118/materialize_clothing_everyday_refinement_v12_1.py
+          python3 scripts/issue118/materialize_clothing_everyday_refinement_v12_1.py
+      - name: Validate v12.1
+        run: |
+          python3 - <<'PY'
+          import csv, json
+          from pathlib import Path
+
+          p = Path('docs/issue118/clothing_everyday_refinement_v12_1')
+          s = json.loads((p / 'summary_v12_1.json').read_text(encoding='utf-8'))
+          boundary = list(csv.DictReader((p / 'clothing_boundary_v12_1.csv').open(encoding='utf-8')))
+          clean = list(csv.DictReader((p / 'clothing_clean_v12_1.csv').open(encoding='utf-8')))
+          holdout = list(csv.DictReader((p / 'fresh_holdout_template_v12_1.csv').open(encoding='utf-8')))
+
+          assert s['source_rows'] == 3298
+          assert len(boundary) == s['boundary_rows']
+          assert len(clean) == s['clean_candidate_rows']
+          assert len(boundary) + len(clean) == 3298
+          assert len(holdout) == 120
+          assert all(not r['human_intent'] for r in holdout)
+          assert s['supersedes_for_promotion_gate'] == 'clothing_everyday_refinement_v12'
+          assert s['boundary_rules_use'] == 'DISCOVERY_ONLY_NOT_CLASSIFICATION_AUTHORITY'
+          assert s['holdout_verdicts_generated'] == 'NO'
+          assert s['semantic_authority'] == 'NO'
+          assert s['auto_promotion_performed'] == 'NO'
+          assert s['production_authority'] == 'NO'
+          assert s['main_mutated'] == 'NO'
+          assert s['issue117_code_mutated'] == 'NO'
+          assert s['catalog_mutated'] == 'NO'
+          assert s['user_db_mutated'] == 'NO'
+          print('ISSUE118_CLOTHING_EVERYDAY_REFINEMENT_V12_1_GATE=PASS')
+          PY
+      - name: Persist research evidence only
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/issue118/clothing_everyday_refinement_v12_1
+          if ! git diff --cached --quiet; then
+            git commit -m 'Issue #118: materialize separator-aware clothing refinement v12.1'
+            git push origin HEAD:research/issue118-cluster-triage-v8
+          fi
