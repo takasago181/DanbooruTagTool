@@ -7,25 +7,25 @@
   "primary_conflicted_rows": 0,
   "primary_defer_markers_suppressed_by_concrete": 0,
   "initial_external_rows": 1495,
-  "resolved_external_rows": 41,
-  "remaining_external_rows": 1454,
+  "resolved_external_rows": 49,
+  "remaining_external_rows": 1446,
   "conflicted_external_rows": 0,
   "duplicate_same_decision_rows": 5,
   "superseded_external_rows": 2,
   "resolved_verdict_counts": {
-    "FIX_BOTH": 10,
+    "FIX_BOTH": 16,
     "FIX_DISPLAY": 4,
     "FIX_SEARCH": 3,
-    "KEEP": 24
+    "KEEP": 26
   },
   "resolved_by_category": {
     "Character": 29,
-    "Copyright": 12
+    "Copyright": 20
   },
   "remaining_by_category": {
     "Artist": 291,
     "Character": 381,
-    "Copyright": 782
+    "Copyright": 774
   },
   "top_remaining": [
     {
@@ -54,16 +54,6 @@
       "category": "Copyright",
       "post_count": "188054",
       "display_ja": "崩壊",
-      "search_ja": "",
-      "translation_note": "manual chat curation selected high-confidence Japanese copyright title",
-      "primary_source_file": "copyright_final_internal_external_split_batch064.csv"
-    },
-    {
-      "row_id": "I70-035919",
-      "canonical_tag": "danganronpa_(series)",
-      "category": "Copyright",
-      "post_count": "68787",
-      "display_ja": "ダンガンロンパシリーズ",
       "search_ja": "",
       "translation_note": "manual chat curation selected high-confidence Japanese copyright title",
       "primary_source_file": "copyright_final_internal_external_split_batch064.csv"
@@ -129,41 +119,11 @@
       "primary_source_file": "copyright_review_external_batch062.csv"
     },
     {
-      "row_id": "I70-036005",
-      "canonical_tag": "touken_ranbu",
-      "category": "Copyright",
-      "post_count": "17450",
-      "display_ja": "とうらぶ",
-      "search_ja": "",
-      "translation_note": "copyright title not uniquely resolved; manual verification required",
-      "primary_source_file": "copyright_review_external_batch062.csv"
-    },
-    {
-      "row_id": "I70-036006",
-      "canonical_tag": "final_fantasy_vii_remake",
-      "category": "Copyright",
-      "post_count": "17304",
-      "display_ja": "FF7リメイク",
-      "search_ja": "",
-      "translation_note": "copyright title not uniquely resolved; manual verification required",
-      "primary_source_file": "copyright_review_external_batch062.csv"
-    },
-    {
       "row_id": "I70-036010",
       "canonical_tag": "nier_(series)",
       "category": "Copyright",
       "post_count": "16936",
       "display_ja": "ニーア",
-      "search_ja": "",
-      "translation_note": "copyright title not uniquely resolved; manual verification required",
-      "primary_source_file": "copyright_review_external_batch062.csv"
-    },
-    {
-      "row_id": "I70-036015",
-      "canonical_tag": "the_king_of_fighters",
-      "category": "Copyright",
-      "post_count": "16745",
-      "display_ja": "キングオブファイターズ",
       "search_ja": "",
       "translation_note": "copyright title not uniquely resolved; manual verification required",
       "primary_source_file": "copyright_review_external_batch062.csv"
@@ -189,26 +149,6 @@
       "primary_source_file": "copyright_review_external_batch062.csv"
     },
     {
-      "row_id": "I70-036019",
-      "canonical_tag": "idolmaster_cinderella_girls_starlight_stage",
-      "category": "Copyright",
-      "post_count": "16319",
-      "display_ja": "スターライトステージ",
-      "search_ja": "",
-      "translation_note": "copyright title not uniquely resolved; manual verification required",
-      "primary_source_file": "copyright_review_external_batch062.csv"
-    },
-    {
-      "row_id": "I70-036021",
-      "canonical_tag": "tsukihime",
-      "category": "Copyright",
-      "post_count": "16062",
-      "display_ja": "月姫",
-      "search_ja": "",
-      "translation_note": "copyright title not uniquely resolved; manual verification required",
-      "primary_source_file": "copyright_review_external_batch062.csv"
-    },
-    {
       "row_id": "I70-036024",
       "canonical_tag": "alien_stage",
       "category": "Copyright",
@@ -217,16 +157,6 @@
       "search_ja": "",
       "translation_note": "copyright title not uniquely resolved; manual verification required",
       "primary_source_file": "copyright_batch004_01.csv"
-    },
-    {
-      "row_id": "I70-036025",
-      "canonical_tag": "kirby_(series)",
-      "category": "Copyright",
-      "post_count": "15502",
-      "display_ja": "擬カビ",
-      "search_ja": "",
-      "translation_note": "copyright title not uniquely resolved; manual verification required",
-      "primary_source_file": "copyright_review_external_batch062.csv"
     },
     {
       "row_id": "I70-036026",
@@ -244,16 +174,6 @@
       "category": "Copyright",
       "post_count": "14889",
       "display_ja": "魔法少女ノ魔女裁判",
-      "search_ja": "",
-      "translation_note": "copyright title not uniquely resolved; manual verification required",
-      "primary_source_file": "copyright_review_external_batch062.csv"
-    },
-    {
-      "row_id": "I70-036029",
-      "canonical_tag": "bang_dream!_girls_band_party!",
-      "category": "Copyright",
-      "post_count": "14850",
-      "display_ja": "バンドリ!_ガールズバンドパーティ!",
       "search_ja": "",
       "translation_note": "copyright title not uniquely resolved; manual verification required",
       "primary_source_file": "copyright_review_external_batch062.csv"
@@ -324,6 +244,86 @@
       "category": "Copyright",
       "post_count": "13821",
       "display_ja": "放サモ",
+      "search_ja": "",
+      "translation_note": "copyright title not uniquely resolved; manual verification required",
+      "primary_source_file": "copyright_review_external_batch062.csv"
+    },
+    {
+      "row_id": "I70-036042",
+      "canonical_tag": "vspo!",
+      "category": "Copyright",
+      "post_count": "13782",
+      "display_ja": "ぶいすぽ",
+      "search_ja": "",
+      "translation_note": "copyright title not uniquely resolved; manual verification required",
+      "primary_source_file": "copyright_review_external_batch062.csv"
+    },
+    {
+      "row_id": "I70-036044",
+      "canonical_tag": "dragon_ball_z",
+      "category": "Copyright",
+      "post_count": "13737",
+      "display_ja": "この世で一番強いヤツ",
+      "search_ja": "",
+      "translation_note": "copyright title not uniquely resolved; manual verification required",
+      "primary_source_file": "copyright_review_external_batch062.csv"
+    },
+    {
+      "row_id": "I70-036049",
+      "canonical_tag": "cho_kaguya-hime!",
+      "category": "Copyright",
+      "post_count": "13201",
+      "display_ja": "超かぐや姫!",
+      "search_ja": "",
+      "translation_note": "copyright title not uniquely resolved; manual verification required",
+      "primary_source_file": "copyright_review_external_batch062.csv"
+    },
+    {
+      "row_id": "I70-036050",
+      "canonical_tag": "assault_lily",
+      "category": "Copyright",
+      "post_count": "13155",
+      "display_ja": "アサルトリリィ",
+      "search_ja": "",
+      "translation_note": "copyright title not uniquely resolved; manual verification required",
+      "primary_source_file": "copyright_review_external_batch062.csv"
+    },
+    {
+      "row_id": "I70-036051",
+      "canonical_tag": "magia_record:_mahou_shoujo_madoka_magica_gaiden",
+      "category": "Copyright",
+      "post_count": "13089",
+      "display_ja": "マギアレコード",
+      "search_ja": "",
+      "translation_note": "copyright title not uniquely resolved; manual verification required",
+      "primary_source_file": "copyright_review_external_batch062.csv"
+    },
+    {
+      "row_id": "I70-036053",
+      "canonical_tag": "fire_emblem_engage",
+      "category": "Copyright",
+      "post_count": "12949",
+      "display_ja": "FEエンゲージ",
+      "search_ja": "",
+      "translation_note": "copyright title not uniquely resolved; manual verification required",
+      "primary_source_file": "copyright_review_external_batch062.csv"
+    },
+    {
+      "row_id": "I70-036055",
+      "canonical_tag": "eiyuu_densetsu",
+      "category": "Copyright",
+      "post_count": "12902",
+      "display_ja": "英雄伝説",
+      "search_ja": "",
+      "translation_note": "copyright title not uniquely resolved; manual verification required",
+      "primary_source_file": "copyright_review_external_batch062.csv"
+    },
+    {
+      "row_id": "I70-036056",
+      "canonical_tag": "girls_band_cry",
+      "category": "Copyright",
+      "post_count": "12875",
+      "display_ja": "ガルクラ",
       "search_ja": "",
       "translation_note": "copyright title not uniquely resolved; manual verification required",
       "primary_source_file": "copyright_review_external_batch062.csv"
