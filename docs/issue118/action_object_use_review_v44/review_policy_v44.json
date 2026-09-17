@@ -1,0 +1,28 @@
+{
+  "issue": 118,
+  "mode": "ACTION_OBJECT_USE_FULL_REVIEW_V44_POLICY",
+  "source_rows": 49,
+  "decision_counts": {
+    "SEXUAL": 1,
+    "CONTEXTUAL": 6,
+    "NON_SEXUAL": 42
+  },
+  "sexual": [
+    "food_in_ass"
+  ],
+  "contextual": [
+    "food_on_body",
+    "food_on_foot",
+    "food_on_legs",
+    "food_on_pectorals",
+    "object_in_clothes",
+    "watermelon_between_thighs"
+  ],
+  "policy": "All 49 rows were manually reviewed. Direct insertion into intimate anatomy is SEXUAL; body/foot/leg/pectoral food placement, generic object-in-clothes placement, and between-thigh object placement are CONTEXTUAL because both general and fetishized use are natural; all remaining rows are ordinary object-use actions and NON_SEXUAL.",
+  "unclassified": [],
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO"
+}
