@@ -1,0 +1,56 @@
+{
+  "issue": 118,
+  "mode": "INDEPENDENT_RULE_HOLDOUT_EVALUATION_V1",
+  "holdout_rows": 240,
+  "by_candidate_rule": {
+    "AUTO_NONSEX_SAFE_GENERAL_ROOTS_ANYCONF_V1": {
+      "target": "NON_SEXUAL",
+      "matched": 160,
+      "reviewed_class_counts": {
+        "CONTEXTUAL": 2,
+        "NON_SEXUAL": 158
+      },
+      "target_precision": 0.9875,
+      "non_target_count": 2,
+      "non_target_examples": [
+        "lipstick_mark_on_ass",
+        "looking_at_panties"
+      ]
+    },
+    "AUTO_SEXUAL_EXPLICIT_SPECIAL_LEXEMES_V2": {
+      "target": "SEXUAL",
+      "matched": 80,
+      "reviewed_class_counts": {
+        "SEXUAL": 80
+      },
+      "target_precision": 1.0,
+      "non_target_count": 0,
+      "non_target_examples": []
+    }
+  },
+  "refined_nonsexual_v2": {
+    "rule": "AUTO_NONSEX_SAFE_GENERAL_ROOTS_V2",
+    "roots": [
+      "COMPOSITION_CAMERA",
+      "HAIR_FACE",
+      "LIGHT_TIME_WEATHER",
+      "LIVING_NATURE",
+      "PLACE_BACKGROUND",
+      "TEXT_SYMBOL"
+    ],
+    "matched": 120,
+    "reviewed_class_counts": {
+      "NON_SEXUAL": 120
+    },
+    "target_precision": 1.0,
+    "non_target_count": 0,
+    "non_target_examples": [],
+    "removed_roots_after_holdout_counterexamples": [
+      "COLOR_APPEARANCE",
+      "GAZE_ORIENTATION"
+    ]
+  },
+  "production_classification_written": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO"
+}
