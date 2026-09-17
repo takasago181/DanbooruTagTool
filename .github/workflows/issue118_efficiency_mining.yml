@@ -1,0 +1,56 @@
+name: Issue118 Efficiency Mining
+
+on:
+  push:
+    branches:
+      - research/issue118-efficiency-mining
+    paths:
+      - scripts/issue118/mine_crossvalidated_rules.py
+      - .github/workflows/issue118_efficiency_mining.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  mine-rules:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout research branch
+        uses: actions/checkout@v4
+
+      - name: Validate script
+        run: python3 -m py_compile scripts/issue118/mine_crossvalidated_rules.py
+
+      - name: Mine cross-validated candidate rules
+        run: python3 scripts/issue118/mine_crossvalidated_rules.py
+
+      - name: Validate outputs
+        run: |
+          python3 - <<'PY'
+          import csv, json
+          from pathlib import Path
+          root=Path('docs/issue118/efficiency_mining_v1')
+          s=json.loads((root/'summary_v1.json').read_text(encoding='utf-8'))
+          assert s['coverage_queue_rows']==1000
+          assert s['candidate_rows']+s['conflict_rows']+s['unresolved_rows']==1000
+          assert s['validation_sample_rows']<=120
+          assert s['safety_contract']['requires_both_pilot_and_holdout_support'] is True
+          assert s['safety_contract']['training_purity_required']==1.0
+          assert s['safety_contract']['taxonomy_or_family_only_rules_allowed'] is False
+          assert s['safety_contract']['production_promotion_performed']=='NO'
+          rows=list(csv.DictReader((root/'accepted_rule_candidates.csv').open(encoding='utf-8-sig')))
+          assert all(int(r['pilot_support'])>=2 and int(r['holdout_support'])>=2 and int(r['total_support'])>=6 for r in rows)
+          print('ISSUE118_EFFICIENCY_MINING_GATE=PASS')
+          PY
+
+      - name: Persist research evidence
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/issue118/efficiency_mining_v1
+          if ! git diff --cached --quiet; then
+            git commit -m 'Issue #118: materialize cross-validated efficiency mining'
+            git push origin HEAD:research/issue118-efficiency-mining
+          fi
