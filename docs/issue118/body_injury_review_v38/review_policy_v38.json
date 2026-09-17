@@ -1,0 +1,21 @@
+{
+  "issue": 118,
+  "mode": "BODY_INJURY_FULL_REVIEW_V38",
+  "source": "docs/issue118/body_injury_review_v38/full_review_candidate_v38.csv",
+  "source_rows": 58,
+  "decision_counts": {
+    "SEXUAL": 0,
+    "CONTEXTUAL": 1,
+    "NON_SEXUAL": 57
+  },
+  "contextual": [
+    "menstrual_blood"
+  ],
+  "non_sexual_rule": "all other identities in the fixed 58-row source",
+  "review_method": "full manual review of all 58 rows; blood/injury imagery is NON_SEXUAL on the sexual-intent axis; menstrual_blood is CONTEXTUAL due genuine physiological/general and fetish/sexual-image use",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO"
+}
