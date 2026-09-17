@@ -1,0 +1,58 @@
+{
+  "issue": 118,
+  "mode": "SAFE_GENERAL_CONVERGED_V6",
+  "input_candidate_rows": 10258,
+  "excluded_rows_v6": 94,
+  "clean_candidate_rows_v6": 10164,
+  "risk_family_counts": {
+    "CLOTHING_CONTEXTUAL_RISK": 46,
+    "CONTRACEPTION_SEX_RELATED": 3,
+    "GENERIC_GARTER_CONTEXTUAL_RISK": 15,
+    "NARROW_INTIMATE_WEAR": 14,
+    "O_RING_GARMENT_RISK": 16,
+    "REDTEAM_LOW_FREQUENCY_RISK": 4,
+    "SEXUALIZED_COSTUME": 8,
+    "SEXUAL_MEDIA_OR_ROLE": 2,
+    "STRIPPER_RISK": 2,
+    "TARGETED_RESTRAINT_RISK": 1
+  },
+  "v4_excluded_rows": 104,
+  "reviewed_safe_reintroduced_rows": 14,
+  "reviewed_safe_reintroduced_keys": [
+    "ankle_garter",
+    "arm_garter",
+    "black_arm_garter",
+    "bug_cage",
+    "cage",
+    "cat_o-ring",
+    "heart_o-ring",
+    "holding_cage",
+    "rabbit_o-ring",
+    "rectangular_cage",
+    "sleeve_garter",
+    "star_o-ring",
+    "suspended_cage",
+    "tail_garter"
+  ],
+  "newly_excluded_vs_v5_rows": 8,
+  "v5_contextual_counterexamples_removed": [
+    "black_garter",
+    "blue_garter",
+    "o-ring_belt",
+    "o-ring_suspenders"
+  ],
+  "redteam_discoveries_removed": [
+    "divine_bustier_(dq)",
+    "gravure_swimsuit_(idolmaster)",
+    "laddered_bodystocking",
+    "speculum"
+  ],
+  "new_unreviewed_reintroductions": 0,
+  "review_verdicts_generated_by_materializer": "NO",
+  "promotion_performed": "NO",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO"
+}
