@@ -1,0 +1,56 @@
+name: Issue118 BODY_PART Refinement V19.2
+
+on:
+  push:
+    branches:
+      - research/issue118-cluster-triage-v8
+    paths:
+      - scripts/issue118/materialize_body_part_refinement_v19_2.py
+      - docs/issue118/body_part_refinement_v19_1/low_risk_body_candidate_v19_1.csv
+      - .github/workflows/issue118_body_part_refinement_v19_2.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  body-part-v19-2:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Materialize BODY_PART refinement v19.2
+        run: |
+          python3 -m py_compile scripts/issue118/materialize_body_part_refinement_v19_2.py
+          python3 scripts/issue118/materialize_body_part_refinement_v19_2.py
+      - name: Validate v19.2
+        run: |
+          python3 - <<'PY'
+          import csv, json
+          from pathlib import Path
+          p = Path('docs/issue118/body_part_refinement_v19_2')
+          s = json.loads((p / 'summary_v19_2.json').read_text(encoding='utf-8'))
+          clean = list(csv.DictReader((p / 'low_risk_body_candidate_v19_2.csv').open(encoding='utf-8')))
+          boundary = list(csv.DictReader((p / 'new_boundary_v19_2.csv').open(encoding='utf-8')))
+          holdout = list(csv.DictReader((p / 'fresh_holdout_template_v19_2.csv').open(encoding='utf-8')))
+          assert s['source_candidate_rows_v19_1'] == 1461
+          assert len(clean) + len(boundary) == 1461
+          assert len(holdout) == 120
+          assert s['clean_candidate_rows_v19_2'] == len(clean)
+          assert s['new_boundary_rows'] == len(boundary)
+          assert s['production_authority'] == 'NO'
+          assert s['main_mutated'] == 'NO'
+          assert s['issue117_code_mutated'] == 'NO'
+          assert s['catalog_mutated'] == 'NO'
+          assert s['user_db_mutated'] == 'NO'
+          print('ISSUE118_BODY_PART_V19_2_GATE=PASS')
+          PY
+      - name: Persist research evidence only
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/issue118/body_part_refinement_v19_2
+          if ! git diff --cached --quiet; then
+            git commit -m 'Issue #118: materialize BODY_PART refinement v19.2'
+            git push origin HEAD:research/issue118-cluster-triage-v8
+          fi
