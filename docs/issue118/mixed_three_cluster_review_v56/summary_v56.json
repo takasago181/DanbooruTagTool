@@ -1,0 +1,21 @@
+{
+  "issue": 118,
+  "mode": "MIXED_THREE_CLUSTER_FULL_REVIEW_V56",
+  "source_sidecar": "research_sidecar_v31.csv",
+  "candidate_rows": 66,
+  "cluster_counts": {
+    "OVERLAP|ACTION_CONTACT|CONTEXT_MODIFIER|NONE": 22,
+    "OVERLAP|ACTION_CONTACT|POSE_COMPOSITION|NONE": 22,
+    "OVERLAP|BODY_PART|DAMAGE_STATE_ACTION|INJURY": 22
+  },
+  "selection_rules_use": "DISCOVERY_ONLY_NOT_CLASSIFICATION_AUTHORITY",
+  "auto_promotion_performed": "NO",
+  "review_verdicts_generated_by_materializer": "NO",
+  "review_artifacts_are_external_inputs": "YES",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO",
+  "next_gate": "full manual review of all 66 rows"
+}
