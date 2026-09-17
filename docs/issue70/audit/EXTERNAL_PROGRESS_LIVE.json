@@ -1,21 +1,329 @@
 {
-  "format_version": 1,
+  "format_version": 2,
   "issue": 70,
   "production_modified": false,
   "initial_external_rows": 1495,
-  "resolved_external_rows": 7,
-  "remaining_external_rows": 1488,
+  "resolved_external_rows": 29,
+  "remaining_external_rows": 1466,
   "conflicted_external_rows": 0,
+  "duplicate_same_decision_rows": 5,
+  "superseded_external_rows": 2,
   "resolved_verdict_counts": {
-    "FIX_SEARCH": 2,
-    "KEEP": 5
+    "FIX_BOTH": 4,
+    "FIX_DISPLAY": 2,
+    "FIX_SEARCH": 3,
+    "KEEP": 20
   },
   "resolved_by_category": {
-    "<unknown>": 7
+    "Character": 29
   },
   "remaining_by_category": {
-    "<unknown>": 1488
+    "Artist": 291,
+    "Character": 381,
+    "Copyright": 794
   },
+  "top_remaining": [
+    {
+      "row_id": "I70-035896",
+      "canonical_tag": "fate_(series)",
+      "category": "Copyright",
+      "post_count": "407263",
+      "display_ja": "Fateシリーズ",
+      "search_ja": "",
+      "translation_note": "manual chat curation selected high-confidence Japanese copyright title",
+      "primary_source_file": "copyright_final_internal_external_split_batch064.csv"
+    },
+    {
+      "row_id": "I70-035900",
+      "canonical_tag": "idolmaster",
+      "category": "Copyright",
+      "post_count": "285555",
+      "display_ja": "アイドルマスター",
+      "search_ja": "",
+      "translation_note": "manual chat curation selected high-confidence Japanese copyright title",
+      "primary_source_file": "copyright_final_internal_external_split_batch064.csv"
+    },
+    {
+      "row_id": "I70-035904",
+      "canonical_tag": "honkai_(series)",
+      "category": "Copyright",
+      "post_count": "188054",
+      "display_ja": "崩壊",
+      "search_ja": "",
+      "translation_note": "manual chat curation selected high-confidence Japanese copyright title",
+      "primary_source_file": "copyright_final_internal_external_split_batch064.csv"
+    },
+    {
+      "row_id": "I70-035915",
+      "canonical_tag": "mahou_shoujo_madoka_magica",
+      "category": "Copyright",
+      "post_count": "84200",
+      "display_ja": "魔法少女まどか☆マギカ",
+      "search_ja": "",
+      "translation_note": "manual chat curation selected high-confidence Japanese copyright title",
+      "primary_source_file": "copyright_final_internal_external_split_batch064.csv"
+    },
+    {
+      "row_id": "I70-035919",
+      "canonical_tag": "danganronpa_(series)",
+      "category": "Copyright",
+      "post_count": "68787",
+      "display_ja": "ダンガンロンパシリーズ",
+      "search_ja": "",
+      "translation_note": "manual chat curation selected high-confidence Japanese copyright title",
+      "primary_source_file": "copyright_final_internal_external_split_batch064.csv"
+    },
+    {
+      "row_id": "I70-035921",
+      "canonical_tag": "mahou_shoujo_madoka_magica_(anime)",
+      "category": "Copyright",
+      "post_count": "60012",
+      "display_ja": "魔法少女まどか☆マギカ",
+      "search_ja": "",
+      "translation_note": "manual chat curation selected high-confidence Japanese copyright title",
+      "primary_source_file": "copyright_final_internal_external_split_batch064.csv"
+    },
+    {
+      "row_id": "I70-035934",
+      "canonical_tag": "idolmaster_(classic)",
+      "category": "Copyright",
+      "post_count": "44384",
+      "display_ja": "アイドルマスター",
+      "search_ja": "",
+      "translation_note": "manual chat curation selected high-confidence Japanese copyright title",
+      "primary_source_file": "copyright_final_internal_external_split_batch064.csv"
+    },
+    {
+      "row_id": "I70-035950",
+      "canonical_tag": "splatoon_(series)",
+      "category": "Copyright",
+      "post_count": "33575",
+      "display_ja": "スプラトゥーン",
+      "search_ja": "",
+      "translation_note": "manual chat curation selected high-confidence Japanese copyright title",
+      "primary_source_file": "copyright_final_internal_external_split_batch064.csv"
+    },
+    {
+      "row_id": "I70-035957",
+      "canonical_tag": "dragon_ball",
+      "category": "Copyright",
+      "post_count": "30213",
+      "display_ja": "ドラゴンボール",
+      "search_ja": "",
+      "translation_note": "manual chat curation selected high-confidence Japanese copyright title",
+      "primary_source_file": "copyright_final_internal_external_split_batch064.csv"
+    },
+    {
+      "row_id": "I70-035962",
+      "canonical_tag": "toaru_majutsu_no_index",
+      "category": "Copyright",
+      "post_count": "27877",
+      "display_ja": "とある魔術の禁書目録",
+      "search_ja": "",
+      "translation_note": "manual chat curation selected high-confidence Japanese copyright title",
+      "primary_source_file": "copyright_final_internal_external_split_batch064.csv"
+    },
+    {
+      "row_id": "I70-035968",
+      "canonical_tag": "naruto_(series)",
+      "category": "Copyright",
+      "post_count": "26797",
+      "display_ja": "ナルト",
+      "search_ja": "",
+      "translation_note": "manual chat curation selected high-confidence Japanese copyright title",
+      "primary_source_file": "copyright_final_internal_external_split_batch064.csv"
+    },
+    {
+      "row_id": "I70-035971",
+      "canonical_tag": "lyrical_nanoha",
+      "category": "Copyright",
+      "post_count": "25753",
+      "display_ja": "魔法少女リリカルなのは",
+      "search_ja": "",
+      "translation_note": "manual chat curation selected high-confidence Japanese copyright title",
+      "primary_source_file": "copyright_final_internal_external_split_batch064.csv"
+    },
+    {
+      "row_id": "I70-035991",
+      "canonical_tag": "monogatari_(series)",
+      "category": "Copyright",
+      "post_count": "20928",
+      "display_ja": "物語シリーズ",
+      "search_ja": "",
+      "translation_note": "single clean Japanese copyright search title",
+      "primary_source_file": "copyright_final_internal_external_split_batch064.csv"
+    },
+    {
+      "row_id": "I70-035993",
+      "canonical_tag": "kimetsu_no_yaiba",
+      "category": "Copyright",
+      "post_count": "20669",
+      "display_ja": "鬼滅の刃",
+      "search_ja": "",
+      "translation_note": "copyright title not uniquely resolved; manual verification required",
+      "primary_source_file": "copyright_review_external_batch062.csv"
+    },
+    {
+      "row_id": "I70-035994",
+      "canonical_tag": "dragon_quest",
+      "category": "Copyright",
+      "post_count": "20359",
+      "display_ja": "ドラクエ",
+      "search_ja": "",
+      "translation_note": "copyright title not uniquely resolved; manual verification required",
+      "primary_source_file": "copyright_review_external_batch062.csv"
+    },
+    {
+      "row_id": "I70-035995",
+      "canonical_tag": "utdr_(toby_fox)",
+      "category": "Copyright",
+      "post_count": "20287",
+      "display_ja": "utdr (toby fox)",
+      "search_ja": "",
+      "translation_note": "copyright title not uniquely resolved; manual verification required",
+      "primary_source_file": "copyright_batch004_01.csv"
+    },
+    {
+      "row_id": "I70-035996",
+      "canonical_tag": "senran_kagura",
+      "category": "Copyright",
+      "post_count": "20154",
+      "display_ja": "閃乱カグ",
+      "search_ja": "",
+      "translation_note": "copyright title not uniquely resolved; manual verification required",
+      "primary_source_file": "copyright_review_external_batch062.csv"
+    },
+    {
+      "row_id": "I70-035999",
+      "canonical_tag": "bishoujo_senshi_sailor_moon",
+      "category": "Copyright",
+      "post_count": "19470",
+      "display_ja": "セーラームーン",
+      "search_ja": "",
+      "translation_note": "copyright title not uniquely resolved; manual verification required",
+      "primary_source_file": "copyright_review_external_batch062.csv"
+    },
+    {
+      "row_id": "I70-036000",
+      "canonical_tag": "sword_art_online",
+      "category": "Copyright",
+      "post_count": "19199",
+      "display_ja": "ソードアートオンライン",
+      "search_ja": "",
+      "translation_note": "copyright title not uniquely resolved; manual verification required",
+      "primary_source_file": "copyright_review_external_batch062.csv"
+    },
+    {
+      "row_id": "I70-036001",
+      "canonical_tag": "sonic_(series)",
+      "category": "Copyright",
+      "post_count": "18364",
+      "display_ja": "オリソニ",
+      "search_ja": "",
+      "translation_note": "copyright title not uniquely resolved; manual verification required",
+      "primary_source_file": "copyright_review_external_batch062.csv"
+    },
+    {
+      "row_id": "I70-036005",
+      "canonical_tag": "touken_ranbu",
+      "category": "Copyright",
+      "post_count": "17450",
+      "display_ja": "とうらぶ",
+      "search_ja": "",
+      "translation_note": "copyright title not uniquely resolved; manual verification required",
+      "primary_source_file": "copyright_review_external_batch062.csv"
+    },
+    {
+      "row_id": "I70-036006",
+      "canonical_tag": "final_fantasy_vii_remake",
+      "category": "Copyright",
+      "post_count": "17304",
+      "display_ja": "FF7リメイク",
+      "search_ja": "",
+      "translation_note": "copyright title not uniquely resolved; manual verification required",
+      "primary_source_file": "copyright_review_external_batch062.csv"
+    },
+    {
+      "row_id": "I70-036010",
+      "canonical_tag": "nier_(series)",
+      "category": "Copyright",
+      "post_count": "16936",
+      "display_ja": "ニーア",
+      "search_ja": "",
+      "translation_note": "copyright title not uniquely resolved; manual verification required",
+      "primary_source_file": "copyright_review_external_batch062.csv"
+    },
+    {
+      "row_id": "I70-036013",
+      "canonical_tag": "gochuumon_wa_usagi_desu_ka?",
+      "category": "Copyright",
+      "post_count": "16825",
+      "display_ja": "ごちうさ",
+      "search_ja": "",
+      "translation_note": "copyright title not uniquely resolved; manual verification required",
+      "primary_source_file": "copyright_review_external_batch062.csv"
+    },
+    {
+      "row_id": "I70-036014",
+      "canonical_tag": "spy_x_family",
+      "category": "Copyright",
+      "post_count": "16824",
+      "display_ja": "スパイファミリー",
+      "search_ja": "",
+      "translation_note": "copyright title not uniquely resolved; manual verification required",
+      "primary_source_file": "copyright_review_external_batch062.csv"
+    },
+    {
+      "row_id": "I70-036015",
+      "canonical_tag": "the_king_of_fighters",
+      "category": "Copyright",
+      "post_count": "16745",
+      "display_ja": "キングオブファイターズ",
+      "search_ja": "",
+      "translation_note": "copyright title not uniquely resolved; manual verification required",
+      "primary_source_file": "copyright_review_external_batch062.csv"
+    },
+    {
+      "row_id": "I70-036017",
+      "canonical_tag": "touhou_(pc-98)",
+      "category": "Copyright",
+      "post_count": "16614",
+      "display_ja": "東方旧作",
+      "search_ja": "",
+      "translation_note": "copyright title not uniquely resolved; manual verification required",
+      "primary_source_file": "copyright_review_external_batch062.csv"
+    },
+    {
+      "row_id": "I70-036018",
+      "canonical_tag": "kill_la_kill",
+      "category": "Copyright",
+      "post_count": "16383",
+      "display_ja": "キルラキル",
+      "search_ja": "",
+      "translation_note": "copyright title not uniquely resolved; manual verification required",
+      "primary_source_file": "copyright_review_external_batch062.csv"
+    },
+    {
+      "row_id": "I70-036019",
+      "canonical_tag": "idolmaster_cinderella_girls_starlight_stage",
+      "category": "Copyright",
+      "post_count": "16319",
+      "display_ja": "スターライトステージ",
+      "search_ja": "",
+      "translation_note": "copyright title not uniquely resolved; manual verification required",
+      "primary_source_file": "copyright_review_external_batch062.csv"
+    },
+    {
+      "row_id": "I70-036021",
+      "canonical_tag": "tsukihime",
+      "category": "Copyright",
+      "post_count": "16062",
+      "display_ja": "月姫",
+      "search_ja": "",
+      "translation_note": "copyright title not uniquely resolved; manual verification required",
+      "primary_source_file": "copyright_review_external_batch062.csv"
+    }
+  ],
   "conflicts": [],
-  "next_step": "continue official-source verification in impact order; do not mutate production until external queue reaches closure or an explicit stop rule is accepted"
+  "next_step": "continue official-source verification in EXTERNAL_QUEUE_LIVE.csv impact order; keep production read-only until external closure"
 }
