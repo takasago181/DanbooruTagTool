@@ -1,0 +1,26 @@
+{
+  "issue": 118,
+  "mode": "OVERLAP_ACTION_INTERACTION_NONE_FULL_REVIEW_V45_POLICY",
+  "source_rows": 45,
+  "decision_counts": {
+    "SEXUAL": 38,
+    "CONTEXTUAL": 6,
+    "NON_SEXUAL": 1
+  },
+  "non_sexual": ["smelling"],
+  "contextual": [
+    "grabbing_another's_thighs",
+    "hand_on_own_ass",
+    "hands_on_own_ass",
+    "smelling_clothes",
+    "smelling_feet",
+    "vore"
+  ],
+  "policy": "All 45 rows were manually reviewed. Explicit sex acts, sexualized grabbing/licking/stimulation, fetish jobs, docking, frottage, tribadism, unbirthing and related acts are SEXUAL. Generic smelling is NON_SEXUAL. The six listed concepts have substantial both general/nonsexual and fetishized use and are CONTEXTUAL.",
+  "unclassified": [],
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO"
+}
