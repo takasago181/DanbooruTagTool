@@ -1,0 +1,58 @@
+name: Issue118 Research Sidecar V32
+
+on:
+  push:
+    branches:
+      - research/issue118-cluster-triage-v8
+    paths:
+      - scripts/issue118/materialize_research_sidecar_v32.py
+      - docs/issue118/research_sidecar_v31.csv
+      - docs/issue118/mixed_three_cluster_review_v56/review_policy_v56.json
+      - docs/issue118/mixed_three_cluster_review_v56/full_review_candidate_v56.csv
+      - .github/workflows/issue118_research_sidecar_v32.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  research-sidecar-v32:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Materialize research sidecar v32
+        run: |
+          python3 -m py_compile scripts/issue118/materialize_research_sidecar_v32.py
+          python3 scripts/issue118/materialize_research_sidecar_v32.py
+      - name: Validate v32
+        run: |
+          python3 - <<'PY'
+          import csv,json
+          from pathlib import Path
+          rows=list(csv.DictReader(Path('docs/issue118/research_sidecar_v32.csv').open(encoding='utf-8')))
+          s=json.loads(Path('docs/issue118/research_sidecar_summary_v32.json').read_text(encoding='utf-8'))
+          assert len(rows)==31752
+          assert s['new_total_promotions']==66
+          assert s['new_promotions']=={'CONTEXTUAL':15,'NON_SEXUAL':22,'SEXUAL':29}
+          assert s['review_status_counts']=={'AUTO_HIGH_CONF':22371,'HUMAN_REVIEWED':3687,'UNCLASSIFIED':5694}
+          assert s['sexual_intent_counts']=={'CONTEXTUAL':1009,'NON_SEXUAL':23522,'NULL':5694,'SEXUAL':1527}
+          assert s['remaining_unclassified']==5694
+          assert s['review_verdicts_generated_by_materializer']=='NO'
+          assert s['review_artifacts_are_external_inputs']=='YES'
+          assert s['production_authority']=='NO'
+          assert s['main_mutated']=='NO'
+          assert s['issue117_code_mutated']=='NO'
+          assert s['catalog_mutated']=='NO'
+          assert s['user_db_mutated']=='NO'
+          print('ISSUE118_RESEARCH_SIDECAR_V32_GATE=PASS')
+          PY
+      - name: Persist research sidecar only
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/issue118/research_sidecar_v32.csv docs/issue118/research_sidecar_summary_v32.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Issue #118: materialize research sidecar v32'
+            git push origin HEAD:research/issue118-cluster-triage-v8
+          fi
