@@ -1,0 +1,20 @@
+{
+  "issue": 118,
+  "mode": "INDEPENDENT_ACTION_ORDINARY_HOLDOUT_REVIEW_V16_8",
+  "source": "docs/issue118/action_interaction_refinement_v16_8/ordinary_fresh_holdout_template_v16_8.csv",
+  "reviewed_rows": 120,
+  "gate": "FAIL_FINAL_ADVERSARIAL_SWEEP_REQUIRED",
+  "observed_counterexamples": [
+    "fingers_between_toes",
+    "whispering_in_ear",
+    "blowing_in_ear",
+    "hands_on_another's_neck",
+    "hand_chains",
+    "cover_them_up_slut_(meme)"
+  ],
+  "refinement_direction": "final conservative adversarial sweep over restraint, sexualized-language, ear/foot fetish contact and intimate clothing manipulation families",
+  "review_verdicts_generated_by_materializer": "NO",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO"
+}
