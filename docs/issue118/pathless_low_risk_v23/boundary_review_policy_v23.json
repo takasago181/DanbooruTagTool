@@ -1,0 +1,36 @@
+{
+  "issue": 118,
+  "mode": "PATHLESS_V23_BOUNDARY_FULL_REVIEW",
+  "source": "docs/issue118/pathless_low_risk_v23/boundary_residual_v23.csv",
+  "source_rows": 14,
+  "non_sexual": [
+    "get_over_it._(project_sekai)",
+    "job_application_form_(meme)",
+    "play_of_the_game",
+    "room_you_can't_get_out_of_unless_you_x_(meme)",
+    "string_play_spider_baby_(meme)",
+    "the_fun_gang",
+    "tingtang_gang_(identity)_(project_moon)",
+    "you_can_just_give_this_kind_of_thing_to_men_and_they_will_be_thrilled_(meme)",
+    "you_gonna_get_eaten"
+  ],
+  "contextual": [
+    "good_ass_day",
+    "if_they_mated"
+  ],
+  "sexual": [
+    "sexually_suggestive"
+  ],
+  "keep_unclassified": [
+    "insertion_threshold_(meme)",
+    "uncommon_stimulation"
+  ],
+  "decision_counts": {
+    "NON_SEXUAL": 9,
+    "CONTEXTUAL": 2,
+    "SEXUAL": 1,
+    "UNCLASSIFIED": 2
+  },
+  "review_note": "Full review of all 14 learned-risk ejector hits. The learned-risk mechanism produced many lexical false positives and remains discovery-only; only manually reviewed identities are promoted.",
+  "production_authority": "NO"
+}
