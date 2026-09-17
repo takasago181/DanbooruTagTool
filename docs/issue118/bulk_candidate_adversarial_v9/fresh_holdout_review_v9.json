@@ -1,0 +1,35 @@
+{
+  "issue": 118,
+  "mode": "INDEPENDENT_FRESH_HOLDOUT_REVIEW_V9",
+  "inventory": "docs/issue118/bulk_candidate_adversarial_v9/fresh_holdout_template_v9.csv",
+  "inventory_blob_sha": "32e506e796db1ac0dadf2eb54851479b2fa5fac5",
+  "reviewed_rows": 120,
+  "review_method": "independent semantic review of every fixed holdout row; no materializer-generated verdicts",
+  "default_decision": "NON_SEXUAL",
+  "default_decision_count": 118,
+  "contextual": {
+    "brocon": "canonical concept spans ordinary sibling-complex/character-trait use and romantic/incestuous relationship discovery",
+    "top/bottom_dynamic_annotated": "canonical concept labels a top/bottom relationship dynamic and naturally spans ordinary relationship/ship annotation and sexual-role context"
+  },
+  "sexual": [],
+  "keep_unclassified": [],
+  "decision_counts": {
+    "NON_SEXUAL": 118,
+    "CONTEXTUAL": 2,
+    "SEXUAL": 0,
+    "KEEP_UNCLASSIFIED": 0
+  },
+  "gate_result": "FAIL_BULK_PROMOTION_REFINE_RULES",
+  "gate_reason": "fresh holdout contains 2 contextual counterexamples among 120 clean candidates; v9 clean set cannot be promoted as a whole",
+  "required_refinement": [
+    "add relationship/role boundary discovery for brocon/siscon-like concepts",
+    "add exact or compound-aware top/bottom relationship-dynamic discovery without globally flagging ordinary top/bottom tokens",
+    "rerun adversarial scan over the full 1843-candidate population",
+    "take a new independent fresh holdout with a new deterministic salt"
+  ],
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO"
+}
