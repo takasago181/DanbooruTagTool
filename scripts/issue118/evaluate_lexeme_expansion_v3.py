@@ -26,6 +26,13 @@ def read_csv(path):
     with path.open(encoding='utf-8-sig',newline='') as f: return list(csv.DictReader(f))
 
 
+def write_csv(path, rows):
+    if not rows:
+        path.write_text('',encoding='utf-8'); return
+    with path.open('w',encoding='utf-8',newline='') as f:
+        w=csv.DictWriter(f,fieldnames=list(rows[0]),lineterminator='\n'); w.writeheader(); w.writerows(rows)
+
+
 def main():
     rows=read_csv(SIDECAR)
     un=[r for r in rows if r['review_status']=='UNCLASSIFIED']
@@ -34,20 +41,21 @@ def main():
         key=r['identity_key']
         for name,rx in LEXEMES.items():
             if rx.search(key): by[name].append(r)
-    review=[]; summary={}
+    review=[]; all_matches=[]; summary={}
     for name in LEXEMES:
         vals=sorted(by[name],key=lambda r:r['identity_key'])
         sample=vals if len(vals)<=12 else vals[:6]+vals[-6:]
         summary[name]={'matches':len(vals),'sample_rows':len(sample)}
+        for r in vals:
+            all_matches.append({'lexeme':name,'match_count':str(len(vals)),**r})
         for r in sample:
             review.append({'lexeme':name,'match_count':str(len(vals)),**r,'reviewed_class':'','review_status_check':'','review_note':''})
     OUT.mkdir(parents=True,exist_ok=True)
-    if review:
-        with (OUT/'validation_sample_v1.csv').open('w',encoding='utf-8',newline='') as f:
-            w=csv.DictWriter(f,fieldnames=list(review[0]),lineterminator='\n');w.writeheader();w.writerows(review)
+    write_csv(OUT/'all_matches_v1.csv',all_matches)
+    write_csv(OUT/'validation_sample_v1.csv',review)
     result={'issue':118,'mode':'SEXUAL_LEXEME_EXPANSION_V3_CANDIDATE','source_unclassified':len(un),
             'lexemes':summary,'unique_candidate_identities':len({r['identity_key'] for vals in by.values() for r in vals}),
-            'validation_rows':len(review),'production_promotion_performed':'NO'}
+            'all_match_rows':len(all_matches),'validation_rows':len(review),'production_promotion_performed':'NO'}
     (OUT/'summary_v1.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     print(json.dumps(result,ensure_ascii=False,sort_keys=True))
     return 0
