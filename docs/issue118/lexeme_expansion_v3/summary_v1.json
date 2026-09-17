@@ -1,0 +1,42 @@
+{
+  "issue": 118,
+  "mode": "SEXUAL_LEXEME_EXPANSION_V3_CANDIDATE",
+  "source_unclassified": 26044,
+  "lexemes": {
+    "footjob": {
+      "matches": 25,
+      "sample_rows": 12
+    },
+    "glansjob": {
+      "matches": 2,
+      "sample_rows": 2
+    },
+    "hairjob": {
+      "matches": 1,
+      "sample_rows": 1
+    },
+    "backjob": {
+      "matches": 1,
+      "sample_rows": 1
+    },
+    "pecfuck": {
+      "matches": 1,
+      "sample_rows": 1
+    },
+    "buttsex": {
+      "matches": 1,
+      "sample_rows": 1
+    },
+    "frottage": {
+      "matches": 2,
+      "sample_rows": 2
+    },
+    "rape": {
+      "matches": 17,
+      "sample_rows": 12
+    }
+  },
+  "unique_candidate_identities": 50,
+  "validation_rows": 32,
+  "production_promotion_performed": "NO"
+}
