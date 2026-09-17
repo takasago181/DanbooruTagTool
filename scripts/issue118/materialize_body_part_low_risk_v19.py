@@ -63,6 +63,8 @@ def main() -> int:
     for r in side:
         if r['review_status'] != 'UNCLASSIFIED':
             continue
+        if r.get('is_special') == 'YES':
+            continue
         key = r['identity_key']
         gr = g.get(key)
         if gr is None:
@@ -75,7 +77,7 @@ def main() -> int:
 
     source = sorted(set(source))
     if len(source) != 1697:
-        raise SystemExit(f'expected 1697 BODY_PART/NONE source rows, got {len(source)}')
+        raise SystemExit(f'expected 1697 GENERAL_ONLY BODY_PART/NONE source rows, got {len(source)}')
 
     low_risk = []
     residual = []
