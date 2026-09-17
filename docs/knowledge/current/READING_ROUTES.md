@@ -37,6 +37,8 @@ For detailed practical evidence add Batch L/M.
 4. `VERSION_FRESHNESS_LEDGER.csv`
 5. `HOLD_CONFLICT_REGISTER.md`
 
+WAI17 is now a historical/comparison/local-evidence lane, not the current primary Stage10 practical model.
+
 ## 5. Special meaning / canonical
 1. `CLAIM_REGISTRY.csv` — `K-SEM-*`
 2. `../catalog/06_SEMANTICS_ALIAS_TRIGGER.md`
@@ -58,6 +60,8 @@ For detailed practical evidence add Batch L/M.
 5. `HOLD_CONFLICT_REGISTER.md`
 
 When choosing a practical model lane, also read `PRACTICAL_GENERATION_NOOB_ANIMA.md`.
+
+When the question is not failure diagnosis but **how to construct/discover the scene**, use Route 14 instead.
 
 ## 8. Evaluator / tagger
 1. `CLAIM_REGISTRY.csv` — `K-EVAL-*`
@@ -110,5 +114,23 @@ Registry wins over old prose.
 
 Return `Claim ID + STATUS + SCOPE + VALIDATION_STATE + evidence` when a formal verdict is needed.
 Do not silently convert a HOLD into an answer.
+
+## 14. Adult scene planning / discovery / browse-order question
+1. `../catalog/05_HARD_NICHE_ADULT_GENERATION.md`
+2. `../research/BATCH_N_SCENE_INTENT_DISCOVERY_WORKFLOW_20260917.md`
+3. `CLAIM_REGISTRY.csv` — especially `K-PROMPT-*`, `K-BIND-*`, `K-HARD-*`, relevant model-order claims
+4. `RESEARCH_BACKLOG_20260913.md` — `SW-01..04`
+5. main product Issue / `PRODUCT_GOAL_LOCK.md` only if actual UI/product adoption is being decided
+
+Key rule:
+- human scene-construction order
+- browse/discovery entry path
+- canonical semantic role
+- model-specific Prompt serialization
+- generation diagnosis
+
+are separate layers.
+
+Do not turn the Batch N default human planning sequence into universal model grammar or a production UI requirement without bounded usability evidence.
 
 Historical `PROMPT:#5` routing is retired; new Prompt/generation-knowledge questions route through KNOWLEDGE #44.
