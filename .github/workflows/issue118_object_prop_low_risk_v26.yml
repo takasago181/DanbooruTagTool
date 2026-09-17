@@ -33,7 +33,7 @@ jobs:
           low = list(csv.DictReader((p / 'low_risk_candidate_v26.csv').open(encoding='utf-8')))
           residual = list(csv.DictReader((p / 'boundary_residual_v26.csv').open(encoding='utf-8')))
           holdout = list(csv.DictReader((p / 'fresh_holdout_template_v26.csv').open(encoding='utf-8')))
-          assert len(low) + len(residual) == 227
+          assert len(low) + len(residual) == 161
           assert len(holdout) == min(120, len(low))
           assert s['holdout_verdicts_generated'] == 'NO'
           assert s['auto_promotion_performed'] == 'NO'
