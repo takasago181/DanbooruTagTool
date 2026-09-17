@@ -1,0 +1,249 @@
+{
+  "issue": 118,
+  "mode": "REVIEWED_700_PILOT_SUMMARY_V1",
+  "pilot_rows": 700,
+  "reviewed_rows": 684,
+  "unclassified_rows": 16,
+  "overall_class_counts": {
+    "CONTEXTUAL": 187,
+    "NON_SEXUAL": 411,
+    "SEXUAL": 86,
+    "UNCLASSIFIED": 16
+  },
+  "by_stratum": {
+    "BOUNDARY_GENERAL_ONLY": {
+      "CONTEXTUAL": 7,
+      "NON_SEXUAL": 112,
+      "UNCLASSIFIED": 1
+    },
+    "BOUNDARY_OVERLAP": {
+      "CONTEXTUAL": 60,
+      "NON_SEXUAL": 22,
+      "SEXUAL": 36,
+      "UNCLASSIFIED": 2
+    },
+    "BOUNDARY_SPECIAL_ONLY": {
+      "CONTEXTUAL": 2,
+      "NON_SEXUAL": 1,
+      "SEXUAL": 6,
+      "UNCLASSIFIED": 1
+    },
+    "ISSUE104_REVIEWED_RISK": {
+      "CONTEXTUAL": 111,
+      "NON_SEXUAL": 74,
+      "SEXUAL": 38,
+      "UNCLASSIFIED": 9
+    },
+    "ORDINARY_GENERAL_CONTROL": {
+      "NON_SEXUAL": 100
+    },
+    "UNION_FILL": {
+      "CONTEXTUAL": 7,
+      "NON_SEXUAL": 102,
+      "SEXUAL": 6,
+      "UNCLASSIFIED": 3
+    }
+  },
+  "by_membership": {
+    "GENERAL_ONLY": {
+      "CONTEXTUAL": 69,
+      "NON_SEXUAL": 369,
+      "SEXUAL": 12,
+      "UNCLASSIFIED": 11
+    },
+    "OVERLAP": {
+      "CONTEXTUAL": 114,
+      "NON_SEXUAL": 40,
+      "SEXUAL": 65,
+      "UNCLASSIFIED": 4
+    },
+    "SPECIAL_ONLY": {
+      "CONTEXTUAL": 4,
+      "NON_SEXUAL": 2,
+      "SEXUAL": 9,
+      "UNCLASSIFIED": 1
+    }
+  },
+  "by_general_root": {
+    "(none)": {
+      "CONTEXTUAL": 8,
+      "NON_SEXUAL": 26,
+      "SEXUAL": 16,
+      "UNCLASSIFIED": 6
+    },
+    "ACTION_CONTACT": {
+      "CONTEXTUAL": 76,
+      "NON_SEXUAL": 27,
+      "SEXUAL": 49,
+      "UNCLASSIFIED": 4
+    },
+    "BODY_PART": {
+      "CONTEXTUAL": 26,
+      "NON_SEXUAL": 76,
+      "SEXUAL": 7,
+      "UNCLASSIFIED": 1
+    },
+    "CLOTHING": {
+      "CONTEXTUAL": 20,
+      "NON_SEXUAL": 92,
+      "SEXUAL": 1
+    },
+    "CLOTHING_STATE_EXPOSURE": {
+      "CONTEXTUAL": 30,
+      "NON_SEXUAL": 13,
+      "SEXUAL": 2,
+      "UNCLASSIFIED": 4
+    },
+    "COLOR_APPEARANCE": {
+      "CONTEXTUAL": 2,
+      "NON_SEXUAL": 13
+    },
+    "COMPOSITION_CAMERA": {
+      "CONTEXTUAL": 2,
+      "NON_SEXUAL": 7
+    },
+    "EXPRESSION_EMOTION": {
+      "CONTEXTUAL": 1,
+      "NON_SEXUAL": 7,
+      "SEXUAL": 1
+    },
+    "GAZE_ORIENTATION": {
+      "CONTEXTUAL": 1,
+      "NON_SEXUAL": 1
+    },
+    "HAIR_FACE": {
+      "NON_SEXUAL": 9
+    },
+    "LIGHT_TIME_WEATHER": {
+      "NON_SEXUAL": 4
+    },
+    "LIVING_NATURE": {
+      "NON_SEXUAL": 19
+    },
+    "OBJECT_PROP": {
+      "CONTEXTUAL": 10,
+      "NON_SEXUAL": 67,
+      "SEXUAL": 7
+    },
+    "PERSON_COUNT": {
+      "NON_SEXUAL": 11
+    },
+    "PLACE_BACKGROUND": {
+      "NON_SEXUAL": 11
+    },
+    "POSE_MOVEMENT": {
+      "CONTEXTUAL": 7,
+      "NON_SEXUAL": 3,
+      "SEXUAL": 1,
+      "UNCLASSIFIED": 1
+    },
+    "STYLE_QUALITY_META": {
+      "CONTEXTUAL": 3,
+      "NON_SEXUAL": 11,
+      "SEXUAL": 1
+    },
+    "TEXT_SYMBOL": {
+      "CONTEXTUAL": 1,
+      "NON_SEXUAL": 14,
+      "SEXUAL": 1
+    }
+  },
+  "by_special_family": {
+    "(none)": {
+      "CONTEXTUAL": 79,
+      "NON_SEXUAL": 373,
+      "SEXUAL": 19,
+      "UNCLASSIFIED": 12
+    },
+    "ACTION_INTERACTION": {
+      "CONTEXTUAL": 15,
+      "NON_SEXUAL": 2,
+      "SEXUAL": 19
+    },
+    "BODY_ATTRIBUTE": {
+      "CONTEXTUAL": 10,
+      "NON_SEXUAL": 14,
+      "SEXUAL": 1,
+      "UNCLASSIFIED": 1
+    },
+    "BODY_STATE": {
+      "CONTEXTUAL": 8,
+      "NON_SEXUAL": 4,
+      "SEXUAL": 1
+    },
+    "CAMERA_INTERNAL_VIEW": {
+      "CONTEXTUAL": 1
+    },
+    "CLOTHING_EXPOSURE": {
+      "CONTEXTUAL": 22,
+      "NON_SEXUAL": 7,
+      "SEXUAL": 6,
+      "UNCLASSIFIED": 1
+    },
+    "CONTEXT_MODIFIER": {
+      "CONTEXTUAL": 2,
+      "NON_SEXUAL": 1,
+      "SEXUAL": 5
+    },
+    "DAMAGE_STATE_ACTION": {
+      "CONTEXTUAL": 2,
+      "NON_SEXUAL": 4,
+      "SEXUAL": 1
+    },
+    "DIRECT_COMPOSITE": {
+      "CONTEXTUAL": 7,
+      "NON_SEXUAL": 2,
+      "SEXUAL": 6
+    },
+    "FLUID_STATE_ACTION": {
+      "CONTEXTUAL": 5,
+      "SEXUAL": 7
+    },
+    "IMPLEMENT_OBJECT": {
+      "CONTEXTUAL": 1,
+      "NON_SEXUAL": 1,
+      "SEXUAL": 8
+    },
+    "INSERTION_STRUCTURED": {
+      "SEXUAL": 3
+    },
+    "MACHINE_STRUCTURED": {
+      "SEXUAL": 1,
+      "UNCLASSIFIED": 1
+    },
+    "NONHUMAN_INTERACTION": {
+      "CONTEXTUAL": 1,
+      "SEXUAL": 1
+    },
+    "POSE_COMPOSITION": {
+      "CONTEXTUAL": 5,
+      "SEXUAL": 2,
+      "UNCLASSIFIED": 1
+    },
+    "REACTION_STATE": {
+      "SEXUAL": 1
+    },
+    "RELATION_ROLE_CONTEXT": {
+      "CONTEXTUAL": 2,
+      "SEXUAL": 1
+    },
+    "REPRO_BODY_STATE": {
+      "CONTEXTUAL": 1
+    },
+    "RESTRAINT_ACTION": {
+      "CONTEXTUAL": 12,
+      "SEXUAL": 1
+    },
+    "RESTRAINT_IMPLEMENT": {
+      "CONTEXTUAL": 14,
+      "NON_SEXUAL": 3,
+      "SEXUAL": 2
+    },
+    "SCENE_CONTEXT": {
+      "SEXUAL": 1
+    }
+  },
+  "interpretation_guard": "This is a deliberately stratified pilot, not a prevalence estimate for the 31,752-identity union.",
+  "production_mutated": "NO",
+  "issue117_code_mutated": "NO"
+}
