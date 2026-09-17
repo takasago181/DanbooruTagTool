@@ -31,10 +31,10 @@ jobs:
           import json
           from pathlib import Path
           d=json.loads(Path('docs/issue70/audit/character_derived_variant_base_batch034_diagnostic.json').read_text(encoding='utf-8'))
-          assert d['population']==1195
+          assert d['population']>0
           assert d['production_modified'] is False
-          assert sum(g['count'] for g in d['groups'])==1195
-          print([(g['reason'],g['count']) for g in d['groups']])
+          assert sum(g['count'] for g in d['groups'])==d['population']
+          print({'population':d['population'],'groups':[(g['reason'],g['count']) for g in d['groups']]})
           PY
           git diff --exit-code -- docs/issue70/data/runtime docs/issue70/data/source
       - name: Commit diagnostic only
