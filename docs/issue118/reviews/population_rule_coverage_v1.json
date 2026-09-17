@@ -1,0 +1,90 @@
+{
+  "issue": 118,
+  "mode": "READ_ONLY_FULL_POPULATION_RULE_COVERAGE_V1",
+  "population": {
+    "general_rows": 30629,
+    "special_rows": 3059,
+    "normalized_union_rows": 31752,
+    "normalized_overlap_rows": 1936
+  },
+  "pilot_calibrated_rules": {
+    "AUTO_NONSEX_SAFE_GENERAL_ROOTS_ANYCONF_V1": {
+      "candidate_rows": 5139,
+      "population_share": 0.161848,
+      "safe_root_counts": {
+        "COLOR_APPEARANCE": 529,
+        "COMPOSITION_CAMERA": 161,
+        "GAZE_ORIENTATION": 63,
+        "HAIR_FACE": 778,
+        "LIGHT_TIME_WEATHER": 303,
+        "LIVING_NATURE": 1248,
+        "PLACE_BACKGROUND": 1022,
+        "TEXT_SYMBOL": 1035
+      },
+      "examples": [
+        "!",
+        "!!",
+        "!?",
+        "+++",
+        "...",
+        "...!",
+        "...?",
+        "1985",
+        "1990",
+        "1994",
+        "1995",
+        "1996",
+        "1997",
+        "1998",
+        "1999",
+        "2000",
+        "2001",
+        "2002",
+        "2003",
+        "2004"
+      ],
+      "pilot_precision": 1.0,
+      "pilot_matched": 75
+    },
+    "AUTO_SEXUAL_EXPLICIT_SPECIAL_LEXEMES_V2": {
+      "candidate_rows": 521,
+      "population_share": 0.016408,
+      "examples": [
+        "after_blowjob",
+        "after_buttjob",
+        "after_ejaculation",
+        "after_fellatio",
+        "after_female_ejaculation",
+        "after_handjob",
+        "after_masturbation",
+        "after_paizuri",
+        "after_sex",
+        "anal_dildo",
+        "anal_penetration",
+        "anal_sex",
+        "angry_sex",
+        "animal_dildo",
+        "animal_sex",
+        "armpit_sex",
+        "ass-to-ass_penetration",
+        "assisted_fellatio",
+        "assisted_masturbation",
+        "assisted_paizuri"
+      ],
+      "pilot_precision": 1.0,
+      "pilot_matched": 23
+    }
+  },
+  "combined_auto_candidate_rows": 5660,
+  "combined_population_share": 0.178256,
+  "remaining_not_auto_candidate_rows": 26092,
+  "rule_conflict_rows": 0,
+  "interpretation_guard": "Counts are candidate coverage only. Pilot precision does not certify unreviewed production rows; no production classification is written.",
+  "boundaries": {
+    "production_classification_written": "NO",
+    "main_mutated": "NO",
+    "issue117_code_mutated": "NO",
+    "catalog_mutated": "NO",
+    "user_db_mutated": "NO"
+  }
+}
