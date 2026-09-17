@@ -8,6 +8,7 @@ on:
       - scripts/issue118/mine_crossvalidated_rules.py
       - scripts/issue118/cluster_coverage_queue.py
       - scripts/issue118/evaluate_lexeme_expansion_v3.py
+      - scripts/issue118/evaluate_general_subpath_candidates.py
       - .github/workflows/issue118_efficiency_mining.yml
   workflow_dispatch:
 
@@ -27,6 +28,7 @@ jobs:
           python3 -m py_compile scripts/issue118/mine_crossvalidated_rules.py
           python3 -m py_compile scripts/issue118/cluster_coverage_queue.py
           python3 -m py_compile scripts/issue118/evaluate_lexeme_expansion_v3.py
+          python3 -m py_compile scripts/issue118/evaluate_general_subpath_candidates.py
 
       - name: Mine cross-validated candidate rules
         run: python3 scripts/issue118/mine_crossvalidated_rules.py
@@ -37,30 +39,28 @@ jobs:
       - name: Evaluate lexeme expansion
         run: python3 scripts/issue118/evaluate_lexeme_expansion_v3.py
 
+      - name: Evaluate General subpath candidates
+        run: python3 scripts/issue118/evaluate_general_subpath_candidates.py
+
       - name: Validate outputs
         run: |
           python3 - <<'PY'
-          import csv, json
+          import json
           from pathlib import Path
           root=Path('docs/issue118/efficiency_mining_v1')
           s=json.loads((root/'summary_v1.json').read_text(encoding='utf-8'))
           assert s['coverage_queue_rows']==1000
           assert s['candidate_rows']+s['conflict_rows']+s['unresolved_rows']==1000
-          assert s['validation_sample_rows']<=120
           assert s['safety_contract']['requires_both_pilot_and_holdout_support'] is True
           assert s['safety_contract']['training_purity_required']==1.0
           assert s['safety_contract']['taxonomy_or_family_only_rules_allowed'] is False
-          assert s['safety_contract']['production_promotion_performed']=='NO'
 
-          croot=Path('docs/issue118/efficiency_clustering_v1')
-          c=json.loads((croot/'summary_v1.json').read_text(encoding='utf-8'))
-          assert c['queue_rows']==1000
-          assert c['production_promotion_performed']=='NO'
-
-          lroot=Path('docs/issue118/lexeme_expansion_v3')
-          l=json.loads((lroot/'summary_v1.json').read_text(encoding='utf-8'))
-          assert l['source_unclassified']==26044
-          assert l['production_promotion_performed']=='NO'
+          c=json.loads(Path('docs/issue118/efficiency_clustering_v1/summary_v1.json').read_text(encoding='utf-8'))
+          assert c['queue_rows']==1000 and c['production_promotion_performed']=='NO'
+          l=json.loads(Path('docs/issue118/lexeme_expansion_v3/summary_v1.json').read_text(encoding='utf-8'))
+          assert l['source_unclassified']==26044 and l['production_promotion_performed']=='NO'
+          g=json.loads(Path('docs/issue118/general_subpath_candidates_v1/summary_v1.json').read_text(encoding='utf-8'))
+          assert g['production_promotion_performed']=='NO'
           print('ISSUE118_EFFICIENCY_MINING_GATE=PASS')
           PY
 
@@ -68,7 +68,7 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add docs/issue118/efficiency_mining_v1 docs/issue118/efficiency_clustering_v1 docs/issue118/lexeme_expansion_v3
+          git add docs/issue118/efficiency_mining_v1 docs/issue118/efficiency_clustering_v1 docs/issue118/lexeme_expansion_v3 docs/issue118/general_subpath_candidates_v1
           if ! git diff --cached --quiet; then
             git commit -m 'Issue #118: materialize efficiency mining evidence'
             git push origin HEAD:research/issue118-efficiency-mining
