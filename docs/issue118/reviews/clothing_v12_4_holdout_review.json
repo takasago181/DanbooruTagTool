@@ -1,0 +1,20 @@
+{
+  "issue": 118,
+  "review_artifact": "clothing_v12_4_holdout_review",
+  "source": "docs/issue118/clothing_refinement_v12_4/fresh_holdout_template_v12_4.csv",
+  "reviewed_rows": 120,
+  "gate": "FAIL_FOR_RESEARCH_PROMOTION",
+  "other_rows_no_boundary_counterexample_observed": 113,
+  "boundary_counterexamples": [
+    "blue_buruma",
+    "buruma",
+    "girdle",
+    "pink_camisole",
+    "sarashi",
+    "sideless_shirt",
+    "white_camisole"
+  ],
+  "action": "KEEP_BOUNDARY_EXAMPLES_UNCLASSIFIED_AND_REFINE_FAMILY",
+  "review_generated_by_materializer": "NO",
+  "production_authority": "NO"
+}
