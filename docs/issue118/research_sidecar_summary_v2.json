@@ -1,0 +1,24 @@
+{
+  "issue": 118,
+  "mode": "RESEARCH_SIDECAR_V2",
+  "identity_rows": 31752,
+  "new_safe_general_candidates": 10252,
+  "new_manual_validation_rows": 144,
+  "review_status_counts": {
+    "AUTO_HIGH_CONF": 14893,
+    "HUMAN_REVIEWED": 1068,
+    "UNCLASSIFIED": 15791
+  },
+  "sexual_intent_counts": {
+    "CONTEXTUAL": 189,
+    "NON_SEXUAL": 15187,
+    "NULL": 15791,
+    "SEXUAL": 585
+  },
+  "remaining_unclassified": 15791,
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO"
+}
