@@ -1,0 +1,18 @@
+{
+  "issue": 118,
+  "mode": "CLOTHING_V12_5_HOLDOUT_GATE",
+  "holdout_rows": 120,
+  "result": "FAIL_REFINE_REQUIRED",
+  "counterexamples": [
+    {
+      "identity_key": "padlocked_choker",
+      "decision": "KEEP_UNCLASSIFIED",
+      "reason": "not safe for AUTO_HIGH_CONF NON_SEXUAL bulk; plausible independent fetish/BDSM discovery use"
+    }
+  ],
+  "promotion_allowed": "NO",
+  "review_verdicts_generated_by_materializer": "NO",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO"
+}
