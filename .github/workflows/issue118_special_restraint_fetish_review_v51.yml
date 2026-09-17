@@ -1,0 +1,47 @@
+name: Issue118 Special Restraint Fetish Review V51
+
+on:
+  push:
+    branches:
+      - research/issue118-cluster-triage-v8
+    paths:
+      - scripts/issue118/materialize_special_restraint_fetish_review_v51.py
+      - docs/issue118/research_sidecar_v28.csv
+      - .github/workflows/issue118_special_restraint_fetish_review_v51.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  special-restraint-fetish-review-v51:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Materialize v51 review candidate
+        run: |
+          python3 -m py_compile scripts/issue118/materialize_special_restraint_fetish_review_v51.py
+          python3 scripts/issue118/materialize_special_restraint_fetish_review_v51.py
+      - name: Validate v51
+        run: |
+          python3 - <<'PY'
+          import csv,json
+          from pathlib import Path
+          rows=list(csv.DictReader(Path('docs/issue118/special_restraint_fetish_review_v51/full_review_candidate_v51.csv').open(encoding='utf-8')))
+          s=json.loads(Path('docs/issue118/special_restraint_fetish_review_v51/summary_v51.json').read_text(encoding='utf-8'))
+          assert len(rows)==35
+          assert s['candidate_rows']==35
+          assert s['auto_promotion_performed']=='NO'
+          assert s['production_authority']=='NO'
+          print('ISSUE118_SPECIAL_RESTRAINT_FETISH_V51_GATE=PASS')
+          PY
+      - name: Persist research evidence only
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/issue118/special_restraint_fetish_review_v51/
+          if ! git diff --cached --quiet; then
+            git commit -m 'Issue #118: materialize Special restraint/fetish review v51'
+            git push origin HEAD:research/issue118-cluster-triage-v8
+          fi
