@@ -1,0 +1,20 @@
+{
+  "issue": 118,
+  "review_artifact": "clothing_v12_3_holdout_review",
+  "source": "docs/issue118/clothing_refinement_v12_3/fresh_holdout_template_v12_3.csv",
+  "reviewed_rows": 120,
+  "gate": "FAIL_FOR_RESEARCH_PROMOTION",
+  "nonsexual_rows": 118,
+  "boundary_counterexamples": [
+    {
+      "identity_key": "t-back",
+      "action": "KEEP_UNCLASSIFIED_AND_REFINE_BOUNDARY"
+    },
+    {
+      "identity_key": "tankini",
+      "action": "KEEP_UNCLASSIFIED_AND_REFINE_BOUNDARY"
+    }
+  ],
+  "review_generated_by_materializer": "NO",
+  "production_authority": "NO"
+}
