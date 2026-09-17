@@ -1,0 +1,172 @@
+#!/usr/bin/env python3
+from __future__ import annotations
+
+import csv
+import hashlib
+import json
+import re
+from collections import Counter
+from pathlib import Path
+
+GENERAL = Path('docs/issue64/production_candidate/effective_sidecar.csv')
+SIDECAR = Path('docs/issue118/research_sidecar_v11.csv')
+OUT = Path('docs/issue118/pathless_low_risk_v23')
+
+LEX_GROUPS = {
+    'EXPLICIT_SEX': {'sex','handjob','blowjob','fellatio','paizuri','irrumatio','cum','cumshot','ejaculation','orgasm','masturbation','vibrator','dildo','buttjob','threesome','penetration','prostitution','zoophilia','rape','cunnilingus','anilingus','fingering','footjob','creampie','bukkake','fleshlight','onahole','fuck','fucking'},
+    'ANATOMY': {'penis','pussy','vagina','vulva','anus','anal','clitoris','testicle','testicles','scrotum','nipple','nipples','breast','breasts','areola','areolae','pubic','crotch','genital'},
+    'RESTRAINT_FETISH': {'gag','gagged','handcuff','handcuffs','leash','rope','shackle','restraint','restraints','bondage','blindfold','clamp','clamps','collar','fetish','bdsm','spanking','whip'},
+    'REPRO': {'pregnant','pregnancy','lactation','breastfeeding','birth','insemination','fertilization','fertilisation','impregnation'},
+    'INJURY': {'blood','wound','gore','amputee','amputation','castration','corpse','injury','snuff'},
+    'EXPOSURE_INTIMATE': {'nude','naked','topless','bottomless','panty','panties','underwear','bra','cleavage','underboob','upskirt','downblouse','lingerie','crotchless','pasties','maebari'},
+    'ADULT_ROLE_DEVICE': {'condom','condoms','porn','pornstar','stripper','prostitute','courtesan','oiran','speculum','bodystocking','bustier','gravure'},
+    'RELATIONSHIP_ROLE': {'brocon','siscon','lolicon','shotacon','incest','virgin','virginity','seme','uke','femdom','maledom','ageplay','cuckold','cuckquean','netorare','netori','ntr'},
+    'SEXUALIZED_CLOTHING': {'bikini','swimsuit','swimwear','thong','garter','garters','gstring','fishnet','fishnets','corset','harness','latex','leotard','bodysuit','bunnysuit','playboy','fetishwear','bodycon','slingshot','highleg','lowleg','sheer','transparent','frontless','backless','assless','sideless','tankini','monokini','trikini','microdress','dongtan'},
+}
+
+STOP = {
+    'a','an','the','of','and','or','to','in','on','with','without','from','for','as','at','by','is','are',
+    'one','two','three','girl','girls','boy','boys','male','female','person','people','character','characters',
+    'another','own','viewer','view','style','version','alternate','original','image','art','official','other',
+}
+
+DIRECT_RISK_PATTERNS = {
+    'sexual_or_fetish_phrase': re.compile(r'(?:^|_)(?:sexual|sexually|erotic|ero|ecchi|hentai|lewd|nsfw|fetish|kink|bdsm|orgy|orgasm|masturbat|intercourse|coitus|rape|molest|porn|xxx)(?:_|$)'),
+    'intimate_body_or_exposure': re.compile(r'(?:^|_)(?:ass|boob|boobs|breast|breasts|nipple|nipples|clit|labia|genital|genitals|penis|cock|dick|pussy|vagina|vulva|anus|anal|crotch|bulge|cameltoe|underboob|cleavage)(?:_|$)'),
+    'sexual_fluid_or_act': re.compile(r'(?:^|_)(?:cum|semen|sperm|precum|bukkake|creampie|fellatio|cunnilingus|anilingus|handjob|footjob|paizuri|fingering|penetration|insertion)(?:_|$)'),
+    'adult_device_or_role': re.compile(r'(?:^|_)(?:dildo|vibrator|onahole|condom|chastity|strapon|strap_on|prostitute|pornstar|stripper)(?:_|$)'),
+}
+
+
+def read_csv(path: Path):
+    with path.open(encoding='utf-8-sig', newline='') as f:
+        return list(csv.DictReader(f))
+
+
+def norm(value: str) -> str:
+    return '_'.join(value.strip().lower().replace('_', ' ').split())
+
+
+def tokens(key: str) -> set[str]:
+    return {p for p in re.split(r'[_()\-/~!.,:+]+', key.lower()) if len(p) >= 3 and p not in STOP and not p.isdigit()}
+
+
+def lex_flags(key: str) -> str:
+    k = key.lower()
+    parts = {p for p in re.split(r'[_()\-/]+', k) if p}
+    hit = {name for name, terms in LEX_GROUPS.items() if parts & terms}
+    if re.search(r'(?:^|[_/\-])g[_\-]string(?:$|[_/\-])', k) or re.search(r'(?:^|[_/\-])see[_\-]through(?:$|[_/\-])', k) or re.search(r'(?:^|[_/\-])t[_\-]back(?:$|[_/\-])', k) or re.search(r'(?:^|[_/\-])micro(?:dress|skirt|shorts|pants|top|shirt)(?:$|[_/\-])', k):
+        hit.add('SEXUALIZED_CLOTHING')
+    return '+'.join(sorted(hit)) if hit else 'NONE'
+
+
+def stable_rank(key: str) -> str:
+    return hashlib.sha256(('issue118-pathless-v23-holdout|' + key).encode('utf-8')).hexdigest()
+
+
+def main() -> int:
+    general = read_csv(GENERAL)
+    side = read_csv(SIDECAR)
+    g = {norm(r['canonical']): r for r in general}
+
+    risk_counts = Counter()
+    non_counts = Counter()
+    for r in side:
+        cls = r['sexual_intent']
+        ts = tokens(r['identity_key'])
+        if cls in {'SEXUAL', 'CONTEXTUAL'}:
+            risk_counts.update(ts)
+        elif cls == 'NON_SEXUAL':
+            non_counts.update(ts)
+
+    learned_risk = set()
+    for tok, rc in risk_counts.items():
+        nc = non_counts[tok]
+        total = rc + nc
+        if rc >= 2 and total >= 2 and rc / total >= 0.75:
+            learned_risk.add(tok)
+
+    source = []
+    for r in side:
+        if r['review_status'] != 'UNCLASSIFIED':
+            continue
+        if r.get('is_special') == 'YES':
+            continue
+        key = r['identity_key']
+        gr = g.get(key)
+        if gr is None:
+            continue
+        if (gr.get('primary_path') or '').strip():
+            continue
+        if lex_flags(key) != 'NONE':
+            continue
+        source.append(key)
+
+    source = sorted(set(source))
+    if len(source) != 2332:
+        raise SystemExit(f'expected 2332 GENERAL_ONLY pathless/NONE rows, got {len(source)}')
+
+    low_risk = []
+    residual = []
+    flag_counts = Counter()
+    for key in source:
+        hits = []
+        k = key.lower()
+        for name, pat in DIRECT_RISK_PATTERNS.items():
+            if pat.search(k):
+                hits.append(name)
+        learned_hits = sorted(tokens(key) & learned_risk)
+        if learned_hits:
+            hits.append('learned_risk:' + ','.join(learned_hits[:8]))
+        if hits:
+            residual.append({'identity_key': key, 'state': 'PATHLESS_BOUNDARY_UNCLASSIFIED_V23', 'risk_flags': '+'.join(hits)})
+            for hit in hits:
+                flag_counts[hit.split(':', 1)[0]] += 1
+        else:
+            low_risk.append({'identity_key': key, 'state': 'PATHLESS_LOW_RISK_CANDIDATE_V23'})
+
+    holdout_keys = sorted((r['identity_key'] for r in low_risk), key=stable_rank)[:120]
+    holdout = [
+        {'identity_key': key, 'candidate_state': 'PATHLESS_LOW_RISK_HOLDOUT_V23', 'human_intent': '', 'review_note': ''}
+        for key in holdout_keys
+    ]
+
+    OUT.mkdir(parents=True, exist_ok=True)
+    with (OUT / 'low_risk_candidate_v23.csv').open('w', encoding='utf-8', newline='') as f:
+        w = csv.DictWriter(f, fieldnames=['identity_key','state'], lineterminator='\n')
+        w.writeheader(); w.writerows(low_risk)
+    with (OUT / 'boundary_residual_v23.csv').open('w', encoding='utf-8', newline='') as f:
+        w = csv.DictWriter(f, fieldnames=['identity_key','state','risk_flags'], lineterminator='\n')
+        w.writeheader(); w.writerows(residual)
+    with (OUT / 'fresh_holdout_template_v23.csv').open('w', encoding='utf-8', newline='') as f:
+        w = csv.DictWriter(f, fieldnames=['identity_key','candidate_state','human_intent','review_note'], lineterminator='\n')
+        w.writeheader(); w.writerows(holdout)
+    (OUT / 'learned_risk_tokens_v23.txt').write_text('\n'.join(sorted(learned_risk)) + '\n', encoding='utf-8')
+
+    summary = {
+        'issue': 118,
+        'mode': 'PATHLESS_LOW_RISK_V23_LEARNED_RISK_EJECTOR',
+        'source_cluster': 'GENERAL_ONLY|(none)|NONE',
+        'source_rows': len(source),
+        'learned_risk_token_count': len(learned_risk),
+        'low_risk_candidate_rows': len(low_risk),
+        'boundary_residual_rows': len(residual),
+        'boundary_flag_counts': dict(sorted(flag_counts.items())),
+        'fresh_holdout_template_rows': len(holdout),
+        'risk_rules_use': 'DISCOVERY_ONLY_NOT_CLASSIFICATION_AUTHORITY',
+        'holdout_verdicts_generated': 'NO',
+        'auto_promotion_performed': 'NO',
+        'production_authority': 'NO',
+        'main_mutated': 'NO',
+        'issue117_code_mutated': 'NO',
+        'catalog_mutated': 'NO',
+        'user_db_mutated': 'NO',
+        'next_gate': 'independently review fixed 120-row holdout; if leaks remain, refine/split rather than promoting whole pathless cluster'
+    }
+    (OUT / 'summary_v23.json').write_text(json.dumps(summary, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+    print(json.dumps(summary, ensure_ascii=False, sort_keys=True))
+    return 0
+
+
+if __name__ == '__main__':
+    raise SystemExit(main())
