@@ -1,0 +1,25 @@
+{
+  "issue": 118,
+  "mode": "INDEPENDENT_ACTION_ORDINARY_HOLDOUT_REVIEW_V16_2",
+  "source": "docs/issue118/action_interaction_refinement_v16_2/ordinary_fresh_holdout_template_v16_2.csv",
+  "reviewed_rows": 120,
+  "gate": "FAIL_REFINEMENT_REQUIRED",
+  "observed_counterexamples": [
+    "ass_support",
+    "giving_wedgie",
+    "hands_on_another's_chest",
+    "finger_sucking",
+    "tickling_ass",
+    "biting_another's_tongue",
+    "pectoral_squeeze",
+    "womb_massage",
+    "tail_stimulation",
+    "tickling_navel",
+    "biting_ear"
+  ],
+  "refinement_direction": "broad body-site x contact-action adversarial ejector, not per-tag classifier",
+  "review_verdicts_generated_by_materializer": "NO",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO"
+}
