@@ -44,6 +44,19 @@
         "condom_thigh_strap"
       ],
       "severe_opposite_examples": []
+    },
+    {
+      "rule": "AUTO_SEXUAL_EXPLICIT_SPECIAL_LEXEMES_V2",
+      "target": "SEXUAL",
+      "matched": 23,
+      "class_counts": {
+        "SEXUAL": 23
+      },
+      "target_precision": 1.0,
+      "non_target_count": 0,
+      "severe_opposite_count": 0,
+      "non_target_examples": [],
+      "severe_opposite_examples": []
     }
   ],
   "interpretation_guard": "Pilot rule performance is calibration evidence only; it is not production authority and is not a population prevalence estimate.",
