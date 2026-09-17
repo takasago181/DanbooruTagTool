@@ -7,25 +7,25 @@
   "primary_conflicted_rows": 0,
   "primary_defer_markers_suppressed_by_concrete": 0,
   "initial_external_rows": 1495,
-  "resolved_external_rows": 49,
-  "remaining_external_rows": 1446,
+  "resolved_external_rows": 57,
+  "remaining_external_rows": 1438,
   "conflicted_external_rows": 0,
   "duplicate_same_decision_rows": 5,
-  "superseded_external_rows": 2,
+  "superseded_external_rows": 1,
   "resolved_verdict_counts": {
-    "FIX_BOTH": 16,
+    "FIX_BOTH": 20,
     "FIX_DISPLAY": 4,
     "FIX_SEARCH": 3,
-    "KEEP": 26
+    "KEEP": 30
   },
   "resolved_by_category": {
     "Character": 29,
-    "Copyright": 20
+    "Copyright": 28
   },
   "remaining_by_category": {
     "Artist": 291,
     "Character": 381,
-    "Copyright": 774
+    "Copyright": 766
   },
   "top_remaining": [
     {
@@ -99,26 +99,6 @@
       "primary_source_file": "copyright_batch004_01.csv"
     },
     {
-      "row_id": "I70-035996",
-      "canonical_tag": "senran_kagura",
-      "category": "Copyright",
-      "post_count": "20154",
-      "display_ja": "閃乱カグ",
-      "search_ja": "",
-      "translation_note": "copyright title not uniquely resolved; manual verification required",
-      "primary_source_file": "copyright_review_external_batch062.csv"
-    },
-    {
-      "row_id": "I70-036001",
-      "canonical_tag": "sonic_(series)",
-      "category": "Copyright",
-      "post_count": "18364",
-      "display_ja": "オリソニ",
-      "search_ja": "",
-      "translation_note": "copyright title not uniquely resolved; manual verification required",
-      "primary_source_file": "copyright_review_external_batch062.csv"
-    },
-    {
       "row_id": "I70-036010",
       "canonical_tag": "nier_(series)",
       "category": "Copyright",
@@ -139,16 +119,6 @@
       "primary_source_file": "copyright_review_external_batch062.csv"
     },
     {
-      "row_id": "I70-036018",
-      "canonical_tag": "kill_la_kill",
-      "category": "Copyright",
-      "post_count": "16383",
-      "display_ja": "キルラキル",
-      "search_ja": "",
-      "translation_note": "copyright title not uniquely resolved; manual verification required",
-      "primary_source_file": "copyright_review_external_batch062.csv"
-    },
-    {
       "row_id": "I70-036024",
       "canonical_tag": "alien_stage",
       "category": "Copyright",
@@ -157,16 +127,6 @@
       "search_ja": "",
       "translation_note": "copyright title not uniquely resolved; manual verification required",
       "primary_source_file": "copyright_batch004_01.csv"
-    },
-    {
-      "row_id": "I70-036026",
-      "canonical_tag": "shingeki_no_kyojin",
-      "category": "Copyright",
-      "post_count": "15343",
-      "display_ja": "進撃の巨人",
-      "search_ja": "",
-      "translation_note": "copyright title not uniquely resolved; manual verification required",
-      "primary_source_file": "copyright_review_external_batch062.csv"
     },
     {
       "row_id": "I70-036028",
@@ -279,36 +239,6 @@
       "primary_source_file": "copyright_review_external_batch062.csv"
     },
     {
-      "row_id": "I70-036050",
-      "canonical_tag": "assault_lily",
-      "category": "Copyright",
-      "post_count": "13155",
-      "display_ja": "アサルトリリィ",
-      "search_ja": "",
-      "translation_note": "copyright title not uniquely resolved; manual verification required",
-      "primary_source_file": "copyright_review_external_batch062.csv"
-    },
-    {
-      "row_id": "I70-036051",
-      "canonical_tag": "magia_record:_mahou_shoujo_madoka_magica_gaiden",
-      "category": "Copyright",
-      "post_count": "13089",
-      "display_ja": "マギアレコード",
-      "search_ja": "",
-      "translation_note": "copyright title not uniquely resolved; manual verification required",
-      "primary_source_file": "copyright_review_external_batch062.csv"
-    },
-    {
-      "row_id": "I70-036053",
-      "canonical_tag": "fire_emblem_engage",
-      "category": "Copyright",
-      "post_count": "12949",
-      "display_ja": "FEエンゲージ",
-      "search_ja": "",
-      "translation_note": "copyright title not uniquely resolved; manual verification required",
-      "primary_source_file": "copyright_review_external_batch062.csv"
-    },
-    {
       "row_id": "I70-036055",
       "canonical_tag": "eiyuu_densetsu",
       "category": "Copyright",
@@ -319,11 +249,81 @@
       "primary_source_file": "copyright_review_external_batch062.csv"
     },
     {
-      "row_id": "I70-036056",
-      "canonical_tag": "girls_band_cry",
+      "row_id": "I70-036057",
+      "canonical_tag": "kamen_rider",
       "category": "Copyright",
-      "post_count": "12875",
-      "display_ja": "ガルクラ",
+      "post_count": "12867",
+      "display_ja": "オリジナルライダー",
+      "search_ja": "",
+      "translation_note": "copyright title not uniquely resolved; manual verification required",
+      "primary_source_file": "copyright_review_external_batch062.csv"
+    },
+    {
+      "row_id": "I70-036059",
+      "canonical_tag": "monster_hunter_(series)",
+      "category": "Copyright",
+      "post_count": "12409",
+      "display_ja": "モンスターハンター",
+      "search_ja": "",
+      "translation_note": "copyright title not uniquely resolved; manual verification required",
+      "primary_source_file": "copyright_review_external_batch062.csv"
+    },
+    {
+      "row_id": "I70-036062",
+      "canonical_tag": "umineko_no_naku_koro_ni",
+      "category": "Copyright",
+      "post_count": "12267",
+      "display_ja": "うみねこのなく頃に",
+      "search_ja": "",
+      "translation_note": "copyright title not uniquely resolved; manual verification required",
+      "primary_source_file": "copyright_review_external_batch062.csv"
+    },
+    {
+      "row_id": "I70-036064",
+      "canonical_tag": "cookie_(touhou)",
+      "category": "Copyright",
+      "post_count": "12161",
+      "display_ja": "クッキー☆",
+      "search_ja": "",
+      "translation_note": "copyright title not uniquely resolved; manual verification required",
+      "primary_source_file": "copyright_review_external_batch062.csv"
+    },
+    {
+      "row_id": "I70-036066",
+      "canonical_tag": "fate/kaleid_liner_prisma_illya",
+      "category": "Copyright",
+      "post_count": "12143",
+      "display_ja": "Fate/kaleidlinerプリズマ☆イリヤ",
+      "search_ja": "",
+      "translation_note": "copyright title not uniquely resolved; manual verification required",
+      "primary_source_file": "copyright_review_external_batch062.csv"
+    },
+    {
+      "row_id": "I70-036067",
+      "canonical_tag": "mahou_shoujo_lyrical_nanoha",
+      "category": "Copyright",
+      "post_count": "12126",
+      "display_ja": "魔法少女リリカルなのは",
+      "search_ja": "",
+      "translation_note": "single clean Japanese copyright search title",
+      "primary_source_file": "copyright_final_internal_external_split_batch064.csv"
+    },
+    {
+      "row_id": "I70-036069",
+      "canonical_tag": "inazuma_eleven_(series)",
+      "category": "Copyright",
+      "post_count": "12077",
+      "display_ja": "イナイレ",
+      "search_ja": "",
+      "translation_note": "copyright title not uniquely resolved; manual verification required",
+      "primary_source_file": "copyright_review_external_batch062.csv"
+    },
+    {
+      "row_id": "I70-036070",
+      "canonical_tag": "gundam_suisei_no_majo",
+      "category": "Copyright",
+      "post_count": "11820",
+      "display_ja": "機動戦士ガンダム_水星の魔女",
       "search_ja": "",
       "translation_note": "copyright title not uniquely resolved; manual verification required",
       "primary_source_file": "copyright_review_external_batch062.csv"
