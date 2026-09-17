@@ -1,0 +1,21 @@
+{
+  "issue": 118,
+  "mode": "INDEPENDENT_ACTION_ORDINARY_HOLDOUT_REVIEW_V16_7",
+  "source": "docs/issue118/action_interaction_refinement_v16_7/ordinary_fresh_holdout_template_v16_7.csv",
+  "reviewed_rows": 120,
+  "gate": "FAIL_REFINEMENT_REQUIRED",
+  "observed_boundary_counterexamples": [
+    "twerking",
+    "finger_in_navel",
+    "face_in_ass",
+    "bulge_lift",
+    "bulge_press",
+    "lotion_play",
+    "adjusting_buruma"
+  ],
+  "refinement_direction": "eject sexualized dance, intimate body-site contact/display, adult play and boundary-clothing manipulation families",
+  "review_verdicts_generated_by_materializer": "NO",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO"
+}
