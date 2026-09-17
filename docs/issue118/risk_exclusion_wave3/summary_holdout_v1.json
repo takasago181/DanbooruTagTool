@@ -1,0 +1,19 @@
+{
+  "issue": 118,
+  "mode": "RISK_EXCLUSION_WAVE3_FRESH_HOLDOUT",
+  "target_paths": [
+    "CLOTHING/ACCESSORY",
+    "CLOTHING/COSTUME",
+    "OBJECT_PROP/DAILY"
+  ],
+  "frozen_risk_token_count": 118,
+  "discovery_review_rows": 36,
+  "discovery_nonsexual_rows": 36,
+  "holdout_rows": 36,
+  "discovery_holdout_overlap": 0,
+  "rule_frozen_before_holdout": "YES",
+  "promotion_performed": "NO",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO"
+}
