@@ -1,0 +1,63 @@
+name: Issue118 Safe General V5
+
+on:
+  push:
+    branches:
+      - research/issue118-cluster-rules
+    paths:
+      - scripts/issue118/materialize_safe_general_refined_v5.py
+      - .github/workflows/issue118_safe_general_v5.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  materialize-v5:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Materialize refined v5
+        run: |
+          python3 -m py_compile scripts/issue118/materialize_safe_general_refined_v5.py
+          python3 scripts/issue118/materialize_safe_general_refined_v5.py
+      - name: Validate v5 contract
+        run: |
+          python3 - <<'PY'
+          import csv,json
+          from pathlib import Path
+          p=Path('docs/issue118/safe_general_refined_v5')
+          s=json.loads((p/'summary_v5.json').read_text(encoding='utf-8'))
+          clean=list(csv.DictReader((p/'candidate_inventory_v5.csv').open(encoding='utf-8')))
+          excluded=list(csv.DictReader((p/'adversarial_exclusions_v5.csv').open(encoding='utf-8')))
+          reintro=list(csv.DictReader((p/'reintroduced_from_v4.csv').open(encoding='utf-8')))
+          holdout=list(csv.DictReader((p/'reintroduced_holdout_sample_v5.csv').open(encoding='utf-8')))
+          assert len(clean)+len(excluded)==10258
+          assert len(clean)==s['clean_candidate_rows_v5']
+          assert len(excluded)==s['excluded_rows_v5']
+          assert len(reintro)==s['reintroduced_from_v4_rows']
+          assert len(holdout)==s['fresh_reintroduced_holdout_rows']
+          assert s['prior_sample_overlap']==0
+          assert s['review_verdicts_generated_by_materializer']=='NO'
+          assert s['promotion_performed']=='NO'
+          assert s['production_authority']=='NO'
+          assert s['main_mutated']=='NO'
+          assert s['issue117_code_mutated']=='NO'
+          assert s['catalog_mutated']=='NO'
+          assert s['user_db_mutated']=='NO'
+          clean_keys={r['identity_key'] for r in clean}
+          excluded_keys={r['identity_key'] for r in excluded}
+          assert set(s['known_must_exclude']) <= excluded_keys
+          assert set(s['known_must_reintroduce']) <= clean_keys
+          print('ISSUE118_SAFE_GENERAL_V5_GATE=PASS')
+          PY
+      - name: Persist research evidence only
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/issue118/safe_general_refined_v5
+          if ! git diff --cached --quiet; then
+            git commit -m 'Issue #118: materialize refined safe General v5'
+            git push origin HEAD:research/issue118-cluster-rules
+          fi
