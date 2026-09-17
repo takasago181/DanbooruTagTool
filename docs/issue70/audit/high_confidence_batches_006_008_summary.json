@@ -1,0 +1,12 @@
+{
+  "issue": 70,
+  "mode": "proposal_only_high_confidence_batches",
+  "production_modified": false,
+  "prior_audited_ids": 283,
+  "search_restore_batch006": 160,
+  "search_dedup_batch007": 81,
+  "artist_initial_audit_batch008": 1026,
+  "artist_keep": 735,
+  "artist_external_check": 291,
+  "unique_new_rows": 1267
+}
