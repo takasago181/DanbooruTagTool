@@ -6,6 +6,7 @@ on:
       - research/issue118-intent-pilot
     paths:
       - 'scripts/issue118/summarize_intent_reviews.py'
+      - 'scripts/issue118/evaluate_pilot_rules.py'
       - 'docs/issue118/reviews/chunk_*_review_v1.csv'
       - '.github/workflows/issue118_review_summary.yml'
   workflow_dispatch:
@@ -21,26 +22,29 @@ jobs:
       - name: Checkout research branch
         uses: actions/checkout@v4
 
-      - name: Validate summarizer syntax
-        run: python3 -m py_compile scripts/issue118/summarize_intent_reviews.py
+      - name: Validate research scripts
+        run: |
+          python3 -m py_compile scripts/issue118/summarize_intent_reviews.py
+          python3 -m py_compile scripts/issue118/evaluate_pilot_rules.py
 
       - name: Validate and summarize 700 semantic reviews
         run: |
           set -euo pipefail
           python3 scripts/issue118/summarize_intent_reviews.py
+          python3 scripts/issue118/evaluate_pilot_rules.py
 
-      - name: Persist semantic review summary
+      - name: Persist semantic review evidence
         run: |
           set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add docs/issue118/reviews/semantic_pilot_summary_v1.json
+          git add docs/issue118/reviews/semantic_pilot_summary_v1.json docs/issue118/reviews/pilot_rule_evaluation_v1.json
           if ! git diff --cached --quiet; then
-            git commit -m 'Issue #118: persist semantic pilot summary'
+            git commit -m 'Issue #118: persist semantic pilot summary and rule evaluation'
             git push origin HEAD:research/issue118-intent-pilot
           fi
 
-      - name: Upload review summary
+      - name: Upload review evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
@@ -48,5 +52,6 @@ jobs:
           path: |
             docs/issue118/reviews/chunk_*_review_v1.csv
             docs/issue118/reviews/semantic_pilot_summary_v1.json
+            docs/issue118/reviews/pilot_rule_evaluation_v1.json
           if-no-files-found: error
           retention-days: 14
