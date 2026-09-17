@@ -1,0 +1,42 @@
+name: Issue70 Export External Queue
+on:
+  push:
+    branches: [audit/issue70-semantic-final]
+    paths:
+      - 'scripts/issue70/export_unresolved_external_queue.py'
+      - '.github/workflows/issue70_export_external_queue.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: audit/issue70-semantic-final
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python scripts/issue70/export_unresolved_external_queue.py
+      - name: Validate queue
+        run: |
+          python - <<'PY'
+          import csv,json
+          from pathlib import Path
+          q=Path('docs/issue70/audit/EXTERNAL_QUEUE_TOP100.csv')
+          s=Path('docs/issue70/audit/EXTERNAL_QUEUE_SUMMARY.json')
+          rows=list(csv.DictReader(q.open(encoding='utf-8-sig')))
+          d=json.loads(s.read_text(encoding='utf-8'))
+          assert len(rows)==d['top100_rows']
+          assert d['unresolved_external']>=len(rows)
+          print(d)
+          PY
+      - name: Commit queue
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add docs/issue70/audit/EXTERNAL_QUEUE_TOP100.csv docs/issue70/audit/EXTERNAL_QUEUE_SUMMARY.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'Issue70: refresh unresolved external queue'
+          git push origin HEAD:audit/issue70-semantic-final
