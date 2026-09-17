@@ -1,0 +1,18 @@
+{
+  "issue": 118,
+  "mode": "CLOTHING_V12_6_HOLDOUT_GATE",
+  "holdout_rows": 120,
+  "result": "FAIL_REFINE_REQUIRED",
+  "counterexamples": [
+    {"identity_key": "microdress", "decision": "KEEP_UNCLASSIFIED", "family": "sexualized_micro_clothing"},
+    {"identity_key": "pantsing", "decision": "KEEP_UNCLASSIFIED", "family": "clothing_removal_action"},
+    {"identity_key": "dongtan_dress", "decision": "KEEP_UNCLASSIFIED", "family": "sexualized_fashion_meme"},
+    {"identity_key": "tight_bottoms", "decision": "KEEP_UNCLASSIFIED", "family": "sexualized_fit_clothing"},
+    {"identity_key": "tight_clothes", "decision": "KEEP_UNCLASSIFIED", "family": "sexualized_fit_clothing"}
+  ],
+  "promotion_allowed": "NO",
+  "review_verdicts_generated_by_materializer": "NO",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO"
+}
