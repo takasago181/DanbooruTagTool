@@ -1,0 +1,22 @@
+{
+  "issue": 118,
+  "mode": "SAFE_GENERAL_REFINEMENT_V3",
+  "new_risk_tokens": [
+    "cage",
+    "stripper"
+  ],
+  "target_paths": [
+    "OBJECT_PROP/DAILY",
+    "PERSON_COUNT"
+  ],
+  "refined_candidate_counts": {
+    "OBJECT_PROP/DAILY": 2625,
+    "PERSON_COUNT": 731
+  },
+  "refined_candidate_rows": 3356,
+  "fresh_validation_rows": 24,
+  "v2_sample_overlap": 0,
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO"
+}
