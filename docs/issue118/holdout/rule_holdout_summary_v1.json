@@ -1,0 +1,28 @@
+{
+  "issue": 118,
+  "mode": "INDEPENDENT_RULE_HOLDOUT_V1",
+  "pilot_identity_excluded": 700,
+  "holdout_rows": 240,
+  "group_counts": {
+    "NONSEX_COLOR_APPEARANCE": 20,
+    "NONSEX_COMPOSITION_CAMERA": 20,
+    "NONSEX_GAZE_ORIENTATION": 20,
+    "NONSEX_HAIR_FACE": 20,
+    "NONSEX_LIGHT_TIME_WEATHER": 20,
+    "NONSEX_LIVING_NATURE": 20,
+    "NONSEX_PLACE_BACKGROUND": 20,
+    "NONSEX_TEXT_SYMBOL": 20,
+    "SEXUAL_V2": 80
+  },
+  "nonsexual_rows": 160,
+  "sexual_rows": 80,
+  "review_chunk_count": 3,
+  "review_chunk_size": 80,
+  "boundaries": {
+    "production_classification_written": "NO",
+    "main_mutated": "NO",
+    "issue117_code_mutated": "NO",
+    "catalog_mutated": "NO",
+    "user_db_mutated": "NO"
+  }
+}
