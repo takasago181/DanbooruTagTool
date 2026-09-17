@@ -1,0 +1,55 @@
+{
+  "issue": 118,
+  "mode": "SAFE_GENERAL_REFINED_V5",
+  "input_candidate_rows": 10258,
+  "excluded_rows_v5": 86,
+  "clean_candidate_rows_v5": 10172,
+  "risk_family_counts": {
+    "CLOTHING_CONTEXTUAL_RISK": 46,
+    "CONTRACEPTION_SEX_RELATED": 3,
+    "NARROW_INTIMATE_WEAR": 14,
+    "O_RING_GARMENT_RISK": 14,
+    "SEXUALIZED_COSTUME": 8,
+    "SEXUAL_MEDIA_OR_ROLE": 2,
+    "STRIPPER_RISK": 2,
+    "TARGETED_RESTRAINT_RISK": 1
+  },
+  "v4_excluded_rows": 104,
+  "reintroduced_from_v4_rows": 18,
+  "reintroduced_path_counts": {
+    "ACTION_CONTACT/OBJECT_USE": 1,
+    "CLOTHING/ACCESSORY": 13,
+    "OBJECT_PROP": 1,
+    "OBJECT_PROP/DAILY": 3
+  },
+  "fresh_reintroduced_holdout_rows": 11,
+  "fresh_reintroduced_holdout_paths": 1,
+  "prior_sample_overlap": 0,
+  "known_must_exclude": [
+    "head_cage",
+    "multiple_condoms",
+    "o-ring_slingshot_swimsuit",
+    "okamoto_condoms",
+    "playboy_bunny",
+    "pornstar",
+    "stripper",
+    "stripper_pole",
+    "too_many_condoms"
+  ],
+  "known_must_reintroduce": [
+    "bug_cage",
+    "cage",
+    "holding_cage",
+    "rectangular_cage",
+    "sleeve_garter",
+    "star_o-ring",
+    "suspended_cage"
+  ],
+  "review_verdicts_generated_by_materializer": "NO",
+  "promotion_performed": "NO",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO"
+}
