@@ -1,0 +1,17 @@
+{
+  "issue": 118,
+  "mode": "OVERLAP_ACTION_ANATOMY_FULL_REVIEW_V43_POLICY",
+  "source_rows": 53,
+  "decision_counts": {
+    "SEXUAL": 53,
+    "CONTEXTUAL": 0,
+    "NON_SEXUAL": 0
+  },
+  "policy": "All 53 rows were manually reviewed. Every row denotes direct sexualized contact, stimulation, manipulation, exposure, licking/sucking, grabbing, spreading, or fetishized interaction with intimate anatomy; therefore all are SEXUAL.",
+  "unclassified": [],
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO"
+}
