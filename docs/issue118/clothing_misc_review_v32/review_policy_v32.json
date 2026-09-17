@@ -1,0 +1,19 @@
+{
+  "issue": 118,
+  "mode": "CLOTHING_MISC_FULL_REVIEW_V32",
+  "source_candidate": "docs/issue118/clothing_misc_review_v32/full_review_candidate_v32.csv",
+  "reviewed_rows": 72,
+  "verdict_counts": {"NON_SEXUAL": 71, "CONTEXTUAL": 1, "SEXUAL": 0, "UNCLASSIFIED": 0},
+  "policy_notes": [
+    "General path membership is not classification authority.",
+    "Cosplay, uniforms, ethnic clothing, ordinary garments, aprons, pajamas, robes, veils, and generic clothing descriptors are NON_SEXUAL.",
+    "under_another's_clothes is CONTEXTUAL because it can represent ordinary clothing interaction or intimate/sexual proximity.",
+    "Materializer must consume explicit verdict lists and must not generate review verdicts."
+  ],
+  "CONTEXTUAL": ["under_another's_clothes"],
+  "SEXUAL": [],
+  "UNCLASSIFIED": [],
+  "NON_SEXUAL": [
+    "two-tone_leg_warmers","u.a._cheerleader_uniform","u.a._gym_uniform","u.a._school_uniform","ubel_(sousou_no_frieren)_(cosplay)","uchiha_sasuke_(cosplay)","uchikake","ukrainian_clothes","ultimate_madoka_(cosplay)","ultra_recon_squad_uniform","ultraman_(cosplay)","umbreon_(cosplay)","umesato_middle_school_uniform","un_uniform_(muv-luv)","under-rim_eyewear","under_armour","undersized_clothes","undersuit","unicorns_hunter_uniform","uniform_number","unitard","universal_federation_army_uniform","unofficial_precure_costume","unofficial_sailor_senshi_uniform","uranohoshi_school_uniform","usada_hikaru_(cosplay)","usada_pekora_(cosplay)","usami_renko_(cosplay)","usami_sumireko_(cosplay)","ushiwakamaru_(fate)_(cosplay)","usuzan_school_uniform","utnapishtim_operator_uniform_(blue_archive)","utx_school_uniform","uva_academy_school_uniform","uzumaki_naruto_(cosplay)","vampire_costume","vaporeon_(cosplay)","vault_suit","vegeta_(cosplay)","veil","venom_snake_(cosplay)","vergil_(devil_may_cry)_(cosplay)","vermilion_city_school_uniform","verone_gakuin_school_uniform","vertical-striped_apron","vertical-striped_clothes","vertical-striped_dress","vertical-striped_gloves","vertical-striped_kimono","vertical-striped_overalls","vertical-striped_pajamas","vertical-striped_sleeves","vertical-striped_suit","vertical-striped_vest","very_long_robe","victorian_maid","viet_lolita","vietnamese_clothes","viltrumite_clothes","voile","volleyball_uniform","wagnaria_uniform","waist_apron","waistband","wandenreich_uniform","wanderer_(genshin_impact)_(cosplay)","warrior_(dq3)_(cosplay)","warspite_(kancolle)_(cosplay)","washing_clothes","water_dress","watson_amelia_(cosplay)"
+  ]
+}
