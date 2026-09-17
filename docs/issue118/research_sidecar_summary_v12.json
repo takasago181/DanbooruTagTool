@@ -1,0 +1,30 @@
+{
+  "issue": 118,
+  "mode": "RESEARCH_SIDECAR_V12_PATHLESS_STRUCTURAL_FULL_REVIEW",
+  "identity_rows": 31752,
+  "source_base": "docs/issue118/research_sidecar_v11.csv",
+  "new_pathless_structural_human_nonsexual_promotions": 83,
+  "review_status_counts": {
+    "AUTO_HIGH_CONF": 22371,
+    "HUMAN_REVIEWED": 1555,
+    "UNCLASSIFIED": 7826
+  },
+  "sexual_intent_counts": {
+    "CONTEXTUAL": 238,
+    "NON_SEXUAL": 22833,
+    "NULL": 7826,
+    "SEXUAL": 855
+  },
+  "remaining_unclassified": 7826,
+  "reviewed_source": "docs/issue118/pathless_structural_safe_v24/fresh_holdout_template_v24.csv",
+  "reviewed_source_git_blob_sha1": "90fa40026c9fa8855ab16bfb0fb33fb56d79c222",
+  "review_gate_source": "docs/issue118/pathless_structural_safe_v24/review_gate_v24.json",
+  "review_gate_sha256": "3757a7970c6996bee8459fe509264b34339730e346371b084c199ff91bffe9ac",
+  "review_verdicts_generated_by_materializer": "NO",
+  "review_artifacts_are_external_inputs": "YES",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO"
+}
