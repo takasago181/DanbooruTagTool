@@ -1,0 +1,78 @@
+name: Issue118 Intent Pilot Materialization
+
+on:
+  push:
+    branches:
+      - research/issue118-intent-pilot
+    paths:
+      - scripts/issue118/materialize_intent_pilot.py
+      - .github/workflows/issue118_intent_pilot.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  materialize-pilot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout research branch
+        uses: actions/checkout@v4
+
+      - name: Validate sampler syntax
+        run: python3 -m py_compile scripts/issue118/materialize_intent_pilot.py
+
+      - name: Materialize deterministic 700-row pilot
+        run: |
+          set -euo pipefail
+          python3 scripts/issue118/materialize_intent_pilot.py \
+            --general docs/issue64/production_candidate/effective_sidecar.csv \
+            --special data/generation/special2788_generation_profile.csv \
+            --issue104 docs/issue104/product_fit_review_v1.csv \
+            --out-dir docs/issue118
+
+      - name: Validate output contract
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import csv, json
+          from pathlib import Path
+          root = Path('docs/issue118')
+          sample = list(csv.DictReader((root/'intent_pilot_sample_v1.csv').open(encoding='utf-8-sig')))
+          summary = json.loads((root/'intent_pilot_sample_summary_v1.json').read_text(encoding='utf-8'))
+          assert len(sample) == 700
+          assert len({r['identity_key'] for r in sample}) == 700
+          assert summary['pilot_size'] == 700
+          assert summary['general_rows'] == 30629
+          assert summary['special_rows'] == 3059
+          assert summary['normalized_exact_overlap_rows'] >= 1
+          assert summary['boundaries']['sexual_intent_classification_performed'] == 'NO'
+          assert summary['boundaries']['production_data_mutated'] == 'NO'
+          assert summary['boundaries']['issue117_code_mutated'] == 'NO'
+          assert summary['boundaries']['user_db_mutated'] == 'NO'
+          assert all(not r['candidate_class'] and not r['reviewed_class'] for r in sample)
+          print('ISSUE118_PILOT_SAMPLING_GATE=PASS')
+          PY
+
+      - name: Persist research artifact on research branch
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/issue118/intent_pilot_sample_v1.csv docs/issue118/intent_pilot_sample_summary_v1.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Issue #118: materialize deterministic intent pilot sample'
+            git push origin HEAD:research/issue118-intent-pilot
+          fi
+
+      - name: Upload pilot artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: issue118-intent-pilot-${{ github.sha }}
+          path: |
+            docs/issue118/intent_pilot_sample_v1.csv
+            docs/issue118/intent_pilot_sample_summary_v1.json
+          if-no-files-found: error
+          retention-days: 14
