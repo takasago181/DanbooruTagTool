@@ -1,0 +1,37 @@
+{
+  "issue": 118,
+  "mode": "RESEARCH_SIDECAR_V7_ACTION_REVIEW_GATED",
+  "identity_rows": 31752,
+  "source_base": "docs/issue118/research_sidecar_v6.csv",
+  "new_action_auto_promotions": 953,
+  "new_action_human_violence_promotions": 41,
+  "new_action_human_intimate_promotions": 63,
+  "new_action_total_promotions": 1057,
+  "review_status_counts": {
+    "AUTO_HIGH_CONF": 20915,
+    "HUMAN_REVIEWED": 1166,
+    "UNCLASSIFIED": 9671
+  },
+  "sexual_intent_counts": {
+    "CONTEXTUAL": 201,
+    "NON_SEXUAL": 21294,
+    "NULL": 9671,
+    "SEXUAL": 586
+  },
+  "remaining_unclassified": 9671,
+  "low_risk_source": "docs/issue118/action_low_risk_subcluster_v17/low_risk_candidate_v17.csv",
+  "low_risk_gate_source": "docs/issue118/action_low_risk_subcluster_v17/holdout_gate_v17.json",
+  "low_risk_gate_sha256": "9445f373129ee557b739e3dadc2b5893c77f9b05a503b9d152711ff8ed31e629",
+  "violence_review_source": "docs/issue118/action_interaction_refinement_v16/violence_review_decisions_v16.json",
+  "violence_review_sha256": "dc5150c1783954152d77cf9514d8f92876d25cd0a6acd9543ad28108c5956777",
+  "intimate_review_source": "docs/issue118/action_interaction_refinement_v16/intimate_review_decisions_v16.json",
+  "intimate_review_sha256": "02be86f8ea78c1f6ff447bb599d2b5224d110c044ff285f2a164f60996e64862",
+  "intimate_keep_unclassified": 8,
+  "review_verdicts_generated_by_materializer": "NO",
+  "review_artifacts_are_external_inputs": "YES",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO"
+}
