@@ -1,0 +1,57 @@
+{
+  "issue": 118,
+  "mode": "PILOT_RULE_EVALUATION_V1",
+  "pilot_rows": 700,
+  "rules": [
+    {
+      "rule": "AUTO_NONSEX_SAFE_GENERAL_ROOTS_HIGH_V1",
+      "target": "NON_SEXUAL",
+      "matched": 61,
+      "class_counts": {
+        "NON_SEXUAL": 61
+      },
+      "target_precision": 1.0,
+      "non_target_count": 0,
+      "severe_opposite_count": 0,
+      "non_target_examples": [],
+      "severe_opposite_examples": []
+    },
+    {
+      "rule": "AUTO_NONSEX_SAFE_GENERAL_ROOTS_ANYCONF_V1",
+      "target": "NON_SEXUAL",
+      "matched": 75,
+      "class_counts": {
+        "NON_SEXUAL": 75
+      },
+      "target_precision": 1.0,
+      "non_target_count": 0,
+      "severe_opposite_count": 0,
+      "non_target_examples": [],
+      "severe_opposite_examples": []
+    },
+    {
+      "rule": "AUTO_SEXUAL_EXPLICIT_SPECIAL_LEXEMES_V1",
+      "target": "SEXUAL",
+      "matched": 38,
+      "class_counts": {
+        "CONTEXTUAL": 1,
+        "SEXUAL": 37
+      },
+      "target_precision": 0.973684,
+      "non_target_count": 1,
+      "severe_opposite_count": 0,
+      "non_target_examples": [
+        "condom_thigh_strap"
+      ],
+      "severe_opposite_examples": []
+    }
+  ],
+  "interpretation_guard": "Pilot rule performance is calibration evidence only; it is not production authority and is not a population prevalence estimate.",
+  "boundaries": {
+    "production_classification_written": "NO",
+    "main_mutated": "NO",
+    "issue117_code_mutated": "NO",
+    "catalog_mutated": "NO",
+    "user_db_mutated": "NO"
+  }
+}
