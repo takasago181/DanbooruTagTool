@@ -1,0 +1,70 @@
+name: Issue70 Generate Character Audit Batch 047
+
+on:
+  push:
+    branches:
+      - audit/issue70-semantic-final
+    paths:
+      - scripts/issue70/generate_character_accepted_variant_identity_batch047.py
+      - .github/workflows/issue70_generate_character_batch047.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: issue70-character-batch047
+  cancel-in-progress: false
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: audit/issue70-semantic-final
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python scripts/issue70/generate_character_accepted_variant_identity_batch047.py
+      - name: Validate proposal-only output
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s docs/issue70/audit/character_accepted_variant_identity_batch047.csv
+          python - <<'PY'
+          import csv
+          from pathlib import Path
+          with Path('docs/issue70/audit/character_accepted_variant_identity_batch047.csv').open(encoding='utf-8-sig',newline='') as f: rows=list(csv.DictReader(f))
+          assert len(rows)>=1
+          assert all(r['audit_verdict']=='FIX_DISPLAY' for r in rows)
+          assert all(r['reason_code']=='ACCEPTED_BASE_IDENTITY_PLUS_CANONICAL_VARIANT_FALLBACK' for r in rows)
+          assert all(r['family_base_display_ja'].strip() for r in rows)
+          assert all(r['canonical_variant_qualifier'].strip() for r in rows)
+          print({'rows':len(rows),'fix_display':len(rows)})
+          PY
+          git diff --exit-code -- docs/issue70/data/runtime docs/issue70/data/source
+      - name: Refresh exact progress summary
+        run: python scripts/issue70/summarize_semantic_audit_progress.py
+      - name: Validate progress summary
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path('docs/issue70/audit/PROGRESS_LIVE.json').read_text(encoding='utf-8'))
+          assert d['production_modified'] is False
+          assert d['audited_unique_rows']+d['remaining_unaudited_rows']==d['initial_ledger_rows']
+          assert d['conflicted_unique_rows']==0
+          print({k:d[k] for k in ['audited_unique_rows','remaining_unaudited_rows','remaining_by_category','verdict_counts_resolved']})
+          PY
+          git diff --exit-code -- docs/issue70/data/runtime docs/issue70/data/source
+      - name: Commit audit batch and progress only
+        shell: bash
+        run: |
+          set -euo pipefail
+          git add docs/issue70/audit/character_accepted_variant_identity_batch047.csv docs/issue70/audit/PROGRESS_LIVE.json
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Issue70: persist Accepted Character variant identity batch 047 and progress'
+          git push origin HEAD:audit/issue70-semantic-final
