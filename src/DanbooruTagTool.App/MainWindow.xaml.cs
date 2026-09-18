@@ -92,10 +92,15 @@ public partial class MainWindow : Window
     {
         if (!IsLoaded) return;
         var path = new List<NavigationNode>();
-        if (!TryFindNavigationPath(vm.Navigation, vm.BrowseKey, path)) return;
         syncingNavigation = true;
         try
         {
+            if (!TryFindNavigationPath(vm.Navigation, vm.BrowseKey, path))
+            {
+                ClearNavigationSelection(NavigationTree);
+                return;
+            }
+
             ItemsControl owner = NavigationTree;
             TreeViewItem? item = null;
             for (int i = 0; i < path.Count; i++)
@@ -110,6 +115,21 @@ public partial class MainWindow : Window
             item.BringIntoView();
         }
         finally { syncingNavigation = false; }
+    }
+
+    private static void ClearNavigationSelection(ItemsControl owner)
+    {
+        owner.UpdateLayout();
+        foreach (var data in owner.Items)
+        {
+            if (owner.ItemContainerGenerator.ContainerFromItem(data) is not TreeViewItem item) continue;
+            if (item.IsSelected) item.IsSelected = false;
+            if (item.HasItems)
+            {
+                item.IsExpanded = true;
+                ClearNavigationSelection(item);
+            }
+        }
     }
     private static bool TryFindNavigationPath(IReadOnlyList<NavigationNode> nodes, string key, List<NavigationNode> path)
     {
