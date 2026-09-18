@@ -13,6 +13,7 @@ ROOT = Path(__file__).resolve().parents[2]
 AUDIT = ROOT / "docs/issue70/audit"
 AUTO = ROOT / "docs/issue70/automation"
 CURRENT = AUTO / "CURRENT_MANIFEST.json"
+REVIEWED = AUTO / "REVIEWED_UNRESOLVED.csv"
 STATE = ROOT / "artifacts/issue70-parallel/integrator_state.json"
 
 FINAL = {"KEEP", "FIX_DISPLAY", "FIX_SEARCH", "FIX_BOTH"}
@@ -29,6 +30,16 @@ OVERLAY_FIELDS = [
     "row_id", "canonical_tag", "post_count", "display_ja", "search_ja",
     "prior_audit_verdict", "audit_verdict", "proposed_display_ja", "proposed_search_ja",
     "reason_code", "confidence", "evidence_refs", "audit_note", "approval_status",
+]
+
+REVIEW_FIELDS = [
+    "cycle_id", "lane", "manifest_progress_sha256", "row_id", "canonical_tag", "category",
+    "post_count", "review_status", "review_reason", "evidence_refs", "audit_note",
+]
+
+REGISTRY_FIELDS = [
+    "row_id", "canonical_tag", "category", "post_count", "first_review_cycle",
+    "last_review_cycle", "review_count", "last_lane", "review_reason", "evidence_refs", "audit_note",
 ]
 
 
@@ -70,7 +81,9 @@ def main() -> None:
 
     manifest_lanes = manifest["lanes"]
     all_rows: list[dict[str, str]] = []
+    all_reviewed: list[dict[str, str]] = []
     seen_rows: set[str] = set()
+    seen_reviewed: set[str] = set()
     missing_lanes: list[int] = []
 
     for lane in range(1, LANE_COUNT + 1):
@@ -79,6 +92,7 @@ def main() -> None:
         base = f"docs/issue70/automation/cycles/{cycle_id}/lane-{lane}"
         status_text = git_show(branch, f"{base}/STATUS.json")
         results_text = git_show(branch, f"{base}/RESULTS.csv")
+        reviewed_text = git_show(branch, f"{base}/REVIEWED_UNRESOLVED.csv")
         if status_text is None or results_text is None:
             missing_lanes.append(lane)
             continue
@@ -126,12 +140,6 @@ def main() -> None:
             verdict = row["audit_verdict"]
             pd = row["proposed_display_ja"]
             ps = row["proposed_search_ja"]
-            # A worker may preserve an already-correct companion field while fixing
-            # the other half of a FIX_BOTH row.  Treat that as an idempotent proposal:
-            # require the proposed field to be explicit, but do not fail integration
-            # merely because its value already equals the current value.  This keeps
-            # semantic worker output untouched while preventing a mechanical validator
-            # mismatch from blocking all five lanes.
             if verdict in {"FIX_DISPLAY", "FIX_BOTH"}:
                 assert pd, (rid, verdict, pd)
             else:
@@ -143,6 +151,28 @@ def main() -> None:
 
             all_rows.append(row)
 
+        if reviewed_text is not None:
+            reviewed_rows = list(csv.DictReader(io.StringIO(reviewed_text.lstrip("\ufeff"))))
+            for row in reviewed_rows:
+                assert set(REVIEW_FIELDS) <= set(row), (lane, "reviewed_schema", sorted(row))
+                rid = row["row_id"].strip()
+                assert rid in assigned, (lane, rid, "reviewed row not assigned to lane")
+                assert rid not in seen_rows, (lane, rid, "row cannot be both resolved and reviewed-unresolved")
+                assert rid not in seen_reviewed, (lane, rid, "duplicate reviewed row across lanes")
+                seen_reviewed.add(rid)
+
+                source = assigned[rid]
+                assert row["cycle_id"] == cycle_id
+                assert int(row["lane"]) == lane
+                assert row["manifest_progress_sha256"] == expected_hash
+                assert row["canonical_tag"] == source["canonical_tag"]
+                assert row["category"] == source["category"]
+                assert int(row["post_count"] or 0) == int(source["post_count"])
+                assert row["review_status"] == "REVIEWED_UNRESOLVED"
+                assert row["review_reason"].strip()
+                assert row["audit_note"].strip()
+                all_reviewed.append(row)
+
     if missing_lanes:
         write_state({
             "ready": False,
@@ -152,24 +182,6 @@ def main() -> None:
         })
         print(f"Waiting for lanes: {missing_lanes}")
         return
-
-    if not all_rows:
-        write_state({
-            "ready": False,
-            "reason": "all lanes completed but no safe resolutions were produced",
-            "cycle_id": cycle_id,
-        })
-        print("No safe resolutions to integrate.")
-        return
-
-    out = AUDIT / f"external_resolution_parallel_{cycle_id}.csv"
-    assert not out.exists(), f"overlay already exists: {out}"
-
-    with out.open("w", encoding="utf-8-sig", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=OVERLAY_FIELDS)
-        writer.writeheader()
-        for row in all_rows:
-            writer.writerow({k: row[k] for k in OVERLAY_FIELDS})
 
     existing_registry: dict[str, dict[str, str]] = {}
     if REVIEWED.exists():
@@ -210,7 +222,19 @@ def main() -> None:
     with REVIEWED.open("w", encoding="utf-8-sig", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=REGISTRY_FIELDS)
         writer.writeheader()
-        writer.writerows(sorted(existing_registry.values(), key=lambda r: (r["category"], -int(r["post_count"] or 0), r["row_id"])))
+        writer.writerows(sorted(
+            existing_registry.values(),
+            key=lambda r: (r["category"], -int(r["post_count"] or 0), r["row_id"]),
+        ))
+
+    out = AUDIT / f"external_resolution_parallel_{cycle_id}.csv"
+    if all_rows:
+        assert not out.exists(), f"overlay already exists: {out}"
+        with out.open("w", encoding="utf-8-sig", newline="") as f:
+            writer = csv.DictWriter(f, fieldnames=OVERLAY_FIELDS)
+            writer.writeheader()
+            for row in all_rows:
+                writer.writerow({k: row[k] for k in OVERLAY_FIELDS})
 
     base = manifest["progress_snapshot"]
     merged_by_category = Counter(row["category"] for row in all_rows)
@@ -219,12 +243,14 @@ def main() -> None:
         expected_remaining_by_category[category] = int(expected_remaining_by_category.get(category, 0)) - count
 
     report = {
-        "format_version": 1,
+        "format_version": 2,
         "issue": 70,
         "cycle_id": cycle_id,
         "manifest_progress_sha256": expected_hash,
         "merged_rows": len(all_rows),
         "merged_by_category": dict(sorted(merged_by_category.items())),
+        "reviewed_unresolved_rows_this_cycle": len(all_reviewed),
+        "reviewed_unresolved_registry_rows": len(existing_registry),
         "base_resolved_external_rows": int(base["resolved_external_rows"]),
         "expected_resolved_external_rows": int(base["resolved_external_rows"]) + len(all_rows),
         "expected_remaining_external_rows": int(base["remaining_external_rows"]) - len(all_rows),
@@ -241,7 +267,7 @@ def main() -> None:
     write_state({
         "ready": True,
         "cycle_id": cycle_id,
-        "overlay_path": str(out.relative_to(ROOT)),
+        "overlay_path": str(out.relative_to(ROOT)) if all_rows else "",
         "report_path": str(report_path.relative_to(ROOT)),
         **report,
     })

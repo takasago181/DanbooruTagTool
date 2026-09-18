@@ -6,6 +6,7 @@ on:
       - audit/issue70-semantic-final
     paths:
       - 'docs/issue70/audit/external_resolution_*.csv'
+      - 'docs/issue70/automation/REVIEWED_UNRESOLVED.csv'
       - 'scripts/issue70/generate_parallel_manifest.py'
       - '.github/workflows/issue70_parallel_manifest.yml'
   workflow_dispatch:

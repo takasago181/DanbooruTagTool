@@ -15,6 +15,7 @@ AUDIT = ROOT / "docs/issue70/audit"
 AUTO = ROOT / "docs/issue70/automation"
 CYCLES = AUTO / "cycles"
 CURRENT = AUTO / "CURRENT_MANIFEST.json"
+REVIEWED = AUTO / "REVIEWED_UNRESOLVED.csv"
 TMP = ROOT / "artifacts/issue70-parallel-manifest"
 
 FINAL = {"KEEP", "FIX_DISPLAY", "FIX_SEARCH", "FIX_BOTH"}
@@ -144,19 +145,20 @@ def effective_unresolved() -> tuple[list[dict[str, object]], dict[str, object]]:
     }
 
 
-def reviewed_unresolved() -> dict[str, dict[str, str]]:
+def reviewed_unresolved() -> tuple[dict[str, dict[str, str]], str]:
     if not REVIEWED.exists():
-        return {}
+        return {}, hashlib.sha256(b"").hexdigest()
+    raw = REVIEWED.read_bytes()
     try:
         rows = read_csv(REVIEWED)
     except Exception:
-        return {}
+        rows = []
     out: dict[str, dict[str, str]] = {}
     for row in rows:
         rid = (row.get("row_id") or "").strip()
         if rid:
             out[rid] = row
-    return out
+    return out, sha256_bytes(raw)
 
 
 def seed_shortlists(unresolved_by_tag: dict[str, dict[str, object]]) -> dict[str, dict[str, str]]:
@@ -201,16 +203,27 @@ def main() -> None:
     unresolved, state = effective_unresolved()
     progress = state["progress"]
     progress_hash = str(state["progress_sha256"])
+    reviewed, reviewed_hash = reviewed_unresolved()
+    assignment_state_hash = hashlib.sha256(f"{progress_hash}:{reviewed_hash}".encode("utf-8")).hexdigest()
 
     if CURRENT.exists():
         try:
             current = json.loads(CURRENT.read_text(encoding="utf-8"))
         except Exception:
             current = {}
-        if current.get("progress_sha256") == progress_hash:
+        current_assignment_hash = current.get("assignment_state_sha256")
+        if current_assignment_hash == assignment_state_hash:
             print(json.dumps({
                 "created": False,
-                "reason": "manifest already exists for current external progress",
+                "reason": "manifest already exists for current assignment state",
+                "cycle_id": current.get("cycle_id"),
+                "remaining": progress["remaining_external_rows"],
+            }, ensure_ascii=False))
+            return
+        if current_assignment_hash is None and current.get("progress_sha256") == progress_hash:
+            print(json.dumps({
+                "created": False,
+                "reason": "legacy current manifest still owns unchanged external progress",
                 "cycle_id": current.get("cycle_id"),
                 "remaining": progress["remaining_external_rows"],
             }, ensure_ascii=False))
@@ -220,6 +233,7 @@ def main() -> None:
     seeds = seed_shortlists(unresolved_by_tag)
     for row in unresolved:
         row["seed"] = seeds.get(str(row["canonical_tag"]))
+        row["reviewed_unresolved"] = reviewed.get(str(row["row_id"]))
 
     by_category: dict[str, list[dict[str, object]]] = defaultdict(list)
     for row in unresolved:
@@ -229,6 +243,8 @@ def main() -> None:
         by_category[category].sort(
             key=lambda r: (
                 0 if r.get("seed") else 1,
+                1 if r.get("reviewed_unresolved") else 0,
+                int((r.get("reviewed_unresolved") or {}).get("review_count") or 0),
                 -int(r["post_count"]),
                 str(r["row_id"]),
             )
@@ -252,12 +268,14 @@ def main() -> None:
                 break
 
         seeded_count = sum(1 for row in chosen if row.get("seed"))
+        reviewed_count = sum(1 for row in chosen if row.get("reviewed_unresolved"))
         target = min(len(chosen), max(BASE_TARGET, seeded_count)) if chosen else 0
         lane_payloads[str(lane)] = {
             "lane": lane,
             "candidate_count": len(chosen),
             "target_resolutions": target,
             "seeded_count": seeded_count,
+            "reviewed_unresolved_count": reviewed_count,
             "category_preference": PREFERENCES[lane],
             "candidates": chosen,
         }
@@ -266,11 +284,13 @@ def main() -> None:
     authority_sha = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
 
     manifest = {
-        "format_version": 1,
+        "format_version": 2,
         "issue": 70,
         "cycle_id": cycle_id,
         "authority_base_sha": authority_sha,
         "progress_sha256": progress_hash,
+        "reviewed_unresolved_sha256": reviewed_hash,
+        "assignment_state_sha256": assignment_state_hash,
         "progress_snapshot": {
             "initial_external_rows": progress["initial_external_rows"],
             "resolved_external_rows": progress["resolved_external_rows"],
@@ -283,6 +303,7 @@ def main() -> None:
         "candidate_count_per_lane": CANDIDATES_PER_LANE,
         "base_target_resolutions_per_lane": BASE_TARGET,
         "assigned_unique_rows": len(used),
+        "reviewed_unresolved_registry_rows": len(reviewed),
         "lanes": lane_payloads,
     }
 
@@ -298,6 +319,7 @@ def main() -> None:
         "translation_note", "primary_source_file", "seed_shortlist_source",
         "seed_provisional_verdict", "seed_proposed_display_ja", "seed_proposed_search_ja",
         "seed_evidence_ref", "seed_audit_note",
+        "reviewed_unresolved", "review_count", "last_review_cycle", "last_review_reason",
     ]
 
     for lane, payload in lane_payloads.items():
@@ -308,6 +330,7 @@ def main() -> None:
             writer.writeheader()
             for row in payload["candidates"]:
                 seed = row.get("seed") or {}
+                reviewed_row = row.get("reviewed_unresolved") or {}
                 writer.writerow({
                     "row_id": row["row_id"],
                     "canonical_tag": row["canonical_tag"],
@@ -323,6 +346,10 @@ def main() -> None:
                     "seed_proposed_search_ja": seed.get("proposed_search_ja", ""),
                     "seed_evidence_ref": seed.get("evidence_ref", ""),
                     "seed_audit_note": seed.get("audit_note", ""),
+                    "reviewed_unresolved": "true" if reviewed_row else "",
+                    "review_count": reviewed_row.get("review_count", ""),
+                    "last_review_cycle": reviewed_row.get("last_review_cycle", ""),
+                    "last_review_reason": reviewed_row.get("review_reason", ""),
                 })
 
     print(json.dumps({
@@ -330,13 +357,16 @@ def main() -> None:
         "cycle_id": cycle_id,
         "authority_base_sha": authority_sha,
         "progress_sha256": progress_hash,
+        "assignment_state_sha256": assignment_state_hash,
         "remaining": progress["remaining_external_rows"],
+        "reviewed_unresolved_registry_rows": len(reviewed),
         "assigned_unique_rows": len(used),
         "lanes": {
             k: {
                 "candidate_count": v["candidate_count"],
                 "target_resolutions": v["target_resolutions"],
                 "seeded_count": v["seeded_count"],
+                "reviewed_unresolved_count": v["reviewed_unresolved_count"],
             }
             for k, v in lane_payloads.items()
         },
