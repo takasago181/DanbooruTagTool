@@ -1,0 +1,21 @@
+{
+  "issue": 118,
+  "mode": "GENERAL_ACTION_INTERACTION_NONE_FULL_REVIEW_V76_BATCH2",
+  "source_sidecar": "research_sidecar_v49.csv",
+  "source_cluster": "GENERAL_ONLY|ACTION_CONTACT/INTERACTION|NONE",
+  "source_cluster_rows": 695,
+  "candidate_rows": 100,
+  "batch_selection": "alphabetically first 100 identities from the remaining fixed General-only Action/Interaction cluster after V75; selection only, not classification authority",
+  "first_identity": "brushing_own_hair",
+  "last_identity": "face_in_hands",
+  "selection_rules_use": "DISCOVERY_ONLY_NOT_CLASSIFICATION_AUTHORITY",
+  "auto_promotion_performed": "NO",
+  "review_verdicts_generated_by_materializer": "NO",
+  "review_artifacts_are_external_inputs": "YES",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO",
+  "next_gate": "full manual review of all 100 rows"
+}
