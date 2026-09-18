@@ -1,0 +1,21 @@
+{
+  "issue": 118,
+  "mode": "GENERAL_CLOTHING_EVERYDAY_NONE_FULL_REVIEW_V65_BATCH3",
+  "source_sidecar": "research_sidecar_v39.csv",
+  "source_cluster": "GENERAL_ONLY|CLOTHING/EVERYDAY|NONE",
+  "source_cluster_rows": 60,
+  "candidate_rows": 60,
+  "batch_selection": "all 60 remaining identities from the fixed source cluster after V64; selection only, not classification authority",
+  "first_identity": "sailor_fundoshi",
+  "last_identity": "yellow_tube_top",
+  "selection_rules_use": "DISCOVERY_ONLY_NOT_CLASSIFICATION_AUTHORITY",
+  "auto_promotion_performed": "NO",
+  "review_verdicts_generated_by_materializer": "NO",
+  "review_artifacts_are_external_inputs": "YES",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO",
+  "next_gate": "full manual review of all 100 rows"
+}
