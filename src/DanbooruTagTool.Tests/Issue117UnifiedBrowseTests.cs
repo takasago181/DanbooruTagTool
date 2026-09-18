@@ -269,6 +269,82 @@ public sealed class Issue117UnifiedBrowseTests
     }
 
     [Fact]
+    public void PrimarySwitch_ClearsLocalButPreservesGlobalFacetsDeepAndQuery()
+    {
+        var catalog = CatalogWithIntentFixtures();
+        var workspace = new PromptWorkspace(new PromptParser(catalog));
+        var vm = new DictionaryWorkspaceViewModel(
+            catalog,
+            workspace,
+            new PendingGeneralBrowseProvider(),
+            () => { },
+            () => true);
+
+        vm.Query = "blue";
+        vm.SetPrimaryRoute("ACTION_CONTACT");
+        vm.SetLocalSubroute("ACTION_CONTACT/INTERACTION");
+        vm.ToggleBodySite("MOUTH_ORAL");
+        vm.ToggleTheme("BDSM_RESTRAINT");
+        vm.ToggleDeepOnly();
+
+        vm.SetPrimaryRoute("TOOL_OBJECT");
+
+        Assert.Equal("blue", vm.Query);
+        Assert.Equal("TOOL_OBJECT", vm.PrimaryRouteId);
+        Assert.Null(vm.LocalSubrouteId);
+        Assert.Contains("MOUTH_ORAL", vm.BodySiteIds);
+        Assert.Contains("BDSM_RESTRAINT", vm.ThemeIds);
+        Assert.True(vm.DeepOnly);
+    }
+
+    [Fact]
+    public void ContentIntent_SurvivesDedicatedScopeRoundTrip_AndClearBrowseResetsItOnly()
+    {
+        var catalog = CatalogWithIntentFixtures();
+        var workspace = new PromptWorkspace(new PromptParser(catalog));
+        var vm = new DictionaryWorkspaceViewModel(
+            catalog,
+            workspace,
+            new PendingGeneralBrowseProvider(),
+            () => { },
+            () => true);
+
+        vm.Query = "breast";
+        vm.SetContentIntent(ContentIntentFilter.Sexual);
+        vm.SetScope(UnifiedBrowseScope.Character);
+
+        Assert.Equal(ContentIntentFilter.Sexual, vm.ContentIntent);
+        Assert.Equal("breast", vm.Query);
+
+        vm.SetScope(UnifiedBrowseScope.Tags);
+        Assert.Equal(ContentIntentFilter.Sexual, vm.ContentIntent);
+
+        vm.ClearUnifiedBrowse();
+        Assert.Equal(ContentIntentFilter.All, vm.ContentIntent);
+        Assert.Equal("breast", vm.Query);
+        Assert.True(vm.IsNeutralTags);
+    }
+
+    [Fact]
+    public void LegacySpecialBodyAndThemeStates_MigrateToUnifiedCrossFacets()
+    {
+        var catalog = CatalogWithIntentFixtures();
+        var workspace = new PromptWorkspace(new PromptParser(catalog));
+        var vm = new DictionaryWorkspaceViewModel(
+            catalog,
+            workspace,
+            new PendingGeneralBrowseProvider(),
+            () => { },
+            () => true);
+
+        vm.Restore(new UiState(Browse: "special-v2:body:MOUTH_ORAL"));
+        Assert.Contains("MOUTH_ORAL", vm.BodySiteIds);
+
+        vm.Restore(new UiState(Browse: "special-v2:theme:BDSM_RESTRAINT"));
+        Assert.Contains("BDSM_RESTRAINT", vm.ThemeIds);
+    }
+
+    [Fact]
     public void FrozenIssue118Authority_HasExactPopulationCountsAndFiveExplicitUnknowns()
     {
         var root = FindRepoRoot();
