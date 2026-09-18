@@ -133,7 +133,6 @@ public sealed class DictionaryWorkspaceViewModel : Observable
     private readonly Stack<UnifiedBrowseState> unifiedHistory = new();
     private SpecialBrowseV2Filter specialFilter = SpecialBrowseV2Filter.Empty;
     private readonly Stack<SpecialBrowseV2Filter> specialFilterHistory = new();
-    private readonly Stack<string> back = new();
     private string query = "", browse = "special";
     private string? browseSelection;
     private int sortIndex, detailsTabIndex;
@@ -205,7 +204,7 @@ public sealed class DictionaryWorkspaceViewModel : Observable
     public int DetailsTabIndex { get => detailsTabIndex; set => Set(ref detailsTabIndex, value); }
     public bool IsSearching => !string.IsNullOrWhiteSpace(Query);
     public bool CanBrowseSort => !IsSearching;
-    public bool CanGoBack => back.Count > 0;
+    public bool CanGoBack => unifiedHistory.Count > 0;
     public bool HasSpecialFacets => specialBrowse != null && !specialFilter.IsEmpty;
     public bool ShowSpecialFacetBar => HasSpecialFacets && !browse.StartsWith("general", StringComparison.Ordinal);
     public bool ShowSpecialKindOptions => ShowSpecialFacetBar && specialFilter.KindId is null;
@@ -283,7 +282,7 @@ public sealed class DictionaryWorkspaceViewModel : Observable
             .ToArray();
         InspectEntry = new(p => { if (p is EntryViewModel row) { SelectedEntry = row; DetailsTabIndex = 0; } }, p => canMutate() && p is EntryViewModel);
         Navigate = new(p => { if (p is NavigationNode n && !IsSpecialAxisHeading(n.Key)) NavigateTo(n.Key); }, p => canMutate() && p is NavigationNode);
-        Back = new(_ => { if (back.TryPop(out var key)) { Notify(nameof(CanGoBack)); Back?.Refresh(); NavigateTo(key, false); } }, _ => canMutate() && CanGoBack);
+        Back = new(_ => UndoUnifiedBrowse(), _ => canMutate() && CanGoBack);
         ClearQuery = new(_ => { Query = ""; RefreshResults(); persist(); }, _ => canMutate());
         ToggleSpecialFacet = new(ToggleFacet, p => canMutate() && specialBrowse != null && p is SpecialBrowseFacetOptionViewModel);
         UndoSpecialFacet = new(_ => UndoFacet(), _ => canMutate() && specialBrowse != null && !specialFilter.IsEmpty);
@@ -314,7 +313,6 @@ public sealed class DictionaryWorkspaceViewModel : Observable
         browse = BrowseKeyForState(unifiedState);
         specialFilter = SpecialBrowseV2Filter.Empty;
         unifiedHistory.Clear();
-        back.Clear();
         promptCanonicalCounts = CaptureCanonicalCounts(workspace.Items);
         RefreshUnifiedFacetOptions();
         NotifyUnifiedState();
@@ -576,8 +574,10 @@ public sealed class DictionaryWorkspaceViewModel : Observable
         Notify(nameof(IsContentAll));
         Notify(nameof(IsContentGeneralPurpose));
         Notify(nameof(IsContentSexual));
+        Notify(nameof(CanGoBack));
         Notify(nameof(BrowseLabel));
         UndoUnifiedBrowseCommand?.Refresh();
+        Back?.Refresh();
         ClearUnifiedBrowseCommand?.Refresh();
         ToggleDeepOnlyCommand?.Refresh();
         SetContentIntentCommand?.Refresh();
