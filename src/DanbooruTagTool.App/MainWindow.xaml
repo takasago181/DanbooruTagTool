@@ -494,9 +494,8 @@
                     <Grid.ColumnDefinitions><ColumnDefinition x:Name="NavColumn" Width="300" MinWidth="240"/><ColumnDefinition Width="8"/><ColumnDefinition Width="3*" MinWidth="320"/><ColumnDefinition Width="8"/><ColumnDefinition x:Name="PromptColumn" Width="400" MinWidth="360"/></Grid.ColumnDefinitions>
                     <Border Grid.Column="0" Style="{StaticResource PanelCard}" Padding="12">
                         <DockPanel>
-                            <StackPanel DockPanel.Dock="Top"><TextBlock Text="タグを探す" Style="{StaticResource PanelTitle}" FontSize="16"/><TextBlock Text="Specialは種類・部位・テーマから探せます。" Style="{StaticResource PanelSubtitle}" Margin="0,0,0,6"/></StackPanel>
-                            <Button DockPanel.Dock="Top" Content="← 戻る" Command="{Binding Back}" Style="{StaticResource CompactButton}" HorizontalContentAlignment="Left"/>
-                            <TreeView x:Name="NavigationTree" ItemsSource="{Binding Navigation}" ItemContainerStyle="{StaticResource NavigationItem}" SelectedItemChanged="NavigationChanged" TreeViewItem.Expanded="NavigationNodeExpanded" TreeViewItem.Collapsed="NavigationNodeCollapsed" Background="Transparent" BorderThickness="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Padding="2,0,8,0">
+                            <StackPanel DockPanel.Dock="Top"><TextBlock Text="タグを探す" Style="{StaticResource PanelTitle}" FontSize="16"/><TextBlock Text="General / Specialを分けず、用途から探します。" Style="{StaticResource PanelSubtitle}" Margin="0,0,0,6"/></StackPanel>
+                            <TreeView x:Name="NavigationTree" ItemsSource="{Binding Navigation}" ItemContainerStyle="{StaticResource NavigationItem}" SelectedItemChanged="NavigationChanged" Background="Transparent" BorderThickness="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Padding="2,0,8,0">
                                 <TreeView.Resources>
                                     <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#F7F9FB"/>
                                     <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" Color="#17345E"/>
