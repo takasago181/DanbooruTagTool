@@ -1,0 +1,45 @@
+{
+  "issue": 118,
+  "mode": "RESEARCH_SIDECAR_V42_V67_FULL_REVIEW",
+  "identity_rows": 31752,
+  "source_base": "docs/issue118/research_sidecar_v41.csv",
+  "new_promotions": {
+    "CONTEXTUAL": 10,
+    "NON_SEXUAL": 88
+  },
+  "new_total_promotions": 98,
+  "retained_unclassified_from_review": [
+    "knee_boobs",
+    "powerful_ass"
+  ],
+  "review_status_counts": {
+    "AUTO_HIGH_CONF": 22371,
+    "HUMAN_REVIEWED": 4514,
+    "UNCLASSIFIED": 4867
+  },
+  "sexual_intent_counts": {
+    "CONTEXTUAL": 1222,
+    "NON_SEXUAL": 23962,
+    "NULL": 4867,
+    "SEXUAL": 1701
+  },
+  "remaining_unclassified": 4867,
+  "review_inputs": [
+    {
+      "label": "V67",
+      "review_source": "docs/issue118/general_body_part_none_review_v67/review_policy_v67.json",
+      "review_git_blob_sha": "c06329fe7cb567e1b3e918044d7548d204ffe029",
+      "review_sha256": "0e312cc5cfd82c9c0fe409aff6a0e0d06fd74e92f341424b739e2ecc89288a77",
+      "candidate_source": "docs/issue118/general_body_part_none_review_v67/full_review_candidate_v67.csv",
+      "candidate_git_blob_sha": "8f1d7315c27de6afc7d8a2a2923279495609f8e7",
+      "source_rows": 100
+    }
+  ],
+  "review_verdicts_generated_by_materializer": "NO",
+  "review_artifacts_are_external_inputs": "YES",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO"
+}
