@@ -172,7 +172,12 @@ public sealed class UnifiedBrowseIndex
 
             foreach (var row in rows)
             {
-                if (row.EffectiveCategory == "General" && row.CanBrowse && row.BrowseClassification == BrowseClassificationStatus.Proposed)
+                var generalDirectBrowse = row.EffectiveCategory == "General"
+                    && row.CanBrowse
+                    && row.BrowseClassification == BrowseClassificationStatus.Proposed;
+                var specialDirectBrowse = false;
+
+                if (generalDirectBrowse)
                 {
                     foreach (var path in row.Paths)
                     {
@@ -192,7 +197,9 @@ public sealed class UnifiedBrowseIndex
                     var baked = row.SpecialBrowseV2;
                     var runtime = specialBrowse?.Get(row.Id);
                     var specialStatus = baked?.Status ?? runtime?.Status;
-                    if (row.CanBrowse && (specialStatus is SpecialBrowseV2Status.AutoCandidate or SpecialBrowseV2Status.HumanResolved))
+                    specialDirectBrowse = row.CanBrowse
+                        && (specialStatus is SpecialBrowseV2Status.AutoCandidate or SpecialBrowseV2Status.HumanResolved);
+                    if (specialDirectBrowse)
                     {
                         deep = true;
                         var kind = baked?.KindId ?? runtime?.KindId;
@@ -214,7 +221,8 @@ public sealed class UnifiedBrowseIndex
                     }
                 }
 
-                if (row.CanBrowse) routeIds.UnionWith(row.UnifiedBrowseRouteIds);
+                if (generalDirectBrowse || specialDirectBrowse)
+                    routeIds.UnionWith(row.UnifiedBrowseRouteIds);
             }
 
             var intents = rows.Where(row => row.SexualIntent is not null).Select(row => row.SexualIntent).Distinct().ToArray();
