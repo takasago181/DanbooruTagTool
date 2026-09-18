@@ -1,0 +1,19 @@
+{
+  "issue": 118,
+  "mode": "V59_MANUAL_CORRECTION_FUTANARI_V59A",
+  "source_review": "docs/issue118/mixed_five_cluster_review_v59/review_policy_v59.json",
+  "source_sidecar": "docs/issue118/research_sidecar_v34.csv",
+  "corrections": [
+    {"identity_key": "futanari", "from": "CONTEXTUAL", "to": "SEXUAL"},
+    {"identity_key": "full-package_futanari", "from": "CONTEXTUAL", "to": "SEXUAL"},
+    {"identity_key": "male_futanari", "from": "CONTEXTUAL", "to": "SEXUAL"}
+  ],
+  "reason": "For the Issue #118 sexual/general intent filter, futanari-specific tags are treated as sexual-intent concepts rather than general-purpose anatomy/context tags. The prior V59 CONTEXTUAL verdict was too permissive.",
+  "review_verdicts_generated_by_materializer": "NO",
+  "review_artifacts_are_external_inputs": "YES",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO"
+}
