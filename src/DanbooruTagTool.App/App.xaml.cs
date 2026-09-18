@@ -41,10 +41,12 @@ public partial class App : Application
                     },
                     SexualIntent = new
                     {
-                        Sexual = bakedEntries.Count(x => x.SexualIntent == SexualIntentClass.Sexual && x.EffectiveCategory is "General" or "Special"),
-                        Contextual = bakedEntries.Count(x => x.SexualIntent == SexualIntentClass.Contextual && x.EffectiveCategory is "General" or "Special"),
-                        NonSexual = bakedEntries.Count(x => x.SexualIntent == SexualIntentClass.NonSexual && x.EffectiveCategory is "General" or "Special"),
-                        UnclassifiedBackingRows = bakedEntries.Count(x => x.SexualIntent is null && x.EffectiveCategory is "General" or "Special")
+                        Identities = Issue118SexualIntentOverlay.IdentityCount,
+                        Sexual = Issue118SexualIntentOverlay.SexualCount,
+                        Contextual = Issue118SexualIntentOverlay.ContextualCount,
+                        NonSexual = Issue118SexualIntentOverlay.NonSexualCount,
+                        Unclassified = Issue118SexualIntentOverlay.UnclassifiedCount,
+                        BackingRows = bakedEntries.Count(x => x.EffectiveCategory is "General" or "Special")
                     },
                     Sources = result.SourceHashes
                 }, new JsonSerializerOptions { WriteIndented = true }));
