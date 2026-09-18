@@ -1,0 +1,27 @@
+{
+  "issue": 118,
+  "mode": "REMAINING_SMALL_CLUSTERS_FULL_REVIEW_V104_BATCH2",
+  "source_sidecar": "research_sidecar_v70.csv",
+  "giant_cluster_excluded": "GENERAL_ONLY|(none)|NONE",
+  "giant_cluster_rows": 2237,
+  "retained_exclusions": [
+    "cock-tail",
+    "knee_boobs",
+    "licking_tip",
+    "mushikan",
+    "powerful_ass"
+  ],
+  "eligible_small_cluster_rows": 143,
+  "candidate_rows": 100,
+  "batch_selection": "first 100 rows sorted by cluster_key then identity_key from all remaining non-giant clusters after excluding prior intentional UNCLASSIFIED rows; selection only, not classification authority",
+  "selection_rules_use": "DISCOVERY_ONLY_NOT_CLASSIFICATION_AUTHORITY",
+  "auto_promotion_performed": "NO",
+  "review_verdicts_generated_by_materializer": "NO",
+  "review_artifacts_are_external_inputs": "YES",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO",
+  "next_gate": "full manual review of all 100 rows"
+}
