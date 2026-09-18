@@ -45,6 +45,8 @@ public sealed class Issue114Phase2ViewModelTests
     public void DictionaryAddFlowsThroughPromptOwnerAndPromptDeleteRefreshesDictionaryState()
     {
         var vm = Fixtures.Vm();
+        vm.Dictionary.Query = "blue_hair";
+        vm.Dictionary.RefreshResults();
         var row = vm.Dictionary.Results.First(entry => entry.Entry.Canonical == "blue_hair");
 
         row.Add.Execute(null);
@@ -61,7 +63,8 @@ public sealed class Issue114Phase2ViewModelTests
     public void DictionaryBrowseAndPromptPresentationRemainOwnedByTheirChildren()
     {
         var vm = Fixtures.Vm();
-        vm.Dictionary.NavigateTo("special:APPEARANCE>HAIR");
+        vm.Dictionary.Query = "blue_hair";
+        vm.Dictionary.RefreshResults();
         var ids = vm.Dictionary.Results.Select(row => row.Entry.Id).ToArray();
         vm.Prompt.Workspace.Replace("blue_hair,smile");
 
@@ -75,13 +78,13 @@ public sealed class Issue114Phase2ViewModelTests
     {
         var store = new MemoryStore();
         var first = new MainViewModel(Fixtures.Catalog(), store, new MemoryClipboard());
-        first.Dictionary.NavigateTo("special:APPEARANCE>HAIR");
+        first.Dictionary.SetPrimaryRoute("HAIR_FACE");
         first.Prompt.OutputProfile = PromptOutputProfile.GenerationFriendly;
         first.Forge.ForgeUrl = "http://127.0.0.1:7861";
         first.Persist();
 
         var restored = new MainViewModel(Fixtures.Catalog(), store, new MemoryClipboard());
-        Assert.Equal("special:APPEARANCE>HAIR", restored.Dictionary.BrowseKey);
+        Assert.Equal("route:HAIR_FACE", restored.Dictionary.BrowseKey);
         Assert.Equal(PromptOutputProfile.GenerationFriendly, restored.Prompt.OutputProfile);
         Assert.Equal("http://127.0.0.1:7861", restored.Forge.ForgeUrl);
     }
