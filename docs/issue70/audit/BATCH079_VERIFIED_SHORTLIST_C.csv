@@ -1,0 +1,28 @@
+canonical_tag,provisional_verdict,proposed_display_ja,proposed_search_ja,evidence_ref,audit_note,status
+phoenix_wright:_ace_attorney_-_spirit_of_justice,KEEP,,,https://www.capcom.co.jp/support/faq/platform_nintendo3ds_gyakutensaiban_6_0135558.html,Capcom official support uses 逆転裁判6 for the Japanese product; existing display is exact.,VERIFIED_SHORTLIST
+ace_attorney_investigations_2:_prosecutor's_gambit,KEEP,,,https://www.capcom.co.jp/support/faq/platform_mobile_android_gyakutenkenji_2_0140087.html,Capcom official support uses 逆転検事2 for the Japanese product; existing display is exact.,VERIFIED_SHORTLIST
+rain_world,FIX_DISPLAY,Rain World,,https://www.akuparagames.com/game/rain-world/,Publisher official product page uses Rain World; replace the unsupported literal Japanese translation 雨世界 with the official identity.,VERIFIED_SHORTLIST
+plants_vs._zombies_2,FIX_DISPLAY,Plants vs. Zombies 2,,https://www.ea.com/ja/games/plants-vs-zombies/plants-vs-zombies-2,EA official Japanese product surface uses Plants vs. Zombies 2; replace the Chinese localized title.,VERIFIED_SHORTLIST
+no.6,FIX_DISPLAY,NO.6,,https://www.kodansha.co.jp/book/products/0000204242,Kodansha official book page identifies the series as NO.6 / ＮＯ．６〔ナンバーシックス〕; current 未来都市no.6 adds unsupported title text.,VERIFIED_SHORTLIST
+predator_(series),KEEP,,,https://www.20thcenturystudios.jp/series/predator-list,20th Century Studios official series page explicitly labels the franchise プレデター; existing display is exact.,VERIFIED_SHORTLIST
+blade_runner_(series),KEEP,,,https://www.warnerbros.co.jp/home_entertainment/5xw5dns0b/,Warner Bros. Japan official home-entertainment surface uses ブレードランナー; existing series display is identity-safe.,VERIFIED_SHORTLIST
+battle_angel_alita,KEEP,,,https://www.kodansha.co.jp/titles/1000005514,Kodansha official title page uses 銃夢; existing Japanese display is exact.,VERIFIED_SHORTLIST
+natsume_yuujinchou,KEEP,,,https://www.hakusensha.co.jp/novels/series/natsume/,Hakusensha official series page uses 夏目友人帳; existing display is exact.,VERIFIED_SHORTLIST
+kaibutsu_oujo,KEEP,,,https://www.kodansha.co.jp/titles/1000002516,Kodansha official title page uses 怪物王女; existing display is exact.,VERIFIED_SHORTLIST
+beast_wars,KEEP,,,https://www.takaratomy.co.jp/products/tfbw20th/,Takara Tomy official anniversary page uses ビーストウォーズ; existing display is exact.,VERIFIED_SHORTLIST
+seitokai_yakuindomo,KEEP,,,https://www.kodansha.co.jp/comic/products/0000016820,Kodansha official comic page uses 生徒会役員共; existing display is exact.,VERIFIED_SHORTLIST
+roshin_yuukai_(vocaloid),KEEP,,,https://www.youtube.com/watch?v=dSw8CucthGc,Composer iroha(sasaki) Official Artist Channel upload explicitly uses 炉心融解; existing display is exact.,VERIFIED_SHORTLIST
+kamihime_project,KEEP,,,https://kamihime.net/,Official game site uses 神姫PROJECT; existing display is exact.,VERIFIED_SHORTLIST
+romeo_to_cinderella_(vocaloid),KEEP,,,https://www.youtube.com/watch?v=9HrOqmiEsN8,doriko Official Artist Channel official MV uses ロミオとシンデレラ; existing display is exact.,VERIFIED_SHORTLIST
+rolling_girl_(vocaloid),KEEP,,,https://www.youtube.com/watch?v=vnw8zURAxkU,wowaka Official Artist Channel official video uses ローリンガール; existing display is exact.,VERIFIED_SHORTLIST
+aku_no_musume_(vocaloid),KEEP,,,https://www.youtube.com/watch?v=sV7ODBvxw38,mothy Official Artist Channel release uses 悪ノ娘; existing display is exact.,VERIFIED_SHORTLIST
+mahou_shoujo_ikusei_keikaku_restart,FIX_DISPLAY,魔法少女育成計画 restart,,https://store.tkj.jp/shopdetail/000000007026/,Takarajimasha official product page uses 魔法少女育成計画 restart; normalize the title spacing while preserving the restart work identity.,VERIFIED_SHORTLIST
+sengoku_otome,KEEP,,,https://mall.heiwa.jp/lists/tag/series/1,HEIWA official goods store explicitly groups the property as 戦国乙女; existing display is exact.,VERIFIED_SHORTLIST
+shigoto_neko,KEEP,,,https://www.kumamine.jp/1672/,Creator-owned くまみね工房 character page uses 仕事猫; existing display is exact.,VERIFIED_SHORTLIST
+how_to_train_your_dragon_(series),KEEP,,,https://gaga.ne.jp/hicdragon/introduction/,Official Japanese film site explicitly calls the DreamWorks property the 『ヒックとドラゴン』シリーズ; existing series display is exact.,VERIFIED_SHORTLIST
+mouthwashing,KEEP,,,https://store.steampowered.com/app/2475490/Mouthwashing/?cc=jp&l=japanese,Official distribution identifies developer Wrong Organ and title Mouthwashing; Japanese storefront retains the original title exactly.,VERIFIED_SHORTLIST
+to_be_hero_x,KEEP,,,https://tbhx.net/,Official Japanese anime site uses TO BE HERO X exactly.,VERIFIED_SHORTLIST
+osu!,FIX_DISPLAY,osu!,,https://osu.ppy.sh/,Official game site consistently stylizes the title as lowercase osu!; normalize current OSU！ display.,VERIFIED_SHORTLIST
+listen!!,KEEP,,,https://www.tbs.co.jp/anime/k-on/k-on_tv/disc/cd_2.html,TBS official K-ON!! disc page identifies the ending single as Listen!! exactly.,VERIFIED_SHORTLIST
+ginga_eiyuu_densetsu,FIX_DISPLAY,銀河英雄伝説,,https://gineiden-anime.com/introduction.html,Official anime site explicitly identifies the source work as 銀河英雄伝説; current logh【腐】 is unrelated fan-label noise.,VERIFIED_SHORTLIST
+houchi_shoujo,FIX_BOTH,放置少女 〜百花繚乱の萌姫たち〜,放置少女,https://payment.c4connect.co.jp/c4terms.html,C4 Connect official terms identify the game as 放置少女 〜百花繚乱の萌姫たち; current display is a specific anniversary illustration-contest label, so restore official title and short search alias.,VERIFIED_SHORTLIST
