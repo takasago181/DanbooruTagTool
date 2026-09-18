@@ -114,7 +114,7 @@
                     <ListBox x:Name="DictionaryList" PreviewKeyDown="DictionaryPreviewKeyDown" SelectionChanged="DictionarySelectionChanged" SizeChanged="DictionaryListSizeChanged" ItemsSource="{Binding DictionaryRows}" SelectedIndex="-1" ItemContainerStyle="{DynamicResource DictionaryRow}" ItemTemplate="{StaticResource DictionaryResultRowTemplateLocal}" HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.CanContentScroll="True" ScrollViewer.ScrollChanged="BrowseScrolled" VirtualizingPanel.IsVirtualizing="True" VirtualizingPanel.VirtualizationMode="Recycling" Background="Transparent" BorderThickness="0">
                         <ListBox.ItemsPanel><ItemsPanelTemplate><VirtualizingStackPanel Orientation="Vertical"/></ItemsPanelTemplate></ListBox.ItemsPanel>
                     </ListBox>
-                    <TextBlock Text="分類を選ぶか、日本語・Englishで検索してください。"
+                    <TextBlock Text="左からカテゴリを選ぶか、タグ名を検索してください。"
                                Style="{DynamicResource HintText}"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center"
