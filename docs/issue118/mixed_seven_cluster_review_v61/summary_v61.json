@@ -1,0 +1,25 @@
+{
+  "issue": 118,
+  "mode": "MIXED_SEVEN_CLUSTER_FULL_REVIEW_V61",
+  "source_sidecar": "research_sidecar_v36.csv",
+  "candidate_rows": 95,
+  "cluster_counts": {
+    "GENERAL_ONLY|CLOTHING/EVERYDAY|ADULT_ROLE_DEVICE": 12,
+    "GENERAL_ONLY|PERSON_COUNT|NONE": 14,
+    "OVERLAP|ACTION_CONTACT|INSERTION_STRUCTURED|NONE": 15,
+    "OVERLAP|BODY_PART|FLUID_STATE_ACTION|ANATOMY": 12,
+    "OVERLAP|OBJECT_PROP|RESTRAINT_IMPLEMENT|NONE": 13,
+    "OVERLAP|OBJECT_PROP|RESTRAINT_IMPLEMENT|RESTRAINT_FETISH": 13,
+    "OVERLAP|PERSON_COUNT|RELATION_ROLE_CONTEXT|NONE": 16
+  },
+  "selection_rules_use": "DISCOVERY_ONLY_NOT_CLASSIFICATION_AUTHORITY",
+  "auto_promotion_performed": "NO",
+  "review_verdicts_generated_by_materializer": "NO",
+  "review_artifacts_are_external_inputs": "YES",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO",
+  "next_gate": "full manual review of all 95 rows"
+}
