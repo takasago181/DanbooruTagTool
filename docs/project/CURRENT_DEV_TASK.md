@@ -5,55 +5,67 @@
 ## Routing status
 
 - Active DEV Issue: #117 `[DEV][UI][DISCOVERY] Implement unified General/Special browse navigation`.
-- Implementation status: **DEV IMPLEMENTATION COMPLETE / VALIDATED / STOP BEFORE MERGE**.
+- Status: **DEV IMPLEMENTATION + FINAL REVIEW COMPLETE / VALIDATED / STOP BEFORE MERGE**.
 - Draft PR: **#125** `[WIP][#117] Unified browse navigation + content intent filter`.
-- Implementation branch: `codex/issue117-unified-browse-content-intent`.
-- Live-main base remains `07f6e05c7300831a9c4f52fe3857043594b8413b`.
-- Branch was verified ahead of main and 0 behind immediately before finalization.
-- #118 research/design remains frozen authority; do not restart classification research.
+- Feature branch: `codex/issue117-unified-browse-content-intent`.
+- Live-main base: `07f6e05c7300831a9c4f52fe3857043594b8413b`.
+- #118 research is frozen; authority remains `docs/issue118/FINAL_DESIGN_CHECKPOINT.md`, research commit `4cacb1fea4aaf46552da3837f50712293a6d4440`, Issue comment `5725346261`.
+- Do not restart #118 research.
 - Do not merge without explicit review/approval.
 
-## Validated source checkpoint
+## Final validated source
 
-Source validation checkpoint:
+Validated product/test source checkpoint:
 
-`47a263ed05800fc47c3a29c5867172ab8700c3a9`
+`5c08cb442804b8c49166b7d6055c29b54c693382`
 
-GitHub Actions validation run:
+Final review validation run:
 
-`35312382053`
+`35314061974`
 
-Results:
+Validation:
 
-- `dotnet restore src/DanbooruTagTool.sln`: PASS
+- restore: PASS
 - Release build: **PASS**
-- full Release tests: **178 total / 171 passed / 7 skipped / 0 failed**
-- focused `Issue117UnifiedBrowseTests`: **13 / 13 passed**
+- full Release tests: **185 total / 178 passed / 7 skipped / 0 failed**
+- focused `Issue117UnifiedBrowse*`: **20 / 20 passed**
+- production-sized synthetic unified-browse characterization: PASS, approximately **0.9–1.0 s** for the complete 31,752-identity characterization test on GitHub Windows runner
 - `git diff --check origin/main...HEAD`: **PASS**
-- temporary validation workflows were removed after PASS and are not part of the final product diff.
+- temporary review workflow removed after PASS; it is not product source.
 
-Any commits after the validated source checkpoint are management-doc or validation-workflow cleanup only unless a later checkpoint explicitly says otherwise.
+Any commit after `5c08cb...` is allowed only for validation-workflow cleanup / management-document synchronization unless a later checkpoint explicitly states otherwise.
 
-## Implemented #117 behavior
+## Implemented user-facing contract
 
-### Unified ordinary discovery
+### Left navigation
 
-Visible General/Special roots are removed from the browse UI.
+No visible `General` / `◆ Special` roots.
 
-Ordinary Tags discovery uses exactly the frozen 19 top-level labels from #117, followed by dedicated:
+Frozen ordinary navigation is presented under three **presentation-only** headings:
+
+- 何を描く
+- 動き・状態
+- 画面・表現
+
+They contain exactly the 19 frozen #117 ordinary discovery labels.
+
+Below them remain dedicated scopes:
 
 - キャラクター
 - 作品
 - 作者
 
-General and Special remain source/provenance categories internally; they are not exposed as separate browse roots.
+The three headings are not semantic filters. They default expanded and selecting a heading does not change browse state.
 
-### Identity-level dedupe
+Neutral Tags state has no ordinary route selected.
 
-- one ordinary canonical identity -> one result card;
-- General/Special overlap is deduplicated both in browse and search results;
-- search keeps the existing RuntimeCatalogIndex/SearchEngine order and only removes non-matching/duplicate survivors;
-- unified filtering does not rerank search.
+### Unified ordinary identity
+
+- General/Special remain provenance/membership metadata internally.
+- one canonical ordinary identity -> one result card;
+- overlap is deduplicated in browse and search;
+- existing RuntimeCatalogIndex/SearchEngine ranking remains authoritative;
+- filtering removes candidates only and does not rerank survivors.
 
 ### Unified browse state
 
@@ -64,21 +76,30 @@ DictionaryWorkspaceViewModel owns:
 - local subroute;
 - body-site facets;
 - theme facets;
-- deep-only toggle;
-- content-intent filter;
-- one-step unified browse history.
+- deep-only;
+- content intent;
+- one-step browse history.
 
-Legacy persisted browse keys have compatibility migration into the unified state.
+Behavior:
 
-Query text survives route/facet/scope changes.
+- query survives route/facet/scope changes;
+- changing primary route clears only old local subroute;
+- body/theme/deep/content constraints survive primary changes;
+- Character/Copyright/Artist temporarily ignore ordinary content intent while preserving it;
+- `クリア` is query-only;
+- `全解除` resets unified browse constraints/content intent to All while preserving query;
+- neutral Tags + empty query + no constraints shows guidance and does not enumerate the ordinary population;
+- clearing to neutral also clears the left route selection highlight.
 
-Neutral empty Tags state does not eagerly enumerate the ordinary population and instead shows guidance.
+New UI state defaults directly to `tags`. Legacy persisted browse states retain bounded migration.
+
+Legacy explicit Special kind state maps to the corresponding unified route with `DeepOnly=true`; legacy body/theme states migrate to unified cross-facets.
 
 ### Generic center refinements
 
-Tags scope exposes the common refinement area:
+Tags scope supports:
 
-- optional local classification;
+- relevant local classification chips;
 - 部位;
 - テーマ;
 - `◆ 深掘りのみ`;
@@ -86,18 +107,18 @@ Tags scope exposes the common refinement area:
 - `1つ戻す`;
 - `全解除`.
 
-Selected zero-count facets remain visible so the user can remove them.
+Zero-count unselected facets are hidden. A selected facet remains visible at zero so it can be removed.
 
-### #118 content intent
+### #118 frozen content intent
 
-Frozen visible mapping:
+Visible mapping:
 
 - `すべて` -> SEXUAL + NON_SEXUAL + CONTEXTUAL + UNCLASSIFIED
 - `一般向け` -> NON_SEXUAL + CONTEXTUAL
 - `性的` -> SEXUAL + CONTEXTUAL
 - UNCLASSIFIED -> `すべて` only
 
-Frozen ordinary identity authority validated in focused tests:
+Frozen identity authority validated:
 
 - total 31,752
 - SEXUAL 2,037
@@ -107,78 +128,110 @@ Frozen ordinary identity authority validated in focused tests:
 - AUTO_HIGH_CONF 22,371
 - HUMAN_REVIEWED 9,376
 
-Character / Copyright / Artist ignore ordinary contentIntent matching in v1 while the Tags-scope selection is preserved for restoration.
+Normal startup does not parse the #118 research corpus. The accepted sidecar is consumed only during explicit catalog build and serialized into CatalogEntry metadata.
 
-Normal startup does **not** parse the #118 research CSV. The frozen authority is consumed only at explicit catalog-build time and serialized into CatalogEntry metadata.
+The catalog build report now states sexual-intent counts at **identity level**, avoiding confusion with backing General/Special row counts.
 
-### Deep discovery
+### Browseability vs searchability
 
-`◆ 深掘りのみ` is identity-level and requires direct-browse Special backing.
+Final review found and fixed an important boundary:
 
-Reference-only Special evidence does not make an identity deep-discoverable.
+- #64 UNRESOLVED General rows remain searchable but are not made browseable by unified/content-only browsing;
+- #76 ReferenceOnlyNoDirectBrowse / other non-direct Special rows remain searchable/reference-capable where existing rules allow, but do not become route/content browse rows;
+- secondary unified route metadata is consumed only from accepted direct-browse backing;
+- `◆ 深掘りのみ` requires accepted direct-browse Special backing.
 
-### Exact Special route enrichments
+This preserves #64/#76 visibility/status semantics instead of using unified navigation to bypass them.
 
-The exact six-row override asset is validated by Special ID + canonical identity and only adds the frozen secondary route.
+### Exact Special route enrichment
 
-Acceptance tests cover:
+The exact six-row reviewed override asset is enforced by Special ID + canonical identity.
 
-- exactly six unique override IDs;
-- ID/canonical mismatch -> fail closed;
-- POSE -> POSE_POSITION;
+Tests cover:
+
+- exactly six unique IDs;
+- identity mismatch -> fail closed;
+- only ADD_SECONDARY;
+- pose -> POSE_POSITION;
 - camera -> COMPOSITION_CAMERA;
 - scene -> SCENE_BACKGROUND;
-- no broad REACTION_STATE -> EXPRESSION_GAZE remap.
+- no broad REACTION_STATE -> EXPRESSION_GAZE inference.
 
 ### UI cleanup
 
-- legacy visible Special tree removed;
-- legacy left `← 戻る` removed;
-- old Special-specific tree expansion code-behind removed;
-- details now show discovery-oriented metadata such as `探せる場所` / `発見サポート`;
-- ◆ display is based on identity-level deep-discovery status rather than raw `IsSpecial`;
-- top workspace tab selected blue-edge seam received the approved cosmetic fix.
+- old visible Special tree removed;
+- left `← 戻る` removed;
+- Special-tree expansion code-behind removed;
+- obsolete Special facet XAML resources removed;
+- details use discovery-oriented `探せる場所` / `発見サポート`;
+- ◆ is identity-level deep-discovery status, not raw IsSpecial;
+- neutral guidance matches frozen wording:
+  `左からカテゴリを選ぶか、タグ名を検索してください。`
+- selected workspace-tab blue-edge seam cosmetic fix included.
 
-## #114 responsiveness invariants preserved
+## #114 performance/architecture invariants
 
-Validated implementation preserves the intended architecture/performance boundaries:
+Preserved:
 
-- RuntimeCatalogIndex/SearchEngine ranking remains the search authority;
-- no per-keystroke unified index rebuild/classification;
-- content filter is applied after existing search;
-- facet counts refresh on browse-state changes, not every query keystroke;
-- neutral empty Tags state does not create 30k+ ordinary result cards;
-- WPF dictionary recycling virtualization remains;
-- dictionary semantics remain owned by DictionaryWorkspaceViewModel;
-- no synchronous per-keystroke user.db persistence was introduced;
-- two-column wide-surface composition regression remains covered.
+- RuntimeCatalogIndex/SearchEngine ranking;
+- one-time unified index construction;
+- no per-keystroke classification/index rebuild;
+- no eager 30k+ neutral card creation;
+- WPF recycling virtualization;
+- accepted wide/two-column result composition;
+- no synchronous per-keystroke user.db persistence;
+- dictionary semantics remain in DictionaryWorkspaceViewModel rather than MainWindow/MainViewModel.
+
+Synthetic 31,752-identity characterization is now part of the focused regression surface.
+
+## Source-contract limitation discovered in final review
+
+#117 design text describes General derivation as:
+
+- people/count-group -> PEOPLE_COUNT
+- people/role-person -> RELATION_ROLE
+
+However, the accepted #64 production taxonomy currently has a single `PERSON_COUNT` genre with **no accepted count-group / role-person subgenres**.
+
+Therefore v1 deliberately does **not** invent a new General semantic split:
+
+- accepted General `PERSON_COUNT` -> PEOPLE_COUNT;
+- RELATION_ROLE receives accepted #76 Special `PERSON_RELATION` backing;
+- no heuristic reclassification of the 30,629 General rows was introduced.
+
+This is a bounded source-contract limitation, not permission to restart #64 or #118. A future General role/count split requires an explicit accepted data decision.
 
 ## Protected-boundary audit
 
-Final branch diff audit found no product mutation of:
+No product mutation of:
 
-- production/main;
+- live production/main;
 - General/Special production membership;
+- #64/#76 authority;
 - #70 translation/data authority;
 - Prompt parser/output/profile semantics;
-- `catalog.db`;
+- SearchEngine ranking;
+- tracked/real `catalog.db`;
 - `UserData/user.db`;
-- user.db schema/reset;
-- SearchEngine ranking.
+- user.db schema/reset.
 
-The only #70-named source diff is an integration-test adjustment for the newly required query-preservation behavior; #70 data is untouched.
+The #70-named diff is test-only, updating query-preservation expectations.
+
+Production/workstation catalog rebuild and practical workstation smoke are **not claimed** by this cloud DEV validation; explicit catalog build still requires the protected local source inputs.
 
 ## Next action
 
-**Stop before merge.**
+**STOP BEFORE MERGE.**
 
-Next human/reviewer action is to review Draft PR #125 / Issue #117 DEV return evidence.
+Next action is human/reviewer acceptance of Draft PR #125.
 
 If accepted:
 
-1. merge/fast-forward according to repository policy;
-2. re-check live main;
-3. sync CURRENT_STATE to merged main commit;
-4. close #117 only after the merged state is confirmed.
+1. integrate according to repository policy;
+2. re-fetch live main and confirm resulting commit;
+3. perform the explicit local catalog rebuild when protected inputs are available;
+4. practical WPF smoke the unified navigation/content filters;
+5. sync CURRENT_STATE to merged/runtime-confirmed state;
+6. close #117 only after those intended gates are explicitly accepted.
 
-Do not restart #118 research and do not redo completed #117 implementation slices.
+Do not repeat completed #117 implementation slices and do not restart #118 research.
