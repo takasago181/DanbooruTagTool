@@ -45,8 +45,8 @@ public class DataAndViewModelTests
     { var vm=Fixtures.Vm(); vm.Workspace.Replace("smile"); vm.StartDirect.Execute(null); vm.DirectText="[a:b:0.4],blue_hair"; vm.ApplyDirect.Execute(null); Assert.Equal(PromptItemKind.Raw,vm.Chips[0].Item.Kind); vm.Undo.Execute(null); Assert.Equal("smile",vm.English); }
     [Fact] public void QueryClearReturnsToBrowseSelectionAndScroll()
     {
-        var blue=Fixtures.Entry("blue_hair","青い髪") with { SexualIntent=SexualIntentClass.NonSexual, SexualIntentStatus=SexualIntentClassificationStatus.HumanReviewed };
-        var red=Fixtures.Entry("red_hair","赤い髪") with { SexualIntent=SexualIntentClass.NonSexual, SexualIntentStatus=SexualIntentClassificationStatus.HumanReviewed };
+        var blue=Fixtures.Entry("blue_hair","青い髪") with { BrowseClassification=BrowseClassificationStatus.Proposed, SexualIntent=SexualIntentClass.NonSexual, SexualIntentStatus=SexualIntentClassificationStatus.HumanReviewed };
+        var red=Fixtures.Entry("red_hair","赤い髪") with { BrowseClassification=BrowseClassificationStatus.Proposed, SexualIntent=SexualIntentClass.NonSexual, SexualIntentStatus=SexualIntentClassificationStatus.HumanReviewed };
         var catalog=new Catalog([blue,red]);
         var vm=new App.ViewModels.MainViewModel(catalog,new MemoryStore(),new MemoryClipboard());
         vm.Dictionary.SetContentIntent(ContentIntentFilter.GeneralPurpose);
