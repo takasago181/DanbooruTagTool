@@ -1,0 +1,54 @@
+name: Issue118 Final Unclassified Inventory V129
+
+on:
+  push:
+    branches: [research/issue118-cluster-triage-v8]
+    paths:
+      - scripts/issue118/materialize_final_unclassified_inventory_v129.py
+      - docs/issue118/research_sidecar_v95.csv
+      - .github/workflows/issue118_final_unclassified_inventory_v129.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  final-unclassified-v129:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Materialize final six-row inventory
+        run: |
+          python3 -m py_compile scripts/issue118/materialize_final_unclassified_inventory_v129.py
+          python3 scripts/issue118/materialize_final_unclassified_inventory_v129.py
+      - name: Validate v129
+        run: |
+          python3 - <<'PY'
+          import csv,json
+          from pathlib import Path
+          rows=list(csv.DictReader(Path('docs/issue118/final_unclassified_inventory_v129/remaining_unclassified_v129.csv').open(encoding='utf-8')))
+          s=json.loads(Path('docs/issue118/final_unclassified_inventory_v129/summary_v129.json').read_text(encoding='utf-8'))
+          assert len(rows)==6
+          assert s['remaining_unclassified']==6
+          assert [r['identity_key'] for r in rows]==s['identity_keys']
+          assert all(r['review_status']=='UNCLASSIFIED' and not (r.get('sexual_intent') or '') for r in rows)
+          assert s['review_verdicts_generated_by_materializer']=='NO'
+          assert s['review_artifacts_are_external_inputs']=='YES'
+          assert s['production_authority']=='NO'
+          assert s['main_mutated']=='NO'
+          assert s['issue117_code_mutated']=='NO'
+          assert s['catalog_mutated']=='NO'
+          assert s['user_db_mutated']=='NO'
+          print('ISSUE118_FINAL_UNCLASSIFIED_V129_GATE=PASS')
+          PY
+      - name: Persist final inventory only
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/issue118/final_unclassified_inventory_v129/
+          if ! git diff --cached --quiet; then
+            git commit -m 'Issue #118: materialize final unclassified inventory v129'
+            git pull --rebase origin research/issue118-cluster-triage-v8
+            git push origin HEAD:research/issue118-cluster-triage-v8
+          fi
