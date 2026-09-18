@@ -204,6 +204,112 @@ public sealed class Issue117UnifiedBrowseTests
         Assert.Contains(index.Browse(deepOnly), entry => entry.Canonical == "direct_tag");
     }
 
+    [Fact]
+    public void FrozenIssue118Authority_HasExactPopulationCountsAndFiveExplicitUnknowns()
+    {
+        var root = FindRepoRoot();
+        var rows = AcceptedAssetImporter.Csv(Path.Combine(root, Issue118SexualIntentOverlay.RelativePath));
+
+        Assert.Equal(Issue118SexualIntentOverlay.IdentityCount, rows.Count);
+        Assert.Equal(Issue118SexualIntentOverlay.AutoHighConfidenceCount, rows.Count(row => row["review_status"] == "AUTO_HIGH_CONF"));
+        Assert.Equal(Issue118SexualIntentOverlay.HumanReviewedCount, rows.Count(row => row["review_status"] == "HUMAN_REVIEWED"));
+        Assert.Equal(Issue118SexualIntentOverlay.UnclassifiedCount, rows.Count(row => row["review_status"] == "UNCLASSIFIED"));
+        Assert.Equal(Issue118SexualIntentOverlay.SexualCount, rows.Count(row => row["sexual_intent"] == "SEXUAL"));
+        Assert.Equal(Issue118SexualIntentOverlay.ContextualCount, rows.Count(row => row["sexual_intent"] == "CONTEXTUAL"));
+        Assert.Equal(Issue118SexualIntentOverlay.NonSexualCount, rows.Count(row => row["sexual_intent"] == "NON_SEXUAL"));
+
+        var unknowns = rows.Where(row => row["review_status"] == "UNCLASSIFIED")
+            .Select(row => row["identity_key"]).OrderBy(value => value, StringComparer.Ordinal).ToArray();
+        Assert.Equal(
+            new[] { "cock-tail", "insertion_threshold_(meme)", "knee_boobs", "lilistia", "powerful_ass" },
+            unknowns);
+        Assert.All(rows.Where(row => row["review_status"] == "UNCLASSIFIED"), row => Assert.Equal("", row["sexual_intent"]));
+    }
+
+    [Fact]
+    public void SelectedZeroCountFacet_RemainsVisibleSoItCanBeRemoved()
+    {
+        var option = new BrowseFacetOptionViewModel(BrowseFacetKind.BodySite, "MOUTH_ORAL", "口・口内")
+        {
+            Count = 0,
+            Selected = true
+        };
+
+        Assert.True(option.IsVisible);
+        option.Selected = false;
+        Assert.False(option.IsVisible);
+    }
+
+    [Fact]
+    public void UnifiedOverlay_AddsOnlyExactOverridesAndPreservesPoseCameraSceneSemantics()
+    {
+        using var authority = new TempDirectory();
+        WriteUnifiedProfile(authority.Path);
+
+        var entries = OverrideEntries()
+            .Concat([
+                SpecialEntry(1001, "pose_fixture"),
+                SpecialEntry(1002, "camera_fixture"),
+                SpecialEntry(1003, "scene_fixture"),
+                SpecialEntry(1004, "reaction_fixture")
+            ]).ToArray();
+        var catalog = new Catalog(entries);
+        var baked = UnifiedBrowseOverlay.Bake(catalog, authority.Path);
+        var byId = baked.ToDictionary(entry => entry.Id, StringComparer.Ordinal);
+
+        foreach (var id in new[] { 436, 647, 649, 650, 735, 961 })
+            Assert.Contains("EXPRESSION_GAZE", byId[$"S:{id}"].UnifiedBrowseRouteIds);
+
+        Assert.Contains("ACTION_CONTACT", byId["S:436"].UnifiedBrowseRouteIds);
+        Assert.Contains("POSE_POSITION", byId["S:1001"].UnifiedBrowseRouteIds);
+        Assert.Contains("COMPOSITION_CAMERA", byId["S:1002"].UnifiedBrowseRouteIds);
+        Assert.Contains("SCENE_BACKGROUND", byId["S:1003"].UnifiedBrowseRouteIds);
+        Assert.DoesNotContain("EXPRESSION_GAZE", byId["S:1004"].UnifiedBrowseRouteIds);
+    }
+
+    [Fact]
+    public void UnifiedOverlay_FailsClosedWhenOverrideIdAndCanonicalDoNotMatch()
+    {
+        using var authority = new TempDirectory();
+        WriteUnifiedProfile(authority.Path);
+        var entries = OverrideEntries().ToArray();
+        entries[0] = entries[0] with { Canonical = "wrong_identity", English = "wrong_identity" };
+
+        Assert.Throws<InvalidDataException>(() => UnifiedBrowseOverlay.Bake(new Catalog(entries), authority.Path));
+    }
+
+    private static IEnumerable<CatalogEntry> OverrideEntries()
+    {
+        yield return SpecialEntry(436, "rape_face") with { UnifiedBrowseRouteIds = ["ACTION_CONTACT"] };
+        yield return SpecialEntry(647, "ahegao");
+        yield return SpecialEntry(649, "naughty_face");
+        yield return SpecialEntry(650, "torogao");
+        yield return SpecialEntry(735, "looking_at_penis");
+        yield return SpecialEntry(961, "looking_at_pussy");
+    }
+
+    private static CatalogEntry SpecialEntry(int id, string canonical)
+        => Entry($"S:{id}", canonical, "Special", null);
+
+    private static void WriteUnifiedProfile(string root)
+    {
+        var path = Path.Combine(root, AcceptedAssetImporter.ProductionProfileRelativePath);
+        Directory.CreateDirectory(Path.GetDirectoryName(path)!);
+        File.WriteAllText(path,
+            "SpecialID,GenerationFamily,CompositionRoleOverride\r\n" +
+            "1001,POSE_COMPOSITION,pose\r\n" +
+            "1002,POSE_COMPOSITION,camera\r\n" +
+            "1003,SCENE_CONTEXT,\r\n" +
+            "1004,REACTION_STATE,\r\n");
+    }
+
+    private static string FindRepoRoot()
+    {
+        DirectoryInfo? dir = new(AppContext.BaseDirectory);
+        while (dir != null && !File.Exists(Path.Combine(dir.FullName, "AGENTS.md"))) dir = dir.Parent;
+        return dir?.FullName ?? throw new DirectoryNotFoundException("Repository root not found");
+    }
+
     private static Catalog CatalogWithIntentFixtures()
         => new(
         [
