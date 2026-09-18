@@ -277,7 +277,11 @@ public sealed class DictionaryWorkspaceViewModel : Observable
             ThemeOptions.Add(new(BrowseFacetKind.Theme, item.Id, item.Label));
 
         Navigation = UnifiedBrowseTaxonomy.Routes
-            .Select(route => new NavigationNode("route:" + route.Id, route.Label, []))
+            .GroupBy(route => route.Group, StringComparer.Ordinal)
+            .Select((group, index) => new NavigationNode(
+                "group:" + index,
+                group.Key,
+                group.Select(route => new NavigationNode("route:" + route.Id, route.Label, [])).ToArray()))
             .Concat([
                 new NavigationNode("character", "キャラクター", []),
                 new NavigationNode("copyright", "作品", []),
@@ -285,7 +289,7 @@ public sealed class DictionaryWorkspaceViewModel : Observable
             ])
             .ToArray();
         InspectEntry = new(p => { if (p is EntryViewModel row) { SelectedEntry = row; DetailsTabIndex = 0; } }, p => canMutate() && p is EntryViewModel);
-        Navigate = new(p => { if (p is NavigationNode n && !IsSpecialAxisHeading(n.Key)) NavigateTo(n.Key); }, p => canMutate() && p is NavigationNode);
+        Navigate = new(p => { if (p is NavigationNode n && !IsNavigationHeading(n.Key)) NavigateTo(n.Key); }, p => canMutate() && p is NavigationNode n && !IsNavigationHeading(n.Key));
         Back = new(_ => UndoUnifiedBrowse(), _ => canMutate() && CanGoBack);
         ClearQuery = new(_ => { Query = ""; RefreshResults(); persist(); }, _ => canMutate());
         ToggleSpecialFacet = new(ToggleFacet, p => canMutate() && specialBrowse != null && p is SpecialBrowseFacetOptionViewModel);
@@ -496,7 +500,9 @@ public sealed class DictionaryWorkspaceViewModel : Observable
         if (key.StartsWith("special-v2:kind:", StringComparison.Ordinal))
         {
             var primary = UnifiedBrowseTaxonomy.SpecialRoute(key[16..]);
-            return UnifiedBrowseState.Neutral with { PrimaryRouteId = primary };
+            return primary is null
+                ? UnifiedBrowseState.Neutral
+                : UnifiedBrowseState.Neutral with { PrimaryRouteId = primary, DeepOnly = true };
         }
         if (key.StartsWith("special-v2:body:", StringComparison.Ordinal))
             return UnifiedBrowseState.Neutral.ToggleBodySite(key[16..]);
@@ -760,7 +766,9 @@ public sealed class DictionaryWorkspaceViewModel : Observable
     [new("special-v2:kinds", "種類から探す", SpecialBrowseV2Taxonomy.Kinds.Select(item => new NavigationNode("special-v2:kind:" + item.Id, item.Label, [])).ToArray()),
      new("special-v2:body", "部位から探す", SpecialBrowseV2Taxonomy.BodySites.Select(item => new NavigationNode("special-v2:body:" + item.Id, item.Label, [])).ToArray()),
      new("special-v2:themes", "テーマから探す", SpecialBrowseV2Taxonomy.Themes.Select(item => new NavigationNode("special-v2:theme:" + item.Id, item.Label, [])).ToArray())];
-    private static bool IsSpecialAxisHeading(string key) => key is "special-v2:kinds" or "special-v2:body" or "special-v2:themes";
+    private static bool IsNavigationHeading(string key)
+        => key.StartsWith("group:", StringComparison.Ordinal)
+        || key is "special-v2:kinds" or "special-v2:body" or "special-v2:themes";
     private static bool SameSpecialFilter(SpecialBrowseV2Filter left, SpecialBrowseV2Filter right) => left.KindId == right.KindId && left.BodySiteIds.SetEquals(right.BodySiteIds) && left.ThemeIds.SetEquals(right.ThemeIds);
     private void ApplySpecialFilter(SpecialBrowseV2Filter next, bool remember) { if (SameSpecialFilter(next, specialFilter)) return; if (remember) specialFilterHistory.Push(specialFilter); specialFilter = next; }
     private static SpecialBrowseV2Filter SpecialFilterFromBrowse(string key)
