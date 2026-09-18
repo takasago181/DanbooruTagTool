@@ -104,6 +104,62 @@ public sealed class Issue117UnifiedBrowseTests
         Assert.Equal(UnifiedBrowseScope.Artist, vm.Scope);
     }
 
+    [Fact]
+    public void UnifiedTaxonomy_HasExactlyNineteenOrdinaryDiscoveryRoutes()
+    {
+        Assert.Equal(19, UnifiedBrowseTaxonomy.Routes.Length);
+        Assert.DoesNotContain(UnifiedBrowseTaxonomy.Routes, route => route.Label is "General" or "Special");
+        Assert.Equal("内容区分・レーティング", UnifiedBrowseTaxonomy.Routes[^1].Label);
+    }
+
+    [Fact]
+    public void UnifiedIndex_DeduplicatesGeneralSpecialOverlapByCanonicalIdentity()
+    {
+        CatalogEntry[] entries =
+        [
+            Entry("g-overlap", "shared_tag", "General", SexualIntentClass.Contextual),
+            Entry("s-overlap", "shared_tag", "Special", SexualIntentClass.Contextual) with
+            {
+                SpecialBrowseV2 = new(
+                    "ACTION_CONTACT",
+                    [],
+                    [],
+                    SpecialBrowseV2Status.HumanResolved)
+            }
+        ];
+        var index = new UnifiedBrowseIndex(new Catalog(entries));
+
+        Assert.Single(index.Identities);
+        Assert.Single(index.Browse(UnifiedBrowseState.Neutral));
+    }
+
+    [Fact]
+    public void DeepDiscovery_RequiresDirectBrowseSpecialBacking()
+    {
+        var referenceOnly = Entry("s-ref", "reference_only_tag", "Special", SexualIntentClass.Sexual) with
+        {
+            ProductFit = "KEEP_REFERENCE_ONLY",
+            SpecialBrowseV2 = new(
+                "ACTION_CONTACT",
+                [],
+                [],
+                SpecialBrowseV2Status.HumanResolved)
+        };
+        var direct = Entry("s-direct", "direct_tag", "Special", SexualIntentClass.Sexual) with
+        {
+            SpecialBrowseV2 = new(
+                "ACTION_CONTACT",
+                [],
+                [],
+                SpecialBrowseV2Status.HumanResolved)
+        };
+        var index = new UnifiedBrowseIndex(new Catalog([referenceOnly, direct]));
+        var deepOnly = UnifiedBrowseState.Neutral with { DeepOnly = true };
+
+        Assert.DoesNotContain(index.Browse(deepOnly), entry => entry.Canonical == "reference_only_tag");
+        Assert.Contains(index.Browse(deepOnly), entry => entry.Canonical == "direct_tag");
+    }
+
     private static Catalog CatalogWithIntentFixtures()
         => new(
         [
