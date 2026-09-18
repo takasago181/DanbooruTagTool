@@ -1,0 +1,59 @@
+name: Issue118 General Body Part Review V67
+
+on:
+  push:
+    branches:
+      - research/issue118-cluster-triage-v8
+    paths:
+      - scripts/issue118/materialize_general_body_part_none_review_v67.py
+      - docs/issue118/research_sidecar_v41.csv
+      - .github/workflows/issue118_general_body_part_none_review_v67.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  general-body-v67:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Materialize v67 review candidate
+        run: |
+          python3 -m py_compile scripts/issue118/materialize_general_body_part_none_review_v67.py
+          python3 scripts/issue118/materialize_general_body_part_none_review_v67.py
+      - name: Validate v67
+        run: |
+          python3 - <<'PY'
+          import csv,json
+          from pathlib import Path
+          rows=list(csv.DictReader(Path('docs/issue118/general_body_part_none_review_v67/full_review_candidate_v67.csv').open(encoding='utf-8')))
+          s=json.loads(Path('docs/issue118/general_body_part_none_review_v67/summary_v67.json').read_text(encoding='utf-8'))
+          assert len(rows)==100
+          assert s['candidate_rows']==100
+          assert s['source_cluster_rows']==141
+          assert s['source_sidecar']=='research_sidecar_v41.csv'
+          assert s['source_cluster']=='GENERAL_ONLY|BODY_PART|NONE'
+          assert all((r.get('human_intent') or '')=='' for r in rows)
+          assert all((r.get('review_note') or '')=='' for r in rows)
+          assert s['selection_rules_use']=='DISCOVERY_ONLY_NOT_CLASSIFICATION_AUTHORITY'
+          assert s['auto_promotion_performed']=='NO'
+          assert s['review_verdicts_generated_by_materializer']=='NO'
+          assert s['review_artifacts_are_external_inputs']=='YES'
+          assert s['production_authority']=='NO'
+          assert s['main_mutated']=='NO'
+          assert s['issue117_code_mutated']=='NO'
+          assert s['catalog_mutated']=='NO'
+          assert s['user_db_mutated']=='NO'
+          print('ISSUE118_GENERAL_BODY_V67_GATE=PASS')
+          PY
+      - name: Persist research evidence only
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/issue118/general_body_part_none_review_v67/
+          if ! git diff --cached --quiet; then
+            git commit -m 'Issue #118: materialize general body-part review v67'
+            git push origin HEAD:research/issue118-cluster-triage-v8
+          fi
