@@ -5,13 +5,13 @@
 ## Routing status
 
 - Active DEV Issue: #117 `[DEV][UI][DISCOVERY] Implement unified General/Special browse navigation`.
-- Status: **DEV IMPLEMENTATION + FINAL REVIEW COMPLETE / VALIDATED / STOP BEFORE MERGE**.
-- PR: **#125** `[#117] Unified browse navigation + content intent filter` — **READY FOR REVIEW / NOT MERGED**.
+- Status: **MERGED TO MAIN / CLOUD VALIDATED / LOCAL RUNTIME REBUILD + SMOKE PENDING**.
+- PR: **#125** `[#117] Unified browse navigation + content intent filter` — **MERGED** at `2ada80b4611b64ac5717924ae634ba917e3d0b95`.
 - Feature branch: `codex/issue117-unified-browse-content-intent`.
-- Live-main base: `07f6e05c7300831a9c4f52fe3857043594b8413b`.
+- Live main now contains #117/#118 integration at merge commit `2ada80b4611b64ac5717924ae634ba917e3d0b95`.
 - #118 research is frozen; authority remains `docs/issue118/FINAL_DESIGN_CHECKPOINT.md`, research commit `4cacb1fea4aaf46552da3837f50712293a6d4440`, Issue comment `5725346261`.
 - Do not restart #118 research.
-- Do not merge without explicit review/approval.
+- Merge approval was granted and PR #125 is integrated. Do not repeat or re-merge this branch.
 
 ## Final validated source
 
@@ -221,17 +221,18 @@ Production/workstation catalog rebuild and practical workstation smoke are **not
 
 ## Next action
 
-**STOP BEFORE MERGE.**
+**MERGE COMPLETE.**
 
-PR #125 has been moved out of Draft and is **ready for review**. Next action is explicit human/reviewer acceptance before merge.
+PR #125 merged to live main at:
 
-If accepted:
+`2ada80b4611b64ac5717924ae634ba917e3d0b95`
 
-1. integrate according to repository policy;
-2. re-fetch live main and confirm resulting commit;
-3. perform the explicit local catalog rebuild when protected inputs are available;
-4. practical WPF smoke the unified navigation/content filters;
-5. sync CURRENT_STATE to merged/runtime-confirmed state;
-6. close #117 only after those intended gates are explicitly accepted.
+Remaining gate is local/runtime only:
 
-Do not repeat completed #117 implementation slices and do not restart #118 research.
+1. explicitly rebuild the production catalog using the protected local source inputs;
+2. refresh the local WPF runtime from merged main;
+3. smoke the unified navigation, content filters, dedicated scopes, search/query persistence, deep-only, and two-column layout;
+4. confirm real `UserData/user.db` remains untouched;
+5. then close #117 and mark the runtime integration complete.
+
+Do not repeat completed #117 implementation/research and do not restart #118 research.
