@@ -6,7 +6,7 @@
 
 - Active DEV Issue: #117 `[DEV][UI][DISCOVERY] Implement unified General/Special browse navigation`.
 - Status: **DEV IMPLEMENTATION + FINAL REVIEW COMPLETE / VALIDATED / STOP BEFORE MERGE**.
-- Draft PR: **#125** `[WIP][#117] Unified browse navigation + content intent filter`.
+- PR: **#125** `[#117] Unified browse navigation + content intent filter` — **READY FOR REVIEW / NOT MERGED**.
 - Feature branch: `codex/issue117-unified-browse-content-intent`.
 - Live-main base: `07f6e05c7300831a9c4f52fe3857043594b8413b`.
 - #118 research is frozen; authority remains `docs/issue118/FINAL_DESIGN_CHECKPOINT.md`, research commit `4cacb1fea4aaf46552da3837f50712293a6d4440`, Issue comment `5725346261`.
@@ -223,7 +223,7 @@ Production/workstation catalog rebuild and practical workstation smoke are **not
 
 **STOP BEFORE MERGE.**
 
-Next action is human/reviewer acceptance of Draft PR #125.
+PR #125 has been moved out of Draft and is **ready for review**. Next action is explicit human/reviewer acceptance before merge.
 
 If accepted:
 
