@@ -1,0 +1,21 @@
+canonical_tag,provisional_verdict,proposed_display_ja,proposed_search_ja,evidence_ref,audit_note,status
+gensou_suikoden_iii,FIX_DISPLAY,幻想水滸伝III,,https://www.konami.com/games/jp/ja/products/dl_ps3_genso3_arch/,KONAMI official product page uses 幻想水滸伝III; normalize current lowercase roman numeral.,VERIFIED_SHORTLIST
+detective_pikachu_(series),KEEP,,,https://www.pokemon.co.jp/ex/meitantei_pikachu/,Pokemon official first-game site uses 名探偵ピカチュウ and the sequel continues the same property identity; existing series display is safe.,VERIFIED_SHORTLIST
+gimai_seikatsu,KEEP,,,https://gimaiseikatsu-anime.com/,Official anime site uses 義妹生活 and credits the KADOKAWA source work; existing display is exact.,VERIFIED_SHORTLIST
+pokemon_ranger_(series),KEEP,,,https://www.pokemon.co.jp/game/ds/ranger/,Pokemon official site uses ポケモンレンジャー and later entries continue the same series identity.,VERIFIED_SHORTLIST
+eshi_100_nin_ten,KEEP,,,https://www.eshi100.com/,Official exhibition site uses 絵師100人展 exactly.,VERIFIED_SHORTLIST
+kaitou_tenshi_twin_angel,FIX_DISPLAY,快盗天使ツインエンジェル,,https://twin-angel.com/news/6893/,Twin Angel official site explicitly identifies the original anime as 快盗天使ツインエンジェル; current display is too broad.,VERIFIED_SHORTLIST
+legend_of_mana,FIX_BOTH,聖剣伝説 Legend of Mana,聖剣LOM | レジェンド オブ マナ,https://www.jp.square-enix.com/seiken_lom/,Square Enix official product site uses 聖剣伝説 Legend of Mana; keep established abbreviations and reading as search aliases.,VERIFIED_SHORTLIST
+alien_(1979),KEEP,,,https://www.20thcenturystudios.jp/movies/alien,20th Century Studios Japan official page uses エイリアン for the 1979 first film; existing display is exact.,VERIFIED_SHORTLIST
+kemono_jihen,KEEP,,,https://kemonojihen-anime.com/,Official anime site identifies the source work as 怪物事変; existing display is exact.,VERIFIED_SHORTLIST
+tengoku_daimakyou,KEEP,,,https://tdm-anime.com/,Official anime site uses 天国大魔境 and credits the Kodansha source work; existing display is exact.,VERIFIED_SHORTLIST
+koumajou_densetsu_2,FIX_DISPLAY,紅魔城レミリアⅡ 妖幻の鎮魂歌,,https://www.youtube.com/watch?v=0n6cU_anlkM,CFK Official Channel uses 紅魔城レミリアⅡ 妖幻の鎮魂歌; current 紅魔城伝説II is not the official remaster title.,VERIFIED_SHORTLIST
+specialite_(company),KEEP,,,https://specialite.games/?lang=ja,Official agency site uses すぺしゃりて as its Japanese brand identity; existing display is exact.,VERIFIED_SHORTLIST
+counter-strike_(series),FIX_BOTH,Counter-Strike,カウンターストライク,https://store.steampowered.com/app/730/CounterStrike2/?l=japanese,Valve official distribution uses Counter-Strike as the franchise identity; preserve Japanese transliteration for search.,VERIFIED_SHORTLIST
+shiki_(novel),KEEP,,,https://www.shinchosha.co.jp/book/124023/,Shinchosha official publication page uses 屍鬼 for Ono Fuyumi's novel; existing display is exact.,VERIFIED_SHORTLIST
+shiritsu_justice_gakuen,KEEP,,,https://www.capcom.co.jp/arcade/news/operator/20140930.html,Capcom official arcade archive uses 私立ジャスティス学園; existing display is exact.,VERIFIED_SHORTLIST
+sengoku_taisen,KEEP,,,https://www.sega.jp/arcade/detail/sengoku-taisen-1477-1615/,SEGA official product page repeatedly uses 戦国大戦 as the base property identity; existing display is exact.,VERIFIED_SHORTLIST
+gal_gun_(series),KEEP,,,https://galgun.com/,Official ぎゃる☆がん portal explicitly describes the ぎゃる☆がん series; existing display is exact.,VERIFIED_SHORTLIST
+hakuouki_shinsengumi_kitan,FIX_BOTH,薄桜鬼 ～新選組奇譚～,薄桜鬼,https://www.otomate.jp/portal/hakuoki/about/,Otomate official portal lists the 2008 first work as 薄桜鬼 ～新選組奇譚～; retain short 薄桜鬼 for search.,VERIFIED_SHORTLIST
+yozakura_quartet,FIX_BOTH,夜桜四重奏～ヨザクラカルテット～,夜桜四重奏,https://shonen-sirius.com/c/yozakuraquartette,Kodansha official Shonen Sirius page uses 夜桜四重奏～ヨザクラカルテット～; retain short title for search.,VERIFIED_SHORTLIST
+artery_gear:_fusion,FIX_BOTH,アーテリーギア-機動戦姫-,アーテリーギア,https://company.kotobukiya.co.jp/news/news-4893/,Kotobukiya official collaboration notice identifies bilibili's game as アーテリーギア-機動戦姫- and links the official game site; retain short name for search.,VERIFIED_SHORTLIST
