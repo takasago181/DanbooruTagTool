@@ -1,0 +1,21 @@
+{
+  "issue": 118,
+  "mode": "GENERAL_CLOTHING_EVERYDAY_SEXUALIZED_FULL_REVIEW_V73_BATCH5",
+  "source_sidecar": "research_sidecar_v47.csv",
+  "source_cluster": "GENERAL_ONLY|CLOTHING/EVERYDAY|SEXUALIZED_CLOTHING",
+  "source_cluster_rows": 25,
+  "candidate_rows": 25,
+  "batch_selection": "all 25 remaining identities from the fixed sexualized-clothing discovery cluster after V72; selection only, not classification authority",
+  "first_identity": "venus_bikini",
+  "last_identity": "zipper_leotard",
+  "selection_rules_use": "DISCOVERY_ONLY_NOT_CLASSIFICATION_AUTHORITY",
+  "auto_promotion_performed": "NO",
+  "review_verdicts_generated_by_materializer": "NO",
+  "review_artifacts_are_external_inputs": "YES",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO",
+  "next_gate": "full manual review of all 100 rows"
+}
