@@ -1,0 +1,46 @@
+{
+  "issue": 118,
+  "mode": "RESEARCH_SIDECAR_V66_V94_FULL_REVIEW",
+  "identity_rows": 31752,
+  "source_base": "docs/issue118/research_sidecar_v65.csv",
+  "new_promotions": {
+    "CONTEXTUAL": 45,
+    "NON_SEXUAL": 28,
+    "SEXUAL": 23
+  },
+  "new_total_promotions": 96,
+  "retained_unclassified_from_review": [
+    "cock-tail",
+    "mushikan"
+  ],
+  "review_status_counts": {
+    "AUTO_HIGH_CONF": 22371,
+    "HUMAN_REVIEWED": 6601,
+    "UNCLASSIFIED": 2780
+  },
+  "sexual_intent_counts": {
+    "CONTEXTUAL": 1734,
+    "NON_SEXUAL": 25459,
+    "NULL": 2780,
+    "SEXUAL": 1779
+  },
+  "remaining_unclassified": 2780,
+  "review_inputs": [
+    {
+      "label": "V94",
+      "review_source": "docs/issue118/high_risk_eleven_cluster_review_v94/review_policy_v94.json",
+      "review_git_blob_sha": "3583b6eb862bf4a50a302958d8440b9e1c7828dc",
+      "review_sha256": "acfbaf1cf58b15fb60937c332505396c516a9e6351d14654bbefe021c1b534a9",
+      "candidate_source": "docs/issue118/high_risk_eleven_cluster_review_v94/full_review_candidate_v94.csv",
+      "candidate_git_blob_sha": "e0a59f9914bb0a49ec887f94e4d106f3aee8c4b5",
+      "source_rows": 98
+    }
+  ],
+  "review_verdicts_generated_by_materializer": "NO",
+  "review_artifacts_are_external_inputs": "YES",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO"
+}
