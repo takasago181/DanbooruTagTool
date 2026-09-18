@@ -71,6 +71,14 @@ public sealed class Issue114Phase4CompositionTests
                     Assert.True(presenter.ActualWidth > 0);
                 });
 
+                var navigationTree = GetField<TreeView>(window, "NavigationTree");
+                vm.Dictionary.NavigateTo("route:HAIR_FACE");
+                Pump(window.Dispatcher, 100);
+                Assert.NotNull(navigationTree.SelectedItem);
+                vm.Dictionary.ClearUnifiedBrowse();
+                Pump(window.Dispatcher, 100);
+                Assert.Null(navigationTree.SelectedItem);
+
                 var englishPreview = GetField<TextBox>(promptView, "EnglishPreview");
                 promptEnglishBinding = englishPreview.GetBindingExpression(TextBox.TextProperty)?.ParentBinding.Path.Path ?? "none";
                 Assert.Equal("English", promptEnglishBinding);
