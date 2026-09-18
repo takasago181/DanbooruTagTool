@@ -9,7 +9,7 @@ from pathlib import Path
 
 GENERAL = Path('docs/issue64/production_candidate/effective_sidecar.csv')
 SPECIAL = Path('data/generation/special2788_generation_profile.csv')
-SIDECAR = Path('docs/issue118/research_sidecar_v34.csv')
+SIDECAR = Path('docs/issue118/research_sidecar_v35.csv')
 OUT = Path('docs/issue118/exposure_six_cluster_review_v60')
 
 TARGETS = {
@@ -109,7 +109,7 @@ def main() -> int:
     summary = {
         'issue': 118,
         'mode': 'EXPOSURE_SIX_CLUSTER_FULL_REVIEW_V60',
-        'source_sidecar': 'research_sidecar_v34.csv',
+        'source_sidecar': 'research_sidecar_v35.csv',
         'candidate_rows': len(rows),
         'cluster_counts': dict(sorted(counts.items())),
         'selection_rules_use': 'DISCOVERY_ONLY_NOT_CLASSIFICATION_AUTHORITY',
