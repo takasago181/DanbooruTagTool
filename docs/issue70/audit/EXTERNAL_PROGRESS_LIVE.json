@@ -7,25 +7,25 @@
   "primary_conflicted_rows": 0,
   "primary_defer_markers_suppressed_by_concrete": 0,
   "initial_external_rows": 1495,
-  "resolved_external_rows": 241,
-  "remaining_external_rows": 1254,
+  "resolved_external_rows": 321,
+  "remaining_external_rows": 1174,
   "conflicted_external_rows": 0,
   "duplicate_same_decision_rows": 0,
   "superseded_external_rows": 0,
   "resolved_verdict_counts": {
-    "FIX_BOTH": 91,
-    "FIX_DISPLAY": 29,
+    "FIX_BOTH": 95,
+    "FIX_DISPLAY": 40,
     "FIX_SEARCH": 3,
-    "KEEP": 118
+    "KEEP": 183
   },
   "resolved_by_category": {
     "Character": 28,
-    "Copyright": 213
+    "Copyright": 293
   },
   "remaining_by_category": {
     "Artist": 291,
     "Character": 382,
-    "Copyright": 581
+    "Copyright": 501
   },
   "top_remaining": [
     {
@@ -57,16 +57,6 @@
       "search_ja": "",
       "translation_note": "copyright title not uniquely resolved; manual verification required",
       "primary_source_file": "copyright_review_external_batch062.csv"
-    },
-    {
-      "row_id": "I70-036024",
-      "category": "Copyright",
-      "canonical_tag": "alien_stage",
-      "post_count": 15542,
-      "display_ja": "异形舞台",
-      "search_ja": "",
-      "translation_note": "copyright title not uniquely resolved; manual verification required",
-      "primary_source_file": "copyright_batch004_01.csv"
     },
     {
       "row_id": "I70-036038",
@@ -107,16 +97,6 @@
       "search_ja": "",
       "translation_note": "copyright title not uniquely resolved; manual verification required",
       "primary_source_file": "copyright_batch005_01.csv"
-    },
-    {
-      "row_id": "I70-036233",
-      "category": "Copyright",
-      "canonical_tag": "osomatsu_(series)",
-      "post_count": 5396,
-      "display_ja": "おそ松さん/くん",
-      "search_ja": "",
-      "translation_note": "single clean Japanese copyright search title",
-      "primary_source_file": "copyright_final_internal_external_split_batch064.csv"
     },
     {
       "row_id": "I70-036237",
@@ -169,16 +149,6 @@
       "primary_source_file": "copyright_batch005_04.csv"
     },
     {
-      "row_id": "I70-036305",
-      "category": "Copyright",
-      "canonical_tag": "ambience_synesthesia",
-      "post_count": 4173,
-      "display_ja": "音律联觉",
-      "search_ja": "",
-      "translation_note": "copyright title not uniquely resolved; manual verification required",
-      "primary_source_file": "copyright_batch005_04.csv"
-    },
-    {
       "row_id": "I70-000706",
       "category": "Character",
       "canonical_tag": "t-head_trainer_(umamusume)",
@@ -219,16 +189,6 @@
       "primary_source_file": "copyright_review_external_batch062.csv"
     },
     {
-      "row_id": "I70-036407",
-      "category": "Copyright",
-      "canonical_tag": "spider-verse",
-      "post_count": 3129,
-      "display_ja": "蜘蛛宇宙",
-      "search_ja": "",
-      "translation_note": "copyright title not uniquely resolved; manual verification required",
-      "primary_source_file": "copyright_review_external_batch062.csv"
-    },
-    {
       "row_id": "I70-044462",
       "category": "Artist",
       "canonical_tag": "m-da_s-tarou",
@@ -247,16 +207,6 @@
       "search_ja": "",
       "translation_note": "semantic re-curation: title/name judged usable; official/common rendering or identity-safe original preferred over literal candidate",
       "primary_source_file": "artist_initial_audit_batch008.csv"
-    },
-    {
-      "row_id": "I70-036430",
-      "category": "Copyright",
-      "canonical_tag": "m.u.g.e.n",
-      "post_count": 2887,
-      "display_ja": "M.U.G.E.N",
-      "search_ja": "",
-      "translation_note": "copyright title not uniquely resolved; manual verification required",
-      "primary_source_file": "copyright_no_trusted_ja_batch018.csv"
     },
     {
       "row_id": "I70-001100",
@@ -299,16 +249,6 @@
       "primary_source_file": "copyright_review_external_batch062.csv"
     },
     {
-      "row_id": "I70-036446",
-      "category": "Copyright",
-      "canonical_tag": "shantae_(series)",
-      "post_count": 2770,
-      "display_ja": "シャンティ",
-      "search_ja": "",
-      "translation_note": "copyright title not uniquely resolved; manual verification required",
-      "primary_source_file": "copyright_review_external_batch062.csv"
-    },
-    {
       "row_id": "I70-044479",
       "category": "Artist",
       "canonical_tag": "minaba_hideo",
@@ -324,6 +264,66 @@
       "canonical_tag": "kirisawa_juuzou",
       "post_count": 2669,
       "display_ja": "桐沢十三",
+      "search_ja": "",
+      "translation_note": "semantic re-curation: title/name judged usable; official/common rendering or identity-safe original preferred over literal candidate",
+      "primary_source_file": "artist_initial_audit_batch008.csv"
+    },
+    {
+      "row_id": "I70-036467",
+      "category": "Copyright",
+      "canonical_tag": "street_fighter_iv_(series)",
+      "post_count": 2636,
+      "display_ja": "ウル4",
+      "search_ja": "",
+      "translation_note": "copyright title not uniquely resolved; manual verification required",
+      "primary_source_file": "copyright_review_external_batch062.csv"
+    },
+    {
+      "row_id": "I70-036480",
+      "category": "Copyright",
+      "canonical_tag": "zombie_stage",
+      "post_count": 2576,
+      "display_ja": "血鬼舞台",
+      "search_ja": "",
+      "translation_note": "copyright title not uniquely resolved; manual verification required",
+      "primary_source_file": "copyright_review_external_batch062.csv"
+    },
+    {
+      "row_id": "I70-044488",
+      "category": "Artist",
+      "canonical_tag": "namori",
+      "post_count": 2559,
+      "display_ja": "なもり",
+      "search_ja": "",
+      "translation_note": "semantic re-curation: title/name judged usable; official/common rendering or identity-safe original preferred over literal candidate",
+      "primary_source_file": "artist_initial_audit_batch008.csv"
+    },
+    {
+      "row_id": "I70-044493",
+      "category": "Artist",
+      "canonical_tag": "kato_takuji",
+      "post_count": 2489,
+      "display_ja": "加藤拓弐",
+      "search_ja": "",
+      "translation_note": "semantic re-curation: title/name judged usable; official/common rendering or identity-safe original preferred over literal candidate",
+      "primary_source_file": "artist_initial_audit_batch008.csv"
+    },
+    {
+      "row_id": "I70-044494",
+      "category": "Artist",
+      "canonical_tag": "houtengeki",
+      "post_count": 2472,
+      "display_ja": "方天戟",
+      "search_ja": "",
+      "translation_note": "semantic re-curation: title/name judged usable; official/common rendering or identity-safe original preferred over literal candidate",
+      "primary_source_file": "artist_initial_audit_batch008.csv"
+    },
+    {
+      "row_id": "I70-044499",
+      "category": "Artist",
+      "canonical_tag": "kani_biimu",
+      "post_count": 2442,
+      "display_ja": "かにビーム",
       "search_ja": "",
       "translation_note": "semantic re-curation: title/name judged usable; official/common rendering or identity-safe original preferred over literal candidate",
       "primary_source_file": "artist_initial_audit_batch008.csv"
