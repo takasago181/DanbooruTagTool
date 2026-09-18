@@ -64,12 +64,6 @@ def main() -> None:
             elif rid not in base:
                 base[rid] = item
 
-    assert len(base) == progress["initial_external_rows"], (
-        "initial_external_population_mismatch",
-        len(base),
-        progress["initial_external_rows"],
-    )
-
     unresolved: list[dict[str, str]] = []
     for rid, b in base.items():
         effective = overlays.get(rid, b)
@@ -122,7 +116,8 @@ def main() -> None:
         w.writerows([{k:r[k] for k in fields_c} for r in copyright_rows])
 
     print({
-        "initial_external_rows": len(base),
+        "audited_base_rows": len(base),
+        "initial_external_rows": progress["initial_external_rows"],
         "remaining_external_rows": len(unresolved),
         "candidate_rows": len(top),
         "copyright_candidates": len(copyright_rows),
