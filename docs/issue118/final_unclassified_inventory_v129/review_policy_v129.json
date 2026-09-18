@@ -1,0 +1,32 @@
+{
+  "issue": 118,
+  "mode": "FINAL_UNCLASSIFIED_REVIEW_V129_POLICY",
+  "source_rows": 6,
+  "candidate_blob_sha": "8ca52e3ff47951ebfc5bb942e3b20bb508f4e8a4",
+  "sexual": [
+    "mushikan"
+  ],
+  "contextual": [],
+  "non_sexual": [],
+  "unclassified": [
+    "cock-tail",
+    "insertion_threshold_(meme)",
+    "knee_boobs",
+    "lilistia",
+    "powerful_ass"
+  ],
+  "decision_counts": {
+    "SEXUAL": 1,
+    "CONTEXTUAL": 0,
+    "NON_SEXUAL": 0,
+    "UNCLASSIFIED": 5
+  },
+  "policy": "All six remaining rows were manually reviewed under Issue #118 concept-level semantics. mushikan is SEXUAL because the Japanese term 虫姦 denotes explicit sexual activity involving insects/bugs and is used as an adult-content fetish category. cock-tail remains UNCLASSIFIED because the exact Danbooru/Special semantic authority is still insufficient and the English spelling is ambiguous. insertion_threshold_(meme) remains UNCLASSIFIED because the exact meme meaning could not be established from authoritative evidence. knee_boobs remains UNCLASSIFIED because the exact tag semantics and whether it denotes ordinary exaggerated anatomy, a meme, or a sexualized concept are not sufficiently authoritative. lilistia remains UNCLASSIFIED because the referent could not be established reliably. powerful_ass remains UNCLASSIFIED because the exact tag semantics are unclear and body-part emphasis alone is not authority for SEXUAL. Precision is preferred over forced coverage.",
+  "review_verdicts_generated_by_materializer": "NO",
+  "review_artifacts_are_external_inputs": "YES",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO"
+}
