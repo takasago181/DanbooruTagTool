@@ -417,6 +417,7 @@
                     <Setter Property="FontWeight" Value="SemiBold"/>
                     <Setter Property="Padding" Value="8,4"/>
                     <Setter Property="Background" Value="#F5F9FC"/>
+                    <Setter Property="IsExpanded" Value="True"/>
                 </Trigger>
                 <Trigger Property="IsSelected" Value="True">
                     <Setter Property="Background" Value="#E5F2FF"/>
