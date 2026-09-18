@@ -1,0 +1,47 @@
+{
+  "issue": 118,
+  "mode": "RESEARCH_SIDECAR_V96_FINAL_SIX_REVIEW",
+  "identity_rows": 31752,
+  "source_base": "docs/issue118/research_sidecar_v95.csv",
+  "new_promotions": {
+    "SEXUAL": 1
+  },
+  "new_total_promotions": 1,
+  "review_status_counts": {
+    "AUTO_HIGH_CONF": 22371,
+    "HUMAN_REVIEWED": 9376,
+    "UNCLASSIFIED": 5
+  },
+  "sexual_intent_counts": {
+    "CONTEXTUAL": 1951,
+    "NON_SEXUAL": 27759,
+    "NULL": 5,
+    "SEXUAL": 2037
+  },
+  "remaining_unclassified": 5,
+  "retained_unclassified": [
+    "cock-tail",
+    "insertion_threshold_(meme)",
+    "knee_boobs",
+    "lilistia",
+    "powerful_ass"
+  ],
+  "review_inputs": [
+    {
+      "label": "V129_FINAL6",
+      "review_source": "docs/issue118/final_unclassified_inventory_v129/review_policy_v129.json",
+      "review_git_blob_sha": "4d830203dfb9bb44be4529cc722e5e677fd85fce",
+      "review_sha256": "a43fa946803eee8df1569e8687540159ce71700cb8042f14f6218ec7fa83faca",
+      "candidate_source": "docs/issue118/final_unclassified_inventory_v129/remaining_unclassified_v129.csv",
+      "candidate_git_blob_sha": "8ca52e3ff47951ebfc5bb942e3b20bb508f4e8a4",
+      "source_rows": 6
+    }
+  ],
+  "review_verdicts_generated_by_materializer": "NO",
+  "review_artifacts_are_external_inputs": "YES",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO"
+}
