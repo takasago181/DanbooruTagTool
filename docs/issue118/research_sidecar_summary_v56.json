@@ -1,0 +1,32 @@
+{
+  "issue": 118,
+  "mode": "RESEARCH_SIDECAR_V56_V81A_CORRECTION",
+  "identity_rows": 31752,
+  "source_base": "docs/issue118/research_sidecar_v55.csv",
+  "correction_count": 1,
+  "corrected_keys": [
+    "sensory_deprivation"
+  ],
+  "review_status_counts": {
+    "AUTO_HIGH_CONF": 22371,
+    "HUMAN_REVIEWED": 5680,
+    "UNCLASSIFIED": 3701
+  },
+  "sexual_intent_counts": {
+    "CONTEXTUAL": 1510,
+    "NON_SEXUAL": 24832,
+    "NULL": 3701,
+    "SEXUAL": 1709
+  },
+  "remaining_unclassified": 3701,
+  "correction_source": "docs/issue118/general_action_interaction_none_review_v81/review_correction_v81a.json",
+  "correction_git_blob_sha": "75a636345aed8ba5a0171da96ad592d68ec8d688",
+  "correction_sha256": "e3e99f07f837039e9f4af57ade706cb5a390a97115d0676408eabe973daf6c06",
+  "review_verdicts_generated_by_materializer": "NO",
+  "review_artifacts_are_external_inputs": "YES",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO"
+}
