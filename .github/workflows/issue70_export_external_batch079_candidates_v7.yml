@@ -6,11 +6,13 @@ on:
       - 'scripts/issue70/export_external_batch079_candidates_v7.py'
       - '.github/workflows/issue70_export_external_batch079_candidates_v7.yml'
   workflow_dispatch:
+
 permissions:
   contents: write
+
 concurrency:
   group: issue70-export-batch079-candidates-v7
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   export:
@@ -20,37 +22,66 @@ jobs:
         with:
           ref: audit/issue70-semantic-final
           fetch-depth: 0
+
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Export effective Copyright candidates
+
+      - name: Export from live root queue plus resolution overlays only
         run: python scripts/issue70/export_external_batch079_candidates_v7.py
-      - name: Validate diagnostic outputs
+
+      - name: Validate diagnostics and audit invariants
         run: |
           python - <<'PY'
           import csv, json
           from pathlib import Path
-          a=list(csv.DictReader(Path('docs/issue70/audit/EXTERNAL_QUEUE_BATCH079_CANDIDATES.csv').open(encoding='utf-8-sig',newline='')))
-          c=list(csv.DictReader(Path('docs/issue70/audit/EXTERNAL_QUEUE_BATCH079_COPYRIGHT_CANDIDATES.csv').open(encoding='utf-8-sig',newline='')))
-          root={r['row_id']:r for r in csv.DictReader(Path('docs/issue70/audit/EXTERNAL_QUEUE_LIVE.csv').open(encoding='utf-8-sig',newline=''))}
-          e=json.loads(Path('docs/issue70/audit/EXTERNAL_PROGRESS_LIVE.json').read_text(encoding='utf-8'))
-          assert len(a)==600, len(a)
-          assert len({r['row_id'] for r in a})==600
-          assert len(c)>=80, len(c)
-          assert len({r['row_id'] for r in c})==len(c)
-          assert all(root[r['row_id']]['category']=='Copyright' for r in c)
-          assert e['resolved_external_rows']==321
-          assert e['remaining_external_rows']==1174
-          assert e['conflicted_external_rows']==0
-          assert e['production_modified'] is False
-          print({'top600':len(a),'copyright_candidates':len(c),'remaining':e['remaining_external_rows']})
+
+          audit = Path('docs/issue70/audit')
+          progress = json.loads((audit / 'EXTERNAL_PROGRESS_LIVE.json').read_text(encoding='utf-8'))
+          root = {r['row_id']: r for r in csv.DictReader((audit / 'EXTERNAL_QUEUE_LIVE.csv').open(encoding='utf-8-sig', newline=''))}
+          all_rows = list(csv.DictReader((audit / 'EXTERNAL_QUEUE_BATCH079_CANDIDATES.csv').open(encoding='utf-8-sig', newline='')))
+          copyright_rows = list(csv.DictReader((audit / 'EXTERNAL_QUEUE_BATCH079_COPYRIGHT_CANDIDATES.csv').open(encoding='utf-8-sig', newline='')))
+
+          assert len(all_rows) == min(600, progress['remaining_external_rows'])
+          assert len({r['row_id'] for r in all_rows}) == len(all_rows)
+          assert all(r['row_id'] in root for r in all_rows)
+
+          expected_copyright = sum(1 for r in all_rows if root[r['row_id']]['category'] == 'Copyright')
+          assert len(copyright_rows) == expected_copyright
+          assert len(copyright_rows) >= 80
+          assert len({r['row_id'] for r in copyright_rows}) == len(copyright_rows)
+          assert all(root[r['row_id']]['category'] == 'Copyright' for r in copyright_rows)
+
+          assert progress['production_modified'] is False
+          assert progress['conflicted_external_rows'] == 0
+          assert progress['resolved_external_rows'] + progress['remaining_external_rows'] == progress['initial_external_rows']
+
+          print({
+              'candidate_rows': len(all_rows),
+              'copyright_candidates': len(copyright_rows),
+              'resolved': progress['resolved_external_rows'],
+              'remaining': progress['remaining_external_rows'],
+              'remaining_by_category': progress['remaining_by_category'],
+          })
           PY
           git diff --exit-code -- docs/issue70/data/runtime docs/issue70/data/source
-      - name: Commit diagnostic candidates
+
+      - name: Commit diagnostic candidates if branch is unchanged
         run: |
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+
+          git fetch origin audit/issue70-semantic-final
+          if [ "$(git rev-parse HEAD)" != "$(git rev-parse origin/audit/issue70-semantic-final)" ]; then
+            echo "Branch advanced while exporting; skip stale publish without failing."
+            exit 0
+          fi
+
           git add docs/issue70/audit/EXTERNAL_QUEUE_BATCH079_CANDIDATES.csv docs/issue70/audit/EXTERNAL_QUEUE_BATCH079_COPYRIGHT_CANDIDATES.csv
-          if git diff --cached --quiet; then exit 0; fi
-          git commit -m 'Issue70: export Copyright-only batch079 candidates'
+          if git diff --cached --quiet; then
+            echo "Candidate diagnostics already current."
+            exit 0
+          fi
+
+          git commit -m 'Issue70: export stable Copyright batch079 candidates'
           git push origin HEAD:audit/issue70-semantic-final
