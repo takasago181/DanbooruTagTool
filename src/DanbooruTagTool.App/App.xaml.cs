@@ -21,7 +21,9 @@ public partial class App : Application
                 if (e.Args.Length != 4) throw new ArgumentException("--build-catalog <protected-source-root> <authority-root> <output-directory>");
                 var output = CatalogOutputGuard.Validate(e.Args[3], e.Args[1], e.Args[2]);
                 var result = AcceptedAssetImporter.Read(e.Args[1], e.Args[2]);
-                var bakedEntries = SpecialBrowseV2Overlay.Bake(new Catalog(result.Entries));
+                var specialBrowseEntries = SpecialBrowseV2Overlay.Bake(new Catalog(result.Entries));
+                var unifiedBrowseEntries = UnifiedBrowseOverlay.Bake(new Catalog(specialBrowseEntries), e.Args[2]);
+                var bakedEntries = Issue118SexualIntentOverlay.Bake(new Catalog(unifiedBrowseEntries), e.Args[2], result.SourceHashes);
                 CatalogDatabase.Build(Path.Combine(output, "catalog.db"), bakedEntries, JsonSerializer.Serialize(result.SourceHashes));
                 File.WriteAllText(Path.Combine(output, "import-report.json"), JsonSerializer.Serialize(new
                 {
@@ -36,6 +38,13 @@ public partial class App : Application
                         Proposed = result.Entries.Count(x => !x.IsSpecial && x.BrowseClassification == BrowseClassificationStatus.Proposed),
                         Unresolved = result.Entries.Count(x => !x.IsSpecial && x.BrowseClassification == BrowseClassificationStatus.Unresolved),
                         EligibleForBrowse = result.Entries.Count(x => !x.IsSpecial && x.BrowseClassification == BrowseClassificationStatus.Proposed && x.CanBrowse)
+                    },
+                    SexualIntent = new
+                    {
+                        Sexual = bakedEntries.Count(x => x.SexualIntent == SexualIntentClass.Sexual && x.EffectiveCategory is "General" or "Special"),
+                        Contextual = bakedEntries.Count(x => x.SexualIntent == SexualIntentClass.Contextual && x.EffectiveCategory is "General" or "Special"),
+                        NonSexual = bakedEntries.Count(x => x.SexualIntent == SexualIntentClass.NonSexual && x.EffectiveCategory is "General" or "Special"),
+                        UnclassifiedBackingRows = bakedEntries.Count(x => x.SexualIntent is null && x.EffectiveCategory is "General" or "Special")
                     },
                     Sources = result.SourceHashes
                 }, new JsonSerializerOptions { WriteIndented = true }));
