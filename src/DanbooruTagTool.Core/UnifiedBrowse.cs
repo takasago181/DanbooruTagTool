@@ -191,8 +191,8 @@ public sealed class UnifiedBrowseIndex
                 {
                     var baked = row.SpecialBrowseV2;
                     var runtime = specialBrowse?.Get(row.Id);
-                    var status = baked?.Status ?? runtime?.Status;
-                    if (row.CanBrowse && status is SpecialBrowseV2Status.AutoCandidate or SpecialBrowseV2Status.HumanResolved)
+                    var specialStatus = baked?.Status ?? runtime?.Status;
+                    if (row.CanBrowse && (specialStatus is SpecialBrowseV2Status.AutoCandidate or SpecialBrowseV2Status.HumanResolved))
                     {
                         deep = true;
                         var kind = baked?.KindId ?? runtime?.KindId;
@@ -244,7 +244,7 @@ public sealed class UnifiedBrowseIndex
         localDefinitions = locals;
     }
 
-    public IReadOnlyCollection<UnifiedBrowseIdentity> Identities => byIdentity.Values;
+    public IReadOnlyCollection<UnifiedBrowseIdentity> Identities => byIdentity.Values.ToArray();
 
     public UnifiedBrowseIdentity? Get(CatalogEntry entry)
         => identityByCatalogId.TryGetValue(entry.Id, out var key) ? byIdentity.GetValueOrDefault(key) : null;
