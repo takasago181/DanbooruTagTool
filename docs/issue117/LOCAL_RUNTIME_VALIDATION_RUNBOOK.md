@@ -102,7 +102,38 @@ Expected staged outputs:
 
 Do not modify `artifacts/current/` yet.
 
-## 5. Validate import-report before runtime apply
+## 5. Validate staged catalog before runtime apply
+
+Run the dedicated validator against the fresh catalog staging directory:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\tools\issue117_validate_staged_catalog.ps1 `
+  -CatalogDirectory $catalogStage
+```
+
+This validates without modifying the staged DB:
+
+- SQLite file header and non-empty size;
+- total/category counts;
+- #64 General PROPOSED / UNRESOLVED totals;
+- #118 identity/class counts;
+- ordinary backing-row and identity-union arithmetic;
+- required source-hash records;
+- frozen #70 runtime-overlay SHA-256.
+
+If `sqlite3.exe` is available, it additionally queries the actual staged database for schema version, row counts, prefix-category counts, ordinary identity union, and metadata-row count.
+
+If direct SQLite CLI verification is required for the gate, use:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\tools\issue117_validate_staged_catalog.ps1 `
+  -CatalogDirectory $catalogStage `
+  -RequireSqliteCli
+```
+
+A non-zero exit code means: **stop before touching `artifacts/current/`**.
+
+Expected production backing-row counts:
 
 Expected production backing-row counts:
 
