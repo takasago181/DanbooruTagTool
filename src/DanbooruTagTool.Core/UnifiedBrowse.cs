@@ -149,7 +149,7 @@ public sealed class UnifiedBrowseIndex
     private readonly IReadOnlyDictionary<string, string> identityByCatalogId;
     private readonly IReadOnlyDictionary<string, UnifiedBrowseLocalDefinition> localDefinitions;
 
-    public UnifiedBrowseIndex(IRuntimeCatalogQuery catalog)
+    public UnifiedBrowseIndex(IRuntimeCatalogQuery catalog, SpecialBrowseV2Index? specialBrowse = null)
     {
         var ordinary = catalog.Entries.Where(IsOrdinary).ToArray();
         var groups = ordinary.GroupBy(IdentityKey, StringComparer.Ordinal);
@@ -187,18 +187,30 @@ public sealed class UnifiedBrowseIndex
                     }
                 }
 
-                if (row.EffectiveCategory == "Special" && row.SpecialBrowseV2 is { } special)
+                if (row.EffectiveCategory == "Special")
                 {
-                    if (special.Status is SpecialBrowseV2Status.AutoCandidate or SpecialBrowseV2Status.HumanResolved)
+                    var baked = row.SpecialBrowseV2;
+                    var runtime = specialBrowse?.Get(row.Id);
+                    var status = baked?.Status ?? runtime?.Status;
+                    if (status is SpecialBrowseV2Status.AutoCandidate or SpecialBrowseV2Status.HumanResolved)
                     {
                         deep = true;
-                        if (special.KindId is { } kind)
+                        var kind = baked?.KindId ?? runtime?.KindId;
+                        if (kind is not null)
                         {
                             var route = UnifiedBrowseTaxonomy.SpecialRoute(kind);
                             if (route is not null) routeIds.Add(route);
                         }
-                        bodyIds.UnionWith(special.BodySiteIds);
-                        themeIds.UnionWith(special.ThemeIds);
+                        if (baked is not null)
+                        {
+                            bodyIds.UnionWith(baked.BodySiteIds);
+                            themeIds.UnionWith(baked.ThemeIds);
+                        }
+                        else if (runtime is not null)
+                        {
+                            bodyIds.UnionWith(runtime.BodySiteIds);
+                            themeIds.UnionWith(runtime.ThemeIds);
+                        }
                     }
                 }
 
