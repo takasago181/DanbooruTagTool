@@ -210,7 +210,7 @@ public sealed class Issue117UnifiedBrowseTests
     {
         var referenceOnly = Entry("s-ref-route", "reference_route", "Special", SexualIntentClass.Sexual) with
         {
-            ProductFit = "KEEP_REFERENCE_ONLY",
+            ProductFit = "KEEP",
             SpecialBrowseV2 = new(
                 "ACTION_CONTACT",
                 [],
