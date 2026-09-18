@@ -7,8 +7,8 @@
   "complete": false,
   "assigned_count": 60,
   "target_resolutions": 40,
-  "validated_count": 15,
-  "next_action": "continue remaining assigned Character rows from PARTIAL_RESULTS.csv; prioritize direct first-party Japanese pages; do not revisit 15 validated rows",
-  "last_run_note": "Validated yao_guang_(honkai:_star_rail) as KEEP from the official PlayStation Japan publication of the Honkai: Star Rail Yao Guang character PV, which explicitly uses 爻光 in the Japanese title/CV information. Other sampled rows without direct enough official evidence were left unresolved rather than guessed.",
+  "validated_count": 17,
+  "next_action": "continue remaining assigned Character rows from PARTIAL_RESULTS.csv; prioritize direct first-party Japanese pages; do not revisit 17 validated rows",
+  "last_run_note": "Added hinata_hideki KEEP from Key official 20th anniversary character poll listing 日向秀樹, and sayama_saho KEEP from KADOKAWA official book page explicitly naming 茶山沙穂. Candidates lacking direct enough first-party evidence remained unresolved.",
   "production_modified": false
 }
