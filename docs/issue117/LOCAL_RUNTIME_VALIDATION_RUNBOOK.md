@@ -16,15 +16,21 @@ This runbook is intentionally conservative. It does not authorize deleting, rese
 From the repository root, run:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File .\tools\issue117_local_runtime_preflight.ps1
+$baselineJson = Join-Path (Resolve-Path ".").Path "artifacts\issue117-local-baseline.json"
+
+powershell -ExecutionPolicy Bypass -File .\tools\issue117_local_runtime_preflight.ps1 `
+  -OutputPath $baselineJson
 ```
 
 If the protected source root is separate from the repository:
 
 ```powershell
+$baselineJson = Join-Path (Resolve-Path ".").Path "artifacts\issue117-local-baseline.json"
+
 powershell -ExecutionPolicy Bypass -File .\tools\issue117_local_runtime_preflight.ps1 `
   -ProtectedSourceRoot "<protected-source-root>" `
-  -AuthorityRoot "<repository-root>"
+  -AuthorityRoot "<repository-root>" `
+  -OutputPath $baselineJson
 ```
 
 Record before any mutation:
@@ -208,10 +214,21 @@ Get-ChildItem -LiteralPath $runtimeStage -Force |
 
 This intentionally leaves unrelated stale files alone. Cleanup is a separate task, not part of runtime validation.
 
-After apply:
-- verify `artifacts/current/Data/catalog.db` matches staged catalog SHA-256;
-- verify the existing `artifacts/current/UserData/user.db` SHA-256 is unchanged;
-- verify the root shortcut target resolves to the updated `artifacts/current/DanbooruTagTool.exe`.
+After apply, before launching WPF, run the integrity verifier:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\tools\issue117_verify_runtime_apply.ps1 `
+  -BaselineJson $baselineJson `
+  -StagedCatalog (Join-Path $catalogStage "catalog.db")
+```
+
+It fails if:
+- the applied `catalog.db` does not match the staged catalog SHA-256;
+- the real existing `UserData/user.db` hash changed;
+- the expected runtime executable is missing;
+- the root shortcut is missing or does not resolve to the current runtime executable.
+
+Do not continue to smoke on integrity-verifier failure.
 
 ## 8. Practical WPF smoke
 
@@ -239,7 +256,15 @@ At minimum:
 
 ## 9. Final user.db integrity gate
 
-After smoke, calculate SHA-256 of the real `artifacts/current/UserData/user.db` again.
+After smoke, run the same integrity verifier again:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\tools\issue117_verify_runtime_apply.ps1 `
+  -BaselineJson $baselineJson `
+  -StagedCatalog (Join-Path $catalogStage "catalog.db")
+```
+
+This re-checks the real `artifacts/current/UserData/user.db` SHA-256 against the **pre-mutation baseline**.
 
 For this #117 runtime gate, the requested acceptance condition is:
 
