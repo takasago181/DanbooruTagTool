@@ -9,5 +9,6 @@
   "target_resolutions": 40,
   "validated_count": 13,
   "next_action": "continue remaining assigned Character rows from PARTIAL_RESULTS.csv; prioritize direct first-party Japanese pages; do not revisit 13 validated rows",
+  "last_run_note": "External web search returned transient HTTP 503 while researching remaining assigned rows. Preserved all 13 validated rows unchanged; retry research next run without semantic changes.",
   "production_modified": false
 }
