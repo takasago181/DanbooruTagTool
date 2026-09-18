@@ -1,0 +1,7 @@
+special_id,canonical,route_id,mode,rationale
+436,rape face,EXPRESSION_GAZE,ADD_SECONDARY,explicit facial-expression intent
+647,ahegao,EXPRESSION_GAZE,ADD_SECONDARY,explicit facial-expression intent
+649,naughty face,EXPRESSION_GAZE,ADD_SECONDARY,explicit facial-expression intent
+650,torogao,EXPRESSION_GAZE,ADD_SECONDARY,explicit facial-expression intent
+735,looking at penis,EXPRESSION_GAZE,ADD_SECONDARY,explicit gaze intent
+961,looking at pussy,EXPRESSION_GAZE,ADD_SECONDARY,explicit gaze intent
