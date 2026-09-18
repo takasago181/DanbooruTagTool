@@ -1,40 +1,112 @@
-# CURRENT DEV TASK — ISSUE #114 WPF ARCHITECTURE STABILIZATION (COMPLETED)
+# CURRENT DEV TASK — ISSUE #117 UNIFIED GENERAL/SPECIAL BROWSE + #118 CONTENT INTENT
 
-最終同期: 2026-09-17
+最終同期: 2026-09-18
 
 ## Routing status
 
-- Issue #114 `[DEV][ARCH][PERF] WPF architecture stabilization and runtime catalog index refactor` Phase 1–4 is DEV-accepted and integrated into `main`.
-- Accepted implementation branch: `codex/issue114-phase3-wpf-performance`.
-- Accepted source tip before main integration: `6880f0a23ca594f8a3e673537a22389543e1124d`.
-- Base live-main SHA: `a8d19e23483f10c4eb7c87b3a0dfa89ff24e4f41`.
-- Activation authority: Issue #114 activation comment `5697124968`.
-- Issue #113 branch `codex/issue113-wpf-performance-pass` at `9cfad5d8c21fe379badc88c7831e61359865a919` is reference-only and is not a base or merge source.
-- Completed scope includes the runtime catalog/query/index boundary, precomputed search documents, Dictionary/Prompt/Presets/Forge feature ViewModels, UserState coordination, Dictionary/Prompt view composition, WPF result virtualization, targeted Prompt canonical refresh, Query persistence correction, General Paths cache, and column-aware keyboard navigation.
-- Practical WPF validation used the available 33,688-entry catalog. 126,427-entry production WPF workstation validation was not performed and remains a follow-up when the protected production catalog is available.
-- Post-integration workstation use exposed a wide-layout two-column regression. It was fixed on `codex/fix-wpf-two-column-layout` by commits `0cadf04799607bf942d623b830e549c34ccae826`, `0ab8f085d81e9539ef074506848fcf7be097a6ea`, and `7376b9d48e29af06ecd1c8604676a0611e974aa4`, then fast-forwarded to `main` without force-push, squash, or merge commit.
-- The hotfix recalculates dictionary columns after layout/maximize and fixes the second-card XAML visibility binding. WPF composition regression coverage now verifies a wide window resolves to two columns and both card presenters are visible with non-zero width.
-- Current post-hotfix main source anchor: `7376b9d48e29af06ecd1c8604676a0611e974aa4`.
-- Issue #114 is integrated; do not claim 126,427-entry WPF validation from this document.
+- Active DEV Issue: #117 `[DEV][UI][DISCOVERY] Implement unified General/Special browse navigation`.
+- #118 research is complete and frozen. Final authority:
+  - `docs/issue118/FINAL_DESIGN_CHECKPOINT.md`
+  - research branch `research/issue118-cluster-triage-v8`
+  - frozen commit `4cacb1fea4aaf46552da3837f50712293a6d4440`
+  - Issue #118 Final design freeze v2.0 comment `5725346261`.
+- Implementation branch: `codex/issue117-unified-browse-content-intent`.
+- Base live-main SHA: `07f6e05c7300831a9c4f52fe3857043594b8413b`.
+- Recovered implementation head before this management-doc sync: `87001ae0670f635aafb7ade660c6b59da273d2ca`.
+- Branch was verified 12 commits ahead / 0 behind main at recovery time.
+- Stop before merge. No direct main implementation.
+
+## Recovered implementation state
+
+Completed or materially started on the feature branch:
+
+1. Core unified browse contracts/state/index scaffold.
+2. General/Special identity-level route aggregation scaffold.
+3. Exact Special route override asset/loader work.
+4. #118 frozen sexual-intent production-candidate sidecar added as explicit build input.
+5. CatalogEntry sexual-intent metadata fields and build overlay wiring started.
+6. Runtime unified index can consume existing Special Browse v2 metadata.
+
+Not yet completed at recovery:
+
+- DictionaryWorkspaceViewModel migration to unified browse state;
+- shallow left navigation and generic center refinement UI;
+- removal of legacy Special-tree/back-history behavior;
+- details/deep-discovery presentation;
+- focused/full regression tests for #117/#118;
+- Release build / full test / performance characterization;
+- final protected-boundary audit and DEV return checkpoint.
+
+## #118 frozen visible behavior
+
+```text
+内容
+[すべて] [一般向け] [性的]
+```
+
+Mapping:
+
+- `すべて` -> SEXUAL + NON_SEXUAL + CONTEXTUAL + UNCLASSIFIED
+- `一般向け` -> NON_SEXUAL + CONTEXTUAL
+- `性的` -> SEXUAL + CONTEXTUAL
+- UNCLASSIFIED -> `すべて` only
+
+Ordinary identity authority:
+
+- total 31,752
+- SEXUAL 2,037
+- CONTEXTUAL 1,951
+- NON_SEXUAL 27,759
+- UNCLASSIFIED 5
+- AUTO_HIGH_CONF 22,371
+- HUMAN_REVIEWED 9,376
+
+Character / Copyright / Artist ignore contentIntent in v1 while preserving the user's selected Tags-scope content filter for restoration on return.
 
 ## Protected boundaries
 
-- Issue #70 source/results, accepted rows, translation status, canonical identity, and import content remain untouched.
-- `catalog.db` schema v1 and `user.db` schema remain unchanged.
-- General and Special taxonomy, Prompt parser/output semantics, Forge protocol, and SoftwareOnly remain unchanged.
+Do not mutate:
 
-## Validation target
+- production/main before review/merge;
+- General/Special production membership;
+- #64/#76 source taxonomy semantics;
+- #70 translation/data authority;
+- Prompt parser/output/profile semantics;
+- `catalog.db` or `UserData/user.db` as DEV validation data;
+- user.db schema/reset;
+- SearchEngine ranking.
 
-- Preserve SearchEngine ranking and characterization queries (`blue_hair`, `青い髪`, `anal`, `a`, `s`, `hair`, `blue hair`, `青い hair`, `anal_sex`, `blu`, `lue`, `blie hair`).
-- Preserve General top/genre/subgenre, Special, Character, Copyright, Artist, and Character↔Copyright result membership/order.
-- Preserve the post-#114 wide-window two-column invariant: layout/maximize must recompute the effective column count, and both card presenters in a two-entry row must remain visible.
-- Record Release build, full/focused .NET tests, `git diff --check`, and index/search/browse before/after measurements when the workstation SDK/runtime allows them.
-- If protected production catalog inputs or the .NET SDK are unavailable, report that limitation explicitly; do not infer workstation performance.
+Preserve #114/post-hotfix invariants:
 
-## Integrated follow-up candidates
+- RuntimeCatalogIndex/SearchEngine ranking behavior;
+- WPF recycling virtualization;
+- two-column wide result surface and second-card visibility;
+- no eager 30k+ card creation in neutral empty Tags state;
+- no per-keystroke unified index rebuild/classification;
+- no synchronous per-keystroke user.db persistence;
+- dictionary semantics remain owned by DictionaryWorkspaceViewModel, not MainViewModel/code-behind.
 
-- measure the accepted WPF runtime with the full 126,427-entry production catalog;
-- evaluate remaining eager `EntryViewModel` creation and any residual full-refresh path;
-- separately assess `SoftwareOnly` and O(N) search tradeoffs.
+## Resume order
 
-These follow-ups do not alter the accepted #114 Phase 1–4 scope, the integrated two-column hotfix, or the protected #70/data/schema boundaries.
+Resume from the recovered boundary, not from research:
+
+1. verify feature branch HEAD and main divergence;
+2. complete DictionaryWorkspaceViewModel unified state/query/filter composition;
+3. add focused Core/ViewModel tests before broad UI changes;
+4. implement shallow left navigation + generic center refinements including content intent;
+5. remove legacy Special-tree/back-history behavior;
+6. details/deep presentation and tab underline cosmetic fix;
+7. full/focused tests, Release build, diff check, available performance characterization;
+8. Issue #117 DEV return checkpoint; stop before merge.
+
+## Anti-freeze execution rule
+
+Use bounded slices. Each slice should:
+
+- change one coherent layer/behavior;
+- create a stable commit;
+- leave an Issue #117 checkpoint with last success, remaining work, next action, branch/commit/evidence;
+- avoid re-reading or regenerating completed #118 research;
+- avoid long polling loops or repeated full-repository scans.
+
+If a chat/session stops, restore from live main + this file + Issue #117 latest checkpoint + feature branch HEAD.
