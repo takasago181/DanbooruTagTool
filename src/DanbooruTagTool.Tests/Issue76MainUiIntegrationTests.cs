@@ -46,35 +46,43 @@ public sealed class Issue76MainUiIntegrationTests
         => new(Catalog(), store ?? new(), new Clipboard(), specialBrowse: Index());
 
     [Fact]
-    public void Special_navigation_uses_three_shallow_v2_axes_not_old_tree()
+    public void Unified_navigation_uses_three_presentation_groups_nineteen_routes_and_three_scopes()
     {
-        var vm = Vm();
-        var special = Assert.Single(vm.Navigation, node => node.Key == "special");
-        Assert.Equal(["種類から探す", "部位から探す", "テーマから探す"], special.Children.Select(node => node.Label).ToArray());
-        Assert.DoesNotContain(special.Children.SelectMany(node => node.Children), node => node.Label == "旧細分類");
+        var navigation = Vm().Dictionary.Navigation;
+        var groups = navigation.Take(3).ToArray();
+        var routeNodes = groups.SelectMany(group => group.Children).ToArray();
+
+        Assert.Equal(6, navigation.Count);
+        Assert.Equal(["何を描く", "動き・状態", "画面・表現"], groups.Select(group => group.Label).ToArray());
+        Assert.All(groups, group => Assert.StartsWith("group:", group.Key));
+        Assert.Equal(19, routeNodes.Length);
+        Assert.Equal(UnifiedBrowseTaxonomy.Routes.Select(route => route.Label), routeNodes.Select(node => node.Label));
+        Assert.Equal(["キャラクター", "作品", "作者"], navigation.Skip(3).Select(node => node.Label).ToArray());
+        Assert.DoesNotContain(routeNodes, node => node.Key is "special" or "general");
+        Assert.All(routeNodes, node => Assert.Empty(node.Children));
     }
 
     [Fact]
-    public void Tool_mouth_bdsm_and_filter_keeps_current_cards_and_deduplicates_canonical()
+    public void Tool_mouth_bdsm_filter_keeps_current_cards_and_deduplicates_canonical()
     {
-        var vm = Vm();
-        vm.NavigateTo("special-v2:kind:TOOL_OBJECT");
-        vm.ToggleSpecialFacet.Execute(vm.SpecialBodyOptions.Single(option => option.Id == "MOUTH_ORAL"));
-        vm.ToggleSpecialFacet.Execute(vm.SpecialThemeOptions.Single(option => option.Id == "BDSM_RESTRAINT"));
+        var vm = Vm().Dictionary;
+        vm.NavigateTo("route:TOOL_OBJECT");
+        vm.ToggleBodySite("MOUTH_ORAL");
+        vm.ToggleTheme("BDSM_RESTRAINT");
 
         var row = Assert.Single(vm.Results);
         Assert.Equal("ball_gag", row.English);
-        Assert.Equal("道具・物 × 口・口内 × 拘束・BDSM", vm.BrowseLabel);
-        Assert.Contains("種類 > 道具・物", row.Breadcrumb);
+        Assert.Equal("道具・小物", vm.BrowseLabel);
+        Assert.Contains("道具・小物", row.Breadcrumb);
         Assert.Contains("部位 > 口・口内", row.Breadcrumb);
         Assert.Contains("テーマ > 拘束・BDSM", row.Breadcrumb);
     }
 
     [Fact]
-    public void Active_facets_intersect_existing_search_without_changing_relevance_order()
+    public void Active_unified_facets_intersect_existing_search_without_changing_relevance_order()
     {
-        var vm = Vm();
-        vm.NavigateTo("special-v2:body:MOUTH_ORAL");
+        var vm = Vm().Dictionary;
+        vm.ToggleBodySite("MOUTH_ORAL");
         vm.Query = "ball_gag";
         vm.RefreshResults();
 
@@ -82,81 +90,68 @@ public sealed class Issue76MainUiIntegrationTests
     }
 
     [Fact]
-    public void Clearing_facets_returns_to_special_root_and_keeps_search_text()
+    public void Clearing_unified_browse_returns_to_neutral_tags_and_keeps_search_text()
     {
-        var vm = Vm();
-        vm.NavigateTo("special-v2:theme:BDSM_RESTRAINT");
+        var vm = Vm().Dictionary;
+        vm.ToggleTheme("BDSM_RESTRAINT");
         vm.Query = "ball_gag";
         vm.RefreshResults();
 
-        vm.ClearSpecialFacets.Execute(null);
+        vm.ClearUnifiedBrowse();
 
-        Assert.Equal("special", vm.BrowseKey);
+        Assert.Equal("tags", vm.BrowseKey);
         Assert.Equal("ball_gag", vm.Query);
-        Assert.False(vm.HasSpecialFacets);
+        Assert.True(vm.IsNeutralTags);
     }
 
     [Fact]
-    public void One_step_back_removes_only_the_latest_special_filter_condition()
+    public void One_step_back_removes_only_latest_unified_condition()
     {
-        var vm = Vm();
-        vm.NavigateTo("special-v2:kind:TOOL_OBJECT");
-        vm.ToggleSpecialFacet.Execute(vm.SpecialBodyOptions.Single(option => option.Id == "MOUTH_ORAL"));
-        vm.ToggleSpecialFacet.Execute(vm.SpecialThemeOptions.Single(option => option.Id == "BDSM_RESTRAINT"));
+        var vm = Vm().Dictionary;
+        vm.NavigateTo("route:TOOL_OBJECT");
+        vm.ToggleBodySite("MOUTH_ORAL");
+        vm.ToggleTheme("BDSM_RESTRAINT");
 
-        vm.UndoSpecialFacet.Execute(null);
-        Assert.Equal("道具・物 × 口・口内", vm.BrowseLabel);
-        Assert.True(vm.HasSpecialFacets);
+        vm.UndoUnifiedBrowse();
+        Assert.Contains("MOUTH_ORAL", vm.BodySiteIds);
+        Assert.Empty(vm.ThemeIds);
+        Assert.Equal("TOOL_OBJECT", vm.PrimaryRouteId);
 
-        vm.UndoSpecialFacet.Execute(null);
-        Assert.Equal("道具・物", vm.BrowseLabel);
+        vm.UndoUnifiedBrowse();
+        Assert.Empty(vm.BodySiteIds);
+        Assert.Equal("TOOL_OBJECT", vm.PrimaryRouteId);
 
-        vm.UndoSpecialFacet.Execute(null);
-        Assert.Equal("special", vm.BrowseKey);
-        Assert.False(vm.HasSpecialFacets);
-    }
-
-    [Fact]
-    public void Fixed_special_axis_headings_do_not_replace_the_active_leaf_filter()
-    {
-        var vm = Vm();
-        vm.NavigateTo("special-v2:kind:TOOL_OBJECT");
-        var special = Assert.Single(vm.Navigation, node => node.Key == "special");
-        var heading = Assert.Single(special.Children, node => node.Key == "special-v2:body");
-
-        vm.Navigate.Execute(heading);
-
-        Assert.Equal("special-v2:kind:TOOL_OBJECT", vm.BrowseKey);
-        Assert.Equal("道具・物", vm.BrowseLabel);
+        vm.UndoUnifiedBrowse();
+        Assert.True(vm.IsNeutralTags);
     }
 
     [Fact]
     public void Body_site_facets_use_and_semantics()
     {
-        var vm = Vm();
-        vm.ToggleSpecialFacet.Execute(vm.SpecialBodyOptions.Single(option => option.Id == "MOUTH_ORAL"));
-        vm.ToggleSpecialFacet.Execute(vm.SpecialBodyOptions.Single(option => option.Id == "MALE_GENITAL"));
+        var vm = Vm().Dictionary;
+        vm.ToggleBodySite("MOUTH_ORAL");
+        vm.ToggleBodySite("MALE_GENITAL");
 
         Assert.Equal(["fellatio"], vm.Results.Select(row => row.English).ToArray());
     }
 
     [Fact]
-    public void Selecting_another_kind_replaces_the_kind_condition()
+    public void Selecting_another_primary_route_replaces_the_route_condition()
     {
-        var vm = Vm();
-        vm.NavigateTo("special-v2:kind:ACTION_CONTACT");
-        vm.NavigateTo("special-v2:kind:TOOL_OBJECT");
+        var vm = Vm().Dictionary;
+        vm.NavigateTo("route:ACTION_CONTACT");
+        vm.NavigateTo("route:TOOL_OBJECT");
 
-        Assert.Equal("道具・物", vm.BrowseLabel);
+        Assert.Equal("道具・小物", vm.BrowseLabel);
         Assert.DoesNotContain(vm.Results, row => row.English == "fellatio");
         Assert.Contains(vm.Results, row => row.English == "ball_gag");
     }
 
     [Fact]
-    public void Theme_facet_can_find_an_entry_without_a_kind()
+    public void Theme_facet_can_find_an_entry_without_a_primary_kind_route()
     {
-        var vm = Vm();
-        vm.NavigateTo("special-v2:theme:BDSM_RESTRAINT");
+        var vm = Vm().Dictionary;
+        vm.ToggleTheme("BDSM_RESTRAINT");
 
         Assert.Contains(vm.Results, row => row.English == "bdsm");
     }
@@ -164,10 +159,10 @@ public sealed class Issue76MainUiIntegrationTests
     [Fact]
     public void Toggling_one_body_facet_keeps_the_other_conditions()
     {
-        var vm = Vm();
-        vm.ToggleSpecialFacet.Execute(vm.SpecialBodyOptions.Single(option => option.Id == "MOUTH_ORAL"));
-        vm.ToggleSpecialFacet.Execute(vm.SpecialBodyOptions.Single(option => option.Id == "MALE_GENITAL"));
-        vm.ToggleSpecialFacet.Execute(vm.SpecialBodyOptions.Single(option => option.Id == "MALE_GENITAL"));
+        var vm = Vm().Dictionary;
+        vm.ToggleBodySite("MOUTH_ORAL");
+        vm.ToggleBodySite("MALE_GENITAL");
+        vm.ToggleBodySite("MALE_GENITAL");
 
         Assert.Contains(vm.Results, row => row.English == "ball_gag");
         Assert.DoesNotContain(vm.Results, row => row.English == "anal_beads");
@@ -256,10 +251,12 @@ public sealed class Issue76MainUiIntegrationTests
     }
 
     [Fact]
-    public void Persisted_old_special_path_is_migrated_to_v2_root_without_touching_prompt_state()
+    public void Persisted_old_special_path_is_migrated_to_neutral_tags_without_touching_prompt_state()
     {
         var state = new UserState(new WorkspaceSnapshot([], null), new UiState(Browse: "special:OLD>OLD_CHILD"));
         var vm = Vm(new MemoryStore(state));
-        Assert.Equal("special", vm.BrowseKey);
+
+        Assert.Equal("tags", vm.Dictionary.BrowseKey);
+        Assert.True(vm.Dictionary.IsNeutralTags);
     }
 }

@@ -29,8 +29,10 @@ public sealed class Issue114Phase4CompositionTests
             try
             {
                 var vm = Fixtures.Vm();
+                vm.Dictionary.Query = "hair";
+                vm.Dictionary.RefreshResults();
                 var app = new Application { ShutdownMode = ShutdownMode.OnExplicitShutdown };
-                var window = new MainWindow(vm) { WindowState = WindowState.Maximized, Width = 1280, Height = 720, ShowInTaskbar = false };
+                var window = new MainWindow(vm) { WindowState = WindowState.Normal, Width = 2560, Height = 1440, ShowInTaskbar = false };
                 window.Show();
                 Pump(window.Dispatcher, 150);
                 window.UpdateLayout();
@@ -41,6 +43,15 @@ public sealed class Issue114Phase4CompositionTests
                 Assert.Same(vm.Prompt, promptView.DataContext);
                 dictionaryVm = Assert.IsType<DictionaryWorkspaceViewModel>(dictionaryView.DataContext);
                 promptVm = Assert.IsType<PromptEditorViewModel>(promptView.DataContext);
+
+                // GitHub Windows runners expose a small virtual desktop even when the
+                // Window requests WQHD. Pin the dictionary surface itself above the
+                // accepted two-column threshold so this remains a composition test,
+                // not a runner-screen-size test.
+                dictionaryView.Width = 900;
+                window.UpdateLayout();
+                Pump(window.Dispatcher, 100);
+                dictionaryView.UpdateLayout();
 
                 var list = GetField<ListBox>(dictionaryView, "DictionaryList");
                 dictionaryRows = list.Items.Count;
@@ -59,6 +70,14 @@ public sealed class Issue114Phase4CompositionTests
                     Assert.Equal(Visibility.Visible, presenter.Visibility);
                     Assert.True(presenter.ActualWidth > 0);
                 });
+
+                var navigationTree = GetField<TreeView>(window, "NavigationTree");
+                vm.Dictionary.NavigateTo("route:HAIR_FACE");
+                Pump(window.Dispatcher, 100);
+                Assert.NotNull(navigationTree.SelectedItem);
+                vm.Dictionary.ClearUnifiedBrowse();
+                Pump(window.Dispatcher, 100);
+                Assert.Null(navigationTree.SelectedItem);
 
                 var englishPreview = GetField<TextBox>(promptView, "EnglishPreview");
                 promptEnglishBinding = englishPreview.GetBindingExpression(TextBox.TextProperty)?.ParentBinding.Path.Path ?? "none";

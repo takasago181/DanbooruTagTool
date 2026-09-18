@@ -112,15 +112,6 @@
             <Setter Property="FontSize" Value="13"/>
             <Setter Property="Margin" Value="0,0,6,0"/>
         </Style>
-        <Style x:Key="SpecialFacetButton" TargetType="{x:Type Button}" BasedOn="{StaticResource CompactButton}">
-            <Setter Property="Padding" Value="8,4"/>
-            <Setter Property="MinHeight" Value="27"/>
-            <Setter Property="Margin" Value="0,0,5,4"/>
-            <Style.Triggers>
-                <DataTrigger Binding="{Binding IsVisible}" Value="False"><Setter Property="Visibility" Value="Collapsed"/></DataTrigger>
-                <DataTrigger Binding="{Binding Selected}" Value="True"><Setter Property="Background" Value="{StaticResource PrimaryBrush}"/><Setter Property="BorderBrush" Value="{StaticResource PrimaryBrush}"/><Setter Property="Foreground" Value="White"/></DataTrigger>
-            </Style.Triggers>
-        </Style>
         <Style x:Key="AddStateButton" TargetType="Button" BasedOn="{StaticResource CompactSecondaryButton}">
             <Setter Property="FontSize" Value="16"/>
             <Setter Property="Background" Value="#F7FAFD"/>
@@ -374,6 +365,29 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <Style x:Key="WorkspaceTabItem" TargetType="{x:Type TabItem}" BasedOn="{StaticResource {x:Type TabItem}}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TabItem}">
+                        <Grid>
+                            <Border x:Name="TabChrome" Background="#EAF0F5" BorderBrush="Transparent" BorderThickness="1" CornerRadius="9,9,0,0" Padding="{TemplateBinding Padding}">
+                                <ContentPresenter ContentSource="Header" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                            <Border x:Name="SelectedEdge" Height="3" Background="{StaticResource PrimaryBrush}" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Margin="-1,0,-1,-1" Visibility="Collapsed"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter TargetName="TabChrome" Property="Background" Value="{StaticResource SurfaceBrush}"/>
+                                <Setter TargetName="TabChrome" Property="BorderBrush" Value="{StaticResource PrimaryBrush}"/>
+                                <Setter TargetName="SelectedEdge" Property="Visibility" Value="Visible"/>
+                                <Setter Property="Foreground" Value="{StaticResource PrimaryBrush}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True"><Setter TargetName="TabChrome" Property="Background" Value="#F3F8FD"/></Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
         <Style x:Key="RightDetailsTabItem" TargetType="{x:Type TabItem}" BasedOn="{StaticResource {x:Type TabItem}}">
             <Setter Property="Padding" Value="10,8"/>
             <Setter Property="Margin" Value="0,0,4,0"/>
@@ -394,6 +408,7 @@
                     <Setter Property="FontWeight" Value="SemiBold"/>
                     <Setter Property="Padding" Value="8,4"/>
                     <Setter Property="Background" Value="#F5F9FC"/>
+                    <Setter Property="IsExpanded" Value="True"/>
                 </Trigger>
                 <Trigger Property="IsSelected" Value="True">
                     <Setter Property="Background" Value="#E5F2FF"/>
@@ -444,9 +459,6 @@
                 </DataTrigger>
             </Style.Triggers>
         </Style>
-        <DataTemplate x:Key="SpecialFacetOptionTemplate">
-            <Button Content="{Binding Label}" ToolTip="{Binding ToolTip}" Command="{Binding DataContext.ToggleSpecialFacet, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding}" Style="{StaticResource SpecialFacetButton}"/>
-        </DataTemplate>
         <DataTemplate x:Key="EntryTemplate">
             <Border Style="{StaticResource DictionaryCard}" MinHeight="68" Width="{Binding DataContext.DictionaryCardWidth, RelativeSource={RelativeSource AncestorType=Window}}">
                 <Grid>
@@ -488,15 +500,14 @@
         <TextBlock DockPanel.Dock="Bottom" Text="{Binding Status}" Style="{StaticResource StatusText}"/>
 
         <TabControl x:Name="Workspaces" SelectedIndex="{Binding WorkspaceIndex}" SelectionChanged="WorkspaceChanged" Margin="0,8,0,0">
-            <TabItem Header="辞書・検索" IsEnabled="{Binding CanEditPrompt}">
+            <TabItem Header="辞書・検索" IsEnabled="{Binding CanEditPrompt}" Style="{StaticResource WorkspaceTabItem}">
                 <DockPanel>
                 <Grid Margin="0,8,0,0">
                     <Grid.ColumnDefinitions><ColumnDefinition x:Name="NavColumn" Width="300" MinWidth="240"/><ColumnDefinition Width="8"/><ColumnDefinition Width="3*" MinWidth="320"/><ColumnDefinition Width="8"/><ColumnDefinition x:Name="PromptColumn" Width="400" MinWidth="360"/></Grid.ColumnDefinitions>
                     <Border Grid.Column="0" Style="{StaticResource PanelCard}" Padding="12">
                         <DockPanel>
-                            <StackPanel DockPanel.Dock="Top"><TextBlock Text="タグを探す" Style="{StaticResource PanelTitle}" FontSize="16"/><TextBlock Text="Specialは種類・部位・テーマから探せます。" Style="{StaticResource PanelSubtitle}" Margin="0,0,0,6"/></StackPanel>
-                            <Button DockPanel.Dock="Top" Content="← 戻る" Command="{Binding Back}" Style="{StaticResource CompactButton}" HorizontalContentAlignment="Left"/>
-                            <TreeView x:Name="NavigationTree" ItemsSource="{Binding Navigation}" ItemContainerStyle="{StaticResource NavigationItem}" SelectedItemChanged="NavigationChanged" TreeViewItem.Expanded="NavigationNodeExpanded" TreeViewItem.Collapsed="NavigationNodeCollapsed" Background="Transparent" BorderThickness="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Padding="2,0,8,0">
+                            <StackPanel DockPanel.Dock="Top"><TextBlock Text="タグを探す" Style="{StaticResource PanelTitle}" FontSize="16"/><TextBlock Text="用途・部位・テーマからまとめて探します。" Style="{StaticResource PanelSubtitle}" Margin="0,0,0,6"/></StackPanel>
+                            <TreeView x:Name="NavigationTree" ItemsSource="{Binding Navigation}" ItemContainerStyle="{StaticResource NavigationItem}" SelectedItemChanged="NavigationChanged" Background="Transparent" BorderThickness="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Padding="2,0,8,0">
                                 <TreeView.Resources>
                                     <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#F7F9FB"/>
                                     <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" Color="#17345E"/>
@@ -527,14 +538,14 @@
                                         <Grid.ColumnDefinitions><ColumnDefinition Width="Auto"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
                                         <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
                                         <TextBlock Text="使用数" Style="{StaticResource HintText}" Margin="0,0,12,5"/><TextBlock Grid.Column="1" Text="{Binding SelectedEntry.Usage}" FontWeight="SemiBold" Margin="0,0,0,5"/>
-                                        <TextBlock Grid.Row="1" Text="分類" Style="{StaticResource HintText}" Margin="0,0,12,5"/><TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding SelectedEntry.Category}" Margin="0,0,0,5"/>
-                                        <TextBlock Grid.Row="2" Text="分類階層" Style="{StaticResource HintText}" Margin="0,0,12,0"/><TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding SelectedEntry.Breadcrumb}"/>
+                                        <TextBlock Grid.Row="1" Text="探せる場所" Style="{StaticResource HintText}" Margin="0,0,12,5"/><TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding SelectedEntry.Breadcrumb}" TextWrapping="Wrap" Margin="0,0,0,5"/>
+                                        <TextBlock Grid.Row="2" Text="発見サポート" Style="{StaticResource HintText}" Margin="0,0,12,0"/><TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding SelectedEntry.DiscoverySupport}"/>
                                     </Grid>
                                     <TextBlock Text="{Binding SelectedEntry.Description}" Margin="0,0,0,10"/>
                                     <Button Content="{Binding SelectedEntry.DetailAddLabel}" ToolTip="{Binding SelectedEntry.DetailAddLabel}" ToolTipService.ShowOnDisabled="True" Command="{Binding SelectedEntry.Add}" HorizontalAlignment="Left" Margin="0,0,0,12"><Button.Style><Style TargetType="{x:Type Button}" BasedOn="{StaticResource AddStateButton}"><Setter Property="FontSize" Value="13"/><Setter Property="Background" Value="{StaticResource PrimaryBrush}"/><Setter Property="Foreground" Value="White"/><Style.Triggers><DataTrigger Binding="{Binding SelectedEntry}" Value="{x:Null}"><Setter Property="Visibility" Value="Collapsed"/></DataTrigger></Style.Triggers></Style></Button.Style></Button>
                                     <StackPanel>
                                         <StackPanel.Style><Style TargetType="StackPanel"><Style.Triggers><DataTrigger Binding="{Binding Related.Count}" Value="0"><Setter Property="Visibility" Value="Collapsed"/></DataTrigger></Style.Triggers></Style></StackPanel.Style>
-                                        <TextBlock Text="同じ分類のSpecial" FontWeight="SemiBold" Margin="0,0,0,6"/>
+                                        <TextBlock Text="関連タグ" FontWeight="SemiBold" Margin="0,0,0,6"/>
                                         <ItemsControl ItemsSource="{Binding Related}"><ItemsControl.ItemTemplate><DataTemplate>
                                             <Grid Margin="0,0,0,6"><Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
                                                 <Button Command="{Binding DataContext.InspectEntry, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding}" Style="{StaticResource GhostButton}" HorizontalContentAlignment="Stretch" Padding="4,6" Margin="0,0,4,0"><StackPanel><TextBlock Text="{Binding Label}"/><TextBlock Text="{Binding English}" Style="{StaticResource HintText}"/></StackPanel></Button>
@@ -560,7 +571,7 @@
                 </DockPanel>
             </TabItem>
 
-            <TabItem Header="Prompt編集">
+            <TabItem Header="Prompt編集" Style="{StaticResource WorkspaceTabItem}">
                <views:PromptEditorView x:Name="PromptEditor" DataContext="{Binding Prompt}"/>
             </TabItem>
         </TabControl>

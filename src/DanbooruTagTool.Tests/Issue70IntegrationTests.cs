@@ -54,6 +54,8 @@ public class Issue70IntegrationTests
         Assert.Contains(vm.Results, r => r.Entry.Canonical == "hatsune_miku");
 
         vm.NavigateTo("copyright");
+        Assert.Equal("miku", vm.Query);
+        vm.ClearQuery.Execute(null);
         vm.SelectedEntry = vm.Results.Single(r => r.Entry.Canonical == "vocaloid");
         Assert.Contains(vm.Related, r => r.Entry.Canonical == "hatsune_miku");
 

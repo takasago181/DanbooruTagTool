@@ -1,6 +1,6 @@
 # CURRENT STATE
 
-最終更新: 2026-09-17
+最終更新: 2026-09-18
 
 ## Current Stage
 
@@ -15,6 +15,7 @@ Current maintenance route:
 - **Issue #75 — WQHD visual polish pass is completed and integrated into `main` at `a315bdf6933e5e089174bc32c3ad6a8abc021082`.**
 - **Issue #114 `[DEV][ARCH][PERF] WPF architecture stabilization and runtime catalog index refactor` is completed and integrated into `main`.** Accepted Phase 1–4 source was developed on `codex/issue114-phase3-wpf-performance` through `6880f0a23ca594f8a3e673537a22389543e1124d`, following the live activation authority `5697124968` and DEV Phase 4 acceptance `5699672455`.
 - **Post-#114 two-column WPF hotfix is completed and integrated into `main` at `7376b9d48e29af06ecd1c8604676a0611e974aa4`.** Real workstation use exposed two follow-up layout defects: the effective column count was not recomputed after final/maximized layout, and the second card could remain collapsed because its XAML null-check bound to the wrong scope. The accepted three-commit sequence is `0cadf04799607bf942d623b830e549c34ccae826` -> `0ab8f085d81e9539ef074506848fcf7be097a6ea` -> `7376b9d48e29af06ecd1c8604676a0611e974aa4`; it was fast-forwarded to main without force-push, squash, or merge commit after the user confirmed the two-column runtime display was fixed.
+- **Issue #117 unified General/Special discovery + frozen #118 content-intent implementation is DEV-complete, final-review hardened, and validated on feature branch `codex/issue117-unified-browse-content-intent`, PR #125 **ready for review**, but is NOT merged to main yet.** Validated product/test source checkpoint `5c08cb442804b8c49166b7d6055c29b54c693382`; GitHub Actions run `35314061974`: Release build PASS, full Release tests 185 total / 178 passed / 7 skipped / 0 failed, focused #117 20/20 PASS, diff-check PASS. Final review restored the three presentation-only group headings, preserved #64/#76 non-browseable status, preserved explicit old-Special deep intent on migration, separated browse eligibility from search eligibility, added 31,752-identity performance characterization, and fixed neutral-route selection clearing. The accepted #64 taxonomy has no count-group/role-person subdivision under PERSON_COUNT, so v1 does not invent one; General PERSON_COUNT maps to PEOPLE_COUNT while RELATION_ROLE is fed by accepted Special PERSON_RELATION evidence. Stop before merge; live main still reflects the pre-#117 browse UI until review/merge.
 - Issue #74 — WQHD-first dictionary workspace redesign is completed and integrated into `main` at `f6e8345391cb445010c5fe23f2b1e480b4c514fd`.
 - Issue #73 — English Prompt pane density + safe dictionary add/remove toggle is completed and integrated into `main` at `079964b69192b5191b1bda5e9894b7138f8c75c2`.
 - Issue #72 — Prompt category view prototype remains completed and integrated into `main` at `174fee90b23e4a350ffe71d7b60aa834b8cb1296`.

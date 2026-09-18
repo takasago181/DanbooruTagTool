@@ -26,15 +26,15 @@ public class DataAndViewModelTests
     [Fact] public void UserDataCanMoveWithPortableFolder()
     { using var a=new TempDirectory(); using var b=new TempDirectory(); var w=Fixtures.Workspace(); w.Replace("portable, raw"); var pa=new PortablePaths(a.Path); var pb=new PortablePaths(b.Path); new UserStateStore(pa.User).Save(new(w.Snapshot(),new())); Directory.CreateDirectory(Path.GetDirectoryName(pb.User)!); File.Copy(pa.User,pb.User); Assert.Equal(w.English,PromptParser.Serialize(new UserStateStore(pb.User).Load()!.Prompt.Items)); }
     [Fact] public void NoOptionalHugeIndexNeededForStartup()
-    { using var d=new TempDirectory(); var p=new PortablePaths(d.Path); CatalogDatabase.Build(p.Catalog,Fixtures.Catalog().Entries,"fixture"); var vm=new App.ViewModels.MainViewModel(CatalogDatabase.Open(p.Catalog),new UserStateStore(p.User),new MemoryClipboard()); Assert.NotEmpty(vm.Results); Assert.False(Directory.Exists(Path.Combine(d.Path,"data/runtime_index"))); }
+    { using var d=new TempDirectory(); var p=new PortablePaths(d.Path); CatalogDatabase.Build(p.Catalog,Fixtures.Catalog().Entries,"fixture"); var vm=new App.ViewModels.MainViewModel(CatalogDatabase.Open(p.Catalog),new UserStateStore(p.User),new MemoryClipboard()); Assert.Empty(vm.Results); Assert.True(vm.Dictionary.IsNeutralTags); Assert.False(Directory.Exists(Path.Combine(d.Path,"data/runtime_index"))); }
     [Fact] public void GeneralPendingAndFutureSidecarContract()
     { var pending=new PendingGeneralBrowseProvider(); Assert.True(pending.IsPending); Assert.Empty(pending.Paths); Assert.Empty(pending.Browse("anything")); var provider=new GeneralBrowseProvider(Fixtures.Catalog(),new Dictionary<string,BrowsePath[]> { ["red_hair"]=[Fixtures.HairPath] }); Assert.False(provider.IsPending); Assert.Equal("red_hair",Assert.Single(provider.Browse(Fixtures.HairPath.Key)).Canonical); }
-    [Fact] public void SpecialGenreSubgenreBrowseAndRelatedUseSamePaths()
-    { var vm=Fixtures.Vm(); vm.NavigateTo("special:APPEARANCE>HAIR"); Assert.All(vm.Results,r=>Assert.True(r.Entry.IsSpecial && r.Entry.Paths.Contains(Fixtures.HairPath))); Assert.Equal("blue_hair",vm.Results[0].Entry.Canonical); vm.SelectedEntry=vm.Results[0]; Assert.Contains(vm.Related,r=>r.Entry.Id=="S:semantic"); }
+    [Fact] public void RelatedSpecialEntriesStillUseExistingPathEvidenceAfterUnifiedNavigation()
+    { var vm=Fixtures.Vm(); vm.Query="blue_hair"; vm.RefreshResults(); var row=Assert.Single(vm.Results,r=>r.Entry.Canonical=="blue_hair"); vm.SelectedEntry=row; Assert.Contains(vm.Related,r=>r.Entry.Id=="S:semantic"); }
     [Fact] public void VmClipboardEqualsVisibleWorkspaceAndPreview()
     { var clip=new MemoryClipboard { Value="blue hair, raw,blue_hair" }; var vm=Fixtures.Vm(clipboard:clip); vm.Import.Execute(null); vm.Copy.Execute(null); Assert.Equal(PromptParser.Serialize(vm.Chips.Select(c=>c.Item)),vm.English); Assert.Equal(vm.English,clip.Value); Assert.Equal("✓ コピーしました",vm.Status); }
     [Fact] public void VmToggleStateUpdatesImmediately()
-    { var vm=Fixtures.Vm(); var row=vm.Results.First(r=>r.Entry.Canonical=="blue_hair"); row.Add.Execute(null); Assert.Equal("✓ 追加済み（クリックで取消）",row.AddLabel); Assert.True(row.Add.CanExecute(null)); Assert.Single(vm.Chips); row.Add.Execute(null); Assert.Empty(vm.Chips); }
+    { var vm=Fixtures.Vm(); vm.Query="blue_hair"; vm.RefreshResults(); var row=vm.Results.First(r=>r.Entry.Canonical=="blue_hair"); row.Add.Execute(null); Assert.Equal("✓ 追加済み（クリックで取消）",row.AddLabel); Assert.True(row.Add.CanExecute(null)); Assert.Single(vm.Chips); row.Add.Execute(null); Assert.Empty(vm.Chips); }
     [Fact] public void SingleCtrlShiftVisibleMultiSelectAndClear()
     { var vm=Fixtures.Vm(); vm.Workspace.Replace("a,b,c,d,e"); vm.Select(vm.Chips[1].Id); vm.Select(vm.Chips[3].Id,ctrl:true); Assert.Equal(2,vm.Chips.Count(c=>c.Selected)); vm.Select(vm.Chips[4].Id,shift:true); Assert.Equal(new[]{false,false,false,true,true},vm.Chips.Select(c=>c.Selected)); vm.MultiSelect=true; vm.Select(vm.Chips[0].Id); Assert.Equal(3,vm.Chips.Count(c=>c.Selected)); vm.SelectAll(); Assert.All(vm.Chips,c=>Assert.True(c.Selected)); vm.ClearSelection(); Assert.All(vm.Chips,c=>Assert.False(c.Selected)); }
     [Fact] public void SelectedDragMovesSelectionUnselectedDragReplacesSelection()
@@ -44,7 +44,17 @@ public class DataAndViewModelTests
     [Fact] public void DirectEscapeHatchAndUndoUseCore()
     { var vm=Fixtures.Vm(); vm.Workspace.Replace("smile"); vm.StartDirect.Execute(null); vm.DirectText="[a:b:0.4],blue_hair"; vm.ApplyDirect.Execute(null); Assert.Equal(PromptItemKind.Raw,vm.Chips[0].Item.Kind); vm.Undo.Execute(null); Assert.Equal("smile",vm.English); }
     [Fact] public void QueryClearReturnsToBrowseSelectionAndScroll()
-    { var vm=Fixtures.Vm(); vm.NavigateTo("special:APPEARANCE>HAIR"); vm.SelectedEntry=vm.Results[0]; vm.BrowseScroll=35; var id=vm.SelectedEntry.Entry.Id; vm.Query="red"; vm.RefreshResults(); vm.ClearQuery.Execute(null); Assert.Equal(id,vm.SelectedEntry?.Entry.Id); Assert.Equal(35,vm.RestoreScroll); Assert.Equal("容姿 > 髪",vm.BrowseLabel); }
+    {
+        var blue=Fixtures.Entry("blue_hair","青い髪") with { BrowseClassification=BrowseClassificationStatus.Proposed, SexualIntent=SexualIntentClass.NonSexual, SexualIntentStatus=SexualIntentClassificationStatus.HumanReviewed };
+        var red=Fixtures.Entry("red_hair","赤い髪") with { BrowseClassification=BrowseClassificationStatus.Proposed, SexualIntent=SexualIntentClass.NonSexual, SexualIntentStatus=SexualIntentClassificationStatus.HumanReviewed };
+        var catalog=new Catalog([blue,red]);
+        var vm=new App.ViewModels.MainViewModel(catalog,new MemoryStore(),new MemoryClipboard());
+        vm.Dictionary.SetContentIntent(ContentIntentFilter.GeneralPurpose);
+        vm.SelectedEntry=vm.Results[0]; vm.BrowseScroll=35; var id=vm.SelectedEntry.Entry.Id;
+        vm.Query="red"; vm.RefreshResults(); vm.ClearQuery.Execute(null);
+        Assert.Equal(id,vm.SelectedEntry?.Entry.Id); Assert.Equal(35,vm.RestoreScroll);
+        Assert.Equal(ContentIntentFilter.GeneralPurpose,vm.Dictionary.ContentIntent);
+    }
     [Fact] public void CsvReaderPreservesQuotedCommasAndNewlines()
     { using var d=new TempDirectory(); var p=Path.Combine(d.Path,"fixture.csv"); File.WriteAllText(p,"tag,description\r\nblue_hair,\"long, Japanese\r\nlabel\"\r\n"); var rows=AcceptedAssetImporter.Csv(p); Assert.Equal("long, Japanese\r\nlabel",Assert.Single(rows)["description"]); }
     [Fact] public void MissingProductionInputFailsWithoutGeneratingFakeData()
