@@ -1,0 +1,23 @@
+{
+  "issue": 118,
+  "mode": "FINAL_UNCLASSIFIED_INVENTORY_V129",
+  "source_sidecar": "docs/issue118/research_sidecar_v95.csv",
+  "identity_rows": 31752,
+  "remaining_unclassified": 6,
+  "identity_keys": [
+    "cock-tail",
+    "insertion_threshold_(meme)",
+    "knee_boobs",
+    "lilistia",
+    "mushikan",
+    "powerful_ass"
+  ],
+  "review_verdicts_generated_by_materializer": "NO",
+  "review_artifacts_are_external_inputs": "YES",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO",
+  "next_gate": "manual semantic review of only the six remaining unresolved identities"
+}
