@@ -7,12 +7,13 @@
   "complete": false,
   "assigned_count": 60,
   "target_resolutions": 40,
-  "validated_count": 30,
-  "checkpoint_cluster": 4,
+  "validated_count": 38,
+  "checkpoint_cluster": 5,
   "partial_result_files": [
     "PARTIAL_RESULTS.csv",
-    "PARTIAL_RESULTS_CLUSTER4.csv"
+    "PARTIAL_RESULTS_CLUSTER4.csv",
+    "PARTIAL_RESULTS_CLUSTER5.csv"
   ],
-  "next_action": "Continue only unresolved assigned rows; reuse all 30 validated rows across the listed partial result files without repeating completed research.",
+  "next_action": "Continue only unresolved assigned rows; reuse all 38 validated rows across the listed partial result files without repeating completed research. Need 2 more safe HIGH-confidence resolutions to reach target 40.",
   "production_modified": false
 }
