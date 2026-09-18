@@ -1,0 +1,29 @@
+{
+  "issue": 118,
+  "mode": "HIGH_RISK_ELEVEN_CLUSTER_FULL_REVIEW_V94",
+  "source_sidecar": "research_sidecar_v65.csv",
+  "candidate_rows": 98,
+  "cluster_counts": {
+    "GENERAL_ONLY|CLOTHING_STATE_EXPOSURE|ANATOMY": 7,
+    "OVERLAP|ACTION_CONTACT|RESTRAINT_ACTION|ANATOMY": 7,
+    "OVERLAP|ACTION_CONTACT|RESTRAINT_ACTION|RESTRAINT_FETISH": 8,
+    "OVERLAP|ACTION_CONTACT|SCENE_CONTEXT|NONE": 8,
+    "OVERLAP|BODY_PART|BODY_STATE|ANATOMY": 7,
+    "OVERLAP|BODY_PART|CLOTHING_EXPOSURE|ANATOMY": 7,
+    "OVERLAP|BODY_PART|DAMAGE_STATE_ACTION|NONE": 10,
+    "OVERLAP|BODY_PART|NONHUMAN_INTERACTION|NONE": 9,
+    "OVERLAP|POSE_MOVEMENT|POSE_COMPOSITION|NONE": 10,
+    "SPECIAL_ONLY|(none)|(none)|NONE": 17,
+    "SPECIAL_ONLY|(none)|(none)|SEXUALIZED_CLOTHING": 8
+  },
+  "selection_rules_use": "DISCOVERY_ONLY_NOT_CLASSIFICATION_AUTHORITY",
+  "auto_promotion_performed": "NO",
+  "review_verdicts_generated_by_materializer": "NO",
+  "review_artifacts_are_external_inputs": "YES",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO",
+  "next_gate": "full manual review of all 98 rows"
+}
