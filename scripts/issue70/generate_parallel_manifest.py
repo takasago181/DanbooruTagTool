@@ -21,14 +21,15 @@ TMP = ROOT / "artifacts/issue70-parallel-manifest"
 
 FINAL = {"KEEP", "FIX_DISPLAY", "FIX_SEARCH", "FIX_BOTH"}
 LANE_COUNT = 5
-CANDIDATES_PER_LANE = 60
-BASE_TARGET = 40
-PREFERENCES = {
+CANDIDATES_PER_LANE = 36
+BASE_TARGET = 18
+MIXED_QUOTA = {"Copyright": 12, "Character": 12, "Artist": 12}
+CATEGORY_ROTATIONS = {
     1: ["Copyright", "Character", "Artist"],
-    2: ["Copyright", "Character", "Artist"],
-    3: ["Character", "Copyright", "Artist"],
-    4: ["Character", "Artist", "Copyright"],
-    5: ["Artist", "Character", "Copyright"],
+    2: ["Character", "Artist", "Copyright"],
+    3: ["Artist", "Copyright", "Character"],
+    4: ["Copyright", "Artist", "Character"],
+    5: ["Character", "Copyright", "Artist"],
 }
 
 
@@ -275,20 +276,63 @@ def main() -> None:
 
     used: set[str] = set()
     lane_payloads: dict[str, dict[str, object]] = {}
+    cursors = {category: 0 for category in by_category}
+
+    def take_from(category: str, limit: int) -> list[dict[str, object]]:
+        rows = by_category.get(category, [])
+        out: list[dict[str, object]] = []
+        idx = cursors.get(category, 0)
+        while idx < len(rows) and len(out) < limit:
+            row = rows[idx]
+            idx += 1
+            rid = str(row["row_id"])
+            if rid in used:
+                continue
+            out.append(row)
+            used.add(rid)
+        cursors[category] = idx
+        return out
 
     for lane in range(1, LANE_COUNT + 1):
         chosen: list[dict[str, object]] = []
-        for category in PREFERENCES[lane]:
-            for row in by_category.get(category, []):
-                rid = str(row["row_id"])
-                if rid in used:
+        category_counts: dict[str, int] = defaultdict(int)
+
+        # Every lane is deliberately mixed.  No lane owns a hard category.
+        for category in CATEGORY_ROTATIONS[lane]:
+            picked = take_from(category, MIXED_QUOTA[category])
+            chosen.extend(picked)
+            category_counts[category] += len(picked)
+
+        # If one category is exhausted, fill the remaining slots from the easiest
+        # still-unassigned rows across all categories instead of leaving a thin lane.
+        while len(chosen) < CANDIDATES_PER_LANE:
+            candidates: list[tuple[tuple[object, ...], str, dict[str, object]]] = []
+            for category, rows in by_category.items():
+                idx = cursors.get(category, 0)
+                while idx < len(rows) and str(rows[idx]["row_id"]) in used:
+                    idx += 1
+                cursors[category] = idx
+                if idx >= len(rows):
                     continue
-                chosen.append(row)
-                used.add(rid)
-                if len(chosen) >= CANDIDATES_PER_LANE:
-                    break
-            if len(chosen) >= CANDIDATES_PER_LANE:
+                row = rows[idx]
+                key = (
+                    0 if row.get("seed") else 1,
+                    1 if row.get("reviewed_unresolved") else 0,
+                    int((row.get("reviewed_unresolved") or {}).get("review_count") or 0),
+                    -int(row["post_count"]),
+                    str(row["row_id"]),
+                )
+                candidates.append((key, category, row))
+            if not candidates:
                 break
+            _, category, row = min(candidates, key=lambda x: x[0])
+            cursors[category] += 1
+            rid = str(row["row_id"])
+            if rid in used:
+                continue
+            chosen.append(row)
+            used.add(rid)
+            category_counts[category] += 1
 
         seeded_count = sum(1 for row in chosen if row.get("seed"))
         reviewed_count = sum(1 for row in chosen if row.get("reviewed_unresolved"))
@@ -299,7 +343,8 @@ def main() -> None:
             "target_resolutions": target,
             "seeded_count": seeded_count,
             "reviewed_unresolved_count": reviewed_count,
-            "category_preference": PREFERENCES[lane],
+            "category_mix": dict(sorted(category_counts.items())),
+            "single_pass_completion": True,
             "candidates": chosen,
         }
 
@@ -397,6 +442,8 @@ def main() -> None:
                 "target_resolutions": v["target_resolutions"],
                 "seeded_count": v["seeded_count"],
                 "reviewed_unresolved_count": v["reviewed_unresolved_count"],
+                "category_mix": v["category_mix"],
+                "single_pass_completion": v["single_pass_completion"],
             }
             for k, v in lane_payloads.items()
         },

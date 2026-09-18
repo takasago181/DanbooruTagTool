@@ -168,3 +168,28 @@ The Integrator aggregates these rows into:
 `docs/issue70/automation/SCOPE_SKIPPED_NON_2D.csv`
 
 Rows in that registry are excluded from future manifests while remaining traceable in the raw external-audit accounting. This allows raw remaining counts to include out-of-scope history without wasting future worker time. Existing already-resolved rows are not rolled back merely because this scope rule was introduced later.
+
+
+## Balanced mixed lanes and single-pass completion
+
+From the next generated manifest onward, lanes are not category specialists.
+
+Default assignment per lane:
+- 36 candidates total.
+- Approximately 12 Copyright + 12 Character + 12 Artist.
+- If a category has fewer rows, remaining slots are filled from other in-scope categories.
+- Base target is 18 safe resolutions, not a hard quota.
+
+The purpose is throughput and fault isolation. A difficult Character/Artist cluster must not hold the whole cycle hostage.
+
+Worker execution order:
+1. Cheap media-scope triage first for Character/Copyright. Clear REAL_3D goes directly to SCOPE_SKIPPED.csv without title/name research.
+2. Reuse seed decisions without web research.
+3. Prefer fresh never-reviewed rows over previously REVIEWED_UNRESOLVED rows.
+4. Do one reasonable evidence pass over the lane assignment. Do not repeatedly search the same hard row to hit target_resolutions.
+5. HIGH-confidence rows go to RESULTS.csv.
+6. Checked but unsafe rows go to REVIEWED_UNRESOLVED.csv.
+7. Clear non-2D Character/Copyright rows go to SCOPE_SKIPPED.csv.
+8. After the single reasonable pass, the lane may set STATUS complete=true below target_resolutions. Target is guidance only.
+
+No lane should spend multiple hourly runs trying to force a hard category up to quota. An interrupted run may resume its checkpoint, but a completed single pass closes the lane.
