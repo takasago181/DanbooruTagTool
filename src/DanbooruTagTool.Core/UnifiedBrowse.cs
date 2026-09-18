@@ -139,6 +139,7 @@ public sealed record UnifiedBrowseIdentity(
     IReadOnlySet<string> LocalSubrouteIds,
     IReadOnlySet<string> BodySiteIds,
     IReadOnlySet<string> ThemeIds,
+    bool BrowseableDiscovery,
     bool DeepDiscovery,
     SexualIntentClass? SexualIntent,
     SexualIntentClassificationStatus SexualIntentStatus);
@@ -168,6 +169,7 @@ public sealed class UnifiedBrowseIndex
             var localIds = new HashSet<string>(StringComparer.Ordinal);
             var bodyIds = new HashSet<string>(StringComparer.Ordinal);
             var themeIds = new HashSet<string>(StringComparer.Ordinal);
+            var browseable = false;
             var deep = false;
 
             foreach (var row in rows)
@@ -179,6 +181,7 @@ public sealed class UnifiedBrowseIndex
 
                 if (generalDirectBrowse)
                 {
+                    browseable = true;
                     foreach (var path in row.Paths)
                     {
                         var route = UnifiedBrowseTaxonomy.GeneralRoute(path.GenreId);
@@ -201,6 +204,7 @@ public sealed class UnifiedBrowseIndex
                         && (specialStatus is SpecialBrowseV2Status.AutoCandidate or SpecialBrowseV2Status.HumanResolved);
                     if (specialDirectBrowse)
                     {
+                        browseable = true;
                         deep = true;
                         var kind = baked?.KindId ?? runtime?.KindId;
                         if (kind is not null)
@@ -242,6 +246,7 @@ public sealed class UnifiedBrowseIndex
                 localIds,
                 bodyIds,
                 themeIds,
+                browseable,
                 deep,
                 intents.SingleOrDefault(),
                 status));
@@ -260,7 +265,8 @@ public sealed class UnifiedBrowseIndex
     public IReadOnlyList<CatalogEntry> Browse(UnifiedBrowseState state)
     {
         if (state.Scope != UnifiedBrowseScope.Tags) return [];
-        return byIdentity.Values.Where(identity => Matches(identity, state)).Select(identity => identity.Representative).ToArray();
+        return byIdentity.Values.Where(identity => identity.BrowseableDiscovery && Matches(identity, state))
+            .Select(identity => identity.Representative).ToArray();
     }
 
     public IReadOnlyList<SearchHit> FilterSearchHits(IEnumerable<SearchHit> hits, UnifiedBrowseState state)
@@ -297,7 +303,7 @@ public sealed class UnifiedBrowseIndex
         => primaryRouteId is null ? [] : localDefinitions.Values.Where(item => item.PrimaryRouteId == primaryRouteId)
             .OrderBy(item => item.Label, StringComparer.Ordinal).ToArray();
 
-    public int Count(UnifiedBrowseState state) => byIdentity.Values.Count(identity => Matches(identity, state));
+    public int Count(UnifiedBrowseState state) => byIdentity.Values.Count(identity => identity.BrowseableDiscovery && Matches(identity, state));
 
     public int CountWithLocal(UnifiedBrowseState state, string localId)
         => Count(state.WithLocal(state.LocalSubrouteId == localId ? null : localId));
