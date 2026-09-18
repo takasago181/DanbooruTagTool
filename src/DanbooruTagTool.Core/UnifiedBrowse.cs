@@ -259,10 +259,12 @@ public sealed class UnifiedBrowseIndex
     {
         if (state.Scope != UnifiedBrowseScope.Tags) return [];
         var result = new List<SearchHit>();
+        var seen = new HashSet<string>(StringComparer.Ordinal);
         foreach (var hit in hits)
         {
             var identity = Get(hit.Entry);
-            if (identity is not null && Matches(identity, state)) result.Add(hit);
+            if (identity is not null && Matches(identity, state) && seen.Add(identity.IdentityKey))
+                result.Add(hit);
         }
         return result;
     }
