@@ -4,9 +4,9 @@ import csv, hashlib, json
 from collections import Counter
 from pathlib import Path
 
-BASE=Path('docs/issue118/research_sidecar_v79.csv')
-REVIEW=Path('docs/issue118/general_none_none_review_v112/review_policy_v111.json')
-CANDIDATE=Path('docs/issue118/general_none_none_review_v112/full_review_candidate_v111.csv')
+BASE=Path('docs/issue118/research_sidecar_v78.csv')
+REVIEW=Path('docs/issue118/general_none_none_review_v112/review_policy_v112.json')
+CANDIDATE=Path('docs/issue118/general_none_none_review_v112/full_review_candidate_v112.csv')
 REVIEW_BLOB='007856a01841937acd90c1face2fc32a8619dc26'
 CANDIDATE_BLOB='5621684dcc8aad5b55f88feedfe349a37f3945e1'
 OUT=Path('docs/issue118/research_sidecar_v79.csv')
@@ -46,7 +46,7 @@ def main():
     if dict(sorted(classes.items()))!=expected_classes: raise SystemExit(f'class mismatch {dict(classes)}')
     with OUT.open('w',encoding='utf-8',newline='') as f:
         fields=list(rows[0].keys()); w=csv.DictWriter(f,fieldnames=fields,lineterminator='\n'); w.writeheader(); w.writerows(rows)
-    summary={'issue':118,'mode':'RESEARCH_SIDECAR_V78_V112_FULL_REVIEW','identity_rows':len(rows),'source_base':str(BASE),
+    summary={'issue':118,'mode':'RESEARCH_SIDECAR_V79_V112_FULL_REVIEW','identity_rows':len(rows),'source_base':str(BASE),
       'new_promotions':dict(sorted(promoted.items())),'new_total_promotions':sum(promoted.values()),
       'review_status_counts':dict(sorted(status.items())),'sexual_intent_counts':dict(sorted(classes.items())),
       'remaining_unclassified':status['UNCLASSIFIED'],
