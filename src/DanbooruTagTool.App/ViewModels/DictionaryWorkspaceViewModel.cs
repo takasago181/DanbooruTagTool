@@ -13,10 +13,12 @@ public sealed class EntryViewModel(
     PromptWorkspace workspace,
     Action<CatalogEntry> add,
     Func<bool>? canMutate = null,
-    Func<CatalogEntry, string?>? browseBreadcrumb = null) : Observable
+    Func<CatalogEntry, string?>? browseBreadcrumb = null,
+    Func<CatalogEntry, bool>? deepDiscovery = null) : Observable
 {
     public CatalogEntry Entry => entry;
-    public string Label => (entry.IsSpecial ? "◆ " : "") + entry.Label;
+    public bool IsDeepDiscovery => deepDiscovery?.Invoke(entry) == true;
+    public string Label => (IsDeepDiscovery ? "◆ " : "") + entry.Label;
     public string English => entry.Canonical ?? entry.English;
     public string Usage => entry.UsageText;
     public string Category => entry.EffectiveCategory;
@@ -29,6 +31,7 @@ public sealed class EntryViewModel(
             return string.IsNullOrWhiteSpace(entry.Breadcrumb) ? "—" : entry.Breadcrumb;
         }
     }
+    public string DiscoverySupport => IsDeepDiscovery ? "◆ 深掘り対象" : "—";
     public string Description
     {
         get
@@ -615,7 +618,7 @@ public sealed class DictionaryWorkspaceViewModel : Observable
         var entry = chip.Item.CatalogId is { } catalogId ? catalog.FindById(catalogId) : null;
         entry ??= catalog.Resolve(chip.Item.StructuredName ?? chip.Item.Surface.Trim());
         if (entry == null) { Query = chip.Item.StructuredName ?? chip.Item.Surface.Trim(); RefreshResults(); return; }
-        SelectedEntry = new(entry, workspace, Add, canMutate, SpecialBreadcrumb); DetailsTabIndex = 0;
+        SelectedEntry = new(entry, workspace, Add, canMutate, UnifiedBreadcrumb, IsDeepDiscovery); DetailsTabIndex = 0;
     }
 
     public void SetSurfaceWidth(double availableWidth)
@@ -685,7 +688,7 @@ public sealed class DictionaryWorkspaceViewModel : Observable
         changed.RemoveWhere(c => previous.GetValueOrDefault(c) == current.GetValueOrDefault(c)); return changed;
     }
 
-    private IReadOnlyList<EntryViewModel> Rows(IEnumerable<CatalogEntry> entries) => entries.Select(e => new EntryViewModel(e, workspace, Add, canMutate, SpecialBreadcrumb)).ToArray();
+    private IReadOnlyList<EntryViewModel> Rows(IEnumerable<CatalogEntry> entries) => entries.Select(e => new EntryViewModel(e, workspace, Add, canMutate, UnifiedBreadcrumb, IsDeepDiscovery)).ToArray();
     private void ToggleFacet(object? parameter)
     {
         if (specialBrowse == null || parameter is not SpecialBrowseFacetOptionViewModel option) return;
@@ -719,16 +722,24 @@ public sealed class DictionaryWorkspaceViewModel : Observable
         foreach (var option in SpecialBodyOptions) { option.Selected = specialFilter.BodySiteIds.Contains(option.Id); option.Count = specialBrowse.CountWithBodySite(specialFilter, option.Id); }
         foreach (var option in SpecialThemeOptions) { option.Selected = specialFilter.ThemeIds.Contains(option.Id); option.Count = specialBrowse.CountWithTheme(specialFilter, option.Id); }
     }
-    private string? SpecialBreadcrumb(CatalogEntry entry)
+    private string? UnifiedBreadcrumb(CatalogEntry entry)
     {
-        if (specialBrowse == null || !entry.IsSpecial) return null;
-        var route = specialBrowse.Get(entry.Id); if (route == null || !route.CanBrowse) return null;
+        var identity = unifiedBrowse.Get(entry);
+        if (identity is null)
+            return string.IsNullOrWhiteSpace(entry.Breadcrumb) ? null : entry.Breadcrumb;
+
         var parts = new List<string>();
-        if (route.KindId is { } kind) parts.Add("種類 > " + SpecialBrowseV2Taxonomy.Label(SpecialBrowseV2Axis.Kind, kind));
-        if (route.BodySiteIds.Count > 0) parts.Add("部位 > " + string.Join(" + ", route.BodySiteIds.Select(id => SpecialBrowseV2Taxonomy.Label(SpecialBrowseV2Axis.BodySite, id))));
-        if (route.ThemeIds.Count > 0) parts.Add("テーマ > " + string.Join(" + ", route.ThemeIds.Select(id => SpecialBrowseV2Taxonomy.Label(SpecialBrowseV2Axis.Theme, id))));
-        return parts.Count == 0 ? null : string.Join(" / ", parts);
+        if (identity.RouteIds.Count > 0)
+            parts.Add(string.Join(" / ", identity.RouteIds.Select(UnifiedBrowseTaxonomy.Label).Distinct(StringComparer.Ordinal)));
+        if (identity.BodySiteIds.Count > 0)
+            parts.Add("部位 > " + string.Join(" + ", identity.BodySiteIds.Select(id => SpecialBrowseV2Taxonomy.Label(SpecialBrowseV2Axis.BodySite, id))));
+        if (identity.ThemeIds.Count > 0)
+            parts.Add("テーマ > " + string.Join(" + ", identity.ThemeIds.Select(id => SpecialBrowseV2Taxonomy.Label(SpecialBrowseV2Axis.Theme, id))));
+        return parts.Count == 0 ? "通常検索" : string.Join("\n", parts);
     }
+
+    private bool IsDeepDiscovery(CatalogEntry entry)
+        => unifiedBrowse.Get(entry)?.DeepDiscovery == true;
     private IReadOnlyList<EntryViewModel> RelatedFor(CatalogEntry entry)
     {
         if (entry.EffectiveCategory == "Character" || (entry.EffectiveCategory == "Copyright" && entry.Canonical is not null) || specialBrowse == null || !entry.IsSpecial)
