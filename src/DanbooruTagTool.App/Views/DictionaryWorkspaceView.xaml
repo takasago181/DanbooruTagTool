@@ -3,6 +3,30 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <UserControl.Resources>
         <BooleanToVisibilityConverter x:Key="BoolVisibilityLocal"/>
+        <Style x:Key="UnifiedFacetButtonLocal" TargetType="Button">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="{DynamicResource InkBrush}"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource BorderBrushSoft}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="8,4"/>
+            <Setter Property="Margin" Value="0,2,5,2"/>
+            <Setter Property="MinHeight" Value="28"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Selected}" Value="True">
+                    <Setter Property="Background" Value="#E5F2FF"/>
+                    <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}"/>
+                    <Setter Property="Foreground" Value="#17345E"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <DataTemplate x:Key="UnifiedFacetOptionTemplateLocal">
+            <Button Content="{Binding Label}"
+                    ToolTip="{Binding ToolTip}"
+                    Visibility="{Binding IsVisible, Converter={StaticResource BoolVisibilityLocal}}"
+                    Command="{Binding DataContext.ToggleBrowseFacet, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                    CommandParameter="{Binding}"
+                    Style="{StaticResource UnifiedFacetButtonLocal}"/>
+        </DataTemplate>
         <DataTemplate x:Key="DictionaryResultRowTemplateLocal">
             <Grid Margin="2">
                 <Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
@@ -39,18 +63,64 @@
                 </Grid>
             </Grid>
             <DockPanel Grid.Row="2" Margin="0,0,0,6"><TextBlock Text="{Binding BrowseLabel}" FontWeight="SemiBold" VerticalAlignment="Center"/><TextBlock Text="  ·  " Foreground="{DynamicResource MutedInkBrush}" VerticalAlignment="Center"/><TextBlock Text="{Binding Pending}" Style="{DynamicResource HintText}" VerticalAlignment="Center"/></DockPanel>
-            <Border Grid.Row="3" Background="#F8FBFD" BorderBrush="{DynamicResource BorderBrushSoft}" BorderThickness="1" CornerRadius="8" Padding="7,5" Margin="0,0,0,6" Visibility="{Binding ShowSpecialFacetBar, Converter={StaticResource BoolVisibilityLocal}}">
+            <Border Grid.Row="3" Background="#F8FBFD" BorderBrush="{DynamicResource BorderBrushSoft}" BorderThickness="1" CornerRadius="8" Padding="8,6" Margin="0,0,0,6" Visibility="{Binding ShowUnifiedRefinement, Converter={StaticResource BoolVisibilityLocal}}">
                 <StackPanel>
-                    <Grid Margin="0,0,0,2"><Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions><TextBlock Text="追加で絞り込み" Style="{DynamicResource HintText}" FontWeight="SemiBold" VerticalAlignment="Center"/><StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right"><Button Content="1つ戻す" Command="{Binding UndoSpecialFacet}" Style="{DynamicResource CompactButton}" Padding="7,3" MinHeight="25" Width="82" Margin="8,0,4,0"/><Button Content="全解除" Command="{Binding ClearSpecialFacets}" Style="{DynamicResource CompactButton}" Padding="7,3" MinHeight="25" Width="68" Margin="0"/></StackPanel></Grid>
-                    <DockPanel Visibility="{Binding ShowSpecialKindOptions, Converter={StaticResource BoolVisibilityLocal}}"><TextBlock DockPanel.Dock="Left" Text="種類" Style="{DynamicResource HintText}" Width="42" Margin="0,5,4,0"/><ItemsControl ItemsSource="{Binding SpecialKindOptions}" ItemTemplate="{DynamicResource SpecialFacetOptionTemplate}"><ItemsControl.ItemsPanel><ItemsPanelTemplate><WrapPanel/></ItemsPanelTemplate></ItemsControl.ItemsPanel></ItemsControl></DockPanel>
-                    <DockPanel><TextBlock DockPanel.Dock="Left" Text="部位" Style="{DynamicResource HintText}" Width="42" Margin="0,5,4,0"/><ItemsControl ItemsSource="{Binding SpecialBodyOptions}" ItemTemplate="{DynamicResource SpecialFacetOptionTemplate}"><ItemsControl.ItemsPanel><ItemsPanelTemplate><WrapPanel/></ItemsPanelTemplate></ItemsControl.ItemsPanel></ItemsControl></DockPanel>
-                    <DockPanel><TextBlock DockPanel.Dock="Left" Text="テーマ" Style="{DynamicResource HintText}" Width="42" Margin="0,5,4,0"/><ItemsControl ItemsSource="{Binding SpecialThemeOptions}" ItemTemplate="{DynamicResource SpecialFacetOptionTemplate}"><ItemsControl.ItemsPanel><ItemsPanelTemplate><WrapPanel/></ItemsPanelTemplate></ItemsControl.ItemsPanel></ItemsControl></DockPanel>
+                    <Grid Margin="0,0,0,3">
+                        <Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
+                        <TextBlock Text="絞り込み" Style="{DynamicResource HintText}" FontWeight="SemiBold" VerticalAlignment="Center"/>
+                        <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                            <Button Content="1つ戻す" Command="{Binding UndoUnifiedBrowseCommand}" Style="{DynamicResource CompactButton}" Padding="7,3" MinHeight="25" Width="82" Margin="8,0,4,0"/>
+                            <Button Content="全解除" Command="{Binding ClearUnifiedBrowseCommand}" Style="{DynamicResource CompactButton}" Padding="7,3" MinHeight="25" Width="68" Margin="0"/>
+                        </StackPanel>
+                    </Grid>
+                    <DockPanel Visibility="{Binding ShowLocalOptions, Converter={StaticResource BoolVisibilityLocal}}">
+                        <TextBlock DockPanel.Dock="Left" Text="分類" Style="{DynamicResource HintText}" Width="44" Margin="0,7,4,0"/>
+                        <ItemsControl ItemsSource="{Binding LocalOptions}" ItemTemplate="{StaticResource UnifiedFacetOptionTemplateLocal}">
+                            <ItemsControl.ItemsPanel><ItemsPanelTemplate><WrapPanel/></ItemsPanelTemplate></ItemsControl.ItemsPanel>
+                        </ItemsControl>
+                    </DockPanel>
+                    <DockPanel>
+                        <TextBlock DockPanel.Dock="Left" Text="部位" Style="{DynamicResource HintText}" Width="44" Margin="0,7,4,0"/>
+                        <ItemsControl ItemsSource="{Binding BodyOptions}" ItemTemplate="{StaticResource UnifiedFacetOptionTemplateLocal}">
+                            <ItemsControl.ItemsPanel><ItemsPanelTemplate><WrapPanel/></ItemsPanelTemplate></ItemsControl.ItemsPanel>
+                        </ItemsControl>
+                    </DockPanel>
+                    <DockPanel>
+                        <TextBlock DockPanel.Dock="Left" Text="テーマ" Style="{DynamicResource HintText}" Width="44" Margin="0,7,4,0"/>
+                        <ItemsControl ItemsSource="{Binding ThemeOptions}" ItemTemplate="{StaticResource UnifiedFacetOptionTemplateLocal}">
+                            <ItemsControl.ItemsPanel><ItemsPanelTemplate><WrapPanel/></ItemsPanelTemplate></ItemsControl.ItemsPanel>
+                        </ItemsControl>
+                    </DockPanel>
+                    <DockPanel>
+                        <TextBlock DockPanel.Dock="Left" Text="表示" Style="{DynamicResource HintText}" Width="44" Margin="0,7,4,0"/>
+                        <ToggleButton Content="◆ 深掘りのみ"
+                                      IsChecked="{Binding DeepOnly, Mode=OneWay}"
+                                      Command="{Binding ToggleDeepOnlyCommand}"
+                                      Style="{DynamicResource ModeToggleButton}"
+                                      Padding="9,4" MinHeight="28" Margin="0,2,5,2"/>
+                    </DockPanel>
+                    <DockPanel>
+                        <TextBlock DockPanel.Dock="Left" Text="内容" Style="{DynamicResource HintText}" Width="44" Margin="0,7,4,0"/>
+                        <WrapPanel>
+                            <ToggleButton Content="すべて" IsChecked="{Binding IsContentAll, Mode=OneWay}" Command="{Binding SetContentIntentCommand}" CommandParameter="All" Style="{DynamicResource ModeToggleButton}" Padding="9,4" MinHeight="28" Margin="0,2,5,2"/>
+                            <ToggleButton Content="一般向け" IsChecked="{Binding IsContentGeneralPurpose, Mode=OneWay}" Command="{Binding SetContentIntentCommand}" CommandParameter="GeneralPurpose" Style="{DynamicResource ModeToggleButton}" Padding="9,4" MinHeight="28" Margin="0,2,5,2"/>
+                            <ToggleButton Content="性的" IsChecked="{Binding IsContentSexual, Mode=OneWay}" Command="{Binding SetContentIntentCommand}" CommandParameter="Sexual" Style="{DynamicResource ModeToggleButton}" Padding="9,4" MinHeight="28" Margin="0,2,5,2"/>
+                        </WrapPanel>
+                    </DockPanel>
                 </StackPanel>
             </Border>
             <Border Grid.Row="4" Style="{DynamicResource WorkSurfaceCard}" Padding="4">
-                <ListBox x:Name="DictionaryList" PreviewKeyDown="DictionaryPreviewKeyDown" SelectionChanged="DictionarySelectionChanged" SizeChanged="DictionaryListSizeChanged" ItemsSource="{Binding DictionaryRows}" SelectedIndex="-1" ItemContainerStyle="{DynamicResource DictionaryRow}" ItemTemplate="{StaticResource DictionaryResultRowTemplateLocal}" HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.CanContentScroll="True" ScrollViewer.ScrollChanged="BrowseScrolled" VirtualizingPanel.IsVirtualizing="True" VirtualizingPanel.VirtualizationMode="Recycling" Background="Transparent" BorderThickness="0">
-                    <ListBox.ItemsPanel><ItemsPanelTemplate><VirtualizingStackPanel Orientation="Vertical"/></ItemsPanelTemplate></ListBox.ItemsPanel>
-                </ListBox>
+                <Grid>
+                    <ListBox x:Name="DictionaryList" PreviewKeyDown="DictionaryPreviewKeyDown" SelectionChanged="DictionarySelectionChanged" SizeChanged="DictionaryListSizeChanged" ItemsSource="{Binding DictionaryRows}" SelectedIndex="-1" ItemContainerStyle="{DynamicResource DictionaryRow}" ItemTemplate="{StaticResource DictionaryResultRowTemplateLocal}" HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.CanContentScroll="True" ScrollViewer.ScrollChanged="BrowseScrolled" VirtualizingPanel.IsVirtualizing="True" VirtualizingPanel.VirtualizationMode="Recycling" Background="Transparent" BorderThickness="0">
+                        <ListBox.ItemsPanel><ItemsPanelTemplate><VirtualizingStackPanel Orientation="Vertical"/></ItemsPanelTemplate></ListBox.ItemsPanel>
+                    </ListBox>
+                    <TextBlock Text="分類を選ぶか、日本語・Englishで検索してください。"
+                               Style="{DynamicResource HintText}"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               TextAlignment="Center"
+                               Visibility="{Binding IsNeutralTags, Converter={StaticResource BoolVisibilityLocal}}"/>
+                </Grid>
             </Border>
         </Grid>
     </Border>
