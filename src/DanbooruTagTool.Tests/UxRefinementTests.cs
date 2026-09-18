@@ -31,6 +31,7 @@ public class UxRefinementTests(ITestOutputHelper output)
         var clip = new MemoryClipboard { Value = "smile" }; var vm = Fixtures.Vm(clipboard: clip);
         vm.Workspace.Replace(Mixed); vm.Workspace.Replace("temporary"); vm.Undo.Execute(null);
         vm.Select(vm.Chips[0].Id); var ids = vm.Chips.Select(c => c.Id).ToArray();
+        vm.Query = "blue_hair"; vm.RefreshResults();
         var row = vm.Results.First(r => r.Entry.Canonical == "blue_hair");
         vm.StartDirect.Execute(null); vm.DirectText = "stale draft";
         foreach (var command in new[] { vm.Copy, vm.Import, vm.New, vm.Recover, vm.Undo, vm.Redo, vm.Delete, vm.DeleteOne, vm.ApplyWeight, vm.OpenEditor, vm.Navigate, vm.Back, vm.Inspect, vm.InspectEntry, vm.StartDirect })
@@ -60,7 +61,7 @@ public class UxRefinementTests(ITestOutputHelper output)
     [Fact]
     public void ExplicitInspectRevealsDetailsButRefreshAndPromptChangesDoNot()
     {
-        var vm = Fixtures.Vm(); var row = vm.Results.First(r => r.Entry.Canonical == "blue_hair");
+        var vm = Fixtures.Vm(); vm.Query = "blue_hair"; vm.RefreshResults(); var row = vm.Results.First(r => r.Entry.Canonical == "blue_hair");
         vm.DetailsTabIndex = 1; vm.SelectedEntry = row; vm.RefreshResults();
         vm.Add(row.Entry); Assert.Equal(1, vm.DetailsTabIndex);
         vm.InspectEntry.Execute(row); Assert.Equal(0, vm.DetailsTabIndex);
@@ -86,10 +87,10 @@ public class UxRefinementTests(ITestOutputHelper output)
     {
         var vm = Fixtures.Vm();
         Assert.False(vm.Back.CanExecute(null)); Assert.False(vm.CanGoBack);
-        vm.NavigateTo("special:APPEARANCE>HAIR");
-        Assert.Equal("special:APPEARANCE>HAIR", vm.BrowseKey); Assert.True(vm.Back.CanExecute(null));
+        vm.NavigateTo("route:HAIR_FACE");
+        Assert.Equal("route:HAIR_FACE", vm.BrowseKey); Assert.True(vm.Back.CanExecute(null));
         vm.Back.Execute(null);
-        Assert.Equal("special", vm.BrowseKey); Assert.False(vm.Back.CanExecute(null));
+        Assert.Equal("tags", vm.BrowseKey); Assert.False(vm.Back.CanExecute(null));
 
         vm.Workspace.Replace("blue_hair,red_hair,blue_eye");
         vm.Find = "hair";
@@ -105,6 +106,7 @@ public class UxRefinementTests(ITestOutputHelper output)
     public void ItemDeleteAndUndoRetainDuplicatesRawSurfaceAndOrder()
     {
         var vm = Fixtures.Vm(); vm.Workspace.Replace(Mixed); var ids = vm.Chips.Select(c => c.Id).ToArray();
+        vm.Query = "blue_hair"; vm.RefreshResults();
         var row = vm.Results.First(r => r.Entry.Canonical == "blue_hair");
         Assert.Equal("✓", row.AddSymbol); Assert.Contains("追加済み", row.DetailAddLabel);
         foreach (var id in ids)
@@ -115,6 +117,7 @@ public class UxRefinementTests(ITestOutputHelper output)
         }
         vm.DeleteOne.Execute(vm.Chips[0]); Assert.Equal("✓", row.AddSymbol);
         vm.DeleteOne.Execute(vm.Chips[0]); Assert.Equal("＋", row.AddSymbol); Assert.Equal("＋ Promptへ追加", row.DetailAddLabel);
+        vm.Query = "semantic concept"; vm.RefreshResults();
         Assert.Equal("参照", vm.Results.Single(r => r.Entry.Canonical == null).AddSymbol);
     }
 
@@ -135,7 +138,7 @@ public class UxRefinementTests(ITestOutputHelper output)
         Assert.Equal(4, identities.Length); Assert.Equal(4, identities.Select(e => e.Id).Distinct().Count());
         output.WriteLine(string.Join(" | ", identities.Select(e => $"{e.Id}: {e.English} -> {e.Canonical}")));
         var vm = new MainViewModel(catalog, new MemoryStore(), new MemoryClipboard());
-        Assert.Equal(3, vm.Results.Count(r => r.Entry.Canonical == "sex"));
+        Assert.Empty(vm.Results);
         foreach (var q in new[] { "sex", "fuck", "fucking", "性行為", "blue_hair" })
         {
             vm.Query = q; vm.RefreshResults();
