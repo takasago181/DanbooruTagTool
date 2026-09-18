@@ -10,6 +10,8 @@ public sealed record BrowsePath(string GenreId, string Genre, string SubgenreId 
 }
 
 public enum BrowseClassificationStatus { NotApplicable, Proposed, Unresolved }
+public enum SexualIntentClass { NonSexual, Contextual, Sexual }
+public enum SexualIntentClassificationStatus { Unclassified, AutoHighConfidence, HumanReviewed }
 
 public sealed record SpecialBrowseV2Classification(
     string? KindId,
@@ -28,6 +30,11 @@ public sealed record CatalogEntry(string Id, string? Canonical, string English, 
     public string TagCategory { get; init; } = "";
     public string EffectiveCategory => string.IsNullOrWhiteSpace(TagCategory) ? (IsSpecial ? "Special" : "General") : TagCategory;
     public string[] RelatedCopyright { get; init; } = [];
+    public string[] UnifiedBrowseRouteIds { get; init; } = [];
+    public SexualIntentClass? SexualIntent { get; init; }
+    public SexualIntentClassificationStatus SexualIntentStatus { get; init; } = SexualIntentClassificationStatus.Unclassified;
+    public string SexualIntentSource { get; init; } = "";
+    public string SexualIntentEvidence { get; init; } = "";
     public string Label => Japanese ?? English;
     public string UsageText => Usage?.ToString("N0", System.Globalization.CultureInfo.InvariantCulture) ?? "—";
     public bool CanBrowse => ProductFit == "KEEP";
