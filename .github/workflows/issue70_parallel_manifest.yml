@@ -1,0 +1,57 @@
+name: Issue70 Parallel Manifest
+
+on:
+  push:
+    branches:
+      - audit/issue70-semantic-final
+    paths:
+      - 'docs/issue70/audit/external_resolution_*.csv'
+      - 'scripts/issue70/generate_parallel_manifest.py'
+      - '.github/workflows/issue70_parallel_manifest.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: issue70-parallel-manifest
+  cancel-in-progress: false
+
+jobs:
+  manifest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: audit/issue70-semantic-final
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Generate fixed five-lane manifest
+        run: python scripts/issue70/generate_parallel_manifest.py
+
+      - name: Validate production remains read-only
+        run: git diff --exit-code -- docs/issue70/data/runtime docs/issue70/data/source
+
+      - name: Commit manifest checkpoint
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+
+          git fetch origin audit/issue70-semantic-final
+          if [ "$(git rev-parse HEAD)" != "$(git rev-parse origin/audit/issue70-semantic-final)" ]; then
+            echo "Authority advanced while generating manifest; skip stale publish without failing."
+            exit 0
+          fi
+
+          git add docs/issue70/automation/CURRENT_MANIFEST.json docs/issue70/automation/cycles/
+          if git diff --cached --quiet; then
+            echo "Manifest already current."
+            exit 0
+          fi
+
+          git commit -m 'Issue70: generate parallel automation manifest'
+          git push origin HEAD:audit/issue70-semantic-final
