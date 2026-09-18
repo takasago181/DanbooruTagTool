@@ -1,0 +1,21 @@
+canonical_tag,provisional_verdict,proposed_display_ja,proposed_search_ja,evidence_ref,audit_note,status
+world_cup,FIX_DISPLAY,FIFAワールドカップ,,https://www.fifa.com/ja/tournaments/mens/worldcup/canadamexicousa2026/news,FIFA official Japanese World Cup surface consistently uses FIFAワールドカップ; current ワールドカップ is too generic.,VERIFIED_SHORTLIST
+koumajou_densetsu,FIX_DISPLAY,紅魔城レミリア 緋色の交響曲,,https://www.youtube.com/watch?v=01tHkoatrCs,CFK official promotion identifies the title as 紅魔城レミリア 緋色の交響曲; current display omits レミリア.,VERIFIED_SHORTLIST
+hololive_dreams,FIX_BOTH,hololive Dreams,ホロライブドリームス | ホロドリ,https://hololive.hololivepro.com/news/20260723-01-401/,hololive official release uses hololive Dreams and gives ホロライブドリームス plus official abbreviation ホロドリ.,VERIFIED_SHORTLIST
+homestuck,FIX_DISPLAY,Homestuck,,https://homestuck.com/,Creator-owned official site uses Homestuck; no verified Japanese localized title supports ホームスタック.,VERIFIED_SHORTLIST
+starward,KEEP,,,https://apps.apple.com/jp/app/%E6%98%9F%E3%81%AE%E7%BF%BC/id6654894830,Official Japanese distribution by SINGAPORE SHENGTIAN NETWORK TECHNOLOGY uses 星の翼 exactly.,VERIFIED_SHORTLIST
+ef_(visual_novel),KEEP,,,https://www.kadokawa.co.jp/product/310667900010/,KADOKAWA official publication page explicitly identifies the source PC game as ef - a fairy tale of the two.; current display is exact.,VERIFIED_SHORTLIST
+bang_dream!_our_notes,FIX_BOTH,BanG Dream! Our Notes,アワーノーツ | バンドリ！アワーノーツ,https://bang-dream.com/news/2278/,BanG Dream official site uses BanG Dream! Our Notes and the Japanese reading バンドリ！アワーノーツ; current display is only the short reading.,VERIFIED_SHORTLIST
+mahou_shoujo_ikusei_keikaku_unmarked,FIX_DISPLAY,魔法少女育成計画,,https://store.tkj.jp/shopdetail/000000006876/,Takarajimasha official first-volume page uses 魔法少女育成計画; unmarked is a Danbooru discriminator and not part of the work title.,VERIFIED_SHORTLIST
+blackpink,KEEP,,,https://ygfamily.com/jp/artists/blackpink/profile,YG Entertainment official Japanese profile uses BLACKPINK exactly.,VERIFIED_SHORTLIST
+gfriend,KEEP,,,https://weverse.io/gfriend/highlight,Official GFRIEND artist surface uses GFRIEND exactly; current display is identity-safe.,VERIFIED_SHORTLIST
+transformers_(live_action),KEEP,,,https://paramount.jp/transformers/,Paramount official Japanese franchise site groups the live-action Transformers films under トランスフォーマー; existing parenthetical safely preserves the tag scope.,VERIFIED_SHORTLIST
+ryuu_ga_gotoku_1,KEEP,,,https://www.sega.jp/game/detail/ryu-ga-gotoku-one/,SEGA official original PS2 product page uses 龍が如く exactly.,VERIFIED_SHORTLIST
+seiken_densetsu_2,KEEP,,,https://www.jp.square-enix.com/game/detail/seiken2/,Square Enix official product page uses 聖剣伝説２ and body copy also identifies 聖剣伝説2; current display preserves the exact work identity.,VERIFIED_SHORTLIST
+the_exit_8,FIX_DISPLAY,８番出口,,https://playism.com/game/the-exit-8/,PLAYISM official Japanese product page uses full-width ８番出口; normalize current half-width numeral to official title typography.,VERIFIED_SHORTLIST
+garo_(tokusatsu_series),KEEP,,,https://garo-project.jp/,GARO PROJECT official site explicitly labels the property 牙狼シリーズ; existing 牙狼 display is identity-safe for the series umbrella.,VERIFIED_SHORTLIST
+riot_music,FIX_DISPLAY,RIOT MUSIC,,https://riot-music.com/,Official RIOT MUSIC site uses RIOT MUSIC exactly; current 暴動音楽 is an unsupported literal translation.,VERIFIED_SHORTLIST
+sousai_shoujo_teien,KEEP,,,https://www.kotobukiya.co.jp/title/sousaishojoteien/,Kotobukiya official product portal uses 創彩少女庭園 exactly.,VERIFIED_SHORTLIST
+monster_(manga),FIX_DISPLAY,MONSTER,,https://e-comi.shogakukan.co.jp/books/091836510000d0000000,Shogakukan official comic store uses MONSTER as the manga title; manga is only a Danbooru disambiguator and should not be in display.,VERIFIED_SHORTLIST
+real_drive,FIX_DISPLAY,RD 潜脳調査室,,https://www.production-ig.co.jp/works/rd/,Production I.G official work page uses RD 潜脳調査室 with a space; normalize current compact form.,VERIFIED_SHORTLIST
+supernatural_(tv_series),FIX_BOTH,SUPERNATURAL,スーパーナチュラル,https://www.warnerbros.co.jp/home_entertainment/pu1hri8o8j/,Warner Bros. Japan official product surface uses SUPERNATURAL and Japanese reading スーパーナチュラル; replace unrelated Chinese display.,VERIFIED_SHORTLIST
