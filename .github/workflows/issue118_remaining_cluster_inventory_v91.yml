@@ -1,0 +1,51 @@
+name: Issue118 Remaining Cluster Inventory V91
+
+on:
+  push:
+    branches:
+      - research/issue118-cluster-triage-v8
+    paths:
+      - scripts/issue118/materialize_remaining_cluster_inventory_v91.py
+      - docs/issue118/research_sidecar_v64.csv
+      - .github/workflows/issue118_remaining_cluster_inventory_v91.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  remaining-cluster-inventory-v91:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Materialize remaining inventory v91
+        run: |
+          python3 -m py_compile scripts/issue118/materialize_remaining_cluster_inventory_v91.py
+          python3 scripts/issue118/materialize_remaining_cluster_inventory_v91.py
+      - name: Validate v91
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          s=json.loads(Path('docs/issue118/remaining_cluster_inventory_v91/summary_v91.json').read_text(encoding='utf-8'))
+          assert s['remaining_unclassified_rows']==2973
+          assert sum(s['membership_counts'].values())==2973
+          assert s['source_sidecar']=='research_sidecar_v64.csv'
+          assert s['selection_rules_use']=='DISCOVERY_ONLY_NOT_CLASSIFICATION_AUTHORITY'
+          assert s['production_authority']=='NO'
+          assert s['main_mutated']=='NO'
+          assert s['issue117_code_mutated']=='NO'
+          assert s['catalog_mutated']=='NO'
+          assert s['user_db_mutated']=='NO'
+          print('ISSUE118_REMAINING_CLUSTER_INVENTORY_V91_GATE=PASS')
+          PY
+      - name: Persist research inventory only
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/issue118/remaining_cluster_inventory_v91/
+          if ! git diff --cached --quiet; then
+            git commit -m 'Issue #118: materialize remaining cluster inventory v91'
+            git push origin HEAD:research/issue118-cluster-triage-v8
+          fi
