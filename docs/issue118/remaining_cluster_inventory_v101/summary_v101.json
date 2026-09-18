@@ -1,0 +1,699 @@
+{
+  "issue": 118,
+  "mode": "REMAINING_CLUSTER_INVENTORY_V101_FROM_SIDECAR_V69",
+  "source_sidecar": "research_sidecar_v69.csv",
+  "remaining_unclassified_rows": 2484,
+  "membership_counts": {
+    "GENERAL_ONLY": 2281,
+    "OVERLAP": 191,
+    "SPECIAL_ONLY": 12
+  },
+  "cluster_count": 194,
+  "clusters_ge_20": 1,
+  "clusters_ge_100": 1,
+  "top10_cluster_rows": 2258,
+  "top20_cluster_rows": 2278,
+  "top30_cluster_rows": 2298,
+  "top_general_roots": [
+    [
+      "(none)",
+      2265
+    ],
+    [
+      "ACTION_CONTACT",
+      46
+    ],
+    [
+      "CLOTHING",
+      43
+    ],
+    [
+      "CLOTHING_STATE_EXPOSURE",
+      23
+    ],
+    [
+      "BODY_PART",
+      21
+    ],
+    [
+      "OBJECT_PROP",
+      18
+    ],
+    [
+      "STYLE_QUALITY_META",
+      11
+    ],
+    [
+      "POSE_MOVEMENT",
+      10
+    ],
+    [
+      "EXPRESSION_EMOTION",
+      9
+    ],
+    [
+      "LIVING_NATURE",
+      9
+    ],
+    [
+      "PERSON_COUNT",
+      7
+    ],
+    [
+      "COMPOSITION_CAMERA",
+      5
+    ],
+    [
+      "COLOR_APPEARANCE",
+      5
+    ],
+    [
+      "TEXT_SYMBOL",
+      5
+    ],
+    [
+      "PLACE_BACKGROUND",
+      4
+    ],
+    [
+      "GAZE_ORIENTATION",
+      2
+    ],
+    [
+      "HAIR_FACE",
+      1
+    ]
+  ],
+  "top_general_paths": [
+    [
+      "(none)",
+      2265
+    ],
+    [
+      "ACTION_CONTACT/INTIMATE",
+      26
+    ],
+    [
+      "CLOTHING_STATE_EXPOSURE",
+      23
+    ],
+    [
+      "BODY_PART",
+      21
+    ],
+    [
+      "ACTION_CONTACT/INTERACTION",
+      17
+    ],
+    [
+      "CLOTHING/EVERYDAY",
+      17
+    ],
+    [
+      "CLOTHING/ACCESSORY",
+      14
+    ],
+    [
+      "STYLE_QUALITY_META",
+      11
+    ],
+    [
+      "OBJECT_PROP",
+      10
+    ],
+    [
+      "POSE_MOVEMENT",
+      10
+    ],
+    [
+      "EXPRESSION_EMOTION",
+      9
+    ],
+    [
+      "LIVING_NATURE/CREATURE",
+      9
+    ],
+    [
+      "OBJECT_PROP/DAILY",
+      8
+    ],
+    [
+      "PERSON_COUNT",
+      7
+    ],
+    [
+      "CLOTHING",
+      6
+    ],
+    [
+      "CLOTHING/COSTUME",
+      5
+    ],
+    [
+      "COMPOSITION_CAMERA",
+      5
+    ],
+    [
+      "COLOR_APPEARANCE",
+      5
+    ],
+    [
+      "TEXT_SYMBOL/SYMBOL",
+      5
+    ],
+    [
+      "PLACE_BACKGROUND",
+      4
+    ],
+    [
+      "ACTION_CONTACT/OBJECT_USE",
+      3
+    ],
+    [
+      "GAZE_ORIENTATION",
+      2
+    ],
+    [
+      "CLOTHING/UNIFORM",
+      1
+    ],
+    [
+      "HAIR_FACE",
+      1
+    ]
+  ],
+  "top_generation_families": [
+    [
+      "(none)",
+      2318
+    ],
+    [
+      "CLOTHING_EXPOSURE",
+      28
+    ],
+    [
+      "RESTRAINT_IMPLEMENT",
+      15
+    ],
+    [
+      "IMPLEMENT_OBJECT",
+      12
+    ],
+    [
+      "POSE_COMPOSITION",
+      12
+    ],
+    [
+      "NONHUMAN_INTERACTION",
+      11
+    ],
+    [
+      "BODY_ATTRIBUTE",
+      10
+    ],
+    [
+      "INSERTION_STRUCTURED",
+      8
+    ],
+    [
+      "DIRECT_COMPOSITE",
+      7
+    ],
+    [
+      "BODY_STATE",
+      6
+    ],
+    [
+      "RESTRAINT_ACTION",
+      6
+    ],
+    [
+      "FLUID_STATE_ACTION",
+      6
+    ],
+    [
+      "MULTI_ACTOR_INTERACTION",
+      6
+    ],
+    [
+      "RELATION_ROLE_CONTEXT",
+      6
+    ],
+    [
+      "ACTION_INTERACTION",
+      5
+    ],
+    [
+      "SCENE_CONTEXT",
+      5
+    ],
+    [
+      "CONTEXT_MODIFIER",
+      5
+    ],
+    [
+      "REPRO_BODY_STATE",
+      4
+    ],
+    [
+      "DAMAGE_STATE_ACTION",
+      4
+    ],
+    [
+      "REACTION_STATE",
+      3
+    ]
+  ],
+  "lex_flag_counts": {
+    "ADULT_ROLE_DEVICE": 10,
+    "ADULT_ROLE_DEVICE+ANATOMY": 3,
+    "ADULT_ROLE_DEVICE+SEXUALIZED_CLOTHING": 3,
+    "ANATOMY": 31,
+    "ANATOMY+EXPLICIT_SEX": 3,
+    "ANATOMY+EXPOSURE_INTIMATE": 3,
+    "ANATOMY+INJURY": 1,
+    "ANATOMY+RESTRAINT_FETISH": 6,
+    "ANATOMY+SEXUALIZED_CLOTHING": 2,
+    "EXPLICIT_SEX": 16,
+    "EXPLICIT_SEX+EXPOSURE_INTIMATE": 3,
+    "EXPLICIT_SEX+RELATIONSHIP_ROLE": 1,
+    "EXPOSURE_INTIMATE": 19,
+    "EXPOSURE_INTIMATE+RESTRAINT_FETISH": 2,
+    "EXPOSURE_INTIMATE+SEXUALIZED_CLOTHING": 3,
+    "INJURY": 3,
+    "NONE": 2325,
+    "RELATIONSHIP_ROLE": 10,
+    "REPRO": 9,
+    "RESTRAINT_FETISH": 22,
+    "RESTRAINT_FETISH+SEXUALIZED_CLOTHING": 2,
+    "SEXUALIZED_CLOTHING": 7
+  },
+  "top_clusters": [
+    {
+      "cluster_key": "GENERAL_ONLY|(none)|NONE",
+      "rows": 2237,
+      "membership": "GENERAL_ONLY",
+      "general_path": "(none)",
+      "general_root": "(none)",
+      "generation_family": "(none)",
+      "lex_flags": "NONE",
+      "examples": "12_billion_yen_incident;15-nin_no_richiteki_na_megane-tachi;2024_pokemon_teraleak;2_fuel_4_ammo_11_steel;4th_live_dream_~bloom_the_dream_believers~;6th_live_dream_~bloom_garden_party~;9/11;affliction_(darkest_dungeon);after_time_valentine_2026;akatsuhara_empire;akg;alternate_element"
+    },
+    {
+      "cluster_key": "GENERAL_ONLY|CLOTHING|SEXUALIZED_CLOTHING",
+      "rows": 4,
+      "membership": "GENERAL_ONLY",
+      "general_path": "CLOTHING",
+      "general_root": "CLOTHING",
+      "generation_family": "(none)",
+      "lex_flags": "SEXUALIZED_CLOTHING",
+      "examples": "vertical-striped_bikini;vertical-striped_bodysuit;vertical-striped_leotard;vertical-striped_one-piece_swimsuit"
+    },
+    {
+      "cluster_key": "GENERAL_ONLY|(none)|INJURY",
+      "rows": 3,
+      "membership": "GENERAL_ONLY",
+      "general_path": "(none)",
+      "general_root": "(none)",
+      "generation_family": "(none)",
+      "lex_flags": "INJURY",
+      "examples": "iron_blood_(emblem);nightmare_blood_(idolmaster);tears_of_the_tarnished_blood_(e.g.o)"
+    },
+    {
+      "cluster_key": "GENERAL_ONLY|BODY_PART|NONE",
+      "rows": 2,
+      "membership": "GENERAL_ONLY",
+      "general_path": "BODY_PART",
+      "general_root": "BODY_PART",
+      "generation_family": "(none)",
+      "lex_flags": "NONE",
+      "examples": "knee_boobs;powerful_ass"
+    },
+    {
+      "cluster_key": "GENERAL_ONLY|CLOTHING/ACCESSORY|RESTRAINT_FETISH",
+      "rows": 2,
+      "membership": "GENERAL_ONLY",
+      "general_path": "CLOTHING/ACCESSORY",
+      "general_root": "CLOTHING",
+      "generation_family": "(none)",
+      "lex_flags": "RESTRAINT_FETISH",
+      "examples": "rope_belt;rope_necklace"
+    },
+    {
+      "cluster_key": "GENERAL_ONLY|CLOTHING/COSTUME|EXPOSURE_INTIMATE",
+      "rows": 2,
+      "membership": "GENERAL_ONLY",
+      "general_path": "CLOTHING/COSTUME",
+      "general_root": "CLOTHING",
+      "generation_family": "(none)",
+      "lex_flags": "EXPOSURE_INTIMATE",
+      "examples": "claw_bra;sailor_moon_narikiri_bra_set"
+    },
+    {
+      "cluster_key": "GENERAL_ONLY|CLOTHING/EVERYDAY|RELATIONSHIP_ROLE",
+      "rows": 2,
+      "membership": "GENERAL_ONLY",
+      "general_path": "CLOTHING/EVERYDAY",
+      "general_root": "CLOTHING",
+      "generation_family": "(none)",
+      "lex_flags": "RELATIONSHIP_ROLE",
+      "examples": "backwards_virgin_killer_sweater;evolved_virgin_killer_sweater"
+    },
+    {
+      "cluster_key": "GENERAL_ONLY|CLOTHING_STATE_EXPOSURE|ADULT_ROLE_DEVICE",
+      "rows": 2,
+      "membership": "GENERAL_ONLY",
+      "general_path": "CLOTHING_STATE_EXPOSURE",
+      "general_root": "CLOTHING_STATE_EXPOSURE",
+      "generation_family": "(none)",
+      "lex_flags": "ADULT_ROLE_DEVICE",
+      "examples": "bodystocking_only;torn_bodystocking"
+    },
+    {
+      "cluster_key": "OVERLAP|(none)|(none)|ANATOMY",
+      "rows": 2,
+      "membership": "OVERLAP",
+      "general_path": "(none)",
+      "general_root": "(none)",
+      "generation_family": "(none)",
+      "lex_flags": "ANATOMY",
+      "examples": "game_controller_nipples_(meme);nipple_guessing_game_(meme)"
+    },
+    {
+      "cluster_key": "OVERLAP|(none)|MULTI_ACTOR_INTERACTION|NONE",
+      "rows": 2,
+      "membership": "OVERLAP",
+      "general_path": "(none)",
+      "general_root": "(none)",
+      "generation_family": "MULTI_ACTOR_INTERACTION",
+      "lex_flags": "NONE",
+      "examples": "love_train;shimaidon"
+    },
+    {
+      "cluster_key": "OVERLAP|(none)|NONHUMAN_INTERACTION|NONE",
+      "rows": 2,
+      "membership": "OVERLAP",
+      "general_path": "(none)",
+      "general_root": "(none)",
+      "generation_family": "NONHUMAN_INTERACTION",
+      "lex_flags": "NONE",
+      "examples": "kankaku_shadan;mindflayer"
+    },
+    {
+      "cluster_key": "OVERLAP|ACTION_CONTACT|(none)|EXPOSURE_INTIMATE",
+      "rows": 2,
+      "membership": "OVERLAP",
+      "general_path": "ACTION_CONTACT/INTERACTION",
+      "general_root": "ACTION_CONTACT",
+      "generation_family": "(none)",
+      "lex_flags": "EXPOSURE_INTIMATE",
+      "examples": "cleavage_cutout_tug;spread_cleavage"
+    },
+    {
+      "cluster_key": "OVERLAP|ACTION_CONTACT|(none)|REPRO",
+      "rows": 2,
+      "membership": "OVERLAP",
+      "general_path": "ACTION_CONTACT/INTIMATE",
+      "general_root": "ACTION_CONTACT",
+      "generation_family": "(none)",
+      "lex_flags": "REPRO",
+      "examples": "mutual_impregnation;requesting_impregnation"
+    },
+    {
+      "cluster_key": "OVERLAP|ACTION_CONTACT|CLOTHING_EXPOSURE|EXPOSURE_INTIMATE",
+      "rows": 2,
+      "membership": "OVERLAP",
+      "general_path": "ACTION_CONTACT/INTERACTION",
+      "general_root": "ACTION_CONTACT",
+      "generation_family": "CLOTHING_EXPOSURE",
+      "lex_flags": "EXPOSURE_INTIMATE",
+      "examples": "nude_modeling;rear_naked_choke"
+    },
+    {
+      "cluster_key": "OVERLAP|ACTION_CONTACT|CLOTHING_EXPOSURE|RESTRAINT_FETISH",
+      "rows": 2,
+      "membership": "OVERLAP",
+      "general_path": "ACTION_CONTACT/INTERACTION",
+      "general_root": "ACTION_CONTACT",
+      "generation_family": "CLOTHING_EXPOSURE",
+      "lex_flags": "RESTRAINT_FETISH",
+      "examples": "collar_grab;collar_tug"
+    },
+    {
+      "cluster_key": "OVERLAP|ACTION_CONTACT|DAMAGE_STATE_ACTION|NONE",
+      "rows": 2,
+      "membership": "OVERLAP",
+      "general_path": "ACTION_CONTACT/INTERACTION",
+      "general_root": "ACTION_CONTACT",
+      "generation_family": "DAMAGE_STATE_ACTION",
+      "lex_flags": "NONE",
+      "examples": "decapitation;necrophilia"
+    },
+    {
+      "cluster_key": "OVERLAP|ACTION_CONTACT|IMPLEMENT_OBJECT|ADULT_ROLE_DEVICE+ANATOMY",
+      "rows": 2,
+      "membership": "OVERLAP",
+      "general_path": "ACTION_CONTACT/INTIMATE",
+      "general_root": "ACTION_CONTACT",
+      "generation_family": "IMPLEMENT_OBJECT",
+      "lex_flags": "ADULT_ROLE_DEVICE+ANATOMY",
+      "examples": "condom_on_nipples;condom_on_penis"
+    },
+    {
+      "cluster_key": "OVERLAP|ACTION_CONTACT|IMPLEMENT_OBJECT|ANATOMY",
+      "rows": 2,
+      "membership": "OVERLAP",
+      "general_path": "ACTION_CONTACT/INTIMATE",
+      "general_root": "ACTION_CONTACT",
+      "generation_family": "IMPLEMENT_OBJECT",
+      "lex_flags": "ANATOMY",
+      "examples": "anal_beads;anal_tail"
+    },
+    {
+      "cluster_key": "OVERLAP|ACTION_CONTACT|INSERTION_STRUCTURED|EXPLICIT_SEX",
+      "rows": 2,
+      "membership": "OVERLAP",
+      "general_path": "ACTION_CONTACT/INTIMATE",
+      "general_root": "ACTION_CONTACT",
+      "generation_family": "INSERTION_STRUCTURED",
+      "lex_flags": "EXPLICIT_SEX",
+      "examples": "fingering;urethral_fingering"
+    },
+    {
+      "cluster_key": "OVERLAP|ACTION_CONTACT|MACHINE_STRUCTURED|NONE",
+      "rows": 2,
+      "membership": "OVERLAP",
+      "general_path": "ACTION_CONTACT/INTERACTION",
+      "general_root": "ACTION_CONTACT",
+      "generation_family": "MACHINE_STRUCTURED",
+      "lex_flags": "NONE",
+      "examples": "milking_machine;riding_machine"
+    },
+    {
+      "cluster_key": "OVERLAP|ACTION_CONTACT|MULTI_ACTOR_INTERACTION|EXPLICIT_SEX",
+      "rows": 2,
+      "membership": "OVERLAP",
+      "general_path": "ACTION_CONTACT/INTIMATE",
+      "general_root": "ACTION_CONTACT",
+      "generation_family": "MULTI_ACTOR_INTERACTION",
+      "lex_flags": "EXPLICIT_SEX",
+      "examples": "cooperative_footjob;mutual_fingering"
+    },
+    {
+      "cluster_key": "OVERLAP|ACTION_CONTACT|NONHUMAN_INTERACTION|ANATOMY",
+      "rows": 2,
+      "membership": "OVERLAP",
+      "general_path": "ACTION_CONTACT/INTIMATE",
+      "general_root": "ACTION_CONTACT",
+      "generation_family": "NONHUMAN_INTERACTION",
+      "lex_flags": "ANATOMY",
+      "examples": "pussy_tentacle;tentacle_on_penis"
+    },
+    {
+      "cluster_key": "OVERLAP|ACTION_CONTACT|RESTRAINT_IMPLEMENT|ANATOMY+RESTRAINT_FETISH",
+      "rows": 2,
+      "membership": "OVERLAP",
+      "general_path": "ACTION_CONTACT/INTIMATE",
+      "general_root": "ACTION_CONTACT",
+      "generation_family": "RESTRAINT_IMPLEMENT",
+      "lex_flags": "ANATOMY+RESTRAINT_FETISH",
+      "examples": "clitoris_clamp;clitoris_leash"
+    },
+    {
+      "cluster_key": "OVERLAP|BODY_PART|CLOTHING_EXPOSURE|EXPOSURE_INTIMATE",
+      "rows": 2,
+      "membership": "OVERLAP",
+      "general_path": "BODY_PART",
+      "general_root": "BODY_PART",
+      "generation_family": "CLOTHING_EXPOSURE",
+      "lex_flags": "EXPOSURE_INTIMATE",
+      "examples": "full_cleavage;toe_cleavage"
+    },
+    {
+      "cluster_key": "OVERLAP|BODY_PART|CONTEXT_MODIFIER|NONE",
+      "rows": 2,
+      "membership": "OVERLAP",
+      "general_path": "BODY_PART",
+      "general_root": "BODY_PART",
+      "generation_family": "CONTEXT_MODIFIER",
+      "lex_flags": "NONE",
+      "examples": "implied_erection;implied_futanari"
+    },
+    {
+      "cluster_key": "OVERLAP|BODY_PART|REPRO_BODY_STATE|NONE",
+      "rows": 2,
+      "membership": "OVERLAP",
+      "general_path": "BODY_PART",
+      "general_root": "BODY_PART",
+      "generation_family": "REPRO_BODY_STATE",
+      "lex_flags": "NONE",
+      "examples": "cervix;uterus"
+    },
+    {
+      "cluster_key": "OVERLAP|CLOTHING_STATE_EXPOSURE|BODY_ATTRIBUTE|NONE",
+      "rows": 2,
+      "membership": "OVERLAP",
+      "general_path": "CLOTHING_STATE_EXPOSURE",
+      "general_root": "CLOTHING_STATE_EXPOSURE",
+      "generation_family": "BODY_ATTRIBUTE",
+      "lex_flags": "NONE",
+      "examples": "cameltoe;sideboob"
+    },
+    {
+      "cluster_key": "OVERLAP|CLOTHING_STATE_EXPOSURE|DIRECT_COMPOSITE|NONE",
+      "rows": 2,
+      "membership": "OVERLAP",
+      "general_path": "CLOTHING_STATE_EXPOSURE",
+      "general_root": "CLOTHING_STATE_EXPOSURE",
+      "generation_family": "DIRECT_COMPOSITE",
+      "lex_flags": "NONE",
+      "examples": "erection_under_blanket;erection_under_towel"
+    },
+    {
+      "cluster_key": "OVERLAP|CLOTHING_STATE_EXPOSURE|RESTRAINT_ACTION|RESTRAINT_FETISH",
+      "rows": 2,
+      "membership": "OVERLAP",
+      "general_path": "CLOTHING_STATE_EXPOSURE",
+      "general_root": "CLOTHING_STATE_EXPOSURE",
+      "generation_family": "RESTRAINT_ACTION",
+      "lex_flags": "RESTRAINT_FETISH",
+      "examples": "gagged;leash_pull"
+    },
+    {
+      "cluster_key": "OVERLAP|CLOTHING_STATE_EXPOSURE|SCENE_CONTEXT|NONE",
+      "rows": 2,
+      "membership": "OVERLAP",
+      "general_path": "CLOTHING_STATE_EXPOSURE",
+      "general_root": "CLOTHING_STATE_EXPOSURE",
+      "generation_family": "SCENE_CONTEXT",
+      "lex_flags": "NONE",
+      "examples": "public_nudity;zenra"
+    },
+    {
+      "cluster_key": "OVERLAP|CLOTHING|(none)|RESTRAINT_FETISH",
+      "rows": 2,
+      "membership": "OVERLAP",
+      "general_path": "CLOTHING/ACCESSORY",
+      "general_root": "CLOTHING",
+      "generation_family": "(none)",
+      "lex_flags": "RESTRAINT_FETISH",
+      "examples": "blindfold_mask;tape_blindfold"
+    },
+    {
+      "cluster_key": "OVERLAP|CLOTHING|BODY_ATTRIBUTE|ANATOMY",
+      "rows": 2,
+      "membership": "OVERLAP",
+      "general_path": "CLOTHING/ACCESSORY",
+      "general_root": "CLOTHING",
+      "generation_family": "BODY_ATTRIBUTE",
+      "lex_flags": "ANATOMY",
+      "examples": "nipple_tag;nipple_tassels"
+    },
+    {
+      "cluster_key": "OVERLAP|CLOTHING|CLOTHING_EXPOSURE|ADULT_ROLE_DEVICE",
+      "rows": 2,
+      "membership": "OVERLAP",
+      "general_path": "CLOTHING/EVERYDAY",
+      "general_root": "CLOTHING",
+      "generation_family": "CLOTHING_EXPOSURE",
+      "lex_flags": "ADULT_ROLE_DEVICE",
+      "examples": "bodystocking;bustier"
+    },
+    {
+      "cluster_key": "OVERLAP|CLOTHING|CLOTHING_EXPOSURE|EXPLICIT_SEX",
+      "rows": 2,
+      "membership": "OVERLAP",
+      "general_path": "CLOTHING/EVERYDAY",
+      "general_root": "CLOTHING",
+      "generation_family": "CLOTHING_EXPOSURE",
+      "lex_flags": "EXPLICIT_SEX",
+      "examples": "fuck-me_clothes;fuck-me_shirt"
+    },
+    {
+      "cluster_key": "OVERLAP|CLOTHING|CLOTHING_EXPOSURE|RELATIONSHIP_ROLE",
+      "rows": 2,
+      "membership": "OVERLAP",
+      "general_path": "CLOTHING/EVERYDAY",
+      "general_root": "CLOTHING",
+      "generation_family": "CLOTHING_EXPOSURE",
+      "lex_flags": "RELATIONSHIP_ROLE",
+      "examples": "virgin_destroyer_sweater;virgin_killer_sweater"
+    },
+    {
+      "cluster_key": "OVERLAP|CLOTHING|POSE_COMPOSITION|NONE",
+      "rows": 2,
+      "membership": "OVERLAP",
+      "general_path": "CLOTHING/EVERYDAY",
+      "general_root": "CLOTHING",
+      "generation_family": "POSE_COMPOSITION",
+      "lex_flags": "NONE",
+      "examples": "downpants;top-down_bottom-up"
+    },
+    {
+      "cluster_key": "OVERLAP|COMPOSITION_CAMERA|POSE_COMPOSITION|NONE",
+      "rows": 2,
+      "membership": "OVERLAP",
+      "general_path": "COMPOSITION_CAMERA",
+      "general_root": "COMPOSITION_CAMERA",
+      "generation_family": "POSE_COMPOSITION",
+      "lex_flags": "NONE",
+      "examples": "ass_focus;futanari_pov"
+    },
+    {
+      "cluster_key": "OVERLAP|EXPRESSION_EMOTION|FLUID_STATE_ACTION|NONE",
+      "rows": 2,
+      "membership": "OVERLAP",
+      "general_path": "EXPRESSION_EMOTION",
+      "general_root": "EXPRESSION_EMOTION",
+      "generation_family": "FLUID_STATE_ACTION",
+      "lex_flags": "NONE",
+      "examples": "drooling;have_to_pee"
+    },
+    {
+      "cluster_key": "OVERLAP|EXPRESSION_EMOTION|REACTION_STATE|NONE",
+      "rows": 2,
+      "membership": "OVERLAP",
+      "general_path": "EXPRESSION_EMOTION",
+      "general_root": "EXPRESSION_EMOTION",
+      "generation_family": "REACTION_STATE",
+      "lex_flags": "NONE",
+      "examples": "naughty_face;torogao"
+    },
+    {
+      "cluster_key": "OVERLAP|GAZE_ORIENTATION|ACTION_INTERACTION|ANATOMY",
+      "rows": 2,
+      "membership": "OVERLAP",
+      "general_path": "GAZE_ORIENTATION",
+      "general_root": "GAZE_ORIENTATION",
+      "generation_family": "ACTION_INTERACTION",
+      "lex_flags": "ANATOMY",
+      "examples": "looking_at_penis;looking_at_pussy"
+    }
+  ],
+  "selection_rules_use": "DISCOVERY_ONLY_NOT_CLASSIFICATION_AUTHORITY",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO"
+}
