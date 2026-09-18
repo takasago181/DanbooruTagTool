@@ -19,7 +19,7 @@ def main():
     if git_blob_sha(REVIEW)!=REVIEW_BLOB: raise SystemExit('V128 fixed review blob SHA drift')
     if git_blob_sha(CANDIDATE)!=CANDIDATE_BLOB: raise SystemExit('V128 fixed candidate blob SHA drift')
     base=read_csv(BASE); src=read_csv(CANDIDATE); review=json.loads(REVIEW.read_text(encoding='utf-8'))
-    if len(base)!=31752 or len(src)!=100 or review.get('source_rows')!=100: raise SystemExit('V128 source/base drift')
+    if len(base)!=31752 or len(src)!=37 or review.get('source_rows')!=37: raise SystemExit('V128 source/base drift')
     if review.get('review_verdicts_generated_by_materializer')!='NO' or review.get('review_artifacts_are_external_inputs')!='YES': raise SystemExit('V128 provenance drift')
     source={r['identity_key'] for r in src}
     groups={'SEXUAL':set(review.get('sexual') or []),'CONTEXTUAL':set(review.get('contextual') or []),'NON_SEXUAL':set(review.get('non_sexual') or [])}
