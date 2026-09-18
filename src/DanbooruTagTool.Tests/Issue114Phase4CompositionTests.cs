@@ -32,7 +32,7 @@ public sealed class Issue114Phase4CompositionTests
                 vm.Dictionary.Query = "hair";
                 vm.Dictionary.RefreshResults();
                 var app = new Application { ShutdownMode = ShutdownMode.OnExplicitShutdown };
-                var window = new MainWindow(vm) { WindowState = WindowState.Maximized, Width = 1280, Height = 720, ShowInTaskbar = false };
+                var window = new MainWindow(vm) { WindowState = WindowState.Normal, Width = 2560, Height = 1440, ShowInTaskbar = false };
                 window.Show();
                 Pump(window.Dispatcher, 150);
                 window.UpdateLayout();
