@@ -109,3 +109,29 @@ The watchdog must:
 - preserve all completed lane research and overlays;
 - leave production/runtime/source/main and PR #115 untouched;
 - stop if a repair would require changing semantic judgments.
+
+
+## Reviewed unresolved rows
+
+A worker must not repeatedly research the same difficult assigned row every hourly run.
+
+When an assigned row has received a good-faith evidence check in the current cycle but still cannot be resolved at HIGH confidence, record it in:
+`docs/issue70/automation/cycles/<cycle_id>/lane-<N>/REVIEWED_UNRESOLVED.csv`
+
+Required columns:
+`cycle_id,lane,manifest_progress_sha256,row_id,canonical_tag,category,post_count,review_status,review_reason,evidence_refs,audit_note`
+
+Rules:
+- `review_status` must be `REVIEWED_UNRESOLVED`.
+- Only assigned row_ids may appear.
+- A row must never appear in both RESULTS.csv and REVIEWED_UNRESOLVED.csv for the same cycle.
+- `review_reason` and `audit_note` must explain why HIGH-confidence resolution was not safe.
+- `evidence_refs` may contain checked URLs or be blank when no trustworthy first-party source could be established.
+- Recording reviewed-unresolved is not a semantic verdict and does not change the external audit state.
+- Once a row is recorded reviewed-unresolved, do not search it again in later hourly runs of the same cycle.
+- A worker may complete a lane below target_resolutions after it has made a reasonable pass over its assignment and recorded the genuinely checked-but-unresolved rows. Safety wins over quota.
+
+During integration, explicit reviewed-unresolved rows are aggregated into:
+`docs/issue70/automation/REVIEWED_UNRESOLVED.csv`
+
+The next Manifest prioritizes never-reviewed unresolved rows ahead of this registry. Reviewed rows remain eligible later, so new official evidence or exhaustion of fresh rows can bring them back; they are deferred, not permanently discarded.

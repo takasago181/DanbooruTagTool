@@ -171,6 +171,47 @@ def main() -> None:
         for row in all_rows:
             writer.writerow({k: row[k] for k in OVERLAY_FIELDS})
 
+    existing_registry: dict[str, dict[str, str]] = {}
+    if REVIEWED.exists():
+        with REVIEWED.open(encoding="utf-8-sig", newline="") as f:
+            for row in csv.DictReader(f):
+                rid = (row.get("row_id") or "").strip()
+                if rid:
+                    existing_registry[rid] = row
+
+    resolved_now = {row["row_id"] for row in all_rows}
+    for rid in resolved_now:
+        existing_registry.pop(rid, None)
+
+    for row in all_reviewed:
+        rid = row["row_id"]
+        prev = existing_registry.get(rid)
+        if prev:
+            first_cycle = prev.get("first_review_cycle") or cycle_id
+            count = int(prev.get("review_count") or 0) + 1
+        else:
+            first_cycle = cycle_id
+            count = 1
+        existing_registry[rid] = {
+            "row_id": rid,
+            "canonical_tag": row["canonical_tag"],
+            "category": row["category"],
+            "post_count": row["post_count"],
+            "first_review_cycle": first_cycle,
+            "last_review_cycle": cycle_id,
+            "review_count": str(count),
+            "last_lane": row["lane"],
+            "review_reason": row["review_reason"],
+            "evidence_refs": row["evidence_refs"],
+            "audit_note": row["audit_note"],
+        }
+
+    REVIEWED.parent.mkdir(parents=True, exist_ok=True)
+    with REVIEWED.open("w", encoding="utf-8-sig", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=REGISTRY_FIELDS)
+        writer.writeheader()
+        writer.writerows(sorted(existing_registry.values(), key=lambda r: (r["category"], -int(r["post_count"] or 0), r["row_id"])))
+
     base = manifest["progress_snapshot"]
     merged_by_category = Counter(row["category"] for row in all_rows)
     expected_remaining_by_category = dict(base["remaining_by_category"])

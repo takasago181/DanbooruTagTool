@@ -144,6 +144,21 @@ def effective_unresolved() -> tuple[list[dict[str, object]], dict[str, object]]:
     }
 
 
+def reviewed_unresolved() -> dict[str, dict[str, str]]:
+    if not REVIEWED.exists():
+        return {}
+    try:
+        rows = read_csv(REVIEWED)
+    except Exception:
+        return {}
+    out: dict[str, dict[str, str]] = {}
+    for row in rows:
+        rid = (row.get("row_id") or "").strip()
+        if rid:
+            out[rid] = row
+    return out
+
+
 def seed_shortlists(unresolved_by_tag: dict[str, dict[str, object]]) -> dict[str, dict[str, str]]:
     seeds: dict[str, dict[str, str]] = {}
     for path in sorted(AUDIT.glob("BATCH*_VERIFIED_SHORTLIST_*.csv")):
