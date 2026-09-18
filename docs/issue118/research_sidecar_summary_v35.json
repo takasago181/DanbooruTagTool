@@ -1,0 +1,34 @@
+{
+  "issue": 118,
+  "mode": "RESEARCH_SIDECAR_V35_V59A_CORRECTION",
+  "identity_rows": 31752,
+  "source_base": "docs/issue118/research_sidecar_v34.csv",
+  "correction_count": 3,
+  "corrected_keys": [
+    "full-package_futanari",
+    "futanari",
+    "male_futanari"
+  ],
+  "review_status_counts": {
+    "AUTO_HIGH_CONF": 22371,
+    "HUMAN_REVIEWED": 3873,
+    "UNCLASSIFIED": 5508
+  },
+  "sexual_intent_counts": {
+    "CONTEXTUAL": 1070,
+    "NON_SEXUAL": 23559,
+    "NULL": 5508,
+    "SEXUAL": 1615
+  },
+  "remaining_unclassified": 5508,
+  "correction_source": "docs/issue118/mixed_five_cluster_review_v59/review_correction_v59a.json",
+  "correction_git_blob_sha": "4d4f431d000f3ae53e63d0cfc836fe0113817da5",
+  "correction_sha256": "0bfc07634d045ae3d657a33ca34fd9826d42716d69d02955d59e0a646a43751b",
+  "review_verdicts_generated_by_materializer": "NO",
+  "review_artifacts_are_external_inputs": "YES",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO"
+}
