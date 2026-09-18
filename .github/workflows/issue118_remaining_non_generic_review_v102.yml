@@ -1,0 +1,58 @@
+name: Issue118 Remaining Non Generic Review V102
+
+on:
+  push:
+    branches:
+      - research/issue118-cluster-triage-v8
+    paths:
+      - scripts/issue118/materialize_remaining_non_generic_review_v102.py
+      - docs/issue118/research_sidecar_v69.csv
+      - .github/workflows/issue118_remaining_non_generic_review_v102.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  remaining-non-generic-v102:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Materialize v102 review candidate
+        run: |
+          python3 -m py_compile scripts/issue118/materialize_remaining_non_generic_review_v102.py
+          python3 scripts/issue118/materialize_remaining_non_generic_review_v102.py
+      - name: Validate v102
+        run: |
+          python3 - <<'PY'
+          import csv,json
+          from pathlib import Path
+          rows=list(csv.DictReader(Path('docs/issue118/remaining_non_generic_review_v102/full_review_candidate_v102.csv').open(encoding='utf-8')))
+          s=json.loads(Path('docs/issue118/remaining_non_generic_review_v102/summary_v102.json').read_text(encoding='utf-8'))
+          assert len(rows)==100
+          assert s['candidate_rows']==100
+          assert s['source_pool_rows']==247
+          assert s['source_sidecar']=='research_sidecar_v69.csv'
+          assert all((r.get('human_intent') or '')=='' for r in rows)
+          assert all((r.get('review_note') or '')=='' for r in rows)
+          assert s['selection_rules_use']=='DISCOVERY_ONLY_NOT_CLASSIFICATION_AUTHORITY'
+          assert s['auto_promotion_performed']=='NO'
+          assert s['review_verdicts_generated_by_materializer']=='NO'
+          assert s['review_artifacts_are_external_inputs']=='YES'
+          assert s['production_authority']=='NO'
+          assert s['main_mutated']=='NO'
+          assert s['issue117_code_mutated']=='NO'
+          assert s['catalog_mutated']=='NO'
+          assert s['user_db_mutated']=='NO'
+          print('ISSUE118_REMAINING_NON_GENERIC_V102_GATE=PASS')
+          PY
+      - name: Persist research evidence only
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/issue118/remaining_non_generic_review_v102/
+          if ! git diff --cached --quiet; then
+            git commit -m 'Issue #118: materialize remaining non-generic review v102'
+            git push origin HEAD:research/issue118-cluster-triage-v8
+          fi
