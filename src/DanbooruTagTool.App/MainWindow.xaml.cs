@@ -71,6 +71,21 @@ public partial class MainWindow : Window
     private void NavigationChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
     {
         if (syncingNavigation || e.NewValue is not NavigationNode node) return;
+        if (node.Key.StartsWith("group:", StringComparison.Ordinal))
+        {
+            syncingNavigation = true;
+            try
+            {
+                if (NavigationTree.ItemContainerGenerator.ContainerFromItem(node) is TreeViewItem item)
+                {
+                    item.IsExpanded = true;
+                    item.IsSelected = false;
+                }
+            }
+            finally { syncingNavigation = false; }
+            Dispatcher.BeginInvoke(SyncNavigationSelection, DispatcherPriority.Loaded);
+            return;
+        }
         vm.Navigate.Execute(node);
     }
     private void SyncNavigationSelection()
