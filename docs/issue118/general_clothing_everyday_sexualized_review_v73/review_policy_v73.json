@@ -1,0 +1,52 @@
+{
+  "issue": 118,
+  "mode": "GENERAL_CLOTHING_EVERYDAY_SEXUALIZED_FULL_REVIEW_V73_POLICY_BATCH5",
+  "source_rows": 25,
+  "candidate_source_commit": "9d419c4517b5d38b695e7d7d489a440c871ea560",
+  "candidate_blob_sha": "7316f5a3bbba27d44d94174a13332348e37be1b8",
+  "source_cluster": "GENERAL_ONLY|CLOTHING/EVERYDAY|SEXUALIZED_CLOTHING",
+  "decision_counts": {
+    "SEXUAL": 0,
+    "CONTEXTUAL": 12,
+    "NON_SEXUAL": 13
+  },
+  "sexual": [],
+  "contextual": [
+    "vertical-striped_corset",
+    "wet_bikini",
+    "wet_leotard",
+    "wet_male_swimwear",
+    "wet_swimsuit",
+    "white_corset",
+    "white_garter",
+    "white_garter_belt",
+    "white_garter_straps",
+    "white_slingshot_swimsuit",
+    "yellow_corset",
+    "yellow_slingshot_swimsuit"
+  ],
+  "non_sexual": [
+    "venus_bikini",
+    "white_bikini",
+    "white_bodysuit",
+    "white_leotard",
+    "white_male_swimwear",
+    "white_one-piece_swimsuit",
+    "yellow_bikini",
+    "yellow_bodysuit",
+    "yellow_leotard",
+    "yellow_male_swimwear",
+    "yellow_one-piece_swimsuit",
+    "zipper_bikini",
+    "zipper_leotard"
+  ],
+  "unclassified": [],
+  "policy": "All 25 remaining rows were manually reviewed row by row. Corset/garter/slingshot garments and wet swimwear/leotard states are CONTEXTUAL because ordinary fashion/swimming and erotic/fetish use both naturally occur. Ordinary bikini/bodysuit/leotard/one-piece/male swimwear and zipper variants are NON_SEXUAL. No tag in this packet inherently denotes an explicit sexual act. This completes the fixed GENERAL_ONLY|CLOTHING/EVERYDAY|SEXUALIZED_CLOTHING discovery cluster.",
+  "review_verdicts_generated_by_materializer": "NO",
+  "review_artifacts_are_external_inputs": "YES",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO"
+}
