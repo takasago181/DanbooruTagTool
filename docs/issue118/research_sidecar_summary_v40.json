@@ -1,0 +1,41 @@
+{
+  "issue": 118,
+  "mode": "RESEARCH_SIDECAR_V40_V65_FULL_REVIEW",
+  "identity_rows": 31752,
+  "source_base": "docs/issue118/research_sidecar_v39.csv",
+  "new_promotions": {
+    "CONTEXTUAL": 6,
+    "NON_SEXUAL": 54
+  },
+  "new_total_promotions": 60,
+  "review_status_counts": {
+    "AUTO_HIGH_CONF": 22371,
+    "HUMAN_REVIEWED": 4316,
+    "UNCLASSIFIED": 5065
+  },
+  "sexual_intent_counts": {
+    "CONTEXTUAL": 1190,
+    "NON_SEXUAL": 23799,
+    "NULL": 5065,
+    "SEXUAL": 1698
+  },
+  "remaining_unclassified": 5065,
+  "review_inputs": [
+    {
+      "label": "V65",
+      "review_source": "docs/issue118/general_clothing_everyday_none_review_v65/review_policy_v65.json",
+      "review_git_blob_sha": "e8acbf3d522f105f4f390378265166de0395b9cb",
+      "review_sha256": "2e11b6a2d8d7cecac4aa4eff7790108af20f78e6c1235e6aa305cddebde28b3a",
+      "candidate_source": "docs/issue118/general_clothing_everyday_none_review_v65/full_review_candidate_v65.csv",
+      "candidate_git_blob_sha": "2d440af6c670845c0796be949b65f2336bf71f32",
+      "source_rows": 60
+    }
+  ],
+  "review_verdicts_generated_by_materializer": "NO",
+  "review_artifacts_are_external_inputs": "YES",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO"
+}
