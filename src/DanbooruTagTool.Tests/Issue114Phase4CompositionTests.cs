@@ -44,6 +44,15 @@ public sealed class Issue114Phase4CompositionTests
                 dictionaryVm = Assert.IsType<DictionaryWorkspaceViewModel>(dictionaryView.DataContext);
                 promptVm = Assert.IsType<PromptEditorViewModel>(promptView.DataContext);
 
+                // GitHub Windows runners expose a small virtual desktop even when the
+                // Window requests WQHD. Pin the dictionary surface itself above the
+                // accepted two-column threshold so this remains a composition test,
+                // not a runner-screen-size test.
+                dictionaryView.Width = 900;
+                window.UpdateLayout();
+                Pump(window.Dispatcher, 100);
+                dictionaryView.UpdateLayout();
+
                 var list = GetField<ListBox>(dictionaryView, "DictionaryList");
                 dictionaryRows = list.Items.Count;
                 dictionarySource = list.ItemsSource?.GetType().Name ?? "null";
