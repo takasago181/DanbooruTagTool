@@ -1,0 +1,40 @@
+{
+  "issue": 118,
+  "mode": "RESEARCH_SIDECAR_V95_V128_FULL_REVIEW",
+  "identity_rows": 31752,
+  "source_base": "docs/issue118/research_sidecar_v94.csv",
+  "new_promotions": {
+    "NON_SEXUAL": 37
+  },
+  "new_total_promotions": 37,
+  "review_status_counts": {
+    "AUTO_HIGH_CONF": 22371,
+    "HUMAN_REVIEWED": 9375,
+    "UNCLASSIFIED": 6
+  },
+  "sexual_intent_counts": {
+    "CONTEXTUAL": 1951,
+    "NON_SEXUAL": 27759,
+    "NULL": 6,
+    "SEXUAL": 2036
+  },
+  "remaining_unclassified": 6,
+  "review_inputs": [
+    {
+      "label": "V128",
+      "review_source": "docs/issue118/general_none_none_review_v128/review_policy_v128.json",
+      "review_git_blob_sha": "ec31d80651cb87a9e7583b33dfa90d74e1fcba41",
+      "review_sha256": "603773ce0db2c87d6107a8d639c555ab29d0648c4212e9a35fbffe96d4781ba0",
+      "candidate_source": "docs/issue118/general_none_none_review_v128/full_review_candidate_v128.csv",
+      "candidate_git_blob_sha": "be57d477cccc94a9cb03684f2e394efb427bffdf",
+      "source_rows": 37
+    }
+  ],
+  "review_verdicts_generated_by_materializer": "NO",
+  "review_artifacts_are_external_inputs": "YES",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO"
+}
