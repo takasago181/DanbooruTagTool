@@ -7,7 +7,7 @@
   "complete": false,
   "assigned_count": 60,
   "target_resolutions": 40,
-  "validated_count": 10,
-  "next_action": "continue non-seeded official-source research from remaining assigned rows; reuse PARTIAL_RESULTS.csv; prioritize rows with direct official Japanese character pages",
+  "validated_count": 12,
+  "next_action": "continue remaining assigned Character rows from PARTIAL_RESULTS.csv; prioritize direct first-party Japanese pages; do not revisit 12 validated rows",
   "production_modified": false
 }
