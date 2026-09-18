@@ -186,7 +186,7 @@ public sealed class DictionaryWorkspaceViewModel : Observable
         set
         {
             if (query.Length == 0 && value.Length > 0) { browseSelection = SelectedEntry?.Entry.Id; RestoreScroll = BrowseScroll; }
-            if (Set(ref query, value)) { Notify(nameof(IsSearching)); Notify(nameof(CanBrowseSort)); }
+            if (Set(ref query, value)) { Notify(nameof(IsSearching)); Notify(nameof(CanBrowseSort)); Notify(nameof(ShowNeutralGuidance)); }
         }
     }
     public string BrowseKey => browse;
@@ -198,6 +198,7 @@ public sealed class DictionaryWorkspaceViewModel : Observable
     public bool DeepOnly => unifiedState.DeepOnly;
     public ContentIntentFilter ContentIntent => unifiedState.ContentIntent;
     public bool IsNeutralTags => unifiedState.IsNeutralTags;
+    public bool ShowNeutralGuidance => IsNeutralTags && !IsSearching;
     public bool ShowUnifiedRefinement => Scope == UnifiedBrowseScope.Tags;
     public bool ShowLocalOptions => ShowUnifiedRefinement && LocalOptions.Count > 0;
     public bool IsContentAll => ContentIntent == ContentIntentFilter.All;
@@ -572,6 +573,7 @@ public sealed class DictionaryWorkspaceViewModel : Observable
         Notify(nameof(DeepOnly));
         Notify(nameof(ContentIntent));
         Notify(nameof(IsNeutralTags));
+        Notify(nameof(ShowNeutralGuidance));
         Notify(nameof(ShowUnifiedRefinement));
         Notify(nameof(ShowLocalOptions));
         Notify(nameof(IsContentAll));
