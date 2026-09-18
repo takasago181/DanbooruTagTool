@@ -206,6 +206,69 @@ public sealed class Issue117UnifiedBrowseTests
     }
 
     [Fact]
+    public void NonBrowseableBacking_DoesNotCreateUnifiedCategoryRoutes()
+    {
+        var referenceOnly = Entry("s-ref-route", "reference_route", "Special", SexualIntentClass.Sexual) with
+        {
+            ProductFit = "KEEP_REFERENCE_ONLY",
+            SpecialBrowseV2 = new(
+                "ACTION_CONTACT",
+                [],
+                [],
+                SpecialBrowseV2Status.ReferenceOnlyNoDirectBrowse),
+            UnifiedBrowseRouteIds = ["EXPRESSION_GAZE"]
+        };
+        var outOfScopeGeneral = Entry("g-out-route", "out_route", "General", SexualIntentClass.NonSexual) with
+        {
+            ProductFit = "OUT_OF_SCOPE_PRODUCT",
+            Paths = [new BrowsePath("HAIR_FACE", "髪・顔", "HAIR", "髪")]
+        };
+        var direct = Entry("s-direct-route", "direct_route", "Special", SexualIntentClass.Sexual) with
+        {
+            SpecialBrowseV2 = new(
+                "ACTION_CONTACT",
+                [],
+                [],
+                SpecialBrowseV2Status.HumanResolved)
+        };
+        var index = new UnifiedBrowseIndex(new Catalog([referenceOnly, outOfScopeGeneral, direct]));
+
+        Assert.DoesNotContain(index.Browse(UnifiedBrowseState.Neutral with { PrimaryRouteId = "ACTION_CONTACT" }),
+            entry => entry.Canonical == "reference_route");
+        Assert.DoesNotContain(index.Browse(UnifiedBrowseState.Neutral with { PrimaryRouteId = "EXPRESSION_GAZE" }),
+            entry => entry.Canonical == "reference_route");
+        Assert.DoesNotContain(index.Browse(UnifiedBrowseState.Neutral with { PrimaryRouteId = "HAIR_FACE" }),
+            entry => entry.Canonical == "out_route");
+        Assert.Contains(index.Browse(UnifiedBrowseState.Neutral with { PrimaryRouteId = "ACTION_CONTACT" }),
+            entry => entry.Canonical == "direct_route");
+    }
+
+    [Fact]
+    public void LegacyExplicitSpecialKind_MigratesToMappedPrimaryAndDeepOnly()
+    {
+        var special = Entry("S:legacy", "legacy_action", "Special", SexualIntentClass.Sexual) with
+        {
+            SpecialBrowseV2 = new("ACTION_CONTACT", [], [], SpecialBrowseV2Status.HumanResolved)
+        };
+        var catalog = new Catalog([special]);
+        var workspace = new PromptWorkspace(new PromptParser(catalog));
+        var vm = new DictionaryWorkspaceViewModel(
+            catalog,
+            workspace,
+            new PendingGeneralBrowseProvider(),
+            () => { },
+            () => true);
+
+        vm.Restore(new UiState(Browse: "special-v2:kind:ACTION_CONTACT"));
+        vm.RefreshResults();
+
+        Assert.Equal("ACTION_CONTACT", vm.PrimaryRouteId);
+        Assert.True(vm.DeepOnly);
+        Assert.Equal("route:ACTION_CONTACT", vm.BrowseKey);
+        Assert.Contains(vm.Results, row => row.Entry.Canonical == "legacy_action");
+    }
+
+    [Fact]
     public void FrozenIssue118Authority_HasExactPopulationCountsAndFiveExplicitUnknowns()
     {
         var root = FindRepoRoot();
