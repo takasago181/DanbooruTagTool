@@ -7,8 +7,8 @@
   "complete": false,
   "assigned_count": 60,
   "target_resolutions": 40,
-  "validated_count": 13,
-  "next_action": "continue remaining assigned Character rows from PARTIAL_RESULTS.csv; prioritize direct first-party Japanese pages; do not revisit 13 validated rows",
-  "last_run_note": "External web search returned transient HTTP 503 while researching remaining assigned rows. Preserved all 13 validated rows unchanged; retry research next run without semantic changes.",
+  "validated_count": 14,
+  "next_action": "continue remaining assigned Character rows from PARTIAL_RESULTS.csv; prioritize direct first-party Japanese pages; do not revisit 14 validated rows",
+  "last_run_note": "Validated march_7th_(hunt)_(honkai:_star_rail) as KEEP from HoYoLAB official-community Japanese naming evidence. Other sampled remaining rows lacked sufficiently direct first-party evidence, so they were left unresolved rather than guessed.",
   "production_modified": false
 }
