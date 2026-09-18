@@ -14,6 +14,7 @@ AUDIT = ROOT / "docs/issue70/audit"
 AUTO = ROOT / "docs/issue70/automation"
 CURRENT = AUTO / "CURRENT_MANIFEST.json"
 REVIEWED = AUTO / "REVIEWED_UNRESOLVED.csv"
+SCOPE_SKIPPED = AUTO / "SCOPE_SKIPPED_NON_2D.csv"
 STATE = ROOT / "artifacts/issue70-parallel/integrator_state.json"
 
 FINAL = {"KEEP", "FIX_DISPLAY", "FIX_SEARCH", "FIX_BOTH"}
@@ -40,6 +41,17 @@ REVIEW_FIELDS = [
 REGISTRY_FIELDS = [
     "row_id", "canonical_tag", "category", "post_count", "first_review_cycle",
     "last_review_cycle", "review_count", "last_lane", "review_reason", "evidence_refs", "audit_note",
+]
+
+SCOPE_FIELDS = [
+    "cycle_id", "lane", "manifest_progress_sha256", "row_id", "canonical_tag", "category",
+    "post_count", "media_scope", "scope_reason", "evidence_refs", "audit_note",
+]
+
+SCOPE_REGISTRY_FIELDS = [
+    "row_id", "canonical_tag", "category", "post_count", "media_scope",
+    "first_skip_cycle", "last_skip_cycle", "skip_count", "last_lane",
+    "scope_reason", "evidence_refs", "audit_note",
 ]
 
 
@@ -82,8 +94,10 @@ def main() -> None:
     manifest_lanes = manifest["lanes"]
     all_rows: list[dict[str, str]] = []
     all_reviewed: list[dict[str, str]] = []
+    all_scope_skipped: list[dict[str, str]] = []
     seen_rows: set[str] = set()
     seen_reviewed: set[str] = set()
+    seen_scope_skipped: set[str] = set()
     missing_lanes: list[int] = []
 
     for lane in range(1, LANE_COUNT + 1):
@@ -93,6 +107,7 @@ def main() -> None:
         status_text = git_show(branch, f"{base}/STATUS.json")
         results_text = git_show(branch, f"{base}/RESULTS.csv")
         reviewed_text = git_show(branch, f"{base}/REVIEWED_UNRESOLVED.csv")
+        scope_text = git_show(branch, f"{base}/SCOPE_SKIPPED.csv")
         if status_text is None or results_text is None:
             missing_lanes.append(lane)
             continue
@@ -151,6 +166,29 @@ def main() -> None:
 
             all_rows.append(row)
 
+        if scope_text is not None:
+            scope_rows = list(csv.DictReader(io.StringIO(scope_text.lstrip("\ufeff"))))
+            for row in scope_rows:
+                assert set(SCOPE_FIELDS) <= set(row), (lane, "scope_schema", sorted(row))
+                rid = row["row_id"].strip()
+                assert rid in assigned, (lane, rid, "scope-skipped row not assigned to lane")
+                assert rid not in seen_rows, (lane, rid, "row cannot be both resolved and scope-skipped")
+                assert rid not in seen_scope_skipped, (lane, rid, "duplicate scope-skipped row across lanes")
+                seen_scope_skipped.add(rid)
+
+                source = assigned[rid]
+                assert row["cycle_id"] == cycle_id
+                assert int(row["lane"]) == lane
+                assert row["manifest_progress_sha256"] == expected_hash
+                assert row["canonical_tag"] == source["canonical_tag"]
+                assert row["category"] == source["category"]
+                assert row["category"] in {"Character", "Copyright"}
+                assert int(row["post_count"] or 0) == int(source["post_count"])
+                assert row["media_scope"] == "REAL_3D"
+                assert row["scope_reason"].strip()
+                assert row["audit_note"].strip()
+                all_scope_skipped.append(row)
+
         if reviewed_text is not None:
             reviewed_rows = list(csv.DictReader(io.StringIO(reviewed_text.lstrip("\ufeff"))))
             for row in reviewed_rows:
@@ -158,6 +196,7 @@ def main() -> None:
                 rid = row["row_id"].strip()
                 assert rid in assigned, (lane, rid, "reviewed row not assigned to lane")
                 assert rid not in seen_rows, (lane, rid, "row cannot be both resolved and reviewed-unresolved")
+                assert rid not in seen_scope_skipped, (lane, rid, "row cannot be both scope-skipped and reviewed-unresolved")
                 assert rid not in seen_reviewed, (lane, rid, "duplicate reviewed row across lanes")
                 seen_reviewed.add(rid)
 
@@ -192,7 +231,8 @@ def main() -> None:
                     existing_registry[rid] = row
 
     resolved_now = {row["row_id"] for row in all_rows}
-    for rid in resolved_now:
+    scope_now = {row["row_id"] for row in all_scope_skipped}
+    for rid in resolved_now | scope_now:
         existing_registry.pop(rid, None)
 
     for row in all_reviewed:
@@ -227,6 +267,47 @@ def main() -> None:
             key=lambda r: (r["category"], -int(r["post_count"] or 0), r["row_id"]),
         ))
 
+    scope_registry: dict[str, dict[str, str]] = {}
+    if SCOPE_SKIPPED.exists():
+        with SCOPE_SKIPPED.open(encoding="utf-8-sig", newline="") as f:
+            for row in csv.DictReader(f):
+                rid = (row.get("row_id") or "").strip()
+                if rid:
+                    scope_registry[rid] = row
+
+    for row in all_scope_skipped:
+        rid = row["row_id"]
+        prev = scope_registry.get(rid)
+        if prev:
+            first_cycle = prev.get("first_skip_cycle") or cycle_id
+            count = int(prev.get("skip_count") or 0) + 1
+        else:
+            first_cycle = cycle_id
+            count = 1
+        scope_registry[rid] = {
+            "row_id": rid,
+            "canonical_tag": row["canonical_tag"],
+            "category": row["category"],
+            "post_count": row["post_count"],
+            "media_scope": "REAL_3D",
+            "first_skip_cycle": first_cycle,
+            "last_skip_cycle": cycle_id,
+            "skip_count": str(count),
+            "last_lane": row["lane"],
+            "scope_reason": row["scope_reason"],
+            "evidence_refs": row["evidence_refs"],
+            "audit_note": row["audit_note"],
+        }
+
+    SCOPE_SKIPPED.parent.mkdir(parents=True, exist_ok=True)
+    with SCOPE_SKIPPED.open("w", encoding="utf-8-sig", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=SCOPE_REGISTRY_FIELDS)
+        writer.writeheader()
+        writer.writerows(sorted(
+            scope_registry.values(),
+            key=lambda r: (r["category"], -int(r["post_count"] or 0), r["row_id"]),
+        ))
+
     out = AUDIT / f"external_resolution_parallel_{cycle_id}.csv"
     if all_rows:
         assert not out.exists(), f"overlay already exists: {out}"
@@ -251,6 +332,8 @@ def main() -> None:
         "merged_by_category": dict(sorted(merged_by_category.items())),
         "reviewed_unresolved_rows_this_cycle": len(all_reviewed),
         "reviewed_unresolved_registry_rows": len(existing_registry),
+        "scope_skipped_rows_this_cycle": len(all_scope_skipped),
+        "scope_skipped_registry_rows": len(scope_registry),
         "base_resolved_external_rows": int(base["resolved_external_rows"]),
         "expected_resolved_external_rows": int(base["resolved_external_rows"]) + len(all_rows),
         "expected_remaining_external_rows": int(base["remaining_external_rows"]) - len(all_rows),

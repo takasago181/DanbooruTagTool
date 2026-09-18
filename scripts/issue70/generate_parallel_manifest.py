@@ -16,6 +16,7 @@ AUTO = ROOT / "docs/issue70/automation"
 CYCLES = AUTO / "cycles"
 CURRENT = AUTO / "CURRENT_MANIFEST.json"
 REVIEWED = AUTO / "REVIEWED_UNRESOLVED.csv"
+SCOPE_SKIPPED = AUTO / "SCOPE_SKIPPED_NON_2D.csv"
 TMP = ROOT / "artifacts/issue70-parallel-manifest"
 
 FINAL = {"KEEP", "FIX_DISPLAY", "FIX_SEARCH", "FIX_BOTH"}
@@ -161,6 +162,22 @@ def reviewed_unresolved() -> tuple[dict[str, dict[str, str]], str]:
     return out, sha256_bytes(raw)
 
 
+def scope_skipped() -> tuple[dict[str, dict[str, str]], str]:
+    if not SCOPE_SKIPPED.exists():
+        return {}, hashlib.sha256(b"").hexdigest()
+    raw = SCOPE_SKIPPED.read_bytes()
+    rows = read_csv(SCOPE_SKIPPED)
+    out: dict[str, dict[str, str]] = {}
+    for row in rows:
+        rid = (row.get("row_id") or "").strip()
+        if not rid:
+            continue
+        assert (row.get("category") or "").strip() in {"Character", "Copyright"}, row
+        assert (row.get("media_scope") or "").strip() == "REAL_3D", row
+        out[rid] = row
+    return out, sha256_bytes(raw)
+
+
 def seed_shortlists(unresolved_by_tag: dict[str, dict[str, object]]) -> dict[str, dict[str, str]]:
     seeds: dict[str, dict[str, str]] = {}
     for path in sorted(AUDIT.glob("BATCH*_VERIFIED_SHORTLIST_*.csv")):
@@ -204,7 +221,13 @@ def main() -> None:
     progress = state["progress"]
     progress_hash = str(state["progress_sha256"])
     reviewed, reviewed_hash = reviewed_unresolved()
-    assignment_state_hash = hashlib.sha256(f"{progress_hash}:{reviewed_hash}".encode("utf-8")).hexdigest()
+    scope_skips, scope_hash = scope_skipped()
+    unresolved_ids = {str(r["row_id"]) for r in unresolved}
+    scope_skipped_unresolved = {rid for rid in scope_skips if rid in unresolved_ids}
+    unresolved = [r for r in unresolved if str(r["row_id"]) not in scope_skipped_unresolved]
+    assignment_state_hash = hashlib.sha256(
+        f"{progress_hash}:{reviewed_hash}:{scope_hash}".encode("utf-8")
+    ).hexdigest()
 
     if CURRENT.exists():
         try:
@@ -290,6 +313,7 @@ def main() -> None:
         "authority_base_sha": authority_sha,
         "progress_sha256": progress_hash,
         "reviewed_unresolved_sha256": reviewed_hash,
+        "scope_skipped_sha256": scope_hash,
         "assignment_state_sha256": assignment_state_hash,
         "progress_snapshot": {
             "initial_external_rows": progress["initial_external_rows"],
@@ -304,6 +328,9 @@ def main() -> None:
         "base_target_resolutions_per_lane": BASE_TARGET,
         "assigned_unique_rows": len(used),
         "reviewed_unresolved_registry_rows": len(reviewed),
+        "scope_skipped_registry_rows": len(scope_skips),
+        "scope_skipped_unresolved_rows": len(scope_skipped_unresolved),
+        "in_scope_unresolved_rows": len(unresolved),
         "lanes": lane_payloads,
     }
 
@@ -360,6 +387,9 @@ def main() -> None:
         "assignment_state_sha256": assignment_state_hash,
         "remaining": progress["remaining_external_rows"],
         "reviewed_unresolved_registry_rows": len(reviewed),
+        "scope_skipped_registry_rows": len(scope_skips),
+        "scope_skipped_unresolved_rows": len(scope_skipped_unresolved),
+        "in_scope_unresolved_rows": len(unresolved),
         "assigned_unique_rows": len(used),
         "lanes": {
             k: {

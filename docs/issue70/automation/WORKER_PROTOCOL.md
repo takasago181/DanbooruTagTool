@@ -135,3 +135,36 @@ During integration, explicit reviewed-unresolved rows are aggregated into:
 `docs/issue70/automation/REVIEWED_UNRESOLVED.csv`
 
 The next Manifest prioritizes never-reviewed unresolved rows ahead of this registry. Reviewed rows remain eligible later, so new official evidence or exhaustion of fresh rows can bring them back; they are deferred, not permanently discarded.
+
+
+## 2D-only media scope
+
+Issue #70 now audits only the user's 2D/fictional-content scope for Character and Copyright.
+
+This is a media/identity scope rule, not a rendering-technique rule:
+- Anime, manga, games, visual novels, VTubers, illustrated fictional IP, and fictional game characters remain in scope even when rendered with 3D CG.
+- Artist remains fully in scope. Never exclude an Artist merely because the creator is a real person.
+- Character / Copyright that are clearly real-world or live-action-only may be marked REAL_3D and skipped from further semantic audit.
+- Clear REAL_3D examples include real people/celebrities/idol groups, real sports or tournaments, real-world events, live-action-only TV/film properties, companies/services, and general commercial brands when the tag identity is the real entity rather than a fictional/illustrated property.
+- Mixed-media franchises, fictional properties with both animation and live action, ambiguous brands/IP, or anything not clearly REAL_3D must NOT be auto-skipped. Treat them as UNCERTAIN and keep them in the normal audit flow.
+
+Before doing expensive semantic research on a Character or Copyright row, perform a cheap scope check. When it is clearly out of scope, write:
+`docs/issue70/automation/cycles/<cycle_id>/lane-<N>/SCOPE_SKIPPED.csv`
+
+Required columns:
+`cycle_id,lane,manifest_progress_sha256,row_id,canonical_tag,category,post_count,media_scope,scope_reason,evidence_refs,audit_note`
+
+Rules:
+- `media_scope` must be `REAL_3D`.
+- Only Character or Copyright rows may appear. Artist is forbidden.
+- Only assigned row_ids may appear.
+- A row must not also appear in RESULTS.csv or REVIEWED_UNRESOLVED.csv in the same cycle.
+- `scope_reason` must state the concrete reason such as real person, real sports event, live-action-only property, company/service, or general real-world brand.
+- Evidence URL is optional for an obvious scope classification, but use one when it materially disambiguates the identity.
+- Scope skipping is not a semantic translation verdict and must not create KEEP/FIX decisions.
+- Do not spend time finding official Japanese title/name translations for a row after it has been safely classified REAL_3D.
+
+The Integrator aggregates these rows into:
+`docs/issue70/automation/SCOPE_SKIPPED_NON_2D.csv`
+
+Rows in that registry are excluded from future manifests while remaining traceable in the raw external-audit accounting. This allows raw remaining counts to include out-of-scope history without wasting future worker time. Existing already-resolved rows are not rolled back merely because this scope rule was introduced later.
