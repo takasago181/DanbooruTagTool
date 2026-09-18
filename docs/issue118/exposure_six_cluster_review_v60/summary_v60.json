@@ -1,0 +1,24 @@
+{
+  "issue": 118,
+  "mode": "EXPOSURE_SIX_CLUSTER_FULL_REVIEW_V60",
+  "source_sidecar": "research_sidecar_v35.csv",
+  "candidate_rows": 89,
+  "cluster_counts": {
+    "OVERLAP|ACTION_CONTACT|CLOTHING_EXPOSURE|ANATOMY": 12,
+    "OVERLAP|CLOTHING_STATE_EXPOSURE|(none)|EXPOSURE_INTIMATE": 16,
+    "OVERLAP|CLOTHING_STATE_EXPOSURE|BODY_ATTRIBUTE|ANATOMY": 17,
+    "OVERLAP|CLOTHING_STATE_EXPOSURE|CLOTHING_EXPOSURE|ANATOMY": 13,
+    "OVERLAP|CLOTHING|CLOTHING_EXPOSURE|EXPOSURE_INTIMATE": 14,
+    "OVERLAP|CLOTHING|CLOTHING_EXPOSURE|SEXUALIZED_CLOTHING": 17
+  },
+  "selection_rules_use": "DISCOVERY_ONLY_NOT_CLASSIFICATION_AUTHORITY",
+  "auto_promotion_performed": "NO",
+  "review_verdicts_generated_by_materializer": "NO",
+  "review_artifacts_are_external_inputs": "YES",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO",
+  "next_gate": "full manual review of all 89 rows"
+}
