@@ -192,7 +192,7 @@ public sealed class UnifiedBrowseIndex
                     var baked = row.SpecialBrowseV2;
                     var runtime = specialBrowse?.Get(row.Id);
                     var status = baked?.Status ?? runtime?.Status;
-                    if (status is SpecialBrowseV2Status.AutoCandidate or SpecialBrowseV2Status.HumanResolved)
+                    if (row.CanBrowse && status is SpecialBrowseV2Status.AutoCandidate or SpecialBrowseV2Status.HumanResolved)
                     {
                         deep = true;
                         var kind = baked?.KindId ?? runtime?.KindId;
