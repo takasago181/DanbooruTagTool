@@ -136,7 +136,7 @@ public sealed class DictionaryWorkspaceViewModel : Observable
     private readonly Stack<UnifiedBrowseState> unifiedHistory = new();
     private SpecialBrowseV2Filter specialFilter = SpecialBrowseV2Filter.Empty;
     private readonly Stack<SpecialBrowseV2Filter> specialFilterHistory = new();
-    private string query = "", browse = "special";
+    private string query = "", browse = "tags";
     private string? browseSelection;
     private int sortIndex, detailsTabIndex;
     private double dictionaryCardWidth = 480;
