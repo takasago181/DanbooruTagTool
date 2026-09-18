@@ -1,0 +1,21 @@
+{
+  "issue": 118,
+  "mode": "GENERAL_CLOTHING_EVERYDAY_NONE_FULL_REVIEW_V63_BATCH1",
+  "source_sidecar": "research_sidecar_v37.csv",
+  "source_cluster": "GENERAL_ONLY|CLOTHING/EVERYDAY|NONE",
+  "source_cluster_rows": 260,
+  "candidate_rows": 100,
+  "batch_selection": "alphabetically first 100 identities from the fixed source cluster; selection only, not classification authority",
+  "first_identity": "aqua_buruma",
+  "last_identity": "lace-trimmed_thighhighs",
+  "selection_rules_use": "DISCOVERY_ONLY_NOT_CLASSIFICATION_AUTHORITY",
+  "auto_promotion_performed": "NO",
+  "review_verdicts_generated_by_materializer": "NO",
+  "review_artifacts_are_external_inputs": "YES",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO",
+  "next_gate": "full manual review of all 100 rows"
+}
