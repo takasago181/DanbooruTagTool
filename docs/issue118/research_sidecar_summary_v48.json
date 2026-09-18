@@ -1,0 +1,43 @@
+{
+  "issue": 118,
+  "mode": "RESEARCH_SIDECAR_V48_V73_FULL_REVIEW",
+  "identity_rows": 31752,
+  "source_base": "docs/issue118/research_sidecar_v47.csv",
+  "new_promotions": {
+    "CONTEXTUAL": 12,
+    "NON_SEXUAL": 13
+  },
+  "new_total_promotions": 25,
+  "review_status_counts": {
+    "AUTO_HIGH_CONF": 22371,
+    "HUMAN_REVIEWED": 4980,
+    "UNCLASSIFIED": 4401
+  },
+  "sexual_intent_counts": {
+    "CONTEXTUAL": 1378,
+    "NON_SEXUAL": 24272,
+    "NULL": 4401,
+    "SEXUAL": 1701
+  },
+  "remaining_unclassified": 4401,
+  "completed_cluster": "GENERAL_ONLY|CLOTHING/EVERYDAY|SEXUALIZED_CLOTHING",
+  "completed_cluster_rows": 425,
+  "review_inputs": [
+    {
+      "label": "V73",
+      "review_source": "docs/issue118/general_clothing_everyday_sexualized_review_v73/review_policy_v73.json",
+      "review_git_blob_sha": "10a54ef2105e23e7bfbc5e0458a7f19ad30da2e9",
+      "review_sha256": "72dc0ff4d52e3afc65b76b6d82aa1921c55aca44428af927561f4aa778306f00",
+      "candidate_source": "docs/issue118/general_clothing_everyday_sexualized_review_v73/full_review_candidate_v73.csv",
+      "candidate_git_blob_sha": "7316f5a3bbba27d44d94174a13332348e37be1b8",
+      "source_rows": 25
+    }
+  ],
+  "review_verdicts_generated_by_materializer": "NO",
+  "review_artifacts_are_external_inputs": "YES",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO"
+}
