@@ -54,7 +54,7 @@ public sealed class Issue76MainUiIntegrationTests
 
         Assert.Equal(6, navigation.Count);
         Assert.Equal(["何を描く", "動き・状態", "画面・表現"], groups.Select(group => group.Label).ToArray());
-        Assert.All(groups, group => Assert.StartsWith("group:", group.Key, StringComparison.Ordinal));
+        Assert.All(groups, group => Assert.True(group.Key.StartsWith("group:", StringComparison.Ordinal)));
         Assert.Equal(19, routeNodes.Length);
         Assert.Equal(UnifiedBrowseTaxonomy.Routes.Select(route => route.Label), routeNodes.Select(node => node.Label));
         Assert.Equal(["キャラクター", "作品", "作者"], navigation.Skip(3).Select(node => node.Label).ToArray());
