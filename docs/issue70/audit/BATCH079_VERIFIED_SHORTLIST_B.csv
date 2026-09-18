@@ -1,0 +1,34 @@
+canonical_tag,provisional_verdict,proposed_display_ja,proposed_search_ja,evidence_ref,audit_note,status
+blue_reflection_(series),KEEP,,,https://blue-reflection.com/,KOEI TECMO/Gust official BLUE REFLECTION portal identifies the franchise as BLUE REFLECTION; existing ブルー リフレクション is identity-safe.,VERIFIED_SHORTLIST
+fate/requiem,KEEP,,,https://www.typemoon.com/products/tmbooks/requiem/,TYPE-MOON BOOKS official page uses Fate/Requiem exactly.,VERIFIED_SHORTLIST
+avatar_aang:_the_last_airbender,KEEP,,,https://www.netflix.com/jp/title/70142405,Official Japanese distribution uses アバター 伝説の少年アン; existing display is exact.,VERIFIED_SHORTLIST
+portal_(series),KEEP,,,https://store.steampowered.com/app/400/Portal/?l=japanese,Valve official distribution uses Portal and lists Valve as developer/publisher; base franchise display is identity-safe.,VERIFIED_SHORTLIST
+fate/extella_link,KEEP,,,https://fate-extella-link.jp/,Official Marvelous/TYPE-MOON product site uses Fate/EXTELLA LINK exactly.,VERIFIED_SHORTLIST
+kantai_collection_(anime),KEEP,,,https://kancolle-anime.jp/,Official anime site uses 艦隊これくしょん -艦これ- exactly.,VERIFIED_SHORTLIST
+wild_arms_1,KEEP,,,https://www.playstation.com/ja-jp/games/wild-arms/,PlayStation official Japanese product page uses ワイルドアームズ for the original game.,VERIFIED_SHORTLIST
+oneshot_(game),KEEP,,,https://store.steampowered.com/app/420530/OneShot/?l=japanese,Official distribution identifies Future Cat LLC and title OneShot exactly.,VERIFIED_SHORTLIST
+boruto:_two_blue_vortex,FIX_DISPLAY,BORUTO -ボルト- -TWO BLUE VORTEX-,,https://naruto-official.com/special/tbv,NARUTO/BORUTO official site uses BORUTO -ボルト- -TWO BLUE VORTEX-; normalize title spacing to the official form.,VERIFIED_SHORTLIST
+kotobukiya_bishoujo,KEEP,,,https://www.kotobukiya.co.jp/series/bishoujo-statue/,Kotobukiya official product portal explicitly identifies BISHOUJOシリーズ; existing コトブキヤ BISHOUJO is identity-safe.,VERIFIED_SHORTLIST
+terminator_(series),KEEP,,,https://www.20thcenturystudios.jp/movies/terminator-new-fate,20th Century Studios Japan official title surface uses ターミネーター; existing franchise display is identity-safe.,VERIFIED_SHORTLIST
+everlasting_summer,KEEP,,,https://store.steampowered.com/app/331470/Everlasting_Summer/?l=japanese,Official distribution identifies developer/publisher Soviet Games and title Everlasting Summer exactly.,VERIFIED_SHORTLIST
+gensou_suikoden_i,FIX_DISPLAY,幻想水滸伝I,,https://www.konami.com/games/suikoden/rem/1_2/jp/ja/about_1,KONAMI official page uses 幻想水滸伝 I; normalize numeral from 1 to official Roman numeral I.,VERIFIED_SHORTLIST
+tokyo_mirage_sessions_fe,KEEP,,,https://www.nintendo.com/jp/topics/article/5f737a36-a9e0-11e5-a02c-0a6d14145cb1,Nintendo official article uses 幻影異聞録♯ＦＥ for the original Wii U title; current display preserves the official identity.,VERIFIED_SHORTLIST
+clair_obscur:_expedition_33,FIX_DISPLAY,Clair Obscur: Expedition 33,,https://www.expedition33.com/,Developer official site uses Clair Obscur: Expedition 33; current Chinese display is not the official title for the Japanese overlay.,VERIFIED_SHORTLIST
+ga-rei,KEEP,,,https://ga-rei.jp/new_garei/,Official Ga-Rei Zero site identifies the original manga as 喰霊 exactly.,VERIFIED_SHORTLIST
+ga-rei_zero,KEEP,,,https://ga-rei.jp/,Official anime site uses 喰霊-零- exactly.,VERIFIED_SHORTLIST
+muse_dash,FIX_DISPLAY,Muse Dash,,https://apps.apple.com/jp/app/musedash/id1361473095,Official Japanese distribution by developer peropero uses Muse Dash; replace the Chinese localized surface with the official product identity.,VERIFIED_SHORTLIST
+all_saints_street,FIX_DISPLAY,万聖街,,https://banseigai.com/,Official Japanese anime site uses 万聖街; current 1031万圣街 is the Chinese source-title form and not the Japanese overlay title.,VERIFIED_SHORTLIST
+valkyrie_profile_1,KEEP,,,https://www.jp.square-enix.com/vp_lenneth/,Square Enix official product site preserves ヴァルキリープロファイル identity for the original lineage; existing display is identity-safe.,VERIFIED_SHORTLIST
+rilakkuma_(series),KEEP,,,https://www.san-x.co.jp/ja/characters/rilakkuma/,San-X official character site uses リラックマ; existing series-level display is exact and identity-safe.,VERIFIED_SHORTLIST
+twin_angel,KEEP,,,https://twin-angel.com/,Official Twin Angel site uses ツインエンジェル as the series identity.,VERIFIED_SHORTLIST
+choujin_x,KEEP,,,https://youngjump.jp/,Weekly Young Jump official site lists 超人X by 石田スイ; current display is exact.,VERIFIED_SHORTLIST
+marvel_tokon:_fighting_souls,FIX_DISPLAY,MARVEL Tōkon: Fighting Souls,,https://www.playstation.com/ja-jp/games/marvel-tokon-fighting-souls/,PlayStation official Japanese product page uses MARVEL Tōkon: Fighting Souls; current MARVEL闘魂 is incomplete.,VERIFIED_SHORTLIST
+dissidia_duellum_final_fantasy,FIX_DISPLAY,ディシディア デュエルム ファイナル ファンタジー,,https://www.jp.square-enix.com/ddff/character/,Square Enix official product page gives the Japanese title ディシディア デュエルム ファイナル ファンタジー; normalize the missing space.,VERIFIED_SHORTLIST
+agarest_senki_(series),KEEP,,,https://www.compileheart.com/spec/?hard=ps3&title=agarest1,Compile Heart official product lineage uses アガレスト戦記 and related sequels; existing series display is identity-safe.,VERIFIED_SHORTLIST
+juuni_kokuki,KEEP,,,https://www.shinchosha.co.jp/12kokuki/,Shinchosha official series site uses 十二国記 exactly.,VERIFIED_SHORTLIST
+ginga_tetsudou_999,KEEP,,,https://lineup.toei-anim.co.jp/ja/tv/999/,Toei Animation official work page uses 銀河鉄道999 exactly.,VERIFIED_SHORTLIST
+saint_seiya_omega,KEEP,,,https://lineup.toei-anim.co.jp/ja/tv/seiya_omega/story/,Toei Animation official work page uses 聖闘士星矢Ω exactly.,VERIFIED_SHORTLIST
+top_wo_nerae!,KEEP,,,https://www.bandai.co.jp/candy/characters/character453/index.html,Bandai official character/property page uses トップをねらえ！; current display is exact.,VERIFIED_SHORTLIST
+fear_&_hunger_1,KEEP,,,https://store.steampowered.com/app/1002300/Fear__Hunger/,Official distribution identifies developer Miro Haverinen and title Fear & Hunger; original-language display is identity-safe.,VERIFIED_SHORTLIST
+da_capo_i,KEEP,,,https://circus-co.jp/product/dc/,CIRCUS official product site uses D.C. ～ダ・カーポ～; current display is exact.,VERIFIED_SHORTLIST
+tamagotchi_(classic),KEEP,,,https://www.bandai.co.jp/character/tamagotchi.php,Bandai official character page uses たまごっち; existing classic-tag display is identity-safe.,VERIFIED_SHORTLIST
