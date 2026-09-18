@@ -1,0 +1,66 @@
+name: Issue118 Mixed Seven Cluster Review V61
+
+on:
+  push:
+    branches:
+      - research/issue118-cluster-triage-v8
+    paths:
+      - scripts/issue118/materialize_mixed_seven_cluster_review_v61.py
+      - docs/issue118/research_sidecar_v36.csv
+      - .github/workflows/issue118_mixed_seven_cluster_review_v61.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  mixed-seven-cluster-review-v61:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Materialize v61 review candidate
+        run: |
+          python3 -m py_compile scripts/issue118/materialize_mixed_seven_cluster_review_v61.py
+          python3 scripts/issue118/materialize_mixed_seven_cluster_review_v61.py
+      - name: Validate v61
+        run: |
+          python3 - <<'PY'
+          import csv,json
+          from pathlib import Path
+          rows=list(csv.DictReader(Path('docs/issue118/mixed_seven_cluster_review_v61/full_review_candidate_v61.csv').open(encoding='utf-8')))
+          s=json.loads(Path('docs/issue118/mixed_seven_cluster_review_v61/summary_v61.json').read_text(encoding='utf-8'))
+          assert len(rows)==95
+          assert s['candidate_rows']==95
+          assert s['source_sidecar']=='research_sidecar_v36.csv'
+          assert s['cluster_counts']=={
+              'GENERAL_ONLY|CLOTHING/EVERYDAY|ADULT_ROLE_DEVICE':12,
+              'GENERAL_ONLY|PERSON_COUNT|NONE':14,
+              'OVERLAP|ACTION_CONTACT|INSERTION_STRUCTURED|NONE':15,
+              'OVERLAP|BODY_PART|FLUID_STATE_ACTION|ANATOMY':12,
+              'OVERLAP|OBJECT_PROP|RESTRAINT_IMPLEMENT|NONE':13,
+              'OVERLAP|OBJECT_PROP|RESTRAINT_IMPLEMENT|RESTRAINT_FETISH':13,
+              'OVERLAP|PERSON_COUNT|RELATION_ROLE_CONTEXT|NONE':16,
+          }
+          assert all((r.get('human_intent') or '')=='' for r in rows)
+          assert all((r.get('review_note') or '')=='' for r in rows)
+          assert s['selection_rules_use']=='DISCOVERY_ONLY_NOT_CLASSIFICATION_AUTHORITY'
+          assert s['auto_promotion_performed']=='NO'
+          assert s['review_verdicts_generated_by_materializer']=='NO'
+          assert s['review_artifacts_are_external_inputs']=='YES'
+          assert s['production_authority']=='NO'
+          assert s['main_mutated']=='NO'
+          assert s['issue117_code_mutated']=='NO'
+          assert s['catalog_mutated']=='NO'
+          assert s['user_db_mutated']=='NO'
+          print('ISSUE118_MIXED_SEVEN_CLUSTER_V61_GATE=PASS')
+          PY
+      - name: Persist research evidence only
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/issue118/mixed_seven_cluster_review_v61/
+          if ! git diff --cached --quiet; then
+            git commit -m 'Issue #118: materialize mixed seven-cluster review v61'
+            git push origin HEAD:research/issue118-cluster-triage-v8
+          fi
