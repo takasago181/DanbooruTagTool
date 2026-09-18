@@ -105,6 +105,50 @@ public sealed class Issue117UnifiedBrowseTests
     }
 
     [Fact]
+    public void FilterSearchHits_DeduplicatesOverlapWithoutRerankingFirstOccurrence()
+    {
+        CatalogEntry[] entries =
+        [
+            Entry("g-overlap", "shared_tag", "General", SexualIntentClass.Contextual),
+            Entry("s-overlap", "shared_tag", "Special", SexualIntentClass.Contextual),
+            Entry("g-other", "other_tag", "General", SexualIntentClass.NonSexual)
+        ];
+        var catalog = new Catalog(entries);
+        var index = new UnifiedBrowseIndex(catalog);
+        SearchHit[] hits =
+        [
+            new(entries[1], 10),
+            new(entries[2], 9),
+            new(entries[0], 8)
+        ];
+
+        var filtered = index.FilterSearchHits(hits, UnifiedBrowseState.Neutral);
+
+        Assert.Equal(2, filtered.Count);
+        Assert.Same(entries[1], filtered[0].Entry);
+        Assert.Same(entries[2], filtered[1].Entry);
+    }
+
+    [Fact]
+    public void NeutralGuidance_IsHiddenAsSoonAsQueryIsEntered()
+    {
+        var catalog = CatalogWithIntentFixtures();
+        var workspace = new PromptWorkspace(new PromptParser(catalog));
+        var vm = new DictionaryWorkspaceViewModel(
+            catalog,
+            workspace,
+            new PendingGeneralBrowseProvider(),
+            () => { },
+            () => true);
+
+        vm.Restore(new UiState(BrowseScope: "Tags"));
+        Assert.True(vm.ShowNeutralGuidance);
+
+        vm.Query = "blue";
+        Assert.False(vm.ShowNeutralGuidance);
+    }
+
+    [Fact]
     public void UnifiedTaxonomy_HasExactlyNineteenOrdinaryDiscoveryRoutes()
     {
         Assert.Equal(19, UnifiedBrowseTaxonomy.Routes.Length);
