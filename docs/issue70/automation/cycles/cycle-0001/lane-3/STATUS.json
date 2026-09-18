@@ -9,5 +9,6 @@
   "target_resolutions": 40,
   "resolved_count": 9,
   "production_modified": false,
-  "note": "Safety-first completion: 9 rows had sufficiently strong official/first-party evidence in this run; unresolved assigned rows were deliberately omitted rather than guessed."
+  "note": "Safety-first completion: 9 rows had sufficiently strong official/first-party evidence in this run; unresolved assigned rows were deliberately omitted rather than guessed.",
+  "reviewed_unresolved_count": 51
 }
