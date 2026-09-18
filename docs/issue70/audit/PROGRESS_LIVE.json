@@ -9,11 +9,11 @@
   "remaining_unaudited_rows": 0,
   "duplicate_same_decision_rows": 0,
   "verdict_counts_resolved": {
-    "FIX_BOTH": 735,
-    "FIX_DISPLAY": 8000,
+    "FIX_BOTH": 737,
+    "FIX_DISPLAY": 8021,
     "FIX_SEARCH": 257,
-    "KEEP": 8104,
-    "NEEDS_EXTERNAL_CHECK": 1174
+    "KEEP": 8161,
+    "NEEDS_EXTERNAL_CHECK": 1094
   },
   "audited_by_category": {
     "Character": 14928,
@@ -25,7 +25,7 @@
     "Copyright": 0,
     "Artist": 0
   },
-  "unresolved_external_check_rows": 1174,
+  "unresolved_external_check_rows": 1094,
   "unresolved_user_decision_rows": 0,
   "remaining_patterns": {
     "Character": {
@@ -287,6 +287,10 @@
     },
     {
       "file": "external_resolution_copyright_official_batch078.csv",
+      "ledger_rows": 80
+    },
+    {
+      "file": "external_resolution_copyright_official_batch079.csv",
       "ledger_rows": 80
     },
     {
