@@ -1,0 +1,24 @@
+{
+  "issue": 118,
+  "mode": "GENERAL_NONE_NONE_FULL_REVIEW_V121_BATCH16",
+  "source_sidecar": "research_sidecar_v87.csv",
+  "source_cluster": "GENERAL_ONLY|(none)|NONE",
+  "source_cluster_rows": 739,
+  "retained_exclusions": [
+    "insertion_threshold_(meme)",
+    "lilistia"
+  ],
+  "eligible_cluster_rows": 737,
+  "candidate_rows": 100,
+  "selection": "alphabetically first 100 identities from remaining fixed giant General-only no-path no-lex cluster after V120, excluding previously retained unresolved identities; selection only, not classification authority",
+  "selection_rules_use": "DISCOVERY_ONLY_NOT_CLASSIFICATION_AUTHORITY",
+  "auto_promotion_performed": "NO",
+  "review_verdicts_generated_by_materializer": "NO",
+  "review_artifacts_are_external_inputs": "YES",
+  "production_authority": "NO",
+  "main_mutated": "NO",
+  "issue117_code_mutated": "NO",
+  "catalog_mutated": "NO",
+  "user_db_mutated": "NO",
+  "next_gate": "full manual review of all 100 rows"
+}
