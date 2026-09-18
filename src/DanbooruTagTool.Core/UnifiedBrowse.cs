@@ -172,7 +172,7 @@ public sealed class UnifiedBrowseIndex
 
             foreach (var row in rows)
             {
-                if (row.EffectiveCategory == "General" && row.BrowseClassification == BrowseClassificationStatus.Proposed)
+                if (row.EffectiveCategory == "General" && row.CanBrowse && row.BrowseClassification == BrowseClassificationStatus.Proposed)
                 {
                     foreach (var path in row.Paths)
                     {
@@ -214,7 +214,7 @@ public sealed class UnifiedBrowseIndex
                     }
                 }
 
-                routeIds.UnionWith(row.UnifiedBrowseRouteIds);
+                if (row.CanBrowse) routeIds.UnionWith(row.UnifiedBrowseRouteIds);
             }
 
             var intents = rows.Where(row => row.SexualIntent is not null).Select(row => row.SexualIntent).Distinct().ToArray();
