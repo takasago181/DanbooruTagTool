@@ -6,7 +6,8 @@ on:
       - 'audit/issue70-auto-lane-*'
     paths:
       - 'docs/issue70/automation/cycles/**/lane-*/RESULTS.csv'
-      - 'docs/issue70/automation/cycles/**/lane-*/STATUS.json'\n      - 'docs/issue70/automation/cycles/**/lane-*/REVIEWED_UNRESOLVED.csv'
+      - 'docs/issue70/automation/cycles/**/lane-*/STATUS.json'
+      - 'docs/issue70/automation/cycles/**/lane-*/REVIEWED_UNRESOLVED.csv'
   workflow_dispatch:
 
 permissions:
@@ -66,7 +67,7 @@ jobs:
           from pathlib import Path
 
           state=json.loads(Path('artifacts/issue70-parallel/integrator_state.json').read_text(encoding='utf-8'))
-          progress=json.loads(Path('docs/issue70/audit/EXTERNAL_PROGRESS_LIVE.json             docs/issue70/automation/REVIEWED_UNRESOLVED.csv').read_text(encoding='utf-8'))
+          progress=json.loads(Path('docs/issue70/audit/EXTERNAL_PROGRESS_LIVE.json').read_text(encoding='utf-8'))
 
           assert state['ready'] is True
           assert progress['production_modified'] is False
@@ -78,6 +79,8 @@ jobs:
           print({
               'cycle_id': state['cycle_id'],
               'merged_rows': state['merged_rows'],
+              'reviewed_unresolved_rows_this_cycle': state['reviewed_unresolved_rows_this_cycle'],
+              'reviewed_unresolved_registry_rows': state['reviewed_unresolved_registry_rows'],
               'resolved': progress['resolved_external_rows'],
               'remaining': progress['remaining_external_rows'],
               'remaining_by_category': progress['remaining_by_category'],
@@ -98,7 +101,11 @@ jobs:
           fi
 
           CYCLE="${{ steps.integration.outputs.cycle_id }}"
-          git add             "docs/issue70/audit/external_resolution_parallel_${CYCLE}.csv"             "docs/issue70/automation/cycles/${CYCLE}/INTEGRATION_REPORT.json"             docs/issue70/audit/PROGRESS_LIVE.json             docs/issue70/audit/EXTERNAL_QUEUE_TOP100.csv             docs/issue70/audit/EXTERNAL_QUEUE_SUMMARY.json             docs/issue70/audit/EXTERNAL_PROGRESS_LIVE.json
+          git add             "docs/issue70/automation/cycles/${CYCLE}/INTEGRATION_REPORT.json"             docs/issue70/automation/REVIEWED_UNRESOLVED.csv             docs/issue70/audit/PROGRESS_LIVE.json             docs/issue70/audit/EXTERNAL_QUEUE_TOP100.csv             docs/issue70/audit/EXTERNAL_QUEUE_SUMMARY.json             docs/issue70/audit/EXTERNAL_PROGRESS_LIVE.json
+
+          if [ -f "docs/issue70/audit/external_resolution_parallel_${CYCLE}.csv" ]; then
+            git add "docs/issue70/audit/external_resolution_parallel_${CYCLE}.csv"
+          fi
 
           git commit -m "Issue70: integrate parallel ${CYCLE}"
           git push origin HEAD:audit/issue70-semantic-final
