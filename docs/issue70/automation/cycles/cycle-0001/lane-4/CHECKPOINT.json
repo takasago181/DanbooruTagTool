@@ -7,8 +7,8 @@
   "complete": false,
   "assigned_count": 60,
   "target_resolutions": 40,
-  "validated_count": 14,
-  "next_action": "continue remaining assigned Character rows from PARTIAL_RESULTS.csv; prioritize direct first-party Japanese pages; do not revisit 14 validated rows",
-  "last_run_note": "Validated march_7th_(hunt)_(honkai:_star_rail) as KEEP from HoYoLAB official-community Japanese naming evidence. Other sampled remaining rows lacked sufficiently direct first-party evidence, so they were left unresolved rather than guessed.",
+  "validated_count": 15,
+  "next_action": "continue remaining assigned Character rows from PARTIAL_RESULTS.csv; prioritize direct first-party Japanese pages; do not revisit 15 validated rows",
+  "last_run_note": "Validated yao_guang_(honkai:_star_rail) as KEEP from the official PlayStation Japan publication of the Honkai: Star Rail Yao Guang character PV, which explicitly uses 爻光 in the Japanese title/CV information. Other sampled rows without direct enough official evidence were left unresolved rather than guessed.",
   "production_modified": false
 }
