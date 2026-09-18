@@ -7,8 +7,8 @@
   "complete": false,
   "assigned_count": 60,
   "target_resolutions": 40,
-  "validated_count": 20,
-  "checkpoint_cluster": 2,
-  "next_action": "Continue only unresolved assigned rows; reuse the 20 validated PARTIAL_RESULTS rows without repeating completed research.",
+  "validated_count": 25,
+  "checkpoint_cluster": 3,
+  "next_action": "Continue only unresolved assigned rows; reuse the 25 validated PARTIAL_RESULTS rows without repeating completed research.",
   "production_modified": false
 }
