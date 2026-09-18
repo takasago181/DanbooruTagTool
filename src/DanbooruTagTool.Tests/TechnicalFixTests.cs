@@ -9,22 +9,30 @@ using Xunit.Abstractions;
 namespace DanbooruTagTool.Tests;
 public class TechnicalFixTests(ITestOutputHelper output)
 {
-    [Fact] public void GeneralNavigationConsumesProviderWithoutTaxonomyNamesInUi()
+    [Fact] public void UnifiedNavigationConsumesAcceptedGeneralPathsWithoutGeneralSpecialRoots()
     {
-        var catalog = Fixtures.Catalog();
-        var pending = Fixtures.Vm();
-        Assert.Empty(pending.Navigation.Single(n => n.Key == "general").Children);
-        var path = new BrowsePath("fixture", "Fixture genre", "child", "Fixture child");
-        var provider = new GeneralBrowseProvider(catalog, new Dictionary<string, BrowsePath[]> { ["red_hair"] = [path] });
-        var vm = new MainViewModel(catalog, new MemoryStore(), new MemoryClipboard(), provider);
-        var genre = Assert.Single(vm.Navigation.Single(n => n.Key == "general").Children);
-        Assert.Equal(path.Genre, genre.Label); var child = Assert.Single(genre.Children); Assert.Equal(path.Subgenre, child.Label);
-        foreach (var key in new[] { "general", genre.Key, child.Key })
-        { vm.NavigateTo(key); Assert.Equal("red_hair", Assert.Single(vm.Results).Entry.Canonical); }
-        Assert.Equal(path.Label, vm.BrowseLabel);
-        vm.NavigateTo(genre.Key); Assert.Equal(path.Genre, vm.BrowseLabel);
-        vm.NavigateTo("special"); Assert.All(vm.Results, r => Assert.True(r.Entry.IsSpecial));
-        Assert.Equal(pending.Navigation[0].Label, vm.Navigation[0].Label);
+        var path = new BrowsePath("HAIR_FACE", "髪・顔", "HAIR", "Fixture child");
+        var red = Fixtures.Entry("red_hair", "赤い髪") with
+        {
+            Paths = [path],
+            BrowseClassification = BrowseClassificationStatus.Proposed
+        };
+        var catalog = new Catalog([red]);
+        var vm = new MainViewModel(catalog, new MemoryStore(), new MemoryClipboard(), GeneralBrowseProvider.FromCatalog(catalog));
+
+        Assert.DoesNotContain(vm.Navigation, node => node.Key is "general" or "special");
+        Assert.Equal(22, vm.Navigation.Count);
+
+        var route = Assert.Single(vm.Navigation, node => node.Key == "route:HAIR_FACE");
+        vm.NavigateTo(route.Key);
+        Assert.Equal("red_hair", Assert.Single(vm.Results).Entry.Canonical);
+        Assert.Equal("髪・顔", vm.BrowseLabel);
+
+        var local = Assert.Single(vm.Dictionary.LocalOptions);
+        Assert.Equal("Fixture child", local.Label);
+        vm.Dictionary.SetLocalSubroute(local.Id);
+        Assert.Equal("red_hair", Assert.Single(vm.Results).Entry.Canonical);
+        Assert.Equal("Fixture child", vm.BrowseLabel);
     }
     [Theory]
     [InlineData("data", true)] [InlineData("data/child", true)] [InlineData("DATA/child", true)]
