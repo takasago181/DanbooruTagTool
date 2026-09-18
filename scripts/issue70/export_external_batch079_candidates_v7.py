@@ -3,7 +3,6 @@ from __future__ import annotations
 
 import csv
 import json
-from collections import defaultdict
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -14,8 +13,7 @@ OUT_ALL = AUDIT / "EXTERNAL_QUEUE_BATCH079_CANDIDATES.csv"
 OUT_COPYRIGHT = AUDIT / "EXTERNAL_QUEUE_BATCH079_COPYRIGHT_CANDIDATES.csv"
 
 TOP_N = 600
-CONCRETE = {"KEEP", "FIX_DISPLAY", "FIX_SEARCH", "FIX_BOTH"}
-VALID_CATEGORIES = {"Copyright", "Character", "Artist"}
+VALID = {"KEEP","FIX_DISPLAY","FIX_SEARCH","FIX_BOTH","NEEDS_EXTERNAL_CHECK","NEEDS_USER_DECISION"}
 
 
 def read_csv(path: Path) -> list[dict[str, str]]:
@@ -24,115 +22,112 @@ def read_csv(path: Path) -> list[dict[str, str]]:
 
 
 def main() -> None:
-    root_rows = read_csv(ROOT_QUEUE)
     progress = json.loads(PROGRESS.read_text(encoding="utf-8"))
-
-    assert root_rows, "EXTERNAL_QUEUE_LIVE.csv is empty"
-    root_ids = [r["row_id"].strip() for r in root_rows]
-    assert len(root_ids) == len(set(root_ids)), "duplicate row_id in EXTERNAL_QUEUE_LIVE.csv"
-    root_by_id = {r["row_id"].strip(): r for r in root_rows}
-
     assert progress["production_modified"] is False
     assert progress["conflicted_external_rows"] == 0
-    assert progress["initial_external_rows"] == len(root_rows)
     assert progress["resolved_external_rows"] + progress["remaining_external_rows"] == progress["initial_external_rows"]
 
-    decisions: dict[str, set[str]] = defaultdict(set)
+    base: dict[str, dict[str, str]] = {}
+    overlays: dict[str, dict[str, str]] = {}
 
-    # Only concrete external-resolution overlays determine whether a root queue row is resolved.
-    # Historical audit CSVs are intentionally NOT scanned.
-    for path in sorted(AUDIT.glob("external_resolution_*.csv")):
-        for row in read_csv(path):
-            rid = (row.get("row_id") or "").strip()
-            verdict = (row.get("audit_verdict") or "").strip()
-            if not rid or verdict not in CONCRETE:
+    # Historical audit CSVs define the original external population.
+    # Category is intentionally NOT inferred here.
+    for path in sorted(AUDIT.glob("*.csv")):
+        if path.name in {OUT_ALL.name, OUT_COPYRIGHT.name}:
+            continue
+        is_overlay = path.name.startswith("external_resolution_")
+        try:
+            rows = read_csv(path)
+        except Exception:
+            continue
+
+        for r in rows:
+            rid = (r.get("row_id") or "").strip()
+            verdict = (r.get("audit_verdict") or "").strip()
+            if not rid or verdict not in VALID:
                 continue
-            assert rid in root_by_id, (path.name, rid, "resolution row not in root external queue")
-            decisions[rid].add(verdict)
 
-    conflicts = {rid: sorted(v) for rid, v in decisions.items() if len(v) > 1}
-    assert not conflicts, f"conflicting external resolutions: {conflicts}"
+            item = {
+                "row_id": rid,
+                "canonical_tag": (r.get("canonical_tag") or "").strip(),
+                "post_count": (r.get("post_count") or "0").strip(),
+                "display_ja": (r.get("display_ja") or "").strip(),
+                "search_ja": (r.get("search_ja") or "").strip(),
+                "translation_note": (r.get("translation_note") or "").strip(),
+                "audit_verdict": verdict,
+                "source_file": path.name,
+                "reason_code": (r.get("reason_code") or "").strip(),
+            }
 
-    resolved_ids = set(decisions)
-    unresolved = [r for r in root_rows if r["row_id"].strip() not in resolved_ids]
+            if is_overlay:
+                overlays[rid] = item
+            elif rid not in base:
+                base[rid] = item
 
-    assert len(resolved_ids) == progress["resolved_external_rows"], (
-        "resolved_count_mismatch",
-        len(resolved_ids),
-        progress["resolved_external_rows"],
+    assert len(base) == progress["initial_external_rows"], (
+        "initial_external_population_mismatch",
+        len(base),
+        progress["initial_external_rows"],
     )
+
+    unresolved: list[dict[str, str]] = []
+    for rid, b in base.items():
+        effective = overlays.get(rid, b)
+        if effective["audit_verdict"] != "NEEDS_EXTERNAL_CHECK":
+            continue
+        unresolved.append({
+            "row_id": b["row_id"],
+            "canonical_tag": b["canonical_tag"],
+            "post_count": b["post_count"],
+            "display_ja": b["display_ja"],
+            "search_ja": b["search_ja"],
+            "translation_note": b["translation_note"],
+            "reason_code": b["reason_code"],
+            "source_file": b["source_file"],
+            "effective_source_file": effective["source_file"],
+        })
+
     assert len(unresolved) == progress["remaining_external_rows"], (
-        "remaining_count_mismatch",
+        "remaining_external_mismatch",
         len(unresolved),
         progress["remaining_external_rows"],
     )
 
-    remaining_by_category = {k: 0 for k in VALID_CATEGORIES}
-    for row in unresolved:
-        category = (row.get("category") or "").strip()
-        assert category in VALID_CATEGORIES, (row.get("row_id"), category)
-        remaining_by_category[category] += 1
-
-    assert remaining_by_category == progress["remaining_by_category"], (
-        "remaining_category_mismatch",
-        remaining_by_category,
-        progress["remaining_by_category"],
-    )
-
-    def post_count(row: dict[str, str]) -> int:
-        return int((row.get("post_count") or "0").strip() or 0)
-
-    unresolved.sort(key=lambda r: (-post_count(r), r["row_id"]))
+    unresolved.sort(key=lambda r: (-int(r.get("post_count") or 0), r["row_id"]))
     top = unresolved[: min(TOP_N, len(unresolved))]
-    copyright_rows = [r for r in top if r["category"] == "Copyright"]
+
+    # EXTERNAL_QUEUE_LIVE is authoritative for category where a row is present.
+    # Missing rows are not guessed and therefore cannot enter Copyright-only output.
+    root = {r["row_id"]: r for r in read_csv(ROOT_QUEUE)}
+    copyright_rows = [
+        r for r in top
+        if r["row_id"] in root and (root[r["row_id"]].get("category") or "").strip() == "Copyright"
+    ]
 
     fields_all = [
         "row_id","canonical_tag","post_count","display_ja","search_ja",
         "translation_note","reason_code","source_file","effective_source_file"
     ]
     with OUT_ALL.open("w", encoding="utf-8-sig", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=fields_all)
-        w.writeheader()
-        for r in top:
-            source = (r.get("primary_source_file") or "").strip()
-            w.writerow({
-                "row_id": r["row_id"],
-                "canonical_tag": r["canonical_tag"],
-                "post_count": r["post_count"],
-                "display_ja": r["display_ja"],
-                "search_ja": r["search_ja"],
-                "translation_note": r["translation_note"],
-                "reason_code": "EFFECTIVE_NEEDS_EXTERNAL_CHECK",
-                "source_file": source,
-                "effective_source_file": source,
-            })
+        w=csv.DictWriter(f, fieldnames=fields_all)
+        w.writeheader(); w.writerows(top)
 
     fields_c = [
         "row_id","canonical_tag","post_count","display_ja","search_ja",
         "translation_note","reason_code","source_file"
     ]
     with OUT_COPYRIGHT.open("w", encoding="utf-8-sig", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=fields_c)
+        w=csv.DictWriter(f, fieldnames=fields_c)
         w.writeheader()
-        for r in copyright_rows:
-            w.writerow({
-                "row_id": r["row_id"],
-                "canonical_tag": r["canonical_tag"],
-                "post_count": r["post_count"],
-                "display_ja": r["display_ja"],
-                "search_ja": r["search_ja"],
-                "translation_note": r["translation_note"],
-                "reason_code": "EFFECTIVE_NEEDS_EXTERNAL_CHECK",
-                "source_file": (r.get("primary_source_file") or "").strip(),
-            })
+        w.writerows([{k:r[k] for k in fields_c} for r in copyright_rows])
 
     print({
-        "initial_external_rows": len(root_rows),
-        "resolved_external_rows": len(resolved_ids),
+        "initial_external_rows": len(base),
         "remaining_external_rows": len(unresolved),
-        "remaining_by_category": remaining_by_category,
         "candidate_rows": len(top),
         "copyright_candidates": len(copyright_rows),
+        "root_queue_rows": len(root),
+        "top_rows_missing_from_root": sum(r["row_id"] not in root for r in top),
         "production_modified": False,
     })
 

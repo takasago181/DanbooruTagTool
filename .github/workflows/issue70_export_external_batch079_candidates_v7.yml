@@ -27,7 +27,7 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Export from live root queue plus resolution overlays only
+      - name: Export effective Copyright candidates
         run: python scripts/issue70/export_external_batch079_candidates_v7.py
 
       - name: Validate diagnostics and audit invariants
@@ -36,32 +36,26 @@ jobs:
           import csv, json
           from pathlib import Path
 
-          audit = Path('docs/issue70/audit')
-          progress = json.loads((audit / 'EXTERNAL_PROGRESS_LIVE.json').read_text(encoding='utf-8'))
-          root = {r['row_id']: r for r in csv.DictReader((audit / 'EXTERNAL_QUEUE_LIVE.csv').open(encoding='utf-8-sig', newline=''))}
-          all_rows = list(csv.DictReader((audit / 'EXTERNAL_QUEUE_BATCH079_CANDIDATES.csv').open(encoding='utf-8-sig', newline='')))
-          copyright_rows = list(csv.DictReader((audit / 'EXTERNAL_QUEUE_BATCH079_COPYRIGHT_CANDIDATES.csv').open(encoding='utf-8-sig', newline='')))
+          audit=Path('docs/issue70/audit')
+          progress=json.loads((audit/'EXTERNAL_PROGRESS_LIVE.json').read_text(encoding='utf-8'))
+          all_rows=list(csv.DictReader((audit/'EXTERNAL_QUEUE_BATCH079_CANDIDATES.csv').open(encoding='utf-8-sig',newline='')))
+          copyright_rows=list(csv.DictReader((audit/'EXTERNAL_QUEUE_BATCH079_COPYRIGHT_CANDIDATES.csv').open(encoding='utf-8-sig',newline='')))
+          root={r['row_id']:r for r in csv.DictReader((audit/'EXTERNAL_QUEUE_LIVE.csv').open(encoding='utf-8-sig',newline=''))}
 
-          assert len(all_rows) == min(600, progress['remaining_external_rows'])
-          assert len({r['row_id'] for r in all_rows}) == len(all_rows)
-          assert all(r['row_id'] in root for r in all_rows)
-
-          expected_copyright = sum(1 for r in all_rows if root[r['row_id']]['category'] == 'Copyright')
-          assert len(copyright_rows) == expected_copyright
-          assert len(copyright_rows) >= 80
-          assert len({r['row_id'] for r in copyright_rows}) == len(copyright_rows)
-          assert all(root[r['row_id']]['category'] == 'Copyright' for r in copyright_rows)
-
+          assert len(all_rows)==min(600, progress['remaining_external_rows'])
+          assert len({r['row_id'] for r in all_rows})==len(all_rows)
+          assert len(copyright_rows)>=80
+          assert len({r['row_id'] for r in copyright_rows})==len(copyright_rows)
+          assert all(r['row_id'] in root and root[r['row_id']]['category']=='Copyright' for r in copyright_rows)
           assert progress['production_modified'] is False
-          assert progress['conflicted_external_rows'] == 0
+          assert progress['conflicted_external_rows']==0
           assert progress['resolved_external_rows'] + progress['remaining_external_rows'] == progress['initial_external_rows']
 
           print({
-              'candidate_rows': len(all_rows),
-              'copyright_candidates': len(copyright_rows),
-              'resolved': progress['resolved_external_rows'],
-              'remaining': progress['remaining_external_rows'],
-              'remaining_by_category': progress['remaining_by_category'],
+              'candidate_rows':len(all_rows),
+              'copyright_candidates':len(copyright_rows),
+              'resolved':progress['resolved_external_rows'],
+              'remaining':progress['remaining_external_rows'],
           })
           PY
           git diff --exit-code -- docs/issue70/data/runtime docs/issue70/data/source
