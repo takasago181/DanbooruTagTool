@@ -54,7 +54,7 @@ public partial class MainWindow : Window
         PromptEditor.EditRatioChanged += SaveGeometry;
         SizeChanged += (_, _) => QueueUiSave(); LocationChanged += (_, _) => QueueUiSave();
         Closing += (_, _) => { SaveGeometry(); feedbackTimer.Stop(); uiTimer.Stop(); if (presetDialog != null) presetDialog.Close(); if (forgeSettingsDialog != null) forgeSettingsDialog.Close(); };
-        Loaded += (_, _) => { vm.UpdateChipLanguage(); SyncNavigationSelection(); ExpandFixedSpecialGroups(); };
+        Loaded += (_, _) => { vm.UpdateChipLanguage(); SyncNavigationSelection(); };
     }
     private static bool IsLegacyNavWidth(double width) => Math.Abs(width - 210) < 0.5 || Math.Abs(width - 230) < 0.5;
     private static bool IsLegacyPromptWidth(double width) => Math.Abs(width - 230) < 0.5 || Math.Abs(width - 260) < 0.5 || Math.Abs(width - 280) < 0.5 || Math.Abs(width - 300) < 0.5 || Math.Abs(width - 340) < 0.5;
@@ -71,38 +71,7 @@ public partial class MainWindow : Window
     private void NavigationChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
     {
         if (syncingNavigation || e.NewValue is not NavigationNode node) return;
-        if (IsFixedSpecialGroup(node))
-        {
-            Dispatcher.BeginInvoke(SyncNavigationSelection, DispatcherPriority.Loaded);
-            return;
-        }
         vm.Navigate.Execute(node);
-    }
-    private static bool IsFixedSpecialGroup(NavigationNode node) => node.Key is "special-v2:kinds" or "special-v2:body" or "special-v2:themes";
-    private void NavigationNodeExpanded(object sender, RoutedEventArgs e)
-    {
-        if (e.OriginalSource is TreeViewItem item && item.Header is NavigationNode node && node.Key == "special")
-            Dispatcher.BeginInvoke(ExpandFixedSpecialGroups, DispatcherPriority.Loaded);
-    }
-    private void NavigationNodeCollapsed(object sender, RoutedEventArgs e)
-    {
-        if (e.OriginalSource is not TreeViewItem item || item.Header is not NavigationNode node || !IsFixedSpecialGroup(node)) return;
-        e.Handled = true;
-        Dispatcher.BeginInvoke(() => item.IsExpanded = true, DispatcherPriority.Loaded);
-    }
-    private void ExpandFixedSpecialGroups()
-    {
-        var special = vm.Navigation.FirstOrDefault(node => node.Key == "special");
-        if (special == null) return;
-        var root = NavigationTree.ItemContainerGenerator.ContainerFromItem(special) as TreeViewItem;
-        if (root?.IsExpanded != true) return;
-        root.UpdateLayout();
-        foreach (var group in special.Children.Where(IsFixedSpecialGroup))
-        {
-            var item = root.ItemContainerGenerator.ContainerFromItem(group) as TreeViewItem;
-            if (item == null) { root.UpdateLayout(); item = root.ItemContainerGenerator.ContainerFromItem(group) as TreeViewItem; }
-            if (item != null) item.IsExpanded = true;
-        }
     }
     private void SyncNavigationSelection()
     {
