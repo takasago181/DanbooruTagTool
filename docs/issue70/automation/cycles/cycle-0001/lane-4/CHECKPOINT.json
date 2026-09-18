@@ -8,7 +8,9 @@
   "assigned_count": 60,
   "target_resolutions": 40,
   "validated_count": 18,
-  "next_action": "continue remaining assigned Character rows from PARTIAL_RESULTS.csv; prioritize direct first-party Japanese pages; do not revisit 18 validated rows",
-  "last_run_note": "Added bubba_(watson_amelia) KEEP. COVER official Watson Amelia Y40 Case Bundle announcement explicitly identifies Bubba and a Bubba plush keychain; current display preserves the official Romanized identity plus safe owner scope. Other sampled candidates lacked sufficiently direct first-party evidence and remained unresolved.",
+  "reviewed_unresolved_count": 21,
+  "processed_count": 39,
+  "next_action": "continue the remaining assigned rows after I70-003517; do not revisit the 18 validated rows or 21 REVIEWED_UNRESOLVED rows",
+  "last_run_note": "Converted the first unresolved assignment cluster into explicit REVIEWED_UNRESOLVED entries after a single reasonable evidence pass. No guesses were promoted to RESULTS. Continue forward through the remaining assignment once, then finalize below target if necessary.",
   "production_modified": false
 }
