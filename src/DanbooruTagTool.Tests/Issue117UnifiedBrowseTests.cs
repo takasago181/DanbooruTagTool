@@ -508,7 +508,10 @@ public sealed class Issue117UnifiedBrowseTests
             [],
             [],
             [],
-            BrowseClassification: category == "General" ? BrowseClassificationStatus.Proposed : BrowseClassificationStatus.NotApplicable)
+            BrowseClassification: category == "General" ? BrowseClassificationStatus.Proposed : BrowseClassificationStatus.NotApplicable,
+            SpecialBrowseV2: category == "Special"
+                ? new SpecialBrowseV2Classification("ACTION_CONTACT", [], [], SpecialBrowseV2Status.HumanResolved)
+                : null)
         {
             TagCategory = category,
             SexualIntent = intent,
