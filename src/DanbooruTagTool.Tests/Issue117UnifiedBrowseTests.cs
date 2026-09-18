@@ -244,6 +244,44 @@ public sealed class Issue117UnifiedBrowseTests
     }
 
     [Fact]
+    public void ContentOnlyBrowse_ExcludesNonBrowseableButSearchStillFindsSearchableIdentity()
+    {
+        var unresolved = Entry("g-unresolved", "unresolved_searchable", "General", SexualIntentClass.NonSexual) with
+        {
+            BrowseClassification = BrowseClassificationStatus.Unresolved,
+            Paths = []
+        };
+        var referenceOnly = Entry("s-reference", "reference_searchable", "Special", SexualIntentClass.Sexual) with
+        {
+            ProductFit = "KEEP",
+            SpecialBrowseV2 = new(
+                "ACTION_CONTACT",
+                [],
+                [],
+                SpecialBrowseV2Status.ReferenceOnlyNoDirectBrowse)
+        };
+        var direct = Entry("g-direct", "direct_browseable", "General", SexualIntentClass.NonSexual);
+        var catalog = new Catalog([unresolved, referenceOnly, direct]);
+        var index = new UnifiedBrowseIndex(catalog);
+
+        var contentOnly = UnifiedBrowseState.Neutral with { ContentIntent = ContentIntentFilter.GeneralPurpose };
+        var browsed = index.Browse(contentOnly);
+
+        Assert.DoesNotContain(browsed, entry => entry.Canonical == "unresolved_searchable");
+        Assert.Contains(browsed, entry => entry.Canonical == "direct_browseable");
+
+        var unresolvedSearch = index.FilterSearchHits(catalog.Search("unresolved_searchable"), contentOnly);
+        Assert.Single(unresolvedSearch);
+        Assert.Equal("unresolved_searchable", unresolvedSearch[0].Entry.Canonical);
+
+        var sexualSearch = index.FilterSearchHits(
+            catalog.Search("reference_searchable"),
+            UnifiedBrowseState.Neutral with { ContentIntent = ContentIntentFilter.Sexual });
+        Assert.Single(sexualSearch);
+        Assert.Equal("reference_searchable", sexualSearch[0].Entry.Canonical);
+    }
+
+    [Fact]
     public void LegacyExplicitSpecialKind_MigratesToMappedPrimaryAndDeepOnly()
     {
         var special = Entry("S:legacy", "legacy_action", "Special", SexualIntentClass.Sexual) with
