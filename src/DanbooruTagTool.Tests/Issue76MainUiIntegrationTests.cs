@@ -46,15 +46,20 @@ public sealed class Issue76MainUiIntegrationTests
         => new(Catalog(), store ?? new(), new Clipboard(), specialBrowse: Index());
 
     [Fact]
-    public void Unified_navigation_replaces_visible_special_tree_with_nineteen_routes_and_three_scopes()
+    public void Unified_navigation_uses_three_presentation_groups_nineteen_routes_and_three_scopes()
     {
         var navigation = Vm().Dictionary.Navigation;
+        var groups = navigation.Take(3).ToArray();
+        var routeNodes = groups.SelectMany(group => group.Children).ToArray();
 
-        Assert.Equal(22, navigation.Count);
-        Assert.Equal(UnifiedBrowseTaxonomy.Routes.Select(route => route.Label), navigation.Take(19).Select(node => node.Label));
-        Assert.Equal(["キャラクター", "作品", "作者"], navigation.Skip(19).Select(node => node.Label).ToArray());
-        Assert.DoesNotContain(navigation, node => node.Key is "special" or "general");
-        Assert.All(navigation, node => Assert.Empty(node.Children));
+        Assert.Equal(6, navigation.Count);
+        Assert.Equal(["何を描く", "動き・状態", "画面・表現"], groups.Select(group => group.Label).ToArray());
+        Assert.All(groups, group => Assert.StartsWith("group:", group.Key, StringComparison.Ordinal));
+        Assert.Equal(19, routeNodes.Length);
+        Assert.Equal(UnifiedBrowseTaxonomy.Routes.Select(route => route.Label), routeNodes.Select(node => node.Label));
+        Assert.Equal(["キャラクター", "作品", "作者"], navigation.Skip(3).Select(node => node.Label).ToArray());
+        Assert.DoesNotContain(routeNodes, node => node.Key is "special" or "general");
+        Assert.All(routeNodes, node => Assert.Empty(node.Children));
     }
 
     [Fact]
