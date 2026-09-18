@@ -67,3 +67,45 @@ Never:
 - create v2/v3/etc. parallel workflows to bypass a failure
 
 Fix existing components in place and preserve completed semantic research.
+
+
+## Recovery and resume
+
+Every worker run is restartable. A stopped run must be treated as an interrupted checkpoint, not as permission to restart the lane from zero.
+
+Before doing new research:
+1. Re-read the authority CURRENT_MANIFEST.json.
+2. Read this lane's existing files for the current cycle.
+3. Reuse every already validated row whose manifest hash still matches.
+4. Continue only the assigned rows that are not already safely completed.
+
+Checkpoint after each research cluster or before a risky/long operation by committing lane-local progress under the current cycle directory. Recommended optional files are:
+- `PARTIAL_RESULTS.csv`
+- `CHECKPOINT.json`
+
+A later run must reuse these checkpoints and must not repeat completed web research unless the saved evidence is inconsistent.
+
+Classify failures before changing anything:
+- rate limit / 429 / timeout: keep the checkpoint and resume later; do not change semantics.
+- stale branch / push race: refresh the lane branch and retry only the mechanical publish step; never force-push.
+- CSV/schema/quoting error: fix only the malformed artifact or existing component; preserve the semantic decisions.
+- lane-local logic error: fix the current lane artifact/process in place.
+- shared Manifest / Integrator / authority workflow error: do not patch authority from a worker. Write `RECOVERY_REQUEST.json` in the lane cycle directory with the observed failure and stop cleanly.
+- evidence uncertainty: leave the row unresolved instead of guessing.
+
+`RECOVERY_REQUEST.json` should contain issue=70, cycle_id, lane, manifest_progress_sha256, failure_class, observed_error, affected_paths, and production_modified=false.
+
+A worker must not create alternate v2/v3 recovery workflows or branches. Recovery always resumes the same cycle and same lane until the manifest changes.
+
+## Shared recovery watchdog
+
+A separate recovery watchdog may inspect GitHub Actions and all lane branches. It may repair only shared automation/framework mechanics on the authority branch and may retry failed GitHub jobs. It must never invent or alter semantic verdicts for worker rows.
+
+The watchdog must:
+- inspect the failed job/step/log before editing;
+- fix the existing script/workflow in place rather than create v2/v3 variants;
+- use optimistic locking and never force-push;
+- retry only failed jobs when possible;
+- preserve all completed lane research and overlays;
+- leave production/runtime/source/main and PR #115 untouched;
+- stop if a repair would require changing semantic judgments.
