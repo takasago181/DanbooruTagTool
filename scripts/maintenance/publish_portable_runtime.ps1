@@ -42,8 +42,9 @@ function Invoke-Checked([string] $FilePath, [string[]] $Arguments) {
 function Sha([string] $Path) { return (Get-FileHash -LiteralPath $Path -Algorithm SHA256).Hash }
 
 try {
-    if (-not $SkipRestore) { Invoke-Checked $dotnet @('restore', (Join-Path $RepositoryRoot 'src/DanbooruTagTool.sln'), '--runtime', 'win-x64') }
-    Invoke-Checked $dotnet @('publish', (Join-Path $RepositoryRoot 'src/DanbooruTagTool.App/DanbooruTagTool.App.csproj'), '-c', 'Release', '-r', 'win-x64', '--self-contained', 'true', '--no-restore', '-o', $publishRoot)
+    $workloadResolverSwitch = '-p:MSBuildEnableWorkloadResolver=false'
+    if (-not $SkipRestore) { Invoke-Checked $dotnet @('restore', (Join-Path $RepositoryRoot 'src/DanbooruTagTool.sln'), '--runtime', 'win-x64', $workloadResolverSwitch) }
+    Invoke-Checked $dotnet @('publish', (Join-Path $RepositoryRoot 'src/DanbooruTagTool.App/DanbooruTagTool.App.csproj'), '-c', 'Release', '-r', 'win-x64', '--self-contained', 'true', '--no-restore', $workloadResolverSwitch, '-o', $publishRoot)
     if (-not (Test-Path -LiteralPath (Join-Path $publishRoot 'DanbooruTagTool.exe'))) { throw 'Publish did not produce DanbooruTagTool.exe.' }
     Get-ChildItem -LiteralPath $publishRoot -Force | ForEach-Object {
         Copy-Item -LiteralPath $_.FullName -Destination (Join-Path $OutputRoot $_.Name) -Recurse -Force
