@@ -1,0 +1,15 @@
+{
+  "format_version": 1,
+  "issue": 70,
+  "cycle_id": "cycle-0002",
+  "lane": 5,
+  "manifest_progress_sha256": "3bcc7102bde9e781a4f308c57d22c84409b052ec622722e85dd13ff3aad82d36",
+  "complete": true,
+  "assigned_count": 36,
+  "target_resolutions": 18,
+  "resolved_count": 12,
+  "reviewed_unresolved_count": 23,
+  "scope_skipped_count": 1,
+  "single_pass_complete": true,
+  "production_modified": false
+}
