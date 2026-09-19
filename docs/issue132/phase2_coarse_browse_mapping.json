@@ -1,0 +1,136 @@
+{
+  "format_version": 1,
+  "issue": 132,
+  "phase": "PHASE2_COARSE_BROWSE_EXPERIMENT",
+  "status": "RESEARCH_ONLY_NOT_PRODUCTION",
+  "proposal": {
+    "entry_count": 8,
+    "entries": [
+      {
+        "id": "PEOPLE_RELATION",
+        "label_ja": "人物・関係",
+        "from_routes": [
+          "PEOPLE_COUNT",
+          "RELATION_ROLE"
+        ]
+      },
+      {
+        "id": "BODY_APPEARANCE_STATE",
+        "label_ja": "身体・見た目・状態",
+        "from_routes": [
+          "BODY_SITE",
+          "HAIR_FACE",
+          "NONHUMAN_TRANSFORM",
+          "FLUID_EXCRETION"
+        ]
+      },
+      {
+        "id": "CLOTHING",
+        "label_ja": "衣装・露出",
+        "from_routes": [
+          "CLOTHING_EXPOSURE"
+        ]
+      },
+      {
+        "id": "POSE_ACTION",
+        "label_ja": "ポーズ・行動",
+        "from_routes": [
+          "ACTION_CONTACT",
+          "POSE_POSITION"
+        ]
+      },
+      {
+        "id": "EXPRESSION_GAZE",
+        "label_ja": "表情・視線",
+        "from_routes": [
+          "EXPRESSION_GAZE"
+        ]
+      },
+      {
+        "id": "OBJECT_SCENE_LIVING",
+        "label_ja": "物・場所・生き物",
+        "from_routes": [
+          "TOOL_OBJECT",
+          "LIVING",
+          "SCENE_BACKGROUND",
+          "LIGHT_TIME_WEATHER"
+        ]
+      },
+      {
+        "id": "SCREEN_EXPRESSION",
+        "label_ja": "構図・画面表現",
+        "from_routes": [
+          "COMPOSITION_CAMERA",
+          "STYLE_PROCESSING",
+          "TEXT_SYMBOL"
+        ]
+      },
+      {
+        "id": "CONTENT_META",
+        "label_ja": "内容・メタ",
+        "from_routes": [
+          "CONTENT_RATING"
+        ]
+      }
+    ],
+    "facet_only_routes": [
+      {
+        "source_route": "COLOR_PATTERN_SHAPE",
+        "label_ja": "色・柄・形",
+        "reason": "対象物を問わず横断する修飾軸のため第一階層から外す"
+      }
+    ],
+    "cross_cutting_facets_to_test": [
+      {
+        "id": "COLOR_PATTERN_SHAPE",
+        "label_ja": "色・柄・形",
+        "source": "existing route semantics"
+      },
+      {
+        "id": "BODY_TARGET",
+        "label_ja": "身体部位",
+        "source": "existing General tokens plus existing Special body facets; research only"
+      },
+      {
+        "id": "VISUAL_TARGET",
+        "label_ja": "対象",
+        "source": "candidate-family experiment only; do not change search ranking"
+      }
+    ]
+  },
+  "candidate_effects": {
+    "total": 136,
+    "newly_removed_first_level_conflict": 32,
+    "converted_from_top_level_conflict_to_facet_problem": 28,
+    "already_collapsed_in_current_unified": 14,
+    "remain_for_phase2_review": 62,
+    "first_level_no_longer_needs_individual_secondary_or_reclass": 74,
+    "first_level_no_longer_needs_individual_secondary_or_reclass_pct": 54.41
+  },
+  "structural_pool_implications": {
+    "color_modifier_pool": 1703,
+    "object_place_fixture_pool": 64,
+    "special_pose_camera_pool": 12,
+    "note": "Counts are heuristic risk pools from Phase 1, not confirmed errors. The 8-entry design changes how these are surfaced; it does not prove every row is correct."
+  },
+  "alternatives": {
+    "nine_entry_conservative": {
+      "difference": "keep TOOL_OBJECT/LIVING separate from SCENE_BACKGROUND/LIGHT_TIME_WEATHER",
+      "sampled_newly_neutralized_or_facetized": 42,
+      "sampled_already_collapsed": 14,
+      "note": "Leaves all 18 sampled object/place fixture conflicts at first level."
+    },
+    "eight_entry_balanced": {
+      "sampled_newly_neutralized_or_facetized": 60,
+      "sampled_already_collapsed": 14,
+      "note": "Adds object/place merge and removes 18 more sampled first-level conflicts."
+    },
+    "seven_entry_aggressive": {
+      "difference": "further merge EXPRESSION_GAZE into BODY_APPEARANCE_STATE or CONTENT_META into SCREEN_EXPRESSION",
+      "sampled_incremental_gain_over_eight": 0,
+      "note": "No additional benefit on the 136-row Phase 1 sample, while broadening labels further."
+    }
+  },
+  "protected_boundaries_changed": false,
+  "production_apply_performed": false
+}
