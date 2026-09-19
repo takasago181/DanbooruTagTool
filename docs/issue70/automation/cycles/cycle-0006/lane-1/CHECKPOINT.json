@@ -1,0 +1,17 @@
+{
+  "format_version": 1,
+  "issue": 70,
+  "cycle_id": "cycle-0006",
+  "lane": 1,
+  "manifest_progress_sha256": "e1bc7068b8b6b87492dc6e81a5f386de01933d12f8e50b976284dd7f47915c96",
+  "assigned_count": 100,
+  "processed_count": 25,
+  "resolved_count": 2,
+  "reviewed_unresolved_count": 21,
+  "scope_skipped_count": 2,
+  "complete": false,
+  "last_processed_row_id": "I70-041218",
+  "next_processed_index": 25,
+  "production_modified": false,
+  "note": "Checkpoint after first 25 assigned rows. Continue from assignment index 25; do not restart prior rows."
+}
