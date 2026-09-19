@@ -1,0 +1,33 @@
+{
+  "format_version": 2,
+  "issue": 70,
+  "cycle_id": "cycle-0001",
+  "manifest_progress_sha256": "449ee7316f6996bcfcdd6a24663db83e3acf5f76b182c7f40104d55d395e79a0",
+  "merged_rows": 102,
+  "merged_by_category": {
+    "Artist": 15,
+    "Character": 27,
+    "Copyright": 60
+  },
+  "reviewed_unresolved_rows_this_cycle": 138,
+  "reviewed_unresolved_registry_rows": 138,
+  "scope_skipped_rows_this_cycle": 0,
+  "scope_skipped_registry_rows": 0,
+  "base_resolved_external_rows": 401,
+  "expected_resolved_external_rows": 503,
+  "expected_remaining_external_rows": 992,
+  "expected_remaining_by_category": {
+    "Artist": 276,
+    "Character": 355,
+    "Copyright": 361
+  },
+  "production_modified": false,
+  "conflicts": 0,
+  "source_lanes": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ]
+}

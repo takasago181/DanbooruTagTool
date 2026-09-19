@@ -7,37 +7,28 @@
   "primary_conflicted_rows": 0,
   "primary_defer_markers_suppressed_by_concrete": 0,
   "initial_external_rows": 1495,
-  "resolved_external_rows": 401,
-  "remaining_external_rows": 1094,
+  "resolved_external_rows": 503,
+  "remaining_external_rows": 992,
   "conflicted_external_rows": 0,
   "duplicate_same_decision_rows": 0,
   "superseded_external_rows": 0,
   "resolved_verdict_counts": {
-    "FIX_BOTH": 97,
-    "FIX_DISPLAY": 61,
+    "FIX_BOTH": 110,
+    "FIX_DISPLAY": 72,
     "FIX_SEARCH": 3,
-    "KEEP": 240
+    "KEEP": 318
   },
   "resolved_by_category": {
-    "Character": 28,
-    "Copyright": 373
+    "Artist": 15,
+    "Character": 55,
+    "Copyright": 433
   },
   "remaining_by_category": {
-    "Artist": 291,
-    "Character": 382,
-    "Copyright": 421
+    "Artist": 276,
+    "Character": 355,
+    "Copyright": 361
   },
   "top_remaining": [
-    {
-      "row_id": "I70-035904",
-      "category": "Copyright",
-      "canonical_tag": "honkai_(series)",
-      "post_count": 188054,
-      "display_ja": "崩壊",
-      "search_ja": "",
-      "translation_note": "manual chat curation selected high-confidence Japanese copyright title",
-      "primary_source_file": "copyright_final_internal_external_split_batch064.csv"
-    },
     {
       "row_id": "I70-035995",
       "category": "Copyright",
@@ -49,26 +40,6 @@
       "primary_source_file": "copyright_batch004_01.csv"
     },
     {
-      "row_id": "I70-036017",
-      "category": "Copyright",
-      "canonical_tag": "touhou_(pc-98)",
-      "post_count": 16614,
-      "display_ja": "東方旧作",
-      "search_ja": "",
-      "translation_note": "copyright title not uniquely resolved; manual verification required",
-      "primary_source_file": "copyright_review_external_batch062.csv"
-    },
-    {
-      "row_id": "I70-036038",
-      "category": "Copyright",
-      "canonical_tag": "saibou_shinkyoku",
-      "post_count": 14001,
-      "display_ja": "さぼしき",
-      "search_ja": "",
-      "translation_note": "copyright title not uniquely resolved; manual verification required",
-      "primary_source_file": "copyright_review_external_batch062.csv"
-    },
-    {
       "row_id": "I70-036064",
       "category": "Copyright",
       "canonical_tag": "cookie_(touhou)",
@@ -77,26 +48,6 @@
       "search_ja": "",
       "translation_note": "copyright title not uniquely resolved; manual verification required",
       "primary_source_file": "copyright_review_external_batch062.csv"
-    },
-    {
-      "row_id": "I70-044438",
-      "category": "Artist",
-      "canonical_tag": "yaegashi_nan",
-      "post_count": 4598,
-      "display_ja": "八重樫南",
-      "search_ja": "",
-      "translation_note": "semantic re-curation: title/name judged usable; official/common rendering or identity-safe original preferred over literal candidate",
-      "primary_source_file": "artist_initial_audit_batch008.csv"
-    },
-    {
-      "row_id": "I70-044440",
-      "category": "Artist",
-      "canonical_tag": "mizuki_hitoshi",
-      "post_count": 4382,
-      "display_ja": "みずきひとし",
-      "search_ja": "",
-      "translation_note": "semantic re-curation: title/name judged usable; official/common rendering or identity-safe original preferred over literal candidate",
-      "primary_source_file": "artist_initial_audit_batch008.csv"
     },
     {
       "row_id": "I70-000706",
@@ -129,36 +80,6 @@
       "primary_source_file": "artist_initial_audit_batch008.csv"
     },
     {
-      "row_id": "I70-036394",
-      "category": "Copyright",
-      "canonical_tag": "twitter",
-      "post_count": 3190,
-      "display_ja": "ツイッター",
-      "search_ja": "",
-      "translation_note": "copyright title not uniquely resolved; manual verification required",
-      "primary_source_file": "copyright_review_external_batch062.csv"
-    },
-    {
-      "row_id": "I70-044462",
-      "category": "Artist",
-      "canonical_tag": "m-da_s-tarou",
-      "post_count": 2968,
-      "display_ja": "MだSたろう",
-      "search_ja": "",
-      "translation_note": "semantic re-curation: title/name judged usable; official/common rendering or identity-safe original preferred over literal candidate",
-      "primary_source_file": "artist_initial_audit_batch008.csv"
-    },
-    {
-      "row_id": "I70-044467",
-      "category": "Artist",
-      "canonical_tag": "mitarashi_neko",
-      "post_count": 2910,
-      "display_ja": "みたらしねこ",
-      "search_ja": "",
-      "translation_note": "semantic re-curation: title/name judged usable; official/common rendering or identity-safe original preferred over literal candidate",
-      "primary_source_file": "artist_initial_audit_batch008.csv"
-    },
-    {
       "row_id": "I70-001100",
       "category": "Character",
       "canonical_tag": "non-human_admiral_(kancolle)",
@@ -167,16 +88,6 @@
       "search_ja": "人外提督 | 非人間提督",
       "translation_note": "ファン呼称系タグのため日本語定着名を要確認",
       "primary_source_file": "character_review_final_batch061.csv"
-    },
-    {
-      "row_id": "I70-036441",
-      "category": "Copyright",
-      "canonical_tag": "little_red_riding_hood_(fairy_tale)",
-      "post_count": 2787,
-      "display_ja": "赤ずきん",
-      "search_ja": "",
-      "translation_note": "copyright title not uniquely resolved; manual verification required",
-      "primary_source_file": "copyright_review_external_batch062.csv"
     },
     {
       "row_id": "I70-044479",
@@ -199,16 +110,6 @@
       "primary_source_file": "artist_initial_audit_batch008.csv"
     },
     {
-      "row_id": "I70-036480",
-      "category": "Copyright",
-      "canonical_tag": "zombie_stage",
-      "post_count": 2576,
-      "display_ja": "血鬼舞台",
-      "search_ja": "",
-      "translation_note": "copyright title not uniquely resolved; manual verification required",
-      "primary_source_file": "copyright_review_external_batch062.csv"
-    },
-    {
       "row_id": "I70-044488",
       "category": "Artist",
       "canonical_tag": "namori",
@@ -229,26 +130,6 @@
       "primary_source_file": "artist_initial_audit_batch008.csv"
     },
     {
-      "row_id": "I70-044494",
-      "category": "Artist",
-      "canonical_tag": "houtengeki",
-      "post_count": 2472,
-      "display_ja": "方天戟",
-      "search_ja": "",
-      "translation_note": "semantic re-curation: title/name judged usable; official/common rendering or identity-safe original preferred over literal candidate",
-      "primary_source_file": "artist_initial_audit_batch008.csv"
-    },
-    {
-      "row_id": "I70-044499",
-      "category": "Artist",
-      "canonical_tag": "kani_biimu",
-      "post_count": 2442,
-      "display_ja": "かにビーム",
-      "search_ja": "",
-      "translation_note": "semantic re-curation: title/name judged usable; official/common rendering or identity-safe original preferred over literal candidate",
-      "primary_source_file": "artist_initial_audit_batch008.csv"
-    },
-    {
       "row_id": "I70-044504",
       "category": "Artist",
       "canonical_tag": "avogado6",
@@ -259,26 +140,6 @@
       "primary_source_file": "artist_initial_audit_batch008.csv"
     },
     {
-      "row_id": "I70-036539",
-      "category": "Copyright",
-      "canonical_tag": "waktaverse",
-      "post_count": 2317,
-      "display_ja": "WAKTAVERSE",
-      "search_ja": "",
-      "translation_note": "conservative fallback; Japanese title evidence is absent or ambiguous",
-      "primary_source_file": "copyright_review_external_batch062.csv"
-    },
-    {
-      "row_id": "I70-036541",
-      "category": "Copyright",
-      "canonical_tag": "minecraft_youtube",
-      "post_count": 2306,
-      "display_ja": "Minecraft YouTube",
-      "search_ja": "",
-      "translation_note": "conservative fallback; Japanese title evidence is absent or ambiguous",
-      "primary_source_file": "copyright_review_external_batch062.csv"
-    },
-    {
       "row_id": "I70-001418",
       "category": "Character",
       "canonical_tag": "justice_task_force_member_(blue_archive)",
@@ -286,16 +147,6 @@
       "display_ja": "正義実現委員会モブ",
       "search_ja": "正義実現委員会モブ | 正実モブ",
       "translation_note": "ファン定着名と公式役割名の境界を要確認",
-      "primary_source_file": "character_review_final_batch061.csv"
-    },
-    {
-      "row_id": "I70-001419",
-      "category": "Character",
-      "canonical_tag": "lilith_(fate)",
-      "post_count": 2291,
-      "display_ja": "リリス",
-      "search_ja": "リリス | リリス(Fate)",
-      "translation_note": "新規Fateキャラクターの公式日本語表記を要確認",
       "primary_source_file": "character_review_final_batch061.csv"
     },
     {
@@ -309,24 +160,174 @@
       "primary_source_file": "artist_initial_audit_batch008.csv"
     },
     {
-      "row_id": "I70-044523",
+      "row_id": "I70-044529",
       "category": "Artist",
-      "canonical_tag": "tsunako",
-      "post_count": 2233,
-      "display_ja": "つなこ",
+      "canonical_tag": "takeuchi_takashi",
+      "post_count": 2168,
+      "display_ja": "武内崇",
       "search_ja": "",
       "translation_note": "semantic re-curation: artist identity normalized; known Japanese credit used when clear, otherwise canonical handle preserved without machine translation",
       "primary_source_file": "artist_initial_audit_batch008.csv"
     },
     {
-      "row_id": "I70-001490",
+      "row_id": "I70-036584",
+      "category": "Copyright",
+      "canonical_tag": "indie_utaite",
+      "post_count": 2143,
+      "display_ja": "indie utaite",
+      "search_ja": "",
+      "translation_note": "conservative fallback; Japanese title evidence is absent or ambiguous",
+      "primary_source_file": "copyright_no_trusted_ja_batch018.csv"
+    },
+    {
+      "row_id": "I70-044538",
+      "category": "Artist",
+      "canonical_tag": "nekotoufu",
+      "post_count": 2088,
+      "display_ja": "ねことうふ",
+      "search_ja": "",
+      "translation_note": "semantic re-curation: artist identity normalized; known Japanese credit used when clear, otherwise canonical handle preserved without machine translation",
+      "primary_source_file": "artist_initial_audit_batch008.csv"
+    },
+    {
+      "row_id": "I70-044539",
+      "category": "Artist",
+      "canonical_tag": "onigirikun",
+      "post_count": 2077,
+      "display_ja": "おにぎりくん",
+      "search_ja": "",
+      "translation_note": "semantic re-curation: artist identity normalized; known Japanese credit used when clear, otherwise canonical handle preserved without machine translation",
+      "primary_source_file": "artist_initial_audit_batch008.csv"
+    },
+    {
+      "row_id": "I70-044541",
+      "category": "Artist",
+      "canonical_tag": "toosaka_asagi",
+      "post_count": 2061,
+      "display_ja": "遠坂あさぎ",
+      "search_ja": "",
+      "translation_note": "semantic re-curation: artist identity normalized; known Japanese credit used when clear, otherwise canonical handle preserved without machine translation",
+      "primary_source_file": "artist_initial_audit_batch008.csv"
+    },
+    {
+      "row_id": "I70-044542",
+      "category": "Artist",
+      "canonical_tag": "sayori_(neko_works)",
+      "post_count": 2060,
+      "display_ja": "さより（NEKO WORKs）",
+      "search_ja": "",
+      "translation_note": "semantic re-curation: artist identity normalized; known Japanese credit used when clear, otherwise canonical handle preserved without machine translation",
+      "primary_source_file": "artist_initial_audit_batch008.csv"
+    },
+    {
+      "row_id": "I70-044546",
+      "category": "Artist",
+      "canonical_tag": "yamamoto_souichirou",
+      "post_count": 2036,
+      "display_ja": "山本崇一朗",
+      "search_ja": "",
+      "translation_note": "semantic re-curation: artist identity normalized; known Japanese credit used when clear, otherwise canonical handle preserved without machine translation",
+      "primary_source_file": "artist_initial_audit_batch008.csv"
+    },
+    {
+      "row_id": "I70-001651",
       "category": "Character",
-      "canonical_tag": "kaguya_(tsukuyomi)_(cho_kaguya-hime!)",
-      "post_count": 2177,
-      "display_ja": "かぐや",
-      "search_ja": "かぐや | かぐや(超かぐや姫！)",
-      "translation_note": "作品側の公式キャラクター表記を要確認",
-      "primary_source_file": "variant_lost_qualifier_batch003_03.csv"
+      "canonical_tag": "nugget_(project_moon)",
+      "post_count": 1990,
+      "display_ja": "自職員",
+      "search_ja": "自職員",
+      "translation_note": "日本語表示名・表記の確定に追加確認が必要",
+      "primary_source_file": "character_review_final_batch061.csv"
+    },
+    {
+      "row_id": "I70-001667",
+      "category": "Character",
+      "canonical_tag": "bloop_(gawr_gura)",
+      "post_count": 1971,
+      "display_ja": "Bloop",
+      "search_ja": "Bloop",
+      "translation_note": "日本語表示名・表記の確定に追加確認が必要",
+      "primary_source_file": "character_no_trusted_ja_batch010.csv"
+    },
+    {
+      "row_id": "I70-044559",
+      "category": "Artist",
+      "canonical_tag": "fujima_takuya",
+      "post_count": 1959,
+      "display_ja": "藤真拓哉",
+      "search_ja": "",
+      "translation_note": "semantic re-curation: artist identity normalized; known Japanese credit used when clear, otherwise canonical handle preserved without machine translation",
+      "primary_source_file": "artist_initial_audit_batch008.csv"
+    },
+    {
+      "row_id": "I70-001883",
+      "category": "Character",
+      "canonical_tag": "employee_(project_moon)",
+      "post_count": 1786,
+      "display_ja": "自職員",
+      "search_ja": "自職員",
+      "translation_note": "日本語表示名・表記の確定に追加確認が必要",
+      "primary_source_file": "character_review_final_batch061.csv"
+    },
+    {
+      "row_id": "I70-044586",
+      "category": "Artist",
+      "canonical_tag": "koruri",
+      "post_count": 1772,
+      "display_ja": "こるり",
+      "search_ja": "",
+      "translation_note": "semantic re-curation: artist identity normalized; known Japanese credit used when clear, otherwise canonical handle preserved without machine translation",
+      "primary_source_file": "artist_initial_audit_batch008.csv"
+    },
+    {
+      "row_id": "I70-044603",
+      "category": "Artist",
+      "canonical_tag": "ishikei",
+      "post_count": 1708,
+      "display_ja": "石恵",
+      "search_ja": "",
+      "translation_note": "semantic re-curation: artist identity normalized; known Japanese credit used when clear, otherwise canonical handle preserved without machine translation",
+      "primary_source_file": "artist_initial_audit_batch008.csv"
+    },
+    {
+      "row_id": "I70-044604",
+      "category": "Artist",
+      "canonical_tag": "piromizu",
+      "post_count": 1708,
+      "display_ja": "ぴろ水",
+      "search_ja": "",
+      "translation_note": "semantic re-curation: artist identity normalized; known Japanese credit used when clear, otherwise canonical handle preserved without machine translation",
+      "primary_source_file": "artist_initial_audit_batch008.csv"
+    },
+    {
+      "row_id": "I70-044614",
+      "category": "Artist",
+      "canonical_tag": "shiromanta",
+      "post_count": 1676,
+      "display_ja": "しろまんた",
+      "search_ja": "",
+      "translation_note": "semantic re-curation: artist identity normalized; known Japanese credit used when clear, otherwise canonical handle preserved without machine translation",
+      "primary_source_file": "artist_initial_audit_batch008.csv"
+    },
+    {
+      "row_id": "I70-002045",
+      "category": "Character",
+      "canonical_tag": "kama_(young)_(fate)",
+      "post_count": 1656,
+      "display_ja": "カーマ（幼少）",
+      "search_ja": "カーマ（幼少）",
+      "translation_note": "日本語表示名・表記の確定に追加確認が必要",
+      "primary_source_file": "character_review_final_batch061.csv"
+    },
+    {
+      "row_id": "I70-036765",
+      "category": "Copyright",
+      "canonical_tag": "reitaisai_8_contest",
+      "post_count": 1650,
+      "display_ja": "reitaisai 8 contest",
+      "search_ja": "",
+      "translation_note": "conservative fallback; Japanese title evidence is absent or ambiguous",
+      "primary_source_file": "copyright_no_trusted_ja_batch018.csv"
     }
   ],
   "primary_conflicts": [],
