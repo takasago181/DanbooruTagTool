@@ -22,5 +22,5 @@ special_id,special_tag,old_canonical,new_canonical,decision,reason,source
 2531,naked socks,socks,,NO_SAFE_CANONICAL,socks omits the naked modifier and is not semantically equivalent,issue118_runtime_conflict_review_v1
 2537,naked shrug,shrug_(clothing),,NO_SAFE_CANONICAL,shrug clothing omits the naked modifier and is not semantically equivalent,issue118_runtime_conflict_review_v1
 2546,naked randoseru,randoseru,,NO_SAFE_CANONICAL,randoseru omits the naked modifier and is not semantically equivalent,issue118_runtime_conflict_review_v1
-2634,thighhigh,thighhighs,,NEEDS_MANUAL_DECISION,alias index exposes two targets single_thighhigh and thighhighs; current evidence does not select one safely,issue118_runtime_conflict_review_v1
+2634,thighhigh,thighhighs,,NO_SAFE_CANONICAL,alias index exposes two targets single_thighhigh and thighhighs; preserve the original surface until a canonical equivalence is established,issue118_runtime_conflict_review_v1
 2635,thighhighs only,thighhighs,,NO_SAFE_CANONICAL,current canonical omits the only modifier and no exact thighhighs_only identity exists,issue118_runtime_conflict_review_v1
