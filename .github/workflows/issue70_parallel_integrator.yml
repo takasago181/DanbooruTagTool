@@ -3,7 +3,7 @@ name: Issue70 Parallel Integrator
 on:
   push:
     branches:
-      - 'audit/issue70-auto-lane-*'
+      - 'audit/issue70-auto-lane-1'
     paths:
       - 'docs/issue70/automation/cycles/**/lane-*/RESULTS.csv'
       - 'docs/issue70/automation/cycles/**/lane-*/STATUS.json'
