@@ -1,0 +1,16 @@
+{
+  "format_version": 1,
+  "issue": 70,
+  "cycle_id": "cycle-0006",
+  "lane": 3,
+  "manifest_progress_sha256": "e1bc7068b8b6b87492dc6e81a5f386de01933d12f8e50b976284dd7f47915c96",
+  "assigned_count": 100,
+  "processed_count": 25,
+  "resolved_count": 0,
+  "reviewed_unresolved_count": 25,
+  "scope_skipped_count": 0,
+  "next_assignment_index": 26,
+  "complete": false,
+  "production_modified": false,
+  "note": "First 25 assigned rows were previously reviewed Artist rows. Reused prior good-faith unresolved state without repeating deep research, per bounded-pass protocol. Resume at assignment index 26."
+}
