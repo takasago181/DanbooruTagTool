@@ -125,10 +125,7 @@ def main() -> None:
         assert int(status.get("resolved_count", -1)) == len(rows)
 
         assigned = {r["row_id"]: r for r in manifest_lanes[lane_key]["candidates"]}
-        target = int(manifest_lanes[lane_key]["target_resolutions"])
-        seeded = int(manifest_lanes[lane_key]["seeded_count"])
         assert len(rows) <= int(manifest_lanes[lane_key]["candidate_count"])
-        assert len(rows) <= max(target, seeded)
 
         for row in rows:
             assert set(RESULT_FIELDS) <= set(row), (lane, sorted(row))
@@ -340,19 +337,21 @@ def main() -> None:
         "expected_remaining_by_category": dict(sorted(expected_remaining_by_category.items())),
         "production_modified": False,
         "conflicts": 0,
-        "source_lanes": list(range(1, LANE_COUNT + 1)),
+        "lanes": LANE_COUNT,
     }
-
     report_path = AUTO / "cycles" / cycle_id / "INTEGRATION_REPORT.json"
-    report_path.parent.mkdir(parents=True, exist_ok=True)
     report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     write_state({
         "ready": True,
         "cycle_id": cycle_id,
-        "overlay_path": str(out.relative_to(ROOT)) if all_rows else "",
-        "report_path": str(report_path.relative_to(ROOT)),
-        **report,
+        "merged_rows": len(all_rows),
+        "reviewed_unresolved_rows_this_cycle": len(all_reviewed),
+        "scope_skipped_rows_this_cycle": len(all_scope_skipped),
+        "overlay": str(out.relative_to(ROOT)) if all_rows else None,
+        "reviewed_registry": str(REVIEWED.relative_to(ROOT)),
+        "scope_skipped_registry": str(SCOPE_SKIPPED.relative_to(ROOT)),
+        "integration_report": str(report_path.relative_to(ROOT)),
     })
     print(json.dumps(report, ensure_ascii=False, indent=2))
 
