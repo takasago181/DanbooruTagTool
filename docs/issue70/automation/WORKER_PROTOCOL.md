@@ -261,3 +261,23 @@ Required behavior:
 - if a genuine hard limit interrupts the run, leave complete=false and resume from the checkpoint next scheduled run.
 
 The intended normal case for cycle-0006+ is up to 100 assigned rows traversed per lane per automation run, with checkpoint commits only reducing loss risk.
+
+
+## Current-cycle helper fragments
+
+For cycle-0006 only, completed lanes 3/4/5 may help the unfinished owner lanes 1/2 according to:
+`docs/issue70/automation/cycles/cycle-0006/ASSIST_PLAN.json`.
+
+Rules:
+- A helper processes only row_ids explicitly assigned to it in ASSIST_PLAN.json.
+- The semantic rules are exactly the same as normal lane work.
+- Helper outputs are fragments, not owner-lane final files.
+- Each helper writes only on its own branch under:
+  `docs/issue70/automation/cycles/cycle-0006/assist/helper-<N>-owner-<M>/`
+- Fragment files are RESULTS.csv, REVIEWED_UNRESOLVED.csv, SCOPE_SKIPPED.csv, STATUS.json.
+- In fragment semantic rows, the existing `lane` column must be the OWNER lane (1 or 2), so the fragment can be merged mechanically later. STATUS.json records both helper_lane and owner_lane.
+- Every row in the assigned helper range must end in exactly one of RESULTS / REVIEWED_UNRESOLVED / SCOPE_SKIPPED before helper STATUS complete=true.
+- Helpers must not edit owner lane branches or owner final files.
+- Lane 1 coordinator merges complete helper fragments into owner lane 1/2 final files, validates exact row ownership and no duplicate coverage, and then writes owner STATUS complete=true only when the full 100-row owner assignment has been traversed.
+- The merge is mechanical and must not alter verdicts, evidence, names, or scope decisions.
+- Once cycle-0006 integrates successfully, this special assist plan is inactive. Future cycles return to the normal 5x100 independent-lane model unless a new explicit assist plan is created.
