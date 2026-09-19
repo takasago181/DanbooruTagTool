@@ -1,0 +1,4 @@
+cycle_id,lane,manifest_progress_sha256,row_id,canonical_tag,category,post_count,media_scope,scope_reason,evidence_refs,audit_note
+cycle-0003,5,73848aa7f94f58e1889470c11d32b3894ea304b38a421170e6a2d741f6403d19,I70-039191,nissin,Copyright,239,REAL_3D,general real-world food company/brand,https://www.nissin.com/jp/company/news/13451/,Tag identity is the real Nissin company/brand; out of Issue70 2D fictional-content scope.
+cycle-0003,5,73848aa7f94f58e1889470c11d32b3894ea304b38a421170e6a2d741f6403d19,I70-039220,japan_railways,Copyright,236,REAL_3D,real-world railway company/group,,Tag identity is a real-world railway entity rather than fictional/illustrated IP.
+cycle-0003,5,73848aa7f94f58e1889470c11d32b3894ea304b38a421170e6a2d741f6403d19,I70-039270,predator_(1987),Copyright,231,REAL_3D,live-action-only specific 1987 film property,,Specific tag identifies the live-action 1987 film; safely outside the 2D-only scope.
