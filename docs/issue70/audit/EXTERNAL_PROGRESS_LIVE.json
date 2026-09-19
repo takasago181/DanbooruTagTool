@@ -7,26 +7,26 @@
   "primary_conflicted_rows": 0,
   "primary_defer_markers_suppressed_by_concrete": 0,
   "initial_external_rows": 1495,
-  "resolved_external_rows": 670,
-  "remaining_external_rows": 825,
+  "resolved_external_rows": 714,
+  "remaining_external_rows": 781,
   "conflicted_external_rows": 0,
   "duplicate_same_decision_rows": 0,
   "superseded_external_rows": 0,
   "resolved_verdict_counts": {
-    "FIX_BOTH": 124,
-    "FIX_DISPLAY": 91,
+    "FIX_BOTH": 126,
+    "FIX_DISPLAY": 94,
     "FIX_SEARCH": 6,
-    "KEEP": 449
+    "KEEP": 488
   },
   "resolved_by_category": {
-    "Artist": 86,
-    "Character": 79,
-    "Copyright": 505
+    "Artist": 101,
+    "Character": 88,
+    "Copyright": 525
   },
   "remaining_by_category": {
-    "Artist": 205,
-    "Character": 331,
-    "Copyright": 289
+    "Artist": 190,
+    "Character": 322,
+    "Copyright": 269
   },
   "top_remaining": [
     {
