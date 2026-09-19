@@ -209,3 +209,28 @@ Recovery coordinator rule:
 - workflow synchronization is mechanical only and must not change semantic RESULTS/REVIEWED/SCOPE decisions.
 
 This prevents an authority-side workflow fix from being silently ignored by branch-local lane runs.
+
+
+## Single coordinator integration trigger
+
+Only lane 1 is allowed to trigger Issue70 Parallel Integrator.
+
+- Lane 2-5 may push semantic outputs freely; their pushes must not start Integrator.
+- Lane 1 is both a normal worker and the cycle coordinator.
+- Lane 2-5 run first. Lane 1 runs later in the hour.
+- After lane 1 finishes its own assignment, its push is the normal integration trigger.
+- If lane 1 is already complete but one of lane 2-5 was late, lane 1 must re-check the current cycle on its next scheduled run. When all five STATUS files are complete and authority CURRENT_MANIFEST still points to that cycle, increment a mechanical `integration_retry` field in lane 1 STATUS.json and commit it. This retriggers Integrator without redoing semantics.
+- If not all five lanes are complete, lane 1 does not invent their work and simply rechecks automatically next run.
+- The user is never required to ask whether the system is stuck.
+
+## Mechanical output self-healing
+
+Before final lane publish, workers must normalize RESULTS proposal fields:
+- KEEP => proposed_display_ja and proposed_search_ja blank.
+- FIX_DISPLAY => only proposed_display_ja populated and it must differ from current display_ja.
+- FIX_SEARCH => only proposed_search_ja populated and it must differ from current search_ja.
+- FIX_BOTH => both populated and each must differ from the corresponding current value.
+
+Integrator also self-heals the harmless case where a worker copied the current display/search value into a proposal field that should be blank. It clears only exact current-value duplicates. It must still stop on a genuinely different proposal that contradicts the verdict.
+
+This mechanical normalization must never change audit_verdict, evidence, canonical identity, or a genuinely proposed semantic value.

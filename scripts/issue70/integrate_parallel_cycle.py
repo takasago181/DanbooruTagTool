@@ -94,6 +94,7 @@ def main() -> None:
     manifest_lanes = manifest["lanes"]
     all_rows: list[dict[str, str]] = []
     all_reviewed: list[dict[str, str]] = []
+    auto_normalized_rows = 0
     all_scope_skipped: list[dict[str, str]] = []
     seen_rows: set[str] = set()
     seen_reviewed: set[str] = set()
@@ -150,16 +151,38 @@ def main() -> None:
             assert row["evidence_refs"].startswith("http")
 
             verdict = row["audit_verdict"]
-            pd = row["proposed_display_ja"]
-            ps = row["proposed_search_ja"]
-            if verdict in {"FIX_DISPLAY", "FIX_BOTH"}:
-                assert pd, (rid, verdict, pd)
-            else:
-                assert not pd, (rid, verdict, pd)
-            if verdict in {"FIX_SEARCH", "FIX_BOTH"}:
-                assert ps, (rid, verdict, ps)
-            else:
+            pd = row["proposed_display_ja"].strip()
+            ps = row["proposed_search_ja"].strip()
+            current_display = row["display_ja"]
+            current_search = row["search_ja"]
+
+            # Mechanical self-heal only: workers sometimes echo the current value
+            # into a proposal field.  That carries no semantic change, so clear it
+            # rather than failing the entire cycle.  Any genuinely different
+            # proposal/verdict mismatch still fails below.
+            normalized = False
+            if verdict in {"KEEP", "FIX_SEARCH"} and pd == current_display and pd:
+                row["proposed_display_ja"] = ""
+                pd = ""
+                normalized = True
+            if verdict in {"KEEP", "FIX_DISPLAY"} and ps == current_search and ps:
+                row["proposed_search_ja"] = ""
+                ps = ""
+                normalized = True
+            if normalized:
+                auto_normalized_rows += 1
+
+            if verdict == "KEEP":
+                assert not pd and not ps, (rid, verdict, pd, ps)
+            elif verdict == "FIX_DISPLAY":
+                assert pd and pd != current_display, (rid, verdict, pd, current_display)
                 assert not ps, (rid, verdict, ps)
+            elif verdict == "FIX_SEARCH":
+                assert not pd, (rid, verdict, pd)
+                assert ps and ps != current_search, (rid, verdict, ps, current_search)
+            elif verdict == "FIX_BOTH":
+                assert pd and pd != current_display, (rid, verdict, pd, current_display)
+                assert ps and ps != current_search, (rid, verdict, ps, current_search)
 
             all_rows.append(row)
 
@@ -326,6 +349,7 @@ def main() -> None:
         "cycle_id": cycle_id,
         "manifest_progress_sha256": expected_hash,
         "merged_rows": len(all_rows),
+        "auto_normalized_rows": auto_normalized_rows,
         "merged_by_category": dict(sorted(merged_by_category.items())),
         "reviewed_unresolved_rows_this_cycle": len(all_reviewed),
         "reviewed_unresolved_registry_rows": len(existing_registry),
@@ -346,6 +370,7 @@ def main() -> None:
         "ready": True,
         "cycle_id": cycle_id,
         "merged_rows": len(all_rows),
+        "auto_normalized_rows": auto_normalized_rows,
         "reviewed_unresolved_rows_this_cycle": len(all_reviewed),
         "scope_skipped_rows_this_cycle": len(all_scope_skipped),
         "overlay": str(out.relative_to(ROOT)) if all_rows else None,
