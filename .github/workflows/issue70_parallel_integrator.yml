@@ -89,6 +89,10 @@ jobs:
           PY
           git diff --exit-code -- docs/issue70/data/runtime docs/issue70/data/source
 
+      - name: Generate next mixed manifest
+        if: steps.integration.outputs.ready == 'true'
+        run: python scripts/issue70/generate_parallel_manifest.py
+
       - name: Publish integration atomically
         if: steps.integration.outputs.ready == 'true'
         run: |
@@ -102,7 +106,16 @@ jobs:
           fi
 
           CYCLE="${{ steps.integration.outputs.cycle_id }}"
-          git add             "docs/issue70/automation/cycles/${CYCLE}/INTEGRATION_REPORT.json"             docs/issue70/automation/REVIEWED_UNRESOLVED.csv             docs/issue70/automation/SCOPE_SKIPPED_NON_2D.csv             docs/issue70/audit/PROGRESS_LIVE.json             docs/issue70/audit/EXTERNAL_QUEUE_TOP100.csv             docs/issue70/audit/EXTERNAL_QUEUE_SUMMARY.json             docs/issue70/audit/EXTERNAL_PROGRESS_LIVE.json
+          git add \
+            "docs/issue70/automation/cycles/${CYCLE}/INTEGRATION_REPORT.json" \
+            docs/issue70/automation/REVIEWED_UNRESOLVED.csv \
+            docs/issue70/automation/SCOPE_SKIPPED_NON_2D.csv \
+            docs/issue70/automation/CURRENT_MANIFEST.json \
+            docs/issue70/automation/cycles/ \
+            docs/issue70/audit/PROGRESS_LIVE.json \
+            docs/issue70/audit/EXTERNAL_QUEUE_TOP100.csv \
+            docs/issue70/audit/EXTERNAL_QUEUE_SUMMARY.json \
+            docs/issue70/audit/EXTERNAL_PROGRESS_LIVE.json
 
           if [ -f "docs/issue70/audit/external_resolution_parallel_${CYCLE}.csv" ]; then
             git add "docs/issue70/audit/external_resolution_parallel_${CYCLE}.csv"
