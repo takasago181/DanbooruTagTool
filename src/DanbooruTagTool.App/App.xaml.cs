@@ -18,15 +18,20 @@ public partial class App : Application
         {
             if (e.Args.FirstOrDefault() == "--build-catalog")
             {
-                if (e.Args.Length != 4) throw new ArgumentException("--build-catalog <protected-source-root> <authority-root> <output-directory>");
+                if (e.Args.Length != 4 && e.Args.Length != 6)
+                    throw new ArgumentException("--build-catalog <protected-source-root> <authority-root> <output-directory> [--profile full|ordinary]");
+                if (e.Args.Length == 6 && !string.Equals(e.Args[4], "--profile", StringComparison.OrdinalIgnoreCase))
+                    throw new ArgumentException("--build-catalog <protected-source-root> <authority-root> <output-directory> [--profile full|ordinary]");
+                var profile = e.Args.Length == 6 ? CatalogBuildProfiles.Parse(e.Args[5]) : CatalogBuildProfile.Full;
                 var output = CatalogOutputGuard.Validate(e.Args[3], e.Args[1], e.Args[2]);
-                var result = AcceptedAssetImporter.Read(e.Args[1], e.Args[2]);
+                var result = AcceptedAssetImporter.Read(e.Args[1], e.Args[2], profile);
                 var specialBrowseEntries = SpecialBrowseV2Overlay.Bake(new Catalog(result.Entries));
                 var unifiedBrowseEntries = UnifiedBrowseOverlay.Bake(new Catalog(specialBrowseEntries), e.Args[2]);
                 var bakedEntries = Issue118SexualIntentOverlay.Bake(new Catalog(unifiedBrowseEntries), e.Args[2], result.SourceHashes);
                 CatalogDatabase.Build(Path.Combine(output, "catalog.db"), bakedEntries, JsonSerializer.Serialize(result.SourceHashes));
                 File.WriteAllText(Path.Combine(output, "import-report.json"), JsonSerializer.Serialize(new
                 {
+                    Profile = profile.Name(),
                     Total = result.Entries.Length,
                     General = result.Entries.Count(x => x.EffectiveCategory == "General"),
                     Special = result.Entries.Count(x => x.EffectiveCategory == "Special"),

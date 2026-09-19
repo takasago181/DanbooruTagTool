@@ -23,7 +23,12 @@ public static class AcceptedAssetImporter
         "data/special2788/illustrious_tag_knowledge_base_2788.csv", "data/derived/special2788_VERIFIED_LINKAGE.csv",
         "data/derived/ruleset2/01_SPECIAL2788_JAPANESE_COMPLETE_CANDIDATE.csv", "data/runtime/japanese_overlay.json"];
     public static ImportResult Read(string sourceRoot, string authorityRoot)
+        => Read(sourceRoot, authorityRoot, CatalogBuildProfile.Full);
+
+    public static ImportResult Read(string sourceRoot, string authorityRoot, CatalogBuildProfile profile)
     {
+        if (profile is not (CatalogBuildProfile.Full or CatalogBuildProfile.Ordinary))
+            throw new ArgumentOutOfRangeException(nameof(profile));
         var hashes = new Dictionary<string, string>();
         string Source(string relative)
         {
@@ -166,12 +171,15 @@ public static class AcceptedAssetImporter
             if (!entries[i].IsSpecial && specialGroups.TryGetValue(entries[i].Canonical!, out var related) && related.All(e => !e.CanSearch))
                 entries[i] = entries[i] with { ProductFit = "OUT_OF_SCOPE_PRODUCT" };
 
-        var issue70Path = Authority(Issue70CatalogOverlayImporter.RelativePath);
-        var issue70 = Issue70CatalogOverlayImporter.Read(issue70Path);
-        var existingCanonical = entries.Where(e => e.Canonical != null).Select(e => e.Canonical!).ToHashSet(StringComparer.Ordinal);
-        var overlap = issue70.Where(e => e.Canonical != null && existingCanonical.Contains(e.Canonical)).Select(e => e.Canonical!).Take(5).ToArray();
-        if (overlap.Length > 0) throw new InvalidDataException("Issue #70 canonical overlaps existing General/Special: " + string.Join(", ", overlap));
-        entries.AddRange(issue70);
+        if (profile == CatalogBuildProfile.Full)
+        {
+            var issue70Path = Authority(Issue70CatalogOverlayImporter.RelativePath);
+            var issue70 = Issue70CatalogOverlayImporter.Read(issue70Path);
+            var existingCanonical = entries.Where(e => e.Canonical != null).Select(e => e.Canonical!).ToHashSet(StringComparer.Ordinal);
+            var overlap = issue70.Where(e => e.Canonical != null && existingCanonical.Contains(e.Canonical)).Select(e => e.Canonical!).Take(5).ToArray();
+            if (overlap.Length > 0) throw new InvalidDataException("Issue #70 canonical overlaps existing General/Special: " + string.Join(", ", overlap));
+            entries.AddRange(issue70);
+        }
         return new(entries.ToArray(), hashes);
     }
 
