@@ -47,8 +47,23 @@ $catalogPath = Join-Path $ArtifactRoot 'Data/catalog.db'; $userDbPath = Join-Pat
 foreach($path in @($catalogPath,$userDbPath)){if(Test-Path -LiteralPath $path){Add-Check "exists $([IO.Path]::GetFileName($path))" 'PASS' "$path"}else{Add-Check "exists $([IO.Path]::GetFileName($path))" 'FAIL' "$path is missing"}}
 if(-not [string]::IsNullOrWhiteSpace($python) -and (Test-Path -LiteralPath $catalogPath) -and (Test-Path -LiteralPath $userDbPath)) {
     $db = Run-Json $python @('-B',(Join-Path $RepositoryRoot 'scripts/maintenance/catalog_health.py'),'--catalog',$catalogPath,'--userdb',$userDbPath)
-    if($db.ExitCode -eq 0){$parsed=$db.Output | ConvertFrom-Json; Add-Check 'SQLite/catalog semantics' 'PASS' "quick/integrity ok; total=$($parsed.catalog.total), Special=$($parsed.catalog.special), General=$($parsed.catalog.general), SpecialBrowseV2=$($parsed.catalog.special_browse_v2)"}else{Add-Check 'SQLite/catalog semantics' 'FAIL' $db.Output}
+    if($db.ExitCode -eq 0){
+        $parsed=$db.Output | ConvertFrom-Json
+        Add-Check 'checker identity' 'PASS' "$($parsed.checker.path) [$($parsed.checker.contract_version)] sha256=$($parsed.checker.sha256)"
+        Add-Check 'SQLite/catalog semantics' 'PASS' "quick/integrity ok; total=$($parsed.catalog.total), Special=$($parsed.catalog.special), General=$($parsed.catalog.general), SpecialBrowseV2=$($parsed.catalog.special_browse_v2), C/C/A=$($parsed.catalog.character)/$($parsed.catalog.copyright)/$($parsed.catalog.artist)"
+    }else{Add-Check 'SQLite/catalog semantics' 'FAIL' $db.Output}
 }
+
+$manifestPath = Join-Path $ArtifactRoot 'runtime-manifest.json'
+if (Test-Path -LiteralPath $manifestPath) {
+    try {
+        $manifest = Get-Content -LiteralPath $manifestPath -Raw | ConvertFrom-Json
+        $manifestExeHash = if (Test-Path -LiteralPath $exePath) { Sha $exePath } else { '' }
+        $manifestCatalogHash = if (Test-Path -LiteralPath $catalogPath) { Sha $catalogPath } else { '' }
+        if ($manifest.exe_sha256 -eq $manifestExeHash -and $manifest.catalog_sha256 -eq $manifestCatalogHash) { Add-Check 'runtime manifest' 'PASS' "schema=$($manifest.schema_version), commit=$($manifest.main_commit), RID=$($manifest.runtime_identifier)" }
+        else { Add-Check 'runtime manifest' 'FAIL' 'manifest executable/catalog hash does not match ArtifactRoot' }
+    } catch { Add-Check 'runtime manifest' 'FAIL' $_.Exception.Message }
+} else { Add-Check 'runtime manifest' 'WARN' 'runtime-manifest.json is not present.' }
 
 $inputs = @('data/source/danbooru-2026-09-02.csv','data/derived/danbooru_alias_normalized_index_VERIFIED_34417.csv','data/special2788/illustrious_tag_knowledge_base_2788.csv','data/derived/special2788_VERIFIED_LINKAGE.csv','data/derived/ruleset2/01_SPECIAL2788_JAPANESE_COMPLETE_CANDIDATE.csv','data/runtime/japanese_overlay.json','data/special2788/product_fit_verdicts.csv','docs/issue96/special_expansion_promotion_proposal_v1.csv','docs/issue64/production_candidate/general_taxonomy.json','docs/issue64/production_candidate/effective_sidecar.csv','docs/issue64/production_candidate/manifest.json','docs/issue56/rollout/issue56_ui_genre_taxonomy_v1.json')
 $missing = @($inputs | Where-Object { -not (Test-Path -LiteralPath (Join-Path $RepositoryRoot $_)) })
