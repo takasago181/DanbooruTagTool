@@ -193,3 +193,19 @@ Worker execution order:
 8. After the single reasonable pass, the lane may set STATUS complete=true below target_resolutions. Target is guidance only.
 
 No lane should spend multiple hourly runs trying to force a hard category up to quota. An interrupted run may resume its checkpoint, but a completed single pass closes the lane.
+
+
+## Branch-local workflow synchronization
+
+GitHub Actions workflow definitions are branch-local for lane push events.
+
+Therefore, whenever `.github/workflows/issue70_parallel_integrator.yml` is changed on the authority branch, the exact same file content must be synchronized to all five lane branches before relying on any lane-triggered integration.
+
+Recovery coordinator rule:
+- compare the authority workflow blob/content with lane 1-5 before retrying a failed integrator;
+- if any lane differs, sync the authority workflow to every differing lane first;
+- only then retrigger integration from one lane-local STATUS/checkpoint path;
+- never keep retrying an old failed run whose event commit still contains the stale workflow definition;
+- workflow synchronization is mechanical only and must not change semantic RESULTS/REVIEWED/SCOPE decisions.
+
+This prevents an authority-side workflow fix from being silently ignored by branch-local lane runs.
