@@ -1,238 +1,118 @@
-# CURRENT DEV TASK — ISSUE #117 UNIFIED GENERAL/SPECIAL BROWSE + #118 CONTENT INTENT
+# CURRENT DEV TASK — POST-#131 RUNTIME / PERFORMANCE AUDIT
 
-最終同期: 2026-09-18
+最終同期: 2026-09-20
 
 ## Routing status
 
-- Active DEV Issue: #117 `[DEV][UI][DISCOVERY] Implement unified General/Special browse navigation`.
-- Status: **MERGED TO MAIN / CLOUD VALIDATED / LOCAL RUNTIME REBUILD + SMOKE PENDING**.
-- PR: **#125** `[#117] Unified browse navigation + content intent filter` — **MERGED** at `2ada80b4611b64ac5717924ae634ba917e3d0b95`.
-- Feature branch: `codex/issue117-unified-browse-content-intent`.
-- Live main now contains #117/#118 integration at merge commit `2ada80b4611b64ac5717924ae634ba917e3d0b95`.
-- #118 research is frozen; authority remains `docs/issue118/FINAL_DESIGN_CHECKPOINT.md`, research commit `4cacb1fea4aaf46552da3837f50712293a6d4440`, Issue comment `5725346261`.
-- Do not restart #118 research.
-- Merge approval was granted and PR #125 is integrated. Do not repeat or re-merge this branch.
+- Live main authority: `10d4a8e1e48b75eb37ef97713e93293d2695c5e0`.
+- PR #133 `[MAINT] Post-#131 runtime and portable production hardening` is merged.
+- Post-#131 production/runtime integration is complete.
+- #117/#118 implementation and the former local-runtime gate are no longer the current DEV task.
+- #131 UI refinement is complete and already represented in the current runtime.
+- Current default next DEV task is **Performance / Runtime Load Audit only**. It is a measurement/audit lane, not authorization for further production optimization.
+- #70 Character/Copyright/Artist work and taxonomy-usability/classification audit are independent lanes. Do not mix their branches, commits, data, or decisions into this task.
 
-## Final validated source
+## Current production runtime authority
 
-Validated product/test source checkpoint:
+User-facing workstation runtime:
 
-`5c08cb442804b8c49166b7d6055c29b54c693382`
+`C:\Codex\DanbooruTagTool-App`
 
-Final review validation run:
+Current runtime contract:
 
-`35314061974`
+- self-contained `win-x64`;
+- shortcut target: `C:\Codex\DanbooruTagTool-App\DanbooruTagTool.exe`;
+- shortcut working directory: `C:\Codex\DanbooruTagTool-App`;
+- `runtime-manifest.json` records build/main provenance and runtime hashes;
+- current catalog SHA-256:
+  `DFDC93581F2E8E3041FBC497F9A1C5CFD458977EF57462E05902F27D29B97CF9`;
+- current validated EXE SHA-256:
+  `251C4A46B2BE76CB841CC04510B4747349B7079E3462E648A3E9F13EC136BEDB`;
+- current catalog totals:
+  - Total 33,688
+  - General 30,629
+  - Special 3,059
+  - Character/Copyright/Artist 0 / 0 / 0
+  - runtime identities 31,003
+  - SEXUAL 1,506
+  - NON_SEXUAL 27,707
+  - CONTEXTUAL 1,786
+  - UNCLASSIFIED 4.
 
-Validation:
+The older local `artifacts/current/` runtime is retained as a fallback/reference artifact but is **not the current user-facing launch target**.
 
-- restore: PASS
-- Release build: **PASS**
-- full Release tests: **185 total / 178 passed / 7 skipped / 0 failed**
-- focused `Issue117UnifiedBrowse*`: **20 / 20 passed**
-- production-sized synthetic unified-browse characterization: PASS, approximately **0.9–1.0 s** for the complete 31,752-identity characterization test on GitHub Windows runner
-- `git diff --check origin/main...HEAD`: **PASS**
-- temporary review workflow removed after PASS; it is not product source.
+## UserData authority
 
-Any commit after `5c08cb...` is allowed only for validation-workflow cleanup / management-document synchronization unless a later checkpoint explicitly states otherwise.
+`UserData` is user-owned state, not a deploy artifact.
 
-## Implemented user-facing contract
+The validated portable promotion copied the existing user database byte-for-byte and verified source/destination SHA equality before and after runtime launch.
 
-### Left navigation
+Permanent operational rule:
 
-No visible `General` / `◆ Special` roots.
+- never delete, overwrite, reset, mirror-delete, or silently replace real `UserData`;
+- runtime publishing is code/catalog/runtime -> target only;
+- UserData preservation is a separate explicit step and must be hash-checked when a runtime is promoted;
+- do not use `git clean -fdx`, `git clean -fdX`, `robocopy /MIR`, or broad runtime-directory replacement against protected local state.
 
-Frozen ordinary navigation is presented under three **presentation-only** headings:
+## Rendering authority
 
-- 何を描く
-- 動き・状態
-- 画面・表現
+PR #133 removed the explicit:
 
-They contain exactly the 19 frozen #117 ordinary discovery labels.
+`RenderOptions.ProcessRenderMode = RenderMode.SoftwareOnly`
 
-Below them remain dedicated scopes:
+Current main therefore uses normal WPF/Windows automatic render selection.
 
-- キャラクター
-- 作品
-- 作者
+This is an accepted runtime state, but **performance superiority has not yet been proven by benchmark**.
 
-The three headings are not semantic filters. They default expanded and selecting a heading does not change browse state.
+Performance audit must compare:
 
-Neutral Tags state has no ordinary route selected.
+- A: pre-change commit `e64f3f7cb02df8f5c5fd65dc4132f0e398769b9d` (SoftwareOnly)
+- B: current main `10d4a8e1e48b75eb37ef97713e93293d2695c5e0` (automatic render selection)
 
-### Unified ordinary identity
+under equivalent conditions.
 
-- General/Special remain provenance/membership metadata internally.
-- one canonical ordinary identity -> one result card;
-- overlap is deduplicated in browse and search;
-- existing RuntimeCatalogIndex/SearchEngine ranking remains authoritative;
-- filtering removes candidates only and does not rerank survivors.
+## Performance audit boundaries
 
-### Unified browse state
+Measure before optimizing.
 
-DictionaryWorkspaceViewModel owns:
+Required categories include:
 
-- scope;
-- primary route;
-- local subroute;
-- body-site facets;
-- theme facets;
-- deep-only;
-- content intent;
-- one-step browse history.
+- startup;
+- settled idle;
+- dictionary scrolling;
+- Japanese / English / mixed search;
+- route/facet/content/DeepOnly switching;
+- Prompt add/remove/edit/order/category operations;
+- resize;
+- post-operation idle;
+- CPU / GPU / Working Set / Private memory / threads / handles / disk read-write;
+- leak/drift checks.
 
-Behavior:
+Do not change production behavior merely because code looks suspicious.
 
-- query survives route/facet/scope changes;
-- changing primary route clears only old local subroute;
-- body/theme/deep/content constraints survive primary changes;
-- Character/Copyright/Artist temporarily ignore ordinary content intent while preserving it;
-- `クリア` is query-only;
-- `全解除` resets unified browse constraints/content intent to All while preserving query;
-- neutral Tags + empty query + no constraints shows guidance and does not enumerate the ordinary population;
-- clearing to neutral also clears the left route selection highlight.
+Any optimization after the SoftwareOnly A/B must be:
 
-New UI state defaults directly to `tags`. Legacy persisted browse states retain bounded migration.
+`baseline -> measurement -> candidate -> same-condition measurement -> regression -> adopt/reject`.
 
-Legacy explicit Special kind state maps to the corresponding unified route with `DeepOnly=true`; legacy body/theme states migrate to unified cross-facets.
+## Protected boundaries
 
-### Generic center refinements
+This current task does not own:
 
-Tags scope supports:
+- #70 Character/Copyright/Artist data;
+- taxonomy-usability/classification audit;
+- General/Special semantic membership;
+- #118 content-intent semantics;
+- PromptToken/search semantics;
+- canonical identity;
+- real UserData;
+- ForgeBridge behavior.
 
-- relevant local classification chips;
-- 部位;
-- テーマ;
-- `◆ 深掘りのみ`;
-- `内容 [すべて] [一般向け] [性的]`;
-- `1つ戻す`;
-- `全解除`.
+Do not merge those lanes into the performance audit.
 
-Zero-count unselected facets are hidden. A selected facet remains visible at zero so it can be removed.
+## Stop rule
 
-### #118 frozen content intent
+Performance audit may add isolated measurement scripts/docs on its own branch.
 
-Visible mapping:
+Do not merge additional optimizations or apply a new production runtime without DEV/user review of measurement evidence.
 
-- `すべて` -> SEXUAL + NON_SEXUAL + CONTEXTUAL + UNCLASSIFIED
-- `一般向け` -> NON_SEXUAL + CONTEXTUAL
-- `性的` -> SEXUAL + CONTEXTUAL
-- UNCLASSIFIED -> `すべて` only
-
-Frozen identity authority validated:
-
-- total 31,752
-- SEXUAL 2,037
-- CONTEXTUAL 1,951
-- NON_SEXUAL 27,759
-- UNCLASSIFIED 5
-- AUTO_HIGH_CONF 22,371
-- HUMAN_REVIEWED 9,376
-
-Normal startup does not parse the #118 research corpus. The accepted sidecar is consumed only during explicit catalog build and serialized into CatalogEntry metadata.
-
-The catalog build report now states sexual-intent counts at **identity level**, avoiding confusion with backing General/Special row counts.
-
-### Browseability vs searchability
-
-Final review found and fixed an important boundary:
-
-- #64 UNRESOLVED General rows remain searchable but are not made browseable by unified/content-only browsing;
-- #76 ReferenceOnlyNoDirectBrowse / other non-direct Special rows remain searchable/reference-capable where existing rules allow, but do not become route/content browse rows;
-- secondary unified route metadata is consumed only from accepted direct-browse backing;
-- `◆ 深掘りのみ` requires accepted direct-browse Special backing.
-
-This preserves #64/#76 visibility/status semantics instead of using unified navigation to bypass them.
-
-### Exact Special route enrichment
-
-The exact six-row reviewed override asset is enforced by Special ID + canonical identity.
-
-Tests cover:
-
-- exactly six unique IDs;
-- identity mismatch -> fail closed;
-- only ADD_SECONDARY;
-- pose -> POSE_POSITION;
-- camera -> COMPOSITION_CAMERA;
-- scene -> SCENE_BACKGROUND;
-- no broad REACTION_STATE -> EXPRESSION_GAZE inference.
-
-### UI cleanup
-
-- old visible Special tree removed;
-- left `← 戻る` removed;
-- Special-tree expansion code-behind removed;
-- obsolete Special facet XAML resources removed;
-- details use discovery-oriented `探せる場所` / `発見サポート`;
-- ◆ is identity-level deep-discovery status, not raw IsSpecial;
-- neutral guidance matches frozen wording:
-  `左からカテゴリを選ぶか、タグ名を検索してください。`
-- selected workspace-tab blue-edge seam cosmetic fix included.
-
-## #114 performance/architecture invariants
-
-Preserved:
-
-- RuntimeCatalogIndex/SearchEngine ranking;
-- one-time unified index construction;
-- no per-keystroke classification/index rebuild;
-- no eager 30k+ neutral card creation;
-- WPF recycling virtualization;
-- accepted wide/two-column result composition;
-- no synchronous per-keystroke user.db persistence;
-- dictionary semantics remain in DictionaryWorkspaceViewModel rather than MainWindow/MainViewModel.
-
-Synthetic 31,752-identity characterization is now part of the focused regression surface.
-
-## Source-contract limitation discovered in final review
-
-#117 design text describes General derivation as:
-
-- people/count-group -> PEOPLE_COUNT
-- people/role-person -> RELATION_ROLE
-
-However, the accepted #64 production taxonomy currently has a single `PERSON_COUNT` genre with **no accepted count-group / role-person subgenres**.
-
-Therefore v1 deliberately does **not** invent a new General semantic split:
-
-- accepted General `PERSON_COUNT` -> PEOPLE_COUNT;
-- RELATION_ROLE receives accepted #76 Special `PERSON_RELATION` backing;
-- no heuristic reclassification of the 30,629 General rows was introduced.
-
-This is a bounded source-contract limitation, not permission to restart #64 or #118. A future General role/count split requires an explicit accepted data decision.
-
-## Protected-boundary audit
-
-No product mutation of:
-
-- live production/main;
-- General/Special production membership;
-- #64/#76 authority;
-- #70 translation/data authority;
-- Prompt parser/output/profile semantics;
-- SearchEngine ranking;
-- tracked/real `catalog.db`;
-- `UserData/user.db`;
-- user.db schema/reset.
-
-The #70-named diff is test-only, updating query-preservation expectations.
-
-Production/workstation catalog rebuild and practical workstation smoke are **not claimed** by this cloud DEV validation; explicit catalog build still requires the protected local source inputs.
-
-## Next action
-
-**MERGE COMPLETE.**
-
-PR #125 merged to live main at:
-
-`2ada80b4611b64ac5717924ae634ba917e3d0b95`
-
-Remaining gate is local/runtime only:
-
-1. explicitly rebuild the production catalog using the protected local source inputs;
-2. refresh the local WPF runtime from merged main;
-3. smoke the unified navigation, content filters, dedicated scopes, search/query persistence, deep-only, and two-column layout;
-4. confirm real `UserData/user.db` remains untouched;
-5. then close #117 and mark the runtime integration complete.
-
-Do not repeat completed #117 implementation/research and do not restart #118 research.
+Historical #117/#118 implementation details remain available from their Issues, commits, and Git history; they are no longer the routing task represented by this file.

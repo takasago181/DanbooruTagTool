@@ -280,6 +280,59 @@ Development artifactsもversioned folderを毎回増殖させず、固定disposa
 
 ---
 
+## D-020 Portable runtimeを現在のworkstation実運用標準として採用 — 2026-09-20
+
+Status: ADOPTED
+
+D-019の判断「Portableをpractical v1完成Gateにはしない」は当時のscope判断として維持する。
+その後の実運用改善により、portable/self-contained runtime自体を現在のworkstation標準として採用した。
+
+Current authority:
+- live main: `10d4a8e1e48b75eb37ef97713e93293d2695c5e0`
+- merged PR: #133
+- user-facing runtime root: `C:\Codex\DanbooruTagTool-App`
+- runtime: self-contained `win-x64`
+- shortcut target: `C:\Codex\DanbooruTagTool-App\DanbooruTagTool.exe`
+- shortcut working directory: `C:\Codex\DanbooruTagTool-App`
+- `runtime-manifest.json` records build/main provenance and executable/catalog hashes
+- move-to-another-directory runtime validation passed
+
+`artifacts/current/` is retained as fallback/reference, not the current user-facing launch target.
+
+### Deployment boundary
+
+Runtime promotion is conceptually one-way:
+
+`GitHub live main -> clean build/publish -> isolated validation -> DanbooruTagTool-App`
+
+Production runtime files may be replaced only after validation. Real `UserData` is not ordinary publish output and must not be mirror-deployed, deleted, reset, or silently replaced.
+
+UserData preservation must be explicit and, when runtime promotion touches/copies it, verified by before/after hash.
+
+Forbidden operational shortcuts include:
+- `git clean -fdx`
+- `git clean -fdX`
+- `robocopy /MIR`
+- broad deletion/recreation of a runtime root containing protected user state
+
+### Rendering subdecision
+
+PR #133 removed the explicit `RenderMode.SoftwareOnly` override.
+Current runtime uses the normal WPF/Windows automatic rendering selection.
+
+This does not itself prove a performance improvement.
+The SoftwareOnly vs automatic-render comparison remains a separate measurement/audit question.
+
+### Relationship to D-019
+
+D-019 is **not** considered an error:
+- portable packaging was not required to declare practical v1 complete;
+- portable runtime was later adopted because it became useful for actual workstation operation.
+
+D-020 therefore supersedes only D-019 statements that describe portable as merely hypothetical/future for current daily operation.
+
+---
+
 ## Historical note
 
 旧Stage0–9実装判断、旧Stage10 A/B準備、evaluator校正、Prompt Composer研究等の詳細はGit historyと対応Issue/Stage文書に保持する。
