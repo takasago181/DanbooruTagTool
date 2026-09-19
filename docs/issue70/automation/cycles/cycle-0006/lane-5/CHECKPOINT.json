@@ -5,12 +5,12 @@
   "lane": 5,
   "manifest_progress_sha256": "e1bc7068b8b6b87492dc6e81a5f386de01933d12f8e50b976284dd7f47915c96",
   "assigned_count": 100,
-  "processed_count": 50,
+  "processed_count": 100,
   "resolved_count": 0,
-  "reviewed_unresolved_count": 50,
+  "reviewed_unresolved_count": 100,
   "scope_skipped_count": 0,
-  "next_assignment_line": 52,
-  "complete": false,
-  "checkpoint_reason": "high-throughput bounded pass checkpoint 2; continue from assignment 51",
+  "next_assignment_line": 102,
+  "complete": true,
+  "checkpoint_reason": "high-throughput bounded single pass complete; authority manifest marks all 100 lane-5 candidates as previously reviewed unresolved, so remaining registry-backed rows were reused without repeated research",
   "production_modified": false
 }
