@@ -8,9 +8,18 @@ using Xunit.Abstractions;
 
 namespace DanbooruTagTool.Tests;
 
+public sealed class Issue118V2AuthorityFactAttribute : FactAttribute
+{
+    public Issue118V2AuthorityFactAttribute()
+    {
+        if (Environment.GetEnvironmentVariable("DTT_ISSUE118_V2_GENERATE") != "1")
+            Skip = "Issue #118 v2 authority generation is explicit opt-in.";
+    }
+}
+
 public sealed class Issue118SexualIntentV2AuthorityTests(ITestOutputHelper output)
 {
-    [ProductionFact]
+    [Issue118V2AuthorityFact]
     public void GenerateAndValidateRuntimeCanonicalV2Authority()
     {
         var sourceRoot = Environment.GetEnvironmentVariable("DTT_SOURCE_ROOT")!;
