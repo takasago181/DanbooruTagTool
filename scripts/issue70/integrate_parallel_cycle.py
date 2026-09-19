@@ -92,6 +92,38 @@ def main() -> None:
         return
 
     manifest_lanes = manifest["lanes"]
+
+    # Readiness preflight: partial/checkpoint pushes from lane 1 are normal.
+    # If any lane is absent or incomplete, wait successfully BEFORE parsing
+    # semantic artifacts from any completed lane. This prevents harmless
+    # intermediate pushes from surfacing validation failures before the cycle
+    # is actually ready to integrate.
+    preflight_missing: list[int] = []
+    for lane in range(1, LANE_COUNT + 1):
+        branch = f"audit/issue70-auto-lane-{lane}"
+        base = f"docs/issue70/automation/cycles/{cycle_id}/lane-{lane}"
+        status_text = git_show(branch, f"{base}/STATUS.json")
+        if status_text is None:
+            preflight_missing.append(lane)
+            continue
+        try:
+            status = json.loads(status_text)
+        except Exception:
+            preflight_missing.append(lane)
+            continue
+        if status.get("complete") is not True:
+            preflight_missing.append(lane)
+
+    if preflight_missing:
+        write_state({
+            "ready": False,
+            "reason": "waiting for completed lane outputs",
+            "cycle_id": cycle_id,
+            "missing_lanes": preflight_missing,
+        })
+        print(f"Waiting for lanes: {preflight_missing}")
+        return
+
     all_rows: list[dict[str, str]] = []
     all_reviewed: list[dict[str, str]] = []
     auto_normalized_rows = 0
