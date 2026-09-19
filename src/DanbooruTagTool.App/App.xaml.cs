@@ -27,7 +27,7 @@ public partial class App : Application
                 var result = AcceptedAssetImporter.Read(e.Args[1], e.Args[2], profile);
                 var specialBrowseEntries = SpecialBrowseV2Overlay.Bake(new Catalog(result.Entries));
                 var unifiedBrowseEntries = UnifiedBrowseOverlay.Bake(new Catalog(specialBrowseEntries), e.Args[2]);
-                var bakedEntries = Issue118SexualIntentOverlay.Bake(new Catalog(unifiedBrowseEntries), e.Args[2], result.SourceHashes);
+                var bakedEntries = Issue118SexualIntentV2Overlay.Bake(new Catalog(unifiedBrowseEntries), e.Args[2], result.SourceHashes);
                 CatalogDatabase.Build(Path.Combine(output, "catalog.db"), bakedEntries, JsonSerializer.Serialize(result.SourceHashes));
                 File.WriteAllText(Path.Combine(output, "import-report.json"), JsonSerializer.Serialize(new
                 {
@@ -46,11 +46,11 @@ public partial class App : Application
                     },
                     SexualIntent = new
                     {
-                        Identities = Issue118SexualIntentOverlay.IdentityCount,
-                        Sexual = Issue118SexualIntentOverlay.SexualCount,
-                        Contextual = Issue118SexualIntentOverlay.ContextualCount,
-                        NonSexual = Issue118SexualIntentOverlay.NonSexualCount,
-                        Unclassified = Issue118SexualIntentOverlay.UnclassifiedCount,
+                        Identities = Issue118SexualIntentV2Overlay.IdentityCount,
+                        Sexual = Issue118SexualIntentV2Overlay.SexualCount,
+                        Contextual = Issue118SexualIntentV2Overlay.ContextualCount,
+                        NonSexual = Issue118SexualIntentV2Overlay.NonSexualCount,
+                        Unclassified = Issue118SexualIntentV2Overlay.UnclassifiedCount,
                         BackingRows = bakedEntries.Count(x => x.EffectiveCategory is "General" or "Special")
                     },
                     Sources = result.SourceHashes
