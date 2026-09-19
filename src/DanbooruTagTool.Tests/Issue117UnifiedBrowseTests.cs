@@ -150,6 +150,27 @@ public sealed class Issue117UnifiedBrowseTests
     }
 
     [Fact]
+    public void EmptyFacetAxesAreHiddenButSelectedZeroCountRemainsVisible()
+    {
+        var catalog = CatalogWithIntentFixtures();
+        var workspace = new PromptWorkspace(new PromptParser(catalog));
+        var vm = new DictionaryWorkspaceViewModel(
+            catalog,
+            workspace,
+            new PendingGeneralBrowseProvider(),
+            () => { },
+            () => true);
+
+        vm.Restore(new UiState(BrowseScope: "Tags"));
+
+        Assert.False(vm.ShowLocalOptions);
+        Assert.False(vm.ShowBodyOptions);
+        Assert.False(vm.ShowThemeOptions);
+        var selected = new BrowseFacetOptionViewModel(BrowseFacetKind.Theme, "theme", "テーマ") { Selected = true };
+        Assert.True(selected.IsVisible);
+    }
+
+    [Fact]
     public void UnifiedTaxonomy_HasExactlyNineteenOrdinaryDiscoveryRoutes()
     {
         Assert.Equal(19, UnifiedBrowseTaxonomy.Routes.Length);

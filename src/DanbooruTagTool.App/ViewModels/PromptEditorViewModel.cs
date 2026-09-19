@@ -61,13 +61,17 @@ public sealed class PromptEditorViewModel : Observable
         }
     }
     public bool EnglishChips { get => englishChips; set { if (Set(ref englishChips, value)) { UpdateChipLanguage(); persist(); } } }
-    public bool IsCategoryView { get => categoryView; set { if (Set(ref categoryView, value)) { Notify(nameof(IsOrderedView)); Notify(nameof(CanEditOrderedPrompt)); Notify(nameof(SelectionSummary)); Notify(nameof(WeightVisible)); RefreshCommands(); } } }
+    public bool IsCategoryView { get => categoryView; set { if (Set(ref categoryView, value)) { Notify(nameof(IsOrderedView)); Notify(nameof(ViewHint)); Notify(nameof(CanEditOrderedPrompt)); Notify(nameof(SelectionSummary)); Notify(nameof(WeightVisible)); RefreshCommands(); } } }
     public bool IsOrderedView { get => !IsCategoryView; set { if (value != IsOrderedView) IsCategoryView = !value; } }
     public bool CategoryEnglish { get => categoryEnglish; set => Set(ref categoryEnglish, value); }
     public bool MultiSelect { get => multiSelect; set => Set(ref multiSelect, value); }
     public bool HasSelection => Chips.Any(c => c.Selected);
     public string SelectionSummary => IsCategoryView ? "カテゴリ別表示（読み取り専用）" : HasSelection ? $"{Chips.Count(c => c.Selected)}件選択中" : "選択なし";
+    public string ViewHint => IsCategoryView
+        ? "Promptをカテゴリ別に読みやすく表示します。元の並び順・内容は変わりません。"
+        : "日本語表示のPromptを並べ替え・削除できます。見えている順序がそのままコピーされます。";
     public string Count => $"現在のPrompt · {Chips.Count}件";
+    public string EditorCount => $"{Chips.Count}件";
     public bool HasPrompt => Chips.Count > 0;
     public string Unresolved => Chips.Count(c => c.Item.Kind == PromptItemKind.Raw) is var n && n > 0 ? $"未解決 {n}" : "";
     public bool CanEditPrompt => !DirectEditing;
@@ -131,7 +135,7 @@ public sealed class PromptEditorViewModel : Observable
     {
         var selection = Chips.Where(c => c.Selected).Select(c => c.Id).ToHashSet(); Chips.Clear();
         foreach (var item in Workspace.Items) Chips.Add(new(item) { Selected = selection.Contains(item.Id), English = EnglishChips && WorkspaceIndex == 0 });
-        UpdateMatches(); SelectionChanged(); RefreshCategoryGroups(); Notify(nameof(English)); Notify(nameof(Count)); Notify(nameof(HasPrompt)); Notify(nameof(Unresolved));
+        UpdateMatches(); SelectionChanged(); RefreshCategoryGroups(); Notify(nameof(English)); Notify(nameof(Count)); Notify(nameof(EditorCount)); Notify(nameof(HasPrompt)); Notify(nameof(Unresolved));
     }
     public void UpdateChipLanguage() { foreach (var chip in Chips) chip.English = EnglishChips && WorkspaceIndex == 0; }
     public void Select(Guid id, bool ctrl = false, bool shift = false)

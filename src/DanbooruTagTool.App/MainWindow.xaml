@@ -256,8 +256,8 @@
             <Setter Property="BorderBrush" Value="#C4D5E2"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="CornerRadius" Value="7"/>
-            <Setter Property="Padding" Value="10,7"/>
-            <Setter Property="Margin" Value="4"/>
+            <Setter Property="Padding" Value="8,5"/>
+            <Setter Property="Margin" Value="3"/>
             <Style.Triggers>
                 <DataTrigger Binding="{Binding Item.Kind}" Value="{x:Static core:PromptItemKind.Raw}">
                     <Setter Property="Background" Value="#FFF9EC"/>
@@ -279,8 +279,8 @@
             </Style.Triggers>
         </Style>
         <Style x:Key="CategoryChipCard" TargetType="{x:Type Border}" BasedOn="{StaticResource ChipCard}">
-            <Setter Property="Padding" Value="9,4"/>
-            <Setter Property="Margin" Value="3,2"/>
+            <Setter Property="Padding" Value="8,3"/>
+            <Setter Property="Margin" Value="2,1"/>
             <Setter Property="MaxWidth" Value="280"/>
         </Style>
         <Style x:Key="PromptPreviewChip" TargetType="{x:Type Button}" BasedOn="{StaticResource GhostButton}">
@@ -289,8 +289,8 @@
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="Foreground" Value="{StaticResource InkBrush}"/>
             <Setter Property="HorizontalContentAlignment" Value="Left"/>
-            <Setter Property="Margin" Value="3"/>
-            <Setter Property="Padding" Value="9,6"/>
+            <Setter Property="Margin" Value="2"/>
+            <Setter Property="Padding" Value="8,5"/>
         </Style>
         <Style x:Key="ItemDeleteButton" TargetType="{x:Type Button}" BasedOn="{StaticResource GhostButton}">
             <Setter Property="Background" Value="Transparent"/>
@@ -445,8 +445,8 @@
             <Setter Property="BorderBrush" Value="#C4D5E2"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="CornerRadius" Value="7"/>
-            <Setter Property="Padding" Value="8,6"/>
-            <Setter Property="Margin" Value="0,0,4,8"/>
+            <Setter Property="Padding" Value="7,4"/>
+            <Setter Property="Margin" Value="0,0,4,5"/>
             <Style.Triggers>
                 <DataTrigger Binding="{Binding IsSelected, RelativeSource={RelativeSource AncestorType=ListBoxItem}}" Value="True">
                     <Setter Property="Background" Value="#E5F2FF"/>
@@ -460,13 +460,13 @@
             </Style.Triggers>
         </Style>
         <DataTemplate x:Key="EntryTemplate">
-            <Border Style="{StaticResource DictionaryCard}" MinHeight="68" Width="{Binding DataContext.DictionaryCardWidth, RelativeSource={RelativeSource AncestorType=Window}}">
+            <Border Style="{StaticResource DictionaryCard}" MinHeight="58" Width="{Binding DataContext.DictionaryCardWidth, RelativeSource={RelativeSource AncestorType=Window}}">
                 <Grid>
                     <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
                     <Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="Auto"/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
                     <TextBlock Text="{Binding Label}" FontSize="14" FontWeight="SemiBold" TextWrapping="Wrap" Margin="0,0,8,4"/>
                     <TextBlock Grid.Column="1" Text="{Binding Usage}" FontSize="12" FontWeight="SemiBold" Foreground="{StaticResource MutedInkBrush}" TextAlignment="Right" VerticalAlignment="Top" Margin="4,0,8,4"/>
-                    <Button Grid.Column="2" Content="{Binding AddSymbol}" ToolTip="{Binding DetailAddLabel}" ToolTipService.ShowOnDisabled="True" Command="{Binding Add}" Style="{StaticResource AddStateButton}" MinWidth="40" Padding="8,3" VerticalAlignment="Top" Margin="0"/>
+                    <Button Grid.Column="2" Content="{Binding AddSymbol}" ToolTip="{Binding DetailAddLabel}" ToolTipService.ShowOnDisabled="True" Command="{Binding Add}" Style="{StaticResource AddStateButton}" MinWidth="36" Padding="6,2" VerticalAlignment="Top" Margin="0"/>
                     <TextBlock Grid.Row="1" Text="{Binding English}" Foreground="{StaticResource MutedInkBrush}" FontSize="12" TextWrapping="Wrap"/>
                 </Grid>
             </Border>

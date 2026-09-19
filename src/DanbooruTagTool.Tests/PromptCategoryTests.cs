@@ -82,4 +82,20 @@ public class PromptCategoryTests
         Assert.True(vm.Delete.CanExecute(null));
         Assert.Equal(before, vm.English);
     }
+
+    [Fact]
+    public void PromptHeaderPresentationKeepsTheSameControlsAvailableAcrossViews()
+    {
+        var vm = Fixtures.Vm().Prompt;
+
+        Assert.Equal("日本語表示のPromptを並べ替え・削除できます。見えている順序がそのままコピーされます。", vm.ViewHint);
+        Assert.Equal("0件", vm.EditorCount);
+        Assert.True(vm.CanEditOrderedPrompt);
+
+        vm.IsCategoryView = true;
+
+        Assert.Equal("Promptをカテゴリ別に読みやすく表示します。元の並び順・内容は変わりません。", vm.ViewHint);
+        Assert.False(vm.CanEditOrderedPrompt);
+        Assert.Equal("0件", vm.EditorCount);
+    }
 }
