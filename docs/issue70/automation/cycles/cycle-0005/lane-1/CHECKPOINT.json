@@ -1,0 +1,16 @@
+{
+  "format_version": 1,
+  "issue": 70,
+  "cycle_id": "cycle-0005",
+  "lane": 1,
+  "manifest_progress_sha256": "a147818b842e95a4bfc8201071a43e6c498fe5fe434a93f263713f6613c94b5d",
+  "assigned_count": 36,
+  "checked_count": 24,
+  "resolved_count": 3,
+  "reviewed_unresolved_count": 21,
+  "scope_skipped_count": 0,
+  "next_unchecked_row_id": "I70-056030",
+  "complete": false,
+  "production_modified": false,
+  "note": "Bounded single-pass checkpoint after Copyright+Character cluster; resume with Artist rows only."
+}
