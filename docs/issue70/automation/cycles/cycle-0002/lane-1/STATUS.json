@@ -12,6 +12,6 @@
   "scope_skipped_count": 0,
   "single_pass_complete": true,
   "production_modified": false,
-  "integration_retry": 1,
-  "integration_retry_reason": "sync lane workflow with authority validator contract"
+  "integration_retry": 2,
+  "integration_retry_reason": "all lane workflow definitions synced to authority validator contract"
 }
