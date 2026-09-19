@@ -67,6 +67,46 @@ I70-054448,ogura_eisuke,Artist,213,cycle-0003,cycle-0003,1,4,公式プロフィ�
 I70-054533,yoshida_akihiko,Artist,212,cycle-0003,cycle-0003,1,4,今回の一巡で一次クレジットURLを確立できず,,既知名でも証拠URLなしでHIGHにしない
 I70-054556,haruba_negi,Artist,211,cycle-0003,cycle-0003,1,4,今回の一巡で一次クレジットURLを確立できず,,既知名でも証拠URLなしでHIGHにしない
 I70-055187,yokoyari_mengo,Artist,203,cycle-0003,cycle-0003,1,5,No sufficiently direct first-party or publisher credit retrieved in the single pass,,Name is widely known but lane requires HIGH confidence evidence; deferred without guessing.
+I70-055539,takenashi_eri,Artist,198,cycle-0004,cycle-0004,1,1,Official/profile evidence not safely established in this pass,,Artist never scope-skipped; deferred without reading guess.
+I70-055687,takahashi_rumiko,Artist,196,cycle-0004,cycle-0004,1,1,Official/profile evidence not safely established in this pass,,Artist never scope-skipped; deferred without relying on familiarity.
+I70-055712,ikeno_daigo,Artist,195,cycle-0004,cycle-0004,1,1,Primary credit evidence not safely established in this pass,,Artist never scope-skipped; deferred.
+I70-055801,misakura_nankotsu,Artist,194,cycle-0004,cycle-0004,1,1,Official/profile evidence not safely established in this pass,,Artist never scope-skipped; deferred.
+I70-055888,saeki_shun,Artist,193,cycle-0004,cycle-0004,1,1,Primary publisher/profile evidence not safely established in this pass,,Artist never scope-skipped; deferred.
+I70-055900,tanaka_kunihiko,Artist,193,cycle-0004,cycle-0004,1,1,Official/profile evidence not safely established in this pass,,Artist never scope-skipped; deferred.
+I70-055952,nomura_tetsuya,Artist,192,cycle-0004,cycle-0004,1,1,Primary credit evidence not safely established in this pass,,Artist never scope-skipped; deferred.
+I70-056004,kagesaki_yuna,Artist,191,cycle-0004,cycle-0004,1,1,Official/profile evidence not safely established in this pass,,Artist never scope-skipped; deferred.
+I70-056057,yamada_koutarou,Artist,191,cycle-0004,cycle-0004,1,2,Official profile/credit for exact artist identity not established,,Artist reading/name must not be inferred
+I70-056087,higashiyama_shou,Artist,190,cycle-0004,cycle-0004,1,2,Official profile/credit for exact artist identity not established,,Artist reading/name must not be inferred
+I70-056199,okazaki_takeshi,Artist,189,cycle-0004,cycle-0004,1,2,Official profile/credit for exact artist identity not established,,Artist reading/name must not be inferred
+I70-056276,nakamura_kanko,Artist,188,cycle-0004,cycle-0004,1,2,Official profile/credit for exact artist identity not established,,Artist reading/name must not be inferred
+I70-056296,suzunosuke_(sagula),Artist,188,cycle-0004,cycle-0004,1,2,Search found secondary profile only,https://twoucan.com/profile/suzu3939,Secondary profile supports 鈴ノ助 but protocol prefers official profile/credit for artist certainty
+I70-056325,hagiya_kaoru,Artist,187,cycle-0004,cycle-0004,1,2,Official profile/credit for exact artist identity not established,,Artist reading/name must not be inferred
+I70-056336,kinutani_yutaka,Artist,187,cycle-0004,cycle-0004,1,2,Official profile/credit for exact artist identity not established,,Artist reading/name must not be inferred
+I70-056361,nishigori_atsushi,Artist,187,cycle-0004,cycle-0004,1,2,Secondary evidence found but no direct official profile/credit in this pass,https://natalie.mu/music/news/list/artist_id/69336,Name appears consistently as 錦織敦史 but artist rule requires stronger direct source for HIGH confidence
+I70-056418,kaneko_hiraku,Artist,186,cycle-0004,cycle-0004,1,2,Official profile/credit for exact artist identity not established,,Artist reading/name must not be inferred
+I70-056504,hyogonosuke,Artist,185,cycle-0004,cycle-0004,1,2,Official profile/credit for exact artist identity not established,,Artist display not guessed from secondary familiarity
+I70-056671,afuro,Artist,183,cycle-0004,cycle-0004,1,2,Official profile/credit for exact artist identity not established,,Distinctive stylized spelling あｆろ requires direct credit evidence
+I70-057256,robina,Artist,177,cycle-0004,cycle-0004,1,3,No sufficiently authoritative identity source established,,Existing Japanese rendering not promoted without publisher/profile evidence
+I70-057414,nanaka_mai,Artist,175,cycle-0004,cycle-0004,1,3,Official profile/credit not safely established,,Reading-sensitive artist identity left unresolved
+I70-057559,yuuki_nobuteru,Artist,174,cycle-0004,cycle-0004,1,3,Primary official profile not established,,Do not rely on secondary biographical sources for artist identity audit
+I70-057618,nekonyan,Artist,173,cycle-0004,cycle-0004,1,3,Official identity credit not safely established,,Reading-sensitive artist row deferred
+I70-057749,shindol,Artist,172,cycle-0004,cycle-0004,1,3,Authoritative Japanese-name source not established,,Current rendering may be established but first-party confirmation was insufficient
+I70-058000,fujimori_shiki,Artist,169,cycle-0004,cycle-0004,1,3,Official profile/credit not safely established,,Artist reading not inferred
+I70-058135,matsumoto_noriyuki,Artist,168,cycle-0004,cycle-0004,1,4,official identity credit not established,,Avoided inferring artist identity from name-only secondary references
+I70-058189,watashiya_kaworu,Artist,168,cycle-0004,cycle-0004,1,4,official identity credit not established,,No sufficiently direct official profile or publisher credit established in this pass
+I70-058334,kayura_yuka,Artist,166,cycle-0004,cycle-0004,1,4,official identity source not strong enough,https://twpf.jp/kayurayuka,Profile aggregation points to the expected creator but was not treated as first-party HIGH-confidence evidence
+I70-058551,kajiyama_hiroshi,Artist,164,cycle-0004,cycle-0004,1,4,official identity credit not established,,No safe official profile or credit found in this pass
+I70-058817,yoshikawa_hideaki,Artist,162,cycle-0004,cycle-0004,1,4,official identity credit not established,,Name reading/identity not promoted without direct publisher or creator evidence
+I70-059118,munyuu,Artist,159,cycle-0004,cycle-0004,1,4,official identity source not established,,Canonical creator identity was not independently verified to HIGH confidence
+I70-059221,kishimoto_masashi,Artist,158,cycle-0004,cycle-0004,1,4,direct official creator credit not captured in this pass,,Well-known identity was not accepted without a concrete checked official URL
+I70-059267,tanaka_masayoshi,Artist,158,cycle-0004,cycle-0004,1,4,official identity credit not established,,No sufficiently direct first-party credit captured in this pass
+I70-059309,hasegawa_shin'ya,Artist,157,cycle-0004,cycle-0004,1,5,OFFICIAL_CREDIT_NOT_ESTABLISHED,,Identity appears plausible but no sufficiently authoritative first-party/publisher credit established in this pass.
+I70-059472,shibata_masahiro,Artist,156,cycle-0004,cycle-0004,1,5,OFFICIAL_CREDIT_NOT_ESTABLISHED,,Identity appears plausible but no sufficiently authoritative first-party/publisher credit established in this pass.
+I70-059891,hamamoto_ryuusuke,Artist,152,cycle-0004,cycle-0004,1,5,OFFICIAL_CREDIT_NOT_ESTABLISHED,,No sufficiently authoritative identity-safe credit established in this pass.
+I70-059917,kikuchi_michitaka,Artist,152,cycle-0004,cycle-0004,1,5,OFFICIAL_CREDIT_NOT_ESTABLISHED,,No sufficiently authoritative identity-safe credit established in this pass.
+I70-060082,tadano_kazuko,Artist,151,cycle-0004,cycle-0004,1,5,OFFICIAL_CREDIT_NOT_ESTABLISHED,,No sufficiently authoritative identity-safe credit established in this pass.
+I70-060213,yahiro_pochi,Artist,150,cycle-0004,cycle-0004,1,5,OFFICIAL_CREDIT_NOT_ESTABLISHED,,No sufficiently authoritative identity-safe credit established in this pass.
+I70-060425,kobayashi_gen,Artist,148,cycle-0004,cycle-0004,1,5,IDENTITY_COLLISION_RISK,,Common name creates identity-collision risk; no authoritative credit safely tied to this canonical artist tag in this pass.
 I70-000706,t-head_trainer_(umamusume),Character,4017,cycle-0002,cycle-0002,1,1,No official Japanese character name established in this pass,,Fan-form trainer label; unsafe to promote as an official Japanese character name.
 I70-001100,non-human_admiral_(kancolle),Character,2838,cycle-0002,cycle-0002,1,1,No official Japanese character name established in this pass,,Generic/fan character concept; current Japanese wording is not safely verifiable as an official name.
 I70-001418,justice_task_force_member_(blue_archive),Character,2291,cycle-0002,cycle-0002,1,1,Official role versus fan mob label remains ambiguous,,Could not safely establish an official Japanese individual character name distinct from fan shorthand.
@@ -173,6 +213,56 @@ I70-004218,jeanne_d'arc_(swimsuit_archer)_(second_ascension)_(fate),Character,78
 I70-004235,noelle_holiday_(dark_world),Character,780,cycle-0003,cycle-0003,1,5,Form-specific official Japanese label not established,,Did not infer a Japanese form name from English fandom naming.
 I70-004240,medusa_(casual_wear)_(fate),Character,778,cycle-0003,cycle-0003,1,5,Costume-specific official Japanese label not established,,Base character is known but 私服 qualifier was not safely verified as canonical official naming.
 I70-004241,minamoto_no_raikou_(first_ascension)_(fate),Character,778,cycle-0003,cycle-0003,1,5,Ascension-specific official Japanese label not established,,Base identity is known but specific form naming was not verified from first-party evidence.
+I70-004258,lilith_(second_ascension)_(fate),Character,775,cycle-0004,cycle-0004,1,1,Official Japanese ascension-specific display not safely established,,Deferred without fan-derived form naming.
+I70-004285,wuxian_(the_legend_of_luo_xiaohei),Character,771,cycle-0004,cycle-0004,1,1,Official Japanese character rendering not safely established,,Deferred without transliteration guess.
+I70-004288,cinderella_(crystal_wave)_(nikke),Character,770,cycle-0004,cycle-0004,1,1,Official Japanese costume/form name not safely established,,Deferred without guessing.
+I70-004323,symphony_miku,Character,764,cycle-0004,cycle-0004,1,1,Official derivative-form display name not safely established,,Deferred without fan naming.
+I70-004363,jailbird_(nerissa_ravencroft),Character,755,cycle-0004,cycle-0004,1,1,Fan-community identity lacks safe official Japanese character name,,Deferred without inventing Japanese name.
+I70-004365,meguru_(cookie),Character,755,cycle-0004,cycle-0004,1,1,Fan-call tag lacks safe official Japanese character name,,Deferred without guessing.
+I70-004367,bae_minah_(chaesu),Character,754,cycle-0004,cycle-0004,1,1,Official Japanese character rendering not safely established,,Deferred without transliteration guess.
+I70-004388,limealicious,Character,750,cycle-0004,cycle-0004,1,1,VTuber display has no safely established official Japanese rendering,,In scope as VTuber; deferred.
+I70-004391,tomoe_gozen_(swimsuit_saber)_(first_ascension)_(fate),Character,750,cycle-0004,cycle-0004,1,1,Official Japanese ascension-specific display not safely established,,Deferred without fan-derived form naming.
+I70-004395,luo_xiaohei_(human),Character,749,cycle-0004,cycle-0004,1,1,Official Japanese human-form character rendering not safely established,,Deferred without transliteration guess.
+I70-004426,bao_the_whale,Character,741,cycle-0004,cycle-0004,1,1,VTuber display has no safely established official Japanese rendering,,In scope as VTuber; deferred.
+I70-004430,zen'in_maki_(post-shibuya),Character,741,cycle-0004,cycle-0004,1,1,Official Japanese timeline-specific form name not safely established,,Deferred without fan-derived qualifier.
+I70-004442,boota_(ttgl),Character,738,cycle-0004,cycle-0004,1,2,Official Japanese character-name evidence not established in this pass,https://www.netflix.com/jp/title/70213196,Series identity confirmed but source checked did not establish ブータ name at required confidence
+I70-004449,death_(entity),Character,737,cycle-0004,cycle-0004,1,2,Abstract/entity identity lacks trustworthy official Japanese naming evidence,,No safe official Japanese character rendering established
+I70-004456,boudica_(first_ascension)_(fate),Character,736,cycle-0004,cycle-0004,1,2,Ascension-specific official Japanese display not established,,Base character is known but form-specific display requires direct official evidence
+I70-004488,uzuki_(cookie),Character,730,cycle-0004,cycle-0004,1,2,Fan/community identity requires stronger first-party evidence,,UDK姉貴 mapping was not safely verified from an official source
+I70-004504,aokumo_rin,Character,726,cycle-0004,cycle-0004,1,2,Official identity/name evidence not established,,Could not safely verify 青雲凛 at HIGH confidence
+I70-004507,mars_(cookie),Character,726,cycle-0004,cycle-0004,1,2,Fan/community identity requires stronger first-party evidence,,MZ姉貴 mapping was not safely verified from an official source
+I70-004519,phainon_(flame_reaver)_(honkai:_star_rail),Character,724,cycle-0004,cycle-0004,1,2,Form-specific naming relation not sufficiently established,https://news.livedoor.com/article/detail/31594707/,Source confirms フレイムスティーラー entity/product naming but not enough to prove exact Danbooru form-label semantics for Phainon
+I70-004521,gareth_(fate),Character,723,cycle-0004,cycle-0004,1,2,Direct official Japanese character-name evidence not established,,Avoided relying on memory alone
+I70-004526,player_character_(female)_(degrees_of_lewdity),Character,723,cycle-0004,cycle-0004,1,2,Generic player-character tag lacks authoritative official Japanese proper name,,No safe HIGH-confidence Japanese official character name exists from checked evidence
+I70-004528,sweety_(zenless_zone_zero),Character,723,cycle-0004,cycle-0004,1,3,Official Japanese character page not established,https://zenless-zone-zero.fandom.com/wiki/Sweety,Secondary source indicates Japanese 紅豆 but protocol requires confirmed official Japanese name
+I70-004545,kaori_(splatoon),Character,719,cycle-0004,cycle-0004,1,3,Official Japanese identity not established,,Potential fan/community naming ambiguity
+I70-004563,togawa_sakiko_(master_of_melodia),Character,716,cycle-0004,cycle-0004,1,3,Exact form/outfit official Japanese label not established,,Base character name alone is insufficient for form-specific tag
+I70-004577,marche_lorraine_(umamusume),Character,712,cycle-0004,cycle-0004,1,3,Official character page not captured,https://www.sponichi.co.jp/gamble/news/2026/02/22/kiji/20260222s00004048409000c.html,Secondary report confirms マルシュロレーヌ but protocol prefers official confirmation
+I70-004596,pipkin_pippa,Character,709,cycle-0004,cycle-0004,1,3,Official Japanese display name not established,,VTuber Romanized identity is clear but Japanese display requirement not safely confirmed
+I70-004603,miyamoto_musashi_(third_ascension)_(fate),Character,707,cycle-0004,cycle-0004,1,3,Ascension-specific official display label not established,,Base character identity is insufficient for form-specific wording
+I70-004608,hebi_nyoubou_(second_ascension)_(fate),Character,706,cycle-0004,cycle-0004,1,3,Ascension-specific official display label not established,,Do not infer official form wording
+I70-004614,abigail_williams_(second_ascension)_(fate),Character,704,cycle-0004,cycle-0004,1,3,Ascension-specific official display label not established,,Do not infer official form wording
+I70-004617,belno_light_(umamusume),Character,704,cycle-0004,cycle-0004,1,3,Official character page not established,,Current name plausible but official Japanese source not captured in single pass
+I70-004640,rahu_(path_to_nowhere),Character,700,cycle-0004,cycle-0004,1,4,official Japanese character page not established,,Current ラーフ is plausible but not promoted without direct official Japanese evidence
+I70-004645,female_morgan_(fire_emblem),Character,699,cycle-0004,cycle-0004,1,4,form-specific official Japanese naming not established,,Need direct official evidence that this tag maps specifically to マーク（女）
+I70-004660,suzu_(cookie),Character,698,cycle-0004,cycle-0004,1,4,fan-derived identity lacks official naming evidence,,SZ姉貴 is a fan/community label and cannot be confirmed as an official Japanese character name
+I70-004679,fluorite_(arknights),Character,694,cycle-0004,cycle-0004,1,4,official Japanese character evidence not established,,Current フローライト not accepted without direct official character evidence
+I70-004691,mo_chengwei,Character,693,cycle-0004,cycle-0004,1,4,official Japanese localized name not established,,Chinese-name identity lacks verified official Japanese rendering
+I70-004693,shitodo_kuroji,Character,693,cycle-0004,cycle-0004,1,4,official Japanese name source not established,,No trustworthy first-party source was established for this character name
+I70-004700,ade_(nikke),Character,691,cycle-0004,cycle-0004,1,4,direct official Japanese character evidence not captured,,Current エード remains plausible but not HIGH-confidence without a checked official character source
+I70-004717,wizard_(ragnarok_online),Character,687,cycle-0004,cycle-0004,1,4,generic class/tag identity needs direct official mapping,,Current ウィザード is plausible but exact canonical-tag mapping was not safely verified
+I70-004752,puru-see_(hoshizuki_(seigetsu)),Character,682,cycle-0004,cycle-0004,1,5,OFFICIAL_NAME_NOT_ESTABLISHED,,No sufficiently authoritative Japanese identity source established in the single pass.
+I70-004754,artoria_caster_(swimsuit_berserker)_(first_ascension)_(fate),Character,681,cycle-0004,cycle-0004,1,5,FORM_NAME_NOT_ESTABLISHED,https://news.fate-go.jp/2026/09/3500man_pu/,Official source confirms アルトリア･キャスター(バーサーカー) but not this first-ascension label.
+I70-004757,jeanne_d'arc_(granblue_fantasy),Character,681,cycle-0004,cycle-0004,1,5,OFFICIAL_NAME_NOT_ESTABLISHED,,No sufficiently authoritative Japanese identity source established in the single pass.
+I70-004762,robin_hood_(fate),Character,681,cycle-0004,cycle-0004,1,5,OFFICIAL_NAME_NOT_ESTABLISHED,,No sufficiently authoritative Japanese identity source established in the single pass.
+I70-004763,spot_(arknights),Character,681,cycle-0004,cycle-0004,1,5,OFFICIAL_NAME_NOT_ESTABLISHED,,No sufficiently authoritative Japanese identity source established in the single pass.
+I70-004770,layla_(idolmaster),Character,680,cycle-0004,cycle-0004,1,5,OFFICIAL_NAME_NOT_ESTABLISHED,,No sufficiently authoritative Japanese identity source established in the single pass.
+I70-004775,boros_(ouro_kronii),Character,679,cycle-0004,cycle-0004,1,5,OFFICIAL_NAME_NOT_ESTABLISHED,,No sufficiently authoritative Japanese identity source established in the single pass.
+I70-004779,loves_only_you_(umamusume),Character,679,cycle-0004,cycle-0004,1,5,OFFICIAL_NAME_NOT_ESTABLISHED,,No sufficiently authoritative Japanese identity source established in the single pass.
+I70-004785,mordred_(swimsuit_rider)_(first_ascension)_(fate),Character,678,cycle-0004,cycle-0004,1,5,FORM_NAME_NOT_ESTABLISHED,,No official evidence for the exact first-ascension label established in the single pass.
+I70-004801,sunna_(afternoon_tea_break)_(zenless_zone_zero),Character,676,cycle-0004,cycle-0004,1,5,FORM_NAME_NOT_ESTABLISHED,,No official evidence for the exact variant label established in the single pass.
+I70-004806,ecclesia_(yu-gi-oh!),Character,675,cycle-0004,cycle-0004,1,5,IDENTITY_AMBIGUOUS,https://www.konami.com/games/corporate/ja/news/topics/20240205ocg/,KONAMI confirms 教導の聖女エクレシア while the generic canonical tag can cover multiple Ecclesia forms; unsafe to force a display change.
+I70-004817,mast_(nikke),Character,674,cycle-0004,cycle-0004,1,5,OFFICIAL_NAME_NOT_ESTABLISHED,,No sufficiently authoritative Japanese identity source established in the single pass.
 I70-035995,utdr_(toby_fox),Copyright,20287,cycle-0002,cycle-0002,1,4,Property identity/title scope could not be established at HIGH confidence in a single pass,,No sufficiently direct first-party Japanese title evidence established; deferred rather than guessing.
 I70-036064,cookie_(touhou),Copyright,12161,cycle-0002,cycle-0002,1,4,Fan-derived property identity lacks a safe formal official title,,Official Japanese property title suitable for display was not established; deferred.
 I70-036584,indie_utaite,Copyright,2143,cycle-0002,cycle-0002,1,4,Generic/community scope has no unique official property title,,No unique first-party Japanese title could be tied to this canonical scope.
@@ -237,3 +327,38 @@ I70-039198,bird/binary,Copyright,238,cycle-0003,cycle-0003,1,5,Official Japanese
 I70-039260,saishuu_chikan_densha,Copyright,232,cycle-0003,cycle-0003,1,5,High-confidence first-party title evidence not established in this pass,,Kept unresolved rather than rely on weak or unsuitable sources.
 I70-039273,yuuwaku_2_tsume_ato,Copyright,231,cycle-0003,cycle-0003,1,5,Official title typography not safely established,,Did not normalize title without reliable first-party evidence.
 I70-039284,xianjian_qixia_zhuan,Copyright,230,cycle-0003,cycle-0003,1,5,Japanese localized title versus original Chinese umbrella could not be safely separated,,Protocol forbids narrowing umbrella tags; left unresolved.
+I70-039297,sengoku_musou_2,Copyright,229,cycle-0004,cycle-0004,1,1,No sufficiently specific first-party title evidence established in this pass,,Deferred without guessing.
+I70-039306,searching_for_a_world_that_doesn't_exist,Copyright,228,cycle-0004,cycle-0004,1,1,Japanese official title not safely established,,Deferred without translating from Chinese.
+I70-039326,daten_keikaku,Copyright,225,cycle-0004,cycle-0004,1,1,Identity and official title evidence insufficient,,Deferred without guessing.
+I70-039328,ghost_sweeper_mikami,Copyright,225,cycle-0004,cycle-0004,1,1,Official title styling not safely established in this pass,,Deferred without guessing.
+I70-039330,jianxia_qingyuan_(series),Copyright,225,cycle-0004,cycle-0004,1,1,Japanese official series title not established,,Deferred without machine translation.
+I70-039331,kanojo_x_kanojo_x_kanojo,Copyright,225,cycle-0004,cycle-0004,1,1,First-party title evidence not safely established,,Deferred without guessing.
+I70-039332,katamari_damacy,Copyright,225,cycle-0004,cycle-0004,1,1,Official title evidence not safely captured in this pass,,Deferred without guessing.
+I70-039345,hajime_(idolmaster),Copyright,224,cycle-0004,cycle-0004,1,1,Tag identity/umbrella relation requires additional first-party disambiguation,,Deferred without narrowing umbrella.
+I70-039360,tenjou_tenge,Copyright,223,cycle-0004,cycle-0004,1,1,Official title evidence not safely captured in this pass,,Deferred without guessing.
+I70-039362,touran-sai,Copyright,223,cycle-0004,cycle-0004,1,1,Identity is ambiguous and cheap scope check was not conclusive,,Kept in scope and deferred.
+I70-039368,lunar_(series),Copyright,222,cycle-0004,cycle-0004,1,1,Japanese umbrella series title not safely established,,Deferred without narrowing series identity.
+I70-039372,pixiv_fate/grand_order_contest_1,Copyright,222,cycle-0004,cycle-0004,1,2,Checked pixiv corporate evidence covers contest 5 not contest 1,https://www.pixiv.co.jp/2024/09/26/120000,Do not back-project later contest naming onto first contest
+I70-039381,sengoku_musou_3,Copyright,221,cycle-0004,cycle-0004,1,2,Direct official title source not established in this pass,,Current title is plausible but held for first-party verification
+I70-039398,jianxia_qingyuan_online_3,Copyright,220,cycle-0004,cycle-0004,1,2,Formal title/variant typography not safely established,,Avoided guessing Chinese title normalization
+I70-039437,jinhongi,Copyright,216,cycle-0004,cycle-0004,1,2,Formal work identity/title source not established,,Current 鎭魂記 retained unresolved rather than guessed
+I70-039456,futakoi,Copyright,214,cycle-0004,cycle-0004,1,2,Direct official title source not established in this pass,,Current 双恋 is plausible but held for first-party verification
+I70-039492,kaii_shoukougun,Copyright,211,cycle-0004,cycle-0004,1,3,First-party title evidence not established,,Current title plausible but retained unresolved rather than guessing
+I70-039523,fuuto_tantei,Copyright,208,cycle-0004,cycle-0004,1,3,Official publisher evidence not captured in this pass,,Current title plausible but single-pass safety rule applied
+I70-039528,mahou_shoujo_(raita),Copyright,208,cycle-0004,cycle-0004,1,3,Exact canonical umbrella/title mapping remains ambiguous,,Did not force a verdict from secondary evidence
+I70-039559,magical_astronomy,Copyright,205,cycle-0004,cycle-0004,1,4,primary Japanese title evidence not established,,Current 大空魔術 is plausible but no sufficiently direct first-party title page was established in this pass
+I70-039576,touhou_bougetsushou,Copyright,203,cycle-0004,cycle-0004,1,4,umbrella tag title mapping remains ambiguous,,東方儚月抄 spans related works; safe umbrella display mapping needs stronger primary evidence
+I70-039588,gangsta,Copyright,201,cycle-0004,cycle-0004,1,4,current display appears contaminated but exact official mapping not safely established,,GANGSTA匪徒 likely mixes localized text; deferred rather than guessing
+I70-039592,sengoku_saga,Copyright,201,cycle-0004,cycle-0004,1,4,trustworthy first-party title source not established,,No safe HIGH-confidence title confirmation in this pass
+I70-039622,you_can_eat_the_girl,Copyright,199,cycle-0004,cycle-0004,1,4,Japanese localization/title identity not safely established,,食用系少女 may be a localization mapping but primary Japanese evidence was insufficient
+I70-039689,nisoku_hokou_(vocaloid),Copyright,193,cycle-0004,cycle-0004,1,5,OFFICIAL_TITLE_NOT_ESTABLISHED,,Exact official Japanese title not established in the single pass.
+I70-039702,senjuushi_(series),Copyright,192,cycle-0004,cycle-0004,1,5,SERIES_TITLE_SCOPE_UNCERTAIN,,Exact umbrella-series display/search treatment not safely established.
+I70-039719,tenchuu,Copyright,191,cycle-0004,cycle-0004,1,5,SERIES_TITLE_SCOPE_UNCERTAIN,,Exact umbrella-series display/search treatment not safely established.
+I70-039731,koukei_(idolmaster),Copyright,190,cycle-0004,cycle-0004,1,5,OFFICIAL_TITLE_NOT_ESTABLISHED,,Exact work/song identity and official title source not safely established.
+I70-039732,mobile_legends:_bang_bang,Copyright,190,cycle-0004,cycle-0004,1,5,JP_TITLE_NOT_ESTABLISHED,,Japanese-market official title treatment not safely established.
+I70-039746,legend_of_mortal,Copyright,189,cycle-0004,cycle-0004,1,5,JP_TITLE_NOT_ESTABLISHED,,Japanese-market official title treatment not safely established.
+I70-039747,lost_property_control_organization_(samidare),Copyright,189,cycle-0004,cycle-0004,1,5,OFFICIAL_TITLE_NOT_ESTABLISHED,,Exact work identity and official Japanese title not safely established.
+I70-039753,sansha_san'you,Copyright,189,cycle-0004,cycle-0004,1,5,OFFICIAL_TITLE_SOURCE_NOT_ESTABLISHED,,Current rendering is plausible but no sufficiently authoritative source was established in the single pass.
+I70-039758,zeta_gundam_define,Copyright,189,cycle-0004,cycle-0004,1,5,SUBTITLE_SCOPE_MISMATCH,,Canonical tag denotes Zガンダム Define while current display omits Define; exact official styling needs confirmation.
+I70-039761,beast_wars:_transformers,Copyright,188,cycle-0004,cycle-0004,1,5,SERIES_TITLE_SCOPE_UNCERTAIN,,Exact Japanese series title and search alias treatment not safely established.
+I70-039765,kyokou_suiri,Copyright,188,cycle-0004,cycle-0004,1,5,OFFICIAL_TITLE_SOURCE_NOT_ESTABLISHED,,Current rendering is plausible but no sufficiently authoritative source was established in the single pass.
