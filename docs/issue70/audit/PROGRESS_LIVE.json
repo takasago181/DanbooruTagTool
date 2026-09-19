@@ -9,11 +9,11 @@
   "remaining_unaudited_rows": 0,
   "duplicate_same_decision_rows": 0,
   "verdict_counts_resolved": {
-    "FIX_BOTH": 762,
-    "FIX_DISPLAY": 8039,
-    "FIX_SEARCH": 257,
-    "KEEP": 8293,
-    "NEEDS_EXTERNAL_CHECK": 919
+    "FIX_BOTH": 764,
+    "FIX_DISPLAY": 8043,
+    "FIX_SEARCH": 260,
+    "KEEP": 8325,
+    "NEEDS_EXTERNAL_CHECK": 878
   },
   "audited_by_category": {
     "Character": 14928,
@@ -25,7 +25,7 @@
     "Copyright": 0,
     "Artist": 0
   },
-  "unresolved_external_check_rows": 919,
+  "unresolved_external_check_rows": 878,
   "unresolved_user_decision_rows": 0,
   "remaining_patterns": {
     "Character": {
@@ -316,6 +316,10 @@
     {
       "file": "external_resolution_parallel_cycle-0002.csv",
       "ledger_rows": 73
+    },
+    {
+      "file": "external_resolution_parallel_cycle-0003.csv",
+      "ledger_rows": 41
     },
     {
       "file": "identity_safe_canonical_fallback_keep_batch026.csv",
