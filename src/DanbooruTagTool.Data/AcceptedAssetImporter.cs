@@ -23,7 +23,12 @@ public static class AcceptedAssetImporter
         "data/special2788/illustrious_tag_knowledge_base_2788.csv", "data/derived/special2788_VERIFIED_LINKAGE.csv",
         "data/derived/ruleset2/01_SPECIAL2788_JAPANESE_COMPLETE_CANDIDATE.csv", "data/runtime/japanese_overlay.json"];
     public static ImportResult Read(string sourceRoot, string authorityRoot)
+        => Read(sourceRoot, authorityRoot, CatalogBuildProfile.Full);
+
+    public static ImportResult Read(string sourceRoot, string authorityRoot, CatalogBuildProfile profile)
     {
+        if (profile is not (CatalogBuildProfile.Full or CatalogBuildProfile.Ordinary))
+            throw new ArgumentOutOfRangeException(nameof(profile));
         var hashes = new Dictionary<string, string>();
         string Source(string relative)
         {
@@ -49,6 +54,10 @@ public static class AcceptedAssetImporter
         }
         var source = Csv(Source(ProtectedInputs[2])).ToDictionary(r => r["ID"]);
         var linkage = Csv(Source(ProtectedInputs[3])).ToDictionary(r => r["ID"]);
+        var correctionPath = Authority(Issue118SpecialCanonicalCorrectionOverlay.RelativePath);
+        if (hashes[Issue118SpecialCanonicalCorrectionOverlay.RelativePath] != Issue118SpecialCanonicalCorrectionOverlay.AcceptedSha256)
+            throw new InvalidDataException("Issue #118 Special canonical correction authority hash mismatch");
+        var corrections = Issue118SpecialCanonicalCorrectionOverlay.Read(correctionPath, source, linkage, canonical);
         var japanesePath = Source(ProtectedInputs[4]);
         if (Hash(japanesePath) != "12f6ccdc5d2dba33123cdfa97a636b2fdd49a519ed89d327d330471696762e02") throw new InvalidDataException("Ruleset2 accepted Japanese hash mismatch");
         var japanese = Csv(japanesePath).ToDictionary(r => r["ID"]);
@@ -125,10 +134,19 @@ public static class AcceptedAssetImporter
             var link = linkage[id]; var ja = japanese[id];
             if (row["Tag"] != ja["Tag"] || row.Any(p => link[p.Key] != p.Value)) throw new InvalidDataException("Special source identity/linkage mismatch " + id);
             var target = link["ChosenCanonicalTag"];
+            string? promptToken = null;
+            if (corrections.TryGetValue(int.Parse(id, CultureInfo.InvariantCulture), out var correction))
+            {
+                target = correction.NewCanonical;
+                if (correction.Decision == "NO_SAFE_CANONICAL")
+                    promptToken = Issue118SpecialCanonicalCorrectionOverlay.NormalizePromptToken(row["Tag"]);
+            }
             if (target.Length > 0 && !canonical.ContainsKey(target)) throw new InvalidDataException("Invalid Special canonical");
-            entries.Add(new("S:" + id, target.Length == 0 ? null : target, row["Tag"], ja["日本語"], true,
+            entries.Add(new CatalogEntry("S:" + id, target.Length == 0 ? null : target, row["Tag"], ja["日本語"], true,
                 target.Length == 0 ? null : canonical[target], target.Length == 0 ? [] : aliases.GetValueOrDefault(target)?.ToArray() ?? [],
-                ja["検索キー"].Split(" | ", StringSplitOptions.RemoveEmptyEntries), mapping[id], fit[id], ja["元の日本語説明"]));
+                ja["検索キー"].Split(" | ", StringSplitOptions.RemoveEmptyEntries), mapping[id], fit[id], ja["元の日本語説明"])            {
+                PromptToken = promptToken
+            });
         }
         foreach (var row in promotion)
         {
@@ -166,12 +184,15 @@ public static class AcceptedAssetImporter
             if (!entries[i].IsSpecial && specialGroups.TryGetValue(entries[i].Canonical!, out var related) && related.All(e => !e.CanSearch))
                 entries[i] = entries[i] with { ProductFit = "OUT_OF_SCOPE_PRODUCT" };
 
-        var issue70Path = Authority(Issue70CatalogOverlayImporter.RelativePath);
-        var issue70 = Issue70CatalogOverlayImporter.Read(issue70Path);
-        var existingCanonical = entries.Where(e => e.Canonical != null).Select(e => e.Canonical!).ToHashSet(StringComparer.Ordinal);
-        var overlap = issue70.Where(e => e.Canonical != null && existingCanonical.Contains(e.Canonical)).Select(e => e.Canonical!).Take(5).ToArray();
-        if (overlap.Length > 0) throw new InvalidDataException("Issue #70 canonical overlaps existing General/Special: " + string.Join(", ", overlap));
-        entries.AddRange(issue70);
+        if (profile == CatalogBuildProfile.Full)
+        {
+            var issue70Path = Authority(Issue70CatalogOverlayImporter.RelativePath);
+            var issue70 = Issue70CatalogOverlayImporter.Read(issue70Path);
+            var existingCanonical = entries.Where(e => e.Canonical != null).Select(e => e.Canonical!).ToHashSet(StringComparer.Ordinal);
+            var overlap = issue70.Where(e => e.Canonical != null && existingCanonical.Contains(e.Canonical)).Select(e => e.Canonical!).Take(5).ToArray();
+            if (overlap.Length > 0) throw new InvalidDataException("Issue #70 canonical overlaps existing General/Special: " + string.Join(", ", overlap));
+            entries.AddRange(issue70);
+        }
         return new(entries.ToArray(), hashes);
     }
 

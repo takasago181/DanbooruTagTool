@@ -28,6 +28,9 @@ public sealed record CatalogEntry(string Id, string? Canonical, string English, 
     // General/Special keep their historical shape; Issue #70 adds the three Danbooru identity categories.
     // EffectiveCategory preserves backward compatibility with older catalog.db JSON that has no TagCategory field.
     public string TagCategory { get; init; } = "";
+    /// <summary>Explicit Prompt token for entries without a safe canonical equivalence.</summary>
+    public string? PromptToken { get; init; }
+    public string? EffectivePromptToken => PromptToken ?? Canonical;
     public string EffectiveCategory => string.IsNullOrWhiteSpace(TagCategory) ? (IsSpecial ? "Special" : "General") : TagCategory;
     public string[] RelatedCopyright { get; init; } = [];
     public string[] UnifiedBrowseRouteIds { get; init; } = [];
@@ -39,7 +42,7 @@ public sealed record CatalogEntry(string Id, string? Canonical, string English, 
     public string UsageText => Usage?.ToString("N0", System.Globalization.CultureInfo.InvariantCulture) ?? "—";
     public bool CanBrowse => ProductFit == "KEEP";
     public bool CanSearch => ProductFit != "OUT_OF_SCOPE_PRODUCT";
-    public bool CanAdd => Canonical is not null && CanSearch;
+    public bool CanAdd => EffectivePromptToken is not null && CanSearch;
     public string Breadcrumb => string.Join(" / ", Paths.Select(p => p.Label));
 }
 

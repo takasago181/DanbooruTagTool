@@ -15,6 +15,24 @@ public sealed class ProductionFactAttribute : FactAttribute
 }
 public class ProductionTests(ITestOutputHelper output)
 {
+    [ProductionFact] public void OrdinaryProfileExcludesIssue70AndPreservesOrdinaryCounts()
+    {
+        var sourceRoot = Environment.GetEnvironmentVariable("DTT_SOURCE_ROOT")!;
+        var authorityRoot = Environment.GetEnvironmentVariable("DTT_AUTHORITY_ROOT")!;
+        var result = AcceptedAssetImporter.Read(sourceRoot, authorityRoot, CatalogBuildProfile.Ordinary);
+        Assert.Equal(33688, result.Entries.Length);
+        Assert.Equal(30629, result.Entries.Count(e => e.EffectiveCategory == "General"));
+        Assert.Equal(AcceptedAssetImporter.ProductionSpecialCount, result.Entries.Count(e => e.EffectiveCategory == "Special"));
+        Assert.DoesNotContain(result.Entries, e => e.EffectiveCategory is "Character" or "Copyright" or "Artist");
+        Assert.Equal(28226, result.Entries.Count(e => !e.IsSpecial && e.BrowseClassification == BrowseClassificationStatus.Proposed));
+        Assert.Equal(2403, result.Entries.Count(e => !e.IsSpecial && e.BrowseClassification == BrowseClassificationStatus.Unresolved));
+        Assert.DoesNotContain(result.SourceHashes.Keys, key => key == Issue70CatalogOverlayImporter.RelativePath);
+        var ordinaryUnion = result.Entries.Where(e => e.EffectiveCategory is "General" or "Special")
+            .GroupBy(Issue118SexualIntentOverlay.SourceIdentity).Count();
+        output.WriteLine($"Ordinary source identity union: {ordinaryUnion}");
+        output.WriteLine("Ordinary profile excludes Issue #70 overlay and preserves General/Special authority counts.");
+    }
+
     [ProductionFact] public void ProductionCatalogCoverageEligibilitySearchAndSourceIntegrity()
     {
         var path=Environment.GetEnvironmentVariable("DTT_PRODUCTION_CATALOG")!; var watch=Stopwatch.StartNew();

@@ -104,6 +104,7 @@ public class TechnicalFixTests(ITestOutputHelper output)
         var files = Issue56Inputs.MappingHashes.Keys.Concat(new[]
         {
             "data/special2788/product_fit_verdicts.csv", AcceptedAssetImporter.ProductionProfileRelativePath, AcceptedAssetImporter.PromotionRelativePath, AcceptedAssetImporter.Issue107PromotionRelativePath,
+            Issue118SpecialCanonicalCorrectionOverlay.RelativePath,
             "docs/issue56/rollout/issue56_ui_genre_taxonomy_v1.json",
             AcceptedGeneralTaxonomyImporter.TaxonomyRelativePath, AcceptedGeneralTaxonomyImporter.SidecarRelativePath,
             AcceptedGeneralTaxonomyImporter.ManifestRelativePath

@@ -1,0 +1,26 @@
+special_id,special_tag,old_canonical,new_canonical,decision,reason,source
+550,uterine prolapse,vaginal_prolapse,,NO_SAFE_CANONICAL,uterine and vaginal prolapse are distinct anatomical concepts; current canonical set has no uterine_prolapse,issue118_runtime_conflict_review_v1
+722,loli,loli,loli,ORIGINAL_IS_CANONICAL,normalized original surface is the current canonical identity,issue118_runtime_conflict_review_v1
+725,covered nipples,covered_nipples,covered_nipples,EXACT_CANONICAL,normalized original surface matches the current canonical identity,issue118_runtime_conflict_review_v1
+783,tucked penis,tucked_penis,tucked_penis,ORIGINAL_IS_CANONICAL,normalized original surface is the current canonical identity,issue118_runtime_conflict_review_v1
+1251,covered erect nipples,covered_nipples,,NO_SAFE_CANONICAL,current canonical omits the erect modifier; no exact covered_erect_nipples identity exists,issue118_runtime_conflict_review_v1
+1252,erect nipple,covered_nipples,,NO_SAFE_CANONICAL,current canonical omits the erect modifier and the accepted #76 note rejects the covered meaning,issue118_runtime_conflict_review_v1
+1253,erect nipples,covered_nipples,,NO_SAFE_CANONICAL,current canonical omits the erect modifier and the accepted #76 note rejects the covered meaning,issue118_runtime_conflict_review_v1
+1254,erect nipples under clothes,covered_nipples,,NO_SAFE_CANONICAL,current canonical omits the under-clothes and erect modifiers,issue118_runtime_conflict_review_v1
+1255,errect nipples,covered_nipples,,NO_SAFE_CANONICAL,misspelling does not make the erect-nipple concept equivalent to covered_nipples; accepted #76 note rejects the covered meaning,issue118_runtime_conflict_review_v1
+1256,perky nipples,covered_nipples,,NO_SAFE_CANONICAL,perky and covered are distinct modifiers; accepted #76 note rejects the covered meaning,issue118_runtime_conflict_review_v1
+1361,vacuum fellatio,:>=,,NO_SAFE_CANONICAL,punctuation target is invalid and fellatio would discard the vacuum modifier; current canonical set has no vacuum_fellatio,issue118_runtime_conflict_review_v1
+1421,cock-tail,tucked_penis,tucked_penis,EXACT_CANONICAL,alias index has one target and accepted Japanese metadata identifies penis tucking,issue118_runtime_conflict_review_v1
+1422,penis tucking,tucked_penis,tucked_penis,EXACT_CANONICAL,alias index has one target and the surface directly describes tucked_penis,issue118_runtime_conflict_review_v1
+1502,sexual euphemism,euphemism,,NO_SAFE_CANONICAL,generic euphemism omits the sexual modifier and current canonical set has no sexual_euphemism,issue118_runtime_conflict_review_v1
+1575,lolicon,loli,,NO_SAFE_CANONICAL,lolicon denotes sexual preference while loli denotes the broader character concept; current canonical set has no lolicon,issue118_runtime_conflict_review_v1
+1576,rori,loli,loli,EXACT_CANONICAL,alias index has one target and accepted Japanese metadata identifies loli as the spelling target,issue118_runtime_conflict_review_v1
+1787,vaginal prolapse,vaginal_prolapse,vaginal_prolapse,ORIGINAL_IS_CANONICAL,normalized original surface is the current canonical identity,issue118_runtime_conflict_review_v1
+2528,naked thighhighs,thighhighs,,NO_SAFE_CANONICAL,current canonical omits the naked-only modifier and no exact naked_thighhighs identity exists,issue118_runtime_conflict_review_v1
+2529,nude thighhighs,thighhighs,,NO_SAFE_CANONICAL,current canonical omits the nude-only modifier and no exact nude_thighhighs identity exists,issue118_runtime_conflict_review_v1
+2530,naked sleeves,detached_sleeves,,NO_SAFE_CANONICAL,detached sleeves omits the naked modifier and is not semantically equivalent,issue118_runtime_conflict_review_v1
+2531,naked socks,socks,,NO_SAFE_CANONICAL,socks omits the naked modifier and is not semantically equivalent,issue118_runtime_conflict_review_v1
+2537,naked shrug,shrug_(clothing),,NO_SAFE_CANONICAL,shrug clothing omits the naked modifier and is not semantically equivalent,issue118_runtime_conflict_review_v1
+2546,naked randoseru,randoseru,,NO_SAFE_CANONICAL,randoseru omits the naked modifier and is not semantically equivalent,issue118_runtime_conflict_review_v1
+2634,thighhigh,thighhighs,,NO_SAFE_CANONICAL,alias index exposes two targets single_thighhigh and thighhighs; preserve the original surface until a canonical equivalence is established,issue118_runtime_conflict_review_v1
+2635,thighhighs only,thighhighs,,NO_SAFE_CANONICAL,current canonical omits the only modifier and no exact thighhighs_only identity exists,issue118_runtime_conflict_review_v1

@@ -57,10 +57,10 @@ public sealed class PromptParser(ICatalog catalog)
         if (w.Success && decimal.TryParse(w.Groups[2].Value, CultureInfo.InvariantCulture, out var weight))
         {
             var entry = ResolveRecognized(w.Groups[1].Value);
-            return new(Guid.NewGuid(), surface, entry?.Canonical, entry?.Japanese, PromptItemKind.Weighted, w.Groups[1].Value, weight, entry?.Id);
+            return new(Guid.NewGuid(), surface, entry?.EffectivePromptToken, entry?.Japanese, PromptItemKind.Weighted, w.Groups[1].Value, weight, entry?.Id);
         }
         var tag = ResolveRecognized(t);
-        return new(Guid.NewGuid(), surface, tag?.Canonical, tag?.Japanese, tag == null ? PromptItemKind.Raw : PromptItemKind.Normal, CatalogId: tag?.Id);
+        return new(Guid.NewGuid(), surface, tag?.EffectivePromptToken, tag?.Japanese, tag == null ? PromptItemKind.Raw : PromptItemKind.Normal, CatalogId: tag?.Id);
     }
     private CatalogEntry? ResolveRecognized(string value)
     {
@@ -173,8 +173,8 @@ public sealed class PromptWorkspace(PromptParser parser)
     public IReadOnlyList<PromptItem> FindByCanonical(string canonical) => items.Where(i => i.Canonical == canonical).ToArray();
     public bool Add(CatalogEntry entry)
     {
-        if (!entry.CanAdd || Contains(entry.Canonical!)) return false;
-        Change(() => items = [..items, new(Guid.NewGuid(), (items.Length == 0 ? "" : " ") + entry.Canonical, entry.Canonical, entry.Japanese, PromptItemKind.Normal)]);
+        if (!entry.CanAdd || entry.EffectivePromptToken is not { } token || Contains(token)) return false;
+        Change(() => items = [..items, new(Guid.NewGuid(), (items.Length == 0 ? "" : " ") + token, token, entry.Japanese, PromptItemKind.Normal)]);
         return true;
     }
     public PresetApplyResult AppendPreset(IEnumerable<PromptItem> presetItems)

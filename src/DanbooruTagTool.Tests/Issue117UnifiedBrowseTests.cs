@@ -383,23 +383,24 @@ public sealed class Issue117UnifiedBrowseTests
     }
 
     [Fact]
-    public void FrozenIssue118Authority_HasExactPopulationCountsAndFiveExplicitUnknowns()
+    public void FrozenIssue118V2Authority_HasExactRuntimePopulationAndExplicitUnknowns()
     {
         var root = FindRepoRoot();
-        var rows = AcceptedAssetImporter.Csv(Path.Combine(root, Issue118SexualIntentOverlay.RelativePath));
+        var rows = AcceptedAssetImporter.Csv(Path.Combine(root, Issue118SexualIntentV2Overlay.RelativePath));
 
-        Assert.Equal(Issue118SexualIntentOverlay.IdentityCount, rows.Count);
-        Assert.Equal(Issue118SexualIntentOverlay.AutoHighConfidenceCount, rows.Count(row => row["review_status"] == "AUTO_HIGH_CONF"));
-        Assert.Equal(Issue118SexualIntentOverlay.HumanReviewedCount, rows.Count(row => row["review_status"] == "HUMAN_REVIEWED"));
-        Assert.Equal(Issue118SexualIntentOverlay.UnclassifiedCount, rows.Count(row => row["review_status"] == "UNCLASSIFIED"));
-        Assert.Equal(Issue118SexualIntentOverlay.SexualCount, rows.Count(row => row["sexual_intent"] == "SEXUAL"));
-        Assert.Equal(Issue118SexualIntentOverlay.ContextualCount, rows.Count(row => row["sexual_intent"] == "CONTEXTUAL"));
-        Assert.Equal(Issue118SexualIntentOverlay.NonSexualCount, rows.Count(row => row["sexual_intent"] == "NON_SEXUAL"));
+        Assert.Equal(Issue118SexualIntentV2Overlay.IdentityCount, rows.Count);
+        Assert.Equal(Issue118SexualIntentV2Overlay.ExpectedSha256, AcceptedAssetImporter.Hash(Path.Combine(root, Issue118SexualIntentV2Overlay.RelativePath)));
+        Assert.Equal(Issue118SexualIntentV2Overlay.AutoHighConfidenceCount, rows.Count(row => row["review_status"] == "AUTO_HIGH_CONF"));
+        Assert.Equal(Issue118SexualIntentV2Overlay.HumanReviewedCount, rows.Count(row => row["review_status"] == "HUMAN_REVIEWED"));
+        Assert.Equal(Issue118SexualIntentV2Overlay.UnclassifiedCount, rows.Count(row => row["review_status"] == "UNCLASSIFIED"));
+        Assert.Equal(Issue118SexualIntentV2Overlay.SexualCount, rows.Count(row => row["sexual_intent"] == "SEXUAL"));
+        Assert.Equal(Issue118SexualIntentV2Overlay.ContextualCount, rows.Count(row => row["sexual_intent"] == "CONTEXTUAL"));
+        Assert.Equal(Issue118SexualIntentV2Overlay.NonSexualCount, rows.Count(row => row["sexual_intent"] == "NON_SEXUAL"));
 
         var unknowns = rows.Where(row => row["review_status"] == "UNCLASSIFIED")
             .Select(row => row["identity_key"]).OrderBy(value => value, StringComparer.Ordinal).ToArray();
         Assert.Equal(
-            new[] { "cock-tail", "insertion_threshold_(meme)", "knee_boobs", "lilistia", "powerful_ass" },
+            new[] { "insertion_threshold_(meme)", "knee_boobs", "lilistia", "powerful_ass" },
             unknowns);
         Assert.All(rows.Where(row => row["review_status"] == "UNCLASSIFIED"), row => Assert.Equal("", row["sexual_intent"]));
     }
