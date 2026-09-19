@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import sqlite3
 import sys
@@ -10,6 +11,8 @@ from collections import Counter
 from pathlib import Path
 from typing import Any
 
+
+CONTRACT_VERSION = "ordinary-catalog-v2-33688-special3059"
 
 STATUS_NAMES = {
     0: "AutoCandidate",
@@ -24,6 +27,25 @@ EXPECTED_STATUS = {
     "ReferenceOnlyNoDirectBrowse": 21,
     "DeferProductFitReview": 5,
 }
+
+
+def sha256_file(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest().upper()
+
+
+def checker_metadata() -> dict[str, str]:
+    path = Path(__file__).resolve()
+    return {
+        "path": str(path),
+        "sha256": sha256_file(path),
+        "contract_version": CONTRACT_VERSION,
+    }
+
+
 def check_db(path: Path, *, catalog: bool) -> dict[str, Any]:
     if not path.is_file():
         raise FileNotFoundError(path)
@@ -55,6 +77,7 @@ def check_db(path: Path, *, catalog: bool) -> dict[str, Any]:
                 if item is not None
             )
             general_product_fit = Counter(payload.get("ProductFit") for payload in general)
+            categories = Counter(payload.get("EffectiveCategory") for payload in payloads)
             result: dict[str, Any] = {
                 "path": str(path),
                 "quick_check": quick,
@@ -69,6 +92,9 @@ def check_db(path: Path, *, catalog: bool) -> dict[str, Any]:
                 "ordinals_contiguous": ordinals == list(range(len(rows))),
                 "ids_unique": len(set(ids)) == len(ids),
                 "general_canonical_unique": len({payload.get("Canonical") for payload in general}) == len(general),
+                "character": categories.get("Character", 0),
+                "copyright": categories.get("Copyright", 0),
+                "artist": categories.get("Artist", 0),
             }
             expected = {
                 "total": 33688,
@@ -79,6 +105,9 @@ def check_db(path: Path, *, catalog: bool) -> dict[str, Any]:
             for key, value in expected.items():
                 if result[key] != value:
                     raise RuntimeError(f"catalog invariant {key}={result[key]!r}, expected {value!r}")
+            for key in ("character", "copyright", "artist"):
+                if result[key] != 0:
+                    raise RuntimeError(f"ordinary catalog category {key}={result[key]!r}, expected 0")
             if result["special_status"] != EXPECTED_STATUS:
                 raise RuntimeError(f"#76 status distribution changed: {result['special_status']}")
             if not result["ordinals_contiguous"] or not result["ids_unique"] or not result["general_canonical_unique"]:
@@ -114,6 +143,7 @@ def main() -> int:
             "catalog": check_db(args.catalog, catalog=True),
             "userdb": check_db(args.userdb, catalog=False),
             "read_only": True,
+            "checker": checker_metadata(),
         }
     except Exception as error:  # noqa: BLE001 - concise CLI failure is intentional
         print(json.dumps({"ok": False, "error": str(error)}, ensure_ascii=False))
