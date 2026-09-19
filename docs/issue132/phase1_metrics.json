@@ -1,0 +1,81 @@
+{
+  "format_version": 1,
+  "issue": 132,
+  "phase": "PHASE1_AUDIT_ONLY",
+  "base_live_main": "f40f28ef3808ea6f3699c16a9aa903cb56f086e6",
+  "dedicated_branch": "research/taxonomy-usability-audit",
+  "authorities": {
+    "issue64": {
+      "population": 30629,
+      "proposed": 28226,
+      "unresolved": 2403,
+      "confidence": {
+        "HIGH": 25097,
+        "MEDIUM": 3129,
+        "LOW": 2403
+      },
+      "taxonomy_sha256": "7311fa1bf1523fcd83134c975b579289d7dbc8aa4cdb1313952d906fc2beb70f",
+      "sidecar_sha256": "a118f5f904c38cee5b63f0c83b06a56f50ee8afdb623c52eb354731bc0b846d9",
+      "canonical_sequence_sha256": "ca5cc065c92aa38f9daa6b6c8a1f1c13db135057ebfabca076479dfa96872e2b"
+    },
+    "issue76": {
+      "production_special_count": 3059,
+      "status_counts": {
+        "AutoCandidate": 2718,
+        "HumanResolved": 315,
+        "DeferProductFitReview": 5,
+        "OutOfScopeNoBrowse": 0,
+        "ReferenceOnlyNoDirectBrowse": 21
+      },
+      "kind_count": 9,
+      "body_facet_count": 6,
+      "theme_facet_count": 3
+    },
+    "unified_browse": {
+      "route_count": 19,
+      "headings": [
+        "何を描く",
+        "動き・状態",
+        "画面・表現"
+      ]
+    }
+  },
+  "general_structure": {
+    "rows_with_zero_secondary_paths": 29949,
+    "rows_with_one_secondary_path": 679,
+    "rows_with_two_secondary_paths": 1,
+    "rows_with_any_secondary_path": 680,
+    "rows_with_any_secondary_path_pct": 2.22
+  },
+  "mechanical_candidate_pools": {
+    "leading_color_plus_target_without_color_secondary": 1703,
+    "action_contact_plus_explicit_body_token_without_body_secondary": 328,
+    "style_meta_plus_visual_target_without_secondary": 31,
+    "clothing_identity_plus_state_or_placement_without_secondary": 15,
+    "pose_rows_with_strong_action_or_state_signal": 7,
+    "object_place_fixture_ambiguity": 64,
+    "unresolved_meme_event_project_family": 397,
+    "special_pose_composition_generation_role_pose_camera": 12
+  },
+  "note": "Mechanical pool counts are heuristic review pools, not confirmed error counts. Pools can overlap.",
+  "review_package": {
+    "candidate_rows": 136,
+    "candidate_file": "docs/issue132/phase1_candidates_v1.csv",
+    "candidate_pattern_counts": {
+      "modifier_target_missing_secondary": 28,
+      "action_body_missing_secondary": 30,
+      "style_meta_vs_visual_target": 15,
+      "clothing_identity_vs_state_or_placement": 15,
+      "pose_vs_action_or_state": 7,
+      "object_vs_place_fixture": 18,
+      "proper_meme_event": 15,
+      "general_special_mismatch": 1,
+      "special_body_vs_hair": 1,
+      "special_fluid_vs_meta": 1,
+      "pose_scene_projection_gap": 5
+    }
+  },
+  "protected_boundaries_changed": false,
+  "production_taxonomy_changed": false,
+  "production_apply_performed": false
+}
