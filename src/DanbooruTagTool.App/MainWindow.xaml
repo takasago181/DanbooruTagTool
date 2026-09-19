@@ -7,7 +7,7 @@
         Title="DanbooruTagTool v1"
         Width="1280" Height="720" MinWidth="900" MinHeight="560"
         WindowState="Maximized"
-        FontFamily="Yu Gothic UI" FontSize="14"
+        FontFamily="BIZ UDPGothic" FontSize="14"
         Background="#F4F7FA" UseLayoutRounding="True" SnapsToDevicePixels="True"
         PreviewKeyDown="WindowKeyDown">
     <Window.Resources>
