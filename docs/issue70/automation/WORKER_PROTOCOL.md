@@ -197,19 +197,14 @@ No lane should spend multiple hourly runs trying to force a hard category up to 
 
 ## Branch-local workflow synchronization
 
-GitHub Actions workflow definitions are branch-local for lane push events.
-
-Therefore, whenever `.github/workflows/issue70_parallel_integrator.yml` is changed on the authority branch, the exact same file content must be synchronized to all five lane branches before relying on any lane-triggered integration.
+GitHub Actions workflow definitions are branch-local for push events. The current architecture avoids five-way workflow drift by allowing only lane 1 to trigger Issue70 Parallel Integrator.
 
 Recovery coordinator rule:
-- compare the authority workflow blob/content with lane 1-5 before retrying a failed integrator;
-- if any lane differs, sync the authority workflow to every differing lane first;
-- only then retrigger integration from one lane-local STATUS/checkpoint path;
-- never keep retrying an old failed run whose event commit still contains the stale workflow definition;
+- compare the authority integrator workflow with lane 1 before retrying;
+- if lane 1 differs, sync the authority workflow to lane 1 first;
+- lane 2-5 workflow copies are inert because their branch names are not in the integrator trigger filter; their workflow SHA must not block progress;
+- never keep retrying an old failed run whose event commit contains a stale workflow definition;
 - workflow synchronization is mechanical only and must not change semantic RESULTS/REVIEWED/SCOPE decisions.
-
-This prevents an authority-side workflow fix from being silently ignored by branch-local lane runs.
-
 
 ## Single coordinator integration trigger
 
