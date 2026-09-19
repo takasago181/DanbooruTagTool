@@ -83,7 +83,7 @@ try {
         published_file_count = @(Get-ChildItem -LiteralPath $OutputRoot -File -Recurse).Count
         build_provenance_version = 'runtime-manifest-v1'
         catalog_contract_version = $health.checker.contract_version
-        checker_path = $health.checker.path
+        checker_path = 'scripts/maintenance/catalog_health.py'
         checker_sha256 = $health.checker.sha256
     }
     $manifest | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath (Join-Path $OutputRoot 'runtime-manifest.json') -Encoding utf8
