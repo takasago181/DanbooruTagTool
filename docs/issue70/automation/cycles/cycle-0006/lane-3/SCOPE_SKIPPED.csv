@@ -1,0 +1,4 @@
+cycle_id,lane,manifest_progress_sha256,row_id,canonical_tag,category,post_count,media_scope,scope_reason,evidence_refs,audit_note
+cycle-0006,3,e1bc7068b8b6b87492dc6e81a5f386de01933d12f8e50b976284dd7f47915c96,I70-042415,indiana_jones_(series),Copyright,79,REAL_3D,live-action-only film series,https://www.disney.co.jp/fc/indiana-jones,Clear non-2D/live-action scope; semantic title audit skipped
+cycle-0006,3,e1bc7068b8b6b87492dc6e81a5f386de01933d12f8e50b976284dd7f47915c96,I70-042889,blade_runner_(1982_movie),Copyright,70,REAL_3D,live-action-only film property,https://www.warnerbros.com/movies/blade-runner,Clear non-2D/live-action scope; semantic title audit skipped
+cycle-0006,3,e1bc7068b8b6b87492dc6e81a5f386de01933d12f8e50b976284dd7f47915c96,I70-042943,the_avengers_(2012),Copyright,70,REAL_3D,live-action-only film tag,https://www.marvel.com/movies/the-avengers,Clear non-2D/live-action scope; semantic title audit skipped

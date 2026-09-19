@@ -4,13 +4,11 @@
   "cycle_id": "cycle-0006",
   "lane": 3,
   "manifest_progress_sha256": "e1bc7068b8b6b87492dc6e81a5f386de01933d12f8e50b976284dd7f47915c96",
+  "complete": true,
   "assigned_count": 100,
-  "processed_count": 100,
+  "target_resolutions": 30,
   "resolved_count": 8,
   "reviewed_unresolved_count": 89,
   "scope_skipped_count": 3,
-  "next_assignment_index": 101,
-  "complete": true,
-  "production_modified": false,
-  "note": "Full 100-row bounded single pass complete. Checkpoints were persistence only; lane traversed to assignment end."
+  "production_modified": false
 }
