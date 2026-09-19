@@ -101,6 +101,18 @@ Codex自身がIssue本文を推測して書き換えない。
 55. Stage10の単発成功画像はlocal caseでありglobal/model-family truthではない。反復controlled evidenceのみ、scope付きでKNOWLEDGE #44のClaim更新候補にできる。
 56. Stage10の学習checkpointは必要以上に事務化しないが、意味のある区切りでは model/profile/runtime / target / actual Prompt・Negative / settings / Seed / tools・LoRA state / result・failure class / lesson を復元可能にする。
 
+## Runtime / portable production invariant
+
+57. 現在のworkstation user-facing runtimeは `C:\Codex\DanbooruTagTool-App` を標準とする。旧 `artifacts/current/` はfallback/referenceとして保持できるが、current launch authorityとして扱わない。
+58. production runtime promotionは `live main -> clean build/publish -> isolated validation -> DanbooruTagTool-App` の一方向で扱う。local runtimeからsource authorityへ逆流させない。
+59. `runtime-manifest.json` をruntime build/main provenance・RID・hash確認の基準として扱う。manifestとactual executable/catalog hashが一致しないruntimeを正式currentとみなさない。
+60. `UserData` / `user.db` はuser-owned stateであり、publish/deploy artifactではない。runtime更新を理由に削除・初期化・上書き・mirror同期しない。
+61. runtime promotionでUserDataのcopy/移行が必要な場合は、元を保持し、before/after hashまたは同等のbyte-level evidenceで一致を確認する。
+62. protected runtime/UserDataを含む場所に対する `robocopy /MIR`、broad delete/recreate、unknown-content cleanupを禁止する。既存の `git clean -fdx` / `git clean -fdX` 禁止も維持する。
+63. explicit `RenderMode.SoftwareOnly` overrideは現行mainでは採用しない。通常のWPF/Windows automatic render selectionがcurrent behavior。ただし性能優位は実測なしに主張しない。
+64. performance変更は `baseline -> measurement -> candidate -> same-condition measurement -> regression -> adopt/reject` を原則とし、見た目上怪しいコードだけを理由にproduction最適化しない。
+65. #70 Character/Copyright/Artist、taxonomy-usability/classification audit、runtime/performanceは独立laneとして扱う。明示的handoffなしにbranch/commit/data/Issue scopeを混ぜない。
+
 ## Product authority
 
 現在の製品目的は `docs/PRODUCT_GOAL_LOCK.md` を正本とする。
