@@ -1,0 +1,22 @@
+{
+  "format_version": 1,
+  "issue": 70,
+  "cycle_id": "cycle-0004",
+  "lane": 3,
+  "manifest_progress_sha256": "4cfe1484ad30a2a40353a3410dee4a02e2055c97f2e95520a1dbe0555019d48a",
+  "complete": true,
+  "assigned_count": 36,
+  "target_resolutions": 18,
+  "resolved_count": 18,
+  "reviewed_unresolved_count": 18,
+  "scope_skipped_count": 0,
+  "production_modified": false,
+  "single_pass_complete": true,
+  "mechanical_validation": {
+    "result_row_count": 18,
+    "duplicate_row_ids": 0,
+    "out_of_assignment_rows": 0,
+    "proposal_verdict_mismatches": 0,
+    "resolved_count_matches_results": true
+  }
+}
