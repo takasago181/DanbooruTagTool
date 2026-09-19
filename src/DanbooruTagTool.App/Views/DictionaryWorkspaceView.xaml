@@ -11,13 +11,90 @@
             <Setter Property="Padding" Value="7,2"/>
             <Setter Property="Margin" Value="0,1,4,1"/>
             <Setter Property="MinHeight" Value="26"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="FacetChrome"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Padding="{TemplateBinding Padding}"
+                                CornerRadius="6">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="FacetChrome" Property="Background" Value="#E8F4FF"/>
+                            </Trigger>
+                            <DataTrigger Binding="{Binding Selected}" Value="True">
+                                <Setter TargetName="FacetChrome" Property="Background" Value="{DynamicResource PrimaryBrush}"/>
+                                <Setter TargetName="FacetChrome" Property="BorderBrush" Value="{DynamicResource PrimaryBrush}"/>
+                                <Setter Property="Foreground" Value="White"/>
+                            </DataTrigger>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsMouseOver}" Value="True"/>
+                                    <Condition Binding="{Binding Selected}" Value="True"/>
+                                </MultiDataTrigger.Conditions>
+                                <Setter TargetName="FacetChrome" Property="Background" Value="#2B72B9"/>
+                            </MultiDataTrigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="FacetChrome" Property="Opacity" Value="0.55"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
             <Style.Triggers>
                 <DataTrigger Binding="{Binding Selected}" Value="True">
-                    <Setter Property="Background" Value="#E5F2FF"/>
+                    <Setter Property="Background" Value="{DynamicResource PrimaryBrush}"/>
                     <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}"/>
-                    <Setter Property="Foreground" Value="#17345E"/>
+                    <Setter Property="Foreground" Value="White"/>
                 </DataTrigger>
             </Style.Triggers>
+        </Style>
+        <Style x:Key="UnifiedFilterToggleLocal" TargetType="{x:Type ToggleButton}">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="{DynamicResource InkBrush}"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource BorderBrushSoft}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="8,2"/>
+            <Setter Property="Margin" Value="0,1,4,1"/>
+            <Setter Property="MinHeight" Value="26"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                        <Border x:Name="FilterChrome"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Padding="{TemplateBinding Padding}"
+                                CornerRadius="6">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="FilterChrome" Property="Background" Value="#E8F4FF"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="FilterChrome" Property="Background" Value="{DynamicResource PrimaryBrush}"/>
+                                <Setter TargetName="FilterChrome" Property="BorderBrush" Value="{DynamicResource PrimaryBrush}"/>
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsChecked" Value="True"/>
+                                    <Condition Property="IsMouseOver" Value="True"/>
+                                </MultiTrigger.Conditions>
+                                <Setter TargetName="FilterChrome" Property="Background" Value="#2B72B9"/>
+                            </MultiTrigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="FilterChrome" Property="Opacity" Value="0.55"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
         <DataTemplate x:Key="UnifiedFacetOptionTemplateLocal">
             <Button Content="{Binding Label}"
@@ -74,23 +151,23 @@
                         </DockPanel>
                         <DockPanel MinHeight="28">
                             <TextBlock DockPanel.Dock="Left" Text="部位" Style="{DynamicResource HintText}" Width="42" Margin="0,5,4,0"/>
-                            <ItemsControl ItemsSource="{Binding BodyOptions}" ItemTemplate="{StaticResource UnifiedFacetOptionTemplateLocal}" Visibility="{Binding ShowBodyOptions, Converter={StaticResource BoolVisibilityLocal}}">
+                            <ItemsControl ItemsSource="{Binding BodyOptions}" ItemTemplate="{StaticResource UnifiedFacetOptionTemplateLocal}">
                                 <ItemsControl.ItemsPanel><ItemsPanelTemplate><WrapPanel/></ItemsPanelTemplate></ItemsControl.ItemsPanel>
                             </ItemsControl>
                         </DockPanel>
                         <DockPanel MinHeight="28">
                             <TextBlock DockPanel.Dock="Left" Text="テーマ" Style="{DynamicResource HintText}" Width="42" Margin="0,5,4,0"/>
-                            <ItemsControl ItemsSource="{Binding ThemeOptions}" ItemTemplate="{StaticResource UnifiedFacetOptionTemplateLocal}" Visibility="{Binding ShowThemeOptions, Converter={StaticResource BoolVisibilityLocal}}">
+                            <ItemsControl ItemsSource="{Binding ThemeOptions}" ItemTemplate="{StaticResource UnifiedFacetOptionTemplateLocal}">
                                 <ItemsControl.ItemsPanel><ItemsPanelTemplate><WrapPanel/></ItemsPanelTemplate></ItemsControl.ItemsPanel>
                             </ItemsControl>
                         </DockPanel>
                         <DockPanel MinHeight="28">
                             <TextBlock DockPanel.Dock="Left" Text="内容" Style="{DynamicResource HintText}" Width="42" Margin="0,5,4,0"/>
                             <WrapPanel>
-                                <ToggleButton Content="すべて" IsChecked="{Binding IsContentAll, Mode=OneWay}" Command="{Binding SetContentIntentCommand}" CommandParameter="All" Style="{DynamicResource ModeToggleButton}" Padding="8,2" MinHeight="26" Margin="0,1,4,1"/>
-                                <ToggleButton Content="一般向け" IsChecked="{Binding IsContentGeneralPurpose, Mode=OneWay}" Command="{Binding SetContentIntentCommand}" CommandParameter="GeneralPurpose" Style="{DynamicResource ModeToggleButton}" Padding="8,2" MinHeight="26" Margin="0,1,4,1"/>
-                                <ToggleButton Content="性的" IsChecked="{Binding IsContentSexual, Mode=OneWay}" Command="{Binding SetContentIntentCommand}" CommandParameter="Sexual" Style="{DynamicResource ModeToggleButton}" Padding="8,2" MinHeight="26" Margin="0,1,4,1"/>
-                                <ToggleButton Content="◆ 深掘りのみ" IsChecked="{Binding DeepOnly, Mode=OneWay}" Command="{Binding ToggleDeepOnlyCommand}" Style="{DynamicResource ModeToggleButton}" Padding="8,2" MinHeight="26" Margin="0,1,4,1"/>
+                                <ToggleButton Content="すべて" IsChecked="{Binding IsContentAll, Mode=OneWay}" Command="{Binding SetContentIntentCommand}" CommandParameter="All" Style="{StaticResource UnifiedFilterToggleLocal}"/>
+                                <ToggleButton Content="一般向け" IsChecked="{Binding IsContentGeneralPurpose, Mode=OneWay}" Command="{Binding SetContentIntentCommand}" CommandParameter="GeneralPurpose" Style="{StaticResource UnifiedFilterToggleLocal}"/>
+                                <ToggleButton Content="性的" IsChecked="{Binding IsContentSexual, Mode=OneWay}" Command="{Binding SetContentIntentCommand}" CommandParameter="Sexual" Style="{StaticResource UnifiedFilterToggleLocal}"/>
+                                <ToggleButton Content="◆ 深掘りのみ" IsChecked="{Binding DeepOnly, Mode=OneWay}" Command="{Binding ToggleDeepOnlyCommand}" Style="{StaticResource UnifiedFilterToggleLocal}"/>
                             </WrapPanel>
                         </DockPanel>
                     </StackPanel>
