@@ -4,13 +4,13 @@
   "cycle_id": "cycle-0001",
   "lane": 4,
   "manifest_progress_sha256": "449ee7316f6996bcfcdd6a24663db83e3acf5f76b182c7f40104d55d395e79a0",
-  "complete": false,
+  "complete": true,
   "assigned_count": 60,
   "target_resolutions": 40,
   "validated_count": 18,
-  "reviewed_unresolved_count": 21,
-  "processed_count": 39,
-  "next_action": "continue the remaining assigned rows after I70-003517; do not revisit the 18 validated rows or 21 REVIEWED_UNRESOLVED rows",
-  "last_run_note": "Converted the first unresolved assignment cluster into explicit REVIEWED_UNRESOLVED entries after a single reasonable evidence pass. No guesses were promoted to RESULTS. Continue forward through the remaining assignment once, then finalize below target if necessary.",
+  "reviewed_unresolved_count": 42,
+  "processed_count": 60,
+  "next_action": "cycle-0001 complete; on next run re-read authority CURRENT_MANIFEST.json and act only if a new cycle is present",
+  "last_run_note": "Completed one reasonable pass over all 60 assigned rows. Preserved 18 HIGH-confidence results and recorded the remaining 42 as REVIEWED_UNRESOLVED without forcing quota.",
   "production_modified": false
 }
