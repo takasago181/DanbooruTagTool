@@ -1,0 +1,32 @@
+{
+  "schema_version": 2,
+  "authority": "docs/issue118/production_candidate/sexual_intent_v2.csv",
+  "counts": {
+    "total_identities": 31003,
+    "general_identities": 30629,
+    "special_identities": 2358,
+    "overlap_identities": 1984,
+    "sexual": 1506,
+    "non_sexual": 27707,
+    "contextual": 1786,
+    "unclassified": 4,
+    "auto_high_conf": 22206,
+    "human_reviewed": 8793,
+    "unclassified_review_status": 4,
+    "ordinary_backing_rows": 33688
+  },
+  "hashes": {
+    "source_v1_sha256": "6ebb849349f072065fb54e9a1b769374d831aefeb5d2d2fccec70b252543f921",
+    "reconciliation_v2_sha256": "4a6e49897273a921740d6f9fdcd413c66f1ea103cb2332343027ac6c0f04484d",
+    "runtime_conflict_decision_v2_sha256": "b8fe8287f4094c5c8d8a4a4effb10a66a1205888e8b3a740fe8e4c96ea42c0d3",
+    "correction_authority_sha256": "c82e2428669cf8db2b4727ac053fe34f305e6190be57ee01baf3a35a8b655a46"
+  },
+  "validation": {
+    "runtime_identity_count": 31003,
+    "duplicate_identity": 0,
+    "semantic_conflict": 0,
+    "mapping_suspect": 0,
+    "mapping_error": 0,
+    "unresolved_review_omission": 0
+  }
+}
