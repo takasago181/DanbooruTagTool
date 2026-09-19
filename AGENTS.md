@@ -30,6 +30,18 @@ Codexは独立班ではなくDEV（開発班）の実装担当。
 
 CURRENT_STATEが複数のactive DEV laneを示す場合、**ユーザーが依頼したlaneだけを選ぶ**。別laneを勝手に混ぜない。
 
+### Runtime preflight override — 2026-09-20
+
+Before local runtime/deploy/performance work, also verify:
+- live main SHA;
+- `docs/project/CURRENT_DEV_TASK.md`;
+- current runtime root `C:\Codex\DanbooruTagTool-App`;
+- `runtime-manifest.json` when inspecting a built runtime;
+- real UserData location/hash before any promotion that could touch user state.
+
+Do not assume `artifacts/current/` is the current launch target.
+Do not treat local UserData as disposable publish content.
+
 ## 3. 現在の製品目的
 
 製品目的の正本は `docs/PRODUCT_GOAL_LOCK.md`。
@@ -65,63 +77,49 @@ v1でデフォルトにしない:
 - full 11M-post / ~3GB statistics indexの必須化
 - Forge/ComfyUI direct generation integrationの必須化
 
-## 4. Current active DEV lanes
+## 4. Current active DEV routing
 
-### Issue #64 — General taxonomy
+### Post-#131 runtime baseline
 
-Owns only:
-- exact General 30,629 target population
-- shallow practical taxonomy classification
-- sidecar data/audit
-- unresolved accounting
+Current live main authority:
 
-Do not implement UI/search behavior inside #64。
-`docs/project/CURRENT_DEV_TASK.md` is an Issue #64 mirror only.
+`10d4a8e1e48b75eb37ef97713e93293d2695c5e0`
 
-### Issue #66 — app/search/UI completion
+Current user-facing runtime:
 
-Owns:
-- beginner-first desktop UI
-- **clean C#/.NET/WPF v1 implementation under a new `src/` tree**
-- existing-Prompt understanding/workspace
-- bilingual/mixed search quality and ranking/noise fixes
-- Special browse integration
-- General browse provider/UI that later consumes accepted #64 output
-- explicit add/remove/reorder
-- canonical-English preview/copy
-- hidden automatic insertion cleanup
-- self-contained portable Windows x64 packaging
-- final ADOPT/HOLD/REJECT reconciliation against `PRODUCT_GOAL_LOCK.md`
-- focused regression and real Windows acceptance
+`C:\Codex\DanbooruTagTool-App`
 
-Issue #66 first implementation authorities:
-- `docs/product/V1_UI_FIRST_IMPLEMENTATION_BASELINE.md`
-- `docs/product/V1_WPF_ARCHITECTURE_BASELINE.md`
+Current operational facts:
+- PR #131 UI refinement is completed;
+- PR #133 runtime/portable hardening is merged;
+- self-contained `win-x64` portable runtime is the current workstation launch target;
+- shortcut target and working directory point to `C:\Codex\DanbooruTagTool-App`;
+- `runtime-manifest.json` is the runtime provenance/hash contract;
+- `artifacts/current/` is retained fallback/reference only;
+- explicit `RenderMode.SoftwareOnly` has been removed; current WPF uses automatic Windows/WPF render selection;
+- performance benchmark remains pending and must not be inferred from functional smoke results.
 
-Known search regression such as `anal -> piano / analog...` is part of #66 acceptance.
+### Current default next DEV/AUDIT task
 
-### #66 architecture invariant
+The default next runtime lane is **Performance / Runtime Load Audit**.
 
-Current `tools/legacy/python/danbooru_tag_tool/` Python/Tk code is **legacy/reference during the first WPF build**。
+This lane is measurement-first. It may add isolated benchmark scripts/docs, but it does not own production optimization until evidence is reviewed.
 
-Do:
-- create new WPF projects under `src/`
-- reuse accepted data / identity / taxonomy / search rules / regression evidence / behavior
-- keep current Python/data paths intact during first build
-- keep #64 data ownership untouched
-- target `catalog.db` + `user.db/UserData` separation
-- target `win-x64` self-contained portable folder
+SoftwareOnly A/B authority:
+- A: `e64f3f7cb02df8f5c5fd65dc4132f0e398769b9d`
+- B: `10d4a8e1e48b75eb37ef97713e93293d2695c5e0`
 
-Do not:
-- make WPF depend on Python/Tcl/Tk at runtime
-- refactor the old Tk UI into the new product shell
-- move/delete legacy Python or broad `data/` trees before WPF baseline acceptance
-- port old recommendation/automatic-support/Stage-oriented UI merely because it exists
-- require a separate .NET Desktop Runtime installation for the standard portable build
+Do not use stale #64/#66/#117 text as active routing merely because it remains in historical documents or Issue history.
 
-Single-file EXE is not required. One copyable portable folder is preferred.
+### Independent lanes
 
-Issues #34 and #42 are retired/closed historical provenance only. Do not use them as future Gates.
+The following are independent from runtime/performance:
+- #70 Character / Copyright / Artist;
+- taxonomy-usability / classification audit;
+- Stage10 learning;
+- KNOWLEDGE #44.
+
+When multiple lanes exist, work only the user-selected lane and do not mix branches, commits, protected data, or production decisions.
 
 ## 5. Stage10 relationship
 
