@@ -247,3 +247,17 @@ Throughput rules:
 - All semantic quality rules remain unchanged.
 
 The desired capacity is up to 500 assigned candidates per cycle across five lanes while keeping each lane restartable and bounded.
+
+
+## Checkpoint is not a stop condition
+
+In high-throughput 100-row mode, a 20-25 row checkpoint is persistence only. It is NOT a normal reason to end the automation run.
+
+Required behavior:
+- after successfully committing each 20-25 row checkpoint, immediately continue in the SAME automation run with the next unchecked assigned row;
+- repeat checkpoint -> continue until all assigned rows for the lane have been traversed, or a real execution limit / timeout / rate limit / publish failure actually prevents continuation;
+- do not voluntarily stop at 20, 22, 25, 40, 50, or 75 processed rows merely because a clean checkpoint exists;
+- STATUS complete=true only after the whole assignment has been traversed for the current cycle;
+- if a genuine hard limit interrupts the run, leave complete=false and resume from the checkpoint next scheduled run.
+
+The intended normal case for cycle-0006+ is up to 100 assigned rows traversed per lane per automation run, with checkpoint commits only reducing loss risk.
