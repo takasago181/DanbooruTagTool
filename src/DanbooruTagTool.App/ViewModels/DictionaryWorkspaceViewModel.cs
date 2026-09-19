@@ -200,7 +200,9 @@ public sealed class DictionaryWorkspaceViewModel : Observable
     public bool IsNeutralTags => unifiedState.IsNeutralTags;
     public bool ShowNeutralGuidance => IsNeutralTags && !IsSearching;
     public bool ShowUnifiedRefinement => Scope == UnifiedBrowseScope.Tags;
-    public bool ShowLocalOptions => ShowUnifiedRefinement && LocalOptions.Count > 0;
+    public bool ShowLocalOptions => ShowUnifiedRefinement && LocalOptions.Any(option => option.IsVisible);
+    public bool ShowBodyOptions => ShowUnifiedRefinement && BodyOptions.Any(option => option.IsVisible);
+    public bool ShowThemeOptions => ShowUnifiedRefinement && ThemeOptions.Any(option => option.IsVisible);
     public bool IsContentAll => ContentIntent == ContentIntentFilter.All;
     public bool IsContentGeneralPurpose => ContentIntent == ContentIntentFilter.GeneralPurpose;
     public bool IsContentSexual => ContentIntent == ContentIntentFilter.Sexual;
@@ -582,6 +584,8 @@ public sealed class DictionaryWorkspaceViewModel : Observable
         Notify(nameof(ShowNeutralGuidance));
         Notify(nameof(ShowUnifiedRefinement));
         Notify(nameof(ShowLocalOptions));
+        Notify(nameof(ShowBodyOptions));
+        Notify(nameof(ShowThemeOptions));
         Notify(nameof(IsContentAll));
         Notify(nameof(IsContentGeneralPurpose));
         Notify(nameof(IsContentSexual));
@@ -618,6 +622,8 @@ public sealed class DictionaryWorkspaceViewModel : Observable
             option.Count = unifiedBrowse.CountWithTheme(unifiedState, option.Id);
         }
         Notify(nameof(ShowLocalOptions));
+        Notify(nameof(ShowBodyOptions));
+        Notify(nameof(ShowThemeOptions));
     }
 
     public void Add(CatalogEntry entry) { if (canMutate()) workspace.Add(entry); }
