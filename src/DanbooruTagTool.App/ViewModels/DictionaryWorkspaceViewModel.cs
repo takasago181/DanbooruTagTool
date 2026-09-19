@@ -58,22 +58,22 @@ public sealed class EntryViewModel(
             return text;
         }
     }
-    private int CanonicalMatchCount => entry.Canonical is { } canonical ? workspace.FindByCanonical(canonical).Count : 0;
-    public string AddLabel => !entry.CanAdd ? "参照のみ" : CanonicalMatchCount switch
+    private int PromptTokenMatchCount => entry.EffectivePromptToken is { } token ? workspace.FindByCanonical(token).Count : 0;
+    public string AddLabel => !entry.CanAdd ? "参照のみ" : PromptTokenMatchCount switch
     {
         0 => "＋ Promptへ追加",
         1 => "✓ 追加済み（クリックで取消）",
-        _ => $"✓ {CanonicalMatchCount}件追加済み（Prompt編集から削除）"
+        _ => $"✓ {PromptTokenMatchCount}件追加済み（Prompt編集から削除）"
     };
-    public string AddSymbol => !entry.CanAdd ? "参照" : CanonicalMatchCount > 0 ? "✓" : "＋";
+    public string AddSymbol => !entry.CanAdd ? "参照" : PromptTokenMatchCount > 0 ? "✓" : "＋";
     public string DetailAddLabel => AddLabel;
     private RelayCommand? addCommand;
     public RelayCommand Add => addCommand ??= new(_ => TogglePromptItem(), _ => CanTogglePromptItem());
-    private bool CanTogglePromptItem() => (canMutate?.Invoke() ?? true) && entry.CanAdd && CanonicalMatchCount <= 1;
+    private bool CanTogglePromptItem() => (canMutate?.Invoke() ?? true) && entry.CanAdd && PromptTokenMatchCount <= 1;
     private void TogglePromptItem()
     {
-        if (!CanTogglePromptItem() || entry.Canonical is not { } canonical) return;
-        var matches = workspace.FindByCanonical(canonical);
+        if (!CanTogglePromptItem() || entry.EffectivePromptToken is not { } token) return;
+        var matches = workspace.FindByCanonical(token);
         if (matches.Count == 0) add(entry);
         else if (matches.Count == 1) workspace.Delete([matches[0].Id]);
     }
@@ -243,7 +243,7 @@ public sealed class DictionaryWorkspaceViewModel : Observable
         "使用数 " + selectedEntry.Entry.UsageText, selectedEntry.Breadcrumb, selectedEntry.Entry.Description,
         selectedEntry.Entry.BrowseClassification == BrowseClassificationStatus.Unresolved ? "General分類は未解決のため、カテゴリ閲覧の対象外です。" : "",
         selectedEntry.Entry.ProductFit == "KEEP" ? "" : selectedEntry.Entry.ProductFit == "KEEP_REFERENCE_ONLY" ? "参照用" : "要確認",
-        selectedEntry.Entry.Canonical == null ? "canonicalへの安全な追加先が確定していない参照項目です。" : "" }.Where(s => s.Length > 0));
+        selectedEntry.Entry.Canonical == null ? "canonical同一性は未確定ですが、Promptには元の英語tokenを追加できます。" : "" }.Where(s => s.Length > 0));
     public string ResultSummary => $"{Results.Count:N0}件";
     public event Action? ResultsRestored;
 
@@ -652,7 +652,7 @@ public sealed class DictionaryWorkspaceViewModel : Observable
         var changed = ChangedCanonicals(promptCanonicalCounts, next);
         promptCanonicalCounts = next;
         var refreshed = RefreshRowsForCanonicals(changed);
-        if (selectedEntry?.Entry.Canonical is { } selectedCanonical && changed.Contains(selectedCanonical) && !refreshed.Contains(selectedEntry)) selectedEntry.Refresh();
+        if (selectedEntry?.Entry.EffectivePromptToken is { } selectedToken && changed.Contains(selectedToken) && !refreshed.Contains(selectedEntry)) selectedEntry.Refresh();
     }
 
     private void SetSelectedEntry(EntryViewModel? value, bool persist = true)
@@ -670,8 +670,8 @@ public sealed class DictionaryWorkspaceViewModel : Observable
         activeResultIndex.Clear();
         foreach (var row in Results.Concat(Related))
         {
-            if (row.Entry.Canonical is not { } canonical) continue;
-            if (!activeResultIndex.TryGetValue(canonical, out var rows)) activeResultIndex[canonical] = rows = [];
+            if (row.Entry.EffectivePromptToken is not { } token) continue;
+            if (!activeResultIndex.TryGetValue(token, out var rows)) activeResultIndex[token] = rows = [];
             if (!rows.Contains(row)) rows.Add(row);
         }
     }
