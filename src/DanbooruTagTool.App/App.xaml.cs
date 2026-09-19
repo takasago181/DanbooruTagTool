@@ -12,8 +12,6 @@ public partial class App : Application
     protected override void OnStartup(StartupEventArgs e)
     {
         base.OnStartup(e);
-        // This text-only portable app favors predictable rendering across GPU/remote-desktop drivers.
-        System.Windows.Media.RenderOptions.ProcessRenderMode = System.Windows.Interop.RenderMode.SoftwareOnly;
         try
         {
             if (e.Args.FirstOrDefault() == "--build-catalog")
