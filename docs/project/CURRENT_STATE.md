@@ -1,8 +1,36 @@
 # CURRENT STATE
 
-最終更新: 2026-09-18
+最終更新: 2026-09-20
 
 ## Current Stage
+
+### 2026-09-20 live runtime authority
+
+**This block supersedes older runtime/routing statements later in this historical state file when they conflict.**
+
+- Live main: `10d4a8e1e48b75eb37ef97713e93293d2695c5e0`.
+- PR #131 UI refinement is completed and incorporated in the current runtime.
+- PR #133 post-#131 runtime/portable hardening is merged at `10d4a8e1e48b75eb37ef97713e93293d2695c5e0`.
+- Current user-facing workstation runtime: `C:\Codex\DanbooruTagTool-App`.
+- Current shortcut target: `C:\Codex\DanbooruTagTool-App\DanbooruTagTool.exe`.
+- Current shortcut working directory: `C:\Codex\DanbooruTagTool-App`.
+- Runtime is self-contained `win-x64`; move-to-another-directory test passed.
+- `runtime-manifest.json` records the build/main provenance and runtime hashes.
+- `artifacts/current/` is retained as a fallback/reference runtime but is no longer the user-facing launch target.
+- Current catalog remains the validated 33,688-entry ordinary catalog: General 30,629 / Special 3,059 / Character-Copyright-Artist 0 / runtime identities 31,003.
+- Catalog SHA-256 remains `DFDC93581F2E8E3041FBC497F9A1C5CFD458977EF57462E05902F27D29B97CF9`.
+- Validated portable EXE SHA-256: `251C4A46B2BE76CB841CC04510B4747349B7079E3462E648A3E9F13EC136BEDB`.
+- Real `UserData` is user-owned state. Source/destination and pre/post-launch hashes were verified identical during portable promotion.
+- Explicit `RenderMode.SoftwareOnly` was removed in PR #133. Current WPF uses normal Windows/WPF automatic render selection.
+- Performance benchmark is **not yet complete**. The next default DEV/AUDIT route is measurement-only Performance / Runtime Load Audit; no further optimization is authorized by this state update.
+- #70 Character/Copyright/Artist work and taxonomy-usability/classification audit are independent lanes. Do not mix their branches/data/commits with runtime/performance work.
+
+Current operational flow:
+
+`live main -> validated build/publish -> isolated validation -> DanbooruTagTool-App runtime promotion`
+
+Production promotion is one-way for code/catalog/runtime files. Real `UserData` must never be treated as disposable deploy output.
+
 
 **Stage9 completed / beginner-first practical v1 accepted / #64 General taxonomy accepted and integrated / #66 completed / #68 completed / #69 local final cleanup completed / #114 WPF architecture stabilization Phase 1–4 completed and integrated.**
 
@@ -26,10 +54,11 @@ Current maintenance route:
 - **Stage10 learning Issue #65 may resume as the user's learning route.** It is not part of completed #76/#83.
 
 Current workstation WPF launch:
-- The current WPF runtime and production `Data/catalog.db` are available under local `artifacts/current/`.
-- The local root shortcut `DanbooruTagTool.lnk` launches that WPF app; this shortcut and runtime output are workstation-local conveniences, not tracked product files.
-- The pre-integration local `catalog.db` was the historical **2,788 Special** catalog. It was replaced once by the completed **3,059 Special** production profile; the 29 deleted IDs remain absent as stable-ID gaps. Existing `UserData/user.db` remains user-owned state and its hash was unchanged through the integration.
-- **Issue #70 workstation runtime is still pending one explicit rebuild.** GitHub main contains the accepted 92,739-row overlay and importer, but the current tool environment cannot access the protected workstation source inputs required by `--build-catalog`. Do not claim `artifacts/current/Data/catalog.db` contains Character/Copyright/Artist until that local rebuild, WPF launch, and practical search/navigation smoke pass are completed.
+
+- **Superseded by the 2026-09-20 live runtime authority block above.**
+- User-facing launch now uses `C:\Codex\DanbooruTagTool-App`.
+- `artifacts/current/` remains retained only as fallback/reference.
+- UserData remains protected user-owned state and is not replaced during runtime promotion.
 
 Issue #114 completion scope now integrated into main:
 - runtime catalog/query/index boundary with one-time runtime indexes and precomputed search documents;
