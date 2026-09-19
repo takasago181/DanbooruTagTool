@@ -100,7 +100,7 @@
                     </StackPanel>
                 </Grid>
             </Border>
-            <Border Grid.Row="3" Background="Transparent" BorderThickness="0" Padding="2">
+            <Border Grid.Row="3" Style="{DynamicResource WorkSurfaceCard}" Padding="2">
                 <Grid>
                     <ListBox x:Name="DictionaryList" PreviewKeyDown="DictionaryPreviewKeyDown" SelectionChanged="DictionarySelectionChanged" SizeChanged="DictionaryListSizeChanged" ItemsSource="{Binding DictionaryRows}" SelectedIndex="-1" ItemContainerStyle="{DynamicResource DictionaryRow}" ItemTemplate="{StaticResource DictionaryResultRowTemplateLocal}" HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.CanContentScroll="True" ScrollViewer.ScrollChanged="BrowseScrolled" VirtualizingPanel.IsVirtualizing="True" VirtualizingPanel.VirtualizationMode="Recycling" Background="Transparent" BorderThickness="0">
                         <ListBox.ItemsPanel><ItemsPanelTemplate><VirtualizingStackPanel Orientation="Vertical"/></ItemsPanelTemplate></ListBox.ItemsPanel>
