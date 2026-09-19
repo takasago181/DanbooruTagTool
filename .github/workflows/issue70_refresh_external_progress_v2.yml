@@ -1,0 +1,60 @@
+name: Issue70 Refresh External Progress v2
+
+on:
+  push:
+    branches:
+      - audit/issue70-semantic-final
+    paths:
+      - scripts/issue70/summarize_external_resolution_progress_v2.py
+      - docs/issue70/audit/external_resolution_*.csv
+      - docs/issue70/audit/external_resolutions/*.csv
+      - .github/workflows/issue70_refresh_external_progress_v2.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: issue70-refresh-external-progress-v2
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: audit/issue70-semantic-final
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Refresh external progress and unresolved queue
+        run: python scripts/issue70/summarize_external_resolution_progress_v2.py
+      - name: Validate read-only external state
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path('docs/issue70/audit/EXTERNAL_PROGRESS_LIVE.json').read_text(encoding='utf-8'))
+          assert d['format_version']==3
+          assert d['production_modified'] is False
+          assert d['primary_conflicted_rows']==0
+          assert d['conflicted_external_rows']==0
+          assert d['remaining_external_rows'] + d['resolved_external_rows'] == d['initial_external_rows']
+          assert d['initial_external_rows'] <= 1495
+          print({k:d[k] for k in ['initial_external_rows','resolved_external_rows','remaining_external_rows','primary_defer_markers_suppressed_by_concrete','resolved_verdict_counts','remaining_by_category']})
+          PY
+          git diff --exit-code -- docs/issue70/data/runtime docs/issue70/data/source
+      - name: Commit refreshed external progress
+        shell: bash
+        run: |
+          set -euo pipefail
+          git add docs/issue70/audit/EXTERNAL_PROGRESS_LIVE.json docs/issue70/audit/EXTERNAL_QUEUE_LIVE.csv
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Issue70: refresh effective-primary external progress'
+          git push origin HEAD:audit/issue70-semantic-final

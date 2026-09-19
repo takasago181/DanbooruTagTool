@@ -1,0 +1,69 @@
+name: Issue70 Generate Character Audit Batch 029B
+
+on:
+  push:
+    branches:
+      - audit/issue70-semantic-final
+    paths:
+      - .github/workflows/issue70_generate_character_batch029b.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: audit/issue70-semantic-final
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Generate KEEP decisions from fully reviewed clean40 diagnostic
+        shell: bash
+        run: |
+          python - <<'PY'
+          import csv
+          from pathlib import Path
+          src=Path('docs/issue70/audit/character_accepted_clean40_batch029a_diagnostic.csv')
+          out=Path('docs/issue70/audit/character_accepted_clean_keep_batch029b.csv')
+          with src.open(encoding='utf-8-sig',newline='') as f: rows=list(csv.DictReader(f))
+          assert len(rows)==40
+          assert all(r['audit_bucket']=='ACCEPTED_CLEAN_SAMPLE' and not r['risk_flags'].strip() and not r['translation_note'].strip() for r in rows)
+          fields=['row_id','canonical_tag','post_count','display_ja','search_ja','audit_verdict','proposed_display_ja','proposed_search_ja','reason_code','confidence','evidence_refs','audit_note','approval_status']
+          outrows=[]
+          for r in rows:
+              outrows.append({
+                  'row_id':r['row_id'],'canonical_tag':r['canonical_tag'],'post_count':r['post_count'],
+                  'display_ja':r['display_ja'],'search_ja':r['search_ja'],'audit_verdict':'KEEP',
+                  'proposed_display_ja':'','proposed_search_ja':'',
+                  'reason_code':'ACCEPTED_CLEAN_SAMPLE_NO_RISK_SEMANTIC_KEEP','confidence':'HIGH',
+                  'evidence_refs':'accepted clean sample; no semantic risk flags; full batch029A human/assistant review',
+                  'audit_note':'Accepted clean sampleを全件確認。表示名・検索語に新規の誤訳/identity/variant問題を認めずKEEP。',
+                  'approval_status':'PROPOSED'})
+          with out.open('w',encoding='utf-8-sig',newline='') as f:
+              w=csv.DictWriter(f,fieldnames=fields);w.writeheader();w.writerows(outrows)
+          print({'rows':len(outrows),'keep':len(outrows),'production_modified':False})
+          PY
+          git diff --exit-code -- docs/issue70/data/runtime docs/issue70/data/source
+      - name: Refresh exact progress summary
+        run: python scripts/issue70/summarize_semantic_audit_progress.py
+      - name: Validate and commit
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path('docs/issue70/audit/PROGRESS_LIVE.json').read_text(encoding='utf-8'))
+          assert d['production_modified'] is False
+          assert d['conflicted_unique_rows']==0
+          assert d['audited_unique_rows']+d['remaining_unaudited_rows']==d['initial_ledger_rows']
+          print({k:d[k] for k in ['audited_unique_rows','remaining_unaudited_rows','remaining_by_category','verdict_counts_resolved']})
+          PY
+          git diff --exit-code -- docs/issue70/data/runtime docs/issue70/data/source
+          git add docs/issue70/audit/character_accepted_clean_keep_batch029b.csv docs/issue70/audit/PROGRESS_LIVE.json
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Issue70: keep reviewed Character clean sample batch 029B'
+          git push origin HEAD:audit/issue70-semantic-final

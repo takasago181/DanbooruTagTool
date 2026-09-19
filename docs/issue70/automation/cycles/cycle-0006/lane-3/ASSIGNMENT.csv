@@ -1,0 +1,101 @@
+﻿row_id,canonical_tag,category,post_count,display_ja,search_ja,translation_note,primary_source_file,seed_shortlist_source,seed_provisional_verdict,seed_proposed_display_ja,seed_proposed_search_ja,seed_evidence_ref,seed_audit_note,reviewed_unresolved,review_count,last_review_cycle,last_review_reason
+I70-047552,tokumi_yuiko,Artist,452,とくみゆいこ,,"semantic re-curation: artist identity normalized; known Japanese credit used when clear, otherwise canonical handle preserved without machine translation",artist_initial_audit_batch008.csv,,,,,,,true,1,cycle-0002,No sufficiently authoritative profile or credit source established in this pass
+I70-048498,choborau_nyopomi,Artist,388,ちょぼらうにょぽみ,,"semantic translation: artist identity preserved; known Japanese credit used when clear, otherwise canonical handle retained without machine translation",artist_initial_audit_batch008.csv,,,,,,,true,1,cycle-0002,No sufficiently authoritative identity source established in this pass
+I70-050191,sugina_miki,Artist,311,杉菜水姫,,semantic re-audit: independently verified official/common Japanese artist credit,artist_initial_audit_batch008.csv,,,,,,,true,1,cycle-0003,公式プロフィールまたは一次クレジットを今回確定できず
+I70-050545,yamamoto_kazue,Artist,300,山本和枝,,semantic re-audit: independently verified official/common Japanese artist credit,artist_initial_audit_batch008.csv,,,,,,,true,1,cycle-0003,一次クレジットを今回確定できず
+I70-050694,nanase_aoi,Artist,295,七瀬葵,,semantic re-audit: independently verified official/common Japanese artist credit,artist_initial_audit_batch008.csv,,,,,,,true,1,cycle-0003,一次クレジットを今回確定できず
+I70-050715,chikotam,Artist,294,ちこたむ,,semantic re-audit: independently verified official/common Japanese artist credit,artist_initial_audit_batch008.csv,,,,,,,true,1,cycle-0003,一次クレジットを今回確定できず
+I70-050744,taka-michi,Artist,294,たかみち,,semantic re-audit: independently verified official/common Japanese artist credit,artist_initial_audit_batch008.csv,,,,,,,true,1,cycle-0003,同名異人を排除できる一次クレジット不足
+I70-050763,komatsuzaki_rui,Artist,293,小松崎類,,semantic re-audit: independently verified official/common Japanese artist credit,artist_initial_audit_batch008.csv,,,,,,,true,1,cycle-0003,一次クレジットを今回確定できず
+I70-050860,nana_kagura,Artist,290,ななかぐら,カグラナナ,semantic re-audit: independently verified official/common Japanese artist credit,artist_initial_audit_batch008.csv,,,,,,,true,1,cycle-0003,イラストレーター名とV活動名の正規化境界を一次情報で確定できず
+I70-051159,kawarajima_kou,Artist,281,かわらじま晃,,semantic re-audit: independently verified official/common Japanese artist credit,artist_initial_audit_batch008.csv,,,,,,,true,1,cycle-0003,一次クレジットを今回確定できず
+I70-051168,monokubo,Artist,281,もの久保,,semantic re-audit: independently verified official/common Japanese artist credit,artist_initial_audit_batch008.csv,,,,,,,true,1,cycle-0003,一次クレジットを今回確定できず
+I70-051267,ponkan_8,Artist,279,ぽんかん⑧,ぽんかん8,semantic re-audit: independently verified official/common Japanese artist credit,artist_initial_audit_batch008.csv,,,,,,,true,1,cycle-0003,公式表記と検索別名の一次根拠不足
+I70-051764,nyoijizai,Artist,265,如意自在,,semantic re-audit: independently verified official/common Japanese artist credit,artist_initial_audit_batch008.csv,,,,,,,true,1,cycle-0003,一次クレジットを今回確定できず
+I70-052320,dowman_sayman,Artist,252,道満晴明,,semantic re-audit: independently verified official/common Japanese artist credit,artist_initial_audit_batch008.csv,,,,,,,true,1,cycle-0003,Identity-safe official profile or publisher credit not established in this pass
+I70-053016,nekobayashi,Artist,238,猫囃子,,semantic re-audit: independently verified official/common Japanese artist credit,artist_initial_audit_batch008.csv,,,,,,,true,1,cycle-0003,Official identity-safe profile/credit not established
+I70-053157,fujieda_miyabi,Artist,235,藤枝雅,,semantic re-audit: independently verified official/common Japanese artist credit,artist_initial_audit_batch008.csv,,,,,,,true,1,cycle-0003,Authoritative identity evidence not established in this pass
+I70-053167,matsuo_yuusuke,Artist,235,松尾祐輔,,semantic re-audit: independently verified official/common Japanese artist credit,artist_initial_audit_batch008.csv,,,,,,,true,1,cycle-0003,Secondary coverage supports name but first-party/identity-safe evidence threshold not met
+I70-053233,suzuragi_karin,Artist,234,鈴羅木かりん,,semantic re-audit: independently verified official/common Japanese artist credit,artist_initial_audit_batch008.csv,,,,,,,true,1,cycle-0003,Official profile/credit not established in this pass
+I70-053246,annindoufu_(oicon),Artist,233,杏仁豆腐,,semantic re-audit: independently verified official/common Japanese artist credit,artist_initial_audit_batch008.csv,,,,,,,true,1,cycle-0003,Published work supports pen name but identity-safe first-party evidence threshold not met
+I70-053267,katou_itsuwa,Artist,233,加藤いつわ,,semantic re-audit: independently verified official/common Japanese artist credit,artist_initial_audit_batch008.csv,,,,,,,true,1,cycle-0003,Official profile/credit not established
+I70-053286,ueda_metawo,Artist,233,上田メタヲ,,semantic re-audit: independently verified official/common Japanese artist credit,artist_initial_audit_batch008.csv,,,,,,,true,1,cycle-0003,No sufficiently authoritative identity-safe credit established in this pass
+I70-053442,tsukasa_jun,Artist,230,司淳,,semantic re-audit: independently verified official/common Japanese artist credit,artist_initial_audit_batch008.csv,,,,,,,true,1,cycle-0003,No sufficiently authoritative profile/credit established in this pass
+I70-053479,nakajima_atsuko,Artist,229,中嶋敦子,,semantic re-audit: independently verified official/common Japanese artist credit,artist_initial_audit_batch008.csv,,,,,,,true,1,cycle-0003,Search surfaced secondary material but not a sufficiently authoritative identity source
+I70-053563,takayama_toshiaki,Artist,228,タカヤマトシアキ,,semantic re-audit: independently verified official/common Japanese artist credit,artist_initial_audit_batch008.csv,,,,,,,true,1,cycle-0003,No sufficiently authoritative profile/credit established in this pass
+I70-053568,yoshinari_you,Artist,228,吉成曜,,semantic re-audit: independently verified official/common Japanese artist credit,artist_initial_audit_batch008.csv,,,,,,,true,1,cycle-0003,Search surfaced secondary identity material but no first-party credit retained
+I70-053664,seo_kouji,Artist,226,瀬尾公治,,semantic re-audit: independently verified official/common Japanese artist credit,artist_initial_audit_batch008.csv,,,,,,,true,1,cycle-0003,Search surfaced secondary identity material but no first-party profile retained
+I70-053914,amano_kozue,Artist,221,天野こずえ,,semantic re-audit: independently verified official/common Japanese artist credit,artist_initial_audit_batch008.csv,,,,,,,true,1,cycle-0003,Identity appears clear but this pass did not establish a sufficiently authoritative creator credit
+I70-054140,minazuki_suu,Artist,218,水無月すう,,semantic re-audit: independently verified official/common artist credit,artist_initial_audit_batch008.csv,,,,,,,true,1,cycle-0003,公式プロフィールまたは一次クレジットURLを確立できず
+I70-054195,mikami_mika,Artist,217,三上ミカ,,semantic re-audit: independently verified official/common artist credit,artist_initial_audit_batch008.csv,,,,,,,true,1,cycle-0003,公式プロフィールまたは一次クレジットURLを確立できず
+I70-054200,nagimiso,Artist,217,なぎみそ,,semantic re-audit: independently verified official/common artist credit,artist_initial_audit_batch008.csv,,,,,,,true,1,cycle-0003,公式プロフィールまたは一次クレジットURLを確立できず
+I70-054216,sumeragi_hamao,Artist,217,皇ハマオ,,semantic re-audit: independently verified official/common artist credit,artist_initial_audit_batch008.csv,,,,,,,true,1,cycle-0003,公式プロフィールまたは一次クレジットURLを確立できず
+I70-054223,tsuchibayashi_makoto,Artist,217,土林誠,,semantic re-audit: independently verified official/common artist credit,artist_initial_audit_batch008.csv,,,,,,,true,1,cycle-0003,一次クレジットURLを確立できず
+I70-054341,taniguchi_jun'ichirou,Artist,215,谷口淳一郎,,semantic re-audit: independently verified official/common artist credit,artist_initial_audit_batch008.csv,,,,,,,true,1,cycle-0003,一次クレジットURLを確立できず
+I70-042379,pinocchio_(disney_movie),Copyright,80,ピノキオ,,semantic re-curation: title/name judged usable; official/common rendering preferred over literal candidate,copyright_final_internal_external_split_batch064.csv,,,,,,,,,,
+I70-042388,spirit_animals_in_disguise,Copyright,80,千变灵兽,,semantic re-curation: genuinely ambiguous/unresolved; manual verification still required,copyright_review_external_batch062.csv,,,,,,,,,,
+I70-042408,digimon_world,Copyright,79,デジモンワールド,,semantic re-curation: title/name judged usable; official/common rendering preferred over literal candidate,copyright_final_internal_external_split_batch064.csv,,,,,,,,,,
+I70-042415,indiana_jones_(series),Copyright,79,インディ・ジョーンズ,,semantic re-curation: title/name judged usable; official/common rendering preferred over literal candidate,copyright_final_internal_external_split_batch064.csv,,,,,,,,,,
+I70-042432,quanmian_shidai,Copyright,79,全棉时代,,semantic re-curation: genuinely ambiguous/unresolved; manual verification still required,copyright_review_external_batch062.csv,,,,,,,,,,
+I70-042483,minions_(movie),Copyright,78,ミニオンズ,,semantic re-curation: title/name judged usable; official/common rendering preferred over literal candidate,copyright_final_internal_external_split_batch064.csv,,,,,,,,,,
+I70-042508,echo_(visual_novel),Copyright,77,ECHO,,semantic re-curation: title/name judged usable; official/common rendering preferred over literal candidate,copyright_final_internal_external_split_batch064.csv,,,,,,,,,,
+I70-042513,icetea,Copyright,77,ヨメミ,,semantic re-curation: genuinely ambiguous/unresolved; manual verification still required,copyright_review_external_batch062.csv,,,,,,,,,,
+I70-042587,ryoushin_no_shakkin,Copyright,76,かたかわ,,semantic re-curation: genuinely ambiguous/unresolved; manual verification still required,copyright_review_external_batch062.csv,,,,,,,,,,
+I70-042617,evenicle,Copyright,75,イブニクル,,semantic re-curation: title/name judged usable; official/common rendering preferred over literal candidate,copyright_final_internal_external_split_batch064.csv,,,,,,,,,,
+I70-042619,gacha_(lunime),Copyright,75,ガチャライフ2,,semantic re-curation: genuinely ambiguous/unresolved; manual verification still required,copyright_review_external_batch062.csv,,,,,,,,,,
+I70-042630,mana_khemia,Copyright,75,マナケミア,,semantic re-curation: title/name judged usable; official/common rendering preferred over literal candidate,copyright_final_internal_external_split_batch064.csv,,,,,,,,,,
+I70-042638,revolver_(game),Copyright,75,リボルバー（ゲーム）,,semantic re-curation: genuinely ambiguous/unresolved; manual verification still required,copyright_review_external_batch062.csv,,,,,,,,,,
+I70-042670,jain_no_ikenie,Copyright,74,邪淫のいけにえ,,semantic re-curation: title/name judged usable; official/common rendering preferred over literal candidate,copyright_final_internal_external_split_batch064.csv,,,,,,,,,,
+I70-042695,temptation,Copyright,74,誘惑,,semantic re-curation: genuinely ambiguous/unresolved; manual verification still required,copyright_review_external_batch062.csv,,,,,,,,,,
+I70-042808,sengoku_musou_1,Copyright,72,戦国無双,,semantic re-curation: title/name judged usable; official/common rendering preferred over literal candidate,copyright_final_internal_external_split_batch064.csv,,,,,,,,,,
+I70-042816,toushinden_1,Copyright,72,闘神伝,,semantic re-curation: title/name judged usable; official/common rendering preferred over literal candidate,copyright_final_internal_external_split_batch064.csv,,,,,,,,,,
+I70-042824,candy_(art_book),Copyright,71,キャンディ（アートブック）,,semantic re-curation: genuinely ambiguous/unresolved; manual verification still required,copyright_review_external_batch062.csv,,,,,,,,,,
+I70-042875,unholy_sanctuary,Copyright,71,アンホリ☆プロダクション,,semantic re-curation: genuinely ambiguous/unresolved; manual verification still required,copyright_review_external_batch062.csv,,,,,,,,,,
+I70-042884,aku_no_musume_(series),Copyright,70,悪ノ娘,,semantic re-curation: title/name judged usable; official/common rendering preferred over literal candidate,copyright_final_internal_external_split_batch064.csv,,,,,,,,,,
+I70-042889,blade_runner_(1982_movie),Copyright,70,ブレードランナー,,semantic re-curation: title/name judged usable; official/common rendering preferred over literal candidate,copyright_final_internal_external_split_batch064.csv,,,,,,,,,,
+I70-042893,code_geachu_lelouch_of_the_calamity,Copyright,70,コードGeachu Lelouch of the Calamity,,semantic re-curation: genuinely ambiguous/unresolved; manual verification still required,copyright_review_external_batch062.csv,,,,,,,,,,
+I70-042895,counter-strike,Copyright,70,カウンターストライク,,semantic re-curation: title/name judged usable; official/common rendering preferred over literal candidate,copyright_final_internal_external_split_batch064.csv,,,,,,,,,,
+I70-042901,gal_gun,Copyright,70,ぎゃる☆がん,,semantic re-curation: title/name judged usable; official/common rendering preferred over literal candidate,copyright_final_internal_external_split_batch064.csv,,,,,,,,,,
+I70-042912,jiangnan_baijingtu,Copyright,70,江南百景图,,semantic re-curation: genuinely ambiguous/unresolved; manual verification still required,copyright_review_external_batch062.csv,,,,,,,,,,
+I70-042943,the_avengers_(2012),Copyright,70,アベンジャーズ,,semantic re-curation: title/name judged usable; official/common rendering preferred over literal candidate,copyright_final_internal_external_split_batch064.csv,,,,,,,,,,
+I70-042967,hakusen_(idolmaster),Copyright,69,白線,,semantic re-curation: title/name judged usable; official/common rendering preferred over literal candidate,copyright_final_internal_external_split_batch064.csv,,,,,,,,,,
+I70-043002,police_and_lady,Copyright,69,えまちづ,,semantic re-curation: genuinely ambiguous/unresolved; manual verification still required,copyright_review_external_batch062.csv,,,,,,,,,,
+I70-043078,virtual_insanity_(song),Copyright,68,Virtual Insanity,,semantic re-curation: title/name judged usable; official/common rendering preferred over literal candidate,copyright_final_internal_external_split_batch064.csv,,,,,,,,,,
+I70-043135,tragic_drops_(love_live!),Copyright,67,Tragic Drops,,semantic re-curation: title/name judged usable; official/common rendering preferred over literal candidate,copyright_final_internal_external_split_batch064.csv,,,,,,,,,,
+I70-043162,how_to_train_your_dragon_1,Copyright,66,ヒックとドラゴン,,semantic re-curation: title/name judged usable; official/common rendering preferred over literal candidate,copyright_final_internal_external_split_batch064.csv,,,,,,,,,,
+I70-043215,emotion_(love_live!),Copyright,65,EMOTION,,semantic re-curation: title/name judged usable; official/common rendering preferred over literal candidate,copyright_final_internal_external_split_batch064.csv,,,,,,,,,,
+I70-043225,kocchi_muite_baby_(vocaloid),Copyright,65,こっち向いて Baby,,semantic re-curation: title/name judged usable; official/common rendering preferred over literal candidate,copyright_final_internal_external_split_batch064.csv,,,,,,,,,,
+I70-006111,anjo_nala,Character,510,アンジョ・ナラ,アンジョ・ナラ,日本語公式表記の追加確認が必要,character_review_final_batch061.csv,,,,,,,,,,
+I70-006114,heroine_(lovebrush_chronicles),Character,510,主人公（時空の絵旅人）,主人公（時空の絵旅人）,日本語公式表記の追加確認が必要,character_review_final_batch061.csv,,,,,,,,,,
+I70-006145,tokisaki_asaba_(niliu_chahui),Character,508,朱鷺咲浅羽,朱鷺咲浅羽,日本語公式表記の追加確認が必要,character_review_final_batch061.csv,,,,,,,,,,
+I70-006169,cael_anselm,Character,505,ヨウケン,ヨウケン,日本語公式表記の追加確認が必要,character_review_final_batch061.csv,,,,,,,,,,
+I70-006171,lyn_(blade_&_soul),Character,505,リン,リン,既存候補が種族名と混同する可能性があり追加確認,character_review_final_batch061.csv,,,,,,,,,,
+I70-006180,gangut_dva_(kancolle),Character,504,ガングート два,ガングート два,既存日本語候補が明確な誤訳のため公式表記を追加確認,character_review_final_batch061.csv,,,,,,,,,,
+I70-006185,vila_(reverse:1999),Character,504,ヴィラ,ヴィラ,日本語公式表記の追加確認が必要,character_review_final_batch061.csv,,,,,,,,,,
+I70-006191,jamie_siu,Character,503,ジェイミー・ショウ,ジェイミー・ショウ | ジェイミー,日本語公式表記の追加確認が必要,character_review_final_batch061.csv,,,,,,,,,,
+I70-006203,catherine_(project_moon),Character,502,キャサリン・アーンショー,キャサリン・アーンショー,日本語公式表記の追加確認が必要,character_review_final_batch061.csv,,,,,,,,,,
+I70-006206,kitkallos_(yu-gi-oh!),Character,502,ティアラメンツ・キトカロス,ティアラメンツ・キトカロス,日本語公式表記の追加確認が必要,character_review_final_batch061.csv,,,,,,,,,,
+I70-006208,shy_(character),Character,502,シャイ,シャイ | SHY,,character_accepted_blank_batch057.csv,,,,,,,,,,
+I70-006226,ade_(agent_bunny)_(nikke),Character,500,エード：エージェントバニー,エード：エージェントバニー,日本語衣装名の追加確認が必要,character_review_final_batch061.csv,,,,,,,,,,
+I70-006230,liberalio_(nikke),Character,500,リバーレリオ,リバーレリオ | リバーレリオ（NIKKE）,,character_accepted_blank_batch057.csv,,,,,,,,,,
+I70-006232,tsukada_satoru,Character,500,塚田悟,塚田悟,日本語公式表記の追加確認が必要,character_review_final_batch061.csv,,,,,,,,,,
+I70-007477,clark_kent_(civilian),Character,401,クラーク・ケント,クラーク・ケント,,variant_lost_qualifier_batch003_03.csv,,,,,,,,,,
+I70-009861,en_ciel_rena_(sin),Character,285,エンシェル・レナ,エンシェル・レナ,AI監修：作品内公式表記の確証不足,variant_lost_qualifier_batch003_04.csv,,,,,,,,,,
+I70-009960,dooby_(1st_costume),Character,282,dooby,dooby,AI監修：活動名は原綴りを維持,variant_lost_qualifier_batch003_04.csv,,,,,,,,,,
+I70-011195,callie_(alterna)_(splatoon),Character,243,アオリ,,variant/form rendering plausible but not independently verified,variant_lost_qualifier_batch003_04.csv,,,,,,,,,,
+I70-011814,hinazuki_ririna,Character,226,リリス,リリス | 雛月理々奈,AI監修：canonicalと別名候補の対応を要確認,character_review_final_batch061.csv,,,,,,,,,,
+I70-011979,gyaru_bulbasaur_(shin_no_tenpii),Character,222,ギャルフシギダネ,ギャルフシギダネ,AI監修：既存日本語表記を確認,variant_lost_qualifier_batch003_04.csv,,,,,,,,,,
+I70-012915,kirin_r_yato_(arknights),Character,202,麒麟_R_夜刀,,single Japanese candidate with no conflicting evidence,character_single_candidate_remaining_batch049.csv,,,,,,,,,,
+I70-013362,yuna_(biya_(1024)),Character,194,ユナ,,single Japanese candidate with no conflicting evidence,character_single_candidate_remaining_batch049.csv,,,,,,,,,,
+I70-013809,tairitsu_(grievous_lady)_(arcaea),Character,186,対立,,short kanji-only candidate is too ambiguous without contextual search evidence,variant_lost_qualifier_batch003_04.csv,,,,,,,,,,
+I70-014129,giant_otter_(kemono_friends)_(kuro_(kurojill)),Character,180,オオカワウソ,オオカワウソ(けものフレンズ) | オオカワウソ(オリフレ),selected from contextual Japanese search evidence,variant_lost_qualifier_batch003_04.csv,,,,,,,,,,
+I70-014310,katsuragi_marina_(exs-tia_p),Character,177,葛城真理奈,,single Japanese candidate with no conflicting evidence,variant_lost_qualifier_batch003_04.csv,,,,,,,,,,
+I70-015031,sirin_(miracle_magical_girl),Character,166,シーリン,,selected from contextual Japanese search evidence,variant_lost_qualifier_batch003_04.csv,,,,,,,,,,
+I70-016796,otonashi_ayana,Character,143,音無彩名,,single Japanese candidate with no conflicting evidence,character_single_candidate_remaining_batch049.csv,,,,,,,,,,
+I70-018806,kaguya_hime,Character,123,かぐや姫,,single Japanese candidate with no conflicting evidence,character_single_candidate_remaining_batch049.csv,,,,,,,,,,
+I70-019418,tairitsu_(tempest)_(arcaea),Character,118,対立,,short kanji-only candidate is too ambiguous without contextual search evidence,variant_lost_qualifier_batch003_04.csv,,,,,,,,,,
+I70-020156,orishima_kei,Character,112,織島_慶,,single Japanese candidate with no conflicting evidence,character_single_candidate_remaining_batch049.csv,,,,,,,,,,
+I70-022885,en_ciel_rena_(laelith),Character,94,エンシェル・レナ,,variant/form rendering plausible but not independently verified,variant_lost_qualifier_batch003_04.csv,,,,,,,,,,
+I70-023169,tairitsu_(axium)_(arcaea),Character,93,対立,,short kanji-only candidate is too ambiguous without contextual search evidence,variant_lost_qualifier_batch003_04.csv,,,,,,,,,,
+I70-023579,en_ciel_rena_(aegis),Character,90,エンシェル・レナ,,variant/form rendering plausible but not independently verified,variant_lost_qualifier_batch003_04.csv,,,,,,,,,,
+I70-024256,mitty_(furry)_(made_in_abyss),Character,87,ミーティ,,variant/form rendering plausible but not independently verified,variant_lost_qualifier_batch003_04.csv,,,,,,,,,,

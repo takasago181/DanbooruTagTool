@@ -1,0 +1,8 @@
+row_id,canonical_tag,post_count,display_ja,search_ja,prior_audit_verdict,audit_verdict,proposed_display_ja,proposed_search_ja,reason_code,confidence,evidence_refs,audit_note,approval_status
+I70-036066,fate/kaleid_liner_prisma_illya,12143,Fate/kaleidlinerプリズマ☆イリヤ,,NEEDS_EXTERNAL_CHECK,FIX_DISPLAY,Fate/kaleid liner プリズマ☆イリヤ,,OFFICIAL_TITLE_TYPOGRAPHY_CONFIRMED,HIGH,https://anime.prisma-illya.jp/1st/,公式サイト表記「Fate/kaleid liner プリズマ☆イリヤ」に合わせてスペースと表記を正規化。,PROPOSED
+I70-036071,senki_zesshou_symphogear,11745,シンフォギア,,NEEDS_EXTERNAL_CHECK,FIX_BOTH,戦姫絶唱シンフォギア,シンフォギア,OFFICIAL_FULL_TITLE_CONFIRMED,HIGH,https://www.symphogear.com/,公式サイトの作品名「戦姫絶唱シンフォギア」を表示に採用。略称は検索aliasへ。,PROPOSED
+I70-036076,cardcaptor_sakura,11055,CCさくら,,NEEDS_EXTERNAL_CHECK,FIX_BOTH,カードキャプターさくら,CCさくら,OFFICIAL_FULL_TITLE_CONFIRMED,HIGH,https://ccsakura-official.com/,公式サイトの正式作品名「カードキャプターさくら」を表示に採用。略称CCさくらは検索aliasへ。,PROPOSED
+I70-036077,tengen_toppa_gurren_lagann,11032,グレンラガン,,NEEDS_EXTERNAL_CHECK,FIX_BOTH,天元突破グレンラガン,グレンラガン,OFFICIAL_FULL_TITLE_CONFIRMED,HIGH,https://www.gurren-lagann.net/,公式ポータルの作品名「天元突破グレンラガン」を表示に採用。短縮形は検索aliasへ。,PROPOSED
+I70-036078,onii-chan_wa_oshimai!,11028,おにまい,,NEEDS_EXTERNAL_CHECK,FIX_BOTH,お兄ちゃんはおしまい！,おにまい,OFFICIAL_FULL_TITLE_CONFIRMED,HIGH,https://onimai.jp/,公式サイトの作品名「お兄ちゃんはおしまい！」を表示に採用。略称おにまいは検索aliasへ。,PROPOSED
+I70-036089,lycoris_recoil,10358,リコリコ,,NEEDS_EXTERNAL_CHECK,FIX_BOTH,リコリス・リコイル,リコリコ,OFFICIAL_FULL_TITLE_CONFIRMED,HIGH,https://lycoris-recoil.com/,公式サイトの作品名「リコリス・リコイル」を表示に採用。略称リコリコは検索aliasへ。,PROPOSED
+I70-036092,last_origin,10036,ラスオリ,,NEEDS_EXTERNAL_CHECK,FIX_BOTH,ラストオリジン,ラスオリ,OFFICIAL_FULL_TITLE_CONFIRMED,HIGH,https://www.last-origin.com/,日本語公式サイトがタイトルを「ラストオリジン」と明記。略称ラスオリは検索aliasへ。,PROPOSED

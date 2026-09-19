@@ -1,0 +1,6 @@
+row_id,canonical_tag,post_count,display_ja,search_ja,prior_audit_verdict,audit_verdict,proposed_display_ja,proposed_search_ja,reason_code,confidence,evidence_refs,audit_note,approval_status
+I70-001806,gwynn_(pokemon),1853,ムク,ムク,NEEDS_EXTERNAL_CHECK,KEEP,,,OFFICIAL_JA_NAME_CONFIRMED,HIGH,https://www.pokemon.co.jp/ex/legends_z-a/ja/characters/260113_04/,『Pokémon LEGENDS Z-A』日本公式サイトがキャラクター名「ムク」を明記。現表示・検索を維持。,PROPOSED
+I70-001830,vi_(league),1837,ヴァイ,ヴァイ,NEEDS_EXTERNAL_CHECK,KEEP,,,OFFICIAL_JA_NAME_CONFIRMED,HIGH,https://www.leagueoflegends.com/ja-jp/champions/vi/,League of Legends日本公式チャンピオンページが「ヴァイ」を明記。現表示・検索を維持。,PROPOSED
+I70-001838,sua_(zombie_stage),1830,スア,スア,NEEDS_EXTERNAL_CHECK,KEEP,,,OFFICIAL_JAPAN_EVENT_JA_NAME_CONFIRMED,HIGH,https://3dlive-alnst.com/,ALIEN STAGE日本公式3DライブサイトがSUAの日本語表記を「スア」と明記。Zombie Stage文脈でも人物identityは同一なので現表示を維持。,PROPOSED
+I70-001900,mizi_(zombie_stage),1772,ミジ,ミジ,NEEDS_EXTERNAL_CHECK,KEEP,,,OFFICIAL_JAPAN_DISTRIBUTION_JA_NAME_CONFIRMED,HIGH,https://www.animate.co.jp/onlyshop/40751/,アニメイト公式のALIEN STAGE日本展開でMIZIを「ミジ」と表記。Zombie Stage文脈でも人物identityは同一なので現表示を維持。,PROPOSED
+I70-001974,isoi_reiji,1706,磯井麗慈,磯井麗慈,NEEDS_EXTERNAL_CHECK,KEEP,,,CROSS_SOURCE_JA_FULL_NAME_CONFIRMED,HIGH,https://www.moguragames.com/saibou-shinkyoku/ | https://cellofempireo.fandom.com/wiki/Reiji_Isoi,細胞神曲の日本語紹介記事と作品Wikiがフルネーム「磯井麗慈」で一致。現表示・検索を維持。,PROPOSED

@@ -1,0 +1,60 @@
+name: Issue70 Generate Character Audit Batches 011-012
+
+on:
+  push:
+    branches:
+      - audit/issue70-semantic-final
+    paths:
+      - scripts/issue70/generate_character_batches011_012.py
+      - .github/workflows/issue70_generate_character_batches011_012.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: issue70-character-batches011-012
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout audit branch
+        uses: actions/checkout@v4
+        with:
+          ref: audit/issue70-semantic-final
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Generate batches
+        run: python scripts/issue70/generate_character_batches011_012.py
+      - name: Validate proposal-only outputs
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import csv
+          from pathlib import Path
+          root=Path('docs/issue70/audit')
+          def rows(name):
+              with (root/name).open(encoding='utf-8-sig', newline='') as f: return list(csv.DictReader(f))
+          b11=rows('character_unreliable_candidate_fallback_batch011.csv')
+          b12=rows('character_duplicate_variant_identity_batch012.csv')
+          assert len(b11) >= 100 and all(r['audit_verdict']=='KEEP' for r in b11)
+          assert len(b12) >= 40 and all(r['audit_verdict']=='FIX_DISPLAY' for r in b12)
+          print({'batch011':len(b11),'batch012':len(b12)})
+          PY
+          git diff --exit-code -- docs/issue70/data/runtime docs/issue70/data/source
+      - name: Commit audit proposals only
+        shell: bash
+        run: |
+          set -euo pipefail
+          git add docs/issue70/audit/character_unreliable_candidate_fallback_batch011.csv \
+                  docs/issue70/audit/character_duplicate_variant_identity_batch012.csv
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Issue70: persist Character semantic audit batches 011-012'
+          git push origin HEAD:audit/issue70-semantic-final

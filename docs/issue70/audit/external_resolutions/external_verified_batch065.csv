@@ -1,0 +1,8 @@
+row_id,category,canonical_tag,prior_verdict,external_verdict,proposed_display_ja,proposed_search_ja,source_url,evidence_note,confidence,status
+I70-001035,Character,nangong_yu,NEEDS_EXTERNAL_CHECK,KEEP,,,https://zenless.hoyoverse.com/ja-jp/main,ZZZ official Japanese site lists 南宮羽 exactly,HIGH,PROPOSED
+I70-001080,Character,ju_fufu,NEEDS_EXTERNAL_CHECK,FIX_SEARCH,,橘福福,https://zenless.hoyoverse.com/ja-jp/main,ZZZ official Japanese site lists 橘福福; remove unverified phonetic alias from search,HIGH,PROPOSED
+I70-001150,Character,evernight_(honkai:_star_rail),NEEDS_EXTERNAL_CHECK,KEEP,,,https://www.hoyolab.com/article/40351051?lang=ja-jp,Official Honkai Star Rail post names Evernight 長夜月 exactly,HIGH,PROPOSED
+I70-001157,Character,luciana_de_montefio,NEEDS_EXTERNAL_CHECK,FIX_SEARCH,,ルーシー | ルシアーナ・オクシスィース・テオドロ・デ・モンテフィーノ,https://zenless.hoyoverse.com/ja-jp/news/124273,ZZZ official agent page confirms nickname ルーシー and full Japanese name; current full-name search alias is incomplete/incorrect,HIGH,PROPOSED
+I70-001185,Character,canari_(pokemon),NEEDS_EXTERNAL_CHECK,KEEP,,,https://www.pokemon.co.jp/ex/legends_z-a/ja/characters/251106_01/,Pokemon official site names character カナリィ exactly,HIGH,PROPOSED
+I70-001285,Character,ye_shunguang,NEEDS_EXTERNAL_CHECK,KEEP,,,https://zenless.hoyoverse.com/ja-jp/main,ZZZ official Japanese site lists 葉瞬光 exactly,HIGH,PROPOSED
+I70-001419,Character,lilith_(fate),NEEDS_EXTERNAL_CHECK,KEEP,,,https://www.fate-go.jp/trajectory/servant/,FGO official servant history lists リリス; current display matches official Japanese name,HIGH,PROPOSED

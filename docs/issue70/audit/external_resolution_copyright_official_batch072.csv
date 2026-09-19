@@ -1,0 +1,9 @@
+row_id,canonical_tag,post_count,display_ja,search_ja,prior_audit_verdict,audit_verdict,proposed_display_ja,proposed_search_ja,reason_code,confidence,evidence_refs,audit_note,approval_status
+I70-035996,senran_kagura,20154,閃乱カグ,,NEEDS_EXTERNAL_CHECK,FIX_DISPLAY,閃乱カグラ,,OFFICIAL_TITLE_CONFIRMED,HIGH,https://senrankagura.marv.jp/series/kaguraPBS/sp/character/kagura.php,Marvelous公式ページで「閃乱カグラ」表記を確認。現表示は末尾欠落のため修正。,PROPOSED
+I70-036001,sonic_(series),18364,オリソニ,,NEEDS_EXTERNAL_CHECK,FIX_BOTH,ソニック,ソニック・ザ・ヘッジホッグ,OFFICIAL_SERIES_NAME_CONFIRMED,HIGH,https://www.sega.jp/topics/detail/260116_1/,SEGA公式が「ソニック」シリーズと明記。「オリソニ」はシリーズ名ではないため置換。,PROPOSED
+I70-036018,kill_la_kill,16383,キルラキル,,NEEDS_EXTERNAL_CHECK,KEEP,,,OFFICIAL_TITLE_CONFIRMED,HIGH,https://www.kill-la-kill.jp/,アニメ公式サイトの作品名が「キルラキル」。現表示を維持。,PROPOSED
+I70-036026,shingeki_no_kyojin,15343,進撃の巨人,,NEEDS_EXTERNAL_CHECK,KEEP,,,OFFICIAL_TITLE_CONFIRMED,HIGH,https://shingeki.tv/season1/,TVアニメ公式サイトが「進撃の巨人」を正式表記として使用。現表示を維持。,PROPOSED
+I70-036050,assault_lily,13155,アサルトリリィ,,NEEDS_EXTERNAL_CHECK,KEEP,,,OFFICIAL_PROJECT_NAME_CONFIRMED,HIGH,https://assaultlily-pj.com/,公式プロジェクトポータルが「アサルトリリィ」を使用。現表示を維持。,PROPOSED
+I70-036051,magia_record:_mahou_shoujo_madoka_magica_gaiden,13089,マギアレコード,,NEEDS_EXTERNAL_CHECK,FIX_BOTH,マギアレコード 魔法少女まどか☆マギカ外伝,マギアレコード | マギレコ,OFFICIAL_FULL_TITLE_CONFIRMED,HIGH,https://magireco.com/,公式サイトにフルタイトル「マギアレコード 魔法少女まどか☆マギカ外伝」を確認。短縮名は検索aliasへ。,PROPOSED
+I70-036053,fire_emblem_engage,12949,FEエンゲージ,,NEEDS_EXTERNAL_CHECK,FIX_BOTH,ファイアーエムブレム エンゲージ,FEエンゲージ,OFFICIAL_FULL_TITLE_CONFIRMED,HIGH,https://www.nintendo.com/jp/switch/ayfna/index.html,任天堂公式の正式タイトルを表示に採用。略称は検索aliasへ。,PROPOSED
+I70-036056,girls_band_cry,12875,ガルクラ,,NEEDS_EXTERNAL_CHECK,FIX_BOTH,ガールズバンドクライ,ガルクラ,OFFICIAL_FULL_TITLE_CONFIRMED,HIGH,https://girls-band-cry.com/tv/,公式サイトの作品名「ガールズバンドクライ」を表示に採用。略称は検索aliasへ。,PROPOSED

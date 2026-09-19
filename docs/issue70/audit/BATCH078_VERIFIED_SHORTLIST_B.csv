@@ -1,0 +1,27 @@
+canonical_tag,provisional_verdict,proposed_display_ja,proposed_search_ja,evidence_ref,audit_note,status
+grandia,KEEP,,,https://www.gamearts.co.jp/ja/products/series.html,Game Arts official series page explicitly lists グランディア as a series title.,VERIFIED_SHORTLIST
+grandia_i,KEEP,,,https://www.gamearts.co.jp/ja/products/psn-grandia.html,Game Arts official product page uses グランディア for the first game.,VERIFIED_SHORTLIST
+7th_dragon,KEEP,,,https://www.sega.jp/game/detail/seventh_dragon/,SEGA official product page uses セブンスドラゴン.,VERIFIED_SHORTLIST
+tamagotchi,KEEP,,,https://www.bandai.co.jp/character/tamagotchi.php,Bandai official character page uses たまごっちシリーズ.,VERIFIED_SHORTLIST
+slay_the_spire,KEEP,,,https://www.megacrit.com/faq/,Mega Crit official FAQ uses Slay the Spire as the product identity.,VERIFIED_SHORTLIST
+hades_(series),KEEP,,,https://www.supergiantgames.com/games/hades/,Supergiant official game page uses Hades; sequel lineage confirms the franchise identity.,VERIFIED_SHORTLIST
+fear_&_hunger_(series),KEEP,,,https://store.steampowered.com/app/1002300/Fear__Hunger/,Developer Miro Haverinen is identified on the official distribution page and the title is Fear & Hunger; original-language fallback is identity-safe.,VERIFIED_SHORTLIST
+fear_&_hunger_2:_termina,KEEP,,,https://store.steampowered.com/app/2171440/Fear_Hunger_2_Termina/,Developer/publisher Miro Haverinen is identified and the official title is Fear & Hunger 2: Termina.,VERIFIED_SHORTLIST
+eddsworld,KEEP,,,https://eddsworld.co.uk/about/,Eddsworld official site identifies Eddsworld as the animated-series brand.,VERIFIED_SHORTLIST
+miside,FIX_BOTH,MiSide : ミサイド,MiSide | ミサイド,https://store.steampowered.com/app/2527500/MiSide/?l=japanese,Official Japanese distribution surface published by IndieArk/Shochiku uses MiSide : ミサイド; retain both forms for search.,VERIFIED_SHORTLIST
+valkyrie_profile_(series),KEEP,,,https://www.jp.square-enix.com/music/lineup/item/SQEX-10125-26.html,Square Enix official page explicitly calls it the ヴァルキリープロファイルシリーズ.,VERIFIED_SHORTLIST
+kingdom_hearts_i,KEEP,,,https://www.jp.square-enix.com/kingdom/timeline/kh.html,Square Enix official timeline uses キングダム ハーツ for the first title.,VERIFIED_SHORTLIST
+ace_attorney_investigations,KEEP,,,https://www.capcom.co.jp/support/faq/full_platform_mobile_iphone_ipod_touch_ipad_gyakutenkenji.html,Capcom official support surface uses 逆転検事.,VERIFIED_SHORTLIST
+persona_dancing,KEEP,,,https://persona-dance.jp/,Official Persona Dancing portal uses ペルソナダンシング.,VERIFIED_SHORTLIST
+digimon_beatbreak,KEEP,,,https://www.toei-anim.co.jp/tv/digimon_beatbreak/,Toei Animation official site uses DIGIMON BEATBREAK - デジモンビートブレイク; existing Japanese display is exact and identity-safe.,VERIFIED_SHORTLIST
+xblaze,FIX_DISPLAY,XBLAZE,,https://www.arcsystemworks.jp/support/xblaze.html,Arc System Works official support uses XBLAZE in all caps.,VERIFIED_SHORTLIST
+the_incredible_hulk_(series),KEEP,,,https://marvel.disney.co.jp/animation/incredible_hulk,Marvel Japan official page uses インクレディブル・ハルク for the animated series.,VERIFIED_SHORTLIST
+thor_(marvel)_(series),KEEP,,,https://marvel.disney.co.jp/movie/thor,Marvel Japan official surface uses マイティ・ソー.,VERIFIED_SHORTLIST
+virtuareal,KEEP,,,https://www.virtuareal.net/,Official VirtuaREAL site uses VirtuaREAL exactly.,VERIFIED_SHORTLIST
+sunrise_(company),KEEP,,,https://www.bnfw.co.jp/brand/,Bandai Namco Filmworks official brand page preserves サンライズ as the continuing brand identity and company lineage.,VERIFIED_SHORTLIST
+dairoku_ryouhei,KEEP,,,https://cdn.tw6.jp/,Tommy Walker official 第六猟兵 site uses 第六猟兵 exactly.,VERIFIED_SHORTLIST
+dispatch,KEEP,,,https://adhocstudio.com/,AdHoc Studio official site identifies Dispatch as its debut title.,VERIFIED_SHORTLIST
+dota_(series),KEEP,,,https://store.steampowered.com/app/570/Dota_2/?l=japanese,Valve is listed as developer/publisher and uses Dota as the franchise identity; existing display is identity-safe.,VERIFIED_SHORTLIST
+spider-verse,FIX_DISPLAY,スパイダーバース,,https://www.sonypictures.jp/corp/press/2022-12-14,Sony Pictures Japan official release repeatedly uses スパイダーバース across the film lineage; current Chinese display is incorrect for Japanese overlay.,VERIFIED_SHORTLIST
+amazon_(company),KEEP,,,https://www.aboutamazon.jp/about-us,Amazon Japan official corporate page uses Amazon exactly.,VERIFIED_SHORTLIST
+top_wo_nerae!_(series),KEEP,,,https://www.bandai.co.jp/candy/characters/character453/index.html,Bandai official character page uses トップをねらえ！ for the property.,VERIFIED_SHORTLIST

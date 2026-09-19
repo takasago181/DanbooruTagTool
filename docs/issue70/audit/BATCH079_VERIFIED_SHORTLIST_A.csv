@@ -1,0 +1,21 @@
+canonical_tag,provisional_verdict,proposed_display_ja,proposed_search_ja,evidence_ref,audit_note,status
+stellive,FIX_DISPLAY,STELLIVE,,https://stellive.me/,Official StelLive site repeatedly uses STELLIVE in branding/news; normalize lowercase fallback to official capitalization.,VERIFIED_SHORTLIST
+hellaverse,FIX_DISPLAY,HELLAVERSE,,https://www.youtube.com/watch?v=FQ2q0Q9frKE,Vivziepop verified creator channel officially uses HELLAVERSE UPDATE; preserve creator's official umbrella label.,VERIFIED_SHORTLIST
+touqi_guaitan,FIX_DISPLAY,头七 TOUQI,,https://store.steampowered.com/app/3686930/_TOUQI/?l=japanese,Official distribution identifies developer 橙光游戏 and Japanese storefront title 头七 TOUQI; current short Chinese display is incomplete.,VERIFIED_SHORTLIST
+cyberpunk:_edgerunners_1,FIX_DISPLAY,Cyberpunk: Edgerunners,,https://www.netflix.com/jp/title/81054853?s=i&vlang=ja,Netflix Japan official title for the first work is Cyberpunk: Edgerunners; suffix _1 is a Danbooru discriminator and not part of the displayed title.,VERIFIED_SHORTLIST
+avatar_legends,FIX_DISPLAY,Avatar Legends,,https://www.avatarstudiosofficial.com/,Avatar Studios official site uses Avatar Legends as the franchise/timeline umbrella; replace unsupported Chinese surface with official identity.,VERIFIED_SHORTLIST
+vedal_ai,FIX_DISPLAY,Vedal AI,,https://vedal.ai/,Creator-owned official site brands the project/developer identity as Vedal AI; current ネウロ様 points to a different entity.,VERIFIED_SHORTLIST
+sana_channel,FIX_DISPLAY,さなちゃんねる,,https://shop.natorisana.com/products/sanachannel-bousaigoods,名取さな Official Shop explicitly uses さなちゃんねる; current display is unrelated noise.,VERIFIED_SHORTLIST
+street_fighter_iv_(series),FIX_DISPLAY,ストリートファイターIVシリーズ,,https://www.capcom.co.jp/support/faq/platform_ps3_usf4_0035844.html,Capcom support explicitly calls the lineage 「ストリートファイターIV」シリーズ; current ウル4 narrows the umbrella to one member.,VERIFIED_SHORTLIST
+bayonetta_1,KEEP,,,https://www.nintendo.com/jp/bayonetta/1-2/index.html,Nintendo official first-game page uses ベヨネッタ; current display is exact.,VERIFIED_SHORTLIST
+resident_evil_3_(remake),KEEP,,,https://www.residentevil.com/re3/,Capcom official product site identifies the remake; existing Japanese-market display BIOHAZARD RE:3 is identity-safe and established.,VERIFIED_SHORTLIST
+catherine_(game),KEEP,,,https://www.atlus.co.jp/title-archive/cathy/,Atlus official title archive uses キャサリン for the 2011 game; current display is exact.,VERIFIED_SHORTLIST
+maimai_(game),KEEP,,,https://maimai.sega.jp/,SEGA official maimai site uses maimai exactly; preserve official stylization.,VERIFIED_SHORTLIST
+world_of_warships,KEEP,,,https://worldofwarships.asia/ja/,Wargaming official Japanese site uses World of Warships; current display is exact.,VERIFIED_SHORTLIST
+18trip,KEEP,,,https://18trip.jp/,Official site states title 18TRIP（エイティーントリップ）; current display 18TRIP is exact.,VERIFIED_SHORTLIST
+national_basketball_association,KEEP,,,https://www.nba.com/,NBA official site uses NBA as the primary brand identity; current display is exact and identity-safe.,VERIFIED_SHORTLIST
+grand_theft_auto_vi,FIX_BOTH,グランド・セフト・オートVI,Grand Theft Auto VI,https://store.rockstargames.com/ja/game/buy-gta-vi,Rockstar official Japanese store uses グランド・セフト・オートVI; retain the official English title as search alias.,VERIFIED_SHORTLIST
+hololive_official_card_game,KEEP,,,https://hololive-official-cardgame.com/,Official site consistently uses hololive OFFICIAL CARD GAME; current display is exact.,VERIFIED_SHORTLIST
+crazy_raccoon,KEEP,,,https://crazyraccoon.jp/,Official organization site uses Crazy Raccoon; current display is exact.,VERIFIED_SHORTLIST
+16personalities,KEEP,,,https://www.16personalities.com/ja,Official Japanese site uses 16Personalities branding; current display is exact.,VERIFIED_SHORTLIST
+slay_the_spire_2,KEEP,,,https://www.megacrit.com/,Mega Crit official developer site identifies Slay the Spire 2; current original-language display is identity-safe.,VERIFIED_SHORTLIST

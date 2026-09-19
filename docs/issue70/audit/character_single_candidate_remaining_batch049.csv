@@ -1,0 +1,22 @@
+row_id,canonical_tag,post_count,display_ja,audit_verdict,proposed_display_ja,proposed_search_ja,reason_code,confidence,evidence_refs,audit_note,approval_status
+I70-008977,cinderella_(fairy_tale_character),319,シンデレラ,FIX_DISPLAY,シンデレラ（fairy tale character）,,CANONICAL_CONTEXT_DISAMBIGUATION,HIGH,canonical qualifier + verified English alias,同名衝突があるため日本語名は保持しつつcanonicalの種別文脈を付与,PROPOSED
+I70-010777,gumi_(v3_megpoid),255,グミ（V3メグポイド）,FIX_DISPLAY,GUMI（v3 megpoid）,,BASE_IDENTITY_PLUS_CANONICAL_CONTEXT,HIGH,family base GUMI + canonical qualifier,基準キャラ名GUMIを保持し未検証の日本語variant表記をcanonical識別子へ戻す,PROPOSED
+I70-012915,kirin_r_yato_(arknights),202,麒麟_R_夜刀,NEEDS_EXTERNAL_CHECK,,,OFFICIAL_RENDERING_REQUIRED,MEDIUM,verified alias is Latin only,underscoreを含む表記が公式名か変換残骸か判定するため公式日本語表記確認が必要,PROPOSED
+I70-012919,moria_luluka_(civilian),202,森亜るるか,FIX_DISPLAY,森亜るるか（civilian）,,CANONICAL_CONTEXT_DISAMBIGUATION,HIGH,canonical qualifier,同名衝突かつ作品文脈なしのため意味を推測せずcanonical識別子を付与,PROPOSED
+I70-013362,yuna_(biya_(1024)),194,ユナ,NEEDS_EXTERNAL_CHECK,,,FAMILY_BASE_CONFLICT,MEDIUM,family base points to yuna_(veyonis),自動family baseがcanonicalと一致しないため別人誤結合の可能性があり外部確認が必要,PROPOSED
+I70-014205,medjed_(mythology),179,メジェド,FIX_DISPLAY,メジェド（mythology）,,CANONICAL_CONTEXT_DISAMBIGUATION,HIGH,canonical qualifier,同名衝突を解消するため日本語名を保持してcanonical種別を付与,PROPOSED
+I70-015410,chronoa_(dragon_ball),160,クロノア,FIX_DISPLAY,クロノア（dragon ball）,,CANONICAL_CONTEXT_DISAMBIGUATION,HIGH,canonical qualifier,同名衝突とcopyright文脈欠落をcanonical識別子で補う,PROPOSED
+I70-015919,waver_velvet_(sensha_otoko),154,ウェイバーベルベット,FIX_DISPLAY,ウェイバー・ベルベット（sensha otoko）,,BASE_IDENTITY_PLUS_CANONICAL_CONTEXT,HIGH,family base Japanese identity + canonical qualifier,基準名の表記を復元しvariant識別子を表示へ残す,PROPOSED
+I70-016348,ivan_(zombie_stage),148,イヴァン,FIX_DISPLAY,イヴァン（zombie stage）,,CANONICAL_CONTEXT_DISAMBIGUATION,HIGH,canonical qualifier,同名衝突と作品文脈欠落をcanonical識別子で補う,PROPOSED
+I70-016796,otonashi_ayana,143,音無彩名,NEEDS_EXTERNAL_CHECK,,,DUPLICATE_IDENTITY_REQUIRES_CONTEXT,MEDIUM,related copyright coverage 0.513761,canonical自体に識別子がなく関連作品も過半程度のため作品名付与を断定できない,PROPOSED
+I70-018806,kaguya_hime,123,かぐや姫,NEEDS_EXTERNAL_CHECK,,,DUPLICATE_IDENTITY_REQUIRES_CONTEXT,MEDIUM,related copyright coverage 0.794872,同名衝突があるがcanonical自体に識別子がないため対象特定を外部確認する,PROPOSED
+I70-020156,orishima_kei,112,織島_慶,NEEDS_EXTERNAL_CHECK,,,OFFICIAL_RENDERING_REQUIRED,MEDIUM,raw Japanese candidate only,underscoreが正式表記か区切り変換残骸か判定できないため外部確認が必要,PROPOSED
+I70-023262,kagamine_rin_(roshin_yuukai),92,カガミン・リン,FIX_DISPLAY,鏡音リン（roshin yuukai）,,BASE_IDENTITY_PLUS_CANONICAL_CONTEXT,HIGH,family base 鏡音リン + verified aliases,基準キャラ名を復元し曲差分はcanonical識別子で保持,PROPOSED
+I70-026033,saion-ji_enju,79,さいおんじ_えんじゅ,NEEDS_EXTERNAL_CHECK,,,OFFICIAL_RENDERING_REQUIRED,MEDIUM,raw Japanese candidate only,underscoreを除くだけでは正式表記を保証できないため外部確認が必要,PROPOSED
+I70-027464,loch_ness_monster,73,ネッシー,FIX_DISPLAY,ネッシー（loch ness monster）,,CANONICAL_CONTEXT_DISAMBIGUATION,HIGH,canonical identity + verified alias nessie_(cryptid),同名衝突をcanonical英語識別子で明示して別対象との混同を避ける,PROPOSED
+I70-030374,mine_riko,63,みね_りこ,NEEDS_EXTERNAL_CHECK,,,OFFICIAL_RENDERING_REQUIRED,MEDIUM,raw Japanese candidate only,underscoreを含む候補しかなく正式日本語名を確定できない,PROPOSED
+I70-030969,hiwa_yurina,61,日和_侑里奈,NEEDS_EXTERNAL_CHECK,,,OFFICIAL_RENDERING_REQUIRED,MEDIUM,raw Japanese candidate only,underscoreを含む候補しかなく正式日本語名を確定できない,PROPOSED
+I70-031837,momochi_myu,59,百地_美卯,NEEDS_EXTERNAL_CHECK,,,OFFICIAL_RENDERING_REQUIRED,MEDIUM,raw Japanese candidate only,underscoreを含む候補しかなく正式日本語名を確定できない,PROPOSED
+I70-032727,shoggoth,57,ショゴス,NEEDS_EXTERNAL_CHECK,,,DUPLICATE_IDENTITY_REQUIRES_CONTEXT,MEDIUM,related copyright coverage 0.472727,canonicalに識別子がなく同名衝突もあるため対象特定を外部確認する,PROPOSED
+I70-032946,iris.exe_(mega_man),56,アイリス,FIX_DISPLAY,アイリス（ロックマンエグゼ）,,SOURCE_AND_ALIAS_CONTEXT_DISAMBIGUATION,HIGH,existing candidate Japanese context + verified alias iris_(rockman_exe),保存済み候補とverified aliasの両方がロックマンエグゼ文脈を支持するため表示へ付与,PROPOSED
+I70-033144,shiratsuki_shino,56,しらつき_しの,NEEDS_EXTERNAL_CHECK,,,OFFICIAL_RENDERING_REQUIRED,MEDIUM,raw Japanese candidate only,underscoreを含む候補しかなく正式日本語名を確定できない,PROPOSED

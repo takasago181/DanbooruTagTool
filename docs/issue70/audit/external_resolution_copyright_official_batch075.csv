@@ -1,0 +1,7 @@
+row_id,canonical_tag,post_count,display_ja,search_ja,prior_audit_verdict,audit_verdict,proposed_display_ja,proposed_search_ja,reason_code,confidence,evidence_refs,audit_note,approval_status
+I70-036028,mahou_shoujo_no_majo_saiban,14889,魔法少女ノ魔女裁判,,NEEDS_EXTERNAL_CHECK,KEEP,,,OFFICIAL_TITLE_CONFIRMED,HIGH,https://manosaba.com/,作品公式サイトが「魔法少女ノ魔女裁判」をタイトルとして使用。現表示を維持。,PROPOSED
+I70-036035,neptune_(series),14429,ネプテューヌ,,NEEDS_EXTERNAL_CHECK,KEEP,,,OFFICIAL_SERIES_NAME_CONFIRMED,HIGH,https://www.compileheart.com/neptune/about/,コンパイルハート公式が「ネプテューヌシリーズ」と明記。シリーズ識別として現表示「ネプテューヌ」は妥当。,PROPOSED
+I70-036055,eiyuu_densetsu,12902,英雄伝説,,NEEDS_EXTERNAL_CHECK,KEEP,,,OFFICIAL_SERIES_LABEL_CONFIRMED,HIGH,https://www.falcom.co.jp/game,日本ファルコム公式で「英雄伝説」作品群を継続掲載。現表示を維持。,PROPOSED
+I70-036059,monster_hunter_(series),12409,モンスターハンター,,NEEDS_EXTERNAL_CHECK,KEEP,,,OFFICIAL_SERIES_NAME_CONFIRMED,HIGH,https://www.capcom.co.jp/ir/news/html/250801.html,カプコン公式プレスリリースが「モンスターハンター」シリーズと明記。現表示を維持。,PROPOSED
+I70-036088,girls'_frontline_2:_exilium,10364,ドルフロ2,,NEEDS_EXTERNAL_CHECK,FIX_BOTH,ドールズフロントライン2：エクシリウム,ドルフロ2,OFFICIAL_FULL_TITLE_CONFIRMED,HIGH,https://www.youtube.com/watch?v=8n7fpEbzu0c,公式チャンネルが「ドールズフロントライン2：エクシリウム」を正式タイトルとして使用。略称ドルフロ2は検索aliasへ。,PROPOSED
+I70-036091,pokemon_masters_ex,10265,ポケマス,,NEEDS_EXTERNAL_CHECK,FIX_BOTH,Pokémon Masters EX,ポケマス | ポケマスEX,OFFICIAL_FULL_TITLE_CONFIRMED,HIGH,https://www.pokemon.co.jp/app/,ポケットモンスター公式アプリ一覧が「Pokémon Masters EX」を正式タイトルとして掲載。略称は検索aliasへ。,PROPOSED

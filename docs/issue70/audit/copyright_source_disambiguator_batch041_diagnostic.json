@@ -1,0 +1,116 @@
+{
+  "format_version": 1,
+  "issue": 70,
+  "production_modified": false,
+  "candidate_rows": 7,
+  "safe_unique_rows": 6,
+  "ambiguous_candidate_terms": 2,
+  "safe_samples": [
+    {
+      "row_id": "I70-035956",
+      "canonical_tag": "mario_(series)",
+      "post_count": "31140",
+      "display_ja": "スーパーマリオ",
+      "search_ja": "",
+      "existing_search_ja": "スーパーマリオ | マリオシリーズ",
+      "translation_note": "manual chat curation selected high-confidence Japanese copyright title",
+      "risk_flags": "DISAMBIGUATOR_NOT_VISIBLE",
+      "candidate_display_ja": "マリオシリーズ",
+      "candidate_norm": "マリオシリーズ",
+      "unique_candidate": "true"
+    },
+    {
+      "row_id": "I70-035959",
+      "canonical_tag": "xenoblade_chronicles_(series)",
+      "post_count": "29336",
+      "display_ja": "ゼノブレイド",
+      "search_ja": "",
+      "existing_search_ja": "ゼノブレイド | ゼノブレイドシリーズ",
+      "translation_note": "manual chat curation selected high-confidence Japanese copyright title",
+      "risk_flags": "DISAMBIGUATOR_NOT_VISIBLE | DUPLICATE_DISPLAY_WITHIN_CATEGORY",
+      "candidate_display_ja": "ゼノブレイドシリーズ",
+      "candidate_norm": "ゼノブレイドシリーズ",
+      "unique_candidate": "true"
+    },
+    {
+      "row_id": "I70-036604",
+      "canonical_tag": "bayonetta_(series)",
+      "post_count": "2071",
+      "display_ja": "ベヨネッタ",
+      "search_ja": "",
+      "existing_search_ja": "BAYONETTAシリーズ | ベヨネッタ",
+      "translation_note": "established/common Japanese title or official rendering",
+      "risk_flags": "DISAMBIGUATOR_NOT_VISIBLE | DUPLICATE_DISPLAY_WITHIN_CATEGORY",
+      "candidate_display_ja": "BAYONETTAシリーズ",
+      "candidate_norm": "bayonettaシリーズ",
+      "unique_candidate": "true"
+    },
+    {
+      "row_id": "I70-037306",
+      "canonical_tag": "mario_&_luigi_rpg",
+      "post_count": "827",
+      "display_ja": "マリオ＆ルイージRPG",
+      "search_ja": "",
+      "existing_search_ja": "マリオ&ルイージRPGシリーズ",
+      "translation_note": "established/common Japanese title or official rendering",
+      "risk_flags": "NO_SOURCE_JA_EVIDENCE_OVERLAP | JA_DISPLAY_NOT_EXACT_SOURCE_EVIDENCE | DUPLICATE_DISPLAY_WITHIN_CATEGORY",
+      "candidate_display_ja": "マリオ&ルイージRPGシリーズ",
+      "candidate_norm": "マリオ&ルイージrpgシリーズ",
+      "unique_candidate": "true"
+    },
+    {
+      "row_id": "I70-037907",
+      "canonical_tag": "tokimeki_memorial_1",
+      "post_count": "489",
+      "display_ja": "ときめきメモリアル",
+      "search_ja": "",
+      "existing_search_ja": "ときめきメモリアル | ときメモ無印",
+      "translation_note": "established/common Japanese title or official rendering",
+      "risk_flags": "DUPLICATE_DISPLAY_WITHIN_CATEGORY",
+      "candidate_display_ja": "ときメモ無印",
+      "candidate_norm": "ときメモ無印",
+      "unique_candidate": "true"
+    },
+    {
+      "row_id": "I70-038903",
+      "canonical_tag": "the_terminator",
+      "post_count": "273",
+      "display_ja": "ターミネーター",
+      "search_ja": "",
+      "existing_search_ja": "ターミネーター | ターミネーター(映画)",
+      "translation_note": "established/common Japanese title or official rendering",
+      "risk_flags": "DUPLICATE_DISPLAY_WITHIN_CATEGORY",
+      "candidate_display_ja": "ターミネーター(映画)",
+      "candidate_norm": "ターミネーター(映画)",
+      "unique_candidate": "true"
+    }
+  ],
+  "ambiguous_samples": [
+    {
+      "row_id": "I70-036615",
+      "canonical_tag": "xenoblade_chronicles_1",
+      "post_count": "2051",
+      "display_ja": "ゼノブレイド",
+      "search_ja": "",
+      "existing_search_ja": "ゼノブレイド | ゼノブレイド(初代作) | 初代ゼノブレイド",
+      "translation_note": "established/common Japanese title or official rendering",
+      "risk_flags": "DUPLICATE_DISPLAY_WITHIN_CATEGORY",
+      "candidate_display_ja": "ゼノブレイド(初代作)",
+      "candidate_norm": "ゼノブレイド(初代作)",
+      "unique_candidate": "true"
+    },
+    {
+      "row_id": "I70-036615",
+      "canonical_tag": "xenoblade_chronicles_1",
+      "post_count": "2051",
+      "display_ja": "ゼノブレイド",
+      "search_ja": "",
+      "existing_search_ja": "ゼノブレイド | ゼノブレイド(初代作) | 初代ゼノブレイド",
+      "translation_note": "established/common Japanese title or official rendering",
+      "risk_flags": "DUPLICATE_DISPLAY_WITHIN_CATEGORY",
+      "candidate_display_ja": "初代ゼノブレイド",
+      "candidate_norm": "初代ゼノブレイド",
+      "unique_candidate": "true"
+    }
+  ]
+}

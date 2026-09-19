@@ -1,0 +1,364 @@
+{
+  "format_version": 4,
+  "issue": 70,
+  "production_modified": false,
+  "initial_ledger_rows": 18270,
+  "audited_unique_rows": 18270,
+  "resolved_unique_rows": 18270,
+  "conflicted_unique_rows": 0,
+  "remaining_unaudited_rows": 0,
+  "duplicate_same_decision_rows": 0,
+  "verdict_counts_resolved": {
+    "FIX_BOTH": 766,
+    "FIX_DISPLAY": 8054,
+    "FIX_SEARCH": 260,
+    "KEEP": 8409,
+    "NEEDS_EXTERNAL_CHECK": 781
+  },
+  "audited_by_category": {
+    "Character": 14928,
+    "Copyright": 2316,
+    "Artist": 1026
+  },
+  "remaining_by_category": {
+    "Character": 0,
+    "Copyright": 0,
+    "Artist": 0
+  },
+  "unresolved_external_check_rows": 781,
+  "unresolved_user_decision_rows": 0,
+  "remaining_patterns": {
+    "Character": {
+      "rows": 0,
+      "status_counts": {},
+      "impact_counts": {},
+      "audit_bucket_counts": {},
+      "top_translation_notes": [],
+      "risk_flag_counts": {},
+      "top_note_risk_signatures": []
+    },
+    "Copyright": {
+      "rows": 0,
+      "status_counts": {},
+      "impact_counts": {},
+      "audit_bucket_counts": {},
+      "top_translation_notes": [],
+      "risk_flag_counts": {},
+      "top_note_risk_signatures": []
+    },
+    "Artist": {
+      "rows": 0,
+      "status_counts": {},
+      "impact_counts": {},
+      "audit_bucket_counts": {},
+      "top_translation_notes": [],
+      "risk_flag_counts": {},
+      "top_note_risk_signatures": []
+    }
+  },
+  "source_files": [
+    {
+      "file": "artist_initial_audit_batch008.csv",
+      "ledger_rows": 1026
+    },
+    {
+      "file": "character_accepted_blank_batch057.csv",
+      "ledger_rows": 288
+    },
+    {
+      "file": "character_accepted_clean_keep_batch029b.csv",
+      "ledger_rows": 40
+    },
+    {
+      "file": "character_accepted_curated_batch059.csv",
+      "ledger_rows": 46
+    },
+    {
+      "file": "character_accepted_source_supported_keep_batch045.csv",
+      "ledger_rows": 18
+    },
+    {
+      "file": "character_accepted_variant_identity_batch047.csv",
+      "ledger_rows": 60
+    },
+    {
+      "file": "character_canonical_variant_fallback_batch028.csv",
+      "ledger_rows": 600
+    },
+    {
+      "file": "character_context_disambiguation_batch013.csv",
+      "ledger_rows": 750
+    },
+    {
+      "file": "character_curated_context_batch016.csv",
+      "ledger_rows": 555
+    },
+    {
+      "file": "character_curated_keep_batch015.csv",
+      "ledger_rows": 281
+    },
+    {
+      "file": "character_curated_mismatch_keep_batch021.csv",
+      "ledger_rows": 25
+    },
+    {
+      "file": "character_curated_stale_evidence_keep_batch024.csv",
+      "ledger_rows": 95
+    },
+    {
+      "file": "character_derived_base_variant_batch036.csv",
+      "ledger_rows": 124
+    },
+    {
+      "file": "character_duplicate_variant_identity_batch012.csv",
+      "ledger_rows": 54
+    },
+    {
+      "file": "character_explicit_mismatch_keep_batch025.csv",
+      "ledger_rows": 35
+    },
+    {
+      "file": "character_latin_variant_fallback_batch031a.csv",
+      "ledger_rows": 99
+    },
+    {
+      "file": "character_no_trusted_ja_batch010.csv",
+      "ledger_rows": 4987
+    },
+    {
+      "file": "character_remaining_clean_sample_decisions_batch030.csv",
+      "ledger_rows": 68
+    },
+    {
+      "file": "character_review_final_batch061.csv",
+      "ledger_rows": 508
+    },
+    {
+      "file": "character_shortname_fallback_expanded_batch032.csv",
+      "ledger_rows": 365
+    },
+    {
+      "file": "character_single_candidate_keep_batch019.csv",
+      "ledger_rows": 98
+    },
+    {
+      "file": "character_single_candidate_remaining_batch049.csv",
+      "ledger_rows": 21
+    },
+    {
+      "file": "character_uncertain_raw_fallback_batch044.csv",
+      "ledger_rows": 559
+    },
+    {
+      "file": "character_unique_copyright_context_batch027.csv",
+      "ledger_rows": 903
+    },
+    {
+      "file": "character_unreliable_candidate_fallback_batch011.csv",
+      "ledger_rows": 146
+    },
+    {
+      "file": "character_unverified_shortname_fallback_batch023.csv",
+      "ledger_rows": 1741
+    },
+    {
+      "file": "character_unverified_variant_fallback_batch043.csv",
+      "ledger_rows": 1073
+    },
+    {
+      "file": "character_variant_identity_restore_batch014.csv",
+      "ledger_rows": 575
+    },
+    {
+      "file": "character_youkakunin_final_batch055.csv",
+      "ledger_rows": 67
+    },
+    {
+      "file": "character_youkakunin_noevidence_batch052.csv",
+      "ledger_rows": 370
+    },
+    {
+      "file": "character_youkakunin_remaining_batch053.csv",
+      "ledger_rows": 41
+    },
+    {
+      "file": "character_youkakunin_safe_batch051.csv",
+      "ledger_rows": 14
+    },
+    {
+      "file": "copyright_accepted_noflag_batch009.csv",
+      "ledger_rows": 303
+    },
+    {
+      "file": "copyright_batch004_01.csv",
+      "ledger_rows": 18
+    },
+    {
+      "file": "copyright_batch004_02.csv",
+      "ledger_rows": 18
+    },
+    {
+      "file": "copyright_batch004_03.csv",
+      "ledger_rows": 17
+    },
+    {
+      "file": "copyright_batch004_04.csv",
+      "ledger_rows": 17
+    },
+    {
+      "file": "copyright_batch005_01.csv",
+      "ledger_rows": 20
+    },
+    {
+      "file": "copyright_batch005_02.csv",
+      "ledger_rows": 20
+    },
+    {
+      "file": "copyright_batch005_03.csv",
+      "ledger_rows": 20
+    },
+    {
+      "file": "copyright_batch005_04.csv",
+      "ledger_rows": 20
+    },
+    {
+      "file": "copyright_batch005_05.csv",
+      "ledger_rows": 20
+    },
+    {
+      "file": "copyright_curated_keep_batch017.csv",
+      "ledger_rows": 688
+    },
+    {
+      "file": "copyright_curated_safe_keep_batch040.csv",
+      "ledger_rows": 20
+    },
+    {
+      "file": "copyright_final_internal_external_split_batch064.csv",
+      "ledger_rows": 222
+    },
+    {
+      "file": "copyright_no_trusted_ja_batch018.csv",
+      "ledger_rows": 238
+    },
+    {
+      "file": "copyright_review_external_batch062.csv",
+      "ledger_rows": 542
+    },
+    {
+      "file": "copyright_source_disambiguator_fix_batch042.csv",
+      "ledger_rows": 6
+    },
+    {
+      "file": "external_resolution_character_official_batch065.csv",
+      "ledger_rows": 5
+    },
+    {
+      "file": "external_resolution_copyright_official_batch070.csv",
+      "ledger_rows": 12
+    },
+    {
+      "file": "external_resolution_copyright_official_batch071.csv",
+      "ledger_rows": 8
+    },
+    {
+      "file": "external_resolution_copyright_official_batch072.csv",
+      "ledger_rows": 8
+    },
+    {
+      "file": "external_resolution_copyright_official_batch073.csv",
+      "ledger_rows": 12
+    },
+    {
+      "file": "external_resolution_copyright_official_batch074.csv",
+      "ledger_rows": 7
+    },
+    {
+      "file": "external_resolution_copyright_official_batch075.csv",
+      "ledger_rows": 6
+    },
+    {
+      "file": "external_resolution_copyright_official_batch076.csv",
+      "ledger_rows": 80
+    },
+    {
+      "file": "external_resolution_copyright_official_batch077.csv",
+      "ledger_rows": 80
+    },
+    {
+      "file": "external_resolution_copyright_official_batch078.csv",
+      "ledger_rows": 80
+    },
+    {
+      "file": "external_resolution_copyright_official_batch079.csv",
+      "ledger_rows": 80
+    },
+    {
+      "file": "external_resolution_high_impact_batch066.csv",
+      "ledger_rows": 7
+    },
+    {
+      "file": "external_resolution_high_impact_batch067.csv",
+      "ledger_rows": 7
+    },
+    {
+      "file": "external_resolution_high_impact_batch068.csv",
+      "ledger_rows": 5
+    },
+    {
+      "file": "external_resolution_high_impact_batch069.csv",
+      "ledger_rows": 4
+    },
+    {
+      "file": "external_resolution_parallel_cycle-0001.csv",
+      "ledger_rows": 102
+    },
+    {
+      "file": "external_resolution_parallel_cycle-0002.csv",
+      "ledger_rows": 73
+    },
+    {
+      "file": "external_resolution_parallel_cycle-0003.csv",
+      "ledger_rows": 41
+    },
+    {
+      "file": "external_resolution_parallel_cycle-0004.csv",
+      "ledger_rows": 53
+    },
+    {
+      "file": "external_resolution_parallel_cycle-0005.csv",
+      "ledger_rows": 44
+    },
+    {
+      "file": "identity_safe_canonical_fallback_keep_batch026.csv",
+      "ledger_rows": 125
+    },
+    {
+      "file": "search_dedup_batch007.csv",
+      "ledger_rows": 81
+    },
+    {
+      "file": "search_restore_batch006.csv",
+      "ledger_rows": 160
+    },
+    {
+      "file": "variant_lost_qualifier_batch003_01.csv",
+      "ledger_rows": 21
+    },
+    {
+      "file": "variant_lost_qualifier_batch003_02.csv",
+      "ledger_rows": 21
+    },
+    {
+      "file": "variant_lost_qualifier_batch003_03.csv",
+      "ledger_rows": 21
+    },
+    {
+      "file": "variant_lost_qualifier_batch003_04.csv",
+      "ledger_rows": 20
+    }
+  ],
+  "ignored_nonledger_rows_by_file": {},
+  "conflicts": [],
+  "next_step": "resolve NEEDS_EXTERNAL_CHECK via external_resolution overlays, then apply approved corrections only after final audit close"
+}

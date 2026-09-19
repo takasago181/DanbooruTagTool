@@ -1,0 +1,66 @@
+name: Issue70 External Resolution Batch 070
+on:
+  push:
+    branches: [audit/issue70-semantic-final]
+    paths:
+      - 'docs/issue70/audit/external_resolution_copyright_official_batch070.csv'
+      - '.github/workflows/issue70_external_resolution_batch070.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: issue70-external-resolution-batch070
+  cancel-in-progress: false
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: audit/issue70-semantic-final
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate external-resolution CSV
+        run: |
+          python - <<'PY'
+          import csv
+          from pathlib import Path
+          p=Path('docs/issue70/audit/external_resolution_copyright_official_batch070.csv')
+          rows=list(csv.DictReader(p.open(encoding='utf-8-sig',newline='')))
+          assert len(rows)==12
+          assert all(r['prior_audit_verdict']=='NEEDS_EXTERNAL_CHECK' for r in rows)
+          assert all(r['confidence']=='HIGH' for r in rows)
+          assert all((r['evidence_refs'] or '').startswith('http') for r in rows)
+          assert {r['audit_verdict'] for r in rows} <= {'KEEP','FIX_DISPLAY','FIX_SEARCH','FIX_BOTH'}
+          print({'rows':len(rows)})
+          PY
+          git diff --exit-code -- docs/issue70/data/runtime docs/issue70/data/source
+      - name: Refresh exact progress
+        run: python scripts/issue70/summarize_semantic_audit_progress.py
+      - name: Refresh unresolved external queue
+        run: python scripts/issue70/export_unresolved_external_queue.py
+      - name: Validate progress
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path('docs/issue70/audit/PROGRESS_LIVE.json').read_text(encoding='utf-8'))
+          q=json.loads(Path('docs/issue70/audit/EXTERNAL_QUEUE_SUMMARY.json').read_text(encoding='utf-8'))
+          assert d['production_modified'] is False
+          assert d['conflicted_unique_rows']==0
+          assert d['remaining_unaudited_rows']==0
+          assert d['unresolved_external_check_rows'] <= 1454
+          assert q['unresolved_external']==d['unresolved_external_check_rows']
+          print({'external':d['unresolved_external_check_rows']})
+          PY
+          git diff --exit-code -- docs/issue70/data/runtime docs/issue70/data/source
+      - name: Commit refreshed progress and queue
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add docs/issue70/audit/PROGRESS_LIVE.json docs/issue70/audit/EXTERNAL_QUEUE_TOP100.csv docs/issue70/audit/EXTERNAL_QUEUE_SUMMARY.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'Issue70: refresh progress after external batch 070'
+          git push origin HEAD:audit/issue70-semantic-final
