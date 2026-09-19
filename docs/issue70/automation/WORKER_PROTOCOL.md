@@ -175,10 +175,10 @@ Rows in that registry are excluded from future manifests while remaining traceab
 From the next generated manifest onward, lanes are not category specialists.
 
 Default assignment per lane:
-- 36 candidates total.
-- Approximately 12 Copyright + 12 Character + 12 Artist.
+- 100 candidates total.
+- Approximately 33 Copyright + 34 Character + 33 Artist.
 - If a category has fewer rows, remaining slots are filled from other in-scope categories.
-- Base target is 18 safe resolutions, not a hard quota.
+- Base target is 30 safe resolutions, not a hard quota.
 
 The purpose is throughput and fault isolation. A difficult Character/Artist cluster must not hold the whole cycle hostage.
 
@@ -229,3 +229,21 @@ Before final lane publish, workers must normalize RESULTS proposal fields:
 Integrator also self-heals the harmless case where a worker copied the current display/search value into a proposal field that should be blank. It clears only exact current-value duplicates. It must still stop on a genuinely different proposal that contradicts the verdict.
 
 This mechanical normalization must never change audit_verdict, evidence, canonical identity, or a genuinely proposed semantic value.
+
+
+## High-throughput 100-row lane mode
+
+From cycle-0006 onward, each lane is assigned up to 100 candidates per cycle.
+
+Throughput rules:
+- Process the assignment as one bounded single pass, not as 100 deep investigations.
+- Checkpoint every 20-25 assigned rows using lane-local PARTIAL_RESULTS.csv / REVIEWED_UNRESOLVED.csv / SCOPE_SKIPPED.csv and CHECKPOINT.json as appropriate.
+- Start with cheap 2D scope triage for Character/Copyright.
+- Reuse seeds immediately after identity consistency check.
+- For fresh rows, perform one reasonable first-party evidence pass. If HIGH confidence is not reached in that pass, record REVIEWED_UNRESOLVED and move on.
+- Do not spend multiple searches on one difficult row just to increase resolved_count.
+- Base target 30 is guidance. A fully traversed 100-row assignment may complete below target if the remainder is safely recorded as reviewed-unresolved or scope-skipped.
+- If an execution limit interrupts the 100-row pass, preserve the latest 20-25 row checkpoint and resume from the first unchecked assigned row on the next run. Never restart the lane from row 1.
+- All semantic quality rules remain unchanged.
+
+The desired capacity is up to 500 assigned candidates per cycle across five lanes while keeping each lane restartable and bounded.

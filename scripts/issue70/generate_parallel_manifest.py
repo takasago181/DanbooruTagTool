@@ -21,9 +21,9 @@ TMP = ROOT / "artifacts/issue70-parallel-manifest"
 
 FINAL = {"KEEP", "FIX_DISPLAY", "FIX_SEARCH", "FIX_BOTH"}
 LANE_COUNT = 5
-CANDIDATES_PER_LANE = 36
-BASE_TARGET = 18
-MIXED_QUOTA = {"Copyright": 12, "Character": 12, "Artist": 12}
+CANDIDATES_PER_LANE = 100
+BASE_TARGET = 30
+MIXED_QUOTA = {"Copyright": 33, "Character": 34, "Artist": 33}
 CATEGORY_ROTATIONS = {
     1: ["Copyright", "Character", "Artist"],
     2: ["Character", "Artist", "Copyright"],
