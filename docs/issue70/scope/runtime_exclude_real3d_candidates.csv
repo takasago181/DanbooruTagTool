@@ -1,9 +1,16 @@
 ﻿row_id,canonical_tag,category,post_count,media_scope,confidence,decision_source,scope_reason,evidence_refs
+I70-000774,super_sonico,Character,3705,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 0.998162,
+I70-000878,chando_(ado),Character,3384,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 0.999685,
+I70-004104,imadake_dabuchi_tabemi,Character,805,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 0.990874,
+I70-004737,super_pochaco,Character,684,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
 I70-006968,kamen_rider_kuuga,Character,438,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-007033,kamen_rider_decade,Character,433,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 0.997305,https://www.kamen-rider-official.com/series/
 I70-007122,kamen_rider_1,Character,427,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 0.994885,https://www.kamen-rider-official.com/series/
 I70-007394,kamen_rider_double,Character,407,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 0.997253,https://www.kamen-rider-official.com/series/
 I70-007743,kamen_rider_ooo,Character,384,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 0.993711,https://www.kamen-rider-official.com/series/
+I70-008294,mother_(yoru_mac),Character,353,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
+I70-009005,naima_(ado),Character,318,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
+I70-009123,merry_(ado),Character,313,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
 I70-009338,kamen_rider_faiz,Character,304,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 0.996078,https://www.kamen-rider-official.com/series/
 I70-010610,kamen_rider_blade,Character,261,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-010758,kamen_rider_ryuki,Character,256,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 0.995455,https://www.kamen-rider-official.com/series/
@@ -11,23 +18,29 @@ I70-010855,kamen_rider_build,Character,253,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3
 I70-010891,kamen_rider_revi,Character,252,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-011229,kamen_rider_geats,Character,242,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-011435,kamen_rider_fourze,Character,236,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 0.990291,https://www.kamen-rider-official.com/series/
+I70-011465,kipfel_(vrchat),Character,235,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
 I70-011583,kamen_rider_kiva,Character,232,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 0.994924,https://www.kamen-rider-official.com/series/
 I70-011778,kamen_rider_den-o,Character,227,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-011816,kamen_rider_agito,Character,226,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-011863,kamen_rider_wizard,Character,225,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-011953,kamen_rider_kabuto,Character,223,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 0.984536,https://www.kamen-rider-official.com/series/
 I70-012474,kamen_rider_hibiki,Character,211,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 0.989189,https://www.kamen-rider-official.com/series/
+I70-012615,mafuyu_(vrchat),Character,208,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
 I70-013672,kamen_rider_gaim,Character,188,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-014000,kamen_rider_vice,Character,182,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
+I70-014058,daughter_(yoru_mac),Character,181,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
 I70-014198,kamen_rider_kuuga_(mighty_form),Character,179,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-014494,is_(kamen_rider_01),Character,174,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-014578,philip_(kamen_rider),Character,173,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
+I70-015090,mamehinata,Character,165,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
 I70-015272,hidari_shoutarou,Character,162,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-015287,kamen_rider_zero-one,Character,162,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-015404,ankh_(ooo),Character,160,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-015424,kamen_rider_black,Character,160,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-015617,kamen_rider_zi-o,Character,157,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
+I70-015721,milltina_(vrchat),Character,156,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
 I70-015945,kamen_rider_drive,Character,153,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
+I70-016107,karin_(vrchat),Character,151,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
 I70-016263,kamen_rider_ghost,Character,149,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-016388,tokime_(fuuto_tantei),Character,148,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-016514,kamen_rider_double_(cyclonejoker),Character,146,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
@@ -42,22 +55,28 @@ I70-018201,suenaga_mirai,Character,129,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,al
 I70-019009,kamen_rider_kaixa,Character,121,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-019247,kamen_rider_kiva_(kiva_form),Character,119,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-019386,nozama_tomoko,Character,118,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
+I70-019464,gira-gira-chan_(ado),Character,117,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
 I70-019591,hino_eiji,Character,116,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-019599,kamen_rider_kuuga_(ultimate_form),Character,116,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-019600,kamen_rider_zeztz,Character,116,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-019853,kamen_rider_fourze_(base_states),Character,114,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
+I70-019901,rurune_(vrchat),Character,114,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
+I70-020243,girlfriend_(yoru_mac),Character,111,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
+I70-020409,imadake_dabuchi_tabesuke,Character,110,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
 I70-020724,kamen_rider_den-o_(sword_form),Character,108,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-021162,kamen_rider_amazon,Character,105,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 0.989474,https://www.kamen-rider-official.com/series/
 I70-021163,kamen_rider_saber,Character,105,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-021310,kamen_rider_v3,Character,104,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-021626,kagero_(kamen_rider_revice),Character,102,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-021628,kamen_rider_garren,Character,102,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 0.988235,https://www.kamen-rider-official.com/series/
+I70-021941,fujimi_suzu,Character,100,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
 I70-021951,inoue_shouma,Character,100,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-022091,gochizo,Character,99,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-022762,momotaros,Character,95,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 0.988372,https://www.kamen-rider-official.com/series/
 I70-023078,kamen_rider_evol,Character,93,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-023253,igarashi_daiji,Character,92,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-023265,kamen_rider_geats_(magnumboost_form),Character,92,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
+I70-023404,father_(yoru_mac),Character,91,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
 I70-023601,kamen_rider_accel,Character,90,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-023602,kamen_rider_build_(rabbittank_form),Character,90,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-023603,kamen_rider_wizard_(flame_style),Character,90,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
@@ -74,22 +93,27 @@ I70-025071,kiryuu_sento,Character,83,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almo
 I70-025282,kamen_rider_ouja,Character,82,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-025495,kamen_rider_ooo_(tajador_combo),Character,81,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-025496,kamen_rider_ooo_(tatoba_combo),Character,81,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
+I70-025506,kikyo_(vrchat),Character,81,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
 I70-025564,poppi_pipopapo,Character,81,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-025705,igarashi_ikki,Character,80,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-025713,kamen_rider_cross-z,Character,80,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-025945,kamen_rider_buffa,Character,79,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
+I70-026034,samurai_tamago_tabemi,Character,79,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 0.986486,
 I70-026442,kamen_rider_chalice,Character,77,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-026683,kamen_rider_gaim_(orange_arms),Character,76,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-027164,karakida_hanto,Character,74,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
+I70-027283,tanaka_keiko_(ado),Character,74,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
 I70-027527,shadow_moon,Character,73,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-027647,houjou_emu,Character,72,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-027667,kamen_rider_stronger,Character,72,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-027898,evolto,Character,71,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-028202,kamen_rider_x,Character,70,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
+I70-028314,rusk_(komado_booth),Character,70,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
 I70-028483,kamen_rider_evil,Character,69,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-028484,kamen_rider_knight,Character,69,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-029375,lakia_amarga,Character,66,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-029660,kido_shinji,Character,65,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
+I70-029781,shinano_(vrchat),Character,65,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
 I70-029788,suga_kenzo,Character,65,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-029814,urataros,Character,65,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-029945,joujima_yuuki,Character,64,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
@@ -98,12 +122,14 @@ I70-030320,kamen_rider_diend,Character,63,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D
 I70-030773,souma_haruto,Character,62,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-030835,adam_lanza,Character,61,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
 I70-031362,kisaragi_gentarou,Character,60,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 0.982456,https://www.kamen-rider-official.com/series/
+I70-031652,boyfriend_(yoru_mac),Character,59,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
 I70-031688,driver_(drive),Character,59,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 0.980769,https://tv.apple.com/jp/movie/%E3%83%88%E3%83%A9%E3%82%A4%E3%82%A6/umc.cmc.5puemyiaugatt1kjvxzkea57f
 I70-031766,kamen_rider_ex-aid_(action_gamer_level_2),Character,59,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-032169,kazuraba_kouta,Character,58,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-032567,kamen_rider_mach,Character,57,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-032587,koyomi_(kamen_rider_wizard),Character,57,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-032778,vice_(kamen_rider_revice),Character,57,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
+I70-032809,akuru-chan_(ado),Character,56,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
 I70-032872,dragreder,Character,56,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-032957,kadota_hiromi,Character,56,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-032958,kamen_rider_skull,Character,56,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
@@ -115,6 +141,7 @@ I70-034235,kamen_rider_gavv_(poppingummy_form),Character,53,REAL_3D,HIGH,DOMINAN
 I70-034237,kamen_rider_live,Character,53,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-034239,kamen_rider_zero-two,Character,53,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-034714,kintaros,Character,52,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
+I70-035035,chocolat_(vrchat),Character,51,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
 I70-035163,kamen_rider_evol_(black_hole_form),Character,51,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-035164,kamen_rider_genm_(zombie_gamer_level_x),Character,51,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-035165,kamen_rider_kick_hopper,Character,51,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
@@ -123,6 +150,13 @@ I70-035613,kamen_rider_kiva_(emperor_form),Character,50,REAL_3D,HIGH,DOMINANT_CO
 I70-035770,ryutaros,Character,50,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-035990,real_life,Copyright,20951,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_001,Explicit real-life / real-world identity; outside 2D-only scope.,
 I70-036057,kamen_rider,Copyright,12867,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_001,Live-action/tokusatsu-first franchise; excluded from the user's 2D-only media scope.,https://www.kamen-rider-official.com/series/
+I70-036183,megami_magazine,Copyright,6321,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_002,Real-world magazine/publication identity rather than a fictional property.,
+I70-036265,nitroplus,Copyright,4868,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_002,Real-world company/developer identity rather than a specific fictional property.,
+I70-036281,vrchat,Copyright,4557,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_002,Real-world social VR platform/service identity; outside 2D-only scope.,
+I70-036282,mcdonald's,Copyright,4540,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_002,Real-world commercial food-service brand; outside 2D-only scope.,
+I70-036297,reitaisai,Copyright,4280,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_002,Real-world Touhou convention/event identity; outside 2D-only scope.,
+I70-036298,ado_(utaite),Copyright,4269,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_002,Real person / singer identity; outside 2D-only Character/Copyright scope.,
+I70-036388,mihoyo,Copyright,3248,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_002,Real-world company/developer identity rather than a specific fictional property.,
 I70-036765,reitaisai_8_contest,Copyright,1650,REAL_3D,HIGH,CONFIRMED_REAL3D_SEED,real-world illustration contest/event,https://blog.livedoor.jp/dev_pixiv/archives/1232367.html
 I70-037997,pornhub,Copyright,459,REAL_3D,HIGH,CONFIRMED_REAL3D_SEED,general real-world commercial service/brand,
 I70-038702,eshi_100_nin_ten,Copyright,300,REAL_3D,HIGH,CONFIRMED_REAL3D_SEED,real-world exhibition/event,https://www.eshi100.com/
