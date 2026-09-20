@@ -7,6 +7,7 @@ left untouched in Forge.
 
 from __future__ import annotations
 
+import inspect
 import ipaddress
 import json
 import time
@@ -179,7 +180,11 @@ def _apply_model_if_requested(item: dict) -> None:
             item["serverError"] = "model_not_found"
             return
 
-        main_entry.checkpoint_change(match.title)
+        checkpoint_change = main_entry.checkpoint_change
+        if "preset" in inspect.signature(checkpoint_change).parameters:
+            checkpoint_change(match.title, preset=None)
+        else:
+            checkpoint_change(match.title)
         item["appliedModel"] = match.title
     except Exception:
         item["serverError"] = "model_apply_failed"
