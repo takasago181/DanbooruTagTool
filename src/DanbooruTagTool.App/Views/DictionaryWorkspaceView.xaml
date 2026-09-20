@@ -107,8 +107,8 @@
         <DataTemplate x:Key="DictionaryResultRowTemplateLocal">
             <Grid Margin="2">
                 <Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
-                <ContentPresenter Content="{Binding First}" ContentTemplate="{DynamicResource EntryTemplate}" MouseLeftButtonUp="DictionaryCardMouseUp"/>
-                <ContentPresenter Grid.Column="1" Content="{Binding Second}" ContentTemplate="{DynamicResource EntryTemplate}" MouseLeftButtonUp="DictionaryCardMouseUp">
+                <ContentPresenter Content="{Binding First}" ContentTemplate="{DynamicResource EntryTemplate}" VerticalAlignment="Top" MouseLeftButtonUp="DictionaryCardMouseUp"/>
+                <ContentPresenter Grid.Column="1" Content="{Binding Second}" ContentTemplate="{DynamicResource EntryTemplate}" VerticalAlignment="Top" MouseLeftButtonUp="DictionaryCardMouseUp">
                     <ContentPresenter.Style>
                         <Style TargetType="ContentPresenter">
                             <Setter Property="Visibility" Value="Visible"/>
