@@ -9,6 +9,7 @@ on:
       - "scripts/issue70/build_full_scope_census.py"
       - "docs/issue70/scope/SCOPE_PROTOCOL.md"
       - "docs/issue70/scope/confirmed_real3d_seed.csv"
+      - "docs/issue70/scope/manual_scope_decisions.csv"
       - "docs/issue70/data/source_chunks/**"
 
 permissions:
