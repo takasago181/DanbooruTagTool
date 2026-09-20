@@ -19,6 +19,8 @@ public sealed class ForgeViewModel : Observable
     public AsyncRelayCommand SendToForge { get; }
     public AsyncRelayCommand GenerateInForge { get; }
     public AsyncRelayCommand SendPresetToForge { get; }
+    public AsyncRelayCommand ApplyPresetRecipeToForge { get; }
+    public AsyncRelayCommand GeneratePresetRecipe { get; }
 
     public ForgeViewModel(IForgeBridgeClient bridge, Action persist, Func<bool> canMutate, Func<string> english, Action<string> setStatus, Action openSettings)
     {
@@ -27,6 +29,10 @@ public sealed class ForgeViewModel : Observable
         SendToForge = new(_ => SendAsync(null, CancellationToken.None), _ => canMutate());
         GenerateInForge = new(_ => GenerateAsync(null, CancellationToken.None), _ => canMutate());
         SendPresetToForge = new(p => SendAsync(p as GenerationPreset, CancellationToken.None), p => canMutate() && p is GenerationPreset);
+        ApplyPresetRecipeToForge = new(p => ApplyRecipeAsync(p as GenerationPreset, CancellationToken.None),
+            p => canMutate() && p is GenerationPreset preset && preset.HasRecipe);
+        GeneratePresetRecipe = new(p => GenerateRecipeAsync(p as GenerationPreset, CancellationToken.None),
+            p => canMutate() && p is GenerationPreset preset && preset.HasRecipe);
     }
     public void Restore(UiState ui) { forgeUrl = ui.ForgeUrl; forgeExtensionPath = ui.ForgeExtensionPath; }
     public Task SendAsync(GenerationPreset? preset, CancellationToken cancellationToken)
@@ -39,6 +45,16 @@ public sealed class ForgeViewModel : Observable
         if (!canMutate()) return Task.CompletedTask;
         return SendCoreAsync(preset, ForgeBridgeAction.SendAndGenerate, cancellationToken);
     }
+    public Task ApplyRecipeAsync(GenerationPreset? preset, CancellationToken cancellationToken)
+    {
+        if (!canMutate() || preset?.HasRecipe != true) return Task.CompletedTask;
+        return SendRecipeCoreAsync(preset, ForgeBridgeAction.ApplyRecipe, cancellationToken);
+    }
+    public Task GenerateRecipeAsync(GenerationPreset? preset, CancellationToken cancellationToken)
+    {
+        if (!canMutate() || preset?.HasRecipe != true) return Task.CompletedTask;
+        return SendRecipeCoreAsync(preset, ForgeBridgeAction.SendAndGenerate, cancellationToken);
+    }
     private async Task SendCoreAsync(GenerationPreset? preset, ForgeBridgeAction action, CancellationToken cancellationToken)
     {
         var result = await bridge.SendAsync(
@@ -48,6 +64,19 @@ public sealed class ForgeViewModel : Observable
                 preset == null ? ForgeNegativeMode.Unchanged : ForgeNegativeMode.Replace,
                 preset?.Negative,
                 action),
+            cancellationToken);
+        setStatus(result.Status);
+    }
+    private async Task SendRecipeCoreAsync(GenerationPreset preset, ForgeBridgeAction action, CancellationToken cancellationToken)
+    {
+        var result = await bridge.SendAsync(
+            ForgeUrl,
+            new ForgeBridgeSendRequest(
+                preset.Positive,
+                ForgeNegativeMode.Replace,
+                preset.Negative,
+                action,
+                preset.Recipe),
             cancellationToken);
         setStatus(result.Status);
     }
