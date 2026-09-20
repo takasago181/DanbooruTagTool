@@ -10,25 +10,25 @@
     "Artist_scope_filtered": 0
   },
   "scope_counts": {
-    "IN_2D": 42050,
-    "REAL_3D": 1243,
-    "UNCERTAIN": 1133
+    "IN_2D": 42100,
+    "REAL_3D": 1257,
+    "UNCERTAIN": 1069
   },
   "scope_counts_by_category": {
     "Character": {
-      "IN_2D": 34525,
-      "REAL_3D": 344,
-      "UNCERTAIN": 1021
+      "IN_2D": 34537,
+      "REAL_3D": 347,
+      "UNCERTAIN": 1006
     },
     "Copyright": {
-      "IN_2D": 7525,
-      "REAL_3D": 899,
-      "UNCERTAIN": 112
+      "IN_2D": 7563,
+      "REAL_3D": 910,
+      "UNCERTAIN": 63
     }
   },
   "decision_source_counts": {
-    "DOMINANT_COPYRIGHT_2D": 34525,
-    "DOMINANT_COPYRIGHT_REAL3D": 344,
+    "DOMINANT_COPYRIGHT_2D": 34537,
+    "DOMINANT_COPYRIGHT_REAL3D": 347,
     "MANUAL_SCOPE_BATCH_001": 250,
     "MANUAL_SCOPE_BATCH_002": 246,
     "MANUAL_SCOPE_BATCH_003": 246,
@@ -70,12 +70,14 @@
     "MANUAL_SCOPE_BATCH_037": 49,
     "MANUAL_SCOPE_BATCH_038": 31,
     "MANUAL_SCOPE_BATCH_039": 7,
+    "MANUAL_SCOPE_BATCH_040": 34,
+    "MANUAL_SCOPE_BATCH_041": 15,
     "SCOPE_OVERRIDE_001": 3,
     "SCOPE_OVERRIDE_002": 2,
-    "UNRESOLVED": 1133
+    "UNRESOLVED": 1069
   },
   "confirmed_real3d_seed_rows": 24,
-  "manual_scope_decision_rows": 8424,
+  "manual_scope_decision_rows": 8473,
   "source_fingerprint_sha256": "3d878a0e26f3d88e609d928ac676262b8c323efc4631a0ccfd1f9531961bfbed",
   "policy": {
     "runtime_candidate": "IN_2D + UNCERTAIN until full review closes",
