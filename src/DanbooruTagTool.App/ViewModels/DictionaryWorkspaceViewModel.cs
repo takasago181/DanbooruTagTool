@@ -155,6 +155,8 @@ public sealed class DictionaryWorkspaceViewModel : Observable
     private readonly Stack<SpecialBrowseV2Filter> specialFilterHistory = new();
     private string query = "", browse = "tags";
     private string? browseSelection;
+    private DictionarySearchTarget searchTarget = DictionarySearchTarget.All;
+    private CatalogEntry? relatedSource;
     private int sortIndex, detailsTabIndex;
     private double dictionaryCardWidth = 480;
     private double browseScroll;
@@ -218,6 +220,18 @@ public sealed class DictionaryWorkspaceViewModel : Observable
     }
     public string BrowseKey => browse;
     public UnifiedBrowseScope Scope => unifiedState.Scope;
+    public DictionarySearchTarget SearchTarget => searchTarget;
+    public bool IsSearchAll => SearchTarget == DictionarySearchTarget.All;
+    public bool IsSearchCharacter => SearchTarget == DictionarySearchTarget.Character;
+    public bool IsSearchCopyright => SearchTarget == DictionarySearchTarget.Copyright;
+    public bool IsSearchArtist => SearchTarget == DictionarySearchTarget.Artist;
+    public bool ShowRelationBanner => relatedSource is not null;
+    public string RelationBannerText => relatedSource switch
+    {
+        { EffectiveCategory: "Copyright" } => $"作品「{relatedSource.Label}」のキャラクター",
+        { EffectiveCategory: "Character" } => $"キャラクター「{relatedSource.Label}」の作品",
+        _ => ""
+    };
     public string? PrimaryRouteId => unifiedState.PrimaryRouteId;
     public string? LocalSubrouteId => unifiedState.LocalSubrouteId;
     public IReadOnlySet<string> BodySiteIds => unifiedState.BodySiteIds;
@@ -237,7 +251,7 @@ public sealed class DictionaryWorkspaceViewModel : Observable
     public int DetailsTabIndex { get => detailsTabIndex; set => Set(ref detailsTabIndex, value); }
     public bool IsSearching => !string.IsNullOrWhiteSpace(Query);
     public bool CanBrowseSort => !IsSearching;
-    public bool CanGoBack => unifiedHistory.Count > 0;
+    public bool CanGoBack => relatedSource is not null || unifiedHistory.Count > 0;
     public bool HasSpecialFacets => specialBrowse != null && !specialFilter.IsEmpty;
     public bool ShowSpecialFacetBar => HasSpecialFacets && !browse.StartsWith("general", StringComparison.Ordinal);
     public bool ShowSpecialKindOptions => ShowSpecialFacetBar && specialFilter.KindId is null;
@@ -288,6 +302,8 @@ public sealed class DictionaryWorkspaceViewModel : Observable
     public RelayCommand SetContentIntentCommand { get; }
     public RelayCommand UndoUnifiedBrowseCommand { get; }
     public RelayCommand ClearUnifiedBrowseCommand { get; }
+    public RelayCommand SetSearchTargetCommand { get; }
+    public RelayCommand ClearRelatedBrowseCommand { get; }
 
     public DictionaryWorkspaceViewModel(IRuntimeCatalogQuery catalog, PromptWorkspace workspace, IGeneralBrowseProvider general,
         Action persist, Func<bool> canMutate, SpecialBrowseV2Index? specialBrowse = null)
@@ -312,15 +328,24 @@ public sealed class DictionaryWorkspaceViewModel : Observable
                 group.Key,
                 group.Select(route => new NavigationNode("route:" + route.Id, route.Label, [])).ToArray()))
             .Concat([
-                new NavigationNode("character", "キャラクター", []),
-                new NavigationNode("copyright", "作品", []),
+                new NavigationNode("identity-group", "キャラクター・作品",
+                [
+                    new NavigationNode("copyright", "作品から探す", []),
+                    new NavigationNode("character", "キャラクターから探す", [])
+                ]),
                 new NavigationNode("artist", "作者", [])
             ])
             .ToArray();
         InspectEntry = new(p => { if (p is EntryViewModel row) { SelectedEntry = row; DetailsTabIndex = 0; } }, p => canMutate() && p is EntryViewModel);
         Navigate = new(p => { if (p is NavigationNode n && !IsNavigationHeading(n.Key)) NavigateTo(n.Key); }, p => canMutate() && p is NavigationNode n && !IsNavigationHeading(n.Key));
-        Back = new(_ => UndoUnifiedBrowse(), _ => canMutate() && CanGoBack);
+        Back = new(_ => { if (relatedSource is not null) ClearRelatedBrowse(); else UndoUnifiedBrowse(); }, _ => canMutate() && CanGoBack);
         ClearQuery = new(_ => { Query = ""; RefreshResults(); persist(); }, _ => canMutate());
+        SetSearchTargetCommand = new(p =>
+        {
+            if (p is DictionarySearchTarget target) SetSearchTarget(target);
+            else if (p is string text && Enum.TryParse<DictionarySearchTarget>(text, true, out var parsed)) SetSearchTarget(parsed);
+        }, _ => canMutate());
+        ClearRelatedBrowseCommand = new(_ => ClearRelatedBrowse(), _ => canMutate() && relatedSource is not null);
         ToggleSpecialFacet = new(ToggleFacet, p => canMutate() && specialBrowse != null && p is SpecialBrowseFacetOptionViewModel);
         UndoSpecialFacet = new(_ => UndoFacet(), _ => canMutate() && specialBrowse != null && !specialFilter.IsEmpty);
         ClearSpecialFacets = new(_ => ClearFacets(), _ => canMutate() && specialBrowse != null && !specialFilter.IsEmpty);
