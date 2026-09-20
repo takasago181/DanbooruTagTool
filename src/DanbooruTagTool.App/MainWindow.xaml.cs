@@ -175,26 +175,20 @@ public partial class MainWindow : Window
 
     private void WindowDragOver(object sender, DragEventArgs e)
     {
-        e.Effects = TryGetSinglePng(e.Data, out _) ? DragDropEffects.Copy : DragDropEffects.None;
+        // Let file drops reach WindowDrop so invalid selections receive feedback.
+        e.Effects = e.Data.GetDataPresent(DataFormats.FileDrop) ? DragDropEffects.Copy : DragDropEffects.None;
         e.Handled = true;
     }
 
     private void WindowDrop(object sender, DragEventArgs e)
     {
-        if (TryGetSinglePng(e.Data, out var path)) vm.ImportGenerationPng(path);
-        else vm.Status = "生成PNGを1ファイルだけドロップしてください";
+        if (!e.Data.GetDataPresent(DataFormats.FileDrop) || e.Data.GetData(DataFormats.FileDrop) is not string[] files || files.Length != 1)
+            vm.Status = "生成PNGを1ファイルだけドロップしてください";
+        else if (!Path.GetExtension(files[0]).Equals(".png", StringComparison.OrdinalIgnoreCase))
+            vm.Status = "生成情報の読込はPNGファイルに対応しています";
+        else
+            vm.ImportGenerationPng(files[0]);
         e.Handled = true;
-    }
-
-    private static bool TryGetSinglePng(IDataObject data, out string path)
-    {
-        path = "";
-        if (!data.GetDataPresent(DataFormats.FileDrop) || data.GetData(DataFormats.FileDrop) is not string[] files || files.Length != 1)
-            return false;
-        if (!Path.GetExtension(files[0]).Equals(".png", StringComparison.OrdinalIgnoreCase))
-            return false;
-        path = files[0];
-        return true;
     }
 
     private void OpenGenerationImportDialog()
