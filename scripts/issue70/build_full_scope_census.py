@@ -14,6 +14,7 @@ SOURCE_DIR = ROOT / "docs/issue70/data/source_chunks"
 SCOPE_DIR = ROOT / "docs/issue70/scope"
 SEED_PATH = SCOPE_DIR / "confirmed_real3d_seed.csv"
 MANUAL_PATH = SCOPE_DIR / "manual_scope_decisions.csv"
+OVERRIDE_PATH = SCOPE_DIR / "scope_decision_overrides.csv"
 
 LEDGER_PATH = SCOPE_DIR / "full_scope_ledger.csv"
 SUMMARY_PATH = SCOPE_DIR / "scope_summary.json"
@@ -147,6 +148,25 @@ def load_manual_decisions(
                     seeds[rid].get("media_scope"),
                 )
             decisions[rid] = row
+    if OVERRIDE_PATH.exists():
+        with OVERRIDE_PATH.open("r", encoding="utf-8-sig", newline="") as f:
+            for row in csv.DictReader(f):
+                rid = (row.get("row_id") or "").strip()
+                assert rid, "override row missing row_id"
+                assert row.get("media_scope") in {"IN_2D", "REAL_3D"}, (rid, row.get("media_scope"))
+                assert row.get("confidence") == "HIGH", (rid, row.get("confidence"))
+                src = source_by_id.get(rid)
+                assert src is not None, f"override row not found in source: {rid}"
+                assert row.get("canonical_tag") == src.get("canonical_tag"), rid
+                assert row.get("category") == src.get("category_name"), rid
+                assert int(row.get("post_count") or 0) == int(src.get("post_count") or 0), rid
+                if rid in seeds:
+                    assert row.get("media_scope") == seeds[rid].get("media_scope"), (
+                        rid,
+                        row.get("media_scope"),
+                        seeds[rid].get("media_scope"),
+                    )
+                decisions[rid] = row
     return decisions
 
 
