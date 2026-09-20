@@ -61,8 +61,8 @@ def main() -> int:
         raise SystemExit(f"original overlay missing fields: {sorted(missing)}")
     if len(original) != EXPECTED_ORIGINAL:
         raise SystemExit(f"original row count drift: {len(original)} != {EXPECTED_ORIGINAL}")
-    if len(fix_rows) != EXPECTED_FIXES:
-        raise SystemExit(f"semantic fix row count drift: {len(fix_rows)} != {EXPECTED_FIXES}")
+    if not fix_rows or len(fix_rows) > 9080:
+        raise SystemExit(f"semantic effective fix row count invalid: {len(fix_rows)}")
 
     original_by_id = {r["row_id"]: r for r in original}
     if len(original_by_id) != len(original):
@@ -102,11 +102,21 @@ def main() -> int:
             raise SystemExit(f"semantic fix display baseline mismatch: {rid}")
         if (row.get("current_search_ja") or "").strip() != src["search_ja"].strip():
             raise SystemExit(f"semantic fix search baseline mismatch: {rid}")
-        verdict = (row.get("audit_verdict") or "").strip()
-        if verdict not in {"FIX_DISPLAY", "FIX_SEARCH", "FIX_BOTH"}:
-            raise SystemExit(f"invalid semantic fix verdict: {rid} {verdict}")
+        action = (row.get("effective_action") or "").strip()
+        if action not in {"FIX_DISPLAY", "FIX_SEARCH", "FIX_BOTH"}:
+            raise SystemExit(f"invalid semantic effective action: {rid} {action}")
+        proposed_display = (row.get("proposed_display_ja") or "").strip()
+        proposed_search = (row.get("proposed_search_ja") or "").strip()
+        if action in {"FIX_DISPLAY", "FIX_BOTH"} and (not proposed_display or proposed_display == src["display_ja"].strip()):
+            raise SystemExit(f"invalid effective display change: {rid}")
+        if action in {"FIX_SEARCH", "FIX_BOTH"} and (not proposed_search or proposed_search == src["search_ja"].strip()):
+            raise SystemExit(f"invalid effective search change: {rid}")
+        if action == "FIX_DISPLAY" and proposed_search:
+            raise SystemExit(f"unexpected search proposal for FIX_DISPLAY: {rid}")
+        if action == "FIX_SEARCH" and proposed_display:
+            raise SystemExit(f"unexpected display proposal for FIX_SEARCH: {rid}")
         fixes[rid] = row
-        verdict_counts[verdict] += 1
+        verdict_counts[action] += 1
 
     included_original = [r for r in original if r["row_id"] not in excluded]
     copyright_canonicals = {
@@ -129,10 +139,10 @@ def main() -> int:
         row = dict(source)
         fix = fixes.get(rid)
         if fix is not None:
-            verdict = fix["audit_verdict"].strip()
-            if verdict in {"FIX_DISPLAY", "FIX_BOTH"}:
+            action = fix["effective_action"].strip()
+            if action in {"FIX_DISPLAY", "FIX_BOTH"}:
                 row["display_ja"] = fix["proposed_display_ja"].strip()
-            if verdict in {"FIX_SEARCH", "FIX_BOTH"}:
+            if action in {"FIX_SEARCH", "FIX_BOTH"}:
                 row["search_ja"] = fix["proposed_search_ja"].strip()
             applied_fix_rows += 1
 
@@ -185,7 +195,7 @@ def main() -> int:
         "final_rows": len(out_rows),
         "final_category_counts": dict(sorted(by_category.items())),
         "semantic_fix_rows": len(fixes),
-        "semantic_fix_verdict_counts": dict(sorted(verdict_counts.items())),
+        "semantic_effective_action_counts": dict(sorted(verdict_counts.items())),
         "semantic_fix_rows_applied": applied_fix_rows,
         "semantic_fix_rows_excluded_by_scope": excluded_fix_rows,
         "removed_related_copyright_refs": removed_relation_refs,
