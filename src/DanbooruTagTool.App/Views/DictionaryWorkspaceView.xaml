@@ -124,7 +124,7 @@
     </UserControl.Resources>
     <Border Style="{DynamicResource PanelCard}" Padding="8">
         <Grid>
-            <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="*"/></Grid.RowDefinitions>
+            <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="*"/></Grid.RowDefinitions>
             <Grid Grid.Row="0" Margin="0,0,0,5">
                 <Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center"><TextBlock Text="タグ辞書" Style="{DynamicResource PanelTitle}" FontSize="16"/><TextBlock Text="日本語・English・混在検索" Style="{DynamicResource HintText}" VerticalAlignment="Center" Margin="12,0,0,0"/></StackPanel>
@@ -142,7 +142,27 @@
                     <TextBlock Text="関連度順" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="{Binding IsSearching, Converter={StaticResource BoolVisibilityLocal}}"/>
                 </Grid>
                 </Grid>
-            <Border Grid.Row="2" Background="#F8FBFD" BorderBrush="{DynamicResource BorderBrushSoft}" BorderThickness="1" CornerRadius="8" Padding="6,4" Margin="0,0,0,4" Visibility="{Binding ShowUnifiedRefinement, Converter={StaticResource BoolVisibilityLocal}}">
+            <StackPanel Grid.Row="2" Margin="0,0,0,4">
+                <Border Background="#F8FBFD" BorderBrush="{DynamicResource BorderBrushSoft}" BorderThickness="1" CornerRadius="8" Padding="6,4">
+                    <DockPanel>
+                        <TextBlock DockPanel.Dock="Left" Text="検索対象" Style="{DynamicResource HintText}" VerticalAlignment="Center" Margin="0,0,8,0"/>
+                        <WrapPanel>
+                            <ToggleButton Content="すべて" IsChecked="{Binding IsSearchAll, Mode=OneWay}" Command="{Binding SetSearchTargetCommand}" CommandParameter="All" Style="{StaticResource UnifiedFilterToggleLocal}"/>
+                            <ToggleButton Content="キャラ" IsChecked="{Binding IsSearchCharacter, Mode=OneWay}" Command="{Binding SetSearchTargetCommand}" CommandParameter="Character" Style="{StaticResource UnifiedFilterToggleLocal}"/>
+                            <ToggleButton Content="作品" IsChecked="{Binding IsSearchCopyright, Mode=OneWay}" Command="{Binding SetSearchTargetCommand}" CommandParameter="Copyright" Style="{StaticResource UnifiedFilterToggleLocal}"/>
+                            <ToggleButton Content="作者" IsChecked="{Binding IsSearchArtist, Mode=OneWay}" Command="{Binding SetSearchTargetCommand}" CommandParameter="Artist" Style="{StaticResource UnifiedFilterToggleLocal}"/>
+                        </WrapPanel>
+                    </DockPanel>
+                </Border>
+                <Border Background="#EAF4FC" BorderBrush="{DynamicResource PrimaryBrush}" BorderThickness="1" CornerRadius="8" Padding="7,5" Margin="0,4,0,0"
+                        Visibility="{Binding ShowRelationBanner, Converter={StaticResource BoolVisibilityLocal}}">
+                    <DockPanel>
+                        <Button DockPanel.Dock="Right" Content="関連表示を解除" Command="{Binding ClearRelatedBrowseCommand}" Style="{DynamicResource CompactButton}" Padding="7,2" MinHeight="25" Margin="8,0,0,0"/>
+                        <TextBlock Text="{Binding RelationBannerText}" FontWeight="Medium" VerticalAlignment="Center"/>
+                    </DockPanel>
+                </Border>
+            </StackPanel>
+            <Border Grid.Row="3" Background="#F8FBFD" BorderBrush="{DynamicResource BorderBrushSoft}" BorderThickness="1" CornerRadius="8" Padding="6,4" Margin="0,0,0,4" Visibility="{Binding ShowUnifiedRefinement, Converter={StaticResource BoolVisibilityLocal}}">
                 <Grid>
                     <Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
                     <StackPanel Grid.Column="0">
@@ -180,7 +200,7 @@
                     </StackPanel>
                 </Grid>
             </Border>
-            <Border x:Name="DictionaryResultSurface" Grid.Row="3" Style="{DynamicResource WorkSurfaceCard}" Padding="2">
+            <Border x:Name="DictionaryResultSurface" Grid.Row="4" Style="{DynamicResource WorkSurfaceCard}" Padding="2">
                 <Grid>
                     <Grid.ColumnDefinitions><ColumnDefinition x:Name="DictionaryLeftColumn" Width="*"/><ColumnDefinition x:Name="DictionaryRightColumn" Width="0"/></Grid.ColumnDefinitions>
                     <ListBox x:Name="DictionaryList" PreviewKeyDown="DictionaryPreviewKeyDown" SelectionChanged="DictionarySelectionChanged" SizeChanged="DictionaryListSizeChanged" ItemsSource="{Binding DictionaryFirstColumn}" SelectedIndex="-1" ItemContainerStyle="{DynamicResource DictionaryRow}" ItemTemplate="{StaticResource DictionaryCardTemplateLocal}" HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.CanContentScroll="True" ScrollViewer.ScrollChanged="BrowseScrolled" VirtualizingPanel.IsVirtualizing="True" VirtualizingPanel.VirtualizationMode="Recycling" Background="Transparent" BorderThickness="0">
