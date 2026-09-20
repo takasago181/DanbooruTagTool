@@ -6,7 +6,7 @@
   const selectors = {
     positive: ["#txt2img_prompt textarea", "textarea#txt2img_prompt", 'textarea[aria-label="Prompt"]'],
     negative: ["#txt2img_neg_prompt textarea", "textarea#txt2img_neg_prompt", 'textarea[aria-label="Negative prompt"]'],
-    generate: ["#txt2img_generate", 'button[id="txt2img_generate"]']
+    generate: ["button#txt2img_generate", "#txt2img_generate button", "#txt2img_generate"]
   };
   const protocolVersion = 1;
   const bootedAt = Date.now();
