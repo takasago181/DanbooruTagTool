@@ -1,0 +1,26 @@
+name: Issue147 PNG Generation Import
+
+on:
+  pull_request:
+    paths:
+      - "src/DanbooruTagTool.Core/ForgePngGenerationMetadata.cs"
+      - "src/DanbooruTagTool.App/GenerationImportDialog.xaml"
+      - "src/DanbooruTagTool.App/GenerationImportDialog.xaml.cs"
+      - "src/DanbooruTagTool.App/ViewModels/GenerationImportViewModel.cs"
+      - "src/DanbooruTagTool.App/ViewModels/MainViewModel.cs"
+      - "src/DanbooruTagTool.App/MainWindow.xaml"
+      - "src/DanbooruTagTool.App/MainWindow.xaml.cs"
+      - "src/DanbooruTagTool.Tests/Issue147GenerationPngImportTests.cs"
+      - ".github/workflows/issue147_png_generation_import.yml"
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "10.0.x"
+      - name: Test solution
+        run: dotnet test src/DanbooruTagTool.sln -c Release --nologo
