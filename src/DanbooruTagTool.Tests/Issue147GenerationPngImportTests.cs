@@ -1,3 +1,4 @@
+using System.IO;
 using System.Buffers.Binary;
 using System.Text;
 using DanbooruTagTool.Core;
