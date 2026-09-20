@@ -10,27 +10,27 @@
     "Artist_scope_filtered": 0
   },
   "scope_counts": {
-    "IN_2D": 34926,
-    "REAL_3D": 394,
-    "UNCERTAIN": 9106
+    "IN_2D": 35789,
+    "REAL_3D": 475,
+    "UNCERTAIN": 8162
   },
   "scope_counts_by_category": {
     "Character": {
-      "IN_2D": 32188,
-      "REAL_3D": 199,
-      "UNCERTAIN": 3503
+      "IN_2D": 32645,
+      "REAL_3D": 215,
+      "UNCERTAIN": 3030
     },
     "Copyright": {
-      "IN_2D": 2738,
-      "REAL_3D": 195,
-      "UNCERTAIN": 5603
+      "IN_2D": 3144,
+      "REAL_3D": 260,
+      "UNCERTAIN": 5132
     }
   },
   "decision_source_counts": {
-    "CONFIRMED_REAL3D_SEED": 20,
-    "DOMINANT_COPYRIGHT_2D": 32188,
-    "DOMINANT_COPYRIGHT_REAL3D": 199,
-    "EXPLICIT_2D_MEDIA_MARKER": 114,
+    "CONFIRMED_REAL3D_SEED": 16,
+    "DOMINANT_COPYRIGHT_2D": 32645,
+    "DOMINANT_COPYRIGHT_REAL3D": 215,
+    "EXPLICIT_2D_MEDIA_MARKER": 104,
     "MANUAL_SCOPE_BATCH_001": 250,
     "MANUAL_SCOPE_BATCH_002": 246,
     "MANUAL_SCOPE_BATCH_003": 246,
@@ -43,10 +43,12 @@
     "MANUAL_SCOPE_BATCH_010": 243,
     "MANUAL_SCOPE_BATCH_011": 107,
     "MANUAL_SCOPE_BATCH_012": 235,
-    "UNRESOLVED": 9106
+    "MANUAL_SCOPE_BATCH_013": 241,
+    "MANUAL_SCOPE_BATCH_014": 244,
+    "UNRESOLVED": 8162
   },
   "confirmed_real3d_seed_rows": 24,
-  "manual_scope_decision_rows": 2799,
+  "manual_scope_decision_rows": 3284,
   "source_fingerprint_sha256": "3d878a0e26f3d88e609d928ac676262b8c323efc4631a0ccfd1f9531961bfbed",
   "policy": {
     "runtime_candidate": "IN_2D + UNCERTAIN until full review closes",
