@@ -10,15 +10,15 @@
     "Artist_scope_filtered": 0
   },
   "scope_counts": {
-    "IN_2D": 42164,
-    "REAL_3D": 1267,
-    "UNCERTAIN": 995
+    "IN_2D": 42417,
+    "REAL_3D": 1349,
+    "UNCERTAIN": 660
   },
   "scope_counts_by_category": {
     "Character": {
-      "IN_2D": 34550,
-      "REAL_3D": 347,
-      "UNCERTAIN": 993
+      "IN_2D": 34803,
+      "REAL_3D": 429,
+      "UNCERTAIN": 658
     },
     "Copyright": {
       "IN_2D": 7614,
@@ -81,12 +81,15 @@
     "MANUAL_SCOPE_BATCH_048": 4,
     "MANUAL_SCOPE_BATCH_049": 3,
     "MANUAL_SCOPE_BATCH_050": 2,
+    "MANUAL_SCOPE_BATCH_051": 88,
+    "MANUAL_SCOPE_BATCH_052": 121,
+    "MANUAL_SCOPE_BATCH_053": 126,
     "SCOPE_OVERRIDE_001": 3,
     "SCOPE_OVERRIDE_002": 2,
-    "UNRESOLVED": 995
+    "UNRESOLVED": 660
   },
   "confirmed_real3d_seed_rows": 24,
-  "manual_scope_decision_rows": 8534,
+  "manual_scope_decision_rows": 8869,
   "source_fingerprint_sha256": "3d878a0e26f3d88e609d928ac676262b8c323efc4631a0ccfd1f9531961bfbed",
   "policy": {
     "runtime_candidate": "IN_2D + UNCERTAIN until full review closes",
