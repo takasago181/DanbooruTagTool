@@ -133,11 +133,15 @@
     if (typeof settings.sampler === "string") await setChoice(selectors.sampler, settings.sampler, "sampler_missing");
     if (typeof settings.scheduler === "string") await setChoice(selectors.scheduler, settings.scheduler, "scheduler_missing");
 
-    // The Python companion already applies the checkpoint through Forge's
-    // checkpoint resolver. Keep the visible dropdown in sync when possible,
-    // but do not fail a valid recipe if Gradio's dropdown DOM changes.
-    if (typeof payload.appliedModel === "string")
-      await setChoice(selectors.checkpoint, payload.appliedModel, "model_display_missing", true);
+    // Neo can finish the checkpoint refresh asynchronously after the bridge
+    // has already published the pending item. Give the Gradio controls a
+    // short settle window before a recipe Generate click.
+    if (typeof payload.appliedModel === "string") await sleep(3000);
+
+    // The Python companion applies the checkpoint before publishing the
+    // pending item. Do not touch Forge's checkpoint dropdown here: Neo may
+    // refresh the Gradio page while it reconciles that control, which would
+    // tear down this JavaScript context before the ACK is posted.
 
     await nextFrame();
     await nextFrame();
@@ -188,10 +192,13 @@
           await report(requestId, false, "generate_missing");
           return;
         }
+        // A Generate click may refresh the Gradio tree immediately. Publish
+        // the accepted action before that click so the browser context cannot
+        // lose the ACK while Forge starts the job.
+        await report(requestId, true, "");
         await nextFrame();
         await nextFrame();
         button.click();
-        await report(requestId, true, "");
       } else if (applyOnly) {
         await report(requestId, true, "");
       }

@@ -48,7 +48,7 @@ public sealed class ForgeBridgeClient(HttpClient? httpClient = null) : IForgeBri
             return Failure("recipe_empty", "このプリセットには生成条件がありません");
 
         using var timeout = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken);
-        timeout.CancelAfter(request.Recipe?.HasAny == true ? TimeSpan.FromSeconds(15) :
+        timeout.CancelAfter(request.Recipe?.HasAny == true ? TimeSpan.FromSeconds(30) :
             request.Action == ForgeBridgeAction.SendAndGenerate ? TimeSpan.FromSeconds(5) : TimeSpan.FromSeconds(2));
         try
         {
