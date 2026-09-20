@@ -222,6 +222,12 @@ async def _prompt(request: Request) -> JSONResponse:
             return _json_error(409, "duplicate_request", "requestId was already accepted")
         if len(_pending) >= MAX_QUEUE_LENGTH:
             return _json_error(429, "queue_full", "pending queue is full")
+
+        # Forge may refresh the Gradio page while changing checkpoints.
+        # Apply the model only after the request is known to be admissible,
+        # but before publishing it to /pending. This avoids both a lost
+        # browser ACK and side effects from rejected duplicate/full requests.
+        _apply_model_if_requested(item)
         _pending.append(item)
         _seen_ids.append(item["requestId"])
         _seen_id_set.add(item["requestId"])
@@ -237,8 +243,6 @@ async def _pending_request(request: Request) -> JSONResponse:
         return _json_error(403, "local_only", "loopback access required")
     with _lock:
         item = _pending.popleft() if _pending else None
-    if item is not None:
-        _apply_model_if_requested(item)
     return JSONResponse(content={"protocolVersion": PROTOCOL_VERSION, "pending": item})
 
 
