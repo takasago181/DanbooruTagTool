@@ -10,7 +10,8 @@ public static class Issue70CatalogOverlayImporter
     public const int TotalCount = 91207;
     public const int CharacterCount = 35278;
     public const int CopyrightCount = 7616;
-    public const int ArtistCount = 48313;\n    public const int CharacterWithRelationsCount = 34986;
+    public const int ArtistCount = 48313;
+    public const int CharacterWithRelationsCount = 34986;
 
     public static CatalogEntry[] Read(string path)
     {
