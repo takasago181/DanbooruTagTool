@@ -1,0 +1,16 @@
+{
+  "format_version": 1,
+  "issue": 70,
+  "cycle_id": "cycle-0006",
+  "lane": 2,
+  "manifest_progress_sha256": "e1bc7068b8b6b87492dc6e81a5f386de01933d12f8e50b976284dd7f47915c96",
+  "complete": true,
+  "assigned_count": 100,
+  "target_resolutions": 30,
+  "resolved_count": 3,
+  "reviewed_unresolved_count": 96,
+  "scope_skipped_count": 1,
+  "single_pass_complete": true,
+  "production_modified": false,
+  "note": "Consolidated helper-5 owner2 first half plus helper-2 owner2 second half; 100/100 assigned rows accounted for."
+}
