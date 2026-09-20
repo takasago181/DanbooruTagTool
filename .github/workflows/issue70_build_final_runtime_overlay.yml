@@ -1,0 +1,65 @@
+name: Issue70 Build Final 2D Runtime Overlay
+
+on:
+  push:
+    branches:
+      - dev/issue70-final-production
+    paths:
+      - scripts/issue70/build_final_runtime_overlay.py
+      - docs/issue70/finalization/FINAL_SEMANTIC_FIXES.csv
+      - docs/issue70/scope/runtime_exclude_real3d_candidates.csv
+      - docs/issue70/data/runtime/issue70_catalog_overlay.csv
+      - .github/workflows/issue70_build_final_runtime_overlay.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: issue70-build-final-2d-runtime-overlay
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: dev/issue70-final-production
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build finalized overlay
+        run: python scripts/issue70/build_final_runtime_overlay.py
+      - name: Validate finalized overlay
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('docs/issue70/finalization/runtime_final_manifest.json')
+          d=json.loads(p.read_text(encoding='utf-8'))
+          assert d['production_modified'] is False
+          assert d['original_rows'] == 92739
+          assert d['excluded_real3d_rows'] == 1532
+          assert d['final_rows'] == 91207
+          assert d['final_category_counts'] == {'Artist': 48313, 'Character': 35278, 'Copyright': 7616}
+          assert d['semantic_fix_rows'] == 9080
+          assert d['semantic_fix_rows_applied'] + d['semantic_fix_rows_excluded_by_scope'] == d['semantic_fix_rows']
+          assert d['final_overlay_sha256']
+          print(json.dumps(d, ensure_ascii=False, indent=2))
+          PY
+          git diff --check
+          git diff --exit-code --             docs/issue70/data/runtime/issue70_catalog_overlay.csv             docs/issue70/data/runtime/issue70_translation_results.csv
+      - name: Commit finalized runtime artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          git add             docs/issue70/data/runtime/issue70_catalog_overlay_2d_final.csv             docs/issue70/finalization/runtime_final_manifest.json
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Issue70: build final 2D semantic runtime overlay'
+          git push origin HEAD:dev/issue70-final-production
