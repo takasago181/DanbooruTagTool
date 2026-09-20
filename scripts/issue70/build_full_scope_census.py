@@ -14,6 +14,7 @@ SOURCE_DIR = ROOT / "docs/issue70/data/source_chunks"
 SCOPE_DIR = ROOT / "docs/issue70/scope"
 SEED_PATH = SCOPE_DIR / "confirmed_real3d_seed.csv"
 MANUAL_PATH = SCOPE_DIR / "manual_scope_decisions.csv"
+MANUAL_BATCH_DIR = SCOPE_DIR / "manual_batches"
 OVERRIDE_PATH = SCOPE_DIR / "scope_decision_overrides.csv"
 
 LEDGER_PATH = SCOPE_DIR / "full_scope_ledger.csv"
@@ -128,26 +129,42 @@ def load_manual_decisions(
     seeds: dict[str, dict[str, str]],
 ) -> dict[str, dict[str, str]]:
     decisions: dict[str, dict[str, str]] = {}
-    if not MANUAL_PATH.exists():
-        return decisions
-    with MANUAL_PATH.open("r", encoding="utf-8-sig", newline="") as f:
-        for row in csv.DictReader(f):
-            rid = (row.get("row_id") or "").strip()
-            assert rid and rid not in decisions, f"bad/duplicate manual row: {rid}"
-            assert row.get("media_scope") in {"IN_2D", "REAL_3D"}, (rid, row.get("media_scope"))
-            assert row.get("confidence") == "HIGH", (rid, row.get("confidence"))
-            src = source_by_id.get(rid)
-            assert src is not None, f"manual row not found in source: {rid}"
-            assert row.get("canonical_tag") == src.get("canonical_tag"), rid
-            assert row.get("category") == src.get("category_name"), rid
-            assert int(row.get("post_count") or 0) == int(src.get("post_count") or 0), rid
-            if rid in seeds:
-                assert row.get("media_scope") == seeds[rid].get("media_scope"), (
-                    rid,
-                    row.get("media_scope"),
-                    seeds[rid].get("media_scope"),
-                )
-            decisions[rid] = row
+    paths = []
+    if MANUAL_PATH.exists():
+        paths.append(MANUAL_PATH)
+    if MANUAL_BATCH_DIR.exists():
+        paths.extend(sorted(MANUAL_BATCH_DIR.glob("*.csv")))
+
+    for path in paths:
+        with path.open("r", encoding="utf-8-sig", newline="") as f:
+            for row in csv.DictReader(f):
+                rid = (row.get("row_id") or "").strip()
+                assert rid, f"manual row missing row_id in {path}"
+                assert row.get("media_scope") in {"IN_2D", "REAL_3D"}, (rid, row.get("media_scope"))
+                assert row.get("confidence") == "HIGH", (rid, row.get("confidence"))
+                src = source_by_id.get(rid)
+                assert src is not None, f"manual row not found in source: {rid}"
+                assert row.get("canonical_tag") == src.get("canonical_tag"), rid
+                assert row.get("category") == src.get("category_name"), rid
+                assert int(row.get("post_count") or 0) == int(src.get("post_count") or 0), rid
+                if rid in seeds:
+                    assert row.get("media_scope") == seeds[rid].get("media_scope"), (
+                        rid,
+                        row.get("media_scope"),
+                        seeds[rid].get("media_scope"),
+                    )
+                if rid in decisions:
+                    prior = decisions[rid]
+                    assert row.get("media_scope") == prior.get("media_scope"), (
+                        "conflicting duplicate manual decision",
+                        rid,
+                        prior.get("media_scope"),
+                        row.get("media_scope"),
+                        str(path),
+                    )
+                    continue
+                decisions[rid] = row
+
     if OVERRIDE_PATH.exists():
         with OVERRIDE_PATH.open("r", encoding="utf-8-sig", newline="") as f:
             for row in csv.DictReader(f):
