@@ -217,6 +217,10 @@ async def _prompt(request: Request) -> JSONResponse:
     if error:
         return _json_error(*error)
     assert item is not None
+    # Forge may refresh the Gradio page while changing checkpoints. Resolve
+    # the model before the browser consumes the pending item so that the
+    # JavaScript context can always post the action acknowledgement.
+    _apply_model_if_requested(item)
     with _lock:
         if item["requestId"] in _seen_id_set:
             return _json_error(409, "duplicate_request", "requestId was already accepted")
@@ -237,8 +241,6 @@ async def _pending_request(request: Request) -> JSONResponse:
         return _json_error(403, "local_only", "loopback access required")
     with _lock:
         item = _pending.popleft() if _pending else None
-    if item is not None:
-        _apply_model_if_requested(item)
     return JSONResponse(content={"protocolVersion": PROTOCOL_VERSION, "pending": item})
 
 
