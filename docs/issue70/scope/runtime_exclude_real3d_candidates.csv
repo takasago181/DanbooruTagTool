@@ -107,6 +107,7 @@ I70-026034,samurai_tamago_tabemi,Character,79,REAL_3D,HIGH,DOMINANT_COPYRIGHT_RE
 I70-026442,kamen_rider_chalice,Character,77,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-026683,kamen_rider_gaim_(orange_arms),Character,76,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-027164,karakida_hanto,Character,74,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
+I70-027277,starbucks_siren,Character,74,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
 I70-027283,tanaka_keiko_(ado),Character,74,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
 I70-027527,shadow_moon,Character,73,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-027647,houjou_emu,Character,72,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
@@ -173,7 +174,24 @@ I70-036523,dengeki_moeoh,Copyright,2365,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_003,Real
 I70-036562,melonbooks,Copyright,2224,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_003,Real-world retail company/store identity; outside 2D-only scope.,
 I70-036584,indie_utaite,Copyright,2143,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_003,Real-person singer/performer umbrella identity; outside 2D-only scope.,
 I70-036592,futaba_channel,Copyright,2103,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_003,Real-world website/community identity; outside 2D-only scope.,
-I70-036765,reitaisai_8_contest,Copyright,1650,REAL_3D,HIGH,CONFIRMED_REAL3D_SEED,real-world illustration contest/event,https://blog.livedoor.jp/dev_pixiv/archives/1232367.html
+I70-036643,newtype,Copyright,1949,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_004,Real-world magazine/publication identity rather than a fictional property.,
+I70-036655,goodsmile_company,Copyright,1902,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_004,Real-world company/manufacturer identity; outside 2D-only scope.,
+I70-036681,snk,Copyright,1834,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_004,Real-world game company identity rather than a specific fictional property.,
+I70-036684,nintendo,Copyright,1830,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_004,Real-world game company identity rather than a specific fictional property.,
+I70-036701,goodsmile_racing,Copyright,1793,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_004,Real-world motorsport/racing-team identity; outside 2D-only scope.,
+I70-036709,world_cup,Copyright,1767,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_004,Real-world sports tournament identity; outside 2D-only scope.,
+I70-036733,nyantype,Copyright,1715,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_004,Real-world magazine/publication identity rather than a fictional property.,
+I70-036750,comiket_105,Copyright,1672,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_004,Real-world convention/event identity; outside 2D-only scope.,
+I70-036765,reitaisai_8_contest,Copyright,1650,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_004,Real-world illustration contest/event; outside 2D-only scope.,
+I70-036766,comiket_107,Copyright,1647,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_004,Real-world convention/event identity; outside 2D-only scope.,
+I70-036771,comiket_106,Copyright,1637,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_004,Real-world convention/event identity; outside 2D-only scope.,
+I70-036778,youtube,Copyright,1615,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_004,Real-world video platform/service identity; outside 2D-only scope.,
+I70-036791,toranoana,Copyright,1571,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_004,Real-world retail company/store identity; outside 2D-only scope.,
+I70-036819,starbucks,Copyright,1508,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_004,Real-world commercial brand/company identity; outside 2D-only scope.,
+I70-036824,comiket_104,Copyright,1501,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_004,Real-world convention/event identity; outside 2D-only scope.,
+I70-036834,capcom,Copyright,1484,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_004,Real-world game company identity rather than a specific fictional property.,
+I70-036850,manatsu_no_yo_no_inmu,Copyright,1460,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_004,Live-action real-person media property; outside the user's 2D-only scope.,
+I70-036861,comiket_103,Copyright,1438,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_004,Real-world convention/event identity; outside 2D-only scope.,
 I70-037997,pornhub,Copyright,459,REAL_3D,HIGH,CONFIRMED_REAL3D_SEED,general real-world commercial service/brand,
 I70-038702,eshi_100_nin_ten,Copyright,300,REAL_3D,HIGH,CONFIRMED_REAL3D_SEED,real-world exhibition/event,https://www.eshi100.com/
 I70-038722,alien_(1979),Copyright,297,REAL_3D,HIGH,CONFIRMED_REAL3D_SEED,live-action-only film property,https://www.20thcenturystudios.jp/movies/alien
