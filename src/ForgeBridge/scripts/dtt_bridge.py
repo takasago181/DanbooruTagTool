@@ -217,15 +217,17 @@ async def _prompt(request: Request) -> JSONResponse:
     if error:
         return _json_error(*error)
     assert item is not None
-    # Forge may refresh the Gradio page while changing checkpoints. Resolve
-    # the model before the browser consumes the pending item so that the
-    # JavaScript context can always post the action acknowledgement.
-    _apply_model_if_requested(item)
     with _lock:
         if item["requestId"] in _seen_id_set:
             return _json_error(409, "duplicate_request", "requestId was already accepted")
         if len(_pending) >= MAX_QUEUE_LENGTH:
             return _json_error(429, "queue_full", "pending queue is full")
+
+        # Forge may refresh the Gradio page while changing checkpoints.
+        # Apply the model only after the request is known to be admissible,
+        # but before publishing it to /pending. This avoids both a lost
+        # browser ACK and side effects from rejected duplicate/full requests.
+        _apply_model_if_requested(item)
         _pending.append(item)
         _seen_ids.append(item["requestId"])
         _seen_id_set.add(item["requestId"])
