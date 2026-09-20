@@ -53,7 +53,7 @@ public sealed class ForgeBridgeClient(HttpClient? httpClient = null) : IForgeBri
             if (!HasProtocolVersion(healthJson))
                 return Failure("protocol", "Forge連携拡張のバージョンが合いません");
             if (request.Action == ForgeBridgeAction.SendAndGenerate && !HasCapability(healthJson, ForgeBridgeProtocol.GenerateCapability))
-                return Failure("upgrade", "Forge連携拡張を更新してください（Forgeで生成には最新版が必要です）");
+                return Failure("upgrade", "Forge連携拡張を更新してください（Forge設定→拡張を配置→Forge再起動）");
 
             var requestId = Guid.NewGuid().ToString("N");
             var payload = new Dictionary<string, object?>
@@ -87,7 +87,7 @@ public sealed class ForgeBridgeClient(HttpClient? httpClient = null) : IForgeBri
         catch (TaskCanceledException) when (!cancellationToken.IsCancellationRequested)
         {
             return request.Action == ForgeBridgeAction.SendAndGenerate
-                ? Failure("timeout", "Forge側の生成開始を確認できませんでした")
+                ? Failure("timeout", "Forge側の生成開始を確認できませんでした。Forgeを再起動して連携拡張を確認してください")
                 : Failure("timeout", "Forgeへの接続がタイムアウトしました");
         }
         catch (HttpRequestException)
