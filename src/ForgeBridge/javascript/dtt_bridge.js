@@ -1,12 +1,18 @@
 (() => {
   "use strict";
 
-  // Forge currently exposes these stable txt2img component ids. Fallbacks are
-  // kept in one place so compatibility changes stay isolated.
   const selectors = {
     positive: ["#txt2img_prompt textarea", "textarea#txt2img_prompt", 'textarea[aria-label="Prompt"]'],
     negative: ["#txt2img_neg_prompt textarea", "textarea#txt2img_neg_prompt", 'textarea[aria-label="Negative prompt"]'],
-    generate: ["button#txt2img_generate", "#txt2img_generate button", "#txt2img_generate"]
+    generate: ["button#txt2img_generate", "#txt2img_generate button", "#txt2img_generate"],
+    seed: "#txt2img_seed",
+    steps: "#txt2img_steps",
+    sampler: "#txt2img_sampling",
+    scheduler: "#txt2img_scheduler",
+    cfg: "#txt2img_cfg_scale",
+    width: "#txt2img_width",
+    height: "#txt2img_height",
+    checkpoint: ".model_selection"
   };
   const protocolVersion = 1;
   const bootedAt = Date.now();
@@ -29,17 +35,112 @@
     return null;
   }
 
+  function inputInside(selector) {
+    const root = document.querySelector(selector);
+    if (root instanceof HTMLInputElement || root instanceof HTMLTextAreaElement) return root;
+    return root?.querySelector("input:not([type='hidden']), textarea") ?? null;
+  }
+
   function setValue(element, value) {
     const prototype = element instanceof HTMLTextAreaElement ? HTMLTextAreaElement.prototype : HTMLInputElement.prototype;
     const descriptor = Object.getOwnPropertyDescriptor(prototype, "value");
     if (!descriptor || typeof descriptor.set !== "function") throw new Error("value_setter_missing");
-    descriptor.set.call(element, value);
-    element.dispatchEvent(new Event("input", { bubbles: true }));
+    descriptor.set.call(element, String(value));
+    if (typeof updateInput === "function") updateInput(element);
+    else element.dispatchEvent(new Event("input", { bubbles: true }));
     element.dispatchEvent(new Event("change", { bubbles: true }));
   }
 
   function nextFrame() {
     return new Promise(resolve => window.requestAnimationFrame(() => resolve()));
+  }
+
+  function sleep(milliseconds) {
+    return new Promise(resolve => window.setTimeout(resolve, milliseconds));
+  }
+
+  function fail(code) {
+    const error = new Error(code);
+    error.dttCode = code;
+    throw error;
+  }
+
+  function setScalar(selector, value, errorCode) {
+    const input = inputInside(selector);
+    if (!(input instanceof HTMLInputElement || input instanceof HTMLTextAreaElement)) fail(errorCode);
+    setValue(input, value);
+  }
+
+  function normalized(value) {
+    return String(value ?? "").trim().toLowerCase();
+  }
+
+  async function setChoice(selector, value, errorCode, bestEffort = false) {
+    const root = document.querySelector(selector);
+    if (!(root instanceof HTMLElement)) {
+      if (bestEffort) return false;
+      fail(errorCode);
+    }
+
+    const wanted = normalized(value);
+    const radios = [...root.querySelectorAll("input[type='radio']")];
+    for (const radio of radios) {
+      const label = radio.closest("label") ?? root.querySelector(`label[for="${radio.id}"]`);
+      const text = normalized(label?.textContent ?? radio.value);
+      if (normalized(radio.value) === wanted || text === wanted) {
+        radio.click();
+        await nextFrame();
+        return true;
+      }
+    }
+
+    const input = root.querySelector("input:not([type='hidden'])");
+    if (input instanceof HTMLInputElement) {
+      input.focus();
+      input.click();
+      setValue(input, value);
+      await sleep(60);
+
+      const options = [...document.querySelectorAll("[role='option']")]
+        .filter(option => option instanceof HTMLElement && option.offsetParent !== null);
+      const exact = options.find(option => normalized(option.textContent) === wanted);
+      if (exact instanceof HTMLElement) {
+        exact.click();
+        await nextFrame();
+        return true;
+      }
+
+      input.dispatchEvent(new KeyboardEvent("keydown", { key: "Enter", code: "Enter", bubbles: true }));
+      input.dispatchEvent(new KeyboardEvent("keyup", { key: "Enter", code: "Enter", bubbles: true }));
+      await nextFrame();
+      if (normalized(input.value) === wanted) return true;
+    }
+
+    if (bestEffort) return false;
+    fail(errorCode);
+  }
+
+  async function applyRecipe(payload) {
+    if (payload.serverError) fail(payload.serverError);
+    const settings = payload.settings;
+    if (!settings || typeof settings !== "object") return;
+
+    if (settings.seed !== undefined) setScalar(selectors.seed, settings.seed, "seed_missing");
+    if (settings.steps !== undefined) setScalar(selectors.steps, settings.steps, "steps_missing");
+    if (settings.cfg !== undefined) setScalar(selectors.cfg, settings.cfg, "cfg_missing");
+    if (settings.width !== undefined) setScalar(selectors.width, settings.width, "width_missing");
+    if (settings.height !== undefined) setScalar(selectors.height, settings.height, "height_missing");
+    if (typeof settings.sampler === "string") await setChoice(selectors.sampler, settings.sampler, "sampler_missing");
+    if (typeof settings.scheduler === "string") await setChoice(selectors.scheduler, settings.scheduler, "scheduler_missing");
+
+    // The Python companion already applies the checkpoint through Forge's
+    // checkpoint resolver. Keep the visible dropdown in sync when possible,
+    // but do not fail a valid recipe if Gradio's dropdown DOM changes.
+    if (typeof payload.appliedModel === "string")
+      await setChoice(selectors.checkpoint, payload.appliedModel, "model_display_missing", true);
+
+    await nextFrame();
+    await nextFrame();
   }
 
   async function report(requestId, success, error = "") {
@@ -58,25 +159,28 @@
   async function handle(payload) {
     const requestId = payload.requestId;
     const generate = payload.action === "send_and_generate";
+    const applyOnly = payload.action === "apply_recipe";
+    const needsAck = generate || applyOnly;
 
     const positive = findInput(selectors.positive);
     if (!positive || typeof payload.positive !== "string") {
-      if (generate) await report(requestId, false, "positive_missing");
+      if (needsAck) await report(requestId, false, "positive_missing");
       return;
     }
 
     try {
       setValue(positive, payload.positive);
 
-      // unchanged mode deliberately does not query or touch the Negative DOM.
       if (payload.negativeMode === "replace") {
         const negative = findInput(selectors.negative);
         if (!negative || typeof payload.negative !== "string") {
-          if (generate) await report(requestId, false, "negative_missing");
+          if (needsAck) await report(requestId, false, "negative_missing");
           return;
         }
         setValue(negative, payload.negative);
       }
+
+      if (payload.settings) await applyRecipe(payload);
 
       if (generate) {
         const button = findClickable(selectors.generate);
@@ -84,17 +188,20 @@
           await report(requestId, false, "generate_missing");
           return;
         }
-
-        // Let Gradio observe the Prompt input/change events before Generate.
         await nextFrame();
         await nextFrame();
         button.click();
         await report(requestId, true, "");
+      } else if (applyOnly) {
+        await report(requestId, true, "");
       }
 
       sessionStorage.setItem(sessionKey, requestId);
-    } catch (_) {
-      if (generate) await report(requestId, false, "generate_failed");
+    } catch (error) {
+      if (needsAck) {
+        const code = typeof error?.dttCode === "string" ? error.dttCode : (generate ? "generate_failed" : "recipe_failed");
+        await report(requestId, false, code);
+      }
     }
   }
 
