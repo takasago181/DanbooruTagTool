@@ -135,7 +135,7 @@ public sealed class PromptEditorViewModel : Observable
     {
         var selection = Chips.Where(c => c.Selected).Select(c => c.Id).ToHashSet(); Chips.Clear();
         foreach (var item in Workspace.Items) Chips.Add(new(item) { Selected = selection.Contains(item.Id), English = EnglishChips && WorkspaceIndex == 0 });
-        UpdateMatches(); SelectionChanged(); RefreshCategoryGroups(); Notify(nameof(English)); Notify(nameof(Count)); Notify(nameof(EditorCount)); Notify(nameof(HasPrompt)); Notify(nameof(Unresolved));
+        UpdateMatches(); SelectionChanged(); RefreshCategoryGroups(); Notify(nameof(English)); Notify(nameof(Count)); Notify(nameof(EditorCount)); Notify(nameof(HasPrompt)); Notify(nameof(Unresolved)); RefreshCommands();
     }
     public void UpdateChipLanguage() { foreach (var chip in Chips) chip.English = EnglishChips && WorkspaceIndex == 0; }
     public void Select(Guid id, bool ctrl = false, bool shift = false)

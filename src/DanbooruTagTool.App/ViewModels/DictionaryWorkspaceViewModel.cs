@@ -31,7 +31,6 @@ public sealed class EntryViewModel(
             return string.IsNullOrWhiteSpace(entry.Breadcrumb) ? "—" : entry.Breadcrumb;
         }
     }
-    public string DiscoverySupport => IsDeepDiscovery ? "◆ 深掘り対象" : "—";
     public string Description
     {
         get
@@ -143,6 +142,7 @@ public sealed class DictionaryWorkspaceViewModel : Observable
     private double browseScroll;
     private double restoreScroll;
     private IReadOnlyList<EntryViewModel> results = [], related = [];
+    private bool relatedDirty = true;
     private IReadOnlyList<DictionaryResultRow> dictionaryRows = [];
     private int dictionaryColumnCount = 1;
     private readonly Dictionary<string, List<EntryViewModel>> activeResultIndex = new(StringComparer.Ordinal);
@@ -169,8 +169,14 @@ public sealed class DictionaryWorkspaceViewModel : Observable
     public int DictionaryColumnCount => dictionaryColumnCount;
     public IReadOnlyList<EntryViewModel> Related
     {
-        get => related;
-        private set { if (!Set(ref related, value)) return; RebuildActiveResultIndex(); }
+        get
+        {
+            if (!relatedDirty) return related;
+            related = selectedEntry == null ? [] : RelatedFor(selectedEntry.Entry);
+            relatedDirty = false;
+            RebuildActiveResultIndex();
+            return related;
+        }
     }
     public EntryViewModel? SelectedEntry
     {
@@ -664,7 +670,12 @@ public sealed class DictionaryWorkspaceViewModel : Observable
     private void SetSelectedEntry(EntryViewModel? value, bool persist = true)
     {
         if (!Set(ref selectedEntry, value)) return;
-        Notify(nameof(Detail)); Related = value == null ? [] : RelatedFor(value.Entry);
+        Notify(nameof(Detail));
+        related = [];
+        var hadMaterializedRelated = !relatedDirty;
+        relatedDirty = true;
+        if (hadMaterializedRelated) RebuildActiveResultIndex();
+        Notify(nameof(Related));
         if (persist) this.persist();
     }
     private void RebuildDictionaryRows()
@@ -674,7 +685,7 @@ public sealed class DictionaryWorkspaceViewModel : Observable
     private void RebuildActiveResultIndex()
     {
         activeResultIndex.Clear();
-        foreach (var row in Results.Concat(Related))
+        foreach (var row in Results.Concat(relatedDirty ? [] : related))
         {
             if (row.Entry.EffectivePromptToken is not { } token) continue;
             if (!activeResultIndex.TryGetValue(token, out var rows)) activeResultIndex[token] = rows = [];
