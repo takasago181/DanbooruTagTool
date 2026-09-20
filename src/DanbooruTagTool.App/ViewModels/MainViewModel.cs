@@ -33,7 +33,6 @@ public sealed class MainViewModel : Observable
     {
         var runtime = RuntimeCatalogIndex.Create(catalog);
         Workspace = new(new PromptParser(runtime));
-        GenerationImport = new(Workspace, clipboard, message => Status = message);
         UserState = new(store);
         var state = UserState.Load();
         if (state != null) Workspace.Restore(state.Prompt);
@@ -43,6 +42,11 @@ public sealed class MainViewModel : Observable
         Dictionary = new(runtime, Workspace, general ?? new PendingGeneralBrowseProvider(), Persist, canMutate, specialBrowse);
         Forge = new(forgeBridge ?? new ForgeBridgeClient(), Persist, canMutate, () => Prompt?.English ?? "", message => Status = message, () => ForgeSettingsRequested?.Invoke());
         PresetEditor = new(runtime, Workspace, clipboard, Persist, canMutate, message => Status = message);
+        GenerationImport = new(Workspace, clipboard, message => Status = message, snapshot =>
+        {
+            PresetEditor.BeginNewPresetFromSnapshot(snapshot);
+            PresetsRequested?.Invoke();
+        });
         Prompt.Restore(UserState.Ui); Dictionary.Restore(UserState.Ui); Forge.Restore(UserState.Ui); PresetEditor.Restore(state);
         WireNotifications();
         Workspace.Changed += OnPromptChanged;
