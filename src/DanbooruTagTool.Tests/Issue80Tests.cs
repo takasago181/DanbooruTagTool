@@ -140,7 +140,7 @@ public sealed class Issue80Tests
     }
 
     [Fact]
-    public void CompanionAssetsContainLocalProtocolAndNeverGenerationHooks()
+    public void CompanionAssetsContainLocalProtocolAndExplicitUiGenerateHookWithoutApiGeneration()
     {
         var root = Path.Combine(AppContext.BaseDirectory, "ForgeBridge");
         var python = File.ReadAllText(Path.Combine(root, "scripts", "dtt_bridge.py"));
@@ -149,11 +149,16 @@ public sealed class Issue80Tests
         Assert.Contains("/dtt-bridge/health", python);
         Assert.Contains("/dtt-bridge/prompt", python);
         Assert.Contains("/dtt-bridge/pending", python);
+        Assert.Contains("/dtt-bridge/result", python);
+        Assert.Contains("\"generate\"", python);
         Assert.Contains("#txt2img_prompt", javascript);
         Assert.Contains("#txt2img_neg_prompt", javascript);
+        Assert.Contains("#txt2img_generate", javascript);
+        Assert.Contains("send_and_generate", javascript);
         Assert.Contains("dispatchEvent(new Event(\"input\"", javascript);
+        Assert.Contains("button.click()", javascript);
         Assert.DoesNotContain("/sdapi/v1/txt2img", python);
-        Assert.DoesNotContain("generate", javascript, StringComparison.OrdinalIgnoreCase);
+        Assert.DoesNotContain("/sdapi/v1/txt2img", javascript);
     }
 
     [Fact]
