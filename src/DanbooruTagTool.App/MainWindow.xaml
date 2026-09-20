@@ -7,12 +7,14 @@
         Title="DanbooruTagTool v1"
         Width="1280" Height="720" MinWidth="900" MinHeight="560"
         WindowState="Maximized"
-        FontFamily="BIZ UDPGothic" FontSize="14"
+        FontFamily="Noto Sans JP" FontSize="14"
         Background="#F4F7FA" UseLayoutRounding="True" SnapsToDevicePixels="True"
+        TextOptions.TextFormattingMode="Display"
+        TextOptions.TextRenderingMode="ClearType"
         PreviewKeyDown="WindowKeyDown">
     <Window.Resources>
         <HierarchicalDataTemplate DataType="{x:Type vm:NavigationNode}" ItemsSource="{Binding Children}">
-            <TextBlock Text="{Binding Label}" Margin="3,4" MaxWidth="270" FontSize="13"/>
+            <TextBlock Text="{Binding Label}" Margin="3,4" MaxWidth="270" FontSize="13.5" FontWeight="Medium"/>
         </HierarchicalDataTemplate>
         <SolidColorBrush x:Key="AppBackground" Color="#F4F7FA"/>
         <SolidColorBrush x:Key="SurfaceBrush" Color="#FFFFFF"/>
@@ -29,6 +31,7 @@
 
         <Style TargetType="{x:Type TextBlock}">
             <Setter Property="Foreground" Value="{StaticResource InkBrush}"/>
+            <Setter Property="FontWeight" Value="Normal"/>
             <Setter Property="TextWrapping" Value="Wrap"/>
             <Setter Property="TextTrimming" Value="None"/>
         </Style>
@@ -49,7 +52,7 @@
             <Setter Property="Padding" Value="14,8"/>
             <Setter Property="Margin" Value="0,0,8,0"/>
             <Setter Property="MinHeight" Value="36"/>
-            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="FontWeight" Value="Medium"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
             <Setter Property="Template">
@@ -147,7 +150,7 @@
             <Setter Property="Padding" Value="14,8"/>
             <Setter Property="Margin" Value="0,0,8,0"/>
             <Setter Property="MinHeight" Value="36"/>
-            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="FontWeight" Value="Medium"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type ToggleButton}">
@@ -180,7 +183,7 @@
         </Style>
         <Style x:Key="PageTitle" TargetType="{x:Type TextBlock}">
             <Setter Property="FontSize" Value="24"/>
-            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
             <Setter Property="Foreground" Value="{StaticResource InkBrush}"/>
         </Style>
         <Style x:Key="PanelSubtitle" TargetType="{x:Type TextBlock}">
@@ -290,7 +293,18 @@
             <Setter Property="Foreground" Value="{StaticResource InkBrush}"/>
             <Setter Property="HorizontalContentAlignment" Value="Left"/>
             <Setter Property="Margin" Value="2"/>
-            <Setter Property="Padding" Value="8,5"/>
+            <Setter Property="Padding" Value="9,7"/>
+            <Setter Property="MinHeight" Value="38"/>
+        </Style>
+        <Style x:Key="PromptPanePrimaryButton" TargetType="{x:Type Button}" BasedOn="{StaticResource CompactPrimaryButton}">
+            <Setter Property="Padding" Value="12,7"/>
+            <Setter Property="MinHeight" Value="38"/>
+            <Setter Property="Margin" Value="0"/>
+        </Style>
+        <Style x:Key="PromptPaneSecondaryButton" TargetType="{x:Type Button}" BasedOn="{StaticResource CompactSecondaryButton}">
+            <Setter Property="Padding" Value="12,7"/>
+            <Setter Property="MinHeight" Value="38"/>
+            <Setter Property="Margin" Value="0"/>
         </Style>
         <Style x:Key="ItemDeleteButton" TargetType="{x:Type Button}" BasedOn="{StaticResource GhostButton}">
             <Setter Property="Background" Value="Transparent"/>
@@ -298,10 +312,11 @@
             <Setter Property="Foreground" Value="#718398"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="Width" Value="22"/>
-            <Setter Property="Height" Value="22"/>
+            <Setter Property="MinHeight" Value="24"/>
             <Setter Property="Padding" Value="0"/>
             <Setter Property="FontSize" Value="13"/>
-            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontWeight" Value="Medium"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
             <Setter Property="Margin" Value="0,3,3,0"/>
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
@@ -344,7 +359,7 @@
         </Style>
         <Style TargetType="{x:Type TabItem}">
             <Setter Property="Foreground" Value="{StaticResource MutedInkBrush}"/>
-            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="FontWeight" Value="Medium"/>
             <Setter Property="Padding" Value="24,12"/>
             <Setter Property="Margin" Value="0,0,8,0"/>
             <Setter Property="Template">
@@ -401,7 +416,7 @@
                     <Setter Property="Background" Value="#EDF5FB"/>
                 </Trigger>
                 <Trigger Property="HasItems" Value="True">
-                    <Setter Property="FontWeight" Value="SemiBold"/>
+                    <Setter Property="FontWeight" Value="Medium"/>
                     <Setter Property="Padding" Value="8,4"/>
                     <Setter Property="Background" Value="#F5F9FC"/>
                     <Setter Property="IsExpanded" Value="True"/>
@@ -411,7 +426,7 @@
                     <Setter Property="BorderBrush" Value="{StaticResource PrimaryBrush}"/>
                     <Setter Property="BorderThickness" Value="3,0,0,0"/>
                     <Setter Property="Foreground" Value="{StaticResource InkBrush}"/>
-                    <Setter Property="FontWeight" Value="SemiBold"/>
+                    <Setter Property="FontWeight" Value="Medium"/>
                 </Trigger>
             </Style.Triggers>
         </Style>
@@ -460,9 +475,9 @@
                 <Grid>
                     <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
                     <Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="Auto"/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
-                    <TextBlock Text="{Binding Label}" FontSize="14" FontWeight="SemiBold" TextWrapping="Wrap" Margin="0,0,8,4"/>
-                    <TextBlock Grid.Column="1" Text="{Binding Usage}" FontSize="12" FontWeight="SemiBold" Foreground="{StaticResource MutedInkBrush}" TextAlignment="Right" VerticalAlignment="Top" Margin="4,0,8,4"/>
-                    <Button Grid.Column="2" Content="{Binding AddSymbol}" ToolTip="{Binding DetailAddLabel}" ToolTipService.ShowOnDisabled="True" Command="{Binding Add}" Style="{StaticResource AddStateButton}" MinWidth="36" Padding="6,2" VerticalAlignment="Top" Margin="0"/>
+                    <TextBlock Text="{Binding Label}" FontSize="15" FontWeight="Medium" TextWrapping="Wrap" Margin="0,0,8,2"/>
+                    <TextBlock Grid.Column="1" Text="{Binding Usage}" FontSize="12" FontWeight="Normal" Foreground="{StaticResource MutedInkBrush}" TextAlignment="Right" VerticalAlignment="Top" Margin="4,0,8,4"/>
+                    <Button Grid.Column="2" Grid.RowSpan="2" Content="{Binding AddSymbol}" ToolTip="{Binding DetailAddLabel}" ToolTipService.ShowOnDisabled="True" Command="{Binding Add}" Style="{StaticResource AddStateButton}" MinWidth="36" Padding="6,2" VerticalAlignment="Center" Margin="0"/>
                     <TextBlock Grid.Row="1" Text="{Binding English}" Foreground="{StaticResource MutedInkBrush}" FontSize="12" TextWrapping="Wrap"/>
                 </Grid>
             </Border>
@@ -520,9 +535,9 @@
                         <Border Style="{StaticResource PromptSectionSurface}" Padding="10">
                             <Grid>
                                 <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="*"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
-                                <Border Grid.Row="0" Style="{StaticResource SectionHeader}" Padding="7,5" Margin="0,0,0,4"><StackPanel><DockPanel><TextBlock Text="現在のPrompt" Style="{StaticResource PanelTitle}" FontSize="16" Margin="0"/><TextBlock Text="{Binding Count}" Style="{StaticResource HintText}" VerticalAlignment="Center" Margin="8,0,0,0"/><CheckBox DockPanel.Dock="Right" Content="EN表示" IsChecked="{Binding EnglishChips}" Margin="8,0,0,0" VerticalAlignment="Center"/></DockPanel><TextBlock Text="{Binding Unresolved}" Style="{StaticResource HintText}" Foreground="#8A6A37"/></StackPanel></Border>
-                                <Border Grid.Row="1" Style="{StaticResource WorkSurfaceCard}" Padding="6" Margin="0,4,0,8"><ScrollViewer x:Name="CurrentScroll" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled"><StackPanel><ItemsControl ItemsSource="{Binding Chips}"><ItemsControl.ItemsPanel><ItemsPanelTemplate><WrapPanel/></ItemsPanelTemplate></ItemsControl.ItemsPanel><ItemsControl.ItemTemplate><DataTemplate><Grid Margin="3"><Button Style="{StaticResource PromptPreviewChip}" Command="{Binding DataContext.Inspect, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding}" MaxWidth="{Binding ActualWidth, ElementName=CurrentScroll}" Padding="9,6,28,6" Margin="0"><TextBlock Text="{Binding Label}" TextWrapping="Wrap"/></Button><Button Content="×" Style="{StaticResource ItemDeleteButton}" Command="{Binding DataContext.DeleteOne, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding}" ToolTip="このPrompt項目を削除" HorizontalAlignment="Right" VerticalAlignment="Top" Panel.ZIndex="1"/></Grid></DataTemplate></ItemsControl.ItemTemplate></ItemsControl><TextBlock Text="まだPromptがありません。辞書から追加するか、Promptを読み込んでください。" Margin="6,10,6,6"><TextBlock.Style><Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource HintText}"><Style.Triggers><DataTrigger Binding="{Binding HasPrompt}" Value="True"><Setter Property="Visibility" Value="Collapsed"/></DataTrigger></Style.Triggers></Style></TextBlock.Style></TextBlock></StackPanel></ScrollViewer></Border>
-                                <StackPanel Grid.Row="2"><Button Content="Prompt編集を開く" Command="{Binding OpenEditor}" Style="{StaticResource CompactPrimaryButton}"/><Button Content="英語Promptをコピー" Command="{Binding Copy}" Style="{StaticResource CompactSecondaryButton}" Margin="0,5,0,0"/></StackPanel>
+                                <Border Grid.Row="0" Style="{StaticResource SectionHeader}" Padding="8,7" Margin="0,0,0,5"><StackPanel><DockPanel><TextBlock Text="現在のPrompt" Style="{StaticResource PanelTitle}" FontSize="16" Margin="0"/><TextBlock Text="{Binding Count}" Style="{StaticResource HintText}" VerticalAlignment="Center" Margin="8,0,0,0"/><CheckBox DockPanel.Dock="Right" Content="EN表示" IsChecked="{Binding EnglishChips}" Margin="8,0,0,0" VerticalAlignment="Center"/></DockPanel><TextBlock Text="{Binding Unresolved}" Style="{StaticResource HintText}" Foreground="#8A6A37"/></StackPanel></Border>
+                                <Border Grid.Row="1" Style="{StaticResource WorkSurfaceCard}" Padding="8" Margin="0,4,0,10"><ScrollViewer x:Name="CurrentScroll" Padding="2,3" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled"><StackPanel><ItemsControl ItemsSource="{Binding Chips}"><ItemsControl.ItemsPanel><ItemsPanelTemplate><WrapPanel/></ItemsPanelTemplate></ItemsControl.ItemsPanel><ItemsControl.ItemTemplate><DataTemplate><Grid Margin="3"><Button Style="{StaticResource PromptPreviewChip}" Command="{Binding DataContext.Inspect, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding}" MaxWidth="{Binding ActualWidth, ElementName=CurrentScroll}" Padding="10,8,30,8" MinHeight="38" Margin="0"><TextBlock Text="{Binding Label}" FontWeight="Medium" TextWrapping="Wrap"/></Button><Button Content="×" Style="{StaticResource ItemDeleteButton}" Command="{Binding DataContext.DeleteOne, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding}" ToolTip="このPrompt項目を削除" HorizontalAlignment="Right" VerticalAlignment="Top" Panel.ZIndex="1"/></Grid></DataTemplate></ItemsControl.ItemTemplate></ItemsControl><TextBlock Text="まだPromptがありません。辞書から追加するか、Promptを読み込んでください。" Margin="6,10,6,6"><TextBlock.Style><Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource HintText}"><Style.Triggers><DataTrigger Binding="{Binding HasPrompt}" Value="True"><Setter Property="Visibility" Value="Collapsed"/></DataTrigger></Style.Triggers></Style></TextBlock.Style></TextBlock></StackPanel></ScrollViewer></Border>
+                                <StackPanel Grid.Row="2"><Button Content="Prompt編集を開く" Command="{Binding OpenEditor}" Style="{StaticResource PromptPanePrimaryButton}"/><Button Content="英語Promptをコピー" Command="{Binding Copy}" Style="{StaticResource PromptPaneSecondaryButton}" Margin="0,6,0,0"/></StackPanel>
                             </Grid>
                         </Border>
                     </Border>

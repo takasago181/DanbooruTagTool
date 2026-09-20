@@ -11,6 +11,7 @@ public partial class DictionaryWorkspaceView : UserControl
 {
     private readonly DispatcherTimer searchTimer = new() { Interval = TimeSpan.FromMilliseconds(150) };
     private bool attached;
+    private bool synchronizingScroll;
 
     public event Action? BrowseScrollChanged;
 
@@ -42,13 +43,14 @@ public partial class DictionaryWorkspaceView : UserControl
     private void SearchChanged(object sender, TextChangedEventArgs e) { searchTimer.Stop(); searchTimer.Start(); }
     private void DictionaryListSizeChanged(object sender, SizeChangedEventArgs e)
     {
-        UpdateSurfaceWidth(e.NewSize.Width);
+        UpdateSurfaceWidth();
     }
     private void UpdateSurfaceWidth(double? width = null)
     {
-        var actualWidth = width ?? DictionaryList.ActualWidth;
+        var actualWidth = width ?? DictionaryResultSurface.ActualWidth;
         if (actualWidth <= 0) return;
         ViewModel?.SetSurfaceWidth(actualWidth - SystemParameters.VerticalScrollBarWidth - 12);
+        UpdateColumnLayout();
     }
     private void QueueSurfaceWidthUpdate()
     {
@@ -58,7 +60,15 @@ public partial class DictionaryWorkspaceView : UserControl
     }
     private void BrowseScrolled(object sender, ScrollChangedEventArgs e)
     {
-        if (ViewModel == null) return;
+        if (ViewModel == null || synchronizingScroll) return;
+        var target = ReferenceEquals(sender, DictionaryList) ? DictionaryRightList : DictionaryList;
+        var targetScroll = FindChild<ScrollViewer>(target);
+        if (targetScroll != null && Math.Abs(targetScroll.VerticalOffset - e.VerticalOffset) > 0.5)
+        {
+            synchronizingScroll = true;
+            try { targetScroll.ScrollToVerticalOffset(e.VerticalOffset); }
+            finally { synchronizingScroll = false; }
+        }
         ViewModel.BrowseScroll = e.VerticalOffset;
         BrowseScrollChanged?.Invoke();
     }
@@ -75,7 +85,7 @@ public partial class DictionaryWorkspaceView : UserControl
     }
     private void DictionarySelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        if (DictionaryList.SelectedIndex >= 0) DictionaryList.SelectedIndex = -1;
+        if (sender is ListBox list && list.SelectedIndex >= 0) list.SelectedIndex = -1;
     }
     private void DictionaryPreviewKeyDown(object sender, KeyEventArgs e)
     {
@@ -92,10 +102,9 @@ public partial class DictionaryWorkspaceView : UserControl
             vm.InspectEntry.Execute(selected);
         e.Handled = true;
         if (vm.SelectedEntry is not { } current) return;
-        var row = vm.DictionaryRows.FirstOrDefault(candidate => ReferenceEquals(candidate.First, current) || ReferenceEquals(candidate.Second, current));
-        if (row == null) return;
-        DictionaryList.ScrollIntoView(row);
-        Dispatcher.BeginInvoke(() => (DictionaryList.ItemContainerGenerator.ContainerFromItem(row) as FrameworkElement)?.BringIntoView(), DispatcherPriority.Loaded);
+        var list = vm.DictionaryFirstColumn.Contains(current) ? DictionaryList : DictionaryRightList;
+        list.ScrollIntoView(current);
+        Dispatcher.BeginInvoke(() => (list.ItemContainerGenerator.ContainerFromItem(current) as FrameworkElement)?.BringIntoView(), DispatcherPriority.Loaded);
     }
     private static EntryViewModel? FindEntryDataContext(DependencyObject? source)
     {
@@ -110,7 +119,17 @@ public partial class DictionaryWorkspaceView : UserControl
     private void RestoreScroll()
     {
         if (ViewModel == null) return;
-        Dispatcher.BeginInvoke(() => FindChild<ScrollViewer>(DictionaryList)?.ScrollToVerticalOffset(ViewModel.RestoreScroll), DispatcherPriority.Loaded);
+        Dispatcher.BeginInvoke(() =>
+        {
+            FindChild<ScrollViewer>(DictionaryList)?.ScrollToVerticalOffset(ViewModel.RestoreScroll);
+            FindChild<ScrollViewer>(DictionaryRightList)?.ScrollToVerticalOffset(ViewModel.RestoreScroll);
+        }, DispatcherPriority.Loaded);
+    }
+    private void UpdateColumnLayout()
+    {
+        var twoColumns = ViewModel?.DictionaryColumnCount == 2;
+        DictionaryRightColumn.Width = twoColumns ? new GridLength(1, GridUnitType.Star) : new GridLength(0);
+        DictionaryRightList.Visibility = twoColumns ? Visibility.Visible : Visibility.Collapsed;
     }
     private static T? FindChild<T>(DependencyObject parent) where T : DependencyObject
     {
