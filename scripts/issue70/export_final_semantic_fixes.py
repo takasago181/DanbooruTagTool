@@ -1,22 +1,22 @@
 #!/usr/bin/env python3
-"""Export the final effective Issue #70 semantic FIX decisions.
+"""Export the final effective Issue #70 semantic value changes.
 
-This is a compact promotion handoff derived from the read-only semantic audit.
-It does not modify source/runtime Issue #70 data.
+Audit verdict labels are preserved as provenance, but promotion is normalized
+from actual current-vs-proposed value differences. This prevents stale FIX_BOTH
+labels from forcing a no-op write to a column that is already correct.
 """
 from __future__ import annotations
 
 import csv
 import json
 from collections import Counter, defaultdict
-from pathlib import Path
 
 import summarize_semantic_audit_progress as sap
 
 OUT = sap.AUDIT_DIR / "FINAL_SEMANTIC_FIXES.csv"
 SUMMARY = sap.AUDIT_DIR / "FINAL_SEMANTIC_FIXES_SUMMARY.json"
-FIX_VERDICTS = {"FIX_DISPLAY", "FIX_SEARCH", "FIX_BOTH"}
-EXPECTED = {"FIX_BOTH": 766, "FIX_DISPLAY": 8054, "FIX_SEARCH": 260}
+SOURCE_FIX_VERDICTS = {"FIX_DISPLAY", "FIX_SEARCH", "FIX_BOTH"}
+EXPECTED_SOURCE_FIXES = {"FIX_BOTH": 766, "FIX_DISPLAY": 8054, "FIX_SEARCH": 260}
 
 
 def main() -> int:
@@ -27,7 +27,6 @@ def main() -> int:
 
     observations: dict[str, list[dict[str, str]]] = defaultdict(list)
     for path in sorted(sap.AUDIT_DIR.glob("*.csv")):
-        # The exported handoff itself must never feed back into decision resolution.
         if path.name == OUT.name:
             continue
         is_external = path.name.startswith(sap.EXTERNAL_PREFIX)
@@ -60,53 +59,72 @@ def main() -> int:
             resolved[rid] = entry
     if conflicts:
         raise SystemExit(f"semantic decision conflicts remain: {len(conflicts)}")
+    unresolved = sum(
+        1 for e in resolved.values()
+        if e["audit_verdict"] in {"NEEDS_EXTERNAL_CHECK", "NEEDS_USER_DECISION"}
+    )
+    if len(resolved) != 18270 or unresolved != 0:
+        raise SystemExit(f"semantic closure drift: resolved={len(resolved)} unresolved={unresolved}")
+
+    source_counts = Counter(
+        e["audit_verdict"] for e in resolved.values()
+        if e["audit_verdict"] in SOURCE_FIX_VERDICTS
+    )
+    if dict(sorted(source_counts.items())) != dict(sorted(EXPECTED_SOURCE_FIXES.items())):
+        raise SystemExit(f"source FIX verdict count drift: {dict(source_counts)}")
 
     fixes: list[dict[str, str]] = []
+    effective_counts = Counter()
+    no_op_source_fixes = 0
+
     for rid in sorted(resolved):
         entry = resolved[rid]
-        verdict = entry["audit_verdict"]
-        if verdict not in FIX_VERDICTS:
+        source_verdict = entry["audit_verdict"]
+        if source_verdict not in SOURCE_FIX_VERDICTS:
             continue
+
         src = ledger_by_id[rid]
         current_display = (src.get("display_ja") or "").strip()
         current_search = (src.get("search_ja") or "").strip()
-        proposed_display = entry["proposed_display_ja"]
-        proposed_search = entry["proposed_search_ja"]
+        raw_display = entry["proposed_display_ja"]
+        raw_search = entry["proposed_search_ja"]
 
-        if verdict == "FIX_DISPLAY":
-            if not proposed_display or proposed_display == current_display or proposed_search:
-                raise SystemExit(f"invalid FIX_DISPLAY proposal: {rid}")
-        elif verdict == "FIX_SEARCH":
-            if not proposed_search or proposed_search == current_search or proposed_display:
-                raise SystemExit(f"invalid FIX_SEARCH proposal: {rid}")
-        elif verdict == "FIX_BOTH":
-            if (not proposed_display or not proposed_search or
-                    proposed_display == current_display or proposed_search == current_search):
-                raise SystemExit(f"invalid FIX_BOTH proposal: {rid}")
+        change_display = bool(raw_display) and raw_display != current_display
+        change_search = bool(raw_search) and raw_search != current_search
+        if change_display and change_search:
+            action = "FIX_BOTH"
+        elif change_display:
+            action = "FIX_DISPLAY"
+        elif change_search:
+            action = "FIX_SEARCH"
+        else:
+            no_op_source_fixes += 1
+            continue
 
+        effective_counts[action] += 1
         fixes.append({
             "row_id": rid,
             "canonical_tag": (src.get("canonical_tag") or "").strip(),
             "category": (src.get("category_name") or "").strip(),
             "post_count": (src.get("post_count") or "").strip(),
-            "audit_verdict": verdict,
+            "source_audit_verdict": source_verdict,
+            "effective_action": action,
             "current_display_ja": current_display,
             "current_search_ja": current_search,
-            "proposed_display_ja": proposed_display,
-            "proposed_search_ja": proposed_search,
+            "proposed_display_ja": raw_display if change_display else "",
+            "proposed_search_ja": raw_search if change_search else "",
             "reason_code": entry.get("reason_code", ""),
             "confidence": entry.get("confidence", ""),
             "decision_source": entry.get("source_file", ""),
         })
 
-    counts = Counter(row["audit_verdict"] for row in fixes)
-    if dict(sorted(counts.items())) != dict(sorted(EXPECTED.items())):
-        raise SystemExit(f"fix verdict count drift: {dict(counts)} != {EXPECTED}")
-    if len(fixes) != sum(EXPECTED.values()):
-        raise SystemExit(f"fix row count drift: {len(fixes)}")
+    source_fix_rows = sum(source_counts.values())
+    if len(fixes) + no_op_source_fixes != source_fix_rows:
+        raise SystemExit("effective normalization accounting mismatch")
 
     fields = [
-        "row_id", "canonical_tag", "category", "post_count", "audit_verdict",
+        "row_id", "canonical_tag", "category", "post_count",
+        "source_audit_verdict", "effective_action",
         "current_display_ja", "current_search_ja",
         "proposed_display_ja", "proposed_search_ja",
         "reason_code", "confidence", "decision_source",
@@ -117,17 +135,20 @@ def main() -> int:
         writer.writerows(fixes)
 
     summary = {
-        "format_version": 1,
+        "format_version": 2,
         "issue": 70,
         "production_modified": False,
         "semantic_ledger_rows": len(ledger),
         "effective_resolved_rows": len(resolved),
         "conflicted_rows": 0,
-        "fix_rows": len(fixes),
-        "fix_verdict_counts": dict(sorted(counts.items())),
+        "unresolved_rows": unresolved,
+        "source_fix_rows": source_fix_rows,
+        "source_fix_verdict_counts": dict(sorted(source_counts.items())),
+        "effective_fix_rows": len(fixes),
+        "effective_action_counts": dict(sorted(effective_counts.items())),
+        "normalized_no_op_source_fix_rows": no_op_source_fixes,
         "keep_rows": sum(1 for e in resolved.values() if e["audit_verdict"] == "KEEP"),
-        "unresolved_rows": sum(1 for e in resolved.values() if e["audit_verdict"] in {"NEEDS_EXTERNAL_CHECK", "NEEDS_USER_DECISION"}),
-        "purpose": "compact promotion handoff; original accepted Issue70 result rows remain immutable",
+        "purpose": "compact value-change promotion handoff; original accepted Issue70 rows remain immutable",
     }
     SUMMARY.write_text(json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(summary, ensure_ascii=False, indent=2))
