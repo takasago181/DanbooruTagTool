@@ -10,9 +10,9 @@
     "Artist_scope_filtered": 0
   },
   "scope_counts": {
-    "IN_2D": 42162,
+    "IN_2D": 42164,
     "REAL_3D": 1267,
-    "UNCERTAIN": 997
+    "UNCERTAIN": 995
   },
   "scope_counts_by_category": {
     "Character": {
@@ -21,9 +21,9 @@
       "UNCERTAIN": 993
     },
     "Copyright": {
-      "IN_2D": 7612,
+      "IN_2D": 7614,
       "REAL_3D": 920,
-      "UNCERTAIN": 4
+      "UNCERTAIN": 2
     }
   },
   "decision_source_counts": {
@@ -79,14 +79,14 @@
     "MANUAL_SCOPE_BATCH_046": 4,
     "MANUAL_SCOPE_BATCH_047": 14,
     "MANUAL_SCOPE_BATCH_048": 4,
-    "MANUAL_SCOPE_BATCH_049": 2,
+    "MANUAL_SCOPE_BATCH_049": 3,
+    "MANUAL_SCOPE_BATCH_050": 2,
     "SCOPE_OVERRIDE_001": 3,
     "SCOPE_OVERRIDE_002": 2,
-    "UNRESOLVED": 997,
-    "https://librewiki.net/wiki/%EC%96%B8%EB%A6%AC%EC%89%AC%EB%93%9C": 1
+    "UNRESOLVED": 995
   },
   "confirmed_real3d_seed_rows": 24,
-  "manual_scope_decision_rows": 8532,
+  "manual_scope_decision_rows": 8534,
   "source_fingerprint_sha256": "3d878a0e26f3d88e609d928ac676262b8c323efc4631a0ccfd1f9531961bfbed",
   "policy": {
     "runtime_candidate": "IN_2D + UNCERTAIN until full review closes",
