@@ -767,6 +767,13 @@ public sealed class DictionaryWorkspaceViewModel : Observable
         Notify(nameof(IsContentAll));
         Notify(nameof(IsContentGeneralPurpose));
         Notify(nameof(IsContentSexual));
+        Notify(nameof(SearchTarget));
+        Notify(nameof(IsSearchAll));
+        Notify(nameof(IsSearchCharacter));
+        Notify(nameof(IsSearchCopyright));
+        Notify(nameof(IsSearchArtist));
+        Notify(nameof(ShowRelationBanner));
+        Notify(nameof(RelationBannerText));
         Notify(nameof(CanGoBack));
         Notify(nameof(BrowseLabel));
         UndoUnifiedBrowseCommand?.Refresh();
@@ -774,6 +781,8 @@ public sealed class DictionaryWorkspaceViewModel : Observable
         ClearUnifiedBrowseCommand?.Refresh();
         ToggleDeepOnlyCommand?.Refresh();
         SetContentIntentCommand?.Refresh();
+        SetSearchTargetCommand?.Refresh();
+        ClearRelatedBrowseCommand?.Refresh();
     }
 
     private void RefreshUnifiedFacetOptions()
@@ -810,7 +819,7 @@ public sealed class DictionaryWorkspaceViewModel : Observable
         var entry = chip.Item.CatalogId is { } catalogId ? catalog.FindById(catalogId) : null;
         entry ??= catalog.Resolve(chip.Item.StructuredName ?? chip.Item.Surface.Trim());
         if (entry == null) { Query = chip.Item.StructuredName ?? chip.Item.Surface.Trim(); RefreshResults(); return; }
-        SelectedEntry = new(entry, workspace, Add, canMutate, UnifiedBreadcrumb, IsDeepDiscovery); DetailsTabIndex = 0;
+        SelectedEntry = new(entry, workspace, Add, canMutate, UnifiedBreadcrumb, IsDeepDiscovery, RelationSummaryFor, RelationCountFor, OpenRelated); DetailsTabIndex = 0;
     }
 
     public void SetSurfaceWidth(double availableWidth)
@@ -888,7 +897,29 @@ public sealed class DictionaryWorkspaceViewModel : Observable
         changed.RemoveWhere(c => previous.GetValueOrDefault(c) == current.GetValueOrDefault(c)); return changed;
     }
 
-    private IReadOnlyList<EntryViewModel> Rows(IEnumerable<CatalogEntry> entries) => entries.Select(e => new EntryViewModel(e, workspace, Add, canMutate, UnifiedBreadcrumb, IsDeepDiscovery)).ToArray();
+    private IReadOnlyList<EntryViewModel> Rows(IEnumerable<CatalogEntry> entries)
+        => entries.Select(e => new EntryViewModel(e, workspace, Add, canMutate, UnifiedBreadcrumb, IsDeepDiscovery, RelationSummaryFor, RelationCountFor, OpenRelated)).ToArray();
+
+    private int RelationCountFor(CatalogEntry entry)
+        => entry.EffectiveCategory is "Character" or "Copyright" ? catalog.RelatedByCatalogMetadata(entry).Count : 0;
+
+    private string? RelationSummaryFor(CatalogEntry entry)
+    {
+        if (entry.EffectiveCategory == "Character")
+        {
+            var works = catalog.RelatedByCatalogMetadata(entry);
+            if (works.Count == 0) return null;
+            var labels = works.Take(3).Select(work => work.Label).ToArray();
+            var suffix = works.Count > labels.Length ? $" / ほか{works.Count - labels.Length:N0}" : "";
+            return "作品: " + string.Join(" / ", labels) + suffix;
+        }
+        if (entry.EffectiveCategory == "Copyright")
+        {
+            var count = catalog.RelatedByCatalogMetadata(entry).Count;
+            return count > 0 ? $"関連キャラ {count:N0}件" : null;
+        }
+        return null;
+    }
     private void ToggleFacet(object? parameter)
     {
         if (specialBrowse == null || parameter is not SpecialBrowseFacetOptionViewModel option) return;
@@ -960,7 +991,7 @@ public sealed class DictionaryWorkspaceViewModel : Observable
      new("special-v2:themes", "テーマから探す", SpecialBrowseV2Taxonomy.Themes.Select(item => new NavigationNode("special-v2:theme:" + item.Id, item.Label, [])).ToArray())];
     private static bool IsNavigationHeading(string key)
         => key.StartsWith("group:", StringComparison.Ordinal)
-        || key is "special-v2:kinds" or "special-v2:body" or "special-v2:themes";
+        || key is "identity-group" or "special-v2:kinds" or "special-v2:body" or "special-v2:themes";
     private static bool SameSpecialFilter(SpecialBrowseV2Filter left, SpecialBrowseV2Filter right) => left.KindId == right.KindId && left.BodySiteIds.SetEquals(right.BodySiteIds) && left.ThemeIds.SetEquals(right.ThemeIds);
     private void ApplySpecialFilter(SpecialBrowseV2Filter next, bool remember) { if (SameSpecialFilter(next, specialFilter)) return; if (remember) specialFilterHistory.Push(specialFilter); specialFilter = next; }
     private static SpecialBrowseV2Filter SpecialFilterFromBrowse(string key)
