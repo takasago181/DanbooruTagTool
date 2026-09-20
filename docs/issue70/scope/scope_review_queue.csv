@@ -1,14 +1,8 @@
 ﻿row_id,canonical_tag,category,post_count,review_band,primary_copyright,primary_copyright_coverage,current_reason
-I70-036845,kouyoku_senki_exs-tia_concert,Copyright,1470,COPYRIGHT_SCOPE_FIRST,,,Copyright identity requires scope review
-I70-037154,gameoverse,Copyright,965,COPYRIGHT_SCOPE_FIRST,,,Copyright identity requires scope review
-I70-038191,dai_(series),Copyright,403,COPYRIGHT_SCOPE_FIRST,,,Copyright identity requires scope review
 I70-038195,unleashed,Copyright,403,COPYRIGHT_SCOPE_FIRST,,,Copyright identity requires scope review
 I70-038303,143_ocean_boulevard,Copyright,375,COPYRIGHT_SCOPE_FIRST,,,Copyright identity requires scope review
 I70-038652,3am,Copyright,309,COPYRIGHT_SCOPE_FIRST,,,Copyright identity requires scope review
-I70-038678,portrait_of_exotic_girls,Copyright,306,COPYRIGHT_SCOPE_FIRST,,,Copyright identity requires scope review
-I70-038938,krt_girls,Copyright,268,COPYRIGHT_SCOPE_FIRST,,,Copyright identity requires scope review
 I70-038978,project-sp,Copyright,263,COPYRIGHT_SCOPE_FIRST,,,Copyright identity requires scope review
-I70-039198,bird/binary,Copyright,238,COPYRIGHT_SCOPE_FIRST,,,Copyright identity requires scope review
 I70-039217,aerisdies,Copyright,236,COPYRIGHT_SCOPE_FIRST,,,Copyright identity requires scope review
 I70-039362,touran-sai,Copyright,223,COPYRIGHT_SCOPE_FIRST,,,Copyright identity requires scope review
 I70-039396,horse_race_tests,Copyright,220,COPYRIGHT_SCOPE_FIRST,,,Copyright identity requires scope review
@@ -18,7 +12,6 @@ I70-039879,w_tails_cat,Copyright,180,COPYRIGHT_SCOPE_FIRST,,,Copyright identity 
 I70-039992,love_je_t'aime,Copyright,173,COPYRIGHT_SCOPE_FIRST,,,Copyright identity requires scope review
 I70-039999,trojan_green_asteroid,Copyright,173,COPYRIGHT_SCOPE_FIRST,,,Copyright identity requires scope review
 I70-040127,little_princess,Copyright,164,COPYRIGHT_SCOPE_FIRST,,,Copyright identity requires scope review
-I70-040257,traffic_life_series,Copyright,156,COPYRIGHT_SCOPE_FIRST,,,Copyright identity requires scope review
 I70-040270,omc,Copyright,155,COPYRIGHT_SCOPE_FIRST,,,Copyright identity requires scope review
 I70-040325,ways_of_darkness_(series),Copyright,152,COPYRIGHT_SCOPE_FIRST,,,Copyright identity requires scope review
 I70-040338,silverlight,Copyright,151,COPYRIGHT_SCOPE_FIRST,,,Copyright identity requires scope review
@@ -139,7 +132,6 @@ I70-003148,archetype_earth,Character,1069,CHARACTER_RESIDUAL,tsukihime,0.747758,
 I70-003362,santa_claus,Character,998,CHARACTER_RESIDUAL,original,0.529286,Character scope not safely derivable from current Copyright decisions
 I70-003470,jack_frost_(megami_tensei),Character,970,CHARACTER_RESIDUAL,persona,0.420988,Character scope not safely derivable from current Copyright decisions
 I70-003654,mii_(nintendo),Character,918,CHARACTER_RESIDUAL,super_smash_bros.,0.478947,Character scope not safely derivable from current Copyright decisions
-I70-003713,kit_bodega,Character,898,CHARACTER_RESIDUAL,gameoverse,1.000000,Character scope not safely derivable from current Copyright decisions
 I70-003723,sothis_(young)_(fire_emblem),Character,896,CHARACTER_RESIDUAL,,,Character scope not safely derivable from current Copyright decisions
 I70-003754,angelina_the_mellow_wish_(arknights),Character,887,CHARACTER_RESIDUAL,,,Character scope not safely derivable from current Copyright decisions
 I70-003815,wario,Character,872,CHARACTER_RESIDUAL,mario_(series),0.665789,Character scope not safely derivable from current Copyright decisions
@@ -192,7 +184,6 @@ I70-007294,satou_yaniko,Character,415,CHARACTER_RESIDUAL,,,Character scope not s
 I70-007312,thumpy_(arknights),Character,414,CHARACTER_RESIDUAL,,,Character scope not safely derivable from current Copyright decisions
 I70-007332,camila_inpu,Character,412,CHARACTER_RESIDUAL,,,Character scope not safely derivable from current Copyright decisions
 I70-007394,kamen_rider_double,Character,407,CHARACTER_RESIDUAL,kamen_rider,0.997253,Character scope not safely derivable from current Copyright decisions
-I70-007423,aikawa_haruno,Character,405,CHARACTER_RESIDUAL,kouyoku_senki_exs-tia_concert,1.000000,Character scope not safely derivable from current Copyright decisions
 I70-007755,michael_jackson,Character,383,CHARACTER_RESIDUAL,real_life,0.665428,Character scope not safely derivable from current Copyright decisions
 I70-007876,yajuu_senpai,Character,377,CHARACTER_RESIDUAL,manatsu_no_yo_no_inmu,0.991279,Character scope not safely derivable from current Copyright decisions
 I70-007881,colonel_sanders,Character,376,CHARACTER_RESIDUAL,kfc,0.947368,Character scope not safely derivable from current Copyright decisions
@@ -211,7 +202,6 @@ I70-008542,hanamiya_nina,Character,340,CHARACTER_RESIDUAL,real_life,0.826498,Cha
 I70-008694,magical_mirai_miku_(2021),Character,332,CHARACTER_RESIDUAL,magical_mirai_(vocaloid),1.000000,Character scope not safely derivable from current Copyright decisions
 I70-008878,sawashiro_miyuki,Character,324,CHARACTER_RESIDUAL,honkai_(series),0.645270,Character scope not safely derivable from current Copyright decisions
 I70-008939,magical_mirai_miku_(2025),Character,321,CHARACTER_RESIDUAL,magical_mirai_(vocaloid),1.000000,Character scope not safely derivable from current Copyright decisions
-I70-008968,oosumi_kanon,Character,320,CHARACTER_RESIDUAL,kouyoku_senki_exs-tia_concert,1.000000,Character scope not safely derivable from current Copyright decisions
 I70-008974,akami_karubi,Character,319,CHARACTER_RESIDUAL,indie_virtual_youtuber,0.562278,Character scope not safely derivable from current Copyright decisions
 I70-009005,naima_(ado),Character,318,CHARACTER_RESIDUAL,ado_(utaite),1.000000,Character scope not safely derivable from current Copyright decisions
 I70-009009,sakura_ayane,Character,318,CHARACTER_RESIDUAL,genshin_impact,0.426230,Character scope not safely derivable from current Copyright decisions
@@ -264,11 +254,9 @@ I70-010758,kamen_rider_ryuki,Character,256,CHARACTER_RESIDUAL,kamen_rider,0.9954
 I70-010787,kirarazaka_marina_(older),Character,255,CHARACTER_RESIDUAL,,,Character scope not safely derivable from current Copyright decisions
 I70-010796,pix_(league),Character,255,CHARACTER_RESIDUAL,,,Character scope not safely derivable from current Copyright decisions
 I70-010897,mokona,Character,252,CHARACTER_RESIDUAL,magic_knight_rayearth,0.706897,Character scope not safely derivable from current Copyright decisions
-I70-010917,exs-tia_ignis,Character,251,CHARACTER_RESIDUAL,kouyoku_senki_exs-tia_concert,1.000000,Character scope not safely derivable from current Copyright decisions
 I70-010923,melon-chan,Character,251,CHARACTER_RESIDUAL,melonbooks,1.000000,Character scope not safely derivable from current Copyright decisions
 I70-010929,terebi-chan,Character,251,CHARACTER_RESIDUAL,niconico,1.000000,Character scope not safely derivable from current Copyright decisions
 I70-010977,forte_(shingeki_no_bahamut),Character,249,CHARACTER_RESIDUAL,granblue_fantasy,0.774590,Character scope not safely derivable from current Copyright decisions
-I70-010988,kunijima_chiaki,Character,249,CHARACTER_RESIDUAL,kouyoku_senki_exs-tia_concert,1.000000,Character scope not safely derivable from current Copyright decisions
 I70-010989,magical_mirai_miku_(2022),Character,249,CHARACTER_RESIDUAL,magical_mirai_(vocaloid),1.000000,Character scope not safely derivable from current Copyright decisions
 I70-011134,kuze_shizuka_(older),Character,245,CHARACTER_RESIDUAL,,,Character scope not safely derivable from current Copyright decisions
 I70-011158,yukico-tan,Character,245,CHARACTER_RESIDUAL,yukijirushi,1.000000,Character scope not safely derivable from current Copyright decisions
@@ -277,9 +265,7 @@ I70-011273,saaya_(kirome),Character,241,CHARACTER_RESIDUAL,haks,0.564815,Charact
 I70-011279,wolf-chan_(wataame27),Character,241,CHARACTER_RESIDUAL,original,0.737288,Character scope not safely derivable from current Copyright decisions
 I70-011392,ellin_meiji,Character,237,CHARACTER_RESIDUAL,original,0.734884,Character scope not safely derivable from current Copyright decisions
 I70-011418,wojak,Character,237,CHARACTER_RESIDUAL,original,0.520661,Character scope not safely derivable from current Copyright decisions
-I70-011558,sugahara_touka,Character,233,CHARACTER_RESIDUAL,kouyoku_senki_exs-tia_concert,1.000000,Character scope not safely derivable from current Copyright decisions
 I70-011574,duckman,Character,232,CHARACTER_RESIDUAL,goho_mafia!_kajita-kun,0.600000,Character scope not safely derivable from current Copyright decisions
-I70-011642,xiao_qiong,Character,231,CHARACTER_RESIDUAL,krt_girls,1.000000,Character scope not safely derivable from current Copyright decisions
 I70-011752,teruyof,Character,228,CHARACTER_RESIDUAL,touhou,0.533040,Character scope not safely derivable from current Copyright decisions
 I70-011784,ottilie_(spindlesong),Character,227,CHARACTER_RESIDUAL,,,Character scope not safely derivable from current Copyright decisions
 I70-011809,eunha_(gfriend),Character,226,CHARACTER_RESIDUAL,gfriend,0.932331,Character scope not safely derivable from current Copyright decisions
@@ -312,7 +298,6 @@ I70-012627,shiratama_(shiranami_ramune),Character,208,CHARACTER_RESIDUAL,,,Chara
 I70-012780,timeslot_(arknights),Character,205,CHARACTER_RESIDUAL,,,Character scope not safely derivable from current Copyright decisions
 I70-012846,ghostface,Character,203,CHARACTER_RESIDUAL,scream_(movie),0.937500,Character scope not safely derivable from current Copyright decisions
 I70-012849,guan_chao_(false_memory),Character,203,CHARACTER_RESIDUAL,,,Character scope not safely derivable from current Copyright decisions
-I70-012905,exs-tia_sol,Character,202,CHARACTER_RESIDUAL,kouyoku_senki_exs-tia_concert,1.000000,Character scope not safely derivable from current Copyright decisions
 I70-012919,moria_luluka_(civilian),Character,202,CHARACTER_RESIDUAL,,,Character scope not safely derivable from current Copyright decisions
 I70-012954,dtto.,Character,201,CHARACTER_RESIDUAL,reject_(esports),0.551724,Character scope not safely derivable from current Copyright decisions
 I70-012966,lapwing_(vrchat),Character,201,CHARACTER_RESIDUAL,vrchat,0.962567,Character scope not safely derivable from current Copyright decisions
@@ -331,7 +316,6 @@ I70-013227,mafumafu,Character,196,CHARACTER_RESIDUAL,indie_utaite,0.962963,Chara
 I70-013252,t-800,Character,196,CHARACTER_RESIDUAL,terminator_(series),1.000000,Character scope not safely derivable from current Copyright decisions
 I70-013267,donald_trump,Character,195,CHARACTER_RESIDUAL,real_life,0.805195,Character scope not safely derivable from current Copyright decisions
 I70-013356,shoboon,Character,194,CHARACTER_RESIDUAL,2channel,0.978022,Character scope not safely derivable from current Copyright decisions
-I70-013383,itakano_shigure,Character,193,CHARACTER_RESIDUAL,kouyoku_senki_exs-tia_concert,1.000000,Character scope not safely derivable from current Copyright decisions
 I70-013406,ranboo,Character,193,CHARACTER_RESIDUAL,minecraft_youtube,0.731183,Character scope not safely derivable from current Copyright decisions
 I70-013553,lv_dongbin_(all_wishes_come_true!),Character,190,CHARACTER_RESIDUAL,,,Character scope not safely derivable from current Copyright decisions
 I70-013571,uniguri_(zutomayo),Character,190,CHARACTER_RESIDUAL,zutto_mayonaka_de_ii_no_ni,1.000000,Character scope not safely derivable from current Copyright decisions
@@ -355,7 +339,6 @@ I70-014679,koshimizu_ami,Character,171,CHARACTER_RESIDUAL,kill_la_kill,0.362416,
 I70-014691,oosaki_(ooe),Character,171,CHARACTER_RESIDUAL,animal_crossing,0.006250,Character scope not safely derivable from current Copyright decisions
 I70-014752,nanahira,Character,170,CHARACTER_RESIDUAL,indie_utaite,0.955975,Character scope not safely derivable from current Copyright decisions
 I70-014765,tanezaki_atsumi,Character,170,CHARACTER_RESIDUAL,sousou_no_frieren,0.628205,Character scope not safely derivable from current Copyright decisions
-I70-014867,kaboodle_(gameoverse),Character,168,CHARACTER_RESIDUAL,gameoverse,1.000000,Character scope not safely derivable from current Copyright decisions
 I70-014928,ironmouse_(15th_costume),Character,167,CHARACTER_RESIDUAL,vshojo,0.716312,Character scope not safely derivable from current Copyright decisions
 I70-014929,ishikawa_yui,Character,167,CHARACTER_RESIDUAL,nier:automata,0.526667,Character scope not safely derivable from current Copyright decisions
 I70-015034,takahashi_rie,Character,166,CHARACTER_RESIDUAL,kono_subarashii_sekai_ni_shukufuku_wo!,0.633987,Character scope not safely derivable from current Copyright decisions
@@ -388,7 +371,6 @@ I70-016099,hirasawa_susumu,Character,151,CHARACTER_RESIDUAL,real_life,0.635714,C
 I70-016102,iihara_nao,Character,151,CHARACTER_RESIDUAL,resort_boin,0.614754,Character scope not safely derivable from current Copyright decisions
 I70-016131,sightseer_(female)_(pokemon_sm),Character,151,CHARACTER_RESIDUAL,,,Character scope not safely derivable from current Copyright decisions
 I70-016142,yashahime_(momotarou_densetsu),Character,151,CHARACTER_RESIDUAL,momotarou_densetsu,0.768707,Character scope not safely derivable from current Copyright decisions
-I70-016164,exs-tia_aqua,Character,150,CHARACTER_RESIDUAL,kouyoku_senki_exs-tia_concert,1.000000,Character scope not safely derivable from current Copyright decisions
 I70-016209,s-head_commander,Character,150,CHARACTER_RESIDUAL,girls'_frontline,0.503497,Character scope not safely derivable from current Copyright decisions
 I70-016222,wilbur_soot,Character,150,CHARACTER_RESIDUAL,minecraft_youtube,0.979021,Character scope not safely derivable from current Copyright decisions
 I70-016231,aizawa_hikaru,Character,149,CHARACTER_RESIDUAL,microsoft,0.935714,Character scope not safely derivable from current Copyright decisions
@@ -462,13 +444,11 @@ I70-018254,inami_anju,Character,128,CHARACTER_RESIDUAL,love_live!,0.715447,Chara
 I70-018267,magical_mirai_meiko,Character,128,CHARACTER_RESIDUAL,magical_mirai_(vocaloid),1.000000,Character scope not safely derivable from current Copyright decisions
 I70-018290,shouko_(blue_archive),Character,128,CHARACTER_RESIDUAL,,,Character scope not safely derivable from current Copyright decisions
 I70-018303,ururun_(so2),Character,128,CHARACTER_RESIDUAL,,,Character scope not safely derivable from current Copyright decisions
-I70-018345,exs-tia_luna,Character,127,CHARACTER_RESIDUAL,kouyoku_senki_exs-tia_concert,1.000000,Character scope not safely derivable from current Copyright decisions
 I70-018373,kotora_(toranoana),Character,127,CHARACTER_RESIDUAL,toranoana,0.992126,Character scope not safely derivable from current Copyright decisions
 I70-018397,optimus_prime_(kotobukiya_bishoujo),Character,127,CHARACTER_RESIDUAL,kotobukiya_bishoujo,1.000000,Character scope not safely derivable from current Copyright decisions
 I70-018426,umji_(gfriend),Character,127,CHARACTER_RESIDUAL,gfriend,0.900000,Character scope not safely derivable from current Copyright decisions
 I70-018448,baobhan_sith_(academy_outfit)_(fate),Character,126,CHARACTER_RESIDUAL,,,Character scope not safely derivable from current Copyright decisions
 I70-018582,final_form_cooler_(dragon_ball),Character,125,CHARACTER_RESIDUAL,,,Character scope not safely derivable from current Copyright decisions
-I70-018588,gobbles_(gameoverse),Character,125,CHARACTER_RESIDUAL,gameoverse,1.000000,Character scope not safely derivable from current Copyright decisions
 I70-018632,remielle_dan_(past),Character,125,CHARACTER_RESIDUAL,,,Character scope not safely derivable from current Copyright decisions
 I70-018659,worker_(squid_game),Character,125,CHARACTER_RESIDUAL,squid_game,1.000000,Character scope not safely derivable from current Copyright decisions
 I70-018756,super_tama_musume,Character,124,CHARACTER_RESIDUAL,tamatoys,1.000000,Character scope not safely derivable from current Copyright decisions
@@ -498,7 +478,6 @@ I70-019782,south_korea_(kokkimusume),Character,115,CHARACTER_RESIDUAL,,,Characte
 I70-019940,yui_(summer_memories),Character,114,CHARACTER_RESIDUAL,summer_memories,0.654321,Character scope not safely derivable from current Copyright decisions
 I70-019949,ariake_(ooe),Character,113,CHARACTER_RESIDUAL,animal_crossing,0.009524,Character scope not safely derivable from current Copyright decisions
 I70-019961,chestnut_horse_(kemono_friends),Character,113,CHARACTER_RESIDUAL,,,Character scope not safely derivable from current Copyright decisions
-I70-019973,exs-tia_avalas,Character,113,CHARACTER_RESIDUAL,kouyoku_senki_exs-tia_concert,1.000000,Character scope not safely derivable from current Copyright decisions
 I70-020058,vanessa_(cytus_ii),Character,113,CHARACTER_RESIDUAL,,,Character scope not safely derivable from current Copyright decisions
 I70-020060,virgin_mary,Character,113,CHARACTER_RESIDUAL,the_bible,0.356436,Character scope not safely derivable from current Copyright decisions
 I70-020196,tommyinnit,Character,112,CHARACTER_RESIDUAL,minecraft_youtube,1.000000,Character scope not safely derivable from current Copyright decisions
@@ -626,7 +605,6 @@ I70-023695,sua_(tenshi)_(zombie_stage),Character,90,CHARACTER_RESIDUAL,,,Charact
 I70-023706,till_(zombie_stage),Character,90,CHARACTER_RESIDUAL,,,Character scope not safely derivable from current Copyright decisions
 I70-023732,amatsuna_sasaha,Character,89,CHARACTER_RESIDUAL,nanashi_inc.,0.619048,Character scope not safely derivable from current Copyright decisions
 I70-023751,c2-chan,Character,89,CHARACTER_RESIDUAL,c2_kikan,0.953488,Character scope not safely derivable from current Copyright decisions
-I70-023765,emilia_(krt_girls),Character,89,CHARACTER_RESIDUAL,krt_girls,1.000000,Character scope not safely derivable from current Copyright decisions
 I70-023773,gachapin,Character,89,CHARACTER_RESIDUAL,hirake!_ponkikki,0.976190,Character scope not safely derivable from current Copyright decisions
 I70-023786,hastur_(cthulhu_mythos),Character,89,CHARACTER_RESIDUAL,,,Character scope not safely derivable from current Copyright decisions
 I70-023811,kanaut_nishe,Character,89,CHARACTER_RESIDUAL,indie_virtual_youtuber,0.741573,Character scope not safely derivable from current Copyright decisions
@@ -634,7 +612,6 @@ I70-023990,franka_(originium_dust)_(arknights),Character,88,CHARACTER_RESIDUAL,,
 I70-024007,hibino_hibiki,Character,88,CHARACTER_RESIDUAL,fate_(series),0.716049,Character scope not safely derivable from current Copyright decisions
 I70-024014,huanxiang_koudai_meow,Character,88,CHARACTER_RESIDUAL,original,0.691358,Character scope not safely derivable from current Copyright decisions
 I70-024071,ozawa_ari,Character,88,CHARACTER_RESIDUAL,kantai_collection,0.658824,Character scope not safely derivable from current Copyright decisions
-I70-024079,retia_adolf,Character,88,CHARACTER_RESIDUAL,dai_(series),1.000000,Character scope not safely derivable from current Copyright decisions
 I70-024083,ryan_gosling,Character,88,CHARACTER_RESIDUAL,blade_runner_(series),0.447761,Character scope not safely derivable from current Copyright decisions
 I70-024109,tin_man_(the_wizard_of_oz),Character,88,CHARACTER_RESIDUAL,the_wizard_of_oz,0.939759,Character scope not safely derivable from current Copyright decisions
 I70-024110,togashi_koyori,Character,88,CHARACTER_RESIDUAL,sengoku_ace,0.723684,Character scope not safely derivable from current Copyright decisions
@@ -724,7 +701,6 @@ I70-026197,kin_(senukin),Character,78,CHARACTER_RESIDUAL,original,0.782051,Chara
 I70-026210,limealicious_(1st_costume),Character,78,CHARACTER_RESIDUAL,vinesauce,0.986667,Character scope not safely derivable from current Copyright decisions
 I70-026215,lotte_farona,Character,78,CHARACTER_RESIDUAL,ways_of_darkness_(series),1.000000,Character scope not safely derivable from current Copyright decisions
 I70-026221,matara_kan_(casual),Character,78,CHARACTER_RESIDUAL,vshojo,0.723077,Character scope not safely derivable from current Copyright decisions
-I70-026232,miss_information_(gameoverse),Character,78,CHARACTER_RESIDUAL,gameoverse,1.000000,Character scope not safely derivable from current Copyright decisions
 I70-026238,nanase_(arika),Character,78,CHARACTER_RESIDUAL,arika,0.983051,Character scope not safely derivable from current Copyright decisions
 I70-026264,rta-chan,Character,78,CHARACTER_RESIDUAL,rta_in_japan,1.000000,Character scope not safely derivable from current Copyright decisions
 I70-026360,anonymous_(4chan),Character,77,CHARACTER_RESIDUAL,4chan,0.979592,Character scope not safely derivable from current Copyright decisions
@@ -764,7 +740,6 @@ I70-027055,yukoku_kiriko_(delight_summer),Character,75,CHARACTER_RESIDUAL,,,Char
 I70-027071,apricot_the_lich_(goth),Character,74,CHARACTER_RESIDUAL,vshojo,0.776119,Character scope not safely derivable from current Copyright decisions
 I70-027072,aramaki_scaltinof,Character,74,CHARACTER_RESIDUAL,2channel,0.916667,Character scope not safely derivable from current Copyright decisions
 I70-027075,arya_kuroha,Character,74,CHARACTER_RESIDUAL,,,Character scope not safely derivable from current Copyright decisions
-I70-027097,ciel_(bird/binary),Character,74,CHARACTER_RESIDUAL,bird/binary,1.000000,Character scope not safely derivable from current Copyright decisions
 I70-027101,cowardly_lion,Character,74,CHARACTER_RESIDUAL,the_wizard_of_oz,0.971831,Character scope not safely derivable from current Copyright decisions
 I70-027110,elia_stellaria,Character,74,CHARACTER_RESIDUAL,indie_virtual_youtuber,0.625000,Character scope not safely derivable from current Copyright decisions
 I70-027142,hourei_tenten,Character,74,CHARACTER_RESIDUAL,indie_virtual_youtuber,0.652778,Character scope not safely derivable from current Copyright decisions
@@ -874,7 +849,6 @@ I70-029741,petra_parker_(otrebot),Character,65,CHARACTER_RESIDUAL,,,Character sc
 I70-029757,ricardo_milos,Character,65,CHARACTER_RESIDUAL,gachimuchi,0.740000,Character scope not safely derivable from current Copyright decisions
 I70-029758,riderman,Character,65,CHARACTER_RESIDUAL,kamen_rider,0.968254,Character scope not safely derivable from current Copyright decisions
 I70-029798,take_yutaka,Character,65,CHARACTER_RESIDUAL,real_life,0.830508,Character scope not safely derivable from current Copyright decisions
-I70-029804,tougou_tsuyoshi,Character,65,CHARACTER_RESIDUAL,dai_(series),1.000000,Character scope not safely derivable from current Copyright decisions
 I70-029807,tsukushino_mitsugu,Character,65,CHARACTER_RESIDUAL,resort_boin,0.740741,Character scope not safely derivable from current Copyright decisions
 I70-029828,yukana,Character,65,CHARACTER_RESIDUAL,code_geass,0.568966,Character scope not safely derivable from current Copyright decisions
 I70-029900,erica_mendez,Character,64,CHARACTER_RESIDUAL,kill_la_kill,0.450000,Character scope not safely derivable from current Copyright decisions
@@ -1043,7 +1017,6 @@ I70-033436,kirito_(sao-os),Character,55,CHARACTER_RESIDUAL,,,Character scope not
 I70-033476,luka_(zombie_stage),Character,55,CHARACTER_RESIDUAL,,,Character scope not safely derivable from current Copyright decisions
 I70-033507,misaki_nako,Character,55,CHARACTER_RESIDUAL,real_life,0.927273,Character scope not safely derivable from current Copyright decisions
 I70-033513,momo_(zephyr)_(infinity_nikki),Character,55,CHARACTER_RESIDUAL,,,Character scope not safely derivable from current Copyright decisions
-I70-033521,nana_(krt_girls),Character,55,CHARACTER_RESIDUAL,krt_girls,1.000000,Character scope not safely derivable from current Copyright decisions
 I70-033536,nishi_kaoruko,Character,55,CHARACTER_RESIDUAL,,,Character scope not safely derivable from current Copyright decisions
 I70-033549,orie_hakua,Character,55,CHARACTER_RESIDUAL,pixiv_fantasia,0.703704,Character scope not safely derivable from current Copyright decisions
 I70-033602,shadow_giant,Character,55,CHARACTER_RESIDUAL,,,Character scope not safely derivable from current Copyright decisions
