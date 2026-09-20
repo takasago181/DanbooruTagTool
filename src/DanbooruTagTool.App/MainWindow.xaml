@@ -11,6 +11,9 @@
         Background="#F4F7FA" UseLayoutRounding="True" SnapsToDevicePixels="True"
         TextOptions.TextFormattingMode="Display"
         TextOptions.TextRenderingMode="ClearType"
+        AllowDrop="True"
+        DragOver="WindowDragOver"
+        Drop="WindowDrop"
         PreviewKeyDown="WindowKeyDown">
     <Window.Resources>
         <HierarchicalDataTemplate DataType="{x:Type vm:NavigationNode}" ItemsSource="{Binding Children}">
@@ -509,6 +512,7 @@
                     <Button Content="新規Prompt" Command="{Binding New}" Style="{StaticResource CompactSecondaryButton}"/>
                     <Button Content="直前のPromptを復元" Command="{Binding Recover}" Style="{StaticResource CompactButton}"/>
                     <Button Content="生成プリセット" Command="{Binding OpenPresets}" Style="{StaticResource CompactSecondaryButton}"/>
+                    <Button Content="生成PNGを読込" Click="ImportGenerationPngClick" Style="{StaticResource CompactSecondaryButton}" ToolTip="Forgeで生成したPNGからPrompt・Seed・生成条件を読み込みます。ドラッグ&amp;ドロップにも対応します。"/>
                     <Button Content="Forgeへ送る" Command="{Binding SendToForge}" Style="{StaticResource CompactSecondaryButton}" ToolTip="現在のvisible English PromptをForgeへ送ります。Negativeは変更しません。"/>
                     <Button Content="▶ Forgeで生成" Command="{Binding GenerateInForge}" Style="{StaticResource CompactPrimaryButton}" ToolTip="現在のvisible English PromptをForgeへ送り、Forgeの現在のtxt2img設定で生成します。Negativeは変更しません。"/>
                     <Button Content="Forge設定" Command="{Binding OpenForgeSettings}" Style="{StaticResource CompactButton}"/>

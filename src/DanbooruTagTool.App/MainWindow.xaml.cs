@@ -4,6 +4,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Threading;
 using DanbooruTagTool.App.ViewModels;
+using Microsoft.Win32;
 using KeyEventArgs = System.Windows.Input.KeyEventArgs;
 
 namespace DanbooruTagTool.App;
@@ -18,11 +19,13 @@ public partial class MainWindow : Window
     private bool syncingNavigation;
     private GenerationPresetDialog? presetDialog;
     private ForgeSettingsDialog? forgeSettingsDialog;
+    private GenerationImportDialog? generationImportDialog;
     public MainWindow(MainViewModel vm)
     {
         this.vm = vm; InitializeComponent(); DataContext = vm;
         vm.PresetsRequested += OpenPresetDialog;
         vm.ForgeSettingsRequested += OpenForgeSettingsDialog;
+        vm.GenerationImportRequested += OpenGenerationImportDialog;
         var defaultHeight = Math.Abs(vm.Ui.Height - 820) < 0.5 ? 720 : vm.Ui.Height;
         Width = Math.Max(MinWidth, vm.Ui.Width); Height = Math.Max(MinHeight, defaultHeight);
         Left = Math.Clamp(vm.Ui.Left, SystemParameters.VirtualScreenLeft, SystemParameters.VirtualScreenLeft + SystemParameters.VirtualScreenWidth - 100);
@@ -53,7 +56,7 @@ public partial class MainWindow : Window
         DictionaryWorkspace.BrowseScrollChanged += QueueUiSave;
         PromptEditor.EditRatioChanged += SaveGeometry;
         SizeChanged += (_, _) => QueueUiSave(); LocationChanged += (_, _) => QueueUiSave();
-        Closing += (_, _) => { SaveGeometry(); feedbackTimer.Stop(); uiTimer.Stop(); if (presetDialog != null) presetDialog.Close(); if (forgeSettingsDialog != null) forgeSettingsDialog.Close(); };
+        Closing += (_, _) => { SaveGeometry(); feedbackTimer.Stop(); uiTimer.Stop(); if (presetDialog != null) presetDialog.Close(); if (forgeSettingsDialog != null) forgeSettingsDialog.Close(); if (generationImportDialog != null) generationImportDialog.Close(); };
         Loaded += (_, _) => { vm.UpdateChipLanguage(); SyncNavigationSelection(); };
     }
     private static bool IsLegacyNavWidth(double width) => Math.Abs(width - 210) < 0.5 || Math.Abs(width - 230) < 0.5;
@@ -158,6 +161,54 @@ public partial class MainWindow : Window
         else return;
         e.Handled = true;
     }
+    private void ImportGenerationPngClick(object sender, RoutedEventArgs e)
+    {
+        var dialog = new OpenFileDialog
+        {
+            Title = "Forgeで生成したPNGを選択",
+            Filter = "PNG画像 (*.png)|*.png",
+            CheckFileExists = true,
+            Multiselect = false
+        };
+        if (dialog.ShowDialog(this) == true) vm.ImportGenerationPng(dialog.FileName);
+    }
+
+    private void WindowDragOver(object sender, DragEventArgs e)
+    {
+        e.Effects = TryGetSinglePng(e.Data, out _) ? DragDropEffects.Copy : DragDropEffects.None;
+        e.Handled = true;
+    }
+
+    private void WindowDrop(object sender, DragEventArgs e)
+    {
+        if (TryGetSinglePng(e.Data, out var path)) vm.ImportGenerationPng(path);
+        else vm.Status = "生成PNGを1ファイルだけドロップしてください";
+        e.Handled = true;
+    }
+
+    private static bool TryGetSinglePng(IDataObject data, out string path)
+    {
+        path = "";
+        if (!data.GetDataPresent(DataFormats.FileDrop) || data.GetData(DataFormats.FileDrop) is not string[] files || files.Length != 1)
+            return false;
+        if (!Path.GetExtension(files[0]).Equals(".png", StringComparison.OrdinalIgnoreCase))
+            return false;
+        path = files[0];
+        return true;
+    }
+
+    private void OpenGenerationImportDialog()
+    {
+        if (generationImportDialog is { IsVisible: true })
+        {
+            generationImportDialog.Activate();
+            return;
+        }
+        generationImportDialog = new GenerationImportDialog(vm) { Owner = this };
+        generationImportDialog.Closed += (_, _) => generationImportDialog = null;
+        generationImportDialog.Show();
+    }
+
     private void OpenPresetDialog()
     {
         if (presetDialog is { IsVisible: true }) { presetDialog.Activate(); return; }
