@@ -1,0 +1,32 @@
+row_id,canonical_tag,category,post_count,media_scope,confidence,scope_reason,evidence_refs,decision_source
+I70-038638,socks_agency,Copyright,312,IN_2D,HIGH,VTuber talent agency whose copyright identity groups virtual characters/talents; retain in virtual-character scope.,https://sockagency.co/,MANUAL_SCOPE_BATCH_038
+I70-040535,project_nebula,Copyright,140,IN_2D,HIGH,Official VTuber group/project; retain in virtual-character scope.,https://www.youtube.com/@PROJECTNEBULA,MANUAL_SCOPE_BATCH_038
+I70-041060,choo_choo_train,Copyright,116,REAL_3D,HIGH,Real-world music/song identity; outside Character/Copyright 2D-fiction scope.,,MANUAL_SCOPE_BATCH_038
+I70-041995,the_walking_dead,Copyright,89,IN_2D,HIGH,Comic-origin fictional franchise; retain in illustrated/comic scope.,,MANUAL_SCOPE_BATCH_038
+I70-043011,the_caster_chronicles,Copyright,69,REAL_3D,HIGH,Novel/book-series identity rather than a 2D visual media property; outside target scope.,,MANUAL_SCOPE_BATCH_038
+I70-043275,gangnam_style,Copyright,64,REAL_3D,HIGH,Real-world music/song identity; outside Character/Copyright 2D-fiction scope.,,MANUAL_SCOPE_BATCH_038
+I70-043493,show_(ado),Copyright,61,REAL_3D,HIGH,Real-world music/song identity; outside Character/Copyright 2D-fiction scope.,,MANUAL_SCOPE_BATCH_038
+I70-043500,the_raven_cycle,Copyright,61,REAL_3D,HIGH,Novel/book-series identity rather than a 2D visual media property; outside target scope.,,MANUAL_SCOPE_BATCH_038
+I70-043501,the_umbrella_academy,Copyright,61,IN_2D,HIGH,Comic-origin fictional franchise; retain in illustrated/comic scope.,,MANUAL_SCOPE_BATCH_038
+I70-043592,absolute_superman,Copyright,59,IN_2D,HIGH,Comic-series identity; retain in illustrated/comic scope.,,MANUAL_SCOPE_BATCH_038
+I70-043677,aquaman_(series),Copyright,58,IN_2D,HIGH,Comic-origin fictional franchise; retain in illustrated/comic scope.,,MANUAL_SCOPE_BATCH_038
+I70-043765,hai_yorokonde,Copyright,57,REAL_3D,HIGH,Real-world music/song identity; outside Character/Copyright 2D-fiction scope.,,MANUAL_SCOPE_BATCH_038
+I70-043875,seisen_no_iberia,Copyright,56,REAL_3D,HIGH,Real-world music/album identity; outside Character/Copyright 2D-fiction scope.,,MANUAL_SCOPE_BATCH_038
+I70-043899,1984_(novel),Copyright,55,REAL_3D,HIGH,Novel/book identity rather than a 2D visual media property; outside target scope.,,MANUAL_SCOPE_BATCH_038
+I70-043978,a_knight_of_the_seven_kingdoms,Copyright,54,REAL_3D,HIGH,Novel/book/live-action property; outside strict 2D-only scope.,,MANUAL_SCOPE_BATCH_038
+I70-044006,harry_potter_and_the_philosopher's_stone,Copyright,54,REAL_3D,HIGH,Book/live-action-film property; outside strict 2D-only scope.,,MANUAL_SCOPE_BATCH_038
+I70-044065,the_new_prophecy,Copyright,54,REAL_3D,HIGH,Novel/book-series identity rather than a 2D visual media property; outside target scope.,,MANUAL_SCOPE_BATCH_038
+I70-044094,etsusa_oohashi,Copyright,53,REAL_3D,HIGH,Real-person author identity; outside Character/Copyright 2D-fiction scope.,,MANUAL_SCOPE_BATCH_038
+I70-044109,kikaider_(series),Copyright,53,IN_2D,HIGH,Manga-origin fictional franchise with 2D illustrated identity; retain in scope.,,MANUAL_SCOPE_BATCH_038
+I70-044158,all_you_need_is_kill,Copyright,52,IN_2D,HIGH,Illustrated light-novel/manga property; retain in 2D visual-content scope.,,MANUAL_SCOPE_BATCH_038
+I70-044179,game-style,Copyright,52,REAL_3D,HIGH,Real-world website/media service identity; outside strict 2D-only scope.,,MANUAL_SCOPE_BATCH_038
+I70-044204,ms._marvel_(series),Copyright,52,IN_2D,HIGH,Comic-series identity; retain in illustrated/comic scope.,,MANUAL_SCOPE_BATCH_038
+I70-044242,treasure_island,Copyright,52,REAL_3D,HIGH,Novel/book identity rather than a 2D visual media property; outside target scope.,,MANUAL_SCOPE_BATCH_038
+I70-044248,virtual_dimension_project,Copyright,52,IN_2D,HIGH,Virtual-character/project identity; retain in virtual-character scope.,,MANUAL_SCOPE_BATCH_038
+I70-044285,howl's_moving_castle_(novel),Copyright,51,REAL_3D,HIGH,Novel-specific identity; outside strict 2D visual-media scope.,,MANUAL_SCOPE_BATCH_038
+I70-044318,slavic_mythology,Copyright,51,REAL_3D,HIGH,Real-world mythology/folklore identity rather than a specific 2D fictional property.,,MANUAL_SCOPE_BATCH_038
+I70-044324,the_two-thousand_yard_stare,Copyright,51,REAL_3D,HIGH,Real-world photograph/meme identity; outside strict 2D fictional-content scope.,,MANUAL_SCOPE_BATCH_038
+I70-044334,a_clockwork_orange,Copyright,50,REAL_3D,HIGH,Novel/live-action-film property; outside strict 2D-only scope.,,MANUAL_SCOPE_BATCH_038
+I70-044345,book_of_bill,Copyright,50,IN_2D,HIGH,Illustrated fictional book tied to an animated property; retain in 2D visual-content scope.,,MANUAL_SCOPE_BATCH_038
+I70-044352,constantine_(series),Copyright,50,IN_2D,HIGH,Comic-origin fictional franchise; retain in illustrated/comic scope.,,MANUAL_SCOPE_BATCH_038
+I70-044385,myholo_tv,Copyright,50,IN_2D,HIGH,VTuber/virtual-talent project identity; retain in virtual-character scope.,,MANUAL_SCOPE_BATCH_038
