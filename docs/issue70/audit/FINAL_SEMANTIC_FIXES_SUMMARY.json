@@ -1,0 +1,24 @@
+{
+  "format_version": 2,
+  "issue": 70,
+  "production_modified": false,
+  "semantic_ledger_rows": 18270,
+  "effective_resolved_rows": 18270,
+  "conflicted_rows": 0,
+  "unresolved_rows": 0,
+  "source_fix_rows": 9080,
+  "source_fix_verdict_counts": {
+    "FIX_BOTH": 766,
+    "FIX_DISPLAY": 8054,
+    "FIX_SEARCH": 260
+  },
+  "effective_fix_rows": 9080,
+  "effective_action_counts": {
+    "FIX_BOTH": 370,
+    "FIX_DISPLAY": 8450,
+    "FIX_SEARCH": 260
+  },
+  "normalized_no_op_source_fix_rows": 0,
+  "keep_rows": 9190,
+  "purpose": "compact value-change promotion handoff; original accepted Issue70 rows remain immutable"
+}
