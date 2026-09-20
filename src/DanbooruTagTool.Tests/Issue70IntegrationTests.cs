@@ -17,7 +17,8 @@ public class Issue70IntegrationTests
         Assert.Equal(Issue70CatalogOverlayImporter.CharacterCount, entries.Count(e => e.EffectiveCategory == "Character"));
         Assert.Equal(Issue70CatalogOverlayImporter.CopyrightCount, entries.Count(e => e.EffectiveCategory == "Copyright"));
         Assert.Equal(Issue70CatalogOverlayImporter.ArtistCount, entries.Count(e => e.EffectiveCategory == "Artist"));
-        Assert.Equal(35597, entries.Count(e => e.EffectiveCategory == "Character" && e.RelatedCopyright.Length > 0));
+        Assert.Equal(Issue70CatalogOverlayImporter.CharacterWithRelationsCount, entries.Count(e => e.EffectiveCategory == "Character" && e.RelatedCopyright.Length > 0));
+        Assert.DoesNotContain(entries, e => e.Canonical == "tenga");
         var miku = entries.Single(e => e.Canonical == "hatsune_miku");
         Assert.Equal("Character", miku.EffectiveCategory);
         Assert.Contains("vocaloid", miku.RelatedCopyright);

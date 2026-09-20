@@ -1,0 +1,34 @@
+{
+  "format_version": 1,
+  "issue": 70,
+  "policy": "Character/Copyright 2D-only; Artist fully retained; semantic final fixes applied",
+  "original_overlay": "docs/issue70/data/runtime/issue70_catalog_overlay.csv",
+  "original_overlay_sha256": "1d346ad75655ea6091f9bce9a4cf58b1cf6f8fac18c7eb441f8edd009ee81433",
+  "scope_exclusion": "docs/issue70/scope/runtime_exclude_real3d_candidates.csv",
+  "scope_exclusion_sha256": "d8f2ad3219ff21fff3a5f4222b26a5d8fa5c82ebfc45d714415b1bd6411dc087",
+  "semantic_fixes": "docs/issue70/finalization/FINAL_SEMANTIC_FIXES.csv",
+  "semantic_fixes_sha256": "20c29328325e9af2327bd6373bf45e7949a2d91961b149bb19f7f46e547f459b",
+  "final_overlay": "docs/issue70/data/runtime/issue70_catalog_overlay_2d_final.csv",
+  "final_overlay_sha256": "bf366734b41b2be9e6cb52de919ef55b7312445e1715f96a357db37abda8dad5",
+  "original_rows": 92739,
+  "excluded_real3d_rows": 1532,
+  "final_rows": 91207,
+  "final_category_counts": {
+    "Artist": 48313,
+    "Character": 35278,
+    "Copyright": 7616
+  },
+  "semantic_fix_rows": 9080,
+  "semantic_effective_action_counts": {
+    "FIX_BOTH": 370,
+    "FIX_DISPLAY": 8450,
+    "FIX_SEARCH": 260
+  },
+  "semantic_fix_rows_applied": 8917,
+  "semantic_fix_rows_excluded_by_scope": 163,
+  "display_baseline_mismatches": 0,
+  "search_baseline_mismatches": 1142,
+  "removed_related_copyright_refs": 7655,
+  "characters_with_related_copyright": 34986,
+  "production_modified": false
+}
