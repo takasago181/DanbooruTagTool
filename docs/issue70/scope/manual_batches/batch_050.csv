@@ -1,0 +1,3 @@
+row_id,canonical_tag,category,post_count,media_scope,confidence,scope_reason,evidence_refs,decision_source
+I70-043511,a_dog_of_flanders,Copyright,60,IN_2D,HIGH,Danbooru-derived usage targets the fictional Nello and Patrasche property and Nippon Animation documents a 1975 television anime; it is not live-action-only and is retained as fictional anime-linked IP.,https://www.nippon-animation.co.jp/work/843/,MANUAL_SCOPE_BATCH_050
+I70-043929,koronu_korinne,Copyright,55,IN_2D,HIGH,BOOTH identifies Koronu Korinne as a side-scrolling doujin action game based on fictional Koronu and Korinu characters and also documents manga material; retained under game and manga rules.,https://booth.pm/ja/items/1293651,MANUAL_SCOPE_BATCH_050

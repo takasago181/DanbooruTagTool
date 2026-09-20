@@ -1,0 +1,51 @@
+row_id,canonical_tag,category,post_count,media_scope,confidence,scope_reason,evidence_refs,decision_source
+I70-036209,star_wars,Copyright,5838,REAL_3D,HIGH,Live-action-film-first franchise; excluded from the user's strict 2D-only Copyright scope.,,MANUAL_SCOPE_BATCH_037
+I70-036378,wizarding_world,Copyright,3313,REAL_3D,HIGH,Book/live-action-film franchise and real-world brand umbrella; outside strict 2D-only scope.,,MANUAL_SCOPE_BATCH_037
+I70-036445,harry_potter_(series),Copyright,2771,REAL_3D,HIGH,Book/live-action-film franchise identity; outside strict 2D-only scope.,,MANUAL_SCOPE_BATCH_037
+I70-036495,godzilla_(series),Copyright,2484,REAL_3D,HIGH,Live-action/tokusatsu-first franchise; outside strict 2D-only scope.,,MANUAL_SCOPE_BATCH_037
+I70-037477,new_horizon,Copyright,687,REAL_3D,HIGH,Real-world educational textbook/publication identity; outside strict 2D-only scope.,,MANUAL_SCOPE_BATCH_037
+I70-037528,barbie_(franchise),Copyright,653,REAL_3D,HIGH,Real-world toy/product franchise and brand umbrella; outside strict 2D-only scope.,,MANUAL_SCOPE_BATCH_037
+I70-037606,the_addams_family,Copyright,617,IN_2D,HIGH,High-confidence comic / animated / illustrated fictional franchise in the user's 2D scope.,,MANUAL_SCOPE_BATCH_037
+I70-037865,beauty_and_the_beast_(disney),Copyright,504,IN_2D,HIGH,High-confidence comic / animated / illustrated fictional franchise in the user's 2D scope.,,MANUAL_SCOPE_BATCH_037
+I70-037930,jubilee_2025,Copyright,482,REAL_3D,HIGH,Real-world event identity; outside strict 2D-only scope.,,MANUAL_SCOPE_BATCH_037
+I70-037950,a_song_of_ice_and_fire,Copyright,474,REAL_3D,HIGH,Novel/book-series identity rather than a 2D visual media property; outside target scope.,,MANUAL_SCOPE_BATCH_037
+I70-038009,san-x,Copyright,455,REAL_3D,HIGH,Real-world company/brand identity rather than a specific 2D fictional property.,,MANUAL_SCOPE_BATCH_037
+I70-038164,sinsekai_record,Copyright,413,REAL_3D,HIGH,Real-world music/studio organization identity; outside Character/Copyright 2D-fiction scope.,,MANUAL_SCOPE_BATCH_037
+I70-038749,kobeya,Copyright,293,REAL_3D,HIGH,Real-world company/brand identity; outside strict 2D-only scope.,,MANUAL_SCOPE_BATCH_037
+I70-039558,lusterise,Copyright,205,REAL_3D,HIGH,Real-world game/visual-novel brand/company identity rather than a specific fictional property.,,MANUAL_SCOPE_BATCH_037
+I70-039594,vimalion_pro,Copyright,201,REAL_3D,HIGH,Real-world production/agency identity rather than a specific virtual character.,,MANUAL_SCOPE_BATCH_037
+I70-039598,c2_kikan,Copyright,200,REAL_3D,HIGH,Real-world creator circle/company identity; outside Character/Copyright 2D-fiction scope.,,MANUAL_SCOPE_BATCH_037
+I70-039604,mad_max,Copyright,200,REAL_3D,HIGH,Live-action-film-first franchise; outside strict 2D-only scope.,,MANUAL_SCOPE_BATCH_037
+I70-039627,miracreation,Copyright,198,REAL_3D,HIGH,Real-world production/agency identity rather than a specific fictional property.,,MANUAL_SCOPE_BATCH_037
+I70-039635,doctor_who,Copyright,197,REAL_3D,HIGH,Live-action television franchise; outside strict 2D-only scope.,,MANUAL_SCOPE_BATCH_037
+I70-039862,roman_(sound_horizon),Copyright,181,REAL_3D,HIGH,Real-world music/album identity; outside Character/Copyright 2D-fiction scope.,,MANUAL_SCOPE_BATCH_037
+I70-039965,the_adventures_of_sherlock_holmes,Copyright,175,REAL_3D,HIGH,Literary/book identity rather than a 2D visual media property; outside target scope.,,MANUAL_SCOPE_BATCH_037
+I70-040047,honeyworks,Copyright,169,REAL_3D,HIGH,Real-person music/creator group identity; outside Character/Copyright 2D-fiction scope.,,MANUAL_SCOPE_BATCH_037
+I70-040168,romance_of_the_three_kingdoms,Copyright,162,REAL_3D,HIGH,Historical literary work identity rather than a 2D visual media property; outside target scope.,,MANUAL_SCOPE_BATCH_037
+I70-040275,the_prophecies_begin,Copyright,155,REAL_3D,HIGH,Novel/book-series identity rather than a 2D visual media property; outside target scope.,,MANUAL_SCOPE_BATCH_037
+I70-040277,bashamichi,Copyright,154,REAL_3D,HIGH,Real-world commercial/restaurant brand identity; outside strict 2D-only scope.,,MANUAL_SCOPE_BATCH_037
+I70-040627,prismplus,Copyright,135,REAL_3D,HIGH,Real-world electronics/company brand identity; outside strict 2D-only scope.,,MANUAL_SCOPE_BATCH_037
+I70-040726,ultimate_nipper,Copyright,131,REAL_3D,HIGH,Real-world hobby tool/product identity; outside strict 2D-only scope.,,MANUAL_SCOPE_BATCH_037
+I70-040952,sergestid_shrimp_in_tungkang,Copyright,121,REAL_3D,HIGH,Real-world food/local-culture identity; outside strict 2D-only scope.,,MANUAL_SCOPE_BATCH_037
+I70-040982,abbey_road,Copyright,119,REAL_3D,HIGH,Real-world music/album identity; outside Character/Copyright 2D-fiction scope.,,MANUAL_SCOPE_BATCH_037
+I70-041005,phantom_of_the_opera,Copyright,119,REAL_3D,HIGH,Literary/stage-musical identity rather than a 2D visual media property; outside target scope.,,MANUAL_SCOPE_BATCH_037
+I70-041093,dune_(series),Copyright,115,REAL_3D,HIGH,Novel/live-action-film franchise identity; outside strict 2D-only scope.,,MANUAL_SCOPE_BATCH_037
+I70-041205,the_royal_family_(tv_series),Copyright,112,REAL_3D,HIGH,Live-action television-series identity; outside strict 2D-only scope.,,MANUAL_SCOPE_BATCH_037
+I70-041331,zuutto_issho_(kitani_tatsuya),Copyright,108,REAL_3D,HIGH,Real-world music/song identity; outside Character/Copyright 2D-fiction scope.,,MANUAL_SCOPE_BATCH_037
+I70-041347,kick_back_(song),Copyright,107,REAL_3D,HIGH,Real-world music/song identity; outside Character/Copyright 2D-fiction scope.,,MANUAL_SCOPE_BATCH_037
+I70-041374,nevermind,Copyright,106,REAL_3D,HIGH,Real-world music/album identity; outside Character/Copyright 2D-fiction scope.,,MANUAL_SCOPE_BATCH_037
+I70-041391,backrooms_(2026_movie),Copyright,105,REAL_3D,HIGH,Specific live-action film property; outside strict 2D-only scope.,,MANUAL_SCOPE_BATCH_037
+I70-041481,old_testament,Copyright,103,REAL_3D,HIGH,Religious/textual work identity rather than a 2D fictional media property; outside target scope.,,MANUAL_SCOPE_BATCH_037
+I70-041687,empires_smp,Copyright,97,REAL_3D,HIGH,Real-person Minecraft creator/server community identity; outside Character/Copyright 2D-fiction scope.,,MANUAL_SCOPE_BATCH_037
+I70-041720,e.t.,Copyright,96,REAL_3D,HIGH,Specific live-action film property; outside strict 2D-only scope.,,MANUAL_SCOPE_BATCH_037
+I70-041736,nayutalien,Copyright,96,REAL_3D,HIGH,Real-person music/creator identity; outside Character/Copyright 2D-fiction scope.,,MANUAL_SCOPE_BATCH_037
+I70-041837,madra_(album),Copyright,93,REAL_3D,HIGH,Real-world music/album identity; outside Character/Copyright 2D-fiction scope.,,MANUAL_SCOPE_BATCH_037
+I70-042044,book_of_genesis,Copyright,87,REAL_3D,HIGH,Religious/textual work identity rather than a 2D fictional media property; outside target scope.,,MANUAL_SCOPE_BATCH_037
+I70-042443,the_punisher_(series),Copyright,79,IN_2D,HIGH,High-confidence comic / animated / illustrated fictional franchise in the user's 2D scope.,,MANUAL_SCOPE_BATCH_037
+I70-042471,hell's_kitchen,Copyright,78,REAL_3D,HIGH,Live-action reality/television property; outside strict 2D-only scope.,,MANUAL_SCOPE_BATCH_037
+I70-042494,remembrance_of_earth's_past,Copyright,78,REAL_3D,HIGH,Novel/book-series identity rather than a 2D visual media property; outside target scope.,,MANUAL_SCOPE_BATCH_037
+I70-042594,starship_troopers,Copyright,76,REAL_3D,HIGH,Novel/live-action-film property; outside strict 2D-only scope.,,MANUAL_SCOPE_BATCH_037
+I70-042699,the_mighty_nein,Copyright,74,REAL_3D,HIGH,Real-person actual-play campaign/group identity; outside Character/Copyright 2D-fiction scope.,,MANUAL_SCOPE_BATCH_037
+I70-043037,iris_out_(song),Copyright,68,REAL_3D,HIGH,Real-world music/song identity; outside Character/Copyright 2D-fiction scope.,,MANUAL_SCOPE_BATCH_037
+I70-043078,virtual_insanity_(song),Copyright,68,REAL_3D,HIGH,Real-world music/song identity; outside Character/Copyright 2D-fiction scope.,,MANUAL_SCOPE_BATCH_037
+I70-043104,kuraku_kuroku_(zutomayo),Copyright,67,REAL_3D,HIGH,Real-world music/song identity; outside Character/Copyright 2D-fiction scope.,,MANUAL_SCOPE_BATCH_037

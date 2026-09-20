@@ -1,0 +1,101 @@
+slice_index,row_id,canonical_tag,category,post_count,review_result,review_note
+1,I70-043732,studio_tri4,Copyright,58,UNCERTAIN,Reviewed in fixed queue slice; insufficient confidence or mixed-media boundary remains. Kept UNCERTAIN.
+2,I70-044290,licca-chan_(franchise),Copyright,51,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+3,I70-001942,yamamura_sadako,Character,1739,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+4,I70-008022,xenomorph,Character,368,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+5,I70-009980,predator_(character),Character,282,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+6,I70-010660,asimov_(spindlesong),Character,259,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+7,I70-010787,kirarazaka_marina_(older),Character,255,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+8,I70-011134,kuze_shizuka_(older),Character,245,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+9,I70-011273,saaya_(kirome),Character,241,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+10,I70-011574,duckman,Character,232,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+11,I70-011784,ottilie_(spindlesong),Character,227,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+12,I70-012627,shiratama_(shiranami_ramune),Character,208,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+13,I70-012846,ghostface,Character,203,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+14,I70-012988,yamanashi_haruka,Character,201,UNCERTAIN,Reviewed in fixed queue slice; insufficient confidence or mixed-media boundary remains. Kept UNCERTAIN.
+15,I70-014691,oosaki_(ooe),Character,171,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+16,I70-015487,jean_(si_land),Character,159,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+17,I70-016829,yahan_(lamp159568),Character,143,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+18,I70-017386,king_zahab_(si_land),Character,136,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+19,I70-017678,facehugger,Character,133,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+20,I70-017782,azarashii_(igarashi_rika),Character,132,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+21,I70-019949,ariake_(ooe),Character,113,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+22,I70-020473,shinbashi_(ooe),Character,110,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+23,I70-021864,simon_jackson,Character,101,UNCERTAIN,Reviewed in fixed queue slice; insufficient confidence or mixed-media boundary remains. Kept UNCERTAIN.
+24,I70-022637,souei_yuyu,Character,96,UNCERTAIN,Reviewed in fixed queue slice; insufficient confidence or mixed-media boundary remains. Kept UNCERTAIN.
+25,I70-023288,megohime_(nashi),Character,92,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+26,I70-024144,arihara_yuuna_(hanauna),Character,87,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+27,I70-024948,tsukisita_mika_(sakamata),Character,84,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+28,I70-025381,tama_tamara_tabasa_(manjuverunu),Character,82,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+29,I70-026197,kin_(senukin),Character,78,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+30,I70-026443,kamogumi_(kanna_yanagi),Character,77,UNCERTAIN,Reviewed in fixed queue slice; insufficient confidence or mixed-media boundary remains. Kept UNCERTAIN.
+31,I70-026509,rudy_(rariatto),Character,77,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+32,I70-026775,shimon_(shimotsuma),Character,76,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+33,I70-026797,tiona_(rumie),Character,76,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+34,I70-027047,xingye_(xing),Character,75,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+35,I70-027596,cheemsburger_(doge),Character,72,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+36,I70-028413,daiginjou_(futaba_channel),Character,69,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+37,I70-028696,coqui_saporana,Character,68,UNCERTAIN,Reviewed in fixed queue slice; insufficient confidence or mixed-media boundary remains. Kept UNCERTAIN.
+38,I70-029052,kanikama_(suou_patra),Character,67,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+39,I70-029265,bathing_elf_(kirishima_satoshi),Character,66,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+40,I70-029318,ghost_girl_(shikisokuzeku76),Character,66,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+41,I70-029520,yumykon_(yumykon),Character,66,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+42,I70-029649,juna_unagi,Character,65,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+43,I70-030184,8-foot_joe,Character,63,REAL_3D,Resolved in MANUAL_SCOPE_BATCH_060
+44,I70-030266,funasshii,Character,63,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+45,I70-030429,sally_merci_(manjuverunu),Character,63,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+46,I70-030566,dogpool,Character,62,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+47,I70-030575,emmett_brown,Character,62,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+48,I70-030610,hob_&_nob,Character,62,UNCERTAIN,Reviewed in fixed queue slice; insufficient confidence or mixed-media boundary remains. Kept UNCERTAIN.
+49,I70-030694,mint_fantome_(summer),Character,62,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+50,I70-030695,mira_kimishima,Character,62,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+51,I70-030784,togawa_nonoha_(1st_costume),Character,62,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+52,I70-030805,vladimir_lenin,Character,62,REAL_3D,Resolved in MANUAL_SCOPE_BATCH_060
+53,I70-030904,dragon_ranger,Character,61,REAL_3D,Resolved in MANUAL_SCOPE_BATCH_060
+54,I70-030970,honey_churros,Character,61,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+55,I70-031051,mizuki_sasahara,Character,61,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+56,I70-031341,jeanne_d'arc_(real_life),Character,60,REAL_3D,Resolved in MANUAL_SCOPE_BATCH_060
+57,I70-031408,mao_zedong,Character,60,REAL_3D,Resolved in MANUAL_SCOPE_BATCH_060
+58,I70-031450,napoleon_bonaparte_(real_life),Character,60,REAL_3D,Resolved in MANUAL_SCOPE_BATCH_060
+59,I70-031572,tung_tung_tung_sahur,Character,60,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+60,I70-031598,yamawaki_bon_ivar_(triumph_of_the_demon_lord),Character,60,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+61,I70-031624,amane_(sakura_hiyori),Character,59,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+62,I70-031643,bebe_(nanahira),Character,59,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+63,I70-031649,blair_dame,Character,59,UNCERTAIN,Reviewed in fixed queue slice; insufficient confidence or mixed-media boundary remains. Kept UNCERTAIN.
+64,I70-031652,boyfriend_(yoru_mac),Character,59,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+65,I70-031761,izumi_shirogane,Character,59,UNCERTAIN,Reviewed in fixed queue slice; insufficient confidence or mixed-media boundary remains. Kept UNCERTAIN.
+66,I70-031913,shaak_ti,Character,59,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+67,I70-031931,somei_sakura,Character,59,UNCERTAIN,Reviewed in fixed queue slice; insufficient confidence or mixed-media boundary remains. Kept UNCERTAIN.
+68,I70-032165,kawashima_shirone_(m-chai),Character,58,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+69,I70-032272,ootani_ouya,Character,58,UNCERTAIN,Reviewed in fixed queue slice; insufficient confidence or mixed-media boundary remains. Kept UNCERTAIN.
+70,I70-032283,pippi_panini_(basedbinkie),Character,58,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+71,I70-032301,sakai_aruko,Character,58,UNCERTAIN,Reviewed in fixed queue slice; insufficient confidence or mixed-media boundary remains. Kept UNCERTAIN.
+72,I70-032419,bai_zhong_(false_memory),Character,57,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+73,I70-032593,kuro_(miku_plus),Character,57,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+74,I70-032637,miyouji,Character,57,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+75,I70-032695,riko_solari,Character,57,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+76,I70-032727,shoggoth,Character,57,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+77,I70-032760,tlipoca,Character,57,UNCERTAIN,Reviewed in fixed queue slice; insufficient confidence or mixed-media boundary remains. Kept UNCERTAIN.
+78,I70-032846,bo-katan_kryze,Character,56,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+79,I70-032939,ihara_saeko,Character,56,UNCERTAIN,Reviewed in fixed queue slice; insufficient confidence or mixed-media boundary remains. Kept UNCERTAIN.
+80,I70-032979,kohinata_miku_(shenshoujing),Character,56,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+81,I70-033177,take_mamoru,Character,56,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+82,I70-033232,amenankhnas-talia_ife,Character,55,UNCERTAIN,Reviewed in fixed queue slice; insufficient confidence or mixed-media boundary remains. Kept UNCERTAIN.
+83,I70-033300,doreking,Character,55,UNCERTAIN,Reviewed in fixed queue slice; insufficient confidence or mixed-media boundary remains. Kept UNCERTAIN.
+84,I70-033348,georgie_denbrough,Character,55,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+85,I70-033476,luka_(zombie_stage),Character,55,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+86,I70-033536,nishi_kaoruko,Character,55,UNCERTAIN,Reviewed in fixed queue slice; insufficient confidence or mixed-media boundary remains. Kept UNCERTAIN.
+87,I70-033602,shadow_giant,Character,55,UNCERTAIN,Reviewed in fixed queue slice; insufficient confidence or mixed-media boundary remains. Kept UNCERTAIN.
+88,I70-033629,suzumiya_suzume,Character,55,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+89,I70-033733,chidejika,Character,54,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+90,I70-033865,lerochka,Character,54,UNCERTAIN,Reviewed in fixed queue slice; insufficient confidence or mixed-media boundary remains. Kept UNCERTAIN.
+91,I70-033904,mogu_(miori_celesta),Character,54,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+92,I70-033933,orie_mishiro,Character,54,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+93,I70-033973,rukawa-chan_(namagome_negi),Character,54,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+94,I70-034133,christmas_elf,Character,53,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+95,I70-034309,mikogami_kotone_(1st_costume),Character,53,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+96,I70-034347,nekoyashiki_miku_(1st_costume),Character,53,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+97,I70-034352,nishi_hiroto,Character,53,UNCERTAIN,Reviewed in fixed queue slice; insufficient confidence or mixed-media boundary remains. Kept UNCERTAIN.
+98,I70-034355,okita_souji_(real_life),Character,53,REAL_3D,Resolved in MANUAL_SCOPE_BATCH_060
+99,I70-034446,snaree_(taratabong),Character,53,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060
+100,I70-034458,sunny_splosion,Character,53,IN_2D,Resolved in MANUAL_SCOPE_BATCH_060

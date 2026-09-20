@@ -1,0 +1,231 @@
+row_id,canonical_tag,category,post_count,media_scope,confidence,scope_reason,evidence_refs,decision_source
+I70-042001,asumi-chan_wa_rezu_fuuzoku_ni_kyoumi_ga_arimasu!,Copyright,88,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042002,black_panther_(movie),Copyright,88,REAL_3D,HIGH,Specific live-action film property; outside the user's 2D-only media scope.,,MANUAL_SCOPE_BATCH_026
+I70-042003,flame_toys,Copyright,88,REAL_3D,HIGH,Real-world manufacturer/company brand identity; outside 2D-only scope.,,MANUAL_SCOPE_BATCH_026
+I70-042007,gintama_movie_2:_yorozuya_yo_eien_nare,Copyright,88,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042008,hanamusubi_(love_live!),Copyright,88,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042009,heavily_armed_high_school_girls,Copyright,88,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042010,honoo_no_toukyuujo:_dodge_danko,Copyright,88,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042011,iii_(hololive),Copyright,88,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042012,itunes,Copyright,88,REAL_3D,HIGH,Real-world software/media service identity; outside 2D-only scope.,,MANUAL_SCOPE_BATCH_026
+I70-042013,koi_ga_saku_koro_sakura_doki,Copyright,88,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042014,loveless,Copyright,88,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042015,majisuka_gakuen,Copyright,88,REAL_3D,HIGH,Live-action television drama property; outside the user's 2D-only media scope.,,MANUAL_SCOPE_BATCH_026
+I70-042016,mousou_dairinin,Copyright,88,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042017,nepnep_connect:_chaos_chanpuru,Copyright,88,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042019,pokemon_mystery_dungeon:_rescue_team_dx,Copyright,88,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042020,pppp_(vocaloid),Copyright,88,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042021,primal_hearts,Copyright,88,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042022,radiata_stories,Copyright,88,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042023,round1,Copyright,88,REAL_3D,HIGH,Real-world entertainment/facility company identity; outside 2D-only scope.,,MANUAL_SCOPE_BATCH_026
+I70-042024,sekaiju_no_meikyuu_x,Copyright,88,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042025,shenmue_iii,Copyright,88,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042026,shizuku_(game),Copyright,88,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042027,solitude_rain_(love_live!),Copyright,88,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042028,spider-verse_(comics),Copyright,88,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042029,stellar_theater,Copyright,88,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042030,suzumiya_haruhi_no_tsuisou,Copyright,88,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042031,tears_to_tiara,Copyright,88,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042032,tenkuu_no_yumina,Copyright,88,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042033,ultraman_ace_(series),Copyright,88,REAL_3D,HIGH,Live-action/tokusatsu television property; outside the user's 2D-only media scope.,,MANUAL_SCOPE_BATCH_026
+I70-042034,we_love_cold_war,Copyright,88,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042035,yume_miru_kusuri,Copyright,88,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042036,yumeria,Copyright,88,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042037,yuuwaku_scramble,Copyright,88,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042038,ace_combat_5,Copyright,87,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042039,adventurequest,Copyright,87,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042040,aika_r-16,Copyright,87,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042041,aquarium_wa_odoranai,Copyright,87,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042042,birdmen_(manga),Copyright,87,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042043,blue_reflection_tie,Copyright,87,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042045,cryptract,Copyright,87,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042046,detroit_metal_city,Copyright,87,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042047,dungeons_&_princess,Copyright,87,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042049,fragile:_sayonara_tsuki_no_haikyo,Copyright,87,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042050,gal_guardians,Copyright,87,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042051,genzai_monogatari,Copyright,87,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042052,hades_project_zeorymer,Copyright,87,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042053,halo:_reach,Copyright,87,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042054,higashi_no_eden,Copyright,87,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042055,kaitou_sentai_lupinranger_vs._keisatsu_sentai_patranger,Copyright,87,REAL_3D,HIGH,Live-action/tokusatsu television property; outside the user's 2D-only media scope.,,MANUAL_SCOPE_BATCH_026
+I70-042056,katainaka_no_ossan_kensei_ni_naru,Copyright,87,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042057,kikuru_(vtuber),Copyright,87,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042058,kingsman:_the_secret_service,Copyright,87,REAL_3D,HIGH,Specific live-action film property; outside the user's 2D-only media scope.,,MANUAL_SCOPE_BATCH_026
+I70-042059,lelie_navigation,Copyright,87,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042060,like_mother_like_daughter,Copyright,87,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042061,momoiro_montage,Copyright,87,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042062,new_mutants,Copyright,87,REAL_3D,HIGH,Specific live-action film property; outside the user's 2D-only media scope.,,MANUAL_SCOPE_BATCH_026
+I70-042063,oyasumi_sex,Copyright,87,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042064,sefri_no_ichihara_ga_nigashite_kurenai,Copyright,87,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042065,shinken-zemi,Copyright,87,REAL_3D,HIGH,Real-world education service/brand identity; outside 2D-only scope.,,MANUAL_SCOPE_BATCH_026
+I70-042066,slow_motion_(vocaloid),Copyright,87,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042067,spectral_souls,Copyright,87,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042068,starmine_(manga),Copyright,87,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042069,succubus_prison,Copyright,87,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042070,tenchi_souzou,Copyright,87,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042071,tomoyo_after,Copyright,87,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042072,urayasu_tekkin_kazoku,Copyright,87,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042073,wacky_races,Copyright,87,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042074,yomawari,Copyright,87,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042075,yomiuri_giants,Copyright,87,REAL_3D,HIGH,Real-world professional sports team identity; outside 2D-only scope.,,MANUAL_SCOPE_BATCH_026
+I70-042076,yurucamp_movie,Copyright,87,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042077,zombie-ya_reiko,Copyright,87,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042079,ben_10:_ultimate_alien,Copyright,86,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042080,blood_alone,Copyright,86,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042081,celebration!_(love_live!),Copyright,86,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042082,chou_megami_shinkou_noire_gekishin_black_heart,Copyright,86,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042083,choushinjiku_game_neptune_unlimited,Copyright,86,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042084,comic_cune,Copyright,86,REAL_3D,HIGH,Real-world magazine/publication identity; outside 2D-only scope.,,MANUAL_SCOPE_BATCH_026
+I70-042085,dears,Copyright,86,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042086,dennou_tenshi_djibril,Copyright,86,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042087,drag-on_dragoon_2,Copyright,86,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042088,five_nights_at_freddy's:_sister_location,Copyright,86,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042089,fushigi_to_kimi_to_library,Copyright,86,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042090,giri_giri_sisters,Copyright,86,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042091,hakoniwa_keikaku,Copyright,86,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042092,headphone_actor_(vocaloid),Copyright,86,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042093,hospital_rokunin_no_ishi,Copyright,86,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042094,jollibee,Copyright,86,REAL_3D,HIGH,Real-world food-service brand/company; outside 2D-only scope.,,MANUAL_SCOPE_BATCH_026
+I70-042095,kitsune_no_oyome-chan,Copyright,86,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042096,let's_go_kaikigumi,Copyright,86,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042097,mahou_shoujo_ikusei_keikaku_jokers,Copyright,86,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042098,mahou_tsukai_tai!,Copyright,86,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042099,makai_tenshi_djibril_2,Copyright,86,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042100,mang-jong,Copyright,86,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042101,mushoku_tensei:_game_ni_nattemo_honki_dasu,Copyright,86,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042102,oshiego_ni_kyouhaku_sareru_no_wa_hanzai_desu_ka?,Copyright,86,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042104,regular_show,Copyright,86,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042105,romantic_saga_of_beauty_&_devil,Copyright,86,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042106,saimin_kanojo_(ichiyou_moka),Copyright,86,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042107,schoolboy_runaway,Copyright,86,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042108,science_(synthesizer_v),Copyright,86,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042109,shenmue_the_animation,Copyright,86,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042110,shin_megami_tensei:_if...,Copyright,86,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042111,steven_universe:_the_movie,Copyright,86,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042112,tatakae!!_iczer-1,Copyright,86,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042113,tententengokujigokugoku_(aiobahn),Copyright,86,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042114,uchouten_kazoku,Copyright,86,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042115,untitled_goose_game,Copyright,86,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042116,viewtiful_joe,Copyright,86,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042117,wakabayashi-kun_ga_nekasete_kurenai,Copyright,86,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042118,wall-e,Copyright,86,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042120,wind_a_breath_of_heart,Copyright,86,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042122,asuka_120%,Copyright,85,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042123,battleship_girl,Copyright,85,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042124,birdbrain_(synthesizer_v),Copyright,85,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042125,buckshot_roulette,Copyright,85,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042126,bunnimals,Copyright,85,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042127,changeability_of_strange_dream,Copyright,85,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042128,doko_e_iku_no_ano_hi,Copyright,85,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042129,doom_i,Copyright,85,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042130,eternal_melody,Copyright,85,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042131,eutopia_(love_live!),Copyright,85,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042132,fitness_boxing_feat._hatsune_miku:_isshoni_exercise,Copyright,85,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042133,hanbun_no_tsuki_ga_noboru_sora,Copyright,85,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042134,iriya_no_sora_ufo_no_natsu,Copyright,85,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042135,jogakkou_de_otoko_hitori_na_node_kousoku_de_seiyoku_no_hakeguchi_ni_sareru_nichijou,Copyright,85,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042136,kancolle_arcade,Copyright,85,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042137,koisuru_otome_to_shugo_no_tate,Copyright,85,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042138,liu_yao,Copyright,85,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042139,log_horizon_new_adventure_land,Copyright,85,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042140,lunacid,Copyright,85,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042141,mahou_shoujo_taisen_contest_1,Copyright,85,REAL_3D,HIGH,Real-world illustration contest/event identity; outside 2D fictional-content scope.,,MANUAL_SCOPE_BATCH_026
+I70-042142,mezzo_forte,Copyright,85,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042143,onimusha_soul,Copyright,85,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042144,osananajimi_to_wa_lovecome_ni_naranai,Copyright,85,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042145,pokemon_the_movie:_i_choose_you!,Copyright,85,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042146,rayman_origins,Copyright,85,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042147,re:zero_kara_ayamatsu_isekai_seikatsu,Copyright,85,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042148,real_bout_high_school,Copyright,85,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042149,saigo_ni_hitotsu_dake_onegai_shite_mo_yoroshii_deshou_ka,Copyright,85,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042150,saishuu_heiki_kanojo,Copyright,85,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042151,sangai_senki,Copyright,85,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042152,scrapped_princess,Copyright,85,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042153,soldier_game,Copyright,85,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042154,super_sons,Copyright,85,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042155,tayutau_koi_no_chirigiwa_ni,Copyright,85,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042156,type_moon-ace,Copyright,85,REAL_3D,HIGH,Real-world magazine/publication identity; outside 2D-only scope.,,MANUAL_SCOPE_BATCH_026
+I70-042157,wish_(disney),Copyright,85,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042158,yokubou_pandora,Copyright,85,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042159,yume_shokuin_to_wasureji_no_kuroi_yousei,Copyright,85,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042160,zelda_ii:_the_adventure_of_link,Copyright,85,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042161,aki_no_urara_no_akane-iro_shoutengai,Copyright,84,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042162,aoi_tori_(purple_software),Copyright,84,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042163,arne_no_jikenbo,Copyright,84,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042164,dakaretai_otoko_1-i_ni_odosarete_imasu.,Copyright,84,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042165,daze_(kagerou_project),Copyright,84,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042166,denki-gai_no_hon'ya-san,Copyright,84,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042167,denkou_choujin_gridman,Copyright,84,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042168,desperado_(yotaro),Copyright,84,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042169,devotion,Copyright,84,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042170,five_nights_at_freddy's_3,Copyright,84,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042171,ievan_polkka_(vocaloid),Copyright,84,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042172,inazuma_eleven_(game),Copyright,84,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042173,kimi_to_boku,Copyright,84,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042174,kirby's_epic_yarn,Copyright,84,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042175,kizuna_kirameku_koi_iroha,Copyright,84,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042176,koi_kakeru_shin-ai_kanojo,Copyright,84,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042177,lisa_(series),Copyright,84,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042178,madou_monogatari_1-2-3,Copyright,84,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042179,monopoly,Copyright,84,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042180,moshimo_ashita_ga_hare_naraba,Copyright,84,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042181,nekura_megane,Copyright,84,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042182,night_demon,Copyright,84,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042185,ore_no_kanojo_ga_bakemono_datta,Copyright,84,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042186,owozu,Copyright,84,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042187,shining_force_exa,Copyright,84,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042188,shoujo_mahou_gaku_littlewitch_romanesque,Copyright,84,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042189,shuumatsu_train_doko_e_iku?,Copyright,84,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042190,snow_(game),Copyright,84,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042192,titanfall,Copyright,84,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042193,tondemo_skill_de_isekai_hourou_meshi,Copyright,84,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042194,tsue_to_tsurugi_no_wistoria,Copyright,84,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042195,usavich,Copyright,84,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042196,vampire_hunter_d,Copyright,84,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042197,ye_luoli,Copyright,84,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042198,yuusha_tokkyuu_might_gaine,Copyright,84,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042199,adventurequest_worlds,Copyright,83,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042200,aikatsu_academy!,Copyright,83,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042201,akroglam,Copyright,83,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042202,android_(os),Copyright,83,REAL_3D,HIGH,Real-world operating-system/product identity; outside 2D-only scope.,,MANUAL_SCOPE_BATCH_026
+I70-042203,binzume_yousei,Copyright,83,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042204,biomega,Copyright,83,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042205,boin,Copyright,83,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042206,bokete,Copyright,83,REAL_3D,HIGH,Real-world website/service identity; outside 2D-only scope.,,MANUAL_SCOPE_BATCH_026
+I70-042207,can_can_bunny,Copyright,83,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042208,colorful_kanan,Copyright,83,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042209,cubism_(needy_girl_overdose),Copyright,83,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042210,day_of_wrath_(infinitypilot),Copyright,83,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042211,dmc:_devil_may_cry,Copyright,83,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042212,donkey_kong_(1981_game),Copyright,83,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042213,dragon_quest_monsters,Copyright,83,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042214,earthen_miraculous_sword,Copyright,83,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042215,endless_overhaul,Copyright,83,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042216,eve_(musician),Copyright,83,REAL_3D,HIGH,Real-person musician identity; outside Character/Copyright 2D-fiction scope.,,MANUAL_SCOPE_BATCH_026
+I70-042217,fukuoka_softbank_hawks,Copyright,83,REAL_3D,HIGH,Real-world professional sports team identity; outside 2D-only scope.,,MANUAL_SCOPE_BATCH_026
+I70-042219,gate_of_nightmares,Copyright,83,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042220,gift_(game),Copyright,83,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042221,gosei_sentai_dairanger,Copyright,83,REAL_3D,HIGH,Live-action/tokusatsu television property; outside the user's 2D-only media scope.,,MANUAL_SCOPE_BATCH_026
+I70-042223,itsudemo_itsumademo_(love_live!),Copyright,83,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042224,iyagatteru_kimi_ga_suki,Copyright,83,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042225,jitsu_wa_watashi_wa,Copyright,83,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042226,kimihagu,Copyright,83,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042227,kirarin_revolution,Copyright,83,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042228,linkin_park,Copyright,83,REAL_3D,HIGH,Real-person music band identity; outside Character/Copyright 2D-fiction scope.,,MANUAL_SCOPE_BATCH_026
+I70-042229,mao_(takahashi_rumiko),Copyright,83,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042230,material_sniper,Copyright,83,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042231,nakazawa-san_no_ikisugita_yoru.,Copyright,83,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042232,niginigi_nijitown,Copyright,83,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042233,offside:_diyusi,Copyright,83,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042234,okinawa_de_suki_ni_natta_ko_ga_hougen_sugite_tsurasugiru,Copyright,83,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042235,otoko_girai_na_bijin_shimai_wo_namae_mo_tsugezu_ni_tasuketara_ittai_dounaru?,Copyright,83,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042236,over_the_garden_wall,Copyright,83,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042238,parkour_civilization,Copyright,83,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042239,pen-pineapple-apple-pen,Copyright,83,REAL_3D,HIGH,Real-world music/comedy release tied to a real performer; outside Character/Copyright 2D-fiction scope.,,MANUAL_SCOPE_BATCH_026
+I70-042241,pingu_(series),Copyright,83,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042242,rikei_ga_koi_ni_ochita_no_de_shoumeishitemita,Copyright,83,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042243,rise_of_the_guardians,Copyright,83,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042244,shokei_shoujo_no_virgin_road,Copyright,83,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042245,spider-man_(toei),Copyright,83,REAL_3D,HIGH,Live-action/tokusatsu television property; outside the user's 2D-only media scope.,,MANUAL_SCOPE_BATCH_026
+I70-042248,tower_of_saviors,Copyright,83,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026
+I70-042249,watashi_no_hatsukoi_wa_hazukashisugite_dare_ni_mo_ienai,Copyright,83,IN_2D,HIGH,High-confidence fictional / illustrated / game / anime / virtual-content Copyright in the user's 2D scope.,,MANUAL_SCOPE_BATCH_026

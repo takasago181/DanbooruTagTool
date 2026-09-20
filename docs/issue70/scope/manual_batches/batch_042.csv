@@ -1,0 +1,10 @@
+row_id,canonical_tag,category,post_count,media_scope,confidence,scope_reason,evidence_refs,decision_source
+I70-038652,3am,Copyright,309,IN_2D,HIGH,Virtual-talent group used for VTuber members including Snuffy; retained under the explicit VTuber rule.,https://snuffy.moe/,MANUAL_SCOPE_BATCH_042
+I70-041543,ss_kabushikigaisha,Copyright,101,IN_2D,HIGH,Fictional adult manga/doujin work titled Kanzen Doui-gata Seifuuzoku SS Kabushikigaisha; retained under the manga and illustrated-content rule.,https://jcomic.net/eps/%E5%AE%8C%E5%85%A8%E5%90%8C%E6%84%8F%E5%9E%8B%E6%80%A7%E9%A2%A8%E4%BF%97%E2%99%A5SS%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE,MANUAL_SCOPE_BATCH_042
+I70-043301,promisu,Copyright,64,IN_2D,HIGH,VTuber entertainment identity with virtual talents; retained under the explicit VTuber rule.,https://www.promisu.live/en/talent,MANUAL_SCOPE_BATCH_042
+I70-043565,salvika,Copyright,60,IN_2D,HIGH,Fictional game property with named illustrated character Annika; retained under the game and fictional-character rule.,https://safebooru.org/index.php?id=6417013&page=post&s=view,MANUAL_SCOPE_BATCH_042
+I70-043701,isshou_senkin,Copyright,58,IN_2D,HIGH,Published manga series by Sandrovich Yabako and MAAM; retained under the manga rule.,https://shogakukan-comic.jp/book-series?cd=52359,MANUAL_SCOPE_BATCH_042
+I70-043987,bluejump,Copyright,54,IN_2D,HIGH,VTuber project and virtual entertainment identity; retained under the explicit VTuber rule.,https://www.bluejump.net/about,MANUAL_SCOPE_BATCH_042
+I70-044038,oddloop,Copyright,54,REAL_3D,HIGH,Real Frederic music release and music-video identity; excluded under the real music and band-content rule.,https://frederic-official.com/discography/?page=3,MANUAL_SCOPE_BATCH_042
+I70-044048,rescute,Copyright,54,IN_2D,HIGH,VTuber group identity under SpringFish Studio; retained under the explicit VTuber rule.,https://portaly.cc/springfish,MANUAL_SCOPE_BATCH_042
+I70-044419,theater_ikizama,Copyright,50,REAL_3D,HIGH,Real live stage production with named cast and physical theater venue; excluded under the live-event and live-action rule.,https://emotion.tokyo/ikizama/,MANUAL_SCOPE_BATCH_042

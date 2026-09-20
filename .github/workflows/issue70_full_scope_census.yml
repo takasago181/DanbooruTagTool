@@ -1,0 +1,55 @@
+name: Issue70 Full 2D Scope Census
+
+on:
+  push:
+    branches:
+      - audit/issue70-2d-scope-full
+    paths:
+      - ".github/workflows/issue70_full_scope_census.yml"
+      - "scripts/issue70/build_full_scope_census.py"
+      - "docs/issue70/scope/SCOPE_PROTOCOL.md"
+      - "docs/issue70/scope/confirmed_real3d_seed.csv"
+      - "docs/issue70/scope/refresh_token.txt"
+      - "docs/issue70/data/source_chunks/**"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: issue70-full-2d-scope
+  cancel-in-progress: false
+
+jobs:
+  census:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: audit/issue70-2d-scope-full
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build full scope census
+        run: python scripts/issue70/build_full_scope_census.py
+
+      - name: Validate generated scope artifacts
+        run: python scripts/issue70/build_full_scope_census.py --validate-only
+
+      - name: Show summary
+        run: cat docs/issue70/scope/scope_summary.json
+
+      - name: Commit generated audit artifacts
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add             docs/issue70/scope/full_scope_ledger.csv             docs/issue70/scope/scope_summary.json             docs/issue70/scope/scope_review_queue.csv             docs/issue70/scope/runtime_exclude_real3d_candidates.csv
+          if git diff --cached --quiet; then
+            echo "No generated changes."
+            exit 0
+          fi
+          git commit -m "Issue70: generate full 2D scope census"
+          git push origin HEAD:audit/issue70-2d-scope-full
