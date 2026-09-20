@@ -5,12 +5,12 @@ namespace DanbooruTagTool.Data;
 
 public static class Issue70CatalogOverlayImporter
 {
-    public const string RelativePath = "docs/issue70/data/runtime/issue70_catalog_overlay.csv";
-    public const string ExpectedSha256 = "1d346ad75655ea6091f9bce9a4cf58b1cf6f8fac18c7eb441f8edd009ee81433";
-    public const int TotalCount = 92739;
-    public const int CharacterCount = 35890;
-    public const int CopyrightCount = 8536;
-    public const int ArtistCount = 48313;
+    public const string RelativePath = "docs/issue70/data/runtime/issue70_catalog_overlay_2d_final.csv";
+    public const string ExpectedSha256 = "bf366734b41b2be9e6cb52de919ef55b7312445e1715f96a357db37abda8dad5";
+    public const int TotalCount = 91207;
+    public const int CharacterCount = 35278;
+    public const int CopyrightCount = 7616;
+    public const int ArtistCount = 48313;\n    public const int CharacterWithRelationsCount = 34986;
 
     public static CatalogEntry[] Read(string path)
     {
@@ -24,11 +24,17 @@ public static class Issue70CatalogOverlayImporter
         var canonicals = new HashSet<string>(StringComparer.Ordinal);
         var copyrightCanonicals = rows.Where(row => row["category_name"] == "Copyright").Select(row => row["canonical_tag"]).ToHashSet(StringComparer.Ordinal);
         var entries = new List<CatalogEntry>(rows.Count);
+        var rowIds = new HashSet<string>(StringComparer.Ordinal);
+        var previousRowNumber = 0;
         for (var i = 0; i < rows.Count; i++)
         {
             var row = rows[i];
-            var expectedRow = $"I70-{i + 1:000000}";
-            if (row["row_id"] != expectedRow) throw new InvalidDataException("Issue #70 row order mismatch at " + expectedRow);
+            var rowId = row["row_id"];
+            if (rowId.Length != 10 || !rowId.StartsWith("I70-", StringComparison.Ordinal) ||
+                !int.TryParse(rowId.AsSpan(4), NumberStyles.None, CultureInfo.InvariantCulture, out var rowNumber) ||
+                rowNumber <= previousRowNumber || rowNumber > 92739 || !rowIds.Add(rowId))
+                throw new InvalidDataException("Issue #70 row identity/order mismatch at " + rowId);
+            previousRowNumber = rowNumber;
             var category = row["category_name"];
             if (!expectedCodes.TryGetValue(category, out var categoryCode) || row["category"] != categoryCode) throw new InvalidDataException("Issue #70 category mismatch at " + row["row_id"]);
             categoryCounts[category] = categoryCounts.GetValueOrDefault(category) + 1;
