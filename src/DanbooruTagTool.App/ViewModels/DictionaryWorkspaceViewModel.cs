@@ -373,6 +373,8 @@ public sealed class DictionaryWorkspaceViewModel : Observable
         browseScroll = ui.BrowseScroll;
         unifiedState = RestoreUnifiedState(ui);
         browse = BrowseKeyForState(unifiedState);
+        searchTarget = SearchTargetForScope(unifiedState.Scope);
+        relatedSource = null;
         specialFilter = SpecialBrowseV2Filter.Empty;
         unifiedHistory.Clear();
         promptCanonicalCounts = CaptureCanonicalCounts(workspace.Items);
@@ -385,15 +387,35 @@ public sealed class DictionaryWorkspaceViewModel : Observable
         var selected = SelectedEntry?.Entry.Id;
         IEnumerable<CatalogEntry> entries;
 
-        if (!string.IsNullOrWhiteSpace(Query))
+        if (relatedSource is not null)
         {
-            var hits = catalog.Search(Query);
-            if (Scope == UnifiedBrowseScope.Tags)
-                entries = unifiedBrowse.FilterSearchHits(hits, unifiedState).Select(hit => hit.Entry);
+            var relatedEntries = catalog.RelatedByCatalogMetadata(relatedSource);
+            if (!string.IsNullOrWhiteSpace(Query))
+            {
+                var relatedIds = relatedEntries.Select(entry => entry.Id).ToHashSet(StringComparer.Ordinal);
+                entries = catalog.Search(Query).Select(hit => hit.Entry).Where(entry => relatedIds.Contains(entry.Id));
+            }
             else
             {
-                var category = CategoryForScope(Scope);
+                entries = relatedEntries;
+                entries = SortEntries(entries);
+            }
+        }
+        else if (!string.IsNullOrWhiteSpace(Query))
+        {
+            var hits = catalog.Search(Query);
+            if (SearchTarget != DictionarySearchTarget.All)
+            {
+                var category = SearchTargetCategory(SearchTarget);
                 entries = hits.Select(hit => hit.Entry).Where(entry => entry.EffectiveCategory == category);
+            }
+            else if (Scope == UnifiedBrowseScope.Tags && unifiedState.HasBrowseConstraints)
+            {
+                entries = unifiedBrowse.FilterSearchHits(hits, unifiedState).Select(hit => hit.Entry);
+            }
+            else
+            {
+                entries = hits.Select(hit => hit.Entry);
             }
         }
         else if (Scope == UnifiedBrowseScope.Tags)
@@ -401,19 +423,11 @@ public sealed class DictionaryWorkspaceViewModel : Observable
             if (unifiedState.IsNeutralTags)
                 entries = [];
             else
-            {
-                entries = unifiedBrowse.Browse(unifiedState);
-                entries = SortIndex == 1
-                    ? entries.OrderBy(entry => entry.Label, StringComparer.Create(CultureInfo.GetCultureInfo("ja-JP"), false))
-                    : entries.OrderByDescending(entry => entry.Usage);
-            }
+                entries = SortEntries(unifiedBrowse.Browse(unifiedState));
         }
         else
         {
-            entries = catalog.BrowseCategory(CategoryForScope(Scope));
-            entries = SortIndex == 1
-                ? entries.OrderBy(entry => entry.Label, StringComparer.Create(CultureInfo.GetCultureInfo("ja-JP"), false))
-                : entries.OrderByDescending(entry => entry.Usage);
+            entries = SortEntries(catalog.BrowseCategory(CategoryForScope(Scope)));
         }
 
         Results = Rows(entries);
@@ -421,6 +435,8 @@ public sealed class DictionaryWorkspaceViewModel : Observable
         SetSelectedEntry(Results.FirstOrDefault(entry => entry.Entry.Id == (Query.Length == 0 ? browseSelection ?? selected : selected)), persist: false);
         Notify(nameof(Pending));
         Notify(nameof(BrowseLabel));
+        Notify(nameof(ShowRelationBanner));
+        Notify(nameof(RelationBannerText));
         NotifyUnifiedState();
         if (Query.Length == 0) ResultsRestored?.Invoke();
     }
