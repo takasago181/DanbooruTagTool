@@ -125,9 +125,10 @@ public static class ForgePngGenerationMetadata
         if (!signature.SequenceEqual(Signature))
             throw new GenerationMetadataException("PNGファイルの形式が正しくありません");
 
+        Span<byte> header = stackalloc byte[8];
+        Span<byte> crc = stackalloc byte[4];
         while (true)
         {
-            Span<byte> header = stackalloc byte[8];
             if (!TryReadExactly(stream, header))
                 throw new GenerationMetadataException("PNGファイルが途中で終わっています");
 
@@ -166,7 +167,6 @@ public static class ForgePngGenerationMetadata
                 }
             }
 
-            Span<byte> crc = stackalloc byte[4];
             ReadExactly(stream, crc);
 
             if (value is not null) return value;
