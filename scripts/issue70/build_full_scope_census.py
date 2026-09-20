@@ -153,16 +153,10 @@ def load_manual_decisions(
                         row.get("media_scope"),
                         seeds[rid].get("media_scope"),
                     )
-                if rid in decisions:
-                    prior = decisions[rid]
-                    assert row.get("media_scope") == prior.get("media_scope"), (
-                        "conflicting duplicate manual decision",
-                        rid,
-                        prior.get("media_scope"),
-                        row.get("media_scope"),
-                        str(path),
-                    )
-                    continue
+                # Layering rule: legacy monolith is loaded first, then sharded
+                # batches in lexical order. A later shard intentionally supersedes
+                # a legacy row so parallel progress cannot deadlock the census.
+                # Explicit OVERRIDE_PATH is applied after all manual layers.
                 decisions[rid] = row
 
     if OVERRIDE_PATH.exists():
