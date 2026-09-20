@@ -1,0 +1,123 @@
+{
+  "format_version": 1,
+  "issue": 132,
+  "phase": "PHASE3_ACTUAL_SEXUAL_GENERATION_USABILITY",
+  "status": "RESEARCH_ONLY_NOT_PRODUCTION",
+  "source_snapshot": {
+    "general_total": 30629,
+    "unified_identity_total": 31752,
+    "sexual_lens_total": 3988,
+    "sexual_lens_breakdown": {
+      "general_only": 1234,
+      "special_only": 1050,
+      "general_special_overlap": 1704,
+      "special_metadata_available_total": 2754,
+      "special_metadata_available_pct": 69.06
+    }
+  },
+  "general_sexual_lens_proposed": {
+    "total": 2835,
+    "intent": {
+      "SEXUAL": 1197,
+      "CONTEXTUAL": 1638
+    },
+    "by_root": {
+      "ACTION_CONTACT": 1174,
+      "CLOTHING": 564,
+      "CLOTHING_STATE_EXPOSURE": 516,
+      "BODY_PART": 309,
+      "OBJECT_PROP": 112,
+      "POSE_MOVEMENT": 50,
+      "STYLE_QUALITY_META": 28,
+      "PERSON_COUNT": 26,
+      "COLOR_APPEARANCE": 13,
+      "EXPRESSION_EMOTION": 12,
+      "COMPOSITION_CAMERA": 11,
+      "LIVING_NATURE": 6,
+      "GAZE_ORIENTATION": 6,
+      "TEXT_SYMBOL": 5,
+      "PLACE_BACKGROUND": 3
+    },
+    "flat_merge_risk": {
+      "action_plus_pose": 1224,
+      "action_plus_pose_pct": 43.17,
+      "clothing_plus_exposure": 1080,
+      "clothing_plus_exposure_pct": 38.1,
+      "combined_two_shelves": 2304,
+      "combined_two_shelves_pct": 81.27
+    }
+  },
+  "general_only_sexual_lens": {
+    "total": 1234,
+    "proposed_general_rows": 1146,
+    "unresolved_general_rows": 88,
+    "proposed_groups": {
+      "clothing_related": 689,
+      "clothing_related_pct": 60.12,
+      "action_related": 312,
+      "action_related_pct": 27.23,
+      "combined_clothing_action": 1001,
+      "combined_clothing_action_pct": 87.35,
+      "body": 69,
+      "pose": 22,
+      "object": 22,
+      "style_meta": 12,
+      "person": 7,
+      "expression_gaze": 9,
+      "color": 4
+    }
+  },
+  "special_v2_reference": {
+    "source_rows": 2788,
+    "kind_counts": {
+      "action_contact": 907,
+      "clothing_exposure": 503,
+      "tool_object": 299,
+      "body_state": 298,
+      "fluid_excretion": 275,
+      "pose_scene": 156,
+      "person_relation": 123,
+      "nonhuman_transformation": 119,
+      "meta_expression": 66
+    },
+    "body_site_counts": {
+      "male_genital": 307,
+      "breast_nipple": 266,
+      "female_genital": 183,
+      "mouth_oral": 175,
+      "buttock_anal": 113,
+      "urethra": 20
+    },
+    "theme_counts": {
+      "bdsm_restraint": 366,
+      "injury_r18g": 66,
+      "reproduction_pregnancy_lactation": 25
+    },
+    "action_shelf": {
+      "rows": 907,
+      "with_body_or_theme": 534,
+      "without_body_or_theme": 373
+    }
+  },
+  "conclusion": {
+    "reject": "flat 8/9 top-level sexual taxonomy as primary UX",
+    "adopt": "intent-first multi-axis scene discovery with adaptive next dimensions",
+    "core_axes": [
+      "subjects_roles",
+      "action_state",
+      "body_site",
+      "position_geometry",
+      "implement_device",
+      "theme"
+    ],
+    "refinement_axes": [
+      "clothing_exposure",
+      "expression_reaction",
+      "visibility_camera",
+      "setting_light_style"
+    ],
+    "prompt_serialization": "model-specific and separate from browse/planning order"
+  },
+  "protected_boundaries_changed": false,
+  "production_apply_performed": false
+}
