@@ -118,6 +118,9 @@
                 </ContentPresenter>
             </Grid>
         </DataTemplate>
+        <DataTemplate x:Key="DictionaryCardTemplateLocal">
+            <ContentPresenter Content="{Binding}" ContentTemplate="{DynamicResource EntryTemplate}" MouseLeftButtonUp="DictionaryCardMouseUp"/>
+        </DataTemplate>
     </UserControl.Resources>
     <Border Style="{DynamicResource PanelCard}" Padding="8">
         <Grid>
@@ -177,12 +180,16 @@
                     </StackPanel>
                 </Grid>
             </Border>
-            <Border Grid.Row="3" Style="{DynamicResource WorkSurfaceCard}" Padding="2">
+            <Border x:Name="DictionaryResultSurface" Grid.Row="3" Style="{DynamicResource WorkSurfaceCard}" Padding="2">
                 <Grid>
-                    <ListBox x:Name="DictionaryList" PreviewKeyDown="DictionaryPreviewKeyDown" SelectionChanged="DictionarySelectionChanged" SizeChanged="DictionaryListSizeChanged" ItemsSource="{Binding DictionaryRows}" SelectedIndex="-1" ItemContainerStyle="{DynamicResource DictionaryRow}" ItemTemplate="{StaticResource DictionaryResultRowTemplateLocal}" HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.CanContentScroll="True" ScrollViewer.ScrollChanged="BrowseScrolled" VirtualizingPanel.IsVirtualizing="True" VirtualizingPanel.VirtualizationMode="Recycling" Background="Transparent" BorderThickness="0">
+                    <Grid.ColumnDefinitions><ColumnDefinition x:Name="DictionaryLeftColumn" Width="*"/><ColumnDefinition x:Name="DictionaryRightColumn" Width="0"/></Grid.ColumnDefinitions>
+                    <ListBox x:Name="DictionaryList" PreviewKeyDown="DictionaryPreviewKeyDown" SelectionChanged="DictionarySelectionChanged" SizeChanged="DictionaryListSizeChanged" ItemsSource="{Binding DictionaryFirstColumn}" SelectedIndex="-1" ItemContainerStyle="{DynamicResource DictionaryRow}" ItemTemplate="{StaticResource DictionaryCardTemplateLocal}" HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.CanContentScroll="True" ScrollViewer.ScrollChanged="BrowseScrolled" VirtualizingPanel.IsVirtualizing="True" VirtualizingPanel.VirtualizationMode="Recycling" Background="Transparent" BorderThickness="0">
                         <ListBox.ItemsPanel><ItemsPanelTemplate><VirtualizingStackPanel Orientation="Vertical"/></ItemsPanelTemplate></ListBox.ItemsPanel>
                     </ListBox>
-                    <TextBlock Text="左からカテゴリを選ぶか、タグ名を検索してください。"
+                    <ListBox x:Name="DictionaryRightList" Grid.Column="1" Visibility="Collapsed" PreviewKeyDown="DictionaryPreviewKeyDown" SelectionChanged="DictionarySelectionChanged" ItemsSource="{Binding DictionarySecondColumn}" SelectedIndex="-1" ItemContainerStyle="{DynamicResource DictionaryRow}" ItemTemplate="{StaticResource DictionaryCardTemplateLocal}" HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.CanContentScroll="True" ScrollViewer.ScrollChanged="BrowseScrolled" VirtualizingPanel.IsVirtualizing="True" VirtualizingPanel.VirtualizationMode="Recycling" Background="Transparent" BorderThickness="0">
+                        <ListBox.ItemsPanel><ItemsPanelTemplate><VirtualizingStackPanel Orientation="Vertical"/></ItemsPanelTemplate></ListBox.ItemsPanel>
+                    </ListBox>
+                    <TextBlock Grid.ColumnSpan="2" Text="左からカテゴリを選ぶか、タグ名を検索してください。"
                                Style="{DynamicResource HintText}"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center"

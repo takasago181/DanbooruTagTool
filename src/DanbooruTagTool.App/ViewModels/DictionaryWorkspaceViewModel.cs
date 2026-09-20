@@ -144,6 +144,7 @@ public sealed class DictionaryWorkspaceViewModel : Observable
     private IReadOnlyList<EntryViewModel> results = [], related = [];
     private bool relatedDirty = true;
     private IReadOnlyList<DictionaryResultRow> dictionaryRows = [];
+    private IReadOnlyList<EntryViewModel> dictionaryFirstColumn = [], dictionarySecondColumn = [];
     private int dictionaryColumnCount = 1;
     private readonly Dictionary<string, List<EntryViewModel>> activeResultIndex = new(StringComparer.Ordinal);
     private Dictionary<string, int> promptCanonicalCounts = new(StringComparer.Ordinal);
@@ -166,6 +167,8 @@ public sealed class DictionaryWorkspaceViewModel : Observable
         }
     }
     public IReadOnlyList<DictionaryResultRow> DictionaryRows => dictionaryRows;
+    public IReadOnlyList<EntryViewModel> DictionaryFirstColumn => dictionaryFirstColumn;
+    public IReadOnlyList<EntryViewModel> DictionarySecondColumn => dictionarySecondColumn;
     public int DictionaryColumnCount => dictionaryColumnCount;
     public IReadOnlyList<EntryViewModel> Related
     {
@@ -680,7 +683,10 @@ public sealed class DictionaryWorkspaceViewModel : Observable
     }
     private void RebuildDictionaryRows()
     {
-        dictionaryRows = DictionaryResultProjection.Project(Results, dictionaryColumnCount); Notify(nameof(DictionaryRows));
+        dictionaryRows = DictionaryResultProjection.Project(Results, dictionaryColumnCount);
+        dictionaryFirstColumn = dictionaryRows.Select(row => row.First).ToArray();
+        dictionarySecondColumn = dictionaryRows.Where(row => row.Second is not null).Select(row => row.Second!).ToArray();
+        Notify(nameof(DictionaryRows)); Notify(nameof(DictionaryFirstColumn)); Notify(nameof(DictionarySecondColumn));
     }
     private void RebuildActiveResultIndex()
     {
