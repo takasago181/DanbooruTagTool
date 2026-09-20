@@ -1,0 +1,3 @@
+"Runtime","Scenario","TimestampUtc","ElapsedSec","ProcessGpuEngineUtilPct","ProcessGpuDedicatedMB","ProcessGpuSharedMB","TotalGpuUtilPct","TotalGpuMemoryMB"
+"B-AutoRender","S15-display-toggle","2026-09-20T00:30:39.8278747Z","0.005",,,,"9","2059"
+"B-AutoRender","S15-display-toggle","2026-09-20T00:30:48.5431770Z","8.72",,,,"7","2059"

@@ -1,0 +1,3 @@
+"Runtime","Scenario","TimestampUtc","ElapsedSec","ProcessGpuEngineUtilPct","ProcessGpuDedicatedMB","ProcessGpuSharedMB","TotalGpuUtilPct","TotalGpuMemoryMB"
+"A-SoftwareOnly-Final3","S17-resize","2026-09-20T00:22:37.2356986Z","0.003",,,,"10","2024"
+"A-SoftwareOnly-Final3","S17-resize","2026-09-20T00:22:45.8615458Z","8.629",,,,"6","2027"

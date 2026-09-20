@@ -1,0 +1,3 @@
+"Runtime","Scenario","TimestampUtc","ElapsedSec","ProcessGpuEngineUtilPct","ProcessGpuDedicatedMB","ProcessGpuSharedMB","TotalGpuUtilPct","TotalGpuMemoryMB"
+"A-SoftwareOnly-Final3","S5-english-input","2026-09-20T00:19:01.6415822Z","0.004",,,,"9","1982"
+"A-SoftwareOnly-Final3","S5-english-input","2026-09-20T00:19:10.3293810Z","8.692",,,,"7","1982"

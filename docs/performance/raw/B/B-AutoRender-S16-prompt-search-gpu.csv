@@ -1,0 +1,3 @@
+"Runtime","Scenario","TimestampUtc","ElapsedSec","ProcessGpuEngineUtilPct","ProcessGpuDedicatedMB","ProcessGpuSharedMB","TotalGpuUtilPct","TotalGpuMemoryMB"
+"B-AutoRender","S16-prompt-search","2026-09-20T00:30:57.8327541Z","0.004",,,,"9","2059"
+"B-AutoRender","S16-prompt-search","2026-09-20T00:31:06.5359541Z","8.707",,,,"7","2059"

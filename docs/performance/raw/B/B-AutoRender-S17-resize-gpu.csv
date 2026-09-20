@@ -1,0 +1,3 @@
+"Runtime","Scenario","TimestampUtc","ElapsedSec","ProcessGpuEngineUtilPct","ProcessGpuDedicatedMB","ProcessGpuSharedMB","TotalGpuUtilPct","TotalGpuMemoryMB"
+"B-AutoRender","S17-resize","2026-09-20T00:31:15.8473392Z","0.004",,,,"12","2071"
+"B-AutoRender","S17-resize","2026-09-20T00:31:24.5129135Z","8.67",,,,"7","1986"

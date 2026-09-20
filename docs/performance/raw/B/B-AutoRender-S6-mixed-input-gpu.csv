@@ -1,0 +1,3 @@
+"Runtime","Scenario","TimestampUtc","ElapsedSec","ProcessGpuEngineUtilPct","ProcessGpuDedicatedMB","ProcessGpuSharedMB","TotalGpuUtilPct","TotalGpuMemoryMB"
+"B-AutoRender","S6-mixed-input","2026-09-20T00:27:56.9399238Z","0.005",,,,"9","2064"
+"B-AutoRender","S6-mixed-input","2026-09-20T00:28:06.0371672Z","9.102",,,,"7","2064"

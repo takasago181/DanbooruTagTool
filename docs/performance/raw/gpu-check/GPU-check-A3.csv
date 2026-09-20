@@ -1,0 +1,3 @@
+"Runtime","Scenario","TimestampUtc","ElapsedSec","ProcessGpuEngineUtilPct","ProcessGpuDedicatedMB","ProcessGpuSharedMB","TotalGpuUtilPct","TotalGpuMemoryMB"
+"A","idle","2026-09-20T00:41:15.0700469Z","0.003",,,,"7","1909"
+"A","idle","2026-09-20T00:41:23.6420867Z","8.575",,,,"7","1909"

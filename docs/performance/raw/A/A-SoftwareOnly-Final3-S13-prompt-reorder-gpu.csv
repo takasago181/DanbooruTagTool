@@ -1,0 +1,3 @@
+"Runtime","Scenario","TimestampUtc","ElapsedSec","ProcessGpuEngineUtilPct","ProcessGpuDedicatedMB","ProcessGpuSharedMB","TotalGpuUtilPct","TotalGpuMemoryMB"
+"A-SoftwareOnly-Final3","S13-prompt-reorder","2026-09-20T00:21:25.3329209Z","0.004",,,,"21","1976"
+"A-SoftwareOnly-Final3","S13-prompt-reorder","2026-09-20T00:21:34.0259159Z","8.697",,,,"8","1976"

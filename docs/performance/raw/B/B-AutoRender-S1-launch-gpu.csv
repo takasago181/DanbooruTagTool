@@ -1,0 +1,5 @@
+"Runtime","Scenario","TimestampUtc","ElapsedSec","ProcessGpuEngineUtilPct","ProcessGpuDedicatedMB","ProcessGpuSharedMB","TotalGpuUtilPct","TotalGpuMemoryMB"
+"B-AutoRender","S1-launch","2026-09-20T00:25:19.9661471Z","0.004",,,,"15","2024"
+"B-AutoRender","S1-launch","2026-09-20T00:25:28.6585708Z","8.696",,,,"7","2060"
+"B-AutoRender","S1-launch","2026-09-20T00:25:37.0288892Z","17.067",,,,"7","2060"
+"B-AutoRender","S1-launch","2026-09-20T00:25:45.3976476Z","25.436",,,,"8","2060"

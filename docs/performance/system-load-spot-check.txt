@@ -1,0 +1,10 @@
+System-wide spot check during audit (same Windows session, 2026-09-20):
+
+- One transient 5-sample Windows total CPU counter sequence: 92.13%, 92.91%, 94.56%.
+- Later 5-sample sequence: 7.77%, 5.31%, 5.20%, 5.28%, 3.97%.
+- Later CIM snapshot: 4% total CPU.
+
+Top CPU-time processes observed in the high-load inventory included DesktopMate,
+ChatGPT, codex, Chrome, EOSOverlayRenderer-Win64-Shipping, EpicGamesLauncher,
+StabilityMatrix, and Explorer. This file is a host-environment observation, not
+an attribution of that load to DanbooruTagTool.
