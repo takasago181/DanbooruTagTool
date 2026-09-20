@@ -1,4 +1,5 @@
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using DanbooruTagTool.Core;
 using Microsoft.Data.Sqlite;
 
@@ -17,7 +18,11 @@ public sealed record UiState(int Workspace = 0, string Browse = "tags", string Q
     string BrowseScope = "", string? BrowsePrimaryRoute = null, string? BrowseLocalSubroute = null,
     string[]? BrowseBodySites = null, string[]? BrowseThemes = null, bool BrowseDeepOnly = false,
     string ContentIntent = "ALL");
-public sealed record GenerationPreset(Guid Id, string Name, string Description, string Positive, string Negative);
+public sealed record GenerationPreset(Guid Id, string Name, string Description, string Positive, string Negative, GenerationRecipe? Recipe = null)
+{
+    [JsonIgnore] public bool HasRecipe => Recipe?.HasAny == true;
+    [JsonIgnore] public string RecipeSummary => Recipe?.Summary ?? "";
+}
 public sealed record UserState(WorkspaceSnapshot Prompt, UiState Ui, GenerationPreset[]? Presets = null);
 public interface IUserStateStore { UserState? Load(); void Save(UserState state); }
 

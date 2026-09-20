@@ -99,6 +99,7 @@
         <DockPanel Grid.Row="2" Margin="0,10,0,0">
             <TextBlock DockPanel.Dock="Left" Text="読込だけでは現在のPromptは変更されません。" Foreground="{StaticResource MutedInkBrush}" VerticalAlignment="Center" Margin="2,0,12,0"/>
             <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Content="レシピ作成" Command="{Binding CreatePreset}" ToolTip="このPNGのPromptと生成条件を新規プリセットへ取り込みます。保存はまだ行いません。"/>
                 <Button Content="PositiveをPromptへ復元" Command="{Binding RestorePositive}" Style="{StaticResource PrimaryButton}"/>
                 <Button Content="Negativeをコピー" Command="{Binding CopyNegative}"/>
                 <Button Content="生成情報をコピー" Command="{Binding CopyInfo}"/>

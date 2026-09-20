@@ -1,0 +1,33 @@
+name: Issue150 Generation Recipes
+
+on:
+  pull_request:
+    paths:
+      - "src/DanbooruTagTool.Core/GenerationRecipe.cs"
+      - "src/DanbooruTagTool.Core/ForgeBridge.cs"
+      - "src/DanbooruTagTool.Data/Storage.cs"
+      - "src/DanbooruTagTool.App/ViewModels/GenerationPresetsViewModel.cs"
+      - "src/DanbooruTagTool.App/ViewModels/GenerationImportViewModel.cs"
+      - "src/DanbooruTagTool.App/ViewModels/ForgeViewModel.cs"
+      - "src/DanbooruTagTool.App/ViewModels/MainViewModel.cs"
+      - "src/DanbooruTagTool.App/GenerationPresetDialog.xaml"
+      - "src/DanbooruTagTool.App/GenerationImportDialog.xaml"
+      - "src/ForgeBridge/**"
+      - "src/DanbooruTagTool.Tests/Issue150GenerationRecipeTests.cs"
+      - ".github/workflows/issue150_generation_recipes.yml"
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "10.0.x"
+      - name: Test solution
+        run: dotnet test src/DanbooruTagTool.sln -c Release --nologo
+      - name: Check Forge bridge Python syntax
+        run: python -m py_compile src/ForgeBridge/scripts/dtt_bridge.py
+      - name: Check Forge bridge JavaScript syntax
+        run: node --check src/ForgeBridge/javascript/dtt_bridge.js

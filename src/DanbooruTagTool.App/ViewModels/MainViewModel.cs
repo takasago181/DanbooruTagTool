@@ -33,7 +33,6 @@ public sealed class MainViewModel : Observable
     {
         var runtime = RuntimeCatalogIndex.Create(catalog);
         Workspace = new(new PromptParser(runtime));
-        GenerationImport = new(Workspace, clipboard, message => Status = message);
         UserState = new(store);
         var state = UserState.Load();
         if (state != null) Workspace.Restore(state.Prompt);
@@ -43,6 +42,11 @@ public sealed class MainViewModel : Observable
         Dictionary = new(runtime, Workspace, general ?? new PendingGeneralBrowseProvider(), Persist, canMutate, specialBrowse);
         Forge = new(forgeBridge ?? new ForgeBridgeClient(), Persist, canMutate, () => Prompt?.English ?? "", message => Status = message, () => ForgeSettingsRequested?.Invoke());
         PresetEditor = new(runtime, Workspace, clipboard, Persist, canMutate, message => Status = message);
+        GenerationImport = new(Workspace, clipboard, message => Status = message, snapshot =>
+        {
+            PresetEditor.BeginNewPresetFromSnapshot(snapshot);
+            PresetsRequested?.Invoke();
+        });
         Prompt.Restore(UserState.Ui); Dictionary.Restore(UserState.Ui); Forge.Restore(UserState.Ui); PresetEditor.Restore(state);
         WireNotifications();
         Workspace.Changed += OnPromptChanged;
@@ -128,9 +132,12 @@ public sealed class MainViewModel : Observable
     public RelayCommand Copy => Prompt.Copy; public RelayCommand Import => Prompt.Import; public RelayCommand New => Prompt.New; public RelayCommand Recover => Prompt.Recover; public RelayCommand Undo => Prompt.Undo; public RelayCommand Redo => Prompt.Redo; public RelayCommand Delete => Prompt.Delete; public RelayCommand DeleteOne => Prompt.DeleteOne; public RelayCommand Inspect => Prompt.Inspect; public RelayCommand FindPrevious => Prompt.FindPrevious; public RelayCommand FindNextCommand => Prompt.FindNextCommand; public RelayCommand OpenEditor => Prompt.OpenEditor; public RelayCommand StartDirect => Prompt.StartDirect; public RelayCommand ApplyDirect => Prompt.ApplyDirect; public RelayCommand CancelDirect => Prompt.CancelDirect; public RelayCommand ApplyWeight => Prompt.ApplyWeight;
     public ObservableCollection<GenerationPreset> Presets => PresetEditor.Presets; public GenerationPreset? SelectedPreset { get => PresetEditor.SelectedPreset; set => PresetEditor.SelectedPreset = value; }
     public string PresetName { get => PresetEditor.PresetName; set => PresetEditor.PresetName = value; } public string PresetDescription { get => PresetEditor.PresetDescription; set => PresetEditor.PresetDescription = value; } public string PresetPositive { get => PresetEditor.PresetPositive; set => PresetEditor.PresetPositive = value; } public string PresetNegative { get => PresetEditor.PresetNegative; set => PresetEditor.PresetNegative = value; }
+    public string PresetModel { get => PresetEditor.PresetModel; set => PresetEditor.PresetModel = value; } public string PresetSeed { get => PresetEditor.PresetSeed; set => PresetEditor.PresetSeed = value; } public string PresetSteps { get => PresetEditor.PresetSteps; set => PresetEditor.PresetSteps = value; } public string PresetSampler { get => PresetEditor.PresetSampler; set => PresetEditor.PresetSampler = value; } public string PresetScheduler { get => PresetEditor.PresetScheduler; set => PresetEditor.PresetScheduler = value; } public string PresetCfg { get => PresetEditor.PresetCfg; set => PresetEditor.PresetCfg = value; } public string PresetWidth { get => PresetEditor.PresetWidth; set => PresetEditor.PresetWidth = value; } public string PresetHeight { get => PresetEditor.PresetHeight; set => PresetEditor.PresetHeight = value; }
     public RelayCommand OpenPresets => Prompt.OpenPresets; public RelayCommand NewPreset => PresetEditor.NewPreset; public RelayCommand ApplyPreset => PresetEditor.ApplyPreset; public RelayCommand CopyPresetNegative => PresetEditor.CopyPresetNegative; public RelayCommand CapturePresetPositive => PresetEditor.CapturePresetPositive; public RelayCommand SavePreset => PresetEditor.SavePreset; public RelayCommand DeletePreset => PresetEditor.DeletePreset;
     public string ForgeUrl { get => Forge.ForgeUrl; set => Forge.ForgeUrl = value; } public string ForgeExtensionPath { get => Forge.ForgeExtensionPath; set => Forge.ForgeExtensionPath = value; }
-    public RelayCommand OpenForgeSettings => Forge.OpenForgeSettings; public RelayCommand SaveForgeSettings => Forge.SaveForgeSettings; public AsyncRelayCommand SendToForge => Forge.SendToForge; public AsyncRelayCommand GenerateInForge => Forge.GenerateInForge; public AsyncRelayCommand SendPresetToForge => Forge.SendPresetToForge;
+    public RelayCommand OpenForgeSettings => Forge.OpenForgeSettings; public RelayCommand SaveForgeSettings => Forge.SaveForgeSettings; public AsyncRelayCommand SendToForge => Forge.SendToForge; public AsyncRelayCommand GenerateInForge => Forge.GenerateInForge; public AsyncRelayCommand SendPresetToForge => Forge.SendPresetToForge; public AsyncRelayCommand ApplyPresetRecipeToForge => Forge.ApplyPresetRecipeToForge; public AsyncRelayCommand GeneratePresetRecipe => Forge.GeneratePresetRecipe;
     public Task SendToForgeAsync(GenerationPreset? preset = null, CancellationToken cancellationToken = default) => Forge.SendAsync(preset, cancellationToken);
     public Task GenerateInForgeAsync(GenerationPreset? preset = null, CancellationToken cancellationToken = default) => Forge.GenerateAsync(preset, cancellationToken);
+    public Task ApplyPresetRecipeAsync(GenerationPreset preset, CancellationToken cancellationToken = default) => Forge.ApplyRecipeAsync(preset, cancellationToken);
+    public Task GeneratePresetRecipeAsync(GenerationPreset preset, CancellationToken cancellationToken = default) => Forge.GenerateRecipeAsync(preset, cancellationToken);
 }

@@ -1,8 +1,8 @@
 """DanbooruTagTool local bridge for the Forge txt2img UI.
 
-This companion extension keeps the existing Prompt-only path and optionally
-asks the Forge browser UI to trigger txt2img Generate after applying Prompt.
-It never calls Forge's generation API directly.
+The bridge is loopback-only. It supports Prompt-only send, one-click Generate,
+and optional generation-recipe settings. Recipe fields omitted by DTT are
+left untouched in Forge.
 """
 
 from __future__ import annotations
@@ -65,10 +65,62 @@ async def _body(request: Request) -> bytes | None:
     return bytes(data)
 
 
+def _validate_settings(value: object) -> tuple[dict | None, tuple[int, str, str] | None]:
+    if value is None:
+        return None, None
+    if not isinstance(value, dict):
+        return None, (400, "malformed", "settings must be an object")
+    allowed = {"model", "seed", "steps", "sampler", "scheduler", "cfg", "width", "height"}
+    if set(value) - allowed:
+        return None, (400, "malformed", "unsupported recipe setting")
+
+    settings: dict[str, object] = {}
+
+    def text(name: str) -> bool:
+        raw = value.get(name)
+        if raw is None:
+            return True
+        if not isinstance(raw, str) or not raw.strip() or len(raw) > 512:
+            return False
+        settings[name] = raw.strip()
+        return True
+
+    if not text("model") or not text("sampler") or not text("scheduler"):
+        return None, (400, "malformed", "recipe text setting is invalid")
+
+    seed = value.get("seed")
+    if seed is not None:
+        if isinstance(seed, bool) or not isinstance(seed, int):
+            return None, (400, "malformed", "seed is invalid")
+        settings["seed"] = seed
+
+    steps = value.get("steps")
+    if steps is not None:
+        if isinstance(steps, bool) or not isinstance(steps, int) or not 1 <= steps <= 150:
+            return None, (400, "malformed", "steps is invalid")
+        settings["steps"] = steps
+
+    cfg = value.get("cfg")
+    if cfg is not None:
+        if isinstance(cfg, bool) or not isinstance(cfg, (int, float)) or not 1 <= float(cfg) <= 30:
+            return None, (400, "malformed", "cfg is invalid")
+        settings["cfg"] = float(cfg)
+
+    for name in ("width", "height"):
+        raw = value.get(name)
+        if raw is None:
+            continue
+        if isinstance(raw, bool) or not isinstance(raw, int) or not 64 <= raw <= 2048:
+            return None, (400, "malformed", f"{name} is invalid")
+        settings[name] = raw
+
+    return settings, None
+
+
 def _validate(payload: object) -> tuple[dict | None, tuple[int, str, str] | None]:
     if not isinstance(payload, dict):
         return None, (400, "malformed", "payload must be an object")
-    allowed = {"protocolVersion", "requestId", "positive", "negativeMode", "negative", "action"}
+    allowed = {"protocolVersion", "requestId", "positive", "negativeMode", "negative", "action", "settings"}
     if set(payload) - allowed:
         return None, (400, "malformed", "unsupported payload field")
     version = payload.get("protocolVersion")
@@ -84,7 +136,7 @@ def _validate(payload: object) -> tuple[dict | None, tuple[int, str, str] | None
     if mode not in ("unchanged", "replace"):
         return None, (400, "malformed", "negativeMode is invalid")
     action = payload.get("action", "send_only")
-    if action not in ("send_only", "send_and_generate"):
+    if action not in ("send_only", "send_and_generate", "apply_recipe"):
         return None, (400, "malformed", "action is invalid")
     if mode == "unchanged":
         if "negative" in payload:
@@ -94,14 +146,43 @@ def _validate(payload: object) -> tuple[dict | None, tuple[int, str, str] | None
         negative = payload.get("negative")
         if not isinstance(negative, str) or len(negative) > MAX_TEXT_LENGTH:
             return None, (413, "oversized", "negative is too large")
+
+    settings, error = _validate_settings(payload.get("settings"))
+    if error:
+        return None, error
+    if action == "apply_recipe" and not settings:
+        return None, (400, "recipe_empty", "recipe settings are required")
+
     return {
         "requestId": request_id,
         "positive": positive,
         "negativeMode": mode,
         "negative": negative,
         "action": action,
+        "settings": settings,
         "createdAt": int(time.time() * 1000),
     }, None
+
+
+def _apply_model_if_requested(item: dict) -> None:
+    settings = item.get("settings") or {}
+    model = settings.get("model")
+    if not model:
+        return
+
+    try:
+        from modules import sd_models
+        from modules_forge import main_entry
+
+        match = sd_models.get_closet_checkpoint_match(model)
+        if match is None:
+            item["serverError"] = "model_not_found"
+            return
+
+        main_entry.checkpoint_change(match.title)
+        item["appliedModel"] = match.title
+    except Exception:
+        item["serverError"] = "model_apply_failed"
 
 
 async def _health(request: Request) -> JSONResponse:
@@ -112,7 +193,7 @@ async def _health(request: Request) -> JSONResponse:
             "protocolVersion": PROTOCOL_VERSION,
             "ok": True,
             "ready": True,
-            "capabilities": ["prompt", "generate", "result_ack"],
+            "capabilities": ["prompt", "generate", "result_ack", "recipe_settings"],
         }
     )
 
@@ -151,6 +232,8 @@ async def _pending_request(request: Request) -> JSONResponse:
         return _json_error(403, "local_only", "loopback access required")
     with _lock:
         item = _pending.popleft() if _pending else None
+    if item is not None:
+        _apply_model_if_requested(item)
     return JSONResponse(content={"protocolVersion": PROTOCOL_VERSION, "pending": item})
 
 
