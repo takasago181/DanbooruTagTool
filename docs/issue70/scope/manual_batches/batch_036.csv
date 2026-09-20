@@ -1,0 +1,66 @@
+row_id,canonical_tag,category,post_count,media_scope,confidence,scope_reason,evidence_refs,decision_source
+I70-036330,ultra_series,Copyright,3952,REAL_3D,HIGH,Live-action/tokusatsu-first franchise; outside the user's 2D-only media scope.,,MANUAL_SCOPE_BATCH_036
+I70-036384,22/7,Copyright,3264,IN_2D,HIGH,High-confidence illustrated / comic / game / anime / virtual-content identity in the user's 2D scope.,,MANUAL_SCOPE_BATCH_036
+I70-036439,vedal_ai,Copyright,2818,REAL_3D,HIGH,Real-person/creator organization identity; outside Character/Copyright 2D-fiction scope.,,MANUAL_SCOPE_BATCH_036
+I70-036541,minecraft_youtube,Copyright,2306,REAL_3D,HIGH,Real-person creator/video ecosystem identity; outside Character/Copyright 2D-fiction scope.,,MANUAL_SCOPE_BATCH_036
+I70-036670,the_ring,Copyright,1861,REAL_3D,HIGH,Live-action/novel horror franchise identity; outside the user's 2D-only media scope.,,MANUAL_SCOPE_BATCH_036
+I70-036997,disney,Copyright,1173,REAL_3D,HIGH,Real-world media company/brand identity rather than a specific 2D fictional property.,,MANUAL_SCOPE_BATCH_036
+I70-037235,force_of_will,Copyright,896,IN_2D,HIGH,High-confidence illustrated / comic / game / anime / virtual-content identity in the user's 2D scope.,,MANUAL_SCOPE_BATCH_036
+I70-037265,dispatch,Copyright,867,IN_2D,HIGH,High-confidence illustrated / comic / game / anime / virtual-content identity in the user's 2D scope.,,MANUAL_SCOPE_BATCH_036
+I70-037293,piapro_studio,Copyright,838,REAL_3D,HIGH,Real-world software/product identity; outside 2D-only scope.,,MANUAL_SCOPE_BATCH_036
+I70-037357,the_little_mermaid_(disney),Copyright,773,IN_2D,HIGH,High-confidence illustrated / comic / game / anime / virtual-content identity in the user's 2D scope.,,MANUAL_SCOPE_BATCH_036
+I70-037408,irasutoya,Copyright,732,IN_2D,HIGH,High-confidence illustrated / comic / game / anime / virtual-content identity in the user's 2D scope.,,MANUAL_SCOPE_BATCH_036
+I70-037472,dream_smp,Copyright,690,REAL_3D,HIGH,Real-person creator/server community identity; outside Character/Copyright 2D-fiction scope.,,MANUAL_SCOPE_BATCH_036
+I70-037478,alien_(series),Copyright,686,REAL_3D,HIGH,Live-action-film-first franchise; outside the user's 2D-only media scope.,,MANUAL_SCOPE_BATCH_036
+I70-037542,aladdin_(movie),Copyright,643,IN_2D,HIGH,High-confidence illustrated / comic / game / anime / virtual-content identity in the user's 2D scope.,,MANUAL_SCOPE_BATCH_036
+I70-037571,pacific_rim,Copyright,631,REAL_3D,HIGH,Live-action film property; outside the user's 2D-only media scope.,,MANUAL_SCOPE_BATCH_036
+I70-037720,the_shining,Copyright,565,REAL_3D,HIGH,Live-action/novel property; outside the user's 2D-only media scope.,,MANUAL_SCOPE_BATCH_036
+I70-037758,the_lord_of_the_rings,Copyright,548,REAL_3D,HIGH,Novel/live-action-film franchise identity; outside the user's 2D-only media scope.,,MANUAL_SCOPE_BATCH_036
+I70-037764,voicepeak,Copyright,545,REAL_3D,HIGH,Real-world speech-synthesis software/product identity; outside 2D-only scope.,,MANUAL_SCOPE_BATCH_036
+I70-037798,kotobukiya_bishoujo,Copyright,531,REAL_3D,HIGH,Real-world figure/product line identity; outside 2D-only scope.,,MANUAL_SCOPE_BATCH_036
+I70-037862,terminator_(series),Copyright,505,REAL_3D,HIGH,Live-action-film-first franchise; outside the user's 2D-only media scope.,,MANUAL_SCOPE_BATCH_036
+I70-037898,monsterverse,Copyright,492,REAL_3D,HIGH,Live-action film franchise identity; outside the user's 2D-only media scope.,,MANUAL_SCOPE_BATCH_036
+I70-038013,project_hail_mary,Copyright,454,REAL_3D,HIGH,Novel/live-action-film property; outside the user's 2D-only media scope.,,MANUAL_SCOPE_BATCH_036
+I70-038113,428:_fuusa_sareta_shibuya_de,Copyright,424,IN_2D,HIGH,High-confidence illustrated / comic / game / anime / virtual-content identity in the user's 2D scope.,,MANUAL_SCOPE_BATCH_036
+I70-038168,strawberry_prince,Copyright,411,REAL_3D,HIGH,Real-person music/creator group identity; outside Character/Copyright 2D-fiction scope.,,MANUAL_SCOPE_BATCH_036
+I70-038278,predator_(series),Copyright,381,REAL_3D,HIGH,Live-action-film-first franchise; outside the user's 2D-only media scope.,,MANUAL_SCOPE_BATCH_036
+I70-038317,blade_runner_(series),Copyright,373,REAL_3D,HIGH,Live-action-film-first franchise; outside the user's 2D-only media scope.,,MANUAL_SCOPE_BATCH_036
+I70-038470,how_to_train_your_dragon_(series),Copyright,340,IN_2D,HIGH,High-confidence illustrated / comic / game / anime / virtual-content identity in the user's 2D scope.,,MANUAL_SCOPE_BATCH_036
+I70-038479,good_omens,Copyright,338,REAL_3D,HIGH,Novel/live-action television property; outside the user's 2D-only media scope.,,MANUAL_SCOPE_BATCH_036
+I70-038487,winnie_the_pooh,Copyright,338,IN_2D,HIGH,High-confidence illustrated / comic / game / anime / virtual-content identity in the user's 2D scope.,,MANUAL_SCOPE_BATCH_036
+I70-038520,kanagawa_okinami_ura,Copyright,332,IN_2D,HIGH,High-confidence illustrated / comic / game / anime / virtual-content identity in the user's 2D scope.,,MANUAL_SCOPE_BATCH_036
+I70-038528,illustration.media,Copyright,331,REAL_3D,HIGH,Real-world website/service identity; outside 2D-only scope.,,MANUAL_SCOPE_BATCH_036
+I70-038584,the_bible,Copyright,324,REAL_3D,HIGH,Text/religious work identity rather than a 2D fictional media property; outside target scope.,,MANUAL_SCOPE_BATCH_036
+I70-038593,readymade_(ado),Copyright,322,REAL_3D,HIGH,Real-world music/song identity; outside Character/Copyright 2D-fiction scope.,,MANUAL_SCOPE_BATCH_036
+I70-038631,comic_anthurium,Copyright,312,REAL_3D,HIGH,Real-world magazine/publication identity; outside 2D-only scope.,,MANUAL_SCOPE_BATCH_036
+I70-038661,it_(stephen_king),Copyright,308,REAL_3D,HIGH,Novel/live-action-film property; outside the user's 2D-only media scope.,,MANUAL_SCOPE_BATCH_036
+I70-038696,detective_pikachu_(series),Copyright,301,IN_2D,HIGH,High-confidence illustrated / comic / game / anime / virtual-content identity in the user's 2D scope.,,MANUAL_SCOPE_BATCH_036
+I70-038701,wcdonald's,Copyright,301,REAL_3D,HIGH,Real-world advertising/brand campaign identity; outside 2D-only scope.,,MANUAL_SCOPE_BATCH_036
+I70-038741,the_saga_of_darren_shan,Copyright,295,REAL_3D,HIGH,Novel-series identity rather than a 2D fictional media property; outside target scope.,,MANUAL_SCOPE_BATCH_036
+I70-038745,maerchen_(sound_horizon),Copyright,294,REAL_3D,HIGH,Real-world music/album identity; outside Character/Copyright 2D-fiction scope.,,MANUAL_SCOPE_BATCH_036
+I70-038750,love_live!_days:_love_live!_general_magazine,Copyright,293,REAL_3D,HIGH,Real-world magazine/publication identity; outside 2D-only scope.,,MANUAL_SCOPE_BATCH_036
+I70-038754,hermitcraft,Copyright,292,REAL_3D,HIGH,Real-person Minecraft creator/server community identity; outside Character/Copyright 2D-fiction scope.,,MANUAL_SCOPE_BATCH_036
+I70-038767,star_trek,Copyright,291,REAL_3D,HIGH,Live-action television/film-first franchise; outside the user's 2D-only media scope.,,MANUAL_SCOPE_BATCH_036
+I70-038768,who_framed_roger_rabbit,Copyright,291,REAL_3D,HIGH,Live-action/animation hybrid film property; outside the user's 2D-only-only target scope.,,MANUAL_SCOPE_BATCH_036
+I70-038835,shiki_(novel),Copyright,281,IN_2D,HIGH,High-confidence illustrated / comic / game / anime / virtual-content identity in the user's 2D scope.,,MANUAL_SCOPE_BATCH_036
+I70-038924,pepoyo_(copyright),Copyright,269,REAL_3D,HIGH,Real-person music/creator identity; outside Character/Copyright 2D-fiction scope.,,MANUAL_SCOPE_BATCH_036
+I70-038958,the_boys,Copyright,265,IN_2D,HIGH,High-confidence illustrated / comic / game / anime / virtual-content identity in the user's 2D scope.,,MANUAL_SCOPE_BATCH_036
+I70-038965,king_kong_(series),Copyright,264,REAL_3D,HIGH,Live-action-film-first franchise; outside the user's 2D-only media scope.,,MANUAL_SCOPE_BATCH_036
+I70-039081,the_silmarillion,Copyright,251,REAL_3D,HIGH,Novel/book identity rather than a 2D fictional media property; outside target scope.,,MANUAL_SCOPE_BATCH_036
+I70-039137,casshern_(series),Copyright,244,IN_2D,HIGH,High-confidence illustrated / comic / game / anime / virtual-content identity in the user's 2D scope.,,MANUAL_SCOPE_BATCH_036
+I70-039196,ars_goetia,Copyright,238,REAL_3D,HIGH,Historical occult/grimoire identity rather than a 2D fictional media property; outside target scope.,,MANUAL_SCOPE_BATCH_036
+I70-039239,ghostbusters,Copyright,233,REAL_3D,HIGH,Live-action-film-first franchise; outside the user's 2D-only media scope.,,MANUAL_SCOPE_BATCH_036
+I70-039271,spider-man:_brand_new_day,Copyright,231,REAL_3D,HIGH,Specific live-action film property; outside the user's 2D-only media scope.,,MANUAL_SCOPE_BATCH_036
+I70-039321,gagraphic,Copyright,226,REAL_3D,HIGH,Real-world media/publication identity; outside 2D-only scope.,,MANUAL_SCOPE_BATCH_036
+I70-039373,the_magnus_archives,Copyright,222,REAL_3D,HIGH,Audio-fiction/podcast property rather than a 2D visual media property; outside target scope.,,MANUAL_SCOPE_BATCH_036
+I70-039431,thunderbolt_fantasy,Copyright,217,REAL_3D,HIGH,Puppetry television property rather than 2D visual media; outside target scope.,,MANUAL_SCOPE_BATCH_036
+I70-039502,the_flash_(series),Copyright,210,IN_2D,HIGH,High-confidence illustrated / comic / game / anime / virtual-content identity in the user's 2D scope.,,MANUAL_SCOPE_BATCH_036
+I70-039907,kodoku_no_gourmet,Copyright,178,IN_2D,HIGH,High-confidence illustrated / comic / game / anime / virtual-content identity in the user's 2D scope.,,MANUAL_SCOPE_BATCH_036
+I70-040076,american_psycho,Copyright,167,REAL_3D,HIGH,Novel/live-action-film property; outside the user's 2D-only media scope.,,MANUAL_SCOPE_BATCH_036
+I70-040093,the_hobbit,Copyright,167,REAL_3D,HIGH,Novel/live-action-film property; outside the user's 2D-only media scope.,,MANUAL_SCOPE_BATCH_036
+I70-040123,the_wizard_of_oz,Copyright,165,REAL_3D,HIGH,Book/live-action-film property; outside the user's 2D-only media scope.,,MANUAL_SCOPE_BATCH_036
+I70-040327,apt._(rose_&_bruno_mars),Copyright,151,REAL_3D,HIGH,Real-world music/song identity; outside Character/Copyright 2D-fiction scope.,,MANUAL_SCOPE_BATCH_036
+I70-040359,the_caves_of_steel,Copyright,150,REAL_3D,HIGH,Novel/book identity rather than a 2D fictional media property; outside target scope.,,MANUAL_SCOPE_BATCH_036
+I70-040631,space_jam,Copyright,135,REAL_3D,HIGH,Live-action/animation hybrid film property; outside the user's 2D-only target scope.,,MANUAL_SCOPE_BATCH_036
+I70-040673,gamera_(series),Copyright,133,REAL_3D,HIGH,Live-action/tokusatsu-first franchise; outside the user's 2D-only media scope.,,MANUAL_SCOPE_BATCH_036
+I70-040764,romeo_and_juliet,Copyright,129,REAL_3D,HIGH,Literary/stage-play identity rather than a 2D fictional media property; outside target scope.,,MANUAL_SCOPE_BATCH_036
