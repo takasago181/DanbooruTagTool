@@ -102,7 +102,7 @@ def _validate_settings(value: object) -> tuple[dict | None, tuple[int, str, str]
 
     cfg = value.get("cfg")
     if cfg is not None:
-        if isinstance(cfg, bool) or not isinstance(cfg, (int, float)) or not 0 <= float(cfg) <= 30:
+        if isinstance(cfg, bool) or not isinstance(cfg, (int, float)) or not 1 <= float(cfg) <= 30:
             return None, (400, "malformed", "cfg is invalid")
         settings["cfg"] = float(cfg)
 
