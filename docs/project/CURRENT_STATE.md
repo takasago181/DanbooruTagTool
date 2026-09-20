@@ -8,9 +8,10 @@
 
 **This block supersedes older runtime/routing statements later in this historical state file when they conflict.**
 
-- Live main: `10d4a8e1e48b75eb37ef97713e93293d2695c5e0`.
+- Live main before this management sync: `eebccbf7feafff6f86546c4624841d5978953dd6`.
 - PR #131 UI refinement is completed and incorporated in the current runtime.
 - PR #133 post-#131 runtime/portable hardening is merged at `10d4a8e1e48b75eb37ef97713e93293d2695c5e0`.
+- PR #135 post-#131 performance/runtime optimization is merged at `eebccbf7feafff6f86546c4624841d5978953dd6`.
 - Current user-facing workstation runtime: `C:\Codex\DanbooruTagTool-App`.
 - Current shortcut target: `C:\Codex\DanbooruTagTool-App\DanbooruTagTool.exe`.
 - Current shortcut working directory: `C:\Codex\DanbooruTagTool-App`.
@@ -19,10 +20,11 @@
 - `artifacts/current/` is retained as a fallback/reference runtime but is no longer the user-facing launch target.
 - Current catalog remains the validated 33,688-entry ordinary catalog: General 30,629 / Special 3,059 / Character-Copyright-Artist 0 / runtime identities 31,003.
 - Catalog SHA-256 remains `DFDC93581F2E8E3041FBC497F9A1C5CFD458977EF57462E05902F27D29B97CF9`.
-- Validated portable EXE SHA-256: `251C4A46B2BE76CB841CC04510B4747349B7079E3462E648A3E9F13EC136BEDB`.
+- The optimization candidate measured a clear selection-path reduction by deferring unused `Related` projection; pure dead `DiscoverySupport` and an unused right-pane style were removed. Prompt Undo/Redo command state refresh was also corrected after workspace mutation.
+- Performance verdict: `RUNTIME_OPTIMIZATION_PRODUCTION_VALIDATED` after fresh merged-main publish and protected-data verification.
 - Real `UserData` is user-owned state. Source/destination and pre/post-launch hashes were verified identical during portable promotion.
 - Explicit `RenderMode.SoftwareOnly` was removed in PR #133. Current WPF uses normal Windows/WPF automatic render selection.
-- Performance benchmark is **not yet complete**. The next default DEV/AUDIT route is measurement-only Performance / Runtime Load Audit; no further optimization is authorized by this state update.
+- Performance / Runtime Load Audit is complete. Automatic WPF render selection remains the accepted baseline; no additional optimization is authorized without new evidence.
 - #70 Character/Copyright/Artist work and taxonomy-usability/classification audit are independent lanes. Do not mix their branches/data/commits with runtime/performance work.
 
 Current operational flow:
