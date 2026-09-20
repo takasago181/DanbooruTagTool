@@ -388,10 +388,6 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        <Style x:Key="RightDetailsTabItem" TargetType="{x:Type TabItem}" BasedOn="{StaticResource {x:Type TabItem}}">
-            <Setter Property="Padding" Value="10,8"/>
-            <Setter Property="Margin" Value="0,0,4,0"/>
-        </Style>
         <Style x:Key="NavigationItem" TargetType="{x:Type TreeViewItem}">
             <Setter Property="Padding" Value="8,3"/>
             <Setter Property="Margin" Value="0,1"/>
