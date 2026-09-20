@@ -39,8 +39,9 @@ public class Issue70IntegrationTests
 
         Assert.Equal("General", general.EffectiveCategory);
         Assert.Equal("Special", special.EffectiveCategory);
-        Assert.Contains(vm.Navigation, n => n.Key == "character" && n.Label == "キャラクター");
-        Assert.Contains(vm.Navigation, n => n.Key == "copyright" && n.Label == "作品");
+        var identity = Assert.Single(vm.Navigation, n => n.Key == "identity-group" && n.Label == "キャラクター・作品");
+        Assert.Contains(identity.Children, n => n.Key == "character" && n.Label == "キャラクターから探す");
+        Assert.Contains(identity.Children, n => n.Key == "copyright" && n.Label == "作品から探す");
         Assert.Contains(vm.Navigation, n => n.Key == "artist" && n.Label == "作者");
 
         vm.NavigateTo("character");
