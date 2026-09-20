@@ -179,7 +179,7 @@ def _apply_model_if_requested(item: dict) -> None:
             item["serverError"] = "model_not_found"
             return
 
-        main_entry.checkpoint_change(match.title)
+        main_entry.checkpoint_change(match.title, preset=None)
         item["appliedModel"] = match.title
     except Exception:
         item["serverError"] = "model_apply_failed"
