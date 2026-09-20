@@ -14,7 +14,10 @@ public sealed class EntryViewModel(
     Action<CatalogEntry> add,
     Func<bool>? canMutate = null,
     Func<CatalogEntry, string?>? browseBreadcrumb = null,
-    Func<CatalogEntry, bool>? deepDiscovery = null) : Observable
+    Func<CatalogEntry, bool>? deepDiscovery = null,
+    Func<CatalogEntry, string?>? relationSummary = null,
+    Func<CatalogEntry, int>? relatedCount = null,
+    Action<CatalogEntry>? openRelated = null) : Observable
 {
     public CatalogEntry Entry => entry;
     public bool IsDeepDiscovery => deepDiscovery?.Invoke(entry) == true;
@@ -22,6 +25,19 @@ public sealed class EntryViewModel(
     public string English => entry.Canonical ?? entry.English;
     public string Usage => entry.UsageText;
     public string Category => entry.EffectiveCategory;
+    private string? relationSummaryCache;
+    private int? relatedCountCache;
+    public string RelationSummary => relationSummaryCache ??= relationSummary?.Invoke(entry) ?? "";
+    public int RelatedCount => relatedCountCache ??= relatedCount?.Invoke(entry) ?? 0;
+    public bool HasRelated => RelatedCount > 0;
+    public string RelatedActionLabel => entry.EffectiveCategory switch
+    {
+        "Character" => "作品を見る",
+        "Copyright" => $"キャラを見る ({RelatedCount:N0})",
+        _ => "関連を見る"
+    };
+    private RelayCommand? openRelatedCommand;
+    public RelayCommand OpenRelated => openRelatedCommand ??= new(_ => openRelated?.Invoke(entry), _ => (canMutate?.Invoke() ?? true) && HasRelated && openRelated != null);
     public string Breadcrumb
     {
         get
@@ -76,8 +92,10 @@ public sealed class EntryViewModel(
         if (matches.Count == 0) add(entry);
         else if (matches.Count == 1) workspace.Delete([matches[0].Id]);
     }
-    public void Refresh() { Notify(nameof(AddLabel)); Notify(nameof(AddSymbol)); Notify(nameof(DetailAddLabel)); Add.Refresh(); }
+    public void Refresh() { Notify(nameof(AddLabel)); Notify(nameof(AddSymbol)); Notify(nameof(DetailAddLabel)); Add.Refresh(); OpenRelated.Refresh(); }
 }
+
+public enum DictionarySearchTarget { All, Character, Copyright, Artist }
 
 public sealed record NavigationNode(string Key, string Label, IReadOnlyList<NavigationNode> Children);
 
