@@ -150,10 +150,11 @@ public sealed class GenerationPresetsViewModel : Observable
     {
         recipe = null;
         error = "";
+        validationError = "";
 
         if (!TryLong(PresetSeed, "Seed", out var seed) ||
             !TryInt(PresetSteps, "Steps", 1, 150, out var steps) ||
-            !TryDecimal(PresetCfg, "CFG", 0m, 30m, out var cfg) ||
+            !TryDecimal(PresetCfg, "CFG", 1m, 30m, out var cfg) ||
             !TryInt(PresetWidth, "Width", 64, 2048, out var width) ||
             !TryInt(PresetHeight, "Height", 64, 2048, out var height))
         {
