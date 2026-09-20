@@ -24,7 +24,7 @@
         <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="*"/></Grid.RowDefinitions>
         <DockPanel Grid.ColumnSpan="3" Margin="0,0,0,10">
             <Button DockPanel.Dock="Right" Content="新規" Command="{Binding NewPreset}" Style="{StaticResource PrimaryButton}" Margin="0"/>
-            <StackPanel><TextBlock Text="生成プリセット" FontSize="21" FontWeight="SemiBold"/><TextBlock Text="PositiveセットとNegative Promptをまとめて再利用できます。" Foreground="{StaticResource MutedInkBrush}" Margin="0,2,0,0"/></StackPanel>
+            <StackPanel><TextBlock Text="生成プリセット" FontSize="21" FontWeight="SemiBold"/><TextBlock Text="Promptを再利用し、必要なものだけ生成条件として保存できます。" Foreground="{StaticResource MutedInkBrush}" Margin="0,2,0,0"/></StackPanel>
         </DockPanel>
         <Border Grid.Row="1" Grid.Column="0" Style="{StaticResource PanelBorder}" Padding="10">
             <DockPanel>
@@ -48,11 +48,30 @@
                                             </Style>
                                         </TextBlock.Style>
                                     </TextBlock>
-                                    <TextBlock Text="{Binding Description}" Foreground="{StaticResource MutedInkBrush}" FontSize="12" MaxHeight="38" Margin="0,2,0,6"/>
+                                    <TextBlock Text="{Binding Description}" Foreground="{StaticResource MutedInkBrush}" FontSize="12" MaxHeight="38" Margin="0,2,0,4"/>
+                                    <TextBlock Text="{Binding RecipeSummary}" Foreground="{StaticResource MutedInkBrush}" FontSize="11" Margin="0,0,0,6">
+                                        <TextBlock.Style>
+                                            <Style TargetType="TextBlock">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers><DataTrigger Binding="{Binding HasRecipe}" Value="True"><Setter Property="Visibility" Value="Visible"/></DataTrigger></Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
                                     <WrapPanel>
                                         <Button Content="Positive追加" Command="{Binding DataContext.ApplyPreset, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding}" Padding="8,4" MinHeight="28"/>
                                         <Button Content="Negativeコピー" Command="{Binding DataContext.CopyPresetNegative, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding}" Padding="8,4" MinHeight="28" Margin="0"/>
-                                        <Button Content="Forgeへ送る" Command="{Binding DataContext.SendPresetToForge, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding}" Padding="8,4" MinHeight="28" Margin="0" ToolTip="現在のvisible English Promptと、このプリセットのNegativeをForgeへ送ります。"/>
+                                        <Button Content="Forgeへ送る" Command="{Binding DataContext.SendPresetToForge, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding}" Padding="8,4" MinHeight="28" ToolTip="現在のvisible English Promptと、このプリセットのNegativeをForgeへ送ります。"/>
+                                        <Button Content="レシピで生成" Command="{Binding DataContext.GeneratePresetRecipe, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding}" Padding="8,4" MinHeight="28" Margin="0" ToolTip="保存したPrompt・Negative・生成条件をForgeへ適用して生成します。">
+                                            <Button.Style>
+                                                <Style TargetType="Button">
+                                                    <Setter Property="Background" Value="{StaticResource SoftBlueBrush}"/>
+                                                    <Setter Property="Foreground" Value="{StaticResource InkBrush}"/>
+                                                    <Setter Property="BorderBrush" Value="{StaticResource BorderBrushSoft}"/>
+                                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                                    <Style.Triggers><DataTrigger Binding="{Binding HasRecipe}" Value="True"><Setter Property="Visibility" Value="Visible"/></DataTrigger></Style.Triggers>
+                                                </Style>
+                                            </Button.Style>
+                                        </Button>
                                     </WrapPanel>
                                 </StackPanel>
                             </Border>
@@ -72,12 +91,44 @@
                     <DockPanel Margin="0,0,0,3"><TextBlock Text="Positive" FontWeight="SemiBold"/><Button DockPanel.Dock="Right" Content="現在のPromptから取得" Command="{Binding CapturePresetPositive}" Padding="8,4" MinHeight="28" Margin="8,0,0,0"/></DockPanel>
                     <TextBox Text="{Binding PresetPositive, UpdateSourceTrigger=PropertyChanged}" AcceptsReturn="True" TextWrapping="Wrap" MinHeight="150" VerticalScrollBarVisibility="Auto" Margin="0,0,0,8" ToolTip="canonical形式または生成向け形式で入力できます。未解決部分はそのまま保持されます。"/>
                     <TextBlock Text="Negative" FontWeight="SemiBold" Margin="0,0,0,3"/>
-                    <TextBox Text="{Binding PresetNegative, UpdateSourceTrigger=PropertyChanged}" AcceptsReturn="True" TextWrapping="Wrap" MinHeight="150" VerticalScrollBarVisibility="Auto" Margin="0,0,0,12"/>
+                    <TextBox Text="{Binding PresetNegative, UpdateSourceTrigger=PropertyChanged}" AcceptsReturn="True" TextWrapping="Wrap" MinHeight="150" VerticalScrollBarVisibility="Auto" Margin="0,0,0,10"/>
+
+                    <Expander Header="生成条件（任意）" IsExpanded="False" Margin="0,0,0,12" Foreground="{StaticResource InkBrush}" FontWeight="SemiBold">
+                        <Border Background="{StaticResource WorkSurfaceBrush}" BorderBrush="{StaticResource BorderBrushSoft}" BorderThickness="1" CornerRadius="7" Padding="10" Margin="0,6,0,0">
+                            <StackPanel>
+                                <TextBlock Text="空欄の項目はForgeの現在設定を変更しません。" Foreground="{StaticResource MutedInkBrush}" FontSize="12" Margin="0,0,0,8"/>
+                                <TextBlock Text="Model" FontWeight="SemiBold" Margin="0,0,0,3"/>
+                                <TextBox Text="{Binding PresetModel, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,8" ToolTip="ForgeのCheckpoint名。PNGから取り込んだ値も保存できます。"/>
+                                <Grid>
+                                    <Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="10"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
+                                    <StackPanel Grid.Row="0" Grid.Column="0"><TextBlock Text="Seed" FontWeight="SemiBold" Margin="0,0,0,3"/><TextBox Text="{Binding PresetSeed, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,8"/></StackPanel>
+                                    <StackPanel Grid.Row="0" Grid.Column="2"><TextBlock Text="Steps" FontWeight="SemiBold" Margin="0,0,0,3"/><TextBox Text="{Binding PresetSteps, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,8"/></StackPanel>
+                                    <StackPanel Grid.Row="1" Grid.Column="0"><TextBlock Text="Sampler" FontWeight="SemiBold" Margin="0,0,0,3"/><TextBox Text="{Binding PresetSampler, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,8"/></StackPanel>
+                                    <StackPanel Grid.Row="1" Grid.Column="2"><TextBlock Text="Scheduler" FontWeight="SemiBold" Margin="0,0,0,3"/><TextBox Text="{Binding PresetScheduler, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,8"/></StackPanel>
+                                    <StackPanel Grid.Row="2" Grid.Column="0"><TextBlock Text="CFG" FontWeight="SemiBold" Margin="0,0,0,3"/><TextBox Text="{Binding PresetCfg, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,8"/></StackPanel>
+                                    <StackPanel Grid.Row="2" Grid.Column="2">
+                                        <TextBlock Text="Size" FontWeight="SemiBold" Margin="0,0,0,3"/>
+                                        <Grid><Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="Auto"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+                                            <TextBox Grid.Column="0" Text="{Binding PresetWidth, UpdateSourceTrigger=PropertyChanged}"/>
+                                            <TextBlock Grid.Column="1" Text="×" Margin="6,0" VerticalAlignment="Center"/>
+                                            <TextBox Grid.Column="2" Text="{Binding PresetHeight, UpdateSourceTrigger=PropertyChanged}"/>
+                                        </Grid>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="3" Grid.ColumnSpan="3" Orientation="Horizontal" Margin="0,2,0,0">
+                                        <Button Content="Forgeへレシピ適用" Command="{Binding ApplyPresetRecipeToForge}" CommandParameter="{Binding SelectedPreset}" Padding="8,4" MinHeight="28" ToolTip="保存済みレシピをForgeへ適用します。生成は開始しません。"/>
+                                        <TextBlock Text="※ 編集後は保存してから適用" Foreground="{StaticResource MutedInkBrush}" FontSize="11" VerticalAlignment="Center" Margin="4,0,0,0"/>
+                                    </StackPanel>
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+                    </Expander>
+
                     <WrapPanel>
                         <Button Content="保存" Command="{Binding SavePreset}" Style="{StaticResource PrimaryButton}"/>
                         <Button Content="削除" Click="DeletePresetClick" Style="{StaticResource DangerButton}"/>
                     </WrapPanel>
-                    <TextBlock Text="Positive追加時はrecognized canonicalの既存項目だけを重複skipします。Negativeは入力文字列をそのままコピーします。" Foreground="{StaticResource MutedInkBrush}" FontSize="12" Margin="0,10,0,0"/>
+                    <TextBlock Text="Positive追加は従来どおりPromptだけを扱います。生成条件は空欄ならForgeの現状を維持します。" Foreground="{StaticResource MutedInkBrush}" FontSize="12" Margin="0,10,0,0"/>
                 </StackPanel>
             </ScrollViewer>
         </Border>
