@@ -443,6 +443,7 @@ I70-030171,virtuoso_(16personalities),Character,64,REAL_3D,HIGH,DOMINANT_COPYRIG
 I70-030178,yuubari_gogo,Character,64,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 0.983051,
 I70-030320,kamen_rider_diend,Character,63,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 0.981132,https://www.kamen-rider-official.com/series/
 I70-030633,k_(blade_runner_2049),Character,62,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
+I70-030706,mukku,Character,62,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_057,Character identity is primarily a puppet-led live-action real-3D identity; excluded under the media-scope rule.,
 I70-030728,palpatine,Character,62,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
 I70-030761,scorpius_malfoy,Character,62,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
 I70-030773,souma_haruto,Character,62,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
@@ -450,12 +451,22 @@ I70-030835,adam_lanza,Character,61,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost
 I70-030885,charles_leclerc,Character,61,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
 I70-030895,daizyuzin,Character,61,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
 I70-030958,hayami_sena,Character,61,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
+I70-030973,imai_asami,Character,61,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_057,Tag identifies a real human performer creator athlete streamer or real-world individual rather than a fictional or virtual character; excluded under the real-person rule.,
+I70-030998,keanu_reeves,Character,61,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_057,Tag identifies a real human performer creator athlete streamer or real-world individual rather than a fictional or virtual character; excluded under the real-person rule.,
+I70-031013,lebron_james,Character,61,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_057,Tag identifies a real human performer creator athlete streamer or real-world individual rather than a fictional or virtual character; excluded under the real-person rule.,
 I70-031061,mothra_(monsterverse),Character,61,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
+I70-031134,solidaritygaming,Character,61,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_057,Tag identifies a real human performer creator athlete streamer or real-world individual rather than a fictional or virtual character; excluded under the real-person rule.,
 I70-031182,will_graham,Character,61,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
+I70-031183,yabushima_akane,Character,61,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_057,Tag identifies a real human performer creator athlete streamer or real-world individual rather than a fictional or virtual character; excluded under the real-person rule.,
+I70-031296,gomora,Character,60,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_057,Character identity belongs to an explicit tokusatsu or suit-performed live-action property; excluded under the tokusatsu rule.,
+I70-031324,hondo_kaede,Character,60,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_057,Tag identifies a real human performer creator athlete streamer or real-world individual rather than a fictional or virtual character; excluded under the real-person rule.,
+I70-031340,jack_sparrow,Character,60,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_057,Character identity belongs to a live-action-led property rather than the target 2D fictional or virtual scope; excluded under the media-scope rule.,
+I70-031344,jigsaw_(character),Character,60,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_057,Character identity belongs to a live-action-led property rather than the target 2D fictional or virtual scope; excluded under the media-scope rule.,
 I70-031362,kisaragi_gentarou,Character,60,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 0.982456,https://www.kamen-rider-official.com/series/
 I70-031417,max_verstappen,Character,60,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
 I70-031466,okada_nana,Character,60,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
 I70-031474,oscar_piastri,Character,60,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
+I70-031498,robocop_(character),Character,60,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_057,Character identity belongs to a live-action-led property rather than the target 2D fictional or virtual scope; excluded under the media-scope rule.,
 I70-031567,touma_saya,Character,60,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
 I70-031634,architect_(16personalities),Character,59,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
 I70-031682,distortion_(tma),Character,59,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
@@ -484,48 +495,87 @@ I70-032778,vice_(kamen_rider_revice),Character,57,REAL_3D,HIGH,DOMINANT_COPYRIGH
 I70-032810,albus_severus_potter,Character,56,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
 I70-032872,dragreder,Character,56,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_056,Character identity belongs to an explicit tokusatsu or suit-performed live-action property; excluded under the tokusatsu rule.,
 I70-032903,gigan,Character,56,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_056,Character identity belongs to an explicit tokusatsu or suit-performed live-action property; excluded under the tokusatsu rule.,
+I70-032918,haneame,Character,56,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_057,Tag identifies a real human performer creator athlete streamer or real-world individual rather than a fictional or virtual character; excluded under the real-person rule.,
 I70-032957,kadota_hiromi,Character,56,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-032958,kamen_rider_skull,Character,56,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-032959,kamen_rider_super-1,Character,56,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
+I70-032982,komazawa_noi_(real),Character,56,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_057,Tag identifies a real human performer creator athlete streamer or real-world individual rather than a fictional or virtual character; excluded under the real-person rule.,
 I70-032989,kson_(person),Character,56,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_056,Tag identifies a real human performer creator athlete public figure or real-world individual rather than a fictional or virtual character; excluded under the real-person rule.,
 I70-033058,nakahara_mai,Character,56,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_056,Tag identifies a real human performer creator athlete public figure or real-world individual rather than a fictional or virtual character; excluded under the real-person rule.,
+I70-033113,sabrina_carpenter,Character,56,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_057,Tag identifies a real human performer creator athlete streamer or real-world individual rather than a fictional or virtual character; excluded under the real-person rule.,
+I70-033140,shiina_ringo,Character,56,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_057,Tag identifies a real human performer creator athlete streamer or real-world individual rather than a fictional or virtual character; excluded under the real-person rule.,
+I70-033152,skeppy,Character,56,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_057,Tag identifies a real human performer creator athlete streamer or real-world individual rather than a fictional or virtual character; excluded under the real-person rule.,
 I70-033186,ultraman_tregear,Character,56,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
 I70-033224,ahim_de_famille,Character,55,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
 I70-033241,arigato_usagi,Character,55,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 0.980769,
+I70-033296,danny_lee,Character,55,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_057,Tag identifies a real human performer creator athlete streamer or real-world individual rather than a fictional or virtual character; excluded under the real-person rule.,
+I70-033336,freddie_mercury,Character,55,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_057,Tag identifies a real human performer creator athlete streamer or real-world individual rather than a fictional or virtual character; excluded under the real-person rule.,
+I70-033356,gotou_yuuko,Character,55,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_057,Tag identifies a real human performer creator athlete streamer or real-world individual rather than a fictional or virtual character; excluded under the real-person rule.,
+I70-033363,hachiko_(dog),Character,55,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_057,Tag identifies a real-world animal identity rather than a fictional or virtual character; excluded under the real-identity rule.,
 I70-033373,hedwig,Character,55,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
+I70-033404,jaiden_animations,Character,55,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_057,Tag identifies a real human performer creator athlete streamer or real-world individual rather than a fictional or virtual character; excluded under the real-person rule.,
 I70-033413,kamen_rider_geats_ix,Character,55,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-033414,kamen_rider_gotchard_(steamhopper),Character,55,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
+I70-033415,kamen_rider_ixa,Character,55,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_057,Character identity belongs to an explicit tokusatsu or suit-performed live-action property; excluded under the tokusatsu rule.,
+I70-033507,misaki_nako,Character,55,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_057,Tag identifies a real human performer creator athlete streamer or real-world individual rather than a fictional or virtual character; excluded under the real-person rule.,
 I70-033520,nakamura_kazuha,Character,55,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 0.982143,
 I70-033542,nogami_ryoutarou,Character,55,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
+I70-033706,arisakaaa_(crazy_raccoon),Character,54,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_057,Tag identifies a real human performer creator athlete streamer or real-world individual rather than a fictional or virtual character; excluded under the real-person rule.,
 I70-033719,blue-haired_boy_(how_to_draw_manga),Character,54,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 0.980769,
 I70-033758,elle_sweet,Character,54,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
 I70-033773,fred_weasley,Character,54,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
+I70-033777,fujita_saki,Character,54,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_057,Tag identifies a real human performer creator athlete streamer or real-world individual rather than a fictional or virtual character; excluded under the real-person rule.,
 I70-033817,honami_azusa,Character,54,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
 I70-033829,jonathan_sims,Character,54,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
+I70-034021,takeuchi_mariya,Character,54,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_057,Tag identifies a real human performer creator athlete streamer or real-world individual rather than a fictional or virtual character; excluded under the real-person rule.,
+I70-034022,tanaka_atsuko,Character,54,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_057,Tag identifies a real human performer creator athlete streamer or real-world individual rather than a fictional or virtual character; excluded under the real-person rule.,
 I70-034185,george_weasley,Character,53,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
 I70-034235,kamen_rider_gavv_(poppingummy_form),Character,53,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
+I70-034236,kamen_rider_leangle,Character,53,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_057,Character identity belongs to an explicit tokusatsu or suit-performed live-action property; excluded under the tokusatsu rule.,
 I70-034237,kamen_rider_live,Character,53,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
+I70-034238,kamen_rider_meteor,Character,53,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_057,Character identity belongs to an explicit tokusatsu or suit-performed live-action property; excluded under the tokusatsu rule.,
 I70-034239,kamen_rider_zero-two,Character,53,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
+I70-034271,ldshadowlady,Character,53,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_057,Tag identifies a real human performer creator athlete streamer or real-world individual rather than a fictional or virtual character; excluded under the real-person rule.,
 I70-034276,lilco,Character,53,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
 I70-034304,michael_shelley,Character,53,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
+I70-034306,mighty_morphin_green_ranger,Character,53,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_057,Character identity belongs to an explicit tokusatsu or suit-performed live-action property; excluded under the tokusatsu rule.,
+I70-034307,mighty_morphin_pink_ranger,Character,53,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_057,Character identity belongs to an explicit tokusatsu or suit-performed live-action property; excluded under the tokusatsu rule.,
+I70-034329,mumbo_jumbo_(youtuber),Character,53,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_057,Tag identifies a real human performer creator athlete streamer or real-world individual rather than a fictional or virtual character; excluded under the real-person rule.,
+I70-034367,orfevre_(racehorse),Character,53,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_057,Tag identifies a real-world animal identity rather than a fictional or virtual character; excluded under the real-identity rule.,
 I70-034376,pansy_parkinson,Character,53,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
 I70-034404,ruan_miemie,Character,53,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://safebooru.org/index.php?id=4400547&page=post&s=view
+I70-034411,saeki_kayako,Character,53,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_057,Character identity belongs to a live-action-led property rather than the target 2D fictional or virtual scope; excluded under the media-scope rule.,
 I70-034434,shirasu_(iriam),Character,53,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
+I70-034445,smajor1995,Character,53,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_057,Tag identifies a real human performer creator athlete streamer or real-world individual rather than a fictional or virtual character; excluded under the real-person rule.,
 I70-034495,ultraman_cosmos,Character,53,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
+I70-034645,han_megumi,Character,52,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_057,Tag identifies a real human performer creator athlete streamer or real-world individual rather than a fictional or virtual character; excluded under the real-person rule.,
 I70-034714,kintaros,Character,52,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-034764,midori-chan_(myslot),Character,52,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.sammy.co.jp/japanese/myslot/about.html
 I70-034846,ronan_lynch,Character,52,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 0.980769,
+I70-034860,sayuri_(singer),Character,52,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_057,Tag identifies a real human performer creator athlete streamer or real-world individual rather than a fictional or virtual character; excluded under the real-person rule.,
 I70-035023,campaigner_(16personalities),Character,51,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
 I70-035035,chocolat_(vrchat),Character,51,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
+I70-035082,erling_haaland,Character,51,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_057,Tag identifies a real human performer creator athlete streamer or real-world individual rather than a fictional or virtual character; excluded under the real-person rule.,
+I70-035106,gregory_house,Character,51,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_057,Character identity belongs to a live-action-led property rather than the target 2D fictional or virtual scope; excluded under the media-scope rule.,
+I70-035141,inoue_kikuko,Character,51,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_057,Tag identifies a real human performer creator athlete streamer or real-world individual rather than a fictional or virtual character; excluded under the real-person rule.,
 I70-035150,james_potter,Character,51,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
 I70-035163,kamen_rider_evol_(black_hole_form),Character,51,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-035164,kamen_rider_genm_(zombie_gamer_level_x),Character,51,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
+I70-035165,kamen_rider_kick_hopper,Character,51,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_057,Character identity belongs to an explicit tokusatsu or suit-performed live-action property; excluded under the tokusatsu rule.,
+I70-035166,kamen_rider_ooo_(putotyra_combo),Character,51,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_057,Character identity belongs to an explicit tokusatsu or suit-performed live-action property; excluded under the tokusatsu rule.,
+I70-035216,maeda_kaori,Character,51,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_057,Tag identifies a real human performer creator athlete streamer or real-world individual rather than a fictional or virtual character; excluded under the real-person rule.,
 I70-035231,mike_ehrmantraut,Character,51,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
+I70-035244,movie_thief,Character,51,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_057,Character identity belongs to a live-action-led property rather than the target 2D fictional or virtual scope; excluded under the media-scope rule.,
 I70-035255,nezumi_(majisuka_gakuen),Character,51,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
+I70-035371,the_rock_(dwayne_johnson),Character,51,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_057,Tag identifies a real human performer creator athlete streamer or real-world individual rather than a fictional or virtual character; excluded under the real-person rule.,
 I70-035501,destoroyah,Character,50,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
+I70-035535,fukuen_misato,Character,50,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_057,Tag identifies a real human performer creator athlete streamer or real-world individual rather than a fictional or virtual character; excluded under the real-person rule.,
 I70-035613,kamen_rider_kiva_(emperor_form),Character,50,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-035683,miao_jiujiu,Character,50,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://safebooru.org/index.php?id=4400547&page=post&s=view
+I70-035691,miyawaki_sakura,Character,50,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_057,Tag identifies a real human performer creator athlete streamer or real-world individual rather than a fictional or virtual character; excluded under the real-person rule.,
 I70-035770,ryutaros,Character,50,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
+I70-035777,sakurai_takahiro,Character,50,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_057,Tag identifies a real human performer creator athlete streamer or real-world individual rather than a fictional or virtual character; excluded under the real-person rule.,
+I70-035812,suzaki_aya,Character,50,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_057,Tag identifies a real human performer creator athlete streamer or real-world individual rather than a fictional or virtual character; excluded under the real-person rule.,
 I70-035990,real_life,Copyright,20951,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_001,Explicit real-life / real-world identity; outside 2D-only scope.,
 I70-036057,kamen_rider,Copyright,12867,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_001,Live-action/tokusatsu-first franchise; excluded from the user's 2D-only media scope.,https://www.kamen-rider-official.com/series/
 I70-036183,megami_magazine,Copyright,6321,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_002,Real-world magazine/publication identity rather than a fictional property.,
