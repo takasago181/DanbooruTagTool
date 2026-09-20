@@ -50,8 +50,10 @@ jobs:
           print({k:d[k] for k in ['audited_unique_rows','resolved_unique_rows','conflicted_unique_rows','remaining_unaudited_rows','remaining_by_category','verdict_counts_resolved']})
           f=json.loads(Path('docs/issue70/audit/FINAL_SEMANTIC_FIXES_SUMMARY.json').read_text(encoding='utf-8'))
           assert f['production_modified'] is False
-          assert f['fix_rows'] == 9080
-          assert f['fix_verdict_counts'] == {'FIX_BOTH': 766, 'FIX_DISPLAY': 8054, 'FIX_SEARCH': 260}
+          assert f['source_fix_rows'] == 9080
+          assert f['source_fix_verdict_counts'] == {'FIX_BOTH': 766, 'FIX_DISPLAY': 8054, 'FIX_SEARCH': 260}
+          assert 0 < f['effective_fix_rows'] <= f['source_fix_rows']
+          assert f['effective_fix_rows'] + f['normalized_no_op_source_fix_rows'] == f['source_fix_rows']
           assert f['unresolved_rows'] == 0
           PY
           git diff --exit-code -- docs/issue70/data/runtime docs/issue70/data/source
