@@ -13,6 +13,7 @@ ROOT = Path(__file__).resolve().parents[2]
 SOURCE_DIR = ROOT / "docs/issue70/data/source_chunks"
 SCOPE_DIR = ROOT / "docs/issue70/scope"
 SEED_PATH = SCOPE_DIR / "confirmed_real3d_seed.csv"
+MANUAL_PATH = SCOPE_DIR / "manual_scope_decisions.csv"
 
 LEDGER_PATH = SCOPE_DIR / "full_scope_ledger.csv"
 SUMMARY_PATH = SCOPE_DIR / "scope_summary.json"
@@ -121,6 +122,34 @@ def load_real3d_seeds(source_by_id: dict[str, dict[str, str]]) -> dict[str, dict
     return seeds
 
 
+def load_manual_decisions(
+    source_by_id: dict[str, dict[str, str]],
+    seeds: dict[str, dict[str, str]],
+) -> dict[str, dict[str, str]]:
+    decisions: dict[str, dict[str, str]] = {}
+    if not MANUAL_PATH.exists():
+        return decisions
+    with MANUAL_PATH.open("r", encoding="utf-8-sig", newline="") as f:
+        for row in csv.DictReader(f):
+            rid = (row.get("row_id") or "").strip()
+            assert rid and rid not in decisions, f"bad/duplicate manual row: {rid}"
+            assert row.get("media_scope") in {"IN_2D", "REAL_3D"}, (rid, row.get("media_scope"))
+            assert row.get("confidence") == "HIGH", (rid, row.get("confidence"))
+            src = source_by_id.get(rid)
+            assert src is not None, f"manual row not found in source: {rid}"
+            assert row.get("canonical_tag") == src.get("canonical_tag"), rid
+            assert row.get("category") == src.get("category_name"), rid
+            assert int(row.get("post_count") or 0) == int(src.get("post_count") or 0), rid
+            if rid in seeds:
+                assert row.get("media_scope") == seeds[rid].get("media_scope"), (
+                    rid,
+                    row.get("media_scope"),
+                    seeds[rid].get("media_scope"),
+                )
+            decisions[rid] = row
+    return decisions
+
+
 def parse_relations(raw: str) -> list[dict[str, object]]:
     raw = (raw or "").strip()
     if not raw:
@@ -189,6 +218,7 @@ def build() -> tuple[list[dict[str, str]], dict[str, object]]:
     source = load_scope_source()
     source_by_id = {row["row_id"]: row for row in source}
     seeds = load_real3d_seeds(source_by_id)
+    manual = load_manual_decisions(source_by_id, seeds)
 
     copyright_rows = [r for r in source if r["category_name"] == "Copyright"]
     character_rows = [r for r in source if r["category_name"] == "Character"]
@@ -201,6 +231,19 @@ def build() -> tuple[list[dict[str, str]], dict[str, object]]:
         rid = row["row_id"]
         tag = row["canonical_tag"]
         copyright_by_tag[tag] = rid
+
+        if rid in manual:
+            decision = manual[rid]
+            decisions[rid] = {
+                "media_scope": decision["media_scope"],
+                "confidence": "HIGH",
+                "decision_source": decision.get("decision_source") or "MANUAL_SCOPE",
+                "scope_reason": decision.get("scope_reason") or "manual scope decision",
+                "evidence_refs": decision.get("evidence_refs") or "",
+                "primary_copyright": "",
+                "primary_copyright_coverage": "",
+            }
+            continue
 
         if rid in seeds:
             seed = seeds[rid]
@@ -240,6 +283,19 @@ def build() -> tuple[list[dict[str, str]], dict[str, object]]:
     # Character propagation only when co-occurrence is dominant enough to be safe.
     for row in character_rows:
         rid = row["row_id"]
+        if rid in manual:
+            decision = manual[rid]
+            decisions[rid] = {
+                "media_scope": decision["media_scope"],
+                "confidence": "HIGH",
+                "decision_source": decision.get("decision_source") or "MANUAL_SCOPE",
+                "scope_reason": decision.get("scope_reason") or "manual scope decision",
+                "evidence_refs": decision.get("evidence_refs") or "",
+                "primary_copyright": "",
+                "primary_copyright_coverage": "",
+            }
+            continue
+
         if rid in seeds:
             seed = seeds[rid]
             decisions[rid] = {
@@ -322,7 +378,7 @@ def build() -> tuple[list[dict[str, str]], dict[str, object]]:
             }
         )
 
-    validate_ledger(ledger, seeds)
+    validate_ledger(ledger, seeds, manual)
 
     scope_counts = Counter(r["media_scope"] for r in ledger)
     by_category = {
@@ -346,6 +402,7 @@ def build() -> tuple[list[dict[str, str]], dict[str, object]]:
         "scope_counts_by_category": by_category,
         "decision_source_counts": dict(sorted(by_source.items())),
         "confirmed_real3d_seed_rows": len(seeds),
+        "manual_scope_decision_rows": len(manual),
         "source_fingerprint_sha256": fingerprint(source),
         "policy": {
             "runtime_candidate": "IN_2D + UNCERTAIN until full review closes",
@@ -359,7 +416,7 @@ def build() -> tuple[list[dict[str, str]], dict[str, object]]:
     return ledger, summary
 
 
-def validate_ledger(ledger: list[dict[str, str]], seeds: dict[str, dict[str, str]]) -> None:
+def validate_ledger(ledger: list[dict[str, str]], seeds: dict[str, dict[str, str]], manual: dict[str, dict[str, str]]) -> None:
     assert len(ledger) == EXPECTED_TOTAL, (len(ledger), EXPECTED_TOTAL)
     ids = [r["row_id"] for r in ledger]
     assert len(ids) == len(set(ids)), "duplicate ledger row_id"
@@ -367,9 +424,13 @@ def validate_ledger(ledger: list[dict[str, str]], seeds: dict[str, dict[str, str
     assert dict(counts) == EXPECTED, (dict(counts), EXPECTED)
     assert all(r["media_scope"] in VALID_SCOPE for r in ledger)
     assert all(r["category"] in EXPECTED for r in ledger)
+    ledger_by_id = {r["row_id"]: r for r in ledger}
     for rid in seeds:
-        row = next((r for r in ledger if r["row_id"] == rid), None)
+        row = ledger_by_id.get(rid)
         assert row is not None and row["media_scope"] == "REAL_3D", rid
+    for rid, decision in manual.items():
+        row = ledger_by_id.get(rid)
+        assert row is not None and row["media_scope"] == decision["media_scope"], rid
 
 
 def write_csv(path: Path, fields: list[str], rows: list[dict[str, str]]) -> None:
@@ -420,10 +481,11 @@ def validate_generated() -> None:
     source = load_scope_source()
     source_by_id = {row["row_id"]: row for row in source}
     seeds = load_real3d_seeds(source_by_id)
+    manual = load_manual_decisions(source_by_id, seeds)
 
     with LEDGER_PATH.open("r", encoding="utf-8-sig", newline="") as f:
         ledger = list(csv.DictReader(f))
-    validate_ledger(ledger, seeds)
+    validate_ledger(ledger, seeds, manual)
 
     with REVIEW_PATH.open("r", encoding="utf-8-sig", newline="") as f:
         review = list(csv.DictReader(f))
