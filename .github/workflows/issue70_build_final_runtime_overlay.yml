@@ -9,6 +9,8 @@ on:
       - docs/issue70/finalization/FINAL_SEMANTIC_FIXES.csv
       - docs/issue70/scope/runtime_exclude_real3d_candidates.csv
       - docs/issue70/data/runtime/issue70_catalog_overlay.csv
+      - src/DanbooruTagTool.Data/Issue70CatalogOverlayImporter.cs
+      - src/DanbooruTagTool.Tests/Issue70IntegrationTests.cs
       - .github/workflows/issue70_build_final_runtime_overlay.yml
   workflow_dispatch:
 
@@ -63,3 +65,16 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git commit -m 'Issue70: build final 2D semantic runtime overlay'
           git push origin HEAD:dev/issue70-final-production
+
+  dotnet-test:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: dev/issue70-final-production
+          fetch-depth: 1
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+      - name: Test solution
+        run: dotnet test src/DanbooruTagTool.sln -c Release --nologo
