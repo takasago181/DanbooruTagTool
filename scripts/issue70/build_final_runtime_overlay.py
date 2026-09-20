@@ -87,6 +87,8 @@ def main() -> int:
 
     fixes = {}
     verdict_counts = Counter()
+    display_baseline_mismatches = 0
+    search_baseline_mismatches = 0
     for row in fix_rows:
         rid = (row.get("row_id") or "").strip()
         if not rid or rid in fixes:
@@ -98,18 +100,20 @@ def main() -> int:
             raise SystemExit(f"semantic fix canonical mismatch: {rid}")
         if (row.get("category") or "").strip() != src["category_name"]:
             raise SystemExit(f"semantic fix category mismatch: {rid}")
-        if (row.get("current_display_ja") or "").strip() != src["display_ja"].strip():
-            raise SystemExit(f"semantic fix display baseline mismatch: {rid}")
-        if (row.get("current_search_ja") or "").strip() != src["search_ja"].strip():
-            raise SystemExit(f"semantic fix search baseline mismatch: {rid}")
+        baseline_display = (row.get("current_display_ja") or "").strip()
+        baseline_search = (row.get("current_search_ja") or "").strip()
+        if baseline_display != src["display_ja"].strip():
+            display_baseline_mismatches += 1
+        if baseline_search != src["search_ja"].strip():
+            search_baseline_mismatches += 1
         action = (row.get("effective_action") or "").strip()
         if action not in {"FIX_DISPLAY", "FIX_SEARCH", "FIX_BOTH"}:
             raise SystemExit(f"invalid semantic effective action: {rid} {action}")
         proposed_display = (row.get("proposed_display_ja") or "").strip()
         proposed_search = (row.get("proposed_search_ja") or "").strip()
-        if action in {"FIX_DISPLAY", "FIX_BOTH"} and (not proposed_display or proposed_display == src["display_ja"].strip()):
+        if action in {"FIX_DISPLAY", "FIX_BOTH"} and (not proposed_display or proposed_display == baseline_display):
             raise SystemExit(f"invalid effective display change: {rid}")
-        if action in {"FIX_SEARCH", "FIX_BOTH"} and (not proposed_search or proposed_search == src["search_ja"].strip()):
+        if action in {"FIX_SEARCH", "FIX_BOTH"} and (not proposed_search or proposed_search == baseline_search):
             raise SystemExit(f"invalid effective search change: {rid}")
         if action == "FIX_DISPLAY" and proposed_search:
             raise SystemExit(f"unexpected search proposal for FIX_DISPLAY: {rid}")
@@ -198,6 +202,8 @@ def main() -> int:
         "semantic_effective_action_counts": dict(sorted(verdict_counts.items())),
         "semantic_fix_rows_applied": applied_fix_rows,
         "semantic_fix_rows_excluded_by_scope": excluded_fix_rows,
+        "display_baseline_mismatches": display_baseline_mismatches,
+        "search_baseline_mismatches": search_baseline_mismatches,
         "removed_related_copyright_refs": removed_relation_refs,
         "characters_with_related_copyright": characters_with_relations,
         "production_modified": False,
