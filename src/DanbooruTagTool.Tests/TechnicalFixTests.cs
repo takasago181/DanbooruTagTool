@@ -21,7 +21,7 @@ public class TechnicalFixTests(ITestOutputHelper output)
         var vm = new MainViewModel(catalog, new MemoryStore(), new MemoryClipboard(), GeneralBrowseProvider.FromCatalog(catalog));
 
         Assert.DoesNotContain(vm.Navigation, node => node.Key is "general" or "special");
-        Assert.Equal(6, vm.Navigation.Count);
+        Assert.Equal(5, vm.Navigation.Count);
         var route = Assert.Single(vm.Navigation.SelectMany(node => node.Children), node => node.Key == "route:HAIR_FACE");
         vm.NavigateTo(route.Key);
         Assert.Equal("red_hair", Assert.Single(vm.Results).Entry.Canonical);
