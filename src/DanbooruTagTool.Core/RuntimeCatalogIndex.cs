@@ -181,7 +181,7 @@ public sealed class RuntimeCatalogIndex : IRuntimeCatalogQuery
         }
 
         if (entry.EffectiveCategory == "Copyright" && entry.Canonical is not null)
-            return charactersByCopyright.GetValueOrDefault(entry.Canonical)?.OrderByDescending(candidate => candidate.Usage).Take(6).ToArray() ?? [];
+            return charactersByCopyright.GetValueOrDefault(entry.Canonical)?.OrderByDescending(candidate => candidate.Usage).ToArray() ?? [];
 
         if (!entry.IsSpecial) return [];
         var resultById = new Dictionary<string, CatalogEntry>(StringComparer.Ordinal);

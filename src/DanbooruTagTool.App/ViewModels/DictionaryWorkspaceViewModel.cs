@@ -14,7 +14,10 @@ public sealed class EntryViewModel(
     Action<CatalogEntry> add,
     Func<bool>? canMutate = null,
     Func<CatalogEntry, string?>? browseBreadcrumb = null,
-    Func<CatalogEntry, bool>? deepDiscovery = null) : Observable
+    Func<CatalogEntry, bool>? deepDiscovery = null,
+    Func<CatalogEntry, string?>? relationSummary = null,
+    Func<CatalogEntry, int>? relatedCount = null,
+    Action<CatalogEntry>? openRelated = null) : Observable
 {
     public CatalogEntry Entry => entry;
     public bool IsDeepDiscovery => deepDiscovery?.Invoke(entry) == true;
@@ -22,6 +25,19 @@ public sealed class EntryViewModel(
     public string English => entry.Canonical ?? entry.English;
     public string Usage => entry.UsageText;
     public string Category => entry.EffectiveCategory;
+    private string? relationSummaryCache;
+    private int? relatedCountCache;
+    public string RelationSummary => relationSummaryCache ??= relationSummary?.Invoke(entry) ?? "";
+    public int RelatedCount => relatedCountCache ??= relatedCount?.Invoke(entry) ?? 0;
+    public bool HasRelated => RelatedCount > 0;
+    public string RelatedActionLabel => entry.EffectiveCategory switch
+    {
+        "Character" => "作品を見る",
+        "Copyright" => $"キャラを見る ({RelatedCount:N0})",
+        _ => "関連を見る"
+    };
+    private RelayCommand? openRelatedCommand;
+    public RelayCommand OpenRelated => openRelatedCommand ??= new(_ => openRelated?.Invoke(entry), _ => (canMutate?.Invoke() ?? true) && HasRelated && openRelated != null);
     public string Breadcrumb
     {
         get
@@ -76,8 +92,10 @@ public sealed class EntryViewModel(
         if (matches.Count == 0) add(entry);
         else if (matches.Count == 1) workspace.Delete([matches[0].Id]);
     }
-    public void Refresh() { Notify(nameof(AddLabel)); Notify(nameof(AddSymbol)); Notify(nameof(DetailAddLabel)); Add.Refresh(); }
+    public void Refresh() { Notify(nameof(AddLabel)); Notify(nameof(AddSymbol)); Notify(nameof(DetailAddLabel)); Add.Refresh(); OpenRelated.Refresh(); }
 }
+
+public enum DictionarySearchTarget { All, Character, Copyright, Artist }
 
 public sealed record NavigationNode(string Key, string Label, IReadOnlyList<NavigationNode> Children);
 
@@ -137,6 +155,8 @@ public sealed class DictionaryWorkspaceViewModel : Observable
     private readonly Stack<SpecialBrowseV2Filter> specialFilterHistory = new();
     private string query = "", browse = "tags";
     private string? browseSelection;
+    private DictionarySearchTarget searchTarget = DictionarySearchTarget.All;
+    private CatalogEntry? relatedSource;
     private int sortIndex, detailsTabIndex;
     private double dictionaryCardWidth = 480;
     private double browseScroll;
@@ -200,6 +220,18 @@ public sealed class DictionaryWorkspaceViewModel : Observable
     }
     public string BrowseKey => browse;
     public UnifiedBrowseScope Scope => unifiedState.Scope;
+    public DictionarySearchTarget SearchTarget => searchTarget;
+    public bool IsSearchAll => SearchTarget == DictionarySearchTarget.All;
+    public bool IsSearchCharacter => SearchTarget == DictionarySearchTarget.Character;
+    public bool IsSearchCopyright => SearchTarget == DictionarySearchTarget.Copyright;
+    public bool IsSearchArtist => SearchTarget == DictionarySearchTarget.Artist;
+    public bool ShowRelationBanner => relatedSource is not null;
+    public string RelationBannerText => relatedSource switch
+    {
+        { EffectiveCategory: "Copyright" } => $"作品「{relatedSource.Label}」のキャラクター",
+        { EffectiveCategory: "Character" } => $"キャラクター「{relatedSource.Label}」の作品",
+        _ => ""
+    };
     public string? PrimaryRouteId => unifiedState.PrimaryRouteId;
     public string? LocalSubrouteId => unifiedState.LocalSubrouteId;
     public IReadOnlySet<string> BodySiteIds => unifiedState.BodySiteIds;
@@ -219,7 +251,7 @@ public sealed class DictionaryWorkspaceViewModel : Observable
     public int DetailsTabIndex { get => detailsTabIndex; set => Set(ref detailsTabIndex, value); }
     public bool IsSearching => !string.IsNullOrWhiteSpace(Query);
     public bool CanBrowseSort => !IsSearching;
-    public bool CanGoBack => unifiedHistory.Count > 0;
+    public bool CanGoBack => relatedSource is not null || unifiedHistory.Count > 0;
     public bool HasSpecialFacets => specialBrowse != null && !specialFilter.IsEmpty;
     public bool ShowSpecialFacetBar => HasSpecialFacets && !browse.StartsWith("general", StringComparison.Ordinal);
     public bool ShowSpecialKindOptions => ShowSpecialFacetBar && specialFilter.KindId is null;
@@ -238,6 +270,8 @@ public sealed class DictionaryWorkspaceViewModel : Observable
     {
         get
         {
+            if (relatedSource is { EffectiveCategory: "Copyright" }) return $"キャラクター — {relatedSource.Label}";
+            if (relatedSource is { EffectiveCategory: "Character" }) return $"作品 — {relatedSource.Label}";
             if (Scope == UnifiedBrowseScope.Character) return "キャラクター";
             if (Scope == UnifiedBrowseScope.Copyright) return "作品";
             if (Scope == UnifiedBrowseScope.Artist) return "作者";
@@ -270,6 +304,8 @@ public sealed class DictionaryWorkspaceViewModel : Observable
     public RelayCommand SetContentIntentCommand { get; }
     public RelayCommand UndoUnifiedBrowseCommand { get; }
     public RelayCommand ClearUnifiedBrowseCommand { get; }
+    public RelayCommand SetSearchTargetCommand { get; }
+    public RelayCommand ClearRelatedBrowseCommand { get; }
 
     public DictionaryWorkspaceViewModel(IRuntimeCatalogQuery catalog, PromptWorkspace workspace, IGeneralBrowseProvider general,
         Action persist, Func<bool> canMutate, SpecialBrowseV2Index? specialBrowse = null)
@@ -294,15 +330,24 @@ public sealed class DictionaryWorkspaceViewModel : Observable
                 group.Key,
                 group.Select(route => new NavigationNode("route:" + route.Id, route.Label, [])).ToArray()))
             .Concat([
-                new NavigationNode("character", "キャラクター", []),
-                new NavigationNode("copyright", "作品", []),
+                new NavigationNode("identity-group", "キャラクター・作品",
+                [
+                    new NavigationNode("copyright", "作品から探す", []),
+                    new NavigationNode("character", "キャラクターから探す", [])
+                ]),
                 new NavigationNode("artist", "作者", [])
             ])
             .ToArray();
         InspectEntry = new(p => { if (p is EntryViewModel row) { SelectedEntry = row; DetailsTabIndex = 0; } }, p => canMutate() && p is EntryViewModel);
         Navigate = new(p => { if (p is NavigationNode n && !IsNavigationHeading(n.Key)) NavigateTo(n.Key); }, p => canMutate() && p is NavigationNode n && !IsNavigationHeading(n.Key));
-        Back = new(_ => UndoUnifiedBrowse(), _ => canMutate() && CanGoBack);
+        Back = new(_ => { if (relatedSource is not null) ClearRelatedBrowse(); else UndoUnifiedBrowse(); }, _ => canMutate() && CanGoBack);
         ClearQuery = new(_ => { Query = ""; RefreshResults(); persist(); }, _ => canMutate());
+        SetSearchTargetCommand = new(p =>
+        {
+            if (p is DictionarySearchTarget target) SetSearchTarget(target);
+            else if (p is string text && Enum.TryParse<DictionarySearchTarget>(text, true, out var parsed)) SetSearchTarget(parsed);
+        }, _ => canMutate());
+        ClearRelatedBrowseCommand = new(_ => ClearRelatedBrowse(), _ => canMutate() && relatedSource is not null);
         ToggleSpecialFacet = new(ToggleFacet, p => canMutate() && specialBrowse != null && p is SpecialBrowseFacetOptionViewModel);
         UndoSpecialFacet = new(_ => UndoFacet(), _ => canMutate() && specialBrowse != null && !specialFilter.IsEmpty);
         ClearSpecialFacets = new(_ => ClearFacets(), _ => canMutate() && specialBrowse != null && !specialFilter.IsEmpty);
@@ -330,6 +375,8 @@ public sealed class DictionaryWorkspaceViewModel : Observable
         browseScroll = ui.BrowseScroll;
         unifiedState = RestoreUnifiedState(ui);
         browse = BrowseKeyForState(unifiedState);
+        searchTarget = SearchTargetForScope(unifiedState.Scope);
+        relatedSource = null;
         specialFilter = SpecialBrowseV2Filter.Empty;
         unifiedHistory.Clear();
         promptCanonicalCounts = CaptureCanonicalCounts(workspace.Items);
@@ -342,15 +389,35 @@ public sealed class DictionaryWorkspaceViewModel : Observable
         var selected = SelectedEntry?.Entry.Id;
         IEnumerable<CatalogEntry> entries;
 
-        if (!string.IsNullOrWhiteSpace(Query))
+        if (relatedSource is not null)
         {
-            var hits = catalog.Search(Query);
-            if (Scope == UnifiedBrowseScope.Tags)
-                entries = unifiedBrowse.FilterSearchHits(hits, unifiedState).Select(hit => hit.Entry);
+            var relatedEntries = catalog.RelatedByCatalogMetadata(relatedSource);
+            if (!string.IsNullOrWhiteSpace(Query))
+            {
+                var relatedIds = relatedEntries.Select(entry => entry.Id).ToHashSet(StringComparer.Ordinal);
+                entries = catalog.Search(Query).Select(hit => hit.Entry).Where(entry => relatedIds.Contains(entry.Id));
+            }
             else
             {
-                var category = CategoryForScope(Scope);
+                entries = relatedEntries;
+                entries = SortEntries(entries);
+            }
+        }
+        else if (!string.IsNullOrWhiteSpace(Query))
+        {
+            var hits = catalog.Search(Query);
+            if (SearchTarget != DictionarySearchTarget.All)
+            {
+                var category = SearchTargetCategory(SearchTarget);
                 entries = hits.Select(hit => hit.Entry).Where(entry => entry.EffectiveCategory == category);
+            }
+            else if (Scope == UnifiedBrowseScope.Tags && unifiedState.HasBrowseConstraints)
+            {
+                entries = unifiedBrowse.FilterSearchHits(hits, unifiedState).Select(hit => hit.Entry);
+            }
+            else
+            {
+                entries = hits.Select(hit => hit.Entry);
             }
         }
         else if (Scope == UnifiedBrowseScope.Tags)
@@ -358,19 +425,11 @@ public sealed class DictionaryWorkspaceViewModel : Observable
             if (unifiedState.IsNeutralTags)
                 entries = [];
             else
-            {
-                entries = unifiedBrowse.Browse(unifiedState);
-                entries = SortIndex == 1
-                    ? entries.OrderBy(entry => entry.Label, StringComparer.Create(CultureInfo.GetCultureInfo("ja-JP"), false))
-                    : entries.OrderByDescending(entry => entry.Usage);
-            }
+                entries = SortEntries(unifiedBrowse.Browse(unifiedState));
         }
         else
         {
-            entries = catalog.BrowseCategory(CategoryForScope(Scope));
-            entries = SortIndex == 1
-                ? entries.OrderBy(entry => entry.Label, StringComparer.Create(CultureInfo.GetCultureInfo("ja-JP"), false))
-                : entries.OrderByDescending(entry => entry.Usage);
+            entries = SortEntries(catalog.BrowseCategory(CategoryForScope(Scope)));
         }
 
         Results = Rows(entries);
@@ -378,6 +437,8 @@ public sealed class DictionaryWorkspaceViewModel : Observable
         SetSelectedEntry(Results.FirstOrDefault(entry => entry.Entry.Id == (Query.Length == 0 ? browseSelection ?? selected : selected)), persist: false);
         Notify(nameof(Pending));
         Notify(nameof(BrowseLabel));
+        Notify(nameof(ShowRelationBanner));
+        Notify(nameof(RelationBannerText));
         NotifyUnifiedState();
         if (Query.Length == 0) ResultsRestored?.Invoke();
     }
@@ -385,18 +446,26 @@ public sealed class DictionaryWorkspaceViewModel : Observable
     public void NavigateTo(string key, bool remember = true)
     {
         if (!canMutate()) return;
-        ApplyUnifiedState(StateForNavigationKey(key), remember);
+        var next = StateForNavigationKey(key);
+        ExitRelationMode();
+        SetSearchTargetValue(SearchTargetForScope(next.Scope), refresh: false);
+        if (SameUnifiedState(unifiedState, next)) { RefreshResults(); persist(); return; }
+        ApplyUnifiedState(next, remember);
     }
 
     public void SetScope(UnifiedBrowseScope scope)
     {
         if (!canMutate()) return;
+        ExitRelationMode();
+        SetSearchTargetValue(SearchTargetForScope(scope), refresh: false);
         ApplyUnifiedState(unifiedState.WithScope(scope), true);
     }
 
     public void SetPrimaryRoute(string? routeId)
     {
         if (!canMutate()) return;
+        ExitRelationMode();
+        SetSearchTargetValue(DictionarySearchTarget.All, refresh: false);
         if (routeId is not null && UnifiedBrowseTaxonomy.Routes.All(route => route.Id != routeId))
             throw new ArgumentOutOfRangeException(nameof(routeId));
         ApplyUnifiedState(unifiedState.WithScope(UnifiedBrowseScope.Tags).WithPrimary(routeId), true);
@@ -405,30 +474,40 @@ public sealed class DictionaryWorkspaceViewModel : Observable
     public void SetLocalSubroute(string? localId)
     {
         if (!canMutate()) return;
+        ExitRelationMode();
+        SetSearchTargetValue(DictionarySearchTarget.All, refresh: false);
         ApplyUnifiedState(unifiedState.WithScope(UnifiedBrowseScope.Tags).WithLocal(localId), true);
     }
 
     public void ToggleBodySite(string bodySiteId)
     {
         if (!canMutate()) return;
+        ExitRelationMode();
+        SetSearchTargetValue(DictionarySearchTarget.All, refresh: false);
         ApplyUnifiedState(unifiedState.WithScope(UnifiedBrowseScope.Tags).ToggleBodySite(bodySiteId), true);
     }
 
     public void ToggleTheme(string themeId)
     {
         if (!canMutate()) return;
+        ExitRelationMode();
+        SetSearchTargetValue(DictionarySearchTarget.All, refresh: false);
         ApplyUnifiedState(unifiedState.WithScope(UnifiedBrowseScope.Tags).ToggleTheme(themeId), true);
     }
 
     public void ToggleDeepOnly()
     {
         if (!canMutate()) return;
+        ExitRelationMode();
+        SetSearchTargetValue(DictionarySearchTarget.All, refresh: false);
         ApplyUnifiedState(unifiedState.WithScope(UnifiedBrowseScope.Tags) with { DeepOnly = !unifiedState.DeepOnly }, true);
     }
 
     public void SetContentIntent(ContentIntentFilter contentIntent)
     {
         if (!canMutate()) return;
+        ExitRelationMode();
+        SetSearchTargetValue(DictionarySearchTarget.All, refresh: false);
         ApplyUnifiedState(unifiedState.WithScope(UnifiedBrowseScope.Tags) with { ContentIntent = contentIntent }, true);
     }
 
@@ -442,8 +521,98 @@ public sealed class DictionaryWorkspaceViewModel : Observable
     public void ClearUnifiedBrowse()
     {
         if (!canMutate()) return;
+        ExitRelationMode();
+        SetSearchTargetValue(DictionarySearchTarget.All, refresh: false);
         ApplyUnifiedState(unifiedState.ClearBrowseConstraints(), true);
     }
+
+    public void SetSearchTarget(DictionarySearchTarget target)
+    {
+        if (!canMutate()) return;
+        ExitRelationMode();
+        SetSearchTargetValue(target, refresh: true);
+    }
+
+    public void OpenRelated(CatalogEntry entry)
+    {
+        if (!canMutate() || entry.EffectiveCategory is not ("Character" or "Copyright")) return;
+        if (catalog.RelatedByCatalogMetadata(entry).Count == 0) return;
+        relatedSource = entry;
+        var targetScope = entry.EffectiveCategory == "Copyright" ? UnifiedBrowseScope.Character : UnifiedBrowseScope.Copyright;
+        unifiedState = CloneState(unifiedState.WithScope(targetScope));
+        browse = BrowseKeyForState(unifiedState);
+        SetSearchTargetValue(SearchTargetForScope(targetScope), refresh: false);
+        query = "";
+        browseSelection = null;
+        RestoreScroll = 0;
+        Notify(nameof(Query));
+        Notify(nameof(BrowseKey));
+        Notify(nameof(ShowRelationBanner));
+        Notify(nameof(RelationBannerText));
+        NotifyUnifiedState();
+        RefreshResults();
+        persist();
+    }
+
+    public void ClearRelatedBrowse()
+    {
+        if (!canMutate() || relatedSource is null) return;
+        var sourceScope = relatedSource.EffectiveCategory == "Copyright" ? UnifiedBrowseScope.Copyright : UnifiedBrowseScope.Character;
+        relatedSource = null;
+        unifiedState = CloneState(unifiedState.WithScope(sourceScope));
+        browse = BrowseKeyForState(unifiedState);
+        SetSearchTargetValue(SearchTargetForScope(sourceScope), refresh: false);
+        browseSelection = null;
+        RestoreScroll = 0;
+        Notify(nameof(BrowseKey));
+        Notify(nameof(ShowRelationBanner));
+        Notify(nameof(RelationBannerText));
+        NotifyUnifiedState();
+        RefreshResults();
+        persist();
+    }
+
+    private void ExitRelationMode()
+    {
+        if (relatedSource is null) return;
+        relatedSource = null;
+        Notify(nameof(ShowRelationBanner));
+        Notify(nameof(RelationBannerText));
+        ClearRelatedBrowseCommand?.Refresh();
+    }
+
+    private void SetSearchTargetValue(DictionarySearchTarget target, bool refresh)
+    {
+        if (searchTarget == target) { if (refresh) RefreshResults(); return; }
+        searchTarget = target;
+        Notify(nameof(SearchTarget));
+        Notify(nameof(IsSearchAll));
+        Notify(nameof(IsSearchCharacter));
+        Notify(nameof(IsSearchCopyright));
+        Notify(nameof(IsSearchArtist));
+        if (refresh) { RefreshResults(); persist(); }
+    }
+
+    private static DictionarySearchTarget SearchTargetForScope(UnifiedBrowseScope scope) => scope switch
+    {
+        UnifiedBrowseScope.Character => DictionarySearchTarget.Character,
+        UnifiedBrowseScope.Copyright => DictionarySearchTarget.Copyright,
+        UnifiedBrowseScope.Artist => DictionarySearchTarget.Artist,
+        _ => DictionarySearchTarget.All
+    };
+
+    private static string SearchTargetCategory(DictionarySearchTarget target) => target switch
+    {
+        DictionarySearchTarget.Character => "Character",
+        DictionarySearchTarget.Copyright => "Copyright",
+        DictionarySearchTarget.Artist => "Artist",
+        _ => throw new ArgumentOutOfRangeException(nameof(target))
+    };
+
+    private IEnumerable<CatalogEntry> SortEntries(IEnumerable<CatalogEntry> entries)
+        => SortIndex == 1
+            ? entries.OrderBy(entry => entry.Label, StringComparer.Create(CultureInfo.GetCultureInfo("ja-JP"), false))
+            : entries.OrderByDescending(entry => entry.Usage);
 
     private void ApplyUnifiedState(UnifiedBrowseState next, bool remember)
     {
@@ -598,6 +767,13 @@ public sealed class DictionaryWorkspaceViewModel : Observable
         Notify(nameof(IsContentAll));
         Notify(nameof(IsContentGeneralPurpose));
         Notify(nameof(IsContentSexual));
+        Notify(nameof(SearchTarget));
+        Notify(nameof(IsSearchAll));
+        Notify(nameof(IsSearchCharacter));
+        Notify(nameof(IsSearchCopyright));
+        Notify(nameof(IsSearchArtist));
+        Notify(nameof(ShowRelationBanner));
+        Notify(nameof(RelationBannerText));
         Notify(nameof(CanGoBack));
         Notify(nameof(BrowseLabel));
         UndoUnifiedBrowseCommand?.Refresh();
@@ -605,6 +781,8 @@ public sealed class DictionaryWorkspaceViewModel : Observable
         ClearUnifiedBrowseCommand?.Refresh();
         ToggleDeepOnlyCommand?.Refresh();
         SetContentIntentCommand?.Refresh();
+        SetSearchTargetCommand?.Refresh();
+        ClearRelatedBrowseCommand?.Refresh();
     }
 
     private void RefreshUnifiedFacetOptions()
@@ -641,7 +819,7 @@ public sealed class DictionaryWorkspaceViewModel : Observable
         var entry = chip.Item.CatalogId is { } catalogId ? catalog.FindById(catalogId) : null;
         entry ??= catalog.Resolve(chip.Item.StructuredName ?? chip.Item.Surface.Trim());
         if (entry == null) { Query = chip.Item.StructuredName ?? chip.Item.Surface.Trim(); RefreshResults(); return; }
-        SelectedEntry = new(entry, workspace, Add, canMutate, UnifiedBreadcrumb, IsDeepDiscovery); DetailsTabIndex = 0;
+        SelectedEntry = new(entry, workspace, Add, canMutate, UnifiedBreadcrumb, IsDeepDiscovery, RelationSummaryFor, RelationCountFor, OpenRelated); DetailsTabIndex = 0;
     }
 
     public void SetSurfaceWidth(double availableWidth)
@@ -719,7 +897,29 @@ public sealed class DictionaryWorkspaceViewModel : Observable
         changed.RemoveWhere(c => previous.GetValueOrDefault(c) == current.GetValueOrDefault(c)); return changed;
     }
 
-    private IReadOnlyList<EntryViewModel> Rows(IEnumerable<CatalogEntry> entries) => entries.Select(e => new EntryViewModel(e, workspace, Add, canMutate, UnifiedBreadcrumb, IsDeepDiscovery)).ToArray();
+    private IReadOnlyList<EntryViewModel> Rows(IEnumerable<CatalogEntry> entries)
+        => entries.Select(e => new EntryViewModel(e, workspace, Add, canMutate, UnifiedBreadcrumb, IsDeepDiscovery, RelationSummaryFor, RelationCountFor, OpenRelated)).ToArray();
+
+    private int RelationCountFor(CatalogEntry entry)
+        => entry.EffectiveCategory is "Character" or "Copyright" ? catalog.RelatedByCatalogMetadata(entry).Count : 0;
+
+    private string? RelationSummaryFor(CatalogEntry entry)
+    {
+        if (entry.EffectiveCategory == "Character")
+        {
+            var works = catalog.RelatedByCatalogMetadata(entry);
+            if (works.Count == 0) return null;
+            var labels = works.Take(3).Select(work => work.Label).ToArray();
+            var suffix = works.Count > labels.Length ? $" / ほか{works.Count - labels.Length:N0}" : "";
+            return "作品: " + string.Join(" / ", labels) + suffix;
+        }
+        if (entry.EffectiveCategory == "Copyright")
+        {
+            var count = catalog.RelatedByCatalogMetadata(entry).Count;
+            return count > 0 ? $"関連キャラ {count:N0}件" : null;
+        }
+        return null;
+    }
     private void ToggleFacet(object? parameter)
     {
         if (specialBrowse == null || parameter is not SpecialBrowseFacetOptionViewModel option) return;
@@ -791,7 +991,7 @@ public sealed class DictionaryWorkspaceViewModel : Observable
      new("special-v2:themes", "テーマから探す", SpecialBrowseV2Taxonomy.Themes.Select(item => new NavigationNode("special-v2:theme:" + item.Id, item.Label, [])).ToArray())];
     private static bool IsNavigationHeading(string key)
         => key.StartsWith("group:", StringComparison.Ordinal)
-        || key is "special-v2:kinds" or "special-v2:body" or "special-v2:themes";
+        || key is "identity-group" or "special-v2:kinds" or "special-v2:body" or "special-v2:themes";
     private static bool SameSpecialFilter(SpecialBrowseV2Filter left, SpecialBrowseV2Filter right) => left.KindId == right.KindId && left.BodySiteIds.SetEquals(right.BodySiteIds) && left.ThemeIds.SetEquals(right.ThemeIds);
     private void ApplySpecialFilter(SpecialBrowseV2Filter next, bool remember) { if (SameSpecialFilter(next, specialFilter)) return; if (remember) specialFilterHistory.Push(specialFilter); specialFilter = next; }
     private static SpecialBrowseV2Filter SpecialFilterFromBrowse(string key)

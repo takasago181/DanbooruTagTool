@@ -1,0 +1,24 @@
+name: Issue141 Character Copyright Discovery UX
+
+on:
+  push:
+    branches:
+      - dev/issue141-character-copyright-discovery
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: dev/issue141-character-copyright-discovery
+          fetch-depth: 1
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+      - name: Test solution
+        run: dotnet test src/DanbooruTagTool.sln -c Release --nologo
