@@ -4,12 +4,13 @@
 
 ## Routing status
 
-- Live main authority: `10d4a8e1e48b75eb37ef97713e93293d2695c5e0`.
+- Live main authority is the post-sync main containing this block; the optimization merge before sync was `eebccbf7feafff6f86546c4624841d5978953dd6`.
 - PR #133 `[MAINT] Post-#131 runtime and portable production hardening` is merged.
+- PR #135 post-#131 performance/runtime optimization is merged and production-validated.
 - Post-#131 production/runtime integration is complete.
 - #117/#118 implementation and the former local-runtime gate are no longer the current DEV task.
 - #131 UI refinement is complete and already represented in the current runtime.
-- Current default next DEV task is **Performance / Runtime Load Audit only**. It is a measurement/audit lane, not authorization for further production optimization.
+- Performance / Runtime Load Audit and the safe post-audit optimization lane are complete. The adopted change defers unused `Related` projection while preserving compatibility; no further optimization candidate is adopted without new measurement evidence.
 - #70 Character/Copyright/Artist work and taxonomy-usability/classification audit are independent lanes. Do not mix their branches, commits, data, or decisions into this task.
 
 ## Current production runtime authority
@@ -26,8 +27,7 @@ Current runtime contract:
 - `runtime-manifest.json` records build/main provenance and runtime hashes;
 - current catalog SHA-256:
   `DFDC93581F2E8E3041FBC497F9A1C5CFD458977EF57462E05902F27D29B97CF9`;
-- current validated EXE SHA-256:
-  `251C4A46B2BE76CB841CC04510B4747349B7079E3462E648A3E9F13EC136BEDB`;
+- the final production EXE and manifest hashes are recorded in the fresh post-sync runtime promotion report;
 - current catalog totals:
   - Total 33,688
   - General 30,629
@@ -62,14 +62,9 @@ PR #133 removed the explicit:
 
 Current main therefore uses normal WPF/Windows automatic render selection.
 
-This is an accepted runtime state, but **performance superiority has not yet been proven by benchmark**.
-
-Performance audit must compare:
-
-- A: pre-change commit `e64f3f7cb02df8f5c5fd65dc4132f0e398769b9d` (SoftwareOnly)
-- B: current main `10d4a8e1e48b75eb37ef97713e93293d2695c5e0` (automatic render selection)
-
-under equivalent conditions.
+The A/B rendering audit is complete. Automatic WPF render selection remains the
+baseline: idle CPU/disk settled to approximately zero and no clear total-load
+win justified restoring SoftwareOnly.
 
 ## Performance audit boundaries
 
@@ -113,6 +108,8 @@ Do not merge those lanes into the performance audit.
 
 Performance audit may add isolated measurement scripts/docs on its own branch.
 
-Do not merge additional optimizations or apply a new production runtime without DEV/user review of measurement evidence.
+Additional optimizations require new measurement evidence and must not cross the
+#70, taxonomy, classification, canonical, PromptToken, ForgeBridge, catalog, or
+real UserData boundaries.
 
 Historical #117/#118 implementation details remain available from their Issues, commits, and Git history; they are no longer the routing task represented by this file.
