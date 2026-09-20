@@ -1,0 +1,28 @@
+﻿row_id,canonical_tag,category,post_count,media_scope,confidence,decision_source,scope_reason,evidence_refs
+I70-018201,suenaga_mirai,Character,129,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
+I70-031344,jigsaw_(character),Character,60,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
+I70-031688,driver_(drive),Character,59,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 0.980769,https://tv.apple.com/jp/movie/%E3%83%88%E3%83%A9%E3%82%A4%E3%82%A6/umc.cmc.5puemyiaugatt1kjvxzkea57f
+I70-036765,reitaisai_8_contest,Copyright,1650,REAL_3D,HIGH,CONFIRMED_REAL3D_SEED,real-world illustration contest/event,https://blog.livedoor.jp/dev_pixiv/archives/1232367.html
+I70-037997,pornhub,Copyright,459,REAL_3D,HIGH,CONFIRMED_REAL3D_SEED,general real-world commercial service/brand,
+I70-038702,eshi_100_nin_ten,Copyright,300,REAL_3D,HIGH,CONFIRMED_REAL3D_SEED,real-world exhibition/event,https://www.eshi100.com/
+I70-038722,alien_(1979),Copyright,297,REAL_3D,HIGH,CONFIRMED_REAL3D_SEED,live-action-only film property,https://www.20thcenturystudios.jp/movies/alien
+I70-038752,akatsuki_records,Copyright,292,REAL_3D,HIGH,CONFIRMED_REAL3D_SEED,real-world music circle/artist organization,https://www.youtube.com/channel/UCZaFfDBBCqmYdfp6DJl0cRw
+I70-038946,bliss_(image),Copyright,266,REAL_3D,HIGH,CONFIRMED_REAL3D_SEED,real-world photograph/general operating-system wallpaper identity,https://learn.microsoft.com/en-us/shows/expo-hall/expo-hall-photography
+I70-039191,nissin,Copyright,239,REAL_3D,HIGH,CONFIRMED_REAL3D_SEED,general real-world food company/brand,https://www.nissin.com/jp/company/news/13451/
+I70-039220,japan_railways,Copyright,236,REAL_3D,HIGH,CONFIRMED_REAL3D_SEED,real-world railway company/group,
+I70-039270,predator_(1987),Copyright,231,REAL_3D,HIGH,CONFIRMED_REAL3D_SEED,live-action-only specific 1987 film property,
+I70-039638,orangina,Copyright,197,REAL_3D,HIGH,CONFIRMED_REAL3D_SEED,general real-world commercial beverage brand,
+I70-039935,meiji_(brand),Copyright,176,REAL_3D,HIGH,CONFIRMED_REAL3D_SEED,general real-world commercial brand/company,https://www.meiji.co.jp/
+I70-039971,culture_japan,Copyright,174,REAL_3D,HIGH,CONFIRMED_REAL3D_SEED,company/service,
+I70-040521,the_batman_(2022),Copyright,141,REAL_3D,HIGH,CONFIRMED_REAL3D_SEED,live-action-only film property,https://www.warnerbros.co.jp/news/cm4_6zpjx/
+I70-040529,james_bond_(series),Copyright,140,REAL_3D,HIGH,CONFIRMED_REAL3D_SEED,live-action film series,
+I70-040574,morinaga_(brand),Copyright,138,REAL_3D,HIGH,CONFIRMED_REAL3D_SEED,general real-world commercial brand,https://www.morinaga.co.jp/company/about/outline.html
+I70-040722,saw_(movie),Copyright,131,REAL_3D,HIGH,CONFIRMED_REAL3D_SEED,live-action-only film property,
+I70-040888,300_(movie),Copyright,123,REAL_3D,HIGH,CONFIRMED_REAL3D_SEED,live-action-only film,
+I70-041121,halloween_(movie),Copyright,114,REAL_3D,HIGH,CONFIRMED_REAL3D_SEED,live-action-only film,
+I70-041931,drive_(movie),Copyright,90,REAL_3D,HIGH,CONFIRMED_REAL3D_SEED,live-action-only film property,https://tv.apple.com/jp/movie/%E3%83%88%E3%83%A9%E3%82%A4%E3%82%A6/umc.cmc.5puemyiaugatt1kjvxzkea57f
+I70-042415,indiana_jones_(series),Copyright,79,REAL_3D,HIGH,CONFIRMED_REAL3D_SEED,live-action-only film series,https://www.disney.co.jp/fc/indiana-jones
+I70-042889,blade_runner_(1982_movie),Copyright,70,REAL_3D,HIGH,CONFIRMED_REAL3D_SEED,live-action-only film property,https://www.warnerbros.com/movies/blade-runner
+I70-042943,the_avengers_(2012),Copyright,70,REAL_3D,HIGH,CONFIRMED_REAL3D_SEED,live-action-only film tag,https://www.marvel.com/movies/the-avengers
+I70-043851,kamen_rider_black_sun_(series),Copyright,56,REAL_3D,HIGH,CONFIRMED_REAL3D_SEED,live-action-only TV/streaming property,https://www.kamen-rider-official.com/series/blacksun/
+I70-044410,sonic_the_hedgehog_2_(movie),Copyright,50,REAL_3D,HIGH,CONFIRMED_REAL3D_SEED,live-action film property,

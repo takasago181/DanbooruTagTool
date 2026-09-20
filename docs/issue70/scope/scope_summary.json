@@ -1,0 +1,46 @@
+{
+  "format_version": 1,
+  "issue": 70,
+  "classifier_version": "issue70_scope_v1",
+  "production_modified": false,
+  "population": {
+    "total": 44426,
+    "Character": 35890,
+    "Copyright": 8536,
+    "Artist_scope_filtered": 0
+  },
+  "scope_counts": {
+    "IN_2D": 2225,
+    "REAL_3D": 27,
+    "UNCERTAIN": 42174
+  },
+  "scope_counts_by_category": {
+    "Character": {
+      "UNCERTAIN": 33827,
+      "IN_2D": 2060,
+      "REAL_3D": 3
+    },
+    "Copyright": {
+      "IN_2D": 165,
+      "UNCERTAIN": 8347,
+      "REAL_3D": 24
+    }
+  },
+  "decision_source_counts": {
+    "CONFIRMED_REAL3D_SEED": 24,
+    "DOMINANT_COPYRIGHT_2D": 2060,
+    "DOMINANT_COPYRIGHT_REAL3D": 3,
+    "EXPLICIT_2D_MEDIA_MARKER": 165,
+    "UNRESOLVED": 42174
+  },
+  "confirmed_real3d_seed_rows": 24,
+  "source_fingerprint_sha256": "3d878a0e26f3d88e609d928ac676262b8c323efc4631a0ccfd1f9531961bfbed",
+  "policy": {
+    "runtime_candidate": "IN_2D + UNCERTAIN until full review closes",
+    "runtime_exclusion_candidate": "REAL_3D only",
+    "copyright_first": true,
+    "character_2d_propagation_threshold": 0.8,
+    "character_real3d_propagation_threshold": 0.98
+  },
+  "next_step": "review UNCERTAIN Copyright rows first, regenerate, then review residual Character rows"
+}
