@@ -1,0 +1,109 @@
+<Window x:Class="DanbooruTagTool.App.GenerationImportDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="生成PNGから復元" Width="920" Height="780" MinWidth="760" MinHeight="600"
+        WindowStartupLocation="CenterOwner" Background="#F4F7FA" FontFamily="Noto Sans JP" FontSize="14">
+    <Window.Resources>
+        <SolidColorBrush x:Key="SurfaceBrush" Color="#FFFFFF"/>
+        <SolidColorBrush x:Key="BorderBrushSoft" Color="#D8E3EC"/>
+        <SolidColorBrush x:Key="InkBrush" Color="#17345E"/>
+        <SolidColorBrush x:Key="MutedInkBrush" Color="#61748B"/>
+        <SolidColorBrush x:Key="PrimaryBrush" Color="#1478E8"/>
+        <Style TargetType="TextBlock"><Setter Property="Foreground" Value="{StaticResource InkBrush}"/><Setter Property="TextWrapping" Value="Wrap"/></Style>
+        <Style TargetType="TextBox"><Setter Property="Foreground" Value="{StaticResource InkBrush}"/><Setter Property="Background" Value="{StaticResource SurfaceBrush}"/><Setter Property="BorderBrush" Value="{StaticResource BorderBrushSoft}"/><Setter Property="BorderThickness" Value="1"/><Setter Property="Padding" Value="8,6"/></Style>
+        <Style TargetType="Button"><Setter Property="Background" Value="{StaticResource SurfaceBrush}"/><Setter Property="Foreground" Value="{StaticResource InkBrush}"/><Setter Property="BorderBrush" Value="{StaticResource BorderBrushSoft}"/><Setter Property="BorderThickness" Value="1"/><Setter Property="Padding" Value="11,7"/><Setter Property="Margin" Value="0,0,7,0"/><Setter Property="MinHeight" Value="34"/><Setter Property="FontWeight" Value="SemiBold"/></Style>
+        <Style x:Key="PrimaryButton" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}"><Setter Property="Background" Value="{StaticResource PrimaryBrush}"/><Setter Property="Foreground" Value="White"/><Setter Property="BorderBrush" Value="{StaticResource PrimaryBrush}"/></Style>
+        <Style x:Key="Panel" TargetType="Border"><Setter Property="Background" Value="{StaticResource SurfaceBrush}"/><Setter Property="BorderBrush" Value="{StaticResource BorderBrushSoft}"/><Setter Property="BorderThickness" Value="1"/><Setter Property="CornerRadius" Value="8"/><Setter Property="Padding" Value="12"/></Style>
+    </Window.Resources>
+
+    <Grid Margin="14">
+        <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="*"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Style="{StaticResource Panel}" Margin="0,0,0,10">
+            <Grid>
+                <Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
+                <StackPanel>
+                    <TextBlock Text="生成PNGから復元" FontSize="22" FontWeight="SemiBold"/>
+                    <TextBlock Text="{Binding SourceFileName}" FontWeight="SemiBold" Margin="0,4,0,0"/>
+                    <TextBlock Text="{Binding SourcePath}" Foreground="{StaticResource MutedInkBrush}" FontSize="12"/>
+                </StackPanel>
+                <TextBlock Grid.Column="1" Text="{Binding DimensionSummary}" FontSize="18" FontWeight="SemiBold" VerticalAlignment="Center" Foreground="{StaticResource MutedInkBrush}" Margin="16,0,0,0"/>
+            </Grid>
+        </Border>
+
+        <TabControl Grid.Row="1">
+            <TabItem Header="Prompt">
+                <Grid Margin="8">
+                    <Grid.RowDefinitions><RowDefinition Height="*"/><RowDefinition Height="10"/><RowDefinition Height="*"/></Grid.RowDefinitions>
+                    <Border Style="{StaticResource Panel}">
+                        <Grid><Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="*"/></Grid.RowDefinitions>
+                            <TextBlock Text="Positive Prompt" FontWeight="SemiBold" Margin="0,0,0,7"/>
+                            <TextBox Grid.Row="1" Text="{Binding Positive, Mode=OneWay}" IsReadOnly="True" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+                        </Grid>
+                    </Border>
+                    <Border Grid.Row="2" Style="{StaticResource Panel}">
+                        <Grid><Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="*"/></Grid.RowDefinitions>
+                            <TextBlock Text="Negative Prompt" FontWeight="SemiBold" Margin="0,0,0,7"/>
+                            <TextBox Grid.Row="1" Text="{Binding NegativeDisplay, Mode=OneWay}" IsReadOnly="True" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+                        </Grid>
+                    </Border>
+                </Grid>
+            </TabItem>
+            <TabItem Header="生成条件">
+                <Grid Margin="8">
+                    <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="*"/></Grid.RowDefinitions>
+                    <Border Style="{StaticResource Panel}" Margin="0,0,0,10">
+                        <StackPanel>
+                            <TextBlock Text="主要設定" FontWeight="SemiBold" Margin="0,0,0,7"/>
+                            <ItemsControl ItemsSource="{Binding CommonRows}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid Margin="0,2"><Grid.ColumnDefinitions><ColumnDefinition Width="145"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+                                            <TextBlock Text="{Binding Name}" FontWeight="SemiBold"/>
+                                            <TextBlock Grid.Column="1" Text="{Binding Value}" TextWrapping="Wrap"/>
+                                        </Grid>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </StackPanel>
+                    </Border>
+                    <Border Grid.Row="1" Style="{StaticResource Panel}">
+                        <Grid><Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="*"/></Grid.RowDefinitions>
+                            <TextBlock Text="その他の生成パラメータ" FontWeight="SemiBold" Margin="0,0,0,7"/>
+                            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                                <ItemsControl ItemsSource="{Binding AdditionalRows}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Grid Margin="0,3"><Grid.ColumnDefinitions><ColumnDefinition Width="190"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+                                                <TextBlock Text="{Binding Name}" FontWeight="SemiBold"/>
+                                                <TextBlock Grid.Column="1" Text="{Binding Value}" TextWrapping="Wrap"/>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </ScrollViewer>
+                        </Grid>
+                    </Border>
+                </Grid>
+            </TabItem>
+            <TabItem Header="生データ">
+                <Border Margin="8" Style="{StaticResource Panel}">
+                    <Grid><Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="*"/></Grid.RowDefinitions>
+                        <TextBlock Text="Forge generation infotext（parameters）" FontWeight="SemiBold" Margin="0,0,0,7"/>
+                        <TextBox Grid.Row="1" Text="{Binding RawInfotext, Mode=OneWay}" IsReadOnly="True" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"/>
+                    </Grid>
+                </Border>
+            </TabItem>
+        </TabControl>
+
+        <DockPanel Grid.Row="2" Margin="0,10,0,0">
+            <TextBlock DockPanel.Dock="Left" Text="読込だけでは現在のPromptは変更されません。" Foreground="{StaticResource MutedInkBrush}" VerticalAlignment="Center" Margin="2,0,12,0"/>
+            <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Content="PositiveをPromptへ復元" Command="{Binding RestorePositive}" Style="{StaticResource PrimaryButton}"/>
+                <Button Content="Negativeをコピー" Command="{Binding CopyNegative}"/>
+                <Button Content="生成情報をコピー" Command="{Binding CopyInfo}"/>
+                <Button Content="閉じる" Click="CloseClick" Margin="0"/>
+            </StackPanel>
+        </DockPanel>
+    </Grid>
+</Window>
