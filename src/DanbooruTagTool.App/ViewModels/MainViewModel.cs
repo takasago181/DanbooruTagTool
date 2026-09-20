@@ -16,6 +16,7 @@ public sealed class MainViewModel : Observable
     public DictionaryWorkspaceViewModel Dictionary { get; }
     public PromptEditorViewModel Prompt { get; }
     public GenerationPresetsViewModel PresetEditor { get; }
+    public GenerationImportViewModel GenerationImport { get; }
     public ForgeViewModel Forge { get; }
     public UserStateCoordinator UserState { get; }
     private string status = "";
@@ -23,6 +24,7 @@ public sealed class MainViewModel : Observable
     public UiState Ui => UserState.Ui;
     public event Action? PresetsRequested;
     public event Action? ForgeSettingsRequested;
+    public event Action? GenerationImportRequested;
     public event Action? ResultsRestored { add => Dictionary.ResultsRestored += value; remove => Dictionary.ResultsRestored -= value; }
     public event Action<Guid>? ScrollToChip { add => Prompt.ScrollToChip += value; remove => Prompt.ScrollToChip -= value; }
 
@@ -31,6 +33,7 @@ public sealed class MainViewModel : Observable
     {
         var runtime = RuntimeCatalogIndex.Create(catalog);
         Workspace = new(new PromptParser(runtime));
+        GenerationImport = new(Workspace, clipboard, message => Status = message);
         UserState = new(store);
         var state = UserState.Load();
         if (state != null) Workspace.Restore(state.Prompt);
@@ -56,6 +59,21 @@ public sealed class MainViewModel : Observable
     }
     private void OnPromptChanged() { Prompt.RefreshFromWorkspace(); Dictionary.RefreshPromptState(); Persist(); }
     public void RefreshResults() => Dictionary.RefreshResults();
+    public bool ImportGenerationPng(string path)
+    {
+        try
+        {
+            GenerationImport.Load(ForgePngGenerationMetadata.Read(path));
+            Status = "✓ 生成PNGの情報を読み込みました";
+            GenerationImportRequested?.Invoke();
+            return true;
+        }
+        catch (GenerationMetadataException e)
+        {
+            Status = e.Message;
+            return false;
+        }
+    }
     public void SetDictionarySurfaceWidth(double availableWidth) => Dictionary.SetSurfaceWidth(availableWidth);
     public void MoveResultSelection(int offset) => Dictionary.MoveResultSelection(offset);
     public void SelectResultBoundary(bool last) => Dictionary.SelectResultBoundary(last);
