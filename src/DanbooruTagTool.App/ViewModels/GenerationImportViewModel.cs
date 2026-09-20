@@ -18,6 +18,7 @@ public sealed class GenerationImportViewModel : Observable
     private readonly PromptWorkspace workspace;
     private readonly IClipboardService clipboard;
     private readonly Action<string> setStatus;
+    private readonly Action<GenerationMetadataSnapshot> createPreset;
     private GenerationMetadataSnapshot? snapshot;
 
     public GenerationMetadataSnapshot? Snapshot
@@ -56,16 +57,20 @@ public sealed class GenerationImportViewModel : Observable
     public RelayCommand RestorePositive { get; }
     public RelayCommand CopyNegative { get; }
     public RelayCommand CopyInfo { get; }
+    public RelayCommand CreatePreset { get; }
 
-    public GenerationImportViewModel(PromptWorkspace workspace, IClipboardService clipboard, Action<string> setStatus)
+    public GenerationImportViewModel(PromptWorkspace workspace, IClipboardService clipboard, Action<string> setStatus,
+        Action<GenerationMetadataSnapshot> createPreset)
     {
         this.workspace = workspace;
         this.clipboard = clipboard;
         this.setStatus = setStatus;
+        this.createPreset = createPreset;
 
         RestorePositive = new(_ => Restore(), _ => HasSnapshot && !string.IsNullOrWhiteSpace(Positive));
         CopyNegative = new(_ => Copy(Negative, "Negative Promptをコピーしました"), _ => HasNegative);
         CopyInfo = new(_ => Copy(RawInfotext, "生成情報をコピーしました"), _ => HasSnapshot);
+        CreatePreset = new(_ => CreatePresetFromSnapshot(), _ => HasSnapshot);
     }
 
     public void Load(GenerationMetadataSnapshot value) => Snapshot = value;
@@ -75,6 +80,12 @@ public sealed class GenerationImportViewModel : Observable
         if (Snapshot is null || string.IsNullOrWhiteSpace(Snapshot.Positive)) return;
         workspace.Replace(Snapshot.Positive);
         setStatus("✓ 生成PNGのPositive Promptを復元しました");
+    }
+
+    private void CreatePresetFromSnapshot()
+    {
+        if (Snapshot is null) return;
+        createPreset(Snapshot);
     }
 
     private void Copy(string text, string success)
@@ -119,5 +130,6 @@ public sealed class GenerationImportViewModel : Observable
         RestorePositive.Refresh();
         CopyNegative.Refresh();
         CopyInfo.Refresh();
+        CreatePreset.Refresh();
     }
 }
