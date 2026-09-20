@@ -2,3 +2,5 @@ row_id,canonical_tag,category,post_count,media_scope,confidence,scope_reason,evi
 I70-041641,yuuhei_satellite,Copyright,99,REAL_3D,HIGH,Real-world music/doujin circle identity; outside Character/Copyright 2D-fiction scope.,,SCOPE_OVERRIDE_001
 I70-041663,napoleon_crossing_the_alps,Copyright,98,IN_2D,HIGH,2D artwork/painting identity; retained in the user's 2D visual-content scope.,,SCOPE_OVERRIDE_001
 I70-041746,ultraman_decker_(series),Copyright,96,REAL_3D,HIGH,Live-action/tokusatsu television property; outside the user's 2D-only media scope.,,SCOPE_OVERRIDE_001
+I70-036439,vedal_ai,Copyright,2818,IN_2D,HIGH,Official Vedal AI site identifies Neuro-sama and Evil Neuro as AI VTubers; retain this copyright identity for virtual-character scope.,https://vedal.ai/,SCOPE_OVERRIDE_002
+I70-038164,sinsekai_record,Copyright,413,IN_2D,HIGH,SINSEKAI RECORD/STUDIO is a virtual-artist creative label; retain for virtual-character/virtual-artist scope.,https://kamitsubaki.wiki/en/projects/archive/sinsekai-studio/,SCOPE_OVERRIDE_002
