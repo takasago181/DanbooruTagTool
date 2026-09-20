@@ -6,6 +6,7 @@ on:
       - audit/issue70-semantic-final
     paths:
       - scripts/issue70/summarize_semantic_audit_progress.py
+      - scripts/issue70/export_final_semantic_fixes.py
       - .github/workflows/issue70_summarize_semantic_audit_progress.yml
       - docs/issue70/audit/*.csv
   workflow_dispatch:
@@ -30,6 +31,8 @@ jobs:
           python-version: '3.12'
       - name: Generate exact progress summary
         run: python scripts/issue70/summarize_semantic_audit_progress.py
+      - name: Export compact final semantic fixes
+        run: python scripts/issue70/export_final_semantic_fixes.py
       - name: Validate read-only audit state
         shell: bash
         run: |
@@ -43,14 +46,22 @@ jobs:
           assert d['production_modified'] is False
           assert d['audited_unique_rows'] + d['remaining_unaudited_rows'] == d['initial_ledger_rows']
           assert d['audited_unique_rows'] >= 9000
+          assert d['unresolved_external_check_rows'] == 0
           print({k:d[k] for k in ['audited_unique_rows','resolved_unique_rows','conflicted_unique_rows','remaining_unaudited_rows','remaining_by_category','verdict_counts_resolved']})
+          f=json.loads(Path('docs/issue70/audit/FINAL_SEMANTIC_FIXES_SUMMARY.json').read_text(encoding='utf-8'))
+          assert f['production_modified'] is False
+          assert f['fix_rows'] == 9080
+          assert f['fix_verdict_counts'] == {'FIX_BOTH': 766, 'FIX_DISPLAY': 8054, 'FIX_SEARCH': 260}
+          assert f['unresolved_rows'] == 0
           PY
           git diff --exit-code -- docs/issue70/data/runtime docs/issue70/data/source
       - name: Commit progress summary only
         shell: bash
         run: |
           set -euo pipefail
-          git add docs/issue70/audit/PROGRESS_LIVE.json
+          git add docs/issue70/audit/PROGRESS_LIVE.json \
+                  docs/issue70/audit/FINAL_SEMANTIC_FIXES.csv \
+                  docs/issue70/audit/FINAL_SEMANTIC_FIXES_SUMMARY.json
           if git diff --cached --quiet; then exit 0; fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
