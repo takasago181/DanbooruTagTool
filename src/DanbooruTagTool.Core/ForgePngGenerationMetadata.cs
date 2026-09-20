@@ -24,7 +24,8 @@ public sealed record GenerationMetadataSnapshot(
     {
         var size = Value("Size");
         if (string.IsNullOrWhiteSpace(size)) return null;
-        var x = size.IndexOf('x', StringComparison.OrdinalIgnoreCase);
+        var x = size.IndexOf('x');
+        if (x < 0) x = size.IndexOf('X');
         if (x <= 0 || x >= size.Length - 1) return null;
         return int.TryParse(size[..x], out var width) && int.TryParse(size[(x + 1)..], out var height)
             ? (width, height)
