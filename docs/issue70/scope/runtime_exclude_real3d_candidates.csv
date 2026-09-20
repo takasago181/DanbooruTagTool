@@ -1,6 +1,7 @@
 ﻿row_id,canonical_tag,category,post_count,media_scope,confidence,decision_source,scope_reason,evidence_refs
 I70-000774,super_sonico,Character,3705,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 0.998162,
 I70-000878,chando_(ado),Character,3384,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 0.999685,
+I70-002055,godzilla,Character,1649,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_058,Explicit tokusatsu / suit-performed Godzilla identity; excluded under the project's tokusatsu rule.,
 I70-003960,sakurai_masahiro,Character,836,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_051,Canonical Character tag identifies a real human identity; excluded under the real-person rule.,
 I70-004104,imadake_dabuchi_tabemi,Character,805,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 0.990874,
 I70-004737,super_pochaco,Character,684,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
@@ -25,6 +26,7 @@ I70-007755,michael_jackson,Character,383,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_051,Can
 I70-007758,obi-wan_kenobi,Character,383,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
 I70-007876,yajuu_senpai,Character,377,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_051,Canonical Character tag identifies a real human identity; excluded under the real-person rule.,
 I70-007881,colonel_sanders,Character,376,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_051,Canonical Character tag identifies a real human identity; excluded under the real-person rule.,
+I70-008542,hanamiya_nina,Character,340,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_058,"Tag identifies voice actor Nina Hanamiya, a real human performer; excluded under the real-person rule.",https://www.aoni.co.jp/search/hanamiya-niina.html
 I70-008546,luke_skywalker,Character,340,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
 I70-008655,karina_(aespa),Character,334,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
 I70-008878,sawashiro_miyuki,Character,324,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_051,Canonical Character tag identifies a real human identity; excluded under the real-person rule.,
@@ -84,6 +86,7 @@ I70-012615,mafuyu_(vrchat),Character,208,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,
 I70-012764,limealicious_(cozy),Character,205,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 0.988439,
 I70-012933,rey_(star_wars),Character,202,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
 I70-012981,seulgi_(red_velvet),Character,201,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_052,Tag identifies a real human performer creator streamer or public personality rather than a fictional character; excluded under the real-person rule.,
+I70-013156,doge,Character,197,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_058,Doge identifies the real Shiba Inu meme subject rather than a wholly fictional character; excluded under the real-animal identity rule.,
 I70-013188,sugita_tomokazu,Character,197,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_052,Tag identifies a real human performer creator streamer or public personality rather than a fictional character; excluded under the real-person rule.,
 I70-013217,goodtimeswithscar,Character,196,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_052,Tag identifies a real human performer creator streamer or public personality rather than a fictional character; excluded under the real-person rule.,
 I70-013227,mafumafu,Character,196,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_052,Tag identifies a real human performer creator streamer or public personality rather than a fictional character; excluded under the real-person rule.,
@@ -104,6 +107,7 @@ I70-014137,imaichi_moenai_ko,Character,180,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3
 I70-014198,kamen_rider_kuuga_(mighty_form),Character,179,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-014363,darren_shan,Character,176,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
 I70-014364,dean_winchester,Character,176,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
+I70-014371,furby,Character,176,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_058,Furby tag identifies a real-world physical toy/product identity rather than a specifically fictional illustrated character; excluded under the real-world product rule.,
 I70-014373,grogu,Character,176,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 0.992481,
 I70-014400,tanaka_rie,Character,176,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_052,Tag identifies a real human performer creator streamer or public personality rather than a fictional character; excluded under the real-person rule.,
 I70-014447,mathilda_lando,Character,175,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
@@ -237,6 +241,7 @@ I70-021310,kamen_rider_v3,Character,104,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,a
 I70-021318,katou_emiri,Character,104,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_053,Tag identifies a real human performer creator streamer or real-world individual rather than a fictional character; excluded under the real-person rule.,
 I70-021341,michael_myers,Character,104,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_056,Character identity belongs to a live-action-led property rather than the target 2D fictional or virtual scope; excluded under the media-scope rule.,
 I70-021406,badboyhalo,Character,103,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_053,Tag identifies a real human performer creator streamer or real-world individual rather than a fictional character; excluded under the real-person rule.,
+I70-021454,jellie_(hermitcraft),Character,103,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_058,"Jellie is GoodTimesWithScar's real-life cat, despite also having an in-game Minecraft representation; excluded under the real-animal identity rule.",https://hermitcraft.fandom.com/wiki/Jellie
 I70-021626,kagero_(kamen_rider_revice),Character,102,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-021628,kamen_rider_garren,Character,102,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 0.988235,https://www.kamen-rider-official.com/series/
 I70-021818,mizuhashi_kaori,Character,101,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_053,Tag identifies a real human performer creator streamer or real-world individual rather than a fictional character; excluded under the real-person rule.,
@@ -245,10 +250,12 @@ I70-021932,elyse_(sound_horizon),Character,100,REAL_3D,HIGH,DOMINANT_COPYRIGHT_R
 I70-021951,inoue_shouma,Character,100,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
 I70-022043,ultraman_tarou,Character,100,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
 I70-022091,gochizo,Character,99,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,https://www.kamen-rider-official.com/series/
+I70-022092,grady_sisters_(the_shining),Character,99,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_058,Specific Grady Sisters visual identity is tied to the live-action The Shining film portrayal; excluded under the live-action character rule.,
 I70-022103,joseph_stalin,Character,99,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_056,Tag identifies a real human performer creator athlete public figure or real-world individual rather than a fictional or virtual character; excluded under the real-person rule.,
 I70-022143,murakami-san_(misskey.io),Character,99,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
 I70-022318,soraru,Character,98,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
 I70-022339,ultraman_agul,Character,98,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
+I70-022429,mikuni_miku,Character,97,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_058,Tag identifies real singer-songwriter Mikuni Miku; excluded under the real-person rule.,https://mikuni-miku-official.webnode.jp/%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB/
 I70-022543,godzilla_(minus_one),Character,96,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_056,Character identity belongs to an explicit tokusatsu or suit-performed live-action property; excluded under the tokusatsu rule.,
 I70-022626,seong_gi-hun,Character,96,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
 I70-022642,taneda_risa,Character,96,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_054,Tag identifies a real human performer creator streamer or real-world individual rather than a fictional character; excluded under the real-person rule.,
@@ -256,6 +263,7 @@ I70-022654,ultraman_(shin),Character,96,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,a
 I70-022655,ultraman_arc,Character,96,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
 I70-022660,wendy_(red_velvet),Character,96,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
 I70-022720,horie_yui,Character,95,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_054,Tag identifies a real human performer creator streamer or real-world individual rather than a fictional character; excluded under the real-person rule.,
+I70-022733,kano_(yuanfen)_(utaite),Character,95,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_058,Tag identifies a real utaite/singer identity rather than a fictional or virtual character; excluded under the real-person rule.,
 I70-022762,momotaros,Character,95,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 0.988372,https://www.kamen-rider-official.com/series/
 I70-022788,ruru_(shinsei_kamattechan),Character,95,REAL_3D,HIGH,DOMINANT_COPYRIGHT_REAL3D,almost-exclusive confirmed REAL_3D Copyright at coverage 1.000000,
 I70-022990,slimecicle,Character,94,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_054,Tag identifies a real human performer creator streamer or real-world individual rather than a fictional character; excluded under the real-person rule.,
