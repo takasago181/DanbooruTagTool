@@ -45,6 +45,18 @@ Mixed-media franchises, ambiguous brands/IP, and uncertain identities MUST remai
 7. Review residual Character rows directly.
 8. Only after scope classification is accepted, resume/close the remaining #115 semantic-name audit for rows still in scope.
 
+## Residual review batching discipline
+
+For residual manual review, batches MUST be formed from a fixed queue slice rather than by selecting rows to reach a preferred class balance.
+
+1. Freeze the next queue slice first (normally 100 rows).
+2. Inspect every row in that slice in queue order.
+3. Assign `IN_2D` or `REAL_3D` only when the identity is clear under this protocol.
+4. Leave ambiguous or mixed-media rows `UNCERTAIN`; do not replace them with easier rows merely to fill a quota.
+5. Use external evidence for identities that are not self-evident from the canonical tag / primary copyright.
+6. Report the natural result distribution. Never target, balance, or normalize the IN_2D / REAL_3D ratio.
+7. If a prior batch was assembled by cherry-picking high-confidence rows, audit it before relying on its class distribution.
+
 ## Production boundary
 
 This lane is audit-only.
