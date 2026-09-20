@@ -1088,9 +1088,11 @@ I70-042951,2bro.,Copyright,69,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_029,Real-person Yo
 I70-042999,nickelodeon,Copyright,69,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_029,Real-world media company/channel identity; outside 2D-only scope.,
 I70-043005,sagawa_express,Copyright,69,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_030,Real-world logistics company identity; outside 2D-only scope.,
 I70-043011,the_caster_chronicles,Copyright,69,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_038,Novel/book-series identity rather than a 2D visual media property; outside target scope.,
+I70-043021,217find!,Copyright,68,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_043,Real voice actor Hanamiya Niina's solo podcast and event program; excluded under real-person program and real-event scope.,https://www.aoni.co.jp/search/hanamiya-niina.html
 I70-043022,artemis_program,Copyright,68,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_030,Real-world space exploration program identity; outside 2D-only scope.,
 I70-043037,iris_out_(song),Copyright,68,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_037,Real-world music/song identity; outside Character/Copyright 2D-fiction scope.,
 I70-043066,spider-man_1_(2002),Copyright,68,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_030,Specific live-action film property; outside the user's 2D-only media scope.,
+I70-043067,sweetest_music,Copyright,68,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_043,Real 1980 Mariya Takeuchi music single and album-cover identity; excluded under real musician and music-release scope.,https://www.mariyat.co.jp/discography/single/single1.html
 I70-043071,the_office,Copyright,68,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_030,Live-action television property; outside the user's 2D-only media scope.,
 I70-043075,uefa_euros,Copyright,68,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_030,Real-world sports tournament identity; outside 2D-only scope.,
 I70-043076,ultraman_leo_(series),Copyright,68,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_030,Live-action/tokusatsu television property; outside the user's 2D-only media scope.,
@@ -1100,6 +1102,7 @@ I70-043106,lotte_(company),Copyright,67,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_030,Real
 I70-043108,megastore_comics,Copyright,67,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_030,Real-world magazine/publication identity; outside 2D-only scope.,
 I70-043117,out_(magazine),Copyright,67,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_030,Real-world magazine/publication identity; outside 2D-only scope.,
 I70-043121,radiohead_(band),Copyright,67,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_030,Real-person music band identity; outside Character/Copyright 2D-fiction scope.,
+I70-043139,zytokine,Copyright,67,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_043,Real doujin music circle led by Linjin with CD releases DJ activity and live performances; excluded under real music-group scope.,https://zytokine-web.com/about.html
 I70-043149,doctor_strange_in_the_multiverse_of_madness,Copyright,66,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_030,Specific live-action film property; outside the user's 2D-only media scope.,
 I70-043169,kde,Copyright,66,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_030,Real-world software/project identity; outside 2D-only scope.,
 I70-043173,m3gan,Copyright,66,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_030,Specific live-action film property; outside the user's 2D-only media scope.,
@@ -1198,6 +1201,7 @@ I70-044006,harry_potter_and_the_philosopher's_stone,Copyright,54,REAL_3D,HIGH,MA
 I70-044012,how_to_draw_manga,Copyright,54,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_034,Real-world instructional publication identity; outside 2D-only scope.,
 I70-044022,kirby_30th_anniversary_music_festival,Copyright,54,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_034,Real-world music/event identity; outside 2D-only scope.,
 I70-044036,neo_geo,Copyright,54,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_034,Real-world game hardware/platform brand identity; outside 2D-only scope.,
+I70-044038,oddloop,Copyright,54,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_042,Real Frederic music release and music-video identity; excluded under the real music and band-content rule.,https://frederic-official.com/discography/?page=3
 I70-044046,rambo,Copyright,54,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_034,Live-action film franchise identity; outside the user's 2D-only media scope.,
 I70-044050,saturday_night_live,Copyright,54,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_034,Live-action television/variety-program identity; outside the user's 2D-only media scope.,
 I70-044056,skype,Copyright,54,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_034,Real-world communications service/software identity; outside 2D-only scope.,
@@ -1255,4 +1259,5 @@ I70-044402,scho-ka-kola,Copyright,50,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_035,Real-wo
 I70-044408,singin'_in_the_rain,Copyright,50,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_035,Specific live-action film property; outside the user's 2D-only media scope.,
 I70-044410,sonic_the_hedgehog_2_(movie),Copyright,50,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_035,Specific live-action/CG theatrical film property; outside the user's 2D-only media scope.,
 I70-044414,studio_khara,Copyright,50,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_035,Real-world animation studio/company identity rather than a fictional property.,
+I70-044419,theater_ikizama,Copyright,50,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_042,Real live stage production with named cast and physical theater venue; excluded under the live-event and live-action rule.,https://emotion.tokyo/ikizama/
 I70-044422,ultraman_80_(series),Copyright,50,REAL_3D,HIGH,MANUAL_SCOPE_BATCH_035,Live-action/tokusatsu television property; outside the user's 2D-only media scope.,
