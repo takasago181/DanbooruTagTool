@@ -15985,7 +15985,7 @@ I70-015983,team_aqua_grunt,Character,153,IN_2D,HIGH,DOMINANT_COPYRIGHT_2D,domina
 I70-015984,tierno_(pokemon),Character,153,IN_2D,HIGH,DOMINANT_COPYRIGHT_2D,dominant related Copyright is IN_2D at coverage 1.000000,pokemon,1.000000,
 I70-015985,tomoe_tamao,Character,153,IN_2D,HIGH,DOMINANT_COPYRIGHT_2D,dominant related Copyright is IN_2D at coverage 1.000000,shoujo_kageki_revue_starlight,1.000000,
 I70-015986,trieste_(azur_lane),Character,153,IN_2D,HIGH,DOMINANT_COPYRIGHT_2D,dominant related Copyright is IN_2D at coverage 1.000000,azur_lane,1.000000,
-I70-015987,twitter_bird,Character,153,IN_2D,HIGH,MANUAL_SCOPE_BATCH_056,Tag identifies an illustrated fictional mascot or personification rather than the real company service event or product itself; retained under the fictional-character rule.,,,
+I70-015987,twitter_bird,Character,153,REAL_3D,HIGH,SCOPE_OVERRIDE_003,Official Twitter branding identifies the bird as the service/company symbol rather than an independent fictional character; classify as real-world brand identity.,,,https://blog.x.com/en_us/a/2012/taking-flight-twitterbird
 I70-015988,unfezant,Character,153,IN_2D,HIGH,DOMINANT_COPYRIGHT_2D,dominant related Copyright is IN_2D at coverage 1.000000,pokemon,1.000000,
 I70-015989,whirlipede,Character,153,IN_2D,HIGH,DOMINANT_COPYRIGHT_2D,dominant related Copyright is IN_2D at coverage 1.000000,pokemon,1.000000,
 I70-015990,yamuraiha,Character,153,IN_2D,HIGH,DOMINANT_COPYRIGHT_2D,dominant related Copyright is IN_2D at coverage 1.000000,magi_the_labyrinth_of_magic,1.000000,
