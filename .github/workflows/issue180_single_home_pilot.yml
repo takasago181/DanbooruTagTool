@@ -112,8 +112,10 @@ jobs:
           by={r['canonical_tag']:r for r in rows}
           expected={'saiba_momoi_(blue_archive)':'blue_archive','hakurei_reimu':'touhou','pikachu':'pokemon','shirakami_fubuki':'hololive'}
           assert len(rows)==35890
-          for tag,home in expected.items(): assert by[tag]['roster_home']==home,(tag,by[tag])
-          assert by['hatsune_miku']['roster_state']=='PIAPRO_OFFICIAL_HOME_POLICY_UNRESOLVED'
+          for tag,home in expected.items():
+            assert tag in by, ('missing_expected_tag',tag)
+            assert by[tag]['roster_home']==home,(tag,by[tag])
+          assert 'hatsune_miku' in by, 'missing_hatsune_miku'\n          assert by['hatsune_miku']['roster_state']=='PIAPRO_OFFICIAL_HOME_POLICY_UNRESOLVED'
           s=json.load(open('artifacts/issue180-full-preflight/major_roster_expansion_v1_summary.json',encoding='utf-8'))
           assert s['multi_home_conflicts']==0 and not s['production_modified']
           print(json.dumps(s,ensure_ascii=False,indent=2))
