@@ -1,0 +1,15 @@
+character_input,canonical_character,target_copyright,expected_decision,evidence_kind,source_ref,notes
+hikari_(pokemon),dawn_(pokemon),pokemon,ACCEPT,CURATED_COPYRIGHT_LIST+CHARACTER_ALIAS_CANONICALIZATION,https://safebooru.donmai.us/wiki_pages/list_of_pokemon_characters,Legacy Hikari alias must normalize to Dawn before relation lookup
+dawn_(pokemon),dawn_(pokemon),pokemon,ACCEPT,CURATED_COPYRIGHT_LIST+QUALIFIER_COPYRIGHT,https://safebooru.donmai.us/wiki_pages/list_of_pokemon_characters,Human Pokemon character
+pikachu,pikachu,pokemon,ACCEPT,CURATED_COPYRIGHT_LIST,https://safebooru.donmai.us/wiki_pages/list_of_pokemon,Creature list explicitly scoped to Pokemon franchise
+hatsune_miku,hatsune_miku,vocaloid,ACCEPT,CURATED_COPYRIGHT_LIST,https://safebooru.donmai.us/wiki_pages/list_of_vocaloid_characters,Explicit VOCALOID product list
+gotoh_hitori,gotoh_hitori,bocchi_the_rock!,ACCEPT,CURATED_COPYRIGHT_LIST,https://safebooru.donmai.us/wiki_pages/bocchi_the_rock!,Explicit Characters section
+ikazuchi_(kancolle),ikazuchi_(kancolle),kantai_collection,ACCEPT,CURATED_COPYRIGHT_LIST+QUALIFIER_COPYRIGHT,https://safebooru.donmai.us/wiki_pages/list_of_kantai_collection_characters,kancolle qualifier resolves through Copyright alias
+inazuma_(kancolle),inazuma_(kancolle),kantai_collection,ACCEPT,CURATED_COPYRIGHT_LIST+QUALIFIER_COPYRIGHT,https://safebooru.donmai.us/wiki_pages/list_of_kantai_collection_characters,kancolle qualifier resolves through Copyright alias
+shirakami_fubuki,shirakami_fubuki,hololive,ACCEPT,CURATED_COPYRIGHT_LIST,https://safebooru.donmai.us/wiki_pages/hololive,Explicit List of Members
+hatsune_miku,hatsune_miku,pokemon,REJECT,NEGATIVE_GOLD,issue177-regression,Known false positive from old co-occurrence relation
+gotoh_hitori,gotoh_hitori,pokemon,REJECT,NEGATIVE_GOLD,issue177-regression,Known false positive from old co-occurrence relation
+ikazuchi_(kancolle),ikazuchi_(kancolle),pokemon,REJECT,NEGATIVE_GOLD,issue177-regression,Kantai Collection character must not appear as Pokemon
+inazuma_(kancolle),inazuma_(kancolle),pokemon,REJECT,NEGATIVE_GOLD,issue177-regression,Kantai Collection character must not appear as Pokemon
+shirakami_fubuki,shirakami_fubuki,pokemon,REJECT,NEGATIVE_GOLD,issue177-regression,hololive member must not appear as Pokemon
+kirby,kirby,pokemon,REJECT,NEGATIVE_GOLD,issue177-regression,Known unrelated prior Pokemon result
