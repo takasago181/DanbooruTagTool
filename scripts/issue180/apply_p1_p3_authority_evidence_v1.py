@@ -30,6 +30,15 @@ E={
 "disgaea":("https://disgaea.jp/","OFFICIAL_FRANCHISE_CONTEXT","Nippon Ichi official Disgaea portal establishes franchise/character context."),
 "skullgirls":("https://skullgirls.com/characters/","OFFICIAL_ROSTER","Official Skullgirls character roster identifies franchise characters."),
 "dungeon_and_fighter":("https://www.dfoneople.com/gameinfo/character","OFFICIAL_ROSTER","Official Dungeon Fighter Online character page identifies game characters."),
+"brown_dust":("https://www.browndust2.com/","OFFICIAL_TITLE_CONTEXT","Official Brown Dust 2 site establishes title/character context."),
+"black_survival":("https://playeternalreturn.com/","OFFICIAL_SUCCESSOR_CONTEXT_REVIEW","Official Nimble Neuron site provides franchise character context; root semantics still require caution."),
+"queen's_blade":("https://queensblade.net/","OFFICIAL_FRANCHISE_CONTEXT","Official Queen's Blade portal establishes franchise character context."),
+"league":("https://www.leagueoflegends.com/ja-jp/champions/","OFFICIAL_ROSTER","Riot official League of Legends champion roster supports league -> league_of_legends normalization."),
+"housamo":("https://housamo.jp/","OFFICIAL_TITLE_CONTEXT","Official Tokyo Afterschool Summoners site supports housamo normalization."),
+"girls'_frontline_2":("https://gf2.haoplay.com/","OFFICIAL_TITLE_CONTEXT","Official Girls' Frontline 2: Exilium site supports normalized root."),
+"p&d":("https://pad.gungho.jp/member/","OFFICIAL_TITLE_CONTEXT","GungHo official Puzzle & Dragons site supports p&d normalization."),
+"sao":("https://sao-game.jp/","OFFICIAL_FRANCHISE_CONTEXT","Official Sword Art Online game portal supports sao -> sword_art_online normalization."),
+"tf2":("https://www.teamfortress.com/","OFFICIAL_TITLE_CONTEXT","Valve official Team Fortress site supports tf2 -> team_fortress_2 normalization."),
 }
 def main():
  rows=list(csv.DictReader(IN.open(encoding="utf-8-sig",newline="")))
