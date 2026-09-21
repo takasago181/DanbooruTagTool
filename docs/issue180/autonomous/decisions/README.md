@@ -42,3 +42,16 @@ No generated artifact belongs in this directory.
 - it never grants HOME directly;
 - use explicit `VARIANT_CHARACTER PASS` rows for variants proven by the reviewed official pattern;
 - finish the pattern with `UNRESOLVED` or `NEEDS_HIGHER_REASONING` plus grounded evidence and a substantive note.
+
+
+## Frozen execution rule
+
+Once `docs/issue180/autonomous/CODEX_EXECUTION_BASE_V2.json` exists:
+
+- create/commit only new decision shard CSVs in this directory;
+- do not modify `AUTHORITY_DECISIONS_BASE_V2.csv`;
+- do not modify the compatibility ledger outside this directory;
+- do not edit compiler/validator/policy/workflow/runbook to make a gate pass;
+- if a genuine harness defect is found, report it as a blocker for deliberate unfreeze/re-audit.
+
+Terminal `UNRESOLVED` / `NEEDS_HIGHER_REASONING` rows are review conclusions, not shortcuts. They require substantive notes; review-only `DISCOVERY_GROUP` / `VARIANT_PATTERN` conclusions additionally require grounded evidence.
