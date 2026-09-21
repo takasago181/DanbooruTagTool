@@ -610,8 +610,14 @@ def main() -> None:
         source_kind = r["source_kind"]
         if family in NON_HOME_EXACT_FAMILIES:
             state = "BLOCKED_NON_HOME_SEMANTICS"
+        elif family in fast_family_home:
+            state = "PASS_FASTPATH"
+        elif family in BROAD:
+            state = "NEEDS_BROAD_REVIEW"
+        elif source_kind == "ROOT_POLICY_REVIEW_HINT":
+            state = "NEEDS_ROOT_POLICY_REVIEW"
         else:
-            state = "PASS_FASTPATH" if source_kind in {"FIRST_PARTY_REVIEWED", "EXACT_COPYRIGHT_REVIEWED", "POLICY_ROOT_NORMALIZATION"} else "NEEDS_FAST_REVALIDATION"
+            state = "NEEDS_FAST_REVALIDATION"
         provenance_rows.append({
             "family": family,
             "candidate_home": r["candidate_home"],
@@ -622,6 +628,10 @@ def main() -> None:
             "foundation_state": state,
             "production_approved": "false",
         })
+
+    provenance_fast = {r["family"]: r["candidate_home"] for r in provenance_rows if r["foundation_state"] == "PASS_FASTPATH"}
+    if provenance_fast != fast_family_home:
+        raise SystemExit("fast-family/provenance divergence")
 
     write_csv(O / "BASE_DIRECT_AUTHORITY_V2.csv", base_direct)
     write_csv(
