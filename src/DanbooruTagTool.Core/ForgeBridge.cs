@@ -142,12 +142,8 @@ public sealed class ForgeBridgeClient(HttpClient? httpClient = null) : IForgeBri
         "negative_missing" => "ForgeのNegative Prompt欄を見つけられません",
         "generate_missing" => "ForgeのGenerateボタンを見つけられません。Forgeまたは連携拡張を確認してください",
         "generate_failed" => "Forge側でGenerate操作に失敗しました",
-        "model_not_found" => "レシピのModelをForgeで見つけられません",
-        "model_apply_failed" => "ForgeでModelを適用できませんでした",
         "seed_missing" => "ForgeのSeed欄を見つけられません",
         "steps_missing" => "ForgeのSteps欄を見つけられません",
-        "sampler_missing" => "ForgeのSampler欄または選択肢を見つけられません",
-        "scheduler_missing" => "ForgeのScheduler欄または選択肢を見つけられません",
         "cfg_missing" => "ForgeのCFG欄を見つけられません",
         "width_missing" => "ForgeのWidth欄を見つけられません",
         "height_missing" => "ForgeのHeight欄を見つけられません",
@@ -158,12 +154,10 @@ public sealed class ForgeBridgeClient(HttpClient? httpClient = null) : IForgeBri
     private static Dictionary<string, object> RecipePayload(GenerationRecipe recipe)
     {
         var result = new Dictionary<string, object>();
-        // Model is intentionally reference-only. The user selects the Forge
-        // checkpoint manually before applying or generating a recipe.
+        // Model, Sampler and Scheduler are reference-only. The user selects
+        // those choice controls manually in Forge before applying a recipe.
         if (recipe.Seed is { } seed) result["seed"] = seed;
         if (recipe.Steps is { } steps) result["steps"] = steps;
-        if (!string.IsNullOrWhiteSpace(recipe.Sampler)) result["sampler"] = recipe.Sampler!;
-        if (!string.IsNullOrWhiteSpace(recipe.Scheduler)) result["scheduler"] = recipe.Scheduler!;
         if (recipe.Cfg is { } cfg) result["cfg"] = cfg;
         if (recipe.Width is { } width) result["width"] = width;
         if (recipe.Height is { } height) result["height"] = height;
