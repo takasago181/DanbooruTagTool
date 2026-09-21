@@ -52,6 +52,12 @@ jobs:
         run: python scripts/issue180/analyze_unqualified_sample_structure.py
       - name: Build Batch A authority worklist
         run: python scripts/issue180/build_batch_a_authority_worklist.py
+      - name: Build next P1 exact-root authority batch
+        run: python scripts/issue180/build_next_p1_review_batch.py
+      - name: Build next P3 semantic research batch
+        run: python scripts/issue180/build_next_p3_research_batch.py
+      - name: Build unqualified authority worklist
+        run: python scripts/issue180/build_unqualified_authority_worklist.py
       - uses: actions/upload-artifact@v4
         with:
           name: issue180-single-home-pilot
