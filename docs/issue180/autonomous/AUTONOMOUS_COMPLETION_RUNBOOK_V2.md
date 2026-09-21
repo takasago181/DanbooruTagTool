@@ -131,7 +131,7 @@ A family can receive a reusable PASS when all are true:
 
 Do not require individual Character pages after the family itself has been validated.
 
-Broad or ambiguous umbrellas are not forbidden forever. They simply require stronger reasoning or a more specific origin/roster source before PASS.
+Broad or ambiguous umbrellas are not allowed to receive autonomous `FAMILY_QUALIFIER PASS`. For these groups, use official/curated roster evidence to create `DIRECT_CHARACTER PASS` rows for proven members, then explicitly defer the residual family if it cannot be resolved safely. A new canonical broad-family root policy requires a deliberate harness/policy review outside the frozen Luna decision run.
 
 Exact qualifier == Copyright tag is not sufficient when the Copyright represents a collaboration/project/appearance rather than canonical ownership. `project_voltage` is a regression case and must not receive FAMILY_QUALIFIER HOME.
 
