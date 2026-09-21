@@ -29,11 +29,12 @@ FAMILY_WORK = O / "FAMILY_WORK_QUEUE_V2.csv"
 VARIANT_WORK = O / "VARIANT_WORK_QUEUE_V2.csv"
 UNQUALIFIED_WORK = O / "UNQUALIFIED_WORK_QUEUE_V2.csv"
 EXPECTED = 35890
-ATTR = {
-    "new_year", "summer", "casual", "school_uniform", "female", "male", "young",
-    "timeskip", "stand", "racehorse", "human", "character", "cat",
-}
-ORDINAL_COSTUME = re.compile(r"^[0-9]+(?:st|nd|rd|th)_costume$")
+POLICY_PATH = R / "docs/issue180/autonomous/AUTONOMOUS_POLICY_V2.json"
+POLICY = json.loads(POLICY_PATH.read_text(encoding="utf-8"))
+if POLICY.get("version") != 2:
+    raise SystemExit("unsupported autonomous policy version")
+ATTR = set(POLICY["attribute_families"])
+ORDINAL_COSTUME = re.compile(POLICY["ordinal_costume_regex"])
 VALID_SCOPES = {"FAMILY_QUALIFIER", "DIRECT_CHARACTER", "VARIANT_CHARACTER", "NOT_OFFICIAL_CHARACTER", "BLOCK_CHARACTER"}
 
 
