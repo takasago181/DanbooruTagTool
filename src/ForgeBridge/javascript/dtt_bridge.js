@@ -10,12 +10,9 @@
     generate: ["button#txt2img_generate", "#txt2img_generate button", "#txt2img_generate"],
     seed: "#txt2img_seed",
     steps: "#txt2img_steps",
-    sampler: "#txt2img_sampling",
-    scheduler: "#txt2img_scheduler",
     cfg: "#txt2img_cfg_scale",
     width: "#txt2img_width",
-    height: "#txt2img_height",
-    checkpoint: ".model_selection"
+    height: "#txt2img_height"
   };
   const protocolVersion = 1;
   const consumerSessionKey = "dtt-bridge-consumer-id";
@@ -72,18 +69,6 @@
     element.dispatchEvent(new Event("change", { bubbles: true }));
   }
 
-  function syncDisplayOnly(selector, value) {
-    const input = inputInside(selector);
-    if (!(input instanceof HTMLInputElement || input instanceof HTMLTextAreaElement)) return false;
-    const setter = nativeValueSetter(input);
-    if (typeof setter !== "function") return false;
-    // The checkpoint is already applied by Python. Update only the visible
-    // textbox value: no input/change event, so Gradio cannot trigger another
-    // checkpoint transition or tear down this bridge context.
-    setter.call(input, String(value));
-    return true;
-  }
-
   function nextFrame() {
     return new Promise(resolve => window.requestAnimationFrame(() => resolve()));
   }
@@ -121,196 +106,6 @@
     return true;
   }
 
-  async function setChoice(selector, value, errorCode, bestEffort = false) {
-    const root = document.querySelector(selector);
-    if (!(root instanceof HTMLElement)) {
-      if (bestEffort) return false;
-      fail(errorCode);
-    }
-
-    const wanted = normalized(value);
-
-    // Forge can render Sampling method as either Gradio Radio or Dropdown.
-    // Accept both the selector root itself and descendants because Forge /
-    // Gradio wrappers differ between layouts and settings.
-    const radioInputs = [];
-    const addRadioInput = candidate => {
-      if (!(candidate instanceof HTMLInputElement)) return;
-      if (candidate.type !== "radio") return;
-      if (!radioInputs.includes(candidate)) radioInputs.push(candidate);
-    };
-    addRadioInput(root);
-    for (const candidate of root.querySelectorAll("input[type='radio']"))
-      addRadioInput(candidate);
-
-    for (const radio of radioInputs) {
-      const label = radio.closest("label") ??
-        (radio.id ? root.querySelector(`label[for="${CSS.escape(radio.id)}"]`) : null);
-      const candidates = [
-        radio.value,
-        radio.getAttribute("aria-label"),
-        label?.getAttribute("aria-label"),
-        label?.textContent
-      ].map(normalized);
-
-      if (!candidates.includes(wanted)) continue;
-
-      if (radio.checked || radio.getAttribute("aria-checked") === "true") return true;
-
-      radio.click();
-      await nextFrame();
-      await sleep(20);
-      if (radio.checked || radio.getAttribute("aria-checked") === "true") return true;
-
-      // Some custom themes put the effective click handler on the label.
-      if (label instanceof HTMLElement) {
-        label.click();
-        await nextFrame();
-        await sleep(20);
-        if (radio.checked || radio.getAttribute("aria-checked") === "true") return true;
-      }
-    }
-
-    const roleRadios = [];
-    const addRoleRadio = candidate => {
-      if (!(candidate instanceof HTMLElement)) return;
-      if (candidate.getAttribute("role") !== "radio") return;
-      if (!roleRadios.includes(candidate)) roleRadios.push(candidate);
-    };
-    addRoleRadio(root);
-    for (const candidate of root.querySelectorAll("[role='radio']"))
-      addRoleRadio(candidate);
-
-    for (const radio of roleRadios) {
-      const text = normalized(radio.getAttribute("aria-label") ?? radio.textContent);
-      if (text !== wanted) continue;
-      if (radio.getAttribute("aria-checked") === "true") return true;
-      radio.click();
-      await nextFrame();
-      await sleep(20);
-      if (radio.getAttribute("aria-checked") === "true") return true;
-    }
-
-    const input =
-      (root instanceof HTMLInputElement && root.type !== "hidden")
-        ? root
-        : root.querySelector(
-            "input[role='listbox'], input[role='combobox'], input:not([type='hidden'])"
-          );
-
-    if (input instanceof HTMLInputElement) {
-      input.focus();
-      input.click();
-      await nextFrame();
-      // Gradio 4.40 DropdownOptions uses a short fly transition and commits
-      // selection from the listbox's mousedown handler.
-      await sleep(220);
-
-      const listboxId = input.getAttribute("aria-controls");
-      const isVisible = element =>
-        element instanceof HTMLElement &&
-        element.getClientRects().length > 0 &&
-        window.getComputedStyle(element).visibility !== "hidden";
-
-      const getListboxes = () => {
-        const listboxes = [];
-        const add = candidate => {
-          if (!(candidate instanceof HTMLElement)) return;
-          // In Gradio 4.40 the Dropdown input itself has role=listbox.
-          // Only option containers (UL/div/etc.) are useful here.
-          if (candidate instanceof HTMLInputElement) return;
-          if (candidate.getAttribute("role") !== "listbox") return;
-          if (!listboxes.includes(candidate)) listboxes.push(candidate);
-        };
-
-        if (listboxId) add(document.getElementById(listboxId));
-        add(root);
-        for (const candidate of root.querySelectorAll("[role='listbox']")) add(candidate);
-        for (const candidate of document.querySelectorAll("[role='listbox']"))
-          if (isVisible(candidate)) add(candidate);
-
-        return listboxes;
-      };
-
-      const getOptions = () => getListboxes()
-        .flatMap(listbox => [...listbox.querySelectorAll("[role='option']")])
-        .filter(option => isVisible(option));
-
-      const findExact = options => options.find(option =>
-        normalized(option.getAttribute("aria-label") ?? option.textContent) === wanted);
-
-      let options = getOptions();
-      let exact = findExact(options);
-
-      // Large Dropdowns can render choices in batches.
-      if (!(exact instanceof HTMLElement) && options.length > 0) {
-        input.dispatchEvent(new KeyboardEvent("keydown", {
-          key: "End",
-          code: "End",
-          bubbles: true,
-          cancelable: true
-        }));
-        await nextFrame();
-        await sleep(80);
-        options = getOptions();
-        exact = findExact(options);
-      }
-
-      if (exact instanceof HTMLElement) {
-        if (exact.getAttribute("aria-selected") === "true") return true;
-
-        exact.dispatchEvent(new MouseEvent("mousedown", {
-          bubbles: true,
-          cancelable: true,
-          view: window,
-          button: 0
-        }));
-        await nextFrame();
-        await nextFrame();
-        await sleep(40);
-
-        // We did not write the textbox on this path; a matching value means
-        // Gradio's real option handler committed the selection.
-        if (normalized(input.value) === wanted) return true;
-      }
-
-      // DOM layout can vary even within Gradio 4.40. Use Gradio's own
-      // keydown selection path as a second real commit mechanism.
-      //
-      // Important: the input event below only updates Dropdown filter text.
-      // Enter commits selected_index and Gradio blurs the input. We require
-      // that blur before accepting the visible value, so textbox-only mutation
-      // can never become a false success.
-      input.focus();
-      if (normalized(input.value) !== wanted) {
-        const setter = nativeValueSetter(input);
-        if (typeof setter !== "function") fail("value_setter_missing");
-        setter.call(input, String(value));
-        input.dispatchEvent(new Event("input", { bubbles: true }));
-        await nextFrame();
-        await sleep(30);
-      }
-
-      input.dispatchEvent(new KeyboardEvent("keydown", {
-        key: "Enter",
-        code: "Enter",
-        bubbles: true,
-        cancelable: true
-      }));
-      await nextFrame();
-      await nextFrame();
-      await sleep(50);
-
-      const committedByGradio =
-        document.activeElement !== input &&
-        normalized(input.value) === wanted;
-      if (committedByGradio) return true;
-    }
-
-    if (bestEffort) return false;
-    fail(errorCode);
-  }
-
   async function applyRecipe(payload) {
     if (payload.serverError) fail(payload.serverError);
     const settings = payload.settings;
@@ -321,21 +116,6 @@
     if (settings.cfg !== undefined) setScalar(selectors.cfg, settings.cfg, "cfg_missing");
     if (settings.width !== undefined) setScalar(selectors.width, settings.width, "width_missing");
     if (settings.height !== undefined) setScalar(selectors.height, settings.height, "height_missing");
-    if (typeof settings.sampler === "string") await setChoice(selectors.sampler, settings.sampler, "sampler_missing");
-    if (typeof settings.scheduler === "string") await setChoice(selectors.scheduler, settings.scheduler, "scheduler_missing");
-
-    // Neo can finish a real checkpoint transition asynchronously after the
-    // bridge has published the pending item. Pay the settle cost only when
-    // Forge reports that the active checkpoint actually changed. A recipe
-    // that already targets the current Model should remain responsive.
-    if (payload.modelChanged === true) await sleep(3000);
-
-    // The Python companion applies the checkpoint before publishing the
-    // pending item. Synchronize only the visible dropdown text without
-    // dispatching an input/change event. This keeps the UI honest without
-    // triggering another Neo checkpoint refresh.
-    if (typeof payload.appliedModel === "string")
-      syncDisplayOnly(selectors.checkpoint, payload.appliedModel);
 
     await nextFrame();
     await nextFrame();

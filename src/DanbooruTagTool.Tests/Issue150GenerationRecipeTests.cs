@@ -43,10 +43,13 @@ public class Issue150GenerationRecipeTests
     }
 
     [Fact]
-    public void ModelOnlyRecipeIsReferenceOnly()
+    public void ChoiceOnlyRecipeIsReferenceOnly()
     {
-        var recipe = new GenerationRecipe(Model: "manual-model");
-        var preset = new GenerationPreset(Guid.NewGuid(), "model only", "", "blue_hair", "lowres", recipe);
+        var recipe = new GenerationRecipe(
+            Model: "manual-model",
+            Sampler: "Euler a",
+            Scheduler: "Karras");
+        var preset = new GenerationPreset(Guid.NewGuid(), "manual choices", "", "blue_hair", "lowres", recipe);
 
         Assert.True(recipe.HasAny);
         Assert.False(recipe.HasAutomaticSettings);
@@ -183,7 +186,13 @@ public class Issue150GenerationRecipeTests
             throw new InvalidOperationException(path);
         });
 
-        var recipe = new GenerationRecipe(Model: "manual-model", Seed: 42, Steps: 20, Cfg: 5m);
+        var recipe = new GenerationRecipe(
+            Model: "manual-model",
+            Seed: 42,
+            Steps: 20,
+            Sampler: "Euler a",
+            Scheduler: "Karras",
+            Cfg: 5m);
         var result = await client.SendAsync(
             ForgeBridgeProtocol.DefaultUrl,
             new ForgeBridgeSendRequest("blue_hair", ForgeNegativeMode.Replace, "lowres", ForgeBridgeAction.ApplyRecipe, recipe));
@@ -198,11 +207,12 @@ public class Issue150GenerationRecipeTests
         Assert.Equal(5m, settings.GetProperty("cfg").GetDecimal());
         Assert.False(settings.TryGetProperty("model", out _));
         Assert.False(settings.TryGetProperty("sampler", out _));
+        Assert.False(settings.TryGetProperty("scheduler", out _));
         Assert.False(settings.TryGetProperty("width", out _));
     }
 
     [Fact]
-    public async Task ModelOnlyRecipeCannotRunAutomaticApply()
+    public async Task ManualChoiceOnlyRecipeCannotRunAutomaticApply()
     {
         var client = Client((_, _) => throw new InvalidOperationException("HTTP must not be called"));
         var result = await client.SendAsync(
@@ -212,7 +222,7 @@ public class Issue150GenerationRecipeTests
                 ForgeNegativeMode.Replace,
                 "lowres",
                 ForgeBridgeAction.ApplyRecipe,
-                new GenerationRecipe(Model: "manual-model")));
+                new GenerationRecipe(Model: "manual-model", Sampler: "Euler a", Scheduler: "Karras")));
 
         Assert.False(result.Success);
         Assert.Equal("recipe_empty", result.ErrorCode);
