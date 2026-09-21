@@ -80,6 +80,8 @@ jobs:
         run: python scripts/issue180/apply_p1_p3_authority_evidence_v1.py
       - name: Second-review P1/P3 authority evidence
         run: python scripts/issue180/second_review_p1_p3_authority_v1.py
+      - name: Build all Character user review export
+        run: python scripts/issue180/build_all_character_user_review.py
       - name: Run full Character relation regression gate
         run: python scripts/issue180/full_character_regression_v1.py
       - name: Build unqualified authority worklist
