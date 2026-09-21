@@ -102,7 +102,8 @@ public sealed class Issue117UnifiedBrowseTests
         vm.SetScope(UnifiedBrowseScope.Artist);
 
         Assert.Equal("hatsune", vm.Query);
-        Assert.Equal(UnifiedBrowseScope.Artist, vm.Scope);
+        Assert.Equal(UnifiedBrowseScope.Tags, vm.Scope);
+        Assert.Equal(DictionarySearchTarget.All, vm.SearchTarget);
     }
 
     [Fact]
