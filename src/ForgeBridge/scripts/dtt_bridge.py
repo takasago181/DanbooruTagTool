@@ -7,7 +7,6 @@ left untouched in Forge.
 
 from __future__ import annotations
 
-import inspect
 import ipaddress
 import json
 import secrets
@@ -82,17 +81,13 @@ def _validate_settings(value: object) -> tuple[dict | None, tuple[int, str, str]
 
     settings: dict[str, object] = {}
 
-    def text(name: str) -> bool:
+    # Model, Sampler and Scheduler remain accepted for compatibility with
+    # older DTT clients, but are reference/manual-only and never published to
+    # the browser as automatic settings.
+    for name in ("model", "sampler", "scheduler"):
         raw = value.get(name)
-        if raw is None:
-            return True
-        if not isinstance(raw, str) or not raw.strip() or len(raw) > 512:
-            return False
-        settings[name] = raw.strip()
-        return True
-
-    if not text("model") or not text("sampler") or not text("scheduler"):
-        return None, (400, "malformed", "recipe text setting is invalid")
+        if raw is not None and (not isinstance(raw, str) or not raw.strip() or len(raw) > 512):
+            return None, (400, "malformed", "recipe text setting is invalid")
 
     seed = value.get("seed")
     if seed is not None:
@@ -170,32 +165,6 @@ def _validate(payload: object) -> tuple[dict | None, tuple[int, str, str] | None
     }, None
 
 
-def _apply_model_if_requested(item: dict) -> None:
-    settings = item.get("settings") or {}
-    model = settings.get("model")
-    if not model:
-        return
-
-    try:
-        from modules import sd_models
-        from modules_forge import main_entry
-
-        match = sd_models.get_closet_checkpoint_match(model)
-        if match is None:
-            item["serverError"] = "model_not_found"
-            return
-
-        checkpoint_change = main_entry.checkpoint_change
-        if "preset" in inspect.signature(checkpoint_change).parameters:
-            changed = bool(checkpoint_change(match.title, preset=None))
-        else:
-            changed = bool(checkpoint_change(match.title))
-        item["appliedModel"] = match.title
-        item["modelChanged"] = changed
-    except Exception:
-        item["serverError"] = "model_apply_failed"
-
-
 
 def _prune_expired_pending_locked() -> None:
     now_ms = int(time.time() * 1000)
@@ -238,11 +207,6 @@ async def _prompt(request: Request) -> JSONResponse:
         if len(_pending) >= MAX_QUEUE_LENGTH:
             return _json_error(429, "queue_full", "pending queue is full")
 
-        # Forge may refresh the Gradio page while changing checkpoints.
-        # Apply the model only after the request is known to be admissible,
-        # but before publishing it to /pending. This avoids both a lost
-        # browser ACK and side effects from rejected duplicate/full requests.
-        _apply_model_if_requested(item)
         _pending.append(item)
         _seen_ids.append(item["requestId"])
         _seen_id_set.add(item["requestId"])
