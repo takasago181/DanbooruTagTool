@@ -312,6 +312,8 @@ jobs:
           assert s['auto_approved']==0 and not s['production_modified']
           print(json.dumps(s,ensure_ascii=False,indent=2))
           PY
+      - name: Validate autonomous semantic policy v2
+        run: python scripts/issue180/validate_autonomous_policy_v2.py
       - name: Build autonomous completion foundation v2
         run: python scripts/issue180/build_autonomous_foundation_v2.py
       - name: Validate autonomous foundation v2
