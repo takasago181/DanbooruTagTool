@@ -97,6 +97,14 @@ def main():
   "officiality_state":"","notes":"Reviewed the group but deliberately omitted grounded evidence for this smoke case.",
  }])], "DISCOVERY_GROUP terminal review requires grounded evidence")
 
+ expect_fail("variant_pattern_pass", [("a",[{
+  "scope":"VARIANT_PATTERN","key":"blue_archive::blue_archive::swimsuit","home_copyright":"",
+  "base_character":"","authority_type":"VARIANT_PATTERN_REVIEW","evidence_url":"https://bluearchive.jp/",
+  "evidence_claim":"Official Blue Archive source used to review the swimsuit variant pattern.",
+  "validation_state":"PASS","officiality_state":"",
+  "notes":"Pattern progress must never grant HOME directly.",
+ }])], "VARIANT_PATTERN is review-progress only")
+
  expect_fail("autonomous_not_official", [("a",[{
   "scope":"NOT_OFFICIAL_CHARACTER","key":"harmony_(pokemon)","home_copyright":"",
   "base_character":"","authority_type":"AUTONOMOUS_NON_OFFICIAL","evidence_url":"",
