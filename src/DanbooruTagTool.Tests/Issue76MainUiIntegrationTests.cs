@@ -57,7 +57,8 @@ public sealed class Issue76MainUiIntegrationTests
         Assert.All(groups, group => Assert.StartsWith("group:", group.Key));
         Assert.Equal(19, routeNodes.Length);
         Assert.Equal(UnifiedBrowseTaxonomy.Routes.Select(route => route.Label), routeNodes.Select(node => node.Label));
-        Assert.Equal(["キャラクター・作品"], navigation.Skip(3).Select(node => node.Label).ToArray());\n        Assert.DoesNotContain(navigation, node => node.Key == "artist");
+        Assert.Equal(["キャラクター・作品"], navigation.Skip(3).Select(node => node.Label).ToArray());
+        Assert.DoesNotContain(navigation, node => node.Key == "artist");
         var identityGroup = Assert.Single(navigation, node => node.Key == "identity-group");
         Assert.Equal(["作品から探す", "キャラクターから探す"], identityGroup.Children.Select(node => node.Label).ToArray());
         Assert.DoesNotContain(routeNodes, node => node.Key is "special" or "general");
