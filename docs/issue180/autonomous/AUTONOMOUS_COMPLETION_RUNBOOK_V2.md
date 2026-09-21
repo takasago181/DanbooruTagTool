@@ -34,23 +34,38 @@ The compatibility ledger `docs/issue180/autonomous/AUTHORITY_DECISIONS_V2.csv` i
 
 Generated master/work queues are artifacts. Do not hand-edit them.
 
-Validated baseline at the time this runbook was written:
+Validated baseline after the adversarial audit:
 
 - Character population: 35,890
-- v1 direct HOME preserved: 940
-- reusable fast-path family rows added: 8,786
-- v2 foundation HOME_CONFIRMED: 9,726
-- v2 foundation HOME_UNRESOLVED: 26,164
+- evidence-grade v1 direct HOME preserved: 367
+- legacy broad v1 authority requeued: 559 rows / 17 families
+- weak current-master direct rows requeued for provenance upgrade: 14
+- v2 foundation HOME_CONFIRMED: 8,995
+- v2 foundation HOME_UNRESOLVED: 26,895
+- NOT_OFFICIAL_CHARACTER: 0 at the current #179 handoff
 - accepted source modified: false
 - production modified: false
 
 Remaining v2 work:
 
-- family rows: 5,423 across 2,529 families
-- variant/nested rows: 3,961
-- variant rows with confirmed base HOME ready for officiality review: 2,093
-- unqualified rows: 16,780
-- higher-reasoning seed queue: 27 entries
+- #179 explicit officiality-review rows: 2
+- family rows: 6,066 across 2,506 families
+- mandatory family reviews: 219 families
+  - BROAD_LEGACY_REVIEW: 17
+  - FAST_REVALIDATE_NORMALIZATION: 184
+  - FAST_ROOT_POLICY_REVIEW: 15
+  - REVIEW_NORMALIZATION: 3
+- variant/nested rows: 4,040
+- variant rows with confirmed base HOME ready for officiality review: 2,046
+- unqualified rows: 16,787
+  - support-only discovery hint available: 16,743
+  - no discovery hint: 44
+- mandatory high-yield unqualified discovery groups (50+ rows): 46
+- direct-roster review rows: 9
+- weak legacy direct rows still unresolved at baseline: 10
+- higher-reasoning seed queue: 34
+
+The coverage is intentionally lower than older checkpoints because unsafe broad/platform/weak-provenance confirmations were requeued instead of being kept merely to preserve a high HOME_CONFIRMED count.
 
 ## Practical precision rule
 
@@ -270,6 +285,16 @@ Before reporting completion:
 - do not freeze, merge main, or production-apply.
 
 Report remaining unresolved cases by reason instead of hiding them.
+
+## Codex execution freeze
+
+Immediately before the real autonomous Luna run, `docs/issue180/autonomous/CODEX_EXECUTION_BASE_V2.json` freezes the harness.
+
+Once that marker exists, the autonomous run may commit **only** new decision shard CSV files under:
+
+`docs/issue180/autonomous/decisions/*.csv`
+
+Do not edit the compiler, validators, policy JSON, workflow, runbook, compatibility ledger, or base decision CSV to make a failing gate pass. If a genuine harness defect is discovered after freeze, report it as a blocker; the harness must be deliberately unfrozen/re-audited outside the autonomous decision run.
 
 ## Scope boundaries
 
