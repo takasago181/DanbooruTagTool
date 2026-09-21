@@ -259,6 +259,10 @@ Before Codex claims that the autonomous pass is complete, it must run:
 
 `python scripts/issue180/check_autonomous_completion_readiness_v2.py --final`
 
+The autonomous run is evaluated against the frozen Issue #179 handoff snapshot. If the live #179 branch changes during the run, report `issue179_refresh_required_before_freeze=true` but do not discard an otherwise complete autonomous pass. Immediately before the later user freeze/promotion decision, require live synchronization with:
+
+`python scripts/issue180/check_autonomous_completion_readiness_v2.py --final --require-fresh-issue179`
+
 This final gate fails when mandatory active work remains, including:
 
 - #179 officiality-review rows
