@@ -12,11 +12,12 @@ SHARDS=R/"docs/issue180/autonomous/decisions"
 CAT=R/"docs/issue70/data/runtime/issue70_catalog_overlay.csv"
 CENSUS=R/"artifacts/issue180-full-preflight/CHARACTER_QUALIFIER_CENSUS.csv"
 FAMILY_WORK=R/"artifacts/issue180-full-preflight/POST_NORMALIZED_REVIEW/MASTER_HOME_V2/FAMILY_WORK_QUEUE_V2.csv"
+UNQUALIFIED_GROUPS=R/"artifacts/issue180-full-preflight/POST_NORMALIZED_REVIEW/MASTER_HOME_V2/UNQUALIFIED_DISCOVERY_GROUPS_V2.csv"
 EXPECTED_FIELDS=[
  "scope","key","home_copyright","base_character","authority_type","evidence_url",
  "evidence_claim","validation_state","officiality_state","notes",
 ]
-VALID_SCOPES={"FAMILY_QUALIFIER","DIRECT_CHARACTER","VARIANT_CHARACTER","NOT_OFFICIAL_CHARACTER","BLOCK_CHARACTER"}
+VALID_SCOPES={"FAMILY_QUALIFIER","DISCOVERY_GROUP","DIRECT_CHARACTER","VARIANT_CHARACTER","NOT_OFFICIAL_CHARACTER","BLOCK_CHARACTER"}
 VALID_STATES={"PASS","UNRESOLVED","PENDING","NEEDS_HIGHER_REASONING"}
 POLICY_PATH=R/"docs/issue180/autonomous/AUTONOMOUS_POLICY_V2.json"
 POLICY=json.loads(POLICY_PATH.read_text(encoding="utf-8"))
@@ -100,6 +101,7 @@ def main():
  census=read(CENSUS)
  valid_families={(r.get("final_qualifier") or "").strip().lower() for r in census if (r.get("final_qualifier") or "").strip()}
  family_lane={r["family"]:r.get("work_lane","") for r in read(FAMILY_WORK)}
+ valid_discovery_groups={r["discovery_group"].strip().lower() for r in read(UNQUALIFIED_GROUPS) if r.get("discovery_group","").strip()}
 
  seen_rows=set(); seen_scope_key={}; states=Counter(); scopes=Counter(); files=Counter()
  for r in rows:
@@ -112,7 +114,7 @@ def main():
   if scope not in VALID_SCOPES: raise SystemExit(f"{where}: invalid scope {scope!r}")
   if state not in VALID_STATES: raise SystemExit(f"{where}: invalid validation_state {state!r}")
   if not key: raise SystemExit(f"{where}: blank key")
-  lookup_key=key.lower() if scope=="FAMILY_QUALIFIER" else key
+  lookup_key=key.lower() if scope in {"FAMILY_QUALIFIER","DISCOVERY_GROUP"} else key
   sig=(scope,lookup_key,home,(r.get("base_character") or "").strip(),state)
   if sig in seen_rows: raise SystemExit(f"{where}: duplicate decision row {sig}")
   seen_rows.add(sig)
@@ -125,6 +127,13 @@ def main():
   if scope=="FAMILY_QUALIFIER":
    if lookup_key not in valid_families:
     raise SystemExit(f"{where}: unknown qualifier family {lookup_key}")
+  elif scope=="DISCOVERY_GROUP":
+   if lookup_key not in valid_discovery_groups:
+    raise SystemExit(f"{where}: unknown unqualified discovery group {lookup_key}")
+   if home:
+    raise SystemExit(f"{where}: DISCOVERY_GROUP must not carry HOME")
+   if state=="PASS":
+    raise SystemExit(f"{where}: DISCOVERY_GROUP is review-progress only; use DIRECT_CHARACTER rows for HOME PASS")
   elif key not in chars:
    raise SystemExit(f"{where}: unknown Character key {key}")
 
