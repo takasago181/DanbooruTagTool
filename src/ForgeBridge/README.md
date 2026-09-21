@@ -20,14 +20,13 @@ A `send_and_generate` request uses those same UI fields, waits for the UI to
 observe the Prompt changes, then clicks Forge's existing txt2img Generate
 button.
 
-DTT recipes still store Model, Sampler and Scheduler for reference and PNG
-round-trip, but those three choice fields are manual-only and are never
-automatically changed in Forge. Select them in Forge before applying or
-generating a recipe. Automatic recipe settings are limited to Seed, Steps, CFG,
-Width and Height. Omitted scalar fields are left unchanged. The
-`apply_recipe` action applies the saved Prompt, Negative and those stable
-scalar settings without starting Generate. A recipe-backed
-`send_and_generate` applies those same values and then triggers Generate once.
+DTT Generation Recipes are reference/persistence metadata. They store
+Model, Seed, Steps, Sampler, Scheduler, CFG, Width and Height, and can be
+prefilled from PNG metadata, but the desktop UI no longer auto-applies those
+recipe values to Forge. Set generation conditions manually in Forge.
+
+The bridge still keeps its existing protocol compatibility for older clients,
+but the current DTT recipe UI does not expose recipe apply/generate actions.
 
 Recipe support is capability-gated as `recipe_settings`, so older bridge
 installs continue to support Prompt-only send and the previous Generate path
