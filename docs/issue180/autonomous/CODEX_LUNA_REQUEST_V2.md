@@ -12,7 +12,9 @@ Preflight in this order:
 6. `docs/issue180/autonomous/AUTHORITY_DECISIONS_V2.csv`
 7. current v2 scripts/workflow
 
-The v2 foundation is already implemented and CI-validated. Do not redesign it unless an actual defect blocks execution.
+The v2 foundation is already implemented and CI-validated.
+
+If `docs/issue180/autonomous/CODEX_EXECUTION_BASE_V2.json` exists, the harness is frozen. From that point onward, commit only new `docs/issue180/autonomous/decisions/*.csv` decision shards. Do not modify scripts, policy, workflow, runbook, compatibility ledger, or the base decision CSV to make a gate pass. If a genuine harness defect blocks execution after freeze, report the blocker instead of weakening the gate.
 
 At the start of the task run:
 
@@ -26,7 +28,7 @@ Do not spend context reconstructing the historical script order.
 
 Your main job is to complete as much safe authority research as possible by writing coarse decision shards under `docs/issue180/autonomous/decisions/*.csv` and repeatedly recompiling the deterministic master. Use separate large family/variant/roster/exception shards rather than one giant file. The compatibility `AUTHORITY_DECISIONS_V2.csv` is still read but need not be the main target.
 
-Use the generated v2 work queues. Process reusable family authority before individual rows. For unqualified Characters, prioritize the mandatory high-yield DISCOVERY_GROUP roster reviews (50+ rows per group) rather than treating every Character as an independent search. Use old relations/co-occurrence only as discovery hints, never as HOME authority.
+Use the generated v2 work queues. Process reusable family authority before individual rows. There are 16,787 unqualified rows, but 16,743 already have a support-only discovery hint and only 44 have no hint. Do not perform 16,787 independent searches. Prioritize the 46 mandatory high-yield DISCOVERY_GROUP roster reviews (50+ rows per group), then use DIRECT_CHARACTER decisions for roster members actually proven. Use old relations/co-occurrence only as discovery hints, never as HOME authority.
 
 Be productive rather than maximally conservative: clean IP qualifier families may be bulk-confirmed after one sound family-level validation; do not require one official page per Character. At the same time, ambiguous/broad/mixed families must not be guessed.
 
