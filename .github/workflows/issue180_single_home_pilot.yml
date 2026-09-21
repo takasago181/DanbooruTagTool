@@ -28,7 +28,7 @@ jobs:
         run: python scripts/issue180/validate_authority_policy.py
       - name: Classify 250 pilot authority candidates
         run: python scripts/issue180/build_authority_candidates.py
-      - uses: actions/upload-artifact@v4
+      - name: Build full Character qualifier preflight\n        run: python scripts/issue180/build_full_character_preflight.py\n      - uses: actions/upload-artifact@v4
         with:
           name: issue180-single-home-pilot
           path: |
