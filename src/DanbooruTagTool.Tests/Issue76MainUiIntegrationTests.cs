@@ -46,18 +46,18 @@ public sealed class Issue76MainUiIntegrationTests
         => new(Catalog(), store ?? new(), new Clipboard(), specialBrowse: Index());
 
     [Fact]
-    public void Unified_navigation_uses_three_presentation_groups_nineteen_routes_and_three_scopes()
+    public void Unified_navigation_uses_three_presentation_groups_nineteen_routes_and_character_copyright_scopes()
     {
         var navigation = Vm().Dictionary.Navigation;
         var groups = navigation.Take(3).ToArray();
         var routeNodes = groups.SelectMany(group => group.Children).ToArray();
 
-        Assert.Equal(5, navigation.Count);
+        Assert.Equal(4, navigation.Count);
         Assert.Equal(["何を描く", "動き・状態", "画面・表現"], groups.Select(group => group.Label).ToArray());
         Assert.All(groups, group => Assert.StartsWith("group:", group.Key));
         Assert.Equal(19, routeNodes.Length);
         Assert.Equal(UnifiedBrowseTaxonomy.Routes.Select(route => route.Label), routeNodes.Select(node => node.Label));
-        Assert.Equal(["キャラクター・作品", "作者"], navigation.Skip(3).Select(node => node.Label).ToArray());
+        Assert.Equal(["キャラクター・作品"], navigation.Skip(3).Select(node => node.Label).ToArray());\n        Assert.DoesNotContain(navigation, node => node.Key == "artist");
         var identityGroup = Assert.Single(navigation, node => node.Key == "identity-group");
         Assert.Equal(["作品から探す", "キャラクターから探す"], identityGroup.Children.Select(node => node.Label).ToArray());
         Assert.DoesNotContain(routeNodes, node => node.Key is "special" or "general");
