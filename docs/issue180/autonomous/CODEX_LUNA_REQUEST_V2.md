@@ -29,7 +29,7 @@ Use the generated v2 work queues. Process reusable family authority before indiv
 
 Be productive rather than maximally conservative: clean IP qualifier families may be bulk-confirmed after one sound family-level validation; do not require one official page per Character. At the same time, ambiguous/broad/mixed families must not be guessed.
 
-For every PASS decision, provide grounded evidence: either an http(s) evidence_url, or an evidence_claim beginning with `REPO:` or `POLICY:`. Do not use free-form unsupported claims as PASS evidence.
+For every PASS decision, provide grounded evidence: either an http(s) evidence_url, or an evidence_claim of `REPO:<existing repository path>`. Internal REPO paths are existence-checked. Do not use free-form unsupported claims as PASS evidence.
 
 Do not FAMILY_QUALIFIER-confirm collaboration/project families such as `project_voltage`. Follow existing canonical-root policy already encoded by the foundation instead of reverting Fate/Pokémon/Splatoon subworks to title-by-title HOME.
 
