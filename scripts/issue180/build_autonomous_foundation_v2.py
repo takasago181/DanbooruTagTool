@@ -52,6 +52,7 @@ ROOT_POLICY_NORMALIZATION = dict(POLICY["root_policy_normalization"])
 ROOT_POLICY_REVIEW_HINT_PREFIXES = [tuple(x) for x in POLICY["root_policy_review_hint_prefixes"]]
 ROOT_POLICY_REVIEW_HINT_EXACT = dict(POLICY["root_policy_review_hint_exact"])
 OFFICIAL_ORIGIN_CLASSES = set(POLICY["official_origin_classes"])
+NOT_OFFICIAL_ORIGIN_CLASSES = set(POLICY["not_official_origin_classes"])
 
 
 def root_policy_review_hint(family: str) -> str:
@@ -209,9 +210,13 @@ def main() -> None:
         for r in origin_rows
         if r.get("canonical_tag") in char_by
     }
+    origin_not_official = {
+        tag: cls for tag, cls in origin_by.items()
+        if cls in NOT_OFFICIAL_ORIGIN_CLASSES
+    }
     origin_guarded = {
         tag: cls for tag, cls in origin_by.items()
-        if cls not in OFFICIAL_ORIGIN_CLASSES
+        if cls not in OFFICIAL_ORIGIN_CLASSES and cls not in NOT_OFFICIAL_ORIGIN_CLASSES
     }
 
     ledger1_rows = read(LEDGER1)
@@ -718,6 +723,7 @@ def main() -> None:
         "v1_ledger_rows": len(ledger1_rows),
         "origin_handoff_rows": len(origin_rows),
         "origin_guarded_character_rows": len(origin_guarded),
+        "origin_not_official_character_rows": len(origin_not_official),
         "origin_guarded_v1_rows_removed": origin_guarded_v1_rows,
         "legacy_broad_v1_rows_requeued": broad_v1_rows_requeued,
         "legacy_broad_v1_families_requeued": len(legacy_broad_review_rows),
