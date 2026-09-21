@@ -329,7 +329,7 @@ jobs:
           p='artifacts/issue180-full-preflight/POST_NORMALIZED_REVIEW/MASTER_HOME_V2/autonomous_foundation_v2_summary.json'
           s=json.load(open(p,encoding='utf-8'))
           assert s['character_population']==35890
-          assert s['v1_confirmed_preserved']==926
+          assert s['v1_confirmed_preserved']==367
           assert s['legacy_family_mappings']==1456
           assert s['legacy_first_party_families']==41
           assert s['legacy_exact_families']==1231
@@ -337,7 +337,9 @@ jobs:
           assert s['origin_handoff_rows']==100
           assert s['weak_current_master_rows_requeued']==14
           assert s['origin_guarded_v1_rows_removed']==0
-          assert s['foundation_confirmed_before_autonomous_decisions']>=9000
+          assert s['legacy_broad_v1_rows_requeued']==559
+          assert s['legacy_broad_v1_families_requeued']==17
+          assert s['foundation_confirmed_before_autonomous_decisions']>=8500
           assert s['foundation_confirmed_before_autonomous_decisions']+s['foundation_unresolved_before_autonomous_decisions']==35890
           assert s['officiality_work_rows']+s['family_work_rows']+s['variant_work_rows']+s['unqualified_work_rows']==s['foundation_unresolved_before_autonomous_decisions']
           assert s['multi_home_conflicts']==0 and s['missing_copyright_roots']==0
