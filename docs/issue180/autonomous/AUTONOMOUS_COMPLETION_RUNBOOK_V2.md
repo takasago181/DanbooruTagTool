@@ -32,15 +32,15 @@ Validated baseline at the time this runbook was written:
 
 - Character population: 35,890
 - v1 direct HOME preserved: 940
-- reusable fast-path family rows added: 8,813
-- v2 foundation HOME_CONFIRMED: 9,753
-- v2 foundation HOME_UNRESOLVED: 26,137
+- reusable fast-path family rows added: 8,786
+- v2 foundation HOME_CONFIRMED: 9,726
+- v2 foundation HOME_UNRESOLVED: 26,164
 - accepted source modified: false
 - production modified: false
 
 Remaining v2 work:
 
-- family rows: 5,396 across 2,514 families
+- family rows: 5,423 across 2,529 families
 - variant/nested rows: 3,961
 - variant rows with confirmed base HOME ready for officiality review: 2,093
 - unqualified rows: 16,780
@@ -119,11 +119,15 @@ Existing root policy is applied before autonomous work for known cases such as F
 
 ## Queue execution order
 
-### Lane A — FAST_REVALIDATE_NORMALIZATION
+### Lane A — FAST_REVALIDATE_NORMALIZATION / FAST_ROOT_POLICY_REVIEW
 
 Process these first.
 
-These are old reviewed normalized mappings deliberately held back from the automatic fast path. Confirm or reject the family mapping once, then add a FAMILY_QUALIFIER decision.
+FAST_REVALIDATE_NORMALIZATION contains old reviewed normalized mappings deliberately held back from the automatic fast path.
+
+FAST_ROOT_POLICY_REVIEW contains a small set where an exact subwork Copyright may conflict with a previously established canonical franchise root. The proposed parent is only a review hint; prefix matching is not authority and may be rejected (for example, a same-prefix but unrelated title).
+
+Confirm or reject the family mapping once, then add a FAMILY_QUALIFIER decision only when the canonical HOME is actually supported.
 
 Do not review every Character in the family.
 
