@@ -26,6 +26,7 @@ DECISIONS_DIR = R / "docs/issue180/autonomous/decisions"
 OUT = O / "CHARACTER_HOME_MASTER_V2.csv"
 APPLIED = O / "APPLIED_AUTHORITY_LEDGER_V2.csv"
 FAMILY_WORK = O / "FAMILY_WORK_QUEUE_V2.csv"
+OFFICIALITY_WORK = O / "OFFICIALITY_WORK_QUEUE_V2.csv"
 VARIANT_WORK = O / "VARIANT_WORK_QUEUE_V2.csv"
 UNQUALIFIED_WORK = O / "UNQUALIFIED_WORK_QUEUE_V2.csv"
 ORIGIN_HANDOFF = R / "docs/issue180/evidence/ISSUE179_ORIGIN_HANDOFF_V1.csv"
@@ -129,9 +130,11 @@ def main() -> None:
     blocks: set[str] = set()
     not_official: set[str] = set()
     foundation_family_rows = read(FAMILY_WORK)
+    foundation_officiality_rows = read(OFFICIALITY_WORK)
     foundation_variant_rows = read(VARIANT_WORK)
     foundation_unqualified_rows = read(UNQUALIFIED_WORK)
     family_reason = {r["family"]: r.get("work_lane", "FAMILY_AUTHORITY_PENDING") for r in foundation_family_rows}
+    officiality_reason = {r["canonical_tag"]: r.get("work_state", "OFFICIALITY_REVIEW_REQUIRED") for r in foundation_officiality_rows}
     variant_reason = {r["canonical_tag"]: r.get("work_state", "VARIANT_REVIEW_PENDING") for r in foundation_variant_rows}
     unqualified_reason = {r["canonical_tag"]: r.get("work_state", "ROSTER_DISCOVERY") for r in foundation_unqualified_rows}
     deferred_character_reason: dict[str, str] = {}
@@ -363,7 +366,9 @@ def main() -> None:
         else:
             state = "HOME_UNRESOLVED"
             home = ""
-            if tag in origin_guarded:
+            if tag in officiality_reason:
+                reason = officiality_reason[tag]
+            elif tag in origin_guarded:
                 reason = f"OFFICIALITY_REVIEW_REQUIRED_ISSUE179:{origin_guarded[tag]}"
             elif tag in deferred_character_reason:
                 reason = deferred_character_reason[tag]
@@ -405,8 +410,14 @@ def main() -> None:
         w.writerows(applied)
 
     unresolved_set = {r["canonical_tag"] for r in rows_out if r["final_state"] == "HOME_UNRESOLVED"}
+    remaining_officiality = [dict(r) for r in foundation_officiality_rows if r["canonical_tag"] in unresolved_set]
+    remaining_officiality.sort(key=lambda r: (-int(r.get("post_count", "0") or 0), r["canonical_tag"]))
+
     remaining_family_counts = Counter()
+    officiality_tags = {r["canonical_tag"] for r in remaining_officiality}
     for tag in unresolved_set:
+        if tag in officiality_tags:
+            continue
         fam = (census[tag].get("final_qualifier") or "").strip().lower()
         if fam and not is_attribute_family(fam) and not nested(tag, fam):
             remaining_family_counts[fam] += 1
@@ -442,10 +453,12 @@ def main() -> None:
     remaining_unqualified = [dict(r) for r in foundation_unqualified_rows if r["canonical_tag"] in unresolved_set]
     remaining_unqualified.sort(key=lambda r: (-int(r.get("post_count", "0") or 0), r["canonical_tag"]))
 
+    write_csv(O / "REMAINING_OFFICIALITY_WORK_V2.csv", remaining_officiality, list(foundation_officiality_rows[0].keys()) if foundation_officiality_rows else None)
     write_csv(O / "REMAINING_FAMILY_WORK_V2.csv", remaining_family, list(foundation_family_rows[0].keys()) if foundation_family_rows else None)
     write_csv(O / "REMAINING_VARIANT_WORK_V2.csv", remaining_variant, list(foundation_variant_rows[0].keys()) if foundation_variant_rows else None)
     write_csv(O / "REMAINING_UNQUALIFIED_WORK_V2.csv", remaining_unqualified, list(foundation_unqualified_rows[0].keys()) if foundation_unqualified_rows else None)
     remaining_summary = {
+        "officiality_rows": len(remaining_officiality),
         "family_rows": sum(int(r["character_rows"]) for r in remaining_family),
         "family_families": len(remaining_family),
         "variant_rows": len(remaining_variant),
@@ -453,7 +466,7 @@ def main() -> None:
         "unqualified_rows": len(remaining_unqualified),
         "total_unresolved": len(unresolved_set),
     }
-    if remaining_summary["family_rows"] + remaining_summary["variant_rows"] + remaining_summary["unqualified_rows"] != len(unresolved_set):
+    if remaining_summary["officiality_rows"] + remaining_summary["family_rows"] + remaining_summary["variant_rows"] + remaining_summary["unqualified_rows"] != len(unresolved_set):
         raise SystemExit("dynamic remaining-work partition mismatch")
     (O / "remaining_work_v2_summary.json").write_text(
         json.dumps(remaining_summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
