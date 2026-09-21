@@ -16,6 +16,11 @@ E={
 "last_origin":("https://www.last-origin.com/bio.html","OFFICIAL_ROSTER","Official LAST ORIGIN site exposes its Bioroid/character roster."),
 "apex_legends":("https://www.ea.com/ja/games/apex-legends/apex-legends/characters-hub","OFFICIAL_ROSTER","EA official Apex Legends character hub identifies playable Legends."),
 "guilty_gear":("https://www.guiltygear.com/ggst/sw/jp/","OFFICIAL_SERIES_CHARACTER_CONTEXT","Arc System Works official Guilty Gear site identifies series/game characters and Japanese names."),
+"street_fighter":("https://www.streetfighter.com/6/ja-jp/character","OFFICIAL_ROSTER","Capcom official Street Fighter 6 character page identifies franchise characters."),
+"elden_ring":("https://www.eldenring.jp/","OFFICIAL_TITLE_CONTEXT","Official ELDEN RING site provides title/world/character context."),
+"sousou_no_frieren":("https://frieren-anime.jp/character/","OFFICIAL_ROSTER","Official Frieren anime character page identifies the cast."),
+"infinity_nikki":("https://infinitynikki.infoldgames.com/","OFFICIAL_TITLE_CONTEXT","Official Infinity Nikki site identifies the title and its character context."),
+"trickcal":("https://trickcal.com/","OFFICIAL_TITLE_CONTEXT","Official Trickcal site identifies the title/character context."),
 }
 def main():
  rows=list(csv.DictReader(IN.open(encoding="utf-8-sig",newline="")))
