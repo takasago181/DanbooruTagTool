@@ -13,6 +13,7 @@ CAT = R / "docs/issue70/data/runtime/issue70_catalog_overlay.csv"
 MASTER = D / "CHARACTER_HOME_MASTER_V2.csv"
 APPLIED = D / "APPLIED_AUTHORITY_LEDGER_V2.csv"
 EXPECTED = 35890
+POLICY_PATH = R / "docs/issue180/autonomous/AUTONOMOUS_POLICY_V2.json"
 
 
 def read(path):
@@ -23,6 +24,11 @@ def read(path):
 def main():
     catalog = read(CAT)
     roots = {r["canonical_tag"] for r in catalog if r.get("category_name") == "Copyright"}
+    policy = json.loads(POLICY_PATH.read_text(encoding="utf-8"))
+    broad_families = set(policy["broad_families"])
+    non_home_families = set(policy["non_home_families"])
+    broad_pass_types = set(policy["broad_pass_types"])
+    allow_not_official = bool(policy["allow_autonomous_not_official_pass"])
     rows = read(MASTER)
     applied = read(APPLIED)
     if len(rows) != EXPECTED:
@@ -50,8 +56,10 @@ def main():
         raise SystemExit("missing Copyright roots: " + repr(missing[:10]))
 
     by = defaultdict(set)
+    applied_by_tag = {}
     for row in applied:
         by[row["canonical_tag"]].add(row["home_copyright"])
+        applied_by_tag[row["canonical_tag"]] = row
         if str(row.get("production_approved", "")).lower() == "true":
             raise SystemExit("production approval leaked into ledger")
     conflicts = {k: v for k, v in by.items() if len(v) > 1}
@@ -79,6 +87,33 @@ def main():
     if bad_project_voltage:
         raise SystemExit("non-HOME collaboration regression: " + repr(bad_project_voltage[:10]))
 
+    officiality_violations = []
+    broad_family_violations = []
+    non_home_family_violations = []
+    for row in rows:
+        tag = row["canonical_tag"]
+        if row["final_state"] != "HOME_CONFIRMED":
+            continue
+        authority = applied_by_tag.get(tag, {})
+        origin_class = row.get("origin_class", "")
+        if origin_class and origin_class not in {"OFFICIAL_IDENTITY","OFFICIAL_ALIAS","OFFICIAL_VARIANT"}:
+            if authority.get("authority_scope") not in {"DIRECT_CHARACTER","VARIANT_CHARACTER"} or authority.get("officiality_state") not in {"OFFICIAL_CONFIRMED","OFFICIAL_IDENTITY","OFFICIAL_VARIANT"}:
+                officiality_violations.append((tag, origin_class, authority.get("authority_scope"), authority.get("officiality_state")))
+        family = row.get("final_qualifier", "")
+        if authority.get("authority_scope") == "FAMILY_QUALIFIER":
+            if family in non_home_families:
+                non_home_family_violations.append((tag, family, authority.get("authority_type")))
+            if family in broad_families and authority.get("authority_type") not in broad_pass_types:
+                broad_family_violations.append((tag, family, authority.get("authority_type")))
+    if officiality_violations:
+        raise SystemExit("Issue179 officiality guard regression: " + repr(officiality_violations[:10]))
+    if non_home_family_violations:
+        raise SystemExit("non-HOME family authority regression: " + repr(non_home_family_violations[:10]))
+    if broad_family_violations:
+        raise SystemExit("broad family authority regression: " + repr(broad_family_violations[:10]))
+    if not allow_not_official and states["NOT_OFFICIAL_CHARACTER"] != 0:
+        raise SystemExit("NOT_OFFICIAL_CHARACTER present while autonomous not-official promotion is disabled")
+
     summary = json.load((D / "character_home_master_v2_summary.json").open(encoding="utf-8"))
     if summary["multi_home_or_policy_conflicts"] != 0 or summary["family_authority_conflicts"] != 0:
         raise SystemExit("unresolved authority conflict in v2 summary")
@@ -94,6 +129,9 @@ def main():
         "silent_approval": 0,
         "production_approved_rows": 0,
         "semantic_regressions": 0,
+        "officiality_guard_violations": 0,
+        "broad_family_violations": 0,
+        "non_home_family_violations": 0,
         "accepted_source_modified": False,
         "production_modified": False,
         "gate": "PASS",
