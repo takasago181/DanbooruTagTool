@@ -19,7 +19,6 @@ public sealed record GenerationRecipe(
 
     public bool HasAutomaticSettings =>
         Seed.HasValue || Steps.HasValue ||
-        !string.IsNullOrWhiteSpace(Sampler) || !string.IsNullOrWhiteSpace(Scheduler) ||
         Cfg.HasValue || Width.HasValue || Height.HasValue;
 
     public string Summary
