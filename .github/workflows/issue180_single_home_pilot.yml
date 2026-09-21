@@ -60,6 +60,8 @@ jobs:
         run: python scripts/issue180/build_batch_a_remaining_research.py
       - name: Apply remaining Batch A evidence v2
         run: python scripts/issue180/apply_batch_a_remaining_evidence_v2.py
+      - name: Second review remaining Batch A evidence v2
+        run: python scripts/issue180/second_review_batch_a_remaining_v2.py
       - name: Build next P1 exact-root authority batch
         run: python scripts/issue180/build_next_p1_review_batch.py
       - name: Build next P3 semantic research batch
