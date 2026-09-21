@@ -221,9 +221,31 @@ def main() -> None:
     direct_home: dict[str, str] = {}
 
     origin_guarded_v1_rows = 0
+    broad_v1_rows_requeued = 0
+    broad_v1_groups: dict[str, dict[str, object]] = {}
     for tag, row in ledger1.items():
+        family = (census[tag].get("final_qualifier") or "").strip().lower()
         if tag in origin_guarded:
             origin_guarded_v1_rows += 1
+            continue
+        if family in BROAD:
+            broad_v1_rows_requeued += 1
+            g = broad_v1_groups.setdefault(family, {
+                "family": family,
+                "character_rows": 0,
+                "candidate_homes": set(),
+                "evidence_urls": set(),
+                "evidence_types": set(),
+                "source_files": set(),
+            })
+            g["character_rows"] = int(g["character_rows"]) + 1
+            g["candidate_homes"].add(canonical_root(row.get("home_copyright", "")))
+            if row.get("evidence_url"):
+                g["evidence_urls"].add(row["evidence_url"])
+            if row.get("evidence_type"):
+                g["evidence_types"].add(row["evidence_type"])
+            if row.get("source_file"):
+                g["source_files"].add(row["source_file"])
             continue
         source_home = row.get("home_copyright", "")
         if not source_home:
@@ -240,6 +262,22 @@ def main() -> None:
             "source_provenance": row.get("source_file", "AUTHORITY_LEDGER_V1.csv"),
             "validation_state": "PASS",
             "provenance_quality": "EXPLICIT_EVIDENCE",
+            "production_approved": "false",
+        })
+
+    legacy_broad_review_rows: list[dict[str, str]] = []
+    for family, g in sorted(broad_v1_groups.items()):
+        homes = sorted(g["candidate_homes"])
+        if len(homes) != 1:
+            raise SystemExit(f"legacy broad authority has multiple homes: {family} -> {homes}")
+        legacy_broad_review_rows.append({
+            "family": family,
+            "character_rows": str(g["character_rows"]),
+            "candidate_home": homes[0],
+            "evidence_urls": "|".join(sorted(g["evidence_urls"])),
+            "evidence_types": "|".join(sorted(g["evidence_types"])),
+            "source_files": "|".join(sorted(g["source_files"])),
+            "work_state": "BROAD_LEGACY_BULK_REVIEW_REQUIRED",
             "production_approved": "false",
         })
 
@@ -635,6 +673,11 @@ def main() -> None:
 
     write_csv(O / "BASE_DIRECT_AUTHORITY_V2.csv", base_direct)
     write_csv(
+        O / "LEGACY_BROAD_AUTHORITY_REVIEW_V2.csv",
+        legacy_broad_review_rows,
+        ["family","character_rows","candidate_home","evidence_urls","evidence_types","source_files","work_state","production_approved"],
+    )
+    write_csv(
         O / "LEGACY_WEAK_DIRECT_REVIEW_V2.csv",
         weak_current_master_rows,
         ["canonical_tag","display_ja","candidate_home","previous_authority_type","previous_source","work_state","origin_class","production_approved"],
@@ -665,6 +708,8 @@ def main() -> None:
         "origin_handoff_rows": len(origin_rows),
         "origin_guarded_character_rows": len(origin_guarded),
         "origin_guarded_v1_rows_removed": origin_guarded_v1_rows,
+        "legacy_broad_v1_rows_requeued": broad_v1_rows_requeued,
+        "legacy_broad_v1_families_requeued": len(legacy_broad_review_rows),
         "weak_current_master_rows_requeued": len(weak_current_master_rows),
         "legacy_family_mappings": len(resolved_family),
         "legacy_first_party_families": sum(r["source_kind"] == "FIRST_PARTY_REVIEWED" for r in resolved_family.values()),
