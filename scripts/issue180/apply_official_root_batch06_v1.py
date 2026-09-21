@@ -19,10 +19,10 @@ EV=R/"docs/issue180/evidence/official_root_authority_batch06.csv"
 OUT=D/"OFFICIAL_ROOT_BATCH06_V1.csv"
 SUMMARY=D/"official_root_batch06_v1_summary.json"
 
-EXPECTED_FAMILIES=7
-EXPECTED_ROWS=254
-EXPECTED_VARIANTS=40
-EXPECTED_PASS=214
+EXPECTED_FAMILIES=6
+EXPECTED_ROWS=225
+EXPECTED_VARIANTS=27
+EXPECTED_PASS=198
 
 def read_csv(p): return list(csv.DictReader(p.open(encoding="utf-8-sig",newline="")))
 
