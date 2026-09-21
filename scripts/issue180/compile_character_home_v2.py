@@ -41,7 +41,7 @@ ORDINAL_COSTUME = re.compile(POLICY["ordinal_costume_regex"])
 OFFICIAL_ORIGIN_CLASSES = set(POLICY["official_origin_classes"])
 NOT_OFFICIAL_ORIGIN_CLASSES = set(POLICY["not_official_origin_classes"])
 ALLOW_AUTONOMOUS_NOT_OFFICIAL = bool(POLICY["allow_autonomous_not_official_pass"])
-VALID_SCOPES = {"FAMILY_QUALIFIER", "DISCOVERY_GROUP", "DIRECT_CHARACTER", "VARIANT_CHARACTER", "NOT_OFFICIAL_CHARACTER", "BLOCK_CHARACTER"}
+VALID_SCOPES = {"FAMILY_QUALIFIER", "DISCOVERY_GROUP", "VARIANT_PATTERN", "DIRECT_CHARACTER", "VARIANT_CHARACTER", "NOT_OFFICIAL_CHARACTER", "BLOCK_CHARACTER"}
 
 
 def read(path: Path) -> list[dict[str, str]]:
@@ -148,6 +148,7 @@ def main() -> None:
     deferred_character_reason: dict[str, str] = {}
     deferred_family_reason: dict[str, str] = {}
     reviewed_discovery_groups: dict[str, dict[str, str]] = {}
+    reviewed_variant_patterns: dict[str, dict[str, str]] = {}
 
     def add_record(store: dict[str, list[dict[str, str]]], key: str, home: str, rec: dict[str, str]) -> None:
         if not key or not home:
@@ -204,6 +205,13 @@ def main() -> None:
                     "reason": reason,
                     "source_file": row.get("__source_file", ""),
                 }
+            elif scope == "VARIANT_PATTERN":
+                reviewed_variant_patterns[key] = {
+                    "pattern_id": key,
+                    "review_state": "UNRESOLVED",
+                    "reason": reason,
+                    "source_file": row.get("__source_file", ""),
+                }
             elif key:
                 deferred_character_reason[key] = reason
             continue
@@ -219,6 +227,13 @@ def main() -> None:
             elif scope == "DISCOVERY_GROUP":
                 reviewed_discovery_groups[key.lower()] = {
                     "discovery_group": key.lower(),
+                    "review_state": "NEEDS_HIGHER_REASONING",
+                    "reason": reason,
+                    "source_file": row.get("__source_file", ""),
+                }
+            elif scope == "VARIANT_PATTERN":
+                reviewed_variant_patterns[key] = {
+                    "pattern_id": key,
                     "review_state": "NEEDS_HIGHER_REASONING",
                     "reason": reason,
                     "source_file": row.get("__source_file", ""),
@@ -243,6 +258,8 @@ def main() -> None:
         }
         if scope == "DISCOVERY_GROUP":
             raise SystemExit("DISCOVERY_GROUP cannot produce PASS authority; use DIRECT_CHARACTER decisions")
+        if scope == "VARIANT_PATTERN":
+            raise SystemExit("VARIANT_PATTERN cannot produce PASS authority; use VARIANT_CHARACTER decisions")
         if scope == "BLOCK_CHARACTER":
             if key not in char_tags:
                 raise SystemExit(f"block references unknown Character: {key}")
@@ -533,6 +550,12 @@ def main() -> None:
         reviewed_group_rows,
         ["discovery_group","review_state","reason","source_file"],
     )
+    reviewed_variant_pattern_rows = [reviewed_variant_patterns[k] for k in sorted(reviewed_variant_patterns)]
+    write_csv(
+        O / "REVIEWED_VARIANT_PATTERNS_V2.csv",
+        reviewed_variant_pattern_rows,
+        ["pattern_id","review_state","reason","source_file"],
+    )
     write_csv(O / "REMAINING_OFFICIALITY_WORK_V2.csv", remaining_officiality, list(foundation_officiality_rows[0].keys()) if foundation_officiality_rows else None)
     write_csv(O / "REMAINING_FAMILY_WORK_V2.csv", remaining_family, list(foundation_family_rows[0].keys()) if foundation_family_rows else None)
     write_csv(O / "REMAINING_VARIANT_WORK_V2.csv", remaining_variant, list(foundation_variant_rows[0].keys()) if foundation_variant_rows else None)
@@ -558,6 +581,7 @@ def main() -> None:
         "deferred_family_rows": sum(int(r["character_rows"]) for r in deferred_family),
         "deferred_family_families": len(deferred_family),
         "reviewed_discovery_groups": len(reviewed_discovery_groups),
+        "reviewed_variant_patterns": len(reviewed_variant_patterns),
         "total_unresolved": len(unresolved_set),
     }
     active = remaining_summary["officiality_rows"] + remaining_summary["family_rows"] + remaining_summary["variant_rows"] + remaining_summary["unqualified_rows"]
