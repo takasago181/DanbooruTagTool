@@ -1,6 +1,9 @@
 (() => {
   "use strict";
 
+  if (window.__dttBridgeActive === true) return;
+  window.__dttBridgeActive = true;
+
   const selectors = {
     positive: ["#txt2img_prompt textarea", "textarea#txt2img_prompt", 'textarea[aria-label="Prompt"]'],
     negative: ["#txt2img_neg_prompt textarea", "textarea#txt2img_neg_prompt", 'textarea[aria-label="Negative prompt"]'],
@@ -15,7 +18,23 @@
     checkpoint: ".model_selection"
   };
   const protocolVersion = 1;
+  const consumerSessionKey = "dtt-bridge-consumer-id";
   let polling = false;
+
+  function createConsumerId() {
+    try {
+      const existing = sessionStorage.getItem(consumerSessionKey);
+      if (existing) return existing;
+      const created = globalThis.crypto?.randomUUID?.() ??
+        `tab-${Date.now()}-${Math.random().toString(36).slice(2)}`;
+      sessionStorage.setItem(consumerSessionKey, created);
+      return created;
+    } catch (_) {
+      return `tab-${Date.now()}-${Math.random().toString(36).slice(2)}`;
+    }
+  }
+
+  const consumerId = createConsumerId();
 
   function findInput(selectorsToTry) {
     for (const selector of selectorsToTry) {
@@ -190,47 +209,56 @@
     await nextFrame();
   }
 
-  async function report(requestId, success, error = "") {
-    try {
-      const response = await fetch("/dtt-bridge/result", {
-        method: "POST",
-        cache: "no-store",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ protocolVersion, requestId, success, error })
-      });
-      if (!response.ok) return false;
-      const envelope = await response.json();
-      return envelope.protocolVersion === protocolVersion &&
-        envelope.accepted === true &&
-        envelope.requestId === requestId;
-    } catch (_) {
-      // Keep the request pending. The next browser context/poll can retry.
-      return false;
+  async function report(requestId, deliveryToken, success, error = "") {
+    for (let attempt = 0; attempt < 3; attempt++) {
+      try {
+        const response = await fetch("/dtt-bridge/result", {
+          method: "POST",
+          cache: "no-store",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ protocolVersion, requestId, deliveryToken, success, error })
+        });
+        if (!response.ok) return false;
+        const envelope = await response.json();
+        if (envelope.protocolVersion === protocolVersion &&
+            envelope.accepted === true &&
+            envelope.requestId === requestId)
+          return true;
+        return false;
+      } catch (_) {
+        if (attempt < 2) await sleep(150);
+      }
     }
+    // Keep the request pending. A later delivery lease can retry it safely.
+    return false;
   }
 
   async function handle(payload) {
     const requestId = payload.requestId;
+    const deliveryToken = payload.deliveryToken;
     const generate = payload.action === "send_and_generate";
     const applyOnly = payload.action === "apply_recipe";
-    const needsAck = generate || applyOnly;
+
+    if (typeof deliveryToken !== "string" || !deliveryToken) return;
 
     const positive = findInput(selectors.positive);
     if (!positive || typeof payload.positive !== "string") {
-      if (needsAck) await report(requestId, false, "positive_missing");
+      await report(requestId, deliveryToken, false, "positive_missing");
       return;
     }
 
     try {
-      setValue(positive, payload.positive);
+      if (positive.value !== payload.positive)
+        setValue(positive, payload.positive);
 
       if (payload.negativeMode === "replace") {
         const negative = findInput(selectors.negative);
         if (!negative || typeof payload.negative !== "string") {
-          if (needsAck) await report(requestId, false, "negative_missing");
+          await report(requestId, deliveryToken, false, "negative_missing");
           return;
         }
-        setValue(negative, payload.negative);
+        if (negative.value !== payload.negative)
+          setValue(negative, payload.negative);
       }
 
       if (payload.settings) await applyRecipe(payload);
@@ -238,24 +266,24 @@
       if (generate) {
         const button = findClickable(selectors.generate);
         if (!button) {
-          await report(requestId, false, "generate_missing");
+          await report(requestId, deliveryToken, false, "generate_missing");
           return;
         }
         // A Generate click may refresh the Gradio tree immediately. Publish
         // the accepted action before that click so the browser context cannot
         // lose the ACK while Forge starts the job.
-        if (!await report(requestId, true, "")) return;
+        if (!await report(requestId, deliveryToken, true, "")) return;
         await nextFrame();
         await nextFrame();
         button.click();
-      } else if (applyOnly) {
-        if (!await report(requestId, true, "")) return;
+      } else {
+        // Apply-only and legacy SendOnly both commit through /result so the
+        // ACK-backed pending queue cannot retain a completed head forever.
+        if (!await report(requestId, deliveryToken, true, "")) return;
       }
     } catch (error) {
-      if (needsAck) {
-        const code = typeof error?.dttCode === "string" ? error.dttCode : (generate ? "generate_failed" : "recipe_failed");
-        await report(requestId, false, code);
-      }
+      const code = typeof error?.dttCode === "string" ? error.dttCode : (generate ? "generate_failed" : "recipe_failed");
+      await report(requestId, deliveryToken, false, code);
     }
   }
 
@@ -263,7 +291,7 @@
     if (polling) return;
     polling = true;
     try {
-      const response = await fetch("/dtt-bridge/pending", { cache: "no-store" });
+      const response = await fetch(`/dtt-bridge/pending?consumerId=${encodeURIComponent(consumerId)}`, { cache: "no-store" });
       if (!response.ok) return;
       const envelope = await response.json();
       const payload = envelope.pending;
