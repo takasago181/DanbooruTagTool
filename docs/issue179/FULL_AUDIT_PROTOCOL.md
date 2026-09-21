@@ -150,3 +150,104 @@ If corrections are later accepted, use a new correction ledger/overlay with at l
 - final_status
 
 No bulk correction is authorized by Stage A itself.
+
+
+## 10. Official-identity / fanwork exclusion policy
+
+Product goal: Character/Copyright discovery should represent **official identities and official variants**, not secondary/fan-created community vocabulary.
+
+### Keep
+
+Eligible product/search surfaces:
+
+- OFFICIAL_IDENTITY
+  - official Character name
+  - official Copyright/work/franchise title
+- OFFICIAL_ALIAS
+  - official localized name
+  - stable official abbreviation
+  - verified canonical alias
+- OFFICIAL_VARIANT
+  - official costume/skin/form/class/ascension/version
+  - official anime/game adaptation identity when Danbooru models it distinctly
+
+A term is not excluded merely because it is widely used in fanart. The question is whether the **term itself denotes the official identity**.
+
+### Exclude from product/search
+
+All confirmed fanwork-derived vocabulary is excluded:
+
+- FANWORK_PAIRING
+  - pairing/ship/combination names
+- FANWORK_HASHTAG
+  - fanart posting tags and creator/community hashtags
+- FANWORK_EVENT
+  - fan-created commemorative/event tags
+- FANWORK_MEME
+  - meme names / joke variants / unofficial parody labels
+- FANWORK_COMMUNITY
+  - community-only vocabulary, dream/fujoshi/fandom labels, activity-group tags
+- FANWORK_CROSSOVER
+  - unofficial crossover/mashup names
+- FANWORK_DERIVATIVE
+  - fanmade costumes/forms/designs/characters that are not official identities
+- NON_IDENTITY_DESCRIPTION
+  - descriptive prose or search phrases that do not name an identity
+
+Examples already observed in the pilot include terms such as:
+- `ミクの日`
+- `初音ミクイラスト`
+- `ぼ喜多`
+- `おかころ`
+- `絵かゆ`
+- `腐レイバーン`
+- `ス腐ラトゥーン`
+- `VOICEROIDドット絵部`
+- `コッショリ`
+- `ぼっち・ざ・けいおん!`
+
+These examples establish error families; they are not the complete exclusion dictionary.
+
+### Unknowns
+
+Use `UNKNOWN` when official/fanwork status cannot be established reliably.
+
+- UNKNOWN is **not auto-included**.
+- UNKNOWN is **not auto-deleted from source data**.
+- UNKNOWN stays in review until evidence is sufficient.
+
+### Review field
+
+Add a separate semantic dimension:
+
+`origin_class`
+
+Allowed values:
+
+- OFFICIAL_IDENTITY
+- OFFICIAL_ALIAS
+- OFFICIAL_VARIANT
+- FANWORK_PAIRING
+- FANWORK_HASHTAG
+- FANWORK_EVENT
+- FANWORK_MEME
+- FANWORK_COMMUNITY
+- FANWORK_CROSSOVER
+- FANWORK_DERIVATIVE
+- NON_IDENTITY_DESCRIPTION
+- UNKNOWN
+
+For a row with several search terms, classify terms independently where necessary. A valid official Character/Copyright row may remain in product while only contaminated `search_ja` terms are removed.
+
+### Safety rule
+
+Do not delete Issue #70 source rows because a search term is fanwork-derived.
+
+Preferred remediation order:
+
+1. preserve official Character/Copyright identity;
+2. remove only confirmed fanwork/non-identity search or alias terms;
+3. suppress the entire Character/Copyright row only when the **row identity itself** is confirmed fan-created/out of product scope;
+4. require second review for whole-row suppression.
+
+This policy is independent of #180 Character↔Copyright ownership reconstruction.
