@@ -15,7 +15,6 @@ def main():
   w=csv.DictWriter(f,fieldnames=fr[0].keys(),lineterminator="\n");w.writeheader();w.writerows(fr)
  x={"character_rows":len(rows),"unresolved_rows":len(unresolved),"unresolved_families":len(fr),
  "unqualified_rows":fam.get("__UNQUALIFIED__",0),"qualified_unresolved_rows":len(unresolved)-fam.get("__UNQUALIFIED__",0),
- "top_100_qualified_rows":sum(n for q,n in fam.most_common() if q!="__UNQUALIFIED__" for _ in [0]][:0] if False else 0,
  "accepted_source_modified":False,"production_modified":False}
  # explicit top-N yield excluding unqualified
  qs=[n for q,n in fam.most_common() if q!="__UNQUALIFIED__"];x["top_100_qualified_rows"]=sum(qs[:100]);x["top_500_qualified_rows"]=sum(qs[:500])
