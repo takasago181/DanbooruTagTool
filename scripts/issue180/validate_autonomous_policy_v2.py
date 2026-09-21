@@ -12,7 +12,7 @@ CAT=R/"docs/issue70/data/runtime/issue70_catalog_overlay.csv"
 CENSUS=R/"artifacts/issue180-full-preflight/CHARACTER_QUALIFIER_CENSUS.csv"
 
 REQUIRED={
- "version","attribute_families","ordinal_costume_regex","broad_families","non_home_families",
+ "version","attribute_families","variant_qualifier_families","ordinal_costume_regex","broad_families","non_home_families",
  "broad_pass_types","piapro_policy_characters","root_policy_normalization",
  "root_policy_review_hint_prefixes","root_policy_review_hint_exact",
  "official_origin_classes","allow_autonomous_not_official_pass","allow_autonomous_broad_family_pass",
