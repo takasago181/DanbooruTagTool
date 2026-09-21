@@ -56,6 +56,8 @@ jobs:
         run: python scripts/issue180/apply_batch_a_authority_evidence_v1.py
       - name: Second review Batch A evidence v1
         run: python scripts/issue180/second_review_batch_a_v1.py
+      - name: Isolate remaining Batch A authority research
+        run: python scripts/issue180/build_batch_a_remaining_research.py
       - name: Build next P1 exact-root authority batch
         run: python scripts/issue180/build_next_p1_review_batch.py
       - name: Build next P3 semantic research batch
