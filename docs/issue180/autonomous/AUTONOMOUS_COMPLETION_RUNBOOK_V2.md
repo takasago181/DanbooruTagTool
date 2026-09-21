@@ -87,7 +87,7 @@ Allowed validation states:
 A PASS row must contain:
 
 - authority_type
-- grounded evidence: either an http(s) `evidence_url`, or an `evidence_claim` beginning with `REPO:` or `POLICY:`
+- grounded evidence: either an http(s) `evidence_url`, or an `evidence_claim` of `REPO:<existing repository path>`
 - HOME for relation-producing scopes
 
 VARIANT_CHARACTER PASS additionally requires:
