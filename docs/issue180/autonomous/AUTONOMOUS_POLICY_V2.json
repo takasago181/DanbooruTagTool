@@ -201,5 +201,15 @@
     "sf6_outfit_3",
     "sf4_alternate",
     "swimsuit_skin"
+  ],
+  "not_official_origin_classes": [
+    "FANWORK_PAIRING",
+    "FANWORK_HASHTAG",
+    "FANWORK_EVENT",
+    "FANWORK_MEME",
+    "FANWORK_COMMUNITY",
+    "FANWORK_CROSSOVER",
+    "FANWORK_DERIVATIVE",
+    "NON_IDENTITY_DESCRIPTION"
   ]
 }
