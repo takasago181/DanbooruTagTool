@@ -52,7 +52,12 @@
     "voiceroid",
     "voicevox",
     "voicepeak",
-    "coefont"
+    "coefont",
+    "a.i._voice",
+    "gynoid_talk",
+    "talkex",
+    "voisona",
+    "fromsoftware"
   ],
   "non_home_families": [
     "project_voltage",
