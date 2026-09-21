@@ -38,6 +38,10 @@ jobs:
         run: python scripts/issue180/prefill_root_review_batch_a.py
       - name: Check root review batch A against Copyright catalog
         run: python scripts/issue180/check_root_review_batch_a_catalog.py
+      - name: Gate root review batch A families
+        run: python scripts/issue180/gate_root_review_batch_a.py
+      - name: Build next 50 root-family review backlog
+        run: python scripts/issue180/build_next_root_review_backlog.py
       - uses: actions/upload-artifact@v4
         with:
           name: issue180-single-home-pilot
