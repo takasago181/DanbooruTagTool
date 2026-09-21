@@ -12,8 +12,8 @@ ROSTERS={
 }
 # Exact high-value official roster entries. Add only where direct membership is known; no old relation fallback.
 EXACT={
-"saiba_momoi_(blue_archive)":"blue_archive",
-"saiba_midori_(blue_archive)":"blue_archive",
+"momoi_(blue_archive)":"blue_archive",
+"midori_(blue_archive)":"blue_archive",
 "sunaookami_shiroko":"blue_archive",
 "takanashi_hoshino":"blue_archive",
 "rikuhachima_aru":"blue_archive",
