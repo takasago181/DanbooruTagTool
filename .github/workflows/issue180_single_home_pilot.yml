@@ -46,6 +46,12 @@ jobs:
         run: python scripts/issue180/check_next_root_review_catalog.py
       - name: Build unqualified Character authority control sample
         run: python scripts/issue180/build_unqualified_review_sample.py
+      - name: Prioritize next 50 root review lanes
+        run: python scripts/issue180/prioritize_next_root_review.py
+      - name: Analyze unqualified control sample structure
+        run: python scripts/issue180/analyze_unqualified_sample_structure.py
+      - name: Build Batch A authority worklist
+        run: python scripts/issue180/build_batch_a_authority_worklist.py
       - uses: actions/upload-artifact@v4
         with:
           name: issue180-single-home-pilot
