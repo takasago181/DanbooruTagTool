@@ -4,6 +4,7 @@ from __future__ import annotations
 import csv
 import json
 import re
+import subprocess
 from pathlib import Path
 
 R=Path(__file__).resolve().parents[2]
@@ -40,6 +41,12 @@ def main():
  sha=str(meta.get("source_sha",""))
  if not re.fullmatch(r"[0-9a-f]{40}",sha):
   raise SystemExit("origin handoff source_sha malformed")
+ blob_sha=str(meta.get("source_blob_sha",""))
+ if not re.fullmatch(r"[0-9a-f]{40}",blob_sha):
+  raise SystemExit("origin handoff source_blob_sha malformed")
+ p=subprocess.run(["git","hash-object",str(CSV_PATH.relative_to(R))],cwd=R,text=True,capture_output=True)
+ if p.returncode!=0 or p.stdout.strip()!=blob_sha:
+  raise SystemExit(f"origin handoff local blob mismatch: expected {blob_sha}, got {p.stdout.strip()}")
  if meta.get("source_branch")!="research/issue179-character-quality-audit":
   raise SystemExit("origin handoff source branch drift")
  if meta.get("source_path")!="docs/issue179/reviews/I179-B001-B002_ORIGIN_REVIEW.csv":
@@ -67,6 +74,7 @@ def main():
  print(json.dumps({
   "rows":len(rows),
   "source_sha":sha,
+  "source_blob_sha":blob_sha,
   "official_rows":sum(r["origin_class"] in {"OFFICIAL_IDENTITY","OFFICIAL_ALIAS","OFFICIAL_VARIANT"} for r in rows),
   "guarded_rows":sum(r["origin_class"] not in {"OFFICIAL_IDENTITY","OFFICIAL_ALIAS","OFFICIAL_VARIANT"} for r in rows),
   "gate":"PASS",
