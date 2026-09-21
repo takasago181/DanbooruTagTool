@@ -627,8 +627,11 @@ def main() -> None:
         grouped_variants[group_key].append(row)
     for (base_home, variant_qualifier, outer_ip, state), rows in sorted(grouped_variants.items(), key=lambda kv: (-len(kv[1]), kv[0])):
         top = sorted(rows, key=lambda r: (-int(r["post_count"]), r["canonical_tag"]))[:8]
+        base_home_out = "" if base_home == "__BASE_HOME_PENDING__" else base_home
+        pattern_id = f"{base_home_out}::{outer_ip or '-'}::{variant_qualifier}"
         variant_groups.append({
-            "base_home_group": "" if base_home == "__BASE_HOME_PENDING__" else base_home,
+            "pattern_id": pattern_id,
+            "base_home_group": base_home_out,
             "variant_qualifier": variant_qualifier,
             "outer_ip_qualifier": outer_ip,
             "work_state": state,
