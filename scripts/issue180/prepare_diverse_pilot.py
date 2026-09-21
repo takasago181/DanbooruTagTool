@@ -202,6 +202,49 @@ def main() -> int:
         w.writeheader()
         w.writerows(review_b001)
 
+    # Second review batch: hard cases only.
+    # Select 5 legacy/unqualified rows per ecosystem.  These are deliberately
+    # NOT accepted as belonging to expected_root_candidate merely because the
+    # old relation or search/alias text mentions that ecosystem.
+    b001_ids = {r["row_id"] for r in review_b001}
+    review_b002 = []
+    for ecosystem in ECOSYSTEMS:
+        hard_rows = [
+            r for r in pilot
+            if r["ecosystem"] == ecosystem
+            and r["pilot_role"] == "LEGACY_HARD_NEGATIVE_OR_UNQUALIFIED"
+            and r["row_id"] not in b001_ids
+        ]
+        if len(hard_rows) < 5:
+            raise SystemExit(
+                f"{ecosystem}: expected at least 5 hard rows for B002, got {len(hard_rows)}"
+            )
+        for row in hard_rows[:5]:
+            review_b002.append({
+                **row,
+                "home_state": "",
+                "home_copyright": "",
+                "authority_type": "",
+                "evidence_refs": "",
+                "reviewer_note": (
+                    "Legacy relation/search/alias evidence is sampling context only; "
+                    "do not confirm HOME without independent accepted authority."
+                ),
+                "second_review_required": "true",
+            })
+
+    if len(review_b002) != 50:
+        raise SystemExit(f"expected 50 B002 rows, got {len(review_b002)}")
+    if {r["row_id"] for r in review_b002} & b001_ids:
+        raise SystemExit("B001/B002 review overlap detected")
+
+    with (OUT / "REVIEW_B002_HARD_CASES.csv").open(
+        "w", encoding="utf-8-sig", newline=""
+    ) as fh:
+        w = csv.DictWriter(fh, fieldnames=review_fields, lineterminator="\n")
+        w.writeheader()
+        w.writerows(review_b002)
+
     role_counts = {}
     for row in pilot:
         role_counts[row["pilot_role"]] = role_counts.get(row["pilot_role"], 0) + 1
@@ -212,6 +255,9 @@ def main() -> int:
         "role_counts": role_counts,
         "review_b001_rows": 50,
         "review_b001_per_ecosystem": 5,
+        "review_b002_rows": 50,
+        "review_b002_per_ecosystem": 5,
+        "review_b002_role": "LEGACY_HARD_NEGATIVE_OR_UNQUALIFIED",
         "selection_only": True,
         "expected_root_candidate_is_not_a_verdict": True,
         "legacy_relation_used_for_sampling_only": True,
