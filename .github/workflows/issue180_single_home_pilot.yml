@@ -102,6 +102,8 @@ jobs:
         run: python scripts/issue180/validate_parallel_precision_gate.py
       - name: Build global approved qualifier HOME
         run: python scripts/issue180/build_global_approved_qualifier_home_v1.py
+      - name: Build global unresolved authority backlog
+        run: python scripts/issue180/build_global_unresolved_backlog_v1.py
       - name: Build major roster authority expansion
         run: python scripts/issue180/build_major_roster_expansion_v1.py
       - name: Validate major roster expansion
