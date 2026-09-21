@@ -300,6 +300,18 @@ jobs:
           assert not s['accepted_source_modified'] and not s['production_modified']
           print(json.dumps(s,ensure_ascii=False,indent=2))
           PY
+      - name: Build full unresolved priority queue
+        run: python scripts/issue180/build_unresolved_priority_v1.py
+      - name: Validate full unresolved priority queue
+        run: |
+          python - <<'PY'
+          import json
+          s=json.load(open('artifacts/issue180-full-preflight/POST_NORMALIZED_REVIEW/MASTER_HOME/unresolved_priority_v1_summary.json',encoding='utf-8'))
+          assert s['master_unresolved_match']
+          assert s['unresolved_rows']>0
+          assert s['auto_approved']==0 and not s['production_modified']
+          print(json.dumps(s,ensure_ascii=False,indent=2))
+          PY
       - uses: actions/upload-artifact@v4
         with:
           name: issue180-single-home-pilot
