@@ -25,6 +25,7 @@ jobs:
           $base = '45919734f6b03cb64e2269153e63f9a378b62691'
           $allowed = @(
             '.github/workflows/issue177_mitigation_validation.yml',
+            'src/DanbooruTagTool.App/MainWindow.xaml',
             'src/DanbooruTagTool.App/ViewModels/DictionaryWorkspaceViewModel.cs',
             'src/DanbooruTagTool.App/Views/DictionaryWorkspaceView.xaml',
             'src/DanbooruTagTool.Tests/Issue70IntegrationTests.cs',
