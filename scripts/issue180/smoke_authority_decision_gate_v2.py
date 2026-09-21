@@ -83,6 +83,20 @@ def main():
   "evidence_claim":"","validation_state":"UNRESOLVED","officiality_state":"","notes":"too short",
  }])], "terminal UNRESOLVED decision requires notes")
 
+ expect_fail("discovery_group_pass", [("a",[{
+  "scope":"DISCOVERY_GROUP","key":"pokemon","home_copyright":"",
+  "base_character":"","authority_type":"ROSTER_GROUP_RESEARCH","evidence_url":"https://www.pokemon.co.jp/",
+  "evidence_claim":"Official Pokemon source used for group review.","validation_state":"PASS",
+  "officiality_state":"","notes":"Group review progress must never create HOME authority.",
+ }])], "DISCOVERY_GROUP is review-progress only")
+
+ expect_fail("discovery_group_no_evidence", [("a",[{
+  "scope":"DISCOVERY_GROUP","key":"pokemon","home_copyright":"",
+  "base_character":"","authority_type":"","evidence_url":"",
+  "evidence_claim":"","validation_state":"UNRESOLVED",
+  "officiality_state":"","notes":"Reviewed the group but deliberately omitted grounded evidence for this smoke case.",
+ }])], "DISCOVERY_GROUP terminal review requires grounded evidence")
+
  expect_fail("autonomous_not_official", [("a",[{
   "scope":"NOT_OFFICIAL_CHARACTER","key":"harmony_(pokemon)","home_copyright":"",
   "base_character":"","authority_type":"AUTONOMOUS_NON_OFFICIAL","evidence_url":"",
