@@ -14,6 +14,8 @@ D=R/"artifacts/issue180-full-preflight/POST_NORMALIZED_REVIEW/MASTER_HOME_V2"
 FAMILY=D/"REMAINING_FAMILY_WORK_V2.csv"
 OFFICIALITY=D/"REMAINING_OFFICIALITY_WORK_V2.csv"
 UNQUALIFIED=D/"REMAINING_UNQUALIFIED_WORK_V2.csv"
+UNQUALIFIED_GROUPS=D/"UNQUALIFIED_DISCOVERY_GROUPS_V2.csv"
+REVIEWED_GROUPS=D/"REVIEWED_DISCOVERY_GROUPS_V2.csv"
 WEAK=D/"LEGACY_WEAK_DIRECT_REVIEW_V2.csv"
 MASTER=D/"CHARACTER_HOME_MASTER_V2.csv"
 SUMMARY=D/"character_home_master_v2_summary.json"
@@ -21,6 +23,7 @@ OUT=D/"autonomous_completion_readiness_v2.json"
 ORIGIN_META=R/"docs/issue180/evidence/ISSUE179_ORIGIN_HANDOFF_V1.meta.json"
 ISSUE179_REF="refs/heads/research/issue179-character-quality-audit"
 WRITE_SCOPE_GATE=R/"scripts/issue180/validate_codex_write_scope_v2.py"
+POLICY_PATH=R/"docs/issue180/autonomous/AUTONOMOUS_POLICY_V2.json"
 
 MANDATORY_FAMILY_LANES={
  "FAST_REVALIDATE_NORMALIZATION",
@@ -86,6 +89,8 @@ def main():
  fam=read(FAMILY)
  officiality=read(OFFICIALITY)
  unq=read(UNQUALIFIED)
+ groups=read(UNQUALIFIED_GROUPS)
+ reviewed_groups=read(REVIEWED_GROUPS)
  weak=read(WEAK)
  master=read(MASTER)
  master_by={r["canonical_tag"]:r for r in master}
@@ -93,6 +98,18 @@ def main():
  lanes=Counter(r.get("work_lane","") for r in fam)
  mandatory_family={k:lanes[k] for k in sorted(MANDATORY_FAMILY_LANES) if lanes[k]}
  direct_roster=sum(r.get("work_state")=="DIRECT_ROSTER_REVIEW" for r in unq)
+ policy=json.loads(POLICY_PATH.read_text(encoding="utf-8"))
+ group_min=int(policy["mandatory_unqualified_group_min_rows"])
+ reviewed_group_keys={r.get("discovery_group","").strip().lower() for r in reviewed_groups}
+ mandatory_groups=[
+  r for r in groups
+  if int(r.get("character_rows","0") or 0)>=group_min
+ ]
+ missing_mandatory_groups=sorted(
+  (r["discovery_group"],int(r["character_rows"]))
+  for r in mandatory_groups
+  if r["discovery_group"].strip().lower() not in reviewed_group_keys
+ )
  weak_unresolved=[
   r["canonical_tag"] for r in weak
   if master_by.get(r["canonical_tag"],{}).get("final_state")!="HOME_CONFIRMED"
@@ -104,6 +121,7 @@ def main():
   "officiality_rows":len(officiality),
   "mandatory_family_families":sum(mandatory_family.values()),
   "direct_roster_rows":direct_roster,
+  "mandatory_unqualified_groups":len(missing_mandatory_groups),
   "legacy_weak_direct_rows":len(weak_unresolved),
   "pending_decision_rows":pending,
  }
@@ -131,12 +149,16 @@ def main():
   "blockers":blockers,
   "mandatory_family_lane_counts":mandatory_family,
   "legacy_weak_direct_unresolved":weak_unresolved,
+  "mandatory_unqualified_group_min_rows":group_min,
+  "mandatory_unqualified_groups_total":len(mandatory_groups),
+  "mandatory_unqualified_groups_missing":missing_mandatory_groups,
+  "reviewed_discovery_groups":len(reviewed_group_keys),
   "residual_family_families":len(fam),
   "residual_variant_rows":summary.get("remaining_work",{}).get("variant_rows",0),
   "residual_unqualified_rows":len(unq),
   "deferred_character_rows":summary.get("remaining_work",{}).get("deferred_character_rows",0),
   "deferred_family_rows":summary.get("remaining_work",{}).get("deferred_family_rows",0),
-  "note":"Residual discovery/variant work may remain unresolved, but mandatory fast/officiality/direct-roster lanes must be resolved or explicitly deferred.",
+  "note":"Residual long-tail discovery/variant work may remain unresolved, but mandatory fast/officiality/direct-roster/high-yield discovery-group lanes must be resolved or explicitly deferred.",
  }
  OUT.write_text(json.dumps(result,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
  print(json.dumps(result,ensure_ascii=False,indent=2))
