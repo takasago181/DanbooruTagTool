@@ -900,10 +900,7 @@ public sealed class DictionaryWorkspaceViewModel : Observable
             ? 0
             : catalog.RelatedByCatalogMetadata(entry).Count;
 
-    private string? RelationSummaryFor(CatalogEntry entry)
-        => entry.EffectiveCategory is "Character" or "Copyright"
-            ? null
-            : null;
+    private string? RelationSummaryFor(CatalogEntry entry) => null;
     private void ToggleFacet(object? parameter)
     {
         if (specialBrowse == null || parameter is not SpecialBrowseFacetOptionViewModel option) return;
