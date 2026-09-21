@@ -4,7 +4,7 @@ import csv,json
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[2]
 CAT=ROOT/"docs/issue70/data/runtime/issue70_catalog_overlay.csv"
-PREF=ROOT/"artifacts/issue180-full-preflight/full_character_preflight.csv"
+PREF=ROOT/"artifacts/issue180-full-preflight/CHARACTER_QUALIFIER_CENSUS.csv"
 GATE=ROOT/"artifacts/issue180-full-preflight/P1_P3_CATALOG_SEMANTIC_GATE_V1.csv"
 JP=ROOT/"artifacts/issue180-full-preflight/P1_P3_JAPANESE_DISPLAY_AUDIT_V1.csv"
 OUT=ROOT/"artifacts/issue180-full-preflight/FULL_CHARACTER_REGRESSION_V1.json"
