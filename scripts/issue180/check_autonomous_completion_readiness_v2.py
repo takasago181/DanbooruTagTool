@@ -36,15 +36,27 @@ def read(path):
 
 def check_issue179_freshness():
  meta=json.loads(ORIGIN_META.read_text(encoding="utf-8"))
- saved=str(meta.get("source_sha","")).strip()
+ saved_commit=str(meta.get("source_sha","")).strip()
+ saved_blob=str(meta.get("source_blob_sha","")).strip()
+ source_path=str(meta.get("source_path","")).strip()
  p=subprocess.run(["git","ls-remote","origin",ISSUE179_REF],cwd=R,text=True,capture_output=True)
  if p.returncode!=0:
-  return False, saved, "", "git ls-remote failed: "+p.stderr.strip()
+  return False, saved_commit, "", saved_blob, "", "git ls-remote failed: "+p.stderr.strip()
  line=(p.stdout or "").strip().splitlines()
  if len(line)!=1 or not line[0].split():
-  return False, saved, "", "Issue179 remote ref not found or ambiguous"
- live=line[0].split()[0]
- return live==saved, saved, live, "" if live==saved else "Issue179 origin handoff snapshot is stale"
+  return False, saved_commit, "", saved_blob, "", "Issue179 remote ref not found or ambiguous"
+ live_commit=line[0].split()[0]
+ if live_commit==saved_commit:
+  return True, saved_commit, live_commit, saved_blob, saved_blob, ""
+ fetch=subprocess.run(["git","fetch","--quiet","--no-tags","--depth=1","origin",live_commit],cwd=R,text=True,capture_output=True)
+ if fetch.returncode!=0:
+  return False, saved_commit, live_commit, saved_blob, "", "Issue179 live commit fetch failed: "+fetch.stderr.strip()
+ blob=subprocess.run(["git","rev-parse",f"{live_commit}:{source_path}"],cwd=R,text=True,capture_output=True)
+ if blob.returncode!=0:
+  return False, saved_commit, live_commit, saved_blob, "", "Issue179 origin review blob lookup failed: "+blob.stderr.strip()
+ live_blob=blob.stdout.strip()
+ fresh=bool(saved_blob) and live_blob==saved_blob
+ return fresh, saved_commit, live_commit, saved_blob, live_blob, "" if fresh else "Issue179 origin review file changed; refresh handoff snapshot"
 
 
 def main():
@@ -77,10 +89,15 @@ def main():
   "pending_decision_rows":pending,
  }
  ready=all(v==0 for v in blockers.values()) and decisions>0
- freshness={"checked":False,"fresh":None,"saved_sha":"","live_sha":"","error":""}
+ freshness={"checked":False,"fresh":None,"saved_sha":"","live_sha":"","saved_blob_sha":"","live_blob_sha":"","error":""}
  if args.final:
-  fresh,saved,live,error=check_issue179_freshness()
-  freshness={"checked":True,"fresh":fresh,"saved_sha":saved,"live_sha":live,"error":error}
+  fresh,saved_commit,live_commit,saved_blob,live_blob,error=check_issue179_freshness()
+  freshness={
+   "checked":True,"fresh":fresh,
+   "saved_sha":saved_commit,"live_sha":live_commit,
+   "saved_blob_sha":saved_blob,"live_blob_sha":live_blob,
+   "error":error,
+  }
   ready=ready and fresh
 
  result={
