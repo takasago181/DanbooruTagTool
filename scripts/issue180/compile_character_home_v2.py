@@ -23,6 +23,9 @@ FAMILY_PROV = O / "FAMILY_AUTHORITY_PROVENANCE_V2.csv"
 DECISIONS = R / "docs/issue180/autonomous/AUTHORITY_DECISIONS_V2.csv"
 OUT = O / "CHARACTER_HOME_MASTER_V2.csv"
 APPLIED = O / "APPLIED_AUTHORITY_LEDGER_V2.csv"
+FAMILY_WORK = O / "FAMILY_WORK_QUEUE_V2.csv"
+VARIANT_WORK = O / "VARIANT_WORK_QUEUE_V2.csv"
+UNQUALIFIED_WORK = O / "UNQUALIFIED_WORK_QUEUE_V2.csv"
 EXPECTED = 35890
 ATTR = {
     "1st_costume", "2nd_costume", "3rd_costume", "4th_costume", "5th_costume",
@@ -82,6 +85,11 @@ def main() -> None:
     variant: dict[str, list[dict[str, str]]] = defaultdict(list)
     blocks: set[str] = set()
     not_official: set[str] = set()
+    family_reason = {r["family"]: r.get("work_lane", "FAMILY_AUTHORITY_PENDING") for r in read(FAMILY_WORK)}
+    variant_reason = {r["canonical_tag"]: r.get("work_state", "VARIANT_REVIEW_PENDING") for r in read(VARIANT_WORK)}
+    unqualified_reason = {r["canonical_tag"]: r.get("work_state", "ROSTER_DISCOVERY") for r in read(UNQUALIFIED_WORK)}
+    deferred_character_reason: dict[str, str] = {}
+    deferred_family_reason: dict[str, str] = {}
 
     def add_record(store: dict[str, list[dict[str, str]]], key: str, home: str, rec: dict[str, str]) -> None:
         if not key or not home:
@@ -124,9 +132,23 @@ def main() -> None:
         state = (row.get("validation_state") or "").strip()
         if state in {"UNRESOLVED", "PENDING"}:
             decision_unresolved += 1
+            key = (row.get("key") or "").strip()
+            scope = (row.get("scope") or "").strip()
+            reason = (row.get("notes") or row.get("evidence_claim") or "AUTONOMOUS_REVIEW_UNRESOLVED").strip()
+            if scope == "FAMILY_QUALIFIER":
+                deferred_family_reason[key.lower()] = reason
+            elif key:
+                deferred_character_reason[key] = reason
             continue
         if state == "NEEDS_HIGHER_REASONING":
             decision_higher += 1
+            key = (row.get("key") or "").strip()
+            scope = (row.get("scope") or "").strip()
+            reason = (row.get("notes") or row.get("evidence_claim") or "NEEDS_HIGHER_REASONING").strip()
+            if scope == "FAMILY_QUALIFIER":
+                deferred_family_reason[key.lower()] = "NEEDS_HIGHER_REASONING: " + reason
+            elif key:
+                deferred_character_reason[key] = "NEEDS_HIGHER_REASONING: " + reason
             continue
         if state != "PASS":
             raise SystemExit(f"invalid autonomous validation_state: {state}")
@@ -286,7 +308,20 @@ def main() -> None:
         else:
             state = "HOME_UNRESOLVED"
             home = ""
-            reason = "NO_ACCEPTED_HOME_AUTHORITY"
+            if tag in deferred_character_reason:
+                reason = deferred_character_reason[tag]
+            elif tag in pending:
+                reason = "VARIANT_BASE_HOME_NOT_CONFIRMED"
+            elif tag in variant_reason:
+                reason = variant_reason[tag]
+            elif fam in deferred_family_reason:
+                reason = deferred_family_reason[fam]
+            elif fam in family_reason:
+                reason = family_reason[fam]
+            elif tag in unqualified_reason:
+                reason = unqualified_reason[tag]
+            else:
+                reason = "NO_ACCEPTED_HOME_AUTHORITY"
         counts[state] += 1
         rows_out.append({
             "canonical_tag": tag,
