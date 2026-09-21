@@ -335,7 +335,7 @@ jobs:
           assert s['origin_guarded_v1_rows_removed']==0
           assert s['foundation_confirmed_before_autonomous_decisions']>=9000
           assert s['foundation_confirmed_before_autonomous_decisions']+s['foundation_unresolved_before_autonomous_decisions']==35890
-          assert s['family_work_rows']+s['variant_work_rows']+s['unqualified_work_rows']==s['foundation_unresolved_before_autonomous_decisions']
+          assert s['officiality_work_rows']+s['family_work_rows']+s['variant_work_rows']+s['unqualified_work_rows']==s['foundation_unresolved_before_autonomous_decisions']
           assert s['multi_home_conflicts']==0 and s['missing_copyright_roots']==0
           assert not s['accepted_source_modified'] and not s['production_modified']
           print(json.dumps(s,ensure_ascii=False,indent=2))
