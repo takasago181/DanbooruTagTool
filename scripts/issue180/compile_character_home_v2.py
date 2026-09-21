@@ -181,7 +181,7 @@ def main() -> None:
         if scope not in VALID_SCOPES:
             raise SystemExit(f"invalid autonomous authority scope: {scope}")
         state = (row.get("validation_state") or "").strip()
-        if state in {"UNRESOLVED", "PENDING"}:
+        if state == "UNRESOLVED":
             decision_unresolved += 1
             key = (row.get("key") or "").strip()
             scope = (row.get("scope") or "").strip()
@@ -190,6 +190,8 @@ def main() -> None:
                 deferred_family_reason[key.lower()] = reason
             elif key:
                 deferred_character_reason[key] = reason
+            continue
+        if state == "PENDING":
             continue
         if state == "NEEDS_HIGHER_REASONING":
             decision_higher += 1
@@ -410,17 +412,27 @@ def main() -> None:
         w.writerows(applied)
 
     unresolved_set = {r["canonical_tag"] for r in rows_out if r["final_state"] == "HOME_UNRESOLVED"}
-    remaining_officiality = [dict(r) for r in foundation_officiality_rows if r["canonical_tag"] in unresolved_set]
+    deferred_character_tags = (set(deferred_character_reason) | blocks) & unresolved_set
+    deferred_family_keys = set(deferred_family_reason)
+
+    remaining_officiality = [
+        dict(r) for r in foundation_officiality_rows
+        if r["canonical_tag"] in unresolved_set and r["canonical_tag"] not in deferred_character_tags
+    ]
     remaining_officiality.sort(key=lambda r: (-int(r.get("post_count", "0") or 0), r["canonical_tag"]))
 
-    remaining_family_counts = Counter()
     officiality_tags = {r["canonical_tag"] for r in remaining_officiality}
+    remaining_family_counts = Counter()
+    deferred_family_counts = Counter()
     for tag in unresolved_set:
-        if tag in officiality_tags:
+        if tag in deferred_character_tags or tag in officiality_tags:
             continue
         fam = (census[tag].get("final_qualifier") or "").strip().lower()
         if fam and not is_attribute_family(fam) and not nested(tag, fam):
-            remaining_family_counts[fam] += 1
+            if fam in deferred_family_keys:
+                deferred_family_counts[fam] += 1
+            else:
+                remaining_family_counts[fam] += 1
 
     remaining_family = []
     for row in foundation_family_rows:
@@ -432,16 +444,29 @@ def main() -> None:
         remaining_family.append(x)
     remaining_family.sort(key=lambda r: (-int(r["character_rows"]), r["family"]))
 
+    deferred_family = []
+    for row in foundation_family_rows:
+        count = deferred_family_counts.get(row["family"], 0)
+        if not count:
+            continue
+        x = dict(row)
+        x["character_rows"] = str(count)
+        x["deferred_reason"] = deferred_family_reason.get(row["family"], "AUTONOMOUS_REVIEW_UNRESOLVED")
+        deferred_family.append(x)
+    deferred_family.sort(key=lambda r: (-int(r["character_rows"]), r["family"]))
+
     remaining_variant = []
     for row in foundation_variant_rows:
         tag = row["canonical_tag"]
-        if tag not in unresolved_set:
+        if tag not in unresolved_set or tag in deferred_character_tags:
             continue
         x = dict(row)
         base = x.get("base_character", "")
         base_home = home_by.get(base, "")
         x["base_home_candidate"] = base_home
-        if base_home:
+        if tag in origin_guarded:
+            x["work_state"] = "OFFICIALITY_REVIEW_REQUIRED_ISSUE179"
+        elif base_home:
             x["work_state"] = "BASE_HOME_READY_OFFICIALITY_REVIEW"
         elif base and base in char_tags:
             x["work_state"] = "BASE_EXISTS_HOME_PENDING"
@@ -450,13 +475,38 @@ def main() -> None:
         remaining_variant.append(x)
     remaining_variant.sort(key=lambda r: (-int(r.get("post_count", "0") or 0), r["canonical_tag"]))
 
-    remaining_unqualified = [dict(r) for r in foundation_unqualified_rows if r["canonical_tag"] in unresolved_set]
+    remaining_unqualified = [
+        dict(r) for r in foundation_unqualified_rows
+        if r["canonical_tag"] in unresolved_set and r["canonical_tag"] not in deferred_character_tags
+    ]
     remaining_unqualified.sort(key=lambda r: (-int(r.get("post_count", "0") or 0), r["canonical_tag"]))
+
+    deferred_character = []
+    row_by_tag = {r["canonical_tag"]: r for r in rows_out}
+    for tag in sorted(deferred_character_tags):
+        row = row_by_tag[tag]
+        deferred_character.append({
+            "canonical_tag": tag,
+            "final_qualifier": row.get("final_qualifier", ""),
+            "origin_class": row.get("origin_class", ""),
+            "deferred_reason": deferred_character_reason.get(tag, "EXPLICIT_CHARACTER_BLOCK"),
+            "production_approved": "false",
+        })
 
     write_csv(O / "REMAINING_OFFICIALITY_WORK_V2.csv", remaining_officiality, list(foundation_officiality_rows[0].keys()) if foundation_officiality_rows else None)
     write_csv(O / "REMAINING_FAMILY_WORK_V2.csv", remaining_family, list(foundation_family_rows[0].keys()) if foundation_family_rows else None)
     write_csv(O / "REMAINING_VARIANT_WORK_V2.csv", remaining_variant, list(foundation_variant_rows[0].keys()) if foundation_variant_rows else None)
     write_csv(O / "REMAINING_UNQUALIFIED_WORK_V2.csv", remaining_unqualified, list(foundation_unqualified_rows[0].keys()) if foundation_unqualified_rows else None)
+    write_csv(
+        O / "DEFERRED_FAMILY_REVIEW_V2.csv",
+        deferred_family,
+        (list(foundation_family_rows[0].keys()) + ["deferred_reason"]) if foundation_family_rows else None,
+    )
+    write_csv(
+        O / "DEFERRED_CHARACTER_REVIEW_V2.csv",
+        deferred_character,
+        ["canonical_tag","final_qualifier","origin_class","deferred_reason","production_approved"],
+    )
     remaining_summary = {
         "officiality_rows": len(remaining_officiality),
         "family_rows": sum(int(r["character_rows"]) for r in remaining_family),
@@ -464,10 +514,15 @@ def main() -> None:
         "variant_rows": len(remaining_variant),
         "variant_base_home_ready": sum(r.get("work_state") == "BASE_HOME_READY_OFFICIALITY_REVIEW" for r in remaining_variant),
         "unqualified_rows": len(remaining_unqualified),
+        "deferred_character_rows": len(deferred_character),
+        "deferred_family_rows": sum(int(r["character_rows"]) for r in deferred_family),
+        "deferred_family_families": len(deferred_family),
         "total_unresolved": len(unresolved_set),
     }
-    if remaining_summary["officiality_rows"] + remaining_summary["family_rows"] + remaining_summary["variant_rows"] + remaining_summary["unqualified_rows"] != len(unresolved_set):
-        raise SystemExit("dynamic remaining-work partition mismatch")
+    active = remaining_summary["officiality_rows"] + remaining_summary["family_rows"] + remaining_summary["variant_rows"] + remaining_summary["unqualified_rows"]
+    deferred = remaining_summary["deferred_character_rows"] + remaining_summary["deferred_family_rows"]
+    if active + deferred != len(unresolved_set):
+        raise SystemExit(f"dynamic remaining/deferred partition mismatch active={active} deferred={deferred} unresolved={len(unresolved_set)}")
     (O / "remaining_work_v2_summary.json").write_text(
         json.dumps(remaining_summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
@@ -490,6 +545,7 @@ def main() -> None:
         "autonomous_decision_rows": len(decisions),
         "autonomous_pass_rows": decision_pass,
         "autonomous_unresolved_rows": decision_unresolved,
+        "autonomous_pending_rows": sum((r.get("validation_state") or "").strip() == "PENDING" for r in decisions),
         "autonomous_higher_reasoning_rows": decision_higher,
         "pending_reviewed_variants_without_confirmed_base": len(pending),
         "multi_home_or_policy_conflicts": len(conflicts),
