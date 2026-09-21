@@ -32,6 +32,8 @@ jobs:
         run: python scripts/issue180/build_full_character_preflight.py
       - name: Triage unknown qualifiers
         run: python scripts/issue180/triage_unknown_qualifiers.py
+      - name: Build root review batch A
+        run: python scripts/issue180/build_root_review_batch_a.py
       - uses: actions/upload-artifact@v4
         with:
           name: issue180-single-home-pilot
