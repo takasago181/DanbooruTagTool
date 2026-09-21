@@ -57,8 +57,25 @@ def check_issue179_freshness():
  if blob.returncode!=0:
   return False, saved_commit, live_commit, saved_blob, "", "Issue179 origin review blob lookup failed: "+blob.stderr.strip()
  live_blob=blob.stdout.strip()
- fresh=bool(saved_blob) and live_blob==saved_blob
- return fresh, saved_commit, live_commit, saved_blob, live_blob, "" if fresh else "Issue179 origin review file changed; refresh handoff snapshot"
+ tree=subprocess.run(
+  ["git","ls-tree","-r","--name-only",live_commit,"--","docs/issue179/reviews"],
+  cwd=R,text=True,capture_output=True
+ )
+ if tree.returncode!=0:
+  return False, saved_commit, live_commit, saved_blob, live_blob, "Issue179 review tree lookup failed: "+tree.stderr.strip()
+ origin_review_files=sorted(
+  x.strip() for x in tree.stdout.splitlines()
+  if x.strip().endswith("_ORIGIN_REVIEW.csv")
+ )
+ unexpected=[x for x in origin_review_files if x!=source_path]
+ fresh=bool(saved_blob) and live_blob==saved_blob and not unexpected
+ if live_blob!=saved_blob:
+  error="Issue179 origin review file changed; refresh handoff snapshot"
+ elif unexpected:
+  error="Issue179 has new origin review files not present in the handoff: "+", ".join(unexpected)
+ else:
+  error=""
+ return fresh, saved_commit, live_commit, saved_blob, live_blob, error
 
 
 def main():
