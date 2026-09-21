@@ -39,6 +39,7 @@ ATTR = set(POLICY["attribute_families"])
 VARIANT_QUALIFIER_FAMILIES = set(POLICY["variant_qualifier_families"])
 ORDINAL_COSTUME = re.compile(POLICY["ordinal_costume_regex"])
 OFFICIAL_ORIGIN_CLASSES = set(POLICY["official_origin_classes"])
+NOT_OFFICIAL_ORIGIN_CLASSES = set(POLICY["not_official_origin_classes"])
 ALLOW_AUTONOMOUS_NOT_OFFICIAL = bool(POLICY["allow_autonomous_not_official_pass"])
 VALID_SCOPES = {"FAMILY_QUALIFIER", "DIRECT_CHARACTER", "VARIANT_CHARACTER", "NOT_OFFICIAL_CHARACTER", "BLOCK_CHARACTER"}
 
@@ -120,16 +121,22 @@ def main() -> None:
         for r in origin_rows
         if r.get("canonical_tag") in char_tags
     }
+    origin_not_official = {
+        tag: cls for tag, cls in origin_by.items()
+        if cls in NOT_OFFICIAL_ORIGIN_CLASSES
+    }
     origin_guarded = {
         tag: cls for tag, cls in origin_by.items()
-        if cls not in OFFICIAL_ORIGIN_CLASSES
+        if cls not in OFFICIAL_ORIGIN_CLASSES and cls not in NOT_OFFICIAL_ORIGIN_CLASSES
     }
 
     direct: dict[str, list[dict[str, str]]] = defaultdict(list)
     family: dict[str, list[dict[str, str]]] = defaultdict(list)
     variant: dict[str, list[dict[str, str]]] = defaultdict(list)
     blocks: set[str] = set()
-    not_official: set[str] = set()
+    # #179 is the authoritative source for confirmed non-official identity.
+    # Autonomous #180 decisions cannot add to this set while policy disables it.
+    not_official: set[str] = set(origin_not_official)
     foundation_family_rows = read(FAMILY_WORK)
     foundation_officiality_rows = read(OFFICIALITY_WORK)
     foundation_variant_rows = read(VARIANT_WORK)
