@@ -16,6 +16,8 @@ OFFICIALITY=D/"REMAINING_OFFICIALITY_WORK_V2.csv"
 UNQUALIFIED=D/"REMAINING_UNQUALIFIED_WORK_V2.csv"
 UNQUALIFIED_GROUPS=D/"UNQUALIFIED_DISCOVERY_GROUPS_V2.csv"
 REVIEWED_GROUPS=D/"REVIEWED_DISCOVERY_GROUPS_V2.csv"
+VARIANT_GROUPS=D/"VARIANT_PATTERN_GROUPS_V2.csv"
+REVIEWED_VARIANT_PATTERNS=D/"REVIEWED_VARIANT_PATTERNS_V2.csv"
 DEFERRED_CHAR=D/"DEFERRED_CHARACTER_REVIEW_V2.csv"
 WEAK=D/"LEGACY_WEAK_DIRECT_REVIEW_V2.csv"
 MASTER=D/"CHARACTER_HOME_MASTER_V2.csv"
@@ -92,6 +94,8 @@ def main():
  unq=read(UNQUALIFIED)
  groups=read(UNQUALIFIED_GROUPS)
  reviewed_groups=read(REVIEWED_GROUPS)
+ variant_groups=read(VARIANT_GROUPS)
+ reviewed_variant_patterns=read(REVIEWED_VARIANT_PATTERNS)
  deferred_char=read(DEFERRED_CHAR)
  weak=read(WEAK)
  master=read(MASTER)
@@ -113,7 +117,19 @@ def main():
   and r["canonical_tag"] not in deferred_character_tags
  ]
  group_min=int(policy["mandatory_unqualified_group_min_rows"])
+ variant_pattern_min=int(policy["mandatory_variant_pattern_min_rows"])
  reviewed_group_keys={r.get("discovery_group","").strip().lower() for r in reviewed_groups}
+ reviewed_variant_pattern_keys={r.get("pattern_id","").strip() for r in reviewed_variant_patterns}
+ mandatory_variant_patterns=[
+  r for r in variant_groups
+  if r.get("work_state")=="BASE_HOME_READY_OFFICIALITY_REVIEW"
+  and int(r.get("character_rows","0") or 0)>=variant_pattern_min
+ ]
+ missing_mandatory_variant_patterns=sorted(
+  (r["pattern_id"],int(r["character_rows"]))
+  for r in mandatory_variant_patterns
+  if r["pattern_id"].strip() not in reviewed_variant_pattern_keys
+ )
  mandatory_groups=[
   r for r in groups
   if int(r.get("character_rows","0") or 0)>=group_min
@@ -136,6 +152,7 @@ def main():
   "mandatory_family_families":sum(mandatory_family.values()),
   "direct_roster_rows":direct_roster,
   "mandatory_unqualified_groups":len(missing_mandatory_groups),
+  "mandatory_variant_patterns":len(missing_mandatory_variant_patterns),
   "legacy_weak_direct_rows":len(weak_unresolved),
   "pending_decision_rows":pending,
  }
@@ -168,12 +185,16 @@ def main():
   "mandatory_unqualified_groups_total":len(mandatory_groups),
   "mandatory_unqualified_groups_missing":missing_mandatory_groups,
   "reviewed_discovery_groups":len(reviewed_group_keys),
+  "mandatory_variant_pattern_min_rows":variant_pattern_min,
+  "mandatory_variant_patterns_total":len(mandatory_variant_patterns),
+  "mandatory_variant_patterns_missing":missing_mandatory_variant_patterns,
+  "reviewed_variant_patterns":len(reviewed_variant_pattern_keys),
   "residual_family_families":len(fam),
   "residual_variant_rows":summary.get("remaining_work",{}).get("variant_rows",0),
   "residual_unqualified_rows":len(unq),
   "deferred_character_rows":summary.get("remaining_work",{}).get("deferred_character_rows",0),
   "deferred_family_rows":summary.get("remaining_work",{}).get("deferred_family_rows",0),
-  "note":"Residual long-tail discovery/variant work may remain unresolved, but mandatory fast/officiality/direct-roster/high-yield discovery-group lanes must be resolved or explicitly deferred.",
+  "note":"Residual long-tail discovery/variant work may remain unresolved, but mandatory fast/officiality/direct-roster/high-yield discovery-group/high-yield ready-variant-pattern lanes must be resolved or explicitly deferred.",
  }
  OUT.write_text(json.dumps(result,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
  print(json.dumps(result,ensure_ascii=False,indent=2))
