@@ -44,11 +44,11 @@ public sealed class ForgeBridgeClient(HttpClient? httpClient = null) : IForgeBri
         if (request.Positive.Length > ForgeBridgeProtocol.MaxPayloadBytes || request.Negative is { Length: > ForgeBridgeProtocol.MaxPayloadBytes })
             return Failure("oversized", "Forgeへ送る内容が大きすぎます");
 
-        if (request.Action == ForgeBridgeAction.ApplyRecipe && request.Recipe?.HasAny != true)
-            return Failure("recipe_empty", "このプリセットには生成条件がありません");
+        if (request.Action == ForgeBridgeAction.ApplyRecipe && request.Recipe?.HasAutomaticSettings != true)
+            return Failure("recipe_empty", "このプリセットには自動適用できる生成条件がありません");
 
         using var timeout = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken);
-        timeout.CancelAfter(request.Recipe?.HasAny == true ? TimeSpan.FromSeconds(30) :
+        timeout.CancelAfter(request.Recipe?.HasAutomaticSettings == true ? TimeSpan.FromSeconds(30) :
             request.Action == ForgeBridgeAction.SendAndGenerate ? TimeSpan.FromSeconds(5) : TimeSpan.FromSeconds(2));
         try
         {
@@ -60,7 +60,7 @@ public sealed class ForgeBridgeClient(HttpClient? httpClient = null) : IForgeBri
                 return Failure("protocol", "Forge連携拡張のバージョンが合いません");
             if (request.Action == ForgeBridgeAction.SendAndGenerate && !HasCapability(healthJson, ForgeBridgeProtocol.GenerateCapability))
                 return Failure("upgrade", "Forge連携拡張を更新してください（Forge設定→拡張を配置→Forge再起動）");
-            if ((request.Action == ForgeBridgeAction.ApplyRecipe || request.Recipe?.HasAny == true) &&
+            if ((request.Action == ForgeBridgeAction.ApplyRecipe || request.Recipe?.HasAutomaticSettings == true) &&
                 !HasCapability(healthJson, ForgeBridgeProtocol.RecipeCapability))
                 return Failure("upgrade", "Forge連携拡張を更新してください（生成レシピ対応版が必要です）");
 
@@ -76,7 +76,7 @@ public sealed class ForgeBridgeClient(HttpClient? httpClient = null) : IForgeBri
             // Keep the legacy send-only payload shape intact so older bridge installs continue to work.
             if (request.Action == ForgeBridgeAction.SendAndGenerate) payload["action"] = "send_and_generate";
             else if (request.Action == ForgeBridgeAction.ApplyRecipe) payload["action"] = "apply_recipe";
-            if (request.Recipe?.HasAny == true) payload["settings"] = RecipePayload(request.Recipe);
+            if (request.Recipe?.HasAutomaticSettings == true) payload["settings"] = RecipePayload(request.Recipe);
 
             var json = JsonSerializer.Serialize(payload);
             if (Encoding.UTF8.GetByteCount(json) > ForgeBridgeProtocol.MaxPayloadBytes)
@@ -129,7 +129,7 @@ public sealed class ForgeBridgeClient(HttpClient? httpClient = null) : IForgeBri
             {
                 if (!success) return Failure(error, ActionFailureMessage(error));
                 if (request.Action == ForgeBridgeAction.ApplyRecipe) return new(true, "Forgeへレシピを適用しました");
-                return new(true, request.Recipe?.HasAny == true ? "Forgeへレシピ生成操作を送信しました" : "Forgeへ生成操作を送信しました");
+                return new(true, request.Recipe?.HasAutomaticSettings == true ? "Forgeへレシピ生成操作を送信しました" : "Forgeへ生成操作を送信しました");
             }
 
             await Task.Delay(100, cancellationToken);
@@ -158,7 +158,8 @@ public sealed class ForgeBridgeClient(HttpClient? httpClient = null) : IForgeBri
     private static Dictionary<string, object> RecipePayload(GenerationRecipe recipe)
     {
         var result = new Dictionary<string, object>();
-        if (!string.IsNullOrWhiteSpace(recipe.Model)) result["model"] = recipe.Model!;
+        // Model is intentionally reference-only. The user selects the Forge
+        // checkpoint manually before applying or generating a recipe.
         if (recipe.Seed is { } seed) result["seed"] = seed;
         if (recipe.Steps is { } steps) result["steps"] = steps;
         if (!string.IsNullOrWhiteSpace(recipe.Sampler)) result["sampler"] = recipe.Sampler!;

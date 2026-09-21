@@ -151,12 +151,35 @@
       await sleep(220);
 
       const listboxId = input.getAttribute("aria-controls");
-      const getOptions = () => {
-        const listbox = listboxId ? document.getElementById(listboxId) : null;
-        return listbox instanceof HTMLElement
-          ? [...listbox.querySelectorAll("[role='option']")]
-          : [];
+      const isVisible = element =>
+        element instanceof HTMLElement &&
+        element.getClientRects().length > 0 &&
+        window.getComputedStyle(element).visibility !== "hidden";
+
+      const getListboxes = () => {
+        const listboxes = [];
+        const add = candidate => {
+          if (!(candidate instanceof HTMLElement)) return;
+          if (candidate.getAttribute("role") !== "listbox") return;
+          if (!listboxes.includes(candidate)) listboxes.push(candidate);
+        };
+
+        // Some Forge/Gradio builds expose aria-controls="dropdown-options"
+        // without assigning that id to the real <ul role="listbox">.
+        // Prefer a valid ARIA target, then the dropdown subtree, then the
+        // currently visible listbox as the last scoped fallback.
+        if (listboxId) add(document.getElementById(listboxId));
+        if (root.matches("[role='listbox']")) add(root);
+        for (const candidate of root.querySelectorAll("[role='listbox']")) add(candidate);
+        for (const candidate of document.querySelectorAll("[role='listbox']"))
+          if (isVisible(candidate)) add(candidate);
+
+        return listboxes;
       };
+
+      const getOptions = () => getListboxes()
+        .flatMap(listbox => [...listbox.querySelectorAll("[role='option']")])
+        .filter(option => isVisible(option));
 
       let options = getOptions();
       let exact = options.find(option =>
