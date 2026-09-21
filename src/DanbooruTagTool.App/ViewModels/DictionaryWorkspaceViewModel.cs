@@ -334,8 +334,7 @@ public sealed class DictionaryWorkspaceViewModel : Observable
                 [
                     new NavigationNode("copyright", "作品から探す", []),
                     new NavigationNode("character", "キャラクターから探す", [])
-                ]),
-                new NavigationNode("artist", "作者", [])
+                ])
             ])
             .ToArray();
         InspectEntry = new(p => { if (p is EntryViewModel row) { SelectedEntry = row; DetailsTabIndex = 0; } }, p => canMutate() && p is EntryViewModel);
@@ -417,7 +416,11 @@ public sealed class DictionaryWorkspaceViewModel : Observable
             }
             else
             {
-                entries = hits.Select(hit => hit.Entry);
+                // Artist is intentionally hidden from the current product surface.
+                // Keep the accepted data in the catalog for future reuse, but do
+                // not expose it through ordinary "all" search.
+                entries = hits.Select(hit => hit.Entry)
+                    .Where(entry => entry.EffectiveCategory != "Artist");
             }
         }
         else if (Scope == UnifiedBrowseScope.Tags)
@@ -456,6 +459,9 @@ public sealed class DictionaryWorkspaceViewModel : Observable
     public void SetScope(UnifiedBrowseScope scope)
     {
         if (!canMutate()) return;
+        // Artist is retained in catalog data only. Legacy/programmatic attempts
+        // to enter Artist scope fall back to the normal Tags surface.
+        if (scope == UnifiedBrowseScope.Artist) scope = UnifiedBrowseScope.Tags;
         ExitRelationMode();
         SetSearchTargetValue(SearchTargetForScope(scope), refresh: false);
         ApplyUnifiedState(unifiedState.WithScope(scope), true);
@@ -529,29 +535,17 @@ public sealed class DictionaryWorkspaceViewModel : Observable
     public void SetSearchTarget(DictionarySearchTarget target)
     {
         if (!canMutate()) return;
+        if (target == DictionarySearchTarget.Artist) target = DictionarySearchTarget.All;
         ExitRelationMode();
         SetSearchTargetValue(target, refresh: true);
     }
 
     public void OpenRelated(CatalogEntry entry)
     {
-        if (!canMutate() || entry.EffectiveCategory is not ("Character" or "Copyright")) return;
-        if (catalog.RelatedByCatalogMetadata(entry).Count == 0) return;
-        relatedSource = entry;
-        var targetScope = entry.EffectiveCategory == "Copyright" ? UnifiedBrowseScope.Character : UnifiedBrowseScope.Copyright;
-        unifiedState = CloneState(unifiedState.WithScope(targetScope));
-        browse = BrowseKeyForState(unifiedState);
-        SetSearchTargetValue(SearchTargetForScope(targetScope), refresh: false);
-        query = "";
-        browseSelection = null;
-        RestoreScroll = 0;
-        Notify(nameof(Query));
-        Notify(nameof(BrowseKey));
-        Notify(nameof(ShowRelationBanner));
-        Notify(nameof(RelationBannerText));
-        NotifyUnifiedState();
-        RefreshResults();
-        persist();
+        // Current Character <-> Copyright metadata was built from co-occurrence
+        // evidence and produced false ownership relations in real use. Keep the
+        // raw metadata in the catalog, but do not expose it as a product truth.
+        if (entry.EffectiveCategory is "Character" or "Copyright") return;
     }
 
     public void ClearRelatedBrowse()
@@ -597,7 +591,7 @@ public sealed class DictionaryWorkspaceViewModel : Observable
     {
         UnifiedBrowseScope.Character => DictionarySearchTarget.Character,
         UnifiedBrowseScope.Copyright => DictionarySearchTarget.Copyright,
-        UnifiedBrowseScope.Artist => DictionarySearchTarget.Artist,
+        UnifiedBrowseScope.Artist => DictionarySearchTarget.All,
         _ => DictionarySearchTarget.All
     };
 
@@ -633,7 +627,8 @@ public sealed class DictionaryWorkspaceViewModel : Observable
     {
         UnifiedBrowseState state;
         if (Enum.TryParse<UnifiedBrowseScope>(ui.BrowseScope, true, out var explicitScope))
-            state = UnifiedBrowseState.Neutral.WithScope(explicitScope);
+            state = UnifiedBrowseState.Neutral.WithScope(
+                explicitScope == UnifiedBrowseScope.Artist ? UnifiedBrowseScope.Tags : explicitScope);
         else
             state = LegacyStateFromBrowse(ui.Browse);
 
@@ -665,7 +660,7 @@ public sealed class DictionaryWorkspaceViewModel : Observable
     {
         if (key == "character") return UnifiedBrowseState.Neutral.WithScope(UnifiedBrowseScope.Character);
         if (key == "copyright") return UnifiedBrowseState.Neutral.WithScope(UnifiedBrowseScope.Copyright);
-        if (key == "artist") return UnifiedBrowseState.Neutral.WithScope(UnifiedBrowseScope.Artist);
+        if (key == "artist") return UnifiedBrowseState.Neutral;
         if (key.StartsWith("general:", StringComparison.Ordinal))
         {
             var token = key[8..];
@@ -696,7 +691,7 @@ public sealed class DictionaryWorkspaceViewModel : Observable
         if (key == "tags" || key is "general" or "special") return unifiedState.WithScope(UnifiedBrowseScope.Tags).WithPrimary(null).WithLocal(null);
         if (key == "character") return unifiedState.WithScope(UnifiedBrowseScope.Character);
         if (key == "copyright") return unifiedState.WithScope(UnifiedBrowseScope.Copyright);
-        if (key == "artist") return unifiedState.WithScope(UnifiedBrowseScope.Artist);
+        if (key == "artist") return unifiedState.WithScope(UnifiedBrowseScope.Tags);
         if (key.StartsWith("route:", StringComparison.Ordinal))
             return unifiedState.WithScope(UnifiedBrowseScope.Tags).WithPrimary(key[6..]);
         if (key.StartsWith("local:", StringComparison.Ordinal))
@@ -901,25 +896,14 @@ public sealed class DictionaryWorkspaceViewModel : Observable
         => entries.Select(e => new EntryViewModel(e, workspace, Add, canMutate, UnifiedBreadcrumb, IsDeepDiscovery, RelationSummaryFor, RelationCountFor, OpenRelated)).ToArray();
 
     private int RelationCountFor(CatalogEntry entry)
-        => entry.EffectiveCategory is "Character" or "Copyright" ? catalog.RelatedByCatalogMetadata(entry).Count : 0;
+        => entry.EffectiveCategory is "Character" or "Copyright"
+            ? 0
+            : catalog.RelatedByCatalogMetadata(entry).Count;
 
     private string? RelationSummaryFor(CatalogEntry entry)
-    {
-        if (entry.EffectiveCategory == "Character")
-        {
-            var works = catalog.RelatedByCatalogMetadata(entry);
-            if (works.Count == 0) return null;
-            var labels = works.Take(3).Select(work => work.Label).ToArray();
-            var suffix = works.Count > labels.Length ? $" / ほか{works.Count - labels.Length:N0}" : "";
-            return "作品: " + string.Join(" / ", labels) + suffix;
-        }
-        if (entry.EffectiveCategory == "Copyright")
-        {
-            var count = catalog.RelatedByCatalogMetadata(entry).Count;
-            return count > 0 ? $"関連キャラ {count:N0}件" : null;
-        }
-        return null;
-    }
+        => entry.EffectiveCategory is "Character" or "Copyright"
+            ? null
+            : null;
     private void ToggleFacet(object? parameter)
     {
         if (specialBrowse == null || parameter is not SpecialBrowseFacetOptionViewModel option) return;
@@ -973,7 +957,9 @@ public sealed class DictionaryWorkspaceViewModel : Observable
         => unifiedBrowse.Get(entry)?.DeepDiscovery == true;
     private IReadOnlyList<EntryViewModel> RelatedFor(CatalogEntry entry)
     {
-        if (entry.EffectiveCategory == "Character" || (entry.EffectiveCategory == "Copyright" && entry.Canonical is not null) || specialBrowse == null || !entry.IsSpecial)
+        if (entry.EffectiveCategory is "Character" or "Copyright")
+            return [];
+        if (specialBrowse == null || !entry.IsSpecial)
             return Rows(catalog.RelatedByCatalogMetadata(entry));
         var route = specialBrowse.Get(entry.Id); if (route == null || !route.CanBrowse) return [];
         var candidates = catalog.BrowseCategory("Special").Where(e => e.Id != entry.Id).Where(e =>
