@@ -42,26 +42,26 @@ def main():
  expect_fail("project_voltage", [("a",[{
   "scope":"FAMILY_QUALIFIER","key":"project_voltage","home_copyright":"project_voltage",
   "base_character":"","authority_type":"QUALIFIER_COPYRIGHT","evidence_url":"",
-  "evidence_claim":evidence,"validation_state":"PASS","officiality_state":"","notes":"",
+  "evidence_claim":evidence,"validation_state":"PASS","officiality_state":"","notes":"Repository policy evidence for smoke test.",
  }])], "non-HOME collaboration/project family")
 
  expect_fail("broad_lightweight", [("a",[{
   "scope":"FAMILY_QUALIFIER","key":"final_fantasy","home_copyright":"final_fantasy",
   "base_character":"","authority_type":"QUALIFIER_COPYRIGHT","evidence_url":"",
-  "evidence_claim":evidence,"validation_state":"PASS","officiality_state":"","notes":"",
+  "evidence_claim":evidence,"validation_state":"PASS","officiality_state":"","notes":"Repository policy evidence for smoke test.",
  }])], "broad family PASS requires")
 
  expect_fail("fake_repo_evidence", [("a",[{
   "scope":"FAMILY_QUALIFIER","key":"blue_archive","home_copyright":"blue_archive",
   "base_character":"","authority_type":"QUALIFIER_COPYRIGHT","evidence_url":"",
   "evidence_claim":"REPO:docs/issue180/DOES_NOT_EXIST.md","validation_state":"PASS",
-  "officiality_state":"","notes":"",
+  "officiality_state":"","notes":"Repository evidence should not exist.",
  }])], "PASS requires http(s) evidence_url or evidence_claim REPO:<existing repository path>")
 
  row_pass={
   "scope":"FAMILY_QUALIFIER","key":"blue_archive","home_copyright":"blue_archive",
   "base_character":"","authority_type":"QUALIFIER_COPYRIGHT","evidence_url":"",
-  "evidence_claim":evidence,"validation_state":"PASS","officiality_state":"","notes":"",
+  "evidence_claim":evidence,"validation_state":"PASS","officiality_state":"","notes":"Repository policy evidence for smoke test.",
  }
  row_unresolved={
   "scope":"FAMILY_QUALIFIER","key":"Blue_Archive","home_copyright":"",
@@ -69,6 +69,13 @@ def main():
   "evidence_claim":"","validation_state":"UNRESOLVED","officiality_state":"","notes":"conflicting review state",
  }
  expect_fail("cross_shard_duplicate", [("a",[row_pass]),("b",[row_unresolved])], "multiple decisions for same scope/key")
+
+ expect_fail("autonomous_not_official", [("a",[{
+  "scope":"NOT_OFFICIAL_CHARACTER","key":"harmony_(pokemon)","home_copyright":"",
+  "base_character":"","authority_type":"AUTONOMOUS_NON_OFFICIAL","evidence_url":"",
+  "evidence_claim":evidence,"validation_state":"PASS","officiality_state":"NOT_OFFICIAL_CONFIRMED",
+  "notes":"Single-pass autonomous exclusion must be rejected.",
+ }])], "autonomous NOT_OFFICIAL_CHARACTER PASS is disabled")
 
  print("Issue #180 autonomous decision adversarial smoke: PASS")
 
