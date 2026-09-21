@@ -258,8 +258,8 @@ async def _prompt(request: Request) -> JSONResponse:
 async def _pending_request(request: Request) -> JSONResponse:
     if not _is_loopback(request):
         return _json_error(403, "local_only", "loopback access required")
-    consumer_id = request.query_params.get("consumerId", "")
-    if not consumer_id or len(consumer_id) > 128 or any(ord(c) < 32 for c in consumer_id):
+    consumer_id = request.query_params.get("consumerId") or "legacy"
+    if len(consumer_id) > 128 or any(ord(c) < 32 for c in consumer_id):
         return _json_error(400, "malformed", "consumerId is invalid")
 
     with _lock:
