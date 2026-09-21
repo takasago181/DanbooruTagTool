@@ -222,6 +222,9 @@ def main() -> None:
     for tag in not_official:
         if tag in home_by or tag in direct:
             conflicts.add(tag)
+    for tag in blocks:
+        if tag in direct:
+            conflicts.add(tag)
 
     if family_conflicts:
         conflicts.update({f"FAMILY::{x}" for x in family_conflicts})
