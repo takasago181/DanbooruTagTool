@@ -37,10 +37,10 @@ OLD_GLOBAL = A / "GLOBAL_APPROVED_QUALIFIER_HOME_V1.csv"
 EXPECTED = 35890
 
 ATTR = {
-    "1st_costume", "2nd_costume", "3rd_costume", "4th_costume", "5th_costume",
     "new_year", "summer", "casual", "school_uniform", "female", "male", "young",
     "timeskip", "stand", "racehorse", "human", "character", "cat",
 }
+ORDINAL_COSTUME = re.compile(r"^[0-9]+(?:st|nd|rd|th)_costume$")
 BROAD = {
     "disney", "marvel", "final_fantasy", "idolmaster", "precure", "yu-gi-oh!",
     "nijisanji", "dragon_ball", "mega_man", "tales", "persona", "megami_tensei",
@@ -75,6 +75,10 @@ def norm(value: str) -> str:
     return re.sub(r"[^a-z0-9]+", "", (value or "").lower())
 
 
+def is_attribute_family(family: str) -> bool:
+    return is_attribute_family(family) or bool(ORDINAL_COSTUME.match(family or ""))
+
+
 def nested_final_qualifier(tag: str, family: str) -> bool:
     if not family:
         return False
@@ -82,6 +86,62 @@ def nested_final_qualifier(tag: str, family: str) -> bool:
     if not tag.lower().endswith(suffix.lower()):
         return False
     return tag[:-len(suffix)].endswith(")")
+
+
+def split_final_qualifier(tag: str) -> tuple[str, str]:
+    m = re.search(r"_\\(([^()]*)\\)$", tag)
+    return (tag[:m.start()], m.group(1)) if m else ("", "")
+
+
+def select_base_character(tag: str, family: str, char_by: dict[str, dict[str, str]], predicted_home: dict[str, str]) -> tuple[str, str]:
+    """Select a structural base candidate without proving variant officiality.
+
+    For name_(variant)_(ip), prefer name_(ip) when that Character exists.
+    For ordinary attribute suffixes, prefer direct suffix removal.
+    If multiple plausible existing bases have conflicting confirmed HOMEs,
+    return an explicit ambiguity state instead of choosing.
+    """
+    prefix, outer = split_final_qualifier(tag)
+    candidates: list[tuple[str, str]] = []
+    if prefix and prefix in char_by:
+        candidates.append(("DIRECT_SUFFIX_STRIP", prefix))
+    inner_base, inner = split_final_qualifier(prefix) if prefix else ("", "")
+    if outer and inner:
+        keep_outer = f"{inner_base}_({outer})"
+        if keep_outer in char_by:
+            candidates.append(("DROP_INNER_VARIANT_KEEP_OUTER", keep_outer))
+        if inner_base in char_by:
+            candidates.append(("DROP_BOTH_QUALIFIERS", inner_base))
+
+    unique: list[tuple[str, str]] = []
+    seen = set()
+    for kind, candidate in candidates:
+        if candidate not in seen:
+            unique.append((kind, candidate))
+            seen.add(candidate)
+    if not unique:
+        return "", "BASE_NOT_FOUND_OR_NONTRIVIAL"
+
+    confirmed = [(kind, candidate, predicted_home[candidate]) for kind, candidate in unique if candidate in predicted_home]
+    confirmed_homes = {home for _, _, home in confirmed}
+    if len(confirmed_homes) > 1:
+        return "", "BASE_CANDIDATE_HOME_CONFLICT"
+
+    if nested_final_qualifier(tag, family) and not is_attribute_family(family):
+        preferred_order = ["DROP_INNER_VARIANT_KEEP_OUTER", "DIRECT_SUFFIX_STRIP", "DROP_BOTH_QUALIFIERS"]
+    else:
+        preferred_order = ["DIRECT_SUFFIX_STRIP", "DROP_INNER_VARIANT_KEEP_OUTER", "DROP_BOTH_QUALIFIERS"]
+
+    if confirmed:
+        for kind in preferred_order:
+            for ck, candidate, _ in confirmed:
+                if ck == kind:
+                    return candidate, "BASE_HOME_READY_OFFICIALITY_REVIEW"
+    for kind in preferred_order:
+        for ck, candidate in unique:
+            if ck == kind:
+                return candidate, "BASE_EXISTS_HOME_PENDING"
+    return "", "BASE_NOT_FOUND_OR_NONTRIVIAL"
 
 
 def first_float(value: str) -> int:
@@ -282,7 +342,7 @@ def main() -> None:
         if tag in predicted_home or row.get("final_state") != "HOME_UNRESOLVED":
             continue
         family = (census[tag].get("final_qualifier") or "").strip().lower()
-        if not family or family in ATTR or nested_final_qualifier(tag, family):
+        if not family or is_attribute_family(family) or nested_final_qualifier(tag, family):
             continue
         home = fast_family_home.get(family, "")
         if home:
@@ -296,7 +356,7 @@ def main() -> None:
         family = (census[tag].get("final_qualifier") or "").strip().lower()
         if not family:
             continue
-        if family in ATTR or nested_final_qualifier(tag, family):
+        if is_attribute_family(family) or nested_final_qualifier(tag, family):
             unresolved_nested_counts[family] += 1
         else:
             unresolved_family_counts[family] += 1
@@ -354,18 +414,10 @@ def main() -> None:
     for tag in unresolved_tags:
         family = (census[tag].get("final_qualifier") or "").strip().lower()
         is_nested = nested_final_qualifier(tag, family)
-        if not family or (family not in ATTR and not is_nested):
+        if not family or (not is_attribute_family(family) and not is_nested):
             continue
-        suffix = f"_({family})" if family else ""
-        base = tag[:-len(suffix)] if suffix and tag.lower().endswith(suffix.lower()) else ""
-        base_exists = base in char_by
-        base_home = predicted_home.get(base, "") if base_exists else ""
-        if base_home:
-            state = "BASE_HOME_READY_OFFICIALITY_REVIEW"
-        elif base_exists:
-            state = "BASE_EXISTS_HOME_PENDING"
-        else:
-            state = "BASE_NOT_FOUND_OR_NONTRIVIAL"
+        base, state = select_base_character(tag, family, char_by, predicted_home)
+        base_home = predicted_home.get(base, "") if base else ""
         variant_rows.append({
             "canonical_tag": tag,
             "display_ja": char_by[tag].get("display_ja", ""),
