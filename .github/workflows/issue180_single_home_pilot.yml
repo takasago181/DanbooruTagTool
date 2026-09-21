@@ -70,6 +70,8 @@ jobs:
         run: python scripts/issue180/review_p1_conservative_v1.py
       - name: Conservative review P3 semantic batch
         run: python scripts/issue180/review_p3_conservative_v1.py
+      - name: Gate P1/P3 candidates against Copyright catalog
+        run: python scripts/issue180/gate_p1_p3_catalog_semantics_v1.py
       - name: Build unqualified authority worklist
         run: python scripts/issue180/build_unqualified_authority_worklist.py
       - name: Shard P1 authority review
