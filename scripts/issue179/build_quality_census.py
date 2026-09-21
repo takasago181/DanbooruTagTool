@@ -58,6 +58,11 @@ NON_IDENTITY_SEARCH_RE = re.compile(
     r"(?:イラスト|ファンアート|fanart|fan_art|の日(?:$|\s)|^絵[^\s]{2,})",
     re.IGNORECASE,
 )
+FANDOM_COMMUNITY_SEARCH_RE = re.compile(
+    r"(?:腐|お絵描き|ドット絵部|コッショリ|夢絵|夢小説|夢アカ|fanart|fan_art)",
+    re.IGNORECASE,
+)
+DESCRIPTIVE_SEARCH_RE = re.compile(r"(?:ための|するため)")
 PAREN_GROUP_RE = re.compile(r"（([^）]*)）|\(([^()]*)\)")
 ASCII_LOWER_WORD_RE = re.compile(r"[a-z]{3,}")
 
