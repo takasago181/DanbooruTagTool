@@ -88,7 +88,7 @@ public class Issue145ForgeGenerateTests
             new ForgeBridgeSendRequest("blue_hair", ForgeNegativeMode.Unchanged, Action: ForgeBridgeAction.SendAndGenerate));
 
         Assert.True(result.Success);
-        Assert.Equal("Forgeで生成を開始しました", result.Status);
+        Assert.Equal("Forgeへ生成操作を送信しました", result.Status);
         using var payload = JsonDocument.Parse(posted!);
         Assert.Equal("send_and_generate", payload.RootElement.GetProperty("action").GetString());
         Assert.Equal("unchanged", payload.RootElement.GetProperty("negativeMode").GetString());
