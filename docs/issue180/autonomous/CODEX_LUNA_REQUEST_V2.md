@@ -6,11 +6,12 @@ Preflight in this order:
 
 1. Issue #180 body/current state
 2. `docs/issue180/autonomous/AUTONOMOUS_COMPLETION_RUNBOOK_V2.md`
-3. `docs/issue180/autonomous/AUTONOMOUS_POLICY_V2.json`
-4. `docs/issue180/AUTHORITY_POLICY_V1.md`
-5. `docs/issue180/autonomous/decisions/README.md`
-6. `docs/issue180/autonomous/AUTHORITY_DECISIONS_V2.csv`
-7. current v2 scripts/workflow
+3. `docs/issue180/autonomous/FINAL_ADVERSARIAL_AUDIT_V2.md`
+4. `docs/issue180/autonomous/AUTONOMOUS_POLICY_V2.json`
+5. `docs/issue180/AUTHORITY_POLICY_V1.md`
+6. `docs/issue180/autonomous/decisions/README.md`
+7. `docs/issue180/autonomous/AUTHORITY_DECISIONS_V2.csv`
+8. current v2 scripts/workflow
 
 The v2 foundation is already implemented and CI-validated.
 
