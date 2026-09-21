@@ -418,10 +418,15 @@ def main() -> None:
             continue
         base, state = select_base_character(tag, family, char_by, predicted_home)
         base_home = predicted_home.get(base, "") if base else ""
+        prefix, outer = split_final_qualifier(tag)
+        _, inner = split_final_qualifier(prefix) if prefix else ("", "")
+        variant_qualifier = inner if is_nested and inner else family
         variant_rows.append({
             "canonical_tag": tag,
             "display_ja": char_by[tag].get("display_ja", ""),
             "final_qualifier": family,
+            "variant_qualifier": variant_qualifier,
+            "outer_ip_qualifier": family if is_nested else "",
             "variant_shape": "NESTED_FINAL_QUALIFIER" if is_nested else "ATTRIBUTE_OR_VARIANT",
             "base_character": base,
             "base_home_candidate": base_home,
@@ -488,15 +493,21 @@ def main() -> None:
         })
 
     variant_groups: list[dict[str, str]] = []
-    grouped_variants: dict[tuple[str, str, str], list[dict[str, str]]] = defaultdict(list)
+    grouped_variants: dict[tuple[str, str, str, str], list[dict[str, str]]] = defaultdict(list)
     for row in variant_rows:
-        group_key = (row["base_home_candidate"] or "__BASE_HOME_PENDING__", row["final_qualifier"], row["work_state"])
+        group_key = (
+            row["base_home_candidate"] or "__BASE_HOME_PENDING__",
+            row["variant_qualifier"],
+            row["outer_ip_qualifier"],
+            row["work_state"],
+        )
         grouped_variants[group_key].append(row)
-    for (base_home, qualifier, state), rows in sorted(grouped_variants.items(), key=lambda kv: (-len(kv[1]), kv[0])):
+    for (base_home, variant_qualifier, outer_ip, state), rows in sorted(grouped_variants.items(), key=lambda kv: (-len(kv[1]), kv[0])):
         top = sorted(rows, key=lambda r: (-int(r["post_count"]), r["canonical_tag"]))[:8]
         variant_groups.append({
             "base_home_group": "" if base_home == "__BASE_HOME_PENDING__" else base_home,
-            "final_qualifier": qualifier,
+            "variant_qualifier": variant_qualifier,
+            "outer_ip_qualifier": outer_ip,
             "work_state": state,
             "character_rows": str(len(rows)),
             "top_character_samples": "|".join(r["canonical_tag"] for r in top),
