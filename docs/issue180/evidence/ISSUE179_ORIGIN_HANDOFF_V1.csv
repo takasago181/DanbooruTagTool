@@ -1,0 +1,101 @@
+row_id,canonical_tag,origin_class,origin_excluded_terms,origin_review_terms,origin_evidence,origin_note,origin_second_review_required
+I70-035896,fate_(series),OFFICIAL_IDENTITY,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-035953,ragnarok_online,OFFICIAL_IDENTITY,,ROお絵描き::UNKNOWN,INTERNAL:canonical/display/search/aliases,Official row is preserved; listed terms require origin verification before removal.,true
+I70-036072,super_smash_bros.,OFFICIAL_IDENTITY,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-000262,yazawa_nico,OFFICIAL_IDENTITY,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-036544,yuuki_bakuhatsu_bang_bravern,OFFICIAL_IDENTITY,腐レイバーン::FANWORK_COMMUNITY,,WEB:fanwork tag evidence for 腐レイバーン; INTERNAL:search_ja,Official row is preserved; only confirmed fanwork/non-identity search terms are exclusion candidates.,true
+I70-002905,kohinata_miho,OFFICIAL_IDENTITY,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-038479,good_omens,OFFICIAL_IDENTITY,,,WEB:Prime Video Good Omens; INTERNAL:canonical/display,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-013648,aizawa_eiko,OFFICIAL_IDENTITY,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-018786,curakuru_(character),UNKNOWN,,,INTERNAL:canonical/display/search/aliases,Row identity/officialness remains unresolved; do not auto-include or suppress from origin classification alone.,true
+I70-027634,handa_shin'ichi,UNKNOWN,,,INTERNAL:canonical/display/search/aliases,Row identity/officialness remains unresolved; do not auto-include or suppress from origin classification alone.,true
+I70-000001,hatsune_miku,OFFICIAL_IDENTITY,ミクの日::FANWORK_EVENT | 初音ミクイラスト::FANWORK_HASHTAG,,WEB:https://piapro.net/pages/character ; INTERNAL:#177 known Pokemon false relation,Official row is preserved; only confirmed fanwork/non-identity search terms are exclusion candidates.,true
+I70-000436,irys_(hololive),OFFICIAL_IDENTITY,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-000146,kirby,OFFICIAL_IDENTITY,,,INTERNAL:#177 known Pokemon false relation,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-000445,medusa_(fate),OFFICIAL_IDENTITY,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-000852,elizabeth_bathory_(fate),OFFICIAL_IDENTITY,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-002544,kei_(aris)_(blue_archive),UNKNOWN,,,WEB:current Blue Archive community references identify ケイ/天童ケイ; official verification pending,Row identity/officialness remains unresolved; do not auto-include or suppress from origin classification alone.,true
+I70-002725,mudrock_(elite_ii)_(arknights),OFFICIAL_VARIANT,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-003159,eve_(stellar_blade),OFFICIAL_IDENTITY,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-003656,captain_nemo_(fate),OFFICIAL_IDENTITY,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-004202,hilda_valentine_goneril_(timeskip),OFFICIAL_VARIANT,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-004416,cheval_grand_(grand_itineraire)_(umamusume),OFFICIAL_VARIANT,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-006041,sherlock_holmes_(fate),OFFICIAL_IDENTITY,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-008266,soul_(character)_(deltarune),OFFICIAL_IDENTITY,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-009997,gawr_gura_(party_dress),OFFICIAL_VARIANT,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-010173,zooey_(summer)_(granblue_fantasy),OFFICIAL_VARIANT,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-010317,winning_ticket_(get_to_winning!)_(umamusume),OFFICIAL_VARIANT,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-011760,aubrey_(birthday)_(omori),OFFICIAL_VARIANT,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-024763,boy_vajra_(fate),OFFICIAL_IDENTITY,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-035921,mahou_shoujo_madoka_magica_(anime),OFFICIAL_IDENTITY,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-035964,pokemon_(anime),OFFICIAL_IDENTITY,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-000041,link,OFFICIAL_IDENTITY,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-000050,yuuka_(blue_archive),OFFICIAL_IDENTITY,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-000072,gawr_gura,OFFICIAL_IDENTITY,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-000090,trainer_(umamusume),OFFICIAL_IDENTITY,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-036057,kamen_rider,OFFICIAL_IDENTITY,,,WEB:https://www.kamen-rider-official.com/series/maskedrider/ ; INTERNAL:canonical/search,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-000127,aris_(blue_archive),OFFICIAL_IDENTITY,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-000267,shuten_douji_(fate),OFFICIAL_IDENTITY,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-036245,atelier_ryza,OFFICIAL_IDENTITY,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-000924,moria_luluka,OFFICIAL_IDENTITY,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-001432,mortis_(costume)_(bang_dream!),OFFICIAL_VARIANT,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-001852,katsuragi_marina,OFFICIAL_IDENTITY,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-002140,ellen_joe_(on_campus),OFFICIAL_VARIANT,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-002398,mita_(miside),OFFICIAL_IDENTITY,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-002789,silica,OFFICIAL_IDENTITY,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-037051,grandia,OFFICIAL_IDENTITY,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-003683,xu_fu_(fate),OFFICIAL_IDENTITY,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-037301,valkyrie_profile_(series),OFFICIAL_IDENTITY,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-004993,sayo_samonji,OFFICIAL_IDENTITY,,,WEB:https://www.toukenranbu.jp/character/083/ ; INTERNAL:canonical/display,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-038159,tamagotchi_(classic),OFFICIAL_VARIANT,,,WEB:https://tamagotchi-official.com/jp/series/original/faq/ ; WEB:https://www.bandai.co.jp/press/2025/251119.php,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-039837,lovely_x_cation_2,OFFICIAL_IDENTITY,,,WEB:https://www.hibiki-site.com/product.html ; WEB:https://www.hibiki-site.com/products/lc2re/index.html,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-035899,fate/grand_order,OFFICIAL_IDENTITY,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-035956,mario_(series),OFFICIAL_IDENTITY,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-036077,tengen_toppa_gurren_lagann,OFFICIAL_IDENTITY,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-000318,kasodani_kyouko,OFFICIAL_IDENTITY,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-036621,char's_counterattack,OFFICIAL_IDENTITY,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-003022,harmony_(pokemon),UNKNOWN,,,WEB:Pokémon LEGENDS Z-A official site lists the Japanese protagonist generically as 主人公; INTERNAL:canonical/search/aliases,Row identity/officialness remains unresolved; do not auto-include or suppress from origin classification alone.,true
+I70-008766,milk_(cookie),OFFICIAL_IDENTITY,性癖を露見・共有するための道具::NON_IDENTITY_DESCRIPTION,,INTERNAL:canonical/display/search/aliases,Official row is preserved; only confirmed fanwork/non-identity search terms are exclusion candidates.,true
+I70-039873,makai_gacha_wa_kyou_mo_shibui,OFFICIAL_IDENTITY,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-018981,byerley_turk_(umamusume),OFFICIAL_IDENTITY,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-043287,labyrinth_of_touhou_2,OFFICIAL_IDENTITY,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-000456,cyrene_(demiurge)_(honkai:_star_rail),UNKNOWN,,,INTERNAL:canonical/display/search/aliases,Row identity/officialness remains unresolved; do not auto-include or suppress from origin classification alone.,true
+I70-001157,luciana_de_montefio,OFFICIAL_IDENTITY,,,WEB:Zenless Zone Zero official agent page names the agent ルーシー and gives full name ルシアーナ・オクシスィース・テオドロ・デ・モンテフィーノ,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-000210,kaito_(vocaloid),OFFICIAL_IDENTITY,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-000467,ereshkigal_(fate),OFFICIAL_IDENTITY,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-000896,illustrious_(azur_lane),OFFICIAL_IDENTITY,エンイラ::FANWORK_PAIRING,,INTERNAL:canonical/display/search/aliases,Official row is preserved; only confirmed fanwork/non-identity search terms are exclusion candidates.,true
+I70-002550,phainon_(khaslana)_(honkai:_star_rail),OFFICIAL_IDENTITY,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-002769,gigi_murin_(1st_costume),OFFICIAL_VARIANT,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-003205,texas_(willpower)_(arknights),OFFICIAL_VARIANT,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-003738,binah_(project_moon),OFFICIAL_IDENTITY,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-004211,chloe_von_einzbern_(archer_install),OFFICIAL_VARIANT,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-004475,skadi_(elite_ii)_(arknights),OFFICIAL_VARIANT,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-006091,spider-man_(miles_morales),OFFICIAL_IDENTITY,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-008317,takagi_(tansuke),UNKNOWN,,,INTERNAL:canonical/display/search/aliases,Row identity/officialness remains unresolved; do not auto-include or suppress from origin classification alone.,true
+I70-010005,manhattan_cafe_(casual)_(umamusume),OFFICIAL_VARIANT,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-010180,gardevoir_(fashionable),OFFICIAL_VARIANT,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-010318,yamanin_zephyr_(fluttertail_spirit)_(umamusume),OFFICIAL_VARIANT,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-011847,barghest_(first_ascension)_(fate),OFFICIAL_VARIANT,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-030690,miku_(yuuki_(yuyuki000)),UNKNOWN,,,INTERNAL:canonical/display/search/aliases,Row identity/officialness remains unresolved; do not auto-include or suppress from origin classification alone.,true
+I70-035922,kemono_friends,OFFICIAL_IDENTITY,よこがおフレンズ::FANWORK_COMMUNITY | アライさん美術部::FANWORK_COMMUNITY | オトナけもフレ::FANWORK_COMMUNITY,,INTERNAL:canonical/display/search/aliases,Official row is preserved; only confirmed fanwork/non-identity search terms are exclusion candidates.,true
+I70-035965,k-on!,OFFICIAL_IDENTITY,ぼっち・ざ・けいおん!::FANWORK_CROSSOVER,,INTERNAL:canonical/display/search/aliases,Official row is preserved; only confirmed fanwork/non-identity search terms are exclusion candidates.,true
+I70-000042,shimakaze_(kancolle),OFFICIAL_IDENTITY,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-000053,asuna_(blue_archive),OFFICIAL_IDENTITY,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-000075,koakuma,OFFICIAL_IDENTITY,,まさに小悪魔::UNKNOWN | こぁーず::UNKNOWN | こあぱい::UNKNOWN,INTERNAL:canonical/display/search/aliases,Official row is preserved; listed terms require origin verification before removal.,true
+I70-036035,neptune_(series),OFFICIAL_IDENTITY,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-000115,abigail_williams_(fate),OFFICIAL_IDENTITY,アビラヴィ::FANWORK_PAIRING,,INTERNAL:canonical/display/search/aliases,Official row is preserved; only confirmed fanwork/non-identity search terms are exclusion candidates.,true
+I70-000128,nekomata_okayu,OFFICIAL_IDENTITY,おかころ::FANWORK_PAIRING | 絵かゆ::FANWORK_HASHTAG | エロおにぎり::FANWORK_COMMUNITY,,INTERNAL:canonical/display/search/aliases,Official row is preserved; only confirmed fanwork/non-identity search terms are exclusion candidates.,true
+I70-000281,astolfo_(fate),OFFICIAL_IDENTITY,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-000526,miyamoto_musashi_(fate),OFFICIAL_IDENTITY,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-000947,kiyohime_(fate),OFFICIAL_IDENTITY,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-036551,ryuu_ga_gotoku_(series),OFFICIAL_IDENTITY,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-001857,astolfo_(rider)_(fate),OFFICIAL_VARIANT,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-002168,callie_(squid_sisters_outfit)_(splatoon),OFFICIAL_VARIANT,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-002406,lapras,OFFICIAL_IDENTITY,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-002834,prinz_eugen_(unfading_smile)_(azur_lane),OFFICIAL_VARIANT,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-003168,haunter,OFFICIAL_IDENTITY,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-003685,almond_eye_(the_changer)_(umamusume),OFFICIAL_VARIANT,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-004231,rainbow_dash,OFFICIAL_IDENTITY,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-005094,applejack,OFFICIAL_IDENTITY,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-038278,predator_(series),OFFICIAL_IDENTITY,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
+I70-039949,agarest_senki,OFFICIAL_IDENTITY,,,INTERNAL:canonical/display/search/aliases,No fanwork-origin contamination identified in the current B001/B002 first-pass evidence.,false
