@@ -5,7 +5,7 @@ from collections import Counter
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[2]
-SRC=ROOT/"docs/issue70/data/accepted/issue70_catalog_source.csv"
+SRC=ROOT/"docs/issue70/data/runtime/issue70_catalog_overlay.csv"
 OUTDIR=ROOT/"artifacts/issue180-full-preflight"
 OUT=OUTDIR/"CHARACTER_QUALIFIER_CENSUS.csv"
 SUMMARY=OUTDIR/"summary.json"
@@ -21,12 +21,12 @@ def main():
     if not SRC.exists(): raise SystemExit(f"missing source: {SRC}")
     with SRC.open("r",encoding="utf-8-sig",newline="") as fh:
         rows=list(csv.DictReader(fh))
-    chars=[r for r in rows if (r.get("Category") or r.get("category") or "").lower()=="character"]
+    chars=[r for r in rows if (r.get("category_name") or "").lower()=="character"]
     if len(chars)!=35890: raise SystemExit(f"expected 35890 Character rows, got {len(chars)}")
     OUTDIR.mkdir(parents=True,exist_ok=True)
     result=[]; states=Counter(); quals=Counter()
     for r in chars:
-        tag=r.get("CanonicalTag") or r.get("canonical_tag") or r.get("Tag") or r.get("tag") or ""
+        tag=r.get("canonical_tag") or ""
         m=FINAL.search(tag); q=m.group(1).lower() if m else ""; root=APPROVED.get(q,"")
         state="APPROVED_QUALIFIER_CANDIDATE" if root else ("UNKNOWN_QUALIFIER" if q else "UNQUALIFIED")
         states[state]+=1
