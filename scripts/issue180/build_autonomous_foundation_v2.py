@@ -33,6 +33,7 @@ PRIORITY1 = M1 / "UNRESOLVED_PRIORITY_V1.csv"
 LEDGER1 = D / "MEGABATCH_AUTHORITY/AUTHORITY_LEDGER_V1.csv"
 MAJOR = A / "MAJOR_ROSTER_EXPANSION_V1.csv"
 OLD_GLOBAL = A / "GLOBAL_APPROVED_QUALIFIER_HOME_V1.csv"
+ORIGIN_HANDOFF = R / "docs/issue180/evidence/ISSUE179_ORIGIN_HANDOFF_V1.csv"
 
 EXPECTED = 35890
 
@@ -200,6 +201,18 @@ def main() -> None:
         raise SystemExit("v1 master population drift")
     priority1 = {r["canonical_tag"]: r for r in read(PRIORITY1)}
 
+    origin_rows = read(ORIGIN_HANDOFF)
+    origin_by = {
+        r["canonical_tag"]: r["origin_class"].strip()
+        for r in origin_rows
+        if r.get("canonical_tag") in char_by
+    }
+    official_origin_classes = {"OFFICIAL_IDENTITY", "OFFICIAL_ALIAS", "OFFICIAL_VARIANT"}
+    origin_guarded = {
+        tag: cls for tag, cls in origin_by.items()
+        if cls not in official_origin_classes
+    }
+
     ledger1_rows = read(LEDGER1)
     ledger1 = {r["canonical_tag"]: r for r in ledger1_rows}
     major_rows = read(MAJOR)
@@ -207,7 +220,11 @@ def main() -> None:
     base_direct: list[dict[str, str]] = []
     direct_home: dict[str, str] = {}
 
+    origin_guarded_v1_rows = 0
     for tag, row in ledger1.items():
+        if tag in origin_guarded:
+            origin_guarded_v1_rows += 1
+            continue
         source_home = row.get("home_copyright", "")
         if not source_home:
             raise SystemExit(f"empty v1 ledger home: {tag}")
@@ -226,33 +243,28 @@ def main() -> None:
             "production_approved": "false",
         })
 
-    migrated_current_master = 0
+    weak_current_master_rows: list[dict[str, str]] = []
     for tag, row in master1.items():
-        if row.get("final_state") != "HOME_CONFIRMED" or tag in direct_home:
+        if row.get("final_state") != "HOME_CONFIRMED" or tag in ledger1:
             continue
         source_home = row.get("home_copyright", "")
         if not source_home:
             raise SystemExit(f"empty current-master migrated home: {tag}")
         home = canonical_root(source_home)
         mr = major.get(tag, {})
-        direct_home[tag] = home
-        migrated_current_master += 1
-        base_direct.append({
+        weak_current_master_rows.append({
             "canonical_tag": tag,
-            "home_copyright": home,
-            "authority_scope": "DIRECT_CHARACTER",
-            "authority_type": mr.get("evidence_type", "") or "CURRENT_MASTER_ROSTER_MIGRATION",
-            "evidence_url": "",
-            "evidence_claim": "Preserved from the currently validated research master; provenance upgrade recommended",
-            "source_provenance": "MAJOR_ROSTER_EXPANSION_V1.csv",
-            "validation_state": "PASS",
-            "provenance_quality": "CURRENT_MASTER_MIGRATION",
+            "display_ja": char_by[tag].get("display_ja", ""),
+            "candidate_home": home,
+            "previous_authority_type": mr.get("evidence_type", "") or "CURRENT_MASTER_ROSTER_MIGRATION",
+            "previous_source": "MAJOR_ROSTER_EXPANSION_V1.csv",
+            "work_state": "PROVENANCE_UPGRADE_REQUIRED",
+            "origin_class": origin_by.get(tag, ""),
             "production_approved": "false",
         })
 
-    v1_confirmed = sum(r.get("final_state") == "HOME_CONFIRMED" for r in master1_rows)
-    if len(direct_home) != v1_confirmed:
-        raise SystemExit(f"v1 direct migration mismatch: {len(direct_home)} != {v1_confirmed}")
+    if len(weak_current_master_rows) != 14:
+        raise SystemExit(f"weak current-master migration drift: {len(weak_current_master_rows)} != 14")
 
     family_sources: dict[str, list[dict[str, str]]] = defaultdict(list)
 
@@ -363,9 +375,11 @@ def main() -> None:
     predicted_home = dict(direct_home)
     fast_applied = Counter()
     for tag, row in master1.items():
-        if tag in predicted_home or row.get("final_state") != "HOME_UNRESOLVED":
+        if tag in predicted_home:
             continue
         family = (census[tag].get("final_qualifier") or "").strip().lower()
+        if tag in origin_guarded:
+            continue
         if not family or is_attribute_family(family) or nested_final_qualifier(tag, family):
             continue
         home = fast_family_home.get(family, "")
@@ -446,6 +460,9 @@ def main() -> None:
             continue
         base, state = select_base_character(tag, family, char_by, predicted_home)
         base_home = predicted_home.get(base, "") if base else ""
+        origin_class = origin_by.get(tag, "")
+        if tag in origin_guarded:
+            state = "OFFICIALITY_REVIEW_REQUIRED_ISSUE179"
         prefix, outer = split_final_qualifier(tag)
         _, inner = split_final_qualifier(prefix) if prefix else ("", "")
         variant_qualifier = inner if is_nested and inner else family
@@ -458,6 +475,7 @@ def main() -> None:
             "variant_shape": "NESTED_FINAL_QUALIFIER" if is_nested else "ATTRIBUTE_OR_VARIANT",
             "base_character": base,
             "base_home_candidate": base_home,
+            "origin_class": origin_class,
             "work_state": state,
             "post_count": str(first_float(char_by[tag].get("post_count", "0"))),
             "production_approved": "false",
@@ -485,6 +503,8 @@ def main() -> None:
                 if len(hits) == 1:
                     primary_root = next(iter(hits))
         state = "DIRECT_ROSTER_REVIEW" if p1.get("roster_candidate_state") == "UNIQUE_IDENTITY_OVERLAP_CANDIDATE" else "ROSTER_DISCOVERY"
+        if tag in origin_guarded:
+            state = "OFFICIALITY_REVIEW_REQUIRED_ISSUE179"
         if tag in PIAPRO_POLICY:
             state = "POLICY_DECISION_REQUIRED_PIAPRO"
         unqualified_rows.append({
@@ -497,6 +517,7 @@ def main() -> None:
             "discovery_primary_raw": primary_raw,
             "discovery_primary_root_hint": primary_root,
             "roster_identity_overlap": p1.get("roster_candidate_state", ""),
+            "origin_class": origin_by.get(tag, ""),
             "work_state": state,
             "production_approved": "false",
         })
@@ -583,6 +604,11 @@ def main() -> None:
         })
 
     write_csv(O / "BASE_DIRECT_AUTHORITY_V2.csv", base_direct)
+    write_csv(
+        O / "LEGACY_WEAK_DIRECT_REVIEW_V2.csv",
+        weak_current_master_rows,
+        ["canonical_tag","display_ja","candidate_home","previous_authority_type","previous_source","work_state","origin_class","production_approved"],
+    )
     write_csv(O / "FAMILY_AUTHORITY_PROVENANCE_V2.csv", provenance_rows)
     write_csv(O / "FAMILY_WORK_QUEUE_V2.csv", family_registry)
     write_csv(O / "VARIANT_WORK_QUEUE_V2.csv", variant_rows)
@@ -601,7 +627,10 @@ def main() -> None:
         "character_population": EXPECTED,
         "v1_confirmed_preserved": len(direct_home),
         "v1_ledger_rows": len(ledger1_rows),
-        "current_master_roster_migrations": migrated_current_master,
+        "origin_handoff_rows": len(origin_rows),
+        "origin_guarded_character_rows": len(origin_guarded),
+        "origin_guarded_v1_rows_removed": origin_guarded_v1_rows,
+        "weak_current_master_rows_requeued": len(weak_current_master_rows),
         "legacy_family_mappings": len(resolved_family),
         "legacy_first_party_families": sum(r["source_kind"] == "FIRST_PARTY_REVIEWED" for r in resolved_family.values()),
         "legacy_exact_families": sum(r["source_kind"] == "EXACT_COPYRIGHT_REVIEWED" for r in resolved_family.values()),
