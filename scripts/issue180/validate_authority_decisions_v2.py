@@ -23,6 +23,12 @@ BROAD_PASS_TYPES={
  "FIRST_PARTY_CANONICAL_ROOT",
  "CURATED_ROSTER_ROOT_POLICY",
 }
+BROAD_FAMILIES={
+ "disney","marvel","final_fantasy","idolmaster","precure","yu-gi-oh!","nijisanji",
+ "dragon_ball","mega_man","tales","persona","megami_tensei","zelda","kirby","naruto",
+ "neptunia","nanoha","x-men","transformers","mario","vtuber","cookie",
+}
+NON_HOME_FAMILIES={"project_voltage"}
 
 
 def read(path):
@@ -135,9 +141,9 @@ def main():
 
   if scope=="FAMILY_QUALIFIER":
    lane=family_lane.get(lookup_key,"")
-   if lane=="HIGHER_REASONING_NON_HOME_SEMANTICS":
+   if lookup_key in NON_HOME_FAMILIES or lane=="HIGHER_REASONING_NON_HOME_SEMANTICS":
     raise SystemExit(f"{where}: {lookup_key} is a non-HOME collaboration/project family; use direct/variant evidence, not FAMILY_QUALIFIER")
-   if lane.startswith("HIGHER_REASONING_BROAD") and authority_type not in BROAD_PASS_TYPES:
+   if (lookup_key in BROAD_FAMILIES or lane.startswith("HIGHER_REASONING_BROAD")) and authority_type not in BROAD_PASS_TYPES:
     raise SystemExit(f"{where}: broad family PASS requires explicit root-policy/roster authority_type")
 
   if scope=="DIRECT_CHARACTER" and officiality not in {"OFFICIAL_CONFIRMED","OFFICIAL_IDENTITY"}:
