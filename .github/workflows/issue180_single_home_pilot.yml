@@ -312,6 +312,8 @@ jobs:
           assert s['auto_approved']==0 and not s['production_modified']
           print(json.dumps(s,ensure_ascii=False,indent=2))
           PY
+      - name: Validate Issue179 origin handoff snapshot
+        run: python scripts/issue180/validate_issue179_origin_handoff_v1.py
       - name: Validate autonomous semantic policy v2
         run: python scripts/issue180/validate_autonomous_policy_v2.py
       - name: Build autonomous completion foundation v2
@@ -323,11 +325,14 @@ jobs:
           p='artifacts/issue180-full-preflight/POST_NORMALIZED_REVIEW/MASTER_HOME_V2/autonomous_foundation_v2_summary.json'
           s=json.load(open(p,encoding='utf-8'))
           assert s['character_population']==35890
-          assert s['v1_confirmed_preserved']==940
+          assert s['v1_confirmed_preserved']==926
           assert s['legacy_family_mappings']==1456
           assert s['legacy_first_party_families']==41
           assert s['legacy_exact_families']==1231
           assert s['legacy_normalized_families']==184
+          assert s['origin_handoff_rows']==100
+          assert s['weak_current_master_rows_requeued']==14
+          assert s['origin_guarded_v1_rows_removed']==0
           assert s['foundation_confirmed_before_autonomous_decisions']>=9000
           assert s['foundation_confirmed_before_autonomous_decisions']+s['foundation_unresolved_before_autonomous_decisions']==35890
           assert s['family_work_rows']+s['variant_work_rows']+s['unqualified_work_rows']==s['foundation_unresolved_before_autonomous_decisions']
