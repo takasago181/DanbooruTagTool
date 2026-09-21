@@ -9,7 +9,7 @@ def main():
  allr=list(csv.DictReader(ALL.open(encoding="utf-8-sig",newline="")));home={r.get("canonical_tag",""):r["home_copyright"] for r in allr if r["home_state"]=="HOME_CONFIRMED_RESEARCH"}
  rows=list(csv.DictReader(IN.open(encoding="utf-8-sig",newline="")));out=[];ok=0
  for r in rows:
-  tag=r.get("canonical_tag","");base=SUFFIX.sub("",tag);h=home.get(base,"");state="BASE_HOME_CONFIRMED_CANDIDATE" if h and base!=tag else "BASE_NOT_CONFIRMED"
+  tag=r.get("canonical_tag","");q=(r.get("final_qualifier") or "").strip().lower();base=base_tag(tag,q);h=home.get(base,"");state="BASE_HOME_CONFIRMED_CANDIDATE" if h and base!=tag else "BASE_NOT_CONFIRMED"
   ok+=state.startswith("BASE_HOME");out.append({**r,"base_character":base,"candidate_root_hint":h,"inheritance_state":state,"authority_decision":"PENDING_SECOND_REVIEW","second_review":"PENDING","production_approved":"false"})
  with OUT.open("w",encoding="utf-8-sig",newline="") as f:w=csv.DictWriter(f,fieldnames=out[0].keys(),lineterminator="\n");w.writeheader();w.writerows(out)
  x={"variant_rows":len(rows),"base_home_confirmed_candidates":ok,"base_not_confirmed":len(rows)-ok,"auto_approved":0,"accepted_source_modified":False,"production_modified":False}
