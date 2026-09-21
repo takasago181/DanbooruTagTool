@@ -100,8 +100,6 @@ jobs:
         run: python scripts/issue180/shard_unqualified_controls_x2.py
       - name: Validate doubled-parallel precision gate
         run: python scripts/issue180/validate_parallel_precision_gate.py
-      - name: Build global approved qualifier HOME
-        run: python scripts/issue180/build_global_approved_qualifier_home_v1.py
       - name: Build global unresolved authority backlog
         run: python scripts/issue180/build_global_unresolved_backlog_v1.py
       - name: Shard all unresolved families into 96 review units
@@ -112,6 +110,8 @@ jobs:
         run: python scripts/issue180/build_global_exact_copyright_candidates_v1.py
       - name: Second-review global exact Copyright candidates
         run: python scripts/issue180/second_review_global_exact_copyright_v1.py
+      - name: Build global approved qualifier HOME
+        run: python scripts/issue180/build_global_approved_qualifier_home_v1.py
       - name: Build major roster authority expansion
         run: python scripts/issue180/build_major_roster_expansion_v1.py
       - name: Validate major roster expansion
