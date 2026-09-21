@@ -390,14 +390,32 @@ def main() -> None:
     unresolved_tags = [t for t in master1 if t not in predicted_home]
     unresolved_family_counts = Counter()
     unresolved_nested_counts = Counter()
+    officiality_rows: list[dict[str, str]] = []
     for tag in unresolved_tags:
         family = (census[tag].get("final_qualifier") or "").strip().lower()
         if not family:
             continue
-        if is_attribute_family(family) or nested_final_qualifier(tag, family):
+        is_nested = nested_final_qualifier(tag, family)
+        if tag in origin_guarded and not is_attribute_family(family) and not is_nested:
+            candidate = fast_family_home.get(family, "")
+            if not candidate and family in effective_family:
+                candidate = effective_family[family].get("candidate_home", "")
+            officiality_rows.append({
+                "canonical_tag": tag,
+                "display_ja": char_by[tag].get("display_ja", ""),
+                "final_qualifier": family,
+                "candidate_home": candidate,
+                "origin_class": origin_guarded[tag],
+                "work_state": "DIRECT_OFFICIALITY_REVIEW_REQUIRED",
+                "post_count": str(first_float(char_by[tag].get("post_count", "0"))),
+                "production_approved": "false",
+            })
+            continue
+        if is_attribute_family(family) or is_nested:
             unresolved_nested_counts[family] += 1
         else:
             unresolved_family_counts[family] += 1
+    officiality_rows.sort(key=lambda r: (-int(r["post_count"]), r["canonical_tag"]))
 
     family_registry: list[dict[str, str]] = []
     for family, count in sorted(unresolved_family_counts.items(), key=lambda kv: (-kv[1], kv[0])):
@@ -612,6 +630,11 @@ def main() -> None:
         ["canonical_tag","display_ja","candidate_home","previous_authority_type","previous_source","work_state","origin_class","production_approved"],
     )
     write_csv(O / "FAMILY_AUTHORITY_PROVENANCE_V2.csv", provenance_rows)
+    write_csv(
+        O / "OFFICIALITY_WORK_QUEUE_V2.csv",
+        officiality_rows,
+        ["canonical_tag","display_ja","final_qualifier","candidate_home","origin_class","work_state","post_count","production_approved"],
+    )
     write_csv(O / "FAMILY_WORK_QUEUE_V2.csv", family_registry)
     write_csv(O / "VARIANT_WORK_QUEUE_V2.csv", variant_rows)
     write_csv(O / "UNQUALIFIED_WORK_QUEUE_V2.csv", unqualified_rows)
@@ -644,6 +667,7 @@ def main() -> None:
         "fastpath_by_basis": dict(fast_applied),
         "foundation_confirmed_before_autonomous_decisions": len(predicted_home),
         "foundation_unresolved_before_autonomous_decisions": EXPECTED - len(predicted_home),
+        "officiality_work_rows": len(officiality_rows),
         "family_work_rows": sum(int(r["character_rows"]) for r in family_registry),
         "family_work_families": len(family_registry),
         "family_work_lanes": dict(lane_counts),
@@ -662,7 +686,7 @@ def main() -> None:
         "accepted_source_modified": False,
         "production_modified": False,
     }
-    if summary["foundation_confirmed_before_autonomous_decisions"] + summary["family_work_rows"] + summary["variant_work_rows"] + summary["unqualified_work_rows"] != EXPECTED:
+    if summary["foundation_confirmed_before_autonomous_decisions"] + summary["officiality_work_rows"] + summary["family_work_rows"] + summary["variant_work_rows"] + summary["unqualified_work_rows"] != EXPECTED:
         raise SystemExit("foundation partition accounting failure")
     if summary["foundation_confirmed_before_autonomous_decisions"] < 9000:
         raise SystemExit("unexpected loss of safe fast-path coverage")
