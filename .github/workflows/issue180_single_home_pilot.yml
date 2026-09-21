@@ -134,6 +134,8 @@ jobs:
         run: python scripts/issue180/build_attribute_variant_base_inheritance_v1.py
       - name: Apply first-party Splatoon roster authority
         run: python scripts/issue180/apply_splatoon_official_roster_v1.py
+      - name: Build mega-batch authority queues
+        run: python scripts/issue180/build_megabatch_authority_queues_v1.py
       - name: Build major roster authority expansion
         run: python scripts/issue180/build_major_roster_expansion_v1.py
       - name: Validate major roster expansion
