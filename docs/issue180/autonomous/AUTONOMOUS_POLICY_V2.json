@@ -212,5 +212,6 @@
     "FANWORK_DERIVATIVE",
     "NON_IDENTITY_DESCRIPTION"
   ],
-  "mandatory_unqualified_group_min_rows": 50
+  "mandatory_unqualified_group_min_rows": 50,
+  "mandatory_variant_pattern_min_rows": 5
 }
