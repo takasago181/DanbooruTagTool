@@ -16,7 +16,7 @@ REQUIRED={
  "broad_pass_types","piapro_policy_characters","root_policy_normalization",
  "root_policy_review_hint_prefixes","root_policy_review_hint_exact",
  "official_origin_classes","not_official_origin_classes","allow_autonomous_not_official_pass","allow_autonomous_broad_family_pass",
- "mandatory_unqualified_group_min_rows",
+ "mandatory_unqualified_group_min_rows","mandatory_variant_pattern_min_rows",
 }
 
 
@@ -41,6 +41,8 @@ def main():
   raise SystemExit("allow_autonomous_broad_family_pass: expected boolean")
  if not isinstance(policy["mandatory_unqualified_group_min_rows"], int) or policy["mandatory_unqualified_group_min_rows"] < 1:
   raise SystemExit("mandatory_unqualified_group_min_rows: expected positive integer")
+ if not isinstance(policy["mandatory_variant_pattern_min_rows"], int) or policy["mandatory_variant_pattern_min_rows"] < 1:
+  raise SystemExit("mandatory_variant_pattern_min_rows: expected positive integer")
  for name in ("attribute_families","variant_qualifier_families","broad_families","non_home_families","broad_pass_types","piapro_policy_characters","official_origin_classes","not_official_origin_classes"):
   if not isinstance(policy[name],list): raise SystemExit(f"{name}: expected list")
   unique_list(name,policy[name])
@@ -100,6 +102,7 @@ def main():
   "not_official_origin_classes":len(policy["not_official_origin_classes"]),
   "allow_autonomous_not_official_pass":policy["allow_autonomous_not_official_pass"],
   "mandatory_unqualified_group_min_rows":policy["mandatory_unqualified_group_min_rows"],
+  "mandatory_variant_pattern_min_rows":policy["mandatory_variant_pattern_min_rows"],
   "allow_autonomous_broad_family_pass":policy["allow_autonomous_broad_family_pass"],
   "gate":"PASS",
  },ensure_ascii=False,indent=2))
