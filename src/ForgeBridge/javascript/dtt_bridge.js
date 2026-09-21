@@ -15,7 +15,23 @@
     checkpoint: ".model_selection"
   };
   const protocolVersion = 1;
+  const consumerSessionKey = "dtt-bridge-consumer-id";
   let polling = false;
+
+  function createConsumerId() {
+    try {
+      const existing = sessionStorage.getItem(consumerSessionKey);
+      if (existing) return existing;
+      const created = globalThis.crypto?.randomUUID?.() ??
+        `tab-${Date.now()}-${Math.random().toString(36).slice(2)}`;
+      sessionStorage.setItem(consumerSessionKey, created);
+      return created;
+    } catch (_) {
+      return `tab-${Date.now()}-${Math.random().toString(36).slice(2)}`;
+    }
+  }
+
+  const consumerId = createConsumerId();
 
   function findInput(selectorsToTry) {
     for (const selector of selectorsToTry) {
@@ -272,7 +288,7 @@
     if (polling) return;
     polling = true;
     try {
-      const response = await fetch("/dtt-bridge/pending", { cache: "no-store" });
+      const response = await fetch(`/dtt-bridge/pending?consumerId=${encodeURIComponent(consumerId)}`, { cache: "no-store" });
       if (!response.ok) return;
       const envelope = await response.json();
       const payload = envelope.pending;
