@@ -43,6 +43,18 @@ public class Issue150GenerationRecipeTests
     }
 
     [Fact]
+    public void ModelOnlyRecipeIsReferenceOnly()
+    {
+        var recipe = new GenerationRecipe(Model: "manual-model");
+        var preset = new GenerationPreset(Guid.NewGuid(), "model only", "", "blue_hair", "lowres", recipe);
+
+        Assert.True(recipe.HasAny);
+        Assert.False(recipe.HasAutomaticSettings);
+        Assert.True(preset.HasRecipe);
+        Assert.False(preset.HasAutomaticRecipe);
+    }
+
+    [Fact]
     public void PngSnapshotPrefillsRecipeWithoutAutoSaving()
     {
         var store = new MemoryStore();
@@ -171,7 +183,7 @@ public class Issue150GenerationRecipeTests
             throw new InvalidOperationException(path);
         });
 
-        var recipe = new GenerationRecipe(Seed: 42, Steps: 20, Cfg: 5m);
+        var recipe = new GenerationRecipe(Model: "manual-model", Seed: 42, Steps: 20, Cfg: 5m);
         var result = await client.SendAsync(
             ForgeBridgeProtocol.DefaultUrl,
             new ForgeBridgeSendRequest("blue_hair", ForgeNegativeMode.Replace, "lowres", ForgeBridgeAction.ApplyRecipe, recipe));
@@ -184,8 +196,27 @@ public class Issue150GenerationRecipeTests
         Assert.Equal(42, settings.GetProperty("seed").GetInt64());
         Assert.Equal(20, settings.GetProperty("steps").GetInt32());
         Assert.Equal(5m, settings.GetProperty("cfg").GetDecimal());
+        Assert.False(settings.TryGetProperty("model", out _));
         Assert.False(settings.TryGetProperty("sampler", out _));
         Assert.False(settings.TryGetProperty("width", out _));
+    }
+
+    [Fact]
+    public async Task ModelOnlyRecipeCannotRunAutomaticApply()
+    {
+        var client = Client((_, _) => throw new InvalidOperationException("HTTP must not be called"));
+        var result = await client.SendAsync(
+            ForgeBridgeProtocol.DefaultUrl,
+            new ForgeBridgeSendRequest(
+                "blue_hair",
+                ForgeNegativeMode.Replace,
+                "lowres",
+                ForgeBridgeAction.ApplyRecipe,
+                new GenerationRecipe(Model: "manual-model")));
+
+        Assert.False(result.Success);
+        Assert.Equal("recipe_empty", result.ErrorCode);
+        Assert.Contains("自動適用", result.Status);
     }
 
     [Fact]
