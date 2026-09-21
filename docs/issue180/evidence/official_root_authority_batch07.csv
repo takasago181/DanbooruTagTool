@@ -1,0 +1,2 @@
+family,home_copyright,expected_rows,evidence_url,evidence_type,root_review,scope_note
+megami_tensei,megami_tensei,22,https://www.atlus.co.jp/news/series/7/,ATLUS_OFFICIAL_SHIN_MEGAMI_TENSEI_SERIES_CONTEXT,PASS,"ATLUS explicitly maintains 真・女神転生シリーズ as an official series and identifies Jack Frost as a series character; accepted catalog normalization independently exposes megami_tensei as the unique Copyright candidate for this qualifier family"
