@@ -21,7 +21,8 @@ CAT = R / "docs/issue70/data/runtime/issue70_catalog_overlay.csv"
 CENSUS = A / "CHARACTER_QUALIFIER_CENSUS.csv"
 BASE_DIRECT = O / "BASE_DIRECT_AUTHORITY_V2.csv"
 FAMILY_PROV = O / "FAMILY_AUTHORITY_PROVENANCE_V2.csv"
-DECISIONS = R / "docs/issue180/autonomous/AUTHORITY_DECISIONS_V2.csv"
+DECISIONS_COMPAT = R / "docs/issue180/autonomous/AUTHORITY_DECISIONS_V2.csv"
+DECISIONS_DIR = R / "docs/issue180/autonomous/decisions"
 OUT = O / "CHARACTER_HOME_MASTER_V2.csv"
 APPLIED = O / "APPLIED_AUTHORITY_LEDGER_V2.csv"
 FAMILY_WORK = O / "FAMILY_WORK_QUEUE_V2.csv"
@@ -41,6 +42,19 @@ def read(path: Path) -> list[dict[str, str]]:
         raise SystemExit(f"missing required input: {path}")
     with path.open(encoding="utf-8-sig", newline="") as fh:
         return list(csv.DictReader(fh))
+
+
+def read_decisions() -> list[dict[str, str]]:
+    paths = [DECISIONS_COMPAT] if DECISIONS_COMPAT.exists() else []
+    if DECISIONS_DIR.exists():
+        paths.extend(sorted(DECISIONS_DIR.glob("*.csv")))
+    rows: list[dict[str, str]] = []
+    for path in paths:
+        for row in read(path):
+            if not any((v or "").strip() for v in row.values()):
+                continue
+            rows.append({**row, "__source_file": str(path.relative_to(R))})
+    return rows
 
 
 def is_attribute_family(family: str) -> bool:
@@ -137,7 +151,7 @@ def main() -> None:
             "validation_state": "PASS",
         })
 
-    decisions = read(DECISIONS)
+    decisions = read_decisions()
     decision_pass = 0
     decision_unresolved = 0
     decision_higher = 0
@@ -178,7 +192,7 @@ def main() -> None:
             "authority_type": row.get("authority_type", "AUTONOMOUS_REVIEW"),
             "evidence_url": row.get("evidence_url", ""),
             "evidence_claim": row.get("evidence_claim", ""),
-            "source_provenance": "docs/issue180/autonomous/AUTHORITY_DECISIONS_V2.csv",
+            "source_provenance": row.get("__source_file", "docs/issue180/autonomous/AUTHORITY_DECISIONS_V2.csv"),
             "validation_state": "PASS",
             "base_character": row.get("base_character", ""),
             "officiality_state": row.get("officiality_state", ""),
