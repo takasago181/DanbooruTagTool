@@ -7,7 +7,7 @@ from pathlib import Path
 R=Path(__file__).resolve().parents[2]; A=R/"artifacts/issue180-full-preflight"
 CAT=R/"docs/issue70/data/runtime/issue70_catalog_overlay.csv"
 PREF=A/"CHARACTER_QUALIFIER_CENSUS.csv"
-SOURCES=[A/"ROOT_REVIEW_BATCH_A_SECOND_REVIEW_V1.csv",A/"BATCH_A_REMAINING_7_SECOND_REVIEW_V2.csv",A/"P1_P3_AUTHORITY_SECOND_REVIEW_V1.csv",A/"GLOBAL_EXACT_COPYRIGHT_SECOND_REVIEW_V1.csv"]
+SOURCES=[A/"ROOT_REVIEW_BATCH_A_SECOND_REVIEW_V1.csv",A/"BATCH_A_REMAINING_7_SECOND_REVIEW_V2.csv",A/"P1_P3_AUTHORITY_SECOND_REVIEW_V1.csv",A/"GLOBAL_EXACT_COPYRIGHT_SECOND_REVIEW_V1.csv",A/"POST_EXACT_REVIEW/IP_ROOT_NORMALIZED_SECOND_REVIEW_V1.csv"]
 OUT=A/"GLOBAL_APPROVED_QUALIFIER_HOME_V1.csv"; SUM=A/"global_approved_qualifier_home_v1_summary.json"
 def approved():
  d={}; conflicts={}
