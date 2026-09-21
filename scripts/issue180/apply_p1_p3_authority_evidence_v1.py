@@ -13,6 +13,9 @@ E={
 "elsword":("https://elsword.koggames.com/characters/","OFFICIAL_ROSTER","KOG official Elsword character roster."),
 "stella_sora":("https://stellasora.global/","OFFICIAL_ROSTER","Official Stella Sora site exposes its character roster."),
 "deltarune":("https://deltarune.com/","OFFICIAL_TITLE_CHARACTER_CONTEXT","Official DELTARUNE site describes its main characters and title context."),
+"last_origin":("https://www.last-origin.com/bio.html","OFFICIAL_ROSTER","Official LAST ORIGIN site exposes its Bioroid/character roster."),
+"apex_legends":("https://www.ea.com/ja/games/apex-legends/apex-legends/characters-hub","OFFICIAL_ROSTER","EA official Apex Legends character hub identifies playable Legends."),
+"guilty_gear":("https://www.guiltygear.com/ggst/sw/jp/","OFFICIAL_SERIES_CHARACTER_CONTEXT","Arc System Works official Guilty Gear site identifies series/game characters and Japanese names."),
 }
 def main():
  rows=list(csv.DictReader(IN.open(encoding="utf-8-sig",newline="")))
