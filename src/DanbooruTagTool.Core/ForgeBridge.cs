@@ -48,7 +48,7 @@ public sealed class ForgeBridgeClient(HttpClient? httpClient = null) : IForgeBri
             return Failure("recipe_empty", "このプリセットには生成条件がありません");
 
         using var timeout = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken);
-        timeout.CancelAfter(request.Recipe?.HasAny == true ? TimeSpan.FromSeconds(15) :
+        timeout.CancelAfter(request.Recipe?.HasAny == true ? TimeSpan.FromSeconds(30) :
             request.Action == ForgeBridgeAction.SendAndGenerate ? TimeSpan.FromSeconds(5) : TimeSpan.FromSeconds(2));
         try
         {
@@ -129,7 +129,7 @@ public sealed class ForgeBridgeClient(HttpClient? httpClient = null) : IForgeBri
             {
                 if (!success) return Failure(error, ActionFailureMessage(error));
                 if (request.Action == ForgeBridgeAction.ApplyRecipe) return new(true, "Forgeへレシピを適用しました");
-                return new(true, request.Recipe?.HasAny == true ? "Forgeでレシピ生成を開始しました" : "Forgeで生成を開始しました");
+                return new(true, request.Recipe?.HasAny == true ? "Forgeへレシピ生成操作を送信しました" : "Forgeへ生成操作を送信しました");
             }
 
             await Task.Delay(100, cancellationToken);
