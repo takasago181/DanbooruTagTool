@@ -5,6 +5,7 @@ import argparse
 import csv
 import json
 import subprocess
+import sys
 from collections import Counter
 from pathlib import Path
 
@@ -19,6 +20,7 @@ SUMMARY=D/"character_home_master_v2_summary.json"
 OUT=D/"autonomous_completion_readiness_v2.json"
 ORIGIN_META=R/"docs/issue180/evidence/ISSUE179_ORIGIN_HANDOFF_V1.meta.json"
 ISSUE179_REF="refs/heads/research/issue179-character-quality-audit"
+WRITE_SCOPE_GATE=R/"scripts/issue180/validate_codex_write_scope_v2.py"
 
 MANDATORY_FAMILY_LANES={
  "FAST_REVALIDATE_NORMALIZATION",
@@ -90,7 +92,11 @@ def main():
  }
  ready=all(v==0 for v in blockers.values()) and decisions>0
  freshness={"checked":False,"fresh":None,"saved_sha":"","live_sha":"","saved_blob_sha":"","live_blob_sha":"","error":""}
+ write_scope={"checked":False,"pass":None,"error":""}
  if args.final:
+  scope=subprocess.run([sys.executable,str(WRITE_SCOPE_GATE)],cwd=R,text=True,capture_output=True)
+  write_scope={"checked":True,"pass":scope.returncode==0,"error":(scope.stderr or scope.stdout or "").strip()}
+  ready=ready and scope.returncode==0
   fresh,saved_commit,live_commit,saved_blob,live_blob,error=check_issue179_freshness()
   freshness={
    "checked":True,"fresh":fresh,
@@ -103,6 +109,7 @@ def main():
  result={
   "ready_for_final_autonomous_report":ready,
   "issue179_handoff_freshness":freshness,
+  "codex_write_scope":write_scope,
   "autonomous_decision_rows":decisions,
   "blockers":blockers,
   "mandatory_family_lane_counts":mandatory_family,
@@ -117,6 +124,8 @@ def main():
  OUT.write_text(json.dumps(result,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
  print(json.dumps(result,ensure_ascii=False,indent=2))
  if args.final and not ready:
+  if not write_scope["pass"]:
+   raise SystemExit("final readiness failed: Codex write-scope gate failed: "+write_scope["error"])
   if not freshness["fresh"]:
    raise SystemExit("final readiness failed: Issue179 handoff freshness check failed: "+freshness["error"])
   if decisions==0:
