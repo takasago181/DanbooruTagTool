@@ -31,6 +31,9 @@ jobs:
       - name: Prepare Stage B review batches
         run: python scripts/issue179/prepare_stage_b_batches.py
 
+      - name: Validate Stage B review ledgers
+        run: python scripts/issue179/validate_stage_b_reviews.py
+
       - name: Validate artifact contract
         run: |
           python - <<'PY'
