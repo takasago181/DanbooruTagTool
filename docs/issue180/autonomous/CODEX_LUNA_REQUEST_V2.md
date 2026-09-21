@@ -44,6 +44,12 @@ Keep main, production, accepted Issue #70 source, #179 branch, and Artist untouc
 
 Run the full Issue #180 workflow at the end. Fix ordinary CI/code/schema errors yourself and rerun.
 
+Before claiming completion, run:
+
+`python scripts/issue180/check_autonomous_completion_readiness_v2.py --final`
+
+Do not report completion if this final readiness gate fails. Explicitly researched UNRESOLVED / NEEDS_HIGHER_REASONING cases may remain deferred; untouched mandatory fast/officiality/direct-roster work may not.
+
 Stop only after you have exhausted the safe work available in the generated queues and produced the full 35,890-row v2 review artifact.
 
 Final report must include:
