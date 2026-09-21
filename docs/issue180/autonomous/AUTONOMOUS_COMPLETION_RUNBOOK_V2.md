@@ -167,6 +167,18 @@ If a case is not cheaply resolvable, add a NEEDS_HIGHER_REASONING decision or le
 
 Piapro/Hatsune Miku policy conflict is intentionally isolated here.
 
+## Local execution shortcut
+
+From a clean checkout, build all predecessor artifacts and the v2 foundation with one command:
+
+`python scripts/issue180/run_autonomous_v2.py`
+
+After editing only the persistent decision ledger, reuse generated queues and rebuild quickly with:
+
+`python scripts/issue180/run_autonomous_v2.py --recompile`
+
+This is the preferred Codex workflow. Do not manually rediscover the old script order.
+
 ## Iteration rule
 
 After a substantial decision batch:
