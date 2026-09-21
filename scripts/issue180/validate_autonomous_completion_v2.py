@@ -89,6 +89,16 @@ def main():
     if bad_project_voltage:
         raise SystemExit("non-HOME collaboration regression: " + repr(bad_project_voltage[:10]))
 
+    forbidden_qualifier_home = {
+        "pauline_(nintendo)": "nintendo",
+        "hyper_roll_(marvel_vs._capcom)": "marvel_vs._capcom",
+        "otomachi_una_(voicepeak)": "voicepeak",
+    }
+    for tag, forbidden_home in forbidden_qualifier_home.items():
+        row = by_tag.get(tag)
+        if row and row["final_state"] == "HOME_CONFIRMED" and row["home_copyright"] == forbidden_home:
+            raise SystemExit(f"qualifier-is-not-HOME regression: {tag} -> {forbidden_home}")
+
     officiality_violations = []
     broad_family_violations = []
     non_home_family_violations = []
