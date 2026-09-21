@@ -149,10 +149,11 @@
     if (typeof settings.sampler === "string") await setChoice(selectors.sampler, settings.sampler, "sampler_missing");
     if (typeof settings.scheduler === "string") await setChoice(selectors.scheduler, settings.scheduler, "scheduler_missing");
 
-    // Neo can finish the checkpoint refresh asynchronously after the bridge
-    // has already published the pending item. Give the Gradio controls a
-    // short settle window before a recipe Generate click.
-    if (typeof payload.appliedModel === "string") await sleep(3000);
+    // Neo can finish a real checkpoint transition asynchronously after the
+    // bridge has published the pending item. Pay the settle cost only when
+    // Forge reports that the active checkpoint actually changed. A recipe
+    // that already targets the current Model should remain responsive.
+    if (payload.modelChanged === true) await sleep(3000);
 
     // The Python companion applies the checkpoint before publishing the
     // pending item. Synchronize only the visible dropdown text without
