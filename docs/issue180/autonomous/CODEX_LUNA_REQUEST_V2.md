@@ -22,7 +22,7 @@ After authority-decision batches, use:
 
 Do not spend context reconstructing the historical script order.
 
-Your main job is to complete as much safe authority research as possible by populating `docs/issue180/autonomous/AUTHORITY_DECISIONS_V2.csv` and repeatedly recompiling the deterministic master.
+Your main job is to complete as much safe authority research as possible by writing coarse decision shards under `docs/issue180/autonomous/decisions/*.csv` and repeatedly recompiling the deterministic master. Use separate large family/variant/roster/exception shards rather than one giant file. The compatibility `AUTHORITY_DECISIONS_V2.csv` is still read but need not be the main target.
 
 Use the generated v2 work queues. Process reusable family authority before individual rows. Use old relations/co-occurrence only as discovery hints, never as HOME authority.
 
