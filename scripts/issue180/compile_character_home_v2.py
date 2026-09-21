@@ -159,6 +159,8 @@ def main() -> None:
     for row in read(BASE_DIRECT):
         if row["canonical_tag"] in origin_guarded:
             raise SystemExit(f"origin-guarded Character leaked into BASE_DIRECT: {row['canonical_tag']} -> {origin_guarded[row['canonical_tag']]}")
+        if row["canonical_tag"] in origin_not_official:
+            raise SystemExit(f"Issue179-confirmed non-official Character leaked into BASE_DIRECT: {row['canonical_tag']} -> {origin_not_official[row['canonical_tag']]}")
         add_record(direct, row["canonical_tag"], row["home_copyright"], {
             "authority_scope": "DIRECT_CHARACTER",
             "authority_type": row.get("authority_type", "V2_BASE_DIRECT"),
