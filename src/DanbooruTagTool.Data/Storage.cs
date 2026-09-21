@@ -21,6 +21,7 @@ public sealed record UiState(int Workspace = 0, string Browse = "tags", string Q
 public sealed record GenerationPreset(Guid Id, string Name, string Description, string Positive, string Negative, GenerationRecipe? Recipe = null)
 {
     [JsonIgnore] public bool HasRecipe => Recipe?.HasAny == true;
+    [JsonIgnore] public bool HasAutomaticRecipe => Recipe?.HasAutomaticSettings == true;
     [JsonIgnore] public string RecipeSummary => Recipe?.Summary ?? "";
 }
 public sealed record UserState(WorkspaceSnapshot Prompt, UiState Ui, GenerationPreset[]? Presets = null);
