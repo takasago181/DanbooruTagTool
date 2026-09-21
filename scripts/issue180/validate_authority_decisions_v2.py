@@ -150,10 +150,9 @@ def main():
    review_note=(r.get("notes") or "").strip()
    if len(review_note)<20:
     raise SystemExit(f"{where}: terminal {state} decision requires notes (>=20 chars) describing the completed review/remaining uncertainty")
-   if scope in {"DISCOVERY_GROUP","VARIANT_PATTERN"}:
-    group_evidence_ok,group_evidence_error=evidence_gate(r)
-    if not group_evidence_ok:
-     raise SystemExit(f"{where}: {scope} terminal review requires grounded evidence: {group_evidence_error}")
+   terminal_evidence_ok,terminal_evidence_error=evidence_gate(r)
+   if not terminal_evidence_ok:
+    raise SystemExit(f"{where}: terminal {scope} review requires grounded evidence: {terminal_evidence_error}")
   if state!="PASS":
    continue
 
