@@ -45,7 +45,8 @@
   "non_home_families": [
     "project_voltage",
     "original",
-    "pixiv_fantasia"
+    "pixiv_fantasia",
+    "vrchat"
   ],
   "broad_pass_types": [
     "ROOT_POLICY_REVIEWED",
