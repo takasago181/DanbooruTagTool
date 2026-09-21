@@ -32,19 +32,19 @@ Validated baseline at the time this runbook was written:
 
 - Character population: 35,890
 - v1 direct HOME preserved: 940
-- reusable fast-path family rows added: 8,832
-- v2 foundation HOME_CONFIRMED: 9,772
-- v2 foundation HOME_UNRESOLVED: 26,118
+- reusable fast-path family rows added: 8,813
+- v2 foundation HOME_CONFIRMED: 9,753
+- v2 foundation HOME_UNRESOLVED: 26,137
 - accepted source modified: false
 - production modified: false
 
 Remaining v2 work:
 
-- family rows: 5,377 across 2,513 families
+- family rows: 5,396 across 2,514 families
 - variant/nested rows: 3,961
 - variant rows with confirmed base HOME ready for officiality review: 2,093
 - unqualified rows: 16,780
-- higher-reasoning seed queue: 26 entries
+- higher-reasoning seed queue: 27 entries
 
 ## Practical precision rule
 
@@ -87,7 +87,7 @@ Allowed validation states:
 A PASS row must contain:
 
 - authority_type
-- evidence_url or evidence_claim
+- grounded evidence: either an http(s) `evidence_url`, or an `evidence_claim` beginning with `REPO:` or `POLICY:`
 - HOME for relation-producing scopes
 
 VARIANT_CHARACTER PASS additionally requires:
@@ -112,6 +112,10 @@ A family can receive a reusable PASS when all are true:
 Do not require individual Character pages after the family itself has been validated.
 
 Broad or ambiguous umbrellas are not forbidden forever. They simply require stronger reasoning or a more specific origin/roster source before PASS.
+
+Exact qualifier == Copyright tag is not sufficient when the Copyright represents a collaboration/project/appearance rather than canonical ownership. `project_voltage` is a regression case and must not receive FAMILY_QUALIFIER HOME.
+
+Existing root policy is applied before autonomous work for known cases such as Fate subworks -> `fate_(series)`, Pokémon subworks -> `pokemon`, and Splatoon subworks -> `splatoon_(series)`.
 
 ## Queue execution order
 
