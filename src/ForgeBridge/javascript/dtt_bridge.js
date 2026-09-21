@@ -129,19 +129,75 @@
     }
 
     const wanted = normalized(value);
-    const radios = [...root.querySelectorAll("input[type='radio']")];
-    for (const radio of radios) {
-      const label = radio.closest("label") ?? root.querySelector(`label[for="${radio.id}"]`);
-      const text = normalized(label?.textContent ?? radio.value);
-      if (normalized(radio.value) === wanted || text === wanted) {
-        if (radio.checked) return true;
-        radio.click();
+
+    // Forge can render Sampling method as either Gradio Radio or Dropdown.
+    // Accept both the selector root itself and descendants because Forge /
+    // Gradio wrappers differ between layouts and settings.
+    const radioInputs = [];
+    const addRadioInput = candidate => {
+      if (!(candidate instanceof HTMLInputElement)) return;
+      if (candidate.type !== "radio") return;
+      if (!radioInputs.includes(candidate)) radioInputs.push(candidate);
+    };
+    addRadioInput(root);
+    for (const candidate of root.querySelectorAll("input[type='radio']"))
+      addRadioInput(candidate);
+
+    for (const radio of radioInputs) {
+      const label = radio.closest("label") ??
+        (radio.id ? root.querySelector(`label[for="${CSS.escape(radio.id)}"]`) : null);
+      const candidates = [
+        radio.value,
+        radio.getAttribute("aria-label"),
+        label?.getAttribute("aria-label"),
+        label?.textContent
+      ].map(normalized);
+
+      if (!candidates.includes(wanted)) continue;
+
+      if (radio.checked || radio.getAttribute("aria-checked") === "true") return true;
+
+      radio.click();
+      await nextFrame();
+      await sleep(20);
+      if (radio.checked || radio.getAttribute("aria-checked") === "true") return true;
+
+      // Some custom themes put the effective click handler on the label.
+      if (label instanceof HTMLElement) {
+        label.click();
         await nextFrame();
-        return true;
+        await sleep(20);
+        if (radio.checked || radio.getAttribute("aria-checked") === "true") return true;
       }
     }
 
-    const input = root.querySelector("input[role='combobox'], input:not([type='hidden'])");
+    const roleRadios = [];
+    const addRoleRadio = candidate => {
+      if (!(candidate instanceof HTMLElement)) return;
+      if (candidate.getAttribute("role") !== "radio") return;
+      if (!roleRadios.includes(candidate)) roleRadios.push(candidate);
+    };
+    addRoleRadio(root);
+    for (const candidate of root.querySelectorAll("[role='radio']"))
+      addRoleRadio(candidate);
+
+    for (const radio of roleRadios) {
+      const text = normalized(radio.getAttribute("aria-label") ?? radio.textContent);
+      if (text !== wanted) continue;
+      if (radio.getAttribute("aria-checked") === "true") return true;
+      radio.click();
+      await nextFrame();
+      await sleep(20);
+      if (radio.getAttribute("aria-checked") === "true") return true;
+    }
+
+    const input =
+      (root instanceof HTMLInputElement && root.type !== "hidden")
+        ? root
+        : root.querySelector(
+            "input[role='listbox'], input[role='combobox'], input:not([type='hidden'])"
+          );
+
     if (input instanceof HTMLInputElement) {
       input.focus();
       input.click();
@@ -160,16 +216,15 @@
         const listboxes = [];
         const add = candidate => {
           if (!(candidate instanceof HTMLElement)) return;
+          // In Gradio 4.40 the Dropdown input itself has role=listbox.
+          // Only option containers (UL/div/etc.) are useful here.
+          if (candidate instanceof HTMLInputElement) return;
           if (candidate.getAttribute("role") !== "listbox") return;
           if (!listboxes.includes(candidate)) listboxes.push(candidate);
         };
 
-        // Some Forge/Gradio builds expose aria-controls="dropdown-options"
-        // without assigning that id to the real <ul role="listbox">.
-        // Prefer a valid ARIA target, then the dropdown subtree, then the
-        // currently visible listbox as the last scoped fallback.
         if (listboxId) add(document.getElementById(listboxId));
-        if (root.matches("[role='listbox']")) add(root);
+        add(root);
         for (const candidate of root.querySelectorAll("[role='listbox']")) add(candidate);
         for (const candidate of document.querySelectorAll("[role='listbox']"))
           if (isVisible(candidate)) add(candidate);
@@ -181,12 +236,13 @@
         .flatMap(listbox => [...listbox.querySelectorAll("[role='option']")])
         .filter(option => isVisible(option));
 
-      let options = getOptions();
-      let exact = options.find(option =>
+      const findExact = options => options.find(option =>
         normalized(option.getAttribute("aria-label") ?? option.textContent) === wanted);
 
-      // Large Dropdowns render choices in batches. Ask Gradio to expose the
-      // full list before deciding that a legitimate choice is missing.
+      let options = getOptions();
+      let exact = findExact(options);
+
+      // Large Dropdowns can render choices in batches.
       if (!(exact instanceof HTMLElement) && options.length > 0) {
         input.dispatchEvent(new KeyboardEvent("keydown", {
           key: "End",
@@ -197,14 +253,10 @@
         await nextFrame();
         await sleep(80);
         options = getOptions();
-        exact = options.find(option =>
-          normalized(option.getAttribute("aria-label") ?? option.textContent) === wanted);
+        exact = findExact(options);
       }
 
       if (exact instanceof HTMLElement) {
-        // Do not trust the textbox display as current state: older bridge
-        // versions could make it say Karras while Gradio still held Automatic.
-        // aria-selected reflects Gradio's actual selected_index.
         if (exact.getAttribute("aria-selected") === "true") return true;
 
         exact.dispatchEvent(new MouseEvent("mousedown", {
@@ -217,11 +269,42 @@
         await nextFrame();
         await sleep(40);
 
-        // We never write the Dropdown textbox ourselves on this path. If it
-        // now shows the requested label, that value came from Gradio's real
-        // option-selection handler.
+        // We did not write the textbox on this path; a matching value means
+        // Gradio's real option handler committed the selection.
         if (normalized(input.value) === wanted) return true;
       }
+
+      // DOM layout can vary even within Gradio 4.40. Use Gradio's own
+      // keydown selection path as a second real commit mechanism.
+      //
+      // Important: the input event below only updates Dropdown filter text.
+      // Enter commits selected_index and Gradio blurs the input. We require
+      // that blur before accepting the visible value, so textbox-only mutation
+      // can never become a false success.
+      input.focus();
+      if (normalized(input.value) !== wanted) {
+        const setter = nativeValueSetter(input);
+        if (typeof setter !== "function") fail("value_setter_missing");
+        setter.call(input, String(value));
+        input.dispatchEvent(new Event("input", { bubbles: true }));
+        await nextFrame();
+        await sleep(30);
+      }
+
+      input.dispatchEvent(new KeyboardEvent("keydown", {
+        key: "Enter",
+        code: "Enter",
+        bubbles: true,
+        cancelable: true
+      }));
+      await nextFrame();
+      await nextFrame();
+      await sleep(50);
+
+      const committedByGradio =
+        document.activeElement !== input &&
+        normalized(input.value) === wanted;
+      if (committedByGradio) return true;
     }
 
     if (bestEffort) return false;
