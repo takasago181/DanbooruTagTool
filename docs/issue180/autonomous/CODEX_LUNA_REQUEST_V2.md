@@ -7,8 +7,9 @@ Preflight in this order:
 1. Issue #180 body/current state
 2. `docs/issue180/autonomous/AUTONOMOUS_COMPLETION_RUNBOOK_V2.md`
 3. `docs/issue180/AUTHORITY_POLICY_V1.md`
-4. `docs/issue180/autonomous/AUTHORITY_DECISIONS_V2.csv`
-5. current v2 scripts/workflow
+4. `docs/issue180/autonomous/decisions/README.md`
+5. `docs/issue180/autonomous/AUTHORITY_DECISIONS_V2.csv`
+6. current v2 scripts/workflow
 
 The v2 foundation is already implemented and CI-validated. Do not redesign it unless an actual defect blocks execution.
 
@@ -27,6 +28,10 @@ Your main job is to complete as much safe authority research as possible by writ
 Use the generated v2 work queues. Process reusable family authority before individual rows. Use old relations/co-occurrence only as discovery hints, never as HOME authority.
 
 Be productive rather than maximally conservative: clean IP qualifier families may be bulk-confirmed after one sound family-level validation; do not require one official page per Character. At the same time, ambiguous/broad/mixed families must not be guessed.
+
+For every PASS decision, provide grounded evidence: either an http(s) evidence_url, or an evidence_claim beginning with `REPO:` or `POLICY:`. Do not use free-form unsupported claims as PASS evidence.
+
+Do not FAMILY_QUALIFIER-confirm collaboration/project families such as `project_voltage`. Follow existing canonical-root policy already encoded by the foundation instead of reverting Fate/Pokémon/Splatoon subworks to title-by-title HOME.
 
 For difficult cases, use UNRESOLVED or NEEDS_HIGHER_REASONING and continue all other independent work. Do not stop the whole task for Piapro/Miku, umbrella franchises, or a small number of hard cases.
 
