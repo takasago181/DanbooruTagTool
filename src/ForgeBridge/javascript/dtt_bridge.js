@@ -141,37 +141,38 @@
       }
     }
 
-    const input = root.querySelector("input:not([type='hidden'])");
+    const input = root.querySelector("input[role='combobox'], input:not([type='hidden'])");
     if (input instanceof HTMLInputElement) {
       if (normalized(input.value) === wanted) return true;
+
       input.focus();
       input.click();
       await nextFrame();
-      await sleep(60);
+      // Gradio 4.40 DropdownOptions uses a short fly transition and commits
+      // selection from the listbox's mousedown handler.
+      await sleep(220);
 
-      const visibleOptions = () => [...document.querySelectorAll("[role='option']")]
-        .filter(option => option instanceof HTMLElement && option.offsetParent !== null);
-      let exact = visibleOptions().find(option => normalized(option.textContent) === wanted);
+      const listboxId = input.getAttribute("aria-controls");
+      const listbox = listboxId ? document.getElementById(listboxId) : null;
+      const options = listbox instanceof HTMLElement
+        ? [...listbox.querySelectorAll("[role='option']")]
+        : [];
 
-      if (!(exact instanceof HTMLElement)) {
-        // Gradio Dropdown text entry is only a search/filter step. Dispatching
-        // a change event here can rebuild Forge's control before the real
-        // option is selected, destroying the bridge context and losing ACK.
-        const setter = nativeValueSetter(input);
-        if (typeof setter !== "function") fail("value_setter_missing");
-        setter.call(input, String(value));
-        if (typeof updateInput === "function") updateInput(input);
-        else input.dispatchEvent(new Event("input", { bubbles: true }));
-        await sleep(60);
-        exact = visibleOptions().find(option => normalized(option.textContent) === wanted);
-        if (!(exact instanceof HTMLElement) && normalized(input.value) === wanted)
-          return true;
-      }
+      const exact = options.find(option =>
+        normalized(option.getAttribute("aria-label") ?? option.textContent) === wanted);
 
       if (exact instanceof HTMLElement) {
-        exact.click();
+        exact.dispatchEvent(new MouseEvent("mousedown", {
+          bubbles: true,
+          cancelable: true,
+          view: window,
+          button: 0
+        }));
         await nextFrame();
-        return true;
+        await nextFrame();
+        await sleep(40);
+
+        if (normalized(input.value) === wanted) return true;
       }
     }
 
