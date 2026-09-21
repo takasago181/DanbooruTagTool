@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - research/issue180-single-home-pilot
+  pull_request:
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
