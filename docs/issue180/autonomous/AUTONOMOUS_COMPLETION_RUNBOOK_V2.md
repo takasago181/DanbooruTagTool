@@ -38,8 +38,9 @@ Validated baseline at the time this runbook was written:
 
 Remaining v2 work:
 
-- family rows: 5,417 across 2,521 families
-- variant/nested rows: 3,921
+- family rows: 5,377 across 2,513 families
+- variant/nested rows: 3,961
+- variant rows with confirmed base HOME ready for officiality review: 2,093
 - unqualified rows: 16,780
 - higher-reasoning seed queue: 26 entries
 
