@@ -39,6 +39,13 @@ def expect_fail(name, files, expected):
 
 def main():
  evidence="REPO:docs/issue180/AUTHORITY_POLICY_V1.md"
+ expect_fail("original_family", [("a",[{
+  "scope":"FAMILY_QUALIFIER","key":"original","home_copyright":"original",
+  "base_character":"","authority_type":"QUALIFIER_COPYRIGHT","evidence_url":"",
+  "evidence_claim":evidence,"validation_state":"PASS","officiality_state":"",
+  "notes":"Generic original qualifier must never be bulk HOME authority.",
+ }])], "non-HOME collaboration/project family")
+
  expect_fail("project_voltage", [("a",[{
   "scope":"FAMILY_QUALIFIER","key":"project_voltage","home_copyright":"project_voltage",
   "base_character":"","authority_type":"QUALIFIER_COPYRIGHT","evidence_url":"",
@@ -49,7 +56,7 @@ def main():
   "scope":"FAMILY_QUALIFIER","key":"final_fantasy","home_copyright":"final_fantasy",
   "base_character":"","authority_type":"QUALIFIER_COPYRIGHT","evidence_url":"",
   "evidence_claim":evidence,"validation_state":"PASS","officiality_state":"","notes":"Repository policy evidence for smoke test.",
- }])], "broad family PASS requires")
+ }])], "autonomous broad-family FAMILY_QUALIFIER PASS is disabled")
 
  expect_fail("fake_repo_evidence", [("a",[{
   "scope":"FAMILY_QUALIFIER","key":"blue_archive","home_copyright":"blue_archive",
