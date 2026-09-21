@@ -89,16 +89,16 @@ def main():
   if scope not in VALID_SCOPES: raise SystemExit(f"{where}: invalid scope {scope!r}")
   if state not in VALID_STATES: raise SystemExit(f"{where}: invalid validation_state {state!r}")
   if not key: raise SystemExit(f"{where}: blank key")
-  sig=(scope,key,home,(r.get("base_character") or "").strip(),state)
+  lookup_key=key.lower() if scope=="FAMILY_QUALIFIER" else key
+  sig=(scope,lookup_key,home,(r.get("base_character") or "").strip(),state)
   if sig in seen_rows: raise SystemExit(f"{where}: duplicate decision row {sig}")
   seen_rows.add(sig)
-  scope_key=(scope,key)
+  scope_key=(scope,lookup_key)
   if scope_key in seen_scope_key:
    raise SystemExit(f"{where}: multiple decisions for same scope/key {scope_key}; first seen at {seen_scope_key[scope_key]}")
   seen_scope_key[scope_key]=where
   states[state]+=1; scopes[scope]+=1; files[src]+=1
 
-  lookup_key=key.lower() if scope=="FAMILY_QUALIFIER" else key
   if scope=="FAMILY_QUALIFIER":
    if lookup_key not in valid_families:
     raise SystemExit(f"{where}: unknown qualifier family {lookup_key}")
