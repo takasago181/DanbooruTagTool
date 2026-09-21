@@ -2,6 +2,7 @@
 """Validate persistent autonomous decisions before compiling Issue #180 v2."""
 from __future__ import annotations
 import csv
+import json
 from collections import Counter, defaultdict
 from pathlib import Path
 
@@ -17,18 +18,13 @@ EXPECTED_FIELDS=[
 ]
 VALID_SCOPES={"FAMILY_QUALIFIER","DIRECT_CHARACTER","VARIANT_CHARACTER","NOT_OFFICIAL_CHARACTER","BLOCK_CHARACTER"}
 VALID_STATES={"PASS","UNRESOLVED","PENDING","NEEDS_HIGHER_REASONING"}
-BROAD_PASS_TYPES={
- "ROOT_POLICY_REVIEWED",
- "OFFICIAL_ROSTER_ROOT_POLICY",
- "FIRST_PARTY_CANONICAL_ROOT",
- "CURATED_ROSTER_ROOT_POLICY",
-}
-BROAD_FAMILIES={
- "disney","marvel","final_fantasy","idolmaster","precure","yu-gi-oh!","nijisanji",
- "dragon_ball","mega_man","tales","persona","megami_tensei","zelda","kirby","naruto",
- "neptunia","nanoha","x-men","transformers","mario","vtuber","cookie",
-}
-NON_HOME_FAMILIES={"project_voltage"}
+POLICY_PATH=R/"docs/issue180/autonomous/AUTONOMOUS_POLICY_V2.json"
+POLICY=json.loads(POLICY_PATH.read_text(encoding="utf-8"))
+if POLICY.get("version")!=2:
+ raise SystemExit("unsupported autonomous policy version")
+BROAD_PASS_TYPES=set(POLICY["broad_pass_types"])
+BROAD_FAMILIES=set(POLICY["broad_families"])
+NON_HOME_FAMILIES=set(POLICY["non_home_families"])
 
 
 def read(path):
