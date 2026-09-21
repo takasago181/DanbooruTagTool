@@ -78,6 +78,7 @@ Those may be used only to discover where to research.
 Allowed scopes:
 
 - `FAMILY_QUALIFIER`
+- `DISCOVERY_GROUP` (review progress only; never grants HOME)
 - `DIRECT_CHARACTER`
 - `VARIANT_CHARACTER`
 - `NOT_OFFICIAL_CHARACTER`
@@ -101,9 +102,7 @@ VARIANT_CHARACTER PASS additionally requires:
 - base_character
 - officiality_state = `OFFICIAL_VARIANT` or `OFFICIAL_CONFIRMED`
 
-NOT_OFFICIAL_CHARACTER PASS additionally requires:
-
-- officiality_state = `NOT_OFFICIAL_CONFIRMED`
+NOT_OFFICIAL_CHARACTER is **not** an autonomous Luna decision. #179 owns official/non-official identity. If #179 second-review later supplies a confirmed fanwork/non-identity origin class, #180 may consume that handoff deterministically; Luna itself must use BLOCK/NEEDS_HIGHER_REASONING instead.
 
 ## Balanced family policy
 
@@ -160,6 +159,16 @@ Where an official variant pattern is sufficiently established, use it across the
 Nested qualifiers that cannot be safely reduced to a base remain unresolved.
 
 ### Lane D — unqualified Characters
+
+The current dataset has roughly 16.7k unqualified rows, but nearly all have a support-only discovery hint. Do **not** treat them as 16.7k independent web searches.
+
+Groups with at least 50 unresolved Characters are mandatory high-yield roster reviews before final readiness. There are only a few dozen such groups, covering several thousand Characters.
+
+For each mandatory group:
+1. inspect an official/curated roster or other grounded source once;
+2. add DIRECT_CHARACTER PASS rows only for members actually proven;
+3. add one DISCOVERY_GROUP terminal review row with grounded evidence and a substantive note describing what was checked and what remains unresolved.
+
 
 Use `REMAINING_UNQUALIFIED_WORK_V2.csv` and `UNQUALIFIED_DISCOVERY_GROUPS_V2.csv`.
 
@@ -237,6 +246,8 @@ This final gate fails when mandatory active work remains, including:
 - #179 officiality-review rows
 - fast normalization/root-policy/exact-review families
 - direct-roster review rows
+- high-yield unqualified discovery groups (policy threshold: 50 rows)
+- weak legacy direct rows requeued for provenance upgrade
 - PENDING decision rows
 - a completely empty autonomous decision set
 
