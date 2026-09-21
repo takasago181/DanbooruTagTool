@@ -60,6 +60,25 @@ def main():
     if len(applied) != states["HOME_CONFIRMED"]:
         raise SystemExit("applied ledger count mismatch")
 
+    by_tag = {r["canonical_tag"]: r for r in rows}
+    regression = {
+        "berserker_(fate/zero)": "fate_(series)",
+        "female_protagonist_(pokemon_go)": "pokemon",
+        "agent_3_(splatoon_3)": "splatoon_(series)",
+    }
+    for tag, expected_home in regression.items():
+        row = by_tag.get(tag)
+        if not row or row["final_state"] != "HOME_CONFIRMED" or row["home_copyright"] != expected_home:
+            raise SystemExit(f"canonical-root regression: {tag} expected {expected_home}, got {row}")
+    bad_project_voltage = [
+        r["canonical_tag"] for r in rows
+        if r.get("final_qualifier") == "project_voltage"
+        and r["final_state"] == "HOME_CONFIRMED"
+        and r["home_copyright"] == "project_voltage"
+    ]
+    if bad_project_voltage:
+        raise SystemExit("non-HOME collaboration regression: " + repr(bad_project_voltage[:10]))
+
     summary = json.load((D / "character_home_master_v2_summary.json").open(encoding="utf-8"))
     if summary["multi_home_or_policy_conflicts"] != 0 or summary["family_authority_conflicts"] != 0:
         raise SystemExit("unresolved authority conflict in v2 summary")
@@ -74,6 +93,7 @@ def main():
         "multi_home_conflicts": 0,
         "silent_approval": 0,
         "production_approved_rows": 0,
+        "semantic_regressions": 0,
         "accepted_source_modified": False,
         "production_modified": False,
         "gate": "PASS",
