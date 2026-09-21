@@ -333,6 +333,8 @@ jobs:
           assert not s['accepted_source_modified'] and not s['production_modified']
           print(json.dumps(s,ensure_ascii=False,indent=2))
           PY
+      - name: Adversarial smoke autonomous authority decision gate v2
+        run: python scripts/issue180/smoke_authority_decision_gate_v2.py
       - name: Validate autonomous authority decision ledger v2
         run: python scripts/issue180/validate_authority_decisions_v2.py
       - name: Compile deterministic Character HOME master v2
