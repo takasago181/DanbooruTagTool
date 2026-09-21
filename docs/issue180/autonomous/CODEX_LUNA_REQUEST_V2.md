@@ -12,6 +12,16 @@ Preflight in this order:
 
 The v2 foundation is already implemented and CI-validated. Do not redesign it unless an actual defect blocks execution.
 
+At the start of the task run:
+
+`python scripts/issue180/run_autonomous_v2.py`
+
+After authority-decision batches, use:
+
+`python scripts/issue180/run_autonomous_v2.py --recompile`
+
+Do not spend context reconstructing the historical script order.
+
 Your main job is to complete as much safe authority research as possible by populating `docs/issue180/autonomous/AUTHORITY_DECISIONS_V2.csv` and repeatedly recompiling the deterministic master.
 
 Use the generated v2 work queues. Process reusable family authority before individual rows. Use old relations/co-occurrence only as discovery hints, never as HOME authority.
