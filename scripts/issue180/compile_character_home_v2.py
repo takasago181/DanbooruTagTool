@@ -414,10 +414,21 @@ def main() -> None:
         json.dumps(remaining_summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
 
+    state_counts = {
+        "HOME_CONFIRMED": counts["HOME_CONFIRMED"],
+        "HOME_UNRESOLVED": counts["HOME_UNRESOLVED"],
+        "NOT_OFFICIAL_CHARACTER": counts["NOT_OFFICIAL_CHARACTER"],
+    }
+    unresolved_reason_counts = Counter(r["decision_reason"] for r in rows_out if r["final_state"] == "HOME_UNRESOLVED")
+    authority_scope_counts = Counter(r["authority_scope"] for r in applied)
+    authority_type_counts = Counter(r["authority_type"] for r in applied)
     summary = {
         "character_population": EXPECTED,
-        "states": dict(counts),
+        "states": state_counts,
         "applied_authority_rows": len(applied),
+        "authority_scope_counts": dict(authority_scope_counts),
+        "authority_type_counts": dict(authority_type_counts),
+        "unresolved_reason_counts": dict(unresolved_reason_counts),
         "autonomous_decision_rows": len(decisions),
         "autonomous_pass_rows": decision_pass,
         "autonomous_unresolved_rows": decision_unresolved,
