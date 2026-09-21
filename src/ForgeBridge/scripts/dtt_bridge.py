@@ -242,8 +242,11 @@ async def _prompt(request: Request) -> JSONResponse:
 async def _pending_request(request: Request) -> JSONResponse:
     if not _is_loopback(request):
         return _json_error(403, "local_only", "loopback access required")
+    # Keep the head request server-side until the browser reports a result.
+    # Gradio may rebuild the page/context while applying a control; a fresh
+    # browser context must be able to resume the same unacknowledged request.
     with _lock:
-        item = _pending.popleft() if _pending else None
+        item = _pending[0] if _pending else None
     return JSONResponse(content={"protocolVersion": PROTOCOL_VERSION, "pending": item})
 
 
@@ -277,6 +280,12 @@ async def _result_report(request: Request) -> JSONResponse:
             while len(_result_order) > 128:
                 old_id = _result_order.popleft()
                 _results.pop(old_id, None)
+
+        # Result reporting is the queue commit point. Until this happens,
+        # /pending keeps exposing the same head item so a reloaded Gradio
+        # browser context can continue the operation.
+        if _pending and _pending[0].get("requestId") == request_id:
+            _pending.popleft()
     return JSONResponse(content={"protocolVersion": PROTOCOL_VERSION, "accepted": True, "requestId": request_id})
 
 
