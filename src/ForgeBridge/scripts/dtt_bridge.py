@@ -10,6 +10,7 @@ from __future__ import annotations
 import inspect
 import ipaddress
 import json
+import secrets
 import time
 from collections import deque
 from threading import Lock
@@ -25,12 +26,16 @@ MAX_TEXT_LENGTH = 128 * 1024
 MAX_QUEUE_LENGTH = 16
 MAX_REQUEST_ID_LENGTH = 128
 MAX_ERROR_LENGTH = 128
+DELIVERY_LEASE_SECONDS = 8.0
+MAX_PENDING_AGE_MS = 45_000
 
 _pending: deque[dict] = deque()
 _seen_ids: deque[str] = deque()
 _seen_id_set: set[str] = set()
 _results: dict[str, dict] = {}
 _result_order: deque[str] = deque()
+_delivery_leases: dict[str, tuple[str, float]] = {}
+_committed_results: dict[str, tuple[str, bool, str]] = {}
 _lock = Lock()
 _registered = False
 
@@ -191,6 +196,14 @@ def _apply_model_if_requested(item: dict) -> None:
         item["serverError"] = "model_apply_failed"
 
 
+
+def _prune_expired_pending_locked() -> None:
+    now_ms = int(time.time() * 1000)
+    while _pending and now_ms - int(_pending[0].get("createdAt", now_ms)) > MAX_PENDING_AGE_MS:
+        expired = _pending.popleft()
+        _delivery_leases.pop(str(expired.get("requestId", "")), None)
+
+
 async def _health(request: Request) -> JSONResponse:
     if not _is_loopback(request):
         return _json_error(403, "local_only", "loopback access required")
@@ -219,6 +232,7 @@ async def _prompt(request: Request) -> JSONResponse:
         return _json_error(*error)
     assert item is not None
     with _lock:
+        _prune_expired_pending_locked()
         if item["requestId"] in _seen_id_set:
             return _json_error(409, "duplicate_request", "requestId was already accepted")
         if len(_pending) >= MAX_QUEUE_LENGTH:
@@ -236,17 +250,30 @@ async def _prompt(request: Request) -> JSONResponse:
             old_id = _seen_ids.popleft()
             _seen_id_set.discard(old_id)
             _results.pop(old_id, None)
+            _delivery_leases.pop(old_id, None)
+            _committed_results.pop(old_id, None)
     return JSONResponse(content={"protocolVersion": PROTOCOL_VERSION, "accepted": True, "requestId": item["requestId"]})
 
 
 async def _pending_request(request: Request) -> JSONResponse:
     if not _is_loopback(request):
         return _json_error(403, "local_only", "loopback access required")
-    # Keep the head request server-side until the browser reports a result.
-    # Gradio may rebuild the page/context while applying a control; a fresh
-    # browser context must be able to resume the same unacknowledged request.
     with _lock:
-        item = _pending[0] if _pending else None
+        _prune_expired_pending_locked()
+        if not _pending:
+            item = None
+        else:
+            head = _pending[0]
+            request_id = str(head.get("requestId", ""))
+            now = time.monotonic()
+            lease = _delivery_leases.get(request_id)
+            if lease is not None and lease[1] > now:
+                item = None
+            else:
+                token = secrets.token_urlsafe(18)
+                _delivery_leases[request_id] = (token, now + DELIVERY_LEASE_SECONDS)
+                item = dict(head)
+                item["deliveryToken"] = token
     return JSONResponse(content={"protocolVersion": PROTOCOL_VERSION, "pending": item})
 
 
@@ -260,33 +287,60 @@ async def _result_report(request: Request) -> JSONResponse:
         payload = json.loads(body.decode("utf-8"))
     except (UnicodeDecodeError, json.JSONDecodeError):
         return _json_error(400, "malformed", "payload must be UTF-8 JSON")
-    if not isinstance(payload, dict) or set(payload) - {"protocolVersion", "requestId", "success", "error"}:
+    if not isinstance(payload, dict) or set(payload) - {"protocolVersion", "requestId", "deliveryToken", "success", "error"}:
         return _json_error(400, "malformed", "result payload is invalid")
     if payload.get("protocolVersion") != PROTOCOL_VERSION:
         return _json_error(426, "protocol", "unsupported protocol version")
     request_id = payload.get("requestId")
+    delivery_token = payload.get("deliveryToken")
     success = payload.get("success")
     error = payload.get("error", "")
     if not isinstance(request_id, str) or not request_id or len(request_id) > MAX_REQUEST_ID_LENGTH:
         return _json_error(400, "malformed", "requestId is invalid")
+    if not isinstance(delivery_token, str) or not delivery_token or len(delivery_token) > 128:
+        return _json_error(400, "malformed", "deliveryToken is invalid")
     if not isinstance(success, bool) or not isinstance(error, str) or len(error) > MAX_ERROR_LENGTH:
         return _json_error(400, "malformed", "result is invalid")
     with _lock:
         if request_id not in _seen_id_set:
             return _json_error(404, "unknown_request", "requestId is unknown")
-        if request_id not in _results:
+
+        committed = _committed_results.get(request_id)
+        if committed is not None:
+            committed_token, committed_success, committed_error = committed
+            if committed_token == delivery_token and committed_success == success and committed_error == error:
+                return JSONResponse(content={
+                    "protocolVersion": PROTOCOL_VERSION,
+                    "accepted": True,
+                    "requestId": request_id,
+                    "duplicate": True,
+                })
+            return _json_error(409, "stale_delivery", "request delivery is no longer current")
+
+        lease = _delivery_leases.get(request_id)
+        if lease is None or lease[0] != delivery_token:
+            return _json_error(409, "stale_delivery", "request delivery is no longer current")
+        if not _pending or _pending[0].get("requestId") != request_id:
+            return _json_error(409, "out_of_order", "request is not the pending queue head")
+
+        action = _pending[0].get("action", "send_only")
+        if action != "send_only":
             _results[request_id] = {"success": success, "error": error}
             _result_order.append(request_id)
             while len(_result_order) > 128:
                 old_id = _result_order.popleft()
                 _results.pop(old_id, None)
 
-        # Result reporting is the queue commit point. Until this happens,
-        # /pending keeps exposing the same head item so a reloaded Gradio
-        # browser context can continue the operation.
-        if _pending and _pending[0].get("requestId") == request_id:
-            _pending.popleft()
-    return JSONResponse(content={"protocolVersion": PROTOCOL_VERSION, "accepted": True, "requestId": request_id})
+        _pending.popleft()
+        _delivery_leases.pop(request_id, None)
+        _committed_results[request_id] = (delivery_token, success, error)
+
+    return JSONResponse(content={
+        "protocolVersion": PROTOCOL_VERSION,
+        "accepted": True,
+        "requestId": request_id,
+        "duplicate": False,
+    })
 
 
 async def _result(request: Request) -> JSONResponse:
