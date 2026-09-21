@@ -150,7 +150,6 @@
                             <ToggleButton Content="すべて" IsChecked="{Binding IsSearchAll, Mode=OneWay}" Command="{Binding SetSearchTargetCommand}" CommandParameter="All" Style="{StaticResource UnifiedFilterToggleLocal}"/>
                             <ToggleButton Content="キャラ" IsChecked="{Binding IsSearchCharacter, Mode=OneWay}" Command="{Binding SetSearchTargetCommand}" CommandParameter="Character" Style="{StaticResource UnifiedFilterToggleLocal}"/>
                             <ToggleButton Content="作品" IsChecked="{Binding IsSearchCopyright, Mode=OneWay}" Command="{Binding SetSearchTargetCommand}" CommandParameter="Copyright" Style="{StaticResource UnifiedFilterToggleLocal}"/>
-                            <ToggleButton Content="作者" IsChecked="{Binding IsSearchArtist, Mode=OneWay}" Command="{Binding SetSearchTargetCommand}" CommandParameter="Artist" Style="{StaticResource UnifiedFilterToggleLocal}"/>
                         </WrapPanel>
                     </DockPanel>
                 </Border>
