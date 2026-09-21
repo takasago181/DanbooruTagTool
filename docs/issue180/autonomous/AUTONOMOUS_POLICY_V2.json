@@ -211,5 +211,6 @@
     "FANWORK_CROSSOVER",
     "FANWORK_DERIVATIVE",
     "NON_IDENTITY_DESCRIPTION"
-  ]
+  ],
+  "mandatory_unqualified_group_min_rows": 50
 }
