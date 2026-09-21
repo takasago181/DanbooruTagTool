@@ -32,3 +32,13 @@ No generated artifact belongs in this directory.
 - Use `DIRECT_CHARACTER` PASS rows for members actually proven by an official/curated roster.
 - Finish a group with `UNRESOLVED` or `NEEDS_HIGHER_REASONING` only after actual group/roster research.
 - A terminal DISCOVERY_GROUP row requires grounded evidence and a substantive note.
+
+
+## Review-only variant patterns
+
+`VARIANT_PATTERN` is review-progress only.
+
+- key = `pattern_id` from `VARIANT_PATTERN_GROUPS_V2.csv`
+- it never grants HOME directly;
+- use explicit `VARIANT_CHARACTER PASS` rows for variants proven by the reviewed official pattern;
+- finish the pattern with `UNRESOLVED` or `NEEDS_HIGHER_REASONING` plus grounded evidence and a substantive note.
