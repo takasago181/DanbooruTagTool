@@ -17,9 +17,13 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Validate Issue180 research-only scope
+        run: python scripts/issue180/validate_research_scope_v2.py
       - name: Build single-home pilot
         run: python scripts/issue180/build_single_home_pilot.py
       - name: Prepare diverse 250-character pilot
