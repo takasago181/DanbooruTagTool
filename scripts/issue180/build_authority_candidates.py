@@ -17,6 +17,8 @@ BASE_QUALIFIER_ROOTS = {
     "arknights": "arknights", "kancolle": "kantai_collection",
     "kantai_collection": "kantai_collection", "touhou": "touhou",
     "hololive": "hololive", "wuthering_waves": "wuthering_waves",
+    "azur_lane": "azur_lane", "girls_und_panzer": "girls_und_panzer",
+    "princess_connect!": "princess_connect!",
 }
 FINAL_QUALIFIER = re.compile(r"_\(([^()]+)\)$")
 
