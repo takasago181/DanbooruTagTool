@@ -164,6 +164,30 @@ jobs:
           assert not s['production_modified']
           print(json.dumps(s,ensure_ascii=False,indent=2))
           PY
+      - name: Apply high-yield official root authority batch 03
+        run: python scripts/issue180/apply_high_yield_official_root_batch03_v1.py
+      - name: Validate high-yield official root authority batch 03
+        run: |
+          python - <<'PY'
+          import json
+          p='artifacts/issue180-full-preflight/POST_NORMALIZED_REVIEW/high_yield_official_root_batch03_v1_summary.json'
+          s=json.load(open(p,encoding='utf-8'))
+          expected={
+            'families':14,
+            'family_rows':453,
+            'second_review_pass':438,
+            'variant_officiality_pending':15,
+            'missing_roots':0,
+            'multi_home_conflicts':0,
+            'auto_inferred':0,
+          }
+          for k,v in expected.items():
+            assert s[k]==v,(k,s[k],v)
+          assert not s['legacy_relation_used']
+          assert not s['accepted_source_modified']
+          assert not s['production_modified']
+          print(json.dumps(s,ensure_ascii=False,indent=2))
+          PY
       - name: Build mega-batch authority ledger
         run: python scripts/issue180/build_megabatch_authority_ledger_v1.py
       - name: Build major roster authority expansion
