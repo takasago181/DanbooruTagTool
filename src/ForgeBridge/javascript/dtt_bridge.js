@@ -1,6 +1,9 @@
 (() => {
   "use strict";
 
+  if (window.__dttBridgeActive === true) return;
+  window.__dttBridgeActive = true;
+
   const selectors = {
     positive: ["#txt2img_prompt textarea", "textarea#txt2img_prompt", 'textarea[aria-label="Prompt"]'],
     negative: ["#txt2img_neg_prompt textarea", "textarea#txt2img_neg_prompt", 'textarea[aria-label="Negative prompt"]'],
