@@ -77,6 +77,12 @@ def main():
  }
  expect_fail("cross_shard_duplicate", [("a",[row_pass]),("b",[row_unresolved])], "multiple decisions for same scope/key")
 
+ expect_fail("blank_terminal_unresolved", [("a",[{
+  "scope":"FAMILY_QUALIFIER","key":"blue_archive","home_copyright":"",
+  "base_character":"","authority_type":"","evidence_url":"",
+  "evidence_claim":"","validation_state":"UNRESOLVED","officiality_state":"","notes":"too short",
+ }])], "terminal UNRESOLVED decision requires notes")
+
  expect_fail("autonomous_not_official", [("a",[{
   "scope":"NOT_OFFICIAL_CHARACTER","key":"harmony_(pokemon)","home_copyright":"",
   "base_character":"","authority_type":"AUTONOMOUS_NON_OFFICIAL","evidence_url":"",
