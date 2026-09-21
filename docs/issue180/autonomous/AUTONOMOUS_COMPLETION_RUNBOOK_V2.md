@@ -195,6 +195,8 @@ After a substantial decision batch:
 4. inspect `remaining_work_v2_summary.json`
 5. continue with newly unlocked variant/base work
 
+Do not create one UNRESOLVED decision row for every untouched Character. Generated work queues already preserve the default unresolved reason. Write decision rows when you add PASS authority, explicitly escalate to NEEDS_HIGHER_REASONING, block/not-official a row, or when actual research produced a more specific unresolved conclusion.
+
 Do not commit every family separately.
 
 Prefer a small number of large checkpoints.
