@@ -245,9 +245,10 @@ Do not ask the user to type "continue" between batches.
 If CI or a script fails:
 
 - inspect the actual failure;
-- fix the cause;
-- rerun;
-- do not treat an ordinary code/schema failure as a reason to stop the audit.
+- before the execution freeze, a genuine harness defect may be fixed and re-audited;
+- after `CODEX_EXECUTION_BASE_V2.json` exists, fix only decision-shard data/CSV formatting errors;
+- after freeze, never edit compiler/validator/policy/workflow/runbook to make a gate pass; report a genuine harness defect as a blocker;
+- rerun after permitted decision-shard fixes.
 
 If one authority case is ambiguous, isolate that case and continue independent queues.
 
