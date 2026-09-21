@@ -128,6 +128,10 @@ def main():
   elif key not in chars:
    raise SystemExit(f"{where}: unknown Character key {key}")
 
+  if state in {"UNRESOLVED","NEEDS_HIGHER_REASONING"}:
+   review_note=(r.get("notes") or "").strip()
+   if len(review_note)<20:
+    raise SystemExit(f"{where}: terminal {state} decision requires notes (>=20 chars) describing the completed review/remaining uncertainty")
   if state!="PASS":
    continue
 
