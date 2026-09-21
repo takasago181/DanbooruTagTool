@@ -313,6 +313,15 @@ def main() -> None:
                 conflicts.add(tag)
                 pending.remove(tag)
                 continue
+            if tag in home_by:
+                if home_by[tag] != inherited:
+                    conflicts.add(tag)
+                # Same-HOME direct authority is corroboration; preserve the
+                # already-selected direct authority rather than silently
+                # replacing its provenance with variant inheritance.
+                pending.remove(tag)
+                changed = True
+                continue
             home_by[tag] = inherited
             rec_by[tag] = records[0]
             reason_by[tag] = "REVIEWED_VARIANT_INHERITANCE"
