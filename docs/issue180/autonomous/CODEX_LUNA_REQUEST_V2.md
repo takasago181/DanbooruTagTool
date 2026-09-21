@@ -35,6 +35,8 @@ Do not FAMILY_QUALIFIER-confirm collaboration/project families such as `project_
 
 For difficult cases, use UNRESOLVED or NEEDS_HIGHER_REASONING and continue all other independent work. Do not stop the whole task for Piapro/Miku, umbrella franchises, or a small number of hard cases.
 
+Do not bloat decision shards with one UNRESOLVED row for every untouched Character. The generated master already keeps untouched rows unresolved with a reason. Persist only meaningful reviewed decisions/escalations and safe PASS authority.
+
 Do not repeatedly ask the user to continue.
 
 Keep main, production, accepted Issue #70 source, #179 branch, and Artist untouched.
