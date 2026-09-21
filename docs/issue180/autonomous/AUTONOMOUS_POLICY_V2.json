@@ -38,7 +38,9 @@
     "transformers",
     "mario",
     "vtuber",
-    "cookie"
+    "cookie",
+    "project_moon",
+    "vocaloid"
   ],
   "non_home_families": [
     "project_voltage"
@@ -143,5 +145,11 @@
   ],
   "root_policy_review_hint_exact": {
     "jojolion": "jojo_no_kimyou_na_bouken"
-  }
+  },
+  "official_origin_classes": [
+    "OFFICIAL_IDENTITY",
+    "OFFICIAL_ALIAS",
+    "OFFICIAL_VARIANT"
+  ],
+  "allow_autonomous_not_official_pass": false
 }
