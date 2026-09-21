@@ -22,7 +22,11 @@ jobs:
           python-version: "3.12"
       - name: Build single-home pilot
         run: python scripts/issue180/build_single_home_pilot.py
+      - name: Prepare diverse 250-character pilot
+        run: python scripts/issue180/prepare_diverse_pilot.py
       - uses: actions/upload-artifact@v4
         with:
           name: issue180-single-home-pilot
-          path: artifacts/issue180-single-home-pilot/
+          path: |
+            artifacts/issue180-single-home-pilot/
+            artifacts/issue180-diverse-pilot/
