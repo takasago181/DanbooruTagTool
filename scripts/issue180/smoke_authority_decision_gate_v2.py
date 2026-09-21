@@ -56,7 +56,7 @@ def main():
   "base_character":"","authority_type":"QUALIFIER_COPYRIGHT","evidence_url":"",
   "evidence_claim":"REPO:docs/issue180/DOES_NOT_EXIST.md","validation_state":"PASS",
   "officiality_state":"","notes":"Repository evidence should not exist.",
- }])], "PASS requires http(s) evidence_url or evidence_claim REPO:<existing repository path>")
+ }])], "REPO evidence path does not exist")
 
  row_pass={
   "scope":"FAMILY_QUALIFIER","key":"blue_archive","home_copyright":"blue_archive",
