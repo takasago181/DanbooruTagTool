@@ -16,7 +16,7 @@ def approved():
   for r in csv.DictReader(p.open(encoding="utf-8-sig",newline="")):
    q=(r.get("qualifier") or r.get("family") or "").strip().lower()
    passed=r.get("second_review")=="PASS" or r.get("authority_decision")=="SECOND_REVIEW_PASS_RESEARCH_ONLY"
-   home=(r.get("candidate_root") or r.get("proposed_root") or "").strip()
+   home=(r.get("candidate_root") or r.get("proposed_root") or r.get("candidate_root_hint") or "").strip()
    if not(q and passed and home): continue
    if q in d and d[q]!=home: conflicts.setdefault(q,set()).update((d[q],home))
    else:d[q]=home
