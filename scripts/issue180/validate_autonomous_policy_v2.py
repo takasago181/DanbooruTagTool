@@ -15,7 +15,7 @@ REQUIRED={
  "version","attribute_families","ordinal_costume_regex","broad_families","non_home_families",
  "broad_pass_types","piapro_policy_characters","root_policy_normalization",
  "root_policy_review_hint_prefixes","root_policy_review_hint_exact",
- "official_origin_classes","allow_autonomous_not_official_pass",
+ "official_origin_classes","allow_autonomous_not_official_pass","allow_autonomous_broad_family_pass",
 }
 
 
@@ -36,6 +36,8 @@ def main():
   raise SystemExit("unsupported policy version")
  if not isinstance(policy["allow_autonomous_not_official_pass"], bool):
   raise SystemExit("allow_autonomous_not_official_pass: expected boolean")
+ if not isinstance(policy["allow_autonomous_broad_family_pass"], bool):
+  raise SystemExit("allow_autonomous_broad_family_pass: expected boolean")
  for name in ("attribute_families","broad_families","non_home_families","broad_pass_types","piapro_policy_characters","official_origin_classes"):
   if not isinstance(policy[name],list): raise SystemExit(f"{name}: expected list")
   unique_list(name,policy[name])
@@ -87,6 +89,7 @@ def main():
   "root_policy_hint_exact":len(policy["root_policy_review_hint_exact"]),
   "official_origin_classes":len(policy["official_origin_classes"]),
   "allow_autonomous_not_official_pass":policy["allow_autonomous_not_official_pass"],
+  "allow_autonomous_broad_family_pass":policy["allow_autonomous_broad_family_pass"],
   "gate":"PASS",
  },ensure_ascii=False,indent=2))
 
