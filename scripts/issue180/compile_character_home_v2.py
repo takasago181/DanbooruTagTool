@@ -28,6 +28,7 @@ APPLIED = O / "APPLIED_AUTHORITY_LEDGER_V2.csv"
 FAMILY_WORK = O / "FAMILY_WORK_QUEUE_V2.csv"
 VARIANT_WORK = O / "VARIANT_WORK_QUEUE_V2.csv"
 UNQUALIFIED_WORK = O / "UNQUALIFIED_WORK_QUEUE_V2.csv"
+ORIGIN_HANDOFF = R / "docs/issue180/evidence/ISSUE179_ORIGIN_HANDOFF_V1.csv"
 EXPECTED = 35890
 POLICY_PATH = R / "docs/issue180/autonomous/AUTONOMOUS_POLICY_V2.json"
 POLICY = json.loads(POLICY_PATH.read_text(encoding="utf-8"))
@@ -35,6 +36,8 @@ if POLICY.get("version") != 2:
     raise SystemExit("unsupported autonomous policy version")
 ATTR = set(POLICY["attribute_families"])
 ORDINAL_COSTUME = re.compile(POLICY["ordinal_costume_regex"])
+OFFICIAL_ORIGIN_CLASSES = set(POLICY["official_origin_classes"])
+ALLOW_AUTONOMOUS_NOT_OFFICIAL = bool(POLICY["allow_autonomous_not_official_pass"])
 VALID_SCOPES = {"FAMILY_QUALIFIER", "DIRECT_CHARACTER", "VARIANT_CHARACTER", "NOT_OFFICIAL_CHARACTER", "BLOCK_CHARACTER"}
 
 
@@ -109,6 +112,16 @@ def main() -> None:
     census = {r["canonical_tag"]: r for r in read(CENSUS)}
     if len(census) != EXPECTED:
         raise SystemExit("census drift")
+    origin_rows = read(ORIGIN_HANDOFF)
+    origin_by = {
+        r["canonical_tag"]: r["origin_class"].strip()
+        for r in origin_rows
+        if r.get("canonical_tag") in char_tags
+    }
+    origin_guarded = {
+        tag: cls for tag, cls in origin_by.items()
+        if cls not in OFFICIAL_ORIGIN_CLASSES
+    }
 
     direct: dict[str, list[dict[str, str]]] = defaultdict(list)
     family: dict[str, list[dict[str, str]]] = defaultdict(list)
@@ -131,6 +144,8 @@ def main() -> None:
         store[key].append({**rec, "home_copyright": home})
 
     for row in read(BASE_DIRECT):
+        if row["canonical_tag"] in origin_guarded:
+            raise SystemExit(f"origin-guarded Character leaked into BASE_DIRECT: {row['canonical_tag']} -> {origin_guarded[row['canonical_tag']]}")
         add_record(direct, row["canonical_tag"], row["home_copyright"], {
             "authority_scope": "DIRECT_CHARACTER",
             "authority_type": row.get("authority_type", "V2_BASE_DIRECT"),
@@ -203,6 +218,8 @@ def main() -> None:
                 raise SystemExit(f"block references unknown Character: {key}")
             blocks.add(key)
         elif scope == "NOT_OFFICIAL_CHARACTER":
+            if not ALLOW_AUTONOMOUS_NOT_OFFICIAL:
+                raise SystemExit("autonomous NOT_OFFICIAL_CHARACTER PASS is disabled; require a second-reviewed handoff")
             if key not in char_tags:
                 raise SystemExit(f"not-official references unknown Character: {key}")
             if home:
@@ -246,9 +263,12 @@ def main() -> None:
         if tag in not_official or tag in blocks:
             continue
         direct_choice = chosen_direct.get(tag)
+        if tag in origin_guarded and direct_choice:
+            if direct_choice[1].get("officiality_state", "") not in {"OFFICIAL_CONFIRMED", "OFFICIAL_IDENTITY", "OFFICIAL_VARIANT"}:
+                direct_choice = None
         fam = (census[tag].get("final_qualifier") or "").strip().lower()
         family_choice = None
-        if fam and not is_attribute_family(fam) and not nested(tag, fam) and fam not in family_conflicts:
+        if tag not in origin_guarded and fam and not is_attribute_family(fam) and not nested(tag, fam) and fam not in family_conflicts:
             family_choice = chosen_family.get(fam)
         homes = {x[0] for x in (direct_choice, family_choice) if x}
         if len(homes) > 1:
@@ -335,13 +355,17 @@ def main() -> None:
                 "evidence_url": rec.get("evidence_url", ""),
                 "evidence_claim": rec.get("evidence_claim", ""),
                 "source_provenance": rec.get("source_provenance", ""),
+                "officiality_state": rec.get("officiality_state", origin_by.get(tag, "")),
+                "origin_class": origin_by.get(tag, ""),
                 "decision_reason": reason,
                 "production_approved": "false",
             })
         else:
             state = "HOME_UNRESOLVED"
             home = ""
-            if tag in deferred_character_reason:
+            if tag in origin_guarded:
+                reason = f"OFFICIALITY_REVIEW_REQUIRED_ISSUE179:{origin_guarded[tag]}"
+            elif tag in deferred_character_reason:
                 reason = deferred_character_reason[tag]
             elif tag in pending:
                 reason = "VARIANT_BASE_HOME_NOT_CONFIRMED"
@@ -361,6 +385,7 @@ def main() -> None:
             "final_qualifier": fam,
             "final_state": state,
             "home_copyright": home,
+            "origin_class": origin_by.get(tag, ""),
             "decision_reason": reason,
             "production_approved": "false",
         })
