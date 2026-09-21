@@ -26,6 +26,7 @@ BROAD_PASS_TYPES=set(POLICY["broad_pass_types"])
 BROAD_FAMILIES=set(POLICY["broad_families"])
 NON_HOME_FAMILIES=set(POLICY["non_home_families"])
 ALLOW_AUTONOMOUS_NOT_OFFICIAL=bool(POLICY["allow_autonomous_not_official_pass"])
+ALLOW_AUTONOMOUS_BROAD_FAMILY=bool(POLICY["allow_autonomous_broad_family_pass"])
 
 
 def read(path):
@@ -148,8 +149,11 @@ def main():
    lane=family_lane.get(lookup_key,"")
    if lookup_key in NON_HOME_FAMILIES or lane=="HIGHER_REASONING_NON_HOME_SEMANTICS":
     raise SystemExit(f"{where}: {lookup_key} is a non-HOME collaboration/project family; use direct/variant evidence, not FAMILY_QUALIFIER")
-   if (lookup_key in BROAD_FAMILIES or lane.startswith("HIGHER_REASONING_BROAD")) and authority_type not in BROAD_PASS_TYPES:
-    raise SystemExit(f"{where}: broad family PASS requires explicit root-policy/roster authority_type")
+   if lookup_key in BROAD_FAMILIES or lane.startswith("HIGHER_REASONING_BROAD"):
+    if not ALLOW_AUTONOMOUS_BROAD_FAMILY:
+     raise SystemExit(f"{where}: autonomous broad-family FAMILY_QUALIFIER PASS is disabled; use DIRECT_CHARACTER roster evidence or an explicit policy normalization")
+    if authority_type not in BROAD_PASS_TYPES:
+     raise SystemExit(f"{where}: broad family PASS requires explicit root-policy/roster authority_type")
 
   if scope=="DIRECT_CHARACTER" and officiality not in {"OFFICIAL_CONFIRMED","OFFICIAL_IDENTITY"}:
    raise SystemExit(f"{where}: DIRECT_CHARACTER PASS requires OFFICIAL_CONFIRMED/OFFICIAL_IDENTITY")
