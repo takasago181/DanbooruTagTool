@@ -129,7 +129,7 @@ public sealed class ForgeBridgeClient(HttpClient? httpClient = null) : IForgeBri
             {
                 if (!success) return Failure(error, ActionFailureMessage(error));
                 if (request.Action == ForgeBridgeAction.ApplyRecipe) return new(true, "Forgeへレシピを適用しました");
-                return new(true, request.Recipe?.HasAny == true ? "Forgeでレシピ生成を開始しました" : "Forgeで生成を開始しました");
+                return new(true, request.Recipe?.HasAny == true ? "Forgeへレシピ生成操作を送信しました" : "Forgeへ生成操作を送信しました");
             }
 
             await Task.Delay(100, cancellationToken);
