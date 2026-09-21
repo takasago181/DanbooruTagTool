@@ -1,0 +1,25 @@
+name: Issue180 Single Home Pilot
+
+on:
+  push:
+    branches:
+      - research/issue180-single-home-pilot
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  pilot:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build single-home pilot
+        run: python scripts/issue180/build_single_home_pilot.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: issue180-single-home-pilot
+          path: artifacts/issue180-single-home-pilot/
