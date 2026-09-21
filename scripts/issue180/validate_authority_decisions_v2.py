@@ -53,7 +53,19 @@ def read_decisions():
 def is_grounded_evidence(row):
  url=(row.get("evidence_url") or "").strip()
  claim=(row.get("evidence_claim") or "").strip()
- return url.startswith(("https://","http://")) or claim.startswith(("REPO:","POLICY:"))
+ if url.startswith(("https://","http://")):
+  return True
+ if claim.startswith("REPO:"):
+  raw=claim[len("REPO:"):].strip().split("#",1)[0].strip()
+  if not raw:
+   return False
+  path=(R/raw).resolve()
+  try:
+   path.relative_to(R.resolve())
+  except ValueError:
+   return False
+  return path.exists()
+ return False
 
 
 def main():
@@ -113,7 +125,7 @@ def main():
   if not authority_type:
    raise SystemExit(f"{where}: PASS missing authority_type")
   if not is_grounded_evidence(r):
-   raise SystemExit(f"{where}: PASS requires http(s) evidence_url or evidence_claim beginning REPO:/POLICY:")
+   raise SystemExit(f"{where}: PASS requires http(s) evidence_url or evidence_claim REPO:<existing repository path>")
 
   if scope in {"FAMILY_QUALIFIER","DIRECT_CHARACTER","VARIANT_CHARACTER"}:
    if not home: raise SystemExit(f"{where}: PASS relation missing HOME")
