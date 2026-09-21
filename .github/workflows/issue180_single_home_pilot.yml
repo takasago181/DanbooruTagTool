@@ -112,7 +112,7 @@ jobs:
           p=Path('artifacts/issue180-full-preflight/MAJOR_ROSTER_EXPANSION_V1.csv')
           rows=list(csv.DictReader(p.open(encoding='utf-8-sig')))
           by={r['canonical_tag']:r for r in rows}
-          expected={'saiba_momoi_(blue_archive)':'blue_archive','hakurei_reimu':'touhou','pikachu':'pokemon','shirakami_fubuki':'hololive'}
+          expected={'momoi_(blue_archive)':'blue_archive','hakurei_reimu':'touhou','pikachu':'pokemon','shirakami_fubuki':'hololive'}
           assert len(rows)==35890
           for tag,home in expected.items():
             assert tag in by, ('missing_expected_tag',tag)
