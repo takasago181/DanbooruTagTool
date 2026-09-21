@@ -4,6 +4,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import subprocess
 from collections import Counter
 from pathlib import Path
 
@@ -14,6 +15,8 @@ OFFICIALITY=D/"REMAINING_OFFICIALITY_WORK_V2.csv"
 UNQUALIFIED=D/"REMAINING_UNQUALIFIED_WORK_V2.csv"
 SUMMARY=D/"character_home_master_v2_summary.json"
 OUT=D/"autonomous_completion_readiness_v2.json"
+ORIGIN_META=R/"docs/issue180/evidence/ISSUE179_ORIGIN_HANDOFF_V1.meta.json"
+ISSUE179_REF="refs/heads/research/issue179-character-quality-audit"
 
 MANDATORY_FAMILY_LANES={
  "FAST_REVALIDATE_NORMALIZATION",
@@ -26,6 +29,19 @@ MANDATORY_FAMILY_LANES={
 
 def read(path):
  with path.open(encoding="utf-8-sig",newline="") as f:return list(csv.DictReader(f))
+
+
+def check_issue179_freshness():
+ meta=json.loads(ORIGIN_META.read_text(encoding="utf-8"))
+ saved=str(meta.get("source_sha","")).strip()
+ p=subprocess.run(["git","ls-remote","origin",ISSUE179_REF],cwd=R,text=True,capture_output=True)
+ if p.returncode!=0:
+  return False, saved, "", "git ls-remote failed: "+p.stderr.strip()
+ line=(p.stdout or "").strip().splitlines()
+ if len(line)!=1 or not line[0].split():
+  return False, saved, "", "Issue179 remote ref not found or ambiguous"
+ live=line[0].split()[0]
+ return live==saved, saved, live, "" if live==saved else "Issue179 origin handoff snapshot is stale"
 
 
 def main():
@@ -50,8 +66,15 @@ def main():
   "pending_decision_rows":pending,
  }
  ready=all(v==0 for v in blockers.values()) and decisions>0
+ freshness={"checked":False,"fresh":None,"saved_sha":"","live_sha":"","error":""}
+ if args.final:
+  fresh,saved,live,error=check_issue179_freshness()
+  freshness={"checked":True,"fresh":fresh,"saved_sha":saved,"live_sha":live,"error":error}
+  ready=ready and fresh
+
  result={
   "ready_for_final_autonomous_report":ready,
+  "issue179_handoff_freshness":freshness,
   "autonomous_decision_rows":decisions,
   "blockers":blockers,
   "mandatory_family_lane_counts":mandatory_family,
@@ -65,6 +88,8 @@ def main():
  OUT.write_text(json.dumps(result,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
  print(json.dumps(result,ensure_ascii=False,indent=2))
  if args.final and not ready:
+  if not freshness["fresh"]:
+   raise SystemExit("final readiness failed: Issue179 handoff freshness check failed: "+freshness["error"])
   if decisions==0:
    raise SystemExit("final readiness failed: no autonomous decisions were recorded")
   raise SystemExit("final readiness failed: mandatory active work remains")
