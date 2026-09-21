@@ -34,7 +34,8 @@ def main():
     "jp_search_present_display_review":sum(r["japanese_surface_state"]=="JP_SEARCH_PRESENT_DISPLAY_REVIEW" for r in out),
     "non_jp_or_missing_surface":sum(r["japanese_surface_state"] in ("NON_JP_SURFACE_REVIEW","JP_SURFACE_MISSING") for r in out),
     "authority_relevant_families":sum(r["authority_relevant"]=="true" for r in out),
-    "authority_relevant_jp_display_present":sum(r["authority_relevant"]=="true" and r["japanese_surface_state"]=="JP_DISPLAY_PRESENT" for r in out),\n    "japanese_review_required":sum(r["japanese_review_required"]=="true" for r in out),
+    "authority_relevant_jp_display_present":sum(r["authority_relevant"]=="true" and r["japanese_surface_state"]=="JP_DISPLAY_PRESENT" for r in out),
+    "japanese_review_required":sum(r["japanese_review_required"]=="true" for r in out),
     "relation_authority_changed":False,"production_modified":False}
  SUM.write_text(json.dumps(x,ensure_ascii=False,indent=2)+"\n",encoding="utf-8");print(json.dumps(x,ensure_ascii=False,indent=2))
 if __name__=="__main__":main()
