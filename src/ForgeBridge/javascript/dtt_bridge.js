@@ -143,8 +143,6 @@
 
     const input = root.querySelector("input[role='combobox'], input:not([type='hidden'])");
     if (input instanceof HTMLInputElement) {
-      if (normalized(input.value) === wanted) return true;
-
       input.focus();
       input.click();
       await nextFrame();
@@ -153,15 +151,39 @@
       await sleep(220);
 
       const listboxId = input.getAttribute("aria-controls");
-      const listbox = listboxId ? document.getElementById(listboxId) : null;
-      const options = listbox instanceof HTMLElement
-        ? [...listbox.querySelectorAll("[role='option']")]
-        : [];
+      const getOptions = () => {
+        const listbox = listboxId ? document.getElementById(listboxId) : null;
+        return listbox instanceof HTMLElement
+          ? [...listbox.querySelectorAll("[role='option']")]
+          : [];
+      };
 
-      const exact = options.find(option =>
+      let options = getOptions();
+      let exact = options.find(option =>
         normalized(option.getAttribute("aria-label") ?? option.textContent) === wanted);
 
+      // Large Dropdowns render choices in batches. Ask Gradio to expose the
+      // full list before deciding that a legitimate choice is missing.
+      if (!(exact instanceof HTMLElement) && options.length > 0) {
+        input.dispatchEvent(new KeyboardEvent("keydown", {
+          key: "End",
+          code: "End",
+          bubbles: true,
+          cancelable: true
+        }));
+        await nextFrame();
+        await sleep(80);
+        options = getOptions();
+        exact = options.find(option =>
+          normalized(option.getAttribute("aria-label") ?? option.textContent) === wanted);
+      }
+
       if (exact instanceof HTMLElement) {
+        // Do not trust the textbox display as current state: older bridge
+        // versions could make it say Karras while Gradio still held Automatic.
+        // aria-selected reflects Gradio's actual selected_index.
+        if (exact.getAttribute("aria-selected") === "true") return true;
+
         exact.dispatchEvent(new MouseEvent("mousedown", {
           bubbles: true,
           cancelable: true,
@@ -172,6 +194,9 @@
         await nextFrame();
         await sleep(40);
 
+        // We never write the Dropdown textbox ourselves on this path. If it
+        // now shows the requested label, that value came from Gradio's real
+        // option-selection handler.
         if (normalized(input.value) === wanted) return true;
       }
     }
