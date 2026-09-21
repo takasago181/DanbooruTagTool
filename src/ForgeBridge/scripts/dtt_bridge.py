@@ -182,10 +182,11 @@ def _apply_model_if_requested(item: dict) -> None:
 
         checkpoint_change = main_entry.checkpoint_change
         if "preset" in inspect.signature(checkpoint_change).parameters:
-            checkpoint_change(match.title, preset=None)
+            changed = bool(checkpoint_change(match.title, preset=None))
         else:
-            checkpoint_change(match.title)
+            changed = bool(checkpoint_change(match.title))
         item["appliedModel"] = match.title
+        item["modelChanged"] = changed
     except Exception:
         item["serverError"] = "model_apply_failed"
 
