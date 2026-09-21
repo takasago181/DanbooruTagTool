@@ -24,15 +24,15 @@ def main():
   elif search_jp: state="JP_SEARCH_PRESENT_DISPLAY_REVIEW"
   elif display or search: state="NON_JP_SURFACE_REVIEW"
   else: state="JP_SURFACE_MISSING"
-  out.append({**g,"display_field":display_field or "","search_field":search_field or "","copyright_display_ja":display,
-   "copyright_search_ja":search,"japanese_surface_state":state,"japanese_review_required":str(not display_jp).lower()})
+  authority_relevant=(g["gate_state"]!="HOME_UNRESOLVED" and bool(root))\n  out.append({**g,"display_field":display_field or "","search_field":search_field or "","copyright_display_ja":display,
+   "copyright_search_ja":search,"japanese_surface_state":state,"authority_relevant":str(authority_relevant).lower(),"japanese_review_required":str(authority_relevant and not display_jp).lower()})
  with OUT.open("w",encoding="utf-8-sig",newline="") as f:
   w=csv.DictWriter(f,fieldnames=out[0].keys(),lineterminator="\n");w.writeheader();w.writerows(out)
  x={"families":len(out),"display_field":display_field,"search_field":search_field,
     "jp_display_present":sum(r["japanese_surface_state"]=="JP_DISPLAY_PRESENT" for r in out),
     "jp_search_present_display_review":sum(r["japanese_surface_state"]=="JP_SEARCH_PRESENT_DISPLAY_REVIEW" for r in out),
     "non_jp_or_missing_surface":sum(r["japanese_surface_state"] in ("NON_JP_SURFACE_REVIEW","JP_SURFACE_MISSING") for r in out),
-    "japanese_review_required":sum(r["japanese_review_required"]=="true" for r in out),
+    "authority_relevant_families":sum(r["authority_relevant"]=="true" for r in out),\n    "authority_relevant_jp_display_present":sum(r["authority_relevant"]=="true" and r["japanese_surface_state"]=="JP_DISPLAY_PRESENT" for r in out),\n    "japanese_review_required":sum(r["japanese_review_required"]=="true" for r in out),
     "relation_authority_changed":False,"production_modified":False}
  SUM.write_text(json.dumps(x,ensure_ascii=False,indent=2)+"\n",encoding="utf-8");print(json.dumps(x,ensure_ascii=False,indent=2))
 if __name__=="__main__":main()
