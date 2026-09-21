@@ -34,3 +34,4 @@ jobs:
           path: |
             artifacts/issue180-single-home-pilot/
             artifacts/issue180-diverse-pilot/
+            artifacts/issue180-full-preflight/
