@@ -4,7 +4,10 @@ Only accepts an exact canonical base tag already HOME_CONFIRMED_RESEARCH."""
 import csv,json,re
 from pathlib import Path
 R=Path(__file__).resolve().parents[2];A=R/"artifacts/issue180-full-preflight";D=A/"POST_NORMALIZED_REVIEW";IN=D/"ATTRIBUTE_VARIANT.csv";ALL=A/"GLOBAL_APPROVED_QUALIFIER_HOME_V1.csv";OUT=D/"ATTRIBUTE_VARIANT_BASE_INHERITANCE_V1.csv"
-SUFFIX=re.compile(r"_(?:\((?:new_year|casual|stand|timeskip|female|male|summer|school_uniform|young|human|character|racehorse|cat|[0-9]+(?:st|nd|rd|th)_costume)\))+$",re.I)
+ATTR={"new_year","casual","stand","timeskip","female","male","summer","school_uniform","young","human","character","racehorse","cat","1st_costume","2nd_costume","3rd_costume","4th_costume","5th_costume"}
+def base_tag(tag,q):
+ suffix="_("+q+")"
+ return tag[:-len(suffix)] if q in ATTR and tag.lower().endswith(suffix.lower()) else tag
 def main():
  allr=list(csv.DictReader(ALL.open(encoding="utf-8-sig",newline="")));home={r.get("canonical_tag",""):r["home_copyright"] for r in allr if r["home_state"]=="HOME_CONFIRMED_RESEARCH"}
  rows=list(csv.DictReader(IN.open(encoding="utf-8-sig",newline="")));out=[];ok=0
