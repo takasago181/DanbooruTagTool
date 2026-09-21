@@ -101,6 +101,27 @@ def main() -> None:
     if len(char_by) != EXPECTED:
         raise SystemExit("duplicate Character canonical_tag in catalog")
     copyright_by = {r["canonical_tag"]: r for r in copyrights}
+    copyright_alias_index: dict[str, set[str]] = defaultdict(set)
+    for row in copyrights:
+        copyright_alias_index[row["canonical_tag"].lower()].add(row["canonical_tag"])
+        for alias in (row.get("aliases", "") or "").split("|"):
+            alias = alias.strip().lower()
+            if alias:
+                copyright_alias_index[alias].add(row["canonical_tag"])
+    root_normalizations: Counter[str] = Counter()
+
+    def canonical_root(value: str) -> str:
+        value = (value or "").strip()
+        if value in copyright_by:
+            return value
+        hits = copyright_alias_index.get(value.lower(), set())
+        if len(hits) == 1:
+            root = next(iter(hits))
+            root_normalizations[f"{value}->{root}"] += 1
+            return root
+        if not hits:
+            raise SystemExit(f"HOME root absent from Copyright catalog and aliases: {value}")
+        raise SystemExit(f"ambiguous Copyright alias HOME root: {value} -> {sorted(hits)}")
 
     census_rows = read(CENSUS)
     census = {r["canonical_tag"]: r for r in census_rows}
@@ -120,9 +141,10 @@ def main() -> None:
     direct_home: dict[str, str] = {}
 
     for tag, row in ledger1.items():
-        home = row.get("home_copyright", "")
-        if not home or home not in copyright_by:
-            raise SystemExit(f"invalid v1 ledger home: {tag} -> {home}")
+        source_home = row.get("home_copyright", "")
+        if not source_home:
+            raise SystemExit(f"empty v1 ledger home: {tag}")
+        home = canonical_root(source_home)
         direct_home[tag] = home
         base_direct.append({
             "canonical_tag": tag,
@@ -141,9 +163,10 @@ def main() -> None:
     for tag, row in master1.items():
         if row.get("final_state") != "HOME_CONFIRMED" or tag in direct_home:
             continue
-        home = row.get("home_copyright", "")
-        if not home or home not in copyright_by:
-            raise SystemExit(f"invalid current-master migrated home: {tag} -> {home}")
+        source_home = row.get("home_copyright", "")
+        if not source_home:
+            raise SystemExit(f"empty current-master migrated home: {tag}")
+        home = canonical_root(source_home)
         mr = major.get(tag, {})
         direct_home[tag] = home
         migrated_current_master += 1
@@ -171,8 +194,7 @@ def main() -> None:
         home = (home or "").strip()
         if not family or not home:
             return
-        if home not in copyright_by:
-            raise SystemExit(f"family root absent from Copyright catalog: {family} -> {home}")
+        home = canonical_root(home)
         family_sources[family].append({
             "family": family,
             "candidate_home": home,
@@ -456,6 +478,8 @@ def main() -> None:
         "higher_reasoning_queue_rows": len(higher),
         "multi_home_conflicts": 0,
         "missing_copyright_roots": 0,
+        "canonical_root_normalizations": dict(root_normalizations),
+        "canonical_root_normalization_events": sum(root_normalizations.values()),
         "accepted_source_modified": False,
         "production_modified": False,
     }
