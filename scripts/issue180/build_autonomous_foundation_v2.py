@@ -61,6 +61,38 @@ NON_HOME_EXACT_FAMILIES = {
 
 # Existing Issue #180 product policy prefers a stable canonical root instead
 # of title-by-title appearance HOME for these already-reviewed ecosystems.
+ROOT_POLICY_REVIEW_HINT_PREFIXES = [
+    ("fire_emblem_", "fire_emblem"),
+    ("fire_emblem:", "fire_emblem"),
+    ("mega_man_", "mega_man_(series)"),
+    ("mega_man:", "mega_man_(series)"),
+    ("xenoblade_", "xenoblade_chronicles_(series)"),
+    ("sekaiju_", "sekaiju_no_meikyuu"),
+    ("tales_", "tales_of_(series)"),
+    ("kirby_", "kirby_(series)"),
+    ("naruto_", "naruto_(series)"),
+    ("zelda_", "the_legend_of_zelda"),
+    ("sailor_moon_", "bishoujo_senshi_sailor_moon"),
+    ("sonic_", "sonic_(series)"),
+    ("mario_", "mario_(series)"),
+    ("super_mario_", "mario_(series)"),
+    ("pikmin_", "pikmin_(series)"),
+    ("symphogear_", "senki_zesshou_symphogear"),
+]
+ROOT_POLICY_REVIEW_HINT_EXACT = {
+    "jojolion": "jojo_no_kimyou_na_bouken",
+}
+
+
+def root_policy_review_hint(family: str) -> str:
+    if family in ROOT_POLICY_REVIEW_HINT_EXACT:
+        return ROOT_POLICY_REVIEW_HINT_EXACT[family]
+    for prefix, root in ROOT_POLICY_REVIEW_HINT_PREFIXES:
+        if family.startswith(prefix):
+            return root
+    return ""
+
+
 ROOT_POLICY_NORMALIZATION = {
     "fate/zero": "fate_(series)",
     "fate/extra": "fate_(series)",
@@ -368,6 +400,13 @@ def main() -> None:
             effective["source_kind"] = "POLICY_ROOT_NORMALIZATION"
             effective["source_file"] = "docs/issue180/AUTHORITY_POLICY_V1.md"
             effective["evidence_claim"] = "Existing Issue #180 canonical-root product policy"
+        elif row["source_kind"] == "EXACT_COPYRIGHT_REVIEWED":
+            hinted_root = root_policy_review_hint(family)
+            if hinted_root:
+                effective["candidate_home"] = canonical_root(hinted_root)
+                effective["source_kind"] = "ROOT_POLICY_REVIEW_HINT"
+                effective["source_file"] = "Issue #180 previously reviewed canonical franchise-root mappings"
+                effective["evidence_claim"] = "Candidate-only canonical-root review hint; not authority until autonomous review"
         effective_family[family] = effective
         if family in NON_HOME_EXACT_FAMILIES:
             continue
@@ -417,6 +456,8 @@ def main() -> None:
                 lane = "HIGHER_REASONING_NON_HOME_SEMANTICS"
             elif basis == "NORMALIZED_COPYRIGHT_REVIEWED":
                 lane = "FAST_REVALIDATE_NORMALIZATION"
+            elif basis == "ROOT_POLICY_REVIEW_HINT":
+                lane = "FAST_ROOT_POLICY_REVIEW"
             else:
                 lane = "ALREADY_FASTPATH_SHOULD_NOT_REMAIN"
         elif family in BROAD:
@@ -619,6 +660,7 @@ def main() -> None:
         "legacy_exact_families": sum(r["source_kind"] == "EXACT_COPYRIGHT_REVIEWED" for r in resolved_family.values()),
         "legacy_normalized_families": sum(r["source_kind"] == "NORMALIZED_COPYRIGHT_REVIEWED" for r in resolved_family.values()),
         "policy_root_normalized_families": len(ROOT_POLICY_NORMALIZATION),
+        "root_policy_review_hint_families": sum(r["source_kind"] == "ROOT_POLICY_REVIEW_HINT" for r in effective_family.values()),
         "non_home_exact_families_blocked": len(NON_HOME_EXACT_FAMILIES),
         "fastpath_family_rows_applied": sum(fast_applied.values()),
         "fastpath_by_basis": dict(fast_applied),
