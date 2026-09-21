@@ -34,7 +34,7 @@ _seen_ids: deque[str] = deque()
 _seen_id_set: set[str] = set()
 _results: dict[str, dict] = {}
 _result_order: deque[str] = deque()
-_delivery_leases: dict[str, tuple[str, float]] = {}
+_delivery_leases: dict[str, tuple[str, float, str]] = {}
 _committed_results: dict[str, tuple[str, bool, str]] = {}
 _lock = Lock()
 _registered = False
@@ -258,6 +258,10 @@ async def _prompt(request: Request) -> JSONResponse:
 async def _pending_request(request: Request) -> JSONResponse:
     if not _is_loopback(request):
         return _json_error(403, "local_only", "loopback access required")
+    consumer_id = request.query_params.get("consumerId", "")
+    if not consumer_id or len(consumer_id) > 128 or any(ord(c) < 32 for c in consumer_id):
+        return _json_error(400, "malformed", "consumerId is invalid")
+
     with _lock:
         _prune_expired_pending_locked()
         if not _pending:
@@ -267,11 +271,15 @@ async def _pending_request(request: Request) -> JSONResponse:
             request_id = str(head.get("requestId", ""))
             now = time.monotonic()
             lease = _delivery_leases.get(request_id)
-            if lease is not None and lease[1] > now:
+
+            # The same browser tab keeps its consumerId across Gradio reloads,
+            # so it may immediately take over its own interrupted delivery.
+            # A different tab/context must wait for the lease to expire.
+            if lease is not None and lease[1] > now and lease[2] != consumer_id:
                 item = None
             else:
                 token = secrets.token_urlsafe(18)
-                _delivery_leases[request_id] = (token, now + DELIVERY_LEASE_SECONDS)
+                _delivery_leases[request_id] = (token, now + DELIVERY_LEASE_SECONDS, consumer_id)
                 item = dict(head)
                 item["deliveryToken"] = token
     return JSONResponse(content={"protocolVersion": PROTOCOL_VERSION, "pending": item})
