@@ -44,7 +44,9 @@ Do not repeatedly ask the user to continue.
 
 Keep main, production, accepted Issue #70 source, #179 branch, and Artist untouched.
 
-Run the full Issue #180 workflow at the end. Fix ordinary CI/code/schema errors yourself and rerun.
+Run the full Issue #180 workflow at the end.
+
+Before the execution-freeze marker exists, genuine harness defects may be repaired and re-audited. **After `CODEX_EXECUTION_BASE_V2.json` exists, do not edit harness code/policy/workflow/runbook.** At that point, fix only errors in newly written decision-shard data/CSV formatting. If a script, validator, policy, workflow, or runbook defect is discovered after freeze, report it as a harness blocker instead of changing it.
 
 Before claiming completion, run:
 
