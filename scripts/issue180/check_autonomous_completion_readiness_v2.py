@@ -145,7 +145,8 @@ def main():
  )
  weak_unresolved=[
   r["canonical_tag"] for r in weak
-  if master_by.get(r["canonical_tag"],{}).get("final_state")!="HOME_CONFIRMED"
+  if master_by.get(r["canonical_tag"],{}).get("final_state") not in {"HOME_CONFIRMED","NOT_OFFICIAL_CHARACTER"}
+  and r["canonical_tag"] not in deferred_character_tags
  ]
  pending=int(summary.get("autonomous_pending_rows",0))
  decisions=int(summary.get("autonomous_decision_rows",0))
