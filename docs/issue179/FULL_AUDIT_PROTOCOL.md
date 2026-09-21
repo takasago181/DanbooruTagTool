@@ -251,3 +251,49 @@ Preferred remediation order:
 4. require second review for whole-row suppression.
 
 This policy is independent of #180 Character↔Copyright ownership reconstruction.
+
+
+## 11. Product target — one canonical home Copyright per official Character
+
+The product model is not "all official appearances". It is:
+
+`official Character -> HOME_COPYRIGHT (0..1)`
+
+### Core rule
+
+- An official Character may have **at most one** canonical home Copyright.
+- The home Copyright is the original/main work or IP that owns/intentionally defines that Character for this product.
+- Appearances in crossovers, collaborations, guest events, adaptations, fanworks, or unrelated co-occurrence do **not** create additional ownership.
+- Official variants inherit the same home Copyright unless independent evidence proves that the row represents a distinct Character identity with a different canonical origin.
+- If the canonical home cannot be established with high confidence, keep **no relation** rather than assigning several candidates.
+
+### Relation states
+
+For audit/handoff purposes use:
+
+- `HOME_CONFIRMED` — exactly one high-confidence home Copyright
+- `HOME_UNRESOLVED` — official Character, but canonical home cannot yet be proven
+- `NOT_OFFICIAL_CHARACTER` — row identity is fan-created/non-official/out of Character product scope
+- `RELATION_NOT_APPLICABLE` — non-Character row
+
+No `MULTI_HOME` production state is allowed. Multiple plausible candidates are a review conflict and remain `HOME_UNRESOLVED` until one canonical home is proven.
+
+### Specificity rule
+
+Prefer the most specific **origin identity** that represents where the Character belongs, not:
+- an umbrella franchise merely because it contains the work;
+- a sequel/crossover because the Character appears there;
+- a collaboration/event;
+- another Copyright found by post co-occurrence.
+
+Franchise normalization may be used only if the product has no reliable distinct origin Copyright or if #180 explicitly proves that the franchise root is the canonical product parent.
+
+### Examples of intended behavior
+
+- A Character appearing in many games/series still gets one home Copyright.
+- An official costume/form/version remains attached to the same home Copyright as its base Character.
+- A crossover appearance does not move or duplicate ownership.
+- A fanmade derivative gets no official home relation.
+- Ambiguous evidence results in no relation, not several relations.
+
+#180 owns the actual authority reconstruction and relation overlay. #179 only supplies officialness/identity quality evidence.
