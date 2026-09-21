@@ -12,6 +12,7 @@ D=R/"artifacts/issue180-full-preflight/POST_NORMALIZED_REVIEW"
 OD=D/"MASTER_HOME"; OUT=OD/"CHARACTER_HOME_MASTER_V1.csv"
 BASE=R/"docs/issue70/data/runtime/issue70_catalog_overlay.csv"
 LEDGER=D/"MEGABATCH_AUTHORITY/AUTHORITY_LEDGER_V1.csv"
+ROSTER=R/"artifacts/issue180-full-preflight/MAJOR_ROSTER_EXPANSION_V1.csv"
 EXPECTED=35890
 
 def read(p):
@@ -23,11 +24,18 @@ def main():
  rows=[r for r in read(BASE) if r.get("category_name")=="Character"]
  if len(rows)!=EXPECTED: raise SystemExit(f"Character population drift: expected {EXPECTED}, got {len(rows)}")
  ledger=read(LEDGER) if LEDGER.exists() else []
+ roster=read(ROSTER) if ROSTER.exists() else []
  auth={}
  for r in ledger:
   tag=r.get("canonical_tag",""); home=r.get("home_copyright","")
   if not tag or not home: raise SystemExit("invalid authority ledger row")
   if tag in auth and auth[tag]!=home: raise SystemExit("multi-home authority conflict "+tag)
+  auth[tag]=home
+ # Merge independently curated direct-roster candidates. Conflicts remain fail-closed.
+ for r in roster:
+  if r.get("roster_state")!="ROSTER_HOME_CANDIDATE" or not r.get("roster_home"): continue
+  tag=r["canonical_tag"]; home=r["roster_home"]
+  if tag in auth and auth[tag]!=home: raise SystemExit("multi-home roster conflict "+tag)
   auth[tag]=home
  out=[]; counts={"HOME_CONFIRMED":0,"HOME_UNRESOLVED":0,"NOT_OFFICIAL_CHARACTER":0}
  seen=set()
@@ -49,7 +57,7 @@ def main():
  OD.mkdir(parents=True,exist_ok=True)
  with OUT.open("w",encoding="utf-8-sig",newline="") as f:
   w=csv.DictWriter(f,fieldnames=out[0].keys(),lineterminator="\n");w.writeheader();w.writerows(out)
- summary={"character_population":EXPECTED,"states":counts,"authority_ledger_rows":len(ledger),
+ summary={"character_population":EXPECTED,"states":counts,"authority_ledger_rows":len(ledger),"roster_candidate_rows":sum(r.get("roster_state")=="ROSTER_HOME_CANDIDATE" for r in roster),
           "unique_authority_characters":len(auth),"multi_home_conflicts":0,"silent_approval":0,
           "accepted_source_modified":False,"production_modified":False}
  (OD/"character_home_master_v1_summary.json").write_text(json.dumps(summary,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
