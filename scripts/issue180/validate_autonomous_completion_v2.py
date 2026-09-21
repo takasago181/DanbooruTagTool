@@ -27,6 +27,7 @@ def main():
     policy = json.loads(POLICY_PATH.read_text(encoding="utf-8"))
     broad_families = set(policy["broad_families"])
     non_home_families = set(policy["non_home_families"])
+    not_official_origin_classes = set(policy["not_official_origin_classes"])
     broad_pass_types = set(policy["broad_pass_types"])
     allow_not_official = bool(policy["allow_autonomous_not_official_pass"])
     allow_broad_family = bool(policy["allow_autonomous_broad_family_pass"])
@@ -113,8 +114,14 @@ def main():
         raise SystemExit("non-HOME family authority regression: " + repr(non_home_family_violations[:10]))
     if broad_family_violations:
         raise SystemExit("broad family authority regression: " + repr(broad_family_violations[:10]))
-    if not allow_not_official and states["NOT_OFFICIAL_CHARACTER"] != 0:
-        raise SystemExit("NOT_OFFICIAL_CHARACTER present while autonomous not-official promotion is disabled")
+    if not allow_not_official:
+        bad_not_official = [
+            r["canonical_tag"] for r in rows
+            if r["final_state"] == "NOT_OFFICIAL_CHARACTER"
+            and r.get("origin_class", "") not in not_official_origin_classes
+        ]
+        if bad_not_official:
+            raise SystemExit("NOT_OFFICIAL_CHARACTER without Issue179-confirmed non-official origin: " + repr(bad_not_official[:10]))
 
     summary = json.load((D / "character_home_master_v2_summary.json").open(encoding="utf-8"))
     if summary["multi_home_or_policy_conflicts"] != 0 or summary["family_authority_conflicts"] != 0:
