@@ -52,6 +52,8 @@ jobs:
         run: python scripts/issue180/analyze_unqualified_sample_structure.py
       - name: Build Batch A authority worklist
         run: python scripts/issue180/build_batch_a_authority_worklist.py
+      - name: Apply Batch A first-party evidence v1
+        run: python scripts/issue180/apply_batch_a_authority_evidence_v1.py
       - name: Build next P1 exact-root authority batch
         run: python scripts/issue180/build_next_p1_review_batch.py
       - name: Build next P3 semantic research batch
