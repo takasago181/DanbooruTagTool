@@ -94,6 +94,7 @@ Allowed scopes:
 
 - `FAMILY_QUALIFIER`
 - `DISCOVERY_GROUP` (review progress only; never grants HOME)
+- `VARIANT_PATTERN` (review progress only; never grants HOME)
 - `DIRECT_CHARACTER`
 - `VARIANT_CHARACTER`
 - `NOT_OFFICIAL_CHARACTER`
@@ -166,6 +167,8 @@ Do not stop the whole task for one family.
 ### Lane C — variants
 
 Use `REMAINING_VARIANT_WORK_V2.csv` and `VARIANT_PATTERN_GROUPS_V2.csv`.
+
+Variant patterns with a confirmed base HOME and at least 5 Character rows are mandatory high-yield reviews before final readiness. Review the official pattern once, add explicit `VARIANT_CHARACTER PASS` rows only for variants actually covered by that evidence, then add one terminal `VARIANT_PATTERN` review row for the pattern.
 
 Prioritize `BASE_HOME_READY_OFFICIALITY_REVIEW`.
 
@@ -262,6 +265,7 @@ This final gate fails when mandatory active work remains, including:
 - fast normalization/root-policy/exact-review families
 - direct-roster review rows
 - high-yield unqualified discovery groups (policy threshold: 50 rows)
+- high-yield ready variant patterns (policy threshold: 5 rows)
 - weak legacy direct rows requeued for provenance upgrade
 - PENDING decision rows
 - a completely empty autonomous decision set
