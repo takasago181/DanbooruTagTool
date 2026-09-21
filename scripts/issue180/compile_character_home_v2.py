@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import csv
 import json
+import re
 from collections import Counter, defaultdict
 from pathlib import Path
 
@@ -28,10 +29,10 @@ VARIANT_WORK = O / "VARIANT_WORK_QUEUE_V2.csv"
 UNQUALIFIED_WORK = O / "UNQUALIFIED_WORK_QUEUE_V2.csv"
 EXPECTED = 35890
 ATTR = {
-    "1st_costume", "2nd_costume", "3rd_costume", "4th_costume", "5th_costume",
     "new_year", "summer", "casual", "school_uniform", "female", "male", "young",
     "timeskip", "stand", "racehorse", "human", "character", "cat",
 }
+ORDINAL_COSTUME = re.compile(r"^[0-9]+(?:st|nd|rd|th)_costume$")
 VALID_SCOPES = {"FAMILY_QUALIFIER", "DIRECT_CHARACTER", "VARIANT_CHARACTER", "NOT_OFFICIAL_CHARACTER", "BLOCK_CHARACTER"}
 
 
@@ -40,6 +41,10 @@ def read(path: Path) -> list[dict[str, str]]:
         raise SystemExit(f"missing required input: {path}")
     with path.open(encoding="utf-8-sig", newline="") as fh:
         return list(csv.DictReader(fh))
+
+
+def is_attribute_family(family: str) -> bool:
+    return family in ATTR or bool(ORDINAL_COSTUME.match(family or ""))
 
 
 def nested(tag: str, family: str) -> bool:
@@ -228,7 +233,7 @@ def main() -> None:
         direct_choice = chosen_direct.get(tag)
         fam = (census[tag].get("final_qualifier") or "").strip().lower()
         family_choice = None
-        if fam and fam not in ATTR and not nested(tag, fam) and fam not in family_conflicts:
+        if fam and not is_attribute_family(fam) and not nested(tag, fam) and fam not in family_conflicts:
             family_choice = chosen_family.get(fam)
         homes = {x[0] for x in (direct_choice, family_choice) if x}
         if len(homes) > 1:
@@ -363,7 +368,7 @@ def main() -> None:
     remaining_family_counts = Counter()
     for tag in unresolved_set:
         fam = (census[tag].get("final_qualifier") or "").strip().lower()
-        if fam and fam not in ATTR and not nested(tag, fam):
+        if fam and not is_attribute_family(fam) and not nested(tag, fam):
             remaining_family_counts[fam] += 1
 
     remaining_family = []
