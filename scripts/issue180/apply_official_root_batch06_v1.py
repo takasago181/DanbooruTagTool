@@ -20,9 +20,9 @@ OUT=D/"OFFICIAL_ROOT_BATCH06_V1.csv"
 SUMMARY=D/"official_root_batch06_v1_summary.json"
 
 EXPECTED_FAMILIES=6
-EXPECTED_ROWS=225
-EXPECTED_VARIANTS=27
-EXPECTED_PASS=198
+EXPECTED_ROWS=196
+EXPECTED_VARIANTS=29
+EXPECTED_PASS=167
 
 def read_csv(p): return list(csv.DictReader(p.open(encoding="utf-8-sig",newline="")))
 
