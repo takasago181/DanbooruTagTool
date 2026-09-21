@@ -26,7 +26,7 @@ Do not spend context reconstructing the historical script order.
 
 Your main job is to complete as much safe authority research as possible by writing coarse decision shards under `docs/issue180/autonomous/decisions/*.csv` and repeatedly recompiling the deterministic master. Use separate large family/variant/roster/exception shards rather than one giant file. The compatibility `AUTHORITY_DECISIONS_V2.csv` is still read but need not be the main target.
 
-Use the generated v2 work queues. Process reusable family authority before individual rows. Use old relations/co-occurrence only as discovery hints, never as HOME authority.
+Use the generated v2 work queues. Process reusable family authority before individual rows. For unqualified Characters, prioritize the mandatory high-yield DISCOVERY_GROUP roster reviews (50+ rows per group) rather than treating every Character as an independent search. Use old relations/co-occurrence only as discovery hints, never as HOME authority.
 
 Be productive rather than maximally conservative: clean IP qualifier families may be bulk-confirmed after one sound family-level validation; do not require one official page per Character. At the same time, ambiguous/broad/mixed families must not be guessed.
 
@@ -48,7 +48,7 @@ Before claiming completion, run:
 
 `python scripts/issue180/check_autonomous_completion_readiness_v2.py --final`
 
-Do not report completion if this final readiness gate fails. Explicitly researched UNRESOLVED / NEEDS_HIGHER_REASONING cases may remain deferred; untouched mandatory fast/officiality/direct-roster work may not.
+Do not report completion if this final readiness gate fails. It also requires the high-yield unqualified discovery groups, requeued weak legacy direct rows, #179 officiality rows, and mandatory family lanes to have been resolved or explicitly reviewed/deferred. Explicitly researched UNRESOLVED / NEEDS_HIGHER_REASONING cases may remain deferred; untouched mandatory fast/officiality/direct-roster work may not.
 
 Stop only after you have exhausted the safe work available in the generated queues and produced the full 35,890-row v2 review artifact.
 
