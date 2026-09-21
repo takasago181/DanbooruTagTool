@@ -48,6 +48,13 @@ def main():
  if marker_commits!=1:
   raise SystemExit(f"Codex execution marker must be created exactly once after base; commits={marker_commits}")
 
+ tracked_dirty=git(["status","--porcelain","--untracked-files=no"])
+ if tracked_dirty:
+  raise SystemExit("Codex final state has uncommitted tracked changes; commit decision shards and restore harness changes before final report:\n"+tracked_dirty)
+ untracked_decisions=git(["ls-files","--others","--exclude-standard","--",DECISION_PREFIX])
+ if untracked_decisions:
+  raise SystemExit("Codex final state has untracked decision files; commit them before final report:\n"+untracked_decisions)
+
  changed={x for x in git(["diff","--name-only",f"{base}..HEAD"]).splitlines() if x}
  bad=sorted(x for x in changed if not allowed(x))
  if bad:
