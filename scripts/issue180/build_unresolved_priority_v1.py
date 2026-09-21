@@ -26,7 +26,8 @@ def main():
   x=meta.get(tag,{})
   kind=x.get("queue_kind","OTHER_UNRESOLVED")
   qualifier=x.get("final_qualifier","")
-  if qualifier in KNOWN_ATTR: priority="P2_VARIANT_OR_ATTRIBUTE"\n  elif kind=="IP_QUALIFIER": priority="P1_FAMILY_AUTHORITY"
+  if qualifier in KNOWN_ATTR: priority="P2_VARIANT_OR_ATTRIBUTE"
+  elif kind=="IP_QUALIFIER": priority="P1_FAMILY_AUTHORITY"
   elif x.get("roster_candidate_state")=="UNIQUE_IDENTITY_OVERLAP_CANDIDATE": priority="P1_DIRECT_ROSTER_REVIEW"
   elif kind=="VARIANT": priority="P2_VARIANT_OR_ATTRIBUTE"
   elif kind=="UNQUALIFIED": priority="P3_UNQUALIFIED_ROSTER"
@@ -34,10 +35,12 @@ def main():
   out.append({"canonical_tag":tag,"priority":priority,"queue_kind":kind,"final_qualifier":qualifier,
               "roster_candidate_state":x.get("roster_candidate_state",""),"final_state":"HOME_UNRESOLVED"})
  with OUT.open("w",encoding="utf-8-sig",newline="") as f:
-  w=csv.DictWriter(f,fieldnames=out[0].keys(),lineterminator="\n");w.writeheader();w.writerows(out)
+  w=csv.DictWriter(f,fieldnames=out[0].keys(),lineterminator="
+");w.writeheader();w.writerows(out)
  pc=Counter(r["priority"] for r in out); kc=Counter(r["final_qualifier"] for r in out if r["priority"]=="P2_VARIANT_OR_ATTRIBUTE" and r["final_qualifier"]); qc=Counter(r["final_qualifier"] for r in out if r["priority"]=="P1_FAMILY_AUTHORITY" and r["final_qualifier"])
  s={"unresolved_rows":len(out),"priority_counts":dict(pc),"top_variant_attribute_families":kc.most_common(100),"top_ip_families":qc.most_common(100),
     "master_unresolved_match":len(out)==len(unresolved),"auto_approved":0,"production_modified":False}
- (D/"MASTER_HOME/unresolved_priority_v1_summary.json").write_text(json.dumps(s,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+ (D/"MASTER_HOME/unresolved_priority_v1_summary.json").write_text(json.dumps(s,ensure_ascii=False,indent=2)+"
+",encoding="utf-8")
  print(json.dumps(s,ensure_ascii=False,indent=2))
 if __name__=="__main__":main()
