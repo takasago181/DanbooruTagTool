@@ -41,14 +41,30 @@
     return root?.querySelector("input:not([type='hidden']), textarea") ?? null;
   }
 
-  function setValue(element, value) {
+  function nativeValueSetter(element) {
     const prototype = element instanceof HTMLTextAreaElement ? HTMLTextAreaElement.prototype : HTMLInputElement.prototype;
-    const descriptor = Object.getOwnPropertyDescriptor(prototype, "value");
-    if (!descriptor || typeof descriptor.set !== "function") throw new Error("value_setter_missing");
-    descriptor.set.call(element, String(value));
+    return Object.getOwnPropertyDescriptor(prototype, "value")?.set;
+  }
+
+  function setValue(element, value) {
+    const setter = nativeValueSetter(element);
+    if (typeof setter !== "function") throw new Error("value_setter_missing");
+    setter.call(element, String(value));
     if (typeof updateInput === "function") updateInput(element);
     else element.dispatchEvent(new Event("input", { bubbles: true }));
     element.dispatchEvent(new Event("change", { bubbles: true }));
+  }
+
+  function syncDisplayOnly(selector, value) {
+    const input = inputInside(selector);
+    if (!(input instanceof HTMLInputElement || input instanceof HTMLTextAreaElement)) return false;
+    const setter = nativeValueSetter(input);
+    if (typeof setter !== "function") return false;
+    // The checkpoint is already applied by Python. Update only the visible
+    // textbox value: no input/change event, so Gradio cannot trigger another
+    // checkpoint transition or tear down this bridge context.
+    setter.call(input, String(value));
+    return true;
   }
 
   function nextFrame() {
@@ -139,9 +155,11 @@
     if (typeof payload.appliedModel === "string") await sleep(3000);
 
     // The Python companion applies the checkpoint before publishing the
-    // pending item. Do not touch Forge's checkpoint dropdown here: Neo may
-    // refresh the Gradio page while it reconciles that control, which would
-    // tear down this JavaScript context before the ACK is posted.
+    // pending item. Synchronize only the visible dropdown text without
+    // dispatching an input/change event. This keeps the UI honest without
+    // triggering another Neo checkpoint refresh.
+    if (typeof payload.appliedModel === "string")
+      syncDisplayOnly(selectors.checkpoint, payload.appliedModel);
 
     await nextFrame();
     await nextFrame();
