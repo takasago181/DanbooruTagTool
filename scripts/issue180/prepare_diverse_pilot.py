@@ -171,6 +171,37 @@ def main() -> int:
         w.writeheader()
         w.writerows(pilot)
 
+    # First semantic-review batch: 5 rows from each ecosystem (50 total).
+    # This avoids reviewing one ecosystem at a time and exposes rule failures
+    # across structurally different IPs as early as possible.
+    review_b001 = []
+    for ecosystem in ECOSYSTEMS:
+        eco_rows = [r for r in pilot if r["ecosystem"] == ecosystem]
+        if len(eco_rows) < 5:
+            raise SystemExit(f"{ecosystem}: fewer than 5 rows for review B001")
+        for row in eco_rows[:5]:
+            review_b001.append({
+                **row,
+                "home_state": "",
+                "home_copyright": "",
+                "authority_type": "",
+                "evidence_refs": "",
+                "reviewer_note": "",
+                "second_review_required": "true",
+            })
+
+    if len(review_b001) != 50:
+        raise SystemExit(f"expected 50 B001 rows, got {len(review_b001)}")
+
+    review_fields = fields + [
+        "home_state", "home_copyright", "authority_type",
+        "evidence_refs", "reviewer_note", "second_review_required",
+    ]
+    with (OUT / "REVIEW_B001.csv").open("w", encoding="utf-8-sig", newline="") as fh:
+        w = csv.DictWriter(fh, fieldnames=review_fields, lineterminator="\n")
+        w.writeheader()
+        w.writerows(review_b001)
+
     role_counts = {}
     for row in pilot:
         role_counts[row["pilot_role"]] = role_counts.get(row["pilot_role"], 0) + 1
@@ -179,6 +210,8 @@ def main() -> int:
         "pilot_rows": len(pilot),
         "ecosystem_counts": ecosystem_counts,
         "role_counts": role_counts,
+        "review_b001_rows": 50,
+        "review_b001_per_ecosystem": 5,
         "selection_only": True,
         "expected_root_candidate_is_not_a_verdict": True,
         "legacy_relation_used_for_sampling_only": True,
