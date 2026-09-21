@@ -38,11 +38,14 @@ def main():
   raise SystemExit("allow_autonomous_not_official_pass: expected boolean")
  if not isinstance(policy["allow_autonomous_broad_family_pass"], bool):
   raise SystemExit("allow_autonomous_broad_family_pass: expected boolean")
- for name in ("attribute_families","broad_families","non_home_families","broad_pass_types","piapro_policy_characters","official_origin_classes"):
+ for name in ("attribute_families","variant_qualifier_families","broad_families","non_home_families","broad_pass_types","piapro_policy_characters","official_origin_classes"):
   if not isinstance(policy[name],list): raise SystemExit(f"{name}: expected list")
   unique_list(name,policy[name])
 
- attrs=set(policy["attribute_families"]); broad=set(policy["broad_families"]); nonhome=set(policy["non_home_families"])
+ attrs=set(policy["attribute_families"]); variants=set(policy["variant_qualifier_families"]); broad=set(policy["broad_families"]); nonhome=set(policy["non_home_families"])
+ if attrs & variants: raise SystemExit(f"attribute/variant overlap: {sorted(attrs & variants)}")
+ if variants & broad: raise SystemExit(f"variant/broad overlap: {sorted(variants & broad)}")
+ if variants & nonhome: raise SystemExit(f"variant/non-home overlap: {sorted(variants & nonhome)}")
  if attrs & broad: raise SystemExit(f"attribute/broad overlap: {sorted(attrs & broad)}")
  if attrs & nonhome: raise SystemExit(f"attribute/non-home overlap: {sorted(attrs & nonhome)}")
 
@@ -82,6 +85,7 @@ def main():
  print(json.dumps({
   "version":policy["version"],
   "attribute_families":len(attrs),
+  "variant_qualifier_families":len(variants),
   "broad_families":len(broad),
   "non_home_families":len(nonhome),
   "root_policy_normalizations":len(policy["root_policy_normalization"]),
