@@ -5,7 +5,8 @@ from collections import Counter
 from pathlib import Path
 R=Path(__file__).resolve().parents[2]; D=R/"artifacts/issue180-full-preflight/POST_NORMALIZED_REVIEW"
 MASTER=D/"MASTER_HOME/CHARACTER_HOME_MASTER_V1.csv"; OUT=D/"MASTER_HOME/UNRESOLVED_PRIORITY_V1.csv"
-SOURCES=[("IP_REMAINING.csv","IP_QUALIFIER"),("ATTRIBUTE_VARIANT.csv","VARIANT"),("UNQUALIFIED_ROSTER_CANDIDATES_V1.csv","UNQUALIFIED")]\nKNOWN_ATTR={"1st_costume","2nd_costume","3rd_costume","4th_costume","5th_costume","new_year","summer","casual","school_uniform","female","male","young","timeskip","stand","racehorse","human","character"}
+SOURCES=[("IP_REMAINING.csv","IP_QUALIFIER"),("ATTRIBUTE_VARIANT.csv","VARIANT"),("UNQUALIFIED_ROSTER_CANDIDATES_V1.csv","UNQUALIFIED")]
+KNOWN_ATTR={"1st_costume","2nd_costume","3rd_costume","4th_costume","5th_costume","new_year","summer","casual","school_uniform","female","male","young","timeskip","stand","racehorse","human","character"}
 def read(p): return list(csv.DictReader(p.open(encoding="utf-8-sig",newline="")))
 def main():
  master=read(MASTER); unresolved={r["canonical_tag"] for r in master if r["final_state"]=="HOME_UNRESOLVED"}
