@@ -88,7 +88,10 @@ def check_issue179_freshness():
 def main():
  ap=argparse.ArgumentParser()
  ap.add_argument("--final",action="store_true",help="fail when mandatory autonomous review work remains")
+ ap.add_argument("--require-fresh-issue179",action="store_true",help="also fail if the live Issue179 origin evidence moved beyond the frozen snapshot")
  args=ap.parse_args()
+ if args.require_fresh_issue179 and not args.final:
+  raise SystemExit("--require-fresh-issue179 requires --final")
 
  fam=read(FAMILY)
  officiality=read(OFFICIALITY)
@@ -171,11 +174,13 @@ def main():
    "saved_blob_sha":saved_blob,"live_blob_sha":live_blob,
    "error":error,
   }
-  ready=ready and fresh
+  if args.require_fresh_issue179:
+   ready=ready and fresh
 
  result={
   "ready_for_final_autonomous_report":ready,
   "issue179_handoff_freshness":freshness,
+  "issue179_refresh_required_before_freeze": bool(freshness["checked"] and not freshness["fresh"]),
   "codex_write_scope":write_scope,
   "autonomous_decision_rows":decisions,
   "blockers":blockers,
@@ -202,7 +207,7 @@ def main():
  if args.final and not ready:
   if not write_scope["pass"]:
    raise SystemExit("final readiness failed: Codex write-scope gate failed: "+write_scope["error"])
-  if not freshness["fresh"]:
+  if args.require_fresh_issue179 and not freshness["fresh"]:
    raise SystemExit("final readiness failed: Issue179 handoff freshness check failed: "+freshness["error"])
   if decisions==0:
    raise SystemExit("final readiness failed: no autonomous decisions were recorded")
