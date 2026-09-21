@@ -138,6 +138,32 @@ jobs:
         run: python scripts/issue180/build_megabatch_authority_queues_v1.py
       - name: Queue official roster batch 01
         run: python scripts/issue180/build_official_roster_batch01_v1.py
+      - name: Apply exact-root semantic authority batch 02
+        run: python scripts/issue180/apply_exact_root_semantic_batch02_v1.py
+      - name: Validate exact-root semantic authority batch 02
+        run: |
+          python - <<'PY'
+          import json
+          p='artifacts/issue180-full-preflight/POST_NORMALIZED_REVIEW/exact_root_semantic_batch02_v1_summary.json'
+          s=json.load(open(p,encoding='utf-8'))
+          expected={
+            'families':12,
+            'family_rows':375,
+            'pass_roots':11,
+            'unresolved_roots':1,
+            'second_review_pass':315,
+            'variant_officiality_pending':30,
+            'umbrella_unresolved':30,
+            'missing_roots':0,
+            'multi_home_conflicts':0,
+            'auto_inferred':0,
+          }
+          for k,v in expected.items():
+            assert s[k]==v,(k,s[k],v)
+          assert not s['accepted_source_modified']
+          assert not s['production_modified']
+          print(json.dumps(s,ensure_ascii=False,indent=2))
+          PY
       - name: Build mega-batch authority ledger
         run: python scripts/issue180/build_megabatch_authority_ledger_v1.py
       - name: Build major roster authority expansion
