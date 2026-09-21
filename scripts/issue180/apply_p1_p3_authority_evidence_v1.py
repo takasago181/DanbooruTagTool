@@ -21,6 +21,15 @@ E={
 "sousou_no_frieren":("https://frieren-anime.jp/character/","OFFICIAL_ROSTER","Official Frieren anime character page identifies the cast."),
 "infinity_nikki":("https://infinitynikki.infoldgames.com/","OFFICIAL_TITLE_CONTEXT","Official Infinity Nikki site identifies the title and its character context."),
 "trickcal":("https://trickcal.com/","OFFICIAL_TITLE_CONTEXT","Official Trickcal site identifies the title/character context."),
+"ragnarok_online":("https://ragnarokonline.gungho.jp/","OFFICIAL_TITLE_CONTEXT","Official Ragnarok Online site establishes the title and game character context."),
+"senran_kagura":("https://senrankagura.marv.jp/series/kaguraPBS/character/","OFFICIAL_ROSTER","Marvelous official Senran Kagura character page identifies franchise characters."),
+"omori":("https://www.omori-game.com/","OFFICIAL_TITLE_CONTEXT","Official OMORI game site establishes the title/character context."),
+"warship_girls_r":("https://www.moefantasy.co.jp/","OFFICIAL_PUBLISHER_CONTEXT","Official publisher site establishes Warship Girls R product context."),
+"path_to_nowhere":("https://ptn.aisnogames.com/","OFFICIAL_TITLE_CONTEXT","Official Path to Nowhere site establishes title/character context."),
+"animal_crossing":("https://www.nintendo.com/jp/character/mori/index.html","OFFICIAL_FRANCHISE_CONTEXT","Nintendo official Animal Crossing page establishes franchise character context."),
+"disgaea":("https://disgaea.jp/","OFFICIAL_FRANCHISE_CONTEXT","Nippon Ichi official Disgaea portal establishes franchise/character context."),
+"skullgirls":("https://skullgirls.com/characters/","OFFICIAL_ROSTER","Official Skullgirls character roster identifies franchise characters."),
+"dungeon_and_fighter":("https://www.dfoneople.com/gameinfo/character","OFFICIAL_ROSTER","Official Dungeon Fighter Online character page identifies game characters."),
 }
 def main():
  rows=list(csv.DictReader(IN.open(encoding="utf-8-sig",newline="")))
