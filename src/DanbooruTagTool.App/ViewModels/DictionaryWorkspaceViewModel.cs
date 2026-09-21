@@ -896,9 +896,12 @@ public sealed class DictionaryWorkspaceViewModel : Observable
         => entries.Select(e => new EntryViewModel(e, workspace, Add, canMutate, UnifiedBreadcrumb, IsDeepDiscovery, RelationSummaryFor, RelationCountFor, OpenRelated)).ToArray();
 
     private int RelationCountFor(CatalogEntry entry)
-        => entry.EffectiveCategory is "Character" or "Copyright"
-            ? 0
-            : catalog.RelatedByCatalogMetadata(entry).Count;
+    {
+        // #177 disables the only card-level metadata relations that were previously
+        // surfaced (Character <-> Copyright). Other categories must stay at zero too;
+        // exposing their metadata counts would create a visible button with no action.
+        return 0;
+    }
 
     private string? RelationSummaryFor(CatalogEntry entry) => null;
     private void ToggleFacet(object? parameter)
