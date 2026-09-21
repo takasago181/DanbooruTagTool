@@ -10,7 +10,7 @@ from pathlib import Path
 R=Path(__file__).resolve().parents[2]
 D=R/"artifacts/issue180-full-preflight/POST_NORMALIZED_REVIEW"
 OD=D/"MASTER_HOME"; OUT=OD/"CHARACTER_HOME_MASTER_V1.csv"
-BASE=D/"CHARACTER_RELATION_NORMALIZED_V1.csv"
+BASE=R/"docs/issue70/data/runtime/issue70_catalog_overlay.csv"
 LEDGER=D/"MEGABATCH_AUTHORITY/AUTHORITY_LEDGER_V1.csv"
 EXPECTED=35890
 
@@ -20,7 +20,7 @@ def read(p):
 def main():
  # Prefer the normalized 35,890-row Character population; fail closed if shape drifts.
  if not BASE.exists(): raise SystemExit("missing normalized Character population")
- rows=read(BASE)
+ rows=[r for r in read(BASE) if r.get("category_name")=="Character"]
  if len(rows)!=EXPECTED: raise SystemExit(f"Character population drift: expected {EXPECTED}, got {len(rows)}")
  ledger=read(LEDGER) if LEDGER.exists() else []
  auth={}
