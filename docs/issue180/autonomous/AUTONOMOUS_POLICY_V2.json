@@ -153,5 +153,6 @@
     "OFFICIAL_ALIAS",
     "OFFICIAL_VARIANT"
   ],
-  "allow_autonomous_not_official_pass": false
+  "allow_autonomous_not_official_pass": false,
+  "allow_autonomous_broad_family_pass": false
 }
