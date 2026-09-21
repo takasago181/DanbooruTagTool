@@ -228,14 +228,23 @@ def main() -> int:
         })
 
     display_index, search_index, alias_index = build_collision_indexes(records)
+    copyright_display_norms: dict[str, set[str]] = defaultdict(set)
+    for record in records:
+        if record["category"] != "Copyright":
+            continue
+        dn = norm(str(record["display_ja"]))
+        if dn:
+            copyright_display_norms[dn].add(str(record["row_id"]))
 
     flag_counts: Counter[str] = Counter()
+    followup_flag_counts: Counter[str] = Counter()
     band_counts: Counter[str] = Counter()
     by_category_band: dict[str, Counter[str]] = {c: Counter() for c in EXPECTED}
     scope_authority_counts: Counter[str] = Counter()
 
     for r in records:
         flags: list[str] = []
+        followup_flags: list[str] = []
         score = 0
         display = str(r["display_ja"])
         search = str(r["search_ja"])
@@ -250,6 +259,10 @@ def main() -> int:
             if flag not in flags:
                 flags.append(flag)
                 score += weight
+
+        def followup(flag: str) -> None:
+            if flag not in followup_flags:
+                followup_flags.append(flag)
 
         if not display:
             add("DISPLAY_EMPTY", 10)
@@ -308,6 +321,32 @@ def main() -> int:
         ):
             add("SEARCH_NON_IDENTITY_SIGNAL", 4)
 
+        # Learned from the clean-control semantic pass. These are follow-up
+        # signals only: they improve recall but deliberately do not change the
+        # frozen Stage A score/band or the already-started 500-row pilot.
+        for term in raw_search_terms:
+            term_norm = norm(term)
+            if not term_norm or term_norm == norm(display):
+                continue
+
+            if FANDOM_COMMUNITY_SEARCH_RE.search(term):
+                followup("SEARCH_FANDOM_COMMUNITY_TERM")
+
+            same_category_display_rows = (
+                display_index.get((category, term_norm), set()) - {rid}
+            )
+            if same_category_display_rows:
+                followup("SEARCH_EQUALS_OTHER_IDENTITY")
+
+            if (
+                category == "Character"
+                and copyright_display_norms.get(term_norm)
+            ):
+                followup("SEARCH_MATCHES_COPYRIGHT_IDENTITY")
+
+            if len(term) >= 12 and DESCRIPTIVE_SEARCH_RE.search(term):
+                followup("SEARCH_DESCRIPTIVE_PHRASE")
+
         raw_aliases = split_pipe(aliases)
         alias_collision = max_collision(alias_index, category, raw_aliases, rid)
         if alias_collision:
@@ -342,6 +381,7 @@ def main() -> int:
             "search_collision_other_rows": search_collision,
             "alias_collision_other_rows": alias_collision,
             "risk_flags": "|".join(flags),
+            "followup_flags": "|".join(followup_flags),
             "risk_score": score,
             "quality_band": band,
             "impact_band": impact,
@@ -351,6 +391,8 @@ def main() -> int:
         })
         for f in flags:
             flag_counts[f] += 1
+        for f in followup_flags:
+            followup_flag_counts[f] += 1
         band_counts[band] += 1
         by_category_band[category][band] += 1
         scope_authority_counts[scope_authority] += 1
@@ -362,7 +404,7 @@ def main() -> int:
         "scope_authority", "scope_recheck", "touched_by_semantic_fix",
         "qualifier_count", "display_collision_other_rows",
         "search_collision_other_rows", "alias_collision_other_rows",
-        "risk_flags", "risk_score", "quality_band", "impact_band", "priority_score",
+        "risk_flags", "followup_flags", "risk_score", "quality_band", "impact_band", "priority_score",
     ]
 
     def write_csv(path: Path, fields: list[str], rows: list[dict[str, object]]) -> None:
@@ -493,6 +535,7 @@ def main() -> int:
         "quality_bands": dict(band_counts),
         "quality_bands_by_category": {k: dict(v) for k, v in by_category_band.items()},
         "risk_flag_counts": dict(flag_counts.most_common()),
+        "followup_flag_counts": dict(followup_flag_counts.most_common()),
         "scope_authority_counts": dict(scope_authority_counts),
         "legacy_relation_scope_rows": sum(bool(r["old_scope_relation_derived"]) for r in records),
         "legacy_relation_scope_excluded_rows": sum(bool(r["old_scope_relation_derived"]) and not bool(r["in_current_runtime"]) for r in records),
@@ -504,6 +547,7 @@ def main() -> int:
         "clean_control_rows": len(clean_sample),
         "policy": {
             "heuristic_flags_are_verdicts": False,
+            "followup_flags_change_frozen_pilot": False,
             "old_related_copyright_is_authority": False,
             "scope_relation_derived_is_separate_axis": True,
             "artist_excluded": True,
