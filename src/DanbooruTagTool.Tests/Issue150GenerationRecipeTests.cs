@@ -1,8 +1,4 @@
-using System.Net;
-using System.Net.Http;
-using System.Text;
 using System.Text.Json;
-using DanbooruTagTool.App.ViewModels;
 using DanbooruTagTool.Core;
 using DanbooruTagTool.Data;
 using Xunit;
@@ -43,18 +39,22 @@ public class Issue150GenerationRecipeTests
     }
 
     [Fact]
-    public void ChoiceOnlyRecipeIsReferenceOnly()
+    public void AllGenerationRecipeFieldsAreReferenceOnly()
     {
         var recipe = new GenerationRecipe(
             Model: "manual-model",
+            Seed: 42,
+            Steps: 20,
             Sampler: "Euler a",
-            Scheduler: "Karras");
-        var preset = new GenerationPreset(Guid.NewGuid(), "manual choices", "", "blue_hair", "lowres", recipe);
+            Scheduler: "Karras",
+            Cfg: 5m,
+            Width: 832,
+            Height: 1216);
+        var preset = new GenerationPreset(Guid.NewGuid(), "reference recipe", "", "blue_hair", "lowres", recipe);
 
         Assert.True(recipe.HasAny);
         Assert.False(recipe.HasAutomaticSettings);
         Assert.True(preset.HasRecipe);
-        Assert.False(preset.HasAutomaticRecipe);
     }
 
     [Fact]
@@ -142,130 +142,5 @@ public class Issue150GenerationRecipeTests
         Assert.Contains("Steps", vm.Status);
     }
 
-    [Fact]
-    public async Task RecipeApplyRequiresUpdatedBridgeCapability()
-    {
-        var client = Client((request, _) =>
-        {
-            Assert.EndsWith("/health", request.RequestUri!.AbsolutePath, StringComparison.Ordinal);
-            return Task.FromResult(Json("""{"protocolVersion":1,"ok":true,"ready":true,"capabilities":["prompt","generate","result_ack"]}"""));
-        });
-        var recipe = new GenerationRecipe(Seed: 42);
 
-        var result = await client.SendAsync(
-            ForgeBridgeProtocol.DefaultUrl,
-            new ForgeBridgeSendRequest("blue_hair", ForgeNegativeMode.Replace, "lowres", ForgeBridgeAction.ApplyRecipe, recipe));
-
-        Assert.False(result.Success);
-        Assert.Equal("upgrade", result.ErrorCode);
-        Assert.Contains("生成レシピ", result.Status);
-    }
-
-    [Fact]
-    public async Task RecipeApplySendsOnlyPresentSettingsAndWaitsForAck()
-    {
-        string? posted = null;
-        string? requestId = null;
-        var client = Client(async (request, cancellationToken) =>
-        {
-            var path = request.RequestUri!.AbsolutePath;
-            if (request.Method == HttpMethod.Get && path.EndsWith("/health", StringComparison.Ordinal))
-                return Json("""{"protocolVersion":1,"ok":true,"ready":true,"capabilities":["prompt","generate","result_ack","recipe_settings"]}""");
-
-            if (request.Method == HttpMethod.Post && path.EndsWith("/prompt", StringComparison.Ordinal))
-            {
-                posted = await request.Content!.ReadAsStringAsync(cancellationToken);
-                using var document = JsonDocument.Parse(posted);
-                requestId = document.RootElement.GetProperty("requestId").GetString();
-                return Json($$"""{"protocolVersion":1,"accepted":true,"requestId":"{{requestId}}"}""");
-            }
-
-            if (request.Method == HttpMethod.Get && path.EndsWith("/result/" + requestId, StringComparison.Ordinal))
-                return Json("""{"protocolVersion":1,"result":{"success":true,"error":""}}""");
-
-            throw new InvalidOperationException(path);
-        });
-
-        var recipe = new GenerationRecipe(
-            Model: "manual-model",
-            Seed: 42,
-            Steps: 20,
-            Sampler: "Euler a",
-            Scheduler: "Karras",
-            Cfg: 5m);
-        var result = await client.SendAsync(
-            ForgeBridgeProtocol.DefaultUrl,
-            new ForgeBridgeSendRequest("blue_hair", ForgeNegativeMode.Replace, "lowres", ForgeBridgeAction.ApplyRecipe, recipe));
-
-        Assert.True(result.Success);
-        Assert.Equal("Forgeへレシピを適用しました", result.Status);
-        using var payload = JsonDocument.Parse(posted!);
-        Assert.Equal("apply_recipe", payload.RootElement.GetProperty("action").GetString());
-        var settings = payload.RootElement.GetProperty("settings");
-        Assert.Equal(42, settings.GetProperty("seed").GetInt64());
-        Assert.Equal(20, settings.GetProperty("steps").GetInt32());
-        Assert.Equal(5m, settings.GetProperty("cfg").GetDecimal());
-        Assert.False(settings.TryGetProperty("model", out _));
-        Assert.False(settings.TryGetProperty("sampler", out _));
-        Assert.False(settings.TryGetProperty("scheduler", out _));
-        Assert.False(settings.TryGetProperty("width", out _));
-    }
-
-    [Fact]
-    public async Task ManualChoiceOnlyRecipeCannotRunAutomaticApply()
-    {
-        var client = Client((_, _) => throw new InvalidOperationException("HTTP must not be called"));
-        var result = await client.SendAsync(
-            ForgeBridgeProtocol.DefaultUrl,
-            new ForgeBridgeSendRequest(
-                "blue_hair",
-                ForgeNegativeMode.Replace,
-                "lowres",
-                ForgeBridgeAction.ApplyRecipe,
-                new GenerationRecipe(Model: "manual-model", Sampler: "Euler a", Scheduler: "Karras")));
-
-        Assert.False(result.Success);
-        Assert.Equal("recipe_empty", result.ErrorCode);
-        Assert.Contains("自動適用", result.Status);
-    }
-
-    [Fact]
-    public async Task RecipeGenerateUsesSavedPositiveNegativeAndSettings()
-    {
-        var fake = new RecordingBridge();
-        var vm = new ForgeViewModel(fake, () => { }, () => true, () => "current_prompt", _ => { }, () => { });
-        var recipe = new GenerationRecipe("model", 99, 12, "Euler a", "Automatic", 5m, 1024, 1024);
-        var preset = new GenerationPreset(Guid.NewGuid(), "r", "", "saved_positive", "saved_negative", recipe);
-
-        await vm.GenerateRecipeAsync(preset, CancellationToken.None);
-
-        var request = Assert.IsType<ForgeBridgeSendRequest>(fake.Request);
-        Assert.Equal("saved_positive", request.Positive);
-        Assert.Equal("saved_negative", request.Negative);
-        Assert.Equal(ForgeBridgeAction.SendAndGenerate, request.Action);
-        Assert.Equal(recipe, request.Recipe);
-    }
-
-    private static ForgeBridgeClient Client(Func<HttpRequestMessage, CancellationToken, Task<HttpResponseMessage>> handler) =>
-        new(new HttpClient(new StubHandler(handler)));
-
-    private static HttpResponseMessage Json(string json) =>
-        new(HttpStatusCode.OK) { Content = new StringContent(json, Encoding.UTF8, "application/json") };
-
-    private sealed class StubHandler(Func<HttpRequestMessage, CancellationToken, Task<HttpResponseMessage>> handler) : HttpMessageHandler
-    {
-        protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken) =>
-            handler(request, cancellationToken);
-    }
-
-    private sealed class RecordingBridge : IForgeBridgeClient
-    {
-        public ForgeBridgeSendRequest? Request { get; private set; }
-
-        public Task<ForgeBridgeResult> SendAsync(string baseUrl, ForgeBridgeSendRequest request, CancellationToken cancellationToken = default)
-        {
-            Request = request;
-            return Task.FromResult(new ForgeBridgeResult(true, "ok"));
-        }
-    }
 }
