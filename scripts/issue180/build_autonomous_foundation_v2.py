@@ -464,7 +464,17 @@ def main() -> None:
         basis = ""
         source_file = ""
         evidence_url = ""
-        if existing:
+        legacy_broad = broad_v1_groups.get(family)
+        if legacy_broad:
+            homes = sorted(legacy_broad["candidate_homes"])
+            if len(homes) != 1:
+                raise SystemExit(f"legacy broad family work queue has multiple homes: {family} -> {homes}")
+            candidate = homes[0]
+            basis = "LEGACY_BROAD_V1_REVIEW"
+            source_file = "|".join(sorted(legacy_broad["source_files"]))
+            evidence_url = "|".join(sorted(legacy_broad["evidence_urls"]))
+            lane = "BROAD_LEGACY_REVIEW"
+        elif existing:
             candidate = existing["candidate_home"]
             basis = existing["source_kind"]
             source_file = existing["source_file"]
@@ -472,7 +482,7 @@ def main() -> None:
             if family in NON_HOME_EXACT_FAMILIES:
                 lane = "HIGHER_REASONING_NON_HOME_SEMANTICS"
             elif family in BROAD:
-                lane = "BROAD_LEGACY_REVIEW" if family in broad_v1_groups else "HIGHER_REASONING_BROAD"
+                lane = "HIGHER_REASONING_BROAD"
             elif basis == "NORMALIZED_COPYRIGHT_REVIEWED":
                 lane = "FAST_REVALIDATE_NORMALIZATION"
             elif basis == "ROOT_POLICY_REVIEW_HINT":
