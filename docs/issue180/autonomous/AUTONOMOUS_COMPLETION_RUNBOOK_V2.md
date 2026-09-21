@@ -224,6 +224,24 @@ If CI or a script fails:
 
 If one authority case is ambiguous, isolate that case and continue independent queues.
 
+## Completion readiness gate
+
+Normal CI intentionally allows safe unresolved rows and therefore only **reports** readiness.
+
+Before Codex claims that the autonomous pass is complete, it must run:
+
+`python scripts/issue180/check_autonomous_completion_readiness_v2.py --final`
+
+This final gate fails when mandatory active work remains, including:
+
+- #179 officiality-review rows
+- fast normalization/root-policy/exact-review families
+- direct-roster review rows
+- PENDING decision rows
+- a completely empty autonomous decision set
+
+Rows explicitly researched and concluded `UNRESOLVED` or `NEEDS_HIGHER_REASONING` are moved to deferred outputs and do not re-enter active queues.
+
 ## Final stop rule
 
 Before reporting completion:
