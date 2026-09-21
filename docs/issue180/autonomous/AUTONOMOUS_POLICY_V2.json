@@ -40,13 +40,19 @@
     "vtuber",
     "cookie",
     "project_moon",
-    "vocaloid"
+    "vocaloid",
+    "nintendo",
+    "namco",
+    "capcom",
+    "cygames",
+    "type-moon"
   ],
   "non_home_families": [
     "project_voltage",
     "original",
     "pixiv_fantasia",
-    "vrchat"
+    "vrchat",
+    "marvel_vs._capcom"
   ],
   "broad_pass_types": [
     "ROOT_POLICY_REVIEWED",
