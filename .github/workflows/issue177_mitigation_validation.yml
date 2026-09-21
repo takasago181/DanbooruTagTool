@@ -1,0 +1,29 @@
+name: Issue177 Mitigation Validation
+
+on:
+  push:
+    branches:
+      - validation/issue177-mitigation-20260921
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: windows-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+      - name: Release build
+        run: dotnet build src/DanbooruTagTool.sln -c Release --nologo
+      - name: All tests
+        run: dotnet test src/DanbooruTagTool.sln -c Release --no-build --nologo
+      - name: Issue70 focused tests
+        run: dotnet test src/DanbooruTagTool.Tests/DanbooruTagTool.Tests.csproj -c Release --no-build --nologo --filter "FullyQualifiedName~Issue70"
+      - name: Issue117 focused tests
+        run: dotnet test src/DanbooruTagTool.Tests/DanbooruTagTool.Tests.csproj -c Release --no-build --nologo --filter "FullyQualifiedName~Issue117"
+      - name: Issue141 focused tests
+        run: dotnet test src/DanbooruTagTool.Tests/DanbooruTagTool.Tests.csproj -c Release --no-build --nologo --filter "FullyQualifiedName~Issue141"
