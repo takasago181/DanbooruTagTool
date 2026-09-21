@@ -22,3 +22,13 @@ The compiler and validator read these shards together with the compatibility led
 The same `(scope,key)` may appear only once across all ledgers. Duplicate/conflicting entries fail validation.
 
 No generated artifact belongs in this directory.
+
+
+## Review-only discovery groups
+
+`DISCOVERY_GROUP` is a review-progress scope for unqualified Characters grouped by their support-only Copyright hint.
+
+- It never grants HOME directly.
+- Use `DIRECT_CHARACTER` PASS rows for members actually proven by an official/curated roster.
+- Finish a group with `UNRESOLVED` or `NEEDS_HIGHER_REASONING` only after actual group/roster research.
+- A terminal DISCOVERY_GROUP row requires grounded evidence and a substantive note.
