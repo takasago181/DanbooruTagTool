@@ -13,11 +13,12 @@ CAT=R/"docs/issue70/data/runtime/issue70_catalog_overlay.csv"
 CENSUS=R/"artifacts/issue180-full-preflight/CHARACTER_QUALIFIER_CENSUS.csv"
 FAMILY_WORK=R/"artifacts/issue180-full-preflight/POST_NORMALIZED_REVIEW/MASTER_HOME_V2/FAMILY_WORK_QUEUE_V2.csv"
 UNQUALIFIED_GROUPS=R/"artifacts/issue180-full-preflight/POST_NORMALIZED_REVIEW/MASTER_HOME_V2/UNQUALIFIED_DISCOVERY_GROUPS_V2.csv"
+VARIANT_GROUPS=R/"artifacts/issue180-full-preflight/POST_NORMALIZED_REVIEW/MASTER_HOME_V2/VARIANT_PATTERN_GROUPS_V2.csv"
 EXPECTED_FIELDS=[
  "scope","key","home_copyright","base_character","authority_type","evidence_url",
  "evidence_claim","validation_state","officiality_state","notes",
 ]
-VALID_SCOPES={"FAMILY_QUALIFIER","DISCOVERY_GROUP","DIRECT_CHARACTER","VARIANT_CHARACTER","NOT_OFFICIAL_CHARACTER","BLOCK_CHARACTER"}
+VALID_SCOPES={"FAMILY_QUALIFIER","DISCOVERY_GROUP","VARIANT_PATTERN","DIRECT_CHARACTER","VARIANT_CHARACTER","NOT_OFFICIAL_CHARACTER","BLOCK_CHARACTER"}
 VALID_STATES={"PASS","UNRESOLVED","PENDING","NEEDS_HIGHER_REASONING"}
 POLICY_PATH=R/"docs/issue180/autonomous/AUTONOMOUS_POLICY_V2.json"
 POLICY=json.loads(POLICY_PATH.read_text(encoding="utf-8"))
@@ -102,6 +103,7 @@ def main():
  valid_families={(r.get("final_qualifier") or "").strip().lower() for r in census if (r.get("final_qualifier") or "").strip()}
  family_lane={r["family"]:r.get("work_lane","") for r in read(FAMILY_WORK)}
  valid_discovery_groups={r["discovery_group"].strip().lower() for r in read(UNQUALIFIED_GROUPS) if r.get("discovery_group","").strip()}
+ valid_variant_patterns={r["pattern_id"].strip() for r in read(VARIANT_GROUPS) if r.get("pattern_id","").strip()}
 
  seen_rows=set(); seen_scope_key={}; states=Counter(); scopes=Counter(); files=Counter()
  for r in rows:
@@ -134,6 +136,13 @@ def main():
     raise SystemExit(f"{where}: DISCOVERY_GROUP must not carry HOME")
    if state=="PASS":
     raise SystemExit(f"{where}: DISCOVERY_GROUP is review-progress only; use DIRECT_CHARACTER rows for HOME PASS")
+  elif scope=="VARIANT_PATTERN":
+   if key not in valid_variant_patterns:
+    raise SystemExit(f"{where}: unknown variant pattern {key}")
+   if home:
+    raise SystemExit(f"{where}: VARIANT_PATTERN must not carry HOME")
+   if state=="PASS":
+    raise SystemExit(f"{where}: VARIANT_PATTERN is review-progress only; use VARIANT_CHARACTER rows for HOME PASS")
   elif key not in chars:
    raise SystemExit(f"{where}: unknown Character key {key}")
 
@@ -141,10 +150,10 @@ def main():
    review_note=(r.get("notes") or "").strip()
    if len(review_note)<20:
     raise SystemExit(f"{where}: terminal {state} decision requires notes (>=20 chars) describing the completed review/remaining uncertainty")
-   if scope=="DISCOVERY_GROUP":
+   if scope in {"DISCOVERY_GROUP","VARIANT_PATTERN"}:
     group_evidence_ok,group_evidence_error=evidence_gate(r)
     if not group_evidence_ok:
-     raise SystemExit(f"{where}: DISCOVERY_GROUP terminal review requires grounded evidence: {group_evidence_error}")
+     raise SystemExit(f"{where}: {scope} terminal review requires grounded evidence: {group_evidence_error}")
   if state!="PASS":
    continue
 
