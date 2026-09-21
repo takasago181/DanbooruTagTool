@@ -16,6 +16,7 @@ OFFICIALITY=D/"REMAINING_OFFICIALITY_WORK_V2.csv"
 UNQUALIFIED=D/"REMAINING_UNQUALIFIED_WORK_V2.csv"
 UNQUALIFIED_GROUPS=D/"UNQUALIFIED_DISCOVERY_GROUPS_V2.csv"
 REVIEWED_GROUPS=D/"REVIEWED_DISCOVERY_GROUPS_V2.csv"
+DEFERRED_CHAR=D/"DEFERRED_CHARACTER_REVIEW_V2.csv"
 WEAK=D/"LEGACY_WEAK_DIRECT_REVIEW_V2.csv"
 MASTER=D/"CHARACTER_HOME_MASTER_V2.csv"
 SUMMARY=D/"character_home_master_v2_summary.json"
@@ -91,6 +92,7 @@ def main():
  unq=read(UNQUALIFIED)
  groups=read(UNQUALIFIED_GROUPS)
  reviewed_groups=read(REVIEWED_GROUPS)
+ deferred_char=read(DEFERRED_CHAR)
  weak=read(WEAK)
  master=read(MASTER)
  master_by={r["canonical_tag"]:r for r in master}
@@ -99,6 +101,17 @@ def main():
  mandatory_family={k:lanes[k] for k in sorted(MANDATORY_FAMILY_LANES) if lanes[k]}
  direct_roster=sum(r.get("work_state")=="DIRECT_ROSTER_REVIEW" for r in unq)
  policy=json.loads(POLICY_PATH.read_text(encoding="utf-8"))
+ official_origins=set(policy["official_origin_classes"])
+ nonofficial_origins=set(policy["not_official_origin_classes"])
+ deferred_character_tags={r.get("canonical_tag","").strip() for r in deferred_char}
+ explicit_origin_unknown=[
+  r["canonical_tag"] for r in master
+  if (r.get("origin_class") or "").strip()
+  and r.get("origin_class") not in official_origins
+  and r.get("origin_class") not in nonofficial_origins
+  and r.get("final_state")=="HOME_UNRESOLVED"
+  and r["canonical_tag"] not in deferred_character_tags
+ ]
  group_min=int(policy["mandatory_unqualified_group_min_rows"])
  reviewed_group_keys={r.get("discovery_group","").strip().lower() for r in reviewed_groups}
  mandatory_groups=[
@@ -119,6 +132,7 @@ def main():
 
  blockers={
   "officiality_rows":len(officiality),
+  "issue179_explicit_unknown_rows":len(explicit_origin_unknown),
   "mandatory_family_families":sum(mandatory_family.values()),
   "direct_roster_rows":direct_roster,
   "mandatory_unqualified_groups":len(missing_mandatory_groups),
@@ -148,6 +162,7 @@ def main():
   "autonomous_decision_rows":decisions,
   "blockers":blockers,
   "mandatory_family_lane_counts":mandatory_family,
+  "issue179_explicit_unknown_unreviewed":sorted(explicit_origin_unknown),
   "legacy_weak_direct_unresolved":weak_unresolved,
   "mandatory_unqualified_group_min_rows":group_min,
   "mandatory_unqualified_groups_total":len(mandatory_groups),
