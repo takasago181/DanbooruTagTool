@@ -277,7 +277,7 @@ def main() -> int:
         # the historical semantic-fix pass therefore needs independent review.
         if (
             category == "Character"
-            and not re.search(r"_\\([^()]+\\)$", canonical)
+            and not re.search(r"_\([^()]+\)$", canonical)
             and qcount > 0
             and bool(r["touched_by_semantic_fix"])
         ):
