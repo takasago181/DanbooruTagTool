@@ -58,12 +58,17 @@ def main():
   "officiality_state":"","notes":"",
  }])], "PASS requires http(s) evidence_url or evidence_claim REPO:<existing repository path>")
 
- row={
+ row_pass={
   "scope":"FAMILY_QUALIFIER","key":"blue_archive","home_copyright":"blue_archive",
   "base_character":"","authority_type":"QUALIFIER_COPYRIGHT","evidence_url":"",
   "evidence_claim":evidence,"validation_state":"PASS","officiality_state":"","notes":"",
  }
- expect_fail("cross_shard_duplicate", [("a",[row]),("b",[row])], "multiple decisions for same scope/key")
+ row_unresolved={
+  "scope":"FAMILY_QUALIFIER","key":"Blue_Archive","home_copyright":"",
+  "base_character":"","authority_type":"","evidence_url":"",
+  "evidence_claim":"","validation_state":"UNRESOLVED","officiality_state":"","notes":"conflicting review state",
+ }
+ expect_fail("cross_shard_duplicate", [("a",[row_pass]),("b",[row_unresolved])], "multiple decisions for same scope/key")
 
  print("Issue #180 autonomous decision adversarial smoke: PASS")
 
