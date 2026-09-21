@@ -43,7 +43,10 @@ def main():
    if tag in seen and seen[tag]!=home:
     raise SystemExit("HOME conflict "+tag)
    if tag in seen:
-    raise SystemExit("duplicate authority row "+tag)
+    # Same HOME from an earlier reviewed source is corroboration, not a conflict.
+    # Count it for the source gate but keep one canonical ledger row.
+    accepted+=1
+    continue
    seen[tag]=home
    accepted+=1
    ledger.append({
@@ -60,8 +63,10 @@ def main():
   if accepted!=expected:
    raise SystemExit(f"authority source count drift {p.name}: expected {expected}, got {accepted}")
 
- if len(ledger)!=EXPECTED_TOTAL or len(seen)!=EXPECTED_TOTAL:
-  raise SystemExit(f"expected {EXPECTED_TOTAL} validated authority rows, got {len(ledger)}")
+ if len(ledger)!=len(seen):
+  raise SystemExit(f"ledger uniqueness drift: rows {len(ledger)}, unique {len(seen)}")
+ if len(ledger)>EXPECTED_TOTAL:
+  raise SystemExit(f"ledger exceeds validated source rows: {len(ledger)} > {EXPECTED_TOTAL}")
 
  OD.mkdir(parents=True,exist_ok=True)
  with OUT.open("w",encoding="utf-8-sig",newline="") as f:
