@@ -36,52 +36,19 @@ OLD_GLOBAL = A / "GLOBAL_APPROVED_QUALIFIER_HOME_V1.csv"
 
 EXPECTED = 35890
 
-ATTR = {
-    "new_year", "summer", "casual", "school_uniform", "female", "male", "young",
-    "timeskip", "stand", "racehorse", "human", "character", "cat",
-}
-ORDINAL_COSTUME = re.compile(r"^[0-9]+(?:st|nd|rd|th)_costume$")
-BROAD = {
-    "disney", "marvel", "final_fantasy", "idolmaster", "precure", "yu-gi-oh!",
-    "nijisanji", "dragon_ball", "mega_man", "tales", "persona", "megami_tensei",
-    "zelda", "kirby", "naruto", "neptunia", "nanoha", "x-men", "transformers",
-    "mario", "vtuber", "cookie",
-}
-PIAPRO_POLICY = {
-    "hatsune_miku", "kagamine_rin", "kagamine_len", "megurine_luka",
-    "meiko_(vocaloid)", "kaito_(vocaloid)",
-}
+POLICY_PATH = R / "docs/issue180/autonomous/AUTONOMOUS_POLICY_V2.json"
+POLICY = json.loads(POLICY_PATH.read_text(encoding="utf-8"))
+if POLICY.get("version") != 2:
+    raise SystemExit("unsupported autonomous policy version")
 
-# A Copyright tag can be a real tag without being a valid canonical HOME.
-# These families describe collaborations/projects/appearances and therefore
-# must never pass the reusable qualifier fast-path by exact-name equality.
-NON_HOME_EXACT_FAMILIES = {
-    "project_voltage",
-}
-
-# Existing Issue #180 product policy prefers a stable canonical root instead
-# of title-by-title appearance HOME for these already-reviewed ecosystems.
-ROOT_POLICY_REVIEW_HINT_PREFIXES = [
-    ("fire_emblem_", "fire_emblem"),
-    ("fire_emblem:", "fire_emblem"),
-    ("mega_man_", "mega_man_(series)"),
-    ("mega_man:", "mega_man_(series)"),
-    ("xenoblade_", "xenoblade_chronicles_(series)"),
-    ("sekaiju_", "sekaiju_no_meikyuu"),
-    ("tales_", "tales_of_(series)"),
-    ("kirby_", "kirby_(series)"),
-    ("naruto_", "naruto_(series)"),
-    ("zelda_", "the_legend_of_zelda"),
-    ("sailor_moon_", "bishoujo_senshi_sailor_moon"),
-    ("sonic_", "sonic_(series)"),
-    ("mario_", "mario_(series)"),
-    ("super_mario_", "mario_(series)"),
-    ("pikmin_", "pikmin_(series)"),
-    ("symphogear_", "senki_zesshou_symphogear"),
-]
-ROOT_POLICY_REVIEW_HINT_EXACT = {
-    "jojolion": "jojo_no_kimyou_na_bouken",
-}
+ATTR = set(POLICY["attribute_families"])
+ORDINAL_COSTUME = re.compile(POLICY["ordinal_costume_regex"])
+BROAD = set(POLICY["broad_families"])
+PIAPRO_POLICY = set(POLICY["piapro_policy_characters"])
+NON_HOME_EXACT_FAMILIES = set(POLICY["non_home_families"])
+ROOT_POLICY_NORMALIZATION = dict(POLICY["root_policy_normalization"])
+ROOT_POLICY_REVIEW_HINT_PREFIXES = [tuple(x) for x in POLICY["root_policy_review_hint_prefixes"]]
+ROOT_POLICY_REVIEW_HINT_EXACT = dict(POLICY["root_policy_review_hint_exact"])
 
 
 def root_policy_review_hint(family: str) -> str:
@@ -91,26 +58,6 @@ def root_policy_review_hint(family: str) -> str:
         if family.startswith(prefix):
             return root
     return ""
-
-
-ROOT_POLICY_NORMALIZATION = {
-    "fate/zero": "fate_(series)",
-    "fate/extra": "fate_(series)",
-    "fate/apocrypha": "fate_(series)",
-    "fate/grand_order": "fate_(series)",
-    "fate/prototype": "fate_(series)",
-    "fate/stay_night": "fate_(series)",
-    "fate/strange_fake": "fate_(series)",
-    "fate/grand_order_arcade": "fate_(series)",
-    "fate/samurai_remnant": "fate_(series)",
-    "pokemon_go": "pokemon",
-    "pokemon_masters_ex": "pokemon",
-    "pokemon_legends:_z-a": "pokemon",
-    "pokemon_adventures": "pokemon",
-    "pokemon_pokopia": "pokemon",
-    "splatoon_3": "splatoon_(series)",
-    "splatoon_raiders": "splatoon_(series)",
-}
 
 
 def read(path: Path) -> list[dict[str, str]]:
