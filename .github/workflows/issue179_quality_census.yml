@@ -40,6 +40,7 @@ jobs:
           assert summary["population"]["current_runtime"] == {"Character": 35278, "Copyright": 7616}
           assert summary["artist_audit_rows"] == 0
           assert summary["pilot_rows"] == 500
+          assert summary["pilot_clean_control_rows"] == 100
           assert summary["clean_control_rows"] == 100
           assert summary["production_modified"] is False
           with (root / "quality_census.csv").open(encoding="utf-8-sig", newline="") as f:
