@@ -1,0 +1,103 @@
+name: Issue179 Character Audit Snapshot
+
+on:
+  push:
+    branches:
+      - research/issue179-character-quality-audit
+
+permissions:
+  contents: read
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Inspect Character runtime population
+        shell: bash
+        run: |
+          python - <<'PY'
+          import csv, json, math, re, hashlib
+          from pathlib import Path
+
+          overlay = Path("docs/issue70/data/runtime/issue70_catalog_overlay_2d_final.csv")
+          expected = "bf366734b41b2be9e6cb52de919ef55b7312445e1715f96a357db37abda8dad5"
+          digest = hashlib.sha256(overlay.read_bytes()).hexdigest()
+          assert digest == expected, (digest, expected)
+
+          with overlay.open("r", encoding="utf-8-sig", newline="") as f:
+              rows = list(csv.DictReader(f))
+          chars = [r for r in rows if r["category_name"] == "Character"]
+          assert len(chars) == 35278
+
+          def percentile(values, q):
+              values = sorted(values)
+              if not values: return None
+              pos = (len(values)-1)*q
+              lo, hi = math.floor(pos), math.ceil(pos)
+              if lo == hi: return values[lo]
+              return round(values[lo]*(hi-pos)+values[hi]*(pos-lo), 2)
+
+          counts = [int(r["post_count"]) for r in chars]
+          summary = {
+              "character_count": len(chars),
+              "translation_status": {},
+              "post_count_quantiles": {str(q): percentile(counts, q) for q in [0, .01, .1, .25, .5, .75, .9, .99, 1]},
+              "qualified_suffix_count": sum(bool(re.search(r"_\([^()]+\)$", r["canonical_tag"])) for r in chars),
+              "aliases_nonempty": sum(bool(r["aliases"].strip()) for r in chars),
+              "search_ja_nonempty": sum(bool(r["search_ja"].strip()) for r in chars),
+              "related_copyright_nonempty": sum(bool(r["related_copyright"].strip()) for r in chars),
+              "display_contains_underscore": sum("_" in r["display_ja"] for r in chars),
+              "display_ascii_only": sum(r["display_ja"].isascii() for r in chars),
+          }
+          for r in chars:
+              summary["translation_status"][r["translation_status"]] = summary["translation_status"].get(r["translation_status"], 0) + 1
+
+          wanted = [
+              "dawn_(pokemon)", "hikari_(pokemon)", "pikachu", "hatsune_miku",
+              "gotoh_hitori", "ikazuchi_(kancolle)", "inazuma_(kancolle)",
+              "shirakami_fubuki", "kirby"
+          ]
+          by = {r["canonical_tag"]: r for r in chars}
+          cases = {}
+          for name in wanted:
+              r = by.get(name)
+              cases[name] = None if r is None else {
+                  k: r[k] for k in ["row_id","canonical_tag","post_count","display_ja","search_ja","aliases","related_copyright","translation_status"]
+              }
+
+          # deterministic stratified examples around useful post-count bands
+          sorted_chars = sorted(chars, key=lambda r: (int(r["post_count"]), r["canonical_tag"]))
+          positions = {
+              "tail_min": 0,
+              "p10": round((len(sorted_chars)-1)*.10),
+              "p50": round((len(sorted_chars)-1)*.50),
+              "p90": round((len(sorted_chars)-1)*.90),
+              "top_max": len(sorted_chars)-1,
+          }
+          examples = {}
+          for label, idx in positions.items():
+              r = sorted_chars[idx]
+              examples[label] = {k: r[k] for k in ["canonical_tag","post_count","display_ja","search_ja","aliases","translation_status"]}
+
+          fixes = Path("docs/issue70/finalization/FINAL_SEMANTIC_FIXES.csv")
+          with fixes.open("r", encoding="utf-8-sig", newline="") as f:
+              fix_reader = csv.DictReader(f)
+              fix_fields = fix_reader.fieldnames
+              fix_rows = list(fix_reader)
+          character_fix_candidates = [
+              r for r in fix_rows
+              if any((r.get(k) or "") == "Character" for k in r.keys() if "category" in k.lower())
+          ]
+
+          print("ISSUE179_SNAPSHOT_BEGIN")
+          print(json.dumps({
+              "summary": summary,
+              "known_cases": cases,
+              "band_examples": examples,
+              "semantic_fix_fields": fix_fields,
+              "semantic_fix_rows_total": len(fix_rows),
+              "semantic_fix_character_rows_detected": len(character_fix_candidates),
+          }, ensure_ascii=False, indent=2))
+          print("ISSUE179_SNAPSHOT_END")
+          PY
