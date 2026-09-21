@@ -36,6 +36,7 @@ POLICY = json.loads(POLICY_PATH.read_text(encoding="utf-8"))
 if POLICY.get("version") != 2:
     raise SystemExit("unsupported autonomous policy version")
 ATTR = set(POLICY["attribute_families"])
+VARIANT_QUALIFIER_FAMILIES = set(POLICY["variant_qualifier_families"])
 ORDINAL_COSTUME = re.compile(POLICY["ordinal_costume_regex"])
 OFFICIAL_ORIGIN_CLASSES = set(POLICY["official_origin_classes"])
 ALLOW_AUTONOMOUS_NOT_OFFICIAL = bool(POLICY["allow_autonomous_not_official_pass"])
@@ -63,7 +64,7 @@ def read_decisions() -> list[dict[str, str]]:
 
 
 def is_attribute_family(family: str) -> bool:
-    return family in ATTR or bool(ORDINAL_COSTUME.match(family or ""))
+    return family in ATTR or family in VARIANT_QUALIFIER_FAMILIES or bool(ORDINAL_COSTUME.match(family or ""))
 
 
 def nested(tag: str, family: str) -> bool:
