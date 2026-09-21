@@ -375,63 +375,73 @@ def main() -> int:
     clean_sample = list(clean_map.values())[:100]
     write_csv(out / "clean_control_sample.csv", census_fields, clean_sample)
 
-    # Deterministic 500-row pilot.
+    # Deterministic 500-row pilot. Reserve clean controls explicitly so
+    # heuristic false-positive rate can be measured instead of letting risk
+    # candidates consume the full pilot.
     selected: dict[str, dict[str, object]] = {}
     reasons: dict[str, list[str]] = defaultdict(list)
+    PILOT_TARGET = 500
 
-    def select(candidates: list[dict[str, object]], reason: str, limit: int | None = None) -> None:
+    def select(
+        candidates: list[dict[str, object]],
+        reason: str,
+        new_limit: int | None = None,
+    ) -> None:
         added = 0
         for r in candidates:
+            if len(selected) >= PILOT_TARGET:
+                break
             rid = str(r["row_id"])
             if reason not in reasons[rid]:
                 reasons[rid].append(reason)
             if rid not in selected:
                 selected[rid] = r
                 added += 1
-                if limit is not None and added >= limit:
+                if new_limit is not None and added >= new_limit:
                     break
 
     known = [r for r in records if str(r["canonical_tag"]) in KNOWN_REGRESSIONS]
     known.sort(key=lambda r: (-int(r["post_count"]), str(r["canonical_tag"])))
     select(known, "KNOWN_REGRESSION")
 
+    # Clean controls are deliberately inserted before heuristic queues.
+    # They remain in the final 500-row pilot even when risk queues are large.
+    select(clean_sample, "CLEAN_CONTROL", 100)
+
     risk_sorted = sorted(
         [r for r in records if r["quality_band"] != "CLEAR"],
         key=lambda r: (-int(r["risk_score"]), -int(r["post_count"]), str(r["canonical_tag"])),
     )
-    select(risk_sorted, "TOP_RISK", 160)
+    select(risk_sorted, "TOP_RISK", 150)
 
     collision = [
         r for r in records
         if int(r["display_collision_other_rows"]) or int(r["search_collision_other_rows"]) or int(r["alias_collision_other_rows"])
     ]
     collision.sort(key=lambda r: (-int(r["post_count"]), -int(r["risk_score"]), str(r["canonical_tag"])))
-    select(collision, "COLLISION", 100)
+    select(collision, "COLLISION", 80)
 
     qualifier = [
         r for r in records
         if int(r["qualifier_count"]) >= 2 or "DISPLAY_MIXED_ASCII_QUALIFIER" in str(r["risk_flags"])
     ]
     qualifier.sort(key=lambda r: (-int(r["post_count"]), -int(r["risk_score"]), str(r["canonical_tag"])))
-    select(qualifier, "QUALIFIER_COMPLEXITY", 80)
+    select(qualifier, "QUALIFIER_COMPLEXITY", 60)
 
     copyright_rows = [r for r in records if r["category"] == "Copyright"]
     copyright_rows.sort(key=lambda r: (-int(r["risk_score"]), -int(r["post_count"]), str(r["canonical_tag"])))
-    select(copyright_rows, "COPYRIGHT_HIGH_IMPACT", 70)
+    select(copyright_rows, "COPYRIGHT_HIGH_IMPACT", 50)
 
     touched = [r for r in records if bool(r["touched_by_semantic_fix"])]
     touched.sort(key=lambda r: (-int(r["risk_score"]), -int(r["post_count"]), str(r["canonical_tag"])))
-    select(touched, "HISTORICAL_FIX_RECHECK", 70)
+    select(touched, "HISTORICAL_FIX_RECHECK", 60)
 
-    for r in clean_sample:
-        select([r], "CLEAN_CONTROL")
-
-    if len(selected) < 500:
+    if len(selected) < PILOT_TARGET:
         fill = [r for r in records if str(r["row_id"]) not in selected]
         fill.sort(key=lambda r: stable_hash(f'pilot-fill|{r["row_id"]}|{r["canonical_tag"]}'))
-        select(fill, "DETERMINISTIC_FILL", 500 - len(selected))
+        select(fill, "DETERMINISTIC_FILL", PILOT_TARGET - len(selected))
 
-    pilot = list(selected.values())[:500]
+    pilot = list(selected.values())
     pilot_fields = ["pilot_reasons"] + census_fields
     pilot_rows = []
     for r in pilot:
@@ -461,6 +471,8 @@ def main() -> int:
         "touched_by_historical_semantic_fix": sum(bool(r["touched_by_semantic_fix"]) for r in records),
         "post_count_thresholds": thresholds,
         "pilot_rows": len(pilot_rows),
+        "pilot_clean_control_rows": sum("CLEAN_CONTROL" in reasons[str(r["row_id"])] for r in pilot),
+        "pilot_known_regression_rows": sum("KNOWN_REGRESSION" in reasons[str(r["row_id"])] for r in pilot),
         "clean_control_rows": len(clean_sample),
         "policy": {
             "heuristic_flags_are_verdicts": False,
