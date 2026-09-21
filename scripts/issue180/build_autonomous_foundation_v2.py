@@ -472,7 +472,7 @@ def main() -> None:
             if family in NON_HOME_EXACT_FAMILIES:
                 lane = "HIGHER_REASONING_NON_HOME_SEMANTICS"
             elif family in BROAD:
-                lane = "HIGHER_REASONING_BROAD"
+                lane = "BROAD_LEGACY_REVIEW" if family in broad_v1_groups else "HIGHER_REASONING_BROAD"
             elif basis == "NORMALIZED_COPYRIGHT_REVIEWED":
                 lane = "FAST_REVALIDATE_NORMALIZATION"
             elif basis == "ROOT_POLICY_REVIEW_HINT":
