@@ -28,6 +28,9 @@ jobs:
       - name: Build read-only quality census
         run: python scripts/issue179/build_quality_census.py
 
+      - name: Prepare Stage B review batches
+        run: python scripts/issue179/prepare_stage_b_batches.py
+
       - name: Validate artifact contract
         run: |
           python - <<'PY'
@@ -47,7 +50,13 @@ jobs:
               assert sum(1 for _ in csv.DictReader(f)) == 44426
           with (root / "pilot_manifest.csv").open(encoding="utf-8-sig", newline="") as f:
               assert sum(1 for _ in csv.DictReader(f)) == 500
-          print("Issue179 census contract PASS")
+          stage_b = root / "stage_b"
+          batches = sorted(stage_b.glob("I179-B*.csv"))
+          assert len(batches) == 10
+          assert all(sum(1 for _ in csv.DictReader(p.open(encoding="utf-8-sig", newline=""))) == 50 for p in batches)
+          with (stage_b / "STAGE_B_REVIEW_MANIFEST.csv").open(encoding="utf-8-sig", newline="") as f:
+              assert sum(1 for _ in csv.DictReader(f)) == 500
+          print("Issue179 census + Stage B contract PASS")
           PY
 
       - uses: actions/upload-artifact@v4
