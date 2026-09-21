@@ -45,7 +45,14 @@
     "namco",
     "capcom",
     "cygames",
-    "type-moon"
+    "type-moon",
+    "cevio",
+    "utau",
+    "synthesizer_v",
+    "voiceroid",
+    "voicevox",
+    "voicepeak",
+    "coefont"
   ],
   "non_home_families": [
     "project_voltage",
