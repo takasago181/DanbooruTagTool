@@ -34,36 +34,39 @@ The compatibility ledger `docs/issue180/autonomous/AUTHORITY_DECISIONS_V2.csv` i
 
 Generated master/work queues are artifacts. Do not hand-edit them.
 
-Validated baseline after the adversarial audit:
+Validated baseline after the adversarial audit (CI run 35669612009):
 
 - Character population: 35,890
 - evidence-grade v1 direct HOME preserved: 367
 - legacy broad v1 authority requeued: 559 rows / 17 families
 - weak current-master direct rows requeued for provenance upgrade: 14
-- v2 foundation HOME_CONFIRMED: 8,995
-- v2 foundation HOME_UNRESOLVED: 26,895
+- v2 foundation HOME_CONFIRMED: 8,960
+- v2 foundation HOME_UNRESOLVED: 26,930
 - NOT_OFFICIAL_CHARACTER: 0 at the current #179 handoff
 - accepted source modified: false
 - production modified: false
 
 Remaining v2 work:
 
-- #179 explicit officiality-review rows: 2
-- family rows: 6,066 across 2,506 families
-- mandatory family reviews: 219 families
+- #179 direct officiality-work rows: 2
+- #179 explicit UNKNOWN rows requiring review/defer before final: 7
+- family rows: 6,101 across 2,524 families
+- mandatory family reviews: 243 families
   - BROAD_LEGACY_REVIEW: 17
+  - HIGHER_REASONING_BROAD: 24
   - FAST_REVALIDATE_NORMALIZATION: 184
   - FAST_ROOT_POLICY_REVIEW: 15
   - REVIEW_NORMALIZATION: 3
 - variant/nested rows: 4,040
-- variant rows with confirmed base HOME ready for officiality review: 2,046
+- variant rows with confirmed base HOME ready for officiality review: 2,044
 - unqualified rows: 16,787
   - support-only discovery hint available: 16,743
   - no discovery hint: 44
 - mandatory high-yield unqualified discovery groups (50+ rows): 46
+- mandatory high-yield ready variant patterns (5+ rows): 37
 - direct-roster review rows: 9
 - weak legacy direct rows still unresolved at baseline: 10
-- higher-reasoning seed queue: 34
+- higher-reasoning seed queue: 52
 
 The coverage is intentionally lower than older checkpoints because unsafe broad/platform/weak-provenance confirmations were requeued instead of being kept merely to preserve a high HOME_CONFIRMED count.
 
