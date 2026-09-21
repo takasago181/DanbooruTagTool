@@ -32,6 +32,62 @@ PILOT = {
     },
 }
 
+
+# Evidence types allowed to prove a production HOME relation in this pilot.
+# Co-occurrence, generic wiki-body links, and catalog fallback guesses are
+# deliberately excluded even when they point to a plausible single candidate.
+ACCEPTED_HOME_EVIDENCE = {
+    "CURATED_COPYRIGHT_LIST",
+    "QUALIFIER_COPYRIGHT",
+    "CHARACTER_IMPLICATION_INHERITANCE",
+}
+
+# Pilot-only authority evidence.  Each tuple is:
+#   (candidate_home, evidence_type, provenance)
+# Multiple accepted candidates are a conflict -> HOME_UNRESOLVED.
+HOME_EVIDENCE = {
+    "dawn_(pokemon)": [
+        ("pokemon", "QUALIFIER_COPYRIGHT", "canonical qualifier"),
+        ("pokemon", "CURATED_COPYRIGHT_LIST", "official Pokemon character page"),
+    ],
+    "pikachu": [
+        ("pokemon", "CURATED_COPYRIGHT_LIST", "official Pokemon Pokedex"),
+    ],
+    "lapras": [
+        ("pokemon", "CURATED_COPYRIGHT_LIST", "official Pokemon site"),
+    ],
+    "hatsune_miku": [
+        ("vocaloid", "CATALOG_ROOT_FALLBACK", "Piapro/Crypton character; current catalog root guess"),
+    ],
+    "kaito_(vocaloid)": [
+        ("vocaloid", "QUALIFIER_COPYRIGHT", "canonical qualifier"),
+        ("vocaloid", "CURATED_COPYRIGHT_LIST", "official Piapro Characters page"),
+    ],
+    "ikazuchi_(kancolle)": [
+        ("kantai_collection", "QUALIFIER_COPYRIGHT", "canonical qualifier"),
+    ],
+    "inazuma_(kancolle)": [
+        ("kantai_collection", "QUALIFIER_COPYRIGHT", "canonical qualifier"),
+    ],
+    "shimakaze_(kancolle)": [
+        ("kantai_collection", "QUALIFIER_COPYRIGHT", "canonical qualifier"),
+        ("kantai_collection", "CURATED_COPYRIGHT_LIST", "official DMM Kantai Collection page"),
+    ],
+    "gotoh_hitori": [
+        ("bocchi_the_rock!", "CURATED_COPYRIGHT_LIST", "official Bocchi the Rock! character page"),
+    ],
+    "shirakami_fubuki": [
+        ("hololive", "CURATED_COPYRIGHT_LIST", "official hololive talent roster"),
+    ],
+    "irys_(hololive)": [
+        ("hololive", "QUALIFIER_COPYRIGHT", "canonical qualifier"),
+        ("hololive", "CURATED_COPYRIGHT_LIST", "official hololive talent profile"),
+    ],
+    "gawr_gura": [
+        ("hololive", "CURATED_COPYRIGHT_LIST", "official hololive talent/alumni profile"),
+    ],
+}
+
 def read_rows():
     with SOURCE.open("r", encoding="utf-8-sig", newline="") as fh:
         return list(csv.DictReader(fh))
@@ -81,8 +137,69 @@ def main() -> int:
         w.writeheader()
         w.writerows(result)
 
+    # Resolve HOME strictly from accepted authority evidence.
+    decisions = []
+    for row in result:
+        tag = row["canonical_tag"]
+        evidence = HOME_EVIDENCE.get(tag, [])
+        accepted = [item for item in evidence if item[1] in ACCEPTED_HOME_EVIDENCE]
+        accepted_homes = sorted({item[0] for item in accepted})
+
+        if len(accepted_homes) == 1:
+            state = "HOME_CONFIRMED"
+            home = accepted_homes[0]
+        else:
+            state = "HOME_UNRESOLVED"
+            home = ""
+
+        if len(accepted_homes) > 1:
+            conflict = "MULTIPLE_ACCEPTED_HOME_CANDIDATES"
+        elif not accepted:
+            conflict = "NO_ACCEPTED_HOME_AUTHORITY"
+        else:
+            conflict = ""
+
+        decisions.append({
+            "row_id": row["row_id"],
+            "canonical_tag": tag,
+            "state": state,
+            "home_copyright": home,
+            "accepted_home_count": len(accepted_homes),
+            "accepted_evidence": " | ".join(
+                f"{candidate}::{etype}::{provenance}"
+                for candidate, etype, provenance in accepted
+            ),
+            "rejected_or_supporting_evidence": " | ".join(
+                f"{candidate}::{etype}::{provenance}"
+                for candidate, etype, provenance in evidence
+                if etype not in ACCEPTED_HOME_EVIDENCE
+            ),
+            "conflict_reason": conflict,
+            "old_related_copyright": row["old_related_copyright"],
+        })
+
+    # Cardinality invariant: no Character may resolve to more than one HOME.
+    invalid = [d for d in decisions if d["accepted_home_count"] > 1]
+    if invalid:
+        raise SystemExit(
+            "HOME cardinality violation: "
+            + ", ".join(d["canonical_tag"] for d in invalid)
+        )
+
+    decision_fields = list(decisions[0].keys())
+    with (OUT / "authority_decisions.csv").open("w", encoding="utf-8-sig", newline="") as fh:
+        w = csv.DictWriter(fh, fieldnames=decision_fields, lineterminator="\n")
+        w.writeheader()
+        w.writerows(decisions)
+
+    confirmed = sum(d["state"] == "HOME_CONFIRMED" for d in decisions)
+    unresolved = sum(d["state"] == "HOME_UNRESOLVED" for d in decisions)
+
     summary = {
         "pilot_character_rows": len(result),
+        "home_confirmed": confirmed,
+        "home_unresolved": unresolved,
+        "home_cardinality_violations": len(invalid),
         "ecosystems": {k: {"home": v["home"], "characters": len(v["characters"])} for k, v in PILOT.items()},
         "production_modified": False,
         "accepted_source_modified": False,
@@ -91,6 +208,8 @@ def main() -> int:
     print(json.dumps(summary, ensure_ascii=False, indent=2))
     print("\n--- source_rows.csv ---")
     print((OUT / "source_rows.csv").read_text(encoding="utf-8-sig"))
+    print("\n--- authority_decisions.csv ---")
+    print((OUT / "authority_decisions.csv").read_text(encoding="utf-8-sig"))
     return 0
 
 if __name__ == "__main__":
