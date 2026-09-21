@@ -52,6 +52,34 @@ PIAPRO_POLICY = {
     "meiko_(vocaloid)", "kaito_(vocaloid)",
 }
 
+# A Copyright tag can be a real tag without being a valid canonical HOME.
+# These families describe collaborations/projects/appearances and therefore
+# must never pass the reusable qualifier fast-path by exact-name equality.
+NON_HOME_EXACT_FAMILIES = {
+    "project_voltage",
+}
+
+# Existing Issue #180 product policy prefers a stable canonical root instead
+# of title-by-title appearance HOME for these already-reviewed ecosystems.
+ROOT_POLICY_NORMALIZATION = {
+    "fate/zero": "fate_(series)",
+    "fate/extra": "fate_(series)",
+    "fate/apocrypha": "fate_(series)",
+    "fate/grand_order": "fate_(series)",
+    "fate/prototype": "fate_(series)",
+    "fate/stay_night": "fate_(series)",
+    "fate/strange_fake": "fate_(series)",
+    "fate/grand_order_arcade": "fate_(series)",
+    "fate/samurai_remnant": "fate_(series)",
+    "pokemon_go": "pokemon",
+    "pokemon_masters_ex": "pokemon",
+    "pokemon_legends:_z-a": "pokemon",
+    "pokemon_adventures": "pokemon",
+    "pokemon_pokopia": "pokemon",
+    "splatoon_3": "splatoon_(series)",
+    "splatoon_raiders": "splatoon_(series)",
+}
+
 
 def read(path: Path) -> list[dict[str, str]]:
     if not path.exists():
@@ -332,9 +360,19 @@ def main() -> None:
                 norm_index[n].add(row["canonical_tag"])
 
     fast_family_home: dict[str, str] = {}
+    effective_family: dict[str, dict[str, str]] = {}
     for family, row in resolved_family.items():
-        if row["source_kind"] in {"FIRST_PARTY_REVIEWED", "EXACT_COPYRIGHT_REVIEWED"}:
-            fast_family_home[family] = row["candidate_home"]
+        effective = dict(row)
+        if family in ROOT_POLICY_NORMALIZATION:
+            effective["candidate_home"] = canonical_root(ROOT_POLICY_NORMALIZATION[family])
+            effective["source_kind"] = "POLICY_ROOT_NORMALIZATION"
+            effective["source_file"] = "docs/issue180/AUTHORITY_POLICY_V1.md"
+            effective["evidence_claim"] = "Existing Issue #180 canonical-root product policy"
+        effective_family[family] = effective
+        if family in NON_HOME_EXACT_FAMILIES:
+            continue
+        if effective["source_kind"] in {"FIRST_PARTY_REVIEWED", "EXACT_COPYRIGHT_REVIEWED", "POLICY_ROOT_NORMALIZATION"}:
+            fast_family_home[family] = effective["candidate_home"]
 
     predicted_home = dict(direct_home)
     fast_applied = Counter()
@@ -347,7 +385,7 @@ def main() -> None:
         home = fast_family_home.get(family, "")
         if home:
             predicted_home[tag] = home
-            fast_applied[resolved_family[family]["source_kind"]] += 1
+            fast_applied[effective_family[family]["source_kind"]] += 1
 
     unresolved_tags = [t for t in master1 if t not in predicted_home]
     unresolved_family_counts = Counter()
@@ -363,7 +401,7 @@ def main() -> None:
 
     family_registry: list[dict[str, str]] = []
     for family, count in sorted(unresolved_family_counts.items(), key=lambda kv: (-kv[1], kv[0])):
-        existing = resolved_family.get(family)
+        existing = effective_family.get(family)
         exact = family if family in copyright_by else ""
         normalized = sorted(norm_index.get(norm(family), set())) if family else []
         candidate = ""
@@ -375,7 +413,9 @@ def main() -> None:
             basis = existing["source_kind"]
             source_file = existing["source_file"]
             evidence_url = existing["evidence_url"]
-            if basis == "NORMALIZED_COPYRIGHT_REVIEWED":
+            if family in NON_HOME_EXACT_FAMILIES:
+                lane = "HIGHER_REASONING_NON_HOME_SEMANTICS"
+            elif basis == "NORMALIZED_COPYRIGHT_REVIEWED":
                 lane = "FAST_REVALIDATE_NORMALIZATION"
             else:
                 lane = "ALREADY_FASTPATH_SHOULD_NOT_REMAIN"
@@ -536,10 +576,13 @@ def main() -> None:
             })
 
     provenance_rows: list[dict[str, str]] = []
-    for family in sorted(resolved_family):
-        r = resolved_family[family]
+    for family in sorted(effective_family):
+        r = effective_family[family]
         source_kind = r["source_kind"]
-        state = "PASS_FASTPATH" if source_kind in {"FIRST_PARTY_REVIEWED", "EXACT_COPYRIGHT_REVIEWED"} else "NEEDS_FAST_REVALIDATION"
+        if family in NON_HOME_EXACT_FAMILIES:
+            state = "BLOCKED_NON_HOME_SEMANTICS"
+        else:
+            state = "PASS_FASTPATH" if source_kind in {"FIRST_PARTY_REVIEWED", "EXACT_COPYRIGHT_REVIEWED", "POLICY_ROOT_NORMALIZATION"} else "NEEDS_FAST_REVALIDATION"
         provenance_rows.append({
             "family": family,
             "candidate_home": r["candidate_home"],
@@ -575,6 +618,8 @@ def main() -> None:
         "legacy_first_party_families": sum(r["source_kind"] == "FIRST_PARTY_REVIEWED" for r in resolved_family.values()),
         "legacy_exact_families": sum(r["source_kind"] == "EXACT_COPYRIGHT_REVIEWED" for r in resolved_family.values()),
         "legacy_normalized_families": sum(r["source_kind"] == "NORMALIZED_COPYRIGHT_REVIEWED" for r in resolved_family.values()),
+        "policy_root_normalized_families": len(ROOT_POLICY_NORMALIZATION),
+        "non_home_exact_families_blocked": len(NON_HOME_EXACT_FAMILIES),
         "fastpath_family_rows_applied": sum(fast_applied.values()),
         "fastpath_by_basis": dict(fast_applied),
         "foundation_confirmed_before_autonomous_decisions": len(predicted_home),
