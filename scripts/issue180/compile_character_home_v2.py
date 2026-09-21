@@ -49,6 +49,16 @@ def nested(tag: str, family: str) -> bool:
     return tag.lower().endswith(suffix.lower()) and tag[:-len(suffix)].endswith(")")
 
 
+def write_csv(path: Path, rows: list[dict[str, str]], fields: list[str] | None = None) -> None:
+    fields = fields or (list(rows[0].keys()) if rows else [])
+    if not fields:
+        raise SystemExit(f"cannot write schema-less CSV: {path}")
+    with path.open("w", encoding="utf-8-sig", newline="") as fh:
+        w = csv.DictWriter(fh, fieldnames=fields, lineterminator="\n")
+        w.writeheader()
+        w.writerows(rows)
+
+
 def main() -> None:
     catalog = read(CAT)
     chars = [r for r in catalog if r.get("category_name") == "Character"]
@@ -85,9 +95,12 @@ def main() -> None:
     variant: dict[str, list[dict[str, str]]] = defaultdict(list)
     blocks: set[str] = set()
     not_official: set[str] = set()
-    family_reason = {r["family"]: r.get("work_lane", "FAMILY_AUTHORITY_PENDING") for r in read(FAMILY_WORK)}
-    variant_reason = {r["canonical_tag"]: r.get("work_state", "VARIANT_REVIEW_PENDING") for r in read(VARIANT_WORK)}
-    unqualified_reason = {r["canonical_tag"]: r.get("work_state", "ROSTER_DISCOVERY") for r in read(UNQUALIFIED_WORK)}
+    foundation_family_rows = read(FAMILY_WORK)
+    foundation_variant_rows = read(VARIANT_WORK)
+    foundation_unqualified_rows = read(UNQUALIFIED_WORK)
+    family_reason = {r["family"]: r.get("work_lane", "FAMILY_AUTHORITY_PENDING") for r in foundation_family_rows}
+    variant_reason = {r["canonical_tag"]: r.get("work_state", "VARIANT_REVIEW_PENDING") for r in foundation_variant_rows}
+    unqualified_reason = {r["canonical_tag"]: r.get("work_state", "ROSTER_DISCOVERY") for r in foundation_unqualified_rows}
     deferred_character_reason: dict[str, str] = {}
     deferred_family_reason: dict[str, str] = {}
 
@@ -346,6 +359,61 @@ def main() -> None:
         w.writeheader()
         w.writerows(applied)
 
+    unresolved_set = {r["canonical_tag"] for r in rows_out if r["final_state"] == "HOME_UNRESOLVED"}
+    remaining_family_counts = Counter()
+    for tag in unresolved_set:
+        fam = (census[tag].get("final_qualifier") or "").strip().lower()
+        if fam and fam not in ATTR and not nested(tag, fam):
+            remaining_family_counts[fam] += 1
+
+    remaining_family = []
+    for row in foundation_family_rows:
+        count = remaining_family_counts.get(row["family"], 0)
+        if not count:
+            continue
+        x = dict(row)
+        x["character_rows"] = str(count)
+        remaining_family.append(x)
+    remaining_family.sort(key=lambda r: (-int(r["character_rows"]), r["family"]))
+
+    remaining_variant = []
+    for row in foundation_variant_rows:
+        tag = row["canonical_tag"]
+        if tag not in unresolved_set:
+            continue
+        x = dict(row)
+        base = x.get("base_character", "")
+        base_home = home_by.get(base, "")
+        x["base_home_candidate"] = base_home
+        if base_home:
+            x["work_state"] = "BASE_HOME_READY_OFFICIALITY_REVIEW"
+        elif base and base in char_tags:
+            x["work_state"] = "BASE_EXISTS_HOME_PENDING"
+        else:
+            x["work_state"] = "BASE_NOT_FOUND_OR_NONTRIVIAL"
+        remaining_variant.append(x)
+    remaining_variant.sort(key=lambda r: (-int(r.get("post_count", "0") or 0), r["canonical_tag"]))
+
+    remaining_unqualified = [dict(r) for r in foundation_unqualified_rows if r["canonical_tag"] in unresolved_set]
+    remaining_unqualified.sort(key=lambda r: (-int(r.get("post_count", "0") or 0), r["canonical_tag"]))
+
+    write_csv(O / "REMAINING_FAMILY_WORK_V2.csv", remaining_family, list(foundation_family_rows[0].keys()) if foundation_family_rows else None)
+    write_csv(O / "REMAINING_VARIANT_WORK_V2.csv", remaining_variant, list(foundation_variant_rows[0].keys()) if foundation_variant_rows else None)
+    write_csv(O / "REMAINING_UNQUALIFIED_WORK_V2.csv", remaining_unqualified, list(foundation_unqualified_rows[0].keys()) if foundation_unqualified_rows else None)
+    remaining_summary = {
+        "family_rows": sum(int(r["character_rows"]) for r in remaining_family),
+        "family_families": len(remaining_family),
+        "variant_rows": len(remaining_variant),
+        "variant_base_home_ready": sum(r.get("work_state") == "BASE_HOME_READY_OFFICIALITY_REVIEW" for r in remaining_variant),
+        "unqualified_rows": len(remaining_unqualified),
+        "total_unresolved": len(unresolved_set),
+    }
+    if remaining_summary["family_rows"] + remaining_summary["variant_rows"] + remaining_summary["unqualified_rows"] != len(unresolved_set):
+        raise SystemExit("dynamic remaining-work partition mismatch")
+    (O / "remaining_work_v2_summary.json").write_text(
+        json.dumps(remaining_summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+    )
+
     summary = {
         "character_population": EXPECTED,
         "states": dict(counts),
@@ -357,6 +425,7 @@ def main() -> None:
         "pending_reviewed_variants_without_confirmed_base": len(pending),
         "multi_home_or_policy_conflicts": len(conflicts),
         "family_authority_conflicts": len(family_conflicts),
+        "remaining_work": remaining_summary,
         "accepted_source_modified": False,
         "production_modified": False,
     }
