@@ -25,6 +25,7 @@ if POLICY.get("version")!=2:
 BROAD_PASS_TYPES=set(POLICY["broad_pass_types"])
 BROAD_FAMILIES=set(POLICY["broad_families"])
 NON_HOME_FAMILIES=set(POLICY["non_home_families"])
+ALLOW_AUTONOMOUS_NOT_OFFICIAL=bool(POLICY["allow_autonomous_not_official_pass"])
 
 
 def read(path):
@@ -52,22 +53,29 @@ def read_decisions():
  return rows
 
 
-def is_grounded_evidence(row):
+def evidence_gate(row):
  url=(row.get("evidence_url") or "").strip()
  claim=(row.get("evidence_claim") or "").strip()
+ notes=(row.get("notes") or "").strip()
  if url.startswith(("https://","http://")):
-  return True
+  if len(claim) < 12 or claim.startswith("REPO:"):
+   return False, "external evidence_url requires a descriptive evidence_claim"
+  return True, ""
  if claim.startswith("REPO:"):
   raw=claim[len("REPO:"):].strip().split("#",1)[0].strip()
   if not raw:
-   return False
+   return False, "blank REPO evidence path"
   path=(R/raw).resolve()
   try:
    path.relative_to(R.resolve())
   except ValueError:
-   return False
-  return path.exists()
- return False
+   return False, "REPO evidence escapes repository"
+  if not path.exists():
+   return False, "REPO evidence path does not exist"
+  if len(notes) < 8:
+   return False, "REPO evidence requires notes describing what the file proves"
+  return True, ""
+ return False, "PASS requires http(s) evidence_url or REPO:<existing repository path>"
 
 
 def main():
@@ -126,8 +134,9 @@ def main():
   officiality=(r.get("officiality_state") or "").strip()
   if not authority_type:
    raise SystemExit(f"{where}: PASS missing authority_type")
-  if not is_grounded_evidence(r):
-   raise SystemExit(f"{where}: PASS requires http(s) evidence_url or evidence_claim REPO:<existing repository path>")
+  evidence_ok,evidence_error=evidence_gate(r)
+  if not evidence_ok:
+   raise SystemExit(f"{where}: {evidence_error}")
 
   if scope in {"FAMILY_QUALIFIER","DIRECT_CHARACTER","VARIANT_CHARACTER"}:
    if not home: raise SystemExit(f"{where}: PASS relation missing HOME")
@@ -152,8 +161,11 @@ def main():
    if officiality not in {"OFFICIAL_VARIANT","OFFICIAL_CONFIRMED"}:
     raise SystemExit(f"{where}: variant PASS requires OFFICIAL_VARIANT/OFFICIAL_CONFIRMED")
 
-  if scope=="NOT_OFFICIAL_CHARACTER" and officiality!="NOT_OFFICIAL_CONFIRMED":
-   raise SystemExit(f"{where}: NOT_OFFICIAL PASS requires NOT_OFFICIAL_CONFIRMED")
+  if scope=="NOT_OFFICIAL_CHARACTER":
+   if not ALLOW_AUTONOMOUS_NOT_OFFICIAL:
+    raise SystemExit(f"{where}: autonomous NOT_OFFICIAL_CHARACTER PASS is disabled; use BLOCK/NEEDS_HIGHER_REASONING until second-reviewed handoff")
+   if officiality!="NOT_OFFICIAL_CONFIRMED":
+    raise SystemExit(f"{where}: NOT_OFFICIAL PASS requires NOT_OFFICIAL_CONFIRMED")
 
  print({"rows":sum(files.values()),"files":dict(files),"states":dict(states),"scopes":dict(scopes),"gate":"PASS"})
 
