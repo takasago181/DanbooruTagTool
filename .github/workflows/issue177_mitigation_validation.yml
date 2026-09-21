@@ -30,7 +30,9 @@ jobs:
             'src/DanbooruTagTool.App/Views/DictionaryWorkspaceView.xaml',
             'src/DanbooruTagTool.Tests/Issue70IntegrationTests.cs',
             'src/DanbooruTagTool.Tests/Issue117UnifiedBrowseTests.cs',
-            'src/DanbooruTagTool.Tests/Issue141DiscoveryTests.cs'
+            'src/DanbooruTagTool.Tests/Issue141DiscoveryTests.cs',
+            'src/DanbooruTagTool.Tests/Issue76MainUiIntegrationTests.cs',
+            'src/DanbooruTagTool.Tests/TechnicalFixTests.cs'
           )
           $changed = @(git diff --name-only "$base...HEAD")
           $unexpected = @($changed | Where-Object { $_ -notin $allowed })
