@@ -390,6 +390,15 @@ def main() -> None:
             cr.get("related_copyright", "") or cr.get("RelatedCopyright", "")
             or cr.get("relatedCopyright", "") or cr.get("old_related_copyright", "")
         )
+        primary_raw = (related.split("|")[0].strip() if related else "")
+        primary_root = ""
+        if primary_raw:
+            if primary_raw in copyright_by:
+                primary_root = primary_raw
+            else:
+                hits = copyright_alias_index.get(primary_raw.lower(), set())
+                if len(hits) == 1:
+                    primary_root = next(iter(hits))
         state = "DIRECT_ROSTER_REVIEW" if p1.get("roster_candidate_state") == "UNIQUE_IDENTITY_OVERLAP_CANDIDATE" else "ROSTER_DISCOVERY"
         if tag in PIAPRO_POLICY:
             state = "POLICY_DECISION_REQUIRED_PIAPRO"
@@ -400,11 +409,48 @@ def main() -> None:
             "search_ja": cr.get("search_ja", ""),
             "aliases": cr.get("aliases", ""),
             "support_only_old_relation_hint": related,
+            "discovery_primary_raw": primary_raw,
+            "discovery_primary_root_hint": primary_root,
             "roster_identity_overlap": p1.get("roster_candidate_state", ""),
             "work_state": state,
             "production_approved": "false",
         })
     unqualified_rows.sort(key=lambda r: (-int(r["post_count"]), r["canonical_tag"]))
+
+    unqualified_groups: list[dict[str, str]] = []
+    grouped_unqualified: dict[str, list[dict[str, str]]] = defaultdict(list)
+    for row in unqualified_rows:
+        key = row["discovery_primary_root_hint"] or row["discovery_primary_raw"] or "__NO_DISCOVERY_HINT__"
+        grouped_unqualified[key].append(row)
+    for key, rows in sorted(grouped_unqualified.items(), key=lambda kv: (-len(kv[1]), kv[0])):
+        top = sorted(rows, key=lambda r: (-int(r["post_count"]), r["canonical_tag"]))[:8]
+        unqualified_groups.append({
+            "discovery_group": key,
+            "character_rows": str(len(rows)),
+            "canonical_root_hint": rows[0]["discovery_primary_root_hint"] if key != "__NO_DISCOVERY_HINT__" else "",
+            "support_only": "true",
+            "top_character_samples": "|".join(r["canonical_tag"] for r in top),
+            "top_post_count": top[0]["post_count"] if top else "0",
+            "work_lane": "ROSTER_GROUP_RESEARCH" if key != "__NO_DISCOVERY_HINT__" else "UNQUALIFIED_NO_HINT",
+            "production_approved": "false",
+        })
+
+    variant_groups: list[dict[str, str]] = []
+    grouped_variants: dict[tuple[str, str, str], list[dict[str, str]]] = defaultdict(list)
+    for row in variant_rows:
+        group_key = (row["base_home_candidate"] or "__BASE_HOME_PENDING__", row["final_qualifier"], row["work_state"])
+        grouped_variants[group_key].append(row)
+    for (base_home, qualifier, state), rows in sorted(grouped_variants.items(), key=lambda kv: (-len(kv[1]), kv[0])):
+        top = sorted(rows, key=lambda r: (-int(r["post_count"]), r["canonical_tag"]))[:8]
+        variant_groups.append({
+            "base_home_group": "" if base_home == "__BASE_HOME_PENDING__" else base_home,
+            "final_qualifier": qualifier,
+            "work_state": state,
+            "character_rows": str(len(rows)),
+            "top_character_samples": "|".join(r["canonical_tag"] for r in top),
+            "work_lane": "VARIANT_PATTERN_REVIEW",
+            "production_approved": "false",
+        })
 
     higher: list[dict[str, str]] = []
     for row in family_registry:
@@ -447,6 +493,8 @@ def main() -> None:
     write_csv(O / "FAMILY_WORK_QUEUE_V2.csv", family_registry)
     write_csv(O / "VARIANT_WORK_QUEUE_V2.csv", variant_rows)
     write_csv(O / "UNQUALIFIED_WORK_QUEUE_V2.csv", unqualified_rows)
+    write_csv(O / "UNQUALIFIED_DISCOVERY_GROUPS_V2.csv", unqualified_groups)
+    write_csv(O / "VARIANT_PATTERN_GROUPS_V2.csv", variant_groups)
     write_csv(
         O / "NEEDS_HIGHER_REASONING_REVIEW_V2.csv", higher,
         ["scope", "key", "candidate_home", "reason", "character_rows"],
@@ -475,6 +523,9 @@ def main() -> None:
         "variant_work_states": dict(variant_state_counts),
         "unqualified_work_rows": len(unqualified_rows),
         "unqualified_work_states": dict(unqualified_state_counts),
+        "unqualified_discovery_groups": len(unqualified_groups),
+        "unqualified_rows_with_discovery_hint": sum(r["discovery_primary_raw"] != "" for r in unqualified_rows),
+        "variant_pattern_groups": len(variant_groups),
         "higher_reasoning_queue_rows": len(higher),
         "multi_home_conflicts": 0,
         "missing_copyright_roots": 0,
