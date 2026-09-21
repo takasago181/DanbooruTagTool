@@ -141,37 +141,63 @@
       }
     }
 
-    const input = root.querySelector("input:not([type='hidden'])");
+    const input = root.querySelector("input[role='combobox'], input:not([type='hidden'])");
     if (input instanceof HTMLInputElement) {
-      if (normalized(input.value) === wanted) return true;
       input.focus();
       input.click();
       await nextFrame();
-      await sleep(60);
+      // Gradio 4.40 DropdownOptions uses a short fly transition and commits
+      // selection from the listbox's mousedown handler.
+      await sleep(220);
 
-      const visibleOptions = () => [...document.querySelectorAll("[role='option']")]
-        .filter(option => option instanceof HTMLElement && option.offsetParent !== null);
-      let exact = visibleOptions().find(option => normalized(option.textContent) === wanted);
+      const listboxId = input.getAttribute("aria-controls");
+      const getOptions = () => {
+        const listbox = listboxId ? document.getElementById(listboxId) : null;
+        return listbox instanceof HTMLElement
+          ? [...listbox.querySelectorAll("[role='option']")]
+          : [];
+      };
 
-      if (!(exact instanceof HTMLElement)) {
-        // Gradio Dropdown text entry is only a search/filter step. Dispatching
-        // a change event here can rebuild Forge's control before the real
-        // option is selected, destroying the bridge context and losing ACK.
-        const setter = nativeValueSetter(input);
-        if (typeof setter !== "function") fail("value_setter_missing");
-        setter.call(input, String(value));
-        if (typeof updateInput === "function") updateInput(input);
-        else input.dispatchEvent(new Event("input", { bubbles: true }));
-        await sleep(60);
-        exact = visibleOptions().find(option => normalized(option.textContent) === wanted);
-        if (!(exact instanceof HTMLElement) && normalized(input.value) === wanted)
-          return true;
+      let options = getOptions();
+      let exact = options.find(option =>
+        normalized(option.getAttribute("aria-label") ?? option.textContent) === wanted);
+
+      // Large Dropdowns render choices in batches. Ask Gradio to expose the
+      // full list before deciding that a legitimate choice is missing.
+      if (!(exact instanceof HTMLElement) && options.length > 0) {
+        input.dispatchEvent(new KeyboardEvent("keydown", {
+          key: "End",
+          code: "End",
+          bubbles: true,
+          cancelable: true
+        }));
+        await nextFrame();
+        await sleep(80);
+        options = getOptions();
+        exact = options.find(option =>
+          normalized(option.getAttribute("aria-label") ?? option.textContent) === wanted);
       }
 
       if (exact instanceof HTMLElement) {
-        exact.click();
+        // Do not trust the textbox display as current state: older bridge
+        // versions could make it say Karras while Gradio still held Automatic.
+        // aria-selected reflects Gradio's actual selected_index.
+        if (exact.getAttribute("aria-selected") === "true") return true;
+
+        exact.dispatchEvent(new MouseEvent("mousedown", {
+          bubbles: true,
+          cancelable: true,
+          view: window,
+          button: 0
+        }));
         await nextFrame();
-        return true;
+        await nextFrame();
+        await sleep(40);
+
+        // We never write the Dropdown textbox ourselves on this path. If it
+        // now shows the requested label, that value came from Gradio's real
+        // option-selection handler.
+        if (normalized(input.value) === wanted) return true;
       }
     }
 
