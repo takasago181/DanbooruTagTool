@@ -286,6 +286,20 @@ jobs:
           assert s['multi_home_conflicts']==0 and not s['production_modified']
           print(json.dumps(s,ensure_ascii=False,indent=2))
           PY
+      - name: Build full-population Character HOME master
+        run: python scripts/issue180/build_character_home_master_v1.py
+      - name: Validate full-population Character HOME master
+        run: |
+          python - <<'PY'
+          import json
+          s=json.load(open('artifacts/issue180-full-preflight/POST_NORMALIZED_REVIEW/MASTER_HOME/character_home_master_v1_summary.json',encoding='utf-8'))
+          assert s['character_population']==35890
+          assert sum(s['states'].values())==35890
+          assert s['states']['HOME_CONFIRMED']==s['unique_authority_characters']
+          assert s['multi_home_conflicts']==0 and s['silent_approval']==0
+          assert not s['accepted_source_modified'] and not s['production_modified']
+          print(json.dumps(s,ensure_ascii=False,indent=2))
+          PY
       - uses: actions/upload-artifact@v4
         with:
           name: issue180-single-home-pilot
