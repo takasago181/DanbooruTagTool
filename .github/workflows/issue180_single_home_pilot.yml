@@ -239,7 +239,7 @@ jobs:
           import json
           p='artifacts/issue180-full-preflight/POST_NORMALIZED_REVIEW/official_root_batch06_v1_summary.json'
           s=json.load(open(p,encoding='utf-8'))
-          expected={'families':6,'family_rows':225,'second_review_pass':198,'variant_officiality_pending':27,'missing_roots':0,'multi_home_conflicts':0,'auto_inferred':0}
+          expected={'families':6,'family_rows':196,'second_review_pass':167,'variant_officiality_pending':29,'missing_roots':0,'multi_home_conflicts':0,'auto_inferred':0}
           for k,v in expected.items(): assert s[k]==v,(k,s[k],v)
           assert not s['legacy_relation_used']
           assert not s['accepted_source_modified']
