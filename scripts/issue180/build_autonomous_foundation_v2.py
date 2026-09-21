@@ -227,12 +227,16 @@ def main() -> None:
     direct_home: dict[str, str] = {}
 
     origin_guarded_v1_rows = 0
+    origin_not_official_v1_rows_removed = 0
     broad_v1_rows_requeued = 0
     broad_v1_groups: dict[str, dict[str, object]] = {}
     for tag, row in ledger1.items():
         family = (census[tag].get("final_qualifier") or "").strip().lower()
         if tag in origin_guarded:
             origin_guarded_v1_rows += 1
+            continue
+        if tag in origin_not_official:
+            origin_not_official_v1_rows_removed += 1
             continue
         if family in BROAD:
             broad_v1_rows_requeued += 1
@@ -289,7 +293,7 @@ def main() -> None:
 
     weak_current_master_rows: list[dict[str, str]] = []
     for tag, row in master1.items():
-        if row.get("final_state") != "HOME_CONFIRMED" or tag in ledger1:
+        if row.get("final_state") != "HOME_CONFIRMED" or tag in ledger1 or tag in origin_not_official:
             continue
         source_home = row.get("home_copyright", "")
         if not source_home:
@@ -419,7 +423,7 @@ def main() -> None:
     predicted_home = dict(direct_home)
     fast_applied = Counter()
     for tag, row in master1.items():
-        if tag in predicted_home:
+        if tag in predicted_home or tag in origin_not_official:
             continue
         family = (census[tag].get("final_qualifier") or "").strip().lower()
         if tag in origin_guarded:
@@ -431,7 +435,8 @@ def main() -> None:
             predicted_home[tag] = home
             fast_applied[effective_family[family]["source_kind"]] += 1
 
-    unresolved_tags = [t for t in master1 if t not in predicted_home]
+    not_official_seed_tags = set(origin_not_official)
+    unresolved_tags = [t for t in master1 if t not in predicted_home and t not in not_official_seed_tags]
     unresolved_family_counts = Counter()
     unresolved_nested_counts = Counter()
     officiality_rows: list[dict[str, str]] = []
@@ -727,7 +732,9 @@ def main() -> None:
         "origin_handoff_rows": len(origin_rows),
         "origin_guarded_character_rows": len(origin_guarded),
         "origin_not_official_character_rows": len(origin_not_official),
+        "origin_not_official_seed_rows": len(not_official_seed_tags),
         "origin_guarded_v1_rows_removed": origin_guarded_v1_rows,
+        "origin_not_official_v1_rows_removed": origin_not_official_v1_rows_removed,
         "legacy_broad_v1_rows_requeued": broad_v1_rows_requeued,
         "legacy_broad_v1_families_requeued": len(legacy_broad_review_rows),
         "weak_current_master_rows_requeued": len(weak_current_master_rows),
@@ -741,7 +748,7 @@ def main() -> None:
         "fastpath_family_rows_applied": sum(fast_applied.values()),
         "fastpath_by_basis": dict(fast_applied),
         "foundation_confirmed_before_autonomous_decisions": len(predicted_home),
-        "foundation_unresolved_before_autonomous_decisions": EXPECTED - len(predicted_home),
+        "foundation_unresolved_before_autonomous_decisions": EXPECTED - len(predicted_home) - len(not_official_seed_tags),
         "officiality_work_rows": len(officiality_rows),
         "family_work_rows": sum(int(r["character_rows"]) for r in family_registry),
         "family_work_families": len(family_registry),
@@ -761,7 +768,7 @@ def main() -> None:
         "accepted_source_modified": False,
         "production_modified": False,
     }
-    if summary["foundation_confirmed_before_autonomous_decisions"] + summary["officiality_work_rows"] + summary["family_work_rows"] + summary["variant_work_rows"] + summary["unqualified_work_rows"] != EXPECTED:
+    if summary["foundation_confirmed_before_autonomous_decisions"] + summary["origin_not_official_seed_rows"] + summary["officiality_work_rows"] + summary["family_work_rows"] + summary["variant_work_rows"] + summary["unqualified_work_rows"] != EXPECTED:
         raise SystemExit("foundation partition accounting failure")
     # Catastrophic-regression floor only. Semantic safety is enforced by
     # authority/provenance/broad/non-home gates; deliberate safety requeues
