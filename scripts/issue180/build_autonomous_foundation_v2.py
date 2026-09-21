@@ -76,7 +76,7 @@ def norm(value: str) -> str:
 
 
 def is_attribute_family(family: str) -> bool:
-    return is_attribute_family(family) or bool(ORDINAL_COSTUME.match(family or ""))
+    return family in ATTR or bool(ORDINAL_COSTUME.match(family or ""))
 
 
 def nested_final_qualifier(tag: str, family: str) -> bool:
@@ -89,7 +89,7 @@ def nested_final_qualifier(tag: str, family: str) -> bool:
 
 
 def split_final_qualifier(tag: str) -> tuple[str, str]:
-    m = re.search(r"_\\(([^()]*)\\)$", tag)
+    m = re.search(r"_\(([^()]*)\)$", tag)
     return (tag[:m.start()], m.group(1)) if m else ("", "")
 
 
