@@ -50,6 +50,7 @@ NON_HOME_EXACT_FAMILIES = set(POLICY["non_home_families"])
 ROOT_POLICY_NORMALIZATION = dict(POLICY["root_policy_normalization"])
 ROOT_POLICY_REVIEW_HINT_PREFIXES = [tuple(x) for x in POLICY["root_policy_review_hint_prefixes"]]
 ROOT_POLICY_REVIEW_HINT_EXACT = dict(POLICY["root_policy_review_hint_exact"])
+OFFICIAL_ORIGIN_CLASSES = set(POLICY["official_origin_classes"])
 
 
 def root_policy_review_hint(family: str) -> str:
@@ -207,10 +208,9 @@ def main() -> None:
         for r in origin_rows
         if r.get("canonical_tag") in char_by
     }
-    official_origin_classes = {"OFFICIAL_IDENTITY", "OFFICIAL_ALIAS", "OFFICIAL_VARIANT"}
     origin_guarded = {
         tag: cls for tag, cls in origin_by.items()
-        if cls not in official_origin_classes
+        if cls not in OFFICIAL_ORIGIN_CLASSES
     }
 
     ledger1_rows = read(LEDGER1)
@@ -367,7 +367,7 @@ def main() -> None:
                 effective["source_file"] = "Issue #180 previously reviewed canonical franchise-root mappings"
                 effective["evidence_claim"] = "Candidate-only canonical-root review hint; not authority until autonomous review"
         effective_family[family] = effective
-        if family in NON_HOME_EXACT_FAMILIES:
+        if family in NON_HOME_EXACT_FAMILIES or family in BROAD:
             continue
         if effective["source_kind"] in {"FIRST_PARTY_REVIEWED", "EXACT_COPYRIGHT_REVIEWED", "POLICY_ROOT_NORMALIZATION"}:
             fast_family_home[family] = effective["candidate_home"]
@@ -415,6 +415,8 @@ def main() -> None:
             evidence_url = existing["evidence_url"]
             if family in NON_HOME_EXACT_FAMILIES:
                 lane = "HIGHER_REASONING_NON_HOME_SEMANTICS"
+            elif family in BROAD:
+                lane = "HIGHER_REASONING_BROAD"
             elif basis == "NORMALIZED_COPYRIGHT_REVIEWED":
                 lane = "FAST_REVALIDATE_NORMALIZATION"
             elif basis == "ROOT_POLICY_REVIEW_HINT":
