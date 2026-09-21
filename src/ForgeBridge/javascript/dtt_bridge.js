@@ -147,6 +147,8 @@
         else input.dispatchEvent(new Event("input", { bubbles: true }));
         await sleep(60);
         exact = visibleOptions().find(option => normalized(option.textContent) === wanted);
+        if (!(exact instanceof HTMLElement) && normalized(input.value) === wanted)
+          return true;
       }
 
       if (exact instanceof HTMLElement) {
