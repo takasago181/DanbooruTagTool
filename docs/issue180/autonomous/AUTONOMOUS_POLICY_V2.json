@@ -43,7 +43,9 @@
     "vocaloid"
   ],
   "non_home_families": [
-    "project_voltage"
+    "project_voltage",
+    "original",
+    "pixiv_fantasia"
   ],
   "broad_pass_types": [
     "ROOT_POLICY_REVIEWED",
