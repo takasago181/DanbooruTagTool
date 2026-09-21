@@ -30,9 +30,9 @@ public sealed class ForgeViewModel : Observable
         GenerateInForge = new(_ => GenerateAsync(null, CancellationToken.None), _ => canMutate());
         SendPresetToForge = new(p => SendAsync(p as GenerationPreset, CancellationToken.None), p => canMutate() && p is GenerationPreset);
         ApplyPresetRecipeToForge = new(p => ApplyRecipeAsync(p as GenerationPreset, CancellationToken.None),
-            p => canMutate() && p is GenerationPreset preset && preset.HasRecipe);
+            p => canMutate() && p is GenerationPreset preset && preset.HasAutomaticRecipe);
         GeneratePresetRecipe = new(p => GenerateRecipeAsync(p as GenerationPreset, CancellationToken.None),
-            p => canMutate() && p is GenerationPreset preset && preset.HasRecipe);
+            p => canMutate() && p is GenerationPreset preset && preset.HasAutomaticRecipe);
     }
     public void Restore(UiState ui) { forgeUrl = ui.ForgeUrl; forgeExtensionPath = ui.ForgeExtensionPath; }
     public Task SendAsync(GenerationPreset? preset, CancellationToken cancellationToken)
