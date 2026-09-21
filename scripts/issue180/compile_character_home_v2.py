@@ -49,7 +49,27 @@ def nested(tag: str, family: str) -> bool:
 def main() -> None:
     catalog = read(CAT)
     chars = [r for r in catalog if r.get("category_name") == "Character"]
-    copyrights = {r["canonical_tag"] for r in catalog if r.get("category_name") == "Copyright"}
+    copyright_rows = [r for r in catalog if r.get("category_name") == "Copyright"]
+    copyrights = {r["canonical_tag"] for r in copyright_rows}
+    copyright_alias_index: dict[str, set[str]] = defaultdict(set)
+    for row in copyright_rows:
+        copyright_alias_index[row["canonical_tag"].lower()].add(row["canonical_tag"])
+        for alias in (row.get("aliases", "") or "").split("|"):
+            alias = alias.strip().lower()
+            if alias:
+                copyright_alias_index[alias].add(row["canonical_tag"])
+
+    def canonical_root(value: str) -> str:
+        value = (value or "").strip()
+        if value in copyrights:
+            return value
+        hits = copyright_alias_index.get(value.lower(), set())
+        if len(hits) == 1:
+            return next(iter(hits))
+        if not hits:
+            raise SystemExit(f"authority HOME absent from Copyright catalog and aliases: {value}")
+        raise SystemExit(f"ambiguous authority HOME alias: {value} -> {sorted(hits)}")
+
     if len(chars) != EXPECTED:
         raise SystemExit("Character population drift")
     char_tags = {r["canonical_tag"] for r in chars}
@@ -66,8 +86,7 @@ def main() -> None:
     def add_record(store: dict[str, list[dict[str, str]]], key: str, home: str, rec: dict[str, str]) -> None:
         if not key or not home:
             raise SystemExit("authority row missing key/home")
-        if home not in copyrights:
-            raise SystemExit(f"authority HOME absent from Copyright catalog: {key} -> {home}")
+        home = canonical_root(home)
         store[key].append({**rec, "home_copyright": home})
 
     for row in read(BASE_DIRECT):
