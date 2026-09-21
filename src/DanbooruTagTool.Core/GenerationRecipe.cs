@@ -17,9 +17,9 @@ public sealed record GenerationRecipe(
         !string.IsNullOrWhiteSpace(Sampler) || !string.IsNullOrWhiteSpace(Scheduler) ||
         Cfg.HasValue || Width.HasValue || Height.HasValue;
 
-    public bool HasAutomaticSettings =>
-        Seed.HasValue || Steps.HasValue ||
-        Cfg.HasValue || Width.HasValue || Height.HasValue;
+    // Generation recipes are reference/persistence metadata only.
+    // Forge values are set manually by the user.
+    public bool HasAutomaticSettings => false;
 
     public string Summary
     {
