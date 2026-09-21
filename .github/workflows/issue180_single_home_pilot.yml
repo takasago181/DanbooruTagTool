@@ -212,6 +212,25 @@ jobs:
           assert not s['production_modified']
           print(json.dumps(s,ensure_ascii=False,indent=2))
           PY
+      - name: Apply direct official Character roster batch 05
+        run: python scripts/issue180/apply_direct_official_character_roster_batch05_v1.py
+      - name: Validate direct official Character roster batch 05
+        run: |
+          python - <<'PY'
+          import json
+          p='artifacts/issue180-full-preflight/POST_NORMALIZED_REVIEW/direct_official_character_roster_batch05_v1_summary.json'
+          s=json.load(open(p,encoding='utf-8'))
+          assert s['direct_official_character_rows']==36
+          assert s['source_counts']=={'UNQUALIFIED':13,'IP_REMAINING':23}
+          assert s['missing_roots']==0
+          assert s['multi_home_conflicts']==0
+          assert s['auto_inferred']==0
+          assert not s['variant_inheritance_used']
+          assert not s['legacy_relation_used']
+          assert not s['accepted_source_modified']
+          assert not s['production_modified']
+          print(json.dumps(s,ensure_ascii=False,indent=2))
+          PY
       - name: Build mega-batch authority ledger
         run: python scripts/issue180/build_megabatch_authority_ledger_v1.py
       - name: Build major roster authority expansion
