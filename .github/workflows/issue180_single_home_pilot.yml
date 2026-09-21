@@ -312,6 +312,35 @@ jobs:
           assert s['auto_approved']==0 and not s['production_modified']
           print(json.dumps(s,ensure_ascii=False,indent=2))
           PY
+      - name: Build autonomous completion foundation v2
+        run: python scripts/issue180/build_autonomous_foundation_v2.py
+      - name: Validate autonomous foundation v2
+        run: |
+          python - <<'PY'
+          import json
+          p='artifacts/issue180-full-preflight/POST_NORMALIZED_REVIEW/MASTER_HOME_V2/autonomous_foundation_v2_summary.json'
+          s=json.load(open(p,encoding='utf-8'))
+          assert s['character_population']==35890
+          assert s['v1_confirmed_preserved']==940
+          assert s['legacy_family_mappings']==1456
+          assert s['legacy_first_party_families']==41
+          assert s['legacy_exact_families']==1231
+          assert s['legacy_normalized_families']==184
+          assert s['foundation_confirmed_before_autonomous_decisions']>=9000
+          assert s['foundation_confirmed_before_autonomous_decisions']+s['foundation_unresolved_before_autonomous_decisions']==35890
+          assert s['family_work_rows']+s['variant_work_rows']+s['unqualified_work_rows']==s['foundation_unresolved_before_autonomous_decisions']
+          assert s['multi_home_conflicts']==0 and s['missing_copyright_roots']==0
+          assert not s['accepted_source_modified'] and not s['production_modified']
+          print(json.dumps(s,ensure_ascii=False,indent=2))
+          PY
+      - name: Compile deterministic Character HOME master v2
+        run: python scripts/issue180/compile_character_home_v2.py
+      - name: Validate autonomous completion v2 invariants
+        run: python scripts/issue180/validate_autonomous_completion_v2.py
+      - name: Build all Character user review v2
+        run: python scripts/issue180/build_user_review_v2.py
+      - name: Verify accepted source was not mutated by v2 scripts
+        run: git diff --exit-code -- docs/issue70/data/runtime/issue70_catalog_overlay.csv
       - uses: actions/upload-artifact@v4
         with:
           name: issue180-single-home-pilot
