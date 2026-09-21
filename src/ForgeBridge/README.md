@@ -20,19 +20,20 @@ A `send_and_generate` request uses those same UI fields, waits for the UI to
 observe the Prompt changes, then clicks Forge's existing txt2img Generate
 button.
 
-Generation-recipe requests may additionally carry any subset of Model, Seed,
-Steps, Sampler, Scheduler, CFG, Width and Height. Omitted fields are left
-unchanged. Model names are resolved by Forge's own checkpoint resolver; the
-remaining fields are applied to the current txt2img controls. The
-`apply_recipe` action applies the saved Prompt, Negative and recipe settings
-without starting Generate. A recipe-backed `send_and_generate` applies those
-same values and then triggers Generate once.
+DTT recipes may still store Model for reference and PNG round-trip, but Model
+is intentionally manual-only and is not sent as an automatic Forge setting.
+Select the checkpoint in Forge before applying or generating a recipe.
+Generation-recipe requests may automatically carry any subset of Seed, Steps,
+Sampler, Scheduler, CFG, Width and Height. Omitted fields are left unchanged.
+The `apply_recipe` action applies the saved Prompt, Negative and those
+automatic recipe settings without starting Generate. A recipe-backed
+`send_and_generate` applies those same values and then triggers Generate once.
 
 Recipe support is capability-gated as `recipe_settings`, so older bridge
 installs continue to support Prompt-only send and the previous Generate path
 instead of silently misapplying recipe data.
 
 Generate and recipe actions are acknowledged back to the desktop client so a
-missing control, unknown model or Generate failure is reported instead of
-silently claiming success. The bridge still never calls
+missing control or Generate failure is reported instead of silently claiming
+success. The bridge still never calls
 `/sdapi/v1/txt2img` directly.
