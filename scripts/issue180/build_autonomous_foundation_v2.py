@@ -43,6 +43,7 @@ if POLICY.get("version") != 2:
     raise SystemExit("unsupported autonomous policy version")
 
 ATTR = set(POLICY["attribute_families"])
+VARIANT_QUALIFIER_FAMILIES = set(POLICY["variant_qualifier_families"])
 ORDINAL_COSTUME = re.compile(POLICY["ordinal_costume_regex"])
 BROAD = set(POLICY["broad_families"])
 PIAPRO_POLICY = set(POLICY["piapro_policy_characters"])
@@ -85,7 +86,7 @@ def norm(value: str) -> str:
 
 
 def is_attribute_family(family: str) -> bool:
-    return family in ATTR or bool(ORDINAL_COSTUME.match(family or ""))
+    return family in ATTR or family in VARIANT_QUALIFIER_FAMILIES or bool(ORDINAL_COSTUME.match(family or ""))
 
 
 def nested_final_qualifier(tag: str, family: str) -> bool:
