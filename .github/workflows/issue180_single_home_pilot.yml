@@ -68,6 +68,12 @@ jobs:
         run: python scripts/issue180/shard_p3_semantic_research.py
       - name: Shard unqualified controls
         run: python scripts/issue180/shard_unqualified_controls.py
+      - name: Double-shard P1 authority review
+        run: python scripts/issue180/shard_p1_authority_review_x2.py
+      - name: Double-shard P3 semantic research
+        run: python scripts/issue180/shard_p3_semantic_research_x2.py
+      - name: Double-shard unqualified controls
+        run: python scripts/issue180/shard_unqualified_controls_x2.py
       - uses: actions/upload-artifact@v4
         with:
           name: issue180-single-home-pilot
