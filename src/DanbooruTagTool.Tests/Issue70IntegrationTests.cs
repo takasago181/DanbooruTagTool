@@ -26,43 +26,56 @@ public class Issue70IntegrationTests
     }
 
     [Fact]
-    public void CharacterCopyrightArtistSearchBrowseAndRelationsStaySeparateFromGeneralSpecial()
+    public void CharacterAndCopyrightRemainBrowseableWhileArtistAndCooccurrenceRelationsAreHidden()
     {
         var character = new CatalogEntry("C:hatsune_miku", "hatsune_miku", "hatsune_miku", "初音ミク", false, 145166, ["miku"], ["ミク"], [])
         { TagCategory = "Character", RelatedCopyright = ["vocaloid"] };
         var copyright = new CatalogEntry("R:vocaloid", "vocaloid", "vocaloid", "VOCALOID", false, 200000, [], ["ボーカロイド"], []) { TagCategory = "Copyright" };
-        var artist = new CatalogEntry("A:nagano_mamoru", "nagano_mamoru", "nagano_mamoru", "永野護", false, 1000, [], [], []) { TagCategory = "Artist" };
+        var artist = new CatalogEntry("A:nagano_mamoru", "nagano_mamoru", "nagano_mamoru", "永野護", false, 1000, [], ["artist"], []) { TagCategory = "Artist" };
         var general = Fixtures.Entry("blue_hair", "青い髪", 100);
         var special = Fixtures.Entry("anal", "アナル", 100, special: true);
         var catalog = new Catalog([general, special, character, copyright, artist]);
         var vm = new MainViewModel(catalog, new MemoryStore(), new MemoryClipboard(), GeneralBrowseProvider.FromCatalog(catalog));
 
-        Assert.Equal("General", general.EffectiveCategory);
-        Assert.Equal("Special", special.EffectiveCategory);
         var identity = Assert.Single(vm.Navigation, n => n.Key == "identity-group" && n.Label == "キャラクター・作品");
         Assert.Contains(identity.Children, n => n.Key == "character" && n.Label == "キャラクターから探す");
         Assert.Contains(identity.Children, n => n.Key == "copyright" && n.Label == "作品から探す");
-        Assert.Contains(vm.Navigation, n => n.Key == "artist" && n.Label == "作者");
+        Assert.DoesNotContain(vm.Navigation, n => n.Key == "artist");
 
         vm.NavigateTo("character");
-        Assert.Single(vm.Results);
-        Assert.Equal("hatsune_miku", vm.Results[0].Entry.Canonical);
-        vm.SelectedEntry = vm.Results[0];
-        Assert.Contains(vm.Related, r => r.Entry.Canonical == "vocaloid");
+        var characterRow = Assert.Single(vm.Results);
+        Assert.Equal("hatsune_miku", characterRow.Entry.Canonical);
+        Assert.Equal("", characterRow.RelationSummary);
+        Assert.False(characterRow.HasRelated);
+        vm.SelectedEntry = characterRow;
+        Assert.Empty(vm.Related);
 
-        vm.Query = "ミク"; vm.RefreshResults();
-        Assert.Contains(vm.Results, r => r.Entry.Canonical == "hatsune_miku");
-        vm.Query = "miku"; vm.RefreshResults();
+        vm.Query = "ミク";
+        vm.RefreshResults();
         Assert.Contains(vm.Results, r => r.Entry.Canonical == "hatsune_miku");
 
         vm.NavigateTo("copyright");
-        Assert.Equal("miku", vm.Query);
         vm.ClearQuery.Execute(null);
-        vm.SelectedEntry = vm.Results.Single(r => r.Entry.Canonical == "vocaloid");
-        Assert.Contains(vm.Related, r => r.Entry.Canonical == "hatsune_miku");
+        var copyrightRow = Assert.Single(vm.Results);
+        Assert.Equal("vocaloid", copyrightRow.Entry.Canonical);
+        Assert.Equal("", copyrightRow.RelationSummary);
+        Assert.False(copyrightRow.HasRelated);
+        vm.SelectedEntry = copyrightRow;
+        Assert.Empty(vm.Related);
+
+        vm.NavigateTo("tags");
+        vm.Query = "artist";
+        vm.RefreshResults();
+        Assert.DoesNotContain(vm.Results, r => r.Entry.EffectiveCategory == "Artist");
 
         vm.NavigateTo("artist");
-        Assert.Contains(vm.Results, r => r.Entry.Canonical == "nagano_mamoru" && r.Entry.Japanese == "永野護");
+        Assert.Equal(UnifiedBrowseScope.Tags, vm.Dictionary.Scope);
+        Assert.DoesNotContain(vm.Results, r => r.Entry.EffectiveCategory == "Artist");
+
+        // Data stays intact so a later high-quality Artist/relation implementation
+        // can reuse it without rebuilding Issue #70 from scratch.
+        Assert.Equal("Artist", artist.EffectiveCategory);
+        Assert.Equal(["vocaloid"], character.RelatedCopyright);
     }
 
     [Fact]
