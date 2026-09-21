@@ -29,6 +29,7 @@ def main():
     non_home_families = set(policy["non_home_families"])
     broad_pass_types = set(policy["broad_pass_types"])
     allow_not_official = bool(policy["allow_autonomous_not_official_pass"])
+    allow_broad_family = bool(policy["allow_autonomous_broad_family_pass"])
     rows = read(MASTER)
     applied = read(APPLIED)
     if len(rows) != EXPECTED:
@@ -103,8 +104,9 @@ def main():
         if authority.get("authority_scope") == "FAMILY_QUALIFIER":
             if family in non_home_families:
                 non_home_family_violations.append((tag, family, authority.get("authority_type")))
-            if family in broad_families and authority.get("authority_type") not in broad_pass_types:
-                broad_family_violations.append((tag, family, authority.get("authority_type")))
+            if family in broad_families:
+                if not allow_broad_family or authority.get("authority_type") not in broad_pass_types:
+                    broad_family_violations.append((tag, family, authority.get("authority_type")))
     if officiality_violations:
         raise SystemExit("Issue179 officiality guard regression: " + repr(officiality_violations[:10]))
     if non_home_family_violations:
