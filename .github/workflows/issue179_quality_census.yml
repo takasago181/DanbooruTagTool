@@ -1,0 +1,56 @@
+name: Issue179 Character Copyright Quality Census
+
+on:
+  pull_request:
+    branches: [ main ]
+    paths:
+      - "scripts/issue179/**"
+      - "docs/issue179/**"
+      - ".github/workflows/issue179_quality_census.yml"
+      - "docs/issue70/data/runtime/issue70_catalog_overlay.csv"
+      - "docs/issue70/data/runtime/issue70_catalog_overlay_2d_final.csv"
+      - "docs/issue70/scope/full_scope_ledger.csv"
+      - "docs/issue70/finalization/FINAL_SEMANTIC_FIXES.csv"
+
+permissions:
+  contents: read
+
+jobs:
+  census:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build read-only quality census
+        run: python scripts/issue179/build_quality_census.py
+
+      - name: Validate artifact contract
+        run: |
+          python - <<'PY'
+          import csv, json
+          from pathlib import Path
+          root = Path("artifacts/issue179-quality-census")
+          summary = json.loads((root / "summary.json").read_text(encoding="utf-8"))
+          assert summary["population"]["total"] == 44426
+          assert summary["population"]["by_category"] == {"Character": 35890, "Copyright": 8536}
+          assert summary["population"]["current_runtime"] == {"Character": 35278, "Copyright": 7616}
+          assert summary["artist_audit_rows"] == 0
+          assert summary["pilot_rows"] == 500
+          assert summary["clean_control_rows"] == 100
+          assert summary["production_modified"] is False
+          with (root / "quality_census.csv").open(encoding="utf-8-sig", newline="") as f:
+              assert sum(1 for _ in csv.DictReader(f)) == 44426
+          with (root / "pilot_manifest.csv").open(encoding="utf-8-sig", newline="") as f:
+              assert sum(1 for _ in csv.DictReader(f)) == 500
+          print("Issue179 census contract PASS")
+          PY
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: issue179-quality-census
+          path: artifacts/issue179-quality-census/
+          if-no-files-found: error
