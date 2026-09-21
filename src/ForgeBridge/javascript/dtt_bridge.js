@@ -81,14 +81,27 @@
     throw error;
   }
 
+  function normalized(value) {
+    return String(value ?? "").trim().toLowerCase();
+  }
+
+  function scalarEquivalent(current, requested) {
+    const currentText = String(current ?? "").trim();
+    const requestedText = String(requested ?? "").trim();
+    const currentNumber = Number(currentText);
+    const requestedNumber = Number(requestedText);
+    if (currentText !== "" && requestedText !== "" &&
+        Number.isFinite(currentNumber) && Number.isFinite(requestedNumber))
+      return currentNumber === requestedNumber;
+    return normalized(currentText) === normalized(requestedText);
+  }
+
   function setScalar(selector, value, errorCode) {
     const input = inputInside(selector);
     if (!(input instanceof HTMLInputElement || input instanceof HTMLTextAreaElement)) fail(errorCode);
+    if (scalarEquivalent(input.value, value)) return false;
     setValue(input, value);
-  }
-
-  function normalized(value) {
-    return String(value ?? "").trim().toLowerCase();
+    return true;
   }
 
   async function setChoice(selector, value, errorCode, bestEffort = false) {
@@ -104,6 +117,7 @@
       const label = radio.closest("label") ?? root.querySelector(`label[for="${radio.id}"]`);
       const text = normalized(label?.textContent ?? radio.value);
       if (normalized(radio.value) === wanted || text === wanted) {
+        if (radio.checked) return true;
         radio.click();
         await nextFrame();
         return true;
@@ -112,6 +126,7 @@
 
     const input = root.querySelector("input:not([type='hidden'])");
     if (input instanceof HTMLInputElement) {
+      if (normalized(input.value) === wanted) return true;
       input.focus();
       input.click();
       setValue(input, value);
