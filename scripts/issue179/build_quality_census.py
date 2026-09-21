@@ -262,6 +262,27 @@ def main() -> int:
             add("DISPLAY_MULTI_QUALIFIER", 2)
         if mixed_ascii_qualifier(display):
             add("DISPLAY_MIXED_ASCII_QUALIFIER", 5)
+
+        display_groups = [
+            next((g for g in m.groups() if g is not None), "")
+            for m in PAREN_GROUP_RE.finditer(display)
+        ]
+        if "_(female)" in canonical.lower() and any("男性" in g for g in display_groups):
+            add("DISPLAY_SEX_QUALIFIER_MISMATCH", 10)
+        if "_(male)" in canonical.lower() and any("女性" in g for g in display_groups):
+            add("DISPLAY_SEX_QUALIFIER_MISMATCH", 10)
+
+        # #177 invalidated old co-occurrence as ownership authority.  An
+        # unqualified Character canonical that gained a work/context suffix in
+        # the historical semantic-fix pass therefore needs independent review.
+        if (
+            category == "Character"
+            and not re.search(r"_\\([^()]+\\)$", canonical)
+            and qcount > 0
+            and bool(r["touched_by_semantic_fix"])
+        ):
+            add("DISPLAY_ADDED_CONTEXT_UNQUALIFIED", 3)
+
         if (
             translation_status == "REVIEW_REQUIRED"
             and norm(display) == norm(canonical)
@@ -427,6 +448,13 @@ def main() -> int:
     ]
     qualifier.sort(key=lambda r: (-int(r["post_count"]), -int(r["risk_score"]), str(r["canonical_tag"])))
     select(qualifier, "QUALIFIER_COMPLEXITY", 60)
+
+    unqualified_context = [
+        r for r in records
+        if "DISPLAY_ADDED_CONTEXT_UNQUALIFIED" in str(r["risk_flags"])
+    ]
+    unqualified_context.sort(key=lambda r: (-int(r["post_count"]), str(r["canonical_tag"])))
+    select(unqualified_context, "UNQUALIFIED_CONTEXT_RECHECK", 50)
 
     copyright_rows = [r for r in records if r["category"] == "Copyright"]
     copyright_rows.sort(key=lambda r: (-int(r["risk_score"]), -int(r["post_count"]), str(r["canonical_tag"])))
