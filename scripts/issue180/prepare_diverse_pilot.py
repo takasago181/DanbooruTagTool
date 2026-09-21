@@ -86,6 +86,10 @@ def main() -> int:
     pilot: list[dict[str, str]] = []
     ecosystem_counts = {}
     shortfalls = {}
+    # One Character may be sampled only once across the entire pilot.
+    # Legacy relation contamination can make the same row appear relevant to
+    # multiple ecosystems; keep the first deterministic assignment only.
+    global_used: set[str] = set()
 
     for ecosystem, spec in ECOSYSTEMS.items():
         candidates = []
@@ -105,7 +109,6 @@ def main() -> int:
                     "candidate_kind": kind,
                 })
 
-        used: set[str] = set()
         selected: list[dict[str, str]] = []
 
         variants = sorted(
@@ -122,19 +125,19 @@ def main() -> int:
         )
 
         # Intentionally mix easy positives, variants, and legacy hard cases.
-        take_unique(selected, variants, 6, "VARIANT_INHERITANCE", used)
-        take_unique(selected, explicit, 9, "QUALIFIER_AUTHORITY", used)
-        take_unique(selected, legacy, 6, "LEGACY_HARD_NEGATIVE_OR_UNQUALIFIED", used)
+        take_unique(selected, variants, 6, "VARIANT_INHERITANCE", global_used)
+        take_unique(selected, explicit, 9, "QUALIFIER_AUTHORITY", global_used)
+        take_unique(selected, legacy, 6, "LEGACY_HARD_NEGATIVE_OR_UNQUALIFIED", global_used)
 
         # Fill remaining slots with post-count extremes from the whole candidate pool.
         remaining = TARGET_PER_ECOSYSTEM - len(selected)
         if remaining > 0:
             hi = sorted(candidates, key=lambda r: (-int(r["post_count"]), r["canonical_tag"]))
             lo = sorted(candidates, key=lambda r: (int(r["post_count"]), r["canonical_tag"]))
-            take_unique(selected, hi, (remaining + 1) // 2, "HIGH_POST_FILL", used)
+            take_unique(selected, hi, (remaining + 1) // 2, "HIGH_POST_FILL", global_used)
             remaining = TARGET_PER_ECOSYSTEM - len(selected)
             if remaining > 0:
-                take_unique(selected, lo, remaining, "LONG_TAIL_FILL", used)
+                take_unique(selected, lo, remaining, "LONG_TAIL_FILL", global_used)
 
         ecosystem_counts[ecosystem] = len(selected)
         if len(selected) < TARGET_PER_ECOSYSTEM:
