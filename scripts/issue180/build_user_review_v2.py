@@ -12,6 +12,10 @@ D = A / "POST_NORMALIZED_REVIEW/MASTER_HOME_V2"
 CAT = R / "docs/issue70/data/runtime/issue70_catalog_overlay.csv"
 MASTER = D / "CHARACTER_HOME_MASTER_V2.csv"
 LEDGER = D / "APPLIED_AUTHORITY_LEDGER_V2.csv"
+UNQUALIFIED = D / "UNQUALIFIED_WORK_QUEUE_V2.csv"
+VARIANTS = D / "VARIANT_WORK_QUEUE_V2.csv"
+DECISIONS_COMPAT = R / "docs/issue180/autonomous/AUTHORITY_DECISIONS_V2.csv"
+DECISIONS_DIR = R / "docs/issue180/autonomous/decisions"
 OUT = A / "ISSUE180_ALL_35890_USER_REVIEW_V2.txt"
 SUM = A / "issue180_all_35890_user_review_v2_summary.json"
 
@@ -19,6 +23,19 @@ SUM = A / "issue180_all_35890_user_review_v2_summary.json"
 def read(path):
     with path.open(encoding="utf-8-sig", newline="") as fh:
         return list(csv.DictReader(fh))
+
+
+def read_decisions():
+    paths = [DECISIONS_COMPAT] if DECISIONS_COMPAT.exists() else []
+    if DECISIONS_DIR.exists():
+        paths.extend(sorted(DECISIONS_DIR.glob("*.csv")))
+    rows = []
+    for path in paths:
+        for row in read(path):
+            if not any((v or "").strip() for v in row.values()):
+                continue
+            rows.append({**row, "__source_file": str(path.relative_to(R))})
+    return rows
 
 
 def ja_reason(code: str) -> str:
@@ -56,6 +73,21 @@ def ja_reason(code: str) -> str:
     return code or "理由未記録"
 
 
+def decision_context(row):
+    ref = (row.get("evidence_url") or "").strip()
+    claim = (row.get("evidence_claim") or "").strip()
+    if not ref and claim.startswith("REPO:"):
+        ref = claim
+    return {
+        "scope": (row.get("scope") or "").strip(),
+        "state": (row.get("validation_state") or "").strip(),
+        "evidence_ref": ref or (row.get("__source_file") or "-"),
+        "evidence_claim": claim or "-",
+        "notes": (row.get("notes") or "").strip() or "-",
+        "source_file": row.get("__source_file") or "-",
+    }
+
+
 def main():
     catalog = read(CAT)
     chars = {r["canonical_tag"]: r for r in catalog if r.get("category_name") == "Character"}
@@ -63,11 +95,36 @@ def main():
     master = read(MASTER)
     ledger_rows = read(LEDGER)
     ledger = {r["canonical_tag"]: r for r in ledger_rows}
+    unqualified = {r["canonical_tag"]: r for r in read(UNQUALIFIED)}
+    variants = {r["canonical_tag"]: r for r in read(VARIANTS)}
 
+    char_context = {}
+    family_context = {}
+    discovery_context = {}
+    pattern_context = {}
+    for d in read_decisions():
+        scope = (d.get("scope") or "").strip()
+        state = (d.get("validation_state") or "").strip()
+        key = (d.get("key") or "").strip()
+        if not key or state == "PENDING":
+            continue
+        ctx = decision_context(d)
+        if scope == "FAMILY_QUALIFIER" and state in {"UNRESOLVED", "NEEDS_HIGHER_REASONING"}:
+            family_context[key.lower()] = ctx
+        elif scope == "DISCOVERY_GROUP" and state in {"UNRESOLVED", "NEEDS_HIGHER_REASONING"}:
+            discovery_context[key.lower()] = ctx
+        elif scope == "VARIANT_PATTERN" and state in {"UNRESOLVED", "NEEDS_HIGHER_REASONING"}:
+            pattern_context[key] = ctx
+        elif scope in {"DIRECT_CHARACTER", "VARIANT_CHARACTER", "BLOCK_CHARACTER"}:
+            if state in {"UNRESOLVED", "NEEDS_HIGHER_REASONING", "PASS"}:
+                char_context[key] = ctx
+
+    review_context_count = 0
     with OUT.open("w", encoding="utf-8", newline="\n") as fh:
         fh.write("Issue #180 Character→本家Copyright 全35,890件 フリーズ前確認 v2\n")
         fh.write("research-only / production未変更 / HOMEは最大1件 / 未確定は推測で埋めない\n")
-        fh.write("※ #179 origin と #180 HOME authority を分離表示。最終freezeにはユーザー確認が必要。\n\n")
+        fh.write("※ #179 origin と #180 HOME authority を分離表示。最終freezeにはユーザー確認が必要。\n")
+        fh.write("※ 未確定でもgroup/pattern/family監査済みの場合は、その監査証拠をreview contextとして表示する。\n\n")
         for i, row in enumerate(master, 1):
             tag = row["canonical_tag"]
             cr = chars[tag]
@@ -83,6 +140,38 @@ def main():
             reason_code = row.get("decision_reason", "")
             evidence_ref = authority.get("evidence_url") or authority.get("source_provenance") or "-"
             evidence_claim = authority.get("evidence_claim") or "-"
+            review_scope = "-"
+            review_state = "-"
+            review_note = "-"
+
+            if state == "HOME_UNRESOLVED":
+                ctx = char_context.get(tag)
+                fam = (row.get("final_qualifier") or "").strip().lower()
+                if ctx is None and fam:
+                    ctx = family_context.get(fam)
+                if ctx is None and tag in unqualified:
+                    uq = unqualified[tag]
+                    group = (
+                        (uq.get("discovery_primary_root_hint") or "").strip()
+                        or (uq.get("discovery_primary_raw") or "").strip()
+                        or "__NO_DISCOVERY_HINT__"
+                    )
+                    ctx = discovery_context.get(group.lower())
+                if ctx is None and tag in variants:
+                    vr = variants[tag]
+                    base_home = (vr.get("base_home_candidate") or "").strip()
+                    outer = (vr.get("outer_ip_qualifier") or "").strip() or "-"
+                    variant_q = (vr.get("variant_qualifier") or "").strip()
+                    pattern_id = f"{base_home}::{outer}::{variant_q}"
+                    ctx = pattern_context.get(pattern_id)
+                if ctx is not None:
+                    review_context_count += 1
+                    review_scope = ctx["scope"]
+                    review_state = ctx["state"]
+                    review_note = ctx["notes"]
+                    evidence_ref = ctx["evidence_ref"]
+                    evidence_claim = ctx["evidence_claim"]
+
             unresolved = "-" if state != "HOME_UNRESOLVED" else reason_code
             fh.write(
                 f"{i:05d}. {ja}\n"
@@ -95,6 +184,8 @@ def main():
                 f"  公式性: {officiality}\n"
                 f"  authority: {authority.get('authority_scope', '-')} / {authority.get('authority_type', '-')}\n"
                 f"  理由: {ja_reason(reason_code)} [{reason_code}]\n"
+                f"  review context: {review_scope} / {review_state}\n"
+                f"  review note: {review_note}\n"
                 f"  証拠参照: {evidence_ref}\n"
                 f"  証拠内容: {evidence_claim}\n"
                 f"  未確定理由: {unresolved}\n\n"
@@ -106,6 +197,7 @@ def main():
         "states": master_summary["states"],
         "origin_class_counts": dict(Counter((r.get("origin_class") or "UNREVIEWED") for r in master)),
         "authority_scope_counts": dict(Counter(r.get("authority_scope", "") for r in ledger_rows)),
+        "unresolved_rows_with_review_context": review_context_count,
         "user_review_required_before_freeze": True,
         "accepted_source_modified": False,
         "production_modified": False,
