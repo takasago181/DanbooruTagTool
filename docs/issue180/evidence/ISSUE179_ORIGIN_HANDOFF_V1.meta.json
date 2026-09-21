@@ -4,5 +4,6 @@
   "source_path": "docs/issue179/reviews/I179-B001-B002_ORIGIN_REVIEW.csv",
   "rows": 100,
   "purpose": "Guard #180 automatic HOME confirmation when #179 has explicit UNKNOWN/non-official origin evidence.",
-  "refresh_rule": "Refresh this snapshot before final freeze if the source branch HEAD or origin review changes."
+  "refresh_rule": "Refresh this snapshot before final freeze only if the source review file blob changes; unrelated Issue179 branch commits do not invalidate it.",
+  "source_blob_sha": "ad8607336bfabd906ef9712c184627c14791e3f6"
 }
