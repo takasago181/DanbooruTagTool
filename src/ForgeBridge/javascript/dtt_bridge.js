@@ -15,8 +15,6 @@
     checkpoint: ".model_selection"
   };
   const protocolVersion = 1;
-  const bootedAt = Date.now();
-  const sessionKey = "dtt-bridge-last-request-id";
   let polling = false;
 
   function findInput(selectorsToTry) {
@@ -194,14 +192,20 @@
 
   async function report(requestId, success, error = "") {
     try {
-      await fetch("/dtt-bridge/result", {
+      const response = await fetch("/dtt-bridge/result", {
         method: "POST",
         cache: "no-store",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ protocolVersion, requestId, success, error })
       });
+      if (!response.ok) return false;
+      const envelope = await response.json();
+      return envelope.protocolVersion === protocolVersion &&
+        envelope.accepted === true &&
+        envelope.requestId === requestId;
     } catch (_) {
-      // The desktop client will time out if the acknowledgement cannot be sent.
+      // Keep the request pending. The next browser context/poll can retry.
+      return false;
     }
   }
 
@@ -240,15 +244,13 @@
         // A Generate click may refresh the Gradio tree immediately. Publish
         // the accepted action before that click so the browser context cannot
         // lose the ACK while Forge starts the job.
-        await report(requestId, true, "");
+        if (!await report(requestId, true, "")) return;
         await nextFrame();
         await nextFrame();
         button.click();
       } else if (applyOnly) {
-        await report(requestId, true, "");
+        if (!await report(requestId, true, "")) return;
       }
-
-      sessionStorage.setItem(sessionKey, requestId);
     } catch (error) {
       if (needsAck) {
         const code = typeof error?.dttCode === "string" ? error.dttCode : (generate ? "generate_failed" : "recipe_failed");
@@ -266,8 +268,7 @@
       const envelope = await response.json();
       const payload = envelope.pending;
       if (envelope.protocolVersion !== protocolVersion || !payload) return;
-      if (typeof payload.requestId !== "string" || payload.createdAt < bootedAt) return;
-      if (sessionStorage.getItem(sessionKey) === payload.requestId) return;
+      if (typeof payload.requestId !== "string") return;
       await handle(payload);
     } catch (_) {
       // Forge may be starting up; the next short poll will retry health-free.
