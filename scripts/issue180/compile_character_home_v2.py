@@ -318,7 +318,14 @@ def main() -> None:
                 direct_choice = None
         fam = (census[tag].get("final_qualifier") or "").strip().lower()
         family_choice = None
-        if tag not in origin_guarded and fam and not is_attribute_family(fam) and not nested(tag, fam) and fam not in family_conflicts:
+        if (
+            tag not in origin_guarded
+            and fam
+            and fam not in deferred_family_reason
+            and not is_attribute_family(fam)
+            and not nested(tag, fam)
+            and fam not in family_conflicts
+        ):
             family_choice = chosen_family.get(fam)
         homes = {x[0] for x in (direct_choice, family_choice) if x}
         if len(homes) > 1:
