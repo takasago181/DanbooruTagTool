@@ -421,6 +421,66 @@ Only after the complete 31,003-row review is finished should #132 decide the min
 
 ---
 
+## Performance / complexity hard gate
+
+#132 is not allowed to make the shipped app materially heavier merely because the research review is exhaustive.
+
+### Research data stays out of runtime
+
+Do **not** ship:
+- the 31,003-row semantic review ledger;
+- evidence URLs/notes;
+- review confidence/history;
+- machine audit CSVs;
+- Codex shard/checkpoint data;
+- semantic explanations used only for research.
+
+The exhaustive review is build/research authority only.
+
+### Runtime delta must stay minimal
+
+The preferred production output from #132 is only the smallest confirmed discovery delta, e.g. a compact set of additional existing route IDs for identities that truly need them.
+
+Prefer build-time/catalog-bake work over runtime inference.
+
+Do not add:
+- LLM/embedding inference;
+- semantic parsing at startup;
+- live external lookups;
+- runtime regex classification;
+- recommendation/co-occurrence engines;
+- a second browse index;
+- duplicated General/Special identity stores;
+- per-query reconstruction of #132 semantics.
+
+Reuse the existing:
+- `CatalogEntry.UnifiedBrowseRouteIds`;
+- `UnifiedBrowseIndex`;
+- existing search index;
+- existing content/body/theme filters.
+
+### Complexity rule
+
+If a proposed #132 feature requires a new long-lived service/engine solely to interpret #132 data at runtime, treat that as a design failure unless a measured usability gain cannot be achieved through the existing browse index.
+
+### Performance validation before production
+
+Measure against the pre-#132 production baseline:
+- application/catalog startup time;
+- idle/runtime memory after catalog load;
+- ordinary Japanese/English search latency;
+- browse/filter latency;
+- result scrolling/responsiveness.
+
+Target:
+- no statistically meaningful search/browse latency regression;
+- startup and memory deltas should be negligible for the accepted route-only delta;
+- any clearly perceptible regression blocks promotion and requires simplification.
+
+The correct response to performance pressure is to reduce shipped #132 metadata, not to add caching/services that make the architecture more complex.
+
+---
+
 ## 14. Protected boundaries
 
 Research only until prototype acceptance.
