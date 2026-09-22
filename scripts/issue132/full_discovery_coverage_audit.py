@@ -330,12 +330,17 @@ def main():
         family=r.get("GenerationFamily","")
         role=r.get("CompositionRoleOverride","")
         genrole=r.get("GenerationRole","")
+        # Mirror current UnifiedBrowseOverlay exactly for current-route reconstruction.
+        # These enrichments are visible only when the Special row is directly browseable.
         if family=="POSE_COMPOSITION" and role=="pose":
             d["authority_expected_routes"].add("POSE_POSITION")
+            if browseable: d["current_routes"].add("POSE_POSITION")
         elif family=="POSE_COMPOSITION" and role=="camera":
             d["authority_expected_routes"].add("COMPOSITION_CAMERA")
+            if browseable: d["current_routes"].add("COMPOSITION_CAMERA")
         elif family=="SCENE_CONTEXT":
             d["authority_expected_routes"].add("SCENE_BACKGROUND")
+            if browseable: d["current_routes"].add("SCENE_BACKGROUND")
         if family=="POSE_COMPOSITION" and (role=="pose_camera" or genrole=="pose_camera"):
             d["review_signals"].add("POSE_CAMERA_COMPOUND_NOT_PROJECTED")
         if sv["kind"]=="POSE_SCENE" and not ({"POSE_POSITION","COMPOSITION_CAMERA","SCENE_BACKGROUND"} & d["current_routes"]):
@@ -420,6 +425,25 @@ def main():
                       "special_identity_ambiguous":len(special_ambiguous),"membership":dict(membership)},
         "buckets":dict(bucket_counts),
         "pattern_candidate_counts":dict(pattern_counts),
+        "review_signal_counts":dict(Counter(sig for d in identities.values() for sig in d["review_signals"])),
+        "bucket_by_intent":{
+            bucket:dict(Counter(x["sexual_intent"] or "UNCLASSIFIED" for x in audit if x["bucket"]==bucket))
+            for bucket in sorted(bucket_counts)
+        },
+        "bucket_by_membership":{
+            bucket:dict(Counter(
+                "OVERLAP" if x["is_general"]=="YES" and x["is_special"]=="YES" else
+                "GENERAL_ONLY" if x["is_general"]=="YES" else "SPECIAL_ONLY" if x["is_special"]=="YES" else "NEITHER"
+                for x in audit if x["bucket"]==bucket
+            )) for bucket in sorted(bucket_counts)
+        },
+        "bucket_samples":{
+            bucket:[
+                {"identity_key":x["identity_key"],"sexual_intent":x["sexual_intent"],"current_routes":x["current_routes"],
+                 "special_ids":x["special_ids"],"review_signals":x["review_signals"]}
+                for x in audit if x["bucket"]==bucket
+            ][:30] for bucket in sorted(bucket_counts)
+        },
         "route_load":{r:dict(c) for r,c in sorted(route_counts.items())},
         "notes":[
             "Identity universe is Issue #118 v2 (31,003).",
