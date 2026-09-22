@@ -53,7 +53,8 @@ The audit reproduced and fixed the following failure classes:
 8. newly unlocked variant patterns being missed by a static freeze-time registry
    - 1,691 baseline variant rows had an existing base Character but no confirmed base HOME
    - every recompile now rebuilds dynamic ready patterns from the current HOME graph
-   - final readiness therefore catches large variant groups unlocked by later family/direct decisions
+   - dynamic pattern IDs include membership count + hash, so later-added members invalidate the earlier pattern review
+   - final readiness therefore catches large variant groups unlocked or enlarged by later family/direct decisions
 
 9. reviewed unresolved work re-entering active queues
    - terminal reviewed family/Character/group/pattern results are separated from active work
