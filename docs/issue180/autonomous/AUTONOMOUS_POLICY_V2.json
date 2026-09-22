@@ -57,14 +57,18 @@
     "gynoid_talk",
     "talkex",
     "voisona",
-    "fromsoftware"
+    "fromsoftware",
+    "snk",
+    "arika",
+    "alicesoft"
   ],
   "non_home_families": [
     "project_voltage",
     "original",
     "pixiv_fantasia",
     "vrchat",
-    "marvel_vs._capcom"
+    "marvel_vs._capcom",
+    "sushiro"
   ],
   "broad_pass_types": [
     "ROOT_POLICY_REVIEWED",
