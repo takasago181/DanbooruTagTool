@@ -86,6 +86,21 @@ The audit reproduced and fixed the following failure classes:
    - those rows may belong to a family that never appeared in the active family work queue
    - the compiler now emits an auditable deferred-family row for that override so unresolved partition accounting remains exact
 
+16. real decision shards colliding with synthetic smoke fixtures
+   - smoke validation now temporarily isolates persistent autonomous decision shards
+   - synthetic fixture keys such as `disney` can no longer fail merely because the real run already reviewed that key
+   - all real shards are restored in a finally path
+
+17. Windows path separator false write-scope violation
+   - repository-relative marker paths are normalized to POSIX form before comparison with Git output
+   - deliberate refreeze can carry a validated pre-refreeze decision snapshot without requiring a fake/no-op post-refreeze decision
+
+18. blanket-defer completion with near-zero useful authority
+   - terminal review progress alone is not sufficient for non-exempt mandatory discovery groups
+   - each such group needs at least one newly HOME_CONFIRMED foundation-unresolved member
+   - mandatory family and ready-variant work each require nonzero autonomous PASS yield overall
+   - these are intentionally minimal anti-no-op floors; they do not authorize guessing
+
 ## Evidence policy
 
 Old RelatedCopyright, post co-occurrence, name similarity and search overlap are discovery hints only.

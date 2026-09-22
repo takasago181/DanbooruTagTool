@@ -30,7 +30,7 @@ Persistent autonomous decisions may be written to coarse CSV shards under:
 
 `docs/issue180/autonomous/decisions/*.csv`
 
-The compatibility ledger `docs/issue180/autonomous/AUTHORITY_DECISIONS_V2.csv` is also read, but prefer shards for large work. Keep one `(scope,key)` decision across all files; cross-file duplicates fail validation.
+The compatibility ledger `docs/issue180/autonomous/AUTHORITY_DECISIONS_V2.csv` is also read, but prefer shards for large work. Keep one `(scope,key)` decision across all files; cross-file duplicates fail validation. After a deliberate harness repair/refreeze, existing decision shards may be edited when stronger evidence replaces an over-conservative terminal decision; do not add a second row for the same scope/key.
 
 Generated master/work queues are artifacts. Do not hand-edit them.
 
@@ -200,6 +200,8 @@ The current dataset has roughly 16.7k unqualified rows, but nearly all have a su
 
 Groups with at least 50 unresolved Characters are mandatory high-yield roster reviews before final readiness. There are only a few dozen such groups, covering several thousand Characters.
 
+A terminal group-review row by itself is not enough for productive completion. For each non-exempt mandatory group, at least one foundation-unresolved member must become HOME_CONFIRMED through grounded direct authority. This is only a minimum anti-no-op floor, not a quota: continue harvesting all safely provable roster members. The explicit zero-yield exemptions are `original` and `indie_virtual_youtuber`, because those discovery labels do not imply one shared canonical HOME.
+
 For each mandatory group:
 1. inspect an official/curated roster or other grounded source once;
 2. add DIRECT_CHARACTER PASS rows only for members actually proven;
@@ -282,14 +284,17 @@ The autonomous run is evaluated against the frozen Issue #179 handoff snapshot. 
 
 `python scripts/issue180/check_autonomous_completion_readiness_v2.py --final --require-fresh-issue179`
 
-This final gate fails when mandatory active work remains, including:
+This final gate fails when mandatory active work remains or the autonomous pass is only a blanket defer, including:
 
 - #179 officiality-review rows
 - fast normalization/root-policy/exact-review families
 - high-yield `DISCOVERY_RESEARCH` families (policy threshold: 10 unresolved Character rows)
 - direct-roster review rows
 - high-yield unqualified discovery groups (policy threshold: 50 rows)
+- reviewed non-exempt high-yield discovery groups with zero newly confirmed members
+- zero autonomous FAMILY_QUALIFIER PASS yield across mandatory family work
 - high-yield ready variant patterns (policy threshold: 5 rows)
+- zero autonomous VARIANT_CHARACTER PASS yield when mandatory ready variant patterns exist
 - weak legacy direct rows requeued for provenance upgrade
 - PENDING decision rows
 - a completely empty autonomous decision set
@@ -318,7 +323,7 @@ Report remaining unresolved cases by reason instead of hiding them.
 
 Immediately before the real autonomous Luna run, `docs/issue180/autonomous/CODEX_EXECUTION_BASE_V2.json` freezes the harness.
 
-Once that marker exists, the autonomous run may commit **only** new decision shard CSV files under:
+Once that marker exists, the autonomous run may modify **only** decision shard CSV files under:
 
 `docs/issue180/autonomous/decisions/*.csv`
 

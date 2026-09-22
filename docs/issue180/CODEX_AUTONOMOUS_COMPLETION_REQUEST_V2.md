@@ -86,6 +86,8 @@ Use only validation states:
 
 Do as much of the remaining audit as can be done safely in one autonomous run.
 
+Do not finish by converting every mandatory queue to boilerplate UNRESOLVED. For non-exempt mandatory discovery groups, confirm at least one actually proven member and then continue harvesting all safe roster members. Mandatory family and ready-variant lanes must also produce nonzero PASS yield overall when safe evidence exists. Existing decision-shard rows may be revised in place when stronger evidence justifies replacing an earlier over-conservative terminal result; keep exactly one decision per scope/key.
+
 Do not stop for one hard Character, family, source, policy case, or failed lookup.
 
 If a case cannot be resolved safely:
