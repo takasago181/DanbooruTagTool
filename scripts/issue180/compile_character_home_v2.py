@@ -10,6 +10,7 @@ from __future__ import annotations
 import csv
 import json
 import re
+import hashlib
 from collections import Counter, defaultdict
 from pathlib import Path
 
@@ -541,15 +542,20 @@ def main() -> None:
         outer = (row.get("outer_ip_qualifier") or "").strip() or "-"
         if not base_home or not variant_q:
             raise SystemExit(f"ready variant missing dynamic pattern key fields: {row.get('canonical_tag')}")
-        pattern_id = f"{base_home}::{outer}::{variant_q}"
-        dynamic_variant_groups[pattern_id].append(row)
+        pattern_core = f"{base_home}::{outer}::{variant_q}"
+        dynamic_variant_groups[pattern_core].append(row)
 
     dynamic_variant_pattern_rows: list[dict[str, str]] = []
-    for pattern_id, group_rows in sorted(dynamic_variant_groups.items(), key=lambda kv: (-len(kv[1]), kv[0])):
+    for pattern_core, group_rows in sorted(dynamic_variant_groups.items(), key=lambda kv: (-len(kv[1]), kv[0])):
         sample = sorted(group_rows, key=lambda r: (-int(r.get("post_count", "0") or 0), r["canonical_tag"]))[:8]
         first = group_rows[0]
+        member_tags = sorted(r["canonical_tag"] for r in group_rows)
+        member_hash = hashlib.sha256("\n".join(member_tags).encode("utf-8")).hexdigest()[:12]
+        pattern_id = f"{pattern_core}::n{len(member_tags)}::{member_hash}"
         dynamic_variant_pattern_rows.append({
             "pattern_id": pattern_id,
+            "pattern_core": pattern_core,
+            "member_hash": member_hash,
             "base_home_group": (first.get("base_home_candidate") or "").strip(),
             "variant_qualifier": (first.get("variant_qualifier") or "").strip(),
             "outer_ip_qualifier": (first.get("outer_ip_qualifier") or "").strip(),
@@ -602,7 +608,7 @@ def main() -> None:
     write_csv(
         O / "DYNAMIC_VARIANT_PATTERN_GROUPS_V2.csv",
         dynamic_variant_pattern_rows,
-        ["pattern_id","base_home_group","variant_qualifier","outer_ip_qualifier","work_state","character_rows","top_character_samples","work_lane","production_approved"],
+        ["pattern_id","pattern_core","member_hash","base_home_group","variant_qualifier","outer_ip_qualifier","work_state","character_rows","top_character_samples","work_lane","production_approved"],
     )
     write_csv(O / "REMAINING_UNQUALIFIED_WORK_V2.csv", remaining_unqualified, list(foundation_unqualified_rows[0].keys()) if foundation_unqualified_rows else None)
     write_csv(
