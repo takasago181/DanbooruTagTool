@@ -146,12 +146,28 @@ def main():
   "notes":"Completed direct review but intentionally omitted evidence for this smoke case.",
  }])], "terminal DIRECT_CHARACTER review requires grounded evidence")
 
- expect_pass("family_terminal_with_repo_evidence", [{
+ expect_fail("methodology_doc_not_row_evidence", [("a",[{
   "scope":"FAMILY_QUALIFIER","key":"blue_archive","home_copyright":"",
   "base_character":"","authority_type":"","evidence_url":"",
   "evidence_claim":policy_text_evidence,"validation_state":"UNRESOLVED","officiality_state":"",
-  "notes":"Reviewed against the recorded repository authority policy; evidence remained insufficient for this hypothetical terminal result.",
+  "notes":"A methodology document must not count as evidence that Blue Archive family research was completed.",
+ }])], "approved REPO evidence does not contain/support this decision key and HOME")
+
+ expect_pass("family_terminal_with_explicit_family_evidence", [{
+  "scope":"FAMILY_QUALIFIER","key":"disney","home_copyright":"",
+  "base_character":"","authority_type":"","evidence_url":"",
+  "evidence_claim":"REPO:docs/issue180/evidence/exact_root_semantic_authority_batch02.csv",
+  "validation_state":"UNRESOLVED","officiality_state":"",
+  "notes":"The approved evidence CSV contains an explicit Disney family row and records the umbrella as unresolved.",
  }])
+
+ expect_fail("home_only_source_registry_not_family_evidence", [("a",[{
+  "scope":"FAMILY_QUALIFIER","key":"arknights","home_copyright":"",
+  "base_character":"","authority_type":"","evidence_url":"",
+  "evidence_claim":"REPO:docs/issue180/evidence/official_roster_sources_batch01.csv",
+  "validation_state":"UNRESOLVED","officiality_state":"",
+  "notes":"A source registry row with only home_copyright must not be promoted to family-level evidence.",
+ }])], "approved REPO evidence does not contain/support this decision key and HOME")
 
  expect_fail("unrelated_policy_mapping", [("a",[{
   "scope":"FAMILY_QUALIFIER","key":"pokemon_go","home_copyright":"fate_(series)",
@@ -182,6 +198,14 @@ def main():
   "validation_state":"PASS","officiality_state":"OFFICIAL_CONFIRMED",
   "notes":"Exact Pikachu row and Pokemon HOME are both present in the approved official roster evidence CSV.",
  }])
+
+ expect_fail("base_roster_not_variant_evidence", [("a",[{
+  "scope":"VARIANT_CHARACTER","key":"callie","home_copyright":"splatoon_(series)",
+  "base_character":"callie","authority_type":"VARIANT_TEST","evidence_url":"",
+  "evidence_claim":"REPO:docs/issue180/evidence/splatoon_official_roster_v1.csv",
+  "validation_state":"PASS","officiality_state":"OFFICIAL_VARIANT",
+  "notes":"A base-character roster row must not prove variant officiality merely through canonical_base.",
+ }])], "approved REPO evidence does not contain/support this decision key and HOME")
 
  expect_fail("discovery_group_pass", [("a",[{
   "scope":"DISCOVERY_GROUP","key":"pokemon","home_copyright":"",
