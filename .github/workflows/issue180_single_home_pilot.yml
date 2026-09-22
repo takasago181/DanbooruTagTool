@@ -352,6 +352,8 @@ jobs:
         run: python scripts/issue180/validate_authority_decisions_v2.py
       - name: Compile deterministic Character HOME master v2
         run: python scripts/issue180/compile_character_home_v2.py
+      - name: Smoke terminal-review override semantics v2
+        run: python scripts/issue180/smoke_terminal_review_overrides_v2.py
       - name: Validate autonomous completion v2 invariants
         run: python scripts/issue180/validate_autonomous_completion_v2.py
       - name: Report autonomous completion readiness v2
