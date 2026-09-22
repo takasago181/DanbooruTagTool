@@ -496,6 +496,13 @@ def main():
                       "special_identity_mapped":len(special_identity),"special_identity_unmapped":len(special_unmapped),
                       "special_identity_ambiguous":len(special_ambiguous),"membership":dict(membership)},
         "buckets":dict(bucket_counts),
+        "full_semantic_review":{
+            "required_identity_count":len(queue),
+            "shard_size":200,
+            "shard_count":(len(queue)+199)//200,
+            "lane_counts":dict(Counter(x["review_lane"] for x in queue)),
+            "machine_labels_are_final":False
+        },
         "prototype_v0_1":{
             "override_rows":len(prototype_rows),
             "changed_identities":sum(1 for x in prototype_impact if x["changed"]=="YES"),
@@ -547,12 +554,69 @@ def main():
         "special_mapping_issues":{"unmapped":special_unmapped[:200],"ambiguous":special_ambiguous[:200]},
     }
 
+    # Full semantic-review queue. Machine state controls only ordering/context,
+    # never the final semantic verdict.
+    def review_lane(row):
+        if row["bucket"]=="REVIEW":
+            return "00_CURRENT_REVIEW_OR_CONFLICT"
+        if row["bucket"]=="NO_AUTHORITY":
+            return "01_NO_AUTHORITY"
+        routes=split_pipe(row["current_routes"])
+        if len(routes)>1:
+            return "02_MULTI_ROUTE"
+        if len(routes)==1:
+            return "10_ROUTE_"+routes[0]
+        if row["body_sites"] or row["themes"]:
+            return "90_FACET_ONLY"
+        return "99_OTHER"
+
+    queue=[]
+    ordered=sorted(
+        audit,
+        key=lambda x:(review_lane(x), x["general_paths"], x["special_kinds"],
+                      x["sexual_intent"], x["identity_key"])
+    )
+    for idx,row in enumerate(ordered):
+        queue.append({
+            "review_seq":idx+1,
+            "shard_id":f"R{idx//200+1:03d}",
+            "review_lane":review_lane(row),
+            "identity_key":row["identity_key"],
+            "machine_bucket":row["bucket"],
+            "sexual_intent":row["sexual_intent"],
+            "is_general":row["is_general"],
+            "is_special":row["is_special"],
+            "current_routes":row["current_routes"],
+            "general_paths":row["general_paths"],
+            "local_paths":row["local_paths"],
+            "special_ids":row["special_ids"],
+            "special_kinds":row["special_kinds"],
+            "body_sites":row["body_sites"],
+            "themes":row["themes"],
+            "generation_signals":row["generation_signals"],
+            "machine_review_signals":row["review_signals"],
+            # The remaining columns MUST be filled by per-identity semantic review.
+            "manual_seen":"",
+            "review_depth":"",
+            "semantic_summary_ja":"",
+            "current_discovery_fit":"",
+            "decision":"",
+            "suggested_route_ids":"",
+            "keep_current_routes":"",
+            "browse_value":"",
+            "confidence":"",
+            "evidence_urls":"",
+            "evidence_note":"",
+            "review_note":"",
+        })
+
     def write_csv(path, data):
         if not data:
             path.write_text("",encoding="utf-8"); return
         with path.open("w",encoding="utf-8-sig",newline="") as f:
             w=csv.DictWriter(f,fieldnames=list(data[0].keys())); w.writeheader(); w.writerows(data)
 
+    write_csv(out/"codex_full_review_queue.csv", queue)
     write_csv(out/"identity_audit.csv", sorted(audit,key=lambda x:x["identity_key"]))
     write_csv(out/"pattern_candidates.csv", sorted(pattern_rows,key=lambda x:(x["pattern"],x["canonical"])))
     write_csv(out/"adult_no_authority.csv", sorted(
