@@ -76,6 +76,11 @@ The audit reproduced and fixed the following failure classes:
    - they are removed from the HOME foundation and deterministically become NOT_OFFICIAL_CHARACTER
    - Luna itself cannot create NOT_OFFICIAL_CHARACTER
 
+14. high-yield family discovery being silently skipped
+   - remaining `DISCOVERY_RESEARCH` families with at least 10 unresolved Character rows are mandatory final-readiness work
+   - each must gain safe reusable authority or a grounded terminal family review; untouched large discovery families block completion
+   - the centralized policy schema validator enforces the threshold field so policy/validator drift fails before execution
+
 ## Evidence policy
 
 Old RelatedCopyright, post co-occurrence, name similarity and search overlap are discovery hints only.
@@ -94,6 +99,7 @@ These record completed research but never create HOME directly.
 
 The run is deliberately group-first:
 
+- mandatory high-yield family discovery groups are reviewed once at family scope;
 - mandatory high-yield unqualified discovery groups are roster-reviewed once;
 - explicit DIRECT_CHARACTER decisions are written only for proven members;
 - high-yield variant patterns are reviewed once and explicit VARIANT_CHARACTER decisions are written for covered variants;

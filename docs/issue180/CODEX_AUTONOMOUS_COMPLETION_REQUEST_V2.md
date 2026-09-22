@@ -102,6 +102,8 @@ Start with:
 
 `artifacts/issue180-full-preflight/POST_NORMALIZED_REVIEW/MASTER_HOME_V2/REMAINING_FAMILY_WORK_V2.csv`
 
+Any remaining `DISCOVERY_RESEARCH` family with 10 or more unresolved Character rows is mandatory high-yield work. It must be safely HOME-confirmed or explicitly reviewed/deferred with grounded evidence before the autonomous pass can claim completion.
+
 Priority order:
 
 1. `FAST_REVALIDATE_NORMALIZATION`

@@ -107,6 +107,12 @@ def main():
  summary=json.loads(SUMMARY.read_text(encoding="utf-8"))
  lanes=Counter(r.get("work_lane","") for r in fam)
  mandatory_family={k:lanes[k] for k in sorted(MANDATORY_FAMILY_LANES) if lanes[k]}
+ mandatory_family_discovery=sorted(
+  (r["family"],int(r.get("character_rows","0") or 0))
+  for r in fam
+  if r.get("work_lane")=="DISCOVERY_RESEARCH"
+  and int(r.get("character_rows","0") or 0)>=family_discovery_min
+ )
  direct_roster=sum(r.get("work_state")=="DIRECT_ROSTER_REVIEW" for r in unq)
  policy=json.loads(POLICY_PATH.read_text(encoding="utf-8"))
  official_origins=set(policy["official_origin_classes"])
@@ -122,6 +128,7 @@ def main():
  ]
  group_min=int(policy["mandatory_unqualified_group_min_rows"])
  variant_pattern_min=int(policy["mandatory_variant_pattern_min_rows"])
+ family_discovery_min=int(policy["mandatory_family_discovery_min_rows"])
  reviewed_group_keys={r.get("discovery_group","").strip().lower() for r in reviewed_groups}
  reviewed_variant_pattern_keys={r.get("pattern_id","").strip() for r in reviewed_variant_patterns}
  mandatory_variant_patterns=[
@@ -156,6 +163,7 @@ def main():
   "officiality_rows":len(officiality),
   "issue179_explicit_unknown_rows":len(explicit_origin_unknown),
   "mandatory_family_families":sum(mandatory_family.values()),
+  "mandatory_family_discovery_families":len(mandatory_family_discovery),
   "direct_roster_rows":direct_roster,
   "mandatory_unqualified_groups":len(missing_mandatory_groups),
   "mandatory_variant_patterns":len(missing_mandatory_variant_patterns),
@@ -188,6 +196,8 @@ def main():
   "autonomous_decision_rows":decisions,
   "blockers":blockers,
   "mandatory_family_lane_counts":mandatory_family,
+  "mandatory_family_discovery_min_rows":family_discovery_min,
+  "mandatory_family_discovery_missing":mandatory_family_discovery,
   "issue179_explicit_unknown_unreviewed":sorted(explicit_origin_unknown),
   "legacy_weak_direct_unresolved":weak_unresolved,
   "mandatory_unqualified_group_min_rows":group_min,
@@ -203,7 +213,7 @@ def main():
   "residual_unqualified_rows":len(unq),
   "deferred_character_rows":summary.get("remaining_work",{}).get("deferred_character_rows",0),
   "deferred_family_rows":summary.get("remaining_work",{}).get("deferred_family_rows",0),
-  "note":"Residual long-tail discovery/variant work may remain unresolved, but mandatory fast/officiality/direct-roster/high-yield discovery-group/high-yield ready-variant-pattern lanes must be resolved or explicitly deferred.",
+  "note":"Residual long-tail discovery/variant work may remain unresolved, but mandatory fast/officiality/high-yield family-discovery/direct-roster/high-yield discovery-group/high-yield ready-variant-pattern lanes must be resolved or explicitly deferred.",
  }
  OUT.write_text(json.dumps(result,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
  print(json.dumps(result,ensure_ascii=False,indent=2))

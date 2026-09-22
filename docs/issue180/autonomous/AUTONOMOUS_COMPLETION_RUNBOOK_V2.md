@@ -52,6 +52,7 @@ Remaining v2 work:
 - #179 explicit UNKNOWN rows requiring review/defer before final: 7
 - family rows: 6,106 across 2,528 families
 - mandatory family reviews: 246 families
+- additional high-yield `DISCOVERY_RESEARCH` families with 10+ unresolved Character rows are mandatory dynamically
   - BROAD_LEGACY_REVIEW: 17
   - HIGHER_REASONING_BROAD: 27
   - FAST_REVALIDATE_NORMALIZATION: 184
@@ -169,6 +170,8 @@ Do not review every Character in the family.
 
 Use `REMAINING_FAMILY_WORK_V2.csv`.
 
+Any remaining `DISCOVERY_RESEARCH` family with at least the policy threshold of 10 unresolved Character rows is a mandatory high-yield review before final readiness. Resolve it with reusable HOME authority when proven, or record a grounded terminal `UNRESOLVED` / `NEEDS_HIGHER_REASONING` family decision. Do not leave a large discovery family untouched merely because it is not in a fast-path lane.
+
 Work high-character-count families first.
 
 For clean IP roots, create one reusable FAMILY_QUALIFIER PASS.
@@ -283,6 +286,7 @@ This final gate fails when mandatory active work remains, including:
 
 - #179 officiality-review rows
 - fast normalization/root-policy/exact-review families
+- high-yield `DISCOVERY_RESEARCH` families (policy threshold: 10 unresolved Character rows)
 - direct-roster review rows
 - high-yield unqualified discovery groups (policy threshold: 50 rows)
 - high-yield ready variant patterns (policy threshold: 5 rows)
