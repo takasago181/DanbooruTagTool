@@ -406,6 +406,42 @@ def main():
             "review_signals":"|".join(sorted(d["review_signals"]))
         })
 
+    # Research-only static prototype overrides. These never alter the current census;
+    # they are measured separately so impact can be evaluated against all 31,003 identities.
+    prototype_path=root/"docs/issue132/prototype_route_overrides_v0_1.csv"
+    prototype_rows=rows(prototype_path) if prototype_path.exists() else []
+    audit_by_key={x["identity_key"]:x for x in audit}
+    prototype_impact=[]
+    prototype_delta=Counter()
+    prototype_errors=[]
+    valid_routes=set(GENERAL_ROUTE.values()) | set(SPECIAL_ROUTE.values()) | {"POSE_POSITION","COMPOSITION_CAMERA","SCENE_BACKGROUND"}
+    for r in prototype_rows:
+        key=norm(r["identity_key"])
+        route=r["route_id"]
+        if route not in valid_routes:
+            prototype_errors.append(f"invalid route {route} for {key}")
+            continue
+        if key not in audit_by_key:
+            prototype_errors.append(f"missing identity {key}")
+            continue
+        before=set(split_pipe(audit_by_key[key]["current_routes"]))
+        after=set(before); after.add(route)
+        changed=after!=before
+        if changed:
+            prototype_delta[route]+=1
+        prototype_impact.append({
+            "identity_key":key,
+            "route_id":route,
+            "changed":"YES" if changed else "NO",
+            "sexual_intent":audit_by_key[key]["sexual_intent"],
+            "before_routes":"|".join(sorted(before)),
+            "after_routes":"|".join(sorted(after)),
+            "evidence":r.get("evidence",""),
+            "rationale":r.get("rationale","")
+        })
+    if prototype_errors:
+        raise RuntimeError("prototype override validation failed: "+"; ".join(prototype_errors))
+
     # Route/local/facet load by identity and intent.
     route_counts=defaultdict(Counter)
     local_counts=defaultdict(Counter)
@@ -460,6 +496,14 @@ def main():
                       "special_identity_mapped":len(special_identity),"special_identity_unmapped":len(special_unmapped),
                       "special_identity_ambiguous":len(special_ambiguous),"membership":dict(membership)},
         "buckets":dict(bucket_counts),
+        "prototype_v0_1":{
+            "override_rows":len(prototype_rows),
+            "changed_identities":sum(1 for x in prototype_impact if x["changed"]=="YES"),
+            "redundant_identities":sum(1 for x in prototype_impact if x["changed"]=="NO"),
+            "route_delta":dict(prototype_delta),
+            "targets":[{"identity_key":x["identity_key"],"route_id":x["route_id"],"changed":x["changed"],
+                        "before_routes":x["before_routes"],"after_routes":x["after_routes"]} for x in prototype_impact]
+        },
         "browse_coverage":{
             "route_or_facet_reachable_identities":routeable,
             "no_route_or_facet_identities":len(audit)-routeable,
@@ -517,6 +561,7 @@ def main():
     write_csv(out/"pose_scene_review.csv", sorted(
         [x for x in audit if x["bucket"]=="REVIEW"],
         key=lambda x:(x["review_signals"],x["identity_key"])))
+    write_csv(out/"prototype_impact_v0_1.csv", prototype_impact)
     write_csv(out/"route_load.csv", route_rows)
     def flatten_load(source, name):
         return [{"name":k,"all":v["ALL"],"sexual":v["SEXUAL"],"contextual":v["CONTEXTUAL"],
