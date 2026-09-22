@@ -40,8 +40,8 @@ Validated baseline after the adversarial audit (CI run 35669612009):
 - evidence-grade v1 direct HOME preserved: 367
 - legacy broad v1 authority requeued: 559 rows / 17 families
 - weak current-master direct rows requeued for provenance upgrade: 14
-- v2 foundation HOME_CONFIRMED: 8,960
-- v2 foundation HOME_UNRESOLVED: 26,930
+- v2 foundation HOME_CONFIRMED: 8,955
+- v2 foundation HOME_UNRESOLVED: 26,935
 - NOT_OFFICIAL_CHARACTER: 0 at the current #179 handoff
 - accepted source modified: false
 - production modified: false
@@ -50,10 +50,10 @@ Remaining v2 work:
 
 - #179 direct officiality-work rows: 2
 - #179 explicit UNKNOWN rows requiring review/defer before final: 7
-- family rows: 6,101 across 2,524 families
-- mandatory family reviews: 243 families
+- family rows: 6,106 across 2,528 families
+- mandatory family reviews: 246 families
   - BROAD_LEGACY_REVIEW: 17
-  - HIGHER_REASONING_BROAD: 24
+  - HIGHER_REASONING_BROAD: 27
   - FAST_REVALIDATE_NORMALIZATION: 184
   - FAST_ROOT_POLICY_REVIEW: 15
   - REVIEW_NORMALIZATION: 3
@@ -66,7 +66,7 @@ Remaining v2 work:
 - mandatory high-yield ready variant patterns (5+ rows): 37
 - direct-roster review rows: 9
 - weak legacy direct rows still unresolved at baseline: 10
-- higher-reasoning seed queue: 52
+- higher-reasoning seed queue: 56
 
 The coverage is intentionally lower than older checkpoints because unsafe broad/platform/weak-provenance confirmations were requeued instead of being kept merely to preserve a high HOME_CONFIRMED count.
 
