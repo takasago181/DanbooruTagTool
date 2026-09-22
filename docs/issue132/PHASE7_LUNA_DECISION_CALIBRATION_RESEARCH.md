@@ -498,38 +498,43 @@ Use distributions only as **diagnostics for reviewer bias**.
 
 ---
 
-## 12. Calibration run before the full census
+## 12. No sample calibration pack
 
-Before the 31,003-row Luna run, use a **64-row calibration pack**.
+A fixed 32/64/100-row calibration pack is **rejected** for #132.
 
-Purpose:
-- tune the instruction;
-- not discover all product gaps.
+Reason:
 
-Balanced composition:
+- hand-picked examples can overrepresent known failure modes;
+- the reviewer can become tuned to the examples rather than the real population;
+- a small benchmark can look balanced while missing entire semantic families;
+- #132 is core product behavior, so the calibration authority must be the actual 31,003-identity population.
 
-- 16 clear current-route/KEEP cases;
-- 16 strong multi-axis secondary candidates;
-- 16 borderline combinatorial/overlap cases;
-- 16 proper-name/meme/upstream/semantic-ambiguity cases.
+Therefore:
 
-Include both sexual/contextual and ordinary image-generation concepts.
+- do not use a sample pack to approve the instruction;
+- do not infer population-wide quality from a bounded test;
+- do not tune Luna to match a curated answer key.
 
-### Calibration evaluation
+### Full-population calibration loop
 
-Do not judge Luna by one global accuracy number only.
+Use the actual full review as the calibration surface:
 
-Check:
-- Does it recognize obvious multi-axis cases?
-- Does it avoid mass color/modifier expansion?
-- Does it use BORDERLINE instead of forced KEEP/ADD?
-- Does it keep SEARCH_ORIENTED separate from SEMANTIC_UNRESOLVED?
-- Does it avoid changing #64/#76 from #132?
-- Are explanations consistent across sibling concepts?
+1. generate a neutral factual input for **all 31,003 identities**;
+2. Luna performs a first-pass disposition for all identities;
+3. run mechanical diagnostics across the complete population:
+   - decision distribution;
+   - route-growth distribution;
+   - family/sibling inconsistency;
+   - concentration by token/modifier family;
+   - confidence distribution;
+   - unresolved/search-oriented distribution;
+4. inspect the full-population anomaly clusters, not a curated sample;
+5. if the instruction is demonstrably biased, revise it;
+6. rerun the affected stage over the **full population**, not a hand-selected subset.
 
-If disagreement concentrates in one pattern, refine the guideline and rerun the calibration pack.
+The full population is the calibration set.
 
-This follows the research lesson that disagreement patterns are more actionable than a single aggregate agreement score.
+The purpose of diagnostics is to detect instruction bias, not to impose quotas.
 
 ---
 
