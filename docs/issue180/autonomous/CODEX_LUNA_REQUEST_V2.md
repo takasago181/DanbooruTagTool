@@ -55,7 +55,7 @@ Before claiming completion, run:
 
 If this reports `issue179_refresh_required_before_freeze=true`, include that fact in the final report. Do not stop the autonomous pass only because #179 advanced after the frozen handoff; live #179 synchronization is mandatory later before user freeze/promotion.
 
-Do not report completion if this final readiness gate fails. It also requires the high-yield unqualified discovery groups, high-yield ready variant patterns, requeued weak legacy direct rows, #179 officiality rows, and mandatory family lanes to have been resolved or explicitly reviewed/deferred. Explicitly researched UNRESOLVED / NEEDS_HIGHER_REASONING cases may remain deferred; untouched mandatory fast/officiality/direct-roster work may not.
+Do not report completion if this final readiness gate fails. It also requires the high-yield unqualified discovery groups, high-yield ready variant patterns, requeued weak legacy direct rows, #179 officiality rows, and mandatory family lanes to have been resolved or explicitly reviewed/deferred. Explicitly researched UNRESOLVED / NEEDS_HIGHER_REASONING cases may remain deferred only when they contain grounded evidence and substantive notes; untouched mandatory fast/officiality/direct-roster work may not. Requeued weak legacy rows may be safely reconfirmed or evidence-backed deferred after real review.
 
 Stop only after you have exhausted the safe work available in the generated queues and produced the full 35,890-row v2 review artifact.
 
