@@ -58,6 +58,65 @@ def read_decisions():
  return rows
 
 
+def repo_evidence_supports(row, path, rel_posix):
+ scope=(row.get("scope") or "").strip()
+ key=(row.get("key") or "").strip()
+ lookup_key=key.lower() if scope in {"FAMILY_QUALIFIER","DISCOVERY_GROUP"} else key
+ home=(row.get("home_copyright") or "").strip()
+ state=(row.get("validation_state") or "").strip()
+
+ if rel_posix=="docs/issue180/autonomous/AUTONOMOUS_POLICY_V2.json":
+  policy=json.loads(path.read_text(encoding="utf-8"))
+  supported=set(x.lower() for x in policy.get("broad_families",[]))
+  supported.update(x.lower() for x in policy.get("non_home_families",[]))
+  supported.update(x.lower() for x in policy.get("variant_qualifier_families",[]))
+  supported.update(x.lower() for x in policy.get("attribute_families",[]))
+  supported.update(x.lower() for x in policy.get("root_policy_normalization",{}))
+  supported.update(x.lower() for x in policy.get("root_policy_review_hint_exact",{}))
+  supported.update(str(v).lower() for v in policy.get("root_policy_normalization",{}).values())
+  return scope in {"FAMILY_QUALIFIER","DISCOVERY_GROUP"} and (
+   lookup_key.lower() in supported or (home and home.lower() in supported)
+  )
+
+ if rel_posix=="docs/issue180/AUTHORITY_POLICY_V1.md":
+  text=path.read_text(encoding="utf-8").lower()
+  key_present=bool(key) and key.lower() in text
+  home_present=not home or home.lower() in text
+  if state=="PASS" and scope in {"DIRECT_CHARACTER","VARIANT_CHARACTER"}:
+   return False
+  return key_present and home_present
+
+ if not rel_posix.startswith("docs/issue180/evidence/"):
+  return False
+ if path.suffix.lower()!=".csv":
+  return False
+
+ rows=read(path)
+ for ev in rows:
+  family=(ev.get("family") or "").strip().lower()
+  ev_home=(ev.get("home_copyright") or "").strip()
+  canonical=(ev.get("canonical_tag") or "").strip()
+  canonical_base=(ev.get("canonical_base") or "").strip()
+  pattern=(ev.get("pattern_id") or "").strip()
+
+  matched=False
+  if scope in {"FAMILY_QUALIFIER","DISCOVERY_GROUP"}:
+   matched=(family==lookup_key.lower()) or (ev_home.lower()==lookup_key.lower())
+  elif scope in {"DIRECT_CHARACTER","VARIANT_CHARACTER","BLOCK_CHARACTER","NOT_OFFICIAL_CHARACTER"}:
+   matched=(canonical==key) or (canonical_base==key)
+  elif scope=="VARIANT_PATTERN":
+   matched=(pattern==key)
+
+  if not matched:
+   continue
+
+  if state=="PASS" and scope in {"FAMILY_QUALIFIER","DIRECT_CHARACTER","VARIANT_CHARACTER"}:
+   if not ev_home or not home or ev_home!=home:
+    continue
+  return True
+ return False
+
+
 def evidence_gate(row):
  url=(row.get("evidence_url") or "").strip()
  claim=(row.get("evidence_claim") or "").strip()
@@ -96,6 +155,8 @@ def evidence_gate(row):
    return False, "REPO evidence must come from approved evidence/policy paths; generated artifacts and review outputs are discovery/context only"
   if not path.exists():
    return False, "REPO evidence path does not exist"
+  if not repo_evidence_supports(row,path,rel_posix):
+   return False, "approved REPO evidence does not contain/support this decision key and HOME"
   if len(notes) < 8:
    return False, "REPO evidence requires notes describing what the file proves"
   return True, ""
