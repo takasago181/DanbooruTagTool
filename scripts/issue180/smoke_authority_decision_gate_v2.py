@@ -71,6 +71,14 @@ def main():
   "evidence_claim":evidence,"validation_state":"PASS","officiality_state":"","notes":"Repository policy evidence for smoke test.",
  }])], "autonomous broad-family FAMILY_QUALIFIER PASS is disabled")
 
+ expect_fail("self_referential_repo_evidence", [("a",[{
+  "scope":"FAMILY_QUALIFIER","key":"blue_archive","home_copyright":"blue_archive",
+  "base_character":"","authority_type":"QUALIFIER_COPYRIGHT","evidence_url":"",
+  "evidence_claim":"REPO:docs/issue180/autonomous/decisions/__SMOKE_self_referential_repo_evidence_a.csv",
+  "validation_state":"PASS","officiality_state":"",
+  "notes":"A decision shard must not be allowed to prove its own authority.",
+ }])], "decision shards cannot be used as their own REPO evidence")
+
  expect_fail("fake_repo_evidence", [("a",[{
   "scope":"FAMILY_QUALIFIER","key":"blue_archive","home_copyright":"blue_archive",
   "base_character":"","authority_type":"QUALIFIER_COPYRIGHT","evidence_url":"",
