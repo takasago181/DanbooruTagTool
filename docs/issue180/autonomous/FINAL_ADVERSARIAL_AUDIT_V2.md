@@ -48,23 +48,28 @@ The audit reproduced and fixed the following failure classes:
    - different HOME => conflict
    - same HOME => corroboration; preserve direct provenance
 
-8. reviewed unresolved work re-entering active queues
+8. newly unlocked variant patterns being missed by a static freeze-time registry
+   - 1,691 baseline variant rows had an existing base Character but no confirmed base HOME
+   - every recompile now rebuilds dynamic ready patterns from the current HOME graph
+   - final readiness therefore catches large variant groups unlocked by later family/direct decisions
+
+9. reviewed unresolved work re-entering active queues
    - terminal reviewed family/Character/group/pattern results are separated from active work
 
-9. no-op / low-effort autonomous completion
+10. no-op / low-effort autonomous completion
    - final readiness requires meaningful decision work and exhaustion/review of mandatory lanes
    - terminal UNRESOLVED / NEEDS_HIGHER_REASONING requires grounded evidence plus substantive notes
    - weak legacy rows may be evidence-backed deferred after real review instead of being forced into a guessed HOME
 
-10. autonomous gate weakening
+11. autonomous gate weakening
    - after execution freeze, final write-scope allows decision shard CSV changes only
 
-11. stale Issue #179 dependency
+12. stale Issue #179 dependency
    - the autonomous run uses a frozen #179 handoff snapshot
    - live #179 changes are reported
    - live freshness is mandatory again before later user freeze/promotion
 
-12. future Issue #179 confirmed non-official rows
+13. future Issue #179 confirmed non-official rows
    - they are removed from the HOME foundation and deterministically become NOT_OFFICIAL_CHARACTER
    - Luna itself cannot create NOT_OFFICIAL_CHARACTER
 
