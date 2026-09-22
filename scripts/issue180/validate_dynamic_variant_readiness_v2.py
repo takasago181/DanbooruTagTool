@@ -4,7 +4,8 @@ from __future__ import annotations
 
 import csv
 import json
-from collections import Counter
+import hashlib
+from collections import defaultdict
 from pathlib import Path
 
 R=Path(__file__).resolve().parents[2]
@@ -21,13 +22,19 @@ def read(path):
         return list(csv.DictReader(f))
 
 
-def pattern_id(row):
+def pattern_core(row):
     home=(row.get("base_home_candidate") or "").strip()
     outer=(row.get("outer_ip_qualifier") or "").strip() or "-"
     variant=(row.get("variant_qualifier") or "").strip()
     if not home or not variant:
         raise SystemExit(f"ready variant missing dynamic pattern key: {row.get('canonical_tag')}")
     return f"{home}::{outer}::{variant}"
+
+
+def fingerprint_pattern(core, tags):
+    members=sorted(tags)
+    member_hash=hashlib.sha256("\n".join(members).encode("utf-8")).hexdigest()[:12]
+    return f"{core}::n{len(members)}::{member_hash}"
 
 
 def main():
@@ -38,10 +45,15 @@ def main():
     policy=json.loads(POLICY.read_text(encoding="utf-8"))
     threshold=int(policy["mandatory_variant_pattern_min_rows"])
 
-    expected=Counter()
+    grouped=defaultdict(list)
     for row in variants:
         if row.get("work_state")=="BASE_HOME_READY_OFFICIALITY_REVIEW":
-            expected[pattern_id(row)]+=1
+            grouped[pattern_core(row)].append(row["canonical_tag"])
+
+    expected={
+        fingerprint_pattern(core,tags):len(tags)
+        for core,tags in grouped.items()
+    }
 
     ids=[r["pattern_id"].strip() for r in dynamic]
     if len(ids)!=len(set(ids)):
