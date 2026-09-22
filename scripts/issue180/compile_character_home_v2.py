@@ -310,7 +310,7 @@ def main() -> None:
     rec_by: dict[str, dict[str, str]] = {}
     reason_by: dict[str, str] = {}
     for tag in char_tags:
-        if tag in not_official or tag in blocks:
+        if tag in not_official or tag in blocks or tag in deferred_character_reason:
             continue
         direct_choice = chosen_direct.get(tag)
         if tag in origin_guarded and direct_choice:
@@ -353,9 +353,9 @@ def main() -> None:
                 conflicts.add(tag)
                 pending.remove(tag)
                 continue
-            if tag in not_official or tag in blocks:
-                conflicts.add(tag)
+            if tag in not_official or tag in blocks or tag in deferred_character_reason:
                 pending.remove(tag)
+                changed = True
                 continue
             if tag in home_by:
                 if home_by[tag] != inherited:
