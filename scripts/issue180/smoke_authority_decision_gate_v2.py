@@ -188,6 +188,14 @@ def main():
   "notes":"Pattern progress must never grant HOME directly.",
  }])], "VARIANT_PATTERN is review-progress only")
 
+ expect_fail("block_without_substantive_note", [("a",[{
+  "scope":"BLOCK_CHARACTER","key":"harmony_(pokemon)","home_copyright":"",
+  "base_character":"","authority_type":"OFFICIALITY_BLOCK","evidence_url":"https://example.com/harmony-block-smoke",
+  "evidence_claim":"External smoke evidence reaches the BLOCK_CHARACTER note-quality gate.",
+  "validation_state":"PASS","officiality_state":"",
+  "notes":"too short",
+ }])], "BLOCK_CHARACTER PASS requires notes")
+
  expect_fail("autonomous_not_official", [("a",[{
   "scope":"NOT_OFFICIAL_CHARACTER","key":"harmony_(pokemon)","home_copyright":"",
   "base_character":"","authority_type":"AUTONOMOUS_NON_OFFICIAL","evidence_url":"https://example.com/harmony-officiality-smoke",
