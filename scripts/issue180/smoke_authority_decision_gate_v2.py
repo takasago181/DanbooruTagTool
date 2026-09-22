@@ -95,7 +95,7 @@ def main():
   "base_character":"","authority_type":"","evidence_url":"",
   "evidence_claim":"","validation_state":"UNRESOLVED",
   "officiality_state":"","notes":"Reviewed the group but deliberately omitted grounded evidence for this smoke case.",
- }])], "DISCOVERY_GROUP terminal review requires grounded evidence")
+ }])], "terminal DISCOVERY_GROUP review requires grounded evidence")
 
  expect_fail("variant_pattern_pass", [("a",[{
   "scope":"VARIANT_PATTERN","key":"blue_archive::blue_archive::swimsuit","home_copyright":"",
