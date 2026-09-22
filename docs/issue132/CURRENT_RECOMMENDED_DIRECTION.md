@@ -398,6 +398,29 @@ Leading product direction remains deliberately simple:
 
 ---
 
+## 15. Full semantic review supersedes machine-only completion
+
+The user has explicitly selected a stronger completion standard for #132:
+
+**all 31,003 runtime ordinary-tag identities must be semantically reviewed one by one before #132 is considered complete.**
+
+The Phase 6 machine census remains useful only for ordering, grouping, context, and regression checks.
+
+It must not be used to skip the 28,537 machine-OK rows or any other population.
+
+Current review contract:
+
+- `docs/issue132/FULL_SEMANTIC_REVIEW_PROTOCOL.md`
+- `docs/issue132/CODEX_FULL_SEMANTIC_REVIEW_HANDOFF.md`
+
+The full review is organized into deterministic 200-row shards so similar rows can be checked efficiently without converting group heuristics into final decisions.
+
+Every identity must receive an explicit semantic decision row.
+
+Only after the complete 31,003-row review is finished should #132 decide the minimal production change.
+
+---
+
 ## 14. Protected boundaries
 
 Research only until prototype acceptance.
