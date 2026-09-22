@@ -93,6 +93,9 @@ def main():
         "pauline_(nintendo)": "nintendo",
         "hyper_roll_(marvel_vs._capcom)": "marvel_vs._capcom",
         "otomachi_una_(voicepeak)": "voicepeak",
+        "sangonomiya_kokomi_(sushiro)": "sushiro",
+        "king_(snk)": "snk",
+        "nanase_(arika)": "arika",
     }
     for tag, forbidden_home in forbidden_qualifier_home.items():
         row = by_tag.get(tag)
