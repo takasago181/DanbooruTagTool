@@ -75,23 +75,22 @@ def repo_evidence_supports(row, path, rel_posix):
     and bool(home)
     and root_map.get(lookup_key.lower())==home
    )
-  supported=set(x.lower() for x in policy.get("broad_families",[]))
-  supported.update(x.lower() for x in policy.get("non_home_families",[]))
-  supported.update(x.lower() for x in policy.get("variant_qualifier_families",[]))
-  supported.update(x.lower() for x in policy.get("attribute_families",[]))
-  supported.update(root_map)
-  supported.update(x.lower() for x in policy.get("root_policy_review_hint_exact",{}))
-  supported.update(str(x).lower() for x in policy.get("piapro_policy_characters",[]))
-  return (
-   (scope in {"FAMILY_QUALIFIER","DISCOVERY_GROUP"} and lookup_key.lower() in supported)
-   or (scope in {"DIRECT_CHARACTER","BLOCK_CHARACTER"} and key.lower() in supported)
-  )
+
+  # Policy may justify a structural/policy hold only when the policy itself
+  # explicitly says this key is non-HOME or a named Character needs a policy
+  # decision.  Broad-family membership alone is not proof that external
+  # research was completed.
+  non_home={str(x).lower() for x in policy.get("non_home_families",[])}
+  piapro={str(x).lower() for x in policy.get("piapro_policy_characters",[])}
+  if scope in {"FAMILY_QUALIFIER","DISCOVERY_GROUP"}:
+   return lookup_key.lower() in non_home
+  if scope in {"DIRECT_CHARACTER","BLOCK_CHARACTER"}:
+   return key.lower() in piapro
+  return False
 
  if rel_posix=="docs/issue180/AUTHORITY_POLICY_V1.md":
-  if state=="PASS":
-   return False
-  text=path.read_text(encoding="utf-8").lower()
-  return bool(key) and key.lower() in text
+  # This is a methodology document, not row-level factual evidence.
+  return False
 
  if not rel_posix.startswith("docs/issue180/evidence/"):
   return False
@@ -106,13 +105,18 @@ def repo_evidence_supports(row, path, rel_posix):
   canonical_base=(ev.get("canonical_base") or "").strip()
   pattern=(ev.get("pattern_id") or "").strip()
 
+  # Evidence is scope-bound.  A row that merely names the same HOME is not
+  # sufficient to promote an entire family, and base-character evidence is
+  # not sufficient to prove a variant Character.
   matched=False
   if scope in {"FAMILY_QUALIFIER","DISCOVERY_GROUP"}:
-   matched=(family==lookup_key.lower()) or (ev_home.lower()==lookup_key.lower())
-  elif scope in {"DIRECT_CHARACTER","VARIANT_CHARACTER","BLOCK_CHARACTER","NOT_OFFICIAL_CHARACTER"}:
+   matched=bool(family) and family==lookup_key.lower()
+  elif scope=="DIRECT_CHARACTER":
    matched=(canonical==key) or (canonical_base==key)
+  elif scope in {"VARIANT_CHARACTER","BLOCK_CHARACTER","NOT_OFFICIAL_CHARACTER"}:
+   matched=bool(canonical) and canonical==key
   elif scope=="VARIANT_PATTERN":
-   matched=(pattern==key)
+   matched=bool(pattern) and pattern==key
 
   if not matched:
    continue
@@ -122,7 +126,6 @@ def repo_evidence_supports(row, path, rel_posix):
     continue
   return True
  return False
-
 
 def evidence_gate(row):
  url=(row.get("evidence_url") or "").strip()
