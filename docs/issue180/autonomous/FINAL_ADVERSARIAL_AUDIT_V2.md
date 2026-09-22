@@ -21,11 +21,13 @@ The audit reproduced and fixed the following failure classes:
 1. collaboration/project qualifier mistaken for HOME
    - project_voltage
    - marvel_vs._capcom
+   - sushiro (regression example: sangonomiya_kokomi_(sushiro))
 
 2. umbrella/company/platform qualifier mistaken for canonical Character HOME
    - project_moon
    - vocaloid
    - nintendo / namco / capcom / cygames / type-moon / fromsoftware
+   - snk / arika / alicesoft
    - cevio / utau / synthesizer_v / voiceroid / voicevox / voicepeak / coefont
    - a.i._voice / gynoid_talk / talkex / voisona
 
@@ -49,8 +51,10 @@ The audit reproduced and fixed the following failure classes:
 8. reviewed unresolved work re-entering active queues
    - terminal reviewed family/Character/group/pattern results are separated from active work
 
-9. no-op autonomous completion
+9. no-op / low-effort autonomous completion
    - final readiness requires meaningful decision work and exhaustion/review of mandatory lanes
+   - terminal UNRESOLVED / NEEDS_HIGHER_REASONING requires grounded evidence plus substantive notes
+   - weak legacy rows may be evidence-backed deferred after real review instead of being forced into a guessed HOME
 
 10. autonomous gate weakening
    - after execution freeze, final write-scope allows decision shard CSV changes only
@@ -87,6 +91,17 @@ The run is deliberately group-first:
 - high-yield variant patterns are reviewed once and explicit VARIANT_CHARACTER decisions are written for covered variants;
 - normalized/root-policy family mappings are reviewed once per family;
 - long-tail unresolved rows do not require one web search each.
+
+## Human review auditability
+
+The 35,890-row user review exposes:
+- HOME/final state
+- #179 origin/officiality context
+- authority type/provenance for confirmed HOME
+- unresolved reason
+- evidence-backed review context for terminal family, direct Character, discovery-group and variant-pattern reviews
+
+A group/pattern review never creates HOME merely by appearing as review context.
 
 ## Completion semantics
 
