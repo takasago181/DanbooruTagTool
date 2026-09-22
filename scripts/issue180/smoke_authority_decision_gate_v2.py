@@ -37,6 +37,19 @@ def expect_fail(name, files, expected):
    p.unlink(missing_ok=True)
 
 
+def expect_pass(name, rows):
+ path=D/f"__SMOKE_{name}_pass.csv"
+ try:
+  write(path,rows)
+  p=subprocess.run([sys.executable,str(VALIDATOR)],cwd=R,text=True,capture_output=True)
+  out=(p.stdout or "")+(p.stderr or "")
+  if p.returncode!=0:
+   raise SystemExit(f"{name}: validator unexpectedly rejected valid input: {out[-800:]!r}")
+  print(f"{name}: accepted as expected")
+ finally:
+  path.unlink(missing_ok=True)
+
+
 def main():
  evidence="REPO:docs/issue180/AUTHORITY_POLICY_V1.md"
  expect_fail("original_family", [("a",[{
@@ -82,6 +95,27 @@ def main():
   "base_character":"","authority_type":"","evidence_url":"",
   "evidence_claim":"","validation_state":"UNRESOLVED","officiality_state":"","notes":"too short",
  }])], "terminal UNRESOLVED decision requires notes")
+
+ expect_fail("family_terminal_no_evidence", [("a",[{
+  "scope":"FAMILY_QUALIFIER","key":"blue_archive","home_copyright":"",
+  "base_character":"","authority_type":"","evidence_url":"",
+  "evidence_claim":"","validation_state":"UNRESOLVED","officiality_state":"",
+  "notes":"Completed family review but intentionally omitted evidence for this smoke case.",
+ }])], "terminal FAMILY_QUALIFIER review requires grounded evidence")
+
+ expect_fail("direct_terminal_no_evidence", [("a",[{
+  "scope":"DIRECT_CHARACTER","key":"harmony_(pokemon)","home_copyright":"",
+  "base_character":"","authority_type":"","evidence_url":"",
+  "evidence_claim":"","validation_state":"UNRESOLVED","officiality_state":"",
+  "notes":"Completed direct review but intentionally omitted evidence for this smoke case.",
+ }])], "terminal DIRECT_CHARACTER review requires grounded evidence")
+
+ expect_pass("family_terminal_with_repo_evidence", [{
+  "scope":"FAMILY_QUALIFIER","key":"blue_archive","home_copyright":"",
+  "base_character":"","authority_type":"","evidence_url":"",
+  "evidence_claim":evidence,"validation_state":"UNRESOLVED","officiality_state":"",
+  "notes":"Reviewed against the recorded repository authority policy; evidence remained insufficient for this hypothetical terminal result.",
+ }])
 
  expect_fail("discovery_group_pass", [("a",[{
   "scope":"DISCOVERY_GROUP","key":"pokemon","home_copyright":"",
