@@ -149,6 +149,7 @@ def main():
   and r["canonical_tag"] not in deferred_character_tags
  ]
  pending=int(summary.get("autonomous_pending_rows",0))
+ pending_variant_pass=int(summary.get("pending_reviewed_variants_without_confirmed_base",0))
  decisions=int(summary.get("autonomous_decision_rows",0))
 
  blockers={
@@ -159,6 +160,7 @@ def main():
   "mandatory_unqualified_groups":len(missing_mandatory_groups),
   "mandatory_variant_patterns":len(missing_mandatory_variant_patterns),
   "legacy_weak_direct_rows":len(weak_unresolved),
+  "pending_variant_pass_rows":pending_variant_pass,
   "pending_decision_rows":pending,
  }
  ready=all(v==0 for v in blockers.values()) and decisions>0
