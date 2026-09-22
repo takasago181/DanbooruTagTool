@@ -268,6 +268,9 @@ def main():
   if state!="PASS":
    continue
 
+  if scope=="BLOCK_CHARACTER":
+   raise SystemExit(f"{where}: BLOCK_CHARACTER is terminal review only; use UNRESOLVED/NEEDS_HIGHER_REASONING with grounded evidence")
+
   authority_type=(r.get("authority_type") or "").strip()
   officiality=(r.get("officiality_state") or "").strip()
   if not authority_type:
@@ -291,11 +294,6 @@ def main():
      raise SystemExit(f"{where}: autonomous broad-family FAMILY_QUALIFIER PASS is disabled; use DIRECT_CHARACTER roster evidence or an explicit policy normalization")
     if authority_type not in BROAD_PASS_TYPES:
      raise SystemExit(f"{where}: broad family PASS requires explicit root-policy/roster authority_type")
-
-  if scope=="BLOCK_CHARACTER":
-   block_note=(r.get("notes") or "").strip()
-   if len(block_note)<20:
-    raise SystemExit(f"{where}: BLOCK_CHARACTER PASS requires notes (>=20 chars) describing why HOME must remain blocked")
 
   if scope=="DIRECT_CHARACTER" and officiality not in {"OFFICIAL_CONFIRMED","OFFICIAL_IDENTITY"}:
    raise SystemExit(f"{where}: DIRECT_CHARACTER PASS requires OFFICIAL_CONFIRMED/OFFICIAL_IDENTITY")
