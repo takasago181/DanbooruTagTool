@@ -77,7 +77,7 @@ The audit reproduced and fixed the following failure classes:
 
 Old RelatedCopyright, post co-occurrence, name similarity and search overlap are discovery hints only.
 
-Autonomous PASS and terminal reviewed deferrals require grounded evidence and scoped authority. Internal `REPO:` authority is allow-listed to the dedicated Issue #180 evidence directory and policy files. Generated artifacts/work queues/masters/review outputs and autonomous decision files cannot serve as authority; this prevents old relation/co-occurrence candidates from becoming circular proof.
+Autonomous PASS and terminal reviewed deferrals require grounded evidence and scoped authority. Internal `REPO:` authority is allow-listed to the dedicated Issue #180 evidence directory and policy files. Generated artifacts/work queues/masters/review outputs and autonomous decision files cannot serve as authority, including through this repository's GitHub/raw/API URLs; this prevents old relation/co-occurrence candidates from becoming circular proof.
 
 Broad/umbrella families cannot receive autonomous FAMILY_QUALIFIER PASS.
 
