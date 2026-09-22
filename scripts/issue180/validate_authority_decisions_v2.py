@@ -3,6 +3,7 @@
 from __future__ import annotations
 import csv
 import json
+import re
 from collections import Counter, defaultdict
 from pathlib import Path
 
@@ -195,11 +196,15 @@ def main():
  }
 
  def structurally_valid_dynamic_variant_pattern(key):
-  parts=key.split("::",2)
-  if len(parts)!=3:
+  parts=key.split("::")
+  if len(parts)!=5:
    return False
-  home,outer,variant_q=parts
+  home,outer,variant_q,count_token,member_hash=parts
   if not home or not variant_q or not root_resolves(home):
+   return False
+  if not re.fullmatch(r"n[1-9][0-9]*",count_token):
+   return False
+  if not re.fullmatch(r"[0-9a-f]{12}",member_hash):
    return False
   return (outer or "-",variant_q) in variant_shapes
 
