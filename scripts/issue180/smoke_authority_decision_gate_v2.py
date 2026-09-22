@@ -79,6 +79,22 @@ def main():
   "notes":"A decision shard must not be allowed to prove its own authority.",
  }])], "decision shards cannot be used as their own REPO evidence")
 
+ expect_fail("generated_artifact_as_evidence", [("a",[{
+  "scope":"FAMILY_QUALIFIER","key":"blue_archive","home_copyright":"",
+  "base_character":"","authority_type":"","evidence_url":"",
+  "evidence_claim":"REPO:artifacts/issue180-full-preflight/POST_NORMALIZED_REVIEW/MASTER_HOME_V2/FAMILY_WORK_QUEUE_V2.csv",
+  "validation_state":"UNRESOLVED","officiality_state":"",
+  "notes":"Generated work queues are discovery/context only and must never prove their own terminal review.",
+ }])], "REPO evidence must come from approved evidence/policy paths")
+
+ expect_fail("review_output_as_evidence", [("a",[{
+  "scope":"FAMILY_QUALIFIER","key":"blue_archive","home_copyright":"",
+  "base_character":"","authority_type":"","evidence_url":"",
+  "evidence_claim":"REPO:docs/issue180/autonomous/FINAL_ADVERSARIAL_AUDIT_V2.md",
+  "validation_state":"UNRESOLVED","officiality_state":"",
+  "notes":"Autonomous review documentation is not factual authority for a family HOME decision.",
+ }])], "REPO evidence must come from approved evidence/policy paths")
+
  expect_fail("fake_repo_evidence", [("a",[{
   "scope":"FAMILY_QUALIFIER","key":"blue_archive","home_copyright":"blue_archive",
   "base_character":"","authority_type":"QUALIFIER_COPYRIGHT","evidence_url":"",
