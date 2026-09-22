@@ -229,13 +229,21 @@ def main():
   "notes":"Pattern progress must never grant HOME directly.",
  }])], "VARIANT_PATTERN is review-progress only")
 
- expect_fail("block_without_substantive_note", [("a",[{
+ expect_fail("block_pass_disallowed", [("a",[{
   "scope":"BLOCK_CHARACTER","key":"harmony_(pokemon)","home_copyright":"",
   "base_character":"","authority_type":"OFFICIALITY_BLOCK","evidence_url":"https://example.com/harmony-block-smoke",
-  "evidence_claim":"External smoke evidence reaches the BLOCK_CHARACTER note-quality gate.",
+  "evidence_claim":"External smoke evidence intentionally reaches the BLOCK_CHARACTER terminal-only gate.",
   "validation_state":"PASS","officiality_state":"",
-  "notes":"too short",
- }])], "BLOCK_CHARACTER PASS requires notes")
+  "notes":"Even a well-documented block must use a terminal review state rather than PASS.",
+ }])], "BLOCK_CHARACTER is terminal review only")
+
+ expect_pass("block_terminal_review", [{
+  "scope":"BLOCK_CHARACTER","key":"harmony_(pokemon)","home_copyright":"",
+  "base_character":"","authority_type":"","evidence_url":"https://example.com/harmony-block-review-smoke",
+  "evidence_claim":"External smoke evidence represents a reviewed Character-specific HOME hold.",
+  "validation_state":"NEEDS_HIGHER_REASONING","officiality_state":"",
+  "notes":"Character-specific evidence remains ambiguous, so all HOME inheritance paths must stay blocked pending higher review.",
+ }])
 
  expect_fail("autonomous_not_official", [("a",[{
   "scope":"NOT_OFFICIAL_CHARACTER","key":"harmony_(pokemon)","home_copyright":"",
