@@ -200,8 +200,8 @@ def main():
  }])
 
  expect_fail("base_roster_not_variant_evidence", [("a",[{
-  "scope":"VARIANT_CHARACTER","key":"callie","home_copyright":"splatoon_(series)",
-  "base_character":"callie","authority_type":"VARIANT_TEST","evidence_url":"",
+  "scope":"VARIANT_CHARACTER","key":"callie_(splatoon)","home_copyright":"splatoon_(series)",
+  "base_character":"callie_(splatoon)","authority_type":"VARIANT_TEST","evidence_url":"",
   "evidence_claim":"REPO:docs/issue180/evidence/splatoon_official_roster_v1.csv",
   "validation_state":"PASS","officiality_state":"OFFICIAL_VARIANT",
   "notes":"A base-character roster row must not prove variant officiality merely through canonical_base.",
