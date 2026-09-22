@@ -22,6 +22,7 @@ The audit reproduced and fixed the following failure classes:
    - project_voltage
    - marvel_vs._capcom
    - sushiro (regression example: sangonomiya_kokomi_(sushiro))
+   - futaba_channel (community/imageboard qualifier; regression example: daiginjou_(futaba_channel))
 
 2. umbrella/company/platform qualifier mistaken for canonical Character HOME
    - project_moon
@@ -30,6 +31,7 @@ The audit reproduced and fixed the following failure classes:
    - snk / arika / alicesoft
    - cevio / utau / synthesizer_v / voiceroid / voicevox / voicepeak / coefont
    - a.i._voice / gynoid_talk / talkex / voisona
+   - adaptation root exception: blue_archive_the_animation -> blue_archive
 
 3. known Issue #179 UNKNOWN identity receiving HOME only because its qualifier family was accepted
    - regression example: harmony_(pokemon)
