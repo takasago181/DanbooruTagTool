@@ -505,8 +505,9 @@ Current research direction:
 6. Run family-consistency and route-growth audits after the census.
 7. Apply a stricter higher-reasoning precision gate only to candidate/conflict rows before production.
 8. No decision quotas; distributions are bias alarms only.
-9. Use a 64-row instruction-calibration run before the full census.
-10. Continuous review + periodic persistence should replace the older 200-row shard concept as an execution boundary.
+9. Do not use a bounded instruction-calibration sample. The 31,003-identity population itself is the calibration surface.
+10. Diagnose bias from full-population distributions/family inconsistencies and rerun the full stage if the instruction is materially biased.
+11. Continuous review + periodic persistence should replace the older 200-row shard concept as an execution boundary.
 
 Research:
 - `docs/issue132/PHASE7_LUNA_DECISION_CALIBRATION_RESEARCH.md`
