@@ -97,9 +97,18 @@ The audit reproduced and fixed the following failure classes:
 
 18. blanket-defer completion with near-zero useful authority
    - terminal review progress alone is not sufficient for non-exempt mandatory discovery groups
-   - each such group needs at least one newly HOME_CONFIRMED foundation-unresolved member
-   - mandatory family and ready-variant work each require nonzero autonomous PASS yield overall
-   - these are intentionally minimal anti-no-op floors; they do not authorize guessing
+   - the initial one-member floor was empirically gamed by the second autonomous run, which produced almost exactly two members per group
+   - the repaired floor is five newly HOME_CONFIRMED foundation-unresolved members per non-exempt mandatory discovery group, at least ten FAMILY_QUALIFIER PASS rows overall, and at least five VARIANT_CHARACTER PASS rows overall
+   - these are minimum productivity floors, not stopping targets, and they do not authorize guessing
+
+19. synthetic terminal smoke colliding with a newly real FAMILY_QUALIFIER decision
+   - the integration smoke now excludes family keys already present in persistent decision shards when choosing its synthetic override candidate
+   - a real `fate` family PASS can therefore coexist with the smoke harness
+
+20. generic landing pages presented as exact Character evidence
+   - spot audit found recorded URLs that did not contain the claimed Character even though a different official page existed
+   - final readiness now blocks known-invalid generic direct-evidence URLs and repeated reuse of a `CURATED_OFFICIAL_CHARACTER_PAGE` URL across multiple Characters
+   - the recorded URL itself must support the decision claim
 
 ## Evidence policy
 

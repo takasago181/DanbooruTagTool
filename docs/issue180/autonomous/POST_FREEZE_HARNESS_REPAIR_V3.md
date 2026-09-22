@@ -40,3 +40,26 @@ These are minimum anti-no-op floors, not coverage targets. The next Codex pass i
 3. Create a new execution marker whose `base_sha` is that validated repair commit and whose `decision_snapshot_sha` is the preserved first-run decision commit above.
 4. Require the full workflow to PASS again on the refreeze marker.
 5. Only then resume Codex. After refreeze, only `docs/issue180/autonomous/decisions/*.csv` may change.
+
+
+## Second post-freeze repair (v4)
+
+The second Codex decision run completed at `f295559abbdce01c27290c3e1704b5cf28815780`.
+
+It again respected freeze scope, changing only:
+- `direct_and_exceptions_v2.csv`
+- `family_terminal_reviews_v2.csv`
+- `variant_pattern_reviews_v2.csv`
+
+New findings:
+1. `smoke_terminal_review_overrides_v2.py` chose `fate` as a synthetic family even after `fate` became a real FAMILY_QUALIFIER PASS, causing CI failure.
+2. The model treated the anti-no-op floor as a target: 43 mandatory discovery groups received exactly two confirmations, despite instructions to continue harvesting safe evidence.
+3. Spot audit showed some DIRECT_CHARACTER PASS rows cited generic landing pages whose recorded URL did not itself contain the claimed Character.
+
+Repair v4 therefore:
+- makes terminal smoke avoid persistent family decision keys;
+- raises the productive minimum to 5 confirmed members per non-exempt mandatory discovery group, 10 family PASS rows, and 5 variant PASS rows;
+- blocks known generic direct-evidence URLs found invalid by spot audit;
+- flags reuse of one `CURATED_OFFICIAL_CHARACTER_PAGE` URL across multiple Characters.
+
+The preserved second-run decision snapshot is `f295559abbdce01c27290c3e1704b5cf28815780`.

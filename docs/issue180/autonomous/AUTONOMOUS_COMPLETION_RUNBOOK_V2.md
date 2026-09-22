@@ -200,7 +200,7 @@ The current dataset has roughly 16.7k unqualified rows, but nearly all have a su
 
 Groups with at least 50 unresolved Characters are mandatory high-yield roster reviews before final readiness. There are only a few dozen such groups, covering several thousand Characters.
 
-A terminal group-review row by itself is not enough for productive completion. For each non-exempt mandatory group, at least one foundation-unresolved member must become HOME_CONFIRMED through grounded direct authority. This is only a minimum anti-no-op floor, not a quota: continue harvesting all safely provable roster members. The explicit zero-yield exemptions are `original` and `indie_virtual_youtuber`, because those discovery labels do not imply one shared canonical HOME.
+A terminal group-review row by itself is not enough for productive completion. For each non-exempt mandatory group, at least five foundation-unresolved members must become HOME_CONFIRMED through grounded direct authority. This is still a minimum floor rather than a target: continue harvesting all safely provable roster members. The explicit zero-yield exemptions are `original` and `indie_virtual_youtuber`, because those discovery labels do not imply one shared canonical HOME.
 
 For each mandatory group:
 1. inspect an official/curated roster or other grounded source once;
@@ -292,14 +292,14 @@ This final gate fails when mandatory active work remains or the autonomous pass 
 - direct-roster review rows
 - high-yield unqualified discovery groups (policy threshold: 50 rows)
 - reviewed non-exempt high-yield discovery groups with zero newly confirmed members
-- zero autonomous FAMILY_QUALIFIER PASS yield across mandatory family work
+- fewer than 10 autonomous FAMILY_QUALIFIER PASS rows across mandatory family work
 - high-yield ready variant patterns (policy threshold: 5 rows)
-- zero autonomous VARIANT_CHARACTER PASS yield when mandatory ready variant patterns exist
+- fewer than 5 autonomous VARIANT_CHARACTER PASS rows when mandatory ready variant patterns exist
 - weak legacy direct rows requeued for provenance upgrade
 - PENDING decision rows
 - a completely empty autonomous decision set
 
-Rows explicitly researched and concluded `UNRESOLVED` or `NEEDS_HIGHER_REASONING` require grounded evidence plus a substantive note, are moved to deferred outputs, and do not re-enter active queues. Weak legacy rows may finish either by gaining safe HOME authority or by an evidence-backed terminal review; they must not remain untouched.
+Rows explicitly researched and concluded `UNRESOLVED` or `NEEDS_HIGHER_REASONING` require grounded evidence plus a substantive note, are moved to deferred outputs, and do not re-enter active queues. For DIRECT_CHARACTER PASS rows, the recorded evidence URL itself must visibly support the named Character or be a genuine roster page that visibly contains the named Character. A nearby generic project/product landing page is not acceptable merely because a better page can be found elsewhere. Reusing one URL while labeling it `CURATED_OFFICIAL_CHARACTER_PAGE` for multiple different Characters is a readiness blocker; use actual individual pages or a truthful roster authority type backed by a real roster page. Weak legacy rows may finish either by gaining safe HOME authority or by an evidence-backed terminal review; they must not remain untouched.
 
 ## Final stop rule
 
