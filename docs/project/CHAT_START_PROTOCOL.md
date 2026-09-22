@@ -4,7 +4,7 @@
 
 ## 1. 読取順
 
-### DEV / KNOWLEDGE / PROMPT / TEMP / AUDIT / GitHub管理
+### DEV / KNOWLEDGE / TEMP / AUDIT / GitHub管理
 
 1. `docs/project/CURRENT_STATE.md`
 2. `docs/project/PERMANENT_RULES.md`
@@ -33,8 +33,8 @@ v1 product core:
 - userが手動選択
 - canonical-English Promptをcopy
 
-Issue #5 / Stage10 / generation-effectivenessはv1の必須laneではない。
-PROMPT班は、将来採用featureが画像依存のgeneration evidenceを必要とする時にcontrolled Prompt/A-B設計を担当する。
+Issue #65 / Stage10 / generation-effectivenessはv1の必須laneではない。
+旧PROMPT班は廃止済み。Prompt / generation-effectiveness / controlled Prompt-A/B knowledgeはKNOWLEDGE #44の責務として扱い、production採用権限はDEVに残す。
 
 ## 3. チャット移行を提案する条件
 
@@ -86,7 +86,7 @@ HEAD: <verified commit SHA>
 CHECKPOINT: <latest relevant checkpoint / N/A>
 CONTRACT: <live Issue / contract file>
 PHASE: <current phase/gate>
-SOURCE_OF_TRUTH: CURRENT_STATE -> live Issue -> PERMANENT_RULES -> PRODUCT_GOAL_LOCK -> relevant specs
+SOURCE_OF_TRUTH: live main -> CURRENT_STATE -> live Issue/latest checkpoint -> PERMANENT_RULES -> PRODUCT_GOAL_LOCK -> relevant specs
 ```
 
 矛盾があれば `IDENTITY_CONFLICT` として作業を止める。
@@ -103,11 +103,6 @@ SOURCE_OF_TRUTH: CURRENT_STATE -> live Issue -> PERMANENT_RULES -> PRODUCT_GOAL_
 - 外部知識・generation knowledge corpus
 - production仕様を勝手に変更しない
 - v1へadvanced機能を強制しない
-
-### PROMPT
-- future generation-effectiveness / controlled experiments when explicitly activated
-- v1 completion blockerではない
-- model/image依存claimが必要な時だけ動く
 
 ### AUDIT
 - on-demand independent Gate role
@@ -133,6 +128,8 @@ SOURCE_OF_TRUTH: CURRENT_STATE -> live Issue -> PERMANENT_RULES -> PRODUCT_GOAL_
 - GitHubに見えないignored runtime/source dataを削除扱いしない
 - `git clean -fdx` / `git clean -fdX` 禁止
 - completed/superseded workをold handoffから再開しない
+- CURRENT_DEV_TASKの固定SHAはsnapshotとして扱い、作業開始時にtarget branchのlive HEADを再確認する
+- #179/#180/#132の並行laneは、明示handoffなしにbranch/data/authorityを混ぜない
 
 最後に必要なら:
 
