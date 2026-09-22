@@ -200,8 +200,11 @@ Use for:
 - posture;
 - body position;
 - limb arrangement;
+- movement/locomotion concepts currently represented by the Unified pose route;
 - sexual position;
 - stable positional geometry of one or more people.
+
+Important: the current UI label is "ポーズ・体位", while accepted #64 POSE_MOVEMENT also covers "動き". Pass A should judge the actual user discovery intent, not assume the existing label is already optimal.
 
 Do not use just because an action produces a pose.
 
