@@ -52,6 +52,7 @@ def expect_pass(name, rows):
 
 def main():
  evidence="REPO:docs/issue180/autonomous/AUTONOMOUS_POLICY_V2.json"
+ policy_text_evidence="REPO:docs/issue180/AUTHORITY_POLICY_V1.md"
  expect_fail("original_family", [("a",[{
   "scope":"FAMILY_QUALIFIER","key":"original","home_copyright":"original",
   "base_character":"","authority_type":"QUALIFIER_COPYRIGHT","evidence_url":"https://example.com/original-family-semantic-smoke",
@@ -62,14 +63,16 @@ def main():
 
  expect_fail("project_voltage", [("a",[{
   "scope":"FAMILY_QUALIFIER","key":"project_voltage","home_copyright":"project_voltage",
-  "base_character":"","authority_type":"QUALIFIER_COPYRIGHT","evidence_url":"",
-  "evidence_claim":evidence,"validation_state":"PASS","officiality_state":"","notes":"Repository policy evidence for smoke test.",
+  "base_character":"","authority_type":"QUALIFIER_COPYRIGHT","evidence_url":"https://example.com/project-voltage-semantic-smoke",
+  "evidence_claim":"External smoke evidence intentionally reaches the non-HOME family semantic gate.",
+  "validation_state":"PASS","officiality_state":"","notes":"Repository policy evidence for smoke test.",
  }])], "non-HOME collaboration/project family")
 
  expect_fail("broad_lightweight", [("a",[{
   "scope":"FAMILY_QUALIFIER","key":"final_fantasy","home_copyright":"final_fantasy",
-  "base_character":"","authority_type":"QUALIFIER_COPYRIGHT","evidence_url":"",
-  "evidence_claim":evidence,"validation_state":"PASS","officiality_state":"","notes":"Repository policy evidence for smoke test.",
+  "base_character":"","authority_type":"QUALIFIER_COPYRIGHT","evidence_url":"https://example.com/final-fantasy-broad-smoke",
+  "evidence_claim":"External smoke evidence intentionally reaches the broad-family semantic gate.",
+  "validation_state":"PASS","officiality_state":"","notes":"Repository policy evidence for smoke test.",
  }])], "autonomous broad-family FAMILY_QUALIFIER PASS is disabled")
 
  expect_fail("self_referential_repo_evidence", [("a",[{
@@ -112,12 +115,12 @@ def main():
  }])], "REPO evidence must come from approved evidence/policy paths")
 
  row_pass={
-  "scope":"FAMILY_QUALIFIER","key":"blue_archive","home_copyright":"blue_archive",
-  "base_character":"","authority_type":"QUALIFIER_COPYRIGHT","evidence_url":"",
-  "evidence_claim":evidence,"validation_state":"PASS","officiality_state":"","notes":"Repository policy evidence for smoke test.",
+  "scope":"FAMILY_QUALIFIER","key":"blue_archive_the_animation","home_copyright":"blue_archive",
+  "base_character":"","authority_type":"ROOT_POLICY_REVIEWED","evidence_url":"",
+  "evidence_claim":evidence,"validation_state":"PASS","officiality_state":"","notes":"Explicit root-policy normalization used for duplicate-key smoke test.",
  }
  row_unresolved={
-  "scope":"FAMILY_QUALIFIER","key":"Blue_Archive","home_copyright":"",
+  "scope":"FAMILY_QUALIFIER","key":"Blue_Archive_The_Animation","home_copyright":"",
   "base_character":"","authority_type":"","evidence_url":"",
   "evidence_claim":"","validation_state":"UNRESOLVED","officiality_state":"","notes":"conflicting review state",
  }
@@ -146,8 +149,22 @@ def main():
  expect_pass("family_terminal_with_repo_evidence", [{
   "scope":"FAMILY_QUALIFIER","key":"blue_archive","home_copyright":"",
   "base_character":"","authority_type":"","evidence_url":"",
-  "evidence_claim":evidence,"validation_state":"UNRESOLVED","officiality_state":"",
+  "evidence_claim":policy_text_evidence,"validation_state":"UNRESOLVED","officiality_state":"",
   "notes":"Reviewed against the recorded repository authority policy; evidence remained insufficient for this hypothetical terminal result.",
+ }])
+
+ expect_fail("unrelated_policy_mapping", [("a",[{
+  "scope":"FAMILY_QUALIFIER","key":"pokemon_go","home_copyright":"fate_(series)",
+  "base_character":"","authority_type":"ROOT_POLICY_REVIEWED","evidence_url":"",
+  "evidence_claim":evidence,"validation_state":"PASS","officiality_state":"",
+  "notes":"Both tokens exist in policy data, but there is no Pokemon GO to Fate mapping.",
+ }])], "approved REPO evidence does not contain/support this decision key and HOME")
+
+ expect_pass("explicit_policy_mapping", [{
+  "scope":"FAMILY_QUALIFIER","key":"blue_archive_the_animation","home_copyright":"blue_archive",
+  "base_character":"","authority_type":"ROOT_POLICY_REVIEWED","evidence_url":"",
+  "evidence_claim":evidence,"validation_state":"PASS","officiality_state":"",
+  "notes":"The autonomous policy explicitly maps the anime qualifier to the canonical Blue Archive HOME.",
  }])
 
  expect_fail("unrelated_internal_csv", [("a",[{
