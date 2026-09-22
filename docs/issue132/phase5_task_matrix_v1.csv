@@ -1,0 +1,25 @@
+task_id,task_type,user_start_intent,canonical_tag,expected_route,current_route_state,current_result,v2_action,v2_result,evidence
+T01,targeted,胸から「噛む」を探す,biting_breast,BODY_SITE,ACTION_CONTACT only,MISS,ADD BODY_SITE,HIT,HIGH Phase1
+T02,targeted,胸から「掴む」を探す,grabbing_another's_breast,BODY_SITE,ACTION_CONTACT only,MISS,ADD BODY_SITE,HIT,HIGH Phase1
+T03,targeted,胸から「キス」を探す,kissing_breast,BODY_SITE,ACTION_CONTACT only,MISS,ADD BODY_SITE,HIT,HIGH Phase1
+T04,targeted,尻から「噛む」を探す,biting_ass,BODY_SITE,ACTION_CONTACT only,MISS,ADD BODY_SITE,HIT,HIGH Phase1
+T05,targeted,尻から「触れる」を探す,hand_on_another's_ass,BODY_SITE,ACTION_CONTACT only,MISS,ADD BODY_SITE,HIT,HIGH Phase1
+T06,targeted,口から「指を入れる」を探す,finger_in_another's_mouth,BODY_SITE,ACTION_CONTACT only,MISS,ADD BODY_SITE,HIT,HIGH Phase1
+T07,control,行為から「胸を噛む」を探す,biting_breast,ACTION_CONTACT,ACTION_CONTACT,HIT,KEEP + BODY_SITE,HIT,HIGH Phase1
+T08,control,行為から「胸を掴む」を探す,grabbing_another's_breast,ACTION_CONTACT,ACTION_CONTACT,HIT,KEEP + BODY_SITE,HIT,HIGH Phase1
+T09,control,行為から「尻にキス」を探す,kissing_ass,ACTION_CONTACT,ACTION_CONTACT,HIT,KEEP + BODY_SITE,HIT,HIGH Phase1
+T10,control,行為から「頬にキス」を探す,kissing_cheek,ACTION_CONTACT,ACTION_CONTACT,HIT,KEEP + BODY_SITE,HIT,HIGH Phase1
+T11,targeted,体位から「自分の尻を見せる」を探す,presenting_own_ass,POSE_POSITION,ACTION_CONTACT + body facet; POSE route missing,MISS,ADD POSE_POSITION,HIT,HIGH Phase1
+T12,targeted,体位から「立ちバック」を探す,standing_doggystyle,POSE_POSITION,ACTION_CONTACT; POSE route missing,MISS,ADD POSE_POSITION,HIT,HIGH Phase1
+T13,targeted,体位から「両脚を後ろへ保持」を探す,holding_own_legs_back,POSE_POSITION,ACTION_CONTACT; POSE route missing,MISS,ADD POSE_POSITION,HIT,HIGH Phase1
+T14,targeted,体位から「片脚を後ろへ保持」を探す,holding_own_leg_back,POSE_POSITION,ACTION_CONTACT; POSE route missing,MISS,ADD POSE_POSITION,HIT,HIGH Phase1
+T15,targeted,体位から「相手の脚を後ろへ保持」を探す,holding_another's_legs_back,POSE_POSITION,ACTION_CONTACT; POSE route missing,MISS,ADD POSE_POSITION,HIT,HIGH Phase1
+T16,control,行為から「立ちバック」を探す,standing_doggystyle,ACTION_CONTACT,ACTION_CONTACT,HIT,KEEP + POSE_POSITION,HIT,HIGH Phase1
+T17,control,行為から「自分の尻を見せる」を探す,presenting_own_ass,ACTION_CONTACT,ACTION_CONTACT,HIT,KEEP + POSE_POSITION,HIT,HIGH Phase1
+T18,control,行為から「脚を後ろへ保持」を探す,holding_own_legs_back,ACTION_CONTACT,ACTION_CONTACT,HIT,KEEP + POSE_POSITION,HIT,HIGH Phase1
+T19,targeted,髪から「性行為後の乱れた髪」を探す,sex_hair,HAIR_FACE,BODY_SITE only,MISS,ADD HAIR_FACE,HIT,HIGH Phase1
+T20,control,身体・部位から sex_hair を探す,sex_hair,BODY_SITE,BODY_SITE,HIT,KEEP + HAIR_FACE,HIT,HIGH Phase1
+T21,no_change,「肩を出した着方」を大分類から探す,off_shoulder,CLOTHING_EXPOSURE,General CLOTHING maps to unified CLOTHING_EXPOSURE,HIT,NO TOP-LEVEL CHANGE,HIT,HIGH but local-path issue
+T22,defer,色から青いビキニを探す,blue_bikini,COLOR_PATTERN_SHAPE,CLOTHING_EXPOSURE,MISS,DO NOT AUTO-ADD,REVIEW,MEDIUM Phase1
+T23,defer,場所から自動ドアを探す,automatic_door,SCENE_BACKGROUND,TOOL_OBJECT,MISS,DO NOT AUTO-ADD,REVIEW,MEDIUM Phase1
+T24,safety,分類不明の固有ミームを探す,atsuko's_grin_(meme),UNKNOWN,UNRESOLVED,HOLD,KEEP UNRESOLVED,HOLD,LOW Phase1
