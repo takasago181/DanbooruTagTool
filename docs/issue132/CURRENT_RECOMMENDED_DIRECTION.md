@@ -570,6 +570,67 @@ No new runtime semantic engine is justified by the full review.
 
 ---
 
+## Phase 7 implementation-independent research freeze
+
+Before writing the final Luna/Codex execution instruction, the following research contracts now define the intended method:
+
+- `FULL_SEMANTIC_REVIEW_PROTOCOL.md`
+  - all 31,003 identities;
+  - independent Pass A;
+  - no sample calibration;
+  - continuous execution.
+
+- `LUNA_NEUTRAL_INPUT_CONTRACT.md`
+  - neutral semantic/search facts only;
+  - current classification hidden;
+  - deterministic hash order;
+  - no current-route grouping.
+
+- `LUNA_DISCOVERY_ROUTE_SEMANTIC_CONTRACT.md`
+  - exact user-facing meaning of the existing 19 routes;
+  - CORE vs SUPPORTING;
+  - image-generation discovery question.
+
+- `FULL_POPULATION_PRODUCT_RECONCILIATION_GATE.md`
+  - deterministic current-vs-independent diff;
+  - search value;
+  - route growth;
+  - narrowability;
+  - sexual-lens impact;
+  - no quotas.
+
+- `UNIFIED_ROUTE_SYSTEMIC_RISK_AUDIT.md`
+  - possible mapping/label-level root causes;
+  - hidden from Pass A;
+  - used only after the independent map is frozen.
+
+- `PRODUCTION_DELTA_ARCHITECTURE_GUARDRAILS.md`
+  - #132 may ship secondary routes only for already-browseable identities;
+  - unresolved/primary problems go back to #64/#76;
+  - no second runtime taxonomy engine.
+
+### Resulting lifecycle
+
+```
+31,003 neutral identities
+        ↓
+Luna independent image-generation discovery map
+        ↓
+mechanical diff vs current product
+        ↓
+full-population route/search/facet/systemic audit
+        ↓
+higher-reasoning reconciliation
+        ↓
+minimal static production delta
+        ↓
+existing UnifiedBrowseRouteIds / UnifiedBrowseIndex
+```
+
+The final handoff remains DRAFT / DO NOT RUN until the neutral-input export path itself is implemented/validated.
+
+---
+
 ## 14. Protected boundaries
 
 Research only until prototype acceptance.
