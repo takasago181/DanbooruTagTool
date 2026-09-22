@@ -516,6 +516,60 @@ The older `CODEX_FULL_SEMANTIC_REVIEW_HANDOFF.md` is explicitly DRAFT / DO NOT R
 
 ---
 
+## Phase 7 refined method — independent full-population discovery map
+
+The Luna first pass must no longer be framed as "keep or change the current classification".
+
+For all **31,003** ordinary runtime identities:
+
+1. hide current Unified route placement and prior machine/prototype verdicts;
+2. show neutral semantic/search surfaces only;
+3. ask Luna which existing discovery route(s) a Japanese image-generation user would naturally open **before knowing the exact tag**;
+4. record CORE vs SUPPORTING route strength;
+5. allow BROWSE_WORTHY / MIXED / SEARCH_ORIENTED / SEMANTIC_UNRESOLVED;
+6. freeze that full-population independent map;
+7. only then compare it mechanically with #64/#76/Unified current behavior.
+
+This is the main anti-bias mechanism.
+
+The current classification is therefore **audit target**, not first-pass guidance.
+
+Authority:
+- `docs/issue132/FULL_SEMANTIC_REVIEW_PROTOCOL.md`
+- `docs/issue132/LUNA_DISCOVERY_ROUTE_SEMANTIC_CONTRACT.md`
+- `docs/issue132/PHASE7_LUNA_DECISION_CALIBRATION_RESEARCH.md`
+
+### User-purpose guardrail
+
+The route question is always:
+
+> 作りたい画像の見た目・行為・部位・体位・衣装・構図などから、タグ名を知らない状態でどこを開けば自然か。
+
+Do not optimize for:
+- taxonomy completeness;
+- percentage of classified rows;
+- elegant ontology;
+- number of changes.
+
+Do optimize for:
+- unknown-tag discovery;
+- understandable Japanese UI;
+- useful adult/sexual discovery through action/position/body/theme axes;
+- preserving direct Japanese/English/alias search;
+- low runtime overhead.
+
+### Final shipped representation remains minimal
+
+The 31,003-row independent review ledger, reasoning, evidence and reconciliation data remain research-only.
+
+Production should still contain only the small confirmed static route delta, reusing:
+- `CatalogEntry.UnifiedBrowseRouteIds`;
+- `UnifiedBrowseIndex`.
+
+No new runtime semantic engine is justified by the full review.
+
+---
+
 ## 14. Protected boundaries
 
 Research only until prototype acceptance.
