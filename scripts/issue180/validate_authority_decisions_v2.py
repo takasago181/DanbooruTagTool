@@ -68,24 +68,30 @@ def repo_evidence_supports(row, path, rel_posix):
 
  if rel_posix=="docs/issue180/autonomous/AUTONOMOUS_POLICY_V2.json":
   policy=json.loads(path.read_text(encoding="utf-8"))
+  root_map={str(k).lower():str(v) for k,v in policy.get("root_policy_normalization",{}).items()}
+  if state=="PASS":
+   return (
+    scope=="FAMILY_QUALIFIER"
+    and bool(home)
+    and root_map.get(lookup_key.lower())==home
+   )
   supported=set(x.lower() for x in policy.get("broad_families",[]))
   supported.update(x.lower() for x in policy.get("non_home_families",[]))
   supported.update(x.lower() for x in policy.get("variant_qualifier_families",[]))
   supported.update(x.lower() for x in policy.get("attribute_families",[]))
-  supported.update(x.lower() for x in policy.get("root_policy_normalization",{}))
+  supported.update(root_map)
   supported.update(x.lower() for x in policy.get("root_policy_review_hint_exact",{}))
-  supported.update(str(v).lower() for v in policy.get("root_policy_normalization",{}).values())
-  return scope in {"FAMILY_QUALIFIER","DISCOVERY_GROUP"} and (
-   lookup_key.lower() in supported or (home and home.lower() in supported)
+  supported.update(str(x).lower() for x in policy.get("piapro_policy_characters",[]))
+  return (
+   (scope in {"FAMILY_QUALIFIER","DISCOVERY_GROUP"} and lookup_key.lower() in supported)
+   or (scope in {"DIRECT_CHARACTER","BLOCK_CHARACTER"} and key.lower() in supported)
   )
 
  if rel_posix=="docs/issue180/AUTHORITY_POLICY_V1.md":
-  text=path.read_text(encoding="utf-8").lower()
-  key_present=bool(key) and key.lower() in text
-  home_present=not home or home.lower() in text
-  if state=="PASS" and scope in {"DIRECT_CHARACTER","VARIANT_CHARACTER"}:
+  if state=="PASS":
    return False
-  return key_present and home_present
+  text=path.read_text(encoding="utf-8").lower()
+  return bool(key) and key.lower() in text
 
  if not rel_posix.startswith("docs/issue180/evidence/"):
   return False
