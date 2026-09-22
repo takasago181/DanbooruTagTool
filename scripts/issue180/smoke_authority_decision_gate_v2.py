@@ -245,6 +245,20 @@ def main():
   "notes":"Character-specific evidence remains ambiguous, so all HOME inheritance paths must stay blocked pending higher review.",
  }])
 
+ expect_fail("relation_pass_plus_terminal_block", [("a",[{
+  "scope":"DIRECT_CHARACTER","key":"pikachu","home_copyright":"pokemon",
+  "base_character":"","authority_type":"POKEMON_OFFICIAL_POKEDEX_EXACT","evidence_url":"",
+  "evidence_claim":"REPO:docs/issue180/evidence/direct_official_character_roster_batch05.csv",
+  "validation_state":"PASS","officiality_state":"OFFICIAL_CONFIRMED",
+  "notes":"Exact official Character evidence intentionally conflicts with a terminal block in this smoke.",
+ }]),("b",[{
+  "scope":"BLOCK_CHARACTER","key":"pikachu","home_copyright":"",
+  "base_character":"","authority_type":"","evidence_url":"https://example.com/pikachu-terminal-block-smoke",
+  "evidence_claim":"Synthetic external smoke evidence intentionally creates a contradictory all-path Character hold.",
+  "validation_state":"NEEDS_HIGHER_REASONING","officiality_state":"",
+  "notes":"This terminal block intentionally contradicts the simultaneous direct PASS and must be rejected.",
+ }])], "contradictory Character decisions for pikachu")
+
  expect_fail("autonomous_not_official", [("a",[{
   "scope":"NOT_OFFICIAL_CHARACTER","key":"harmony_(pokemon)","home_copyright":"",
   "base_character":"","authority_type":"AUTONOMOUS_NON_OFFICIAL","evidence_url":"https://example.com/harmony-officiality-smoke",
