@@ -39,7 +39,7 @@ For external web evidence, open/read the actual source and verify that its conte
 
 Do not FAMILY_QUALIFIER-confirm collaboration/project families such as `project_voltage`. Follow existing canonical-root policy already encoded by the foundation instead of reverting Fate/Pokémon/Splatoon subworks to title-by-title HOME.
 
-For difficult cases, use UNRESOLVED or NEEDS_HIGHER_REASONING and continue all other independent work. Do not stop the whole task for Piapro/Miku, umbrella franchises, or a small number of hard cases.
+For difficult cases, use UNRESOLVED or NEEDS_HIGHER_REASONING and continue all other independent work. When one Character specifically must not inherit otherwise-valid family/direct/variant HOME authority, use a grounded Character-level terminal review (`BLOCK_CHARACTER` with UNRESOLVED/NEEDS_HIGHER_REASONING); never use BLOCK_CHARACTER PASS. Do not stop the whole task for Piapro/Miku, umbrella franchises, or a small number of hard cases.
 
 Do not bloat decision shards with one UNRESOLVED row for every untouched Character. The generated master already keeps untouched rows unresolved with a reason. Persist only meaningful reviewed decisions/escalations and safe PASS authority.
 
