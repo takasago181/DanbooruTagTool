@@ -63,6 +63,13 @@ def evidence_gate(row):
  claim=(row.get("evidence_claim") or "").strip()
  notes=(row.get("notes") or "").strip()
  if url.startswith(("https://","http://")):
+  own_repo_markers=(
+   "github.com/takasago181/DanbooruTagTool",
+   "raw.githubusercontent.com/takasago181/DanbooruTagTool",
+   "api.github.com/repos/takasago181/DanbooruTagTool",
+  )
+  if any(marker.lower() in url.lower() for marker in own_repo_markers):
+   return False, "this repository cannot be reintroduced as external URL authority; use only approved REPO evidence paths"
   if len(claim) < 12 or claim.startswith("REPO:"):
    return False, "external evidence_url requires a descriptive evidence_claim"
   return True, ""
