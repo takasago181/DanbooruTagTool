@@ -6,7 +6,7 @@ import csv
 import json
 import subprocess
 import sys
-from collections import Counter
+from collections import Counter, defaultdict
 from pathlib import Path
 
 R=Path(__file__).resolve().parents[2]
@@ -15,6 +15,8 @@ FAMILY=D/"REMAINING_FAMILY_WORK_V2.csv"
 OFFICIALITY=D/"REMAINING_OFFICIALITY_WORK_V2.csv"
 UNQUALIFIED=D/"REMAINING_UNQUALIFIED_WORK_V2.csv"
 UNQUALIFIED_GROUPS=D/"UNQUALIFIED_DISCOVERY_GROUPS_V2.csv"
+FOUNDATION_UNQUALIFIED=D/"UNQUALIFIED_WORK_QUEUE_V2.csv"
+FOUNDATION_FAMILY=D/"FAMILY_WORK_QUEUE_V2.csv"
 REVIEWED_GROUPS=D/"REVIEWED_DISCOVERY_GROUPS_V2.csv"
 VARIANT_GROUPS=D/"DYNAMIC_VARIANT_PATTERN_GROUPS_V2.csv"
 REVIEWED_VARIANT_PATTERNS=D/"REVIEWED_VARIANT_PATTERNS_V2.csv"
@@ -27,6 +29,8 @@ ORIGIN_META=R/"docs/issue180/evidence/ISSUE179_ORIGIN_HANDOFF_V1.meta.json"
 ISSUE179_REF="refs/heads/research/issue179-character-quality-audit"
 WRITE_SCOPE_GATE=R/"scripts/issue180/validate_codex_write_scope_v2.py"
 POLICY_PATH=R/"docs/issue180/autonomous/AUTONOMOUS_POLICY_V2.json"
+DECISION_DIR=R/"docs/issue180/autonomous/decisions"
+BASE_DECISION_NAME="AUTHORITY_DECISIONS_BASE_V2.csv"
 
 MANDATORY_FAMILY_LANES={
  "FAST_REVALIDATE_NORMALIZATION",
@@ -41,6 +45,17 @@ MANDATORY_FAMILY_LANES={
 
 def read(path):
  with path.open(encoding="utf-8-sig",newline="") as f:return list(csv.DictReader(f))
+
+
+def read_autonomous_decisions():
+ rows=[]
+ if not DECISION_DIR.exists():
+  return rows
+ for path in sorted(DECISION_DIR.glob("*.csv")):
+  if path.name==BASE_DECISION_NAME or path.name.startswith("__SMOKE_"):
+   continue
+  rows.extend(read(path))
+ return rows
 
 
 def check_issue179_freshness():
@@ -97,6 +112,9 @@ def main():
  officiality=read(OFFICIALITY)
  unq=read(UNQUALIFIED)
  groups=read(UNQUALIFIED_GROUPS)
+ foundation_unqualified=read(FOUNDATION_UNQUALIFIED)
+ foundation_family=read(FOUNDATION_FAMILY)
+ autonomous_decisions=read_autonomous_decisions()
  reviewed_groups=read(REVIEWED_GROUPS)
  variant_groups=read(VARIANT_GROUPS)
  reviewed_variant_patterns=read(REVIEWED_VARIANT_PATTERNS)
@@ -109,6 +127,10 @@ def main():
  group_min=int(policy["mandatory_unqualified_group_min_rows"])
  variant_pattern_min=int(policy["mandatory_variant_pattern_min_rows"])
  family_discovery_min=int(policy["mandatory_family_discovery_min_rows"])
+ group_min_confirmed=int(policy["mandatory_discovery_group_min_confirmed_members"])
+ family_min_pass=int(policy["mandatory_family_review_min_pass"])
+ variant_min_pass=int(policy["mandatory_variant_review_min_pass"])
+ zero_yield_exemptions={str(x).strip().lower() for x in policy["zero_yield_discovery_group_exemptions"]}
  lanes=Counter(r.get("work_lane","") for r in fam)
  mandatory_family={k:lanes[k] for k in sorted(MANDATORY_FAMILY_LANES) if lanes[k]}
  mandatory_family_discovery=sorted(
@@ -150,6 +172,43 @@ def main():
   for r in mandatory_groups
   if r["discovery_group"].strip().lower() not in reviewed_group_keys
  )
+
+ group_members=defaultdict(set)
+ for r in foundation_unqualified:
+  key=((r.get("discovery_primary_root_hint") or r.get("discovery_primary_raw") or "__NO_DISCOVERY_HINT__").strip().lower())
+  group_members[key].add(r["canonical_tag"])
+ mandatory_group_yield=[]
+ zero_yield_groups=[]
+ for r in mandatory_groups:
+  key=r["discovery_group"].strip().lower()
+  if key not in reviewed_group_keys:
+   continue
+  confirmed=sum(
+   master_by.get(tag,{}).get("final_state")=="HOME_CONFIRMED"
+   for tag in group_members.get(key,set())
+  )
+  mandatory_group_yield.append((key,int(r["character_rows"]),confirmed))
+  if key not in zero_yield_exemptions and confirmed < group_min_confirmed:
+   zero_yield_groups.append((key,int(r["character_rows"]),confirmed))
+
+ autonomous_family_pass=sum(
+  r.get("scope")=="FAMILY_QUALIFIER" and r.get("validation_state")=="PASS"
+  for r in autonomous_decisions
+ )
+ autonomous_variant_pass=sum(
+  r.get("scope")=="VARIANT_CHARACTER" and r.get("validation_state")=="PASS"
+  for r in autonomous_decisions
+ )
+ initial_mandatory_family=[
+  r for r in foundation_family
+  if r.get("work_lane") in MANDATORY_FAMILY_LANES
+  or (
+   r.get("work_lane")=="DISCOVERY_RESEARCH"
+   and int(r.get("character_rows","0") or 0)>=family_discovery_min
+  )
+ ]
+ family_pass_shortfall=max(0,family_min_pass-autonomous_family_pass) if initial_mandatory_family else 0
+ variant_pass_shortfall=max(0,variant_min_pass-autonomous_variant_pass) if mandatory_variant_patterns else 0
  weak_unresolved=[
   r["canonical_tag"] for r in weak
   if master_by.get(r["canonical_tag"],{}).get("final_state") not in {"HOME_CONFIRMED","NOT_OFFICIAL_CHARACTER"}
@@ -166,6 +225,9 @@ def main():
   "mandatory_family_discovery_families":len(mandatory_family_discovery),
   "direct_roster_rows":direct_roster,
   "mandatory_unqualified_groups":len(missing_mandatory_groups),
+  "mandatory_unqualified_groups_zero_yield":len(zero_yield_groups),
+  "autonomous_family_pass_shortfall":family_pass_shortfall,
+  "autonomous_variant_pass_shortfall":variant_pass_shortfall,
   "mandatory_variant_patterns":len(missing_mandatory_variant_patterns),
   "legacy_weak_direct_rows":len(weak_unresolved),
   "pending_variant_pass_rows":pending_variant_pass,
@@ -203,6 +265,14 @@ def main():
   "mandatory_unqualified_group_min_rows":group_min,
   "mandatory_unqualified_groups_total":len(mandatory_groups),
   "mandatory_unqualified_groups_missing":missing_mandatory_groups,
+  "mandatory_discovery_group_min_confirmed_members":group_min_confirmed,
+  "zero_yield_discovery_group_exemptions":sorted(zero_yield_exemptions),
+  "mandatory_unqualified_group_yield":mandatory_group_yield,
+  "mandatory_unqualified_groups_zero_yield":zero_yield_groups,
+  "autonomous_family_pass_rows":autonomous_family_pass,
+  "mandatory_family_review_min_pass":family_min_pass,
+  "autonomous_variant_pass_rows":autonomous_variant_pass,
+  "mandatory_variant_review_min_pass":variant_min_pass,
   "reviewed_discovery_groups":len(reviewed_group_keys),
   "mandatory_variant_pattern_min_rows":variant_pattern_min,
   "mandatory_variant_patterns_total":len(mandatory_variant_patterns),
@@ -213,7 +283,7 @@ def main():
   "residual_unqualified_rows":len(unq),
   "deferred_character_rows":summary.get("remaining_work",{}).get("deferred_character_rows",0),
   "deferred_family_rows":summary.get("remaining_work",{}).get("deferred_family_rows",0),
-  "note":"Residual long-tail discovery/variant work may remain unresolved, but mandatory fast/officiality/high-yield family-discovery/direct-roster/high-yield discovery-group/high-yield ready-variant-pattern lanes must be resolved or explicitly deferred.",
+  "note":"Residual long-tail work may remain unresolved, but mandatory lanes must be genuinely researched. Blanket terminal deferral is not sufficient: non-exempt high-yield discovery groups need at least one confirmed member, and mandatory family/variant work cannot have zero autonomous PASS yield overall.",
  }
  OUT.write_text(json.dumps(result,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
  print(json.dumps(result,ensure_ascii=False,indent=2))

@@ -238,5 +238,12 @@
   ],
   "mandatory_unqualified_group_min_rows": 50,
   "mandatory_variant_pattern_min_rows": 5,
-  "mandatory_family_discovery_min_rows": 10
+  "mandatory_family_discovery_min_rows": 10,
+  "mandatory_discovery_group_min_confirmed_members": 1,
+  "zero_yield_discovery_group_exemptions": [
+    "original",
+    "indie_virtual_youtuber"
+  ],
+  "mandatory_family_review_min_pass": 1,
+  "mandatory_variant_review_min_pass": 1
 }

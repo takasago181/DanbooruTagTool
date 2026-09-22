@@ -1,13 +1,21 @@
 {
-  "version": 2,
-  "status": "HARNESS_FROZEN_FOR_CODEX_AUTONOMOUS_DECISIONS",
-  "base_sha": "ce04f38c7435c76331d3bac1fb5373ee67893682",
+  "version": 3,
+  "status": "HARNESS_REPAIR_IN_PROGRESS",
+  "previous_freeze_marker_commit": "bbb157ef9cb2aeb4d4d6dec76f5b2369a80e8586",
+  "previous_harness_base_sha": "ce04f38c7435c76331d3bac1fb5373ee67893682",
+  "decision_snapshot_sha": "be72df86b6d89a96ab8eb154544230b540b76219",
+  "decision_snapshot_files": [
+    "docs/issue180/autonomous/decisions/direct_and_exceptions_v2.csv",
+    "docs/issue180/autonomous/decisions/discovery_roster_reviews_v2.csv",
+    "docs/issue180/autonomous/decisions/family_terminal_reviews_v2.csv",
+    "docs/issue180/autonomous/decisions/variant_pattern_reviews_v2.csv"
+  ],
+  "repair_reasons": [
+    "Windows marker-path separator mismatch in write-scope validation",
+    "Synthetic smoke fixtures collided with persistent decision shards",
+    "Blanket terminal deferral could satisfy mandatory review gates with near-zero useful authority"
+  ],
   "branch": "research/issue180-single-home-pilot",
-  "validated_push_run_id": 35675798996,
-  "validated_pr_run_id": 35675801894,
-  "validated_workflow": "Issue180 Single Home Pilot",
-  "post_freeze_write_scope": "docs/issue180/autonomous/decisions/*.csv",
-  "protected_base_decision_file": "docs/issue180/autonomous/decisions/AUTHORITY_DECISIONS_BASE_V2.csv",
   "main_merge_authorized": false,
   "production_apply_authorized": false,
   "accepted_issue70_source_mutation_authorized": false

@@ -2,8 +2,11 @@
 """Adversarial smoke tests for Issue #180 autonomous decision validation."""
 from __future__ import annotations
 import csv
+import shutil
 import subprocess
 import sys
+import tempfile
+from contextlib import contextmanager
 from pathlib import Path
 
 R=Path(__file__).resolve().parents[2]
@@ -13,6 +16,28 @@ FIELDS=[
  "scope","key","home_copyright","base_character","authority_type","evidence_url",
  "evidence_claim","validation_state","officiality_state","notes",
 ]
+
+
+@contextmanager
+def isolated_persistent_decisions():
+ """Hide real autonomous shards while synthetic validator fixtures run."""
+ persistent=[
+  p for p in sorted(D.glob("*.csv"))
+  if p.name!="AUTHORITY_DECISIONS_BASE_V2.csv" and not p.name.startswith("__SMOKE_")
+ ]
+ with tempfile.TemporaryDirectory(prefix="issue180-decision-smoke-") as td:
+  stash=Path(td)
+  for p in persistent:
+   shutil.move(str(p),str(stash/p.name))
+  try:
+   yield
+  finally:
+   for p in D.glob("__SMOKE_*.csv"):
+    p.unlink(missing_ok=True)
+   for p in persistent:
+    src=stash/p.name
+    if src.exists():
+     shutil.move(str(src),str(p))
 
 
 def write(path: Path, rows):
@@ -270,4 +295,6 @@ def main():
  print("Issue #180 autonomous decision adversarial smoke: PASS")
 
 
-if __name__=="__main__":main()
+if __name__=="__main__":
+ with isolated_persistent_decisions():
+  main()

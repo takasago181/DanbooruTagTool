@@ -17,6 +17,8 @@ REQUIRED={
  "root_policy_review_hint_prefixes","root_policy_review_hint_exact",
  "official_origin_classes","not_official_origin_classes","allow_autonomous_not_official_pass","allow_autonomous_broad_family_pass",
  "mandatory_unqualified_group_min_rows","mandatory_variant_pattern_min_rows","mandatory_family_discovery_min_rows",
+ "mandatory_discovery_group_min_confirmed_members","zero_yield_discovery_group_exemptions",
+ "mandatory_family_review_min_pass","mandatory_variant_review_min_pass",
 }
 
 
@@ -45,7 +47,10 @@ def main():
   raise SystemExit("mandatory_variant_pattern_min_rows: expected positive integer")
  if not isinstance(policy["mandatory_family_discovery_min_rows"], int) or policy["mandatory_family_discovery_min_rows"] < 1:
   raise SystemExit("mandatory_family_discovery_min_rows: expected positive integer")
- for name in ("attribute_families","variant_qualifier_families","broad_families","non_home_families","broad_pass_types","piapro_policy_characters","official_origin_classes","not_official_origin_classes"):
+ for name in ("mandatory_discovery_group_min_confirmed_members","mandatory_family_review_min_pass","mandatory_variant_review_min_pass"):
+  if not isinstance(policy[name], int) or policy[name] < 1:
+   raise SystemExit(f"{name}: expected positive integer")
+ for name in ("attribute_families","variant_qualifier_families","broad_families","non_home_families","broad_pass_types","piapro_policy_characters","official_origin_classes","not_official_origin_classes","zero_yield_discovery_group_exemptions"):
   if not isinstance(policy[name],list): raise SystemExit(f"{name}: expected list")
   unique_list(name,policy[name])
 
@@ -106,6 +111,10 @@ def main():
   "mandatory_unqualified_group_min_rows":policy["mandatory_unqualified_group_min_rows"],
   "mandatory_variant_pattern_min_rows":policy["mandatory_variant_pattern_min_rows"],
   "mandatory_family_discovery_min_rows":policy["mandatory_family_discovery_min_rows"],
+  "mandatory_discovery_group_min_confirmed_members":policy["mandatory_discovery_group_min_confirmed_members"],
+  "zero_yield_discovery_group_exemptions":len(policy["zero_yield_discovery_group_exemptions"]),
+  "mandatory_family_review_min_pass":policy["mandatory_family_review_min_pass"],
+  "mandatory_variant_review_min_pass":policy["mandatory_variant_review_min_pass"],
   "allow_autonomous_broad_family_pass":policy["allow_autonomous_broad_family_pass"],
   "gate":"PASS",
  },ensure_ascii=False,indent=2))
