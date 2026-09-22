@@ -92,3 +92,19 @@ B002 first pass:
 The unresolved rows are intentional precision protection, not audit failures.
 
 No rule in this document authorizes production apply or accepted-source mutation.
+
+
+## Reviewed adaptation / community exceptions
+
+### Blue Archive The Animation
+
+- qualifier family: `blue_archive_the_animation`
+- canonical HOME: `blue_archive`
+- authority: https://sh-anime.shochiku.co.jp/bluearchive-anime/news/7/
+- reason: the official TV anime site explicitly identifies `ブルーアーカイブ The Animation` as based on the app game `ブルーアーカイブ -Blue Archive-`. Under the Issue #180 single-canonical-HOME policy, an adaptation qualifier does not create a second HOME root for the same Character identity.
+
+### Futaba Channel
+
+- qualifier family: `futaba_channel`
+- automatic FAMILY_QUALIFIER HOME: prohibited
+- reason: Futaba Channel is an imageboard/community rather than a canonical fictional work root. Community/net characters require identity/officiality review and must not be promoted merely because the Character qualifier equals a Copyright tag.
