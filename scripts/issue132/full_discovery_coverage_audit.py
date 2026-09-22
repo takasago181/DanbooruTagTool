@@ -254,9 +254,9 @@ def main():
         "intent":r.get("sexual_intent",""),
         "review_status":r.get("review_status",""),
         "general":False,"special":False,
-        "general_statuses":set(),"general_paths":set(),"current_routes":set(),
+        "general_statuses":set(),"general_paths":set(),"local_paths":set(),"current_routes":set(),
         "special_ids":[],"special_kinds":set(),"body_sites":set(),"themes":set(),
-        "authority_expected_routes":set(),"review_signals":set(),
+        "generation_signals":set(),"authority_expected_routes":set(),"review_signals":set(),
         "mapping_notes":set(),
     } for k,r in intents.items()}
 
@@ -272,6 +272,11 @@ def main():
             for p in paths:
                 if not p: continue
                 d["general_paths"].add(p)
+                genre, _, sub = p.partition("/")
+                if sub:
+                    d["local_paths"].add(p)
+                elif genre in {"EXPRESSION_EMOTION","GAZE_ORIENTATION","CLOTHING_STATE_EXPOSURE"}:
+                    d["local_paths"].add(genre+"/")
                 route=general_route_for_path(p)
                 if route: d["current_routes"].add(route)
                 else: d["review_signals"].add("GENERAL_PATH_NO_UNIFIED_ROUTE:"+p)
@@ -341,10 +346,12 @@ def main():
         elif family=="SCENE_CONTEXT":
             d["authority_expected_routes"].add("SCENE_BACKGROUND")
             if browseable: d["current_routes"].add("SCENE_BACKGROUND")
-        if family=="POSE_COMPOSITION" and (role=="pose_camera" or genrole=="pose_camera"):
-            d["review_signals"].add("POSE_CAMERA_COMPOUND_NOT_PROJECTED")
+        d["generation_signals"].add(f"{sv['kind'] or ''}|{family}|{genrole}|{role}")
         if sv["kind"]=="POSE_SCENE" and not ({"POSE_POSITION","COMPOSITION_CAMERA","SCENE_BACKGROUND"} & d["current_routes"]):
-            d["review_signals"].add("POSE_SCENE_WITHOUT_POSE_CAMERA_SCENE_ROUTE")
+            if family=="POSE_COMPOSITION":
+                d["review_signals"].add("POSE_SCENE_NO_ROUTE__POSE_COMPOSITION")
+            else:
+                d["review_signals"].add("POSE_SCENE_NO_ROUTE__BROAD_OR_OTHER")
 
     # Existing expected projection must never disappear.
     for d in identities.values():
@@ -392,19 +399,33 @@ def main():
             "identity_key":key,"bucket":bucket,"sexual_intent":d["intent"],"review_status":d["review_status"],
             "is_general":"YES" if d["general"] else "NO","is_special":"YES" if d["special"] else "NO",
             "current_routes":"|".join(sorted(d["current_routes"])),"general_paths":"|".join(sorted(d["general_paths"])),
+            "local_paths":"|".join(sorted(d["local_paths"])),
             "special_ids":"|".join(map(str,sorted(d["special_ids"]))),"special_kinds":"|".join(sorted(d["special_kinds"])),
+            "generation_signals":"|".join(sorted(d["generation_signals"])),
             "body_sites":"|".join(sorted(d["body_sites"])),"themes":"|".join(sorted(d["themes"])),
             "review_signals":"|".join(sorted(d["review_signals"]))
         })
 
-    # Route load by identity and intent.
+    # Route/local/facet load by identity and intent.
     route_counts=defaultdict(Counter)
+    local_counts=defaultdict(Counter)
+    body_counts=defaultdict(Counter)
+    theme_counts=defaultdict(Counter)
     for d in audit:
         routes=split_pipe(d["current_routes"])
+        intent=d["sexual_intent"] or "UNCLASSIFIED"
         for route in routes:
             route_counts[route]["ALL"]+=1
-            intent=d["sexual_intent"] or "UNCLASSIFIED"
             route_counts[route][intent]+=1
+        for local in split_pipe(d["local_paths"]):
+            local_counts[local]["ALL"]+=1
+            local_counts[local][intent]+=1
+        for facet in split_pipe(d["body_sites"]):
+            body_counts[facet]["ALL"]+=1
+            body_counts[facet][intent]+=1
+        for facet in split_pipe(d["themes"]):
+            theme_counts[facet]["ALL"]+=1
+            theme_counts[facet][intent]+=1
     route_rows=[]
     for route,c in sorted(route_counts.items()):
         route_rows.append({"route":route,"all":c["ALL"],"sexual":c["SEXUAL"],"contextual":c["CONTEXTUAL"],
@@ -418,13 +439,37 @@ def main():
         "GENERAL_ONLY" if x["is_general"]=="YES" else "SPECIAL_ONLY" if x["is_special"]=="YES" else "NEITHER"
         for x in audit
     )
+    def counts_dict(source):
+        return {k:dict(v) for k,v in sorted(source.items())}
+
+    routeable=sum(1 for x in audit if x["current_routes"] or x["body_sites"] or x["themes"])
+    multi_route=sum(1 for x in audit if len(split_pipe(x["current_routes"]))>1)
+    zero_route_but_faceted=sum(1 for x in audit if not x["current_routes"] and (x["body_sites"] or x["themes"]))
+    general_secondary_rows=sum(1 for r in general_rows if parse_secondary(r["secondary_paths"]))
+    general_secondary_path_count=sum(len(parse_secondary(r["secondary_paths"])) for r in general_rows)
+    pose_review_clusters=Counter()
+    for d in identities.values():
+        if any(s.startswith("POSE_SCENE_NO_ROUTE") for s in d["review_signals"]):
+            for sig in d["generation_signals"]:
+                if sig.startswith("POSE_SCENE|"):
+                    pose_review_clusters[sig]+=1
+
     summary={
-        "schema_version":1,
+        "schema_version":2,
         "population":{"identity_count":len(audit),"general_rows":len(general_rows),"special_profile_rows":len(profile),
                       "special_identity_mapped":len(special_identity),"special_identity_unmapped":len(special_unmapped),
                       "special_identity_ambiguous":len(special_ambiguous),"membership":dict(membership)},
         "buckets":dict(bucket_counts),
+        "browse_coverage":{
+            "route_or_facet_reachable_identities":routeable,
+            "no_route_or_facet_identities":len(audit)-routeable,
+            "multi_primary_route_identities":multi_route,
+            "zero_primary_route_but_special_faceted":zero_route_but_faceted,
+            "general_rows_with_secondary_paths":general_secondary_rows,
+            "general_secondary_path_count":general_secondary_path_count
+        },
         "pattern_candidate_counts":dict(pattern_counts),
+        "pose_scene_review_clusters":dict(pose_review_clusters),
         "review_signal_counts":dict(Counter(sig for d in identities.values() for sig in d["review_signals"])),
         "bucket_by_intent":{
             bucket:dict(Counter(x["sexual_intent"] or "UNCLASSIFIED" for x in audit if x["bucket"]==bucket))
@@ -444,7 +489,10 @@ def main():
                 for x in audit if x["bucket"]==bucket
             ][:30] for bucket in sorted(bucket_counts)
         },
-        "route_load":{r:dict(c) for r,c in sorted(route_counts.items())},
+        "route_load":counts_dict(route_counts),
+        "local_route_load":counts_dict(local_counts),
+        "body_facet_load":counts_dict(body_counts),
+        "theme_facet_load":counts_dict(theme_counts),
         "notes":[
             "Identity universe is Issue #118 v2 (31,003).",
             "General current routes are projected from accepted #64 primary+secondary paths using current UnifiedBrowseTaxonomy mapping.",
@@ -464,6 +512,12 @@ def main():
     write_csv(out/"identity_audit.csv", sorted(audit,key=lambda x:x["identity_key"]))
     write_csv(out/"pattern_candidates.csv", sorted(pattern_rows,key=lambda x:(x["pattern"],x["canonical"])))
     write_csv(out/"route_load.csv", route_rows)
+    def flatten_load(source, name):
+        return [{"name":k,"all":v["ALL"],"sexual":v["SEXUAL"],"contextual":v["CONTEXTUAL"],
+                 "non_sexual":v["NON_SEXUAL"],"unclassified":v["UNCLASSIFIED"]} for k,v in sorted(source.items())]
+    write_csv(out/"local_route_load.csv", flatten_load(local_counts,"local"))
+    write_csv(out/"body_facet_load.csv", flatten_load(body_counts,"body"))
+    write_csv(out/"theme_facet_load.csv", flatten_load(theme_counts,"theme"))
     (out/"summary.json").write_text(json.dumps(summary,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
 
     print(json.dumps(summary,ensure_ascii=False,indent=2))
