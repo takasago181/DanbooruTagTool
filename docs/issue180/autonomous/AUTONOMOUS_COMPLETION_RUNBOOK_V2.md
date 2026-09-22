@@ -175,6 +175,8 @@ Use `REMAINING_VARIANT_WORK_V2.csv` and `VARIANT_PATTERN_GROUPS_V2.csv`.
 
 Variant patterns with a confirmed base HOME and at least 5 Character rows are mandatory high-yield reviews before final readiness. Review the official pattern once, add explicit `VARIANT_CHARACTER PASS` rows only for variants actually covered by that evidence, then add one terminal `VARIANT_PATTERN` review row for the pattern.
 
+The mandatory pattern registry is **dynamic**. Every `compile_character_home_v2.py` run rebuilds `DYNAMIC_VARIANT_PATTERN_GROUPS_V2.csv` from the current HOME graph. Family/direct decisions can therefore unlock new mandatory variant patterns after an earlier batch. Recompile, inspect the newly unlocked patterns, and continue until the final readiness gate reports none missing.
+
 Prioritize `BASE_HOME_READY_OFFICIALITY_REVIEW`.
 
 Where an official variant pattern is sufficiently established, use it across the pattern rather than re-researching every costume one by one, but write the resulting Character decisions explicitly when they are promoted.
