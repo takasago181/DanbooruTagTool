@@ -511,6 +511,12 @@ def main():
 
     write_csv(out/"identity_audit.csv", sorted(audit,key=lambda x:x["identity_key"]))
     write_csv(out/"pattern_candidates.csv", sorted(pattern_rows,key=lambda x:(x["pattern"],x["canonical"])))
+    write_csv(out/"adult_no_authority.csv", sorted(
+        [x for x in audit if x["bucket"]=="NO_AUTHORITY" and x["sexual_intent"] in {"SEXUAL","CONTEXTUAL"}],
+        key=lambda x:(x["sexual_intent"],x["identity_key"])))
+    write_csv(out/"pose_scene_review.csv", sorted(
+        [x for x in audit if x["bucket"]=="REVIEW"],
+        key=lambda x:(x["review_signals"],x["identity_key"])))
     write_csv(out/"route_load.csv", route_rows)
     def flatten_load(source, name):
         return [{"name":k,"all":v["ALL"],"sexual":v["SEXUAL"],"contextual":v["CONTEXTUAL"],
