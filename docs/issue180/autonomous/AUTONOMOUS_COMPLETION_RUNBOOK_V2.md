@@ -123,7 +123,7 @@ Internal `REPO:` evidence is allow-listed. Use only:
 - `docs/issue180/AUTHORITY_POLICY_V1.md`
 - `docs/issue180/autonomous/AUTONOMOUS_POLICY_V2.json`
 
-Generated artifacts, work queues, masters, review outputs, runbooks, checkpoints and autonomous decision files are context/discovery outputs and must never prove their own authority. Do not bypass this by citing this same repository through a GitHub/raw/API URL; self-repository URLs are also rejected as authority evidence. For approved evidence CSVs, the validator also requires an actual row matching the reviewed family/Character/pattern and, for relation PASS decisions, the same HOME. An unrelated approved CSV cannot be reused as generic proof.
+Generated artifacts, work queues, masters, review outputs, runbooks, checkpoints and autonomous decision files are context/discovery outputs and must never prove their own authority. Do not bypass this by citing this same repository through a GitHub/raw/API URL; self-repository URLs are also rejected as authority evidence. For approved evidence CSVs, the validator also requires an actual row matching the reviewed family/Character/pattern and, for relation PASS decisions, the same HOME. An unrelated approved CSV cannot be reused as generic proof. `AUTONOMOUS_POLICY_V2.json` may prove a FAMILY relation PASS only when `root_policy_normalization[key]` explicitly equals the requested HOME; merely having both tokens somewhere in the policy is insufficient. `AUTHORITY_POLICY_V1.md` is review context for terminal decisions, not direct PASS authority.
 
 VARIANT_CHARACTER PASS additionally requires:
 
