@@ -1,0 +1,37 @@
+name: Issue132 Full Discovery Coverage Audit
+
+on:
+  push:
+    branches:
+      - research/taxonomy-usability-audit
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: research/taxonomy-usability-audit
+          fetch-depth: 1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Run full discovery coverage audit
+        run: |
+          python scripts/issue132/full_discovery_coverage_audit.py \
+            --root . \
+            --out artifacts/issue132/full-discovery-audit
+
+      - name: Upload audit package
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: issue132-full-discovery-audit
+          path: artifacts/issue132/full-discovery-audit
+          if-no-files-found: error
