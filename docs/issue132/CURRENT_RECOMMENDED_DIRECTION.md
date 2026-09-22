@@ -481,6 +481,40 @@ The correct response to performance pressure is to reduce shipped #132 metadata,
 
 ---
 
+## Phase 7 — Luna decision calibration before final handoff
+
+Do not start the 31,003-row Codex run from the older handoff yet.
+
+The full-census scope remains accepted, but the first-pass decision model is being recalibrated for Luna so it does not collapse toward either:
+- near-universal KEEP/UNRESOLVED, or
+- mass ADD_SECONDARY.
+
+Current research direction:
+
+1. Luna sees all 31,003 identities.
+2. First pass is **candidate discovery**, not production approval.
+3. Use six first-pass dispositions:
+   - KEEP_STRONG
+   - SECONDARY_CANDIDATE
+   - BORDERLINE_DISCOVERY
+   - SEARCH_ORIENTED
+   - UPSTREAM_CANDIDATE
+   - SEMANTIC_UNRESOLVED
+4. Hide normative machine labels/proposals from the first-pass input to reduce anchoring.
+5. Allow strong repository-backed secondary candidates without forcing an external web lookup for every row.
+6. Run family-consistency and route-growth audits after the census.
+7. Apply a stricter higher-reasoning precision gate only to candidate/conflict rows before production.
+8. No decision quotas; distributions are bias alarms only.
+9. Use a 64-row instruction-calibration run before the full census.
+10. Continuous review + periodic persistence should replace the older 200-row shard concept as an execution boundary.
+
+Research:
+- `docs/issue132/PHASE7_LUNA_DECISION_CALIBRATION_RESEARCH.md`
+
+The older `CODEX_FULL_SEMANTIC_REVIEW_HANDOFF.md` is explicitly DRAFT / DO NOT RUN until this phase is finalized.
+
+---
+
 ## 14. Protected boundaries
 
 Research only until prototype acceptance.
