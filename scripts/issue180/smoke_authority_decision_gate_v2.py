@@ -79,6 +79,14 @@ def main():
   "notes":"A decision shard must not be allowed to prove its own authority.",
  }])], "decision shards cannot be used as their own REPO evidence")
 
+ expect_fail("self_repo_external_url", [("a",[{
+  "scope":"FAMILY_QUALIFIER","key":"blue_archive","home_copyright":"",
+  "base_character":"","authority_type":"","evidence_url":"https://github.com/takasago181/DanbooruTagTool/blob/main/artifacts/example.csv",
+  "evidence_claim":"This intentionally uses the same repository as fake external authority for the smoke test.",
+  "validation_state":"UNRESOLVED","officiality_state":"",
+  "notes":"Self-repository URLs must not bypass the approved internal evidence allow-list.",
+ }])], "this repository cannot be reintroduced as external URL authority")
+
  expect_fail("generated_artifact_as_evidence", [("a",[{
   "scope":"FAMILY_QUALIFIER","key":"blue_archive","home_copyright":"",
   "base_character":"","authority_type":"","evidence_url":"",
