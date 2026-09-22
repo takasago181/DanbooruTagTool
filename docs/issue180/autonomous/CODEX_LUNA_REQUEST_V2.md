@@ -35,6 +35,8 @@ Be productive rather than maximally conservative: clean IP qualifier families ma
 
 For every PASS decision, provide grounded evidence: either an http(s) evidence_url, or an evidence_claim of `REPO:<existing repository path>`. Internal REPO paths are existence-checked. Do not use free-form unsupported claims as PASS evidence.
 
+For external web evidence, open/read the actual source and verify that its content supports the exact membership/root/variant claim. A brand homepage, search-result snippet, guessed URL, or merely reachable official domain is not sufficient evidence by itself. If the relevant claim cannot be verified from the source, use evidence-backed UNRESOLVED / NEEDS_HIGHER_REASONING instead of PASS.
+
 Do not FAMILY_QUALIFIER-confirm collaboration/project families such as `project_voltage`. Follow existing canonical-root policy already encoded by the foundation instead of reverting Fate/Pokémon/Splatoon subworks to title-by-title HOME.
 
 For difficult cases, use UNRESOLVED or NEEDS_HIGHER_REASONING and continue all other independent work. Do not stop the whole task for Piapro/Miku, umbrella franchises, or a small number of hard cases.
