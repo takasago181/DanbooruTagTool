@@ -116,6 +116,8 @@ A PASS row must contain:
 - grounded evidence: either an http(s) `evidence_url`, or an `evidence_claim` of `REPO:<existing repository path>`
 - HOME for relation-producing scopes
 
+An external URL is evidence only after the actual page content has been checked against the specific claim. A homepage/search snippet/domain-name match alone is not authority.
+
 VARIANT_CHARACTER PASS additionally requires:
 
 - base_character
