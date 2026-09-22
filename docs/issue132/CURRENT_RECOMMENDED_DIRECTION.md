@@ -354,6 +354,50 @@ Only if the existing UI cannot expose the proven routes cleanly should a UI addi
 
 ---
 
+## 14. Phase 6 full-population correction
+
+The Phase 5 task matrix is now a regression/reference set only. Gap discovery is no longer test-first.
+
+A full 31,003-identity census has been completed from tracked #64/#56/#76/#96/#107/#118 authority and current Unified browse rules.
+
+Corrected final baseline:
+
+- OK: **28,537**
+- NO_AUTHORITY: **2,393**
+- REVIEW: **73**
+- mechanically proven PROJECTION_GAP: **0**
+- route or accepted Special facet reachable: **28,601 / 31,003 (92.25%)**
+- Special identity mapping: **3,059 / 3,059**, unmapped 0, ambiguous 0
+
+Important usability result:
+
+The current search + content-intent + local-route + Special-facet structure is already doing most of the narrowing work. The full census does **not** justify replacing the UI or creating a large new taxonomy.
+
+Current next priorities are deliberately small:
+
+1. semantically confirm the **5** `POSE_SCENE + POSE_COMPOSITION + pose_camera` no-route identities;
+2. review the **98** SEXUAL/CONTEXTUAL identities currently in NO_AUTHORITY;
+3. use large heuristic families only as REVIEW candidate generators, never as bulk route rules.
+
+Do not bulk-add:
+- 1,038 action/body heuristic candidates;
+- 1,791 color-modifier candidates;
+- object/place or clothing-placement families
+
+without bounded semantic evidence and route-load impact review.
+
+Current evidence:
+- `docs/issue132/PHASE6_FULL_DISCOVERY_COVERAGE_AUDIT.md`
+- `scripts/issue132/full_discovery_coverage_audit.py`
+- CI run `35743383670`
+- artifact `issue132-full-discovery-audit`
+
+Leading product direction remains deliberately simple:
+
+`Japanese/English search + existing content lens + existing browse + only confirmed static multi-entry fixes -> current Prompt workspace`
+
+---
+
 ## 14. Protected boundaries
 
 Research only until prototype acceptance.
