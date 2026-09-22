@@ -278,7 +278,7 @@ This final gate fails when mandatory active work remains, including:
 - PENDING decision rows
 - a completely empty autonomous decision set
 
-Rows explicitly researched and concluded `UNRESOLVED` or `NEEDS_HIGHER_REASONING` are moved to deferred outputs and do not re-enter active queues.
+Rows explicitly researched and concluded `UNRESOLVED` or `NEEDS_HIGHER_REASONING` require grounded evidence plus a substantive note, are moved to deferred outputs, and do not re-enter active queues. Weak legacy rows may finish either by gaining safe HOME authority or by an evidence-backed terminal review; they must not remain untouched.
 
 ## Final stop rule
 
