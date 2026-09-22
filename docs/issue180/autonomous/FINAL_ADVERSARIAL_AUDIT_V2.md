@@ -72,7 +72,7 @@ The audit reproduced and fixed the following failure classes:
 
 Old RelatedCopyright, post co-occurrence, name similarity and search overlap are discovery hints only.
 
-Autonomous PASS requires grounded evidence and scoped authority.
+Autonomous PASS requires grounded evidence and scoped authority. Autonomous decision files cannot serve as self-referential `REPO:` evidence.
 
 Broad/umbrella families cannot receive autonomous FAMILY_QUALIFIER PASS.
 
