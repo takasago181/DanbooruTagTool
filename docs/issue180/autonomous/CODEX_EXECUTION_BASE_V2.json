@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "status": "HARNESS_FROZEN_FOR_CODEX_AUTONOMOUS_DECISIONS",
+  "base_sha": "ce04f38c7435c76331d3bac1fb5373ee67893682",
+  "branch": "research/issue180-single-home-pilot",
+  "validated_push_run_id": 35675798996,
+  "validated_pr_run_id": 35675801894,
+  "validated_workflow": "Issue180 Single Home Pilot",
+  "post_freeze_write_scope": "docs/issue180/autonomous/decisions/*.csv",
+  "protected_base_decision_file": "docs/issue180/autonomous/decisions/AUTHORITY_DECISIONS_BASE_V2.csv",
+  "main_merge_authorized": false,
+  "production_apply_authorized": false,
+  "accepted_issue70_source_mutation_authorized": false
+}
