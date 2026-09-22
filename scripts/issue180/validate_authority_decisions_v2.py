@@ -217,6 +217,8 @@ def main():
   return (outer or "-",variant_q) in variant_shapes
 
  seen_rows=set(); seen_scope_key={}; states=Counter(); scopes=Counter(); files=Counter()
+ relation_pass_by_character={}
+ terminal_block_by_character={}
  for r in rows:
   src=r["__source_file"]; line=r["__source_line"]
   scope=(r.get("scope") or "").strip(); key=(r.get("key") or "").strip()
@@ -236,6 +238,11 @@ def main():
    raise SystemExit(f"{where}: multiple decisions for same scope/key {scope_key}; first seen at {seen_scope_key[scope_key]}")
   seen_scope_key[scope_key]=where
   states[state]+=1; scopes[scope]+=1; files[src]+=1
+
+  if scope in {"DIRECT_CHARACTER","VARIANT_CHARACTER"} and state=="PASS":
+   relation_pass_by_character[key]=where
+  if scope=="BLOCK_CHARACTER" and state in {"UNRESOLVED","NEEDS_HIGHER_REASONING"}:
+   terminal_block_by_character[key]=where
 
   if scope=="FAMILY_QUALIFIER":
    if lookup_key not in valid_families:
@@ -309,6 +316,14 @@ def main():
     raise SystemExit(f"{where}: autonomous NOT_OFFICIAL_CHARACTER PASS is disabled; use BLOCK/NEEDS_HIGHER_REASONING until second-reviewed handoff")
    if officiality!="NOT_OFFICIAL_CONFIRMED":
     raise SystemExit(f"{where}: NOT_OFFICIAL PASS requires NOT_OFFICIAL_CONFIRMED")
+
+ contradictory_blocks=sorted(set(relation_pass_by_character) & set(terminal_block_by_character))
+ if contradictory_blocks:
+  tag=contradictory_blocks[0]
+  raise SystemExit(
+   f"contradictory Character decisions for {tag}: relation PASS at {relation_pass_by_character[tag]} "
+   f"and terminal BLOCK at {terminal_block_by_character[tag]}"
+  )
 
  print({"rows":sum(files.values()),"files":dict(files),"states":dict(states),"scopes":dict(scopes),"gate":"PASS"})
 
