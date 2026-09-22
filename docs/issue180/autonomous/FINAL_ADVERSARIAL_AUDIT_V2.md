@@ -107,7 +107,7 @@ The final audit also closed two internal-evidence escalation paths:
 - a source-registry or Character row with the same `home_copyright` cannot be promoted into FAMILY_QUALIFIER authority unless the evidence row explicitly names the same family;
 - base Character evidence cannot prove VARIANT_CHARACTER officiality unless the evidence explicitly names the variant Character itself.
 
-`AUTHORITY_POLICY_V1.md` is methodology, not row-level factual evidence. Generated artifacts/review outputs remain discovery/context only.
+`AUTHORITY_POLICY_V1.md` is methodology, not row-level factual evidence, and is excluded from the decision-evidence allow-list. Generated artifacts/review outputs remain discovery/context only.
 
 Character-specific HOME holds are terminal review states, not PASS authority. A grounded Character terminal review suppresses all HOME inheritance paths for that Character without asserting NOT_OFFICIAL.
 
