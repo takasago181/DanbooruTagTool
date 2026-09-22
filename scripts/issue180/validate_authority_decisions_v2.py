@@ -158,7 +158,6 @@ def evidence_gate(row):
    return False, "compatibility decision ledger cannot be used as REPO evidence"
   allowed_repo_evidence = (
    rel_posix.startswith("docs/issue180/evidence/")
-   or rel_posix=="docs/issue180/AUTHORITY_POLICY_V1.md"
    or rel_posix=="docs/issue180/autonomous/AUTONOMOUS_POLICY_V2.json"
   )
   if not allowed_repo_evidence:
