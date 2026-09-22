@@ -269,6 +269,43 @@ A production addition is weakest when:
 
 ---
 
+## 10.5. Prefer systemic fixes over thousands of row overrides
+
+A large disagreement cluster can indicate a problem in the discovery layer itself rather than thousands of bad identities.
+
+After the full independent diff, inspect whether repeated mismatches come from:
+
+- a Unified route label that does not describe its actual accepted population;
+- one General->Unified mapping that collapses meanings too aggressively;
+- one Special->Unified mapping that hides an important distinction;
+- a missing refinement axis;
+- or genuinely identity-specific multi-entry gaps.
+
+Example already visible in the current design:
+
+- #64 `POSE_MOVEMENT` means "ポーズ・動き";
+- Unified maps it to `POSE_POSITION`;
+- the current Unified label is "ポーズ・体位".
+
+If the full Pass-A map repeatedly treats locomotion/movement as mismatched because the user-facing shelf sounds position-only, the first solution to inspect is **route wording/mapping**, not thousands of per-tag overrides.
+
+Resolution preference:
+
+1. clear user-facing label correction, if semantics already match;
+2. small deterministic Unified mapping correction, if one mapping is the root cause and authority remains intact;
+3. owner-authority review (#64/#76), if accepted taxonomy itself is wrong;
+4. identity-level #132 secondary overlay only for genuinely multi-entry exceptions.
+
+This order directly supports:
+- simpler code;
+- smaller runtime metadata;
+- easier Japanese UI;
+- lower maintenance cost.
+
+Do not use one global fix merely because it is smaller; it must be semantically correct across the affected full population.
+
+---
+
 ## 11. Final reconciliation states
 
 After full-population product analysis:
