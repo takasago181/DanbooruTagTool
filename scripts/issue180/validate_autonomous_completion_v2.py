@@ -75,6 +75,7 @@ def main():
         "berserker_(fate/zero)": "fate_(series)",
         "female_protagonist_(pokemon_go)": "pokemon",
         "agent_3_(splatoon_3)": "splatoon_(series)",
+        "sensei_(blue_archive_the_animation)": "blue_archive",
     }
     for tag, expected_home in regression.items():
         row = by_tag.get(tag)
@@ -96,6 +97,7 @@ def main():
         "sangonomiya_kokomi_(sushiro)": "sushiro",
         "king_(snk)": "snk",
         "nanase_(arika)": "arika",
+        "daiginjou_(futaba_channel)": "futaba_channel",
     }
     for tag, forbidden_home in forbidden_qualifier_home.items():
         row = by_tag.get(tag)
