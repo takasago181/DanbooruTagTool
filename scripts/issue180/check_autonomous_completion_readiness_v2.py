@@ -131,6 +131,7 @@ def main():
  family_min_pass=int(policy["mandatory_family_review_min_pass"])
  variant_min_pass=int(policy["mandatory_variant_review_min_pass"])
  zero_yield_exemptions={str(x).strip().lower() for x in policy["zero_yield_discovery_group_exemptions"]}
+ direct_evidence_denylist={str(x).strip().lower().rstrip("/") for x in policy["direct_character_evidence_url_denylist"]}
  lanes=Counter(r.get("work_lane","") for r in fam)
  mandatory_family={k:lanes[k] for k in sorted(MANDATORY_FAMILY_LANES) if lanes[k]}
  mandatory_family_discovery=sorted(
@@ -209,6 +210,28 @@ def main():
  ]
  family_pass_shortfall=max(0,family_min_pass-autonomous_family_pass) if initial_mandatory_family else 0
  variant_pass_shortfall=max(0,variant_min_pass-autonomous_variant_pass) if mandatory_variant_patterns else 0
+
+ direct_pass_rows=[
+  r for r in autonomous_decisions
+  if r.get("scope")=="DIRECT_CHARACTER" and r.get("validation_state")=="PASS"
+ ]
+ bad_direct_evidence_urls=sorted(
+  (r.get("key",""),r.get("evidence_url",""))
+  for r in direct_pass_rows
+  if r.get("evidence_url","").strip().lower().rstrip("/") in direct_evidence_denylist
+ )
+ character_page_url_users=defaultdict(set)
+ for r in direct_pass_rows:
+  if r.get("authority_type")!="CURATED_OFFICIAL_CHARACTER_PAGE":
+   continue
+  url=r.get("evidence_url","").strip().lower().rstrip("/")
+  if url:
+   character_page_url_users[url].add(r.get("key",""))
+ reused_character_page_urls=sorted(
+  (url,sorted(keys))
+  for url,keys in character_page_url_users.items()
+  if len(keys)>1
+ )
  weak_unresolved=[
   r["canonical_tag"] for r in weak
   if master_by.get(r["canonical_tag"],{}).get("final_state") not in {"HOME_CONFIRMED","NOT_OFFICIAL_CHARACTER"}
@@ -228,6 +251,8 @@ def main():
   "mandatory_unqualified_groups_zero_yield":len(zero_yield_groups),
   "autonomous_family_pass_shortfall":family_pass_shortfall,
   "autonomous_variant_pass_shortfall":variant_pass_shortfall,
+  "direct_character_denied_evidence_urls":len(bad_direct_evidence_urls),
+  "reused_character_page_evidence_urls":len(reused_character_page_urls),
   "mandatory_variant_patterns":len(missing_mandatory_variant_patterns),
   "legacy_weak_direct_rows":len(weak_unresolved),
   "pending_variant_pass_rows":pending_variant_pass,
@@ -273,6 +298,8 @@ def main():
   "mandatory_family_review_min_pass":family_min_pass,
   "autonomous_variant_pass_rows":autonomous_variant_pass,
   "mandatory_variant_review_min_pass":variant_min_pass,
+  "direct_character_denied_evidence_url_rows":bad_direct_evidence_urls,
+  "reused_character_page_evidence_url_groups":reused_character_page_urls,
   "reviewed_discovery_groups":len(reviewed_group_keys),
   "mandatory_variant_pattern_min_rows":variant_pattern_min,
   "mandatory_variant_patterns_total":len(mandatory_variant_patterns),
@@ -283,7 +310,7 @@ def main():
   "residual_unqualified_rows":len(unq),
   "deferred_character_rows":summary.get("remaining_work",{}).get("deferred_character_rows",0),
   "deferred_family_rows":summary.get("remaining_work",{}).get("deferred_family_rows",0),
-  "note":"Residual long-tail work may remain unresolved, but mandatory lanes must be genuinely researched. Blanket terminal deferral is not sufficient: non-exempt high-yield discovery groups need at least one confirmed member, and mandatory family/variant work cannot have zero autonomous PASS yield overall.",
+  "note":"Residual long-tail work may remain unresolved, but mandatory lanes must be genuinely researched. Non-exempt discovery groups require the configured confirmed-member floor, family/variant work requires the configured PASS floor, and DIRECT_CHARACTER evidence must point to the actual character/roster support rather than a generic project/product landing page.",
  }
  OUT.write_text(json.dumps(result,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
  print(json.dumps(result,ensure_ascii=False,indent=2))

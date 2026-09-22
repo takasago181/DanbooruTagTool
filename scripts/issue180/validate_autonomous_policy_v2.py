@@ -19,6 +19,7 @@ REQUIRED={
  "mandatory_unqualified_group_min_rows","mandatory_variant_pattern_min_rows","mandatory_family_discovery_min_rows",
  "mandatory_discovery_group_min_confirmed_members","zero_yield_discovery_group_exemptions",
  "mandatory_family_review_min_pass","mandatory_variant_review_min_pass",
+ "direct_character_evidence_url_denylist",
 }
 
 
@@ -50,7 +51,7 @@ def main():
  for name in ("mandatory_discovery_group_min_confirmed_members","mandatory_family_review_min_pass","mandatory_variant_review_min_pass"):
   if not isinstance(policy[name], int) or policy[name] < 1:
    raise SystemExit(f"{name}: expected positive integer")
- for name in ("attribute_families","variant_qualifier_families","broad_families","non_home_families","broad_pass_types","piapro_policy_characters","official_origin_classes","not_official_origin_classes","zero_yield_discovery_group_exemptions"):
+ for name in ("attribute_families","variant_qualifier_families","broad_families","non_home_families","broad_pass_types","piapro_policy_characters","official_origin_classes","not_official_origin_classes","zero_yield_discovery_group_exemptions","direct_character_evidence_url_denylist"):
   if not isinstance(policy[name],list): raise SystemExit(f"{name}: expected list")
   unique_list(name,policy[name])
 
@@ -115,6 +116,7 @@ def main():
   "zero_yield_discovery_group_exemptions":len(policy["zero_yield_discovery_group_exemptions"]),
   "mandatory_family_review_min_pass":policy["mandatory_family_review_min_pass"],
   "mandatory_variant_review_min_pass":policy["mandatory_variant_review_min_pass"],
+  "direct_character_evidence_url_denylist":len(policy["direct_character_evidence_url_denylist"]),
   "allow_autonomous_broad_family_pass":policy["allow_autonomous_broad_family_pass"],
   "gate":"PASS",
  },ensure_ascii=False,indent=2))

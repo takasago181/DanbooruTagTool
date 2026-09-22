@@ -11,7 +11,8 @@ R=Path(__file__).resolve().parents[2]
 D=R/"artifacts/issue180-full-preflight/POST_NORMALIZED_REVIEW/MASTER_HOME_V2"
 LEDGER=D/"APPLIED_AUTHORITY_LEDGER_V2.csv"
 MASTER=D/"CHARACTER_HOME_MASTER_V2.csv"
-SHARD=R/"docs/issue180/autonomous/decisions/__SMOKE_terminal_override_v2.csv"
+DECISION_DIR=R/"docs/issue180/autonomous/decisions"
+SHARD=DECISION_DIR/"__SMOKE_terminal_override_v2.csv"
 VALIDATOR=R/"scripts/issue180/validate_authority_decisions_v2.py"
 COMPILER=R/"scripts/issue180/compile_character_home_v2.py"
 FIELDS=[
@@ -43,6 +44,17 @@ def master_row(tag):
     return rows[tag]
 
 
+def persistent_family_decision_keys():
+    keys=set()
+    for path in sorted(DECISION_DIR.glob("*.csv")):
+        if path.name.startswith("__SMOKE_"):
+            continue
+        for row in read(path):
+            if row.get("scope")=="FAMILY_QUALIFIER" and row.get("key"):
+                keys.add(row["key"].strip().lower())
+    return keys
+
+
 def restore():
     SHARD.unlink(missing_ok=True)
     run(VALIDATOR)
@@ -54,6 +66,7 @@ def main():
         raise SystemExit(f"unexpected stale smoke shard: {SHARD}")
 
     applied=read(LEDGER)
+    persistent_family_keys=persistent_family_decision_keys()
     candidate=next(
         (
             r for r in applied
@@ -61,6 +74,7 @@ def main():
             and r.get("family")
             and r.get("canonical_tag")
             and r.get("home_copyright")
+            and r.get("family","").strip().lower() not in persistent_family_keys
         ),
         None,
     )
