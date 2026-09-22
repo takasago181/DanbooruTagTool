@@ -688,6 +688,72 @@ This gives Luna room to surface plausible improvements without giving it authori
 
 ---
 
+## 13.5. External product evidence aligned to the user's goal
+
+### Danbooru's own tagging structure supports multiple independent visual axes
+
+Danbooru's tagging checklist separates:
+- actions/posture;
+- body parts;
+- wear/costume;
+- explicit sexual actions;
+- sexual positions;
+- sexual objects/themes.
+
+Its tag-group index likewise exposes separate sex-act and sexual-position groups.
+
+Product implication for #132:
+
+A tag can legitimately deserve more than one discovery entrance when those entrances correspond to different user-controlled visual axes.
+
+Examples:
+- action + body target;
+- sex act + sexual position;
+- action + pose.
+
+This supports multi-entry discovery without requiring a single exclusive semantic home.
+
+### Danbooru also warns against combinatorial concept inflation
+
+The tagging checklist explicitly advises against inventing compound concepts that are already expressible as separate component tags, giving examples equivalent to:
+- blonde + bikini;
+- battle + blood;
+- sleepy + morning.
+
+Product implication for #132:
+
+Color/attribute + target combinations should not automatically receive every modifier route merely because the relation is semantically true.
+
+The relevant question remains whether the extra route is useful for finding the exact tag, not whether the tag contains the attribute.
+
+### Existing tag tools combine search and browse rather than replacing one with the other
+
+Danbooru Tag Explorer combines:
+- category-tree exploration;
+- tag/Japanese full-text search;
+- result count/post-count sorting;
+- tag details/wiki navigation.
+
+Tag Autocomplete combines:
+- direct completion;
+- alias search;
+- translated/native-language search;
+- canonical replacement.
+
+Product implication:
+
+#132 should strengthen discovery around the existing search, not turn the product into a taxonomy browser that requires category navigation.
+
+### Performance evidence from tag-completion tools
+
+Tag Autocomplete exposes a completion debounce because real-time lookup can become computationally expensive depending on settings.
+
+Product implication:
+
+#132 should remain static/index-backed and avoid adding live semantic computation to keystrokes.
+
+---
+
 ## 14. Performance / code-complexity compatibility
 
 This calibration model changes only the **research pipeline**.
