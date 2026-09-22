@@ -1,5 +1,11 @@
 # Issue #132 — Codex full semantic review handoff
 
+Status: **DRAFT / DO NOT RUN**
+
+This handoff predates Phase 7 Luna calibration research and is not the final execution instruction.
+Do not start the 31,003-row Codex run from this file.
+It will be rewritten only after `PHASE7_LUNA_DECISION_CALIBRATION_RESEARCH.md` is finalized.
+
 ## Mission
 
 Review **all 31,003 runtime ordinary-tag identities**, one identity at a time, for actual tag-discovery usability.
