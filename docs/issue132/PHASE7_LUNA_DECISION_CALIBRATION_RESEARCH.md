@@ -122,6 +122,81 @@ They should be separated.
 
 ---
 
+## 3.5. Stronger correction: first pass should not be a keep/change decision
+
+Even the six-disposition model still asks Luna to compare against the current product too early.
+
+For the user's goal, the cleanest audit is an **independent discovery map** first.
+
+### Pass A — independent full-population discovery map
+
+For all 31,003 identities, Luna should answer only:
+
+1. What visual/image-generation concept does this tag represent?
+2. Is it something a user would reasonably browse for, or mainly search by name?
+3. If browsing, which existing Unified route(s) are natural starting points for a user who does not know the tag?
+4. For each selected route, is it:
+   - `CORE`: a central way to conceptualize/find the visual;
+   - `SUPPORTING`: plausible but not a primary discovery intent.
+5. Is the meaning unclear enough to require research?
+
+**Do not show Luna the current Unified route IDs, machine bucket, prior Phase 1 proposal, or prototype override during Pass A.**
+
+This makes the first pass an independent image-generation usability judgment rather than a confirmation exercise.
+
+### Pass B — deterministic comparison to current product
+
+After Pass A is complete for all 31,003 identities, mechanically compare Luna's independent map with current #64/#76/Unified metadata.
+
+Derive review populations:
+
+- `COVERED`
+  - every CORE discovery route is already available.
+
+- `MISSING_CORE_ROUTE`
+  - at least one Luna CORE route is absent from current discovery.
+
+- `MISSING_SUPPORTING_ROUTE`
+  - only SUPPORTING routes are absent.
+
+- `CURRENT_ROUTE_NOT_REPRODUCED`
+  - current route exists but Luna did not independently select it.
+  - this is an audit flag, **not an automatic removal**.
+
+- `SEARCH_ORIENTED`
+  - Luna says browse placement adds little value.
+
+- `SEMANTIC_UNRESOLVED`
+  - meaning itself remains unclear.
+
+This deterministic comparison is where the older SECONDARY_CANDIDATE / BORDERLINE concepts become useful.
+
+### Pass C — full-population product-impact audit
+
+Now expose:
+- current metadata;
+- machine pattern families;
+- route counts;
+- sibling consistency;
+- Japanese searchability;
+- alias coverage;
+- usage count.
+
+Use these to decide whether a semantically natural missing route would actually improve the product.
+
+### Pass D — precision review before production
+
+Only the actual delta/conflict populations receive the stricter final decision:
+- KEEP
+- ADD_SECONDARY
+- UPSTREAM_REVIEW
+- SEARCH_ONLY
+- UNRESOLVED
+
+This preserves full-population semantic coverage without letting current taxonomy anchor the initial judgment.
+
+---
+
 ## 4. Proposed two-stage semantic decision model
 
 ### Stage A — Luna full census: discovery-oriented first pass
@@ -165,7 +240,42 @@ Destructive changes to #64/#76 never happen in #132 itself.
 
 ---
 
-## 5. Balanced admission gate for SECONDARY_CANDIDATE
+## 4.5. Pass A output schema — research only
+
+Each identity should produce a compact record:
+
+- `identity_key`
+- `semantic_summary_ja`
+- `discovery_mode`
+  - BROWSE_WORTHY
+  - MIXED
+  - SEARCH_ORIENTED
+  - SEMANTIC_UNRESOLVED
+- `route_1_id`
+- `route_1_strength` = CORE / SUPPORTING
+- `route_1_reason_ja`
+- `route_2_id`
+- `route_2_strength`
+- `route_2_reason_ja`
+- `route_3_id`
+- `route_3_strength`
+- `route_3_reason_ja`
+- `review_depth` = CHECKED / RESEARCHED
+- `evidence_urls`
+- `uncertainty_note`
+
+Rules:
+- zero routes is valid for SEARCH_ORIENTED / unresolved identities;
+- normally prefer one or two routes;
+- a third route is allowed only when it is independently natural, not merely related;
+- never create a new route ID during the row review;
+- do not output KEEP or ADD_SECONDARY during Pass A.
+
+The 31,003-row Pass A ledger is research authority only and does not ship at runtime.
+
+---
+
+## 5. Balanced product gate after MISSING_ROUTE detection
 
 A missing route should be marked `SECONDARY_CANDIDATE` when the reviewer can answer **YES** to A, B, and D, and does not have a clear NO on C.
 
@@ -224,7 +334,7 @@ A canonical string token alone is not sufficient.
 
 ---
 
-## 6. The four useful "middle" states
+## 6. Product reconciliation states after independent Pass A
 
 The protocol needs to distinguish cases that the old schema collapses.
 
@@ -342,6 +452,8 @@ Research may identify a stable visual pattern, but absent a genuinely useful exi
 
 ### Do not show these columns initially
 
+- current Unified route IDs
+- General/Special browse paths used as normative placement
 - machine_bucket
 - machine_review_signals
 - Phase 1 pattern
@@ -352,18 +464,19 @@ Research may identify a stable visual pattern, but absent a genuinely useful exi
 
 They can anchor the reviewer.
 
-### Show factual context
+### Show neutral factual context in Pass A
 
 - identity_key
 - canonical / English
 - Japanese display/search terms
-- aliases
+- approved aliases
 - usage/post count
-- current #64 paths
-- current #76 kind/body/theme
-- #118 content intent
-- current Unified route IDs
-- overlap status
+- #118 content intent when available
+- non-normative descriptive text when available
+
+Do **not** show current browse placement in Pass A.
+
+Current #64/#76/Unified placement and machine audit context are joined only in Pass B/C.
 
 ### Row order
 
@@ -541,28 +654,31 @@ The purpose of diagnostics is to detect instruction bias, not to impose quotas.
 ## 13. Recommended final architecture of the review
 
 ```
-31,003 factual neutral rows
+31,003 neutral factual identities
         |
         v
-Luna full semantic first pass
-(all rows seen)
+Luna independent discovery map
+(no current browse route shown)
         |
-        +-- KEEP_STRONG
-        +-- SECONDARY_CANDIDATE
-        +-- BORDERLINE_DISCOVERY
-        +-- SEARCH_ORIENTED
-        +-- UPSTREAM_CANDIDATE
-        +-- SEMANTIC_UNRESOLVED
+        +-- natural route 1..3 (CORE/SUPPORTING)
+        +-- BROWSE / MIXED / SEARCH_ORIENTED / UNRESOLVED
         |
         v
-mechanical consistency + route-load audit
-(no semantic auto-decisions)
+mechanical diff vs current #64/#76/Unified
+        |
+        +-- COVERED
+        +-- MISSING_CORE_ROUTE
+        +-- MISSING_SUPPORTING_ROUTE
+        +-- CURRENT_ROUTE_NOT_REPRODUCED
         |
         v
-higher-reasoning review of candidates/conflicts
+full-population searchability + route-load + family audit
         |
         v
-minimal production delta only
+higher-reasoning production precision review
+        |
+        v
+minimal confirmed delta only
         |
         v
 existing UnifiedBrowseRouteIds / UnifiedBrowseIndex
