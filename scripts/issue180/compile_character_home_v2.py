@@ -528,6 +528,44 @@ def main() -> None:
         remaining_variant.append(x)
     remaining_variant.sort(key=lambda r: (-int(r.get("post_count", "0") or 0), r["canonical_tag"]))
 
+    # Rebuild ready variant patterns from the *current* HOME graph after every
+    # compile. Family/direct decisions can unlock bases that were unresolved
+    # in the frozen foundation, so readiness must not rely on the static
+    # foundation pattern registry.
+    dynamic_variant_groups: dict[str, list[dict[str, str]]] = defaultdict(list)
+    for row in remaining_variant:
+        if row.get("work_state") != "BASE_HOME_READY_OFFICIALITY_REVIEW":
+            continue
+        base_home = (row.get("base_home_candidate") or "").strip()
+        variant_q = (row.get("variant_qualifier") or "").strip()
+        outer = (row.get("outer_ip_qualifier") or "").strip() or "-"
+        if not base_home or not variant_q:
+            raise SystemExit(f"ready variant missing dynamic pattern key fields: {row.get('canonical_tag')}")
+        pattern_id = f"{base_home}::{outer}::{variant_q}"
+        dynamic_variant_groups[pattern_id].append(row)
+
+    dynamic_variant_pattern_rows: list[dict[str, str]] = []
+    for pattern_id, group_rows in sorted(dynamic_variant_groups.items(), key=lambda kv: (-len(kv[1]), kv[0])):
+        sample = sorted(group_rows, key=lambda r: (-int(r.get("post_count", "0") or 0), r["canonical_tag"]))[:8]
+        first = group_rows[0]
+        dynamic_variant_pattern_rows.append({
+            "pattern_id": pattern_id,
+            "base_home_group": (first.get("base_home_candidate") or "").strip(),
+            "variant_qualifier": (first.get("variant_qualifier") or "").strip(),
+            "outer_ip_qualifier": (first.get("outer_ip_qualifier") or "").strip(),
+            "work_state": "BASE_HOME_READY_OFFICIALITY_REVIEW",
+            "character_rows": str(len(group_rows)),
+            "top_character_samples": "|".join(r["canonical_tag"] for r in sample),
+            "work_lane": "VARIANT_PATTERN_REVIEW_DYNAMIC",
+            "production_approved": "false",
+        })
+    dynamic_pattern_total = sum(int(r["character_rows"]) for r in dynamic_variant_pattern_rows)
+    ready_variant_total = sum(r.get("work_state") == "BASE_HOME_READY_OFFICIALITY_REVIEW" for r in remaining_variant)
+    if dynamic_pattern_total != ready_variant_total:
+        raise SystemExit(f"dynamic variant pattern accounting mismatch: patterns={dynamic_pattern_total} ready={ready_variant_total}")
+    if len({r["pattern_id"] for r in dynamic_variant_pattern_rows}) != len(dynamic_variant_pattern_rows):
+        raise SystemExit("duplicate dynamic variant pattern_id")
+
     remaining_unqualified = [
         dict(r) for r in foundation_unqualified_rows
         if r["canonical_tag"] in unresolved_set and r["canonical_tag"] not in deferred_character_tags
@@ -561,6 +599,11 @@ def main() -> None:
     write_csv(O / "REMAINING_OFFICIALITY_WORK_V2.csv", remaining_officiality, list(foundation_officiality_rows[0].keys()) if foundation_officiality_rows else None)
     write_csv(O / "REMAINING_FAMILY_WORK_V2.csv", remaining_family, list(foundation_family_rows[0].keys()) if foundation_family_rows else None)
     write_csv(O / "REMAINING_VARIANT_WORK_V2.csv", remaining_variant, list(foundation_variant_rows[0].keys()) if foundation_variant_rows else None)
+    write_csv(
+        O / "DYNAMIC_VARIANT_PATTERN_GROUPS_V2.csv",
+        dynamic_variant_pattern_rows,
+        ["pattern_id","base_home_group","variant_qualifier","outer_ip_qualifier","work_state","character_rows","top_character_samples","work_lane","production_approved"],
+    )
     write_csv(O / "REMAINING_UNQUALIFIED_WORK_V2.csv", remaining_unqualified, list(foundation_unqualified_rows[0].keys()) if foundation_unqualified_rows else None)
     write_csv(
         O / "DEFERRED_FAMILY_REVIEW_V2.csv",
@@ -577,7 +620,8 @@ def main() -> None:
         "family_rows": sum(int(r["character_rows"]) for r in remaining_family),
         "family_families": len(remaining_family),
         "variant_rows": len(remaining_variant),
-        "variant_base_home_ready": sum(r.get("work_state") == "BASE_HOME_READY_OFFICIALITY_REVIEW" for r in remaining_variant),
+        "variant_base_home_ready": ready_variant_total,
+        "dynamic_ready_variant_patterns": len(dynamic_variant_pattern_rows),
         "unqualified_rows": len(remaining_unqualified),
         "deferred_character_rows": len(deferred_character),
         "deferred_family_rows": sum(int(r["character_rows"]) for r in deferred_family),
