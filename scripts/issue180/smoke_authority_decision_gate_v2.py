@@ -51,7 +51,7 @@ def expect_pass(name, rows):
 
 
 def main():
- evidence="REPO:docs/issue180/AUTHORITY_POLICY_V1.md"
+ evidence="REPO:docs/issue180/autonomous/AUTONOMOUS_POLICY_V2.json"
  expect_fail("original_family", [("a",[{
   "scope":"FAMILY_QUALIFIER","key":"original","home_copyright":"original",
   "base_character":"","authority_type":"QUALIFIER_COPYRIGHT","evidence_url":"",
@@ -149,6 +149,22 @@ def main():
   "notes":"Reviewed against the recorded repository authority policy; evidence remained insufficient for this hypothetical terminal result.",
  }])
 
+ expect_fail("unrelated_internal_csv", [("a",[{
+  "scope":"DIRECT_CHARACTER","key":"harmony_(pokemon)","home_copyright":"",
+  "base_character":"","authority_type":"","evidence_url":"",
+  "evidence_claim":"REPO:docs/issue180/evidence/direct_official_character_roster_batch05.csv",
+  "validation_state":"UNRESOLVED","officiality_state":"",
+  "notes":"The evidence CSV is valid but contains different Character rows, so it must not support Harmony.",
+ }])], "approved REPO evidence does not contain/support this decision key and HOME")
+
+ expect_pass("direct_internal_csv_exact_match", [{
+  "scope":"DIRECT_CHARACTER","key":"pikachu","home_copyright":"pokemon",
+  "base_character":"","authority_type":"POKEMON_OFFICIAL_POKEDEX_EXACT","evidence_url":"",
+  "evidence_claim":"REPO:docs/issue180/evidence/direct_official_character_roster_batch05.csv",
+  "validation_state":"PASS","officiality_state":"OFFICIAL_CONFIRMED",
+  "notes":"Exact Pikachu row and Pokemon HOME are both present in the approved official roster evidence CSV.",
+ }])
+
  expect_fail("discovery_group_pass", [("a",[{
   "scope":"DISCOVERY_GROUP","key":"pokemon","home_copyright":"",
   "base_character":"","authority_type":"ROSTER_GROUP_RESEARCH","evidence_url":"https://www.pokemon.co.jp/",
@@ -173,8 +189,9 @@ def main():
 
  expect_fail("autonomous_not_official", [("a",[{
   "scope":"NOT_OFFICIAL_CHARACTER","key":"harmony_(pokemon)","home_copyright":"",
-  "base_character":"","authority_type":"AUTONOMOUS_NON_OFFICIAL","evidence_url":"",
-  "evidence_claim":evidence,"validation_state":"PASS","officiality_state":"NOT_OFFICIAL_CONFIRMED",
+  "base_character":"","authority_type":"AUTONOMOUS_NON_OFFICIAL","evidence_url":"https://example.com/harmony-officiality-smoke",
+  "evidence_claim":"External smoke evidence intentionally reaches the NOT_OFFICIAL policy gate.",
+  "validation_state":"PASS","officiality_state":"NOT_OFFICIAL_CONFIRMED",
   "notes":"Single-pass autonomous exclusion must be rejected.",
  }])], "autonomous NOT_OFFICIAL_CHARACTER PASS is disabled")
 
