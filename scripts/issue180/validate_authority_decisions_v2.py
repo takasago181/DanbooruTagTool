@@ -13,7 +13,9 @@ CAT=R/"docs/issue70/data/runtime/issue70_catalog_overlay.csv"
 CENSUS=R/"artifacts/issue180-full-preflight/CHARACTER_QUALIFIER_CENSUS.csv"
 FAMILY_WORK=R/"artifacts/issue180-full-preflight/POST_NORMALIZED_REVIEW/MASTER_HOME_V2/FAMILY_WORK_QUEUE_V2.csv"
 UNQUALIFIED_GROUPS=R/"artifacts/issue180-full-preflight/POST_NORMALIZED_REVIEW/MASTER_HOME_V2/UNQUALIFIED_DISCOVERY_GROUPS_V2.csv"
-VARIANT_GROUPS=R/"artifacts/issue180-full-preflight/POST_NORMALIZED_REVIEW/MASTER_HOME_V2/VARIANT_PATTERN_GROUPS_V2.csv"
+STATIC_VARIANT_GROUPS=R/"artifacts/issue180-full-preflight/POST_NORMALIZED_REVIEW/MASTER_HOME_V2/VARIANT_PATTERN_GROUPS_V2.csv"
+DYNAMIC_VARIANT_GROUPS=R/"artifacts/issue180-full-preflight/POST_NORMALIZED_REVIEW/MASTER_HOME_V2/DYNAMIC_VARIANT_PATTERN_GROUPS_V2.csv"
+VARIANT_WORK=R/"artifacts/issue180-full-preflight/POST_NORMALIZED_REVIEW/MASTER_HOME_V2/VARIANT_WORK_QUEUE_V2.csv"
 EXPECTED_FIELDS=[
  "scope","key","home_copyright","base_character","authority_type","evidence_url",
  "evidence_claim","validation_state","officiality_state","notes",
@@ -107,7 +109,23 @@ def main():
  valid_families={(r.get("final_qualifier") or "").strip().lower() for r in census if (r.get("final_qualifier") or "").strip()}
  family_lane={r["family"]:r.get("work_lane","") for r in read(FAMILY_WORK)}
  valid_discovery_groups={r["discovery_group"].strip().lower() for r in read(UNQUALIFIED_GROUPS) if r.get("discovery_group","").strip()}
- valid_variant_patterns={r["pattern_id"].strip() for r in read(VARIANT_GROUPS) if r.get("pattern_id","").strip()}
+ valid_variant_patterns={r["pattern_id"].strip() for r in read(STATIC_VARIANT_GROUPS) if r.get("pattern_id","").strip()}
+ if DYNAMIC_VARIANT_GROUPS.exists():
+  valid_variant_patterns.update(r["pattern_id"].strip() for r in read(DYNAMIC_VARIANT_GROUPS) if r.get("pattern_id","").strip())
+ variant_shapes={
+  (((r.get("outer_ip_qualifier") or "").strip() or "-"),(r.get("variant_qualifier") or "").strip())
+  for r in read(VARIANT_WORK)
+  if (r.get("variant_qualifier") or "").strip()
+ }
+
+ def structurally_valid_dynamic_variant_pattern(key):
+  parts=key.split("::",2)
+  if len(parts)!=3:
+   return False
+  home,outer,variant_q=parts
+  if not home or not variant_q or not root_resolves(home):
+   return False
+  return (outer or "-",variant_q) in variant_shapes
 
  seen_rows=set(); seen_scope_key={}; states=Counter(); scopes=Counter(); files=Counter()
  for r in rows:
@@ -141,7 +159,7 @@ def main():
    if state=="PASS":
     raise SystemExit(f"{where}: DISCOVERY_GROUP is review-progress only; use DIRECT_CHARACTER rows for HOME PASS")
   elif scope=="VARIANT_PATTERN":
-   if key not in valid_variant_patterns:
+   if key not in valid_variant_patterns and not structurally_valid_dynamic_variant_pattern(key):
     raise SystemExit(f"{where}: unknown variant pattern {key}")
    if home:
     raise SystemExit(f"{where}: VARIANT_PATTERN must not carry HOME")
