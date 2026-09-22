@@ -151,7 +151,7 @@ def main():
   "base_character":"","authority_type":"","evidence_url":"",
   "evidence_claim":policy_text_evidence,"validation_state":"UNRESOLVED","officiality_state":"",
   "notes":"A methodology document must not count as evidence that Blue Archive family research was completed.",
- }])], "approved REPO evidence does not contain/support this decision key and HOME")
+ }])], "REPO evidence must come from approved evidence/policy paths")
 
  expect_pass("family_terminal_with_explicit_family_evidence", [{
   "scope":"FAMILY_QUALIFIER","key":"disney","home_copyright":"",
