@@ -54,8 +54,9 @@ def main():
  evidence="REPO:docs/issue180/autonomous/AUTONOMOUS_POLICY_V2.json"
  expect_fail("original_family", [("a",[{
   "scope":"FAMILY_QUALIFIER","key":"original","home_copyright":"original",
-  "base_character":"","authority_type":"QUALIFIER_COPYRIGHT","evidence_url":"",
-  "evidence_claim":evidence,"validation_state":"PASS","officiality_state":"",
+  "base_character":"","authority_type":"QUALIFIER_COPYRIGHT","evidence_url":"https://example.com/original-family-semantic-smoke",
+  "evidence_claim":"External smoke evidence intentionally reaches the generic-family semantic prohibition.",
+  "validation_state":"PASS","officiality_state":"",
   "notes":"Generic original qualifier must never be bulk HOME authority.",
  }])], "non-HOME collaboration/project family")
 
