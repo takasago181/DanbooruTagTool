@@ -375,6 +375,69 @@ Every row still receives independent reasoning.
 
 ---
 
+## 9.5. Current generated queue is not yet suitable for Luna
+
+Inspection of the current generated `codex_full_review_queue.csv` found two problems.
+
+### Problem 1 — it exposes anchoring labels
+
+It currently contains:
+- `machine_bucket`
+- `review_lane`
+- `machine_review_signals`
+
+These are useful for DEV/AUDIT but should not be in the Luna first-pass view.
+
+The first-pass input should use a separate **neutral review view**.
+
+### Problem 2 — it is missing searchability facts
+
+The current queue does not yet carry enough factual search metadata to judge whether browse adds value.
+
+Before the final handoff, the neutral view should include:
+
+- canonical identity;
+- display Japanese;
+- Japanese search keys;
+- approved aliases;
+- usage/post count;
+- current #64 paths;
+- current #76 kind/body/theme;
+- #118 intent;
+- current Unified routes;
+- General/Special overlap.
+
+These facts already exist in the production catalog input chain:
+- Danbooru canonical source supplies post count;
+- normalized alias index supplies aliases;
+- production Japanese overlay supplies General display/search Japanese;
+- accepted Special Japanese/promotion metadata supplies Special display/search Japanese.
+
+This metadata should be **joined at research/build time only**.
+
+It does not imply new runtime metadata.
+
+### Recommended separation
+
+Produce two files:
+
+`luna_neutral_review_input.csv`
+- factual fields only;
+- no prior suggestions or machine risk labels.
+
+`dev_audit_context.csv`
+- machine bucket;
+- heuristic patterns;
+- prior candidate signals;
+- route-load context;
+- prototype history.
+
+Luna first pass receives only the neutral view.
+
+The DEV/AUDIT comparison pass may join both views after Luna has committed its first-pass disposition.
+
+---
+
 ## 10. Cross-census consistency checks
 
 After Luna finishes all rows, machine analysis becomes useful again.
