@@ -33,7 +33,7 @@ Use the generated v2 work queues. Process reusable family authority before indiv
 
 Be productive rather than maximally conservative: clean IP qualifier families may be bulk-confirmed after one sound family-level validation; do not require one official page per Character. At the same time, ambiguous/broad/mixed families must not be guessed.
 
-For every PASS decision, provide grounded evidence: either an http(s) evidence_url, or an evidence_claim of `REPO:<existing repository path>`. Internal REPO paths are existence-checked. Do not use free-form unsupported claims as PASS evidence.
+For every PASS decision, provide grounded evidence: either an http(s) evidence_url, or an evidence_claim using an approved internal source. Internal `REPO:` evidence is restricted to `docs/issue180/evidence/*`, `docs/issue180/AUTHORITY_POLICY_V1.md`, or `docs/issue180/autonomous/AUTONOMOUS_POLICY_V2.json`. Generated artifacts/work queues/masters/review outputs and autonomous decision files are not authority and must not be cited as evidence.
 
 For external web evidence, open/read the actual source and verify that its content supports the exact membership/root/variant claim. A brand homepage, search-result snippet, guessed URL, or merely reachable official domain is not sufficient evidence by itself. If the relevant claim cannot be verified from the source, use evidence-backed UNRESOLVED / NEEDS_HIGHER_REASONING instead of PASS. Do not cite any autonomous decision shard or compatibility decision ledger as `REPO:` evidence; decision output cannot prove itself.
 
