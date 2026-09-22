@@ -105,6 +105,10 @@ def main():
  master=read(MASTER)
  master_by={r["canonical_tag"]:r for r in master}
  summary=json.loads(SUMMARY.read_text(encoding="utf-8"))
+ policy=json.loads(POLICY_PATH.read_text(encoding="utf-8"))
+ group_min=int(policy["mandatory_unqualified_group_min_rows"])
+ variant_pattern_min=int(policy["mandatory_variant_pattern_min_rows"])
+ family_discovery_min=int(policy["mandatory_family_discovery_min_rows"])
  lanes=Counter(r.get("work_lane","") for r in fam)
  mandatory_family={k:lanes[k] for k in sorted(MANDATORY_FAMILY_LANES) if lanes[k]}
  mandatory_family_discovery=sorted(
@@ -114,7 +118,6 @@ def main():
   and int(r.get("character_rows","0") or 0)>=family_discovery_min
  )
  direct_roster=sum(r.get("work_state")=="DIRECT_ROSTER_REVIEW" for r in unq)
- policy=json.loads(POLICY_PATH.read_text(encoding="utf-8"))
  official_origins=set(policy["official_origin_classes"])
  nonofficial_origins=set(policy["not_official_origin_classes"])
  deferred_character_tags={r.get("canonical_tag","").strip() for r in deferred_char}
@@ -126,9 +129,6 @@ def main():
   and r.get("final_state")=="HOME_UNRESOLVED"
   and r["canonical_tag"] not in deferred_character_tags
  ]
- group_min=int(policy["mandatory_unqualified_group_min_rows"])
- variant_pattern_min=int(policy["mandatory_variant_pattern_min_rows"])
- family_discovery_min=int(policy["mandatory_family_discovery_min_rows"])
  reviewed_group_keys={r.get("discovery_group","").strip().lower() for r in reviewed_groups}
  reviewed_variant_pattern_keys={r.get("pattern_id","").strip() for r in reviewed_variant_patterns}
  mandatory_variant_patterns=[
