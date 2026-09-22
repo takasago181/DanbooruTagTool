@@ -1,576 +1,351 @@
-# Issue #132 — Current consolidated direction
+# Issue #132 — Current recommended direction
 
-Date: 2026-09-20
-Status: **RESEARCH CONSOLIDATION / NO PRODUCTION CHANGE**
+Date: 2026-09-22
+Status: **RESEARCH DIRECTION v2 / NO PRODUCTION CHANGE**
 
-This document consolidates Phase 1–4 into one current product direction for improving tag discoverability specifically for **actual adult image generation**.
+This document supersedes the previous adaptive scene-completion proposal as the leading #132 direction.
 
-It supersedes Phase 2's flat coarse-taxonomy proposal as the leading UX candidate.
+The goal is not to make the tool "smart". The goal is to make a large Danbooru dictionary **easy to search and browse without sacrificing correctness**.
 
 ---
 
 ## 1. Product goal
 
-The goal is **not**:
+A Japanese-speaking user who does not know the exact Danbooru tag should be able to reach the correct canonical tag with:
 
-> build the cleanest possible Danbooru taxonomy.
+1. Japanese / English search, or
+2. a small number of understandable browse choices.
 
-The goal is:
+The user must not need to understand the internal taxonomy.
 
-> A Japanese-speaking user who does not know the exact Danbooru tag can start from the image they want to make, find the correct canonical tags, combine only the needed concepts, and move them into Prompt without unnecessary backtracking or prompt bloat.
+Primary flow:
 
-The workflow should optimize:
+`検索 -> 候補確認 -> 選択 -> 既存Prompt workspace`
 
-`理解 -> 発見 -> 選択 -> Prompt`
-
-for actual generation.
-
----
-
-## 2. What we learned
-
-### Phase 1 — classification anomalies are real, but many are boundary artifacts
-
-136 bounded candidate rows exposed repeated boundaries:
-- action vs body
-- pose vs action
-- object vs place
-- clothing identity vs state
-- style/meta vs visual target
-- color modifier vs target
-- proper noun/meme/event
-
-Important result:
-many rows are naturally multi-axis rather than simply "wrong".
-
-### Phase 2 — reducing 19 routes helps some cases, but flat coarse shelves are not enough
-
-A coarse 8-entry experiment removed or reframed many first-level conflicts.
-
-But later actual-data measurement showed that flat coarse shelves create oversized buckets.
-
-Therefore:
-**coarse taxonomy remains useful as an internal simplification experiment, not as the preferred final sexual-generation UX.**
-
-### Phase 3 — actual sexual-generation data favors multi-axis discovery
-
-#118 sexual lens:
-- 3,988 identities
-- Special metadata available on 2,754 = 69.06%
-- General-only = 1,234
-
-General PROPOSED rows visible under sexual lens:
-- action + pose = 1,224 / 2,835 = 43.17%
-- clothing + exposure = 1,080 / 2,835 = 38.10%
-- combined = 81.27%
-
-General-only sexual/contextual, PROPOSED:
-- 1,146 rows
-- clothing-related = 689
-- action-related = 312
-- combined = 1,001 = 87.35%
-
-Conclusion:
-a flat "action" shelf and "clothing" shelf simply become huge.
-
-### Phase 4 — external tools converge on multi-path discovery
-
-External prompt/tag tools commonly combine:
-- exact/autocomplete search
-- translated/semantic search
-- category/facet browse
-- related/co-occurrence traversal
-- history/favorites
-- selected-tag workspace/cart
-- prompt editing
-
-They rarely depend on a single taxonomy tree.
-
-Most important patterns:
-- exact lookup and concept discovery are separate tasks
-- selected tags influence the next suggestions
-- selected-tag workspace is separate from discovery results
-- NSFW/adult is usually a lens/mode plus adult-specific discovery
-- co-occurrence is explicitly different from semantic similarity
+Browse is a fallback / discovery aid, not a mandatory wizard.
 
 ---
 
-## 3. Core design principle
+## 2. Optimization principles
 
-### Keep five layers separate
+### Accuracy over cleverness
 
-1. **Canonical meaning**
-   - what the tag means
-2. **Human scene planning**
-   - what the user wants to decide
-3. **Discovery route**
-   - how the user finds the tag
-4. **Prompt serialization**
-   - how selected concepts are output for a model
-5. **Generation diagnosis**
-   - why the output succeeds/fails
+- Do not infer what the user "should choose next".
+- Do not generate adaptive scene-completion advice from incomplete semantic metadata.
+- Do not treat co-occurrence as guidance.
+- Do not auto-insert tags.
+- Do not require an LLM, embeddings, or live external services for normal use.
+- A missing browse route is preferable to a confidently wrong browse route.
 
-Do not force one structure to serve all five.
+### Keep runtime behavior deterministic
 
-Especially:
+Normal runtime should be driven by audited static metadata.
 
-**human planning order != browse taxonomy != model Prompt order**
+The same tag + same filter state should produce the same browse placement.
+
+### Search stays primary
+
+Existing Japanese / English / alias / canonical search remains the fastest path and must not be weakened by #132.
 
 ---
 
-## 4. Leading UX structure
+## 3. What remains useful from Phase 1–4
 
-### A. Search remains the fastest path
+Keep the following findings:
 
-The user should never be forced through browse categories.
+- many "classification conflicts" are not wrong tags; they are tags that are naturally discoverable from more than one route;
+- forcing one visible semantic home per tag creates unnecessary ambiguity;
+- the current 19-route structure can remain useful as internal metadata even if it is not the ideal user mental model;
+- #76 Special `種類 / 部位 / テーマ` already provides useful multi-axis discovery;
+- #118 `すべて / 一般向け / 性的` remains the correct content lens;
+- external tools support the broader conclusion that search and browse should coexist;
+- selected Prompt state should remain separate from browse/search results.
 
-Primary search supports:
-- Japanese display
+Discard as the leading UX:
+
+- adaptive "next discovery";
+- scene-completion inference;
+- a new giant scene-planning system;
+- the flat 8/9-category replacement taxonomy.
+
+Those remain historical research evidence only.
+
+---
+
+## 4. Leading UX
+
+### A. Search first
+
+Keep one normal search entry point.
+
+Supported:
+- Japanese
 - canonical English
-- alias
-- existing ranking/post count
+- approved aliases
+- mixed input
+- current ranking/post-count behavior
 
-Future research may distinguish:
-- `タグを探す` — exact/direct lookup
-- `意味から探す` — concept discovery
-- `シーンを続ける` — discovery based on current selections
+No separate "AI search" mode is required for #132.
 
-But the first usable prototype does not require embeddings or an LLM.
-
-### B. #118 content lens remains the scope control
-
-Keep:
+### B. Keep the existing content lens
 
 `内容 [すべて] [一般向け] [性的]`
 
-When `性的` is active, promote generation-oriented discovery axes.
+This limits what the user is browsing without changing canonical identity.
 
-### C. Sexual-generation discovery is multi-axis, not mutually exclusive
+### C. Browse by a small number of stable entrances
 
-#### Scene Core
+Do not expose every internal classification route as a top-level decision.
 
-- **人物・役割**
-- **行為・状態**
-- **身体部位**
-- **体位・配置**
-- **道具**
-- **テーマ**
+For Special, preserve the already accepted #76 entrances:
 
-#### Appearance / finishing
+- 種類
+- 部位
+- テーマ
 
-- **衣装・露出**
-- **表情・視線**
-- **構図・見せ方**
-- **場所・背景・光**
+For General, reuse #64 metadata but present only stable, understandable browse entrances already supported by accepted data. Do not invent a new universal hierarchy solely for #132.
 
-These are entry paths/facets, not exclusive semantic homes.
+### D. Allow multiple browse entrances for the same tag
 
-One tag can be discoverable from multiple axes.
+A tag may be discoverable from more than one valid place.
 
-Examples:
+This is the main #132 change.
 
-`biting_breast`
-- action/contact
-- breast body-site
+Example principle:
 
-`standing_doggystyle`
-- action
-- position/geometry
+- one canonical tag identity;
+- zero, one, or several audited discovery paths;
+- discovery paths do not change PromptToken or taxonomy authority.
 
-`ball_gag`
-- tool/device
-- mouth/oral
-- BDSM theme
+A route is a lookup aid, not a declaration that the tag "belongs only here".
 
-`cum_on_fourth_wall`
-- fluid/state
-- screen-expression
-- possibly action/context
+### E. Use local narrowing, not global mega-categories
 
-No need to force each into one user-facing route.
+After entering an existing category, small local chips/subroutes may narrow the current result set.
+
+Do not build a permanent screen full of 10+ semantic axes.
+
+The user should see only the choices relevant to the route they deliberately opened.
 
 ---
 
-## 5. Reuse existing data rather than rebuild taxonomy
+## 5. No recommendation engine
 
-### Existing data to reuse
+#132 v2 explicitly rejects an opaque recommendation layer.
 
-#### #118
-- sexual/general intent lens
-- do not change semantic authority
+Do not show:
 
-#### #76 Special v2
-Reuse:
-- 9 broad kinds
-- 6 body-site facets
-- 3 themes
-- cross-axis AND filtering
+- "おすすめタグ"
+- "次に必要"
+- "このタグと一緒に使うべき"
+- confidence percentages derived from co-occurrence
 
-This already covers 69.06% of sexual-lens identities through Special membership.
+unless a future independent feature is explicitly researched and approved.
 
-#### #64 General
-Reuse:
-- accepted primary/subpath classification
-- clothing subgenres
-- action subgenres
-- pose/body/object/composition metadata
-
-Do not rewrite #64 merely to satisfy user-facing discovery.
-
-### New data should be a discovery overlay
-
-The main missing population is General-only sexual/contextual:
-
-- 1,234 identities total
-- 1,146 currently PROPOSED
-- especially 1,001 clothing/action rows
-
-Add only bounded user-discovery metadata such as:
-
-- body-site target
-- position/geometry
-- device role
-- scene role
-- visibility/support role
-
-when useful.
-
-This overlay must not mutate canonical identity, PromptToken, #64 authority, #76 authority, or #118 intent.
+Co-occurrence may remain available as research evidence, but it is not #132 runtime guidance.
 
 ---
 
-## 6. Adaptive "next discovery" is the differentiator
+## 6. Minimal data model
 
-Once the user selects a strong intent, preserve it and surface useful missing dimensions.
+Do not rewrite #64 / #76 / #118.
 
-### Starting from body site
+If extra discovery metadata is needed, add a separate auditable overlay.
 
-Example: `乳房・乳首`
+Conceptual shape:
 
-Next:
-- 行為・状態
-- 衣装・露出
-- 道具
-- 人物・役割
-- 構図・見せ方
+```
+canonical_tag
+discovery_axis
+discovery_path
+source_authority
+review_status
+```
 
-### Starting from BDSM
+Rules:
 
-Next:
-- 役割
-- 道具
-- 身体部位
-- 体位・接続
-- visibility
+- multiple rows per canonical tag are allowed;
+- only confirmed routes become user-visible;
+- unresolved routes remain absent;
+- overlay does not alter canonical identity, Japanese overlay, PromptToken, Special ID, #64 taxonomy, #76 authority, or #118 intent;
+- runtime does not infer missing routes dynamically.
 
-### Starting from a device
-
-Next:
-- target person
-- body site
-- functional action/relation
-- position
-- count
-- visibility
-
-### Starting from a fluid/material concept
-
-Next:
-- source
-- destination
-- state/timing
-- quantity
-- actor/target
-- visibility
-
-This is intentionally adaptive rather than one fixed wizard.
+Start only with high-value / high-friction populations. Do not classify all 31k+ ordinary identities merely for completeness.
 
 ---
 
-## 7. Suggestion types must be separated
+## 7. Scope of new classification work
 
-Do not show one opaque `おすすめ` list.
+Prioritize rows where browse placement materially helps because Japanese direct search alone is insufficient or ambiguous.
 
-Use separate concepts:
+Priority candidates:
 
-### 1. 意味が近い
-Semantic alternatives / neighboring canonical concepts.
+1. General-only rows visible in the sexual/contextual lens;
+2. recurring Phase 1 mismatch clusters;
+3. tags users naturally search from multiple valid concepts;
+4. high-use tags with demonstrable browse friction.
 
-### 2. 次に決める
-Generation-structure completion guidance from project knowledge.
-
-Example:
-- body site selected but action missing
-- restraint selected but device/role/topology missing
-
-### 3. 一緒に使われやすい
-Statistical co-occurrence, if later implemented.
-
-Must explicitly state:
-- co-occurrence != semantic similarity
-- co-occurrence != model knowledge
-- co-occurrence != recommendation to automatically insert
-
-No automatic insertion.
+Do not spend effort adding redundant paths to tags already easy to find by search or existing #76 metadata.
 
 ---
 
-## 8. Selected tags and discovery results are separate states
+## 8. UI changes should be small
 
-Adopt the successful "cart/scratchpad" pattern.
+Do not redesign MainWindow first.
 
-### Discovery side
-- search results
-- facet results
-- next-discovery suggestions
-- related/co-occurrence
+Prototype by reusing:
 
-### Selected/Prompt side
-- currently selected tags
-- remove
-- reorder
-- optional weight/edit behavior
-- existing Prompt workspace
+- current search box;
+- current content-intent filter;
+- current result cards;
+- current Prompt workspace;
+- current Special browse behavior.
 
-The selected state must survive continued exploration.
+Add only what is required to prove multi-entry browse.
 
-Do not turn the browse tree itself into the Prompt editor.
+A valid first prototype can be as small as:
 
----
+```
+内容: [性的]
 
-## 9. Prompt role view
+探し方:
+[種類] [部位] [テーマ] [General補助]
 
-Research candidate only:
+<opened route>
+[small local choices]
 
-Group selected Prompt concepts visually as:
+<normal result cards>
+```
 
-### Core
-Scene-defining:
-- actor/target
-- action/state
-- body site
-- position
-- device
-
-### Refinement
-Appearance:
-- clothing/exposure
-- expression
-- setting/style
-
-### Support
-Visibility/composition support:
-- framing
-- focus
-- simple support pose
-
-This is UI/discovery metadata only.
-
-Do not change PromptToken identity.
-
-Do not auto-add support tags.
+The exact labels are prototype material, not frozen production wording.
 
 ---
 
-## 10. Model output stays model-specific
+## 9. Prototype comparison
 
-Selected scene concepts are not necessarily emitted in click order.
+Compare only:
 
-### NoobAI
-Use its own tag/caption conventions.
+### A. Current UI
+Current taxonomy/search behavior.
 
-### Anima
-Allow its tag + natural-language / explicit-role conventions.
+### B. Simplified #132 v2
+Current search + existing browse + audited multi-entry discovery overlay.
 
-### WAI / Illustrious-family
-Keep composition/support conflict concerns model-scoped.
+Do not prototype adaptive scene completion unless the user explicitly reopens that idea later.
 
-Therefore:
-- one scene selection state
-- multiple future serialization strategies
+Use real image-generation discovery tasks where the exact Danbooru tag is initially unknown.
 
-Do not bake model Prompt grammar into browse taxonomy.
+Measure:
+
+- whether the correct canonical tag is found;
+- number of browse decisions;
+- number of backtracks;
+- amount of typing needed;
+- irrelevant result volume;
+- whether the user needed prior Danbooru vocabulary;
+- whether direct search became worse;
+- whether any browse path was misleading.
+
+The prototype wins only if it makes unknown-tag discovery easier **without introducing misleading classification**.
 
 ---
 
-## 11. What to keep / modify / reject / defer
+## 10. Acceptance rule
 
-### KEEP
+Prefer a smaller accurate improvement over a broad clever system.
 
-- Japanese search/display
-- canonical identity
-- existing search ranking
-- post count
-- #118 `すべて / 一般向け / 性的`
-- #76 kind/body/theme
-- current Prompt workspace
-- presets
-- existing detail view
-- General/Special overlap dedupe
+Production candidate requirements:
 
-### MODIFY
+- existing direct search has no material regression;
+- existing #76 / #118 behavior remains valid;
+- added browse routes are deterministic and auditable;
+- no automatic Prompt additions;
+- no co-occurrence guidance;
+- no LLM/runtime inference dependency;
+- common test tasks require fewer wrong turns or less prior tag knowledge than the current UI;
+- misleading routes found in testing are removed rather than rationalized.
 
-- treat current 19 routes as internal/discovery metadata, not mandatory user mental model
-- expose sexual lens through scene axes
-- allow multi-route discovery
-- preserve selected state while browsing
-- add adaptive next-dimension suggestions
-- use existing subroutes as local chips rather than top-level permanent shelves
+If the simplified overlay does not clearly improve real tasks, #132 should stop rather than add more abstraction.
 
-### REJECT
+---
 
-- replacing everything with one new 8/9-category taxonomy
-- deep permanent sex-act category tree
-- forcing every tag into one visible semantic home
-- one opaque `おすすめ` list
-- automatic insertion of related/co-occurring tags
-- treating co-occurrence as generation guidance
-- LLM-required normal browse
-- using human click order as universal Prompt order
+## 11. Implementation order if the prototype passes
+
+1. Freeze a small prototype task set.
+2. Build a bounded discovery-overlay sample.
+3. Compare current UI vs v2 prototype.
+4. Remove misleading or redundant routes.
+5. Freeze the minimal overlay schema.
+6. Extend only to demonstrated high-value populations.
+7. Add compact UI support.
+8. Regression-test search, #76, #118, Prompt selection, catalog build, and UserData safety.
+9. Only then consider production integration.
+
+No full-population semantic rewrite is required.
+
+---
+
+## 12. Explicitly rejected / deferred
+
+### REJECT for #132 v2
+
+- adaptive scene completion;
+- "next thing to decide" inference;
+- co-occurrence-driven recommendations;
+- automatic related-tag insertion;
+- deep permanent sex-act tree;
+- one visible home per tag;
+- replacement 8/9-category mega-taxonomy;
+- LLM-required normal browse;
+- runtime semantic guessing;
+- broad General reclassification for completeness.
 
 ### DEFER
 
-- embeddings / vector semantic search
-- LLM Japanese-to-tag inference
-- live Danbooru co-occurrence service
-- automatic model-specific Prompt rewrite
-- dynamic per-model generation-effectiveness ranking
-- broad General population reclassification
+- embeddings/vector search;
+- LLM Japanese-to-tag inference;
+- live Danbooru co-occurrence;
+- model-specific generation-effectiveness ranking;
+- automatic Prompt rewrite.
 
-These are optional later improvements, not prerequisites.
-
----
-
-## 12. Minimal prototype concept
-
-Do not redesign the entire MainWindow first.
-
-Prototype only the sexual-lens discovery behavior.
-
-### State
-
-```text
-contentIntent = SEXUAL
-selectedSceneFacets[]
-selectedPromptTags[]
-query
-```
-
-### UI concept
-
-Search remains top priority.
-
-Under sexual lens:
-
-```text
-シーンの核
-[人物・役割] [行為・状態] [身体部位] [体位・配置] [道具] [テーマ]
-
-見た目・仕上げ
-[衣装・露出] [表情・視線] [構図・見せ方] [場所・背景・光]
-```
-
-After any selection:
-
-```text
-選択中: 性的 > 乳房・乳首 > 行為・接触
-
-次に絞る:
-[役割] [衣装・露出] [道具] [体位] [見せ方]
-```
-
-Result cards remain current cards.
-
-Prompt area remains current Prompt area.
+These need separate evidence and must not be smuggled into #132.
 
 ---
 
-## 13. Prototype validation tasks
+## 13. Current decision
 
-Compare:
+Leading direction:
 
-A. current taxonomy-first
-B. flat coarse taxonomy
-C. search + multi-axis adaptive scene discovery
+`Japanese/English search + existing intent lens + existing browse + small audited multi-entry discovery overlay -> current Prompt workspace`
 
-Use the same tasks:
+For the sexual lens:
 
-1. user knows a sexual act concept but not tag
-2. body site known, action undecided
-3. position known, action undecided
-4. device/toy known
-5. BDSM theme known
-6. fluid outcome known
-7. clothing/exposure concept known
-8. multi-person actor/receiver concept known
+`性的 -> 種類 / 部位 / テーマ / bounded General supplement -> canonical tag -> Prompt`
 
-Measure:
-- clicks to useful candidate
-- typing required
-- backtracks
-- search fallback
-- result-set size
-- irrelevant result count
-- whether actor/site/position semantics remain clear
-- whether unnecessary tags are encouraged
-- time to add final intended canonical tag set
-
-### Acceptance principle
-
-C should materially reduce backtracking/result overload without hiding direct search.
-
-If it does not, reject or simplify it before production.
+The optimization target is **finding the correct tag with less knowledge and fewer wrong turns**, not predicting the user's scene.
 
 ---
 
-## 14. Implementation order if prototype passes
+## 14. Protected boundaries
 
-1. **No production taxonomy rewrite**
-2. define scene-discovery projection schema
-3. map existing #76 metadata
-4. bounded-map General-only sexual/contextual population
-5. add compact sexual-lens facet UI
-6. add next-dimension guidance
-7. preserve search ranking and existing result cards
-8. validate Prompt selection behavior
-9. only then consider history/co-occurrence/semantic search enhancements
-
----
-
-## 15. Current decision
-
-The leading direction is now:
-
-`Japanese intent/search -> canonical tag discovery -> multi-axis scene completion -> selected-tag workspace -> model-specific Prompt handling`
-
-For sexual generation:
-
-`性的 lens -> start from action/site/position/device/theme/etc. -> intersect -> surface missing dimensions -> add appearance/visibility -> Prompt`
-
-The project should optimize **scene construction and canonical-tag discovery**, not taxonomy purity.
-
----
-
-## 16. Protected boundaries
-
-This is research consolidation only.
+Research only until prototype acceptance.
 
 No changes to:
+
 - main
-- #64 production taxonomy
-- #76 production browse authority
-- #118 intent authority
+- production taxonomy
+- #64 authority
+- #76 authority
+- #118 authority
 - canonical identity
 - PromptToken
 - Japanese production overlay
 - Special IDs
-- #70
-- #131
-- Performance
+- Character/Copyright/Artist lanes
 - search ranking
-- catalog.db
+- production catalog.db
 - UserData
-- artifacts/current
+- production runtime
 
 No merge.
 No production apply.
