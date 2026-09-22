@@ -1,0 +1,6 @@
+identity_key,route_id,mode,evidence,rationale
+presenting_own_ass,POSE_POSITION,ADD_SECONDARY,PHASE1_HIGH+PHASE6_POSE_COMPOSITION_POSE_CAMERA,The concept explicitly presents a body pose and Phase 6 isolates it in the five-row POSE_COMPOSITION/pose_camera no-route cluster.
+holding_own_legs_back,POSE_POSITION,ADD_SECONDARY,PHASE1_HIGH+PHASE6_POSE_COMPOSITION_POSE_CAMERA,The identity describes a maintained body position; preserve existing routes and add pose discovery only.
+standing_doggystyle,POSE_POSITION,ADD_SECONDARY,PHASE1_HIGH+PHASE6_POSE_COMPOSITION_POSE_CAMERA,The identity explicitly combines a sexual act with standing positional geometry.
+holding_own_leg_back,POSE_POSITION,ADD_SECONDARY,PHASE1_HIGH+PHASE6_POSE_COMPOSITION_POSE_CAMERA,The identity describes a maintained one-leg body position; add pose discovery without changing canonical meaning.
+holding_another's_legs_back,POSE_POSITION,ADD_SECONDARY,PHASE1_HIGH+PHASE6_POSE_COMPOSITION_POSE_CAMERA,The identity combines interaction with an explicit maintained body position; add pose discovery while preserving action discovery.
