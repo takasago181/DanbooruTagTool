@@ -123,7 +123,7 @@ Internal `REPO:` evidence is allow-listed. Use only:
 - `docs/issue180/AUTHORITY_POLICY_V1.md`
 - `docs/issue180/autonomous/AUTONOMOUS_POLICY_V2.json`
 
-Generated artifacts, work queues, masters, review outputs, runbooks, checkpoints and autonomous decision files are context/discovery outputs and must never prove their own authority.
+Generated artifacts, work queues, masters, review outputs, runbooks, checkpoints and autonomous decision files are context/discovery outputs and must never prove their own authority. Do not bypass this by citing this same repository through a GitHub/raw/API URL; self-repository URLs are also rejected as authority evidence.
 
 VARIANT_CHARACTER PASS additionally requires:
 
