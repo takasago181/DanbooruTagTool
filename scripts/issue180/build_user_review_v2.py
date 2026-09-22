@@ -14,6 +14,7 @@ MASTER = D / "CHARACTER_HOME_MASTER_V2.csv"
 LEDGER = D / "APPLIED_AUTHORITY_LEDGER_V2.csv"
 UNQUALIFIED = D / "UNQUALIFIED_WORK_QUEUE_V2.csv"
 VARIANTS = D / "REMAINING_VARIANT_WORK_V2.csv"
+DYNAMIC_VARIANT_PATTERNS = D / "DYNAMIC_VARIANT_PATTERN_GROUPS_V2.csv"
 DECISIONS_COMPAT = R / "docs/issue180/autonomous/AUTHORITY_DECISIONS_V2.csv"
 DECISIONS_DIR = R / "docs/issue180/autonomous/decisions"
 OUT = A / "ISSUE180_ALL_35890_USER_REVIEW_V2.txt"
@@ -97,6 +98,11 @@ def main():
     ledger = {r["canonical_tag"]: r for r in ledger_rows}
     unqualified = {r["canonical_tag"]: r for r in read(UNQUALIFIED)}
     variants = {r["canonical_tag"]: r for r in read(VARIANTS)}
+    current_pattern_by_core = {
+        r["pattern_core"]: r["pattern_id"]
+        for r in read(DYNAMIC_VARIANT_PATTERNS)
+        if r.get("pattern_core") and r.get("pattern_id")
+    }
 
     char_context = {}
     family_context = {}
@@ -162,8 +168,9 @@ def main():
                     base_home = (vr.get("base_home_candidate") or "").strip()
                     outer = (vr.get("outer_ip_qualifier") or "").strip() or "-"
                     variant_q = (vr.get("variant_qualifier") or "").strip()
-                    pattern_id = f"{base_home}::{outer}::{variant_q}"
-                    ctx = pattern_context.get(pattern_id)
+                    pattern_core = f"{base_home}::{outer}::{variant_q}"
+                    pattern_id = current_pattern_by_core.get(pattern_core, "")
+                    ctx = pattern_context.get(pattern_id) if pattern_id else None
                 if ctx is not None:
                     review_context_count += 1
                     review_scope = ctx["scope"]
