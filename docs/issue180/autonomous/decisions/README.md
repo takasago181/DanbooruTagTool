@@ -54,4 +54,4 @@ Once `docs/issue180/autonomous/CODEX_EXECUTION_BASE_V2.json` exists:
 - do not edit compiler/validator/policy/workflow/runbook to make a gate pass;
 - if a genuine harness defect is found, report it as a blocker for deliberate unfreeze/re-audit.
 
-Terminal `UNRESOLVED` / `NEEDS_HIGHER_REASONING` rows are review conclusions, not shortcuts. They require substantive notes; review-only `DISCOVERY_GROUP` / `VARIANT_PATTERN` conclusions additionally require grounded evidence.
+Terminal `UNRESOLVED` / `NEEDS_HIGHER_REASONING` rows are review conclusions, not shortcuts. Every terminal review requires grounded evidence plus substantive notes. This applies to family, Character, discovery-group and variant-pattern reviews.
