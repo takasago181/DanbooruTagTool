@@ -506,13 +506,29 @@ def main() -> None:
     remaining_family.sort(key=lambda r: (-int(r["character_rows"]), r["family"]))
 
     deferred_family = []
-    for row in foundation_family_rows:
-        count = deferred_family_counts.get(row["family"], 0)
+    foundation_family_by = {r["family"]: r for r in foundation_family_rows}
+    foundation_family_fields = list(foundation_family_rows[0].keys()) if foundation_family_rows else [
+        "family","character_rows","nested_rows_separate","candidate_home","candidate_basis",
+        "source_file","evidence_url","work_lane","production_approved",
+    ]
+    for family_key, count in sorted(deferred_family_counts.items()):
         if not count:
             continue
-        x = dict(row)
+        if family_key in foundation_family_by:
+            x = dict(foundation_family_by[family_key])
+        else:
+            # A terminal family review may intentionally suppress authority that
+            # was fast-pathed into the foundation and therefore never appeared
+            # in FAMILY_WORK_QUEUE_V2. Keep those now-unresolved rows auditable
+            # and accounted for instead of silently dropping them from the
+            # active/deferred partition.
+            x = {k: "" for k in foundation_family_fields}
+            x["family"] = family_key
+            x["candidate_basis"] = "TERMINAL_OVERRIDE_OF_FOUNDATION_AUTHORITY"
+            x["work_lane"] = "REVIEWED_TERMINAL_OVERRIDE"
+            x["production_approved"] = "false"
         x["character_rows"] = str(count)
-        x["deferred_reason"] = deferred_family_reason.get(row["family"], "AUTONOMOUS_REVIEW_UNRESOLVED")
+        x["deferred_reason"] = deferred_family_reason.get(family_key, "AUTONOMOUS_REVIEW_UNRESOLVED")
         deferred_family.append(x)
     deferred_family.sort(key=lambda r: (-int(r["character_rows"]), r["family"]))
 

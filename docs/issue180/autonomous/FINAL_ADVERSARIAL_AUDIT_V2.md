@@ -81,6 +81,11 @@ The audit reproduced and fixed the following failure classes:
    - each must gain safe reusable authority or a grounded terminal family review; untouched large discovery families block completion
    - the centralized policy schema validator enforces the threshold field so policy/validator drift fails before execution
 
+15. terminal family override accounting for fast-pathed authority
+   - a reviewed terminal family hold can deliberately suppress an already-confirmed foundation HOME
+   - those rows may belong to a family that never appeared in the active family work queue
+   - the compiler now emits an auditable deferred-family row for that override so unresolved partition accounting remains exact
+
 ## Evidence policy
 
 Old RelatedCopyright, post co-occurrence, name similarity and search overlap are discovery hints only.
