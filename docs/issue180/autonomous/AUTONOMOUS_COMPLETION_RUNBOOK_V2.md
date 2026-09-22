@@ -34,7 +34,7 @@ The compatibility ledger `docs/issue180/autonomous/AUTHORITY_DECISIONS_V2.csv` i
 
 Generated master/work queues are artifacts. Do not hand-edit them.
 
-Validated baseline after the adversarial audit (CI run 35669612009):
+Validated baseline after the adversarial audit (data-validation CI run 35670435576):
 
 - Character population: 35,890
 - evidence-grade v1 direct HOME preserved: 367
