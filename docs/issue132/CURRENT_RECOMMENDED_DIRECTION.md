@@ -326,6 +326,34 @@ The optimization target is **finding the correct tag with less knowledge and few
 
 ---
 
+
+## 15. Phase 5 update — first prototype should be data-only
+
+The bounded 24-task route-coverage comparison found that the current app already has the key runtime mechanism needed for multi-entry discovery: `CatalogEntry.UnifiedBrowseRouteIds` is unioned into the existing Unified browse identity.
+
+On the targeted HIGH-confidence cohort (T01–T20):
+- current tested alternate-route coverage: 8 HIT / 12 MISS;
+- with only audited secondary routes: 20 HIT / 0 MISS;
+- all 8 existing-route controls remain HIT.
+
+This is a targeted known-gap cohort, not a population-wide success-rate claim.
+
+Therefore the first #132 prototype is now:
+
+1. no UI redesign;
+2. small static HIGH-confidence route overlay only;
+3. reuse the existing Unified browse UI;
+4. regression tests for alternate-route reachability, original-route preservation, intent filtering, dedupe, and unchanged search;
+5. medium/low-confidence candidates remain REVIEW/UNRESOLVED.
+
+Evidence:
+- `docs/issue132/PHASE5_BOUNDED_TASK_COMPARISON.md`
+- `docs/issue132/phase5_task_matrix_v1.csv`
+
+Only if the existing UI cannot expose the proven routes cleanly should a UI addition be considered.
+
+---
+
 ## 14. Protected boundaries
 
 Research only until prototype acceptance.
