@@ -68,7 +68,8 @@
     "pixiv_fantasia",
     "vrchat",
     "marvel_vs._capcom",
-    "sushiro"
+    "sushiro",
+    "futaba_channel"
   ],
   "broad_pass_types": [
     "ROOT_POLICY_REVIEWED",
@@ -100,7 +101,8 @@
     "pokemon_adventures": "pokemon",
     "pokemon_pokopia": "pokemon",
     "splatoon_3": "splatoon_(series)",
-    "splatoon_raiders": "splatoon_(series)"
+    "splatoon_raiders": "splatoon_(series)",
+    "blue_archive_the_animation": "blue_archive"
   },
   "root_policy_review_hint_prefixes": [
     [
