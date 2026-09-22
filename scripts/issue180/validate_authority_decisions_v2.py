@@ -70,9 +70,13 @@ def evidence_gate(row):
    return False, "blank REPO evidence path"
   path=(R/raw).resolve()
   try:
-   path.relative_to(R.resolve())
+   rel=path.relative_to(R.resolve())
   except ValueError:
    return False, "REPO evidence escapes repository"
+  if str(rel).replace("\\","/").startswith("docs/issue180/autonomous/decisions/"):
+   return False, "decision shards cannot be used as their own REPO evidence"
+  if rel.as_posix()=="docs/issue180/autonomous/AUTHORITY_DECISIONS_V2.csv":
+   return False, "compatibility decision ledger cannot be used as REPO evidence"
   if not path.exists():
    return False, "REPO evidence path does not exist"
   if len(notes) < 8:
