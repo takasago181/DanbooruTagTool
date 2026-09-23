@@ -7,12 +7,13 @@
 ### DEV / KNOWLEDGE / TEMP / AUDIT / GitHub管理 — cold start
 
 1. `docs/project/CURRENT_ROUTING.json`
-2. `docs/project/CURRENT_STATE.md`
-3. routingが示す自班/担当/監査対象のlive Issue
-4. `docs/project/PERMANENT_RULES.md`
-5. product behavior / UX / scope判断が関係する場合は `docs/PRODUCT_GOAL_LOCK.md`
-6. 必要な `docs/project/DECISIONS.md` / current Issue-specific spec / main実装状態
-7. 必要なlatest checkpoint / result comment
+2. `docs/project/NOW.md`
+3. `docs/project/CURRENT_STATE.md`
+4. routingが示す自班/担当/監査対象のlive Issue
+5. `docs/project/PERMANENT_RULES.md`
+6. product behavior / UX / scope判断が関係する場合は `docs/PRODUCT_GOAL_LOCK.md`
+7. 必要な `docs/project/DECISIONS.md` / current Issue-specific spec / main実装状態
+8. 必要なlatest checkpoint / result comment
 
 ### Codex DEV
 
