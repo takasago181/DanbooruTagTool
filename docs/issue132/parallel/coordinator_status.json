@@ -1,77 +1,77 @@
 {
   "schema_version": "issue132-parallel-coordinator-v1",
   "population": 31003,
-  "total_reviewed": 900,
-  "total_remaining": 30103,
+  "total_reviewed": 950,
+  "total_remaining": 30053,
   "complete": false,
   "worker_target_per_run": 300,
   "quality_flags_pending": 12,
   "latest_ci": {
     "workflow": "Issue132 Incremental Checkpoint Validation",
-    "run_id": 35900336789,
-    "head_sha": "cf393c7a37e1d374f4330f028f5d77b4b0f90bde",
+    "run_id": 35905227473,
+    "head_sha": "610fd59ebb914d42832234eca82498d44186906e",
     "conclusion": "success",
-    "note": "Latest Issue132 incremental checkpoint validation observed completed successfully."
+    "note": "Latest observed Issue132 incremental checkpoint validation completed successfully."
   },
   "lanes": {
     "1": {
       "assigned_count": 10335,
-      "reviewed_count": 300,
-      "delta": 0,
-      "remaining_count": 10035,
-      "zero_progress_streak": 1,
-      "slow_progress_streak": 0,
-      "latest_checkpoint": "checkpoint_000276_000300.csv",
-      "last_run_stop_reason": "SEMANTIC_TOOL_BLOCKER",
-      "state": "WARNING_INVALID_STOP",
-      "note": "No new immutable checkpoint. Current lane status contains only a bare SEMANTIC_TOOL_BLOCKER code with error_count=0 and no concrete blocker evidence. Under current stop-evidence rules this is not accepted as a valid stop. Prior QA correction concerns and an artifact-fetch complaint do not by themselves prove that processing the next identity was impossible. Worker should continue; this cycle is WARNING plus INVALID_STOP. Rescue was not written in this coordinator cycle because no safe neutral-row input was materialized for a machine-validated 25-row rescue and inventing rows is prohibited."
-    },
-    "2": {
-      "assigned_count": 10334,
       "reviewed_count": 325,
-      "delta": 100,
-      "remaining_count": 10009,
+      "delta": 25,
+      "remaining_count": 10010,
       "zero_progress_streak": 0,
       "slow_progress_streak": 0,
       "latest_checkpoint": "checkpoint_000301_000325.csv",
+      "last_run_stop_reason": "GIT_CONFLICT",
+      "state": "PROGRESSING_WITH_VERIFIED_SPECIFIC_BLOCKER_CLAIM",
+      "note": "Immutable union advanced by 25. Status records a concrete HTTP 409 during the run-end lane status update, caused by a stale expected blob SHA after concurrent branch activity. The worker re-read/reconciled only the already-durable prefix and did not start another semantic checkpoint. This is specific actual conflict evidence rather than a bare reason code."
+    },
+    "2": {
+      "assigned_count": 10334,
+      "reviewed_count": 350,
+      "delta": 25,
+      "remaining_count": 9984,
+      "zero_progress_streak": 0,
+      "slow_progress_streak": 0,
+      "latest_checkpoint": "checkpoint_000326_000350.csv",
       "last_run_stop_reason": "EXECUTION_LIMIT",
       "state": "PROGRESSING_WITH_RECORDED_BLOCKER",
-      "note": "Immutable checkpoint union advanced by 100. Lane status now records concrete EXECUTION_LIMIT evidence: operation, location after four checkpoints/300-row QA boundary, and effect on safe continuation. This is materially stronger than a bare reason code; retained as recorded blocker evidence for this cycle."
+      "note": "Immutable union advanced by 25. Lane status states the execution window actually ended after the validated 25-row checkpoint and before another full persistence unit could be safely finalized. Accepted for this cycle as recorded actual execution interruption evidence; anticipated time pressure alone would not be accepted."
     },
     "3": {
       "assigned_count": 10334,
       "reviewed_count": 275,
-      "delta": 125,
+      "delta": 0,
       "remaining_count": 10059,
-      "zero_progress_streak": 0,
+      "zero_progress_streak": 1,
       "slow_progress_streak": 0,
       "latest_checkpoint": "checkpoint_000251_000275.csv",
       "last_run_stop_reason": "TOOL_LIMIT",
-      "state": "PROGRESSING_WITH_VERIFIED_SPECIFIC_BLOCKER_CLAIM",
-      "note": "Immutable checkpoint union advanced by 125. Lane status gives specific TOOL_LIMIT evidence at next identity review_seq 828 / true_zangetsu_(shikai): required semantic web research was unavailable after tool-call exhaustion, and classification could not safely proceed without research."
+      "state": "WARNING",
+      "note": "No new immutable checkpoint since the previous coordinator snapshot. The prior TOOL_LIMIT claim was specific, but it does not excuse a later zero-progress coordinator cycle. This is the first consecutive zero-progress cycle, therefore WARNING; a second consecutive incomplete zero cycle becomes STALLED and rescue-eligible after concurrency verification."
     }
   },
   "observed_run_metrics": {
     "schema_version": "execution-telemetry-v1",
     "lane_1": {
-      "rows_completed": 0,
-      "checkpoints_created": 0,
+      "rows_completed": 25,
+      "checkpoints_created": 1,
       "preflight_mode": "FAST",
       "full_authority_fallback": false,
       "structural_validation_failures": 0,
-      "stop_reason": "SEMANTIC_TOOL_BLOCKER"
+      "stop_reason": "GIT_CONFLICT"
     },
     "lane_2": {
-      "rows_completed": 100,
-      "checkpoints_created": 4,
+      "rows_completed": 25,
+      "checkpoints_created": 1,
       "preflight_mode": "FAST",
       "full_authority_fallback": false,
       "structural_validation_failures": 0,
       "stop_reason": "EXECUTION_LIMIT"
     },
     "lane_3": {
-      "rows_completed": 125,
-      "checkpoints_created": 5,
+      "rows_completed": 0,
+      "checkpoints_created": 0,
       "preflight_mode": "FAST",
       "full_authority_fallback": false,
       "structural_validation_failures": 0,
@@ -79,7 +79,7 @@
     }
   },
   "baseline_note": "Fast preflight matched the expected worker-card, contract-manifest, and parallel-plan blob SHAs, so frozen bodies were not reread. Progress is authoritative from immutable checkpoint unions. 300 is a per-run ceiling, not a cumulative boundary or permission to stop voluntarily.",
-  "quality_note": "quality_flags.json now contains 12 pending explicit re-review flags. They remain mandatory before final merge. No quality flag is treated as permission for a worker to stop advancing unrelated next identities.",
+  "quality_note": "quality_flags.json contains 12 pending explicit re-review flags. They remain mandatory before final merge. No newly observed structural failure or CI contract drift was found in this coordinator cycle; flags are not permission to stop unrelated forward progress.",
   "pass_b_generated": false,
   "worker_target_semantics": "ceiling_not_quota",
   "checkpoint_rows": 25,
