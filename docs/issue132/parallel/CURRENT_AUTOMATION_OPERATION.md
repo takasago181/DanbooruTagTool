@@ -108,7 +108,7 @@ For lane-local next index `k`, compute `start = floor((k-1)/300)*300+1` and use 
 Fallback order:
 1. primary: validated lane-local tracked shard;
 2. if shard is missing/invalid, use the tracked full neutral only when the execution environment can actually access it safely;
-3. otherwise discover the latest current Issue132 full-discovery run, list artifacts, require artifact name `issue132-full-discovery-audit` and `expired=false`, then use the returned current artifact ID;
+3. otherwise discover the latest current Issue132 full-discovery run, list artifacts, require artifact name `issue132-full-discovery-audit` and `expired=false`, then use the returned current artifact ID; the backup artifact now includes `docs/issue132/parallel/input-shards`, so prefer the exact required small shard from that package before attempting the monolithic neutral;
 4. if an authorized environment can regenerate from tracked authority, run `scripts/issue132/build_luna_neutral_input.py`, require the exact frozen parent SHA/order, then regenerate the shard with `build_worker_neutral_shards.py`;
 5. only if every authorized path is unavailable or fails invariant validation may neutral acquisition be treated as a concrete blocker.
 
