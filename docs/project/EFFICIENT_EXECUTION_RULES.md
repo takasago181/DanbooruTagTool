@@ -98,6 +98,22 @@ Code ModeでPromiseを使える場合:
 
 高リスク、高精度、網羅監査、protected integrity、回帰影響の検証をユーザーまたは正本が要求する場合もこの予算上限を適用しない。
 
+## 2.5. 大規模CSVはmodel入力前にdeterministic sliceへ落とす
+
+大規模CSVを正本として保持することと、毎runその全体をmodelへ読ませることを混同しない。
+
+可能なら:
+- source SHAを固定;
+- 必要fieldだけ投影;
+- stable order / lane / rangeで必要行だけ抽出;
+- slice manifestを保存;
+- semantic modelにはsliceだけ渡す。
+
+共通utility:
+- `scripts/maintenance/extract_compact_csv_slice.py`
+
+source全体の最終監査はfull/final Gateで行い、worker transportは小さく保つ。
+
 ## 3. 小規模修正のスコープゲート
 
 ### Planを省略できる条件
