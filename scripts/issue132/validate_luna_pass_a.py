@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import hashlib
 import json
 from collections import Counter
 from pathlib import Path
@@ -18,6 +19,7 @@ MODES = {"BROWSE_WORTHY","MIXED","SEARCH_ORIENTED","SEMANTIC_UNRESOLVED"}
 DEPTHS = {"CHECKED","RESEARCHED"}
 BODY = {"MALE_GENITAL","BREAST_NIPPLE","FEMALE_GENITAL","MOUTH_ORAL","BUTTOCK_ANAL","URETHRA"}
 THEMES = {"BDSM_RESTRAINT","INJURY_R18G","REPRO_PREGNANCY_LACTATION"}
+ROOT = Path(__file__).resolve().parents[2]
 LOCAL_PARENT = {
     "ACTION_CONTACT/INTERACTION":"ACTION_CONTACT",
     "ACTION_CONTACT/INTIMATE":"ACTION_CONTACT",
@@ -49,6 +51,57 @@ FIELDS = [
     "route_vocabulary_gap","route_vocabulary_gap_note",
     "review_depth","evidence_urls","uncertainty_note"
 ]
+
+def sha256_file(path: Path) -> str:
+    h=hashlib.sha256()
+    with path.open("rb") as f:
+        for chunk in iter(lambda:f.read(1024*1024), b""):
+            h.update(chunk)
+    return h.hexdigest()
+
+def identity_order_sha(rows) -> str:
+    text="".join(r["identity_key"]+"\n" for r in rows).encode("utf-8")
+    return hashlib.sha256(text).hexdigest()
+
+def verify_contract_manifest(path: Path, neutral_path: Path, neutral_rows):
+    m=json.loads(path.read_text(encoding="utf-8"))
+    errs=[]
+    if m.get("schema_version")!="issue132-pass-a-contract-v1":
+        errs.append("contract manifest schema mismatch")
+    if m.get("population")!=31_003:
+        errs.append("contract manifest population mismatch")
+    neutral=m.get("neutral",{})
+    if neutral.get("identity_count")!=31_003:
+        errs.append("contract manifest neutral identity count mismatch")
+    if neutral.get("output_sha256")!=sha256_file(neutral_path):
+        errs.append("neutral input SHA drift from contract")
+    if neutral.get("identity_order_sha256")!=identity_order_sha(neutral_rows):
+        errs.append("neutral identity order SHA drift from contract")
+
+    for rel,expected in m.get("contract_files_sha256",{}).items():
+        p=ROOT/rel
+        if not p.is_file():
+            errs.append(f"missing frozen contract file: {rel}")
+        elif sha256_file(p)!=expected:
+            errs.append(f"frozen contract file changed: {rel}")
+
+    if m.get("ledger_fields")!=FIELDS:
+        errs.append("ledger field contract drift")
+    if m.get("route_ids")!=sorted(ROUTES):
+        errs.append("route vocabulary drift")
+    if m.get("local_refinement_parent")!=dict(sorted(LOCAL_PARENT.items())):
+        errs.append("local refinement vocabulary drift")
+    if m.get("body_site_ids")!=sorted(BODY):
+        errs.append("body-site vocabulary drift")
+    if m.get("theme_ids")!=sorted(THEMES):
+        errs.append("theme vocabulary drift")
+    if m.get("allowed_discovery_modes")!=sorted(MODES):
+        errs.append("discovery mode vocabulary drift")
+    if m.get("allowed_route_strengths")!=sorted(STRENGTHS):
+        errs.append("route strength vocabulary drift")
+    if m.get("allowed_review_depths")!=sorted(DEPTHS):
+        errs.append("review depth vocabulary drift")
+    return m, errs
 
 def read_csv(path: Path):
     with path.open("r",encoding="utf-8-sig",newline="") as f:
@@ -160,12 +213,20 @@ def main():
     ap.add_argument("--ledger",required=True,help="Pass A output ledger CSV")
     ap.add_argument("--require-complete",action="store_true")
     ap.add_argument("--summary",default="")
+    ap.add_argument("--contract-manifest",default="")
     args=ap.parse_args()
 
     neutral_path=Path(args.input)
     ledger_path=Path(args.ledger)
     neutral=read_csv(neutral_path)
     ledger=read_csv(ledger_path)
+
+    contract_manifest = None
+    contract_errors = []
+    if args.contract_manifest:
+        contract_manifest, contract_errors = verify_contract_manifest(
+            Path(args.contract_manifest), neutral_path, neutral
+        )
 
     # csv.DictReader loses the header when materialized through read_csv on an
     # empty ledger, so validate the declared schema separately.
@@ -180,7 +241,7 @@ def main():
         raise SystemExit(f"neutral input count mismatch: rows={len(neutral)} unique={len(neutral_by)}")
 
     seen=set()
-    errors=[]
+    errors=list(contract_errors)
     last_seq=0
     for row in ledger:
         ident=row["identity_key"]
@@ -206,7 +267,12 @@ def main():
         errors.append(f"incomplete ledger: {len(ledger)} != {len(neutral)}")
 
     stats={
-        "schema_version":"issue132-pass-a-ledger-validation-v1",
+        "schema_version":"issue132-pass-a-ledger-validation-v2",
+        "contract_manifest_sha256": sha256_file(Path(args.contract_manifest)) if args.contract_manifest else "",
+        "contract_created_from_commit": contract_manifest.get("created_from_commit","") if contract_manifest else "",
+        "neutral_input_sha256": sha256_file(neutral_path),
+        "neutral_identity_order_sha256": identity_order_sha(neutral),
+        "ledger_sha256": sha256_file(ledger_path),
         "neutral_count":len(neutral),
         "reviewed_count":len(ledger),
         "remaining_count":len(neutral)-len(ledger),
