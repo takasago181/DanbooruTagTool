@@ -117,7 +117,7 @@ Current execution:
 - frozen Pass-A semantic contract remains unchanged
 - no production mutation / main merge from the research lane
 
-Read `docs/issue132/parallel/CURRENT_AUTOMATION_OPERATION.md` for live operational cadence. Old `READY FOR CODEX LUNA PASS A`, 100-row, or 200-row target wording is historical/frozen context, not current execution routing.
+Read `research/taxonomy-usability-audit:docs/issue132/parallel/CURRENT_AUTOMATION_OPERATION.md` for live operational cadence and `research/taxonomy-usability-audit:docs/issue132/parallel/WORKER_EXECUTION_CARD_V1.md` for the compact worker rules. These are branch-local execution authority; do not infer that a duplicate main copy exists. Old `READY FOR CODEX LUNA PASS A`, 100-row, or 200-row target wording is historical/frozen context, not current execution routing.
 
 ### Runtime baseline
 
