@@ -131,6 +131,13 @@ Examples of cache:
 
 A stale cache must be reconstructable from immutable evidence and must never invalidate already-valid immutable progress.
 
+Operational rules:
+- workers should not rewrite a status cache after every small append unless a consumer actually requires it;
+- prefer cache refresh at run end / meaningful boundary / coordinator cycle;
+- a cache count lower than the checkpoint union means **cache stale**, not progress rollback;
+- cache reconstruction must be deterministic where possible;
+- if both cache and immutable evidence are read, reconcile in favor of validated immutable evidence.
+
 ## 5. Large-source transport
 
 Authoritative large files are not automatically good worker inputs.
@@ -161,6 +168,21 @@ Remove:
 - duplicate rereads of obviously clear items;
 - repeated verification of unchanged hashes;
 - full-population ingestion where deterministic filtering can happen first.
+
+## 6.5. Machine serialization boundary
+
+Structured output must not rely on the model visually counting delimiters.
+
+For CSV / JSON / manifests / ledgers:
+1. build a structured row/object first;
+2. serialize with a real CSV/JSON writer;
+3. parse the produced bytes/text back;
+4. assert exact schema/field count/types/enums/order;
+5. only then persist or push.
+
+This is especially important for append-only Automation work. Semantic review belongs to the model; quoting, column alignment, JSON escaping, sorting, duplicate/gap detection, and schema conformance belong to deterministic code.
+
+Do not add a second semantic reread merely to compensate for weak serialization. Fix the serialization boundary instead.
 
 ## 7. CI tiers
 
