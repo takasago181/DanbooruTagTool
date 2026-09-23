@@ -4,14 +4,21 @@
   "lane_count": 3,
   "assignment_rule": "((review_seq-1)%3)+1",
   "assigned_count": 10334,
-  "reviewed_count": 300,
-  "remaining_count": 10034,
-  "checkpoint_count": 12,
-  "last_checkpoint": "checkpoint_000276_000300.csv",
+  "reviewed_count": 350,
+  "remaining_count": 9984,
+  "checkpoint_count": 14,
+  "last_checkpoint": "checkpoint_000326_000350.csv",
   "complete": false,
   "error_count": 0,
-  "last_run_delta": 25,
-  "last_run_stop_reason": "IN_PROGRESS",
+  "last_run_delta": 75,
+  "last_run_stop_reason": "EXECUTION_LIMIT",
   "last_qa_boundary": 300,
-  "last_qa_note": "Cumulative 201-300 block high-risk review completed at boundary 300; checkpoint 276-300 was machine-serialized and parse-back validated before write. Existing high-risk rows were re-read for route inflation, facets, evidence, and unresolved handling; no certain overlay patch was created at this boundary. Work continues beyond the boundary."
+  "last_qa_note": "Cumulative 201-300 block high-risk review completed at boundary 300; checkpoint 276-300 machine-serialized and parse-back validated. Work then continued through lane-local 350.",
+  "last_run_blocker": {
+    "type": "EXECUTION_LIMIT",
+    "operation": "continue semantic review from lane-local 351",
+    "where": "after immutable checkpoint_000326_000350.csv was safely committed",
+    "evidence": "The automation execution turn reached its external run boundary after three validated 25-row checkpoints were committed; no additional tool execution remained in this turn to safely classify and persist the next 25-row unit.",
+    "why_continuation_impossible": "The next identity had not yet been semantically finalized or serialized when the execution turn ended. No speculative partial checkpoint was written."
+  }
 }
