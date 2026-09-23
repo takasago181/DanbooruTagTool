@@ -20,8 +20,6 @@ CONTRACT_FILES = [
     "scripts/issue132/build_pass_a_contract_manifest.py",
     "scripts/issue132/check_review_vocabulary_against_code.py",
     "scripts/issue132/validate_luna_lane.py",
-    "scripts/issue132/bootstrap_luna_parallel.py",
-    "scripts/issue132/merge_luna_parallel.py",
     "scripts/issue132/validate_luna_pass_a.py",
     "src/DanbooruTagTool.Core/UnifiedBrowse.cs",
     "src/DanbooruTagTool.Core/SpecialBrowseV2.cs",
