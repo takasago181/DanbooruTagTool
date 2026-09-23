@@ -1,0 +1,26 @@
+review_seq,identity_key,manual_seen,semantic_summary_ja,discovery_mode,route_1_id,route_1_strength,route_1_reason_ja,route_2_id,route_2_strength,route_2_reason_ja,route_3_id,route_3_strength,route_3_reason_ja,local_refinement_ids,body_site_ids,theme_ids,route_vocabulary_gap,route_vocabulary_gap_note,review_depth,evidence_urls,uncertainty_note
+752,ok_sign_over_eye,YES,OKサインの指の輪を片目の前に置く仕草,BROWSE_WORTHY,ACTION_CONTACT,CORE,手指のジェスチャーとして探すのが自然,,,,,,,[],[],[],NO,,CHECKED,[],
+755,between_legs,YES,物体や身体部位が人物の両脚の間に位置する状態,BROWSE_WORTHY,COMPOSITION_CAMERA,CORE,脚の間という相対配置から探すのが自然,,,,,,,[],[],[],NO,,RESEARCHED,"[""https://tags.latent.moe/en/t/between_legs""]",Danbooru由来wikiで物体または身体部位が脚間にある状態と確認
+758,measurements,YES,身体寸法などの測定値・数値情報を示す表現,BROWSE_WORTHY,TEXT_SYMBOL,CORE,数値・測定情報として探すのが自然,,,,,,,"[""TEXT_SYMBOL/TEXT""]",[],[],NO,,CHECKED,[],
+761,soiled_diaper,YES,汚れたおむつ,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,おむつという着用品の状態から探すのが自然,,,,,,,"[""CLOTHING/EVERYDAY""]",[],[],NO,,CHECKED,[],
+764,dragon_(arms),YES,ゲームARMSに登場するドラゴン型ARM,SEARCH_ORIENTED,,,,,,,,,,[],[],[],NO,,RESEARCHED,"[""https://safebooru.org/index.php?id=3527389&page=post&s=view""]",ARMS作品・Min Minと併記される作品固有要素を確認
+767,earphones_removed,YES,イヤホンを耳から外した状態,BROWSE_WORTHY,ACTION_CONTACT,CORE,イヤホンを外す動作・状態として探すのが自然,,,,,,,"[""ACTION_CONTACT/OBJECT_USE""]",[],[],NO,,CHECKED,[],
+770,carhop,YES,ドライブインで車まで料理を運び接客する給仕,BROWSE_WORTHY,RELATION_ROLE,CORE,職業・役割として探すのが自然,,,,,,,[],[],[],NO,,RESEARCHED,"[""https://www.vocabulary.com/dictionary/carhop""]",職業語の意味を確認
+773,argentinian_flag_print,YES,アルゼンチン国旗柄のプリント,BROWSE_WORTHY,TEXT_SYMBOL,CORE,国旗記号のプリントとして探すのが自然,,,,,,,"[""TEXT_SYMBOL/SYMBOL""]",[],[],NO,,CHECKED,[],
+776,voile,YES,東方Projectで紅魔館の図書館を指す検索用呼称,MIXED,SCENE_BACKGROUND,CORE,図書館という場所・背景から探す意図が成立,,,,,,,[],[],[],NO,,RESEARCHED,"[""https://shima.donmai.us/forum_topics/9233""]",公式名ではないがDanbooruではTouhouのlibrary検索として使われることを確認
+779,yakitori,YES,焼き鳥,BROWSE_WORTHY,TOOL_OBJECT,CORE,食べ物として探すのが自然,,,,,,,"[""OBJECT_PROP/FOOD""]",[],[],NO,,CHECKED,[],
+782,fried_rice_prank_(meme),YES,巨大な炒飯を鍋で返しているように見せたネット上のいたずら画像ミーム,SEARCH_ORIENTED,,,,,,,,,,[],[],[],NO,,RESEARCHED,"[""https://safebooru.org/index.php?id=4957857&page=history&type=tag_history"",""https://time.com/5513048/rice-photo-prank/""]",ミーム固有参照として確認
+785,taut_sweater,YES,身体に張って強く伸びたセーター,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,衣服の張り・着用状態として探すのが自然,,,,,,,"[""CLOTHING_STATE_EXPOSURE/""]",[],[],NO,,CHECKED,[],
+788,full-length_zipper,YES,衣服などの全長にわたる長いファスナー,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,衣服の構造・ディテールとして探すのが自然,,,,,,,"[""CLOTHING/ACCESSORY""]",[],[],NO,,CHECKED,[],
+791,raised_eyebrows,YES,眉を上げた表情,BROWSE_WORTHY,EXPRESSION_GAZE,CORE,表情・眉の形として探すのが自然,,,,,,,"[""EXPRESSION_EMOTION/""]",[],[],NO,,CHECKED,[],
+794,double_popsicle,YES,2本がつながった形のアイスキャンディー,BROWSE_WORTHY,TOOL_OBJECT,CORE,食べ物として探すのが自然,,,,,,,"[""OBJECT_PROP/FOOD""]",[],[],NO,,CHECKED,[],
+797,cerberus,YES,ギリシャ神話の多頭の冥界の番犬ケルベロス,BROWSE_WORTHY,LIVING,CORE,神話上の生物として探すのが自然,,,,,,,"[""LIVING_NATURE/CREATURE""]",[],[],NO,,RESEARCHED,"[""https://en.wikipedia.org/wiki/Cerberus""]",一般概念として多頭の冥界の番犬を確認
+800,traum_(fate/grand_order),YES,Fate/Grand Orderの作品固有参照Traum,SEARCH_ORIENTED,,,,,,,,,,[],[],[],NO,,CHECKED,[],
+803,monstera_deliciosa,YES,観葉植物モンステラ・デリシオーサ,BROWSE_WORTHY,LIVING,CORE,植物として探すのが自然,,,,,,,"[""LIVING_NATURE/PLANT""]",[],[],NO,,CHECKED,[],
+806,cock_and_ball_torture,YES,陰茎と睾丸に苦痛・拘束を加えるBDSM行為,BROWSE_WORTHY,ACTION_CONTACT,CORE,性的BDSM行為として探すのが自然,,,,,,,"[""ACTION_CONTACT/INTIMATE""]","[""MALE_GENITAL""]","[""BDSM_RESTRAINT""]",NO,,CHECKED,[],
+809,bird_skull,YES,鳥の頭蓋骨,BROWSE_WORTHY,TOOL_OBJECT,CORE,骨格標本・物体として探すのが自然,,,,,,,"[""OBJECT_PROP/DAILY""]",[],[],NO,,CHECKED,[],
+812,suspicious_egg_dish,YES,不審・怪しげな卵料理を題材にしたミーム表現,SEARCH_ORIENTED,,,,,,,,,,[],[],[],NO,,RESEARCHED,"[""https://pixai.art/es/artwork/1745932263553840504""]",memeタグと併用される固有ミーム用例を確認
+815,against_locker,YES,人物がロッカーに寄りかかる・押し付けられる配置,BROWSE_WORTHY,POSE_POSITION,CORE,身体とロッカーの位置関係・姿勢として探すのが自然,,,,,,,[],[],[],NO,,CHECKED,[],
+818,dirt,YES,土・泥・汚れ,BROWSE_WORTHY,SCENE_BACKGROUND,CORE,地面や背景の土・汚れとして探すのが自然,,,,,,,[],[],[],NO,,CHECKED,[],
+821,math_lady_(meme),YES,数式に囲まれて困惑する女性の画像ミーム,SEARCH_ORIENTED,,,,,,,,,,[],[],[],NO,,RESEARCHED,"[""https://en.wikipedia.org/wiki/Math_Lady""]",ブラジルのドラマ由来のMath Ladyミームを確認
+824,australian_flag,YES,オーストラリア国旗,BROWSE_WORTHY,TEXT_SYMBOL,CORE,国旗・記号として探すのが自然,,,,,,,"[""TEXT_SYMBOL/SYMBOL""]",[],[],NO,,CHECKED,[],
