@@ -13,6 +13,18 @@ on:
       - "scripts/issue132/validate_luna_pass_a.py"
       - "scripts/issue132/validate_parallel_checkpoints.py"
       - ".github/workflows/issue132_incremental_checkpoint.yml"
+  pull_request:
+    branches:
+      - research/taxonomy-usability-audit
+    paths:
+      - "docs/issue132/parallel/lane-*/checkpoints/**"
+      - "docs/issue132/parallel/lane-*/status.json"
+      - "docs/issue132/parallel/quality_flags.json"
+      - "docs/issue132/parallel/pass_a_contract_manifest_v1.json"
+      - "scripts/issue132/build_luna_neutral_input.py"
+      - "scripts/issue132/validate_luna_pass_a.py"
+      - "scripts/issue132/validate_parallel_checkpoints.py"
+      - ".github/workflows/issue132_incremental_checkpoint.yml"
   workflow_dispatch:
 
 permissions:
