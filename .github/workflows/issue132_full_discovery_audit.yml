@@ -21,6 +21,26 @@ on:
       - "docs/issue96/special_expansion_promotion_proposal_v1.csv"
       - "docs/issue107/promotion_metadata_v1.csv"
       - ".github/workflows/issue132_full_discovery_audit.yml"
+  pull_request:
+    branches:
+      - research/taxonomy-usability-audit
+    paths:
+      - "scripts/issue132/**"
+      - "docs/issue132/CURRENT_RECOMMENDED_DIRECTION.md"
+      - "docs/issue132/FULL_SEMANTIC_REVIEW_PROTOCOL.md"
+      - "docs/issue132/LUNA_*.md"
+      - "docs/issue132/CODEX_FULL_SEMANTIC_REVIEW_HANDOFF.md"
+      - "docs/issue132/prototype_route_overrides_v0_1.csv"
+      - "docs/issue132/parallel/pass_a_contract_manifest_v1.json"
+      - "docs/issue118/production_candidate/sexual_intent_v2.csv"
+      - "docs/issue64/production_candidate/effective_sidecar.csv"
+      - "data/generation/special2788_generation_profile.csv"
+      - "src/DanbooruTagTool.Data/Issue56Inputs.cs"
+      - "src/DanbooruTagTool.Data/Issue76Data/**"
+      - "src/DanbooruTagTool.Data/UnifiedBrowseData/special_route_overrides_v1.csv"
+      - "docs/issue96/special_expansion_promotion_proposal_v1.csv"
+      - "docs/issue107/promotion_metadata_v1.csv"
+      - ".github/workflows/issue132_full_discovery_audit.yml"
   workflow_dispatch:
 
 permissions:
