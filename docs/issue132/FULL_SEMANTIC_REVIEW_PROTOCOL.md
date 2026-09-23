@@ -157,6 +157,8 @@ Every identity produces:
 - route_3_id
 - route_3_strength
 - route_3_reason_ja
+- body_site_ids = zero or more existing fixed body-site IDs
+- theme_ids = zero or more existing fixed theme IDs
 - review_depth = CHECKED / RESEARCHED
 - evidence_urls
 - uncertainty_note
@@ -222,6 +224,8 @@ After Pass A, diagnose across all 31,003 identities:
 - SEARCH_ORIENTED distribution;
 - SEMANTIC_UNRESOLVED distribution;
 - route co-assignment patterns;
+- body-site/theme selection distribution;
+- body/theme gaps versus current Special-backed facets;
 - sibling/family inconsistency;
 - concentration caused by modifier families;
 - repeated route triples;
