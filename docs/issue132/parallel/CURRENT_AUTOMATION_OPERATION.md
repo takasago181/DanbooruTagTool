@@ -75,7 +75,7 @@ The latest successful Issue132 CI is allowed to carry the repeated proof that th
 
 ### Stable neutral acquisition (mandatory)
 
-The normal Pass-A input source is the tracked research snapshot:
+Semantic authority remains the frozen neutral input:
 
 `docs/issue132/parallel/input/luna_neutral_review_input_v2.csv`
 
@@ -89,18 +89,30 @@ Expected invariants:
 - neutral CSV SHA-256: `ac0f888d02f19a440c63b3b9f695c58f9ba53b98ebe9756edec51db1c5ff8f7d`
 - identity-order SHA-256: `f80c63018ce19a8c7c5d8d6fd83d03cf760c510d8f6cfa455d1ab356fb31361b`
 
-Workers MUST prefer this tracked snapshot over GitHub Actions artifacts. Read only the line/range needed to obtain the next lane window, then programmatically filter by `((review_seq - 1) % 3) + 1`. Do not semantically ingest all 31,003 rows.
+Workers MUST NOT depend on fetching the 31,003-row file directly. The primary operational input is the deterministic lane-local shard set:
 
-The Actions artifact `issue132-full-discovery-audit` is now a reproducibility/backup output, not a required worker dependency. A 404 from a historical workflow-run artifact endpoint is therefore NOT a semantic blocker and MUST NOT stop a worker when the tracked snapshot is valid.
+`docs/issue132/parallel/input-shards/lane-N/shard_XXXXXX_YYYYYY.csv`
 
-If the tracked snapshot is missing or fails SHA/order validation:
+Each shard contains at most 300 lane-local rows and has a sibling `.manifest.json` binding it to:
+- lane/local start and end;
+- exact shard CSV SHA-256;
+- shard identity-order SHA-256;
+- parent neutral SHA-256;
+- parent identity-order SHA-256;
+- parent population 31,003.
 
-1. check the latest current Issue132 full-discovery run rather than any pinned historical run ID;
-2. discover its artifact list, confirm artifact name and `expired=false`, then download by the returned current artifact ID;
-3. if an authorized execution environment can regenerate from tracked authority, use `scripts/issue132/build_luna_neutral_input.py` and require the exact frozen SHA/order above;
-4. only if every contract-authorized source is unavailable or fails invariant validation may neutral acquisition be treated as a concrete blocker.
+The shard set is generated only by `scripts/issue132/build_worker_neutral_shards.py` from the frozen neutral authority and validated by `scripts/issue132/validate_worker_neutral_shards.py`. The full-discovery CI publishes the generated shard set to the research branch only after those checks pass.
 
-Never use a cached temporary artifact download URL as persistent state. Never treat a bare artifact-API 404 as sufficient stop evidence.
+For lane-local next index `k`, compute `start = floor((k-1)/300)*300+1` and use exactly the shard whose range contains `k`. Read that small shard plus its sidecar manifest only. Do not read, materialize, or semantically ingest all 31,003 neutral rows during normal worker execution.
+
+Fallback order:
+1. primary: validated lane-local tracked shard;
+2. if shard is missing/invalid, use the tracked full neutral only when the execution environment can actually access it safely;
+3. otherwise discover the latest current Issue132 full-discovery run, list artifacts, require artifact name `issue132-full-discovery-audit` and `expired=false`, then use the returned current artifact ID;
+4. if an authorized environment can regenerate from tracked authority, run `scripts/issue132/build_luna_neutral_input.py`, require the exact frozen parent SHA/order, then regenerate the shard with `build_worker_neutral_shards.py`;
+5. only if every authorized path is unavailable or fails invariant validation may neutral acquisition be treated as a concrete blocker.
+
+A worker-side inability to fetch the monolithic neutral file is NOT a blocker when the required validated shard exists. Never use a cached temporary artifact download URL as persistent state. Never treat a bare artifact-API 404 as sufficient stop evidence.
 
 ---
 
@@ -202,7 +214,7 @@ Rules:
 - correction files are additive/immutable; checkpoints remain untouched;
 - `review_seq` and `identity_key` cannot be patched;
 - a correction must bind to the exact original checkpoint value via `expected_before`;
-- after creating a correction, run/allow `validate_parallel_checkpoints.py`; it validates the effective row after overlay;
+- after creating a correction, run/allow `validate_parallel_effective.py`; it first runs the frozen checkpoint validator and then validates the effective row after overlay;
 - final parallel merge applies the same correction overlay before full Pass-A validation;
 - discovering and recording a valid correction is NOT a run termination condition: continue to the next identity after the correction is persisted/validated;
 - if the semantic fix itself is uncertain, record a quality flag for coordinator review rather than inventing a patch, but the mere existence of the flag still does not stop processing unrelated next identities.
