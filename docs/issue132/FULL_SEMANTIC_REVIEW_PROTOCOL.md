@@ -104,27 +104,30 @@ Only confirmed deltas become:
 
 ## 4. Pass-A neutral input
 
-Pass A should receive factual semantic/search surfaces only:
+Pass A receives only the GitHub-reproducible neutral projection defined by:
 
+`docs/issue132/LUNA_NEUTRAL_INPUT_CONTRACT.md`
+
+Fields:
+
+- review_seq
 - identity_key
-- canonical
-- English/source surface where different
-- display_ja
-- search_ja
-- approved aliases
-- useful neutral description when available
+- source_surfaces
 
-Current route/taxonomy placement must be hidden.
+If those surfaces are not enough to understand a tag, Luna must use RESEARCHED rather than rely on hidden current-product metadata.
 
-Prefer hiding usage/post count until Pass C so rarity does not distort semantic route judgment.
-
-Prefer hiding #118 content intent until Pass C unless it is required to disambiguate an otherwise unclear semantic identity.
+Current route/taxonomy/search/popularity context is deliberately hidden.
 
 ### Explicitly hidden in Pass A
 
 - current Unified route IDs
 - #64 primary/secondary path
 - #76 kind/body/theme classification
+- #118 sexual intent/status/evidence
+- General/Special membership
+- Japanese production overlay/search keys
+- aliases
+- usage/post count
 - machine_bucket
 - heuristic family labels
 - Phase 1 proposals
