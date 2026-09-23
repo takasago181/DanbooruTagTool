@@ -100,8 +100,11 @@ public static class Issue132NeutralReviewExporter
 
     public static void Export(string catalogPath, string outputCsvPath)
     {
+        var manifestPath = Path.ChangeExtension(outputCsvPath, ".manifest.json");
         if (File.Exists(outputCsvPath))
             throw new IOException("Issue #132 neutral export refuses to overwrite an existing file: " + outputCsvPath);
+        if (File.Exists(manifestPath))
+            throw new IOException("Issue #132 neutral export refuses to overwrite an existing manifest: " + manifestPath);
 
         var catalog = CatalogDatabase.Open(catalogPath);
         var rows = Build(catalog);
@@ -110,16 +113,13 @@ public static class Issue132NeutralReviewExporter
         var csv = SerializeCsv(rows);
         File.WriteAllText(outputCsvPath, csv, new UTF8Encoding(false));
 
-        var manifestPath = Path.ChangeExtension(outputCsvPath, ".manifest.json");
-        if (File.Exists(manifestPath))
-            throw new IOException("Issue #132 neutral export refuses to overwrite an existing manifest: " + manifestPath);
-
         var manifest = new
         {
             schema_version = SchemaVersion,
             generated_utc = DateTimeOffset.UtcNow.ToString("O"),
-            source_catalog = Path.GetFullPath(catalogPath),
+            source_catalog_file = Path.GetFileName(catalogPath),
             source_catalog_sha256 = HashFile(catalogPath),
+            identity_order_sha256 = HashText(string.Join("\n", rows.Select(row => row.IdentityKey)) + "\n"),
             output_csv = Path.GetFileName(outputCsvPath),
             output_csv_sha256 = HashFile(outputCsvPath),
             identity_count = rows.Count,
@@ -146,7 +146,7 @@ public static class Issue132NeutralReviewExporter
     public static string SerializeCsv(IReadOnlyList<Row> rows)
     {
         var builder = new StringBuilder();
-        builder.AppendLine("review_seq,identity_key,canonical,english_surfaces,display_ja,search_terms,aliases,neutral_description_ja");
+        builder.Append("review_seq,identity_key,canonical,english_surfaces,display_ja,search_terms,aliases,neutral_description_ja\n");
         foreach (var row in rows)
         {
             var values = new[]
@@ -160,7 +160,7 @@ public static class Issue132NeutralReviewExporter
                 row.Aliases,
                 row.NeutralDescriptionJa
             };
-            builder.AppendLine(string.Join(',', values.Select(Escape)));
+            builder.Append(string.Join(',', values.Select(Escape))).Append('\n');
         }
         return builder.ToString();
     }
@@ -193,6 +193,9 @@ public static class Issue132NeutralReviewExporter
 
     private static string HashFile(string path)
         => Convert.ToHexStringLower(SHA256.HashData(File.ReadAllBytes(path)));
+
+    private static string HashText(string value)
+        => Convert.ToHexStringLower(SHA256.HashData(Encoding.UTF8.GetBytes(value)));
 
     private static string Escape(string value)
         => value.Contains(',') || value.Contains('"') || value.Contains('\r') || value.Contains('\n')
