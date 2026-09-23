@@ -16,13 +16,6 @@ public partial class App : Application
         System.Windows.Media.RenderOptions.ProcessRenderMode = System.Windows.Interop.RenderMode.SoftwareOnly;
         try
         {
-            if (e.Args.FirstOrDefault() == "--export-issue132-neutral")
-            {
-                if (e.Args.Length != 3)
-                    throw new ArgumentException("--export-issue132-neutral <catalog.db> <output.csv>");
-                Issue132NeutralReviewExporter.Export(e.Args[1], e.Args[2]);
-                Shutdown(0); return;
-            }
             if (e.Args.FirstOrDefault() == "--build-catalog")
             {
                 if (e.Args.Length != 4 && e.Args.Length != 6)
