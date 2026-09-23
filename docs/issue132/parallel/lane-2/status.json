@@ -4,12 +4,12 @@
   "lane_count": 3,
   "assignment_rule": "((review_seq-1)%3)+1",
   "assigned_count": 10334,
-  "reviewed_count": 100,
-  "remaining_count": 10234,
-  "checkpoint_count": 4,
-  "last_checkpoint": "checkpoint_000076_000100.csv",
+  "reviewed_count": 150,
+  "remaining_count": 10184,
+  "checkpoint_count": 5,
+  "last_checkpoint": "checkpoint_000101_000150.csv",
   "complete": false,
   "error_count": 0,
-  "last_run_delta": 100,
-  "last_run_stop_reason": "TARGET_REACHED"
+  "last_run_delta": 50,
+  "last_run_stop_reason": "TOOL_LIMIT"
 }
