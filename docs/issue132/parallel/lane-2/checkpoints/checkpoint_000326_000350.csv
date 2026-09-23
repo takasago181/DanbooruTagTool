@@ -1,0 +1,26 @@
+review_seq,identity_key,manual_seen,semantic_summary_ja,discovery_mode,route_1_id,route_1_strength,route_1_reason_ja,route_2_id,route_2_strength,route_2_reason_ja,route_3_id,route_3_strength,route_3_reason_ja,local_refinement_ids,body_site_ids,theme_ids,route_vocabulary_gap,route_vocabulary_gap_note,review_depth,evidence_urls,uncertainty_note
+977,ten_of_diamonds,YES,ダイヤの10のトランプ札,BROWSE_WORTHY,TOOL_OBJECT,CORE,カード・小物として探すのが自然,,,,,,,"[""OBJECT_PROP/DAILY""]",[],[],NO,,CHECKED,[],
+980,toilet_use,YES,トイレを使用している行為,BROWSE_WORTHY,ACTION_CONTACT,CORE,設備を使う行為として探すのが自然,,,,,,,"[""ACTION_CONTACT/OBJECT_USE""]",[],[],NO,,CHECKED,[],
+983,guqin,YES,中国の伝統的な撥弦楽器・古琴,BROWSE_WORTHY,TOOL_OBJECT,CORE,楽器という物体から探すのが自然,,,,,,,"[""OBJECT_PROP/DAILY""]",[],[],NO,,CHECKED,[],
+986,1997,YES,西暦1997年を示す年・時代参照,SEARCH_ORIENTED,,,,,,,,,,[],[],[],NO,,CHECKED,[],
+989,hole_in_wall,YES,壁に開いた穴,BROWSE_WORTHY,SCENE_BACKGROUND,CORE,壁面・背景の構造として探すのが自然,,,,,,,[],[],[],NO,,CHECKED,[],
+992,high_collar,YES,首元が高い襟,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,衣服の襟形状として探すのが自然,,,,,,,"[""CLOTHING/EVERYDAY""]",[],[],NO,,CHECKED,[],
+995,summer_festival,YES,夏祭りの場面・行事,BROWSE_WORTHY,SCENE_BACKGROUND,CORE,祭りという場面設定から探すのが自然,,,,,,,[],[],[],NO,,CHECKED,[],
+998,shaving,YES,毛を剃る行為,BROWSE_WORTHY,ACTION_CONTACT,CORE,身体に対する剃毛動作として探すのが自然,,,,,,,"[""ACTION_CONTACT/INTERACTION""]",[],[],NO,,CHECKED,[],
+1001,gazelle_ears,YES,ガゼルの耳を持つ外見,BROWSE_WORTHY,NONHUMAN_TRANSFORM,CORE,動物耳による人外的外見変化として探すのが自然,,,,,,,[],[],[],NO,,CHECKED,[],
+1004,poll,YES,投票・アンケート由来の参照,SEARCH_ORIENTED,,,,,,,,,,[],[],[],NO,,CHECKED,[],
+1007,overhead_line,YES,架空電線・架線,BROWSE_WORTHY,SCENE_BACKGROUND,CORE,屋外景観の設備として探すのが自然,,,,,,,[],[],[],NO,,CHECKED,[],
+1010,castrol,YES,自動車用潤滑油などのブランドCastrol,SEARCH_ORIENTED,,,,,,,,,,[],[],[],NO,,RESEARCHED,"[""https://safebooru.donmai.us/forum_topics/33260""]",Danbooru forumでCastrolが自動車・工業用潤滑油メーカーとして扱われることを確認
+1013,lace_dress,YES,レース素材・装飾のドレス,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,衣服として探すのが自然,,,,,,,"[""CLOTHING/EVERYDAY""]",[],[],NO,,CHECKED,[],
+1016,between_labia,YES,陰唇の間に物や身体部位が位置する状態,BROWSE_WORTHY,BODY_SITE,CORE,女性器の具体的位置関係から探すのが自然,,,,,,,[],"[""FEMALE_GENITAL""]",[],NO,,CHECKED,[],
+1019,character_hat,YES,キャラクターの顔や意匠を模した帽子,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,帽子・装身具として探すのが自然,,,,,,,"[""CLOTHING/ACCESSORY""]",[],[],NO,,RESEARCHED,"[""https://safebooru.donmai.us/posts/10439621""]",Danbooru掲載例でcharacter hatが一般タグとして帽子類と併用されることを確認
+1022,snow_leopard_girl,YES,ユキヒョウ要素を持つ少女・獣人,BROWSE_WORTHY,NONHUMAN_TRANSFORM,CORE,動物要素を持つ人外化表現として探すのが自然,,,,,,,[],[],[],NO,,CHECKED,[],
+1025,bandeau_lift,YES,バンドゥ型衣服を持ち上げる状態,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,衣服を持ち上げた露出状態として探すのが自然,,,,,,,"[""CLOTHING_STATE_EXPOSURE/""]",[],[],NO,,CHECKED,[],
+1028,recording_audio,YES,音声を録音している行為,BROWSE_WORTHY,ACTION_CONTACT,CORE,録音という作業・動作から探すのが自然,,,,,,,"[""ACTION_CONTACT/OBJECT_USE""]",[],[],NO,,CHECKED,[],
+1031,if_happiness_is_a_circle_(meme),YES,「if happiness is a circle」と呼ばれるミーム構図・ネタ,SEARCH_ORIENTED,,,,,,,,,,[],[],[],NO,,RESEARCHED,"[""https://safebooru.org/index.php?id=6465589&page=post&s=view""]",Safebooru掲載例でmemeタグと併用される固有ミーム名であることを確認
+1034,curious,YES,好奇心を示す表情・様子,BROWSE_WORTHY,EXPRESSION_GAZE,CORE,感情・表情として探すのが自然,,,,,,,"[""EXPRESSION_EMOTION/""]",[],[],NO,,CHECKED,[],
+1037,cutlery,YES,ナイフ・フォーク・スプーン等の食卓用具,BROWSE_WORTHY,TOOL_OBJECT,CORE,日用品・食器として探すのが自然,,,,,,,"[""OBJECT_PROP/DAILY""]",[],[],NO,,CHECKED,[],
+1040,playboy_bunny_vest,YES,プレイボーイバニー衣装のベスト,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,コスチューム衣装として探すのが自然,,,,,,,"[""CLOTHING/COSTUME""]",[],[],NO,,CHECKED,[],
+1043,royal_air_force,YES,英国王立空軍（Royal Air Force）への参照,SEARCH_ORIENTED,,,,,,,,,,[],[],[],NO,,CHECKED,[],
+1046,yellow_armband,YES,黄色い腕章,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,腕に着ける装身具として探すのが自然,,,,,,,"[""CLOTHING/ACCESSORY""]",[],[],NO,,CHECKED,[],
+1049,low_horns,YES,頭部の低い位置から生える角,BROWSE_WORTHY,NONHUMAN_TRANSFORM,CORE,角による人外的外見特徴として探すのが自然,,,,,,,[],[],[],NO,,CHECKED,[],
