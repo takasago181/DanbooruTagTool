@@ -1,0 +1,25 @@
+{
+  "schema_version": "issue132-parallel-coordinator-v1",
+  "population": 31003,
+  "total_reviewed": 0,
+  "total_remaining": 31003,
+  "complete": false,
+  "lanes": {
+    "1": {
+      "reviewed_count": 0,
+      "zero_progress_streak": 0,
+      "state": "READY"
+    },
+    "2": {
+      "reviewed_count": 0,
+      "zero_progress_streak": 0,
+      "state": "READY"
+    },
+    "3": {
+      "reviewed_count": 0,
+      "zero_progress_streak": 0,
+      "state": "READY"
+    }
+  },
+  "pass_b_generated": false
+}
