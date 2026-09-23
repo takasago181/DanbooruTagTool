@@ -5,6 +5,9 @@
 このファイルは **現在地だけ** を保持する人間向けsummary。
 過去のrouting/runtime/taxonomy/完了記録は `docs/project/CURRENT_STATE_HISTORY.md` に保存する。
 
+人間向けcurrent dashboard:
+- `docs/project/NOW.md`
+
 機械向けcompact routing:
 - `docs/project/CURRENT_ROUTING.json`
 
@@ -108,7 +111,7 @@ hash/fingerprint一致時に、このhistoryや大型spec群を毎run全文再�
 
 Routing precedence:
 
-`live GitHub -> CURRENT_ROUTING.json -> CURRENT_STATE.md -> selected live Issue/latest checkpoint -> PERMANENT_RULES -> task-specific contract -> history`
+`live GitHub -> NOW.md / CURRENT_ROUTING.json -> CURRENT_STATE.md -> selected live Issue/latest checkpoint -> PERMANENT_RULES -> task-specific contract -> history`
 
 Progress precedence:
 
