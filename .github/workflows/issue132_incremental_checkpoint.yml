@@ -6,11 +6,14 @@ on:
       - research/taxonomy-usability-audit
     paths:
       - "docs/issue132/parallel/lane-*/checkpoints/**"
+      - "docs/issue132/parallel/input-shards/**"
       - "docs/issue132/parallel/lane-*/corrections/**"
       - "docs/issue132/parallel/lane-*/status.json"
       - "docs/issue132/parallel/quality_flags.json"
       - "docs/issue132/parallel/pass_a_contract_manifest_v1.json"
       - "scripts/issue132/build_luna_neutral_input.py"
+      - "scripts/issue132/build_worker_neutral_shards.py"
+      - "scripts/issue132/validate_worker_neutral_shards.py"
       - "scripts/issue132/validate_luna_pass_a.py"
       - "scripts/issue132/validate_parallel_checkpoints.py"
       - "scripts/issue132/parallel_overlay.py"
@@ -21,11 +24,14 @@ on:
       - research/taxonomy-usability-audit
     paths:
       - "docs/issue132/parallel/lane-*/checkpoints/**"
+      - "docs/issue132/parallel/input-shards/**"
       - "docs/issue132/parallel/lane-*/corrections/**"
       - "docs/issue132/parallel/lane-*/status.json"
       - "docs/issue132/parallel/quality_flags.json"
       - "docs/issue132/parallel/pass_a_contract_manifest_v1.json"
       - "scripts/issue132/build_luna_neutral_input.py"
+      - "scripts/issue132/build_worker_neutral_shards.py"
+      - "scripts/issue132/validate_worker_neutral_shards.py"
       - "scripts/issue132/validate_luna_pass_a.py"
       - "scripts/issue132/validate_parallel_checkpoints.py"
       - "scripts/issue132/parallel_overlay.py"
@@ -58,6 +64,12 @@ jobs:
         run: |
           python scripts/issue132/build_luna_neutral_input.py \
             --out artifacts/issue132/luna-neutral/luna_neutral_review_input_v2.csv
+
+      - name: Validate tracked worker neutral shards against frozen neutral
+        run: |
+          python scripts/issue132/validate_worker_neutral_shards.py \
+            --input artifacts/issue132/luna-neutral/luna_neutral_review_input_v2.csv \
+            --shard-root docs/issue132/parallel/input-shards
 
       - name: Validate committed immutable checkpoints and correction overlays
         run: python scripts/issue132/validate_parallel_effective.py
