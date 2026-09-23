@@ -1,0 +1,17 @@
+{
+  "schema_version": "issue132-worker-neutral-shard-v1",
+  "lane": 1,
+  "lane_count": 3,
+  "assignment_rule": "((review_seq-1)%3)+1",
+  "lane_local_start": 9301,
+  "lane_local_end": 9600,
+  "row_count": 300,
+  "global_review_seq_first": 27901,
+  "global_review_seq_last": 28798,
+  "csv_path": "docs/issue132/parallel/input-shards/lane-1/shard_009301_009600.csv",
+  "csv_sha256": "43f705ddac54767c9378e93cabf6e61ad6769bfdd50421f985c5b38d289e6e23",
+  "identity_order_sha256": "7a5a8dcf50bc5245352cd92d6b64c6fedf6687344b21bf026bb098f08106ca53",
+  "parent_neutral_sha256": "ac0f888d02f19a440c63b3b9f695c58f9ba53b98ebe9756edec51db1c5ff8f7d",
+  "parent_identity_order_sha256": "f80c63018ce19a8c7c5d8d6fd83d03cf760c510d8f6cfa455d1ab356fb31361b",
+  "parent_population": 31003
+}
