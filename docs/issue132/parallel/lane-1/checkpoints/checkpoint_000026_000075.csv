@@ -10,7 +10,7 @@ review_seq,identity_key,manual_seen,semantic_summary_ja,discovery_mode,route_1_i
 100,cure_happy_(cosplay),YES,キュアハッピーの衣装を再現したコスプレ,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,衣服・装身具として探すのが自然,,,,,,,"[""CLOTHING/COSTUME""]",[],[],NO,,CHECKED,[],
 103,spear,YES,槍,BROWSE_WORTHY,TOOL_OBJECT,CORE,道具・物体として探すのが自然,,,,,,,"[""OBJECT_PROP/WEAPON""]",[],[],NO,,CHECKED,[],
 106,enmaided,YES,メイド服姿にされた人物表現,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,衣服・装身具として探すのが自然,,,,,,,"[""CLOTHING/EVERYDAY""]",[],[],NO,,CHECKED,[],
-109,gameplay_mechanics,YES,ゲームの仕組み・ルールそのものを示すメタ的表現,SEARCH_ORIENTED,,,,,,,,,,,[],[],[],NO,,CHECKED,[],
+109,gameplay_mechanics,YES,ゲーム固有のルール・システムやゲーム内挙動を参照するメタ的表現,SEARCH_ORIENTED,,,,,,,,,,[],[],[],NO,,RESEARCHED,"[""https://safebooru.donmai.us/posts?page=9&tags=gameplay_mechanics""]",視覚要素は作品ごとのUI・挙動・ルール参照に分散するため、単一の既存browse routeへ固定しない
 112,shovel,YES,シャベル・スコップ,BROWSE_WORTHY,TOOL_OBJECT,CORE,道具・物体として探すのが自然,,,,,,,"[""OBJECT_PROP/DAILY""]",[],[],NO,,CHECKED,[],
 115,holding_omikuji,YES,おみくじを手に持つ行為,BROWSE_WORTHY,ACTION_CONTACT,CORE,行為・接触として探すのが自然,,,,,,,"[""ACTION_CONTACT/OBJECT_USE""]",[],[],NO,,CHECKED,[],
 118,severed_limb,YES,切断された手足,BROWSE_WORTHY,BODY_SITE,CORE,身体部位・その状態として探すのが自然,,,,,,,[],[],"[""INJURY_R18G""]",NO,,CHECKED,[],
@@ -27,7 +27,7 @@ review_seq,identity_key,manual_seen,semantic_summary_ja,discovery_mode,route_1_i
 151,orange_tank_top,YES,オレンジ色のタンクトップ,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,衣服・装身具として探すのが自然,,,,,,,"[""CLOTHING/EVERYDAY""]",[],[],NO,,CHECKED,[],
 154,standing_on_swing,YES,ブランコの上に立つ姿勢,BROWSE_WORTHY,POSE_POSITION,CORE,姿勢・身体配置として探すのが自然,,,,,,,[],[],[],NO,,CHECKED,[],
 157,looking_at_creature,YES,生き物へ視線を向けている状態,BROWSE_WORTHY,EXPRESSION_GAZE,CORE,表情・視線の特徴として探すのが自然,,,,,,,[],[],[],NO,,CHECKED,[],
-160,trolley_problem,YES,トロッコ問題を再現・参照した場面,SEARCH_ORIENTED,,,,,,,,,,,[],[],[],NO,,CHECKED,[],
+160,trolley_problem,YES,倫理学の思考実験「トロッコ問題」を再現・参照した場面,SEARCH_ORIENTED,,,,,,,,,,[],[],[],NO,,RESEARCHED,"[""https://safebooru.donmai.us/wiki_pages/trolley_problem""]",
 163,holding_hair_brush,YES,ヘアブラシを手に持つ行為,BROWSE_WORTHY,ACTION_CONTACT,CORE,行為・接触として探すのが自然,,,,,,,"[""ACTION_CONTACT/OBJECT_USE""]",[],[],NO,,CHECKED,[],
 166,towel_open,YES,タオルを開いて広げた状態,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,衣服・装身具として探すのが自然,,,,,,,"[""CLOTHING/EVERYDAY""]",[],[],NO,,CHECKED,[],
 169,red_penis,YES,赤く描かれた陰茎,BROWSE_WORTHY,BODY_SITE,CORE,身体部位・その状態として探すのが自然,,,,,,,[],"[""MALE_GENITAL""]",[],NO,,CHECKED,[],
@@ -48,4 +48,4 @@ review_seq,identity_key,manual_seen,semantic_summary_ja,discovery_mode,route_1_i
 214,tail_anus,YES,尾と肛門が組み合わさる成人向け身体表現,BROWSE_WORTHY,BODY_SITE,CORE,身体部位・その状態として探すのが自然,,,,,,,[],"[""BUTTOCK_ANAL""]",[],NO,,CHECKED,[],
 217,plum,YES,梅・スモモの実または植物,BROWSE_WORTHY,LIVING,CORE,生物・植物・自然物として探すのが自然,,,,,,,"[""LIVING_NATURE/PLANT""]",[],[],NO,,CHECKED,[],
 220,checkered_blanket,YES,チェック柄の毛布,BROWSE_WORTHY,TOOL_OBJECT,CORE,道具・物体として探すのが自然,,,,,,,"[""OBJECT_PROP/DAILY""]",[],[],NO,,CHECKED,[],
-223,endless_eight,YES,「涼宮ハルヒ」シリーズのエンドレスエイト参照,SEARCH_ORIENTED,,,,,,,,,,,[],[],[],NO,,CHECKED,[],
+223,endless_eight,YES,『涼宮ハルヒの憂鬱』のエピソード群「エンドレスエイト」への固有参照,SEARCH_ORIENTED,,,,,,,,,,[],[],[],NO,,RESEARCHED,"[""https://tv.apple.com/jp/episode/endless-eight-viii/umc.cmc.7nggoqbe5j078vrr3rc1a2np""]",
