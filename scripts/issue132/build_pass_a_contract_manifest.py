@@ -16,6 +16,7 @@ CONTRACT_FILES = [
     "docs/issue132/LUNA_DISCOVERY_ROUTE_SEMANTIC_CONTRACT.md",
     "docs/issue132/LUNA_PASS_A_LEDGER_CONTRACT.md",
     "scripts/issue132/build_luna_neutral_input.py",
+    "scripts/issue132/build_pass_a_contract_manifest.py",
     "scripts/issue132/validate_luna_pass_a.py",
 ]
 
