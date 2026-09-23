@@ -10,6 +10,6 @@
   "last_checkpoint": "checkpoint_000076_000100.csv",
   "complete": false,
   "error_count": 0,
-  "last_run_delta": 100,
-  "last_run_stop_reason": "TARGET_REACHED"
+  "last_run_delta": 0,
+  "last_run_stop_reason": "EXECUTION_LIMIT"
 }
