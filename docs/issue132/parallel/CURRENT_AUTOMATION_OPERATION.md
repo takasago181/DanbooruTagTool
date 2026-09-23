@@ -55,11 +55,12 @@ The solution is **not** to relax semantics. It is to remove redundant work and m
 
 ## 3. Compact preflight
 
-Normal worker run reads only:
-
+Normal worker run first performs one metadata/directory read and verifies the pinned blob SHAs for:
 1. `WORKER_EXECUTION_CARD_V1.md`
 2. frozen `pass_a_contract_manifest_v1.json`
 3. `parallel_plan_v1.json`
+
+If the pinned SHAs match, their bodies are **not reread**. The worker then reads only:
 4. its lane `status.json`
 5. checkpoint filenames/latest exact prefix
 6. only the neutral rows actually needed for the next work window
@@ -97,22 +98,30 @@ A weak provisional row is not accepted with the intention of fixing it later.
 
 `CHECKED` is only for genuinely clear ordinary visual concepts.
 
-Mandatory actual research if any material uncertainty exists, including:
-- unfamiliar / transliterated / foreign / specialist terminology;
-- proper noun, brand/model, event, meme, title, quote, franchise-specific reference;
+Mandatory actual research if material uncertainty exists, including:
+- unfamiliar / specialist / polysemous terminology;
+- obscure proper noun, brand/model, event, meme, title, quote, franchise-specific reference **when the exact referent/scope is not already clear or changes classification**;
 - material parenthetical qualifier;
-- polysemous common word;
 - technical object whose exact definition changes route/refinement;
-- cultural/historical reference;
+- cultural/historical reference needed to classify the tag;
 - sexual/anatomical/fetish term where action vs position vs object vs role vs body/theme is not immediately certain;
 - any internal reasoning equivalent to “probably”, “seems”, or “likely”;
 - any semantic field that would otherwise be guessed from tag spelling.
+
+A proper noun or compound tag alone is not a reason to research. If the meaning and classification are genuinely clear, `CHECKED` is correct.
 
 Use `RESEARCHED` with evidence actually used.
 
 If research still cannot establish the concept confidently, use `SEMANTIC_UNRESOLVED`; do not manufacture a confident browse route.
 
-Batching several ambiguous identities into one research/search phase is allowed for tool efficiency, but every identity still receives an independent decision and evidence trail.
+Batch roughly 5–10 independent ambiguous identities per research/search call when practical, but every identity still receives an independent decision and evidence trail.
+
+Evidence specificity:
+1. prefer exact Danbooru/Safebooru tag wiki or direct tag evidence;
+2. then official source;
+3. then a strong reference that directly names/defines the target.
+
+Generic category pages, unrelated wiki pages, model/LoRA-sharing pages, generic image/model sites, or a single example post are not acceptable default semantic authority. If the meaning is already clear, use `CHECKED` rather than manufacturing weak `RESEARCHED` evidence. If direct evidence remains insufficient, use `SEMANTIC_UNRESOLVED`.
 
 ---
 
@@ -125,7 +134,10 @@ Path:
 `docs/issue132/parallel/lane-N/checkpoints/checkpoint_XXXXXX_XXXXXX.csv`
 
 Before write:
-- exact 22 columns;
+- build each row as an ordered 22-value structure;
+- serialize with a real CSV writer; never hand-count commas;
+- parse the serialized CSV back programmatically;
+- exact 22 columns/header;
 - JSON arrays parse;
 - only allowed IDs;
 - SEARCH_ORIENTED / SEMANTIC_UNRESOLVED constraints valid;
@@ -175,9 +187,7 @@ Re-review **all high-risk rows**:
 - theme facets
 - adult/sexual concepts
 
-Then deterministically spot-check ordinary single-route CHECKED rows:
-- at least every fifth ordinary row;
-- or 20 ordinary rows if available.
+Then spot-check about 10% of ordinary single-route CHECKED rows, with a minimum of 10 when available.
 
 This preserves protection against systematic drift without rereading every obvious row twice.
 
@@ -204,8 +214,8 @@ Prefer one strong CORE over weak route inflation.
 
 ## 8. Tool-efficiency rules
 
-- batch searches for multiple ambiguous terms when practical;
-- record per-row evidence actually used;
+- batch roughly 5–10 ambiguous searches when practical;
+- record per-row evidence actually used and require it to directly support the asserted identity/scope;
 - do not research obvious ordinary visual concepts merely for formality;
 - do not reread ~60k characters of frozen docs every normal run;
 - do not re-prove the entire neutral corpus when successful CI already proves the same frozen hash/order;
