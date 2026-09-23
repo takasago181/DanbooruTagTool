@@ -10,13 +10,13 @@
   "last_checkpoint": "checkpoint_000376_000400.csv",
   "complete": false,
   "error_count": 0,
-  "last_run_delta": 75,
-  "last_run_stop_reason": "SEMANTIC_TOOL_BLOCKER",
+  "last_run_delta": 0,
+  "last_run_stop_reason": "TOOL_LIMIT",
   "last_run_stop_evidence": {
-    "blocker_type": "IMMUTABLE_QA_CORRECTION_PATH_UNAVAILABLE",
-    "operation": "Mandatory 100-row QA at cumulative lane-local 400 before continuing to identity 401",
-    "where": "checkpoint_000301_000325.csv, lane-local 325, review_seq 973, identity reverse_paizuri",
-    "failure": "QA found an explicit/intrinsic body-facet omission: semantic_summary_ja states that reverse_paizuri uses breasts to stimulate a penis, but body_site_ids contains only BREAST_NIPPLE and omits MALE_GENITAL. The lane contract requires body/theme omission review and repair before continuing. Existing checkpoints are immutable and lane-1 contains only checkpoints/ plus status.json; no correction/overlay mechanism is available to this worker.",
-    "why_continuation_impossible": "Continuing to identity 401 would knowingly advance past a mandatory 100-row QA defect that the worker is required to repair first, while overwriting checkpoint_000301_000325.csv is explicitly forbidden. The exact immutable prefix through 400 is preserved; coordinator authority is needed to define or apply a correction mechanism for the prior checkpoint row."
+    "blocker_type": "TRACKED_NEUTRAL_RANGE_UNAVAILABLE_IN_CONNECTOR",
+    "operation": "Acquire and programmatically filter lane 1 identities beginning at lane-local 401 from the contract-authorized tracked neutral snapshot",
+    "where": "docs/issue132/parallel/input/luna_neutral_review_input_v2.csv (blob 888071d2ef3afc2fd6d5d9d62cbca2ea2ff00654)",
+    "failure": "Tracked snapshot and manifest are present and manifest invariants match, but GitHub fetch_file rejects the CSV as >1 MiB even when a minimal start_line/end_line range is requested, and fetch_blob rejects the same blob as too large. The public raw URL is inaccessible from the execution container. Backup discovery was attempted through current Actions runs/artifact endpoints, but the available connector responses did not expose a current issue132-full-discovery-audit artifact that could be downloaded in this run.",
+    "why_continuation_impossible": "The exact neutral identities for lane-local 401 onward cannot be exposed to semantic reasoning without reading the frozen CSV. Inventing identities or deriving them from current taxonomy/search would violate the frozen neutral-input contract. Existing immutable prefix through 400 and the known reverse_paizuri correction overlay remain untouched."
   }
 }
