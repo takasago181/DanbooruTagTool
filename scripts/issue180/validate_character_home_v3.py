@@ -84,6 +84,9 @@ def main() -> None:
     unit_tags = [tag for u in units for tag in json.loads(u["member_ids/tags"])]
     if len(unit_tags) != len(set(unit_tags)) or set(unit_tags) != {r["canonical_tag"] for r in unresolved}:
         errors.append("COVERAGE_INTEGRITY: residual units do not cover exactly all unresolved Characters")
+    allowed_unit_states = {"OPEN", "RESOLVED", "PARTIALLY_RESOLVED", "NO_SAFE_EVIDENCE", "POLICY_BLOCKED", "IDENTITY_BLOCKED", "SUPERSEDED_BY_NEW_UNIT"}
+    if any(u.get("status") not in allowed_unit_states for u in units):
+        errors.append("RESEARCH_UNIT_INTEGRITY: unknown or nonterminalized unit status value")
     summary = json.loads((OUT / "resolver_summary_v3.json").read_text(encoding="utf-8"))
     migration = read_csv(OUT / "migration_comparison_v3.csv")
     state_counts = Counter(r["final_state"] for r in master)
@@ -95,6 +98,8 @@ def main() -> None:
               "multi_home_conflicts": summary["multi_home_conflicts"],
               "missing_roots": summary["copyright_roots_missing"],
               "evidence_rows": len(ledger), "research_units": len(units),
+              "research_unit_status_counts": dict(Counter(u["status"] for u in units)),
+              "open_research_units": sum(u["status"] == "OPEN" for u in units),
               "migration_counts": dict(Counter(r["migration_state"] for r in migration)),
               "validated_evidence_path_coverage": True if not errors else False}
     write_json(OUT / "validation_summary_v3.json", result)

@@ -31,6 +31,8 @@ Generated CSV/JSON artifacts are written under ignored `artifacts/issue180-v3/`.
 
 `V3_EXECUTION_BASE.json` fingerprints the active scripts/helper, catalog, #179 handoff, migrated seed and baseline. The unit-test/pipeline CI runs only this v3 flow; the old 95-step pipeline remains historical and is not a required gate. The migration gate is followed by the residual research-unit workflow; migration success does not mean residual research is complete.
 
+`research_unit_terminal_reviews_v3.csv` records source-backed terminal outcomes for reviewed units. Each review is bound to the deterministic unit ID and SHA-256 of its exact member set; stale reviews fail closed. Units without a matching reviewed record remain `OPEN`. The current #179-UNKNOWN identity rows are terminalized as `IDENTITY_BLOCKED`, not excluded or assigned a HOME.
+
 ## Legacy migration manifest
 
 See [MIGRATION_MANIFEST_V3.csv](MIGRATION_MANIFEST_V3.csv). v1/v2 code and evidence are retained; the classifications describe preservation and migration treatment, not deletion or blanket acceptance.

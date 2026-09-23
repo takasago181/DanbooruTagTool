@@ -1,15 +1,46 @@
 from __future__ import annotations
 
 import sys
+import json
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "scripts/issue180"))
 from _issue180_v3_common import evidence_id, is_valid_citation, canonical_family_candidates, select_home
+import build_residual_units_v3 as residual_planner
 
 
 class EvidenceDrivenV3Tests(unittest.TestCase):
+    def test_terminal_review_is_bound_to_exact_member_set_and_issue179_unknown(self):
+        tag = "curakuru_(character)"
+        row = {
+            "unit_id": "ru3-test", "member_ids_sha256": residual_planner.member_hash([tag]),
+            "terminal_status": "IDENTITY_BLOCKED", "authority_source": "docs/issue180/evidence/ISSUE179_ORIGIN_HANDOFF_V1.csv",
+            "source_claim": "Issue179 explicitly records this exact Character as UNKNOWN; no HOME is inferred.",
+            "review_provenance": "I70-018786 handoff row inspected; unresolved identity preserved.",
+        }
+        unit = {"unit_id": "ru3-test", "member_ids/tags": json.dumps([tag]), "status": "OPEN"}
+        original_read_csv = residual_planner.read_csv
+        with patch.object(residual_planner, "read_csv", side_effect=lambda path: [row] if path == residual_planner.REVIEWS else original_read_csv(path)):
+            residual_planner.apply_terminal_reviews([unit])
+        self.assertEqual(unit["status"], "IDENTITY_BLOCKED")
+
+    def test_terminal_review_rejects_stale_member_set(self):
+        tag = "curakuru_(character)"
+        row = {
+            "unit_id": "ru3-test", "member_ids_sha256": "stale",
+            "terminal_status": "IDENTITY_BLOCKED", "authority_source": "docs/issue180/evidence/ISSUE179_ORIGIN_HANDOFF_V1.csv",
+            "source_claim": "Issue179 explicitly records this exact Character as UNKNOWN; no HOME is inferred.",
+            "review_provenance": "I70-018786 handoff row inspected; unresolved identity preserved.",
+        }
+        unit = {"unit_id": "ru3-test", "member_ids/tags": json.dumps([tag]), "status": "OPEN"}
+        original_read_csv = residual_planner.read_csv
+        with patch.object(residual_planner, "read_csv", side_effect=lambda path: [row] if path == residual_planner.REVIEWS else original_read_csv(path)), \
+             self.assertRaises(SystemExit):
+            residual_planner.apply_terminal_reviews([unit])
+
     def test_evidence_id_is_stable_and_provenance_independent(self):
         a = evidence_id("Character", "pikachu", "DIRECT_HOME", "pokemon", "OFFICIAL", "https://example.test/pikachu", "Official page names Pikachu.")
         b = evidence_id("Character", "pikachu", "DIRECT_HOME", "pokemon", "OFFICIAL", "https://example.test/pikachu", "Official page names Pikachu.")

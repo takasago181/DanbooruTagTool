@@ -60,6 +60,7 @@ def main() -> None:
     candidates.sort(key=lambda r: (r["subject_type"], r["subject_key"], r["relation_type"], r["object_key"]))
     write_csv(GRAPH, candidates, GRAPH_FIELDS)
     input_paths = [CATALOG, ORIGIN, ORIGIN_META, V3_SEED, V3_BASELINE, V3_MIGRATION_MANIFEST, V3_PRE_REPAIR_GAP]
+    input_paths.append(ROOT / "docs/issue180/v3/research_unit_terminal_reviews_v3.csv")
     input_paths += [DECISION_DIR / n for n in DECISION_FILES if (DECISION_DIR / n).exists()]
     input_paths += sorted(EVIDENCE_DIR.glob("*.csv"))
     manifest = {

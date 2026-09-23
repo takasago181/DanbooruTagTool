@@ -29,6 +29,7 @@ def main() -> None:
     run("validate_character_home_v3.py")
     from _issue180_v3_common import (CATALOG, ORIGIN, V3_BASELINE, V3_SEED,
         V3_MIGRATION_MANIFEST, DOCS_OUT, sha256_file, write_json)
+    unit_reviews = ROOT / "docs/issue180/v3/research_unit_terminal_reviews_v3.csv"
     active = ["build_structure_v3.py", "migrate_evidence_v3.py", "resolve_character_home_v3.py",
               "build_residual_units_v3.py", "validate_character_home_v3.py", "run_issue180_v3.py"]
     execution_base = {
@@ -41,6 +42,7 @@ def main() -> None:
         "issue179_handoff_sha256": sha256_file(ORIGIN),
         "migration_baseline_sha256": sha256_file(V3_BASELINE),
         "migration_provenance_manifest_sha256": sha256_file(V3_MIGRATION_MANIFEST),
+        "research_unit_terminal_reviews_sha256": sha256_file(unit_reviews),
         "resolver_semantics_version": "direct-family-membership-variant-inheritance-v1",
         "validator_version": sha256_file(HERE / "validate_character_home_v3.py"),
         "runtime_research_dependency": False,
@@ -61,6 +63,7 @@ def main() -> None:
               "character_population": validation["character_population"], "states": validation["states"],
               "residual_reason_counts": validation["reason_counts"], "research_unit_count": units["research_unit_count"],
               "research_unit_type_counts": units["unit_type_counts"], "evidence_rows": evidence["ledger_rows"],
+              "research_unit_status_counts": units["unit_status_counts"], "open_research_units": units["open_unit_count"],
               "evidence_basis_counts": evidence["evidence_basis_counts"],
               "external_source_url_count": evidence["external_source_url_count"],
               "migration_counts": resolver["migration_counts"], "migration_difference_classes": resolver["difference_classes"],
