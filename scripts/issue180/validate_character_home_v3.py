@@ -56,7 +56,8 @@ def main() -> None:
             valid_options = safe_structural_variant_bases(e["subject_key"], character_keys, family_homes, policy, copyright_aliases)
             base_row = master_by_tag.get(e.get("object_key", ""), {})
             matching = [x for x in valid_options if x[0] == e.get("object_key")]
-            expected_roots = (family_homes.get(matching[0][2].lower(), set()) | copyright_aliases.get(matching[0][2].lower(), set())) if matching else set()
+            expected_roots = ((family_homes.get(matching[0][2].lower(), set()) | copyright_aliases.get(matching[0][2].lower(), set()))
+                              if matching and matching[0][2] else ({base_row.get("home_copyright", "")} if base_row.get("home_copyright") else set()))
             if (not matching or e.get("object_key") not in character_keys or e.get("source_url")
                     or base_row.get("final_state") != "HOME_CONFIRMED" or {base_row.get("home_copyright", "")} != expected_roots):
                 errors.append(f"INHERITANCE_INTEGRITY: unsafe structural VARIANT_OF for {e['subject_key']}")

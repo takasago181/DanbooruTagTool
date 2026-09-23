@@ -2,14 +2,14 @@
   "active_pipeline": {
     "build_residual_units_v3.py": "41fd82e1a233b5dfcf515ffebca509c91c06cc49e3888c2613cd12d71260b115",
     "build_structure_v3.py": "d3b99962c0e93bef5df5616c1dcc08345538fcb7dcd3ff1a6533b86be54c9804",
-    "migrate_evidence_v3.py": "8bd0257660a8a306cc77243553f81e8f4671bebd47c3e72d78166f98bf15b1ef",
+    "migrate_evidence_v3.py": "739ba79dcf2bf91b4865bf6dce7c40a0db02991f3de29f64d5f9b87c7876d88b",
     "resolve_character_home_v3.py": "b5d31584813521b572859869b40f862c6941325d88aaa0f9bc55d65835e7ebfe",
-    "run_issue180_v3.py": "c02d4cb0839ef0cc65adfdf5d68bbd8a256e948f64ad69f72022e6b443ca9215",
-    "validate_character_home_v3.py": "c4e0b4a4218cac348d2c7f7d3557993583312f43edf4dd28dfea1ee6cd23c223"
+    "run_issue180_v3.py": "bd3f42d64ff2c1ec4dd4a1849e9a450a7faf99b37e7aecc130e30270421d3629",
+    "validate_character_home_v3.py": "080256cb9c12db58ba0a1ed66b97602cd7769b92a8f440cbb73611341617bb40"
   },
   "catalog_sha256": "1d346ad75655ea6091f9bce9a4cf58b1cf6f8fac18c7eb441f8edd009ee81433",
   "evidence_schema_version": 2,
-  "helper_sha256": "4c4232b7f01bf5e21a94df0cc5680e110fd7e54a1cb8970fd57fa193b6af4d09",
+  "helper_sha256": "65e4f96ba97916972b3810e646db17731af89016200cf33e48f7544b97b6c34a",
   "issue179_handoff_sha256": "b4db9a73db834bb3cc567b66559ea046b93ab4eb5a738dc2ac8270a23da2f222",
   "issue180_policy_sha256": "704ad9c2d8df1e7d04c68e491a3f967c6facde85d7567aa65b01be574a029d32",
   "legacy_v1_v2_pipeline_dependency": false,
@@ -17,8 +17,8 @@
   "migration_baseline_sha256": "ba38e595a763b5968050b847edc49ee8d5e4b4164f33f8467ce50a85bcd100d5",
   "migration_provenance_manifest_sha256": "7cda682e35c3164268878398ac8100248d6be7684e3e2ca7c3ce6737268834b5",
   "research_unit_terminal_reviews_sha256": "480a18a399306b7ff4ebe7d4720a83bc72b374fd26bf0808715a0f38016997e0",
-  "resolver_semantics_version": "direct-family-membership-safe-structural-variant-v2",
+  "resolver_semantics_version": "direct-family-membership-safe-structural-variant-v3",
   "runtime_research_dependency": false,
   "schema_version": 3,
-  "validator_version": "c4e0b4a4218cac348d2c7f7d3557993583312f43edf4dd28dfea1ee6cd23c223"
+  "validator_version": "080256cb9c12db58ba0a1ed66b97602cd7769b92a8f440cbb73611341617bb40"
 }

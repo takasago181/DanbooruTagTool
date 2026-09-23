@@ -307,10 +307,9 @@ def main() -> None:
                     f"membership derived from {h['evidence_id']} + {relpath(CATALOG)}",
                     "APPROVED_REPO_EVIDENCE")
 
-    # Safe Tier-B variant structure: require one exact outer Copyright root, one unique
-    # exact base in the accepted catalog, and equality between outer root and base HOME.
-    # HOME conflicts are retained
-    # by the resolver; this relation does not assert official costume status.
+    # Safe Tier-B variant structure: require one exact base in the accepted catalog,
+    # one validated HOME for that base, and (when present) an exact outer Copyright
+    # qualifier matching that HOME. This relation does not assert costume officiality.
     known_variant_tags = {r["canonical_tag"] for r in characters}
     reviewed_family_homes = {k.lower(): {rows[e]["object_key"] for e in eids if e in rows and rows[e]["object_key"] in root_set}
                               for k, eids in family_evidence.items()}
@@ -331,15 +330,21 @@ def main() -> None:
         base, variant_qualifier, outer_family = options[0]
         outer_roots = reviewed_family_homes.get(outer_family.lower(), set()) | alias_to_roots.get(outer_family.lower(), set())
         base_homes = base_home_evidence.get(base, {})
-        if len(outer_roots) != 1 or set(base_homes) != outer_roots or base in origin_unknown:
+        if base in origin_unknown or len(base_homes) != 1:
             continue
-        root = next(iter(outer_roots))
-        claim = (f"Issue #70 tag {tag!r} contains structural qualifier {variant_qualifier!r} and exact outer Copyright qualifier {outer_family!r}; "
-                 f"removing the modifier yields the unique existing base Character {base!r}, whose validated HOME is {root!r}, matching the unique current catalog resolution of the outer qualifier. This proves HOME inheritance only, not costume/event officiality.")
+        root = next(iter(base_homes))
+        if outer_family and (len(outer_roots) != 1 or outer_roots != {root}):
+            continue
+        outer_note = (f"exact outer Copyright qualifier {outer_family!r} resolves to the same root" if outer_family
+                      else "no outer Copyright qualifier is present")
+        claim = (f"Issue #70 accepted tag {tag!r} has the unique exact existing base Character {base!r} after removing terminal modifier {variant_qualifier!r}; "
+                 f"the base has one validated HOME {root!r}, and {outer_note}. This proves HOME inheritance only, not costume/event officiality.")
         base_eids = sorted(base_homes[root])
-        add("Character", tag, "VARIANT_OF", base, "SAFE_STRUCTURAL_VARIANT", "", claim,
-            f"safe structural variant: exact catalog key decomposition; base HOME evidence={','.join(base_eids)}; outer_root={root}; policy=AUTONOMOUS_POLICY_V2.json",
+        variant_eid = add("Character", tag, "VARIANT_OF", base, "SAFE_STRUCTURAL_VARIANT", "", claim,
+            f"safe structural variant: exact catalog key decomposition; base HOME evidence={','.join(base_eids)}; outer_root={outer_family or '<none>'}; resolved_root={root}; policy=AUTONOMOUS_POLICY_V2.json",
             "SAFE_STRUCTURAL_VARIANT")
+        if variant_eid:
+            base_home_evidence.setdefault(tag, {}).setdefault(root, set()).update({*base_eids, variant_eid})
 
     ordered = [rows[k] for k in sorted(rows)]
     write_csv(LEDGER, ordered, FIELDS)
@@ -360,7 +365,7 @@ def main() -> None:
         "evidence_basis_counts": dict(sorted(__import__("collections").Counter(r["evidence_basis"] for r in ordered).items())),
         "external_source_url_count": len({r["source_url"] for r in ordered if r["evidence_basis"] == "EXTERNAL_AUTHORITY" and r["source_url"]}),
         "rejected_candidates": rejected,
-        "source_rule": "Decision CSV values are not evidence by themselves; Tier-B structural variants require one exact outer Copyright root, one unique existing base with matching validated HOME, and no known collision/crossover signal.",
+        "source_rule": "Decision CSV values are not evidence by themselves; Tier-B structural variants require one unique existing base with one validated HOME, and any exact outer Copyright qualifier must resolve to that same HOME.",
         "applied_authority_ledger_used_as": "provenance cross-check only; never a HOME authority source",
         "v2_applied_provenance_exists": False,
         "v2_applied_provenance_links": lineage_links,

@@ -15,9 +15,9 @@
     "REVIEWED_QUALIFIER_COPYRIGHT": 1169,
     "REVIEWED_VARIANT_AUTHORITY": 225,
     "ROOT_POLICY_NORMALIZATION": 17,
-    "SAFE_STRUCTURAL_VARIANT": 2771
+    "SAFE_STRUCTURAL_VARIANT": 3891
   },
-  "evidence_rows": 20693,
+  "evidence_rows": 21813,
   "external_source_url_count": 504,
   "generated_output_directory": "artifacts/issue180-v3",
   "legacy_v1_v2_scripts_executed": false,
@@ -32,19 +32,19 @@
   "migration_gate": "STOP_CLASSIFIED_DIFFERENCES",
   "missing_roots": 0,
   "multi_home_conflicts": 0,
-  "open_research_units": 5134,
+  "open_research_units": 4738,
   "pipeline_validation": "PASS",
   "production_runtime_dependency": false,
   "reproducibility": {
-    "first_master_sha256": "3309e30139acdce0b6ac09f570abb4d5787b5b6ff6b98b2772bddc728dfe1da2",
+    "first_master_sha256": "653940579ea79591ddd931b9b28b75d2c6691903d5585f7fe27ac09bdd16c9ed",
     "same": true,
-    "second_master_sha256": "3309e30139acdce0b6ac09f570abb4d5787b5b6ff6b98b2772bddc728dfe1da2"
+    "second_master_sha256": "653940579ea79591ddd931b9b28b75d2c6691903d5585f7fe27ac09bdd16c9ed"
   },
-  "research_unit_count": 5152,
+  "research_unit_count": 4756,
   "research_unit_status_counts": {
     "IDENTITY_BLOCKED": 7,
     "NO_SAFE_EVIDENCE": 3,
-    "OPEN": 5134,
+    "OPEN": 4738,
     "PARTIALLY_RESOLVED": 4,
     "POLICY_BLOCKED": 4
   },
@@ -53,20 +53,20 @@
     "FAMILY_AUTHORITY": 1519,
     "IDENTITY_REVIEW": 7,
     "ROSTER_MEMBERSHIP": 19,
-    "VARIANT_OFFICIALITY": 1045
+    "VARIANT_OFFICIALITY": 649
   },
   "residual_reason_counts": {
     "DIRECT_AUTHORITY_MISSING": 14125,
     "FAMILY_HOME_MISSING": 2911,
     "FAMILY_MEMBERSHIP_MISSING": 563,
     "IDENTITY_REVIEW_REQUIRED": 7,
-    "VARIANT_OFFICIALITY_MISSING": 2190
+    "VARIANT_OFFICIALITY_MISSING": 1113
   },
   "schema_version": 3,
   "source_manifest_sha256": "2409e005fc384d1acb3ac0178115fc523c71bfa5ac2d626ad6f7a6acc34e4b57",
   "states": {
-    "HOME_CONFIRMED": 16094,
-    "HOME_UNRESOLVED": 19796,
+    "HOME_CONFIRMED": 17171,
+    "HOME_UNRESOLVED": 18719,
     "NOT_OFFICIAL_CHARACTER": 0
   }
 }

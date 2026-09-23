@@ -114,6 +114,32 @@ class EvidenceDrivenV3Tests(unittest.TestCase):
         aliases = {"pokemon": {"pokemon"}}
         self.assertEqual(safe_structural_variant_bases("foo_(crossover)_(pokemon)", keys, {}, policy, aliases), [])
 
+    def test_single_qualifier_variant_can_use_unique_existing_base(self):
+        policy = {"variant_qualifier_families": [], "attribute_families": [],
+                  "broad_families": [], "non_home_families": []}
+        keys = {"alcremie", "alcremie_(berry_sweet)"}
+        self.assertEqual(safe_structural_variant_bases("alcremie_(berry_sweet)", keys, {}, policy),
+                         [("alcremie", "berry_sweet", "")])
+
+    def test_single_qualifier_copyright_alias_is_retained_for_home_match_check(self):
+        policy = {"variant_qualifier_families": [], "attribute_families": [],
+                  "broad_families": [], "non_home_families": []}
+        keys = {"pikachu", "pikachu_(pokemon)"}
+        self.assertEqual(safe_structural_variant_bases("pikachu_(pokemon)", keys, {}, policy,
+                                                       {"pokemon": {"pokemon"}}),
+                         [("pikachu", "pokemon", "pokemon")])
+
+    def test_single_qualifier_variant_rejects_blocked_collision_class(self):
+        policy = {"variant_qualifier_families": [], "attribute_families": [],
+                  "broad_families": [], "non_home_families": []}
+        keys = {"foo", "foo_(crossover)"}
+        self.assertEqual(safe_structural_variant_bases("foo_(crossover)", keys, {}, policy), [])
+
+    def test_single_qualifier_variant_requires_exact_catalog_base(self):
+        policy = {"variant_qualifier_families": [], "attribute_families": [],
+                  "broad_families": [], "non_home_families": []}
+        self.assertEqual(safe_structural_variant_bases("missing_base_(outfit)", {"missing_base_(outfit)"}, {}, policy), [])
+
     def test_exact_terminal_work_qualifier_allows_nested_variant_label(self):
         policy = {"variant_qualifier_families": ["bunny"], "attribute_families": [],
                   "broad_families": [], "non_home_families": []}

@@ -110,14 +110,16 @@ def safe_structural_variant_bases(tag: str, character_keys: set[str],
                                  copyright_alias_roots: dict[str, set[str]] | None = None) -> list[tuple[str, str, str]]:
     """Return conservative (base, variant_qualifier, outer_family) triples.
 
-    This authorizes HOME inheritance, not claims about official costume status. Both
-    qualifier orders are parsed, but only an exact catalog outer Copyright alias or
-    independently reviewed safe family paired with one exact existing base is accepted.
+    This authorizes HOME inheritance, not claims about official costume status. Nested
+    variants need an exact catalog/reviewed outer HOME qualifier. A single terminal
+    modifier can inherit from an exact accepted-catalog base when that base is unique;
+    any exact HOME-like or blocked qualifier must not contradict that base.
     """
     match = re.fullmatch(r"(.+)_\(([^()]*)\)_\(([^()]*)\)", tag)
-    if not match:
+    single = re.fullmatch(r"(.+)_\(([^()]*)\)", tag)
+    is_single_base = bool(single and tag.count("_(") == 1 and single.group(1) in character_keys)
+    if not match and not is_single_base:
         return []
-    stem, first, second = match.groups()
     policy_sets = [
         set(str(x).lower() for x in policy.get("attribute_families", [])),
         set(str(x).lower() for x in policy.get("variant_qualifier_families", [])),
@@ -129,6 +131,20 @@ def safe_structural_variant_bases(tag: str, character_keys: set[str],
     for k, v in (copyright_alias_roots or {}).items():
         root_map.setdefault(k.lower(), set()).update(v)
     options: set[tuple[str, str, str]] = set()
+    if is_single_base:
+        stem, modifier = single.groups()
+        modifier_key = modifier.lower()
+        blocked_single = (STRUCTURAL_FAMILY_BLOCKS
+                          | set(str(x).lower() for x in policy.get("broad_families", []))
+                          | set(str(x).lower() for x in policy.get("non_home_families", [])))
+        roots = root_map.get(modifier_key, set())
+        if (modifier_key not in blocked_single
+                and (not roots or len(roots) == 1)):
+            options.add((stem, modifier, modifier if roots else ""))
+        return sorted(options)
+    if not match:
+        return []
+    stem, first, second = match.groups()
     for outer, modifier in ((second, first), (first, second)):
         outer_key, modifier_key = outer.lower(), modifier.lower()
         homes = root_map.get(outer_key, set())

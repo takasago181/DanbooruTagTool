@@ -44,7 +44,7 @@ def main() -> None:
         "migration_baseline_sha256": sha256_file(V3_BASELINE),
         "migration_provenance_manifest_sha256": sha256_file(V3_MIGRATION_MANIFEST),
         "research_unit_terminal_reviews_sha256": sha256_file(unit_reviews),
-        "resolver_semantics_version": "direct-family-membership-safe-structural-variant-v2",
+        "resolver_semantics_version": "direct-family-membership-safe-structural-variant-v3",
         "validator_version": sha256_file(HERE / "validate_character_home_v3.py"),
         "runtime_research_dependency": False,
         "legacy_v1_v2_pipeline_dependency": False,
