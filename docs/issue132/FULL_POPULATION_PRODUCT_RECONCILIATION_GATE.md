@@ -51,6 +51,8 @@ For each identity:
 missing_core = luna_core_routes - current_routes
 missing_supporting = luna_supporting_routes - current_routes
 current_not_reproduced = current_routes - luna_all_natural_routes
+missing_body_facets = luna_body_site_ids - current_body_site_ids
+missing_theme_facets = luna_theme_ids - current_theme_ids
 ```
 
 Derive:
@@ -59,6 +61,8 @@ Derive:
 - MISSING_CORE_ROUTE
 - MISSING_SUPPORTING_ROUTE
 - CURRENT_ROUTE_NOT_REPRODUCED
+- MISSING_BODY_FACET
+- MISSING_THEME_FACET
 - SEARCH_ORIENTED
 - SEMANTIC_UNRESOLVED
 
@@ -188,6 +192,35 @@ Example risk:
 Adding a large General-only action/body family to BODY_SITE may be semantically natural but can enlarge the BODY_SITE shelf without giving those identities BREAST_NIPPLE / BUTTOCK_ANAL / MOUTH_ORAL etc. facet membership.
 
 That can make the route less usable despite semantic correctness.
+
+---
+
+## 7.5. Body/theme facet expansion is a separate architecture gate
+
+Pass A intentionally records body/theme intent for all identities so the adult-generation workflow is not blind to General-only gaps.
+
+However, current runtime body/theme facet metadata is Special-backed.
+
+Therefore:
+
+- missing General body/theme facets are **research findings**;
+- do not encode them as fake Special metadata;
+- do not silently add another per-query facet engine;
+- do not treat them as ordinary #132 route additions.
+
+After the full 31,003 diff, measure:
+
+- number of General-only identities with missing body facets;
+- number by each of the six body sites;
+- number by each of the three themes;
+- overlap with current ACTION_CONTACT / BODY_SITE / CLOTHING_EXPOSURE / POSE_POSITION routes;
+- Sexual-lens impact;
+- current Japanese-search coverage;
+- expected result-size reduction if facets were available.
+
+Only if the full-population benefit is substantial should a separate **Unified facet overlay** architecture be considered.
+
+That decision must include catalog-size, startup-memory, index-build and filter-latency measurements.
 
 ---
 
