@@ -33,6 +33,13 @@ jobs:
           python scripts/issue132/build_luna_neutral_input.py \
             --out artifacts/issue132/luna-neutral/luna_neutral_review_input_v2.csv
 
+      - name: Freeze Pass A contract manifest
+        run: |
+          python scripts/issue132/build_pass_a_contract_manifest.py \
+            --neutral artifacts/issue132/luna-neutral/luna_neutral_review_input_v2.csv \
+            --neutral-manifest artifacts/issue132/luna-neutral/luna_neutral_review_input_v2.manifest.json \
+            --out artifacts/issue132/pass-a-contract/pass_a_contract_manifest_v1.json
+
       - name: Test Pass A ledger validator contract
         run: python scripts/issue132/test_validate_luna_pass_a.py
 
@@ -44,5 +51,6 @@ jobs:
           path: |
             artifacts/issue132/full-discovery-audit
             artifacts/issue132/luna-neutral
+            artifacts/issue132/pass-a-contract
           if-no-files-found: error
 
