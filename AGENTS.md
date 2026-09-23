@@ -109,14 +109,15 @@ Current execution:
 - branch: `research/taxonomy-usability-audit`
 - 3 normal ChatGPT Automation workers + 1 coordinator
 - 300 identities per worker run **ceiling, not quota**
+- compact normal preflight via `docs/issue132/parallel/WORKER_EXECUTION_CARD_V1.md`; reread full frozen docs only on drift/contradiction
 - 25-row immutable checkpoints for new work
-- mandatory second-pass review over every 25 rows before save
-- mandatory cross-batch QA every 100 new rows
-- validated smaller progress may stop with an explicit execution/tool reason; do not discard reviewed 25-row units
+- strict per-row finalization before moving on; ambiguity/proper noun/specialist/sexual-boundary uncertainty requires `RESEARCHED`, unresolved meaning uses `SEMANTIC_UNRESOLVED`
+- cumulative lane-local 100-row QA: all high-risk rows + deterministic ordinary CHECKED spot-checks
+- no redundant full-25 second reread, no status write/CI wait after every checkpoint, and no anticipated-time `EXECUTION_LIMIT` self-stop
 - frozen Pass-A semantic contract remains unchanged
 - no production mutation / main merge from the research lane
 
-Read `docs/issue132/parallel/CURRENT_AUTOMATION_OPERATION.md` for live operational cadence. Old `READY FOR CODEX LUNA PASS A`, 100-row, or 200-row target wording is historical/frozen context, not current execution routing.
+Read `research/taxonomy-usability-audit:docs/issue132/parallel/CURRENT_AUTOMATION_OPERATION.md` for live operational cadence and `research/taxonomy-usability-audit:docs/issue132/parallel/WORKER_EXECUTION_CARD_V1.md` for the compact worker rules. These are branch-local execution authority; do not infer that a duplicate main copy exists. Old `READY FOR CODEX LUNA PASS A`, 100-row, or 200-row target wording is historical/frozen context, not current execution routing.
 
 ### Runtime baseline
 
