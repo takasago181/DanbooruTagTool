@@ -18,6 +18,16 @@
       "identity_key": "book_on_lap",
       "concern": "possible over-broad supporting route",
       "detail": "POSE_POSITION may be describing object placement relative to the lap rather than an independently useful body pose lookup axis."
+    },
+    {
+      "identity_key": "ichigo_ichie_na_hyakki_yagyou!?_(project_sekai)",
+      "concern": "research evidence quality",
+      "detail": "RESEARCHED evidence points to tbib rather than Danbooru/official/strong reference. Re-confirm semantic meaning from a stronger source before final acceptance."
+    },
+    {
+      "identity_key": "chinpo_ni_wa_katenakatta_yo",
+      "concern": "research evidence quality",
+      "detail": "RESEARCHED evidence points to an anonymous Hatena entry. Re-confirm that the tag is a fixed meme/reference and its semantic scope using a stronger source before final acceptance."
     }
   ]
 }
