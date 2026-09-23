@@ -10,12 +10,12 @@
   "last_checkpoint": "checkpoint_000326_000350.csv",
   "complete": false,
   "error_count": 0,
-  "last_run_delta": 25,
-  "last_run_stop_reason": "EXECUTION_LIMIT",
+  "last_run_delta": 0,
+  "last_run_stop_reason": "SEMANTIC_TOOL_BLOCKER",
   "last_run_blocker_evidence": {
-    "blocker_type": "EXECUTION_LIMIT",
-    "operation": "continue semantic review from lane-local row 351 (global review_seq 1052)",
-    "location": "after immutable checkpoint checkpoint_000326_000350.csv was safely serialized, parse-back validated, and committed",
-    "effect": "the current execution window ended before the next 25-row unit could be fully finalized and safely checkpointed; no partial second checkpoint was persisted"
+    "blocker_type": "SEMANTIC_TOOL_BLOCKER",
+    "operation": "acquire and minimally expose tracked neutral snapshot rows required for lane-local row 351 onward",
+    "location": "docs/issue132/parallel/input/luna_neutral_review_input_v2.csv before lane-local row 351 (global review_seq 1052)",
+    "effect": "tracked manifest and frozen invariants are present, but every available content path failed to expose the required CSV data: GitHub fetch_file rejected the file as too large even with a minimal line range, GitHub blob retrieval likewise could not return usable content, raw GitHub retrieval returned no usable CSV body, and the container has no external network for a branch clone. The backup Actions-artifact discovery route is not exposed by the available GitHub fetch surface (repository artifacts endpoint rejected by connector), so the next identity cannot be verified against frozen neutral order or safely finalized. No checkpoint was created or modified."
   }
 }
