@@ -108,10 +108,12 @@ When the user selects one lane, work only that lane. Never combine #179/#180/#13
 Current execution:
 - branch: `research/taxonomy-usability-audit`
 - 3 normal ChatGPT Automation workers + 1 coordinator
-- 300 identities per worker run target
-- 50-row immutable checkpoints
-- mandatory second-pass review over every 50 rows before save
-- mandatory final 300-row QA before `TARGET_REACHED`
+- 300 identities per worker run **ceiling, not quota**
+- compact normal preflight via `docs/issue132/parallel/WORKER_EXECUTION_CARD_V1.md`; reread full frozen docs only on drift/contradiction
+- 25-row immutable checkpoints for new work
+- strict per-row finalization before moving on; ambiguity/proper noun/specialist/sexual-boundary uncertainty requires `RESEARCHED`, unresolved meaning uses `SEMANTIC_UNRESOLVED`
+- cumulative lane-local 100-row QA: all high-risk rows + deterministic ordinary CHECKED spot-checks
+- no redundant full-25 second reread, no status write/CI wait after every checkpoint, and no anticipated-time `EXECUTION_LIMIT` self-stop
 - frozen Pass-A semantic contract remains unchanged
 - no production mutation / main merge from the research lane
 
