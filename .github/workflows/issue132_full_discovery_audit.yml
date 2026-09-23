@@ -190,6 +190,7 @@ jobs:
             artifacts/issue132/full-discovery-audit
             artifacts/issue132/luna-neutral
             artifacts/issue132/pass-a-contract
+            docs/issue132/parallel/input-shards
           if-no-files-found: error
           retention-days: 90
 
