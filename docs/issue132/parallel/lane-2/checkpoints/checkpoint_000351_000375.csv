@@ -1,0 +1,26 @@
+review_seq,identity_key,manual_seen,semantic_summary_ja,discovery_mode,route_1_id,route_1_strength,route_1_reason_ja,route_2_id,route_2_strength,route_2_reason_ja,route_3_id,route_3_strength,route_3_reason_ja,local_refinement_ids,body_site_ids,theme_ids,route_vocabulary_gap,route_vocabulary_gap_note,review_depth,evidence_urls,uncertainty_note
+1052,pop-up_pirate,YES,TOMYの樽に剣を差し込む玩具ゲーム「Pop-up Pirate」,BROWSE_WORTHY,TOOL_OBJECT,CORE,玩具・ゲーム用の物体として探すのが自然,,,,,,,"[""OBJECT_PROP/DAILY""]",[],[],NO,,RESEARCHED,"[""https://en.wikipedia.org/wiki/Pop-up_Pirate""]",Pop-up PirateがTOMY製の子供向けゲームであることを確認
+1055,exposed_guts,YES,内臓が露出している状態,BROWSE_WORTHY,BODY_SITE,CORE,露出した内臓という身体状態から探すのが自然,,,,,,,[],[],"[""INJURY_R18G""]",NO,,CHECKED,[],
+1058,standing_footjob,YES,立った姿勢で行う足による性器刺激,BROWSE_WORTHY,ACTION_CONTACT,CORE,足で性器を刺激する性行為から探すのが自然,,,,,,,"[""ACTION_CONTACT/INTIMATE""]","[""MALE_GENITAL""]",[],NO,,CHECKED,[],
+1061,diamond_(shape),YES,菱形・ダイヤ形の形状,BROWSE_WORTHY,COLOR_PATTERN_SHAPE,CORE,形状そのものから探すのが自然,,,,,,,[],[],[],NO,,CHECKED,[],
+1064,pangolin_ears,YES,センザンコウの耳を持つ外見,BROWSE_WORTHY,NONHUMAN_TRANSFORM,CORE,動物耳による人外的外見変化として探すのが自然,,,,,,,[],[],[],NO,,CHECKED,[],
+1067,giant_monster,YES,巨大な怪物・モンスター,BROWSE_WORTHY,LIVING,CORE,怪物という生物・クリーチャーから探すのが自然,,,,,,,"[""LIVING_NATURE/CREATURE""]",[],[],NO,,CHECKED,[],
+1070,penis_slip,YES,陰茎が衣服などからはみ出している状態,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,衣服から性器が露出する状態として探すのが自然,,,,,,,"[""CLOTHING_STATE_EXPOSURE/""]","[""MALE_GENITAL""]",[],NO,,CHECKED,[],
+1073,harmony_(e.g.o),YES,Limbus CompanyのSinclair用E.G.O「Harmony」,SEARCH_ORIENTED,,,,,,,,,,[],[],[],NO,,RESEARCHED,"[""https://limbuscompany.wiki.gg/wiki/Harmony_Sinclair""]",固有のE.G.O名・キャラクター参照であることを確認
+1076,spinning,YES,身体や物が回転している動作,BROWSE_WORTHY,ACTION_CONTACT,CORE,回転する動作として探すのが自然,,,,,,,[],[],[],NO,,CHECKED,[],
+1079,feather_in_mouth,YES,羽根を口にくわえる・口内に置く状態,BROWSE_WORTHY,TOOL_OBJECT,CORE,羽根という小物の使用・配置から探すのが自然,,,,,,,"[""OBJECT_PROP/DAILY""]","[""MOUTH_ORAL""]",[],NO,,CHECKED,[],
+1082,hololive_idol_uniform_(color_rise),YES,hololiveのColor Rise系アイドル衣装・制服,MIXED,CLOTHING_EXPOSURE,CORE,固有衣装だがコスチュームとして探す入口も自然,,,,,,,"[""CLOTHING/COSTUME""]",[],[],NO,,CHECKED,[],
+1085,shuuchiin_academy_school_uniform,YES,『かぐや様は告らせたい』秀知院学園の学校制服,MIXED,CLOTHING_EXPOSURE,CORE,作品固有制服だが制服カテゴリから探す入口も自然,,,,,,,"[""CLOTHING/UNIFORM""]",[],[],NO,,CHECKED,[],
+1088,scientific_name,YES,生物などの学名を文字として示す表現,BROWSE_WORTHY,TEXT_SYMBOL,CORE,学名という文字情報から探すのが自然,,,,,,,"[""TEXT_SYMBOL/TEXT""]",[],[],NO,,CHECKED,[],
+1091,guzheng,YES,中国の伝統的な撥弦楽器・古筝,BROWSE_WORTHY,TOOL_OBJECT,CORE,楽器という物体から探すのが自然,,,,,,,"[""OBJECT_PROP/DAILY""]",[],[],NO,,CHECKED,[],
+1094,selene_(pokemon)_(cosplay),YES,ポケモンの主人公Selene（ミヅキ）を模したコスプレ,MIXED,CLOTHING_EXPOSURE,CORE,特定キャラクターのコスプレ衣装として探すのが自然,,,,,,,"[""CLOTHING/COSTUME""]",[],[],NO,,CHECKED,[],
+1097,fishnet_gloves,YES,網目状のフィッシュネット手袋,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,手袋・装身具として探すのが自然,,,,,,,"[""CLOTHING/ACCESSORY""]",[],[],NO,,CHECKED,[],
+1100,penis_to_navel,YES,陰茎がへそ付近まで届く長さ・位置関係,BROWSE_WORTHY,BODY_SITE,CORE,男性器の長さと身体部位との位置関係から探すのが自然,,,,,,,[],"[""MALE_GENITAL""]",[],NO,,CHECKED,[],
+1103,polka_dot_thighhighs,YES,水玉模様のサイハイソックス,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,サイハイという衣類から探すのが自然,COLOR_PATTERN_SHAPE,SUPPORTING,水玉模様そのものから衣装意匠を探す入口も独立して有用,,,,"[""CLOTHING/EVERYDAY""]",[],[],NO,,CHECKED,[],
+1106,swim_briefs,YES,競泳・水泳用のブリーフ型水着,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,水着・衣類として探すのが自然,,,,,,,"[""CLOTHING/EVERYDAY""]",[],[],NO,,CHECKED,[],
+1109,print_bridal_gauntlets,YES,柄やプリントの入ったブライダルガントレット,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,腕に着ける衣装・装身具として探すのが自然,,,,,,,"[""CLOTHING/ACCESSORY""]",[],[],NO,,CHECKED,[],
+1112,snowman_costume,YES,雪だるまを模したコスチューム,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,仮装衣装として探すのが自然,,,,,,,"[""CLOTHING/COSTUME""]",[],[],NO,,CHECKED,[],
+1115,refrigerator_magnet,YES,冷蔵庫などに貼るマグネット,BROWSE_WORTHY,TOOL_OBJECT,CORE,日用品・小物として探すのが自然,,,,,,,"[""OBJECT_PROP/DAILY""]",[],[],NO,,CHECKED,[],
+1118,hourglass_print,YES,砂時計をモチーフにしたプリント柄,BROWSE_WORTHY,COLOR_PATTERN_SHAPE,CORE,砂時計形のプリント・模様から探すのが自然,,,,,,,[],[],[],NO,,CHECKED,[],
+1121,leather_jacket,YES,革製のジャケット,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,上着・衣類として探すのが自然,,,,,,,"[""CLOTHING/EVERYDAY""]",[],[],NO,,CHECKED,[],
+1124,digimon_crest,YES,『デジモン』の紋章（Crest）意匠,MIXED,TEXT_SYMBOL,CORE,作品固有参照だが紋章・シンボルとして探す入口も自然,,,,,,,"[""TEXT_SYMBOL/SYMBOL""]",[],[],NO,,RESEARCHED,"[""https://wikimon.net/crest""]",Digimon AdventureのCrestが固有の紋章・シンボルとして存在することを確認
