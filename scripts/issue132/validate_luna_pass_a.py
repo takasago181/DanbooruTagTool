@@ -101,14 +101,21 @@ def validate_row(row, expected_seq):
     if row["discovery_mode"]=="SEARCH_ORIENTED":
         need(not routes and not body and not themes,
              "SEARCH_ORIENTED must not carry routes/body/theme; use MIXED if both apply")
+        need(row["route_vocabulary_gap"]=="NO",
+             "SEARCH_ORIENTED cannot also claim a missing browse vocabulary; use MIXED/BROWSE_WORTHY")
     if row["discovery_mode"]=="SEMANTIC_UNRESOLVED":
         need(not routes and not body and not themes,
              "SEMANTIC_UNRESOLVED must not carry routes/body/theme")
+        need(row["route_vocabulary_gap"]=="NO",
+             "SEMANTIC_UNRESOLVED cannot establish a route vocabulary gap")
         need(row["review_depth"]=="RESEARCHED","SEMANTIC_UNRESOLVED must be RESEARCHED")
         need(bool(row["uncertainty_note"].strip()),"SEMANTIC_UNRESOLVED requires uncertainty_note")
     if row["discovery_mode"] in {"BROWSE_WORTHY","MIXED"}:
         need(bool(routes or body or themes or row["route_vocabulary_gap"]=="YES"),
              "browse-capable mode requires route/facet or vocabulary gap")
+        if routes and row["route_vocabulary_gap"]=="NO":
+            need(any(row[f"route_{i}_strength"]=="CORE" for i in range(1,4) if row[f"route_{i}_id"]),
+                 "browse-capable mode with existing routes requires at least one CORE route")
 
     return errs
 
@@ -120,9 +127,17 @@ def main():
     ap.add_argument("--summary",default="")
     args=ap.parse_args()
 
-    neutral=read_csv(Path(args.input))
-    ledger=read_csv(Path(args.ledger))
-    if list(ledger[0].keys()) != FIELDS if ledger else False:
+    neutral_path=Path(args.input)
+    ledger_path=Path(args.ledger)
+    neutral=read_csv(neutral_path)
+    ledger=read_csv(ledger_path)
+
+    # csv.DictReader loses the header when materialized through read_csv on an
+    # empty ledger, so validate the declared schema separately.
+    with ledger_path.open("r",encoding="utf-8-sig",newline="") as f:
+        reader=csv.DictReader(f)
+        header=reader.fieldnames or []
+    if header != FIELDS:
         raise SystemExit("ledger header mismatch")
 
     neutral_by={r["identity_key"]:int(r["review_seq"]) for r in neutral}
@@ -166,7 +181,7 @@ def main():
         "review_depth":dict(Counter(r["review_depth"] for r in ledger)),
         "route_vocabulary_gap":dict(Counter(r["route_vocabulary_gap"] for r in ledger)),
         "route_strength_counts":dict(Counter(
-            (r[f"route_{i}_id"],r[f"route_{i}_strength"])
+            f"{r[f'route_{i}_id']}|{r[f'route_{i}_strength']}"
             for r in ledger for i in range(1,4) if r[f"route_{i}_id"]
         )),
         "body_site_counts":dict(Counter(
