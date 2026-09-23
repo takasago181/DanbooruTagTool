@@ -13,9 +13,19 @@
   "coordinator_rescue_max_rows": 25,
   "worker_target_per_run": 300,
   "checkpoint_rows": 25,
-  "checkpoint_two_pass_review_required": true,
+  "checkpoint_two_pass_review_required": false,
   "final_run_qa_rows": null,
   "coordinator_slow_threshold_rows": null,
   "worker_target_semantics": "ceiling_not_quota",
-  "cross_batch_qa_rows": 100
+  "cross_batch_qa_rows": 100,
+  "per_row_finalization_required": true,
+  "ambiguity_research_gate_required": true,
+  "cross_batch_qa_scope": "all_high_risk_plus_deterministic_checked_spotcheck",
+  "cross_batch_qa_alignment": "lane_local_cumulative_multiple_of_100",
+  "status_update_policy": "run_end_lane_complete_or_100_boundary",
+  "ci_poll_policy": "run_end_or_failure_signal_only",
+  "full_contract_read_policy": "only_on_manifest_card_mismatch_contract_drift_or_instruction_conflict",
+  "normal_preflight_card": "docs/issue132/parallel/WORKER_EXECUTION_CARD_V1.md",
+  "execution_limit_policy": "actual_limit_only_not_anticipated",
+  "batch_research_allowed": true
 }
