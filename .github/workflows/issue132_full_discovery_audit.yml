@@ -33,6 +33,9 @@ jobs:
           python scripts/issue132/build_luna_neutral_input.py \
             --out artifacts/issue132/luna-neutral/luna_neutral_review_input_v2.csv
 
+      - name: Verify review vocabulary against runtime code
+        run: python scripts/issue132/check_review_vocabulary_against_code.py
+
       - name: Freeze Pass A contract manifest
         run: |
           python scripts/issue132/build_pass_a_contract_manifest.py \
