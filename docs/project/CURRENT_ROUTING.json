@@ -1,8 +1,8 @@
 {
   "schema_version": "project-current-routing-v1",
-  "generated_at": "2026-09-24T01:43:00+09:00",
+  "generated_at": "2026-09-24T02:25:00+09:00",
   "purpose": "compact machine-readable routing snapshot; not a permanent branch-head authority",
-  "live_main_snapshot": "aafa75dbdcd2bb54b63bbaa4fa92de29507c88c6",
+  "live_main_snapshot": "feaff63343de660c1c94a01c5c8801f7e42c3fb3",
   "must_refetch_live_heads_before_write": true,
   "source_of_truth_order": [
     "live main",
@@ -17,51 +17,59 @@
       "kind": "research",
       "title": "Tag classification usability / discoverability audit",
       "branch": "research/taxonomy-usability-audit",
-      "branch_head_snapshot": "abc82ad5bd0203e89daba5b1b2e23c81fba03913",
+      "branch_head_snapshot": null,
       "phase": "Pass A active",
       "isolation": [
         "#179",
         "#180"
       ],
-      "production_mutation": false
+      "production_mutation": false,
+      "head_policy": "fetch_live_before_work_or_write",
+      "progress_source": "immutable checkpoint union on research/taxonomy-usability-audit"
     },
     {
       "issue": 179,
       "kind": "research",
       "title": "Character/Copyright identity, Japanese display/search, ranking, and 2D scope quality",
       "branch": "research/issue179-character-quality-audit",
-      "branch_head_snapshot": "78cd14693d066e8f150a140628eef6c5d343b2c5",
+      "branch_head_snapshot": null,
       "phase": "active research",
       "isolation": [
         "#132",
         "#180"
       ],
-      "production_mutation": false
+      "production_mutation": false,
+      "head_policy": "fetch_live_before_work_or_write",
+      "progress_source": "live Issue/PR/branch"
     },
     {
       "issue": 180,
       "kind": "research",
       "title": "Rebuild Character-Copyright relations from high-precision authority",
       "branch": "research/issue180-single-home-pilot",
-      "branch_head_snapshot": "308b910f7df4768a99b7109b036be9b093daf6ea",
+      "branch_head_snapshot": null,
       "phase": "active research",
       "isolation": [
         "#132",
         "#179"
       ],
-      "production_mutation": false
+      "production_mutation": false,
+      "head_policy": "fetch_live_before_work_or_write",
+      "progress_source": "live Issue/PR/branch and v3 outputs"
     },
     {
       "issue": 188,
       "kind": "project_infrastructure",
       "title": "Reduce execution overhead without weakening audit accuracy",
-      "branch": "dev/issue188-current-state-split",
+      "branch": null,
       "branch_head_snapshot": null,
-      "phase": "current-state/history split + cache/routing consolidation",
+      "phase": "active project infrastructure; implementation uses short-lived per-change branches",
       "isolation": [
         "semantic authority of #132/#179/#180"
       ],
-      "production_mutation": false
+      "production_mutation": false,
+      "head_policy": "fetch_live_before_work_or_write",
+      "progress_source": "Issue #188 comments + merged PRs"
     }
   ],
   "completed_or_non_default": [
@@ -82,5 +90,6 @@
   "current_state_file": "docs/project/CURRENT_STATE.md",
   "history_file": "docs/project/CURRENT_STATE_HISTORY.md",
   "current_dev_task_role": "compatibility pointer only; do not duplicate routing state",
-  "progress_authority": "immutable checkpoint/result first; status/progress summaries are derived cache"
+  "progress_authority": "immutable checkpoint/result first; status/progress summaries are derived cache",
+  "routing_stability_policy": "do not embed fast-changing lane progress or required current branch HEAD; fetch those live"
 }
