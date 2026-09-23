@@ -1,64 +1,87 @@
 {
   "schema_version": "issue132-parallel-coordinator-v1",
   "population": 31003,
-  "total_reviewed": 950,
-  "total_remaining": 30053,
+  "total_reviewed": 1100,
+  "total_remaining": 29903,
   "complete": false,
   "worker_target_per_run": 300,
   "quality_flags_pending": 12,
   "latest_ci": {
     "workflow": "Issue132 Incremental Checkpoint Validation",
-    "run_id": 35916469662,
-    "head_sha": "8e3773e7a1f22739ef2400f15dcad47119e9dd05",
+    "run_id": 35931872858,
+    "head_sha": "9a54321e887c60779221b747f5fd1ebe04092f83",
     "conclusion": "success",
-    "note": "Latest observed Issue132 incremental checkpoint validation completed successfully."
+    "note": "Latest observed Issue132 incremental checkpoint validation completed successfully after lane-3 status advanced through 350."
   },
   "lanes": {
     "1": {
       "assigned_count": 10335,
-      "reviewed_count": 325,
-      "delta": 0,
-      "remaining_count": 10010,
-      "zero_progress_streak": 2,
-      "slow_progress_streak": 0,
-      "latest_checkpoint": "checkpoint_000301_000325.csv",
-      "last_run_stop_reason": "TOOL_LIMIT",
-      "state": "STALLED",
-      "note": "Second consecutive coordinator cycle with zero new immutable checkpoints. Current lane status records a concrete GitHub artifact-access failure (HTTP 404 for run 35897055452); coordinator independently reproduced the 404. This explains inability to safely derive the next frozen-neutral identities in that worker run, but does not erase the checkpoint-derived zero-progress streak. Lane is STALLED and rescue-eligible only if neutral bytes can be safely obtained and a fresh no-concurrent-write check passes."
+      "reviewed_count": 400,
+      "delta": 75,
+      "remaining_count": 9935,
+      "zero_progress_streak": 0,
+      "slow_progress_streak": 1,
+      "latest_checkpoint": "checkpoint_000376_000400.csv",
+      "corrections_applied_or_present": 1,
+      "last_run_stop_reason": "SEMANTIC_TOOL_BLOCKER",
+      "state": "RECOVERED_PENDING_NEXT_RUN",
+      "note": "Immutable checkpoint union advanced 325 -> 400. The recorded IMMUTABLE_QA_CORRECTION_PATH_UNAVAILABLE stop is now superseded and is not a valid continuing blocker: correction_000973_reverse_paizuri.json exists under the authoritative additive correction overlay path. The raw checkpoint remains immutable. Worker should continue from lane-local 401 on its next run."
     },
     "2": {
       "assigned_count": 10334,
       "reviewed_count": 350,
       "delta": 0,
       "remaining_count": 9984,
-      "zero_progress_streak": 2,
+      "zero_progress_streak": 3,
       "slow_progress_streak": 0,
       "latest_checkpoint": "checkpoint_000326_000350.csv",
-      "last_run_stop_reason": "EXECUTION_LIMIT",
+      "last_run_stop_reason": "SEMANTIC_TOOL_BLOCKER",
       "state": "STALLED",
-      "note": "Second consecutive coordinator cycle with zero new immutable checkpoints. The prior EXECUTION_LIMIT evidence described an earlier run boundary but cannot exempt subsequent zero-progress coordinator cycles. Lane is STALLED."
+      "note": "No new immutable checkpoint since the previous coordinator snapshot, producing a third consecutive zero-progress cycle. Lane status records concrete inability in that worker environment to expose the tracked neutral CSV bytes for row 351 onward. The tracked snapshot remains present in branch authority, so this is an execution-path/tool-access problem rather than neutral-contract drift. Rescue was not fabricated in this coordinator pass because safe neutral row bytes and a fresh no-concurrent-write condition were not both established."
     },
     "3": {
       "assigned_count": 10334,
-      "reviewed_count": 275,
-      "delta": 0,
-      "remaining_count": 10059,
-      "zero_progress_streak": 3,
-      "slow_progress_streak": 0,
-      "latest_checkpoint": "checkpoint_000251_000275.csv",
-      "last_run_stop_reason": "TOOL_LIMIT",
-      "state": "STALLED",
-      "note": "Third consecutive incomplete coordinator cycle with zero new immutable checkpoints. The earlier semantic-web TOOL_LIMIT was concrete for that worker run but does not exempt later zero cycles. Lane remains STALLED."
+      "reviewed_count": 350,
+      "delta": 75,
+      "remaining_count": 9984,
+      "zero_progress_streak": 0,
+      "slow_progress_streak": 1,
+      "latest_checkpoint": "checkpoint_000326_000350.csv",
+      "last_run_stop_reason": "EXECUTION_LIMIT",
+      "state": "ACTIVE",
+      "note": "Immutable checkpoint union advanced 275 -> 350. Lane status gives concrete external execution-boundary evidence after three validated 25-row checkpoints; no speculative partial checkpoint was written. This run is incomplete but the stop evidence is concrete for that execution, and the lane remains resumable from 351."
     }
   },
   "observed_run_metrics": {
     "schema_version": "execution-telemetry-v1",
-    "lane_1": {"rows_completed": 0, "checkpoints_created": 0, "preflight_mode": "FAST", "full_authority_fallback": false, "structural_validation_failures": 0, "stop_reason": "TOOL_LIMIT"},
-    "lane_2": {"rows_completed": 0, "checkpoints_created": 0, "preflight_mode": "FAST", "full_authority_fallback": false, "structural_validation_failures": 0, "stop_reason": "EXECUTION_LIMIT"},
-    "lane_3": {"rows_completed": 0, "checkpoints_created": 0, "preflight_mode": "FAST", "full_authority_fallback": false, "structural_validation_failures": 0, "stop_reason": "TOOL_LIMIT"}
+    "lane_1": {
+      "rows_completed": 75,
+      "checkpoints_created": 3,
+      "preflight_mode": "FAST",
+      "full_authority_fallback": false,
+      "structural_validation_failures": 0,
+      "stop_reason": "SEMANTIC_TOOL_BLOCKER",
+      "corrections_present": 1
+    },
+    "lane_2": {
+      "rows_completed": 0,
+      "checkpoints_created": 0,
+      "preflight_mode": "FAST",
+      "full_authority_fallback": false,
+      "structural_validation_failures": 0,
+      "stop_reason": "SEMANTIC_TOOL_BLOCKER"
+    },
+    "lane_3": {
+      "rows_completed": 75,
+      "checkpoints_created": 3,
+      "preflight_mode": "FAST",
+      "full_authority_fallback": false,
+      "structural_validation_failures": 0,
+      "stop_reason": "EXECUTION_LIMIT"
+    }
   },
   "baseline_note": "Fast preflight matched the expected worker-card, contract-manifest, and parallel-plan blob SHAs, so frozen bodies were not reread. Progress is authoritative from immutable checkpoint unions. 300 is a per-run ceiling, not a cumulative boundary or permission to stop voluntarily.",
-  "quality_note": "quality_flags.json still contains 12 pending explicit re-review flags. Latest Issue132 incremental CI succeeded. No new structural failure or contract drift was observed from checkpoint-directory/status metadata. Coordinator independently confirmed HTTP 404 when attempting the recorded run-artifacts endpoint for neutral artifact run 35897055452; no rescue checkpoint was fabricated without verified neutral input.",
+  "quality_note": "quality_flags.json still contains 12 pending explicit re-review flags. Lane-1 has one authoritative immutable correction overlay for reverse_paizuri. Latest Issue132 incremental CI succeeded at run 35931872858 / head 9a54321e887c60779221b747f5fd1ebe04092f83. No contract drift or checkpoint structural failure was observed. Lane-2 remains the only STALLED lane in this snapshot because its worker execution path could not expose the next tracked-neutral bytes.",
   "pass_b_generated": false,
   "worker_target_semantics": "ceiling_not_quota",
   "checkpoint_rows": 25,
