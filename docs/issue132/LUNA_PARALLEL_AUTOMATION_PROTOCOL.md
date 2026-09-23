@@ -53,21 +53,26 @@ Stagger schedules so workers normally do not write concurrently.
 
 Lane N owns only:
 
-`docs/issue132/parallel/lane-N/pass_a_fragment.csv`
+`docs/issue132/parallel/lane-N/checkpoints/checkpoint_XXXXXX_XXXXXX.csv`
 
 `docs/issue132/parallel/lane-N/status.json`
 
 A worker must never edit another lane's files.
 
-Each fragment:
+Checkpoint CSVs are immutable after successful save.
+
+Each checkpoint:
 - uses the exact 22-column Pass-A schema;
-- contains only assigned identities;
-- is an exact prefix of that lane's deterministic assignment;
+- contains normally 25–50 newly completed identities;
+- contains only identities assigned to that lane;
+- continues immediately after the previous checkpoint;
 - preserves global review_seq values.
 
-Validator:
+The union of checkpoint files, sorted by their lane-local range, must be an exact prefix of that lane's deterministic assignment.
 
-`scripts/issue132/validate_luna_lane.py`
+Do not maintain one ever-growing CSV through the GitHub Contents API. The immutable small-file model avoids size limits and rewrite conflicts.
+
+The existing lane validator may be used on a temporary concatenated lane ledger; checkpoint files remain the GitHub persistence authority.
 
 ## Worker execution
 
@@ -79,14 +84,15 @@ Each worker run:
 4. read its own fragment/status;
 5. continue from the next assigned identity;
 6. individually review identities under the same independent Pass-A rules;
-7. save frequently;
-8. validate its lane;
-9. commit/push only its lane files;
-10. continue within the same run while execution budget remains.
+7. accumulate no more than 25–50 unsaved completed identities;
+8. create the next immutable checkpoint CSV;
+9. update the small status.json only after the checkpoint save succeeds;
+10. validate the checkpoint union / exact-prefix state;
+11. continue within the same run while execution budget remains.
 
 Target:
 - normally advance at least 100 identities per run;
-- save every 25–50 completed identities so work is not lost.
+- persist every 25–50 completed identities so work is not lost.
 
 The target is operational, not a quality quota.
 
@@ -139,12 +145,12 @@ Reset the streak to zero immediately when progress resumes.
 
 When a lane reaches STALLED:
 
-1. verify its fragment still validates;
-2. verify no file change occurred after the coordinator read;
+1. verify that the lane's checkpoint union is still a valid exact prefix;
+2. verify no new checkpoint appeared after the coordinator read;
 3. coordinator may act as a temporary rescue worker for **that lane only**;
 4. process the next assigned identities under the exact same semantic rules;
-5. append only to that lane's exact prefix;
-6. validate before saving;
+5. create exactly one new immutable rescue checkpoint;
+6. update status only after the checkpoint save succeeds;
 7. limit rescue work to a small safe unit (normally up to 25 identities);
 8. clear/reset stall streak after real progress.
 
