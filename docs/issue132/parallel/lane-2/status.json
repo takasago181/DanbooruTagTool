@@ -4,18 +4,18 @@
   "lane_count": 3,
   "assignment_rule": "((review_seq-1)%3)+1",
   "assigned_count": 10334,
-  "reviewed_count": 350,
-  "remaining_count": 9984,
-  "checkpoint_count": 13,
-  "last_checkpoint": "checkpoint_000326_000350.csv",
+  "reviewed_count": 375,
+  "remaining_count": 9959,
+  "checkpoint_count": 14,
+  "last_checkpoint": "checkpoint_000351_000375.csv",
   "complete": false,
   "error_count": 0,
-  "last_run_delta": 0,
+  "last_run_delta": 25,
   "last_run_stop_reason": "SEMANTIC_TOOL_BLOCKER",
   "last_run_blocker_evidence": {
     "blocker_type": "SEMANTIC_TOOL_BLOCKER",
-    "operation": "acquire and minimally expose tracked neutral snapshot rows required for lane-local row 351 onward",
-    "location": "docs/issue132/parallel/input/luna_neutral_review_input_v2.csv before lane-local row 351 (global review_seq 1052)",
-    "effect": "tracked manifest and frozen invariants are present, but every available content path failed to expose the required CSV data: GitHub fetch_file rejected the file as too large even with a minimal line range, GitHub blob retrieval likewise could not return usable content, raw GitHub retrieval returned no usable CSV body, and the container has no external network for a branch clone. The backup Actions-artifact discovery route is not exposed by the available GitHub fetch surface (repository artifacts endpoint rejected by connector), so the next identity cannot be verified against frozen neutral order or safely finalized. No checkpoint was created or modified."
+    "operation": "obtain direct semantic evidence for ambiguous identity fish_bottle before finalizing lane-local row 397",
+    "location": "lane-local row 397 / global review_seq 1190 in shard_000301_000600.csv",
+    "effect": "The validated neutral shard is available and processing resumed successfully. During the next 25-row unit, fish_bottle remained materially ambiguous (fish-shaped bottle versus fish contained in a bottle or another tag-specific meaning). Exact web searches for fish_bottle/Danbooru and Latent Tags returned no direct tag definition; returned results were unrelated/generic or only showed separate fish and bottle tags. The frozen accuracy gate forbids classification from spelling inference and SEMANTIC_UNRESOLVED requires direct evidence plus uncertainty. Therefore this identity could not be safely finalized, preventing completion/persistence of checkpoint 376-400. The already validated checkpoint 351-375 was preserved; no partial checkpoint was written."
   }
 }
