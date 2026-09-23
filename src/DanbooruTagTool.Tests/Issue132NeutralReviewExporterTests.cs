@@ -1,3 +1,4 @@
+using System.IO;
 using System.Text.Json;
 using DanbooruTagTool.Core;
 using DanbooruTagTool.Data;
@@ -21,7 +22,7 @@ public sealed class Issue132NeutralReviewExporterTests
         Assert.Equal(Enumerable.Range(1, first.Count), first.Select(row => row.ReviewSeq));
         Assert.Equal(first.Count, first.Select(row => row.IdentityKey).Distinct(StringComparer.Ordinal).Count());
 
-        var shared = Assert.Single(first.Where(row => row.IdentityKey == "shared_tag"));
+        var shared = Assert.Single(first, row => row.IdentityKey == "shared_tag");
         Assert.Equal("shared_tag", shared.Canonical);
         Assert.Equal("特別表示", shared.DisplayJa);
         Assert.Equal("", shared.NeutralDescriptionJa);
