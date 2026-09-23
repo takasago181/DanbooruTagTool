@@ -1,23 +1,23 @@
 {
   "schema_version": "issue132-parallel-coordinator-v1",
   "population": 31003,
-  "total_reviewed": 475,
-  "total_remaining": 30528,
+  "total_reviewed": 550,
+  "total_remaining": 30453,
   "complete": false,
   "worker_target_per_run": 300,
-  "quality_flags_pending": 5,
+  "quality_flags_pending": 7,
   "latest_ci": {
     "workflow": "Issue132 Full Discovery Coverage Audit",
-    "run_id": 35879799281,
-    "head_sha": "ea2c4cb216ba29101a46cd84d31a325c4da2b01f",
+    "run_id": 35886582872,
+    "head_sha": "7eefc00e8cb771648667d75256e786baf718d0e6",
     "conclusion": "success",
     "validation_snapshot": {
-      "reviewed_total": 475,
+      "reviewed_total": 550,
       "error_count": 0,
       "lanes": {
         "1": 225,
-        "2": 150,
-        "3": 100
+        "2": 175,
+        "3": 150
       }
     }
   },
@@ -25,41 +25,42 @@
     "1": {
       "assigned_count": 10335,
       "reviewed_count": 225,
-      "delta": 200,
+      "delta": 0,
       "remaining_count": 10110,
-      "zero_progress_streak": 0,
+      "zero_progress_streak": 1,
       "slow_progress_streak": 0,
       "latest_checkpoint": "checkpoint_000176_000225.csv",
       "last_run_stop_reason": "TARGET_REACHED",
-      "state": "PROGRESSING",
-      "note": "This 200-row run completed before the live target changed to 300; do not reinterpret it retroactively as underperforming."
+      "state": "WARNING",
+      "note": "No new immutable checkpoint since the previous coordinator snapshot. First zero-progress coordinator cycle only; not STALLED and no rescue yet. Historical TARGET_REACHED was from the earlier 200-row target and is not treated as a current 300-row claim."
     },
     "2": {
+      "assigned_count": 10334,
+      "reviewed_count": 175,
+      "delta": 25,
+      "remaining_count": 10159,
+      "zero_progress_streak": 0,
+      "slow_progress_streak": 0,
+      "latest_checkpoint": "checkpoint_000151_000175.csv",
+      "last_run_stop_reason": "EXECUTION_LIMIT",
+      "state": "PROGRESSING_WITH_VALID_STOP",
+      "note": "Added one valid 25-row immutable checkpoint. Short run is accepted provisionally because lane status records EXECUTION_LIMIT; future coordinator cycles must not accept anticipated-time-limit claims as EXECUTION_LIMIT."
+    },
+    "3": {
       "assigned_count": 10334,
       "reviewed_count": 150,
       "delta": 50,
       "remaining_count": 10184,
       "zero_progress_streak": 0,
       "slow_progress_streak": 0,
-      "latest_checkpoint": "checkpoint_000101_000150.csv",
-      "last_run_stop_reason": "TOOL_LIMIT",
-      "state": "PROGRESSING_WITH_VALID_STOP",
-      "note": "15 malformed column-shift rows in checkpoint 101-150 were mechanically repaired at commit 7b50dc6fea17f324177eff01bedba2a717e6c15d; semantic values were not intentionally changed."
-    },
-    "3": {
-      "assigned_count": 10334,
-      "reviewed_count": 100,
-      "delta": 0,
-      "remaining_count": 10234,
-      "zero_progress_streak": 1,
-      "slow_progress_streak": 0,
-      "latest_checkpoint": "checkpoint_000076_000100.csv",
+      "latest_checkpoint": "checkpoint_000126_000150.csv",
       "last_run_stop_reason": "EXECUTION_LIMIT",
-      "state": "WARNING",
-      "note": "A temporary invalid placeholder checkpoint was removed; no additional valid Lane 3 rows were accepted in that run."
+      "state": "PROGRESSING_WITH_VALID_STOP",
+      "note": "Recovered from the previous zero-progress warning with two valid 25-row checkpoints. Latest QA added two targeted quality flags: fake_screenshot evidence mismatch and face_on_another's_chest body-facet over-inference."
     }
   },
-  "baseline_note": "2026-09-24 operational cadence changed from 50-row two-pass checkpoints to 25-row two-pass checkpoints with mandatory 100-row cross-batch QA. 300 remains a per-run ceiling, not a quota. Existing checkpoints remain immutable historical evidence. Future coordinator health decisions must derive progress from live checkpoint unions and accept validated smaller deltas with explicit EXECUTION_LIMIT/TOOL_LIMIT.",
+  "baseline_note": "Current operation uses 25-row immutable persistence, per-row semantic finalization, mandatory ambiguity research, and 100-row lane-local QA of all high-risk rows plus deterministic ordinary CHECKED samples. Full 25-row second rereads, redundant frozen-contract rereads, per-checkpoint status commits, and per-checkpoint CI polling are intentionally removed for efficiency. 300 is a per-run ceiling, not a quota.",
+  "quality_note": "Seven re-review flags are pending. Two newest flags came from Lane 3 checkpoint 126-150 and show the fast path is detecting evidence/facet ambiguity rather than silently accepting it. No structural CI failure or frozen-contract drift is present.",
   "pass_b_generated": false,
   "worker_target_semantics": "ceiling_not_quota",
   "checkpoint_rows": 25,
