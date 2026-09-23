@@ -37,7 +37,7 @@
 - Current live operation: **300 identities / worker run is a ceiling, not a quota**; normal preflight uses `docs/issue132/parallel/WORKER_EXECUTION_CARD_V1.md`; new immutable checkpoints are 25 rows; each identity is strictly finalized once before moving on; ambiguity/proper nouns/specialist or sexual-boundary concepts require `RESEARCHED`; unresolved meaning uses `SEMANTIC_UNRESOLVED`; every cumulative lane-local 100-row block gets high-risk re-review plus deterministic ordinary CHECKED spot-checks; redundant full-batch rereads/status/CI polling are intentionally removed.
 - Operational authority: `research/taxonomy-usability-audit:docs/issue132/parallel/CURRENT_AUTOMATION_OPERATION.md` (branch-local authority; do not create a second main copy)
 - Frozen Pass-A semantic contract remains unchanged; old `READY FOR CODEX LUNA PASS A` / 100-row / 200-row wording is not current execution routing.
-- Progress snapshot at this sync: valid persisted checkpoint union 500 / 31,003 (Lane 1: 225, Lane 2: 175, Lane 3: 100). Re-fetch live checkpoint union before continuing.
+- Volatile progress counts are intentionally not pinned in this main routing index. Recompute exact progress from the three lane immutable checkpoint unions on `research/taxonomy-usability-audit` before continuing.
 - No production mutation, main merge, #64/#76/#118 rewrite, or Character/Copyright/Artist lane mutation is authorized by #132 Pass A.
 
 ## Parallel / maintenance routes
