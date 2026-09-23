@@ -1,0 +1,26 @@
+review_seq,identity_key,manual_seen,semantic_summary_ja,discovery_mode,route_1_id,route_1_strength,route_1_reason_ja,route_2_id,route_2_strength,route_2_reason_ja,route_3_id,route_3_strength,route_3_reason_ja,local_refinement_ids,body_site_ids,theme_ids,route_vocabulary_gap,route_vocabulary_gap_note,review_depth,evidence_urls,uncertainty_note
+528,striped_skin,YES,縞模様のある肌・皮膚,BROWSE_WORTHY,COLOR_PATTERN_SHAPE,CORE,肌上の縞模様という視覚パターンとして探すのが自然,,,,,,,[],[],[],NO,,CHECKED,[],
+531,sunbeam,YES,差し込む太陽光の光線・サンビーム,BROWSE_WORTHY,LIGHT_TIME_WEATHER,CORE,光線・照明効果として探すのが自然,,,,,,,[],[],[],NO,,CHECKED,[],
+534,anti-demon_corps_uniform,YES,『魔都精兵のスレイブ』の魔防隊（Anti-Demon Corps）の制服,MIXED,CLOTHING_EXPOSURE,CORE,作品固有の制服として衣装から探せる,,,,,,,"[""CLOTHING/UNIFORM""]",[],[],NO,,RESEARCHED,"[""https://www.myworldtheanimation.com/it/personajes/azuma-himari""]",
+537,striped_sports_bra,YES,縞模様のスポーツブラ,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,下着・スポーツ衣類として探すのが自然,COLOR_PATTERN_SHAPE,SUPPORTING,縞模様自体も独立した視覚意図になる,,,,"[""CLOTHING/EVERYDAY""]",[],[],NO,,CHECKED,[],
+540,narutomaki_hair_ornament,YES,なると巻き形の髪飾り,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,髪に着けるアクセサリーとして探すのが自然,,,,,,,"[""CLOTHING/ACCESSORY""]",[],[],NO,,CHECKED,[],
+543,leash_between_breasts,YES,胸の間を通る・胸の間に位置するリード,BROWSE_WORTHY,TOOL_OBJECT,CORE,リードという小道具から探すのが自然,,,,,,,"[""OBJECT_PROP/DAILY""]","[""BREAST_NIPPLE""]",[],NO,,CHECKED,[],
+546,photokinesis,YES,photokinesisと呼ばれる光に関係する運動・能力概念,SEMANTIC_UNRESOLVED,,,,,,,,,,[],[],[],NO,,RESEARCHED,"[""https://www.collinsdictionary.com/dictionary/english/photokinesis""]",一般語では光刺激による生物の運動を指す一方、創作では光操作能力の意味でも使われうるため、このタグの視覚的スコープを直接確認できず確定不能
+549,tripod,YES,三脚,BROWSE_WORTHY,TOOL_OBJECT,CORE,撮影・支持用の道具として探すのが自然,,,,,,,"[""OBJECT_PROP/DAILY""]",[],[],NO,,CHECKED,[],
+552,bread,YES,パン,BROWSE_WORTHY,TOOL_OBJECT,CORE,食品として探すのが自然,,,,,,,"[""OBJECT_PROP/FOOD""]",[],[],NO,,CHECKED,[],
+555,bar_counter,YES,バー店舗のカウンター,BROWSE_WORTHY,TOOL_OBJECT,CORE,家具・設備という物体として探すのが自然,,,,,,,"[""OBJECT_PROP/DAILY""]",[],[],NO,,CHECKED,[],
+558,stack_bond,YES,目地を上下に揃えて積む組積造のstack bond模様,BROWSE_WORTHY,COLOR_PATTERN_SHAPE,CORE,レンガ・ブロックの反復配置パターンとして探すのが自然,,,,,,,[],[],[],NO,,RESEARCHED,"[""https://masonryadvisorycouncil.org/wp-content/uploads/2018/04/Masonry-Insights-Stack-Bond_MAC.pdf""]",
+561,ankh_tattoo,YES,アンク（☥）意匠のタトゥー,BROWSE_WORTHY,TEXT_SYMBOL,CORE,象徴記号の身体装飾として探すのが自然,,,,,,,"[""TEXT_SYMBOL/SYMBOL""]",[],[],NO,,CHECKED,[],
+564,single_wide_sleeve,YES,片側だけ幅広い袖を持つ衣服,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,袖の形状・非対称な衣服特徴として探すのが自然,,,,,,,[],[],[],NO,,CHECKED,[],
+567,leather_bikini,YES,革素材のビキニ,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,水着・衣服として探すのが自然,,,,,,,"[""CLOTHING/EVERYDAY""]",[],[],NO,,CHECKED,[],
+570,left_out,YES,集団・組み合わせから何かが外されていることを示すタグ,SEMANTIC_UNRESOLVED,,,,,,,,,,[],[],[],NO,,RESEARCHED,"[""https://tbib.org/index.php?id=7853932&page=post&s=view""]",Danbooru由来投稿でタグ使用例は確認できるが、何をもってleft_outとするかの直接定義を確認できず、発見経路を安全に固定できない
+573,yakult,YES,乳酸菌飲料ブランドYakultの容器・飲料,MIXED,TOOL_OBJECT,CORE,飲料・食品小物として視覚的に探せる,,,,,,,"[""OBJECT_PROP/FOOD""]",[],[],NO,,CHECKED,[],
+576,depth_charge_projector,YES,艦艇から爆雷を側方へ投射する爆雷投射機,BROWSE_WORTHY,TOOL_OBJECT,CORE,対潜兵器・艦載装備として探すのが自然,,,,,,,"[""OBJECT_PROP/WEAPON""]",[],[],NO,,RESEARCHED,"[""https://ussslater.org/kgun""]",
+579,hands_on_another's_neck,YES,両手または手を相手の首に置く身体接触,BROWSE_WORTHY,ACTION_CONTACT,CORE,人物間の手と首の接触として探すのが自然,,,,,,,"[""ACTION_CONTACT/INTERACTION""]",[],[],NO,,CHECKED,[],
+582,tabard,YES,タバード型の上衣・外衣,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,衣服の種類として探すのが自然,,,,,,,"[""CLOTHING/COSTUME""]",[],[],NO,,CHECKED,[],
+585,string_of_pearls,YES,連なった真珠・真珠の一連,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,装身具・アクセサリーとして探すのが自然,,,,,,,"[""CLOTHING/ACCESSORY""]",[],[],NO,,CHECKED,[],
+588,opening_curtains,YES,カーテンを開く動作,BROWSE_WORTHY,ACTION_CONTACT,CORE,物を開く操作動作として探すのが自然,,,,,,,"[""ACTION_CONTACT/OBJECT_USE""]",[],[],NO,,CHECKED,[],
+591,multicolored_shoes,YES,複数色で構成された靴,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,履物として探すのが自然,COLOR_PATTERN_SHAPE,SUPPORTING,多色配色自体も独立した視覚意図になる,,,,"[""CLOTHING/EVERYDAY""]",[],[],NO,,CHECKED,[],
+594,kawaii_boku_to_142's_(idolmaster),YES,『アイドルマスター シンデレラガールズ』のユニット「カワイイボクと142's」への参照,SEARCH_ORIENTED,,,,,,,,,,[],[],[],NO,,RESEARCHED,"[""https://safebooru.donmai.us/forum_topics/13868?page=36""]",
+597,fairy_(girls'_frontline),YES,『Girls' Frontline』におけるFairyという作品固有要素への参照,SEMANTIC_UNRESOLVED,,,,,,,,,,[],[],[],NO,,RESEARCHED,"[""https://huggingface.co/datasets/deepghs/site_tags/commit/7013f67e3544cef146d1114aaec6beb31a2670e6""]",タグ名の存在は確認できるが、対象の視覚的実体・スコープを直接定義する強い資料を今回確認できず、routeを安全に確定できない
+600,split_ponytail,YES,二つに分かれたような構成のポニーテール,BROWSE_WORTHY,HAIR_FACE,CORE,髪型として探すのが自然,,,,,,,[],[],[],NO,,CHECKED,[],
