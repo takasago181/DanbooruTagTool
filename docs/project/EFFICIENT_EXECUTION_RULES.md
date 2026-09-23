@@ -9,6 +9,21 @@
 3. 取得失敗した証拠を「たぶん問題ない」で補完しない。必須証拠が取れなければ `BLOCKED` / 未確定として止める。
 4. この文書と他の正本が衝突した場合は、より厳しい品質・安全・Stage Gate側を優先し、衝突を報告する。
 
+## 0.5. Issue #188 — cold start / warm resume と実行tier
+
+大規模・反復作業は `docs/project/EXECUTION_ARCHITECTURE.md` を共通設計とする。
+
+特に:
+
+- **cold start**: lane/contract/authorityが未確定なら従来どおり正本を復元する。
+- **warm resume**: 同一lane・同一contract・immutable progress継続時は、compact routing / hash / task-local stateだけを確認し、変更されていない巨大正本を毎run再読しない。
+- taskを `READ_ONLY / APPEND_ONLY / MUTATING / DESTRUCTIVE_OR_PRODUCTION` に分類し、preflight強度を変える。
+- immutable checkpoint/resultを進捗authorityとし、status/progress summaryは原則として再構築可能なcacheとする。
+- 大規模sourceは、authorityを保持したままmodel入力前にdeterministicなshard/range抽出を行う。
+- append-only checkpoint commitにfull rebuild/final auditを毎回結び付けない。incremental / boundary / full CIを分離する。
+
+この軽量化は**曖昧語調査、protected data、production promotion、最終full auditを弱める理由にはならない**。
+
 ## 1. Code Modeの並列ツール実行
 
 ### 並列化してよいもの

@@ -1,0 +1,23 @@
+name: Execution Overhead Advisory
+
+on:
+  pull_request:
+    paths:
+      - "docs/project/**"
+      - ".github/workflows/**"
+      - "scripts/maintenance/audit_execution_overhead.py"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  advisory:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run advisory execution-overhead audit
+        run: python scripts/maintenance/audit_execution_overhead.py

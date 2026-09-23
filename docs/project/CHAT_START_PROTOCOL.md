@@ -20,6 +20,36 @@
 Issue番号・branch・Stageは過去chatや記憶から推測しない。
 矛盾・取得失敗時はfail-closed。
 
+## 1.5. cold start と warm resume
+
+この文書の「読取順」は主に **cold start** 用。
+
+### cold start
+
+次の場合は従来どおりfull authority recoveryを行う:
+- 新しいchat/session;
+- 担当lane変更;
+- contract/branch authority不明;
+- routing conflict;
+- previous stateを信頼できない。
+
+### warm resume
+
+同じlane / 同じfrozen contract / recurring Automation / immutable checkpoint継続では、まず:
+
+1. `docs/project/CURRENT_ROUTING.json` またはtask-local compact routing fingerprint;
+2. live target branch / Issue state;
+3. immutable progress listing;
+4. changed task-local state
+
+だけで再開可否を確認する。
+
+hash/fingerprintが一致する限り、`CURRENT_STATE.md`、`PERMANENT_RULES.md`、大型spec一式を毎run全文再読することを標準にしない。
+
+不一致・矛盾・contract driftがあればcold startへフォールバックする。
+
+詳細: `docs/project/EXECUTION_ARCHITECTURE.md`
+
 ## 2. 現在の製品方向
 
 v1 product core:

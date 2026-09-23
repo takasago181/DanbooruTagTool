@@ -1,0 +1,82 @@
+{
+  "schema_version": "project-current-routing-v1",
+  "generated_at": "2026-09-24T01:31:00+09:00",
+  "purpose": "compact machine-readable routing snapshot; not a permanent branch-head authority",
+  "live_main_snapshot": "76d8b024c4e81e0ab052f5d18567c6f76078f0e1",
+  "must_refetch_live_heads_before_write": true,
+  "source_of_truth_order": [
+    "live main",
+    "docs/project/CURRENT_ROUTING.json",
+    "target live Issue and latest checkpoint",
+    "docs/project/PERMANENT_RULES.md",
+    "task-specific contract/spec"
+  ],
+  "active_lanes": [
+    {
+      "issue": 132,
+      "kind": "research",
+      "title": "Tag classification usability / discoverability audit",
+      "branch": "research/taxonomy-usability-audit",
+      "branch_head_snapshot": "542bf4a5cfc1d58feedb55debf5ac8a20ab68b07",
+      "phase": "Pass A active",
+      "isolation": [
+        "#179",
+        "#180"
+      ],
+      "production_mutation": false
+    },
+    {
+      "issue": 179,
+      "kind": "research",
+      "title": "Character/Copyright identity, Japanese display/search, ranking, and 2D scope quality",
+      "branch": "research/issue179-character-quality-audit",
+      "branch_head_snapshot": "78cd14693d066e8f150a140628eef6c5d343b2c5",
+      "phase": "active research",
+      "isolation": [
+        "#132",
+        "#180"
+      ],
+      "production_mutation": false
+    },
+    {
+      "issue": 180,
+      "kind": "research",
+      "title": "Rebuild Character-Copyright relations from high-precision authority",
+      "branch": "research/issue180-single-home-pilot",
+      "branch_head_snapshot": "ff26768550544e74b35e3c055f0d0ee23bd55b13",
+      "phase": "active research",
+      "isolation": [
+        "#132",
+        "#179"
+      ],
+      "production_mutation": false
+    },
+    {
+      "issue": 188,
+      "kind": "project_infrastructure",
+      "title": "Reduce execution overhead without weakening audit accuracy",
+      "branch": "dev/issue188-execution-overhead-foundation",
+      "branch_head_snapshot": null,
+      "phase": "foundation design/implementation",
+      "isolation": [
+        "semantic authority of #132/#179/#180"
+      ],
+      "production_mutation": false
+    }
+  ],
+  "completed_or_non_default": [
+    "Performance / Runtime Load Audit",
+    "portable/runtime hardening",
+    "#117 implementation baseline",
+    "#118 sexual intent baseline"
+  ],
+  "protected_boundaries": [
+    "UserData is user-owned",
+    "no broad delete/cleanup",
+    "no production apply from research lanes",
+    "semantic contracts remain issue-local authority",
+    "status/progress caches must not override immutable evidence"
+  ],
+  "warm_resume_policy": "verify routing/contract fingerprints and task-local state; do not reread unchanged full authority documents",
+  "cold_start_policy": "recover full authority chain before selecting/starting work"
+}
