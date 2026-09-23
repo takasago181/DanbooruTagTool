@@ -1,0 +1,26 @@
+review_seq,identity_key,manual_seen,semantic_summary_ja,discovery_mode,route_1_id,route_1_strength,route_1_reason_ja,route_2_id,route_2_strength,route_2_reason_ja,route_3_id,route_3_strength,route_3_reason_ja,local_refinement_ids,body_site_ids,theme_ids,route_vocabulary_gap,route_vocabulary_gap_note,review_depth,evidence_urls,uncertainty_note
+1051,pancake_stack,YES,積み重ねたパンケーキ,BROWSE_WORTHY,TOOL_OBJECT,CORE,食べ物として探すのが自然,,,,,,,"[""OBJECT_PROP/FOOD""]",[],[],NO,,CHECKED,[],
+1054,portable_stove,YES,携帯用の小型コンロ・ストーブ,BROWSE_WORTHY,TOOL_OBJECT,CORE,調理・加熱用の道具として探すのが自然,,,,,,,"[""OBJECT_PROP/DAILY""]",[],[],NO,,CHECKED,[],
+1057,regional_and_normal,YES,ポケモンの通常の姿とリージョンフォームを同じ絵に並べた表現,BROWSE_WORTHY,LIVING,CORE,ポケモンなどの生物キャラクターの形態比較として探すのが自然,NONHUMAN_TRANSFORM,SUPPORTING,通常形と地域変種という形態差から探す入口も独立して有用,,,,"[""LIVING_NATURE/CREATURE""]",[],[],NO,,RESEARCHED,"[""https://safebooru.org/index.php?id=5656814&page=post&s=view""]",通常ライチュウとアローラライチュウの同時描写にregional and normalが付くことを確認。
+1060,orange_pajamas,YES,オレンジ色のパジャマ,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,寝間着・衣服として探すのが自然,,,,,,,"[""CLOTHING/EVERYDAY""]",[],[],NO,,CHECKED,[],
+1063,tamaranean,YES,DC『Teen Titans』などに登場する惑星タマラン出身種族Tamaraneanの固有種族参照,SEARCH_ORIENTED,,,,,,,,,,[],[],[],NO,,RESEARCHED,"[""https://teentitans.fandom.com/wiki/Blackfire""]",BlackfireのSpeciesがTamaraneanと明記される資料で固有種族名を確認。
+1066,dotted_eighth_note,YES,付点8分音符の記号,BROWSE_WORTHY,TEXT_SYMBOL,CORE,音楽記号・シンボルとして探すのが自然,,,,,,,"[""TEXT_SYMBOL/SYMBOL""]",[],[],NO,,CHECKED,[],
+1069,faceswap,YES,人物同士の顔を入れ替えた画像加工表現,BROWSE_WORTHY,STYLE_PROCESSING,CORE,画像編集・加工手法として探すのが自然,,,,,,,[],[],[],NO,,CHECKED,[],
+1072,bound_calves,YES,ふくらはぎ・下腿を縛られた状態,BROWSE_WORTHY,POSE_POSITION,CORE,脚が拘束された身体配置として探すのが自然,,,,,,,[],[],"[""BDSM_RESTRAINT""]",NO,,CHECKED,[],
+1075,striped_neckerchief,YES,縞模様のネッカチーフ,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,首元の衣服・アクセサリーとして探すのが自然,COLOR_PATTERN_SHAPE,SUPPORTING,縞模様そのものから探す入口も独立して有用,,,,"[""CLOTHING/ACCESSORY""]",[],[],NO,,CHECKED,[],
+1078,make_america_great_again,YES,「Make America Great Again」というスローガン文字・標語,BROWSE_WORTHY,TEXT_SYMBOL,CORE,文字列・スローガンとして探すのが自然,,,,,,,"[""TEXT_SYMBOL/TEXT""]",[],[],NO,,CHECKED,[],
+1081,curse,YES,呪い・呪詛がかけられている／作用している表現,BROWSE_WORTHY,,,,,,,,,,[],[],[],YES,超自然的な呪いという概念に対応する専用top routeがない,CHECKED,[],
+1084,divine_being,YES,神・神格などの超越的な存在,BROWSE_WORTHY,LIVING,CORE,人物・生物とは異なる神格的存在として探す入口が最も近い,,,,,,,[],[],[],YES,LIVINGで近似できるが神格・超越存在を明示する専用routeはない,RESEARCHED,"[""https://safebooru.org/index.php?id=5708181&page=post&s=view""]",SafebooruでBerserkのFemto等にdivine beingが付くことを確認。LIVINGは最寄り棚として使用。
+1087,sleeping_animal,YES,眠っている動物,BROWSE_WORTHY,LIVING,CORE,動物として探すのが自然,POSE_POSITION,SUPPORTING,睡眠中の姿勢・状態から探す入口も独立して有用,,,,"[""LIVING_NATURE/CREATURE""]",[],[],NO,,CHECKED,[],
+1090,collared_dress,YES,襟付きのドレス・ワンピース,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,衣服として探すのが自然,,,,,,,"[""CLOTHING/EVERYDAY""]",[],[],NO,,CHECKED,[],
+1093,trick_or_treat,YES,ハロウィンで菓子を求めて「Trick or Treat」と行う場面・行為,BROWSE_WORTHY,ACTION_CONTACT,CORE,他者とのやり取りを伴う行為として探すのが自然,,,,,,,"[""ACTION_CONTACT/INTERACTION""]",[],[],NO,,CHECKED,[],
+1096,sandbox,YES,砂遊び用の砂場・サンドボックス,BROWSE_WORTHY,TOOL_OBJECT,CORE,遊具・設備物として探すのが自然,,,,,,,"[""OBJECT_PROP/DAILY""]",[],[],NO,,CHECKED,[],
+1099,penetration_through_clothes,YES,衣服を着けたまま布越し・衣服の隙間を通して行う挿入性行為,BROWSE_WORTHY,ACTION_CONTACT,CORE,挿入を伴う性行為として探すのが自然,,,,,,,"[""ACTION_CONTACT/INTIMATE""]",[],[],NO,,CHECKED,[],
+1102,coronavirus_pandemic,YES,新型コロナウイルス感染症（COVID-19）の世界的流行を指す時事・歴史参照,SEARCH_ORIENTED,,,,,,,,,,[],[],[],NO,,CHECKED,[],
+1105,dildo_under_clothes,YES,挿入したディルドの上から衣服を着ている状態,BROWSE_WORTHY,TOOL_OBJECT,CORE,性具そのものを起点に探すのが自然,ACTION_CONTACT,SUPPORTING,挿入・使用状態から探す入口も独立して有用,,,,[],[],[],NO,,RESEARCHED,"[""https://tags.latent.moe/en/t/dildo_under_clothes""]",Danbooru由来タグ資料で「挿入したdildoの上から衣服を着ている」と定義されることを確認。性具専用localがないためOBJECT_PROP/DAILYには押し込まない。
+1108,hand_on_another's_stomach,YES,他人の腹部に手を置いている状態,BROWSE_WORTHY,ACTION_CONTACT,CORE,他者の身体への手の接触として探すのが自然,,,,,,,"[""ACTION_CONTACT/INTERACTION""]",[],[],NO,,CHECKED,[],
+1111,watercolor_background,YES,水彩画風に描かれた背景,BROWSE_WORTHY,STYLE_PROCESSING,CORE,水彩という描画スタイルから探すのが自然,SCENE_BACKGROUND,SUPPORTING,背景表現として探す入口も独立して有用,,,,[],[],[],NO,,CHECKED,[],
+1114,hatch,YES,車両・機械・建物などに設けられた開閉式のハッチ,BROWSE_WORTHY,TOOL_OBJECT,CORE,機械・設備の開口部品として探すのが自然,,,,,,,[],[],[],NO,,RESEARCHED,"[""https://safebooru.org/index.php?id=4576421&page=post&s=view""]",Safebooruでmecha・machinery等と併用される機械のハッチとして確認。
+1117,i'm_this_clingy_(meme),YES,スマートフォンを見る人物の太腿の間に別人物の頭を挟む「I'm This Clingy」再描画ミーム,MIXED,POSE_POSITION,CORE,頭を太腿の間に挟む特徴的な身体配置から探す入口が成立,,,,,,,[],[],[],NO,,RESEARCHED,"[""https://knowyourmeme.com/memes/im-this-clingy""]",2025年に広まったredraw memeで、男性の頭が女性の太腿に挟まれた構図であることを確認。
+1120,hecatia_lapislazuli_(cosplay),YES,東方Projectのヘカーティア・ラピスラズリのコスプレ,MIXED,CLOTHING_EXPOSURE,CORE,特定キャラクターの衣装・コスプレとして探すのが自然,,,,,,,"[""CLOTHING/COSTUME""]",[],[],NO,,CHECKED,[],
+1123,against_door,YES,人物がドアに背中や身体を寄せている・押し付けられている配置,BROWSE_WORTHY,POSE_POSITION,CORE,人物とドアの位置関係・姿勢として探すのが自然,,,,,,,[],[],[],NO,,CHECKED,[],
