@@ -363,6 +363,53 @@ This is desirable when each axis corresponds to a different user lookup intent.
 
 ---
 
+## 5.5. Pass-A body/theme facet judgment
+
+Because adult/sexual image generation is a core target workflow, Pass A should also independently record the existing fixed Special-style refinement concepts.
+
+This is an **audit capture**, not permission to extend runtime facets to General.
+
+### Body-site IDs
+
+Select only when the site is explicit and central to the visual concept:
+
+- `MALE_GENITAL`
+- `BREAST_NIPPLE`
+- `FEMALE_GENITAL`
+- `MOUTH_ORAL`
+- `BUTTOCK_ANAL`
+- `URETHRA`
+
+Examples:
+- biting_breast -> BREAST_NIPPLE
+- finger_in_another's_mouth -> MOUTH_ORAL
+- standing_doggystyle -> no body-site facet merely from the act name unless a specific site is intrinsic/explicit.
+
+Do not infer a body site from a broad sexual act when the exact site is not part of the tag meaning.
+
+### Theme IDs
+
+Select only when the theme is intrinsic to the concept:
+
+- `BDSM_RESTRAINT`
+- `INJURY_R18G`
+- `REPRO_PREGNANCY_LACTATION`
+
+Do not use theme facets as generic sexual-content labels.
+
+### Why capture these in Pass A
+
+Current Unified body/theme refinement is primarily populated from accepted Special metadata.
+
+A full independent census can reveal:
+- whether important General-only image-generation concepts naturally need the same refinement;
+- whether current Special facet coverage is already sufficient;
+- whether extending the facet model would improve usability enough to justify an architecture change.
+
+Any General facet expansion requires a separate full-population product/performance gate.
+
+---
+
 ## 6. Search-oriented identities
 
 Use SEARCH_ORIENTED when the tag is mainly discoverable by its name/known reference rather than by a stable visual shelf, for example:
