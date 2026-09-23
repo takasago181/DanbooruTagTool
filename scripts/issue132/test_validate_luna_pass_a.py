@@ -15,7 +15,7 @@ FIELDS=[
     "route_1_id","route_1_strength","route_1_reason_ja",
     "route_2_id","route_2_strength","route_2_reason_ja",
     "route_3_id","route_3_strength","route_3_reason_ja",
-    "body_site_ids","theme_ids",
+    "local_refinement_ids","body_site_ids","theme_ids",
     "route_vocabulary_gap","route_vocabulary_gap_note",
     "review_depth","evidence_urls","uncertainty_note"
 ]
@@ -35,7 +35,7 @@ def base_row(seq: int, ident: str):
         "route_1_id":"ACTION_CONTACT","route_1_strength":"CORE","route_1_reason_ja":"synthetic route fixture",
         "route_2_id":"","route_2_strength":"","route_2_reason_ja":"",
         "route_3_id":"","route_3_strength":"","route_3_reason_ja":"",
-        "body_site_ids":"[]","theme_ids":"[]",
+        "local_refinement_ids":"[]","body_site_ids":"[]","theme_ids":"[]",
         "route_vocabulary_gap":"NO","route_vocabulary_gap_note":"",
         "review_depth":"CHECKED","evidence_urls":"[]","uncertainty_note":""
     }
@@ -92,6 +92,19 @@ def main():
         bad["route_1_id"]="INVENTED_ROUTE"
         write_ledger(ledger,[bad])
         expect(run(validator,neutral,ledger),1,"invented-route")
+
+        # Valid local refinement requires its selected parent route.
+        local_ok=base_row(1,"synthetic_identity_00001")
+        local_ok["local_refinement_ids"]=json.dumps(["ACTION_CONTACT/INTIMATE"])
+        write_ledger(ledger,[local_ok])
+        expect(run(validator,neutral,ledger),0,"valid-local-refinement")
+
+        # Local refinement with the wrong parent route must fail.
+        local_bad=base_row(1,"synthetic_identity_00001")
+        local_bad["route_1_id"]="BODY_SITE"
+        local_bad["local_refinement_ids"]=json.dumps(["ACTION_CONTACT/INTIMATE"])
+        write_ledger(ledger,[local_bad])
+        expect(run(validator,neutral,ledger),1,"local-parent-mismatch")
 
         # Skipping review_seq 1 must fail exact-prefix validation.
         skipped=base_row(2,"synthetic_identity_00002")
