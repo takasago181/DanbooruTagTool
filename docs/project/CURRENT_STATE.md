@@ -16,22 +16,16 @@
 
 - **#132 — Tag classification usability / discoverability**
   - branch: `research/taxonomy-usability-audit`
-  - branch snapshot: `abc82ad5bd0203e89daba5b1b2e23c81fba03913`
   - state: Pass A active
   - scope: ordinary runtime identity 31,003件の独立semantic/discoverability review
   - execution: 3 ChatGPT Automation workers + 1 coordinator
-  - persisted checkpoint union snapshot: **625 / 31,003**
-    - Lane 1: 300 / 10,335
-    - Lane 2: 175 / 10,334
-    - Lane 3: 150 / 10,334
-  - exact progressはcheckpoint unionから再取得する
+  - progress authority: live immutable checkpoint union; 件数はこのcurrent-state summaryへ固定しない
   - current execution authority: branch-local `docs/issue132/parallel/CURRENT_AUTOMATION_OPERATION.md`
   - frozen Pass-A semantic contractは変更しない
   - production/main/#64/#76/#118を変更しない
 
 - **#179 — Character/Copyright quality audit**
   - branch: `research/issue179-character-quality-audit`
-  - branch snapshot: `78cd14693d066e8f150a140628eef6c5d343b2c5`
   - state: active research
   - Character/Copyright identity・日本語display/search・ranking・2D scope品質監査
   - Artist監査は対象外
@@ -39,11 +33,10 @@
 
 - **#180 — Character -> HOME Copyright reconstruction**
   - branch: `research/issue180-single-home-pilot`
-  - branch snapshot: `308b910f7df4768a99b7109b036be9b093daf6ea`
   - state: active research
   - high-precision authorityからsingle canonical HOME Copyright関係を再構築
   - research-only。main merge / production applyは別Gate
-  - exact HEAD / progressはlive branch/Issueから再取得する
+  - HEAD / progressはlive branch/Issueから再取得する
 
 - **#188 — Project-wide execution efficiency**
   - branch: Issue単位の小さいDEV branch/PRで実施
