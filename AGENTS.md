@@ -30,6 +30,18 @@ Codexは独立班ではなくDEV（開発班）の実装担当。
 
 CURRENT_STATEが複数のactive DEV laneを示す場合、**ユーザーが依頼したlaneだけを選ぶ**。別laneを勝手に混ぜない。
 
+### Runtime preflight override — 2026-09-20
+
+Before local runtime/deploy/performance work, also verify:
+- live main SHA;
+- `docs/project/CURRENT_DEV_TASK.md`;
+- current runtime root `C:\Codex\DanbooruTagTool-App`;
+- `runtime-manifest.json` when inspecting a built runtime;
+- real UserData location/hash before any promotion that could touch user state.
+
+Do not assume `artifacts/current/` is the current launch target.
+Do not treat local UserData as disposable publish content.
+
 ## 3. 現在の製品目的
 
 製品目的の正本は `docs/PRODUCT_GOAL_LOCK.md`。
@@ -65,63 +77,55 @@ v1でデフォルトにしない:
 - full 11M-post / ~3GB statistics indexの必須化
 - Forge/ComfyUI direct generation integrationの必須化
 
-## 4. Current active DEV lanes
+## 4. Current active DEV routing
 
-### Issue #64 — General taxonomy
+### Live authority — 2026-09-23
 
-Owns only:
-- exact General 30,629 target population
-- shallow practical taxonomy classification
-- sidecar data/audit
-- unresolved accounting
+Current live main at this routing sync:
 
-Do not implement UI/search behavior inside #64。
-`docs/project/CURRENT_DEV_TASK.md` is an Issue #64 mirror only.
+`95b53e6d114432358a2a1cea4e8554fcfae65bfd`
 
-### Issue #66 — app/search/UI completion
+Current user-facing runtime remains:
 
-Owns:
-- beginner-first desktop UI
-- **clean C#/.NET/WPF v1 implementation under a new `src/` tree**
-- existing-Prompt understanding/workspace
-- bilingual/mixed search quality and ranking/noise fixes
-- Special browse integration
-- General browse provider/UI that later consumes accepted #64 output
-- explicit add/remove/reorder
-- canonical-English preview/copy
-- hidden automatic insertion cleanup
-- self-contained portable Windows x64 packaging
-- final ADOPT/HOLD/REJECT reconciliation against `PRODUCT_GOAL_LOCK.md`
-- focused regression and real Windows acceptance
+`C:\\Codex\\DanbooruTagTool-App`
 
-Issue #66 first implementation authorities:
-- `docs/product/V1_UI_FIRST_IMPLEMENTATION_BASELINE.md`
-- `docs/product/V1_WPF_ARCHITECTURE_BASELINE.md`
+Runtime/performance/portable hardening is already completed. **Do not route by default to Performance / Runtime Load Audit.**
 
-Known search regression such as `anal -> piano / analog...` is part of #66 acceptance.
+Current major independent research lanes are:
 
-### #66 architecture invariant
+- **#179** — Character/Copyright identity, Japanese display/search, ranking, and 2D-scope quality audit. Artist audit excluded.
+- **#180** — Character -> single canonical HOME Copyright authority reconstruction. Research-only until separately accepted.
+- **#132** — full 31,003-identity tag discoverability/classification usability audit.
 
-Current `tools/legacy/python/danbooru_tag_tool/` Python/Tk code is **legacy/reference during the first WPF build**。
+When the user selects one lane, work only that lane. Never combine #179/#180/#132 branches, datasets, or semantic decisions.
 
-Do:
-- create new WPF projects under `src/`
-- reuse accepted data / identity / taxonomy / search rules / regression evidence / behavior
-- keep current Python/data paths intact during first build
-- keep #64 data ownership untouched
-- target `catalog.db` + `user.db/UserData` separation
-- target `win-x64` self-contained portable folder
+### #132 execution routing
 
-Do not:
-- make WPF depend on Python/Tcl/Tk at runtime
-- refactor the old Tk UI into the new product shell
-- move/delete legacy Python or broad `data/` trees before WPF baseline acceptance
-- port old recommendation/automatic-support/Stage-oriented UI merely because it exists
-- require a separate .NET Desktop Runtime installation for the standard portable build
+#132 is no longer at bounded-prototype / pre-handoff status.
 
-Single-file EXE is not required. One copyable portable folder is preferred.
+Current execution:
+- branch: `research/taxonomy-usability-audit`
+- 3 normal ChatGPT Automation workers + 1 coordinator
+- 300 identities per worker run target
+- 50-row immutable checkpoints
+- mandatory second-pass review over every 50 rows before save
+- mandatory final 300-row QA before `TARGET_REACHED`
+- frozen Pass-A semantic contract remains unchanged
+- no production mutation / main merge from the research lane
 
-Issues #34 and #42 are retired/closed historical provenance only. Do not use them as future Gates.
+Read `docs/issue132/parallel/CURRENT_AUTOMATION_OPERATION.md` for live operational cadence. Old `READY FOR CODEX LUNA PASS A`, 100-row, or 200-row target wording is historical/frozen context, not current execution routing.
+
+### Runtime baseline
+
+- PR #131 UI refinement completed.
+- PR #133 portable/runtime hardening completed.
+- PR #135 performance/runtime optimization completed.
+- self-contained `win-x64` runtime remains the workstation launch target.
+- `runtime-manifest.json` remains runtime provenance/hash contract.
+- `artifacts/current/` is fallback/reference only.
+- Artist remains hidden and old unreliable Character<->Copyright relation UI remains disabled by #177.
+
+Do not use stale #64/#66/#117/performance text as active routing merely because it remains in historical documents.
 
 ## 5. Stage10 relationship
 
@@ -142,10 +146,10 @@ CodexはStage10学習を理由に、本体v1へ自動Prompt最適化・direct ge
 ## 6. Special / Generalの役割
 
 ### Special
-- 2,788 identityはfreeze済み
-- ニッチ/複雑概念の深い発見面
-- #56のUI browse taxonomyを使う
-- product-fit eligibilityは#63のsidecarを使う
+- current production Special populationは **3,059** stable identities（ID 1..3,088中29 gaps）
+- current browse authorityはIssue #76のshallow kind/body/theme model
+- historical 2,788 base / #56 deep taxonomyはprovenanceとして保持し、current production population/browse authorityと混同しない
+- canonical identityとbrowse taxonomyは分離し、#132 researchは既存authorityを直接書き換えない
 
 ### General
 - production Japanese overlay 30,629 canonical entriesが対象
