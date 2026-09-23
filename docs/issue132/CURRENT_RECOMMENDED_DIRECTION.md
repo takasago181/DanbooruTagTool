@@ -487,7 +487,7 @@ Parallel execution must preserve:
 - independent Pass-A judgment;
 - deterministic Pass B only after complete merge.
 
-Workers own separate fragment files.
+Workers persist only small immutable checkpoint CSVs plus a small status file for their own lane. They do not rewrite one ever-growing lane CSV through the GitHub Contents API.
 
 Coordinator performs:
 - progress aggregation;
