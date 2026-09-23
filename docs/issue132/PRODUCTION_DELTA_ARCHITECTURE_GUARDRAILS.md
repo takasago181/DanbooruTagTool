@@ -77,6 +77,71 @@ Do not:
 
 ---
 
+## 3.75. New route/facet vocabulary is default-deny
+
+Pass A may report:
+- repeated `route_vocabulary_gap=YES`;
+- missing body/theme refinement on General identities;
+- missing local refinement.
+
+These are **research findings**, not permission to expand the runtime taxonomy.
+
+### New top-level Unified route
+
+Default decision for #132 v1:
+
+**do not add a new route ID.**
+
+A new top-level route may be considered only after the complete 31,003-row reconciliation proves all of the following:
+
+1. the gap is a coherent user-controlled image-generation axis, not a token/modifier family;
+2. the same mental model recurs across a meaningful population;
+3. renaming an existing route is insufficient;
+4. correcting one General/Special->Unified mapping is insufficient;
+5. existing local/body/theme refinement is insufficient;
+6. Japanese/English/alias search does not already make browse expansion redundant;
+7. the new route would reduce user wrong turns rather than merely increase taxonomy coverage;
+8. the UI can remain shallow and understandable;
+9. the runtime can remain static/index-backed with no new semantic engine;
+10. performance validation passes.
+
+Even then, a new route is **not automatically part of the #132 v1 overlay**. It requires an explicit design decision before implementation.
+
+### New facet axis
+
+Do not invent new body/theme/facet axes from Luna row notes.
+
+Existing body/theme vocabularies are fixed during Pass A.
+
+If a repeated missing axis is discovered:
+- record it as research;
+- reconcile it after the full population;
+- require an explicit owner/schema/UI/performance design before implementation.
+
+### General body/theme expansion
+
+Existing six body sites and three themes may be found useful for General-only identities.
+
+That remains a separate explicit architecture decision.
+
+Do not silently convert the finding into:
+- Special metadata;
+- ViewModel dictionaries;
+- runtime inference;
+- another filter engine.
+
+### Local refinement gaps
+
+Local refinement remains #64-owned.
+
+#132 does not create a parallel local-subroute overlay.
+
+This default-deny boundary is intentional:
+
+> exhaustive research is allowed to discover structural gaps; production complexity is not allowed to grow automatically from those discoveries.
+
+---
+
 ## 4. Existing runtime mechanism
 
 Current architecture already has the desired runtime representation:
