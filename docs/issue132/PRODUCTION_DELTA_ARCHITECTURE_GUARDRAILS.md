@@ -55,6 +55,28 @@ This prevents #132 from silently becoming "#64 v2".
 
 ---
 
+## 3.5. Body/theme findings do not automatically become #132 runtime metadata
+
+The full Luna census may identify missing body-site/theme refinement for General-only identities.
+
+Those findings are intentionally captured because adult/sexual image generation is a core workflow.
+
+They are **not** automatically eligible for the v1 #132 route overlay.
+
+If full-population reconciliation proves that General facet expansion has large user value, design it as one explicit Unified facet extension with its own:
+- data owner;
+- schema;
+- bake boundary;
+- performance measurements;
+- migration tests.
+
+Do not:
+- encode General rows as Special to gain facets;
+- add ad-hoc per-feature facet dictionaries in the ViewModel;
+- infer body/theme facets at runtime.
+
+---
+
 ## 4. Existing runtime mechanism
 
 Current architecture already has the desired runtime representation:
