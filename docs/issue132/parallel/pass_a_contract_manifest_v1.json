@@ -1,6 +1,6 @@
 {
   "schema_version": "issue132-pass-a-contract-v1",
-  "created_from_commit": "3ca967f0fe3cf229fd13b565c9246bce9692ff02",
+  "created_from_commit": "1e9d5365912c5db94fc988a98f4a2e1367d0b6b4",
   "population": 31003,
   "execution_model": "continuous_exact_prefix",
   "neutral": {
@@ -19,13 +19,14 @@
     "docs/issue132/LUNA_PASS_A_LEDGER_CONTRACT.md": "0859276dbee4ffc9349f009f03965f96905f0e3fd3d541a1087c29b3e6d56c76",
     "docs/issue132/LUNA_PARALLEL_AUTOMATION_PROTOCOL.md": "a285dcf22aab7e2883971bdaeb0eaad04c7dfb33f0eb3f3e40fa72507a20a0e3",
     "scripts/issue132/build_luna_neutral_input.py": "c3b5d2521adaf1084472af4f967c9c7816b4e182e477660318949b6cee50efff",
-    "scripts/issue132/build_pass_a_contract_manifest.py": "b4699a53feaa9f2ea309541bba9888ce07e2ff9588ae2842ac9083965783148f",
+    "scripts/issue132/build_pass_a_contract_manifest.py": "df491af22e4e237eba86621d2629c06b4009b3d7639c7bf58d9625971917c4e5",
     "scripts/issue132/check_review_vocabulary_against_code.py": "c00df4cbe96edd090c875fb5983060ab752938bfb78f52140a2fafdaa2fd683d",
     "scripts/issue132/validate_luna_lane.py": "4b99b331c064fd1bf8f789ee247e1254789940a789b93e188b6cb42dfd912078",
     "scripts/issue132/validate_luna_pass_a.py": "51e74425b8cc4102b0e3e909254528342b20dcce51904504ef052434302245ed",
     "src/DanbooruTagTool.Core/UnifiedBrowse.cs": "12d9912e36db8957a056da6b7d7826b7de9d43e575e7cb0306fd0d3523a49246",
     "src/DanbooruTagTool.Core/SpecialBrowseV2.cs": "0f0a47bcd8ecf0d11b14a3f20fb375793be423ea67cad84790a62e54265415dc",
-    "docs/issue64/production_candidate/general_taxonomy.json": "7311fa1bf1523fcd83134c975b579289d7dbc8aa4cdb1313952d906fc2beb70f"
+    "docs/issue64/production_candidate/general_taxonomy.json": "7311fa1bf1523fcd83134c975b579289d7dbc8aa4cdb1313952d906fc2beb70f",
+    "scripts/issue132/validate_parallel_checkpoints.py": "a797d9279015e72a7cdd1ae1525a8fd2dae43e1ebd99d30f3f03fb4d3ed2c92e"
   },
   "ledger_fields": [
     "review_seq",
