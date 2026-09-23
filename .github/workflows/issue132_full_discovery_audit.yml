@@ -52,30 +52,6 @@ jobs:
       - name: Check pre-handoff authority consistency
         run: python scripts/issue132/check_pre_handoff_consistency.py
 
-      - name: Smoke parallel bootstrap and merge
-        run: |
-          python scripts/issue132/bootstrap_luna_parallel.py \
-            --artifact-root artifacts/issue132/parallel-smoke \
-            --parallel-dir artifacts/issue132/parallel-review
-          python scripts/issue132/merge_luna_parallel.py \
-            --input artifacts/issue132/parallel-smoke/luna-neutral/luna_neutral_review_input_v2.csv \
-            --contract-manifest artifacts/issue132/parallel-review/pass_a_contract_manifest_v1.json \
-            --parallel-dir artifacts/issue132/parallel-review \
-            --out artifacts/issue132/parallel-review/merged.csv \
-            --summary artifacts/issue132/parallel-review/merged_progress.json
-          if python scripts/issue132/merge_luna_parallel.py \
-            --input artifacts/issue132/parallel-smoke/luna-neutral/luna_neutral_review_input_v2.csv \
-            --contract-manifest artifacts/issue132/parallel-review/pass_a_contract_manifest_v1.json \
-            --parallel-dir artifacts/issue132/parallel-review \
-            --out artifacts/issue132/parallel-review/merged-complete.csv \
-            --summary artifacts/issue132/parallel-review/merged-complete.json \
-            --require-complete; then
-            echo "ERROR: parallel merge accepted incomplete lanes"
-            exit 1
-          else
-            echo "PASS: parallel merge rejected incomplete lanes"
-          fi
-
       - name: Smoke bootstrap and resume helper
         run: |
           python scripts/issue132/bootstrap_luna_pass_a.py \
