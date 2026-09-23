@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import csv
+import hashlib
 import json
 import subprocess
 import sys
@@ -47,9 +48,26 @@ def write_ledger(path: Path, rows, fields=FIELDS):
         for row in rows:
             w.writerow(row)
 
-def run(validator: Path, neutral: Path, ledger: Path, *extra):
+def sha256_file(path: Path):
+    h=hashlib.sha256()
+    with path.open("rb") as f:
+        for chunk in iter(lambda:f.read(1024*1024), b""):
+            h.update(chunk)
+    return h.hexdigest()
+
+def neutral_order_sha(path: Path):
+    with path.open("r",encoding="utf-8",newline="") as f:
+        rows=list(csv.DictReader(f))
+    payload="".join(r["identity_key"]+"\n" for r in rows).encode("utf-8")
+    return hashlib.sha256(payload).hexdigest()
+
+def run(validator: Path, neutral: Path, ledger: Path, contract: Path | None = None, *extra):
+    cmd=[sys.executable,str(validator),"--input",str(neutral),"--ledger",str(ledger)]
+    if contract is not None:
+        cmd += ["--contract-manifest",str(contract)]
+    cmd += list(extra)
     return subprocess.run(
-        [sys.executable,str(validator),"--input",str(neutral),"--ledger",str(ledger),*extra],
+        cmd,
         stdout=subprocess.PIPE,stderr=subprocess.STDOUT,text=True,encoding="utf-8")
 
 def expect(result, code: int, label: str):
@@ -66,10 +84,26 @@ def main():
         neutral=temp/"neutral.csv"
         ledger=temp/"ledger.csv"
         write_neutral(neutral)
+        neutral_manifest=temp/"neutral.manifest.json"
+        neutral_manifest.write_text(json.dumps({
+            "schema_version":"issue132-luna-neutral-v2",
+            "authority":"synthetic",
+            "authority_sha256":"synthetic",
+            "identity_count":COUNT,
+            "identity_order_sha256":neutral_order_sha(neutral),
+            "output_sha256":sha256_file(neutral)
+        },indent=2)+"\n",encoding="utf-8")
+        contract=temp/"contract.json"
+        builder=root/"scripts/issue132/build_pass_a_contract_manifest.py"
+        built=subprocess.run(
+            [sys.executable,str(builder),"--neutral",str(neutral),
+             "--neutral-manifest",str(neutral_manifest),"--out",str(contract)],
+            stdout=subprocess.PIPE,stderr=subprocess.STDOUT,text=True,encoding="utf-8")
+        expect(built,0,"contract-build")
 
         # Empty exact-header ledger is a valid resumable starting state.
         write_ledger(ledger,[])
-        expect(run(validator,neutral,ledger),0,"empty-ledger")
+        expect(run(validator,neutral,ledger,contract),0,"empty-ledger")
 
         # Valid continuous prefix with distinct semantic modes.
         row1=base_row(1,"synthetic_identity_00001")
@@ -85,13 +119,13 @@ def main():
             print(valid.stdout); raise SystemExit("valid-prefix summary mismatch")
 
         # Completion is a separate explicit gate.
-        expect(run(validator,neutral,ledger,"--require-complete"),1,"incomplete-completion-gate")
+        expect(run(validator,neutral,ledger,contract,"--require-complete"),1,"incomplete-completion-gate")
 
         # Invalid route must fail.
         bad=base_row(1,"synthetic_identity_00001")
         bad["route_1_id"]="INVENTED_ROUTE"
         write_ledger(ledger,[bad])
-        expect(run(validator,neutral,ledger),1,"invented-route")
+        expect(run(validator,neutral,ledger,contract),1,"invented-route")
 
         # Valid local refinement requires its selected parent route.
         local_ok=base_row(1,"synthetic_identity_00001")
@@ -116,6 +150,15 @@ def main():
         researched["review_depth"]="RESEARCHED"
         write_ledger(ledger,[researched])
         expect(run(validator,neutral,ledger),1,"researched-without-evidence")
+
+        # Frozen contract drift must fail before semantic continuation.
+        tampered=temp/"contract-tampered.json"
+        cm=json.loads(contract.read_text(encoding="utf-8"))
+        first_key=next(iter(cm["contract_files_sha256"]))
+        cm["contract_files_sha256"][first_key]="0"*64
+        tampered.write_text(json.dumps(cm,indent=2)+"\n",encoding="utf-8")
+        write_ledger(ledger,[base_row(1,"synthetic_identity_00001")])
+        expect(run(validator,neutral,ledger,tampered),1,"contract-drift")
 
         # Invalid header must fail even with zero data rows.
         write_ledger(ledger,[],fields=FIELDS[:-1])
