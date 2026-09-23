@@ -233,6 +233,11 @@ Recurring workers should expose enough operational metrics to distinguish semant
 
 Telemetry is operational evidence only, not semantic authority.
 
+Common schema:
+- `docs/project/EXECUTION_TELEMETRY.md`
+
+Prefer embedding `last_run_metrics` into an already-required run-end status/cache write. Do not create a separate commit just for telemetry.
+
 ## 9. Anti-regression rule
 
 Before adding a new safety step to a recurring worker, ask:
