@@ -1,6 +1,13 @@
-# Issue #132 — Codex/Luna full semantic review handoff
+# Issue #132 — Full semantic review handoff
 
-Status: **READY FOR CODEX LUNA PASS A**
+Status: **PASS A ACTIVE VIA NORMAL CHATGPT AUTOMATIONS / SEMANTIC HANDOFF AUTHORITY**
+
+> 2026-09-23 execution-routing update:
+> This file remains the semantic review handoff/authority, but it is no longer the live scheduler or throughput authority.
+> Pass A is currently executed by 3 normal ChatGPT Automation workers + 1 coordinator on `research/taxonomy-usability-audit`.
+> Read `docs/issue132/parallel/CURRENT_AUTOMATION_OPERATION.md` for the current 300-row/50-row two-pass QA operation.
+> Old references below to a single continuous Codex/Luna executor describe the semantic method, not the current worker scheduling model.
+> Do not modify frozen semantic-contract files merely to modernize execution-status wording.
 
 Repository:
 `takasago181/DanbooruTagTool`
