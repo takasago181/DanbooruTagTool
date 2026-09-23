@@ -108,10 +108,11 @@ When the user selects one lane, work only that lane. Never combine #179/#180/#13
 Current execution:
 - branch: `research/taxonomy-usability-audit`
 - 3 normal ChatGPT Automation workers + 1 coordinator
-- 300 identities per worker run target
-- 50-row immutable checkpoints
-- mandatory second-pass review over every 50 rows before save
-- mandatory final 300-row QA before `TARGET_REACHED`
+- 300 identities per worker run **ceiling, not quota**
+- 25-row immutable checkpoints for new work
+- mandatory second-pass review over every 25 rows before save
+- mandatory cross-batch QA every 100 new rows
+- validated smaller progress may stop with an explicit execution/tool reason; do not discard reviewed 25-row units
 - frozen Pass-A semantic contract remains unchanged
 - no production mutation / main merge from the research lane
 
