@@ -26,18 +26,19 @@ Recurring same-lane automation or deterministic append-only resume may use the c
 2. `git fetch origin --prune`
 3. GitHub live `origin/main` のHEADを確認
 4. `origin/main:docs/project/CURRENT_ROUTING.json`
-5. `origin/main:docs/project/CURRENT_STATE.md`
-6. routingが示す対象DEV laneのlive GitHub Issue本文と最新コメントを取得
-7. `origin/main:docs/project/PERMANENT_RULES.md`
-8. Issue title / state / body / latest checkpoint / completion condition / blockerを確認
-9. product behavior / UX / scope判断が関係する場合は `docs/PRODUCT_GOAL_LOCK.md` と当該Issueが参照する現行仕様を読む
-10. branch-local管理文書との差分はその後に確認する
+5. `origin/main:docs/project/NOW.md`
+6. `origin/main:docs/project/CURRENT_STATE.md`
+7. routingが示す対象DEV laneのlive GitHub Issue本文と最新コメントを取得
+8. `origin/main:docs/project/PERMANENT_RULES.md`
+9. Issue title / state / body / latest checkpoint / completion condition / blockerを確認
+10. product behavior / UX / scope判断が関係する場合は `docs/PRODUCT_GOAL_LOCK.md` と当該Issueが参照する現行仕様を読む
+11. branch-local管理文書との差分はその後に確認する
 
 同一lane・同一contractのrecurring Automation / append-only warm resumeでは、このfull gateを毎run再実行しない。Section 1.5 / `EXECUTION_ARCHITECTURE.md` のcompact warm-resume pathを使う。
 
 現在地の優先順位:
 
-`live main -> CURRENT_ROUTING.json -> CURRENT_STATE.md -> target live Issue -> latest checkpoint -> PERMANENT_RULES -> task branch/local worktree`
+`live main -> CURRENT_ROUTING.json -> NOW.md -> CURRENT_STATE.md -> target live Issue -> latest checkpoint -> PERMANENT_RULES -> task branch/local worktree`
 
 古いbranch、旧handoff、過去Stage資料で現在地を巻き戻さない。
 矛盾時はfail-closedで停止する。
@@ -215,11 +216,12 @@ WPF migrationを理由にexisting `data/` を先に移動・整理しない。
 
 ### cold startで読む
 1. `docs/project/CURRENT_ROUTING.json`
-2. `docs/project/CURRENT_STATE.md`
-3. target live DEV Issue
-4. `docs/project/PERMANENT_RULES.md`
-5. product behavior / UX / scope判断が関係する場合だけ `docs/PRODUCT_GOAL_LOCK.md`
-6. target Issueが指定する仕様
+2. `docs/project/NOW.md`
+3. `docs/project/CURRENT_STATE.md`
+4. target live DEV Issue
+5. `docs/project/PERMANENT_RULES.md`
+6. product behavior / UX / scope判断が関係する場合だけ `docs/PRODUCT_GOAL_LOCK.md`
+7. target Issueが指定する仕様
 
 ### warm resumeで読む
 1. compact routing / contract fingerprint
