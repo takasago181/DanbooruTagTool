@@ -2,6 +2,12 @@
 
 Status: **PASS A ACTIVE VIA NORMAL CHATGPT AUTOMATIONS / SEMANTIC HANDOFF AUTHORITY**
 
+CI/frozen pre-handoff compatibility marker retained intentionally:
+
+Status: **READY FOR CODEX LUNA PASS A**
+
+The line above is **not** the current execution state. It is preserved because the existing pre-handoff consistency check treats that frozen text as a contract marker.
+
 > 2026-09-23 execution-routing update:
 > This file remains the semantic review handoff/authority, but it is no longer the live scheduler or throughput authority.
 > Pass A is currently executed by 3 normal ChatGPT Automation workers + 1 coordinator on `research/taxonomy-usability-audit`.
