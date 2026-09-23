@@ -41,6 +41,31 @@ class EvidenceDrivenV3Tests(unittest.TestCase):
              self.assertRaises(SystemExit):
             residual_planner.apply_terminal_reviews([unit])
 
+    def test_superseded_terminal_review_is_retained_without_applying_to_new_unit(self):
+        row = {
+            "unit_id": "ru3-old", "member_ids_sha256": "prior-fingerprint",
+            "terminal_status": "SUPERSEDED_BY_NEW_UNIT", "authority_source": "docs/issue180/v3/research_unit_review_notes_v3.csv",
+            "source_claim": "A changed residual member set is represented by a new deterministic unit identifier.",
+            "review_provenance": "Retain prior accounting; regenerate and review the new unit fingerprint.",
+        }
+        unit = {"unit_id": "ru3-new", "member_ids/tags": json.dumps(["curakuru_(character)"]), "status": "OPEN"}
+        original_read_csv = residual_planner.read_csv
+        with patch.object(residual_planner, "read_csv", side_effect=lambda path: [row] if path == residual_planner.REVIEWS else original_read_csv(path)):
+            residual_planner.apply_terminal_reviews([unit])
+        self.assertEqual(unit["status"], "OPEN")
+
+    def test_superseded_terminal_review_requires_provenance(self):
+        row = {
+            "unit_id": "ru3-old", "member_ids_sha256": "prior-fingerprint",
+            "terminal_status": "SUPERSEDED_BY_NEW_UNIT", "authority_source": "unknown.csv",
+            "source_claim": "A changed residual member set is represented by a new deterministic unit identifier.",
+            "review_provenance": "Retain prior accounting; regenerate and review the new unit fingerprint.",
+        }
+        original_read_csv = residual_planner.read_csv
+        with patch.object(residual_planner, "read_csv", side_effect=lambda path: [row] if path == residual_planner.REVIEWS else original_read_csv(path)), \
+             self.assertRaises(SystemExit):
+            residual_planner.apply_terminal_reviews([])
+
     def test_evidence_id_is_stable_and_provenance_independent(self):
         a = evidence_id("Character", "pikachu", "DIRECT_HOME", "pokemon", "OFFICIAL", "https://example.test/pikachu", "Official page names Pikachu.")
         b = evidence_id("Character", "pikachu", "DIRECT_HOME", "pokemon", "OFFICIAL", "https://example.test/pikachu", "Official page names Pikachu.")

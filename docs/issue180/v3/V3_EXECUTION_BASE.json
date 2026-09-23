@@ -1,6 +1,6 @@
 {
   "active_pipeline": {
-    "build_residual_units_v3.py": "c0ea6a32e4c706e8e64d8b53d9636c31bea91a49c7f44b8454d02e87cfffe9b0",
+    "build_residual_units_v3.py": "41fd82e1a233b5dfcf515ffebca509c91c06cc49e3888c2613cd12d71260b115",
     "build_structure_v3.py": "a1a95b399587433e4f4465b1644dda5484ee9c833baab7ff577564a5020d30b3",
     "migrate_evidence_v3.py": "7f1b94efec74d33889505b26887e56bcce4c5bf3b9fc8ea136587f1f0f7146e4",
     "resolve_character_home_v3.py": "3a10cbbc77a86e794f90ccd60a18d031e4c92c6f21996d5b3c6f23d82dc4781f",
@@ -15,7 +15,7 @@
   "migrated_evidence_seed_sha256": "e232a4ca34f274bd6e23e3bbb37df7b2e55b255370d802051f005c5874164faf",
   "migration_baseline_sha256": "ba38e595a763b5968050b847edc49ee8d5e4b4164f33f8467ce50a85bcd100d5",
   "migration_provenance_manifest_sha256": "7cda682e35c3164268878398ac8100248d6be7684e3e2ca7c3ce6737268834b5",
-  "research_unit_terminal_reviews_sha256": "94dfa1d23f7c87e1352e2a48b916238e5fc3cb23447d6d5d201f3dca04bd8963",
+  "research_unit_terminal_reviews_sha256": "3c020b2c91601f9ba9bd0bd5281254b1bc986769d8a05d01a738271a44e2a67a",
   "resolver_semantics_version": "direct-family-membership-variant-inheritance-v1",
   "runtime_research_dependency": false,
   "schema_version": 3,

@@ -31,6 +31,10 @@ def apply_terminal_reviews(units: list[dict[str, str]]) -> None:
     for uid, review in by_id.items():
         unit = current.get(uid)
         if not unit:
+            if review["terminal_status"] == "SUPERSEDED_BY_NEW_UNIT":
+                if not review["authority_source"].startswith("docs/issue180/") or len(review["source_claim"].strip()) < 40 or len(review["review_provenance"].strip()) < 20:
+                    raise SystemExit(f"supersession record lacks grounded provenance: {uid}")
+                continue
             raise SystemExit(f"stale terminal review references absent unit: {uid}; record supersession explicitly")
         tags = json.loads(unit["member_ids/tags"])
         if review["member_ids_sha256"] != member_hash(tags):
