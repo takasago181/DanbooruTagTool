@@ -1,0 +1,28 @@
+{
+  "schema_version": "issue132-luna-neutral-v2",
+  "authority": "docs/issue118/production_candidate/sexual_intent_v2.csv",
+  "authority_sha256": "d2966dbc3c70617af2a985a94f81650785a29c1668b40b582d3c213ef2a68bc0",
+  "identity_count": 31003,
+  "sort": "sha256",
+  "sort_salt": "issue132-pass-a-v2|",
+  "identity_order_sha256": "f80c63018ce19a8c7c5d8d6fd83d03cf760c510d8f6cfa455d1ab356fb31361b",
+  "output_sha256": "ac0f888d02f19a440c63b3b9f695c58f9ba53b98ebe9756edec51db1c5ff8f7d",
+  "included_fields": [
+    "review_seq",
+    "identity_key",
+    "source_surfaces"
+  ],
+  "intentionally_excluded": [
+    "sexual_intent",
+    "review_status",
+    "general/special membership",
+    "current #64/#76 classification",
+    "current Unified routes",
+    "Japanese overlay/search terms",
+    "aliases",
+    "usage/post count",
+    "machine audit labels",
+    "prior proposals"
+  ],
+  "purpose": "Independent Luna Pass A semantic discovery map; current product/search context is joined only after Pass A freezes."
+}
