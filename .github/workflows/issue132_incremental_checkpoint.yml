@@ -1,0 +1,44 @@
+name: Issue132 Incremental Checkpoint Validation
+
+on:
+  push:
+    branches:
+      - research/taxonomy-usability-audit
+    paths:
+      - "docs/issue132/parallel/lane-*/checkpoints/**"
+      - "docs/issue132/parallel/lane-*/status.json"
+      - "docs/issue132/parallel/quality_flags.json"
+      - "docs/issue132/parallel/pass_a_contract_manifest_v1.json"
+      - "scripts/issue132/build_luna_neutral_input.py"
+      - "scripts/issue132/validate_luna_pass_a.py"
+      - "scripts/issue132/validate_parallel_checkpoints.py"
+      - ".github/workflows/issue132_incremental_checkpoint.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: issue132-incremental-checkpoint-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: research/taxonomy-usability-audit
+          fetch-depth: 1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build pinned neutral input
+        run: |
+          python scripts/issue132/build_luna_neutral_input.py \
+            --out artifacts/issue132/luna-neutral/luna_neutral_review_input_v2.csv
+
+      - name: Validate committed immutable checkpoints
+        run: python scripts/issue132/validate_parallel_checkpoints.py
