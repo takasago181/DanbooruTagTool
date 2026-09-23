@@ -1,0 +1,26 @@
+review_seq,identity_key,manual_seen,semantic_summary_ja,discovery_mode,route_1_id,route_1_strength,route_1_reason_ja,route_2_id,route_2_strength,route_2_reason_ja,route_3_id,route_3_strength,route_3_reason_ja,local_refinement_ids,body_site_ids,theme_ids,route_vocabulary_gap,route_vocabulary_gap_note,review_depth,evidence_urls,uncertainty_note
+976,dome,YES,ドーム状の屋根・建築空間,BROWSE_WORTHY,SCENE_BACKGROUND,CORE,建築・背景要素として探すのが自然,,,,,,,[],[],[],NO,,CHECKED,[],
+979,old_maid,YES,トランプのババ抜き（Old Maid）をしている場面,BROWSE_WORTHY,ACTION_CONTACT,CORE,カードゲームを行う行為として探すのが自然,,,,,,,[],[],[],NO,,RESEARCHED,"[""https://safebooru.org/index.php?id=6557353&page=post&s=view""]",Safebooru上でplaying cardと併用され、カードゲームのOld Maidを指すことを確認。
+982,fantasy_seal,YES,東方Projectの博麗霊夢のスペルカード「夢想封印（Fantasy Seal）」を指す固有技参照,SEARCH_ORIENTED,,,,,,,,,,[],[],[],NO,,RESEARCHED,"[""https://tbib.org/index.php?id=1279608&page=post&s=view""]",博麗霊夢・spell card・Touhouとの直接併用を確認。
+985,mosaic_background,YES,モザイク状の模様で構成された背景,BROWSE_WORTHY,SCENE_BACKGROUND,CORE,背景の見た目として探すのが自然,COLOR_PATTERN_SHAPE,SUPPORTING,モザイク模様そのものから探す入口も独立して有用,,,,[],[],[],NO,,CHECKED,[],
+988,save_the_queen,YES,Final Fantasyシリーズに登場する固有名の武器「Save the Queen」,MIXED,TOOL_OBJECT,CORE,剣・武器として探す入口が成立,,,,,,,"[""OBJECT_PROP/WEAPON""]",[],[],NO,,RESEARCHED,"[""https://finalfantasy.fandom.com/wiki/Save_the_Queen""]",シリーズ内で複数作品に登場する同名武器であり、特定一作品だけには限定しない。
+991,mask_of_truth,YES,ゼルダの伝説シリーズの固有アイテム「まことのお面（Mask of Truth）」,MIXED,CLOTHING_EXPOSURE,CORE,装着する仮面・アクセサリーとして探す入口が成立,,,,,,,"[""CLOTHING/ACCESSORY""]",[],[],NO,,RESEARCHED,"[""https://safebooru.org/index.php?id=6485455&page=post&s=view""]",ゼルダ・Link・maskと直接併用される固有アイテムであることを確認。
+994,no_navel,YES,へそが描かれていない身体表現,BROWSE_WORTHY,BODY_SITE,CORE,へその有無という身体部位表現として探すのが自然,,,,,,,[],[],[],NO,,CHECKED,[],
+997,hagoita,YES,羽根突きに使う羽子板,BROWSE_WORTHY,TOOL_OBJECT,CORE,手に持つ道具・小物として探すのが自然,,,,,,,"[""OBJECT_PROP/DAILY""]",[],[],NO,,CHECKED,[],
+1000,soap_censor,YES,石鹸・泡などで身体の一部を隠す検閲表現,BROWSE_WORTHY,STYLE_PROCESSING,CORE,画像内の隠し方・検閲処理として探すのが自然,,,,,,,[],[],[],NO,,CHECKED,[],
+1003,wrist_bell,YES,手首に付ける鈴・ベルのアクセサリー,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,身につけるアクセサリーとして探すのが自然,,,,,,,"[""CLOTHING/ACCESSORY""]",[],[],NO,,CHECKED,[],
+1006,shore,YES,海・湖・川などの岸辺,BROWSE_WORTHY,SCENE_BACKGROUND,CORE,場所・背景として探すのが自然,,,,,,,[],[],[],NO,,CHECKED,[],
+1009,vertical-striped_sleeves,YES,縦縞模様の袖,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,袖・衣服の見た目として探すのが自然,COLOR_PATTERN_SHAPE,SUPPORTING,縦縞という模様自体から探す入口も独立して有用,,,,[],[],[],NO,,CHECKED,[],
+1012,manly,YES,男性的・男らしく強健に見える人物表現,BROWSE_WORTHY,,,,,,,,,,[],[],[],YES,人物全体の男性的な外見・体格印象に対応する専用top routeがない,RESEARCHED,"[""https://www.safebooru.org/index.php?id=5033985&page=post&s=view""]",Safebooruでmuscular male・mature male・facial hair等と併用される外見表現として確認。
+1015,blonde_streaks,YES,髪の一部に入った金髪色の筋・メッシュ,BROWSE_WORTHY,HAIR_FACE,CORE,髪色・髪の外見として探すのが自然,,,,,,,[],[],[],NO,,CHECKED,[],
+1018,hockey_mask,YES,ホッケーマスク,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,顔に装着するマスク・アクセサリーとして探すのが自然,,,,,,,"[""CLOTHING/ACCESSORY""]",[],[],NO,,CHECKED,[],
+1021,hat_tip,YES,帽子のつば等に手を添えて軽く持ち上げる・傾ける仕草,BROWSE_WORTHY,ACTION_CONTACT,CORE,帽子に触れて行うジェスチャーとして探すのが自然,,,,,,,"[""ACTION_CONTACT/INTERACTION""]",[],[],NO,,CHECKED,[],
+1024,single_claw_pose,YES,片手を爪のように曲げて構えるポーズ,BROWSE_WORTHY,POSE_POSITION,CORE,手・腕の形を含む姿勢そのものから探すのが自然,,,,,,,[],[],[],NO,,CHECKED,[],
+1027,dotabata_cafe_rec!!_(project_sekai),YES,『プロジェクトセカイ』のイベント「ドタバタ cafe ●REC!!」を指す固有参照,SEARCH_ORIENTED,,,,,,,,,,[],[],[],NO,,RESEARCHED,"[""https://donmai.moe/forum_topics/24159"", ""https://safebooru.org/index.php?id=6378734&page=post&s=view""]",Project Sekai固有イベント名としての別名対応と公式アートへのタグ付与を確認。
+1030,usui_yoshito_(style),YES,漫画家・臼井儀人の画風を模したスタイル,MIXED,STYLE_PROCESSING,CORE,特定作者の画風・描画スタイルとして探すのが自然,,,,,,,[],[],[],NO,,RESEARCHED,"[""https://dbpedia.org/page/Yoshito_Usui""]",臼井儀人が『クレヨンしんちゃん』で知られる漫画家であることを確認し、(style)修飾を画風参照として扱う。
+1033,animal_band,YES,動物たちが楽器を演奏してバンドを組んでいる表現,BROWSE_WORTHY,LIVING,CORE,動物主体の表現として探すのが自然,ACTION_CONTACT,SUPPORTING,楽器演奏という行為から探す入口も独立して有用,,,,"[""LIVING_NATURE/CREATURE""]",[],[],NO,,CHECKED,[],
+1036,pastry_box,YES,菓子・ペストリーを入れる箱,BROWSE_WORTHY,TOOL_OBJECT,CORE,食品用の箱・小物として探すのが自然,,,,,,,"[""OBJECT_PROP/FOOD""]",[],[],NO,,CHECKED,[],
+1039,forced_dressing,YES,本人の意思に反して服を着せる行為,BROWSE_WORTHY,ACTION_CONTACT,CORE,他者に衣服を着せる強制的な相互行為として探すのが自然,,,,,,,"[""ACTION_CONTACT/INTERACTION""]",[],[],NO,,CHECKED,[],
+1042,inkblot_test,YES,ロールシャッハテスト等の左右対称なインクの染みを用いた心理検査表現,BROWSE_WORTHY,COLOR_PATTERN_SHAPE,CORE,特徴的なインク染み形状から探すのが自然,,,,,,,[],[],[],NO,,CHECKED,[],
+1045,applying_gag,YES,相手の口に猿ぐつわを装着している行為,BROWSE_WORTHY,ACTION_CONTACT,CORE,拘束具を相手に装着する行為として探すのが自然,,,,,,,"[""ACTION_CONTACT/OBJECT_USE""]","[""MOUTH_ORAL""]","[""BDSM_RESTRAINT""]",NO,,CHECKED,[],
+1048,groin_attack,YES,股間を攻撃する行為,BROWSE_WORTHY,ACTION_CONTACT,CORE,身体への攻撃・接触行為として探すのが自然,,,,,,,[],[],[],NO,,CHECKED,[],
