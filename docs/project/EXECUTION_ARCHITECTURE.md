@@ -152,6 +152,13 @@ For large recurring work:
 
 Issue #70 compact shards are the current reference pattern.
 
+Generic deterministic extractor:
+- `scripts/maintenance/extract_compact_csv_slice.py`
+
+Use it when a large CSV can be narrowed by stable order/lane/range/field projection before semantic reasoning. The generated slice manifest pins the source SHA, source/filtered counts, selected range, output fields, and output SHA.
+
+The compact output remains transport/cache only and must never silently replace the source authority.
+
 ## 6. Quality model
 
 Do not equate quality with repeated full rereads.
