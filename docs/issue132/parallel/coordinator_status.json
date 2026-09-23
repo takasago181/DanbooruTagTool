@@ -1,58 +1,85 @@
 {
   "schema_version": "issue132-parallel-coordinator-v1",
   "population": 31003,
-  "total_reviewed": 675,
-  "total_remaining": 30328,
+  "total_reviewed": 900,
+  "total_remaining": 30103,
   "complete": false,
   "worker_target_per_run": 300,
-  "quality_flags_pending": 7,
+  "quality_flags_pending": 12,
   "latest_ci": {
     "workflow": "Issue132 Incremental Checkpoint Validation",
-    "run_id": 35891753343,
-    "head_sha": "a2010499f14be58fc34e16cdfdaea2907b68e9a9",
+    "run_id": 35900336789,
+    "head_sha": "cf393c7a37e1d374f4330f028f5d77b4b0f90bde",
     "conclusion": "success",
-    "note": "Latest Issue132 validation run observed; committed immutable checkpoint validation succeeded."
+    "note": "Latest Issue132 incremental checkpoint validation observed completed successfully."
   },
   "lanes": {
     "1": {
       "assigned_count": 10335,
       "reviewed_count": 300,
-      "delta": 75,
+      "delta": 0,
       "remaining_count": 10035,
-      "zero_progress_streak": 0,
+      "zero_progress_streak": 1,
       "slow_progress_streak": 0,
       "latest_checkpoint": "checkpoint_000276_000300.csv",
       "last_run_stop_reason": "SEMANTIC_TOOL_BLOCKER",
-      "state": "PROGRESSING_WITH_VALID_STOP",
-      "note": "Immutable checkpoint union advanced by 75. Lane status records an allowed actual stop reason. Latest sampled checkpoint is structurally parseable as the frozen 22-column schema and contains explicit RESEARCHED/SEMANTIC_UNRESOLVED handling for ambiguity."
+      "state": "WARNING_INVALID_STOP",
+      "note": "No new immutable checkpoint. Current lane status contains only a bare SEMANTIC_TOOL_BLOCKER code with error_count=0 and no concrete blocker evidence. Under current stop-evidence rules this is not accepted as a valid stop. Prior QA correction concerns and an artifact-fetch complaint do not by themselves prove that processing the next identity was impossible. Worker should continue; this cycle is WARNING plus INVALID_STOP. Rescue was not written in this coordinator cycle because no safe neutral-row input was materialized for a machine-validated 25-row rescue and inventing rows is prohibited."
     },
     "2": {
       "assigned_count": 10334,
-      "reviewed_count": 225,
-      "delta": 50,
-      "remaining_count": 10109,
+      "reviewed_count": 325,
+      "delta": 100,
+      "remaining_count": 10009,
       "zero_progress_streak": 0,
       "slow_progress_streak": 0,
-      "latest_checkpoint": "checkpoint_000201_000225.csv",
-      "last_run_stop_reason": "TOOL_LIMIT",
-      "state": "PROGRESSING_WITH_VALID_STOP",
-      "note": "Immutable checkpoint union advanced by 50. Lane status records TOOL_LIMIT. Latest sampled checkpoint remains structurally parseable; high-risk rows include explicit research and route-gap treatment rather than silent CHECKED shortcuts."
+      "latest_checkpoint": "checkpoint_000301_000325.csv",
+      "last_run_stop_reason": "EXECUTION_LIMIT",
+      "state": "PROGRESSING_WITH_RECORDED_BLOCKER",
+      "note": "Immutable checkpoint union advanced by 100. Lane status now records concrete EXECUTION_LIMIT evidence: operation, location after four checkpoints/300-row QA boundary, and effect on safe continuation. This is materially stronger than a bare reason code; retained as recorded blocker evidence for this cycle."
     },
     "3": {
       "assigned_count": 10334,
-      "reviewed_count": 150,
-      "delta": 0,
-      "remaining_count": 10184,
-      "zero_progress_streak": 1,
+      "reviewed_count": 275,
+      "delta": 125,
+      "remaining_count": 10059,
+      "zero_progress_streak": 0,
       "slow_progress_streak": 0,
-      "latest_checkpoint": "checkpoint_000126_000150.csv",
-      "last_run_stop_reason": "EXECUTION_LIMIT",
-      "state": "WARNING",
-      "note": "No new immutable checkpoint since the previous coordinator snapshot. This is the first consecutive zero-progress cycle after prior recovery, so WARNING only; no rescue yet. Historical EXECUTION_LIMIT does not excuse a new zero-progress coordinator cycle by itself."
+      "latest_checkpoint": "checkpoint_000251_000275.csv",
+      "last_run_stop_reason": "TOOL_LIMIT",
+      "state": "PROGRESSING_WITH_VERIFIED_SPECIFIC_BLOCKER_CLAIM",
+      "note": "Immutable checkpoint union advanced by 125. Lane status gives specific TOOL_LIMIT evidence at next identity review_seq 828 / true_zangetsu_(shikai): required semantic web research was unavailable after tool-call exhaustion, and classification could not safely proceed without research."
     }
   },
-  "baseline_note": "Current operation uses 25-row immutable persistence, per-row semantic finalization, mandatory ambiguity research, and cumulative 100-row lane-local QA of all high-risk rows plus deterministic ordinary CHECKED samples. Frozen card/manifest/plan SHAs matched fast-preflight expectations, so their bodies and full frozen semantic documents were not reread. 300 is a per-run ceiling, not a quota.",
-  "quality_note": "Seven re-review flags remain pending. Coordinator sampling of newly added Lane 1 and Lane 2 checkpoints found no obvious systematic shortcut or malformed 22-column row in the sampled boundary batches. Existing flagged identities remain mandatory explicit re-review before final merge.",
+  "observed_run_metrics": {
+    "schema_version": "execution-telemetry-v1",
+    "lane_1": {
+      "rows_completed": 0,
+      "checkpoints_created": 0,
+      "preflight_mode": "FAST",
+      "full_authority_fallback": false,
+      "structural_validation_failures": 0,
+      "stop_reason": "SEMANTIC_TOOL_BLOCKER"
+    },
+    "lane_2": {
+      "rows_completed": 100,
+      "checkpoints_created": 4,
+      "preflight_mode": "FAST",
+      "full_authority_fallback": false,
+      "structural_validation_failures": 0,
+      "stop_reason": "EXECUTION_LIMIT"
+    },
+    "lane_3": {
+      "rows_completed": 125,
+      "checkpoints_created": 5,
+      "preflight_mode": "FAST",
+      "full_authority_fallback": false,
+      "structural_validation_failures": 0,
+      "stop_reason": "TOOL_LIMIT"
+    }
+  },
+  "baseline_note": "Fast preflight matched the expected worker-card, contract-manifest, and parallel-plan blob SHAs, so frozen bodies were not reread. Progress is authoritative from immutable checkpoint unions. 300 is a per-run ceiling, not a cumulative boundary or permission to stop voluntarily.",
+  "quality_note": "quality_flags.json now contains 12 pending explicit re-review flags. They remain mandatory before final merge. No quality flag is treated as permission for a worker to stop advancing unrelated next identities.",
   "pass_b_generated": false,
   "worker_target_semantics": "ceiling_not_quota",
   "checkpoint_rows": 25,
