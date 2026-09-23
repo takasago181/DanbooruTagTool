@@ -140,6 +140,7 @@ Per identity:
   - CORE
   - SUPPORTING
 - short route reason
+- local_refinement_ids from the existing fixed General local refinement vocabulary
 - body_site_ids from the existing six fixed body facets
 - theme_ids from the existing three fixed theme facets
 - review_depth:
@@ -215,6 +216,27 @@ Technical relatedness alone is insufficient.
 
 ---
 
+## 7.5. Existing local-refinement capture
+
+Pass A also records the existing General local-refinement vocabulary independently from current assignment.
+
+Purpose:
+
+- detect cases where the user can reach the correct top-level route but the next narrowing step is wrong or missing;
+- audit current #64 consistency without exposing current #64 placement to Luna.
+
+Examples:
+- ACTION_CONTACT/INTIMATE
+- CLOTHING/UNIFORM
+- OBJECT_PROP/WEAPON
+- EXPRESSION_EMOTION/
+
+This does **not** authorize a #132 local-refinement runtime overlay.
+
+A missing/misleading local refinement is routed to upstream #64 review.
+
+---
+
 ## 8. Adult/sexual refinement capture
 
 Pass A also records the existing body/theme facet vocabulary independently.
@@ -250,6 +272,7 @@ Derive mechanically:
 - MISSING_CORE_ROUTE
 - MISSING_SUPPORTING_ROUTE
 - CURRENT_ROUTE_NOT_REPRODUCED
+- MISSING_LOCAL_REFINEMENT
 - MISSING_BODY_FACET
 - MISSING_THEME_FACET
 - SEARCH_ORIENTED
