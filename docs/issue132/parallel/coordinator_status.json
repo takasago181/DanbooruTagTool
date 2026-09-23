@@ -59,6 +59,10 @@
       "note": "A temporary invalid placeholder checkpoint was removed; no additional valid Lane 3 rows were accepted in that run."
     }
   },
-  "baseline_note": "2026-09-23 manual routing sync after live worker target changed to 300 with mandatory 50-row two-pass review and final 300-row QA. Lane 1's prior 200-row TARGET_REACHED predates this rule. Lane 2 and Lane 3 stop reasons are valid explicit stops under the current rule. Coordinator must derive future counts from immutable checkpoints, not this snapshot alone.",
-  "pass_b_generated": false
+  "baseline_note": "2026-09-24 operational cadence changed from 50-row two-pass checkpoints to 25-row two-pass checkpoints with mandatory 100-row cross-batch QA. 300 remains a per-run ceiling, not a quota. Existing checkpoints remain immutable historical evidence. Future coordinator health decisions must derive progress from live checkpoint unions and accept validated smaller deltas with explicit EXECUTION_LIMIT/TOOL_LIMIT.",
+  "pass_b_generated": false,
+  "worker_target_semantics": "ceiling_not_quota",
+  "checkpoint_rows": 25,
+  "cross_batch_qa_rows": 100,
+  "coordinator_rescue_max_rows": 25
 }
