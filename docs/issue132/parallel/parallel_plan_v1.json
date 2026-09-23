@@ -10,10 +10,12 @@
   },
   "semantic_sharding": false,
   "coordinator_rescue_after_zero_progress_cycles": 2,
-  "coordinator_rescue_max_rows": 50,
+  "coordinator_rescue_max_rows": 25,
   "worker_target_per_run": 300,
-  "checkpoint_rows": 50,
+  "checkpoint_rows": 25,
   "checkpoint_two_pass_review_required": true,
-  "final_run_qa_rows": 300,
-  "coordinator_slow_threshold_rows": 150
+  "final_run_qa_rows": null,
+  "coordinator_slow_threshold_rows": null,
+  "worker_target_semantics": "ceiling_not_quota",
+  "cross_batch_qa_rows": 100
 }
