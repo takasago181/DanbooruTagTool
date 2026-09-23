@@ -17,69 +17,48 @@
     "1": {
       "assigned_count": 10335,
       "reviewed_count": 325,
-      "delta": 25,
+      "delta": 0,
       "remaining_count": 10010,
-      "zero_progress_streak": 0,
+      "zero_progress_streak": 1,
       "slow_progress_streak": 0,
       "latest_checkpoint": "checkpoint_000301_000325.csv",
       "last_run_stop_reason": "GIT_CONFLICT",
-      "state": "PROGRESSING_WITH_VERIFIED_SPECIFIC_BLOCKER_CLAIM",
-      "note": "Immutable union advanced by 25. Status records a concrete HTTP 409 during the run-end lane status update, caused by a stale expected blob SHA after concurrent branch activity. The worker re-read/reconciled only the already-durable prefix and did not start another semantic checkpoint. This is specific actual conflict evidence rather than a bare reason code."
+      "state": "WARNING",
+      "note": "No new immutable checkpoint since the previous coordinator snapshot. Prior GIT_CONFLICT evidence was specific but does not excuse a later zero-progress coordinator cycle. First consecutive zero cycle => WARNING."
     },
     "2": {
       "assigned_count": 10334,
       "reviewed_count": 350,
-      "delta": 25,
+      "delta": 0,
       "remaining_count": 9984,
-      "zero_progress_streak": 0,
+      "zero_progress_streak": 1,
       "slow_progress_streak": 0,
       "latest_checkpoint": "checkpoint_000326_000350.csv",
       "last_run_stop_reason": "EXECUTION_LIMIT",
-      "state": "PROGRESSING_WITH_RECORDED_BLOCKER",
-      "note": "Immutable union advanced by 25. Lane status states the execution window actually ended after the validated 25-row checkpoint and before another full persistence unit could be safely finalized. Accepted for this cycle as recorded actual execution interruption evidence; anticipated time pressure alone would not be accepted."
+      "state": "WARNING",
+      "note": "No new immutable checkpoint since the previous coordinator snapshot. Prior EXECUTION_LIMIT evidence does not excuse a later zero-progress coordinator cycle. First consecutive zero cycle => WARNING."
     },
     "3": {
       "assigned_count": 10334,
       "reviewed_count": 275,
       "delta": 0,
       "remaining_count": 10059,
-      "zero_progress_streak": 1,
+      "zero_progress_streak": 2,
       "slow_progress_streak": 0,
       "latest_checkpoint": "checkpoint_000251_000275.csv",
       "last_run_stop_reason": "TOOL_LIMIT",
-      "state": "WARNING",
-      "note": "No new immutable checkpoint since the previous coordinator snapshot. The prior TOOL_LIMIT claim was specific, but it does not excuse a later zero-progress coordinator cycle. This is the first consecutive zero-progress cycle, therefore WARNING; a second consecutive incomplete zero cycle becomes STALLED and rescue-eligible after concurrency verification."
+      "state": "STALLED",
+      "note": "Second consecutive incomplete coordinator cycle with zero new immutable checkpoints. Prior TOOL_LIMIT was specific for the earlier worker run but cannot exempt subsequent zero cycles. Lane is now STALLED and rescue-eligible after a fresh no-concurrent-write check. No rescue checkpoint was fabricated in this coordinator cycle because the required neutral next-row input was not available through the compact preflight reads."
     }
   },
   "observed_run_metrics": {
     "schema_version": "execution-telemetry-v1",
-    "lane_1": {
-      "rows_completed": 25,
-      "checkpoints_created": 1,
-      "preflight_mode": "FAST",
-      "full_authority_fallback": false,
-      "structural_validation_failures": 0,
-      "stop_reason": "GIT_CONFLICT"
-    },
-    "lane_2": {
-      "rows_completed": 25,
-      "checkpoints_created": 1,
-      "preflight_mode": "FAST",
-      "full_authority_fallback": false,
-      "structural_validation_failures": 0,
-      "stop_reason": "EXECUTION_LIMIT"
-    },
-    "lane_3": {
-      "rows_completed": 0,
-      "checkpoints_created": 0,
-      "preflight_mode": "FAST",
-      "full_authority_fallback": false,
-      "structural_validation_failures": 0,
-      "stop_reason": "TOOL_LIMIT"
-    }
+    "lane_1": {"rows_completed": 0, "checkpoints_created": 0, "preflight_mode": "FAST", "full_authority_fallback": false, "structural_validation_failures": 0, "stop_reason": "GIT_CONFLICT"},
+    "lane_2": {"rows_completed": 0, "checkpoints_created": 0, "preflight_mode": "FAST", "full_authority_fallback": false, "structural_validation_failures": 0, "stop_reason": "EXECUTION_LIMIT"},
+    "lane_3": {"rows_completed": 0, "checkpoints_created": 0, "preflight_mode": "FAST", "full_authority_fallback": false, "structural_validation_failures": 0, "stop_reason": "TOOL_LIMIT"}
   },
   "baseline_note": "Fast preflight matched the expected worker-card, contract-manifest, and parallel-plan blob SHAs, so frozen bodies were not reread. Progress is authoritative from immutable checkpoint unions. 300 is a per-run ceiling, not a cumulative boundary or permission to stop voluntarily.",
-  "quality_note": "quality_flags.json contains 12 pending explicit re-review flags. They remain mandatory before final merge. No newly observed structural failure or CI contract drift was found in this coordinator cycle; flags are not permission to stop unrelated forward progress.",
+  "quality_note": "quality_flags.json still contains 12 pending explicit re-review flags. Latest Issue132 incremental CI succeeded. No new structural failure or contract drift was observed from checkpoint-directory/status metadata in this cycle.",
   "pass_b_generated": false,
   "worker_target_semantics": "ceiling_not_quota",
   "checkpoint_rows": 25,
