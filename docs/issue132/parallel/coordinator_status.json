@@ -1,25 +1,51 @@
 {
   "schema_version": "issue132-parallel-coordinator-v1",
   "population": 31003,
-  "total_reviewed": 0,
-  "total_remaining": 31003,
+  "total_reviewed": 225,
+  "total_remaining": 30778,
   "complete": false,
+  "worker_target_per_run": 200,
+  "quality_flags_pending": 5,
+  "latest_ci": {
+    "workflow": "Issue132 Full Discovery Coverage Audit",
+    "head_sha": "6ebf36d886b0d4f8692b264d6b9b4d892668a3d0",
+    "conclusion": "success"
+  },
   "lanes": {
     "1": {
-      "reviewed_count": 0,
+      "assigned_count": 10335,
+      "reviewed_count": 25,
+      "delta": 25,
+      "remaining_count": 10310,
       "zero_progress_streak": 0,
-      "state": "READY"
+      "slow_progress_streak": 0,
+      "latest_checkpoint": "checkpoint_000001_000025.csv",
+      "last_run_stop_reason": null,
+      "state": "PROGRESSING"
     },
     "2": {
-      "reviewed_count": 0,
+      "assigned_count": 10334,
+      "reviewed_count": 100,
+      "delta": 100,
+      "remaining_count": 10234,
       "zero_progress_streak": 0,
-      "state": "READY"
+      "slow_progress_streak": 0,
+      "latest_checkpoint": "checkpoint_000076_000100.csv",
+      "last_run_stop_reason": "TARGET_REACHED",
+      "state": "PROGRESSING"
     },
     "3": {
-      "reviewed_count": 0,
+      "assigned_count": 10334,
+      "reviewed_count": 100,
+      "delta": 100,
+      "remaining_count": 10234,
       "zero_progress_streak": 0,
-      "state": "READY"
+      "slow_progress_streak": 0,
+      "latest_checkpoint": "checkpoint_000076_000100.csv",
+      "last_run_stop_reason": "TARGET_REACHED",
+      "state": "PROGRESSING"
     }
   },
+  "baseline_note": "First coordinator cycle after worker target changed from 100 to 200. Existing lane deltas and TARGET_REACHED values predate the 200-target rule, so this cycle establishes the baseline and does not classify them as underperforming. Future cycles enforce the 200-target stop-reason rule.",
   "pass_b_generated": false
 }
