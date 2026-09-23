@@ -44,7 +44,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
   group: issue132-full-discovery-${{ github.ref }}
@@ -73,6 +73,54 @@ jobs:
         run: |
           python scripts/issue132/build_luna_neutral_input.py \
             --out artifacts/issue132/luna-neutral/luna_neutral_review_input_v2.csv
+
+      - name: Publish stable research neutral snapshot
+        shell: bash
+        run: |
+          set -euo pipefail
+          SRC="artifacts/issue132/luna-neutral/luna_neutral_review_input_v2.csv"
+          SRC_MANIFEST="artifacts/issue132/luna-neutral/luna_neutral_review_input_v2.manifest.json"
+          DST_DIR="docs/issue132/parallel/input"
+          DST="$DST_DIR/luna_neutral_review_input_v2.csv"
+          DST_MANIFEST="$DST_DIR/luna_neutral_review_input_v2.manifest.json"
+          EXPECTED_SHA="ac0f888d02f19a440c63b3b9f695c58f9ba53b98ebe9756edec51db1c5ff8f7d"
+          EXPECTED_ORDER_SHA="f80c63018ce19a8c7c5d8d6fd83d03cf760c510d8f6cfa455d1ab356fb31361b"
+
+          ACTUAL_SHA="$(sha256sum "$SRC" | awk '{print $1}')"
+          test "$ACTUAL_SHA" = "$EXPECTED_SHA"
+
+          python - "$SRC_MANIFEST" "$EXPECTED_ORDER_SHA" <<'PY'
+          import json, sys
+          p, expected = sys.argv[1:]
+          obj = json.load(open(p, encoding="utf-8"))
+          assert obj["identity_count"] == 31003, obj["identity_count"]
+          assert obj["identity_order_sha256"] == expected, obj["identity_order_sha256"]
+          PY
+
+          mkdir -p "$DST_DIR"
+          cp "$SRC" "$DST"
+          cp "$SRC_MANIFEST" "$DST_MANIFEST"
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$DST" "$DST_MANIFEST"
+
+          if git diff --cached --quiet; then
+            echo "Stable neutral snapshot already current."
+          else
+            git commit -m "issue132: publish stable neutral review snapshot"
+            for attempt in 1 2 3; do
+              git pull --rebase origin research/taxonomy-usability-audit
+              if git push origin HEAD:research/taxonomy-usability-audit; then
+                exit 0
+              fi
+              if [ "$attempt" -eq 3 ]; then
+                echo "Failed to publish stable neutral snapshot after 3 attempts."
+                exit 1
+              fi
+              sleep 2
+            done
+          fi
 
       - name: Verify review vocabulary against runtime code
         run: python scripts/issue132/check_review_vocabulary_against_code.py
@@ -129,4 +177,5 @@ jobs:
             artifacts/issue132/luna-neutral
             artifacts/issue132/pass-a-contract
           if-no-files-found: error
+          retention-days: 90
 
