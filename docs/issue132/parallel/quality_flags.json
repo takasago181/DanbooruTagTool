@@ -1,0 +1,23 @@
+{
+  "schema_version": "issue132-pass-a-quality-flags-v1",
+  "source": "manual audit after lane-1 first checkpoint",
+  "checkpoint": "docs/issue132/parallel/lane-1/checkpoints/checkpoint_000001_000025.csv",
+  "note": "These are re-review flags only. They do not mutate Pass A rows or current product authority.",
+  "flags": [
+    {
+      "identity_key": "yellow_leg_warmers",
+      "concern": "possible over-broad supporting route",
+      "detail": "COLOR_PATTERN_SHAPE appears driven by a simple color modifier. Existing handoff already says color + target is not automatically a second route."
+    },
+    {
+      "identity_key": "brown_slippers",
+      "concern": "possible over-broad supporting route",
+      "detail": "COLOR_PATTERN_SHAPE appears driven by a simple color modifier. Existing handoff already says color + target is not automatically a second route."
+    },
+    {
+      "identity_key": "book_on_lap",
+      "concern": "possible over-broad supporting route",
+      "detail": "POSE_POSITION may be describing object placement relative to the lap rather than an independently useful body pose lookup axis."
+    }
+  ]
+}
