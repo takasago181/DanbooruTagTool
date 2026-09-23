@@ -53,25 +53,17 @@ This is operational parallelization only, not semantic sharding.
 
 ---
 
-## 2. Current worker target
+## 2. Current worker ceiling
 
-Current live target:
+Current live ceiling:
 
-**300 newly reviewed identities per worker run**
+**up to 300 newly reviewed identities per worker run**
 
-A worker does not stop normally at 50, 100, 150, 200, or 250.
+300 is not a quota.
 
-Those are persistence / QA milestones only.
+The worker should continue while execution budget and semantic quality permit, but validated smaller progress is acceptable and must be preserved.
 
-Normal completion of one worker run is:
-
-- 300 newly reviewed identities safely persisted;
-- mandatory per-checkpoint second-pass review completed;
-- mandatory final 300-row QA completed;
-- repository checkpoint validation clean;
-- then `TARGET_REACHED`.
-
-If fewer than 300 are completed, the worker must record an explicit reason:
+If fewer than 300 are completed, the worker records one explicit reason:
 
 - `EXECUTION_LIMIT`
 - `TOOL_LIMIT`
@@ -80,7 +72,11 @@ If fewer than 300 are completed, the worker must record an explicit reason:
 - `SEMANTIC_TOOL_BLOCKER`
 - `REMAINING_LT_300`
 
-Raw speed is not considered sufficient evidence of healthy progress.
+`TARGET_REACHED` is reserved for:
+- exactly 300 newly reviewed identities in the run; or
+- lane completion with fewer than 300 identities remaining.
+
+Raw speed is not evidence of quality.
 
 ---
 
@@ -88,191 +84,167 @@ Raw speed is not considered sufficient evidence of healthy progress.
 
 New checkpoints are normally:
 
-**50 rows per immutable checkpoint**
+**25 rows per immutable checkpoint**
 
 Path:
 
 `docs/issue132/parallel/lane-N/checkpoints/checkpoint_XXXXXX_XXXXXX.csv`
 
-Existing checkpoints are preserved exactly.
+Existing checkpoints remain immutable and are not rewritten merely to match the current 25-row cadence.
 
-Do not overwrite old checkpoint files.
-
-Each checkpoint must:
-
+Each new checkpoint must:
 - use the exact frozen 22-column Pass-A schema;
 - preserve global `review_seq`;
-- contain only the owning lane's deterministic next prefix;
-- contain no duplicates or skipped identities;
-- be structurally valid before it is written.
+- contain the owning lane's next deterministic exact-prefix rows;
+- contain no duplicates or skips;
+- pass the mandatory 25-row second review before save;
+- be structurally valid before write.
 
-Checkpoint creation is persistence only and is never, by itself, a reason to stop the worker run.
+A checkpoint is persistence only, not a reason to stop the run.
 
 ---
 
-## 4. Mandatory 50-row two-pass review
+## 4. Mandatory 25-row two-pass review
 
-Every 50-row checkpoint now requires two semantic passes before save.
+Every new 25-row checkpoint requires two semantic passes.
 
 ### Pass 1 — individual classification
 
-Review all 50 identities individually under the frozen Pass-A rules.
+Review each of the 25 identities independently under the frozen Pass-A rules.
 
 Use `CHECKED` only when meaning is genuinely clear.
 
-If meaning is ambiguous, proper-noun-dependent, niche, or otherwise unsafe to infer from the tag string alone:
-
+For ambiguous, proper-noun-dependent, niche, meme/event, or otherwise unsafe-to-infer concepts:
 - perform actual semantic research;
 - use `RESEARCHED`;
-- record evidence URLs actually used.
+- record the evidence URLs actually used.
 
-### Pass 2 — full 50-row re-read
+### Pass 2 — full 25-row re-read
 
-Before writing the checkpoint, re-read **all 50 rows**.
+Before writing the checkpoint, re-read **all 25 rows** and explicitly re-check:
 
-For every row re-check:
+1. semantic meaning vs name-only guess;
+2. CORE route as a realistic unknown-tag discovery entry;
+3. weak or unnecessary SUPPORTING routes;
+4. simple color/pattern modifier inflation;
+5. object placement incorrectly promoted to POSE_POSITION;
+6. local-refinement omission or forced fit;
+7. intrinsic body-site facet omission;
+8. intrinsic theme-facet omission;
+9. usefulness for actual image generation, including adult/sexual workflows;
+10. CHECKED rows that should be RESEARCHED;
+11. SEARCH_ORIENTED / SEMANTIC_UNRESOLVED / route_vocabulary_gap consistency;
+12. evidence relevance and uncertainty requirements;
+13. exact 22-column CSV serialization;
+14. valid JSON-valued fields.
 
-1. Was the identity meaning understood, or was it guessed from the tag name?
-2. Is the CORE route a realistic starting point for a user who does not already know the tag name?
-3. Is any SUPPORTING route genuinely independently useful, rather than merely related?
-4. Was a color/pattern modifier incorrectly promoted to `COLOR_PATTERN_SHAPE`?
-5. Was object placement incorrectly promoted to `POSE_POSITION` without a useful posture/position concept?
-6. Are local refinement IDs naturally applicable, or being forced because a parent route exists?
-7. Are body-site facets missing where intrinsic?
-8. Are theme facets missing where intrinsic?
-9. Is the result useful for real image-generation discovery, including adult/sexual workflows?
-10. Should a row marked `CHECKED` actually be `RESEARCHED`?
-11. Are `SEARCH_ORIENTED`, `SEMANTIC_UNRESOLVED`, and `route_vocabulary_gap` mutually consistent?
-12. Are RESEARCHED evidence URLs relevant and actually used?
-13. Are uncertainty requirements satisfied?
-14. Does the row serialize to the exact 22-column CSV contract?
-15. Are JSON-valued fields syntactically valid?
-
-Any suspicious row must be corrected or researched **before** checkpoint creation.
-
-Do not rely on CI to discover obvious row-shift or malformed-field problems that can be detected before write.
+Any suspicious row must be corrected or researched before the checkpoint is saved.
 
 ---
 
-## 5. Mandatory final 300-row QA
+## 5. Mandatory 100-row cross-batch QA
 
-After the sixth 50-row checkpoint, but before `TARGET_REACHED`, the worker performs a final QA over the whole newly completed 300-row run.
+After every four new 25-row checkpoints in the same run — **100 newly reviewed rows** — perform a cross-batch QA before continuing.
 
-Mandatory re-scan targets:
+Re-scan all:
+- `MIXED`;
+- `SEARCH_ORIENTED`;
+- `SEMANTIC_UNRESOLVED`;
+- `route_vocabulary_gap=YES`;
+- `RESEARCHED`;
+- rows with route_2 or route_3;
+- body-site facets;
+- theme facets;
+- adult/sexual concepts.
 
-- all `MIXED`;
-- all `SEARCH_ORIENTED`;
-- all `SEMANTIC_UNRESOLVED`;
-- all `route_vocabulary_gap=YES`;
-- all `RESEARCHED`;
-- every row with route_2 or route_3;
-- every body-site facet;
-- every theme facet;
-- adult/sexual concepts;
-- a spot-check of ordinary single-route `CHECKED` rows for systematic drift.
+Also spot-check ordinary single-route `CHECKED` rows.
 
-Final QA explicitly checks for:
-
+Look specifically for:
+- family inconsistency;
 - color-only SUPPORTING inflation;
 - object-placement-as-pose inflation;
-- weak or unnecessary secondary routes;
 - forced local refinement;
 - missing intrinsic body/theme facets;
-- family inconsistency;
 - weak evidence;
-- malformed 22-column rows;
-- systematic shortcuts caused by throughput pressure.
+- repeated shortcuts caused by throughput pressure.
 
-Run the repository checkpoint validator when available.
+Repair issues before proceeding into the next 100-row block.
 
-If QA or validator finds a problem, repair it before the run is marked `TARGET_REACHED`.
+A 300-row run therefore contains at most three 100-row QA blocks.
+
+There is **no additional mandatory full 300-row re-read** after those checks. The purpose of this operating model is to preserve safely reviewed progress before execution limits erase the whole run.
 
 ---
 
 ## 6. Quality-over-throughput rule
 
-The 300-row target is an operational ceiling/goal, not a quality quota.
+300 is a ceiling, not a success quota.
 
 Do not:
-
 - guess to reach 300;
-- reduce research because the run is moving slowly;
-- treat a short runtime as proof that more rows should automatically be added;
-- mark a batch healthy merely because CI is structurally green.
+- reduce research to increase row count;
+- discard safely reviewed 25/50/75/etc. rows merely because 300 cannot be reached;
+- treat a short runtime or green structural CI as sufficient semantic proof.
 
-If a concept is unclear, research it or use the frozen unresolved path.
-
-The purpose of increasing the target is to use available execution capacity while preserving semantic quality, not to maximize raw row count.
+A run that safely persists 25, 50, 75, 100, etc. reviewed identities and then records `EXECUTION_LIMIT` is valid progress.
 
 ---
 
 ## 7. Coordinator / watchdog current behavior
 
-Coordinator still derives real progress from immutable checkpoints, not from stale status files alone.
+Coordinator derives progress from immutable checkpoints, not stale status files alone.
 
 Current expectations:
+- 300 is the worker ceiling;
+- one incomplete cycle with `delta=0` => `WARNING`;
+- two consecutive incomplete cycles with `delta=0` => `STALLED`;
+- `delta<300` without an allowed stop reason => `UNDERPERFORMING`;
+- validated smaller progress with `EXECUTION_LIMIT` / `TOOL_LIMIT` is not automatically failure;
+- `TARGET_REACHED` is valid only for 300 rows or lane completion.
 
-- worker target: 300 new identities/run;
-- `delta < 300` without an allowed stop reason => `UNDERPERFORMING`;
-- two incomplete cycles with `delta = 0` => `STALLED`;
-- two incomplete cycles with `delta < 150` and no valid reason => `SLOW`.
-
-Coordinator quality watchdog prioritizes newly added rows that are:
-
+Coordinator quality review prioritizes:
 - MIXED;
 - SEARCH_ORIENTED;
 - SEMANTIC_UNRESOLVED;
 - route-vocabulary gaps;
 - RESEARCHED;
-- multi-route;
-- body/theme-faceted;
-- adult/sexual;
-- ambiguous/proper-noun concepts incorrectly left as CHECKED.
-
-Raw throughput must not override semantic-quality warnings.
+- multi-route rows;
+- body/theme facets;
+- adult/sexual concepts;
+- ambiguous/proper-noun concepts incorrectly left CHECKED.
 
 ### Rescue
 
-For a confirmed stalled/slow/underperforming lane, after confirming there is no concurrent checkpoint write, Coordinator may temporarily rescue that same lane.
+Coordinator rescue is same-lane only and is now limited to:
 
-Current rescue limit:
+**25 identities per affected lane per coordinator run**
 
-**up to 50 identities per affected lane per coordinator run**
-
-Rescue work must use the same mandatory 50-row two-pass review.
+The rescue checkpoint must itself pass the mandatory 25-row two-pass review.
 
 No cross-lane reassignment is allowed.
 
 ---
 
-## 8. Why the stronger QA was added
+## 8. Why the operating unit changed
 
-A 200-row Worker 1 run completed quickly enough that raw execution time was clearly not the main bottleneck.
+A fast 200-row Worker 1 run showed that raw throughput was not the main quality signal; structural CSV errors still escaped the first pass.
 
-That run successfully advanced Lane 1 from 25 to 225 reviewed identities, but CI detected malformed CSV rows for:
+The next experiment strengthened QA to 50-row two-pass review plus final 300-row QA.
 
-- `gameplay_mechanics`
-- `trolley_problem`
-- `endless_eight`
+That design proved too coarse for the Automation execution window:
+- Worker 1 could not safely finish the next 50-row fully reviewed checkpoint and therefore added 0 rows;
+- Worker 3 likewise stopped at 0 new rows rather than save an incompletely reviewed 50-row checkpoint.
 
-The semantic direction of those rows was retained after re-review, but the rows had an extra empty CSV field that shifted later columns and caused validator failures.
+The fail-closed behavior was correct, but the persistence unit was too large.
 
-They were repaired and re-researched where appropriate.
+Current response:
+- keep 300 only as a ceiling;
+- reduce persistence/second-review unit to 25 rows;
+- preserve every fully reviewed 25-row unit;
+- perform stronger cross-batch semantic QA every 100 rows;
+- avoid an extra full 300-row re-read that would recreate the same all-or-nothing execution problem.
 
-The repair commit was:
-
-`2387b0b7d6300bbdfdb186b1d9afac1a2175a5ef`
-
-The post-repair Issue132 CI passed.
-
-This demonstrated that simply lowering the row target would not guarantee better review.
-
-The operational response is therefore:
-
-- keep meaningful batch throughput;
-- require a second semantic pass on every 50 rows;
-- require explicit structure validation before save;
-- require a final 300-row QA before normal completion.
+This is intended to improve both semantic quality and forward progress.
 
 ---
 
