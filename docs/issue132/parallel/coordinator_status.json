@@ -8,8 +8,18 @@
   "quality_flags_pending": 5,
   "latest_ci": {
     "workflow": "Issue132 Full Discovery Coverage Audit",
-    "head_sha": "7b50dc6fea17f324177eff01bedba2a717e6c15d",
-    "conclusion": "pending_after_lane2_column_repair"
+    "run_id": 35879379345,
+    "head_sha": "00d1e6bdd4bdb80ab5db1bab5df798fdeaadbb59",
+    "conclusion": "success",
+    "validation_snapshot": {
+      "reviewed_total": 475,
+      "error_count": 0,
+      "lanes": {
+        "1": 225,
+        "2": 150,
+        "3": 100
+      }
+    }
   },
   "lanes": {
     "1": {
