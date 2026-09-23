@@ -51,18 +51,21 @@ Use `CHECKED` only when:
 
 ### Mandatory RESEARCHED gate
 
-Use actual external semantic research before finalizing if **any** of these apply:
+Use actual external semantic research before finalizing whenever **material uncertainty remains**.
 
-- unfamiliar word, transliteration, foreign phrase, specialist term;
-- proper noun, named item, brand/model, title, event, meme, quote, franchise-specific reference;
-- parenthetical qualifier whose meaning matters;
-- common word with multiple plausible meanings;
-- exact object type or technical equipment affects route/refinement;
-- cultural/historical/reference knowledge affects meaning;
-- sexual concept where action vs position vs object vs role vs body-site/theme is not immediately clear;
-- anatomy/fetish term where body/theme selection is not certain;
-- the worker internally needs words like “probably”, “seems”, “likely”, or is inferring from spelling;
-- any material field would otherwise be a guess.
+Research is required for:
+- unfamiliar words, transliterations, foreign phrases, specialist terms, or polysemous words;
+- proper nouns / brands / titles / events / memes / franchise references **when the exact referent or semantic scope is not already confidently known, or when that scope affects browse-vs-search / route / facet judgment**;
+- parenthetical qualifiers whose meaning materially changes the concept;
+- technical object types whose exact function affects route/refinement;
+- cultural/historical/reference knowledge that is necessary for the classification;
+- sexual/anatomical/fetish concepts where action vs position vs object vs role or body/theme selection is not immediately certain;
+- any case where the worker internally needs words like “probably”, “seems”, or “likely”, or is inferring from spelling;
+- any material field that would otherwise be a guess.
+
+**A proper noun alone is not sufficient reason to research.** If the exact referent is genuinely common/clear and no material classification choice depends on hidden scope, CHECKED is allowed. Example: an unambiguous country name or year used only as a name/reference can be CHECKED + SEARCH_ORIENTED without wasting a web lookup.
+
+The optimization rule is: remove redundant verification of already-certain meaning, never remove research needed to resolve uncertainty.
 
 Research should be batched for efficiency when several rows need it, but **each identity still receives its own semantic judgment and actually used evidence URL**.
 
@@ -298,7 +301,8 @@ Re-review all high-risk rows in that block:
 - adult/sexual concepts
 
 Also deterministic spot-check ordinary CHECKED single-route rows:
-- at least every fifth such row, or 20 rows if available.
+- about 10% of ordinary CHECKED single-route rows in that block, with a minimum of 10 when available.
+- Coordinator provides an independent second-line sample, so workers should not reread a large ordinary subset without a concrete signal.
 
 Look for systematic drift/family inconsistency and repair before continuing past the boundary.
 
@@ -316,14 +320,15 @@ Do not reread all 100 ordinary rows when the sample/high-risk review remains cle
 
 ## 11. Tool-efficiency rules
 
-- Batch web searches for multiple ambiguous identities when possible.
-- Still record per-row evidence actually used.
-- Do not research obvious common visual concepts merely to prove that they are obvious.
-- Do not repeatedly fetch full frozen documents when manifest/card are unchanged.
-- Do not repeatedly verify the entire 31,003-row neutral order if latest successful CI and frozen neutral manifest already validate it.
-- Fetch only the next needed neutral/lane range when the connector permits range reads.
+- Batch independent web searches for several ambiguous identities in one tool call when possible; still record evidence per RESEARCHED row.
+- Do not research obvious/common/unambiguous concepts merely to prove that they are obvious.
+- Normal preflight must not fetch this card body or the full frozen manifest if their GitHub blob SHAs match the pinned expected values; use one metadata/directory read to verify SHAs.
+- Do not repeatedly fetch full frozen documents when pinned SHAs are unchanged.
+- Retrieve the neutral artifact as data, then **programmatically filter/extract only the next lane-local work window**. Do not inject/read all 31,003 neutral rows into semantic model context.
+- Do not repeatedly recompute neutral SHA/order after a latest successful CI has validated the same frozen artifact; verify pinned artifact/manifest identity and proceed.
 - Do not poll CI/checkpoint status between every save.
-- GitHub live checkpoints are the progress authority; stale status.json is recoverable.
+- Do not update status after every 25 rows.
+- GitHub live checkpoints are progress authority; stale status.json is recoverable.
 
 ---
 
