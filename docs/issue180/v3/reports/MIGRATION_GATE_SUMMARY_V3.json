@@ -11,13 +11,13 @@
   "character_population": 35890,
   "evidence_basis_counts": {
     "APPROVED_REPO_EVIDENCE": 13475,
-    "EXTERNAL_AUTHORITY": 3136,
+    "EXTERNAL_AUTHORITY": 3141,
     "REVIEWED_QUALIFIER_COPYRIGHT": 1169,
-    "REVIEWED_VARIANT_AUTHORITY": 254,
+    "REVIEWED_VARIANT_AUTHORITY": 267,
     "ROOT_POLICY_NORMALIZATION": 17,
     "SAFE_STRUCTURAL_VARIANT": 3910
   },
-  "evidence_rows": 21961,
+  "evidence_rows": 21979,
   "external_source_url_count": 533,
   "generated_output_directory": "artifacts/issue180-v3",
   "legacy_v1_v2_scripts_executed": false,
@@ -36,17 +36,17 @@
   "pipeline_validation": "PASS",
   "production_runtime_dependency": false,
   "reproducibility": {
-    "first_master_sha256": "315c06e10cb64da3e2ead4a6d5bfe0ab6e74788cc863b492188a890ec3b8dadd",
+    "first_master_sha256": "3a15914ff1111d2ce1066fe5ad982e25d63febcb0f2084699f57ce67ef0a48ae",
     "same": true,
-    "second_master_sha256": "315c06e10cb64da3e2ead4a6d5bfe0ab6e74788cc863b492188a890ec3b8dadd"
+    "second_master_sha256": "3a15914ff1111d2ce1066fe5ad982e25d63febcb0f2084699f57ce67ef0a48ae"
   },
   "research_unit_count": 4761,
   "research_unit_status_counts": {
     "IDENTITY_BLOCKED": 7,
-    "NO_SAFE_EVIDENCE": 7,
+    "NO_SAFE_EVIDENCE": 6,
     "OPEN": 4696,
     "PARTIALLY_RESOLVED": 5,
-    "POLICY_BLOCKED": 46
+    "POLICY_BLOCKED": 47
   },
   "research_unit_type_counts": {
     "DIRECT_AUTHORITY": 2561,
@@ -56,17 +56,17 @@
     "VARIANT_OFFICIALITY": 656
   },
   "residual_reason_counts": {
-    "DIRECT_AUTHORITY_MISSING": 14075,
+    "DIRECT_AUTHORITY_MISSING": 14057,
     "FAMILY_HOME_MISSING": 2901,
     "FAMILY_MEMBERSHIP_MISSING": 514,
     "IDENTITY_REVIEW_REQUIRED": 7,
     "VARIANT_OFFICIALITY_MISSING": 1091
   },
   "schema_version": 3,
-  "source_manifest_sha256": "8b4c5d0656daaca941d7f72b61e2436a2fadcf94e4ffafb5470dad5d3398eeff",
+  "source_manifest_sha256": "19f7e0845b94f1fa930616b401a14236f1e96bc3b7bdc09d47ac35b53a276afa",
   "states": {
-    "HOME_CONFIRMED": 17302,
-    "HOME_UNRESOLVED": 18588,
+    "HOME_CONFIRMED": 17320,
+    "HOME_UNRESOLVED": 18570,
     "NOT_OFFICIAL_CHARACTER": 0
   }
 }
