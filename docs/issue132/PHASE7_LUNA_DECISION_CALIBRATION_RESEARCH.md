@@ -1,811 +1,422 @@
-# Issue #132 — Phase 7 Luna decision-calibration research
+# Issue #132 — Phase 7 Luna full-population method
 
 Date: 2026-09-23 JST
-Status: **RESEARCH / PRE-HANDOFF CALIBRATION / DO NOT START FULL CODEX RUN YET**
+Status: **PRE-HANDOFF RESEARCH FREEZE / DO NOT START FINAL CODEX RUN YET**
 
-## 1. Why this phase exists
+## 1. User goal
 
-The full 31,003-identity semantic census remains the completion scope.
+#132 exists to make the app more useful for **image generation**.
 
-The unresolved problem is not coverage. It is **decision calibration**.
+The target flow is:
 
-If the instructions overemphasize safety:
-- Luna can collapse toward KEEP / SEARCH_ONLY / UNRESOLVED;
-- genuine multi-entry discovery improvements will be missed.
+> 作りたい見た目・行為・部位・体位・衣装・構図などがある  
+> → Danbooruタグ名を知らなくても自然な入口から探せる  
+> → 正しいcanonical tagを選べる  
+> → Promptへ追加できる
 
-If the instructions overemphasize discoverability:
-- Luna can add every technically related route;
-- color variants, body-token families, object/place fixtures, and other combinatorial families can flood browse shelves;
-- the app becomes noisier rather than easier.
+The objective is not:
+- taxonomy completeness;
+- a beautiful ontology;
+- maximizing classified rows;
+- maximizing route count.
 
-The goal is therefore:
+The UI/runtime must remain understandable and lightweight.
 
-> first-pass high recall for plausible usability improvements, followed by a stricter precision gate before anything becomes production metadata.
-
-This separates **finding candidates** from **approving runtime changes**.
+Adult/sexual image-generation use is an explicit target workflow and must be measured, not treated as an edge case.
 
 ---
 
-## 2. Research findings that affect the protocol
+## 2. Why the older method was insufficient
 
-### A. Task framing matters as much as individual ambiguity
+Earlier #132 research used:
+- bounded candidate samples;
+- machine OK/REVIEW/NO_AUTHORITY buckets;
+- explicit KEEP/ADD-style first-pass judgments.
 
-Annotation research repeatedly shows that disagreement can come from the way the task is formulated, not only from inherently ambiguous examples.
+Those remain useful historical evidence, but they can bias a reviewer toward:
+- confirming the current taxonomy;
+- overfitting to known examples;
+- becoming too conservative;
+- or adding every technically related route.
 
-Implication for #132:
+The final semantic census therefore separates:
 
-Do not ask one vague question such as:
-> "Is this tag correctly classified?"
+1. independent semantic discovery;
+2. current-product comparison;
+3. product-value reconciliation;
+4. production approval.
 
-Instead ask separate questions about:
-1. semantic meaning;
-2. current discovery fit;
-3. whether a missing route is a natural starting point;
-4. whether that route adds useful discovery rather than technical overlap.
+---
 
-### B. Guidelines should be iterated on disagreement examples
+## 3. No sample calibration
 
-Recent LLM-assisted annotation research reports that improving the guideline from observed disagreements can substantially improve annotation agreement.
+There is no 32/64/100-row calibration pack.
 
-Implication for #132:
+The **31,003-identity population itself** is the calibration/evaluation surface.
 
-Before the 31,003-row run, use a bounded calibration pack to expose:
-- false KEEP bias;
-- over-eager secondary-route bias;
-- misuse of SEARCH_ONLY;
-- family-wide copy decisions.
+Do not approve the instruction because it looks good on a curated subset.
 
-The calibration pack is **not** used to discover all #132 gaps. Full review still covers all 31,003 identities.
+After the full pass, diagnose instruction bias from:
+- route-selection distribution;
+- CORE/SUPPORTING distribution;
+- body/theme distribution;
+- family inconsistency;
+- modifier-family concentration;
+- unresolved rate;
+- repeated route combinations.
 
-### C. Prior suggestions can anchor later judgments
+If the instruction is materially biased, revise it and rerun the affected stage over the full population.
 
-Research on LLM-assisted annotation shows that exposing annotators to prior model suggestions can shift the final label distribution.
+No fixed percentage quota is used.
 
-Implication for #132:
+---
 
-The Luna first-pass queue should **not expose normative machine verdicts** such as:
-- machine_bucket=OK;
-- Phase 1 suggested classification;
-- prior ADD_SECONDARY proposal;
-- prototype route suggestion;
-- "high-risk" / "safe" labels.
+## 4. Pass A — independent semantic discovery map
 
-It may expose factual current state:
-- current routes;
+Luna reviews **all 31,003 identities**.
+
+Pass A is intentionally blind to the current product classification.
+
+The question is:
+
+> If I wanted to generate this visual concept but did not know the Danbooru tag, which existing discovery shelf would I naturally open?
+
+Luna does **not** answer:
+- KEEP;
+- ADD_SECONDARY;
+- CHANGE_ROUTE;
+- whether the current taxonomy is correct.
+
+Those are later questions.
+
+### Pass-A input
+
+Generated from tracked #118 authority only:
+
+`scripts/issue132/build_luna_neutral_input.py`
+
+Fields:
+- review_seq;
+- identity_key;
+- source_surfaces.
+
+The input intentionally excludes:
 - current #64 path;
-- current #76 facets;
-- #118 content intent;
-- Japanese/search surfaces;
-- usage count.
+- current #76 kind/body/theme;
+- current Unified routes;
+- #118 sexual-intent verdict;
+- General/Special membership;
+- Japanese production overlay;
+- aliases;
+- usage/post count;
+- machine audit labels;
+- prior proposals.
 
-Machine heuristics should be revealed only in a later consistency/audit pass.
+This makes the pass GitHub-reproducible and avoids uploading local protected data.
 
-### D. Danbooru itself uses multiple discovery mechanisms
+### Ordering
 
-Danbooru discovery is not based on a single exhaustive directory. Search/autocomplete, aliases, and tag groups coexist.
+Deterministic:
 
-Implication for #132:
+`SHA256("issue132-pass-a-v2|" + identity_key)`
 
-Not every tag needs a browse route.
-
-A searchable proper noun, meme, event, or highly idiosyncratic identity can legitimately remain search-oriented.
-
-At the same time, curated subject-group discovery is valuable when the user knows the concept area but not the exact tag.
-
-### E. "Technically related" is not enough
-
-Danbooru's implication guidance explicitly warns against over-creating broad/frivolous relationships because they add bloat without useful value.
-
-#132 discovery routes are not Danbooru implications, but the product lesson transfers:
-
-> do not add a secondary route merely because the relationship is logically true.
-
-The route must improve actual lookup.
-
-External research references are listed at the end of this document.
+Do not group by current taxonomy or prior issue family.
 
 ---
 
-## 3. Problem in the current draft protocol
+## 5. Pass-A semantic output
 
-The current `FULL_SEMANTIC_REVIEW_PROTOCOL.md` is intentionally conservative, but three parts can bias Luna too far toward no-change:
+Per identity:
 
-1. any secondary-route proposal is automatically RESEARCHED;
-2. KEEP is described as the preferred outcome over speculative improvement;
-3. Luna is currently asked to emit a final production-like decision on the first pass.
-
-This mixes two different jobs:
-- candidate discovery;
-- production approval.
-
-They should be separated.
-
----
-
-## 3.5. Stronger correction: first pass should not be a keep/change decision
-
-Even the six-disposition model still asks Luna to compare against the current product too early.
-
-For the user's goal, the cleanest audit is an **independent discovery map** first.
-
-### Pass A — independent full-population discovery map
-
-For all 31,003 identities, Luna should answer only:
-
-1. What visual/image-generation concept does this tag represent?
-2. Is it something a user would reasonably browse for, or mainly search by name?
-3. If browsing, which existing Unified route(s) are natural starting points for a user who does not know the tag?
-4. For each selected route, is it:
-   - `CORE`: a central way to conceptualize/find the visual;
-   - `SUPPORTING`: plausible but not a primary discovery intent.
-5. Is the meaning unclear enough to require research?
-
-**Do not show Luna the current Unified route IDs, machine bucket, prior Phase 1 proposal, or prototype override during Pass A.**
-
-This makes the first pass an independent image-generation usability judgment rather than a confirmation exercise.
-
-### Pass B — deterministic comparison to current product
-
-After Pass A is complete for all 31,003 identities, mechanically compare Luna's independent map with current #64/#76/Unified metadata.
-
-Derive review populations:
-
-- `COVERED`
-  - every CORE discovery route is already available.
-
-- `MISSING_CORE_ROUTE`
-  - at least one Luna CORE route is absent from current discovery.
-
-- `MISSING_SUPPORTING_ROUTE`
-  - only SUPPORTING routes are absent.
-
-- `CURRENT_ROUTE_NOT_REPRODUCED`
-  - current route exists but Luna did not independently select it.
-  - this is an audit flag, **not an automatic removal**.
-
-- `SEARCH_ORIENTED`
-  - Luna says browse placement adds little value.
-
-- `SEMANTIC_UNRESOLVED`
-  - meaning itself remains unclear.
-
-This deterministic comparison is where the older SECONDARY_CANDIDATE / BORDERLINE concepts become useful.
-
-### Pass C — full-population product-impact audit
-
-Now expose:
-- current metadata;
-- machine pattern families;
-- route counts;
-- sibling consistency;
-- Japanese searchability;
-- alias coverage;
-- usage count.
-
-Use these to decide whether a semantically natural missing route would actually improve the product.
-
-### Pass D — precision review before production
-
-Only the actual delta/conflict populations receive the stricter final decision:
-- KEEP
-- ADD_SECONDARY
-- UPSTREAM_REVIEW
-- SEARCH_ONLY
-- UNRESOLVED
-
-This preserves full-population semantic coverage without letting current taxonomy anchor the initial judgment.
-
----
-
-## 4. Proposed two-stage semantic decision model
-
-### Stage A — Luna full census: discovery-oriented first pass
-
-Every one of the 31,003 identities is reviewed.
-
-Luna outputs a **first-pass disposition**, not a production verdict.
-
-Allowed first-pass dispositions:
-
-- `KEEP_STRONG`
-- `SECONDARY_CANDIDATE`
-- `BORDERLINE_DISCOVERY`
-- `SEARCH_ORIENTED`
-- `UPSTREAM_CANDIDATE`
-- `SEMANTIC_UNRESOLVED`
-
-This pass should favor **recall without auto-promotion**.
-
-A plausible improvement should not be forced into KEEP merely because the evidence is not yet strong enough for production.
-
-Use `BORDERLINE_DISCOVERY` for understood concepts where browse usefulness is genuinely arguable.
-
-### Stage B — post-census precision gate
-
-After all identities have been seen:
-
-1. aggregate all SECONDARY_CANDIDATE and BORDERLINE rows;
-2. detect inconsistent sibling/family decisions;
-3. compute route-load impact;
-4. expose prior machine signals only at this stage;
-5. deep-review the candidate/change population;
-6. produce final:
-   - KEEP
-   - ADD_SECONDARY
-   - UPSTREAM_REVIEW
-   - SEARCH_ONLY
-   - UNRESOLVED
-
-Destructive changes to #64/#76 never happen in #132 itself.
-
----
-
-## 4.5. Pass A output schema — research only
-
-Each identity should produce a compact record:
-
-- `identity_key`
-- `semantic_summary_ja`
-- `discovery_mode`
+- manual_seen = YES
+- semantic_summary_ja
+- discovery_mode:
   - BROWSE_WORTHY
   - MIXED
   - SEARCH_ORIENTED
   - SEMANTIC_UNRESOLVED
-- `route_1_id`
-- `route_1_strength` = CORE / SUPPORTING
-- `route_1_reason_ja`
-- `route_2_id`
-- `route_2_strength`
-- `route_2_reason_ja`
-- `route_3_id`
-- `route_3_strength`
-- `route_3_reason_ja`
-- `review_depth` = CHECKED / RESEARCHED
-- `evidence_urls`
-- `uncertainty_note`
+- up to three existing Unified route IDs
+- each route strength:
+  - CORE
+  - SUPPORTING
+- short route reason
+- body_site_ids from the existing six fixed body facets
+- theme_ids from the existing three fixed theme facets
+- review_depth:
+  - CHECKED
+  - RESEARCHED
+- evidence URLs when researched
+- uncertainty note
+- route_vocabulary_gap = YES/NO
+- route_vocabulary_gap_note
 
-Rules:
-- zero routes is valid for SEARCH_ORIENTED / unresolved identities;
-- normally prefer one or two routes;
-- a third route is allowed only when it is independently natural, not merely related;
-- never create a new route ID during the row review;
-- do not output KEEP or ADD_SECONDARY during Pass A.
+### Why route_vocabulary_gap exists
 
-The 31,003-row Pass A ledger is research authority only and does not ship at runtime.
+Luna is not allowed to invent a route ID during row review.
 
----
+But if the existing 19-route vocabulary clearly cannot express a useful user mental model, that must be recorded rather than forced into:
+- an inaccurate existing route;
+- SEARCH_ORIENTED;
+- or SEMANTIC_UNRESOLVED.
 
-## 5. Balanced product gate after MISSING_ROUTE detection
-
-A missing route should be marked `SECONDARY_CANDIDATE` when the reviewer can answer **YES** to A, B, and D, and does not have a clear NO on C.
-
-### A. Core semantic fit
-
-Does the proposed route describe a **core visible/scene-defining meaning** of the tag?
-
-Good:
-- standing_doggystyle -> POSE_POSITION
-- biting_breast -> BODY_SITE
-- sex_hair -> HAIR_FACE
-
-Weak:
-- a route matches only a token/modifier but is not a meaningful way to understand the whole tag.
-
-### B. Independent lookup intent
-
-Could a user who does **not know the tag name** reasonably start from that route?
-
-The question is not:
-> "Is this tag related to X?"
-
-It is:
-> "If I wanted this visual concept but did not know the Danbooru term, would X be a natural place to look?"
-
-### C. Browse-noise / combinatorial risk
-
-Would adding this route preserve a coherent shelf, or is this mainly a Cartesian-product modifier family?
-
-Examples requiring caution:
-- color + target variants;
-- generic size + target variants;
-- incidental location words;
-- object/place relationships where the second interpretation is weak.
-
-A high-volume family is not automatically rejected, but it should become BORDERLINE if the route benefit is mostly mechanical and direct Japanese search is already easy.
-
-### D. Evidence beyond token matching
-
-At least one of the following must exist:
-
-**D1 — two aligned tracked signals**
-Examples:
-- #64 meaning/path + #76/generation metadata;
-- canonical/Japanese meaning + accepted Special facet;
-- current path + accepted neighboring semantic family.
-
-or
-
-**D2 — one strong direct semantic source**
-Examples:
-- Danbooru wiki/official tag documentation clearly describes the relevant semantic axis;
-- another authoritative source is necessary for a domain-specific concept.
-
-A canonical string token alone is not sufficient.
+Repeated vocabulary-gap notes are analyzed only after the full pass.
 
 ---
 
-## 6. Product reconciliation states after independent Pass A
+## 6. CHECKED vs RESEARCHED
 
-The protocol needs to distinguish cases that the old schema collapses.
+### CHECKED
 
-### KEEP_STRONG
+Use when:
+- the identity meaning is clear from the tag/source surface;
+- route intent is obvious;
+- no subtle domain/reference knowledge is required.
 
-Current discovery already covers the important user mental model.
+### RESEARCHED
 
-A technically possible secondary route is not enough.
+Use when:
+- meaning is unclear;
+- a meme/event/proper reference must be understood;
+- a subtle distinction changes the route;
+- the route vocabulary may be insufficient;
+- confidence would otherwise be weak.
 
-### SECONDARY_CANDIDATE
+Preferred evidence:
+1. Danbooru wiki/tag documentation;
+2. authoritative source/reference material;
+3. other reliable semantic evidence.
 
-There is a strong, independently useful missing entrance.
+Do not infer a confident meaning only from token shape.
 
-This is **not yet production approval**.
-
-### BORDERLINE_DISCOVERY
-
-Meaning is understood, but one of these is uncertain:
-- independent lookup value;
-- redundancy with search/current facets;
-- shelf coherence;
-- family-scale noise.
-
-This is a valuable output and should not be treated as review failure.
-
-### SEARCH_ORIENTED
-
-The identity is primarily name-specific:
-- proper noun;
-- event;
-- meme;
-- franchise-specific reference;
-- idiosyncratic title.
-
-Browse placement would be more confusing than search/autocomplete.
-
-SEARCH_ORIENTED is not the same as semantic uncertainty.
+Web lookup is not mandatory for every obvious row.
 
 ---
 
-## 7. When external web research is actually required
+## 7. Route semantics
 
-Do **not** require a web lookup for every potential improvement.
+The authoritative Pass-A route definitions are:
 
-That would make the full run slow and can bias Luna toward KEEP merely to avoid research.
+`docs/issue132/LUNA_DISCOVERY_ROUTE_SEMANTIC_CONTRACT.md`
 
-### Repository-only CHECKED is allowed when
+Key principle:
 
-- meaning is obvious;
-- current accepted metadata gives aligned semantic evidence;
-- proposed first-pass disposition is not destructive;
-- confidence is high.
+A route is a **discovery intent**, not exclusive ontology membership.
 
-### RESEARCHED is required when
+Multi-entry is valid when the user could naturally approach the same visual from different axes.
 
-- meaning itself is unclear;
-- proper noun/meme/domain term must be interpreted;
-- accepted sources conflict;
-- Luna proposes UPSTREAM_CANDIDATE;
-- the route choice depends on a subtle distinction not settled by tracked metadata;
-- confidence is not high.
+Examples of potentially legitimate multi-axis concepts:
+- action + body target;
+- action + pose/sexual position;
+- clothing + exposure/state;
+- action + object;
+- body state + hair/face appearance.
 
-A first-pass SECONDARY_CANDIDATE may therefore be CHECKED when it has strong aligned tracked evidence.
-
-Final production ADD_SECONDARY can still receive a stricter second-pass review.
+Technical relatedness alone is insufficient.
 
 ---
 
-## 8. Strong / borderline / negative anchor examples
+## 8. Adult/sexual refinement capture
 
-These are calibration anchors, not bulk rules.
+Pass A also records the existing body/theme facet vocabulary independently.
 
-### Strong SECONDARY_CANDIDATE anchors
+Body:
+- MALE_GENITAL
+- BREAST_NIPPLE
+- FEMALE_GENITAL
+- MOUTH_ORAL
+- BUTTOCK_ANAL
+- URETHRA
 
-#### standing_doggystyle -> POSE_POSITION
-Current ACTION_CONTACT remains useful.
-The standing positional/sexual-position meaning is core and independently discoverable.
+Theme:
+- BDSM_RESTRAINT
+- INJURY_R18G
+- REPRO_PREGNANCY_LACTATION
 
-#### presenting_own_ass -> POSE_POSITION
-Action/contact and pose are distinct natural lookup intents.
+This ensures the full review can detect whether important General-only adult concepts are currently missing useful refinement.
 
-#### sex_hair -> HAIR_FACE
-The hair state is the visible defining feature; BODY_SITE alone is not the only natural entrance.
+It does **not** authorize General facet expansion.
 
-#### biting_breast -> BODY_SITE
-The body target is explicit and central, not incidental.
-
-These examples establish that the protocol must not be so conservative that obvious multi-axis concepts collapse to KEEP.
-
-### Strong KEEP / no-new-top-level anchors
-
-#### off_shoulder
-Current General CLOTHING already projects to Unified CLOTHING_EXPOSURE.
-Do not add a redundant new top-level route merely because a lower-level state distinction exists.
-
-### BORDERLINE anchors
-
-#### blue_bikini -> COLOR_PATTERN_SHAPE
-Color is semantically true and visually important, but this belongs to a large combinatorial color+target family and is generally easy to search directly.
-Do not automatically reject or automatically add. Use BORDERLINE unless stronger product evidence resolves it.
-
-#### automatic_door -> SCENE_BACKGROUND
-It can function as a fixture/environment element, but object identity may remain the dominant lookup intent.
-BORDERLINE is preferable to family-wide object/place expansion.
-
-### SEARCH_ORIENTED anchor
-
-#### atsuko's_grin_(meme)
-Do not manufacture a visual category from the name alone.
-Research may identify a stable visual pattern, but absent a genuinely useful existing route, search-oriented handling is valid.
+Facet expansion, if justified, receives a separate architecture/performance gate.
 
 ---
 
-## 9. Anti-bias rules for the Luna first pass
+## 9. Pass B — deterministic diff
 
-### Do not show these columns initially
+After Pass A is frozen, compare it to current #64/#76/Unified metadata.
 
-- current Unified route IDs
-- General/Special browse paths used as normative placement
-- machine_bucket
-- machine_review_signals
-- Phase 1 pattern
-- Phase 1 suggested classification
-- previous confidence
-- prototype override target
-- prior KEEP/ADD recommendation
+Derive mechanically:
 
-They can anchor the reviewer.
+- COVERED
+- MISSING_CORE_ROUTE
+- MISSING_SUPPORTING_ROUTE
+- CURRENT_ROUTE_NOT_REPRODUCED
+- MISSING_BODY_FACET
+- MISSING_THEME_FACET
+- SEARCH_ORIENTED
+- SEMANTIC_UNRESOLVED
+- ROUTE_VOCABULARY_GAP
 
-### Show neutral factual context in Pass A
-
-- identity_key
-- canonical / English
-- Japanese display/search terms
-- approved aliases
-- usage/post count
-- #118 content intent when available
-- non-normative descriptive text when available
-
-Do **not** show current browse placement in Pass A.
-
-Current #64/#76/Unified placement and machine audit context are joined only in Pass B/C.
-
-### Row order
-
-Grouping similar rows is useful for consistency.
-
-However, avoid giving one family a "default verdict".
-
-Every row still receives independent reasoning.
+No product edit is made by this diff.
 
 ---
 
-## 9.5. Current generated queue is not yet suitable for Luna
+## 10. Pass C — full-population product reconciliation
 
-Inspection of the current generated `codex_full_review_queue.csv` found two problems.
+Only now join actual product context:
 
-### Problem 1 — it exposes anchoring labels
-
-It currently contains:
-- `machine_bucket`
-- `review_lane`
-- `machine_review_signals`
-
-These are useful for DEV/AUDIT but should not be in the Luna first-pass view.
-
-The first-pass input should use a separate **neutral review view**.
-
-### Problem 2 — it is missing searchability facts
-
-The current queue does not yet carry enough factual search metadata to judge whether browse adds value.
-
-Before the final handoff, the neutral view should include:
-
-- canonical identity;
-- display Japanese;
-- Japanese search keys;
-- approved aliases;
-- usage/post count;
 - current #64 paths;
 - current #76 kind/body/theme;
-- #118 intent;
-- current Unified routes;
-- General/Special overlap.
+- current Unified routes/local routes;
+- #118 content intent;
+- accepted Japanese display/search terms;
+- approved aliases;
+- usage/post count;
+- current result counts;
+- machine pattern families.
 
-These facts already exist in the production catalog input chain:
-- Danbooru canonical source supplies post count;
-- normalized alias index supplies aliases;
-- production Japanese overlay supplies General display/search Japanese;
-- accepted Special Japanese/promotion metadata supplies Special display/search Japanese.
+The accepted local production catalog is the right source for Japanese/search/product context.
 
-This metadata should be **joined at research/build time only**.
+Do not commit ignored protected input data merely to perform Pass A.
 
-It does not imply new runtime metadata.
+Evaluate each missing route on:
 
-### Recommended separation
+1. semantic centrality;
+2. independent unknown-tag lookup value;
+3. incremental value beyond search/current facets;
+4. shelf coherence after all candidate additions;
+5. whether the resulting shelf remains narrowable;
+6. performance/runtime cost.
 
-Produce two files:
+The full reconciliation contract is:
 
-`luna_neutral_review_input.csv`
-- factual fields only;
-- no prior suggestions or machine risk labels.
-
-`dev_audit_context.csv`
-- machine bucket;
-- heuristic patterns;
-- prior candidate signals;
-- route-load context;
-- prototype history.
-
-Luna first pass receives only the neutral view.
-
-The DEV/AUDIT comparison pass may join both views after Luna has committed its first-pass disposition.
+`docs/issue132/FULL_POPULATION_PRODUCT_RECONCILIATION_GATE.md`
 
 ---
 
-## 10. Cross-census consistency checks
+## 11. Systemic fixes before row overrides
 
-After Luna finishes all rows, machine analysis becomes useful again.
+Large disagreement clusters may indicate a route-label/mapping problem rather than thousands of identity problems.
 
-It may flag, but not decide:
+Examples already worth auditing after Pass A:
+- #64 POSE_MOVEMENT = "ポーズ・動き" while Unified label is "ポーズ・体位";
+- General role concepts vs Special RELATION_ROLE;
+- General BODY_PART states/fluids vs Special FLUID_EXCRETION;
+- Special broad POSE_SCENE projection.
 
-### Sibling inconsistency
+Resolution preference:
 
-Example:
-- biting_breast -> SECONDARY_CANDIDATE BODY_SITE
-- biting_ass -> KEEP_STRONG
-- kissing_breast -> BORDERLINE
+1. correct user-facing wording if that is the real problem;
+2. correct one deterministic projection if the projection is the root cause;
+3. send true taxonomy errors to #64/#76 owner authority;
+4. use identity-level #132 secondary route only for genuine multi-entry exceptions.
 
-Flag the family for comparison.
+Reference:
 
-This may be legitimate, but it requires an explanation.
-
-### Route-growth alarm
-
-Compute how many candidate additions each route would gain.
-
-Do not impose a fixed quota.
-
-Instead flag:
-- unusually concentrated additions;
-- a family that dominates a route;
-- large growth caused by one modifier pattern.
-
-The response is semantic review, not automatic rejection.
-
-### Decision-distribution alarm
-
-No percentage is a pass/fail target.
-
-However:
-- near-total KEEP;
-- near-total SECONDARY_CANDIDATE;
-- one route receiving almost all changes;
-- widespread LOW confidence
-
-are instruction-calibration warnings.
-
-They trigger review of the guideline, not forced rebalancing of labels.
+`docs/issue132/UNIFIED_ROUTE_SYSTEMIC_RISK_AUDIT.md`
 
 ---
 
-## 11. Why quotas are explicitly rejected
+## 12. #132 production ownership
 
-A rule such as:
-- "at least 5% must change"
-- "no more than 10% may change"
+#132 must not become a second taxonomy authority.
 
-would create the exact wrong incentive.
+Default v1 production scope:
 
-The correct final number of changes is unknown.
+> confirmed secondary Unified route additions for identities already browseable through accepted authority.
 
-Use distributions only as **diagnostics for reviewer bias**.
+If an identity has no browse authority:
+- upstream #64/#76 review;
+- or SEARCH_ONLY.
 
----
+If a current primary route appears wrong:
+- upstream owner review.
 
-## 12. No sample calibration pack
+If Japanese/search metadata is wrong:
+- send to that owner lane.
 
-A fixed 32/64/100-row calibration pack is **rejected** for #132.
+Body/theme General expansion is not silently included in the route overlay.
 
-Reason:
+Reference:
 
-- hand-picked examples can overrepresent known failure modes;
-- the reviewer can become tuned to the examples rather than the real population;
-- a small benchmark can look balanced while missing entire semantic families;
-- #132 is core product behavior, so the calibration authority must be the actual 31,003-identity population.
-
-Therefore:
-
-- do not use a sample pack to approve the instruction;
-- do not infer population-wide quality from a bounded test;
-- do not tune Luna to match a curated answer key.
-
-### Full-population calibration loop
-
-Use the actual full review as the calibration surface:
-
-1. generate a neutral factual input for **all 31,003 identities**;
-2. Luna performs a first-pass disposition for all identities;
-3. run mechanical diagnostics across the complete population:
-   - decision distribution;
-   - route-growth distribution;
-   - family/sibling inconsistency;
-   - concentration by token/modifier family;
-   - confidence distribution;
-   - unresolved/search-oriented distribution;
-4. inspect the full-population anomaly clusters, not a curated sample;
-5. if the instruction is demonstrably biased, revise it;
-6. rerun the affected stage over the **full population**, not a hand-selected subset.
-
-The full population is the calibration set.
-
-The purpose of diagnostics is to detect instruction bias, not to impose quotas.
+`docs/issue132/PRODUCTION_DELTA_ARCHITECTURE_GUARDRAILS.md`
 
 ---
 
-## 13. Recommended final architecture of the review
+## 13. Runtime/performance principle
 
-```
-31,003 neutral factual identities
-        |
-        v
-Luna independent discovery map
-(no current browse route shown)
-        |
-        +-- natural route 1..3 (CORE/SUPPORTING)
-        +-- BROWSE / MIXED / SEARCH_ORIENTED / UNRESOLVED
-        |
-        v
-mechanical diff vs current #64/#76/Unified
-        |
-        +-- COVERED
-        +-- MISSING_CORE_ROUTE
-        +-- MISSING_SUPPORTING_ROUTE
-        +-- CURRENT_ROUTE_NOT_REPRODUCED
-        |
-        v
-full-population searchability + route-load + family audit
-        |
-        v
-higher-reasoning production precision review
-        |
-        v
-minimal confirmed delta only
-        |
-        v
-existing UnifiedBrowseRouteIds / UnifiedBrowseIndex
-```
+Research can be exhaustive.
 
-This gives Luna room to surface plausible improvements without giving it authority to pollute production browse metadata.
+Runtime must remain boring.
+
+The 31,003-row Luna ledger, evidence, reasoning, confidence, and diagnostics do not ship.
+
+Expected production representation remains:
+- small static accepted delta;
+- existing CatalogEntry/UnifiedBrowseIndex path where possible;
+- no LLM;
+- no embeddings;
+- no live web;
+- no runtime semantic parsing;
+- no second browse/search engine.
+
+Performance comparison uses existing:
+- Issue #114 runtime-index benchmarks;
+- Issue #117 UnifiedBrowse performance tests;
+- post-#131 UI smoke/performance evidence.
+
+A material regression blocks promotion.
+
+Reduce metadata/complexity before adding caches or services.
 
 ---
 
-## 13.5. External product evidence aligned to the user's goal
+## 14. Protected-data / Codex-cloud constraint
 
-### Danbooru's own tagging structure supports multiple independent visual axes
+GitHub does not contain the local protected production catalog/source overlays.
 
-Danbooru's tagging checklist separates:
-- actions/posture;
-- body parts;
-- wear/costume;
-- explicit sexual actions;
-- sexual positions;
-- sexual objects/themes.
+Therefore Pass A is intentionally generated entirely from tracked #118 identity authority.
 
-Its tag-group index likewise exposes separate sex-act and sexual-position groups.
+Pass C may require an authorized environment with the actual production catalog.
 
-Product implication for #132:
+Do not copy ignored local protected datasets into GitHub merely to unblock Luna semantic review.
 
-A tag can legitimately deserve more than one discovery entrance when those entrances correspond to different user-controlled visual axes.
-
-Examples:
-- action + body target;
-- sex act + sexual position;
-- action + pose.
-
-This supports multi-entry discovery without requiring a single exclusive semantic home.
-
-### Danbooru also warns against combinatorial concept inflation
-
-The tagging checklist explicitly advises against inventing compound concepts that are already expressible as separate component tags, giving examples equivalent to:
-- blonde + bikini;
-- battle + blood;
-- sleepy + morning.
-
-Product implication for #132:
-
-Color/attribute + target combinations should not automatically receive every modifier route merely because the relation is semantically true.
-
-The relevant question remains whether the extra route is useful for finding the exact tag, not whether the tag contains the attribute.
-
-### Existing tag tools combine search and browse rather than replacing one with the other
-
-Danbooru Tag Explorer combines:
-- category-tree exploration;
-- tag/Japanese full-text search;
-- result count/post-count sorting;
-- tag details/wiki navigation.
-
-Tag Autocomplete combines:
-- direct completion;
-- alias search;
-- translated/native-language search;
-- canonical replacement.
-
-Product implication:
-
-#132 should strengthen discovery around the existing search, not turn the product into a taxonomy browser that requires category navigation.
-
-### Performance evidence from tag-completion tools
-
-Tag Autocomplete exposes a completion debounce because real-time lookup can become computationally expensive depending on settings.
-
-Product implication:
-
-#132 should remain static/index-backed and avoid adding live semantic computation to keystrokes.
+This separation also improves methodological independence.
 
 ---
 
-## 14. Performance / code-complexity compatibility
+## 15. Live-main compatibility
 
-This calibration model changes only the **research pipeline**.
+The #132 research branch is intentionally isolated and has diverged from live main.
 
-No first-pass disposition, reasoning, evidence URL, or review history ships at runtime.
+Current research must therefore distinguish:
+- research evidence/contracts on the #132 branch;
+- production implementation against the then-current live main.
 
-Production still receives only:
-- confirmed minimal secondary route metadata;
-- upstream fixes separately promoted through their owner authority.
+Do not merge old branch UI/runtime code wholesale.
 
-No new runtime recommendation/classification engine is needed.
-
----
-
-## 15. Current conclusions before writing the final Codex instruction
-
-Recommended changes from the older draft:
-
-1. Keep all-31,003 review.
-2. Remove 200-row shard semantics as a reasoning boundary; use continuous review with periodic persistence/checkpoints.
-3. Do not expose machine normative labels to Luna on first pass.
-4. Replace first-pass production verdicts with six calibrated dispositions.
-5. Add explicit BORDERLINE_DISCOVERY.
-6. Separate SEARCH_ORIENTED from SEMANTIC_UNRESOLVED.
-7. Allow strong repository-evidence SECONDARY_CANDIDATE without mandatory web lookup.
-8. Require stricter evidence only at the final production gate.
-9. Use a 64-row calibration pack before the full run.
-10. Use distribution/family/route-growth checks as bias alarms, never quotas.
-
-The existing Codex handoff should remain inactive until this calibration phase is accepted.
+Before any production implementation:
+1. fetch live main;
+2. re-read CURRENT_STATE / PERMANENT_RULES / Issue #132;
+3. revalidate current UnifiedBrowse/Catalog boundaries;
+4. implement only the accepted minimal delta from latest main.
 
 ---
 
-## External research references
+## 16. Current technical gate
 
-- Bibal et al. (2025), *Automating Annotation Guideline Improvements using LLMs: A Case Study*  
-  https://aclanthology.org/2025.comedi-1.13/
+Before the final Luna/Codex instruction is written:
 
-- Dsouza & Kovatchev (2025), *Sources of Disagreement in Data for LLM Instruction Tuning*  
-  https://aclanthology.org/2025.comedi-1.3/
+1. GitHub CI must successfully generate:
+   - full population audit;
+   - `luna_neutral_review_input_v2.csv`;
+   - neutral manifest;
+2. validate:
+   - 31,003 identities;
+   - exact accepted #118 SHA;
+   - three allowed input columns only;
+   - deterministic order/output SHA;
+3. freeze the Pass-A output schema;
+4. define restart/persistence mechanics without semantic shards;
+5. only then rewrite the final Codex Luna handoff.
 
-- Oortwijn et al. (2021), *Interrater Disagreement Resolution: A Systematic Procedure to Reach Consensus in Annotation Tasks*  
-  https://aclanthology.org/2021.humeval-1.15/
-
-- James (2026), *Counting on Consensus: Selecting the Right Inter-Annotator Agreement Metric for NLP Annotation and Evaluation*  
-  https://aclanthology.org/2026.lrec-1.347/
-
-- Lee et al. (2025), *Just Put a Human in the Loop? Investigating LLM-Assisted Annotation for Subjective Tasks*  
-  https://aclanthology.org/2025.findings-acl.1323/
-
-- Danbooru, *Howto:Get Started* — autocomplete, aliases, and tag groups as complementary discovery mechanisms  
-  https://safebooru.donmai.us/wiki_pages/howto%3Aget_started
-
-- Danbooru/Konachan-style implication guidance — avoid frivolous broad relationships that add bloat without useful value  
-  https://konachan.net/help/tag_implications
+The old `CODEX_FULL_SEMANTIC_REVIEW_HANDOFF.md` remains **DRAFT / DO NOT RUN**.
