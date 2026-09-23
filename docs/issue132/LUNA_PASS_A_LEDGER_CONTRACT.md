@@ -58,13 +58,14 @@ This makes restart deterministic.
 12. `route_3_id`
 13. `route_3_strength`
 14. `route_3_reason_ja`
-15. `body_site_ids`
-16. `theme_ids`
-17. `route_vocabulary_gap`
-18. `route_vocabulary_gap_note`
-19. `review_depth`
-20. `evidence_urls`
-21. `uncertainty_note`
+15. `local_refinement_ids`
+16. `body_site_ids`
+17. `theme_ids`
+18. `route_vocabulary_gap`
+19. `route_vocabulary_gap_note`
+20. `review_depth`
+21. `evidence_urls`
+22. `uncertainty_note`
 
 Array fields are JSON arrays encoded inside CSV cells.
 
@@ -213,6 +214,24 @@ The order is research evidence only; it does not define a production primary tax
 
 ---
 
+## 8.5. local_refinement_ids
+
+JSON array of zero or more existing local refinement IDs defined by:
+
+`docs/issue132/LUNA_DISCOVERY_ROUTE_SEMANTIC_CONTRACT.md`
+
+Rules:
+
+- every selected local ID must belong to a selected top-level route in the same row;
+- do not select a local merely because it is the current taxonomy assignment;
+- zero local IDs is valid even when a top-level route is selected;
+- normally use at most one local ID per selected parent route;
+- local IDs are independent semantic audit output, not #132 production overlay authority.
+
+If a natural local refinement is later found missing from current #64 behavior, that becomes `UPSTREAM_REVIEW`, not an automatic #132 runtime addition.
+
+---
+
 ## 9. Body-site facets
 
 `body_site_ids` may contain only:
@@ -334,6 +353,7 @@ It checks:
 - route field consistency;
 - browse modes have usable browse semantics;
 - SEARCH_ORIENTED / SEMANTIC_UNRESOLVED constraints;
+- local-refinement IDs and parent-route consistency;
 - RESEARCHED evidence;
 - vocabulary-gap consistency.
 
