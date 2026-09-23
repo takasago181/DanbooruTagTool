@@ -1,7 +1,7 @@
 # Issue #132 — Current recommended direction v3
 
 Date: 2026-09-23 JST
-Status: **PRE-HANDOFF RESEARCH / NO PRODUCTION CHANGE**
+Status: **READY FOR CODEX LUNA PASS A / NO PRODUCTION CHANGE**
 
 This file contains the current #132 direction only.
 
@@ -422,32 +422,41 @@ Dynamic run IDs belong in Issue #132 checkpoints rather than this frozen semanti
 
 ---
 
-## 13. Remaining pre-handoff gates
+## 13. Execution status
 
-Before replacing the blocking Codex/Luna handoff stub:
+The pre-handoff gates are complete.
 
-1. run one final cross-document consistency audit;
-2. confirm Pass-A field list is frozen at 22 columns;
-3. confirm operational checkpoint files may change without changing frozen semantic contracts;
-4. freeze the first-run file locations for:
-   - neutral input;
-   - frozen contract manifest;
-   - Pass-A ledger;
-   - progress summary;
-5. write the final Luna execution instruction only after those points are fixed.
+Final execution authority:
 
-The final instruction must not reintroduce:
-- bounded calibration samples;
-- semantic shards;
-- current-classification anchoring;
-- per-row production approval;
-- automatic new-route/facet creation.
+`docs/issue132/CODEX_FULL_SEMANTIC_REVIEW_HANDOFF.md`
 
-Until then:
+Status:
 
-`CODEX_FULL_SEMANTIC_REVIEW_HANDOFF.md`
+**READY FOR CODEX LUNA PASS A**
 
-remains **DRAFT / DO NOT RUN**.
+Operational helpers:
+
+- bootstrap/resume:
+  `scripts/issue132/bootstrap_luna_pass_a.py`
+
+- continuous validation:
+  `scripts/issue132/validate_luna_pass_a.py`
+
+- completion + deterministic Pass B:
+  `scripts/issue132/finalize_luna_pass_a.py`
+
+The final instruction preserves the frozen method:
+
+- no bounded calibration sample;
+- no semantic shards;
+- no current-classification anchoring;
+- no per-row production approval;
+- no automatic new-route/facet creation;
+- all 31,003 identities individually reviewed;
+- Pass B remains deterministic comparison only;
+- Pass C/product approval remains later DEV/AUDIT work.
+
+Starting the Luna review does **not** authorize merge or production apply.
 
 ---
 
