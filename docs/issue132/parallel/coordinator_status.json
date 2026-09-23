@@ -1,66 +1,58 @@
 {
   "schema_version": "issue132-parallel-coordinator-v1",
   "population": 31003,
-  "total_reviewed": 550,
-  "total_remaining": 30453,
+  "total_reviewed": 675,
+  "total_remaining": 30328,
   "complete": false,
   "worker_target_per_run": 300,
   "quality_flags_pending": 7,
   "latest_ci": {
-    "workflow": "Issue132 Full Discovery Coverage Audit",
-    "run_id": 35886582872,
-    "head_sha": "7eefc00e8cb771648667d75256e786baf718d0e6",
+    "workflow": "Issue132 Incremental Checkpoint Validation",
+    "run_id": 35891753343,
+    "head_sha": "a2010499f14be58fc34e16cdfdaea2907b68e9a9",
     "conclusion": "success",
-    "validation_snapshot": {
-      "reviewed_total": 550,
-      "error_count": 0,
-      "lanes": {
-        "1": 225,
-        "2": 175,
-        "3": 150
-      }
-    }
+    "note": "Latest Issue132 validation run observed; committed immutable checkpoint validation succeeded."
   },
   "lanes": {
     "1": {
       "assigned_count": 10335,
-      "reviewed_count": 225,
-      "delta": 0,
-      "remaining_count": 10110,
-      "zero_progress_streak": 1,
+      "reviewed_count": 300,
+      "delta": 75,
+      "remaining_count": 10035,
+      "zero_progress_streak": 0,
       "slow_progress_streak": 0,
-      "latest_checkpoint": "checkpoint_000176_000225.csv",
-      "last_run_stop_reason": "TARGET_REACHED",
-      "state": "WARNING",
-      "note": "No new immutable checkpoint since the previous coordinator snapshot. First zero-progress coordinator cycle only; not STALLED and no rescue yet. Historical TARGET_REACHED was from the earlier 200-row target and is not treated as a current 300-row claim."
+      "latest_checkpoint": "checkpoint_000276_000300.csv",
+      "last_run_stop_reason": "SEMANTIC_TOOL_BLOCKER",
+      "state": "PROGRESSING_WITH_VALID_STOP",
+      "note": "Immutable checkpoint union advanced by 75. Lane status records an allowed actual stop reason. Latest sampled checkpoint is structurally parseable as the frozen 22-column schema and contains explicit RESEARCHED/SEMANTIC_UNRESOLVED handling for ambiguity."
     },
     "2": {
       "assigned_count": 10334,
-      "reviewed_count": 175,
-      "delta": 25,
-      "remaining_count": 10159,
+      "reviewed_count": 225,
+      "delta": 50,
+      "remaining_count": 10109,
       "zero_progress_streak": 0,
       "slow_progress_streak": 0,
-      "latest_checkpoint": "checkpoint_000151_000175.csv",
-      "last_run_stop_reason": "EXECUTION_LIMIT",
+      "latest_checkpoint": "checkpoint_000201_000225.csv",
+      "last_run_stop_reason": "TOOL_LIMIT",
       "state": "PROGRESSING_WITH_VALID_STOP",
-      "note": "Added one valid 25-row immutable checkpoint. Short run is accepted provisionally because lane status records EXECUTION_LIMIT; future coordinator cycles must not accept anticipated-time-limit claims as EXECUTION_LIMIT."
+      "note": "Immutable checkpoint union advanced by 50. Lane status records TOOL_LIMIT. Latest sampled checkpoint remains structurally parseable; high-risk rows include explicit research and route-gap treatment rather than silent CHECKED shortcuts."
     },
     "3": {
       "assigned_count": 10334,
       "reviewed_count": 150,
-      "delta": 50,
+      "delta": 0,
       "remaining_count": 10184,
-      "zero_progress_streak": 0,
+      "zero_progress_streak": 1,
       "slow_progress_streak": 0,
       "latest_checkpoint": "checkpoint_000126_000150.csv",
       "last_run_stop_reason": "EXECUTION_LIMIT",
-      "state": "PROGRESSING_WITH_VALID_STOP",
-      "note": "Recovered from the previous zero-progress warning with two valid 25-row checkpoints. Latest QA added two targeted quality flags: fake_screenshot evidence mismatch and face_on_another's_chest body-facet over-inference."
+      "state": "WARNING",
+      "note": "No new immutable checkpoint since the previous coordinator snapshot. This is the first consecutive zero-progress cycle after prior recovery, so WARNING only; no rescue yet. Historical EXECUTION_LIMIT does not excuse a new zero-progress coordinator cycle by itself."
     }
   },
-  "baseline_note": "Current operation uses 25-row immutable persistence, per-row semantic finalization, mandatory ambiguity research, and 100-row lane-local QA of all high-risk rows plus deterministic ordinary CHECKED samples. Full 25-row second rereads, redundant frozen-contract rereads, per-checkpoint status commits, and per-checkpoint CI polling are intentionally removed for efficiency. 300 is a per-run ceiling, not a quota.",
-  "quality_note": "Seven re-review flags are pending. Two newest flags came from Lane 3 checkpoint 126-150 and show the fast path is detecting evidence/facet ambiguity rather than silently accepting it. No structural CI failure or frozen-contract drift is present.",
+  "baseline_note": "Current operation uses 25-row immutable persistence, per-row semantic finalization, mandatory ambiguity research, and cumulative 100-row lane-local QA of all high-risk rows plus deterministic ordinary CHECKED samples. Frozen card/manifest/plan SHAs matched fast-preflight expectations, so their bodies and full frozen semantic documents were not reread. 300 is a per-run ceiling, not a quota.",
+  "quality_note": "Seven re-review flags remain pending. Coordinator sampling of newly added Lane 1 and Lane 2 checkpoints found no obvious systematic shortcut or malformed 22-column row in the sampled boundary batches. Existing flagged identities remain mandatory explicit re-review before final merge.",
   "pass_b_generated": false,
   "worker_target_semantics": "ceiling_not_quota",
   "checkpoint_rows": 25,
