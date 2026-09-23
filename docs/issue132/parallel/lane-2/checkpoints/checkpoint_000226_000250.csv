@@ -1,0 +1,26 @@
+review_seq,identity_key,manual_seen,semantic_summary_ja,discovery_mode,route_1_id,route_1_strength,route_1_reason_ja,route_2_id,route_2_strength,route_2_reason_ja,route_3_id,route_3_strength,route_3_reason_ja,local_refinement_ids,body_site_ids,theme_ids,route_vocabulary_gap,route_vocabulary_gap_note,review_depth,evidence_urls,uncertainty_note
+677,liftoff,YES,打ち上げ・離陸して地面から上昇する瞬間,BROWSE_WORTHY,ACTION_CONTACT,CORE,離陸・上昇という動作から探すのが自然,,,,,,,[],[],[],NO,,RESEARCHED,"[""https://safebooru.org/index.php?id=6169619&page=post&s=view""]",Danbooru由来投稿で飛行・ロケット等とliftoffの用例を確認
+680,toramaru_shou_(cosplay),YES,東方Projectの寅丸星のコスプレ,SEARCH_ORIENTED,,,,,,,,,,[],[],[],NO,,CHECKED,[],
+683,puffy_pants,YES,膨らみのあるゆったりしたパンツ,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,パンツの形状・衣服として探すのが自然,,,,,,,"[""CLOTHING/EVERYDAY""]",[],[],NO,,CHECKED,[],
+686,bassoon,YES,木管楽器のファゴット,BROWSE_WORTHY,TOOL_OBJECT,CORE,楽器・道具として探すのが自然,,,,,,,"[""OBJECT_PROP/DAILY""]",[],[],NO,,CHECKED,[],
+689,akatsuki_uniform,YES,NARUTOの暁メンバーが着用する特徴的な衣装,MIXED,CLOTHING_EXPOSURE,CORE,作品固有の衣装として外見から探す意図が成立,,,,,,,"[""CLOTHING/UNIFORM""]",[],[],NO,,RESEARCHED,"[""https://pixai.art/en/artwork/1759258950251880772""]",作品固有名検索も自然
+692,yellow_feathers,YES,黄色い羽毛・羽,BROWSE_WORTHY,TOOL_OBJECT,CORE,羽という視覚要素から探すのが自然,,,,,,,"[""OBJECT_PROP/DAILY""]",[],[],NO,,CHECKED,[],
+695,imminent_gangbang,YES,複数人による集団性交が今にも始まりそうな状況,BROWSE_WORTHY,ACTION_CONTACT,CORE,性的行為の直前状況として探すのが自然,,,,,,,"[""ACTION_CONTACT/INTIMATE""]",[],[],NO,,CHECKED,[],
+698,orange_visor_cap,YES,オレンジ色のサンバイザー型帽子,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,帽子・服飾品として探すのが自然,,,,,,,"[""CLOTHING/ACCESSORY""]",[],[],NO,,CHECKED,[],
+701,medjed_(fate)_(cosplay),YES,Fateシリーズのメジェド姿のコスプレ,SEARCH_ORIENTED,,,,,,,,,,[],[],[],NO,,RESEARCHED,"[""https://www.safebooru.org/index.php?id=5573572&page=post&s=view""]",Fateのmedjedとcosplayが併記される作品固有コスプレを確認
+704,polka_dot_bikini,YES,水玉模様のビキニ,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,水着として探すのが自然,COLOR_PATTERN_SHAPE,SUPPORTING,水玉模様自体から探す意図も独立して成立,,,,"[""CLOTHING/EVERYDAY""]",[],[],NO,,CHECKED,[],
+707,number_earrings,YES,数字を意匠にしたイヤリング,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,耳飾りとして探すのが自然,TEXT_SYMBOL,SUPPORTING,数字記号の意匠から探す意図も成立,,,,"[""CLOTHING/ACCESSORY"",""TEXT_SYMBOL/SYMBOL""]",[],[],NO,,RESEARCHED,"[""https://safebooru.org/index.php?id=6035535&page=post&s=view""]",number earringsの実例を確認
+710,volleyball_net,YES,バレーボール用ネット,BROWSE_WORTHY,TOOL_OBJECT,CORE,スポーツ設備・物体として探すのが自然,,,,,,,"[""OBJECT_PROP/DAILY""]",[],[],NO,,CHECKED,[],
+713,implied_pornography,YES,直接描写せずポルノ・性的行為を示唆する表現,BROWSE_WORTHY,ACTION_CONTACT,CORE,性的状況の示唆として探すのが自然,,,,,,,"[""ACTION_CONTACT/INTIMATE""]",[],[],NO,,CHECKED,[],
+716,chain_around_neck,YES,首の周囲に鎖が巻かれた状態,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,首周りの装着物として探すのが自然,,,,,,,"[""CLOTHING/ACCESSORY""]",[],[],NO,,CHECKED,[],
+719,full_beard,YES,顔下部を広く覆う豊かなひげ,BROWSE_WORTHY,HAIR_FACE,CORE,顔の毛・外見として探すのが自然,,,,,,,[],[],[],NO,,CHECKED,[],
+722,tokin_hat,YES,天狗などと関連する小型の箱形日本帽子・頭襟,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,帽子・頭部装飾として探すのが自然,,,,,,,"[""CLOTHING/ACCESSORY""]",[],[],NO,,RESEARCHED,"[""https://tags.latent.moe/en/t/tokin_hat""]",Danbooru由来wiki記述で意味を確認
+725,frozen,YES,人物・物体が凍結して氷漬けになった状態,BROWSE_WORTHY,NONHUMAN_TRANSFORM,CORE,凍結による状態変化として探すのが自然,,,,,,,[],[],[],NO,,RESEARCHED,"[""https://safebooru.donmai.us/posts/10891365?q=final_sword""]",breathing iceを受けた対象にfrozenが付く実例を確認
+728,unconventional_maid,YES,通常のメイド服から外れたメイドテーマ衣装,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,メイドテーマの変則衣装として探すのが自然,,,,,,,"[""CLOTHING/COSTUME""]",[],[],NO,,RESEARCHED,"[""https://safebooru.donmai.us/wiki_pages/maid_leotard?z=1""]",maid leotardがunconventional maidを含意することを確認
+731,kagamine_len_(cosplay),YES,VOCALOIDの鏡音レンのコスプレ,SEARCH_ORIENTED,,,,,,,,,,[],[],[],NO,,CHECKED,[],
+734,silo,YES,穀物などを貯蔵する大型の塔状・筒状設備,BROWSE_WORTHY,SCENE_BACKGROUND,CORE,農業・工業景観の設備として探すのが自然,,,,,,,[],[],[],NO,,CHECKED,[],
+737,hippopotamus,YES,カバ,BROWSE_WORTHY,LIVING,CORE,動物として探すのが自然,,,,,,,"[""LIVING_NATURE/CREATURE""]",[],[],NO,,CHECKED,[],
+740,bow-shaped_hair,YES,髪そのものがリボン・蝶結び状に形作られた髪型,BROWSE_WORTHY,HAIR_FACE,CORE,髪型・髪の形状として探すのが自然,,,,,,,[],[],[],NO,,CHECKED,[],
+743,nipple_clamps,YES,乳首を挟むクランプ型の性具,BROWSE_WORTHY,TOOL_OBJECT,CORE,性具・器具として探すのが自然,BODY_SITE,SUPPORTING,乳首への作用を目的に探す意図も独立して成立,,,,"[""OBJECT_PROP/DAILY""]","[""BREAST_NIPPLE""]","[""BDSM_RESTRAINT""]",NO,,CHECKED,[],
+746,mother_and_daughter,YES,母親と娘の組み合わせ,BROWSE_WORTHY,RELATION_ROLE,CORE,家族関係から探すのが自然,,,,,,,[],[],[],NO,,CHECKED,[],
+749,lifting_object,YES,物体を持ち上げている動作,BROWSE_WORTHY,ACTION_CONTACT,CORE,物を持ち上げる動作として探すのが自然,,,,,,,"[""ACTION_CONTACT/OBJECT_USE""]",[],[],NO,,CHECKED,[],
