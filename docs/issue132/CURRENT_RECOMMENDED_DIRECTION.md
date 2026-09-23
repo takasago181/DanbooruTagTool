@@ -264,6 +264,10 @@ Owner rules:
 - misleading current primary route -> owner-authority review;
 - Japanese/search issue -> Japanese/search owner lane.
 
+New top-level route IDs or new facet axes are **default-deny**.
+
+Repeated full-population gaps may trigger a separate design review, but they do not automatically expand the #132 v1 runtime model.
+
 Architecture guardrail:
 
 `docs/issue132/PRODUCTION_DELTA_ARCHITECTURE_GUARDRAILS.md`
