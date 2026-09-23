@@ -71,6 +71,8 @@ Evidence preference:
 2. official/reference source;
 3. reliable secondary source.
 
+The evidence must support the **actual identity meaning/scope being asserted**. A generic adjacent-topic page, franchise overview, or unrelated tag page is not sufficient merely because it shares vocabulary. If the source only proves surrounding context but not the material meaning used for routing, keep researching or record the uncertainty.
+
 If reasonable research still cannot establish the meaning confidently:
 - `SEMANTIC_UNRESOLVED`;
 - `RESEARCHED`;
@@ -300,7 +302,15 @@ Also deterministic spot-check ordinary CHECKED single-route rows:
 
 Look for systematic drift/family inconsistency and repair before continuing past the boundary.
 
-Do not reread all 100 ordinary rows without a reason.
+Escalation rule:
+- if **2 or more** deterministic ordinary-CHECKED spot checks need semantic correction; or
+- one error indicates a repeated family/rule problem that may affect multiple rows;
+
+then expand QA to **all ordinary CHECKED rows in that 100-row block** before continuing.
+
+This makes the cheap sample a detector, not a license to leave a suspicious block partially checked.
+
+Do not reread all 100 ordinary rows when the sample/high-risk review remains clean.
 
 ---
 
