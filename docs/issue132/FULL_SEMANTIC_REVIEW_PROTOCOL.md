@@ -160,6 +160,7 @@ Every identity produces:
 - route_3_id
 - route_3_strength
 - route_3_reason_ja
+- local_refinement_ids = zero or more existing local refinement IDs
 - body_site_ids = zero or more existing fixed body-site IDs
 - theme_ids = zero or more existing fixed theme IDs
 - route_vocabulary_gap = YES / NO
@@ -199,6 +200,26 @@ Required when:
 Pass A is allowed to research externally when needed.
 
 It is **not** required to browse the web for every row.
+
+---
+
+## 6.5. Local refinement capture
+
+Pass A also records existing local refinement intent independently.
+
+This exists to catch a different class of usability problem:
+
+> 大分類には辿り着けるが、その先の絞り込みが不自然または不足している。
+
+Allowed local IDs and their parent routes are defined in:
+
+`docs/issue132/LUNA_DISCOVERY_ROUTE_SEMANTIC_CONTRACT.md`
+
+Important ownership rule:
+
+- local-refinement mismatch is an upstream #64 consistency signal;
+- #132 does not create a parallel local taxonomy overlay;
+- the field is research-only and does not increase runtime cost.
 
 ---
 
