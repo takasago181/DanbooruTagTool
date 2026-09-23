@@ -8,6 +8,9 @@ on:
       - "scripts/maintenance/audit_execution_overhead.py"
       - "scripts/maintenance/extract_compact_csv_slice.py"
       - "scripts/maintenance/test_extract_compact_csv_slice.py"
+      - "docs/project/EXECUTION_TELEMETRY.md"
+      - "scripts/maintenance/validate_execution_telemetry.py"
+      - "scripts/maintenance/test_validate_execution_telemetry.py"
   workflow_dispatch:
 
 permissions:
@@ -23,6 +26,9 @@ jobs:
           python-version: "3.12"
       - name: Test compact CSV transport
         run: python -m unittest scripts.maintenance.test_extract_compact_csv_slice
+
+      - name: Test execution telemetry validator
+        run: python -m unittest scripts.maintenance.test_validate_execution_telemetry
 
       - name: Run advisory execution-overhead audit
         run: python scripts/maintenance/audit_execution_overhead.py
