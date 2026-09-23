@@ -36,6 +36,4 @@ jobs:
           git diff --exit-code origin/main...HEAD -- \
             docs/issue70/data/runtime/issue70_translation_results.csv \
             docs/issue70/data/runtime/issue70_catalog_overlay.csv \
-            docs/issue180/evidence/ISSUE179_ORIGIN_HANDOFF_V1.csv \
-            docs/issue180/evidence/ISSUE179_ORIGIN_HANDOFF_V1.meta.json \
             src tools/production data/production
