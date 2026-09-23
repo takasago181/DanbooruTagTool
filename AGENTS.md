@@ -7,6 +7,17 @@ Codexは独立班ではなくDEV（開発班）の実装担当。
 
 常設班はDEVとKNOWLEDGE。旧PROMPT班は廃止され、Prompt/generation-effectiveness知識はKNOWLEDGE #44へ統合された。
 
+## 1.5. Execution architecture
+
+Project-wide execution efficiency authority:
+
+- `docs/project/EXECUTION_ARCHITECTURE.md`
+- `docs/project/CURRENT_ROUTING.json`
+
+New Codex session / lane selection remains a **cold start** and follows the full gate below.
+
+Recurring same-lane automation or deterministic append-only resume may use the compact **warm resume** path defined by Issue #188 when contract/routing fingerprints match. Do not generalize warm-resume shortcuts to production promotion, protected-data mutation, cleanup, or uncertain routing.
+
 ## 2. 作業開始ゲート
 
 新規セッション・再開・task branch作成前に必ず:
