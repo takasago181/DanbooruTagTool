@@ -460,6 +460,48 @@ Starting the Luna review does **not** authorize merge or production apply.
 
 ---
 
+## 13.5. Normal-ChatGPT parallel execution
+
+When Codex/Work capacity is unavailable, the same Pass-A contract may be executed through normal ChatGPT Automations as:
+
+- Worker 1
+- Worker 2
+- Worker 3
+- Coordinator/watchdog
+
+Authority:
+
+`docs/issue132/LUNA_PARALLEL_AUTOMATION_PROTOCOL.md`
+
+Assignment is purely operational:
+
+`lane = ((review_seq - 1) % 3) + 1`
+
+Because the neutral review order is already deterministic hash order, this does not create semantic category lanes.
+
+Parallel execution must preserve:
+- all 31,003 identities;
+- the same 22-column row schema;
+- the same route/local/body/theme semantics;
+- the same frozen contract;
+- independent Pass-A judgment;
+- deterministic Pass B only after complete merge.
+
+Workers own separate fragment files.
+
+Coordinator performs:
+- progress aggregation;
+- zero-progress streak detection;
+- fail-closed validation;
+- small rescue work only for a genuinely stalled lane;
+- final mechanical merge.
+
+This is an execution/resilience layer only.
+
+It does not authorize production changes or a different semantic standard.
+
+---
+
 ## 14. Protected boundaries
 
 Research branch only.
