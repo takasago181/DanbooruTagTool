@@ -18,13 +18,34 @@ MODES = {"BROWSE_WORTHY","MIXED","SEARCH_ORIENTED","SEMANTIC_UNRESOLVED"}
 DEPTHS = {"CHECKED","RESEARCHED"}
 BODY = {"MALE_GENITAL","BREAST_NIPPLE","FEMALE_GENITAL","MOUTH_ORAL","BUTTOCK_ANAL","URETHRA"}
 THEMES = {"BDSM_RESTRAINT","INJURY_R18G","REPRO_PREGNANCY_LACTATION"}
+LOCAL_PARENT = {
+    "ACTION_CONTACT/INTERACTION":"ACTION_CONTACT",
+    "ACTION_CONTACT/INTIMATE":"ACTION_CONTACT",
+    "ACTION_CONTACT/OBJECT_USE":"ACTION_CONTACT",
+    "CLOTHING/ACCESSORY":"CLOTHING_EXPOSURE",
+    "CLOTHING/COSTUME":"CLOTHING_EXPOSURE",
+    "CLOTHING/EVERYDAY":"CLOTHING_EXPOSURE",
+    "CLOTHING/UNIFORM":"CLOTHING_EXPOSURE",
+    "CLOTHING_STATE_EXPOSURE/":"CLOTHING_EXPOSURE",
+    "LIVING_NATURE/CREATURE":"LIVING",
+    "LIVING_NATURE/PLANT":"LIVING",
+    "OBJECT_PROP/DAILY":"TOOL_OBJECT",
+    "OBJECT_PROP/FOOD":"TOOL_OBJECT",
+    "OBJECT_PROP/VEHICLE":"TOOL_OBJECT",
+    "OBJECT_PROP/WEAPON":"TOOL_OBJECT",
+    "TEXT_SYMBOL/LAYOUT":"TEXT_SYMBOL",
+    "TEXT_SYMBOL/SYMBOL":"TEXT_SYMBOL",
+    "TEXT_SYMBOL/TEXT":"TEXT_SYMBOL",
+    "EXPRESSION_EMOTION/":"EXPRESSION_GAZE",
+    "GAZE_ORIENTATION/":"EXPRESSION_GAZE",
+}
 
 FIELDS = [
     "review_seq","identity_key","manual_seen","semantic_summary_ja","discovery_mode",
     "route_1_id","route_1_strength","route_1_reason_ja",
     "route_2_id","route_2_strength","route_2_reason_ja",
     "route_3_id","route_3_strength","route_3_reason_ja",
-    "body_site_ids","theme_ids",
+    "local_refinement_ids","body_site_ids","theme_ids",
     "route_vocabulary_gap","route_vocabulary_gap_note",
     "review_depth","evidence_urls","uncertainty_note"
 ]
@@ -82,6 +103,20 @@ def validate_row(row, expected_seq):
     need(len(routes)==len(set(routes)),"duplicate route IDs")
 
     try:
+        local=parse_json_list(row["local_refinement_ids"],"local_refinement_ids",ident)
+        need(set(local)<=set(LOCAL_PARENT),"invalid local_refinement_ids")
+        selected_routes=set(routes)
+        for local_id in local:
+            parent=LOCAL_PARENT.get(local_id)
+            need(parent in selected_routes,
+                 f"local refinement {local_id} requires selected parent route {parent}")
+        by_parent=Counter(LOCAL_PARENT.get(local_id) for local_id in local)
+        need(all(count<=1 for count in by_parent.values()),
+             "normally at most one local refinement per selected parent route")
+    except ValueError as e:
+        errs.append(str(e)); local=[]
+
+    try:
         body=parse_json_list(row["body_site_ids"],"body_site_ids",ident)
         need(set(body)<=BODY,"invalid body_site_ids")
     except ValueError as e:
@@ -99,13 +134,13 @@ def validate_row(row, expected_seq):
     if row["review_depth"]=="RESEARCHED":
         need(bool(evidence),"RESEARCHED requires at least one evidence URL")
     if row["discovery_mode"]=="SEARCH_ORIENTED":
-        need(not routes and not body and not themes,
-             "SEARCH_ORIENTED must not carry routes/body/theme; use MIXED if both apply")
+        need(not routes and not local and not body and not themes,
+             "SEARCH_ORIENTED must not carry routes/local/body/theme; use MIXED if both apply")
         need(row["route_vocabulary_gap"]=="NO",
              "SEARCH_ORIENTED cannot also claim a missing browse vocabulary; use MIXED/BROWSE_WORTHY")
     if row["discovery_mode"]=="SEMANTIC_UNRESOLVED":
-        need(not routes and not body and not themes,
-             "SEMANTIC_UNRESOLVED must not carry routes/body/theme")
+        need(not routes and not local and not body and not themes,
+             "SEMANTIC_UNRESOLVED must not carry routes/local/body/theme")
         need(row["route_vocabulary_gap"]=="NO",
              "SEMANTIC_UNRESOLVED cannot establish a route vocabulary gap")
         need(row["review_depth"]=="RESEARCHED","SEMANTIC_UNRESOLVED must be RESEARCHED")
@@ -183,6 +218,9 @@ def main():
         "route_strength_counts":dict(Counter(
             f"{r[f'route_{i}_id']}|{r[f'route_{i}_strength']}"
             for r in ledger for i in range(1,4) if r[f"route_{i}_id"]
+        )),
+        "local_refinement_counts":dict(Counter(
+            x for r in ledger for x in parse_json_list(r["local_refinement_ids"],"local_refinement_ids",r["identity_key"])
         )),
         "body_site_counts":dict(Counter(
             x for r in ledger for x in parse_json_list(r["body_site_ids"],"body_site_ids",r["identity_key"])
