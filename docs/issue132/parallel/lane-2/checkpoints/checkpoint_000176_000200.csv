@@ -1,0 +1,26 @@
+review_seq,identity_key,manual_seen,semantic_summary_ja,discovery_mode,route_1_id,route_1_strength,route_1_reason_ja,route_2_id,route_2_strength,route_2_reason_ja,route_3_id,route_3_strength,route_3_reason_ja,local_refinement_ids,body_site_ids,theme_ids,route_vocabulary_gap,route_vocabulary_gap_note,review_depth,evidence_urls,uncertainty_note
+527,terrier_(dog),YES,テリア系の犬,BROWSE_WORTHY,LIVING,CORE,犬種・動物として探すのが自然,,,,,,,"[""LIVING_NATURE/CREATURE""]",[],[],NO,,CHECKED,[],
+530,pushing_wheelchair,YES,車椅子を押している動作,BROWSE_WORTHY,ACTION_CONTACT,CORE,人が車椅子を押す動作が中心,TOOL_OBJECT,SUPPORTING,車椅子という移動用具から場面を探す意図も独立して有用,,,,"[""ACTION_CONTACT/OBJECT_USE"", ""OBJECT_PROP/VEHICLE""]",[],[],NO,,CHECKED,[],
+533,koyanskaya_(fate)_(cosplay),YES,『Fate/Grand Order』のコヤンスカヤのコスプレ,SEARCH_ORIENTED,,,,,,,,,,[],[],[],NO,,RESEARCHED,"[""https://commons.wikimedia.org/wiki/File:Miu_as_Koyanskaya_at_CWT_K29_20190309b.jpg""]",特定作品キャラクターのコスプレ指定で、一般棚よりキャラクター名検索が自然
+536,adjusting_headset,YES,ヘッドセットの位置を手で調整している動作,BROWSE_WORTHY,ACTION_CONTACT,CORE,装着物を手で調整する動作が中心,TOOL_OBJECT,SUPPORTING,ヘッドセットという機器から探す意図も独立して有用,,,,"[""ACTION_CONTACT/OBJECT_USE"", ""OBJECT_PROP/DAILY""]",[],[],NO,,CHECKED,[],
+539,hockey_sweater,YES,アイスホッケー用のジャージ／セーター,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,スポーツ衣装として探すのが自然,,,,,,,"[""CLOTHING/EVERYDAY""]",[],[],NO,,CHECKED,[],
+542,tea,YES,茶・お茶の飲み物,BROWSE_WORTHY,TOOL_OBJECT,CORE,飲食物として画面に出す意図が自然,,,,,,,"[""OBJECT_PROP/FOOD""]",[],[],NO,,CHECKED,[],
+545,playboy_pokemon,YES,ポケモン風の耳や意匠を取り入れた非伝統的なプレイボーイバニー衣装,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,バニー系のコスチュームとして探すのが自然,,,,,,,"[""CLOTHING/COSTUME""]",[],[],NO,,RESEARCHED,"[""https://safebooru.donmai.us/wiki_pages/nontraditional_playboy_bunny""]",
+548,thailand,YES,国・地域としてのタイ,SEARCH_ORIENTED,,,,,,,,,,[],[],[],NO,,CHECKED,[],
+551,taking_shelter,YES,雨や危険などを避けて物陰・屋内に避難している行為,BROWSE_WORTHY,ACTION_CONTACT,CORE,避難・雨宿りという人物の行為から探すのが自然,,,,,,,[],[],[],NO,,CHECKED,[],
+554,sakakino_academy_school_uniform,YES,『School Days』の榊野学園の学校制服,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,特定校の制服を衣装として生成する意図が自然,,,,,,,"[""CLOTHING/UNIFORM""]",[],[],NO,,RESEARCHED,"[""https://wiki-origin.giantbomb.com/wiki/Objects/School_Uniform""]",作品固有の学校制服だが視覚的な衣装概念を持つためbrowse対象
+557,doll_joints,YES,生きたキャラクターに見える人形のような球状・ソケット状の関節,BROWSE_WORTHY,NONHUMAN_TRANSFORM,CORE,身体を人形的に変える外観特徴として探すのが自然,,,,,,,[],[],[],NO,,RESEARCHED,"[""https://safebooru.donmai.us/wiki_pages/doll_joints""]",
+560,rowboat,YES,オールで漕ぐ小型の手漕ぎボート,BROWSE_WORTHY,TOOL_OBJECT,CORE,乗り物・小道具として画面に出す意図が自然,,,,,,,"[""OBJECT_PROP/VEHICLE""]",[],[],NO,,CHECKED,[],
+563,short-sleeved_sweater,YES,半袖のセーター,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,衣服の形状指定として探すのが自然,,,,,,,"[""CLOTHING/EVERYDAY""]",[],[],NO,,CHECKED,[],
+566,anal_object_extraction,YES,肛門・直腸内に挿入された物体を引き抜く／取り出す行為,BROWSE_WORTHY,ACTION_CONTACT,CORE,肛門から物体を取り出す行為そのものが中心,,,,,,,"[""ACTION_CONTACT/INTIMATE""]","[""BUTTOCK_ANAL""]",[],NO,,RESEARCHED,"[""https://www.homed.gr/en/emergency-services/anal-object-removal-help/""]",
+569,purple_bow,YES,紫色のリボン・蝶結び装飾,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,リボン装飾として探すのが自然,,,,,,,"[""CLOTHING/ACCESSORY""]",[],[],NO,,CHECKED,[],
+572,school_hat,YES,学校制服として用いられる帽子,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,制服系の帽子・装身具として探すのが自然,,,,,,,"[""CLOTHING/ACCESSORY""]",[],[],NO,,CHECKED,[],
+575,brown_overalls,YES,茶色のオーバーオール,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,衣服として探すのが自然,,,,,,,"[""CLOTHING/EVERYDAY""]",[],[],NO,,CHECKED,[],
+578,fingers_to_cheek,YES,指を頬に当てる仕草・ポーズ,BROWSE_WORTHY,POSE_POSITION,CORE,手指と顔の位置関係を含むポーズそのものが主要な視覚意図,,,,,,,[],[],[],NO,,CHECKED,[],
+581,sliding_doors,YES,横方向に滑らせて開閉する引き戸,BROWSE_WORTHY,TOOL_OBJECT,CORE,建具・物体として画面に配置する意図が自然,,,,,,,"[""OBJECT_PROP/DAILY""]",[],[],NO,,CHECKED,[],
+584,ring_(identity)_(project_moon),YES,『Limbus Company』における組織「The Ring」系のキャラクターIdentity,SEARCH_ORIENTED,,,,,,,,,,[],[],[],NO,,RESEARCHED,"[""https://limbuscompany.wiki.gg/wiki/Ring""]",作品固有のIdentity系列で、一般的な指輪オブジェクトではない
+587,gem_(azur_lane),YES,『アズールレーン』に登場する固有デザインのジェム（宝石・通貨表現）,MIXED,TOOL_OBJECT,CORE,宝石・ゲーム内アイテムとして探す意図が成立,,,,,,,[],[],[],NO,,RESEARCHED,"[""https://safebooru.donmai.us/posts/2996422?q=gem_%28azur_lane%29""]",作品固有のジェムなので名称検索も自然
+590,autopenetration,YES,男性が自分の陰茎を自分の肛門へ挿入する自己挿入の性行為,BROWSE_WORTHY,ACTION_CONTACT,CORE,自己への性的挿入行為そのものが中心,,,,,,,"[""ACTION_CONTACT/INTIMATE""]","[""MALE_GENITAL"", ""BUTTOCK_ANAL""]",[],NO,,RESEARCHED,"[""https://www.lalanguefrancaise.com/dictionnaire/definition/autopenetration""]",
+593,broken_horns,YES,折れたり欠けたりした角,BROWSE_WORTHY,NONHUMAN_TRANSFORM,CORE,角の損傷を含む非人間的身体外観として探すのが自然,,,,,,,[],[],[],NO,,CHECKED,[],
+596,crested_hair,YES,頭頂部が鶏冠状に盛り上がった髪型,BROWSE_WORTHY,HAIR_FACE,CORE,髪型そのものが主要な視覚意図,,,,,,,[],[],[],NO,,RESEARCHED,"[""https://cos.booru.nl/wiki_pages/tag_group%3Ahair_styles""]",
+599,edamame,YES,枝豆,BROWSE_WORTHY,TOOL_OBJECT,CORE,食べ物として画面に出す意図が自然,,,,,,,"[""OBJECT_PROP/FOOD""]",[],[],NO,,CHECKED,[],
