@@ -10,12 +10,13 @@
   "last_checkpoint": "checkpoint_000301_000325.csv",
   "complete": false,
   "error_count": 0,
-  "last_run_delta": 25,
-  "last_run_stop_reason": "GIT_CONFLICT",
+  "last_run_delta": 0,
+  "last_run_stop_reason": "TOOL_LIMIT",
   "last_run_stop_evidence": {
-    "blocker_type": "GIT_CONFLICT",
-    "operation": "run-end lane status update after checkpoint_000301_000325.csv",
-    "location": "docs/issue132/parallel/lane-1/status.json",
-    "why_continuation_impossible": "The first status update was rejected with HTTP 409 because the expected status blob SHA no longer matched GitHub live branch. The live status was re-read and reconciled only to publish the already-durable checkpoint prefix; no further semantic checkpoint was started after the concurrent-write conflict."
+    "blocker_type": "GITHUB_ARTIFACT_ACCESS_UNAVAILABLE",
+    "operation": "Fetch latest successful Issue132 Full Discovery Coverage Audit artifact issue132-full-discovery-audit to verify and filter the frozen neutral input before semantic review",
+    "where": "GitHub Actions run 35897055452 (Issue132 Full Discovery Coverage Audit, success, branch research/taxonomy-usability-audit)",
+    "failure": "Both the run artifacts REST endpoint and the dedicated fetch_workflow_run_artifacts connector returned HTTP 404 Not Found for the successful run.",
+    "why_continuation_impossible": "The next lane-1 identities must come from the frozen neutral CSV and its SHA/order must be verified before semantic work. Without artifact bytes, identity 326 onward cannot be safely derived without guessing or violating the frozen neutral contract. Existing immutable checkpoint prefix through 325 remains unchanged."
   }
 }
