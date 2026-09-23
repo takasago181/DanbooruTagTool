@@ -118,6 +118,16 @@ def main() -> None:
     unit_tags = [tag for u in units for tag in json.loads(u["member_ids/tags"])]
     if len(unit_tags) != len(set(unit_tags)) or set(unit_tags) != {r["canonical_tag"] for r in unresolved}:
         errors.append("COVERAGE_INTEGRITY: residual units do not cover exactly all unresolved Characters")
+    closure_path = ROOT / "docs/issue180/v3/reports/RESEARCH_UNIT_CLOSURE_SWEEP_V3.csv"
+    closures = read_csv(closure_path) if closure_path.exists() else []
+    open_units = {u["unit_id"]: u for u in units if u["status"] == "OPEN"}
+    closure_by_id = {r.get("unit_id", ""): r for r in closures}
+    allowed_closures = {"AUTO_RESOLVE_STRUCTURE", "BATCH_AUTHORITY_RESEARCH", "STRUCTURAL_NO_SAFE_PATH", "POLICY_BLOCKED", "IDENTITY_BLOCKED", "CONFLICT_REVIEW"}
+    if (len(closure_by_id) != len(closures) or set(closure_by_id) != set(open_units)
+            or any(r.get("classification") not in allowed_closures for r in closures)
+            or any(closure_by_id[uid].get("member_ids_sha256") != sha256_text("\n".join(sorted(json.loads(u["member_ids/tags"]))))
+                   for uid, u in open_units.items() if uid in closure_by_id)):
+        errors.append("RESEARCH_UNIT_INTEGRITY: closure sweep does not classify each exact OPEN unit exactly once")
     allowed_unit_states = {"OPEN", "RESOLVED", "PARTIALLY_RESOLVED", "NO_SAFE_EVIDENCE", "POLICY_BLOCKED", "IDENTITY_BLOCKED", "SUPERSEDED_BY_NEW_UNIT"}
     if any(u.get("status") not in allowed_unit_states for u in units):
         errors.append("RESEARCH_UNIT_INTEGRITY: unknown or nonterminalized unit status value")
