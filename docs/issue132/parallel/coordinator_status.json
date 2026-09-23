@@ -1,51 +1,54 @@
 {
   "schema_version": "issue132-parallel-coordinator-v1",
   "population": 31003,
-  "total_reviewed": 225,
-  "total_remaining": 30778,
+  "total_reviewed": 475,
+  "total_remaining": 30528,
   "complete": false,
-  "worker_target_per_run": 200,
+  "worker_target_per_run": 300,
   "quality_flags_pending": 5,
   "latest_ci": {
     "workflow": "Issue132 Full Discovery Coverage Audit",
-    "head_sha": "6ebf36d886b0d4f8692b264d6b9b4d892668a3d0",
-    "conclusion": "success"
+    "head_sha": "7b50dc6fea17f324177eff01bedba2a717e6c15d",
+    "conclusion": "pending_after_lane2_column_repair"
   },
   "lanes": {
     "1": {
       "assigned_count": 10335,
-      "reviewed_count": 25,
-      "delta": 25,
-      "remaining_count": 10310,
+      "reviewed_count": 225,
+      "delta": 200,
+      "remaining_count": 10110,
       "zero_progress_streak": 0,
       "slow_progress_streak": 0,
-      "latest_checkpoint": "checkpoint_000001_000025.csv",
-      "last_run_stop_reason": null,
-      "state": "PROGRESSING"
+      "latest_checkpoint": "checkpoint_000176_000225.csv",
+      "last_run_stop_reason": "TARGET_REACHED",
+      "state": "PROGRESSING",
+      "note": "This 200-row run completed before the live target changed to 300; do not reinterpret it retroactively as underperforming."
     },
     "2": {
       "assigned_count": 10334,
-      "reviewed_count": 100,
-      "delta": 100,
-      "remaining_count": 10234,
+      "reviewed_count": 150,
+      "delta": 50,
+      "remaining_count": 10184,
       "zero_progress_streak": 0,
       "slow_progress_streak": 0,
-      "latest_checkpoint": "checkpoint_000076_000100.csv",
-      "last_run_stop_reason": "TARGET_REACHED",
-      "state": "PROGRESSING"
+      "latest_checkpoint": "checkpoint_000101_000150.csv",
+      "last_run_stop_reason": "TOOL_LIMIT",
+      "state": "PROGRESSING_WITH_VALID_STOP",
+      "note": "15 malformed column-shift rows in checkpoint 101-150 were mechanically repaired at commit 7b50dc6fea17f324177eff01bedba2a717e6c15d; semantic values were not intentionally changed."
     },
     "3": {
       "assigned_count": 10334,
       "reviewed_count": 100,
-      "delta": 100,
+      "delta": 0,
       "remaining_count": 10234,
-      "zero_progress_streak": 0,
+      "zero_progress_streak": 1,
       "slow_progress_streak": 0,
       "latest_checkpoint": "checkpoint_000076_000100.csv",
-      "last_run_stop_reason": "TARGET_REACHED",
-      "state": "PROGRESSING"
+      "last_run_stop_reason": "EXECUTION_LIMIT",
+      "state": "WARNING",
+      "note": "A temporary invalid placeholder checkpoint was removed; no additional valid Lane 3 rows were accepted in that run."
     }
   },
-  "baseline_note": "First coordinator cycle after worker target changed from 100 to 200. Existing lane deltas and TARGET_REACHED values predate the 200-target rule, so this cycle establishes the baseline and does not classify them as underperforming. Future cycles enforce the 200-target stop-reason rule.",
+  "baseline_note": "2026-09-23 manual routing sync after live worker target changed to 300 with mandatory 50-row two-pass review and final 300-row QA. Lane 1's prior 200-row TARGET_REACHED predates this rule. Lane 2 and Lane 3 stop reasons are valid explicit stops under the current rule. Coordinator must derive future counts from immutable checkpoints, not this snapshot alone.",
   "pass_b_generated": false
 }
