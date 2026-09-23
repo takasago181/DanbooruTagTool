@@ -49,6 +49,10 @@ jobs:
       - name: Test Pass B deterministic diff contract
         run: python scripts/issue132/test_build_pass_b_diff.py
 
+      - name: Check pre-handoff authority consistency
+        run: python scripts/issue132/check_pre_handoff_consistency.py
+
+
 
       - name: Upload audit package
         if: always()
