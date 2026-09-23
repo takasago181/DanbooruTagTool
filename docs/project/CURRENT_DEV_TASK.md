@@ -1,6 +1,6 @@
 # CURRENT DEV TASK — LIVE ROUTING INDEX
 
-最終更新: 2026-09-22
+最終更新: 2026-09-23
 
 このファイルは「単一の実装task」を固定するものではなく、現在動いているlaneへのrouting indexである。
 過去の Performance / Runtime Load Audit は完了済みであり、current taskとして再開しない。
@@ -11,7 +11,7 @@
 
 - State: ACTIVE RESEARCH / research-only
 - Branch: `research/issue180-single-home-pilot`
-- Verified HEAD at this routing sync: `494a61ddb76d01f7f07a76b9d42ca1294690c4f8`
+- Verified HEAD at this routing sync: `837cd420894a80f12d9905475aa8a334907377ea` (actively advancing; always re-fetch live HEAD before work)
 - Draft PR: #182
 - Goal: high-precision authorityから各Characterのcanonical HOME Copyrightを0..1件で確定する。
 - Safety: missing relation > wrong relation。
@@ -30,10 +30,15 @@
 
 ### #132 — taxonomy / discoverability research
 
-- State: ACTIVE RESEARCH
-- Goal: 実際の画像生成で使いやすいtag discovery / classification UXを検証する。
-- Current direction is research/prototype comparison; production mutation is not authorized merely by this routing file.
-- live Issueのcurrent checkpointを取得してから続行する。
+- State: **ACTIVE FULL PASS-A RESEARCH**
+- Branch: `research/taxonomy-usability-audit`
+- Goal: 全31,003 ordinary identitiesを独立にsemantic reviewし、画像生成でタグ名を知らなくても自然に辿れるdiscovery mapを作る。
+- Current execution: 3 normal ChatGPT Automation workers + 1 coordinator/watchdog.
+- Current live operation: 300 identities / worker run target, immutable 50-row checkpoints, mandatory second-pass review over every 50 rows, final 300-row QA before normal completion.
+- Operational authority: `docs/issue132/parallel/CURRENT_AUTOMATION_OPERATION.md`
+- Frozen Pass-A semantic contract remains unchanged; old `READY FOR CODEX LUNA PASS A` / 100-row / 200-row wording is not current execution routing.
+- Progress snapshot at this sync: valid persisted 475 / 31,003 (Lane 1: 225, Lane 2: 150, Lane 3: 100). Re-fetch live checkpoints/status before continuing.
+- No production mutation, main merge, #64/#76/#118 rewrite, or Character/Copyright/Artist lane mutation is authorized by #132 Pass A.
 
 ## Parallel / maintenance routes
 

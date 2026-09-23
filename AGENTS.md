@@ -79,47 +79,53 @@ v1でデフォルトにしない:
 
 ## 4. Current active DEV routing
 
-### Post-#131 runtime baseline
+### Live authority — 2026-09-23
 
-Current live main authority:
+Current live main at this routing sync:
 
-`10d4a8e1e48b75eb37ef97713e93293d2695c5e0`
+`95b53e6d114432358a2a1cea4e8554fcfae65bfd`
 
-Current user-facing runtime:
+Current user-facing runtime remains:
 
-`C:\Codex\DanbooruTagTool-App`
+`C:\\Codex\\DanbooruTagTool-App`
 
-Current operational facts:
-- PR #131 UI refinement is completed;
-- PR #133 runtime/portable hardening is merged;
-- self-contained `win-x64` portable runtime is the current workstation launch target;
-- shortcut target and working directory point to `C:\Codex\DanbooruTagTool-App`;
-- `runtime-manifest.json` is the runtime provenance/hash contract;
-- `artifacts/current/` is retained fallback/reference only;
-- explicit `RenderMode.SoftwareOnly` has been removed; current WPF uses automatic Windows/WPF render selection;
-- performance benchmark remains pending and must not be inferred from functional smoke results.
+Runtime/performance/portable hardening is already completed. **Do not route by default to Performance / Runtime Load Audit.**
 
-### Current default next DEV/AUDIT task
+Current major independent research lanes are:
 
-The default next runtime lane is **Performance / Runtime Load Audit**.
+- **#179** — Character/Copyright identity, Japanese display/search, ranking, and 2D-scope quality audit. Artist audit excluded.
+- **#180** — Character -> single canonical HOME Copyright authority reconstruction. Research-only until separately accepted.
+- **#132** — full 31,003-identity tag discoverability/classification usability audit.
 
-This lane is measurement-first. It may add isolated benchmark scripts/docs, but it does not own production optimization until evidence is reviewed.
+When the user selects one lane, work only that lane. Never combine #179/#180/#132 branches, datasets, or semantic decisions.
 
-SoftwareOnly A/B authority:
-- A: `e64f3f7cb02df8f5c5fd65dc4132f0e398769b9d`
-- B: `10d4a8e1e48b75eb37ef97713e93293d2695c5e0`
+### #132 execution routing
 
-Do not use stale #64/#66/#117 text as active routing merely because it remains in historical documents or Issue history.
+#132 is no longer at bounded-prototype / pre-handoff status.
 
-### Independent lanes
+Current execution:
+- branch: `research/taxonomy-usability-audit`
+- 3 normal ChatGPT Automation workers + 1 coordinator
+- 300 identities per worker run target
+- 50-row immutable checkpoints
+- mandatory second-pass review over every 50 rows before save
+- mandatory final 300-row QA before `TARGET_REACHED`
+- frozen Pass-A semantic contract remains unchanged
+- no production mutation / main merge from the research lane
 
-The following are independent from runtime/performance:
-- #70 Character / Copyright / Artist;
-- taxonomy-usability / classification audit;
-- Stage10 learning;
-- KNOWLEDGE #44.
+Read `docs/issue132/parallel/CURRENT_AUTOMATION_OPERATION.md` for live operational cadence. Old `READY FOR CODEX LUNA PASS A`, 100-row, or 200-row target wording is historical/frozen context, not current execution routing.
 
-When multiple lanes exist, work only the user-selected lane and do not mix branches, commits, protected data, or production decisions.
+### Runtime baseline
+
+- PR #131 UI refinement completed.
+- PR #133 portable/runtime hardening completed.
+- PR #135 performance/runtime optimization completed.
+- self-contained `win-x64` runtime remains the workstation launch target.
+- `runtime-manifest.json` remains runtime provenance/hash contract.
+- `artifacts/current/` is fallback/reference only.
+- Artist remains hidden and old unreliable Character<->Copyright relation UI remains disabled by #177.
+
+Do not use stale #64/#66/#117/performance text as active routing merely because it remains in historical documents.
 
 ## 5. Stage10 relationship
 
@@ -140,10 +146,10 @@ CodexはStage10学習を理由に、本体v1へ自動Prompt最適化・direct ge
 ## 6. Special / Generalの役割
 
 ### Special
-- 2,788 identityはfreeze済み
-- ニッチ/複雑概念の深い発見面
-- #56のUI browse taxonomyを使う
-- product-fit eligibilityは#63のsidecarを使う
+- current production Special populationは **3,059** stable identities（ID 1..3,088中29 gaps）
+- current browse authorityはIssue #76のshallow kind/body/theme model
+- historical 2,788 base / #56 deep taxonomyはprovenanceとして保持し、current production population/browse authorityと混同しない
+- canonical identityとbrowse taxonomyは分離し、#132 researchは既存authorityを直接書き換えない
 
 ### General
 - production Japanese overlay 30,629 canonical entriesが対象
