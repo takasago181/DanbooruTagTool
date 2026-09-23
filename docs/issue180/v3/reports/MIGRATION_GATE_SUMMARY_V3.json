@@ -11,13 +11,13 @@
   "character_population": 35890,
   "evidence_basis_counts": {
     "APPROVED_REPO_EVIDENCE": 10595,
-    "EXTERNAL_AUTHORITY": 2915,
+    "EXTERNAL_AUTHORITY": 2947,
     "REVIEWED_QUALIFIER_COPYRIGHT": 1169,
     "REVIEWED_VARIANT_AUTHORITY": 225,
     "ROOT_POLICY_NORMALIZATION": 17
   },
-  "evidence_rows": 14921,
-  "external_source_url_count": 466,
+  "evidence_rows": 14953,
+  "external_source_url_count": 468,
   "generated_output_directory": "artifacts/issue180-v3",
   "legacy_v1_v2_scripts_executed": false,
   "migration_comparison_path": "docs/issue180/v3/reports/MIGRATION_COMPARISON_V3.csv",
@@ -35,9 +35,9 @@
   "pipeline_validation": "PASS",
   "production_runtime_dependency": false,
   "reproducibility": {
-    "first_master_sha256": "c3840db479260bc854341c3cfd91e5d34bf1ffdda3b466cf1a934e6e4477287c",
+    "first_master_sha256": "9a2ee2f5a7d6443be30af5e72cb7a7217e01ea3a3804b11777dac341ecf105c8",
     "same": true,
-    "second_master_sha256": "c3840db479260bc854341c3cfd91e5d34bf1ffdda3b466cf1a934e6e4477287c"
+    "second_master_sha256": "9a2ee2f5a7d6443be30af5e72cb7a7217e01ea3a3804b11777dac341ecf105c8"
   },
   "research_unit_count": 6526,
   "research_unit_status_counts": {
@@ -55,17 +55,17 @@
     "VARIANT_OFFICIALITY": 2390
   },
   "residual_reason_counts": {
-    "DIRECT_AUTHORITY_MISSING": 14249,
+    "DIRECT_AUTHORITY_MISSING": 14217,
     "FAMILY_HOME_MISSING": 2918,
     "FAMILY_MEMBERSHIP_MISSING": 699,
     "IDENTITY_REVIEW_REQUIRED": 7,
     "VARIANT_OFFICIALITY_MISSING": 4766
   },
   "schema_version": 3,
-  "source_manifest_sha256": "553028597bf734a2bdab1822ce474f374a4c3b4dbf64c19443ad3be582f2b44c",
+  "source_manifest_sha256": "ac31a8386df55c5b7ac5ddf4eabd634547c4d5f779cb8fbb2c2fb176b74e4136",
   "states": {
-    "HOME_CONFIRMED": 13251,
-    "HOME_UNRESOLVED": 22639,
+    "HOME_CONFIRMED": 13283,
+    "HOME_UNRESOLVED": 22607,
     "NOT_OFFICIAL_CHARACTER": 0
   }
 }
