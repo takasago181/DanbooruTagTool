@@ -175,6 +175,40 @@ Before write:
 
 Existing checkpoint files are not overwritten.
 
+### Immutable checkpoint correction overlay
+
+If cumulative QA discovers a concrete defect in an already-committed checkpoint, NEVER overwrite that checkpoint and NEVER stop merely because the checkpoint is immutable.
+
+Create a new immutable correction record under:
+
+`docs/issue132/parallel/lane-N/corrections/correction_RRRRRR_<slug>.json`
+
+where `RRRRRR` is the global `review_seq`.
+
+Schema: `issue132-pass-a-correction-v1`
+
+Required fields:
+- `lane`
+- `lane_local_index`
+- `review_seq`
+- `identity_key`
+- `source_checkpoint`
+- `qa_boundary`
+- `reason`
+- `expected_before` mapping of corrected field(s) to exact raw checkpoint string value(s)
+- `patch` mapping of corrected field(s) to complete replacement string value(s)
+
+Rules:
+- correction files are additive/immutable; checkpoints remain untouched;
+- `review_seq` and `identity_key` cannot be patched;
+- a correction must bind to the exact original checkpoint value via `expected_before`;
+- after creating a correction, run/allow `validate_parallel_checkpoints.py`; it validates the effective row after overlay;
+- final parallel merge applies the same correction overlay before full Pass-A validation;
+- discovering and recording a valid correction is NOT a run termination condition: continue to the next identity after the correction is persisted/validated;
+- if the semantic fix itself is uncertain, record a quality flag for coordinator review rather than inventing a patch, but the mere existence of the flag still does not stop processing unrelated next identities.
+
+The correction overlay is an audit-preserving semantic amendment layer, not a rewrite of historical checkpoint evidence.
+
 After a valid 25-row save, immediately continue. The checkpoint is persistence, not a stop signal.
 
 ### Status writes
