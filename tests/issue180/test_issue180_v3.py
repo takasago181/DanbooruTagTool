@@ -8,7 +8,7 @@ from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "scripts/issue180"))
-from _issue180_v3_common import evidence_id, is_valid_citation, canonical_family_candidates, select_home
+from _issue180_v3_common import evidence_id, is_valid_citation, canonical_family_candidates, safe_structural_variant_bases, safe_terminal_family_membership, select_home
 import build_residual_units_v3 as residual_planner
 
 
@@ -78,6 +78,53 @@ class EvidenceDrivenV3Tests(unittest.TestCase):
         self.assertEqual(edges[0]["relation_type"], "MEMBER_OF")
         self.assertEqual(edges[0]["review_state"], "CANDIDATE")
         self.assertEqual(edges[0]["evidence_id"], "")
+
+    def test_safe_structural_variant_accepts_known_costume_and_exact_reviewed_outer_family(self):
+        policy = {"variant_qualifier_families": ["bunny"], "attribute_families": [],
+                  "broad_families": [], "non_home_families": []}
+        keys = {"akane_(bunny)_(blue_archive)", "akane_(blue_archive)"}
+        result = safe_structural_variant_bases("akane_(bunny)_(blue_archive)", keys, {"blue_archive": {"blue_archive"}}, policy)
+        self.assertEqual(result, [("akane_(blue_archive)", "bunny", "blue_archive")])
+
+    def test_safe_structural_variant_supports_variant_qualifier_outermost(self):
+        policy = {"variant_qualifier_families": ["swimsuit"], "attribute_families": [],
+                  "broad_families": [], "non_home_families": []}
+        keys = {"akashi_(kancolle)_(swimsuit)", "akashi_(kancolle)"}
+        result = safe_structural_variant_bases("akashi_(kancolle)_(swimsuit)", keys, {"kancolle": {"kantai_collection"}}, policy)
+        self.assertEqual(result, [("akashi_(kancolle)", "swimsuit", "kancolle")])
+
+    def test_safe_structural_variant_rejects_unreviewed_or_blocked_family(self):
+        policy = {"variant_qualifier_families": ["bunny"], "attribute_families": [],
+                  "broad_families": ["blue_archive"], "non_home_families": []}
+        keys = {"akane_(bunny)_(blue_archive)", "akane_(blue_archive)"}
+        self.assertEqual(safe_structural_variant_bases("akane_(bunny)_(blue_archive)", keys, {"blue_archive": {"blue_archive"}}, policy), [])
+
+    def test_structural_variant_accepts_unlisted_variant_label_only_with_catalog_root_and_exact_base(self):
+        policy = {"variant_qualifier_families": [], "attribute_families": [],
+                  "broad_families": [], "non_home_families": []}
+        keys = {"callie_(grand_festival)_(splatoon)", "callie_(splatoon)"}
+        aliases = {"splatoon": {"splatoon_(series)"}}
+        result = safe_structural_variant_bases("callie_(grand_festival)_(splatoon)", keys, {}, policy, aliases)
+        self.assertEqual(result, [("callie_(splatoon)", "grand_festival", "splatoon")])
+
+    def test_structural_variant_rejects_outer_alias_collision_and_crossover_labels(self):
+        policy = {"variant_qualifier_families": [], "attribute_families": [],
+                  "broad_families": [], "non_home_families": []}
+        keys = {"foo_(crossover)_(pokemon)", "foo_(pokemon)"}
+        aliases = {"pokemon": {"pokemon"}}
+        self.assertEqual(safe_structural_variant_bases("foo_(crossover)_(pokemon)", keys, {}, policy, aliases), [])
+
+    def test_exact_terminal_work_qualifier_allows_nested_variant_label(self):
+        policy = {"variant_qualifier_families": ["bunny"], "attribute_families": [],
+                  "broad_families": [], "non_home_families": []}
+        homes = {"blue_archive": {"blue_archive"}}
+        self.assertTrue(safe_terminal_family_membership("akane_(bunny)_(blue_archive)", "blue_archive", homes, policy))
+
+    def test_exact_terminal_family_rejects_known_cross_family_collision(self):
+        policy = {"variant_qualifier_families": [], "attribute_families": [],
+                  "broad_families": [], "non_home_families": []}
+        homes = {"pokemon": {"pokemon"}, "fate": {"fate_(series)"}}
+        self.assertFalse(safe_terminal_family_membership("crossover_(fate)_(pokemon)", "pokemon", homes, policy))
 
     def test_decision_without_grounded_url_is_not_evidence(self):
         self.assertFalse(is_valid_citation("", "Reviewed reusable qualifier-family authority"))

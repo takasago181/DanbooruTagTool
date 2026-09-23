@@ -156,6 +156,11 @@ def main() -> None:
             if new.get("reason_code") == "EVIDENCE_CONFLICT": cls = "OLD_DECISION_DEFECT"
             elif old.get("source_provenance") == "SPLATOON_OFFICIAL_HOME_V1.csv" and new.get("reason_code") == "VARIANT_OFFICIALITY_MISSING": cls = "OLD_DECISION_DEFECT"
             elif drows and not any(e.get("subject_key") == tag for e in ledger if e.get("relation_type") in {"DIRECT_HOME", "VARIANT_OF"}): cls = "EVIDENCE_MIGRATION_ERROR"
+            elif (new.get("reason_code") in {"FAMILY_HOME_MISSING", "FAMILY_MEMBERSHIP_MISSING"} and tag.endswith(")")
+                  and tag.rsplit("_(", 1)[-1][:-1].lower() in STRUCTURAL_FAMILY_BLOCKS):
+                cls = "RESOLVER_BEHAVIOR_CHANGE"
+                detail = (f"HOME_UNRESOLVED / {new.get('reason_code')}; the exact terminal family qualifier is explicitly blocked from bulk structural expansion "
+                          f"as a company/platform/event/crossover/costume/generic class ({tag.rsplit('_(', 1)[-1][:-1]}). Prior v2 mapping is retained in the comparison baseline only.")
             elif new.get("reason_code") in {"FAMILY_HOME_MISSING", "FAMILY_MEMBERSHIP_MISSING"}: cls = "EVIDENCE_MIGRATION_ERROR"
             elif new.get("reason_code") == "IDENTITY_REVIEW_REQUIRED": cls = "SOURCE_DRIFT"
             else: cls = "RESOLVER_BEHAVIOR_CHANGE" if drows else "EVIDENCE_MIGRATION_ERROR"
@@ -172,6 +177,9 @@ def main() -> None:
             elif scope == "DIRECT_CHARACTER": primary_loss = "FOUNDATION_DIRECT_NOT_MIGRATED"
             else: primary_loss = "OTHER"
             detail = f"{new.get('reason_code','NO_SAFE_PATH')}; v2_scope={old_prov.get('authority_scope','')}; v2_authority={old_prov.get('authority_type','')}; v2_provenance={old_prov.get('source_provenance','')}; no validated v3 path to old HOME."
+            if cls == "RESOLVER_BEHAVIOR_CHANGE" and tag.endswith(")") and tag.rsplit("_(", 1)[-1][:-1].lower() in STRUCTURAL_FAMILY_BLOCKS:
+                detail = (f"HOME_UNRESOLVED / {new.get('reason_code')}; exact terminal qualifier {tag.rsplit('_(', 1)[-1][:-1]!r} is explicitly blocked from bulk structural expansion "
+                          "as a company/platform/event/crossover/costume/generic class. The v2 mapping is retained in the comparison baseline only.")
         source_prov = old.get("source_provenance", "")
         family = old.get("family", "")
         base_character = next((d.get("base_character", "") for d in decision_by_key.get(tag, []) if d.get("scope") == "VARIANT_CHARACTER"), "")

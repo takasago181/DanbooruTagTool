@@ -2,6 +2,7 @@
 """Validate v3 source, evidence paths, coverage, roots, conflicts and reproducibility artifacts."""
 from __future__ import annotations
 import json
+import re
 import sys
 from collections import Counter
 from pathlib import Path
@@ -29,7 +30,17 @@ def main() -> None:
     ledger_by_id = {e["evidence_id"]: e for e in ledger}
     policy = json.loads((ROOT / "docs/issue180/autonomous/AUTONOMOUS_POLICY_V2.json").read_text(encoding="utf-8"))
     root_map = {str(k).lower(): str(v) for k, v in policy.get("root_policy_normalization", {}).items()}
-    allowed_bases = {"EXTERNAL_AUTHORITY", "APPROVED_REPO_EVIDENCE", "REVIEWED_QUALIFIER_COPYRIGHT", "ROOT_POLICY_NORMALIZATION", "REVIEWED_VARIANT_AUTHORITY"}
+    allowed_bases = {"EXTERNAL_AUTHORITY", "APPROVED_REPO_EVIDENCE", "REVIEWED_QUALIFIER_COPYRIGHT", "ROOT_POLICY_NORMALIZATION", "REVIEWED_VARIANT_AUTHORITY", "SAFE_STRUCTURAL_VARIANT"}
+    character_keys = set(source_tags)
+    master_by_tag = {r["canonical_tag"]: r for r in master}
+    family_homes = {}
+    for e in ledger:
+        if e.get("relation_type") == "FAMILY_HOME" and e.get("review_state") == "VALIDATED":
+            family_homes.setdefault(e["subject_key"].lower(), set()).add(e["object_key"])
+    copyright_aliases = {}
+    for root_row in copyrights:
+        for alias in [root_row.get("canonical_tag", ""), *(root_row.get("aliases", "") or "").split("|")]:
+            if alias.strip(): copyright_aliases.setdefault(alias.strip().lower(), set()).add(root_row["canonical_tag"])
     for e in ledger:
         if e.get("evidence_basis") not in allowed_bases:
             errors.append(f"EVIDENCE_INTEGRITY: unsupported/empty evidence basis for {e['evidence_id']}")
@@ -39,10 +50,27 @@ def main() -> None:
             errors.append(f"EVIDENCE_INTEGRITY: evidence ID/provenance tuple mismatch for {e['evidence_id']}")
         if e["evidence_basis"] == "ROOT_POLICY_NORMALIZATION" and root_map.get(e["subject_key"].lower()) != e["object_key"]:
             errors.append(f"EVIDENCE_INTEGRITY: root normalization is not an exact policy pair for {e['subject_key']}")
-        if e["relation_type"] == "VARIANT_OF" and e["evidence_basis"] != "REVIEWED_VARIANT_AUTHORITY":
-            errors.append(f"INHERITANCE_INTEGRITY: VARIANT_OF lacks reviewed variant evidence for {e['subject_key']}")
-        if e["relation_type"] == "MEMBER_OF" and e["evidence_basis"] != "APPROVED_REPO_EVIDENCE":
-            errors.append(f"INHERITANCE_INTEGRITY: MEMBER_OF lacks validated catalog/repository basis for {e['subject_key']}")
+        if e["relation_type"] == "VARIANT_OF" and e["evidence_basis"] == "REVIEWED_VARIANT_AUTHORITY" and e.get("object_key") not in character_keys:
+            errors.append(f"INHERITANCE_INTEGRITY: reviewed VARIANT_OF base is missing for {e['subject_key']}")
+        if e["relation_type"] == "VARIANT_OF" and e["evidence_basis"] == "SAFE_STRUCTURAL_VARIANT":
+            valid_options = safe_structural_variant_bases(e["subject_key"], character_keys, family_homes, policy, copyright_aliases)
+            base_row = master_by_tag.get(e.get("object_key", ""), {})
+            matching = [x for x in valid_options if x[0] == e.get("object_key")]
+            expected_roots = (family_homes.get(matching[0][2].lower(), set()) | copyright_aliases.get(matching[0][2].lower(), set())) if matching else set()
+            if (not matching or e.get("object_key") not in character_keys or e.get("source_url")
+                    or base_row.get("final_state") != "HOME_CONFIRMED" or {base_row.get("home_copyright", "")} != expected_roots):
+                errors.append(f"INHERITANCE_INTEGRITY: unsafe structural VARIANT_OF for {e['subject_key']}")
+        if e["evidence_basis"] == "SAFE_STRUCTURAL_VARIANT" and e["relation_type"] != "VARIANT_OF":
+            errors.append(f"INHERITANCE_INTEGRITY: structural variant basis used for non-variant relation {e['subject_key']}")
+        if e["relation_type"] == "MEMBER_OF":
+            if e["evidence_basis"] != "APPROVED_REPO_EVIDENCE":
+                errors.append(f"INHERITANCE_INTEGRITY: MEMBER_OF lacks validated catalog/repository basis for {e['subject_key']}")
+            upstream = re.search(r"membership derived from (ev3-[0-9a-f]+)", e.get("source_provenance", ""))
+            parent = ledger_by_id.get(upstream.group(1), {}) if upstream else {}
+            if (e.get("subject_key") not in character_keys or parent.get("relation_type") != "FAMILY_HOME"
+                    or parent.get("subject_key") != e.get("object_key") or parent.get("review_state") != "VALIDATED"
+                    or not safe_terminal_family_membership(e["subject_key"], e["object_key"], family_homes, policy, copyright_aliases)):
+                errors.append(f"INHERITANCE_INTEGRITY: unsafe/untraceable exact-family membership for {e['subject_key']}")
     structure = read_csv(OUT / "structure_graph_v3.csv")
     if any(e.get("relation_type") == "DISCOVERY_HINT" and (e.get("review_state") != "CANDIDATE" or e.get("evidence_id")) for e in structure):
         errors.append("EVIDENCE_INTEGRITY: discovery hints must remain candidate-only without evidence IDs")

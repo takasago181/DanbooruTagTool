@@ -4,6 +4,7 @@ from __future__ import annotations
 import csv
 import hashlib
 import json
+import re
 from pathlib import Path
 from typing import Iterable
 
@@ -22,6 +23,7 @@ V3_PRE_REPAIR_GAP = ROOT / "docs/issue180/v3/MIGRATION_GAP_BEFORE_REPAIR_V3.csv"
 CHARACTER_CATEGORY = "4"
 COPYRIGHT_CATEGORY = "3"
 FINAL_STATES = {"HOME_CONFIRMED", "HOME_UNRESOLVED", "NOT_OFFICIAL_CHARACTER"}
+STRUCTURAL_FAMILY_BLOCKS = {"collab", "collaboration", "crossover", "cross_over", "company", "platform", "event", "costume", "attribute", "hololive"}
 DECISION_FILES = (
     "direct_and_exceptions_v2.csv",
     "discovery_roster_reviews_v2.csv",
@@ -102,6 +104,70 @@ def canonical_family_candidates(characters: list[dict[str, str]]) -> list[dict[s
                 "derivation": "terminal qualifier parse; candidate only, not authority",
             })
     return rows
+
+def safe_structural_variant_bases(tag: str, character_keys: set[str],
+                                 reviewed_family_homes: dict[str, set[str]], policy: dict,
+                                 copyright_alias_roots: dict[str, set[str]] | None = None) -> list[tuple[str, str, str]]:
+    """Return conservative (base, variant_qualifier, outer_family) triples.
+
+    This authorizes HOME inheritance, not claims about official costume status. Both
+    qualifier orders are parsed, but only an exact catalog outer Copyright alias or
+    independently reviewed safe family paired with one exact existing base is accepted.
+    """
+    match = re.fullmatch(r"(.+)_\(([^()]*)\)_\(([^()]*)\)", tag)
+    if not match:
+        return []
+    stem, first, second = match.groups()
+    policy_sets = [
+        set(str(x).lower() for x in policy.get("attribute_families", [])),
+        set(str(x).lower() for x in policy.get("variant_qualifier_families", [])),
+        set(str(x).lower() for x in policy.get("non_home_families", [])),
+        set(str(x).lower() for x in policy.get("broad_families", [])),
+    ]
+    blocked = set().union(*policy_sets) | STRUCTURAL_FAMILY_BLOCKS
+    root_map = {k.lower(): set(v) for k, v in reviewed_family_homes.items()}
+    for k, v in (copyright_alias_roots or {}).items():
+        root_map.setdefault(k.lower(), set()).update(v)
+    options: set[tuple[str, str, str]] = set()
+    for outer, modifier in ((second, first), (first, second)):
+        outer_key, modifier_key = outer.lower(), modifier.lower()
+        homes = root_map.get(outer_key, set())
+        other_homes = root_map.get(modifier_key, set())
+        if (len(homes) != 1 or outer_key in blocked or modifier_key in STRUCTURAL_FAMILY_BLOCKS
+                or modifier_key in set(policy_sets[2]) | set(policy_sets[3])):
+            continue
+        if other_homes and other_homes != homes:
+            continue
+        base = f"{stem}_({outer})"
+        if base in character_keys:
+            options.add((base, modifier, outer))
+    return sorted(options)
+
+def safe_terminal_family_membership(tag: str, family: str, family_homes: dict[str, set[str]], policy: dict,
+                                    copyright_alias_roots: dict[str, set[str]] | None = None) -> bool:
+    """Validate an exact terminal work qualifier without overriding collision signals."""
+    qualifiers = [x.lower() for x in re.findall(r"_\(([^()]*)\)", tag.lower())]
+    family_key = family.lower()
+    if not qualifiers or qualifiers[-1] != family_key or len(family_homes.get(family_key, set())) != 1:
+        return False
+    blocked = STRUCTURAL_FAMILY_BLOCKS
+    broad = {str(x).lower() for x in policy.get("broad_families", [])}
+    non_home = {str(x).lower() for x in policy.get("non_home_families", [])}
+    attributes = {str(x).lower() for x in policy.get("attribute_families", [])}
+    variants = {str(x).lower() for x in policy.get("variant_qualifier_families", [])}
+    if family_key in blocked | broad | non_home | attributes | variants:
+        return False
+    outer_home = family_homes[family_key]
+    all_homes = {k.lower(): set(v) for k, v in family_homes.items()}
+    for key, value in (copyright_alias_roots or {}).items():
+        all_homes.setdefault(key.lower(), set()).update(value)
+    for qualifier in qualifiers[:-1]:
+        if qualifier in blocked | broad | non_home:
+            return False
+        other = all_homes.get(qualifier, set())
+        if other and other != outer_home:
+            return False
+    return True
 
 def is_valid_citation(url: str, claim: str) -> bool:
     u = (url or "").strip().lower()

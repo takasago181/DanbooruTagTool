@@ -174,6 +174,7 @@ def main() -> None:
                        or (basis == "REVIEWED_QUALIFIER_COPYRIGHT" and relation == "FAMILY_HOME" and bool(claim))
                        or (basis == "ROOT_POLICY_NORMALIZATION" and relation == "FAMILY_HOME" and bool(claim))
                        or (basis == "APPROVED_REPO_EVIDENCE" and (provenance.startswith("docs/issue180/evidence/") or provenance.startswith("membership derived from ")) and len(claim) >= 35)
+                       or (basis == "SAFE_STRUCTURAL_VARIANT" and relation == "VARIANT_OF" and provenance.startswith("safe structural variant:") and len(claim) >= 35)
                        or (basis == "REVIEWED_VARIANT_AUTHORITY" and relation == "VARIANT_OF" and is_valid_citation(url, claim)))
         if not valid_basis:
             rejected["citation_missing_or_weak"] = rejected.get("citation_missing_or_weak", 0) + 1
@@ -282,23 +283,63 @@ def main() -> None:
     # A reviewed FAMILY_QUALIFIER authority plus the exact catalog qualifier establishes membership;
     # bare parsed candidates without such a cited family decision remain CANDIDATE only.
     policy = json.loads((ROOT / "docs/issue180/autonomous/AUTONOMOUS_POLICY_V2.json").read_text(encoding="utf-8"))
-    excluded_families = set(policy["attribute_families"]) | set(policy["variant_qualifier_families"]) | set(policy["non_home_families"])
-    broad_families = set(policy["broad_families"])
     ordinal = re.compile(policy["ordinal_costume_regex"])
+    family_homes_index: dict[str, set[str]] = {}
+    for family_key, evidence_ids in family_evidence.items():
+        family_homes_index[family_key.lower()] = {rows[e]["object_key"] for e in evidence_ids if e in rows and rows[e]["object_key"] in root_set}
     for family, eids in sorted(family_evidence.items()):
         home_rows = [rows[e] for e in sorted(set(eids)) if e in rows]
+        family_homes = {h["object_key"] for h in home_rows if h["object_key"] in root_set}
+        if len(family_homes) != 1:
+            continue
         for member in sorted(set(family_members.get(family, []))):
-            tag = member
-            suffix = f"_({family})"
-            nested = tag.lower().endswith(suffix.lower()) and tag[:-len(suffix)].endswith(")")
-            if family in excluded_families or family in broad_families or ordinal.match(family) or nested:
+            if ordinal.match(family) or not safe_terminal_family_membership(member, family, family_homes_index, policy, alias_to_roots):
                 continue
+            tag_qualifiers = re.findall(r"_\(([^()]*)\)", member)
+            if len(tag_qualifiers) == 1:
+                membership_claim = f"Issue #70 accepted Character catalog tag {member!r} has exact final qualifier {family!r}; v2 family fastpath policy excludes nested/attribute/broad/non-home qualifiers."
+            else:
+                membership_claim = (f"Issue #70 accepted Character tag {member!r} has exact terminal qualifier {family!r}; its reviewed Family HOME is unique, and preceding qualifiers contain no conflicting reviewed family or blocked broad/crossover/company/platform/event/costume class.")
             for h in home_rows:
                 add("Character", member, "MEMBER_OF", family,
                     "VALIDATED_FAMILY_QUALIFIER_MEMBERSHIP", h["source_url"],
-                    f"Issue #70 accepted Character catalog tag {member!r} has exact final qualifier {family!r}; v2 family fastpath policy excludes nested/attribute/broad/non-home qualifiers.",
+                    membership_claim,
                     f"membership derived from {h['evidence_id']} + {relpath(CATALOG)}",
                     "APPROVED_REPO_EVIDENCE")
+
+    # Safe Tier-B variant structure: require one exact outer Copyright root, one unique
+    # exact base in the accepted catalog, and equality between outer root and base HOME.
+    # HOME conflicts are retained
+    # by the resolver; this relation does not assert official costume status.
+    known_variant_tags = {r["canonical_tag"] for r in characters}
+    reviewed_family_homes = {k.lower(): {rows[e]["object_key"] for e in eids if e in rows and rows[e]["object_key"] in root_set}
+                              for k, eids in family_evidence.items()}
+    origin_unknown = {r.get("canonical_tag", "") for r in read_csv(ORIGIN) if r.get("origin_class") == "UNKNOWN"}
+    base_home_evidence: dict[str, dict[str, set[str]]] = {}
+    for row in rows.values():
+        if row["relation_type"] == "DIRECT_HOME" and row["object_key"] in root_set:
+            base_home_evidence.setdefault(row["subject_key"], {}).setdefault(row["object_key"], set()).add(row["evidence_id"])
+        elif row["relation_type"] == "MEMBER_OF":
+            for parent_id in family_evidence.get(row["object_key"], []):
+                parent = rows.get(parent_id, {})
+                if parent.get("object_key") in root_set:
+                    base_home_evidence.setdefault(row["subject_key"], {}).setdefault(parent["object_key"], set()).update({row["evidence_id"], parent_id})
+    for tag in sorted(char_set):
+        options = safe_structural_variant_bases(tag, known_variant_tags, reviewed_family_homes, policy, alias_to_roots)
+        if len(options) != 1:
+            continue
+        base, variant_qualifier, outer_family = options[0]
+        outer_roots = reviewed_family_homes.get(outer_family.lower(), set()) | alias_to_roots.get(outer_family.lower(), set())
+        base_homes = base_home_evidence.get(base, {})
+        if len(outer_roots) != 1 or set(base_homes) != outer_roots or base in origin_unknown:
+            continue
+        root = next(iter(outer_roots))
+        claim = (f"Issue #70 tag {tag!r} contains structural qualifier {variant_qualifier!r} and exact outer Copyright qualifier {outer_family!r}; "
+                 f"removing the modifier yields the unique existing base Character {base!r}, whose validated HOME is {root!r}, matching the unique current catalog resolution of the outer qualifier. This proves HOME inheritance only, not costume/event officiality.")
+        base_eids = sorted(base_homes[root])
+        add("Character", tag, "VARIANT_OF", base, "SAFE_STRUCTURAL_VARIANT", "", claim,
+            f"safe structural variant: exact catalog key decomposition; base HOME evidence={','.join(base_eids)}; outer_root={root}; policy=AUTONOMOUS_POLICY_V2.json",
+            "SAFE_STRUCTURAL_VARIANT")
 
     ordered = [rows[k] for k in sorted(rows)]
     write_csv(LEDGER, ordered, FIELDS)
@@ -319,7 +360,7 @@ def main() -> None:
         "evidence_basis_counts": dict(sorted(__import__("collections").Counter(r["evidence_basis"] for r in ordered).items())),
         "external_source_url_count": len({r["source_url"] for r in ordered if r["evidence_basis"] == "EXTERNAL_AUTHORITY" and r["source_url"]}),
         "rejected_candidates": rejected,
-        "source_rule": "Decision CSV values are not evidence by themselves; evidence basis is explicit and repository seed facts carry source hashes/provenance.",
+        "source_rule": "Decision CSV values are not evidence by themselves; Tier-B structural variants require one exact outer Copyright root, one unique existing base with matching validated HOME, and no known collision/crossover signal.",
         "applied_authority_ledger_used_as": "provenance cross-check only; never a HOME authority source",
         "v2_applied_provenance_exists": False,
         "v2_applied_provenance_links": lineage_links,
