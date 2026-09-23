@@ -1,8 +1,88 @@
 # CURRENT STATE
 
-最終更新: 2026-09-18
+最終更新: 2026-09-23
+
+## 2026-09-23 live routing authority
+
+**この節は、2026-09-22以前のrouting/current-task記述と矛盾する場合に優先する。**
+個別作業のscope・禁止事項・完了条件は各live Issue / branch contractを正本とし、作業開始時は必ずlive GitHubを再取得する。
+
+- Verified live main at this sync: `95b53e6d114432358a2a1cea4e8554fcfae65bfd` (PR #183 routing sync merged).
+- 現在の主要な並行researchは引き続き **#179 / #180 / #132**。相互のbranch/data/scopeを混ぜない。
+- **#132**: bounded prototype段階は終了。現在は全31,003 ordinary identitiesの独立Pass-A semantic/discoverability reviewを実行中。branch `research/taxonomy-usability-audit`。通常ChatGPT Automationの3 workers + 1 coordinatorで運用し、semantic shardingは行わない。
+- #132の現行運用正本は `docs/issue132/parallel/CURRENT_AUTOMATION_OPERATION.md`。live targetは **300 identities / worker run**、**50-row immutable checkpoint**、各50件の保存前二段階レビュー、300件終了後の最終QA。raw throughputだけを品質PASSとしない。
+- #132のfrozen Pass-A semantic contractは変更しない。旧 `READY FOR CODEX LUNA PASS A` 表記や100/200件targetはhistorical/frozen snapshotであり、現在のexecution routingには使わない。
+- #132 progress snapshot at this sync: valid persisted review prefix **475 / 31,003** (Lane 1: 225, Lane 2: 150, Lane 3: 100)。Lane 2直近は `TOOL_LIMIT`、Lane 3直近は `EXECUTION_LIMIT`; checkpoint/statusはlive branchを再取得して判断する。
+- **#179**: Character/Copyright identity・display/search・ranking・2D scope品質監査。Artist監査は対象外。Draft PR #181 remains OPEN/DRAFT; verified head at this sync `78cd14693d066e8f150a140628eef6c5d343b2c5`.
+- **#180**: Character -> HOME Copyright high-precision authority再構築research。Draft PR #182 remains OPEN/DRAFT and is actively advancing; verified head at this sync `837cd420894a80f12d9905475aa8a334907377ea`. exact HEADは作業開始時に再取得する。main merge / production applyは未承認。
+- **#177** remains the current UI mitigation authority: Artist hidden; unreliable old Character<->Copyright relation UI disabled.
+- Performance / Runtime Load Audit と portable/runtime hardening は完了済み。これらをdefault next taskとして復活させない。
+- `docs/project/CURRENT_DEV_TASK.md` と `AGENTS.md` はこのroutingに同期済み。古い #117 / performance routingはhistorical referenceのみ。
+- #65 Stage10はparallel learning、#44 KNOWLEDGEはlong-term owner、#52/#138/#71はmaintenance/post-v1。主要research #179/#180/#132を置き換えない。
+
+### 2026-09-23 routing precedence
+
+`live main -> CURRENT_STATE current authority block -> selected live Issue + latest checkpoint -> PERMANENT_RULES -> issue-specific current operation/spec -> historical/frozen snapshots`
+
+frozen contract文書のstatus文字列を「最新化」するためだけに書き換えない。execution statusはcurrent operation/state文書で上書きする。
+
+## 2026-09-22 live routing authority
+
+**この節は、このファイル後半に残るhistorical snapshotと矛盾する場合に優先する。**
+ただし個別作業のscope・禁止事項・完了条件は各live Issue / branch contractを正本とする。
+
+- Verified live main at routing sync start: `bea08712eb691ca867e218d211023d7206b6b7dc`.
+- 現在の主要な並行researchは **#179 / #180 / #132**。相互のbranch/data/scopeを混ぜない。
+- **#179**: Character/Copyright identity・日本語display/search・ranking・2D scope品質監査。Artistは監査対象外。Draft PR #181。確認済みresearch HEAD: `78cd14693d066e8f150a140628eef6c5d343b2c5`.
+- **#180**: Character -> HOME Copyright を high-precision authority から再構築するresearch。Draft PR #182。確認済みresearch HEAD: `494a61ddb76d01f7f07a76b9d42ca1294690c4f8`. research-onlyで、main merge / production applyは未承認。missing relationをwrong relationより優先する。
+- **#132**: tag classification usability / discoverability research。production mutationなし。現在は bounded prototype / task comparison が次Gate。
+- **#177** のmitigationが現行UI authority: ArtistはUI/searchから非表示、旧RelatedCopyright由来のCharacter<->Copyright関連表示/ナビゲーションは無効化。#70の旧relation表示を現行挙動として扱わない。
+- **#70** はhistorical source/data foundationとして保持するが、旧Character<->Copyright relationをcurrent truthとして復活させない。#179/#180が品質監査・再構築のcurrent authority。
+- Performance / Runtime Load Audit と portable/runtime hardening は完了済み。未完のcurrent DEV taskとしてroutingしない。
+- Forge Generation Recipeの自動適用/自動生成はcurrent remaining taskではない。#175/#176の決定によりrecipeはreference/persistence中心で、既存の非recipe Forge送信とは分離する。
+- **#65** Stage10はparallel learningでありv1 product gateではない。
+- **#44** KNOWLEDGEは長期owner。旧PROMPT班は廃止され、Prompt / generation-effectiveness責務はKNOWLEDGEへ統合済み。
+- **#52 / #138 / #71** はmaintenance / post-v1 routingであり、主要research #179/#180/#132を置き換えない。
+- live Issue/PR/branch HEADがこのsnapshotより進んでいる場合、古いSHAや件数を作業継続の根拠にしない。作業開始時にlive GitHubを再取得する。
+
+### Routing precedence
+
+`live main -> CURRENT_STATE -> current live Issue + latest checkpoint -> PERMANENT_RULES -> issue-specific specs -> historical snapshots`
+
+branch-local management docs、過去chat、古いhandoffだけからcurrent taskを推測しない。
+#179/#180のresearch branchはこのmanagement syncから変更しない。
 
 ## Current Stage
+
+### 2026-09-20 live runtime authority
+
+**This block supersedes older runtime/routing statements later in this historical state file when they conflict.**
+
+- Live main before this management sync: `eebccbf7feafff6f86546c4624841d5978953dd6`.
+- PR #131 UI refinement is completed and incorporated in the current runtime.
+- PR #133 post-#131 runtime/portable hardening is merged at `10d4a8e1e48b75eb37ef97713e93293d2695c5e0`.
+- PR #135 post-#131 performance/runtime optimization is merged at `eebccbf7feafff6f86546c4624841d5978953dd6`.
+- Current user-facing workstation runtime: `C:\Codex\DanbooruTagTool-App`.
+- Current shortcut target: `C:\Codex\DanbooruTagTool-App\DanbooruTagTool.exe`.
+- Current shortcut working directory: `C:\Codex\DanbooruTagTool-App`.
+- Runtime is self-contained `win-x64`; move-to-another-directory test passed.
+- `runtime-manifest.json` records the build/main provenance and runtime hashes.
+- `artifacts/current/` is retained as a fallback/reference runtime but is no longer the user-facing launch target.
+- Current catalog remains the validated 33,688-entry ordinary catalog: General 30,629 / Special 3,059 / Character-Copyright-Artist 0 / runtime identities 31,003.
+- Catalog SHA-256 remains `DFDC93581F2E8E3041FBC497F9A1C5CFD458977EF57462E05902F27D29B97CF9`.
+- The optimization candidate measured a clear selection-path reduction by deferring unused `Related` projection; pure dead `DiscoverySupport` and an unused right-pane style were removed. Prompt Undo/Redo command state refresh was also corrected after workspace mutation.
+- Performance verdict: `RUNTIME_OPTIMIZATION_PRODUCTION_VALIDATED` after fresh merged-main publish and protected-data verification.
+- Real `UserData` is user-owned state. Source/destination and pre/post-launch hashes were verified identical during portable promotion.
+- Explicit `RenderMode.SoftwareOnly` was removed in PR #133. Current WPF uses normal Windows/WPF automatic render selection.
+- Performance / Runtime Load Audit is complete. Automatic WPF render selection remains the accepted baseline; no additional optimization is authorized without new evidence.
+- #70 Character/Copyright/Artist work and taxonomy-usability/classification audit are independent lanes. Do not mix their branches/data/commits with runtime/performance work.
+
+Current operational flow:
+
+`live main -> validated build/publish -> isolated validation -> DanbooruTagTool-App runtime promotion`
+
+Production promotion is one-way for code/catalog/runtime files. Real `UserData` must never be treated as disposable deploy output.
+
 
 **Stage9 completed / beginner-first practical v1 accepted / #64 General taxonomy accepted and integrated / #66 completed / #68 completed / #69 local final cleanup completed / #114 WPF architecture stabilization Phase 1–4 completed and integrated.**
 
@@ -26,10 +106,11 @@ Current maintenance route:
 - **Stage10 learning Issue #65 may resume as the user's learning route.** It is not part of completed #76/#83.
 
 Current workstation WPF launch:
-- The current WPF runtime and production `Data/catalog.db` are available under local `artifacts/current/`.
-- The local root shortcut `DanbooruTagTool.lnk` launches that WPF app; this shortcut and runtime output are workstation-local conveniences, not tracked product files.
-- The pre-integration local `catalog.db` was the historical **2,788 Special** catalog. It was replaced once by the completed **3,059 Special** production profile; the 29 deleted IDs remain absent as stable-ID gaps. Existing `UserData/user.db` remains user-owned state and its hash was unchanged through the integration.
-- **Issue #70 workstation runtime is still pending one explicit rebuild.** GitHub main contains the accepted 92,739-row overlay and importer, but the current tool environment cannot access the protected workstation source inputs required by `--build-catalog`. Do not claim `artifacts/current/Data/catalog.db` contains Character/Copyright/Artist until that local rebuild, WPF launch, and practical search/navigation smoke pass are completed.
+
+- **Superseded by the 2026-09-20 live runtime authority block above.**
+- User-facing launch now uses `C:\Codex\DanbooruTagTool-App`.
+- `artifacts/current/` remains retained only as fallback/reference.
+- UserData remains protected user-owned state and is not replaced during runtime promotion.
 
 Issue #114 completion scope now integrated into main:
 - runtime catalog/query/index boundary with one-time runtime indexes and precomputed search documents;
