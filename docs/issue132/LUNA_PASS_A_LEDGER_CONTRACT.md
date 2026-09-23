@@ -420,6 +420,62 @@ Checkpoint commits may change the ledger/progress summary only; they do not rede
 
 ---
 
+## 15.75. Frozen run file locations
+
+Use these paths for the full Pass-A run:
+
+### Regenerated neutral input
+
+`artifacts/issue132/luna-neutral/luna_neutral_review_input_v2.csv`
+
+Neutral manifest:
+
+`artifacts/issue132/luna-neutral/luna_neutral_review_input_v2.manifest.json`
+
+These are generated artifacts and are not production/runtime assets.
+
+### Committed frozen contract
+
+`docs/issue132/full_review/pass_a_contract_manifest_v1.json`
+
+This file is committed at Pass-A start and must not change during the accepted run.
+
+### Committed continuous ledger
+
+`docs/issue132/full_review/pass_a_independent_discovery.csv`
+
+The file always contains:
+- exact header;
+- completed rows only;
+- exact neutral-order prefix.
+
+### Committed checkpoint summary
+
+`docs/issue132/full_review/pass_a_progress_summary.json`
+
+Generate it through the validator at each checkpoint.
+
+It records:
+- reviewed/remaining counts;
+- discovery-mode distribution;
+- route/local/body/theme counts;
+- contract manifest SHA;
+- neutral input SHA/order SHA;
+- ledger SHA.
+
+### Resume rule
+
+On resume:
+
+1. regenerate the neutral input;
+2. verify it against the committed frozen contract manifest;
+3. validate the committed ledger against that manifest;
+4. continue from `reviewed_count + 1`.
+
+Do not commit generated neutral input merely to resume.
+
+---
+
 ## 16. Persistence and restart
 
 This is one continuous review, not semantic shards.
