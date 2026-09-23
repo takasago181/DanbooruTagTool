@@ -52,6 +52,27 @@ jobs:
       - name: Check pre-handoff authority consistency
         run: python scripts/issue132/check_pre_handoff_consistency.py
 
+      - name: Smoke bootstrap and resume helper
+        run: |
+          python scripts/issue132/bootstrap_luna_pass_a.py \
+            --artifact-root artifacts/issue132/bootstrap-smoke \
+            --review-dir artifacts/issue132/bootstrap-review
+          python scripts/issue132/bootstrap_luna_pass_a.py \
+            --artifact-root artifacts/issue132/bootstrap-smoke \
+            --review-dir artifacts/issue132/bootstrap-review
+
+      - name: Confirm incomplete finalizer fails closed
+        run: |
+          if python scripts/issue132/finalize_luna_pass_a.py \
+            --artifact-root artifacts/issue132/bootstrap-smoke \
+            --review-dir artifacts/issue132/bootstrap-review; then
+            echo "ERROR: finalizer accepted incomplete Pass A"
+            exit 1
+          else
+            echo "PASS: finalizer rejected incomplete Pass A"
+          fi
+
+
 
 
       - name: Upload audit package
