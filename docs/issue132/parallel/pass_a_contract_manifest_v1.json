@@ -1,6 +1,6 @@
 {
   "schema_version": "issue132-pass-a-contract-v1",
-  "created_from_commit": "f494f6f4117ba2af8cf5604113bc6f93cb600abb",
+  "created_from_commit": "3ca967f0fe3cf229fd13b565c9246bce9692ff02",
   "population": 31003,
   "execution_model": "continuous_exact_prefix",
   "neutral": {
@@ -12,18 +12,16 @@
     "output_sha256": "ac0f888d02f19a440c63b3b9f695c58f9ba53b98ebe9756edec51db1c5ff8f7d"
   },
   "contract_files_sha256": {
-    "docs/issue132/CURRENT_RECOMMENDED_DIRECTION.md": "efdc851e1ef808e2922fbca937b75b17390dcded917f9d2e6673785d934f4d6b",
+    "docs/issue132/CURRENT_RECOMMENDED_DIRECTION.md": "b6f00a6d47899cf06017cea8e50fada7568b793dc68fd98b81663dce4eee735d",
     "docs/issue132/FULL_SEMANTIC_REVIEW_PROTOCOL.md": "5b4fb613b06cf7683683ebbb162b54d3cb273675d313695cc670ccdab03ea1f7",
     "docs/issue132/LUNA_NEUTRAL_INPUT_CONTRACT.md": "fd8d17391006f8983b76fc394ecbc6349da01afd9854a0538cd61e262baa6cb8",
     "docs/issue132/LUNA_DISCOVERY_ROUTE_SEMANTIC_CONTRACT.md": "df137c8f5f4bf1f434b9a2e40633a51aa35908c829a53c30c57ec508cf637e57",
     "docs/issue132/LUNA_PASS_A_LEDGER_CONTRACT.md": "0859276dbee4ffc9349f009f03965f96905f0e3fd3d541a1087c29b3e6d56c76",
-    "docs/issue132/LUNA_PARALLEL_AUTOMATION_PROTOCOL.md": "90081bbc71a0013d0831b9b89425fa223522db7589fbd65e8bc9d6eab1dd7bbb",
+    "docs/issue132/LUNA_PARALLEL_AUTOMATION_PROTOCOL.md": "a285dcf22aab7e2883971bdaeb0eaad04c7dfb33f0eb3f3e40fa72507a20a0e3",
     "scripts/issue132/build_luna_neutral_input.py": "c3b5d2521adaf1084472af4f967c9c7816b4e182e477660318949b6cee50efff",
-    "scripts/issue132/build_pass_a_contract_manifest.py": "9cb4a2a91ac2f91c9f0390a1ca8e90fabf7fc4c7fdf3717fdd6ed138a2f88f66",
+    "scripts/issue132/build_pass_a_contract_manifest.py": "b4699a53feaa9f2ea309541bba9888ce07e2ff9588ae2842ac9083965783148f",
     "scripts/issue132/check_review_vocabulary_against_code.py": "c00df4cbe96edd090c875fb5983060ab752938bfb78f52140a2fafdaa2fd683d",
     "scripts/issue132/validate_luna_lane.py": "4b99b331c064fd1bf8f789ee247e1254789940a789b93e188b6cb42dfd912078",
-    "scripts/issue132/bootstrap_luna_parallel.py": "2be8509733df3c41eebb3c7dae114cb2b796d51e5d501e1f4141017a22d8b026",
-    "scripts/issue132/merge_luna_parallel.py": "0f748c2b9626fc7135439ea8212055d8be318be34c5894cccd9b592195b581d7",
     "scripts/issue132/validate_luna_pass_a.py": "51e74425b8cc4102b0e3e909254528342b20dcce51904504ef052434302245ed",
     "src/DanbooruTagTool.Core/UnifiedBrowse.cs": "12d9912e36db8957a056da6b7d7826b7de9d43e575e7cb0306fd0d3523a49246",
     "src/DanbooruTagTool.Core/SpecialBrowseV2.cs": "0f0a47bcd8ecf0d11b14a3f20fb375793be423ea67cad84790a62e54265415dc",
