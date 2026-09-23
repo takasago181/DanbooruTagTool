@@ -112,6 +112,28 @@ Do **not** reread large unchanged authority documents merely because they exist.
 
 If a fingerprint differs, fall back to cold-start/full-authority behavior.
 
+## 3.5. Compact routing must be stable
+
+A compact routing fingerprint should contain **routing identity**, not fast-changing progress.
+
+Prefer:
+- active Issue ID;
+- branch name;
+- authority/spec path;
+- execution tier;
+- protected boundaries;
+- where to fetch progress.
+
+Avoid embedding as required routing truth:
+- current branch HEAD for fast-moving lanes;
+- reviewed row counts;
+- latest checkpoint filename;
+- transient CI run IDs.
+
+Those values should be fetched from their live authority when needed.
+
+Otherwise every normal progress commit invalidates the routing fingerprint and turns warm resume back into cold-start behavior.
+
 ## 4. Authority vs cache
 
 Project-wide default:
