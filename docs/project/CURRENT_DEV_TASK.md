@@ -1,6 +1,6 @@
 # CURRENT DEV TASK — LIVE ROUTING INDEX
 
-最終更新: 2026-09-23
+最終更新: 2026-09-24
 
 このファイルは「単一の実装task」を固定するものではなく、現在動いているlaneへのrouting indexである。
 過去の Performance / Runtime Load Audit は完了済みであり、current taskとして再開しない。
@@ -34,10 +34,10 @@
 - Branch: `research/taxonomy-usability-audit`
 - Goal: 全31,003 ordinary identitiesを独立にsemantic reviewし、画像生成でタグ名を知らなくても自然に辿れるdiscovery mapを作る。
 - Current execution: 3 normal ChatGPT Automation workers + 1 coordinator/watchdog.
-- Current live operation: **300 identities / worker run is a ceiling, not a quota**; new immutable checkpoints are 25 rows; every 25 rows receives a mandatory second-pass review; every 100 new rows receives a mandatory cross-batch QA; validated smaller progress is preserved with explicit execution/tool stop reasons.
-- Operational authority: `docs/issue132/parallel/CURRENT_AUTOMATION_OPERATION.md`
+- Current live operation: **300 identities / worker run is a ceiling, not a quota**; normal preflight uses `docs/issue132/parallel/WORKER_EXECUTION_CARD_V1.md`; new immutable checkpoints are 25 rows; each identity is strictly finalized once before moving on; ambiguity/proper nouns/specialist or sexual-boundary concepts require `RESEARCHED`; unresolved meaning uses `SEMANTIC_UNRESOLVED`; every cumulative lane-local 100-row block gets high-risk re-review plus deterministic ordinary CHECKED spot-checks; redundant full-batch rereads/status/CI polling are intentionally removed.
+- Operational authority: `research/taxonomy-usability-audit:docs/issue132/parallel/CURRENT_AUTOMATION_OPERATION.md` (branch-local authority; do not create a second main copy)
 - Frozen Pass-A semantic contract remains unchanged; old `READY FOR CODEX LUNA PASS A` / 100-row / 200-row wording is not current execution routing.
-- Progress snapshot at this sync: valid persisted 475 / 31,003 (Lane 1: 225, Lane 2: 150, Lane 3: 100). Re-fetch live checkpoints/status before continuing.
+- Progress snapshot at this sync: valid persisted checkpoint union 500 / 31,003 (Lane 1: 225, Lane 2: 175, Lane 3: 100). Re-fetch live checkpoint union before continuing.
 - No production mutation, main merge, #64/#76/#118 rewrite, or Character/Copyright/Artist lane mutation is authorized by #132 Pass A.
 
 ## Parallel / maintenance routes
