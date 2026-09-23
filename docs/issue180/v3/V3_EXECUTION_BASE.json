@@ -4,7 +4,7 @@
     "build_structure_v3.py": "d3b99962c0e93bef5df5616c1dcc08345538fcb7dcd3ff1a6533b86be54c9804",
     "migrate_evidence_v3.py": "81ca520f3d47c074a94a8c89397cfbb072f9753d88dcfd72e066d91885049192",
     "resolve_character_home_v3.py": "7b69c47828f4b0ab5b4b1b0916730fda9f896c3de4c95992ce38c4a12f80f7b1",
-    "run_issue180_v3.py": "bd3f42d64ff2c1ec4dd4a1849e9a450a7faf99b37e7aecc130e30270421d3629",
+    "run_issue180_v3.py": "2e8ef115cc00f76cc611336e0600e57369f14ce00315af0ea644b3a6c64cf82d",
     "validate_character_home_v3.py": "e9748560f539d714e5295cf0d6238c0dfec1f2169da12704704365cbe3d6817f"
   },
   "catalog_sha256": "1d346ad75655ea6091f9bce9a4cf58b1cf6f8fac18c7eb441f8edd009ee81433",
@@ -16,7 +16,6 @@
   "migrated_evidence_seed_sha256": "e232a4ca34f274bd6e23e3bbb37df7b2e55b255370d802051f005c5874164faf",
   "migration_baseline_sha256": "ba38e595a763b5968050b847edc49ee8d5e4b4164f33f8467ce50a85bcd100d5",
   "migration_provenance_manifest_sha256": "7cda682e35c3164268878398ac8100248d6be7684e3e2ca7c3ce6737268834b5",
-  "research_unit_terminal_reviews_sha256": "f1894a7b166d2714568dab41d61989ce4c76dfcc62b634eb6877b274b5ba881e",
   "resolver_semantics_version": "direct-family-membership-safe-structural-variant-v3",
   "runtime_research_dependency": false,
   "schema_version": 3,

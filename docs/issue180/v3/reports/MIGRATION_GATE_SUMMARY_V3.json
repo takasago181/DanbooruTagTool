@@ -32,7 +32,7 @@
   "migration_gate": "STOP_CLASSIFIED_DIFFERENCES",
   "missing_roots": 0,
   "multi_home_conflicts": 0,
-  "open_research_units": 4694,
+  "open_research_units": 4666,
   "pipeline_validation": "PASS",
   "production_runtime_dependency": false,
   "reproducibility": {
@@ -44,9 +44,9 @@
   "research_unit_status_counts": {
     "IDENTITY_BLOCKED": 7,
     "NO_SAFE_EVIDENCE": 6,
-    "OPEN": 4694,
+    "OPEN": 4666,
     "PARTIALLY_RESOLVED": 6,
-    "POLICY_BLOCKED": 47
+    "POLICY_BLOCKED": 75
   },
   "research_unit_type_counts": {
     "DIRECT_AUTHORITY": 2561,
@@ -63,7 +63,7 @@
     "VARIANT_OFFICIALITY_MISSING": 1091
   },
   "schema_version": 3,
-  "source_manifest_sha256": "e405c4073ff45627fc68089909f2d05d44319744d850345cef869e5dea97f074",
+  "source_manifest_sha256": "f24336484660b6628fe57781b08694d54adc02396e8f3813ec9ec4ee32eb7091",
   "states": {
     "HOME_CONFIRMED": 17323,
     "HOME_UNRESOLVED": 18567,
