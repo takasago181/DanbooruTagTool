@@ -35,10 +35,13 @@ def main() -> int:
         text = read_text(current_state)
         size = len(text.encode("utf-8"))
         dated = re.findall(r"^## .*20\d{2}-\d{2}-\d{2}.*$", text, flags=re.M)
-        if size > 24_000:
+        if size > 12_000:
             warn(warnings, f"CURRENT_STATE is large ({size} bytes); keep current routing compact and archive history.")
-        if len(dated) > 3:
-            warn(warnings, f"CURRENT_STATE contains {len(dated)} dated top-level sections; consider moving old routing history out.")
+        if len(dated) > 1:
+            warn(warnings, f"CURRENT_STATE contains {len(dated)} dated top-level sections; current state should not accumulate routing history.")
+        history = ROOT / "docs/project/CURRENT_STATE_HISTORY.md"
+        if not history.exists():
+            warn(warnings, "CURRENT_STATE_HISTORY.md is missing; historical state should not be stacked back into CURRENT_STATE.")
 
     routing = ROOT / "docs/project/CURRENT_ROUTING.json"
     if not routing.exists():
@@ -48,8 +51,24 @@ def main() -> int:
             data = json.loads(read_text(routing))
             if data.get("schema_version") != "project-current-routing-v1":
                 warn(warnings, "CURRENT_ROUTING schema_version is unexpected.")
-            if not isinstance(data.get("active_lanes"), list):
+            lanes = data.get("active_lanes")
+            if not isinstance(lanes, list):
                 warn(warnings, "CURRENT_ROUTING active_lanes must be a list.")
+            else:
+                issue_ids = [x.get("issue") for x in lanes if isinstance(x, dict)]
+                if len(issue_ids) != len(set(issue_ids)):
+                    warn(warnings, "CURRENT_ROUTING contains duplicate active issue IDs.")
+                state_text = read_text(current_state) if current_state.exists() else ""
+                for lane in lanes:
+                    if not isinstance(lane, dict):
+                        continue
+                    issue = lane.get("issue")
+                    branch = lane.get("branch")
+                    if issue is not None and f"#{issue}" not in state_text:
+                        warn(warnings, f"CURRENT_ROUTING issue #{issue} is missing from CURRENT_STATE summary.")
+                    kind = lane.get("kind")
+                    if kind != "project_infrastructure" and branch and branch.startswith(("research/", "dev/", "audit/", "codex/")) and branch not in state_text:
+                        warn(warnings, f"CURRENT_ROUTING branch {branch} is missing from CURRENT_STATE summary.")
         except Exception as exc:
             warn(warnings, f"CURRENT_ROUTING is invalid JSON: {exc}")
 
@@ -64,6 +83,10 @@ def main() -> int:
                 heavy_words = any(word in text.lower() for word in ("full", "audit", "artifact", "build"))
                 if not has_paths and heavy_words:
                     warn(warnings, f"{wf.relative_to(ROOT)}: push workflow looks broad and heavy but has no paths filter.")
+
+    dev_task = ROOT / "docs/project/CURRENT_DEV_TASK.md"
+    if dev_task.exists() and len(read_text(dev_task).encode("utf-8")) > 4_000:
+        warn(warnings, "CURRENT_DEV_TASK is growing into a second routing authority; keep it as a compact compatibility pointer.")
 
     docs = ROOT / "docs"
     state_like = []

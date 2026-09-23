@@ -4,14 +4,15 @@
 
 ## 1. 読取順
 
-### DEV / KNOWLEDGE / TEMP / AUDIT / GitHub管理
+### DEV / KNOWLEDGE / TEMP / AUDIT / GitHub管理 — cold start
 
-1. `docs/project/CURRENT_STATE.md`
-2. `docs/project/PERMANENT_RULES.md`
-3. `CURRENT_STATE.md` が示す自班/担当/監査対象のlive Issue
-4. `docs/PRODUCT_GOAL_LOCK.md`
-5. 必要な `docs/project/DECISIONS.md` / current Issue-specific spec / main実装状態
-6. 必要なlatest checkpoint / result comment
+1. `docs/project/CURRENT_ROUTING.json`
+2. `docs/project/CURRENT_STATE.md`
+3. routingが示す自班/担当/監査対象のlive Issue
+4. `docs/project/PERMANENT_RULES.md`
+5. product behavior / UX / scope判断が関係する場合は `docs/PRODUCT_GOAL_LOCK.md`
+6. 必要な `docs/project/DECISIONS.md` / current Issue-specific spec / main実装状態
+7. 必要なlatest checkpoint / result comment
 
 ### Codex DEV
 
@@ -97,7 +98,7 @@ scope/禁止/完了条件を変える場合はlive Issue本文と必要なmanage
 ## 5. チャット移行前
 
 - current Issueへ必要checkpointを反映
-- global stateが変わった場合のみ `CURRENT_STATE.md` 更新
+- global routing/stateが変わった場合のみ `CURRENT_ROUTING.json` と短い `CURRENT_STATE.md` を更新
 - product direction変更なら `PRODUCT_GOAL_LOCK.md` / #42等product-scope Issue / `DECISIONS.md` / `AGENTS.md` / `FEATURE_PRIORITY.md` / `FLOWCHARTS.md` / 影響lane Issueを照合
 - shared docs更新直前にlatest mainを再取得
 - GitHub更新後に新chatへ移行
@@ -164,5 +165,7 @@ SOURCE_OF_TRUTH: live main -> CURRENT_STATE -> live Issue/latest checkpoint -> P
 最後に必要なら:
 
 `GitHub正本運用：認識済み`
+
+`CURRENT_STATE_HISTORY.md` は履歴・証跡用であり、通常startup/read setには含めない。
 
 を明示する。
