@@ -33,6 +33,13 @@ def main() -> None:
                 candidates.append({"subject_type": "Character", "subject_key": tag, "relation_type": "VARIANT_OF",
                                   "object_type": "Character", "object_key": base, "review_state": "CANDIDATE",
                                   "evidence_id": "", "derivation": "terminal qualifier base hypothesis; candidate only"})
+        # Issue #70 RelatedCopyright is only a discovery/batching hint. It never
+        # enters the Evidence Ledger or resolver as ownership/membership authority.
+        hints = [x.strip() for x in (character.get("related_copyright") or "").split("|") if x.strip()]
+        if hints:
+            candidates.append({"subject_type": "Character", "subject_key": tag, "relation_type": "DISCOVERY_HINT",
+                               "object_type": "DiscoveryHint", "object_key": hints[0], "review_state": "CANDIDATE",
+                               "evidence_id": "", "derivation": "Issue #70 RelatedCopyright support-only batching hint; never HOME authority"})
     # Explicit base references in validated variant-decision records are still candidates here;
     # only a validated Evidence Ledger edge can promote them to authority.
     for d in load_decisions():
@@ -52,9 +59,7 @@ def main() -> None:
         })
     candidates.sort(key=lambda r: (r["subject_type"], r["subject_key"], r["relation_type"], r["object_key"]))
     write_csv(GRAPH, candidates, GRAPH_FIELDS)
-    input_paths = [CATALOG, ORIGIN, ORIGIN_META]
-    if V2_APPLIED.exists(): input_paths.append(V2_APPLIED)
-    if V2_MASTER.exists(): input_paths.append(V2_MASTER)
+    input_paths = [CATALOG, ORIGIN, ORIGIN_META, V3_SEED, V3_BASELINE, V3_MIGRATION_MANIFEST, V3_PRE_REPAIR_GAP]
     input_paths += [DECISION_DIR / n for n in DECISION_FILES if (DECISION_DIR / n).exists()]
     input_paths += sorted(EVIDENCE_DIR.glob("*.csv"))
     manifest = {
@@ -68,7 +73,7 @@ def main() -> None:
         "candidate_relation_counts": dict(sorted(__import__("collections").Counter(r["relation_type"] for r in candidates).items())),
         "candidate_graph_path": relpath(GRAPH),
         "source_policy": "Issue #70 accepted Character/Copyright catalog, Issue #179 origin handoff, Issue #180 evidence and validated decisions; generated queues are excluded as authority.",
-        "legacy_data_migration": {"applied_authority_ledger": relpath(V2_APPLIED), "used_for": "traceability only; values are not authority", "v2_master": relpath(V2_MASTER), "used_for_master": "migration regression baseline only"},
+        "legacy_data_migration": {"evidence_seed": relpath(V3_SEED), "authority": "seed contains normalized facts traced to second-reviewed foundation/repository evidence; not copied from v2 HOME master", "baseline": relpath(V3_BASELINE), "used_for": "comparison only; never HOME authority"},
     }
     write_json(MANIFEST, manifest)
     print(json.dumps({"characters": len(characters), "copyright_roots": len(copyrights), "candidate_edges": len(candidates), "manifest": relpath(MANIFEST)}, indent=2))

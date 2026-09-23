@@ -27,6 +27,26 @@ def main() -> None:
     (OUT / "reproducibility_v3.json").write_text(json.dumps(reproducibility, indent=2) + "\n", encoding="utf-8")
     if first != second: raise SystemExit("REPRODUCIBILITY: resolver output changed on identical inputs")
     run("validate_character_home_v3.py")
+    from _issue180_v3_common import (CATALOG, ORIGIN, V3_BASELINE, V3_SEED,
+        V3_MIGRATION_MANIFEST, DOCS_OUT, sha256_file, write_json)
+    active = ["build_structure_v3.py", "migrate_evidence_v3.py", "resolve_character_home_v3.py",
+              "build_residual_units_v3.py", "validate_character_home_v3.py", "run_issue180_v3.py"]
+    execution_base = {
+        "schema_version": 3,
+        "active_pipeline": {name: sha256_file(HERE / name) for name in active},
+        "helper_sha256": sha256_file(HERE / "_issue180_v3_common.py"),
+        "evidence_schema_version": 1,
+        "migrated_evidence_seed_sha256": sha256_file(V3_SEED),
+        "catalog_sha256": sha256_file(CATALOG),
+        "issue179_handoff_sha256": sha256_file(ORIGIN),
+        "migration_baseline_sha256": sha256_file(V3_BASELINE),
+        "migration_provenance_manifest_sha256": sha256_file(V3_MIGRATION_MANIFEST),
+        "resolver_semantics_version": "direct-family-membership-variant-inheritance-v1",
+        "validator_version": sha256_file(HERE / "validate_character_home_v3.py"),
+        "runtime_research_dependency": False,
+        "legacy_v1_v2_pipeline_dependency": False,
+    }
+    write_json(ROOT / "docs/issue180/v3/V3_EXECUTION_BASE.json", execution_base)
     source = json.loads((OUT / "source_manifest_v3.json").read_text(encoding="utf-8"))
     evidence = json.loads((OUT / "evidence_ledger_summary_v3.json").read_text(encoding="utf-8"))
     units = json.loads((OUT / "research_units_summary_v3.json").read_text(encoding="utf-8"))
@@ -41,6 +61,8 @@ def main() -> None:
               "character_population": validation["character_population"], "states": validation["states"],
               "residual_reason_counts": validation["reason_counts"], "research_unit_count": units["research_unit_count"],
               "research_unit_type_counts": units["unit_type_counts"], "evidence_rows": evidence["ledger_rows"],
+              "evidence_basis_counts": evidence["evidence_basis_counts"],
+              "external_source_url_count": evidence["external_source_url_count"],
               "migration_counts": resolver["migration_counts"], "migration_difference_classes": resolver["difference_classes"],
               "migration_comparison_path": "docs/issue180/v3/reports/MIGRATION_COMPARISON_V3.csv",
               "multi_home_conflicts": validation["multi_home_conflicts"], "missing_roots": validation["missing_roots"],

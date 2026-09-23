@@ -1,0 +1,22 @@
+{
+  "active_pipeline": {
+    "build_residual_units_v3.py": "a6982bb29055ff7319a48b1c7d3dbd066a542ce2ef67683c56335acd0a3b5cd0",
+    "build_structure_v3.py": "f8a4477ffdfa42f32b0086a80cfbb3f84e576e138a2ecb0e3739eb1c89cfb586",
+    "migrate_evidence_v3.py": "7f1b94efec74d33889505b26887e56bcce4c5bf3b9fc8ea136587f1f0f7146e4",
+    "resolve_character_home_v3.py": "3a10cbbc77a86e794f90ccd60a18d031e4c92c6f21996d5b3c6f23d82dc4781f",
+    "run_issue180_v3.py": "15ec909b41b57e0546ccc60f0b3ccae4279fbbbe622116ca2a8bd169ac965191",
+    "validate_character_home_v3.py": "2116e1ab8ba16e8227ebeaaa83ef4ee175d3489fc018674bf79c70798eb3c9bd"
+  },
+  "catalog_sha256": "1d346ad75655ea6091f9bce9a4cf58b1cf6f8fac18c7eb441f8edd009ee81433",
+  "evidence_schema_version": 1,
+  "helper_sha256": "12108e385719000f01a198258a39e152944109f8a1b561f5c9f2f137051348ef",
+  "issue179_handoff_sha256": "b4db9a73db834bb3cc567b66559ea046b93ab4eb5a738dc2ac8270a23da2f222",
+  "legacy_v1_v2_pipeline_dependency": false,
+  "migrated_evidence_seed_sha256": "e232a4ca34f274bd6e23e3bbb37df7b2e55b255370d802051f005c5874164faf",
+  "migration_baseline_sha256": "ba38e595a763b5968050b847edc49ee8d5e4b4164f33f8467ce50a85bcd100d5",
+  "migration_provenance_manifest_sha256": "7cda682e35c3164268878398ac8100248d6be7684e3e2ca7c3ce6737268834b5",
+  "resolver_semantics_version": "direct-family-membership-variant-inheritance-v1",
+  "runtime_research_dependency": false,
+  "schema_version": 3,
+  "validator_version": "2116e1ab8ba16e8227ebeaaa83ef4ee175d3489fc018674bf79c70798eb3c9bd"
+}

@@ -1,0 +1,57 @@
+{
+  "baseline_confirmed_rows": 12526,
+  "family_basis_counts": {
+    "EXACT_COPYRIGHT_REVIEWED": 1169,
+    "FIRST_PARTY_REVIEWED": 41,
+    "POLICY_ROOT_NORMALIZATION": 17
+  },
+  "policy_mappings_are_exact_only": true,
+  "purpose": "v2-to-v3 lineage record; evidence seed is authority, baseline is comparison-only",
+  "schema_version": 1,
+  "seed_rows": 1227,
+  "source_roles": {
+    "artifacts/issue180-full-preflight/POST_NORMALIZED_REVIEW/MASTER_HOME_V2/APPLIED_AUTHORITY_LEDGER_V2.csv": "lineage and state cross-check only; never HOME authority",
+    "artifacts/issue180-full-preflight/POST_NORMALIZED_REVIEW/MASTER_HOME_V2/BASE_DIRECT_AUTHORITY_V2.csv": "row-level citations only; uncited rows excluded",
+    "artifacts/issue180-full-preflight/POST_NORMALIZED_REVIEW/MASTER_HOME_V2/CHARACTER_HOME_MASTER_V2.csv": "comparison baseline only; never evidence",
+    "artifacts/issue180-full-preflight/POST_NORMALIZED_REVIEW/MASTER_HOME_V2/FAMILY_AUTHORITY_PROVENANCE_V2.csv": "validated foundation provenance index, cross-checked to second-review rows"
+  },
+  "sources": [
+    {
+      "path": "artifacts/issue180-full-preflight/BATCH_A_REMAINING_7_SECOND_REVIEW_V2.csv",
+      "sha256": "b9e4f09bbf3f6b914a9b264195907600049c8cd89ec5efeab9767d87626cbb05"
+    },
+    {
+      "path": "artifacts/issue180-full-preflight/GLOBAL_EXACT_COPYRIGHT_SECOND_REVIEW_V1.csv",
+      "sha256": "22e5c3a7c3a486f8052f1f16bbc7656b161679f7e93920a3ce18de38802b3972"
+    },
+    {
+      "path": "artifacts/issue180-full-preflight/P1_P3_AUTHORITY_SECOND_REVIEW_V1.csv",
+      "sha256": "36de8085c48e5ae67bdb4b034e5bccf06ce39639ef31a3d3d6b9bee2ed329243"
+    },
+    {
+      "path": "artifacts/issue180-full-preflight/POST_NORMALIZED_REVIEW/MASTER_HOME_V2/APPLIED_AUTHORITY_LEDGER_V2.csv",
+      "sha256": "1be1010c1a1905d26272c8cd3976bbea08556b738e923973086df2e0d2c3fb90"
+    },
+    {
+      "path": "artifacts/issue180-full-preflight/POST_NORMALIZED_REVIEW/MASTER_HOME_V2/BASE_DIRECT_AUTHORITY_V2.csv",
+      "sha256": "47aa1d7dce70641cb3baa27928a59cb65e63b98083c92a1b591c91458aaa3ca7"
+    },
+    {
+      "path": "artifacts/issue180-full-preflight/POST_NORMALIZED_REVIEW/MASTER_HOME_V2/CHARACTER_HOME_MASTER_V2.csv",
+      "sha256": "bc13ec2b7dc80996f318f6769f5a0567c2baa422a44425fde030b112310b514b"
+    },
+    {
+      "path": "artifacts/issue180-full-preflight/POST_NORMALIZED_REVIEW/MASTER_HOME_V2/FAMILY_AUTHORITY_PROVENANCE_V2.csv",
+      "sha256": "8de1cc9b87a1b740a79c9b3bf69e5f99add65a2969e757adc94270abb2b1b34e"
+    },
+    {
+      "path": "artifacts/issue180-full-preflight/ROOT_REVIEW_BATCH_A_SECOND_REVIEW_V1.csv",
+      "sha256": "c0fd853537fe22f47c6ff780bc187ba053fccd164f7bcd276c1d38614460d0d9"
+    },
+    {
+      "path": "docs/issue180/autonomous/AUTONOMOUS_POLICY_V2.json",
+      "sha256": "704ad9c2d8df1e7d04c68e491a3f967c6facde85d7567aa65b01be574a029d32"
+    }
+  ],
+  "unsupported_or_non_fastpath_family_rows_excluded": 229
+}

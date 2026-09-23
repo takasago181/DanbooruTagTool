@@ -8,10 +8,10 @@ Target invariant: `Character -> HOME_COPYRIGHT (0..1)`.
 
 The six entry scripts are `build_structure_v3.py`, `migrate_evidence_v3.py`, `resolve_character_home_v3.py`, `build_residual_units_v3.py`, `validate_character_home_v3.py`, and `run_issue180_v3.py`. They use the standard-library support module `_issue180_v3_common.py`. No v1/v2 research script is executed or imported.
 
-1. **Source** — accepted Issue #70 translation-result catalog (Character/Copyright categories), Issue #179 origin handoff, Issue #180 cited evidence and validated decision shards. The v2 applied ledger is retained only as provenance cross-reference; the v2 master is used only as the migration regression baseline. Generated queues never authorize HOME.
+1. **Source** — accepted Issue #70 translation-result catalog (Character/Copyright categories), Issue #179 origin handoff, Issue #180 approved evidence/decisions, and the tracked v3 migration seed. The tracked v2 baseline is comparison/provenance only. The clean v3 pipeline does not read ignored v1/v2 artifacts or generated queues.
 2. **Structure Builder** — emits identity/root candidates and candidate-only `MEMBER_OF` / `VARIANT_OF` edges. Parsed tag shapes are never promoted by themselves.
-3. **Evidence Ledger** — converts a PASS decision into a validated relation only when it has a substantive claim, an external URL and an in-scope endpoint. Approved Issue #180 evidence files are also imported. Deterministic IDs hash the normalized source/relation tuple; decision files are provenance pointers, not proof.
-4. **Resolver** — considers DIRECT_HOME, FAMILY_HOME + separately materialized membership, and VARIANT_OF + base HOME. Conflicting distinct roots yield `HOME_UNRESOLVED / EVIDENCE_CONFLICT`; route preference never suppresses a competing root.
+3. **Evidence Ledger** — represents `EXTERNAL_AUTHORITY`, `APPROVED_REPO_EVIDENCE`, `REVIEWED_QUALIFIER_COPYRIGHT`, `ROOT_POLICY_NORMALIZATION`, and `REVIEWED_VARIANT_AUTHORITY` with a deterministic evidence ID and provenance. Exact qualifier/root relations require a second-reviewed row; root normalization requires an exact policy key/value pair. Decision CSVs alone are never evidence.
+4. **Resolver** — considers DIRECT_HOME, FAMILY_HOME + validated MEMBER_OF, and VARIANT_OF + base HOME. A variant decision emits only `VARIANT_OF`; its HOME is inherited from the validated base. Conflicting distinct roots yield `HOME_UNRESOLVED / EVIDENCE_CONFLICT`; route preference never suppresses a competing root.
 5. **Residual Planner** — gives every unresolved Character a reason and groups it into deterministic research units.
 6. **Validator** — checks population, exact coverage, state cardinality, source roots, evidence-path edges, conflicts, residual coverage and rerun determinism.
 
@@ -25,9 +25,11 @@ python scripts/issue180/run_issue180_v3.py
 
 Generated CSV/JSON artifacts are written under ignored `artifacts/issue180-v3/`. `docs/issue180/v3/reports/MIGRATION_GATE_SUMMARY_V3.json` records the migration stop gate when the run completes. This is build-time research data; none of the ledger, graph or research-unit artifacts are loaded by the WPF runtime.
 
-## Migration stop gate
+## Migration reconciliation
 
-The comparison classifies each previously confirmed v2 Character as `SAME_HOME`, `V3_UNRESOLVED`, or `DIFFERENT_HOME`. A non-exact result is categorized as `EVIDENCE_MIGRATION_ERROR`, `RESOLVER_BEHAVIOR_CHANGE`, `OLD_DECISION_DEFECT`, `SOURCE_DRIFT`, or `OTHER`. No mismatch is silently repaired or overwritten. New residual web research is outside this v3 migration run.
+`v2_confirmed_baseline_v3.csv` and `MIGRATION_PROVENANCE_V3.json` are comparison/lineage records, not HOME authority. The pre-repair mismatch population is preserved in `MIGRATION_GAP_BEFORE_REPAIR_V3.csv`; the active resolver emits row-level `reports/MIGRATION_GAP_RECONCILIATION_V3.csv` including the original rejection, primary migration-loss reason and repaired evidence path. Current migration comparison remains `SAME_HOME`, `V3_UNRESOLVED`, or `DIFFERENT_HOME`.
+
+`V3_EXECUTION_BASE.json` fingerprints the active scripts/helper, catalog, #179 handoff, migrated seed and baseline. The unit-test/pipeline CI runs only this v3 flow; the old 95-step pipeline remains historical and is not a required gate. The migration gate is followed by the residual research-unit workflow; migration success does not mean residual research is complete.
 
 ## Legacy migration manifest
 

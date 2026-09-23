@@ -10,8 +10,9 @@ from _issue180_v3_common import *
 
 MASTER = OUT / "character_home_master_v3.csv"
 MIGRATION = OUT / "migration_comparison_v3.csv"
+GAP_RECONCILIATION = DOCS_OUT / "MIGRATION_GAP_RECONCILIATION_V3.csv"
 FIELDS = ["canonical_tag", "final_state", "home_copyright", "origin_class", "reason_code", "resolver_path", "conflict_homes"]
-MIGRATION_FIELDS = ["canonical_tag", "v2_home", "v3_state", "v3_home", "migration_state", "difference_class", "difference_detail", "evidence_path"]
+MIGRATION_FIELDS = ["canonical_tag", "v2_home", "v2_resolution_route", "authority_scope", "authority_type", "source_provenance", "evidence_url", "evidence_claim", "family", "base_character", "v3_state", "v3_home", "current_v3_rejection_reason", "migration_state", "primary_migration_loss_reason", "difference_class", "difference_detail", "evidence_path"]
 
 def main() -> None:
     characters, copyrights, char_by = load_catalog()
@@ -125,22 +126,21 @@ def main() -> None:
                        "conflict_homes": conflict})
     write_csv(MASTER, master, FIELDS)
 
-    if not V2_MASTER.exists():
-        raise FileNotFoundError(f"migration baseline missing: {V2_MASTER}")
-    v2_rows = read_csv(V2_MASTER)
-    v2_by = {r["canonical_tag"]: r for r in v2_rows if r.get("final_state") == "HOME_CONFIRMED"}
+    if not V3_BASELINE.exists():
+        raise FileNotFoundError(f"tracked v2 comparison baseline missing: {V3_BASELINE}")
+    v2_rows = read_csv(V3_BASELINE)
+    v2_by = {r["canonical_tag"]: r for r in v2_rows}
     v3_by = {r["canonical_tag"]: r for r in master}
     decision_by_key: dict[str, list[dict[str, str]]] = defaultdict(list)
     for d in load_decisions():
         if d.get("validation_state") == "PASS":
             decision_by_key[d.get("key", "")].append(d)
-    applied_by_tag: dict[str, dict[str, str]] = {}
-    if V2_APPLIED.exists():
-        applied_by_tag = {r.get("canonical_tag", ""): r for r in read_csv(V2_APPLIED)}
+    applied_by_tag: dict[str, dict[str, str]] = v2_by
     migration: list[dict[str, str]] = []
     for tag, old in sorted(v2_by.items()):
         new = v3_by.get(tag)
         detail = ""
+        primary_loss = ""
         if new is None:
             state, home, result, cls, path = "MISSING", "", "V3_UNRESOLVED", "SOURCE_DRIFT", ""
             detail = "Character key exists in the v2 baseline but not the current Issue #70 source."
@@ -154,17 +154,65 @@ def main() -> None:
             state, home, result = new["final_state"], new["home_copyright"], "V3_UNRESOLVED"
             drows = decision_by_key.get(tag, [])
             if new.get("reason_code") == "EVIDENCE_CONFLICT": cls = "OLD_DECISION_DEFECT"
+            elif old.get("source_provenance") == "SPLATOON_OFFICIAL_HOME_V1.csv" and new.get("reason_code") == "VARIANT_OFFICIALITY_MISSING": cls = "OLD_DECISION_DEFECT"
             elif drows and not any(e.get("subject_key") == tag for e in ledger if e.get("relation_type") in {"DIRECT_HOME", "VARIANT_OF"}): cls = "EVIDENCE_MIGRATION_ERROR"
             elif new.get("reason_code") in {"FAMILY_HOME_MISSING", "FAMILY_MEMBERSHIP_MISSING"}: cls = "EVIDENCE_MIGRATION_ERROR"
             elif new.get("reason_code") == "IDENTITY_REVIEW_REQUIRED": cls = "SOURCE_DRIFT"
             else: cls = "RESOLVER_BEHAVIOR_CHANGE" if drows else "EVIDENCE_MIGRATION_ERROR"
             path = ""
             old_prov = applied_by_tag.get(tag, {})
+            source_prov = old.get("source_provenance", "")
+            scope = old.get("authority_scope", "")
+            authority = old.get("authority_type", "")
+            if scope == "VARIANT_CHARACTER": primary_loss = "VARIANT_CHAIN_NOT_MIGRATED"
+            elif scope == "FAMILY_QUALIFIER" and authority == "POLICY_ROOT_NORMALIZATION": primary_loss = "ROOT_POLICY_NOT_MIGRATED"
+            elif scope == "FAMILY_QUALIFIER" and authority in {"EXACT_COPYRIGHT_REVIEWED", "FIRST_PARTY_REVIEWED", "FIRST_PARTY_CANONICAL_ROOT"}: primary_loss = "FAMILY_FASTPATH_NOT_MIGRATED"
+            elif source_prov.startswith("docs/issue180/autonomous/decisions/"): primary_loss = "APPROVED_REPO_EVIDENCE_NOT_MIGRATED"
+            elif scope == "DIRECT_CHARACTER" and source_prov.startswith("DIRECT_OFFICIAL_CHARACTER_ROSTER"): primary_loss = "APPROVED_REPO_EVIDENCE_NOT_MIGRATED"
+            elif scope == "DIRECT_CHARACTER": primary_loss = "FOUNDATION_DIRECT_NOT_MIGRATED"
+            else: primary_loss = "OTHER"
             detail = f"{new.get('reason_code','NO_SAFE_PATH')}; v2_scope={old_prov.get('authority_scope','')}; v2_authority={old_prov.get('authority_type','')}; v2_provenance={old_prov.get('source_provenance','')}; no validated v3 path to old HOME."
-        migration.append({"canonical_tag": tag, "v2_home": old.get("home_copyright", ""), "v3_state": state,
-                          "v3_home": home, "migration_state": result, "difference_class": cls, "difference_detail": detail, "evidence_path": path})
+        source_prov = old.get("source_provenance", "")
+        family = old.get("family", "")
+        base_character = next((d.get("base_character", "") for d in decision_by_key.get(tag, []) if d.get("scope") == "VARIANT_CHARACTER"), "")
+        migration.append({"canonical_tag": tag, "v2_home": old.get("home_copyright", ""), "v2_resolution_route": old.get("v2_resolution_route", old.get("authority_scope", "")),
+                          "authority_scope": old.get("authority_scope", ""), "authority_type": old.get("authority_type", ""), "source_provenance": source_prov,
+                          "evidence_url": old.get("evidence_url", ""), "evidence_claim": old.get("evidence_claim", ""), "family": family,
+                          "base_character": base_character, "v3_state": state, "v3_home": home,
+                          "current_v3_rejection_reason": new.get("reason_code", ""), "migration_state": result,
+                          "primary_migration_loss_reason": primary_loss, "difference_class": cls, "difference_detail": detail, "evidence_path": path})
     write_csv(MIGRATION, migration, MIGRATION_FIELDS)
     from collections import Counter
+    pre_gap = read_csv(V3_PRE_REPAIR_GAP) if V3_PRE_REPAIR_GAP.exists() else []
+    gap_rows: list[dict[str, str]] = []
+    gap_fields = ["canonical_tag", "v2_home", "v2_resolution_route", "authority_scope", "authority_type", "source_provenance", "evidence_url", "evidence_claim", "family", "base_character", "pre_repair_rejection_reason", "primary_migration_loss_reason", "repair_status", "current_v3_rejection_reason", "difference_class", "v3_home", "evidence_path"]
+    for previous in pre_gap:
+        tag = previous["canonical_tag"]
+        old = v2_by.get(tag, {})
+        new = v3_by.get(tag, {})
+        scope, authority, source_prov = old.get("authority_scope", ""), old.get("authority_type", ""), old.get("source_provenance", "")
+        if scope == "FAMILY_QUALIFIER" and authority == "POLICY_ROOT_NORMALIZATION": primary = "ROOT_POLICY_NOT_MIGRATED"
+        elif scope == "FAMILY_QUALIFIER": primary = "FAMILY_FASTPATH_NOT_MIGRATED"
+        elif scope == "VARIANT_CHARACTER": primary = "VARIANT_CHAIN_NOT_MIGRATED"
+        elif scope == "DIRECT_CHARACTER" and (source_prov.startswith("docs/issue180/") or "ROSTER" in authority or "ROSTER" in source_prov or source_prov.endswith("OFFICIAL_HOME_V1.csv")): primary = "APPROVED_REPO_EVIDENCE_NOT_MIGRATED"
+        elif scope == "DIRECT_CHARACTER" and source_prov: primary = "FOUNDATION_DIRECT_NOT_MIGRATED"
+        elif not source_prov: primary = "PROVENANCE_PARSE_FAILURE"
+        else: primary = "OTHER"
+        decisions_for_tag = decision_by_key.get(tag, [])
+        base = next((d.get("base_character", "") for d in decisions_for_tag if d.get("scope") == "VARIANT_CHARACTER"), "")
+        confirmed_same = new.get("final_state") == "HOME_CONFIRMED" and new.get("home_copyright") == old.get("home_copyright", "")
+        if source_prov == "SPLATOON_OFFICIAL_HOME_V1.csv" and new.get("reason_code") == "VARIANT_OFFICIALITY_MISSING": primary = "UNSUPPORTED_LEGACY_DIRECT_VARIANT"
+        gap_rows.append({"canonical_tag": tag, "v2_home": old.get("home_copyright", ""),
+            "v2_resolution_route": old.get("v2_resolution_route", scope), "authority_scope": scope,
+            "authority_type": authority, "source_provenance": source_prov, "evidence_url": old.get("evidence_url", ""),
+            "evidence_claim": old.get("evidence_claim", ""), "family": old.get("family", ""), "base_character": base,
+            "pre_repair_rejection_reason": previous.get("difference_detail", previous.get("difference_class", "")),
+            "primary_migration_loss_reason": primary,
+            "repair_status": "RECOVERED_SAME_HOME" if confirmed_same else ("DIFFERENT_HOME_REQUIRES_REVIEW" if new.get("final_state") == "HOME_CONFIRMED" else "UNRESOLVED_AFTER_REPAIR"),
+            "current_v3_rejection_reason": new.get("reason_code", ""),
+            "difference_class": "" if confirmed_same else ("OLD_DECISION_DEFECT" if source_prov == "SPLATOON_OFFICIAL_HOME_V1.csv" and new.get("reason_code") == "VARIANT_OFFICIALITY_MISSING" else previous.get("difference_class", "OTHER")),
+            "v3_home": new.get("home_copyright", ""), "evidence_path": new.get("resolver_path", "")})
+    write_csv(GAP_RECONCILIATION, gap_rows, gap_fields)
     counts = Counter(r["migration_state"] for r in migration)
     classes = Counter(r["difference_class"] for r in migration if r["difference_class"])
     summary = {"v2_confirmed": len(v2_by), "migration_counts": dict(counts), "difference_classes": dict(classes),
@@ -173,6 +221,10 @@ def main() -> None:
                "multi_home_conflicts": sum(r["reason_code"] == "EVIDENCE_CONFLICT" for r in master),
                "copyright_roots_missing": sum(r["final_state"] == "HOME_CONFIRMED" and r["home_copyright"] not in root_set for r in master),
                "master_sha256": sha256_file(MASTER), "migration_sha256": sha256_file(MIGRATION)}
+    summary["pre_repair_gap_rows"] = len(gap_rows)
+    summary["pre_repair_gap_primary_reasons"] = dict(sorted(Counter(r["primary_migration_loss_reason"] for r in gap_rows).items()))
+    summary["pre_repair_gap_repair_status"] = dict(sorted(Counter(r["repair_status"] for r in gap_rows).items()))
+    summary["pre_repair_gap_unique_keys"] = len({r["canonical_tag"] for r in gap_rows}) == len(gap_rows)
     write_json(OUT / "resolver_summary_v3.json", summary)
     print(json.dumps(summary, ensure_ascii=False, indent=2))
 

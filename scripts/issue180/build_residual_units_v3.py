@@ -15,14 +15,28 @@ def main() -> None:
     master = read_csv(OUT / "character_home_master_v3.csv")
     graph = read_csv(OUT / "structure_graph_v3.csv")
     members: dict[str, list[str]] = defaultdict(list)
+    hints: dict[str, list[str]] = defaultdict(list)
+    bases: dict[str, list[str]] = defaultdict(list)
     for e in graph:
         if e["relation_type"] == "MEMBER_OF": members[e["subject_key"]].append(e["object_key"])
+        elif e["relation_type"] == "DISCOVERY_HINT" and e.get("review_state") == "CANDIDATE": hints[e["subject_key"]].append(e["object_key"])
+        elif e["relation_type"] == "VARIANT_OF": bases[e["subject_key"]].append(e["object_key"])
     groups: dict[tuple[str, str], list[dict[str, str]]] = defaultdict(list)
     for r in master:
         if r["final_state"] != "HOME_UNRESOLVED":
             continue
-        fams = sorted(set(members.get(r["canonical_tag"], [])))
-        key = fams[0] if len(fams) == 1 else ("|".join(fams) if fams else "__UNGROUPED__")
+        tag = r["canonical_tag"]
+        fams = sorted(set(members.get(tag, [])))
+        variant_bases = sorted(set(bases.get(tag, [])))
+        discovery_hints = sorted(set(hints.get(tag, [])))
+        if r["reason_code"] == "VARIANT_OFFICIALITY_MISSING" and variant_bases:
+            key = "base:" + (variant_bases[0] if len(variant_bases) == 1 else "|".join(variant_bases))
+        elif fams:
+            key = "family:" + (fams[0] if len(fams) == 1 else "|".join(fams))
+        elif discovery_hints:
+            key = "discovery-hint:" + discovery_hints[0]
+        else:
+            key = "__UNGROUPED__"
         groups[(r["reason_code"], key)].append(r)
     units = []
     for (reason, subject), rows in sorted(groups.items()):

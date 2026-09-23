@@ -27,6 +27,25 @@ def main() -> None:
     if any(r["final_state"] == "HOME_UNRESOLVED" and not r["reason_code"] for r in master): errors.append("COVERAGE_INTEGRITY: unresolved Character missing concrete reason")
     if any(r["home_copyright"] and r["home_copyright"] not in roots for r in master): errors.append("ROOT_INTEGRITY: confirmed HOME not in current Copyright catalog")
     ledger_by_id = {e["evidence_id"]: e for e in ledger}
+    policy = json.loads((ROOT / "docs/issue180/autonomous/AUTONOMOUS_POLICY_V2.json").read_text(encoding="utf-8"))
+    root_map = {str(k).lower(): str(v) for k, v in policy.get("root_policy_normalization", {}).items()}
+    allowed_bases = {"EXTERNAL_AUTHORITY", "APPROVED_REPO_EVIDENCE", "REVIEWED_QUALIFIER_COPYRIGHT", "ROOT_POLICY_NORMALIZATION", "REVIEWED_VARIANT_AUTHORITY"}
+    for e in ledger:
+        if e.get("evidence_basis") not in allowed_bases:
+            errors.append(f"EVIDENCE_INTEGRITY: unsupported/empty evidence basis for {e['evidence_id']}")
+        expected_id = evidence_id(e["subject_type"], e["subject_key"], e["relation_type"], e["object_key"],
+                                  e["authority_type"] + ":" + e["evidence_basis"], e["source_url"], e["source_claim"])
+        if expected_id != e["evidence_id"]:
+            errors.append(f"EVIDENCE_INTEGRITY: evidence ID/provenance tuple mismatch for {e['evidence_id']}")
+        if e["evidence_basis"] == "ROOT_POLICY_NORMALIZATION" and root_map.get(e["subject_key"].lower()) != e["object_key"]:
+            errors.append(f"EVIDENCE_INTEGRITY: root normalization is not an exact policy pair for {e['subject_key']}")
+        if e["relation_type"] == "VARIANT_OF" and e["evidence_basis"] != "REVIEWED_VARIANT_AUTHORITY":
+            errors.append(f"INHERITANCE_INTEGRITY: VARIANT_OF lacks reviewed variant evidence for {e['subject_key']}")
+        if e["relation_type"] == "MEMBER_OF" and e["evidence_basis"] != "APPROVED_REPO_EVIDENCE":
+            errors.append(f"INHERITANCE_INTEGRITY: MEMBER_OF lacks validated catalog/repository basis for {e['subject_key']}")
+    structure = read_csv(OUT / "structure_graph_v3.csv")
+    if any(e.get("relation_type") == "DISCOVERY_HINT" and (e.get("review_state") != "CANDIDATE" or e.get("evidence_id")) for e in structure):
+        errors.append("EVIDENCE_INTEGRITY: discovery hints must remain candidate-only without evidence IDs")
     for r in master:
         if r["final_state"] != "HOME_CONFIRMED": continue
         try: paths = json.loads(r["resolver_path"])

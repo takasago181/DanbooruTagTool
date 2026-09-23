@@ -8,6 +8,7 @@ R=Path(__file__).resolve().parents[2]
 BASE="82ccb264e27cd72d140d910294efb7460a233a99"
 EXACT_ALLOWED={".github/workflows/issue180_single_home_pilot.yml"}
 PREFIX_ALLOWED=("docs/issue180/","scripts/issue180/")
+EXACT_PREFIX_ALLOWED=("tests/issue180/",)
 
 
 def git_paths(args):
@@ -18,7 +19,7 @@ def git_paths(args):
 
 
 def allowed(path):
- return path in EXACT_ALLOWED or path.startswith(PREFIX_ALLOWED)
+ return path in EXACT_ALLOWED or path.startswith(PREFIX_ALLOWED) or path.startswith(EXACT_PREFIX_ALLOWED)
 
 
 def main():

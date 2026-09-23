@@ -10,14 +10,15 @@ from typing import Iterable
 ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / "artifacts/issue180-v3"
 DOCS_OUT = ROOT / "docs/issue180/v3/reports"
-CATALOG = ROOT / "docs/issue70/data/runtime/issue70_translation_results.csv"
+CATALOG = ROOT / "docs/issue70/data/runtime/issue70_catalog_overlay.csv"
 ORIGIN = ROOT / "docs/issue180/evidence/ISSUE179_ORIGIN_HANDOFF_V1.csv"
 ORIGIN_META = ROOT / "docs/issue180/evidence/ISSUE179_ORIGIN_HANDOFF_V1.meta.json"
 EVIDENCE_DIR = ROOT / "docs/issue180/evidence"
 DECISION_DIR = ROOT / "docs/issue180/autonomous/decisions"
-V2_MASTER = ROOT / "artifacts/issue180-full-preflight/POST_NORMALIZED_REVIEW/MASTER_HOME_V2/CHARACTER_HOME_MASTER_V2.csv"
-V2_APPLIED = ROOT / "artifacts/issue180-full-preflight/POST_NORMALIZED_REVIEW/MASTER_HOME_V2/APPLIED_AUTHORITY_LEDGER_V2.csv"
-
+V3_SEED = ROOT / "docs/issue180/v3/migrated_evidence_seed_v3.csv"
+V3_BASELINE = ROOT / "docs/issue180/v3/v2_confirmed_baseline_v3.csv"
+V3_MIGRATION_MANIFEST = ROOT / "docs/issue180/v3/MIGRATION_PROVENANCE_V3.json"
+V3_PRE_REPAIR_GAP = ROOT / "docs/issue180/v3/MIGRATION_GAP_BEFORE_REPAIR_V3.csv"
 CHARACTER_CATEGORY = "4"
 COPYRIGHT_CATEGORY = "3"
 FINAL_STATES = {"HOME_CONFIRMED", "HOME_UNRESOLVED", "NOT_OFFICIAL_CHARACTER"}
