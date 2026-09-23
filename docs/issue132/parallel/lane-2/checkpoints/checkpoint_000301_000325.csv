@@ -1,0 +1,26 @@
+review_seq,identity_key,manual_seen,semantic_summary_ja,discovery_mode,route_1_id,route_1_strength,route_1_reason_ja,route_2_id,route_2_strength,route_2_reason_ja,route_3_id,route_3_strength,route_3_reason_ja,local_refinement_ids,body_site_ids,theme_ids,route_vocabulary_gap,route_vocabulary_gap_note,review_depth,evidence_urls,uncertainty_note
+902,league_card,YES,ポケットモンスター ソード・シールドのリーグカード,MIXED,TOOL_OBJECT,CORE,カード状の小物として探す意図が成立,,,,,,,"[""OBJECT_PROP/DAILY""]",[],[],NO,,CHECKED,[],
+905,braided_beard,YES,編み込んだひげ,BROWSE_WORTHY,HAIR_FACE,CORE,ひげの髪型・外見として探すのが自然,,,,,,,[],[],[],NO,,CHECKED,[],
+908,reaching,YES,手や腕を対象へ伸ばす動作,BROWSE_WORTHY,ACTION_CONTACT,CORE,手を伸ばす動作として探すのが自然,,,,,,,[],[],[],NO,,CHECKED,[],
+911,two-tone_apron,YES,2色配色のエプロン,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,衣服として探すのが自然,,,,,,,"[""CLOTHING/EVERYDAY""]",[],[],NO,,CHECKED,[],
+914,pussy_cutout,YES,女性器部分を露出させる衣服の切り抜き,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,衣服の露出構造として探すのが自然,,,,,,,"[""CLOTHING_STATE_EXPOSURE/""]","[""FEMALE_GENITAL""]",[],NO,,CHECKED,[],
+917,candy_heart,YES,ハート形のキャンディ,BROWSE_WORTHY,TOOL_OBJECT,CORE,菓子として探すのが自然,COLOR_PATTERN_SHAPE,SUPPORTING,ハート形状から探す意図も成立,,,,"[""OBJECT_PROP/FOOD""]",[],[],NO,,CHECKED,[],
+920,soil,YES,土壌・土,BROWSE_WORTHY,SCENE_BACKGROUND,CORE,地面・背景の土として探すのが自然,,,,,,,[],[],[],NO,,CHECKED,[],
+923,x_(symbol),YES,X字の記号,BROWSE_WORTHY,TEXT_SYMBOL,CORE,記号として探すのが自然,,,,,,,"[""TEXT_SYMBOL/SYMBOL""]",[],[],NO,,CHECKED,[],
+926,metal_bracelet,YES,金属製のブレスレット,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,装身具として探すのが自然,,,,,,,"[""CLOTHING/ACCESSORY""]",[],[],NO,,CHECKED,[],
+929,wet_socks,YES,濡れた靴下,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,衣服の濡れた状態として探すのが自然,,,,,,,"[""CLOTHING/EVERYDAY""]",[],[],NO,,CHECKED,[],
+932,mismatched_sclera,YES,左右で色などが異なる強膜,BROWSE_WORTHY,HAIR_FACE,CORE,目の外見特徴として探すのが自然,,,,,,,[],[],[],NO,,CHECKED,[],
+935,no_symbol_tattoo,YES,禁止マークを模したタトゥー,BROWSE_WORTHY,TEXT_SYMBOL,CORE,記号意匠として探すのが自然,,,,,,,"[""TEXT_SYMBOL/SYMBOL""]",[],[],NO,,CHECKED,[],
+938,see-through_pelvic_curtain,YES,透ける前垂れ・ペルビックカーテン,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,透けた衣服・露出状態として探すのが自然,,,,,,,"[""CLOTHING_STATE_EXPOSURE/""]",[],[],NO,,CHECKED,[],
+941,kel-tec_rfb,YES,Kel-Tec製RFBブルパップ式半自動ライフル,BROWSE_WORTHY,TOOL_OBJECT,CORE,銃器・武器として探すのが自然,,,,,,,"[""OBJECT_PROP/WEAPON""]",[],[],NO,,RESEARCHED,"[""https://safebooru.donmai.us/wiki_pages/rifle""]",Danbooru rifle wikiでkel-tec_rfbがrifleを含意することを確認
+944,kakyoin_noriaki's_pose,YES,花京院典明に由来する特徴的なポーズ,MIXED,POSE_POSITION,CORE,固有元を知らなくても身体ポーズとして探す意図が成立,,,,,,,[],[],[],NO,,CHECKED,[],
+947,giving_flower,YES,相手に花を渡す行為,BROWSE_WORTHY,ACTION_CONTACT,CORE,対人の受け渡し動作として探すのが自然,,,,,,,"[""ACTION_CONTACT/INTERACTION""]",[],[],NO,,CHECKED,[],
+950,fern,YES,シダ植物,BROWSE_WORTHY,LIVING,CORE,植物として探すのが自然,,,,,,,"[""LIVING_NATURE/PLANT""]",[],[],NO,,CHECKED,[],
+953,volumetric_flask,YES,メスフラスコ,BROWSE_WORTHY,TOOL_OBJECT,CORE,実験器具として探すのが自然,,,,,,,"[""OBJECT_PROP/DAILY""]",[],[],NO,,CHECKED,[],
+956,christmas_star,YES,クリスマス装飾の星,BROWSE_WORTHY,TOOL_OBJECT,CORE,装飾小物として探すのが自然,TEXT_SYMBOL,SUPPORTING,星記号・形状から探す意図も成立,,,,"[""OBJECT_PROP/DAILY""]",[],[],NO,,CHECKED,[],
+959,kenmyouren_(fate),YES,Fateシリーズの作品固有キャラクター・存在「顕妙連」,SEARCH_ORIENTED,,,,,,,,,,[],[],[],NO,,RESEARCHED,"[""https://www.seaart.ai/explore/detail/d20880f0fa4f1d8e29eb056cfc83eac0""]",Fateタグ・人物描写との併用例を確認したが作品固有名検索が自然
+962,space_phantas-moon_another_christmas,YES,Fate/Grand OrderのPhantas-Moon関連クリスマス衣装・作品固有要素,SEARCH_ORIENTED,,,,,,,,,,[],[],[],NO,,RESEARCHED,"[""https://safebooru.org/index.php?id=6327407&page=post&s=view""]",FGO・Phantas-Moon・Christmasと併記される作品固有タグを確認
+965,flaming_head,YES,頭部が炎に包まれた・炎そのものになった外見,BROWSE_WORTHY,NONHUMAN_TRANSFORM,CORE,頭部の非通常な変化として探すのが自然,,,,,,,[],[],[],NO,,CHECKED,[],
+968,mig-29,YES,MiG-29戦闘機,BROWSE_WORTHY,TOOL_OBJECT,CORE,航空機・乗り物として探すのが自然,,,,,,,"[""OBJECT_PROP/VEHICLE""]",[],[],NO,,CHECKED,[],
+971,ogre,YES,鬼・オーガ型の人外生物,BROWSE_WORTHY,LIVING,CORE,人外生物として探すのが自然,,,,,,,"[""LIVING_NATURE/CREATURE""]",[],[],NO,,CHECKED,[],
+974,frilled_jacket,YES,フリル装飾の付いたジャケット,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,衣服として探すのが自然,,,,,,,"[""CLOTHING/EVERYDAY""]",[],[],NO,,CHECKED,[],
