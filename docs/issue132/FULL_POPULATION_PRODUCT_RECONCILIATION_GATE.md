@@ -362,6 +362,60 @@ Do not use one global fix merely because it is smaller; it must be semantically 
 
 ---
 
+## 10.75. Route-vocabulary and facet-expansion gate
+
+`ROUTE_VOCABULARY_GAP` is analyzed only after the full 31,003-row Pass A is complete.
+
+Do not resolve it per row by inventing new categories.
+
+For each repeated gap cluster, compare four explanations in this order:
+
+1. **wording gap**
+   - current route meaning is correct, but the Japanese label under-describes it;
+
+2. **projection gap**
+   - existing source taxonomy already has the meaning, but one General/Special->Unified mapping loses it;
+
+3. **refinement gap**
+   - current top-level route is acceptable, but local/body/theme narrowing is missing;
+
+4. **true vocabulary gap**
+   - a distinct user mental model is not representable by the existing route/refinement vocabulary.
+
+Only case 4 can proceed to a new-route design review.
+
+A true vocabulary-gap proposal must be evaluated across the full cluster for:
+- population size;
+- semantic coherence;
+- overlap with existing routes;
+- Japanese/alias search coverage;
+- adult/sexual workflow value where relevant;
+- expected route result size;
+- expected refinement options;
+- UI complexity;
+- runtime/index cost.
+
+There is no automatic promotion threshold.
+
+### Facet expansion
+
+Missing body/theme facets on General identities are analyzed separately from route gaps.
+
+The question is not:
+
+> Luna marked many rows, so should we add facet metadata?
+
+It is:
+
+> Would a static Unified facet extension materially reduce search/browse friction in the actual generation workflow without creating another taxonomy engine?
+
+Until that separate gate passes:
+
+- body/theme findings remain research-only;
+- the v1 #132 production overlay remains route-only.
+
+---
+
 ## 11. Final reconciliation states
 
 After full-population product analysis:
