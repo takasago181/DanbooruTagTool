@@ -1,13 +1,14 @@
 {
   "schema_version": "project-current-routing-v1",
-  "generated_at": "2026-09-24T02:25:00+09:00",
+  "generated_at": "2026-09-24T02:29:00+09:00",
   "purpose": "compact machine-readable routing snapshot; not a permanent branch-head authority",
-  "live_main_snapshot": "feaff63343de660c1c94a01c5c8801f7e42c3fb3",
+  "live_main_snapshot": null,
   "must_refetch_live_heads_before_write": true,
   "source_of_truth_order": [
     "live main",
     "docs/project/CURRENT_ROUTING.json",
-    "target live Issue and latest checkpoint",
+    "docs/project/NOW.md",
+    "target live Issue and latest immutable checkpoint/result",
     "docs/project/PERMANENT_RULES.md",
     "task-specific contract/spec"
   ],
@@ -33,14 +34,14 @@
       "title": "Character/Copyright identity, Japanese display/search, ranking, and 2D scope quality",
       "branch": "research/issue179-character-quality-audit",
       "branch_head_snapshot": null,
-      "phase": "active research",
+      "phase": "standby / draft research retained",
       "isolation": [
         "#132",
         "#180"
       ],
       "production_mutation": false,
       "head_policy": "fetch_live_before_work_or_write",
-      "progress_source": "live Issue/PR/branch"
+      "progress_source": "live Issue/PR #181/branch"
     },
     {
       "issue": 180,
@@ -63,7 +64,7 @@
       "title": "Reduce execution overhead without weakening audit accuracy",
       "branch": null,
       "branch_head_snapshot": null,
-      "phase": "active project infrastructure; implementation uses short-lived per-change branches",
+      "phase": "active infrastructure cleanup; foundations merged, telemetry/bottleneck follow-up remains",
       "isolation": [
         "semantic authority of #132/#179/#180"
       ],
@@ -91,5 +92,7 @@
   "history_file": "docs/project/CURRENT_STATE_HISTORY.md",
   "current_dev_task_role": "compatibility pointer only; do not duplicate routing state",
   "progress_authority": "immutable checkpoint/result first; status/progress summaries are derived cache",
-  "routing_stability_policy": "do not embed fast-changing lane progress or required current branch HEAD; fetch those live"
+  "routing_stability_policy": "do not embed fast-changing lane progress or required current branch HEAD; fetch those live",
+  "human_dashboard_file": "docs/project/NOW.md",
+  "repository_entry_file": "README.md"
 }
