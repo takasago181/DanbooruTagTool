@@ -46,6 +46,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: issue132-full-discovery-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   audit:
     runs-on: ubuntu-latest
