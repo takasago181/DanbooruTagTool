@@ -20,21 +20,24 @@ Recurring same-lane automation or deterministic append-only resume may use the c
 
 ## 2. 作業開始ゲート
 
-新規セッション・再開・task branch作成前に必ず:
+新規セッション・lane選択・task branch作成前の **cold start** では必ず:
 
 1. `git status --short --branch`
 2. `git fetch origin --prune`
 3. GitHub live `origin/main` のHEADを確認
-4. `origin/main:docs/project/CURRENT_STATE.md`
-5. `origin/main:docs/project/PERMANENT_RULES.md`
-6. `CURRENT_STATE.md` が示す対象DEV laneのlive GitHub Issue本文と最新コメントを取得
-7. Issue title / state / body / latest checkpoint / completion condition / blockerを確認
-8. 必要なら `docs/PRODUCT_GOAL_LOCK.md` と当該Issueが参照する現行仕様を読む
-9. branch-local管理文書との差分はその後に確認する
+4. `origin/main:docs/project/CURRENT_ROUTING.json`
+5. `origin/main:docs/project/CURRENT_STATE.md`
+6. routingが示す対象DEV laneのlive GitHub Issue本文と最新コメントを取得
+7. `origin/main:docs/project/PERMANENT_RULES.md`
+8. Issue title / state / body / latest checkpoint / completion condition / blockerを確認
+9. product behavior / UX / scope判断が関係する場合は `docs/PRODUCT_GOAL_LOCK.md` と当該Issueが参照する現行仕様を読む
+10. branch-local管理文書との差分はその後に確認する
+
+同一lane・同一contractのrecurring Automation / append-only warm resumeでは、このfull gateを毎run再実行しない。Section 1.5 / `EXECUTION_ARCHITECTURE.md` のcompact warm-resume pathを使う。
 
 現在地の優先順位:
 
-`live main CURRENT_STATE -> target live Issue -> latest checkpoint -> PERMANENT_RULES -> task branch/local worktree`
+`live main -> CURRENT_ROUTING.json -> CURRENT_STATE.md -> target live Issue -> latest checkpoint -> PERMANENT_RULES -> task branch/local worktree`
 
 古いbranch、旧handoff、過去Stage資料で現在地を巻き戻さない。
 矛盾時はfail-closedで停止する。
@@ -210,12 +213,21 @@ WPF migrationを理由にexisting `data/` を先に移動・整理しない。
 
 ## 9. 読む仕様を必要最小限にする
 
-常時読む:
-1. `docs/project/CURRENT_STATE.md`
-2. `docs/project/PERMANENT_RULES.md`
+### cold startで読む
+1. `docs/project/CURRENT_ROUTING.json`
+2. `docs/project/CURRENT_STATE.md`
 3. target live DEV Issue
-4. `docs/PRODUCT_GOAL_LOCK.md`
-5. target Issueが指定する仕様
+4. `docs/project/PERMANENT_RULES.md`
+5. product behavior / UX / scope判断が関係する場合だけ `docs/PRODUCT_GOAL_LOCK.md`
+6. target Issueが指定する仕様
+
+### warm resumeで読む
+1. compact routing / contract fingerprint
+2. task-local immutable progress listing
+3. next bounded input
+4. changed evidenceだけ
+
+`CURRENT_STATE_HISTORY.md` や変更されていない大型spec群を通常のwarm resume read setへ入れない。
 
 Issue #64作業時:
 - `docs/project/CURRENT_DEV_TASK.md`
