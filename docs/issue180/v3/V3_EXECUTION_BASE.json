@@ -15,7 +15,7 @@
   "migrated_evidence_seed_sha256": "e232a4ca34f274bd6e23e3bbb37df7b2e55b255370d802051f005c5874164faf",
   "migration_baseline_sha256": "ba38e595a763b5968050b847edc49ee8d5e4b4164f33f8467ce50a85bcd100d5",
   "migration_provenance_manifest_sha256": "7cda682e35c3164268878398ac8100248d6be7684e3e2ca7c3ce6737268834b5",
-  "research_unit_terminal_reviews_sha256": "bd985c77bc543dc0a3bf3bdfc43e82f65446504e3f94998cfca659a508c481a1",
+  "research_unit_terminal_reviews_sha256": "a8bcc3bd1474be3f5d9c2a5d000f0ba600ddc7b6c17313dfb8118c2055c922cd",
   "resolver_semantics_version": "direct-family-membership-variant-inheritance-v1",
   "runtime_research_dependency": false,
   "schema_version": 3,
