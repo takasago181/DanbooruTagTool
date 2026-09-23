@@ -276,6 +276,33 @@ The operational response is therefore:
 
 ---
 
+## 8.5. Current integrity checkpoint — 2026-09-23
+
+At the repository-wide routing sync, the valid persisted Pass-A prefix was:
+
+- total: **475 / 31,003**
+- Lane 1: **225**
+- Lane 2: **150**
+- Lane 3: **100**
+
+Lane 2 checkpoint `000101_000150` contained 15 rows with the same extra-empty-column shift seen earlier in Lane 1. The repair was mechanical: remove the extra empty field and restore the frozen 22-column mapping without intentionally changing the semantic decisions.
+
+Repair commit:
+
+`7b50dc6fea17f324177eff01bedba2a717e6c15d`
+
+After restoring the frozen CI compatibility marker in the semantic handoff, Issue132 Full Discovery Coverage Audit run `35879379345` passed with:
+
+- reviewed total: **475**
+- checkpoint validator error count: **0**
+- Lane 1: 225
+- Lane 2: 150
+- Lane 3: 100
+
+This reinforces the current rule: validate structure before save and do not treat fast row production as sufficient quality evidence.
+
+---
+
 ## 9. Production boundary
 
 This operational document does not authorize any production mutation.
