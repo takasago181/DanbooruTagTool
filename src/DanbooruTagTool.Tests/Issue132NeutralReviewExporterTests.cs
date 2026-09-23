@@ -45,6 +45,44 @@ public sealed class Issue132NeutralReviewExporterTests
         Assert.DoesNotContain("unified_route", header, StringComparison.Ordinal);
     }
 
+    [ProductionFact]
+    public void ProductionCatalogProducesExactNeutralPassAUniverse()
+    {
+        var catalogPath = Environment.GetEnvironmentVariable("DTT_PRODUCTION_CATALOG")!;
+        var catalog = CatalogDatabase.Open(catalogPath);
+        var rows = Issue132NeutralReviewExporter.Build(catalog);
+
+        var ordinary = catalog.Entries
+            .Where(entry => entry.EffectiveCategory is "General" or "Special")
+            .ToArray();
+        var expected = ordinary
+            .GroupBy(Issue118SexualIntentV2Overlay.SourceIdentity, StringComparer.Ordinal)
+            .ToDictionary(group => group.Key, group => group.ToArray(), StringComparer.Ordinal);
+
+        Assert.Equal(Issue118SexualIntentV2Overlay.IdentityCount, rows.Count);
+        Assert.Equal(expected.Keys.ToHashSet(StringComparer.Ordinal),
+            rows.Select(row => row.IdentityKey).ToHashSet(StringComparer.Ordinal));
+
+        foreach (var row in rows)
+        {
+            var backing = expected[row.IdentityKey];
+            var canonical = backing.Select(entry => entry.Canonical)
+                .FirstOrDefault(value => !string.IsNullOrWhiteSpace(value));
+            var representative = canonical is not null
+                ? catalog.Resolve(canonical) ?? backing[0]
+                : catalog.Resolve(backing[0].English) ?? backing[0];
+            Assert.Equal(representative.Japanese ?? "", row.DisplayJa);
+            Assert.NotNull(JsonSerializer.Deserialize<string[]>(row.EnglishSurfaces));
+            Assert.NotNull(JsonSerializer.Deserialize<string[]>(row.SearchTerms));
+            Assert.NotNull(JsonSerializer.Deserialize<string[]>(row.Aliases));
+            Assert.Equal("", row.NeutralDescriptionJa);
+        }
+
+        var output = Environment.GetEnvironmentVariable("DTT_ISSUE132_NEUTRAL_OUTPUT");
+        if (!string.IsNullOrWhiteSpace(output))
+            Issue132NeutralReviewExporter.Export(catalogPath, output);
+    }
+
     [Fact]
     public void PopulationDriftFailsClosed()
     {
