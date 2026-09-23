@@ -81,9 +81,11 @@ v1でデフォルトにしない:
 
 ### Live authority — 2026-09-23
 
-Current live main at this routing sync:
+Routing-sync base before the 2026-09-23 management update:
 
 `95b53e6d114432358a2a1cea4e8554fcfae65bfd`
+
+This is a snapshot base, **not a permanent current-main pointer**. Always fetch live `origin/main` before selecting a lane.
 
 Current user-facing runtime remains:
 

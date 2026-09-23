@@ -7,7 +7,7 @@
 **この節は、2026-09-22以前のrouting/current-task記述と矛盾する場合に優先する。**
 個別作業のscope・禁止事項・完了条件は各live Issue / branch contractを正本とし、作業開始時は必ずlive GitHubを再取得する。
 
-- Verified live main at this sync: `95b53e6d114432358a2a1cea4e8554fcfae65bfd` (PR #183 routing sync merged).
+- Routing-sync base before the 2026-09-23 management update: `95b53e6d114432358a2a1cea4e8554fcfae65bfd`. This authority block itself was merged later via PR #184; do not treat the base SHA as the current live HEAD. Always re-fetch live `main` before work.
 - 現在の主要な並行researchは引き続き **#179 / #180 / #132**。相互のbranch/data/scopeを混ぜない。
 - **#132**: bounded prototype段階は終了。現在は全31,003 ordinary identitiesの独立Pass-A semantic/discoverability reviewを実行中。branch `research/taxonomy-usability-audit`。通常ChatGPT Automationの3 workers + 1 coordinatorで運用し、semantic shardingは行わない。
 - #132の現行運用正本は `docs/issue132/parallel/CURRENT_AUTOMATION_OPERATION.md`。live targetは **300 identities / worker run**、**50-row immutable checkpoint**、各50件の保存前二段階レビュー、300件終了後の最終QA。raw throughputだけを品質PASSとしない。
