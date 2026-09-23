@@ -24,6 +24,9 @@ Join by identity_key:
 ### Independent Luna result
 - discovery_mode
 - CORE/SUPPORTING natural routes
+- local_refinement_ids
+- body_site_ids
+- theme_ids
 - semantic summary
 - uncertainty/research depth
 
@@ -50,6 +53,7 @@ For each identity:
 ```
 missing_core = luna_core_routes - current_routes
 missing_supporting = luna_supporting_routes - current_routes
+missing_local = luna_local_refinements - current_local_refinements
 current_not_reproduced = current_routes - luna_all_natural_routes
 missing_body_facets = luna_body_site_ids - current_body_site_ids
 missing_theme_facets = luna_theme_ids - current_theme_ids
@@ -60,6 +64,7 @@ Derive:
 - COVERED
 - MISSING_CORE_ROUTE
 - MISSING_SUPPORTING_ROUTE
+- MISSING_LOCAL_REFINEMENT
 - CURRENT_ROUTE_NOT_REPRODUCED
 - MISSING_BODY_FACET
 - MISSING_THEME_FACET
@@ -90,6 +95,24 @@ Do not remove it in #132.
 Send to owner-authority review.
 
 This keeps #132 from becoming a second primary taxonomy.
+
+---
+
+## 4.5. Local-refinement ownership
+
+A missing local refinement is not a #132 secondary-route candidate.
+
+It indicates:
+
+> top-level discovery is plausible, but the existing General narrowing path may be incomplete or misleading.
+
+Disposition:
+
+- compare against current #64 accepted path;
+- if Luna's local intent is well-founded and current #64 differs, send to `UPSTREAM_REVIEW`;
+- do not create a #132-only local-subroute overlay.
+
+This keeps one owner for local taxonomy truth and avoids runtime branching.
 
 ---
 
