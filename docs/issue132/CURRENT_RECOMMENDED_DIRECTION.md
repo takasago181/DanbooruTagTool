@@ -320,48 +320,126 @@ First response to a regression is to reduce/simplify the shipped delta, not add 
 
 ## 12. Current verified technical state
 
-GitHub-reproducible neutral input generation is established.
+The pre-handoff research pipeline is now mechanically executable from GitHub.
 
-Latest verified neutral manifest:
+### Neutral input
 
-- authority: `docs/issue118/production_candidate/sexual_intent_v2.csv`
+Accepted authority:
+`docs/issue118/production_candidate/sexual_intent_v2.csv`
+
+Verified:
+- identities: **31,003**
+- neutral input columns: **3**
 - authority SHA-256:
   `d2966dbc3c70617af2a985a94f81650785a29c1668b40b582d3c213ef2a68bc0`
-- identities: **31,003**
-- input columns: **3**
 - identity-order SHA-256:
   `f80c63018ce19a8c7c5d8d6fd83d03cf760c510d8f6cfa455d1ab356fb31361b`
 - neutral CSV SHA-256:
   `ac0f888d02f19a440c63b3b9f695c58f9ba53b98ebe9756edec51db1c5ff8f7d`
 
-GitHub Actions run:
-`35802459774` — success
+The neutral input does not require protected local catalog/Japanese/alias data.
 
-Pass-A validator contract smoke:
-PASS
+### Review vocabulary vs actual application code
 
-The neutral input does not require local protected:
-- catalog.db;
-- Japanese overlay;
-- alias source;
-- runtime source data.
+CI verifies that the research vocabulary matches current tracked application authority:
 
-Those are intentionally delayed to Pass C.
+- Unified top-level routes: **19**
+- local refinements: **19**
+- body-site facets: **6**
+- theme facets: **3**
+
+Sources pinned into the Pass-A contract include:
+- `src/DanbooruTagTool.Core/UnifiedBrowse.cs`
+- `src/DanbooruTagTool.Core/SpecialBrowseV2.cs`
+- `docs/issue64/production_candidate/general_taxonomy.json`
+
+### Frozen Pass-A contract
+
+Builder:
+`scripts/issue132/build_pass_a_contract_manifest.py`
+
+The manifest pins:
+- neutral input/order SHA;
+- semantic-contract documents;
+- neutral generator;
+- contract builder;
+- vocabulary checker;
+- Pass-A validator;
+- application vocabulary authorities;
+- exact ledger schema and allowed vocabularies.
+
+Checkpoint validation fails if a frozen contract file/vocabulary changes.
+
+### Pass-A validator
+
+`scripts/issue132/validate_luna_pass_a.py`
+
+Validated behavior includes:
+- exact-prefix continuous ledger;
+- no skips/duplicates;
+- valid route/local/body/theme IDs;
+- local-parent route consistency;
+- SEARCH_ORIENTED/UNRESOLVED constraints;
+- RESEARCHED evidence requirement;
+- contract-drift rejection.
+
+### Pass B
+
+Deterministic diff builder:
+`scripts/issue132/build_pass_b_diff.py`
+
+It mechanically derives:
+- COVERED;
+- MISSING_CORE_ROUTE;
+- MISSING_SUPPORTING_ROUTE;
+- CURRENT_ROUTE_NOT_REPRODUCED;
+- MISSING_LOCAL_REFINEMENT;
+- MISSING_BODY_FACET;
+- MISSING_THEME_FACET;
+- SEARCH_ORIENTED;
+- SEMANTIC_UNRESOLVED;
+- ROUTE_VOCABULARY_GAP.
+
+CI validates this path against a complete synthetic **31,003-row** population.
+
+Pass B makes **zero semantic/product decisions**.
+
+### Current CI status
+
+The Issue #132 full-discovery workflow is green with:
+- full census audit;
+- neutral input generation;
+- code-vocabulary consistency check;
+- frozen Pass-A contract generation;
+- Pass-A validator smoke;
+- full-population Pass-B diff smoke.
+
+Dynamic run IDs belong in Issue #132 checkpoints rather than this frozen semantic contract.
 
 ---
 
 ## 13. Remaining pre-handoff gates
 
-Before rewriting the final Luna/Codex instruction:
+Before replacing the blocking Codex/Luna handoff stub:
 
-1. keep CI green after the local-refinement ledger addition;
-2. ensure Pass-A schema/docs/validator agree exactly;
-3. confirm no stale current-direction document can override this v3 contract;
-4. freeze the final Pass-A field list;
-5. freeze operational checkpoint/resume wording;
-6. then replace the old draft handoff with the final Luna execution instruction.
+1. run one final cross-document consistency audit;
+2. confirm Pass-A field list is frozen at 22 columns;
+3. confirm operational checkpoint files may change without changing frozen semantic contracts;
+4. freeze the first-run file locations for:
+   - neutral input;
+   - frozen contract manifest;
+   - Pass-A ledger;
+   - progress summary;
+5. write the final Luna execution instruction only after those points are fixed.
 
-Until those gates pass:
+The final instruction must not reintroduce:
+- bounded calibration samples;
+- semantic shards;
+- current-classification anchoring;
+- per-row production approval;
+- automatic new-route/facet creation.
+
+Until then:
 
 `CODEX_FULL_SEMANTIC_REVIEW_HANDOFF.md`
 
