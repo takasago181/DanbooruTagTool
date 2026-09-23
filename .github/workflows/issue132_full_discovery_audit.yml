@@ -28,11 +28,18 @@ jobs:
             --root . \
             --out artifacts/issue132/full-discovery-audit
 
+      - name: Build Luna neutral input
+        run: |
+          python scripts/issue132/build_luna_neutral_input.py \
+            --out artifacts/issue132/luna-neutral/luna_neutral_review_input_v2.csv
+
       - name: Upload audit package
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: issue132-full-discovery-audit
-          path: artifacts/issue132/full-discovery-audit
+          path: |
+            artifacts/issue132/full-discovery-audit
+            artifacts/issue132/luna-neutral
           if-no-files-found: error
 
