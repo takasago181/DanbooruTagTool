@@ -357,18 +357,66 @@ It checks:
 - RESEARCHED evidence;
 - vocabulary-gap consistency.
 
-During progress:
+During progress, always validate against the frozen contract manifest:
 
 ```
 python scripts/issue132/validate_luna_pass_a.py \
   --input <neutral.csv> \
   --ledger docs/issue132/full_review/pass_a_independent_discovery.csv \
+  --contract-manifest docs/issue132/full_review/pass_a_contract_manifest_v1.json \
   --summary <progress-summary.json>
 ```
 
 At completion add:
 
 `--require-complete`
+
+---
+
+## 15.5. Frozen Pass-A contract manifest
+
+Before the first semantic row is written, generate/freeze:
+
+`pass_a_contract_manifest_v1.json`
+
+Builder:
+
+`scripts/issue132/build_pass_a_contract_manifest.py`
+
+The manifest pins:
+
+- neutral authority/input SHA;
+- deterministic identity order SHA;
+- Pass-A contract document SHA-256 values;
+- neutral generator SHA;
+- manifest-builder SHA;
+- validator SHA;
+- exact ledger field order;
+- route IDs;
+- local-refinement vocabulary;
+- body/theme vocabulary;
+- allowed modes/strengths/depths.
+
+Copy the frozen manifest into:
+
+`docs/issue132/full_review/pass_a_contract_manifest_v1.json`
+
+and commit it before/with the first ledger checkpoint.
+
+Every subsequent validator run must use `--contract-manifest`.
+
+If any frozen contract file or vocabulary has changed, validation must fail.
+
+Do not silently continue a ledger under changed semantics.
+
+If a material contract correction becomes necessary:
+
+1. stop Pass A;
+2. document the reason;
+3. decide whether the full Pass A must be rerun under the corrected contract;
+4. do not mix old-contract and new-contract rows in one accepted ledger.
+
+Checkpoint commits may change the ledger/progress summary only; they do not redefine the semantic contract.
 
 ---
 
