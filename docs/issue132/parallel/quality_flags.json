@@ -2,7 +2,7 @@
   "schema_version": "issue132-pass-a-quality-flags-v1",
   "source": "manual audit after lane-1 first checkpoint",
   "checkpoint": "docs/issue132/parallel/lane-1/checkpoints/checkpoint_000001_000025.csv",
-  "note": "These are re-review flags only. They do not mutate Pass A rows or current product authority. Current fast-path QA must preserve ambiguity/evidence quality and escalate when sampled errors suggest systematic drift.",
+  "note": "Re-review flags only; they do not mutate Pass A rows or current product authority. Fast-path QA must preserve ambiguity/evidence quality. Do not confuse RESEARCHED volume with quality: obvious concepts may remain CHECKED, while genuinely ambiguous concepts require direct, relevant evidence. Generic/model-sharing/example-only pages are not preferred semantic authority.",
   "flags": [
     {
       "identity_key": "yellow_leg_warmers",
@@ -38,6 +38,31 @@
       "identity_key": "face_on_another's_chest",
       "concern": "possible body-facet over-inference",
       "detail": "Lane 3 checkpoint 126-150 assigns BREAST_NIPPLE from 'chest'. Frozen facet rules require the site to be explicit/intrinsic; re-check that the tag scope is actually breast/nipple-specific rather than generic chest contact."
+    },
+    {
+      "identity_key": "sakakino_academy_school_uniform",
+      "concern": "research evidence mismatch",
+      "detail": "Lane 2 checkpoint 176-200 cites a generic School Uniform page rather than evidence for the specific School Days / Sakakino Academy uniform. Re-confirm from Danbooru/Safebooru exact tag wiki or a direct work-specific source."
+    },
+    {
+      "identity_key": "irisviel_von_einzbern_(halloween_princess)_(cosplay)",
+      "concern": "research evidence quality",
+      "detail": "Lane 2 checkpoint 201-225 cites a Hugging Face LoRA/model page. Re-confirm the exact character/costume/cosplay referent from Danbooru/Safebooru or an official/strong reference."
+    },
+    {
+      "identity_key": "colored_mouth",
+      "concern": "research evidence quality",
+      "detail": "Lane 2 checkpoint 201-225 cites a single tbib post. The visual meaning may be clear enough for CHECKED, but if RESEARCHED is retained use a direct tag definition/source rather than one example post."
+    },
+    {
+      "identity_key": "character_bag",
+      "concern": "possible unnecessary research / evidence mismatch",
+      "detail": "The identity is a straightforward visual object concept, while the cited generic accessories tag-group page does not define character_bag specifically. Re-review whether CHECKED is sufficient; if not, use direct evidence."
+    },
+    {
+      "identity_key": "bandaid_on_ass",
+      "concern": "research evidence quality",
+      "detail": "Lane 2 checkpoint 201-225 cites a TensorHub model page. Re-confirm from Danbooru/Safebooru exact tag evidence or another direct strong source; do not use model-sharing pages as default semantic authority."
     }
   ]
 }
