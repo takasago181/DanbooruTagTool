@@ -27,5 +27,11 @@
   "full_contract_read_policy": "only_on_manifest_card_mismatch_contract_drift_or_instruction_conflict",
   "normal_preflight_card": "docs/issue132/parallel/WORKER_EXECUTION_CARD_V1.md",
   "execution_limit_policy": "actual_limit_only_not_anticipated",
-  "batch_research_allowed": true
+  "batch_research_allowed": true,
+  "normal_preflight_policy": "single_metadata_sha_check_plus_lane_status_and_checkpoint_listing",
+  "semantic_card_read_policy": "body_not_read_normally_verify_blob_sha_only",
+  "contract_manifest_read_policy": "body_not_read_normally_verify_blob_sha_only",
+  "neutral_read_policy": "programmatic_extract_next_lane_window_only_never_semantically_read_full_population",
+  "research_gate_policy": "research_material_uncertainty_not_proper_noun_status_alone",
+  "checked_spotcheck_rate": "about_10_percent_min_10_when_available"
 }
