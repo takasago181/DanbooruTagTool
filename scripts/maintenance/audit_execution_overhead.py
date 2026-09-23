@@ -66,7 +66,8 @@ def main() -> int:
                     branch = lane.get("branch")
                     if issue is not None and f"#{issue}" not in state_text:
                         warn(warnings, f"CURRENT_ROUTING issue #{issue} is missing from CURRENT_STATE summary.")
-                    if branch and branch.startswith(("research/", "dev/", "audit/", "codex/")) and branch not in state_text:
+                    kind = lane.get("kind")
+                    if kind != "project_infrastructure" and branch and branch.startswith(("research/", "dev/", "audit/", "codex/")) and branch not in state_text:
                         warn(warnings, f"CURRENT_ROUTING branch {branch} is missing from CURRENT_STATE summary.")
         except Exception as exc:
             warn(warnings, f"CURRENT_ROUTING is invalid JSON: {exc}")
