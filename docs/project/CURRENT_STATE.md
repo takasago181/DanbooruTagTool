@@ -1,6 +1,30 @@
 # CURRENT STATE
 
-最終更新: 2026-09-22
+最終更新: 2026-09-23
+
+## 2026-09-23 live routing authority
+
+**この節は、2026-09-22以前のrouting/current-task記述と矛盾する場合に優先する。**
+個別作業のscope・禁止事項・完了条件は各live Issue / branch contractを正本とし、作業開始時は必ずlive GitHubを再取得する。
+
+- Verified live main at this sync: `95b53e6d114432358a2a1cea4e8554fcfae65bfd` (PR #183 routing sync merged).
+- 現在の主要な並行researchは引き続き **#179 / #180 / #132**。相互のbranch/data/scopeを混ぜない。
+- **#132**: bounded prototype段階は終了。現在は全31,003 ordinary identitiesの独立Pass-A semantic/discoverability reviewを実行中。branch `research/taxonomy-usability-audit`。通常ChatGPT Automationの3 workers + 1 coordinatorで運用し、semantic shardingは行わない。
+- #132の現行運用正本は `docs/issue132/parallel/CURRENT_AUTOMATION_OPERATION.md`。live targetは **300 identities / worker run**、**50-row immutable checkpoint**、各50件の保存前二段階レビュー、300件終了後の最終QA。raw throughputだけを品質PASSとしない。
+- #132のfrozen Pass-A semantic contractは変更しない。旧 `READY FOR CODEX LUNA PASS A` 表記や100/200件targetはhistorical/frozen snapshotであり、現在のexecution routingには使わない。
+- #132 progress snapshot at this sync: valid persisted review prefix **475 / 31,003** (Lane 1: 225, Lane 2: 150, Lane 3: 100)。Lane 2直近は `TOOL_LIMIT`、Lane 3直近は `EXECUTION_LIMIT`; checkpoint/statusはlive branchを再取得して判断する。
+- **#179**: Character/Copyright identity・display/search・ranking・2D scope品質監査。Artist監査は対象外。Draft PR #181 remains OPEN/DRAFT; verified head at this sync `78cd14693d066e8f150a140628eef6c5d343b2c5`.
+- **#180**: Character -> HOME Copyright high-precision authority再構築research。Draft PR #182 remains OPEN/DRAFT and is actively advancing; verified head at this sync `837cd420894a80f12d9905475aa8a334907377ea`. exact HEADは作業開始時に再取得する。main merge / production applyは未承認。
+- **#177** remains the current UI mitigation authority: Artist hidden; unreliable old Character<->Copyright relation UI disabled.
+- Performance / Runtime Load Audit と portable/runtime hardening は完了済み。これらをdefault next taskとして復活させない。
+- `docs/project/CURRENT_DEV_TASK.md` と `AGENTS.md` はこのroutingに同期済み。古い #117 / performance routingはhistorical referenceのみ。
+- #65 Stage10はparallel learning、#44 KNOWLEDGEはlong-term owner、#52/#138/#71はmaintenance/post-v1。主要research #179/#180/#132を置き換えない。
+
+### 2026-09-23 routing precedence
+
+`live main -> CURRENT_STATE current authority block -> selected live Issue + latest checkpoint -> PERMANENT_RULES -> issue-specific current operation/spec -> historical/frozen snapshots`
+
+frozen contract文書のstatus文字列を「最新化」するためだけに書き換えない。execution statusはcurrent operation/state文書で上書きする。
 
 ## 2026-09-22 live routing authority
 
