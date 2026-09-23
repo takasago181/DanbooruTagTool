@@ -1,0 +1,26 @@
+review_seq,identity_key,manual_seen,semantic_summary_ja,discovery_mode,route_1_id,route_1_strength,route_1_reason_ja,route_2_id,route_2_strength,route_2_reason_ja,route_3_id,route_3_strength,route_3_reason_ja,local_refinement_ids,body_site_ids,theme_ids,route_vocabulary_gap,route_vocabulary_gap_note,review_depth,evidence_urls,uncertainty_note
+602,frilled_underwear,YES,フリル装飾の付いた下着,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,下着・衣服の装飾として探すのが自然,,,,,,,"[""CLOTHING/EVERYDAY""]",[],[],NO,,CHECKED,[],
+605,elevator_door,YES,エレベーターの扉,BROWSE_WORTHY,TOOL_OBJECT,CORE,設備・建具そのものを画面に置く意図が自然,,,,,,,"[""OBJECT_PROP/DAILY""]",[],[],NO,,CHECKED,[],
+608,bloomers,YES,ブルマー型の運動着・下衣,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,衣服として探すのが自然,,,,,,,"[""CLOTHING/EVERYDAY""]",[],[],NO,,CHECKED,[],
+611,yin_yang_orb,YES,東方Projectで博麗霊夢が用いる陰陽マークの霊力を持つ球体・武器,MIXED,TOOL_OBJECT,CORE,球体の武器・道具として探す意図が成立,,,,,,,"[""OBJECT_PROP/WEAPON""]",[],[],NO,,RESEARCHED,"[""https://en.touhouwiki.net/wiki/Highly_Responsive_to_Prayers/Gameplay""]",作品固有名検索も自然なためMIXED
+614,m1_abrams,YES,米軍のM1エイブラムス主力戦車,BROWSE_WORTHY,TOOL_OBJECT,CORE,軍用車両として探すのが自然,,,,,,,"[""OBJECT_PROP/VEHICLE""]",[],[],NO,,CHECKED,[],
+617,iwagakure_symbol,YES,『NARUTO』の岩隠れの里を示す固有シンボル,MIXED,TEXT_SYMBOL,CORE,図形シンボルとして探す意図が成立,,,,,,,"[""TEXT_SYMBOL/SYMBOL""]",[],[],NO,,RESEARCHED,"[""https://naruto.fandom.com/wiki/Stone_Monument""]",作品固有の里・記号名からの検索も自然
+620,dust,YES,空気中や表面に見える埃・粉塵,BROWSE_WORTHY,SCENE_BACKGROUND,CORE,場面の環境状態として埃を出す意図が自然,,,,,,,[],[],[],NO,,CHECKED,[],
+623,sizzler_plate,YES,熱した鉄板で料理を提供するシズラープレート,BROWSE_WORTHY,TOOL_OBJECT,CORE,調理・配膳用の器具として探すのが自然,,,,,,,"[""OBJECT_PROP/FOOD""]",[],[],NO,,CHECKED,[],
+626,pizza,YES,ピザ,BROWSE_WORTHY,TOOL_OBJECT,CORE,食べ物として探すのが自然,,,,,,,"[""OBJECT_PROP/FOOD""]",[],[],NO,,CHECKED,[],
+629,greek_text,YES,ギリシャ文字・ギリシャ語で書かれたテキスト,BROWSE_WORTHY,TEXT_SYMBOL,CORE,文字表現として探すのが自然,,,,,,,"[""TEXT_SYMBOL/TEXT""]",[],[],NO,,CHECKED,[],
+632,yokosuka_girls_marine_high_school_uniform,YES,『ハイスクール・フリート』の横須賀女子海洋学校の制服,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,作品固有でも視覚的に明確な制服を衣装棚から探すのが自然,,,,,,,"[""CLOTHING/UNIFORM""]",[],[],NO,,RESEARCHED,"[""https://safebooru.donmai.us/wiki_pages/yokosuka_girls_marine_high_school_uniform""]",
+635,irisviel_von_einzbern_(halloween_princess)_(cosplay),YES,『Fate』のアイリスフィールの「ハロウィン・プリンセス」衣装を再現するコスプレ,SEARCH_ORIENTED,,,,,,,,,,[],[],[],NO,,RESEARCHED,"[""https://huggingface.co/ChameleonAI/ChameleonAILoras""]",特定キャラクターかつ特定衣装のコスプレ指定で名称検索が自然
+638,adjusting_mask,YES,顔のマスク・仮面の位置を手で調整している動作,BROWSE_WORTHY,ACTION_CONTACT,CORE,装着物を手で調整する動作が中心,TOOL_OBJECT,SUPPORTING,マスク・仮面という装着物から探す意図も独立して有用,,,,"[""ACTION_CONTACT/OBJECT_USE"", ""OBJECT_PROP/DAILY""]",[],[],NO,,CHECKED,[],
+641,mouse_hair_ornament,YES,ネズミをモチーフにした髪飾り,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,髪のアクセサリーとして探すのが自然,,,,,,,"[""CLOTHING/ACCESSORY""]",[],[],NO,,CHECKED,[],
+644,colored_mouth,YES,口内や口そのものが通常とは異なる色で表現された外観,BROWSE_WORTHY,HAIR_FACE,CORE,口・顔まわりの外観特徴として探すのが自然,,,,,,,[],[],[],NO,,RESEARCHED,"[""https://tbib.org/index.php?id=16479591&page=post&s=view""]",実例上の視覚属性として確認
+647,covering_own_face,YES,自分の手などで自分の顔を覆う仕草,BROWSE_WORTHY,POSE_POSITION,CORE,手と顔の身体配置・ポーズが主要な視覚意図,,,,,,,[],[],[],NO,,CHECKED,[],
+650,character_bag,YES,キャラクターの絵柄・意匠が付いたバッグ,BROWSE_WORTHY,TOOL_OBJECT,CORE,バッグという小物として探すのが自然,,,,,,,"[""OBJECT_PROP/DAILY""]",[],[],NO,,RESEARCHED,"[""https://donmai.moe/wiki_pages/tag_group%3Aaccessories""]",
+653,hoshino_ai's_pose,YES,両手で下向きのダブルVを作り掌を外へ向ける星野アイの特徴的なポーズ,BROWSE_WORTHY,POSE_POSITION,CORE,固有名由来でも身体ポーズそのものが再利用可能な視覚意図,,,,,,,[],[],[],NO,,RESEARCHED,"[""https://shima.donmai.us/wiki_pages/hoshino_ai%27s_pose""]",
+656,bandaid_on_ass,YES,尻に絆創膏を貼っている状態,BROWSE_WORTHY,TOOL_OBJECT,CORE,絆創膏という貼付物を身体に置く視覚要素が中心,,,,,,,"[""OBJECT_PROP/DAILY""]","[""BUTTOCK_ANAL""]",[],NO,,RESEARCHED,"[""https://tensorhub.art/models/953114114748586394""]",
+659,zippo_lighter,YES,Zippo型・ブランドの金属製オイルライター,BROWSE_WORTHY,TOOL_OBJECT,CORE,携帯ライターという小物として探すのが自然,,,,,,,"[""OBJECT_PROP/DAILY""]",[],[],NO,,CHECKED,[],
+662,reporter,YES,取材・報道を行う記者・レポーター役,BROWSE_WORTHY,RELATION_ROLE,CORE,人物の職業・役割として探すのが自然,,,,,,,[],[],[],NO,,CHECKED,[],
+665,burnt,YES,何かまたは人物が燃えた後で目に見えて焦げ・炭化している状態,BROWSE_WORTHY,,,,,,,,,,[],[],[],YES,物体にも人物にも跨る『焦げた状態』を直接受ける既存top routeがない,RESEARCHED,"[""https://safebooru.donmai.us/wiki_pages/burnt""]",
+668,strangling,YES,相手の首を締めている行為,BROWSE_WORTHY,ACTION_CONTACT,CORE,対人の身体接触・加害行為として探すのが自然,,,,,,,"[""ACTION_CONTACT/INTERACTION""]",[],[],NO,,CHECKED,[],
+671,guro_sex,YES,流血・損傷などグロテスクな要素を伴う性的行為・エロティックなグロ表現,BROWSE_WORTHY,ACTION_CONTACT,CORE,性的行為と身体への加害が結び付いた行為意図が中心,,,,,,,"[""ACTION_CONTACT/INTIMATE""]",[],"[""INJURY_R18G""]",NO,,RESEARCHED,"[""https://en.wikipedia.org/wiki/Ero_guro""]",
+674,print_umbrella,YES,柄・プリント模様の付いた傘,BROWSE_WORTHY,TOOL_OBJECT,CORE,傘という小物として探すのが自然,,,,,,,"[""OBJECT_PROP/DAILY""]",[],[],NO,,CHECKED,[],
