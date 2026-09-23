@@ -1,253 +1,265 @@
-# Issue #132 — Luna neutral input contract
+# Issue #132 — Luna neutral input contract v2
 
 Date: 2026-09-23 JST
-Status: **RESEARCH INPUT CONTRACT / PRE-HANDOFF**
+Status: **RESEARCH INPUT CONTRACT / GITHUB-REPRODUCIBLE**
 
 ## 1. Purpose
 
 Pass A must be an independent image-generation discovery judgment.
 
-The input must help Luna understand what a tag means without telling it how the current product classifies that tag.
+The input must let Luna identify the tag concept without telling it how the current product classifies, searches, ranks, or prioritizes that identity.
+
+The user goal remains:
+
+> 作りたい画像の見た目・行為・部位・体位・衣装・構図から、タグ名を知らなくても目的タグへ辿れること。
 
 ---
 
-## 2. Source of truth
+## 2. Important design correction
 
-Build the neutral input from the **same accepted ordinary catalog build chain** used by production.
+Pass A does **not** need production Japanese overlay, aliases, usage count, or current browse metadata.
 
-Do not independently re-create Japanese/alias identity logic from ad-hoc research CSVs if the accepted catalog pipeline can supply the same fields.
+Those are product/search context and belong to Pass C.
 
-Relevant accepted catalog surfaces include:
+Keeping them out of Pass A has four advantages:
 
-- canonical identity;
-- English/source surface;
-- accepted aliases;
-- accepted Japanese display;
-- accepted Japanese search keys;
-- factual Japanese description where available.
-
-General/Special backing entries that resolve to the same runtime identity must be collapsed to one owner identity.
-
-Expected owner count:
-
-**31,003**
+1. current classification/search quality cannot anchor the independent semantic judgment;
+2. the input is reproducible from tracked GitHub authority;
+3. protected local Japanese/alias/runtime data does not need to be committed or uploaded;
+4. Codex cloud can execute the full semantic pass from the repository alone.
 
 ---
 
-## 3. Pass-A input columns
+## 3. Pass-A authority
 
-Recommended neutral file:
+Use only the accepted runtime identity authority:
 
-`luna_neutral_review_input_v1.csv`
+`docs/issue118/production_candidate/sexual_intent_v2.csv`
+
+The generator verifies its accepted SHA-256 and exact 31,003-row population.
+
+Important:
+
+The source file contains more fields than Pass A is allowed to see.
+
+The generator must project only the neutral identity surfaces below.
+
+---
+
+## 4. Generated neutral file
+
+Generator:
+
+`scripts/issue132/build_luna_neutral_input.py`
+
+Output:
+
+`luna_neutral_review_input_v2.csv`
 
 Columns:
 
 - `review_seq`
 - `identity_key`
-- `canonical`
-- `english_surfaces`
-- `display_ja`
-- `search_ja`
-- `aliases`
-- `neutral_description_ja`
-
-No final-decision columns are prefilled.
+- `source_surfaces`
 
 ### identity_key
 
-Use the same identity normalization/reconciliation as current Unified browse.
+The accepted runtime-canonical ordinary identity key.
 
-Do not create new identity logic for #132.
+For most identities this is effectively the canonical Danbooru tag spelling.
 
-### english_surfaces
+For reconciled Special/General cases it is the accepted runtime identity.
 
-Union the canonical/source English surfaces from all ordinary backing entries for the identity.
+### source_surfaces
 
-### display_ja
+JSON array containing:
+- identity_key;
+- accepted source identity spelling(s) preserved by #118 reconciliation.
 
-Use the accepted runtime display Japanese.
+This is semantic lookup help only.
 
-When General/Special overlap exists, use the same representative/display preference as the runtime catalog rather than inventing a new #132 preference.
-
-### search_ja
-
-Union accepted Japanese search surfaces.
-
-These are linguistic aids, not browse authority.
-
-### aliases
-
-Use only accepted aliases.
-
-### neutral_description_ja
-
-Include only factual semantic description.
-
-Strip:
-- route/category breadcrumbs;
-- review status;
-- source confidence;
-- post-count metadata;
-- machine audit labels;
-- #64/#76 classification names.
-
-If a description cannot be separated safely from classification metadata, leave it blank.
+It does not expose whether a source came from General or Special.
 
 ---
 
-## 4. Fields hidden from Pass A
+## 5. Explicitly excluded from Pass A
 
 Do not include:
 
-- General/Special classification status;
-- current #64 path;
-- current #76 kind/body/theme;
+- sexual_intent;
+- #118 review_status/evidence/rule;
+- General/Special membership;
+- #64 path;
+- #76 kind/body/theme;
 - current Unified route IDs;
-- Unified local route IDs;
-- #118 content intent;
+- current local subroutes;
+- current body/theme facets;
+- Japanese display/search overlay;
+- aliases;
 - usage/post count;
+- search rank;
 - machine bucket;
 - machine review signals;
-- Phase 1 pattern family;
-- Phase 1 proposed route;
+- Phase 1 pattern/fix proposals;
 - prototype route additions;
-- prior confidence;
-- previous KEEP/ADD/REVIEW verdicts;
-- route result counts;
-- Special ID unless needed only as an opaque evidence locator during RESEARCHED lookup.
+- previous KEEP/ADD/REVIEW judgments;
+- route result counts.
 
-These fields belong to Pass B/C.
+These fields become available only after Pass A is frozen.
 
 ---
 
-## 5. Why usage/post count is hidden initially
+## 6. Why Japanese/search metadata is delayed
 
-Post count is useful for product prioritization but is not semantic meaning.
+The end product is Japanese-first, but Pass A is not evaluating current search quality.
 
-Showing it during Pass A can bias the reviewer toward:
-- treating high-use tags as more browse-worthy;
-- treating rare tags as search-only even when their visual concept is clear.
+Showing:
+- display_ja;
+- search_ja;
+- aliases;
+- usage
 
-Therefore:
+would mix two questions:
 
-- semantic route judgment first;
-- popularity/product cost later.
+1. what is this visual concept and where would a user naturally browse for it?
+2. can the current app already find it easily by search?
+
+The first question must be answered independently.
+
+The second is evaluated later in Pass C using the actual production catalog.
+
+This separation is important because:
+
+- good Japanese search can make a natural secondary route unnecessary;
+- poor Japanese search can make a route more valuable;
+- neither fact should change what the tag itself means.
 
 ---
 
-## 6. Deterministic neutral ordering
+## 7. Unclear identities
 
-Do **not** order Pass A by:
+If identity_key/source_surfaces are not enough to understand the concept, Luna must use `RESEARCHED`.
+
+Preferred semantic evidence:
+1. Danbooru wiki/tag information when available;
+2. reliable source/reference information for proper nouns or memes;
+3. other authoritative semantic sources as needed.
+
+Do not infer a confident route from token shape alone.
+
+---
+
+## 8. Deterministic neutral ordering
+
+Do not sort by:
 - current route;
 - #64 genre;
 - #76 kind;
+- sexual intent;
 - machine risk;
 - Phase 1 family.
 
-That would reveal the current answer indirectly.
-
-Do not group all sibling/modifier families together during the independent pass.
-
-Recommended order:
+Generator order:
 
 ```
-sort_key = SHA256("issue132-pass-a-v1|" + identity_key)
+SHA256("issue132-pass-a-v2|" + identity_key)
 ```
 
-Sort ascending by the hexadecimal digest.
+ascending.
 
-Properties:
+This order is:
 - deterministic;
 - resumable;
 - independent of current taxonomy;
-- breaks large color/action/object families into the full population;
-- reduces local copy-pattern anchoring.
+- resistant to long local runs of one known modifier/family.
 
-The sort key itself does not need to be shown to Luna.
-
----
-
-## 7. Continuous processing
-
-Pass A is one continuous job.
-
-The ledger is keyed by identity_key.
-
-On resume:
-- regenerate the exact same neutral order;
-- skip identities already having a complete Pass-A row;
-- continue from the next unreviewed identity.
-
-Periodic commits are persistence only.
-
-They do not define semantic batches.
+The hash key itself is not shown to Luna.
 
 ---
 
-## 8. Pass-A output kept separate
-
-Recommended output:
-
-`full_review/pass_a_independent_discovery.csv`
-
-Do not write Pass-A judgments into the neutral input file.
-
-This keeps:
-- source facts immutable;
-- model output auditable;
-- reruns comparable.
-
----
-
-## 9. DEV/AUDIT context file
-
-Create a separate file after/alongside the neutral export:
-
-`full_review/dev_audit_context.csv`
-
-It may contain:
-
-- current #64 paths;
-- current #76 kind/body/theme;
-- current Unified routes;
-- local routes;
-- #118 content intent;
-- usage/post count;
-- machine bucket;
-- heuristic family;
-- route-load context;
-- prototype history.
-
-This file is **not shown during Pass A**.
-
-Pass B/C joins it to the frozen Pass-A result by identity_key.
-
----
-
-## 10. Validation gates
+## 9. Validation gates
 
 Before Pass A starts:
 
-- neutral rows = 31,003;
+- authority SHA matches accepted #118 SHA;
+- source rows = 31,003;
+- generated rows = 31,003;
 - unique identity_key = 31,003;
 - blank identity_key = 0;
-- identities exactly match #118 ordinary runtime universe;
-- no hidden forbidden columns;
-- no current route/category text embedded in neutral descriptions;
-- deterministic order hash reproduces exactly.
+- review_seq = 1..31,003 exactly;
+- output contains only the three approved columns;
+- deterministic identity-order SHA is recorded;
+- output file SHA is recorded.
 
-Before using Pass A output:
-
-- output rows = 31,003;
-- unique identity_key = 31,003;
-- every identity exists in neutral input;
-- invalid route IDs = 0;
-- missing manual_seen = 0.
+The generator writes a manifest with these facts.
 
 ---
 
-## 11. Runtime impact
+## 10. GitHub Actions behavior
 
-Both neutral input and full-review output are research artifacts.
+The Issue #132 research workflow generates the neutral input on every relevant research-branch push and includes it in the research artifact.
+
+This makes the Luna Pass-A input reproducible without:
+- production catalog.db;
+- local ignored source data;
+- protected Japanese overlay;
+- local runtime access.
+
+The artifact is research input only.
+
+Do not merge the generated CSV into production runtime assets.
+
+---
+
+## 11. Pass-A output remains separate
+
+Luna writes a separate independent ledger.
+
+The neutral input is immutable source context.
+
+Do not overwrite it with judgments.
+
+Recommended logical output:
+
+`pass_a_independent_discovery.csv`
+
+containing the schema defined by:
+
+- `FULL_SEMANTIC_REVIEW_PROTOCOL.md`
+- `LUNA_DISCOVERY_ROUTE_SEMANTIC_CONTRACT.md`
+
+---
+
+## 12. Pass C local/product context
+
+After Pass A freezes, product reconciliation may use the actual baked production catalog to join:
+
+- accepted Japanese display;
+- Japanese search terms;
+- approved aliases;
+- usage/post count;
+- current #64/#76 metadata;
+- current Unified routes;
+- body/theme/local facets.
+
+That join is a separate audit step.
+
+It is not part of Luna's independent semantic input.
+
+---
+
+## 13. Protected-data rule
+
+Do not copy the full ignored production Japanese/alias/runtime source into GitHub merely to help Pass A.
+
+GitHub remains the authority for tracked code/docs/state, not a backup of local protected data.
+
+If a later Pass C operation requires local protected catalog data, run that reconciliation in an authorized environment where the current production catalog already exists.
+
+---
+
+## 14. Runtime impact
+
+The Pass-A neutral input and Luna output are research artifacts.
 
 Neither ships in the application.
