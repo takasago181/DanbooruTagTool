@@ -2,7 +2,7 @@
   "schema_version": "issue132-pass-a-quality-flags-v1",
   "source": "manual audit after lane-1 first checkpoint",
   "checkpoint": "docs/issue132/parallel/lane-1/checkpoints/checkpoint_000001_000025.csv",
-  "note": "These are re-review flags only. They do not mutate Pass A rows or current product authority.",
+  "note": "These are re-review flags only. They do not mutate Pass A rows or current product authority. Current fast-path QA must preserve ambiguity/evidence quality and escalate when sampled errors suggest systematic drift.",
   "flags": [
     {
       "identity_key": "yellow_leg_warmers",
@@ -28,6 +28,16 @@
       "identity_key": "chinpo_ni_wa_katenakatta_yo",
       "concern": "research evidence quality",
       "detail": "RESEARCHED evidence points to an anonymous Hatena entry. Re-confirm that the tag is a fixed meme/reference and its semantic scope using a stronger source before final acceptance."
+    },
+    {
+      "identity_key": "fake_screenshot",
+      "concern": "research evidence mismatch",
+      "detail": "Lane 3 checkpoint 126-150 marks RESEARCHED but cites a tachi-e page, which does not directly support the asserted fake-screenshot meaning. Re-confirm with Danbooru/Safebooru wiki or another source that directly defines the tag/scope."
+    },
+    {
+      "identity_key": "face_on_another's_chest",
+      "concern": "possible body-facet over-inference",
+      "detail": "Lane 3 checkpoint 126-150 assigns BREAST_NIPPLE from 'chest'. Frozen facet rules require the site to be explicit/intrinsic; re-check that the tag scope is actually breast/nipple-specific rather than generic chest contact."
     }
   ]
 }
