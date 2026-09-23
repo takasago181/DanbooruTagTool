@@ -29,9 +29,15 @@ def block(text: str, start: str, end: str) -> str:
 def parse_general_route_map(text: str) -> dict[str,str]:
     b=block(text, "public static string? GeneralRoute", "public static string? SpecialRoute")
     result={}
-    pattern=re.compile(r'((?:"[A-Z0-9_]+"s*(?:ors*)?)+)s*=>s*"([A-Z0-9_]+)"')
-    for lhs,rhs in pattern.findall(b):
-        for genre in re.findall(r'"([A-Z0-9_]+)"', lhs):
+    for line in b.splitlines():
+        if "=>" not in line:
+            continue
+        left,right=line.split("=>",1)
+        rhs_tokens=re.findall(r'"([A-Z0-9_]+)"', right)
+        if not rhs_tokens:
+            continue
+        rhs=rhs_tokens[0]
+        for genre in re.findall(r'"([A-Z0-9_]+)"', left):
             result[genre]=rhs
     return result
 
