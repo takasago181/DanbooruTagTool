@@ -13,11 +13,11 @@
     "APPROVED_REPO_EVIDENCE": 13475,
     "EXTERNAL_AUTHORITY": 3126,
     "REVIEWED_QUALIFIER_COPYRIGHT": 1169,
-    "REVIEWED_VARIANT_AUTHORITY": 225,
+    "REVIEWED_VARIANT_AUTHORITY": 235,
     "ROOT_POLICY_NORMALIZATION": 17,
     "SAFE_STRUCTURAL_VARIANT": 3910
   },
-  "evidence_rows": 21922,
+  "evidence_rows": 21932,
   "external_source_url_count": 531,
   "generated_output_directory": "artifacts/issue180-v3",
   "legacy_v1_v2_scripts_executed": false,
@@ -32,41 +32,41 @@
   "migration_gate": "STOP_CLASSIFIED_DIFFERENCES",
   "missing_roots": 0,
   "multi_home_conflicts": 0,
-  "open_research_units": 4739,
+  "open_research_units": 4735,
   "pipeline_validation": "PASS",
   "production_runtime_dependency": false,
   "reproducibility": {
-    "first_master_sha256": "94a6249c95a87cf338b1652b375ec5ba08ca02ef709cdf06ad0f5647abed98aa",
+    "first_master_sha256": "fd0c86c7f8a8fce746424e8a9989da3b64f8b8d769e09870cf2aec4aadc2b596",
     "same": true,
-    "second_master_sha256": "94a6249c95a87cf338b1652b375ec5ba08ca02ef709cdf06ad0f5647abed98aa"
+    "second_master_sha256": "fd0c86c7f8a8fce746424e8a9989da3b64f8b8d769e09870cf2aec4aadc2b596"
   },
-  "research_unit_count": 4763,
+  "research_unit_count": 4762,
   "research_unit_status_counts": {
     "IDENTITY_BLOCKED": 7,
     "NO_SAFE_EVIDENCE": 4,
-    "OPEN": 4739,
+    "OPEN": 4735,
     "PARTIALLY_RESOLVED": 5,
-    "POLICY_BLOCKED": 8
+    "POLICY_BLOCKED": 11
   },
   "research_unit_type_counts": {
     "DIRECT_AUTHORITY": 2561,
     "FAMILY_AUTHORITY": 1519,
     "IDENTITY_REVIEW": 7,
     "ROSTER_MEMBERSHIP": 18,
-    "VARIANT_OFFICIALITY": 658
+    "VARIANT_OFFICIALITY": 657
   },
   "residual_reason_counts": {
     "DIRECT_AUTHORITY_MISSING": 14092,
     "FAMILY_HOME_MISSING": 2902,
     "FAMILY_MEMBERSHIP_MISSING": 514,
     "IDENTITY_REVIEW_REQUIRED": 7,
-    "VARIANT_OFFICIALITY_MISSING": 1112
+    "VARIANT_OFFICIALITY_MISSING": 1102
   },
   "schema_version": 3,
-  "source_manifest_sha256": "d24dd69038082469fa3a208586baf932e43bc6c501f2470d97249e70bc8bae68",
+  "source_manifest_sha256": "89385051ca8521dc196e187ada01503a374bc57ed72bcee683deeac05b0797aa",
   "states": {
-    "HOME_CONFIRMED": 17263,
-    "HOME_UNRESOLVED": 18627,
+    "HOME_CONFIRMED": 17273,
+    "HOME_UNRESOLVED": 18617,
     "NOT_OFFICIAL_CHARACTER": 0
   }
 }
