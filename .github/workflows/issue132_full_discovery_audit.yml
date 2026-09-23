@@ -46,6 +46,10 @@ jobs:
       - name: Test Pass A ledger validator contract
         run: python scripts/issue132/test_validate_luna_pass_a.py
 
+      - name: Test Pass B deterministic diff contract
+        run: python scripts/issue132/test_build_pass_b_diff.py
+
+
       - name: Upload audit package
         if: always()
         uses: actions/upload-artifact@v4
