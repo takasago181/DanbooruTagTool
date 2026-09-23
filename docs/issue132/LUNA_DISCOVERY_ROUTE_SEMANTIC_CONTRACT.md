@@ -334,6 +334,60 @@ Sexual/general filtering is handled by #118 content intent, not by routing every
 
 ---
 
+## 4.5. Existing local refinement vocabulary
+
+Pass A also records existing **local refinement intent** independently from the current tag assignment.
+
+This is not a new top-level taxonomy and it does not authorize #132 runtime mutation.
+
+Allowed local IDs:
+
+### ACTION_CONTACT
+- `ACTION_CONTACT/INTERACTION` — 接触・しぐさ・活動
+- `ACTION_CONTACT/INTIMATE` — 性的行為・その前後
+- `ACTION_CONTACT/OBJECT_USE` — 物を持つ・使う
+
+### CLOTHING_EXPOSURE
+- `CLOTHING/ACCESSORY` — 装飾・服の細部
+- `CLOTHING/COSTUME` — 衣装・コスプレ・装備
+- `CLOTHING/EVERYDAY` — 服・下着・靴
+- `CLOTHING/UNIFORM` — 制服・ユニフォーム
+- `CLOTHING_STATE_EXPOSURE/` — 着脱・ずれ・破れ・露出などの衣服状態
+
+### LIVING
+- `LIVING_NATURE/CREATURE` — 動物・空想生物
+- `LIVING_NATURE/PLANT` — 植物
+
+### TOOL_OBJECT
+- `OBJECT_PROP/DAILY` — 日用品・家具・小物
+- `OBJECT_PROP/FOOD` — 食べ物・飲み物
+- `OBJECT_PROP/VEHICLE` — 乗り物
+- `OBJECT_PROP/WEAPON` — 武器・戦闘道具
+
+### TEXT_SYMBOL
+- `TEXT_SYMBOL/LAYOUT` — ふきだし・文字枠
+- `TEXT_SYMBOL/SYMBOL` — 記号・図形・マーク
+- `TEXT_SYMBOL/TEXT` — 文章・書き文字
+
+### EXPRESSION_GAZE
+- `EXPRESSION_EMOTION/` — 表情・感情
+- `GAZE_ORIENTATION/` — 視線・向き
+
+Rules:
+
+- select a local refinement only when its parent top-level route is also selected by Pass A;
+- zero local refinements is valid;
+- do not force every tag in a route into a local refinement;
+- normally use at most one local refinement per selected parent route;
+- technical word overlap is not enough;
+- local refinement is an **upstream consistency signal** only.
+
+If Pass A selects a natural local refinement that current #64 does not expose, Pass B/C flags it for owner-authority review.
+
+#132 does not ship a parallel local-subroute overlay merely to compensate.
+
+---
+
 ## 5. Separate Special facets
 
 The following remain separate filter axes and are **not substitutes for top-level routes**:
