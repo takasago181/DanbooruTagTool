@@ -35,3 +35,20 @@ jobs:
           name: issue132-full-discovery-audit
           path: artifacts/issue132/full-discovery-audit
           if-no-files-found: error
+
+
+  neutral-exporter-tests:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: research/taxonomy-usability-audit
+          fetch-depth: 1
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Test Issue132 neutral exporter
+        shell: pwsh
+        run: dotnet test src/DanbooruTagTool.Tests/DanbooruTagTool.Tests.csproj -c Release --nologo --filter "FullyQualifiedName~Issue132NeutralReviewExporterTests"
