@@ -1,6 +1,32 @@
 # CURRENT STATE
 
-最終更新: 2026-09-20
+最終更新: 2026-09-22
+
+## 2026-09-22 live routing authority
+
+**この節は、このファイル後半に残るhistorical snapshotと矛盾する場合に優先する。**
+ただし個別作業のscope・禁止事項・完了条件は各live Issue / branch contractを正本とする。
+
+- Verified live main at routing sync start: `bea08712eb691ca867e218d211023d7206b6b7dc`.
+- 現在の主要な並行researchは **#179 / #180 / #132**。相互のbranch/data/scopeを混ぜない。
+- **#179**: Character/Copyright identity・日本語display/search・ranking・2D scope品質監査。Artistは監査対象外。Draft PR #181。確認済みresearch HEAD: `78cd14693d066e8f150a140628eef6c5d343b2c5`.
+- **#180**: Character -> HOME Copyright を high-precision authority から再構築するresearch。Draft PR #182。確認済みresearch HEAD: `494a61ddb76d01f7f07a76b9d42ca1294690c4f8`. research-onlyで、main merge / production applyは未承認。missing relationをwrong relationより優先する。
+- **#132**: tag classification usability / discoverability research。production mutationなし。現在は bounded prototype / task comparison が次Gate。
+- **#177** のmitigationが現行UI authority: ArtistはUI/searchから非表示、旧RelatedCopyright由来のCharacter<->Copyright関連表示/ナビゲーションは無効化。#70の旧relation表示を現行挙動として扱わない。
+- **#70** はhistorical source/data foundationとして保持するが、旧Character<->Copyright relationをcurrent truthとして復活させない。#179/#180が品質監査・再構築のcurrent authority。
+- Performance / Runtime Load Audit と portable/runtime hardening は完了済み。未完のcurrent DEV taskとしてroutingしない。
+- Forge Generation Recipeの自動適用/自動生成はcurrent remaining taskではない。#175/#176の決定によりrecipeはreference/persistence中心で、既存の非recipe Forge送信とは分離する。
+- **#65** Stage10はparallel learningでありv1 product gateではない。
+- **#44** KNOWLEDGEは長期owner。旧PROMPT班は廃止され、Prompt / generation-effectiveness責務はKNOWLEDGEへ統合済み。
+- **#52 / #138 / #71** はmaintenance / post-v1 routingであり、主要research #179/#180/#132を置き換えない。
+- live Issue/PR/branch HEADがこのsnapshotより進んでいる場合、古いSHAや件数を作業継続の根拠にしない。作業開始時にlive GitHubを再取得する。
+
+### Routing precedence
+
+`live main -> CURRENT_STATE -> current live Issue + latest checkpoint -> PERMANENT_RULES -> issue-specific specs -> historical snapshots`
+
+branch-local management docs、過去chat、古いhandoffだけからcurrent taskを推測しない。
+#179/#180のresearch branchはこのmanagement syncから変更しない。
 
 ## Current Stage
 

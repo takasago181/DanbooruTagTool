@@ -1,115 +1,69 @@
-# CURRENT DEV TASK — POST-#131 RUNTIME / PERFORMANCE AUDIT
+# CURRENT DEV TASK — LIVE ROUTING INDEX
 
-最終同期: 2026-09-20
+最終更新: 2026-09-22
 
-## Routing status
+このファイルは「単一の実装task」を固定するものではなく、現在動いているlaneへのrouting indexである。
+過去の Performance / Runtime Load Audit は完了済みであり、current taskとして再開しない。
 
-- Live main authority is the post-sync main containing this block; the optimization merge before sync was `eebccbf7feafff6f86546c4624841d5978953dd6`.
-- PR #133 `[MAINT] Post-#131 runtime and portable production hardening` is merged.
-- PR #135 post-#131 performance/runtime optimization is merged and production-validated.
-- Post-#131 production/runtime integration is complete.
-- #117/#118 implementation and the former local-runtime gate are no longer the current DEV task.
-- #131 UI refinement is complete and already represented in the current runtime.
-- Performance / Runtime Load Audit and the safe post-audit optimization lane are complete. The adopted change defers unused `Related` projection while preserving compatibility; no further optimization candidate is adopted without new measurement evidence.
-- #70 Character/Copyright/Artist work and taxonomy-usability/classification audit are independent lanes. Do not mix their branches, commits, data, or decisions into this task.
+## Current routing
 
-## Current production runtime authority
+### #180 — Character -> HOME Copyright rebuild
 
-User-facing workstation runtime:
+- State: ACTIVE RESEARCH / research-only
+- Branch: `research/issue180-single-home-pilot`
+- Verified HEAD at this routing sync: `494a61ddb76d01f7f07a76b9d42ca1294690c4f8`
+- Draft PR: #182
+- Goal: high-precision authorityから各Characterのcanonical HOME Copyrightを0..1件で確定する。
+- Safety: missing relation > wrong relation。
+- Do not merge to main or apply to production until the Issue #180 completion/review gates are satisfied.
+- Issue本文・latest checkpoint・issue-specific docsを必ずlive取得してから再開する。
 
-`C:\Codex\DanbooruTagTool-App`
+### #179 — Character/Copyright quality audit
 
-Current runtime contract:
+- State: ACTIVE RESEARCH
+- Branch: `research/issue179-character-quality-audit`
+- Verified HEAD at this routing sync: `78cd14693d066e8f150a140628eef6c5d343b2c5`
+- Draft PR: #181
+- Goal: Character/Copyright identity, Japanese display/search, ranking, 2D scope quality.
+- Artist is out of audit scope.
+- #180のHOME relation authorityと混同しない。
 
-- self-contained `win-x64`;
-- shortcut target: `C:\Codex\DanbooruTagTool-App\DanbooruTagTool.exe`;
-- shortcut working directory: `C:\Codex\DanbooruTagTool-App`;
-- `runtime-manifest.json` records build/main provenance and runtime hashes;
-- current catalog SHA-256:
-  `DFDC93581F2E8E3041FBC497F9A1C5CFD458977EF57462E05902F27D29B97CF9`;
-- the final production EXE and manifest hashes are recorded in the fresh post-sync runtime promotion report;
-- current catalog totals:
-  - Total 33,688
-  - General 30,629
-  - Special 3,059
-  - Character/Copyright/Artist 0 / 0 / 0
-  - runtime identities 31,003
-  - SEXUAL 1,506
-  - NON_SEXUAL 27,707
-  - CONTEXTUAL 1,786
-  - UNCLASSIFIED 4.
+### #132 — taxonomy / discoverability research
 
-The older local `artifacts/current/` runtime is retained as a fallback/reference artifact but is **not the current user-facing launch target**.
+- State: ACTIVE RESEARCH
+- Goal: 実際の画像生成で使いやすいtag discovery / classification UXを検証する。
+- Current direction is research/prototype comparison; production mutation is not authorized merely by this routing file.
+- live Issueのcurrent checkpointを取得してから続行する。
 
-## UserData authority
+## Parallel / maintenance routes
 
-`UserData` is user-owned state, not a deploy artifact.
+- #65: Stage10 hands-on image-generation learning. Parallel learning; not a v1 product completion gate.
+- #44: persistent KNOWLEDGE owner. Prompt / generation-effectiveness responsibility is included here; there is no separate PROMPT team.
+- #52: repository cleanup tracker / maintenance.
+- #138: production runtime cleanliness maintenance contract.
+- #71: post-v1 roadmap; activate only when the user explicitly selects an item.
 
-The validated portable promotion copied the existing user database byte-for-byte and verified source/destination SHA equality before and after runtime launch.
+## Completed / do not route as unfinished
 
-Permanent operational rule:
+- Performance / Runtime Load Audit: complete.
+- Portable/runtime hardening: complete.
+- #177 mitigation: current UI hides Artist and disables unreliable old Character-Copyright relation surfaces.
+- Forge Generation Recipe automatic apply/generate flow: not a remaining task; #175/#176 established the reference/persistence-only recipe direction.
 
-- never delete, overwrite, reset, mirror-delete, or silently replace real `UserData`;
-- runtime publishing is code/catalog/runtime -> target only;
-- UserData preservation is a separate explicit step and must be hash-checked when a runtime is promoted;
-- do not use `git clean -fdx`, `git clean -fdX`, `robocopy /MIR`, or broad runtime-directory replacement against protected local state.
+## Preflight
 
-## Rendering authority
+Before any implementation/research continuation:
 
-PR #133 removed the explicit:
+1. Fetch live `main` and `docs/project/CURRENT_STATE.md`.
+2. Fetch the target live Issue body and latest checkpoint/comments.
+3. Read `docs/project/PERMANENT_RULES.md`.
+4. Read target issue-specific specs/checkpoints.
+5. Verify branch and HEAD live; do not trust the SHA in this snapshot if the branch has advanced.
+6. Fail closed on scope/routing contradictions.
 
-`RenderOptions.ProcessRenderMode = RenderMode.SoftwareOnly`
+## Isolation rule
 
-Current main therefore uses normal WPF/Windows automatic render selection.
+Do not mutate #179 or #180 research branches as part of management/routing cleanup.
+Do not mix #179/#180/#132 data, commits, or authority without an explicit handoff recorded in GitHub.
 
-The A/B rendering audit is complete. Automatic WPF render selection remains the
-baseline: idle CPU/disk settled to approximately zero and no clear total-load
-win justified restoring SoftwareOnly.
-
-## Performance audit boundaries
-
-Measure before optimizing.
-
-Required categories include:
-
-- startup;
-- settled idle;
-- dictionary scrolling;
-- Japanese / English / mixed search;
-- route/facet/content/DeepOnly switching;
-- Prompt add/remove/edit/order/category operations;
-- resize;
-- post-operation idle;
-- CPU / GPU / Working Set / Private memory / threads / handles / disk read-write;
-- leak/drift checks.
-
-Do not change production behavior merely because code looks suspicious.
-
-Any optimization after the SoftwareOnly A/B must be:
-
-`baseline -> measurement -> candidate -> same-condition measurement -> regression -> adopt/reject`.
-
-## Protected boundaries
-
-This current task does not own:
-
-- #70 Character/Copyright/Artist data;
-- taxonomy-usability/classification audit;
-- General/Special semantic membership;
-- #118 content-intent semantics;
-- PromptToken/search semantics;
-- canonical identity;
-- real UserData;
-- ForgeBridge behavior.
-
-Do not merge those lanes into the performance audit.
-
-## Stop rule
-
-Performance audit may add isolated measurement scripts/docs on its own branch.
-
-Additional optimizations require new measurement evidence and must not cross the
-#70, taxonomy, classification, canonical, PromptToken, ForgeBridge, catalog, or
-real UserData boundaries.
-
-Historical #117/#118 implementation details remain available from their Issues, commits, and Git history; they are no longer the routing task represented by this file.
+Historical completed-task details belong in Git history/issues/CURRENT_STATE historical sections, not as the current task represented by this file.
