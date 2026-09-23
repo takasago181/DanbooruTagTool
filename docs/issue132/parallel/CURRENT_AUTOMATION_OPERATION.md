@@ -73,6 +73,35 @@ Full frozen semantic/handoff/protocol documents are reread only when:
 
 The latest successful Issue132 CI is allowed to carry the repeated proof that the frozen neutral population/SHA/order remains unchanged. Workers do not spend every run recomputing the full 31,003-row proof unless an actual drift signal exists.
 
+### Stable neutral acquisition (mandatory)
+
+The normal Pass-A input source is the tracked research snapshot:
+
+`docs/issue132/parallel/input/luna_neutral_review_input_v2.csv`
+
+with manifest:
+
+`docs/issue132/parallel/input/luna_neutral_review_input_v2.manifest.json`
+
+Expected invariants:
+
+- rows: `31,003`
+- neutral CSV SHA-256: `ac0f888d02f19a440c63b3b9f695c58f9ba53b98ebe9756edec51db1c5ff8f7d`
+- identity-order SHA-256: `f80c63018ce19a8c7c5d8d6fd83d03cf760c510d8f6cfa455d1ab356fb31361b`
+
+Workers MUST prefer this tracked snapshot over GitHub Actions artifacts. Read only the line/range needed to obtain the next lane window, then programmatically filter by `((review_seq - 1) % 3) + 1`. Do not semantically ingest all 31,003 rows.
+
+The Actions artifact `issue132-full-discovery-audit` is now a reproducibility/backup output, not a required worker dependency. A 404 from a historical workflow-run artifact endpoint is therefore NOT a semantic blocker and MUST NOT stop a worker when the tracked snapshot is valid.
+
+If the tracked snapshot is missing or fails SHA/order validation:
+
+1. check the latest current Issue132 full-discovery run rather than any pinned historical run ID;
+2. discover its artifact list, confirm artifact name and `expired=false`, then download by the returned current artifact ID;
+3. if an authorized execution environment can regenerate from tracked authority, use `scripts/issue132/build_luna_neutral_input.py` and require the exact frozen SHA/order above;
+4. only if every contract-authorized source is unavailable or fails invariant validation may neutral acquisition be treated as a concrete blocker.
+
+Never use a cached temporary artifact download URL as persistent state. Never treat a bare artifact-API 404 as sufficient stop evidence.
+
 ---
 
 ## 4. Accuracy-preserving per-row finalization
