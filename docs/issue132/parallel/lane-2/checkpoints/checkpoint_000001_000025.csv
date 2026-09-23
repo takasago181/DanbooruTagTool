@@ -1,0 +1,26 @@
+review_seq,identity_key,manual_seen,semantic_summary_ja,discovery_mode,route_1_id,route_1_strength,route_1_reason_ja,route_2_id,route_2_strength,route_2_reason_ja,route_3_id,route_3_strength,route_3_reason_ja,local_refinement_ids,body_site_ids,theme_ids,route_vocabulary_gap,route_vocabulary_gap_note,review_depth,evidence_urls,uncertainty_note
+2,headband_around_neck,YES,ヘッドバンドを首まわりに着けている状態,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,身につけ方を含む服飾アクセサリーとして探すのが自然,,,,,,,"[""CLOTHING/ACCESSORY""]",[],[],NO,,CHECKED,[],
+5,master_crown,YES,『星のカービィ』シリーズの固有アイテム「マスタークラウン」,MIXED,CLOTHING_EXPOSURE,CORE,王冠という装身具の見た目からも探せる,,,,,,,"[""CLOTHING/ACCESSORY""]",[],[],NO,,RESEARCHED,"[""https://wikirby.com/wiki/Master_Crown_(boss)""]",固有名検索も自然
+8,prostitution,YES,金銭などの対価を伴う売春・性的サービスの場面,BROWSE_WORTHY,RELATION_ROLE,CORE,人物の役割・関係性として場面を探す入口が自然,,,,,,,[],[],[],NO,,CHECKED,[],
+11,ronald_mcdonald_(cosplay),YES,ロナルド・マクドナルドの衣装を再現するコスプレ,MIXED,CLOTHING_EXPOSURE,CORE,コスプレ衣装として視覚的に探せる,,,,,,,"[""CLOTHING/COSTUME""]",[],[],NO,,CHECKED,[],
+14,blood_trail,YES,血が線状・跡状に残っている表現,BROWSE_WORTHY,FLUID_EXCRETION,CORE,血液の痕跡そのものが主要な視覚要素,,,,,,,[],[],"[""INJURY_R18G""]",NO,,CHECKED,[],
+17,brace,YES,「brace」という単独語で示される対象,SEMANTIC_UNRESOLVED,,,,,,,,,,[],[],[],NO,,RESEARCHED,"[""https://dictionary.cambridge.org/dictionary/english/brace""]",braceは装具・歯列矯正器具・支え等の多義語で、このidentityだけではDanbooru上の意図を安全に特定できない
+20,body_soaping,YES,身体に石けんを付けて洗う行為,BROWSE_WORTHY,ACTION_CONTACT,CORE,身体を洗う行為として探すのが自然,,,,,,,"[""ACTION_CONTACT/INTERACTION""]",[],[],NO,,CHECKED,[],
+23,cruiser,YES,巡洋艦などのクルーザー型船舶,BROWSE_WORTHY,TOOL_OBJECT,CORE,船舶・乗り物としてシーンに加える対象,,,,,,,"[""OBJECT_PROP/VEHICLE""]",[],[],NO,,RESEARCHED,"[""https://dictionary.cambridge.org/dictionary/english/cruiser""]",英語cruiserには複数の乗り物用法があるが、いずれも乗り物入口が共通して有用
+26,metal_collar,YES,金属製の首輪・カラー,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,首に装着するアクセサリーとして探すのが自然,,,,,,,"[""CLOTHING/ACCESSORY""]",[],[],NO,,CHECKED,[],
+29,two-sided_jacket,YES,表裏・両面を使えるリバーシブル系ジャケット,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,ジャケットの種類として探すのが自然,,,,,,,"[""CLOTHING/EVERYDAY""]",[],[],NO,,RESEARCHED,"[""https://hbx.com/men/brands/j-eongl-i/river-reversible-blouson-black""]",
+32,omegaverse,YES,オメガバースという固有の創作世界設定・属性体系,SEARCH_ORIENTED,,,,,,,,,,[],[],[],NO,,CHECKED,[],
+35,6+others,YES,主対象以外に6人以上の人物がいる人数構成,BROWSE_WORTHY,PEOPLE_COUNT,CORE,人数・群集構成として探すのが自然,,,,,,,[],[],[],NO,,CHECKED,[],
+38,erection,YES,陰茎が勃起している状態,BROWSE_WORTHY,BODY_SITE,CORE,男性器の状態として探すのが自然,,,,,,,[],"[""MALE_GENITAL""]",[],NO,,CHECKED,[],
+41,men's_toilet_symbol,YES,男性用トイレを示すピクトグラム・記号,BROWSE_WORTHY,TEXT_SYMBOL,CORE,視覚記号として探すのが自然,,,,,,,"[""TEXT_SYMBOL/SYMBOL""]",[],[],NO,,CHECKED,[],
+44,pulley,YES,滑車,BROWSE_WORTHY,TOOL_OBJECT,CORE,道具・機械部品としてシーンに置く対象,,,,,,,"[""OBJECT_PROP/DAILY""]",[],[],NO,,CHECKED,[],
+47,stretch_action,YES,身体を伸ばすストレッチ動作,BROWSE_WORTHY,POSE_POSITION,CORE,身体の動き・姿勢として探すのが自然,,,,,,,[],[],[],NO,,CHECKED,[],
+50,media_player_interface,YES,動画・音楽プレイヤーの再生ボタンやシークバー等の画面UI表現,BROWSE_WORTHY,COMPOSITION_CAMERA,CORE,画面上に重なる表示・構成要素として探すのが比較的自然,,,,,,,[],[],[],YES,UI・画面オーバーレイを直接表す既存トップレベル入口がなく、構図だけでは意味がずれる,CHECKED,[],
+53,kawaii_kaiwai,YES,楽曲「Kawaii Kaiwai」やその映像・流行に由来する固有参照,SEARCH_ORIENTED,,,,,,,,,,[],[],[],NO,,RESEARCHED,"[""https://natalie.mu/music/news/632639""]",
+56,majima_everywhere,YES,『龍が如く 極』の「どこでも真島」に由来する固有ゲーム内システム・ミーム,SEARCH_ORIENTED,,,,,,,,,,[],[],[],NO,,RESEARCHED,"[""https://knowyourmeme.com/memes/majima-everywhere""]",
+59,snowflake_liliput_(idolmaster),YES,『アイドルマスター』の固有衣装「Snowflake Liliput」,SEARCH_ORIENTED,,,,,,,,,,[],[],[],NO,,RESEARCHED,"[""https://www.theidolmaster.info/special-idols/mizutani-eri""]",
+62,vibrator,YES,性的刺激に使うバイブレーター,BROWSE_WORTHY,TOOL_OBJECT,CORE,性具という小物・道具として探すのが自然,,,,,,,"[""OBJECT_PROP/DAILY""]",[],[],NO,,CHECKED,[],
+65,elbows_on_knees,YES,肘を膝の上に置く姿勢,BROWSE_WORTHY,POSE_POSITION,CORE,腕と脚の配置を含む姿勢そのものが主要な視覚要素,,,,,,,[],[],[],NO,,CHECKED,[],
+68,unworn_bloomers,YES,着用されず脱いだ状態で描かれるブルマー,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,衣類とその非着用状態として探すのが自然,,,,,,,"[""CLOTHING_STATE_EXPOSURE/""]",[],[],NO,,CHECKED,[],
+71,military_operator,YES,軍事・戦術任務に従事するオペレーター／兵士役の人物,BROWSE_WORTHY,RELATION_ROLE,CORE,軍事的な人物役割として探すのが自然,,,,,,,[],[],[],NO,,CHECKED,[],
+74,neptune_symbol,YES,海王星を表す天文学・占星術の記号,BROWSE_WORTHY,TEXT_SYMBOL,CORE,記号として探すのが自然,,,,,,,"[""TEXT_SYMBOL/SYMBOL""]",[],[],NO,,CHECKED,[],
