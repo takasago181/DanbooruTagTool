@@ -1,0 +1,53 @@
+{
+  "active_pipeline_script_count": 6,
+  "active_pipeline_scripts": [
+    "build_structure_v3.py",
+    "migrate_evidence_v3.py",
+    "resolve_character_home_v3.py",
+    "build_residual_units_v3.py",
+    "validate_character_home_v3.py",
+    "run_issue180_v3.py"
+  ],
+  "character_population": 35890,
+  "evidence_rows": 6176,
+  "generated_output_directory": "artifacts/issue180-v3",
+  "legacy_v1_v2_scripts_executed": false,
+  "migration_comparison_path": "docs/issue180/v3/reports/MIGRATION_COMPARISON_V3.csv",
+  "migration_counts": {
+    "SAME_HOME": 3863,
+    "V3_UNRESOLVED": 8663
+  },
+  "migration_difference_classes": {
+    "EVIDENCE_MIGRATION_ERROR": 8663
+  },
+  "migration_gate": "STOP_CLASSIFIED_DIFFERENCES",
+  "missing_roots": 0,
+  "multi_home_conflicts": 0,
+  "pipeline_validation": "PASS",
+  "production_runtime_dependency": false,
+  "reproducibility": {
+    "first_master_sha256": "1a1c0fafa77eab1ca7bd7ac6d70510296a960b4897a77f13c16dca855e2c72d3",
+    "same": true,
+    "second_master_sha256": "1a1c0fafa77eab1ca7bd7ac6d70510296a960b4897a77f13c16dca855e2c72d3"
+  },
+  "research_unit_count": 3898,
+  "research_unit_type_counts": {
+    "DIRECT_AUTHORITY": 1,
+    "FAMILY_AUTHORITY": 2732,
+    "IDENTITY_REVIEW": 7,
+    "VARIANT_OFFICIALITY": 1158
+  },
+  "residual_reason_counts": {
+    "DIRECT_AUTHORITY_MISSING": 15009,
+    "FAMILY_HOME_MISSING": 11524,
+    "IDENTITY_REVIEW_REQUIRED": 7,
+    "VARIANT_OFFICIALITY_MISSING": 4060
+  },
+  "schema_version": 3,
+  "source_manifest_sha256": "4148e9a1a6f3b03a574f4deb0fa1e19d18ef68daa41188743682f9e197ccb758",
+  "states": {
+    "HOME_CONFIRMED": 5290,
+    "HOME_UNRESOLVED": 30600,
+    "NOT_OFFICIAL_CHARACTER": 0
+  }
+}
