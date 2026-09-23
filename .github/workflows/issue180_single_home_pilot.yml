@@ -4,10 +4,11 @@ on:
   push:
     branches:
       - research/issue180-single-home-pilot
-  pull_request:
-    branches:
-      - main
   workflow_dispatch:
+
+concurrency:
+  group: issue180-v3-${{ github.ref }}
+  cancel-in-progress: true
 
 permissions:
   contents: read
