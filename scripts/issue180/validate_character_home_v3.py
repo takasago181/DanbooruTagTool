@@ -34,9 +34,12 @@ def main() -> None:
     character_keys = set(source_tags)
     master_by_tag = {r["canonical_tag"]: r for r in master}
     family_homes = {}
+    direct_home_roots = {}
     for e in ledger:
         if e.get("relation_type") == "FAMILY_HOME" and e.get("review_state") == "VALIDATED":
             family_homes.setdefault(e["subject_key"].lower(), set()).add(e["object_key"])
+        elif e.get("relation_type") == "DIRECT_HOME" and e.get("review_state") == "VALIDATED":
+            direct_home_roots.setdefault(e["subject_key"], set()).add(e["object_key"])
     copyright_aliases = {}
     for root_row in copyrights:
         for alias in [root_row.get("canonical_tag", ""), *(root_row.get("aliases", "") or "").split("|")]:
@@ -72,6 +75,8 @@ def main() -> None:
                     or parent.get("subject_key") != e.get("object_key") or parent.get("review_state") != "VALIDATED"
                     or not safe_terminal_family_membership(e["subject_key"], e["object_key"], family_homes, policy, copyright_aliases)):
                 errors.append(f"INHERITANCE_INTEGRITY: unsafe/untraceable exact-family membership for {e['subject_key']}")
+            if parent and exact_base_home_conflicts(e["subject_key"], parent.get("object_key", ""), character_keys, direct_home_roots):
+                errors.append(f"INHERITANCE_INTEGRITY: family HOME conflicts with exact base direct HOME for {e['subject_key']}")
     structure = read_csv(OUT / "structure_graph_v3.csv")
     if any(e.get("relation_type") == "DISCOVERY_HINT" and (e.get("review_state") != "CANDIDATE" or e.get("evidence_id")) for e in structure):
         errors.append("EVIDENCE_INTEGRITY: discovery hints must remain candidate-only without evidence IDs")

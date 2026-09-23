@@ -185,6 +185,15 @@ def safe_terminal_family_membership(tag: str, family: str, family_homes: dict[st
             return False
     return True
 
+def exact_base_home_conflicts(tag: str, family_home: str, character_keys: set[str],
+                              direct_home_roots: dict[str, set[str]]) -> bool:
+    """Reject family inheritance when an exact existing base has a different direct HOME."""
+    if "_(" not in tag:
+        return False
+    base = tag.rsplit("_(", 1)[0]
+    roots = direct_home_roots.get(base, set()) if base in character_keys else set()
+    return bool(roots) and roots != {family_home}
+
 def is_valid_citation(url: str, claim: str) -> bool:
     u = (url or "").strip().lower()
     c = (claim or "").strip()

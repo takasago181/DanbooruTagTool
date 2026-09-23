@@ -136,6 +136,18 @@ def main() -> None:
         if d.get("validation_state") == "PASS":
             decision_by_key[d.get("key", "")].append(d)
     applied_by_tag: dict[str, dict[str, str]] = v2_by
+    direct_authority_homes: dict[str, set[str]] = defaultdict(set)
+    for evidence in ledger:
+        if evidence.get("relation_type") == "DIRECT_HOME" and evidence.get("review_state") == "VALIDATED":
+            direct_authority_homes[evidence.get("subject_key", "")].add(evidence.get("object_key", ""))
+
+    def has_old_family_base_conflict(tag: str, old_home: str) -> bool:
+        if "_(" not in tag:
+            return False
+        base = tag.rsplit("_(", 1)[0]
+        roots = direct_authority_homes.get(base, set())
+        return base in char_by and bool(roots) and roots != {old_home}
+
     migration: list[dict[str, str]] = []
     for tag, old in sorted(v2_by.items()):
         new = v3_by.get(tag)
@@ -154,6 +166,12 @@ def main() -> None:
             state, home, result = new["final_state"], new["home_copyright"], "V3_UNRESOLVED"
             drows = decision_by_key.get(tag, [])
             if new.get("reason_code") == "EVIDENCE_CONFLICT": cls = "OLD_DECISION_DEFECT"
+            elif has_old_family_base_conflict(tag, old.get("home_copyright", "")):
+                cls = "OLD_DECISION_DEFECT"
+                base = tag.rsplit("_(", 1)[0]
+                detail = (f"v2 family HOME {old.get('home_copyright')!r} conflicts with independently validated direct HOME(s) "
+                          f"{sorted(direct_authority_homes[base])!r} for exact existing base Character {base!r}; "
+                          "the v3 family/variant path is withheld and no alternate HOME is inferred.")
             elif old.get("source_provenance") == "SPLATOON_OFFICIAL_HOME_V1.csv" and new.get("reason_code") == "VARIANT_OFFICIALITY_MISSING": cls = "OLD_DECISION_DEFECT"
             elif drows and not any(e.get("subject_key") == tag for e in ledger if e.get("relation_type") in {"DIRECT_HOME", "VARIANT_OF"}): cls = "EVIDENCE_MIGRATION_ERROR"
             elif (new.get("reason_code") in {"FAMILY_HOME_MISSING", "FAMILY_MEMBERSHIP_MISSING"} and tag.endswith(")")
@@ -176,7 +194,8 @@ def main() -> None:
             elif scope == "DIRECT_CHARACTER" and source_prov.startswith("DIRECT_OFFICIAL_CHARACTER_ROSTER"): primary_loss = "APPROVED_REPO_EVIDENCE_NOT_MIGRATED"
             elif scope == "DIRECT_CHARACTER": primary_loss = "FOUNDATION_DIRECT_NOT_MIGRATED"
             else: primary_loss = "OTHER"
-            detail = f"{new.get('reason_code','NO_SAFE_PATH')}; v2_scope={old_prov.get('authority_scope','')}; v2_authority={old_prov.get('authority_type','')}; v2_provenance={old_prov.get('source_provenance','')}; no validated v3 path to old HOME."
+            if cls != "OLD_DECISION_DEFECT" or not has_old_family_base_conflict(tag, old.get("home_copyright", "")):
+                detail = f"{new.get('reason_code','NO_SAFE_PATH')}; v2_scope={old_prov.get('authority_scope','')}; v2_authority={old_prov.get('authority_type','')}; v2_provenance={old_prov.get('source_provenance','')}; no validated v3 path to old HOME."
             if cls == "RESOLVER_BEHAVIOR_CHANGE" and tag.endswith(")") and tag.rsplit("_(", 1)[-1][:-1].lower() in STRUCTURAL_FAMILY_BLOCKS:
                 detail = (f"HOME_UNRESOLVED / {new.get('reason_code')}; exact terminal qualifier {tag.rsplit('_(', 1)[-1][:-1]!r} is explicitly blocked from bulk structural expansion "
                           "as a company/platform/event/crossover/costume/generic class. The v2 mapping is retained in the comparison baseline only.")
@@ -218,7 +237,7 @@ def main() -> None:
             "primary_migration_loss_reason": primary,
             "repair_status": "RECOVERED_SAME_HOME" if confirmed_same else ("DIFFERENT_HOME_REQUIRES_REVIEW" if new.get("final_state") == "HOME_CONFIRMED" else "UNRESOLVED_AFTER_REPAIR"),
             "current_v3_rejection_reason": new.get("reason_code", ""),
-            "difference_class": "" if confirmed_same else ("OLD_DECISION_DEFECT" if source_prov == "SPLATOON_OFFICIAL_HOME_V1.csv" and new.get("reason_code") == "VARIANT_OFFICIALITY_MISSING" else previous.get("difference_class", "OTHER")),
+            "difference_class": "" if confirmed_same else ("OLD_DECISION_DEFECT" if (source_prov == "SPLATOON_OFFICIAL_HOME_V1.csv" and new.get("reason_code") == "VARIANT_OFFICIALITY_MISSING") or has_old_family_base_conflict(tag, old.get("home_copyright", "")) else ("RESOLVER_BEHAVIOR_CHANGE" if new.get("reason_code") in {"FAMILY_HOME_MISSING", "FAMILY_MEMBERSHIP_MISSING"} and tag.endswith(")") and tag.rsplit("_(", 1)[-1][:-1].lower() in STRUCTURAL_FAMILY_BLOCKS else previous.get("difference_class", "OTHER"))),
             "v3_home": new.get("home_copyright", ""), "evidence_path": new.get("resolver_path", "")})
     write_csv(GAP_RECONCILIATION, gap_rows, gap_fields)
     counts = Counter(r["migration_state"] for r in migration)

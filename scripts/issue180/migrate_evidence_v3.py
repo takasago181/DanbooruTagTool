@@ -287,6 +287,10 @@ def main() -> None:
     family_homes_index: dict[str, set[str]] = {}
     for family_key, evidence_ids in family_evidence.items():
         family_homes_index[family_key.lower()] = {rows[e]["object_key"] for e in evidence_ids if e in rows and rows[e]["object_key"] in root_set}
+    direct_home_roots: dict[str, set[str]] = {}
+    for fact in rows.values():
+        if fact["relation_type"] == "DIRECT_HOME" and fact["object_key"] in root_set:
+            direct_home_roots.setdefault(fact["subject_key"], set()).add(fact["object_key"])
     for family, eids in sorted(family_evidence.items()):
         home_rows = [rows[e] for e in sorted(set(eids)) if e in rows]
         family_homes = {h["object_key"] for h in home_rows if h["object_key"] in root_set}
@@ -295,11 +299,13 @@ def main() -> None:
         for member in sorted(set(family_members.get(family, []))):
             if ordinal.match(family) or not safe_terminal_family_membership(member, family, family_homes_index, policy, alias_to_roots):
                 continue
+            if exact_base_home_conflicts(member, next(iter(family_homes)), char_set, direct_home_roots):
+                continue
             tag_qualifiers = re.findall(r"_\(([^()]*)\)", member)
             if len(tag_qualifiers) == 1:
-                membership_claim = f"Issue #70 accepted Character catalog tag {member!r} has exact final qualifier {family!r}; v2 family fastpath policy excludes nested/attribute/broad/non-home qualifiers."
+                membership_claim = f"Issue #70 accepted Character catalog tag {member!r} has exact final qualifier {family!r}; v2 family fastpath policy excludes nested/attribute/broad/non-home qualifiers and the exact base check found no different validated direct HOME."
             else:
-                membership_claim = (f"Issue #70 accepted Character tag {member!r} has exact terminal qualifier {family!r}; its reviewed Family HOME is unique, and preceding qualifiers contain no conflicting reviewed family or blocked broad/crossover/company/platform/event/costume class.")
+                membership_claim = (f"Issue #70 accepted Character tag {member!r} has exact terminal qualifier {family!r}; its reviewed Family HOME is unique, preceding qualifiers contain no conflicting reviewed family or blocked broad/crossover/company/platform/event/costume class, and no exact existing base with a different validated direct HOME was found.")
             for h in home_rows:
                 add("Character", member, "MEMBER_OF", family,
                     "VALIDATED_FAMILY_QUALIFIER_MEMBERSHIP", h["source_url"],

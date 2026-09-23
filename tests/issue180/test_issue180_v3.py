@@ -8,7 +8,7 @@ from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "scripts/issue180"))
-from _issue180_v3_common import evidence_id, is_valid_citation, canonical_family_candidates, safe_structural_variant_bases, safe_terminal_family_membership, select_home
+from _issue180_v3_common import evidence_id, is_valid_citation, canonical_family_candidates, safe_structural_variant_bases, safe_terminal_family_membership, exact_base_home_conflicts, select_home
 import build_residual_units_v3 as residual_planner
 
 
@@ -151,6 +151,15 @@ class EvidenceDrivenV3Tests(unittest.TestCase):
                   "broad_families": [], "non_home_families": []}
         homes = {"pokemon": {"pokemon"}, "fate": {"fate_(series)"}}
         self.assertFalse(safe_terminal_family_membership("crossover_(fate)_(pokemon)", "pokemon", homes, policy))
+
+    def test_family_fastpath_rejects_exact_base_with_different_direct_home(self):
+        self.assertTrue(exact_base_home_conflicts("hatsune_miku_(blue_archive)", "blue_archive",
+                                                  {"hatsune_miku", "hatsune_miku_(blue_archive)"},
+                                                  {"hatsune_miku": {"vocaloid"}}))
+        self.assertFalse(exact_base_home_conflicts("hatsune_miku_(vocaloid)", "vocaloid",
+                                                   {"hatsune_miku", "hatsune_miku_(vocaloid)"},
+                                                   {"hatsune_miku": {"vocaloid"}}))
+        self.assertFalse(exact_base_home_conflicts("pikachu_(pokemon)", "pokemon", {"pikachu_(pokemon)"}, {}))
 
     def test_decision_without_grounded_url_is_not_evidence(self):
         self.assertFalse(is_valid_citation("", "Reviewed reusable qualifier-family authority"))
