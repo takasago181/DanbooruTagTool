@@ -146,6 +146,20 @@ class EvidenceDrivenV3Tests(unittest.TestCase):
         homes = {"blue_archive": {"blue_archive"}}
         self.assertTrue(safe_terminal_family_membership("akane_(bunny)_(blue_archive)", "blue_archive", homes, policy))
 
+    def test_reviewed_hololive_root_allows_exact_terminal_membership(self):
+        policy = {"variant_qualifier_families": [], "attribute_families": [],
+                  "broad_families": [], "non_home_families": []}
+        self.assertTrue(safe_terminal_family_membership("azki_(hololive)", "hololive",
+                                                        {"hololive": {"hololive"}}, policy))
+
+    def test_known_non_home_family_classes_remain_blocked(self):
+        policy = {"variant_qualifier_families": [], "attribute_families": [],
+                  "broad_families": [], "non_home_families": []}
+        homes = {"collab": {"collab"}, "platform": {"platform"}, "event": {"event"}}
+        for family, tag in [("collab", "foo_(collab)"), ("platform", "foo_(platform)"),
+                            ("event", "foo_(event)")]:
+            self.assertFalse(safe_terminal_family_membership(tag, family, homes, policy))
+
     def test_exact_terminal_family_rejects_known_cross_family_collision(self):
         policy = {"variant_qualifier_families": [], "attribute_families": [],
                   "broad_families": [], "non_home_families": []}

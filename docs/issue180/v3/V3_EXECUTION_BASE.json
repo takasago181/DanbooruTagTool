@@ -9,7 +9,7 @@
   },
   "catalog_sha256": "1d346ad75655ea6091f9bce9a4cf58b1cf6f8fac18c7eb441f8edd009ee81433",
   "evidence_schema_version": 2,
-  "helper_sha256": "b3e3b1d981be75712c1ceaf159eaec3654575cd2c16aff887ace2732412e96db",
+  "helper_sha256": "f82f1aa5679a3023599cc440d996b6cd7827f25e383f1dead0fb97b274c2c995",
   "issue179_handoff_sha256": "b4db9a73db834bb3cc567b66559ea046b93ab4eb5a738dc2ac8270a23da2f222",
   "issue180_policy_sha256": "704ad9c2d8df1e7d04c68e491a3f967c6facde85d7567aa65b01be574a029d32",
   "legacy_v1_v2_pipeline_dependency": false,

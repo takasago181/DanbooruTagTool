@@ -23,7 +23,7 @@ V3_PRE_REPAIR_GAP = ROOT / "docs/issue180/v3/MIGRATION_GAP_BEFORE_REPAIR_V3.csv"
 CHARACTER_CATEGORY = "4"
 COPYRIGHT_CATEGORY = "3"
 FINAL_STATES = {"HOME_CONFIRMED", "HOME_UNRESOLVED", "NOT_OFFICIAL_CHARACTER"}
-STRUCTURAL_FAMILY_BLOCKS = {"collab", "collaboration", "crossover", "cross_over", "company", "platform", "event", "costume", "attribute", "hololive"}
+STRUCTURAL_FAMILY_BLOCKS = {"collab", "collaboration", "crossover", "cross_over", "company", "platform", "event", "costume", "attribute"}
 DECISION_FILES = (
     "direct_and_exceptions_v2.csv",
     "discovery_roster_reviews_v2.csv",
