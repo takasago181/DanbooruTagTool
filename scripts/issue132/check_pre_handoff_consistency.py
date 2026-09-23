@@ -50,6 +50,8 @@ def main():
 
     need(current,"31,003 identities","current")
     need(current,"Pass A — independent Luna discovery map","current")
+    need(current,"Status: **READY FOR CODEX LUNA PASS A / NO PRODUCTION CHANGE**","current")
+    need(current,"**READY FOR CODEX LUNA PASS A**","current")
     need(current,"New top-level route IDs or new facet axes are **default-deny**","current")
     need(protocol,"local_refinement_ids","protocol")
     need(protocol,"MISSING_LOCAL_REFINEMENT","protocol")
@@ -61,8 +63,10 @@ def main():
     need(ledger,"22. `uncertainty_note`","ledger")
     need(ledger,"pass_a_contract_manifest_v1.json","ledger")
     need(ledger,"pass_a_progress_summary.json","ledger")
-    need(handoff,"Status: **DRAFT / DO NOT RUN**","handoff")
-    need(handoff,"**DO NOT RUN THE FULL LUNA REVIEW.**","handoff")
+    need(handoff,"Status: **READY FOR CODEX LUNA PASS A**","handoff")
+    need(handoff,"python scripts/issue132/bootstrap_luna_pass_a.py","handoff")
+    need(handoff,"python scripts/issue132/finalize_luna_pass_a.py","handoff")
+    need(handoff,"reviewed identities = **31,003**","handoff")
 
     for script in (
         "scripts/issue132/full_discovery_coverage_audit.py",
@@ -74,7 +78,7 @@ def main():
     ):
         need(workflow,script,"workflow")
 
-    print("PASS Issue132 pre-handoff authority consistency")
+    print("PASS Issue132 final handoff authority consistency")
 
 if __name__=="__main__":
     main()
