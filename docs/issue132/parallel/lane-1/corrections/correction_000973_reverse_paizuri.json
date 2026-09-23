@@ -1,0 +1,16 @@
+{
+  "schema_version": "issue132-pass-a-correction-v1",
+  "lane": 1,
+  "lane_local_index": 325,
+  "review_seq": 973,
+  "identity_key": "reverse_paizuri",
+  "source_checkpoint": "checkpoint_000301_000325.csv",
+  "qa_boundary": 400,
+  "reason": "400-row QA confirmed the concept explicitly involves breasts stimulating a penis; MALE_GENITAL was omitted from body_site_ids while BREAST_NIPPLE was present.",
+  "expected_before": {
+    "body_site_ids": "[\"BREAST_NIPPLE\"]"
+  },
+  "patch": {
+    "body_site_ids": "[\"BREAST_NIPPLE\",\"MALE_GENITAL\"]"
+  }
+}
