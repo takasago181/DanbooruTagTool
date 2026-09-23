@@ -34,7 +34,7 @@
 - Branch: `research/taxonomy-usability-audit`
 - Goal: 全31,003 ordinary identitiesを独立にsemantic reviewし、画像生成でタグ名を知らなくても自然に辿れるdiscovery mapを作る。
 - Current execution: 3 normal ChatGPT Automation workers + 1 coordinator/watchdog.
-- Current live operation: 300 identities / worker run target, immutable 50-row checkpoints, mandatory second-pass review over every 50 rows, final 300-row QA before normal completion.
+- Current live operation: **300 identities / worker run is a ceiling, not a quota**; new immutable checkpoints are 25 rows; every 25 rows receives a mandatory second-pass review; every 100 new rows receives a mandatory cross-batch QA; validated smaller progress is preserved with explicit execution/tool stop reasons.
 - Operational authority: `docs/issue132/parallel/CURRENT_AUTOMATION_OPERATION.md`
 - Frozen Pass-A semantic contract remains unchanged; old `READY FOR CODEX LUNA PASS A` / 100-row / 200-row wording is not current execution routing.
 - Progress snapshot at this sync: valid persisted 475 / 31,003 (Lane 1: 225, Lane 2: 150, Lane 3: 100). Re-fetch live checkpoints/status before continuing.
