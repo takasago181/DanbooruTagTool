@@ -1,0 +1,36 @@
+{
+  "schema_version": "issue132-pass-a-correction-v1",
+  "lane": 3,
+  "lane_local_index": 384,
+  "review_seq": 1152,
+  "identity_key": "just_the_tip",
+  "source_checkpoint": "checkpoint_000376_000400.csv",
+  "qa_boundary": 400,
+  "reason": "Direct Safebooru/Danbooru wiki evidence defines just_the_tip as a sexual act where only the tip of a penis penetrates the subject, so the prior SEMANTIC_UNRESOLVED row is no longer appropriate and also violated the frozen review_depth constraint.",
+  "expected_before": {
+    "discovery_mode": "SEMANTIC_UNRESOLVED",
+    "route_1_id": "",
+    "route_1_strength": "",
+    "route_1_reason_ja": "",
+    "local_refinement_ids": "[]",
+    "body_site_ids": "[]",
+    "route_vocabulary_gap": "NO",
+    "route_vocabulary_gap_note": "",
+    "review_depth": "SEMANTIC_UNRESOLVED",
+    "evidence_urls": "[\"https://www.seaart.ai/explore/detail/f1a6a00a83ebf134cef713e7ca3bc2c4\"]",
+    "uncertainty_note": "直接的なDanbooru/Safebooru定義を確認できず用例は確認できるがタグの厳密な適用範囲は未確定"
+  },
+  "patch": {
+    "discovery_mode": "BROWSE_WORTHY",
+    "route_1_id": "ACTION_CONTACT",
+    "route_1_strength": "CORE",
+    "route_1_reason_ja": "陰茎の先端だけを挿入する性的接触・挿入行為そのものを表すため",
+    "local_refinement_ids": "[\"ACTION_CONTACT/INTIMATE\"]",
+    "body_site_ids": "[\"MALE_GENITAL\"]",
+    "route_vocabulary_gap": "NO",
+    "route_vocabulary_gap_note": "",
+    "review_depth": "RESEARCHED",
+    "evidence_urls": "[\"https://safebooru.donmai.us/wiki_pages/just_the_tip\"]",
+    "uncertainty_note": "Safebooru/Danbooru wikiで、陰茎の先端だけが対象へ挿入している性的行為として直接定義を確認"
+  }
+}
