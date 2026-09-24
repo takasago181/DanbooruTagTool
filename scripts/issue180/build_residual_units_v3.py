@@ -13,7 +13,7 @@ REVIEWS = ROOT / "docs/issue180/v3/research_unit_terminal_reviews_v3.csv"
 CLOSURE = ROOT / "docs/issue180/v3/reports/RESEARCH_UNIT_CLOSURE_SWEEP_V3.csv"
 FIELDS = ["unit_id", "unit_type", "subject", "member_count", "member_ids/tags", "missing_evidence_type", "known_home_if_any", "priority", "status"]
 REVIEW_FIELDS = {"unit_id", "member_ids_sha256", "terminal_status", "authority_source", "source_claim", "review_provenance"}
-CLOSURE_FIELDS = ["unit_id", "member_ids_sha256", "classification", "examined_paths", "candidate_roots", "rejection_reason", "terminal_reason"]
+CLOSURE_FIELDS = ["unit_id", "member_ids_sha256", "classification", "work_bucket", "examined_paths", "candidate_roots", "rejection_reason", "terminal_reason"]
 TERMINAL_STATUSES = {"RESOLVED", "PARTIALLY_RESOLVED", "NO_SAFE_EVIDENCE", "POLICY_BLOCKED", "IDENTITY_BLOCKED", "SUPERSEDED_BY_NEW_UNIT"}
 
 def member_hash(tags: list[str]) -> str:
@@ -87,14 +87,17 @@ def classify_open_units(units: list[dict[str, str]], graph: list[dict[str, str]]
                 elif evidence["relation_type"] in {"MEMBER_OF", "VARIANT_OF"}:
                     admissible_edges.append(evidence["evidence_id"])
         # Validated-family roots are only candidates here; resolver output remains authoritative.
-        families = {e["object_key"] for tag in tags for e in graph_by_subject.get(tag, [])
-                    if e["relation_type"] == "MEMBER_OF"}
+        # Candidate graph edges may enrich the research leads, but must never
+        # participate in a HOME conflict. Only validated MEMBER_OF / VARIANT_OF
+        # ledger rows establish inheritance paths.
+        validated_families = {e["object_key"] for tag in tags for e in validated_by_subject.get(tag, [])
+                              if e["relation_type"] == "MEMBER_OF"}
         family_homes = {e["object_key"] for e in ledger if e.get("review_state") == "VALIDATED"
-                        and e["relation_type"] == "FAMILY_HOME" and e["subject_key"] in families}
+                        and e["relation_type"] == "FAMILY_HOME" and e["subject_key"] in validated_families}
         candidates.update(family_homes)
-        base_keys = {e["object_key"] for tag in tags for e in graph_by_subject.get(tag, [])
-                     if e["relation_type"] == "VARIANT_OF"}
-        base_homes = {master[b]["home_copyright"] for b in base_keys
+        validated_base_keys = {e["object_key"] for tag in tags for e in validated_by_subject.get(tag, [])
+                               if e["relation_type"] == "VARIANT_OF"}
+        base_homes = {master[b]["home_copyright"] for b in validated_base_keys
                       if b in master and master[b]["final_state"] == "HOME_CONFIRMED"}
         candidates.update(base_homes)
         distinct_homes = direct_homes | family_homes | base_homes
@@ -111,8 +114,33 @@ def classify_open_units(units: list[dict[str, str]], graph: list[dict[str, str]]
             classification, reject, terminal = "STRUCTURAL_NO_SAFE_PATH", "no validated direct/family/variant path, no family or discovery candidate, and no candidate Copyright root in current structure", "NO_SAFE_EVIDENCE"
         else:
             classification, reject, terminal = "BATCH_AUTHORITY_RESEARCH", "candidate family/base/discovery structure exists but is candidate-only or lacks validated authority", ""
+        candidate_base_keys = {e["object_key"] for tag in tags for e in graph_by_subject.get(tag, [])
+                               if e["relation_type"] == "VARIANT_OF"}
+        candidate_base_ready = any(b in master and master[b]["final_state"] == "HOME_CONFIRMED"
+                                   for b in candidate_base_keys)
+        if classification == "AUTO_RESOLVE_STRUCTURE":
+            work_bucket = "SAFE_STRUCTURE_READY"
+        elif classification == "CONFLICT_REVIEW":
+            work_bucket = "CONFLICT_REVIEW"
+        elif classification == "POLICY_BLOCKED":
+            work_bucket = "POLICY_BLOCKED"
+        elif classification == "IDENTITY_BLOCKED":
+            work_bucket = "IDENTITY_BLOCKED"
+        elif classification == "STRUCTURAL_NO_SAFE_PATH":
+            work_bucket = "STRUCTURAL_NO_SAFE_PATH"
+        elif unit["unit_type"] == "VARIANT_OFFICIALITY" and candidate_base_ready:
+            work_bucket = "VARIANT_BASE_READY"
+        elif unit["unit_type"] in {"FAMILY_AUTHORITY", "ROSTER_MEMBERSHIP"} and len(tags) >= 5:
+            work_bucket = "FAMILY_ROSTER_HIGH_YIELD"
+        elif len(tags) <= 2 and unit["subject"] == "__UNGROUPED__":
+            work_bucket = "AMBIGUOUS_LOW_YIELD"
+        elif len(tags) <= 2 and unit["unit_type"] == "DIRECT_AUTHORITY":
+            work_bucket = "AMBIGUOUS_LOW_YIELD"
+        else:
+            work_bucket = "DIRECT_AUTHORITY_RESEARCH"
         closures.append({"unit_id": unit["unit_id"], "member_ids_sha256": member_hash(tags),
                          "classification": classification,
+                         "work_bucket": work_bucket,
                          "examined_paths": "validated DIRECT_HOME; validated FAMILY_HOME+MEMBER_OF; validated VARIANT_OF+confirmed base HOME; approved evidence ledger; candidate MEMBER_OF/DISCOVERY_HINT/VARIANT_OF; exact #179 origin rows",
                          "candidate_roots": json.dumps(sorted(candidates), ensure_ascii=False, separators=(",", ":")),
                          "rejection_reason": reject, "terminal_reason": terminal})
@@ -168,6 +196,7 @@ def main() -> None:
     apply_terminal_reviews(units)
     closures = classify_open_units(units, graph, read_csv(OUT / "evidence_ledger_v3.csv"))
     closure_counts = dict(sorted(Counter(r["classification"] for r in closures).items()))
+    work_bucket_counts = dict(sorted(Counter(r["work_bucket"] for r in closures).items()))
     write_csv(UNITS, units, FIELDS)
     summary = {"research_unit_count": len(units), "member_count": sum(int(r["member_count"]) for r in units),
                "unit_type_counts": dict(sorted(Counter(r["unit_type"] for r in units).items())),
@@ -175,6 +204,7 @@ def main() -> None:
                "open_unit_count": sum(r["status"] == "OPEN" for r in units),
                "reason_counts": dict(sorted(Counter(r["missing_evidence_type"] for r in units for _ in range(int(r["member_count"]))).items())),
                "unit_ids_deterministic": True, "open_closure_classification_counts": closure_counts,
+               "open_work_bucket_counts": work_bucket_counts,
                "open_closure_classification_rows": len(closures)}
     write_json(OUT / "research_units_summary_v3.json", summary)
     print(json.dumps(summary, ensure_ascii=False, indent=2))

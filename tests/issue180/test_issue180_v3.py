@@ -13,6 +13,31 @@ import build_residual_units_v3 as residual_planner
 
 
 class EvidenceDrivenV3Tests(unittest.TestCase):
+    def test_candidate_variant_and_membership_do_not_create_false_home_conflict(self):
+        tag = "batman_(absolute_dc)"
+        unit = {"unit_id": "ru3-test", "unit_type": "VARIANT_OFFICIALITY", "subject": "base:batman",
+                "member_ids/tags": json.dumps([tag]), "status": "OPEN"}
+        graph = [
+            {"subject_key": tag, "relation_type": "DISCOVERY_HINT", "object_key": "dc_comics", "review_state": "CANDIDATE"},
+            {"subject_key": tag, "relation_type": "MEMBER_OF", "object_key": "absolute_dc", "review_state": "CANDIDATE"},
+            {"subject_key": tag, "relation_type": "VARIANT_OF", "object_key": "batman", "review_state": "CANDIDATE"},
+        ]
+        ledger = [{"subject_key": "absolute_dc", "relation_type": "FAMILY_HOME",
+                   "object_key": "absolute_dc", "review_state": "VALIDATED", "evidence_id": "family-home"}]
+        original_read_csv = residual_planner.read_csv
+        def fake_read_csv(path):
+            if path == residual_planner.OUT / "character_home_master_v3.csv":
+                return [{"canonical_tag": "batman", "final_state": "HOME_CONFIRMED", "home_copyright": "dc_comics"}]
+            if path == residual_planner.ORIGIN:
+                return []
+            return original_read_csv(path)
+        with patch.object(residual_planner, "read_csv", side_effect=fake_read_csv), \
+             patch.object(residual_planner, "write_csv"):
+            closure = residual_planner.classify_open_units([unit], graph, ledger)
+        self.assertEqual(closure[0]["classification"], "BATCH_AUTHORITY_RESEARCH")
+        self.assertEqual(closure[0]["work_bucket"], "VARIANT_BASE_READY")
+        self.assertEqual(closure[0]["terminal_reason"], "")
+
     def test_terminal_review_is_bound_to_exact_member_set_and_issue179_unknown(self):
         tag = "curakuru_(character)"
         row = {
