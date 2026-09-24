@@ -10,10 +10,10 @@
   "last_checkpoint": "checkpoint_000701_000725.csv",
   "complete": false,
   "error_count": 0,
-  "last_run_delta": 25,
+  "last_run_delta": 50,
   "last_run_stop_reason": "EXECUTION_LIMIT",
-  "last_run_stop_evidence": {"type":"AUTOMATION_EXECUTION_WINDOW_END","operation":"continue semantic review after safely staging window_000726_000750.json","location":"lane-1 next identity 751 / review_seq 2251","why_next_identity_could_not_continue":"current scheduled execution window ended after hold retry/promotion plus one newly processed 25-identity window; all completed work was persisted before interruption"},
-  "staged_finalized_count": 21,
-  "active_hold_count": 4,
+  "last_run_stop_evidence": {"type":"AUTOMATION_EXECUTION_WINDOW_END","operation":"continue semantic review after persisting two additional 25-identity staging windows","location":"lane-1 next identity 801 / review_seq 2404","why_next_identity_could_not_continue":"current execution window ended after useful processing through lane-local 800; all finalized rows and unresolved holds were persisted without guessing"},
+  "staged_finalized_count": 58,
+  "active_hold_count": 17,
   "earliest_active_hold": {"lane_local_index":726,"review_seq":2176,"identity_key":"keizoku_(emblem)"}
 }
