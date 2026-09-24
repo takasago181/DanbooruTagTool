@@ -1,0 +1,26 @@
+review_seq,identity_key,manual_seen,semantic_summary_ja,discovery_mode,route_1_id,route_1_strength,route_1_reason_ja,route_2_id,route_2_strength,route_2_reason_ja,route_3_id,route_3_strength,route_3_reason_ja,local_refinement_ids,body_site_ids,theme_ids,route_vocabulary_gap,route_vocabulary_gap_note,review_depth,evidence_urls,uncertainty_note
+1201,finger_to_eye,YES,指を目元・眼球付近へ向ける／触れる動作,BROWSE_WORTHY,ACTION_CONTACT,CORE,目への接触動作として探すのが自然,,,,,,,[],[],[],NO,,CHECKED,[],
+1204,print_ascot,YES,柄・プリント入りのアスコットタイ,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,首元の服飾品として探すのが自然,,,,,,,"[""CLOTHING/ACCESSORY""]",[],[],NO,,CHECKED,[],
+1207,holding_slingshot,YES,スリングショット（パチンコ）を手に持つ動作,BROWSE_WORTHY,ACTION_CONTACT,CORE,道具を持つ・扱う動作として探すのが自然,,,,,,,"[""ACTION_CONTACT/OBJECT_USE""]",[],[],NO,,CHECKED,[],
+1210,easy_chair,YES,ゆったり座れる肘掛け椅子・安楽椅子,BROWSE_WORTHY,TOOL_OBJECT,CORE,家具・日用品として探すのが自然,,,,,,,"[""OBJECT_PROP/DAILY""]",[],[],NO,,CHECKED,[],
+1213,sakura_five,YES,Fate/EXTRA系でBBが作った5体のAlter Ego集団「Sakura Five」,SEARCH_ORIENTED,,,,,,,,,,[],[],[],NO,,RESEARCHED,"[""https://typemoon.fandom.com/wiki/Sakura_Five""]",Sakura FiveがBBによって作られた5体のAlter Egoの固有グループ名であることを確認。
+1216,biting_another's_finger,YES,他人の指を噛む動作,BROWSE_WORTHY,ACTION_CONTACT,CORE,人物間の噛みつき・接触動作として探すのが自然,,,,,,,"[""ACTION_CONTACT/INTERACTION""]",[],[],NO,,CHECKED,[],
+1219,print_cup,YES,柄・文字などが印刷されたカップ,BROWSE_WORTHY,TOOL_OBJECT,CORE,カップという小物から探すのが自然,,,,,,,"[""OBJECT_PROP/DAILY""]",[],[],NO,,CHECKED,[],
+1222,multicolored_robe,YES,複数色で構成されたローブ,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,衣服として探すのが自然,,,,,,,"[""CLOTHING/EVERYDAY""]",[],[],NO,,CHECKED,[],
+1225,carrot_necklace,YES,ニンジンを意匠にしたネックレス,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,アクセサリーとして探すのが自然,,,,,,,"[""CLOTHING/ACCESSORY""]",[],[],NO,,CHECKED,[],
+1228,buster_sword,YES,『FINAL FANTASY VII』の大型剣バスターソードを指す固有武器参照,SEARCH_ORIENTED,,,,,,,,,,[],[],[],NO,,CHECKED,[],
+1231,aria_gakuen_school_uniform,YES,作品固有のARIA学園の学校制服,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,学校制服として衣装から探す入口が成立,,,,,,,"[""CLOTHING/UNIFORM""]",[],[],NO,,CHECKED,[],
+1234,closed_eyes,YES,目を閉じた表情・状態,BROWSE_WORTHY,EXPRESSION_GAZE,CORE,目・表情の状態として探すのが自然,,,,,,,[],[],[],NO,,CHECKED,[],
+1237,wings,YES,翼が生えている／備わっている外見特徴,BROWSE_WORTHY,NONHUMAN_TRANSFORM,CORE,人体・キャラクターへの非人間的付加特徴として探すのが自然,,,,,,,[],[],[],NO,,CHECKED,[],
+1240,monkey_boy,YES,猿の耳や尻尾など実際の猿の特徴を持つ少年,BROWSE_WORTHY,NONHUMAN_TRANSFORM,CORE,少年への動物的特徴の付加として探すのが自然,,,,,,,[],[],[],NO,,RESEARCHED,"[""https://safebooru.donmai.us/wiki_pages/monkey_boy""]",Danbooru wikiでmonkey earsやmonkey tail等のreal monkey characteristicsを持つboyと定義されることを確認。
+1243,war_flag,YES,軍事・戦争を示す旗,BROWSE_WORTHY,TOOL_OBJECT,CORE,旗という物体・小道具として探すのが自然,,,,,,,[],[],[],NO,,CHECKED,[],
+1246,public_yotsuba_middle_school_uniform,YES,作品固有の公立四葉中学校の制服,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,学校制服として衣装から探す入口が成立,,,,,,,"[""CLOTHING/UNIFORM""]",[],[],NO,,CHECKED,[],
+1249,multi-lane_road,YES,複数車線を持つ道路,BROWSE_WORTHY,SCENE_BACKGROUND,CORE,道路・屋外環境として探すのが自然,,,,,,,[],[],[],NO,,CHECKED,[],
+1252,plasma_cutter,YES,プラズマを利用して切断する工具・装置,BROWSE_WORTHY,TOOL_OBJECT,CORE,切断工具・装置として探すのが自然,,,,,,,[],[],[],NO,,CHECKED,[],
+1255,zaft_(gundam),YES,『機動戦士ガンダムSEED』系列の組織ZAFTを指す固有参照,SEARCH_ORIENTED,,,,,,,,,,[],[],[],NO,,CHECKED,[],
+1258,two-tone_leggings,YES,2色構成のレギンス,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,衣服として探すのが自然,,,,,,,"[""CLOTHING/EVERYDAY""]",[],[],NO,,CHECKED,[],
+1261,leaf_in_hair,YES,髪に葉が付いている／挿さっている状態,BROWSE_WORTHY,HAIR_FACE,CORE,髪の外見状態として探すのが自然,,,,,,,[],[],[],NO,,CHECKED,[],
+1264,beoseon,YES,韓服とともに履く韓国伝統の布製靴下「ポソン」,BROWSE_WORTHY,CLOTHING_EXPOSURE,CORE,足元の伝統衣類として探すのが自然,,,,,,,"[""CLOTHING/EVERYDAY""]",[],[],NO,,RESEARCHED,"[""https://encykorea.aks.ac.kr/Article/E0022501""]",韓国民族文化大百科で、足を暖かくし形を整えるため布で作って履く衣服と確認。
+1267,triforce,YES,『ゼルダの伝説』シリーズの象徴的な三角形の神器・シンボルTriforce,SEARCH_ORIENTED,,,,,,,,,,[],[],[],NO,,CHECKED,[],
+1270,mother's_day,YES,母の日という記念日・行事を主題にした表現,BROWSE_WORTHY,,,,,,,,,,[],[],[],YES,記念日・行事テーマそのものに対応する専用top routeがない,CHECKED,[],
+1273,parted_lips,YES,唇がわずかに開いている表情,BROWSE_WORTHY,EXPRESSION_GAZE,CORE,口元の表情状態として探すのが自然,,,,,,,[],[],[],NO,,CHECKED,[],
