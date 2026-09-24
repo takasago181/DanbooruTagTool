@@ -10,15 +10,18 @@
   "last_checkpoint": "checkpoint_000376_000400.csv",
   "complete": false,
   "error_count": 0,
-  "last_run_delta": 50,
+  "last_run_delta": 0,
   "last_run_stop_reason": "EXECUTION_LIMIT",
+  "staged_finalized_count": 47,
+  "active_hold_count": 3,
+  "staging_windows": ["window_000401_000425.json", "window_000426_000450.json"],
   "last_qa_boundary": 400,
-  "last_qa_note": "Cumulative 301-400 high-risk review completed at boundary 400; newly written checkpoints 351-375 and 376-400 were machine-serialized and parse-back validated. High-risk rows in the earlier 301-350 checkpoints were re-read; no definite semantic correction overlay was required in this run.",
+  "last_qa_note": "Cumulative committed QA remains complete through boundary 400. This run used semantic-hold staging so hard identities did not discard later finalized work.",
   "last_run_blocker": {
     "type": "EXECUTION_LIMIT",
-    "operation": "continue semantic review from lane-local 401",
-    "where": "after immutable checkpoint_000376_000400.csv and cumulative 301-400 QA were safely completed",
-    "evidence": "The automation execution turn reached its external run boundary after two validated 25-row checkpoints and the mandatory cumulative 400-row QA boundary were completed; the next 25-row unit had not been finalized for safe persistence.",
-    "why_continuation_impossible": "No speculative partial checkpoint was written. Continuation requires a fresh execution turn beginning from validated lane-local 401."
+    "operation": "continue semantic review from lane-local 451 while retaining three bounded semantic holds",
+    "where": "after staging windows 401-425 and 426-450 were safely persisted",
+    "evidence": "The current automation execution turn ended after 50 new identities were usefully examined: 47 fully finalized rows were persisted in staging and three hard identities were persisted as holds after bounded research. No incomplete semantic row was promoted to checkpoint.",
+    "why_continuation_impossible": "Further identities require a subsequent execution turn; persisted staging allows immediate continuation without repeating the 47 completed semantic decisions."
   }
 }
