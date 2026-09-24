@@ -33,6 +33,18 @@ def read_csv(path: Path):
         return list(csv.DictReader(f))
 
 
+def normalize_row(entry, fields):
+    if isinstance(entry, dict):
+        if set(entry.keys()) != set(fields):
+            return None, "finalized row field-set mismatch"
+        return {field: str(entry[field]) for field in fields}, None
+    if isinstance(entry, list):
+        if len(entry) != len(fields):
+            return None, f"ordered finalized row must have exactly {len(fields)} fields"
+        return {field: str(value) for field, value in zip(fields, entry)}, None
+    return None, "finalized row must be an object or ordered 22-field array"
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--input", required=True)
@@ -101,12 +113,10 @@ def main():
                 covered: dict[int, str] = {}
                 row_by_index: dict[int, dict[str, str]] = {}
 
-                for entry in rows:
-                    if not isinstance(entry, dict):
-                        errors.append(f"lane {lane}: {path.name} non-object finalized row")
-                        continue
-                    if set(entry.keys()) != set(base.FIELDS):
-                        errors.append(f"lane {lane}: {path.name} finalized row field-set mismatch")
+                for raw_entry in rows:
+                    entry, normalize_error = normalize_row(raw_entry, base.FIELDS)
+                    if normalize_error:
+                        errors.append(f"lane {lane}: {path.name} {normalize_error}")
                         continue
                     try:
                         seq = int(entry["review_seq"])
@@ -138,10 +148,7 @@ def main():
                     if not isinstance(hold, dict):
                         errors.append(f"lane {lane}: {path.name} non-object hold")
                         continue
-                    required = {
-                        "lane_local_index", "review_seq", "identity_key",
-                        "reason", "research_attempts"
-                    }
+                    required = {"lane_local_index", "review_seq", "identity_key", "reason", "research_attempts"}
                     if not required.issubset(hold):
                         errors.append(f"lane {lane}: {path.name} hold missing required fields")
                         continue
@@ -170,24 +177,19 @@ def main():
                 if set(covered) != expected_indices:
                     missing = sorted(expected_indices - set(covered))
                     extra = sorted(set(covered) - expected_indices)
-                    errors.append(
-                        f"lane {lane}: {path.name} coverage mismatch missing={missing} extra={extra}"
-                    )
+                    errors.append(f"lane {lane}: {path.name} coverage mismatch missing={missing} extra={extra}")
 
                 for idx in expected_indices:
                     if idx in seen_indices:
                         errors.append(f"lane {lane}: overlapping staging local index {idx}")
                     seen_indices.add(idx)
 
-                # A staging file may remain after promotion only if it exactly mirrors raw checkpoint rows.
                 if end <= prefix:
                     if holds:
                         errors.append(f"lane {lane}: {path.name} has holds inside committed prefix")
                     for idx, entry in row_by_index.items():
                         if idx <= len(raw) and raw[idx - 1] != entry:
-                            errors.append(
-                                f"lane {lane}: {path.name} promoted staging row differs from raw checkpoint at local {idx}"
-                            )
+                            errors.append(f"lane {lane}: {path.name} promoted staging row differs from raw checkpoint at local {idx}")
 
                 finalized_count = len(rows)
                 hold_count = len(holds)
@@ -202,11 +204,7 @@ def main():
                     "end": end,
                     "finalized": finalized_count,
                     "holds": hold_count,
-                    "promotable_now": (
-                        hold_count == 0
-                        and finalized_count == end - start + 1
-                        and start == prefix + 1
-                    ),
+                    "promotable_now": hold_count == 0 and finalized_count == end - start + 1 and start == prefix + 1,
                 })
 
         total_finalized += lane_finalized
