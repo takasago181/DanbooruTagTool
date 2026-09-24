@@ -1,0 +1,22 @@
+{
+  "schema_version": "issue132-pass-a-correction-v1",
+  "lane": 1,
+  "lane_local_index": 663,
+  "review_seq": 1987,
+  "identity_key": "dildo_under_panties",
+  "source_checkpoint": "checkpoint_000651_000675.csv",
+  "qa_boundary": 700,
+  "reason": "Focused Lane-1 401-700 re-audit: Danbooru defines the tag as wearing panties over an inserted dildo, but the tag itself does not identify the insertion site as specifically female genital rather than another site. Under the frozen intrinsic-only body facet rule, FEMALE_GENITAL is too specific.",
+  "expected_before": {
+    "body_site_ids": "[\"FEMALE_GENITAL\"]",
+    "review_depth": "CHECKED",
+    "evidence_urls": "[]",
+    "uncertainty_note": ""
+  },
+  "patch": {
+    "body_site_ids": "[]",
+    "review_depth": "RESEARCHED",
+    "evidence_urls": "[\"https://safebooru.donmai.us/wiki_pages/dildo_under_panties\"]",
+    "uncertainty_note": "Danbooru wikiで「パンティーを挿入済みディルドの上から着用」と定義されるが、挿入部位を女性器に限定する定義ではないためFEMALE_GENITALを付与しない。"
+  }
+}
