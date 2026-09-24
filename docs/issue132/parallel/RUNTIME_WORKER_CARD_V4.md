@@ -1,0 +1,98 @@
+# Issue132 Runtime Worker Card V4 — single hot-path card
+
+Normal forward workers use this card as the only body-level operational/semantic card.
+
+Pinned source cache:
+- WORKER_EXECUTION_CARD_V1.md blob: 3c54b646f2f5d780efce2dc9a21d0e3f7cdf3ac9
+- pass_a_contract_manifest_v1.json blob: 3bd09dde3a0fd15b9a3f86b22f294135f96a707c
+- parallel_plan_v1.json blob: 0b751f9551589bde153b3e1e14bd341f738d005c
+
+At run start verify these SHAs by metadata only. If any differs, or CI reports frozen-contract/neutral drift, fall back to the full frozen authority and stop normal fast-path execution. Otherwise do not fetch those bodies.
+
+## Mission
+For each identity: if an image-generation user wants the visible concept but does not know the exact Danbooru tag, where would they naturally look? Optimize unknown-tag discovery and semantic accuracy. Current app placement is not evidence.
+
+## Discovery
+- BROWSE_WORTHY: stable visual/category shelf is natural.
+- MIXED: both visual browse and name/reference search are materially natural.
+- SEARCH_ORIENTED: understood name/reference/provenance lookup; no routes/locals/body/theme; gap=NO.
+- SEMANTIC_UNRESOLVED: meaning remains materially uncertain after research; RESEARCHED + direct evidence + uncertainty; no routes/locals/body/theme; gap=NO.
+
+## Routes
+PEOPLE_COUNT(count); RELATION_ROLE(role/relation); BODY_SITE(anatomical site central); HAIR_FACE(hair/facial appearance); CLOTHING_EXPOSURE(garment/accessory/state/exposure); TOOL_OBJECT(prop/tool/weapon/vehicle/food/device); LIVING(animal/plant); NONHUMAN_TRANSFORM(nonhuman/altered anatomy); ACTION_CONTACT(action/contact/interaction/object manipulation); POSE_POSITION(body geometry/posture/position); EXPRESSION_GAZE(expression/emotion/gaze); FLUID_EXCRETION(intrinsic body fluids/excretion); COMPOSITION_CAMERA(view/crop/framing); SCENE_BACKGROUND(location/environment); LIGHT_TIME_WEATHER(light/time/weather); COLOR_PATTERN_SHAPE(color/pattern/shape when itself a meaningful control); STYLE_PROCESSING(style/render/medium/process); TEXT_SYMBOL(independent visible text/symbol/layout); CONTENT_RATING(true meta/content presentation only).
+
+Normally one CORE. Add SUPPORTING only when it is an independent realistic browse axis.
+
+Hard lint:
+- color/pattern adjective alone != COLOR_PATTERN_SHAPE;
+- object/clothing placement alone != POSE_POSITION;
+- action alone != POSE unless geometry independently matters;
+- animal/plant print, motif, emblem, likeness != LIVING;
+- object/fixture presence alone != SCENE_BACKGROUND;
+- sexual content != CONTENT_RATING.
+
+## Local refinements
+Only when parent route is selected and exact meaning entails it:
+ACTION_CONTACT/INTERACTION, ACTION_CONTACT/INTIMATE, ACTION_CONTACT/OBJECT_USE;
+CLOTHING/ACCESSORY, CLOTHING/COSTUME, CLOTHING/EVERYDAY, CLOTHING/UNIFORM, CLOTHING_STATE_EXPOSURE/;
+LIVING_NATURE/CREATURE, LIVING_NATURE/PLANT;
+OBJECT_PROP/DAILY, OBJECT_PROP/FOOD, OBJECT_PROP/VEHICLE, OBJECT_PROP/WEAPON;
+TEXT_SYMBOL/LAYOUT, TEXT_SYMBOL/SYMBOL, TEXT_SYMBOL/TEXT;
+EXPRESSION_EMOTION/, GAZE_ORIENTATION/.
+Zero is valid. Normally max one local per selected parent.
+
+Body facets intrinsic/explicit only: MALE_GENITAL, BREAST_NIPPLE, FEMALE_GENITAL, MOUTH_ORAL, BUTTOCK_ANAL, URETHRA.
+Theme facets intrinsic only: BDSM_RESTRAINT, INJURY_R18G, REPRO_PREGNANCY_LACTATION.
+
+## Research gate
+CHECKED only when meaning and all material route/local/facet choices are clear.
+Research when unfamiliar/polysemous/specialist; obscure proper noun or material qualifier; technical/cultural reference affecting classification; sexual/anatomical/fetish boundary; or any material field would otherwise be guessed from spelling.
+Batch 5–10 independent ambiguities in one search call when practical, but record evidence per identity.
+Evidence preference: exact Danbooru/Safebooru definition/direct tag evidence > official > strong direct reference. Reject generic adjacent pages, model/LoRA pages, unrelated image hosts, and single-example evidence as default semantic authority.
+If still uncertain: SEMANTIC_UNRESOLVED, never guess.
+
+## Output
+Exactly 22 fields:
+review_seq, identity_key, manual_seen, semantic_summary_ja, discovery_mode,
+route_1_id, route_1_strength, route_1_reason_ja,
+route_2_id, route_2_strength, route_2_reason_ja,
+route_3_id, route_3_strength, route_3_reason_ja,
+local_refinement_ids, body_site_ids, theme_ids,
+route_vocabulary_gap, route_vocabulary_gap_note,
+review_depth, evidence_urls, uncertainty_note.
+manual_seen=YES. Array fields are valid JSON arrays. No invented IDs.
+
+## Fixed run algorithm
+1. Read own lane status. Determine forward next_new.
+2. Set run_target_end=min(next_new+299,lane_end): exactly 12 consecutive 25-identity windows unless final partial.
+3. Preload the authoritative source span for the whole run once. Fetch only the validated lane shard(s)+manifest(s) intersecting next_new..run_target_end (normally one or two <=300-row shards). Do not refetch a shard per window.
+4. For each of the 12 windows:
+   a. take the exact authoritative tuples (lane_local_index, review_seq, identity_key);
+   b. finalize clear rows once; collect ambiguous rows and batch research where practical;
+   c. genuine unresolved => hold at its exact original tuple; later rows never shift;
+   d. pre-write exact tuple gate: every expected tuple exactly once; no gap/duplicate/extra; exact review_seq/key; finalized+holds=window size; parent/local constraints and 22-field structure valid;
+   e. write NEW path with create, EXISTING with current SHA update;
+   f. re-fetch the exact file and repeat the tuple/structure gate;
+   g. if post-write gate fails, repair/delete that window before any later window and count zero progress until fixed;
+   h. immediately continue. There is no continue/stop decision at a 25-row boundary.
+5. After windows 4, 8, 12 perform due cumulative 100-row QA, then immediately continue if windows remain.
+
+## 100-row QA
+Re-review all high-risk rows in the completed block: RESEARCHED, MIXED, SEARCH_ORIENTED, SEMANTIC_UNRESOLVED, gap=YES, route2/3, body/theme, adult/sexual.
+Also deterministic soft-risk sweep up to 15 ordinary CHECKED rows and at least 10 low-risk ordinary CHECKED rows.
+If a systematic family error is found, expand that family only across current + immediately preceding 100 block unless broader drift evidence exists. Do not turn QA into a full second pass when clean.
+
+## Responsibility split
+Forward worker does NEW frontier only.
+Do not read or repair historical invalid staging, old CI logs, quality_flags, coordinator history, old promotion-blocking holds, or Lane 3 historical 751–1050 remediation. Dedicated Repair tasks own those.
+Do not poll CI during the 12-window loop unless an actual frozen/contract/write conflict appears.
+
+## Stop
+Terminal only:
+- 300 NEW / 12 windows completed;
+- lane complete;
+- evidenced hard tool/contract/write blocker after applicable fallback;
+- actual platform-forced interruption.
+Never self-stop for checkpoint success, QA completion, elapsed effort, predicted limits, or report convenience.
+
+Write lane status once at terminal/end boundary. Compact report only: start, end, NEW count, finalized, holds, next_new, blocker.
