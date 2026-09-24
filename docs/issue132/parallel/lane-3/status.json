@@ -10,12 +10,17 @@
   "last_checkpoint": "checkpoint_000376_000400.csv",
   "complete": false,
   "error_count": 0,
-  "last_run_delta": 300,
-  "last_run_stop_reason": "TARGET_REACHED",
-  "staged_finalized_count": 590,
-  "active_hold_count": 60,
-  "staging_windows": ["window_000401_000425.json", "window_000426_000450.json", "window_000451_000475.json", "window_000476_000500.json", "window_000501_000525.json", "window_000526_000550.json", "window_000551_000575.json", "window_000576_000600.json", "window_000601_000625.json", "window_000626_000650.json", "window_000651_000675.json", "window_000676_000700.json", "window_000701_000725.json", "window_000726_000750.json", "window_000751_000775.json", "window_000776_000800.json", "window_000801_000825.json", "window_000826_000850.json", "window_000851_000875.json", "window_000876_000900.json", "window_000901_000925.json", "window_000926_000950.json", "window_000951_000975.json", "window_000976_001000.json", "window_001001_001025.json", "window_001026_001050.json"],
+  "last_run_delta": 25,
+  "last_run_stop_reason": "EXECUTION_LIMIT",
+  "staged_finalized_count": 610,
+  "active_hold_count": 68,
+  "staging_windows": ["window_000401_000425.json", "window_000426_000450.json", "window_000451_000475.json", "window_000476_000500.json", "window_000501_000525.json", "window_000526_000550.json", "window_000551_000575.json", "window_000576_000600.json", "window_000601_000625.json", "window_000626_000650.json", "window_000651_000675.json", "window_000676_000700.json", "window_000701_000725.json", "window_000726_000750.json", "window_000751_000775.json", "window_000776_000800.json", "window_000801_000825.json", "window_000826_000850.json", "window_000851_000875.json", "window_000876_000900.json", "window_000901_000925.json", "window_000926_000950.json", "window_000951_000975.json", "window_000976_001000.json", "window_001001_001025.json", "window_001026_001050.json", "window_001051_001075.json"],
   "last_qa_boundary": 400,
-  "last_qa_note": "Cumulative committed QA remains complete through boundary 400. This run usefully processed exactly 300 new lane-local identities 751-1050 into validated staging coverage; holds are identity-specific semantic uncertainties rather than placeholders.",
-  "last_run_blocker": null
+  "last_qa_note": "Focused secondary-route remediation started for staged 751-1050; window 926-950 was corrected in place for definite inflation cases. New lane-local 1051-1075 was then usefully processed into staging with 20 finalized rows and 8 genuine semantic holds.",
+  "last_run_blocker": {
+    "type": "EXECUTION_LIMIT",
+    "operation": "automation turn was externally forced to terminate after persistence of window_001051_001075.json",
+    "location": "lane-3 after lane-local 1075; next NEW identity is 1076",
+    "why_continuation_impossible": "the external automation execution turn ended; no semantic/tool/Git blocker was claimed and the next identity remains safely unprocessed for the next run"
+  }
 }
