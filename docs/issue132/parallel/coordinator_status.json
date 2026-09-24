@@ -8,12 +8,10 @@
   "quality_flags_pending": 12,
   "latest_ci": {
     "workflow": "Issue132 Incremental Checkpoint Validation",
-    "run_id": 35941155436,
-    "head_sha": "d8963385fd280a76707ad4271f9631ca0bbb2c48",
-    "conclusion": "failure",
-    "failed_step": "Validate semantic hold staging windows",
-    "diagnosis": "Lane 3 staging persisted finalized rows as ordered 22-field arrays while the first staging validator revision accepted only objects. Checkpoint/correction validation and neutral-shard validation both passed. This is a staging representation compatibility defect, not semantic data loss.",
-    "repair": "scripts/issue132/validate_parallel_staging.py now normalizes either exact-field objects or ordered 22-field arrays before frozen row validation; scripts/issue132/promote_staging_window.py uses the same normalization. Full Discovery CI was in progress on the validator repair when this coordinator snapshot was written."
+    "run_id": 35944038527,
+    "head_sha": "2975a9189f349e077bd7d74f45dde2eb05d0222b",
+    "conclusion": "success",
+    "note": "Neutral-shard validation, effective checkpoint+correction validation, and semantic-hold staging validation all passed after correcting Lane 3 staging hold lane-local indices."
   },
   "lanes": {
     "1": {
@@ -92,10 +90,26 @@
     }
   },
   "baseline_note": "Fast preflight matched all three expected frozen blob SHAs. Official progress is derived from immutable checkpoint unions; staged rows are tracked separately and never inflate reviewed_count. Lane-local neutral shards remain primary input.",
-  "quality_note": "Twelve explicit re-review flags remain pending. Current staging CI red is diagnosed as a serializer/validator representation mismatch: lane 3 used ordered 22-field arrays, which preserve the frozen row order, while the initial staging validator expected objects only. The validator and promotion helper now normalize both exact representations before applying the same frozen semantic checks. Final merge remains blocked until CI confirms the repair and all holds/staging are resolved/promoted.",
+  "quality_note": "Lane 1 401-700 focused re-audit found a small set of systematic overclassification/evidence issues without evidence of whole-block corruption. Seven targeted findings are covered by correction overlays (including the pre-existing two-tone_bra correction). Velocity-aware conditional semantic lint and targeted soft-risk QA are now mandatory across all three workers and coordinator, preserving single-pass speed for obvious rows while challenging only activated risk fields.",
   "pass_b_generated": false,
   "worker_target_semantics": "ceiling_not_quota",
   "checkpoint_rows": 25,
   "cross_batch_qa_rows": 100,
-  "coordinator_rescue_max_rows": 25
+  "coordinator_rescue_max_rows": 25,
+  "lane1_focused_reaudit": {
+    "lane_local_range": "401-700",
+    "reviewed_rows": 300,
+    "high_risk_rows_examined": 73,
+    "ordinary_rows_spot_checked": 30,
+    "audit_record": "docs/issue132/parallel/audits/lane-1_000401_000700_focused_reaudit.json",
+    "corrected_findings": [
+      "bracelet_girls evidence",
+      "cat_cutout routing",
+      "two-tone_bra body facet",
+      "scar_on_leg theme facet",
+      "official_cosplay discovery mode/routing",
+      "ninjutsu local refinement",
+      "dildo_under_panties body facet"
+    ]
+  }
 }
