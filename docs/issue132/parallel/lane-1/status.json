@@ -12,8 +12,8 @@
   "error_count": 1,
   "last_run_delta": 50,
   "last_run_stop_reason": "ACTUAL_FORCED_RUN_END",
-  "last_run_stop_evidence": {"type":"ACTUAL_FORCED_RUN_END","operation":"processed and persisted lane-local 801-850 as two exact-identity staging windows","location":"docs/issue132/parallel/lane-1/staging/window_000801_000825.json and window_000826_000850.json","why_next_identity_could_not_continue":"automation execution turn ended after persistence and mandatory post-write re-fetch verification of the second 25-identity window; no semantic or repository blocker is claimed"},
-  "staged_finalized_count": 104,
-  "active_hold_count": 21,
+  "last_run_stop_evidence": {"type":"ACTUAL_FORCED_RUN_END","operation":"processed and persisted lane-local 851-900 as two exact-identity staging windows","location":"docs/issue132/parallel/lane-1/staging/window_000851_000875.json and window_000876_000900.json","why_next_identity_could_not_continue":"automation execution turn ended after persistence and mandatory post-write re-fetch verification; no semantic or repository blocker is claimed"},
+  "staged_finalized_count": 148,
+  "active_hold_count": 27,
   "earliest_active_hold": {"lane_local_index":726,"review_seq":2176,"identity_key":"keizoku_(emblem)"}
 }
