@@ -400,6 +400,31 @@ Coordinator:
 
 ---
 
+## 10A. Throughput / idle-time watchdog
+
+Coordinator must measure worker execution from GitHub evidence instead of accepting a short-run stop at face value.
+
+For each lane, on every coordinator cycle record when observable:
+- `last_productive_commit_at`: timestamp of the latest checkpoint, staging-window, hold-resolution, correction, or promotion commit that represents useful lane work;
+- `previous_productive_commit_at`;
+- `new_identities_in_observed_interval`: NEW identities finalized or checkpointed/staged during that interval, without double-counting promotions;
+- `elapsed_minutes_between_productive_commits`;
+- `identities_per_hour` = NEW identities / elapsed wall-clock hours;
+- `minutes_per_25_identities` when at least 25 NEW identities are observable;
+- `idle_minutes_after_last_productive_commit` at coordinator observation time;
+- `continuation_was_safe`: whether a valid next shard/window existed and no concrete blocker prevented ordinary processing or hold staging.
+
+Interpretation rules:
+- Git commit timestamps are wall-clock evidence, not proof of model CPU/reasoning duration. Never claim that rows themselves took only the gap between adjacent write commits when unseen reasoning may have preceded the write.
+- Separate productive processing from scheduler/waiting idle time. A roughly hourly automation cadence must not be mislabeled as semantic processing time.
+- A 25-row persistence commit, 100-row QA boundary, successful validation, status write, or CI success is not a valid reason to end a run.
+- If a run produces fewer than 300 NEW identities and safe continuation was available, require a concrete valid stop reason. Predicted time pressure, routine cadence, checkpoint success, or simply reaching 25/50/75 rows remains invalid.
+- If the worker reports `EXECUTION_LIMIT` but repository evidence shows it deliberately stopped at a persistence/QA boundary while the next validated shard/window was available, mark `UNDERPERFORMING_INVALID_STOP` and require continuation next cycle.
+- Do not punish genuine hard cases: unresolved identities should become holds after bounded research, then later identities continue. Throughput monitoring must never lower the Accuracy Gate or encourage guessed routing.
+- Compare lanes using both NEW identities/hour and hold/research burden. A slower lane is suspicious only when the difference is not explained by concrete research, QA, repair, conflict, or tool evidence.
+
+Coordinator telemetry should add a `throughput_watchdog` object per lane with the fields above plus `assessment` (`NORMAL`, `WARNING`, `UNDERPERFORMING_INVALID_STOP`, or `BLOCKED_VALID`) and a short evidence-based reason. Preserve the existing zero-progress streak logic separately.
+
 ## 11. Production boundary
 
 Pass A still does not authorize:
