@@ -12,14 +12,14 @@
   "closure_sweep_path": "docs/issue180/v3/reports/RESEARCH_UNIT_CLOSURE_SWEEP_V3.csv",
   "evidence_basis_counts": {
     "APPROVED_REPO_EVIDENCE": 13476,
-    "EXTERNAL_AUTHORITY": 3185,
+    "EXTERNAL_AUTHORITY": 3213,
     "REVIEWED_QUALIFIER_COPYRIGHT": 1169,
     "REVIEWED_VARIANT_AUTHORITY": 371,
     "ROOT_POLICY_NORMALIZATION": 17,
     "SAFE_STRUCTURAL_VARIANT": 3912
   },
-  "evidence_rows": 22130,
-  "external_source_url_count": 561,
+  "evidence_rows": 22158,
+  "external_source_url_count": 587,
   "generated_output_directory": "artifacts/issue180-v3",
   "legacy_v1_v2_scripts_executed": false,
   "migration_comparison_path": "docs/issue180/v3/reports/MIGRATION_COMPARISON_V3.csv",
@@ -41,9 +41,9 @@
   "pipeline_validation": "PASS",
   "production_runtime_dependency": false,
   "reproducibility": {
-    "first_master_sha256": "f7d12c58822eae22b0653b8ae5c6d9ef2c6ef4ea0307f22f44b7dc3b8215a429",
+    "first_master_sha256": "46cbe6da2fde7b5953fb1c05384db6e7aad0dd6bb8fc51b645bf0698a1556ba2",
     "same": true,
-    "second_master_sha256": "f7d12c58822eae22b0653b8ae5c6d9ef2c6ef4ea0307f22f44b7dc3b8215a429"
+    "second_master_sha256": "46cbe6da2fde7b5953fb1c05384db6e7aad0dd6bb8fc51b645bf0698a1556ba2"
   },
   "research_unit_count": 4759,
   "research_unit_status_counts": {
@@ -61,17 +61,17 @@
     "VARIANT_OFFICIALITY": 655
   },
   "residual_reason_counts": {
-    "DIRECT_AUTHORITY_MISSING": 13914,
+    "DIRECT_AUTHORITY_MISSING": 13886,
     "FAMILY_HOME_MISSING": 2896,
     "FAMILY_MEMBERSHIP_MISSING": 514,
     "IDENTITY_REVIEW_REQUIRED": 7,
     "VARIANT_OFFICIALITY_MISSING": 1089
   },
   "schema_version": 3,
-  "source_manifest_sha256": "e33127f4552029a53db0392caa33639e485352b3b91b34cc48e8fe053d474bdc",
+  "source_manifest_sha256": "22bff904f8afc8fc8c58fcdb42f49de4045ec28031c21fffd94ae216bf9fa3c8",
   "states": {
-    "HOME_CONFIRMED": 17470,
-    "HOME_UNRESOLVED": 18420,
+    "HOME_CONFIRMED": 17498,
+    "HOME_UNRESOLVED": 18392,
     "NOT_OFFICIAL_CHARACTER": 0
   }
 }
