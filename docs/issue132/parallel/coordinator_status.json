@@ -1,87 +1,88 @@
 {
   "schema_version": "issue132-parallel-coordinator-v1",
   "population": 31003,
-  "total_reviewed": 1100,
-  "total_remaining": 29903,
+  "total_reviewed": 1175,
+  "total_remaining": 29828,
   "complete": false,
   "worker_target_per_run": 300,
   "quality_flags_pending": 12,
   "latest_ci": {
     "workflow": "Issue132 Incremental Checkpoint Validation",
-    "run_id": 35931872858,
-    "head_sha": "9a54321e887c60779221b747f5fd1ebe04092f83",
-    "conclusion": "success",
-    "note": "Latest observed Issue132 incremental checkpoint validation completed successfully after lane-3 status advanced through 350."
+    "run_id": 35936763131,
+    "head_sha": "df859c50beb133d114feedf7162c875d417496ca",
+    "conclusion": "failure",
+    "failed_step": "Validate committed immutable checkpoints and correction overlays",
+    "note": "Worker-neutral shard validation passed, but effective checkpoint/correction validation failed. The connector-exposed run metadata does not include the validator stdout, so the exact row-level validation error is not fabricated here. This is a current structural/validation warning requiring diagnosis before final merge; immutable checkpoint unions remain the progress authority."
   },
   "lanes": {
     "1": {
       "assigned_count": 10335,
       "reviewed_count": 400,
-      "delta": 75,
+      "delta": 0,
       "remaining_count": 9935,
-      "zero_progress_streak": 0,
-      "slow_progress_streak": 1,
+      "zero_progress_streak": 1,
+      "slow_progress_streak": 0,
       "latest_checkpoint": "checkpoint_000376_000400.csv",
       "corrections_applied_or_present": 1,
-      "last_run_stop_reason": "SEMANTIC_TOOL_BLOCKER",
-      "state": "RECOVERED_PENDING_NEXT_RUN",
-      "note": "Immutable checkpoint union advanced 325 -> 400. The recorded IMMUTABLE_QA_CORRECTION_PATH_UNAVAILABLE stop is now superseded and is not a valid continuing blocker: correction_000973_reverse_paizuri.json exists under the authoritative additive correction overlay path. The raw checkpoint remains immutable. Worker should continue from lane-local 401 on its next run."
+      "last_run_stop_reason": "TOOL_LIMIT",
+      "state": "WARNING_RECOVERABLE",
+      "note": "No new immutable checkpoint this cycle. The lane status still records monolithic-neutral >1MiB connector failure, but that blocker is superseded: validated lane-local shards now exist and are the primary input. The existing reverse_paizuri correction overlay remains authoritative. Continuation from lane-local 401 is required; the old neutral-size blocker is invalid as a current stop reason."
     },
     "2": {
       "assigned_count": 10334,
-      "reviewed_count": 350,
-      "delta": 0,
-      "remaining_count": 9984,
-      "zero_progress_streak": 3,
-      "slow_progress_streak": 0,
-      "latest_checkpoint": "checkpoint_000326_000350.csv",
+      "reviewed_count": 375,
+      "delta": 25,
+      "remaining_count": 9959,
+      "zero_progress_streak": 0,
+      "slow_progress_streak": 1,
+      "latest_checkpoint": "checkpoint_000351_000375.csv",
       "last_run_stop_reason": "SEMANTIC_TOOL_BLOCKER",
-      "state": "STALLED",
-      "note": "No new immutable checkpoint since the previous coordinator snapshot, producing a third consecutive zero-progress cycle. Lane status records concrete inability in that worker environment to expose the tracked neutral CSV bytes for row 351 onward. The tracked snapshot remains present in branch authority, so this is an execution-path/tool-access problem rather than neutral-contract drift. Rescue was not fabricated in this coordinator pass because safe neutral row bytes and a fresh no-concurrent-write condition were not both established."
+      "state": "ACTIVE_BLOCKED_ON_IDENTITY_397",
+      "note": "Lane recovered from the prior neutral-access stall and advanced 350 -> 375 using the validated shard. Current blocker is materially different: fish_bottle at lane-local 397/global review_seq 1190 remained semantically ambiguous after direct searches returned no defining evidence. No partial checkpoint 376-400 was written. This is concrete row-level semantic blocker evidence rather than the superseded neutral-input failure."
     },
     "3": {
       "assigned_count": 10334,
-      "reviewed_count": 350,
-      "delta": 75,
-      "remaining_count": 9984,
+      "reviewed_count": 400,
+      "delta": 50,
+      "remaining_count": 9934,
       "zero_progress_streak": 0,
-      "slow_progress_streak": 1,
-      "latest_checkpoint": "checkpoint_000326_000350.csv",
+      "slow_progress_streak": 2,
+      "latest_checkpoint": "checkpoint_000376_000400.csv",
       "last_run_stop_reason": "EXECUTION_LIMIT",
       "state": "ACTIVE",
-      "note": "Immutable checkpoint union advanced 275 -> 350. Lane status gives concrete external execution-boundary evidence after three validated 25-row checkpoints; no speculative partial checkpoint was written. This run is incomplete but the stop evidence is concrete for that execution, and the lane remains resumable from 351."
+      "note": "Immutable checkpoint union advanced 350 -> 400. Lane status records a concrete external execution boundary after two validated 25-row checkpoints and cumulative 400-row QA; continuation resumes from lane-local 401."
     }
   },
   "observed_run_metrics": {
     "schema_version": "execution-telemetry-v1",
     "lane_1": {
-      "rows_completed": 75,
-      "checkpoints_created": 3,
+      "rows_completed": 0,
+      "checkpoints_created": 0,
       "preflight_mode": "FAST",
       "full_authority_fallback": false,
       "structural_validation_failures": 0,
-      "stop_reason": "SEMANTIC_TOOL_BLOCKER",
+      "stop_reason": "TOOL_LIMIT_SUPERSEDED_BY_SHARDS",
       "corrections_present": 1
     },
     "lane_2": {
-      "rows_completed": 0,
-      "checkpoints_created": 0,
+      "rows_completed": 25,
+      "checkpoints_created": 1,
       "preflight_mode": "FAST",
       "full_authority_fallback": false,
       "structural_validation_failures": 0,
       "stop_reason": "SEMANTIC_TOOL_BLOCKER"
     },
     "lane_3": {
-      "rows_completed": 75,
-      "checkpoints_created": 3,
+      "rows_completed": 50,
+      "checkpoints_created": 2,
       "preflight_mode": "FAST",
       "full_authority_fallback": false,
       "structural_validation_failures": 0,
       "stop_reason": "EXECUTION_LIMIT"
     }
   },
-  "baseline_note": "Fast preflight matched the expected worker-card, contract-manifest, and parallel-plan blob SHAs, so frozen bodies were not reread. Progress is authoritative from immutable checkpoint unions. 300 is a per-run ceiling, not a cumulative boundary or permission to stop voluntarily.",
-  "quality_note": "quality_flags.json still contains 12 pending explicit re-review flags. Lane-1 has one authoritative immutable correction overlay for reverse_paizuri. Latest Issue132 incremental CI succeeded at run 35931872858 / head 9a54321e887c60779221b747f5fd1ebe04092f83. No contract drift or checkpoint structural failure was observed. Lane-2 remains the only STALLED lane in this snapshot because its worker execution path could not expose the next tracked-neutral bytes.",
+  "baseline_note": "Fast preflight matched the expected worker-card, contract-manifest, and parallel-plan blob SHAs, so frozen bodies were not reread. Progress is authoritative from immutable checkpoint unions. Lane-local neutral shards are now the primary operational input; monolithic-neutral connector size failures are superseded when the required shard exists. 300 is a per-run ceiling, not a voluntary stop boundary.",
+  "quality_note": "quality_flags.json still contains 12 pending explicit re-review flags. Lane-1 has the authoritative reverse_paizuri correction overlay. Current incremental CI is RED at run 35936763131: shard validation passed, then effective checkpoint/correction validation failed. Exact validator stdout was not exposed by the available run metadata, so no unsupported row-level diagnosis is recorded. Final merge/completion is blocked until this validation failure is identified and cleared; forward worker progress may continue only if new checkpoints remain machine-validated locally and do not overwrite immutable history.",
   "pass_b_generated": false,
   "worker_target_semantics": "ceiling_not_quota",
   "checkpoint_rows": 25,
