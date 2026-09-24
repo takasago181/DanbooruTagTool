@@ -10,14 +10,14 @@
   "last_checkpoint": "checkpoint_000351_000375.csv",
   "complete": false,
   "error_count": 0,
-  "last_run_delta": 25,
+  "last_run_delta": 50,
   "last_run_stop_reason": "EXECUTION_LIMIT",
-  "staged_finalized_count": 569,
-  "active_hold_count": 81,
+  "staged_finalized_count": 615,
+  "active_hold_count": 85,
   "last_run_blocker_evidence": {
     "blocker_type": "EXECUTION_LIMIT",
-    "operation": "automation execution turn ended after safely persisting the next 25-identity staging window",
-    "location": "lane-local 1001 through 1025 persisted; lane-local 1026 is next NEW identity",
-    "effect": "window_001001_001025.json is persisted with 20 finalized rows and 5 holds. No single semantic identity blocked continuation; next run resumes at lane-local 1026 and again targets 300 NEW identities from repository truth."
+    "operation": "automation execution turn ended after two exact-identity-gated 25-row staging windows were persisted and re-fetched",
+    "location": "lane-local 1026 through 1075 persisted; lane-local 1076 is next NEW identity",
+    "effect": "window_001026_001050.json and window_001051_001075.json are persisted with exact source-slot coverage. No semantic identity blocked continuation; next run resumes at lane-local 1076 and again targets 300 NEW identities from repository truth."
   }
 }
