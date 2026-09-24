@@ -8,12 +8,12 @@
   "quality_flags_pending": 15,
   "latest_ci": {
     "workflow": "Issue132 Incremental Checkpoint Validation",
-    "run_id": 35996309804,
-    "head_sha": "0f2f8c2658dae66020ea6028dcec68774daf5113",
+    "run_id": 36003062112,
+    "head_sha": "32862868e99ca4c93c79daecc2cbfd65591032a9",
     "conclusion": "failure",
     "failed_step": "Validate semantic hold staging windows",
-    "diagnosis": "Latest validator reports 103 staging errors. Frozen neutral shards PASS and effective immutable checkpoint/correction validation PASS with effective error_count 0. The failure is non-authoritative staging only. Lane 1 newly rebuilt 751-775 and 776-800 are structurally invalid (off-by-one identity/hold placement, duplicate row/hold, missing coverage). Lane 2 retains broad structural defects including malformed 526-550 and current/history windows. Lane 3 retains structural defects in 851-875, 951-975 and 1026-1050 while focused route remediation continues.",
-    "repair_required": "Treat validator diagnostics as authoritative. Rebuild only defective staging windows from exact validated same-lane shard identities; preserve unaffected valid windows and immutable checkpoints."
+    "diagnosis": "Latest validator reports 105 staging errors. Frozen neutral shards PASS and effective immutable checkpoint/correction validation PASS with effective error_count 0. Importantly, newly exact-gated Lane 2 windows 1026-1050 and 1051-1075 show exact 25-slot coverage and no identity-shift diagnostics. Newly exact-gated Lane 1 windows 801-825 and 826-850 also show exact 25-slot coverage; 801-825 has two semantic local-refinement lint errors (stug_iii and dassault_rafale), not identity-binding errors. Older pre-gate defective windows remain and dominate CI failure.",
+    "repair_required": "Treat validator diagnostics as authoritative. Preserve exact-gated structurally aligned new windows; repair semantic lint locally where definite. Rebuild only older defective staging windows from exact validated same-lane shard tuples. Never touch immutable checkpoints for staging repair."
   },
   "lanes": {
     "1": {
@@ -21,52 +21,58 @@
       "reviewed_count": 725,
       "remaining_count": 9610,
       "latest_checkpoint": "checkpoint_000701_000725.csv",
-      "state": "STAGING_REPAIR_REQUIRED",
-      "next_new_or_repair_start": 751,
-      "note": "Placeholder contamination remains absent, but the latest worker rebuild of 751-775 and 776-800 is structurally invalid. Validator shows the worker shifted/skipped exact shard identities (e.g. shard local 751 is strawberry_brooch, but later omitted identities create hold/coverage offsets). Rebuild 751-800 from exact shard row order; preserve valid 726-750."
+      "state": "OLD_STAGING_REPAIR_PLUS_LOCAL_SEMANTIC_LINT",
+      "next_new": 851,
+      "note": "Exact-identity gate is now working on newly written 801-825 and 826-850: validator reports 21+4 and 22+3 exact 25-slot coverage without identity-shift errors. 801-825 still has two semantic lint defects: stug_iii local 809 and dassault_rafale local 825 have too many local refinements per selected parent route. Older 751-775 and 776-800 remain structurally invalid and must be rebuilt from authoritative tuples. Placeholder contamination remains absent."
     },
     "2": {
       "assigned_count": 10334,
       "reviewed_count": 375,
       "remaining_count": 9959,
-      "state": "STAGING_REPAIR_REQUIRED_AND_SHORT_STOP_WATCH",
-      "next_new": 1026,
-      "note": "Latest run persisted 1001-1025 with 20 finalized + 5 genuine holds, then reported EXECUTION_LIMIT with no semantic blocker. Structural validator still reports defective windows including 501-525, malformed 526-550, 551-575, 626-650, 651-675, 676-700, 726-750, 751-775, 776-800, 801-825, 926-950 and 976-1000. Repair listed windows from validated Lane-2 shards; safe sub-300 stops remain under watchdog."
+      "state": "OLD_STAGING_REPAIR_AND_SHORT_STOP_WATCH",
+      "next_new": 1076,
+      "note": "The new exact-identity persistence gate is verified effective for 1026-1050 and 1051-1075: validator sees exact 24+1 and 22+3 coverage and emits no identity-binding errors for either window. Historical pre-gate defects remain across multiple older windows, including malformed 526-550. Latest run persisted 50 NEW identities then ended at execution boundary; continuation from 1076 remains required toward a fresh 300-NEW target."
     },
     "3": {
       "assigned_count": 10334,
       "reviewed_count": 400,
       "remaining_count": 9934,
-      "state": "STAGING_REPAIR_AND_ROUTE_REMEDIATION_REQUIRED",
+      "state": "OLD_STAGING_REPAIR_AND_ROUTE_REMEDIATION_REQUIRED",
       "next_new": 1076,
-      "note": "Focused 751-1050 secondary-route remediation is actively progressing, including recent 876-900 and bruise secondary-route corrections. Structural validator still identifies 851-875, 951-975 and 1026-1050. 1051-1075 has suspicious count 20 finalized + 8 holds for a 25-identity window and must not be trusted until a subsequent validator confirms exact coverage."
+      "note": "Focused 751-1050 secondary-route remediation continues. Latest validator still identifies old structural defects in 851-875, 951-975 and 1026-1050, and 1051-1075 remains invalid with 20 finalized + 8 holds for a 25-identity window. These pre-gate windows require exact-tuple rebuild/repair before quality-clean status."
     }
   },
   "observed_run_metrics": {
-    "lane_1": {"latest_delta":50,"assessment":"STRUCTURAL_REBUILD_FAILED","next_repair_identity":751},
-    "lane_2": {"latest_delta":25,"assessment":"STRUCTURAL_REPAIR_REQUIRED_SHORT_STOP_WATCH","next_identity":1026},
+    "lane_1": {"latest_delta":50,"assessment":"NEW_EXACT_GATE_STRUCTURALLY_EFFECTIVE_SEMANTIC_LINT_REMAINS","next_identity":851},
+    "lane_2": {"latest_delta":50,"assessment":"NEW_EXACT_GATE_EFFECTIVE_SHORT_STOP_WATCH","next_identity":1076},
     "lane_3": {"latest_delta":25,"assessment":"STRUCTURAL_AND_SEMANTIC_REMEDIATION","next_identity":1076}
   },
   "throughput_watchdog": {
-    "lane_1": {"assessment":"WARNING","reason":"Worker did real semantic work rather than placeholder holds, but exact shard/window alignment failed again; useful semantic content cannot be credited as structurally valid staging until rebuilt."},
-    "lane_2": {"assessment":"WARNING","reason":"Previous 300-row throughput improvement is real, but latest run again ended at a 25-row persistence boundary and staging repair debt remains extensive. Status claims external execution end, so do not call it voluntary without stronger evidence; require continuation next run."},
-    "lane_3": {"assessment":"QUALITY_REMEDIATION","reason":"Throughput/remediation activity is healthy, but route-family audit and structural repair are both incomplete."},
+    "lane_1": {"assessment":"IMPROVING","reason":"The newly added exact-identity gate prevented the prior hold-induced positional compression in 801-850. Remaining new-window defects are semantic lint, while old 751-800 structural debt remains."},
+    "lane_2": {"assessment":"IMPROVING_WITH_WARNING","reason":"Exact-gated 1026-1075 is structurally aligned, proving the new persistence gate works. The worker still ended after 50 identities, so work-conserving continuation remains under watchdog."},
+    "lane_3": {"assessment":"QUALITY_REMEDIATION","reason":"Route-family audit is active, but old pre-gate structural defects remain and must be repaired under the new exact-identity gate."},
     "measurement_note":"Commit wall time includes scheduler/waiting idle time and is not semantic CPU duration."
   },
   "staging_totals_from_latest_validator": {
-    "staged_finalized_rows": 1195,
-    "active_holds": 184,
-    "error_count": 103,
+    "staged_finalized_rows": 1284,
+    "active_holds": 195,
+    "error_count": 105,
     "counts_provisional": true,
-    "note": "Counts include defective windows and must not be treated as authoritative useful progress. Official reviewed remains immutable checkpoint union=1500."
+    "note": "Counts include defective pre-gate windows and must not be treated as authoritative useful progress. Official reviewed remains immutable checkpoint union=1500."
+  },
+  "exact_identity_gate_verification": {
+    "status": "VERIFIED_ON_NEW_WRITES",
+    "lane_1": ["window_000801_000825.json", "window_000826_000850.json"],
+    "lane_2": ["window_001026_001050.json", "window_001051_001075.json"],
+    "result": "No identity-shift/coverage diagnostics on these newly exact-gated windows. The gate addresses the positional-compression defect; semantic lint remains independently enforceable."
   },
   "hold_research_cycle": {
     "attempted": [],
     "resolved": 0,
-    "note": "Structural repair remains the promotion-critical blocker; no semantic hold was guessed or force-resolved this cycle."
+    "note": "Structural repair remains promotion-critical; no semantic hold was guessed or force-resolved this cycle."
   },
-  "baseline_note": "Frozen neutral population/order validated: 31,003 rows, shard_count 105, lane counts 10335/10334/10334, error_count 0. Effective immutable checkpoint/correction overlay validation passes with effective error_count 0; raw just_the_tip errors are fully covered by the existing correction overlay.",
-  "quality_note": "Lane3 family flags remain active: COLOR_PATTERN_SHAPE inflation, object-placement POSE_POSITION, motif-as-LIVING/LIVING_NATURE. Structural staging defects are non-authoritative and must be repaired without touching immutable checkpoints.",
+  "baseline_note": "Frozen neutral population/order validated: 31,003 rows, shard_count 105, lane counts 10335/10334/10334, error_count 0. Effective immutable checkpoint/correction overlay validation passes with effective error_count 0; raw just_the_tip errors are covered by correction overlay.",
+  "quality_note": "Lane3 family flags remain active: COLOR_PATTERN_SHAPE inflation, object-placement POSE_POSITION, motif-as-LIVING/LIVING_NATURE. Exact-identity persistence gate is now empirically verified on new Lane1/Lane2 writes, but historical staging debt still causes CI failure.",
   "pass_b_generated": false,
   "worker_target_semantics": "ceiling_not_quota",
   "checkpoint_rows": 25,
