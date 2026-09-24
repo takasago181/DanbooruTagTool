@@ -1,0 +1,46 @@
+{
+  "schema_version": "issue132-pass-a-staging-window-v1",
+  "lane": 3,
+  "lane_local_start": 401,
+  "lane_local_end": 425,
+  "parent_neutral_sha256": "ac0f888d02f19a440c63b3b9f695c58f9ba53b98ebe9756edec51db1c5ff8f7d",
+  "parent_identity_order_sha256": "f80c63018ce19a8c7c5d8d6fd83d03cf760c510d8f6cfa455d1ab356fb31361b",
+  "rows": [
+    ["1203","tickling_back","YES","背中をくすぐる対人動作","BROWSE_WORTHY","ACTION_CONTACT","CORE","背中への接触・くすぐり動作として探すのが自然","","","","","","","[]","[]","[]","NO","","CHECKED","[]",""],
+    ["1206","wooden_lantern","YES","木製のランタン・提灯型照明具","BROWSE_WORTHY","TOOL_OBJECT","CORE","照明具・小道具として探すのが自然","","","","","","","[\"OBJECT_PROP/DAILY\"]","[]","[]","NO","","CHECKED","[]",""],
+    ["1209","volkswagen","YES","フォルクスワーゲン製の車両・ブランドへの視覚的参照","MIXED","TOOL_OBJECT","CORE","車両として視覚的に探せる","","","","","","","[\"OBJECT_PROP/VEHICLE\"]","[]","[]","NO","","CHECKED","[]",""],
+    ["1212","telepathy","YES","言葉を使わず精神・思念で意思を伝えるテレパシー表現","BROWSE_WORTHY","ACTION_CONTACT","CORE","人物間の意思伝達・相互作用として探すのが最も近い","","","","","","","[\"ACTION_CONTACT/INTERACTION\"]","[]","[]","YES","超能力・精神作用を直接表す上位routeがない","CHECKED","[]",""],
+    ["1215","lanchester_smg","YES","ランチェスター短機関銃","BROWSE_WORTHY","TOOL_OBJECT","CORE","銃器・武器として探すのが自然","","","","","","","[\"OBJECT_PROP/WEAPON\"]","[]","[]","NO","","RESEARCHED","[\"https://safebooru.donmai.us/wiki_pages/submachine_gun\"]",""],
+    ["1218","tying_panties","YES","パンティーを結ぶ・結び付ける動作","BROWSE_WORTHY","ACTION_CONTACT","CORE","衣類を結ぶ操作として探すのが自然","CLOTHING_EXPOSURE","SUPPORTING","パンティーという衣類側からも独立して探せる","","","","[\"ACTION_CONTACT/OBJECT_USE\",\"CLOTHING/EVERYDAY\"]","[]","[]","NO","","CHECKED","[]",""],
+    ["1224","dominator_(bdsm)","YES","BDSMで支配的役割を担う男性のドミナント","BROWSE_WORTHY","RELATION_ROLE","CORE","BDSMの支配側という人物役割から探すのが自然","","","","","","","[]","[]","[\"BDSM_RESTRAINT\"]","NO","","RESEARCHED","[\"https://www.wikidata.org/wiki/Q19978366\",\"https://safebooru.donmai.us/wiki_pages/list_of_male_tags\"]",""],
+    ["1227","runway_fashion","YES","ファッションショーのランウェイ向け衣装・装い","BROWSE_WORTHY","CLOTHING_EXPOSURE","CORE","衣装・ファッションとして探すのが自然","","","","","","","[\"CLOTHING/COSTUME\"]","[]","[]","NO","","CHECKED","[]",""],
+    ["1230","tamagoyaki","YES","卵焼き・玉子焼き","BROWSE_WORTHY","TOOL_OBJECT","CORE","食べ物として探すのが自然","","","","","","","[\"OBJECT_PROP/FOOD\"]","[]","[]","NO","","CHECKED","[]",""],
+    ["1233","sig_sg552","YES","SIG SG552アサルトライフル","BROWSE_WORTHY","TOOL_OBJECT","CORE","銃器・武器として探すのが自然","","","","","","","[\"OBJECT_PROP/WEAPON\"]","[]","[]","NO","","RESEARCHED","[\"https://safebooru.donmai.us/wiki_pages/assault_rifle\"]",""],
+    ["1236","missionary","YES","対面して一方が上になる正常位の性交体位","BROWSE_WORTHY","POSE_POSITION","CORE","性的な体位・身体配置として探すのが自然","ACTION_CONTACT","SUPPORTING","性交行為からも独立して探せる","","","","[\"ACTION_CONTACT/INTIMATE\"]","[]","[]","NO","","CHECKED","[]",""],
+    ["1239","dark_territory_(sao)","YES","『ソードアート・オンライン』のDark Territoryという固有設定・地域への参照","SEARCH_ORIENTED","","","","","","","","","","[]","[]","[]","NO","","CHECKED","[]",""],
+    ["1242","nagato_(battleship)","YES","日本海軍の戦艦『長門』","MIXED","TOOL_OBJECT","CORE","戦艦・艦船として視覚的に探せる","","","","","","","[\"OBJECT_PROP/VEHICLE\"]","[]","[]","NO","","CHECKED","[]",""],
+    ["1245","horned_hood","YES","角が付いたフード","BROWSE_WORTHY","CLOTHING_EXPOSURE","CORE","衣服・頭部衣装の特徴として探すのが自然","","","","","","","[\"CLOTHING/COSTUME\"]","[]","[]","NO","","CHECKED","[]",""],
+    ["1248","studded_footwear","YES","鋲・スタッズで装飾された履物","BROWSE_WORTHY","CLOTHING_EXPOSURE","CORE","履物の装飾特徴として探すのが自然","","","","","","","[\"CLOTHING/EVERYDAY\"]","[]","[]","NO","","CHECKED","[]",""],
+    ["1251","luck_and_pluck","YES","『ジョジョの奇妙な冒険』に登場する固有の剣Luck & Pluck","MIXED","TOOL_OBJECT","CORE","固有武器だが剣・武器として視覚的に探せる","","","","","","","[\"OBJECT_PROP/WEAPON\"]","[]","[]","NO","","RESEARCHED","[\"https://safebooru.donmai.us/wiki_pages/list_of_weapons\"]",""],
+    ["1254","fishnet_cutout","YES","衣服に魚網状・フィッシュネット状の切り抜きがある意匠","BROWSE_WORTHY","CLOTHING_EXPOSURE","CORE","衣服の露出・意匠として探すのが自然","","","","","","","[\"CLOTHING_STATE_EXPOSURE/\"]","[]","[]","NO","","CHECKED","[]",""],
+    ["1257","foot_on_another's_chest","YES","他者の胸部に足を乗せる対人接触ポーズ","BROWSE_WORTHY","ACTION_CONTACT","CORE","他者の胸への足の接触として探すのが自然","POSE_POSITION","SUPPORTING","二者の身体配置そのものからも独立して探せる","","","","[\"ACTION_CONTACT/INTERACTION\"]","[]","[]","NO","","CHECKED","[]",""],
+    ["1260","cowboy_western","YES","西部劇・カウボーイを想起させる西部開拓風のテーマ・装い","BROWSE_WORTHY","STYLE_PROCESSING","CORE","西部劇風という視覚テーマから探すのが自然","","","","","","","[]","[]","[]","YES","西部劇・文化テーマ専用の上位routeがない","CHECKED","[]",""],
+    ["1263","breast_tattoo","YES","乳房・胸部に施されたタトゥー","BROWSE_WORTHY","BODY_SITE","CORE","胸部という身体部位とその装飾から探すのが自然","","","","","","","[]","[\"BREAST_NIPPLE\"]","[]","NO","","CHECKED","[]",""],
+    ["1266","refrigerator","YES","冷蔵庫","BROWSE_WORTHY","TOOL_OBJECT","CORE","家電・日用品として探すのが自然","","","","","","","[\"OBJECT_PROP/DAILY\"]","[]","[]","NO","","CHECKED","[]",""],
+    ["1269","red_wings","YES","赤色の翼","BROWSE_WORTHY","NONHUMAN_TRANSFORM","CORE","人体・キャラクターに付随する翼という非人間的形質から探すのが自然","","","","","","","[]","[]","[]","NO","","CHECKED","[]",""],
+    ["1272","side_capelet","YES","身体の片側に寄った短いケープ・ケープレット","BROWSE_WORTHY","CLOTHING_EXPOSURE","CORE","衣装形状として探すのが自然","","","","","","","[\"CLOTHING/COSTUME\"]","[]","[]","NO","","CHECKED","[]",""],
+    ["1275","blobfish","YES","ブロブフィッシュ（ニュウドウカジカ類の魚）","BROWSE_WORTHY","LIVING","CORE","生物・魚として探すのが自然","","","","","","","[\"LIVING_NATURE/CREATURE\"]","[]","[]","NO","","CHECKED","[]",""]
+  ],
+  "holds": [
+    {
+      "lane_local_index": 407,
+      "review_seq": 1221,
+      "identity_key": "spines",
+      "reason": "語義が身体の棘・背棘・植物等のどのDanbooru適用範囲を指すか、直接的なtag wiki定義を確認できずrouteを安全に確定できない",
+      "research_attempts": [
+        "Danbooru/Safebooru exact wiki search: direct spines definition not surfaced",
+        "Cross-site usage search: Gelbooru/Danbooru-origin example confirmed spines on Godzilla imagery, but a single example is insufficient to define full tag scope"
+      ]
+    }
+  ]
+}
