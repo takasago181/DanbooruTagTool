@@ -58,16 +58,20 @@ def main():
         )
         errors.extend(correction_errors)
 
-        for row in effective:
+        for local_index, row in enumerate(effective, start=1):
             ident = row.get("identity_key", "")
             seq = next(
                 (int(x["review_seq"]) for x in assigned if x["identity_key"] == ident),
                 None,
             )
             if seq is None:
-                errors.append(f"lane {lane}: unassigned identity {ident}")
+                errors.append(f"lane {lane} local {local_index}: unassigned identity {ident}")
             else:
-                errors.extend(base.validate_row(row, seq))
+                row_errors = base.validate_row(row, seq)
+                errors.extend(
+                    f"lane {lane} local {local_index} review_seq {seq}: {err}"
+                    for err in row_errors
+                )
 
         total += len(effective)
         summary[str(lane)] = {
