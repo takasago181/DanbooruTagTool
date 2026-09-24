@@ -1,0 +1,37 @@
+{
+  "schema_version":"issue132-pass-a-staging-window-v1",
+  "lane":3,
+  "lane_local_start":476,
+  "lane_local_end":500,
+  "parent_neutral_sha256":"ac0f888d02f19a440c63b3b9f695c58f9ba53b98ebe9756edec51db1c5ff8f7d",
+  "parent_identity_order_sha256":"f80c63018ce19a8c7c5d8d6fd83d03cf760c510d8f6cfa455d1ab356fb31361b",
+  "rows":[
+["1431","elbow_on_leg","YES","脚の上に肘を置く姿勢","BROWSE_WORTHY","POSE_POSITION","CORE","肘と脚の身体配置・姿勢として探すのが自然","","","","","","","[]","[]","[]","NO","","CHECKED","[]",""],
+["1437","clarinet","YES","クラリネット","BROWSE_WORTHY","TOOL_OBJECT","CORE","楽器・道具として探すのが自然","","","","","","","[]","[]","[]","NO","","CHECKED","[]",""],
+["1440","smash_ball","YES","『大乱闘スマッシュブラザーズ』のスマッシュボール","MIXED","TOOL_OBJECT","CORE","作品固有アイテムだが球状アイテムとして視覚的に探せる","","","","","","","[]","[]","[]","NO","","RESEARCHED","[\"https://mario.fandom.com/wiki/Smash_Ball\"]",""],
+["1443","push_down","YES","相手を押し倒す動作","BROWSE_WORTHY","ACTION_CONTACT","CORE","他者を押して倒す対人動作として探すのが自然","POSE_POSITION","SUPPORTING","倒される身体配置からも独立して探せる","","","","[\"ACTION_CONTACT/INTERACTION\"]","[]","[]","NO","","CHECKED","[]",""],
+["1446","nintendo_dsi","YES","任天堂の携帯ゲーム機Nintendo DSi","MIXED","TOOL_OBJECT","CORE","固有製品だが携帯ゲーム機・機器として視覚的に探せる","","","","","","","[]","[]","[]","NO","","CHECKED","[]",""],
+["1449","avalon_le_fae_(fate/grand_order)","YES","『Fate/Grand Order』第2部第6章『妖精円卓領域 アヴァロン・ル・フェ』への固有参照","SEARCH_ORIENTED","","","","","","","","","","[]","[]","[]","NO","","RESEARCHED","[\"https://www.rpgsite.net/news/14304-fategrand-order-avalon-le-fae-lostbelt-chapter-launched-adds-morgan-and-faerie-knights\"]",""],
+["1452","penis_piercing","YES","陰茎に施したピアス・性器ピアス","BROWSE_WORTHY","BODY_SITE","CORE","陰茎の身体改変・装飾として探すのが自然","","","","","","","[]","[\"MALE_GENITAL\"]","[]","NO","","CHECKED","[]",""],
+["1455","wooden_railing","YES","木製の手すり・欄干","BROWSE_WORTHY","TOOL_OBJECT","CORE","建具・物体として探すのが自然","","","","","","","[]","[]","[]","NO","","CHECKED","[]",""],
+["1461","dudou","YES","胸腹部を覆い首と腰で結ぶ中国伝統衣装・肚兜","BROWSE_WORTHY","CLOTHING_EXPOSURE","CORE","衣服・伝統衣装として探すのが自然","","","","","","","[\"CLOTHING/COSTUME\"]","[]","[]","NO","","RESEARCHED","[\"https://en.wikipedia.org/wiki/Dudou\"]",""],
+["1464","purple_tiara","YES","紫色のティアラ","BROWSE_WORTHY","CLOTHING_EXPOSURE","CORE","頭部アクセサリーとして探すのが自然","","","","","","","[\"CLOTHING/ACCESSORY\"]","[]","[]","NO","","CHECKED","[]",""],
+["1467","u's_1st_years","YES","『ラブライブ！』μ'sの1年生メンバー群への固有参照","SEARCH_ORIENTED","","","","","","","","","","[]","[]","[]","NO","","CHECKED","[]",""],
+["1470","black_gorget","YES","黒色のゴルジェ・首回り防具","BROWSE_WORTHY","CLOTHING_EXPOSURE","CORE","首回りの装備・衣装として探すのが自然","","","","","","","[\"CLOTHING/ACCESSORY\"]","[]","[]","NO","","CHECKED","[]",""],
+["1473","gag","YES","口を塞ぐ猿ぐつわ・ギャグ","BROWSE_WORTHY","TOOL_OBJECT","CORE","拘束用具として探すのが自然","","","","","","","[]","[]","[\"BDSM_RESTRAINT\"]","NO","","CHECKED","[]",""],
+["1476","bus_stop_sign","YES","バス停を示す標識","BROWSE_WORTHY","TEXT_SYMBOL","CORE","交通標識・記号として探すのが自然","","","","","","","[\"TEXT_SYMBOL/SYMBOL\"]","[]","[]","NO","","CHECKED","[]",""],
+["1479","flute","YES","フルート・横笛","BROWSE_WORTHY","TOOL_OBJECT","CORE","楽器・道具として探すのが自然","","","","","","","[]","[]","[]","NO","","CHECKED","[]",""],
+["1482","mayonnaise","YES","マヨネーズ","BROWSE_WORTHY","TOOL_OBJECT","CORE","食品・調味料として探すのが自然","","","","","","","[\"OBJECT_PROP/FOOD\"]","[]","[]","NO","","CHECKED","[]",""],
+["1485","boxcutter","YES","カッターナイフ・ボックスカッター","BROWSE_WORTHY","TOOL_OBJECT","CORE","刃物・道具として探すのが自然","","","","","","","[\"OBJECT_PROP/DAILY\"]","[]","[]","NO","","CHECKED","[]",""],
+["1494","palutena_bow_(kid_icarus)","YES","『新・光神話 パルテナの鏡』などのパルテナの神弓","MIXED","TOOL_OBJECT","CORE","固有武器だが弓・武器として視覚的に探せる","","","","","","","[\"OBJECT_PROP/WEAPON\"]","[]","[]","NO","","RESEARCHED","[\"https://www.kidicaruswiki.org/wiki/Palutena_Bow\"]",""],
+["1497","hose_nozzle","YES","ホース先端のノズル","BROWSE_WORTHY","TOOL_OBJECT","CORE","道具・器具として探すのが自然","","","","","","","[\"OBJECT_PROP/DAILY\"]","[]","[]","NO","","CHECKED","[]",""],
+["1500","unworn_chastity_cage","YES","装着されていない状態の男性用貞操ケージ","BROWSE_WORTHY","TOOL_OBJECT","CORE","BDSM用具そのものとして探すのが自然","","","","","","","[]","[]","[\"BDSM_RESTRAINT\"]","NO","","CHECKED","[]",""]
+],
+"holds":[
+{"lane_local_index":476,"review_seq":1428,"identity_key":"autoscorer","reason":"Symphogear固有概念と推測できるが直接定義資料を今回の検索で確保できず、人物種別か機械種別かを安全に確定できない","research_attempts":["Exact Autoscorer Symphogear search: no direct defining source surfaced"]},
+{"lane_local_index":478,"review_seq":1434,"identity_key":"non-pubic_inmon","reason":"inmonの非陰部版という語形だけではDanbooru上の適用部位・視覚条件を断定できない","research_attempts":["Exact non-pubic inmon search: no direct defining source surfaced"]},
+{"lane_local_index":486,"review_seq":1458,"identity_key":"fg204","reason":"短い固有識別子で対象作品・対象物を直接裏付ける資料を確保できない","research_attempts":["Exact FG204 Girls Frontline search: no direct defining source surfaced"]},
+{"lane_local_index":496,"review_seq":1488,"identity_key":"null_bulge","reason":"bulge系視覚タグと思われるがnull修飾の正確な意味・適用条件を直接確認できない","research_attempts":["Exact null bulge Danbooru search: no direct defining source surfaced"]},
+{"lane_local_index":497,"review_seq":1491,"identity_key":"decagrammatonization","reason":"Blue Archive由来の変身概念を示す弱いLoRA資料は見つかったが、指示で弱いmodel/LoRA evidenceは不十分なため確定しない","research_attempts":["Exact web search surfaced only PixAI/LoRA descriptions; rejected as weak evidence per contract"]}
+]
+}
