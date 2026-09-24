@@ -1,0 +1,49 @@
+{
+  "schema_version": "issue132-pass-a-staging-window-v1",
+  "lane": 3,
+  "lane_local_start": 426,
+  "lane_local_end": 450,
+  "parent_neutral_sha256": "ac0f888d02f19a440c63b3b9f695c58f9ba53b98ebe9756edec51db1c5ff8f7d",
+  "parent_identity_order_sha256": "f80c63018ce19a8c7c5d8d6fd83d03cf760c510d8f6cfa455d1ab356fb31361b",
+  "rows": [
+    ["1278","seiza","YES","正座の姿勢","BROWSE_WORTHY","POSE_POSITION","CORE","座り方・姿勢として探すのが自然","","","","","","","[]","[]","[]","NO","","CHECKED","[]",""],
+    ["1281","see-through_scarf","YES","透けた素材のスカーフ","BROWSE_WORTHY","CLOTHING_EXPOSURE","CORE","衣服・アクセサリーの透過表現として探すのが自然","","","","","","","[\"CLOTHING/ACCESSORY\"]","[]","[]","NO","","CHECKED","[]",""],
+    ["1284","sanjou_school_swords_(touken_ranbu)","YES","『刀剣乱舞』の三条派の刀剣男士群への固有参照","SEARCH_ORIENTED","","","","","","","","","","[]","[]","[]","NO","","CHECKED","[]",""],
+    ["1287","staff_of_the_scarlet_sands_(genshin_impact)","YES","『原神』の固有武器・赤砂の杖","MIXED","TOOL_OBJECT","CORE","固有武器だが槍・武器として視覚的に探せる","","","","","","","[\"OBJECT_PROP/WEAPON\"]","[]","[]","NO","","RESEARCHED","[\"https://genshin-builds.com/th/weapon/staff_of_the_scarlet_sands\"]",""],
+    ["1290","floral_print_shorts","YES","花柄のショートパンツ","BROWSE_WORTHY","CLOTHING_EXPOSURE","CORE","衣服の柄・意匠として探すのが自然","COLOR_PATTERN_SHAPE","SUPPORTING","花柄というパターンからも独立して探せる","","","","[\"CLOTHING/EVERYDAY\"]","[]","[]","NO","","CHECKED","[]",""],
+    ["1293","two_side_up","YES","左右の髪の一部を高めに結ったツーサイドアップ髪型","BROWSE_WORTHY","HAIR_FACE","CORE","髪型として探すのが自然","","","","","","","[]","[]","[]","NO","","CHECKED","[]",""],
+    ["1296","ear_blush","YES","耳が赤く染まる・耳の赤面表現","BROWSE_WORTHY","HAIR_FACE","CORE","顔周辺の赤面・外見表現として探すのが自然","EXPRESSION_GAZE","SUPPORTING","感情に伴う赤面表現としても独立して探せる","","","","[\"EXPRESSION_EMOTION/\"]","[]","[]","NO","","CHECKED","[]",""],
+    ["1299","unworn_gag","YES","口に装着されていない状態のギャグ・猿ぐつわ","BROWSE_WORTHY","TOOL_OBJECT","CORE","拘束用具そのものから探すのが自然","","","","","","","[]","[]","[\"BDSM_RESTRAINT\"]","NO","","CHECKED","[]",""],
+    ["1302","large_forehead","YES","広い・大きな額","BROWSE_WORTHY","HAIR_FACE","CORE","顔・額の外見特徴として探すのが自然","","","","","","","[]","[]","[]","NO","","CHECKED","[]",""],
+    ["1305","battlecruiser_(eve_online)","YES","『EVE Online』のBattlecruiser級宇宙船","MIXED","TOOL_OBJECT","CORE","作品固有の艦種だが宇宙船・乗り物として視覚的に探せる","","","","","","","[\"OBJECT_PROP/VEHICLE\"]","[]","[]","NO","","RESEARCHED","[\"https://www.eveonline.com/ja/news/view/alpha-ship-spotlight-drake\"]",""],
+    ["1308","bidet","YES","ビデ・洗浄器具","BROWSE_WORTHY","TOOL_OBJECT","CORE","衛生設備・器具として探すのが自然","","","","","","","[\"OBJECT_PROP/DAILY\"]","[]","[]","NO","","CHECKED","[]",""],
+    ["1311","tied_jumpsuit","YES","結んだ・縛った状態のジャンプスーツ","BROWSE_WORTHY","CLOTHING_EXPOSURE","CORE","衣服の着用状態として探すのが自然","","","","","","","[\"CLOTHING_STATE_EXPOSURE/\"]","[]","[]","NO","","CHECKED","[]",""],
+    ["1314","shuriken_hair_ornament","YES","手裏剣形の髪飾り","BROWSE_WORTHY","CLOTHING_EXPOSURE","CORE","髪飾り・アクセサリーとして探すのが自然","","","","","","","[\"CLOTHING/ACCESSORY\"]","[]","[]","NO","","CHECKED","[]",""],
+    ["1320","in_pot","YES","人物・キャラクターが壺や鉢の中に入っている構図","BROWSE_WORTHY","POSE_POSITION","CORE","容器内に身体を置く位置関係として探すのが自然","TOOL_OBJECT","SUPPORTING","壺・鉢という物体側からも独立して探せる","","","","[]","[]","[]","NO","","CHECKED","[]",""],
+    ["1323","circle_name","YES","同人サークル名などの名称テキストが画像内に示される表現","BROWSE_WORTHY","TEXT_SYMBOL","CORE","文字・名称表示として探すのが自然","","","","","","","[\"TEXT_SYMBOL/TEXT\"]","[]","[]","NO","","CHECKED","[]",""],
+    ["1326","zebra_print","YES","シマウマ模様・ゼブラ柄","BROWSE_WORTHY","COLOR_PATTERN_SHAPE","CORE","縞模様・パターンそのものから探すのが自然","","","","","","","[]","[]","[]","NO","","CHECKED","[]",""],
+    ["1329","scarf_over_mouth","YES","スカーフで口元を覆った状態","BROWSE_WORTHY","CLOTHING_EXPOSURE","CORE","スカーフの着用状態として探すのが自然","","","","","","","[\"CLOTHING_STATE_EXPOSURE/\"]","[]","[]","NO","","CHECKED","[]",""],
+    ["1332","chocobo","YES","『FINAL FANTASY』シリーズのチョコボという鳥型生物","MIXED","LIVING","CORE","固有生物だが鳥型クリーチャーとして視覚的に探せる","","","","","","","[\"LIVING_NATURE/CREATURE\"]","[]","[]","NO","","CHECKED","[]",""],
+    ["1335","howa_type_89","YES","豊和工業89式小銃","BROWSE_WORTHY","TOOL_OBJECT","CORE","銃器・武器として探すのが自然","","","","","","","[\"OBJECT_PROP/WEAPON\"]","[]","[]","NO","","RESEARCHED","[\"https://safebooru.donmai.us/wiki_pages/assault_rifle\"]",""],
+    ["1338","etorofu_(kancolle)_(cosplay)","YES","『艦隊これくしょん』択捉の衣装を着たコスプレ","MIXED","CLOTHING_EXPOSURE","CORE","作品固有のコスプレ衣装として視覚的に探せる","","","","","","","[\"CLOTHING/COSTUME\"]","[]","[]","NO","","CHECKED","[]",""],
+    ["1341","bustier","YES","ビスチェ型の衣服・下着","BROWSE_WORTHY","CLOTHING_EXPOSURE","CORE","衣服・下着の種類として探すのが自然","","","","","","","[\"CLOTHING/EVERYDAY\"]","[]","[]","NO","","CHECKED","[]",""],
+    ["1347","carrot_slice","YES","薄切り・輪切りなどにされたニンジン片","BROWSE_WORTHY","TOOL_OBJECT","CORE","食材・食べ物として探すのが自然","","","","","","","[\"OBJECT_PROP/FOOD\"]","[]","[]","NO","","CHECKED","[]",""],
+    ["1350","off-shoulder_one-piece_swimsuit","YES","肩を露出するオフショルダー型ワンピース水着","BROWSE_WORTHY","CLOTHING_EXPOSURE","CORE","水着の形状・露出特徴として探すのが自然","","","","","","","[\"CLOTHING_STATE_EXPOSURE/\"]","[]","[]","NO","","CHECKED","[]",""]
+  ],
+  "holds": [
+    {
+      "lane_local_index": 414,
+      "review_seq": 1317,
+      "identity_key": "kirara_jump",
+      "reason": "固有ポーズ名らしいことは確認できるが、対象作品・姿勢の定義を直接説明する強い資料が見つからずPOSE_POSITIONとしての厳密な視覚範囲を安全に確定できない",
+      "research_attempts": ["Exact-name web search returned user artwork titled Kirara Jump but no authoritative pose definition", "Secondary search associated the phrase with Kirara Amanogawa/Go! Princess Precure but did not define pose geometry"]
+    },
+    {
+      "lane_local_index": 449,
+      "review_seq": 1344,
+      "identity_key": "beaded_penis",
+      "reason": "名称から陰茎へのビーズ状インプラント等が想定されるが、検索結果がbeaded urethral plug製品に偏り、Danbooruタグの適用範囲を直接確認できない",
+      "research_attempts": ["Exact-name Danbooru/wiki search did not surface a direct definition", "Direct web search returned beaded urethral plug products, which are not sufficient evidence for the Danbooru tag scope"]
+    }
+  ]
+}
