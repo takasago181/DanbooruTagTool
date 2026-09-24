@@ -12,16 +12,16 @@
   "error_count": 0,
   "last_run_delta": 0,
   "last_run_stop_reason": "EXECUTION_LIMIT",
-  "staged_finalized_count": 47,
-  "active_hold_count": 3,
-  "staging_windows": ["window_000401_000425.json", "window_000426_000450.json"],
+  "staged_finalized_count": 115,
+  "active_hold_count": 10,
+  "staging_windows": ["window_000401_000425.json", "window_000426_000450.json", "window_000451_000475.json", "window_000476_000500.json", "window_000501_000525.json"],
   "last_qa_boundary": 400,
-  "last_qa_note": "Cumulative committed QA remains complete through boundary 400. This run used semantic-hold staging so hard identities did not discard later finalized work.",
+  "last_qa_note": "Cumulative committed QA remains complete through boundary 400. Semantic-hold staging is active; hard identities are isolated without discarding later finalized work.",
   "last_run_blocker": {
     "type": "EXECUTION_LIMIT",
-    "operation": "continue semantic review from lane-local 451 while retaining three bounded semantic holds",
-    "where": "after staging windows 401-425 and 426-450 were safely persisted",
-    "evidence": "The current automation execution turn ended after 50 new identities were usefully examined: 47 fully finalized rows were persisted in staging and three hard identities were persisted as holds after bounded research. No incomplete semantic row was promoted to checkpoint.",
-    "why_continuation_impossible": "Further identities require a subsequent execution turn; persisted staging allows immediate continuation without repeating the 47 completed semantic decisions."
+    "operation": "continue semantic review from lane-local 526 after persisting three additional staging windows",
+    "where": "after lane-local 451-525 were usefully examined and staging windows 451-475, 476-500, and 501-525 were written",
+    "evidence": "This execution turn processed 75 new identities: 68 were fully finalized and 7 were persisted as new holds. Together with prior staging, lane 3 now has 115 staged finalized rows and 10 active holds. No incomplete semantic row was promoted to checkpoint.",
+    "why_continuation_impossible": "The current execution turn ended after the three new 25-identity windows were safely persisted; the next run can resume at lane-local 526 while retrying the earliest hold once as required."
   }
 }
