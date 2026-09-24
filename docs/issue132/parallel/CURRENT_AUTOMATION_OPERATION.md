@@ -453,6 +453,42 @@ Coordinator should use otherwise-idle coordinator capacity to recover useful wor
 - Never relax semantic QA, bypass 100-row QA, guess unresolved semantics, overwrite immutable checkpoints, or change the three-lane assignment.
 - Telemetry separately records `worker_new_identities`, `coordinator_pickup_new_identities`, `pickup_chunks`, and remaining invalid-stop backlog.
 
+## 10C. GitHub write-path verification and TOOL_LIMIT gate
+
+A worker must not declare GitHub write blockage merely because its first attempted write method is unavailable or because it cannot update a path that does not yet exist.
+
+### Existing path vs new path
+
+Before classifying a persistence failure, determine whether the target path already exists on the research branch.
+
+- Existing file: fetch the current blob SHA and use the supported update/replace-file path with that SHA.
+- New staging/checkpoint/correction file: use an authorized create-file path on `research/taxonomy-usability-audit`; do not require an existing blob SHA and do not mistake update-file rejection for branch write denial.
+- If the direct contents write surface is unavailable but authorized Git object operations are available, a worker may use the equivalent blob/tree/commit/ref update path, preserving the exact same branch and file contents. Do not create or modify `main`.
+- Never silently redirect a failed research-branch write to the default branch.
+
+### Mandatory write-failure diagnosis
+
+`TOOL_LIMIT` is valid for persistence only after the worker records concrete evidence that all authorized applicable write paths available in that execution failed or were absent. The status must include:
+- target path;
+- whether it was NEW or EXISTING;
+- write operation(s) attempted or unavailable;
+- exact tool/API error class/message when an attempt failed;
+- confirmation that the failure was not merely missing SHA, wrong create-vs-update operation, stale SHA conflict, or accidental default-branch targeting;
+- whether already-finalized rows can be safely handed to coordinator for persistence without semantic rework.
+
+A generic statement such as "GitHub write blocked", "cannot create file", or "tool unavailable" without this evidence is insufficient and is classified `UNVERIFIED_TOOL_LIMIT`, then `INVALID_STOP` if ordinary continuation/persistence was actually available.
+
+### Coordinator repair
+
+On any `UNVERIFIED_TOOL_LIMIT` or persistence-related stop, coordinator must:
+1. inspect whether the target path exists;
+2. inspect the write capabilities available to the coordinator;
+3. persist already-finalized worker output when it can do so without guessing or reconstructing missing semantic fields;
+4. classify the original stop as valid only if the concrete failure survives the create-vs-update and branch-target checks;
+5. feed the corrected write procedure back into all three lanes so the same tool-selection mistake is not repeated.
+
+A transient connector/API error gets one bounded retry when safe. SHA/conflict errors require refetch/reconcile, not blind overwrite. Authentication/permission/rate-limit/service failures are valid blockers only when evidenced by the actual error and no authorized fallback is available.
+
 ## 11. Production boundary
 
 Pass A still does not authorize:
