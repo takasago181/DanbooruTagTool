@@ -62,6 +62,33 @@ route_vocabulary_gap, route_vocabulary_gap_note,
 review_depth, evidence_urls, uncertainty_note.
 manual_seen=YES. Array fields are valid JSON arrays. No invented IDs.
 
+## Authorized forward write path — VERIFIED
+
+Forward staging writes are explicitly authorized on this research branch. Do NOT self-block merely because a staging JSON is new, existing, large, or semantically replaced.
+
+A forward write is authorized when ALL are true:
+1. branch is exactly `research/taxonomy-usability-audit`;
+2. the worker writes only its own lane path under `docs/issue132/parallel/lane-N/staging/` or its own lane status file;
+3. immutable checkpoints/corrections, other lanes, main, production, UserData, #64/#76/#118 are untouched.
+
+Write protocol:
+- EXISTING staging/status file: fetch that exact path immediately before write and use its current blob SHA with `update_file`.
+- NEW staging/status file: use `create_file`.
+- Full 25-window JSON creation/replacement is expected behavior and is NOT a safety blocker.
+- After write, re-fetch the exact file and run the required exact tuple + 22-field gate.
+
+Invalid blocker reasons:
+- "staging generation/write blocked by safety check";
+- "large write not allowed";
+- "existing staging replacement is unsafe";
+- "multiple 25-window writes in one run are unsafe";
+when no actual GitHub operation has been attempted and failed.
+
+Only classify TOOL_LIMIT/write blocker after an actual applicable GitHub operation fails. Record exact target path, NEW/EXISTING, branch, SHA when EXISTING, attempted operation, and exact returned error.
+If contents `update_file` genuinely fails despite current SHA and correct branch, the worker may use the equivalent authorized Git object blob/tree/commit/ref path if available. Never redirect to main.
+
+Verified capability on this branch already includes successful create/delete in the Issue132 parallel area and successful SHA-bound update of an existing staging file.
+
 ## Fixed run algorithm
 1. Read own lane status. Determine forward next_new.
 2. Set run_target_end=min(next_new+299,lane_end): exactly 12 consecutive 25-identity windows unless final partial.
