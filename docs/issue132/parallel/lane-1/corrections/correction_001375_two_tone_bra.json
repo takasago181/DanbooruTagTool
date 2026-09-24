@@ -1,0 +1,16 @@
+{
+  "schema_version": "issue132-pass-a-correction-v1",
+  "lane": 1,
+  "lane_local_index": 459,
+  "review_seq": 1375,
+  "identity_key": "two-tone_bra",
+  "source_checkpoint": "checkpoint_000451_000475.csv",
+  "qa_boundary": 500,
+  "reason": "100-row QA: a bra is clothing over the breast area, but the frozen body facet rule requires the body site itself to be explicit/intrinsic. The garment tag alone does not intrinsically assert visible or targeted breast/nipple anatomy, so BREAST_NIPPLE was a forced facet.",
+  "expected_before": {
+    "body_site_ids": "[\"BREAST_NIPPLE\"]"
+  },
+  "patch": {
+    "body_site_ids": "[]"
+  }
+}
