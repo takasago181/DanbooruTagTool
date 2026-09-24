@@ -1,0 +1,28 @@
+{
+  "schema_version": "issue132-pass-a-correction-v1",
+  "lane": 1,
+  "lane_local_index": 458,
+  "review_seq": 1372,
+  "identity_key": "cat_cutout",
+  "source_checkpoint": "checkpoint_000451_000475.csv",
+  "qa_boundary": 700,
+  "reason": "Focused Lane-1 401-700 re-audit: Danbooru's clothing_cutout wiki lists cat_cutout as a shape subtype of an intentional opening in clothing. The prior TEXT_SYMBOL/SYMBOL routing treated the cat shape as an independent symbol and missed the clothing/exposure semantics.",
+  "expected_before": {
+    "semantic_summary_ja": "猫の形をした切り抜き・カットアウト",
+    "route_1_id": "TEXT_SYMBOL",
+    "route_1_reason_ja": "主要な視覚カテゴリとして探すのが自然",
+    "local_refinement_ids": "[\"TEXT_SYMBOL/SYMBOL\"]",
+    "review_depth": "CHECKED",
+    "evidence_urls": "[]",
+    "uncertainty_note": ""
+  },
+  "patch": {
+    "semantic_summary_ja": "衣服に設けられた猫形の切り抜き穴・開口部",
+    "route_1_id": "CLOTHING_EXPOSURE",
+    "route_1_reason_ja": "衣服に意図的に設けた猫形の開口部として、衣服状態・露出から探すのが自然",
+    "local_refinement_ids": "[\"CLOTHING_STATE_EXPOSURE/\"]",
+    "review_depth": "RESEARCHED",
+    "evidence_urls": "[\"https://safebooru.donmai.us/wiki_pages/clothing_cutout\"]",
+    "uncertainty_note": "Danbooruのclothing_cutout wikiでcat_cutoutが衣服の開口部の形状サブタイプとして明示されることを確認。"
+  }
+}
