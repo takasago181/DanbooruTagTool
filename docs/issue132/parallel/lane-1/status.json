@@ -10,10 +10,10 @@
   "last_checkpoint": "checkpoint_000701_000725.csv",
   "complete": false,
   "error_count": 1,
-  "last_run_delta": 25,
+  "last_run_delta": 100,
   "last_run_stop_reason": "ACTUAL_FORCED_RUN_END",
-  "last_run_stop_evidence": {"type":"ACTUAL_FORCED_RUN_END","operation":"processed and persisted lane-local 901-925 with exact-identity pre/post persistence verification","location":"docs/issue132/parallel/lane-1/staging/window_000901_000925.json","why_next_identity_could_not_continue":"automation execution turn ended after persistence and mandatory post-write re-fetch verification; no semantic or repository blocker is claimed"},
-  "staged_finalized_count": 169,
-  "active_hold_count": 31,
+  "last_run_stop_evidence": {"type":"ACTUAL_FORCED_RUN_END","operation":"processed and persisted lane-local 926-1025 across four exact-identity staging windows with mandatory post-write re-fetch verification","location":"docs/issue132/parallel/lane-1/staging/window_001001_001025.json","why_next_identity_could_not_continue":"automation execution turn ended after 100 new useful identities were safely persisted; no semantic or repository blocker is claimed"},
+  "staged_finalized_count": 260,
+  "active_hold_count": 40,
   "earliest_active_hold": {"lane_local_index":726,"review_seq":2176,"identity_key":"keizoku_(emblem)"}
 }
