@@ -1,82 +1,75 @@
 {
   "schema_version": "issue132-parallel-coordinator-v1",
   "population": 31003,
-  "total_reviewed": 1475,
-  "total_remaining": 29528,
+  "total_reviewed": 1500,
+  "total_remaining": 29503,
   "complete": false,
   "worker_target_per_run": 300,
   "quality_flags_pending": 12,
   "latest_ci": {
     "workflow": "Issue132 Incremental Checkpoint Validation",
-    "run_id": 35945528937,
-    "head_sha": "9c90ed38db2ac782477c5d18b9d899b54aaa037e",
+    "run_id": 35953865301,
+    "head_sha": "5c3b12a9e7f5c59a77e969d04da2f9606a3f3e10",
     "conclusion": "failure",
     "failed_step": "Validate semantic hold staging windows",
-    "diagnosis": "Lane 3 staged row see-through_china_babydoll carried two local refinements with the same CLOTHING_EXPOSURE parent (CLOTHING_STATE_EXPOSURE/ and CLOTHING/COSTUME), violating the frozen validator's normally-at-most-one-local-per-parent rule.",
-    "repair": "Commit a71f8b4c01c5e726342289373f6223cdd581e5cd removed the weaker CLOTHING/COSTUME refinement and retained CLOTHING_STATE_EXPOSURE/. Checkpoint/correction and neutral-shard validation had already passed; next CI should confirm staging repair."
+    "diagnosis": "Lane 1 staging has deterministic identity/coverage defects: window 751-775 contains ant from local 776; window 776-800 contains gold_blood from local 801, shifted hold indices for deep_insertion/otome_camellia/excuse_me_he_asked_for_no_pickles_(meme), and resulting missing/duplicate coverage. Frozen neutral shards, immutable checkpoints, and effective correction overlays passed.",
+    "repair_required": "Repair Lane 1 staging only against the validated lane-1 601-900 shard; do not alter immutable checkpoints. Re-run staging validation before any promotion."
   },
   "lanes": {
     "1": {
       "assigned_count": 10335,
-      "reviewed_count": 700,
-      "remaining_count": 9635,
-      "staged_finalized_count": 24,
-      "active_hold_count": 1,
-      "earliest_active_hold": {"lane_local_index":706,"review_seq":2116,"identity_key":"metal_sand"},
-      "zero_progress_streak": 0,
-      "latest_checkpoint": "checkpoint_000676_000700.csv",
-      "state": "ACTIVE_STAGED",
-      "note": "Official prefix remains 700. One 25-row staging window beyond the prefix has 24 finalized rows and one hold; useful work is preserved without inflating reviewed_count."
+      "reviewed_count": 725,
+      "remaining_count": 9610,
+      "staged_finalized_count_reported": 58,
+      "active_hold_count_reported": 17,
+      "latest_checkpoint": "checkpoint_000701_000725.csv",
+      "state": "UNDERPERFORMING_INVALID_STOP_STAGING_REPAIR_REQUIRED",
+      "note": "Worker reported EXECUTION_LIMIT after 50 new identities and explicitly says next identity 801 can resume. That is not evidence that ordinary continuation and hold staging were impossible. Latest CI also found Lane 1 staging identity/coverage defects, so staging counts are provisional until repaired."
     },
     "2": {
       "assigned_count": 10334,
       "reviewed_count": 375,
       "remaining_count": 9959,
-      "staged_finalized_count": 47,
-      "active_hold_count": 3,
-      "zero_progress_streak": 0,
+      "staged_finalized_count": 114,
+      "active_hold_count": 11,
       "latest_checkpoint": "checkpoint_000351_000375.csv",
-      "last_run_stop_reason": "EXECUTION_LIMIT",
       "state": "UNDERPERFORMING_INVALID_STOP",
-      "note": "47 finalized staged rows and three holds exist through local 425. The reported EXECUTION_LIMIT did not establish that safe continuation from 426 was impossible; by the stop contract this is an invalid short-run stop and the worker must continue next cycle."
+      "note": "Worker stopped after the 476-500 staging window while explicitly stating continuation is safe from local 501. EXECUTION_LIMIT is invalid under the stop contract without concrete evidence that continuation was impossible."
     },
     "3": {
       "assigned_count": 10334,
       "reviewed_count": 400,
       "remaining_count": 9934,
-      "staged_finalized_count": 115,
-      "active_hold_count": 10,
-      "zero_progress_streak": 0,
+      "staged_finalized_count": 227,
+      "active_hold_count": 23,
       "latest_checkpoint": "checkpoint_000376_000400.csv",
-      "last_run_stop_reason": "EXECUTION_LIMIT",
-      "state": "UNDERPERFORMING_INVALID_STOP_REPAIR_PENDING_CI",
-      "note": "Five staging windows now cover local 401-525 with 115 finalized rows and ten holds. The worker processed only 75 new identities in the latest turn and explicitly stated continuation from 526 was safe, so EXECUTION_LIMIT is invalid under the stop contract. Latest CI staging failure was separately diagnosed and repaired in a71f8b4c."
+      "state": "UNDERPERFORMING_INVALID_STOP",
+      "note": "Worker stopped after 50 new identities through local 650 and explicitly says the next run can resume at 651. Runtime-boundary wording alone does not establish that safe continuation was impossible."
     }
   },
   "observed_run_metrics": {
     "schema_version": "execution-telemetry-v1",
-    "lane_1": {"checkpoint_delta": 0,"staged_finalized_delta": 24,"active_hold_count": 1,"holds_resolved": 0,"staging_windows_created": 1,"staging_windows_promoted": 0,"preflight_mode": "FAST","stop_reason": "IN_PROGRESS"},
-    "lane_2": {"checkpoint_delta": 0,"staged_finalized_delta": 47,"active_hold_count": 3,"holds_resolved": 0,"staging_windows_created": 2,"staging_windows_promoted": 0,"preflight_mode": "FAST","stop_reason": "INVALID_EXECUTION_LIMIT"},
-    "lane_3": {"checkpoint_delta": 0,"staged_finalized_delta": 115,"active_hold_count": 10,"holds_resolved": 0,"staging_windows_created": 5,"staging_windows_promoted": 0,"preflight_mode": "FAST","stop_reason": "INVALID_EXECUTION_LIMIT"}
+    "lane_1": {"checkpoint_delta":25,"staged_finalized_delta":35,"active_hold_count":17,"holds_resolved":1,"staging_windows_created":3,"staging_windows_promoted":1,"preflight_mode":"FAST","stop_reason":"INVALID_EXECUTION_LIMIT"},
+    "lane_2": {"checkpoint_delta":0,"staged_finalized_delta":67,"active_hold_count":11,"holds_resolved":0,"staging_windows_created":3,"staging_windows_promoted":0,"preflight_mode":"FAST","stop_reason":"INVALID_EXECUTION_LIMIT"},
+    "lane_3": {"checkpoint_delta":0,"staged_finalized_delta":112,"active_hold_count":23,"holds_resolved":0,"staging_windows_created":5,"staging_windows_promoted":0,"preflight_mode":"FAST","stop_reason":"INVALID_EXECUTION_LIMIT"}
   },
-  "staging_totals": {"staged_finalized_rows":186,"active_holds":14},
+  "throughput_watchdog": {
+    "lane_1": {"previous_productive_commit_at":"2026-09-24T02:33:01Z","last_productive_commit_at":"2026-09-24T03:30:51Z","new_identities_in_observed_interval":50,"elapsed_minutes_between_productive_commits":57.83,"identities_per_hour":51.88,"minutes_per_25_identities":28.92,"continuation_was_safe":true,"assessment":"UNDERPERFORMING_INVALID_STOP","reason":"50 identities persisted, then stop evidence says next identity 801 is resumable; no concrete blocker made continuation impossible."},
+    "lane_2": {"previous_productive_commit_at":"2026-09-24T02:45:10Z","last_productive_commit_at":"2026-09-24T03:46:21Z","new_identities_in_observed_interval":25,"elapsed_minutes_between_productive_commits":61.18,"identities_per_hour":24.52,"minutes_per_25_identities":61.18,"continuation_was_safe":true,"assessment":"UNDERPERFORMING_INVALID_STOP","reason":"Status explicitly says continuation is safe from local 501."},
+    "lane_3": {"previous_productive_commit_at":"2026-09-24T03:04:15Z","last_productive_commit_at":"2026-09-24T04:01:22Z","new_identities_in_observed_interval":50,"elapsed_minutes_between_productive_commits":57.12,"identities_per_hour":52.52,"minutes_per_25_identities":28.56,"continuation_was_safe":true,"assessment":"UNDERPERFORMING_INVALID_STOP","reason":"Status explicitly says next run can resume at local 651; one hold retry did not prevent later processing."},
+    "measurement_note": "Commit-to-commit wall time includes scheduler/waiting idle time and is not claimed as pure semantic reasoning duration. It is used only to detect short-run stop patterns and compare observable productive cadence."
+  },
+  "staging_totals_from_latest_validator": {"staged_finalized_rows":400,"active_holds":51,"validation_error_count":8,"counts_provisional_until_lane1_repair":true},
   "hold_research_cycle": {
-    "attempted": ["lane2 local390 w_over_eye","lane2 local397 fish_bottle","lane2 local421 energy_ring"],
+    "attempted": ["lane2 local390 w_over_eye","lane2 local397 fish_bottle","lane3 local407 spines"],
     "resolved": 0,
-    "note": "Fresh searches still lacked sufficiently direct semantic authority. w_over_eye had only example-post evidence; fish_bottle remained lexically ambiguous; energy_ring had example usage but no direct Danbooru definition. No guessed rows were finalized."
+    "note": "Fresh Danbooru/Safebooru-targeted searches did not surface direct tag definitions for these three earliest promotion-blocking holds. Generic help pages and single-example evidence are insufficient, so no guessed finalization was made."
   },
-  "baseline_note": "Fast preflight matched all three expected frozen blob SHAs. Official progress remains immutable checkpoint union only; staged rows are tracked separately. Lane-local neutral shards remain primary input.",
-  "quality_note": "Velocity-aware conditional semantic lint remains mandatory. This cycle also caught a structural/local-refinement defect in new Lane 3 staging before promotion; the repair retained the stronger exposure-state refinement and removed redundant costume refinement.",
+  "baseline_note": "Fast preflight matched all three expected frozen blob SHAs. Latest CI independently reconfirmed frozen population 31,003, neutral SHA/order, and 105 tracked worker shards with zero shard errors.",
+  "quality_note": "Velocity-aware conditional semantic lint remains mandatory. Latest failure is structural Lane 1 staging drift, not a reason to relax semantics or modify immutable checkpoints.",
   "pass_b_generated": false,
   "worker_target_semantics": "ceiling_not_quota",
   "checkpoint_rows": 25,
   "cross_batch_qa_rows": 100,
-  "coordinator_rescue_max_rows": 25,
-  "lane1_focused_reaudit": {
-    "lane_local_range": "401-700",
-    "reviewed_rows": 300,
-    "high_risk_rows_examined": 73,
-    "ordinary_rows_spot_checked": 30,
-    "audit_record": "docs/issue132/parallel/audits/lane-1_000401_000700_focused_reaudit.json"
-  }
+  "coordinator_rescue_max_rows": 25
 }
