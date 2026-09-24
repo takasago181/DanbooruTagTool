@@ -489,6 +489,50 @@ On any `UNVERIFIED_TOOL_LIMIT` or persistence-related stop, coordinator must:
 
 A transient connector/API error gets one bounded retry when safe. SHA/conflict errors require refetch/reconcile, not blind overwrite. Authentication/permission/rate-limit/service failures are valid blockers only when evidenced by the actual error and no authorized fallback is available.
 
+## 10D. Work-conserving worker state machine
+
+The worker's objective is not to "finish a batch" or "produce a checkpoint". Its objective is to keep converting available lane work into valid finalized rows until a terminal condition is actually reached.
+
+At run start, compute a fixed run target:
+- `run_start_local` = exact next NEW lane-local identity not already validly finalized/staged;
+- `run_target_end` = min(run_start_local + 299, assigned_count).
+
+Then execute this loop without asking whether it feels appropriate to continue:
+
+1. Process the next identities under the frozen Accuracy Gate.
+2. Every 25 identities, persist the valid rows/real holds as a safety checkpoint/staging window.
+3. If a cumulative 100-row QA boundary is crossed, perform the required QA and persist any valid corrections.
+4. Recompute the next unprocessed identity.
+5. If `next_identity <= run_target_end` and no evidenced hard blocker prevents both normal work and safe hold-staging, immediately return to step 1.
+6. Only after a terminal condition exists may the worker write its end-of-run status/report.
+
+Terminal conditions are only:
+- `TARGET_REACHED`: 300 NEW identities usefully finalized/staged in this run;
+- `LANE_COMPLETE`;
+- `HARD_BLOCKED`: a concrete evidenced tool/contract/conflict failure prevents both persistence/continuation and authorized fallback;
+- an actual external forced interruption. A worker must not predict or self-declare an external interruption in advance.
+
+### No placeholder progress
+
+A semantic hold is an exceptional per-identity result after the worker actually attempted to finalize that identity and material uncertainty remained after the bounded research rule. A hold is NOT a queue marker, placeholder, time-saving device, recovery marker, or substitute for doing semantic work.
+
+The following hold reasons/patterns are invalid:
+- `queued`;
+- `pending finalization` / `conservative staging pending finalization`;
+- `prior work was not persisted; re-finalize later`;
+- creating holds for an entire 25-row window merely because prior in-memory work was lost;
+- any hold with no identity-specific semantic uncertainty and no genuine bounded attempt to resolve it.
+
+If earlier semantic work was lost before persistence, those identities are UNPROCESSED. Re-read them from the validated shard and process them normally; do not convert lost work into holds to make the lane appear advanced.
+
+A staging window dominated by placeholder holds is `INVALID_STAGING`, contributes zero useful-progress credit, must not inflate active semantic-hold telemetry, and should be deleted/rebuilt from the neutral shard rather than promoted.
+
+### No voluntary wrap-up
+
+Workers must not spend remaining useful execution capacity on a narrative wrap-up while `next_identity <= run_target_end` and no terminal condition exists. Status/report generation is terminal-only. Checkpoint success, status cleanliness, a convenient boundary, elapsed subjective effort, or "enough for this cycle" are never terminal conditions.
+
+Coordinator must measure useful progress as finalized rows + genuinely researched semantic holds + resolved holds, not raw staging coverage. Placeholder holds count as zero progress and trigger `INVALID_STOP` / `INVALID_STAGING` remediation.
+
 ## 11. Production boundary
 
 Pass A still does not authorize:
