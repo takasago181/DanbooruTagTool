@@ -13,6 +13,13 @@ Responsibilities:
 - summarize repair debt trend from the two repair status files;
 - do not perform historical repair unless a Repair task is blocked and one tiny urgent same-lane intervention is necessary.
 
-New-row quality watchdog: sample for repeated color->COLOR, placement->POSE, motif->LIVING, weak SCENE/TOOL secondaries. Historical Lane3 751-1050 debt belongs to Repair3.
+New-row quality watchdog is event-driven, not hourly repetition:
+- keep last_sampled_100_boundary per lane in coordinator_status;
+- only when a lane completes a NEW 100-row boundary not yet sampled, perform the independent second-line sample for repeated color->COLOR, placement->POSE, motif->LIVING, weak SCENE/TOOL secondaries;
+- if the sample is clean, mark that 100-block sampled and do not reread it next cycle;
+- if a systematic family issue appears, flag only the affected family/range for Repair; do not make the forward worker reread unrelated rows.
+Historical Lane3 751-1050 debt belongs to Unified Repair.
+
+Read unified repair state from repair_status.json. Do not expect per-lane repair-status files.
 
 Keep coordinator_status concise; no repeated narrative history.
