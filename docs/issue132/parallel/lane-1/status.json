@@ -10,10 +10,10 @@
   "last_checkpoint": "checkpoint_000701_000725.csv",
   "complete": false,
   "error_count": 1,
-  "last_run_delta": 0,
+  "last_run_delta": 50,
   "last_run_stop_reason": "EXECUTION_LIMIT",
-  "last_run_stop_evidence": {"type":"ACTUAL_RUN_END_AFTER_PERSISTENCE_RECOVERY","operation":"recovered create-file persistence path and persisted windows 801-825 and 826-850 conservatively as holds","location":"docs/issue132/parallel/lane-1/staging","why_next_identity_could_not_continue":"run execution ended after persistence recovery and safe staging; no semantic rows were promoted in this run"},
-  "staged_finalized_count": 58,
-  "active_hold_count": 67,
+  "last_run_stop_evidence": {"type":"ACTUAL_FORCED_RUN_END","operation":"processed and persisted lane-local 776-825 as two valid semantic staging windows","location":"docs/issue132/parallel/lane-1/staging/window_000776_000800.json and window_000801_000825.json","why_next_identity_could_not_continue":"automation execution turn ended after persistence of the second new 25-identity window; no semantic or repository blocker was claimed"},
+  "staged_finalized_count": 82,
+  "active_hold_count": 18,
   "earliest_active_hold": {"lane_local_index":726,"review_seq":2176,"identity_key":"keizoku_(emblem)"}
 }
