@@ -1,0 +1,22 @@
+{
+  "schema_version": "issue132-pass-a-correction-v1",
+  "lane": 1,
+  "lane_local_index": 483,
+  "review_seq": 1447,
+  "identity_key": "scar_on_leg",
+  "source_checkpoint": "checkpoint_000476_000500.csv",
+  "qa_boundary": 700,
+  "reason": "Focused Lane-1 401-700 re-audit: the tag intrinsically means a scar located on a leg. A scar alone does not intrinsically assert an R18G injury/gore theme, so INJURY_R18G was forced.",
+  "expected_before": {
+    "theme_ids": "[\"INJURY_R18G\"]",
+    "review_depth": "CHECKED",
+    "evidence_urls": "[]",
+    "uncertainty_note": ""
+  },
+  "patch": {
+    "theme_ids": "[]",
+    "review_depth": "RESEARCHED",
+    "evidence_urls": "[\"https://safebooru.donmai.us/wiki_pages/scar_on_leg\"]",
+    "uncertainty_note": "Danbooru wikiでscar_on_legは脚に位置するscarと定義される。傷跡の位置は明示されるが、R18Gの損傷テーマ自体は必須ではない。"
+  }
+}
