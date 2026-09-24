@@ -1,0 +1,18 @@
+{
+  "schema_version": "issue132-pass-a-correction-v1",
+  "lane": 1,
+  "lane_local_index": 435,
+  "review_seq": 1303,
+  "identity_key": "bracelet_girls",
+  "source_checkpoint": "checkpoint_000426_000450.csv",
+  "qa_boundary": 700,
+  "reason": "Focused Lane-1 401-700 re-audit: prior RESEARCHED evidence was a single example post, which is disallowed as default direct evidence. Replace it with a direct reference page identifying the ARC-V 'Bracelet Girls' grouping and its members.",
+  "expected_before": {
+    "evidence_urls": "[\"https://safebooru.org/index.php?id=3840771&page=post&s=view\"]",
+    "uncertainty_note": "Safebooruでbracelet girlsが4girlsと柊柚子・黒咲瑠璃・リン・セレナの4名に併記されることを確認。"
+  },
+  "patch": {
+    "evidence_urls": "[\"https://yugioh-arcv.fandom.com/wiki/Four_Dimensions\"]",
+    "uncertainty_note": "Yu-Gi-Oh! ARC-V WikiのFour Dimensions項目でBracelet GirlsとしてYuzu・Serena・Rin・Ruri Kurosakiの4名が明示されることを確認。"
+  }
+}
