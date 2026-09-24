@@ -533,6 +533,52 @@ Workers must not spend remaining useful execution capacity on a narrative wrap-u
 
 Coordinator must measure useful progress as finalized rows + genuinely researched semantic holds + resolved holds, not raw staging coverage. Placeholder holds count as zero progress and trigger `INVALID_STOP` / `INVALID_STAGING` remediation.
 
+## 10E. Lane-specific remediation profiles
+
+The three lanes remain equal peers, but coordinator applies different remediation to the failure family actually observed in each lane. These profiles are operational and temporary; they do not change lane ownership or the frozen semantic contract.
+
+### Lane 1 — placeholder-hold contamination recovery
+
+Observed failure family: lost/unpersisted semantic work was converted into placeholder holds instead of being treated as unprocessed work.
+
+- Recompute staging/status from repository truth; do not trust stale active_hold_count after invalid staging deletion.
+- Any staging window containing placeholder reasons such as queued, pending finalization, conservative staging, or prior-work-lost recovery is invalid and contributes zero useful progress.
+- Deleted/invalid placeholder ranges return to UNPROCESSED state and are re-read from the validated lane shard, finalized normally, and persisted with genuine holds only where identity-specific uncertainty remains after bounded attempts.
+- Do not re-review valid finalized rows from unaffected staging windows merely because neighboring windows were invalid.
+- After reconciliation, resume the normal 300-NEW work-conserving loop from the exact first unprocessed lane-local identity.
+
+### Lane 2 — chronic short-stop recovery
+
+Observed failure family: worker performs useful work but voluntarily ends after 25–50 identities while the next shard position is explicitly safe to continue.
+
+- A prior short stop creates execution debt, not a new smaller target. On the next run derive the exact first NEW identity and still set run_target_end = start + 299 (bounded by lane end).
+- Earliest-hold retry occurs once, then new work continues; hold research may not consume or replace the 300-NEW target.
+- Status/report generation before terminal state is an INVALID_STOP even if 25/50 identities were safely persisted.
+- Coordinator should specifically verify that Lane 2 crosses its former 25/50-row stopping pattern; repeated sub-300 safe stop remains UNDERPERFORMING_INVALID_STOP.
+
+### Lane 3 — secondary-route inflation remediation
+
+Observed failure family after a successful 300-identity run: throughput is healthy and placeholder holds are absent, but secondary routes are over-applied, especially COLOR_PATTERN_SHAPE, object-placement POSE_POSITION, and motif-as-LIVING.
+
+Before treating lane-local 751–1050 as quality-clean or promoting affected windows, run a targeted family re-audit, not a full 300-row reread:
+- inspect every finalized row in 751–1050 with route_2/route_3 or related local refinement;
+- challenge COLOR_PATTERN_SHAPE when it is only a color/material/pattern adjective attached to another central concept; keep it only when a user would independently browse by the pattern/shape concept rather than merely because the tag contains a color/pattern word;
+- challenge POSE_POSITION when the tag is only object/clothing placement or holding; require independently useful body geometry/pose;
+- challenge LIVING / LIVING_NATURE when the animal/plant is only a print, motif, ornament, emblem, or likeness rather than the depicted living subject/concept;
+- challenge SCENE_BACKGROUND and TOOL_OBJECT secondaries using the same independent-discovery test;
+- do not mechanically delete every secondary route: retain it when independently useful and semantically entailed.
+
+Known examples requiring re-check include pink_petals, pink_sky, colored_chastity_cage, multicolored_hoodie, gradient_hoodie, eyewear_around_neck, kimono_on_shoulders, flower_on_chest, clothes_over_shoulder, penguin_print, and duck_hair_ornament. These are audit seeds, not automatic rewrites.
+
+Because the affected rows are staging rather than immutable checkpoints, definite fixes should update the staging row in place with exact 22-field validation. If a material semantic question appears, research only that challenged row. After this focused family audit passes, Lane 3 returns to the normal 300-NEW state-machine loop; the audit itself must not become a permanent throughput tax on every future row.
+
+### Coordinator lane-specific checks
+
+Every coordinator cycle, in addition to common checks:
+- Lane 1: count placeholder-hold patterns and verify invalid ranges are being reprocessed rather than hidden in hold telemetry;
+- Lane 2: compare NEW useful identities against the fixed 300-run target and reject convenient 25/50-row wrap-up;
+- Lane 3: until the 751–1050 focused family audit is complete, track route2-family corrections and do not call the 300-run quality-clean merely because TARGET_REACHED was reported.
+
 ## 11. Production boundary
 
 Pass A still does not authorize:
