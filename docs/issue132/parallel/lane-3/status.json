@@ -12,16 +12,16 @@
   "error_count": 0,
   "last_run_delta": 0,
   "last_run_stop_reason": "EXECUTION_LIMIT",
-  "staged_finalized_count": 184,
-  "active_hold_count": 16,
-  "staging_windows": ["window_000401_000425.json", "window_000426_000450.json", "window_000451_000475.json", "window_000476_000500.json", "window_000501_000525.json", "window_000526_000550.json", "window_000551_000575.json", "window_000576_000600.json"],
+  "staged_finalized_count": 227,
+  "active_hold_count": 23,
+  "staging_windows": ["window_000401_000425.json", "window_000426_000450.json", "window_000451_000475.json", "window_000476_000500.json", "window_000501_000525.json", "window_000526_000550.json", "window_000551_000575.json", "window_000576_000600.json", "window_000601_000625.json", "window_000626_000650.json"],
   "last_qa_boundary": 400,
   "last_qa_note": "Cumulative committed QA remains complete through boundary 400. Semantic-hold staging is active; hard identities are isolated without discarding later finalized work.",
   "last_run_blocker": {
     "type": "EXECUTION_LIMIT",
-    "operation": "continue semantic review from lane-local 601 after persisting three additional staging windows",
-    "where": "after lane-local 526-600 were usefully examined and staging windows 526-550, 551-575, and 576-600 were written",
-    "evidence": "This execution processed 75 new identities: 69 were fully finalized and 6 were persisted as holds. Existing earliest hold spines was retried with fresh exact-tag research but direct Danbooru/Safebooru definition still did not surface. Together with prior staging, lane 3 now has 184 staged finalized rows and 16 active holds. Window coverage was corrected and revalidated so each identity 526-600 appears exactly once as row or hold.",
-    "why_continuation_impossible": "The execution turn reached its runtime boundary after the three 25-identity windows were safely persisted and structural coverage corrected; the next run can resume at lane-local 601 while retrying the earliest hold once as required."
+    "operation": "continue semantic review from lane-local 651 after persisting staging windows 601-625 and 626-650",
+    "where": "after lane-local 601-650 were usefully examined and both staging windows were written",
+    "evidence": "This execution processed 50 new identities: 43 were fully finalized and 7 were persisted as holds. The earliest existing hold spines was retried once with fresh Danbooru/Safebooru web search; no direct spines tag definition surfaced, so the hold was preserved rather than guessed. Lane 3 now has 227 staged finalized rows and 23 active holds beyond the immutable prefix of 400.",
+    "why_continuation_impossible": "The execution turn reached its runtime boundary after two complete 25-identity staging windows were safely persisted and the required earliest-hold retry was performed; the next run can resume at lane-local 651 without losing finalized work."
   }
 }
