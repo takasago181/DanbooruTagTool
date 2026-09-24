@@ -10,12 +10,14 @@
   "last_checkpoint": "checkpoint_000351_000375.csv",
   "complete": false,
   "error_count": 0,
-  "last_run_delta": 25,
-  "last_run_stop_reason": "SEMANTIC_TOOL_BLOCKER",
+  "last_run_delta": 0,
+  "last_run_stop_reason": "EXECUTION_LIMIT",
+  "staged_finalized_count": 47,
+  "active_hold_count": 3,
   "last_run_blocker_evidence": {
-    "blocker_type": "SEMANTIC_TOOL_BLOCKER",
-    "operation": "obtain direct semantic evidence for ambiguous identity fish_bottle before finalizing lane-local row 397",
-    "location": "lane-local row 397 / global review_seq 1190 in shard_000301_000600.csv",
-    "effect": "The validated neutral shard is available and processing resumed successfully. During the next 25-row unit, fish_bottle remained materially ambiguous (fish-shaped bottle versus fish contained in a bottle or another tag-specific meaning). Exact web searches for fish_bottle/Danbooru and Latent Tags returned no direct tag definition; returned results were unrelated/generic or only showed separate fish and bottle tags. The frozen accuracy gate forbids classification from spelling inference and SEMANTIC_UNRESOLVED requires direct evidence plus uncertainty. Therefore this identity could not be safely finalized, preventing completion/persistence of checkpoint 376-400. The already validated checkpoint 351-375 was preserved; no partial checkpoint was written."
+    "blocker_type": "EXECUTION_LIMIT",
+    "operation": "continue semantic Pass-A processing beyond lane-local 425 after safely persisting staging windows 376-400 and 401-425",
+    "location": "lane-local 426 would be the next identity; immutable prefix remains 375",
+    "effect": "This execution ended after two complete 25-identity windows were safely persisted as staging. 47 identities are fully finalized and three identities are held without guessed semantic fields (w_over_eye local 390, fish_bottle local 397, energy_ring local 421). The staging mechanism successfully prevented hard identities from stalling later work. No immutable checkpoint could yet be promoted because the earliest staged window still has active holds. Continuation is safe from lane-local 426 while earliest holds are retried once on the next run."
   }
 }
