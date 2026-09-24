@@ -425,6 +425,20 @@ Interpretation rules:
 
 Coordinator telemetry should add a `throughput_watchdog` object per lane with the fields above plus `assessment` (`NORMAL`, `WARNING`, `UNDERPERFORMING_INVALID_STOP`, or `BLOCKED_VALID`) and a short evidence-based reason. Preserve the existing zero-progress streak logic separately.
 
+## 10B. Coordinator takeover after invalid worker stop
+
+An invalid short-run stop is not merely a status/telemetry event. The coordinator must recover the abandoned capacity immediately in the same coordinator cycle whenever authorized tools and valid lane shards are available.
+
+- Apply this uniformly to Lane 1, Lane 2, and Lane 3; no lane receives a passive warning-only exception.
+- When a worker stops below the 300 NEW-identity ceiling without a valid hard stop, mark the stop invalid and take over that same lane from the exact next unprocessed lane-local identity.
+- First preserve/validate all useful worker checkpoint and staging output. Do not redo finalized identities merely because the worker stopped early.
+- Resolve or stage hard identities under the existing bounded-research hold rules, then continue later identities. One or several holds do not prevent takeover.
+- Coordinator takeover may execute repeated same-lane rescue chunks of at most 25 NEW identities each, but the 25-row rescue chunk is a persistence/safety unit, not a coordinator-cycle ceiling. Continue additional 25-row rescue chunks in the same cycle until the abandoned worker capacity is recovered up to the original 300 NEW-identity run ceiling, the lane completes, or a concrete valid hard stop actually prevents both ordinary continuation and safe hold staging.
+- The previous rule "rescue is same-lane only, max 25 new identities" is therefore interpreted as max 25 NEW identities per rescue chunk, not max 25 per coordinator cycle after an INVALID_STOP.
+- Never use takeover to relax semantic QA, bypass 100-row QA, guess unresolved semantics, overwrite immutable checkpoints, or cross lane ownership.
+- Telemetry must separately record `worker_new_identities`, `coordinator_takeover_new_identities`, `takeover_chunks`, and `unrecovered_invalid_stop_capacity` for each lane.
+- If tool/runtime interruption prevents full recovery in the current coordinator cycle, persist every valid 25-row unit and record the concrete interruption; resume takeover before treating the lane as healthy.
+
 ## 11. Production boundary
 
 Pass A still does not authorize:
