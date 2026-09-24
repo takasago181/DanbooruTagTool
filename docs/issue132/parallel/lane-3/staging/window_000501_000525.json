@@ -7,7 +7,7 @@
 ["1512","historical_connection","YES","人物・事物どうしの歴史上のつながりを示すメタ的関係","SEARCH_ORIENTED","","","","","","","","","","[]","[]","[]","NO","","CHECKED","[]",""],
 ["1515","snake_hood","YES","蛇を意匠にしたフード","BROWSE_WORTHY","CLOTHING_EXPOSURE","CORE","衣装・フードの意匠として探すのが自然","","","","","","","[\"CLOTHING/COSTUME\"]","[]","[]","NO","","CHECKED","[]",""],
 ["1518","cockroach_girl","YES","ゴキブリの特徴を持つ少女・女性キャラクター","BROWSE_WORTHY","NONHUMAN_TRANSFORM","CORE","人型に昆虫の非人間的特徴を組み合わせた外見として探すのが自然","LIVING","SUPPORTING","ゴキブリ・昆虫モチーフからも独立して探せる","","","","[\"LIVING_NATURE/CREATURE\"]","[]","[]","NO","","CHECKED","[]",""],
-["1521","see-through_china_babydoll","YES","透け素材のチャイナ風ベビードール衣装","BROWSE_WORTHY","CLOTHING_EXPOSURE","CORE","透けた衣装・ランジェリーとして探すのが自然","","","","","","","[\"CLOTHING_STATE_EXPOSURE/\",\"CLOTHING/COSTUME\"]","[]","[]","NO","","CHECKED","[]",""],
+["1521","see-through_china_babydoll","YES","透け素材のチャイナ風ベビードール衣装","BROWSE_WORTHY","CLOTHING_EXPOSURE","CORE","透けた衣装・ランジェリーとして探すのが自然","","","","","","","[\"CLOTHING_STATE_EXPOSURE/\"]","[]","[]","NO","","CHECKED","[]",""],
 ["1524","spade_brooch","YES","スペード形のブローチ","BROWSE_WORTHY","CLOTHING_EXPOSURE","CORE","アクセサリーとして探すのが自然","TEXT_SYMBOL","SUPPORTING","スペード記号からも独立して探せる","","","","[\"CLOTHING/ACCESSORY\",\"TEXT_SYMBOL/SYMBOL\"]","[]","[]","NO","","CHECKED","[]",""],
 ["1527","muscle_car","YES","高出力エンジンを特徴とするマッスルカー","BROWSE_WORTHY","TOOL_OBJECT","CORE","自動車・車両として探すのが自然","","","","","","","[\"OBJECT_PROP/VEHICLE\"]","[]","[]","NO","","CHECKED","[]",""],
 ["1530","nine_of_spades","YES","トランプのスペードの9","BROWSE_WORTHY","TEXT_SYMBOL","CORE","カードの記号・数字として探すのが自然","TOOL_OBJECT","SUPPORTING","トランプカードという物体側からも独立して探せる","","","","[\"TEXT_SYMBOL/SYMBOL\"]","[]","[]","NO","","CHECKED","[]",""],
