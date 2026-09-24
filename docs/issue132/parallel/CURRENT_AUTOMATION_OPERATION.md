@@ -135,6 +135,20 @@ For every row the worker must establish:
 
 A weak provisional row is not accepted with the intention of fixing it later.
 
+### Velocity-aware conditional semantic lint
+
+Do not make every ordinary row pay the cost of a full second semantic review. Instead, immediately before finalizing a row, run only the checks whose fields are actually used:
+
+- if `body_site_ids` is non-empty: **intrinsic anatomy test** — would the tag itself still assert that body site if the associated garment/object were mentally removed? Mere adjacency/coverage/association is insufficient;
+- if `theme_ids` is non-empty: **theme necessity test** — the theme must be intrinsic to the tag, not merely a possible cause/context. A scar is not automatically `INJURY_R18G`;
+- if a local refinement is set: **entailment test** — the exact tag meaning must require that refinement. `ACTION_CONTACT/INTERACTION` requires actual multi-entity interaction, not merely an action/skill;
+- if `SEARCH_ORIENTED`: **named/reference lookup test** — it must primarily be an understood name/reference/provenance lookup. A generic visual concept must not be made SEARCH_ORIENTED just because it has a specialized name;
+- if `TEXT_SYMBOL`: **independent symbol test** — a shape that is merely the shape of a clothing cutout/object is not automatically a symbol;
+- if `RESEARCHED`: **evidence-strength test** — the cited source must directly establish the asserted meaning/scope. One example post alone is not enough;
+- if the route reason is generic boilerplate, do one quick adversarial check: “what nearby route would a user plausibly choose instead?” If there is no real ambiguity, keep the fast-path row and move on.
+
+These conditional checks are reasoning-only and normally require no web call. Research is triggered only if a check exposes material uncertainty. This is the main speed/quality balance: obvious rows remain single-pass; risky fields get a cheap challenge before persistence.
+
 ### Ambiguity gate — stricter than before
 
 `CHECKED` is only for genuinely clear ordinary visual concepts.
@@ -296,9 +310,17 @@ Re-review **all high-risk rows**:
 - theme facets
 - adult/sexual concepts
 
-Then spot-check about 10% of ordinary single-route CHECKED rows, with a minimum of 10 when available.
+Then run a deterministic **soft-risk sweep** over ordinary CHECKED rows. Do not research them all. Prioritize up to 15 per 100-row block that match one or more of:
+- body/theme/local fields whose semantics are only indirectly implied by the identity;
+- generic boilerplate route reasons;
+- TEXT_SYMBOL used for shapes/cutouts/logos where the symbol may not be independent;
+- ACTION_CONTACT local refinements on broad skills/actions;
+- SEARCH_ORIENTED on generic concepts rather than names/references;
+- clothing/object tags carrying anatomy facets by association.
 
-This preserves protection against systematic drift without rereading every obvious row twice.
+Also spot-check at least 10 ordinary low-risk single-route CHECKED rows. If the soft-risk sweep finds no defect, do not expand it. If one systematic error family is confirmed, expand only that family across the current 100-row block and the immediately preceding completed block, rather than rereading all rows.
+
+This preserves protection against systematic drift without turning QA into a full second pass.
 
 If repeated inconsistency is found, expand the review scope for that family/block.
 
