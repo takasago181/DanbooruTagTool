@@ -1,0 +1,67 @@
+{
+  "schema_version": "issue132-lane-focused-reaudit-v1",
+  "lane": 1,
+  "lane_local_start": 401,
+  "lane_local_end": 700,
+  "reviewed_rows": 300,
+  "high_risk_rows_examined": 73,
+  "ordinary_rows_spot_checked": 30,
+  "purpose": "Focused semantic re-audit after a 300-row fast run, preserving immutable checkpoints and correcting only evidence-backed defects.",
+  "findings": [
+    {
+      "review_seq": 1303,
+      "identity_key": "bracelet_girls",
+      "finding": "RESEARCHED evidence quality too weak (single example post).",
+      "action": "Replace evidence via correction overlay with direct reference page; semantic classification unchanged."
+    },
+    {
+      "review_seq": 1372,
+      "identity_key": "cat_cutout",
+      "finding": "Misrouted as TEXT_SYMBOL/SYMBOL; Danbooru defines it as a clothing-cutout shape subtype.",
+      "action": "Correction overlay -> CLOTHING_EXPOSURE + CLOTHING_STATE_EXPOSURE/ + RESEARCHED."
+    },
+    {
+      "review_seq": 1375,
+      "identity_key": "two-tone_bra",
+      "finding": "BREAST_NIPPLE body facet was forced from garment association.",
+      "action": "Existing correction overlay removes body facet."
+    },
+    {
+      "review_seq": 1447,
+      "identity_key": "scar_on_leg",
+      "finding": "INJURY_R18G theme was over-applied to a scar-location tag.",
+      "action": "Correction overlay removes INJURY_R18G and records direct tag evidence."
+    },
+    {
+      "review_seq": 1636,
+      "identity_key": "official_cosplay",
+      "finding": "Generic cosplay concept incorrectly treated as SEARCH_ORIENTED named-reference lookup.",
+      "action": "Correction overlay -> MIXED + CLOTHING_EXPOSURE/COSTUME + RESEARCHED."
+    },
+    {
+      "review_seq": 1924,
+      "identity_key": "ninjutsu",
+      "finding": "ACTION_CONTACT/INTERACTION was over-specific; ninjutsu is a broad technique/skill family, not intrinsically multi-entity interaction.",
+      "action": "Correction overlay removes local INTERACTION and records direct official reference."
+    },
+    {
+      "review_seq": 1987,
+      "identity_key": "dildo_under_panties",
+      "finding": "FEMALE_GENITAL body facet was more specific than the tag definition, which specifies an inserted dildo under panties without fixing insertion site.",
+      "action": "Correction overlay removes FEMALE_GENITAL and records direct Danbooru evidence."
+    }
+  ],
+  "systemic_observations": {
+    "researched_rows": 14,
+    "semantic_unresolved_rows": 1,
+    "mixed_rows": 9,
+    "search_oriented_rows": 34,
+    "route_gap_rows": 5,
+    "route_2_rows": 0,
+    "route_3_rows": 0,
+    "body_facet_rows": 13,
+    "theme_facet_rows": 6,
+    "generic_route_reason_rows": 40
+  },
+  "conclusion": "No basis for discarding the 300-row block. Apply targeted corrections and strengthen conditional semantic lint across all lanes while keeping obvious rows on the fast path."
+}
