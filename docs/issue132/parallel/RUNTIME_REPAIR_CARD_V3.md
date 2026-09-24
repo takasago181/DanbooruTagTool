@@ -16,6 +16,41 @@ Hot-path reads:
 
 If latest CI identity is unchanged from repair_status.json, continue the stored queue without refetching/reparsing the same logs.
 
+## Authorized staging write path — VERIFIED
+
+Staging repair writes on this research branch are explicitly authorized non-authoritative maintenance. Do NOT self-block merely because an existing staging JSON is being replaced.
+
+A write is authorized when ALL are true:
+1. branch is exactly `research/taxonomy-usability-audit`;
+2. target is under `docs/issue132/parallel/lane-1/staging/`, `lane-2/staging/`, `lane-3/staging/`, or is `docs/issue132/parallel/repair_status.json`;
+3. immutable checkpoint/correction files, main, production, UserData, #64/#76/#118 are untouched.
+
+Write protocol:
+- EXISTING staging/status file: fetch that exact path immediately before write, use its current blob SHA with `update_file`.
+- NEW staging/status file: use `create_file`.
+- Do not use update_file on a path that was not successfully fetched as EXISTING.
+- Do not use create_file on a path already confirmed EXISTING.
+- After successful write, re-fetch the exact file and run the required exact tuple/22-field validation.
+- A semantic replacement of a non-authoritative invalid staging window is permitted when rebuilt from authoritative shard tuples and validated before/after write.
+- Large textual diff is NOT by itself a safety blocker. Full-window replacement is expected for identity-shift/gap/duplicate corruption.
+
+Verified connector capability on this branch:
+- create + delete in the Issue132 parallel area succeeded;
+- fetch current SHA + update existing Lane1 staging succeeded;
+- exact original bytes were restored successfully after the write-path probe.
+
+Therefore generic messages such as "staging update is unsafe", "existing staging replacement blocked for safety", or "large rewrite not allowed" are INVALID blocker reasons.
+
+Only classify TOOL_LIMIT/write blocker after an actual applicable GitHub operation fails. Record:
+- target path;
+- EXISTING vs NEW;
+- branch;
+- SHA used for EXISTING;
+- exact operation attempted;
+- exact returned error.
+
+If contents `update_file` genuinely fails despite current SHA and correct branch, the Repair task may use the equivalent authorized Git object blob/tree/commit/ref path if available. Never redirect to main.
+
 ## Unified repair queue
 
 Maintain three queues:
