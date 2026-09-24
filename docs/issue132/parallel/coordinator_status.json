@@ -8,12 +8,12 @@
   "quality_flags_pending": 15,
   "latest_ci": {
     "workflow": "Issue132 Incremental Checkpoint Validation",
-    "run_id": 35990411604,
-    "head_sha": "b916bd73f8a118cdcded47f2077d909e39f79b25",
+    "run_id": 35996309804,
+    "head_sha": "0f2f8c2658dae66020ea6028dcec68774daf5113",
     "conclusion": "failure",
     "failed_step": "Validate semantic hold staging windows",
-    "diagnosis": "Latest validator proves the remaining failure is no longer a Lane-1-only problem. Neutral shards PASS and effective immutable checkpoint/correction validation PASS. Lane 1 now has only window 726-750 and no reported staging error. Validator reports 79 staging errors concentrated in Lane 2 and Lane 3: identity/hold off-by-one mismatches, duplicate row/hold coverage, malformed JSON, invalid local refinements, missing coverage, and finalized rows not matching exact window identities.",
-    "repair_required": "Treat the exact validator diagnostics as authoritative repair targets. Do not delete or redo unaffected valid staging windows. Repair/rebuild only defective non-authoritative windows from validated same-lane shards, then rerun validation before promotion."
+    "diagnosis": "Latest validator reports 103 staging errors. Frozen neutral shards PASS and effective immutable checkpoint/correction validation PASS with effective error_count 0. The failure is non-authoritative staging only. Lane 1 newly rebuilt 751-775 and 776-800 are structurally invalid (off-by-one identity/hold placement, duplicate row/hold, missing coverage). Lane 2 retains broad structural defects including malformed 526-550 and current/history windows. Lane 3 retains structural defects in 851-875, 951-975 and 1026-1050 while focused route remediation continues.",
+    "repair_required": "Treat validator diagnostics as authoritative. Rebuild only defective staging windows from exact validated same-lane shard identities; preserve unaffected valid windows and immutable checkpoints."
   },
   "lanes": {
     "1": {
@@ -21,17 +21,17 @@
       "reviewed_count": 725,
       "remaining_count": 9610,
       "latest_checkpoint": "checkpoint_000701_000725.csv",
-      "state": "STAGING_STRUCTURALLY_CLEAN_REPAIR_RANGE_UNPROCESSED",
+      "state": "STAGING_REPAIR_REQUIRED",
       "next_new_or_repair_start": 751,
-      "note": "Latest validator reports only window 726-750 for Lane 1 (21 finalized + 4 genuine holds) and no Lane-1 staging error. Previously invalid 751-825 ranges are absent and therefore UNPROCESSED, not holds. Rebuild from validated shard without redoing 726-750."
+      "note": "Placeholder contamination remains absent, but the latest worker rebuild of 751-775 and 776-800 is structurally invalid. Validator shows the worker shifted/skipped exact shard identities (e.g. shard local 751 is strawberry_brooch, but later omitted identities create hold/coverage offsets). Rebuild 751-800 from exact shard row order; preserve valid 726-750."
     },
     "2": {
       "assigned_count": 10334,
       "reviewed_count": 375,
       "remaining_count": 9959,
-      "state": "STAGING_REPAIR_REQUIRED",
-      "next_new": 1001,
-      "note": "Worker persisted 976-1000 and external turn ended, but latest validator exposes widespread historical and current staging defects. Defective windows include 501-525, malformed 526-550, 551-575, 626-650, 651-675, 676-700, 726-750, 751-775, 776-800, 801-825, 926-950, and 976-1000. Repair only listed defective windows from validated Lane-2 shards; preserve unaffected windows. New semantic work may continue only with structurally validated persistence."
+      "state": "STAGING_REPAIR_REQUIRED_AND_SHORT_STOP_WATCH",
+      "next_new": 1026,
+      "note": "Latest run persisted 1001-1025 with 20 finalized + 5 genuine holds, then reported EXECUTION_LIMIT with no semantic blocker. Structural validator still reports defective windows including 501-525, malformed 526-550, 551-575, 626-650, 651-675, 676-700, 726-750, 751-775, 776-800, 801-825, 926-950 and 976-1000. Repair listed windows from validated Lane-2 shards; safe sub-300 stops remain under watchdog."
     },
     "3": {
       "assigned_count": 10334,
@@ -39,33 +39,33 @@
       "remaining_count": 9934,
       "state": "STAGING_REPAIR_AND_ROUTE_REMEDIATION_REQUIRED",
       "next_new": 1076,
-      "note": "751-1050 secondary-route family audit remains incomplete. Latest validator additionally identifies structural defects in windows 851-875, 951-975, 1026-1050, and 1051-1075. Repair those exact windows from validated Lane-3 shards while preserving unaffected remediation work; do not mark 751-1050 quality-clean until both structural validation and focused route audit pass."
+      "note": "Focused 751-1050 secondary-route remediation is actively progressing, including recent 876-900 and bruise secondary-route corrections. Structural validator still identifies 851-875, 951-975 and 1026-1050. 1051-1075 has suspicious count 20 finalized + 8 holds for a 25-identity window and must not be trusted until a subsequent validator confirms exact coverage."
     }
   },
   "observed_run_metrics": {
-    "lane_1": {"assessment":"REPAIR_RANGE_UNPROCESSED","next_identity":751},
-    "lane_2": {"latest_delta":25,"assessment":"STRUCTURAL_REPAIR_REQUIRED","next_identity":1001},
+    "lane_1": {"latest_delta":50,"assessment":"STRUCTURAL_REBUILD_FAILED","next_repair_identity":751},
+    "lane_2": {"latest_delta":25,"assessment":"STRUCTURAL_REPAIR_REQUIRED_SHORT_STOP_WATCH","next_identity":1026},
     "lane_3": {"latest_delta":25,"assessment":"STRUCTURAL_AND_SEMANTIC_REMEDIATION","next_identity":1076}
   },
   "throughput_watchdog": {
-    "lane_1": {"assessment":"WARNING","reason":"Placeholder contamination is gone and current surviving staging validates, but deleted 751-825 remains unprocessed repair debt."},
-    "lane_2": {"assessment":"BLOCKED_VALID_FOR_PROMOTION","reason":"Throughput improved previously, but validator now proves multiple non-authoritative staging windows are structurally invalid; promotion is blocked until targeted rebuild."},
-    "lane_3": {"assessment":"QUALITY_REMEDIATION","reason":"Throughput is healthy; both focused secondary-route drift and four structurally invalid staging windows require targeted repair."},
+    "lane_1": {"assessment":"WARNING","reason":"Worker did real semantic work rather than placeholder holds, but exact shard/window alignment failed again; useful semantic content cannot be credited as structurally valid staging until rebuilt."},
+    "lane_2": {"assessment":"WARNING","reason":"Previous 300-row throughput improvement is real, but latest run again ended at a 25-row persistence boundary and staging repair debt remains extensive. Status claims external execution end, so do not call it voluntary without stronger evidence; require continuation next run."},
+    "lane_3": {"assessment":"QUALITY_REMEDIATION","reason":"Throughput/remediation activity is healthy, but route-family audit and structural repair are both incomplete."},
     "measurement_note":"Commit wall time includes scheduler/waiting idle time and is not semantic CPU duration."
   },
   "staging_totals_from_latest_validator": {
-    "staged_finalized_rows": 1135,
-    "active_holds": 169,
-    "error_count": 79,
+    "staged_finalized_rows": 1195,
+    "active_holds": 184,
+    "error_count": 103,
     "counts_provisional": true,
-    "note": "Counts include defective windows and must not be treated as authoritative useful progress until targeted repairs validate. Official reviewed remains immutable checkpoint union=1500."
+    "note": "Counts include defective windows and must not be treated as authoritative useful progress. Official reviewed remains immutable checkpoint union=1500."
   },
   "hold_research_cycle": {
     "attempted": [],
     "resolved": 0,
-    "note": "This cycle prioritized concrete structural CI diagnosis over semantic hold research because promotion is currently blocked by 79 staging validation errors."
+    "note": "Structural repair remains the promotion-critical blocker; no semantic hold was guessed or force-resolved this cycle."
   },
-  "baseline_note": "Frozen neutral population/order validated: 31,003 rows, shard_count 105, lane counts 10335/10334/10334, error_count 0. Effective immutable checkpoint/correction overlay validation also passes with error_count 0.",
+  "baseline_note": "Frozen neutral population/order validated: 31,003 rows, shard_count 105, lane counts 10335/10334/10334, error_count 0. Effective immutable checkpoint/correction overlay validation passes with effective error_count 0; raw just_the_tip errors are fully covered by the existing correction overlay.",
   "quality_note": "Lane3 family flags remain active: COLOR_PATTERN_SHAPE inflation, object-placement POSE_POSITION, motif-as-LIVING/LIVING_NATURE. Structural staging defects are non-authoritative and must be repaired without touching immutable checkpoints.",
   "pass_b_generated": false,
   "worker_target_semantics": "ceiling_not_quota",
