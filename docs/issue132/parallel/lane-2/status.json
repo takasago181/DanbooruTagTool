@@ -12,12 +12,12 @@
   "error_count": 0,
   "last_run_delta": 0,
   "last_run_stop_reason": "EXECUTION_LIMIT",
-  "staged_finalized_count": 47,
-  "active_hold_count": 3,
+  "staged_finalized_count": 92,
+  "active_hold_count": 8,
   "last_run_blocker_evidence": {
     "blocker_type": "EXECUTION_LIMIT",
-    "operation": "continue semantic Pass-A processing beyond lane-local 425 after safely persisting staging windows 376-400 and 401-425",
-    "location": "lane-local 426 would be the next identity; immutable prefix remains 375",
-    "effect": "This execution ended after two complete 25-identity windows were safely persisted as staging. 47 identities are fully finalized and three identities are held without guessed semantic fields (w_over_eye local 390, fish_bottle local 397, energy_ring local 421). The staging mechanism successfully prevented hard identities from stalling later work. No immutable checkpoint could yet be promoted because the earliest staged window still has active holds. Continuation is safe from lane-local 426 while earliest holds are retried once on the next run."
+    "operation": "continue semantic Pass-A processing after safely staging lane-local windows 426-450 and 451-475",
+    "location": "lane-local 476 is the next new identity; immutable prefix remains 375",
+    "effect": "This execution window ended after 50 additional identities were usefully processed and persisted. Windows 426-450 and 451-475 contain 45 newly finalized rows and five new semantic holds; together with prior staging there are 92 finalized staged rows and eight active holds. No new immutable checkpoint is promotable because the earliest staged window 376-400 still contains holds. Continuation is safe from lane-local 476 while the earliest hold is retried once on the next run."
   }
 }
