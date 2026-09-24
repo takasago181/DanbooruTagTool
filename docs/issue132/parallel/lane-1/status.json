@@ -12,5 +12,8 @@
   "error_count": 0,
   "last_run_delta": 300,
   "last_run_stop_reason": "TARGET_REACHED",
-  "last_run_stop_evidence": null
+  "last_run_stop_evidence": null,
+  "staged_finalized_count": 24,
+  "active_hold_count": 1,
+  "earliest_active_hold": {"lane_local_index":706,"review_seq":2116,"identity_key":"metal_sand"}
 }
