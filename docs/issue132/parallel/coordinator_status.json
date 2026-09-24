@@ -5,68 +5,74 @@
   "total_remaining": 29503,
   "complete": false,
   "worker_target_per_run": 300,
-  "quality_flags_pending": 12,
+  "quality_flags_pending": 15,
   "latest_ci": {
     "workflow": "Issue132 Incremental Checkpoint Validation",
-    "run_id": 35953865301,
-    "head_sha": "5c3b12a9e7f5c59a77e969d04da2f9606a3f3e10",
+    "run_id": 35984938575,
+    "head_sha": "505df247d433270b23e20dd4bb3ac5773ff20f25",
     "conclusion": "failure",
     "failed_step": "Validate semantic hold staging windows",
-    "diagnosis": "Lane 1 staging has deterministic identity/coverage defects: window 751-775 contains ant from local 776; window 776-800 contains gold_blood from local 801, shifted hold indices for deep_insertion/otome_camellia/excuse_me_he_asked_for_no_pickles_(meme), and resulting missing/duplicate coverage. Frozen neutral shards, immutable checkpoints, and effective correction overlays passed.",
-    "repair_required": "Repair Lane 1 staging only against the validated lane-1 601-900 shard; do not alter immutable checkpoints. Re-run staging validation before any promotion."
+    "diagnosis": "Frozen neutral shards and immutable checkpoint/correction validation pass. Lane 1 staging remained the blocking structural area. Coordinator inspection found window 751-775 structurally invalid: peeing_together carried ACTION_CONTACT/INTERACTION without selecting ACTION_CONTACT, violating local-refinement parent rules.",
+    "repair_required": "Coordinator deleted invalid non-authoritative lane1 window 751-775 at commit 5188e6b97bc0905639ce66a4b35544b76f401a7c. Reprocess that range from the validated lane-1 shard; do not alter immutable checkpoints."
   },
   "lanes": {
     "1": {
       "assigned_count": 10335,
       "reviewed_count": 725,
       "remaining_count": 9610,
-      "staged_finalized_count_reported": 58,
-      "active_hold_count_reported": 17,
       "latest_checkpoint": "checkpoint_000701_000725.csv",
-      "state": "UNDERPERFORMING_INVALID_STOP_STAGING_REPAIR_REQUIRED",
-      "note": "Worker reported EXECUTION_LIMIT after 50 new identities and explicitly says next identity 801 can resume. That is not evidence that ordinary continuation and hold staging were impossible. Latest CI also found Lane 1 staging identity/coverage defects, so staging counts are provisional until repaired."
+      "state": "STAGING_REPAIR_REQUIRED",
+      "next_new_or_repair_start": 751,
+      "note": "Placeholder-hold contamination is no longer accepted. Rebuilt 751-775 was still structurally invalid and has been deleted again. 776-825 remain staged and must not be redone unless validator evidence identifies a defect in them. Status staging counts are stale/provisional until 751-775 is rebuilt and validation passes."
     },
     "2": {
       "assigned_count": 10334,
       "reviewed_count": 375,
       "remaining_count": 9959,
-      "staged_finalized_count": 114,
-      "active_hold_count": 11,
+      "staged_finalized_count": 528,
+      "active_hold_count": 72,
       "latest_checkpoint": "checkpoint_000351_000375.csv",
-      "state": "UNDERPERFORMING_INVALID_STOP",
-      "note": "Worker stopped after the 476-500 staging window while explicitly stating continuation is safe from local 501. EXECUTION_LIMIT is invalid under the stop contract without concrete evidence that continuation was impossible."
+      "state": "FORCED_BOUNDARY_CONTINUE",
+      "next_new": 976,
+      "next_run_target_end": 1275,
+      "note": "Latest run persisted 951-975 then reported an actual execution-turn boundary. No semantic/Git blocker exists; next run must resume at 976 and again target 300 NEW useful identities. Prior successful 626-925 300-NEW behavior showed the chronic 25/50-row stop pattern can be overcome."
     },
     "3": {
       "assigned_count": 10334,
       "reviewed_count": 400,
       "remaining_count": 9934,
-      "staged_finalized_count": 227,
-      "active_hold_count": 23,
+      "staged_finalized_count": 610,
+      "active_hold_count": 68,
       "latest_checkpoint": "checkpoint_000376_000400.csv",
-      "state": "UNDERPERFORMING_INVALID_STOP",
-      "note": "Worker stopped after 50 new identities through local 650 and explicitly says the next run can resume at 651. Runtime-boundary wording alone does not establish that safe continuation was impossible."
+      "state": "TARGETED_ROUTE_REMEDIATION_IN_PROGRESS",
+      "next_new": 1076,
+      "note": "751-1050 focused secondary-route audit is still in progress. Definite weak-secondary fixes have continued through additional windows, latest observed commit 505df247 for 801-825. The range is not quality-clean until the family audit completes. New work through 1075 is persisted; next NEW is 1076."
     }
   },
   "observed_run_metrics": {
     "schema_version": "execution-telemetry-v1",
-    "lane_1": {"checkpoint_delta":25,"staged_finalized_delta":35,"active_hold_count":17,"holds_resolved":1,"staging_windows_created":3,"staging_windows_promoted":1,"preflight_mode":"FAST","stop_reason":"INVALID_EXECUTION_LIMIT"},
-    "lane_2": {"checkpoint_delta":0,"staged_finalized_delta":67,"active_hold_count":11,"holds_resolved":0,"staging_windows_created":3,"staging_windows_promoted":0,"preflight_mode":"FAST","stop_reason":"INVALID_EXECUTION_LIMIT"},
-    "lane_3": {"checkpoint_delta":0,"staged_finalized_delta":112,"active_hold_count":23,"holds_resolved":0,"staging_windows_created":5,"staging_windows_promoted":0,"preflight_mode":"FAST","stop_reason":"INVALID_EXECUTION_LIMIT"}
+    "lane_1": {"latest_delta":50,"stop_reason":"ACTUAL_FORCED_RUN_END","assessment":"REPAIR_REQUIRED","next_identity":751},
+    "lane_2": {"latest_delta":25,"stop_reason":"ACTUAL_FORCED_RUN_END","assessment":"CONTINUE_NEXT_RUN","next_identity":976},
+    "lane_3": {"latest_delta":25,"stop_reason":"ACTUAL_FORCED_RUN_END","assessment":"REMEDIATION_IN_PROGRESS","next_identity":1076}
   },
   "throughput_watchdog": {
-    "lane_1": {"previous_productive_commit_at":"2026-09-24T02:33:01Z","last_productive_commit_at":"2026-09-24T03:30:51Z","new_identities_in_observed_interval":50,"elapsed_minutes_between_productive_commits":57.83,"identities_per_hour":51.88,"minutes_per_25_identities":28.92,"continuation_was_safe":true,"assessment":"UNDERPERFORMING_INVALID_STOP","reason":"50 identities persisted, then stop evidence says next identity 801 is resumable; no concrete blocker made continuation impossible."},
-    "lane_2": {"previous_productive_commit_at":"2026-09-24T02:45:10Z","last_productive_commit_at":"2026-09-24T03:46:21Z","new_identities_in_observed_interval":25,"elapsed_minutes_between_productive_commits":61.18,"identities_per_hour":24.52,"minutes_per_25_identities":61.18,"continuation_was_safe":true,"assessment":"UNDERPERFORMING_INVALID_STOP","reason":"Status explicitly says continuation is safe from local 501."},
-    "lane_3": {"previous_productive_commit_at":"2026-09-24T03:04:15Z","last_productive_commit_at":"2026-09-24T04:01:22Z","new_identities_in_observed_interval":50,"elapsed_minutes_between_productive_commits":57.12,"identities_per_hour":52.52,"minutes_per_25_identities":28.56,"continuation_was_safe":true,"assessment":"UNDERPERFORMING_INVALID_STOP","reason":"Status explicitly says next run can resume at local 651; one hold retry did not prevent later processing."},
-    "measurement_note": "Commit-to-commit wall time includes scheduler/waiting idle time and is not claimed as pure semantic reasoning duration. It is used only to detect short-run stop patterns and compare observable productive cadence."
+    "lane_1": {"assessment":"WARNING","reason":"Worker is no longer using placeholder holds, but its rebuilt 751-775 staging violated structural local-parent rules and was deleted for clean shard reprocessing."},
+    "lane_2": {"assessment":"NORMAL_WITH_FORCED_BOUNDARY","reason":"Latest 25-row stop explicitly attributes termination to the external turn boundary rather than a voluntary checkpoint wrap-up; continuation remains mandatory from 976."},
+    "lane_3": {"assessment":"QUALITY_REMEDIATION","reason":"Throughput is not the current concern; targeted secondary-route drift remediation remains incomplete for 751-1050."},
+    "measurement_note":"Commit wall time includes scheduler/waiting idle time and is not semantic CPU duration."
   },
-  "staging_totals_from_latest_validator": {"staged_finalized_rows":400,"active_holds":51,"validation_error_count":8,"counts_provisional_until_lane1_repair":true},
+  "staging_totals_from_latest_validator": {
+    "validation_state": "FAILING_BEFORE_COORDINATOR_REPAIR",
+    "counts_provisional": true,
+    "note": "Latest completed CI predates coordinator deletion of invalid lane1 751-775."
+  },
   "hold_research_cycle": {
-    "attempted": ["lane2 local390 w_over_eye","lane2 local397 fish_bottle","lane3 local407 spines"],
+    "attempted": ["lane2 w_over_eye", "lane2 fish_bottle", "lane3 spines"],
     "resolved": 0,
-    "note": "Fresh Danbooru/Safebooru-targeted searches did not surface direct tag definitions for these three earliest promotion-blocking holds. Generic help pages and single-example evidence are insufficient, so no guessed finalization was made."
+    "note": "No stronger direct evidence was available in the prior cycle; no guessed finalization was made."
   },
-  "baseline_note": "Fast preflight matched all three expected frozen blob SHAs. Latest CI independently reconfirmed frozen population 31,003, neutral SHA/order, and 105 tracked worker shards with zero shard errors.",
-  "quality_note": "Velocity-aware conditional semantic lint remains mandatory. Latest failure is structural Lane 1 staging drift, not a reason to relax semantics or modify immutable checkpoints.",
+  "baseline_note": "Fast preflight matched manifest/card/plan expected state; frozen population remains 31,003. Latest completed CI passed neutral shard and immutable checkpoint/correction validation before failing staging validation.",
+  "quality_note": "Lane3 family flags remain active: COLOR_PATTERN_SHAPE inflation, object-placement POSE_POSITION, motif-as-LIVING/LIVING_NATURE. Lane1 repair is structural and does not authorize semantic shortcuts.",
   "pass_b_generated": false,
   "worker_target_semantics": "ceiling_not_quota",
   "checkpoint_rows": 25,
