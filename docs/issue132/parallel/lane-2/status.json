@@ -12,12 +12,12 @@
   "error_count": 0,
   "last_run_delta": 0,
   "last_run_stop_reason": "EXECUTION_LIMIT",
-  "staged_finalized_count": 114,
-  "active_hold_count": 11,
+  "staged_finalized_count": 135,
+  "active_hold_count": 15,
   "last_run_blocker_evidence": {
     "blocker_type": "EXECUTION_LIMIT",
-    "operation": "continue semantic Pass-A processing after safely staging lane-local window 476-500",
-    "location": "lane-local 501 is the next new identity; immutable prefix remains 375",
-    "effect": "This execution window ended after 25 additional identities were usefully processed and persisted. Window 476-500 contains 22 newly finalized rows and three semantic holds. Across staging there are now 114 finalized rows and 11 active holds. No immutable checkpoint is promotable because the earliest staged window 376-400 still contains holds. Continuation is safe from lane-local 501 while the earliest hold is retried once on the next run."
+    "operation": "continue semantic Pass-A processing after safely staging lane-local window 501-525",
+    "location": "lane-local 526 is the next new identity; immutable prefix remains 375",
+    "effect": "This execution window ended after 25 additional identities were usefully processed and persisted. Window 501-525 contains 21 newly finalized rows and four semantic holds. Across staging there are now 135 finalized rows and 15 active holds. No immutable checkpoint is promotable because the earliest staged window 376-400 still contains holds. Continuation is safe from lane-local 526 while the earliest hold is retried once on the next run."
   }
 }
