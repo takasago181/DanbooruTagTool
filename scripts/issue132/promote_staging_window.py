@@ -23,6 +23,18 @@ def load_base():
     return m
 
 
+def normalize_row(entry, fields):
+    if isinstance(entry, dict):
+        if set(entry.keys()) != set(fields):
+            raise SystemExit("staging finalized row field-set mismatch")
+        return {field: str(entry[field]) for field in fields}
+    if isinstance(entry, list):
+        if len(entry) != len(fields):
+            raise SystemExit(f"ordered staging row must have exactly {len(fields)} fields")
+        return {field: str(value) for field, value in zip(fields, entry)}
+    raise SystemExit("staging finalized row must be object or ordered 22-field array")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--lane", type=int, required=True, choices=(1, 2, 3))
@@ -31,17 +43,11 @@ def main():
     args = ap.parse_args()
 
     base = load_base()
-    lane = args.lane
-    start = args.start
-    end = args.end
-
+    lane, start, end = args.lane, args.start, args.end
     if end < start or end - start + 1 > 25:
         raise SystemExit("promotion range must be 1..25 rows")
 
-    stage_path = (
-        ROOT
-        / f"docs/issue132/parallel/lane-{lane}/staging/window_{start:06d}_{end:06d}.json"
-    )
+    stage_path = ROOT / f"docs/issue132/parallel/lane-{lane}/staging/window_{start:06d}_{end:06d}.json"
     if not stage_path.is_file():
         raise SystemExit(f"missing staging window: {stage_path}")
 
@@ -54,11 +60,12 @@ def main():
         raise SystemExit("staging range metadata mismatch")
 
     holds = obj.get("holds", [])
-    rows = obj.get("rows", [])
+    raw_rows = obj.get("rows", [])
     if holds:
         raise SystemExit(f"staging window still has {len(holds)} active hold(s)")
-    if not isinstance(rows, list) or len(rows) != end - start + 1:
+    if not isinstance(raw_rows, list) or len(raw_rows) != end - start + 1:
         raise SystemExit("staging window is not fully finalized")
+    rows = [normalize_row(entry, base.FIELDS) for entry in raw_rows]
 
     raw, _, errors = load_checkpoint_union(ROOT, lane, base.FIELDS)
     if errors:
@@ -69,8 +76,6 @@ def main():
 
     ordered = sorted(rows, key=lambda r: int(r["review_seq"]))
     for row in ordered:
-        if set(row.keys()) != set(base.FIELDS):
-            raise SystemExit(f"{row.get('identity_key')}: field-set mismatch")
         row_errors = base.validate_row(row, int(row["review_seq"]))
         if row_errors:
             raise SystemExit("\n".join(row_errors))
@@ -97,21 +102,15 @@ def main():
         out.unlink(missing_ok=True)
         raise SystemExit("parse-back row mismatch")
 
-    print(
-        json.dumps(
-            {
-                "schema_version": "issue132-staging-promotion-v1",
-                "lane": lane,
-                "lane_local_start": start,
-                "lane_local_end": end,
-                "rows": len(ordered),
-                "checkpoint": str(out.relative_to(ROOT)),
-                "staging_source": str(stage_path.relative_to(ROOT)),
-            },
-            ensure_ascii=False,
-            indent=2,
-        )
-    )
+    print(json.dumps({
+        "schema_version": "issue132-staging-promotion-v1",
+        "lane": lane,
+        "lane_local_start": start,
+        "lane_local_end": end,
+        "rows": len(ordered),
+        "checkpoint": str(out.relative_to(ROOT)),
+        "staging_source": str(stage_path.relative_to(ROOT)),
+    }, ensure_ascii=False, indent=2))
 
 
 if __name__ == "__main__":
