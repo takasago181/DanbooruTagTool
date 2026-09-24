@@ -425,19 +425,33 @@ Interpretation rules:
 
 Coordinator telemetry should add a `throughput_watchdog` object per lane with the fields above plus `assessment` (`NORMAL`, `WARNING`, `UNDERPERFORMING_INVALID_STOP`, or `BLOCKED_VALID`) and a short evidence-based reason. Preserve the existing zero-progress streak logic separately.
 
-## 10B. Coordinator takeover after invalid worker stop
+## 10B. Three-lane worker remediation + coordinator pickup
 
-An invalid short-run stop is not merely a status/telemetry event. The coordinator must recover the abandoned capacity immediately in the same coordinator cycle whenever authorized tools and valid lane shards are available.
+The primary execution model remains exactly three worker lanes. Coordinator pickup supplements those workers; it does not replace, merge, or reduce the three-lane design.
 
-- Apply this uniformly to Lane 1, Lane 2, and Lane 3; no lane receives a passive warning-only exception.
-- When a worker stops below the 300 NEW-identity ceiling without a valid hard stop, mark the stop invalid and take over that same lane from the exact next unprocessed lane-local identity.
-- First preserve/validate all useful worker checkpoint and staging output. Do not redo finalized identities merely because the worker stopped early.
-- Resolve or stage hard identities under the existing bounded-research hold rules, then continue later identities. One or several holds do not prevent takeover.
-- Coordinator takeover may execute repeated same-lane rescue chunks of at most 25 NEW identities each, but the 25-row rescue chunk is a persistence/safety unit, not a coordinator-cycle ceiling. Continue additional 25-row rescue chunks in the same cycle until the abandoned worker capacity is recovered up to the original 300 NEW-identity run ceiling, the lane completes, or a concrete valid hard stop actually prevents both ordinary continuation and safe hold staging.
-- The previous rule "rescue is same-lane only, max 25 new identities" is therefore interpreted as max 25 NEW identities per rescue chunk, not max 25 per coordinator cycle after an INVALID_STOP.
-- Never use takeover to relax semantic QA, bypass 100-row QA, guess unresolved semantics, overwrite immutable checkpoints, or cross lane ownership.
-- Telemetry must separately record `worker_new_identities`, `coordinator_takeover_new_identities`, `takeover_chunks`, and `unrecovered_invalid_stop_capacity` for each lane.
-- If tool/runtime interruption prevents full recovery in the current coordinator cycle, persist every valid 25-row unit and record the concrete interruption; resume takeover before treating the lane as healthy.
+### Worker remediation after invalid short stops
+
+When any Lane 1/2/3 worker stops below the 300 NEW-identity ceiling without a valid hard stop, treat this first as a worker-operation defect to be corrected across all three lanes, not merely as abandoned work for the coordinator.
+
+- Apply the same remediation to all three worker lanes even if only one lane exposed the defect.
+- A 25-row checkpoint/staging window is a persistence unit, never a normal run target or implicit stop point.
+- After each 25-row save, the worker must immediately continue from the next lane-local identity unless the lane completed, 300 NEW identities were reached, or a concrete valid hard stop prevents both ordinary continuation and safe hold staging.
+- Holds are persisted and bypassed under hold-and-continue; they do not reduce the worker's obligation to continue processing later identities.
+- 100-row QA is performed when due and then processing resumes in the same run; QA completion is not a stop condition.
+- Predicted time/token pressure, routine automation cadence, checkpoint/CI success, research inconvenience, or a single difficult identity remain invalid stop reasons.
+- Coordinator records repeated short-stop behavior and verifies on the following cycle that each affected worker actually continued beyond the former 25/50/75-row pattern.
+
+### Coordinator pickup
+
+Coordinator should use otherwise-idle coordinator capacity to recover useful work, while preserving the three workers as the primary lanes.
+
+- Preserve and validate all worker checkpoint/staging output first; never redo finalized identities merely because a worker stopped early.
+- Pickup is same-lane only and begins at that lane's exact next unprocessed identity; never cross or reassign lane ownership.
+- Resolve/stage hard identities using the same bounded-research hold rules, then continue later identities.
+- Coordinator pickup uses rescue chunks of at most 25 NEW identities each. Multiple chunks may be performed in one coordinator cycle when capacity is available; 25 is a persistence/safety chunk, not a mandatory coordinator-cycle ceiling.
+- Pickup is opportunistic support, not a replacement worker and not justification for leaving the worker defect unfixed. Workers remain responsible for progressing toward their own 300 NEW-identity run ceiling.
+- Never relax semantic QA, bypass 100-row QA, guess unresolved semantics, overwrite immutable checkpoints, or change the three-lane assignment.
+- Telemetry separately records `worker_new_identities`, `coordinator_pickup_new_identities`, `pickup_chunks`, and remaining invalid-stop backlog.
 
 ## 11. Production boundary
 
