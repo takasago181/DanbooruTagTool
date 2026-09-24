@@ -187,6 +187,40 @@ Before write:
 
 Existing checkpoint files are not overwritten.
 
+### Semantic hold staging — one hard identity must not stall a lane
+
+A single identity that cannot be safely finalized after bounded direct research must NOT stop the lane.
+
+For each 25-row lane-local window, the worker may maintain a non-authoritative operational staging file:
+
+`docs/issue132/parallel/lane-N/staging/window_XXXXXX_YYYYYY.json`
+
+Schema: `issue132-pass-a-staging-window-v1`
+
+The staging window contains:
+- `lane`, `lane_local_start`, `lane_local_end`
+- frozen parent neutral SHA/order bindings
+- `rows`: only fully finalized, valid 22-field Pass-A rows
+- `holds`: identities that are still unsafe to finalize, each with exact lane-local index, global review_seq, identity_key, reason, and concrete research_attempts
+
+Rules:
+- staging is an operational cache, not Pass-A reviewed authority; immutable checkpoint union remains the completion authority;
+- never place guessed/provisional semantic fields in a hold;
+- every identity in the 25-row window must appear exactly once as either a finalized row or a hold;
+- first encounter with one difficult identity gets a bounded focused research effort; if direct evidence remains insufficient, persist a hold and immediately continue to later identities;
+- do not spend the rest of a run repeatedly searching the same hold;
+- later identities may be fully finalized and persisted in the staging window even while an earlier hold remains;
+- later 25-row windows may also be staged, so one unresolved identity does not consume the whole lane/run;
+- at the next run, retry the earliest blocking hold once with fresh research capability, then continue useful work rather than looping on it;
+- coordinator also prioritizes the earliest blocking holds across lanes;
+- when a staging window contains all finalized rows and zero holds, and its start is exactly the current checkpoint prefix + 1, promote it mechanically to an immutable checkpoint;
+- promotion must use `scripts/issue132/promote_staging_window.py` when an execution environment is available, or perform the identical ordered-22-field CSV serialization/parse-back checks manually;
+- after one window is promoted, immediately promote any consecutive already-complete staging windows without redoing semantic review;
+- `scripts/issue132/validate_parallel_staging.py` validates exact neutral identity coverage, finalized row semantics, hold bindings, and overlap/prefix safety;
+- staged finalized rows are useful work but do not count as `reviewed_count` until promoted to immutable checkpoints.
+
+Bounded research for one hold is an efficiency rule, not a lower quality standard. The row remains unfinalized until evidence is sufficient under the frozen Accuracy Gate.
+
 ### Immutable checkpoint correction overlay
 
 If cumulative QA discovers a concrete defect in an already-committed checkpoint, NEVER overwrite that checkpoint and NEVER stop merely because the checkpoint is immutable.
@@ -314,8 +348,10 @@ Other valid short-run reasons:
 - `TOOL_LIMIT`
 - `CONTRACT_DRIFT`
 - `GIT_CONFLICT`
-- `SEMANTIC_TOOL_BLOCKER`
+- `SEMANTIC_TOOL_BLOCKER` only when the semantic/research failure prevents both finalization **and** safe hold staging/continuation
 - `REMAINING_LT_300`
+
+A single ambiguous identity is no longer a valid `SEMANTIC_TOOL_BLOCKER` by itself. If it can be represented as a validated hold while later identities can still be processed, stage it and continue.
 
 `TARGET_REACHED` only:
 - delta = 300; or
@@ -328,13 +364,17 @@ If execution is forcibly interrupted after a checkpoint, persisted 25-row units 
 ## 10. Coordinator
 
 Coordinator:
-- derives counts from immutable checkpoints;
+- derives official reviewed counts from immutable checkpoints;
+- separately tracks staged finalized rows and active semantic holds;
 - treats anticipated-time EXECUTION_LIMIT as invalid;
 - watches for missing 100-row QA;
 - audits high-risk rows and deterministic CHECKED samples;
 - flags semantic drift even when structural CI is green;
-- rescue is same-lane only, max 25 rows;
-- uses the same ambiguity/research gate.
+- attempts up to 3 earliest blocking holds per coordinator cycle when research capability is available, prioritizing holds that block the earliest checkpoint promotion;
+- after resolving a hold, promotes any now-complete consecutive staging windows mechanically without re-review;
+- rescue is same-lane only, max 25 new identities;
+- uses the same ambiguity/research gate;
+- STALLED health requires no checkpoint delta, no new staged-finalized delta, and no hold resolution for two consecutive coordinator cycles.
 
 ---
 
