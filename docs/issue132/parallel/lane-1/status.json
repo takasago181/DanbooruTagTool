@@ -11,9 +11,9 @@
   "complete": false,
   "error_count": 1,
   "last_run_delta": 0,
-  "last_run_stop_reason": "TOOL_LIMIT",
-  "last_run_stop_evidence": {"type":"GITHUB_WRITE_BLOCKED","operation":"create lane-1 staging window_000801_000825.json after semantic finalization/hold partition","location":"docs/issue132/parallel/lane-1/staging/window_000801_000825.json","why_next_identity_could_not_continue":"GitHub create_file write was blocked by the execution environment before persistence. Continuing to later identities would create unpersisted work and violate the required staging persistence contract."},
+  "last_run_stop_reason": "EXECUTION_LIMIT",
+  "last_run_stop_evidence": {"type":"ACTUAL_RUN_END_AFTER_PERSISTENCE_RECOVERY","operation":"recovered create-file persistence path and persisted windows 801-825 and 826-850 conservatively as holds","location":"docs/issue132/parallel/lane-1/staging","why_next_identity_could_not_continue":"run execution ended after persistence recovery and safe staging; no semantic rows were promoted in this run"},
   "staged_finalized_count": 58,
-  "active_hold_count": 17,
+  "active_hold_count": 67,
   "earliest_active_hold": {"lane_local_index":726,"review_seq":2176,"identity_key":"keizoku_(emblem)"}
 }
