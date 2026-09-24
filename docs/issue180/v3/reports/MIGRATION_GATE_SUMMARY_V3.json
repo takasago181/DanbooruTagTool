@@ -14,11 +14,11 @@
     "APPROVED_REPO_EVIDENCE": 13476,
     "EXTERNAL_AUTHORITY": 3144,
     "REVIEWED_QUALIFIER_COPYRIGHT": 1169,
-    "REVIEWED_VARIANT_AUTHORITY": 319,
+    "REVIEWED_VARIANT_AUTHORITY": 351,
     "ROOT_POLICY_NORMALIZATION": 17,
     "SAFE_STRUCTURAL_VARIANT": 3910
   },
-  "evidence_rows": 22035,
+  "evidence_rows": 22067,
   "external_source_url_count": 535,
   "generated_output_directory": "artifacts/issue180-v3",
   "legacy_v1_v2_scripts_executed": false,
@@ -41,9 +41,9 @@
   "pipeline_validation": "PASS",
   "production_runtime_dependency": false,
   "reproducibility": {
-    "first_master_sha256": "2dd55dc1bb69bfb8c11b330ffc4325bac49719f2c3a1663671a9795daf41a450",
+    "first_master_sha256": "d668c6483cc30cf9bd64d3222b45e025dac04714b54e75af0495126e958aef72",
     "same": true,
-    "second_master_sha256": "2dd55dc1bb69bfb8c11b330ffc4325bac49719f2c3a1663671a9795daf41a450"
+    "second_master_sha256": "d668c6483cc30cf9bd64d3222b45e025dac04714b54e75af0495126e958aef72"
   },
   "research_unit_count": 4760,
   "research_unit_status_counts": {
@@ -61,17 +61,17 @@
     "VARIANT_OFFICIALITY": 656
   },
   "residual_reason_counts": {
-    "DIRECT_AUTHORITY_MISSING": 14003,
+    "DIRECT_AUTHORITY_MISSING": 13971,
     "FAMILY_HOME_MISSING": 2900,
     "FAMILY_MEMBERSHIP_MISSING": 514,
     "IDENTITY_REVIEW_REQUIRED": 7,
     "VARIANT_OFFICIALITY_MISSING": 1091
   },
   "schema_version": 3,
-  "source_manifest_sha256": "9c6a9b1f6e4c280908463b71edfe4e25c34144a867a9f58c61697f401d282da9",
+  "source_manifest_sha256": "bed52c991bd2dde683abce1c4e79b45f5c74d777c8d8abde7c45bf32d152579d",
   "states": {
-    "HOME_CONFIRMED": 17375,
-    "HOME_UNRESOLVED": 18515,
+    "HOME_CONFIRMED": 17407,
+    "HOME_UNRESOLVED": 18483,
     "NOT_OFFICIAL_CHARACTER": 0
   }
 }
