@@ -1,0 +1,30 @@
+{
+"schema_version":"issue132-pass-a-staging-window-v1","lane":3,"lane_local_start":501,"lane_local_end":525,"parent_neutral_sha256":"ac0f888d02f19a440c63b3b9f695c58f9ba53b98ebe9756edec51db1c5ff8f7d","parent_identity_order_sha256":"f80c63018ce19a8c7c5d8d6fd83d03cf760c510d8f6cfa455d1ab356fb31361b",
+"rows":[
+["1503","rolls-royce","YES","ロールス・ロイス製の自動車・ブランドへの視覚的参照","MIXED","TOOL_OBJECT","CORE","自動車・車両として視覚的に探せる","","","","","","","[\"OBJECT_PROP/VEHICLE\"]","[]","[]","NO","","CHECKED","[]",""],
+["1506","shared_earphones","YES","複数人でイヤホンを共有して聴く状態","BROWSE_WORTHY","ACTION_CONTACT","CORE","複数人が同じイヤホンを共有する相互行為として探すのが自然","TOOL_OBJECT","SUPPORTING","イヤホンという物体側からも独立して探せる","","","","[\"ACTION_CONTACT/INTERACTION\"]","[]","[]","NO","","CHECKED","[]",""],
+["1509","security_guard","YES","警備員・セキュリティガード","BROWSE_WORTHY","RELATION_ROLE","CORE","人物の職業・役割として探すのが自然","","","","","","","[]","[]","[]","NO","","CHECKED","[]",""],
+["1512","historical_connection","YES","人物・事物どうしの歴史上のつながりを示すメタ的関係","SEARCH_ORIENTED","","","","","","","","","","[]","[]","[]","NO","","CHECKED","[]",""],
+["1515","snake_hood","YES","蛇を意匠にしたフード","BROWSE_WORTHY","CLOTHING_EXPOSURE","CORE","衣装・フードの意匠として探すのが自然","","","","","","","[\"CLOTHING/COSTUME\"]","[]","[]","NO","","CHECKED","[]",""],
+["1518","cockroach_girl","YES","ゴキブリの特徴を持つ少女・女性キャラクター","BROWSE_WORTHY","NONHUMAN_TRANSFORM","CORE","人型に昆虫の非人間的特徴を組み合わせた外見として探すのが自然","LIVING","SUPPORTING","ゴキブリ・昆虫モチーフからも独立して探せる","","","","[\"LIVING_NATURE/CREATURE\"]","[]","[]","NO","","CHECKED","[]",""],
+["1521","see-through_china_babydoll","YES","透け素材のチャイナ風ベビードール衣装","BROWSE_WORTHY","CLOTHING_EXPOSURE","CORE","透けた衣装・ランジェリーとして探すのが自然","","","","","","","[\"CLOTHING_STATE_EXPOSURE/\",\"CLOTHING/COSTUME\"]","[]","[]","NO","","CHECKED","[]",""],
+["1524","spade_brooch","YES","スペード形のブローチ","BROWSE_WORTHY","CLOTHING_EXPOSURE","CORE","アクセサリーとして探すのが自然","TEXT_SYMBOL","SUPPORTING","スペード記号からも独立して探せる","","","","[\"CLOTHING/ACCESSORY\",\"TEXT_SYMBOL/SYMBOL\"]","[]","[]","NO","","CHECKED","[]",""],
+["1527","muscle_car","YES","高出力エンジンを特徴とするマッスルカー","BROWSE_WORTHY","TOOL_OBJECT","CORE","自動車・車両として探すのが自然","","","","","","","[\"OBJECT_PROP/VEHICLE\"]","[]","[]","NO","","CHECKED","[]",""],
+["1530","nine_of_spades","YES","トランプのスペードの9","BROWSE_WORTHY","TEXT_SYMBOL","CORE","カードの記号・数字として探すのが自然","TOOL_OBJECT","SUPPORTING","トランプカードという物体側からも独立して探せる","","","","[\"TEXT_SYMBOL/SYMBOL\"]","[]","[]","NO","","CHECKED","[]",""],
+["1533","platform_sandals","YES","厚底サンダル","BROWSE_WORTHY","CLOTHING_EXPOSURE","CORE","履物の種類として探すのが自然","","","","","","","[\"CLOTHING/EVERYDAY\"]","[]","[]","NO","","CHECKED","[]",""],
+["1536","leotard_aside","YES","レオタードを横へずらして身体を露出した状態","BROWSE_WORTHY","CLOTHING_EXPOSURE","CORE","衣服をずらした露出状態として探すのが自然","","","","","","","[\"CLOTHING_STATE_EXPOSURE/\"]","[]","[]","NO","","CHECKED","[]",""],
+["1539","ribbed_camisole","YES","リブ編み・畝模様のキャミソール","BROWSE_WORTHY","CLOTHING_EXPOSURE","CORE","衣服の種類・生地特徴として探すのが自然","","","","","","","[\"CLOTHING/EVERYDAY\"]","[]","[]","NO","","CHECKED","[]",""],
+["1542","uneven_footwear","YES","左右で異なる・不揃いな履物","BROWSE_WORTHY","CLOTHING_EXPOSURE","CORE","履物の組み合わせ状態として探すのが自然","","","","","","","[\"CLOTHING/EVERYDAY\"]","[]","[]","NO","","CHECKED","[]",""],
+["1545","roubai_academy_school_uniform_(new)","YES","作品内の蠟梅学園の新制服への固有参照","MIXED","CLOTHING_EXPOSURE","CORE","固有制服だが学校制服として視覚的に探せる","","","","","","","[\"CLOTHING/UNIFORM\"]","[]","[]","NO","","CHECKED","[]",""],
+["1551","sharp_teeth","YES","鋭く尖った歯","BROWSE_WORTHY","HAIR_FACE","CORE","口元・歯の外見特徴として探すのが自然","","","","","","","[]","[\"MOUTH_ORAL\"]","[]","NO","","CHECKED","[]",""],
+["1554","grey_theme","YES","画像全体を灰色系でまとめた配色テーマ","BROWSE_WORTHY","COLOR_PATTERN_SHAPE","CORE","配色・色テーマとして探すのが自然","","","","","","","[]","[]","[]","NO","","CHECKED","[]",""],
+["1557","diagram","YES","情報や構造を図式化した図・ダイアグラム","BROWSE_WORTHY","TEXT_SYMBOL","CORE","図解・レイアウトとして探すのが自然","","","","","","","[\"TEXT_SYMBOL/LAYOUT\"]","[]","[]","NO","","CHECKED","[]",""],
+["1560","geissele_urg-i","YES","Geissele URG-I系の銃器・上部レシーバー構成","MIXED","TOOL_OBJECT","CORE","固有銃器系装備だが武器として視覚的に探せる","","","","","","","[\"OBJECT_PROP/WEAPON\"]","[]","[]","NO","","CHECKED","[]",""],
+["1563","hachikuji_mayoi_(cosplay)","YES","『化物語』八九寺真宵の衣装を着たコスプレ","MIXED","CLOTHING_EXPOSURE","CORE","作品固有のコスプレ衣装として視覚的に探せる","","","","","","","[\"CLOTHING/COSTUME\"]","[]","[]","NO","","CHECKED","[]",""],
+["1566","scorpion_tattoo","YES","サソリを図案にしたタトゥー","BROWSE_WORTHY","TEXT_SYMBOL","CORE","サソリ図案・シンボルとして探すのが自然","","","","","","","[\"TEXT_SYMBOL/SYMBOL\"]","[]","[]","NO","","CHECKED","[]",""],
+["1569","carrying_over_shoulder","YES","人や物を肩に担いで運ぶ姿勢","BROWSE_WORTHY","POSE_POSITION","CORE","担ぐ身体姿勢として探すのが自然","ACTION_CONTACT","SUPPORTING","対象を保持・運搬する動作からも独立して探せる","","","","[]","[]","[]","NO","","CHECKED","[]",""],
+["1572","arrow_in_head","YES","頭部に矢が刺さっている状態","BROWSE_WORTHY","BODY_SITE","CORE","頭部の負傷・刺入状態として探すのが自然","TOOL_OBJECT","SUPPORTING","矢という武器側からも独立して探せる","","","","[\"OBJECT_PROP/WEAPON\"]","[]","[\"INJURY_R18G\"]","NO","","CHECKED","[]",""],
+["1575","saber_(weapon)","YES","サーベル・片刃の刀剣","BROWSE_WORTHY","TOOL_OBJECT","CORE","武器・刀剣として探すのが自然","","","","","","","[\"OBJECT_PROP/WEAPON\"]","[]","[]","NO","","CHECKED","[]",""]
+],
+"holds":[{"lane_local_index":516,"review_seq":1548,"identity_key":"tan_tan_pou","reason":"語形だけでは対象物・固有参照の意味を安全に確定できない","research_attempts":["Deferred to bounded fresh research; no spelling inference used"]}]
+}
