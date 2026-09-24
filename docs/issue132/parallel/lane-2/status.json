@@ -10,14 +10,14 @@
   "last_checkpoint": "checkpoint_000351_000375.csv",
   "complete": false,
   "error_count": 0,
-  "last_run_delta": 50,
-  "last_run_stop_reason": "EXECUTION_LIMIT",
-  "staged_finalized_count": 221,
-  "active_hold_count": 29,
+  "last_run_delta": 300,
+  "last_run_stop_reason": "TARGET_REACHED",
+  "staged_finalized_count": 485,
+  "active_hold_count": 65,
   "last_run_blocker_evidence": {
-    "blocker_type": "EXECUTION_LIMIT",
-    "operation": "continue semantic Pass-A processing after safely staging lane-local windows 576-600 and 601-625",
-    "location": "lane-local 626 is the next new identity; immutable prefix remains 375",
-    "effect": "This execution window ended after 50 additional identities were usefully processed and persisted. Windows 576-600 and 601-625 contain 41 newly finalized rows and nine semantic holds. Across staging there are now 221 finalized rows and 29 active holds. The earliest blocking hold was retried with fresh search capability; w_over_eye gained corroborating evidence that it is a W/V-with-thumb hand gesture over the eye, but the existing staging file was not rewritten without a complete safe reconstruction/promotion path. No immutable checkpoint is promotable because window 376-400 still contains holds. Continuation is safe from lane-local 626 while retrying the earliest hold once on the next run."
+    "blocker_type": "TARGET_REACHED",
+    "operation": "processed and safely staged the full requested 300 NEW lane-2 identities",
+    "location": "lane-local 626 through 925; lane-local 926 is next NEW identity",
+    "effect": "Created twelve consecutive 25-identity staging windows 626-650 through 901-925. New work contains 264 fully finalized rows and 36 semantic holds; no single hard identity stalled continuation. Across all lane-2 staging there are now 485 finalized rows and 65 active holds. Immutable checkpoint prefix remains 375 because the earliest staged window still contains holds. Run ended only because the 300-NEW target was reached."
   }
 }
