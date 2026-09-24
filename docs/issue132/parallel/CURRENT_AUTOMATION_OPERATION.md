@@ -579,6 +579,48 @@ Every coordinator cycle, in addition to common checks:
 - Lane 2: compare NEW useful identities against the fixed 300-run target and reject convenient 25/50-row wrap-up;
 - Lane 3: until the 751–1050 focused family audit is complete, track route2-family corrections and do not call the 300-run quality-clean merely because TARGET_REACHED was reported.
 
+## 10F. Exact-identity persistence gate — mandatory for every 25-row staging write
+
+The prior wording "exact coverage" is not sufficient by itself. Every worker must enforce a concrete pre-write and post-write identity gate so rows cannot shift when holds are present.
+
+For every 25-row window, first derive the authoritative ordered source tuples directly from the validated lane shard:
+
+`(lane_local_index, review_seq, identity_key)`
+
+for every lane-local position in the window. Keep this tuple attached to the identity throughout semantic processing. Never reconstruct lane-local position from the ordinal position of finalized rows after holds have been removed.
+
+### Pre-write gate
+
+Before writing a staging window, build one actual outcome map keyed by `lane_local_index` from finalized rows plus holds and require ALL of the following:
+- expected window contains exactly 25 authoritative source tuples, except the final partial lane window;
+- every expected lane-local index appears exactly once in the outcome map;
+- no outcome exists outside the window;
+- no duplicate lane-local index;
+- each outcome's `review_seq` exactly matches the authoritative source tuple for that lane-local index;
+- each outcome's `identity_key` exactly matches the authoritative source tuple;
+- finalized-row `review_seq` and `identity_key` are checked against the tuple they came from, not against row-array position;
+- a hold occupies its exact original lane-local slot and does not cause later finalized rows to shift left;
+- finalized_count + genuine_hold_count equals the authoritative window size exactly;
+- window start/end metadata exactly matches the intended lane-local range.
+
+If any condition fails, DO NOT WRITE the staging file. Rebuild the in-memory window from the authoritative source tuples. Do not "repair" by renumbering, sliding later identities, copying adjacent identities, or converting unmatched items into holds.
+
+### Post-write gate
+
+Immediately after creating/updating the staging JSON, re-fetch that exact file from the research branch and repeat the same expected-vs-actual identity comparison. The write is not considered successful until the re-fetched file passes.
+
+If post-write validation fails:
+- repair or delete that same invalid non-authoritative staging window in the same run when authorized;
+- do not continue to the next 25-row window while leaving the newly written invalid window behind;
+- do not count the window as useful progress;
+- report the concrete mismatch if it cannot be repaired because of an actual tool blocker.
+
+### No positional compression
+
+The worker must never serialize by taking "N finalized rows + M holds" and assuming their list positions imply source positions. Holds and rows are two output collections, but identity binding is always by authoritative `lane_local_index + review_seq + identity_key` tuple.
+
+This exact-identity gate applies uniformly to Lane 1, Lane 2, Lane 3, coordinator pickup, staging repair, and hold-resolution rewrites. It is mechanical and must not be skipped for speed.
+
 ## 11. Production boundary
 
 Pass A still does not authorize:
