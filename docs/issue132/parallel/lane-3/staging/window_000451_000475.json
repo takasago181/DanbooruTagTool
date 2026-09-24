@@ -1,0 +1,37 @@
+{
+  "schema_version": "issue132-pass-a-staging-window-v1",
+  "lane": 3,
+  "lane_local_start": 451,
+  "lane_local_end": 475,
+  "parent_neutral_sha256": "ac0f888d02f19a440c63b3b9f695c58f9ba53b98ebe9756edec51db1c5ff8f7d",
+  "parent_identity_order_sha256": "f80c63018ce19a8c7c5d8d6fd83d03cf760c510d8f6cfa455d1ab356fb31361b",
+  "rows": [
+    ["1353","side_up_ring","YES","サイドアップの髪束を留めるリング状の髪飾り","BROWSE_WORTHY","CLOTHING_EXPOSURE","CORE","髪飾り・アクセサリーとして探すのが自然","","","","","","","[\"CLOTHING/ACCESSORY\"]","[]","[]","NO","","CHECKED","[]",""],
+    ["1356","kite_string","YES","凧をつなぎ操作する糸","BROWSE_WORTHY","TOOL_OBJECT","CORE","凧の付属物・道具として探すのが自然","","","","","","","[]","[]","[]","NO","","CHECKED","[]",""],
+    ["1359","price_tag","YES","商品価格を示す値札・価格タグ","BROWSE_WORTHY","TEXT_SYMBOL","CORE","価格表示を含むラベル・文字情報として探すのが自然","","","","","","","[\"TEXT_SYMBOL/TEXT\"]","[]","[]","NO","","CHECKED","[]",""],
+    ["1362","planet","YES","惑星・遊星","BROWSE_WORTHY","SCENE_BACKGROUND","CORE","天体・宇宙背景の要素として探すのが自然","","","","","","","[]","[]","[]","YES","天体そのものを直接表す上位routeがない","CHECKED","[]",""],
+    ["1365","lon_lon_milk","YES","『ゼルダの伝説』シリーズのロンロン牛乳","MIXED","TOOL_OBJECT","CORE","作品固有の飲料だが食べ物・飲み物として視覚的に探せる","","","","","","","[\"OBJECT_PROP/FOOD\"]","[]","[]","NO","","RESEARCHED","[\"https://zeldawiki.wiki/wiki/Milk\"]",""],
+    ["1368","frilled_hiphighs","YES","フリル付きのヒップハイ丈ストッキング","BROWSE_WORTHY","CLOTHING_EXPOSURE","CORE","衣類の種類・装飾として探すのが自然","","","","","","","[\"CLOTHING/EVERYDAY\"]","[]","[]","NO","","CHECKED","[]",""],
+    ["1371","heartless_emblem","YES","『KINGDOM HEARTS』のハートレスを表す紋章","MIXED","TEXT_SYMBOL","CORE","固有作品の紋章だが記号・シンボルとして視覚的に探せる","","","","","","","[\"TEXT_SYMBOL/SYMBOL\"]","[]","[]","NO","","RESEARCHED","[\"https://www.khwiki.com/Gazing_Eye\"]",""],
+    ["1374","flyswatter","YES","ハエたたき","BROWSE_WORTHY","TOOL_OBJECT","CORE","日用品・道具として探すのが自然","","","","","","","[\"OBJECT_PROP/DAILY\"]","[]","[]","NO","","CHECKED","[]",""],
+    ["1377","exiting_vehicle","YES","乗り物から降りる・出る動作","BROWSE_WORTHY","ACTION_CONTACT","CORE","乗り物に対する出入りの動作として探すのが自然","TOOL_OBJECT","SUPPORTING","乗り物を含む場面としても独立して探せる","","","","[\"ACTION_CONTACT/OBJECT_USE\",\"OBJECT_PROP/VEHICLE\"]","[]","[]","NO","","CHECKED","[]",""],
+    ["1380","dorsal_fin","YES","魚類・海棲生物などの背びれ","BROWSE_WORTHY","BODY_SITE","CORE","生物の身体部位として探すのが自然","","","","","","","[]","[]","[]","NO","","CHECKED","[]",""],
+    ["1383","gothic_lolita","YES","ゴシック要素を取り入れたロリータファッション","BROWSE_WORTHY","CLOTHING_EXPOSURE","CORE","服装・ファッション様式として探すのが自然","","","","","","","[\"CLOTHING/COSTUME\"]","[]","[]","NO","","CHECKED","[]",""],
+    ["1386","fujiwara_takumi's_toyota_trueno_ae86","YES","『頭文字D』藤原拓海のトヨタ・スプリンタートレノAE86","MIXED","TOOL_OBJECT","CORE","固有車両だが自動車として視覚的に探せる","","","","","","","[\"OBJECT_PROP/VEHICLE\"]","[]","[]","NO","","RESEARCHED","[\"https://initiald.fandom.com/wiki/Takumi_Fujiwara\"]",""],
+    ["1389",":<","YES","口角が下がった「:<」形の顔文字・表情記号","BROWSE_WORTHY","EXPRESSION_GAZE","CORE","不満・不機嫌系の表情として探すのが自然","TEXT_SYMBOL","SUPPORTING","顔文字記号としても独立して探せる","","","","[\"EXPRESSION_EMOTION/\",\"TEXT_SYMBOL/SYMBOL\"]","[]","[]","NO","","CHECKED","[]",""],
+    ["1392","plaid_sleeves","YES","チェック柄・格子柄の袖","BROWSE_WORTHY","CLOTHING_EXPOSURE","CORE","衣服の袖の柄として探すのが自然","COLOR_PATTERN_SHAPE","SUPPORTING","格子柄そのものからも独立して探せる","","","","[\"CLOTHING/EVERYDAY\"]","[]","[]","NO","","CHECKED","[]",""],
+    ["1395","cross-body_stretch","YES","腕を胸の前で横切らせるクロスボディストレッチ","BROWSE_WORTHY","POSE_POSITION","CORE","身体姿勢・ストレッチ姿勢として探すのが自然","","","","","","","[]","[]","[]","NO","","CHECKED","[]",""],
+    ["1398","genkan","YES","日本家屋などの玄関・土間式の入口空間","BROWSE_WORTHY","SCENE_BACKGROUND","CORE","場所・室内設定として探すのが自然","","","","","","","[]","[]","[]","NO","","CHECKED","[]",""],
+    ["1401","bone_ornament","YES","骨を意匠・素材にした装飾品","BROWSE_WORTHY","CLOTHING_EXPOSURE","CORE","装飾品・アクセサリーとして探すのが自然","","","","","","","[\"CLOTHING/ACCESSORY\"]","[]","[]","NO","","CHECKED","[]",""],
+    ["1404","lottery","YES","くじ・抽選を行う場面やくじ券","BROWSE_WORTHY","TOOL_OBJECT","CORE","くじ券・抽選用具を含む視覚概念として探すのが最も近い","","","","","","","[]","[]","[]","YES","抽選・くじという活動を直接表す上位routeがない","CHECKED","[]",""],
+    ["1407","rough_sex","YES","乱暴・激しい性行為","BROWSE_WORTHY","ACTION_CONTACT","CORE","性交・性的接触行為として探すのが自然","","","","","","","[\"ACTION_CONTACT/INTIMATE\"]","[]","[]","NO","","CHECKED","[]",""],
+    ["1410","floral_print_gloves","YES","花柄の手袋","BROWSE_WORTHY","CLOTHING_EXPOSURE","CORE","衣服・手袋の意匠として探すのが自然","COLOR_PATTERN_SHAPE","SUPPORTING","花柄というパターンからも独立して探せる","","","","[\"CLOTHING/ACCESSORY\"]","[]","[]","NO","","CHECKED","[]",""],
+    ["1413","devil_fruit","YES","『ONE PIECE』の悪魔の実","MIXED","TOOL_OBJECT","CORE","作品固有の果実だが食べ物・物体として視覚的に探せる","","","","","","","[\"OBJECT_PROP/FOOD\"]","[]","[]","NO","","RESEARCHED","[\"https://onepiece.fandom.com/wiki/Devil_Fruit\"]",""],
+    ["1416","monokini","YES","胸部を露出するトップレス型水着・モノキニ","BROWSE_WORTHY","CLOTHING_EXPOSURE","CORE","水着・露出衣装として探すのが自然","","","","","","","[\"CLOTHING_STATE_EXPOSURE/\"]","[\"BREAST_NIPPLE\"]","[]","NO","","RESEARCHED","[\"https://www.collinsdictionary.com/dictionary/english/monokini\"]",""],
+    ["1419","close-up","YES","被写体を大きく写すクローズアップ構図","BROWSE_WORTHY","COMPOSITION_CAMERA","CORE","画角・フレーミングとして探すのが自然","","","","","","","[]","[]","[]","NO","","CHECKED","[]",""],
+    ["1422","swept_hilt","YES","曲線状のガードを組み合わせた剣のスウェプト・ヒルト","BROWSE_WORTHY","TOOL_OBJECT","CORE","剣・武器の柄構造として探すのが自然","","","","","","","[\"OBJECT_PROP/WEAPON\"]","[]","[]","NO","","RESEARCHED","[\"https://en.wikipedia.org/wiki/Rapier\"]",""]
+  ],
+  "holds": [
+    {"lane_local_index":475,"review_seq":1425,"identity_key":"aqua_assault_visor","reason":"固有名詞らしいが作品・物体種別を直接裏付ける資料を確認できず、安全にrouteを確定できない","research_attempts":["Exact web search for aqua assault visor: no direct defining source surfaced","Broadened query with game/Rockman/Mega Man terms: no direct identity evidence surfaced"]}
+  ]
+}
