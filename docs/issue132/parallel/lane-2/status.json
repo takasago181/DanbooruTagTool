@@ -12,12 +12,12 @@
   "error_count": 0,
   "last_run_delta": 25,
   "last_run_stop_reason": "EXECUTION_LIMIT",
-  "staged_finalized_count": 549,
-  "active_hold_count": 76,
+  "staged_finalized_count": 569,
+  "active_hold_count": 81,
   "last_run_blocker_evidence": {
     "blocker_type": "EXECUTION_LIMIT",
-    "operation": "automation execution turn ended after successfully persisting the next 25-identity staging window",
-    "location": "lane-local 976 through 1000 persisted; lane-local 1001 is next NEW identity",
-    "effect": "The current execution-turn boundary prevented reaching the requested 300-NEW target. window_000976_001000.json is safely persisted with 21 finalized rows and 4 holds. No semantic identity blocked continuation; the next run must resume at lane-local 1001 and again target 300 NEW identities from repository truth."
+    "operation": "automation execution turn ended after safely persisting the next 25-identity staging window",
+    "location": "lane-local 1001 through 1025 persisted; lane-local 1026 is next NEW identity",
+    "effect": "window_001001_001025.json is persisted with 20 finalized rows and 5 holds. No single semantic identity blocked continuation; next run resumes at lane-local 1026 and again targets 300 NEW identities from repository truth."
   }
 }
