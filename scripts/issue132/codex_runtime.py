@@ -107,7 +107,7 @@ def load_runtime(root: Path) -> tuple[dict, dict, dict, list[str]]:
             errors.append(f"Codex baseline manifest unreadable: {exc}")
             baseline_manifest = {}
         if baseline_manifest:
-            if baseline_manifest.get("schema_version") != "issue132-codex-baseline-manifest-v1":
+            if baseline_manifest.get("schema_version") != "issue132-codex-baseline-manifest-v2":
                 errors.append("Codex baseline manifest schema mismatch")
             if baseline_manifest.get("parent_neutral_sha256") != fixed.get("parent_neutral_sha256"):
                 errors.append("Codex baseline neutral SHA mismatch")
