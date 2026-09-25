@@ -1,8 +1,8 @@
 # Issue132 Git Object Write Protocol V1
 
-Use this protocol for ALL writes on branch `research/taxonomy-usability-audit` from Issue132 automations.
+Use this protocol as the FALLBACK transport on branch `research/taxonomy-usability-audit` when an authorized contents API write has actually failed.
 
-Purpose: avoid contents-API pre-write safety rejection while preserving concurrent-worker safety.
+Compact staging v2 and small status metadata use contents API first. This fallback preserves concurrent-worker safety without making ref mutation the normal path.
 
 ## Allowed targets
 Only the target files already authorized by the caller's role:
@@ -53,4 +53,4 @@ This keeps successful work durable and minimizes conflict surface.
 
 ## Blocker rule
 A generic "safety check blocked write" before a GitHub operation is not a blocker.
-Only report a write blocker after the Git-object path itself was attempted and failed. Record operation, target, base HEAD, new commit SHA if created, update_ref result/error, and retry count.
+Only report a run-level `WRITE_RETRY_PENDING` after the normal contents path and this Git-object fallback were both attempted and unavailable. Record operation, target, base HEAD, new commit SHA if created, update_ref result/error, and retry count. Never disable an Issue132 automation solely because persistence failed in one run.
