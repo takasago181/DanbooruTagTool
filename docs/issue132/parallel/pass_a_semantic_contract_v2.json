@@ -2,57 +2,104 @@
   "schema_version": "issue132-pass-a-semantic-contract-v2",
   "population": 31003,
   "lane_rule": "((review_seq-1)%3)+1",
-  "lane_lengths": {"1":10335,"2":10334,"3":10334},
+  "lane_lengths": {
+    "1": 10335,
+    "2": 10334,
+    "3": 10334
+  },
   "neutral": {
     "path": "docs/issue132/parallel/input/luna_neutral_review_input_v2.csv",
     "sha256": "ac0f888d02f19a440c63b3b9f695c58f9ba53b98ebe9756edec51db1c5ff8f7d",
     "identity_order_sha256": "f80c63018ce19a8c7c5d8d6fd83d03cf760c510d8f6cfa455d1ab356fb31361b"
   },
   "route_ids": [
-    "ACTION_CONTACT","BODY_SITE","CLOTHING_EXPOSURE","COLOR_PATTERN_SHAPE",
-    "COMPOSITION_CAMERA","CONTENT_RATING","EXPRESSION_GAZE","FLUID_EXCRETION",
-    "HAIR_FACE","LIGHT_TIME_WEATHER","LIVING","NONHUMAN_TRANSFORM",
-    "PEOPLE_COUNT","POSE_POSITION","RELATION_ROLE","SCENE_BACKGROUND",
-    "STYLE_PROCESSING","TEXT_SYMBOL","TOOL_OBJECT"
+    "ACTION_CONTACT",
+    "BODY_SITE",
+    "CLOTHING_EXPOSURE",
+    "COLOR_PATTERN_SHAPE",
+    "COMPOSITION_CAMERA",
+    "CONTENT_RATING",
+    "EXPRESSION_GAZE",
+    "FLUID_EXCRETION",
+    "HAIR_FACE",
+    "LIGHT_TIME_WEATHER",
+    "LIVING",
+    "NONHUMAN_TRANSFORM",
+    "PEOPLE_COUNT",
+    "POSE_POSITION",
+    "RELATION_ROLE",
+    "SCENE_BACKGROUND",
+    "STYLE_PROCESSING",
+    "TEXT_SYMBOL",
+    "TOOL_OBJECT"
   ],
   "local_refinement_parent": {
-    "ACTION_CONTACT/INTERACTION":"ACTION_CONTACT",
-    "ACTION_CONTACT/INTIMATE":"ACTION_CONTACT",
-    "ACTION_CONTACT/OBJECT_USE":"ACTION_CONTACT",
-    "CLOTHING/ACCESSORY":"CLOTHING_EXPOSURE",
-    "CLOTHING/COSTUME":"CLOTHING_EXPOSURE",
-    "CLOTHING/EVERYDAY":"CLOTHING_EXPOSURE",
-    "CLOTHING/UNIFORM":"CLOTHING_EXPOSURE",
-    "CLOTHING_STATE_EXPOSURE/":"CLOTHING_EXPOSURE",
-    "EXPRESSION_EMOTION/":"EXPRESSION_GAZE",
-    "GAZE_ORIENTATION/":"EXPRESSION_GAZE",
-    "LIVING_NATURE/CREATURE":"LIVING",
-    "LIVING_NATURE/PLANT":"LIVING",
-    "OBJECT_PROP/DAILY":"TOOL_OBJECT",
-    "OBJECT_PROP/FOOD":"TOOL_OBJECT",
-    "OBJECT_PROP/VEHICLE":"TOOL_OBJECT",
-    "OBJECT_PROP/WEAPON":"TOOL_OBJECT",
-    "TEXT_SYMBOL/LAYOUT":"TEXT_SYMBOL",
-    "TEXT_SYMBOL/SYMBOL":"TEXT_SYMBOL",
-    "TEXT_SYMBOL/TEXT":"TEXT_SYMBOL"
+    "ACTION_CONTACT/INTERACTION": "ACTION_CONTACT",
+    "ACTION_CONTACT/INTIMATE": "ACTION_CONTACT",
+    "ACTION_CONTACT/OBJECT_USE": "ACTION_CONTACT",
+    "CLOTHING/ACCESSORY": "CLOTHING_EXPOSURE",
+    "CLOTHING/COSTUME": "CLOTHING_EXPOSURE",
+    "CLOTHING/EVERYDAY": "CLOTHING_EXPOSURE",
+    "CLOTHING/UNIFORM": "CLOTHING_EXPOSURE",
+    "CLOTHING_STATE_EXPOSURE/": "CLOTHING_EXPOSURE",
+    "EXPRESSION_EMOTION/": "EXPRESSION_GAZE",
+    "GAZE_ORIENTATION/": "EXPRESSION_GAZE",
+    "LIVING_NATURE/CREATURE": "LIVING",
+    "LIVING_NATURE/PLANT": "LIVING",
+    "OBJECT_PROP/DAILY": "TOOL_OBJECT",
+    "OBJECT_PROP/FOOD": "TOOL_OBJECT",
+    "OBJECT_PROP/VEHICLE": "TOOL_OBJECT",
+    "OBJECT_PROP/WEAPON": "TOOL_OBJECT",
+    "TEXT_SYMBOL/LAYOUT": "TEXT_SYMBOL",
+    "TEXT_SYMBOL/SYMBOL": "TEXT_SYMBOL",
+    "TEXT_SYMBOL/TEXT": "TEXT_SYMBOL"
   },
   "body_site_ids": [
-    "BREAST_NIPPLE","BUTTOCK_ANAL","FEMALE_GENITAL","MALE_GENITAL","MOUTH_ORAL","URETHRA"
+    "BREAST_NIPPLE",
+    "BUTTOCK_ANAL",
+    "FEMALE_GENITAL",
+    "MALE_GENITAL",
+    "MOUTH_ORAL",
+    "URETHRA"
   ],
   "theme_ids": [
-    "BDSM_RESTRAINT","INJURY_R18G","REPRO_PREGNANCY_LACTATION"
+    "BDSM_RESTRAINT",
+    "INJURY_R18G",
+    "REPRO_PREGNANCY_LACTATION"
   ],
   "allowed_discovery_modes": [
-    "BROWSE_WORTHY","MIXED","SEARCH_ORIENTED","SEMANTIC_UNRESOLVED"
+    "BROWSE_WORTHY",
+    "MIXED",
+    "SEARCH_ORIENTED",
+    "SEMANTIC_UNRESOLVED"
   ],
-  "allowed_route_strengths": ["CORE","SUPPORTING"],
-  "allowed_review_depths": ["CHECKED","RESEARCHED"],
+  "allowed_route_strengths": [
+    "CORE",
+    "SUPPORTING"
+  ],
+  "allowed_review_depths": [
+    "CHECKED",
+    "RESEARCHED"
+  ],
   "decision_reason_codes": [
-    "COSTUME_REFERENCE","NAMED_PROP","WEAPON_PROP","CLOTHING_STATE",
-    "OBJECT_USE_ACTION","PERSON_INTERACTION","STATIC_POSITION","RELATIONSHIP_ROLE",
-    "BODY_SITE_FEATURE","HEAD_HAIR_FACE_FEATURE","FLUID_EXCRETION",
-    "COLOR_PATTERN_SECONDARY","OBJECT_SCENE_BOUNDARY","NAMED_REFERENCE_WITH_VISUAL_AXIS",
-    "SEARCH_BY_NAME_ONLY","RESEARCH_UNRESOLVED","VOCABULARY_GAP","OTHER_DIRECT_VISUAL"
+    "COSTUME_REFERENCE",
+    "NAMED_PROP",
+    "WEAPON_PROP",
+    "CLOTHING_STATE",
+    "OBJECT_USE_ACTION",
+    "PERSON_INTERACTION",
+    "STATIC_POSITION",
+    "RELATIONSHIP_ROLE",
+    "BODY_SITE_FEATURE",
+    "HEAD_HAIR_FACE_FEATURE",
+    "FLUID_EXCRETION",
+    "COLOR_PATTERN_SECONDARY",
+    "OBJECT_SCENE_BOUNDARY",
+    "NAMED_REFERENCE_WITH_VISUAL_AXIS",
+    "SEARCH_BY_NAME_ONLY",
+    "RESEARCH_UNRESOLVED",
+    "VOCABULARY_GAP",
+    "OTHER_DIRECT_VISUAL"
   ],
   "semantic_guardrails": [
     "Classify by the first shelf an image-generation user would naturally open when they do not know the exact Danbooru tag.",
@@ -67,5 +114,17 @@
     "Body/theme facets are intrinsic-only, never inferred from common association.",
     "Unclear Danbooru-specific/reference/meme terms require bounded direct research; if meaning remains materially uncertain, use RESEARCHED + SEMANTIC_UNRESOLVED rather than guessing.",
     "Adult/sexual identities are ordinary in-scope data and use the same evidence standard as all other identities."
-  ]
+  ],
+  "validation_rules": {
+    "max_routes": 3,
+    "require_unique_routes": true,
+    "at_most_one_local_refinement_per_parent": true,
+    "researched_requires_evidence": true,
+    "semantic_unresolved_requires_researched": true,
+    "semantic_unresolved_requires_evidence": true,
+    "search_or_unresolved_carries_no_browse_facets": true,
+    "search_or_unresolved_route_vocabulary_gap_must_be_no": true,
+    "browse_capable_requires_route_or_facet_or_vocabulary_gap": true,
+    "browse_routes_require_at_least_one_core": true
+  }
 }
