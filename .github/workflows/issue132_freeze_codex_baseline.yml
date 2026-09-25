@@ -1,48 +1,25 @@
-name: Issue132 Freeze Codex Baseline
+name: Issue132 Baseline Rebuild Diagnostic (manual)
 
 on:
-  push:
-    branches:
-      - research/issue132-codex-simplify-v1
-    paths:
-      - "scripts/issue132/freeze_codex_baseline.py"
-      - ".github/workflows/issue132_freeze_codex_baseline.yml"
   workflow_dispatch:
 
 permissions:
-  contents: write
-
-concurrency:
-  group: issue132-freeze-codex-baseline
-  cancel-in-progress: false
+  contents: read
 
 jobs:
-  freeze:
+  rebuild:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 1
-
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-
-      - name: Freeze effective manually audited baseline
+      - name: Rebuild baseline in working tree
         run: python scripts/issue132/freeze_codex_baseline.py
-
-      - name: Commit derived baseline
-        shell: bash
+      - name: Verify rebuild is byte-identical
         run: |
-          set -euo pipefail
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/issue132/parallel/codex-baseline/
-          if git diff --cached --quiet; then
-            echo "Baseline already current."
-            exit 0
+          if ! git diff --exit-code -- docs/issue132/parallel/codex-baseline/; then
+            echo "Baseline rebuild differs from committed Codex baseline."
+            exit 1
           fi
-          git commit -m "issue132: freeze effective Codex baseline"
-          git pull --rebase origin research/issue132-codex-simplify-v1
-          git push origin HEAD:research/issue132-codex-simplify-v1
