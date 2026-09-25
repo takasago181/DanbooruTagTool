@@ -98,7 +98,6 @@
   "validation_rules": {
     "max_routes": 3,
     "require_unique_routes": true,
-    "at_most_one_local_refinement_per_parent": true,
     "researched_requires_evidence": true,
     "semantic_unresolved_requires_researched": true,
     "semantic_unresolved_requires_evidence": true,
