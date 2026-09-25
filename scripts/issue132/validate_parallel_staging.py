@@ -301,7 +301,7 @@ def main():
         }
 
     window_error_re = re.compile(
-        r"^lane\\s+(\\d+)(?::| staging)\\s+(window_\\d{6}_\\d{6}\\.json)"
+        r"^lane\s+(\d+)(?::| staging)\s+(window_\d{6}_\d{6}\.json)"
     )
     invalid_windows: dict[str, set[str]] = {str(lane): set() for lane in LANES}
     for error in errors:
