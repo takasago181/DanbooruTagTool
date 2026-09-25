@@ -81,6 +81,7 @@ Explicit safety/content/policy rejection is not retried through a second transpo
 repair_status.json is legacy cache only; do not read/write it on the hot path. No narrative run record is required.
 
 A historical window counts repaired only when the effective validator accepts its active overlay.
+Until that confirmation exists, report the overlay as CREATED_PENDING_VALIDATION and keep the effective-invalid count unchanged. Never report a reduced effective-invalid count with a parenthetical "pending validator confirmation".
 
 ## Stop/report
 Never stop because one target rejects a write when another independent target exists. Never disable for CI red or one write failure.
