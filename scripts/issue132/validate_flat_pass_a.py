@@ -20,7 +20,9 @@ from staging_v2 import (
 ROOT = Path(__file__).resolve().parents[2]
 LANES = (1, 2, 3)
 LANE_LENGTHS = {1: 10335, 2: 10334, 3: 10334}
-STAGE_RE = re.compile(r"^window_(\d{6})_(\d{6})\.json$")
+STAGE_RE = re.compile(r"^window_(\\d{6})_(\\d{6})\\.json$")
+REQUEST_RE = re.compile(r"^request_(\\d{6})_(\\d{6})\\.json$")
+DEFERRED_RE = re.compile(r"^deferred_(\\d{6})_(\\d{6})\\.json$")
 SCHEMA_V1 = "issue132-pass-a-staging-window-v1"
 EXPECTED_PARENT_SHA = "ac0f888d02f19a440c63b3b9f695c58f9ba53b98ebe9756edec51db1c5ff8f7d"
 EXPECTED_ORDER_SHA = "f80c63018ce19a8c7c5d8d6fd83d03cf760c510d8f6cfa455d1ab356fb31361b"
@@ -267,6 +269,10 @@ def main():
         invalid_windows = []
         hold_windows = []
         valid_windows = []
+        pending_materialization = []
+        deferred_ranges = []
+        requested_indices: set[int] = set()
+        deferred_indices: set[int] = set()
 
         stage_dir = ROOT / args.parallel_dir / f"lane-{lane}" / "staging"
         if stage_dir.exists():
@@ -313,7 +319,47 @@ def main():
                     accepted |= result["accepted_indices"]
                     valid_windows.append(item)
 
+        request_dir = ROOT / args.parallel_dir / f"lane-{lane}" / "write-requests"
+        if request_dir.exists():
+            for path in sorted(request_dir.glob("request_*.json")):
+                m = REQUEST_RE.match(path.name)
+                if not m:
+                    fatal_errors.append(f"lane {lane}: invalid write-request filename {path.name}")
+                    continue
+                start, end = map(int, m.groups())
+                if start < 1 or end > len(assigned) or end < start:
+                    fatal_errors.append(f"lane {lane}: write-request {path.name} outside assigned lane")
+                    continue
+                requested_indices |= set(range(start, end + 1))
+                stage_path = stage_dir / f"window_{start:06d}_{end:06d}.json"
+                if not stage_path.exists():
+                    pending_materialization.append({
+                        "path": path.name,
+                        "start": start,
+                        "end": end,
+                    })
+
+        deferred_dir = ROOT / args.parallel_dir / f"lane-{lane}" / "deferred"
+        if deferred_dir.exists():
+            for path in sorted(deferred_dir.glob("deferred_*.json")):
+                m = DEFERRED_RE.match(path.name)
+                if not m:
+                    fatal_errors.append(f"lane {lane}: invalid deferred filename {path.name}")
+                    continue
+                start, end = map(int, m.groups())
+                if start < 1 or end > len(assigned) or end < start:
+                    fatal_errors.append(f"lane {lane}: deferred {path.name} outside assigned lane")
+                    continue
+                deferred_indices |= set(range(start, end + 1))
+                deferred_ranges.append({"path": path.name, "start": start, "end": end})
+
         high_watermark = max(persisted, default=prefix)
+        frontier_high_watermark = max(
+            [prefix]
+            + list(persisted)
+            + list(requested_indices)
+            + list(deferred_indices)
+        )
         gap_indices = set(range(prefix + 1, high_watermark + 1)) - persisted
         missing_ranges = ranges_from_indices(gap_indices)
         missing_total += len(gap_indices)
@@ -327,7 +373,12 @@ def main():
             "checkpoint_seed_count": prefix,
             "accepted_count": accepted_count,
             "persisted_high_watermark": high_watermark,
-            "forward_frontier": high_watermark + 1 if high_watermark < len(assigned) else None,
+            "frontier_high_watermark": frontier_high_watermark,
+            "forward_frontier": frontier_high_watermark + 1 if frontier_high_watermark < len(assigned) else None,
+            "pending_materialization": pending_materialization,
+            "pending_materialization_count": len(pending_materialization),
+            "deferred_ranges": deferred_ranges,
+            "deferred_range_count": len(deferred_ranges),
             "remaining_identity_count": len(assigned) - accepted_count,
             "valid_forward_window_count": len(valid_windows),
             "invalid_windows": invalid_windows,
@@ -351,7 +402,12 @@ def main():
         "expected_total": 31003,
         "accepted_by_lane": {lane: lanes_summary[lane]["accepted_count"] for lane in sorted(lanes_summary)},
         "high_watermarks": {lane: lanes_summary[lane]["persisted_high_watermark"] for lane in sorted(lanes_summary)},
+        "frontier_high_watermarks": {lane: lanes_summary[lane]["frontier_high_watermark"] for lane in sorted(lanes_summary)},
         "frontiers": {lane: lanes_summary[lane]["forward_frontier"] for lane in sorted(lanes_summary)},
+        "pending_materialization_count": sum(lanes_summary[lane]["pending_materialization_count"] for lane in lanes_summary),
+        "pending_materialization": {lane: lanes_summary[lane]["pending_materialization"] for lane in sorted(lanes_summary)},
+        "deferred_range_count": sum(lanes_summary[lane]["deferred_range_count"] for lane in lanes_summary),
+        "deferred_ranges": {lane: lanes_summary[lane]["deferred_ranges"] for lane in sorted(lanes_summary)},
         "invalid_window_count": invalid_total,
         "invalid_windows": {lane: [x["path"] for x in lanes_summary[lane]["invalid_windows"]] for lane in sorted(lanes_summary)},
         "hold_window_count": hold_total,
