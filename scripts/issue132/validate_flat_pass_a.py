@@ -407,6 +407,16 @@ def main() -> None:
         >= int(authority["fixed"]["lane_lengths"][str(lane)])
         for lane in (1, 2, 3)
     )
+    ready_for_final_chatgpt_audit = (
+        processed_total == 31003
+        and accepted_total == 31003
+        and unresolved_debt_total == 0
+        and duplicate_total == 0
+        and internal_qa_violation_total == 0
+        and internal_qa_caught_up
+        and not fatal_errors
+        and final_internal_qa
+    )
     complete = (
         processed_total == 31003
         and accepted_total == 31003
@@ -439,6 +449,7 @@ def main() -> None:
         "internal_qa_caught_up": internal_qa_caught_up,
         "final_internal_qa_passed": final_internal_qa,
         "final_chatgpt_semantic_qa_passed": final_chatgpt_qa,
+        "ready_for_final_chatgpt_audit": ready_for_final_chatgpt_audit,
         "complete": complete,
     }
 
