@@ -1,6 +1,6 @@
 {
   "schema_version": "issue132-runtime-authority-v3-codex-guarded",
-  "status": "PAUSED_FOR_CODEX_HANDOFF",
+  "status": "READY_FOR_CODEX_CALIBRATION",
   "branch": "research/taxonomy-usability-audit",
   "execution_model": "docs/issue132/parallel/FLAT_RUNTIME_MODEL_V1.md",
   "roles": {
@@ -34,7 +34,9 @@
     "task_count": 5,
     "semantic_work_block_max": 100,
     "persistence_slice": 25,
-    "max_unresolved_persistence_debt_per_lane": 100
+    "max_unresolved_persistence_debt_per_lane": 100,
+    "legacy_chatgpt_task_count": 5,
+    "codex_parallel_role_count": 4
   },
   "progress": {
     "model": "accepted_unique_identity_union",
