@@ -155,9 +155,9 @@ jobs:
       - name: Validate committed parallel checkpoints and correction overlays
         run: python scripts/issue132/validate_parallel_effective.py
 
-      - name: Validate semantic hold staging windows
+      - name: Validate flat Pass A accepted-set progress
         run: |
-          python scripts/issue132/validate_parallel_staging.py \
+          python scripts/issue132/validate_flat_pass_a.py \
             --input artifacts/issue132/luna-neutral/luna_neutral_review_input_v2.csv \
             --parallel-dir docs/issue132/parallel
 
