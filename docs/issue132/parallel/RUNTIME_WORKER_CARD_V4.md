@@ -129,3 +129,71 @@ Write lane status once at terminal/end boundary. Compact report only: start, end
 All Issue132 writes use `docs/issue132/parallel/GIT_OBJECT_WRITE_PROTOCOL_V1.md` as the PRIMARY transport. Do not use contents `create_file/update_file` for normal Issue132 persistence. Use branch-head/tree -> create_blob -> create_tree -> create_commit -> re-fetch head -> update_ref(force=false), with retry on concurrent branch advance exactly as defined there. Contents API is fallback only when the Git-object path is unavailable.
 
 A pre-write runtime safety refusal on contents API is not a blocker and must not stop/disable the task. Only an actually attempted Git-object path failure after the protocol's retries may become a write blocker.
+
+
+## Compact staging v2 — REQUIRED FOR NEW WRITES
+
+All NEW forward staging windows use `issue132-pass-a-staging-window-v2`. Existing v1 files remain valid and are not mass-rewritten. If an existing window is rebuilt for repair, write it back as v2.
+
+Purpose: keep exact identity/classification quality while avoiding repeated publication of identity text and free-form semantic prose.
+
+Window metadata remains:
+- `schema_version`: `issue132-pass-a-staging-window-v2`
+- `lane`
+- `lane_local_start`
+- `lane_local_end`
+- frozen parent neutral/order SHA fields
+- `rows`
+- `holds`
+
+Each finalized v2 row contains EXACTLY:
+- `lane_local_index` integer
+- `review_seq` integer
+- `identity_sha256` = lowercase SHA256 hex of UTF-8 `identity_key`
+- `discovery_mode`
+- `routes`: ordered list of 0..3 objects, each exactly `{"id": ROUTE_ID, "strength": "CORE"|"SUPPORTING"}`
+- `local_refinement_ids`: JSON array value, not a stringified array
+- `body_site_ids`: JSON array value
+- `theme_ids`: JSON array value
+- `route_vocabulary_gap`: `YES` or `NO`
+- `review_depth`: `CHECKED` or `RESEARCHED`
+- `evidence_urls`: JSON array value
+
+Do NOT persist these in v2 staging rows:
+- `identity_key`
+- `semantic_summary_ja`
+- `route_*_reason_ja`
+- `route_vocabulary_gap_note`
+- `uncertainty_note`
+- any other free-form prose
+
+The validator binds `lane_local_index + review_seq + identity_sha256` back to the authoritative shard identity and deterministically reconstructs the required 22-column checkpoint row. Classification semantics are therefore still validated by the frozen validator.
+
+Each v2 hold contains EXACTLY:
+- `lane_local_index`
+- `review_seq`
+- `identity_sha256`
+- `reason_code`
+- `research_attempt_codes`
+
+Allowed `reason_code`:
+- `DIRECT_EVIDENCE_NOT_FOUND`
+- `IDENTITY_AMBIGUOUS`
+- `SEMANTIC_SCOPE_AMBIGUOUS`
+- `ROUTE_AMBIGUOUS`
+- `OTHER_UNRESOLVED`
+
+Allowed research attempt codes:
+- `DANBOORU_EXACT`
+- `SAFEBOORU_EXACT`
+- `OFFICIAL_SOURCE`
+- `DIRECT_WEB_SOURCE`
+- `OTHER_DIRECT_SOURCE`
+
+Do not place tag names, semantic descriptions, or research prose in v2 holds. The exact slot is preserved by index/seq/hash.
+
+Write preference for compact v2:
+1. contents API first: NEW=`create_file`; EXISTING=fetch current blob SHA then `update_file`.
+2. Git-object protocol only as fallback on a real contents write failure.
+3. Never disable the automation for a write failure; persist `WRITE_RETRY_PENDING` behavior and retry next run.
+
