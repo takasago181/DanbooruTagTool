@@ -1,13 +1,6 @@
 name: Issue132 Baseline Rebuild Diagnostic (manual)
 
 on:
-  push:
-    branches:
-      - research/issue132-codex-simplify-v1
-    paths:
-      - "scripts/issue132/freeze_codex_baseline.py"
-      - "docs/issue132/parallel/codex-baseline/**"
-      - ".github/workflows/issue132_freeze_codex_baseline.yml"
   workflow_dispatch:
 
 permissions:
