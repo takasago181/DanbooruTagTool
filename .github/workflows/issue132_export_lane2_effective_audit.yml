@@ -1,0 +1,41 @@
+name: Issue132 Export Lane2 Effective Audit
+
+on:
+  push:
+    branches:
+      - research/taxonomy-usability-audit
+    paths:
+      - "scripts/issue132/export_lane2_effective_manual_audit.py"
+      - ".github/workflows/issue132_export_lane2_effective_audit.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: research/taxonomy-usability-audit
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Export effective Lane 2 rows
+        run: python scripts/issue132/export_lane2_effective_manual_audit.py
+      - name: Commit audit export
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/issue132/parallel/audits/lane-2_effective_manual_audit_export.csv
+          if git diff --cached --quiet; then
+            exit 0
+          fi
+          git commit -m "issue132: export lane 2 effective audit rows"
+          git pull --rebase origin research/taxonomy-usability-audit
+          git push origin HEAD:research/taxonomy-usability-audit
