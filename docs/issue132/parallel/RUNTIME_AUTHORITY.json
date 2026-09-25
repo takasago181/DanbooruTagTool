@@ -4,7 +4,7 @@
   "branch": "research/taxonomy-usability-audit",
   "roles": {
     "worker": {
-      "path": "docs/issue132/parallel/RUNTIME_WORKER_CARD_V7.md",
+      "path": "docs/issue132/parallel/RUNTIME_WORKER_CARD_V8.md",
       "lanes": [
         1,
         2,
@@ -25,7 +25,14 @@
     "parent_identity_order_sha256": "f80c63018ce19a8c7c5d8d6fd83d03cf760c510d8f6cfa455d1ab356fb31361b",
     "persistence_slice": 25,
     "semantic_work_block_max": 100,
-    "per_run_ceiling": 300
+    "per_run_ceiling": 300,
+    "lane_lengths": {
+      "1": 10335,
+      "2": 10334,
+      "3": 10334
+    },
+    "shard_size": 300,
+    "worker_hot_path": "authority -> active worker card -> lane staging list -> arithmetic shard csv+manifest -> stream 25-slot writes"
   },
   "truth_order": [
     "live repository files",
