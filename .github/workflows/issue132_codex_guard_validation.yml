@@ -10,17 +10,14 @@ on:
       - "docs/issue132/parallel/RUNTIME_AUTHORITY.json"
       - "docs/issue132/parallel/CODEX_QA_STATE.json"
       - "docs/issue132/parallel/pass_a_semantic_contract_v2.json"
-      - "docs/issue132/parallel/lane-*/checkpoints/**"
-      - "docs/issue132/parallel/lane-*/corrections/**"
-      - "docs/issue132/parallel/lane-*/staging/**"
+      - "docs/issue132/parallel/codex-baseline/**"
+      - "docs/issue132/parallel/lane-*/staging/window_*.json"
       - "scripts/issue132/codex_runtime.py"
+      - "scripts/issue132/codex_semantic.py"
       - "scripts/issue132/codex_stage_window.py"
+      - "scripts/issue132/codex_repair_baseline.py"
       - "scripts/issue132/check_runtime_layout.py"
       - "scripts/issue132/validate_flat_pass_a.py"
-      - "scripts/issue132/validate_luna_pass_a.py"
-      - "scripts/issue132/parallel_overlay.py"
-      - "scripts/issue132/staging_v2.py"
-      - "scripts/issue132/staging_repair_overlay.py"
       - "scripts/issue132/test_codex_direct_runtime.py"
       - ".github/workflows/issue132_codex_guard_validation.yml"
   workflow_dispatch:
@@ -47,7 +44,9 @@ jobs:
         run: |
           python -m py_compile \
             scripts/issue132/codex_runtime.py \
+            scripts/issue132/codex_semantic.py \
             scripts/issue132/codex_stage_window.py \
+            scripts/issue132/codex_repair_baseline.py \
             scripts/issue132/check_runtime_layout.py \
             scripts/issue132/validate_flat_pass_a.py \
             scripts/issue132/test_codex_direct_runtime.py
