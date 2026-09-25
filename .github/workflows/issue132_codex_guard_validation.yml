@@ -1,0 +1,46 @@
+name: Issue132 Codex Guard Validation
+
+on:
+  push:
+    branches:
+      - research/taxonomy-usability-audit
+      - research/issue132-codex-guardrails-v1
+    paths:
+      - "docs/issue132/parallel/RUNTIME_AUTHORITY.json"
+      - "docs/issue132/parallel/CODEX_QA_STATE.json"
+      - "docs/issue132/parallel/CODEX_SEMANTIC_GUARDRAILS_*.md"
+      - "docs/issue132/parallel/WRITE_REQUEST_PROTOCOL_*.md"
+      - "docs/issue132/parallel/RUNTIME_WORKER_CARD_*.md"
+      - "docs/issue132/parallel/RUNTIME_COORDINATOR_CARD_*.md"
+      - "docs/issue132/CODEX_MASTER_RUNBOOK_*.md"
+      - "scripts/issue132/codex_runtime_guards.py"
+      - "scripts/issue132/materialize_write_requests.py"
+      - "scripts/issue132/validate_flat_pass_a.py"
+      - "scripts/issue132/test_codex_runtime_guards.py"
+      - ".github/workflows/issue132_codex_guard_validation.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Python syntax
+        run: |
+          python -m py_compile             scripts/issue132/codex_runtime_guards.py             scripts/issue132/materialize_write_requests.py             scripts/issue132/validate_flat_pass_a.py             scripts/issue132/test_codex_runtime_guards.py
+
+      - name: Runtime guard unit tests
+        run: python scripts/issue132/test_codex_runtime_guards.py
+
+      - name: Validate current flat state under guarded authority
+        run: |
+          python scripts/issue132/validate_flat_pass_a.py             --input docs/issue132/parallel/input/luna_neutral_review_input_v2.csv
