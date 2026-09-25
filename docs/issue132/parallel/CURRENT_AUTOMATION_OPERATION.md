@@ -1,5 +1,9 @@
 # Issue132 Current Automation Operation
 
+Status: **HISTORICAL AUTOMATION OPERATION / CURRENTLY PAUSED**
+
+The five normal ChatGPT Automation tasks described below are no longer the live execution driver. The current live execution authority is `docs/issue132/parallel/RUNTIME_AUTHORITY.json`, which selects guarded Codex execution and keeps those automations paused.
+
 Current machine-readable authority:
 
 `docs/issue132/parallel/RUNTIME_AUTHORITY.json`
