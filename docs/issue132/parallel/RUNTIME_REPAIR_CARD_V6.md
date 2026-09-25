@@ -45,8 +45,17 @@ Exactly one unsuperseded active overlay may exist per source window. Before sele
 1. Read this card and Worker V8 only.
 2. Reconstruct effective invalid queue from live source staging + active overlays + latest relevant validator/CI evidence. Never blindly inherit a stale raw-CI queue.
 3. Structural queue: select up to 6 historical invalid windows, normally up to 2/lane and borrowing unused capacity.
-4. For each target fetch only source staging + needed authoritative shard/manifest, rebuild exact 25 slots, apply Worker V8 semantics, pre-validate compact v2, and create a NEW overlay version.
-5. A write rejection on one target never blocks another independent target.
+4. For each target fetch only source staging + needed authoritative shard/manifest, rebuild exact 25 slots, and apply Worker V8 semantics.
+5. BEFORE creating an overlay, perform the same effective-window checks used by production staging validation, not a weaker local approximation:
+   - every finalized row and hold binds to the authoritative slot by lane_local_index + review_seq + SHA256(identity_key);
+   - compact finalized row field set equals COMPACT_ROW_FIELDS exactly;
+   - compact hold field set equals COMPACT_HOLD_FIELDS exactly (reason_code + research_attempt_codes; never legacy hold_reason_code);
+   - finalized + holds covers all 25 slots exactly once;
+   - compact_row_to_full / validate_row semantic lint passes for every finalized row;
+   - validate_compact_hold passes for every hold.
+   If any check fails, fix the candidate in memory and do NOT persist it yet.
+6. Only after those exact checks pass, create a NEW overlay version.
+7. A write rejection on one target never blocks another independent target.
 
 ## Promotion-blocking hold queue
 After structural attempts, or when structural capacity is unused, inspect only the oldest effective staging window at checkpoint prefix+1 in each lane.
