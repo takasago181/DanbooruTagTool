@@ -6,6 +6,7 @@ on:
       - research/taxonomy-usability-audit
       - research/issue132-codex-*
     paths:
+      - "AGENTS.md"
       - "docs/issue132/CODEX_RUNTIME_V4.md"
       - "docs/issue132/parallel/RUNTIME_AUTHORITY.json"
       - "docs/issue132/parallel/CODEX_QA_STATE.json"
