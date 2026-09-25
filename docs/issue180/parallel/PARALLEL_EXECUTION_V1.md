@@ -75,6 +75,8 @@ This removes row-level push contention: no two forward lanes ever edit the same 
 
 ## 5. Proposal contract
 
+Machine/field contract: `docs/issue180/parallel/PROPOSAL_SCHEMA_V1.md`.
+
 Each proposal carries:
 - proposal_id
 - assignment_id / epoch_id

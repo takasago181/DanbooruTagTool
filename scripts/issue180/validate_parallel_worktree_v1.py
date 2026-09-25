@@ -74,11 +74,43 @@ def validate_forward_proposals(slot: int, prefix: str, cfg: dict) -> None:
             if p["proposal_type"] not in {"EVIDENCE_DIRECT_HOME","EVIDENCE_FAMILY_HOME","EVIDENCE_MEMBER_OF",
                                          "EVIDENCE_VARIANT_OF","TERMINAL_REVIEW","SUPERSESSION","TECHNICAL_ESCALATION"}:
                 raise SystemExit(f"{path}: invalid proposal_type {p['proposal_type']}")
-            if p["proposal_type"].startswith("EVIDENCE_"):
+            ptype=p["proposal_type"]
+            payload=p["payload"]
+            if not isinstance(payload,dict):
+                raise SystemExit(f"{path}: payload must be an object")
+            relation_contract={
+                "EVIDENCE_DIRECT_HOME":("Character","DIRECT_HOME","Copyright"),
+                "EVIDENCE_FAMILY_HOME":("Family","FAMILY_HOME","Copyright"),
+                "EVIDENCE_MEMBER_OF":("Character","MEMBER_OF","Family"),
+                "EVIDENCE_VARIANT_OF":("Character","VARIANT_OF","Character"),
+            }
+            if ptype.startswith("EVIDENCE_"):
                 if not str(p["source_url"]).startswith(("https://","http://")):
                     raise SystemExit(f"{path}: evidence proposal requires checked http(s) source")
                 if len(str(p["source_claim"]).strip())<35:
                     raise SystemExit(f"{path}: evidence source_claim too short")
+                required_payload={"subject_type","subject_key","relation_type","object_type","object_key","authority_type","evidence_basis"}
+                missing_payload=required_payload-set(payload)
+                if missing_payload:
+                    raise SystemExit(f"{path}: evidence payload missing {sorted(missing_payload)}")
+                expected=relation_contract[ptype]
+                actual=(payload["subject_type"],payload["relation_type"],payload["object_type"])
+                if actual!=expected:
+                    raise SystemExit(f"{path}: relation payload mismatch expected={expected} actual={actual}")
+                if not str(payload["subject_key"]).strip() or not str(payload["object_key"]).strip():
+                    raise SystemExit(f"{path}: evidence payload has blank subject/object")
+            elif ptype=="TERMINAL_REVIEW":
+                required_payload={"terminal_status","authority_source","review_provenance"}
+                if required_payload-set(payload):
+                    raise SystemExit(f"{path}: terminal payload missing {sorted(required_payload-set(payload))}")
+                if payload["terminal_status"] not in {"PARTIALLY_RESOLVED","NO_SAFE_EVIDENCE","POLICY_BLOCKED","IDENTITY_BLOCKED"}:
+                    raise SystemExit(f"{path}: invalid proposed terminal_status")
+            elif ptype=="SUPERSESSION":
+                if payload.get("terminal_status")!="SUPERSEDED_BY_NEW_UNIT":
+                    raise SystemExit(f"{path}: supersession must propose SUPERSEDED_BY_NEW_UNIT")
+            elif ptype=="TECHNICAL_ESCALATION":
+                if not str(payload.get("failure_class","")).strip() or not str(payload.get("details","")).strip():
+                    raise SystemExit(f"{path}: technical escalation requires failure_class/details")
 
 def main() -> None:
     cfg=json.loads(CONFIG.read_text(encoding="utf-8"))
