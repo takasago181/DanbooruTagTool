@@ -1,0 +1,64 @@
+name: Issue132 Compact Staging V2 Migration
+
+on:
+  push:
+    branches:
+      - research/taxonomy-usability-audit
+    paths:
+      - "scripts/issue132/migrate_staging_v1_to_v2.py"
+      - "scripts/issue132/staging_v2.py"
+      - ".github/workflows/issue132_staging_v2_migration.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: issue132-staging-v2-migration
+  cancel-in-progress: true
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: research/taxonomy-usability-audit
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Convert safely convertible v1 staging windows to compact v2
+        shell: bash
+        run: |
+          set -euo pipefail
+          BRANCH="research/taxonomy-usability-audit"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          for attempt in 1 2 3; do
+            git fetch origin "$BRANCH"
+            git reset --hard "origin/$BRANCH"
+
+            python scripts/issue132/migrate_staging_v1_to_v2.py
+
+            if git diff --quiet -- docs/issue132/parallel/lane-1/staging docs/issue132/parallel/lane-2/staging docs/issue132/parallel/lane-3/staging docs/issue132/parallel/staging_v2_migration_report.json; then
+              echo "No safely convertible v1 staging windows remain."
+              exit 0
+            fi
+
+            git add               docs/issue132/parallel/lane-1/staging               docs/issue132/parallel/lane-2/staging               docs/issue132/parallel/lane-3/staging               docs/issue132/parallel/staging_v2_migration_report.json
+            git commit -m "Issue132: migrate safe legacy staging windows to compact v2"
+
+            if git push origin "HEAD:$BRANCH"; then
+              exit 0
+            fi
+
+            echo "Concurrent branch advance; retrying migration from fresh HEAD (attempt $attempt/3)."
+          done
+
+          echo "Migration could not fast-forward after 3 attempts."
+          exit 1
