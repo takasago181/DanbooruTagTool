@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - research/taxonomy-usability-audit
-      - research/issue132-codex-simplify-v1
+      - research/issue132-codex-simplify-*
     paths:
       - "docs/issue132/CODEX_RUNTIME_V3.md"
       - "docs/issue132/parallel/RUNTIME_AUTHORITY.json"
