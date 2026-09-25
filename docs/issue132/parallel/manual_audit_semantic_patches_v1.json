@@ -1,0 +1,1341 @@
+{
+  "schema_version": "issue132-manual-audit-semantic-patches-v1",
+  "entries": [
+    {
+      "lane": 1,
+      "lane_local_index": 21,
+      "ops": {
+        "remove_routes": [
+          "LIGHT_TIME_WEATHER"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 36,
+      "ops": {
+        "set_local": [
+          "CLOTHING/COSTUME"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 43,
+      "ops": {
+        "set_routes": [
+          [
+            "CLOTHING_EXPOSURE",
+            "CORE"
+          ]
+        ],
+        "set_local": [
+          "CLOTHING/ACCESSORY"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 65,
+      "ops": {
+        "set_routes": [
+          [
+            "TEXT_SYMBOL",
+            "CORE"
+          ]
+        ],
+        "set_local": [
+          "TEXT_SYMBOL/SYMBOL"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 69,
+      "ops": {
+        "set_routes": [
+          [
+            "CLOTHING_EXPOSURE",
+            "CORE"
+          ],
+          [
+            "PEOPLE_COUNT",
+            "SUPPORTING"
+          ]
+        ],
+        "set_local": [
+          "CLOTHING_STATE_EXPOSURE/"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 70,
+      "ops": {
+        "set_local": [
+          "CLOTHING/COSTUME"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 73,
+      "ops": {
+        "set_routes": [
+          [
+            "TOOL_OBJECT",
+            "CORE"
+          ]
+        ],
+        "set_local": [
+          "OBJECT_PROP/FOOD"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 76,
+      "ops": {
+        "set_routes": [
+          [
+            "TEXT_SYMBOL",
+            "CORE"
+          ]
+        ],
+        "set_local": [
+          "TEXT_SYMBOL/SYMBOL"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 84,
+      "ops": {
+        "set_routes": [
+          [
+            "CLOTHING_EXPOSURE",
+            "CORE"
+          ],
+          [
+            "COLOR_PATTERN_SHAPE",
+            "SUPPORTING"
+          ]
+        ],
+        "set_local": [
+          "CLOTHING/ACCESSORY"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 86,
+      "ops": {
+        "set_routes": [
+          [
+            "CLOTHING_EXPOSURE",
+            "CORE"
+          ],
+          [
+            "COLOR_PATTERN_SHAPE",
+            "SUPPORTING"
+          ]
+        ],
+        "set_local": [
+          "CLOTHING/ACCESSORY"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 93,
+      "ops": {
+        "set_routes": [
+          [
+            "LIVING",
+            "CORE"
+          ]
+        ],
+        "set_local": [
+          "LIVING_NATURE/CREATURE"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 103,
+      "ops": {
+        "set_routes": [
+          [
+            "TOOL_OBJECT",
+            "CORE"
+          ],
+          [
+            "COLOR_PATTERN_SHAPE",
+            "SUPPORTING"
+          ]
+        ],
+        "set_local": [
+          "OBJECT_PROP/DAILY"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 108,
+      "ops": {
+        "set_routes": [
+          [
+            "CLOTHING_EXPOSURE",
+            "CORE"
+          ]
+        ],
+        "set_local": [
+          "CLOTHING/ACCESSORY"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 144,
+      "ops": {
+        "set_routes": [
+          [
+            "BODY_SITE",
+            "CORE"
+          ]
+        ],
+        "set_local": []
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 148,
+      "ops": {
+        "set_routes": [
+          [
+            "NONHUMAN_TRANSFORM",
+            "CORE"
+          ]
+        ],
+        "set_local": []
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 165,
+      "ops": {
+        "set_routes": [
+          [
+            "CLOTHING_EXPOSURE",
+            "CORE"
+          ],
+          [
+            "COLOR_PATTERN_SHAPE",
+            "SUPPORTING"
+          ]
+        ],
+        "set_local": [
+          "CLOTHING/ACCESSORY"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 169,
+      "ops": {
+        "set_routes": [
+          [
+            "PEOPLE_COUNT",
+            "CORE"
+          ],
+          [
+            "ACTION_CONTACT",
+            "SUPPORTING"
+          ]
+        ],
+        "set_local": [
+          "ACTION_CONTACT/INTIMATE"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 173,
+      "ops": {
+        "set_routes": [
+          [
+            "ACTION_CONTACT",
+            "CORE"
+          ],
+          [
+            "FLUID_EXCRETION",
+            "SUPPORTING"
+          ]
+        ],
+        "set_local": [
+          "ACTION_CONTACT/INTERACTION"
+        ],
+        "add_body": [
+          "MOUTH_ORAL"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 178,
+      "ops": {
+        "set_routes": [
+          [
+            "HAIR_FACE",
+            "CORE"
+          ]
+        ],
+        "set_local": []
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 179,
+      "ops": {
+        "set_routes": [
+          [
+            "HAIR_FACE",
+            "CORE"
+          ]
+        ],
+        "set_local": []
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 188,
+      "ops": {
+        "set_routes": [
+          [
+            "CLOTHING_EXPOSURE",
+            "CORE"
+          ]
+        ],
+        "set_local": [
+          "CLOTHING/ACCESSORY"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 196,
+      "ops": {
+        "set_routes": [
+          [
+            "ACTION_CONTACT",
+            "CORE"
+          ],
+          [
+            "POSE_POSITION",
+            "SUPPORTING"
+          ]
+        ],
+        "set_local": [
+          "ACTION_CONTACT/INTERACTION"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 198,
+      "ops": {
+        "set_routes": [
+          [
+            "BODY_SITE",
+            "CORE"
+          ],
+          [
+            "TOOL_OBJECT",
+            "SUPPORTING"
+          ]
+        ],
+        "set_local": [
+          "OBJECT_PROP/DAILY"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 200,
+      "ops": {
+        "set_routes": [
+          [
+            "ACTION_CONTACT",
+            "CORE"
+          ],
+          [
+            "POSE_POSITION",
+            "SUPPORTING"
+          ]
+        ],
+        "set_local": [
+          "ACTION_CONTACT/INTIMATE"
+        ],
+        "add_body": [
+          "FEMALE_GENITAL"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 204,
+      "ops": {
+        "set_routes": [
+          [
+            "CLOTHING_EXPOSURE",
+            "CORE"
+          ]
+        ],
+        "set_local": [
+          "CLOTHING/UNIFORM"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 208,
+      "ops": {
+        "set_mode": "SEARCH_ORIENTED",
+        "set_routes": [],
+        "set_local": [],
+        "set_body": [],
+        "set_theme": []
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 211,
+      "ops": {
+        "set_mode": "MIXED",
+        "set_routes": [
+          [
+            "CLOTHING_EXPOSURE",
+            "CORE"
+          ]
+        ],
+        "set_local": [
+          "CLOTHING/COSTUME"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 220,
+      "ops": {
+        "set_routes": [
+          [
+            "ACTION_CONTACT",
+            "CORE"
+          ]
+        ],
+        "set_local": [
+          "ACTION_CONTACT/INTIMATE"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 223,
+      "ops": {
+        "set_routes": [
+          [
+            "ACTION_CONTACT",
+            "CORE"
+          ],
+          [
+            "TOOL_OBJECT",
+            "SUPPORTING"
+          ]
+        ],
+        "set_local": [
+          "ACTION_CONTACT/OBJECT_USE"
+        ],
+        "add_body": [
+          "BREAST_NIPPLE"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 225,
+      "ops": {
+        "set_routes": [
+          [
+            "TOOL_OBJECT",
+            "CORE"
+          ]
+        ],
+        "set_local": []
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 243,
+      "ops": {
+        "set_mode": "BROWSE_WORTHY",
+        "set_routes": [
+          [
+            "TOOL_OBJECT",
+            "CORE"
+          ]
+        ],
+        "set_local": []
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 252,
+      "ops": {
+        "set_routes": [
+          [
+            "CLOTHING_EXPOSURE",
+            "CORE"
+          ]
+        ],
+        "set_local": [
+          "CLOTHING/ACCESSORY"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 277,
+      "ops": {
+        "set_routes": [
+          [
+            "POSE_POSITION",
+            "CORE"
+          ],
+          [
+            "LIVING",
+            "SUPPORTING"
+          ]
+        ],
+        "set_local": [
+          "LIVING_NATURE/CREATURE"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 301,
+      "ops": {
+        "set_routes": [
+          [
+            "ACTION_CONTACT",
+            "CORE"
+          ],
+          [
+            "TOOL_OBJECT",
+            "SUPPORTING"
+          ]
+        ],
+        "set_local": [
+          "ACTION_CONTACT/OBJECT_USE",
+          "OBJECT_PROP/DAILY"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 317,
+      "ops": {
+        "set_routes": [
+          [
+            "CLOTHING_EXPOSURE",
+            "CORE"
+          ]
+        ],
+        "set_local": [
+          "CLOTHING/ACCESSORY"
+        ],
+        "add_body": [
+          "BREAST_NIPPLE"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 324,
+      "ops": {
+        "set_routes": [
+          [
+            "POSE_POSITION",
+            "CORE"
+          ],
+          [
+            "TOOL_OBJECT",
+            "SUPPORTING"
+          ]
+        ],
+        "set_local": [
+          "OBJECT_PROP/DAILY"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 325,
+      "ops": {
+        "add_body": [
+          "MALE_GENITAL"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 346,
+      "ops": {
+        "set_routes": [
+          [
+            "TOOL_OBJECT",
+            "CORE"
+          ]
+        ],
+        "set_local": [
+          "OBJECT_PROP/DAILY"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 366,
+      "ops": {
+        "set_routes": [
+          [
+            "SCENE_BACKGROUND",
+            "CORE"
+          ]
+        ],
+        "set_local": []
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 410,
+      "ops": {
+        "set_mode": "MIXED",
+        "set_routes": [
+          [
+            "TOOL_OBJECT",
+            "CORE"
+          ]
+        ],
+        "set_local": [
+          "OBJECT_PROP/WEAPON"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 423,
+      "ops": {
+        "set_mode": "MIXED",
+        "set_routes": [
+          [
+            "TEXT_SYMBOL",
+            "CORE"
+          ]
+        ],
+        "set_local": [
+          "TEXT_SYMBOL/SYMBOL"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 451,
+      "ops": {
+        "set_mode": "MIXED",
+        "set_routes": [
+          [
+            "TOOL_OBJECT",
+            "CORE"
+          ]
+        ],
+        "set_local": [
+          "OBJECT_PROP/WEAPON"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 462,
+      "ops": {
+        "set_mode": "MIXED",
+        "set_routes": [
+          [
+            "TOOL_OBJECT",
+            "CORE"
+          ]
+        ],
+        "set_local": [
+          "OBJECT_PROP/WEAPON"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 467,
+      "ops": {
+        "set_mode": "MIXED",
+        "set_routes": [
+          [
+            "TOOL_OBJECT",
+            "CORE"
+          ]
+        ],
+        "set_local": []
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 512,
+      "ops": {
+        "set_mode": "MIXED",
+        "set_routes": [
+          [
+            "TOOL_OBJECT",
+            "CORE"
+          ]
+        ],
+        "set_local": [
+          "OBJECT_PROP/DAILY"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 513,
+      "ops": {
+        "set_routes": [
+          [
+            "LIGHT_TIME_WEATHER",
+            "CORE"
+          ]
+        ],
+        "set_local": []
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 531,
+      "ops": {
+        "set_routes": [
+          [
+            "CLOTHING_EXPOSURE",
+            "CORE"
+          ]
+        ],
+        "set_local": [
+          "CLOTHING/COSTUME"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 577,
+      "ops": {
+        "set_mode": "MIXED",
+        "set_routes": [
+          [
+            "TOOL_OBJECT",
+            "CORE"
+          ]
+        ],
+        "set_local": [
+          "OBJECT_PROP/WEAPON"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 599,
+      "ops": {
+        "set_mode": "MIXED",
+        "set_routes": [
+          [
+            "TOOL_OBJECT",
+            "CORE"
+          ]
+        ],
+        "set_local": [
+          "OBJECT_PROP/WEAPON"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 601,
+      "ops": {
+        "set_routes": [
+          [
+            "FLUID_EXCRETION",
+            "CORE"
+          ]
+        ],
+        "set_local": []
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 609,
+      "ops": {
+        "set_mode": "MIXED",
+        "set_routes": [
+          [
+            "TOOL_OBJECT",
+            "CORE"
+          ]
+        ],
+        "set_local": [
+          "OBJECT_PROP/DAILY"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 650,
+      "ops": {
+        "set_mode": "MIXED",
+        "set_routes": [
+          [
+            "TOOL_OBJECT",
+            "CORE"
+          ]
+        ],
+        "set_local": [
+          "OBJECT_PROP/WEAPON"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 667,
+      "ops": {
+        "set_mode": "MIXED",
+        "set_routes": [
+          [
+            "TOOL_OBJECT",
+            "CORE"
+          ]
+        ],
+        "set_local": []
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 695,
+      "ops": {
+        "set_routes": [
+          [
+            "CLOTHING_EXPOSURE",
+            "CORE"
+          ]
+        ],
+        "set_local": [
+          "CLOTHING/COSTUME"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 709,
+      "ops": {
+        "set_routes": [
+          [
+            "CLOTHING_EXPOSURE",
+            "CORE"
+          ]
+        ],
+        "set_local": [
+          "CLOTHING/EVERYDAY"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 710,
+      "ops": {
+        "set_routes": [
+          [
+            "CLOTHING_EXPOSURE",
+            "CORE"
+          ]
+        ],
+        "set_local": [
+          "CLOTHING/EVERYDAY"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 742,
+      "ops": {
+        "set_mode": "SEARCH_ORIENTED",
+        "set_routes": [],
+        "set_local": [],
+        "set_body": [],
+        "set_theme": []
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 748,
+      "ops": {
+        "set_routes": [
+          [
+            "COLOR_PATTERN_SHAPE",
+            "CORE"
+          ]
+        ],
+        "set_local": []
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 830,
+      "ops": {
+        "set_routes": [
+          [
+            "BODY_SITE",
+            "CORE"
+          ]
+        ],
+        "set_local": [],
+        "add_body": [
+          "BREAST_NIPPLE"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 879,
+      "ops": {
+        "set_mode": "MIXED",
+        "set_routes": [
+          [
+            "CLOTHING_EXPOSURE",
+            "CORE"
+          ]
+        ],
+        "set_local": [
+          "CLOTHING/COSTUME"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 893,
+      "ops": {
+        "set_routes": [
+          [
+            "CLOTHING_EXPOSURE",
+            "CORE"
+          ]
+        ],
+        "set_local": [
+          "CLOTHING/ACCESSORY"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 918,
+      "ops": {
+        "set_routes": [
+          [
+            "ACTION_CONTACT",
+            "CORE"
+          ],
+          [
+            "POSE_POSITION",
+            "SUPPORTING"
+          ]
+        ],
+        "set_local": [
+          "ACTION_CONTACT/INTIMATE"
+        ],
+        "add_body": [
+          "BREAST_NIPPLE"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 922,
+      "ops": {
+        "set_mode": "MIXED",
+        "set_routes": [
+          [
+            "CLOTHING_EXPOSURE",
+            "CORE"
+          ]
+        ],
+        "set_local": [
+          "CLOTHING/COSTUME"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 923,
+      "ops": {
+        "set_mode": "MIXED",
+        "set_routes": [
+          [
+            "CLOTHING_EXPOSURE",
+            "CORE"
+          ]
+        ],
+        "set_local": [
+          "CLOTHING/COSTUME"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 932,
+      "ops": {
+        "set_mode": "MIXED",
+        "set_routes": [
+          [
+            "CLOTHING_EXPOSURE",
+            "CORE"
+          ]
+        ],
+        "set_local": [
+          "CLOTHING/COSTUME"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 940,
+      "ops": {
+        "set_routes": [
+          [
+            "BODY_SITE",
+            "CORE"
+          ]
+        ],
+        "set_local": []
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 963,
+      "ops": {
+        "set_routes": [
+          [
+            "FLUID_EXCRETION",
+            "CORE"
+          ],
+          [
+            "ACTION_CONTACT",
+            "SUPPORTING"
+          ]
+        ],
+        "set_local": [],
+        "add_body": [
+          "BREAST_NIPPLE"
+        ],
+        "add_theme": [
+          "REPRO_PREGNANCY_LACTATION"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 965,
+      "ops": {
+        "set_routes": [
+          [
+            "CLOTHING_EXPOSURE",
+            "CORE"
+          ]
+        ],
+        "set_local": [
+          "CLOTHING_STATE_EXPOSURE/"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 985,
+      "ops": {
+        "set_mode": "MIXED",
+        "set_routes": [
+          [
+            "CLOTHING_EXPOSURE",
+            "CORE"
+          ]
+        ],
+        "set_local": [
+          "CLOTHING/COSTUME"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 991,
+      "ops": {
+        "set_mode": "MIXED",
+        "set_routes": [
+          [
+            "CLOTHING_EXPOSURE",
+            "CORE"
+          ]
+        ],
+        "set_local": [
+          "CLOTHING/COSTUME"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 992,
+      "ops": {
+        "set_routes": [
+          [
+            "ACTION_CONTACT",
+            "CORE"
+          ],
+          [
+            "TOOL_OBJECT",
+            "SUPPORTING"
+          ]
+        ],
+        "set_local": [
+          "ACTION_CONTACT/INTERACTION",
+          "OBJECT_PROP/FOOD"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 995,
+      "ops": {
+        "set_mode": "MIXED",
+        "set_routes": [
+          [
+            "CLOTHING_EXPOSURE",
+            "CORE"
+          ]
+        ],
+        "set_local": [
+          "CLOTHING/COSTUME"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 1003,
+      "ops": {
+        "set_routes": [
+          [
+            "BODY_SITE",
+            "CORE"
+          ]
+        ],
+        "set_local": []
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 1018,
+      "ops": {
+        "set_mode": "MIXED",
+        "set_routes": [
+          [
+            "CLOTHING_EXPOSURE",
+            "CORE"
+          ]
+        ],
+        "set_local": [
+          "CLOTHING/COSTUME"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 1020,
+      "ops": {
+        "set_mode": "MIXED",
+        "set_routes": [
+          [
+            "CLOTHING_EXPOSURE",
+            "CORE"
+          ]
+        ],
+        "set_local": [
+          "CLOTHING/COSTUME"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 1021,
+      "ops": {
+        "set_routes": [
+          [
+            "CLOTHING_EXPOSURE",
+            "CORE"
+          ]
+        ],
+        "set_local": [
+          "CLOTHING_STATE_EXPOSURE/"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 1022,
+      "ops": {
+        "set_routes": [
+          [
+            "CLOTHING_EXPOSURE",
+            "CORE"
+          ]
+        ],
+        "set_local": [
+          "CLOTHING/ACCESSORY"
+        ],
+        "add_body": [
+          "BREAST_NIPPLE"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 1043,
+      "ops": {
+        "set_routes": [
+          [
+            "TEXT_SYMBOL",
+            "CORE"
+          ],
+          [
+            "COLOR_PATTERN_SHAPE",
+            "SUPPORTING"
+          ]
+        ],
+        "set_local": [
+          "TEXT_SYMBOL/SYMBOL"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 1046,
+      "ops": {
+        "set_routes": [
+          [
+            "CLOTHING_EXPOSURE",
+            "CORE"
+          ]
+        ],
+        "set_local": [
+          "CLOTHING_STATE_EXPOSURE/"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 1061,
+      "ops": {
+        "set_routes": [
+          [
+            "TEXT_SYMBOL",
+            "CORE"
+          ]
+        ],
+        "set_local": [
+          "TEXT_SYMBOL/LAYOUT"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 1075,
+      "ops": {
+        "set_routes": [
+          [
+            "ACTION_CONTACT",
+            "CORE"
+          ]
+        ],
+        "set_local": []
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 1083,
+      "ops": {
+        "set_routes": [
+          [
+            "CLOTHING_EXPOSURE",
+            "CORE"
+          ],
+          [
+            "COLOR_PATTERN_SHAPE",
+            "SUPPORTING"
+          ]
+        ],
+        "set_local": [
+          "CLOTHING/UNIFORM"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 1093,
+      "ops": {
+        "set_routes": [
+          [
+            "TEXT_SYMBOL",
+            "CORE"
+          ]
+        ],
+        "set_local": [
+          "TEXT_SYMBOL/SYMBOL"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 1094,
+      "ops": {
+        "set_routes": [
+          [
+            "CLOTHING_EXPOSURE",
+            "CORE"
+          ]
+        ],
+        "set_local": [
+          "CLOTHING_STATE_EXPOSURE/"
+        ]
+      }
+    },
+    {
+      "lane": 1,
+      "lane_local_index": 1123,
+      "ops": {
+        "set_routes": [
+          [
+            "CLOTHING_EXPOSURE",
+            "CORE"
+          ]
+        ],
+        "set_local": [
+          "CLOTHING/ACCESSORY"
+        ]
+      }
+    }
+  ]
+}
