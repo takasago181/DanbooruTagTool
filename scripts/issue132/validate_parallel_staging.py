@@ -9,11 +9,17 @@ import re
 from pathlib import Path
 
 from parallel_overlay import load_checkpoint_union
+from staging_v2 import (
+    SCHEMA_V2,
+    compact_row_to_full,
+    validate_compact_hold,
+    validate_identity_binding,
+)
 
 ROOT = Path(__file__).resolve().parents[2]
 LANES = (1, 2, 3)
 STAGE_RE = re.compile(r"^window_(\d{6})_(\d{6})\.json$")
-SCHEMA = "issue132-pass-a-staging-window-v1"
+SCHEMA_V1 = "issue132-pass-a-staging-window-v1"
 EXPECTED_PARENT_SHA = "ac0f888d02f19a440c63b3b9f695c58f9ba53b98ebe9756edec51db1c5ff8f7d"
 EXPECTED_ORDER_SHA = "f80c63018ce19a8c7c5d8d6fd83d03cf760c510d8f6cfa455d1ab356fb31361b"
 
@@ -93,8 +99,10 @@ def main():
                     errors.append(f"lane {lane}: {path.name} invalid JSON: {exc}")
                     continue
 
-                if obj.get("schema_version") != SCHEMA:
+                schema = obj.get("schema_version")
+                if schema not in {SCHEMA_V1, SCHEMA_V2}:
                     errors.append(f"lane {lane}: {path.name} schema mismatch")
+                    continue
                 if obj.get("lane") != lane:
                     errors.append(f"lane {lane}: {path.name} lane mismatch")
                 if obj.get("lane_local_start") != start or obj.get("lane_local_end") != end:
@@ -113,65 +121,126 @@ def main():
                 covered: dict[int, str] = {}
                 row_by_index: dict[int, dict[str, str]] = {}
 
-                for raw_entry in rows:
-                    entry, normalize_error = normalize_row(raw_entry, base.FIELDS)
-                    if normalize_error:
-                        errors.append(f"lane {lane}: {path.name} {normalize_error}")
-                        continue
-                    try:
-                        seq = int(entry["review_seq"])
-                    except Exception:
-                        errors.append(f"lane {lane}: {path.name} invalid finalized review_seq")
-                        continue
-                    ident = entry.get("identity_key", "")
-                    matches = [
-                        i for i in range(start, end + 1)
-                        if int(assigned[i - 1]["review_seq"]) == seq
-                        and assigned[i - 1]["identity_key"] == ident
-                    ]
-                    if len(matches) != 1:
-                        errors.append(f"lane {lane}: {path.name} finalized row {ident} not exact window identity")
-                        continue
-                    local_index = matches[0]
-                    if local_index in covered:
-                        errors.append(f"lane {lane}: {path.name} duplicate local index {local_index}")
-                        continue
-                    covered[local_index] = "row"
-                    row_by_index[local_index] = entry
-                    row_errors = base.validate_row(entry, seq)
-                    errors.extend(
-                        f"lane {lane} staging {path.name} local {local_index} review_seq {seq}: {err}"
-                        for err in row_errors
-                    )
+                if schema == SCHEMA_V1:
+                    for raw_entry in rows:
+                        entry, normalize_error = normalize_row(raw_entry, base.FIELDS)
+                        if normalize_error:
+                            errors.append(f"lane {lane}: {path.name} {normalize_error}")
+                            continue
+                        try:
+                            seq = int(entry["review_seq"])
+                        except Exception:
+                            errors.append(f"lane {lane}: {path.name} invalid finalized review_seq")
+                            continue
+                        ident = entry.get("identity_key", "")
+                        matches = [
+                            i for i in range(start, end + 1)
+                            if int(assigned[i - 1]["review_seq"]) == seq
+                            and assigned[i - 1]["identity_key"] == ident
+                        ]
+                        if len(matches) != 1:
+                            errors.append(f"lane {lane}: {path.name} finalized row {ident} not exact window identity")
+                            continue
+                        local_index = matches[0]
+                        if local_index in covered:
+                            errors.append(f"lane {lane}: {path.name} duplicate local index {local_index}")
+                            continue
+                        covered[local_index] = "row"
+                        row_by_index[local_index] = entry
+                        row_errors = base.validate_row(entry, seq)
+                        errors.extend(
+                            f"lane {lane} staging {path.name} local {local_index} review_seq {seq}: {err}"
+                            for err in row_errors
+                        )
 
-                for hold in holds:
-                    if not isinstance(hold, dict):
-                        errors.append(f"lane {lane}: {path.name} non-object hold")
-                        continue
-                    required = {"lane_local_index", "review_seq", "identity_key", "reason", "research_attempts"}
-                    if not required.issubset(hold):
-                        errors.append(f"lane {lane}: {path.name} hold missing required fields")
-                        continue
-                    try:
-                        local_index = int(hold["lane_local_index"])
-                        seq = int(hold["review_seq"])
-                    except Exception:
-                        errors.append(f"lane {lane}: {path.name} invalid hold indices")
-                        continue
-                    if local_index < start or local_index > end:
-                        errors.append(f"lane {lane}: {path.name} hold local index outside window")
-                        continue
-                    expected = assigned[local_index - 1]
-                    if int(expected["review_seq"]) != seq or expected["identity_key"] != hold["identity_key"]:
-                        errors.append(f"lane {lane}: {path.name} hold identity mismatch at local {local_index}")
-                    if local_index in covered:
-                        errors.append(f"lane {lane}: {path.name} duplicate row/hold at local {local_index}")
-                    covered[local_index] = "hold"
-                    if not str(hold.get("reason", "")).strip():
-                        errors.append(f"lane {lane}: {path.name} hold has blank reason")
-                    attempts = hold.get("research_attempts")
-                    if not isinstance(attempts, list) or not attempts:
-                        errors.append(f"lane {lane}: {path.name} hold requires concrete research_attempts")
+                    for hold in holds:
+                        if not isinstance(hold, dict):
+                            errors.append(f"lane {lane}: {path.name} non-object hold")
+                            continue
+                        required = {"lane_local_index", "review_seq", "identity_key", "reason", "research_attempts"}
+                        if not required.issubset(hold):
+                            errors.append(f"lane {lane}: {path.name} hold missing required fields")
+                            continue
+                        try:
+                            local_index = int(hold["lane_local_index"])
+                            seq = int(hold["review_seq"])
+                        except Exception:
+                            errors.append(f"lane {lane}: {path.name} invalid hold indices")
+                            continue
+                        if local_index < start or local_index > end:
+                            errors.append(f"lane {lane}: {path.name} hold local index outside window")
+                            continue
+                        expected = assigned[local_index - 1]
+                        if int(expected["review_seq"]) != seq or expected["identity_key"] != hold["identity_key"]:
+                            errors.append(f"lane {lane}: {path.name} hold identity mismatch at local {local_index}")
+                        if local_index in covered:
+                            errors.append(f"lane {lane}: {path.name} duplicate row/hold at local {local_index}")
+                        covered[local_index] = "hold"
+                        if not str(hold.get("reason", "")).strip():
+                            errors.append(f"lane {lane}: {path.name} hold has blank reason")
+                        attempts = hold.get("research_attempts")
+                        if not isinstance(attempts, list) or not attempts:
+                            errors.append(f"lane {lane}: {path.name} hold requires concrete research_attempts")
+
+                else:
+                    for raw_entry in rows:
+                        if not isinstance(raw_entry, dict):
+                            errors.append(f"lane {lane}: {path.name} compact finalized row must be an object")
+                            continue
+                        try:
+                            local_index = int(raw_entry.get("lane_local_index"))
+                        except Exception:
+                            errors.append(f"lane {lane}: {path.name} compact row invalid lane_local_index")
+                            continue
+                        if local_index < start or local_index > end:
+                            errors.append(f"lane {lane}: {path.name} compact row local index outside window")
+                            continue
+                        expected = assigned[local_index - 1]
+                        bind_errors = validate_identity_binding(raw_entry, expected, local_index)
+                        errors.extend(
+                            f"lane {lane}: {path.name} compact row local {local_index}: {err}"
+                            for err in bind_errors
+                        )
+                        if bind_errors:
+                            continue
+                        if local_index in covered:
+                            errors.append(f"lane {lane}: {path.name} duplicate local index {local_index}")
+                            continue
+                        try:
+                            entry = compact_row_to_full(raw_entry, expected, base.FIELDS)
+                        except Exception as exc:
+                            errors.append(f"lane {lane}: {path.name} compact row local {local_index}: {exc}")
+                            continue
+                        covered[local_index] = "row"
+                        row_by_index[local_index] = entry
+                        seq = int(expected["review_seq"])
+                        row_errors = base.validate_row(entry, seq)
+                        errors.extend(
+                            f"lane {lane} staging {path.name} local {local_index} review_seq {seq}: {err}"
+                            for err in row_errors
+                        )
+
+                    for hold in holds:
+                        if not isinstance(hold, dict):
+                            errors.append(f"lane {lane}: {path.name} compact hold must be an object")
+                            continue
+                        try:
+                            local_index = int(hold.get("lane_local_index"))
+                        except Exception:
+                            errors.append(f"lane {lane}: {path.name} compact hold invalid lane_local_index")
+                            continue
+                        if local_index < start or local_index > end:
+                            errors.append(f"lane {lane}: {path.name} compact hold local index outside window")
+                            continue
+                        expected = assigned[local_index - 1]
+                        hold_errors = validate_compact_hold(hold, expected, local_index)
+                        errors.extend(
+                            f"lane {lane}: {path.name} compact hold local {local_index}: {err}"
+                            for err in hold_errors
+                        )
+                        if local_index in covered:
+                            errors.append(f"lane {lane}: {path.name} duplicate row/hold at local {local_index}")
+                        covered[local_index] = "hold"
 
                 expected_indices = set(range(start, end + 1))
                 if set(covered) != expected_indices:
@@ -200,6 +269,7 @@ def main():
 
                 windows.append({
                     "path": path.name,
+                    "schema": schema,
                     "start": start,
                     "end": end,
                     "finalized": finalized_count,
@@ -219,7 +289,7 @@ def main():
         }
 
     result = {
-        "schema_version": "issue132-parallel-staging-validation-v1",
+        "schema_version": "issue132-parallel-staging-validation-v2",
         "staged_finalized_rows": total_finalized,
         "active_holds": total_holds,
         "lanes": summary,
