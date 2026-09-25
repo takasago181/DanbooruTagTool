@@ -29,7 +29,7 @@ All publish to `research/taxonomy-usability-audit` by normal fetch/rebase/revali
 Current starting points are recovered from validated repository truth, not chat history.
 
 For each lane:
-1. run the flat validator and find the first uncovered lane-local index;
+1. run the flat validator and use the reported forward frontier; baseline HOLD/lint debt does not change it;
 2. read the one 300-row neutral shard containing the next identities;
 3. inspect every identity individually;
 4. classify obvious meaning directly as CHECKED;
@@ -102,27 +102,35 @@ Steady-state QA:
 
 Codex never edits the QA watermark on its own.
 
-## Historical compatibility
+## Frozen pre-Codex baseline
 
-Keep existing:
-- checkpoint CSVs
-- checkpoint correction overlays
-- historical staging windows
-- staging repair overlays
+The manually audited pre-Codex saved population is flattened once into:
+- `docs/issue132/parallel/codex-baseline/manifest.json`
+- one compact baseline JSON per lane.
 
-Do not promote staging into checkpoints. Do not rewrite historical source files. The flat validator resolves the effective historical state.
+The old checkpoint/correction/staging/repair files remain untouched as forensic history, but normal Codex execution and normal CI do not reconstruct them.
+
+Historical HOLD slots and legacy semantic-lint debt are recorded in the baseline and do **not** move the forward frontier backward. Forward review starts after the frozen saved end:
+- L1 1126
+- L2 1226
+- L3 1201
+
+They still must be resolved before final Pass-A completion.
 
 New forward work does not create:
 - write-request files
 - deferred marker files
-- checkpoint promotion files
-- lane status caches
-- coordinator/repair status caches
+- checkpoint files or checkpoint promotion;
+- status caches;
+- repair overlays for ordinary new Codex windows.
 
 ## Repair
 
-Repair the smallest exact target. Preserve already-correct bound decisions. Historical fixes remain append-only overlays.
+CODEX-REPAIR works against the compact Codex baseline or a direct Codex staging window, not the old Automation chain.
 
+For baseline HOLD/lint debt, use the baseline-repair helper selected by authority. For a new direct window, make the smallest targeted file repair, validate, and commit it normally. Git history is the repair audit trail.
+
+Do not rewrite the old forensic checkpoint/staging source files.
 A taxonomy-policy question is escalated to ChatGPT/user. A mechanical/schema/CI defect may be fixed directly with tests.
 
 ## Completion
