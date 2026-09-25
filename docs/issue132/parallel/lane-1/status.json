@@ -14,12 +14,12 @@
   "last_run_stop_reason": "ACTUAL_FORCED_RUN_END",
   "last_run_stop_evidence": {
     "type": "ACTUAL_FORCED_RUN_END",
-    "operation": "processed and persisted lane-local 1051-1075 with Git-object protocol and post-write exact-identity verification",
-    "location": "docs/issue132/parallel/lane-1/staging/window_001051_001075.json",
+    "operation": "processed and persisted lane-local 1076-1100; initial exact-slot mismatch was detected post-write and repaired in the same run, then re-fetched and verified",
+    "location": "docs/issue132/parallel/lane-1/staging/window_001076_001100.json",
     "why_next_identity_could_not_continue": "automation execution turn ended after 25 new useful identities were safely persisted; no semantic or repository blocker is claimed"
   },
-  "staged_finalized_count": 304,
-  "active_hold_count": 46,
+  "staged_finalized_count": 323,
+  "active_hold_count": 52,
   "earliest_active_hold": {
     "lane_local_index": 726,
     "review_seq": 2176,
