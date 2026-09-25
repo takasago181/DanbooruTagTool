@@ -21,6 +21,7 @@ on:
       - "scripts/issue132/staging_v2.py"
       - "scripts/issue132/staging_repair_overlay.py"
       - "scripts/issue132/test_staging_v2.py"
+      - "scripts/issue132/test_staging_repair_overlay.py"
       - "scripts/issue132/promote_staging_window.py"
       - "scripts/issue132/parallel_overlay.py"
       - "scripts/issue132/merge_luna_parallel.py"
@@ -45,6 +46,7 @@ on:
       - "scripts/issue132/staging_v2.py"
       - "scripts/issue132/staging_repair_overlay.py"
       - "scripts/issue132/test_staging_v2.py"
+      - "scripts/issue132/test_staging_repair_overlay.py"
       - "scripts/issue132/promote_staging_window.py"
       - "scripts/issue132/parallel_overlay.py"
       - "scripts/issue132/merge_luna_parallel.py"
@@ -88,6 +90,9 @@ jobs:
 
       - name: Self-test compact staging v2 reconstruction
         run: python scripts/issue132/test_staging_v2.py
+
+      - name: Self-test append-only repair overlay resolution
+        run: python scripts/issue132/test_staging_repair_overlay.py
 
       - name: Validate semantic hold staging windows
         run: |
