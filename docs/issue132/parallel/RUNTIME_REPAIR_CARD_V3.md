@@ -126,3 +126,24 @@ Keep status compact; no repeated narrative history.
 All Issue132 writes use `docs/issue132/parallel/GIT_OBJECT_WRITE_PROTOCOL_V1.md` as the PRIMARY transport. Do not use contents `create_file/update_file` for normal Issue132 persistence. Use branch-head/tree -> create_blob -> create_tree -> create_commit -> re-fetch head -> update_ref(force=false), with retry on concurrent branch advance exactly as defined there. Contents API is fallback only when the Git-object path is unavailable.
 
 A pre-write runtime safety refusal on contents API is not a blocker and must not stop/disable the task. Only an actually attempted Git-object path failure after the protocol's retries may become a write blocker.
+
+
+## Compact staging v2 repair rule
+
+For every historical window that Repair rebuilds or materially rewrites, output `issue132-pass-a-staging-window-v2` using the compact v2 contract in `RUNTIME_WORKER_CARD_V4.md`. Existing clean v1 staging may remain untouched; there is no bulk migration requirement.
+
+Repair MUST NOT republish `identity_key`, semantic summaries, route-reason prose, hold-reason prose, or research prose in rebuilt staging. Bind identity only by `lane_local_index + review_seq + identity_sha256`, where the hash is SHA256 of the authoritative UTF-8 identity key.
+
+For structural rebuilds:
+- load exact authoritative tuples from shard;
+- classify/research exactly as before;
+- persist only compact classification codes/evidence URLs and coded holds;
+- re-fetch and validate with `validate_parallel_staging.py`.
+
+For tuple-clean semantic patches:
+- convert the affected window to v2 if a write is needed;
+- preserve unaffected classifications exactly;
+- change only fields supported by the repair evidence.
+
+Compact v2 contents writes are preferred because payloads no longer contain repeated identity/free-form semantic text. Git-object write protocol is fallback only after an actual contents API failure. Never disable Repair due to a transient write refusal.
+
