@@ -105,5 +105,7 @@ Only: 300 slots attempted as far as safely possible, lane complete, true contrac
 
 Preflight consuming the run is an execution-design failure, not a semantic blocker. The hot path above must be attempted before optional work.
 
+Automation liveness is separate from run success. A tool failure, write rejection, semantic blocker, or zero-persist run must be reported but MUST NOT disable/pause the scheduled Worker. Disable only after lane completion or explicit user instruction.
+
 ## Report
 Only: lane, high_watermark, persisted, finalized/holds, write-gaps, next high_watermark, exact blocker.
