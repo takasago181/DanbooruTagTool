@@ -13,7 +13,6 @@ from codex_runtime import (
     policy_blob,
     policy_id,
     read_csv,
-    reason_codes,
 )
 from codex_semantic import identity_sha256, validate_compact_row
 
@@ -30,7 +29,6 @@ REPAIR_FIELDS = {
     "route_vocabulary_gap",
     "review_depth",
     "evidence_urls",
-    "decision_reason_codes",
 }
 
 
@@ -128,7 +126,6 @@ def main() -> None:
             "historical_semantic_lint_diagnostics", []
         )
     }
-    allowed_reasons = reason_codes(contract)
     trace = dict(baseline.get("repair_trace", {}))
     seen_request: set[int] = set()
     errors: list[str] = []
@@ -159,17 +156,6 @@ def main() -> None:
             errors.append(f"local {idx}: expected_state must be HOLD or LINT_ROW")
             continue
 
-        reasons = raw["decision_reason_codes"]
-        if (
-            not isinstance(reasons, list)
-            or not reasons
-            or any(not isinstance(x, str) for x in reasons)
-            or any(x not in allowed_reasons for x in reasons)
-            or len(reasons) != len(set(reasons))
-        ):
-            errors.append(f"local {idx}: invalid decision_reason_codes")
-            continue
-
         compact = make_compact(raw, assigned[idx - 1], idx)
         row_errors = validate_compact_row(compact, assigned[idx - 1], idx, contract)
         if row_errors:
@@ -181,7 +167,6 @@ def main() -> None:
         trace[str(idx)] = {
             "semantic_policy_id": policy_id(authority),
             "semantic_policy_git_blob_sha": policy_blob(authority),
-            "decision_reason_codes": reasons,
             "replaced_state": expected_state,
         }
 
