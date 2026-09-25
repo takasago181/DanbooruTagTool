@@ -86,6 +86,7 @@ def main():
 
         stage_dir = ROOT / args.parallel_dir / f"lane-{lane}" / "staging"
         windows = []
+        persisted_stage_ranges: set[tuple[int, int]] = set()
         seen_indices: set[int] = set()
         lane_finalized = 0
         lane_holds = 0
@@ -106,6 +107,10 @@ def main():
                 if start < 1 or end > len(assigned):
                     errors.append(f"lane {lane}: {path.name} outside assigned lane")
                     continue
+
+                # Path existence is authoritative for write-gap accounting even if
+                # the window body is malformed or semantically invalid.
+                persisted_stage_ranges.add((start, end))
 
                 repair_obj, repair_name, repair_errors = resolve_repair_overlay(
                     path, lane, start, end
@@ -305,8 +310,8 @@ def main():
         total_finalized += lane_finalized
         total_holds += lane_holds
 
-        staging_high_watermark = max((int(w["end"]) for w in windows), default=prefix)
-        stage_ranges = {(int(w["start"]), int(w["end"])) for w in windows}
+        staging_high_watermark = max((end for _, end in persisted_stage_ranges), default=prefix)
+        stage_ranges = persisted_stage_ranges
         write_gaps = []
         if staging_high_watermark > prefix:
             expected_start = prefix + 1
@@ -359,7 +364,7 @@ def main():
 
         summary[str(lane)] = {
             "checkpoint_prefix": prefix,
-            "staging_window_count": len(windows),
+            "staging_window_count": len(persisted_stage_ranges),
             "staging_high_watermark": staging_high_watermark,
             "write_gaps": write_gaps,
             "staged_finalized_rows": lane_finalized,
@@ -480,6 +485,10 @@ def main():
         ),
         "error_count": len(errors),
     }
+    print(
+        "COORDINATOR_SNAPSHOT_JSON="
+        + json.dumps(coordinator_snapshot, ensure_ascii=False, separators=(",", ":"))
+    )
     print(json.dumps(result, ensure_ascii=False, indent=2))
     if errors:
         for error in errors[:100]:
