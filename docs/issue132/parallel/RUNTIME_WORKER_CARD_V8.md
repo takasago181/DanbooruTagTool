@@ -25,7 +25,12 @@ Do not read checkpoints, status files, CI, Issue history, Repair/Coordinator fil
 
 Use the fewest possible tool round-trips. When orchestration/Code Mode is available, batch hot-path GitHub reads instead of issuing serial discovery calls.
 
-1. Read RUNTIME_AUTHORITY.json and this active Worker card.
+1. Read RUNTIME_AUTHORITY.json and this active Worker card. Also read ONLY the machine-readable file named by `authority.contracts.semantic_vocabulary_path`; batch these reads when possible.
+   - Require its schema_version to equal `authority.contracts.semantic_vocabulary_schema_version`.
+   - When the fetch exposes a Git blob SHA, require it to equal `authority.contracts.semantic_vocabulary_git_blob_sha`.
+   - Use only these frozen keys from it: route_ids, local_refinement_parent, body_site_ids, theme_ids, allowed_discovery_modes, allowed_route_strengths, allowed_review_depths.
+   - Do NOT read the long semantic-contract prose on the normal hot path. The manifest above is sufficient and authoritative for allowed codes and local-parent consistency.
+   - If this frozen manifest is missing or mismatched, that is a true contract blocker. Do not guess vocabulary.
 2. List only this lane's staging directory once. Filter only `window_XXXXXX_YYYYYY.json` files.
    - A single directory-list 404/timeout/tool error is NOT proof that staging is absent and is NOT by itself a valid run blocker.
    - On such an operational failure, immediately use the metadata-only tree fallback: fetch the branch HEAD/tree and one recursive Git tree, then filter exact paths matching `docs/issue132/parallel/lane-N/staging/window_XXXXXX_YYYYYY.json`.
@@ -93,6 +98,30 @@ Every slot is bound exactly by lane_local_index + review_seq + SHA256(identity_k
 Rows and holds use only compact-v2 allowed fields. Never persist identity_key or free-form semantic/research prose.
 
 Before write check exact coverage/binding, allowed codes, route-local consistency, mode constraints, researched evidence, SEMANTIC_UNRESOLVED constraints, and exact compact field sets.
+
+Frozen-code validation is mechanical:
+- each route id must be in semantic_manifest.route_ids;
+- each route strength must be in semantic_manifest.allowed_route_strengths;
+- discovery_mode must be in semantic_manifest.allowed_discovery_modes;
+- review_depth must be in semantic_manifest.allowed_review_depths;
+- each local_refinement_id must be a key in semantic_manifest.local_refinement_parent AND its mapped parent route must be selected in that row;
+- normally at most one local refinement per selected parent route;
+- every body_site_id must be in semantic_manifest.body_site_ids;
+- every theme_id must be in semantic_manifest.theme_ids.
+
+Compact row fields are exactly:
+lane_local_index, review_seq, identity_sha256, discovery_mode, routes, local_refinement_ids, body_site_ids, theme_ids, route_vocabulary_gap, review_depth, evidence_urls.
+
+Compact hold fields are exactly:
+lane_local_index, review_seq, identity_sha256, reason_code, research_attempt_codes.
+
+Allowed compact hold reason_code values:
+DIRECT_EVIDENCE_NOT_FOUND, IDENTITY_AMBIGUOUS, SEMANTIC_SCOPE_AMBIGUOUS, ROUTE_AMBIGUOUS, OTHER_UNRESOLVED.
+
+Allowed research_attempt_codes:
+DANBOORU_EXACT, SAFEBOORU_EXACT, OFFICIAL_SOURCE, DIRECT_WEB_SOURCE, OTHER_DIRECT_SOURCE.
+
+A hold requires a non-empty research_attempt_codes list. Do not invent any code outside these frozen/current compact sets.
 
 ## Write
 NEW window => contents create_file.
