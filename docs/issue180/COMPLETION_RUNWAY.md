@@ -1,5 +1,10 @@
 # Issue #180 — Completion runway
 
+Status: **SUPERSEDED HISTORICAL RUNWAY**
+
+Current execution authority is `docs/issue180/v3/README.md` plus `docs/issue180/parallel/PARALLEL_EXECUTION_V1.md` / `PARALLEL_EXECUTION_V1.json`.
+The counts and 18-shard scheduling below are retained only as historical provenance; do not resume them as current work.
+
 Current state after parallelization:
 
 - full Character population mechanically censused: **35,890 / 35,890**
