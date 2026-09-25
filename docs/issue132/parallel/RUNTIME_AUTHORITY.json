@@ -1,11 +1,11 @@
 {
-  "schema_version": "issue132-runtime-authority-v2-flat",
+  "schema_version": "issue132-runtime-authority-v3-codex-guarded",
   "status": "PAUSED_FOR_CODEX_HANDOFF",
   "branch": "research/taxonomy-usability-audit",
   "execution_model": "docs/issue132/parallel/FLAT_RUNTIME_MODEL_V1.md",
   "roles": {
     "worker": {
-      "path": "docs/issue132/parallel/RUNTIME_WORKER_CARD_V9.md",
+      "path": "docs/issue132/parallel/RUNTIME_WORKER_CARD_V10.md",
       "lanes": [
         1,
         2,
@@ -16,7 +16,7 @@
       "path": "docs/issue132/parallel/RUNTIME_REPAIR_CARD_V7.md"
     },
     "coordinator": {
-      "path": "docs/issue132/parallel/RUNTIME_COORDINATOR_CARD_V7.md"
+      "path": "docs/issue132/parallel/RUNTIME_COORDINATOR_CARD_V8.md"
     }
   },
   "fixed": {
@@ -33,7 +33,8 @@
     "per_run_ceiling": 300,
     "task_count": 5,
     "semantic_work_block_max": 100,
-    "persistence_slice": 25
+    "persistence_slice": 25,
+    "max_unresolved_persistence_debt_per_lane": 100
   },
   "progress": {
     "model": "accepted_unique_identity_union",
@@ -64,11 +65,45 @@
       "allowed_discovery_modes",
       "allowed_route_strengths",
       "allowed_review_depths"
-    ]
+    ],
+    "semantic_guardrails": {
+      "current_policy_id": "issue132-codex-semantic-guardrails-v1",
+      "allowed_policies": {
+        "issue132-codex-semantic-guardrails-v1": {
+          "path": "docs/issue132/parallel/CODEX_SEMANTIC_GUARDRAILS_V1.md",
+          "git_blob_sha": "a000671515989f9fe133f5877ec56612a7b85c2f"
+        }
+      },
+      "effective_from_lane_local": {
+        "1": 1126,
+        "2": 1226,
+        "3": 1201
+      },
+      "allowed_decision_reason_codes": [
+        "COSTUME_REFERENCE",
+        "NAMED_PROP",
+        "WEAPON_PROP",
+        "CLOTHING_STATE",
+        "OBJECT_USE_ACTION",
+        "PERSON_INTERACTION",
+        "STATIC_POSITION",
+        "RELATIONSHIP_ROLE",
+        "BODY_SITE_FEATURE",
+        "HEAD_HAIR_FACE_FEATURE",
+        "FLUID_EXCRETION",
+        "COLOR_PATTERN_SECONDARY",
+        "OBJECT_SCENE_BOUNDARY",
+        "NAMED_REFERENCE_WITH_VISUAL_AXIS",
+        "SEARCH_BY_NAME_ONLY",
+        "RESEARCH_UNRESOLVED",
+        "VOCABULARY_GAP",
+        "OTHER_DIRECT_VISUAL"
+      ]
+    }
   },
   "persistence": {
-    "protocol": "docs/issue132/parallel/WRITE_REQUEST_PROTOCOL_V1.md",
-    "request_schema": "issue132-pass-a-write-request-v1",
+    "protocol": "docs/issue132/parallel/WRITE_REQUEST_PROTOCOL_V2.md",
+    "request_schema": "issue132-pass-a-write-request-v2",
     "request_path": "docs/issue132/parallel/lane-N/write-requests/request_SSSSSS_EEEEEE.json",
     "materializer": "scripts/issue132/materialize_write_requests.py",
     "workflow": ".github/workflows/issue132_materialize_write_requests.yml",
@@ -82,7 +117,7 @@
     "reason": "User requested full pause before Codex migration"
   },
   "codex": {
-    "runbook": "docs/issue132/CODEX_MASTER_RUNBOOK_V1.md",
+    "runbook": "docs/issue132/CODEX_MASTER_RUNBOOK_V2.md",
     "parallel_roles": [
       "CODEX-L1",
       "CODEX-L2",
@@ -92,5 +127,11 @@
     "canonical_publish_branch": "research/taxonomy-usability-audit",
     "force_push_allowed": false,
     "main_or_production_mutation_authorized": false
+  },
+  "qa": {
+    "state_path": "docs/issue132/parallel/CODEX_QA_STATE.json",
+    "calibration_batch_size_per_lane": 100,
+    "steady_state_max_unqaed_per_lane": 500,
+    "final_semantic_qa_required": true
   }
 }
