@@ -81,26 +81,6 @@
     "CHECKED",
     "RESEARCHED"
   ],
-  "decision_reason_codes": [
-    "COSTUME_REFERENCE",
-    "NAMED_PROP",
-    "WEAPON_PROP",
-    "CLOTHING_STATE",
-    "OBJECT_USE_ACTION",
-    "PERSON_INTERACTION",
-    "STATIC_POSITION",
-    "RELATIONSHIP_ROLE",
-    "BODY_SITE_FEATURE",
-    "HEAD_HAIR_FACE_FEATURE",
-    "FLUID_EXCRETION",
-    "COLOR_PATTERN_SECONDARY",
-    "OBJECT_SCENE_BOUNDARY",
-    "NAMED_REFERENCE_WITH_VISUAL_AXIS",
-    "SEARCH_BY_NAME_ONLY",
-    "RESEARCH_UNRESOLVED",
-    "VOCABULARY_GAP",
-    "OTHER_DIRECT_VISUAL"
-  ],
   "semantic_guardrails": [
     "Classify by the first shelf an image-generation user would naturally open when they do not know the exact Danbooru tag.",
     "A proper name alone does not imply SEARCH_ORIENTED. Visible costumes, weapons, props, devices and transformation items may be browseable; use MIXED when both name-search and browse discovery materially help.",
