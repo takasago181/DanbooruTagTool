@@ -1,202 +1,45 @@
-name: Issue132 Full Discovery Coverage Audit
+name: Issue132 Legacy Full Discovery Rebuild (manual)
 
 on:
-  push:
-    branches:
-      - research/taxonomy-usability-audit
-    paths:
-      - "scripts/issue132/**"
-      - "docs/issue132/CURRENT_RECOMMENDED_DIRECTION.md"
-      - "docs/issue132/FULL_SEMANTIC_REVIEW_PROTOCOL.md"
-      - "docs/issue132/LUNA_*.md"
-      - "docs/issue132/CODEX_FULL_SEMANTIC_REVIEW_HANDOFF.md"
-      - "docs/issue132/prototype_route_overrides_v0_1.csv"
-      - "docs/issue132/parallel/pass_a_contract_manifest_v1.json"
-      - "docs/issue118/production_candidate/sexual_intent_v2.csv"
-      - "docs/issue64/production_candidate/effective_sidecar.csv"
-      - "data/generation/special2788_generation_profile.csv"
-      - "src/DanbooruTagTool.Data/Issue56Inputs.cs"
-      - "src/DanbooruTagTool.Data/Issue76Data/**"
-      - "src/DanbooruTagTool.Data/UnifiedBrowseData/special_route_overrides_v1.csv"
-      - "docs/issue96/special_expansion_promotion_proposal_v1.csv"
-      - "docs/issue107/promotion_metadata_v1.csv"
-      - ".github/workflows/issue132_full_discovery_audit.yml"
-  pull_request:
-    branches:
-      - research/taxonomy-usability-audit
-    paths:
-      - "scripts/issue132/**"
-      - "docs/issue132/CURRENT_RECOMMENDED_DIRECTION.md"
-      - "docs/issue132/FULL_SEMANTIC_REVIEW_PROTOCOL.md"
-      - "docs/issue132/LUNA_*.md"
-      - "docs/issue132/CODEX_FULL_SEMANTIC_REVIEW_HANDOFF.md"
-      - "docs/issue132/prototype_route_overrides_v0_1.csv"
-      - "docs/issue132/parallel/pass_a_contract_manifest_v1.json"
-      - "docs/issue118/production_candidate/sexual_intent_v2.csv"
-      - "docs/issue64/production_candidate/effective_sidecar.csv"
-      - "data/generation/special2788_generation_profile.csv"
-      - "src/DanbooruTagTool.Data/Issue56Inputs.cs"
-      - "src/DanbooruTagTool.Data/Issue76Data/**"
-      - "src/DanbooruTagTool.Data/UnifiedBrowseData/special_route_overrides_v1.csv"
-      - "docs/issue96/special_expansion_promotion_proposal_v1.csv"
-      - "docs/issue107/promotion_metadata_v1.csv"
-      - ".github/workflows/issue132_full_discovery_audit.yml"
   workflow_dispatch:
 
 permissions:
-  contents: write
-
-concurrency:
-  group: issue132-full-discovery-${{ github.ref }}
-  cancel-in-progress: true
+  contents: read
 
 jobs:
   audit:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: research/taxonomy-usability-audit
-          fetch-depth: 1
 
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
 
-      - name: Run full discovery coverage audit
+      - name: Run legacy full-discovery diagnostic
         run: |
           python scripts/issue132/full_discovery_coverage_audit.py \
             --root . \
             --out artifacts/issue132/full-discovery-audit
 
-      - name: Build Luna neutral input
+      - name: Rebuild neutral input as a diagnostic artifact only
         run: |
           python scripts/issue132/build_luna_neutral_input.py \
             --out artifacts/issue132/luna-neutral/luna_neutral_review_input_v2.csv
+          test "$(sha256sum artifacts/issue132/luna-neutral/luna_neutral_review_input_v2.csv | awk '{print $1}')" = \
+            "ac0f888d02f19a440c63b3b9f695c58f9ba53b98ebe9756edec51db1c5ff8f7d"
 
-      - name: Build worker neutral shards
-        run: |
-          python scripts/issue132/build_worker_neutral_shards.py \
-            --input artifacts/issue132/luna-neutral/luna_neutral_review_input_v2.csv \
-            --out docs/issue132/parallel/input-shards \
-            --shard-size 300
-
-      - name: Validate worker neutral shards
+      - name: Validate tracked frozen shards
         run: |
           python scripts/issue132/validate_worker_neutral_shards.py \
-            --input artifacts/issue132/luna-neutral/luna_neutral_review_input_v2.csv \
+            --input docs/issue132/parallel/input/luna_neutral_review_input_v2.csv \
             --shard-root docs/issue132/parallel/input-shards
 
-      - name: Publish stable research neutral snapshot and worker shards
-        shell: bash
-        run: |
-          set -euo pipefail
-          SRC="artifacts/issue132/luna-neutral/luna_neutral_review_input_v2.csv"
-          SRC_MANIFEST="artifacts/issue132/luna-neutral/luna_neutral_review_input_v2.manifest.json"
-          DST_DIR="docs/issue132/parallel/input"
-          DST="$DST_DIR/luna_neutral_review_input_v2.csv"
-          DST_MANIFEST="$DST_DIR/luna_neutral_review_input_v2.manifest.json"
-          SHARD_DIR="docs/issue132/parallel/input-shards"
-          EXPECTED_SHA="ac0f888d02f19a440c63b3b9f695c58f9ba53b98ebe9756edec51db1c5ff8f7d"
-          EXPECTED_ORDER_SHA="f80c63018ce19a8c7c5d8d6fd83d03cf760c510d8f6cfa455d1ab356fb31361b"
-
-          ACTUAL_SHA="$(sha256sum "$SRC" | awk '{print $1}')"
-          test "$ACTUAL_SHA" = "$EXPECTED_SHA"
-
-          python - "$SRC_MANIFEST" "$EXPECTED_ORDER_SHA" <<'PY'
-          import json, sys
-          p, expected = sys.argv[1:]
-          obj = json.load(open(p, encoding="utf-8"))
-          assert obj["identity_count"] == 31003, obj["identity_count"]
-          assert obj["identity_order_sha256"] == expected, obj["identity_order_sha256"]
-          PY
-
-          mkdir -p "$DST_DIR"
-          cp "$SRC" "$DST"
-          cp "$SRC_MANIFEST" "$DST_MANIFEST"
-
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A "$DST" "$DST_MANIFEST" "$SHARD_DIR"
-
-          if git diff --cached --quiet; then
-            echo "Stable neutral snapshot and worker shards already current."
-          else
-            git commit -m "issue132: publish stable neutral review snapshot and worker shards"
-            for attempt in 1 2 3; do
-              git pull --rebase origin research/taxonomy-usability-audit
-              if git push origin HEAD:research/taxonomy-usability-audit; then
-                exit 0
-              fi
-              if [ "$attempt" -eq 3 ]; then
-                echo "Failed to publish stable neutral snapshot after 3 attempts."
-                exit 1
-              fi
-              sleep 2
-            done
-          fi
-
-      - name: Verify review vocabulary against runtime code
-        run: python scripts/issue132/check_review_vocabulary_against_code.py
-
-      - name: Freeze Pass A contract manifest
-        run: |
-          python scripts/issue132/build_pass_a_contract_manifest.py \
-            --neutral artifacts/issue132/luna-neutral/luna_neutral_review_input_v2.csv \
-            --neutral-manifest artifacts/issue132/luna-neutral/luna_neutral_review_input_v2.manifest.json \
-            --out artifacts/issue132/pass-a-contract/pass_a_contract_manifest_v1.json
-
-      - name: Test Pass A ledger validator contract
-        run: python scripts/issue132/test_validate_luna_pass_a.py
-
-      - name: Test Pass B deterministic diff contract
-        run: python scripts/issue132/test_build_pass_b_diff.py
-
-      - name: Validate committed parallel checkpoints and correction overlays
-        run: python scripts/issue132/validate_parallel_effective.py
-
-      - name: Validate flat Pass A accepted-set progress
-        run: |
-          python scripts/issue132/validate_flat_pass_a.py \
-            --input artifacts/issue132/luna-neutral/luna_neutral_review_input_v2.csv \
-            --parallel-dir docs/issue132/parallel
-
-      - name: Check pre-handoff authority consistency
-        run: python scripts/issue132/check_pre_handoff_consistency.py
-
-      - name: Smoke bootstrap and resume helper
-        run: |
-          python scripts/issue132/bootstrap_luna_pass_a.py \
-            --artifact-root artifacts/issue132/bootstrap-smoke \
-            --review-dir artifacts/issue132/bootstrap-review
-          python scripts/issue132/bootstrap_luna_pass_a.py \
-            --artifact-root artifacts/issue132/bootstrap-smoke \
-            --review-dir artifacts/issue132/bootstrap-review
-
-      - name: Confirm incomplete finalizer fails closed
-        run: |
-          if python scripts/issue132/finalize_luna_pass_a.py \
-            --artifact-root artifacts/issue132/bootstrap-smoke \
-            --review-dir artifacts/issue132/bootstrap-review; then
-            echo "ERROR: finalizer accepted incomplete Pass A"
-            exit 1
-          else
-            echo "PASS: finalizer rejected incomplete Pass A"
-          fi
-
-
-
-
-      - name: Upload audit package
-        if: always()
+      - name: Upload diagnostics
         uses: actions/upload-artifact@v4
         with:
-          name: issue132-full-discovery-audit
-          path: |
-            artifacts/issue132/full-discovery-audit
-            artifacts/issue132/luna-neutral
-            artifacts/issue132/pass-a-contract
-            docs/issue132/parallel/input-shards
+          name: issue132-legacy-full-discovery-diagnostic
+          path: artifacts/issue132
           if-no-files-found: error
-          retention-days: 90
-
+          retention-days: 30
