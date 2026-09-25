@@ -165,10 +165,6 @@ def policy_blob(authority: dict) -> str:
     return str(authority["semantic_contract"]["git_blob_sha"])
 
 
-def reason_codes(contract: dict) -> set[str]:
-    return set(contract.get("decision_reason_codes", []))
-
-
 def load_baseline_manifest(root: Path, authority: dict) -> dict:
     path = root / authority["baseline"]["manifest_path"]
     return json.loads(path.read_text(encoding="utf-8"))
