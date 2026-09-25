@@ -5,7 +5,7 @@
   "execution_driver": "CODEX",
   "runtime_guide": {
     "path": "docs/issue132/CODEX_RUNTIME_V3.md",
-    "git_blob_sha": "4921c74c9c37b34993ea2261dc3c181e4bc35479"
+    "git_blob_sha": "b78bcb86702d403ff8698020e2d2b24080a66076"
   },
   "semantic_contract": {
     "current_policy_id": "issue132-pass-a-semantic-contract-v2",
@@ -31,7 +31,6 @@
     "parent_neutral_sha256": "ac0f888d02f19a440c63b3b9f695c58f9ba53b98ebe9756edec51db1c5ff8f7d",
     "parent_identity_order_sha256": "f80c63018ce19a8c7c5d8d6fd83d03cf760c510d8f6cfa455d1ab356fb31361b",
     "neutral_path": "docs/issue132/parallel/input/luna_neutral_review_input_v2.csv",
-    "input_shard_size": 300,
     "forward_window_max": 100,
     "codex_parallel_roles": [
       "CODEX-L1",
@@ -55,7 +54,8 @@
     "decision_schema": "issue132-codex-decision-window-v1",
     "canonical_schema": "issue132-pass-a-staging-window-v2",
     "new_direct_windows_mutable_by_targeted_repair_commit": true,
-    "repair_overlay_required_for_new_windows": false
+    "repair_overlay_required_for_new_windows": false,
+    "next_batch_helper": "scripts/issue132/codex_next_batch.py"
   },
   "historical_compatibility": {
     "old_checkpoint_correction_staging_repair_files": "FORENSIC_ONLY_AFTER_BASELINE_FREEZE",
@@ -64,7 +64,7 @@
   "validation": {
     "validator": "scripts/issue132/validate_flat_pass_a.py",
     "snapshot_marker": "FLAT_SNAPSHOT_JSON=",
-    "canonical_progress_model": "accepted_unique_identity_union"
+    "canonical_progress_model": "frozen_baseline_plus_contiguous_direct_windows"
   },
   "invariants": {
     "historical_source_files_immutable": true,
