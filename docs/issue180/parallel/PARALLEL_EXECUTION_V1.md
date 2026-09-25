@@ -6,6 +6,14 @@ Target: `Character -> HOME_COPYRIGHT (0..1)`
 
 This changes scheduling, ownership and QA only. It does **not** change the accepted HOME semantics, evidence bar, migration reconciliation, Issue #179 boundary, or the current v3 resolver.
 
+## 0. Legacy single-Worktree freeze
+
+The previous single-Worktree Codex run is retired as an execution path. Its GitHub-backed research/data checkpoint through `3004402b39e48f900ce17cb5d511dc3975f0003c` is preserved and must not be redone.
+
+If the old Codex session becomes usable again, it may perform **salvage only** for any local-only delta that was never pushed; it must not continue Research Unit processing. Follow `docs/issue180/parallel/LEGACY_SINGLE_WORKTREE_HANDOFF_V1.md`.
+
+After salvage accounting, all remaining work comes only from a freshly rebuilt current parallel assignment manifest. Historical OPEN counts are not work queues.
+
 ## 1. Why five Worktrees
 
 Use **5 Worktrees total**:

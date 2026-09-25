@@ -39,5 +39,13 @@
     "issue70_source_mutation": false,
     "issue179_source_mutation": false,
     "issue132_mutation": false
+  },
+  "legacy_handoff": {
+    "mode": "FROZEN_SALVAGE_ONLY",
+    "legacy_research_checkpoint_sha": "3004402b39e48f900ce17cb5d511dc3975f0003c",
+    "prior_closure_checkpoint_sha": "ad3eab21c303f209de62a0a51450ff9c45d385dd",
+    "salvage_branch": "research/issue180-legacy-salvage",
+    "resume_legacy_research": false,
+    "new_research_from_current_parallel_manifest_only": true
   }
 }
