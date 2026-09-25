@@ -123,10 +123,11 @@ Machine validation is always 100% regardless of semantic sampling.
 Forward:
 1. fetch/prune;
 2. merge the current canonical research branch into the worker branch when it advances;
-3. rebuild v3 + assignments;
-4. work only assignments owned by the current slot;
-5. commit proposal files in coarse batches;
-6. push only the worker branch.
+3. CI and the assignment builder both fail closed unless the latest canonical HEAD is an ancestor of the worker HEAD;
+4. rebuild v3 + assignments;
+5. work only assignments owned by the current slot;
+6. commit proposal files in coarse batches;
+7. push only the worker branch.
 
 Do not rebase a published worker branch if that would require force-push.
 

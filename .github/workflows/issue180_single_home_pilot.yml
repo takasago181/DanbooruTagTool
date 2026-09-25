@@ -28,6 +28,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Validate parallel branch freshness preflight
+        run: python scripts/issue180/validate_parallel_worktree_v1.py --freshness-only
       - name: Validate Issue180 research-only scope
         run: python scripts/issue180/validate_research_scope_v2.py
       - name: Run Issue180 v3 and parallel tests

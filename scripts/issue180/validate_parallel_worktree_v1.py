@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Branch/write-ownership guard for Issue #180 parallel Worktrees."""
 from __future__ import annotations
+import argparse
 import json
 import os
 import subprocess
@@ -23,6 +24,17 @@ def run(*args: str, check: bool=True) -> str:
 
 def branch_name() -> str:
     return os.environ.get("GITHUB_REF_NAME","").strip() or run("branch","--show-current")
+
+def require_latest_canonical_ancestor(canonical: str) -> None:
+    remote=f"origin/{canonical}"
+    if not run("rev-parse","--verify",remote,check=False):
+        raise SystemExit(f"missing {remote}; fetch canonical branch before guard")
+    p=subprocess.run(["git","merge-base","--is-ancestor",remote,"HEAD"],cwd=ROOT,text=True,capture_output=True)
+    if p.returncode != 0:
+        raise SystemExit(
+            f"stale parallel Worktree: latest {remote} is not an ancestor of HEAD; "
+            "merge the canonical research branch before continuing"
+        )
 
 def changed_from_canonical(canonical: str) -> set[str]:
     remote=f"origin/{canonical}"
@@ -113,11 +125,18 @@ def validate_forward_proposals(slot: int, prefix: str, cfg: dict) -> None:
                     raise SystemExit(f"{path}: technical escalation requires failure_class/details")
 
 def main() -> None:
+    ap=argparse.ArgumentParser()
+    ap.add_argument("--freshness-only",action="store_true")
+    args=ap.parse_args()
     cfg=json.loads(CONFIG.read_text(encoding="utf-8"))
     br=branch_name()
     canonical=cfg["canonical_branch"]
     if br==canonical:
         print("Issue180 parallel guard PASS: canonical branch; single-writer enforcement is role contract + QA ledger")
+        return
+    require_latest_canonical_ancestor(canonical)
+    if args.freshness_only:
+        print(f"Issue180 parallel freshness PASS: branch={br} contains latest canonical")
         return
     changed=changed_from_canonical(canonical)
     if br in cfg["forward_branches"]:

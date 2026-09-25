@@ -33,7 +33,17 @@ def canonical_sha(cfg: dict) -> str:
     if env:
         return env
     remote = git_output("rev-parse", f"origin/{cfg['canonical_branch']}")
-    return remote or git_output("rev-parse", "HEAD")
+    if remote:
+        branch = os.environ.get("GITHUB_REF_NAME", "").strip() or git_output("branch", "--show-current")
+        if branch and branch != cfg["canonical_branch"]:
+            p = subprocess.run(["git","merge-base","--is-ancestor",remote,"HEAD"],cwd=ROOT,text=True,capture_output=True)
+            if p.returncode != 0:
+                raise SystemExit(
+                    f"parallel Worktree is stale: latest canonical {remote} is not an ancestor of HEAD; "
+                    "merge the canonical research branch before rebuilding assignments"
+                )
+        return remote
+    return git_output("rev-parse", "HEAD")
 
 def owner_slot(ownership_key: str, slots: int) -> int:
     return int(sha256_text(ownership_key)[:16], 16) % slots
