@@ -8,7 +8,15 @@ import json
 import re
 from pathlib import Path
 
-from parallel_overlay import load_checkpoint_union
+from codex_runtime import (
+    allowed_forward_end,
+    direct_start,
+    load_runtime,
+    policy_blob,
+    policy_id,
+    reason_codes,
+)
+from parallel_overlay import apply_corrections, load_checkpoint_union
 from staging_repair_overlay import resolve_repair_overlay
 from staging_v2 import (
     SCHEMA_V2,
@@ -16,28 +24,17 @@ from staging_v2 import (
     validate_compact_hold,
     validate_identity_binding,
 )
-from codex_runtime_guards import (
-    allowed_forward_end,
-    load_authority_and_qa,
-    persistence_debt_limit,
-    validate_policy_trace,
-)
 
 ROOT = Path(__file__).resolve().parents[2]
 LANES = (1, 2, 3)
 LANE_LENGTHS = {1: 10335, 2: 10334, 3: 10334}
 STAGE_RE = re.compile(r"^window_(\d{6})_(\d{6})\.json$")
-REQUEST_RE = re.compile(r"^request_(\d{6})_(\d{6})\.json$")
-DEFERRED_RE = re.compile(r"^deferred_(\d{6})_(\d{6})\.json$")
 SCHEMA_V1 = "issue132-pass-a-staging-window-v1"
-EXPECTED_PARENT_SHA = "ac0f888d02f19a440c63b3b9f695c58f9ba53b98ebe9756edec51db1c5ff8f7d"
-EXPECTED_ORDER_SHA = "f80c63018ce19a8c7c5d8d6fd83d03cf760c510d8f6cfa455d1ab356fb31361b"
-MAX_FORWARD_WINDOW = 100
 
 
 def load_base():
-    p = ROOT / "scripts/issue132/validate_luna_pass_a.py"
-    spec = importlib.util.spec_from_file_location("issue132_flat_base", p)
+    path = ROOT / "scripts/issue132/validate_luna_pass_a.py"
+    spec = importlib.util.spec_from_file_location("issue132_flat_base", path)
     if spec is None or spec.loader is None:
         raise SystemExit("cannot load base validator")
     mod = importlib.util.module_from_spec(spec)
@@ -45,21 +42,9 @@ def load_base():
     return mod
 
 
-def read_csv(path: Path):
+def read_csv(path: Path) -> list[dict[str, str]]:
     with path.open("r", encoding="utf-8-sig", newline="") as f:
         return list(csv.DictReader(f))
-
-
-def normalize_v1_row(entry, fields):
-    if isinstance(entry, dict):
-        if set(entry) != set(fields):
-            return None, "finalized row field-set mismatch"
-        return {field: str(entry[field]) for field in fields}, None
-    if isinstance(entry, list):
-        if len(entry) != len(fields):
-            return None, f"ordered finalized row must have exactly {len(fields)} fields"
-        return {field: str(value) for field, value in zip(fields, entry)}, None
-    return None, "finalized row must be an object or ordered field array"
 
 
 def ranges_from_indices(indices: set[int]) -> list[list[int]]:
@@ -78,17 +63,99 @@ def ranges_from_indices(indices: set[int]) -> list[list[int]]:
     return out
 
 
-def validate_window(path: Path, lane: int, start: int, end: int, assigned, base, authority):
+def normalize_v1_row(entry, fields):
+    if isinstance(entry, dict):
+        if set(entry) != set(fields):
+            return None, "finalized row field-set mismatch"
+        return {field: str(entry[field]) for field in fields}, None
+    if isinstance(entry, list):
+        if len(entry) != len(fields):
+            return None, f"ordered finalized row must have exactly {len(fields)} fields"
+        return {field: str(value) for field, value in zip(fields, entry)}, None
+    return None, "finalized row must be object or ordered field array"
+
+
+def validate_policy_trace(
+    obj: dict,
+    lane: int,
+    start: int,
+    end: int,
+    row_indices: set[int],
+    authority: dict,
+    contract: dict,
+) -> list[str]:
+    boundary = direct_start(authority, lane)
+    if end < boundary:
+        return []
+    if start < boundary <= end:
+        return [f"window crosses direct-staging boundary {boundary}"]
+
+    errors: list[str] = []
+    sem = authority.get("semantic_contract", {})
+    pid = obj.get("semantic_policy_id")
+    pblob = obj.get("semantic_policy_git_blob_sha")
+    allowed = sem.get("allowed_policies", {})
+    meta = allowed.get(pid) if isinstance(allowed, dict) else None
+    if not meta:
+        errors.append("semantic_policy_id not registered")
+    elif pblob != meta.get("git_blob_sha"):
+        errors.append("semantic_policy_git_blob_sha mismatch")
+
+    reason_map = obj.get("decision_reason_codes")
+    if not isinstance(reason_map, dict):
+        errors.append("decision_reason_codes must be object")
+        return errors
+    expected_keys = {str(i) for i in row_indices}
+    if set(reason_map) != expected_keys:
+        errors.append(
+            "decision_reason_codes coverage mismatch "
+            f"missing={sorted(expected_keys-set(reason_map))} "
+            f"extra={sorted(set(reason_map)-expected_keys)}"
+        )
+        return errors
+
+    allowed_codes = reason_codes(contract)
+    for key, codes in reason_map.items():
+        if (
+            not isinstance(codes, list)
+            or not codes
+            or any(not isinstance(x, str) for x in codes)
+            or any(x not in allowed_codes for x in codes)
+            or len(codes) != len(set(codes))
+        ):
+            errors.append(f"decision_reason_codes[{key}] invalid")
+    return errors
+
+
+def validate_window(
+    path: Path,
+    lane: int,
+    start: int,
+    end: int,
+    assigned: list[dict[str, str]],
+    base,
+    authority: dict,
+    contract: dict,
+) -> dict:
     errors: list[str] = []
     width = end - start + 1
-    if width < 1 or width > MAX_FORWARD_WINDOW:
-        errors.append(f"range size {width} outside 1..{MAX_FORWARD_WINDOW}")
-        return {"errors": errors, "holds": 0, "accepted_indices": set(), "repair_overlay": None}
+    max_width = int(authority["fixed"]["forward_window_max"])
+    if width < 1 or width > max_width:
+        return {
+            "errors": [f"range size {width} outside 1..{max_width}"],
+            "holds": 0,
+            "accepted_indices": set(),
+            "repair_overlay": None,
+        }
 
     repair_obj, repair_name, repair_errors = resolve_repair_overlay(path, lane, start, end)
-    errors.extend(repair_errors)
     if repair_errors:
-        return {"errors": errors, "holds": 0, "accepted_indices": set(), "repair_overlay": repair_name}
+        return {
+            "errors": repair_errors,
+            "holds": 0,
+            "accepted_indices": set(),
+            "repair_overlay": repair_name,
+        }
 
     if repair_obj is not None:
         obj = repair_obj
@@ -96,8 +163,12 @@ def validate_window(path: Path, lane: int, start: int, end: int, assigned, base,
         try:
             obj = json.loads(path.read_text(encoding="utf-8"))
         except Exception as exc:
-            errors.append(f"invalid JSON: {exc}")
-            return {"errors": errors, "holds": 0, "accepted_indices": set(), "repair_overlay": repair_name}
+            return {
+                "errors": [f"invalid JSON: {exc}"],
+                "holds": 0,
+                "accepted_indices": set(),
+                "repair_overlay": repair_name,
+            }
 
     schema = obj.get("schema_version")
     if schema not in {SCHEMA_V1, SCHEMA_V2}:
@@ -106,16 +177,23 @@ def validate_window(path: Path, lane: int, start: int, end: int, assigned, base,
         errors.append("lane mismatch")
     if obj.get("lane_local_start") != start or obj.get("lane_local_end") != end:
         errors.append("range metadata mismatch")
-    if obj.get("parent_neutral_sha256") != EXPECTED_PARENT_SHA:
+    if obj.get("parent_neutral_sha256") != authority["fixed"]["parent_neutral_sha256"]:
         errors.append("parent neutral SHA mismatch")
-    if obj.get("parent_identity_order_sha256") != EXPECTED_ORDER_SHA:
+    if (
+        obj.get("parent_identity_order_sha256")
+        != authority["fixed"]["parent_identity_order_sha256"]
+    ):
         errors.append("parent identity-order SHA mismatch")
 
     rows = obj.get("rows", [])
     holds = obj.get("holds", [])
     if not isinstance(rows, list) or not isinstance(holds, list):
-        errors.append("rows/holds must be lists")
-        return {"errors": errors, "holds": 0, "accepted_indices": set(), "repair_overlay": repair_name}
+        return {
+            "errors": errors + ["rows/holds must be lists"],
+            "holds": 0,
+            "accepted_indices": set(),
+            "repair_overlay": repair_name,
+        }
 
     covered: dict[int, str] = {}
 
@@ -130,30 +208,27 @@ def validate_window(path: Path, lane: int, start: int, end: int, assigned, base,
             except Exception:
                 errors.append("invalid finalized review_seq")
                 continue
-            ident = row.get("identity_key", "")
             matches = [
-                idx for idx in range(start, end + 1)
+                idx
+                for idx in range(start, end + 1)
                 if int(assigned[idx - 1]["review_seq"]) == seq
-                and assigned[idx - 1]["identity_key"] == ident
+                and assigned[idx - 1]["identity_key"] == row.get("identity_key", "")
             ]
             if len(matches) != 1:
-                errors.append(f"finalized row {ident} not exact window identity")
+                errors.append("finalized row is not exact window identity")
                 continue
             idx = matches[0]
             if idx in covered:
                 errors.append(f"duplicate local index {idx}")
                 continue
             covered[idx] = "row"
-            for err2 in base.validate_row(row, seq):
-                errors.append(f"local {idx} review_seq {seq}: {err2}")
+            errors.extend(
+                f"local {idx}: {err2}" for err2 in base.validate_row(row, seq)
+            )
 
         for hold in holds:
             if not isinstance(hold, dict):
-                errors.append("non-object hold")
-                continue
-            required = {"lane_local_index", "review_seq", "identity_key", "reason", "research_attempts"}
-            if not required.issubset(hold):
-                errors.append("legacy hold missing required fields")
+                errors.append("non-object legacy hold")
                 continue
             try:
                 idx = int(hold["lane_local_index"])
@@ -162,19 +237,17 @@ def validate_window(path: Path, lane: int, start: int, end: int, assigned, base,
                 errors.append("invalid legacy hold indices")
                 continue
             if idx < start or idx > end:
-                errors.append(f"legacy hold local index {idx} outside range")
+                errors.append(f"legacy hold local {idx} outside range")
                 continue
             expected = assigned[idx - 1]
-            if int(expected["review_seq"]) != seq or expected["identity_key"] != hold["identity_key"]:
+            if (
+                int(expected["review_seq"]) != seq
+                or expected["identity_key"] != hold.get("identity_key")
+            ):
                 errors.append(f"legacy hold identity mismatch at local {idx}")
             if idx in covered:
                 errors.append(f"duplicate row/hold at local {idx}")
             covered[idx] = "hold"
-            if not str(hold.get("reason", "")).strip():
-                errors.append(f"legacy hold blank reason at local {idx}")
-            attempts = hold.get("research_attempts")
-            if not isinstance(attempts, list) or not attempts:
-                errors.append(f"legacy hold missing research attempts at local {idx}")
 
     elif schema == SCHEMA_V2:
         for raw in rows:
@@ -187,7 +260,7 @@ def validate_window(path: Path, lane: int, start: int, end: int, assigned, base,
                 errors.append("compact row invalid lane_local_index")
                 continue
             if idx < start or idx > end:
-                errors.append(f"compact row local index {idx} outside range")
+                errors.append(f"compact row local {idx} outside range")
                 continue
             expected = assigned[idx - 1]
             bind_errors = validate_identity_binding(raw, expected, idx)
@@ -203,9 +276,10 @@ def validate_window(path: Path, lane: int, start: int, end: int, assigned, base,
                 errors.append(f"local {idx}: {exc}")
                 continue
             covered[idx] = "row"
-            seq = int(expected["review_seq"])
-            for err2 in base.validate_row(full, seq):
-                errors.append(f"local {idx} review_seq {seq}: {err2}")
+            errors.extend(
+                f"local {idx}: {err2}"
+                for err2 in base.validate_row(full, int(expected["review_seq"]))
+            )
 
         for hold in holds:
             if not isinstance(hold, dict):
@@ -217,35 +291,37 @@ def validate_window(path: Path, lane: int, start: int, end: int, assigned, base,
                 errors.append("compact hold invalid lane_local_index")
                 continue
             if idx < start or idx > end:
-                errors.append(f"compact hold local index {idx} outside range")
+                errors.append(f"compact hold local {idx} outside range")
                 continue
             expected = assigned[idx - 1]
-            hold_errors = validate_compact_hold(hold, expected, idx)
-            errors.extend(f"hold local {idx}: {err}" for err in hold_errors)
+            errors.extend(
+                f"hold local {idx}: {err}"
+                for err in validate_compact_hold(hold, expected, idx)
+            )
             if idx in covered:
                 errors.append(f"duplicate row/hold at local {idx}")
             covered[idx] = "hold"
 
     expected_indices = set(range(start, end + 1))
     if set(covered) != expected_indices:
-        missing = sorted(expected_indices - set(covered))
-        extra = sorted(set(covered) - expected_indices)
-        errors.append(f"coverage mismatch missing={missing} extra={extra}")
+        errors.append(
+            f"coverage mismatch missing={sorted(expected_indices-set(covered))} "
+            f"extra={sorted(set(covered)-expected_indices)}"
+        )
 
-    semantic_row_indices = {idx for idx, kind in covered.items() if kind == "row"}
+    row_indices = {idx for idx, kind in covered.items() if kind == "row"}
     errors.extend(
         validate_policy_trace(
-            obj,
-            authority,
-            lane,
-            start,
-            end,
-            semantic_row_indices,
+            obj, lane, start, end, row_indices, authority, contract
         )
     )
 
     hold_count = len(holds)
-    accepted = expected_indices if not errors and hold_count == 0 and len(rows) == width else set()
+    accepted = (
+        expected_indices
+        if not errors and hold_count == 0 and len(rows) == width
+        else set()
+    )
     return {
         "errors": errors,
         "holds": hold_count,
@@ -254,76 +330,128 @@ def validate_window(path: Path, lane: int, start: int, end: int, assigned, base,
     }
 
 
-def main():
+def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--input", required=True)
+    ap.add_argument(
+        "--input",
+        default="docs/issue132/parallel/input/luna_neutral_review_input_v2.csv",
+    )
     ap.add_argument("--parallel-dir", default="docs/issue132/parallel")
     args = ap.parse_args()
 
+    authority, contract, qa, runtime_errors = load_runtime(ROOT)
     base = load_base()
-    neutral = read_csv(Path(args.input))
+    neutral = read_csv(ROOT / args.input)
     if len(neutral) != 31003:
-        raise SystemExit(f"fatal neutral identity count {len(neutral)} != 31003")
+        raise SystemExit(f"neutral identity count {len(neutral)} != 31003")
 
-    lanes_summary = {}
-    fatal_errors: list[str] = []
-    authority, qa, guard_errors = load_authority_and_qa(ROOT)
-    fatal_errors.extend(guard_errors)
+    fatal_errors = list(runtime_errors)
+    lanes_summary: dict[str, dict] = {}
     accepted_total = 0
     invalid_total = 0
     hold_total = 0
-    missing_total = 0
     duplicate_total = 0
+    qa_violation_total = 0
 
     for lane in LANES:
-        assigned = [r for r in neutral if ((int(r["review_seq"]) - 1) % 3) + 1 == lane]
+        assigned = [
+            row
+            for row in neutral
+            if ((int(row["review_seq"]) - 1) % 3) + 1 == lane
+        ]
         if len(assigned) != LANE_LENGTHS[lane]:
-            fatal_errors.append(f"lane {lane}: neutral lane length {len(assigned)} != {LANE_LENGTHS[lane]}")
+            fatal_errors.append(
+                f"lane {lane}: neutral lane length {len(assigned)} != {LANE_LENGTHS[lane]}"
+            )
 
-        raw, _, checkpoint_errors = load_checkpoint_union(ROOT, lane, base.FIELDS)
-        fatal_errors.extend(checkpoint_errors)
-        prefix = len(raw)
-        accepted = set(range(1, prefix + 1))
-        persisted = set()
-        seen_post_prefix: set[int] = set()
-        invalid_windows = []
-        hold_windows = []
-        valid_windows = []
-        pending_materialization = []
-        deferred_ranges = []
-        requested_indices: set[int] = set()
-        pending_indices: set[int] = set()
-        deferred_indices: set[int] = set()
+        raw, checkpoint_ranges, checkpoint_load_errors = load_checkpoint_union(
+            ROOT, lane, base.FIELDS
+        )
+        lane_fatal = list(checkpoint_load_errors)
+        effective, correction_count, correction_errors = apply_corrections(
+            ROOT, lane, raw, checkpoint_ranges, base.FIELDS
+        )
+        lane_fatal.extend(correction_errors)
+
+        accepted: set[int] = set()
+        for idx, row in enumerate(effective, start=1):
+            if idx > len(assigned):
+                lane_fatal.append(f"lane {lane}: checkpoint index {idx} exceeds lane")
+                continue
+            expected = assigned[idx - 1]
+            try:
+                seq = int(row.get("review_seq", ""))
+            except Exception:
+                seq = -1
+            if (
+                seq != int(expected["review_seq"])
+                or row.get("identity_key") != expected["identity_key"]
+            ):
+                lane_fatal.append(
+                    f"lane {lane} local {idx}: checkpoint identity binding mismatch"
+                )
+                continue
+            row_errors = base.validate_row(row, seq)
+            if row_errors:
+                lane_fatal.extend(
+                    f"lane {lane} local {idx}: {err}" for err in row_errors
+                )
+                continue
+            accepted.add(idx)
+
+        prefix = len(effective)
+        seen_forward: set[int] = set()
+        persisted: set[int] = set()
+        invalid_windows: list[dict] = []
+        hold_windows: list[dict] = []
+        valid_windows: list[dict] = []
+        qa_violation_indices: set[int] = set()
 
         stage_dir = ROOT / args.parallel_dir / f"lane-{lane}" / "staging"
         if stage_dir.exists():
             for path in sorted(stage_dir.glob("window_*.json")):
-                m = STAGE_RE.match(path.name)
-                if not m:
-                    fatal_errors.append(f"lane {lane}: invalid staging filename {path.name}")
+                match = STAGE_RE.match(path.name)
+                if not match:
+                    lane_fatal.append(
+                        f"lane {lane}: invalid staging filename {path.name}"
+                    )
                     continue
-                start, end = map(int, m.groups())
+                start, end = map(int, match.groups())
                 if start < 1 or end > len(assigned) or end < start:
-                    invalid_windows.append({"path": path.name, "errors": ["range outside assigned lane"]})
+                    invalid_windows.append(
+                        {"path": path.name, "errors": ["range outside assigned lane"]}
+                    )
                     continue
-
                 if end <= prefix:
-                    # Historical duplicate of already accepted checkpoint seed.
                     continue
                 if start <= prefix:
-                    invalid_windows.append({"path": path.name, "errors": ["range overlaps checkpoint seed boundary"]})
+                    invalid_windows.append(
+                        {
+                            "path": path.name,
+                            "errors": ["range overlaps checkpoint seed boundary"],
+                        }
+                    )
                     continue
 
                 indices = set(range(start, end + 1))
-                dup = indices & seen_post_prefix
+                dup = indices & seen_forward
                 if dup:
                     duplicate_total += len(dup)
-                    invalid_windows.append({"path": path.name, "errors": [f"overlaps other forward output at {min(dup)}..{max(dup)}"]})
+                    invalid_windows.append(
+                        {
+                            "path": path.name,
+                            "errors": [
+                                f"overlaps other forward output at {min(dup)}..{max(dup)}"
+                            ],
+                        }
+                    )
                     continue
-                seen_post_prefix |= indices
+                seen_forward |= indices
                 persisted |= indices
 
-                result = validate_window(path, lane, start, end, assigned, base, authority)
+                result = validate_window(
+                    path, lane, start, end, assigned, base, authority, contract
+                )
                 item = {
                     "path": path.name,
                     "start": start,
@@ -340,168 +468,92 @@ def main():
                     accepted |= result["accepted_indices"]
                     valid_windows.append(item)
 
-        request_dir = ROOT / args.parallel_dir / f"lane-{lane}" / "write-requests"
-        if request_dir.exists():
-            for path in sorted(request_dir.glob("request_*.json")):
-                m = REQUEST_RE.match(path.name)
-                if not m:
-                    fatal_errors.append(f"lane {lane}: invalid write-request filename {path.name}")
-                    continue
-                start, end = map(int, m.groups())
-                if start < 1 or end > len(assigned) or end < start:
-                    fatal_errors.append(f"lane {lane}: write-request {path.name} outside assigned lane")
-                    continue
-                requested_indices |= set(range(start, end + 1))
-                stage_path = stage_dir / f"window_{start:06d}_{end:06d}.json"
-                if not stage_path.exists():
-                    pending_indices |= set(range(start, end + 1))
-                    pending_materialization.append({
-                        "path": path.name,
-                        "start": start,
-                        "end": end,
-                    })
+                if start >= direct_start(authority, lane):
+                    allowed = allowed_forward_end(qa, lane)
+                    qa_violation_indices |= {
+                        idx for idx in indices if idx > allowed
+                    }
 
-        deferred_dir = ROOT / args.parallel_dir / f"lane-{lane}" / "deferred"
-        if deferred_dir.exists():
-            for path in sorted(deferred_dir.glob("deferred_*.json")):
-                m = DEFERRED_RE.match(path.name)
-                if not m:
-                    fatal_errors.append(f"lane {lane}: invalid deferred filename {path.name}")
-                    continue
-                start, end = map(int, m.groups())
-                if start < 1 or end > len(assigned) or end < start:
-                    fatal_errors.append(f"lane {lane}: deferred {path.name} outside assigned lane")
-                    continue
-                deferred_indices |= set(range(start, end + 1))
-                deferred_ranges.append({"path": path.name, "start": start, "end": end})
-
-        high_watermark = max(persisted, default=prefix)
-        frontier_high_watermark = max(
-            [prefix]
-            + list(persisted)
-            + list(requested_indices)
-            + list(deferred_indices)
-        )
-        gap_indices = set(range(prefix + 1, high_watermark + 1)) - persisted
-        missing_ranges = ranges_from_indices(gap_indices)
-        missing_total += len(gap_indices)
-
-        qa_allowed = allowed_forward_end(qa, lane) if qa else prefix
-        qa_violation_indices = {
-            idx
-            for idx in (persisted | requested_indices | deferred_indices)
-            if idx > qa_allowed
-        }
-        debt_indices = pending_indices | deferred_indices
-        debt_limit = persistence_debt_limit(authority)
-        debt_limit_exceeded = len(debt_indices) > debt_limit
-
+        full_indices = set(range(1, len(assigned) + 1))
+        uncovered = full_indices - accepted
         accepted_count = len(accepted)
         accepted_total += accepted_count
         invalid_total += len(invalid_windows)
         hold_total += len(hold_windows)
+        qa_violation_total += len(qa_violation_indices)
+        fatal_errors.extend(lane_fatal)
 
         lanes_summary[str(lane)] = {
             "checkpoint_seed_count": prefix,
+            "corrections_applied": correction_count,
             "accepted_count": accepted_count,
-            "persisted_high_watermark": high_watermark,
-            "frontier_high_watermark": frontier_high_watermark,
-            "forward_frontier": frontier_high_watermark + 1 if frontier_high_watermark < len(assigned) else None,
-            "pending_materialization": pending_materialization,
-            "pending_materialization_count": len(pending_materialization),
-            "pending_materialization_slot_count": len(pending_indices),
-            "deferred_ranges": deferred_ranges,
-            "deferred_range_count": len(deferred_ranges),
-            "deferred_slot_count": len(deferred_indices),
-            "unresolved_persistence_debt_slot_count": len(debt_indices),
-            "persistence_debt_limit": debt_limit,
-            "persistence_debt_limit_exceeded": debt_limit_exceeded,
-            "qa_allowed_forward_end": qa_allowed,
-            "qa_watermark_violation_count": len(qa_violation_indices),
-            "qa_watermark_violation_ranges": ranges_from_indices(qa_violation_indices),
-            "remaining_identity_count": len(assigned) - accepted_count,
+            "accepted_high_watermark": max(accepted, default=0),
+            "forward_frontier": min(uncovered) if uncovered else None,
+            "remaining_identity_count": len(uncovered),
+            "uncovered_ranges": ranges_from_indices(uncovered),
             "valid_forward_window_count": len(valid_windows),
             "invalid_windows": invalid_windows,
             "hold_windows": hold_windows,
-            "missing_written_range_count": len(gap_indices),
-            "missing_written_ranges": missing_ranges,
+            "qa_allowed_forward_end": allowed_forward_end(qa, lane),
+            "qa_watermark_violation_count": len(qa_violation_indices),
+            "qa_watermark_violation_ranges": ranges_from_indices(
+                qa_violation_indices
+            ),
         }
 
-    pending_slot_total = sum(
-        lanes_summary[lane]["pending_materialization_slot_count"] for lane in lanes_summary
-    )
-    deferred_slot_total = sum(
-        lanes_summary[lane]["deferred_slot_count"] for lane in lanes_summary
-    )
-    qa_watermark_violation_total = sum(
-        lanes_summary[lane]["qa_watermark_violation_count"] for lane in lanes_summary
-    )
-    debt_limit_violation_count = sum(
-        1 for lane in lanes_summary
-        if lanes_summary[lane]["persistence_debt_limit_exceeded"]
-    )
-    final_semantic_qa_passed = bool(qa.get("final_semantic_qa_passed", False)) if qa else False
-
+    remaining_total = 31003 - accepted_total
+    final_semantic_qa_passed = bool(qa.get("final_semantic_qa_passed", False))
     complete = (
         accepted_total == 31003
         and invalid_total == 0
         and hold_total == 0
-        and missing_total == 0
         and duplicate_total == 0
-        and pending_slot_total == 0
-        and deferred_slot_total == 0
-        and qa_watermark_violation_total == 0
-        and debt_limit_violation_count == 0
+        and qa_violation_total == 0
         and final_semantic_qa_passed
         and not fatal_errors
     )
 
     snapshot = {
-        "schema_version": "issue132-flat-pass-a-snapshot-v1",
+        "schema_version": "issue132-flat-pass-a-snapshot-v2-direct",
         "accepted_total": accepted_total,
         "expected_total": 31003,
-        "accepted_by_lane": {lane: lanes_summary[lane]["accepted_count"] for lane in sorted(lanes_summary)},
-        "high_watermarks": {lane: lanes_summary[lane]["persisted_high_watermark"] for lane in sorted(lanes_summary)},
-        "frontier_high_watermarks": {lane: lanes_summary[lane]["frontier_high_watermark"] for lane in sorted(lanes_summary)},
-        "frontiers": {lane: lanes_summary[lane]["forward_frontier"] for lane in sorted(lanes_summary)},
-        "pending_materialization_count": sum(lanes_summary[lane]["pending_materialization_count"] for lane in lanes_summary),
-        "pending_materialization_slot_count": pending_slot_total,
-        "pending_materialization": {lane: lanes_summary[lane]["pending_materialization"] for lane in sorted(lanes_summary)},
-        "deferred_range_count": sum(lanes_summary[lane]["deferred_range_count"] for lane in lanes_summary),
-        "deferred_slot_count": deferred_slot_total,
-        "deferred_ranges": {lane: lanes_summary[lane]["deferred_ranges"] for lane in sorted(lanes_summary)},
-        "unresolved_persistence_debt_slots": {
-            lane: lanes_summary[lane]["unresolved_persistence_debt_slot_count"]
+        "remaining_total": remaining_total,
+        "accepted_by_lane": {
+            lane: lanes_summary[lane]["accepted_count"]
             for lane in sorted(lanes_summary)
         },
-        "persistence_debt_limit_violation_count": debt_limit_violation_count,
-        "qa_allowed_forward_end_by_lane": {
-            lane: lanes_summary[lane]["qa_allowed_forward_end"]
+        "frontiers": {
+            lane: lanes_summary[lane]["forward_frontier"]
             for lane in sorted(lanes_summary)
         },
-        "qa_watermark_violation_count": qa_watermark_violation_total,
-        "qa_watermark_violations": {
-            lane: lanes_summary[lane]["qa_watermark_violation_ranges"]
+        "remaining_by_lane": {
+            lane: lanes_summary[lane]["remaining_identity_count"]
             for lane in sorted(lanes_summary)
         },
-        "final_semantic_qa_passed": final_semantic_qa_passed,
         "invalid_window_count": invalid_total,
-        "invalid_windows": {lane: [x["path"] for x in lanes_summary[lane]["invalid_windows"]] for lane in sorted(lanes_summary)},
         "hold_window_count": hold_total,
-        "hold_windows": {lane: [x["path"] for x in lanes_summary[lane]["hold_windows"]] for lane in sorted(lanes_summary)},
-        "missing_written_range_count": missing_total,
-        "missing_written_ranges": {lane: lanes_summary[lane]["missing_written_ranges"] for lane in sorted(lanes_summary)},
         "duplicate_coverage_count": duplicate_total,
+        "qa_watermark_violation_count": qa_violation_total,
         "fatal_contract_error_count": len(fatal_errors),
+        "final_semantic_qa_passed": final_semantic_qa_passed,
         "complete": complete,
     }
 
-    print("FLAT_SNAPSHOT_JSON=" + json.dumps(snapshot, ensure_ascii=False, separators=(",", ":")))
-    print(json.dumps({
-        "snapshot": snapshot,
-        "lanes": lanes_summary,
-        "fatal_errors": fatal_errors,
-    }, ensure_ascii=False, indent=2))
+    print(
+        "FLAT_SNAPSHOT_JSON="
+        + json.dumps(snapshot, ensure_ascii=False, separators=(",", ":"))
+    )
+    print(
+        json.dumps(
+            {
+                "snapshot": snapshot,
+                "lanes": lanes_summary,
+                "fatal_errors": fatal_errors,
+            },
+            ensure_ascii=False,
+            indent=2,
+        )
+    )
 
     if fatal_errors:
         raise SystemExit(1)
