@@ -94,6 +94,16 @@ def load_runtime(root: Path) -> tuple[dict, dict, dict, list[str]]:
             errors.append("neutral identity-order SHA mismatch")
 
     if contract:
+        current_policy_id = sem.get("current_policy_id")
+        allowed_policies = sem.get("allowed_policies", {})
+        if current_policy_id not in allowed_policies:
+            errors.append("current semantic policy is not registered")
+        else:
+            current_meta = allowed_policies[current_policy_id]
+            if current_meta.get("git_blob_sha") != sem.get("git_blob_sha"):
+                errors.append("current semantic policy blob registry mismatch")
+            if current_meta.get("path") != sem.get("path"):
+                errors.append("current semantic policy path registry mismatch")
         if contract.get("population") != 31003:
             errors.append("semantic contract population mismatch")
         neutral = contract.get("neutral", {})
@@ -114,7 +124,7 @@ def allowed_forward_end(qa: dict, lane: int) -> int:
 
 
 def policy_id(authority: dict) -> str:
-    return str(authority["semantic_contract"]["schema_version"])
+    return str(authority["semantic_contract"]["current_policy_id"])
 
 
 def policy_blob(authority: dict) -> str:
