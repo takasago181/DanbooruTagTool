@@ -1,6 +1,6 @@
 # Issue #180 — Parallel Codex Worktree Redesign Intent
 
-Status: **DESIGN INTENT ONLY — NOT ACTIVE EXECUTION AUTHORITY**
+Status: **SUPERSEDED — ACTIVE V1 IS docs/issue180/parallel/PARALLEL_EXECUTION_V1.md**
 
 Repository: `takasago181/DanbooruTagTool`
 Research branch: `research/issue180-single-home-pilot`
@@ -17,9 +17,9 @@ The user wants Issue #180 to adopt the same broad operating idea now used for Is
 
 This document records that intent so it is not lost between chats.
 
-## Important: this is not yet the runtime design
+## Important: this intent has been implemented
 
-Do **not** start a new parallel execution model from this file alone.
+This file is historical design intent. Do **not** execute from this file. The active contract is `docs/issue180/parallel/PARALLEL_EXECUTION_V1.md` plus `PARALLEL_EXECUTION_V1.json`, with branch-specific CI/write guards.
 
 A new ChatGPT design chat must first inspect the live #180 branch, current Issue #180 body/comments, v3 pipeline, current evidence/decision ledgers, residual-unit model, CI/write-scope constraints, and the lessons from #132's Codex Worktree redesign.
 
@@ -77,4 +77,4 @@ The eventual design should aim for a workflow similar in spirit to #132:
 4. only a true policy/specification blocker returns early;
 5. after all #180 research and internal QA are complete, return once for final independent ChatGPT review.
 
-The exact role count and partitioning for #180 remain intentionally **TBD** until the dedicated design chat completes the audit.
+The dedicated design audit selected **5 Worktrees total: 4 Forward + 1 QA/Integrator**. Exact ownership, QA cadence, push protocol and start prompts are frozen in the active parallel contract.
