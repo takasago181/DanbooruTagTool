@@ -1,11 +1,11 @@
 {
-  "schema_version": "issue132-runtime-authority-v4-codex-direct",
-  "status": "READY_FOR_CODEX_CALIBRATION",
+  "schema_version": "issue132-runtime-authority-v5-codex-autonomous",
+  "status": "ACTIVE_CODEX_AUTONOMOUS",
   "branch": "research/taxonomy-usability-audit",
   "execution_driver": "CODEX",
   "runtime_guide": {
-    "path": "docs/issue132/CODEX_RUNTIME_V3.md",
-    "git_blob_sha": "b78bcb86702d403ff8698020e2d2b24080a66076"
+    "path": "docs/issue132/CODEX_RUNTIME_V4.md",
+    "git_blob_sha": "a57e0c1e2ee80569b6a8f858f5ea3bd885e6b768"
   },
   "semantic_contract": {
     "current_policy_id": "issue132-pass-a-semantic-contract-v2",
@@ -36,7 +36,7 @@
       "CODEX-L1",
       "CODEX-L2",
       "CODEX-L3",
-      "CODEX-REPAIR"
+      "CODEX-QA-REPAIR"
     ],
     "direct_staging_effective_from_lane_local": {
       "1": 1126,
@@ -64,7 +64,7 @@
   "validation": {
     "validator": "scripts/issue132/validate_flat_pass_a.py",
     "snapshot_marker": "FLAT_SNAPSHOT_JSON=",
-    "canonical_progress_model": "frozen_baseline_plus_contiguous_direct_windows"
+    "canonical_progress_model": "frozen_baseline_plus_contiguous_direct_windows_plus_internal_codex_qa"
   },
   "invariants": {
     "historical_source_files_immutable": true,
@@ -88,5 +88,13 @@
     "mode": "MUTABLE_EFFECTIVE_SEED_WITH_GIT_HISTORY",
     "forensic_sources_remain_immutable": true,
     "repair_helper": "scripts/issue132/codex_repair_baseline.py"
+  },
+  "qa": {
+    "state_path": "docs/issue132/parallel/CODEX_QA_STATE.json",
+    "mode": "AUTONOMOUS_INTERNAL_EPOCHS",
+    "epoch_size_per_lane": 1000,
+    "max_unqaed_per_lane": 2000,
+    "human_intermediate_watermarks": false,
+    "final_chatgpt_audit_required": true
   }
 }
