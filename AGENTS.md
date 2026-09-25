@@ -103,21 +103,32 @@ When the user selects one lane, work only that lane. Never combine #179/#180/#13
 
 ### #132 execution routing
 
-#132 is no longer at bounded-prototype / pre-handoff status.
+#132 is in autonomous Codex Pass-A execution.
 
 Current execution:
-- branch: `research/taxonomy-usability-audit`
-- 3 normal ChatGPT Automation workers + 1 coordinator
-- 300 identities per worker run **ceiling, not quota**
-- compact normal preflight via `docs/issue132/parallel/WORKER_EXECUTION_CARD_V1.md`; reread full frozen docs only on drift/contradiction
-- 25-row immutable checkpoints for new work
-- strict per-row finalization before moving on; ambiguity/proper noun/specialist/sexual-boundary uncertainty requires `RESEARCHED`, unresolved meaning uses `SEMANTIC_UNRESOLVED`
-- cumulative lane-local 100-row QA: all high-risk rows + deterministic ordinary CHECKED spot-checks
-- no redundant full-25 second reread, no status write/CI wait after every checkpoint, and no anticipated-time `EXECUTION_LIMIT` self-stop
+- canonical branch: `research/taxonomy-usability-audit`
+- execution driver: Codex
+- roles: `CODEX-L1`, `CODEX-L2`, `CODEX-L3`, `CODEX-QA-REPAIR`
+- forward persistence: direct canonical staging, up to 100 identities per window
+- no ChatGPT Automation workers/coordinator for forward execution
+- no write-request/materializer/deferred/checkpoint-promotion path for new work
+- frozen pre-Codex baseline is read from `docs/issue132/parallel/codex-baseline/`
+- forward workers continue without human/ChatGPT intermediate QA
+- internal Codex QA uses independent 1,000-identity-per-lane epochs with a maximum 2,000 unaudited lead per lane
+- `CODEX-QA-REPAIR` owns internal semantic QA, baseline HOLD/lint debt, targeted forward repairs, and routine CI/schema repair
+- ambiguity that remains after bounded useful research becomes `RESEARCHED + SEMANTIC_UNRESOLVED`; ordinary uncertainty is not a reason to stop the run
 - frozen Pass-A semantic contract remains unchanged
 - no production mutation / main merge from the research lane
 
-Read `research/taxonomy-usability-audit:docs/issue132/parallel/CURRENT_AUTOMATION_OPERATION.md` for live operational cadence and `research/taxonomy-usability-audit:docs/issue132/parallel/WORKER_EXECUTION_CARD_V1.md` for the compact worker rules. These are branch-local execution authority; do not infer that a duplicate main copy exists. Old `READY FOR CODEX LUNA PASS A`, 100-row, or 200-row target wording is historical/frozen context, not current execution routing.
+For #132 ordinary execution, read in this order:
+1. `research/taxonomy-usability-audit:docs/issue132/parallel/RUNTIME_AUTHORITY.json`
+2. `research/taxonomy-usability-audit:docs/issue132/CODEX_RUNTIME_V4.md`
+3. the semantic contract named by runtime authority
+4. `research/taxonomy-usability-audit:docs/issue132/parallel/CODEX_QA_STATE.json`
+
+Old Automation worker cards, coordinator cards, write-request protocols, checkpoint-promotion instructions, `CURRENT_AUTOMATION_OPERATION.md`, and older Codex/Luna handoff prose are forensic history only. Do not use them for live execution.
+
+Do not return to the user/ChatGPT merely because an internal QA epoch is due, one row is difficult, or a routine repair is needed. Return before completion only for a true specification/frozen-authority blocker. Otherwise continue until all 31,003 slots are processed, all repair debt is zero, all internal QA cursors reach lane end, and `final_internal_qa_passed=true`; then return once for final independent ChatGPT semantic audit.
 
 ### Runtime baseline
 
