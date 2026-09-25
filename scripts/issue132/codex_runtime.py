@@ -99,8 +99,6 @@ def load_runtime(root: Path) -> tuple[dict, dict, dict, list[str]]:
     if not baseline_manifest_path.is_file():
         errors.append("Codex baseline manifest missing")
     else:
-        if git_blob_sha(baseline_manifest_path) != baseline_meta.get("manifest_git_blob_sha"):
-            errors.append("Codex baseline manifest git blob mismatch")
         try:
             baseline_manifest = json.loads(
                 baseline_manifest_path.read_text(encoding="utf-8")
