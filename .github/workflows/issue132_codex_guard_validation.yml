@@ -58,3 +58,6 @@ jobs:
 
       - name: Test direct Codex runtime
         run: python scripts/issue132/test_codex_direct_runtime.py
+
+      - name: Emit compact progress snapshot
+        run: python scripts/issue132/validate_flat_pass_a.py | grep '^FLAT_SNAPSHOT_JSON='
