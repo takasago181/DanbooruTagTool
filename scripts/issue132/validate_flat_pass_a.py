@@ -7,8 +7,9 @@ import re
 from pathlib import Path
 
 from codex_runtime import (
-    allowed_forward_end,
     direct_start,
+    internal_forward_limit,
+    last_codex_qa,
     load_baseline_lane,
     load_baseline_manifest,
     load_runtime,
@@ -240,7 +241,7 @@ def main() -> None:
     forward_hold_total = 0
     invalid_window_total = 0
     duplicate_total = 0
-    qa_violation_total = 0
+    internal_qa_violation_total = 0
     lanes: dict[str, dict] = {}
 
     for lane in (1, 2, 3):
@@ -281,7 +282,7 @@ def main() -> None:
         direct_holds: set[int] = set()
         invalid_windows: list[dict] = []
         valid_windows: list[dict] = []
-        qa_violations: set[int] = set()
+        internal_qa_violations: set[int] = set()
 
         stage_dir = ROOT / f"docs/issue132/parallel/lane-{lane}/staging"
         if stage_dir.exists():
@@ -343,8 +344,10 @@ def main() -> None:
                 direct_holds |= result["holds"]
                 valid_windows.append({"path": path.name, "start": start, "end": end})
 
-                allowed_end = allowed_forward_end(qa, lane)
-                qa_violations |= {idx for idx in indices if idx > allowed_end}
+                internal_limit = internal_forward_limit(authority, qa, lane)
+                internal_qa_violations |= {
+                    idx for idx in indices if idx > internal_limit
+                }
 
         # Direct work must be contiguous from the frozen boundary.
         if direct_seen:
@@ -362,7 +365,7 @@ def main() -> None:
         accepted_total += len(direct_valid_rows)
         forward_hold_total += len(direct_holds)
         invalid_window_total += len(invalid_windows)
-        qa_violation_total += len(qa_violations)
+        internal_qa_violation_total += len(internal_qa_violations)
 
         frontier = boundary
         while frontier <= lane_length and frontier in direct_seen:
@@ -385,8 +388,9 @@ def main() -> None:
             "direct_hold_indices": sorted(direct_holds),
             "invalid_windows": invalid_windows,
             "forward_frontier": frontier,
-            "qa_allowed_forward_end": allowed_forward_end(qa, lane),
-            "qa_watermark_violation_count": len(qa_violations),
+            "last_codex_qa": last_codex_qa(qa, lane),
+            "internal_forward_limit": internal_forward_limit(authority, qa, lane),
+            "internal_qa_limit_violation_count": len(internal_qa_violations),
             "remaining_unprocessed_count": remaining_unprocessed,
         }
 
@@ -396,19 +400,27 @@ def main() -> None:
         + forward_hold_total
         + invalid_window_total
     )
-    final_qa = bool(qa.get("final_semantic_qa_passed", False))
+    final_internal_qa = bool(qa.get("final_internal_qa_passed", False))
+    final_chatgpt_qa = bool(qa.get("final_chatgpt_semantic_qa_passed", False))
+    internal_qa_caught_up = all(
+        last_codex_qa(qa, lane)
+        >= int(authority["fixed"]["lane_lengths"][str(lane)])
+        for lane in (1, 2, 3)
+    )
     complete = (
         processed_total == 31003
         and accepted_total == 31003
         and unresolved_debt_total == 0
         and duplicate_total == 0
-        and qa_violation_total == 0
+        and internal_qa_violation_total == 0
+        and internal_qa_caught_up
         and not fatal_errors
-        and final_qa
+        and final_internal_qa
+        and final_chatgpt_qa
     )
 
     snapshot = {
-        "schema_version": "issue132-flat-pass-a-snapshot-v3-codex-direct",
+        "schema_version": "issue132-flat-pass-a-snapshot-v4-codex-autonomous",
         "processed_slot_total": processed_total,
         "accepted_total": accepted_total,
         "expected_total": 31003,
@@ -418,10 +430,15 @@ def main() -> None:
         "forward_hold_count": forward_hold_total,
         "invalid_window_count": invalid_window_total,
         "duplicate_coverage_count": duplicate_total,
-        "qa_watermark_violation_count": qa_violation_total,
+        "internal_qa_limit_violation_count": internal_qa_violation_total,
         "fatal_contract_error_count": len(fatal_errors),
         "frontiers": {lane: lanes[lane]["forward_frontier"] for lane in sorted(lanes)},
-        "final_semantic_qa_passed": final_qa,
+        "last_codex_qa_by_lane": {
+            str(lane): last_codex_qa(qa, lane) for lane in (1, 2, 3)
+        },
+        "internal_qa_caught_up": internal_qa_caught_up,
+        "final_internal_qa_passed": final_internal_qa,
+        "final_chatgpt_semantic_qa_passed": final_chatgpt_qa,
         "complete": complete,
     }
 
