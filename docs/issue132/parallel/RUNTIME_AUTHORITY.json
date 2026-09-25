@@ -11,11 +11,11 @@
     "current_policy_id": "issue132-pass-a-semantic-contract-v2",
     "path": "docs/issue132/parallel/pass_a_semantic_contract_v2.json",
     "schema_version": "issue132-pass-a-semantic-contract-v2",
-    "git_blob_sha": "9e7af61a0066b0321b21c3c9351266956cd0e757",
+    "git_blob_sha": "88486f70884f6e8731d3f4fe88a25a32447038c1",
     "allowed_policies": {
       "issue132-pass-a-semantic-contract-v2": {
         "path": "docs/issue132/parallel/pass_a_semantic_contract_v2.json",
-        "git_blob_sha": "9e7af61a0066b0321b21c3c9351266956cd0e757"
+        "git_blob_sha": "88486f70884f6e8731d3f4fe88a25a32447038c1"
       }
     }
   },
