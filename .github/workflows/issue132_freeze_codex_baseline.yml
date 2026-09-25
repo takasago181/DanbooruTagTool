@@ -23,3 +23,6 @@ jobs:
             echo "Baseline rebuild differs from committed Codex baseline."
             exit 1
           fi
+
+      - name: Validate rebuilt baseline with current contract
+        run: python scripts/issue132/validate_flat_pass_a.py
