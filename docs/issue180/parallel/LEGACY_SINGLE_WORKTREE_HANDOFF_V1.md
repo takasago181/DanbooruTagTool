@@ -52,8 +52,8 @@ QA must:
 - independently validate semantic changes under the current #180 policy;
 - reject duplicate/stale work that is already represented by canonical evidence/decisions/terminal reviews;
 - integrate accepted salvage once into the normal canonical ledgers;
-- record the ingestion in `QA_REVIEW_LEDGER_V1.csv`;
-- rebuild v3 and the parallel assignment manifest afterward.
+- record the ingestion in `QA_REVIEW_LEDGER_V2.csv`;
+- rebuild v3 and the v2 authority-campaign queue afterward.
 
 Salvage is not an alternate authority and does not bypass normal QA.
 
@@ -64,6 +64,6 @@ After salvage accounting, all continued work is owned by the active five-Worktre
 - four Forward proposal-only lanes;
 - one QA / Integrator canonical writer.
 
-The scheduler is always rebuilt from the **current canonical residual graph**. Therefore already resolved or terminalized legacy work is naturally excluded from new assignments.
+The v2 authority-campaign queue is always rebuilt from the **current canonical residual graph**. Therefore already resolved or terminalized legacy work is naturally excluded from new assignments.
 
 The legacy single-Worktree loop is retired. The old continuous-execution Issue comments remain historical context only where they conflict with this transition freeze.

@@ -1,6 +1,6 @@
-# Issue #180 Parallel Codex Worktree Execution v1
+# Issue #180 Parallel Codex Worktree Execution v1\n\n> Historical only. New execution must use `PARALLEL_EXECUTION_V2.md`.
 
-Status: **ACTIVE research execution contract**  
+Status: **SUPERSEDED by PARALLEL_EXECUTION_V2**  
 Canonical research branch: `research/issue180-single-home-pilot`  
 Target: `Character -> HOME_COPYRIGHT (0..1)`
 

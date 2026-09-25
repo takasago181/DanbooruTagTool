@@ -1,7 +1,7 @@
 {
-  "schema_version": 1,
-  "status": "SUPERSEDED_BY_V2",
-  "activation_head": "fac7c558280c127c050e6a3ec9c75e2dbef89b15",
+  "schema_version": 2,
+  "status": "ACTIVE",
+  "supersedes": "PARALLEL_EXECUTION_V1",
   "canonical_branch": "research/issue180-single-home-pilot",
   "qa_branch": "research/issue180-qa-integrator",
   "forward_slots": 4,
@@ -24,11 +24,15 @@
     "STRUCTURAL_NO_SAFE_PATH",
     "CONFLICT_REVIEW"
   ],
-  "proposal_root": "docs/issue180/parallel/proposals",
-  "qa_review_ledger": "docs/issue180/parallel/QA_REVIEW_LEDGER_V1.csv",
-  "qa_epoch": {
-    "max_new_proposals": 50,
-    "max_affected_members": 250
+  "proposal_root": "docs/issue180/parallel/proposals-v2",
+  "qa_review_ledger": "docs/issue180/parallel/QA_REVIEW_LEDGER_V2.csv",
+  "coordination": {
+    "unit": "AUTHORITY_CAMPAIGN",
+    "positive_evidence_global_sha_bound": false,
+    "terminal_review_exact_fingerprint_required": true,
+    "allow_exact_source_spillover_relations": true,
+    "fixed_epoch_thresholds": false,
+    "owner_function": "sha256(campaign_key) modulo 4"
   },
   "rules": {
     "single_canonical_writer": true,
@@ -43,9 +47,7 @@
   "legacy_handoff": {
     "mode": "FROZEN_SALVAGE_ONLY",
     "legacy_research_checkpoint_sha": "3004402b39e48f900ce17cb5d511dc3975f0003c",
-    "prior_closure_checkpoint_sha": "ad3eab21c303f209de62a0a51450ff9c45d385dd",
     "salvage_branch": "research/issue180-legacy-salvage",
-    "resume_legacy_research": false,
-    "new_research_from_current_parallel_manifest_only": true
+    "resume_legacy_research": false
   }
 }

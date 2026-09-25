@@ -269,12 +269,15 @@ KNOWLEDGE / generation-effectivenessを参照する必要がある時:
 
 ## 12. Issue #180 parallel Codex Worktrees
 
-Issue #180 parallel execution authority is:
-- `docs/issue180/parallel/PARALLEL_EXECUTION_V1.md`
-- `docs/issue180/parallel/PARALLEL_EXECUTION_V1.json`
+Issue #180 active parallel authority is:
+- `docs/issue180/parallel/PARALLEL_EXECUTION_V2.md`
+- `docs/issue180/parallel/PARALLEL_EXECUTION_V2.json`
+- `docs/issue180/parallel/AUTHORITY_BATCH_SCHEMA_V2.md`
 
-For `research/issue180-forward-0..3`, Codex is proposal-only and must obey the branch-specific guard. Forward roles never write canonical #180 evidence/decision/terminal-review ledgers and never push the canonical research branch.
+v1 assignment/epoch scheduling is historical and must not be used for new work.
 
-`research/issue180-qa-integrator` is the only parallel canonical writer. It independently reviews worker proposals, owns routine repair, requires green QA-branch CI, and advances `research/issue180-single-home-pilot` only by fast-forward. Force push remains prohibited.
+Issue #180 is **authority-campaign driven**, not row/lane-count driven. Keep reusable family/roster/base authority together and shard by stable campaign_key. Positive checked evidence is not invalidated by unrelated canonical advancement; QA replays it against current canonical. Terminal conclusions remain exact-fingerprint bound.
 
-The parallel layer is scheduling/QA only. It does not change `Character -> HOME_COPYRIGHT (0..1)`, missing-over-wrong, v3 resolver semantics, migration provenance, or the #179 identity boundary.
+Forward 0..3 are proposal-only under `proposals-v2/fwd-N/`. QA / Integrator is the only canonical writer and owns deterministic closure, integration, routine repair and fast-forward promotion to the research canonical branch.
+
+The parallel layer does not change `Character -> HOME_COPYRIGHT (0..1)`, missing-over-wrong, v3 resolver semantics, migration provenance, or #179 identity authority. No force push, main merge or production apply.
