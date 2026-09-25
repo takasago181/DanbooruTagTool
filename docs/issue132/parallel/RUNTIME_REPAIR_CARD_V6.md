@@ -37,7 +37,7 @@ source_staging_sha256, effective_window_sha256.
 effective_window must be a complete valid issue132-pass-a-staging-window-v2 object for exactly the source range. No identity_key or free-form semantic/research prose.
 
 Allowed reasons:
-IDENTITY_REBIND, MALFORMED_JSON, STRUCTURAL_REBUILD, SEMANTIC_LINT, ROUTE_FAMILY_REMEDIATION.
+IDENTITY_REBIND, MALFORMED_JSON, STRUCTURAL_REBUILD, SEMANTIC_LINT, ROUTE_FAMILY_REMEDIATION, HOLD_RESOLUTION.
 
 Exactly one unsuperseded active overlay may exist per source window. Before selecting a target, inspect existing overlays first: a source with one currently valid active overlay is not unresolved merely because an older CI run still reports the raw source error.
 
@@ -52,8 +52,10 @@ Exactly one unsuperseded active overlay may exist per source window. Before sele
 After structural attempts, or when structural capacity is unused, inspect only the oldest effective staging window at checkpoint prefix+1 in each lane.
 - Research at most 3 promotion-blocking hold identities per run total.
 - Research only material unresolved meaning; do not reread already resolved rows.
-- If a hold resolves, publish a NEW overlay version for that full 25-slot source window, superseding the previous overlay if one exists.
-- If evidence remains insufficient after one bounded useful attempt, keep the hold and move on.
+- If bounded research completes and meaning becomes clear, finalize normally.
+- If bounded research completes but meaning still cannot be established safely, finalize that slot as terminal SEMANTIC_UNRESOLVED (RESEARCHED + evidence URL), not as a recurring hold.
+- Keep a hold only when the research itself cannot be completed because of an actual tool/platform/interruption/evidence-access blocker.
+- When any hold slot changes to a finalized row, publish a NEW overlay version for that full 25-slot source window with repair_reason_codes including HOLD_RESOLUTION, superseding the previous overlay if one exists.
 - Do not let hold research displace the historical invalid-window queue.
 
 When the effective prefix window has zero holds and passes exact validation, Repair may mechanically promote it to a NEW immutable checkpoint using scripts/issue132/promote_staging_window.py semantics. The promotion implementation must resolve the active repair overlay first. Never overwrite a checkpoint. Consecutive complete effective prefix windows may be promoted mechanically without semantic rereview.
