@@ -48,6 +48,14 @@ Use the fewest possible tool round-trips. When orchestration/Code Mode is availa
    - CSV: docs/issue132/parallel/input-shards/lane-N/shard_SSSSSS_EEEEEE.csv
    - manifest: same basename + .manifest.json
 6. Fetch that CSV and manifest directly, preferably in the same batched read.
+   - A direct/batched contents 404, timeout, or tool error is NOT proof that the arithmetic shard is absent and is NOT by itself a valid run blocker.
+   - On such an operational failure, immediately use metadata-only Git-tree/blob fallback:
+     1. fetch branch HEAD/tree (or reuse a tree already obtained in this run);
+     2. resolve the exact arithmetic CSV and manifest paths in that tree;
+     3. require both entries to exist as blobs at those exact paths;
+     4. fetch those two blobs directly by blob SHA and continue the same gates.
+   - Do not search for alternate shard names and do not infer from neighboring shards.
+   - Stop for shard acquisition only if BOTH direct contents fetch and exact-path tree/blob fallback fail.
 7. Manifest gate:
    - schema_version=issue132-worker-neutral-shard-v1;
    - lane/start/end/row_count/csv_path match;
@@ -136,7 +144,7 @@ Forward Worker never updates historical staging.
 ## Valid stop
 Only: 300 slots attempted as far as safely possible, lane complete, true contract/shard mismatch, or required authoritative state still cannot be recovered after the card's allowed operational fallback(s).
 
-One transient 404/timeout/tool failure is not sufficient when an authorized independent metadata path remains available. Preflight consuming the run is an execution-design failure, not a semantic blocker. The hot path and its fallback must be attempted before optional work.
+One transient 404/timeout/tool failure is not sufficient when an authorized independent metadata/content path remains available. This applies to BOTH staging-frontier discovery and arithmetic shard CSV/manifest acquisition. Preflight consuming the run is an execution-design failure, not a semantic blocker. The hot path and its fallback must be attempted before optional work.
 
 Automation liveness is separate from run success. A tool failure, write rejection, semantic blocker, or zero-persist run must be reported but MUST NOT disable/pause the scheduled Worker. Disable only after lane completion or explicit user instruction.
 
