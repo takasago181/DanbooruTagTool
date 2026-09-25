@@ -51,8 +51,8 @@ Batch 5–10 independent ambiguities in one search call when practical, but reco
 Evidence preference: exact Danbooru/Safebooru definition/direct tag evidence > official > strong direct reference. Reject generic adjacent pages, model/LoRA pages, unrelated image hosts, and single-example evidence as default semantic authority.
 If still uncertain: SEMANTIC_UNRESOLVED, never guess.
 
-## Output
-Exactly 22 fields:
+## Semantic working row / promoted checkpoint
+The in-memory semantic decision and final immutable checkpoint reconstruct exactly 22 fields:
 review_seq, identity_key, manual_seen, semantic_summary_ja, discovery_mode,
 route_1_id, route_1_strength, route_1_reason_ja,
 route_2_id, route_2_strength, route_2_reason_ja,
@@ -97,9 +97,9 @@ Verified capability on this branch already includes successful create/delete in 
    a. take the exact authoritative tuples (lane_local_index, review_seq, identity_key);
    b. finalize clear rows once; collect ambiguous rows and batch research where practical;
    c. genuine unresolved => hold at its exact original tuple; later rows never shift;
-   d. pre-write exact tuple gate: every expected tuple exactly once; no gap/duplicate/extra; exact review_seq/key; finalized+holds=window size; parent/local constraints and 22-field structure valid;
-   e. write NEW path with create, EXISTING with current SHA update;
-   f. re-fetch the exact file and repeat the tuple/structure gate;
+   d. pre-write exact identity gate: every expected tuple exactly once; no gap/duplicate/extra; exact lane_local_index/review_seq/identity hash; finalized+holds=window size; reconstruct the 22-field semantic row in memory and validate parent/local constraints;
+   e. persist compact v2: NEW=create_file, EXISTING=current-SHA update;
+   f. re-fetch the exact file, bind hashes back to authoritative identities, reconstruct 22-field rows, and repeat the structural/semantic gate;
    g. if post-write gate fails, repair/delete that window before any later window and count zero progress until fixed;
    h. immediately continue. There is no continue/stop decision at a 25-row boundary.
 5. After windows 4, 8, 12 perform due cumulative 100-row QA, then immediately continue if windows remain.
@@ -124,11 +124,9 @@ Never self-stop for checkpoint success, QA completion, elapsed effort, predicted
 
 Write lane status once at terminal/end boundary. Compact report only: start, end, NEW count, finalized, holds, next_new, blocker.
 
-## Primary write transport — Git object protocol
+## Persistence transport
 
-All Issue132 writes use `docs/issue132/parallel/GIT_OBJECT_WRITE_PROTOCOL_V1.md` as the PRIMARY transport. Do not use contents `create_file/update_file` for normal Issue132 persistence. Use branch-head/tree -> create_blob -> create_tree -> create_commit -> re-fetch head -> update_ref(force=false), with retry on concurrent branch advance exactly as defined there. Contents API is fallback only when the Git-object path is unavailable.
-
-A pre-write runtime safety refusal on contents API is not a blocker and must not stop/disable the task. Only an actually attempted Git-object path failure after the protocol's retries may become a write blocker.
+For compact v2 staging and lane status, use contents API first: NEW=`create_file`; EXISTING=fetch current blob SHA then `update_file`. Use `GIT_OBJECT_WRITE_PROTOCOL_V1.md` only after an actual contents write failure. Never use `force=true`. A failed write ends only the current run as `WRITE_RETRY_PENDING`; it never disables the automation.
 
 
 ## Compact staging v2 — REQUIRED FOR NEW WRITES
