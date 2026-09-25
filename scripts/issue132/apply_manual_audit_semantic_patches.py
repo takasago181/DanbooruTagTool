@@ -227,6 +227,7 @@ def main():
         effective=effective_window_for(lane,path,a,b,neutral[lane],pools)
         rows={int(r["lane_local_index"]):r for r in effective["rows"]}
         holds={int(h["lane_local_index"]):h for h in effective["holds"]}
+        changed=False
         for idx,ops in patches:
             if idx in holds: raise RuntimeError(f"lane {lane} idx {idx}: semantic patch targets hold")
             if idx not in rows: raise RuntimeError(f"lane {lane} idx {idx}: row absent")
@@ -235,7 +236,11 @@ def main():
             full=compact_row_to_full(desired,expected,FIELDS)
             errs=validate_row(full,int(expected["review_seq"]))
             if errs: raise RuntimeError(f"lane {lane} idx {idx}: {errs}")
-            rows[idx]=desired
+            if desired != rows[idx]:
+                rows[idx]=desired
+                changed=True
+        if not changed:
+            continue
         effective["rows"]=[rows[i] for i in sorted(rows)]
         existing=sorted((path.parent/"repairs").glob(f"repair_{a:06d}_{b:06d}_v*.json"))
         p=write_staging_overlay(lane,path,a,b,effective,[x.name for x in existing])
