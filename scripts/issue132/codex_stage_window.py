@@ -2,7 +2,6 @@
 from __future__ import annotations
 
 import argparse
-import importlib.util
 import json
 import re
 from pathlib import Path
@@ -16,16 +15,17 @@ from codex_runtime import (
     read_csv,
     reason_codes,
 )
-from staging_v2 import (
+from codex_semantic import (
     HOLD_REASON_CODES,
     RESEARCH_ATTEMPT_CODES,
-    SCHEMA_V2,
-    compact_row_to_full,
     identity_sha256,
+    validate_compact_row,
+    validate_compact_hold,
 )
 
 ROOT = Path(__file__).resolve().parents[2]
 DECISION_SCHEMA = "issue132-codex-decision-window-v1"
+STAGING_SCHEMA = "issue132-pass-a-staging-window-v2"
 WINDOW_RE = re.compile(r"^window_(\d{6})_(\d{6})\.json$")
 
 DECISION_ROW_FIELDS = {
@@ -47,112 +47,48 @@ DECISION_HOLD_FIELDS = {
 }
 
 
-def load_base():
-    path = ROOT / "scripts/issue132/validate_luna_pass_a.py"
-    spec = importlib.util.spec_from_file_location("issue132_codex_stage_base", path)
-    if spec is None or spec.loader is None:
-        raise SystemExit("cannot load base validator")
-    mod = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(mod)
-    return mod
-
-
-def validate_decision_row(
-    row: dict,
-    local_index: int,
-    expected: dict,
-    contract: dict,
-    base,
-) -> tuple[dict, list[str]]:
-    errors: list[str] = []
-    if not isinstance(row, dict) or set(row) != DECISION_ROW_FIELDS:
-        return {}, [f"local {local_index}: decision row field-set mismatch"]
-    try:
-        got = int(row["lane_local_index"])
-    except Exception:
-        got = -1
-    if got != local_index:
-        errors.append(f"local {local_index}: lane_local_index mismatch")
-
-    codes = row["decision_reason_codes"]
-    allowed_codes = reason_codes(contract)
-    if (
-        not isinstance(codes, list)
-        or not codes
-        or any(not isinstance(x, str) for x in codes)
-        or any(x not in allowed_codes for x in codes)
-        or len(codes) != len(set(codes))
-    ):
-        errors.append(f"local {local_index}: invalid decision_reason_codes")
-
-    compact = {
-        "lane_local_index": local_index,
-        "review_seq": int(expected["review_seq"]),
-        "identity_sha256": identity_sha256(expected["identity_key"]),
-        "discovery_mode": row["discovery_mode"],
-        "routes": row["routes"],
-        "local_refinement_ids": row["local_refinement_ids"],
-        "body_site_ids": row["body_site_ids"],
-        "theme_ids": row["theme_ids"],
-        "route_vocabulary_gap": row["route_vocabulary_gap"],
-        "review_depth": row["review_depth"],
-        "evidence_urls": row["evidence_urls"],
-    }
-    try:
-        full = compact_row_to_full(compact, expected, base.FIELDS)
-    except Exception as exc:
-        errors.append(f"local {local_index}: {exc}")
-        return compact, errors
-
-    for err in base.validate_row(full, int(expected["review_seq"])):
-        errors.append(f"local {local_index}: {err}")
-
-    return compact, errors
-
-
-def validate_decision_hold(
-    hold: dict,
-    local_index: int,
-    expected: dict,
-) -> tuple[dict, list[str]]:
-    errors: list[str] = []
-    if not isinstance(hold, dict) or set(hold) != DECISION_HOLD_FIELDS:
-        return {}, [f"local {local_index}: hold field-set mismatch"]
-    try:
-        got = int(hold["lane_local_index"])
-    except Exception:
-        got = -1
-    if got != local_index:
-        errors.append(f"local {local_index}: hold lane_local_index mismatch")
-    if hold.get("reason_code") not in HOLD_REASON_CODES:
-        errors.append(f"local {local_index}: invalid hold reason_code")
-    attempts = hold.get("research_attempt_codes")
-    if (
-        not isinstance(attempts, list)
-        or not attempts
-        or any(x not in RESEARCH_ATTEMPT_CODES for x in attempts)
-    ):
-        errors.append(f"local {local_index}: invalid research_attempt_codes")
-    compact = {
-        "lane_local_index": local_index,
-        "review_seq": int(expected["review_seq"]),
-        "identity_sha256": identity_sha256(expected["identity_key"]),
-        "reason_code": hold.get("reason_code"),
-        "research_attempt_codes": attempts,
-    }
-    return compact, errors
-
-
-def reject_overlap(stage_dir: Path, start: int, end: int, out_path: Path) -> None:
+def current_forward_frontier(stage_dir: Path, direct_boundary: int, lane_length: int) -> int | None:
+    covered: set[int] = set()
     for path in stage_dir.glob("window_*.json"):
-        if path == out_path:
-            continue
         match = WINDOW_RE.match(path.name)
         if not match:
             continue
-        a, b = map(int, match.groups())
-        if max(a, start) <= min(b, end):
-            raise SystemExit(f"new window overlaps existing staging {path.name}")
+        start, end = map(int, match.groups())
+        if end < direct_boundary:
+            continue
+        if start < direct_boundary:
+            continue
+        covered.update(range(start, end + 1))
+    for idx in range(direct_boundary, lane_length + 1):
+        if idx not in covered:
+            return idx
+    return None
+
+
+def make_compact_row(raw: dict, expected: dict, idx: int) -> dict:
+    return {
+        "lane_local_index": idx,
+        "review_seq": int(expected["review_seq"]),
+        "identity_sha256": identity_sha256(expected["identity_key"]),
+        "discovery_mode": raw["discovery_mode"],
+        "routes": raw["routes"],
+        "local_refinement_ids": raw["local_refinement_ids"],
+        "body_site_ids": raw["body_site_ids"],
+        "theme_ids": raw["theme_ids"],
+        "route_vocabulary_gap": raw["route_vocabulary_gap"],
+        "review_depth": raw["review_depth"],
+        "evidence_urls": raw["evidence_urls"],
+    }
+
+
+def make_compact_hold(raw: dict, expected: dict, idx: int) -> dict:
+    return {
+        "lane_local_index": idx,
+        "review_seq": int(expected["review_seq"]),
+        "identity_sha256": identity_sha256(expected["identity_key"]),
+        "reason_code": raw["reason_code"],
+        "research_attempt_codes": raw["research_attempt_codes"],
+    }
 
 
 def main() -> None:
@@ -178,62 +114,102 @@ def main() -> None:
     end = int(obj["lane_local_end"])
     if lane not in (1, 2, 3):
         raise SystemExit("invalid lane")
+
+    lane_length = int(authority["fixed"]["lane_lengths"][str(lane)])
+    boundary = direct_start(authority, lane)
+    if start < boundary:
+        raise SystemExit(f"decision window starts before direct boundary {boundary}")
     if end < start or end - start + 1 > int(authority["fixed"]["forward_window_max"]):
         raise SystemExit("decision window size must be 1..100")
-    if start < direct_start(authority, lane):
-        raise SystemExit("decision window is before the Codex direct-staging boundary")
     if end > allowed_forward_end(qa, lane):
         raise SystemExit(
             f"decision window exceeds ChatGPT QA watermark {allowed_forward_end(qa, lane)}"
         )
+    if end > lane_length:
+        raise SystemExit("decision window exceeds lane length")
+
+    stage_dir = ROOT / f"docs/issue132/parallel/lane-{lane}/staging"
+    frontier = current_forward_frontier(stage_dir, boundary, lane_length)
+    if frontier is None:
+        raise SystemExit("lane already has direct staging coverage through lane end")
+    if start != frontier:
+        raise SystemExit(f"decision window must start at current direct frontier {frontier}")
 
     neutral = read_csv(ROOT / authority["fixed"]["neutral_path"])
     assigned = [
         row for row in neutral
         if ((int(row["review_seq"]) - 1) % 3) + 1 == lane
     ]
-    if end > len(assigned):
-        raise SystemExit("decision window exceeds lane length")
 
     rows = obj["rows"]
     holds = obj["holds"]
     if not isinstance(rows, list) or not isinstance(holds, list):
         raise SystemExit("rows/holds must be lists")
 
-    by_index: dict[int, tuple[str, dict]] = {}
-    reason_map: dict[str, list[str]] = {}
+    allowed_reasons = reason_codes(contract)
+    by_index: dict[int, str] = {}
     out_rows: list[dict] = []
     out_holds: list[dict] = []
+    reason_map: dict[str, list[str]] = {}
     errors: list[str] = []
-    base = load_base()
 
-    for row in rows:
+    for raw in rows:
+        if not isinstance(raw, dict) or set(raw) != DECISION_ROW_FIELDS:
+            errors.append("decision row field-set mismatch")
+            continue
         try:
-            idx = int(row.get("lane_local_index"))
+            idx = int(raw["lane_local_index"])
         except Exception:
             idx = -1
         if idx < start or idx > end or idx in by_index:
-            errors.append(f"row has duplicate/out-of-range lane_local_index {idx}")
+            errors.append(f"duplicate/out-of-range row {idx}")
             continue
-        compact, row_errors = validate_decision_row(
-            row, idx, assigned[idx - 1], contract, base
+
+        reasons = raw["decision_reason_codes"]
+        if (
+            not isinstance(reasons, list)
+            or not reasons
+            or any(not isinstance(x, str) for x in reasons)
+            or any(x not in allowed_reasons for x in reasons)
+            or len(reasons) != len(set(reasons))
+        ):
+            errors.append(f"local {idx}: invalid decision_reason_codes")
+
+        compact = make_compact_row(raw, assigned[idx - 1], idx)
+        errors.extend(
+            f"local {idx}: {err}"
+            for err in validate_compact_row(compact, assigned[idx - 1], idx, contract)
         )
-        errors.extend(row_errors)
-        by_index[idx] = ("row", compact)
+        by_index[idx] = "row"
         out_rows.append(compact)
-        reason_map[str(idx)] = list(row.get("decision_reason_codes", []))
+        reason_map[str(idx)] = list(reasons)
 
-    for hold in holds:
+    for raw in holds:
+        if not isinstance(raw, dict) or set(raw) != DECISION_HOLD_FIELDS:
+            errors.append("decision hold field-set mismatch")
+            continue
         try:
-            idx = int(hold.get("lane_local_index"))
+            idx = int(raw["lane_local_index"])
         except Exception:
             idx = -1
         if idx < start or idx > end or idx in by_index:
-            errors.append(f"hold has duplicate/out-of-range lane_local_index {idx}")
+            errors.append(f"duplicate/out-of-range hold {idx}")
             continue
-        compact, hold_errors = validate_decision_hold(hold, idx, assigned[idx - 1])
-        errors.extend(hold_errors)
-        by_index[idx] = ("hold", compact)
+        if raw.get("reason_code") not in HOLD_REASON_CODES:
+            errors.append(f"local {idx}: invalid hold reason_code")
+        attempts = raw.get("research_attempt_codes")
+        if (
+            not isinstance(attempts, list)
+            or not attempts
+            or any(x not in RESEARCH_ATTEMPT_CODES for x in attempts)
+        ):
+            errors.append(f"local {idx}: invalid research_attempt_codes")
+        compact = make_compact_hold(raw, assigned[idx - 1], idx)
+        errors.extend(
+            f"hold local {idx}: {err}"
+            for err in validate_compact_hold(compact, assigned[idx - 1], idx)
+        )
+        by_index[idx] = "hold"
         out_holds.append(compact)
 
     expected = set(range(start, end + 1))
@@ -242,13 +218,14 @@ def main() -> None:
             f"coverage mismatch missing={sorted(expected-set(by_index))} "
             f"extra={sorted(set(by_index)-expected)}"
         )
+
     if errors:
         for error in errors[:100]:
             print("ERROR:", error)
         raise SystemExit(1)
 
     output = {
-        "schema_version": SCHEMA_V2,
+        "schema_version": STAGING_SCHEMA,
         "lane": lane,
         "lane_local_start": start,
         "lane_local_end": end,
@@ -263,20 +240,17 @@ def main() -> None:
         "holds": sorted(out_holds, key=lambda x: int(x["lane_local_index"])),
     }
 
-    stage_dir = ROOT / f"docs/issue132/parallel/lane-{lane}/staging"
     out_path = stage_dir / f"window_{start:06d}_{end:06d}.json"
-    reject_overlap(stage_dir, start, end, out_path)
-
-    text = json.dumps(output, ensure_ascii=False, separators=(",", ":")) + "\n"
+    text_out = json.dumps(output, ensure_ascii=False, separators=(",", ":")) + "\n"
     if out_path.exists():
-        if out_path.read_text(encoding="utf-8") != text:
-            raise SystemExit(f"canonical staging already exists with different content: {out_path}")
+        if out_path.read_text(encoding="utf-8") != text_out:
+            raise SystemExit(f"canonical staging exists with different content: {out_path}")
         print(json.dumps({"path": str(out_path.relative_to(ROOT)), "created": False}))
         return
 
     if not args.check_only:
         stage_dir.mkdir(parents=True, exist_ok=True)
-        out_path.write_text(text, encoding="utf-8")
+        out_path.write_text(text_out, encoding="utf-8")
 
     print(json.dumps({
         "path": str(out_path.relative_to(ROOT)),
@@ -284,6 +258,7 @@ def main() -> None:
         "rows": len(out_rows),
         "holds": len(out_holds),
         "policy": policy_id(authority),
+        "next_frontier": end + 1 if end < lane_length else None,
     }, ensure_ascii=False))
 
 
