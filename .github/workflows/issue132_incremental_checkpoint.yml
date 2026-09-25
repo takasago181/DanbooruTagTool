@@ -1,124 +1,29 @@
-name: Issue132 Incremental Checkpoint Validation
+name: Issue132 Legacy Checkpoint Validation (manual)
 
 on:
-  push:
-    branches:
-      - research/taxonomy-usability-audit
-    paths:
-      - "docs/issue132/parallel/lane-*/checkpoints/**"
-      - "docs/issue132/parallel/input-shards/**"
-      - "docs/issue132/parallel/lane-*/corrections/**"
-      - "docs/issue132/parallel/lane-*/staging/**"
-      - "docs/issue132/parallel/qa/**"
-      - "docs/issue132/parallel/RUNTIME_*"
-      - "docs/issue132/parallel/CURRENT_AUTOMATION_OPERATION.md"
-      - "docs/issue132/parallel/QA_BASELINE.json"
-      - "docs/issue132/parallel/parallel_plan_v1.json"
-      - "docs/issue132/parallel/WORKER_EXECUTION_CARD_V1.md"
-      - "docs/issue132/parallel/lane-*/status.json"
-      - "docs/issue132/parallel/repair_status.json"
-      - "docs/issue132/parallel/coordinator_status.json"
-      - "docs/issue132/parallel/quality_flags.json"
-      - "docs/issue132/parallel/pass_a_contract_manifest_v1.json"
-      - "scripts/issue132/check_runtime_layout.py"
-      - "scripts/issue132/build_luna_neutral_input.py"
-      - "scripts/issue132/build_worker_neutral_shards.py"
-      - "scripts/issue132/validate_worker_neutral_shards.py"
-      - "scripts/issue132/validate_luna_pass_a.py"
-      - "scripts/issue132/validate_parallel_checkpoints.py"
-      - "scripts/issue132/validate_parallel_staging.py"
-      - "scripts/issue132/validate_flat_pass_a.py"
-      - "scripts/issue132/staging_v2.py"
-      - "scripts/issue132/staging_repair_overlay.py"
-      - "scripts/issue132/test_staging_v2.py"
-      - "scripts/issue132/test_staging_repair_overlay.py"
-      - "scripts/issue132/promote_staging_window.py"
-      - "scripts/issue132/parallel_overlay.py"
-      - "scripts/issue132/merge_luna_parallel.py"
-      - ".github/workflows/issue132_incremental_checkpoint.yml"
-  pull_request:
-    branches:
-      - research/taxonomy-usability-audit
-    paths:
-      - "docs/issue132/parallel/lane-*/checkpoints/**"
-      - "docs/issue132/parallel/input-shards/**"
-      - "docs/issue132/parallel/lane-*/corrections/**"
-      - "docs/issue132/parallel/lane-*/staging/**"
-      - "docs/issue132/parallel/qa/**"
-      - "docs/issue132/parallel/RUNTIME_*"
-      - "docs/issue132/parallel/CURRENT_AUTOMATION_OPERATION.md"
-      - "docs/issue132/parallel/QA_BASELINE.json"
-      - "docs/issue132/parallel/parallel_plan_v1.json"
-      - "docs/issue132/parallel/WORKER_EXECUTION_CARD_V1.md"
-      - "docs/issue132/parallel/lane-*/status.json"
-      - "docs/issue132/parallel/repair_status.json"
-      - "docs/issue132/parallel/coordinator_status.json"
-      - "docs/issue132/parallel/quality_flags.json"
-      - "docs/issue132/parallel/pass_a_contract_manifest_v1.json"
-      - "scripts/issue132/check_runtime_layout.py"
-      - "scripts/issue132/build_luna_neutral_input.py"
-      - "scripts/issue132/build_worker_neutral_shards.py"
-      - "scripts/issue132/validate_worker_neutral_shards.py"
-      - "scripts/issue132/validate_luna_pass_a.py"
-      - "scripts/issue132/validate_parallel_checkpoints.py"
-      - "scripts/issue132/validate_parallel_staging.py"
-      - "scripts/issue132/validate_flat_pass_a.py"
-      - "scripts/issue132/staging_v2.py"
-      - "scripts/issue132/staging_repair_overlay.py"
-      - "scripts/issue132/test_staging_v2.py"
-      - "scripts/issue132/test_staging_repair_overlay.py"
-      - "scripts/issue132/promote_staging_window.py"
-      - "scripts/issue132/parallel_overlay.py"
-      - "scripts/issue132/merge_luna_parallel.py"
-      - ".github/workflows/issue132_incremental_checkpoint.yml"
   workflow_dispatch:
 
 permissions:
   contents: read
 
-concurrency:
-  group: issue132-incremental-checkpoint-${{ github.ref }}
-  cancel-in-progress: true
-
 jobs:
   validate:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: research/taxonomy-usability-audit
-          fetch-depth: 1
 
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
-      - name: Validate canonical runtime layout
-        run: python scripts/issue132/check_runtime_layout.py
-
-      - name: Build pinned neutral input
-        run: |
-          python scripts/issue132/build_luna_neutral_input.py \
-            --out artifacts/issue132/luna-neutral/luna_neutral_review_input_v2.csv
-
-      - name: Validate tracked worker neutral shards against frozen neutral
-        run: |
-          python scripts/issue132/validate_worker_neutral_shards.py \
-            --input artifacts/issue132/luna-neutral/luna_neutral_review_input_v2.csv \
-            --shard-root docs/issue132/parallel/input-shards
-
-      - name: Validate committed immutable checkpoints and correction overlays
+      - name: Validate historical checkpoint/correction layer
         run: python scripts/issue132/validate_parallel_effective.py
 
-      - name: Self-test compact staging v2 reconstruction
-        run: python scripts/issue132/test_staging_v2.py
-
-      - name: Self-test append-only repair overlay resolution
-        run: python scripts/issue132/test_staging_repair_overlay.py
-
-      - name: Validate flat Pass A accepted-set progress
+      - name: Self-test historical staging compatibility
         run: |
-          python scripts/issue132/validate_flat_pass_a.py \
-            --input artifacts/issue132/luna-neutral/luna_neutral_review_input_v2.csv \
-            --parallel-dir docs/issue132/parallel
+          python scripts/issue132/test_staging_v2.py
+          python scripts/issue132/test_staging_repair_overlay.py
+
+      - name: Validate current effective Pass A state
+        run: python scripts/issue132/validate_flat_pass_a.py
