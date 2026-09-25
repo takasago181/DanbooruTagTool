@@ -48,8 +48,10 @@ For each block:
 2. decide compact classification for clear identities without drafting prose;
 3. collect only ambiguities that could change discovery_mode, route strength/id, local refinement, body/theme facet, or route-vocabulary-gap;
 4. batch research only those;
-5. one bounded useful research pass is enough; unresolved material ambiguity becomes an exact-slot hold/SEMANTIC_UNRESOLVED rather than a guess;
-6. split finished compact decisions into consecutive 25-slot persistence files.
+5. one bounded useful research pass is enough;
+6. if research completed but the tag-specific meaning still cannot be established safely, FINALIZE the row as SEMANTIC_UNRESOLVED with review_depth=RESEARCHED, at least one evidence URL from the completed research, no routes/locals/body/theme, and route_vocabulary_gap=NO. SEMANTIC_UNRESOLVED is terminal reviewed work, not a hold;
+7. use a hold only when the required research itself could not be completed in this run because of an actual tool/platform/interruption/evidence-access blocker. Do not use holds merely because the semantics remain uncertain after completed bounded research;
+8. split finished compact decisions into consecutive 25-slot persistence files.
 
 CHECKED is correct when classification-relevant meaning is clear. Ignore nuance that cannot change discovery.
 
@@ -93,6 +95,9 @@ Before each write validate in memory:
 - allowed codes;
 - route/local parent consistency;
 - mode constraints;
+- RESEARCHED rows have at least one evidence URL;
+- SEMANTIC_UNRESOLVED is RESEARCHED, has evidence, has no routes/locals/body/theme, and gap=NO;
+- holds represent incomplete research execution, not terminal semantic uncertainty;
 - exact compact field sets.
 
 No post-write semantic reread/reconstruction.
