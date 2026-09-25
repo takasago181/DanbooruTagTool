@@ -1,6 +1,8 @@
 # Issue #132 — Full semantic review handoff
 
-Status: **PASS A ACTIVE VIA NORMAL CHATGPT AUTOMATIONS / SEMANTIC HANDOFF AUTHORITY**
+> **Current execution note (2026-09-26):** semantic definitions in this document remain useful, but execution/scheduling/persistence authority now comes from `docs/issue132/parallel/RUNTIME_AUTHORITY.json` and the Codex runbook selected there. Normal ChatGPT Automations are paused. If execution wording below conflicts with live authority, live authority wins.
+
+Status: **SEMANTIC HANDOFF AUTHORITY / EXECUTION STATUS SUPERSEDED BY RUNTIME_AUTHORITY**
 
 CI/frozen pre-handoff compatibility marker retained intentionally:
 
