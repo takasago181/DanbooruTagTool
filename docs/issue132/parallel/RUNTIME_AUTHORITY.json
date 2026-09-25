@@ -1,139 +1,65 @@
 {
-  "schema_version": "issue132-runtime-authority-v3-codex-guarded",
+  "schema_version": "issue132-runtime-authority-v4-codex-direct",
   "status": "READY_FOR_CODEX_CALIBRATION",
   "branch": "research/taxonomy-usability-audit",
-  "execution_model": "docs/issue132/parallel/FLAT_RUNTIME_MODEL_V1.md",
-  "roles": {
-    "worker": {
-      "path": "docs/issue132/parallel/RUNTIME_WORKER_CARD_V10.md",
-      "lanes": [
-        1,
-        2,
-        3
-      ]
-    },
-    "repair": {
-      "path": "docs/issue132/parallel/RUNTIME_REPAIR_CARD_V7.md"
-    },
-    "coordinator": {
-      "path": "docs/issue132/parallel/RUNTIME_COORDINATOR_CARD_V8.md"
-    }
+  "execution_driver": "CODEX",
+  "runtime_guide": {
+    "path": "docs/issue132/CODEX_RUNTIME_V3.md",
+    "git_blob_sha": "c130e714663a6be864a20830184817de9bef39e2"
   },
+  "semantic_contract": {
+    "path": "docs/issue132/parallel/pass_a_semantic_contract_v2.json",
+    "schema_version": "issue132-pass-a-semantic-contract-v2",
+    "git_blob_sha": "a4d6133cb847b9b0e06a27fb956363eee72807af"
+  },
+  "qa_state_path": "docs/issue132/parallel/CODEX_QA_STATE.json",
   "fixed": {
     "lane_count": 3,
-    "assignment_rule": "((review_seq-1)%3)+1",
-    "parent_neutral_sha256": "ac0f888d02f19a440c63b3b9f695c58f9ba53b98ebe9756edec51db1c5ff8f7d",
-    "parent_identity_order_sha256": "f80c63018ce19a8c7c5d8d6fd83d03cf760c510d8f6cfa455d1ab356fb31361b",
+    "lane_rule": "((review_seq-1)%3)+1",
     "lane_lengths": {
       "1": 10335,
       "2": 10334,
       "3": 10334
     },
+    "parent_neutral_sha256": "ac0f888d02f19a440c63b3b9f695c58f9ba53b98ebe9756edec51db1c5ff8f7d",
+    "parent_identity_order_sha256": "f80c63018ce19a8c7c5d8d6fd83d03cf760c510d8f6cfa455d1ab356fb31361b",
+    "neutral_path": "docs/issue132/parallel/input/luna_neutral_review_input_v2.csv",
     "input_shard_size": 300,
-    "per_run_ceiling": 300,
-    "task_count": 5,
-    "semantic_work_block_max": 100,
-    "persistence_slice": 25,
-    "max_unresolved_persistence_debt_per_lane": 100,
-    "legacy_chatgpt_task_count": 5,
-    "codex_parallel_role_count": 4
-  },
-  "progress": {
-    "model": "accepted_unique_identity_union",
-    "checkpoint_prefix_is_progress_gate": false,
-    "later_valid_ranges_survive_earlier_invalid_ranges": true,
-    "historical_checkpoints_are_seed": true,
-    "historical_staging_is_evidence": true,
-    "checkpoint_promotion_required": false,
-    "validator": "scripts/issue132/validate_flat_pass_a.py",
-    "snapshot_marker": "FLAT_SNAPSHOT_JSON="
-  },
-  "invariants": {
-    "historical_files_are_immutable": true,
-    "historical_repair_is_append_only_overlay": true,
-    "adult_sexual_is_normal_supported_workflow": true,
-    "semantic_unresolved_is_terminal_after_completed_bounded_research": true,
-    "merge_or_production_apply_authorized": false
-  },
-  "contracts": {
-    "semantic_vocabulary_path": "docs/issue132/parallel/pass_a_contract_manifest_v1.json",
-    "semantic_vocabulary_schema_version": "issue132-pass-a-contract-v1",
-    "semantic_vocabulary_git_blob_sha": "3bd09dde3a0fd15b9a3f86b22f294135f96a707c",
-    "required_keys": [
-      "route_ids",
-      "local_refinement_parent",
-      "body_site_ids",
-      "theme_ids",
-      "allowed_discovery_modes",
-      "allowed_route_strengths",
-      "allowed_review_depths"
-    ],
-    "semantic_guardrails": {
-      "current_policy_id": "issue132-codex-semantic-guardrails-v1",
-      "allowed_policies": {
-        "issue132-codex-semantic-guardrails-v1": {
-          "path": "docs/issue132/parallel/CODEX_SEMANTIC_GUARDRAILS_V1.md",
-          "git_blob_sha": "a000671515989f9fe133f5877ec56612a7b85c2f"
-        }
-      },
-      "effective_from_lane_local": {
-        "1": 1126,
-        "2": 1226,
-        "3": 1201
-      },
-      "allowed_decision_reason_codes": [
-        "COSTUME_REFERENCE",
-        "NAMED_PROP",
-        "WEAPON_PROP",
-        "CLOTHING_STATE",
-        "OBJECT_USE_ACTION",
-        "PERSON_INTERACTION",
-        "STATIC_POSITION",
-        "RELATIONSHIP_ROLE",
-        "BODY_SITE_FEATURE",
-        "HEAD_HAIR_FACE_FEATURE",
-        "FLUID_EXCRETION",
-        "COLOR_PATTERN_SECONDARY",
-        "OBJECT_SCENE_BOUNDARY",
-        "NAMED_REFERENCE_WITH_VISUAL_AXIS",
-        "SEARCH_BY_NAME_ONLY",
-        "RESEARCH_UNRESOLVED",
-        "VOCABULARY_GAP",
-        "OTHER_DIRECT_VISUAL"
-      ]
-    }
-  },
-  "persistence": {
-    "protocol": "docs/issue132/parallel/WRITE_REQUEST_PROTOCOL_V2.md",
-    "request_schema": "issue132-pass-a-write-request-v2",
-    "request_path": "docs/issue132/parallel/lane-N/write-requests/request_SSSSSS_EEEEEE.json",
-    "materializer": "scripts/issue132/materialize_write_requests.py",
-    "workflow": ".github/workflows/issue132_materialize_write_requests.yml",
-    "canonical_output_path": "docs/issue132/parallel/lane-N/staging/window_SSSSSS_EEEEEE.json",
-    "source_identity_text_in_worker_write_payload": false
-  },
-  "execution_driver": "CODEX",
-  "chatgpt_automation": {
-    "state": "PAUSED",
-    "enabled_issue132_tasks": 0,
-    "reason": "User requested full pause before Codex migration"
-  },
-  "codex": {
-    "runbook": "docs/issue132/CODEX_MASTER_RUNBOOK_V2.md",
-    "parallel_roles": [
+    "forward_window_max": 100,
+    "codex_parallel_roles": [
       "CODEX-L1",
       "CODEX-L2",
       "CODEX-L3",
       "CODEX-REPAIR"
-    ],
-    "canonical_publish_branch": "research/taxonomy-usability-audit",
-    "force_push_allowed": false,
-    "main_or_production_mutation_authorized": false
+    ]
   },
-  "qa": {
-    "state_path": "docs/issue132/parallel/CODEX_QA_STATE.json",
-    "calibration_batch_size_per_lane": 100,
-    "steady_state_max_unqaed_per_lane": 500,
-    "final_semantic_qa_required": true
+  "forward_persistence": {
+    "mode": "DIRECT_CANONICAL_STAGING",
+    "decision_builder": "scripts/issue132/codex_stage_window.py",
+    "canonical_path": "docs/issue132/parallel/lane-N/staging/window_SSSSSS_EEEEEE.json",
+    "write_requests_for_new_work": false,
+    "deferred_markers_for_new_work": false,
+    "checkpoint_promotion": false
+  },
+  "historical_compatibility": {
+    "checkpoint_csv": true,
+    "correction_overlays": true,
+    "staging_v1_v2": true,
+    "staging_repair_overlays": true,
+    "historical_write_requests_ignored_for_progress": true
+  },
+  "validation": {
+    "validator": "scripts/issue132/validate_flat_pass_a.py",
+    "snapshot_marker": "FLAT_SNAPSHOT_JSON=",
+    "canonical_progress_model": "accepted_unique_identity_union"
+  },
+  "invariants": {
+    "historical_source_files_immutable": true,
+    "historical_repairs_append_only": true,
+    "adult_sexual_normal_supported_workflow": true,
+    "semantic_unresolved_terminal_after_bounded_research": true,
+    "main_or_production_mutation_authorized": false,
+    "force_push_allowed": false,
+    "chatgpt_automations_enabled": 0
   }
 }
