@@ -8,9 +8,16 @@
     "git_blob_sha": "c130e714663a6be864a20830184817de9bef39e2"
   },
   "semantic_contract": {
+    "current_policy_id": "issue132-pass-a-semantic-contract-v2",
     "path": "docs/issue132/parallel/pass_a_semantic_contract_v2.json",
     "schema_version": "issue132-pass-a-semantic-contract-v2",
-    "git_blob_sha": "a4d6133cb847b9b0e06a27fb956363eee72807af"
+    "git_blob_sha": "a4d6133cb847b9b0e06a27fb956363eee72807af",
+    "allowed_policies": {
+      "issue132-pass-a-semantic-contract-v2": {
+        "path": "docs/issue132/parallel/pass_a_semantic_contract_v2.json",
+        "git_blob_sha": "a4d6133cb847b9b0e06a27fb956363eee72807af"
+      }
+    }
   },
   "qa_state_path": "docs/issue132/parallel/CODEX_QA_STATE.json",
   "fixed": {
