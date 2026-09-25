@@ -26,16 +26,17 @@ Frontier authority is actual staging/checkpoint filenames, not status.json.
 
 ## Per-run hot path
 
-1. List own lane staging/checkpoints once and derive next NEW slot.
-2. Fetch only the one or two 300-row shards + manifests intersecting next_new..next_new+299.
-3. Verify shard manifest parent neutral/order SHA and exact lane/range.
-4. Process up to 300 NEW identities in consecutive 25-slot windows.
-5. Persist every completed 25-slot window as NEW compact v2.
-6. Continue immediately after a successful create. Do not re-fetch the just-created file merely to prove GitHub preserved the bytes.
-7. Do not read/write lane status.json.
-8. Do not poll CI.
-9. Do not perform 100-row QA. Coordinator owns independent QA.
-10. Stop only for actual write/tool interruption, contract/shard mismatch, lane completion, or 300 NEW.
+1. List own lane staging/checkpoints once. Derive (a) oldest missing 25-slot gap below the current high-watermark, if any, and (b) new_frontier = highest persisted staging end + 1 (or checkpoint prefix + 1 when no staging exists).
+2. Retry at most one old write-gap per run, then spend the remaining budget on NEW windows from new_frontier. A write-gap must not monopolize the lane.
+3. Fetch only the one or two 300-row shards + manifests intersecting the actual work span.
+4. Verify shard manifest parent neutral/order SHA and exact lane/range.
+5. Process up to 300 identities in consecutive 25-slot windows.
+6. Persist each completed 25-slot window as NEW compact v2.
+7. Continue immediately after a successful create. Do not re-fetch the just-created file merely to prove GitHub preserved the bytes.
+8. Do not read/write lane status.json.
+9. Do not poll CI.
+10. Do not perform 100-row QA. Coordinator owns independent QA.
+11. Stop only for actual tool interruption, contract/shard mismatch, lane completion, or the run work budget. One content-rejected window alone is not a lane stop.
 
 ## Fast semantic pass
 
@@ -109,11 +110,10 @@ create_file only.
 
 After successful create_file, count it persisted and move directly to the next 25-slot window.
 
-Only if create_file actually fails:
-- use GIT_OBJECT_WRITE_PROTOCOL_V1 fallback for the same NEW path;
-- never force refs;
-- do not resend an identical rejected payload indefinitely;
-- repeated identical policy/content rejection => WRITE_RETRY_PENDING_DIAGNOSTIC and end that worker run.
+If create_file fails:
+- transport/concurrency/GitHub operational failure: GIT_OBJECT_WRITE_PROTOCOL_V1 fallback is allowed for the same NEW path, force=false;
+- explicit safety/content/policy rejection: do NOT resend the same bytes through Git-object fallback. Count zero for that window, record it as a write-gap, and continue to the next independent 25-slot window in the same run when possible;
+- never disguise, fragment, encode, or semantically alter a payload to evade a safeguard.
 
 Forward workers never repair or overwrite historical staging.
 
