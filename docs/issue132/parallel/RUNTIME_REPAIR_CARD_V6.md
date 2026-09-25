@@ -43,7 +43,7 @@ Exactly one unsuperseded active overlay may exist per source window. Before sele
 
 ## Minimal run
 1. Read this card and Worker V8 only.
-2. Reconstruct effective invalid queue from live source staging + active overlays + latest relevant validator/CI evidence. Never blindly inherit a stale raw-CI queue.
+2. Reconstruct effective invalid queue from live source staging + active overlays + latest relevant validator/CI evidence. Prefer the latest staging-validator v3 JSON fields `effective_invalid_windows` / `effective_invalid_window_counts` when the run is current for HEAD; only parse detailed logs when those fields are absent/stale. Never blindly inherit a stale raw-CI queue.
 3. Structural queue: select up to 6 historical invalid windows, normally up to 2/lane and borrowing unused capacity.
 4. For each target fetch only source staging + needed authoritative shard/manifest, rebuild exact 25 slots, and apply Worker V8 semantics.
 5. BEFORE creating an overlay, perform the same effective-window checks used by production staging validation, not a weaker local approximation:
@@ -84,6 +84,6 @@ A historical window counts repaired only when the effective validator accepts it
 Until that confirmation exists, report the overlay as CREATED_PENDING_VALIDATION and keep the effective-invalid count unchanged. Never report a reduced effective-invalid count with a parenthetical "pending validator confirmation".
 
 ## Stop/report
-Never stop because one target rejects a write when another independent target exists. Never disable for CI red or one write failure.
+Never stop because one target rejects a write when another independent target exists. A failed/zero-output run must not disable or pause the scheduled Repair. Disable only after all owned debt is complete or explicit user instruction.
 
 Report only overlays created, effective invalid counts by lane, promotion-blocking holds attempted/resolved, checkpoint promotions, Lane3 route-family state, and exact blockers.
