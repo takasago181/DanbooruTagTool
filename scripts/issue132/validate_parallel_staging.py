@@ -15,6 +15,7 @@ from staging_v2 import (
     validate_compact_hold,
     validate_identity_binding,
 )
+from staging_repair_overlay import resolve_repair_overlay
 
 ROOT = Path(__file__).resolve().parents[2]
 LANES = (1, 2, 3)
@@ -93,11 +94,21 @@ def main():
                     errors.append(f"lane {lane}: {path.name} outside assigned lane")
                     continue
 
-                try:
-                    obj = json.loads(path.read_text(encoding="utf-8"))
-                except Exception as exc:
-                    errors.append(f"lane {lane}: {path.name} invalid JSON: {exc}")
+                repair_obj, repair_name, repair_errors = resolve_repair_overlay(
+                    path, lane, start, end
+                )
+                errors.extend(f"lane {lane}: {err}" for err in repair_errors)
+                if repair_errors:
                     continue
+
+                if repair_obj is not None:
+                    obj = repair_obj
+                else:
+                    try:
+                        obj = json.loads(path.read_text(encoding="utf-8"))
+                    except Exception as exc:
+                        errors.append(f"lane {lane}: {path.name} invalid JSON: {exc}")
+                        continue
 
                 schema = obj.get("schema_version")
                 if schema not in {SCHEMA_V1, SCHEMA_V2}:
@@ -270,6 +281,7 @@ def main():
                 windows.append({
                     "path": path.name,
                     "schema": schema,
+                    "repair_overlay": repair_name,
                     "start": start,
                     "end": end,
                     "finalized": finalized_count,
