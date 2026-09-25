@@ -3,7 +3,7 @@
 Purpose: clear historical invalid staging without replacing old staging files.
 
 This card supersedes RUNTIME_REPAIR_CARD_V3.md for Repair execution only.
-Forward Worker 1/2/3 semantics and ownership do not change.
+Forward Worker 1/2/3 ownership does not change. Shared forward semantic/exact rules are summarized by RUNTIME_WORKER_CARD_V5.md.
 
 ## 1. Scope and authority
 
@@ -48,10 +48,9 @@ write only NEW files under:
 `docs/issue132/parallel/lane-N/staging/repairs/`
 
 Filename:
-`repair_XXXXXX_YYYYYY_<effective_window_sha256-prefix>.json`
+`repair_XXXXXX_YYYYYY_vNNN.json`
 
-Use 16 lowercase hex characters of the effective-window SHA-256 by default.
-Never overwrite an existing repair overlay.
+Use the next unused monotonically increasing version for that source window. Never overwrite an existing repair overlay.
 
 ## 4. Overlay schema
 
@@ -65,11 +64,13 @@ Required top-level fields:
 - `lane_local_end`
 - `source_staging_path`
 - `source_staging_blob_sha`
-- `source_staging_sha256`
 - `repair_reason_codes`
 - `supersedes`
-- `effective_window_sha256`
 - `effective_window`
+
+Optional integrity metadata:
+- `source_staging_sha256`
+- `effective_window_sha256`
 
 `effective_window` MUST be a complete valid `issue132-pass-a-staging-window-v2` object for exactly that 25-row source range.
 
@@ -89,10 +90,7 @@ Allowed repair_reason_codes:
 - `ROUTE_FAMILY_REMEDIATION`
 
 `source_staging_blob_sha` binds the overlay to the exact original Git blob.
-`source_staging_sha256` binds to the exact original bytes independently.
-
-`effective_window_sha256` is SHA-256 of canonical JSON:
-UTF-8, ensure_ascii=false, keys sorted, separators `,` and `:`.
+`source_staging_blob_sha` is the mandatory source-byte binding. Optional `source_staging_sha256` and `effective_window_sha256` add independent integrity checks when the execution environment can compute them cheaply; if present, validators verify them.
 
 ## 5. Supersession
 
@@ -117,7 +115,7 @@ For each historical invalid window:
 5. Preserve valid existing classifications where safely recoverable; invalid source identity/position is never authority.
 6. Apply normal RUNTIME_WORKER_CARD_V4 semantic and exact-identity gates.
 7. Produce full compact v2 effective_window.
-8. Compute source SHA-256, effective canonical SHA-256, and overlay filename.
+8. Choose the next unused overlay version filename and include the fetched source Git blob SHA. Optional SHA-256 integrity fields may be added when cheap.
 9. Create the overlay as a NEW file only.
 10. Re-fetch the overlay.
 11. Run `validate_parallel_staging.py` semantics conceptually: source binding, exact slots, compact-v2 reconstruction, 22-field gate.
