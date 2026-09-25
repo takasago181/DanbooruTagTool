@@ -20,9 +20,9 @@ from staging_v2 import (
 ROOT = Path(__file__).resolve().parents[2]
 LANES = (1, 2, 3)
 LANE_LENGTHS = {1: 10335, 2: 10334, 3: 10334}
-STAGE_RE = re.compile(r"^window_(\\d{6})_(\\d{6})\\.json$")
-REQUEST_RE = re.compile(r"^request_(\\d{6})_(\\d{6})\\.json$")
-DEFERRED_RE = re.compile(r"^deferred_(\\d{6})_(\\d{6})\\.json$")
+STAGE_RE = re.compile(r"^window_(\d{6})_(\d{6})\.json$")
+REQUEST_RE = re.compile(r"^request_(\d{6})_(\d{6})\.json$")
+DEFERRED_RE = re.compile(r"^deferred_(\d{6})_(\d{6})\.json$")
 SCHEMA_V1 = "issue132-pass-a-staging-window-v1"
 EXPECTED_PARENT_SHA = "ac0f888d02f19a440c63b3b9f695c58f9ba53b98ebe9756edec51db1c5ff8f7d"
 EXPECTED_ORDER_SHA = "f80c63018ce19a8c7c5d8d6fd83d03cf760c510d8f6cfa455d1ab356fb31361b"
