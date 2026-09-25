@@ -48,12 +48,11 @@ No checkpoint promotion is required or performed.
 
 ## Forward persistence
 
-New Worker output continues under each lane staging directory so existing history does not need to be copied.
+Workers reason in logical blocks of up to 100 identities, but persist in 25-row slices to limit the blast radius of any upstream write-policy rejection.
 
-New persistence unit: up to 100 consecutive lane-local identities per file.
-A Worker may internally reason/research in smaller groups, but should persist completed work in 100-row units when practical.
+Workers write only code-only request files under each lane write-requests directory. Requests intentionally omit identity text and identity hashes. GitHub Actions joins the request with the pinned neutral input and materializes the canonical staging v2 file.
 
-Existing 25-row files remain valid history.
+Existing 25-row staging files remain valid history. A request is pending work until canonical staging exists and validates.
 
 Worker run ceiling: 300 identities.
 
