@@ -5,6 +5,7 @@ from pathlib import Path
 
 from parallel_overlay import load_checkpoint_union, apply_corrections
 from staging_repair_overlay import resolve_repair_overlay
+from rebuild_manual_audit_structural_repairs import parse_source
 from staging_v2 import compact_row_to_full
 from validate_luna_pass_a import FIELDS
 
@@ -30,7 +31,7 @@ def main():
         out.append({"lane_local_index":idx,**row})
     stage=PARALLEL/f"lane-{LANE}/staging"
     for p in sorted(stage.glob("window_*.json")):
-        obj=json.loads(p.read_text(encoding="utf-8"))
+        obj,_=parse_source(p)
         a=int(obj["lane_local_start"]); b=int(obj["lane_local_end"])
         repaired,_,rerrs=resolve_repair_overlay(p,LANE,a,b)
         if rerrs: raise SystemExit("\n".join(rerrs))
