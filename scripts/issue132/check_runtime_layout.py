@@ -4,6 +4,8 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+from codex_runtime_guards import load_authority_and_qa
+
 ROOT = Path(__file__).resolve().parents[2]
 PARALLEL = ROOT / "docs/issue132/parallel"
 AUTHORITY = PARALLEL / "RUNTIME_AUTHORITY.json"
@@ -26,10 +28,24 @@ def main() -> None:
     except Exception as exc:
         raise SystemExit(f"invalid runtime authority: {exc}")
 
-    if authority.get("schema_version") != "issue132-runtime-authority-v2-flat":
+    schema = authority.get("schema_version")
+    if schema not in {
+        "issue132-runtime-authority-v2-flat",
+        "issue132-runtime-authority-v3-codex-guarded",
+    }:
         errors.append("runtime authority schema mismatch")
-    if authority.get("status") != "ACTIVE":
-        errors.append("runtime authority must be ACTIVE")
+
+    status = authority.get("status")
+    if schema == "issue132-runtime-authority-v2-flat":
+        if status != "ACTIVE":
+            errors.append("v2 runtime authority must be ACTIVE")
+    elif schema == "issue132-runtime-authority-v3-codex-guarded":
+        if status not in {
+            "READY_FOR_CODEX_CALIBRATION",
+            "ACTIVE_CODEX",
+            "PAUSED_FOR_CODEX_HANDOFF",
+        }:
+            errors.append("v3 runtime authority has invalid Codex status")
     if authority.get("branch") != "research/taxonomy-usability-audit":
         errors.append("runtime authority branch mismatch")
 
@@ -41,10 +57,23 @@ def main() -> None:
     if not isinstance(fixed, dict):
         errors.append("runtime authority fixed section missing")
         fixed = {}
-    if fixed.get("task_count") != 5:
-        errors.append("Issue132 active task_count must be exactly 5")
     if fixed.get("lane_count") != 3:
         errors.append("Issue132 lane_count must be exactly 3")
+    if schema == "issue132-runtime-authority-v2-flat":
+        if fixed.get("task_count") != 5:
+            errors.append("Issue132 v2 task_count must be exactly 5")
+    elif schema == "issue132-runtime-authority-v3-codex-guarded":
+        if fixed.get("legacy_chatgpt_task_count") != 5:
+            errors.append("Issue132 legacy ChatGPT task count must be 5")
+        if fixed.get("codex_parallel_role_count") != 4:
+            errors.append("Issue132 Codex parallel role count must be 4")
+        if fixed.get("max_unresolved_persistence_debt_per_lane") != 100:
+            errors.append("Issue132 persistence debt limit must be 100")
+        if authority.get("execution_driver") != "CODEX":
+            errors.append("Issue132 v3 execution driver must be CODEX")
+        automation = authority.get("chatgpt_automation")
+        if not isinstance(automation, dict) or automation.get("state") != "PAUSED":
+            errors.append("Issue132 ChatGPT automations must remain PAUSED during Codex execution")
 
     roles = authority.get("roles")
     if not isinstance(roles, dict):
@@ -86,6 +115,19 @@ def main() -> None:
         except Exception as exc:
             errors.append(f"semantic vocabulary unreadable: {exc}")
 
+    if schema == "issue132-runtime-authority-v3-codex-guarded":
+        _, qa_state, guard_errors = load_authority_and_qa(ROOT)
+        errors.extend(guard_errors)
+        codex = authority.get("codex")
+        if not isinstance(codex, dict):
+            errors.append("Codex runtime section missing")
+        else:
+            runbook = codex.get("runbook")
+            if not isinstance(runbook, str) or not (ROOT / runbook).is_file():
+                errors.append("Codex runbook missing")
+        if not qa_state:
+            errors.append("Codex QA state missing")
+
     progress = authority.get("progress")
     if not isinstance(progress, dict):
         errors.append("flat progress section missing")
@@ -113,6 +155,10 @@ def main() -> None:
         "schema_version": "issue132-runtime-layout-check-v2-flat",
         "active_cards": active_cards,
         "task_count": fixed.get("task_count"),
+        "legacy_chatgpt_task_count": fixed.get("legacy_chatgpt_task_count"),
+        "codex_parallel_role_count": fixed.get("codex_parallel_role_count"),
+        "execution_driver": authority.get("execution_driver"),
+        "runtime_status": authority.get("status"),
         "progress_model": progress.get("model") if isinstance(progress, dict) else None,
         "error_count": len(errors),
     }
