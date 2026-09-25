@@ -22,7 +22,9 @@ Do not report checkpoint prefix as progress.
 
 Report:
 - accepted unique identities by lane and total;
-- highest persisted forward-output end by lane;
+- highest canonical staging end by lane;
+- highest Worker frontier end including pending code-only requests;
+- pending write-request materialization by lane;
 - invalid windows;
 - operational hold windows;
 - uncovered/missing ranges;
