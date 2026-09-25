@@ -41,6 +41,12 @@ jobs:
           cp docs/issue132/parallel/input/luna_neutral_review_input_v2.csv \
             artifacts/issue132/luna-neutral/luna_neutral_review_input_v2.csv
 
+      - name: Prepare validator neutral artifact
+        run: |
+          mkdir -p artifacts/issue132/luna-neutral
+          cp docs/issue132/parallel/input/luna_neutral_review_input_v2.csv \
+            artifacts/issue132/luna-neutral/luna_neutral_review_input_v2.csv
+
       - name: Validate effective checkpoints
         run: python scripts/issue132/validate_parallel_effective.py
 
