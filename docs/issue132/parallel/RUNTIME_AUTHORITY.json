@@ -30,9 +30,10 @@
       "3": 10334
     },
     "input_shard_size": 300,
-    "forward_persistence_target": 100,
     "per_run_ceiling": 300,
-    "task_count": 5
+    "task_count": 5,
+    "semantic_work_block_max": 100,
+    "persistence_slice": 25
   },
   "progress": {
     "model": "accepted_unique_identity_union",
@@ -64,5 +65,14 @@
       "allowed_route_strengths",
       "allowed_review_depths"
     ]
+  },
+  "persistence": {
+    "protocol": "docs/issue132/parallel/WRITE_REQUEST_PROTOCOL_V1.md",
+    "request_schema": "issue132-pass-a-write-request-v1",
+    "request_path": "docs/issue132/parallel/lane-N/write-requests/request_SSSSSS_EEEEEE.json",
+    "materializer": "scripts/issue132/materialize_write_requests.py",
+    "workflow": ".github/workflows/issue132_materialize_write_requests.yml",
+    "canonical_output_path": "docs/issue132/parallel/lane-N/staging/window_SSSSSS_EEEEEE.json",
+    "source_identity_text_in_worker_write_payload": false
   }
 }
