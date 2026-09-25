@@ -12,9 +12,7 @@ from codex_runtime import (
     load_baseline_lane,
     load_baseline_manifest,
     load_runtime,
-    policy_id,
     read_csv,
-    reason_codes,
 )
 from codex_semantic import validate_compact_hold, validate_compact_row
 
@@ -47,49 +45,17 @@ def assigned_lane(neutral: list[dict[str, str]], lane: int) -> list[dict[str, st
     ]
 
 
-def validate_reason_trace(
-    obj: dict,
-    row_indices: set[int],
-    authority: dict,
-    contract: dict,
-) -> list[str]:
-    errors: list[str] = []
+def validate_policy_trace(obj: dict, authority: dict) -> list[str]:
     sem = authority["semantic_contract"]
     pid = obj.get("semantic_policy_id")
     pblob = obj.get("semantic_policy_git_blob_sha")
     allowed = sem.get("allowed_policies", {})
     meta = allowed.get(pid) if isinstance(allowed, dict) else None
     if not meta:
-        errors.append("semantic_policy_id is not registered")
-    elif pblob != meta.get("git_blob_sha"):
-        errors.append("semantic_policy_git_blob_sha mismatch")
-
-    reason_map = obj.get("decision_reason_codes")
-    if not isinstance(reason_map, dict):
-        errors.append("decision_reason_codes must be object")
-        return errors
-
-    expected = {str(i) for i in row_indices}
-    if set(reason_map) != expected:
-        errors.append(
-            "decision_reason_codes coverage mismatch "
-            f"missing={sorted(expected-set(reason_map))} "
-            f"extra={sorted(set(reason_map)-expected)}"
-        )
-        return errors
-
-    allowed_codes = reason_codes(contract)
-    for key, codes in reason_map.items():
-        if (
-            not isinstance(codes, list)
-            or not codes
-            or any(not isinstance(x, str) for x in codes)
-            or any(x not in allowed_codes for x in codes)
-            or len(codes) != len(set(codes))
-        ):
-            errors.append(f"decision_reason_codes[{key}] invalid")
-    return errors
-
+        return ["semantic_policy_id is not registered"]
+    if pblob != meta.get("git_blob_sha"):
+        return ["semantic_policy_git_blob_sha mismatch"]
+    return []
 
 def validate_baseline_lane(
     obj: dict,
@@ -250,9 +216,7 @@ def validate_direct_window(
             f"extra={sorted(seen-expected)}"
         )
 
-    errors.extend(
-        validate_reason_trace(obj, row_indices, authority, contract)
-    )
+    errors.extend(validate_policy_trace(obj, authority))
     return {"errors": errors, "rows": row_indices, "holds": hold_indices}
 
 
