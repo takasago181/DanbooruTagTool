@@ -1,0 +1,24 @@
+{
+  "schema_version": "issue132-codex-baseline-manifest-v2",
+  "manual_semantic_audit_head": "5123a13bd574ef50f04f3f7e0fb031d2625dcbaa",
+  "parent_neutral_sha256": "ac0f888d02f19a440c63b3b9f695c58f9ba53b98ebe9756edec51db1c5ff8f7d",
+  "parent_identity_order_sha256": "f80c63018ce19a8c7c5d8d6fd83d03cf760c510d8f6cfa455d1ab356fb31361b",
+  "forensic_sources_retained": true,
+  "lanes": {
+    "1": {
+      "lane_local_end": 1125,
+      "path": "docs/issue132/parallel/codex-baseline/lane-1_000001_001125.json",
+      "sha256": "476fae7f2ab0e8ef455af8721d151ef0523ed7ba4d37297191af906c3a861cd8"
+    },
+    "2": {
+      "lane_local_end": 1225,
+      "path": "docs/issue132/parallel/codex-baseline/lane-2_000001_001225.json",
+      "sha256": "205658134aaaa73a3166ea065ff6730808740cd7e12e308df02bd8db999cfdea"
+    },
+    "3": {
+      "lane_local_end": 1200,
+      "path": "docs/issue132/parallel/codex-baseline/lane-3_000001_001200.json",
+      "sha256": "b0795e11fb5c53726b1354bfbf5988bba09e434fd281d3ea4ec84b2fc076f4cd"
+    }
+  }
+}

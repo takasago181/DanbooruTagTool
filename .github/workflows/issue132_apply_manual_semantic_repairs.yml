@@ -1,83 +1,21 @@
-name: Issue132 Apply Manual Semantic Repairs
+name: Issue132 Legacy Manual Semantic Repair (manual)
 
 on:
-  push:
-    branches:
-      - research/taxonomy-usability-audit
-    paths:
-      - "docs/issue132/parallel/manual_audit_semantic_patches_v1.json"
-      - "scripts/issue132/apply_manual_audit_semantic_patches.py"
-      - ".github/workflows/issue132_apply_manual_semantic_repairs.yml"
   workflow_dispatch:
 
 permissions:
-  contents: write
-
-concurrency:
-  group: issue132-apply-manual-semantic-repairs
-  cancel-in-progress: false
+  contents: read
 
 jobs:
-  repair:
+  verify:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: research/taxonomy-usability-audit
-          fetch-depth: 1
-
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-
-      - name: Apply code-only semantic patches
-        run: python scripts/issue132/apply_manual_audit_semantic_patches.py
-
-      - name: Prepare validator neutral artifact
-        shell: bash
-        run: |
-          mkdir -p artifacts/issue132/luna-neutral
-          cp docs/issue132/parallel/input/luna_neutral_review_input_v2.csv \
-            artifacts/issue132/luna-neutral/luna_neutral_review_input_v2.csv
-
-      - name: Prepare validator neutral artifact
-        run: |
-          mkdir -p artifacts/issue132/luna-neutral
-          cp docs/issue132/parallel/input/luna_neutral_review_input_v2.csv \
-            artifacts/issue132/luna-neutral/luna_neutral_review_input_v2.csv
-
-      - name: Validate effective checkpoints
-        run: python scripts/issue132/validate_parallel_effective.py
-
-      - name: Validate flat Pass A state
-        run: |
-          python scripts/issue132/validate_flat_pass_a.py \
-            --input docs/issue132/parallel/input/luna_neutral_review_input_v2.csv \
-            --parallel-dir docs/issue132/parallel
-
-      - name: Commit semantic corrections and repair overlays
-        shell: bash
-        run: |
-          set -euo pipefail
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/issue132/parallel/lane-*/corrections/correction_*_manual_audit_v1.json
-          git add docs/issue132/parallel/lane-*/staging/repairs/repair_*.json
-          git add docs/issue132/parallel/manual-audit-semantic-repair-report.json
-          if git diff --cached --quiet; then
-            echo "No semantic repair changes."
-            exit 0
-          fi
-          git commit -m "issue132: apply manual semantic audit repairs"
-          for attempt in 1 2 3; do
-            git pull --rebase origin research/taxonomy-usability-audit
-            if git push origin HEAD:research/taxonomy-usability-audit; then
-              exit 0
-            fi
-            if [ "$attempt" -eq 3 ]; then
-              echo "Failed to publish semantic repairs after 3 attempts."
-              exit 1
-            fi
-            sleep 2
-          done
+      - name: Historical semantic repair script syntax
+        run: python -m py_compile scripts/issue132/apply_manual_audit_semantic_patches.py
+      - name: Current Codex runtime validation
+        run: python scripts/issue132/validate_flat_pass_a.py

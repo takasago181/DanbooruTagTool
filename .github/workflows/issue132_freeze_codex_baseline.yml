@@ -1,0 +1,28 @@
+name: Issue132 Baseline Rebuild Diagnostic (manual)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Rebuild baseline in working tree
+        run: python scripts/issue132/freeze_codex_baseline.py
+      - name: Verify rebuild is byte-identical
+        run: |
+          if ! git diff --exit-code -- docs/issue132/parallel/codex-baseline/; then
+            echo "Baseline rebuild differs from committed Codex baseline."
+            exit 1
+          fi
+
+      - name: Validate rebuilt baseline with current contract
+        run: python scripts/issue132/validate_flat_pass_a.py
