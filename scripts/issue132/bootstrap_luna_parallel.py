@@ -70,7 +70,8 @@ def main():
         lane_dir=parallel_dir/f"lane-{lane}"
         lane_dir.mkdir(parents=True,exist_ok=True)
         ledger=lane_dir/"pass_a_fragment.csv"
-        summary=lane_dir/"status.json"
+        summary=artifact_root/"bootstrap-summaries"/f"lane-{lane}.json"
+        summary.parent.mkdir(parents=True,exist_ok=True)
         if not ledger.exists():
             with ledger.open("w",encoding="utf-8",newline="") as f:
                 csv.writer(f,lineterminator="\n").writerow(fields)
