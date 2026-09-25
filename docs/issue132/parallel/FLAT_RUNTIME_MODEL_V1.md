@@ -1,6 +1,6 @@
 # Issue132 Flat Runtime Model V1
 
-Status: ACTIVE DESIGN for the rebuilt Pass-A execution layer.
+Status: ACTIVE FLAT DATA/VALIDATION MODEL. The original five-automation scheduler is paused; current execution driver and role cards are selected by live `RUNTIME_AUTHORITY.json`.
 
 ## Goal
 
