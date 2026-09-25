@@ -13,6 +13,7 @@ on:
       - "docs/issue132/parallel/RUNTIME_WORKER_CARD_*.md"
       - "docs/issue132/parallel/RUNTIME_COORDINATOR_CARD_*.md"
       - "docs/issue132/CODEX_MASTER_RUNBOOK_*.md"
+      - "scripts/issue132/check_runtime_layout.py"
       - "scripts/issue132/codex_runtime_guards.py"
       - "scripts/issue132/materialize_write_requests.py"
       - "scripts/issue132/validate_flat_pass_a.py"
@@ -36,7 +37,7 @@ jobs:
 
       - name: Python syntax
         run: |
-          python -m py_compile             scripts/issue132/codex_runtime_guards.py             scripts/issue132/materialize_write_requests.py             scripts/issue132/validate_flat_pass_a.py             scripts/issue132/test_codex_runtime_guards.py
+          python -m py_compile             scripts/issue132/check_runtime_layout.py             scripts/issue132/codex_runtime_guards.py             scripts/issue132/materialize_write_requests.py             scripts/issue132/validate_flat_pass_a.py             scripts/issue132/test_codex_runtime_guards.py
 
       - name: Runtime guard unit tests
         run: python scripts/issue132/test_codex_runtime_guards.py
