@@ -5,7 +5,7 @@
   "execution_driver": "CODEX",
   "runtime_guide": {
     "path": "docs/issue132/CODEX_RUNTIME_V3.md",
-    "git_blob_sha": "c130e714663a6be864a20830184817de9bef39e2"
+    "git_blob_sha": "4921c74c9c37b34993ea2261dc3c181e4bc35479"
   },
   "semantic_contract": {
     "current_policy_id": "issue132-pass-a-semantic-contract-v2",
@@ -86,6 +86,7 @@
     "semantic_lint_debt_blocks_forward_progress": false,
     "must_be_zero_for_final_completion": true,
     "mode": "MUTABLE_EFFECTIVE_SEED_WITH_GIT_HISTORY",
-    "forensic_sources_remain_immutable": true
+    "forensic_sources_remain_immutable": true,
+    "repair_helper": "scripts/issue132/codex_repair_baseline.py"
   }
 }
