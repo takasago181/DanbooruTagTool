@@ -6,7 +6,7 @@ Goal: protect real image-generation discoverability, including normal adult/sexu
 
 Branch: research/taxonomy-usability-audit
 Root: docs/issue132/parallel/
-Worker authority: RUNTIME_WORKER_CARD_V7.md
+Worker authority: RUNTIME_WORKER_CARD_V8.md
 Repair authority: RUNTIME_REPAIR_CARD_V6.md
 
 ## Ownership
