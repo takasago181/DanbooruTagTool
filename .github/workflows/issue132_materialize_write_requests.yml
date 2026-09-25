@@ -1,0 +1,62 @@
+name: Issue132 Materialize Write Requests
+
+on:
+  push:
+    branches:
+      - research/taxonomy-usability-audit
+    paths:
+      - "docs/issue132/parallel/lane-*/write-requests/request_*.json"
+      - "scripts/issue132/materialize_write_requests.py"
+      - ".github/workflows/issue132_materialize_write_requests.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: issue132-materialize-write-requests
+  cancel-in-progress: false
+
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: research/taxonomy-usability-audit
+          fetch-depth: 1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Materialize canonical staging from code-only requests
+        run: python scripts/issue132/materialize_write_requests.py
+
+      - name: Commit canonical staging
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/issue132/parallel/lane-*/staging/window_*.json
+
+          if git diff --cached --quiet; then
+            echo "No new staging windows to materialize."
+            exit 0
+          fi
+
+          git commit -m "issue132: materialize flat worker write requests"
+
+          for attempt in 1 2 3; do
+            git pull --rebase origin research/taxonomy-usability-audit
+            if git push origin HEAD:research/taxonomy-usability-audit; then
+              exit 0
+            fi
+            if [ "$attempt" -eq 3 ]; then
+              echo "Failed to publish materialized staging after 3 attempts."
+              exit 1
+            fi
+            sleep 2
+          done
