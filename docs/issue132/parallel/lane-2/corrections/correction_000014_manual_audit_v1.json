@@ -1,0 +1,18 @@
+{
+  "schema_version": "issue132-pass-a-correction-v1",
+  "lane": 2,
+  "lane_local_index": 5,
+  "review_seq": 14,
+  "identity_key": "blood_trail",
+  "source_checkpoint": "checkpoint_000001_000025.csv",
+  "qa_boundary": 5,
+  "reason": "Manual semantic audit remediation; code-only patch authority joined to frozen neutral identity.",
+  "expected_before": {
+    "route_1_reason_ja": "血液の痕跡そのものが主要な視覚要素",
+    "theme_ids": "[\"INJURY_R18G\"]"
+  },
+  "patch": {
+    "route_1_reason_ja": "液体・分泌・排泄表現として探すのが自然",
+    "theme_ids": "[]"
+  }
+}

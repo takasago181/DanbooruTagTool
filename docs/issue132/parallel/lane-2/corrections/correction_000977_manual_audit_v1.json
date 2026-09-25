@@ -1,0 +1,20 @@
+{
+  "schema_version": "issue132-pass-a-correction-v1",
+  "lane": 2,
+  "lane_local_index": 326,
+  "review_seq": 977,
+  "identity_key": "ten_of_diamonds",
+  "source_checkpoint": "checkpoint_000326_000350.csv",
+  "qa_boundary": 326,
+  "reason": "Manual semantic audit remediation; code-only patch authority joined to frozen neutral identity.",
+  "expected_before": {
+    "route_1_id": "TOOL_OBJECT",
+    "route_1_reason_ja": "カード・小物として探すのが自然",
+    "local_refinement_ids": "[\"OBJECT_PROP/DAILY\"]"
+  },
+  "patch": {
+    "route_1_id": "TEXT_SYMBOL",
+    "route_1_reason_ja": "文字・記号・レイアウトとして探すのが自然",
+    "local_refinement_ids": "[\"TEXT_SYMBOL/SYMBOL\"]"
+  }
+}

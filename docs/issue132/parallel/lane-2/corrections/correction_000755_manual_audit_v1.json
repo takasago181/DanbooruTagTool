@@ -1,0 +1,20 @@
+{
+  "schema_version": "issue132-pass-a-correction-v1",
+  "lane": 2,
+  "lane_local_index": 252,
+  "review_seq": 755,
+  "identity_key": "between_legs",
+  "source_checkpoint": "checkpoint_000251_000275.csv",
+  "qa_boundary": 252,
+  "reason": "Manual semantic audit remediation; code-only patch authority joined to frozen neutral identity.",
+  "expected_before": {
+    "route_1_id": "COMPOSITION_CAMERA",
+    "route_1_reason_ja": "脚の間という相対配置から探すのが自然",
+    "uncertainty_note": "Danbooru由来wikiで物体または身体部位が脚間にある状態と確認"
+  },
+  "patch": {
+    "route_1_id": "POSE_POSITION",
+    "route_1_reason_ja": "姿勢・位置関係として探すのが自然",
+    "uncertainty_note": ""
+  }
+}

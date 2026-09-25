@@ -1,0 +1,26 @@
+{
+  "schema_version": "issue132-pass-a-correction-v1",
+  "lane": 2,
+  "lane_local_index": 178,
+  "review_seq": 533,
+  "identity_key": "koyanskaya_(fate)_(cosplay)",
+  "source_checkpoint": "checkpoint_000176_000200.csv",
+  "qa_boundary": 178,
+  "reason": "Manual semantic audit remediation; code-only patch authority joined to frozen neutral identity.",
+  "expected_before": {
+    "discovery_mode": "SEARCH_ORIENTED",
+    "route_1_id": "",
+    "route_1_strength": "",
+    "route_1_reason_ja": "",
+    "local_refinement_ids": "[]",
+    "uncertainty_note": "特定作品キャラクターのコスプレ指定で、一般棚よりキャラクター名検索が自然"
+  },
+  "patch": {
+    "discovery_mode": "MIXED",
+    "route_1_id": "CLOTHING_EXPOSURE",
+    "route_1_strength": "CORE",
+    "route_1_reason_ja": "衣服・装身具・露出状態として探すのが自然",
+    "local_refinement_ids": "[\"CLOTHING/COSTUME\"]",
+    "uncertainty_note": ""
+  }
+}

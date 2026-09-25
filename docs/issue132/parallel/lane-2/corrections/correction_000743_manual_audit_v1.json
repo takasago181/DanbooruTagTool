@@ -1,0 +1,20 @@
+{
+  "schema_version": "issue132-pass-a-correction-v1",
+  "lane": 2,
+  "lane_local_index": 248,
+  "review_seq": 743,
+  "identity_key": "nipple_clamps",
+  "source_checkpoint": "checkpoint_000226_000250.csv",
+  "qa_boundary": 248,
+  "reason": "Manual semantic audit remediation; code-only patch authority joined to frozen neutral identity.",
+  "expected_before": {
+    "route_1_reason_ja": "性具・器具として探すのが自然",
+    "route_2_reason_ja": "乳首への作用を目的に探す意図も独立して成立",
+    "local_refinement_ids": "[\"OBJECT_PROP/DAILY\"]"
+  },
+  "patch": {
+    "route_1_reason_ja": "物体・道具・小物として探すのが自然",
+    "route_2_reason_ja": "身体部位・身体特徴として探すのが自然",
+    "local_refinement_ids": "[]"
+  }
+}

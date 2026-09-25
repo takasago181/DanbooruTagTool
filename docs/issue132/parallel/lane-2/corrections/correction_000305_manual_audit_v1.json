@@ -1,0 +1,18 @@
+{
+  "schema_version": "issue132-pass-a-correction-v1",
+  "lane": 2,
+  "lane_local_index": 102,
+  "review_seq": 305,
+  "identity_key": "hoshino_(blue_archive)_(cosplay)",
+  "source_checkpoint": "checkpoint_000101_000150.csv",
+  "qa_boundary": 102,
+  "reason": "Manual semantic audit remediation; code-only patch authority joined to frozen neutral identity.",
+  "expected_before": {
+    "discovery_mode": "BROWSE_WORTHY",
+    "route_1_reason_ja": "衣装として探すのが自然"
+  },
+  "patch": {
+    "discovery_mode": "MIXED",
+    "route_1_reason_ja": "衣服・装身具・露出状態として探すのが自然"
+  }
+}

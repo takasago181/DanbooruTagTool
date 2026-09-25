@@ -1,0 +1,24 @@
+{
+  "schema_version": "issue132-pass-a-correction-v1",
+  "lane": 2,
+  "lane_local_index": 154,
+  "review_seq": 461,
+  "identity_key": "yellow_scales",
+  "source_checkpoint": "checkpoint_000151_000175.csv",
+  "qa_boundary": 154,
+  "reason": "Manual semantic audit remediation; code-only patch authority joined to frozen neutral identity.",
+  "expected_before": {
+    "route_1_id": "COLOR_PATTERN_SHAPE",
+    "route_1_reason_ja": "色と鱗状テクスチャの外観そのものを指定したい概念",
+    "route_2_id": "",
+    "route_2_strength": "",
+    "route_2_reason_ja": ""
+  },
+  "patch": {
+    "route_1_id": "NONHUMAN_TRANSFORM",
+    "route_1_reason_ja": "非人間的特徴・変身要素として探すのが自然",
+    "route_2_id": "COLOR_PATTERN_SHAPE",
+    "route_2_strength": "SUPPORTING",
+    "route_2_reason_ja": "色・模様・形状として独立に探すのが自然"
+  }
+}

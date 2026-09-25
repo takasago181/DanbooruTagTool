@@ -1,0 +1,18 @@
+{
+  "schema_version": "issue132-pass-a-correction-v1",
+  "lane": 2,
+  "lane_local_index": 99,
+  "review_seq": 296,
+  "identity_key": "shooting_star",
+  "source_checkpoint": "checkpoint_000076_000100.csv",
+  "qa_boundary": 99,
+  "reason": "Manual semantic audit remediation; code-only patch authority joined to frozen neutral identity.",
+  "expected_before": {
+    "route_1_id": "SCENE_BACKGROUND",
+    "route_1_reason_ja": "空・背景に置く場面要素として探すのが自然"
+  },
+  "patch": {
+    "route_1_id": "LIGHT_TIME_WEATHER",
+    "route_1_reason_ja": "光・時間帯・天候として探すのが自然"
+  }
+}

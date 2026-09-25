@@ -1,0 +1,24 @@
+{
+  "schema_version": "issue132-pass-a-correction-v1",
+  "lane": 2,
+  "lane_local_index": 101,
+  "review_seq": 302,
+  "identity_key": "vgen_username",
+  "source_checkpoint": "checkpoint_000101_000150.csv",
+  "qa_boundary": 101,
+  "reason": "Manual semantic audit remediation; code-only patch authority joined to frozen neutral identity.",
+  "expected_before": {
+    "discovery_mode": "SEARCH_ORIENTED",
+    "route_1_id": "",
+    "route_1_strength": "",
+    "route_1_reason_ja": "",
+    "local_refinement_ids": "[]"
+  },
+  "patch": {
+    "discovery_mode": "BROWSE_WORTHY",
+    "route_1_id": "TEXT_SYMBOL",
+    "route_1_strength": "CORE",
+    "route_1_reason_ja": "文字・記号・レイアウトとして探すのが自然",
+    "local_refinement_ids": "[\"TEXT_SYMBOL/TEXT\"]"
+  }
+}
