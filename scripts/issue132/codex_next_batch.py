@@ -7,7 +7,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-from codex_runtime import allowed_forward_end, load_runtime, read_csv
+from codex_runtime import internal_forward_limit, load_runtime, read_csv
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -34,11 +34,15 @@ def validated_snapshot() -> dict:
     blocking = {
         "invalid_window_count": snapshot.get("invalid_window_count", 0),
         "duplicate_coverage_count": snapshot.get("duplicate_coverage_count", 0),
-        "qa_watermark_violation_count": snapshot.get("qa_watermark_violation_count", 0),
+        "internal_qa_limit_violation_count": snapshot.get(
+            "internal_qa_limit_violation_count", 0
+        ),
         "fatal_contract_error_count": snapshot.get("fatal_contract_error_count", 0),
     }
     if any(blocking.values()):
-        raise SystemExit("forward work blocked by current validation: " + json.dumps(blocking))
+        raise SystemExit(
+            "forward work blocked by current validation: " + json.dumps(blocking)
+        )
     return snapshot
 
 
@@ -59,27 +63,28 @@ def main() -> None:
     snapshot = validated_snapshot()
     lane_key = str(args.lane)
     frontier = snapshot["frontiers"][lane_key]
-    allowed = allowed_forward_end(qa, args.lane)
     lane_length = int(authority["fixed"]["lane_lengths"][lane_key])
+    internal_limit = internal_forward_limit(authority, qa, args.lane)
 
     if frontier is None:
         packet = {
-            "schema_version": "issue132-codex-work-packet-v1",
+            "schema_version": "issue132-codex-work-packet-v2-autonomous",
             "lane": args.lane,
             "status": "LANE_COMPLETE",
             "rows": [],
         }
-    elif frontier > allowed:
+    elif frontier > internal_limit:
         packet = {
-            "schema_version": "issue132-codex-work-packet-v1",
+            "schema_version": "issue132-codex-work-packet-v2-autonomous",
             "lane": args.lane,
-            "status": "QA_GATE",
+            "status": "INTERNAL_QA_GATE",
             "frontier": frontier,
-            "qa_allowed_forward_end": allowed,
+            "internal_forward_limit": internal_limit,
+            "last_codex_qa": int(qa["last_codex_qa_by_lane"][lane_key]),
             "rows": [],
         }
     else:
-        end = min(frontier + args.limit - 1, allowed, lane_length)
+        end = min(frontier + args.limit - 1, internal_limit, lane_length)
         neutral = read_csv(ROOT / authority["fixed"]["neutral_path"])
         assigned = [
             row
@@ -102,13 +107,13 @@ def main() -> None:
             })
 
         packet = {
-            "schema_version": "issue132-codex-work-packet-v1",
+            "schema_version": "issue132-codex-work-packet-v2-autonomous",
             "lane": args.lane,
             "status": "READY",
             "lane_local_start": frontier,
             "lane_local_end": end,
             "count": len(rows),
-            "qa_allowed_forward_end": allowed,
+            "internal_forward_limit": internal_limit,
             "rows": rows,
         }
 

@@ -7,8 +7,8 @@ import re
 from pathlib import Path
 
 from codex_runtime import (
-    allowed_forward_end,
     direct_start,
+    internal_forward_limit,
     load_runtime,
     policy_blob,
     policy_id,
@@ -118,9 +118,10 @@ def main() -> None:
         raise SystemExit(f"decision window starts before direct boundary {boundary}")
     if end < start or end - start + 1 > int(authority["fixed"]["forward_window_max"]):
         raise SystemExit("decision window size must be 1..100")
-    if end > allowed_forward_end(qa, lane):
+    internal_limit = internal_forward_limit(authority, qa, lane)
+    if end > internal_limit:
         raise SystemExit(
-            f"decision window exceeds ChatGPT QA watermark {allowed_forward_end(qa, lane)}"
+            f"decision window exceeds internal Codex QA limit {internal_limit}"
         )
     if end > lane_length:
         raise SystemExit("decision window exceeds lane length")

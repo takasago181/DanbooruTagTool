@@ -1,23 +1,23 @@
 {
-  "schema_version": "issue132-codex-qa-state-v2-direct",
-  "status": "CALIBRATION_REQUIRED",
+  "schema_version": "issue132-codex-qa-state-v3-autonomous",
+  "status": "AUTONOMOUS_INTERNAL_QA",
   "baseline_head": "5123a13bd574ef50f04f3f7e0fb031d2625dcbaa",
-  "last_chatgpt_semantic_qa_by_lane": {
+  "last_codex_qa_by_lane": {
     "1": 1125,
     "2": 1225,
     "3": 1200
   },
-  "allowed_forward_end_by_lane": {
-    "1": 1225,
-    "2": 1325,
-    "3": 1300
-  },
-  "calibration_batch_size_per_lane": 100,
-  "steady_state_max_unqaed_per_lane": 500,
-  "final_semantic_qa_passed": false,
+  "epoch_size_per_lane": 1000,
+  "max_unqaed_per_lane": 2000,
+  "ordinary_checked_sample_per_epoch": 50,
+  "internal_qa_owner": "CODEX-QA-REPAIR",
+  "completed_epochs": [],
+  "final_internal_qa_passed": false,
+  "final_chatgpt_semantic_qa_passed": false,
   "notes": [
-    "Historical saved population through lane-local 1125/1225/1200 has already received ChatGPT manual semantic audit and repair.",
-    "First Codex direct-staging batch is 100 rows per lane and requires full ChatGPT semantic QA before widening the watermark.",
-    "After calibration, ChatGPT advances each lane by at most 500 accepted rows per QA interval."
+    "ChatGPT no longer advances intermediate forward watermarks.",
+    "CODEX-L1/L2/L3 may continue autonomously while each lane remains within max_unqaed_per_lane of its last completed Codex QA cursor.",
+    "CODEX-QA-REPAIR audits each due epoch, repairs defects, and advances last_codex_qa_by_lane itself.",
+    "Human/ChatGPT semantic QA is required only after all forward work and internal Codex QA are complete, unless a true taxonomy/specification blocker is encountered."
   ]
 }

@@ -1,12 +1,12 @@
-name: Issue132 Codex Direct Runtime Validation
+name: Issue132 Codex Autonomous Runtime Validation
 
 on:
   push:
     branches:
       - research/taxonomy-usability-audit
-      - research/issue132-codex-simplify-*
+      - research/issue132-codex-*
     paths:
-      - "docs/issue132/CODEX_RUNTIME_V3.md"
+      - "docs/issue132/CODEX_RUNTIME_V4.md"
       - "docs/issue132/parallel/RUNTIME_AUTHORITY.json"
       - "docs/issue132/parallel/CODEX_QA_STATE.json"
       - "docs/issue132/parallel/pass_a_semantic_contract_v2.json"
@@ -16,6 +16,8 @@ on:
       - "scripts/issue132/codex_semantic.py"
       - "scripts/issue132/codex_next_batch.py"
       - "scripts/issue132/codex_stage_window.py"
+      - "scripts/issue132/codex_qa_packet.py"
+      - "scripts/issue132/codex_qa_advance.py"
       - "scripts/issue132/codex_repair_baseline.py"
       - "scripts/issue132/check_runtime_layout.py"
       - "scripts/issue132/validate_flat_pass_a.py"
@@ -27,7 +29,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: issue132-codex-direct-${{ github.ref }}
+  group: issue132-codex-autonomous-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -48,6 +50,8 @@ jobs:
             scripts/issue132/codex_semantic.py \
             scripts/issue132/codex_next_batch.py \
             scripts/issue132/codex_stage_window.py \
+            scripts/issue132/codex_qa_packet.py \
+            scripts/issue132/codex_qa_advance.py \
             scripts/issue132/codex_repair_baseline.py \
             scripts/issue132/check_runtime_layout.py \
             scripts/issue132/validate_flat_pass_a.py \
@@ -56,7 +60,7 @@ jobs:
       - name: Check active runtime layout
         run: python scripts/issue132/check_runtime_layout.py
 
-      - name: Test direct Codex runtime
+      - name: Test autonomous Codex runtime
         run: python scripts/issue132/test_codex_direct_runtime.py
 
       - name: Emit compact progress snapshot
