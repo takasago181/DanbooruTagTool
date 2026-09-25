@@ -4,7 +4,14 @@ Current machine-readable authority:
 
 `docs/issue132/parallel/RUNTIME_AUTHORITY.json`
 
-All five automations must read that file first and follow only the role card named there.
+Execution generation: **flat Pass-A V1**.
+
+Exactly five active Issue132 tasks:
+- Worker 1 — lane 1 forward review
+- Worker 2 — lane 2 forward review
+- Worker 3 — lane 3 forward review
+- Repair — invalid/hold windows only
+- QA-Coordinator — accepted-set validation, selective semantic QA, completion
 
 Product goal:
 
@@ -12,11 +19,14 @@ Product goal:
 
 Adult/sexual generation is a normal supported workflow. Accuracy wins over guessing.
 
-Current topology:
-- Worker 1 / 2 / 3: NEW forward classification
-- Repair: historical invalids, promotion-blocking holds, append-only overlays
-- Coordinator: QA, CI interpretation, watchdog
+The old staging -> checkpoint -> promotion prefix pipeline is no longer the active progress model.
 
-25 rows is persistence granularity, not a semantic work limit. Historical staging is immutable. No merge or production apply is authorized.
+Progress is the union of all independently valid identities. An early invalid range does not erase or block later valid ranges.
 
-Do not infer current authority from old filenames, Git history, status caches, or issue comments.
+Historical checkpoint files are accepted seed data. Historical staging files remain immutable evidence. Repair is append-only and touches only invalid/hold windows. No checkpoint promotion is performed.
+
+New Worker persistence target is up to 100 consecutive lane-local identities per file, with up to 300 identities per run.
+
+Mechanical validation covers 100% of accepted output. Semantic QA is risk-based rather than a complete duplicate review.
+
+No merge or production apply is authorized.
