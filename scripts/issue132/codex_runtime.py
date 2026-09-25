@@ -93,6 +93,42 @@ def load_runtime(root: Path) -> tuple[dict, dict, dict, list[str]]:
         if rows and identity_order_sha(rows) != fixed.get("parent_identity_order_sha256"):
             errors.append("neutral identity-order SHA mismatch")
 
+
+    baseline_meta = authority.get("baseline", {})
+    baseline_manifest_path = root / str(baseline_meta.get("manifest_path", ""))
+    if not baseline_manifest_path.is_file():
+        errors.append("Codex baseline manifest missing")
+    else:
+        if git_blob_sha(baseline_manifest_path) != baseline_meta.get("manifest_git_blob_sha"):
+            errors.append("Codex baseline manifest git blob mismatch")
+        try:
+            baseline_manifest = json.loads(
+                baseline_manifest_path.read_text(encoding="utf-8")
+            )
+        except Exception as exc:
+            errors.append(f"Codex baseline manifest unreadable: {exc}")
+            baseline_manifest = {}
+        if baseline_manifest:
+            if baseline_manifest.get("schema_version") != "issue132-codex-baseline-manifest-v1":
+                errors.append("Codex baseline manifest schema mismatch")
+            if baseline_manifest.get("parent_neutral_sha256") != fixed.get("parent_neutral_sha256"):
+                errors.append("Codex baseline neutral SHA mismatch")
+            if (
+                baseline_manifest.get("parent_identity_order_sha256")
+                != fixed.get("parent_identity_order_sha256")
+            ):
+                errors.append("Codex baseline identity-order SHA mismatch")
+            saved_ends = baseline_meta.get("saved_end_by_lane", {})
+            for lane in ("1", "2", "3"):
+                entry = baseline_manifest.get("lanes", {}).get(lane, {})
+                if entry.get("lane_local_end") != saved_ends.get(lane):
+                    errors.append(f"Codex baseline lane {lane} saved end mismatch")
+                path = root / str(entry.get("path", ""))
+                if not path.is_file():
+                    errors.append(f"Codex baseline lane {lane} file missing")
+                elif sha256_file(path) != entry.get("sha256"):
+                    errors.append(f"Codex baseline lane {lane} SHA mismatch")
+
     if contract:
         current_policy_id = sem.get("current_policy_id")
         allowed_policies = sem.get("allowed_policies", {})
@@ -133,3 +169,14 @@ def policy_blob(authority: dict) -> str:
 
 def reason_codes(contract: dict) -> set[str]:
     return set(contract.get("decision_reason_codes", []))
+
+
+def load_baseline_manifest(root: Path, authority: dict) -> dict:
+    path = root / authority["baseline"]["manifest_path"]
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def load_baseline_lane(root: Path, manifest: dict, lane: int) -> dict:
+    entry = manifest["lanes"][str(lane)]
+    path = root / entry["path"]
+    return json.loads(path.read_text(encoding="utf-8"))
