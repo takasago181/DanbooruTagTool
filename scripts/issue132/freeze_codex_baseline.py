@@ -102,7 +102,7 @@ def effective_window(
     end: int,
     assigned: list[dict[str, str]],
     base,
-) -> tuple[dict[int, dict], dict[int, dict]]:
+) -> tuple[dict[int, dict], dict[int, dict], list[dict]]:
     repaired, _, repair_errors = resolve_repair_overlay(path, lane, start, end)
     if repair_errors:
         raise ValueError("; ".join(repair_errors))
@@ -115,6 +115,7 @@ def effective_window(
 
     rows_by_index: dict[int, dict] = {}
     holds_by_index: dict[int, dict] = {}
+    lint_diagnostics: list[dict] = []
     schema = obj.get("schema_version")
 
     for raw in obj.get("rows", []):
@@ -142,7 +143,12 @@ def effective_window(
             raise ValueError(f"duplicate/out-of-range row {idx}")
         row_errors = base.validate_row(full, int(assigned[idx - 1]["review_seq"]))
         if row_errors:
-            raise ValueError(f"local {idx}: " + "; ".join(row_errors))
+            lint_diagnostics.append({
+                "lane_local_index": idx,
+                "review_seq": int(assigned[idx - 1]["review_seq"]),
+                "identity_key": assigned[idx - 1]["identity_key"],
+                "errors": row_errors,
+            })
         rows_by_index[idx] = compact
 
     for hold in obj.get("holds", []):
@@ -175,7 +181,7 @@ def effective_window(
             f"window coverage mismatch missing={sorted(expected-covered)} "
             f"extra={sorted(covered-expected)}"
         )
-    return rows_by_index, holds_by_index
+    return rows_by_index, holds_by_index, lint_diagnostics
 
 
 def main() -> None:
@@ -216,6 +222,7 @@ def main() -> None:
 
         rows_by_index: dict[int, dict] = {}
         holds_by_index: dict[int, dict] = {}
+        lint_diagnostics: list[dict] = []
 
         for idx, row in enumerate(effective, start=1):
             if idx > target_end:
@@ -228,9 +235,12 @@ def main() -> None:
                 raise SystemExit(f"lane {lane} local {idx}: checkpoint identity mismatch")
             row_errors = base.validate_row(row, int(expected["review_seq"]))
             if row_errors:
-                raise SystemExit(
-                    f"lane {lane} local {idx}: " + "; ".join(row_errors)
-                )
+                lint_diagnostics.append({
+                    "lane_local_index": idx,
+                    "review_seq": int(expected["review_seq"]),
+                    "identity_key": expected["identity_key"],
+                    "errors": row_errors,
+                })
             rows_by_index[idx] = full_to_compact(row, expected, idx)
 
         checkpoint_end = min(len(effective), target_end)
@@ -247,7 +257,7 @@ def main() -> None:
             if end > target_end:
                 continue
             try:
-                win_rows, win_holds = effective_window(
+                win_rows, win_holds, win_lints = effective_window(
                     path, lane, start, end, assigned, base
                 )
             except Exception as exc:
@@ -261,6 +271,7 @@ def main() -> None:
                 )
             rows_by_index.update(win_rows)
             holds_by_index.update(win_holds)
+            lint_diagnostics.extend(win_lints)
 
         expected_indices = set(range(1, target_end + 1))
         covered = set(rows_by_index) | set(holds_by_index)
@@ -292,6 +303,8 @@ def main() -> None:
             "accepted_row_count": len(rows_by_index),
             "historical_hold_count": len(holds_by_index),
             "historical_hold_indices": sorted(holds_by_index),
+            "historical_semantic_lint_count": len(lint_diagnostics),
+            "historical_semantic_lint_diagnostics": lint_diagnostics,
             "checkpoint_seed_count": checkpoint_end,
             "corrections_applied": correction_count,
             "path": str(out_path.relative_to(ROOT)),
