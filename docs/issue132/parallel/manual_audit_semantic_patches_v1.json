@@ -1868,7 +1868,6 @@
       "lane_local_index": 766,
       "ops": {
         "set_local": [
-          "CLOTHING/UNIFORM",
           "CLOTHING_STATE_EXPOSURE/"
         ]
       }
@@ -1878,7 +1877,6 @@
       "lane_local_index": 778,
       "ops": {
         "set_local": [
-          "CLOTHING/EVERYDAY",
           "CLOTHING_STATE_EXPOSURE/"
         ]
       }
@@ -1888,7 +1886,6 @@
       "lane_local_index": 793,
       "ops": {
         "set_local": [
-          "CLOTHING/ACCESSORY",
           "CLOTHING_STATE_EXPOSURE/"
         ]
       }
