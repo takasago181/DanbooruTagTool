@@ -91,6 +91,7 @@ def main() -> None:
     current = snapshot()
     clean_data = (
         current.get("processed_slot_total") == 31003
+        and current.get("accepted_total") == 31003
         and current.get("baseline_hold_count") == 0
         and current.get("baseline_semantic_lint_count") == 0
         and current.get("forward_hold_count") == 0
