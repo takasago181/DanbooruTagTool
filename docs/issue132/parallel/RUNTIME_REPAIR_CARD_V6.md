@@ -44,8 +44,16 @@ Exactly one unsuperseded active overlay may exist per source window. Before sele
 ## Minimal run
 1. Read this card and Worker V8 only.
 2. Reconstruct effective invalid queue from live source staging + active overlays + latest relevant validator/CI evidence. Prefer the latest staging-validator v3 JSON fields `effective_invalid_windows` / `effective_invalid_window_counts` when the run is current for HEAD; only parse detailed logs when those fields are absent/stale. Never blindly inherit a stale raw-CI queue.
-3. Structural queue: select up to 6 historical invalid windows, normally up to 2/lane and borrowing unused capacity.
-4. For each target fetch only source staging + needed authoritative shard/manifest, rebuild exact 25 slots, and apply Worker V8 semantics.
+3. Work transactionally. Do NOT prefetch/rebuild a batch of many windows before persisting anything.
+   - Choose exactly ONE primary target first.
+   - Primary priority: the oldest effective staging window at checkpoint prefix+1 that still contains promotion-blocking holds, because resolving it can advance the immutable checkpoint.
+   - If no such actionable hold window exists, choose the oldest effective structural-invalid window from validator-v3.
+   - Fetch only that source window + its exact authoritative shard/manifest. Reuse the shard/manifest in-memory only for a later target in the same shard after the primary transaction has persisted.
+4. Complete the primary target end-to-end: rebuild only its exact 25 slots, apply Worker V8 semantics, validator-parity prevalidate, and persist a NEW overlay version before selecting a second target.
+   - For a hold target, research at most 3 unresolved hold identities in that same window, then publish the full 25-slot effective overlay even if another genuine tool-blocked hold remains.
+   - For a structural target, preserve already-valid semantic decisions when they bind to the correct authoritative identity and pass current lint; repair only the structural/semantic defects actually required. Do not semantically rereview all 25 without cause.
+   - If the primary target cannot be persisted because of a target-specific write rejection, move to one independent target.
+   - If the run budget remains after one persisted overlay, repeat this transaction loop for a second target; otherwise stop with the persisted result. No target-count quota is more important than one completed persistent transaction.
 5. BEFORE creating an overlay, perform the same effective-window checks used by production staging validation, not a weaker local approximation:
    - every finalized row and hold binds to the authoritative slot by lane_local_index + review_seq + SHA256(identity_key);
    - compact finalized row field set equals COMPACT_ROW_FIELDS exactly;
@@ -58,7 +66,7 @@ Exactly one unsuperseded active overlay may exist per source window. Before sele
 7. A write rejection on one target never blocks another independent target.
 
 ## Promotion-blocking hold queue
-After structural attempts, or when structural capacity is unused, inspect only the oldest effective staging window at checkpoint prefix+1 in each lane.
+Promotion-blocking prefix holds are the first Repair priority, not leftover work after structural batching. Inspect only the oldest effective staging window at checkpoint prefix+1 in each lane.
 - Research at most 3 promotion-blocking hold identities per run total.
 - Research only material unresolved meaning; do not reread already resolved rows.
 - If bounded research completes and meaning becomes clear, finalize normally.
