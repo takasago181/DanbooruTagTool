@@ -13,12 +13,15 @@ ACTIVE_FILES = [
     "docs/issue132/CODEX_RUNTIME_V3.md",
     "docs/issue132/parallel/pass_a_semantic_contract_v2.json",
     "docs/issue132/parallel/CODEX_QA_STATE.json",
+    "docs/issue132/parallel/codex-baseline/manifest.json",
     "scripts/issue132/codex_runtime.py",
+    "scripts/issue132/codex_semantic.py",
     "scripts/issue132/codex_stage_window.py",
+    "scripts/issue132/codex_repair_baseline.py",
     "scripts/issue132/validate_flat_pass_a.py",
 ]
 
-FORBIDDEN_ACTIVE_REFERENCES = [
+LEGACY_EXECUTION_TOKENS = [
     "RUNTIME_WORKER_CARD_V",
     "RUNTIME_COORDINATOR_CARD_V",
     "RUNTIME_REPAIR_CARD_V",
@@ -39,7 +42,7 @@ def main() -> None:
 
     guide_path = ROOT / authority.get("runtime_guide", {}).get("path", "")
     guide = guide_path.read_text(encoding="utf-8") if guide_path.is_file() else ""
-    for token in FORBIDDEN_ACTIVE_REFERENCES:
+    for token in LEGACY_EXECUTION_TOKENS:
         if token in guide:
             errors.append(f"runtime guide references legacy execution component: {token}")
 
@@ -52,13 +55,26 @@ def main() -> None:
         errors.append("new forward work must not use deferred markers")
     if persistence.get("checkpoint_promotion") is not False:
         errors.append("checkpoint promotion must be disabled")
+    if authority.get("historical_compatibility", {}).get("active_runtime_reads_old_history") is not False:
+        errors.append("active runtime must not reconstruct legacy history")
+
+    baseline = authority.get("baseline", {})
+    if baseline.get("mode") != "MUTABLE_EFFECTIVE_SEED_WITH_GIT_HISTORY":
+        errors.append("baseline mode mismatch")
+    if baseline.get("holds_block_forward_progress") is not False:
+        errors.append("historical holds must not block forward progress")
+    if baseline.get("semantic_lint_debt_blocks_forward_progress") is not False:
+        errors.append("historical lint debt must not block forward progress")
 
     result = {
-        "schema_version": "issue132-runtime-layout-check-v3-codex-direct",
+        "schema_version": "issue132-runtime-layout-check-v4-codex-direct",
         "runtime_status": authority.get("status"),
         "execution_driver": authority.get("execution_driver"),
         "forward_persistence": persistence.get("mode"),
         "active_file_count": len(ACTIVE_FILES),
+        "legacy_history_in_active_runtime": authority.get(
+            "historical_compatibility", {}
+        ).get("active_runtime_reads_old_history"),
         "error_count": len(errors),
     }
     print(json.dumps(result, ensure_ascii=False, indent=2))
