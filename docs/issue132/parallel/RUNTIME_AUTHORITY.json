@@ -57,5 +57,19 @@
   "qa": {
     "baseline_path": "docs/issue132/parallel/QA_BASELINE.json",
     "legacy_blocks_per_run_max": 1
+  },
+  "contracts": {
+    "semantic_vocabulary_path": "docs/issue132/parallel/pass_a_contract_manifest_v1.json",
+    "semantic_vocabulary_schema_version": "issue132-pass-a-contract-v1",
+    "semantic_vocabulary_git_blob_sha": "3bd09dde3a0fd15b9a3f86b22f294135f96a707c",
+    "required_keys": [
+      "route_ids",
+      "local_refinement_parent",
+      "body_site_ids",
+      "theme_ids",
+      "allowed_discovery_modes",
+      "allowed_route_strengths",
+      "allowed_review_depths"
+    ]
   }
 }
