@@ -63,7 +63,7 @@ def make_compact(raw: dict, expected: dict, idx: int) -> dict:
     }
 
 
-def recompute_lane_manifest(
+def scan_lane_debt(
     baseline: dict,
     lane: int,
     assigned: list[dict[str, str]],
@@ -120,12 +120,8 @@ def main() -> None:
         int(hold["lane_local_index"]): dict(hold)
         for hold in baseline.get("holds", [])
     }
-    existing_lints = {
-        int(item["lane_local_index"])
-        for item in manifest["lanes"][str(lane)].get(
-            "historical_semantic_lint_diagnostics", []
-        )
-    }
+    current_lints, _ = scan_lane_debt(baseline, lane, assigned, contract)
+    existing_lints = {int(item["lane_local_index"]) for item in current_lints}
     trace = dict(baseline.get("repair_trace", {}))
     seen_request: set[int] = set()
     errors: list[str] = []
@@ -181,14 +177,8 @@ def main() -> None:
         key: trace[key] for key in sorted(trace, key=lambda value: int(value))
     }
 
-    lints, holds = recompute_lane_manifest(baseline, lane, assigned, contract)
+    lints, holds = scan_lane_debt(baseline, lane, assigned, contract)
     lane_entry = manifest["lanes"][str(lane)]
-    lane_entry["accepted_row_count"] = len(rows_by_index) - len(lints)
-    lane_entry["historical_hold_count"] = len(holds)
-    lane_entry["historical_hold_indices"] = holds
-    lane_entry["historical_semantic_lint_count"] = len(lints)
-    lane_entry["historical_semantic_lint_diagnostics"] = lints
-
     lane_path = ROOT / lane_entry["path"]
     lane_text = json.dumps(baseline, ensure_ascii=False, separators=(",", ":")) + "\n"
 
