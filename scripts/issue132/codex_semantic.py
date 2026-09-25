@@ -2,7 +2,6 @@
 from __future__ import annotations
 
 import hashlib
-from collections import Counter
 
 HOLD_REASON_CODES = {
     "DIRECT_EVIDENCE_NOT_FOUND",
@@ -135,11 +134,6 @@ def validate_compact_row(
         parent = local_parent.get(local)
         if parent not in set(selected):
             errors.append(f"local refinement {local} requires route {parent}")
-    if rules["at_most_one_local_refinement_per_parent"]:
-        counts = Counter(local_parent.get(x) for x in locals_ if x in local_parent)
-        if any(count > 1 for count in counts.values()):
-            errors.append("more than one local refinement selected for the same parent route")
-
     if any(x not in body_ids for x in bodies):
         errors.append("invalid body_site_ids")
     if any(x not in theme_ids for x in themes):
