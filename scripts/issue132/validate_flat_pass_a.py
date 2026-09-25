@@ -16,6 +16,12 @@ from staging_v2 import (
     validate_compact_hold,
     validate_identity_binding,
 )
+from codex_runtime_guards import (
+    allowed_forward_end,
+    load_authority_and_qa,
+    persistence_debt_limit,
+    validate_policy_trace,
+)
 
 ROOT = Path(__file__).resolve().parents[2]
 LANES = (1, 2, 3)
@@ -72,7 +78,7 @@ def ranges_from_indices(indices: set[int]) -> list[list[int]]:
     return out
 
 
-def validate_window(path: Path, lane: int, start: int, end: int, assigned, base):
+def validate_window(path: Path, lane: int, start: int, end: int, assigned, base, authority):
     errors: list[str] = []
     width = end - start + 1
     if width < 1 or width > MAX_FORWARD_WINDOW:
@@ -226,6 +232,18 @@ def validate_window(path: Path, lane: int, start: int, end: int, assigned, base)
         extra = sorted(set(covered) - expected_indices)
         errors.append(f"coverage mismatch missing={missing} extra={extra}")
 
+    semantic_row_indices = {idx for idx, kind in covered.items() if kind == "row"}
+    errors.extend(
+        validate_policy_trace(
+            obj,
+            authority,
+            lane,
+            start,
+            end,
+            semantic_row_indices,
+        )
+    )
+
     hold_count = len(holds)
     accepted = expected_indices if not errors and hold_count == 0 and len(rows) == width else set()
     return {
@@ -249,6 +267,8 @@ def main():
 
     lanes_summary = {}
     fatal_errors: list[str] = []
+    authority, qa, guard_errors = load_authority_and_qa(ROOT)
+    fatal_errors.extend(guard_errors)
     accepted_total = 0
     invalid_total = 0
     hold_total = 0
@@ -272,6 +292,7 @@ def main():
         pending_materialization = []
         deferred_ranges = []
         requested_indices: set[int] = set()
+        pending_indices: set[int] = set()
         deferred_indices: set[int] = set()
 
         stage_dir = ROOT / args.parallel_dir / f"lane-{lane}" / "staging"
@@ -302,7 +323,7 @@ def main():
                 seen_post_prefix |= indices
                 persisted |= indices
 
-                result = validate_window(path, lane, start, end, assigned, base)
+                result = validate_window(path, lane, start, end, assigned, base, authority)
                 item = {
                     "path": path.name,
                     "start": start,
@@ -333,6 +354,7 @@ def main():
                 requested_indices |= set(range(start, end + 1))
                 stage_path = stage_dir / f"window_{start:06d}_{end:06d}.json"
                 if not stage_path.exists():
+                    pending_indices |= set(range(start, end + 1))
                     pending_materialization.append({
                         "path": path.name,
                         "start": start,
@@ -364,6 +386,16 @@ def main():
         missing_ranges = ranges_from_indices(gap_indices)
         missing_total += len(gap_indices)
 
+        qa_allowed = allowed_forward_end(qa, lane) if qa else prefix
+        qa_violation_indices = {
+            idx
+            for idx in (persisted | requested_indices | deferred_indices)
+            if idx > qa_allowed
+        }
+        debt_indices = pending_indices | deferred_indices
+        debt_limit = persistence_debt_limit(authority)
+        debt_limit_exceeded = len(debt_indices) > debt_limit
+
         accepted_count = len(accepted)
         accepted_total += accepted_count
         invalid_total += len(invalid_windows)
@@ -377,8 +409,16 @@ def main():
             "forward_frontier": frontier_high_watermark + 1 if frontier_high_watermark < len(assigned) else None,
             "pending_materialization": pending_materialization,
             "pending_materialization_count": len(pending_materialization),
+            "pending_materialization_slot_count": len(pending_indices),
             "deferred_ranges": deferred_ranges,
             "deferred_range_count": len(deferred_ranges),
+            "deferred_slot_count": len(deferred_indices),
+            "unresolved_persistence_debt_slot_count": len(debt_indices),
+            "persistence_debt_limit": debt_limit,
+            "persistence_debt_limit_exceeded": debt_limit_exceeded,
+            "qa_allowed_forward_end": qa_allowed,
+            "qa_watermark_violation_count": len(qa_violation_indices),
+            "qa_watermark_violation_ranges": ranges_from_indices(qa_violation_indices),
             "remaining_identity_count": len(assigned) - accepted_count,
             "valid_forward_window_count": len(valid_windows),
             "invalid_windows": invalid_windows,
@@ -387,12 +427,32 @@ def main():
             "missing_written_ranges": missing_ranges,
         }
 
+    pending_slot_total = sum(
+        lanes_summary[lane]["pending_materialization_slot_count"] for lane in lanes_summary
+    )
+    deferred_slot_total = sum(
+        lanes_summary[lane]["deferred_slot_count"] for lane in lanes_summary
+    )
+    qa_watermark_violation_total = sum(
+        lanes_summary[lane]["qa_watermark_violation_count"] for lane in lanes_summary
+    )
+    debt_limit_violation_count = sum(
+        1 for lane in lanes_summary
+        if lanes_summary[lane]["persistence_debt_limit_exceeded"]
+    )
+    final_semantic_qa_passed = bool(qa.get("final_semantic_qa_passed", False)) if qa else False
+
     complete = (
         accepted_total == 31003
         and invalid_total == 0
         and hold_total == 0
         and missing_total == 0
         and duplicate_total == 0
+        and pending_slot_total == 0
+        and deferred_slot_total == 0
+        and qa_watermark_violation_total == 0
+        and debt_limit_violation_count == 0
+        and final_semantic_qa_passed
         and not fatal_errors
     )
 
@@ -405,9 +465,26 @@ def main():
         "frontier_high_watermarks": {lane: lanes_summary[lane]["frontier_high_watermark"] for lane in sorted(lanes_summary)},
         "frontiers": {lane: lanes_summary[lane]["forward_frontier"] for lane in sorted(lanes_summary)},
         "pending_materialization_count": sum(lanes_summary[lane]["pending_materialization_count"] for lane in lanes_summary),
+        "pending_materialization_slot_count": pending_slot_total,
         "pending_materialization": {lane: lanes_summary[lane]["pending_materialization"] for lane in sorted(lanes_summary)},
         "deferred_range_count": sum(lanes_summary[lane]["deferred_range_count"] for lane in lanes_summary),
+        "deferred_slot_count": deferred_slot_total,
         "deferred_ranges": {lane: lanes_summary[lane]["deferred_ranges"] for lane in sorted(lanes_summary)},
+        "unresolved_persistence_debt_slots": {
+            lane: lanes_summary[lane]["unresolved_persistence_debt_slot_count"]
+            for lane in sorted(lanes_summary)
+        },
+        "persistence_debt_limit_violation_count": debt_limit_violation_count,
+        "qa_allowed_forward_end_by_lane": {
+            lane: lanes_summary[lane]["qa_allowed_forward_end"]
+            for lane in sorted(lanes_summary)
+        },
+        "qa_watermark_violation_count": qa_watermark_violation_total,
+        "qa_watermark_violations": {
+            lane: lanes_summary[lane]["qa_watermark_violation_ranges"]
+            for lane in sorted(lanes_summary)
+        },
+        "final_semantic_qa_passed": final_semantic_qa_passed,
         "invalid_window_count": invalid_total,
         "invalid_windows": {lane: [x["path"] for x in lanes_summary[lane]["invalid_windows"]] for lane in sorted(lanes_summary)},
         "hold_window_count": hold_total,
