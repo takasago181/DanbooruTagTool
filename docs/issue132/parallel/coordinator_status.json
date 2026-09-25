@@ -5,18 +5,19 @@
   "total_remaining": 29503,
   "complete": false,
   "latest_ci": {
-    "run_id": 36027344173,
-    "head_sha": "463d39f30ee9d21273a44fe592038479d173a5a7",
+    "run_id": 36088985201,
+    "head_sha": "e0c8a0620446d60b1de9570642cecd39108bdbf1",
     "conclusion": "failure",
-    "error_count": 112,
-    "scope": "WORK_AREA_ONLY",
-    "base_validation": "PASS"
+    "failure_class": "STAGING_ONLY",
+    "base_validation": "PASS",
+    "compact_v2_self_test": "PASS",
+    "failing_step": "Validate semantic hold staging windows"
   },
   "lanes": {
     "1": {
-      "next_new": 1026,
-      "last_run_delta": 100,
-      "stop": "FORCED_END"
+      "next_new": 1101,
+      "last_run_delta": 25,
+      "stop": "ACTUAL_FORCED_RUN_END"
     },
     "2": {
       "next_new": 1151,
@@ -31,7 +32,7 @@
   },
   "repair_status_present": false,
   "last_sampled_100_boundary": {
-    "1": 1025,
+    "1": 1100,
     "2": 1075,
     "3": 1075
   },
@@ -45,6 +46,11 @@
       "lane": 3,
       "range": "751-1050",
       "family": "historical secondary-route overclassification"
+    },
+    {
+      "lane": 1,
+      "range": "1026-1100",
+      "family": "sample-clean"
     }
   ]
 }
