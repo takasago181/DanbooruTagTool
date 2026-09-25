@@ -15,6 +15,7 @@ ALLOWED_REASON_CODES = {
     "STRUCTURAL_REBUILD",
     "SEMANTIC_LINT",
     "ROUTE_FAMILY_REMEDIATION",
+    "HOLD_RESOLUTION",
 }
 
 
@@ -33,16 +34,13 @@ def canonical_window_bytes(window: dict[str, Any]) -> bytes:
 
 
 def _load_overlay(path: Path) -> tuple[dict[str, Any] | None, list[str]]:
-    errors: list[str] = []
     try:
         obj = json.loads(path.read_text(encoding="utf-8"))
     except Exception as exc:
         return None, [f"{path.name}: invalid repair overlay JSON: {exc}"]
     if not isinstance(obj, dict):
         return None, [f"{path.name}: repair overlay must be an object"]
-    if obj.get("schema_version") != SCHEMA:
-        errors.append(f"{path.name}: repair overlay schema mismatch")
-    return obj, errors
+    return obj, []
 
 
 def resolve_repair_overlay(
@@ -51,11 +49,11 @@ def resolve_repair_overlay(
     start: int,
     end: int,
 ) -> tuple[dict[str, Any] | None, str | None, list[str]]:
-    """Return (effective_window, overlay_name, errors).
+    """Return (effective_window, active_overlay_name, errors).
 
-    None effective_window means no valid overlay should replace the source.
-    Repair overlays are append-only and bind to the exact original staging bytes.
-    If more than one overlay exists, exactly one unsuperseded leaf must remain.
+    A valid newer overlay may supersede an older invalid overlay by filename.
+    Errors in a superseded overlay are forensic history and do not poison the
+    current effective state. Any invalid UNSUPERSEDED overlay still fails closed.
     """
     repair_dir = source_path.parent / "repairs"
     if not repair_dir.exists():
@@ -69,78 +67,99 @@ def resolve_repair_overlay(
     expected_blob = git_blob_sha(source_bytes)
     expected_sha256 = hashlib.sha256(source_bytes).hexdigest()
 
-    loaded: dict[str, dict[str, Any]] = {}
-    errors: list[str] = []
+    expected_source_path = source_path.as_posix()
+    root_marker = "docs/issue132/parallel/"
+    if root_marker in expected_source_path:
+        expected_source_path = root_marker + expected_source_path.split(root_marker, 1)[1]
+
+    records: dict[str, dict[str, Any]] = {}
 
     for path in candidates:
+        errors: list[str] = []
         m = REPAIR_RE.match(path.name)
         if not m:
             errors.append(f"{path.name}: invalid repair overlay filename")
-            continue
-        file_start, file_end = int(m.group(1)), int(m.group(2))
-        if file_start != start or file_end != end:
-            errors.append(f"{path.name}: filename range mismatch")
-            continue
 
-        obj, obj_errors = _load_overlay(path)
-        errors.extend(obj_errors)
-        if obj is None:
-            continue
+        obj, load_errors = _load_overlay(path)
+        errors.extend(load_errors)
 
-        if obj.get("lane") != lane:
-            errors.append(f"{path.name}: lane mismatch")
-        if obj.get("lane_local_start") != start or obj.get("lane_local_end") != end:
-            errors.append(f"{path.name}: range metadata mismatch")
-        expected_source_path = source_path.as_posix()
-        root_marker = "docs/issue132/parallel/"
-        if root_marker in expected_source_path:
-            expected_source_path = root_marker + expected_source_path.split(root_marker, 1)[1]
-        if obj.get("source_staging_path") != expected_source_path:
-            errors.append(f"{path.name}: source_staging_path mismatch")
-        if obj.get("source_staging_blob_sha") != expected_blob:
-            errors.append(f"{path.name}: source staging blob SHA mismatch")
-        source_sha256 = obj.get("source_staging_sha256")
-        if source_sha256 is not None and source_sha256 != expected_sha256:
-            errors.append(f"{path.name}: source staging SHA-256 mismatch")
+        if m:
+            file_start, file_end = int(m.group(1)), int(m.group(2))
+            if file_start != start or file_end != end:
+                errors.append(f"{path.name}: filename range mismatch")
 
-        reasons = obj.get("repair_reason_codes")
-        if not isinstance(reasons, list) or not reasons:
-            errors.append(f"{path.name}: repair_reason_codes must be a non-empty list")
-        elif any(r not in ALLOWED_REASON_CODES for r in reasons):
-            errors.append(f"{path.name}: unsupported repair_reason_codes")
+        if obj is not None:
+            if obj.get("schema_version") != SCHEMA:
+                errors.append(f"{path.name}: repair overlay schema mismatch")
+            if obj.get("lane") != lane:
+                errors.append(f"{path.name}: lane mismatch")
+            if obj.get("lane_local_start") != start or obj.get("lane_local_end") != end:
+                errors.append(f"{path.name}: range metadata mismatch")
+            if obj.get("source_staging_path") != expected_source_path:
+                errors.append(f"{path.name}: source_staging_path mismatch")
+            if obj.get("source_staging_blob_sha") != expected_blob:
+                errors.append(f"{path.name}: source staging blob SHA mismatch")
 
-        supersedes = obj.get("supersedes", [])
-        if not isinstance(supersedes, list) or any(not isinstance(x, str) for x in supersedes):
-            errors.append(f"{path.name}: supersedes must be a list of filenames")
+            source_sha256 = obj.get("source_staging_sha256")
+            if source_sha256 is not None and source_sha256 != expected_sha256:
+                errors.append(f"{path.name}: source staging SHA-256 mismatch")
 
-        window = obj.get("effective_window")
-        if not isinstance(window, dict):
-            errors.append(f"{path.name}: effective_window must be an object")
-        else:
-            payload_sha = hashlib.sha256(canonical_window_bytes(window)).hexdigest()
-            declared_payload_sha = obj.get("effective_window_sha256")
-            if declared_payload_sha is not None and declared_payload_sha != payload_sha:
-                errors.append(f"{path.name}: effective_window_sha256 mismatch")
+            reasons = obj.get("repair_reason_codes")
+            if not isinstance(reasons, list) or not reasons:
+                errors.append(f"{path.name}: repair_reason_codes must be a non-empty list")
+            elif any(r not in ALLOWED_REASON_CODES for r in reasons):
+                errors.append(f"{path.name}: unsupported repair_reason_codes")
 
-        loaded[path.name] = obj
+            supersedes = obj.get("supersedes", [])
+            if not isinstance(supersedes, list) or any(not isinstance(x, str) for x in supersedes):
+                errors.append(f"{path.name}: supersedes must be a list of filenames")
 
-    if errors:
-        return None, None, errors
-
-    superseded: set[str] = set()
-    for name, obj in loaded.items():
-        for old in obj.get("supersedes", []):
-            if old not in loaded:
-                errors.append(f"{name}: supersedes unknown overlay {old}")
+            window = obj.get("effective_window")
+            if not isinstance(window, dict):
+                errors.append(f"{path.name}: effective_window must be an object")
             else:
-                superseded.add(old)
+                payload_sha = hashlib.sha256(canonical_window_bytes(window)).hexdigest()
+                declared_payload_sha = obj.get("effective_window_sha256")
+                if declared_payload_sha is not None and declared_payload_sha != payload_sha:
+                    errors.append(f"{path.name}: effective_window_sha256 mismatch")
 
-    active = [name for name in loaded if name not in superseded]
+        records[path.name] = {"obj": obj, "errors": errors}
+
+    candidate_names = set(records)
+
+    # A supersession declaration is trusted only from an otherwise valid overlay.
+    # A valid overlay may intentionally supersede an older malformed/invalid file.
+    for name, rec in records.items():
+        if rec["errors"] or rec["obj"] is None:
+            continue
+        for old in rec["obj"].get("supersedes", []):
+            if old not in candidate_names:
+                rec["errors"].append(f"{name}: supersedes unknown overlay {old}")
+
+    valid_names = {
+        name for name, rec in records.items()
+        if rec["obj"] is not None and not rec["errors"]
+    }
+    superseded: set[str] = set()
+    for name in valid_names:
+        superseded.update(records[name]["obj"].get("supersedes", []))
+
+    active = sorted(candidate_names - superseded)
     if len(active) != 1:
-        errors.append(
-            f"repair overlays for lane {lane} {start}-{end}: expected exactly one active leaf, got {active}"
-        )
-        return None, None, errors
+        details = []
+        for name in active:
+            errs = records[name]["errors"]
+            details.append(f"{name} errors={errs}" if errs else name)
+        return None, None, [
+            f"repair overlays for lane {lane} {start}-{end}: "
+            f"expected exactly one active leaf, got {details}"
+        ]
 
     active_name = active[0]
-    return loaded[active_name]["effective_window"], active_name, errors
+    active_rec = records[active_name]
+    if active_rec["errors"] or active_rec["obj"] is None:
+        return None, None, list(active_rec["errors"]) or [
+            f"{active_name}: active overlay is unreadable"
+        ]
+
+    return active_rec["obj"]["effective_window"], active_name, []
