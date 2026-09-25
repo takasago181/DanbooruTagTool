@@ -27,7 +27,11 @@ Use the fewest possible tool round-trips. When orchestration/Code Mode is availa
 
 1. Read RUNTIME_AUTHORITY.json and this active Worker card.
 2. List only this lane's staging directory once. Filter only `window_XXXXXX_YYYYYY.json` files.
-3. Compute:
+   - A single directory-list 404/timeout/tool error is NOT proof that staging is absent and is NOT by itself a valid run blocker.
+   - On such an operational failure, immediately use the metadata-only tree fallback: fetch the branch HEAD/tree and one recursive Git tree, then filter exact paths matching `docs/issue132/parallel/lane-N/staging/window_XXXXXX_YYYYYY.json`.
+   - Do not read file contents during this fallback. Do not search Issue history or status caches.
+   - Stop for frontier discovery only if BOTH the normal listing and the tree fallback fail to provide authoritative path metadata.
+3. Compute from whichever authoritative path listing succeeded:
    - high_watermark = highest persisted window end;
    - new_frontier = high_watermark + 1;
    - any missing 25-slot window below high_watermark = write-gap.
@@ -101,9 +105,9 @@ Failure:
 Forward Worker never updates historical staging.
 
 ## Valid stop
-Only: 300 slots attempted as far as safely possible, lane complete, true contract/shard mismatch, or an actual required tool/platform call fails or forcibly interrupts execution.
+Only: 300 slots attempted as far as safely possible, lane complete, true contract/shard mismatch, or required authoritative state still cannot be recovered after the card's allowed operational fallback(s).
 
-Preflight consuming the run is an execution-design failure, not a semantic blocker. The hot path above must be attempted before optional work.
+One transient 404/timeout/tool failure is not sufficient when an authorized independent metadata path remains available. Preflight consuming the run is an execution-design failure, not a semantic blocker. The hot path and its fallback must be attempted before optional work.
 
 Automation liveness is separate from run success. A tool failure, write rejection, semantic blocker, or zero-persist run must be reported but MUST NOT disable/pause the scheduled Worker. Disable only after lane completion or explicit user instruction.
 
