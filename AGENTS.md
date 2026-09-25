@@ -276,7 +276,7 @@ Issue #180 active parallel authority is:
 
 v1 assignment/epoch scheduling is historical and must not be used for new work.
 
-Issue #180 is **authority-campaign driven**, not row/lane-count driven. Keep reusable family/roster/base authority together and shard by stable campaign_key. Positive checked evidence is not invalidated by unrelated canonical advancement; QA replays it against current canonical. Terminal conclusions remain exact-fingerprint bound.
+Issue #180 is **authority-campaign driven**, not row/lane-count driven. Keep reusable family/roster/base authority together and shard by stable campaign_key. Positive checked evidence is not invalidated by unrelated canonical advancement; QA replays it against current canonical. Campaign-level negative outcomes are fingerprinted research accounting and suppress only that exact campaign on future queues. Canonical terminal conclusions remain exact Research Unit fingerprint-bound.
 
 Forward 0..3 are proposal-only under `proposals-v2/fwd-N/`. QA / Integrator is the only canonical writer and owns deterministic closure, integration, routine repair and fast-forward promotion to the research canonical branch.
 

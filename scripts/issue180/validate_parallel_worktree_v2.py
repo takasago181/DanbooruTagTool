@@ -43,7 +43,7 @@ RELATION_CONTRACTS={
 }
 
 def validate_batch(data: dict, slot: int, path: Path, slots: int) -> None:
-    required={"schema_version","proposal_id","campaign_key","worker_slot","batch_type","source_url","source_claim",
+    required={"schema_version","proposal_id","campaign_key","campaign_fingerprint","worker_slot","batch_type","source_url","source_claim",
               "authority_type","evidence_basis","relations","terminal_reviews","notes"}
     missing=required-set(data)
     if missing:
@@ -55,6 +55,9 @@ def validate_batch(data: dict, slot: int, path: Path, slots: int) -> None:
     key=str(data["campaign_key"]).strip()
     if not key or owner_slot(key,slots)!=slot:
         raise SystemExit(f"{path}: campaign_key is owned by another Forward lane")
+    cfp=str(data["campaign_fingerprint"]).strip().lower()
+    if len(cfp)!=64 or any(ch not in "0123456789abcdef" for ch in cfp):
+        raise SystemExit(f"{path}: campaign_fingerprint must be sha256 hex")
     if not isinstance(data["relations"],list) or not isinstance(data["terminal_reviews"],list):
         raise SystemExit(f"{path}: relations/terminal_reviews must be arrays")
     btype=data["batch_type"]

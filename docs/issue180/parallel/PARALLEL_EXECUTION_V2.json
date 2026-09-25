@@ -34,7 +34,11 @@
     "fixed_epoch_thresholds": false,
     "owner_function": "sha256(campaign_key) modulo 4",
     "campaign_negative_outcome_is_authority": false,
-    "campaign_negative_outcome_requires_unit_terminalization_by_qa": true
+    "campaign_negative_outcome_requires_unit_terminalization_by_qa": true,
+    "accepted_outcome_decision": "ACCEPT_OUTCOME",
+    "accepted_outcomes_suppress_exact_campaign_research": true,
+    "campaign_fingerprint_basis": "campaign_key + current campaign member tags",
+    "terminal_candidate_artifact": "artifacts/issue180-v3/parallel_terminal_candidates_v2.csv"
   },
   "rules": {
     "single_canonical_writer": true,
