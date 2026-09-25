@@ -27,9 +27,9 @@ Coordinator does not redo normal Worker classification or historical Repair work
 Per run:
 1. read RUNTIME_AUTHORITY.json, this card, QA_BASELINE.json;
 2. list checkpoint/staging/repair-overlay/QA-marker metadata needed for current effective state;
-3. read the effective first staging window immediately after each lane checkpoint prefix to count promotion-blocking holds exactly;
-4. inspect latest relevant Issue132 CI summary once;
-5. fetch detailed CI logs only if run/head/failure class changed or exact effective invalid windows cannot otherwise be determined.
+3. inspect latest relevant Issue132 CI summary once;
+4. when the current staging-validator v3 JSON is present, take exact `effective_invalid_windows`, `effective_invalid_window_counts`, `promotion_blocking_holds`, and total directly from it;
+5. only if those fields are absent/null/stale, read the effective first staging window after the affected lane checkpoint prefix and/or fetch detailed CI logs.
 
 Never use deleted status caches as authority.
 
@@ -77,10 +77,12 @@ Raw historical staging may remain invalid.
 A valid active repair overlay supersedes raw-source debt for that source window.
 Do not count stale raw errors after a valid active overlay exists.
 
-Use current effective validator/CI evidence to identify remaining effective invalid windows. If the latest CI predates an active overlay, do not use it to re-add that source as debt.
+Use current effective validator/CI evidence to identify remaining effective invalid windows. Prefer staging-validator v3 machine-readable counts over manually parsing individual ERROR lines. If the latest CI predates an active overlay, do not use it to re-add that source as debt.
 
 CI failure caused solely by known historical staging debt does not stop forward Workers.
 Frozen/immutable contract failure does.
+
+Automation liveness is separate from report severity. CI red, QA debt, unreadable one-off metadata, or a zero-change run must not disable/pause the scheduled Coordinator. Disable only after Issue132 completion or explicit user instruction.
 
 ## Report
 Only:
