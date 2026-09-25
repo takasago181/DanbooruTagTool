@@ -26,7 +26,7 @@ Coordinator does not redo normal Worker classification or historical Repair work
 ## Minimal live read
 Per run:
 1. read RUNTIME_AUTHORITY.json, this card, QA_BASELINE.json;
-2. FIRST use the latest applicable Issue132 staging-validator v3 JSON `coordinator_snapshot` emitted by CI. It is the canonical low-round-trip source for:
+2. FIRST use the latest applicable Issue132 staging-validator v3 coordinator snapshot emitted by CI. Prefer the single log line beginning `COORDINATOR_SNAPSHOT_JSON=`; parse only the JSON after `=`. If that marker is absent, fall back to the nested `coordinator_snapshot` object in the validator JSON. It is the canonical low-round-trip source for:
    - checkpoint prefixes;
    - staging high-watermarks and write-gaps;
    - QA marker counts, post-baseline QA due, deterministic next legacy QA;
