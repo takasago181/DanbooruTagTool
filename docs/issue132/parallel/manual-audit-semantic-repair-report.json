@@ -1,17 +1,4 @@
 {
   "entry_count": 85,
-  "written": [
-    "docs/issue132/parallel/lane-1/staging/repairs/repair_000726_000750_v002.json",
-    "docs/issue132/parallel/lane-1/staging/repairs/repair_000826_000850_v002.json",
-    "docs/issue132/parallel/lane-1/staging/repairs/repair_000876_000900_v002.json",
-    "docs/issue132/parallel/lane-1/staging/repairs/repair_000901_000925_v002.json",
-    "docs/issue132/parallel/lane-1/staging/repairs/repair_000926_000950_v002.json",
-    "docs/issue132/parallel/lane-1/staging/repairs/repair_000951_000975_v002.json",
-    "docs/issue132/parallel/lane-1/staging/repairs/repair_000976_001000_v002.json",
-    "docs/issue132/parallel/lane-1/staging/repairs/repair_001001_001025_v002.json",
-    "docs/issue132/parallel/lane-1/staging/repairs/repair_001026_001050_v002.json",
-    "docs/issue132/parallel/lane-1/staging/repairs/repair_001051_001075_v002.json",
-    "docs/issue132/parallel/lane-1/staging/repairs/repair_001076_001100_v002.json",
-    "docs/issue132/parallel/lane-1/staging/repairs/repair_001101_001125_v002.json"
-  ]
+  "written": []
 }
