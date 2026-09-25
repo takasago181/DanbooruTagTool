@@ -22,8 +22,7 @@ Forward discovers and checks reusable authority. QA is the only canonical writer
 
 The scheduler groups current residual work by the authority that can be reused:
 
-- `family:<key>` — prove a stable family/work HOME once, then named membership separately as needed;
-- `roster:<key>` — inspect one official/accepted roster and extract all exact covered current Characters;
+- `authority:<key>` — unifies matching family/discovery-roster leads so the same work authority is not researched by two lanes;
 - `base:<character>` — validate variant/base identity once and reuse the confirmed base HOME;
 - other non-ungrouped subjects remain one stable campaign;
 - only genuinely structure-free direct long-tail work falls back to `direct:<canonical_tag>`.
@@ -42,6 +41,9 @@ python scripts/issue180/build_parallel_campaigns_v2.py
 
 Generated queue:
 `artifacts/issue180-v3/parallel_authority_campaigns_v2.csv`
+
+Accounting-only terminal candidates:
+`artifacts/issue180-v3/parallel_terminal_candidates_v2.csv`
 
 The queue is a **research lead**, not authority and not a lock.
 
@@ -77,7 +79,7 @@ Every Forward TERMINAL_BATCH item must include:
 
 QA accepts a terminal conclusion only if the exact current unit fingerprint still matches. Otherwise the conclusion is obsolete and the regenerated remainder is reviewed separately.
 
-For campaigns that are intentionally smaller than their source Research Unit (especially structure-free `direct:<canonical_tag>` work), a worker must **not** fake a unit-level terminal review. Instead write a `RESEARCH_OUTCOME` batch recording that this campaign was checked and produced no safe positive relation. QA records that outcome as research accounting only. When every current campaign covering an exact residual unit has been exhausted and the current unit fingerprint still matches, QA may then create the canonical unit-level terminal review.
+For campaigns that are intentionally smaller than their source Research Unit (especially structure-free `direct:<canonical_tag>` work), a worker must **not** fake a unit-level terminal review. Instead write a `RESEARCH_OUTCOME` batch recording that this campaign was checked and produced no safe positive relation. QA records that outcome as research accounting only with decision `ACCEPT_OUTCOME` and the exact campaign fingerprint. The scheduler then marks that campaign `EXHAUSTED_REVIEWED` and does not assign it again. If its target population changes, its fingerprint changes and it automatically reopens. When every current campaign covering an exact residual unit has been exhausted and the current unit fingerprint still matches, the scheduler lists the unit in `parallel_terminal_candidates_v2.csv`; QA may then create the canonical unit-level terminal review after normal v3 checks.
 
 QA-owned deterministic/policy buckets remain:
 - `SAFE_STRUCTURE_READY`
@@ -110,7 +112,7 @@ For each lane:
 
 1. fetch current canonical before selecting new work;
 2. rebuild v3 + authority campaigns when starting a new queue wave;
-3. choose only campaign keys owned by that lane;
+3. choose only `research_state=OPEN` campaign keys owned by that lane;
 4. research highest reusable-yield campaigns first;
 5. inspect the actual source page;
 6. exhaust safe exact matches from that source before moving on;
@@ -134,12 +136,13 @@ QA:
 6. record decisions in `QA_REVIEW_LEDGER_V2.csv`;
 7. reject duplicate/obsolete/conflicting relations individually rather than discarding an entire good source batch;
 8. validate TERMINAL_BATCH only against exact current unit fingerprint;
-9. record RESEARCH_OUTCOME as non-authoritative campaign accounting; never turn one campaign-level negative into a unit terminal by itself;
-10. when all campaigns covering an exact current residual unit are accounted as exhausted and no admissible path remains, QA may create the canonical unit-level terminal review with the current fingerprint;
-11. rebuild v3 when accepted family/member/variant evidence can reshape the graph;
-12. direct-HOME-only source batches may be accumulated into a coherent wave before one full rebuild;
-13. push QA, require full-v3 CI green, then fast-forward the exact green QA HEAD to canonical;
-14. repeat until OPEN/PENDING = 0.
+9. accept a current RESEARCH_OUTCOME with QA decision `ACCEPT_OUTCOME`, preserving campaign_key + campaign_fingerprint; never turn one campaign-level negative into a unit terminal by itself;
+10. rebuild the campaign queue so accepted exact outcomes become `EXHAUSTED_REVIEWED` and are not researched again;
+11. use `parallel_terminal_candidates_v2.csv` to find exact current units whose campaigns are all exhausted; only after confirming no admissible path remains may QA create the canonical unit-level terminal review;
+12. rebuild v3 when accepted family/member/variant evidence can reshape the graph;
+13. direct-HOME-only source batches may be accumulated into a coherent wave before one full rebuild;
+14. push QA, require full-v3 CI green, then fast-forward the exact green QA HEAD to canonical;
+15. repeat until OPEN/PENDING = 0.
 
 There is no fixed "50 proposals / 250 members" epoch rule. Natural source/graph boundaries decide integration waves.
 

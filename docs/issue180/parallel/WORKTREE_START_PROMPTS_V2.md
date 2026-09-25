@@ -8,7 +8,7 @@ Branch: `research/issue180-forward-N`
 
 Read root AGENTS.md, live Issue #180 latest comment, `PARALLEL_EXECUTION_V2.md`, `PARALLEL_EXECUTION_V2.json`, `AUTHORITY_BATCH_SCHEMA_V2.md`, and v3 README.
 
-Fetch canonical before selecting new work. Run full v3 and `build_parallel_campaigns_v2.py` when starting a new campaign wave. Process only Forward campaigns whose owner_slot=N.
+Fetch canonical before selecting new work. Run full v3 and `build_parallel_campaigns_v2.py` when starting a new campaign wave. Process only Forward campaigns whose owner_slot=N and `research_state=OPEN`. Never redo `EXHAUSTED_REVIEWED` campaigns.
 
 Research by reusable authority, not by Character count. Family/roster/base authority must stay together. Check the actual page and exhaust all exact Issue #180 relations safely proved by that source. If the same page proves additional exact current Characters outside the starting campaign, include them in the same AUTHORITY_BATCH. Do not infer unlisted members or HOME.
 
@@ -16,7 +16,7 @@ Write only under `docs/issue180/parallel/proposals-v2/fwd-N/`. One checked sourc
 
 Canonical advancing while a real source is being reviewed does not invalidate positive evidence. Finish the source batch, push it, then refresh canonical/campaign queue before selecting the next campaign.
 
-Use TERMINAL_BATCH only when the exact whole current Research Unit was genuinely reviewed and bind it to current unit_id + member_ids_sha256. If only one smaller campaign (for example one `direct:<tag>`) was exhausted with no safe relation, write RESEARCH_OUTCOME instead; it is accounting, not a terminal decision. Do not terminalize QA-owned policy/identity/structural/conflict buckets.
+Use TERMINAL_BATCH only when the exact whole current Research Unit was genuinely reviewed and bind it to current unit_id + member_ids_sha256. If only one smaller campaign (for example one `direct:<tag>`) was exhausted with no safe relation, write RESEARCH_OUTCOME with the exact current campaign_fingerprint; it is accounting, not a terminal decision. Do not terminalize QA-owned policy/identity/structural/conflict buckets.
 
 Commit/push coarse source batches and continue. Routine duplicates, regenerated campaigns, safe unresolved results and technical retries are not user blockers.
 
@@ -32,7 +32,7 @@ First process QA-owned deterministic buckets in bulk. Rebuild v3 + authority cam
 
 For each new AUTHORITY_BATCH, independently verify the source/claim and apply each exact relation against current canonical state. Accept valid still-useful relations, deduplicate already-covered relations, and reject obsolete/conflicting relations individually. Do not discard an otherwise valid source batch merely because canonical advanced after the worker researched it.
 
-For TERMINAL_BATCH, require exact current unit_id + member fingerprint. Reject stale terminal conclusions and review the regenerated remainder separately. Treat RESEARCH_OUTCOME only as campaign accounting. Terminalize an exact Research Unit only after all of its current campaigns are accounted and the current fingerprint still has no admissible safe path.
+For TERMINAL_BATCH, require exact current unit_id + member fingerprint. Reject stale terminal conclusions and review the regenerated remainder separately. Treat RESEARCH_OUTCOME only as campaign accounting. Accept a current one as `ACCEPT_OUTCOME` with campaign_key + campaign_fingerprint, rebuild the queue so it becomes `EXHAUSTED_REVIEWED`, and use `parallel_terminal_candidates_v2.csv` only as an accounting signal. Terminalize an exact Research Unit only after all current campaigns are exhausted and the current unit fingerprint still has no admissible safe path.
 
 Record QA decisions in `QA_REVIEW_LEDGER_V2.csv`. Rebuild immediately after accepted family/member/variant evidence that can reshape the graph. Direct-HOME-only batches may be accumulated into a coherent source wave before one rebuild.
 

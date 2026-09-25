@@ -12,7 +12,8 @@ Required fields:
 {
   "schema_version": 2,
   "proposal_id": "ab2-unique-id",
-  "campaign_key": "family:example | roster:example | base:example | direct:example",
+  "campaign_key": "authority:example | base:example | direct:example",
+  "campaign_fingerprint": "<sha256 from current campaign queue>",
   "worker_slot": 0,
   "batch_type": "AUTHORITY_BATCH",
   "source_url": "https://...",
@@ -45,7 +46,7 @@ Allowed relation contracts:
 
 A source batch may include exact covered Issue #180 Characters outside the original campaign when the same checked source explicitly proves them. QA handles deduplication/current-state applicability.
 
-AUTHORITY_BATCH does **not** contain or depend on canonical SHA, epoch ID, assignment ID or Research Unit fingerprint. A real checked relation does not become false because another lane advanced canonical.
+AUTHORITY_BATCH does **not** depend on canonical SHA, epoch ID, assignment ID or Research Unit fingerprint. `campaign_fingerprint` records which research lead produced the batch, but QA must not reject valid positive relations merely because that campaign fingerprint is no longer current. A real checked relation does not become false because another lane advanced canonical.
 
 ## TERMINAL_BATCH
 
@@ -56,6 +57,7 @@ Use only for a Forward-owned residual that was actually reviewed and remains unr
   "schema_version": 2,
   "proposal_id": "tb2-unique-id",
   "campaign_key": "direct:example",
+  "campaign_fingerprint": "<sha256 from current campaign queue>",
   "worker_slot": 0,
   "batch_type": "TERMINAL_BATCH",
   "source_url": "",
@@ -93,6 +95,7 @@ Use this when one authority campaign was actually researched but produced no saf
   "schema_version": 2,
   "proposal_id": "ro2-unique-id",
   "campaign_key": "direct:example",
+  "campaign_fingerprint": "<sha256 from current campaign queue>",
   "worker_slot": 0,
   "batch_type": "RESEARCH_OUTCOME",
   "source_url": "",
@@ -105,9 +108,11 @@ Use this when one authority campaign was actually researched but produced no saf
 }
 ```
 
-RESEARCH_OUTCOME is research accounting only. It is not negative evidence and is not a canonical terminal decision.
+RESEARCH_OUTCOME is research accounting only. It is not negative evidence and is not a canonical terminal decision. QA accepts it with decision token `ACCEPT_OUTCOME` only when `campaign_key + campaign_fingerprint` still matches the current campaign queue.
 
-QA may use accumulated current campaign outcomes to decide when an exact residual Research Unit has been fully reviewed, but the actual canonical terminal review still requires the current unit_id + member_ids_sha256 and the normal v3 terminal rules.
+The scheduler reads accepted outcomes from `QA_REVIEW_LEDGER_V2.csv` and marks that exact campaign `EXHAUSTED_REVIEWED`, preventing repeated research. If the campaign target changes, its fingerprint changes and it automatically reopens. Structure-free `direct:<tag>` fingerprints depend only on that tag campaign, so resolving a sibling tag does not unnecessarily reopen already-reviewed direct work.
+
+`parallel_terminal_candidates_v2.csv` reports exact current Research Units for which every current Forward campaign is `EXHAUSTED_REVIEWED`. This is accounting only; QA still applies the normal v3 terminal rules and exact unit fingerprint before writing a canonical terminal review.
 
 ## TECHNICAL_ESCALATION
 
