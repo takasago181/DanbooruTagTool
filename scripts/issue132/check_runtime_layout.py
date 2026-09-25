@@ -9,6 +9,7 @@ from codex_runtime import load_runtime
 ROOT = Path(__file__).resolve().parents[2]
 
 ACTIVE_FILES = [
+    "AGENTS.md",
     "docs/issue132/parallel/RUNTIME_AUTHORITY.json",
     "docs/issue132/CODEX_RUNTIME_V4.md",
     "docs/issue132/parallel/pass_a_semantic_contract_v2.json",
@@ -48,6 +49,26 @@ def main() -> None:
         errors.append("autonomous runtime authority schema mismatch")
     if authority.get("status") != "ACTIVE_CODEX_AUTONOMOUS":
         errors.append("autonomous runtime status mismatch")
+
+    agents_path = ROOT / "AGENTS.md"
+    agents = agents_path.read_text(encoding="utf-8") if agents_path.is_file() else ""
+    required_agents_tokens = [
+        "autonomous Codex Pass-A execution",
+        "docs/issue132/CODEX_RUNTIME_V4.md",
+        "CODEX-QA-REPAIR",
+        "final_internal_qa_passed=true",
+    ]
+    for token in required_agents_tokens:
+        if token not in agents:
+            errors.append(f"AGENTS.md missing current #132 routing token: {token}")
+    forbidden_agents_tokens = [
+        "3 normal ChatGPT Automation workers + 1 coordinator",
+        "CURRENT_AUTOMATION_OPERATION.md` for live operational cadence",
+        "WORKER_EXECUTION_CARD_V1.md` for the compact worker rules",
+    ]
+    for token in forbidden_agents_tokens:
+        if token in agents:
+            errors.append(f"AGENTS.md still contains obsolete #132 routing: {token}")
 
     guide_path = ROOT / authority.get("runtime_guide", {}).get("path", "")
     guide = guide_path.read_text(encoding="utf-8") if guide_path.is_file() else ""
