@@ -17,8 +17,6 @@ ROOT = Path(__file__).resolve().parents[2]
 REQUEST_SCHEMA = "issue132-pass-a-write-request-v1"
 OUTPUT_SCHEMA = "issue132-pass-a-staging-window-v2"
 EXPECTED_PARENT_SHA = "ac0f888d02f19a440c63b3b9f695c58f9ba53b98ebe9756edec51db1c5ff8f7d"
-EXPECTED_ORDER_SHA = "f80c63018ce19b9a3f86b22f294135f96a707c"
-# overwritten below from the pinned manifest to avoid accidental drift
 EXPECTED_ORDER_SHA = "f80c63018ce19a8c7c5d8d6fd83d03cf760c510d8f6cfa455d1ab356fb31361b"
 REQ_RE = re.compile(r"^request_(\d{6})_(\d{6})\.json$")
 
