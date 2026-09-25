@@ -20,6 +20,7 @@ from staging_repair_overlay import resolve_repair_overlay
 ROOT = Path(__file__).resolve().parents[2]
 LANES = (1, 2, 3)
 STAGE_RE = re.compile(r"^window_(\d{6})_(\d{6})\.json$")
+QA_RE = re.compile(r"^qa_(\d{6})_(\d{6})\.json$")
 SCHEMA_V1 = "issue132-pass-a-staging-window-v1"
 EXPECTED_PARENT_SHA = "ac0f888d02f19a440c63b3b9f695c58f9ba53b98ebe9756edec51db1c5ff8f7d"
 EXPECTED_ORDER_SHA = "f80c63018ce19a8c7c5d8d6fd83d03cf760c510d8f6cfa455d1ab356fb31361b"
@@ -64,6 +65,18 @@ def main():
     summary: dict[str, object] = {}
     total_finalized = 0
     total_holds = 0
+
+    qa_baseline_path = ROOT / args.parallel_dir / "QA_BASELINE.json"
+    qa_baseline = {}
+    if qa_baseline_path.is_file():
+        try:
+            qa_baseline = json.loads(qa_baseline_path.read_text(encoding="utf-8"))
+        except Exception as exc:
+            errors.append(f"QA baseline unreadable: {exc}")
+    else:
+        errors.append("QA baseline missing")
+
+    qa_root = ROOT / args.parallel_dir / "qa"
 
     for lane in LANES:
         assigned = [r for r in neutral if ((int(r["review_seq"]) - 1) % 3) + 1 == lane]
@@ -291,12 +304,70 @@ def main():
 
         total_finalized += lane_finalized
         total_holds += lane_holds
+
+        staging_high_watermark = max((int(w["end"]) for w in windows), default=prefix)
+        stage_ranges = {(int(w["start"]), int(w["end"])) for w in windows}
+        write_gaps = []
+        if staging_high_watermark > prefix:
+            expected_start = prefix + 1
+            while expected_start <= staging_high_watermark:
+                expected_end = min(expected_start + 24, len(assigned))
+                if (expected_start, expected_end) not in stage_ranges:
+                    write_gaps.append({
+                        "start": expected_start,
+                        "end": expected_end,
+                        "path": f"window_{expected_start:06d}_{expected_end:06d}.json",
+                    })
+                expected_start = expected_end + 1
+
+        qa_markers = []
+        qa_lane_dir = qa_root / f"lane-{lane}"
+        if qa_lane_dir.exists():
+            for qa_path in sorted(qa_lane_dir.glob("qa_*.json")):
+                qm = QA_RE.match(qa_path.name)
+                if qm:
+                    qstart, qend = map(int, qm.groups())
+                    qa_markers.append({
+                        "path": qa_path.name,
+                        "start": qstart,
+                        "end": qend,
+                    })
+
+        marker_ends = {int(m["end"]) for m in qa_markers}
+        next_post_boundary = (
+            qa_baseline.get("post_baseline_next_qa_boundary", {}).get(str(lane))
+            if isinstance(qa_baseline, dict) else None
+        )
+        post_baseline_due = None
+        if isinstance(next_post_boundary, int):
+            post_baseline_due = (
+                next_post_boundary
+                if staging_high_watermark >= next_post_boundary
+                and next_post_boundary not in marker_ends
+                else None
+            )
+
+        legacy_boundaries = (
+            qa_baseline.get("legacy_backlog", {}).get(str(lane), [])
+            if isinstance(qa_baseline, dict) else []
+        )
+        legacy_due = [
+            int(boundary)
+            for boundary in legacy_boundaries
+            if isinstance(boundary, int) and boundary not in marker_ends
+        ]
+
         summary[str(lane)] = {
             "checkpoint_prefix": prefix,
             "staging_window_count": len(windows),
+            "staging_high_watermark": staging_high_watermark,
+            "write_gaps": write_gaps,
             "staged_finalized_rows": lane_finalized,
             "active_holds": lane_holds,
             "complete_staged_windows": complete_staged_windows,
+            "qa_markers": qa_markers,
+            "post_baseline_qa_due": post_baseline_due,
+            "legacy_qa_due": legacy_due,
             "windows": windows,
         }
 
@@ -339,8 +410,64 @@ def main():
         count is not None for count in promotion_blocking_holds.values()
     )
 
+    post_baseline_due = {
+        lane: summary[lane]["post_baseline_qa_due"]
+        for lane in sorted(summary)
+        if summary[lane]["post_baseline_qa_due"] is not None
+    }
+    legacy_candidates = sorted(
+        (
+            int(boundary),
+            int(lane),
+        )
+        for lane, lane_summary in summary.items()
+        for boundary in lane_summary["legacy_qa_due"]
+    )
+    next_legacy_qa = (
+        {"lane": legacy_candidates[0][1], "boundary": legacy_candidates[0][0]}
+        if legacy_candidates else None
+    )
+
+    lane3_route_family_windows = []
+    for name in invalid_window_summary.get("3", []):
+        m = STAGE_RE.match(name)
+        if not m:
+            continue
+        start, end = map(int, m.groups())
+        if not (end < 751 or start > 1050):
+            lane3_route_family_windows.append(name)
+
+    coordinator_snapshot = {
+        "checkpoint_prefixes": {
+            lane: summary[lane]["checkpoint_prefix"] for lane in sorted(summary)
+        },
+        "staging_high_watermarks": {
+            lane: summary[lane]["staging_high_watermark"] for lane in sorted(summary)
+        },
+        "write_gaps": {
+            lane: summary[lane]["write_gaps"] for lane in sorted(summary)
+        },
+        "qa_marker_counts": {
+            lane: len(summary[lane]["qa_markers"]) for lane in sorted(summary)
+        },
+        "post_baseline_qa_due": post_baseline_due,
+        "next_legacy_qa": next_legacy_qa,
+        "effective_invalid_windows": invalid_window_summary,
+        "effective_invalid_window_counts": invalid_window_counts,
+        "promotion_blocking_holds": promotion_blocking_holds,
+        "promotion_blocking_holds_total": (
+            known_promotion_hold_total if promotion_hold_counts_complete else None
+        ),
+        "lane3_route_family_range": [751, 1050],
+        "lane3_route_family_effective_invalid_windows": lane3_route_family_windows,
+        "lane3_route_family_state": (
+            "OUTSTANDING" if lane3_route_family_windows else "NO_EFFECTIVE_INVALID_WINDOWS"
+        ),
+    }
+
     result = {
         "schema_version": "issue132-parallel-staging-validation-v3",
+        "coordinator_snapshot": coordinator_snapshot,
         "staged_finalized_rows": total_finalized,
         "active_holds": total_holds,
         "lanes": summary,
