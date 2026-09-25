@@ -15,7 +15,7 @@
       "path": "docs/issue132/parallel/RUNTIME_REPAIR_CARD_V6.md"
     },
     "coordinator": {
-      "path": "docs/issue132/parallel/RUNTIME_COORDINATOR_CARD_V5.md"
+      "path": "docs/issue132/parallel/RUNTIME_COORDINATOR_CARD_V6.md"
     }
   },
   "fixed": {
@@ -53,5 +53,9 @@
     "adult_sexual_is_normal_supported_workflow": true,
     "semantic_unresolved_is_terminal_after_completed_bounded_research": true,
     "merge_or_production_apply_authorized": false
+  },
+  "qa": {
+    "baseline_path": "docs/issue132/parallel/QA_BASELINE.json",
+    "legacy_blocks_per_run_max": 1
   }
 }
