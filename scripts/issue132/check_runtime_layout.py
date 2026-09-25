@@ -9,7 +9,7 @@ PARALLEL = ROOT / "docs/issue132/parallel"
 AUTHORITY = PARALLEL / "RUNTIME_AUTHORITY.json"
 
 EXPECTED = {
-    "worker": "docs/issue132/parallel/RUNTIME_WORKER_CARD_V7.md",
+    "worker": "docs/issue132/parallel/RUNTIME_WORKER_CARD_V8.md",
     "repair": "docs/issue132/parallel/RUNTIME_REPAIR_CARD_V6.md",
     "coordinator": "docs/issue132/parallel/RUNTIME_COORDINATOR_CARD_V5.md",
 }
