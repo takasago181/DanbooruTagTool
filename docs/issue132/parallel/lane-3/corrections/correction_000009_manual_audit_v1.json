@@ -1,0 +1,18 @@
+{
+  "schema_version": "issue132-pass-a-correction-v1",
+  "lane": 3,
+  "lane_local_index": 3,
+  "review_seq": 9,
+  "identity_key": "broken_condom",
+  "source_checkpoint": "checkpoint_000001_000025.csv",
+  "qa_boundary": 3,
+  "reason": "Manual semantic audit remediation; code-only patch authority joined to frozen neutral identity.",
+  "expected_before": {
+    "route_1_reason_ja": "性具・小物としてシーンに置く対象",
+    "local_refinement_ids": "[\"OBJECT_PROP/DAILY\"]"
+  },
+  "patch": {
+    "route_1_reason_ja": "物体・道具・小物として探すのが自然",
+    "local_refinement_ids": "[]"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": "issue132-pass-a-correction-v1",
+  "lane": 3,
+  "lane_local_index": 162,
+  "review_seq": 486,
+  "identity_key": "rainbow_halo",
+  "source_checkpoint": "checkpoint_000151_000175.csv",
+  "qa_boundary": 162,
+  "reason": "Manual semantic audit remediation; code-only patch authority joined to frozen neutral identity.",
+  "expected_before": {
+    "route_1_id": "TOOL_OBJECT",
+    "route_1_reason_ja": "頭部周辺の光輪・装飾物として探すのが自然",
+    "route_2_reason_ja": "虹色という多色表現も独立した生成意図になる"
+  },
+  "patch": {
+    "route_1_id": "NONHUMAN_TRANSFORM",
+    "route_1_reason_ja": "非人間的特徴・変身要素として探すのが自然",
+    "route_2_reason_ja": "色・模様・形状として独立に探すのが自然"
+  }
+}

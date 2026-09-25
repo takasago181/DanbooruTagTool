@@ -1,0 +1,20 @@
+{
+  "schema_version": "issue132-pass-a-correction-v1",
+  "lane": 3,
+  "lane_local_index": 330,
+  "review_seq": 990,
+  "identity_key": "mismatched_animal_ear_colors",
+  "source_checkpoint": "checkpoint_000326_000350.csv",
+  "qa_boundary": 330,
+  "reason": "Manual semantic audit remediation; code-only patch authority joined to frozen neutral identity.",
+  "expected_before": {
+    "route_1_id": "HAIR_FACE",
+    "route_1_reason_ja": "頭部・耳の外見特徴として探すのが自然",
+    "route_2_reason_ja": "左右で異なる配色自体からも独立して探せる"
+  },
+  "patch": {
+    "route_1_id": "NONHUMAN_TRANSFORM",
+    "route_1_reason_ja": "非人間的特徴・変身要素として探すのが自然",
+    "route_2_reason_ja": "色・模様・形状として独立に探すのが自然"
+  }
+}

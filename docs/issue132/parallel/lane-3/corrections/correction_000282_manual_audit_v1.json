@@ -1,0 +1,18 @@
+{
+  "schema_version": "issue132-pass-a-correction-v1",
+  "lane": 3,
+  "lane_local_index": 94,
+  "review_seq": 282,
+  "identity_key": "bite_mark_on_ass",
+  "source_checkpoint": "checkpoint_000076_000100.csv",
+  "qa_boundary": 94,
+  "reason": "Manual semantic audit remediation; code-only patch authority joined to frozen neutral identity.",
+  "expected_before": {
+    "route_1_reason_ja": "尻の損傷・痕跡が主要な視覚",
+    "theme_ids": "[\"INJURY_R18G\"]"
+  },
+  "patch": {
+    "route_1_reason_ja": "身体部位・身体特徴として探すのが自然",
+    "theme_ids": "[]"
+  }
+}

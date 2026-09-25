@@ -1,0 +1,18 @@
+{
+  "schema_version": "issue132-pass-a-correction-v1",
+  "lane": 3,
+  "lane_local_index": 25,
+  "review_seq": 75,
+  "identity_key": "stitched_arm",
+  "source_checkpoint": "checkpoint_000001_000025.csv",
+  "qa_boundary": 25,
+  "reason": "Manual semantic audit remediation; code-only patch authority joined to frozen neutral identity.",
+  "expected_before": {
+    "route_1_reason_ja": "腕の損傷・外観状態として探すのが自然",
+    "theme_ids": "[\"INJURY_R18G\"]"
+  },
+  "patch": {
+    "route_1_reason_ja": "身体部位・身体特徴として探すのが自然",
+    "theme_ids": "[]"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "schema_version": "issue132-pass-a-correction-v1",
+  "lane": 3,
+  "lane_local_index": 329,
+  "review_seq": 987,
+  "identity_key": "pokemon_on_leg",
+  "source_checkpoint": "checkpoint_000326_000350.csv",
+  "qa_boundary": 329,
+  "reason": "Manual semantic audit remediation; code-only patch authority joined to frozen neutral identity.",
+  "expected_before": {
+    "route_1_id": "ACTION_CONTACT",
+    "route_1_reason_ja": "生物と人物の脚との接触・配置として探すのが自然",
+    "route_2_id": "",
+    "route_2_strength": "",
+    "route_2_reason_ja": "",
+    "local_refinement_ids": "[\"ACTION_CONTACT/INTERACTION\"]"
+  },
+  "patch": {
+    "route_1_id": "POSE_POSITION",
+    "route_1_reason_ja": "姿勢・位置関係として探すのが自然",
+    "route_2_id": "LIVING",
+    "route_2_strength": "SUPPORTING",
+    "route_2_reason_ja": "生物・植物として探すのが自然",
+    "local_refinement_ids": "[\"LIVING_NATURE/CREATURE\"]"
+  }
+}

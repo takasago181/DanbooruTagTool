@@ -1,0 +1,18 @@
+{
+  "schema_version": "issue132-pass-a-correction-v1",
+  "lane": 3,
+  "lane_local_index": 161,
+  "review_seq": 483,
+  "identity_key": "cutout_below_navel",
+  "source_checkpoint": "checkpoint_000151_000175.csv",
+  "qa_boundary": 161,
+  "reason": "Manual semantic audit remediation; code-only patch authority joined to frozen neutral identity.",
+  "expected_before": {
+    "route_1_reason_ja": "衣服の開口・露出デザインとして探すのが自然",
+    "local_refinement_ids": "[]"
+  },
+  "patch": {
+    "route_1_reason_ja": "衣服・装身具・露出状態として探すのが自然",
+    "local_refinement_ids": "[\"CLOTHING_STATE_EXPOSURE/\"]"
+  }
+}

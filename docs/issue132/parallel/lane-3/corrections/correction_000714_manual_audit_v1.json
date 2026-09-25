@@ -1,0 +1,20 @@
+{
+  "schema_version": "issue132-pass-a-correction-v1",
+  "lane": 3,
+  "lane_local_index": 238,
+  "review_seq": 714,
+  "identity_key": "meerkat_tail",
+  "source_checkpoint": "checkpoint_000226_000250.csv",
+  "qa_boundary": 238,
+  "reason": "Manual semantic audit remediation; code-only patch authority joined to frozen neutral identity.",
+  "expected_before": {
+    "route_1_id": "LIVING",
+    "route_1_reason_ja": "動物の身体特徴として探すのが自然",
+    "local_refinement_ids": "[\"LIVING_NATURE/CREATURE\"]"
+  },
+  "patch": {
+    "route_1_id": "NONHUMAN_TRANSFORM",
+    "route_1_reason_ja": "非人間的特徴・変身要素として探すのが自然",
+    "local_refinement_ids": "[]"
+  }
+}
