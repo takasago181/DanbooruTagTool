@@ -79,10 +79,10 @@ For validator errors involving identity shift, wrong review_seq/key, gap, duplic
 - rebuild the full 25-window from those tuples;
 - never renumber, slide, compress, or copy neighboring identities;
 - genuine ambiguity may become an exact-slot hold after bounded research;
-- pre-write exact tuple + 22-field + parent/local gate;
-- write;
+- pre-write exact tuple/hash gate, then reconstruct and validate the 22-field semantic rows in memory;
+- persist compact v2;
 - re-fetch;
-- repeat exact tuple + 22-field + parent/local gate;
+- bind hashes to authoritative identities, reconstruct, and repeat the 22-field + parent/local gate;
 - if post-write validation fails, repair/delete the same window before moving on.
 
 For a window whose tuple structure is already exact and validator reports only definite semantic/structural lint:
@@ -121,11 +121,9 @@ Maintain docs/issue132/parallel/repair_status.json with:
 
 Keep status compact; no repeated narrative history.
 
-## Primary write transport — Git object protocol
+## Persistence transport
 
-All Issue132 writes use `docs/issue132/parallel/GIT_OBJECT_WRITE_PROTOCOL_V1.md` as the PRIMARY transport. Do not use contents `create_file/update_file` for normal Issue132 persistence. Use branch-head/tree -> create_blob -> create_tree -> create_commit -> re-fetch head -> update_ref(force=false), with retry on concurrent branch advance exactly as defined there. Contents API is fallback only when the Git-object path is unavailable.
-
-A pre-write runtime safety refusal on contents API is not a blocker and must not stop/disable the task. Only an actually attempted Git-object path failure after the protocol's retries may become a write blocker.
+For rebuilt compact v2 staging and repair_status.json, use contents API first with current-SHA update for existing files and create for new files. Use `GIT_OBJECT_WRITE_PROTOCOL_V1.md` only after an actual contents API failure. Never force-update a ref. A transient write failure becomes `WRITE_RETRY_PENDING` for that run and never disables Repair.
 
 
 ## Compact staging v2 repair rule
