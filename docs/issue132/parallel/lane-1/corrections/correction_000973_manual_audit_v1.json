@@ -1,0 +1,16 @@
+{
+  "schema_version": "issue132-pass-a-correction-v1",
+  "lane": 1,
+  "lane_local_index": 325,
+  "review_seq": 973,
+  "identity_key": "reverse_paizuri",
+  "source_checkpoint": "checkpoint_000301_000325.csv",
+  "qa_boundary": 325,
+  "reason": "Manual semantic audit remediation; code-only patch authority joined to frozen neutral identity.",
+  "expected_before": {
+    "route_1_reason_ja": "性行為・身体接触として探すのが自然"
+  },
+  "patch": {
+    "route_1_reason_ja": "動作・接触として探すのが自然"
+  }
+}

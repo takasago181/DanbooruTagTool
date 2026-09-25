@@ -1,0 +1,18 @@
+{
+  "schema_version": "issue132-pass-a-correction-v1",
+  "lane": 1,
+  "lane_local_index": 513,
+  "review_seq": 1537,
+  "identity_key": "gibbous_moon",
+  "source_checkpoint": "checkpoint_000501_000525.csv",
+  "qa_boundary": 513,
+  "reason": "Manual semantic audit remediation; code-only patch authority joined to frozen neutral identity.",
+  "expected_before": {
+    "route_1_id": "SCENE_BACKGROUND",
+    "route_1_reason_ja": "空・月の視覚状態として探すのが自然"
+  },
+  "patch": {
+    "route_1_id": "LIGHT_TIME_WEATHER",
+    "route_1_reason_ja": "光・時間帯・天候として探すのが自然"
+  }
+}

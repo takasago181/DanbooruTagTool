@@ -1,0 +1,26 @@
+{
+  "schema_version": "issue132-pass-a-correction-v1",
+  "lane": 1,
+  "lane_local_index": 223,
+  "review_seq": 667,
+  "identity_key": "bust_measuring",
+  "source_checkpoint": "checkpoint_000176_000225.csv",
+  "qa_boundary": 223,
+  "reason": "Manual semantic audit remediation; code-only patch authority joined to frozen neutral identity.",
+  "expected_before": {
+    "route_1_reason_ja": "行為・接触として探すのが自然",
+    "route_2_id": "",
+    "route_2_strength": "",
+    "route_2_reason_ja": "",
+    "local_refinement_ids": "[\"ACTION_CONTACT/INTIMATE\"]",
+    "body_site_ids": "[]"
+  },
+  "patch": {
+    "route_1_reason_ja": "動作・接触として探すのが自然",
+    "route_2_id": "TOOL_OBJECT",
+    "route_2_strength": "SUPPORTING",
+    "route_2_reason_ja": "物体・道具・小物として探すのが自然",
+    "local_refinement_ids": "[\"ACTION_CONTACT/OBJECT_USE\"]",
+    "body_site_ids": "[\"BREAST_NIPPLE\"]"
+  }
+}

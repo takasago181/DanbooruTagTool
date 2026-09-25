@@ -1,0 +1,26 @@
+{
+  "schema_version": "issue132-pass-a-correction-v1",
+  "lane": 1,
+  "lane_local_index": 462,
+  "review_seq": 1384,
+  "identity_key": "pure_nail_(hollow_knight)",
+  "source_checkpoint": "checkpoint_000451_000475.csv",
+  "qa_boundary": 462,
+  "reason": "Manual semantic audit remediation; code-only patch authority joined to frozen neutral identity.",
+  "expected_before": {
+    "discovery_mode": "SEARCH_ORIENTED",
+    "route_1_id": "",
+    "route_1_strength": "",
+    "route_1_reason_ja": "",
+    "local_refinement_ids": "[]",
+    "uncertainty_note": "Hollow Knight WikiでPure NailがHallownestのultimate weaponで、Nailの最終強化段階と確認。"
+  },
+  "patch": {
+    "discovery_mode": "MIXED",
+    "route_1_id": "TOOL_OBJECT",
+    "route_1_strength": "CORE",
+    "route_1_reason_ja": "物体・道具・小物として探すのが自然",
+    "local_refinement_ids": "[\"OBJECT_PROP/WEAPON\"]",
+    "uncertainty_note": ""
+  }
+}

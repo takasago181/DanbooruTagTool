@@ -1,0 +1,18 @@
+{
+  "schema_version": "issue132-pass-a-correction-v1",
+  "lane": 1,
+  "lane_local_index": 204,
+  "review_seq": 610,
+  "identity_key": "parasite_dress_uniform_(darling_in_the_franxx)",
+  "source_checkpoint": "checkpoint_000176_000225.csv",
+  "qa_boundary": 204,
+  "reason": "Manual semantic audit remediation; code-only patch authority joined to frozen neutral identity.",
+  "expected_before": {
+    "route_1_reason_ja": "衣服・装身具として探すのが自然",
+    "local_refinement_ids": "[\"CLOTHING/COSTUME\"]"
+  },
+  "patch": {
+    "route_1_reason_ja": "衣服・装身具・露出状態として探すのが自然",
+    "local_refinement_ids": "[\"CLOTHING/UNIFORM\"]"
+  }
+}

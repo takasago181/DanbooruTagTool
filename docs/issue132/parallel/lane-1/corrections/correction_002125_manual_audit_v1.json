@@ -1,0 +1,18 @@
+{
+  "schema_version": "issue132-pass-a-correction-v1",
+  "lane": 1,
+  "lane_local_index": 709,
+  "review_seq": 2125,
+  "identity_key": "hoof_shoes",
+  "source_checkpoint": "checkpoint_000701_000725.csv",
+  "qa_boundary": 709,
+  "reason": "Manual semantic audit remediation; code-only patch authority joined to frozen neutral identity.",
+  "expected_before": {
+    "route_1_reason_ja": "履物・衣装として探すのが自然",
+    "local_refinement_ids": "[\"CLOTHING/ACCESSORY\"]"
+  },
+  "patch": {
+    "route_1_reason_ja": "衣服・装身具・露出状態として探すのが自然",
+    "local_refinement_ids": "[\"CLOTHING/EVERYDAY\"]"
+  }
+}

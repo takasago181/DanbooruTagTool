@@ -1,0 +1,18 @@
+{
+  "schema_version": "issue132-pass-a-correction-v1",
+  "lane": 1,
+  "lane_local_index": 178,
+  "review_seq": 532,
+  "identity_key": "hair_wings",
+  "source_checkpoint": "checkpoint_000176_000225.csv",
+  "qa_boundary": 178,
+  "reason": "Manual semantic audit remediation; code-only patch authority joined to frozen neutral identity.",
+  "expected_before": {
+    "route_1_id": "NONHUMAN_TRANSFORM",
+    "route_1_reason_ja": "人外的な身体特徴・変化として探すのが自然"
+  },
+  "patch": {
+    "route_1_id": "HAIR_FACE",
+    "route_1_reason_ja": "髪・顔・目などの外観として探すのが自然"
+  }
+}

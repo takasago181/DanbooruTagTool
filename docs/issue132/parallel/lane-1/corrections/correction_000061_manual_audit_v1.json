@@ -1,0 +1,22 @@
+{
+  "schema_version": "issue132-pass-a-correction-v1",
+  "lane": 1,
+  "lane_local_index": 21,
+  "review_seq": 61,
+  "identity_key": "glowing_pupils",
+  "source_checkpoint": "checkpoint_000001_000025.csv",
+  "qa_boundary": 21,
+  "reason": "Manual semantic audit remediation; code-only patch authority joined to frozen neutral identity.",
+  "expected_before": {
+    "route_1_reason_ja": "目の外観・顔の特徴として探すのが自然",
+    "route_2_id": "LIGHT_TIME_WEATHER",
+    "route_2_strength": "SUPPORTING",
+    "route_2_reason_ja": "発光表現も見た目を規定する"
+  },
+  "patch": {
+    "route_1_reason_ja": "髪・顔・目などの外観として探すのが自然",
+    "route_2_id": "",
+    "route_2_strength": "",
+    "route_2_reason_ja": ""
+  }
+}

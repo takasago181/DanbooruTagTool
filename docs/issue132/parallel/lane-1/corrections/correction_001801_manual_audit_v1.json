@@ -1,0 +1,18 @@
+{
+  "schema_version": "issue132-pass-a-correction-v1",
+  "lane": 1,
+  "lane_local_index": 601,
+  "review_seq": 1801,
+  "identity_key": "runny_nose",
+  "source_checkpoint": "checkpoint_000601_000625.csv",
+  "qa_boundary": 601,
+  "reason": "Manual semantic audit remediation; code-only patch authority joined to frozen neutral identity.",
+  "expected_before": {
+    "route_1_id": "HAIR_FACE",
+    "route_1_reason_ja": "鼻・顔の外見状態として探すのが自然"
+  },
+  "patch": {
+    "route_1_id": "FLUID_EXCRETION",
+    "route_1_reason_ja": "液体・分泌・排泄表現として探すのが自然"
+  }
+}

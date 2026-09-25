@@ -1,0 +1,18 @@
+{
+  "schema_version": "issue132-pass-a-correction-v1",
+  "lane": 1,
+  "lane_local_index": 317,
+  "review_seq": 949,
+  "identity_key": "shell_pasties",
+  "source_checkpoint": "checkpoint_000301_000325.csv",
+  "qa_boundary": 317,
+  "reason": "Manual semantic audit remediation; code-only patch authority joined to frozen neutral identity.",
+  "expected_before": {
+    "route_1_reason_ja": "露出を覆う衣装・アクセサリーとして探すのが自然",
+    "local_refinement_ids": "[\"CLOTHING_STATE_EXPOSURE/\"]"
+  },
+  "patch": {
+    "route_1_reason_ja": "衣服・装身具・露出状態として探すのが自然",
+    "local_refinement_ids": "[\"CLOTHING/ACCESSORY\"]"
+  }
+}

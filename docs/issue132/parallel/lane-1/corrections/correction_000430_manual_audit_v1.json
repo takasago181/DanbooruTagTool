@@ -1,0 +1,18 @@
+{
+  "schema_version": "issue132-pass-a-correction-v1",
+  "lane": 1,
+  "lane_local_index": 144,
+  "review_seq": 430,
+  "identity_key": "excessive_armpit_hair",
+  "source_checkpoint": "checkpoint_000126_000175.csv",
+  "qa_boundary": 144,
+  "reason": "Manual semantic audit remediation; code-only patch authority joined to frozen neutral identity.",
+  "expected_before": {
+    "route_1_id": "HAIR_FACE",
+    "route_1_reason_ja": "髪・顔まわりの外観として探すのが自然"
+  },
+  "patch": {
+    "route_1_id": "BODY_SITE",
+    "route_1_reason_ja": "身体部位・身体特徴として探すのが自然"
+  }
+}

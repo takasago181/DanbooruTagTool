@@ -1,0 +1,24 @@
+{
+  "schema_version": "issue132-pass-a-correction-v1",
+  "lane": 1,
+  "lane_local_index": 599,
+  "review_seq": 1795,
+  "identity_key": "destiny's_embrace_(kingdom_hearts)",
+  "source_checkpoint": "checkpoint_000576_000600.csv",
+  "qa_boundary": 599,
+  "reason": "Manual semantic audit remediation; code-only patch authority joined to frozen neutral identity.",
+  "expected_before": {
+    "discovery_mode": "SEARCH_ORIENTED",
+    "route_1_id": "",
+    "route_1_strength": "",
+    "route_1_reason_ja": "",
+    "local_refinement_ids": "[]"
+  },
+  "patch": {
+    "discovery_mode": "MIXED",
+    "route_1_id": "TOOL_OBJECT",
+    "route_1_strength": "CORE",
+    "route_1_reason_ja": "物体・道具・小物として探すのが自然",
+    "local_refinement_ids": "[\"OBJECT_PROP/WEAPON\"]"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "schema_version": "issue132-pass-a-correction-v1",
+  "lane": 1,
+  "lane_local_index": 710,
+  "review_seq": 2128,
+  "identity_key": "single_knee_boot",
+  "source_checkpoint": "checkpoint_000701_000725.csv",
+  "qa_boundary": 710,
+  "reason": "Manual semantic audit remediation; code-only patch authority joined to frozen neutral identity.",
+  "expected_before": {
+    "route_1_reason_ja": "左右非対称の履物として探すのが自然",
+    "local_refinement_ids": "[\"CLOTHING/ACCESSORY\"]"
+  },
+  "patch": {
+    "route_1_reason_ja": "衣服・装身具・露出状態として探すのが自然",
+    "local_refinement_ids": "[\"CLOTHING/EVERYDAY\"]"
+  }
+}

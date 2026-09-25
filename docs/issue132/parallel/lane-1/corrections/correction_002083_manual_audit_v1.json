@@ -1,0 +1,18 @@
+{
+  "schema_version": "issue132-pass-a-correction-v1",
+  "lane": 1,
+  "lane_local_index": 695,
+  "review_seq": 2083,
+  "identity_key": "armor_skirt",
+  "source_checkpoint": "checkpoint_000676_000700.csv",
+  "qa_boundary": 695,
+  "reason": "Manual semantic audit remediation; code-only patch authority joined to frozen neutral identity.",
+  "expected_before": {
+    "route_1_reason_ja": "装着する防具・衣装として探すのが自然",
+    "local_refinement_ids": "[\"CLOTHING/ACCESSORY\"]"
+  },
+  "patch": {
+    "route_1_reason_ja": "衣服・装身具・露出状態として探すのが自然",
+    "local_refinement_ids": "[\"CLOTHING/COSTUME\"]"
+  }
+}

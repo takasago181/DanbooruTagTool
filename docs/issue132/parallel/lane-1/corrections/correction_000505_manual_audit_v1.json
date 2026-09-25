@@ -1,0 +1,26 @@
+{
+  "schema_version": "issue132-pass-a-correction-v1",
+  "lane": 1,
+  "lane_local_index": 169,
+  "review_seq": 505,
+  "identity_key": "threesome",
+  "source_checkpoint": "checkpoint_000126_000175.csv",
+  "qa_boundary": 169,
+  "reason": "Manual semantic audit remediation; code-only patch authority joined to frozen neutral identity.",
+  "expected_before": {
+    "route_1_id": "RELATION_ROLE",
+    "route_1_reason_ja": "人物関係・役割として探すのが自然",
+    "route_2_id": "",
+    "route_2_strength": "",
+    "route_2_reason_ja": "",
+    "local_refinement_ids": "[]"
+  },
+  "patch": {
+    "route_1_id": "PEOPLE_COUNT",
+    "route_1_reason_ja": "人数・人数構成として探すのが自然",
+    "route_2_id": "ACTION_CONTACT",
+    "route_2_strength": "SUPPORTING",
+    "route_2_reason_ja": "動作・接触として探すのが自然",
+    "local_refinement_ids": "[\"ACTION_CONTACT/INTIMATE\"]"
+  }
+}

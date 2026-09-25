@@ -1,0 +1,20 @@
+{
+  "schema_version": "issue132-pass-a-correction-v1",
+  "lane": 1,
+  "lane_local_index": 148,
+  "review_seq": 442,
+  "identity_key": "tendril",
+  "source_checkpoint": "checkpoint_000126_000175.csv",
+  "qa_boundary": 148,
+  "reason": "Manual semantic audit remediation; code-only patch authority joined to frozen neutral identity.",
+  "expected_before": {
+    "route_1_id": "LIVING",
+    "route_1_reason_ja": "生物・植物・自然物として探すのが自然",
+    "local_refinement_ids": "[\"LIVING_NATURE/PLANT\"]"
+  },
+  "patch": {
+    "route_1_id": "NONHUMAN_TRANSFORM",
+    "route_1_reason_ja": "非人間的特徴・変身要素として探すのが自然",
+    "local_refinement_ids": "[]"
+  }
+}

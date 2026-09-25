@@ -1,0 +1,20 @@
+{
+  "schema_version": "issue132-pass-a-correction-v1",
+  "lane": 1,
+  "lane_local_index": 366,
+  "review_seq": 1096,
+  "identity_key": "sandbox",
+  "source_checkpoint": "checkpoint_000351_000375.csv",
+  "qa_boundary": 366,
+  "reason": "Manual semantic audit remediation; code-only patch authority joined to frozen neutral identity.",
+  "expected_before": {
+    "route_1_id": "TOOL_OBJECT",
+    "route_1_reason_ja": "遊具・設備物として探すのが自然",
+    "local_refinement_ids": "[\"OBJECT_PROP/DAILY\"]"
+  },
+  "patch": {
+    "route_1_id": "SCENE_BACKGROUND",
+    "route_1_reason_ja": "場所・背景として探すのが自然",
+    "local_refinement_ids": "[]"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "schema_version": "issue132-pass-a-correction-v1",
+  "lane": 1,
+  "lane_local_index": 243,
+  "review_seq": 727,
+  "identity_key": "expressive_object",
+  "source_checkpoint": "checkpoint_000226_000250.csv",
+  "qa_boundary": 243,
+  "reason": "Manual semantic audit remediation; code-only patch authority joined to frozen neutral identity.",
+  "expected_before": {
+    "discovery_mode": "SEMANTIC_UNRESOLVED",
+    "route_1_id": "",
+    "route_1_strength": "",
+    "route_1_reason_ja": "",
+    "uncertainty_note": "実使用例は確認できたが、信頼できる定義ページを取得できず、対象範囲を確定できないため未解決。"
+  },
+  "patch": {
+    "discovery_mode": "BROWSE_WORTHY",
+    "route_1_id": "TOOL_OBJECT",
+    "route_1_strength": "CORE",
+    "route_1_reason_ja": "物体・道具・小物として探すのが自然",
+    "uncertainty_note": ""
+  }
+}
