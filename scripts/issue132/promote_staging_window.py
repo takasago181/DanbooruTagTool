@@ -9,6 +9,7 @@ from pathlib import Path
 
 from parallel_overlay import load_checkpoint_union
 from staging_v2 import SCHEMA_V2, compact_row_to_full, validate_identity_binding
+from staging_repair_overlay import resolve_repair_overlay
 
 ROOT = Path(__file__).resolve().parents[2]
 SCHEMA_V1 = "issue132-pass-a-staging-window-v1"
@@ -58,7 +59,17 @@ def main():
     if not stage_path.is_file():
         raise SystemExit(f"missing staging window: {stage_path}")
 
-    obj = json.loads(stage_path.read_text(encoding="utf-8"))
+    repair_obj, repair_name, repair_errors = resolve_repair_overlay(
+        stage_path, lane, start, end
+    )
+    if repair_errors:
+        raise SystemExit("\n".join(repair_errors))
+
+    if repair_obj is not None:
+        obj = repair_obj
+    else:
+        obj = json.loads(stage_path.read_text(encoding="utf-8"))
+
     schema = obj.get("schema_version")
     if schema not in {SCHEMA_V1, SCHEMA_V2}:
         raise SystemExit("staging schema mismatch")
@@ -152,6 +163,7 @@ def main():
         "rows": len(ordered),
         "checkpoint": str(out.relative_to(ROOT)),
         "staging_source": str(stage_path.relative_to(ROOT)),
+        "repair_overlay": repair_name,
     }, ensure_ascii=False, indent=2))
 
 
