@@ -35,11 +35,18 @@ class CodexDirectRuntimeTests(unittest.TestCase):
             self.authority["forward_persistence"]["mode"],
             "DIRECT_CANONICAL_STAGING",
         )
+        self.assertEqual(
+            self.authority["forward_persistence"]["next_batch_helper"],
+            "scripts/issue132/codex_next_batch.py",
+        )
         self.assertFalse(
             self.authority["forward_persistence"]["write_requests_for_new_work"]
         )
         self.assertFalse(
             self.authority["forward_persistence"]["checkpoint_promotion"]
+        )
+        self.assertFalse(
+            self.authority["historical_compatibility"]["active_runtime_reads_old_history"]
         )
 
     def test_boundaries_and_watermarks(self):
@@ -58,8 +65,8 @@ class CodexDirectRuntimeTests(unittest.TestCase):
         self.assertEqual(current, policy_id(self.authority))
         self.assertEqual(registered["git_blob_sha"], policy_blob(self.authority))
 
-    def _run_stage(self, start: int) -> subprocess.CompletedProcess[str]:
-        decision = {
+    def _decision(self, start: int) -> dict:
+        return {
             "schema_version": "issue132-codex-decision-window-v1",
             "lane": 1,
             "lane_local_start": start,
@@ -75,14 +82,15 @@ class CodexDirectRuntimeTests(unittest.TestCase):
                     "route_vocabulary_gap": "NO",
                     "review_depth": "CHECKED",
                     "evidence_urls": [],
-                    "decision_reason_codes": ["SEARCH_BY_NAME_ONLY"],
                 }
             ],
             "holds": [],
         }
+
+    def _run_stage(self, start: int) -> subprocess.CompletedProcess[str]:
         with tempfile.TemporaryDirectory() as td:
             path = Path(td) / "decision.json"
-            path.write_text(json.dumps(decision), encoding="utf-8")
+            path.write_text(json.dumps(self._decision(start)), encoding="utf-8")
             return subprocess.run(
                 [
                     sys.executable,
@@ -97,6 +105,27 @@ class CodexDirectRuntimeTests(unittest.TestCase):
                 text=True,
                 encoding="utf-8",
             )
+
+    def test_next_batch_is_exact_calibration_packet(self):
+        result = subprocess.run(
+            [
+                sys.executable,
+                "scripts/issue132/codex_next_batch.py",
+                "--lane",
+                "1",
+            ],
+            cwd=ROOT,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+            text=True,
+            encoding="utf-8",
+        )
+        self.assertEqual(result.returncode, 0, result.stdout)
+        packet = json.loads(result.stdout)
+        self.assertEqual(packet["status"], "READY")
+        self.assertEqual(packet["lane_local_start"], 1126)
+        self.assertEqual(packet["lane_local_end"], 1225)
+        self.assertEqual(packet["count"], 100)
 
     def test_direct_builder_accepts_first_calibration_row(self):
         result = self._run_stage(1126)
@@ -123,11 +152,9 @@ class CodexDirectRuntimeTests(unittest.TestCase):
         snapshot = json.loads(line[len(marker):])
         self.assertEqual(snapshot["fatal_contract_error_count"], 0)
         self.assertEqual(snapshot["qa_watermark_violation_count"], 0)
-        for lane in ("1", "2", "3"):
-            frontier = snapshot["frontiers"][lane]
-            if frontier is not None:
-                self.assertGreaterEqual(frontier, direct_start(self.authority, int(lane)))
-                self.assertLessEqual(frontier, allowed_forward_end(self.qa, int(lane)) + 1)
+        self.assertEqual(snapshot["frontiers"], {"1":1126,"2":1226,"3":1201})
+        self.assertEqual(snapshot["baseline_hold_count"], 264)
+        self.assertEqual(snapshot["baseline_semantic_lint_count"], 5)
 
 
 if __name__ == "__main__":
