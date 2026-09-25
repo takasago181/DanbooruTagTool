@@ -31,7 +31,12 @@
       "CODEX-L2",
       "CODEX-L3",
       "CODEX-REPAIR"
-    ]
+    ],
+    "direct_staging_effective_from_lane_local": {
+      "1": 1126,
+      "2": 1226,
+      "3": 1201
+    }
   },
   "forward_persistence": {
     "mode": "DIRECT_CANONICAL_STAGING",
@@ -39,7 +44,9 @@
     "canonical_path": "docs/issue132/parallel/lane-N/staging/window_SSSSSS_EEEEEE.json",
     "write_requests_for_new_work": false,
     "deferred_markers_for_new_work": false,
-    "checkpoint_promotion": false
+    "checkpoint_promotion": false,
+    "decision_schema": "issue132-codex-decision-window-v1",
+    "canonical_schema": "issue132-pass-a-staging-window-v2"
   },
   "historical_compatibility": {
     "checkpoint_csv": true,
