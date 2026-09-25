@@ -1,0 +1,64 @@
+name: Issue132 Apply Manual Audit Repairs
+
+on:
+  push:
+    branches:
+      - research/taxonomy-usability-audit
+    paths:
+      - "scripts/issue132/rebuild_manual_audit_structural_repairs.py"
+      - ".github/workflows/issue132_apply_manual_audit_repairs.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: issue132-apply-manual-audit-repairs
+  cancel-in-progress: false
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: research/taxonomy-usability-audit
+          fetch-depth: 1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Rebuild lossless structural repair overlays
+        run: python scripts/issue132/rebuild_manual_audit_structural_repairs.py
+
+      - name: Validate repaired flat Pass A state
+        run: |
+          python scripts/issue132/validate_flat_pass_a.py \
+            --input docs/issue132/parallel/input/luna_neutral_review_input_v2.csv \
+            --parallel-dir docs/issue132/parallel
+
+      - name: Commit repair overlays
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/issue132/parallel/lane-*/staging/repairs/repair_*.json
+          if git diff --cached --quiet; then
+            echo "No repair overlay changes."
+            exit 0
+          fi
+          git commit -m "issue132: repair historical staging structure"
+          for attempt in 1 2 3; do
+            git pull --rebase origin research/taxonomy-usability-audit
+            if git push origin HEAD:research/taxonomy-usability-audit; then
+              exit 0
+            fi
+            if [ "$attempt" -eq 3 ]; then
+              echo "Failed to publish repair overlays after 3 attempts."
+              exit 1
+            fi
+            sleep 2
+          done
