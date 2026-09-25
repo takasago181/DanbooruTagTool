@@ -18,7 +18,7 @@ Branch: research/taxonomy-usability-audit
 Root: docs/issue132/parallel/
 Lane rule: ((review_seq-1)%3)+1
 Parent neutral SHA256: ac0f888d02f19a440c63b3b9f695c58f9ba53b98ebe9756edec51db1c5ff8f7d
-Identity-order SHA256: f80c63018ce19a8c7c5d8d6fd83d03cf760c510d8f6cfa455d1ab356fb31361b
+Parent identity-order SHA256: f80c63018ce19a8c7c5d8d6fd83d03cf760c510d8f6cfa455d1ab356fb31361b
 Shard size: 300 lane-local identities.
 Persistence slice: 25 slots.
 Semantic work block: up to 100 slots.
@@ -34,7 +34,9 @@ Per run:
 3. Note oldest missing 25-slot write-gap below high-watermark, if any.
 4. Retry at most one old write-gap; never let it monopolize the run.
 5. Fetch only shard(s)+manifest(s) intersecting the actual work span.
-6. Verify lane/range + the fixed parent/order SHA values above.
+6. Verify the manifest's `parent_neutral_sha256` equals the fixed Parent neutral SHA256 above and `parent_identity_order_sha256` equals the fixed Parent identity-order SHA256 above. Also verify lane, lane-local range, row_count and csv_path match the requested shard.
+7. `identity_order_sha256` inside a shard manifest is SHARD-LOCAL. It is expected to differ between shards and MUST NOT be compared with the global Parent identity-order SHA. Do not stop merely because those two values differ.
+8. On the hot path, do not recompute the shard-local identity-order hash when the tracked shard+manifest are from the validated shard set and the parent/lane/range/path metadata above are consistent. Exact per-row identity is still enforced by review_seq + SHA256(identity_key) before persistence.
 
 Do NOT read or update status.json.
 Do NOT read old Worker cards, CURRENT_AUTOMATION_OPERATION, Issue comments, CI logs, Coordinator files, Repair files, or full frozen docs unless this card/hash or shard invariants actually conflict.
