@@ -8,7 +8,7 @@ from pathlib import Path
 from typing import Any
 
 SCHEMA = "issue132-pass-a-staging-repair-overlay-v1"
-REPAIR_RE = re.compile(r"^repair_(\d{6})_(\d{6})_([0-9a-f]{12,64})\.json$")
+REPAIR_RE = re.compile(r"^repair_(\d{6})_(\d{6})_v(\d{3,6})\.json$")
 ALLOWED_REASON_CODES = {
     "IDENTITY_REBIND",
     "MALFORMED_JSON",
