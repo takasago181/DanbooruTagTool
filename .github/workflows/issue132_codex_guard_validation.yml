@@ -14,6 +14,7 @@ on:
       - "docs/issue132/parallel/lane-*/staging/window_*.json"
       - "scripts/issue132/codex_runtime.py"
       - "scripts/issue132/codex_semantic.py"
+      - "scripts/issue132/codex_next_batch.py"
       - "scripts/issue132/codex_stage_window.py"
       - "scripts/issue132/codex_repair_baseline.py"
       - "scripts/issue132/check_runtime_layout.py"
@@ -45,6 +46,7 @@ jobs:
           python -m py_compile \
             scripts/issue132/codex_runtime.py \
             scripts/issue132/codex_semantic.py \
+            scripts/issue132/codex_next_batch.py \
             scripts/issue132/codex_stage_window.py \
             scripts/issue132/codex_repair_baseline.py \
             scripts/issue132/check_runtime_layout.py \
