@@ -26,20 +26,21 @@ Coordinator does not redo normal Worker classification or historical Repair work
 ## Minimal live read
 Per run:
 1. read RUNTIME_AUTHORITY.json, this card, QA_BASELINE.json;
-2. acquire checkpoint/staging/repair-overlay/QA-marker PATH METADATA for all three lanes with the fewest calls possible.
-   - Normal path: directory metadata/listing.
-   - A directory-list 404/timeout/tool error is NOT proof that repository metadata is absent and is NOT by itself a blocker.
-   - On the first such operational failure, immediately fetch branch HEAD/tree and ONE recursive Git tree, then reuse that single tree for all remaining metadata accounting in this run.
-   - Filter only exact canonical path patterns:
-     - `docs/issue132/parallel/lane-N/checkpoints/checkpoint_XXXXXX_YYYYYY.csv`
-     - `docs/issue132/parallel/lane-N/staging/window_XXXXXX_YYYYYY.json`
-     - `docs/issue132/parallel/lane-N/staging/repairs/repair_XXXXXX_YYYYYY_vNNN.json`
-     - `docs/issue132/parallel/qa/lane-N/qa_XXXXXX_YYYYYY.json`
-   - Derive checkpoint prefix/high-watermark/write-gap/marker presence from path names only. Do not fetch file bodies for this accounting.
-   - Stop metadata discovery only if BOTH normal listing and recursive-tree fallback fail.
-3. inspect latest relevant Issue132 CI summary once;
-4. when the latest applicable staging-validator v3 JSON is present, take exact `effective_invalid_windows`, `effective_invalid_window_counts`, `promotion_blocking_holds`, and total directly from it;
-5. only if those fields are absent/null/stale relative to staging/checkpoint/repair-validator state, read the affected effective first staging window and/or fetch detailed CI logs. Runtime-card-only/documentation commits do not by themselves invalidate otherwise current staging-validator counts.
+2. FIRST use the latest applicable Issue132 staging-validator v3 JSON `coordinator_snapshot` emitted by CI. It is the canonical low-round-trip source for:
+   - checkpoint prefixes;
+   - staging high-watermarks and write-gaps;
+   - QA marker counts, post-baseline QA due, deterministic next legacy QA;
+   - effective invalid windows/counts;
+   - promotion-blocking holds;
+   - Lane3 751-1050 route-family effective-invalid state.
+3. Treat a validator snapshot as applicable when it covers the latest staging/checkpoint/repair/QA state. A later commit that changes only runtime cards/documentation does NOT make the snapshot stale. A later Worker/Repair/QA data write does make the previous snapshot stale; prefer the CI run triggered by that write.
+4. Only when `coordinator_snapshot` is absent/stale/unreadable, acquire repository path metadata:
+   - normal directory listing first;
+   - on the first 404/timeout/tool error, fetch branch HEAD/tree and ONE recursive Git tree, then reuse it for all lanes;
+   - filter only canonical checkpoint/staging/repair/QA patterns already defined in this card;
+   - derive prefix/high-watermark/write-gap/marker presence from path names only.
+5. If both CI snapshot and path-metadata methods fail for one concern, report that concern specifically. Do not collapse every Coordinator field to `unreadable` if independent fields remain available from the snapshot, QA baseline, or current validator evidence.
+6. Detailed CI logs or effective-window bodies are last-resort reads only for fields that the snapshot cannot answer.
 
 Never use deleted status caches as authority.
 
