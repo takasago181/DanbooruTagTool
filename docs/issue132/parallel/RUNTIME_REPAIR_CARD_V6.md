@@ -1,7 +1,7 @@
 # Issue132 Runtime Repair Card V6 — canonical append-only repair
 
 Status: ACTIVE for Repair. Supersedes all earlier Runtime Repair cards operationally.
-Shared semantic rules: RUNTIME_WORKER_CARD_V7.md.
+Shared semantic rules: RUNTIME_WORKER_CARD_V8.md.
 
 Goal: clear historical staging debt and promotion-blocking historical holds without rewriting old evidence or consuming forward-worker capacity.
 
@@ -42,10 +42,10 @@ IDENTITY_REBIND, MALFORMED_JSON, STRUCTURAL_REBUILD, SEMANTIC_LINT, ROUTE_FAMILY
 Exactly one unsuperseded active overlay may exist per source window. Before selecting a target, inspect existing overlays first: a source with one currently valid active overlay is not unresolved merely because an older CI run still reports the raw source error.
 
 ## Minimal run
-1. Read this card and Worker V7 only.
+1. Read this card and Worker V8 only.
 2. Reconstruct effective invalid queue from live source staging + active overlays + latest relevant validator/CI evidence. Never blindly inherit a stale raw-CI queue.
 3. Structural queue: select up to 6 historical invalid windows, normally up to 2/lane and borrowing unused capacity.
-4. For each target fetch only source staging + needed authoritative shard/manifest, rebuild exact 25 slots, apply Worker V7 semantics, pre-validate compact v2, and create a NEW overlay version.
+4. For each target fetch only source staging + needed authoritative shard/manifest, rebuild exact 25 slots, apply Worker V8 semantics, pre-validate compact v2, and create a NEW overlay version.
 5. A write rejection on one target never blocks another independent target.
 
 ## Promotion-blocking hold queue
