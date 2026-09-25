@@ -7,11 +7,12 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 PARALLEL = ROOT / "docs/issue132/parallel"
 AUTHORITY = PARALLEL / "RUNTIME_AUTHORITY.json"
+QA_BASELINE = PARALLEL / "QA_BASELINE.json"
 
 EXPECTED = {
     "worker": "docs/issue132/parallel/RUNTIME_WORKER_CARD_V8.md",
     "repair": "docs/issue132/parallel/RUNTIME_REPAIR_CARD_V6.md",
-    "coordinator": "docs/issue132/parallel/RUNTIME_COORDINATOR_CARD_V5.md",
+    "coordinator": "docs/issue132/parallel/RUNTIME_COORDINATOR_CARD_V6.md",
 }
 
 FORBIDDEN_EXACT = [
@@ -30,6 +31,9 @@ def main() -> None:
         authority = json.loads(AUTHORITY.read_text(encoding="utf-8"))
     except Exception as exc:
         raise SystemExit(f"invalid runtime authority: {exc}")
+
+    if not QA_BASELINE.is_file():
+        errors.append("QA baseline missing")
 
     if authority.get("schema_version") != "issue132-runtime-authority-v1":
         errors.append("runtime authority schema mismatch")
