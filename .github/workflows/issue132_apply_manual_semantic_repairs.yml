@@ -34,6 +34,13 @@ jobs:
       - name: Apply code-only semantic patches
         run: python scripts/issue132/apply_manual_audit_semantic_patches.py
 
+      - name: Prepare validator neutral artifact
+        shell: bash
+        run: |
+          mkdir -p artifacts/issue132/luna-neutral
+          cp docs/issue132/parallel/input/luna_neutral_review_input_v2.csv \
+            artifacts/issue132/luna-neutral/luna_neutral_review_input_v2.csv
+
       - name: Validate effective checkpoints
         run: python scripts/issue132/validate_parallel_effective.py
 
