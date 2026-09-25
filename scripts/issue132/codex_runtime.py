@@ -39,7 +39,7 @@ def load_runtime(root: Path) -> tuple[dict, dict, dict, list[str]]:
     except Exception as exc:
         return {}, {}, {}, [f"runtime authority unreadable: {exc}"]
 
-    if authority.get("schema_version") != "issue132-runtime-authority-v4-codex-direct":
+    if authority.get("schema_version") != "issue132-runtime-authority-v5-codex-autonomous":
         errors.append("runtime authority schema mismatch")
     if authority.get("branch") != "research/taxonomy-usability-audit":
         errors.append("runtime authority branch mismatch")
@@ -77,7 +77,7 @@ def load_runtime(root: Path) -> tuple[dict, dict, dict, list[str]]:
             qa = json.loads(qa_path.read_text(encoding="utf-8"))
         except Exception as exc:
             errors.append(f"QA state unreadable: {exc}")
-    if qa and qa.get("schema_version") != "issue132-codex-qa-state-v2-direct":
+    if qa and qa.get("schema_version") != "issue132-codex-qa-state-v3-autonomous":
         errors.append("QA state schema mismatch")
 
     fixed = authority.get("fixed", {})
@@ -153,8 +153,20 @@ def direct_start(authority: dict, lane: int) -> int:
     return int(authority["fixed"]["direct_staging_effective_from_lane_local"][str(lane)])
 
 
-def allowed_forward_end(qa: dict, lane: int) -> int:
-    return int(qa["allowed_forward_end_by_lane"][str(lane)])
+def last_codex_qa(qa: dict, lane: int) -> int:
+    return int(qa["last_codex_qa_by_lane"][str(lane)])
+
+
+def qa_epoch_size(qa: dict) -> int:
+    return int(qa["epoch_size_per_lane"])
+
+
+def internal_forward_limit(authority: dict, qa: dict, lane: int) -> int:
+    lane_length = int(authority["fixed"]["lane_lengths"][str(lane)])
+    return min(
+        lane_length,
+        last_codex_qa(qa, lane) + int(qa["max_unqaed_per_lane"]),
+    )
 
 
 def policy_id(authority: dict) -> str:
