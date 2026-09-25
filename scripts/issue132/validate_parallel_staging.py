@@ -300,11 +300,57 @@ def main():
             "windows": windows,
         }
 
+    window_error_re = re.compile(
+        r"^lane\\s+(\\d+)(?::| staging)\\s+(window_\\d{6}_\\d{6}\\.json)"
+    )
+    invalid_windows: dict[str, set[str]] = {str(lane): set() for lane in LANES}
+    for error in errors:
+        m = window_error_re.match(error)
+        if m:
+            invalid_windows[m.group(1)].add(m.group(2))
+
+    invalid_window_summary = {
+        lane: sorted(names) for lane, names in invalid_windows.items()
+    }
+    invalid_window_counts = {
+        lane: len(names) for lane, names in invalid_windows.items()
+    }
+
+    promotion_blocking_holds: dict[str, int | None] = {}
+    promotion_blocking_windows: dict[str, str | None] = {}
+    for lane in LANES:
+        lane_summary = summary[str(lane)]
+        expected_start = int(lane_summary["checkpoint_prefix"]) + 1
+        first = next(
+            (w for w in lane_summary["windows"] if int(w["start"]) == expected_start),
+            None,
+        )
+        if first is None:
+            promotion_blocking_holds[str(lane)] = None
+            promotion_blocking_windows[str(lane)] = None
+        else:
+            promotion_blocking_holds[str(lane)] = int(first["holds"])
+            promotion_blocking_windows[str(lane)] = str(first["path"])
+
+    known_promotion_hold_total = sum(
+        count for count in promotion_blocking_holds.values() if count is not None
+    )
+    promotion_hold_counts_complete = all(
+        count is not None for count in promotion_blocking_holds.values()
+    )
+
     result = {
-        "schema_version": "issue132-parallel-staging-validation-v2",
+        "schema_version": "issue132-parallel-staging-validation-v3",
         "staged_finalized_rows": total_finalized,
         "active_holds": total_holds,
         "lanes": summary,
+        "effective_invalid_windows": invalid_window_summary,
+        "effective_invalid_window_counts": invalid_window_counts,
+        "promotion_blocking_windows": promotion_blocking_windows,
+        "promotion_blocking_holds": promotion_blocking_holds,
+        "promotion_blocking_holds_total": (
+            known_promotion_hold_total if promotion_hold_counts_complete else None
+        ),
         "error_count": len(errors),
     }
     print(json.dumps(result, ensure_ascii=False, indent=2))
