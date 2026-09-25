@@ -47,6 +47,29 @@ def main() -> None:
         errors.append("runtime authority roles missing")
         roles = {}
 
+    contracts = authority.get("contracts")
+    if not isinstance(contracts, dict):
+        errors.append("runtime authority contracts missing")
+        contracts = {}
+    semantic_path = contracts.get("semantic_vocabulary_path")
+    expected_semantic_path = "docs/issue132/parallel/pass_a_contract_manifest_v1.json"
+    if semantic_path != expected_semantic_path:
+        errors.append("semantic vocabulary path mismatch")
+    else:
+        semantic_file = ROOT / semantic_path
+        if not semantic_file.is_file():
+            errors.append("semantic vocabulary file missing")
+        else:
+            try:
+                semantic = json.loads(semantic_file.read_text(encoding="utf-8"))
+                if semantic.get("schema_version") != contracts.get("semantic_vocabulary_schema_version"):
+                    errors.append("semantic vocabulary schema mismatch")
+                required_keys = contracts.get("required_keys")
+                if not isinstance(required_keys, list) or any(k not in semantic for k in required_keys):
+                    errors.append("semantic vocabulary required keys missing")
+            except Exception as exc:
+                errors.append(f"semantic vocabulary unreadable: {exc}")
+
     for role, expected_path in EXPECTED.items():
         entry = roles.get(role)
         if not isinstance(entry, dict) or entry.get("path") != expected_path:
