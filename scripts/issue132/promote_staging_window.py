@@ -8,9 +8,11 @@ import json
 from pathlib import Path
 
 from parallel_overlay import load_checkpoint_union
+from staging_v2 import SCHEMA_V2, compact_row_to_full, validate_identity_binding
 
 ROOT = Path(__file__).resolve().parents[2]
-SCHEMA = "issue132-pass-a-staging-window-v1"
+SCHEMA_V1 = "issue132-pass-a-staging-window-v1"
+NEUTRAL = ROOT / "docs/issue132/parallel/input/luna_neutral_review_input_v2.csv"
 
 
 def load_base():
@@ -35,6 +37,11 @@ def normalize_row(entry, fields):
     raise SystemExit("staging finalized row must be object or ordered 22-field array")
 
 
+def read_csv(path: Path):
+    with path.open("r", encoding="utf-8-sig", newline="") as f:
+        return list(csv.DictReader(f))
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--lane", type=int, required=True, choices=(1, 2, 3))
@@ -52,7 +59,8 @@ def main():
         raise SystemExit(f"missing staging window: {stage_path}")
 
     obj = json.loads(stage_path.read_text(encoding="utf-8"))
-    if obj.get("schema_version") != SCHEMA:
+    schema = obj.get("schema_version")
+    if schema not in {SCHEMA_V1, SCHEMA_V2}:
         raise SystemExit("staging schema mismatch")
     if obj.get("lane") != lane:
         raise SystemExit("staging lane mismatch")
@@ -65,7 +73,40 @@ def main():
         raise SystemExit(f"staging window still has {len(holds)} active hold(s)")
     if not isinstance(raw_rows, list) or len(raw_rows) != end - start + 1:
         raise SystemExit("staging window is not fully finalized")
-    rows = [normalize_row(entry, base.FIELDS) for entry in raw_rows]
+
+    if schema == SCHEMA_V1:
+        rows = [normalize_row(entry, base.FIELDS) for entry in raw_rows]
+    else:
+        neutral = read_csv(NEUTRAL)
+        assigned = [
+            r for r in neutral
+            if ((int(r["review_seq"]) - 1) % 3) + 1 == lane
+        ]
+        rows_by_index: dict[int, dict[str, str]] = {}
+        for entry in raw_rows:
+            if not isinstance(entry, dict):
+                raise SystemExit("compact staging finalized row must be an object")
+            try:
+                local_index = int(entry.get("lane_local_index"))
+            except Exception:
+                raise SystemExit("compact row invalid lane_local_index")
+            if local_index < start or local_index > end:
+                raise SystemExit("compact row lane_local_index outside promotion window")
+            expected = assigned[local_index - 1]
+            bind_errors = validate_identity_binding(entry, expected, local_index)
+            if bind_errors:
+                raise SystemExit("; ".join(bind_errors))
+            if local_index in rows_by_index:
+                raise SystemExit(f"duplicate compact row local index {local_index}")
+            try:
+                rows_by_index[local_index] = compact_row_to_full(entry, expected, base.FIELDS)
+            except Exception as exc:
+                raise SystemExit(f"compact row local {local_index}: {exc}")
+        expected_indices = set(range(start, end + 1))
+        if set(rows_by_index) != expected_indices:
+            missing = sorted(expected_indices - set(rows_by_index))
+            raise SystemExit(f"compact staging coverage mismatch missing={missing}")
+        rows = [rows_by_index[i] for i in range(start, end + 1)]
 
     raw, _, errors = load_checkpoint_union(ROOT, lane, base.FIELDS)
     if errors:
@@ -103,7 +144,8 @@ def main():
         raise SystemExit("parse-back row mismatch")
 
     print(json.dumps({
-        "schema_version": "issue132-staging-promotion-v1",
+        "schema_version": "issue132-staging-promotion-v2",
+        "source_staging_schema": schema,
         "lane": lane,
         "lane_local_start": start,
         "lane_local_end": end,
