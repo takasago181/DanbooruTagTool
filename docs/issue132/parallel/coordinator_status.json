@@ -5,13 +5,11 @@
   "total_remaining": 29503,
   "complete": false,
   "latest_ci": {
-    "run_id": 36088985201,
-    "head_sha": "e0c8a0620446d60b1de9570642cecd39108bdbf1",
+    "run_id": 36089520323,
+    "head_sha": "a17084898a7855300fbf7bf6eda2e37fb637b8aa",
     "conclusion": "failure",
-    "failure_class": "STAGING_ONLY",
-    "base_validation": "PASS",
-    "compact_v2_self_test": "PASS",
-    "failing_step": "Validate semantic hold staging windows"
+    "failure_class": "STAGING_MIGRATION",
+    "failing_step": "Convert safely convertible v1 staging windows to compact v2"
   },
   "lanes": {
     "1": {
@@ -51,6 +49,12 @@
       "lane": 1,
       "range": "1026-1100",
       "family": "sample-clean"
+    },
+    {
+      "lane": 2,
+      "range": "1151-1175",
+      "family": "WRITE_RETRY_PENDING",
+      "note": "worker reported compact-v2 bytes built but not persisted; repository truth remains next_new=1151"
     }
   ]
 }
