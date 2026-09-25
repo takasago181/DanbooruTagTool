@@ -19,6 +19,8 @@ FORBIDDEN_EXACT = [
     PARALLEL / "coordinator_status.json",
     ROOT / ".github/workflows/issue132_staging_v2_migration.yml",
     ROOT / "scripts/issue132/migrate_staging_v1_to_v2.py",
+    PARALLEL / "parallel_plan_v1.json",
+    PARALLEL / "WORKER_EXECUTION_CARD_V1.md",
 ]
 
 def main() -> None:
