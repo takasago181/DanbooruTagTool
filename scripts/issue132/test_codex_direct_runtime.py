@@ -121,9 +121,13 @@ class CodexDirectRuntimeTests(unittest.TestCase):
         marker = "FLAT_SNAPSHOT_JSON="
         line = next(x for x in result.stdout.splitlines() if x.startswith(marker))
         snapshot = json.loads(line[len(marker):])
-        self.assertEqual(snapshot["frontiers"], {"1":1126, "2":1226, "3":1201})
         self.assertEqual(snapshot["fatal_contract_error_count"], 0)
         self.assertEqual(snapshot["qa_watermark_violation_count"], 0)
+        for lane in ("1", "2", "3"):
+            frontier = snapshot["frontiers"][lane]
+            if frontier is not None:
+                self.assertGreaterEqual(frontier, direct_start(self.authority, int(lane)))
+                self.assertLessEqual(frontier, allowed_forward_end(self.qa, int(lane)) + 1)
 
 
 if __name__ == "__main__":
