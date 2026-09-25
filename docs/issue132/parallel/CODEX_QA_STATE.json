@@ -1,0 +1,32 @@
+{
+  "schema_version": "issue132-codex-qa-state-v1",
+  "status": "CALIBRATION_REQUIRED",
+  "baseline_head": "5123a13bd574ef50f04f3f7e0fb031d2625dcbaa",
+  "last_chatgpt_semantic_qa_by_lane": {
+    "1": 1125,
+    "2": 1225,
+    "3": 1200
+  },
+  "allowed_forward_end_by_lane": {
+    "1": 1225,
+    "2": 1325,
+    "3": 1300
+  },
+  "calibration_batch_size_per_lane": 100,
+  "steady_state_batch_size_per_lane": 500,
+  "max_unqaed_accepted_per_lane": 500,
+  "calibration_requires_full_review_of_new_rows": true,
+  "steady_state_qa": {
+    "risk_rows": "ALL",
+    "family_consistency_scan": true,
+    "ordinary_checked_sample": "DETERMINISTIC_STRATIFIED",
+    "ordinary_checked_sample_min_per_lane": 50
+  },
+  "final_semantic_qa_passed": false,
+  "notes": [
+    "The historical saved population through lane-local 1125/1225/1200 has already received manual ChatGPT semantic audit and repair.",
+    "Codex must not write beyond allowed_forward_end_by_lane. After ChatGPT QA passes, this file is advanced.",
+    "The first post-migration 100 new accepted rows per lane are a calibration batch and require full semantic review before widening the watermark.",
+    "After calibration, each lane may advance at most 500 accepted rows beyond its last ChatGPT semantic QA watermark."
+  ]
+}
