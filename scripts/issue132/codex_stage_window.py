@@ -13,14 +13,13 @@ from codex_runtime import (
     policy_blob,
     policy_id,
     read_csv,
-    reason_codes,
 )
 from codex_semantic import (
     HOLD_REASON_CODES,
     RESEARCH_ATTEMPT_CODES,
     identity_sha256,
-    validate_compact_row,
     validate_compact_hold,
+    validate_compact_row,
 )
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -38,7 +37,6 @@ DECISION_ROW_FIELDS = {
     "route_vocabulary_gap",
     "review_depth",
     "evidence_urls",
-    "decision_reason_codes",
 }
 DECISION_HOLD_FIELDS = {
     "lane_local_index",
@@ -47,18 +45,17 @@ DECISION_HOLD_FIELDS = {
 }
 
 
-def current_forward_frontier(stage_dir: Path, direct_boundary: int, lane_length: int) -> int | None:
+def current_forward_frontier(
+    stage_dir: Path, direct_boundary: int, lane_length: int
+) -> int | None:
     covered: set[int] = set()
     for path in stage_dir.glob("window_*.json"):
         match = WINDOW_RE.match(path.name)
         if not match:
             continue
         start, end = map(int, match.groups())
-        if end < direct_boundary:
-            continue
-        if start < direct_boundary:
-            continue
-        covered.update(range(start, end + 1))
+        if start >= direct_boundary:
+            covered.update(range(start, end + 1))
     for idx in range(direct_boundary, lane_length + 1):
         if idx not in covered:
             return idx
@@ -146,11 +143,9 @@ def main() -> None:
     if not isinstance(rows, list) or not isinstance(holds, list):
         raise SystemExit("rows/holds must be lists")
 
-    allowed_reasons = reason_codes(contract)
     by_index: dict[int, str] = {}
     out_rows: list[dict] = []
     out_holds: list[dict] = []
-    reason_map: dict[str, list[str]] = {}
     errors: list[str] = []
 
     for raw in rows:
@@ -165,16 +160,6 @@ def main() -> None:
             errors.append(f"duplicate/out-of-range row {idx}")
             continue
 
-        reasons = raw["decision_reason_codes"]
-        if (
-            not isinstance(reasons, list)
-            or not reasons
-            or any(not isinstance(x, str) for x in reasons)
-            or any(x not in allowed_reasons for x in reasons)
-            or len(reasons) != len(set(reasons))
-        ):
-            errors.append(f"local {idx}: invalid decision_reason_codes")
-
         compact = make_compact_row(raw, assigned[idx - 1], idx)
         errors.extend(
             f"local {idx}: {err}"
@@ -182,7 +167,6 @@ def main() -> None:
         )
         by_index[idx] = "row"
         out_rows.append(compact)
-        reason_map[str(idx)] = list(reasons)
 
     for raw in holds:
         if not isinstance(raw, dict) or set(raw) != DECISION_HOLD_FIELDS:
@@ -233,9 +217,6 @@ def main() -> None:
         "parent_identity_order_sha256": authority["fixed"]["parent_identity_order_sha256"],
         "semantic_policy_id": policy_id(authority),
         "semantic_policy_git_blob_sha": policy_blob(authority),
-        "decision_reason_codes": {
-            key: reason_map[key] for key in sorted(reason_map, key=lambda x: int(x))
-        },
         "rows": sorted(out_rows, key=lambda x: int(x["lane_local_index"])),
         "holds": sorted(out_holds, key=lambda x: int(x["lane_local_index"])),
     }
