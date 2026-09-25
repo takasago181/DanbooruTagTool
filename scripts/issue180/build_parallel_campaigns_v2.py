@@ -92,7 +92,7 @@ def build_campaigns(
             grouped[("QA",key)].append({"unit":unit,"closure":closure,"tags":tags})
             continue
 
-        if unit["subject"]=="__UNGROUPED__" and len(tags)>1:
+        if unit["subject"]=="__UNGROUPED__":
             for tag in tags:
                 key=normalize_campaign_key(unit,tag)
                 grouped[("FORWARD",key)].append({"unit":unit,"closure":closure,"tags":[tag]})
