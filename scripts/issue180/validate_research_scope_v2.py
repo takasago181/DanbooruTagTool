@@ -6,7 +6,7 @@ from pathlib import Path
 
 R=Path(__file__).resolve().parents[2]
 BASE="82ccb264e27cd72d140d910294efb7460a233a99"
-EXACT_ALLOWED={".github/workflows/issue180_single_home_pilot.yml"}
+EXACT_ALLOWED={".github/workflows/issue180_single_home_pilot.yml","AGENTS.md"}
 PREFIX_ALLOWED=("docs/issue180/","scripts/issue180/")
 EXACT_PREFIX_ALLOWED=("tests/issue180/",)
 

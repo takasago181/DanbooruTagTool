@@ -265,3 +265,16 @@ KNOWLEDGE / generation-effectivenessを参照する必要がある時:
 - stop point / next Gate
 
 詳細運用は `docs/project/PERMANENT_RULES.md` を正本とする。
+
+
+## 12. Issue #180 parallel Codex Worktrees
+
+Issue #180 parallel execution authority is:
+- `docs/issue180/parallel/PARALLEL_EXECUTION_V1.md`
+- `docs/issue180/parallel/PARALLEL_EXECUTION_V1.json`
+
+For `research/issue180-forward-0..3`, Codex is proposal-only and must obey the branch-specific guard. Forward roles never write canonical #180 evidence/decision/terminal-review ledgers and never push the canonical research branch.
+
+`research/issue180-qa-integrator` is the only parallel canonical writer. It independently reviews worker proposals, owns routine repair, requires green QA-branch CI, and advances `research/issue180-single-home-pilot` only by fast-forward. Force push remains prohibited.
+
+The parallel layer is scheduling/QA only. It does not change `Character -> HOME_COPYRIGHT (0..1)`, missing-over-wrong, v3 resolver semantics, migration provenance, or the #179 identity boundary.

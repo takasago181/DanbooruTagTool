@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - research/issue180-single-home-pilot
+      - research/issue180-qa-integrator
+      - "research/issue180-forward-*"
   workflow_dispatch:
 
 concurrency:
@@ -21,15 +23,21 @@ jobs:
         with:
           fetch-depth: 0
           ref: ${{ github.sha }}
+      - name: Fetch Issue180 canonical research branch
+        run: git fetch origin research/issue180-single-home-pilot:refs/remotes/origin/research/issue180-single-home-pilot
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
       - name: Validate Issue180 research-only scope
         run: python scripts/issue180/validate_research_scope_v2.py
-      - name: Run Issue180 v3 tests
+      - name: Run Issue180 v3 and parallel tests
         run: python -m unittest discover -s tests/issue180 -v
       - name: Build, resolve, validate, and reproduce Issue180 v3
         run: python scripts/issue180/run_issue180_v3.py
+      - name: Build deterministic parallel ownership manifest
+        run: python scripts/issue180/build_parallel_assignment_v1.py
+      - name: Validate parallel branch ownership/write scope
+        run: python scripts/issue180/validate_parallel_worktree_v1.py
       - name: Validate Issue179 handoff freshness
         run: python scripts/issue180/validate_issue179_origin_handoff_v1.py
       - name: Verify protected sources are unchanged
