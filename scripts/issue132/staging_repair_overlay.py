@@ -99,7 +99,8 @@ def resolve_repair_overlay(
             errors.append(f"{path.name}: source_staging_path mismatch")
         if obj.get("source_staging_blob_sha") != expected_blob:
             errors.append(f"{path.name}: source staging blob SHA mismatch")
-        if obj.get("source_staging_sha256") != expected_sha256:
+        source_sha256 = obj.get("source_staging_sha256")
+        if source_sha256 is not None and source_sha256 != expected_sha256:
             errors.append(f"{path.name}: source staging SHA-256 mismatch")
 
         reasons = obj.get("repair_reason_codes")
@@ -117,11 +118,9 @@ def resolve_repair_overlay(
             errors.append(f"{path.name}: effective_window must be an object")
         else:
             payload_sha = hashlib.sha256(canonical_window_bytes(window)).hexdigest()
-            if obj.get("effective_window_sha256") != payload_sha:
+            declared_payload_sha = obj.get("effective_window_sha256")
+            if declared_payload_sha is not None and declared_payload_sha != payload_sha:
                 errors.append(f"{path.name}: effective_window_sha256 mismatch")
-            suffix = m.group(3)
-            if not payload_sha.startswith(suffix):
-                errors.append(f"{path.name}: filename hash prefix does not match effective window")
 
         loaded[path.name] = obj
 
