@@ -12,9 +12,16 @@ from staging_v2 import (
     HOLD_REASON_CODES,
     RESEARCH_ATTEMPT_CODES,
 )
+from codex_runtime_guards import (
+    allowed_forward_end,
+    load_authority_and_qa,
+    policy_trace_required,
+    validate_policy_trace,
+)
 
 ROOT = Path(__file__).resolve().parents[2]
-REQUEST_SCHEMA = "issue132-pass-a-write-request-v1"
+REQUEST_SCHEMA_V1 = "issue132-pass-a-write-request-v1"
+REQUEST_SCHEMA_V2 = "issue132-pass-a-write-request-v2"
 OUTPUT_SCHEMA = "issue132-pass-a-staging-window-v2"
 EXPECTED_PARENT_SHA = "ac0f888d02f19a440c63b3b9f695c58f9ba53b98ebe9756edec51db1c5ff8f7d"
 EXPECTED_ORDER_SHA = "f80c63018ce19a8c7c5d8d6fd83d03cf760c510d8f6cfa455d1ab356fb31361b"
@@ -37,6 +44,19 @@ HOLD_FIELDS = {
     "review_seq",
     "reason_code",
     "research_attempt_codes",
+}
+REQUEST_TOP_FIELDS_V2 = {
+    "schema_version",
+    "lane",
+    "lane_local_start",
+    "lane_local_end",
+    "parent_neutral_sha256",
+    "parent_identity_order_sha256",
+    "semantic_policy_id",
+    "semantic_policy_git_blob_sha",
+    "decision_reason_codes",
+    "rows",
+    "holds",
 }
 
 
@@ -170,18 +190,38 @@ def validate_hold(hold: dict, expected: dict, local_index: int) -> dict:
     return out
 
 
-def materialize_request(path: Path, neutral: list[dict[str, str]], vocab: dict, parallel_root: Path) -> tuple[Path, bool]:
+def materialize_request(
+    path: Path,
+    neutral: list[dict[str, str]],
+    vocab: dict,
+    parallel_root: Path,
+    authority: dict,
+    qa: dict,
+) -> tuple[Path, bool]:
     m = REQ_RE.match(path.name)
     if not m:
         raise ValueError(f"{path}: invalid request filename")
     file_start, file_end = map(int, m.groups())
 
     obj = json.loads(path.read_text(encoding="utf-8"))
-    if obj.get("schema_version") != REQUEST_SCHEMA:
+    schema = obj.get("schema_version")
+    if schema not in {REQUEST_SCHEMA_V1, REQUEST_SCHEMA_V2}:
         raise ValueError(f"{path}: schema mismatch")
     lane = int(obj["lane"])
     start = int(obj["lane_local_start"])
     end = int(obj["lane_local_end"])
+    requires_v2 = policy_trace_required(authority, lane, start, end)
+    if requires_v2 and schema != REQUEST_SCHEMA_V2:
+        raise ValueError(f"{path}: new forward range requires write-request v2")
+    if schema == REQUEST_SCHEMA_V2 and set(obj) != REQUEST_TOP_FIELDS_V2:
+        missing = sorted(REQUEST_TOP_FIELDS_V2 - set(obj))
+        extra = sorted(set(obj) - REQUEST_TOP_FIELDS_V2)
+        raise ValueError(f"{path}: v2 top-level field-set mismatch missing={missing} extra={extra}")
+    if requires_v2 and end > allowed_forward_end(qa, lane):
+        raise ValueError(
+            f"{path}: range exceeds ChatGPT QA watermark "
+            f"{allowed_forward_end(qa, lane)}"
+        )
     if (start, end) != (file_start, file_end):
         raise ValueError(f"{path}: filename/range mismatch")
     if end < start or end - start + 1 > 25:
@@ -223,6 +263,17 @@ def materialize_request(path: Path, neutral: list[dict[str, str]], vocab: dict, 
     if set(by_index) != expected_indices:
         raise ValueError(f"{path}: incomplete coverage")
 
+    trace_errors = validate_policy_trace(
+        obj,
+        authority,
+        lane,
+        start,
+        end,
+        {idx for idx, (kind, _) in by_index.items() if kind == "row"},
+    )
+    if trace_errors:
+        raise ValueError(f"{path}: " + "; ".join(trace_errors))
+
     output = {
         "schema_version": OUTPUT_SCHEMA,
         "lane": lane,
@@ -233,6 +284,13 @@ def materialize_request(path: Path, neutral: list[dict[str, str]], vocab: dict, 
         "rows": sorted(out_rows, key=lambda x: int(x["lane_local_index"])),
         "holds": sorted(out_holds, key=lambda x: int(x["lane_local_index"])),
     }
+    if schema == REQUEST_SCHEMA_V2:
+        reason_map = obj["decision_reason_codes"]
+        output["semantic_policy_id"] = obj["semantic_policy_id"]
+        output["semantic_policy_git_blob_sha"] = obj["semantic_policy_git_blob_sha"]
+        output["decision_reason_codes"] = {
+            key: reason_map[key] for key in sorted(reason_map, key=lambda value: int(value))
+        }
 
     out_path = parallel_root / f"lane-{lane}" / "staging" / f"window_{start:06d}_{end:06d}.json"
     if out_path.exists():
@@ -256,6 +314,9 @@ def main() -> None:
     parallel_root = ROOT / args.parallel_dir
     neutral = read_neutral(ROOT / args.neutral)
     vocab = load_vocab(ROOT / args.vocab)
+    authority, qa, guard_errors = load_authority_and_qa(ROOT)
+    if guard_errors:
+        raise SystemExit("runtime guard errors: " + "; ".join(guard_errors))
 
     created = []
     checked = []
@@ -264,7 +325,9 @@ def main() -> None:
         if not req_dir.exists():
             continue
         for path in sorted(req_dir.glob("request_*.json")):
-            out_path, was_created = materialize_request(path, neutral, vocab, parallel_root)
+            out_path, was_created = materialize_request(
+                path, neutral, vocab, parallel_root, authority, qa
+            )
             checked.append(str(path.relative_to(ROOT)))
             if was_created:
                 created.append(str(out_path.relative_to(ROOT)))
