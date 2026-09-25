@@ -11,6 +11,49 @@ ROOT = Path(__file__).resolve().parents[2]
 PARALLEL = ROOT / "docs/issue132/parallel"
 NEUTRAL = PARALLEL / "input/luna_neutral_review_input_v2.csv"
 
+MISSING_DECISIONS = {
+    (1,800): {
+        "discovery_mode":"BROWSE_WORTHY",
+        "routes":[{"id":"BODY_SITE","strength":"CORE"},{"id":"TOOL_OBJECT","strength":"SUPPORTING"}],
+        "local_refinement_ids":["OBJECT_PROP/FOOD"],
+        "body_site_ids":["MOUTH_ORAL"],
+        "theme_ids":[],
+        "route_vocabulary_gap":"NO",
+        "review_depth":"RESEARCHED",
+        "evidence_urls":["https://safebooru.donmai.us/wiki_pages/toast"],
+    },
+    (2,525): {
+        "discovery_mode":"BROWSE_WORTHY",
+        "routes":[{"id":"CLOTHING_EXPOSURE","strength":"CORE"},{"id":"COLOR_PATTERN_SHAPE","strength":"SUPPORTING"}],
+        "local_refinement_ids":["CLOTHING/EVERYDAY"],
+        "body_site_ids":[],
+        "theme_ids":[],
+        "route_vocabulary_gap":"NO",
+        "review_depth":"CHECKED",
+        "evidence_urls":[],
+    },
+    (2,650): {
+        "discovery_mode":"BROWSE_WORTHY",
+        "routes":[{"id":"POSE_POSITION","strength":"CORE"},{"id":"LIVING","strength":"SUPPORTING"}],
+        "local_refinement_ids":["LIVING_NATURE/PLANT"],
+        "body_site_ids":[],
+        "theme_ids":[],
+        "route_vocabulary_gap":"NO",
+        "review_depth":"RESEARCHED",
+        "evidence_urls":["https://safebooru.donmai.us/wiki_pages/sitting_in_tree"],
+    },
+    (2,950): {
+        "discovery_mode":"BROWSE_WORTHY",
+        "routes":[{"id":"COLOR_PATTERN_SHAPE","strength":"CORE"}],
+        "local_refinement_ids":[],
+        "body_site_ids":[],
+        "theme_ids":[],
+        "route_vocabulary_gap":"NO",
+        "review_depth":"RESEARCHED",
+        "evidence_urls":["https://tags.latent.moe/en/t/flower_knot"],
+    },
+}
+
 TARGETS = {
     1: [(751,775),(776,800)],
     2: [(501,525),(526,550),(551,575),(626,650),(651,675),(676,700),
@@ -196,6 +239,16 @@ def build_effective(lane,start,end,assigned,pool,target_path):
         key=expected["identity_key"]
         h=identity_sha(key)
         candidates=list(by_key.get(key,[]))+list(by_hash.get(h,[]))
+        if not candidates and (lane,idx) in MISSING_DECISIONS:
+            value={
+                "lane_local_index":idx,
+                "review_seq":int(expected["review_seq"]),
+                "identity_sha256":h,
+                **MISSING_DECISIONS[(lane,idx)],
+            }
+            rows[idx]=value
+            provenance[idx]="MANUAL_AUDIT_RECOVERY"
+            continue
         (kind,value),source_path=choose_candidate(candidates,expected,idx,target_path)
         if kind == "row":
             rows[idx]=value
