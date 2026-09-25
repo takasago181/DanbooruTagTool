@@ -55,17 +55,6 @@ def main():
     else:
         print(f"Using existing frozen contract: {contract.relative_to(ROOT)}")
 
-    plan={
-        "schema_version":"issue132-parallel-plan-v1",
-        "lane_count":3,
-        "assignment_rule":"((review_seq-1)%3)+1",
-        "semantic_sharding":False,
-        "note":"Operational distribution only; neutral input is already deterministic hash order."
-    }
-    plan_path=parallel_dir/"parallel_plan_v1.json"
-    if not plan_path.exists():
-        plan_path.write_text(json.dumps(plan,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
-
     for lane in LANES:
         lane_dir=parallel_dir/f"lane-{lane}"
         lane_dir.mkdir(parents=True,exist_ok=True)
@@ -87,7 +76,7 @@ def main():
     print("\nREADY_FOR_PARALLEL_PASS_A")
     print(f"neutral={neutral.relative_to(ROOT)}")
     print(f"contract={contract.relative_to(ROOT)}")
-    print(f"plan={plan_path.relative_to(ROOT)}")
+    print("runtime_authority=docs/issue132/parallel/RUNTIME_AUTHORITY.json")
 
 if __name__=="__main__":
     main()
