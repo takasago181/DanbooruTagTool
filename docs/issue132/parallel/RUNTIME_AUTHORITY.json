@@ -1,0 +1,50 @@
+{
+  "schema_version": "issue132-runtime-authority-v1",
+  "status": "ACTIVE",
+  "branch": "research/taxonomy-usability-audit",
+  "roles": {
+    "worker": {
+      "path": "docs/issue132/parallel/RUNTIME_WORKER_CARD_V7.md",
+      "lanes": [
+        1,
+        2,
+        3
+      ]
+    },
+    "repair": {
+      "path": "docs/issue132/parallel/RUNTIME_REPAIR_CARD_V6.md"
+    },
+    "coordinator": {
+      "path": "docs/issue132/parallel/RUNTIME_COORDINATOR_CARD_V5.md"
+    }
+  },
+  "fixed": {
+    "lane_count": 3,
+    "assignment_rule": "((review_seq-1)%3)+1",
+    "parent_neutral_sha256": "ac0f888d02f19a440c63b3b9f695c58f9ba53b98ebe9756edec51db1c5ff8f7d",
+    "parent_identity_order_sha256": "f80c63018ce19a8c7c5d8d6fd83d03cf760c510d8f6cfa455d1ab356fb31361b",
+    "persistence_slice": 25,
+    "semantic_work_block_max": 100,
+    "per_run_ceiling": 300
+  },
+  "truth_order": [
+    "live repository files",
+    "active repair overlays",
+    "immutable checkpoints/corrections",
+    "current validator/CI evidence"
+  ],
+  "non_authoritative": [
+    "deleted legacy status caches",
+    "superseded runtime cards",
+    "old issue comments",
+    "historical automation reports"
+  ],
+  "invariants": {
+    "historical_staging_is_immutable": true,
+    "historical_repair_is_append_only_overlay": true,
+    "force_git_refs": false,
+    "adult_sexual_is_normal_supported_workflow": true,
+    "semantic_unresolved_is_terminal_after_completed_bounded_research": true,
+    "merge_or_production_apply_authorized": false
+  }
+}
