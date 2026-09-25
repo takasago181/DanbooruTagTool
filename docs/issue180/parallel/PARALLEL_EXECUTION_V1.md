@@ -155,7 +155,11 @@ If canonical advanced concurrently, fetch it, merge it into QA, rerun validation
 
 ## 8. CI/self-repair
 
-Worker CI validates research scope, v3 reproducibility, ownership assignment and branch-specific write scope.
+Forward CI is deliberately lightweight. It validates research scope, latest-canonical ancestry, branch-specific write scope, deterministic lane ownership, proposal schema, and protected-source boundaries. It does **not** rerun the full 35,890-Character v3 resolver on every proposal push.
+
+Forward workers rebuild v3 + assignments locally when canonical advances or before selecting new work. QA rechecks proposals against a freshly rebuilt full assignment manifest before canonical integration.
+
+Full v3 tests/resolver/reproducibility/#179 freshness run only on QA/Integrator and canonical branch checkpoints. This preserves the accuracy gate while removing four redundant full-pipeline CI runs per proposal wave.
 
 A worker fixes its own proposal/schema mistake autonomously. It does not edit shared harness code.
 

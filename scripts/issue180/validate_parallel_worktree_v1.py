@@ -48,10 +48,13 @@ def load_ingested_ids() -> set[str]:
         return set()
     return {r.get("proposal_id","") for r in read_csv(QA_LEDGER) if r.get("proposal_id")}
 
-def validate_forward_proposals(slot: int, prefix: str, cfg: dict) -> None:
-    if not ASSIGNMENTS.exists():
-        raise SystemExit("parallel assignment manifest missing; run v3 then build_parallel_assignment_v1.py")
-    assignments={r["assignment_id"]:r for r in read_csv(ASSIGNMENTS) if r["owner_role"]=="FORWARD" and r["owner_slot"]==str(slot)}
+def validate_forward_proposals(slot: int, prefix: str, cfg: dict, require_assignment_manifest: bool=True) -> None:
+    assignments={}
+    if require_assignment_manifest:
+        if not ASSIGNMENTS.exists():
+            raise SystemExit("parallel assignment manifest missing; run v3 then build_parallel_assignment_v1.py")
+        assignments={r["assignment_id"]:r for r in read_csv(ASSIGNMENTS) if r["owner_role"]=="FORWARD" and r["owner_slot"]==str(slot)}
+    latest_canonical=run("rev-parse",f"origin/{cfg['canonical_branch']}")
     ingested=load_ingested_ids()
     root=ROOT/prefix
     if not root.exists():
@@ -71,18 +74,25 @@ def validate_forward_proposals(slot: int, prefix: str, cfg: dict) -> None:
             seen.add(pid)
             if pid in ingested:
                 continue
-            a=assignments.get(str(p["assignment_id"]))
-            if not a: raise SystemExit(f"{path}: stale/unowned assignment {p['assignment_id']}")
-            checks={
-                "epoch_id":"epoch_id","canonical_base_sha":"canonical_base_sha","unit_id":"source_unit_id",
-                "source_member_ids_sha256":"source_member_ids_sha256",
-                "assignment_member_ids_sha256":"assignment_member_ids_sha256",
-                "ownership_key":"ownership_key","work_bucket":"work_bucket",
-            }
-            for pk,ak in checks.items():
-                if str(p[pk])!=a[ak]: raise SystemExit(f"{path}: {pk} does not match current assignment")
-            if int(p["worker_slot"])!=slot or owner_slot(a["ownership_key"],int(cfg["forward_slots"]))!=slot:
+            if str(p["canonical_base_sha"])!=latest_canonical:
+                raise SystemExit(f"{path}: proposal is stale relative to latest canonical {latest_canonical}")
+            if not str(p["epoch_id"]).startswith("ep1-"+latest_canonical[:12]+"-"):
+                raise SystemExit(f"{path}: epoch_id is not bound to latest canonical")
+            if str(p["work_bucket"]) not in set(cfg["forward_buckets"]):
+                raise SystemExit(f"{path}: work_bucket is not Forward-owned")
+            if int(p["worker_slot"])!=slot or owner_slot(str(p["ownership_key"]),int(cfg["forward_slots"]))!=slot:
                 raise SystemExit(f"{path}: worker ownership mismatch")
+            if require_assignment_manifest:
+                a=assignments.get(str(p["assignment_id"]))
+                if not a: raise SystemExit(f"{path}: stale/unowned assignment {p['assignment_id']}")
+                checks={
+                    "epoch_id":"epoch_id","canonical_base_sha":"canonical_base_sha","unit_id":"source_unit_id",
+                    "source_member_ids_sha256":"source_member_ids_sha256",
+                    "assignment_member_ids_sha256":"assignment_member_ids_sha256",
+                    "ownership_key":"ownership_key","work_bucket":"work_bucket",
+                }
+                for pk,ak in checks.items():
+                    if str(p[pk])!=a[ak]: raise SystemExit(f"{path}: {pk} does not match current assignment")
             if p["proposal_type"] not in {"EVIDENCE_DIRECT_HOME","EVIDENCE_FAMILY_HOME","EVIDENCE_MEMBER_OF",
                                          "EVIDENCE_VARIANT_OF","TERMINAL_REVIEW","SUPERSESSION","TECHNICAL_ESCALATION"}:
                 raise SystemExit(f"{path}: invalid proposal_type {p['proposal_type']}")
@@ -127,6 +137,7 @@ def validate_forward_proposals(slot: int, prefix: str, cfg: dict) -> None:
 def main() -> None:
     ap=argparse.ArgumentParser()
     ap.add_argument("--freshness-only",action="store_true")
+    ap.add_argument("--forward-light",action="store_true")
     args=ap.parse_args()
     cfg=json.loads(CONFIG.read_text(encoding="utf-8"))
     br=branch_name()
@@ -145,8 +156,9 @@ def main() -> None:
         bad=sorted(p for p in changed if not p.startswith(prefix))
         if bad:
             raise SystemExit("forward Worktree write-scope violation:\n"+"\n".join("  "+p for p in bad))
-        validate_forward_proposals(slot,prefix,cfg)
-        print(f"Issue180 parallel guard PASS: forward slot={slot} changed={len(changed)}")
+        validate_forward_proposals(slot,prefix,cfg,require_assignment_manifest=not args.forward_light)
+        mode="light" if args.forward_light else "full"
+        print(f"Issue180 parallel guard PASS: forward slot={slot} mode={mode} changed={len(changed)}")
         return
     if br==cfg["qa_branch"]:
         proposal_prefix=cfg["proposal_root"]+"/"
