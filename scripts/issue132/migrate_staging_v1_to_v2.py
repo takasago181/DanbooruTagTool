@@ -7,7 +7,8 @@ import json
 import re
 from pathlib import Path
 
-from staging_v2 import SCHEMA_V2, identity_sha256
+from staging_v2 import SCHEMA_V2, compact_row_to_full, identity_sha256
+import validate_luna_pass_a as base
 
 ROOT = Path(__file__).resolve().parents[2]
 STAGE_RE = re.compile(r"^window_(\d{6})_(\d{6})\.json$")
@@ -140,6 +141,33 @@ def convert_window(path: Path, assigned: list[dict[str, str]]):
 
     rows_v2.sort(key=lambda x: x["lane_local_index"])
     holds_v2.sort(key=lambda x: x["lane_local_index"])
+
+    # Round-trip gate: compact v2 must preserve all classification/evidence
+    # fields and reconstruct a row accepted by the frozen Pass A validator.
+    original_by_local = {}
+    for row in obj.get("rows", []):
+        pair = (str(row.get("review_seq", "")), str(row.get("identity_key", "")))
+        local_index = expected_by_pair[pair]
+        original_by_local[local_index] = row
+
+    preserved_fields = [
+        "review_seq", "identity_key", "manual_seen", "discovery_mode",
+        "route_1_id", "route_1_strength", "route_2_id", "route_2_strength",
+        "route_3_id", "route_3_strength", "local_refinement_ids",
+        "body_site_ids", "theme_ids", "route_vocabulary_gap",
+        "review_depth", "evidence_urls",
+    ]
+    for compact in rows_v2:
+        local_index = compact["lane_local_index"]
+        expected = assigned[local_index - 1]
+        rebuilt = compact_row_to_full(compact, expected, base.FIELDS)
+        errs = base.validate_row(rebuilt, int(expected["review_seq"]))
+        if errs:
+            return None, f"round-trip frozen validation failed at {local_index}: {errs[0]}"
+        original = original_by_local[local_index]
+        for field in preserved_fields:
+            if str(rebuilt.get(field, "")) != str(original.get(field, "")):
+                return None, f"round-trip classification drift at {local_index} field={field}"
     out = {
         "schema_version": SCHEMA_V2,
         "lane": obj["lane"],
