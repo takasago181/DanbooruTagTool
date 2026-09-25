@@ -26,10 +26,20 @@ Coordinator does not redo normal Worker classification or historical Repair work
 ## Minimal live read
 Per run:
 1. read RUNTIME_AUTHORITY.json, this card, QA_BASELINE.json;
-2. list checkpoint/staging/repair-overlay/QA-marker metadata needed for current effective state;
+2. acquire checkpoint/staging/repair-overlay/QA-marker PATH METADATA for all three lanes with the fewest calls possible.
+   - Normal path: directory metadata/listing.
+   - A directory-list 404/timeout/tool error is NOT proof that repository metadata is absent and is NOT by itself a blocker.
+   - On the first such operational failure, immediately fetch branch HEAD/tree and ONE recursive Git tree, then reuse that single tree for all remaining metadata accounting in this run.
+   - Filter only exact canonical path patterns:
+     - `docs/issue132/parallel/lane-N/checkpoints/checkpoint_XXXXXX_YYYYYY.csv`
+     - `docs/issue132/parallel/lane-N/staging/window_XXXXXX_YYYYYY.json`
+     - `docs/issue132/parallel/lane-N/staging/repairs/repair_XXXXXX_YYYYYY_vNNN.json`
+     - `docs/issue132/parallel/qa/lane-N/qa_XXXXXX_YYYYYY.json`
+   - Derive checkpoint prefix/high-watermark/write-gap/marker presence from path names only. Do not fetch file bodies for this accounting.
+   - Stop metadata discovery only if BOTH normal listing and recursive-tree fallback fail.
 3. inspect latest relevant Issue132 CI summary once;
-4. when the current staging-validator v3 JSON is present, take exact `effective_invalid_windows`, `effective_invalid_window_counts`, `promotion_blocking_holds`, and total directly from it;
-5. only if those fields are absent/null/stale, read the effective first staging window after the affected lane checkpoint prefix and/or fetch detailed CI logs.
+4. when the latest applicable staging-validator v3 JSON is present, take exact `effective_invalid_windows`, `effective_invalid_window_counts`, `promotion_blocking_holds`, and total directly from it;
+5. only if those fields are absent/null/stale relative to staging/checkpoint/repair-validator state, read the affected effective first staging window and/or fetch detailed CI logs. Runtime-card-only/documentation commits do not by themselves invalidate otherwise current staging-validator counts.
 
 Never use deleted status caches as authority.
 
@@ -45,6 +55,8 @@ Priority:
 1. any newly crossed post-baseline 100 boundary;
 2. at most ONE legacy backlog 100-boundary block per Coordinator run;
 3. no re-audit of a boundary that already has a valid QA marker.
+
+If several legacy blocks are equally due, choose deterministically by smallest boundary first, then lane number. Metadata-list failure alone must not consume the run when recursive-tree fallback can establish marker absence/presence.
 
 Legacy backlog is NOT waived. It is merely bounded so current forward work is not blocked by historical bookkeeping.
 
