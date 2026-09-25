@@ -42,7 +42,7 @@ RELATION_CONTRACTS={
     ("Character","VARIANT_OF","Character"),
 }
 
-def validate_batch(data: dict, slot: int, path: Path) -> None:
+def validate_batch(data: dict, slot: int, path: Path, slots: int) -> None:
     required={"schema_version","proposal_id","campaign_key","worker_slot","batch_type","source_url","source_claim",
               "authority_type","evidence_basis","relations","terminal_reviews","notes"}
     missing=required-set(data)
@@ -53,7 +53,7 @@ def validate_batch(data: dict, slot: int, path: Path) -> None:
     if int(data["worker_slot"])!=slot:
         raise SystemExit(f"{path}: worker_slot mismatch")
     key=str(data["campaign_key"]).strip()
-    if not key or owner_slot(key,4)!=slot:
+    if not key or owner_slot(key,slots)!=slot:
         raise SystemExit(f"{path}: campaign_key is owned by another Forward lane")
     if not isinstance(data["relations"],list) or not isinstance(data["terminal_reviews"],list):
         raise SystemExit(f"{path}: relations/terminal_reviews must be arrays")
@@ -89,6 +89,9 @@ def validate_batch(data: dict, slot: int, path: Path) -> None:
                 raise SystemExit(f"{path}: terminal review requires exact unit/fingerprint")
             if len(str(review["review_provenance"]).strip())<20:
                 raise SystemExit(f"{path}: terminal review provenance too short")
+    elif btype=="RESEARCH_OUTCOME":
+        if data["relations"] or data["terminal_reviews"] or len(str(data["notes"]).strip())<35:
+            raise SystemExit(f"{path}: RESEARCH_OUTCOME requires concrete checked-path notes and no relations/reviews")
     elif btype=="TECHNICAL_ESCALATION":
         if data["relations"] or data["terminal_reviews"] or len(str(data["notes"]).strip())<20:
             raise SystemExit(f"{path}: TECHNICAL_ESCALATION requires concrete notes only")
@@ -108,7 +111,7 @@ def validate_forward(slot: int, prefix: str, cfg: dict) -> None:
             if not pid or pid in seen:
                 raise SystemExit(f"{path}: duplicate/blank proposal_id {pid}")
             seen.add(pid)
-            validate_batch(batch,slot,path)
+            validate_batch(batch,slot,path,int(cfg["forward_slots"]))
 
 def main() -> None:
     cfg=json.loads(CONFIG.read_text(encoding="utf-8"))

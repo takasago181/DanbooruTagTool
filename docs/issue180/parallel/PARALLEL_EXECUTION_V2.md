@@ -77,6 +77,8 @@ Every Forward TERMINAL_BATCH item must include:
 
 QA accepts a terminal conclusion only if the exact current unit fingerprint still matches. Otherwise the conclusion is obsolete and the regenerated remainder is reviewed separately.
 
+For campaigns that are intentionally smaller than their source Research Unit (especially structure-free `direct:<canonical_tag>` work), a worker must **not** fake a unit-level terminal review. Instead write a `RESEARCH_OUTCOME` batch recording that this campaign was checked and produced no safe positive relation. QA records that outcome as research accounting only. When every current campaign covering an exact residual unit has been exhausted and the current unit fingerprint still matches, QA may then create the canonical unit-level terminal review.
+
 QA-owned deterministic/policy buckets remain:
 - `SAFE_STRUCTURE_READY`
 - `POLICY_BLOCKED`
@@ -114,8 +116,9 @@ For each lane:
 6. exhaust safe exact matches from that source before moving on;
 7. write one source-level AUTHORITY_BATCH;
 8. use TERMINAL_BATCH only after the exact residual fingerprint has genuinely been reviewed;
-9. commit/push coarse source batches;
-10. continue with another owned campaign.
+9. if only the campaign (not the whole Research Unit) was exhausted with no safe relation, write RESEARCH_OUTCOME instead of pretending the unit is terminal;
+10. commit/push coarse source/outcome batches;
+11. continue with another owned campaign.
 
 A canonical advance does not force an in-progress source batch to be abandoned. Refresh the campaign queue before choosing the next campaign, not in the middle of a valid source review.
 
@@ -131,10 +134,12 @@ QA:
 6. record decisions in `QA_REVIEW_LEDGER_V2.csv`;
 7. reject duplicate/obsolete/conflicting relations individually rather than discarding an entire good source batch;
 8. validate TERMINAL_BATCH only against exact current unit fingerprint;
-9. rebuild v3 when accepted family/member/variant evidence can reshape the graph;
-10. direct-HOME-only source batches may be accumulated into a coherent wave before one full rebuild;
-11. push QA, require full-v3 CI green, then fast-forward the exact green QA HEAD to canonical;
-12. repeat until OPEN/PENDING = 0.
+9. record RESEARCH_OUTCOME as non-authoritative campaign accounting; never turn one campaign-level negative into a unit terminal by itself;
+10. when all campaigns covering an exact current residual unit are accounted as exhausted and no admissible path remains, QA may create the canonical unit-level terminal review with the current fingerprint;
+11. rebuild v3 when accepted family/member/variant evidence can reshape the graph;
+12. direct-HOME-only source batches may be accumulated into a coherent wave before one full rebuild;
+13. push QA, require full-v3 CI green, then fast-forward the exact green QA HEAD to canonical;
+14. repeat until OPEN/PENDING = 0.
 
 There is no fixed "50 proposals / 250 members" epoch rule. Natural source/graph boundaries decide integration waves.
 

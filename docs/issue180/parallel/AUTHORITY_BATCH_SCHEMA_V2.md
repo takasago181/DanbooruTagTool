@@ -84,6 +84,31 @@ POLICY_BLOCKED, IDENTITY_BLOCKED, STRUCTURAL_NO_SAFE_PATH and CONFLICT_REVIEW ar
 
 Terminal conclusions are valid only for the exact current unit fingerprint. QA rejects stale terminal items without invalidating unrelated positive evidence batches.
 
+## RESEARCH_OUTCOME
+
+Use this when one authority campaign was actually researched but produced no safe positive relation and the worker is **not** entitled to terminalize the whole source Research Unit.
+
+```json
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-unique-id",
+  "campaign_key": "direct:example",
+  "worker_slot": 0,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "notes": "Checked sources/search paths and why this campaign produced no safe exact relation."
+}
+```
+
+RESEARCH_OUTCOME is research accounting only. It is not negative evidence and is not a canonical terminal decision.
+
+QA may use accumulated current campaign outcomes to decide when an exact residual Research Unit has been fully reviewed, but the actual canonical terminal review still requires the current unit_id + member_ids_sha256 and the normal v3 terminal rules.
+
 ## TECHNICAL_ESCALATION
 
 May contain no relations/reviews. `notes` must state the concrete reproducible technical failure. It is not evidence.

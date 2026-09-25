@@ -46,6 +46,16 @@ class Issue180ParallelV2Tests(unittest.TestCase):
         rows=mod.build_campaigns([unit],[closure],cfg)
         self.assertEqual({r["campaign_key"] for r in rows},{"direct:alpha","direct:beta","direct:gamma"})
 
+    def test_structure_free_direct_campaign_is_not_a_unit_terminal(self):
+        cfg=self.cfg()
+        tags=["alpha","beta"]
+        unit={"unit_id":"ru3-d2","status":"OPEN","subject":"__UNGROUPED__","unit_type":"DIRECT_AUTHORITY","priority":"P3","member_ids/tags":json.dumps(tags)}
+        closure={"unit_id":"ru3-d2","member_ids_sha256":mod.member_hash(tags),"work_bucket":"DIRECT_AUTHORITY_RESEARCH"}
+        rows=mod.build_campaigns([unit],[closure],cfg)
+        self.assertEqual(len(rows),2)
+        source_units=[json.loads(r["source_units"]) for r in rows]
+        self.assertTrue(all(x[0]["unit_id"]=="ru3-d2" for x in source_units))
+
     def test_qa_bucket_remains_qa_owned(self):
         cfg=self.cfg()
         unit={"unit_id":"ru3-q","status":"OPEN","subject":"family:q","unit_type":"FAMILY_AUTHORITY","priority":"P3","member_ids/tags":json.dumps(["x"])}

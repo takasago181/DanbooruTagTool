@@ -32,7 +32,9 @@
     "terminal_review_exact_fingerprint_required": true,
     "allow_exact_source_spillover_relations": true,
     "fixed_epoch_thresholds": false,
-    "owner_function": "sha256(campaign_key) modulo 4"
+    "owner_function": "sha256(campaign_key) modulo 4",
+    "campaign_negative_outcome_is_authority": false,
+    "campaign_negative_outcome_requires_unit_terminalization_by_qa": true
   },
   "rules": {
     "single_canonical_writer": true,
