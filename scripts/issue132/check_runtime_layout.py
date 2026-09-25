@@ -7,13 +7,6 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 PARALLEL = ROOT / "docs/issue132/parallel"
 AUTHORITY = PARALLEL / "RUNTIME_AUTHORITY.json"
-QA_BASELINE = PARALLEL / "QA_BASELINE.json"
-
-EXPECTED = {
-    "worker": "docs/issue132/parallel/RUNTIME_WORKER_CARD_V8.md",
-    "repair": "docs/issue132/parallel/RUNTIME_REPAIR_CARD_V6.md",
-    "coordinator": "docs/issue132/parallel/RUNTIME_COORDINATOR_CARD_V6.md",
-}
 
 FORBIDDEN_EXACT = [
     PARALLEL / "repair_status.json",
@@ -24,6 +17,7 @@ FORBIDDEN_EXACT = [
     PARALLEL / "WORKER_EXECUTION_CARD_V1.md",
 ]
 
+
 def main() -> None:
     errors: list[str] = []
 
@@ -32,68 +26,79 @@ def main() -> None:
     except Exception as exc:
         raise SystemExit(f"invalid runtime authority: {exc}")
 
-    if not QA_BASELINE.is_file():
-        errors.append("QA baseline missing")
-
-    if authority.get("schema_version") != "issue132-runtime-authority-v1":
+    if authority.get("schema_version") != "issue132-runtime-authority-v2-flat":
         errors.append("runtime authority schema mismatch")
     if authority.get("status") != "ACTIVE":
         errors.append("runtime authority must be ACTIVE")
     if authority.get("branch") != "research/taxonomy-usability-audit":
         errors.append("runtime authority branch mismatch")
 
+    model = authority.get("execution_model")
+    if not isinstance(model, str) or not (ROOT / model).is_file():
+        errors.append("active execution model missing")
+
+    fixed = authority.get("fixed")
+    if not isinstance(fixed, dict):
+        errors.append("runtime authority fixed section missing")
+        fixed = {}
+    if fixed.get("task_count") != 5:
+        errors.append("Issue132 active task_count must be exactly 5")
+    if fixed.get("lane_count") != 3:
+        errors.append("Issue132 lane_count must be exactly 3")
+
     roles = authority.get("roles")
     if not isinstance(roles, dict):
         errors.append("runtime authority roles missing")
         roles = {}
+
+    active_cards = {}
+    for role in ("worker", "repair", "coordinator"):
+        entry = roles.get(role)
+        path = entry.get("path") if isinstance(entry, dict) else None
+        if not isinstance(path, str):
+            errors.append(f"{role}: active card path missing")
+            continue
+        active_cards[role] = path
+        if not (ROOT / path).is_file():
+            errors.append(f"{role}: active card missing: {path}")
+
+    worker = roles.get("worker")
+    if not isinstance(worker, dict) or worker.get("lanes") != [1, 2, 3]:
+        errors.append("worker lanes must be exactly [1,2,3]")
 
     contracts = authority.get("contracts")
     if not isinstance(contracts, dict):
         errors.append("runtime authority contracts missing")
         contracts = {}
     semantic_path = contracts.get("semantic_vocabulary_path")
-    expected_semantic_path = "docs/issue132/parallel/pass_a_contract_manifest_v1.json"
-    if semantic_path != expected_semantic_path:
+    if semantic_path != "docs/issue132/parallel/pass_a_contract_manifest_v1.json":
         errors.append("semantic vocabulary path mismatch")
+    elif not (ROOT / semantic_path).is_file():
+        errors.append("semantic vocabulary file missing")
     else:
-        semantic_file = ROOT / semantic_path
-        if not semantic_file.is_file():
-            errors.append("semantic vocabulary file missing")
-        else:
-            try:
-                semantic = json.loads(semantic_file.read_text(encoding="utf-8"))
-                if semantic.get("schema_version") != contracts.get("semantic_vocabulary_schema_version"):
-                    errors.append("semantic vocabulary schema mismatch")
-                required_keys = contracts.get("required_keys")
-                if not isinstance(required_keys, list) or any(k not in semantic for k in required_keys):
-                    errors.append("semantic vocabulary required keys missing")
-            except Exception as exc:
-                errors.append(f"semantic vocabulary unreadable: {exc}")
+        try:
+            semantic = json.loads((ROOT / semantic_path).read_text(encoding="utf-8"))
+            if semantic.get("schema_version") != contracts.get("semantic_vocabulary_schema_version"):
+                errors.append("semantic vocabulary schema mismatch")
+            required = contracts.get("required_keys")
+            if not isinstance(required, list) or any(key not in semantic for key in required):
+                errors.append("semantic vocabulary required keys missing")
+        except Exception as exc:
+            errors.append(f"semantic vocabulary unreadable: {exc}")
 
-    for role, expected_path in EXPECTED.items():
-        entry = roles.get(role)
-        if not isinstance(entry, dict) or entry.get("path") != expected_path:
-            errors.append(f"{role}: active card path mismatch")
-        if not (ROOT / expected_path).is_file():
-            errors.append(f"{role}: active card missing: {expected_path}")
-
-    active_paths = set(EXPECTED.values())
-
-    runtime_patterns = [
-        "RUNTIME_WORKER_CARD_V*.md",
-        "RUNTIME_REPAIR_CARD_V*.md",
-        "RUNTIME_REPAIR*_CARD_V*.md",
-        "RUNTIME_COORDINATOR_CARD_V*.md",
-    ]
-    seen: set[Path] = set()
-    for pattern in runtime_patterns:
-        for path in PARALLEL.glob(pattern):
-            if path in seen:
-                continue
-            seen.add(path)
-            rel = path.relative_to(ROOT).as_posix()
-            if rel not in active_paths:
-                errors.append(f"superseded runtime card present: {rel}")
+    progress = authority.get("progress")
+    if not isinstance(progress, dict):
+        errors.append("flat progress section missing")
+    else:
+        validator = progress.get("validator")
+        if validator != "scripts/issue132/validate_flat_pass_a.py":
+            errors.append("flat validator path mismatch")
+        elif not (ROOT / validator).is_file():
+            errors.append("flat validator missing")
+        if progress.get("checkpoint_prefix_is_progress_gate") is not False:
+            errors.append("checkpoint prefix must not be the flat progress gate")
+        if progress.get("checkpoint_promotion_required") is not False:
+            errors.append("checkpoint promotion must be disabled")
 
     for lane in (1, 2, 3):
         status = PARALLEL / f"lane-{lane}/status.json"
@@ -105,8 +110,10 @@ def main() -> None:
             errors.append(f"obsolete runtime artifact present: {path.relative_to(ROOT)}")
 
     result = {
-        "schema_version": "issue132-runtime-layout-check-v1",
-        "active_cards": EXPECTED,
+        "schema_version": "issue132-runtime-layout-check-v2-flat",
+        "active_cards": active_cards,
+        "task_count": fixed.get("task_count"),
+        "progress_model": progress.get("model") if isinstance(progress, dict) else None,
         "error_count": len(errors),
     }
     print(json.dumps(result, ensure_ascii=False, indent=2))
@@ -114,6 +121,7 @@ def main() -> None:
         for error in errors:
             print("ERROR:", error)
         raise SystemExit(1)
+
 
 if __name__ == "__main__":
     main()
