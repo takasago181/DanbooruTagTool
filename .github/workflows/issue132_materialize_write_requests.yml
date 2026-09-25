@@ -7,6 +7,10 @@ on:
     paths:
       - "docs/issue132/parallel/lane-*/write-requests/request_*.json"
       - "scripts/issue132/materialize_write_requests.py"
+      - "scripts/issue132/codex_runtime_guards.py"
+      - "docs/issue132/parallel/RUNTIME_AUTHORITY.json"
+      - "docs/issue132/parallel/CODEX_QA_STATE.json"
+      - "docs/issue132/parallel/CODEX_SEMANTIC_GUARDRAILS_*.md"
       - ".github/workflows/issue132_materialize_write_requests.yml"
   workflow_dispatch:
 
