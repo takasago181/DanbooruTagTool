@@ -75,5 +75,17 @@
     "main_or_production_mutation_authorized": false,
     "force_push_allowed": false,
     "chatgpt_automations_enabled": 0
+  },
+  "baseline": {
+    "manifest_path": "docs/issue132/parallel/codex-baseline/manifest.json",
+    "manifest_git_blob_sha": "6f506c81b19908dc9fb83078d5d8eb001c33537a",
+    "saved_end_by_lane": {
+      "1": 1125,
+      "2": 1225,
+      "3": 1200
+    },
+    "holds_block_forward_progress": false,
+    "semantic_lint_debt_blocks_forward_progress": false,
+    "must_be_zero_for_final_completion": true
   }
 }
