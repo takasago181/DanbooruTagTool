@@ -131,7 +131,7 @@ For compact v2 staging and lane status, use contents API first: NEW=`create_file
 
 ## Compact staging v2 — REQUIRED FOR NEW WRITES
 
-All NEW forward staging windows use `issue132-pass-a-staging-window-v2`. Existing v1 files remain valid and are not mass-rewritten. If an existing window is rebuilt for repair, write it back as v2.
+All NEW forward staging windows use `issue132-pass-a-staging-window-v2`. Existing v1 files remain valid and are not mass-rewritten. Forward workers never repair historical staging. Historical Repair follows `RUNTIME_REPAIR_CARD_V4.md` and leaves source staging immutable, publishing a compact-v2 effective window only through an append-only repair overlay.
 
 Purpose: keep exact identity/classification quality while avoiding repeated publication of identity text and free-form semantic prose.
 
