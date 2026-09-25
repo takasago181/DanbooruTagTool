@@ -25,11 +25,11 @@ Accuracy still wins over guessing.
 
 Forward workers:
 `docs/issue132/parallel/RUNTIME_WORKER_CARD_V7.md`
-blob SHA: `c92903f23c7c084c88e1853948aaceff75ec7263`
+blob SHA: `cbcb39351f765645b0778a7ca16d9b0337d92c2a`
 
 Repair:
 `docs/issue132/parallel/RUNTIME_REPAIR_CARD_V6.md`
-blob SHA: `6628d42ccd8b7f45dad155ea51b04c51c800a8c2`
+blob SHA: `4b810f4a67c061f68a40119aa1dc98c1ef729ec2`
 
 Coordinator:
 `docs/issue132/parallel/RUNTIME_COORDINATOR_CARD_V5.md`
