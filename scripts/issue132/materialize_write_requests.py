@@ -66,7 +66,27 @@ def load_vocab(path: Path) -> dict:
     return obj
 
 
+def normalize_transport_row(row: dict) -> dict:
+    """Normalize only representation aliases with identical semantics."""
+    row = dict(row)
+    gap = row.get("route_vocabulary_gap")
+    if isinstance(gap, bool):
+        row["route_vocabulary_gap"] = "YES" if gap else "NO"
+
+    routes = row.get("routes")
+    if isinstance(routes, list):
+        normalized_routes = []
+        for route in routes:
+            if isinstance(route, dict) and "route_id" in route and "id" not in route:
+                route = dict(route)
+                route["id"] = route.pop("route_id")
+            normalized_routes.append(route)
+        row["routes"] = normalized_routes
+    return row
+
+
 def validate_row(row: dict, expected: dict, local_index: int, vocab: dict) -> dict:
+    row = normalize_transport_row(row)
     if set(row) != ROW_FIELDS:
         raise ValueError(f"row {local_index}: field-set mismatch")
     if int(row["lane_local_index"]) != local_index:
