@@ -12,6 +12,7 @@ ROOT = Path(__file__).resolve().parents[2]
 CAMPAIGNS = ROOT / "artifacts/issue180-v3/parallel_authority_campaigns_v2.csv"
 SOURCE_LEDGER = ROOT / "docs/issue180/parallel/SOURCE_REVIEW_LEDGER_V2.csv"
 TRACKED_DIR = ROOT / "docs/issue180/parallel/dispatch"
+DEFAULT_PACKET_LIMIT = 200
 
 FIELDS = [
     "queue_id",
@@ -106,11 +107,26 @@ def render(rows: list[dict[str, str]]) -> str:
     return buf.getvalue()
 
 
-def expected_files(rows: list[dict[str, str]]) -> dict[str, str]:
-    files = {"CURRENT_DISPATCH_V2.csv": render(rows)}
+def expected_files(rows: list[dict[str, str]], packet_limit: int = DEFAULT_PACKET_LIMIT) -> dict[str, str]:
+    files: dict[str, str] = {}
+    summary = {
+        "queue_ids": sorted({r["queue_id"] for r in rows}),
+        "packet_limit_per_lane": packet_limit,
+        "total_forward_campaigns": len(rows),
+        "total_open_campaigns": sum(r["research_state"] == "OPEN" for r in rows),
+        "lanes": {},
+    }
     for slot in range(4):
-        lane = [r for r in rows if r["owner_slot"] == str(slot)]
-        files[f"fwd-{slot}.csv"] = render(lane)
+        lane_all = [r for r in rows if r["owner_slot"] == str(slot)]
+        lane_open = [r for r in lane_all if r["research_state"] == "OPEN"]
+        packet = lane_open[:packet_limit]
+        files[f"fwd-{slot}.csv"] = render(packet)
+        summary["lanes"][str(slot)] = {
+            "total_campaigns": len(lane_all),
+            "open_campaigns": len(lane_open),
+            "dispatched_open_campaigns": len(packet),
+        }
+    files["DISPATCH_SUMMARY_V2.json"] = json.dumps(summary, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
     return files
 
 
@@ -139,6 +155,7 @@ def main() -> None:
     parser.add_argument("--write-tracked", action="store_true")
     parser.add_argument("--check-tracked", action="store_true")
     parser.add_argument("--export-dir", type=Path)
+    parser.add_argument("--packet-limit", type=int, default=DEFAULT_PACKET_LIMIT)
     args = parser.parse_args()
 
     if not CAMPAIGNS.exists():
@@ -147,7 +164,9 @@ def main() -> None:
         raise SystemExit("missing SOURCE_REVIEW_LEDGER_V2.csv")
 
     rows = build_rows(read_csv(CAMPAIGNS), read_csv(SOURCE_LEDGER))
-    files = expected_files(rows)
+    if args.packet_limit < 1:
+        raise SystemExit("--packet-limit must be >= 1")
+    files = expected_files(rows, args.packet_limit)
 
     if args.write_tracked:
         write_dir(TRACKED_DIR, files)
@@ -168,6 +187,8 @@ def main() -> None:
         "forward_campaign_count": len(rows),
         "campaign_counts_by_slot": counts,
         "open_counts_by_slot": open_counts,
+        "packet_limit_per_lane": args.packet_limit,
+        "dispatched_open_counts_by_slot": {str(slot): min(open_counts[str(slot)], args.packet_limit) for slot in range(4)},
     }, ensure_ascii=False, indent=2))
 
 

@@ -45,12 +45,29 @@ class Issue180DispatchV2Tests(unittest.TestCase):
 
     def test_lane_files_only_contain_owned_slot(self):
         rows=mod.build_rows(self.campaigns(),self.sources())
-        files=mod.expected_files(rows)
+        files=mod.expected_files(rows, packet_limit=200)
         parsed=list(csv.DictReader(io.StringIO(files["fwd-0.csv"])))
         self.assertEqual(len(parsed),1)
         self.assertEqual(parsed[0]["owner_slot"],"0")
         parsed1=list(csv.DictReader(io.StringIO(files["fwd-1.csv"])))
         self.assertEqual(parsed1,[])
+
+    def test_packet_limit_caps_lane_context(self):
+        campaigns=[]
+        for i in range(5):
+            campaigns.append({
+                "queue_id":"q2-x","campaign_id":f"pc2-{i}","owner_role":"FORWARD","owner_slot":"0",
+                "owner_branch":"research/issue180-forward-0","campaign_key":f"direct:tag{i}",
+                "campaign_fingerprint":str(i)*64,"research_state":"OPEN","work_buckets":"[]",
+                "source_units":"[]","member_count":"1","member_ids/tags":json.dumps([f"tag{i}"]),"priority":"P3",
+            })
+        rows=mod.build_rows(campaigns,[])
+        files=mod.expected_files(rows,packet_limit=2)
+        parsed=list(csv.DictReader(io.StringIO(files["fwd-0.csv"])))
+        self.assertEqual(len(parsed),2)
+        summary=json.loads(files["DISPATCH_SUMMARY_V2.json"])
+        self.assertEqual(summary["lanes"]["0"]["open_campaigns"],5)
+        self.assertEqual(summary["lanes"]["0"]["dispatched_open_campaigns"],2)
 
 if __name__=="__main__":
     unittest.main()

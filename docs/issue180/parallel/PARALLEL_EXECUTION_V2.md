@@ -47,13 +47,13 @@ Generated build artifacts remain:
 - `artifacts/issue180-v3/parallel_terminal_candidates_v2.csv`
 
 QA publishes the current tracked dispatch:
-- `docs/issue180/parallel/dispatch/CURRENT_DISPATCH_V2.csv`
+- `docs/issue180/parallel/dispatch/DISPATCH_SUMMARY_V2.json`
 - `docs/issue180/parallel/dispatch/fwd-0.csv`
 - `docs/issue180/parallel/dispatch/fwd-1.csv`
 - `docs/issue180/parallel/dispatch/fwd-2.csv`
 - `docs/issue180/parallel/dispatch/fwd-3.csv`
 
-Forward workers read only their current lane file from **origin/canonical**. They do not run full v3 or rebuild campaigns.
+Forward workers read only their current lane file from **origin/canonical**. Each lane file contains at most the top **200 OPEN campaigns** in scheduler priority order; the full 4,655+ queue remains a QA-only generated artifact. Forward does not run full v3 or rebuild campaigns.
 
 The dispatch is a research lead, not authority and not a lock. A campaign may disappear or shrink after integration; already checked positive evidence does not become invalid merely because the dispatch changed.
 
@@ -131,7 +131,7 @@ For each lane:
 9. write one source-level AUTHORITY_BATCH, or RESEARCH_OUTCOME when the bounded research routes are exhausted;
 10. use TERMINAL_BATCH only after the exact whole current Research Unit was genuinely reviewed;
 11. commit/push roughly 3–5 coherent source/outcome batches at a time;
-12. refresh the canonical lane dispatch before selecting the next batch.
+12. refresh the canonical lane packet before selecting the next batch; if its packet is exhausted, wait for QA to publish the next packet rather than rebuilding the full queue locally.
 
 Forward never runs `run_issue180_v3.py`, never rebuilds the campaign queue, and never updates tracked dispatch/source-review/QA ledgers.
 

@@ -63,11 +63,14 @@
   },
   "dispatch": {
     "tracked_root": "docs/issue180/parallel/dispatch",
-    "all": "docs/issue180/parallel/dispatch/CURRENT_DISPATCH_V2.csv",
+    "all": null,
     "lane_pattern": "docs/issue180/parallel/dispatch/fwd-{slot}.csv",
     "builder": "scripts/issue180/refresh_dispatch_snapshot_v2.py",
     "qa_only_refresh": true,
-    "forward_reads_origin_canonical": true
+    "forward_reads_origin_canonical": true,
+    "summary": "docs/issue180/parallel/dispatch/DISPATCH_SUMMARY_V2.json",
+    "packet_limit_per_lane": 200,
+    "full_queue_is_generated_qa_artifact_only": true
   },
   "source_review_ledger": "docs/issue180/parallel/SOURCE_REVIEW_LEDGER_V2.csv",
   "research_stop_protocol": "docs/issue180/parallel/RESEARCH_STOP_PROTOCOL_V2.md"

@@ -11,7 +11,7 @@ Read only:
 - live Issue #180 latest comment;
 - `AUTHORITY_BATCH_SCHEMA_V2.md`;
 - `RESEARCH_STOP_PROTOCOL_V2.md`;
-- current canonical lane dispatch `docs/issue180/parallel/dispatch/fwd-N.csv`.
+- current canonical lane packet `docs/issue180/parallel/dispatch/fwd-N.csv` (max 200 OPEN campaigns).
 
 Run `git fetch origin --prune`, but do **not** merge or rebase canonical during routine research. Read the current dispatch with `git show origin/research/issue180-single-home-pilot:docs/issue180/parallel/dispatch/fwd-N.csv` or an equivalent read-only command.
 
@@ -25,7 +25,7 @@ Follow the bounded search routes in `RESEARCH_STOP_PROTOCOL_V2.md`. If no safe p
 
 Write only under `docs/issue180/parallel/proposals-v2/fwd-N/`. One checked source normally becomes one AUTHORITY_BATCH. TERMINAL_BATCH is only for an exact whole current Research Unit satisfying the terminal contract.
 
-Commit/push about 3–5 coherent source/outcome batches at a time. After a push, refresh the canonical lane dispatch before selecting the next batch. Canonical advancement never invalidates already checked positive evidence.
+Commit/push about 3–5 coherent source/outcome batches at a time. After a push, refresh the canonical lane packet before selecting the next batch. If the packet is exhausted, stop cleanly for QA to publish the next packet; do not build the full queue locally. Canonical advancement never invalidates already checked positive evidence.
 
 Do not touch canonical ledgers, tracked dispatch, Source Review Ledger, QA ledger, #70/#179/#132, main or production.
 
