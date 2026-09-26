@@ -3,7 +3,7 @@
   "status": "AUTONOMOUS_INTERNAL_QA",
   "baseline_head": "5123a13bd574ef50f04f3f7e0fb031d2625dcbaa",
   "last_codex_qa_by_lane": {
-    "1": 10125,
+    "1": 10335,
     "2": 10334,
     "3": 10334
   },
@@ -214,9 +214,16 @@
       "lane_local_end": 10125,
       "selected_count": 396,
       "packet_sha256": "97b732116b48fa58a3a48dbc4060190a41ff535f203d87ef99671137bbe28f3b"
+    },
+    {
+      "lane": 1,
+      "lane_local_start": 10126,
+      "lane_local_end": 10335,
+      "selected_count": 156,
+      "packet_sha256": "c04aca936964b5bb56afeda8e9eb5b051aa2cf29773e2fd3947e09e82cf215f7"
     }
   ],
-  "final_internal_qa_passed": false,
+  "final_internal_qa_passed": true,
   "final_chatgpt_semantic_qa_passed": false,
   "notes": [
     "ChatGPT no longer advances intermediate forward watermarks.",
