@@ -43,7 +43,10 @@
     "forward_requires_full_v3": false,
     "forward_requires_canonical_merge": false,
     "source_review_reuse": true,
-    "commit_batch_guidance": "3-5 coherent source/outcome batches"
+    "commit_batch_guidance": "3-5 coherent source/outcome batches",
+    "accepted_progress_decision": "ACCEPT_PROGRESS",
+    "partial_outcomes_do_not_suppress_campaign": true,
+    "exhaustive_outcome_decision": "ACCEPT_OUTCOME"
   },
   "rules": {
     "single_canonical_writer": true,
@@ -70,7 +73,8 @@
     "forward_reads_origin_canonical": true,
     "summary": "docs/issue180/parallel/dispatch/DISPATCH_SUMMARY_V2.json",
     "packet_limit_per_lane": 200,
-    "full_queue_is_generated_qa_artifact_only": true
+    "full_queue_is_generated_qa_artifact_only": true,
+    "include_prior_checked_routes": true
   },
   "source_review_ledger": "docs/issue180/parallel/SOURCE_REVIEW_LEDGER_V2.csv",
   "research_stop_protocol": "docs/issue180/parallel/RESEARCH_STOP_PROTOCOL_V2.md"

@@ -51,23 +51,31 @@ def normalize_campaign_key(unit: dict[str,str], tag: str | None = None) -> str:
 def _priority_value(p: str) -> int:
     return {"P1": 1, "P2": 2, "P3": 3}.get(p, 9)
 
-def load_accepted_outcomes() -> set[tuple[str,str]]:
+def load_research_accounting() -> tuple[set[tuple[str,str]], set[tuple[str,str]]]:
     if not LEDGER.exists():
-        return set()
+        return set(), set()
     rows=read_csv(LEDGER)
-    return {
+    outcomes={
         (r.get("campaign_key",""),r.get("campaign_fingerprint",""))
         for r in rows
         if r.get("decision")=="ACCEPT_OUTCOME" and r.get("campaign_key") and r.get("campaign_fingerprint")
     }
+    progress={
+        (r.get("campaign_key",""),r.get("campaign_fingerprint",""))
+        for r in rows
+        if r.get("decision")=="ACCEPT_PROGRESS" and r.get("campaign_key") and r.get("campaign_fingerprint")
+    }
+    return outcomes, progress
 
 def build_campaigns(
     units: list[dict[str,str]],
     closures: list[dict[str,str]],
     cfg: dict,
     accepted_outcomes: set[tuple[str,str]] | None = None,
+    accepted_progress: set[tuple[str,str]] | None = None,
 ) -> list[dict[str,str]]:
     accepted_outcomes=accepted_outcomes or set()
+    accepted_progress=accepted_progress or set()
     by_id={u["unit_id"]:u for u in units}
     forward=set(cfg["forward_buckets"])
     qa=set(cfg["qa_buckets"])
@@ -130,7 +138,12 @@ def build_campaigns(
             n=owner_slot(key,slots)
             slot=str(n)
             branch=branches[n]
-            state="EXHAUSTED_REVIEWED" if (key,campaign_fp) in accepted_outcomes else "OPEN"
+            if (key,campaign_fp) in accepted_outcomes:
+                state="EXHAUSTED_REVIEWED"
+            elif (key,campaign_fp) in accepted_progress:
+                state="OPEN_WITH_PROGRESS"
+            else:
+                state="OPEN"
         rows.append({
             "queue_id":queue_id,
             "campaign_id":"pc2-"+sha256_text(key)[:24],
@@ -148,7 +161,7 @@ def build_campaigns(
         })
     return sorted(
         rows,
-        key=lambda r:(r["owner_role"],r["owner_slot"],r["research_state"],r["priority"],-int(r["member_count"]),r["campaign_key"])
+        key=lambda r:(r["owner_role"],r["owner_slot"],{"OPEN":0,"OPEN_WITH_PROGRESS":1,"EXHAUSTED_REVIEWED":2,"QA_OWNED":3}.get(r["research_state"],9),r["priority"],-int(r["member_count"]),r["campaign_key"])
     )
 
 def build_terminal_candidates(rows, units, closures, cfg):
@@ -189,7 +202,8 @@ def main() -> None:
     cfg=config()
     units=read_csv(UNITS)
     closures=read_csv(CLOSURE)
-    rows=build_campaigns(units,closures,cfg,load_accepted_outcomes())
+    accepted_outcomes, accepted_progress=load_research_accounting()
+    rows=build_campaigns(units,closures,cfg,accepted_outcomes,accepted_progress)
     write_csv(CAMPAIGNS,rows,FIELDS)
     terminal=build_terminal_candidates(rows,units,closures,cfg)
     write_csv(TERMINAL_CANDIDATES,terminal,TERMINAL_FIELDS)
@@ -200,12 +214,13 @@ def main() -> None:
     for r in rows:
         by_owner[r["owner_branch"]]=by_owner.get(r["owner_branch"],0)+1
         members_by_owner[r["owner_branch"]]=members_by_owner.get(r["owner_branch"],0)+int(r["member_count"])
-        if r["research_state"]=="OPEN":
+        if r["research_state"] in {"OPEN","OPEN_WITH_PROGRESS"}:
             open_by_owner[r["owner_branch"]]=open_by_owner.get(r["owner_branch"],0)+1
     summary={
         "queue_id":rows[0]["queue_id"] if rows else "",
         "campaign_count":len(rows),
-        "open_forward_campaign_count":sum(r["research_state"]=="OPEN" and r["owner_role"]=="FORWARD" for r in rows),
+        "open_forward_campaign_count":sum(r["research_state"] in {"OPEN","OPEN_WITH_PROGRESS"} and r["owner_role"]=="FORWARD" for r in rows),
+        "progressed_forward_campaign_count":sum(r["research_state"]=="OPEN_WITH_PROGRESS" for r in rows),
         "reviewed_exhausted_forward_campaign_count":sum(r["research_state"]=="EXHAUSTED_REVIEWED" for r in rows),
         "terminal_candidate_unit_count":sum(r["all_campaigns_exhausted"]=="YES" for r in terminal),
         "campaign_counts_by_owner":dict(sorted(by_owner.items())),

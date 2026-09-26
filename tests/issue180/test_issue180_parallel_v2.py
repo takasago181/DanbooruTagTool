@@ -73,6 +73,15 @@ class Issue180ParallelV2Tests(unittest.TestCase):
         second=mod.build_campaigns([unit],[closure],cfg,pair)
         self.assertEqual(second[0]["research_state"],"EXHAUSTED_REVIEWED")
 
+    def test_accepted_progress_keeps_campaign_open_but_marked(self):
+        cfg=self.cfg()
+        unit={"unit_id":"ru3-p","status":"OPEN","subject":"__UNGROUPED__","unit_type":"DIRECT_AUTHORITY","priority":"P3","member_ids/tags":json.dumps(["progress"])}
+        closure={"unit_id":"ru3-p","member_ids_sha256":mod.member_hash(["progress"]),"work_bucket":"DIRECT_AUTHORITY_RESEARCH"}
+        first=mod.build_campaigns([unit],[closure],cfg)
+        pair={(first[0]["campaign_key"],first[0]["campaign_fingerprint"])}
+        second=mod.build_campaigns([unit],[closure],cfg,set(),pair)
+        self.assertEqual(second[0]["research_state"],"OPEN_WITH_PROGRESS")
+
     def test_all_exhausted_campaigns_make_only_accounting_terminal_candidate(self):
         cfg=self.cfg()
         unit={"unit_id":"ru3-t","status":"OPEN","subject":"__UNGROUPED__","unit_type":"DIRECT_AUTHORITY","priority":"P3","member_ids/tags":json.dumps(["a","b"])}

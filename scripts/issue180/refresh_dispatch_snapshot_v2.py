@@ -11,6 +11,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 CAMPAIGNS = ROOT / "artifacts/issue180-v3/parallel_authority_campaigns_v2.csv"
 SOURCE_LEDGER = ROOT / "docs/issue180/parallel/SOURCE_REVIEW_LEDGER_V2.csv"
+QA_LEDGER = ROOT / "docs/issue180/parallel/QA_REVIEW_LEDGER_V2.csv"
 TRACKED_DIR = ROOT / "docs/issue180/parallel/dispatch"
 DEFAULT_PACKET_LIMIT = 200
 
@@ -29,6 +30,7 @@ FIELDS = [
     "priority",
     "source_hint_urls",
     "source_hint_review_ids",
+    "prior_checked_routes",
 ]
 
 
@@ -57,10 +59,31 @@ def accepted_source_hints(source_rows: list[dict[str, str]]) -> dict[str, list[t
     return hints
 
 
+def accepted_progress_routes(qa_rows: list[dict[str,str]]) -> dict[tuple[str,str], list[dict[str,str]]]:
+    progress: dict[tuple[str,str], list[dict[str,str]]] = {}
+    for row in qa_rows:
+        if row.get("decision") != "ACCEPT_PROGRESS":
+            continue
+        key=(row.get("campaign_key",""),row.get("campaign_fingerprint",""))
+        if not all(key):
+            continue
+        raw=row.get("research_routes_json","") or "[]"
+        try:
+            routes=json.loads(raw)
+        except json.JSONDecodeError as exc:
+            raise SystemExit(f"invalid research_routes_json for {key[0]}") from exc
+        if not isinstance(routes,list):
+            raise SystemExit(f"research_routes_json must be a list for {key[0]}")
+        progress.setdefault(key,[]).extend(r for r in routes if isinstance(r,dict))
+    return progress
+
+
 def build_rows(
-    campaigns: list[dict[str, str]], source_rows: list[dict[str, str]]
+    campaigns: list[dict[str, str]], source_rows: list[dict[str, str]],
+    qa_rows: list[dict[str,str]] | None = None,
 ) -> list[dict[str, str]]:
     hints = accepted_source_hints(source_rows)
+    progress = accepted_progress_routes(qa_rows or [])
     out: list[dict[str, str]] = []
     for row in campaigns:
         if row.get("owner_role") != "FORWARD":
@@ -85,13 +108,14 @@ def build_rows(
                 "priority": row["priority"],
                 "source_hint_urls": json.dumps(urls, ensure_ascii=False, separators=(",", ":")),
                 "source_hint_review_ids": json.dumps(review_ids, ensure_ascii=False, separators=(",", ":")),
+                "prior_checked_routes": json.dumps(progress.get((key,row["campaign_fingerprint"]),[]), ensure_ascii=False, separators=(",", ":")),
             }
         )
     return sorted(
         out,
         key=lambda r: (
             int(r["owner_slot"]),
-            r["research_state"] != "OPEN",
+            {"OPEN":0,"OPEN_WITH_PROGRESS":1,"EXHAUSTED_REVIEWED":2}.get(r["research_state"],9),
             {"P1": 1, "P2": 2, "P3": 3}.get(r["priority"], 9),
             -int(r["member_count"]),
             r["campaign_key"],
@@ -113,12 +137,13 @@ def expected_files(rows: list[dict[str, str]], packet_limit: int = DEFAULT_PACKE
         "queue_ids": sorted({r["queue_id"] for r in rows}),
         "packet_limit_per_lane": packet_limit,
         "total_forward_campaigns": len(rows),
-        "total_open_campaigns": sum(r["research_state"] == "OPEN" for r in rows),
+        "total_open_campaigns": sum(r["research_state"] in {"OPEN","OPEN_WITH_PROGRESS"} for r in rows),
+        "progressed_open_campaigns": sum(r["research_state"] == "OPEN_WITH_PROGRESS" for r in rows),
         "lanes": {},
     }
     for slot in range(4):
         lane_all = [r for r in rows if r["owner_slot"] == str(slot)]
-        lane_open = [r for r in lane_all if r["research_state"] == "OPEN"]
+        lane_open = [r for r in lane_all if r["research_state"] in {"OPEN","OPEN_WITH_PROGRESS"}]
         packet = lane_open[:packet_limit]
         files[f"fwd-{slot}.csv"] = render(packet)
         summary["lanes"][str(slot)] = {
@@ -163,7 +188,7 @@ def main() -> None:
     if not SOURCE_LEDGER.exists():
         raise SystemExit("missing SOURCE_REVIEW_LEDGER_V2.csv")
 
-    rows = build_rows(read_csv(CAMPAIGNS), read_csv(SOURCE_LEDGER))
+    rows = build_rows(read_csv(CAMPAIGNS), read_csv(SOURCE_LEDGER), read_csv(QA_LEDGER))
     if args.packet_limit < 1:
         raise SystemExit("--packet-limit must be >= 1")
     files = expected_files(rows, args.packet_limit)
@@ -178,7 +203,7 @@ def main() -> None:
 
     counts = {str(slot): sum(r["owner_slot"] == str(slot) for r in rows) for slot in range(4)}
     open_counts = {
-        str(slot): sum(r["owner_slot"] == str(slot) and r["research_state"] == "OPEN" for r in rows)
+        str(slot): sum(r["owner_slot"] == str(slot) and r["research_state"] in {"OPEN","OPEN_WITH_PROGRESS"} for r in rows)
         for slot in range(4)
     }
     queue_ids = sorted({r["queue_id"] for r in rows})

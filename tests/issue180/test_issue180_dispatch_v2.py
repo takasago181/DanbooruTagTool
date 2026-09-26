@@ -38,13 +38,26 @@ class Issue180DispatchV2Tests(unittest.TestCase):
         }]
 
     def test_dispatch_excludes_qa_and_embeds_source_hint(self):
-        rows=mod.build_rows(self.campaigns(),self.sources())
+        rows=mod.build_rows(self.campaigns(),self.sources(),[])
         self.assertEqual(len(rows),1)
         self.assertEqual(rows[0]["campaign_key"],"authority:work_x")
         self.assertEqual(json.loads(rows[0]["source_hint_urls"]),["https://example.invalid/roster"])
 
+    def test_progress_routes_are_carried_forward(self):
+        campaigns=self.campaigns()
+        campaigns[0]["research_state"]="OPEN_WITH_PROGRESS"
+        qa=[{
+            "campaign_key":"authority:work_x","campaign_fingerprint":"a"*64,
+            "decision":"ACCEPT_PROGRESS",
+            "research_routes_json":json.dumps([{"route_type":"OFFICIAL_ROSTER","url_or_query":"https://old.example/","result":"no exact match"}]),
+        }]
+        rows=mod.build_rows(campaigns,self.sources(),qa)
+        self.assertEqual(rows[0]["research_state"],"OPEN_WITH_PROGRESS")
+        routes=json.loads(rows[0]["prior_checked_routes"])
+        self.assertEqual(routes[0]["url_or_query"],"https://old.example/")
+
     def test_lane_files_only_contain_owned_slot(self):
-        rows=mod.build_rows(self.campaigns(),self.sources())
+        rows=mod.build_rows(self.campaigns(),self.sources(),[])
         files=mod.expected_files(rows, packet_limit=200)
         parsed=list(csv.DictReader(io.StringIO(files["fwd-0.csv"])))
         self.assertEqual(len(parsed),1)
@@ -61,7 +74,7 @@ class Issue180DispatchV2Tests(unittest.TestCase):
                 "campaign_fingerprint":str(i)*64,"research_state":"OPEN","work_buckets":"[]",
                 "source_units":"[]","member_count":"1","member_ids/tags":json.dumps([f"tag{i}"]),"priority":"P3",
             })
-        rows=mod.build_rows(campaigns,[])
+        rows=mod.build_rows(campaigns,[],[])
         files=mod.expected_files(rows,packet_limit=2)
         parsed=list(csv.DictReader(io.StringIO(files["fwd-0.csv"])))
         self.assertEqual(len(parsed),2)

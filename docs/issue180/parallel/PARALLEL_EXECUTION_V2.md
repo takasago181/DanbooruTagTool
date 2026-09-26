@@ -87,7 +87,7 @@ Every Forward TERMINAL_BATCH item must include:
 
 QA accepts a terminal conclusion only if the exact current unit fingerprint still matches. Otherwise the conclusion is obsolete and the regenerated remainder is reviewed separately.
 
-For campaigns that are intentionally smaller than their source Research Unit (especially structure-free `direct:<canonical_tag>` work), a worker must **not** fake a unit-level terminal review. Instead write a `RESEARCH_OUTCOME` batch recording that this campaign was checked and produced no safe positive relation. QA records that outcome as research accounting only with decision `ACCEPT_OUTCOME` and the exact campaign fingerprint. The scheduler then marks that campaign `EXHAUSTED_REVIEWED` and does not assign it again. If its target population changes, its fingerprint changes and it automatically reopens. When every current campaign covering an exact residual unit has been exhausted and the current unit fingerprint still matches, the scheduler lists the unit in `parallel_terminal_candidates_v2.csv`; QA may then create the canonical unit-level terminal review after normal v3 checks.
+For campaigns that are intentionally smaller than their source Research Unit (especially structure-free `direct:<canonical_tag>` work), a worker must **not** fake a unit-level terminal review. Instead write a `RESEARCH_OUTCOME` batch recording that this campaign was checked and produced no safe positive relation. QA treats campaign-level no-result research in two scopes. PARTIAL progress is recorded as `ACCEPT_PROGRESS` with checked routes and remains open as `OPEN_WITH_PROGRESS`; future dispatch carries those routes and deprioritizes the campaign behind untouched work. Only an independently verified EXHAUSTIVE outcome is recorded as `ACCEPT_OUTCOME`, after which the scheduler marks that exact campaign `EXHAUSTED_REVIEWED`. If its target population changes, its fingerprint changes and it automatically reopens. When every current campaign covering an exact residual unit has been exhausted and the current unit fingerprint still matches, the scheduler lists the unit in `parallel_terminal_candidates_v2.csv`; QA may then create the canonical unit-level terminal review after normal v3 checks.
 
 QA-owned deterministic/policy buckets remain:
 - `SAFE_STRUCTURE_READY`
@@ -123,12 +123,12 @@ For each lane:
 1. `git fetch origin --prune`;
 2. do **not** merge/rebase canonical in routine research;
 3. read `origin/research/issue180-single-home-pilot:docs/issue180/parallel/dispatch/fwd-N.csv`;
-4. choose only `research_state=OPEN` rows for slot N;
+4. choose `research_state=OPEN` first, then `OPEN_WITH_PROGRESS`; never repeat `prior_checked_routes`;
 5. use embedded accepted source hints before new web search;
 6. follow `RESEARCH_STOP_PROTOCOL_V2.md`;
 7. research highest reusable-yield campaigns first;
 8. inspect the actual source page and exhaust all safe exact matches from that source;
-9. write one source-level AUTHORITY_BATCH, or RESEARCH_OUTCOME when the bounded research routes are exhausted;
+9. write one source-level AUTHORITY_BATCH, or RESEARCH_OUTCOME when the bounded research routes are exhausted; broad/multi-member no-result work is PARTIAL unless the exact scope is genuinely exhaustive;
 10. use TERMINAL_BATCH only after the exact whole current Research Unit was genuinely reviewed;
 11. commit/push roughly 3–5 coherent source/outcome batches at a time;
 12. refresh the canonical lane packet before selecting the next batch; if its packet is exhausted, wait for QA to publish the next packet rather than rebuilding the full queue locally.
@@ -149,8 +149,8 @@ QA:
 6. record decisions in `QA_REVIEW_LEDGER_V2.csv` and source-level reusable reviews in `SOURCE_REVIEW_LEDGER_V2.csv`;
 7. reject duplicate/obsolete/conflicting relations individually rather than discarding an entire good source batch;
 8. validate TERMINAL_BATCH only against exact current unit fingerprint;
-9. accept a current RESEARCH_OUTCOME with QA decision `ACCEPT_OUTCOME`, preserving campaign_key + campaign_fingerprint; never turn one campaign-level negative into a unit terminal by itself;
-10. rebuild v3/campaigns and refresh tracked dispatch so accepted exact outcomes become `EXHAUSTED_REVIEWED` and are not researched again;
+9. for a current RESEARCH_OUTCOME, record PARTIAL as `ACCEPT_PROGRESS` with `research_routes_json`; record `ACCEPT_OUTCOME` only for independently verified EXHAUSTIVE scope; never turn one campaign-level negative into a unit terminal by itself;
+10. rebuild v3/campaigns and refresh tracked dispatch so PARTIAL work becomes `OPEN_WITH_PROGRESS` with prior routes and exhaustive accepted outcomes become `EXHAUSTED_REVIEWED`;
 11. use `parallel_terminal_candidates_v2.csv` to find exact current units whose campaigns are all exhausted; only after confirming no admissible path remains may QA create the canonical unit-level terminal review;
 12. rebuild v3 when accepted family/member/variant evidence can reshape the graph;
 13. direct-HOME-only source batches may be accumulated into a coherent wave before one full rebuild;

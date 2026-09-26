@@ -55,8 +55,14 @@ When only the exact whole current Research Unit has truly been reviewed and the 
 Otherwise, after the route budget is exhausted without a safe positive relation:
 - write `RESEARCH_OUTCOME`;
 - include `checked_routes`;
+- set `outcome_scope=PARTIAL` for a broad/multi-member campaign unless the exact campaign has genuinely been exhausted;
+- set `outcome_scope=EXHAUSTIVE` only for a bounded campaign whose relevant authoritative scope was actually exhausted;
 - state why each route did not safely establish the relation;
-- move to the next OPEN campaign.
+- move to the next campaign.
+
+A large authority campaign such as a broad franchise/ecosystem must **not** become exhausted merely because 2–4 routes were unproductive. Those routes are PARTIAL progress only.
+
+QA records PARTIAL progress as `ACCEPT_PROGRESS`; the next dispatch carries the already checked routes and deprioritizes that campaign behind untouched work. QA records `ACCEPT_OUTCOME` only for independently verified EXHAUSTIVE outcomes.
 
 `RESEARCH_OUTCOME` is research accounting, not negative evidence and not a canonical terminal decision.
 

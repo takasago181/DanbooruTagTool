@@ -94,6 +94,9 @@ def validate_batch(data: dict, slot: int, path: Path, slots: int) -> None:
                 raise SystemExit(f"{path}: terminal review provenance too short")
     elif btype=="RESEARCH_OUTCOME":
         routes=data.get("checked_routes")
+        scope=str(data.get("outcome_scope","")).strip()
+        if scope not in {"PARTIAL","EXHAUSTIVE"}:
+            raise SystemExit(f"{path}: RESEARCH_OUTCOME requires outcome_scope PARTIAL or EXHAUSTIVE")
         if data["relations"] or data["terminal_reviews"] or len(str(data["notes"]).strip())<20:
             raise SystemExit(f"{path}: RESEARCH_OUTCOME requires concrete notes and no relations/reviews")
         if not isinstance(routes,list) or not routes or len(routes)>5:
