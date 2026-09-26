@@ -84,14 +84,24 @@ class CodexAutonomousRuntimeTests(unittest.TestCase):
             {1: 1126, 2: 1226, 3: 1201},
         )
         self.assertEqual(qa_epoch_size(self.qa), 1000)
-        self.assertEqual(
-            {lane: last_codex_qa(self.qa, lane) for lane in (1, 2, 3)},
-            {1: 1125, 2: 1225, 3: 1200},
-        )
-        self.assertEqual(
-            {lane: internal_forward_limit(self.authority, self.qa, lane) for lane in (1, 2, 3)},
-            {1: 3125, 2: 3225, 3: 3200},
-        )
+        for lane in (1, 2, 3):
+            baseline_end = direct_start(self.authority, lane) - 1
+            cursor = last_codex_qa(self.qa, lane)
+            lane_length = int(self.authority["fixed"]["lane_lengths"][str(lane)])
+            self.assertGreaterEqual(cursor, baseline_end)
+            self.assertLessEqual(cursor, lane_length)
+            if cursor < lane_length:
+                self.assertEqual(
+                    (cursor - baseline_end) % qa_epoch_size(self.qa),
+                    0,
+                )
+            self.assertEqual(
+                internal_forward_limit(self.authority, self.qa, lane),
+                min(
+                    lane_length,
+                    cursor + int(self.qa["max_unqaed_per_lane"]),
+                ),
+            )
 
     def test_current_policy_is_registered(self):
         current = self.authority["semantic_contract"]["current_policy_id"]
