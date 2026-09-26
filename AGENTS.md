@@ -300,3 +300,44 @@ KNOWLEDGE / generation-effectivenessを参照する必要がある時:
 - stop point / next Gate
 
 詳細運用は `docs/project/PERMANENT_RULES.md` を正本とする。
+
+
+## 12. Issue #180 parallel Codex Worktrees
+
+### Fixed-Worktree fast-path override
+
+For only these five pre-created Issue #180 research branches, this section overrides the generic startup-reading requirements in sections 2 and 9:
+
+- `research/issue180-forward-0`
+- `research/issue180-forward-1`
+- `research/issue180-forward-2`
+- `research/issue180-forward-3`
+- `research/issue180-qa-integrator`
+
+Forward startup is intentionally minimal:
+1. `git status --short --branch`;
+2. `git fetch origin --prune`;
+3. read this AGENTS section;
+4. read live Issue #180 latest comment;
+5. read the current lane dispatch directly from `origin/research/issue180-single-home-pilot`;
+6. read `AUTHORITY_BATCH_SCHEMA_V2.md` and `RESEARCH_STOP_PROTOCOL_V2.md`.
+
+Forward does not reread CURRENT_STATE, PERMANENT_RULES, PRODUCT_GOAL_LOCK, unrelated product docs, or the full v3 design during routine research. It does not run full v3 and does not merge/rebase canonical. Escalate to wider docs only for a real harness/policy blocker.
+
+QA may read v3/current migration/Research Unit files as needed for integration, but unrelated product/runtime docs remain out of scope.
+
+Issue #180 active parallel authority is:
+- `docs/issue180/parallel/PARALLEL_EXECUTION_V2.md`
+- `docs/issue180/parallel/PARALLEL_EXECUTION_V2.json`
+- `docs/issue180/parallel/AUTHORITY_BATCH_SCHEMA_V2.md`
+- `docs/issue180/parallel/RESEARCH_STOP_PROTOCOL_V2.md`
+- `docs/issue180/parallel/SOURCE_REVIEW_LEDGER_V2.csv`
+- `docs/issue180/parallel/dispatch/fwd-N.csv` from live canonical
+
+v1 assignment/epoch scheduling is historical and must not be used for new work.
+
+Issue #180 is **authority-campaign driven**, not row/lane-count driven. Keep reusable family/roster/base authority together and shard by stable campaign_key. Positive checked evidence is not invalidated by unrelated canonical advancement; QA replays it against current canonical. Campaign-level negative outcomes are fingerprinted research accounting and suppress only that exact campaign on future queues. Canonical terminal conclusions remain exact Research Unit fingerprint-bound.
+
+Forward 0..3 are append-only proposal mailboxes under `proposals-v2/fwd-N/`. They fetch canonical only to read the latest tracked lane dispatch; routine merge/rebase and full-v3 rebuild are forbidden. QA / Integrator is the only canonical writer and owns full-v3 rebuild, tracked dispatch refresh, Source Review Ledger, deterministic closure, integration, routine repair and fast-forward promotion to the research canonical branch.
+
+The parallel layer does not change `Character -> HOME_COPYRIGHT (0..1)`, missing-over-wrong, v3 resolver semantics, migration provenance, or #179 identity authority. No force push, main merge or production apply.

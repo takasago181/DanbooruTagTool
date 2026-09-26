@@ -1,0 +1,81 @@
+{
+  "schema_version": 2,
+  "status": "ACTIVE",
+  "supersedes": "PARALLEL_EXECUTION_V1",
+  "canonical_branch": "research/issue180-single-home-pilot",
+  "qa_branch": "research/issue180-qa-integrator",
+  "forward_slots": 4,
+  "forward_branches": [
+    "research/issue180-forward-0",
+    "research/issue180-forward-1",
+    "research/issue180-forward-2",
+    "research/issue180-forward-3"
+  ],
+  "forward_buckets": [
+    "FAMILY_ROSTER_HIGH_YIELD",
+    "VARIANT_BASE_READY",
+    "DIRECT_AUTHORITY_RESEARCH",
+    "AMBIGUOUS_LOW_YIELD"
+  ],
+  "qa_buckets": [
+    "SAFE_STRUCTURE_READY",
+    "POLICY_BLOCKED",
+    "IDENTITY_BLOCKED",
+    "STRUCTURAL_NO_SAFE_PATH",
+    "CONFLICT_REVIEW"
+  ],
+  "proposal_root": "docs/issue180/parallel/proposals-v2",
+  "qa_review_ledger": "docs/issue180/parallel/QA_REVIEW_LEDGER_V2.csv",
+  "coordination": {
+    "unit": "AUTHORITY_CAMPAIGN",
+    "positive_evidence_global_sha_bound": false,
+    "terminal_review_exact_fingerprint_required": true,
+    "allow_exact_source_spillover_relations": true,
+    "fixed_epoch_thresholds": false,
+    "owner_function": "sha256(campaign_key) modulo 4",
+    "campaign_negative_outcome_is_authority": false,
+    "campaign_negative_outcome_requires_unit_terminalization_by_qa": true,
+    "accepted_outcome_decision": "ACCEPT_OUTCOME",
+    "accepted_outcomes_suppress_exact_campaign_research": true,
+    "campaign_fingerprint_basis": "campaign_key + current campaign member tags",
+    "terminal_candidate_artifact": "artifacts/issue180-v3/parallel_terminal_candidates_v2.csv",
+    "forward_mailbox_mode": true,
+    "forward_requires_full_v3": false,
+    "forward_requires_canonical_merge": false,
+    "source_review_reuse": true,
+    "commit_batch_guidance": "3-5 coherent source/outcome batches",
+    "accepted_progress_decision": "ACCEPT_PROGRESS",
+    "partial_outcomes_do_not_suppress_campaign": true,
+    "exhaustive_outcome_decision": "ACCEPT_OUTCOME"
+  },
+  "rules": {
+    "single_canonical_writer": true,
+    "forward_may_edit_canonical_ledgers": false,
+    "force_push": false,
+    "main_merge": false,
+    "production_apply": false,
+    "issue70_source_mutation": false,
+    "issue179_source_mutation": false,
+    "issue132_mutation": false
+  },
+  "legacy_handoff": {
+    "mode": "FROZEN_SALVAGE_ONLY",
+    "legacy_research_checkpoint_sha": "3004402b39e48f900ce17cb5d511dc3975f0003c",
+    "salvage_branch": "research/issue180-legacy-salvage",
+    "resume_legacy_research": false
+  },
+  "dispatch": {
+    "tracked_root": "docs/issue180/parallel/dispatch",
+    "all": null,
+    "lane_pattern": "docs/issue180/parallel/dispatch/fwd-{slot}.csv",
+    "builder": "scripts/issue180/refresh_dispatch_snapshot_v2.py",
+    "qa_only_refresh": true,
+    "forward_reads_origin_canonical": true,
+    "summary": "docs/issue180/parallel/dispatch/DISPATCH_SUMMARY_V2.json",
+    "packet_limit_per_lane": 200,
+    "full_queue_is_generated_qa_artifact_only": true,
+    "include_prior_checked_routes": true
+  },
+  "source_review_ledger": "docs/issue180/parallel/SOURCE_REVIEW_LEDGER_V2.csv",
+  "research_stop_protocol": "docs/issue180/parallel/RESEARCH_STOP_PROTOCOL_V2.md"
+}

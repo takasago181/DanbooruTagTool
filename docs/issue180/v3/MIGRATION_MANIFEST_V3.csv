@@ -1,0 +1,25 @@
+path_or_pattern,classification,handling
+docs/issue70/data/runtime/issue70_translation_results.csv,KEEP SOURCE,Canonical Character/Copyright population and roots; read-only input.
+docs/issue70/data/source/**,KEEP SOURCE,Accepted Issue #70 source and audit evidence; no edits.
+docs/issue180/evidence/ISSUE179_ORIGIN_HANDOFF_V1.csv,MIGRATE EVIDENCE,Officiality/origin guard; preserved and fingerprinted.
+docs/issue180/evidence/ISSUE179_ORIGIN_HANDOFF_V1.meta.json,MIGRATE EVIDENCE,Handoff source SHA/blob provenance; preserved and fingerprinted.
+docs/issue180/evidence/*.csv,MIGRATE EVIDENCE,Import only exact source rows with grounded claims/URLs and valid scope; generic roster landing pages do not grant membership.
+docs/issue180/autonomous/decisions/{direct_and_exceptions_v2,discovery_roster_reviews_v2,family_terminal_reviews_v2,roster_verified_v4,variant_pattern_reviews_v2,variants_verified_v4}.csv,MIGRATE EVIDENCE,Read PASS decisions as relation proposals and provenance pointers; require separately cited evidence before validation.
+artifacts/issue180-full-preflight/POST_NORMALIZED_REVIEW/MASTER_HOME_V2/APPLIED_AUTHORITY_LEDGER_V2.csv,MIGRATE EVIDENCE,Preserve provenance links only; never a resolver authority source.
+artifacts/issue180-full-preflight/POST_NORMALIZED_REVIEW/MASTER_HOME_V2/CHARACTER_HOME_MASTER_V2.csv,MIGRATE EVIDENCE,Comparison baseline only; cannot supply HOME to v3.
+artifacts/issue180-full-preflight/POST_NORMALIZED_REVIEW/MASTER_HOME_V2/BASE_DIRECT_AUTHORITY_V2.csv,MIGRATE EVIDENCE,One-time seed input; only row-level externally cited authority is included in the tracked v3 seed.
+artifacts/issue180-full-preflight/POST_NORMALIZED_REVIEW/MASTER_HOME_V2/FAMILY_AUTHORITY_PROVENANCE_V2.csv,MIGRATE EVIDENCE,One-time seed index; only PASS_FASTPATH rows rejoined to exact reviewed source rows or exact policy mapping are migrated.
+artifacts/issue180-full-preflight/{GLOBAL_EXACT_COPYRIGHT_SECOND_REVIEW_V1,ROOT_REVIEW_BATCH_A_SECOND_REVIEW_V1,BATCH_A_REMAINING_7_SECOND_REVIEW_V2,P1_P3_AUTHORITY_SECOND_REVIEW_V1}.csv,MIGRATE EVIDENCE,One-time family-seed provenance cross-check; non-PASS rows and normalized hints are excluded.
+docs/issue180/autonomous/AUTONOMOUS_POLICY_V2.json,REUSE LOGIC,Exact root_policy_normalization key/value entries only; no prefix or approximate normalization.
+docs/issue180/v3/migrated_evidence_seed_v3.csv,MIGRATE EVIDENCE,Tracked normalized v2 foundation evidence seed with explicit evidence basis and provenance; authority input for clean v3 builds.
+docs/issue180/v3/v2_confirmed_baseline_v3.csv,MIGRATE EVIDENCE,Tracked per-Character comparison baseline and provenance crosswalk only; never authority.
+docs/issue180/v3/MIGRATION_GAP_BEFORE_REPAIR_V3.csv,MIGRATE EVIDENCE,Preserved pre-repair migration mismatch rows for complete row-by-row reconciliation.
+docs/issue180/v3/MIGRATION_PROVENANCE_V3.json,MIGRATE EVIDENCE,Hashes and source roles for one-time foundation migration; documents the excluded v2 master/applied-ledger authority roles.
+docs/issue180/v3/V3_EXECUTION_BASE.json,REUSE LOGIC,Refreeze record of active script/helper/source/evidence/baseline hashes and resolver/validator semantics.
+docs/issue180/AUTHORITY_POLICY_V1.md,REUSE LOGIC,Policy semantics (single HOME, evidence tiers, no co-occurrence authority) are restated in v3; v3 does not import the v1/v2 code.
+scripts/issue180/*_v1.py,HISTORICAL ONLY,Retain unchanged; excluded from v3 execution and validation.
+scripts/issue180/*_v2.py,HISTORICAL ONLY,Retain unchanged; excluded from v3 execution and validation.
+scripts/issue180/*batch*.py,HISTORICAL ONLY,Retain unchanged as research provenance; no v3 dependency.
+scripts/issue180/*shard*.py,HISTORICAL ONLY,Retain unchanged as research provenance; no v3 dependency.
+docs/issue180/reviews/**,MIGRATE EVIDENCE,First/second-pass human review claims may be imported only through source documents cited by a validated decision.
+src/**,KEEP SOURCE,Production WPF runtime is out of scope and must not load v3 ledger/graph/research artifacts.

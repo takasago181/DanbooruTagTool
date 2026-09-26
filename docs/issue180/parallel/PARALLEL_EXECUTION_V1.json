@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "status": "SUPERSEDED_BY_V2",
+  "activation_head": "fac7c558280c127c050e6a3ec9c75e2dbef89b15",
+  "canonical_branch": "research/issue180-single-home-pilot",
+  "qa_branch": "research/issue180-qa-integrator",
+  "forward_slots": 4,
+  "forward_branches": [
+    "research/issue180-forward-0",
+    "research/issue180-forward-1",
+    "research/issue180-forward-2",
+    "research/issue180-forward-3"
+  ],
+  "forward_buckets": [
+    "FAMILY_ROSTER_HIGH_YIELD",
+    "VARIANT_BASE_READY",
+    "DIRECT_AUTHORITY_RESEARCH",
+    "AMBIGUOUS_LOW_YIELD"
+  ],
+  "qa_buckets": [
+    "SAFE_STRUCTURE_READY",
+    "POLICY_BLOCKED",
+    "IDENTITY_BLOCKED",
+    "STRUCTURAL_NO_SAFE_PATH",
+    "CONFLICT_REVIEW"
+  ],
+  "proposal_root": "docs/issue180/parallel/proposals",
+  "qa_review_ledger": "docs/issue180/parallel/QA_REVIEW_LEDGER_V1.csv",
+  "qa_epoch": {
+    "max_new_proposals": 50,
+    "max_affected_members": 250
+  },
+  "rules": {
+    "single_canonical_writer": true,
+    "forward_may_edit_canonical_ledgers": false,
+    "force_push": false,
+    "main_merge": false,
+    "production_apply": false,
+    "issue70_source_mutation": false,
+    "issue179_source_mutation": false,
+    "issue132_mutation": false
+  },
+  "legacy_handoff": {
+    "mode": "FROZEN_SALVAGE_ONLY",
+    "legacy_research_checkpoint_sha": "3004402b39e48f900ce17cb5d511dc3975f0003c",
+    "prior_closure_checkpoint_sha": "ad3eab21c303f209de62a0a51450ff9c45d385dd",
+    "salvage_branch": "research/issue180-legacy-salvage",
+    "resume_legacy_research": false,
+    "new_research_from_current_parallel_manifest_only": true
+  }
+}
