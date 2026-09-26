@@ -13,7 +13,7 @@ concurrency:
   cancel-in-progress: true
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   forward-authority-batch:
@@ -50,8 +50,42 @@ jobs:
             docs/issue70/data/runtime/issue70_catalog_overlay.csv \
             src tools/production data/production
 
+  bootstrap-dispatch:
+    if: github.ref_name == 'research/issue180-qa-integrator' && contains(github.event.head_commit.message, '[bootstrap-dispatch]')
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.sha }}
+      - name: Download green dispatch artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: issue180-dispatch-v2-36a375b32ccc7a71a7d3803d8d2d1135e37d9ec7
+          path: docs/issue180/parallel/dispatch
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          run-id: 36249783912
+      - name: Validate downloaded packet shape
+        shell: bash
+        run: |
+          test -f docs/issue180/parallel/dispatch/DISPATCH_SUMMARY_V2.json
+          for n in 0 1 2 3; do
+            test -f "docs/issue180/parallel/dispatch/fwd-${n}.csv"
+            test "$(($(wc -l < "docs/issue180/parallel/dispatch/fwd-${n}.csv") - 1))" -le 200
+          done
+      - name: Commit exact green dispatch packets
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/issue180/parallel/dispatch
+          git diff --cached --exit-code && exit 0
+          git commit -m "issue180: track initial Codex dispatch packets [skip ci]"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
+
   full-v3:
-    if: github.ref_name == 'research/issue180-single-home-pilot' || github.ref_name == 'research/issue180-qa-integrator'
+    if: (github.ref_name == 'research/issue180-single-home-pilot' || github.ref_name == 'research/issue180-qa-integrator') && !contains(github.event.head_commit.message, '[bootstrap-dispatch]')
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
