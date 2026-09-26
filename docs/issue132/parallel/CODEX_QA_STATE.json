@@ -3,7 +3,7 @@
   "status": "AUTONOMOUS_INTERNAL_QA",
   "baseline_head": "5123a13bd574ef50f04f3f7e0fb031d2625dcbaa",
   "last_codex_qa_by_lane": {
-    "1": 1125,
+    "1": 2125,
     "2": 1225,
     "3": 1200
   },
@@ -11,7 +11,15 @@
   "max_unqaed_per_lane": 2000,
   "ordinary_checked_sample_per_epoch": 50,
   "internal_qa_owner": "CODEX-QA-REPAIR",
-  "completed_epochs": [],
+  "completed_epochs": [
+    {
+      "lane": 1,
+      "lane_local_start": 1126,
+      "lane_local_end": 2125,
+      "selected_count": 335,
+      "packet_sha256": "c8437dcebd92d59a2e66373eae0a76d593a72c2bbff3817d213e628cbec251f6"
+    }
+  ],
   "final_internal_qa_passed": false,
   "final_chatgpt_semantic_qa_passed": false,
   "notes": [
