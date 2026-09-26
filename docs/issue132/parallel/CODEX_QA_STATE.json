@@ -4,8 +4,8 @@
   "baseline_head": "5123a13bd574ef50f04f3f7e0fb031d2625dcbaa",
   "last_codex_qa_by_lane": {
     "1": 7125,
-    "2": 8225,
-    "3": 7200
+    "2": 9225,
+    "3": 8200
   },
   "epoch_size_per_lane": 1000,
   "max_unqaed_per_lane": 2000,
@@ -144,6 +144,20 @@
       "lane_local_end": 7200,
       "selected_count": 171,
       "packet_sha256": "f0668eb1a8cf27db9193fc55efddeffcaf8884555b188212081d8330a589cfa8"
+    },
+    {
+      "lane": 2,
+      "lane_local_start": 8226,
+      "lane_local_end": 9225,
+      "selected_count": 229,
+      "packet_sha256": "0ad1844c8b76da67bf886624074c59787bafe9fd5ddf680dffb1aa938a3c655c"
+    },
+    {
+      "lane": 3,
+      "lane_local_start": 7201,
+      "lane_local_end": 8200,
+      "selected_count": 112,
+      "packet_sha256": "9aa7333e0a0f35427c7dc0336f16d4125c1f0820d3377bdeaf49b8667730e07e"
     }
   ],
   "final_internal_qa_passed": false,
