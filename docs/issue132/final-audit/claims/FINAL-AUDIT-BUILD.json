@@ -1,0 +1,8 @@
+{
+  "schema_version": "issue132-final-audit-role-claim-v1",
+  "role": "FINAL-AUDIT-BUILD",
+  "branch": "audit/issue132-final-build",
+  "final_input_head": "aa6c745c35f59dc22700bd77ee1f015ba593faa3",
+  "claim_basis": "first unclaimed role in required claim order",
+  "claim_commit_contains_this_file": true
+}
