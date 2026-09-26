@@ -3,8 +3,8 @@
   "status": "AUTONOMOUS_INTERNAL_QA",
   "baseline_head": "5123a13bd574ef50f04f3f7e0fb031d2625dcbaa",
   "last_codex_qa_by_lane": {
-    "1": 6125,
-    "2": 6225,
+    "1": 7125,
+    "2": 7225,
     "3": 6200
   },
   "epoch_size_per_lane": 1000,
@@ -116,6 +116,20 @@
       "lane_local_end": 6200,
       "selected_count": 349,
       "packet_sha256": "0d36e0cb7af582178139134d15694c20a4960fdc2bdf516a6272ed3dbd1c5dd4"
+    },
+    {
+      "lane": 2,
+      "lane_local_start": 6226,
+      "lane_local_end": 7225,
+      "selected_count": 250,
+      "packet_sha256": "a7f407702a7b2b7a70eac2d2aa36414557f4d880a3b3449e929971a45dc0d036"
+    },
+    {
+      "lane": 1,
+      "lane_local_start": 6126,
+      "lane_local_end": 7125,
+      "selected_count": 415,
+      "packet_sha256": "85041f558e25a425a994c42b890c7cb678f11fbf2ec14e09bac0c7cd775e0b5a"
     }
   ],
   "final_internal_qa_passed": false,
