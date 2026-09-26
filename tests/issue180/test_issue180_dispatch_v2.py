@@ -16,14 +16,16 @@ class Issue180DispatchV2Tests(unittest.TestCase):
             {
                 "queue_id":"q2-x","campaign_id":"pc2-a","owner_role":"FORWARD","owner_slot":"0",
                 "owner_branch":"research/issue180-forward-0","campaign_key":"authority:work_x",
-                "campaign_fingerprint":"a"*64,"research_state":"OPEN","work_buckets":"[\\"FAMILY_ROSTER_HIGH_YIELD\\"]",
-                "source_units":"[]","member_count":"2","member_ids/tags":"[\\"a\\",\\"b\\"]","priority":"P1",
+                "campaign_fingerprint":"a"*64,"research_state":"OPEN",
+                "work_buckets":json.dumps(["FAMILY_ROSTER_HIGH_YIELD"]),
+                "source_units":"[]","member_count":"2","member_ids/tags":json.dumps(["a","b"]),"priority":"P1",
             },
             {
                 "queue_id":"q2-x","campaign_id":"pc2-q","owner_role":"QA","owner_slot":"",
                 "owner_branch":"research/issue180-qa-integrator","campaign_key":"qa:CONFLICT_REVIEW:ru3-x",
-                "campaign_fingerprint":"b"*64,"research_state":"QA_OWNED","work_buckets":"[\\"CONFLICT_REVIEW\\"]",
-                "source_units":"[]","member_count":"1","member_ids/tags":"[\\"z\\"]","priority":"P1",
+                "campaign_fingerprint":"b"*64,"research_state":"QA_OWNED",
+                "work_buckets":json.dumps(["CONFLICT_REVIEW"]),
+                "source_units":"[]","member_count":"1","member_ids/tags":json.dumps(["z"]),"priority":"P1",
             },
         ]
 
