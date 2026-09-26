@@ -4,7 +4,7 @@
   "baseline_head": "5123a13bd574ef50f04f3f7e0fb031d2625dcbaa",
   "last_codex_qa_by_lane": {
     "1": 8125,
-    "2": 9225,
+    "2": 10225,
     "3": 8200
   },
   "epoch_size_per_lane": 1000,
@@ -165,6 +165,13 @@
       "lane_local_end": 8125,
       "selected_count": 527,
       "packet_sha256": "d1918baf12863d59d733483cf36bc59012b4224a3ff3866c8c9bb2b4c800a6b6"
+    },
+    {
+      "lane": 2,
+      "lane_local_start": 9226,
+      "lane_local_end": 10225,
+      "selected_count": 204,
+      "packet_sha256": "0fce659ee422a6e767c42f24c6170017e5cce673b66f236b69a0d6eb476fb7cf"
     }
   ],
   "final_internal_qa_passed": false,
