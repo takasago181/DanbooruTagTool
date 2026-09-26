@@ -5,7 +5,7 @@
   "last_codex_qa_by_lane": {
     "1": 6125,
     "2": 6225,
-    "3": 5200
+    "3": 6200
   },
   "epoch_size_per_lane": 1000,
   "max_unqaed_per_lane": 2000,
@@ -109,6 +109,13 @@
       "lane_local_end": 6225,
       "selected_count": 270,
       "packet_sha256": "efcf74f2e1a8430b4604b74b75c6a1c922a13e76cc97e92e101656dff72fe1c0"
+    },
+    {
+      "lane": 3,
+      "lane_local_start": 5201,
+      "lane_local_end": 6200,
+      "selected_count": 349,
+      "packet_sha256": "0d36e0cb7af582178139134d15694c20a4960fdc2bdf516a6272ed3dbd1c5dd4"
     }
   ],
   "final_internal_qa_passed": false,
