@@ -3,7 +3,7 @@
   "status": "AUTONOMOUS_INTERNAL_QA",
   "baseline_head": "5123a13bd574ef50f04f3f7e0fb031d2625dcbaa",
   "last_codex_qa_by_lane": {
-    "1": 4125,
+    "1": 5125,
     "2": 4225,
     "3": 5200
   },
@@ -81,6 +81,13 @@
       "lane_local_end": 5200,
       "selected_count": 461,
       "packet_sha256": "21890c944e2aed12e872a6a15e631069fc1a8fd7742412df78d4a36b58199f50"
+    },
+    {
+      "lane": 1,
+      "lane_local_start": 4126,
+      "lane_local_end": 5125,
+      "selected_count": 314,
+      "packet_sha256": "5bdc64c5268dc1743cb054a0fd60f7cc569dee5236aa2eefb4e2c7c1ad5c6427"
     }
   ],
   "final_internal_qa_passed": false,
