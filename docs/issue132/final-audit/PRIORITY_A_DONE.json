@@ -1,0 +1,16 @@
+{
+  "schema_version": "issue132-final-audit-role-done-v1",
+  "role": "FINAL-AUDIT-PRIORITY-A",
+  "FINAL_INPUT_HEAD": "aa6c745c35f59dc22700bd77ee1f015ba593faa3",
+  "audited_count": 1646,
+  "researched_count": 11,
+  "unresolved_count": 0,
+  "artifact_path": "docs/issue132/final-audit/audit_priority_a_verdicts.jsonl",
+  "artifact_sha256": "7af2337312e54d648a561fd7f547e11824207eee5005308c6bc092414e317fed",
+  "input_packet_sha256": "3611a69afed5626cb90d8ceb66e382c06488a36e1b1d7ba5186082d9624816d8",
+  "commit_sha": "da07a8d2b61e1cbf2cfe286f723df3e69a33f9aa",
+  "issue118_intent_counts": {
+    "CONTEXTUAL": 898,
+    "SEXUAL": 748
+  }
+}
