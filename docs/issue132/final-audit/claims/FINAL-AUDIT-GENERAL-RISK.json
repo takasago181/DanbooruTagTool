@@ -1,0 +1,9 @@
+{
+  "schema_version": "issue132-final-audit-role-claim-v1",
+  "role": "FINAL-AUDIT-GENERAL-RISK",
+  "branch": "audit/issue132-final-general-risk",
+  "final_input_head": "aa6c745c35f59dc22700bd77ee1f015ba593faa3",
+  "claim_status": "CLAIMED",
+  "claim_basis": "remote branch absent from latest fetched origin refs; first unclaimed role after BUILD and Priority A/B",
+  "claim_commit_contains_this_file": true
+}
