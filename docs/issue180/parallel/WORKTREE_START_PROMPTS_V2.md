@@ -1,39 +1,72 @@
-# Issue #180 — Authority-campaign Worktree prompts v2
+# Issue #180 — Codex-optimized Worktree prompts v2
 
-v2 is the active execution model. v1 assignment/epoch prompts are historical.
+v2 is active. The five pre-created #180 Worktrees use the #180 fast-path in root AGENTS.md.
 
 ## Forward N (N = 0..3)
 
 Branch: `research/issue180-forward-N`
 
-Read root AGENTS.md, live Issue #180 latest comment, `PARALLEL_EXECUTION_V2.md`, `PARALLEL_EXECUTION_V2.json`, `AUTHORITY_BATCH_SCHEMA_V2.md`, and v3 README.
+Read only:
+- root `AGENTS.md` section 12;
+- live Issue #180 latest comment;
+- `AUTHORITY_BATCH_SCHEMA_V2.md`;
+- `RESEARCH_STOP_PROTOCOL_V2.md`;
+- current canonical lane dispatch `docs/issue180/parallel/dispatch/fwd-N.csv`.
 
-Fetch canonical before selecting new work. Run full v3 and `build_parallel_campaigns_v2.py` when starting a new campaign wave. Process only Forward campaigns whose owner_slot=N and `research_state=OPEN`. Never redo `EXHAUSTED_REVIEWED` campaigns.
+Run `git fetch origin --prune`, but do **not** merge or rebase canonical during routine research. Read the current dispatch with `git show origin/research/issue180-single-home-pilot:docs/issue180/parallel/dispatch/fwd-N.csv` or an equivalent read-only command.
 
-Research by reusable authority, not by Character count. Family/roster/base authority must stay together. Check the actual page and exhaust all exact Issue #180 relations safely proved by that source. If the same page proves additional exact current Characters outside the starting campaign, include them in the same AUTHORITY_BATCH. Do not infer unlisted members or HOME.
+Do not run full v3 and do not build campaigns.
 
-Write only under `docs/issue180/parallel/proposals-v2/fwd-N/`. One checked source should normally produce one batch JSON, not one JSON per Character.
+Process only `research_state=OPEN` rows in your lane. Prefer higher reusable-yield campaigns and any embedded `source_hint_urls` before new web search.
 
-Canonical advancing while a real source is being reviewed does not invalidate positive evidence. Finish the source batch, push it, then refresh canonical/campaign queue before selecting the next campaign.
+Research by reusable authority, not Character count. Check the actual allowed source and exhaust every exact Issue #180 relation safely proved by that source. Exact spillover relations from the same source may be included. Never infer unlisted members/HOME.
 
-Use TERMINAL_BATCH only when the exact whole current Research Unit was genuinely reviewed and bind it to current unit_id + member_ids_sha256. If only one smaller campaign (for example one `direct:<tag>`) was exhausted with no safe relation, write RESEARCH_OUTCOME with the exact current campaign_fingerprint; it is accounting, not a terminal decision. Do not terminalize QA-owned policy/identity/structural/conflict buckets.
+Follow the bounded search routes in `RESEARCH_STOP_PROTOCOL_V2.md`. If no safe positive relation is found within the allowed routes, write RESEARCH_OUTCOME with `checked_routes` and move on.
 
-Commit/push coarse source batches and continue. Routine duplicates, regenerated campaigns, safe unresolved results and technical retries are not user blockers.
+Write only under `docs/issue180/parallel/proposals-v2/fwd-N/`. One checked source normally becomes one AUTHORITY_BATCH. TERMINAL_BATCH is only for an exact whole current Research Unit satisfying the terminal contract.
+
+Commit/push about 3–5 coherent source/outcome batches at a time. After a push, refresh the canonical lane dispatch before selecting the next batch. Canonical advancement never invalidates already checked positive evidence.
+
+Do not touch canonical ledgers, tracked dispatch, Source Review Ledger, QA ledger, #70/#179/#132, main or production.
 
 ## QA / Integrator
 
 Branch: `research/issue180-qa-integrator`
 
-Read root AGENTS.md, live Issue #180 latest comment, v2 runbook/config/schema, v3 README, migration ledgers and current Research Units.
+Read:
+- root `AGENTS.md` section 12;
+- live Issue #180 latest comment;
+- v2 runbook/config/schema;
+- `SOURCE_REVIEW_LEDGER_V2.csv`;
+- `QA_REVIEW_LEDGER_V2.csv`;
+- v3 README/current migration and Research Unit state as needed.
 
 You are the only canonical writer.
 
-First process QA-owned deterministic buckets in bulk. Rebuild v3 + authority campaigns. Fetch all Forward branches directly.
+Run full v3 and build campaigns only on QA/canonical. Refresh tracked dispatch with:
 
-For each new AUTHORITY_BATCH, independently verify the source/claim and apply each exact relation against current canonical state. Accept valid still-useful relations, deduplicate already-covered relations, and reject obsolete/conflicting relations individually. Do not discard an otherwise valid source batch merely because canonical advanced after the worker researched it.
+```
+python scripts/issue180/refresh_dispatch_snapshot_v2.py --write-tracked
+```
 
-For TERMINAL_BATCH, require exact current unit_id + member fingerprint. Reject stale terminal conclusions and review the regenerated remainder separately. Treat RESEARCH_OUTCOME only as campaign accounting. Accept a current one as `ACCEPT_OUTCOME` with campaign_key + campaign_fingerprint, rebuild the queue so it becomes `EXHAUSTED_REVIEWED`, and use `parallel_terminal_candidates_v2.csv` only as an accounting signal. Terminalize an exact Research Unit only after all current campaigns are exhausted and the current unit fingerprint still has no admissible safe path.
+Fetch all four Forward mailbox branches directly and skip proposal_ids already recorded in QA ledger.
 
-Record QA decisions in `QA_REVIEW_LEDGER_V2.csv`. Rebuild immediately after accepted family/member/variant evidence that can reshape the graph. Direct-HOME-only batches may be accumulated into a coherent source wave before one rebuild.
+For AUTHORITY_BATCH:
+- verify the exact source/claim;
+- reuse an ACCEPTED Source Review Ledger entry when URL + scope + mapping rule are unchanged;
+- otherwise perform full source-level review and append/update Source Review Ledger;
+- apply each exact relation against current canonical state;
+- deduplicate covered relations and isolate conflicts/obsolete rows rather than discarding a good source batch.
 
-After a canonical integration wave run full v3/tests/guards/#179 freshness, push QA, require green CI, then fast-forward the exact green QA HEAD to canonical. Continue until OPEN/PENDING=0. No force push, main merge, production apply, or #70/#179/#132 mutation.
+For RESEARCH_OUTCOME, accept only a current campaign_key + fingerprint and record `ACCEPT_OUTCOME`; it is accounting, not evidence. For TERMINAL_BATCH, require exact current unit fingerprint.
+
+After an integration wave:
+1. run full v3;
+2. build campaigns;
+3. refresh tracked dispatch;
+4. run tests/guards/#179 freshness;
+5. push QA;
+6. require green full-v3 CI, including dispatch freshness;
+7. fast-forward the exact green QA HEAD to canonical.
+
+No force push, main merge, production apply, or protected #70/#179/#132 mutation.

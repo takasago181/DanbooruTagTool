@@ -31,23 +31,31 @@ Do **not** split one reusable family/roster/base authority across lanes merely t
 
 Forward owner = SHA-256(campaign_key) modulo 4. The same campaign_key always goes to the same lane.
 
-## 3. Campaign queue
+## 3. QA-built dispatch snapshot
 
-After a full v3 rebuild, run:
+Only QA/canonical runs the full v3 graph and campaign builder.
+
+After a full v3 rebuild:
 
 ```
 python scripts/issue180/build_parallel_campaigns_v2.py
+python scripts/issue180/refresh_dispatch_snapshot_v2.py --write-tracked
 ```
 
-Generated queue:
-`artifacts/issue180-v3/parallel_authority_campaigns_v2.csv`
+Generated build artifacts remain:
+- `artifacts/issue180-v3/parallel_authority_campaigns_v2.csv`
+- `artifacts/issue180-v3/parallel_terminal_candidates_v2.csv`
 
-Accounting-only terminal candidates:
-`artifacts/issue180-v3/parallel_terminal_candidates_v2.csv`
+QA publishes the current tracked dispatch:
+- `docs/issue180/parallel/dispatch/CURRENT_DISPATCH_V2.csv`
+- `docs/issue180/parallel/dispatch/fwd-0.csv`
+- `docs/issue180/parallel/dispatch/fwd-1.csv`
+- `docs/issue180/parallel/dispatch/fwd-2.csv`
+- `docs/issue180/parallel/dispatch/fwd-3.csv`
 
-The queue is a **research lead**, not authority and not a lock.
+Forward workers read only their current lane file from **origin/canonical**. They do not run full v3 or rebuild campaigns.
 
-A campaign may disappear or shrink after another accepted batch changes the graph. That does not invalidate authority already checked from a real source.
+The dispatch is a research lead, not authority and not a lock. A campaign may disappear or shrink after integration; already checked positive evidence does not become invalid merely because the dispatch changed.
 
 ## 4. Positive evidence is not globally SHA-bound
 
@@ -106,38 +114,43 @@ If the same source explicitly proves additional current Issue #180 Characters ou
 
 Never infer unlisted members, aliases, variants or HOME from naming/co-occurrence alone.
 
-## 7. Forward execution
+## 7. Forward execution — append-only mailbox
+
+Forward branches are research mailboxes, not canonical mirrors.
 
 For each lane:
 
-1. fetch current canonical before selecting new work;
-2. rebuild v3 + authority campaigns when starting a new queue wave;
-3. choose only `research_state=OPEN` campaign keys owned by that lane;
-4. research highest reusable-yield campaigns first;
-5. inspect the actual source page;
-6. exhaust safe exact matches from that source before moving on;
-7. write one source-level AUTHORITY_BATCH;
-8. use TERMINAL_BATCH only after the exact residual fingerprint has genuinely been reviewed;
-9. if only the campaign (not the whole Research Unit) was exhausted with no safe relation, write RESEARCH_OUTCOME instead of pretending the unit is terminal;
-10. commit/push coarse source/outcome batches;
-11. continue with another owned campaign.
+1. `git fetch origin --prune`;
+2. do **not** merge/rebase canonical in routine research;
+3. read `origin/research/issue180-single-home-pilot:docs/issue180/parallel/dispatch/fwd-N.csv`;
+4. choose only `research_state=OPEN` rows for slot N;
+5. use embedded accepted source hints before new web search;
+6. follow `RESEARCH_STOP_PROTOCOL_V2.md`;
+7. research highest reusable-yield campaigns first;
+8. inspect the actual source page and exhaust all safe exact matches from that source;
+9. write one source-level AUTHORITY_BATCH, or RESEARCH_OUTCOME when the bounded research routes are exhausted;
+10. use TERMINAL_BATCH only after the exact whole current Research Unit was genuinely reviewed;
+11. commit/push roughly 3–5 coherent source/outcome batches at a time;
+12. refresh the canonical lane dispatch before selecting the next batch.
 
-A canonical advance does not force an in-progress source batch to be abandoned. Refresh the campaign queue before choosing the next campaign, not in the middle of a valid source review.
+Forward never runs `run_issue180_v3.py`, never rebuilds the campaign queue, and never updates tracked dispatch/source-review/QA ledgers.
+
+Canonical advancement does not force an in-progress source batch to be abandoned. Finish valid source research, push the mailbox batch, then refresh dispatch.
 
 ## 8. QA / Integrator execution
 
 QA:
 
 1. first bulk-process current QA-owned deterministic buckets;
-2. rebuild v3 + campaign queue;
-3. fetch all four Forward branches directly;
+2. run full v3 + campaign builder and refresh the tracked dispatch;
+3. fetch all four Forward mailbox branches directly;
 4. review each new source batch;
 5. integrate accepted relations into existing canonical evidence/decision ledgers;
-6. record decisions in `QA_REVIEW_LEDGER_V2.csv`;
+6. record decisions in `QA_REVIEW_LEDGER_V2.csv` and source-level reusable reviews in `SOURCE_REVIEW_LEDGER_V2.csv`;
 7. reject duplicate/obsolete/conflicting relations individually rather than discarding an entire good source batch;
 8. validate TERMINAL_BATCH only against exact current unit fingerprint;
 9. accept a current RESEARCH_OUTCOME with QA decision `ACCEPT_OUTCOME`, preserving campaign_key + campaign_fingerprint; never turn one campaign-level negative into a unit terminal by itself;
-10. rebuild the campaign queue so accepted exact outcomes become `EXHAUSTED_REVIEWED` and are not researched again;
+10. rebuild v3/campaigns and refresh tracked dispatch so accepted exact outcomes become `EXHAUSTED_REVIEWED` and are not researched again;
 11. use `parallel_terminal_candidates_v2.csv` to find exact current units whose campaigns are all exhausted; only after confirming no admissible path remains may QA create the canonical unit-level terminal review;
 12. rebuild v3 when accepted family/member/variant evidence can reshape the graph;
 13. direct-HOME-only source batches may be accumulated into a coherent wave before one full rebuild;
@@ -146,7 +159,14 @@ QA:
 
 There is no fixed "50 proposals / 250 members" epoch rule. Natural source/graph boundaries decide integration waves.
 
-## 9. QA depth
+## 9. Source-review reuse and QA depth
+
+`SOURCE_REVIEW_LEDGER_V2.csv` is QA-only. It stores approved source identity/scope/mapping rules.
+
+If a later batch uses the same accepted source for the same mapping rule:
+- Forward still checks the exact member/Character is explicitly covered;
+- QA may reuse the source-level approval instead of re-proving source identity/scope;
+- ambiguous names, aliases, variants, changed claims, conflicting roots or changed mapping rules still receive 100% semantic review.
 
 Always 100% review:
 - source identity and actual page content;
@@ -166,7 +186,7 @@ Machine validation remains 100%.
 
 Forward CI is lightweight:
 - research-only scope;
-- v2 scheduler tests;
+- v2 scheduler/dispatch tests;
 - branch write scope;
 - campaign-key lane ownership;
 - batch schema;
@@ -178,6 +198,8 @@ QA/canonical CI runs:
 - all Issue180 tests;
 - full v3 resolver/validator/reproducibility;
 - v2 campaign rebuild;
+- tracked dispatch freshness check;
+- source-review-ledger validation;
 - #179 freshness;
 - protected-source checks.
 

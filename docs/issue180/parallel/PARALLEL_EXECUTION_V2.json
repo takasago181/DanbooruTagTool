@@ -38,7 +38,12 @@
     "accepted_outcome_decision": "ACCEPT_OUTCOME",
     "accepted_outcomes_suppress_exact_campaign_research": true,
     "campaign_fingerprint_basis": "campaign_key + current campaign member tags",
-    "terminal_candidate_artifact": "artifacts/issue180-v3/parallel_terminal_candidates_v2.csv"
+    "terminal_candidate_artifact": "artifacts/issue180-v3/parallel_terminal_candidates_v2.csv",
+    "forward_mailbox_mode": true,
+    "forward_requires_full_v3": false,
+    "forward_requires_canonical_merge": false,
+    "source_review_reuse": true,
+    "commit_batch_guidance": "3-5 coherent source/outcome batches"
   },
   "rules": {
     "single_canonical_writer": true,
@@ -55,5 +60,15 @@
     "legacy_research_checkpoint_sha": "3004402b39e48f900ce17cb5d511dc3975f0003c",
     "salvage_branch": "research/issue180-legacy-salvage",
     "resume_legacy_research": false
-  }
+  },
+  "dispatch": {
+    "tracked_root": "docs/issue180/parallel/dispatch",
+    "all": "docs/issue180/parallel/dispatch/CURRENT_DISPATCH_V2.csv",
+    "lane_pattern": "docs/issue180/parallel/dispatch/fwd-{slot}.csv",
+    "builder": "scripts/issue180/refresh_dispatch_snapshot_v2.py",
+    "qa_only_refresh": true,
+    "forward_reads_origin_canonical": true
+  },
+  "source_review_ledger": "docs/issue180/parallel/SOURCE_REVIEW_LEDGER_V2.csv",
+  "research_stop_protocol": "docs/issue180/parallel/RESEARCH_STOP_PROTOCOL_V2.md"
 }

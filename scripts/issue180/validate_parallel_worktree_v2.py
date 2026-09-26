@@ -93,8 +93,15 @@ def validate_batch(data: dict, slot: int, path: Path, slots: int) -> None:
             if len(str(review["review_provenance"]).strip())<20:
                 raise SystemExit(f"{path}: terminal review provenance too short")
     elif btype=="RESEARCH_OUTCOME":
-        if data["relations"] or data["terminal_reviews"] or len(str(data["notes"]).strip())<35:
-            raise SystemExit(f"{path}: RESEARCH_OUTCOME requires concrete checked-path notes and no relations/reviews")
+        routes=data.get("checked_routes")
+        if data["relations"] or data["terminal_reviews"] or len(str(data["notes"]).strip())<20:
+            raise SystemExit(f"{path}: RESEARCH_OUTCOME requires concrete notes and no relations/reviews")
+        if not isinstance(routes,list) or not routes or len(routes)>5:
+            raise SystemExit(f"{path}: RESEARCH_OUTCOME requires 1..5 checked_routes")
+        for route in routes:
+            req={"route_type","url_or_query","result"}
+            if not isinstance(route,dict) or req-set(route) or not all(str(route[k]).strip() for k in req):
+                raise SystemExit(f"{path}: invalid checked_routes entry")
     elif btype=="TECHNICAL_ESCALATION":
         if data["relations"] or data["terminal_reviews"] or len(str(data["notes"]).strip())<20:
             raise SystemExit(f"{path}: TECHNICAL_ESCALATION requires concrete notes only")

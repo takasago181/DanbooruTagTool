@@ -44,7 +44,7 @@ Allowed relation contracts:
 - Character / MEMBER_OF / Family
 - Character / VARIANT_OF / Character
 
-A source batch may include exact covered Issue #180 Characters outside the original campaign when the same checked source explicitly proves them. QA handles deduplication/current-state applicability.
+A source batch may include exact covered Issue #180 Characters outside the original campaign when the same checked source explicitly proves them. QA handles deduplication/current-state applicability. An optional `source_review_id_hint` may name an ACCEPTED `SOURCE_REVIEW_LEDGER_V2.csv` row when Forward reused an approved source/mapping rule.
 
 AUTHORITY_BATCH does **not** depend on canonical SHA, epoch ID, assignment ID or Research Unit fingerprint. `campaign_fingerprint` records which research lead produced the batch, but QA must not reject valid positive relations merely because that campaign fingerprint is no longer current. A real checked relation does not become false because another lane advanced canonical.
 
@@ -104,11 +104,12 @@ Use this when one authority campaign was actually researched but produced no saf
   "evidence_basis": "",
   "relations": [],
   "terminal_reviews": [],
-  "notes": "Checked sources/search paths and why this campaign produced no safe exact relation."
+  "checked_routes": [{"route_type":"OFFICIAL_ROSTER","url_or_query":"https://...","result":"No exact safe identity match."}],
+  "notes": "Why this campaign produced no safe exact relation."
 }
 ```
 
-RESEARCH_OUTCOME is research accounting only. It is not negative evidence and is not a canonical terminal decision. QA accepts it with decision token `ACCEPT_OUTCOME` only when `campaign_key + campaign_fingerprint` still matches the current campaign queue.
+`checked_routes` is required for RESEARCH_OUTCOME and must record the distinct routes actually checked under `RESEARCH_STOP_PROTOCOL_V2.md`. RESEARCH_OUTCOME is research accounting only. It is not negative evidence and is not a canonical terminal decision. QA accepts it with decision token `ACCEPT_OUTCOME` only when `campaign_key + campaign_fingerprint` still matches the current campaign queue.
 
 The scheduler reads accepted outcomes from `QA_REVIEW_LEDGER_V2.csv` and marks that exact campaign `EXHAUSTED_REVIEWED`, preventing repeated research. If the campaign target changes, its fingerprint changes and it automatically reopens. Structure-free `direct:<tag>` fingerprints depend only on that tag campaign, so resolving a sibling tag does not unnecessarily reopen already-reviewed direct work.
 

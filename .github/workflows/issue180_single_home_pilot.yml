@@ -31,9 +31,16 @@ jobs:
           python-version: "3.12"
       - name: Validate Issue180 research-only scope
         run: python scripts/issue180/validate_research_scope_v2.py
-      - name: Run v2 authority-campaign scheduler tests
-        run: python -m unittest discover -s tests/issue180 -p "test_issue180_parallel_v2.py" -v
-      - name: Validate v2 Forward write scope, lane ownership and batch schema
+      - name: Run v2 lightweight scheduler and dispatch tests
+        run: |
+          python -m unittest discover -s tests/issue180 -p "test_issue180_parallel_v2.py" -v
+          python -m unittest discover -s tests/issue180 -p "test_issue180_dispatch_v2.py" -v
+      - name: Verify live canonical lane dispatch exists
+        shell: bash
+        run: |
+          slot="${GITHUB_REF_NAME##*-}"
+          git show "origin/research/issue180-single-home-pilot:docs/issue180/parallel/dispatch/fwd-${slot}.csv" >/dev/null
+      - name: Validate v2 Forward mailbox scope, lane ownership and batch schema
         run: python scripts/issue180/validate_parallel_worktree_v2.py
       - name: Verify protected sources are unchanged
         shell: bash
@@ -64,6 +71,17 @@ jobs:
         run: python scripts/issue180/run_issue180_v3.py
       - name: Build v2 reusable-authority campaign queue
         run: python scripts/issue180/build_parallel_campaigns_v2.py
+      - name: Validate source-review reuse ledger
+        run: python scripts/issue180/validate_source_review_ledger_v2.py
+      - name: Export expected tracked dispatch
+        run: python scripts/issue180/refresh_dispatch_snapshot_v2.py --export-dir artifacts/issue180-v3/dispatch-v2
+      - name: Upload expected dispatch snapshot
+        uses: actions/upload-artifact@v4
+        with:
+          name: issue180-dispatch-v2-${{ github.sha }}
+          path: artifacts/issue180-v3/dispatch-v2
+          if-no-files-found: error
+          retention-days: 7
       - name: Validate v2 branch ownership/write scope
         run: python scripts/issue180/validate_parallel_worktree_v2.py
       - name: Validate Issue179 handoff freshness
