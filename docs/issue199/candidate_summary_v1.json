@@ -1,0 +1,26 @@
+{
+  "research_commit": "de450958eb598a2c7c3a34b112f139dfba617c6e",
+  "ledger_sha256": "02582ba54976b8b3b344ba09a4bb4aa3f86159db315506593f3a309a11f0cac6",
+  "semantic_ledger_sha256": "993bd537b77a6583f17db333d00d29f5132e88e10bf7934810958ed197d1398b",
+  "live_baseline_catalog_sha256": "24665d7c92b9de9b22d92c7713f4e9876dc9c15b98e02324bbe670448bea7ff9",
+  "frozen_identity_count": 359,
+  "frozen_assignment_count": 370,
+  "live_eligible_identity_count_before_semantic_qa": 353,
+  "shipped_identity_count": 346,
+  "shipped_assignment_count": 355,
+  "excluded_assignment_count": 15,
+  "exclusions_by_reason": {
+    "FOCUSED_SEMANTIC_HOLD": 9,
+    "LIVE_GENERAL_NOT_PROPOSED_AND_BROWSEABLE": 6
+  },
+  "shipped_by_facet": {
+    "BODY/BREAST_NIPPLE": 72,
+    "BODY/BUTTOCK_ANAL": 30,
+    "BODY/FEMALE_GENITAL": 10,
+    "BODY/MALE_GENITAL": 19,
+    "BODY/MOUTH_ORAL": 116,
+    "THEME/BDSM_RESTRAINT": 20,
+    "THEME/INJURY_R18G": 82,
+    "THEME/REPRO_PREGNANCY_LACTATION": 6
+  }
+}
