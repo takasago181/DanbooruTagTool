@@ -16,10 +16,10 @@
 
 ## Active lanes
 
-- #132: `research/taxonomy-usability-audit`
 - #179: `research/issue179-character-quality-audit`
 - #180: `research/issue180-single-home-pilot`
 - #188: project-wide execution-efficiency infrastructure
+- #201: `dev/practical-discoverability-finish` (implementation handoff to DEV/AUDIT)
 
 Issue/branch HEAD/progressはこのファイルの固定値ではなく、live GitHubから取得する。
 

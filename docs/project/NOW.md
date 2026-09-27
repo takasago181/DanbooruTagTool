@@ -31,7 +31,18 @@ Keep the following as separate follow-ups under their existing owners:
 - #64 color/pattern taxonomy;
 - #64/#76 LIVING/NONHUMAN boundary;
 - unreproduced routes and local refinements;
-- Unified facet architecture.
+
+## 1.5 COMPLETE — #199 General body/theme facets
+
+- PR **#200** merged and production-promoted.
+- The General catalog carries **346 identities / 355 assignments**: BODY 247 and THEME 108, using the existing #76 facet vocabulary and UnifiedBrowseIndex.
+- This closes the #132 “Unified facet architecture” follow-up. It is no longer an active issue.
+
+## 1.6 DEV REVIEW — #201 practical discoverability finish
+
+- Branch: `dev/practical-discoverability-finish`, created from the freshly fetched live main.
+- Scope: owner-level #64 color/pattern projection, #64/#76 LIVING/NONHUMAN boundary, valuable local refinements and unreproduced routes, followed by production-size intent-first scenario QA.
+- Stop point: implementation handoff to independent DEV/AUDIT; no main merge or production apply.
 
 ## 2. ACTIVE PARALLEL RESEARCH — #180 Character -> HOME Copyright
 
@@ -107,6 +118,7 @@ mainへ反映済み:
 次:
 - #179を再開する場合はlive Issue / PR #181 / branchを正本にする
 - #132 / #180とdata/semantic decisionsを混ぜない
+- #201の残課題はsemantic cluster単位で判断し、raw候補件数を修正ノルマにしない
 
 ---
 

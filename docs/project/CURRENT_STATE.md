@@ -25,7 +25,16 @@
   - production runtime: C:\Codex\DanbooruTagTool-App; clean self-contained win-x64; manifest/executable/catalog hashes are recorded in docs/project/NOW.md
   - UserData remained unchanged and was excluded from the publish copy
   - visual inspection unavailable; actual production process smoke passed
-  - separate follow-ups remain #64 color/pattern, #64/#76 LIVING/NONHUMAN, unreproduced routes/local refinements, and Unified facet architecture; they do not reopen #132
+  - separate follow-ups remain #64 color/pattern, #64/#76 LIVING/NONHUMAN, and unreproduced routes/local refinements; they do not reopen #132
+- **#199 — General body/theme facets**
+  - state: **complete; production-promoted through PR #200**
+  - General: 346 identities / 355 assignments; BODY 247 / THEME 108
+  - existing #76 facet IDs and UnifiedBrowseIndex are the production authority
+- **#201 — Practical ordinary-tag discoverability finish**
+  - state: implementation handoff to independent DEV/AUDIT
+  - branch: `dev/practical-discoverability-finish`
+  - workstreams: #64 color/pattern projection, #64/#76 LIVING/NONHUMAN boundary, local refinement and unreproduced-route clusters, intent-first practical scenario QA
+  - no main merge or production apply in this lane
 - **#179 — Character/Copyright quality audit**
   - branch: `research/issue179-character-quality-audit`
   - state: active research
