@@ -1,0 +1,110 @@
+{
+  "schema_version": "issue132-final-audit-build-manifest-v1",
+  "final_input_head": "aa6c745c35f59dc22700bd77ee1f015ba593faa3",
+  "semantic_repair": "none; build-only role",
+  "source_hashes": {
+    "neutral_input_sha256": "ac0f888d02f19a440c63b3b9f695c58f9ba53b98ebe9756edec51db1c5ff8f7d",
+    "issue118_content_intent_sha256": "d2966dbc3c70617af2a985a94f81650785a29c1668b40b582d3c213ef2a68bc0",
+    "semantic_contract_git_blob_sha": "88486f70884f6e8731d3f4fe88a25a32447038c1",
+    "runtime_authority_git_blob_sha": "2e195715d151332cbee116920a0885d2e4153816",
+    "qa_state_git_blob_sha": "a3b9dfad603deaf53129034cb4a1390064092414",
+    "baseline_manifest_sha256": "7b709e4307b431aed7cf33c5b38ec2845e282889de97f732a3d424ff86ddb06c",
+    "manual_audit_semantic_patches_sha256": "01dd5c6d2dbad723dc30d6cfdb02890e1c7c90c84d0e8066bcc795ead212fe0b",
+    "build_script_sha256": "379484f74a799b90f9fb2dea600702cffef3c176b31193fd8cad14a7db9b5a76"
+  },
+  "algorithm": {
+    "ledger_order": "review_seq ascending",
+    "critical_split": "sort by SHA256(identity_key UTF-8), then identity_key; split at floor(n/2)",
+    "general_risk_candidates": "bounded attribute/family candidate rules; classification is never inferred from family patterns",
+    "ordinary_controls": "round-robin deterministic hash order across current route assignments, exclude purpose-critical/risk-candidate identities, target 700 unique identities",
+    "blind_packet_fields": [
+      "identity_key",
+      "source_surfaces",
+      "issue118_content_intent"
+    ]
+  },
+  "population": {
+    "identity_total": 31003,
+    "sexual": 1506,
+    "contextual": 1786,
+    "non_sexual": 27707,
+    "unclassified": 4,
+    "purpose_critical": 3292,
+    "priority_a": 1646,
+    "priority_b": 1646,
+    "general_risk_total": 16176,
+    "general_risk_candidates": 15787,
+    "ordinary_controls": 700,
+    "ordinary_control_routes_covered": [
+      "ACTION_CONTACT",
+      "BODY_SITE",
+      "CLOTHING_EXPOSURE",
+      "COLOR_PATTERN_SHAPE",
+      "COMPOSITION_CAMERA",
+      "CONTENT_RATING",
+      "EXPRESSION_GAZE",
+      "FLUID_EXCRETION",
+      "HAIR_FACE",
+      "LIGHT_TIME_WEATHER",
+      "LIVING",
+      "NONHUMAN_TRANSFORM",
+      "PEOPLE_COUNT",
+      "POSE_POSITION",
+      "RELATION_ROLE",
+      "SCENE_BACKGROUND",
+      "STYLE_PROCESSING",
+      "TEXT_SYMBOL",
+      "TOOL_OBJECT"
+    ]
+  },
+  "machine_validation": {
+    "flat_validator_snapshot": {
+      "schema_version": "issue132-flat-pass-a-snapshot-v4-codex-autonomous",
+      "processed_slot_total": 31003,
+      "accepted_total": 31003,
+      "expected_total": 31003,
+      "remaining_unprocessed_total": 0,
+      "baseline_hold_count": 0,
+      "baseline_semantic_lint_count": 0,
+      "forward_hold_count": 0,
+      "invalid_window_count": 0,
+      "duplicate_coverage_count": 0,
+      "internal_qa_limit_violation_count": 0,
+      "fatal_contract_error_count": 0,
+      "frontiers": {
+        "1": null,
+        "2": null,
+        "3": null
+      },
+      "last_codex_qa_by_lane": {
+        "1": 10335,
+        "2": 10334,
+        "3": 10334
+      },
+      "internal_qa_caught_up": true,
+      "final_internal_qa_passed": true,
+      "final_chatgpt_semantic_qa_passed": false,
+      "ready_for_final_chatgpt_audit": true,
+      "complete": false
+    },
+    "coverage": true,
+    "unique_identity": true,
+    "issue118_join_exact": true,
+    "route_vocabulary_valid": true,
+    "semantic_contract_hash_valid": true,
+    "lane_binding_valid": true,
+    "all_priority_blind": true,
+    "all_general_blind": true,
+    "all_critical_in_priority": true,
+    "priority_disjoint": true,
+    "controls_600_800": true,
+    "control_19_routes": true,
+    "passed": true
+  },
+  "packet_sha256": {
+    "effective_semantic_ledger.jsonl": "993bd537b77a6583f17db333d00d29f5132e88e10bf7934810958ed197d1398b",
+    "priority_a_blind.jsonl": "3611a69afed5626cb90d8ceb66e382c06488a36e1b1d7ba5186082d9624816d8",
+    "priority_b_blind.jsonl": "2778880f203e1b15001aa072c74b907b3f5c1c2c50a6206a182a8393caacd684",
+    "general_risk_blind.jsonl": "b7e41ed91fdf4aa8780194b7ae44d5ec77d8b31ee368cfc8fbd8a2fdfed5b27b"
+  }
+}
