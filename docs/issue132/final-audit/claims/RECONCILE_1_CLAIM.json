@@ -1,0 +1,9 @@
+{
+  "schema_version": "issue132-final-reconciliation-role-claim-v1",
+  "role": "RECONCILE-1",
+  "branch": "audit/issue132-final-reconcile-1",
+  "final_input_head": "10ff0986444528e58a8ccec7c44d539235d17175",
+  "claim_status": "CLAIMED",
+  "shard_rule": "int(SHA256(identity_key UTF-8), 16) % 4 == 1",
+  "claim_basis": "first unclaimed role in required claim order"
+}
