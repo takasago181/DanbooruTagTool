@@ -522,7 +522,14 @@ public sealed class DictionaryWorkspaceViewModel : Observable
         if (!canMutate()) return;
         ExitRelationMode();
         SetSearchTargetValue(DictionarySearchTarget.All, refresh: false);
-        ApplyUnifiedState(unifiedState.WithScope(UnifiedBrowseScope.Tags).ToggleTheme(themeId), true);
+        var current = unifiedState.WithScope(UnifiedBrowseScope.Tags);
+        var next = current.ToggleTheme(themeId);
+        if (!current.ThemeIds.Contains(themeId) && current.ThemeIds.Count > 0 && unifiedBrowse.Count(next) == 0)
+        {
+            var switched = current with { ThemeIds = new HashSet<string>(StringComparer.Ordinal) { themeId } };
+            if (unifiedBrowse.Count(switched) > 0) next = switched;
+        }
+        ApplyUnifiedState(next, true);
     }
 
     public void ToggleDeepOnly()
@@ -872,11 +879,25 @@ public sealed class DictionaryWorkspaceViewModel : Observable
         foreach (var option in ThemeOptions)
         {
             option.Selected = ThemeIds.Contains(option.Id);
-            option.Count = unifiedBrowse.CountWithTheme(unifiedState, option.Id);
+            option.Count = CountWithThemeSelection(option.Id);
         }
         Notify(nameof(ShowLocalOptions));
         Notify(nameof(ShowBodyOptions));
         Notify(nameof(ShowThemeOptions));
+    }
+
+    private int CountWithThemeSelection(string themeId)
+    {
+        var current = unifiedState.WithScope(UnifiedBrowseScope.Tags);
+        if (current.ThemeIds.Contains(themeId)) return unifiedBrowse.Count(current);
+
+        var additive = current.ToggleTheme(themeId);
+        var additiveCount = unifiedBrowse.Count(additive);
+        if (current.ThemeIds.Count == 0 || additiveCount > 0) return additiveCount;
+
+        var switched = current with { ThemeIds = new HashSet<string>(StringComparer.Ordinal) { themeId } };
+        var switchedCount = unifiedBrowse.Count(switched);
+        return switchedCount > 0 ? switchedCount : additiveCount;
     }
 
     public void Add(CatalogEntry entry) { if (canMutate()) workspace.Add(entry); }

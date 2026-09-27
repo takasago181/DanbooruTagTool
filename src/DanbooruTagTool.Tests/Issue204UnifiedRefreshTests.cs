@@ -264,6 +264,62 @@ public sealed class Issue204UnifiedRefreshTests
     }
 
     [Fact]
+    public void Wpf_theme_choice_switches_when_and_addition_would_leave_no_results()
+    {
+        Exception? failure = null;
+        var thread = new Thread(() =>
+        {
+            try
+            {
+                var catalog = new Catalog([
+                    Entry("g1", "restraint", "BODY_SITE", "BREAST_NIPPLE") with
+                    {
+                        UnifiedBrowseFacets = new(["BREAST_NIPPLE"], ["BDSM_RESTRAINT"]),
+                        SexualIntent = SexualIntentClass.Sexual
+                    },
+                    Entry("g2", "reproduction", "BODY_SITE", "BREAST_NIPPLE") with
+                    {
+                        UnifiedBrowseFacets = new(["BREAST_NIPPLE"], ["REPRO_PREGNANCY_LACTATION"]),
+                        SexualIntent = SexualIntentClass.Sexual
+                    }
+                ]);
+                var vm = new MainViewModel(catalog, new MemoryStore(), new Clipboard());
+                var window = new MainWindow(vm) { WindowState = WindowState.Normal, Width = 1500, Height = 950, ShowInTaskbar = false };
+                window.Show();
+                Pump(window.Dispatcher, 50);
+                var view = (FrameworkElement)(window.GetType().GetField("DictionaryWorkspace", BindingFlags.Instance | BindingFlags.NonPublic)?.GetValue(window)
+                    ?? throw new InvalidOperationException("DictionaryWorkspace view was not created."));
+                view.Width = 1100;
+                window.UpdateLayout();
+
+                vm.Dictionary.SetPrimaryRoute("BODY_SITE");
+                vm.Dictionary.SetContentIntent(ContentIntentFilter.Sexual);
+                vm.Dictionary.ToggleBodySite("BREAST_NIPPLE");
+                vm.Dictionary.ToggleTheme("BDSM_RESTRAINT");
+                Assert.Equal(["restraint"], Snapshot(vm.Dictionary));
+
+                var alternative = FacetChip(view, BrowseFacetKind.Theme, "REPRO_PREGNANCY_LACTATION");
+                Assert.True(alternative.IsEnabled, "A theme with replacement matches must remain directly selectable when additive AND matches are empty.");
+                ClickButtonBase(alternative);
+                Pump(window.Dispatcher, 25);
+
+                Assert.Equal(["REPRO_PREGNANCY_LACTATION"], vm.Dictionary.ThemeIds);
+                Assert.Equal(["reproduction"], Snapshot(vm.Dictionary));
+                Assert.Equal("BODY_SITE", vm.Dictionary.PrimaryRouteId);
+                Assert.Equal(ContentIntentFilter.Sexual, vm.Dictionary.ContentIntent);
+                Assert.Contains("BREAST_NIPPLE", vm.Dictionary.BodySiteIds);
+                AssertUiResults(view, vm);
+                window.Close();
+            }
+            catch (Exception ex) { failure = ex; }
+        });
+        thread.SetApartmentState(ApartmentState.STA);
+        thread.Start();
+        thread.Join();
+        if (failure != null) throw new Xunit.Sdk.XunitException(failure.ToString());
+    }
+
+    [Fact]
     public void Search_and_browse_facet_removal_refreshes_cards_summary_and_facet_options_synchronously()
     {
         var vm = Workspace();
