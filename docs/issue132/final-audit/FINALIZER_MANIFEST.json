@@ -1,0 +1,54 @@
+{
+  "schema_version": "issue132-finalizer-artifact-manifest-v1",
+  "role": "FINALIZER",
+  "fixed_input_head": "10ff0986444528e58a8ccec7c44d539235d17175",
+  "source_diff_sha256": "e0225091028053d4203fffcddc9dd7ac7b906cd7575ee2f45f773cd311f85b8d",
+  "input_effective_ledger_sha256": "993bd537b77a6583f17db333d00d29f5132e88e10bf7934810958ed197d1398b",
+  "reconciliation_count": 7285,
+  "repair_count": 683,
+  "verdict_counts": {
+    "AUDITOR_CORRECT": 1209,
+    "BOTH_ACCEPTABLE": 2950,
+    "CURRENT_CORRECT": 1891,
+    "TAXONOMY_LIMITATION": 1235
+  },
+  "severity_counts": {
+    "NONE": 6031,
+    "P2": 1254
+  },
+  "action_counts": {
+    "NO_P0_P1_REPAIR": 6329,
+    "REPAIR_CURRENT_DEFECT": 683,
+    "RETAIN_CURRENT": 244,
+    "TAXONOMY_LIMITATION": 29
+  },
+  "reconciliation_sha256": "c987066711416e6b4d8f5bc37814183e372d1351562603616f0ec827de51e84e",
+  "repairs_sha256": "56a3ce13207a0a98eba6ea276ff8238da6ec0ac79f8f7f3dd422eec06b39a7ed",
+  "worker_artifacts": {
+    "0": {
+      "path": "docs/issue132/final-audit/RECONCILE_0.jsonl",
+      "sha256": "c9c74f746e6282004a5e4f8e5c4b1bbca0fd3ddbca66567396bb4e22e61ea020",
+      "count": 1788
+    },
+    "1": {
+      "path": "docs/issue132/final-audit/RECONCILE_1.jsonl",
+      "sha256": "1e7d13c8e71afb70f7feffb8c42116abf42dd52de6f5ea73369a6170edbc20ac",
+      "count": 1823
+    },
+    "2": {
+      "path": "docs/issue132/final-audit/RECONCILE_2.jsonl",
+      "sha256": "486ecf302497851036a0eec976714d35a689830cb886d33ef58b2af30d5dfd65",
+      "count": 1783
+    },
+    "3": {
+      "path": "docs/issue132/final-audit/RECONCILE_3.jsonl",
+      "sha256": "10fc9bf88158bb2564dd65502a7a4f67543df7f6dddff2734158257f0e707b5b",
+      "count": 1891
+    }
+  },
+  "final_report_sha256": "0308d4b10867090f522f96158dc1fcb42afd33006e184bdf27f8ccad0750f907",
+  "final_done_sha256": "c1109a47ddc1ab79b7ab0609789731b4bafe6e3e3d8cb0ad8ae2d207763fa5aa",
+  "systematic_review_sha256": "3da23e0fe533a5f80fda69b10671c471cec90a9bc6744b7a442d9450b017352c",
+  "review_decisions_sha256": "b8a2c301aed636fc19e946d74265b086f8b5b34a664112020441ec0712d22802",
+  "qa_state_sha256": "600d959c21bba9f042a434486b62bf5ff2ae68c27faf5b1846c834d3f62ff2b2"
+}

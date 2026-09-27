@@ -1,0 +1,56 @@
+{
+  "schema_version": "issue132-final-semantic-audit-report-v1",
+  "role": "FINALIZER",
+  "status": "PASS",
+  "fixed_input_head": "10ff0986444528e58a8ccec7c44d539235d17175",
+  "input_effective_ledger_sha256": "993bd537b77a6583f17db333d00d29f5132e88e10bf7934810958ed197d1398b",
+  "reconciliation": {
+    "population": 7285,
+    "reconciled": 7285,
+    "duplicate": 0,
+    "missing": 0,
+    "final_verdict_counts": {
+      "AUDITOR_CORRECT": 1209,
+      "BOTH_ACCEPTABLE": 2950,
+      "CURRENT_CORRECT": 1891,
+      "TAXONOMY_LIMITATION": 1235
+    },
+    "unresolved_p0": 0,
+    "unresolved_p1": 0,
+    "systematic_defect_remaining": "NO"
+  },
+  "structural_validator": {
+    "command": "python scripts/issue132/validate_flat_pass_a.py",
+    "status": "PASS",
+    "population": 31003,
+    "accepted": 31003,
+    "HOLD": 0,
+    "lint": 0,
+    "invalid": 0,
+    "duplicate": 0,
+    "qa_violation": 0,
+    "fatal": 0,
+    "validator_complete": true,
+    "final_internal_qa_passed": true,
+    "final_chatgpt_semantic_qa_passed": true
+  },
+  "semantic_final_audit": "PASS",
+  "repairs": {
+    "identity_scoped_count": 683,
+    "artifact": "docs/issue132/final-audit/FINAL_SEMANTIC_REPAIRS.jsonl",
+    "sha256": "56a3ce13207a0a98eba6ea276ff8238da6ec0ac79f8f7f3dd422eec06b39a7ed"
+  },
+  "artifacts": {
+    "reconciliation_sha256": "c987066711416e6b4d8f5bc37814183e372d1351562603616f0ec827de51e84e",
+    "review_decisions_sha256": "b8a2c301aed636fc19e946d74265b086f8b5b34a664112020441ec0712d22802",
+    "systematic_review_sha256": "3da23e0fe533a5f80fda69b10671c471cec90a9bc6744b7a442d9450b017352c",
+    "qa_state_sha256": "600d959c21bba9f042a434486b62bf5ff2ae68c27faf5b1846c834d3f62ff2b2"
+  },
+  "boundaries": {
+    "frozen_vocabulary_changed": false,
+    "issue118_authority_changed": false,
+    "main_merge": false,
+    "production_apply": false,
+    "force_push": false
+  }
+}

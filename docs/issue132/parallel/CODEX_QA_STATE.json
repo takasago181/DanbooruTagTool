@@ -1,6 +1,6 @@
 {
   "schema_version": "issue132-codex-qa-state-v3-autonomous",
-  "status": "AUTONOMOUS_INTERNAL_QA",
+  "status": "FINAL_SEMANTIC_QA_PASSED",
   "baseline_head": "5123a13bd574ef50f04f3f7e0fb031d2625dcbaa",
   "last_codex_qa_by_lane": {
     "1": 10335,
@@ -224,11 +224,23 @@
     }
   ],
   "final_internal_qa_passed": true,
-  "final_chatgpt_semantic_qa_passed": false,
+  "final_chatgpt_semantic_qa_passed": true,
   "notes": [
     "ChatGPT no longer advances intermediate forward watermarks.",
     "CODEX-L1/L2/L3 may continue autonomously while each lane remains within max_unqaed_per_lane of its last completed Codex QA cursor.",
     "CODEX-QA-REPAIR audits each due epoch, repairs defects, and advances last_codex_qa_by_lane itself.",
-    "Human/ChatGPT semantic QA is required only after all forward work and internal Codex QA are complete, unless a true taxonomy/specification blocker is encountered."
-  ]
+    "Human/ChatGPT semantic QA is required only after all forward work and internal Codex QA are complete, unless a true taxonomy/specification blocker is encountered.",
+    "FINALIZER completed Issue #132 final semantic reconciliation against fixed input 10ff0986444528e58a8ccec7c44d539235d17175; see final-audit artifacts. No production overlay was applied."
+  ],
+  "final_chatgpt_semantic_qa_evidence": {
+    "fixed_input_head": "10ff0986444528e58a8ccec7c44d539235d17175",
+    "reconciliation_path": "docs/issue132/final-audit/FINAL_RECONCILIATION.jsonl",
+    "reconciliation_sha256": "c987066711416e6b4d8f5bc37814183e372d1351562603616f0ec827de51e84e",
+    "repair_path": "docs/issue132/final-audit/FINAL_SEMANTIC_REPAIRS.jsonl",
+    "repair_sha256": "56a3ce13207a0a98eba6ea276ff8238da6ec0ac79f8f7f3dd422eec06b39a7ed",
+    "reconciled_disagreements": 7285,
+    "unresolved_p0": 0,
+    "unresolved_p1": 0,
+    "systematic_defect_remaining": "NO"
+  }
 }

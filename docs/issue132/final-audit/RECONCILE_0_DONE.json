@@ -1,0 +1,27 @@
+{
+  "schema_version": "issue132-final-reconcile-role-done-v1",
+  "role": "RECONCILE-0",
+  "branch": "audit/issue132-final-reconcile-0",
+  "fixed_input_head": "10ff0986444528e58a8ccec7c44d539235d17175",
+  "source_diff_final_input_head": "aa6c745c35f59dc22700bd77ee1f015ba593faa3",
+  "source_diff_sha256": "e0225091028053d4203fffcddc9dd7ac7b906cd7575ee2f45f773cd311f85b8d",
+  "shard": "int(SHA256(identity_key UTF-8), 16) % 4 == 0",
+  "reconciled_count": 1788,
+  "unique_identity_count": 1788,
+  "artifact_path": "docs/issue132/final-audit/RECONCILE_0.jsonl",
+  "artifact_sha256": "c9c74f746e6282004a5e4f8e5c4b1bbca0fd3ddbca66567396bb4e22e61ea020",
+  "verdict_counts": {
+    "BOTH_ACCEPTABLE": 485,
+    "AUDITOR_CORRECT": 429,
+    "TAXONOMY_LIMITATION": 558,
+    "CURRENT_CORRECT": 316
+  },
+  "severity_counts": {
+    "NONE": 1173,
+    "P0": 159,
+    "P1": 120,
+    "P2": 336
+  },
+  "semantic_repairs_performed": 0,
+  "validation": "PASS"
+}
