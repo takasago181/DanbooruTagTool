@@ -28,13 +28,14 @@ The taxonomy is loaded only by the explicit `--build-catalog` operation. Normal 
 
 ## Portable publish
 
-`publish-portable.ps1` creates a new folder (it refuses to overwrite an existing folder), publishes a Windows x64 self-contained application, and places the supplied catalog at `Data/catalog.db`.
+`publish-portable.ps1` is a compatibility wrapper for `scripts/maintenance/publish_portable_runtime.ps1`. The canonical pipeline requires an explicit clean source revision, protected source and authority roots, builds and validates a full catalog, and publishes a self-contained single-file Windows x64 runtime into a fresh output folder. Candidate `UserData` contains only a disposable README; real UserData is never a publish input.
 
 ```powershell
 ./publish-portable.ps1 `
-  -Catalog <path-to-catalog.db> `
-  -Output ./artifacts/portable `
-  -Dotnet dotnet
+  -SourceRevision <exact-clean-HEAD> `
+  -OutputRoot <fresh-output-outside-checkout> `
+  -SourceRoot <protected-source-root> `
+  -AuthorityRoot <accepted-authority-root>
 ```
 
 The output is a copyable folder containing the executable and runtime files, `Data/catalog.db`, and `UserData/`. No Python/Tk runtime or separate .NET Desktop Runtime is required for the self-contained output. `UserData/user.db` is created on first launch and is portable with the folder.

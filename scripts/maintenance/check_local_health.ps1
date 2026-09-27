@@ -26,15 +26,11 @@ if ($status) {
 } else { Add-Check 'git status' 'PASS' "clean tracked tree on $branch" }
 Add-Check 'source revision' 'PASS' "HEAD $head"
 
-$provenancePath = Join-Path $ArtifactRoot 'build-provenance.json'
 $exePath = Join-Path $ArtifactRoot 'DanbooruTagTool.exe'
-if ((Test-Path -LiteralPath $provenancePath) -and (Test-Path -LiteralPath $exePath)) {
-    try {
-        $provenance = Get-Content -LiteralPath $provenancePath -Raw | ConvertFrom-Json
-        $exeHash = Sha $exePath
-        if ($provenance.sourceRevision -eq $head -and $provenance.executableSha256 -eq $exeHash) { Add-Check 'runtime provenance' 'PASS' "source $($provenance.sourceRevision), exe hash matches" } else { Add-Check 'runtime provenance' 'WARN' "recorded source=$($provenance.sourceRevision), HEAD=$head, hash_match=$($provenance.executableSha256 -eq $exeHash)" }
-    } catch { Add-Check 'runtime provenance' 'FAIL' $_.Exception.Message }
-} else { Add-Check 'runtime provenance' 'WARN' 'build-provenance.json or executable is missing; run refresh_current_runtime.ps1.' }
+$runtimeManifest = Join-Path $ArtifactRoot 'runtime-manifest.json'
+if ((Test-Path -LiteralPath $runtimeManifest) -and (Test-Path -LiteralPath $exePath)) {
+    try {$manifestResult=& (Join-Path $RepositoryRoot 'scripts/maintenance/validate_runtime_manifest.ps1') -RuntimeRoot $ArtifactRoot 2>&1;if($LASTEXITCODE -and $LASTEXITCODE -ne 0){Add-Check 'runtime manifest' 'FAIL' ($manifestResult -join ' ')}else{$manifest=Get-Content -LiteralPath $runtimeManifest -Raw|ConvertFrom-Json;$exeHash=Sha $exePath;if($manifest.source_main_commit -eq $head){Add-Check 'runtime provenance' 'PASS' "source $($manifest.source_main_commit); EXE hash verified"}else{Add-Check 'runtime provenance' 'WARN' "runtime source=$($manifest.source_main_commit), HEAD=$head; EXE hash verified"}}} catch { Add-Check 'runtime manifest' 'FAIL' $_.Exception.Message }
+} else { Add-Check 'runtime manifest' 'WARN' 'Current runtime manifest or executable is missing.' }
 
 $shortcut = Join-Path $RepositoryRoot 'DanbooruTagTool.lnk'
 if (Test-Path -LiteralPath $shortcut) {
@@ -46,23 +42,15 @@ if (Test-Path -LiteralPath $shortcut) {
 $catalogPath = Join-Path $ArtifactRoot 'Data/catalog.db'; $userDbPath = Join-Path $ArtifactRoot 'UserData/user.db'
 foreach($path in @($catalogPath,$userDbPath)){if(Test-Path -LiteralPath $path){Add-Check "exists $([IO.Path]::GetFileName($path))" 'PASS' "$path"}else{Add-Check "exists $([IO.Path]::GetFileName($path))" 'FAIL' "$path is missing"}}
 if(-not [string]::IsNullOrWhiteSpace($python) -and (Test-Path -LiteralPath $catalogPath) -and (Test-Path -LiteralPath $userDbPath)) {
-    $db = Run-Json $python @('-B',(Join-Path $RepositoryRoot 'scripts/maintenance/catalog_health.py'),'--catalog',$catalogPath,'--userdb',$userDbPath)
-    if($db.ExitCode -eq 0){
-        $parsed=$db.Output | ConvertFrom-Json
-        Add-Check 'checker identity' 'PASS' "$($parsed.checker.path) [$($parsed.checker.contract_version)] sha256=$($parsed.checker.sha256)"
-        Add-Check 'SQLite/catalog semantics' 'PASS' "quick/integrity ok; total=$($parsed.catalog.total), Special=$($parsed.catalog.special), General=$($parsed.catalog.general), SpecialBrowseV2=$($parsed.catalog.special_browse_v2), C/C/A=$($parsed.catalog.character)/$($parsed.catalog.copyright)/$($parsed.catalog.artist)"
-    }else{Add-Check 'SQLite/catalog semantics' 'FAIL' $db.Output}
+    $db = Run-Json $python @('-B',(Join-Path $RepositoryRoot 'scripts/maintenance/catalog_structural_health.py'),'--catalog',$catalogPath)
+    if($db.ExitCode -eq 0){$parsed=$db.Output | ConvertFrom-Json;Add-Check 'catalog structural health' 'PASS' "validator=$($parsed.validator.id)/$($parsed.validator.version); rows=$($parsed.total); categories=$($parsed.category_counts | ConvertTo-Json -Compress); sha256=$($parsed.catalog_sha256)"}else{Add-Check 'catalog structural health' 'FAIL' $db.Output}
+    $user = Run-Json $python @('-B',(Join-Path $RepositoryRoot 'scripts/maintenance/userdata_health.py'),'--userdb',$userDbPath)
+    if($user.ExitCode -eq 0){$parsed=$user.Output | ConvertFrom-Json;Add-Check 'UserData health' 'PASS' "state_present=$($parsed.state_present); bytes=$($parsed.bytes); sha256=$($parsed.sha256)"}else{Add-Check 'UserData health' 'FAIL' $user.Output}
 }
 
 $manifestPath = Join-Path $ArtifactRoot 'runtime-manifest.json'
 if (Test-Path -LiteralPath $manifestPath) {
-    try {
-        $manifest = Get-Content -LiteralPath $manifestPath -Raw | ConvertFrom-Json
-        $manifestExeHash = if (Test-Path -LiteralPath $exePath) { Sha $exePath } else { '' }
-        $manifestCatalogHash = if (Test-Path -LiteralPath $catalogPath) { Sha $catalogPath } else { '' }
-        if ($manifest.exe_sha256 -eq $manifestExeHash -and $manifest.catalog_sha256 -eq $manifestCatalogHash) { Add-Check 'runtime manifest' 'PASS' "schema=$($manifest.schema_version), commit=$($manifest.main_commit), RID=$($manifest.runtime_identifier)" }
-        else { Add-Check 'runtime manifest' 'FAIL' 'manifest executable/catalog hash does not match ArtifactRoot' }
-    } catch { Add-Check 'runtime manifest' 'FAIL' $_.Exception.Message }
+    try {$manifestResult=& (Join-Path $RepositoryRoot 'scripts/maintenance/validate_runtime_manifest.ps1') -RuntimeRoot $ArtifactRoot 2>&1;if($LASTEXITCODE -and $LASTEXITCODE -ne 0){Add-Check 'runtime manifest' 'FAIL' ($manifestResult -join ' ')}else{$manifest=Get-Content -LiteralPath $manifestPath -Raw|ConvertFrom-Json;Add-Check 'runtime manifest' 'PASS' "schema=$($manifest.schema_version), commit=$($manifest.source_main_commit), RID=$($manifest.runtime_identifier)"}} catch { Add-Check 'runtime manifest' 'FAIL' $_.Exception.Message }
 } else { Add-Check 'runtime manifest' 'WARN' 'runtime-manifest.json is not present.' }
 
 $inputs = @('data/source/danbooru-2026-09-02.csv','data/derived/danbooru_alias_normalized_index_VERIFIED_34417.csv','data/special2788/illustrious_tag_knowledge_base_2788.csv','data/derived/special2788_VERIFIED_LINKAGE.csv','data/derived/ruleset2/01_SPECIAL2788_JAPANESE_COMPLETE_CANDIDATE.csv','data/runtime/japanese_overlay.json','data/special2788/product_fit_verdicts.csv','docs/issue96/special_expansion_promotion_proposal_v1.csv','docs/issue64/production_candidate/general_taxonomy.json','docs/issue64/production_candidate/effective_sidecar.csv','docs/issue64/production_candidate/manifest.json','docs/issue56/rollout/issue56_ui_genre_taxonomy_v1.json')
