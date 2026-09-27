@@ -104,6 +104,14 @@
                     CommandParameter="{Binding}"
                     Style="{StaticResource UnifiedFacetButtonLocal}"/>
         </DataTemplate>
+        <DataTemplate x:Key="UnifiedActiveConditionTemplateLocal">
+            <Button Content="{Binding Label}"
+                    Command="{Binding DataContext.RemoveUnifiedConditionCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                    CommandParameter="{Binding}"
+                    ToolTip="この条件だけ解除"
+                    Style="{DynamicResource CompactButton}"
+                    Padding="7,1" MinHeight="22" Margin="0,0,4,3"/>
+        </DataTemplate>
         <DataTemplate x:Key="DictionaryResultRowTemplateLocal">
             <Grid Margin="2">
                 <Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
@@ -165,6 +173,15 @@
                 <Grid>
                     <Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
                     <StackPanel Grid.Column="0">
+                        <DockPanel MinHeight="24" Visibility="{Binding HasActiveUnifiedConditions, Converter={StaticResource BoolVisibilityLocal}}">
+                            <TextBlock DockPanel.Dock="Left" Text="現在の絞り込み条件" Style="{DynamicResource HintText}" Margin="0,3,8,0"/>
+                            <StackPanel>
+                                <TextBlock Text="{Binding ActiveUnifiedConditionSummary}" Style="{DynamicResource HintText}" Margin="0,0,0,2"/>
+                                <ItemsControl ItemsSource="{Binding ActiveUnifiedConditions}" ItemTemplate="{StaticResource UnifiedActiveConditionTemplateLocal}">
+                                    <ItemsControl.ItemsPanel><ItemsPanelTemplate><WrapPanel/></ItemsPanelTemplate></ItemsControl.ItemsPanel>
+                                </ItemsControl>
+                            </StackPanel>
+                        </DockPanel>
                         <DockPanel MinHeight="28" Visibility="{Binding ShowLocalOptions, Converter={StaticResource BoolVisibilityLocal}}">
                             <TextBlock DockPanel.Dock="Left" Text="分類" Style="{DynamicResource HintText}" Width="42" Margin="0,5,4,0"/>
                             <ItemsControl ItemsSource="{Binding LocalOptions}" ItemTemplate="{StaticResource UnifiedFacetOptionTemplateLocal}">

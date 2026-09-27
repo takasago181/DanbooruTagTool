@@ -98,6 +98,7 @@ public sealed class EntryViewModel(
 public enum DictionarySearchTarget { All, Character, Copyright, Artist }
 
 public sealed record NavigationNode(string Key, string Label, IReadOnlyList<NavigationNode> Children);
+public sealed record UnifiedActiveCondition(string Id, string Label);
 
 public static class DictionaryLayoutMetrics
 {
@@ -168,6 +169,7 @@ public sealed class DictionaryWorkspaceViewModel : Observable
     private int dictionaryColumnCount = 1;
     private readonly Dictionary<string, List<EntryViewModel>> activeResultIndex = new(StringComparer.Ordinal);
     private Dictionary<string, int> promptCanonicalCounts = new(StringComparer.Ordinal);
+    private readonly Dictionary<string, string> localLabels = new(StringComparer.Ordinal);
     private EntryViewModel? selectedEntry;
 
     public ObservableCollection<SpecialBrowseFacetOptionViewModel> SpecialKindOptions { get; } = [];
@@ -176,6 +178,7 @@ public sealed class DictionaryWorkspaceViewModel : Observable
     public ObservableCollection<BrowseFacetOptionViewModel> LocalOptions { get; } = [];
     public ObservableCollection<BrowseFacetOptionViewModel> BodyOptions { get; } = [];
     public ObservableCollection<BrowseFacetOptionViewModel> ThemeOptions { get; } = [];
+    public ObservableCollection<UnifiedActiveCondition> ActiveUnifiedConditions { get; } = [];
     public IReadOnlyList<NavigationNode> Navigation { get; }
     public IReadOnlyList<EntryViewModel> Results
     {
@@ -290,6 +293,20 @@ public sealed class DictionaryWorkspaceViewModel : Observable
         selectedEntry.Entry.ProductFit == "KEEP" ? "" : selectedEntry.Entry.ProductFit == "KEEP_REFERENCE_ONLY" ? "参照用" : "要確認",
         selectedEntry.Entry.Canonical == null ? "canonical同一性は未確定ですが、Promptには元の英語tokenを追加できます。" : "" }.Where(s => s.Length > 0));
     public string ResultSummary => $"{Results.Count:N0}件";
+    public string ActiveUnifiedConditionSummary
+    {
+        get
+        {
+            var bodyCount = BodySiteIds.Count;
+            var themeCount = ThemeIds.Count;
+            return string.Join("　", new[]
+            {
+                bodyCount > 1 ? $"部位: {bodyCount}個選択中（すべて満たす）" : "",
+                themeCount > 1 ? $"テーマ: {themeCount}個選択中（すべて満たす）" : ""
+            }.Where(value => value.Length > 0));
+        }
+    }
+    public bool HasActiveUnifiedConditions => ActiveUnifiedConditions.Count > 0;
     public event Action? ResultsRestored;
 
     public RelayCommand InspectEntry { get; }
@@ -304,6 +321,7 @@ public sealed class DictionaryWorkspaceViewModel : Observable
     public RelayCommand SetContentIntentCommand { get; }
     public RelayCommand UndoUnifiedBrowseCommand { get; }
     public RelayCommand ClearUnifiedBrowseCommand { get; }
+    public RelayCommand RemoveUnifiedConditionCommand { get; }
     public RelayCommand SetSearchTargetCommand { get; }
     public RelayCommand ClearRelatedBrowseCommand { get; }
 
@@ -312,6 +330,8 @@ public sealed class DictionaryWorkspaceViewModel : Observable
     {
         this.catalog = catalog; this.workspace = workspace; this.general = general; this.persist = persist; this.canMutate = canMutate; this.specialBrowse = specialBrowse;
         unifiedBrowse = new UnifiedBrowseIndex(catalog, specialBrowse);
+        foreach (var local in catalog.BrowsePaths(false).Select(UnifiedBrowseTaxonomy.GeneralLocal).Where(item => item is not null))
+            localLabels.TryAdd(local!.Id, local.Label);
         if (specialBrowse != null)
         {
             foreach (var item in SpecialBrowseV2Taxonomy.Kinds) SpecialKindOptions.Add(new(SpecialBrowseV2Axis.Kind, item.Id, item.Label));
@@ -365,6 +385,10 @@ public sealed class DictionaryWorkspaceViewModel : Observable
         }, _ => canMutate() && Scope == UnifiedBrowseScope.Tags);
         UndoUnifiedBrowseCommand = new(_ => UndoUnifiedBrowse(), _ => canMutate() && unifiedHistory.Count > 0);
         ClearUnifiedBrowseCommand = new(_ => ClearUnifiedBrowse(), _ => canMutate() && Scope == UnifiedBrowseScope.Tags && !unifiedState.IsNeutralTags);
+        RemoveUnifiedConditionCommand = new(p =>
+        {
+            if (p is UnifiedActiveCondition condition) RemoveUnifiedCondition(condition.Id);
+        }, p => canMutate() && p is UnifiedActiveCondition);
     }
 
     public void Restore(UiState ui)
@@ -380,6 +404,7 @@ public sealed class DictionaryWorkspaceViewModel : Observable
         unifiedHistory.Clear();
         promptCanonicalCounts = CaptureCanonicalCounts(workspace.Items);
         RefreshUnifiedFacetOptions();
+        RefreshActiveUnifiedConditions();
         NotifyUnifiedState();
     }
 
@@ -442,7 +467,6 @@ public sealed class DictionaryWorkspaceViewModel : Observable
         Notify(nameof(BrowseLabel));
         Notify(nameof(ShowRelationBanner));
         Notify(nameof(RelationBannerText));
-        NotifyUnifiedState();
         if (Query.Length == 0) ResultsRestored?.Invoke();
     }
 
@@ -532,6 +556,24 @@ public sealed class DictionaryWorkspaceViewModel : Observable
         ApplyUnifiedState(unifiedState.ClearBrowseConstraints(), true);
     }
 
+    public void RemoveUnifiedCondition(string conditionId)
+    {
+        if (!canMutate()) return;
+        var next = conditionId switch
+        {
+            "route" => unifiedState with { PrimaryRouteId = null },
+            "local" => unifiedState with { LocalSubrouteId = null },
+            "deep-only" => unifiedState with { DeepOnly = false },
+            "content-intent" => unifiedState with { ContentIntent = ContentIntentFilter.All },
+            _ when conditionId.StartsWith("body:", StringComparison.Ordinal)
+                => unifiedState with { BodySiteIds = unifiedState.BodySiteIds.Where(id => id != conditionId[5..]).ToHashSet(StringComparer.Ordinal) },
+            _ when conditionId.StartsWith("theme:", StringComparison.Ordinal)
+                => unifiedState with { ThemeIds = unifiedState.ThemeIds.Where(id => id != conditionId[6..]).ToHashSet(StringComparer.Ordinal) },
+            _ => unifiedState
+        };
+        ApplyUnifiedState(next, true);
+    }
+
     public void SetSearchTarget(DictionarySearchTarget target)
     {
         if (!canMutate()) return;
@@ -557,12 +599,13 @@ public sealed class DictionaryWorkspaceViewModel : Observable
         browse = BrowseKeyForState(unifiedState);
         SetSearchTargetValue(SearchTargetForScope(sourceScope), refresh: false);
         browseSelection = null;
-        RestoreScroll = 0;
+        restoreScroll = 0;
+        RefreshResults();
         Notify(nameof(BrowseKey));
         Notify(nameof(ShowRelationBanner));
         Notify(nameof(RelationBannerText));
+        Notify(nameof(RestoreScroll));
         NotifyUnifiedState();
-        RefreshResults();
         persist();
     }
 
@@ -579,12 +622,16 @@ public sealed class DictionaryWorkspaceViewModel : Observable
     {
         if (searchTarget == target) { if (refresh) RefreshResults(); return; }
         searchTarget = target;
-        Notify(nameof(SearchTarget));
-        Notify(nameof(IsSearchAll));
-        Notify(nameof(IsSearchCharacter));
-        Notify(nameof(IsSearchCopyright));
-        Notify(nameof(IsSearchArtist));
-        if (refresh) { RefreshResults(); persist(); }
+        if (refresh)
+        {
+            RefreshResults();
+            Notify(nameof(SearchTarget));
+            Notify(nameof(IsSearchAll));
+            Notify(nameof(IsSearchCharacter));
+            Notify(nameof(IsSearchCopyright));
+            Notify(nameof(IsSearchArtist));
+            persist();
+        }
     }
 
     private static DictionarySearchTarget SearchTargetForScope(UnifiedBrowseScope scope) => scope switch
@@ -615,12 +662,35 @@ public sealed class DictionaryWorkspaceViewModel : Observable
         unifiedState = CloneState(next);
         browse = BrowseKeyForState(unifiedState);
         browseSelection = null;
-        RestoreScroll = 0;
-        Notify(nameof(BrowseKey));
+        restoreScroll = 0;
         RefreshUnifiedFacetOptions();
-        NotifyUnifiedState();
         RefreshResults();
+        RefreshActiveUnifiedConditions();
+        Notify(nameof(RestoreScroll));
+        Notify(nameof(BrowseKey));
+        NotifyUnifiedState();
         persist();
+    }
+
+    private void RefreshActiveUnifiedConditions()
+    {
+        ActiveUnifiedConditions.Clear();
+        if (PrimaryRouteId is { } route)
+            ActiveUnifiedConditions.Add(new("route", $"分類: {UnifiedBrowseTaxonomy.Label(route)}"));
+        if (LocalSubrouteId is { } local)
+        {
+            var definition = LocalOptions.FirstOrDefault(option => option.Id == local);
+            ActiveUnifiedConditions.Add(new("local", $"小分類: {definition?.Label ?? localLabels.GetValueOrDefault(local, "分類")}"));
+        }
+        foreach (var body in BodySiteIds.Order(StringComparer.Ordinal))
+            ActiveUnifiedConditions.Add(new("body:" + body, $"部位: {SpecialBrowseV2Taxonomy.Label(SpecialBrowseV2Axis.BodySite, body)}"));
+        foreach (var theme in ThemeIds.Order(StringComparer.Ordinal))
+            ActiveUnifiedConditions.Add(new("theme:" + theme, $"テーマ: {SpecialBrowseV2Taxonomy.Label(SpecialBrowseV2Axis.Theme, theme)}"));
+        if (ContentIntent != ContentIntentFilter.All)
+            ActiveUnifiedConditions.Add(new("content-intent", ContentIntent == ContentIntentFilter.Sexual ? "内容: 性的" : "内容: 一般向け"));
+        if (DeepOnly) ActiveUnifiedConditions.Add(new("deep-only", "深掘りのみ"));
+        Notify(nameof(HasActiveUnifiedConditions));
+        RemoveUnifiedConditionCommand?.Refresh();
     }
 
     private UnifiedBrowseState RestoreUnifiedState(UiState ui)
@@ -771,6 +841,7 @@ public sealed class DictionaryWorkspaceViewModel : Observable
         Notify(nameof(RelationBannerText));
         Notify(nameof(CanGoBack));
         Notify(nameof(BrowseLabel));
+        Notify(nameof(ActiveUnifiedConditionSummary));
         UndoUnifiedBrowseCommand?.Refresh();
         Back?.Refresh();
         ClearUnifiedBrowseCommand?.Refresh();
