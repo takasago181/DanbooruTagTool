@@ -245,8 +245,8 @@ public sealed class DictionaryWorkspaceViewModel : Observable
     public bool ShowNeutralGuidance => IsNeutralTags && !IsSearching;
     public bool ShowUnifiedRefinement => Scope == UnifiedBrowseScope.Tags;
     public bool ShowLocalOptions => ShowUnifiedRefinement && PrimaryRouteId is not null && LocalOptions.Count > 0;
-    public bool ShowBodyOptions => ShowUnifiedRefinement && BodyOptions.Any(option => option.IsVisible);
-    public bool ShowThemeOptions => ShowUnifiedRefinement && ThemeOptions.Any(option => option.IsVisible);
+    public bool ShowBodyOptions => ShowUnifiedRefinement && PrimaryRouteId is not null && BodyOptions.Any(option => option.Count > 0 || option.Selected);
+    public bool ShowThemeOptions => ShowUnifiedRefinement && PrimaryRouteId is not null && ThemeOptions.Any(option => option.Count > 0 || option.Selected);
     public bool IsContentAll => ContentIntent == ContentIntentFilter.All;
     public bool IsContentGeneralPurpose => ContentIntent == ContentIntentFilter.GeneralPurpose;
     public bool IsContentSexual => ContentIntent == ContentIntentFilter.Sexual;

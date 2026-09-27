@@ -27,8 +27,8 @@
                                 <Setter TargetName="FacetChrome" Property="Background" Value="#E8F4FF"/>
                             </Trigger>
                             <DataTrigger Binding="{Binding Selected}" Value="True">
-                                <Setter TargetName="FacetChrome" Property="Background" Value="{DynamicResource PrimaryBrush}"/>
-                                <Setter TargetName="FacetChrome" Property="BorderBrush" Value="{DynamicResource PrimaryBrush}"/>
+                                <Setter TargetName="FacetChrome" Property="Background" Value="#2B72B9"/>
+                                <Setter TargetName="FacetChrome" Property="BorderBrush" Value="#2B72B9"/>
                                 <Setter Property="Foreground" Value="White"/>
                             </DataTrigger>
                             <MultiDataTrigger>
@@ -47,8 +47,8 @@
             </Setter>
             <Style.Triggers>
                 <DataTrigger Binding="{Binding Selected}" Value="True">
-                    <Setter Property="Background" Value="{DynamicResource PrimaryBrush}"/>
-                    <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}"/>
+                    <Setter Property="Background" Value="#2B72B9"/>
+                    <Setter Property="BorderBrush" Value="#2B72B9"/>
                     <Setter Property="Foreground" Value="White"/>
                 </DataTrigger>
             </Style.Triggers>
@@ -101,6 +101,7 @@
         <DataTemplate x:Key="UnifiedFacetOptionTemplateLocal">
             <Button Content="{Binding Label}"
                     ToolTip="{Binding ToolTip}"
+                    IsEnabled="{Binding IsEnabled}"
                     Visibility="{Binding IsVisible, Converter={StaticResource BoolVisibilityLocal}}"
                     Command="{Binding DataContext.ToggleBrowseFacet, RelativeSource={RelativeSource AncestorType=UserControl}}"
                     CommandParameter="{Binding}"

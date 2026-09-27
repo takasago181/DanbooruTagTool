@@ -500,6 +500,58 @@ public sealed class Issue204UnifiedRefreshTests
         if (failure != null) throw new Xunit.Sdk.XunitException(failure.ToString());
     }
 
+    [Fact]
+    public void Wpf_body_and_theme_chips_keep_their_slots_when_filter_counts_change()
+    {
+        Exception? failure = null;
+        var thread = new Thread(() =>
+        {
+            try
+            {
+                var vm = new MainViewModel(FixtureCatalog(), new MemoryStore(), new Clipboard());
+                var window = new MainWindow(vm) { WindowState = WindowState.Normal, Width = 1200, Height = 900, ShowInTaskbar = false };
+                window.Show();
+                Pump(window.Dispatcher, 50);
+                var view = (FrameworkElement)(window.GetType().GetField("DictionaryWorkspace", BindingFlags.Instance | BindingFlags.NonPublic)?.GetValue(window)
+                    ?? throw new InvalidOperationException("DictionaryWorkspace view was not created."));
+                view.Width = 650;
+                window.UpdateLayout();
+                vm.Dictionary.SetPrimaryRoute("BODY_SITE");
+                Pump(window.Dispatcher, 30);
+
+                var bodySlots = FacetChipSlots(view, BrowseFacetKind.BodySite);
+                var themeSlots = FacetChipSlots(view, BrowseFacetKind.Theme);
+                Assert.Equal(SpecialBrowseV2Taxonomy.BodySites.Length, bodySlots.Count);
+                Assert.Equal(SpecialBrowseV2Taxonomy.Themes.Length, themeSlots.Count);
+                var breastChip = FacetChip(view, BrowseFacetKind.BodySite, "BREAST_NIPPLE");
+                var initialFill = FacetChipFill(breastChip);
+
+                ClickContentOption(view, "性的");
+                InvokeCommand(view, "乳房・乳首");
+                InvokeCommand(view, "拘束・BDSM");
+                InvokeCommand(view, "◆ 深掘りのみ");
+                Pump(window.Dispatcher, 30);
+
+                AssertFacetChipSlotsStable(bodySlots, FacetChipSlots(view, BrowseFacetKind.BodySite));
+                AssertFacetChipSlotsStable(themeSlots, FacetChipSlots(view, BrowseFacetKind.Theme));
+                Assert.Equal(Colors.White, initialFill);
+                Assert.Equal(Color.FromRgb(0x2B, 0x72, 0xB9), FacetChipFill(breastChip));
+
+                InvokeCommand(view, "◆ 深掘りのみ");
+                InvokeCommand(view, "拘束・BDSM");
+                InvokeCommand(view, "乳房・乳首");
+                AssertFacetChipSlotsStable(bodySlots, FacetChipSlots(view, BrowseFacetKind.BodySite));
+                AssertFacetChipSlotsStable(themeSlots, FacetChipSlots(view, BrowseFacetKind.Theme));
+                window.Close();
+            }
+            catch (Exception ex) { failure = ex; }
+        });
+        thread.SetApartmentState(ApartmentState.STA);
+        thread.Start();
+        thread.Join();
+        if (failure != null) throw new Xunit.Sdk.XunitException(failure.ToString());
+    }
+
     private static void ClickContentOption(FrameworkElement root, string label)
     {
         var target = FindVisualChildren<ButtonBase>(root).FirstOrDefault(button =>
@@ -545,6 +597,38 @@ public sealed class Issue204UnifiedRefreshTests
             Assert.NotNull(text);
             return text!.TransformToAncestor(root).Transform(new Point(0, 0)).Y;
         }).ToArray();
+    }
+
+    private static Dictionary<string, Rect> FacetChipSlots(FrameworkElement root, BrowseFacetKind kind)
+    {
+        var buttons = FindVisualChildren<Button>(root)
+            .Where(button => button.DataContext is BrowseFacetOptionViewModel option && option.Kind == kind)
+            .ToArray();
+        Assert.All(buttons, button => Assert.True(button.IsVisible, $"Facet chip {((BrowseFacetOptionViewModel)button.DataContext).Id} was hidden."));
+        return buttons.ToDictionary(
+            button => ((BrowseFacetOptionViewModel)button.DataContext).Id,
+            button => new Rect(button.TransformToAncestor(root).Transform(new Point(0, 0)), new Size(button.ActualWidth, button.ActualHeight)),
+            StringComparer.Ordinal);
+    }
+
+    private static Button FacetChip(FrameworkElement root, BrowseFacetKind kind, string id)
+        => FindVisualChildren<Button>(root).Single(button =>
+            button.DataContext is BrowseFacetOptionViewModel option && option.Kind == kind && option.Id == id);
+
+    private static Color FacetChipFill(Button button)
+        => Assert.IsType<SolidColorBrush>(FindVisualChildren<Border>(button).First().Background).Color;
+
+    private static void AssertFacetChipSlotsStable(IReadOnlyDictionary<string, Rect> expected, IReadOnlyDictionary<string, Rect> actual)
+    {
+        Assert.Equal(expected.Keys.Order(StringComparer.Ordinal), actual.Keys.Order(StringComparer.Ordinal));
+        foreach (var (id, before) in expected)
+        {
+            var after = actual[id];
+            Assert.True(Math.Abs(before.X - after.X) < 1 && Math.Abs(before.Y - after.Y) < 1,
+                $"Facet chip {id} moved from ({before.X}, {before.Y}) to ({after.X}, {after.Y}) DIPs.");
+            Assert.True(Math.Abs(before.Width - after.Width) < 1 && Math.Abs(before.Height - after.Height) < 1,
+                $"Facet chip {id} changed size from {before.Size} to {after.Size}.");
+        }
     }
 
     private static void AssertRefinementRowsStable(IReadOnlyList<double> expected, IReadOnlyList<double> actual)
