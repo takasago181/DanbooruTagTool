@@ -37,4 +37,4 @@ The taxonomy is loaded only by the explicit `--build-catalog` operation. Normal 
   -Dotnet dotnet
 ```
 
-The output is a copyable folder containing the executable and runtime files, `Data/catalog.db`, and `UserData/`. No Python/Tk runtime or separate .NET Desktop Runtime is required for the self-contained output. `UserData/user.db` is created on first launch and is portable with the folder.
+The output is a copyable folder containing a self-contained, single-file executable, `Data/catalog.db`, `UserData/`, `ForgeBridge/`, and `runtime-manifest.json`. Native libraries are bundled for self-extraction; trimming and PDB output are disabled. No Python/Tk runtime or separate .NET Desktop Runtime is required. `UserData/user.db` is created on first launch and is portable with the folder. Publish creates only a disposable empty UserData directory and never copies a user database.
