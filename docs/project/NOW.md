@@ -58,7 +58,7 @@ The following owner-level residuals were re-derived by #201. No high-confidence 
 - #210 merged as PR #212 at live main `a90f5b652d4239709005d020417a236ea9d97ebb`; #205 was superseded and closed without merge.
 - Production was rebuilt from merged main with the canonical clean Release self-contained single-file publisher. UserData stayed byte-identical.
 - Current runtime LKG is recorded in `docs/project/LAST_KNOWN_GOOD.json` and `.md`; canonical command/validators/promotion are documented in `docs/maintenance/PORTABLE_RUNTIME_PIPELINE.md`.
-- Maintenance triage: #52, #138, #203, #210 complete/closed; #188 remains open only for observing telemetry and closing exact remaining execution-overhead/state-authority/lint debt.
+- Maintenance triage: #52, #138, #203, #210 complete/closed; #188 remains open for the next 10 actual #180 worker/coordinator telemetry runs, a duration/orchestration summary, and disposition of the current state-cache lint warning without deleting protected history.
 - Default Release skip inventory is machine-readable at `docs/project/RELEASE_TEST_SKIP_INVENTORY.json`; all 19 are classified.
 - Four clean, durable, duplicate/completed worktrees were removed through normal `git worktree remove`; active #179/#180, #132 evidence, dirty/local-only work and protected data were retained.
 
