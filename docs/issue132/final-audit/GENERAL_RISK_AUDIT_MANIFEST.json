@@ -1,0 +1,118 @@
+{
+  "schema_version": "issue132-final-general-risk-audit-v1",
+  "role": "FINAL-AUDIT-GENERAL-RISK",
+  "status": "DONE",
+  "repository": "takasago181/DanbooruTagTool",
+  "branch": "audit/issue132-final-general-risk",
+  "final_input_head": "aa6c745c35f59dc22700bd77ee1f015ba593faa3",
+  "blindness": {
+    "current_issue132_semantic_answers_consulted": false,
+    "semantic_verdicts_derived_by_script_or_family_rule": false,
+    "review_authority": "Independent semantic review of each reduced blind identity; scripts were used only for reduction, validation, hashing, and persistence.",
+    "review_packet_fields": [
+      "identity_key",
+      "source_surfaces",
+      "issue118_content_intent"
+    ],
+    "packet_contains_current_semantic_answers": false
+  },
+  "selection": {
+    "population": 5344,
+    "mandatory_retained": 4825,
+    "ordinary_controls_retained": 700,
+    "mandatory_control_overlap_deduplicated": 181,
+    "unique_final_population": 5344,
+    "additional_fill_or_hash_sampling": 0,
+    "ordinary_controls_cover_all_19_top_level_routes": true,
+    "reducer_manifest_path": "docs/issue132/final-audit/GENERAL_RISK_REDUCER_MANIFEST.json",
+    "reducer_manifest_sha256": "12b0f957b6c0cb327bc3a81affe1c82b41933949ff9773288f81a114f9c995a7",
+    "reduced_packet_path": "docs/issue132/final-audit/general_risk_reduced_blind.jsonl",
+    "reduced_packet_sha256": "d73eeff6c59b10577f1f8df57cc00d67d0433bf2260270380110f4e4a19cf215"
+  },
+  "verdicts": {
+    "path": "docs/issue132/final-audit/audit_general_risk_verdicts.jsonl",
+    "sha256": "2d4a1c65f8caf8f5eed2f04ba36b7fd850d2d8f58cb1990fd0963099ffdbf389",
+    "rows": 5344,
+    "unique_identities": 5344,
+    "identity_set_matches_packet": true,
+    "discovery_mode_counts": {
+      "BROWSE_WORTHY": 1556,
+      "MIXED": 3104,
+      "SEARCH_ORIENTED": 482,
+      "SEMANTIC_UNRESOLVED": 202
+    },
+    "route_assignment_counts": {
+      "ACTION_CONTACT": 1106,
+      "BODY_SITE": 618,
+      "CLOTHING_EXPOSURE": 990,
+      "COLOR_PATTERN_SHAPE": 972,
+      "COMPOSITION_CAMERA": 86,
+      "CONTENT_RATING": 2,
+      "EXPRESSION_GAZE": 99,
+      "FLUID_EXCRETION": 79,
+      "HAIR_FACE": 107,
+      "LIGHT_TIME_WEATHER": 98,
+      "LIVING": 498,
+      "NONHUMAN_TRANSFORM": 169,
+      "PEOPLE_COUNT": 56,
+      "POSE_POSITION": 331,
+      "RELATION_ROLE": 185,
+      "SCENE_BACKGROUND": 254,
+      "STYLE_PROCESSING": 138,
+      "TEXT_SYMBOL": 302,
+      "TOOL_OBJECT": 1985
+    },
+    "route_strength_counts": {
+      "CORE": 4683,
+      "SUPPORTING": 3392
+    },
+    "body_site_facet_counts": {
+      "BREAST_NIPPLE": 41,
+      "BUTTOCK_ANAL": 7,
+      "FEMALE_GENITAL": 10,
+      "MALE_GENITAL": 13,
+      "MOUTH_ORAL": 51
+    },
+    "theme_facet_counts": {
+      "BDSM_RESTRAINT": 2,
+      "INJURY_R18G": 128,
+      "REPRO_PREGNANCY_LACTATION": 8
+    },
+    "local_refinement_counts": {
+      "ACTION_CONTACT/INTERACTION": 244,
+      "ACTION_CONTACT/INTIMATE": 17,
+      "ACTION_CONTACT/OBJECT_USE": 394,
+      "CLOTHING/ACCESSORY": 312,
+      "CLOTHING/COSTUME": 129,
+      "CLOTHING/EVERYDAY": 149,
+      "CLOTHING/UNIFORM": 20,
+      "CLOTHING_STATE_EXPOSURE/": 60,
+      "EXPRESSION_EMOTION/": 17,
+      "GAZE_ORIENTATION/": 7,
+      "LIVING_NATURE/CREATURE": 188,
+      "LIVING_NATURE/PLANT": 76,
+      "OBJECT_PROP/DAILY": 453,
+      "OBJECT_PROP/FOOD": 71,
+      "OBJECT_PROP/VEHICLE": 44,
+      "OBJECT_PROP/WEAPON": 721,
+      "TEXT_SYMBOL/LAYOUT": 36,
+      "TEXT_SYMBOL/SYMBOL": 130,
+      "TEXT_SYMBOL/TEXT": 29
+    },
+    "route_vocabulary_gap_yes": 116,
+    "semantic_unresolved_count": 202,
+    "researched_count": 432,
+    "evidence_url_count": 439
+  },
+  "validation": {
+    "packet_count_and_unique_count_exact": true,
+    "verdict_count_and_unique_count_exact": true,
+    "every_packet_identity_has_exactly_one_verdict": true,
+    "blind_packet_source_fields_unchanged": true,
+    "contract_schema_errors": 0,
+    "semantic_unresolved_rows_have_research_depth_and_evidence": true,
+    "search_or_unresolved_rows_have_no_browse_facets_or_route_gap": true,
+    "all_browse_capable_rows_have_route_facet_or_explicit_vocabulary_gap": true,
+    "passed": true
+  }
+}

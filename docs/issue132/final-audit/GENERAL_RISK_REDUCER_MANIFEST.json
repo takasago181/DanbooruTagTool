@@ -1,0 +1,50 @@
+{
+  "schema_version": "issue132-final-general-risk-reducer-v1",
+  "role": "FINAL-AUDIT-GENERAL-RISK",
+  "final_input_head": "aa6c745c35f59dc22700bd77ee1f015ba593faa3",
+  "build_ref": "origin/audit/issue132-final-build",
+  "build_ref_head": "856fde7863c8a664fb5926dab2dda8ae28120132",
+  "build_manifest_sha256": "40eb291386f5274d57b883dfaec12cd256f5eb994604a2f4a73ca9faf5fa95d0",
+  "build_ledger_sha256": "993bd537b77a6583f17db333d00d29f5132e88e10bf7934810958ed197d1398b",
+  "build_general_risk_packet_sha256": "b7e41ed91fdf4aa8780194b7ae44d5ec77d8b31ee368cfc8fbd8a2fdfed5b27b",
+  "reducer_sha256": "75fa839fef7326205c2beb0beee4d8330894e2fd039426b7c878781571d1bbe8",
+  "reduced_packet_sha256": "d73eeff6c59b10577f1f8df57cc00d67d0433bf2260270380110f4e4a19cf215",
+  "reduced_packet_path": "docs/issue132/final-audit/general_risk_reduced_blind.jsonl",
+  "population": {
+    "build_general_risk_candidates": 15787,
+    "mandatory": 4825,
+    "build_ordinary_controls": 700,
+    "mandatory_control_overlap": 181,
+    "reduced_unique_total": 5344,
+    "additional_fill_or_hash_sample": 0
+  },
+  "selection": {
+    "mandatory_cohorts": [
+      "SEMANTIC_UNRESOLVED",
+      "route_vocabulary_gap=YES",
+      "prior_semantic_repair_history",
+      "BUILD family sibling inconsistency candidates",
+      "route/refinement/facet signature occurring <=3 times",
+      "two or more BUILD high-risk reasons"
+    ],
+    "controls": "Reconstruct the exact BUILD 700-item round-robin deterministic control cohort across all 19 routes.",
+    "deduplication": "identity_key set union; controls overlapping mandatory are counted once",
+    "ordering": "SHA256(FINAL_INPUT_HEAD + '|final-general-risk|' + identity_key), then identity_key",
+    "family_patterns_select_candidates_only": true,
+    "semantic_verdicts_derived_by_reducer": false
+  },
+  "blind_packet_fields": [
+    "identity_key",
+    "source_surfaces",
+    "issue118_content_intent"
+  ],
+  "validation": {
+    "build_source_hashes_match_manifest": true,
+    "mandatory_count_exact": true,
+    "control_count_exact": true,
+    "all_19_control_routes_covered": true,
+    "unique_reduced_identity_count_exact": true,
+    "only_blind_packet_fields": true,
+    "passed": true
+  }
+}
