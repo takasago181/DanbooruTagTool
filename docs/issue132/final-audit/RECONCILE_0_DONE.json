@@ -9,18 +9,18 @@
   "reconciled_count": 1788,
   "unique_identity_count": 1788,
   "artifact_path": "docs/issue132/final-audit/RECONCILE_0.jsonl",
-  "artifact_sha256": "f756e8c54267ca22ffe352536807aedfe9ee940b995823d762fd48ffdce97e2b",
+  "artifact_sha256": "c9c74f746e6282004a5e4f8e5c4b1bbca0fd3ddbca66567396bb4e22e61ea020",
   "verdict_counts": {
-    "AUDITOR_CORRECT": 763,
-    "BOTH_ACCEPTABLE": 613,
-    "CURRENT_CORRECT": 274,
-    "TAXONOMY_LIMITATION": 138
+    "BOTH_ACCEPTABLE": 485,
+    "AUDITOR_CORRECT": 429,
+    "TAXONOMY_LIMITATION": 558,
+    "CURRENT_CORRECT": 316
   },
   "severity_counts": {
-    "P0": 553,
-    "NONE": 1025,
-    "P1": 70,
-    "P2": 140
+    "NONE": 1173,
+    "P0": 159,
+    "P1": 120,
+    "P2": 336
   },
   "semantic_repairs_performed": 0,
   "validation": "PASS"
