@@ -1,6 +1,6 @@
 {
   "schema_version": "issue132-codex-qa-state-v3-autonomous",
-  "status": "FINAL_SEMANTIC_QA_PENDING_APPLICATION",
+  "status": "FINAL_SEMANTIC_QA_PASSED",
   "baseline_head": "5123a13bd574ef50f04f3f7e0fb031d2625dcbaa",
   "last_codex_qa_by_lane": {
     "1": 10335,
@@ -224,12 +224,48 @@
     }
   ],
   "final_internal_qa_passed": true,
-  "final_chatgpt_semantic_qa_passed": false,
+  "final_chatgpt_semantic_qa_passed": true,
   "notes": [
     "ChatGPT no longer advances intermediate forward watermarks.",
     "CODEX-L1/L2/L3 may continue autonomously while each lane remains within max_unqaed_per_lane of its last completed Codex QA cursor.",
     "CODEX-QA-REPAIR audits each due epoch, repairs defects, and advances last_codex_qa_by_lane itself.",
     "Human/ChatGPT semantic QA is required only after all forward work and internal Codex QA are complete, unless a true taxonomy/specification blocker is encountered.",
-    "FINALIZER completed Issue #132 final semantic reconciliation against fixed input 10ff0986444528e58a8ccec7c44d539235d17175; see final-audit artifacts. No production overlay was applied."
-  ]
+    "FINALIZER completed Issue #132 final semantic reconciliation against fixed input 10ff0986444528e58a8ccec7c44d539235d17175; see final-audit artifacts. No production overlay was applied.",
+    "Final semantic repairs were applied to the effective codex baseline and direct Lane staging sources; V2 exact verification and full flat Pass-A validator passed."
+  ],
+  "final_chatgpt_semantic_qa_evidence": {
+    "fixed_input_head": "10ff0986444528e58a8ccec7c44d539235d17175",
+    "pre_repair_finalizer_head": "c1014b31cbfc22004b43e7788ca742a0868d2825",
+    "actual_applied_semantic_head": "7cd64f412acfb75eedf959bba8de16f4ba4b1424",
+    "repair_path": "docs/issue132/final-audit/FINAL_SEMANTIC_REPAIRS_V2.jsonl",
+    "repair_sha256": "8f41759e4d34f6a527b5ce776bd8d10de983d124d1da544417ca402fe4b0549a",
+    "repair_expected": 683,
+    "actual_repairs_applied": 683,
+    "before_state_mismatches": 0,
+    "after_state_mismatches": 0,
+    "unexpected_semantic_changes": 0,
+    "baseline_repairs_applied": 85,
+    "direct_staging_repairs_applied": 598,
+    "modified_semantic_source_files": 241,
+    "full_structural_validator": "PASS",
+    "population": 31003,
+    "accepted": 31003,
+    "remaining": 0,
+    "hold": 0,
+    "semantic_lint": 0,
+    "invalid_windows": 0,
+    "duplicates": 0,
+    "qa_violations": 0,
+    "fatal_contract_errors": 0,
+    "reconciliation_path": "docs/issue132/final-audit/FINAL_RECONCILIATION.jsonl",
+    "reconciliation_sha256": "79e8c57b70dc34aafa7358afc6bd1883b34bfa25ec48039f5f91ca26e580698a",
+    "reconciliation_identities": 7285,
+    "reconciliation_consistency": "PASS",
+    "reviewed_blocker_identities": 20,
+    "reviewed_repairs_revised": 19,
+    "reviewed_current_retained": 1,
+    "unresolved_p0": 0,
+    "unresolved_p1": 0,
+    "systematic_defect_remaining": "NO"
+  }
 }

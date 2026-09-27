@@ -113,5 +113,6 @@
     "qa_violations": 0,
     "fatal_contract_errors": 0
   },
-  "final_semantic_qa_status": "PENDING_QA_EVIDENCE_COMMIT"
+  "final_semantic_qa_status": "FINAL_SEMANTIC_QA_PASSED",
+  "actual_applied_semantic_head": "7cd64f412acfb75eedf959bba8de16f4ba4b1424"
 }
