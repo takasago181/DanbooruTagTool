@@ -27,10 +27,10 @@
 - Production process smoke passed: the actual EXE reached DanbooruTagTool v1, was responsive, and produced no matching crash event. Visual UI inspection was unavailable.
 - UserData was excluded from deployment; README.txt and user.db hashes remained unchanged.
 
-Keep the following as separate follow-ups under their existing owners:
-- #64 color/pattern taxonomy;
+The following owner-level residuals were re-derived by #201. No high-confidence shared production rule was justified, so they remain non-default review topics rather than row-fix queues:
+- #64 color/pattern semantic boundary;
 - #64/#76 LIVING/NONHUMAN boundary;
-- unreproduced routes and local refinements;
+- unreproduced routes and local refinements.
 
 ## 1.5 COMPLETE — #199 General body/theme facets
 
@@ -38,11 +38,13 @@ Keep the following as separate follow-ups under their existing owners:
 - The General catalog carries **346 identities / 355 assignments**: BODY 247 and THEME 108, using the existing #76 facet vocabulary and UnifiedBrowseIndex.
 - This closes the #132 “Unified facet architecture” follow-up. It is no longer an active issue.
 
-## 1.6 DEV REVIEW — #201 practical discoverability finish
+## 1.6 COMPLETE — #201 practical discoverability finish
 
-- Branch: `dev/practical-discoverability-finish`, created from the freshly fetched live main.
-- Scope: owner-level #64 color/pattern projection, #64/#76 LIVING/NONHUMAN boundary, valuable local refinements and unreproduced routes, followed by production-size intent-first scenario QA.
-- Stop point: implementation handoff to independent DEV/AUDIT; no main merge or production apply.
+- PR **#202** merged at `164420b47b3ce6aebe49b59008eebed0c967d52b`.
+- Live owner projections for accepted #64 color/LIVING/local paths showed **0 projection omissions**; the broader #132 deltas span multiple owners, so no taxonomy/catalog semantic change was shipped.
+- Added production-size intent-first practical scenario regression coverage, including sexual body/action/theme, clothing/pattern, nonhuman, camera/composition, and General-purpose contextual cases.
+- Updated the legacy production browse test from obsolete pre-Unified `general` navigation to current Unified route/local behavior.
+- Catalog/runtime payload is unchanged from #199 production; no production apply or UserData operation is required for #201.
 
 ## 2. ACTIVE PARALLEL RESEARCH — #180 Character -> HOME Copyright
 
@@ -117,8 +119,8 @@ mainへ反映済み:
 
 次:
 - #179を再開する場合はlive Issue / PR #181 / branchを正本にする
-- #132 / #180とdata/semantic decisionsを混ぜない
-- #201の残課題はsemantic cluster単位で判断し、raw候補件数を修正ノルマにしない
+- #132 / #180とdata/branch/semantic decisionsを混ぜない
+- #201で残ったsemantic clusterはraw件数を修正ノルマにせず、owner-level evidenceが増えた場合だけ再検討する
 
 ---
 
@@ -130,6 +132,9 @@ mainへ反映済み:
 - portable/runtime hardening
 - #117 implementation baseline
 - #118 sexual intent baseline
+- #132 taxonomy usability audit
+- #199 General body/theme facet expansion
+- #201 practical ordinary-tag discoverability finish
 
 現行runtime:
 - user-facing: `C:\Codex\DanbooruTagTool-App`
@@ -156,7 +161,7 @@ mainへ反映済み:
 3. changed state
 4. next bounded input
 
-変更されていないhistoryや巨大specを毎run全文再読しない。
+変更されていないhistoryや巨大spec群を毎run全文再読しない。
 
 ---
 
