@@ -1,0 +1,27 @@
+{
+  "schema_version": "issue132-final-holdout-selection-v1",
+  "final_input_head": "aa6c745c35f59dc22700bd77ee1f015ba593faa3",
+  "seed": "aa6c745c35f59dc22700bd77ee1f015ba593faa3issue132-final-holdout-v1",
+  "selection": "remaining identities sorted by SHA256((seed + \"|\" + identity_key).UTF8), then identity_key; first 350",
+  "neutral_input_sha256": "ac0f888d02f19a440c63b3b9f695c58f9ba53b98ebe9756edec51db1c5ff8f7d",
+  "population": 31003,
+  "excluded_audit_sets": {
+    "priority_a": {
+      "count": 1646,
+      "head": "origin/audit/issue132-final-priority-a"
+    },
+    "priority_b": {
+      "count": 1646,
+      "head": "origin/audit/issue132-final-priority-b"
+    },
+    "general_risk": {
+      "count": 5344,
+      "head": "origin/audit/issue132-final-general-risk"
+    }
+  },
+  "excluded_unique": 8636,
+  "eligible_remaining": 22367,
+  "holdout_count": 350,
+  "holdout_input_sha256": "d5b16bfb4d44da3471a25b64f1a8a57338f5994e74e932d1c097fbf4eae540c2",
+  "current_semantic_answers_consulted": false
+}
