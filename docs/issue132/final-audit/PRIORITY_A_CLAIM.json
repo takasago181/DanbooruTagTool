@@ -1,0 +1,7 @@
+{
+  "schema_version": "issue132-final-audit-role-claim-v1",
+  "role": "FINAL-AUDIT-PRIORITY-A",
+  "branch": "audit/issue132-final-priority-a",
+  "final_input_head": "aa6c745c35f59dc22700bd77ee1f015ba593faa3",
+  "claim_status": "CLAIMED"
+}
