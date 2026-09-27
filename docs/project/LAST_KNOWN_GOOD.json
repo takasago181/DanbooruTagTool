@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "kind": "snapshot_not_validator",
+  "captured_utc": "2026-09-27T17:03:29Z",
+  "source_main_commit": "a90f5b652d4239709005d020417a236ea9d97ebb",
+  "merged_pull_requests": [212],
+  "app_version": "1.0.0+a90f5b652d4239709005d020417a236ea9d97ebb",
+  "production_path": "C:\\Codex\\DanbooruTagTool-App",
+  "publish": {
+    "configuration": "Release",
+    "runtime_identifier": "win-x64",
+    "self_contained": true,
+    "single_file": true,
+    "native_libraries_self_extract": true,
+    "publish_trimmed": false,
+    "debug_symbols": false,
+    "debug_type": "None",
+    "manifest_schema_version": 3,
+    "build_utc": "2026-09-27T17:01:06.0709696Z"
+  },
+  "hashes": {
+    "exe_sha256": "479EEA2755E2C5707E0F04910D9A9C2EEE30A31DC175EE78ED36685B124FB64A",
+    "catalog_sha256": "5759156FF79D794DDC70DD5459AF9B80F8CB204C4527BE16FD368FF40BE9F141",
+    "runtime_manifest_sha256": "E41F04158E57AE2300371B0050CBCFF337BC908F67EE0CD67D9DB3210C8EFC21"
+  },
+  "validators": {
+    "structural": {"id":"dtt.catalog-structural-health","version":"2.0.0","sha256":"50F1FCBAD4C46C14265F444DA5AE9DA4611CE5E8103556695AB8B7B8F1F9ACFD"},
+    "production_contract": {"id":"dtt.production-source-contract","version":"2.0.0","sha256":"0A8CA1258E0D7CC3870E86870A2ECF013FCB9C705425E4AB93F6C49947AC6380"}
+  },
+  "runtime_shape": {
+    "total_files": 7,
+    "managed_payload_files_excluding_userdata": 5,
+    "total_bytes": 306863892,
+    "root_dll_count": 0,
+    "pdb_count": 0,
+    "top_level": ["DanbooruTagTool.exe","runtime-manifest.json","Data/","UserData/","ForgeBridge/"],
+    "real_userdata_embedded": false
+  },
+  "catalog": {
+    "schema_version": 1,
+    "rows": 124895,
+    "category_counts": {"Artist":48313,"Character":35278,"Copyright":7616,"General":30629,"Special":3059},
+    "sqlite_integrity_check": "ok",
+    "sqlite_quick_check": "ok"
+  },
+  "forgebridge_sha256": {
+    "ForgeBridge/javascript/dtt_bridge.js":"493A54C35E99C8107BD60499ED1852E1E1E08076BB0D0925FDE1DF4C69E49345",
+    "ForgeBridge/scripts/dtt_bridge.py":"5F399906CD1AEBE4BC99391609756B6B2F32DC94C70CC24F30004595E2A3FE0A"
+  },
+  "semantic_baseline_references": {
+    "issue_118":"Sexual Intent v2/current production source-integrity gate",
+    "issue_132":"31,003 ordinary identities; accepted route usability audit complete",
+    "issue_199":"346 General identities / 355 assignments; BODY 247, THEME 108",
+    "issue_201":"Production-size intent-first scenario QA; no catalog semantic delta",
+    "issue_204":"Unified filter live refresh and fixed refinement-row layout production baseline"
+  },
+  "validation": {
+    "release_tests": {"passed":242,"skipped":4,"total":246,"configuration":"Release; protected production source roots and isolated candidate catalog"},
+    "ordinary_release_tests": {"passed":227,"skipped":19,"total":246,"skip_classification_totals":{"NORMAL_CI":0,"PROTECTED_DATA_OPT_IN":3,"PRODUCTION_ONLY":16,"OBSOLETE_RETIRE":0},"skip_inventory":"docs/project/RELEASE_TEST_SKIP_INVENTORY.json"},
+    "issue199_performance_gate":"passed; 0 retained managed memory delta; no Search/Browse/memory blockers",
+    "isolated_smoke":"WPF window launch, catalog startup path and structural validation, disposable UserData creation/health, candidate shape passed",
+    "installed_smoke":"Promoter launched installed DanbooruTagTool.exe and verified WPF title/responsiveness; post-apply catalog/manifest/shape checks passed",
+    "forgebridge":"files present and manifest SHA256 verified; Forge integration regression tests passed in Release suite"
+  },
+  "real_userdata_baseline": {
+    "inventory": [
+      {"path":"README.txt","bytes":108,"sha256":"B6A25CC3334885F0249D7AF6B1D2954C4B778B79D9C322C13D4F24F262F6B28E"},
+      {"path":"user.db","bytes":24576,"sha256":"3664C3A84A97E45EB067A1EE6949864227139077107126631A606E8DD63AAF73"}
+    ],
+    "before_after_byte_identical": true,
+    "copied_or_embedded": false
+  },
+  "previous_production_baseline": {
+    "exe_sha256":"8E4D540B3CE002F82448D2F56231657B449B871CE81DD8742C3866265888D3F9",
+    "catalog_sha256":"5759156FF79D794DDC70DD5459AF9B80F8CB204C4527BE16FD368FF40BE9F141",
+    "runtime_manifest_sha256":"9BFC4CC3557603C36DCECBED64265EFE76E5F923FFD9BE934BB70D3EE9C15DD2"
+  }
+}

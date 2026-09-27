@@ -28,10 +28,10 @@ The taxonomy is loaded only by the explicit `--build-catalog` operation. Normal 
 
 ## Portable publish
 
-`publish-portable.ps1` is a compatibility wrapper for `scripts/maintenance/publish_portable_runtime.ps1`. The canonical pipeline requires an explicit clean source revision, protected source and authority roots, builds and validates a full catalog, and publishes a self-contained single-file Windows x64 runtime into a fresh output folder. Candidate `UserData` contains only a disposable README; real UserData is never a publish input.
+`scripts/maintenance/publish_portable_runtime.ps1` is the canonical publisher. `publish-portable.ps1` is a compatibility wrapper. The pipeline requires an explicit clean source revision, protected source and authority roots, builds and validates a full catalog, and publishes a self-contained single-file Windows x64 runtime into a fresh output folder. Candidate `UserData` contains only disposable data; real UserData is never a publish input. See `docs/maintenance/PORTABLE_RUNTIME_PIPELINE.md` for the candidate, manifest, runtime-shape, promotion, and rollback sequence.
 
 ```powershell
-./publish-portable.ps1 `
+../scripts/maintenance/publish_portable_runtime.ps1 `
   -SourceRevision <exact-clean-HEAD> `
   -OutputRoot <fresh-output-outside-checkout> `
   -SourceRoot <protected-source-root> `

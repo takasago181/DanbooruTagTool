@@ -1,6 +1,6 @@
 # CURRENT DEV TASK — COMPATIBILITY ROUTING POINTER
 
-最終更新: 2026-09-27
+最終更新: 2026-09-28
 
 このファイルは旧workflowとの互換用ポインタです。
 **current routingの内容をここへ複製しない。**
@@ -27,6 +27,13 @@ Issue/branch HEAD/progressはこのファイルの固定値ではなく、live G
 - cold start: `CHAT_START_PROTOCOL.md` のfull authority recovery
 - warm resume: `EXECUTION_ARCHITECTURE.md` のcompact fingerprint + task-local immutable progress
 - production / protected-data / delete: warm-resume shortcutを一般化しない
+
+## Maintenance baseline pointer
+
+- Post-#210 finalization is tracked in `CURRENT_ROUTING.json` / `NOW.md` / `CURRENT_STATE.md`; this compatibility file remains a pointer and does not duplicate lane history.
+- Current production Last Known Good snapshot: `docs/project/LAST_KNOWN_GOOD.json` and `.md`.
+- Canonical runtime pipeline: `docs/maintenance/PORTABLE_RUNTIME_PIPELINE.md`.
+- Skipped Release-test classification: `docs/project/RELEASE_TEST_SKIP_INVENTORY.json`.
 
 ## Historical task details
 

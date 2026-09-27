@@ -1,6 +1,6 @@
 # NOW — いま何をやっているか
 
-最終整理: 2026-09-27 JST
+最終整理: 2026-09-28 JST (post-#211)
 
 このファイルは、GitHubを開いたときに**現在の主作業・進捗・次の行動**を人間がすぐ把握するためのdashboardです。
 
@@ -45,6 +45,22 @@ The following owner-level residuals were re-derived by #201. No high-confidence 
 - Added production-size intent-first practical scenario regression coverage, including sexual body/action/theme, clothing/pattern, nonhuman, camera/composition, and General-purpose contextual cases.
 - Updated the legacy production browse test from obsolete pre-Unified `general` navigation to current Unified route/local behavior.
 - Catalog/runtime payload is unchanged from #199 production; no production apply or UserData operation is required for #201.
+
+## 1.7 COMPLETE — #204 Unified filter refresh and visual stability
+
+- PR #206 and production visual follow-up PR #207 are merged; the production visual follow-up is closed.
+- Shared canonical state changes immediately refresh facet options/counts, result summary/cards, notification, and persistence.
+- Refinement rows remain fixed-height; body/theme choices switch without the rows moving; content intent is mutually exclusive.
+- Existing body/theme AND semantics, Undo/Clear All, and Prompt behavior are unchanged.
+
+## 1.8 COMPLETE — #210/#211 maintenance pipeline and project finalization
+
+- #210 merged as PR #212 at live main `a90f5b652d4239709005d020417a236ea9d97ebb`; #205 was superseded and closed without merge.
+- Production was rebuilt from merged main with the canonical clean Release self-contained single-file publisher. UserData stayed byte-identical.
+- Current runtime LKG is recorded in `docs/project/LAST_KNOWN_GOOD.json` and `.md`; canonical command/validators/promotion are documented in `docs/maintenance/PORTABLE_RUNTIME_PIPELINE.md`.
+- Maintenance triage: #52, #138, #203, #210 complete/closed; #188 remains open only for observing telemetry and closing exact remaining execution-overhead/state-authority/lint debt.
+- Default Release skip inventory is machine-readable at `docs/project/RELEASE_TEST_SKIP_INVENTORY.json`; all 19 are classified.
+- Four clean, durable, duplicate/completed worktrees were removed through normal `git worktree remove`; active #179/#180, #132 evidence, dirty/local-only work and protected data were retained.
 
 ## 2. ACTIVE PARALLEL RESEARCH — #180 Character -> HOME Copyright
 
@@ -140,6 +156,9 @@ mainへ反映済み:
 - user-facing: `C:\Codex\DanbooruTagTool-App`
 - self-contained `win-x64`
 - real `UserData` はuser-owned protected state
+- current source main: `a90f5b652d4239709005d020417a236ea9d97ebb`
+- current production EXE SHA256: `479EEA2755E2C5707E0F04910D9A9C2EEE30A31DC175EE78ED36685B124FB64A`
+- catalog SHA256: `5759156FF79D794DDC70DD5459AF9B80F8CB204C4527BE16FD368FF40BE9F141`; manifest schema 3; runtime files 7, root DLL 0, PDB 0
 
 ---
 
