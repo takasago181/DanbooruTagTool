@@ -51,7 +51,7 @@
 
 - **#188 — Project-wide execution efficiency**
   - branch: Issue単位の小さいDEV branch/PRで実施
-  - state: active infrastructure improvement
+  - state: active; next 10 actual #180 worker/coordinator runs must record telemetry, followed by a duration/orchestration summary and a disposition of the current state/progress/cache lint warning
   - scope: cold/warm resume分離、compact routing、immutable-evidence-first progress、large-source transport、CI tiering、efficiency lint
   - #132/#179/#180のsemantic authorityを奪わず、active researchを止めない
 

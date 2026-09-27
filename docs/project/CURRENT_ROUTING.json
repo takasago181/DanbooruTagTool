@@ -1,6 +1,6 @@
 {
   "schema_version": "project-current-routing-v1",
-  "generated_at": "2026-09-28T02:05:00+09:00",
+  "generated_at": "2026-09-28T02:25:00+09:00",
   "purpose": "compact machine-readable routing snapshot; not a permanent branch-head authority",
   "live_main_snapshot": null,
   "must_refetch_live_heads_before_write": true,
@@ -49,7 +49,7 @@
       "title": "Reduce execution overhead without weakening audit accuracy",
       "branch": null,
       "branch_head_snapshot": null,
-      "phase": "active infrastructure improvement; telemetry observation and remaining overhead-lint/state-authority residuals remain",
+      "phase": "active: capture the next 10 #180 worker/coordinator telemetry runs, summarize duration/orchestration, and disposition the current state-cache lint warning without deleting protected history",
       "isolation": [
         "semantic authority of #132/#179/#180"
       ],
@@ -68,7 +68,7 @@
     "#201 practical discoverability finish complete through PR #202; no production taxonomy/catalog delta; practical intent-first scenario regression gate added",
     "#204 live Unified filter refresh and visual stability follow-up complete; production baseline retained",
     "#210 catalog validation/publish/promotion pipeline complete through PR #212; production promoted from live main a90f5b652d4239709005d020417a236ea9d97ebb; UserData byte-identical",
-    "#211 post-#210 state/worktree/test/LKG finalization snapshot; cleanup PR merge and GitHub issue closure are the final handoff gates"
+    "#211 post-#210 hygiene finalization merged via PR #214; maintenance Issues #52/#138/#203/#210 closed; #188 remains open for its exact 10-run telemetry and state-cache-warning disposition"
   ],
   "protected_boundaries": [
     "UserData is user-owned",
