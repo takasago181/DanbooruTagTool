@@ -1,94 +1,64 @@
 [CmdletBinding()]
 param(
-    [Parameter(Mandatory = $true)] [string] $SourceRevision,
-    [Parameter(Mandatory = $true)] [string] $OutputRoot,
-    [Parameter(Mandatory = $true)] [string] $CatalogPath,
-    [Parameter(Mandatory = $true)] [string] $UserDataPath,
-    [string] $RepositoryRoot = '',
-    [switch] $SkipRestore
+ [Parameter(Mandatory=$true)][string]$SourceRevision,
+ [Parameter(Mandatory=$true)][string]$OutputRoot,
+ [Parameter(Mandatory=$true)][string]$SourceRoot,
+ [Parameter(Mandatory=$true)][string]$AuthorityRoot,
+ [string]$RepositoryRoot='',
+ [switch]$SkipRestore
 )
-
-$ErrorActionPreference = 'Stop'
-if ([string]::IsNullOrWhiteSpace($RepositoryRoot)) { $RepositoryRoot = Split-Path -Parent (Split-Path -Parent $PSScriptRoot) }
-$RepositoryRoot = (Resolve-Path -LiteralPath $RepositoryRoot).Path
-$OutputRoot = [IO.Path]::GetFullPath($OutputRoot)
-$CatalogPath = (Resolve-Path -LiteralPath $CatalogPath).Path
-$UserDataPath = (Resolve-Path -LiteralPath $UserDataPath).Path
-
-if (-not (Test-Path -LiteralPath $OutputRoot)) { New-Item -ItemType Directory -Path $OutputRoot | Out-Null }
-$existing = @(Get-ChildItem -LiteralPath $OutputRoot -Force)
-if ($existing.Count -gt 0) { throw "OutputRoot must be new or empty: $OutputRoot" }
-if (-not (Test-Path -LiteralPath $CatalogPath -PathType Leaf)) { throw "Catalog is missing: $CatalogPath" }
-if (-not (Test-Path -LiteralPath $UserDataPath -PathType Leaf)) { throw "UserData is missing: $UserDataPath" }
-
-$status = & git -C $RepositoryRoot status --short --untracked-files=all
-if ($LASTEXITCODE -ne 0 -or $status) { throw 'RepositoryRoot must be a clean checkout with no tracked or untracked changes.' }
-$head = (& git -C $RepositoryRoot rev-parse --verify HEAD).Trim()
-$resolved = (& git -C $RepositoryRoot rev-parse --verify "$SourceRevision^{commit}").Trim()
-if ($LASTEXITCODE -ne 0 -or $head -ne $resolved) { throw "SourceRevision must equal clean checkout HEAD. HEAD=$head Source=$resolved" }
-
-$dotnet = (Get-Command dotnet -ErrorAction SilentlyContinue).Source
-if ([string]::IsNullOrWhiteSpace($dotnet)) { throw 'dotnet SDK is required.' }
-$python = (Get-Command python -ErrorAction SilentlyContinue).Source
-if ([string]::IsNullOrWhiteSpace($python)) { throw 'python is required for catalog validation.' }
-$tempRoot = Join-Path $env:TEMP ("DanbooruTagTool-portable-publish-{0}" -f ([Guid]::NewGuid().ToString('N')))
-$publishRoot = Join-Path $tempRoot 'publish'
-New-Item -ItemType Directory -Path $publishRoot -Force | Out-Null
-
-function Invoke-Checked([string] $FilePath, [string[]] $Arguments) {
-    & $FilePath @Arguments
-    if ($LASTEXITCODE -ne 0) { throw "Command failed ($LASTEXITCODE): $FilePath $($Arguments -join ' ')" }
-}
-function Sha([string] $Path) { return (Get-FileHash -LiteralPath $Path -Algorithm SHA256).Hash }
-
+$ErrorActionPreference='Stop'
+if(-not $RepositoryRoot){$RepositoryRoot=Split-Path -Parent (Split-Path -Parent $PSScriptRoot)}
+$RepositoryRoot=(Resolve-Path -LiteralPath $RepositoryRoot).Path
+$OutputRoot=[IO.Path]::GetFullPath($OutputRoot)
+$SourceRoot=(Resolve-Path -LiteralPath $SourceRoot).Path; $AuthorityRoot=(Resolve-Path -LiteralPath $AuthorityRoot).Path
+$rootPrefix=$RepositoryRoot.TrimEnd('\')+'\'
+if($OutputRoot.StartsWith($rootPrefix,[StringComparison]::OrdinalIgnoreCase)){throw 'OutputRoot must be outside the source checkout.'}
+if(Test-Path -LiteralPath $OutputRoot){if(@(Get-ChildItem -LiteralPath $OutputRoot -Force).Count){throw "OutputRoot must be fresh and empty: $OutputRoot"}}else{New-Item -ItemType Directory -Path $OutputRoot | Out-Null}
+$status=& git -C $RepositoryRoot status --porcelain=v1 --untracked-files=all
+if($LASTEXITCODE -ne 0 -or $status){throw 'Publish requires a completely clean checkout.'}
+$head=(& git -C $RepositoryRoot rev-parse --verify HEAD).Trim(); $resolved=(& git -C $RepositoryRoot rev-parse --verify "$SourceRevision^{commit}").Trim()
+if($LASTEXITCODE -ne 0 -or $head -ne $resolved){throw "SourceRevision must resolve exactly to clean HEAD. HEAD=$head requested=$resolved"}
+$dotnet=(Get-Command dotnet -ErrorAction Stop).Source; $python=(Get-Command python -ErrorAction Stop).Source
+$work=Join-Path $env:TEMP ('DTT-publish-'+[guid]::NewGuid().ToString('N')); $publish=Join-Path $work 'publish'; $built=Join-Path $work 'accepted-catalog'; $contract=Join-Path $work 'contract.json'
+New-Item -ItemType Directory -Path $publish,$built | Out-Null
+function Invoke-Checked([string]$exe,[string[]]$arguments){& $exe @arguments; if($LASTEXITCODE -ne 0){throw "Command failed ($LASTEXITCODE): $exe $($arguments -join ' ')"}}
+function Sha([string]$path){(Get-FileHash -LiteralPath $path -Algorithm SHA256).Hash}
 try {
-    $workloadResolverSwitch = '-p:MSBuildEnableWorkloadResolver=false'
-    if (-not $SkipRestore) { Invoke-Checked $dotnet @('restore', (Join-Path $RepositoryRoot 'src/DanbooruTagTool.sln'), '--runtime', 'win-x64', $workloadResolverSwitch) }
-    Invoke-Checked $dotnet @('publish', (Join-Path $RepositoryRoot 'src/DanbooruTagTool.App/DanbooruTagTool.App.csproj'), '-c', 'Release', '-r', 'win-x64', '--self-contained', 'true', '--no-restore', $workloadResolverSwitch, '-o', $publishRoot)
-    if (-not (Test-Path -LiteralPath (Join-Path $publishRoot 'DanbooruTagTool.exe'))) { throw 'Publish did not produce DanbooruTagTool.exe.' }
-    Get-ChildItem -LiteralPath $publishRoot -Force | ForEach-Object {
-        Copy-Item -LiteralPath $_.FullName -Destination (Join-Path $OutputRoot $_.Name) -Recurse -Force
-    }
-    New-Item -ItemType Directory -Path (Join-Path $OutputRoot 'Data'), (Join-Path $OutputRoot 'UserData') -Force | Out-Null
-    Copy-Item -LiteralPath $CatalogPath -Destination (Join-Path $OutputRoot 'Data/catalog.db')
-    Copy-Item -LiteralPath $UserDataPath -Destination (Join-Path $OutputRoot 'UserData/user.db')
-
-    $healthOutput = & $python -B (Join-Path $RepositoryRoot 'scripts/maintenance/catalog_health.py') --catalog (Join-Path $OutputRoot 'Data/catalog.db') --userdb (Join-Path $OutputRoot 'UserData/user.db') 2>&1
-    if ($LASTEXITCODE -ne 0) { throw "Portable catalog health failed:`n$($healthOutput -join [Environment]::NewLine)" }
-    $health = ($healthOutput -join [Environment]::NewLine) | ConvertFrom-Json
-    $exePath = Join-Path $OutputRoot 'DanbooruTagTool.exe'
-    $version = [Diagnostics.FileVersionInfo]::GetVersionInfo($exePath).ProductVersion
-    if ([string]::IsNullOrWhiteSpace($version)) { $version = '1.0.0.0' }
-    $manifest = [ordered]@{
-        schema_version = 1
-        app_name = 'DanbooruTagTool'
-        app_version = $version
-        main_commit = $head
-        build_date_utc = (Get-Date).ToUniversalTime().ToString('o')
-        runtime_identifier = 'win-x64'
-        self_contained = $true
-        exe_sha256 = Sha $exePath
-        catalog_sha256 = Sha (Join-Path $OutputRoot 'Data/catalog.db')
-        catalog_total = $health.catalog.total
-        general_count = $health.catalog.general
-        special_count = $health.catalog.special
-        character_count = $health.catalog.character
-        copyright_count = $health.catalog.copyright
-        artist_count = $health.catalog.artist
-        runtime_identity_count = 31003
-        sexual_count = 1506
-        non_sexual_count = 27707
-        contextual_count = 1786
-        unclassified_count = 4
-        published_file_count = @(Get-ChildItem -LiteralPath $OutputRoot -File -Recurse).Count
-        build_provenance_version = 'runtime-manifest-v1'
-        catalog_contract_version = $health.checker.contract_version
-        checker_path = 'scripts/maintenance/catalog_health.py'
-        checker_sha256 = $health.checker.sha256
-    }
-    $manifest | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath (Join-Path $OutputRoot 'runtime-manifest.json') -Encoding utf8
-    Write-Output "PASS portable publish source=$head output=$OutputRoot exe_sha256=$($manifest.exe_sha256) catalog_sha256=$($manifest.catalog_sha256)"
-}
-finally {
-    if (Test-Path -LiteralPath $tempRoot) { Remove-Item -LiteralPath $tempRoot -Recurse -Force -ErrorAction SilentlyContinue }
-}
+ $appProject=Join-Path $RepositoryRoot 'src/DanbooruTagTool.App/DanbooruTagTool.App.csproj'
+ $solution=Join-Path $RepositoryRoot 'src/DanbooruTagTool.sln'
+ if(-not $SkipRestore){Invoke-Checked $dotnet @('restore',$solution,'--runtime','win-x64','-p:MSBuildEnableWorkloadResolver=false')}
+ Invoke-Checked $dotnet @('publish',$appProject,'-c','Release','-r','win-x64','--self-contained','true','--no-restore','-p:PublishSingleFile=true','-p:IncludeNativeLibrariesForSelfExtract=true','-p:PublishTrimmed=false','-p:DebugSymbols=false','-p:DebugType=None','-p:MSBuildEnableWorkloadResolver=false','-o',$publish)
+ $exe=Join-Path $publish 'DanbooruTagTool.exe'; if(-not(Test-Path -LiteralPath $exe)){throw 'Publish did not create DanbooruTagTool.exe.'}
+ if(@(Get-ChildItem -LiteralPath $publish -File -Filter '*.dll' -Recurse).Count -or @(Get-ChildItem -LiteralPath $publish -File -Filter '*.pdb' -Recurse).Count){throw 'Publish produced loose DLL or PDB files.'}
+ Invoke-Checked $exe @('--build-catalog',$SourceRoot,$AuthorityRoot,$built)
+ $catalog=Join-Path $built 'catalog.db'; if(-not(Test-Path -LiteralPath $catalog)){throw 'Accepted full catalog build did not produce catalog.db.'}
+ $structuralRaw=& $python -B (Join-Path $RepositoryRoot 'scripts/maintenance/catalog_structural_health.py') --catalog $catalog
+ if($LASTEXITCODE -ne 0){throw "Structural catalog validation failed: $structuralRaw"}; $structural=$structuralRaw | ConvertFrom-Json
+ & (Join-Path $RepositoryRoot 'scripts/maintenance/validate_production_contract.ps1') -CatalogPath $catalog -SourceRoot $SourceRoot -AuthorityRoot $AuthorityRoot -ReportPath $contract -RepositoryRoot $RepositoryRoot | Out-Null
+ $contractResult=Get-Content -LiteralPath $contract -Raw | ConvertFrom-Json
+ if($contractResult.catalog_sha256 -ne $structural.catalog_sha256){throw 'Production contract report does not describe the structurally checked catalog.'}
+ $sourceReport=Get-Content -LiteralPath (Join-Path $built 'import-report.json') -Raw | ConvertFrom-Json
+ Get-ChildItem -LiteralPath $publish -Force | ForEach-Object {Copy-Item -LiteralPath $_.FullName -Destination (Join-Path $OutputRoot $_.Name) -Recurse -Force}
+ New-Item -ItemType Directory -Path (Join-Path $OutputRoot 'Data'),(Join-Path $OutputRoot 'UserData') -Force | Out-Null
+ Copy-Item -LiteralPath $catalog -Destination (Join-Path $OutputRoot 'Data/catalog.db')
+ Set-Content -LiteralPath (Join-Path $OutputRoot 'UserData/README.txt') -Value 'Disposable UserData only. First launch creates this candidate runtime user.db.' -Encoding utf8
+ $exePath=Join-Path $OutputRoot 'DanbooruTagTool.exe'; $catalogPath=Join-Path $OutputRoot 'Data/catalog.db'
+ $appVersion=[Diagnostics.FileVersionInfo]::GetVersionInfo($exePath).ProductVersion; if([string]::IsNullOrWhiteSpace($appVersion)){$appVersion='1.0.0'}
+ $fileCount=@(Get-ChildItem -LiteralPath $OutputRoot -File -Recurse | Where-Object {$_.FullName -notmatch '[\\/]UserData[\\/]'}).Count+1
+ $forge=@{}; $forgeRoot=Join-Path $OutputRoot 'ForgeBridge'
+ if(Test-Path -LiteralPath $forgeRoot){foreach($f in Get-ChildItem -LiteralPath $forgeRoot -File -Recurse){$relative=$f.FullName.Substring($OutputRoot.Length+1).Replace('\','/');$forge[$relative]=Sha $f.FullName}}
+ $manifest=[ordered]@{
+   schema_version=3; app_name='DanbooruTagTool'; app_version=$appVersion
+   source_main_commit=$head; build_utc=[DateTime]::UtcNow.ToString('o'); runtime_identifier='win-x64'
+   self_contained=$true; single_file=$true; native_libraries_self_extract=$true; publish_trimmed=$false; debug_symbols=$false; pdb_present=$false
+   exe_sha256=(Sha $exePath); catalog_sha256=(Sha $catalogPath); catalog_total=[int]$structural.total; catalog_category_counts=$structural.category_counts
+   structural_validator=$structural.validator; production_contract_validator=@{id=$contractResult.validator_id;version=$contractResult.validator_version;sha256=(Sha (Join-Path $RepositoryRoot 'scripts/maintenance/validate_production_contract.ps1'))}
+   production_contract=@{contract_test=$contractResult.contract_test;source_count=$contractResult.source_count;source_report_sha256=$contractResult.source_report_sha256;source_hashes=$sourceReport.Sources}
+   runtime_file_count=$fileCount; runtime_file_count_scope='excluding mutable UserData'; real_userdata_embedded=$false; forgebridge_file_hashes=$forge
+ }
+ $manifest | ConvertTo-Json -Depth 8 | Set-Content -LiteralPath (Join-Path $OutputRoot 'runtime-manifest.json') -Encoding utf8
+ & (Join-Path $RepositoryRoot 'scripts/maintenance/validate_runtime_manifest.ps1') -RuntimeRoot $OutputRoot | Out-Null
+ & (Join-Path $RepositoryRoot 'scripts/maintenance/check_runtime_shape.ps1') -RuntimeRoot $OutputRoot -Mode Candidate | Out-Null
+ Write-Output "PASS canonical publish source=$head catalog=$($manifest.catalog_total) files=$fileCount exe_sha256=$($manifest.exe_sha256) catalog_sha256=$($manifest.catalog_sha256)"
+} finally {if(Test-Path -LiteralPath $work){$tempBase=[IO.Path]::GetFullPath($env:TEMP).TrimEnd('\')+'\';$resolvedWork=[IO.Path]::GetFullPath($work);if(-not $resolvedWork.StartsWith($tempBase+'DTT-publish-',[StringComparison]::OrdinalIgnoreCase)){throw "Refusing to remove unexpected publish temp path: $resolvedWork"};Remove-Item -LiteralPath $resolvedWork -Recurse -Force}}
