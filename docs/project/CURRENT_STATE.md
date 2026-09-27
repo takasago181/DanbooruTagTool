@@ -1,6 +1,6 @@
 # CURRENT STATE
 
-最終更新: 2026-09-27
+最終更新: 2026-09-28 (post-#211)
 
 このファイルは **現在地だけ** を保持する人間向けsummary。
 過去のrouting/runtime/taxonomy/完了記録は `docs/project/CURRENT_STATE_HISTORY.md` に保存する。
@@ -55,6 +55,10 @@
   - scope: cold/warm resume分離、compact routing、immutable-evidence-first progress、large-source transport、CI tiering、efficiency lint
   - #132/#179/#180のsemantic authorityを奪わず、active researchを止めない
 
+- **#179 — Character/Copyright quality audit**: standby/draft evidence retained; no local worktree is registered; remote branch and draft PR #181 remain.
+- **#180 — Character -> HOME Copyright reconstruction**: active research; PR #182 and worker branches remain live; local research worktrees/evidence are retained.
+- **#52 / #138 / #203 / #210 / #211 — maintenance**: complete and closed after #210 promotion and #211 hygiene finalization. PR #205 was superseded and closed without merge; PR #212 supplied the current pipeline.
+
 ## 2. Current product/runtime baseline
 
 - user-facing runtime: `C:\Codex\DanbooruTagTool-App`
@@ -71,6 +75,9 @@
   - BODY: **247**
   - THEME: **108**
 - current Special authority: Issue #76 shallow kind/body/theme model
+- production LKG: `docs/project/LAST_KNOWN_GOOD.json` and `.md` (source main `a90f5b652d4239709005d020417a236ea9d97ebb`)
+- runtime shape: 7 total files; single-file self-contained win-x64; root DLL 0; PDB 0; external catalog/UserData/ForgeBridge/manifest schema 3
+- current production EXE SHA256: `479EEA2755E2C5707E0F04910D9A9C2EEE30A31DC175EE78ED36685B124FB64A`; catalog SHA256 `5759156FF79D794DDC70DD5459AF9B80F8CB204C4527BE16FD368FF40BE9F141`
 - current UI mitigation authority: #177
   - Artist hidden
   - unreliable old Character<->Copyright relation UI disabled

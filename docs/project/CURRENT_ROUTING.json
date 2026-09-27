@@ -1,6 +1,6 @@
 {
   "schema_version": "project-current-routing-v1",
-  "generated_at": "2026-09-27T19:48:59+09:00",
+  "generated_at": "2026-09-28T02:05:00+09:00",
   "purpose": "compact machine-readable routing snapshot; not a permanent branch-head authority",
   "live_main_snapshot": null,
   "must_refetch_live_heads_before_write": true,
@@ -49,7 +49,7 @@
       "title": "Reduce execution overhead without weakening audit accuracy",
       "branch": null,
       "branch_head_snapshot": null,
-      "phase": "active infrastructure cleanup; foundations merged, telemetry/bottleneck follow-up remains",
+      "phase": "active infrastructure improvement; telemetry observation and remaining overhead-lint/state-authority residuals remain",
       "isolation": [
         "semantic authority of #132/#179/#180"
       ],
@@ -65,7 +65,10 @@
     "#118 sexual intent baseline",
     "#132 full 31,003-identity taxonomy usability audit and Pass B/C complete; PR #197 merged; static 274-route production overlay promoted to C:\\Codex\\DanbooruTagTool-App from live main f229ee4d2c3f5ea03dc964634a6d39d7f730710e",
     "#199 General body/theme facets complete and production-promoted through PR #200; 346 identities / 355 assignments (BODY 247, THEME 108)",
-    "#201 practical discoverability finish complete through PR #202; no production taxonomy/catalog delta; practical intent-first scenario regression gate added"
+    "#201 practical discoverability finish complete through PR #202; no production taxonomy/catalog delta; practical intent-first scenario regression gate added",
+    "#204 live Unified filter refresh and visual stability follow-up complete; production baseline retained",
+    "#210 catalog validation/publish/promotion pipeline complete through PR #212; production promoted from live main a90f5b652d4239709005d020417a236ea9d97ebb; UserData byte-identical",
+    "#211 post-#210 state/worktree/test/LKG finalization snapshot; cleanup PR merge and GitHub issue closure are the final handoff gates"
   ],
   "protected_boundaries": [
     "UserData is user-owned",
