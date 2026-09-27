@@ -1,0 +1,33 @@
+{
+  "schema_version": "issue132-final-audit-machine-diff-v1",
+  "final_input_head": "aa6c745c35f59dc22700bd77ee1f015ba593faa3",
+  "population": 31003,
+  "audited": {
+    "priority_a": 1646,
+    "priority_b": 1646,
+    "general_risk": 5344,
+    "fresh_holdout": 350
+  },
+  "exact_match": {
+    "priority_a": 353,
+    "priority_b": 271,
+    "general_risk": 943,
+    "fresh_holdout": 134
+  },
+  "disagreement": {
+    "priority_a": 1293,
+    "priority_b": 1375,
+    "general_risk": 4401,
+    "fresh_holdout": 216
+  },
+  "disagreement_events": 7285,
+  "disagreement_unique_identities": 7285,
+  "primary_route_mismatch_candidates": 2799,
+  "semantic_unresolved_auditor_rows": {
+    "priority_b": 44,
+    "general_risk": 202
+  },
+  "diff_path": "docs/issue132/final-audit/final_audit_machine_diff.jsonl",
+  "diff_sha256": "e0225091028053d4203fffcddc9dd7ac7b906cd7575ee2f45f773cd311f85b8d",
+  "reconciliation_status": "PENDING; machine diff only; no automatic verdict adoption"
+}
