@@ -1,0 +1,24 @@
+{
+  "schema_version": "issue132-product-reconciliation-validation-v1",
+  "status": "PASS",
+  "pass_b_population": 31003,
+  "unique_identity_coverage": 31003,
+  "duplicate_identity_count": 0,
+  "disposition_partition_total": 31003,
+  "disposition_counts": {
+    "ADD_SECONDARY_CANDIDATE": 273,
+    "SEARCH_ONLY": 17145,
+    "SEMANTIC_UNRESOLVED": 378,
+    "UPSTREAM_REVIEW": 13207
+  },
+  "candidate_route_pairs": 274,
+  "candidate_route_pairs_unique": true,
+  "candidate_browseability_and_owner_gates": "PASS",
+  "existing_route_vocabulary_only": true,
+  "supporting_candidate_lens_gate": "PASS",
+  "route_shelf_count": 19,
+  "route_shelf_before_after_arithmetic": "PASS",
+  "csv_parse_back": "PASS",
+  "runtime_assets_created": false,
+  "production_apply": false
+}

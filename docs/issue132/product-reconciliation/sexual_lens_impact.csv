@@ -1,0 +1,9 @@
+﻿route_id,current_identity_count,candidate_additions,after_identity_count,generalpurpose_before,generalpurpose_candidate_additions,generalpurpose_after,sexual_lens_before,sexual_lens_candidate_additions,sexual_lens_after,core_derived_candidates,supporting_derived_candidates,candidate_with_local_refinement,candidate_without_local_refinement,candidate_with_body_facet,candidate_without_body_facet,candidate_with_theme_facet,candidate_without_theme_facet,top_level_only_candidates,route_growth_percent
+ACTION_CONTACT,3928,18,3946,2988,13,3001,1370,11,1381,13,5,9,9,1,17,2,16,7,0.46
+BODY_SITE,2371,97,2468,2269,35,2304,397,90,487,13,84,87,10,49,48,6,91,6,4.09
+CLOTHING_EXPOSURE,8972,11,8983,8702,4,8706,1202,11,1213,0,11,11,0,2,9,0,11,0,0.12
+FLUID_EXCRETION,217,15,232,69,12,81,189,5,194,12,3,6,9,1,14,0,15,9,6.91
+NONHUMAN_TRANSFORM,101,0,101,68,0,68,64,0,64,0,0,0,0,0,0,0,0,0,0.0
+POSE_POSITION,809,52,861,777,45,822,80,20,100,43,9,47,5,3,49,2,50,4,6.43
+RELATION_ROLE,102,15,117,53,12,65,87,4,91,12,3,10,5,0,15,1,14,5,14.71
+TOOL_OBJECT,5691,5,5696,5499,5,5504,287,3,290,2,3,3,2,0,5,0,5,2,0.09

@@ -1,0 +1,1094 @@
+{
+  "schema_version": 2,
+  "population": {
+    "identity_count": 31003,
+    "general_rows": 30629,
+    "special_profile_rows": 3059,
+    "special_identity_mapped": 3059,
+    "special_identity_unmapped": 0,
+    "special_identity_ambiguous": 0,
+    "membership": {
+      "GENERAL_ONLY": 28645,
+      "SPECIAL_ONLY": 374,
+      "OVERLAP": 1984
+    }
+  },
+  "buckets": {
+    "OK": 28537,
+    "NO_AUTHORITY": 2393,
+    "REVIEW": 73
+  },
+  "full_semantic_review": {
+    "required_identity_count": 31003,
+    "shard_size": 200,
+    "shard_count": 156,
+    "lane_counts": {
+      "00_CURRENT_REVIEW_OR_CONFLICT": 73,
+      "01_NO_AUTHORITY": 2393,
+      "02_MULTI_ROUTE": 1347,
+      "10_ROUTE_ACTION_CONTACT": 3314,
+      "10_ROUTE_BODY_SITE": 2023,
+      "10_ROUTE_CLOTHING_EXPOSURE": 8550,
+      "10_ROUTE_COLOR_PATTERN_SHAPE": 514,
+      "10_ROUTE_COMPOSITION_CAMERA": 168,
+      "10_ROUTE_CONTENT_RATING": 37,
+      "10_ROUTE_EXPRESSION_GAZE": 424,
+      "10_ROUTE_FLUID_EXCRETION": 37,
+      "10_ROUTE_HAIR_FACE": 765,
+      "10_ROUTE_LIGHT_TIME_WEATHER": 284,
+      "10_ROUTE_LIVING": 1238,
+      "10_ROUTE_NONHUMAN_TRANSFORM": 20,
+      "10_ROUTE_PEOPLE_COUNT": 700,
+      "10_ROUTE_POSE_POSITION": 707,
+      "10_ROUTE_RELATION_ROLE": 20,
+      "10_ROUTE_SCENE_BACKGROUND": 1004,
+      "10_ROUTE_STYLE_PROCESSING": 947,
+      "10_ROUTE_TEXT_SYMBOL": 1008,
+      "10_ROUTE_TOOL_OBJECT": 5426,
+      "90_FACET_ONLY": 4
+    },
+    "machine_labels_are_final": false
+  },
+  "prototype_v0_1": {
+    "override_rows": 5,
+    "changed_identities": 5,
+    "redundant_identities": 0,
+    "route_delta": {
+      "POSE_POSITION": 5
+    },
+    "targets": [
+      {
+        "identity_key": "presenting_own_ass",
+        "route_id": "POSE_POSITION",
+        "changed": "YES",
+        "before_routes": "ACTION_CONTACT",
+        "after_routes": "ACTION_CONTACT|POSE_POSITION"
+      },
+      {
+        "identity_key": "holding_own_legs_back",
+        "route_id": "POSE_POSITION",
+        "changed": "YES",
+        "before_routes": "ACTION_CONTACT",
+        "after_routes": "ACTION_CONTACT|POSE_POSITION"
+      },
+      {
+        "identity_key": "standing_doggystyle",
+        "route_id": "POSE_POSITION",
+        "changed": "YES",
+        "before_routes": "ACTION_CONTACT",
+        "after_routes": "ACTION_CONTACT|POSE_POSITION"
+      },
+      {
+        "identity_key": "holding_own_leg_back",
+        "route_id": "POSE_POSITION",
+        "changed": "YES",
+        "before_routes": "ACTION_CONTACT",
+        "after_routes": "ACTION_CONTACT|POSE_POSITION"
+      },
+      {
+        "identity_key": "holding_another's_legs_back",
+        "route_id": "POSE_POSITION",
+        "changed": "YES",
+        "before_routes": "ACTION_CONTACT",
+        "after_routes": "ACTION_CONTACT|POSE_POSITION"
+      }
+    ]
+  },
+  "browse_coverage": {
+    "route_or_facet_reachable_identities": 28601,
+    "no_route_or_facet_identities": 2402,
+    "multi_primary_route_identities": 1349,
+    "zero_primary_route_but_special_faceted": 6,
+    "general_rows_with_secondary_paths": 680,
+    "general_secondary_path_count": 681
+  },
+  "pattern_candidate_counts": {
+    "ACTION_EXPLICIT_BODY_NO_BODY_SECONDARY": 1038,
+    "COLOR_MODIFIER_NO_COLOR_SECONDARY": 1791,
+    "PLACE_FIXTURE_NO_OBJECT_SECONDARY": 46,
+    "CLOTHING_PLACEMENT_NO_STATE_SECONDARY": 50,
+    "OBJECT_FIXTURE_NO_PLACE_SECONDARY": 34
+  },
+  "pose_scene_review_clusters": {
+    "POSE_SCENE||semantic_support|": 9,
+    "POSE_SCENE|||": 19,
+    "POSE_SCENE|RESTRAINT_ACTION|restraint_action|": 5,
+    "POSE_SCENE|RESTRAINT_ACTION|restraint_action|pose": 6,
+    "POSE_SCENE|ACTION_INTERACTION|action|": 8,
+    "POSE_SCENE|DIRECT_COMPOSITE|compound_visual|": 1,
+    "POSE_SCENE|CONTEXT_MODIFIER|semantic_support|": 4,
+    "POSE_SCENE|BODY_STATE|body_state|": 2,
+    "POSE_SCENE|BODY_ATTRIBUTE|body_target_or_attribute|": 4,
+    "POSE_SCENE|POSE_COMPOSITION|pose_camera|": 5,
+    "POSE_SCENE|MULTI_ACTOR_INTERACTION|compound_action|": 4,
+    "POSE_SCENE|CLOTHING_EXPOSURE|visual_state|": 2,
+    "POSE_SCENE|DIRECT_COMPOSITE|spatial_relation|": 4,
+    "POSE_SCENE|SCENE_CONTEXT|scene_context|": 1,
+    "POSE_SCENE|IMPLEMENT_OBJECT|implement|": 1,
+    "POSE_SCENE|SELF_ACTION|action|": 1
+  },
+  "review_signal_counts": {
+    "POSE_SCENE_NO_ROUTE__BROAD_OR_OTHER": 68,
+    "POSE_SCENE_NO_ROUTE__POSE_COMPOSITION": 5
+  },
+  "bucket_by_intent": {
+    "NO_AUTHORITY": {
+      "NON_SEXUAL": 2293,
+      "SEXUAL": 41,
+      "CONTEXTUAL": 57,
+      "UNCLASSIFIED": 2
+    },
+    "OK": {
+      "NON_SEXUAL": 25410,
+      "CONTEXTUAL": 1700,
+      "SEXUAL": 1425,
+      "UNCLASSIFIED": 2
+    },
+    "REVIEW": {
+      "SEXUAL": 40,
+      "CONTEXTUAL": 29,
+      "NON_SEXUAL": 4
+    }
+  },
+  "bucket_by_membership": {
+    "NO_AUTHORITY": {
+      "GENERAL_ONLY": 2379,
+      "SPECIAL_ONLY": 14
+    },
+    "OK": {
+      "GENERAL_ONLY": 26266,
+      "SPECIAL_ONLY": 351,
+      "OVERLAP": 1920
+    },
+    "REVIEW": {
+      "SPECIAL_ONLY": 9,
+      "OVERLAP": 64
+    }
+  },
+  "bucket_samples": {
+    "NO_AUTHORITY": [
+      {
+        "identity_key": "12_billion_yen_incident",
+        "sexual_intent": "NON_SEXUAL",
+        "current_routes": "",
+        "special_ids": "",
+        "review_signals": ""
+      },
+      {
+        "identity_key": "15-nin_no_richiteki_na_megane-tachi",
+        "sexual_intent": "NON_SEXUAL",
+        "current_routes": "",
+        "special_ids": "",
+        "review_signals": ""
+      },
+      {
+        "identity_key": "2011",
+        "sexual_intent": "NON_SEXUAL",
+        "current_routes": "",
+        "special_ids": "",
+        "review_signals": ""
+      },
+      {
+        "identity_key": "2011_tohoku_earthquake_and_tsunami",
+        "sexual_intent": "NON_SEXUAL",
+        "current_routes": "",
+        "special_ids": "",
+        "review_signals": ""
+      },
+      {
+        "identity_key": "2024_attempted_assassination_of_donald_trump",
+        "sexual_intent": "NON_SEXUAL",
+        "current_routes": "",
+        "special_ids": "",
+        "review_signals": ""
+      },
+      {
+        "identity_key": "2024_niconico_cyberattack",
+        "sexual_intent": "NON_SEXUAL",
+        "current_routes": "",
+        "special_ids": "",
+        "review_signals": ""
+      },
+      {
+        "identity_key": "2024_pokemon_teraleak",
+        "sexual_intent": "NON_SEXUAL",
+        "current_routes": "",
+        "special_ids": "",
+        "review_signals": ""
+      },
+      {
+        "identity_key": "2_fuel_4_ammo_11_steel",
+        "sexual_intent": "NON_SEXUAL",
+        "current_routes": "",
+        "special_ids": "",
+        "review_signals": ""
+      },
+      {
+        "identity_key": "2nd_live_tour_~blooming_with_ooo~",
+        "sexual_intent": "NON_SEXUAL",
+        "current_routes": "",
+        "special_ids": "",
+        "review_signals": ""
+      },
+      {
+        "identity_key": "3rd_live_tour_try_tri_unity!!!",
+        "sexual_intent": "NON_SEXUAL",
+        "current_routes": "",
+        "special_ids": "",
+        "review_signals": ""
+      },
+      {
+        "identity_key": "416_day",
+        "sexual_intent": "NON_SEXUAL",
+        "current_routes": "",
+        "special_ids": "",
+        "review_signals": ""
+      },
+      {
+        "identity_key": "4th_live_dream_~bloom_the_dream_believers~",
+        "sexual_intent": "NON_SEXUAL",
+        "current_routes": "",
+        "special_ids": "",
+        "review_signals": ""
+      },
+      {
+        "identity_key": "5th_live_tour_~4pair_power_spread!!!!~",
+        "sexual_intent": "NON_SEXUAL",
+        "current_routes": "",
+        "special_ids": "",
+        "review_signals": ""
+      },
+      {
+        "identity_key": "6th_live_dream_~bloom_garden_party~",
+        "sexual_intent": "NON_SEXUAL",
+        "current_routes": "",
+        "special_ids": "",
+        "review_signals": ""
+      },
+      {
+        "identity_key": "9/11",
+        "sexual_intent": "NON_SEXUAL",
+        "current_routes": "",
+        "special_ids": "",
+        "review_signals": ""
+      },
+      {
+        "identity_key": "affliction_(darkest_dungeon)",
+        "sexual_intent": "NON_SEXUAL",
+        "current_routes": "",
+        "special_ids": "",
+        "review_signals": ""
+      },
+      {
+        "identity_key": "after_time_valentine_2026",
+        "sexual_intent": "NON_SEXUAL",
+        "current_routes": "",
+        "special_ids": "",
+        "review_signals": ""
+      },
+      {
+        "identity_key": "akatsuhara_empire",
+        "sexual_intent": "NON_SEXUAL",
+        "current_routes": "",
+        "special_ids": "",
+        "review_signals": ""
+      },
+      {
+        "identity_key": "akg",
+        "sexual_intent": "NON_SEXUAL",
+        "current_routes": "",
+        "special_ids": "",
+        "review_signals": ""
+      },
+      {
+        "identity_key": "alternate_element",
+        "sexual_intent": "NON_SEXUAL",
+        "current_routes": "",
+        "special_ids": "",
+        "review_signals": ""
+      },
+      {
+        "identity_key": "amemiya_taiyou_(mixi_max_zhuge_kongming)",
+        "sexual_intent": "NON_SEXUAL",
+        "current_routes": "",
+        "special_ids": "",
+        "review_signals": ""
+      },
+      {
+        "identity_key": "american_civil_war",
+        "sexual_intent": "NON_SEXUAL",
+        "current_routes": "",
+        "special_ids": "",
+        "review_signals": ""
+      },
+      {
+        "identity_key": "anaheim_electronics",
+        "sexual_intent": "NON_SEXUAL",
+        "current_routes": "",
+        "special_ids": "",
+        "review_signals": ""
+      },
+      {
+        "identity_key": "anastasia_(lostbelt)_(fate/grand_order)",
+        "sexual_intent": "NON_SEXUAL",
+        "current_routes": "",
+        "special_ids": "",
+        "review_signals": ""
+      },
+      {
+        "identity_key": "angels_of_delusion",
+        "sexual_intent": "NON_SEXUAL",
+        "current_routes": "",
+        "special_ids": "",
+        "review_signals": ""
+      },
+      {
+        "identity_key": "anima_(honkai:_nexus_anima)",
+        "sexual_intent": "NON_SEXUAL",
+        "current_routes": "",
+        "special_ids": "",
+        "review_signals": ""
+      },
+      {
+        "identity_key": "annihilate_ray",
+        "sexual_intent": "NON_SEXUAL",
+        "current_routes": "",
+        "special_ids": "",
+        "review_signals": ""
+      },
+      {
+        "identity_key": "annihilation_(nikke)",
+        "sexual_intent": "NON_SEXUAL",
+        "current_routes": "",
+        "special_ids": "",
+        "review_signals": ""
+      },
+      {
+        "identity_key": "aoku_haruka/flower",
+        "sexual_intent": "NON_SEXUAL",
+        "current_routes": "",
+        "special_ids": "",
+        "review_signals": ""
+      },
+      {
+        "identity_key": "aozora_ni_negau_your_happiness!_(project_sekai)",
+        "sexual_intent": "NON_SEXUAL",
+        "current_routes": "",
+        "special_ids": "",
+        "review_signals": ""
+      }
+    ],
+    "OK": [
+      {
+        "identity_key": "!",
+        "sexual_intent": "NON_SEXUAL",
+        "current_routes": "TEXT_SYMBOL",
+        "special_ids": "",
+        "review_signals": ""
+      },
+      {
+        "identity_key": "!!",
+        "sexual_intent": "NON_SEXUAL",
+        "current_routes": "TEXT_SYMBOL",
+        "special_ids": "",
+        "review_signals": ""
+      },
+      {
+        "identity_key": "!?",
+        "sexual_intent": "NON_SEXUAL",
+        "current_routes": "TEXT_SYMBOL",
+        "special_ids": "",
+        "review_signals": ""
+      },
+      {
+        "identity_key": "#unicus_(idolmaster)",
+        "sexual_intent": "NON_SEXUAL",
+        "current_routes": "PEOPLE_COUNT",
+        "special_ids": "",
+        "review_signals": ""
+      },
+      {
+        "identity_key": "+++",
+        "sexual_intent": "NON_SEXUAL",
+        "current_routes": "TEXT_SYMBOL",
+        "special_ids": "",
+        "review_signals": ""
+      },
+      {
+        "identity_key": "+_+",
+        "sexual_intent": "NON_SEXUAL",
+        "current_routes": "EXPRESSION_GAZE",
+        "special_ids": "",
+        "review_signals": ""
+      },
+      {
+        "identity_key": "+_-",
+        "sexual_intent": "NON_SEXUAL",
+        "current_routes": "EXPRESSION_GAZE",
+        "special_ids": "",
+        "review_signals": ""
+      },
+      {
+        "identity_key": "...",
+        "sexual_intent": "NON_SEXUAL",
+        "current_routes": "TEXT_SYMBOL",
+        "special_ids": "",
+        "review_signals": ""
+      },
+      {
+        "identity_key": "...!",
+        "sexual_intent": "NON_SEXUAL",
+        "current_routes": "TEXT_SYMBOL",
+        "special_ids": "",
+        "review_signals": ""
+      },
+      {
+        "identity_key": "...?",
+        "sexual_intent": "NON_SEXUAL",
+        "current_routes": "TEXT_SYMBOL",
+        "special_ids": "",
+        "review_signals": ""
+      },
+      {
+        "identity_key": ".52_gal_(splatoon)",
+        "sexual_intent": "NON_SEXUAL",
+        "current_routes": "TOOL_OBJECT",
+        "special_ids": "",
+        "review_signals": ""
+      },
+      {
+        "identity_key": ".96_gal_(splatoon)",
+        "sexual_intent": "NON_SEXUAL",
+        "current_routes": "TOOL_OBJECT",
+        "special_ids": "",
+        "review_signals": ""
+      },
+      {
+        "identity_key": "._.",
+        "sexual_intent": "NON_SEXUAL",
+        "current_routes": "EXPRESSION_GAZE",
+        "special_ids": "",
+        "review_signals": ""
+      },
+      {
+        "identity_key": "0_0",
+        "sexual_intent": "NON_SEXUAL",
+        "current_routes": "EXPRESSION_GAZE",
+        "special_ids": "",
+        "review_signals": ""
+      },
+      {
+        "identity_key": "0th_generation_(hololive)",
+        "sexual_intent": "NON_SEXUAL",
+        "current_routes": "PEOPLE_COUNT",
+        "special_ids": "",
+        "review_signals": ""
+      },
+      {
+        "identity_key": "0w0",
+        "sexual_intent": "NON_SEXUAL",
+        "current_routes": "EXPRESSION_GAZE",
+        "special_ids": "",
+        "review_signals": ""
+      },
+      {
+        "identity_key": "1-up_mushroom",
+        "sexual_intent": "NON_SEXUAL",
+        "current_routes": "TOOL_OBJECT",
+        "special_ids": "",
+        "review_signals": ""
+      },
+      {
+        "identity_key": "100kg_(meme)",
+        "sexual_intent": "NON_SEXUAL",
+        "current_routes": "STYLE_PROCESSING",
+        "special_ids": "",
+        "review_signals": ""
+      },
+      {
+        "identity_key": "10mm_pistol",
+        "sexual_intent": "NON_SEXUAL",
+        "current_routes": "TOOL_OBJECT",
+        "special_ids": "",
+        "review_signals": ""
+      },
+      {
+        "identity_key": "114514_(meme)",
+        "sexual_intent": "CONTEXTUAL",
+        "current_routes": "STYLE_PROCESSING",
+        "special_ids": "",
+        "review_signals": ""
+      },
+      {
+        "identity_key": "18+",
+        "sexual_intent": "SEXUAL",
+        "current_routes": "CONTENT_RATING",
+        "special_ids": "1694",
+        "review_signals": ""
+      },
+      {
+        "identity_key": "1920s_fashion",
+        "sexual_intent": "NON_SEXUAL",
+        "current_routes": "CLOTHING_EXPOSURE",
+        "special_ids": "",
+        "review_signals": ""
+      },
+      {
+        "identity_key": "1930s_(style)",
+        "sexual_intent": "NON_SEXUAL",
+        "current_routes": "STYLE_PROCESSING",
+        "special_ids": "",
+        "review_signals": ""
+      },
+      {
+        "identity_key": "1950s_(style)",
+        "sexual_intent": "NON_SEXUAL",
+        "current_routes": "STYLE_PROCESSING",
+        "special_ids": "",
+        "review_signals": ""
+      },
+      {
+        "identity_key": "1950s_fashion",
+        "sexual_intent": "NON_SEXUAL",
+        "current_routes": "CLOTHING_EXPOSURE",
+        "special_ids": "",
+        "review_signals": ""
+      },
+      {
+        "identity_key": "1960s_(style)",
+        "sexual_intent": "NON_SEXUAL",
+        "current_routes": "STYLE_PROCESSING",
+        "special_ids": "",
+        "review_signals": ""
+      },
+      {
+        "identity_key": "1960s_fashion",
+        "sexual_intent": "NON_SEXUAL",
+        "current_routes": "CLOTHING_EXPOSURE",
+        "special_ids": "",
+        "review_signals": ""
+      },
+      {
+        "identity_key": "1970s_(style)",
+        "sexual_intent": "NON_SEXUAL",
+        "current_routes": "STYLE_PROCESSING",
+        "special_ids": "",
+        "review_signals": ""
+      },
+      {
+        "identity_key": "1970s_fashion",
+        "sexual_intent": "NON_SEXUAL",
+        "current_routes": "CLOTHING_EXPOSURE",
+        "special_ids": "",
+        "review_signals": ""
+      },
+      {
+        "identity_key": "1980s_(style)",
+        "sexual_intent": "NON_SEXUAL",
+        "current_routes": "STYLE_PROCESSING",
+        "special_ids": "",
+        "review_signals": ""
+      }
+    ],
+    "REVIEW": [
+      {
+        "identity_key": "anvil_position",
+        "sexual_intent": "SEXUAL",
+        "current_routes": "",
+        "special_ids": "142",
+        "review_signals": "POSE_SCENE_NO_ROUTE__BROAD_OR_OTHER"
+      },
+      {
+        "identity_key": "arms_bound_above_head",
+        "sexual_intent": "CONTEXTUAL",
+        "current_routes": "ACTION_CONTACT",
+        "special_ids": "2473",
+        "review_signals": "POSE_SCENE_NO_ROUTE__BROAD_OR_OTHER"
+      },
+      {
+        "identity_key": "bound_puppy_pose",
+        "sexual_intent": "SEXUAL",
+        "current_routes": "ACTION_CONTACT",
+        "special_ids": "2451",
+        "review_signals": "POSE_SCENE_NO_ROUTE__BROAD_OR_OTHER"
+      },
+      {
+        "identity_key": "box_tie",
+        "sexual_intent": "CONTEXTUAL",
+        "current_routes": "ACTION_CONTACT",
+        "special_ids": "1912",
+        "review_signals": "POSE_SCENE_NO_ROUTE__BROAD_OR_OTHER"
+      },
+      {
+        "identity_key": "bust_cup",
+        "sexual_intent": "SEXUAL",
+        "current_routes": "ACTION_CONTACT",
+        "special_ids": "2027|2710|2711|2712",
+        "review_signals": "POSE_SCENE_NO_ROUTE__BROAD_OR_OTHER"
+      },
+      {
+        "identity_key": "competitive_sex",
+        "sexual_intent": "SEXUAL",
+        "current_routes": "ACTION_CONTACT",
+        "special_ids": "1045",
+        "review_signals": "POSE_SCENE_NO_ROUTE__BROAD_OR_OTHER"
+      },
+      {
+        "identity_key": "cow_girl",
+        "sexual_intent": "CONTEXTUAL",
+        "current_routes": "PEOPLE_COUNT",
+        "special_ids": "137",
+        "review_signals": "POSE_SCENE_NO_ROUTE__BROAD_OR_OTHER"
+      },
+      {
+        "identity_key": "defloration",
+        "sexual_intent": "SEXUAL",
+        "current_routes": "ACTION_CONTACT",
+        "special_ids": "1739",
+        "review_signals": "POSE_SCENE_NO_ROUTE__BROAD_OR_OTHER"
+      },
+      {
+        "identity_key": "dick_in_a_box",
+        "sexual_intent": "SEXUAL",
+        "current_routes": "TOOL_OBJECT",
+        "special_ids": "1116",
+        "review_signals": "POSE_SCENE_NO_ROUTE__BROAD_OR_OTHER"
+      },
+      {
+        "identity_key": "dirty_talk",
+        "sexual_intent": "SEXUAL",
+        "current_routes": "ACTION_CONTACT",
+        "special_ids": "2329",
+        "review_signals": "POSE_SCENE_NO_ROUTE__BROAD_OR_OTHER"
+      },
+      {
+        "identity_key": "doggy",
+        "sexual_intent": "CONTEXTUAL",
+        "current_routes": "",
+        "special_ids": "1757",
+        "review_signals": "POSE_SCENE_NO_ROUTE__BROAD_OR_OTHER"
+      },
+      {
+        "identity_key": "drugged",
+        "sexual_intent": "NON_SEXUAL",
+        "current_routes": "BODY_SITE",
+        "special_ids": "1805",
+        "review_signals": "POSE_SCENE_NO_ROUTE__BROAD_OR_OTHER"
+      },
+      {
+        "identity_key": "fake_penis_shadow",
+        "sexual_intent": "NON_SEXUAL",
+        "current_routes": "STYLE_PROCESSING",
+        "special_ids": "1117",
+        "review_signals": "POSE_SCENE_NO_ROUTE__BROAD_OR_OTHER"
+      },
+      {
+        "identity_key": "foot_pussy",
+        "sexual_intent": "SEXUAL",
+        "current_routes": "ACTION_CONTACT",
+        "special_ids": "832",
+        "review_signals": "POSE_SCENE_NO_ROUTE__BROAD_OR_OTHER"
+      },
+      {
+        "identity_key": "free_sex_sign",
+        "sexual_intent": "SEXUAL",
+        "current_routes": "TEXT_SYMBOL",
+        "special_ids": "1142",
+        "review_signals": "POSE_SCENE_NO_ROUTE__BROAD_OR_OTHER"
+      },
+      {
+        "identity_key": "frogtie",
+        "sexual_intent": "CONTEXTUAL",
+        "current_routes": "CLOTHING_EXPOSURE",
+        "special_ids": "1914",
+        "review_signals": "POSE_SCENE_NO_ROUTE__BROAD_OR_OTHER"
+      },
+      {
+        "identity_key": "genital_closeup",
+        "sexual_intent": "SEXUAL",
+        "current_routes": "",
+        "special_ids": "6",
+        "review_signals": "POSE_SCENE_NO_ROUTE__BROAD_OR_OTHER"
+      },
+      {
+        "identity_key": "half-spread_pussy",
+        "sexual_intent": "SEXUAL",
+        "current_routes": "BODY_SITE",
+        "special_ids": "768",
+        "review_signals": "POSE_SCENE_NO_ROUTE__BROAD_OR_OTHER"
+      },
+      {
+        "identity_key": "hogtie",
+        "sexual_intent": "CONTEXTUAL",
+        "current_routes": "ACTION_CONTACT",
+        "special_ids": "1915",
+        "review_signals": "POSE_SCENE_NO_ROUTE__BROAD_OR_OTHER"
+      },
+      {
+        "identity_key": "hogtie_carry",
+        "sexual_intent": "CONTEXTUAL",
+        "current_routes": "ACTION_CONTACT",
+        "special_ids": "2489",
+        "review_signals": "POSE_SCENE_NO_ROUTE__BROAD_OR_OTHER"
+      },
+      {
+        "identity_key": "hogtied",
+        "sexual_intent": "CONTEXTUAL",
+        "current_routes": "",
+        "special_ids": "1947",
+        "review_signals": "POSE_SCENE_NO_ROUTE__BROAD_OR_OTHER"
+      },
+      {
+        "identity_key": "holding_another's_legs_back",
+        "sexual_intent": "CONTEXTUAL",
+        "current_routes": "ACTION_CONTACT",
+        "special_ids": "2972",
+        "review_signals": "POSE_SCENE_NO_ROUTE__POSE_COMPOSITION"
+      },
+      {
+        "identity_key": "holding_own_leg_back",
+        "sexual_intent": "CONTEXTUAL",
+        "current_routes": "ACTION_CONTACT",
+        "special_ids": "2971",
+        "review_signals": "POSE_SCENE_NO_ROUTE__POSE_COMPOSITION"
+      },
+      {
+        "identity_key": "holding_own_legs_back",
+        "sexual_intent": "CONTEXTUAL",
+        "current_routes": "ACTION_CONTACT",
+        "special_ids": "2858",
+        "review_signals": "POSE_SCENE_NO_ROUTE__POSE_COMPOSITION"
+      },
+      {
+        "identity_key": "looking_at_penis",
+        "sexual_intent": "CONTEXTUAL",
+        "current_routes": "EXPRESSION_GAZE",
+        "special_ids": "735",
+        "review_signals": "POSE_SCENE_NO_ROUTE__BROAD_OR_OTHER"
+      },
+      {
+        "identity_key": "looking_at_pussy",
+        "sexual_intent": "CONTEXTUAL",
+        "current_routes": "EXPRESSION_GAZE",
+        "special_ids": "961",
+        "review_signals": "POSE_SCENE_NO_ROUTE__BROAD_OR_OTHER"
+      },
+      {
+        "identity_key": "love_train",
+        "sexual_intent": "NON_SEXUAL",
+        "current_routes": "",
+        "special_ids": "233",
+        "review_signals": "POSE_SCENE_NO_ROUTE__BROAD_OR_OTHER"
+      },
+      {
+        "identity_key": "male_spitroast",
+        "sexual_intent": "SEXUAL",
+        "current_routes": "ACTION_CONTACT",
+        "special_ids": "920",
+        "review_signals": "POSE_SCENE_NO_ROUTE__BROAD_OR_OTHER"
+      },
+      {
+        "identity_key": "masturbation_day",
+        "sexual_intent": "SEXUAL",
+        "current_routes": "ACTION_CONTACT",
+        "special_ids": "1040",
+        "review_signals": "POSE_SCENE_NO_ROUTE__BROAD_OR_OTHER"
+      },
+      {
+        "identity_key": "mating_press_position",
+        "sexual_intent": "SEXUAL",
+        "current_routes": "",
+        "special_ids": "143",
+        "review_signals": "POSE_SCENE_NO_ROUTE__BROAD_OR_OTHER"
+      }
+    ]
+  },
+  "route_load": {
+    "ACTION_CONTACT": {
+      "ALL": 3928,
+      "NON_SEXUAL": 2558,
+      "SEXUAL": 940,
+      "CONTEXTUAL": 430
+    },
+    "BODY_SITE": {
+      "ALL": 2371,
+      "NON_SEXUAL": 1972,
+      "CONTEXTUAL": 297,
+      "SEXUAL": 100,
+      "UNCLASSIFIED": 2
+    },
+    "CLOTHING_EXPOSURE": {
+      "ALL": 8972,
+      "NON_SEXUAL": 7770,
+      "CONTEXTUAL": 932,
+      "SEXUAL": 270
+    },
+    "COLOR_PATTERN_SHAPE": {
+      "ALL": 682,
+      "NON_SEXUAL": 655,
+      "CONTEXTUAL": 20,
+      "SEXUAL": 7
+    },
+    "COMPOSITION_CAMERA": {
+      "ALL": 181,
+      "NON_SEXUAL": 166,
+      "CONTEXTUAL": 7,
+      "SEXUAL": 8
+    },
+    "CONTENT_RATING": {
+      "ALL": 52,
+      "SEXUAL": 33,
+      "CONTEXTUAL": 15,
+      "NON_SEXUAL": 4
+    },
+    "EXPRESSION_GAZE": {
+      "ALL": 447,
+      "NON_SEXUAL": 429,
+      "SEXUAL": 6,
+      "CONTEXTUAL": 12
+    },
+    "FLUID_EXCRETION": {
+      "ALL": 217,
+      "CONTEXTUAL": 41,
+      "SEXUAL": 148,
+      "NON_SEXUAL": 28
+    },
+    "HAIR_FACE": {
+      "ALL": 789,
+      "NON_SEXUAL": 789
+    },
+    "LIGHT_TIME_WEATHER": {
+      "ALL": 315,
+      "NON_SEXUAL": 315
+    },
+    "LIVING": {
+      "ALL": 1330,
+      "NON_SEXUAL": 1323,
+      "CONTEXTUAL": 3,
+      "SEXUAL": 4
+    },
+    "NONHUMAN_TRANSFORM": {
+      "ALL": 101,
+      "SEXUAL": 33,
+      "CONTEXTUAL": 31,
+      "NON_SEXUAL": 37
+    },
+    "PEOPLE_COUNT": {
+      "ALL": 794,
+      "NON_SEXUAL": 765,
+      "CONTEXTUAL": 11,
+      "SEXUAL": 18
+    },
+    "POSE_POSITION": {
+      "ALL": 809,
+      "SEXUAL": 32,
+      "NON_SEXUAL": 729,
+      "CONTEXTUAL": 48
+    },
+    "RELATION_ROLE": {
+      "ALL": 102,
+      "CONTEXTUAL": 38,
+      "SEXUAL": 49,
+      "NON_SEXUAL": 15
+    },
+    "SCENE_BACKGROUND": {
+      "ALL": 1075,
+      "NON_SEXUAL": 1060,
+      "SEXUAL": 8,
+      "CONTEXTUAL": 7
+    },
+    "STYLE_PROCESSING": {
+      "ALL": 1027,
+      "NON_SEXUAL": 998,
+      "CONTEXTUAL": 22,
+      "SEXUAL": 7
+    },
+    "TEXT_SYMBOL": {
+      "ALL": 1080,
+      "NON_SEXUAL": 1072,
+      "CONTEXTUAL": 4,
+      "SEXUAL": 4
+    },
+    "TOOL_OBJECT": {
+      "ALL": 5691,
+      "NON_SEXUAL": 5404,
+      "SEXUAL": 192,
+      "CONTEXTUAL": 95
+    }
+  },
+  "local_route_load": {
+    "ACTION_CONTACT/INTERACTION": {
+      "ALL": 2136,
+      "NON_SEXUAL": 1749,
+      "SEXUAL": 95,
+      "CONTEXTUAL": 292
+    },
+    "ACTION_CONTACT/INTIMATE": {
+      "ALL": 778,
+      "SEXUAL": 678,
+      "CONTEXTUAL": 92,
+      "NON_SEXUAL": 8
+    },
+    "ACTION_CONTACT/OBJECT_USE": {
+      "ALL": 787,
+      "NON_SEXUAL": 758,
+      "SEXUAL": 7,
+      "CONTEXTUAL": 22
+    },
+    "CLOTHING/ACCESSORY": {
+      "ALL": 2067,
+      "NON_SEXUAL": 1981,
+      "CONTEXTUAL": 67,
+      "SEXUAL": 19
+    },
+    "CLOTHING/COSTUME": {
+      "ALL": 1255,
+      "NON_SEXUAL": 1238,
+      "SEXUAL": 5,
+      "CONTEXTUAL": 12
+    },
+    "CLOTHING/EVERYDAY": {
+      "ALL": 3657,
+      "NON_SEXUAL": 3193,
+      "CONTEXTUAL": 433,
+      "SEXUAL": 31
+    },
+    "CLOTHING/UNIFORM": {
+      "ALL": 650,
+      "NON_SEXUAL": 650
+    },
+    "CLOTHING_STATE_EXPOSURE/": {
+      "ALL": 1105,
+      "NON_SEXUAL": 581,
+      "CONTEXTUAL": 354,
+      "SEXUAL": 170
+    },
+    "EXPRESSION_EMOTION/": {
+      "ALL": 381,
+      "NON_SEXUAL": 369,
+      "SEXUAL": 6,
+      "CONTEXTUAL": 6
+    },
+    "GAZE_ORIENTATION/": {
+      "ALL": 66,
+      "NON_SEXUAL": 60,
+      "CONTEXTUAL": 6
+    },
+    "LIVING_NATURE/CREATURE": {
+      "ALL": 928,
+      "NON_SEXUAL": 921,
+      "CONTEXTUAL": 3,
+      "SEXUAL": 4
+    },
+    "LIVING_NATURE/PLANT": {
+      "ALL": 392,
+      "NON_SEXUAL": 392
+    },
+    "OBJECT_PROP/DAILY": {
+      "ALL": 2839,
+      "NON_SEXUAL": 2777,
+      "CONTEXTUAL": 27,
+      "SEXUAL": 35
+    },
+    "OBJECT_PROP/FOOD": {
+      "ALL": 847,
+      "NON_SEXUAL": 835,
+      "CONTEXTUAL": 9,
+      "SEXUAL": 3
+    },
+    "OBJECT_PROP/VEHICLE": {
+      "ALL": 474,
+      "NON_SEXUAL": 473,
+      "CONTEXTUAL": 1
+    },
+    "OBJECT_PROP/WEAPON": {
+      "ALL": 1082,
+      "NON_SEXUAL": 1079,
+      "CONTEXTUAL": 3
+    },
+    "TEXT_SYMBOL/LAYOUT": {
+      "ALL": 13,
+      "NON_SEXUAL": 13
+    },
+    "TEXT_SYMBOL/SYMBOL": {
+      "ALL": 689,
+      "NON_SEXUAL": 683,
+      "SEXUAL": 3,
+      "CONTEXTUAL": 3
+    },
+    "TEXT_SYMBOL/TEXT": {
+      "ALL": 353,
+      "NON_SEXUAL": 351,
+      "CONTEXTUAL": 1,
+      "SEXUAL": 1
+    }
+  },
+  "body_facet_load": {
+    "BREAST_NIPPLE": {
+      "ALL": 279,
+      "CONTEXTUAL": 138,
+      "NON_SEXUAL": 32,
+      "SEXUAL": 109
+    },
+    "BUTTOCK_ANAL": {
+      "ALL": 110,
+      "SEXUAL": 71,
+      "CONTEXTUAL": 33,
+      "NON_SEXUAL": 6
+    },
+    "FEMALE_GENITAL": {
+      "ALL": 142,
+      "SEXUAL": 91,
+      "CONTEXTUAL": 43,
+      "NON_SEXUAL": 8
+    },
+    "MALE_GENITAL": {
+      "ALL": 237,
+      "SEXUAL": 154,
+      "CONTEXTUAL": 76,
+      "NON_SEXUAL": 7
+    },
+    "MOUTH_ORAL": {
+      "ALL": 115,
+      "SEXUAL": 88,
+      "NON_SEXUAL": 4,
+      "CONTEXTUAL": 23
+    },
+    "URETHRA": {
+      "ALL": 19,
+      "SEXUAL": 17,
+      "CONTEXTUAL": 2
+    }
+  },
+  "theme_facet_load": {
+    "BDSM_RESTRAINT": {
+      "ALL": 311,
+      "SEXUAL": 170,
+      "CONTEXTUAL": 129,
+      "NON_SEXUAL": 12
+    },
+    "INJURY_R18G": {
+      "ALL": 79,
+      "NON_SEXUAL": 60,
+      "CONTEXTUAL": 8,
+      "SEXUAL": 11
+    },
+    "REPRO_PREGNANCY_LACTATION": {
+      "ALL": 41,
+      "NON_SEXUAL": 14,
+      "CONTEXTUAL": 16,
+      "SEXUAL": 11
+    }
+  },
+  "notes": [
+    "Identity universe is Issue #118 v2 (31,003).",
+    "General current routes are projected from accepted #64 primary+secondary paths using current UnifiedBrowseTaxonomy mapping.",
+    "Special v2 is reconstructed from tracked #56/#76/#96/#107 authorities and restricted to the production 3,059-ID profile.",
+    "Heuristic pattern candidates are REVIEW_ONLY and never automatic route changes.",
+    "NO_AUTHORITY is not an error; it means no sufficiently trusted browse route is available from tracked authority."
+  ],
+  "special_mapping_issues": {
+    "unmapped": [],
+    "ambiguous": []
+  }
+}
