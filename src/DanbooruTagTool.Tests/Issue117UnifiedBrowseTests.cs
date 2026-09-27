@@ -151,7 +151,7 @@ public sealed class Issue117UnifiedBrowseTests
     }
 
     [Fact]
-    public void EmptyFacetAxesAreHiddenButSelectedZeroCountRemainsVisible()
+    public void EmptyFacetAxesStayHiddenWithoutRouteAndZeroCountBodyThemeKeepStableSlots()
     {
         var catalog = CatalogWithIntentFixtures();
         var workspace = new PromptWorkspace(new PromptParser(catalog));
@@ -169,6 +169,10 @@ public sealed class Issue117UnifiedBrowseTests
         Assert.False(vm.ShowThemeOptions);
         var selected = new BrowseFacetOptionViewModel(BrowseFacetKind.Theme, "theme", "テーマ") { Selected = true };
         Assert.True(selected.IsVisible);
+        Assert.True(selected.IsEnabled);
+        selected.Selected = false;
+        Assert.True(selected.IsVisible);
+        Assert.False(selected.IsEnabled);
     }
 
     [Fact]
@@ -437,8 +441,10 @@ public sealed class Issue117UnifiedBrowseTests
         };
 
         Assert.True(option.IsVisible);
+        Assert.True(option.IsEnabled);
         option.Selected = false;
-        Assert.False(option.IsVisible);
+        Assert.True(option.IsVisible);
+        Assert.False(option.IsEnabled);
     }
 
     [Fact]

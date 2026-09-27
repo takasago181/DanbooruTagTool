@@ -17,7 +17,12 @@ public sealed class BrowseFacetOptionViewModel(
     public bool Selected
     {
         get => selected;
-        set { if (Set(ref selected, value)) Notify(nameof(IsVisible)); }
+        set
+        {
+            if (!Set(ref selected, value)) return;
+            Notify(nameof(IsVisible));
+            Notify(nameof(IsEnabled));
+        }
     }
 
     public int Count
@@ -27,10 +32,14 @@ public sealed class BrowseFacetOptionViewModel(
         {
             if (!Set(ref count, value)) return;
             Notify(nameof(IsVisible));
+            Notify(nameof(IsEnabled));
             Notify(nameof(ToolTip));
         }
     }
 
-    public bool IsVisible => Selected || Count > 0;
+    // Body/theme facets occupy fixed chip slots; hiding zero-count options makes
+    // the WrapPanel reflow every remaining chip whenever another facet changes.
+    public bool IsVisible => Kind is BrowseFacetKind.BodySite or BrowseFacetKind.Theme || Selected || Count > 0;
+    public bool IsEnabled => Selected || Count > 0;
     public string ToolTip => $"{Count:N0}件";
 }
