@@ -1,0 +1,19 @@
+{
+  "schema_version": "issue132-final-general-risk-done-v1",
+  "role": "FINAL-AUDIT-GENERAL-RISK",
+  "status": "DONE",
+  "final_input_head": "aa6c745c35f59dc22700bd77ee1f015ba593faa3",
+  "audit_manifest_path": "docs/issue132/final-audit/GENERAL_RISK_AUDIT_MANIFEST.json",
+  "audit_manifest_sha256": "7c1eaac45c9d938d7a0b37971f3c040245720665e14b1aa3a15e13c892413a72",
+  "reducer_manifest_path": "docs/issue132/final-audit/GENERAL_RISK_REDUCER_MANIFEST.json",
+  "reducer_manifest_sha256": "12b0f957b6c0cb327bc3a81affe1c82b41933949ff9773288f81a114f9c995a7",
+  "verdict_path": "docs/issue132/final-audit/audit_general_risk_verdicts.jsonl",
+  "verdict_sha256": "2d4a1c65f8caf8f5eed2f04ba36b7fd850d2d8f58cb1990fd0963099ffdbf389",
+  "packet_path": "docs/issue132/final-audit/general_risk_reduced_blind.jsonl",
+  "packet_sha256": "d73eeff6c59b10577f1f8df57cc00d67d0433bf2260270380110f4e4a19cf215",
+  "target_identities": 5344,
+  "verdict_identities": 5344,
+  "blind_semantic_audit_complete": true,
+  "current_issue132_semantic_answers_consulted": false,
+  "validation_passed": true
+}
