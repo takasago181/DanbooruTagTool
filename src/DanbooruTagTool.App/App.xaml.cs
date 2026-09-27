@@ -25,7 +25,8 @@ public partial class App : Application
                 var result = AcceptedAssetImporter.Read(e.Args[1], e.Args[2], profile);
                 var specialBrowseEntries = SpecialBrowseV2Overlay.Bake(new Catalog(result.Entries));
                 var unifiedBrowseEntries = UnifiedBrowseOverlay.Bake(new Catalog(specialBrowseEntries), e.Args[2]);
-                var bakedEntries = Issue118SexualIntentV2Overlay.Bake(new Catalog(unifiedBrowseEntries), e.Args[2], result.SourceHashes);
+                var issue132Entries = Issue132RouteOverlay.Bake(new Catalog(unifiedBrowseEntries));
+                var bakedEntries = Issue118SexualIntentV2Overlay.Bake(new Catalog(issue132Entries), e.Args[2], result.SourceHashes);
                 CatalogDatabase.Build(Path.Combine(output, "catalog.db"), bakedEntries, JsonSerializer.Serialize(result.SourceHashes));
                 File.WriteAllText(Path.Combine(output, "import-report.json"), JsonSerializer.Serialize(new
                 {

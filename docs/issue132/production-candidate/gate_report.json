@@ -1,0 +1,448 @@
+{
+  "schema_version": "issue132-production-delta-gate-v1",
+  "status": "BLOCKED",
+  "blockers": [
+    "RELATION_ROLE: live-main build 73-\u003E88; accepted report 102-\u003E117.",
+    "BODY_SITE: live-main build 2343-\u003E2440; accepted report 2371-\u003E2468.",
+    "CLOTHING_EXPOSURE: live-main build 8915-\u003E8926; accepted report 8972-\u003E8983.",
+    "TOOL_OBJECT: live-main build 5660-\u003E5665; accepted report 5691-\u003E5696.",
+    "NONHUMAN_TRANSFORM: live-main build 83-\u003E83; accepted report 101-\u003E101.",
+    "ACTION_CONTACT: live-main build 3840-\u003E3858; accepted report 3928-\u003E3946.",
+    "FLUID_EXCRETION: live-main build 176-\u003E191; accepted report 217-\u003E232.",
+    "SCENE_BACKGROUND: live-main build 1074-\u003E1090; accepted report 1075-\u003E1091.",
+    "STYLE_PROCESSING: live-main build 1026-\u003E1030; accepted report 1027-\u003E1031.",
+    "CONTENT_RATING: live-main build 7-\u003E8; accepted report 52-\u003E53."
+  ],
+  "live_main_head": "e5d0f7d954ff491c1a5661a0652e6142f2b0d08d",
+  "semantic_research_head": "d74352be827c52a24888fbfc8bf71b8982627130",
+  "product_reconciliation_head": "de450958eb598a2c7c3a34b112f139dfba617c6e",
+  "source_root": "local protected source root; machine path omitted",
+  "live_main_authority_root": "live-main checkout; machine path omitted",
+  "protected_source_hashes": {
+    "data/source/danbooru-2026-09-02.csv": "9b32d5ac0713ab252e7470ba6af9cb34de56878b6b3b13dfbbf6a4a37d82d95b",
+    "data/derived/danbooru_alias_normalized_index_VERIFIED_34417.csv": "3f942704a10bb342ae7368024337849d392d54745061cf9259e51b9f6080a394",
+    "data/special2788/illustrious_tag_knowledge_base_2788.csv": "07584b365d5a68dbadd3f5e80859e768c2718b18746e32de02ce4b8bd60935e3",
+    "data/derived/special2788_VERIFIED_LINKAGE.csv": "d2691e774df0da762dbbf644c8aee4d68fe7d370ea91121c9ad083ccd3728ec2",
+    "docs/issue118/special_canonical_corrections_v1.csv": "c82e2428669cf8db2b4727ac053fe34f305e6190be57ee01baf3a35a8b655a46",
+    "data/derived/ruleset2/01_SPECIAL2788_JAPANESE_COMPLETE_CANDIDATE.csv": "12f6ccdc5d2dba33123cdfa97a636b2fdd49a519ed89d327d330471696762e02",
+    "data/special2788/product_fit_verdicts.csv": "d1c3d3fff12f48169458fa9967674022dc42456f2ee8ed9bee5156e53ced7834",
+    "docs/issue96/special_expansion_promotion_proposal_v1.csv": "cdeef93802f8b1ebf0e70b2fe82211e2fd8955b064b063f10093a3ff0642dc1f",
+    "docs/issue107/promotion_metadata_v1.csv": "84a31353d438001985b76793570417b6501f8ada220466c8508bf989544f26f5",
+    "data/generation/special2788_generation_profile.csv": "1f954ceafc8c87cd44ecde8ff74218de33e63124e002c7e9031a8edf3c00bd9e",
+    "docs/issue56/rollout/issue56_ui_genre_taxonomy_v1.json": "7a6f3b385cbdf17a17eb3673887f113642e89a89365f2b20cd57898a29d1d163",
+    "docs/issue56/pilot/issue56_ui_genre_pilot_v1_classification_map.csv": "18edbe3ddb1f31fc0461b2be1912f5f780a4206f62ed76725d8d7ffeb6159ea1",
+    "docs/issue56/rollout/reviewed/issue56_old01_crossaudit_a_v1.csv": "46e6469ca1bdfe255f072985a2f3f354d1ad3d2cab946e148eebe9e9ea10aacf",
+    "docs/issue56/rollout/reviewed/issue56_old01_crossaudit_b_v1.csv": "6bc81a090e78aeafa511eec1131db486b8c0a2cdada3045d85b34c4125357a96",
+    "docs/issue56/rollout/reviewed/issue56_old02_crossaudit_a_v1.csv": "d10fb96337b96eac6fd0c866e54ad34da234ae3181fc1a4620b5001bd55b2e38",
+    "docs/issue56/rollout/reviewed/issue56_old02_crossaudit_b_v1.csv": "017ee0a31bbb9f8300cb6d310d5d94773f12b339d8c8a1062131eb7fb227b086",
+    "docs/issue56/rollout/reviewed/issue56_old02_crossaudit_c_v1.csv": "372a8a651f4c10f61564e465df9136ea1021bc312f2fc783d791a2c74ceddf49",
+    "docs/issue56/rollout/reviewed/issue56_old03_crossaudit_v1.csv": "0a6f86038c3e0d4aa2f4237b4b5ec02b2a9c11f62b36191b83ff3baf84ae8bc2",
+    "docs/issue56/rollout/reviewed/issue56_old04_crossaudit_a_v1.csv": "537992bc6120c21acaffed40d879fcedb80f65905782fb96a0aedc5f08487770",
+    "docs/issue56/rollout/reviewed/issue56_old04_crossaudit_b_v1.csv": "af77792ee0f3de7b3d7bc0c95ee3bbd499b6581b66ad18043584c9b2356090d0",
+    "docs/issue56/rollout/reviewed/issue56_old04_crossaudit_c_v1.csv": "0cc7e31a79b3501396f997f9c7fa3e21355019a2234b6e9decc45b30150356b3",
+    "docs/issue56/rollout/reviewed/issue56_old05_crossaudit_a_v1.csv": "0e2de054542f154f2252d90328cfeb177e50df663892548c1638614c9a697a39",
+    "docs/issue56/rollout/reviewed/issue56_old05_crossaudit_b_v1.csv": "31cdaec63b6e78db68f2af0b5c3dc0c04770bd99465eb36371e736d4ade38a4d",
+    "docs/issue56/rollout/reviewed/issue56_old06_crossaudit_a_v1.csv": "b5afc4d129eb06d41d7836ce7786a8b9ea959404d002a3e129591af794463a1e",
+    "docs/issue56/rollout/reviewed/issue56_old06_crossaudit_b_v1.csv": "e0b0409cb13923b8d0d5877acd22485d4c49674266289daa5eca30f9450a0b00",
+    "docs/issue56/rollout/reviewed/issue56_old07_crossaudit_a_v1.csv": "e6cf867d7162ff52e3903bd2255f31d64dfd904aa611c92ce1fd9419b943133b",
+    "docs/issue56/rollout/reviewed/issue56_old07_crossaudit_b_v1.csv": "a7dfceb08844b709728a79b35ad228c9870bfa3f99b66f225944374b5d1481e6",
+    "docs/issue56/rollout/reviewed/issue56_old08_crossaudit_v1.csv": "57aa00dfada273365a839e442390fdde3b45c11c800cc2d63b619dcf55db288f",
+    "docs/issue56/rollout/reviewed/issue56_old09_crossaudit_v1.csv": "f90d34f204e53d4f0fb547ba7e068959fbce66577e19e1c69fb8186be00f7254",
+    "docs/issue56/rollout/reviewed/issue56_old10_crossaudit_v1.csv": "e0682809f711f6b4d91cea1632e3727fdd180cf51ce0ef17dcff6636cd67dcc6",
+    "docs/issue56/rollout/reviewed/issue56_old11_crossaudit_v1.csv": "7599a6360ca94dca48ad80f4dbcaf77f3d4c205a1e0df117e3063112cb76659e",
+    "docs/issue56/rollout/reviewed/issue56_old12_crossaudit_v1.csv": "821463923c312878c142734abf524da1e285a6f851b63d3e45b0371dd52a5d6d",
+    "docs/issue56/rollout/reviewed/issue56_old_other_part03a_reviewed_v1.csv": "d2bc8548e97fd0ff95c49f84030eef06d80c19fb62545b59b72d4a361ee47c9b",
+    "docs/issue56/rollout/reviewed/issue56_old_other_part03b_reviewed_v1.csv": "a542405157eaa132d23b02ff1466885fbb364e871eef4b01a9f36a4e7bd2749d",
+    "docs/issue56/rollout/reviewed/issue56_old_other_part04a_reviewed_v1.csv": "9332cd64fa5788ab5c034045dd165c6302b013d224b01abb3f9ab5a35a1d7077",
+    "docs/issue56/rollout/reviewed/issue56_old_other_part04b_reviewed_v1.csv": "88259bc1a62e1111649abf7b5412ee7d6e959c446282adc746f16e1db5806c9e",
+    "docs/issue56/rollout/reviewed/issue56_old_other_part05a_reviewed_v1.csv": "2831df6f37e6938ab5b885306d216437d12b686c1acc00de5ab1b8730b48a11e",
+    "docs/issue56/rollout/reviewed/issue56_old_other_part05b_reviewed_v1.csv": "5136b0c073f79c0cdfa35e75ebfeb6d664710ffaf24d39b56edecfb5b58309a0",
+    "docs/issue56/rollout/reviewed/issue56_old_other_part06a_reviewed_v1.csv": "edd36cb439f7306dc47a9bcef3fc1a56b73021752b29cfbae2d51f1063928578",
+    "docs/issue56/rollout/reviewed/issue56_old_other_part06b_reviewed_v1.csv": "559b67e566447ee76e34f635cdcf0519913ab9204d4904a62179c16f1d8e71c8",
+    "docs/issue56/rollout/reviewed/issue56_old_other_part07a_reviewed_v1.csv": "69e18846f536d679310e52dcbfc42e7602ebddceeddba59cc7563fd69aabb4ae",
+    "docs/issue56/rollout/reviewed/issue56_old_other_part07b_reviewed_v1.csv": "e87f9915f283caa043385e7cd26db98ec0240d72d48539ff526ed2b780f57f44",
+    "docs/issue56/rollout/reviewed/issue56_old_other_part08_reviewed_v1.csv": "31f943b2dc36b611e009feb7a3a8d8a2c1606d9fa68ca379b56317362bb69cb6",
+    "docs/issue56/rollout/reviewed/old_other_part01_v1.csv": "f6bd71db13e7153bdf960aa80dd4965d3a3e4316edbc1fd0b3980bc7d09e196a",
+    "docs/issue56/rollout/reviewed/old_other_part02_v1.csv": "3ca1f5ebfbca1098162364d3c4e874a1a04ffdb6ee957be4e99ff120308f2f79",
+    "docs/issue64/production_candidate/general_taxonomy.json": "7311fa1bf1523fcd83134c975b579289d7dbc8aa4cdb1313952d906fc2beb70f",
+    "docs/issue64/production_candidate/effective_sidecar.csv": "a118f5f904c38cee5b63f0c83b06a56f50ee8afdb623c52eb354731bc0b846d9",
+    "docs/issue64/production_candidate/manifest.json": "aa0ca7e3900c11b9aa500aca1e8d6d337fa0702296f4e5b7385f39e4a7fb675c",
+    "data/runtime/japanese_overlay.json": "999b42fa76e036ad79f68ef7cd3ff958c94bd42c08ab00dd0394898d0205de76",
+    "docs/issue70/data/runtime/issue70_catalog_overlay_2d_final.csv": "bf366734b41b2be9e6cb52de919ef55b7312445e1715f96a357db37abda8dad5",
+    "docs/issue118/production_candidate/sexual_intent_v2.csv": "d2966dbc3c70617af2a985a94f81650785a29c1668b40b582d3c213ef2a68bc0"
+  },
+  "source_and_overlay_construction_ms": 7231.7216,
+  "issue132_overlay_apply_ms": 764.531,
+  "baseline_catalog_build_ms": 1596.5521,
+  "candidate_catalog_build_ms": 1157.8886,
+  "baseline_catalog_sha256": "14ad53d8a917ee2fc31c27fc20e2c364536a65a4339a25185df7cd43ca68f705",
+  "baseline_catalog_length": 131055616,
+  "source_pair_count": 274,
+  "source_identity_count": 273,
+  "baseline_entry_count": 124895,
+  "candidate_entry_count": 124895,
+  "ordinary_identity_count_before": 31003,
+  "ordinary_identity_count_after": 31003,
+  "actual_route_additions": 274,
+  "changed_identity_count": 273,
+  "unexpected_changed_identity_count": 0,
+  "route_removals": 0,
+  "non_issue132_metadata_changes": 0,
+  "catalog_database_open_ms": {
+    "baseline": 1833.1515,
+    "candidate": 1698.5708
+  },
+  "catalog_build_candidate_ms": 1157.8886,
+  "candidate_catalog_path": "isolated temporary candidate catalog; machine path omitted",
+  "candidate_catalog_sha256": "24665d7c92b9de9b22d92c7713f4e9876dc9c15b98e02324bbe670448bea7ff9",
+  "candidate_catalog_length": 131063808,
+  "catalog_construction": {
+    "baseline": {
+      "median_ms": 484.1042,
+      "median_allocated_bytes": 247520632,
+      "median_retained_heap_delta_bytes": 0
+    },
+    "candidate": {
+      "median_ms": 489.4108,
+      "median_allocated_bytes": 247520632,
+      "median_retained_heap_delta_bytes": 0
+    }
+  },
+  "unified_browse_index_construction": {
+    "baseline": {
+      "median_ms": 93.2791,
+      "median_allocated_bytes": 78246136,
+      "median_retained_heap_delta_bytes": 0
+    },
+    "candidate": {
+      "median_ms": 90.4618,
+      "median_allocated_bytes": 78258136,
+      "median_retained_heap_delta_bytes": 0
+    }
+  },
+  "search_and_filter_search": [
+    {
+      "kind": "english",
+      "query": "abduction",
+      "hits": 1,
+      "before_ranked": 1,
+      "after_ranked": 1,
+      "before_search_median_ms": 87.4313,
+      "candidate_search_median_ms": 79.0369,
+      "before_filter_search_hits_median_ms": 0.0001,
+      "candidate_filter_search_hits_median_ms": 0.0002
+    },
+    {
+      "kind": "japanese",
+      "query": "\u30A2\u30D6\u30C0\u30AF\u30B7\u30E7\u30F3",
+      "hits": 1,
+      "before_ranked": 1,
+      "after_ranked": 1,
+      "before_search_median_ms": 89.6371,
+      "candidate_search_median_ms": 82.8895,
+      "before_filter_search_hits_median_ms": 0.0002,
+      "candidate_filter_search_hits_median_ms": 0.0002
+    },
+    {
+      "kind": "mixed",
+      "query": "abduction \u30A2\u30D6\u30C0\u30AF\u30B7\u30E7\u30F3",
+      "hits": 1,
+      "before_ranked": 1,
+      "after_ranked": 1,
+      "before_search_median_ms": 110.6964,
+      "candidate_search_median_ms": 104.2358,
+      "before_filter_search_hits_median_ms": 0.0002,
+      "candidate_filter_search_hits_median_ms": 0.0001
+    }
+  ],
+  "browse": [
+    {
+      "name": "long_neutral",
+      "before_count": 28344,
+      "candidate_count": 28344,
+      "before_browse_median_ms": 2.0765,
+      "candidate_browse_median_ms": 1.8178
+    },
+    {
+      "name": "sexual_neutral",
+      "before_count": 2964,
+      "candidate_count": 2964,
+      "before_browse_median_ms": 1.8082,
+      "candidate_browse_median_ms": 1.8365
+    },
+    {
+      "name": "generalpurpose_neutral",
+      "before_count": 27055,
+      "candidate_count": 27055,
+      "before_browse_median_ms": 2.0585,
+      "candidate_browse_median_ms": 2.1867
+    },
+    {
+      "name": "sexual_body_theme",
+      "before_count": 33,
+      "candidate_count": 33,
+      "before_browse_median_ms": 1.4707,
+      "candidate_browse_median_ms": 1.3233
+    },
+    {
+      "name": "BODY_SITE_all",
+      "before_count": 2343,
+      "candidate_count": 2440,
+      "before_browse_median_ms": 0.9591,
+      "candidate_browse_median_ms": 0.9404
+    },
+    {
+      "name": "BODY_SITE_sexual",
+      "before_count": 389,
+      "candidate_count": 479,
+      "before_browse_median_ms": 0.9719,
+      "candidate_browse_median_ms": 1.0104
+    },
+    {
+      "name": "POSE_POSITION_all",
+      "before_count": 809,
+      "candidate_count": 861,
+      "before_browse_median_ms": 0.795,
+      "candidate_browse_median_ms": 0.8046
+    },
+    {
+      "name": "POSE_POSITION_sexual",
+      "before_count": 80,
+      "candidate_count": 100,
+      "before_browse_median_ms": 0.8329,
+      "candidate_browse_median_ms": 0.8212
+    },
+    {
+      "name": "ACTION_CONTACT_all",
+      "before_count": 3840,
+      "candidate_count": 3858,
+      "before_browse_median_ms": 0.9728,
+      "candidate_browse_median_ms": 0.9789
+    },
+    {
+      "name": "ACTION_CONTACT_sexual",
+      "before_count": 1289,
+      "candidate_count": 1300,
+      "before_browse_median_ms": 0.9724,
+      "candidate_browse_median_ms": 1.0091
+    },
+    {
+      "name": "COMPOSITION_CAMERA_all",
+      "before_count": 181,
+      "candidate_count": 198,
+      "before_browse_median_ms": 0.9334,
+      "candidate_browse_median_ms": 0.8397
+    },
+    {
+      "name": "COMPOSITION_CAMERA_sexual",
+      "before_count": 15,
+      "candidate_count": 18,
+      "before_browse_median_ms": 0.8444,
+      "candidate_browse_median_ms": 0.9097
+    },
+    {
+      "name": "FLUID_EXCRETION_all",
+      "before_count": 176,
+      "candidate_count": 191,
+      "before_browse_median_ms": 1.5785,
+      "candidate_browse_median_ms": 1.5468
+    },
+    {
+      "name": "FLUID_EXCRETION_sexual",
+      "before_count": 154,
+      "candidate_count": 159,
+      "before_browse_median_ms": 1.6384,
+      "candidate_browse_median_ms": 0.6608
+    },
+    {
+      "name": "RELATION_ROLE_all",
+      "before_count": 73,
+      "candidate_count": 88,
+      "before_browse_median_ms": 0.5501,
+      "candidate_browse_median_ms": 0.5986
+    },
+    {
+      "name": "RELATION_ROLE_sexual",
+      "before_count": 71,
+      "candidate_count": 75,
+      "before_browse_median_ms": 0.583,
+      "candidate_browse_median_ms": 0.5617
+    }
+  ],
+  "shelf_validation": [
+    {
+      "route": "PEOPLE_COUNT",
+      "before": 794,
+      "additions": 10,
+      "after": 804,
+      "accepted_before": 794,
+      "accepted_additions": 10,
+      "shelf_matches": true
+    },
+    {
+      "route": "RELATION_ROLE",
+      "before": 73,
+      "additions": 15,
+      "after": 88,
+      "accepted_before": 102,
+      "accepted_additions": 15,
+      "shelf_matches": false
+    },
+    {
+      "route": "BODY_SITE",
+      "before": 2343,
+      "additions": 97,
+      "after": 2440,
+      "accepted_before": 2371,
+      "accepted_additions": 97,
+      "shelf_matches": false
+    },
+    {
+      "route": "HAIR_FACE",
+      "before": 789,
+      "additions": 4,
+      "after": 793,
+      "accepted_before": 789,
+      "accepted_additions": 4,
+      "shelf_matches": true
+    },
+    {
+      "route": "CLOTHING_EXPOSURE",
+      "before": 8915,
+      "additions": 11,
+      "after": 8926,
+      "accepted_before": 8972,
+      "accepted_additions": 11,
+      "shelf_matches": false
+    },
+    {
+      "route": "TOOL_OBJECT",
+      "before": 5660,
+      "additions": 5,
+      "after": 5665,
+      "accepted_before": 5691,
+      "accepted_additions": 5,
+      "shelf_matches": false
+    },
+    {
+      "route": "LIVING",
+      "before": 1330,
+      "additions": 0,
+      "after": 1330,
+      "accepted_before": 1330,
+      "accepted_additions": 0,
+      "shelf_matches": true
+    },
+    {
+      "route": "NONHUMAN_TRANSFORM",
+      "before": 83,
+      "additions": 0,
+      "after": 83,
+      "accepted_before": 101,
+      "accepted_additions": 0,
+      "shelf_matches": false
+    },
+    {
+      "route": "ACTION_CONTACT",
+      "before": 3840,
+      "additions": 18,
+      "after": 3858,
+      "accepted_before": 3928,
+      "accepted_additions": 18,
+      "shelf_matches": false
+    },
+    {
+      "route": "POSE_POSITION",
+      "before": 809,
+      "additions": 52,
+      "after": 861,
+      "accepted_before": 809,
+      "accepted_additions": 52,
+      "shelf_matches": true
+    },
+    {
+      "route": "EXPRESSION_GAZE",
+      "before": 447,
+      "additions": 0,
+      "after": 447,
+      "accepted_before": 447,
+      "accepted_additions": 0,
+      "shelf_matches": true
+    },
+    {
+      "route": "FLUID_EXCRETION",
+      "before": 176,
+      "additions": 15,
+      "after": 191,
+      "accepted_before": 217,
+      "accepted_additions": 15,
+      "shelf_matches": false
+    },
+    {
+      "route": "COMPOSITION_CAMERA",
+      "before": 181,
+      "additions": 17,
+      "after": 198,
+      "accepted_before": 181,
+      "accepted_additions": 17,
+      "shelf_matches": true
+    },
+    {
+      "route": "SCENE_BACKGROUND",
+      "before": 1074,
+      "additions": 16,
+      "after": 1090,
+      "accepted_before": 1075,
+      "accepted_additions": 16,
+      "shelf_matches": false
+    },
+    {
+      "route": "LIGHT_TIME_WEATHER",
+      "before": 315,
+      "additions": 9,
+      "after": 324,
+      "accepted_before": 315,
+      "accepted_additions": 9,
+      "shelf_matches": true
+    },
+    {
+      "route": "COLOR_PATTERN_SHAPE",
+      "before": 682,
+      "additions": 0,
+      "after": 682,
+      "accepted_before": 682,
+      "accepted_additions": 0,
+      "shelf_matches": true
+    },
+    {
+      "route": "STYLE_PROCESSING",
+      "before": 1026,
+      "additions": 4,
+      "after": 1030,
+      "accepted_before": 1027,
+      "accepted_additions": 4,
+      "shelf_matches": false
+    },
+    {
+      "route": "TEXT_SYMBOL",
+      "before": 1080,
+      "additions": 0,
+      "after": 1080,
+      "accepted_before": 1080,
+      "accepted_additions": 0,
+      "shelf_matches": true
+    },
+    {
+      "route": "CONTENT_RATING",
+      "before": 7,
+      "additions": 1,
+      "after": 8,
+      "accepted_before": 52,
+      "accepted_additions": 1,
+      "shelf_matches": false
+    }
+  ],
+  "user_data_touched": false,
+  "production_apply": false,
+  "main_modified": false
+}
