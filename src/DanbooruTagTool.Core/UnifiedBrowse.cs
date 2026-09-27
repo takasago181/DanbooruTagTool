@@ -182,6 +182,11 @@ public sealed class UnifiedBrowseIndex
                 if (generalDirectBrowse)
                 {
                     browseable = true;
+                    if (row.UnifiedBrowseFacets is { } facets)
+                    {
+                        bodyIds.UnionWith(facets.BodySiteIds);
+                        themeIds.UnionWith(facets.ThemeIds);
+                    }
                     foreach (var path in row.Paths)
                     {
                         var route = UnifiedBrowseTaxonomy.GeneralRoute(path.GenreId);
