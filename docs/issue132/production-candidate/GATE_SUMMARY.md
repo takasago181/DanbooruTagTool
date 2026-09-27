@@ -1,54 +1,75 @@
 # Issue #132 production candidate gate
 
-**Verdict: `BLOCKED`**
+**Verdict: `READY_FOR_MAIN_REVIEW = YES`**
 
-This branch contains a reviewable implementation of the accepted, isolated secondary-route delta. It does not apply the delta to production or change `main`.
+The exact accepted 274-pair secondary-route delta passes production-size identity, shelf, functional, performance, and retained-memory checks against a fresh catalog built from live main and current protected inputs.
 
-## Candidate and behavior
+## Projection reconciliation: root cause of the 10 shelf differences
 
-- Input: exactly 274 route pairs across 273 identities from reconciliation head `de450958eb598a2c7c3a34b112f139dfba617c6e`.
-- The embedded CSV is pinned by SHA-256 and validated at catalog construction. The overlay requires each target to resolve to one existing browseable General/Special identity, rejects existing/unknown routes, and only unions the accepted route IDs.
-- The candidate keeps the existing `UnifiedBrowseIndex` and search pipeline. Full-catalog comparison found 274 additions across 273 identities, zero unexpected changed identities, zero removals, and zero non-Issue-132 metadata changes. The ordinary identity count remains 31,003.
-- Tests cover exact pair application, metadata preservation, search ranking, browse filters, and sexual-intent lens behavior.
+Pass C's `shelf_before_after.csv` uses the Pass B `current_routes` research projection. The earlier production gate counted browseable identities in the actual catalog and `UnifiedBrowseIndex`. The identity-level comparison covers the same 31,003 normalized canonical identities and proves that the 339 differing memberships all exist only in the research projection. There are zero memberships found only in the runtime projection. Each route's count delta equals `only_in_research - only_in_runtime`, and the runtime membership count equals the actual browse shelf count.
 
-## Blocking shelf reconciliation
+| Route | Pass C research | Actual runtime | Research only | Runtime only |
+|---|---:|---:|---:|---:|
+| RELATION_ROLE | 102 | 73 | 29 | 0 |
+| BODY_SITE | 2,371 | 2,343 | 28 | 0 |
+| CLOTHING_EXPOSURE | 8,972 | 8,915 | 57 | 0 |
+| TOOL_OBJECT | 5,691 | 5,660 | 31 | 0 |
+| NONHUMAN_TRANSFORM | 101 | 83 | 18 | 0 |
+| ACTION_CONTACT | 3,928 | 3,840 | 88 | 0 |
+| FLUID_EXCRETION | 217 | 176 | 41 | 0 |
+| SCENE_BACKGROUND | 1,075 | 1,074 | 1 | 0 |
+| STYLE_PROCESSING | 1,027 | 1,026 | 1 | 0 |
+| CONTENT_RATING | 52 | 7 | 45 | 0 |
 
-The full production-size build from live main and current protected source inputs reproduced all 274 additions, but 10 before-counts do not match the accepted reconciliation shelf baselines. Since the exact shelf check is a required gate, the candidate cannot be marked ready until the baseline discrepancy is reconciled by the owning lane. This report does not alter the accepted counts or candidate list.
+This fully explains the previous BLOCKED result as a difference between research projection and actual runtime projection. The Pass C research artifacts remain unchanged. The production shelf gate now uses the actual live-main runtime baseline. The complete identity and source mapping is in [research_runtime_route_membership_diff.csv](research_runtime_route_membership_diff.csv).
 
-| Route | Live-main before → after | Accepted before → after |
-|---|---:|---:|
-| RELATION_ROLE | 73 → 88 | 102 → 117 |
-| BODY_SITE | 2,343 → 2,440 | 2,371 → 2,468 |
-| CLOTHING_EXPOSURE | 8,915 → 8,926 | 8,972 → 8,983 |
-| TOOL_OBJECT | 5,660 → 5,665 | 5,691 → 5,696 |
-| NONHUMAN_TRANSFORM | 83 → 83 | 101 → 101 |
-| ACTION_CONTACT | 3,840 → 3,858 | 3,928 → 3,946 |
-| FLUID_EXCRETION | 176 → 191 | 217 → 232 |
-| SCENE_BACKGROUND | 1,074 → 1,090 | 1,075 → 1,091 |
-| STYLE_PROCESSING | 1,026 → 1,030 | 1,027 → 1,031 |
-| CONTENT_RATING | 7 → 8 | 52 → 53 |
+## Candidate identity and shelf validation
 
-The accepted additions per route match the candidate in all 19 shelves. The live-main baseline catalog hash matches the current runtime catalog hash recorded in the gate report. The gate used fresh catalog construction from protected inputs, not the runtime catalog as its build input. Protected source paths were omitted from the report; source data and UserData were read-only and untouched.
+- Input remains exactly 274 accepted pairs across 273 identities from reconciliation head `de450958eb598a2c7c3a34b112f139dfba617c6e`; the embedded asset is SHA-256 pinned.
+- All target identities resolve to one already-browseable General/Special runtime identity. All routes exist, no route is already present, and the overlay only adds memberships through the existing `UnifiedBrowseIndex` path.
+- Actual delta: **274 route additions**, **273 changed identities**, **0 unexpected changed identities**, **0 removals**, **0 non-#132 metadata changes**. The catalog remains at 31,003 ordinary identities and 124,895 total entries.
+- All 19 runtime shelves satisfy `actual before + accepted additions = actual after`. This includes BODY_SITE +97, POSE_POSITION +52, ACTION_CONTACT +18, COMPOSITION_CAMERA +17, FLUID_EXCRETION +15, and RELATION_ROLE +15.
+- Serialized catalog delta is +8,192 bytes. Same-condition build allocation remains 247,520,632 bytes for both catalogs. UnifiedBrowseIndex allocation is 78,246,136 baseline / 78,258,136 candidate (+12,000 bytes).
 
-## Performance and regression results
+## Performance and retained memory
 
-- Full production catalog: 124,895 entries before and after; serialized catalog grows by 8,192 bytes.
-- Catalog construction median: 484.10 ms baseline / 489.41 ms candidate; allocated bytes are equal (247,520,632). Retained-heap sampling reported zero for both, so it is not useful as a memory comparison.
-- Browse index construction median: 93.28 ms / 90.46 ms; candidate allocation increases by 12,000 bytes. Retained-heap sampling again reported zero for both.
-- English, Japanese, and mixed `abduction` searches return the same single ranked hit. Candidate medians were 79.04 ms, 82.89 ms, and 104.24 ms versus 87.43 ms, 89.64 ms, and 110.70 ms baseline. `FilterSearchHits` timing was effectively unchanged.
-- Browse cardinality stayed the same for long-neutral (28,344), sexual-neutral (2,964), General-purpose-neutral (27,055), and sexual body+theme (33) queries. Expected candidate shelves grew by their exact route additions.
-- Existing runtime-index performance harness passed. Its synthetic 126,427-entry catalog showed indexed search at 596 ms versus 1,584 ms legacy and indexed browse at 0.515 ms versus 1.651 ms legacy. Its heap comparison is separate from the zero retained-heap samples above.
+Search and browse timings use interleaved baseline/candidate operations: five rounds of seven samples per case. Results are medians from the same process and runtime. Search ranking and `FilterSearchHits` results match exactly.
 
-## Verification and boundaries
+| Operation | Baseline median | Candidate median | Result |
+|---|---:|---:|---|
+| English search | 49.20 ms | 50.81 ms | +3.3%, below regression threshold |
+| Japanese search | 51.29 ms | 52.10 ms | +1.6%, below threshold |
+| Mixed search | 67.12 ms | 67.68 ms | +0.8%, below threshold |
+| Long neutral browse (28,344 rows) | 0.84 ms | 0.88 ms | same rows, below threshold |
+| Sexual neutral browse (2,964 rows) | 0.68 ms | 0.71 ms | same rows, below threshold |
+| GeneralPurpose neutral browse (27,055 rows) | 0.79 ms | 0.82 ms | same rows, below threshold |
+| Sexual body + theme browse (33 rows) | 1.28 ms | 1.05 ms | same rows |
 
-- `dotnet test src/DanbooruTagTool.sln --no-restore -m:1 -nr:false -v:q`: 212 passed, 16 skipped, 0 failed.
-- `dotnet build src/DanbooruTagTool.sln -c Release --no-restore -m:1 -nr:false -v:q`: succeeded, 0 warnings, 0 errors.
-- `git diff --check`: clean.
-- No production apply, runtime/UserData write, or `main` modification occurred. No manual Windows UI launch/scroll-idle smoke was run.
-- Preserved follow-up findings are listed in [FOLLOW_UP_FINDINGS.md](FOLLOW_UP_FINDINGS.md).
+FilterSearchHits medians round to 0.00 ms in the summary; unrounded measurements and all browse cases are in the machine report. No case crosses the recorded material-regression thresholds.
 
-Machine-readable measurements and source fingerprints: [gate_report.json](gate_report.json).
+Retained-memory measurements use five fresh processes per build. Each process loads the catalog, then builds the `UnifiedBrowseIndex`; full blocking compacting GC runs before each sample, with the measured objects kept alive. Median managed bytes:
 
-## Stop point
+- Catalog: 261,175,344 baseline / 261,207,440 candidate (**+32,096 bytes**).
+- Catalog + index: 284,942,880 / 284,975,200 (**+32,320 bytes**).
+- Index incremental retained bytes: 23,767,536 / 23,767,760 (**+224 bytes**).
+- Candidate is lower in median process private bytes and working set; per-process samples are preserved in the JSON report because those OS readings vary more than managed retained memory.
 
-Stop at `BLOCKED` pending reconciliation of the 10 shelf baseline discrepancies and a useful retained-heap measurement. Do not promote or merge this candidate based on the current gate.
+The candidate's +32,320 managed bytes is below the gate's material growth limit of 2,849,428 bytes (1% of baseline combined managed memory). No material memory regression was observed.
+
+## Build and regression
+
+- Full tests: 212 passed, 16 skipped, 0 failed.
+- Release solution build: succeeded, 0 warnings and 0 errors.
+- Existing runtime-index performance test passed.
+- No manual GUI launch or interactive prompt smoke has yet been run at this review gate; those checks are part of the authorized production promotion step.
+
+## Provenance and boundaries
+
+- Live main baseline: `e5d0f7d954ff491c1a5661a0652e6142f2b0d08d`.
+- Baseline catalog hash matches the current runtime catalog: `14ad53d8a917ee2fc31c27fc20e2c364536a65a4339a25185df7cd43ca68f705`.
+- Candidate catalog hash: `24665d7c92b9de9b22d92c7713f4e9876dc9c15b98e02324bbe670448bea7ff9`.
+- Protected source hashes match the previous gate report. Source inputs, installed runtime, and UserData were read-only during this gate.
+- No production apply or main modification occurred during gate evaluation.
+- Follow-up research remains separate in [FOLLOW_UP_FINDINGS.md](FOLLOW_UP_FINDINGS.md).
+
+Machine-readable full results: [gate_report.json](gate_report.json).

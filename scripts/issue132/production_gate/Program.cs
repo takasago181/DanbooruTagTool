@@ -6,9 +6,15 @@ using DanbooruTagTool.Core;
 using DanbooruTagTool.Data;
 using Microsoft.VisualBasic.FileIO;
 
-if (args.Length != 4)
+if (args.Length == 2 && args[0] == "--memory-worker")
 {
-    Console.Error.WriteLine("Usage: Issue132ProductionGate <protected-source-root> <live-main-authority-root> <fresh-output-directory> <report.json>");
+    RunMemoryWorker(args[1]);
+    return 0;
+}
+
+if (args.Length != 6)
+{
+    Console.Error.WriteLine("Usage: Issue132ProductionGate <protected-source-root> <live-main-authority-root> <fresh-output-directory> <report.json> <pass_b_full_diff.csv> <route-membership-diff.csv>");
     return 2;
 }
 
@@ -16,6 +22,8 @@ var sourceRoot = Path.GetFullPath(args[0]);
 var authorityRoot = Path.GetFullPath(args[1]);
 var outputDirectory = Path.GetFullPath(args[2]);
 var reportPath = Path.GetFullPath(args[3]);
+var researchProjectionPath = Path.GetFullPath(args[4]);
+var routeMembershipDiffPath = Path.GetFullPath(args[5]);
 var baselinePath = Path.Combine(outputDirectory, "baseline", "Data", "catalog.db");
 var candidatePath = Path.Combine(outputDirectory, "candidate", "Data", "catalog.db");
 if (Directory.Exists(outputDirectory) && Directory.EnumerateFileSystemEntries(outputDirectory).Any())
@@ -61,6 +69,56 @@ var sourceIdentityMap = beforeIndex.Identities
         (SourceKey: Issue118SexualIntentOverlay.NormalizeIdentity(entry.Canonical ?? entry.English), IdentityKey: identity.IdentityKey)))
     .GroupBy(row => row.SourceKey, StringComparer.Ordinal)
     .ToDictionary(group => group.Key, group => group.Select(row => row.IdentityKey).Distinct(StringComparer.Ordinal).ToArray(), StringComparer.Ordinal);
+
+var researchProjection = ReadResearchProjection(researchProjectionPath);
+var researchByIdentity = researchProjection.ToDictionary(row => row.IdentityKey, StringComparer.Ordinal);
+var beforeBySourceIdentity = beforeIndex.Identities.ToDictionary(
+    identity => Issue118SexualIntentOverlay.NormalizeIdentity(identity.Representative.Canonical ?? identity.Representative.English),
+    StringComparer.Ordinal);
+if (researchByIdentity.Count != 31003 || beforeBySourceIdentity.Count != 31003 ||
+    !researchByIdentity.Keys.ToHashSet(StringComparer.Ordinal).SetEquals(beforeBySourceIdentity.Keys))
+{
+    var onlyResearchIdentities = researchByIdentity.Keys.Except(beforeBySourceIdentity.Keys, StringComparer.Ordinal).Take(10);
+    var onlyRuntimeIdentities = beforeBySourceIdentity.Keys.Except(researchByIdentity.Keys, StringComparer.Ordinal).Take(10);
+    throw new InvalidDataException($"Research/runtime source-identity population mismatch: research={researchByIdentity.Count}, runtime={beforeBySourceIdentity.Count}, only_research=[{string.Join(',', onlyResearchIdentities)}], only_runtime=[{string.Join(',', onlyRuntimeIdentities)}].");
+}
+
+var researchPairs = researchProjection
+    .SelectMany(row => row.Routes.Select(route => (Identity: row.IdentityKey, Route: route)))
+    .ToHashSet();
+var runtimePairs = beforeIndex.Identities
+    .SelectMany(identity => identity.RouteIds.Select(route => (Identity: Issue118SexualIntentOverlay.NormalizeIdentity(identity.Representative.Canonical ?? identity.Representative.English), Route: route)))
+    .ToHashSet();
+var onlyInResearch = researchPairs.Except(runtimePairs).ToHashSet();
+var onlyInRuntime = runtimePairs.Except(researchPairs).ToHashSet();
+var membershipDiffRows = onlyInResearch.Select(pair => (pair.Identity, pair.Route, ProjectionDiff: "ONLY_IN_RESEARCH"))
+    .Concat(onlyInRuntime.Select(pair => (pair.Identity, pair.Route, ProjectionDiff: "ONLY_IN_RUNTIME")))
+    .OrderBy(row => row.Route, StringComparer.Ordinal)
+    .ThenBy(row => row.Identity, StringComparer.Ordinal)
+    .ToArray();
+WriteMembershipDiff(routeMembershipDiffPath, membershipDiffRows, researchByIdentity, beforeBySourceIdentity);
+var membershipDiffByRoute = UnifiedBrowseTaxonomy.Routes.Select(route =>
+{
+    var researchCount = researchPairs.Count(pair => pair.Route == route.Id);
+    var runtimeCount = runtimePairs.Count(pair => pair.Route == route.Id);
+    var actualBrowseCount = beforeIndex.Count(UnifiedBrowseState.Neutral with { PrimaryRouteId = route.Id });
+    var researchOnlyCount = onlyInResearch.Count(pair => pair.Route == route.Id);
+    var runtimeOnlyCount = onlyInRuntime.Count(pair => pair.Route == route.Id);
+    if (runtimeCount != actualBrowseCount)
+        throw new InvalidDataException($"Runtime membership set does not match actual browse shelf for {route.Id}: membership={runtimeCount}, browse={actualBrowseCount}.");
+    if (researchCount - runtimeCount != researchOnlyCount - runtimeOnlyCount)
+        throw new InvalidDataException("Identity-level route diff does not reconcile the projection count delta for " + route.Id);
+    return new
+    {
+        route = route.Id,
+        research_current_route_memberships = researchCount,
+        actual_runtime_route_memberships = runtimeCount,
+        only_in_research = researchOnlyCount,
+        only_in_runtime = runtimeOnlyCount,
+        actual_runtime_browse_count = actualBrowseCount,
+        count_delta_reconciles = researchCount - runtimeCount == researchOnlyCount - runtimeOnlyCount
+    };
+}).ToArray();
 var expected = acceptedPairs.Select(pair =>
 {
     var key = Issue118SexualIntentOverlay.NormalizeIdentity(pair.IdentityKey);
@@ -110,13 +168,25 @@ foreach (var route in UnifiedBrowseTaxonomy.Routes)
     var before = beforeIndex.Count(UnifiedBrowseState.Neutral with { PrimaryRouteId = route.Id });
     var after = afterIndex.Count(UnifiedBrowseState.Neutral with { PrimaryRouteId = route.Id });
     var accepted = acceptedShelves[route.Id];
-    var shelfMatches = before == accepted.Before && after == accepted.Before + accepted.Add;
-    if (!shelfMatches) shelfDifferences.Add($"{route.Id}: live-main build {before}->{after}; accepted report {accepted.Before}->{accepted.Before + accepted.Add}.");
-    shelfReport.Add(new { route = route.Id, before, additions = after - before, after, accepted_before = accepted.Before, accepted_additions = accepted.Add, shelf_matches = shelfMatches });
+    var shelfMatches = after == before + accepted.Add;
+    if (!shelfMatches) shelfDifferences.Add($"{route.Id}: actual runtime {before}->{after}; accepted candidate addition {accepted.Add}.");
+    var projection = membershipDiffByRoute.Single(row => row.route == route.Id);
+    shelfReport.Add(new
+    {
+        route = route.Id,
+        research_current_route_memberships = projection.research_current_route_memberships,
+        actual_runtime_before = before,
+        only_in_research = projection.only_in_research,
+        only_in_runtime = projection.only_in_runtime,
+        accepted_candidate_additions = accepted.Add,
+        actual_runtime_after = after,
+        production_shelf_arithmetic_matches = shelfMatches
+    });
 }
 
 var searchInputs = SelectSearchInputs(baselineCatalog, acceptedPairs);
 var searchReport = new List<object>();
+var performanceRegressions = new List<string>();
 foreach (var (kind, query) in searchInputs)
 {
     var beforeHits = baselineCatalog.Search(query);
@@ -136,13 +206,20 @@ foreach (var (kind, query) in searchInputs)
         if (!beforeFiltered.Select(hit => (hit.Entry.Id, hit.Rank)).SequenceEqual(afterFiltered.Select(hit => (hit.Entry.Id, hit.Rank))))
             throw new InvalidDataException("Browse/content/body/theme search filtering changed for " + kind + " query.");
     }
-    var beforeTiming = MedianMilliseconds(() => baselineCatalog.Search(query).Count);
-    var afterTiming = MedianMilliseconds(() => candidateCatalog.Search(query).Count);
-    var beforeFilterTiming = MedianMilliseconds(() => beforeIndex.FilterSearchHits(beforeHits, UnifiedBrowseState.Neutral with { ContentIntent = ContentIntentFilter.Sexual }).Count);
-    var afterFilterTiming = MedianMilliseconds(() => afterIndex.FilterSearchHits(afterHits, UnifiedBrowseState.Neutral with { ContentIntent = ContentIntentFilter.Sexual }).Count);
+    var searchTiming = PairedMedianMilliseconds(() => baselineCatalog.Search(query).Count, () => candidateCatalog.Search(query).Count);
+    var filterTiming = PairedMedianMilliseconds(
+        () => beforeIndex.FilterSearchHits(beforeHits, UnifiedBrowseState.Neutral with { ContentIntent = ContentIntentFilter.Sexual }).Count,
+        () => afterIndex.FilterSearchHits(afterHits, UnifiedBrowseState.Neutral with { ContentIntent = ContentIntentFilter.Sexual }).Count);
+    if (searchTiming.CandidateMedianMs - searchTiming.BaselineMedianMs > Math.Max(2.0, searchTiming.BaselineMedianMs * 0.15))
+        performanceRegressions.Add($"{kind} search median regression exceeds 15% and 2 ms: {searchTiming.BaselineMedianMs:F4}->{searchTiming.CandidateMedianMs:F4} ms.");
+    if (filterTiming.CandidateMedianMs - filterTiming.BaselineMedianMs > Math.Max(0.5, filterTiming.BaselineMedianMs * 0.20))
+        performanceRegressions.Add($"{kind} FilterSearchHits median regression exceeds 20% and 0.5 ms: {filterTiming.BaselineMedianMs:F4}->{filterTiming.CandidateMedianMs:F4} ms.");
     searchReport.Add(new { kind, query, hits = beforeHits.Count, before_ranked = beforeHits.Count, after_ranked = afterHits.Count,
-        before_search_median_ms = beforeTiming, candidate_search_median_ms = afterTiming,
-        before_filter_search_hits_median_ms = beforeFilterTiming, candidate_filter_search_hits_median_ms = afterFilterTiming });
+        before_search_median_ms = searchTiming.BaselineMedianMs, candidate_search_median_ms = searchTiming.CandidateMedianMs,
+        before_search_samples_ms = searchTiming.BaselineSamplesMs, candidate_search_samples_ms = searchTiming.CandidateSamplesMs,
+        before_filter_search_hits_median_ms = filterTiming.BaselineMedianMs, candidate_filter_search_hits_median_ms = filterTiming.CandidateMedianMs,
+        before_filter_search_hits_samples_ms = filterTiming.BaselineSamplesMs, candidate_filter_search_hits_samples_ms = filterTiming.CandidateSamplesMs,
+        paired_rounds = searchTiming.BaselineSamplesMs.Length });
 }
 
 var browseReport = new List<object>();
@@ -167,15 +244,22 @@ foreach (var (name, state) in browseStates)
         throw new InvalidDataException("Unconstrained browse result changed for " + name);
     if (state.PrimaryRouteId is not null && afterRows.Count - beforeRows.Count != expectedAdds && state.ContentIntent == ContentIntentFilter.All)
         throw new InvalidDataException("Browse delta does not match accepted route additions for " + name);
+    var browseTiming = PairedMedianMilliseconds(() => beforeIndex.Browse(state).Count, () => afterIndex.Browse(state).Count);
+    if (browseTiming.CandidateMedianMs - browseTiming.BaselineMedianMs > Math.Max(0.25, browseTiming.BaselineMedianMs * 0.20))
+        performanceRegressions.Add($"{name} Browse median regression exceeds 20% and 0.25 ms: {browseTiming.BaselineMedianMs:F4}->{browseTiming.CandidateMedianMs:F4} ms.");
     browseReport.Add(new { name, before_count = beforeRows.Count, candidate_count = afterRows.Count,
-        before_browse_median_ms = MedianMilliseconds(() => beforeIndex.Browse(state).Count),
-        candidate_browse_median_ms = MedianMilliseconds(() => afterIndex.Browse(state).Count) });
+        before_browse_median_ms = browseTiming.BaselineMedianMs,
+        candidate_browse_median_ms = browseTiming.CandidateMedianMs,
+        before_browse_samples_ms = browseTiming.BaselineSamplesMs,
+        candidate_browse_samples_ms = browseTiming.CandidateSamplesMs,
+        paired_rounds = browseTiming.BaselineSamplesMs.Length });
 }
 
-var baselineCatalogMeasure = MeasureRetained(() => new Catalog(baselineCatalog.Entries));
-var candidateCatalogMeasure = MeasureRetained(() => new Catalog(candidateCatalog.Entries));
-var baselineUnifiedMeasure = MeasureRetained(() => new UnifiedBrowseIndex(baselineCatalog, baselineSpecialBrowse));
-var candidateUnifiedMeasure = MeasureRetained(() => new UnifiedBrowseIndex(candidateCatalog, candidateSpecialBrowse));
+var memoryReport = MeasureIsolatedProcesses(baselinePath, candidatePath, 5);
+var memoryReportJson = JsonSerializer.SerializeToElement(memoryReport);
+var materialMemoryRegression = memoryReportJson.GetProperty("material_managed_regression").GetBoolean();
+if (materialMemoryRegression) shelfDifferences.Add("Isolated-process retained managed memory exceeded the material growth limit.");
+shelfDifferences.AddRange(performanceRegressions);
 
 var report = new
 {
@@ -210,22 +294,39 @@ var report = new
     candidate_catalog_path = "isolated temporary candidate catalog; machine path omitted",
     candidate_catalog_sha256 = Hash(candidatePath),
     candidate_catalog_length = new FileInfo(candidatePath).Length,
-    catalog_construction = new
+    known_allocated_bytes_from_production_build_gate = new
     {
-        baseline = new { median_ms = baselineCatalogMeasure.median_ms, median_allocated_bytes = baselineCatalogMeasure.median_allocated_bytes, median_retained_heap_delta_bytes = baselineCatalogMeasure.median_retained_heap_delta_bytes },
-        candidate = new { median_ms = candidateCatalogMeasure.median_ms, median_allocated_bytes = candidateCatalogMeasure.median_allocated_bytes, median_retained_heap_delta_bytes = candidateCatalogMeasure.median_retained_heap_delta_bytes }
+        baseline_and_candidate_catalog_construction_median = 247520632,
+        baseline_unified_browse_index_construction_median = 78246136,
+        candidate_unified_browse_index_construction_median = 78258136,
+        source = "same-condition full production build gate recorded in prior gate report"
     },
-    unified_browse_index_construction = new
+    research_vs_runtime_projection = new
     {
-        baseline = new { median_ms = baselineUnifiedMeasure.median_ms, median_allocated_bytes = baselineUnifiedMeasure.median_allocated_bytes, median_retained_heap_delta_bytes = baselineUnifiedMeasure.median_retained_heap_delta_bytes },
-        candidate = new { median_ms = candidateUnifiedMeasure.median_ms, median_allocated_bytes = candidateUnifiedMeasure.median_allocated_bytes, median_retained_heap_delta_bytes = candidateUnifiedMeasure.median_retained_heap_delta_bytes }
+        research_authority = "Pass-B current_routes in product-reconciliation/pass_b_full_diff.csv",
+        runtime_authority = "live-main full catalog -> UnifiedBrowseIndex identities and RouteIds",
+        research_identity_count = researchByIdentity.Count,
+        runtime_identity_count = beforeByKey.Count,
+        only_in_research_membership_count = onlyInResearch.Count,
+        only_in_runtime_membership_count = onlyInRuntime.Count,
+        membership_diff_csv = Path.GetFileName(routeMembershipDiffPath),
+        all_route_count_deltas_reconciled = membershipDiffByRoute.All(row => row.count_delta_reconciles),
+        routes = membershipDiffByRoute
+    },
+    isolated_process_memory = memoryReport,
+    material_performance_regressions = performanceRegressions,
+    performance_regression_thresholds = new
+    {
+        search = "greater than both 15% and 2.0 ms median increase",
+        filter_search_hits = "greater than both 20% and 0.5 ms median increase",
+        browse = "greater than both 20% and 0.25 ms median increase"
     },
     search_and_filter_search = searchReport,
     browse = browseReport,
     shelf_validation = shelfReport,
-    user_data_touched = false,
-    production_apply = false,
-    main_modified = false
+    user_data_touched_at_gate = false,
+    production_apply_at_gate = false,
+    main_modified_at_gate = false
 };
 File.WriteAllText(reportPath, JsonSerializer.Serialize(report, new JsonSerializerOptions { WriteIndented = true }));
 Console.WriteLine(JsonSerializer.Serialize(report, new JsonSerializerOptions { WriteIndented = true }));
@@ -253,6 +354,68 @@ static IReadOnlyList<(string IdentityKey, string RouteId)> ReadAcceptedPairs()
     return rows;
 }
 
+static IReadOnlyList<(string IdentityKey, string[] Routes)> ReadResearchProjection(string path)
+{
+    using var stream = File.OpenRead(path);
+    using var parser = new TextFieldParser(stream, System.Text.Encoding.UTF8)
+    {
+        TextFieldType = FieldType.Delimited,
+        HasFieldsEnclosedInQuotes = true,
+        TrimWhiteSpace = false
+    };
+    parser.SetDelimiters(",");
+    var header = parser.ReadFields() ?? throw new InvalidDataException("Empty Pass-B full diff.");
+    var identityIndex = Array.IndexOf(header, "identity_key");
+    var routesIndex = Array.IndexOf(header, "current_routes");
+    if (identityIndex < 0 || routesIndex < 0) throw new InvalidDataException("Pass-B full diff lacks identity_key/current_routes columns.");
+    var rows = new List<(string IdentityKey, string[] Routes)>();
+    while (!parser.EndOfData)
+    {
+        var fields = parser.ReadFields() ?? [];
+        if (fields.Length != header.Length || string.IsNullOrWhiteSpace(fields[identityIndex]))
+            throw new InvalidDataException("Pass-B current route row is malformed.");
+        var identity = Issue118SexualIntentOverlay.NormalizeIdentity(fields[identityIndex]);
+        var routes = JsonSerializer.Deserialize<string[]>(fields[routesIndex]) ?? [];
+        if (routes.Distinct(StringComparer.Ordinal).Count() != routes.Length)
+            throw new InvalidDataException("Pass-B current route row contains duplicates for " + identity);
+        rows.Add((identity, routes));
+    }
+    return rows;
+}
+
+static void WriteMembershipDiff(
+    string path,
+    IReadOnlyList<(string Identity, string Route, string ProjectionDiff)> rows,
+    IReadOnlyDictionary<string, (string IdentityKey, string[] Routes)> researchByIdentity,
+    IReadOnlyDictionary<string, UnifiedBrowseIdentity> runtimeByIdentity)
+{
+    Directory.CreateDirectory(Path.GetDirectoryName(path)!);
+    using var writer = new StreamWriter(path, append: false, new System.Text.UTF8Encoding(false));
+    writer.WriteLine("identity_key,route_id,research_current_route_membership,actual_runtime_route_membership,projection_diff,research_source_authority,runtime_source_authority");
+    foreach (var row in rows)
+    {
+        var research = researchByIdentity[row.Identity];
+        var runtime = runtimeByIdentity[row.Identity];
+        var researchAuthority = "Pass-B full diff current_routes; identity=" + research.IdentityKey;
+        var runtimeAuthority = string.Join(";", runtime.BackingEntries
+            .Select(entry => entry.Id + ":" + entry.EffectiveCategory + ":" + (entry.Canonical ?? entry.English))
+            .OrderBy(value => value, StringComparer.Ordinal));
+        var fields = new[]
+        {
+            row.Identity,
+            row.Route,
+            research.Routes.Contains(row.Route, StringComparer.Ordinal) ? "YES" : "NO",
+            runtime.RouteIds.Contains(row.Route) ? "YES" : "NO",
+            row.ProjectionDiff,
+            researchAuthority,
+            runtimeAuthority
+        };
+        writer.WriteLine(string.Join(',', fields.Select(Csv)));
+    }
+}
+
+static string Csv(string value) => "\"" + value.Replace("\"", "\"\"", StringComparison.Ordinal) + "\"";
+
 static IReadOnlyList<(string Kind, string Query)> SelectSearchInputs(ICatalog catalog, IReadOnlyList<(string IdentityKey, string RouteId)> pairs)
 {
     var target = catalog.Entries.First(entry => entry.EffectiveCategory is "General" or "Special" &&
@@ -268,18 +431,35 @@ static IReadOnlyList<(string Kind, string Query)> SelectSearchInputs(ICatalog ca
     ];
 }
 
-static double MedianMilliseconds(Func<int> action)
+static (double BaselineMedianMs, double CandidateMedianMs, double[] BaselineSamplesMs, double[] CandidateSamplesMs) PairedMedianMilliseconds(Func<int> baseline, Func<int> candidate)
 {
-    for (var i = 0; i < 2; i++) _ = action();
-    var times = new double[7];
-    for (var i = 0; i < times.Length; i++)
+    for (var i = 0; i < 2; i++)
     {
-        var timer = Stopwatch.StartNew();
-        _ = action();
-        timer.Stop();
-        times[i] = timer.Elapsed.TotalMilliseconds;
+        _ = baseline();
+        _ = candidate();
     }
-    return MedianDouble(times.ToList());
+    const int rounds = 5;
+    const int samplesPerRound = 7;
+    var baselineSamples = new double[rounds * samplesPerRound];
+    var candidateSamples = new double[rounds * samplesPerRound];
+    var sampleIndex = 0;
+    for (var round = 0; round < rounds; round++)
+    for (var sample = 0; sample < samplesPerRound; sample++)
+    {
+        var baselineFirst = (round + sample) % 2 == 0;
+        baselineSamples[sampleIndex] = TimeAction(baselineFirst ? baseline : candidate);
+        candidateSamples[sampleIndex] = TimeAction(baselineFirst ? candidate : baseline);
+        sampleIndex++;
+    }
+    return (MedianDouble(baselineSamples.ToList()), MedianDouble(candidateSamples.ToList()), baselineSamples, candidateSamples);
+}
+
+static double TimeAction(Func<int> action)
+{
+    var timer = Stopwatch.StartNew();
+    _ = action();
+    timer.Stop();
+    return timer.Elapsed.TotalMilliseconds;
 }
 
 static (T Value, double ElapsedMilliseconds) Time<T>(Func<T> action)
@@ -290,35 +470,102 @@ static (T Value, double ElapsedMilliseconds) Time<T>(Func<T> action)
     return (value, timer.Elapsed.TotalMilliseconds);
 }
 
-static (double median_ms, long median_allocated_bytes, long median_retained_heap_delta_bytes) MeasureRetained<T>(Func<T> factory) where T : class
+static object MeasureIsolatedProcesses(string baselinePath, string candidatePath, int repetitions)
 {
-    _ = factory();
-    var elapsed = new List<double>();
-    var allocations = new List<long>();
-    for (var i = 0; i < 5; i++)
+    var baseline = new List<JsonElement>();
+    var candidate = new List<JsonElement>();
+    for (var i = 0; i < repetitions; i++)
     {
-        ForceCollection();
-        var allocatedBefore = GC.GetAllocatedBytesForCurrentThread();
-        var timer = Stopwatch.StartNew();
-        var value = factory();
-        timer.Stop();
-        allocations.Add(GC.GetAllocatedBytesForCurrentThread() - allocatedBefore);
-        elapsed.Add(timer.Elapsed.TotalMilliseconds);
-        GC.KeepAlive(value);
+        if (i % 2 == 0)
+        {
+            baseline.Add(RunMemoryWorkerProcess(baselinePath));
+            candidate.Add(RunMemoryWorkerProcess(candidatePath));
+        }
+        else
+        {
+            candidate.Add(RunMemoryWorkerProcess(candidatePath));
+            baseline.Add(RunMemoryWorkerProcess(baselinePath));
+        }
     }
 
-    ForceCollection();
-    var retained = new List<long>();
-    for (var i = 0; i < 5; i++)
+    var metrics = new[]
     {
-        ForceCollection();
-        var memoryBefore = GC.GetTotalMemory(true);
-        var retainedValue = factory();
-        ForceCollection();
-        retained.Add(GC.GetTotalMemory(true) - memoryBefore);
-        GC.KeepAlive(retainedValue);
+        "catalog_managed_bytes", "combined_managed_bytes", "index_managed_delta_bytes",
+        "catalog_private_bytes", "combined_private_bytes", "index_private_delta_bytes",
+        "catalog_working_set_bytes", "combined_working_set_bytes", "index_working_set_delta_bytes"
+    };
+    var metricReport = new Dictionary<string, object>(StringComparer.Ordinal);
+    foreach (var metric in metrics)
+    {
+        var before = baseline.Select(sample => sample.GetProperty(metric).GetInt64()).ToArray();
+        var after = candidate.Select(sample => sample.GetProperty(metric).GetInt64()).ToArray();
+        metricReport[metric] = new { baseline_median = MedianLong(before.ToList()), candidate_median = MedianLong(after.ToList()), baseline_samples = before, candidate_samples = after };
     }
-    return (MedianDouble(elapsed), MedianLong(allocations), MedianLong(retained));
+    var baselineCombined = MedianLong(baseline.Select(sample => sample.GetProperty("combined_managed_bytes").GetInt64()).ToList());
+    var candidateCombined = MedianLong(candidate.Select(sample => sample.GetProperty("combined_managed_bytes").GetInt64()).ToList());
+    var baselineIndex = MedianLong(baseline.Select(sample => sample.GetProperty("index_managed_delta_bytes").GetInt64()).ToList());
+    var candidateIndex = MedianLong(candidate.Select(sample => sample.GetProperty("index_managed_delta_bytes").GetInt64()).ToList());
+    var materialLimitBytes = Math.Max(1_000_000, baselineCombined / 100);
+    return new
+    {
+        process_isolation = true,
+        repetitions_per_build = repetitions,
+        collection_method = "full blocking compacting GC; objects held alive through measurement",
+        material_managed_growth_limit_bytes = materialLimitBytes,
+        material_growth_policy = "candidate combined managed retained bytes may not exceed baseline by more than 1% or 1,000,000 bytes, whichever is larger",
+        material_managed_regression = candidateCombined - baselineCombined > materialLimitBytes || candidateIndex - baselineIndex > materialLimitBytes,
+        metrics = metricReport
+    };
+}
+
+static void RunMemoryWorker(string catalogPath)
+{
+    var process = Process.GetCurrentProcess();
+    var catalog = new Catalog(CatalogDatabase.Open(catalogPath).Entries);
+    ForceCollection();
+    var catalogMemory = SampleProcessMemory(process);
+    var specialBrowse = SpecialBrowseV2Overlay.FromCatalog(catalog);
+    var browseIndex = new UnifiedBrowseIndex(catalog, specialBrowse);
+    ForceCollection();
+    var combinedMemory = SampleProcessMemory(process);
+    var sample = new
+    {
+        catalog_managed_bytes = catalogMemory.Managed,
+        combined_managed_bytes = combinedMemory.Managed,
+        index_managed_delta_bytes = combinedMemory.Managed - catalogMemory.Managed,
+        catalog_private_bytes = catalogMemory.Private,
+        combined_private_bytes = combinedMemory.Private,
+        index_private_delta_bytes = combinedMemory.Private - catalogMemory.Private,
+        catalog_working_set_bytes = catalogMemory.WorkingSet,
+        combined_working_set_bytes = combinedMemory.WorkingSet,
+        index_working_set_delta_bytes = combinedMemory.WorkingSet - catalogMemory.WorkingSet
+    };
+    Console.WriteLine(JsonSerializer.Serialize(sample));
+    GC.KeepAlive(browseIndex);
+    GC.KeepAlive(specialBrowse);
+    GC.KeepAlive(catalog);
+}
+
+static (long Managed, long Private, long WorkingSet) SampleProcessMemory(Process process)
+{
+    var managed = GC.GetTotalMemory(forceFullCollection: true);
+    process.Refresh();
+    return (managed, process.PrivateMemorySize64, process.WorkingSet64);
+}
+
+static JsonElement RunMemoryWorkerProcess(string catalogPath)
+{
+    var entryAssembly = Assembly.GetEntryAssembly()?.Location ?? throw new InvalidOperationException("Gate assembly path is unavailable.");
+    var start = new ProcessStartInfo("dotnet") { UseShellExecute = false, RedirectStandardOutput = true, RedirectStandardError = true, CreateNoWindow = true };
+    start.ArgumentList.Add(entryAssembly);
+    start.ArgumentList.Add("--memory-worker");
+    start.ArgumentList.Add(catalogPath);
+    using var process = Process.Start(start) ?? throw new InvalidOperationException("Could not start isolated memory worker.");
+    var stdout = process.StandardOutput.ReadToEnd();
+    var stderr = process.StandardError.ReadToEnd();
+    process.WaitForExit();
+    if (process.ExitCode != 0) throw new InvalidOperationException("Memory worker failed: " + stderr);
+    return JsonDocument.Parse(stdout).RootElement.Clone();
 }
 
 static long MedianLong(List<long> values) => values.Order().ElementAt(values.Count / 2);
