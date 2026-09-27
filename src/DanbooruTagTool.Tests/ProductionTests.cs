@@ -56,8 +56,15 @@ public class ProductionTests(ITestOutputHelper output)
         var sourceRoot=Environment.GetEnvironmentVariable("DTT_SOURCE_ROOT"); var authorityRoot=Environment.GetEnvironmentVariable("DTT_AUTHORITY_ROOT");
         if(sourceRoot!=null && authorityRoot!=null)
         {
-            using var report=JsonDocument.Parse(File.ReadAllText(Path.Combine(Path.GetDirectoryName(path)!,"import-report.json")));
-            foreach(var p in report.RootElement.GetProperty("Sources").EnumerateObject())
+            var reportPath=Path.Combine(Path.GetDirectoryName(path)!,"import-report.json");
+            using var report=JsonDocument.Parse(File.Exists(reportPath)
+                ? File.ReadAllText(reportPath)
+                : File.ReadAllText(Path.Combine(Path.GetDirectoryName(Path.GetDirectoryName(path)!)!,"runtime-manifest.json")));
+            var sources=File.Exists(reportPath)
+                ? report.RootElement.GetProperty("Sources")
+                : report.RootElement.GetProperty("production_contract").GetProperty("source_hashes");
+            if(!File.Exists(reportPath)) Assert.Equal(AcceptedAssetImporter.Hash(path),report.RootElement.GetProperty("catalog_sha256").GetString(),StringComparer.OrdinalIgnoreCase);
+            foreach(var p in sources.EnumerateObject())
             { var root=AcceptedAssetImporter.ProtectedInputs.Contains(p.Name)?sourceRoot:authorityRoot; Assert.Equal(p.Value.GetString(),AcceptedAssetImporter.Hash(Path.Combine(root,p.Name))); }
         }
     }
