@@ -1,6 +1,6 @@
 # CURRENT DEV TASK — COMPATIBILITY ROUTING POINTER
 
-最終更新: 2026-09-24
+最終更新: 2026-09-27
 
 このファイルは旧workflowとの互換用ポインタです。
 **current routingの内容をここへ複製しない。**
@@ -16,10 +16,9 @@
 
 ## Active lanes
 
-- #179: `research/issue179-character-quality-audit`
+- #179: `research/issue179-character-quality-audit` (standby / draft research retained)
 - #180: `research/issue180-single-home-pilot`
 - #188: project-wide execution-efficiency infrastructure
-- #201: `dev/practical-discoverability-finish` (implementation handoff to DEV/AUDIT)
 
 Issue/branch HEAD/progressはこのファイルの固定値ではなく、live GitHubから取得する。
 
@@ -31,7 +30,7 @@ Issue/branch HEAD/progressはこのファイルの固定値ではなく、live G
 
 ## Historical task details
 
-旧Performance/runtime/#117等の詳細をcurrent taskとしてここへ再掲載しない。
+旧Performance/runtime/#117/#132/#199/#201等の詳細をcurrent taskとしてここへ再掲載しない。
 必要なら:
 - `docs/project/CURRENT_STATE_HISTORY.md`
 - live Issue / PR / Git history
