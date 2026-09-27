@@ -1,0 +1,117 @@
+{
+  "schema_version": "issue132-final-semantic-application-report-v1",
+  "pre_repair_finalizer_head": "c1014b31cbfc22004b43e7788ca742a0868d2825",
+  "repair_artifact": "docs/issue132/final-audit/FINAL_SEMANTIC_REPAIRS_V2.jsonl",
+  "repair_artifact_sha256": "8f41759e4d34f6a527b5ce776bd8d10de983d124d1da544417ca402fe4b0549a",
+  "repair_expected": 683,
+  "applied": 683,
+  "reviewed_blockers": {
+    "resolved": 20,
+    "repair_revised": 19,
+    "current_retained": 1
+  },
+  "before_state": {
+    "matched": 683,
+    "semantic_mismatches": 0,
+    "representation_only_differences": [
+      {
+        "identity_key": "arm_mounted_weapon",
+        "field": "local_refinements",
+        "source": "docs\\issue132\\parallel\\lane-2\\staging\\window_004526_004625.json"
+      },
+      {
+        "identity_key": "bra_open",
+        "field": "core_routes",
+        "source": "docs\\issue132\\parallel\\lane-2\\staging\\window_004026_004125.json"
+      },
+      {
+        "identity_key": "cooperative_fellatio",
+        "field": "body_facets",
+        "source": "docs\\issue132\\parallel\\lane-3\\staging\\window_002201_002300.json"
+      },
+      {
+        "identity_key": "cum_on_eyewear",
+        "field": "core_routes",
+        "source": "docs\\issue132\\parallel\\lane-2\\staging\\window_006526_006625.json"
+      },
+      {
+        "identity_key": "fan_between_breasts",
+        "field": "supporting_routes",
+        "source": "docs\\issue132\\parallel\\lane-1\\staging\\window_007926_008025.json"
+      },
+      {
+        "identity_key": "flower_in_drink",
+        "field": "local_refinements",
+        "source": "docs\\issue132\\parallel\\lane-3\\staging\\window_006101_006200.json"
+      },
+      {
+        "identity_key": "holding_gloves",
+        "field": "local_refinements",
+        "source": "docs\\issue132\\parallel\\lane-2\\staging\\window_003926_004025.json"
+      },
+      {
+        "identity_key": "panties_in_mouth",
+        "field": "core_routes",
+        "source": "docs\\issue132\\parallel\\lane-2\\staging\\window_005326_005425.json"
+      },
+      {
+        "identity_key": "rabbit_on_head",
+        "field": "local_refinements",
+        "source": "docs\\issue132\\parallel\\lane-3\\staging\\window_006101_006200.json"
+      },
+      {
+        "identity_key": "standing_fellatio",
+        "field": "body_facets",
+        "source": "docs\\issue132\\parallel\\lane-3\\staging\\window_002301_002400.json"
+      },
+      {
+        "identity_key": "wreath",
+        "field": "local_refinements",
+        "source": "docs\\issue132\\parallel\\lane-1\\staging\\window_009126_009225.json"
+      }
+    ],
+    "source_counts": {
+      "baseline": 85,
+      "direct_staging": 598
+    }
+  },
+  "before_semantic_conflicts": 0,
+  "after_state_mismatches": 0,
+  "unexpected_semantic_changes": 0,
+  "source_file_counts": {
+    "modified_semantic_source_files": 241,
+    "baseline_files": 3,
+    "direct_staging_files": 238
+  },
+  "repair_identity_source_counts": {
+    "baseline": 85,
+    "direct_staging": 598
+  },
+  "reconciliation": {
+    "identities": 7285,
+    "repair_decisions": 682,
+    "retained_current": 1,
+    "unresolved_p0": 0,
+    "unresolved_p1": 0,
+    "contradictory_repairs": 0,
+    "identities_unique": 7285,
+    "repair_rows": 682,
+    "retained_current_among_repair_population": 1,
+    "population_decision_consistency": "PASS",
+    "reviewed_blocker_identities": 20,
+    "reconciliation_outcome_rows_updated": 1
+  },
+  "full_structural_validator": {
+    "status": "PASS",
+    "population": 31003,
+    "accepted": 31003,
+    "remaining": 0,
+    "hold": 0,
+    "semantic_lint": 0,
+    "invalid_windows": 0,
+    "duplicates": 0,
+    "qa_violations": 0,
+    "fatal_contract_errors": 0
+  },
+  "final_semantic_qa_status": "PENDING_QA_EVIDENCE_COMMIT"
+}
