@@ -244,7 +244,7 @@ public sealed class DictionaryWorkspaceViewModel : Observable
     public bool IsNeutralTags => unifiedState.IsNeutralTags;
     public bool ShowNeutralGuidance => IsNeutralTags && !IsSearching;
     public bool ShowUnifiedRefinement => Scope == UnifiedBrowseScope.Tags;
-    public bool ShowLocalOptions => ShowUnifiedRefinement && LocalOptions.Any(option => option.IsVisible);
+    public bool ShowLocalOptions => ShowUnifiedRefinement && PrimaryRouteId is not null && LocalOptions.Count > 0;
     public bool ShowBodyOptions => ShowUnifiedRefinement && BodyOptions.Any(option => option.IsVisible);
     public bool ShowThemeOptions => ShowUnifiedRefinement && ThemeOptions.Any(option => option.IsVisible);
     public bool IsContentAll => ContentIntent == ContentIntentFilter.All;
