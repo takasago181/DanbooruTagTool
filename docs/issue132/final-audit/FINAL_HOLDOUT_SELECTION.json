@@ -23,5 +23,27 @@
   "eligible_remaining": 22367,
   "holdout_count": 350,
   "holdout_input_sha256": "d5b16bfb4d44da3471a25b64f1a8a57338f5994e74e932d1c097fbf4eae540c2",
-  "current_semantic_answers_consulted": false
+  "current_semantic_answers_consulted": false,
+  "blind_verdict_path": "docs/issue132/final-audit/final_holdout_blind_verdicts.jsonl",
+  "blind_verdict_count": 350,
+  "blind_verdict_sha256": "a4ad0f9eece75ff9f40b0d12e192232fede226735e520afdae6e1c0e527dea3b",
+  "route_coverage": [
+    "ACTION_CONTACT",
+    "BODY_SITE",
+    "CLOTHING_EXPOSURE",
+    "COLOR_PATTERN_SHAPE",
+    "COMPOSITION_CAMERA",
+    "EXPRESSION_GAZE",
+    "FLUID_EXCRETION",
+    "HAIR_FACE",
+    "LIVING",
+    "NONHUMAN_TRANSFORM",
+    "PEOPLE_COUNT",
+    "POSE_POSITION",
+    "RELATION_ROLE",
+    "SCENE_BACKGROUND",
+    "STYLE_PROCESSING",
+    "TEXT_SYMBOL",
+    "TOOL_OBJECT"
+  ]
 }
