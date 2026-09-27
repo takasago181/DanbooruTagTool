@@ -24,6 +24,12 @@ $work=Join-Path $env:TEMP ('DTT-publish-'+[guid]::NewGuid().ToString('N')); $pub
 New-Item -ItemType Directory -Path $publish,$built | Out-Null
 function Invoke-Checked([string]$exe,[string[]]$arguments){& $exe @arguments; if($LASTEXITCODE -ne 0){throw "Command failed ($LASTEXITCODE): $exe $($arguments -join ' ')"}}
 function Sha([string]$path){(Get-FileHash -LiteralPath $path -Algorithm SHA256).Hash}
+function Invoke-CatalogBuild([string]$exe,[string[]]$arguments){
+ $start=New-Object Diagnostics.ProcessStartInfo; $start.FileName=$exe; $start.WorkingDirectory=$RepositoryRoot; $start.UseShellExecute=$false
+ foreach($argument in $arguments){[void]$start.ArgumentList.Add($argument)}
+ $process=[Diagnostics.Process]::Start($start); $process.WaitForExit()
+ if($process.ExitCode -ne 0){$errorPath=Join-Path $publish 'catalog-build-error.txt';$detail=if(Test-Path -LiteralPath $errorPath){Get-Content -LiteralPath $errorPath -Raw}else{''};throw "Catalog builder failed ($($process.ExitCode)). $detail"}
+}
 try {
  $appProject=Join-Path $RepositoryRoot 'src/DanbooruTagTool.App/DanbooruTagTool.App.csproj'
  $solution=Join-Path $RepositoryRoot 'src/DanbooruTagTool.sln'
@@ -31,7 +37,7 @@ try {
  Invoke-Checked $dotnet @('publish',$appProject,'-c','Release','-r','win-x64','--self-contained','true','--no-restore','-p:PublishSingleFile=true','-p:IncludeNativeLibrariesForSelfExtract=true','-p:PublishTrimmed=false','-p:DebugSymbols=false','-p:DebugType=None','-p:MSBuildEnableWorkloadResolver=false','-o',$publish)
  $exe=Join-Path $publish 'DanbooruTagTool.exe'; if(-not(Test-Path -LiteralPath $exe)){throw 'Publish did not create DanbooruTagTool.exe.'}
  if(@(Get-ChildItem -LiteralPath $publish -File -Filter '*.dll' -Recurse).Count -or @(Get-ChildItem -LiteralPath $publish -File -Filter '*.pdb' -Recurse).Count){throw 'Publish produced loose DLL or PDB files.'}
- Invoke-Checked $exe @('--build-catalog',$SourceRoot,$AuthorityRoot,$built)
+ Invoke-CatalogBuild $exe @('--build-catalog',$SourceRoot,$AuthorityRoot,$built)
  $catalog=Join-Path $built 'catalog.db'; if(-not(Test-Path -LiteralPath $catalog)){throw 'Accepted full catalog build did not produce catalog.db.'}
  $structuralRaw=& $python -B (Join-Path $RepositoryRoot 'scripts/maintenance/catalog_structural_health.py') --catalog $catalog
  if($LASTEXITCODE -ne 0){throw "Structural catalog validation failed: $structuralRaw"}; $structural=$structuralRaw | ConvertFrom-Json
