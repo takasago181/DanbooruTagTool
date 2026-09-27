@@ -24,20 +24,20 @@
   - production static secondary-route delta: 274 pairs / 273 identities; unexpected changes 0; removals 0
   - production runtime: C:\Codex\DanbooruTagTool-App; clean self-contained win-x64; manifest/executable/catalog hashes are recorded in docs/project/NOW.md
   - UserData remained unchanged and was excluded from the publish copy
-  - visual inspection unavailable; actual production process smoke passed
-  - separate follow-ups remain #64 color/pattern, #64/#76 LIVING/NONHUMAN, and unreproduced routes/local refinements; they do not reopen #132
+  - separate semantic residuals were re-derived by #201; no safe shared production rule was accepted
 - **#199 — General body/theme facets**
   - state: **complete; production-promoted through PR #200**
   - General: 346 identities / 355 assignments; BODY 247 / THEME 108
   - existing #76 facet IDs and UnifiedBrowseIndex are the production authority
 - **#201 — Practical ordinary-tag discoverability finish**
-  - state: implementation handoff to independent DEV/AUDIT
-  - branch: `dev/practical-discoverability-finish`
-  - workstreams: #64 color/pattern projection, #64/#76 LIVING/NONHUMAN boundary, local refinement and unreproduced-route clusters, intent-first practical scenario QA
-  - no main merge or production apply in this lane
+  - state: **complete; PR #202 merged**
+  - accepted #64 color/LIVING/local owner projections showed 0 projection omissions
+  - no production taxonomy/catalog semantic change was justified
+  - production-size intent-first scenario regression coverage added
+  - catalog/runtime/UserData remain unchanged from #199 production
 - **#179 — Character/Copyright quality audit**
   - branch: `research/issue179-character-quality-audit`
-  - state: active research
+  - state: standby / draft research retained
   - Character/Copyright identity・日本語display/search・ranking・2D scope品質監査
   - Artist監査は対象外
   - #132/#180とdata/branch/semantic decisionsを混ぜない
@@ -65,6 +65,11 @@
   - General: **30,629**
   - Special: **3,059**
   - runtime ordinary identities: **31,003**
+- #199 General body/theme baseline:
+  - identities: **346**
+  - assignments: **355**
+  - BODY: **247**
+  - THEME: **108**
 - current Special authority: Issue #76 shallow kind/body/theme model
 - current UI mitigation authority: #177
   - Artist hidden
