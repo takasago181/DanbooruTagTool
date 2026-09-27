@@ -16,13 +16,17 @@ $dataFiles=@(Get-ChildItem -LiteralPath (Join-Path $root 'Data') -File -Recurse 
 if($dataFiles.Count -ne 1 -or $dataFiles[0].FullName -ne [IO.Path]::GetFullPath($catalog)){throw 'Data must contain only the external catalog.db.'}
 if($Mode -eq 'Candidate'){
   $userFiles=@(Get-ChildItem -LiteralPath $user -File -Recurse -Force)
-  $invalid=@($userFiles | Where-Object {$_.Name -notin @('README.txt','user.db')})
+  $invalid=@($userFiles | Where-Object {$relative=$_.FullName.Substring($user.Length).TrimStart('\\');$relative -notin @('README.txt','user.db')})
   if($invalid.Count){throw 'Candidate UserData contains files outside the documented disposable shape.'}
-} elseif($UserDataBaseline){
+} elseif(-not $UserDataBaseline){throw 'Installed mode requires a complete UserData baseline.'}
+else {
   $baseline=Get-Content -LiteralPath $UserDataBaseline -Raw | ConvertFrom-Json
   $current=@(Get-ChildItem -LiteralPath $user -File -Recurse -Force | ForEach-Object { $rel=$_.FullName.Substring($user.Length).TrimStart('\'); [pscustomobject]@{path=$rel;bytes=$_.Length;sha256=(Get-FileHash -LiteralPath $_.FullName -Algorithm SHA256).Hash} } | Sort-Object path)
   $expected=@($baseline.files | Sort-Object path)
-  if((ConvertTo-Json -InputObject $current -Depth 4 -Compress) -cne (ConvertTo-Json -InputObject $expected -Depth 4 -Compress)){throw 'Installed UserData inventory differs from protected baseline.'}
+  $currentSignature=@($current | ForEach-Object {"$($_.path)|$($_.bytes)|$($_.sha256)"})
+  $expectedSignature=@($expected | ForEach-Object {"$($_.path)|$($_.bytes)|$($_.sha256)"})
+  $difference=Compare-Object -ReferenceObject $currentSignature -DifferenceObject $expectedSignature
+  if($difference){throw "Installed UserData inventory differs from protected baseline. current=$($currentSignature -join ';') expected=$($expectedSignature -join ';')"}
 }
 $totalBytes=($files | Measure-Object -Property Length -Sum).Sum
 $m=Get-Content -LiteralPath $manifest -Raw | ConvertFrom-Json

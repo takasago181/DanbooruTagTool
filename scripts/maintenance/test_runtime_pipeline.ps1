@@ -25,7 +25,12 @@ try {
  Remove-Item -LiteralPath (Join-Path $runtime 'extra.dll');Write-Manifest $runtime
  Set-Content (Join-Path $runtime 'UserData/user.db') 'disposable'
  & (Join-Path $PSScriptRoot 'check_runtime_shape.ps1') -RuntimeRoot $runtime -Mode Candidate | Out-Null
- $baseline=Join-Path $temp 'baseline.json';@{files=@(@{path='user.db';bytes=1;sha256='OLD'})}|ConvertTo-Json -Depth 4|Set-Content $baseline
+ New-Item -ItemType Directory -Path (Join-Path $runtime 'UserData/nested') -Force|Out-Null;Set-Content (Join-Path $runtime 'UserData/nested/user.db') 'wrong path'
+ Assert-Fails {& (Join-Path $PSScriptRoot 'check_runtime_shape.ps1') -RuntimeRoot $runtime -Mode Candidate | Out-Null} 'nested candidate UserData rejection'
+ Remove-Item -LiteralPath (Join-Path $runtime 'UserData/nested/user.db') -Force;Remove-Item -LiteralPath (Join-Path $runtime 'UserData/nested') -Force
+ $baseline=Join-Path $temp 'baseline.json';$userRoot=Join-Path $runtime 'UserData';$userFile=Join-Path $userRoot 'user.db';$baselineFiles=@(Get-ChildItem -LiteralPath $userRoot -File -Recurse|ForEach-Object {[pscustomobject]@{path=$_.FullName.Substring($userRoot.Length).TrimStart('\\');bytes=$_.Length;sha256=(Get-FileHash $_.FullName -Algorithm SHA256).Hash}});@{files=$baselineFiles}|ConvertTo-Json -Depth 4|Set-Content $baseline
+ & (Join-Path $PSScriptRoot 'check_runtime_shape.ps1') -RuntimeRoot $runtime -Mode Installed -UserDataBaseline $baseline | Out-Null
+ Set-Content $userFile 'changed'
  Assert-Fails {& (Join-Path $PSScriptRoot 'check_runtime_shape.ps1') -RuntimeRoot $runtime -Mode Installed -UserDataBaseline $baseline | Out-Null} 'installed UserData baseline mismatch'
  $publish=Get-Content (Join-Path $PSScriptRoot 'publish_portable_runtime.ps1') -Raw
  if($publish -match 'UserDataPath|Copy-Item[^\r\n]*user\.db' -or $publish -notmatch 'PublishSingleFile=true' -or $publish -notmatch 'IncludeNativeLibrariesForSelfExtract=true' -or $publish -notmatch 'PublishTrimmed=false' -or $publish -notmatch 'DebugSymbols=false' -or $publish -notmatch 'DebugType=None'){throw 'Canonical publish authority/static flags regression.'}
