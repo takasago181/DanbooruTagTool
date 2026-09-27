@@ -366,11 +366,11 @@ public sealed class Issue204UnifiedRefreshTests
                 Assert.Single(vm.Dictionary.Results);
                 AssertUiResults(view, vm);
 
-                RemoveCondition(view, "body:BREAST_NIPPLE");
+                InvokeCommand(view, "乳房・乳首");
                 Pump(window.Dispatcher, 30);
                 Assert.Equal(2, vm.Dictionary.Results.Count);
                 AssertUiResults(view, vm);
-                RemoveCondition(view, "body:MOUTH_ORAL");
+                InvokeCommand(view, "口・口内");
                 Pump(window.Dispatcher, 30);
                 Assert.Equal(3, vm.Dictionary.Results.Count);
                 AssertUiResults(view, vm);
@@ -387,7 +387,7 @@ public sealed class Issue204UnifiedRefreshTests
                 InvokeCommand(view, "乳房・乳首");
                 Assert.True(vm.Dictionary.Results.Count < searchA);
                 AssertUiResults(view, vm);
-                RemoveCondition(view, "body:BREAST_NIPPLE");
+                InvokeCommand(view, "乳房・乳首");
                 Assert.Equal(searchA, vm.Dictionary.Results.Count);
                 AssertUiResults(view, vm);
 
@@ -401,6 +401,159 @@ public sealed class Issue204UnifiedRefreshTests
         if (failure != null) throw new Xunit.Sdk.XunitException(failure.ToString());
     }
 
+    [Fact]
+    public void Wpf_content_intent_selection_stays_exclusive_and_refinement_rows_keep_fixed_positions()
+    {
+        Exception? failure = null;
+        var thread = new Thread(() =>
+        {
+            try
+            {
+                var vm = new MainViewModel(FixtureCatalog(), new MemoryStore(), new Clipboard());
+                var window = new MainWindow(vm) { WindowState = WindowState.Normal, Width = 1500, Height = 950, ShowInTaskbar = false };
+                window.Show();
+                Pump(window.Dispatcher, 50);
+                var view = (FrameworkElement)(window.GetType().GetField("DictionaryWorkspace", BindingFlags.Instance | BindingFlags.NonPublic)?.GetValue(window)
+                    ?? throw new InvalidOperationException("DictionaryWorkspace view was not created."));
+                view.Width = 1100;
+                window.UpdateLayout();
+                vm.Dictionary.SetPrimaryRoute("BODY_SITE");
+                Pump(window.Dispatcher, 30);
+
+                ClickContentOption(view, "一般向け");
+                AssertContentSelection(view, vm, ContentIntentFilter.GeneralPurpose);
+
+                ClickContentOption(view, "一般向け");
+                AssertContentSelection(view, vm, ContentIntentFilter.GeneralPurpose);
+
+                ClickContentOption(view, "性的");
+                AssertContentSelection(view, vm, ContentIntentFilter.Sexual);
+                ClickContentOption(view, "性的");
+                AssertContentSelection(view, vm, ContentIntentFilter.Sexual);
+
+                ClickContentOption(view, "一般向け");
+                AssertContentSelection(view, vm, ContentIntentFilter.GeneralPurpose);
+                ClickContentOption(view, "性的");
+                AssertContentSelection(view, vm, ContentIntentFilter.Sexual);
+                ClickContentOption(view, "すべて");
+                AssertContentSelection(view, vm, ContentIntentFilter.All);
+
+                ClickContentOption(view, "一般向け");
+                AssertContentSelection(view, vm, ContentIntentFilter.GeneralPurpose);
+                ClickContentOption(view, "すべて");
+                AssertContentSelection(view, vm, ContentIntentFilter.All);
+
+                window.Close();
+            }
+            catch (Exception ex) { failure = ex; }
+        });
+        thread.SetApartmentState(ApartmentState.STA);
+        thread.Start();
+        thread.Join();
+        if (failure != null) throw new Xunit.Sdk.XunitException(failure.ToString());
+    }
+
+    [Fact]
+    public void Wpf_refinement_rows_do_not_move_when_active_filters_change()
+    {
+        Exception? failure = null;
+        var thread = new Thread(() =>
+        {
+            try
+            {
+                var vm = new MainViewModel(FixtureCatalog(), new MemoryStore(), new Clipboard());
+                var window = new MainWindow(vm) { WindowState = WindowState.Normal, Width = 1500, Height = 950, ShowInTaskbar = false };
+                window.Show();
+                Pump(window.Dispatcher, 50);
+                var view = (FrameworkElement)(window.GetType().GetField("DictionaryWorkspace", BindingFlags.Instance | BindingFlags.NonPublic)?.GetValue(window)
+                    ?? throw new InvalidOperationException("DictionaryWorkspace view was not created."));
+                view.Width = 1100;
+                window.UpdateLayout();
+                vm.Dictionary.SetPrimaryRoute("BODY_SITE");
+                Pump(window.Dispatcher, 30);
+                var rowPositions = RefinementRowPositions(view);
+
+                ClickContentOption(view, "性的");
+                InvokeCommand(view, "乳房・乳首");
+                InvokeCommand(view, "口・口内");
+                InvokeCommand(view, "拘束・BDSM");
+                InvokeCommand(view, "◆ 深掘りのみ");
+                Pump(window.Dispatcher, 30);
+
+                Assert.DoesNotContain(FindVisualChildren<TextBlock>(view), text => text.Text == "現在の絞り込み条件");
+                AssertRefinementRowsStable(rowPositions, RefinementRowPositions(view));
+                AssertUiResults(view, vm);
+
+                InvokeCommand(view, "口・口内");
+                InvokeCommand(view, "拘束・BDSM");
+                InvokeCommand(view, "◆ 深掘りのみ");
+                Pump(window.Dispatcher, 30);
+                AssertRefinementRowsStable(rowPositions, RefinementRowPositions(view));
+
+                window.Close();
+            }
+            catch (Exception ex) { failure = ex; }
+        });
+        thread.SetApartmentState(ApartmentState.STA);
+        thread.Start();
+        thread.Join();
+        if (failure != null) throw new Xunit.Sdk.XunitException(failure.ToString());
+    }
+
+    private static void ClickContentOption(FrameworkElement root, string label)
+    {
+        var target = FindVisualChildren<ButtonBase>(root).FirstOrDefault(button =>
+            button.Content?.ToString() == label && button.Command is not null &&
+            root.DataContext is DictionaryWorkspaceViewModel dictionary &&
+            ReferenceEquals(button.Command, dictionary.SetContentIntentCommand));
+        Assert.NotNull(target);
+        ClickButtonBase(target!);
+        root.UpdateLayout();
+        Pump(root.Dispatcher, 25);
+    }
+
+    private static void AssertContentSelection(FrameworkElement root, MainViewModel vm, ContentIntentFilter expected)
+    {
+        var dictionary = vm.Dictionary;
+        Assert.Equal(expected, dictionary.ContentIntent);
+        Assert.Equal(expected == ContentIntentFilter.All, dictionary.IsContentAll);
+        Assert.Equal(expected == ContentIntentFilter.GeneralPurpose, dictionary.IsContentGeneralPurpose);
+        Assert.Equal(expected == ContentIntentFilter.Sexual, dictionary.IsContentSexual);
+        var buttons = FindVisualChildren<ToggleButton>(root)
+            .Where(button => button.CommandParameter is string value &&
+                (value == "All" || value == "GeneralPurpose" || value == "Sexual") &&
+                ReferenceEquals(button.Command, dictionary.SetContentIntentCommand))
+            .ToArray();
+        Assert.Equal(3, buttons.Length);
+        var selected = Assert.Single(buttons, button => button.IsChecked == true);
+        Assert.Equal(expected switch
+        {
+            ContentIntentFilter.All => "すべて",
+            ContentIntentFilter.GeneralPurpose => "一般向け",
+            ContentIntentFilter.Sexual => "性的",
+            _ => throw new ArgumentOutOfRangeException(nameof(expected))
+        }, selected.Content?.ToString());
+        AssertUiResults(root, vm);
+    }
+
+    private static double[] RefinementRowPositions(FrameworkElement root)
+    {
+        var labels = new[] { "分類", "部位", "テーマ", "内容" };
+        return labels.Select(label =>
+        {
+            var text = FindVisualChildren<TextBlock>(root).FirstOrDefault(candidate => candidate.Text == label);
+            Assert.NotNull(text);
+            return text!.TransformToAncestor(root).Transform(new Point(0, 0)).Y;
+        }).ToArray();
+    }
+
+    private static void AssertRefinementRowsStable(IReadOnlyList<double> expected, IReadOnlyList<double> actual)
+    {
+        Assert.Equal(expected.Count, actual.Count);
+        for (var index = 0; index < expected.Count; index++)
+            Assert.True(Math.Abs(expected[index] - actual[index]) < 1, $"Refinement row {index} moved from {expected[index]} to {actual[index]} DIPs.");
+    }
+
     private static void InvokeCommand(FrameworkElement root, string content, string? parameterContains = null, ICommand? expectedCommand = null)
     {
         var target = FindVisualChildren<ButtonBase>(root).FirstOrDefault(button =>
@@ -409,17 +562,15 @@ public sealed class Issue204UnifiedRefreshTests
             (expectedCommand is null || ReferenceEquals(button.Command, expectedCommand)));
         Assert.NotNull(target);
         Assert.True(target!.Command!.CanExecute(target.CommandParameter));
-        target.Command.Execute(target.CommandParameter);
+        ClickButtonBase(target);
         root.UpdateLayout();
     }
 
-    private static void RemoveCondition(FrameworkElement root, string id)
+    private static void ClickButtonBase(ButtonBase target)
     {
-        var target = FindVisualChildren<ButtonBase>(root).FirstOrDefault(button =>
-            button.CommandParameter is UnifiedActiveCondition condition && condition.Id == id);
-        Assert.NotNull(target);
-        target!.Command!.Execute(target.CommandParameter);
-        root.UpdateLayout();
+        var onClick = typeof(ButtonBase).GetMethod("OnClick", BindingFlags.Instance | BindingFlags.NonPublic)
+            ?? throw new InvalidOperationException("WPF ButtonBase.OnClick was not found.");
+        onClick.Invoke(target, null);
     }
 
     private static void AssertUiResults(FrameworkElement root, MainViewModel vm)
