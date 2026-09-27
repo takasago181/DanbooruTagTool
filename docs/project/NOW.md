@@ -1,6 +1,6 @@
 # NOW — いま何をやっているか
 
-最終整理: 2026-09-24 02:29 JST
+最終整理: 2026-09-27 JST
 
 このファイルは、GitHubを開いたときに**現在の主作業・進捗・次の行動**を人間がすぐ把握するためのdashboardです。
 
@@ -12,47 +12,26 @@
 
 ---
 
-## 1. ACTIVE — #132 Tag classification usability / discoverability
+## 1. COMPLETE — #132 Tag classification usability / discoverability
 
-**いま一番動いている主作業。**
+2026-09-27 production promotion completed from live main f229ee4d2c3f5ea03dc964634a6d39d7f730710e.
 
-目的:
-- ordinary runtime identity **31,003件**を、既存分類に引っ張られず独立にsemantic review
-- 画像生成で「正確なDanbooruタグ名を知らなくても辿れる」browse/discovery構造を作る
-- adult/sexual generationも通常用途として扱う
+- Pass A reviewed all **31,003 ordinary identities**; Pass B/C reconciliation and semantic QA are complete.
+- PR **#197** merged the static secondary-route overlay into main.
+- Clean self-contained win-x64 publish and isolated plus installed-catalog checks passed.
+- Actual delta: **274 route pairs / 273 identities**, unexpected changes **0**, removals **0**, non-route catalog metadata changes **0**.
+- Runtime: C:\Codex\DanbooruTagTool-App; runtime-manifest.json source main f229ee4d2c3f5ea03dc964634a6d39d7f730710e.
+  - EXE SHA256: 4199BE55CF1E0A79600DDC6632756C3436F34DCA9E45DAF965A769E4288EA554
+  - catalog SHA256: 24665D7C92B9DE9B22D92C7713F4E9876DC9C15B98E02324BBE670448BEA7FF9
+  - manifest SHA256: 238809EA281AC938FFF832FF2F57F0D8363E56E9AE1231F8A8970FCC20C882F6
+- Production process smoke passed: the actual EXE reached DanbooruTagTool v1, was responsive, and produced no matching crash event. Visual UI inspection was unavailable.
+- UserData was excluded from deployment; README.txt and user.db hashes remained unchanged.
 
-実行:
-- branch: `research/taxonomy-usability-audit`
-- 3 ChatGPT Automation workers + 1 coordinator
-- Pass A active
-- 25-row immutable checkpoint
-- 100-row risk QA
-- 300/run は上限でありノルマではない
-- 曖昧語は必要時だけRESEARCHED
-- CSVは手書きせず machine serialization + parse-back validation
-
-2026-09-24 02:29 JST snapshot:
-- total: **675 / 31,003**
-- Lane 1: **300 / 10,335**
-- Lane 2: **225 / 10,334**
-- Lane 3: **150 / 10,334**
-- remaining: **30,328**
-- latest incremental CI: SUCCESS
-- coordinator quality flags: **7 pending** at latest coordinator snapshot
-
-注意:
-- 進捗authorityは `docs/issue132/parallel/lane-*/checkpoints/` のimmutable union
-- lane status / coordinator statusはderived cache
-- frozen Pass-A semantic contractを勝手に変更しない
-- #64 / #76 / #118 / production / main はPass Aから変更しない
-
-次:
-- worker継続
-- telemetryで実際のボトルネックを観測
-- quality flagsを最終merge前に全件再確認
-- 31,003件完了後にPass Bまで。Pass C/product acceptanceには自動で進まない
-
----
+Keep the following as separate follow-ups under their existing owners:
+- #64 color/pattern taxonomy;
+- #64/#76 LIVING/NONHUMAN boundary;
+- unreproduced routes and local refinements;
+- Unified facet architecture.
 
 ## 2. ACTIVE PARALLEL RESEARCH — #180 Character -> HOME Copyright
 

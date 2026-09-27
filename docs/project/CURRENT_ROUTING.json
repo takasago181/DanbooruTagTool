@@ -1,6 +1,6 @@
 {
   "schema_version": "project-current-routing-v1",
-  "generated_at": "2026-09-24T02:29:00+09:00",
+  "generated_at": "2026-09-27T19:48:59+09:00",
   "purpose": "compact machine-readable routing snapshot; not a permanent branch-head authority",
   "live_main_snapshot": null,
   "must_refetch_live_heads_before_write": true,
@@ -13,21 +13,6 @@
     "task-specific contract/spec"
   ],
   "active_lanes": [
-    {
-      "issue": 132,
-      "kind": "research",
-      "title": "Tag classification usability / discoverability audit",
-      "branch": "research/taxonomy-usability-audit",
-      "branch_head_snapshot": null,
-      "phase": "Pass A active",
-      "isolation": [
-        "#179",
-        "#180"
-      ],
-      "production_mutation": false,
-      "head_policy": "fetch_live_before_work_or_write",
-      "progress_source": "immutable checkpoint union on research/taxonomy-usability-audit"
-    },
     {
       "issue": 179,
       "kind": "research",
@@ -77,7 +62,8 @@
     "Performance / Runtime Load Audit",
     "portable/runtime hardening",
     "#117 implementation baseline",
-    "#118 sexual intent baseline"
+    "#118 sexual intent baseline",
+    "#132 full 31,003-identity taxonomy usability audit and Pass B/C complete; PR #197 merged; static 274-route production overlay promoted to C:\\Codex\\DanbooruTagTool-App from live main f229ee4d2c3f5ea03dc964634a6d39d7f730710e"
   ],
   "protected_boundaries": [
     "UserData is user-owned",

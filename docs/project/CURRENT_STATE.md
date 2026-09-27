@@ -1,6 +1,6 @@
 # CURRENT STATE
 
-最終更新: 2026-09-24
+最終更新: 2026-09-27
 
 このファイルは **現在地だけ** を保持する人間向けsummary。
 過去のrouting/runtime/taxonomy/完了記録は `docs/project/CURRENT_STATE_HISTORY.md` に保存する。
@@ -18,15 +18,14 @@
 現在の主要な独立lane:
 
 - **#132 — Tag classification usability / discoverability**
-  - branch: `research/taxonomy-usability-audit`
-  - state: Pass A active
-  - scope: ordinary runtime identity 31,003件の独立semantic/discoverability review
-  - execution: 3 ChatGPT Automation workers + 1 coordinator
-  - progress authority: live immutable checkpoint union; 件数はこのcurrent-state summaryへ固定しない
-  - current execution authority: branch-local `docs/issue132/parallel/CURRENT_AUTOMATION_OPERATION.md`
-  - frozen Pass-A semantic contractは変更しない
-  - production/main/#64/#76/#118を変更しない
-
+  - state: **complete; production promotion passed 2026-09-27**
+  - Pass A complete for all 31,003 ordinary identities; Pass B/C reconciliation and semantic QA complete
+  - PR #197 merged at implementation source main f229ee4d2c3f5ea03dc964634a6d39d7f730710e
+  - production static secondary-route delta: 274 pairs / 273 identities; unexpected changes 0; removals 0
+  - production runtime: C:\Codex\DanbooruTagTool-App; clean self-contained win-x64; manifest/executable/catalog hashes are recorded in docs/project/NOW.md
+  - UserData remained unchanged and was excluded from the publish copy
+  - visual inspection unavailable; actual production process smoke passed
+  - separate follow-ups remain #64 color/pattern, #64/#76 LIVING/NONHUMAN, unreproduced routes/local refinements, and Unified facet architecture; they do not reopen #132
 - **#179 — Character/Copyright quality audit**
   - branch: `research/issue179-character-quality-audit`
   - state: active research
