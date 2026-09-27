@@ -1,0 +1,14 @@
+{
+  "schema_version": "issue132-final-priority-b-done-v1",
+  "role": "FINAL-AUDIT-PRIORITY-B",
+  "final_input_head": "aa6c745c35f59dc22700bd77ee1f015ba593faa3",
+  "audited_count": 1646,
+  "researched_count": 77,
+  "unresolved_count": 44,
+  "artifact_path": "docs/issue132/final-audit/audit_priority_b_verdicts.jsonl",
+  "artifact_sha256": "c1b5e24fdaad3bf423522f3e86dae2199bd9f8a70039f7a4898c00ebbe7e6126",
+  "artifact_commit_sha": "d72894cd79353ed046dbdabfd29c24c6a4bdd196",
+  "commit_sha": "d72894cd79353ed046dbdabfd29c24c6a4bdd196",
+  "packet_sha256": "cbddd995da745f5507c6b10658354aa7092dc79b7b65835a8a1bbc6c727f928c",
+  "schema_validation": "PASS"
+}
