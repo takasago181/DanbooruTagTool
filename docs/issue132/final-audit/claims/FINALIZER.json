@@ -1,0 +1,10 @@
+{
+  "schema_version": "issue132-final-reconciliation-role-claim-v1",
+  "role": "FINALIZER",
+  "branch": "audit/issue132-final-finalizer",
+  "final_input_head": "10ff0986444528e58a8ccec7c44d539235d17175",
+  "claim_status": "CLAIMED",
+  "claim_basis": "all four reconciliation shards have completed and passed aggregate identity coverage",
+  "shard_artifacts": ["RECONCILE_0.jsonl", "RECONCILE_1.jsonl", "RECONCILE_2.jsonl", "RECONCILE_3.jsonl"],
+  "semantic_repairs_performed": 0
+}
