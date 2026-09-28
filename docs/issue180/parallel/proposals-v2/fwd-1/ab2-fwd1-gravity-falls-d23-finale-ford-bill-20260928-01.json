@@ -1,0 +1,18 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-gravity-falls-d23-finale-ford-bill-20260928-01",
+  "campaign_key": "authority:gravity_falls",
+  "campaign_fingerprint": "e76a2a46b3c3ed582cd3c23dc85ac90c655224218909d6809de77ef60a5b8720",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://d23.com/news-briefs-jan-06-2016/",
+  "source_claim": "D23's Disney news brief describes the Gravity Falls series finale and explicitly names Ford and Bill Cipher in its account of that episode's events.",
+  "authority_type": "DISNEY_EDITORIAL_SERIES_EPISODE_COVERAGE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"bill_cipher","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"gravity_falls"},
+    {"subject_type":"Character","subject_key":"ford_pines","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"gravity_falls"}
+  ],
+  "terminal_reviews": [],
+  "notes": "D23 states that Ford discovers Bill's true motives and that the final confrontation with Bill determines the Pines family's fate. This is direct series-episode coverage, not evidence derived from a fan roster."
+}

@@ -1,0 +1,28 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-fwd1-gravity-falls-giffany-residual-20260928-01",
+  "campaign_key": "authority:gravity_falls",
+  "campaign_fingerprint": "e76a2a46b3c3ed582cd3c23dc85ac90c655224218909d6809de77ef60a5b8720",
+  "worker_slot": 1,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "https://www.disneyplus.com/en-ve/browse/entity-9995dda1-d70a-4d15-98ba-72f1d10fa406",
+  "source_claim": "Official Disney+ series and episode material was checked for the remaining Giffany candidate. The episode listing describes Soos turning to a game to help him talk to girls but does not name Giffany or establish her relationship to the episode's underlying fictional work.",
+  "authority_type": "OFFICIAL_SERIES_AND_EPISODE_ROUTE_RESEARCH",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "OFFICIAL_DISNEY_PLUS_SERIES_AND_EPISODE_DIRECTORY",
+      "url_or_query": "https://www.disneyplus.com/en-ve/browse/entity-9995dda1-d70a-4d15-98ba-72f1d10fa406",
+      "result": "The official listing identifies Season 2 Episode 5 as Soos and the Real Girl and describes Soos using a game to help him talk to girls, but it does not name Giffany or identify an external HOME work for her."
+    },
+    {
+      "route_type": "OFFICIAL_DISNEY_PUBLISHER_CHARACTER_AND_SERIES_CATALOG",
+      "url_or_query": "https://books.disney.com/book/the-art-of-gravity-falls/; https://books.disney.com/book/the-book-of-bill/",
+      "result": "The checked Disney Books pages identify the titles as Gravity Falls materials and discuss characters or the series broadly, but their available descriptions do not name Giffany or prove an exact character HOME relation."
+    }
+  ],
+  "notes": "Partial progress only. Preserve the seven positive Gravity Falls relations in companion AUTHORITY_BATCH proposals. No negative relation, terminal conclusion, or external-work HOME for Giffany is asserted."
+}

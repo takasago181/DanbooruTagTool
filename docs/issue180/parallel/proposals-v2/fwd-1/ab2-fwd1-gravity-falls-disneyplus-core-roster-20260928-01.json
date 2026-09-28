@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-gravity-falls-disneyplus-core-roster-20260928-01",
+  "campaign_key": "authority:gravity_falls",
+  "campaign_fingerprint": "e76a2a46b3c3ed582cd3c23dc85ac90c655224218909d6809de77ef60a5b8720",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.disneyplus.com/en-ve/browse/entity-9995dda1-d70a-4d15-98ba-72f1d10fa406",
+  "source_claim": "The official Disney+ Gravity Falls page identifies Dipper and Mabel Pines as twins with Great Uncle Stan/Grunkle Stan, names Pacifica in episode summaries, and says Dipper tries to impress Wendy in The Inconveniencing.",
+  "authority_type": "OFFICIAL_SERIES_AND_EPISODE_DIRECTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"dipper_pines","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"gravity_falls"},
+    {"subject_type":"Character","subject_key":"grunkle_stan","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"gravity_falls"},
+    {"subject_type":"Character","subject_key":"mabel_pines","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"gravity_falls"},
+    {"subject_type":"Character","subject_key":"pacifica_northwest","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"gravity_falls"},
+    {"subject_type":"Character","subject_key":"wendy_corduroy","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"gravity_falls"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official episode directory directly names Pacifica and Wendy in episode descriptions. The series synopsis names Dipper and Mabel Pines and identifies their great uncle as Stan/Grunkle Stan."
+}
