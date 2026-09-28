@@ -1,0 +1,135 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-tekken8-official-fighter-roster-20260928-01",
+  "campaign_key": "authority:tekken",
+  "campaign_fingerprint": "4cd4ab03f09a2d22d83f76cee505df16f93122cbb35a640fb9fb378039dca64d",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://tekken.com/fighters",
+  "source_claim": "Bandai Namco’s official TEKKEN 8 fighter roster lists these matching campaign identities as selectable fighters in the series: Anna Williams, Bryan Fury, Devil Jin, Asuka Kazama, Jin Kazama, Jun Kazama, Lars Alexandersson, Lee Chaolan, Leo Kliesen, Lidia Sobieska, Ling Xiaoyu, Marshall Law, Heihachi Mishima, Kazuya Mishima, Nina Williams, Paul Phoenix, and Sergei Dragunov.",
+  "authority_type": "FIRST_PARTY_FIGHTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "anna_williams",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tekken"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "bryan_fury",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tekken"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "devil_jin",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tekken"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kazama_asuka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tekken"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kazama_jin",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tekken"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kazama_jun",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tekken"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "lars_alexandersson",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tekken"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "lee_chaolan",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tekken"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "leo_kliesen",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tekken"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "lidia_sobieska",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tekken"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ling_xiaoyu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tekken"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "marshall_law",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tekken"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mishima_heihachi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tekken"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mishima_kazuya",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tekken"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nina_williams",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tekken"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "paul_phoenix",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tekken"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sergei_dragunov",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tekken"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only campaign identities that match named fighters on the official TEKKEN 8 roster are proposed; other legacy-series identities outside this roster are omitted."
+}

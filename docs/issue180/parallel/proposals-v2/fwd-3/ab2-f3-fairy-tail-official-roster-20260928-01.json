@@ -1,0 +1,72 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-fairy-tail-official-roster-20260928-01",
+  "campaign_key": "authority:fairy_tail",
+  "campaign_fingerprint": "542da57ac2605db46626c53dc52da3f769b37394222ce4030a54e755a4e3fcd0",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.fairytail-tv.com/character/",
+  "source_claim": "The official Fairy Tail Final Series character directory names the matching campaign characters Natsu, Lucy, Gray, Erza, Wendy, Brandish, Irene, and Mavis.",
+  "authority_type": "FIRST_PARTY_ANIME_CHARACTER_DIRECTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "brandish_mu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fairy_tail"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "erza_scarlet",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fairy_tail"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "gray_fullbuster",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fairy_tail"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "irene_belserion",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fairy_tail"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "lucy_heartfilia",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fairy_tail"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mavis_vermilion",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fairy_tail"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "natsu_dragneel",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fairy_tail"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "wendy_marvell",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fairy_tail"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only exact matching campaign identities explicitly named in the official Final Series character directory are proposed. Characters absent from this series roster are left for separate evidence."
+}

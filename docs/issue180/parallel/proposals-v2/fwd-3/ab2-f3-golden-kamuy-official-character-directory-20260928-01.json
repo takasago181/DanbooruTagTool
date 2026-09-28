@@ -1,0 +1,135 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-golden-kamuy-official-character-directory-20260928-01",
+  "campaign_key": "authority:golden_kamuy",
+  "campaign_fingerprint": "22dfe8679a2d1880b13637ad7a378f4e86f8dc65b0f853a1027e78442e6d189d",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.kamuy-anime.com/character/inkarmat.html",
+  "source_claim": "The official Golden Kamuy anime character directory lists the matching named characters Asirpa, Cikapasi, Kano Ienaga, Mokutaro Kikuta, Kiroranke, Otonoshin Koito, Tetsuzou Nihei, Kouhei Nikaidou, Hyakunosuke Ogata, Ariko Rikimatsu, Yoshitake Shiraishi, Saichi Sugimoto, Genjirou Tanigaki, Hajime Tsukishima, Tokushirou Tsurumi, Tokishige Usami, and Tatsuma Ushiyama.",
+  "authority_type": "FIRST_PARTY_ANIME_CHARACTER_DIRECTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "asirpa",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "golden_kamuy"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "cikapasi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "golden_kamuy"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ienaga_kano",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "golden_kamuy"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kikuta_mokutaro",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "golden_kamuy"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kiroranke",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "golden_kamuy"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "koito_otonoshin",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "golden_kamuy"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nihei_tetsuzou",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "golden_kamuy"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nikaidou_kouhei",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "golden_kamuy"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ogata_hyakunosuke",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "golden_kamuy"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "rikimatsu_ariko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "golden_kamuy"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shiraishi_yoshitake",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "golden_kamuy"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sugimoto_saichi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "golden_kamuy"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tanigaki_genjirou",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "golden_kamuy"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tsukishima_hajime",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "golden_kamuy"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tsurumi_tokushirou",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "golden_kamuy"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "usami_tokishige",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "golden_kamuy"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ushiyama_tatsuma",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "golden_kamuy"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Each included identity has an individually named entry in the official anime character directory. Other campaign entries and uncertain alias/tag variants are omitted."
+}
