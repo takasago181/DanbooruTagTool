@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-macross-frontier-official-character-cast-20260928",
+  "campaign_key": "authority:macross",
+  "campaign_fingerprint": "deb109377f525575dc0e695eb03179a570bc78a7f083d7aaae33d6c8fb8eef3f",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://macross.jp/pages/series?title=macrossf",
+  "source_claim": "The official Macross F page lists and casts Mikhail Buran (ミハエル・ブラン) in the Macross Frontier character roster.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"mikhail_buran","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"macross_frontier"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The Japanese official name is explicitly listed on the official Macross F character/cast page."
+}
