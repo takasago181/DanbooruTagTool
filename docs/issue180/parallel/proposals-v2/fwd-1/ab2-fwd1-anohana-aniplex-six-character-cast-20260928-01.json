@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-anohana-aniplex-six-character-cast-20260928-01",
+  "campaign_key": "authority:ano_hi_mita_hana_no_namae_wo_bokutachi_wa_mada_shiranai.",
+  "campaign_fingerprint": "6de3139e75b228900101c5474095c5de8f9ad7fb0cf95c0fd333c4e6fd8b6d6a",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.aniplex.co.jp/lineup/anohana/",
+  "source_claim": "Aniplex's official Anohana staff and cast page lists the six campaign characters by exact Japanese names and character names: Jinta Yadomi, Meiko Honma, Naruko Anjo, Atsumu Matsuyuki, Chiriko Tsurumi, and Tetsudo Hisakawa. The same page identifies the production committee and the Anohana Project.",
+  "authority_type": "RIGHTS_HOLDER_OFFICIAL_CAST_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "anjou_naruko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ano_hi_mita_hana_no_namae_wo_bokutachi_wa_mada_shiranai."
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hisakawa_tetsudou",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ano_hi_mita_hana_no_namae_wo_bokutachi_wa_mada_shiranai."
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "honma_meiko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ano_hi_mita_hana_no_namae_wo_bokutachi_wa_mada_shiranai."
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "matsuyuki_atsumu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ano_hi_mita_hana_no_namae_wo_bokutachi_wa_mada_shiranai."
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tsurumi_chiriko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ano_hi_mita_hana_no_namae_wo_bokutachi_wa_mada_shiranai."
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yadomi_jinta",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ano_hi_mita_hana_no_namae_wo_bokutachi_wa_mada_shiranai."
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official Aniplex roster explicitly covers all six members of this authority campaign. No variants or unlisted members are inferred."
+}
