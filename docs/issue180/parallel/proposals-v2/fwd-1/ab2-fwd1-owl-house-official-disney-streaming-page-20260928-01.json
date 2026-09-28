@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-owl-house-official-disney-streaming-page-20260928-01",
+  "campaign_key": "authority:the_owl_house",
+  "campaign_fingerprint": "c6085a3323636e612389878ab3d641bf00565701ec9b1a51eb6ec457cd8229aa",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.disneyplus.com/browse/entity-4249e544-b4cd-4f3d-bb68-31967428ce13",
+  "source_claim": "Disney+'s official series page identifies The Owl House as its 2020–2022 animated series, credits Dana Terrace as creator, and describes the campaign characters Luz, Eda, and King in the series synopsis. Its official episode descriptions also explicitly name Willow and Amity together, Amity, and Lilith within The Owl House episodes.",
+  "authority_type": "OFFICIAL_WORK_CAST_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "amity_blight",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "the_owl_house"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "edalyn_clawthorne",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "the_owl_house"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "king_clawthorne",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "the_owl_house"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "lilith_clawthorne",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "the_owl_house"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "luz_noceda",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "the_owl_house"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "willow_park",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "the_owl_house"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official series page and its episode descriptions establish all six campaign members as The Owl House characters. No unlisted relations are inferred."
+}

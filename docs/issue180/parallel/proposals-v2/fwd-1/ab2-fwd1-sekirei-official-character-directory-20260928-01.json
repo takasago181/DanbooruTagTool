@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-sekirei-official-character-directory-20260928-01",
+  "campaign_key": "authority:sekirei",
+  "campaign_fingerprint": "c99e3c9fa00c055c0c0fb1a3b4f7b1d16898c909abcfc7b7be2b13efb82afab7",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.sonymusic.co.jp/Animation/sekirei/character/index.html",
+  "source_claim": "The official Sony Music Sekirei character directory lists and profiles Musubi, Kusano, Matsu, Tsukiumi, Asama Miya, Karasuba, and Kazehana under the Sekirei series site. The page identifies the copyrighted work as Sekirei and its production copyright line attributes the series to Sakurako Gokurakuin / Square Enix and the Sekirei Project.",
+  "authority_type": "OFFICIAL_WORK_CAST_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "asama_miya",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "sekirei"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "karasuba",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "sekirei"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kazehana",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "sekirei"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kusano",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "sekirei"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "musubi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "sekirei"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tsukiumi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "sekirei"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official directory explicitly includes all six campaign members; the extra listed character Kazehana is outside this campaign and is not proposed."
+}

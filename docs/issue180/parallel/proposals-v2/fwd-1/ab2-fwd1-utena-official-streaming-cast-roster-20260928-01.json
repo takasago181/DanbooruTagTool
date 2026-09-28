@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-utena-official-streaming-cast-roster-20260928-01",
+  "campaign_key": "authority:shoujo_kakumei_utena",
+  "campaign_fingerprint": "1c37bafdf7ebfcc9d760b98f278507e7db310c43106bdc63067867d563ecc510",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.video.unext.jp/title/SID0002637",
+  "source_claim": "U-NEXT's official streaming title page identifies the 1997 anime 少女革命ウテナ and lists its cast characters, including Utena Tenjou, Anthy Himemiya, Touga Kiryuu, Nanami Kiryuu, Juri Arisugawa, and Shiori Takatsuki. The episode descriptions also name the same characters within the work.",
+  "authority_type": "OFFICIAL_WORK_CAST_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "arisugawa_juri",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shoujo_kakumei_utena"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "himemiya_anthy",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shoujo_kakumei_utena"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kiryuu_nanami",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shoujo_kakumei_utena"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kiryuu_touga",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shoujo_kakumei_utena"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "takatsuki_shiori",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shoujo_kakumei_utena"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tenjou_utena",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shoujo_kakumei_utena"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official listing names all six exact campaign members. No additional characters are proposed."
+}
