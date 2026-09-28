@@ -1,0 +1,28 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-dualhart-rune-primary-roster-partial-20260928",
+  "campaign_key": "authority:dualhart)",
+  "campaign_fingerprint": "4106424dfd48fbb3ad49d3b26b372c11b61130ea82bfe92b6f27960c3d96d5ec",
+  "worker_slot": 0,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "OFFICIAL_CREATOR_PAGE",
+      "url_or_query": "https://rune.fanbox.cc/",
+      "result": "The first-party Rune pixivFANBOX profile is discoverable, but its accessible route exposes no textual roster or creator-owned character documentation for Choco, Miruru, Raika, Rita, and Yurina."
+    },
+    {
+      "route_type": "OFFICIAL_WORK_PAGE",
+      "url_or_query": "\"Choco\" \"Miruru\" \"Raika\" \"Rita\" \"Yurina\" \"rune_(dualhart)\"",
+      "result": "Exact-name searches surfaced creator-attributed illustrations and fan/index metadata, including some items marked original by repost archives, but did not provide an accessible first-party statement establishing the full five-member roster and direct HOME identity."
+    }
+  ],
+  "notes": "This five-member creator-family campaign is not exhausted. Retain the first-party creator profile route and leave every HOME relation unresolved until creator-published roster or character attribution text is available; do not promote repost metadata to authority."
+}

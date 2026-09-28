@@ -1,0 +1,28 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-kasugai-de-tteiu-creator-roster-partial-20260928",
+  "campaign_key": "authority:de-tteiu)",
+  "campaign_fingerprint": "08cc1aab774ea8450776dbfc4477716a635fcbb84a759e9ae9d6c6a4cdb0d977",
+  "worker_slot": 0,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "OFFICIAL_CREATOR_PAGE",
+      "url_or_query": "https://x.com/gngmrkas",
+      "result": "A creator account is cited as the original posting source for artwork attributed to kasugai_(de-tteiu), but the profile could not be fetched in this research pass and no accessible first-party roster or identity statement was verified for the five exact campaign members."
+    },
+    {
+      "route_type": "OFFICIAL_WORK_PAGE",
+      "url_or_query": "\"kasugai_(de-tteiu)\" \"Cartier\" \"Eve\" \"Maiden\" \"Makhia\" \"Maria\"",
+      "result": "Exact-name and creator-handle searches surfaced repost/image indexes and Danbooru-derived metadata, but no primary source that establishes direct HOME relations. Existing post metadata is insufficient to distinguish original personifications from franchise characters or establish the full group."
+    }
+  ],
+  "notes": "This five-member creator-family campaign is not exhausted. Some indexed artwork is described as Pokémon personification, but those non-primary labels do not prove the campaign-wide character identities or direct HOME edges. Leave all relations unresolved and retain the campaign open for accessible creator-published roster evidence."
+}

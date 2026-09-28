@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-esse-series-mitsudomoe-official-character-notes-20260928",
+  "campaign_key": "authority:esse_series",
+  "campaign_fingerprint": "0d619f781f062161125a6b51f4bd40891bd1f53bf3d92cf0a83020fa0e27fb19",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://note.com/mitsudomoekoubou/n/n5f09d1b9573a",
+  "source_claim": "Mitsudomoe Koubou's own character guide for the original game Oshi no Taisetsuna Hito ni Narikawaru explicitly names and describes Amano Mashiro and Griffin Stewart as its romance targets, then identifies Tonimura (队員A) and Kuchinashi (隊員B) among its other characters. The creator links the browser and download releases from the same guide and states this is their original long-running creation. The creator's official Hyoutenka on Steam page says it is a prequel to that preceding game, establishing the shared authored series context for the campaign's four directly named people.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "amano_mashiro",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "esse_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "griffin_stewart",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "esse_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kuchinashi_dabi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "esse_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tonimura_yui",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "esse_series"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Primary sources: the creator-authored character guides https://note.com/mitsudomoekoubou/n/n1a32ca696264 and https://note.com/mitsudomoekoubou/n/n5f09d1b9573a; the publisher/developer product listing https://store.steampowered.com/app/3736150/ identifies Hyoutenka 30-do no Zetsubou as a Mitsudomoe Koubou game and says it is a prequel to Oshi no Taisetsuna Hito ni Narikawaru. Kobayashi Luca is deliberately omitted because the checked first-party character guide does not identify that exact campaign tag. This proposal does not infer a relation for that fifth member."
+}
