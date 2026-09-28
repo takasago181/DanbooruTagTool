@@ -1,0 +1,37 @@
+{
+  "schema_version": 2,
+  "campaign_key": "authority:fairy_tale_character",
+  "campaign_fingerprint": "c0b28bd79c34d257122d39c7137416a7fe77db28126666d405784b9f5cd553f8",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "proposal_id": "ab2-f3-fairy-tales-perrault-gutenberg-collection-20260928-09",
+  "source_url": "https://www.gutenberg.org/cache/epub/29021/pg29021-images.html",
+  "source_claim": "Project Gutenberg’s Charles Perrault collection identifies the literary tales Sleeping Beauty, Little Red Riding-Hood, and Cinderilla/Cinderella, providing independent primary-text tradition support for those packet identities.",
+  "authority_type": "PRIMARY_TEXT_REPRINT_COLLECTION",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "cinderella_(fairy_tale_character)",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fairy_tale_character"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "little_red_riding_hood_(fairy_tale_character)",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fairy_tale_character"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sleeping_beauty_(fairy_tale_character)",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fairy_tale_character"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The source credits Charles Perrault and lists the source tale titles, supporting these exact fairy-tale character identities in the collection."
+}

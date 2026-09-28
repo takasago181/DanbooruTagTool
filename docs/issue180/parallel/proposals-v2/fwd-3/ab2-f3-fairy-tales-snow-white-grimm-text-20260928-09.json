@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "campaign_key": "authority:fairy_tale_character",
+  "campaign_fingerprint": "c0b28bd79c34d257122d39c7137416a7fe77db28126666d405784b9f5cd553f8",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "proposal_id": "ab2-f3-fairy-tales-snow-white-grimm-text-20260928-09",
+  "source_url": "https://www.grimmstories.com/en/grimm_fairy-tales/snow-white",
+  "source_claim": "The Brothers Grimm Snow-white text names Snow-white and identifies the queen as her stepmother and antagonist within that fairy tale.",
+  "authority_type": "PRIMARY_TEXT_REPRINT",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "snow_white_(fairy_tale_character)",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fairy_tale_character"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "snow_white's_queen_(fairy_tale_character)",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fairy_tale_character"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The text directly establishes both Snow-white and the queen character represented by the exact packet identity; the queen is unnamed in this version."
+}
