@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-encanto-disney-family-authority-20260928",
+  "campaign_key": "authority:encanto",
+  "campaign_fingerprint": "395b0f218ba33eca752f2c5316553b83519dbee19deb5e4efd976ad489131145",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://news.disney.com/introducing-encanto",
+  "source_claim": "Disney's official production article names the Madrigal family characters Mirabel, Isabela, Dolores, and Camilo and describes their family relations and abilities in Encanto.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"mirabel_madrigal","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"encanto"},
+    {"subject_type":"Character","subject_key":"isabela_madrigal","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"encanto"},
+    {"subject_type":"Character","subject_key":"dolores_madrigal","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"encanto"},
+    {"subject_type":"Character","subject_key":"camilo_madrigal","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"encanto"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The source expressly identifies all four campaign members as characters in the Madrigal family/story."
+}

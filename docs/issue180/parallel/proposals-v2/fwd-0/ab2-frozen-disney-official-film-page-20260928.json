@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-frozen-disney-official-film-page-20260928",
+  "campaign_key": "authority:frozen",
+  "campaign_fingerprint": "d022994d7fe096d25678494d6261fbc8302f7dbebf00fbea40f458a9033fb2a2",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://movies.disney.com/frozen/",
+  "source_claim": "Disney's official Frozen film page names Anna, Kristoff, Elsa, and Olaf as characters in the film's story.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"anna_(frozen)","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"frozen"},
+    {"subject_type":"Character","subject_key":"kristoff","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"frozen"},
+    {"subject_type":"Character","subject_key":"elsa_(frozen)","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"frozen"},
+    {"subject_type":"Character","subject_key":"olaf","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"frozen"}
+  ],
+  "terminal_reviews": [],
+  "notes": "All four exact campaign identities are explicitly named in the checked official story description."
+}
