@@ -1,0 +1,262 @@
+[
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-to-love-ru-jump-sq-official-darkness-character-directory-20260928",
+    "campaign_key": "authority:to_love-ru",
+    "campaign_fingerprint": "e1138ee40c7764c3487ceac0044d0a040548f0a91fa60e773dbdac8419b7f7f5",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://jumpsq.shueisha.co.jp/rensai/toloveru_d/index.html",
+    "source_claim": "Shueisha Jump SQ official To LOVEる-とらぶる-ダークネス series page explicitly introduces the named characters 結城リト, モモ・ベリア・デビルーク, ヤミ／金色の闇, ララ・サタリン・デビルーク, ナナ・アスタ・デビルーク, 西連寺春菜, 古手川唯, 黒咲芽亜, 結城美柑, ルン・エルシ・ジュエリア, 御門涼子, お静／村雨静, 九条凛, ティアーユ・ルナティーク博士 under the official Darkness manga title.",
+    "authority_type": "FIRST_PARTY_CHARACTER_DIRECTORY",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "yuuki_rito",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "to_love-ru"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "momo_velia_deviluke",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "to_love-ru"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "konjiki_no_yami",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "to_love-ru"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "lala_satalin_deviluke",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "to_love-ru"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "nana_asta_deviluke",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "to_love-ru"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "sairenji_haruna",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "to_love-ru"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "kotegawa_yui",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "to_love-ru"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "kurosaki_mea",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "to_love-ru"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "yuuki_mikan",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "to_love-ru"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "run_elsie_jewelria",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "to_love-ru"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "mikado_ryouko",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "to_love-ru"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "murasame_oshizu",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "to_love-ru"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "kujou_rin",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "to_love-ru"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "tearju_lunatique",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "to_love-ru"
+      }
+    ],
+    "terminal_reviews": [],
+    "notes": "Exact Japanese names on the Shueisha publisher-owned manga series page were mapped to the matching campaign tags; alternate identity or form guesses are excluded."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-to-love-ru-tbs-official-character-directory-20260928",
+    "campaign_key": "authority:to_love-ru",
+    "campaign_fingerprint": "e1138ee40c7764c3487ceac0044d0a040548f0a91fa60e773dbdac8419b7f7f5",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://www.tbs.co.jp/anime/to-love-ru/04chara/chara.html",
+    "source_claim": "TBS official To LOVEる anime character directory explicitly profiles 結城リト, ララ・サタリン・デビルーク, 西連寺春菜, 結城美柑, 籾岡里紗, 天条院沙姫, 九条凛, ルン, 古手川唯, 御門涼子, 金色の闇 and お静. The page footer identifies the To LOVEる production committee copyright.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "yuuki_rito",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "to_love-ru"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "lala_satalin_deviluke",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "to_love-ru"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "sairenji_haruna",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "to_love-ru"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "yuuki_mikan",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "to_love-ru"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "momioka_risa",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "to_love-ru"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "tenjouin_saki",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "to_love-ru"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "kujou_rin",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "to_love-ru"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "run_elsie_jewelria",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "to_love-ru"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "kotegawa_yui",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "to_love-ru"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "mikado_ryouko",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "to_love-ru"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "konjiki_no_yami",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "to_love-ru"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "murasame_oshizu",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "to_love-ru"
+      }
+    ],
+    "terminal_reviews": [],
+    "notes": "The source lists and profiles each named character in the official television anime directory; only exact campaign members are included."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-to-love-ru-furyu-official-darkness-game-riko-20260928",
+    "campaign_key": "authority:to_love-ru",
+    "campaign_fingerprint": "e1138ee40c7764c3487ceac0044d0a040548f0a91fa60e773dbdac8419b7f7f5",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://www.cs.furyu.jp/toloveru/character/riko.html",
+    "source_claim": "FuRyu official To LOVEる-とらぶる-ダークネス バトルエクスタシー character profile explicitly names 夕崎梨子 (Yuusaki Riko) and identifies the page as part of the officially operated game site with the To LOVEる Darkness production committee credit.",
+    "authority_type": "OFFICIAL_LICENSED_CHARACTER_PROFILE",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "yuusaki_riko",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "to_love-ru"
+      }
+    ],
+    "terminal_reviews": [],
+    "notes": "The licensed game profile explicitly labels the exact named character on its To LOVEる Darkness official site."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-to-love-ru-furyu-official-darkness-game-nemesis-20260928",
+    "campaign_key": "authority:to_love-ru",
+    "campaign_fingerprint": "e1138ee40c7764c3487ceac0044d0a040548f0a91fa60e773dbdac8419b7f7f5",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://www.cs.furyu.jp/toloveru/character/nemesis.html",
+    "source_claim": "FuRyu official To LOVEる-とらぶる-ダークネス バトルエクスタシー character profile names ネメシス and states 芽亜 refers to her as マスター (Master); the page carries the Darkness production committee copyright and identifies the officially operated game website.",
+    "authority_type": "OFFICIAL_LICENSED_CHARACTER_PROFILE",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "master_nemesis",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "to_love-ru"
+      }
+    ],
+    "terminal_reviews": [],
+    "notes": "The official page connects the named Nemesis character to the Master appellation used by the campaign tag; this is treated as identity evidence, not a separate character or variant."
+  }
+]
