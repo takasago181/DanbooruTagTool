@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-a-channel-official-aniplex-cast-roster-20260928-01",
+  "campaign_key": "authority:a_channel",
+  "campaign_fingerprint": "be02389221599e9a7390c33aeb634ab588740fa4ff2f6a04a8774653cb3cfa8c",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.aniplex.co.jp/lineup/a-channel/",
+  "source_claim": "Aniplex’s official A-Channel anime page lists the main cast and story group of four: Run (るん), Tooru (トオル), Nagi (ナギ), and Yuuko (ユー子). The same page identifies the A-Channel production and carries the copyright line for Kuroda bb, Houbunsha, the A-Channel Committee, and MBS. These are the four exact current campaign characters.",
+  "authority_type": "OFFICIAL_WORK_CAST_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "ichii_tooru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "a_channel"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "momoki_run",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "a_channel"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nishi_yuuko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "a_channel"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tennouji_nagisa",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "a_channel"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": ""
+}

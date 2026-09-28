@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-amairo-islenauts-official-yuzusoft-character-songs-20260928-01",
+  "campaign_key": "authority:amairo_islenauts",
+  "campaign_fingerprint": "fc7cd70affc2359554af7829ab1efd88cca73638f49a7828aa137c426b137bf2",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.yuzu-soft.com/music_dl.html",
+  "source_claim": "Yuzu Soft’s official music catalog lists the Amairo Islenauts character songs under the work title and names all four current campaign characters: Shirley Warwick, Amagiri Yune, Shiraga Airi, and Masaki Gaillard. The official product specification identifies the title as an original Yuzu Soft work and carries the ©2013 YUZUSOFT/JUNOS copyright notice.",
+  "authority_type": "OFFICIAL_WORK_CAST_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "amagiri_yune",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "amairo_islenauts"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "masaki_gaillard",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "amairo_islenauts"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shiraga_airi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "amairo_islenauts"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shirley_warwick",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "amairo_islenauts"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Exact campaign subjects only."
+}

@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-fwd1-2channel-giko-origin-and-community-partial-20260928-01",
+  "campaign_key": "authority:2channel",
+  "campaign_fingerprint": "bfb7206ba1e5eb0793052204e9dba6a61cd219148dcd8a8a1c4818204f1ff1b6",
+  "worker_slot": 1,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "The checked historical and scholarly material addresses Giko, but does not establish a single 2channel HOME authority for all four current campaign members. The accessible material describes Giko as originating before 2channel or as community-created, with authorship/rights unsettled; it does not explicitly cover Shoboon, Yaruo, or Aramaki Scaltinof.",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "CONTEMPORARY_EDITORIAL_COVERAGE",
+      "url_or_query": "https://www.itmedia.co.jp/news/0206/03/njbt_04.html",
+      "result": "The 2002 report says Giko was said to have originated on Aware World before 2channel, that variants developed on 2channel, and that no specific copyright holder was then known. This is useful context for Giko only and establishes no HOME relation for the four-member campaign."
+    },
+    {
+      "route_type": "UNIVERSITY_RESEARCH_REPORT",
+      "url_or_query": "https://www.glocom.ac.jp/wp-content/uploads/2020/10/chijo78_2002_07.pdf",
+      "result": "The 2002 GLOCOM report discusses Giko as a community commons with pre-2channel roots and says AA ownership/copyright was unresolved; it does not cover all four campaign members or establish a common HOME."
+    },
+    {
+      "route_type": "OFFICIAL_PLATFORM_SITE",
+      "url_or_query": "https://www.2ch.sc/",
+      "result": "The current official 2ch.sc landing page could not be retrieved in this check, so it supplied no verifiable exact member attribution or rights statement."
+    }
+  ],
+  "notes": "PARTIAL progress only. This authority campaign spans multiple community-created AA identities; these routes do not exhaust it, and no negative or terminal relation is proposed."
+}
