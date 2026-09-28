@@ -1,0 +1,41 @@
+[
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-ojamajo-doremi-toei-original-roster-20260928",
+    "campaign_key": "authority:ojamajo_doremi",
+    "campaign_fingerprint": "bddb60191a0d30f536429ea097568dce79fa3018266afdb9f53847b310663778",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://lineup.toei-anim.co.jp/ja/tv/doremi/story/",
+    "source_claim": "Toei Animation's official Ojamajo Doremi series page's character/cast list names Harukaze Doremi (春風どれみ), Fujiwara Hazuki (藤原はづき), Seno Aiko (妹尾あいこ), Segawa Onpu (瀬川おんぷ), and Majorika (マジョリカ) for the series.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {"subject_type":"Character","subject_key":"harukaze_doremi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ojamajo_doremi"},
+      {"subject_type":"Character","subject_key":"fujiwara_hazuki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ojamajo_doremi"},
+      {"subject_type":"Character","subject_key":"majorika","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ojamajo_doremi"},
+      {"subject_type":"Character","subject_key":"segawa_onpu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ojamajo_doremi"},
+      {"subject_type":"Character","subject_key":"senoo_aiko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ojamajo_doremi"}
+    ],
+    "terminal_reviews": [],
+    "notes": "Only the five campaign characters named on this original series page are mapped."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-ojamajo-doremi-toei-dokkaan-momoko-hana-20260928",
+    "campaign_key": "authority:ojamajo_doremi",
+    "campaign_fingerprint": "bddb60191a0d30f536429ea097568dce79fa3018266afdb9f53847b310663778",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://www.toei-anim.co.jp/tv/doremi_D/ojamajo.html",
+    "source_claim": "Toei Animation's official Ojamajo Doremi Dokkaan character introduction names Asuka Momoko (飛鳥ももこ) and Makihatayama Hana (巻機山 花) as characters in the series.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {"subject_type":"Character","subject_key":"makihatayama_hana","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ojamajo_doremi"},
+      {"subject_type":"Character","subject_key":"asuka_momoko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ojamajo_doremi"}
+    ],
+    "terminal_reviews": [],
+    "notes": "These two identities are taken from the official Dokkaan character page; unrelated cast are omitted."
+  }
+]
