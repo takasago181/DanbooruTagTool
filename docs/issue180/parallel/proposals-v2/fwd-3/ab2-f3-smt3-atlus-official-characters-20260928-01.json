@@ -1,0 +1,37 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-smt3-atlus-official-characters-20260928-01",
+  "campaign_key": "authority:shin_megami_tensei",
+  "campaign_fingerprint": "1816c148ef4b02e1bf1bcf4bfe96cb40f1f641ca25339a2bb5086f73c1f1e8aa",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://atlus.com/smt3/index.html",
+  "source_claim": "ATLUS’s official Shin Megami Tensei III: Nocturne HD Remaster page identifies the protagonist who becomes the Demi-fiend, along with Isamu Nitta and Yuko Takao, in the game’s character section.",
+  "authority_type": "FIRST_PARTY_DEVELOPER_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "demi-fiend",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shin_megami_tensei"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nitta_isamu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shin_megami_tensei"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "takao_yuko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shin_megami_tensei"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official game page establishes these three campaign identities in an SMT III title; no relation for Black Frost is inferred from the demon list imagery."
+}

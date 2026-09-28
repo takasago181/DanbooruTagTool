@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-smtv-v-sega-official-characters-20260928-01",
+  "campaign_key": "authority:shin_megami_tensei",
+  "campaign_fingerprint": "1816c148ef4b02e1bf1bcf4bfe96cb40f1f641ca25339a2bb5086f73c1f1e8aa",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://asia.sega.com/megaten5/vengeance/en/story_character/",
+  "source_claim": "SEGA’s official Shin Megami Tensei V: Vengeance story and character page profiles Yoko Hiromine and Tao Isonokami as characters and allies in the game.",
+  "authority_type": "FIRST_PARTY_PUBLISHER_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "hiromine_yoko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shin_megami_tensei"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "isonokami_tao",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shin_megami_tensei"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The publisher page directly identifies both Vengeance campaign characters; this source does not name Black Frost or SMT III characters."
+}

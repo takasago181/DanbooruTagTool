@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-school-rumble-marvelous-official-roster-20260928-01",
+  "campaign_key": "authority:school_rumble",
+  "campaign_fingerprint": "1d42169bcf6078f68260b4efbdb4fb190962c4aadfad3336594fa0e88d8c2fee",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.marv.jp/special/school-rumble/character/index.html",
+  "source_claim": "Marvelous’s official School Rumble character page names and lists Akira Takano, Sarah Adiemus, Eri Sawachika, Kenji Harima, Tenma Tsukamoto, and Yakumo Tsukamoto as characters in the series.",
+  "authority_type": "FIRST_PARTY_ANIME_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "harima_kenji",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "school_rumble"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sarah_adiemus",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "school_rumble"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sawachika_eri",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "school_rumble"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "takano_akira",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "school_rumble"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tsukamoto_tenma",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "school_rumble"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tsukamoto_yakumo",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "school_rumble"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The page is a Marvelous-hosted official anime character roster and credits the manga rights-holder Kodansha alongside Marvelous; all six campaign names appear directly."
+}
