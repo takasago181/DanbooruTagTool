@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-project-moon-lobotomy-updates-20260928",
+  "campaign_key": "authority:project_moon",
+  "campaign_fingerprint": "4ab7ef0f6cd96b8af6788210dfdce25c2a151ad2c73a05a7a362a106921b59e5",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://store.steampowered.com/news/posts/?appids=568220&enddate=1495957577&feed=steam_community_announcements",
+  "source_claim": "Project Moon's official Lobotomy Corporation Steam announcements discuss the named Abnormalities Alriune, Apocalypse Bird, Little Red Riding Hooded Mercenary, and All-Around Helper in the game's containment and suppression updates.",
+  "authority_type": "DEVELOPER_OFFICIAL_GAME_UPDATE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"alriune","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"lobotomy_corporation"},
+    {"subject_type":"Character","subject_key":"apocalypse_bird","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"lobotomy_corporation"},
+    {"subject_type":"Character","subject_key":"little_red_riding_hooded_mercenary","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"lobotomy_corporation"},
+    {"subject_type":"Character","subject_key":"all-around_helper","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"lobotomy_corporation"}
+  ],
+  "terminal_reviews": [],
+  "notes": "Each included exact packet member is explicitly named as an Abnormality in Project Moon's developer announcements for Lobotomy Corporation (Steam app 568220). The wider Project Moon campaign remains open; no cross-game scope, variant, or co-occurrence inference is used."
+}

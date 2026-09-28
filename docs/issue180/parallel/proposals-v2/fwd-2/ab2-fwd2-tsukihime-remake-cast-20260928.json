@@ -1,0 +1,25 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-tsukihime-remake-cast-20260928",
+  "campaign_key": "authority:tsukihime",
+  "campaign_fingerprint": "eb13523b8e3a31233f9a6d9a05dd4d5b20755ace8b903ff1bd698dcadbfe109a",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://typemoon.com/products/tsukihime/",
+  "source_claim": "TYPE-MOON's official TSUKIHIME -A piece of blue glass moon- product and character page identifies the remake's cast and story characters, including the exact characters listed below.",
+  "authority_type": "TYPE_MOON_OFFICIAL_GAME_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"tohno_shiki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tsukihime"},
+    {"subject_type":"Character","subject_key":"arcueid_brunestud","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tsukihime"},
+    {"subject_type":"Character","subject_key":"tohno_akiha","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tsukihime"},
+    {"subject_type":"Character","subject_key":"inui_arihiko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tsukihime"},
+    {"subject_type":"Character","subject_key":"yumizuka_satsuki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tsukihime"},
+    {"subject_type":"Character","subject_key":"mario_gallo_bestino","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tsukihime"},
+    {"subject_type":"Character","subject_key":"dr._arach","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tsukihime"},
+    {"subject_type":"Character","subject_key":"vlov_arkhangel","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tsukihime"},
+    {"subject_type":"Character","subject_key":"michael_roa_valdamjong","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tsukihime"}
+  ],
+  "terminal_reviews": [],
+  "notes": "Only exact campaign members explicitly named on the official remake's character and cast listings are included. Variant forms and crossover-only members are not inferred; the wider Tsukihime campaign remains open."
+}
