@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-soulcalibur-seong-mina-official-announcement-20260928-01",
+  "campaign_key": "authority:soulcalibur",
+  "campaign_fingerprint": "72721f7609db87b75b44842ab47b06b1b2387a7461814018b273a48137ccd8e6",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://en.bandainamcoent.eu/soulcalibur/news/astaroth-and-seong-mi-na-confirmed-soulcalibur-vi",
+  "source_claim": "Bandai Namco’s official announcement explicitly confirms Seong Mi-Na as a returning character in SOULCALIBUR VI.",
+  "authority_type": "FIRST_PARTY_GAME_CHARACTER_ANNOUNCEMENT",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "seong_mi-na",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "soulcalibur"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only the exact campaign identity named in the official announcement is proposed."
+}

@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-cevio-project-license-sasara-tsudumi-20260928-01",
+  "campaign_key": "authority:cevio",
+  "campaign_fingerprint": "23f96dc320b306b7e3cb578ad283223be276d47c3b61549a2445e3036a10a428",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://cevio.jp/cevio_character_licence/",
+  "source_claim": "The CeVIO Project character license states that the project holds rights to the characters Satou Sasara and Suzuki Tsudumi (as well as Takahashi); only the two exact full-name campaign identities explicitly matched here are proposed.",
+  "authority_type": "FIRST_PARTY_CHARACTER_RIGHTS_LICENSE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "satou_sasara",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cevio"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "suzuki_tsudumi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cevio"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "CeVIO’s own license names these project-owned characters. Other campaign tags belong to distinct character/project authorities and are not inferred into CeVIO."
+}

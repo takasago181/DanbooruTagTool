@@ -1,0 +1,72 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-22-7-official-project-character-roster-20260928-01",
+  "campaign_key": "authority:22/7",
+  "campaign_fingerprint": "a7b05aa9badbbd475145235a6a79df30fcec9816151a0656d3ebe9d2e14c6add",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://nanabunnonijyuuni-mobile.com/s/n110/artist/c12?ima=0000&link=ROBO009",
+  "source_claim": "The official 22/7 character profile page names the eight current and chapter-two characters represented by this campaign: Himuro Mizuki, Ichinose Hotaru, Kiryu Touko, Nagamine Kaede, Nishiura Sora, Orihara Sumika, Sera Honoka, and Yagami Toa.",
+  "authority_type": "FIRST_PARTY_PROJECT_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "himuro_mizuki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "22/7"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ichinose_hotaru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "22/7"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kiryu_touko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "22/7"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nagamine_kaede",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "22/7"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nishiura_sora",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "22/7"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "orihara_sumika",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "22/7"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sera_honoka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "22/7"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yagami_toa",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "22/7"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official roster directly lists these eight identities. No unlisted original-cast campaign tags are inferred."
+}
