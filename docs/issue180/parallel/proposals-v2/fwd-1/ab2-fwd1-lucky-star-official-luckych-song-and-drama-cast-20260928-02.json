@@ -1,0 +1,135 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-lucky-star-official-luckych-song-and-drama-cast-20260928-02",
+  "campaign_key": "authority:lucky_star",
+  "campaign_fingerprint": "fe5c5ba6be23a173f90616e60d74dc2de48b504913dc752c3f68d60b305116c8",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.lucky-ch.com/luckypedia/goods_index.html",
+  "source_claim": "The official Lucky Star web/LuckyPedia product archive identifies character song CDs and the Lucky Star drama CD, naming characters and performers; the drama-CD cast includes Konata, Kagami, Tsukasa, Miyuki, Yutaka, Minami, Hiyori, Patricia Martin, Ayano Minegishi, Yui, Nanako, Soujiro, Miki, Matsuri, Akira, Minoru, and Kanata Izumi.",
+  "authority_type": "OFFICIAL_FRANCHISE_PRODUCT_AND_DRAMA_CAST_ARCHIVE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "izumi_konata",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "lucky_star"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hiiragi_kagami",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "lucky_star"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hiiragi_tsukasa",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "lucky_star"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "takara_miyuki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "lucky_star"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kobayakawa_yutaka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "lucky_star"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "iwasaki_minami",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "lucky_star"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tamura_hiyori",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "lucky_star"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "patricia_martin",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "lucky_star"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "minegishi_ayano",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "lucky_star"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "narumi_yui",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "lucky_star"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kuroi_nanako",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "lucky_star"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "izumi_soujirou",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "lucky_star"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hiiragi_miki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "lucky_star"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hiiragi_matsuri",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "lucky_star"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kogami_akira",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "lucky_star"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shiraishi_minoru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "lucky_star"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "izumi_kanata",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "lucky_star"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official Lucky Star site calls the products character-song CDs and the drama CD adapted from the anime, and explicitly lists the performers/roles. Kanata and Ayano are directly named in the source. No alias or variant inference is used."
+}

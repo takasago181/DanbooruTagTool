@@ -1,0 +1,128 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-lucky-star-kyoto-animation-official-cast-20260928-01",
+  "campaign_key": "authority:lucky_star",
+  "campaign_fingerprint": "fe5c5ba6be23a173f90616e60d74dc2de48b504913dc752c3f68d60b305116c8",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.kyotoanimation.co.jp/works/luckystar/",
+  "source_claim": "Kyoto Animation’s official Lucky Star work page identifies the work and lists its anime cast, including Konata Izumi, Tsukasa Hiiragi, Kagami Hiiragi, Miyuki Takara, Yutaka Kobayakawa, Minami Iwasaki, Hiyori Tamura, Patricia Martin, Nanako Kuroi, Yui Narumi, Soujiro Izumi, Yukari Takara, Miki Hiiragi, Matsuri Hiiragi, Akira Kogami, and Minoru Shiraishi.",
+  "authority_type": "OFFICIAL_ANIMATION_WORK_CAST_PAGE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "izumi_konata",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "lucky_star"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hiiragi_tsukasa",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "lucky_star"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hiiragi_kagami",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "lucky_star"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "takara_miyuki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "lucky_star"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kobayakawa_yutaka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "lucky_star"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "iwasaki_minami",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "lucky_star"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tamura_hiyori",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "lucky_star"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "patricia_martin",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "lucky_star"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kuroi_nanako",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "lucky_star"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "narumi_yui",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "lucky_star"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "izumi_soujirou",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "lucky_star"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "takara_yukari",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "lucky_star"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hiiragi_miki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "lucky_star"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hiiragi_matsuri",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "lucky_star"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kogami_akira",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "lucky_star"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shiraishi_minoru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "lucky_star"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Each mapped character is explicitly named in the cast list on the official page for Kyoto Animation’s Lucky Star adaptation. The source establishes these characters within that work; no relation is inferred from surnames or fan tags."
+}

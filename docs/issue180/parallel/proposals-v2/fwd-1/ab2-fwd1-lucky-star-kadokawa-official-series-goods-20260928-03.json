@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-lucky-star-kadokawa-official-series-goods-20260928-03",
+  "campaign_key": "authority:lucky_star",
+  "campaign_fingerprint": "fe5c5ba6be23a173f90616e60d74dc2de48b504913dc752c3f68d60b305116c8",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://store.kadokawa.co.jp/shop/series/series00150701?p=1&ps=12",
+  "source_claim": "KADOKAWA’s official online shop Lucky Star series collection lists Lucky Star-branded character goods bearing the names Konata Izumi, Tsukasa Hiiragi, Kagami Hiiragi, Miyuki Takara, Yutaka Kobayakawa, and Minami Iwasaki.",
+  "authority_type": "OFFICIAL_PUBLISHER_FRANCHISE_PRODUCT_LIST",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "izumi_konata",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "lucky_star"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hiiragi_tsukasa",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "lucky_star"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hiiragi_kagami",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "lucky_star"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "takara_miyuki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "lucky_star"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kobayakawa_yutaka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "lucky_star"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "iwasaki_minami",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "lucky_star"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The publisher shop classifies these explicitly named products under its Lucky Star series collection. This is corroborating direct product-source evidence for the listed exact characters."
+}
