@@ -1,0 +1,72 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-mitsudomoe-official-anime-cast-20260928-01",
+  "campaign_key": "authority:mitsudomoe_(manga)",
+  "campaign_fingerprint": "d3b0f4a392298acdd9ace9395a7eaedcaa50c3f29b8078bba220fb03aa1fd29f",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.mitsudomoe-anime.com/staff/",
+  "source_claim": "TVアニメ「みつどもえ」公式サイトのSTAFF&CASTは、原作を桜井のりお「みつどもえ」と明記したうえで、丸井みつば、丸井ふたば、丸井ひとは、宮下、緒方愛梨、杉崎みく、矢部智、吉岡ゆきらを出演者とともに掲載している。",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "marui_mitsuba",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mitsudomoe_(manga)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "marui_futaba",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mitsudomoe_(manga)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "marui_hitoha",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mitsudomoe_(manga)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "miyashita",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mitsudomoe_(manga)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ogata_airi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mitsudomoe_(manga)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sugisaki_miku",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mitsudomoe_(manga)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yabe_satoshi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mitsudomoe_(manga)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yoshioka_yuki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mitsudomoe_(manga)"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only exact campaign characters explicitly named by this official source are proposed. This positive source batch does not claim the remaining campaign members are exhausted."
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-subarashiki-hibi-keroq-kimika-profile-20260928-01",
+  "campaign_key": "authority:subarashiki_hibi",
+  "campaign_fingerprint": "2e3fe741ba06f957fa1866d83734ae4df23fb7b08cc2a34d3a72950d9219bb3b",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.keroq.co.jp/suba/chara_kimika.html",
+  "source_claim": "KeroQの『素晴らしき日々～不連続存在～』公式キャラクター紹介内の専用ページ「chara_kimika.html」は、橘希実香のプロフィールページである。ページの本文は画像表示のため、ここでは当該公式プロフィールの対象キャラクターのみを提案する。",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "tachibana_kimika",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "subarashiki_hibi"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only the exact named campaign character(s) directly identified by this official source are proposed. This does not claim that the rest of the campaign is exhausted."
+}

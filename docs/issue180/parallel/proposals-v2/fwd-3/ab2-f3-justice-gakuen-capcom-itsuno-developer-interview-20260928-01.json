@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-justice-gakuen-capcom-itsuno-developer-interview-20260928-01",
+  "campaign_key": "authority:justice_gakuen",
+  "campaign_fingerprint": "c902f5aa2ef4138ebbf2ceb964ec9c2bf61da9f6fd0b8f93c124512f2fedb44c",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://game.capcom.com/cfn/sfv/column-130231?lang=en",
+  "source_claim": "CAPCOMの開発者・伊津野英昭への公式インタビューは、Rival Schools（Justice Gakuen）の開発とキャラクターについて説明し、Natsu Ayuhara、Batsu Ichimon、Hinata Wakaba、Kyosuke Kagami、Kyoko Minazukiを作品中のキャラクターとして明記している。",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "ayuhara_natsu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "justice_gakuen"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ichimonji_batsu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "justice_gakuen"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "wakaba_hinata",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "justice_gakuen"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kagami_kyosuke",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "justice_gakuen"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "minazuki_kyoko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "justice_gakuen"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only exact campaign characters explicitly named by this official source are proposed. This positive source batch does not claim the remaining campaign members are exhausted."
+}

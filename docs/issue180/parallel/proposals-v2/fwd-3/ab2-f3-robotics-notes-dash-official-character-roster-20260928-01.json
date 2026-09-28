@@ -1,0 +1,65 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-robotics-notes-dash-official-character-roster-20260928-01",
+  "campaign_key": "authority:robotics;notes",
+  "campaign_fingerprint": "658a2b9cf68f97180ff3afa566f5b791717a672c02a5886c0d06febfb9256674",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://roboticsnotes.jp/",
+  "source_claim": "MAGES／5pb.公式『ROBOTICS;NOTES DaSH』サイトは、前作から続く作品の人物として瀬乃宮あき穂、神代フラウ、大徳淳和、日高昴、ならびに八汐海翔、瀬乃宮みさ希、行舟愛理をキャラクターページと作品紹介に掲載している。",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "senomiya_akiho",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "robotics;notes"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "koujiro_frau",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "robotics;notes"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "daitoku_junna",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "robotics;notes"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hidaka_subaru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "robotics;notes"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yashio_kaito",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "robotics;notes"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "senomiya_misaki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "robotics;notes"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yukifune_airi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "robotics;notes"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only the exact named campaign character(s) directly identified by this official source are proposed. This does not claim that the rest of the campaign is exhausted."
+}
