@@ -1,0 +1,29 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-scott-pilgrim-netflix-official-character-guide-20260928-01",
+  "campaign_key": "authority:scott_pilgrim_(series)",
+  "campaign_fingerprint": "e0b9628fc20bb96e8e43f8890fd6c43949ab698e4882521c835278027e0bcbf7",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.netflix.com/tudum/articles/scott-pilgrim-takes-off-cast-and-characters",
+  "source_claim": "Netflix's official Tudum cast and character guide for Scott Pilgrim Takes Off identifies Scott Pilgrim, Ramona Flowers, Matthew Patel, Wallace Wells, Lucas Lee, Envy Adams, Kim Pine, Julie Powers, Todd Ingram, Gideon Graves, Roxie Richter, Knives Chau, and Stephen Stills as characters in the adaptation of the Scott Pilgrim comics and film.",
+  "authority_type": "OFFICIAL_STUDIO_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"scott_pilgrim","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"scott_pilgrim_(series)"},
+    {"subject_type":"Character","subject_key":"ramona_flowers","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"scott_pilgrim_(series)"},
+    {"subject_type":"Character","subject_key":"matthew_patel","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"scott_pilgrim_(series)"},
+    {"subject_type":"Character","subject_key":"wallace_wells","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"scott_pilgrim_(series)"},
+    {"subject_type":"Character","subject_key":"lucas_lee","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"scott_pilgrim_(series)"},
+    {"subject_type":"Character","subject_key":"envy_adams","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"scott_pilgrim_(series)"},
+    {"subject_type":"Character","subject_key":"kim_pine","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"scott_pilgrim_(series)"},
+    {"subject_type":"Character","subject_key":"julie_powers","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"scott_pilgrim_(series)"},
+    {"subject_type":"Character","subject_key":"todd_ingram","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"scott_pilgrim_(series)"},
+    {"subject_type":"Character","subject_key":"gideon_graves","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"scott_pilgrim_(series)"},
+    {"subject_type":"Character","subject_key":"roxie_richter","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"scott_pilgrim_(series)"},
+    {"subject_type":"Character","subject_key":"knives_chau","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"scott_pilgrim_(series)"},
+    {"subject_type":"Character","subject_key":"stephen_stills","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"scott_pilgrim_(series)"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The studio-issued cast and character guide contains a dedicated character entry for each listed name and states that the anime adapts the Scott Pilgrim comics and film. Names map directly to the exact campaign keys."
+}
