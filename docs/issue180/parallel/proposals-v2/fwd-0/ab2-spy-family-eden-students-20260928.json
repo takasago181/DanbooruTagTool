@@ -1,0 +1,18 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-spy-family-eden-students-20260928",
+  "campaign_key": "authority:spy_x_family",
+  "campaign_fingerprint": "11683cd34d76da0e970539d8dc820fde3e2a27d5762bf49a9d360b672489ca0a",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://spy-family.net/news/?p=315",
+  "source_claim": "The official SPY×FAMILY anime news release announces the Eden classmates Emile Elman and Ewen Egeburg and states that their character settings were released.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ANNOUNCEMENT",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"emile_elman","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"spy_x_family"},
+    {"subject_type":"Character","subject_key":"ewen_egeburg","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"spy_x_family"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official release names both characters and confirms published character settings; the campaign entry hayami_saori is a voice actor, not a character, and is excluded."
+}
