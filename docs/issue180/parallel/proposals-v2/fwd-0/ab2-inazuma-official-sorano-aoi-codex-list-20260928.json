@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-inazuma-official-sorano-aoi-codex-list-20260928",
+  "campaign_key": "authority:inazuma_eleven_(series)",
+  "campaign_fingerprint": "ef8ef7d0878c94df4eaf6937ff4896c69751b68807a81d9f8cdd5561c9c77a88",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://zukan.inazuma.jp/chara_list/?per_page=50&q=hN2cnouamJCNhqCZlpOLmo3dxaTdHHxhHHxyHHxDHH1HHHxcHHxD3aKC",
+  "source_claim": "The official LEVEL5 Inazuma Eleven Player Codex character list identifies Sorano Aoi (空野 葵) among the Inazuma Eleven GO Galaxy Big Bang/Supernova characters.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "sorano_aoi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "inazuma_eleven_(series)"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official roster explicitly names Sorano Aoi and an Inazuma Eleven GO title."
+}

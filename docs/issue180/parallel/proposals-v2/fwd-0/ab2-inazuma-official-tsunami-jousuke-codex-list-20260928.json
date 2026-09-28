@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-inazuma-official-tsunami-jousuke-codex-list-20260928",
+  "campaign_key": "authority:inazuma_eleven_(series)",
+  "campaign_fingerprint": "ef8ef7d0878c94df4eaf6937ff4896c69751b68807a81d9f8cdd5561c9c77a88",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://zukan.inazuma.jp/chara_list/?page=4&q=hN2Jmo2MlpCRoJmWk4uajd3FpN24sM3dooI%3D",
+  "source_claim": "The official LEVEL5 Inazuma Eleven Player Codex character list identifies Tsunami Jousuke (綱海 条介) in an Inazuma Eleven GO2 Chrono Stone title, and its roster also records him in Inazuma Eleven 2.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "tsunami_jousuke",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "inazuma_eleven_(series)"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The roster explicitly identifies the canonical Japanese character name and titles from the target franchise."
+}

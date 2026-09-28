@@ -1,0 +1,79 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-world-witches-official-ww-takeoff-cast-20260928",
+  "campaign_key": "authority:world_witches_series",
+  "campaign_fingerprint": "cbd8ee997fc1c481fa71afc7bb30bd8e721e9e8a86372af88a735cabd69b0b0c",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.w-witch.jp/ww_takeoff/staff_cast/",
+  "source_claim": "The official World Witches Take Off staff and cast page pairs these named characters with their cast members as characters in the 501st and 502nd Joint Fighter Wings: Aleksandra I. Pokryshkin, Edytha Rossmann, Gundula Rall, Karibuchi Hikari, Karibuchi Takami, Kanno Naoe, Nikka Edvardine Katajainen, Waltrud Krupinski, and Shimohara Sadako.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "aleksandra_i._pokryshkin",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "world_witches_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "edytha_rossmann",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "world_witches_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "gundula_rall",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "world_witches_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "karibuchi_hikari",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "world_witches_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "karibuchi_takami",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "world_witches_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kanno_naoe",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "world_witches_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nikka_edvardine_katajainen",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "world_witches_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "waltrud_krupinski",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "world_witches_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shimohara_sadako",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "world_witches_series"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "This positive batch is limited to exact current campaign members named on the same official cast roster page; other campaign members are not inferred."
+}
