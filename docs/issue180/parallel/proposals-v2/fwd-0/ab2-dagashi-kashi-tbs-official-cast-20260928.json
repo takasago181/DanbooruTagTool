@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-dagashi-kashi-tbs-official-cast-20260928",
+  "campaign_key": "authority:dagashi_kashi",
+  "campaign_fingerprint": "e4bd8a2de3ef0b8e9e537ff423ab97f93640a1a3f12c75f800d3c911f1528a69",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.tbs.co.jp/anime/dagashi/staffcast/",
+  "source_claim": "The official TBS staff and cast page for Dagashi Kashi 2 explicitly pairs Hotaru Shidare, Kokonotsu Shikada, Saya Endou, and Hajime Owari with their performers as cast roles in the animated series.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"shidare_hotaru","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"dagashi_kashi"},
+    {"subject_type":"Character","subject_key":"shikada_kokonotsu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"dagashi_kashi"},
+    {"subject_type":"Character","subject_key":"endou_saya","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"dagashi_kashi"},
+    {"subject_type":"Character","subject_key":"owari_hajime","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"dagashi_kashi"}
+  ],
+  "terminal_reviews": [],
+  "notes": "Only the four campaign identities explicitly named as character-role pairs on this official source are included; the other cast pairs on the page are outside this campaign."
+}
