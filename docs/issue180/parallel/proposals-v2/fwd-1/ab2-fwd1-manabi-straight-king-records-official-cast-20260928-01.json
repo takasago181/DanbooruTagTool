@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-manabi-straight-king-records-official-cast-20260928-01",
+  "campaign_key": "authority:gakuen_utopia_manabi_straight!",
+  "campaign_fingerprint": "3f0ff1531eab5ba985b6021325a02c62bff930739ce434b194aca1ef8ef98fdf",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.kingrecords.co.jp/cs/g/gKIBA-91393/",
+  "source_claim": "King Records' official STRAIGHT7 product page identifies がくえんゆーとぴあ まなびストレート！ and its cast, explicitly naming Amamiya Manami, Inamori Mika, Uehara Mutsuki, Etou Mei, and Odori Momoha. This single work-specific official cast listing covers every current campaign member.",
+  "authority_type": "OFFICIAL_ANIME_CAST_LISTING",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "amamiya_manami",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "gakuen_utopia_manabi_straight!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "etou_mei",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "gakuen_utopia_manabi_straight!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "inamori_mika",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "gakuen_utopia_manabi_straight!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "odori_momoha",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "gakuen_utopia_manabi_straight!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "uehara_mutsuki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "gakuen_utopia_manabi_straight!"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "All five campaign identities appear in the official cast listing; no other cast members or relations are added."
+}

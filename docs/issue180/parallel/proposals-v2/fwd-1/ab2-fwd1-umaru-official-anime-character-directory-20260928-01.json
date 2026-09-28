@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-umaru-official-anime-character-directory-20260928-01",
+  "campaign_key": "authority:himouto!_umaru-chan",
+  "campaign_fingerprint": "a7592421ed61c07db3cf6d5445b432cab999687af3b0be2520bb53770aae25a6",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://umaru-ani.me/1st/character/index.html",
+  "source_claim": "The official Himouto! Umaru-chan anime character directory lists Doma Umaru, Doma Taihei, Ebina Nana, Motoba Kirie, and Tachibana Sylphynford, with character-specific descriptions. The copyright footer identifies the series committee and the original creator and publisher.",
+  "authority_type": "OFFICIAL_ANIME_CHARACTER_DIRECTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "doma_taihei",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "himouto!_umaru-chan"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "doma_umaru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "himouto!_umaru-chan"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ebina_nana",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "himouto!_umaru-chan"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "motoba_kirie",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "himouto!_umaru-chan"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tachibana_sylphynford",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "himouto!_umaru-chan"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official anime site includes all five current campaign identities. The official page spells one character's given name as 奈々; the campaign key is retained as ebina_nana. No other roster entries are included."
+}
