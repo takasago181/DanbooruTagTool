@@ -1,0 +1,37 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-react-official-agency-roster-20260928-01",
+  "campaign_key": "authority:re:act",
+  "campaign_fingerprint": "850d9c31e6018bcc75589d893bc946afc57d58a93bf7c214f2c28cf5d3600717",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.v-react.com/",
+  "source_claim": "Re:AcT’s official agency roster lists Hanabasami Kyo as graduated, and lists Leona Shishigami and Suu Usuwa among its talents.",
+  "authority_type": "FIRST_PARTY_TALENT_AGENCY_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "hanabasami_kyou",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "re:act"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shishigami_leona",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "re:act"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "usuwa_suu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "re:act"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The agency-controlled roster establishes only the three exact listed talent identities in this batch; Hano and Ribon are not inferred from the current roster."
+}

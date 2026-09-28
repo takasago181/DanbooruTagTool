@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-ryuuou-anime-official-cast-20260928-01",
+  "campaign_key": "authority:ryuuou_no_oshigoto!",
+  "campaign_fingerprint": "5ad69e871b17fb3241ee1c22f87cafa6b47a9d62e50061903314ceb6131b37c0",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.ryuoh-anime.com/staff/index.html",
+  "source_claim": "The official Ryuuou no Oshigoto! anime staff and cast page lists Kuzuryuu Yaichi, Hinatsuru Ai, Sora Ginko, Yashajin Ai, and Charlotte Izoard in its character cast roster.",
+  "authority_type": "FIRST_PARTY_ANIME_OFFICIAL_CAST_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "kuzuryuu_yaichi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ryuuou_no_oshigoto!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hinatsuru_ai",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ryuuou_no_oshigoto!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sora_ginko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ryuuou_no_oshigoto!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yashajin_ai",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ryuuou_no_oshigoto!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "charlotte_izoard",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ryuuou_no_oshigoto!"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official production cast roster names all five exact dispatched roles under the anime copyright; no relation outside the packet was added."
+}

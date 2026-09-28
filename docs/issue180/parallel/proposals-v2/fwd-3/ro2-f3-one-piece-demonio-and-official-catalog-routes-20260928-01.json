@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-f3-one-piece-demonio-and-official-catalog-routes-20260928-01",
+  "campaign_key": "authority:one_piece",
+  "campaign_fingerprint": "266de9a8340ceba61fce3b42ca1dc6a20ff327aa29643826d678ef026bb90d11",
+  "worker_slot": 3,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "FIRST_PARTY_ANIME_EPISODE_SUMMARY",
+      "url_or_query": "https://one-piece.com/anime/o6341/index.html",
+      "result": "The official episode summary names Demonio Fleur as a Nico Robin technique, but does not establish the packet tag as a separate exact Character identity or resolve the other packet members."
+    },
+    {
+      "route_type": "FIRST_PARTY_CHARACTER_PRODUCT_PAGE",
+      "url_or_query": "https://one-piece.com/figure/77702/index.html",
+      "result": "The official figure listing identifies a Nico Robin Demonio Fleur figure; the product evidence still describes Robin in a technique presentation, not an independently mapped Character identity."
+    },
+    {
+      "route_type": "FIRST_PARTY_CHARACTER_CATALOG",
+      "url_or_query": "https://one-piece.com/character/syllabary/index.html?category=&page=29&sort=desc",
+      "result": "The official character catalog route was checked for exact roster identity matches; this pass did not verify Den Den Mushi or the remaining fan-letter-derived names from an exact official entry."
+    }
+  ],
+  "notes": "Official sources establish Demonio Fleur as Robin’s named technique, which is insufficient to assert a distinct Character DIRECT_HOME relation. Other exact dispatched tags remain unresolved; this is partial route accounting only, not negative evidence or campaign exhaustion."
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-rakudai-nintama-official-kukuchi-20260928-01",
+  "campaign_key": "authority:rakudai_ninja_rantarou",
+  "campaign_fingerprint": "74105f5f9c6bf59d9fa1af7c2b3a338fa77c31fa925d2ee00f14eba36bba77b6",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.nhk-character.com/character/nintama/news/line-tantan/",
+  "source_claim": "NHK Enterprise’s official Nintama feature describes the collaboration as featuring Nintama characters and explicitly names Kukuchi Heisuke among them.",
+  "authority_type": "FIRST_PARTY_FRANCHISE_OFFICIAL_COLLABORATION",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "kukuchi_heisuke",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "rakudai_ninja_rantarou"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "This checked official collaboration page directly names Kukuchi Heisuke as a Nintama character; other dispatched identities are not inferred from this single named example."
+}
