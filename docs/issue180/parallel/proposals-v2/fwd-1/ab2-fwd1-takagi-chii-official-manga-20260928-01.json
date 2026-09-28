@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-takagi-chii-official-manga-20260928-01",
+  "campaign_key": "authority:karakai_jouzu_no_takagi-san",
+  "campaign_fingerprint": "9ff4dba41c19e8dae74bc657fdafa27a3ebb775f4db94d5dd343e425592b9363",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://shogakukan-comic.jp/book?jdcn=098536320000d0000000",
+  "source_claim": "Shogakukan's official page for Karakai Jouzu (?) no Nishikata-san identifies Nishikata Chi as the daughter of Nishikata and (former) Takagi-san, says the story is set seven years after Moto Takagi-san, and describes the book as another story in the Takagi-san series. This establishes Chi as a character in the same canonical Takagi-san franchise.",
+  "authority_type": "OFFICIAL_PUBLISHER_SPINOFF_CHARACTER_DESCRIPTION",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"nishikata_chii","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"karakai_jouzu_no_takagi-san"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The publisher's source explicitly identifies parentage and places the spin-off in the Takagi-san series; the canonical HOME is the main franchise work."
+}
