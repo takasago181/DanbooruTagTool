@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-fwd1-peach88-residual-members-20260928-01",
+  "campaign_key": "authority:peach88",
+  "campaign_fingerprint": "e2c83cb2e6acd8747b429d8879e86a457be6157b6964eafb243f6e7a46b473ee",
+  "worker_slot": 1,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "https://www.webtoons.com/en/canvas/tomboy-girlfriends/list?title_no=843815",
+  "source_claim": "Three distinct first-party routes were checked for the residual exact members hero_(peach88), billy_(peach88), yuki_(peach88), and zenith_(peach88). The checked material did not safely establish each named identity's direct HOME relation to original.",
+  "authority_type": "FIRST_PARTY_CREATOR_ROUTE_RESEARCH",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "OFFICIAL_CREATOR_PUBLISHED_WEBTOON_CANVAS_WORKS",
+      "url_or_query": "https://www.webtoons.com/en/canvas/tomboy-girlfriends/list?title_no=843815 and https://www.webtoons.com/en/canvas/step-by-step/list?title_no=1127362",
+      "result": "The first-party pages identify PeaCh88 as creator and name Alvida, Shion, Kirika, David, and Ranni; those are in the companion AUTHORITY_BATCH files. They do not individually identify Billy, Yuki, Zenith, or a distinct character identity for the generic episode-title role The Hero."
+    },
+    {
+      "route_type": "OFFICIAL_CREATOR_X_POST",
+      "url_or_query": "https://x.com/pcmaniac88/status/1546939872648130560",
+      "result": "The creator's own post URL was checked as the source for the Oni GF comic. The page exposed no readable post text in the checked route, so it could not verify the exact named residual identities or their HOME mapping."
+    },
+    {
+      "route_type": "OFFICIAL_CREATOR_PATREON_PROFILE",
+      "url_or_query": "https://www.patreon.com/PeaCh88/about",
+      "result": "The creator profile identifies PeaCh88 as a webcomic creator and links the creator's social channels, but the accessible profile material does not name the residual campaign characters or map them to a specific Copyright identity."
+    }
+  ],
+  "notes": "Partial progress only. Preserve the five positive relations in the companion AUTHORITY_BATCH proposals. The generic The Hero episode wording is not used to identify hero_(peach88); no negative relation or terminal decision is asserted for the four residual campaign members."
+}

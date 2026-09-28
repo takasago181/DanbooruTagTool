@@ -1,0 +1,37 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-peach88-tomboy-girlfriends-named-characters-20260928-01",
+  "campaign_key": "authority:peach88",
+  "campaign_fingerprint": "e2c83cb2e6acd8747b429d8879e86a457be6157b6964eafb243f6e7a46b473ee",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.webtoons.com/en/canvas/tomboy-girlfriends/list?title_no=843815",
+  "source_claim": "The official WEBTOON CANVAS page lists PeaCh88 as creator, describes Tomboy Girlfriends as a compilation of the creator's tomboy love stories, and lists episodes titled for Shion, Kirika, and Alvida. These exact named characters are covered by the creator-published work.",
+  "authority_type": "FIRST_PARTY_CREATOR_PUBLISHED_CHARACTER_EPISODE_INDEX",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "alvida_(peach88)",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "original"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kirika_(peach88)",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "original"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shion_(peach88)",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "original"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The page itself names the characters in the indexed creator-published episode titles; no broader roster inference is made."
+}

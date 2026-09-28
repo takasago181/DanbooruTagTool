@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-peach88-step-by-step-david-ranni-20260928-01",
+  "campaign_key": "authority:peach88",
+  "campaign_fingerprint": "e2c83cb2e6acd8747b429d8879e86a457be6157b6964eafb243f6e7a46b473ee",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.webtoons.com/en/canvas/step-by-step/list?title_no=1127362",
+  "source_claim": "The official WEBTOON CANVAS series page lists PeaCh88 as creator and describes Step by step as a comic about David and Ranni, explicitly identifying David as a graphic designer and Ranni as a chiropractor/former track star. The named characters are therefore creator-authored original characters in this work.",
+  "authority_type": "FIRST_PARTY_CREATOR_PUBLISHED_CHARACTER_DESCRIPTION",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "david_liu_(peach88)",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "original"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ranni_(peach88)",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "original"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The first-party CANVAS page identifies the creator and explicitly names both characters in its series description."
+}
