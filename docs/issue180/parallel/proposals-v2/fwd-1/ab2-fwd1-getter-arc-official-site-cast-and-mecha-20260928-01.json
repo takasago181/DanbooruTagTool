@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-getter-arc-official-site-cast-and-mecha-20260928-01",
+  "campaign_key": "authority:getter_robo",
+  "campaign_fingerprint": "3b11c280776d9ab8d240535327e27722b796dc61057e6319aad4b753658a19c1",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://getterrobot-arc.com/",
+  "source_claim": "The official Getter Robo Arc anime site identifies Getter Arc as a Getter Robo designed by Dr. Saotome and piloted by Takuma Nagare; its character profiles identify Hayato Jin and Ryoma Nagare as members of the original Getter team, and its mecha profile identifies Getter Dragon as one of Getter Robo G’s three forms.",
+  "authority_type": "OFFICIAL_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "getter_arc",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "getter_robo"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "getter_dragon",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "getter_robo"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "jin_hayato",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "getter_robo"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nagare_ryoma",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "getter_robo"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Exact source-level positive relations for campaign authority:getter_robo. The source identifies the named character/mecha within Getter Robo continuity; no terminal claim is made."
+}

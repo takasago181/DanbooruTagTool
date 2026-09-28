@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-getter-tamashii-gx91-getter-2-and-3-20260928-01",
+  "campaign_key": "authority:getter_robo",
+  "campaign_fingerprint": "3b11c280776d9ab8d240535327e27722b796dc61057e6319aad4b753658a19c1",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://tamashiiweb.com/item/13035/?dmode=pc&wovn=en",
+  "source_claim": "TAMASHII WEB’s official GX-91 product page explicitly names Getter 2 and Getter 3, says they complete the three forms of GETTER ROBO, and carries the Dynamic Planning / Toei Animation copyright.",
+  "authority_type": "OFFICIAL_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "getter-2",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "getter_robo"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "getter-3",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "getter_robo"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Exact source-level positive relations for campaign authority:getter_robo. The source identifies the named character/mecha within Getter Robo continuity; no terminal claim is made."
+}

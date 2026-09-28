@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-getter-tamashii-getter-1-20260928-01",
+  "campaign_key": "authority:getter_robo",
+  "campaign_fingerprint": "3b11c280776d9ab8d240535327e27722b796dc61057e6319aad4b753658a19c1",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://tamashiiweb.com/item/10786/?wovn=en",
+  "source_claim": "TAMASHII WEB’s official product record explicitly names SUPER ROBOT CHOGOKIN Getter 1 and places it under its Getter Robo character list breadcrumb; the record includes the Getter Robo rights notice.",
+  "authority_type": "OFFICIAL_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "getter-1",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "getter_robo"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Exact source-level positive relations for campaign authority:getter_robo. The source identifies the named character/mecha within Getter Robo continuity; no terminal claim is made."
+}
