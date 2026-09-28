@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-kobayashi-dragon-maid-official-roster-20260928",
+  "campaign_key": "authority:kobayashi-san_chi_no_maidragon",
+  "campaign_fingerprint": "6b324783385475380851eb1b83d33ec66bfc79087ab6834d6a837ba516eb43a1",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.futabasha.co.jp/maidragon/introduction/",
+  "source_claim": "Futabasha's official series character introduction identifies Kanna, Shouta Magatsuchi, Riko Saikawa, and Makoto Takiya as characters in Kobayashi-san Chi no Maid Dragon. The official anime portal's June 5, 2021 announcement adds Aida Taketo to its character introductions and previews his visual; an official Season 2 staff interview independently discusses Taketo as a new character and his design.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "aida_taketo",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kobayashi-san_chi_no_maidragon"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kanna_kamui",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kobayashi-san_chi_no_maidragon"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "magatsuchi_shouta",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kobayashi-san_chi_no_maidragon"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "saikawa_riko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kobayashi-san_chi_no_maidragon"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "takiya_makoto",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kobayashi-san_chi_no_maidragon"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Additional official sources for the roster evidence: https://maidragon.jp/news/archives/912 explicitly adds Aida Taketo to the character introductions; https://maidragon.jp/2nd/special/interview/ identifies Taketo as a new Season 2 character and discusses the production/design of Taketo and his grandmother. Futabasha's introduction at source_url individually identifies Kanna, Shouta Magatsuchi, Riko Saikawa, and Makoto Takiya. Only the five exact campaign members are proposed."
+}
