@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-fwd2-splatoon-music-npc-routes-partial-20260928",
+  "campaign_key": "authority:splatoon",
+  "campaign_fingerprint": "ca63e100315b0bc76846d2de7bfd049837db8eba59dead3d2d91a2a4c228c919",
+  "worker_slot": 2,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "OFFICIAL_CHARACTER_AND_MUSIC_ROSTER",
+      "url_or_query": "https://www.nintendo.com/jp/character/splatoon/en/music/21/index.html",
+      "result": "The official page explicitly covers Yoko, Oonie, and Kitamura (Ink Theory); none of those exact character keys occur in this campaign member list."
+    },
+    {
+      "route_type": "OFFICIAL_GAME_RETROSPECTIVE",
+      "url_or_query": "https://splatoon.nintendo.com/en/news/a-look-back-at-the-three-biggest-groups/",
+      "result": "Attempted to open the official Nintendo route, but it returned HTTP 502 in the research browser; it supplied no readable exact-member evidence."
+    },
+    {
+      "route_type": "OFFICIAL_CHARACTER_INDEX",
+      "url_or_query": "https://www.nintendo.com/jp/character/splatoon/en/character/index.html",
+      "result": "The index was readable and lists its own named game characters, but none of the 12 exact packet keys (Harmony’s Clownfish, Hirooooo, Jellyfish, Jessika, John, Kaori, Kiki, Surume, Tao Blu, Tosh, Veronika, Zuzu) was explicitly named there."
+    }
+  ],
+  "notes": "This broad campaign remains partial. The three checked routes do not establish an exact safe character-to-home relation for any current packet member. The failed route is recorded as inaccessible, not as negative evidence. No band membership, generic jellyfish species, fandom tag interpretation, or co-occurrence is used to guess HOME."
+}

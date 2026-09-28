@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "terminal_reviews": [],
+  "proposal_id": "ab2-fwd2-splatoon-official-character-index-zapfish-20260928",
+  "campaign_key": "authority:splatoon_(series)",
+  "campaign_fingerprint": "463100797df441288ce057cda0a581f492c210f18cad3478149d3b51f88c575d",
+  "source_url": "https://www.nintendo.com/jp/character/splatoon/en/character/index.html",
+  "source_claim": "Nintendo’s official Splatoon Base character/story index names the Great Zapfish and describes Zapfish placed in Octarian stages as recurring in-world game characters.",
+  "authority_type": "NINTENDO_OFFICIAL_GAME_CHARACTER_INDEX",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "zapfish",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "splatoon_(series)"
+    }
+  ],
+  "notes": "Only the packet’s exact Zapfish tag is included. Nearby species and role names are omitted unless the index explicitly names the same identity. This uses the stable series HOME root and does not infer a second game-specific HOME."
+}

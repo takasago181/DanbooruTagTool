@@ -1,0 +1,209 @@
+[
+  {
+    "schema_version": 2,
+    "worker_slot": 2,
+    "batch_type": "AUTHORITY_BATCH",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "terminal_reviews": [],
+    "proposal_id": "ab2-fwd2-conan-ytv-hagiwara_kenji-20260928",
+    "campaign_key": "authority:meitantei_conan",
+    "campaign_fingerprint": "c17c88e04e2cdc3695cf0f86734edf6d667918c09c8887c8c7079001d109a308",
+    "source_url": "https://www.ytv.co.jp/conan/police/",
+    "source_claim": "The official YTV Police Academy arc page explicitly profiles Kenji Hagiwara as a character in the Detective Conan story.",
+    "authority_type": "OFFICIAL_ANIME_STORY_CHARACTER_ROSTER",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "hagiwara_kenji",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "meitantei_conan"
+      }
+    ],
+    "notes": "Only the exact packet member named by this YTV profile is included. The accepted 30th-anniversary special hint did not name this member, so that source-review hint is not reused. No aliases beyond the official Shiho Miyano identity statement, or relations by family/appearance, are inferred."
+  },
+  {
+    "schema_version": 2,
+    "worker_slot": 2,
+    "batch_type": "AUTHORITY_BATCH",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "terminal_reviews": [],
+    "proposal_id": "ab2-fwd2-conan-ytv-matsuda_jinpei-20260928",
+    "campaign_key": "authority:meitantei_conan",
+    "campaign_fingerprint": "c17c88e04e2cdc3695cf0f86734edf6d667918c09c8887c8c7079001d109a308",
+    "source_url": "https://www.ytv.co.jp/conan/character/matsuda/",
+    "source_claim": "YTV’s official Detective Conan character profile names Jinpei Matsuda.",
+    "authority_type": "YTV_OFFICIAL_ANIME_CHARACTER_PROFILE",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "matsuda_jinpei",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "meitantei_conan"
+      }
+    ],
+    "notes": "Only the exact packet member named by this YTV profile is included. The accepted 30th-anniversary special hint did not name this member, so that source-review hint is not reused. No aliases beyond the official Shiho Miyano identity statement, or relations by family/appearance, are inferred."
+  },
+  {
+    "schema_version": 2,
+    "worker_slot": 2,
+    "batch_type": "AUTHORITY_BATCH",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "terminal_reviews": [],
+    "proposal_id": "ab2-fwd2-conan-ytv-kisaki_eri-20260928",
+    "campaign_key": "authority:meitantei_conan",
+    "campaign_fingerprint": "c17c88e04e2cdc3695cf0f86734edf6d667918c09c8887c8c7079001d109a308",
+    "source_url": "https://www.ytv.co.jp/conan/character/kisaki/",
+    "source_claim": "YTV’s official Detective Conan character profile names Eri Kisaki.",
+    "authority_type": "YTV_OFFICIAL_ANIME_CHARACTER_PROFILE",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "kisaki_eri",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "meitantei_conan"
+      }
+    ],
+    "notes": "Only the exact packet member named by this YTV profile is included. The accepted 30th-anniversary special hint did not name this member, so that source-review hint is not reused. No aliases beyond the official Shiho Miyano identity statement, or relations by family/appearance, are inferred."
+  },
+  {
+    "schema_version": 2,
+    "worker_slot": 2,
+    "batch_type": "AUTHORITY_BATCH",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "terminal_reviews": [],
+    "proposal_id": "ab2-fwd2-conan-ytv-kudou_yukiko-20260928",
+    "campaign_key": "authority:meitantei_conan",
+    "campaign_fingerprint": "c17c88e04e2cdc3695cf0f86734edf6d667918c09c8887c8c7079001d109a308",
+    "source_url": "https://www.ytv.co.jp/conan/character/yukiko/",
+    "source_claim": "YTV’s official Detective Conan character profile names Yukiko Kudo.",
+    "authority_type": "YTV_OFFICIAL_ANIME_CHARACTER_PROFILE",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "kudou_yukiko",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "meitantei_conan"
+      }
+    ],
+    "notes": "Only the exact packet member named by this YTV profile is included. The accepted 30th-anniversary special hint did not name this member, so that source-review hint is not reused. No aliases beyond the official Shiho Miyano identity statement, or relations by family/appearance, are inferred."
+  },
+  {
+    "schema_version": 2,
+    "worker_slot": 2,
+    "batch_type": "AUTHORITY_BATCH",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "terminal_reviews": [],
+    "proposal_id": "ab2-fwd2-conan-ytv-kyougoku_makoto-20260928",
+    "campaign_key": "authority:meitantei_conan",
+    "campaign_fingerprint": "c17c88e04e2cdc3695cf0f86734edf6d667918c09c8887c8c7079001d109a308",
+    "source_url": "https://www.ytv.co.jp/conan/character/kyogoku/",
+    "source_claim": "YTV’s official Detective Conan character profile names Makoto Kyogoku.",
+    "authority_type": "YTV_OFFICIAL_ANIME_CHARACTER_PROFILE",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "kyougoku_makoto",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "meitantei_conan"
+      }
+    ],
+    "notes": "Only the exact packet member named by this YTV profile is included. The accepted 30th-anniversary special hint did not name this member, so that source-review hint is not reused. No aliases beyond the official Shiho Miyano identity statement, or relations by family/appearance, are inferred."
+  },
+  {
+    "schema_version": 2,
+    "worker_slot": 2,
+    "batch_type": "AUTHORITY_BATCH",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "terminal_reviews": [],
+    "proposal_id": "ab2-fwd2-conan-ytv-miyano_akemi-20260928",
+    "campaign_key": "authority:meitantei_conan",
+    "campaign_fingerprint": "c17c88e04e2cdc3695cf0f86734edf6d667918c09c8887c8c7079001d109a308",
+    "source_url": "https://www.ytv.co.jp/conan/character/akemi/",
+    "source_claim": "YTV’s official Detective Conan character profile names Akemi Miyano.",
+    "authority_type": "YTV_OFFICIAL_ANIME_CHARACTER_PROFILE",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "miyano_akemi",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "meitantei_conan"
+      }
+    ],
+    "notes": "Only the exact packet member named by this YTV profile is included. The accepted 30th-anniversary special hint did not name this member, so that source-review hint is not reused. No aliases beyond the official Shiho Miyano identity statement, or relations by family/appearance, are inferred."
+  },
+  {
+    "schema_version": 2,
+    "worker_slot": 2,
+    "batch_type": "AUTHORITY_BATCH",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "terminal_reviews": [],
+    "proposal_id": "ab2-fwd2-conan-ytv-miyano_shiho-20260928",
+    "campaign_key": "authority:meitantei_conan",
+    "campaign_fingerprint": "c17c88e04e2cdc3695cf0f86734edf6d667918c09c8887c8c7079001d109a308",
+    "source_url": "https://www.ytv.co.jp/conan/character/haibara/",
+    "source_claim": "YTV’s official Haibara Ai character profile explicitly identifies her real name as Shiho Miyano.",
+    "authority_type": "YTV_OFFICIAL_ANIME_CHARACTER_PROFILE",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "miyano_shiho",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "meitantei_conan"
+      }
+    ],
+    "notes": "Only the exact packet member named by this YTV profile is included. The accepted 30th-anniversary special hint did not name this member, so that source-review hint is not reused. No aliases beyond the official Shiho Miyano identity statement, or relations by family/appearance, are inferred."
+  },
+  {
+    "schema_version": 2,
+    "worker_slot": 2,
+    "batch_type": "AUTHORITY_BATCH",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "terminal_reviews": [],
+    "proposal_id": "ab2-fwd2-conan-ytv-okiya_subaru-20260928",
+    "campaign_key": "authority:meitantei_conan",
+    "campaign_fingerprint": "c17c88e04e2cdc3695cf0f86734edf6d667918c09c8887c8c7079001d109a308",
+    "source_url": "https://www.ytv.co.jp/conan/character/subaru/",
+    "source_claim": "YTV’s official Detective Conan character profile names Subaru Okiya.",
+    "authority_type": "YTV_OFFICIAL_ANIME_CHARACTER_PROFILE",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "okiya_subaru",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "meitantei_conan"
+      }
+    ],
+    "notes": "Only the exact packet member named by this YTV profile is included. The accepted 30th-anniversary special hint did not name this member, so that source-review hint is not reused. No aliases beyond the official Shiho Miyano identity statement, or relations by family/appearance, are inferred."
+  },
+  {
+    "schema_version": 2,
+    "worker_slot": 2,
+    "batch_type": "AUTHORITY_BATCH",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "terminal_reviews": [],
+    "proposal_id": "ab2-fwd2-conan-ytv-sera_masumi-20260928",
+    "campaign_key": "authority:meitantei_conan",
+    "campaign_fingerprint": "c17c88e04e2cdc3695cf0f86734edf6d667918c09c8887c8c7079001d109a308",
+    "source_url": "https://www.ytv.co.jp/conan/character/sera/",
+    "source_claim": "YTV’s official Detective Conan character profile names Masumi Sera.",
+    "authority_type": "YTV_OFFICIAL_ANIME_CHARACTER_PROFILE",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "sera_masumi",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "meitantei_conan"
+      }
+    ],
+    "notes": "Only the exact packet member named by this YTV profile is included. The accepted 30th-anniversary special hint did not name this member, so that source-review hint is not reused. No aliases beyond the official Shiho Miyano identity statement, or relations by family/appearance, are inferred."
+  }
+]
