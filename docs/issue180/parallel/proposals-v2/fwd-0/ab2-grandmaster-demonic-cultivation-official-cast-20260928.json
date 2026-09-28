@@ -1,0 +1,25 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-grandmaster-demonic-cultivation-official-cast-roster-20260928",
+  "campaign_key": "authority:grandmaster_of_demonic_cultivation",
+  "campaign_fingerprint": "00b0055023c0562ac2c85d60fa58e4fc7651069465b91ce9607eb9def4471492",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://mdzs.jp/anime/staffcast/",
+  "source_claim": "The official Japanese TV anime site for Mo Dao Zu Shi lists the cast with each character's name in Japanese kanji. Its cast roster includes Wei Wuxian (魏無羨), Lan Wangji (藍忘機), Jiang Cheng (江澄), Lan Xichen (藍曦臣), Jin Ling (金凌), Lan Sizhui (藍思追), Lan Jingyi (藍景儀), Xue Yang (薛洋), and Xiao Xingchen (曉星塵). The page identifies the original work as 魔道祖師 and the Japanese production as Sony Music Solutions and Aniplex.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"jiang_cheng","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"grandmaster_of_demonic_cultivation"},
+    {"subject_type":"Character","subject_key":"jin_ling","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"grandmaster_of_demonic_cultivation"},
+    {"subject_type":"Character","subject_key":"lan_jingyi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"grandmaster_of_demonic_cultivation"},
+    {"subject_type":"Character","subject_key":"lan_sizhui","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"grandmaster_of_demonic_cultivation"},
+    {"subject_type":"Character","subject_key":"lan_wangji","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"grandmaster_of_demonic_cultivation"},
+    {"subject_type":"Character","subject_key":"lan_xichen","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"grandmaster_of_demonic_cultivation"},
+    {"subject_type":"Character","subject_key":"wei_wuxian","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"grandmaster_of_demonic_cultivation"},
+    {"subject_type":"Character","subject_key":"xiao_xingchen","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"grandmaster_of_demonic_cultivation"},
+    {"subject_type":"Character","subject_key":"xue_yang","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"grandmaster_of_demonic_cultivation"}
+  ],
+  "terminal_reviews": [],
+  "notes": "All nine campaign subjects appear with their Chinese written names on the official Japanese anime cast page."
+}
