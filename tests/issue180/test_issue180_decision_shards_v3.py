@@ -62,7 +62,8 @@ class DecisionShardDiscoveryTests(unittest.TestCase):
                 "direct_and_exceptions_v2.csv", "discovery_roster_reviews_v2.csv",
                 "family_terminal_reviews_v2.csv", "roster_serial_inazuma_codex_20260929.csv",
                 "roster_verified_v4.csv", "serial_forward_qa_wave_02_20260929.csv",
-                "serial_forward_qa_wave_03_20260929.csv", "street_fighter_serial_20260929.csv",
+                "serial_forward_qa_wave_03_20260929.csv", "serial_forward_qa_wave_04_20260929.csv",
+                "street_fighter_serial_20260929.csv",
                 "variant_pattern_reviews_v2.csv", "variants_verified_v4.csv",
             ],
         )
