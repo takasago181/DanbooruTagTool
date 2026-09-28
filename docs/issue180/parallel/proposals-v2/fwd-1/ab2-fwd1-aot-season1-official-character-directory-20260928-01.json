@@ -1,0 +1,107 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-aot-season1-official-character-directory-20260928-01",
+  "campaign_key": "authority:shingeki_no_kyojin",
+  "campaign_fingerprint": "21e599249c02418c542a9aee3c53dfe940559e6ba708d3798d2c93a951898182",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://shingeki.tv/season1/character/",
+  "source_claim": "The official Attack on Titan Season 1 character directory gives character entries and biographies for these named members, and identifies the production copyright as Attack on Titan.",
+  "authority_type": "OFFICIAL_ANIME_CHARACTER_DIRECTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "eren_yeager",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shingeki_no_kyojin"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mikasa_ackerman",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shingeki_no_kyojin"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "armin_arlert",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shingeki_no_kyojin"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "jean_kirstein",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shingeki_no_kyojin"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "annie_leonhart",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shingeki_no_kyojin"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sasha_blouse",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shingeki_no_kyojin"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "krista_lenz",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shingeki_no_kyojin"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "connie_springer",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shingeki_no_kyojin"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "marco_bott",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shingeki_no_kyojin"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "reiner_braun",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shingeki_no_kyojin"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "bertolt_hoover",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shingeki_no_kyojin"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "erwin_smith",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shingeki_no_kyojin"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hange_zoe",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shingeki_no_kyojin"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official season 1 character directory explicitly labels each named character with a profile and carries © Isayama / Kodansha / Attack on Titan Production Committee. All thirteen keys exactly match current campaign members and the displayed Japanese names. Ymir was not included because this campaign key is ymir_fritz and the page only says Ymir, leaving an identity mismatch; Levi was not in this current packet."
+}

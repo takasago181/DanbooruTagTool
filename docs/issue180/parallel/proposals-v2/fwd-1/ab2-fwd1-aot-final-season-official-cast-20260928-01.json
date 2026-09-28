@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-aot-final-season-official-cast-20260928-01",
+  "campaign_key": "authority:shingeki_no_kyojin",
+  "campaign_fingerprint": "21e599249c02418c542a9aee3c53dfe940559e6ba708d3798d2c93a951898182",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://shingeki.tv/final/staff/",
+  "source_claim": "The official The Final Season staff and cast page explicitly credits these named characters to The Final Season and carries the Attack on Titan production copyright.",
+  "authority_type": "OFFICIAL_ANIME_CAST_CREDITS",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "falco_grice",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shingeki_no_kyojin"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "gabi_braun",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shingeki_no_kyojin"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "pieck_finger",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shingeki_no_kyojin"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "porco_galliard",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shingeki_no_kyojin"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "zeke_yeager",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shingeki_no_kyojin"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official cast roster names Falco Grice, Gabi Braun, Pieck Finger, Porco Galliard, and Zeke Yeager. Its page identifies the source manga as Isayama’s Kodansha publication and carries © Isayama / Kodansha / Attack on Titan The Final Season Production Committee. These are exact current campaign members; only direct named cast credits are used."
+}
