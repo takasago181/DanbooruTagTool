@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-hanasaku-iroha-paworks-official-story-cast-20260928-01",
+  "campaign_key": "authority:hanasaku_iroha",
+  "campaign_fingerprint": "b8b8e8e64ae02fa33170d334d9b26ef579514da35be746795065f686d08d671b",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.pa-works.jp/works/hanairo-hsh/",
+  "source_claim": "P.A.WORKS' official work page for the Hanasaku Iroha film story identifies Matsumae Ohana, Tsurugi Minko, Oshimizu Nako, and Wakura Yuina as characters involved in the work's story. The producer's work-specific synopsis supports their direct HOME in Hanasaku Iroha.",
+  "authority_type": "OFFICIAL_STUDIO_WORK_SYNOPSIS",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "matsumae_ohana",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "hanasaku_iroha"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "oshimizu_nako",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "hanasaku_iroha"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tsurugi_minko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "hanasaku_iroha"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "wakura_yuina",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "hanasaku_iroha"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The original producer's film story explicitly identifies all four campaign members and lists the original production credits."
+}

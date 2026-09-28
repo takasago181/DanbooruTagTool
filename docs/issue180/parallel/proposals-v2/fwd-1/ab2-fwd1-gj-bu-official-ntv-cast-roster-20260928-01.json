@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-gj-bu-official-ntv-cast-roster-20260928-01",
+  "campaign_key": "authority:gj-bu",
+  "campaign_fingerprint": "5e0570d00ce9d8e10b788d9f00c7ef0389d356849494563af52238b387c700c0",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.ntv.co.jp/gj_series/",
+  "source_claim": "Nippon TV's official GJ-bu series page lists Amatsuka Mao, Sumeragi Shion, Bernstein Kirara, and Kannazuki Tamaki in the cast for the GJ-bu anime. This work-specific cast listing supports each dispatched character's direct HOME in GJ-bu.",
+  "authority_type": "OFFICIAL_WORK_CAST_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "amatsuka_mao",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "gj-bu"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kannazuki_tamaki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "gj-bu"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kirara_bernstein",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "gj-bu"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sumeragi_shion",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "gj-bu"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official broadcaster lists all four campaign members in the GJ-bu cast."
+}

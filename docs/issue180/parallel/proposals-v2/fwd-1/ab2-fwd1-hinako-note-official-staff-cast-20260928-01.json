@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-hinako-note-official-staff-cast-20260928-01",
+  "campaign_key": "authority:hinako_note",
+  "campaign_fingerprint": "8b857edf3ca5bb0bcfe5a0be8f62ed81023be5047508d6d4ac66ab83907a2fff",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://hinakonote.jp/staffcast.html",
+  "source_claim": "The official Hinako Note anime staff and cast page lists Sakuragi Hinako, Natsukawa Kuina, Hiiragi Mayuki, and Hagino Chiaki among the main cast for Hinako Note. This work-specific official cast listing supports each dispatched character's direct HOME in Hinako Note.",
+  "authority_type": "OFFICIAL_WORK_CAST_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "hagino_chiaki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "hinako_note"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hiiragi_mayuki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "hinako_note"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "natsukawa_kuina",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "hinako_note"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sakuragi_hinako",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "hinako_note"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official series staff-and-cast listing names all four campaign identities as cast roles."
+}

@@ -1,0 +1,37 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-nagatoro-official-second-attack-roster-20260928-01",
+  "campaign_key": "authority:ijiranaide_nagatoro-san",
+  "campaign_fingerprint": "991ddf4915776436e3a53c017ce57d807efb6db28cdedcfd316dda65ce2e3664",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.nagatorosan.jp/character/",
+  "source_claim": "The official Nagatoro-san 2nd Attack character roster lists Nagatoro, Gamo-chan, and Sunomiya as characters of the series and describes their character roles. This supports their direct HOME in Ijiranaide, Nagatoro-san.",
+  "authority_type": "OFFICIAL_WORK_CAST_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "gamou_maki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ijiranaide_nagatoro-san"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nagatoro_hayase",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ijiranaide_nagatoro-san"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sunomiya_sana",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ijiranaide_nagatoro-san"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official character profiles use the display names Nagatoro, Gamo-chan, and Sunomiya. Senpai/Hachiouji Naoto is supported by the separate TMS work profile batch."
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-nagatoro-tms-official-work-profile-hachiouji-20260928-01",
+  "campaign_key": "authority:ijiranaide_nagatoro-san",
+  "campaign_fingerprint": "991ddf4915776436e3a53c017ce57d807efb6db28cdedcfd316dda65ce2e3664",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.tms-e.co.jp/alltitles/2020s/000303.html",
+  "source_claim": "TMS Entertainment's official work profile for Ijiranaide, Nagatoro-san explicitly names Hachiouji Naoto as a character in the series and summarizes his role in the story. This supports his direct HOME in the named work.",
+  "authority_type": "OFFICIAL_STUDIO_CHARACTER_PROFILE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "hachiouji_naoto",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ijiranaide_nagatoro-san"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The animation producer names Hachiouji Naoto directly in its synopsis for the title."
+}
