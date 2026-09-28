@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-youkai-watch-tv-yokai-roster-20260928-01",
+  "campaign_key": "authority:youkai_watch",
+  "campaign_fingerprint": "01d340cae2620403eab28853bb62700cec85e91347733b1e4a2fe1f96b6e5cc6",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.tv-tokyo.co.jp/anime/youkai-watch/chara/index_2.html",
+  "source_claim": "The official TV Tokyo character page identifies Jibanyan, USApyon, Komasan, and Komajiro as Yo-kai Watch characters; its copyright line names the LEVEL-5 / Yo-kai Watch Project.",
+  "authority_type": "OFFICIAL_ANIME_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "jibanyan",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "youkai_watch"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "usapyon",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "youkai_watch"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "komasan",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "youkai_watch"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "komajirou",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "youkai_watch"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Exact current Issue #180 campaign members named by this first-party source only; overlapping relations across official sources are intentional and QA may deduplicate against current canonical."
+}

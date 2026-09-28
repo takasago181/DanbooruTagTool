@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-youkai-watch-2-character-roster-20260928-01",
+  "campaign_key": "authority:youkai_watch",
+  "campaign_fingerprint": "01d340cae2620403eab28853bb62700cec85e91347733b1e4a2fe1f96b6e5cc6",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.youkai-watch.jp/yw2/character/",
+  "source_claim": "LEVEL-5’s official Yo-kai Watch 2 roster identifies Keizou (ケイゾウ) and Fuyunyan (フユニャン), and also names the current campaign characters Keita, Fumi, and Jibanyan. The official page credits ©2014 LEVEL-5 Inc.",
+  "authority_type": "FIRST_PARTY_GAME_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "keizou",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "youkai_watch"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "fuyunyan",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "youkai_watch"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "amano_keita",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "youkai_watch"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kodama_fumika",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "youkai_watch"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "jibanyan",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "youkai_watch"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Exact current Issue #180 campaign members named by this first-party source only; overlapping relations across official sources are intentional and QA may deduplicate against current canonical."
+}

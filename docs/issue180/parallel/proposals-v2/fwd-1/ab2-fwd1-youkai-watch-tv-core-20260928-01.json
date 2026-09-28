@@ -1,0 +1,37 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-youkai-watch-tv-core-20260928-01",
+  "campaign_key": "authority:youkai_watch",
+  "campaign_fingerprint": "01d340cae2620403eab28853bb62700cec85e91347733b1e4a2fe1f96b6e5cc6",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.tv-tokyo.co.jp/anime/youkai-watch/chara/",
+  "source_claim": "The official TV Tokyo character page for the Yo-kai Watch anime names Keita (天野景太), Inaho (未空イナホ), and Fumi (木霊文花) as characters in the series. The page carries the LEVEL-5 / Yo-kai Watch Project / TV Tokyo copyright.",
+  "authority_type": "OFFICIAL_ANIME_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "amano_keita",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "youkai_watch"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kodama_fumika",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "youkai_watch"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "misora_inaho",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "youkai_watch"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Exact current Issue #180 campaign members named by this first-party source only; overlapping relations across official sources are intentional and QA may deduplicate against current canonical."
+}

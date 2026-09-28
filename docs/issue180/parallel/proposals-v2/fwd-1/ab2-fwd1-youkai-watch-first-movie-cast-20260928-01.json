@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-youkai-watch-first-movie-cast-20260928-01",
+  "campaign_key": "authority:youkai_watch",
+  "campaign_fingerprint": "01d340cae2620403eab28853bb62700cec85e91347733b1e4a2fe1f96b6e5cc6",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.youkai-watch.jp/archive/eiga/01/",
+  "source_claim": "The official first Yo-kai Watch film page lists Keita (天野ケータ), Keizou (ケイゾウ), Jibanyan, and Fuyunyan among the voice cast and credits the 2014 Yo-kai Watch film project / LEVEL-5.",
+  "authority_type": "OFFICIAL_FILM_CAST",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "amano_keita",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "youkai_watch"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "keizou",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "youkai_watch"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "jibanyan",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "youkai_watch"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "fuyunyan",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "youkai_watch"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Exact current Issue #180 campaign members named by this first-party source only; overlapping relations across official sources are intentional and QA may deduplicate against current canonical."
+}
