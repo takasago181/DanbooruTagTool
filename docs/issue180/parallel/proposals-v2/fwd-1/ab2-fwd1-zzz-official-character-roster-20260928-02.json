@@ -1,0 +1,22 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-zzz-official-character-roster-20260928-02",
+  "campaign_key": "authority:zenless_zone_zero",
+  "campaign_fingerprint": "177002252f9176973c4c1a75b272448d9f67c92501b4211ff6dfecfa9f6175ba",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://zenless.hoyoverse.com/en-us/main?catchSpider=1&page=feature",
+  "source_claim": "HoYoverse's official Zenless Zone Zero site publishes a character roster that explicitly lists these current campaign Characters by their in-game names.",
+  "authority_type": "HOYOVERSE_OFFICIAL_GAME_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "source_review_id_hint": "src180-ab2-fwd1-zzz-official-character-roster-20260928-01",
+  "relations": [
+    {"subject_type":"Character","subject_key":"burnice_white","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"zenless_zone_zero"},
+    {"subject_type":"Character","subject_key":"hugo_vlad","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"zenless_zone_zero"},
+    {"subject_type":"Character","subject_key":"vivian_banshee","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"zenless_zone_zero"},
+    {"subject_type":"Character","subject_key":"yidhari_murphy","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"zenless_zone_zero"},
+    {"subject_type":"Character","subject_key":"lucia_elowen","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"zenless_zone_zero"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official roster directly lists Burnice, Hugo, Vivian, Yidhari, and Lucia; each is a unique named Character in the current campaign. The 'Seed SR.' tag is not treated as an exact match to the roster's 'Seed' entry. The combined 'Orphie & Magus' roster entry, character names appearing only in quoted dialogue, and similarly named but distinct identities are omitted."
+}

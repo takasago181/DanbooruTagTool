@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-gintama-tv-tokyo-mimawari-roster-20260928-01",
+  "campaign_key": "authority:gintama",
+  "campaign_fingerprint": "a9ecbe47ac5a50a66d9f4a9a68fef4422e2a0ccaa0c0c55d0a4e12e7ab74d107",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.tv-tokyo.co.jp/anime/gintama/chara/mimawari/",
+  "source_claim": "TV Tokyo's official Gintama character directory gives a dedicated character entry and series-specific profile for Imai Nobume.",
+  "authority_type": "FIRST_PARTY_BROADCASTER_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"imai_nobume","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"gintama"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The page explicitly names 今井信女 (Imai Nobume) as a direct Gintama character entry."
+}

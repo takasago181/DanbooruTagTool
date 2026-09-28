@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-gintama-tv-tokyo-yagyu-roster-20260928-01",
+  "campaign_key": "authority:gintama",
+  "campaign_fingerprint": "a9ecbe47ac5a50a66d9f4a9a68fef4422e2a0ccaa0c0c55d0a4e12e7ab74d107",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.tv-tokyo.co.jp/anime/gintama/chara/yagyu/",
+  "source_claim": "TV Tokyo's official Gintama character directory gives a dedicated character entry for Yagyuu Kyuubei and identifies the page as part of the Gintama anime site.",
+  "authority_type": "FIRST_PARTY_BROADCASTER_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"yagyuu_kyuubei","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"gintama"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The page names 柳生九兵衛 (Yagyuu Kyuubei) as a direct character entry and provides a Gintama-specific description."
+}
