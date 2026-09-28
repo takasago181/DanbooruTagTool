@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-star-driver-aniplex-official-cast-20260928",
+  "campaign_key": "authority:star_driver",
+  "campaign_fingerprint": "2b32b87e67f3e5fe00455cc1786f42ce9e07d075e1b70bc8d43f30704275ea60",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.aniplex.co.jp/lineup/stardriver/",
+  "source_claim": "Aniplex's official STAR DRIVER staff and cast page lists Takuto Tsunashi, Wako Agemaki, Sugata Shindou, Kanako Watanabe, and Mizuno You among the series cast as character-role names.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"tsunashi_takuto","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"star_driver"},
+    {"subject_type":"Character","subject_key":"agemaki_wako","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"star_driver"},
+    {"subject_type":"Character","subject_key":"shindou_sugata","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"star_driver"},
+    {"subject_type":"Character","subject_key":"watanabe_kanako","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"star_driver"},
+    {"subject_type":"Character","subject_key":"you_mizuno","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"star_driver"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official cast list explicitly names all five campaign characters; performers and non-campaign cast are not proposed."
+}
