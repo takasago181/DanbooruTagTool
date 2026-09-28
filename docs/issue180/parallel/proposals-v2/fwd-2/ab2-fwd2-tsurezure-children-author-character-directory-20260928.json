@@ -1,0 +1,128 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-tsurezure-children-author-character-directory-20260928",
+  "campaign_key": "authority:tsurezure_children",
+  "campaign_fingerprint": "859d1565e6f4038c55efdad93e8d8345dd6f6e75fd2323873149fe1006978496",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://tsuredurechildren.com/%E3%82%AD%E3%83%A3%E3%83%A9%E3%82%AF%E3%82%BF%E3%83%BC/",
+  "source_claim": "Manga creator Toshiya Wakabayashi’s own site states that it is his author-operated free web manga site and that Tsurezure Children was serialized in Weekly Shonen Magazine; the character directory lists the included named characters by class and identifies their roles/story appearances in Tsurezure Children.",
+  "authority_type": "FIRST_PARTY_AUTHOR_CHARACTER_DIRECTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "akagi_masafumi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tsurezure_children"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "furuya_jun",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tsurezure_children"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "gouda_takeru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tsurezure_children"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "iijima_kana",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tsurezure_children"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kaji_ryouko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tsurezure_children"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kamine_ayaka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tsurezure_children"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "katori_shin'ichi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tsurezure_children"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kurihara_chiyo",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tsurezure_children"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "minagawa_yuki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tsurezure_children"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sasahara_satsuki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tsurezure_children"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shibasaki_erika",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tsurezure_children"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sugawara_takurou",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tsurezure_children"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "takano_chizuru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tsurezure_children"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "takase_haruhiko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tsurezure_children"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "uchimura_chiaki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tsurezure_children"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yamane_takao",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tsurezure_children"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Checked the author-operated character directory at https://tsuredurechildren.com/%E3%82%AD%E3%83%A3%E3%83%A9%E3%82%AF%E3%82%BF%E3%83%BC/ and its About page https://tsuredurechildren.com/%E3%81%94%E6%A1%88%E5%86%85/, which identifies the site operator as creator Toshiya Wakabayashi and the series as a Kodansha Weekly Shonen Magazine serialization. Only 16 current campaign identities explicitly listed in the directory are included; ubukata_shinji was not found and is omitted."
+}

@@ -1,0 +1,135 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-hundred-line-official-character-roster-20260928",
+  "campaign_key": "authority:the_hundred_line_-last_defense_academy-",
+  "campaign_fingerprint": "f25341e67bc33add799c2cd5d27bbdbdef425c0838f2b9dbe2f3084002b7f44d",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://hundred-line.com/character/",
+  "source_claim": "The official HUNDRED LINE -Last Defense Academy- character directory lists the named Special Defense Unit students and other characters as entries in the game, with individual official character pages/profiles. The Japanese directory shows the roster entries, and the official English \"Other\" character page names and describes V’ehxness as the Supreme Commander.",
+  "authority_type": "FIRST_PARTY_GAME_CHARACTER_DIRECTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "amemiya_darumi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "the_hundred_line_-last_defense_academy-"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "aotsuki_eito",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "the_hundred_line_-last_defense_academy-"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ginzaki_shouma",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "the_hundred_line_-last_defense_academy-"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kashimiya_karua",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "the_hundred_line_-last_defense_academy-"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kawana_tsubasa",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "the_hundred_line_-last_defense_academy-"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kirifuji_nozomi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "the_hundred_line_-last_defense_academy-"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "magadori_kyoshika",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "the_hundred_line_-last_defense_academy-"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "maruko_gaku",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "the_hundred_line_-last_defense_academy-"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mojiro_moko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "the_hundred_line_-last_defense_academy-"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "omokage_yugamu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "the_hundred_line_-last_defense_academy-"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "oosuzuki_kurara",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "the_hundred_line_-last_defense_academy-"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shizuhara_hiruko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "the_hundred_line_-last_defense_academy-"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tsukumo_ima",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "the_hundred_line_-last_defense_academy-"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tsukumo_kako",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "the_hundred_line_-last_defense_academy-"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "v'ehxness",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "the_hundred_line_-last_defense_academy-"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yakushiji_takemaru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "the_hundred_line_-last_defense_academy-"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sumino_takumi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "the_hundred_line_-last_defense_academy-"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Checked https://hundred-line.com/character/ and the first-party English character page https://hundred-line.com/en/character/?p=other for V’ehxness. This batch includes only the current campaign identities individually listed in the official game directory; the remaining source page and unnamed entries are not generalized into additional subjects."
+}

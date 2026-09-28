@@ -1,0 +1,107 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-gochiusa-official-character-material-20260928",
+  "campaign_key": "authority:gochuumon_wa_usagi_desu_ka?",
+  "campaign_fingerprint": "203efa30c00e326f251e716b4e611b9418318ed8b1419c736f8a31f832d59b83",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://gochiusa.com/ova/",
+  "source_claim": "The official Is the Order a Rabbit? series site names and presents Cocoa, Chino, Maya, Meg, Mocha, and Aoyama Blue Mountain in its character list and materials; official BLOOM material also names Natsume and Eru, and official character/song material identifies Phantom Thief Lapin as a performed in-series character identity. The official series pages place these named characters and Wild Geese within the GochiUsa work.",
+  "authority_type": "FIRST_PARTY_ANIME_CHARACTER_AND_SERIES_MATERIAL",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "aoyama_blue_mountain",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "gochuumon_wa_usagi_desu_ka?"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hoto_cocoa",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "gochuumon_wa_usagi_desu_ka?"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hoto_mocha",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "gochuumon_wa_usagi_desu_ka?"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "jinja_eru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "gochuumon_wa_usagi_desu_ka?"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "jinja_natsume",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "gochuumon_wa_usagi_desu_ka?"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "jouga_maya",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "gochuumon_wa_usagi_desu_ka?"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kafuu_chino",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "gochuumon_wa_usagi_desu_ka?"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kirima_syaro",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "gochuumon_wa_usagi_desu_ka?"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "natsu_megumi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "gochuumon_wa_usagi_desu_ka?"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "phantom_thief_lapin",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "gochuumon_wa_usagi_desu_ka?"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tedeza_rize",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "gochuumon_wa_usagi_desu_ka?"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ujimatsu_chiya",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "gochuumon_wa_usagi_desu_ka?"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "wild_geese",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "gochuumon_wa_usagi_desu_ka?"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Checked the official series materials at https://gochiusa.com/ova/, https://gochiusa.com/themovie/, https://gochiusa.com/10th/, https://gochiusa.com/bloom/news/n00250000.html, and https://gochiusa.com/news/hp0001/index06320000.html. The evidence directly ties listed characters/persona to the titled series. The tags minase_inori and taneda_risa are voice actors, not fictional characters, and are deliberately omitted."
+}
