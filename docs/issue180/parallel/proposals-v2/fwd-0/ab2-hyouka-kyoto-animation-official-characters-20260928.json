@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-hyouka-kyoto-animation-official-characters-20260928",
+  "campaign_key": "authority:hyouka",
+  "campaign_fingerprint": "d8d5e41014a2ad39ee924cdd0a8356f79f96011cd565b3f2bb72f511e43fb8f0",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.kyotoanimation.co.jp/kotenbu/character/",
+  "source_claim": "Kyoto Animation's official Hyouka character page names Oreki Houtarou, Chitanda Eru, Fukube Satoshi, Ibara Mayaka, and Irisu Fuyumi as characters in the Classic Literature Club series.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"oreki_houtarou","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"hyouka"},
+    {"subject_type":"Character","subject_key":"chitanda_eru","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"hyouka"},
+    {"subject_type":"Character","subject_key":"fukube_satoshi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"hyouka"},
+    {"subject_type":"Character","subject_key":"ibara_mayaka","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"hyouka"},
+    {"subject_type":"Character","subject_key":"irisu_fuyumi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"hyouka"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official character index explicitly lists all five identities in this campaign; other listed characters are outside this campaign."
+}

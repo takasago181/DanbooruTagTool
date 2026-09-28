@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-bokuyaba-official-film-characters-20260928",
+  "campaign_key": "authority:boku_no_kokoro_no_yabai_yatsu",
+  "campaign_fingerprint": "39d2e145b13875bdad5c375ff4a09febc35c579e4a434ba268f7758bd42c6e8e",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.bokuyaba-anime-movie.com/?target=character",
+  "source_claim": "The official The Dangers in My Heart movie character list profiles Kyotaro Ichikawa, Anna Yamada, Kana Ichikawa, Moeko Sekine, and Serina Yoshida as characters in the film and franchise.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"ichikawa_kyoutarou","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"boku_no_kokoro_no_yabai_yatsu"},
+    {"subject_type":"Character","subject_key":"yamada_anna","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"boku_no_kokoro_no_yabai_yatsu"},
+    {"subject_type":"Character","subject_key":"ichikawa_kana","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"boku_no_kokoro_no_yabai_yatsu"},
+    {"subject_type":"Character","subject_key":"sekine_moeko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"boku_no_kokoro_no_yabai_yatsu"},
+    {"subject_type":"Character","subject_key":"yoshida_serina","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"boku_no_kokoro_no_yabai_yatsu"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official character list explicitly names and describes all five campaign members, including the heroine's anime-only older sister Kana."
+}
