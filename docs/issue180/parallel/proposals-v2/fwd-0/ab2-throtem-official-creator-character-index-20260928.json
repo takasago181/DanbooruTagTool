@@ -1,0 +1,25 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-throtem-creator-official-character-post-index-20260928",
+  "campaign_key": "authority:throtem",
+  "campaign_fingerprint": "03aaf5d2eb4e465b21b540397d53df06dfe3c894d1ab00036a5a733f47cbdccf",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.patreon.com/Throtem/sitemap",
+  "source_claim": "The Throtem creator's official Patreon sitemap directly lists individual posts titled Edea, Elliot, Kana, Martha, Rosemary, Saki, Sara, Tiana, and Yuri on the creator's own account. These named original-character posts are grouped under the Throtem creator property on the first-party account.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"edea_(throtem)","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"throtem"},
+    {"subject_type":"Character","subject_key":"elliot_(throtem)","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"throtem"},
+    {"subject_type":"Character","subject_key":"kana_(throtem)","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"throtem"},
+    {"subject_type":"Character","subject_key":"martha_(throtem)","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"throtem"},
+    {"subject_type":"Character","subject_key":"rosemary_(throtem)","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"throtem"},
+    {"subject_type":"Character","subject_key":"saki_(throtem)","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"throtem"},
+    {"subject_type":"Character","subject_key":"sara_(throtem)","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"throtem"},
+    {"subject_type":"Character","subject_key":"tiana_(throtem)","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"throtem"},
+    {"subject_type":"Character","subject_key":"yuri_(throtem)","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"throtem"}
+  ],
+  "terminal_reviews": [],
+  "notes": "All nine campaign names appear as individually titled posts in the creator's own public index. This is creator first-party evidence; no character-variant identities are inferred."
+}
