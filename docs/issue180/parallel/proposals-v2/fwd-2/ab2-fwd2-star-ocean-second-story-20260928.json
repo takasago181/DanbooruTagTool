@@ -1,0 +1,18 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-star-ocean-second-story-20260928",
+  "campaign_key": "authority:star_ocean",
+  "campaign_fingerprint": "e4bfc64c5910e3a395e916dc9639f2975e4ad6d2b4eb6e32c20ff4d471ecf60f",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://gb.store.square-enix-games.com/star-ocean-the-second-story-r",
+  "source_claim": "Square Enix's official STAR OCEAN THE SECOND STORY R product page identifies the game as the second installment in the STAR OCEAN series and explicitly names Claude and Rena as its two protagonists.",
+  "authority_type": "OFFICIAL_GAME_PROTAGONIST_PROFILE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"claude_c._kenny","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"star_ocean"},
+    {"subject_type":"Character","subject_key":"rena_lanford","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"star_ocean"}
+  ],
+  "terminal_reviews": [],
+  "notes": "Only the two protagonists explicitly named by the official title page are included. The larger franchise campaign remains open; this does not infer the other series entries from this one game's cast, and no co-occurrence evidence is used."
+}
