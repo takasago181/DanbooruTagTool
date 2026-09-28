@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-fwd1-bacchikoi-official-site-unavailable-partial-20260928-01",
+  "campaign_key": "authority:bacchikoi!",
+  "campaign_fingerprint": "977553e684265fc0b4bef5e82d73b0bd4cc67e4424eb552011501fe3660c0ffa",
+  "worker_slot": 1,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "The developer project URL referenced for Bacchikoi! is no longer accessible. The accessible third-party discovery material identifies the title/developer and reports the current campaign names, but it does not provide checked first-party character-to-work evidence for a safe HOME relation.",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "OFFICIAL_DEVELOPER_PROJECT_PAGE",
+      "url_or_query": "https://blackmonkey-pro.com/project/bacchikoi/",
+      "result": "The original developer project page is inaccessible through the current check. No official roster/profile or rights statement could be verified; third-party game/catalog pages are discovery leads only and do not establish HOME."
+    }
+  ],
+  "notes": "PARTIAL only. The campaign is multi-member; this check does not exhaust it and proposes no negative or terminal relation."
+}
