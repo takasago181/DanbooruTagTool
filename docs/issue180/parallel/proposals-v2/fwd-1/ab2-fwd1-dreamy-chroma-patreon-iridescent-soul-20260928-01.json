@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-dreamy-chroma-patreon-iridescent-soul-20260928-01",
+  "campaign_key": "authority:dreamycakesss",
+  "campaign_fingerprint": "4604cd718d5a86ccb7a7d455a8352d364db9508942fdb4577a8cad679e6383c3",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.patreon.com/dreamycakesss/posts/chroma-null-card-160200117",
+  "source_claim": "On the creator’s official Patreon, the post titled “Chroma Null Card” says “Haven’t drawn him in a while” and is filed in the “Iridescent Soul” collection. This identifies Chroma as a character in the creator’s Iridescent Soul work.",
+  "authority_type": "OFFICIAL_CHARACTER_PROFILE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "chroma_(dreamycakesss)",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "iridescent_soul"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Hema is not included because checked first-party routes did not safely identify a unique HOME for that campaign member."
+}
