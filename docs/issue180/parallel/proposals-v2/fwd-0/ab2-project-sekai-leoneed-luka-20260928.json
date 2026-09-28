@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-project-sekai-leoneed-luka-20260928",
+  "campaign_key": "authority:project_sekai",
+  "campaign_fingerprint": "d186213f91237898d1949083825a9b83dad66e65b892d27a2d569140ee77b404",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://pjsekai.sega.jp/character/unite01/index.html",
+  "source_claim": "The official Leo/need unit page says that Miku and Luka appear in the Leo/need Sekai and support its four members.",
+  "authority_type": "FIRST_PARTY_UNIT_CHARACTER_PAGE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"leo/need_luka","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"project_sekai"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The page explicitly places Luka in Leo/need's Sekai. Only the matching current campaign variant is included here."
+}
