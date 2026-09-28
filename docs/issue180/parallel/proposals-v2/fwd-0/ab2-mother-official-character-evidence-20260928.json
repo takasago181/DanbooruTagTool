@@ -1,0 +1,71 @@
+[
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-mother3-official-character-page-20260928",
+    "campaign_key": "authority:mother_(series)",
+    "campaign_fingerprint": "3cfa557b09e1220c42fd07c33a22bf6f6d43c0cd3d40e9413b25366e5bbfd73c",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://www.nintendo.co.jp/n08/a3uj/chara/index.html",
+    "source_claim": "Nintendo's official MOTHER3 character page labels Boney (ボニー) and Hinawa (ヒナワ) among the game's characters.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {"subject_type":"Character","subject_key":"boney","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mother_(series)"},
+      {"subject_type":"Character","subject_key":"hinawa","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mother_(series)"}
+    ],
+    "terminal_reviews": [],
+    "notes": "Exact Japanese character labels on Nintendo's official MOTHER3 page support these two relations."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-mother2-official-jeff-profile-20260928",
+    "campaign_key": "authority:mother_(series)",
+    "campaign_fingerprint": "3cfa557b09e1220c42fd07c33a22bf6f6d43c0cd3d40e9413b25366e5bbfd73c",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://www.nintendo.co.jp/n08/a2uj/mother2/hero/index.html",
+    "source_claim": "Nintendo's official MOTHER2 hero page explicitly identifies the second friend as Jeff (ジェフ).",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {"subject_type":"Character","subject_key":"jeff_andonuts","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mother_(series)"}
+    ],
+    "terminal_reviews": [],
+    "notes": "The Japanese page directly names Jeff; the canonical Danbooru subject key includes Andonuts."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-earthbound-official-giygas-profile-20260928",
+    "campaign_key": "authority:mother_(series)",
+    "campaign_fingerprint": "3cfa557b09e1220c42fd07c33a22bf6f6d43c0cd3d40e9413b25366e5bbfd73c",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://www.nintendo.com/en-gb/Games/Super-Nintendo/EarthBound-771110.html",
+    "source_claim": "Nintendo's official EarthBound page includes Giygas in its character profiles, directly associating the named character with EarthBound.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {"subject_type":"Character","subject_key":"giygas","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mother_(series)"}
+    ],
+    "terminal_reviews": [],
+    "notes": "The source names Giygas directly. Other campaign candidates were omitted where the checked official pages did not establish an exact canonical identity."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-mother2-official-doseisan-scene-page-20260928",
+    "campaign_key": "authority:mother_(series)",
+    "campaign_fingerprint": "3cfa557b09e1220c42fd07c33a22bf6f6d43c0cd3d40e9413b25366e5bbfd73c",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://www.nintendo.co.jp/n08/a2uj/mother2/screen/index.html",
+    "source_claim": "Nintendo's official MOTHER2 scenes page explicitly names どせいさん (Dosei-san) in its MOTHER2 content.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {"subject_type":"Character","subject_key":"doseisan","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mother_(series)"}
+    ],
+    "terminal_reviews": [],
+    "notes": "The source uses the exact Japanese name. Kumatora, Ninten, Porky Minch, Ramblin' Evil Mushroom, and Rope Snake are omitted because the checked first-party sources did not establish safe exact relations for those canonical subjects."
+  }
+]
