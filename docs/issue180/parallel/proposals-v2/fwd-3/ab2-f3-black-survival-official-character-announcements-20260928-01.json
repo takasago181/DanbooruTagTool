@@ -1,0 +1,55 @@
+[
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-f3-black-survival-emma-li-dailin-official-announcement-20260928-01",
+    "campaign_key": "authority:black_survival",
+    "campaign_fingerprint": "15b925647bdb33c382c412a367fd26a486003d35f81d93e0c4eb500fb5fd001e",
+    "worker_slot": 3,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://store.steampowered.com/news/posts/?appids=690510&enddate=1542787879&feed=steam_community_announcements",
+    "source_claim": "The official Black Survival publisher announcement explicitly introduces Emma Hardy and names Li Dailin in the same game update.",
+    "authority_type": "FIRST_PARTY_GAME_UPDATE",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "emma_hardy",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "black_survival"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "li_dailin",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "black_survival"
+      }
+    ],
+    "terminal_reviews": [],
+    "notes": "Only exact campaign identities named in the Black Survival announcement are proposed."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-f3-black-survival-jackie-official-series-devlog-20260928-01",
+    "campaign_key": "authority:black_survival",
+    "campaign_fingerprint": "15b925647bdb33c382c412a367fd26a486003d35f81d93e0c4eb500fb5fd001e",
+    "worker_slot": 3,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://store.steampowered.com/news/posts/?appids=1049590&enddate=1557388986",
+    "source_claim": "The official Eternal Return developer announcement calls Jackie Quilt the representative character of the Black Survival series, directly associating Jackie Quilt with that series.",
+    "authority_type": "FIRST_PARTY_SERIES_CHARACTER_ANNOUNCEMENT",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "jackie_quilt",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "black_survival"
+      }
+    ],
+    "terminal_reviews": [],
+    "notes": "The developer explicitly ties Jackie Quilt to the Black Survival series; other campaign names are omitted."
+  }
+]

@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-fafner-behind-the-line-official-cast-20260928-01",
+  "campaign_key": "authority:soukyuu_no_fafner",
+  "campaign_fingerprint": "acf87e5b7401daaf8d9ecfb207abdff19672d66fe0ec1408f2d54f97a81d1b58",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://fafner-btl.jp/",
+  "source_claim": "The official Fafner: BEHIND THE LINE site lists Kazuki Makabe, Soushi Minashiro, Maya Toomi, Rina Nishio, and Seri Tatekami in its cast, matching these five exact campaign identities.",
+  "authority_type": "FIRST_PARTY_ANIME_CAST_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "makabe_kazuki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "soukyuu_no_fafner"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "minashiro_soushi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "soukyuu_no_fafner"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nishio_rina",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "soukyuu_no_fafner"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tatekami_seri",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "soukyuu_no_fafner"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "toomi_maya",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "soukyuu_no_fafner"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only exact matching campaign identities directly listed in the official cast are proposed; other campaign members are omitted."
+}

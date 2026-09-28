@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-mawaru-penguindrum-official-movie-roster-20260928-01",
+  "campaign_key": "authority:mawaru_penguindrum",
+  "campaign_fingerprint": "ad04a7c74d822060b317cf6964ab6b96288158d39c982f35cfe5a5f86c867bf3",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://penguindrum-movie.jp/character/",
+  "source_claim": "The official Re:cycle of the PENGUINDRUM character page names Ringo Oginome, Princess of the Crystal, Himari Takakura, Kamba Takakura, Shoma Takakura, and Sanetoshi Watase, matching these six exact campaign identities.",
+  "authority_type": "FIRST_PARTY_ANIME_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "oginome_ringo",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mawaru_penguindrum"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "princess_of_the_crystal",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mawaru_penguindrum"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "takakura_himari",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mawaru_penguindrum"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "takakura_kanba",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mawaru_penguindrum"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "takakura_shouma",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mawaru_penguindrum"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "watase_sanetoshi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mawaru_penguindrum"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only exact campaign members explicitly listed on the official character page are proposed; the three campaign penguin tags are not covered by this roster."
+}
