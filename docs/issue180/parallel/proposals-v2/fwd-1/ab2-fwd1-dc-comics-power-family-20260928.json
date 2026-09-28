@@ -1,0 +1,37 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-dc-comics-power-family-20260928",
+  "campaign_key": "authority:dc_comics",
+  "campaign_fingerprint": "5f1dcc77930e76d53103d85eb76bf68166827a38a0fd0be1fb2a7287e40c7451",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.dc.com/blog/2024/01/17/powering-up-the-super-family",
+  "source_claim": "DC’s official Super-Family feature discusses Power Girl as a named hero in her own ongoing comic and names Conner Kent and Superboy-Prime as members/figures of that family narrative.",
+  "authority_type": "OFFICIAL_DC_EDITORIAL_CHARACTER_HISTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "power_girl",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dc_comics"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kon-el",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dc_comics"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "superboy-prime",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dc_comics"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The source explicitly identifies Power Girl, Conner Kent (the campaign’s Kon-El), and Superboy-Prime in DC’s Superman character family."
+}
