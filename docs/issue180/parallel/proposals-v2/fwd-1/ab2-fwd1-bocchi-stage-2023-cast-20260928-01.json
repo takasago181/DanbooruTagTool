@@ -1,0 +1,86 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-bocchi-stage-2023-cast-20260928-01",
+  "campaign_key": "authority:bocchi_the_rock!",
+  "campaign_fingerprint": "e4e594bce155700b37e839ba6c9ca293f71be692bcabf005d52bdc51f940de1d",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.aniplex.co.jp/lineup/stagebocchi",
+  "source_claim": "Aniplex’s official 2023 LIVE STAGE Bocchi the Rock! page lists Nijika Ijichi, Ryo Yamada, Ikuyo Kita, Seika Ijichi, Kikuri Hiroi, Futari Gotoh, PA-san, Naoki Gotoh, Michiyo Gotoh, and Gita Otoko as roles in the adaptation.",
+  "authority_type": "OFFICIAL_STAGE_CAST",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "ijichi_nijika",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bocchi_the_rock!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yamada_ryo",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bocchi_the_rock!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kita_ikuyo",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bocchi_the_rock!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ijichi_seika",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bocchi_the_rock!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hiroi_kikuri",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bocchi_the_rock!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "gotoh_futari",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bocchi_the_rock!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "pa-san",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bocchi_the_rock!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "gotoh_naoki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bocchi_the_rock!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "gotoh_michiyo",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bocchi_the_rock!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "gitao",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bocchi_the_rock!"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Exact campaign members explicitly named as fictional roles/characters by the official work, publisher, or adaptation source; overlapping authority batches are intentional."
+}

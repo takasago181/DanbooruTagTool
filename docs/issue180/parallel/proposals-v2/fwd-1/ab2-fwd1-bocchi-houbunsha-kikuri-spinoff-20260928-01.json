@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-bocchi-houbunsha-kikuri-spinoff-20260928-01",
+  "campaign_key": "authority:bocchi_the_rock!",
+  "campaign_fingerprint": "e4e594bce155700b37e839ba6c9ca293f71be692bcabf005d52bdc51f940de1d",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://houbunsha.co.jp/comics/detail.php?current=2&p=%25A4%25DC%25A4%25C3%25A4%25C1%25A1%25A6%25A4%25B6%25A1%25A6%25A4%25ED%25A4%25C3%25A4%25AF%25A1%25AA%25B3%25B0%25C5%25C1%25A1%25A1%25D7%25A2%25B0%25E6%25AD%25A4%25AF%25EA%25BF%25BC%25BC%25F2%25C6%25FC%25B5%25AD",
+  "source_claim": "Houbunsha identifies Kikuri Hiroi as the protagonist of the official Bocchi the Rock! spin-off manga and describes the work as an official spin-off of the parent manga.",
+  "authority_type": "FIRST_PARTY_PUBLISHER_SPINOFF",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "hiroi_kikuri",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bocchi_the_rock!"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Exact campaign members explicitly named as fictional roles/characters by the official work, publisher, or adaptation source; overlapping authority batches are intentional."
+}

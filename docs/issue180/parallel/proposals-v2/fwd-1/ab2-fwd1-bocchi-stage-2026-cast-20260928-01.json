@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-bocchi-stage-2026-cast-20260928-01",
+  "campaign_key": "authority:bocchi_the_rock!",
+  "campaign_fingerprint": "e4e594bce155700b37e839ba6c9ca293f71be692bcabf005d52bdc51f940de1d",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.aniplex.co.jp/lineup/stagebocchi_2026reboot/",
+  "source_claim": "Aniplex’s official 2026 LIVE STAGE Bocchi the Rock! RE:boot cast page names Iwashita Shima and Shimizu Eliza as stage roles, within the adaptation of the Bocchi the Rock! manga/anime.",
+  "authority_type": "OFFICIAL_STAGE_CAST",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "iwashita_shima",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bocchi_the_rock!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shimizu_eliza",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bocchi_the_rock!"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Exact campaign members explicitly named as fictional roles/characters by the official work, publisher, or adaptation source; overlapping authority batches are intentional."
+}
