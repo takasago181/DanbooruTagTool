@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-denpa-onna-tbs-official-character-directory-20260928-01",
+  "campaign_key": "authority:denpa_onna_to_seishun_otoko",
+  "campaign_fingerprint": "6756afd0376c282d9da9ea8b4990742d4d2c88e0f68d959344297005b4e099d3",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.tbs.co.jp/anime/denpa/chara/chara.html",
+  "source_claim": "TBS's official anime character page labels five entries as main characters and identifies them as Niwa Makoto (丹羽 真), Touwa Erio (藤和エリオ), Mifune Ryuuko (御船流子), Maekawa-san (前川さん), and Touwa Meme (藤和女々). It explicitly says Maekawa's given name is unknown, matching the campaign identity without expanding it.",
+  "authority_type": "OFFICIAL_ANIME_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "maekawa",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "denpa_onna_to_seishun_otoko"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mifune_ryuuko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "denpa_onna_to_seishun_otoko"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "niwa_makoto",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "denpa_onna_to_seishun_otoko"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "touwa_erio",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "denpa_onna_to_seishun_otoko"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "touwa_meme",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "denpa_onna_to_seishun_otoko"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "One official broadcaster character roster directly covers all five campaign members. The page's exact Maekawa-san designation is retained; no given name or extra identity is inferred."
+}

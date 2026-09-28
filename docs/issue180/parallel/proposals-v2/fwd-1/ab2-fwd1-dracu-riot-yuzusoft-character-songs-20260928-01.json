@@ -1,0 +1,37 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-dracu-riot-yuzusoft-character-songs-20260928-01",
+  "campaign_key": "authority:dracu-riot!",
+  "campaign_fingerprint": "5dc47d60cec0975932556de7b67ee77610fc9512c8260e95b7492a2d104081bc",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.yuzu-soft.com/ja/post/100/CDs.html",
+  "source_claim": "YUZUSOFT's official CDs catalog lists three DRACU-RIOT! character songs, explicitly pairing the work title with Erina Olegovna Aven, Mera Azusa, and Yarai Miu. The official publisher's work-specific character-song listings directly establish these three character-to-work relations.",
+  "authority_type": "OFFICIAL_WORK_CHARACTER_SONG_CATALOG",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "elina_olegovna_oven",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dracu-riot!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mera_azusa",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dracu-riot!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yarai_miu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dracu-riot!"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "This one catalog source positively covers three listed campaign members. No relation is proposed for Nicola Cepheus or Mutsura Yuuto from this source."
+}
