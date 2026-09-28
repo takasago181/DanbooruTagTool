@@ -50,14 +50,19 @@ class DecisionShardDiscoveryTests(unittest.TestCase):
         self.assertEqual(paths, sorted(paths, key=lambda path: path.name))
         self.assertNotIn(common.PROTECTED_DECISION_BASE, [path.name for path in paths])
         decisions = common.load_decisions()
-        self.assertEqual(len(decisions), 4704)
+        expected_count = 0
+        for path in paths:
+            with path.open("r", encoding="utf-8-sig", newline="") as stream:
+                expected_count += sum(1 for _ in csv.DictReader(stream, strict=True))
+        self.assertEqual(len(decisions), expected_count)
         self.assertTrue(all(item["scope"].strip() and item["key"].strip() for item in decisions))
         self.assertEqual(
             [path.name for path in paths],
             [
                 "direct_and_exceptions_v2.csv", "discovery_roster_reviews_v2.csv",
                 "family_terminal_reviews_v2.csv", "roster_serial_inazuma_codex_20260929.csv",
-                "roster_verified_v4.csv", "variant_pattern_reviews_v2.csv", "variants_verified_v4.csv",
+                "roster_verified_v4.csv", "street_fighter_serial_20260929.csv",
+                "variant_pattern_reviews_v2.csv", "variants_verified_v4.csv",
             ],
         )
 
@@ -87,7 +92,7 @@ class DecisionShardDiscoveryTests(unittest.TestCase):
         self.assertEqual(repaired_total, 91)
 
     def test_arbitrary_shard_is_discovered_and_protected_base_is_excluded(self):
-        with tempfile.TemporaryDirectory(dir=ROOT / "tests/issue180") as temp:
+        with tempfile.TemporaryDirectory() as temp:
             directory = Path(temp)
             write_shard(directory / "z_new_campaign.csv", [row("DIRECT_CHARACTER", "new_character")])
             write_shard(directory / common.PROTECTED_DECISION_BASE, [row("DIRECT_CHARACTER", "protected")])
@@ -96,7 +101,7 @@ class DecisionShardDiscoveryTests(unittest.TestCase):
             self.assertEqual([d["key"] for d in decisions], ["new_character"])
 
     def test_duplicate_scope_key_fails_closed_across_active_shards(self):
-        with tempfile.TemporaryDirectory(dir=ROOT / "tests/issue180") as temp:
+        with tempfile.TemporaryDirectory() as temp:
             directory = Path(temp)
             write_shard(directory / "a.csv", [row("DIRECT_CHARACTER", "same")])
             write_shard(directory / "b.csv", [row("DIRECT_CHARACTER", "same")])
@@ -104,7 +109,7 @@ class DecisionShardDiscoveryTests(unittest.TestCase):
                 common.load_decisions(directory)
 
     def test_schema_blank_keys_and_malformed_csv_fail_closed(self):
-        with tempfile.TemporaryDirectory(dir=ROOT / "tests/issue180") as temp:
+        with tempfile.TemporaryDirectory() as temp:
             directory = Path(temp)
             malformed = directory / "bad.csv"
             malformed.write_text(",".join(SCHEMA) + "\n" + ",".join(["DIRECT_CHARACTER", "", *([""] * 8)]) + "\n", encoding="utf-8")
@@ -118,7 +123,7 @@ class DecisionShardDiscoveryTests(unittest.TestCase):
                 common.load_decisions(directory)
 
     def test_shard_and_row_order_are_deterministic_and_old_six_order_is_preserved(self):
-        with tempfile.TemporaryDirectory(dir=ROOT / "tests/issue180") as temp:
+        with tempfile.TemporaryDirectory() as temp:
             directory = Path(temp)
             for name in reversed(OLD_SHARDS):
                 write_shard(directory / name, [row("DIRECT_CHARACTER", name)])
@@ -134,7 +139,7 @@ class DecisionShardDiscoveryTests(unittest.TestCase):
             self.assertEqual(common.load_decisions(directory), first)
 
     def test_new_pass_shard_reaches_v3_evidence_ledger(self):
-        with tempfile.TemporaryDirectory(dir=ROOT / "tests/issue180") as temp:
+        with tempfile.TemporaryDirectory() as temp:
             temp_path = Path(temp)
             decisions = temp_path / "decisions"
             write_shard(decisions / "campaign_added_after_freeze.csv", [row("DIRECT_CHARACTER", "new_character", "home")])
@@ -155,7 +160,7 @@ class DecisionShardDiscoveryTests(unittest.TestCase):
             self.assertIn("campaign_added_after_freeze.csv:2", evidence[0]["source_provenance"])
 
     def test_new_shard_hash_is_in_source_manifest_input_set(self):
-        with tempfile.TemporaryDirectory(dir=ROOT / "tests/issue180") as temp:
+        with tempfile.TemporaryDirectory() as temp:
             temp_path = Path(temp)
             decisions = temp_path / "decisions"
             shard = decisions / "manifest_new_campaign.csv"
