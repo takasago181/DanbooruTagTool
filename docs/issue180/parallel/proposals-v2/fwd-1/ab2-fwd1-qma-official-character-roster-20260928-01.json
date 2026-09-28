@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-qma-official-character-roster-20260928-01",
+  "campaign_key": "authority:quiz_magic_academy",
+  "campaign_fingerprint": "e2b8e8dc40e8629d8d8572b045050af4fa696babf5fdbc8715d390d2f2216396",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://p.eagate.573.jp/game/qma/19/world/index.html",
+  "source_claim": "Konami's official e-amusement portal for Quiz Magic Academy lists Ruquia, Shalon, Clala, Malariya, and Grim Aloe in its character roster, covering all five exact campaign members.",
+  "authority_type": "OFFICIAL_GAME_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"clala","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"quiz_magic_academy"},
+    {"subject_type":"Character","subject_key":"grim_aloe","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"quiz_magic_academy"},
+    {"subject_type":"Character","subject_key":"malariya","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"quiz_magic_academy"},
+    {"subject_type":"Character","subject_key":"ruquia","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"quiz_magic_academy"},
+    {"subject_type":"Character","subject_key":"shalon","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"quiz_magic_academy"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The source explicitly displays all five campaign character names in the official QMA roster; no inference from other QMA characters is included."
+}

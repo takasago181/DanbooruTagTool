@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-nonnon-biyori-tv-tokyo-staff-cast-20260928-01",
+  "campaign_key": "authority:non_non_biyori",
+  "campaign_fingerprint": "96b1dc50dd2a2e641f1748d7159cf7c3d207f417c4bad80108a709b522347ab9",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.tv-tokyo.co.jp/anime/nonnon_ns/staff/",
+  "source_claim": "TV Tokyo's official Non Non Biyori Nonstop staff-and-cast page lists Renge Miyauchi, Hotaru Ichijo, Natsumi Koshigaya, Komari Koshigaya, and Hikage Miyauchi as characters with their cast credits, covering all five campaign members.",
+  "authority_type": "OFFICIAL_BROADCASTER_CAST_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"ichijou_hotaru","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"non_non_biyori"},
+    {"subject_type":"Character","subject_key":"koshigaya_komari","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"non_non_biyori"},
+    {"subject_type":"Character","subject_key":"koshigaya_natsumi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"non_non_biyori"},
+    {"subject_type":"Character","subject_key":"miyauchi_hikage","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"non_non_biyori"},
+    {"subject_type":"Character","subject_key":"miyauchi_renge","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"non_non_biyori"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official staff-and-cast page explicitly maps every listed character to the named anime; all five campaign members are covered."
+}

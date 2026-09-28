@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-mononoke-official-production-diary-20260928-01",
+  "campaign_key": "authority:mononoke_hime",
+  "campaign_fingerprint": "4b3e365307a943346e4d9cec8e83c9f5c62be5c1486caeaf0c75ed02e7183de7",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.ghibli.jp/diary_m/971.html",
+  "source_claim": "Studio Ghibli's official Princess Mononoke production diary names Ashitaka and Eboshi in its production discussion and later names the sounds of Yakul and Kodama being prepared for the film. These four exact campaign members are explicitly tied to the Princess Mononoke production.",
+  "authority_type": "OFFICIAL_STUDIO_PRODUCTION_DIARY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"ashitaka","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mononoke_hime"},
+    {"subject_type":"Character","subject_key":"eboshi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mononoke_hime"},
+    {"subject_type":"Character","subject_key":"kodama","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mononoke_hime"},
+    {"subject_type":"Character","subject_key":"yakul","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mononoke_hime"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The source names four members in the context of this film's production. It does not name the campaign member moro_no_ichizoku, so that relation is not asserted."
+}
