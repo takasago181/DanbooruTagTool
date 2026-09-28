@@ -1,0 +1,28 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-yae-sakura-official-v62-costume-route-partial-20260928",
+  "campaign_key": "base:yae_sakura",
+  "campaign_fingerprint": "1d62213d68f9de37694043d78b9902e78780f0fa1c6d37b723b2532b17bb2ed1",
+  "worker_slot": 0,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "https://honkaiimpact3.hoyoverse.com/asia/en-us/news/107330?source=v1",
+  "source_claim": "The official Honkai Impact 3rd v6.2 update announcement associates the outfit Sakura Summer with the Goushinnso Memento battlesuit and separately lists Flame Sakitama and Gyakushinn Miko in the game character section. This is useful outfit/battlesuit evidence, but the checked page does not explicitly establish the queued variant tags' direct relationship to the base Character yae_sakura.",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "OFFICIAL_GAME_VERSION_ANNOUNCEMENT",
+      "url_or_query": "https://honkaiimpact3.hoyoverse.com/asia/en-us/news/107330?source=v1",
+      "result": "Names Sakura Summer as an outfit under Goushinnso Memento and separately names Flame Sakitama and Gyakushinn Miko; does not prove the exact queued variant-to-yae_sakura relations or resolve all eight variants."
+    },
+    {
+      "route_type": "OFFICIAL_GAME_VERSION_ANNOUNCEMENT",
+      "url_or_query": "https://honkaiimpact3.hoyoverse.com/asia/id-id/news/107346?cate=542&cateLabel=",
+      "result": "Official v5.9 update announcement lists Outfit Goushinnso Memento [Sakura Summer] and its dressing-room entry, but does not establish the queued base-tag mapping or cover the other variants."
+    }
+  ],
+  "notes": "The broad eight-variant campaign remains open. These two official routes record exact costume naming without making a guessed alias/base mapping."
+}
