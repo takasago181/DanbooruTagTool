@@ -1,0 +1,141 @@
+[
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-tokyo-ghoul-youngjump-original-character-index-20260928",
+    "campaign_key": "authority:tokyo_ghoul",
+    "campaign_fingerprint": "142a242dc9fb97044676ec48a3eb57cffb29a2ce36946562fe6e208574b57efa",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://youngjump.jp/tokyoghoul/tg/chara/",
+    "source_claim": "Shueisha’s official Tokyo Ghoul character index explicitly lists 金木研, 霧嶋董香, 笛口雛実, 月山習, 神代利世, and 霧嶋絢都 among the original series characters.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "kaneki_ken",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "tokyo_ghoul"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "kirishima_touka",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "tokyo_ghoul"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "fueguchi_hinami",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "tokyo_ghoul"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "tsukiyama_shuu",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "tokyo_ghoul"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "kamishiro_rize",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "tokyo_ghoul"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "kirishima_ayato",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "tokyo_ghoul"
+      }
+    ],
+    "terminal_reviews": [],
+    "notes": "The official Shueisha / Weekly Young Jump character page explicitly names the Japanese character entry; only exact campaign entries established by that page are proposed."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-tokyo-ghoul-re-youngjump-ghoul-roster-20260928",
+    "campaign_key": "authority:tokyo_ghoul",
+    "campaign_fingerprint": "142a242dc9fb97044676ec48a3eb57cffb29a2ce36946562fe6e208574b57efa",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://youngjump.jp/tokyoghoul/re/chara/index2.html",
+    "source_claim": "Shueisha’s official Tokyo Ghoul:re character roster identifies 金木研, 霧嶋董香, 四方蓮示, 西尾錦, 月山習, 霧嶋絢都, 笛口雛実 and other named characters; its Kaneki entry explicitly says he served as 佐々木琲世.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "sasaki_haise",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "tokyo_ghoul"
+      }
+    ],
+    "terminal_reviews": [],
+    "notes": "The official Shueisha / Weekly Young Jump character page explicitly names the Japanese character entry; only exact campaign entries established by that page are proposed."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-tokyo-ghoul-re-youngjump-investigator-roster-20260928",
+    "campaign_key": "authority:tokyo_ghoul",
+    "campaign_fingerprint": "142a242dc9fb97044676ec48a3eb57cffb29a2ce36946562fe6e208574b57efa",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://youngjump.jp/tokyoghoul/re/chara/",
+    "source_claim": "Shueisha’s official Tokyo Ghoul:re character pages name 有馬貴将, 旧多二福, 鈴屋什造, 佐々木琲世, 瓜江久生, 六月透, and 米林才子 as characters in the series.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "arima_kishou",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "tokyo_ghoul"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "furuta_nimura",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "tokyo_ghoul"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "suzuya_juuzou",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "tokyo_ghoul"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "urie_kuki",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "tokyo_ghoul"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "mutsuki_tooru",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "tokyo_ghoul"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "yonebayashi_saiko",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "tokyo_ghoul"
+      }
+    ],
+    "terminal_reviews": [],
+    "notes": "The official Shueisha / Weekly Young Jump character page explicitly names the Japanese character entry; only exact campaign entries established by that page are proposed."
+  }
+]
