@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-f3-grimoire-official-routes-no-roster-20260928-01",
+  "campaign_key": "authority:grimoire_~shiritsu_grimoire_mahou_gakuen~",
+  "campaign_fingerprint": "2ea29b94df559d62af94bc8bc0b50067704c15d224c026c475a6316b986aaaa1",
+  "worker_slot": 3,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {"route_type":"OFFICIAL_GAME_SITE","url_or_query":"https://grimoire.applibot.co.jp/","result":"The official Grimoire A site is reachable but returned no inspectable character roster content in this session; exact dispatched characters could not be verified there."},
+    {"route_type":"OFFICIAL_DEVELOPER_CATALOG","url_or_query":"https://www.applibot.co.jp/service/","result":"Applibot's official service listing identifies Grimoire A as its game, but provides no exact roster or character-to-work mapping for the five targets."},
+    {"route_type":"OFFICIAL_GAME_PROMOTION","url_or_query":"https://www.youtube.com/watch?v=wC6Rgc3TmqA","result":"The game's official channel promotion confirms the Grimoire A franchise context but does not name or map the five current campaign identities."}
+  ],
+  "notes": "Three distinct first-party routes confirm only the game/developer context, not the exact characters in this campaign. This is PARTIAL progress; no relation is inferred from cast databases, fan wikis, or tag naming."
+}

@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-horimiya-official-anime-cast-20260928-01",
+  "campaign_key": "authority:hori-san_to_miyamura-kun",
+  "campaign_fingerprint": "2e54e78092eff1c0de642523ca9c9602ede5990485d37d2f903865624b214348",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://horimiya-anime.com/1st/staffcast/",
+  "source_claim": "The official Horimiya anime cast page names Kyoko Hori, Izumi Miyamura, Tooru Ishikawa, Kakeru Sengoku, and Remi Ayasaki among the adaptation's characters.",
+  "authority_type": "FIRST_PARTY_ANIME_CAST_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"hori_kyouko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"hori-san_to_miyamura-kun"},
+    {"subject_type":"Character","subject_key":"miyamura_izumi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"hori-san_to_miyamura-kun"},
+    {"subject_type":"Character","subject_key":"ishikawa_tooru","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"hori-san_to_miyamura-kun"},
+    {"subject_type":"Character","subject_key":"sengoku_kakeru","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"hori-san_to_miyamura-kun"},
+    {"subject_type":"Character","subject_key":"ayasaki_remi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"hori-san_to_miyamura-kun"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official TV anime cast roster explicitly names all five exact dispatched characters within the Horimiya adaptation. No relation is inferred for unlisted characters."
+}

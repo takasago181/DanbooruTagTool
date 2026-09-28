@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-ichigo-mashimaro-official-tbs-character-roster-20260928-01",
+  "campaign_key": "authority:ichigo_mashimaro",
+  "campaign_fingerprint": "8f0797fc1e6ea42ec3690de286b53e8a7345871549a272295caf35c5bce53309",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.tbs.co.jp/ichigomashimaro/chara.html",
+  "source_claim": "The official TBS Ichigo Mashimaro anime character page names Nobue Itoh, Chika Itoh, Miu Matsuoka, Matsuri Sakuragi, and Ana Coppola, matching all five campaign identities.",
+  "authority_type": "FIRST_PARTY_ANIME_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"itou_nobue","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ichigo_mashimaro"},
+    {"subject_type":"Character","subject_key":"itou_chika","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ichigo_mashimaro"},
+    {"subject_type":"Character","subject_key":"matsuoka_miu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ichigo_mashimaro"},
+    {"subject_type":"Character","subject_key":"sakuragi_matsuri","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ichigo_mashimaro"},
+    {"subject_type":"Character","subject_key":"ana_coppola","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ichigo_mashimaro"}
+  ],
+  "terminal_reviews": [],
+  "notes": "TBS's official character page names all five exact campaign targets. The source credits the anime production committee and the original creator; no other characters are added."
+}
