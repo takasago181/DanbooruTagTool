@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-f3-bural-chingu-official-publisher-route-check-20260928-01",
+  "campaign_key": "authority:bural_chingu",
+  "campaign_fingerprint": "aeb77f795289b633cf090aa9db6ba8ba92a823fdbb8945ac5cc32cc893b9ae53",
+  "worker_slot": 3,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {"route_type":"OFFICIAL_PUBLISHER_WORK_PAGE","url_or_query":"https://www.lezhin.com/ko/comic/bff","result":"Lezhin's official work page confirms the title and creator and gives a synopsis naming Ji-eun and Mincheol, but it does not list or fully identify the five exact campaign targets."},
+    {"route_type":"OFFICIAL_PUBLISHER_CREATOR_CATALOG","url_or_query":"https://www.lezhin.com/ko/artist/hanlaorange?page=1","result":"Lezhin's creator catalogue confirms Bural Chingu is by Hanla Gyun-gyul and repeats a synopsis using only Ji-eun and Mincheol; it does not establish the five packet identities or complete romanized forms."},
+    {"route_type":"OFFICIAL_PUBLISHER_EPISODE_PAGE","url_or_query":"https://www.lezhin.com/ko/comic/bff/1","result":"The publisher's first-episode route could not be fetched in this session, so no additional character names or exact campaign mappings were verified."}
+  ],
+  "notes": "The checked first-party pages establish the webtoon/work context but not exact full-name identity matches for this five-member campaign. Ji-eun alone is insufficient to infer the surname in lee_ji-eun. Record PARTIAL progress and leave all relations unresolved."
+}

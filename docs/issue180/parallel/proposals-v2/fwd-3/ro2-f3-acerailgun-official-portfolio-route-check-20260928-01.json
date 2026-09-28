@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-f3-acerailgun-official-portfolio-route-check-20260928-01",
+  "campaign_key": "authority:acerailgun",
+  "campaign_fingerprint": "6a069d5d10ed58b7a8c7ca976161242e586eb141056db5e21d43e242109a040b",
+  "worker_slot": 3,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {"route_type":"OFFICIAL_CREATOR_PORTFOLIO","url_or_query":"https://www.deviantart.com/acerailgun","result":"The expected creator profile URL could not be opened or independently verified; no portfolio content or exact campaign members were established."},
+    {"route_type":"OFFICIAL_CREATOR_GALLERY","url_or_query":"https://www.pixiv.net/en/users/acerailgun","result":"The candidate Pixiv profile URL did not resolve to an accessible artist page; no exact creator identity or campaign roster was established."},
+    {"route_type":"OFFICIAL_CREATOR_MEMBERSHIP_PAGE","url_or_query":"https://www.patreon.com/acerailgun","result":"The candidate Patreon creator page could not be opened or verified; no first-party material matching the five campaign characters was established."}
+  ],
+  "notes": "The three plausible creator-controlled portfolio routes were not verifiable in this research session. Search discovery returned repost/booru material only, which is not promoted to HOME evidence. Keep this broad family campaign PARTIAL and unresolved rather than infer ownership from the parenthetical tag suffix."
+}
