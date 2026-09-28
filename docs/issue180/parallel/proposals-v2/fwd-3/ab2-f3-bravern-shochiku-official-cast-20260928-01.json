@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-bravern-shochiku-official-cast-20260928-01",
+  "campaign_key": "authority:yuuki_bakuhatsu_bang_bravern",
+  "campaign_fingerprint": "832cd65a0912282740933074327f2d7a7a355db0bf84e3f2dfd561ef9a17a7a0",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.shochiku.co.jp/cinema/lineup/%E5%8B%87%E6%B0%97%E7%88%86%E7%99%BA%E3%83%90%E3%83%BC%E3%83%B3%E3%83%96%E3%83%AC%E3%82%A4%E3%83%90%E3%83%BC%E3%83%B3/",
+  "source_claim": "Shochiku’s official program page identifies the original TV anime Yuuki Bakuhatsu Bang Bravern and lists Isami Ao, Lewis Smith, Hibiki Rio, and Miyu Kato in its cast.",
+  "authority_type": "FIRST_PARTY_BROADCASTER_CAST_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "ao_isami",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "yuuki_bakuhatsu_bang_bravern"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hibiki_rio",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "yuuki_bakuhatsu_bang_bravern"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "lewis_smith",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "yuuki_bakuhatsu_bang_bravern"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "miyu_katou",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "yuuki_bakuhatsu_bang_bravern"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official broadcaster listing directly establishes four exact campaign characters. Bravern and Ryuji Satake are not named in this cast list and are not inferred."
+}

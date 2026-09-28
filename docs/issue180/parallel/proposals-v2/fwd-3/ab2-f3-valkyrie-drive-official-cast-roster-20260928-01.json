@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-valkyrie-drive-official-cast-roster-20260928-01",
+  "campaign_key": "authority:valkyrie_drive",
+  "campaign_fingerprint": "e228aeec5ad6af084fdf8f43f50bb64b92a481b0c1aafb0aaa1918c49ea3729b",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://valkyriedrive.jp/anime/staff/",
+  "source_claim": "The official Valkyrie Drive: Mermaid staff and cast page identifies Mamori Tokonome, Mirei Shikishima, Charlotte Scharsen, Kasumi Shigure, Rain Hasumi, and Lady J in the anime’s cast.",
+  "authority_type": "FIRST_PARTY_ANIME_CAST_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "charlotte_shalzen",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "valkyrie_drive"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hasumi_rain",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "valkyrie_drive"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "lady_j",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "valkyrie_drive"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shigure_kasumi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "valkyrie_drive"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shikishima_mirei",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "valkyrie_drive"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tokonome_mamori",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "valkyrie_drive"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official anime cast page lists all six campaign characters directly under the Mermaid project and credits its production staff and partners."
+}

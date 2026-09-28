@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-stpri-official-member-roster-20260928-01",
+  "campaign_key": "authority:stpri",
+  "campaign_fingerprint": "99a0e143ae9a6d77063622710da4e85260affbbd0e8664aa1ff929b4a548976b",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.stpr.com/artist/detail/2",
+  "source_claim": "STPR’s official Strawberry Prince artist profile identifies the group and lists the six campaign members: Rinu, Root, Colon, Satomi, Jel, and Nanamori.",
+  "authority_type": "FIRST_PARTY_GROUP_MEMBER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "rinu_(stpri)",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "stpri"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "root_(stpri)",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "stpri"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "colon_(stpri)",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "stpri"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "satomi_(stpri)",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "stpri"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "jel_(stpri)",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "stpri"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nanamori_(stpri)",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "stpri"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The group-owner profile names all six member identities in the Strawberry Prince work context, matching each campaign tag’s member alias."
+}
