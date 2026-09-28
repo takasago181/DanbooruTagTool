@@ -1,0 +1,72 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-tamako-market-official-character-directory-20260928-01",
+  "campaign_key": "authority:tamako_market",
+  "campaign_fingerprint": "77009312f60569fcc06f6dc77743f6ee14893901b54ab1a048c2470cb88837f0",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://tamakomarket.com/character/",
+  "source_claim": "The official Tamako Market character directory lists Tamako Kitashirakawa, Anko Kitashirakawa, Midori Tokiwa, Kanna Makino, Shiori Asagiri, Mochizou Ooji, Dera Mochimazzi, and Choi Mochimazzi.",
+  "authority_type": "FIRST_PARTY_ANIME_CHARACTER_DIRECTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "kitashirakawa_tamako",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tamako_market"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kitashirakawa_anko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tamako_market"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tokiwa_midori",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tamako_market"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "makino_kanna",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tamako_market"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "asagiri_shiori",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tamako_market"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ooji_mochizou",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tamako_market"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "dera_mochimazzui",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tamako_market"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "choi_mochimazzui",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tamako_market"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only names shown in the official character directory and present in this campaign packet are proposed."
+}

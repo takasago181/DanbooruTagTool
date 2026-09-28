@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-machikado-momo-official-character-profile-20260928-01",
+  "campaign_key": "authority:machikado_mazoku",
+  "campaign_fingerprint": "3150cd140de3cd35c69f96c9f90441949b5413dfdeecd7e93ef7bc635ef3e762",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.tbs.co.jp/anime/machikado/1st/character/chara02.html",
+  "source_claim": "The official TBS anime character profile names Chiyoda Momo as a character in The Demon Girl Next Door (Machikado Mazoku).",
+  "authority_type": "FIRST_PARTY_ANIME_CHARACTER_PROFILE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "chiyoda_momo",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "machikado_mazoku"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "This partial proposal includes only the campaign identity named on this official character profile."
+}

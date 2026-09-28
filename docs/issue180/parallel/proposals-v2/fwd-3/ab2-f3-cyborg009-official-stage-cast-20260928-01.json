@@ -1,0 +1,72 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-cyborg009-official-stage-cast-20260928-01",
+  "campaign_key": "authority:cyborg_009",
+  "campaign_fingerprint": "f295093e7f3e382e70a76083e94f14cc5b86e9bb84e35f11a3c23b3b58bf44e8",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://cyborg009-the-stage.com/stage1/cast_staff/",
+  "source_claim": "The official Cyborg 009 stage production cast page names the nine cyborgs, including Joe Shimamura, Ivan Whisky, Jet Link, Francoise Arnoul, Albert Heinrich, Geronimo Jr., Chang Changku, and Pyunma.",
+  "authority_type": "FIRST_PARTY_STAGE_CAST_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "shimamura_joe",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cyborg_009"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ivan_whisky",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cyborg_009"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "jet_link",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cyborg_009"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "francoise_arnoul",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cyborg_009"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "albert_heinrich",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cyborg_009"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "geronimo_jr",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cyborg_009"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "chang_changku",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cyborg_009"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "pyunma",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cyborg_009"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only the eight matching named campaign identities from the official cast listing are proposed; unrelated stage-original roles are excluded."
+}
