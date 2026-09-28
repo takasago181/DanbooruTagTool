@@ -1,0 +1,25 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-grisaia-official-anime-character-directory-20260928",
+  "campaign_key": "authority:grisaia_(series)",
+  "campaign_fingerprint": "015b67958bd624ff6ebde2b7e1ca39c319f5dda99756d1a0d65f4fd5a7a45fc2",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.grisaia-anime.com/chara/dog.html",
+  "source_claim": "The official Grisaia anime site character directory names Kazami Yuuji, Sakaki Yumiko, Suou Amane, Matsushima Michiru, Irisu Makina, Komine Sachi, Kazami Kazuki, Kusakabe Asako, and Harudera Yuria (JB) as characters in the Grisaia anime series. The site's official character section and series copyright identify the Grisaia production.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"harudera_yuria","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"grisaia_(series)"},
+    {"subject_type":"Character","subject_key":"irisu_makina","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"grisaia_(series)"},
+    {"subject_type":"Character","subject_key":"kazami_kazuki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"grisaia_(series)"},
+    {"subject_type":"Character","subject_key":"kazami_yuuji","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"grisaia_(series)"},
+    {"subject_type":"Character","subject_key":"komine_sachi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"grisaia_(series)"},
+    {"subject_type":"Character","subject_key":"kusakabe_asako","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"grisaia_(series)"},
+    {"subject_type":"Character","subject_key":"matsushima_michiru","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"grisaia_(series)"},
+    {"subject_type":"Character","subject_key":"sakaki_yumiko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"grisaia_(series)"},
+    {"subject_type":"Character","subject_key":"suou_amane","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"grisaia_(series)"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The source character directory lists all nine campaign names in Japanese. JB is retained as the page's displayed name for Harudera Yuria; no additional alias mapping is proposed."
+}
