@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-megaman-battle-network-capcom-store-20260928-01",
+  "campaign_key": "authority:mega_man_(series)",
+  "campaign_fingerprint": "45ee6d7491e761675caef250e8319763d9dea498e26f5dc3100c9a95e20d36a9",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://store.captown.capcom.com/en/products/821963-jp",
+  "source_claim": "Capcom's official Mega Man Battle Network Legacy Collection product page explicitly identifies MegaMan.EXE as Lan Hikari's NetNavi and identifies the collection as part of the Mega Man Battle Network series.",
+  "authority_type": "OFFICIAL_RIGHTSHOLDER_GAME_PRODUCT_AND_CHARACTER_DESCRIPTION",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"megaman.exe","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mega_man_(series)"}
+  ],
+  "terminal_reviews": [],
+  "notes": "Only the exact campaign member named and identified by this product page is included."
+}

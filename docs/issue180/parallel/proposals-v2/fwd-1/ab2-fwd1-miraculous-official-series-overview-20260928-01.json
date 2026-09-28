@@ -1,0 +1,19 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-miraculous-official-series-overview-20260928-01",
+  "campaign_key": "authority:miraculous_ladybug",
+  "campaign_fingerprint": "a18feb4a66d8ed35e9b8835f241f01114540098a98702bf9031e3bc6b8189d26",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.miraculousladybug.com/fr/about-the-tv-series/",
+  "source_claim": "Miraculous's official series overview names Marinette and Adrien and explicitly says they transform into Ladybug and Chat Noir. This supports those two civilian identities and the exact Chat Noir campaign character within the named Miraculous series.",
+  "authority_type": "OFFICIAL_RIGHTSHOLDER_SERIES_OVERVIEW",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"adrien_agreste","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"miraculous_ladybug"},
+    {"subject_type":"Character","subject_key":"chat_noir","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"miraculous_ladybug"},
+    {"subject_type":"Character","subject_key":"marinette_dupain-cheng","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"miraculous_ladybug"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The page does not name Lila Rossi or Lady Noir, so no relation is asserted for those residual members."
+}

@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-mirai-nikki-official-staff-cast-20260928-01",
+  "campaign_key": "authority:mirai_nikki",
+  "campaign_fingerprint": "718782881a65c3f10dfb25d4126c8a274c85b0ae31f4e0b43a9ef1bcdf86e2b4",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://future-diary.tv/staffcast/",
+  "source_claim": "The official TV anime staff-and-cast page lists Yukiteru Amano, Yuno Gasai, Tsubaki Kasugano, Minene Uryuu, and Aru Akise among the cast of Future Diary (Mirai Nikki), exactly covering all five campaign members.",
+  "authority_type": "OFFICIAL_ANIME_CAST_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"akise_aru","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mirai_nikki"},
+    {"subject_type":"Character","subject_key":"amano_yukiteru","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mirai_nikki"},
+    {"subject_type":"Character","subject_key":"gasai_yuno","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mirai_nikki"},
+    {"subject_type":"Character","subject_key":"kasugano_tsubaki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mirai_nikki"},
+    {"subject_type":"Character","subject_key":"uryuu_minene","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mirai_nikki"}
+  ],
+  "terminal_reviews": [],
+  "notes": "All five dispatch members appear by exact Japanese character name on the official staff-and-cast page; no relation is inferred from performer names."
+}
