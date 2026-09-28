@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-fuhua-official-blood-voivode-outfit-20260928-01",
+  "campaign_key": "base:fu_hua",
+  "campaign_fingerprint": "cfa871d36a06f8ffa10787b07dd45cd65812705cc529a6dccbd19e8e3ac32466",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.youtube.com/watch?v=-OaZuhAU8V8",
+  "source_claim": "The verified Honkai Impact 3rd publisher channel announces Blood Voivode as a new outfit for Shadow Knight in Honkai Impact 3rd.",
+  "authority_type": "OFFICIAL_PUBLISHER_CHARACTER_ANNOUNCEMENT",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"fu_hua_(blood_voivode)","relation_type":"VARIANT_OF","object_type":"Character","object_key":"fu_hua"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The publisher's verified channel explicitly labels Blood Voivode as Shadow Knight's outfit; Shadow Knight is the game's Fu Hua battlesuit form represented by the exact campaign variant key."
+}
