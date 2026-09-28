@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-off-official-site-batter-judge-20260928",
+  "campaign_key": "authority:off",
+  "campaign_fingerprint": "ae83c5271bc42570727d8e649021d030cef65b1afc70feca9b28c334b5a3fb0d",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://offtherpg.com/",
+  "source_claim": "The official OFF game website identifies The Batter as its protagonist, describes his in-game mission, and uses official media labeled The Batter and The Judge, including a joint image caption and an official Judge image.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "the_batter_(off)",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "off"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "the_judge_(off)",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "off"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official website text and media explicitly support The Batter and The Judge. This proposal does not infer Zacharie, Add-Ons, or Spectres from secondary character lists or general descriptions."
+}
