@@ -1,0 +1,37 @@
+[
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-summon-night-psblog-hasaha-sonora-20260928",
+    "campaign_key": "authority:summon_night",
+    "campaign_fingerprint": "62dc2a4762f1896669f334bbb46159e35914e7eca610fd2c0938e6206d0fe22a",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://blog.ja.playstation.com/2016/03/03/20160303-summonnight6/",
+    "source_claim": "The official PlayStation Blog article identifies Summon Night 6 as the latest title in the Summon Night series and names ハサハ and ソノラ as characters in its story and downloadable character content.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {"subject_type":"Character","subject_key":"hasaha","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"summon_night"},
+      {"subject_type":"Character","subject_key":"sonolar","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"summon_night"}
+    ],
+    "terminal_reviews": [],
+    "notes": "The page calls out ハサハ and ソノラ as returning Summon Night characters; sonolar is the in-scope Danbooru character tag spelling for ソノラ."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-summon-night-psblog-toris-20260928",
+    "campaign_key": "authority:summon_night",
+    "campaign_fingerprint": "62dc2a4762f1896669f334bbb46159e35914e7eca610fd2c0938e6206d0fe22a",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://blog.ja.playstation.com/2015/12/28/20151228-summonnight6/",
+    "source_claim": "The official PlayStation Blog article identifies Summon Night 6 as the newest title in the Summon Night series and includes トリス among the returning characters encountered in the story.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {"subject_type":"Character","subject_key":"toris","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"summon_night"}
+    ],
+    "terminal_reviews": [],
+    "notes": "The article's roster section explicitly labels the character as ナツミ/トリス."
+  }
+]
