@@ -1,0 +1,27 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-code-geass-resurrection-roster-20260928",
+  "campaign_key": "authority:code_geass",
+  "campaign_fingerprint": "b8c3fe37a7aa424566bae359d489b36bab389c6f6b749fa179f4142bb385523d",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://geass.jp/R-geass/character.php",
+  "source_claim": "The official Code Geass: Lelouch of the Re;surrection character page presents the named characters as part of the film's character roster.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"lelouch_vi_britannia","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"code_geass"},
+    {"subject_type":"Character","subject_key":"c.c.","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"code_geass"},
+    {"subject_type":"Character","subject_key":"nunnally_vi_britannia","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"code_geass"},
+    {"subject_type":"Character","subject_key":"kouzuki_kallen","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"code_geass"},
+    {"subject_type":"Character","subject_key":"lloyd_asplund","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"code_geass"},
+    {"subject_type":"Character","subject_key":"shinozaki_sayoko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"code_geass"},
+    {"subject_type":"Character","subject_key":"cornelia_li_britannia","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"code_geass"},
+    {"subject_type":"Character","subject_key":"jeremiah_gottwald","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"code_geass"},
+    {"subject_type":"Character","subject_key":"anya_alstreim","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"code_geass"},
+    {"subject_type":"Character","subject_key":"cecile_croomy","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"code_geass"},
+    {"subject_type":"Character","subject_key":"nina_einstein","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"code_geass"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official roster explicitly names each listed character. Only exact character entries that intersect the current campaign are included; no relation is inferred for other campaign members."
+}

@@ -1,0 +1,19 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-code-geass-akito-cast-20260928",
+  "campaign_key": "authority:code_geass",
+  "campaign_fingerprint": "b8c3fe37a7aa424566bae359d489b36bab389c6f6b749fa179f4142bb385523d",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://geass.jp/akito/cast.html",
+  "source_claim": "The official Code Geass: Akito the Exiled cast page identifies Hyuuga Akito, Leila Malcal and Kousaka Ayano in the title's cast.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"hyuuga_akito","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"code_geass"},
+    {"subject_type":"Character","subject_key":"leila_malcal","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"code_geass"},
+    {"subject_type":"Character","subject_key":"kousaka_ayano","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"code_geass"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official cast list explicitly names these three characters; they are the only entries on this source included from the current campaign."
+}
