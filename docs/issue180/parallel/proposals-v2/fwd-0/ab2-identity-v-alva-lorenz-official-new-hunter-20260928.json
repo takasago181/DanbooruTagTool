@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-identity-v-alva-lorenz-official-new-hunter-20260928",
+  "campaign_key": "authority:identity_v",
+  "campaign_fingerprint": "cdb49d99fb317c264f900c92611e07f5ef2c603867092433bb29a13403bf1cc6",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.identityvgame.com/en/news/announcement/20220825/35288_1039064.html",
+  "source_claim": "NetEase's official Identity V maintenance notice introduces Alva Lorenz as a new Hunter and names his in-game identity as the Hermit.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ANNOUNCEMENT",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"alva_lorenz","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"identity_v"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The Identity V official website page explicitly gives Alva Lorenz's character name and Hunter identity in the new-hunter section. Canonical tag and copyright keys checked against Issue 70."
+}
