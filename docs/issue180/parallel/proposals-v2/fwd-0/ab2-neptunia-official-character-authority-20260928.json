@@ -1,0 +1,201 @@
+[
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-neptune-compileheart-10th-official-character-roster-20260928",
+    "campaign_key": "authority:neptune_(series)",
+    "campaign_fingerprint": "06f56bfb4316be2234c21ad6f6d356f79b89139c00a31ffca5017d8538d07d40",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://www.compileheart.com/neptune/10th/nepfes/",
+    "source_claim": "Compile Heart’s official Neptunia 10th-anniversary character entry list explicitly includes Neptune (large), Uni/Black Sister, Compa, Histoire, Kiseijou Rei, Nepgear, Peashy, Nepgear/Purple Sister, Plutia/Iris Heart, Uzume/Orange Heart, and Rom and Ram/White Sister, as well as C-Sha (シーシャ). The anniversary site identifies the event and entries as Neptunia series characters.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "adult_neptune",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "neptune_(series)"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "black_sister",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "neptune_(series)"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "compa",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "neptune_(series)"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "histoire",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "neptune_(series)"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "kiseijou_rei",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "neptune_(series)"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "nepgear",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "neptune_(series)"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "pish",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "neptune_(series)"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "purple_sister",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "neptune_(series)"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "pururut",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "neptune_(series)"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "tennouboshi_uzume",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "neptune_(series)"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "white_sister_ram",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "neptune_(series)"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "white_sister_rom",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "neptune_(series)"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "c-sha",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "neptune_(series)"
+      }
+    ],
+    "terminal_reviews": [],
+    "notes": "The official entry labels were matched to exact Issue #180 campaign tags; the batch only includes named entries from the publisher-owned Neptunia roster."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-neptune-compileheart-official-kurome-vote-entry-20260928",
+    "campaign_key": "authority:neptune_(series)",
+    "campaign_fingerprint": "06f56bfb4316be2234c21ad6f6d356f79b89139c00a31ffca5017d8538d07d40",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://www.compileheart.com/neptune/10th/nepfes/cate6/",
+    "source_claim": "Compile Heart’s official Neptunia anniversary character-vote results page explicitly lists 暗黒星くろめ (Ankokuboshi Kurome) among the named series characters.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "ankokuboshi_kurome",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "neptune_(series)"
+      }
+    ],
+    "terminal_reviews": [],
+    "notes": "The Japanese character name exactly matches the campaign member; no broader or inferred relation is included."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-neptune-vii-official-csha-profile-20260928",
+    "campaign_key": "authority:neptune_(series)",
+    "campaign_fingerprint": "06f56bfb4316be2234c21ad6f6d356f79b89139c00a31ffca5017d8538d07d40",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://www.compileheart.com/neptune/v2/characters/?page=c-sha",
+    "source_claim": "Compile Heart’s official Megadimension Neptunia VII character profile explicitly names シーシャ (C-Sha) and describes her as the Gold Third’s leader.",
+    "authority_type": "FIRST_PARTY_CHARACTER_PROFILE",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "c-sha",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "neptune_(series)"
+      }
+    ],
+    "terminal_reviews": [],
+    "notes": "Official character-page identity and the current campaign tag align directly."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-neptune-vii-official-next-purple-profile-20260928",
+    "campaign_key": "authority:neptune_(series)",
+    "campaign_fingerprint": "06f56bfb4316be2234c21ad6f6d356f79b89139c00a31ffca5017d8538d07d40",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://www.compileheart.com/neptune/v2/characters/?page=nextpurple",
+    "source_claim": "Compile Heart’s official Megadimension Neptunia VII character profile explicitly names ネクストパープル (Next Purple) and states that this is Purple Heart’s evolved form.",
+    "authority_type": "FIRST_PARTY_CHARACTER_PROFILE",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "next_purple",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "neptune_(series)"
+      }
+    ],
+    "terminal_reviews": [],
+    "notes": "The exact profile name is included as a Neptunia character in the official game’s character directory."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-neptune-cyberconnect2-official-collaboration-character-20260928",
+    "campaign_key": "authority:neptune_(series)",
+    "campaign_fingerprint": "06f56bfb4316be2234c21ad6f6d356f79b89139c00a31ffca5017d8538d07d40",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://www.cc2.co.jp/cc2chan/",
+    "source_claim": "CyberConnect2’s official company page identifies CyberConnect2-chan as a maker-personification DLC character in Hyperdimension Neptunia V, names her サイバーコネクトツーちゃん, and states that Compile Heart invited CyberConnect2 to create the character for the game.",
+    "authority_type": "OFFICIAL_PARTNER_CHARACTER_PROFILE",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "cyberconnect2",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "neptune_(series)"
+      }
+    ],
+    "terminal_reviews": [],
+    "notes": "The rights-holder partner confirms this exact character was created for and appears in the named Neptunia game; the campaign tag is the matching English character name."
+  }
+]
