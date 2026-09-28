@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-gegege-no-kitaro-official-character-roster-20260928-01",
+  "campaign_key": "authority:gegege_no_kitarou",
+  "campaign_fingerprint": "7b204ee61bfc1abb32bb240aff0f8a80898e4fea6480d613bca5beae11428212",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.heykitaro.com/character/",
+  "source_claim": "The official Hey, Kitaro character page lists Kitaro, Medama Oyaji, Nezumi Otoko, and Nekomusume as characters.",
+  "authority_type": "FIRST_PARTY_ANIME_CHARACTER_DIRECTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "kitarou",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "gegege_no_kitarou"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "medama_oyaji",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "gegege_no_kitarou"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nekomusume",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "gegege_no_kitarou"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nezumi_otoko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "gegege_no_kitarou"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only campaign identities directly listed in the official character directory are proposed."
+}

@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-fruits-basket-official-cast-roster-20260928-01",
+  "campaign_key": "authority:fruits_basket",
+  "campaign_fingerprint": "db3b41a93f7c62e451607c36d2ef7fe68d09d8b6d81a18c75ebe755bd7fdfdfd",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://fruba.jp/caststaff/",
+  "source_claim": "The official Fruits Basket cast page lists Tohru Honda, Akito Soma, Kisa Soma, Kyo Soma, and Yuki Soma.",
+  "authority_type": "FIRST_PARTY_ANIME_CAST_DIRECTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "honda_tohru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fruits_basket"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sohma_akito",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fruits_basket"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sohma_kisa",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fruits_basket"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sohma_kyou",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fruits_basket"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sohma_yuki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fruits_basket"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only campaign identities directly named in the official cast list are proposed."
+}

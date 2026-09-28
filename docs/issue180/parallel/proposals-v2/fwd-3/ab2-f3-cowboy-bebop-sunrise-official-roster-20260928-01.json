@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-cowboy-bebop-sunrise-official-roster-20260928-01",
+  "campaign_key": "authority:cowboy_bebop",
+  "campaign_fingerprint": "fbe7045f58246831be5c4e15ebfb4ece487069c377ff9a12a7911dc05b998add",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.sunrise-world.net/titles/pickup_041.php",
+  "source_claim": "The official Sunrise World Cowboy Bebop page names Spike Spiegel, Faye Valentine, Jet Black, Edward Wong Hau Pepelu Tivrusky IV, and Ein in its character roster and synopsis.",
+  "authority_type": "FIRST_PARTY_ANIME_CHARACTER_DIRECTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "edward_wong_hau_pepelu_tivrusky_iv",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cowboy_bebop"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "faye_valentine",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cowboy_bebop"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "jet_black",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cowboy_bebop"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "spike_spiegel",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cowboy_bebop"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only campaign character identities directly listed in Sunrise World are proposed. Swordfish II is a vehicle and is excluded."
+}
