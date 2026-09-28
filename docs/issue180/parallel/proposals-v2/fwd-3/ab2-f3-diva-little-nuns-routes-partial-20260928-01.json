@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-f3-diva-little-nuns-routes-partial-20260928-01",
+  "campaign_key": "authority:diva",
+  "campaign_fingerprint": "ee84c87d7d8daef243591eb8751bda71fe5dd4dcd20baef09b77da0dc773ca34",
+  "worker_slot": 3,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "OFFICIAL_CREATOR_SITE",
+      "url_or_query": "https://divahimeji.com",
+      "result": "The creator-site route was checked but the page was not retrievable in this research session, so it did not establish any exact roster names."
+    },
+    {
+      "route_type": "OFFICIAL_PUBLISHER_PRODUCT_PAGE",
+      "url_or_query": "https://store.kadokawa.co.jp/shop/g/g322111000622/",
+      "result": "The KADOKAWA product listing identifies Diva as the author of the Little Nuns art book, but the listing does not name the exact campaign characters."
+    },
+    {
+      "route_type": "CREATOR_POST",
+      "url_or_query": "https://www.patreon.com/hyxpk/posts/little-nuns-show-169718794",
+      "result": "The creator post identifies the Little Nuns series but does not explicitly identify the exact campaign character names."
+    }
+  ],
+  "notes": "Three distinct routes were checked within the FAMILY_ROSTER_HIGH_YIELD budget. They establish the creator/franchise context but not exact tag-to-character identities. This PARTIAL outcome is research accounting only; no negative relation is inferred."
+}

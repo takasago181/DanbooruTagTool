@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-galaxy-angel-bandai-channel-roster-20260928-01",
+  "campaign_key": "authority:galaxy_angel",
+  "campaign_fingerprint": "ab67f909c023bb608be62e1e136b24bfd7e215b937112cce1658fd96fe9346c5",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.b-ch.com/titles/152/",
+  "source_claim": "The Bandai Channel Galaxy Angel page explicitly identifies Milfeulle Sakuraba, Ranpha Franboise, Mint Blancmanche, Forte Stollen, and Vanilla H as members of the Angel Troupe, and carries the copyright notice “(C) Broccoli・Bandai Visual” for the title.",
+  "authority_type": "OFFICIAL_LICENSEE_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "milfeulle_sakuraba",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "galaxy_angel"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ranpha_franboise",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "galaxy_angel"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mint_blancmanche",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "galaxy_angel"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "forte_stollen",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "galaxy_angel"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "vanilla_h",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "galaxy_angel"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The source directly names and places these five campaign identities in the title. Unlisted campaign members are omitted."
+}

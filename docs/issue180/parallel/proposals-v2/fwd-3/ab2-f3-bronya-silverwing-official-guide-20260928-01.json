@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-bronya-silverwing-official-guide-20260928-01",
+  "campaign_key": "base:bronya_zaychik",
+  "campaign_fingerprint": "6d21af59d6f7b23730d4988d9c3468f192ca475f5c8c52489860c174339a6cb9",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://honkaiimpact3.hoyoverse.com/strategy/character/detail/18981",
+  "source_claim": "HoYoverse’s official Honkai Impact 3rd character guide labels the battlesuit “Silverwing: N-EX” and the associated equipment “Bronya: N-EX”, directly tying this exact Silverwing N-EX identity to Bronya in Honkai Impact 3rd.",
+  "authority_type": "FIRST_PARTY_GAME_CHARACTER_GUIDE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "bronya_zaychik_(silverwing:_n-ex)",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "honkai_impact_3rd"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only the exact Silverwing: N-EX campaign identity explicitly established by this official guide is proposed; other Bronya variant tags are omitted."
+}
