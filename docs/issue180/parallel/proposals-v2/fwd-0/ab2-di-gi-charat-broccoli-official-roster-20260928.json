@@ -1,0 +1,22 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-di-gi-charat-broccoli-core-roster-20260928",
+  "campaign_key": "authority:di_gi_charat",
+  "campaign_fingerprint": "14544c3d3e6b2a026cc750b134f67de254900392a7aebef962c44bfd5485b2b3",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.broccoli.co.jp/dejiko/chara.php",
+  "source_claim": "Broccoli's official Di Gi Charat character page says it introduces characters from the Di Gi Charat world and gives profiles for デ・ジ・キャラット, プチ・キャラット, ラ・ビ・アン・ローズ (real name うさだヒカル), ゲマ, まじんがっぱ, and ピョコラ=アナローグIII世.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"dejiko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"di_gi_charat"},
+    {"subject_type":"Character","subject_key":"puchiko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"di_gi_charat"},
+    {"subject_type":"Character","subject_key":"usada_hikaru","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"di_gi_charat"},
+    {"subject_type":"Character","subject_key":"gema","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"di_gi_charat"},
+    {"subject_type":"Character","subject_key":"majin_gappa","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"di_gi_charat"},
+    {"subject_type":"Character","subject_key":"piyoko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"di_gi_charat"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The source explicitly lists the original characters within the official franchise profile index and identifies Usada Hikaru as La Vie en Rose's real name."
+}
