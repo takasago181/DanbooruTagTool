@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-fnaf-funko-toy-chica-license-20260928-01",
+  "campaign_key": "authority:five_nights_at_freddy's",
+  "campaign_fingerprint": "82194a36e0ed1f67eaca5da28f9c041b1bb59f90c2075645d1a0e98624d5542f",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://funko.com/toy-chica-plush/11229-PH-1LB.html",
+  "source_claim": "Funko’s official product page identifies its Toy Chica Plush as a Five Nights at Freddy’s licensed product and names the character Toy Chica.",
+  "authority_type": "OFFICIAL_LICENSEE_CHARACTER_PRODUCT_PROFILE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "toy_chica",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "five_nights_at_freddy's"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Funko’s product page ties this exact named character to its Five Nights at Freddy’s license."
+}

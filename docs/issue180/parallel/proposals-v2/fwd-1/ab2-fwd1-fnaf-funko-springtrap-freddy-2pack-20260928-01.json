@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-fnaf-funko-springtrap-freddy-2pack-20260928-01",
+  "campaign_key": "authority:five_nights_at_freddy's",
+  "campaign_fingerprint": "82194a36e0ed1f67eaca5da28f9c041b1bb59f90c2075645d1a0e98624d5542f",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://funko.com/snaps-springtrap-and-freddy-2-pack/64924.html",
+  "source_claim": "Funko’s official Five Nights at Freddy’s SNAPS! product page names Springtrap and Freddy Fazbear as the two characters in a licensed 2-Pack.",
+  "authority_type": "OFFICIAL_LICENSEE_CHARACTER_PRODUCT_PROFILE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "springtrap",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "five_nights_at_freddy's"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "freddy_fazbear",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "five_nights_at_freddy's"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official licensee page directly names both exact campaign characters and identifies the license as Five Nights at Freddy’s."
+}

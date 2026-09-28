@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-fnaf-funko-super-mangle-license-20260928-01",
+  "campaign_key": "authority:five_nights_at_freddy's",
+  "campaign_fingerprint": "82194a36e0ed1f67eaca5da28f9c041b1bb59f90c2075645d1a0e98624d5542f",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://funko.com/ca/pop-super-mangle/83868.html",
+  "source_claim": "Funko’s official product page identifies Pop! Super Mangle as part of its Five Nights at Freddy’s lineup and marks Five Nights at Freddy’s as the license.",
+  "authority_type": "OFFICIAL_LICENSEE_CHARACTER_PRODUCT_PROFILE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "mangle",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "five_nights_at_freddy's"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official licensee page names Mangle and explicitly connects the product to the Five Nights at Freddy’s license."
+}

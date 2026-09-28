@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-fnaf-security-breach-publisher-character-list-20260928-01",
+  "campaign_key": "authority:five_nights_at_freddy's",
+  "campaign_fingerprint": "82194a36e0ed1f67eaca5da28f9c041b1bb59f90c2075645d1a0e98624d5542f",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.nintendo.com/us/store/products/five-nights-at-freddys-security-breach-switch/",
+  "source_claim": "The publisher-provided Nintendo Store description for Five Nights at Freddy’s: Security Breach explicitly names Glamrock Chica and Roxanne Wolf among the Mega Pizzaplex animatronics hunting the player.",
+  "authority_type": "OFFICIAL_LICENSEE_CHARACTER_PRODUCT_PROFILE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "chica",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "five_nights_at_freddy's"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "roxanne_wolf",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "five_nights_at_freddy's"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Nintendo identifies the work as Security Breach, labels the description publisher-provided, and explicitly names these two characters in the game. The page does not state the Glamrock prefix for Chica, so the campaign’s canonical Chica character key is used."
+}
