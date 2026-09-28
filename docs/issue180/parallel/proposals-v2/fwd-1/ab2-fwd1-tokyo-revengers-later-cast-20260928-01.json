@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-tokyo-revengers-later-cast-20260928-01",
+  "campaign_key": "authority:tokyo_revengers",
+  "campaign_fingerprint": "a276a509e3611008f6ab7f7386822a0b3046ba19614ae3617b9f4fe53aaa2bb5",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://tokyo-revengers-anime.com/staff/",
+  "source_claim": "The official Tokyo Revengers anime cast list names Inui Seishu, Kawaragi Senju, Kokonoi Hajime, and Sanzu Haruchiyo among the later-series cast.",
+  "authority_type": "OFFICIAL_ANIME_CAST",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"inui_seishu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tokyo_revengers"},
+    {"subject_type":"Character","subject_key":"kawaragi_senju","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tokyo_revengers"},
+    {"subject_type":"Character","subject_key":"kokonoi_hajime","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tokyo_revengers"},
+    {"subject_type":"Character","subject_key":"sanzu_haruchiyo","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tokyo_revengers"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official first-party TV anime page identifies these four exact current packet members in cast sections for the later story material."
+}

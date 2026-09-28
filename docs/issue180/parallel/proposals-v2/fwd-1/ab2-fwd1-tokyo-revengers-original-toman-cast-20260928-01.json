@@ -1,0 +1,25 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-tokyo-revengers-original-toman-cast-20260928-01",
+  "campaign_key": "authority:tokyo_revengers",
+  "campaign_fingerprint": "a276a509e3611008f6ab7f7386822a0b3046ba19614ae3617b9f4fe53aaa2bb5",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://tokyo-revengers-anime.com/staff/",
+  "source_claim": "The official Tokyo Revengers anime staff and cast page names Hanagaki Takemichi, Sano Manjiro, Ryuuguuji Ken, Baji Keisuke, Matsuno Chifuyu, Mitsuya Takashi, Hanemiya Kazutora, Hanma Shuuji, and Sano Emma in its cast sections.",
+  "authority_type": "OFFICIAL_ANIME_CAST",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"hanagaki_takemichi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tokyo_revengers"},
+    {"subject_type":"Character","subject_key":"sano_manjirou","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tokyo_revengers"},
+    {"subject_type":"Character","subject_key":"ryuuguuji_ken","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tokyo_revengers"},
+    {"subject_type":"Character","subject_key":"baji_keisuke","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tokyo_revengers"},
+    {"subject_type":"Character","subject_key":"matsuno_chifuyu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tokyo_revengers"},
+    {"subject_type":"Character","subject_key":"mitsuya_takashi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tokyo_revengers"},
+    {"subject_type":"Character","subject_key":"hanemiya_kazutora","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tokyo_revengers"},
+    {"subject_type":"Character","subject_key":"hanma_shuuji","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tokyo_revengers"},
+    {"subject_type":"Character","subject_key":"sano_emma","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tokyo_revengers"}
+  ],
+  "terminal_reviews": [],
+  "notes": "These nine exact names appear in the first-party anime cast list for Tokyo Revengers. This batch covers the central/original-Toman cast represented in the current campaign packet."
+}

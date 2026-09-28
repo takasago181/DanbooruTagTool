@@ -1,0 +1,19 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-tokyo-revengers-tenjiku-cast-20260928-01",
+  "campaign_key": "authority:tokyo_revengers",
+  "campaign_fingerprint": "a276a509e3611008f6ab7f7386822a0b3046ba19614ae3617b9f4fe53aaa2bb5",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://tokyo-revengers-anime.com/staff/",
+  "source_claim": "The official Tokyo Revengers anime cast page names Kurokawa Izana and the Haitani brothers Ran and Rindou in the Tenjiku cast sections.",
+  "authority_type": "OFFICIAL_ANIME_CAST",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"kurokawa_izana","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tokyo_revengers"},
+    {"subject_type":"Character","subject_key":"haitani_ran","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tokyo_revengers"},
+    {"subject_type":"Character","subject_key":"haitani_rindou","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tokyo_revengers"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The first-party cast page lists all three current packet characters in its later-season material. The Japanese names 黒川イザナ, 灰谷蘭, and 灰谷竜胆 map directly to the exact campaign keys here."
+}
