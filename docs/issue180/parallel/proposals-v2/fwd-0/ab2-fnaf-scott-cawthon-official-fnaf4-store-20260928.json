@@ -1,0 +1,18 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fnaf-scott-cawthon-official-fnaf4-store-20260928",
+  "campaign_key": "authority:fnaf",
+  "campaign_fingerprint": "657e99c1dd484609a4ef0a8722e8a009dacc139dd6469a69372e5a7532e071b1",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://store.steampowered.com/app/388090/Five_Nights_at_Freddys_4",
+  "source_claim": "Scott Cawthon's official store listing for Five Nights at Freddy's 4 identifies Bonnie and Foxy among the characters the player must defend against, within the original Five Nights at Freddy's story.",
+  "authority_type": "OFFICIAL_GAME_STORE_PAGE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"bonnie_(fnaf)","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"five_nights_at_freddy's"},
+    {"subject_type":"Character","subject_key":"foxy_(fnaf)","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"five_nights_at_freddy's"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The developer/publisher-attributed Scott Cawthon product page explicitly names both exact characters. Canonical tag and franchise copyright keys were checked against Issue 70 records. This is partial positive evidence for the campaign; no conclusion is made about The Puppet or Vanny."
+}
