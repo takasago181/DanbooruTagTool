@@ -1,0 +1,65 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-octopath-traveler-ii-official-square-enix-roster-20260928",
+  "campaign_key": "authority:octopath_traveler",
+  "campaign_fingerprint": "ed9389c361bde172a11c5c0d05e7f7185f7820a3d6d911d8482babbfe48011bb",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.square-enix.com/asia/newsportal/en/th/octopathii/",
+  "source_claim": "Square Enix's official OCTOPATH TRAVELER II page identifies the installment and enumerates its eight new travelers, including Agnea, Castti, Hikari, Osvald, Partitio, Temenos, and Throné.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "agnea_bristarni",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "octopath_traveler_ii"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "castti_florenz",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "octopath_traveler_ii"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hikari_ku",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "octopath_traveler_ii"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "osvald_v._vanstein",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "octopath_traveler_ii"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "partitio_yellowil",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "octopath_traveler_ii"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "temenos_mistral",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "octopath_traveler_ii"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "throne_anguis",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "octopath_traveler_ii"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "This batch covers only targets named among OCTOPATH TRAVELER II's eight new travelers; it is kept separate from original-game authorities."
+}

@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-octopath-traveler-official-nintendo-roster-20260928",
+  "campaign_key": "authority:octopath_traveler",
+  "campaign_fingerprint": "ed9389c361bde172a11c5c0d05e7f7185f7820a3d6d911d8482babbfe48011bb",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.nintendo.com/en-za/Games/Nintendo-Switch-games/OCTOPATH-TRAVELER-1275922.html",
+  "source_claim": "Nintendo's official OCTOPATH TRAVELER product page identifies the game, calls its cast eight travelers/protagonists, and individually lists Alfyn, Cyrus, Olberic, Ophilia, Primrose, and Tressa among those protagonists. The page identifies SQUARE ENIX as publisher.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "alfyn_greengrass",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "octopath_traveler"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "cyrus_albright",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "octopath_traveler"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "olberic_eisenberg",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "octopath_traveler"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ophilia_clement",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "octopath_traveler"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "primrose_azelhart",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "octopath_traveler"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tressa_colzione",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "octopath_traveler"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "This batch covers only campaign targets named as protagonists of the original OCTOPATH TRAVELER; the page's named Traveler roster and work title are explicit."
+}
