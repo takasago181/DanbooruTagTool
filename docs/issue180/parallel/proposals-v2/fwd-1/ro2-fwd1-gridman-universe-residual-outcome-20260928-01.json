@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-fwd1-gridman-universe-residual-outcome-20260928-01",
+  "campaign_key": "authority:gridman_universe",
+  "campaign_fingerprint": "2dedd6aa4a2a9d4b0aae140d04a7ff1697fa0ae25c83bfe49f91d44d77412590",
+  "worker_slot": 1,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "https://ssss-movie.net/",
+  "source_claim": "Three distinct official character-roster routes were checked for the current Gridman Universe campaign. Positive exact cast matches are recorded in separate authority batches; the displayed official names do not resolve the two remaining tag identities.",
+  "authority_type": "OFFICIAL_CHARACTER_ROSTER_RESEARCH",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {"route_type":"OFFICIAL_CHARACTER_API","url_or_query":"https://gridman.net/character/chara_data.php?_=1661472000000","result":"The first-party SSSS.GRIDMAN API explicitly lists the campaign's Gridman cast identities, including Hibiki Yuta, Utsumi Sho, Takarada Rikka, Shinjo Akane, Samurai Calibur, Borr, Vit, and Alexis Kerib. The two residual tags anosillus_ii and takarada_orie are not established by their displayed names on this route."},
+    {"route_type":"OFFICIAL_CHARACTER_API","url_or_query":"https://dynazenon.net/en/character/chara_data.php?_=1643328000000","result":"The first-party SSSS.DYNAZENON API explicitly lists Gauma, Yomogi Asanaka, Yume Minami, Koyomi Yamanaka, Chise Asukagawa, and Mujina. It does not resolve the residual tags anosillus_ii or takarada_orie."},
+    {"route_type":"OFFICIAL_MOVIE_CAST","url_or_query":"https://ssss-movie.net/","result":"The official Gridman Universe movie site names the consolidated film cast and includes Namiko and Hassu, along with the listed GRIDMAN and DYNAZENON characters. It calls Rikka's mother 六花ママ; that display name alone does not establish the specific tag takarada_orie. Its listing of 二代目 likewise does not establish the exact tag anosillus_ii. These two identities remain unresolved rather than being inferred from possible equivalence."}
+  ],
+  "notes": "PARTIAL campaign research only after three distinct safe first-party roster routes. Preserve positive relations in the companion AUTHORITY_BATCH proposals; this outcome adds no negative evidence and is not a terminal unit conclusion. Continue with another OPEN campaign rather than repeating these routes."
+}
