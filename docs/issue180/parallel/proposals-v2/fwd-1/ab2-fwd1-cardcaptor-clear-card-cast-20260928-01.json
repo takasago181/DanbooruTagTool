@@ -1,0 +1,27 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-cardcaptor-clear-card-cast-20260928-01",
+  "campaign_key": "authority:cardcaptor_sakura",
+  "campaign_fingerprint": "ebe5cd6f6b391aff7a22385f8b17d0025e01374aeabd66e88833ddd63485ce6f",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://ccsakura-official.com/anime/index5.html",
+  "source_claim": "The official Cardcaptor Sakura Clear Card television-series page lists these names in its CAST section for the work: Sakura Kinomoto, Kerberos, Tomoyo Daidouji, Syaoran Li, Akiho Shinomoto, Touya Kinomoto, Yukito Tsukishiro, Eriol Hiiragizawa, Spinel Sun, Chiharu Mihara, and Naoko Yanagisawa.",
+  "authority_type": "OFFICIAL_PUBLISHER_SERIES_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"kinomoto_sakura","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"cardcaptor_sakura"},
+    {"subject_type":"Character","subject_key":"kerberos","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"cardcaptor_sakura"},
+    {"subject_type":"Character","subject_key":"daidouji_tomoyo","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"cardcaptor_sakura"},
+    {"subject_type":"Character","subject_key":"li_syaoran","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"cardcaptor_sakura"},
+    {"subject_type":"Character","subject_key":"shinomoto_akiho","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"cardcaptor_sakura"},
+    {"subject_type":"Character","subject_key":"kinomoto_touya","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"cardcaptor_sakura"},
+    {"subject_type":"Character","subject_key":"tsukishiro_yukito","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"cardcaptor_sakura"},
+    {"subject_type":"Character","subject_key":"hiiragizawa_eriol","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"cardcaptor_sakura"},
+    {"subject_type":"Character","subject_key":"suppi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"cardcaptor_sakura"},
+    {"subject_type":"Character","subject_key":"mihara_chiharu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"cardcaptor_sakura"},
+    {"subject_type":"Character","subject_key":"yanagisawa_naoko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"cardcaptor_sakura"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official work page and cast roster directly associate these listed characters with Cardcaptor Sakura. The Danbooru key suppi corresponds to the page's Spinel Sun character. Voice performer 丹下桜 is not treated as a character."
+}

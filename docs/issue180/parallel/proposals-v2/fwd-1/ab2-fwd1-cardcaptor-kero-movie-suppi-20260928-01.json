@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-cardcaptor-kero-movie-suppi-20260928-01",
+  "campaign_key": "authority:cardcaptor_sakura",
+  "campaign_fingerprint": "ebe5cd6f6b391aff7a22385f8b17d0025e01374aeabd66e88833ddd63485ce6f",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://ccsakura-official.com/anime/index4.html",
+  "source_claim": "The official Cardcaptor Sakura Kero movie page names Suppi (スッピー) in the synopsis and cast for the movie, and identifies it as a Cardcaptor Sakura production.",
+  "authority_type": "OFFICIAL_PUBLISHER_SERIES_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"suppi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"cardcaptor_sakura"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The source uses the nickname スッピー for the named character, matching the exact campaign key suppi; the movie is explicitly within the Cardcaptor Sakura franchise."
+}
