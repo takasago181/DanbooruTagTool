@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-morenatsu-official-routes-partial-20260928",
+  "campaign_key": "authority:morenatsu",
+  "campaign_fingerprint": "0ac4b0dffb4a203aac5cc52d309f4866f3d88bef4f6834f961f578b53411a62d",
+  "worker_slot": 0,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "FORMER_OFFICIAL_CHARACTER_PAGE",
+      "url_or_query": "http://morenatsu.sakura.ne.jp/char.html (archived URL: https://web.archive.org/web/20141214134822/http://morenatsu.sakura.ne.jp/char.html)",
+      "result": "The former project character page and its archived URL could not be opened through the available browser route; no character-to-work relation was verified."
+    },
+    {
+      "route_type": "FORMER_OFFICIAL_PROJECT_SITE_AND_BLOG",
+      "url_or_query": "http://morenatsu.sakura.ne.jp/ ; http://morenatsu.jugem.cc/",
+      "result": "Both former official project endpoints were inaccessible. The project's closure and removal of the site/blog are reported by discovery material, but that material does not establish any exact current member relation."
+    },
+    {
+      "route_type": "COMMUNITY_ARCHIVE_DISCOVERY",
+      "url_or_query": "https://www.morenatsugame.com/ (Morenatsu Archive Project)",
+      "result": "The fan-maintained archive describes the original game's history and catalogs derivative projects, but it is not first-party authority and cannot establish HOME relations for this campaign."
+    }
+  ],
+  "notes": "This is a broad multi-member campaign. Official source routes were unavailable and the reachable archive is not first-party evidence, so the campaign remains open as PARTIAL; no identity or copyright relationship is inferred."
+}
