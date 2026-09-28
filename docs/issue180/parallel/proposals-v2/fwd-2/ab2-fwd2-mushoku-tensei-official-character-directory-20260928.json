@@ -1,0 +1,128 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-mushoku-tensei-official-character-directory-20260928",
+  "campaign_key": "authority:mushoku_tensei",
+  "campaign_fingerprint": "a4ae2abfd4f51816b5ed726900033f7b41b331aa9099143d32b38e216a92d839",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://mushokutensei.jp/character/",
+  "source_claim": "The official Mushoku Tensei anime character directory provides story/profile entries identifying these 16 campaign characters within the series. Its official staff/cast page independently lists the role names for the cast entries; the directory includes character profiles across the anime seasons/arcs and links the named figures to Mushoku Tensei story events and relationships.",
+  "authority_type": "FIRST_PARTY_ANIME_CHARACTER_DIRECTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "aisha_greyrat",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mushoku_tensei"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "elinalise_dragonroad",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mushoku_tensei"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "eris_greyrat",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mushoku_tensei"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ghislaine_dedoldia",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mushoku_tensei"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kishirika_kishirisu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mushoku_tensei"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "lillia_greyrat",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mushoku_tensei"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "linia_dedoldia",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mushoku_tensei"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "lucy_greyrat",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mushoku_tensei"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nanahoshi_shizuka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mushoku_tensei"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "norn_greyrat",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mushoku_tensei"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "paul_greyrat",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mushoku_tensei"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "pursena_adoldia",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mushoku_tensei"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "roxy_migurdia",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mushoku_tensei"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "rudeus_greyrat",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mushoku_tensei"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ruijerd_superdia",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mushoku_tensei"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "zenith_greyrat",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mushoku_tensei"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Checked https://mushokutensei.jp/character/ and https://mushokutensei.jp/staff-cast/. The official pages name/profile the included characters in the anime and/or cast sections. Hilda, Kishirika-adjacent variants, and other campaign members not verified in the inspected official text are intentionally omitted."
+}

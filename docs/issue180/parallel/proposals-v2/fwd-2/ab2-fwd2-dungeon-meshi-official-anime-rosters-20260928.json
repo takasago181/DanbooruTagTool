@@ -1,0 +1,93 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-dungeon-meshi-official-anime-rosters-20260928",
+  "campaign_key": "authority:dungeon_meshi",
+  "campaign_fingerprint": "cd0da3a67a536ecda717fb806d6be83713fdb1bef297e8c9b8130e7004797cd2",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://delicious-in-dungeon.com/",
+  "source_claim": "The official TV anime site lists character/cast entries and profile descriptions for the included Dungeon Meshi characters, including the Laios party, Shuro’s retainer Maizuru, Kabru’s party member Mickbell, and the Canaries captain Mithrun. The site identifies them in the Dungeon Meshi anime, which is produced by the Dungeon Meshi Production Committee.",
+  "authority_type": "FIRST_PARTY_ANIME_CHARACTER_AND_CAST_DIRECTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "chilchuck_tims",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dungeon_meshi"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "falin_touden",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dungeon_meshi"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "inutade",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dungeon_meshi"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "izutsumi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dungeon_meshi"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kabru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dungeon_meshi"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "laios_touden",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dungeon_meshi"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "maizuru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dungeon_meshi"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "marcille_donato",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dungeon_meshi"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mickbell_tomas",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dungeon_meshi"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mithrun",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dungeon_meshi"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shurou",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dungeon_meshi"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Checked the official site character and cast sections at https://delicious-in-dungeon.com/. Entries explicitly name/profile the 11 included campaign members. Cithis, Fleki, Lycion, Milsiril, Mithrun’s brother, and Pattadol were not confirmed in this inspected roster and are omitted."
+}
