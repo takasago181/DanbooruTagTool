@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-yowamushi-pedal-official-tv-character-roster-20260928",
+  "campaign_key": "authority:yowamushi_pedal",
+  "campaign_fingerprint": "15d797c44581ee3c486833e0c458c3e53502c0a260d70d541a95ca810a151128",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.tv-tokyo.co.jp/anime/yowapeda2013/chara/",
+  "source_claim": "TV Tokyo's official Yowamushi Pedal character page individually profiles Onoda Sakamichi, Naruko Shoukichi, Makishima Yuusuke, Manami Sangaku, and Toudou Jinpachi. TV Tokyo's official staff/cast page independently lists their cast and identifies the source as Wataru Watanabe's manga serialized by Akita Shoten.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "makishima_yuusuke",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "yowamushi_pedal"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "manami_sangaku",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "yowamushi_pedal"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "naruko_shoukichi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "yowamushi_pedal"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "onoda_sakamichi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "yowamushi_pedal"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "toudou_jinpachi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "yowamushi_pedal"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The TV Tokyo character page lists all five exact characters: https://www.tv-tokyo.co.jp/anime/yowapeda2013/chara/. Its official staff/cast page identifies the manga source and repeats the exact names: https://www.tv-tokyo.co.jp/anime/yowapeda2013/staff/. The current official anime cast list is also at https://yowapeda.com/cast/."
+}
