@@ -1,0 +1,19 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-grendizer-toei-series-overview-20260928-01",
+  "campaign_key": "authority:mazinger_(series)",
+  "campaign_fingerprint": "7b1000a976fc58179bfd36f8e00d266e7fa39eb80a45c16773f6e156bc853125",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://lineup.toei-anim.co.jp/ja/tv/grendaizer/episode/",
+  "source_claim": "Toei Animation's official UFO Robot Grendizer series overview identifies Grendizer as the title mecha, names Koji as the former Mazinger Z pilot who supports the protagonist, and identifies Maria as his younger sister. It also describes the television work as following Great Mazinger, explicitly placing this work in the Mazinger series lineage.",
+  "authority_type": "OFFICIAL_WORK_SERIES_OVERVIEW",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"grendizer","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mazinger_(series)"},
+    {"subject_type":"Character","subject_key":"kabuto_kouji","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mazinger_(series)"},
+    {"subject_type":"Character","subject_key":"maria_grace_fleed","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mazinger_(series)"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The series overview directly names the mecha and Maria, and explicitly describes the work's succession from Great Mazinger. Koji's presence in this batch is source-supported even though it is also covered by the separate Mazinger Z episode source."
+}

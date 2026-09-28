@@ -1,0 +1,19 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-mazingerz-official-episode-2-20260928-01",
+  "campaign_key": "authority:mazinger_(series)",
+  "campaign_fingerprint": "7b1000a976fc58179bfd36f8e00d266e7fa39eb80a45c16773f6e156bc853125",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://lineup.toei-anim.co.jp/ja/tv/mazingerz/episode/2/",
+  "source_claim": "Toei Animation's official Mazinger Z episode 2 synopsis names Koji as the pilot of Mazinger Z and says he rescues Sayaka while she pilots Aphrodai A. These three exact campaign characters are explicitly placed in the Mazinger Z work.",
+  "authority_type": "OFFICIAL_WORK_EPISODE_SYNOPSIS",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"aphrodai_a","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mazinger_(series)"},
+    {"subject_type":"Character","subject_key":"kabuto_kouji","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mazinger_(series)"},
+    {"subject_type":"Character","subject_key":"yumi_sayaka","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mazinger_(series)"}
+  ],
+  "terminal_reviews": [],
+  "notes": "One official episode synopsis explicitly connects all three named campaign characters to Mazinger Z; no relation is inferred for campaign members absent from this source."
+}

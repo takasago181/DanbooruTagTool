@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-metal-slug-official-series-museum-20260928-01",
+  "campaign_key": "authority:metal_slug",
+  "campaign_fingerprint": "ff60b0afe111dd66416ce457174bdda4e539408be2efbd92240e25361113671c",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://game.snk-corp.co.jp/official/nbc/museum/ms/index.html",
+  "source_claim": "SNK's official Metal Slug series museum identifies Marco Rossi and Tarma Roving as the original game's two player characters, names Eri Kasamoto and Fio Germi as the two added player characters in Metal Slug 2, and describes Mars People as Martians introduced from the second series entry onward.",
+  "authority_type": "OFFICIAL_RIGHTSHOLDER_SERIES_ARCHIVE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"fio_germi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"metal_slug"},
+    {"subject_type":"Character","subject_key":"kasamoto_eri","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"metal_slug"},
+    {"subject_type":"Character","subject_key":"marco_rossi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"metal_slug"},
+    {"subject_type":"Character","subject_key":"mars_people","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"metal_slug"},
+    {"subject_type":"Character","subject_key":"tarma_roving","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"metal_slug"}
+  ],
+  "terminal_reviews": [],
+  "notes": "This source explicitly covers all five campaign members in the official Metal Slug series archive; no member is inferred from a name or fan source."
+}
