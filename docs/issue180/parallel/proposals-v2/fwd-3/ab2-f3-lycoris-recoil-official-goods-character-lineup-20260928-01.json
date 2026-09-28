@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-lycoris-recoil-official-goods-character-lineup-20260928-01",
+  "campaign_key": "authority:lycoris_recoil",
+  "campaign_fingerprint": "c03aeb6759f00b858cd135002edce41a637039a9d77a9ff50984a7f1ef4c9f2f",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://lycoris-recoil.com/goods/?item_id=8995",
+  "source_claim": "The official Lycoris Recoil goods page lists product variants for Takina Inoue, Chisato Nishikigi, Mizuki, Fuki Harukawa, and Sakura Otome among its character lineup.",
+  "authority_type": "FIRST_PARTY_OFFICIAL_CHARACTER_PRODUCT_LINEUP",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "harukawa_fuki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "lycoris_recoil"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "inoue_takina",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "lycoris_recoil"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nakahara_mizuki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "lycoris_recoil"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nishikigi_chisato",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "lycoris_recoil"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "otome_sakura",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "lycoris_recoil"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official franchise goods page names all five dispatched characters within a single Lycoris Recoil product lineup."
+}

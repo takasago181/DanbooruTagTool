@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-lovebrush-chronicles-official-net-ease-main-cast-20260928-01",
+  "campaign_key": "authority:lovebrush_chronicles",
+  "campaign_fingerprint": "fbea248f31b9a1e43595ac7849c6ad0a8273e9aea86b3a0ba1e60c0308ba2242",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.neteasegames.com/news/20231221/37000_1127412.html",
+  "source_claim": "The official NetEase Games Lovebrush Chronicles announcement identifies the five male main characters in the Eden update as Ayn, Lars, Alkaid, Clarence, and Cael.",
+  "authority_type": "FIRST_PARTY_GAME_PUBLISHER_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "alkaid_mcgrath",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "lovebrush_chronicles"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ayn_alwyn",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "lovebrush_chronicles"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "cael_anselm",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "lovebrush_chronicles"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "clarence_clayden",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "lovebrush_chronicles"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "lars_rorschach",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "lovebrush_chronicles"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The publisher announcement enumerates the five main characters by their in-game names. Relations cover only the five dispatched identities; no world-specific variants are added."
+}

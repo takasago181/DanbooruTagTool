@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-mass-effect-ea-official-cosplay-guides-20260928-01",
+  "campaign_key": "authority:mass_effect_(series)",
+  "campaign_fingerprint": "a423d02b0500f270eec1f7126c446c5ba8866969bc609609298e2e93b69f41a5",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.ea.com/games/mass-effect/community/cosplay-guides",
+  "source_claim": "EA’s official Mass Effect cosplay-guide page names Commander Shepard, Garrus Vakarian, Liara T’Soni, Miranda Lawson, and Tali’Zorah among its character costume guides.",
+  "authority_type": "FIRST_PARTY_PUBLISHER_CHARACTER_GUIDE_CATALOG",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "commander_shepard",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mass_effect_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "garrus_vakarian",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mass_effect_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "liara_t'soni",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mass_effect_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "miranda_lawson",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mass_effect_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tali'zorah",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mass_effect_(series)"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "EA’s official franchise guide lists all five exact campaign identities; this source supports the series-level Copyright authority."
+}

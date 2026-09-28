@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-f3-manjuverunu-authority-discovery-routes-20260928-01",
+  "campaign_key": "authority:manjuverunu",
+  "campaign_fingerprint": "860974a4f9fec4f8eac634b57091e0460bc127875703ac0514bf00512afb805c",
+  "worker_slot": 3,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "CREATOR_CONTROLLED_SITE_OR_PROFILE",
+      "url_or_query": "Search: \"manjuverunu\" official creator website / まんじゅうべるぬ 公式",
+      "result": "No creator-controlled site or profile establishing the five exact character identities surfaced; search results were limited to non-authoritative tag mirrors."
+    },
+    {
+      "route_type": "OFFICIAL_GAME_OR_CHARACTER_ROSTER",
+      "url_or_query": "Search: \"manjuverunu no sen otome\" official character roster",
+      "result": "No official game roster or character page for the five exact campaign members surfaced."
+    },
+    {
+      "route_type": "RIGHTS_HOLDER_STORE_OR_PUBLISHER_PAGE",
+      "url_or_query": "Search: \"siubomanjyu\" manjuverunu game official store",
+      "result": "No rights-holder or publisher store listing tied to the exact character set was located."
+    }
+  ],
+  "notes": "These discovery checks did not reach an authoritative source that names or explicitly depicts the five campaign members in a way that maps their exact identities to a HOME Copyright. The campaign is broad and remains open; this partial route log is not negative evidence."
+}
