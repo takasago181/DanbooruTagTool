@@ -1,0 +1,43 @@
+[
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-infinite-stratos-2-official-tbs-character-roster-20260928",
+    "campaign_key": "authority:infinite_stratos",
+    "campaign_fingerprint": "0ae6c04daae7296386a5a14b84334657b35025628077ee4b92f742b0efbbc5cb",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://www.tbs.co.jp/anime/is2/news/index-j.html",
+    "source_claim": "The official TBS IS: Infinite Stratos 2 site includes a character list naming Ichika Orimura (織斑一夏), Houki Shinonono (篠ノ之箒), Cecilia Alcott (セシリア・オルコット), Lingyin Huang (凰鈴音), Charlotte Dunois (シャルロット・デュノア), Laura Bodewig (ラウラ・ボーデヴィッヒ), Tatenashi Sarashiki (更識 楯無), and Honne Nohotoke (布仏 本音).",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {"subject_type":"Character","subject_key":"cecilia_alcott","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"infinite_stratos"},
+      {"subject_type":"Character","subject_key":"charlotte_dunois","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"infinite_stratos"},
+      {"subject_type":"Character","subject_key":"huang_lingyin","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"infinite_stratos"},
+      {"subject_type":"Character","subject_key":"laura_bodewig","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"infinite_stratos"},
+      {"subject_type":"Character","subject_key":"nohotoke_honne","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"infinite_stratos"},
+      {"subject_type":"Character","subject_key":"orimura_ichika","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"infinite_stratos"},
+      {"subject_type":"Character","subject_key":"sarashiki_tatenashi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"infinite_stratos"},
+      {"subject_type":"Character","subject_key":"shinonono_houki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"infinite_stratos"}
+    ],
+    "terminal_reviews": [],
+    "notes": "All eight subjects are explicitly named in the official IS2 character list."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-infinite-stratos-1-official-tbs-chifuyu-cast-20260928",
+    "campaign_key": "authority:infinite_stratos",
+    "campaign_fingerprint": "0ae6c04daae7296386a5a14b84334657b35025628077ee4b92f742b0efbbc5cb",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://www.tbs.co.jp/anime/is/staffcast/staffcast.html",
+    "source_claim": "The official TBS IS: Infinite Stratos staff and cast page names Chifuyu Orimura (織斑千冬) as a character in the series.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {"subject_type":"Character","subject_key":"orimura_chifuyu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"infinite_stratos"}
+    ],
+    "terminal_reviews": [],
+    "notes": "Chifuyu is proposed from the official first-season cast page; no extension beyond this exact character is inferred."
+  }
+]
