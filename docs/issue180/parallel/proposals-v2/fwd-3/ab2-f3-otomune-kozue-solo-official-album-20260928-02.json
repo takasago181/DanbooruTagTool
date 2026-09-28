@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-otomune-kozue-solo-official-album-20260928-02",
+  "campaign_key": "base:otomune_kozue",
+  "campaign_fingerprint": "ffc23db68b4a0cb8a6bf510ff6db61ff4557107a7b93064dd26b66e36fd4b8ee",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.lovelive-anime.jp/hasunosora/music/cd/?p=01_4733",
+  "source_claim": "The official Hasunosora 102nd Graduation Album page names Otomune Kozue as its artist and credits her vocals across the listed solo tracks, establishing the named character as part of the Love Live! Hasunosora project.",
+  "authority_type": "FIRST_PARTY_CHARACTER_PROFILE_AND_MUSIC_PAGE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"otomune_kozue_(animal_cafe)","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"love_live!"},
+    {"subject_type":"Character","subject_key":"otomune_kozue_(post-graduation_casual)","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"love_live!"},
+    {"subject_type":"Character","subject_key":"otomune_kozue_(summer_loungewear)","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"love_live!"},
+    {"subject_type":"Character","subject_key":"otomune_kozue_(summer_training_wear)","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"love_live!"},
+    {"subject_type":"Character","subject_key":"otomune_kozue_(swimsuit)","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"love_live!"},
+    {"subject_type":"Character","subject_key":"otomune_kozue_(winter_casual)","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"love_live!"},
+    {"subject_type":"Character","subject_key":"otomune_kozue_(winter_loungewear)","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"love_live!"}
+  ],
+  "terminal_reviews": [],
+  "notes": "Applies the explicitly named Otomune Kozue identity to the exact Kozue variant tags in this base campaign; the source is not cited as evidence for the specific costume labels."
+}

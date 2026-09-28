@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-otomune-kozue-official-project-product-roster-20260928-02",
+  "campaign_key": "base:otomune_kozue",
+  "campaign_fingerprint": "ffc23db68b4a0cb8a6bf510ff6db61ff4557107a7b93064dd26b66e36fd4b8ee",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.lovelive-anime.jp/hasunosora/news/detail.php?p=01_4409",
+  "source_claim": "The official Hasunosora project product announcement names Otomune Kozue among the nine characters represented in Hasunosora School Idol Club merchandise tied to Link! Like! Love Live!.",
+  "authority_type": "FIRST_PARTY_PROJECT_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"otomune_kozue_(animal_cafe)","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"love_live!"},
+    {"subject_type":"Character","subject_key":"otomune_kozue_(post-graduation_casual)","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"love_live!"},
+    {"subject_type":"Character","subject_key":"otomune_kozue_(summer_loungewear)","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"love_live!"},
+    {"subject_type":"Character","subject_key":"otomune_kozue_(summer_training_wear)","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"love_live!"},
+    {"subject_type":"Character","subject_key":"otomune_kozue_(swimsuit)","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"love_live!"},
+    {"subject_type":"Character","subject_key":"otomune_kozue_(winter_casual)","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"love_live!"},
+    {"subject_type":"Character","subject_key":"otomune_kozue_(winter_loungewear)","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"love_live!"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official project announcement confirms Kozue as a character of the named Love Live! Hasunosora project. Costume-specific labels are not attributed to this announcement."
+}

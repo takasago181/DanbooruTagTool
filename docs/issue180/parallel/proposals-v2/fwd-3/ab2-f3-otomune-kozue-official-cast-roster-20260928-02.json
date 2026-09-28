@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-otomune-kozue-official-cast-roster-20260928-02",
+  "campaign_key": "base:otomune_kozue",
+  "campaign_fingerprint": "ffc23db68b4a0cb8a6bf510ff6db61ff4557107a7b93064dd26b66e36fd4b8ee",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.lovelive-anime.jp/hasunosora/music/30/",
+  "source_claim": "The official Hasunosora AURORA FLOWER music page lists Otomune Kozue (CV Hanamiya Nina) among the Hasunosora School Idol Club members and performers.",
+  "authority_type": "FIRST_PARTY_PROJECT_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"otomune_kozue_(animal_cafe)","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"love_live!"},
+    {"subject_type":"Character","subject_key":"otomune_kozue_(post-graduation_casual)","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"love_live!"},
+    {"subject_type":"Character","subject_key":"otomune_kozue_(summer_loungewear)","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"love_live!"},
+    {"subject_type":"Character","subject_key":"otomune_kozue_(summer_training_wear)","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"love_live!"},
+    {"subject_type":"Character","subject_key":"otomune_kozue_(swimsuit)","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"love_live!"},
+    {"subject_type":"Character","subject_key":"otomune_kozue_(winter_casual)","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"love_live!"},
+    {"subject_type":"Character","subject_key":"otomune_kozue_(winter_loungewear)","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"love_live!"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official page explicitly establishes Kozue's Hasunosora/Love Live! character identity. It is not used to claim that this page documents each costume label."
+}
