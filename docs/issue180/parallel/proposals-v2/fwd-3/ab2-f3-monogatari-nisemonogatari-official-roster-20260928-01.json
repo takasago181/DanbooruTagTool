@@ -1,0 +1,100 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-monogatari-nisemonogatari-official-roster-20260928-01",
+  "campaign_key": "authority:monogatari_(series)",
+  "campaign_fingerprint": "9e1ed4755baaa257d704e8046a3e599315d490ed875f7470b2ddeb1d68517fa3",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.monogatari-series.com/nisemonogatari/chara/index.html",
+  "source_claim": "The official Nisemonogatari character directory lists Karen Araragi, Tsukihi Araragi, Hitagi Senjougahara, Mayoi Hachikuji, Suruga Kanbaru, Nadeko Sengoku, Tsubasa Hanekawa, Koyomi Araragi, Shinobu Oshino, Deishuu Kaiki, Yozuru Kagenui, and Yotsugi Ononoki.",
+  "authority_type": "FIRST_PARTY_ANIME_CHARACTER_DIRECTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "araragi_karen",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "monogatari_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "araragi_koyomi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "monogatari_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "araragi_tsukihi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "monogatari_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hanekawa_tsubasa",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "monogatari_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hachikuji_mayoi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "monogatari_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kaiki_deishuu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "monogatari_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kagenui_yozuru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "monogatari_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kanbaru_suruga",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "monogatari_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ononoki_yotsugi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "monogatari_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "oshino_shinobu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "monogatari_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sengoku_nadeko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "monogatari_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "senjougahara_hitagi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "monogatari_(series)"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only exact matching identities listed in the official Nisemonogatari character directory are included. Later variant campaign tags for the same identities are omitted from this evidence batch."
+}

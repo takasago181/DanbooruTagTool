@@ -1,0 +1,184 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-star-wars-official-databank-roster-20260928-01",
+  "campaign_key": "authority:star_wars",
+  "campaign_fingerprint": "82272c76bf52f00773ba87b32c2a113f0f651b8c95fd02e34d0bbae9ce8c1833",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.starwars.com/databank/",
+  "source_claim": "The official StarWars.com Databank lists the matching named character identities in this proposal across its prequel, original, sequel, animated, and live-action title directories.",
+  "authority_type": "FIRST_PARTY_FRANCHISE_DATABANK",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "aayla_secura",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "star_wars"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ahsoka_tano",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "star_wars"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "anakin_skywalker",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "star_wars"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "bb-8",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "star_wars"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "bo-katan_kryze",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "star_wars"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "boba_fett",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "star_wars"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "c-3po",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "star_wars"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "chewbacca",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "star_wars"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "darth_maul",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "star_wars"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "darth_vader",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "star_wars"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "din_djarin",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "star_wars"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "general_grievous",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "star_wars"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "grogu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "star_wars"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "han_solo",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "star_wars"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "jabba_the_hutt",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "star_wars"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kylo_ren",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "star_wars"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "luke_skywalker",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "star_wars"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "obi-wan_kenobi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "star_wars"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "padme_amidala",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "star_wars"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "palpatine",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "star_wars"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "princess_leia",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "star_wars"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "r2-d2",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "star_wars"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shaak_ti",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "star_wars"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yoda",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "star_wars"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only dispatch identities corresponding to named character records in the official StarWars.com Databank are proposed. The costume-specific Leia variant tag is omitted."
+}

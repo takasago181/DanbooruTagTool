@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-dolphin-wave-official-character-gallery-20260928-01",
+  "campaign_key": "authority:dolphin_wave",
+  "campaign_fingerprint": "2d0e788c4e8ede8680bcb5ea78c7b2ca1c1d36d783e97236218e1e66263650bc",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://hpgames.jp/dolphin-wave/gallery/",
+  "source_claim": "The official Dolphin Wave gallery names Amadea Wolfa, Ayato Utae, Yume Yamaba, Shion Suminoe, Michiru Tojo, and Schnee Weissberg in its official character introduction videos.",
+  "authority_type": "FIRST_PARTY_CHARACTER_PROMOTION_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "amadea_wolfa",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dolphin_wave"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ayato_utae",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dolphin_wave"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "schnee_weissberg",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dolphin_wave"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "suminoe_shion",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dolphin_wave"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tojou_michiru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dolphin_wave"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yamaba_yume",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dolphin_wave"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only campaign identities named in the official gallery’s character introduction entries are proposed. The broader game roster is not inferred from this partial evidence."
+}
