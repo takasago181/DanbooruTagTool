@@ -1,0 +1,18 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-yotsubato-kadokawa-volume-and-character-evidence-20260928",
+  "campaign_key": "authority:yotsubato!",
+  "campaign_fingerprint": "96c9d0b362a0e7944b0d5d2c042eeae3cb8712c178c4ca04081b99cfd3c86c57",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.kadokawa.co.jp/product/312134100000/",
+  "source_claim": "KADOKAWA's official volume 4 product page identifies Yotsuba&! as a KADOKAWA comic and promotes chapter 28, 『よつばとダンボー』, establishing the named Yotsuba/Danbo characters in that work.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"koiwai_yotsuba","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"yotsubato!"},
+    {"subject_type":"Character","subject_key":"danboo","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"yotsubato!"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The publisher labels chapter 28 as 『よつばとダンボー』 on the official volume page. Other neighbors in the campaign are not inferred from this title."
+}
