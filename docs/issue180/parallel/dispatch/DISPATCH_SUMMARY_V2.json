@@ -7,25 +7,25 @@
     },
     "1": {
       "dispatched_open_campaigns": 200,
-      "open_campaigns": 1125,
-      "total_campaigns": 1125
+      "open_campaigns": 1120,
+      "total_campaigns": 1120
     },
     "2": {
       "dispatched_open_campaigns": 200,
-      "open_campaigns": 1083,
-      "total_campaigns": 1083
+      "open_campaigns": 1079,
+      "total_campaigns": 1079
     },
     "3": {
       "dispatched_open_campaigns": 200,
-      "open_campaigns": 1124,
-      "total_campaigns": 1124
+      "open_campaigns": 1123,
+      "total_campaigns": 1123
     }
   },
   "packet_limit_per_lane": 200,
   "progressed_open_campaigns": 116,
   "queue_ids": [
-    "q2-62c5fdd55844e13c5972"
+    "q2-18d19f4709f3680c55a3"
   ],
-  "total_forward_campaigns": 4482,
-  "total_open_campaigns": 4482
+  "total_forward_campaigns": 4472,
+  "total_open_campaigns": 4472
 }
