@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-mcdonaldland-official-character-faq-20260928",
+  "campaign_key": "authority:mcdonald's",
+  "campaign_fingerprint": "6c7689b3f911c5f78e4a3e1dee4a2a5c45f6c413cb01acde277d42c1daf0694b",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.mcdonalds.com/us/en-us/faq/who-are-the-main-mcdonalds-characters.html",
+  "source_claim": "McDonald's official U.S. FAQ identifies Ronald McDonald and Hamburglar among the McDonaldland crew. McDonald's Japan's official FAQ identifies Donald McDonald as the Japanese rendering of Ronald McDonald and describes him as the company's character.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "hamburglar",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mcdonald's"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ronald_mcdonald",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mcdonald's"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Ronald McDonald is explicitly identified as a McDonaldland character at source_url and as the McDonald's character Donald McDonald on https://www.mcdonalds.co.jp/cservice/list.ronald/. Only these two exact campaign identities are proposed. The remaining campaign members (the Tabemi/Tabesuke promotion characters) are not inferred from the McDonaldland roster."
+}
