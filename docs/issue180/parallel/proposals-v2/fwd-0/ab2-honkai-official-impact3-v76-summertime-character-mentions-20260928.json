@@ -1,0 +1,31 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-honkai-official-impact3-v76-summertime-character-mentions-20260928",
+  "campaign_key": "authority:honkai_(series)",
+  "campaign_fingerprint": "0271aaf10a834924d3ec97ebf1e3f21416420cb25701ccf0c458a649f77695b0",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.hoyoverse.com/es-es/news/124938",
+  "source_claim": "HoYoverse's official Honkai Impact 3rd v7.6 announcement identifies Coralie and Helia as characters appearing with Songque and Sena in the official animated short Summertime Reminiscences. The source-review-approved canonical root mapping resolves exact named Honkai Impact 3rd characters to honkai_(series).",
+  "authority_type": "FIRST_PARTY_OFFICIAL_GAME_ANNOUNCEMENT",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "coralie_6626_planck",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "honkai_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "erdos_helia",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "honkai_(series)"
+    }
+  ],
+  "terminal_reviews": [],
+  "source_review_id_hint": "src180-ab2-honkai-official-impact3-songque-character-20260928",
+  "notes": "The page names Coralie and Helia as Honkai Impact 3rd story characters. The broader authority campaign remains open; no relation is inferred for the informal name Sena or other mentions."
+}
