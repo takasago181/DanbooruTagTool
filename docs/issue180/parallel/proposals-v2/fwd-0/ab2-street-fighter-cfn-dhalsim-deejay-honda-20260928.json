@@ -1,0 +1,50 @@
+[
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-street-fighter-cfn-dhalsim-character-data-20260928",
+    "campaign_key": "authority:street_fighter",
+    "campaign_fingerprint": "b246b47379ee47ef9adda6cf5496e9fb6611281ad1d11a5b02cd0f05ce0e74a0",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://game.capcom.com/cfn/sfv/character/dhalsim?lang=en",
+    "source_claim": "The official CAPCOM Shadaloo C.R.I. character data page explicitly identifies the character as DHALSIM.",
+    "source_review_id_hint": "src180-ab2-street-fighter-capcom-zangief-character-data-20260928",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [{"subject_type":"Character","subject_key":"dhalsim","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"street_fighter"}],
+    "terminal_reviews": [],
+    "notes": "Exact official character entry; reuse the accepted CFN character-data identity mapping rule."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-street-fighter-cfn-dee-jay-character-guide-20260928",
+    "campaign_key": "authority:street_fighter",
+    "campaign_fingerprint": "b246b47379ee47ef9adda6cf5496e9fb6611281ad1d11a5b02cd0f05ce0e74a0",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://game.capcom.com/cfn/sfv/column-130316?lang=en",
+    "source_claim": "The official CAPCOM Character Guide 071 explicitly names Dee Jay and gives his profile and character description.",
+    "source_review_id_hint": "src180-ab2-street-fighter-capcom-zangief-character-data-20260928",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [{"subject_type":"Character","subject_key":"dee_jay","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"street_fighter"}],
+    "terminal_reviews": [],
+    "notes": "The exact full character name is explicitly stated on the official CAPCOM profile."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-street-fighter-cfn-edmond-honda-character-guide-20260928",
+    "campaign_key": "authority:street_fighter",
+    "campaign_fingerprint": "b246b47379ee47ef9adda6cf5496e9fb6611281ad1d11a5b02cd0f05ce0e74a0",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://game.capcom.com/cfn/sfv/column/130313?lang=en",
+    "source_claim": "The official CAPCOM Character Guide 069 identifies the character as E. Honda and gives his full name as Edmond Honda.",
+    "source_review_id_hint": "src180-ab2-street-fighter-capcom-zangief-character-data-20260928",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [{"subject_type":"Character","subject_key":"e._honda","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"street_fighter"}],
+    "terminal_reviews": [],
+    "notes": "The official profile's name entry matches the current campaign character."
+  }
+]
