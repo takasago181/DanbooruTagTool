@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "campaign_key": "authority:nanashi_inc.",
+  "campaign_fingerprint": "211917c853549450381557ca83f0dd99b1922cd6304d2479b621374b7cf843a6",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "authority_type": "FIRST_PARTY_CHARACTER_PROFILE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "terminal_reviews": [],
+  "notes": "Official talent profile names Ieiri Popo and is published on the 774inc. site. Only the exact matching campaign identity is proposed.",
+  "proposal_id": "ab2-fwd1-nanashi-ieiri-popo-profile-20260928-01",
+  "source_url": "https://www.774.ai/talent/popo-ieiri",
+  "source_claim": "The official 774inc. talent profile identifies 家入ポポ (Popo Ieiri) as a talent and carries the 774inc. copyright.",
+  "relations": [
+    {"subject_type":"Character","subject_key":"ieiri_popo","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"nanashi_inc."}
+  ]
+}
