@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-ysx-official-karja-character-profile-20260928-01",
+  "campaign_key": "authority:ys",
+  "campaign_fingerprint": "ad9355e4b4190dd872b912c8bd92b759f97be59d6b6908ee50836ecabad77c98",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.falcom.co.jp/ysx/character/karja.html",
+  "source_claim": "Nihon Falcom’s official Ys X -NORDICS- character profile names Karja Balta and presents her as a character in Ys X.",
+  "authority_type": "OFFICIAL_WORK_CAST_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "karja_balta",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ys"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": ""
+}

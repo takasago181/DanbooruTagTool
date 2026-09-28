@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-ys8-official-main-cast-roster-20260928-01",
+  "campaign_key": "authority:ys",
+  "campaign_fingerprint": "ad9355e4b4190dd872b912c8bd92b759f97be59d6b6908ee50836ecabad77c98",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.falcom.co.jp/ys8_ps4/sp/chara/",
+  "source_claim": "Nihon Falcom’s official Ys VIII -Lacrimosa of DANA- character index places Adol, Dana, Laxia, and Ricotta in the Ys VIII main-character roster and links to their official profiles. The linked official profiles identify them by the campaign names Adol Christin, Dana Iclucia, Laxia von Roswell, and Ricotta Beldine.",
+  "authority_type": "OFFICIAL_WORK_CAST_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "adol_christin",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ys"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "dana_iclucia",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ys"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "laxia_von_roswell",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ys"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ricotta_beldine",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ys"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": ""
+}

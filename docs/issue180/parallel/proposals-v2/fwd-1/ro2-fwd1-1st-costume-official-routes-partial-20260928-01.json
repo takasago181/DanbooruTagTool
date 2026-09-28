@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-fwd1-1st-costume-official-routes-partial-20260928-01",
+  "campaign_key": "authority:1st_costume",
+  "campaign_fingerprint": "a6d473739df2091a1673063a84cce85216086aabb06351034745d068d01e1839",
+  "worker_slot": 1,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "Three first-party routes were inspected for this broad campaign of first-costume character tags. They identify creators or list official model/outfit material, but the inspected accessible content did not explicitly establish the exact first-costume identity or a safe variant-to-base mapping for the four current members.",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "OFFICIAL_CREATOR_PROFILE_AND_CHARACTER_REFERENCE",
+      "url_or_query": "https://saruei.shop/",
+      "result": "The creator-owned store/profile identifies Saruei and provides character-reference material, but the inspected page does not explicitly map the campaign first-costume member to a base identity or HOME relation."
+    },
+    {
+      "route_type": "OFFICIAL_CREATOR_POST_ARCHIVE",
+      "url_or_query": "https://www.patreon.com/projektmelody/posts/its-coming-24th-120292164",
+      "result": "The creator post is indexed as announcing a new-outfit debut, but its accessible preview does not establish that it is the exact first-costume identity in this campaign."
+    },
+    {
+      "route_type": "OFFICIAL_CREATOR_MODEL_AND_OUTFIT_ARCHIVE",
+      "url_or_query": "https://www.patreon.com/zentreya_/sitemap",
+      "result": "The official archive lists multiple Zentreya model and outfit posts, but the inspected listing does not explicitly identify the two campaign first-costume members or prove their mapping to a canonical base."
+    }
+  ],
+  "notes": "PARTIAL only. The campaign is broad and the checked routes do not exhaust it; no negative or terminal relation is proposed."
+}
