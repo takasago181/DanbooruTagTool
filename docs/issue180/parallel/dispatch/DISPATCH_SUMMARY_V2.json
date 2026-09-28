@@ -12,8 +12,8 @@
     },
     "2": {
       "dispatched_open_campaigns": 200,
-      "open_campaigns": 1106,
-      "total_campaigns": 1106
+      "open_campaigns": 1103,
+      "total_campaigns": 1103
     },
     "3": {
       "dispatched_open_campaigns": 200,
@@ -24,8 +24,8 @@
   "packet_limit_per_lane": 200,
   "progressed_open_campaigns": 17,
   "queue_ids": [
-    "q2-a079b1e85c31d1404f84"
+    "q2-adeddc4383109a282b88"
   ],
-  "total_forward_campaigns": 4585,
-  "total_open_campaigns": 4585
+  "total_forward_campaigns": 4582,
+  "total_open_campaigns": 4582
 }
