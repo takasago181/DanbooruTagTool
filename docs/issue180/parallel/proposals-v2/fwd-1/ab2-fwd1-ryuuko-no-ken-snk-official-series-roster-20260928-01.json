@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-ryuuko-no-ken-snk-official-series-roster-20260928-01",
+  "campaign_key": "authority:ryuuko_no_ken",
+  "campaign_fingerprint": "55805f09abbb7c914e5e167940fb69deec0f408ccb4db2d34177ea4e771c33a7",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://game.snk-corp.co.jp/official/online/ryuko/",
+  "source_claim": "SNK's official Ryuuko no Ken / Art of Fighting collection page covers the original game and Art of Fighting Gaiden. The original-game section names Ryo Sakazaki and Robert Garcia and describes Yuri Sakazaki as a character in the kidnapping story; the Gaiden character directory explicitly lists Kasumi Todoh. All four are direct characters of the Art of Fighting copyright series.",
+  "authority_type": "OFFICIAL_WORK_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"robert_garcia","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"art_of_fighting"},
+    {"subject_type":"Character","subject_key":"ryou_sakazaki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"art_of_fighting"},
+    {"subject_type":"Character","subject_key":"toudou_kasumi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"art_of_fighting"},
+    {"subject_type":"Character","subject_key":"yuri_sakazaki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"art_of_fighting"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The source is SNK's own compilation of the Art of Fighting / Ryuuko no Ken titles; member evidence is explicitly named across its first-game story and Gaiden character directory."
+}

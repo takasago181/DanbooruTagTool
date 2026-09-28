@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-fwd1-portal-series-official-storefront-routes-partial-20260928-01",
+  "campaign_key": "authority:portal_(series)",
+  "campaign_fingerprint": "d571a87d26751280c2d9af355d3aa570670dc26c28daf33977b3439b2fbeaaea",
+  "worker_slot": 1,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "Valve's official Portal and Portal 2 storefronts confirm the games and Portal 2's connection to GLaDOS, but the checked official storefront routes do not provide a single exact roster establishing Chell, GLaDOS, Wheatley, and the Weighted Companion Cube together as the four campaign members.",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {"route_type":"OFFICIAL_GAME_STOREFRONT","url_or_query":"https://store.steampowered.com/app/400/Portal/","result":"Valve's Portal storefront confirms the game and its series identity, but the accessible official product page does not expose an exact character roster covering the campaign members."},
+    {"route_type":"OFFICIAL_GAME_STOREFRONT","url_or_query":"https://store.steampowered.com/app/620/Portal_2/","result":"Valve's Portal 2 storefront identifies GLaDOS as a returning computer companion and mentions a dynamic cast, but it does not explicitly enumerate all four exact campaign members."},
+    {"route_type":"OFFICIAL_STEAM_NEWS_ARCHIVE","url_or_query":"https://store.steampowered.com/news/posts/?appids=400%2C620%26enddate=1303921357","result":"The Steam-hosted Portal news archive includes syndicated interviews and coverage mentioning Chell, GLaDOS, Wheatley, and the Companion Cube, but this mixed-source archive is not a single first-party character roster and does not safely establish one exact authority mapping for the full campaign."}
+  ],
+  "notes": "PARTIAL only. The campaign is broad and the checked routes do not exhaust its official character-authority scope. No negative or terminal relation is proposed."
+}

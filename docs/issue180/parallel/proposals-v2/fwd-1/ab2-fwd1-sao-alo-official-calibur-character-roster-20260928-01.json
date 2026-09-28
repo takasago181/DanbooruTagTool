@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-sao-alo-official-calibur-character-roster-20260928-01",
+  "campaign_key": "authority:sao-alo",
+  "campaign_fingerprint": "8190f3dfb8e7582e1d6f3d956aa1ca82a55f2c0453bca237f9765fd4fa0a1e31",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.swordart-online.net/calibur/",
+  "source_claim": "The official Sword Art Online anime Calibur-arc character profiles establish the ALO appearances directly: Asuna is profiled, Klein and Lisbeth are each identified with their ALO fairy roles, and Yui is explicitly described as an ALO navigation pixie. These exact campaign identities therefore have direct HOME in the Sword Art Online copyright.",
+  "authority_type": "OFFICIAL_ANIME_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"asuna_(sao-alo)","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"sword_art_online"},
+    {"subject_type":"Character","subject_key":"klein_(sao-alo)","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"sword_art_online"},
+    {"subject_type":"Character","subject_key":"lisbeth_(sao-alo)","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"sword_art_online"},
+    {"subject_type":"Character","subject_key":"yui_(sao-alo)","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"sword_art_online"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The source is the official Calibur arc portal and explicitly describes the relevant ALO forms/roles; all four exact packet members are covered."
+}

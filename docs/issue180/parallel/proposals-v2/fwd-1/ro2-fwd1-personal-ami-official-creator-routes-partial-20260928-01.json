@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-fwd1-personal-ami-official-creator-routes-partial-20260928-01",
+  "campaign_key": "authority:personal_ami",
+  "campaign_fingerprint": "d13521c1a8b1f484f5bf6e5cde48524a3f75454fa719c2681a838b6531bdab6f",
+  "worker_slot": 1,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "The creator's linked accounts identify personalami as an illustrator who publishes original art, but the accessible first-party creator routes do not establish that all four exact campaign identities have the same copyright HOME.",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {"route_type":"OFFICIAL_CREATOR_LINK_DIRECTORY","url_or_query":"https://linktr.ee/personalami","result":"The creator's profile links to Patreon, itch.io, Pixiv, Fur Affinity, DeviantArt, and other maintained accounts, but gives no character roster for Einar, Fleur, Khiara, and Losse."},
+    {"route_type":"OFFICIAL_CREATOR_PATREON_PROFILE","url_or_query":"https://www.patreon.com/personalami","result":"The creator says they draw pictures and identifies maintained creator accounts and an archive of past works; the accessible profile does not name the four exact campaign characters or state their shared rights/home relationship."},
+    {"route_type":"OFFICIAL_CREATOR_ART_ARCHIVE","url_or_query":"https://personalami.itch.io/","result":"The creator's linked itch.io page lists paid artwork archives by date, but the accessible catalog does not provide an exact character index or establish the four campaign members' HOME."}
+  ],
+  "notes": "PARTIAL only. These routes establish creator identity and broad art provenance, not the four exact character identities or their rights mapping. No negative or terminal relation is proposed."
+}
