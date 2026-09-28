@@ -1,0 +1,100 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-lord-of-mysteries-licensed-lore-character-guide-20260928-01",
+  "campaign_key": "authority:lord_of_the_mysteries",
+  "campaign_fingerprint": "1ed0f6ce2f98b426d71bfc204438616106d0f36834c5adfa88dbb8bc4ba2ffe2",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://shop.lomworld.com/blogs/lomworld/lord-of-mysteries-character-guide",
+  "source_claim": "The Yuewen-authorized LOMWORLD character guide explicitly identifies Klein Moretti, Audrey Hall, Alger Wilson, Derrick Berg, Azik Eggers, Leonard Mitchell, Dunn Smith, Fors Wall, Xio Derecha, Benson Moretti, and Melissa Moretti as Lord of Mysteries characters; the official lore overview identifies Zhou Mingrui as becoming Klein Moretti.",
+  "authority_type": "RIGHTS_HOLDER_AUTHORIZED_CHARACTER_GUIDE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "alger_wilson",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "lord_of_the_mysteries"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "audrey_hall",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "lord_of_the_mysteries"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "azik_eggers",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "lord_of_the_mysteries"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "benson_moretti",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "lord_of_the_mysteries"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "derrick_berg",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "lord_of_the_mysteries"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "dunn_smith",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "lord_of_the_mysteries"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "fors_wall",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "lord_of_the_mysteries"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "klein_moretti",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "lord_of_the_mysteries"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "leonard_mitchell",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "lord_of_the_mysteries"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "melissa_moretti",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "lord_of_the_mysteries"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "xio_derecha",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "lord_of_the_mysteries"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "zhou_mingrui",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "lord_of_the_mysteries"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The guide identifies the named characters directly and its official authorization contact is lomworld@yuewen.com. The Zhou Mingrui/Klein Moretti identity is separately explicit at https://www.lomworld.com/en/lom . Other campaign identities not named on these official pages are omitted."
+}

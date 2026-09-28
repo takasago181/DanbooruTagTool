@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-digimon-official-encyclopedia-profiles-20260928-01",
+  "campaign_key": "authority:digimon",
+  "campaign_fingerprint": "d61318560e3cd4577294af655d2f90dac9ceeaccdd75e1e4cfd1599f7356a7b5",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://digimon.net/reference_en/detail.php?directory_name=beelzebumonblastmode",
+  "source_claim": "The official Digimon Encyclopedia profiles identify Beelzemon: Blast Mode, Dukemon: Crimson Mode (English listing: Gallantmon: Crimson Mode), Flamedramon, and MetalGreymon as Digimon.",
+  "authority_type": "FIRST_PARTY_DIGIMON_ENCYCLOPEDIA",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "beelzebumon_blast_mode",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "digimon"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "dukemon_crimson_mode",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "digimon"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "fladramon",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "digimon"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "metalgreymon",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "digimon"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The checked first-party profile URLs are https://digimon.net/reference_en/detail.php?directory_name=beelzebumonblastmode ; https://digimon.net/reference_en/detail.php?directory_name=dukemoncrimsonmode ; https://digimon.net/reference_en/detail.php?directory_name=fladramon ; https://digimon.net/reference_en/detail.php?directory_name=metalgreymon . Only direct exact profile matches are proposed; unverified variant names and human characters are omitted."
+}
