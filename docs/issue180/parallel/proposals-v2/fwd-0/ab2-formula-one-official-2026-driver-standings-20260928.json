@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-formula-one-official-2026-driver-standings-20260928",
+  "campaign_key": "authority:formula_one",
+  "campaign_fingerprint": "59f17ff27096f85310d23d9b787084bc5990be286cff8dec45c0a9a61beb24c4",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.formula1.com/en/results/2026/drivers",
+  "source_claim": "Formula 1's official 2026 Drivers' Standings lists Charles Leclerc, George Russell, Lewis Hamilton, Max Verstappen, and Oscar Piastri among the season's Formula 1 drivers.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"charles_leclerc","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"formula_one"},
+    {"subject_type":"Character","subject_key":"george_russell","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"formula_one"},
+    {"subject_type":"Character","subject_key":"lewis_hamilton","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"formula_one"},
+    {"subject_type":"Character","subject_key":"max_verstappen","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"formula_one"},
+    {"subject_type":"Character","subject_key":"oscar_piastri","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"formula_one"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official season standings identify the five campaign members as F1 drivers. Canonical person-tag and copyright spellings were cross-checked against Issue 70 records."
+}
