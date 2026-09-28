@@ -1,0 +1,93 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-13sentinels-official-atlus-protagonist-roster-20260928",
+  "campaign_key": "authority:juusan_kihei_bouei_ken",
+  "campaign_fingerprint": "1f7f341916963e34b991fbedfc9fbe99dfbae2a812f5ae0b1f9cba4f3ae62392",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://atlus.com/13sentinels/lang/en/",
+  "source_claim": "Atlus's official 13 Sentinels: Aegis Rim character page names and profiles the game's protagonists, including Juro Kurabe, Iori Fuyusaka, Ei Sekigahara, Keitaro Miura, Megumi Yakushiji, Natsuno Minami, Nenji Ogata, Renya Gouto, Takatoshi Hijiyama, Tomi Kisaragi, and Yuki Takamiya. The page is the official site for the named game.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "fuyusaka_iori",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "juusan_kihei_bouei_ken"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "gouto_renya",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "juusan_kihei_bouei_ken"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hijiyama_takatoshi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "juusan_kihei_bouei_ken"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kisaragi_tomi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "juusan_kihei_bouei_ken"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kurabe_juurou",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "juusan_kihei_bouei_ken"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "minami_natsuno",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "juusan_kihei_bouei_ken"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "miura_keitarou",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "juusan_kihei_bouei_ken"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ogata_nenji",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "juusan_kihei_bouei_ken"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sekigahara_ei",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "juusan_kihei_bouei_ken"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "takamiya_yuki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "juusan_kihei_bouei_ken"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yakushiji_megumi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "juusan_kihei_bouei_ken"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The named official profiles prove these 11 exact campaign characters' HOME in the title root juusan_kihei_bouei_ken; no protagonist absent from this campaign is added."
+}

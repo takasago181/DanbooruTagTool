@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-13sentinels-official-okino-profile-20260928",
+  "campaign_key": "authority:juusan_kihei_bouei_ken",
+  "campaign_fingerprint": "1f7f341916963e34b991fbedfc9fbe99dfbae2a812f5ae0b1f9cba4f3ae62392",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://13sar.jp/sub_character/",
+  "source_claim": "The official Japanese 13 Sentinels site lists 沖野司 (Okino Tsukasa) in its page for important characters closely connected to the thirteen protagonists, and provides his profile and story role.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "okino_tsukasa",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "juusan_kihei_bouei_ken"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Okino is a supporting character rather than one of the 13 protagonist profiles, but the official game's own character page explicitly identifies him as a character in this title."
+}
