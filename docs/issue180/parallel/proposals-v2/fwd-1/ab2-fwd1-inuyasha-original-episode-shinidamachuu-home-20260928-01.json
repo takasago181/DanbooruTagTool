@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-inuyasha-original-episode-shinidamachuu-home-20260928-01",
+  "campaign_key": "authority:inuyasha",
+  "campaign_fingerprint": "6fe092fd81191ff4616cfbe808ef50094990ee4e3448cdf2e4698fb7584e4e72",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.ytv.co.jp/inuyasha/story/2000_story/03.html",
+  "source_claim": "Yomiuri TV's official Inuyasha episode guide identifies a large shindamachuu (死魂虫) as a creature sent by Naraku in the original-series story and describes Kagome and the group's encounter with it.",
+  "authority_type": "OFFICIAL_EPISODE_GUIDE_EXPLICIT_CREATURE_APPEARANCE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "shinidamachuu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "inuyasha"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official episode page explicitly names the creature and places its appearance in an Inuyasha episode. It is treated as a distinct entity; this does not infer that it is Shippou."
+}

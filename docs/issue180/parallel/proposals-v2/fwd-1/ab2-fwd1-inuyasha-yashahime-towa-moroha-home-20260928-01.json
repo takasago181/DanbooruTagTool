@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-inuyasha-yashahime-towa-moroha-home-20260928-01",
+  "campaign_key": "authority:inuyasha",
+  "campaign_fingerprint": "6fe092fd81191ff4616cfbe808ef50094990ee4e3448cdf2e4698fb7584e4e72",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.hanyo-yashahime.com/character/",
+  "source_claim": "The official Yashahime character site profiles Higurashi Towa and Moroha as characters of Hanyo no Yashahime, identifies the series as based on Rumiko Takahashi's Inuyasha, and displays the official Yashahime production credit.",
+  "authority_type": "OFFICIAL_SEQUEL_CHARACTER_PROFILES",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "higurashi_towa",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "han'you_no_yashahime"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "moroha",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "han'you_no_yashahime"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "These two Characters are profiled in the official sequel site. Their HOME is recorded under the sequel Copyright; the source's mention of Inuyasha as the source manga is provenance, not an additional HOME edge."
+}

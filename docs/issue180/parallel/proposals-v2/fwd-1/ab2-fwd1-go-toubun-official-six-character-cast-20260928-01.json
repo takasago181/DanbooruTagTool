@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-go-toubun-official-six-character-cast-20260928-01",
+  "campaign_key": "authority:go-toubun_no_hanayome",
+  "campaign_fingerprint": "fcf74d4b152febd9a15294f363979edfba83ed8b2fe98bbb1ff4b4f98fc52c4b",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.tbs.co.jp/anime/5hanayome/staffcast/",
+  "source_claim": "The official TBS TV anime staff and cast page for The Quintessential Quintuplets lists Uesugi Fuutarou and the five Nakano sisters Ichika, Nino, Miku, Yotsuba, and Itsuki by name as cast characters, and identifies the production committee and original manga by Negi Haruba and Kodansha.",
+  "authority_type": "OFFICIAL_ANIME_CAST_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "nakano_ichika",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "go-toubun_no_hanayome"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nakano_itsuki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "go-toubun_no_hanayome"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nakano_miku",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "go-toubun_no_hanayome"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nakano_nino",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "go-toubun_no_hanayome"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nakano_yotsuba",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "go-toubun_no_hanayome"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "uesugi_fuutarou",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "go-toubun_no_hanayome"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official cast list explicitly names all six campaign members. The sequel title's official profile pages also preserve the same character identities and copyright line."
+}

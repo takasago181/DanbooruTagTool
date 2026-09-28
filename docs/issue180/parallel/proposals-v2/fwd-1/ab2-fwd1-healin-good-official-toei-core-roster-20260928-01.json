@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-healin-good-official-toei-core-roster-20260928-01",
+  "campaign_key": "authority:healin'_good_precure",
+  "campaign_fingerprint": "b2612b77b15654de2bee0bab9ff47e8c843f9059f603dc74963b1e5b1a70986a",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.toei-anim.co.jp/tv/healingood_precure/info/",
+  "source_claim": "Toei Animation's official Healin' Good Precure program information lists Cure Fontaine / Sawaizumi Chiyu, Cure Sparkle / Hiramitsu Hinata, and Cure Earth / Fuurin Asumi in the cast, while the same official program site provides the character roster and identifies the series as Healin' Good Precure.",
+  "authority_type": "OFFICIAL_ANIME_CAST_AND_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "cure_earth",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "healin'_good_precure"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "cure_fontaine",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "healin'_good_precure"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "cure_sparkle",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "healin'_good_precure"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "fuurin_asumi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "healin'_good_precure"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hanadera_nodoka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "healin'_good_precure"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sawaizumi_chiyu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "healin'_good_precure"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "This campaign's six exact Character identities are covered: the official cast associates each named Cure identity with the series and explicitly pairs the civilian identities for Cure Earth, Fontaine, and Sparkle."
+}
