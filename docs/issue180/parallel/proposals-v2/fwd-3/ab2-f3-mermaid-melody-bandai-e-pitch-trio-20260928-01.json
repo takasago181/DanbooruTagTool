@@ -1,0 +1,37 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-mermaid-melody-bandai-e-pitch-trio-20260928-01",
+  "campaign_key": "authority:mermaid_melody_pichi_pichi_pitch",
+  "campaign_fingerprint": "a0ce8047078cbf22462694daac7bb0ff20796b93f03e864000a0a08fd5a47ff0",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://toy.bandai.co.jp/ja/item/01_4529/",
+  "source_claim": "Bandai's official product page identifies the e-pitch microphones as products for Mermaid Melody Pichi Pichi Pitch and explicitly names Nanami Lucia, Houshou Hanon, and Touin Rina as the corresponding characters.",
+  "authority_type": "FIRST_PARTY_LICENSED_PRODUCT_PAGE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "houshou_hanon",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mermaid_melody_pichi_pichi_pitch"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nanami_lucia",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mermaid_melody_pichi_pichi_pitch"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "touin_rina",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mermaid_melody_pichi_pichi_pitch"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official product page directly covers these three exact campaign identities. Lady Bat is not named on this source and is not included in the batch."
+}
