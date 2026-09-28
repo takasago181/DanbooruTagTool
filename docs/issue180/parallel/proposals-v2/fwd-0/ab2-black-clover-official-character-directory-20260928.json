@@ -1,0 +1,24 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-black-clover-official-anime-character-directory-20260928",
+  "campaign_key": "authority:black_clover",
+  "campaign_fingerprint": "561ddc4db855e3ce8868ff09057877cf27ec71ea9eb8a9ca13caafe206db32b1",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://bclover.jp/character/",
+  "source_claim": "The official Black Clover anime character directory lists Mereoleona Vermillion (メレオレオナ・ヴァーミリオン), Mimosa Vermillion (ミモザ・ヴァーミリオン), Nacht Faust (ナハト・ファウスト), Noelle Silva (ノエル・シルヴァ), Secre Swallowtail (セクレ・スワロテイル), Vanessa Enoteca (バネッサ・エノテーカ), Vanica Zogratis (ヴァニカ・ゾグラティス), and Yami Sukehiro (ヤミ・スケヒロ) as characters in the Black Clover anime. The page copyright identifies the Black Clover production committee.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"mereoleona_vermillion","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"black_clover"},
+    {"subject_type":"Character","subject_key":"mimosa_vermillion","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"black_clover"},
+    {"subject_type":"Character","subject_key":"nacht_faust","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"black_clover"},
+    {"subject_type":"Character","subject_key":"noelle_silva","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"black_clover"},
+    {"subject_type":"Character","subject_key":"secre_swallowtail","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"black_clover"},
+    {"subject_type":"Character","subject_key":"vanessa_enoteca","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"black_clover"},
+    {"subject_type":"Character","subject_key":"vanica_zogratis","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"black_clover"},
+    {"subject_type":"Character","subject_key":"yami_sukehiro","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"black_clover"}
+  ],
+  "terminal_reviews": [],
+  "notes": "All eight campaign members appear by their direct character names in the first-party official directory."
+}
