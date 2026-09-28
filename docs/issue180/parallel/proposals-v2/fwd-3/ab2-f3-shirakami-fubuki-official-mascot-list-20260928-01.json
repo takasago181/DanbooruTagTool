@@ -1,0 +1,37 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-shirakami-fubuki-official-mascot-list-20260928-01",
+  "campaign_key": "authority:shirakami_fubuki",
+  "campaign_fingerprint": "23329feb3bbd243e4367f61a1049dfdd3290bea332b974fb2ba553223f85d4a9",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://hololive.hololivepro.com/en/talents/shirakami-fubuki/",
+  "source_claim": "Hololive’s official Shirakami Fubuki profile identifies Oruyanke, Miteiru, and Fubzilla as mascot characters associated with her.",
+  "authority_type": "FIRST_PARTY_TALENT_PROFILE_AND_MASCOT_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "fubuzilla_(shirakami_fubuki)",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "hololive"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "miteiru_(shirakami_fubuki)",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "hololive"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "oruyanke_(shirakami_fubuki)",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "hololive"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official profile explicitly calls these three names mascot characters. Sukonbu is separately identified as Fubuki’s fan name, so it is not asserted as a Character relation."
+}

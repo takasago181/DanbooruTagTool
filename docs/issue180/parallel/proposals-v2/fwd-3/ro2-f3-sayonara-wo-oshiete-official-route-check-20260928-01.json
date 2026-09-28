@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-f3-sayonara-wo-oshiete-first-party-route-check-20260928-01",
+  "campaign_key": "authority:sayonara_wo_oshiete",
+  "campaign_fingerprint": "e597152f0665675b811a3771b73f4a60cdcf363da11fa4b02445377b796159eb",
+  "worker_slot": 3,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "CREATOR_STORE_CATALOG",
+      "url_or_query": "https://craftwork.booth.pm/items",
+      "result": "The CRAFTWORK-labeled BOOTH catalog lists several Sayonara wo Oshiete character goods, including names matching multiple dispatched tags, but the accessible catalog does not establish the shop’s first-party authority or an exact game roster."
+    },
+    {
+      "route_type": "CREATOR_STORE_PRODUCT_PAGE",
+      "url_or_query": "https://craftwork.booth.pm/items/1319520",
+      "result": "The product page identifies a Sayonara wo Oshiete item but does not identify the packet character identities."
+    },
+    {
+      "route_type": "OFFICIAL_PUBLISHER_CATALOG_SEARCH",
+      "url_or_query": "site:dlsite.com さよならを教えて CRAFTWORK",
+      "result": "This search did not surface a directly verifiable publisher product/character page establishing exact dispatched character mappings."
+    }
+  ],
+  "notes": "The current official-source pass did not verify creator-controlled character pages or a bounded official roster for the five tags. BOOTH listings are retained as a lead only; this is partial route accounting, not negative evidence or campaign exhaustion."
+}

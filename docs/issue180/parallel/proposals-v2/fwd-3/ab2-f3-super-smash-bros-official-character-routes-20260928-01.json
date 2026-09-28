@@ -1,0 +1,85 @@
+[
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-f3-smash-brawl-rob-official-character-page-20260928-01",
+    "campaign_key": "authority:super_smash_bros.",
+    "campaign_fingerprint": "f89e297b892c5c99fa1f5f78536fabb1dd495f7482942edfa620fce0c214c1ca",
+    "worker_slot": 3,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://www.smashbros.com/wii/en_us/characters/hidden07.html",
+    "source_claim": "The official Super Smash Bros. Brawl site identifies R.O.B. as the Robotic Operating Buddy from the NES and provides his Brawl fighter moveset.",
+    "authority_type": "FIRST_PARTY_GAME_CHARACTER_PAGE",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "family_computer_robot",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "super_smash_bros."
+      }
+    ],
+    "terminal_reviews": [],
+    "notes": "The official Brawl character page establishes the dispatched R.O.B. identity as a fighter in the Smash title; canonical key uses the packet’s exact tag."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-f3-smash-brawl-master-hand-official-20260928-01",
+    "campaign_key": "authority:super_smash_bros.",
+    "campaign_fingerprint": "f89e297b892c5c99fa1f5f78536fabb1dd495f7482942edfa620fce0c214c1ca",
+    "worker_slot": 3,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://www.smashbros.com/wii/en_us/gamemode/various/various28.html",
+    "source_claim": "The official Super Smash Bros. Brawl site describes Master Hand as the familiar final boss of Classic mode and explains his Brawl appearances.",
+    "authority_type": "FIRST_PARTY_GAME_CHARACTER_PAGE",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "master_hand",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "super_smash_bros."
+      }
+    ],
+    "terminal_reviews": [],
+    "notes": "The official series site explicitly names Master Hand as a Brawl game entity; this supports its direct home in the dispatched franchise."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-f3-smash-ultimate-official-mii-amiibo-lineup-20260928-01",
+    "campaign_key": "authority:super_smash_bros.",
+    "campaign_fingerprint": "f89e297b892c5c99fa1f5f78536fabb1dd495f7482942edfa620fce0c214c1ca",
+    "worker_slot": 3,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://www.nintendo.com/en-ca/amiibo/line-up/",
+    "source_claim": "Nintendo’s official amiibo lineup lists Mii Brawler, Mii Gunner, and Mii Swordfighter as amiibo in the Super Smash Bros. series.",
+    "authority_type": "FIRST_PARTY_NINTENDO_PRODUCT_LINEUP",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "mii_brawler",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "super_smash_bros."
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "mii_gunner",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "super_smash_bros."
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "mii_swordfighter",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "super_smash_bros."
+      }
+    ],
+    "terminal_reviews": [],
+    "notes": "Nintendo’s own lineup directly associates all three dispatched Mii fighter identities with Super Smash Bros.; no other roster identities are implied."
+  }
+]

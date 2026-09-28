@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-skullgirls-official-robo-fortune-character-page-20260928-01",
+  "campaign_key": "authority:skullgirls",
+  "campaign_fingerprint": "81983bc05d2de932a0a6cce877958860303c4ad17b18361a68b6e5fe3870bcbd",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://skullgirls.com/characters/robo-fortune/",
+  "source_claim": "The official Skullgirls character page identifies Robo-Fortune as a character created by Brain Drain and describes her pursuit of the Skull Heart.",
+  "authority_type": "FIRST_PARTY_GAME_CHARACTER_PROFILE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "robo-fortune",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "skullgirls"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official character profile explicitly names Robo-Fortune and situates her within Skullgirls; no relation for the other campaign identities is inferred."
+}

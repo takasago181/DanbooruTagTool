@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-f3-skullgirls-residual-official-route-check-20260928-01",
+  "campaign_key": "authority:skullgirls",
+  "campaign_fingerprint": "81983bc05d2de932a0a6cce877958860303c4ad17b18361a68b6e5fe3870bcbd",
+  "worker_slot": 3,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "FIRST_PARTY_GAME_CHARACTER_GUIDE",
+      "url_or_query": "https://2e.skullgirls.com/",
+      "result": "The official game site describes the Skull Heart as an artifact and Black Egrets as Parasoul’s military squad, but does not establish them as Character identities in the allowed Character-to-Copyright contract."
+    },
+    {
+      "route_type": "FIRST_PARTY_GAME_CHARACTER_PAGE",
+      "url_or_query": "https://skullgirls.com/characters/parasoul/",
+      "result": "The official Parasoul page confirms she leads the Black Egrets and seeks the Skull Heart; it does not identify packet tags George the Bomb or Scythana as exact characters."
+    },
+    {
+      "route_type": "FIRST_PARTY_CHARACTER_GUIDE",
+      "url_or_query": "https://skullgirls.com/guides/Skullgirls_CharacterGuide_EN_X360.pdf",
+      "result": "The official character guide includes a George’s Day Out move reference but this does not establish the exact packet identity George the Bomb; Scythana also remains unmapped."
+    }
+  ],
+  "notes": "Robo-Fortune has been submitted in a separate positive source batch for this campaign. These checked routes leave Black Egrets, George the Bomb, Scythana, and Skull Heart without a safe exact Character relation; partial accounting only, not negative evidence or exhaustion."
+}
