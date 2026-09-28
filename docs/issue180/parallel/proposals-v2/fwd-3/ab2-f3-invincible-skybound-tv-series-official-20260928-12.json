@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-invincible-skybound-tv-series-official-20260928-12",
+  "campaign_key": "authority:invincible_(series)",
+  "campaign_fingerprint": "a878baf39e1bd4fd24453552de659191eb33e6bd88975a11a8be7ac484bf2eb1",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.skybound.com/invincible/tv-series",
+  "source_claim": "Skybound’s official Invincible series page describes Mark Grayson and his father Omni-Man as the central characters in the Invincible animated series and features Debbie and Atom Eve in its character material.",
+  "authority_type": "FIRST_PARTY_RIGHTS_HOLDER_SERIES_PAGE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "atom_eve",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "invincible_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "debbie_grayson",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "invincible_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mark_grayson",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "invincible_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nolan_grayson",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "invincible_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "omni-man",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "invincible_(series)"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Skybound’s franchise owner page independently establishes the named figures as Invincible series characters; the character index batch carries the exact six-identity coverage."
+}

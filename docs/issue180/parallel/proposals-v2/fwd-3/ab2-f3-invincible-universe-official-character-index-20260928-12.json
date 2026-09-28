@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-invincible-universe-official-character-index-20260928-12",
+  "campaign_key": "authority:invincible_(series)",
+  "campaign_fingerprint": "a878baf39e1bd4fd24453552de659191eb33e6bd88975a11a8be7ac484bf2eb1",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.invincible-universe.com/characters",
+  "source_claim": "The official Invincible Universe character index lists Mark Grayson, Nolan Grayson, Samantha Eve Wilkins, and Debbie Grayson in the Invincible series; it identifies Mark as Invincible, Nolan as Omni-Man, and Samantha as Atom Eve.",
+  "authority_type": "FIRST_PARTY_FRANCHISE_CHARACTER_INDEX",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "atom_eve",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "invincible_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "debbie_grayson",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "invincible_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mark_grayson",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "invincible_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nolan_grayson",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "invincible_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "omni-man",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "invincible_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "samantha_eve_wilkins",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "invincible_(series)"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official character index establishes all six packet identities, including both civilian and superhero identities represented as separate canonical characters in this campaign."
+}
