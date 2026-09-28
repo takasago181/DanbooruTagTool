@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-exs-tia-official-azarin-side-episode-20260928",
+  "campaign_key": "authority:exs-tia",
+  "campaign_fingerprint": "536fe047db750f291a1190973d0910e9771b3f86a45e712fc5d24918de39fce9",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://lusterise.nexton-net.jp/product/exs-tia_a_dl/",
+  "source_claim": "Lusterise's official Side Episode page states that Azarin was active in Exs-Tia A and presents side stories for her. The official Exs-Tia 10th anniversary page identifies Exs-Tia A as an installment of the Exs-Tia series. These first-party pages support the exact current member Azarin as belonging to the Exs-Tia Copyright work.",
+  "authority_type": "RIGHTSHOLDER_OFFICIAL_PRODUCT_AND_CHARACTER_IDENTITY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "azarin_(exs-tia)",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kouyoku_senki_exs-tia"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official Lusterise Side Episode page (https://lusterise.nexton-net.jp/product/exs-tia_a_dl/) describes Azarin as active in Exs-Tia A and identifies her as Exs-Tia Magica in the Side.8 product synopsis. The official 10th-anniversary series page (https://lusterise.nexton-net.jp/product/exs-tia_10th/) lists Exs-Tia A among the series installments. The 10th-anniversary page and official Side Episode page are first-party work identity/series evidence; the current canonical Copyright key is kouyoku_senki_exs-tia. The other five campaign members are omitted because the checked pages did not explicitly establish their exact identities and HOME mapping."
+}

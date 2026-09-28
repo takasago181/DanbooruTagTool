@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-dungeon-meshi-official-canary-roster-20260928",
+  "campaign_key": "authority:dungeon_meshi",
+  "campaign_fingerprint": "93de824397c6da89aa58886a5d2063a4e9899b006d08f646e4862ce9b7aebe62",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://delicious-in-dungeon.com/news.html",
+  "source_claim": "The official TV anime Dungeon Meshi site lists the Canary Squad for the officially licensed Dungeon Meshi board game as Mithrun, Pattadol, Cithis, Fleki, Lycion, and Otta. That first-party work material explicitly places Pattadol, Cithis, Fleki, and Lycion in Dungeon Meshi; it supports direct HOME for those four exact current members.",
+  "authority_type": "RIGHTSHOLDER_OFFICIAL_WORK_PRODUCT_AND_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "cithis",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dungeon_meshi"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "fleki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dungeon_meshi"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "lycion",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dungeon_meshi"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "pattadol",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dungeon_meshi"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official anime site's news/product material describes the licensed game 『モンスターイーター〜ダンジョン飯ボードゲーム〜』 and lists its Canary Squad as ミスルン、パッタドル、シスヒス、フレキ、リシオン、オッタ. The official site identifies the underlying work 『ダンジョン飯』 as Ryoko Kui's manga published by KADOKAWA and credits the anime committee. The four current members Pattadol (パッタドル), Cithis (シスヒス), Fleki (フレキ), and Lycion (リシオン) are direct roster matches. Milsiril and `mithrun's_brother` are omitted because the checked official page did not identify those exact campaign members; no relation or negative finding is asserted for them."
+}

@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-blend-s-official-character-roster-20260928",
+  "campaign_key": "authority:blend_s",
+  "campaign_fingerprint": "8a92b28f6a0882bdd6102285855a010559192f7f5f51f463fbf5df35f804c1e1",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://blend-s.jp/sp/character/",
+  "source_claim": "The official Blend S anime character page names Akizuki Koyo, Amano Miu, Hinata Kaho, Hoshikawa Mafuyu, Kanzaki Hideri, and Sakuranomiya Maika as characters in the Blend S story. The same official site identifies the title as Blend S and credits the manga/rightsholder production committee. This first-party roster supports direct HOME for all six exact campaign members.",
+  "authority_type": "RIGHTSHOLDER_OFFICIAL_ANIME_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "akizuki_kouyou",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "blend_s"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "amano_miu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "blend_s"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hinata_kaho",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "blend_s"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hoshikawa_mafuyu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "blend_s"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kanzaki_hideri",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "blend_s"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sakuranomiya_maika",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "blend_s"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official character page (https://blend-s.jp/sp/character/) directly names all six current members: 秋月紅葉, 天野美雨, 日向夏帆, 星川麻冬, 神崎ひでり, 桜ノ宮苺香. The official staff/cast and site pages identify the work as TV anime 『ブレンド・S』, adapted from 中山幸’s manga serialized in 芳文社「まんがタイムきららキャラット」; the site copyright is © 中山幸・芳文社／ブレンド・S製作委員会. The canonical work root key is `blend_s`. Direct HOME only; no separate character identity relation is asserted."
+}
