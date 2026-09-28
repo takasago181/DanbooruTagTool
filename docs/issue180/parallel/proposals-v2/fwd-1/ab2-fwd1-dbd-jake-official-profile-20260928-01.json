@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-dbd-jake-official-profile-20260928-01",
+  "campaign_key": "authority:dead_by_daylight",
+  "campaign_fingerprint": "3beb1d3ca5ecc9bfbbaf0e6994c164041af504cda145a90437e44e64535e3311",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://deadbydaylight.com/game/characters/jake-park/",
+  "source_claim": "Behaviour Interactive’s official Dead by Daylight character profile labels Jake Park as a Base Game Survivor and supplies his character lore and perks. This identifies Jake Park as a direct character of the Dead by Daylight copyright.",
+  "authority_type": "OFFICIAL_CHARACTER_PROFILE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "jake_park",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dead_by_daylight"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": ""
+}

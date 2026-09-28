@@ -1,0 +1,37 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-camp-buddy-scoutmaster-official-cast-20260928-01",
+  "campaign_key": "authority:camp_buddy",
+  "campaign_fingerprint": "b6b5d2836d451bfad45b7bbb2069f4d324e965711f59a3f3cfdae710a75dd8f2",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://blitsgames.itch.io/scoutmaster-season",
+  "source_claim": "BLits Games describes Camp Buddy: Scoutmaster Season as proceeding the events of Camp Buddy, identifies Scoutmaster Yoshinori Nagira, and explicitly identifies Aiden Flynn and Goro Nomoru as his romance partners. These named characters are therefore direct characters of the Camp Buddy copyright franchise.",
+  "authority_type": "OFFICIAL_WORK_CAST_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "nagira_yoshinori",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "camp_buddy"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "aiden_flynn",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "camp_buddy"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "goro_nomoru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "camp_buddy"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": ""
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-camp-buddy-yoichi-official-devlog-20260928-01",
+  "campaign_key": "authority:camp_buddy",
+  "campaign_fingerprint": "b6b5d2836d451bfad45b7bbb2069f4d324e965711f59a3f3cfdae710a75dd8f2",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://blitsgames.itch.io/scoutmaster-season/devlog/1477878/scoutmaster-season-fourth-anniversary-events",
+  "source_claim": "BLits Games’ official Camp Buddy: Scoutmaster Season anniversary post identifies Yoichi Yukimura as the subject of a previous character figure collaboration alongside Aiden Flynn, in the same post announcing the Goro Nomoru character figure and Scoutmaster Season merchandise. This explicitly connects Yoichi Yukimura to the Camp Buddy character franchise.",
+  "authority_type": "OFFICIAL_CHARACTER_MERCHANDISE_ANNOUNCEMENT",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "yukimura_yoichi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "camp_buddy"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": ""
+}
