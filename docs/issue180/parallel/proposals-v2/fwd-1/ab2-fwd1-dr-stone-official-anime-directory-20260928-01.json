@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-dr-stone-official-anime-directory-20260928-01",
+  "campaign_key": "authority:dr._stone",
+  "campaign_fingerprint": "955a84a0754616389de1a2fe8935718f34df1fb0a6a70500890ce88cc8a6dbdc",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://dr-stone.jp/character/",
+  "source_claim": "The official Dr.STONE anime character directory identifies Ishigami Senku, Asagiri Gen, Nanami Ryusui, Saionji Ukyo, Shishiou Tsukasa, and Hanada Nikki among its named characters. Its rights footer names Boichi, Shueisha, and the Dr.STONE Production Committee.",
+  "authority_type": "OFFICIAL_ANIME_CHARACTER_DIRECTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "asagiri_gen",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dr._stone"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hanada_nikki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dr._stone"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ishigami_senkuu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dr._stone"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nanami_ryuusui",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dr._stone"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "saionji_ukyou",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dr._stone"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shishiou_tsukasa",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dr._stone"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Exact character names occur in the official series directory. The object key matches the current Research Unit's candidate Copyright and official site rights line."
+}

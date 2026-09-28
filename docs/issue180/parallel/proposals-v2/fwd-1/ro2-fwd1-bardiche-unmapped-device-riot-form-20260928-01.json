@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-fwd1-bardiche-unmapped-device-riot-form-20260928-01",
+  "campaign_key": "base:bardiche_(nanoha)",
+  "campaign_fingerprint": "78ed607d42622a0981b6b479c8f04d2bef081290b0a760cd6e2e8aee99f83112",
+  "worker_slot": 1,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "https://www.nanoha.com/archive3/character.html",
+  "source_claim": "Three distinct official routes were checked for bardiche_(device_form)_(nanoha) and bardiche_(riot_zanber_stinger)_(nanoha). The checked material did not safely establish those exact form identities as direct relations to the base Character.",
+  "authority_type": "OFFICIAL_SERIES_AND_PRODUCT_ROUTE_RESEARCH",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "OFFICIAL_NANOHA_SERIES_DEVICE_PROFILES",
+      "url_or_query": "https://www.nanoha.com/archive/charactor/feit.html; https://www.nanoha.com/archive/story/story4.html; https://www.nanoha.com/archive/story/story9.html; https://www.nanoha.com/archive2/chara/cha_711.html; https://www.nanoha.com/archive2/chara/cha_712.html; https://www.nanoha.com/archive2/chara/cha_713.html",
+      "result": "The first-party original-series profile and story pages identify Bardiche and Sealing Form; the A's device pages identify Assault, Haken, Scythe, and Zanber relationships in companion AUTHORITY_BATCH proposals. They do not provide a safe exact map for the remaining Device Form or Riot Zanber Stinger tags."
+    },
+    {
+      "route_type": "OFFICIAL_EXCEEDS_DEVICE_PROFILE",
+      "url_or_query": "https://www.nanoha.com/EXGV/character/fate.html",
+      "result": "The official new-series page identifies Bardiche and its present AX/Axe, CB, and standby states. It does not identify the exact Riot Zanber Stinger or legacy Device Form tags."
+    },
+    {
+      "route_type": "OFFICIAL_MANUFACTURER_PRODUCT_DESCRIPTION",
+      "url_or_query": "https://www.goodsmile.info/en/product/3670/",
+      "result": "Good Smile's official figure page confirms Bardiche Assault's Bullova Form in the companion AUTHORITY_BATCH but does not map the remaining Device Form or Riot Zanber Stinger tags."
+    }
+  ],
+  "notes": "Partial progress only. Preserve the base HOME and seven exact VARIANT_OF relations in the companion AUTHORITY_BATCH files. No negative relation or terminal outcome is asserted for the two residual tags."
+}

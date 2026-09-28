@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-bardiche-bullova-form-goodsmile-20260928-01",
+  "campaign_key": "base:bardiche_(nanoha)",
+  "campaign_fingerprint": "78ed607d42622a0981b6b479c8f04d2bef081290b0a760cd6e2e8aee99f83112",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.goodsmile.info/en/product/3670/",
+  "source_claim": "Good Smile Company's official product description for a Fate Testarossa figure from Magical Girl Lyrical Nanoha The MOVIE 2nd A's explicitly states that her upgraded intelligent device Bardiche Assault is included in its axe-shaped Bullova Form.",
+  "authority_type": "OFFICIAL_LICENSED_PRODUCT_DESCRIPTION",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "bardiche_(bullova_form)_(nanoha)",
+      "relation_type": "VARIANT_OF",
+      "object_type": "Character",
+      "object_key": "bardiche_(nanoha)"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The manufacturer description names the exact form and device identity. The source result gives the product title and the MOVIE 2nd A's series attribution."
+}

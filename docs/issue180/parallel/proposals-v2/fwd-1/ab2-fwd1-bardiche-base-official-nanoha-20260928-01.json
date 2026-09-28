@@ -15,9 +15,9 @@
       "subject_key": "bardiche_(nanoha)",
       "relation_type": "DIRECT_HOME",
       "object_type": "Copyright",
-      "object_key": "mahou_shoujo_lyrical_nanoha"
+      "object_key": "nanoha"
     }
   ],
   "terminal_reviews": [],
-  "notes": "Official profile text at the cited URL names the device and parent series directly. The exact Copyright key is the canonical original-series title."
+  "notes": "The official original-series Fate profile names Bardiche, and its ©なのはPROJECT rights notice maps to the current packet's candidate Copyright key nanoha. The broader lyrical_nanoha candidate is not selected."
 }
