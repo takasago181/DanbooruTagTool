@@ -1,0 +1,37 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-bastard-anime-official-character-pages-20260928-01",
+  "campaign_key": "authority:bastard!!",
+  "campaign_fingerprint": "d48291d723ebd8850ba8722a2c6a86541e459a894468d84d7d133b20aece4668",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://bastard-anime.com/chara/",
+  "source_claim": "The official BASTARD!! anime character pages identify Dark Schneider, Arshes Nei, and Kai Harn as characters in the adaptation and carry the copyright line for Kazushi Hagiwara, Shueisha, and the BASTARD!! Project. The individual official profiles give the exact romanized names for these three campaign members.",
+  "authority_type": "OFFICIAL_WORK_CAST_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "dark_schneider",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bastard!!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "arshes_nei",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bastard!!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kai_harn",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bastard!!"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": ""
+}

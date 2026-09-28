@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-bastard-shueisha-volume18-porno-20260928-01",
+  "campaign_key": "authority:bastard!!",
+  "campaign_fingerprint": "d48291d723ebd8850ba8722a2c6a86541e459a894468d84d7d133b20aece4668",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.shueisha.co.jp/books/items/contents.html?isbn=978-4-08-872242-9&mode=1",
+  "source_claim": "Shueisha’s official BASTARD!! volume 18 listing identifies the series, author Kazushi Hagiwara, and the plot encounter in which D.S. fights Porno, Satan’s subordinate. This directly places the current campaign’s Porno Dianno character in the BASTARD!! work.",
+  "authority_type": "OFFICIAL_WORK_CAST_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "porno_dianno",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bastard!!"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": ""
+}
