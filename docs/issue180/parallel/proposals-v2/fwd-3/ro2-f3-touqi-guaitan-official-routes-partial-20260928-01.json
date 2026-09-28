@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-f3-touqi-guaitan-official-routes-partial-20260928-01",
+  "campaign_key": "authority:touqi_guaitan",
+  "campaign_fingerprint": "2b00c79b5268d2bddde2162c0ec8ba8e9c0c597ffceab36f4d47777976b651d6",
+  "worker_slot": 3,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "OFFICIAL_DEVELOPER_PLATFORM_PAGE",
+      "url_or_query": "https://www.66rpg.com/game/1632199",
+      "result": "The creator-published 頭七 page confirms the title and its creators, but the accessible page text does not identify the exact current campaign roster members."
+    },
+    {
+      "route_type": "OFFICIAL_LICENSEE_PRODUCT_PAGE",
+      "url_or_query": "https://store.steampowered.com/app/3686930/TOUQI/",
+      "result": "The Steam product page confirms 頭七 / Touqi, developer 橙光游戏 and publisher Paleo, but its accessible description does not name the exact campaign characters."
+    },
+    {
+      "route_type": "AUTHORIZED_PRODUCT_ANNOUNCEMENT",
+      "url_or_query": "https://www.sina.cn/news/detail/5333340212691221.html",
+      "result": "The authorized GOODSWAVE merchandise announcement confirms licensed 頭七 products and creators but does not establish exact tag-to-character identities from the campaign."
+    }
+  ],
+  "notes": "Three distinct official or authorized routes were checked. The campaign contains multiple identities and remains only partially researched; this outcome is accounting progress, not negative evidence."
+}

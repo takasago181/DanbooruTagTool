@@ -1,0 +1,86 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-utawarerumono-official-anime-character-roster-20260928-01",
+  "campaign_key": "authority:utawarerumono_(series)",
+  "campaign_fingerprint": "cd6cd1beda20f27c89f4e19f4102142a6560c7077e691a81c493171c57319e12",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://utawarerumono.jp/character/",
+  "source_claim": "The official Futari no Hakuoro character page names and describes the following characters in the Utawarerumono series: Aruruu, Camyu, Eruruu, Hakuowlo, Karulau, Rurutieh, Saraana, Ulthury, Uruuru, and Guraa (as one half of the Dory/Guraa pair).",
+  "authority_type": "FIRST_PARTY_ANIME_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "aruruu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "utawarerumono_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "camyu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "utawarerumono_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "eruruu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "utawarerumono_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hakuowlo",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "utawarerumono_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "karulau",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "utawarerumono_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "rulutieh",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "utawarerumono_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "saraana",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "utawarerumono_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ulthury",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "utawarerumono_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "uruuru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "utawarerumono_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "guraa",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "utawarerumono_(series)"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only exact campaign identities explicitly named on the official character page are proposed. Mukkuru and other unlisted campaign identities are omitted."
+}

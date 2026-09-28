@@ -1,0 +1,37 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-super-real-mahjong-venus-returns-official-roster-20260928-01",
+  "campaign_key": "authority:super_real_mahjong",
+  "campaign_fingerprint": "e855206fa9b4328e84f183bfedcf54741bf55de1e7094a7c6089dd902139e991",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://srmvr.com/en/",
+  "source_claim": "The official Super Real Mahjong Venus Returns site lists Mizuki Tohno, Aya Fujiwara, and Akira Hayasaka as characters in the game, and identifies it as the new Super Real Mahjong title.",
+  "authority_type": "FIRST_PARTY_GAME_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "toono_mizuki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "super_real_mahjong"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "fujiwara_aya",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "super_real_mahjong"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hayasaka_akira",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "super_real_mahjong"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only the three exact campaign identities directly named on this official character roster are proposed."
+}
