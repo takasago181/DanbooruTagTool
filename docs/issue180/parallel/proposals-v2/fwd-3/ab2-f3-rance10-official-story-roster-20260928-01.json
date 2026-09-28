@@ -1,0 +1,37 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-rance10-official-story-roster-20260928-01",
+  "campaign_key": "authority:rance_(series)",
+  "campaign_fingerprint": "a444ec18189712f332d87e998c1d5a88cd2f9fc17915caff46f41010f516fab3",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.alicesoft.com/rance10/story/index.html",
+  "source_claim": "AliceSoft’s official Rance 10 story page names Rance, Lia Pappara Leazas, and Sheila Helman in the account of the Rance series characters and leaders.",
+  "authority_type": "FIRST_PARTY_GAME_CHARACTER_PAGE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "rance",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "rance_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "lia_parapara_leazas",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "rance_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sheila_helman",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "rance_(series)"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only exact identities directly named on the official page and matching this campaign are proposed."
+}

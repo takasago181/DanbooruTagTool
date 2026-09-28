@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-etrian-arianna-nintendo-official-product-20260928-01",
+  "campaign_key": "authority:sekaiju_no_meikyuu",
+  "campaign_fingerprint": "36070fcfe5eb7bf944b65c2dfc1b1fb8880c7ef556924a1f66388c70f8548393",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.nintendo.com/en-gb/Games/Nintendo-3DS-games/Etrian-Odyssey-2-Untold-The-Fafnir-Knight-1084480.html",
+  "source_claim": "Nintendo’s official product page identifies Etrian Odyssey 2 Untold: The Fafnir Knight and names Arianna, princess of the Duchy of Caledonia, as the story’s protected character. This directly establishes the tagged Arianna Caledonia identity in the Etrian Odyssey franchise.",
+  "authority_type": "OFFICIAL_LICENSEE_PRODUCT_PAGE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "arianna_caledonia",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "sekaiju_no_meikyuu"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only Arianna Caledonia is explicitly established in the checked official product page; other Etrian Odyssey campaign identities are omitted."
+}

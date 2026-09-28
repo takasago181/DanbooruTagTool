@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-sono-hanabira-mangagamer-risa-miya-20260928-01",
+  "campaign_key": "authority:sono_hanabira_ni_kuchizuke_wo",
+  "campaign_fingerprint": "13391b45ba2c468465df7af9280d1f15e427b9c66e64dccb123196f38b18bd60",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.mangagamer.org/sonohana/rhwm/",
+  "source_claim": "MangaGamer’s official licensed product page names Ayase Miya and Azumi Risa in the character section and identifies their relationship to the A Kiss for the Petals / Sono Hanabira title.",
+  "authority_type": "OFFICIAL_LICENSEE_CHARACTER_PAGE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "ayase_miya",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "sono_hanabira_ni_kuchizuke_wo"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "azumi_risa",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "sono_hanabira_ni_kuchizuke_wo"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only the two exact campaign characters named on this page are proposed."
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-vshojo-nazuna-company-release-20260928-01",
+  "campaign_key": "authority:vshojo",
+  "campaign_fingerprint": "40712285d89279676ab279981c077b6c9b2c5b7fb86694c922ce01261a31b451",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://prtimes.jp/main/html/rd/p/000000017.000070242.html",
+  "source_claim": "This VShojo Inc. press release explicitly calls Amemiya Nazuna an affiliated talent (“所属タレント”) and identifies the company as VShojo Inc.",
+  "authority_type": "OFFICIAL_COMPANY_PRESS_RELEASE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "amemiya_nazuna",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "vshojo"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only the exact Amemiya Nazuna campaign identity named in this company release is proposed."
+}
