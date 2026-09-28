@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-symphogear-g-serena-20260928-01",
+  "campaign_key": "authority:senki_zesshou_symphogear",
+  "campaign_fingerprint": "626495d4605b92fc32f528a9ab3ea33268833a208970d2569fc0ae3645a7b9e5",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.symphogear-g.com/character/",
+  "source_claim": "The official Symphogear G character roster explicitly lists Serena Cadenzavna Eve (セレナ・カデンツァヴナ・イヴ).",
+  "authority_type": "OFFICIAL_ANIME_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"serena_cadenzavna_eve","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"senki_zesshou_symphogear"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The first-party G roster gives Serena's exact Japanese full name. It maps directly to the current packet key serena_cadenzavna_eve."
+}

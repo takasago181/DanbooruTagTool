@@ -1,0 +1,18 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-symphogear-xv-roster-20260928-01",
+  "campaign_key": "authority:senki_zesshou_symphogear",
+  "campaign_fingerprint": "626495d4605b92fc32f528a9ab3ea33268833a208970d2569fc0ae3645a7b9e5",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.symphogear-xv.com/staff_cast.php",
+  "source_claim": "The official Symphogear XV staff and cast page lists Millaarc and Shem-Ha among the characters/cast, in addition to the returning Symphogear cast.",
+  "authority_type": "OFFICIAL_ANIME_CAST",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"millaarc","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"senki_zesshou_symphogear"},
+    {"subject_type":"Character","subject_key":"shem-ha","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"senki_zesshou_symphogear"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The XV first-party cast page names both current campaign subjects exactly as ミラアルク and シェム・ハ. The route also labels the work as the Symphogear XV anime."
+}

@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-symphogear-kanade-20260928-01",
+  "campaign_key": "authority:senki_zesshou_symphogear",
+  "campaign_fingerprint": "626495d4605b92fc32f528a9ab3ea33268833a208970d2569fc0ae3645a7b9e5",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.symphogear.com/smartphone/ch02.html",
+  "source_claim": "The official Symphogear character profile names Amou Kanade (天羽奏) and describes her as a Symphogear wielder and one half of Zwei Wing.",
+  "authority_type": "OFFICIAL_CHARACTER_PROFILE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"amou_kanade","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"senki_zesshou_symphogear"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official profile provides the exact Japanese name and explicit series character context for the remaining current packet subject."
+}
