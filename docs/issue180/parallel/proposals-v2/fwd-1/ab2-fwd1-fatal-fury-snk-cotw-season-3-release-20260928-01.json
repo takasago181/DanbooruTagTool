@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-fatal-fury-snk-cotw-season-3-release-20260928-01",
+  "campaign_key": "authority:fatal_fury",
+  "campaign_fingerprint": "d8da6014b49e1a718ac7566257621da52341090b618c70578f19d69c83ca2f25",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.snk-corp.co.jp/us/press/2026/new-dlc-fighter-kim-kaphwan-hits-city-of-the-wolves-season-3-special-anime-short-by-masami-obari-heralds-his-arrival/",
+  "source_claim": "SNK’s official press release identifies FATAL FURY: City of the Wolves as the game and lists Andy Bogard, Joe Higashi, and Nightmare Geese among its downloadable fighters, names Blue Mary in Season Pass 2, and states that Kim Kaphwan debuted in FATAL FURY 2.",
+  "authority_type": "OFFICIAL_STUDIO_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "andy_bogard",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fatal_fury"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "geese_howard",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fatal_fury"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "joe_higashi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fatal_fury"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kim_kaphwan",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fatal_fury"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "blue_mary",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fatal_fury"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The same SNK press release explicitly places each listed fighter in a Fatal Fury installment or the Fatal Fury: City of the Wolves roster. “Nightmare Geese” is the City of the Wolves incarnation named in the DLC lineup; the campaign key is the base Geese Howard character."
+}

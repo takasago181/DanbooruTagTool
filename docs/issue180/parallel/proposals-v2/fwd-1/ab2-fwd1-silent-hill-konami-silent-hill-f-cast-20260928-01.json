@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-silent-hill-konami-silent-hill-f-cast-20260928-01",
+  "campaign_key": "authority:silent_hill_(series)",
+  "campaign_fingerprint": "a41938cdee47e6e29ab955150a1ea0910a5a7f6ad946ae6e8abf2ef892e06335",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.konami.com/games/ca/en/topics/2986/",
+  "source_claim": "KONAMI identifies SILENT HILL f as a Silent Hill game and its official English voice-cast announcement names Hinako Shimizu and Igarashi Sakuko as characters in the game.",
+  "authority_type": "OFFICIAL_STUDIO_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "shimizu_hinako",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "silent_hill_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "igarashi_sakuko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "silent_hill_(series)"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only exact names explicitly present in the official cast list are included. Fox Mask’s identity and the campaign’s other characters are not inferred from this source."
+}

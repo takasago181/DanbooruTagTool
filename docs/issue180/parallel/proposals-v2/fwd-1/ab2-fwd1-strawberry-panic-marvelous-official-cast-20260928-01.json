@@ -1,0 +1,107 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-strawberry-panic-marvelous-official-cast-20260928-01",
+  "campaign_key": "authority:strawberry_panic!",
+  "campaign_fingerprint": "f9ccdc5cb4dfcb3af3902158e8ab0aa6eaa1e6251fe56d5d1baf3ed05c90b13e",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.marv.jp/titles/av/3180/",
+  "source_claim": "Marvelous official Strawberry Panic DVD BOX product page lists the cast as named characters in the TV anime, including Aoi Nagisa, Byakudan Kagome, Hanazono Shizuma, Hyuuga Kizuna, Konohana Hikari, Minamoto Chikaru, Nanto Yaya, Natsume Remon, Okuwaka Tsubomi, Ootori Amane, Rokujou Miyuki, Suzumi Tamao, and Tsukidate Chiyo.",
+  "authority_type": "OFFICIAL_STUDIO_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "aoi_nagisa",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "strawberry_panic!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "byakudan_kagome",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "strawberry_panic!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hanazono_shizuma",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "strawberry_panic!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hyuuga_kizuna",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "strawberry_panic!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "konohana_hikari",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "strawberry_panic!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "minamoto_chikaru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "strawberry_panic!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nanto_yaya",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "strawberry_panic!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "natsume_remon",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "strawberry_panic!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "okuwaka_tsubomi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "strawberry_panic!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ootori_amane",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "strawberry_panic!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "rokujou_miyuki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "strawberry_panic!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "suzumi_tamao",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "strawberry_panic!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tsukidate_chiyo",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "strawberry_panic!"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The rights-holder/publisher Marvelous product page for the Strawberry Panic DVD BOX enumerates these named characters in the cast of the series. Exact English campaign keys map to the listed Japanese character names."
+}
