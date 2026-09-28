@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-fwd2-agent-aika-primary-routes-partial-20260928",
+  "campaign_key": "authority:agent_aika",
+  "campaign_fingerprint": "ce8d570c71a2cd8003b05121b5cc09739ff1c3eaee1d58f3e4af0f23c69d8221",
+  "worker_slot": 2,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "HISTORICAL_OFFICIAL_WORK_SITE_CANDIDATE",
+      "url_or_query": "https://www.aika-official.com/",
+      "result": "The historical official-site candidate is not accessible through the research browser; no page content or character names could be checked."
+    },
+    {
+      "route_type": "RIGHTS_HOLDER_WORK_CATALOG",
+      "url_or_query": "https://v-storage.jp/?s=AIKa",
+      "result": "A search of the Bandai Namco Filmworks V-STORAGE catalog did not return a readable AIKa character roster or exact packet-member mappings."
+    },
+    {
+      "route_type": "RIGHTS_HOLDER_SHOP_CATALOG",
+      "url_or_query": "https://a-onstore.jp/?s=AIKa",
+      "result": "The official A-on STORE search endpoint was inaccessible through the research browser; no product or character evidence was available."
+    }
+  ],
+  "notes": "The three checked primary-route attempts did not yield readable source content that safely maps the nine current packet identities. No episode guide, fan page, or inferred Delmo uniform variant was used as evidence. Partial progress only, not a negative or terminal conclusion."
+}

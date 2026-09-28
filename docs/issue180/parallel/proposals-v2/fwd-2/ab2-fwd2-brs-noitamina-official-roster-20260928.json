@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-brs-noitamina-official-roster-20260928",
+  "campaign_key": "authority:black_rock_shooter",
+  "campaign_fingerprint": "95fd791a51a49f2d9f8305b1cb3b8650956eee8f0cf17e7074972a33c26e1bea",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.noitamina-brs.jp/english/character/",
+  "source_claim": "The official 2012 TV-animation BLACK★ROCK SHOOTER character roster explicitly names Black Gold Saw, Deadmaster, Kagari Izuriha, Yu Koutari, Mato Kuroi, and Yomi Takanashi as characters in the work.",
+  "authority_type": "OFFICIAL_ANIME_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "black_gold_saw",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "black_rock_shooter"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "dead_master",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "black_rock_shooter"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "izuriha_kagari",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "black_rock_shooter"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "koutari_yuu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "black_rock_shooter"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kuroi_mato",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "black_rock_shooter"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "takanashi_yomi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "black_rock_shooter"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only exact roster names matching current packet identities are included. Black Rock Shooter Beast, Insane Black Rock Shooter, and White Rock Shooter were omitted because this checked roster does not explicitly establish those exact variant identities."
+}

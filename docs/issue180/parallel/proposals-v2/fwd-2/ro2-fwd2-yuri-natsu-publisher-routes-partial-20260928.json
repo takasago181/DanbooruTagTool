@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-fwd2-yuri-natsu-publisher-routes-partial-20260928",
+  "campaign_key": "authority:yuri-natsu:_minshuku_kagaya",
+  "campaign_fingerprint": "7bd149d3bd27adecad58618930d22ad65450501e2af1e1d10adf1265d2878285",
+  "worker_slot": 2,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "OFFICIAL_SERIALIZATION_PAGE",
+      "url_or_query": "https://comic-walker.com/detail/KC_004077_S",
+      "result": "Kadokomi/ComicWalker identifies the series, author Mochi Au Lait, premise, and serialization/volume information; the checked page does not provide exact character names or a character roster."
+    },
+    {
+      "route_type": "RIGHTS_HOLDER_PRODUCT_CATALOG",
+      "url_or_query": "https://store.kadokawa.co.jp/shop/goods/search.aspx?keyword=%E3%82%86%E3%82%8A%E3%81%AA&search=x",
+      "result": "KADOKAWA official shop lists volumes 1–3 and author Mochi Au Lait, but the product records do not expose the exact packet-member identities."
+    },
+    {
+      "route_type": "PUBLISHER_EBOOK_CATALOG",
+      "url_or_query": "https://bookwalker.jp/de3b80eb50-5f83-4dfe-8456-070112c04684/",
+      "result": "BOOK☆WALKER lists the official Dengeki Comics NEXT volume and publisher metadata, but no exact packet-member roster is shown in the checked product page."
+    }
+  ],
+  "notes": "The checked first-party publishing routes confirm the work and its source lineage but do not name the ten current packet identities or explicitly map them to this HOME work. This is partial route progress only; no third-party character index was promoted."
+}

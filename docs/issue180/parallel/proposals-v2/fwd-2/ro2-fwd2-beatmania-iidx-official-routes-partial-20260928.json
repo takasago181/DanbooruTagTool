@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-fwd2-beatmania-iidx-official-routes-partial-20260928",
+  "campaign_key": "authority:beatmania_iidx",
+  "campaign_fingerprint": "aa2a2a9f3f730d0da68f4aef7391f53818de4d4831bcd8745ef189207fc8b40e",
+  "worker_slot": 2,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "OFFICIAL_GAME_VERSION_VISUAL_NOTE",
+      "url_or_query": "https://p.eagate.573.jp/game/2dx/26/newsong/index.html",
+      "result": "KONAMI/e-amusement Rootage notes that IIDX image characters number 26 and discusses the ROOTS26 label, but the checked passage supplies no exact packet-member names or roster mapping."
+    },
+    {
+      "route_type": "RIGHTS_HOLDER_FRANCHISE_GATEWAY",
+      "url_or_query": "https://www.konami.com/arcadegames/video/bm2dx/",
+      "result": "KONAMI IIDX gateway links historic game versions and product information; it does not expose the current packet identities as a character roster."
+    },
+    {
+      "route_type": "RIGHTS_HOLDER_PRODUCT_PAGE",
+      "url_or_query": "https://www.konami.com/arcadegames/products/am_bmiidx26/",
+      "result": "KONAMI’s Rootage product page confirms the game and its visual concept, but gives no exact names for the nine packet members."
+    }
+  ],
+  "notes": "These official IIDX routes establish the game/franchise context and the existence of a ROOTS26 image-character set, but not the exact nine current packet identity mappings. No community-maintained lore list or inferred name was promoted. Partial progress only."
+}
