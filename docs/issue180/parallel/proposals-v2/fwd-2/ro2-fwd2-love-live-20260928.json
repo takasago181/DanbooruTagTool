@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-fwd2-love-live-20260928",
+  "campaign_key": "authority:love_live!",
+  "campaign_fingerprint": "971f19c9d65627341fd117b536a5a43fc74a988e647c650a68eae216d9118a5d",
+  "worker_slot": 2,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "OFFICIAL_FRANCHISE_MEMBERS_PAGE",
+      "url_or_query": "https://www.lovelive-anime.jp/special/members/?group=tu&work=m",
+      "result": "The official-series search excerpt exposes the list of distinct works and groups but not the member identities. Direct page retrieval returned HTTP 403, so it did not establish an exact roster or a single canonical home for this 77-tag multi-work campaign."
+    },
+    {
+      "route_type": "OFFICIAL_PROJECT_NEWS_AND_CAST_CREDITS",
+      "url_or_query": "https://www.lovelive-anime.jp/yuigaoka/topics/detail.php?p=01_4947",
+      "result": "The official Superstar-site search excerpt names eight birthday-campaign members across multiple Love Live works. Direct page retrieval returned HTTP 403; the excerpt is not an exhaustive roster or a source for one shared canonical home across the campaign."
+    },
+    {
+      "route_type": "OFFICIAL_PROJECT_CAST_CREDITS",
+      "url_or_query": "https://www.lovelive-anime.jp/uranohoshi/news.php?id=5206",
+      "result": "The official Sunshine-site search excerpt includes Aqours character-to-cast credits, but direct page retrieval returned HTTP 403. It covers only one project within the broader campaign and does not resolve the other works or establish a single campaign-wide HOME."
+    }
+  ],
+  "notes": "This broad 77-tag campaign spans multiple Love Live projects. Official search excerpts yielded useful member leads, but the source pages could not be inspected directly and do not establish one canonical HOME across the full campaign. Record partial progress only; accept no relations and do not infer the umbrella home from series membership or co-occurrence."
+}
