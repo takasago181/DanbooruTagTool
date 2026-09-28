@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-real-life-white-house-biden-bio-20260928-01",
+  "campaign_key": "authority:real_life",
+  "campaign_fingerprint": "a60c512988091205f4a93e2904bc033c62f38be6bded3744da55731c46b4c2de",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://bidenwhitehouse.archives.gov/wp-content/uploads/2025/01/The-Official-Biography-of-President-Joe-Biden-1.pdf",
+  "source_claim": "The official archived White House biography identifies Joe Biden and documents him as a real-world public figure and former U.S. president.",
+  "authority_type": "OFFICIAL_GOVERNMENT_BIOGRAPHY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "joe_biden",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "real_life"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official Biden White House archive names Joe Biden and provides his presidential biography; the source identifies him as the 46th President. This directly maps to the exact campaign member joe_biden under the existing Issue #180 `real_life` Copyright root. The evidence is identity-only and expresses no political endorsement or evaluation."
+}

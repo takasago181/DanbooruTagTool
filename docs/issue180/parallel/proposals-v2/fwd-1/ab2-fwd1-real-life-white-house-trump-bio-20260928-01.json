@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-real-life-white-house-trump-bio-20260928-01",
+  "campaign_key": "authority:real_life",
+  "campaign_fingerprint": "a60c512988091205f4a93e2904bc033c62f38be6bded3744da55731c46b4c2de",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.whitehouse.gov/administration/donald-j-trump/",
+  "source_claim": "The official White House administration biography identifies Donald J. Trump by name and documents him as a real-world public figure.",
+  "authority_type": "OFFICIAL_GOVERNMENT_BIOGRAPHY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "donald_trump",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "real_life"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The White House page names Donald J. Trump and presents his official biography. The current campaign member is the exact corresponding real-person character key donald_trump; under the existing Issue #180 `real_life` Copyright root this official identity evidence supports one DIRECT_HOME. No political position or evaluative claim is part of the relation."
+}
