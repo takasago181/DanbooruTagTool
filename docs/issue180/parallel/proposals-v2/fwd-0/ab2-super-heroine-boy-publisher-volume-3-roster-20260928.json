@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-super-heroine-boy-publisher-volume-3-roster-20260928",
+  "campaign_key": "authority:super_heroine_boy",
+  "campaign_fingerprint": "70f0a1933c6fe96146533fa5b494405197d565a5d62b3b681abd06147dce391a",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.j-n.co.jp/books/978-4-408-41493-5/",
+  "source_claim": "The publisher Jitsugyo no Nihon Sha's volume 3 description for Super Heroine Boy names delinquent high schooler Ooiwa Wataru, teacher Uchino Kazuhisa, rival Nakajou Tatsuya, classmate Takaoka Yukari, and otaku Kosaka Shunpei as characters in the manga.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "kosaka_shunpei",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "super_heroine_boy"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nakajou_tatsuya",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "super_heroine_boy"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ooiwa_wataru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "super_heroine_boy"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "takaoka_yukari",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "super_heroine_boy"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "uchino_kazuhisa",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "super_heroine_boy"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official publisher's volume 3 page spells out the cast in its synopsis: 大岩わたる, 内野和久, 中条辰也, 高岡由香里, and 小坂俊平. The same publisher's volume 1 page independently establishes the title and original serialization context."
+}
