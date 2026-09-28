@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-moomin-official-four-character-product-20260928-01",
+  "campaign_key": "authority:moomin",
+  "campaign_fingerprint": "6d98c3511825cd78b34e0d52a876229ecc93760cc8c5198e86a33d2a52bf8141",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.moomin.co.jp/news/products/112678",
+  "source_claim": "The official Moomin site names Moomintroll, Snufkin, Little My, and Hattifatteners (ニョロニョロ) as the five-item lineup, and identifies the Finnish Moomin Characters company as the copyright holder collaborating on the official shop. The exact campaign members therefore have the Moomin Copyright HOME.",
+  "authority_type": "OFFICIAL_WORK_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"hattifattener","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"moomin"},
+    {"subject_type":"Character","subject_key":"little_my","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"moomin"},
+    {"subject_type":"Character","subject_key":"moomintroll","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"moomin"},
+    {"subject_type":"Character","subject_key":"snufkin","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"moomin"}
+  ],
+  "terminal_reviews": [],
+  "notes": "One official product lineup explicitly names all four exact campaign characters; no inference from fan or community sources is used."
+}

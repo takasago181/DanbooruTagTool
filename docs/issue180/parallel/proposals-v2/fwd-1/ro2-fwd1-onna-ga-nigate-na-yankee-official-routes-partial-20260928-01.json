@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-fwd1-onna-ga-nigate-na-yankee-official-routes-partial-20260928-01",
+  "campaign_key": "authority:onna_ga_nigate_na_yankee_to_shoujo_no_hanashi",
+  "campaign_fingerprint": "faa21e118b5c5e988fefa0d4b855f6594f78722da64bebcd7b3ed26c3ee31b78",
+  "worker_slot": 1,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "The publisher and licensed platform confirm the manga and describe its central pairing as Kumada and Sayaka, but the inspected pages do not establish the exact identities of all four campaign tags, including Mirai Suzu and Uzuki Tooru.",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {"route_type":"OFFICIAL_PUBLISHER_CATALOG","url_or_query":"https://magazine.jp.square-enix.com/top/comics/?label=12&month=&search=s&year=2019","result":"Square Enix's catalog confirms publication of volumes 1 and 2 under the exact work title, but the listing does not provide an exact four-member character roster."},
+    {"route_type":"OFFICIAL_SERIALIZATION_CATALOG","url_or_query":"https://www.ganganonline.com/rensai","result":"Gangan Online lists the series and author Marumikan, but the accessible listing does not identify all four exact campaign members."},
+    {"route_type":"LICENSED_COMIC_PLATFORM_LISTING","url_or_query":"https://www.hulu.jp/comic/series/119920","result":"Hulu's licensed comic listing describes protagonist Kumada meeting Sayaka and names the author/publisher, but does not establish the campaign's exact tag identities for all four members; no relation is assigned from this incomplete roster."}
+  ],
+  "notes": "PARTIAL only. The four-member campaign remains open because the checked routes cover only the central pairing and do not exhaust the publisher's character scope. No negative or terminal relation is proposed."
+}

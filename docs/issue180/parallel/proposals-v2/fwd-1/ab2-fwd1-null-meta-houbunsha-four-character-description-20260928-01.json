@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-null-meta-houbunsha-four-character-description-20260928-01",
+  "campaign_key": "authority:null-meta",
+  "campaign_fingerprint": "65037893716931959f377d49cd76f922e3b545495c2121f15156b18cbcc7a8de",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://houbunsha.co.jp/comics/detail.php?p=%25A4%25CC%25A4%25EB%25A4%25E1%25A4%25BF",
+  "source_claim": "The publisher Houbunsha's official Nul Meta work description names its four high-school-girl cast: robot Kurumi, Chiaki, Sakina, and Shiyuki. Each name directly matches one exact campaign character tag, and the page identifies them as the cast of Nul Meta.",
+  "authority_type": "OFFICIAL_PUBLISHER_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"agoshi_sakina","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"null-meta"},
+    {"subject_type":"Character","subject_key":"souen_chiaki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"null-meta"},
+    {"subject_type":"Character","subject_key":"takada_shiyuki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"null-meta"},
+    {"subject_type":"Character","subject_key":"uozumi_kurumi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"null-meta"}
+  ],
+  "terminal_reviews": [],
+  "notes": "All four exact campaign members are named in the publisher's synopsis; no terminal conclusion is proposed."
+}
