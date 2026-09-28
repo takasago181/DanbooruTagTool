@@ -1,0 +1,111 @@
+[
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-orv-redice-official-character-profiles-20260928",
+    "campaign_key": "authority:omniscient_reader's_viewpoint",
+    "campaign_fingerprint": "0129a9bb435abdb7d3731a89f9976c44602f225b3b219e9008470bbb6fc89782",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://starstreamstore.com/pages/character.html",
+    "source_claim": "REDICE STUDIO’s official Omniscient Reader merchandise-site character profiles explicitly identify Kim Dokja, Yu Junghyeok, Yu Sangah, Lee Hyunsung, Jung Heewon, Han Sooyoung, Lee Jihye, Shin Yuseung, and Lee Gilyoung as characters, and list “구원의 마왕” (Demon King of Salvation) as Kim Dokja’s title.",
+    "authority_type": "FIRST_PARTY_CHARACTER_PROFILE",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "kim_dokja",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "omniscient_reader's_viewpoint"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "yoo_joonghyuk",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "omniscient_reader's_viewpoint"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "yoo_sangah",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "omniscient_reader's_viewpoint"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "lee_hyunsung",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "omniscient_reader's_viewpoint"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "jung_heewon",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "omniscient_reader's_viewpoint"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "han_sooyoung",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "omniscient_reader's_viewpoint"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "lee_jihye",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "omniscient_reader's_viewpoint"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "shin_yoosung",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "omniscient_reader's_viewpoint"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "lee_gilyoung",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "omniscient_reader's_viewpoint"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "demon_king_of_salvation",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "omniscient_reader's_viewpoint"
+      }
+    ],
+    "terminal_reviews": [],
+    "notes": "The page is branded REDICE STUDIO and places every profile on the official 전지적 독자 시점 character page; the title is explicitly a Kim Dokja epithet."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-orv-official-film-character-cast-cheon-inho-20260928",
+    "campaign_key": "authority:omniscient_reader's_viewpoint",
+    "campaign_fingerprint": "0129a9bb435abdb7d3731a89f9976c44602f225b3b219e9008470bbb6fc89782",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://www.zenchi-dokusha.jp/",
+    "source_claim": "The official Japanese Omniscient Reader film site’s CHARACTER & CAST section explicitly lists チョン・イノ as one of the film’s characters and connects the film to the original work 全知的な読者の視点から.",
+    "authority_type": "FIRST_PARTY_ADAPTATION_CHARACTER_CAST",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "cheon_inho",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "omniscient_reader's_viewpoint"
+      }
+    ],
+    "terminal_reviews": [],
+    "notes": "The official licensed adaptation page establishes this character in the work’s adaptation cast; spelling follows the campaign’s romanized character tag."
+  }
+]
