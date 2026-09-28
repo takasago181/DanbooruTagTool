@@ -1,0 +1,76 @@
+[
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-pretty-rhythm-aurora-dream-official-character-roster-20260928",
+    "campaign_key": "authority:pretty_rhythm",
+    "campaign_fingerprint": "c207b14c70fc6327791a326af9b38a31b536a60d456af8af9dfbca18d7a90261",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://www.tv-tokyo.co.jp/anime/prettyrhythm2011/chara/",
+    "source_claim": "TV Tokyo's official Pretty Rhythm: Aurora Dream character directory names and profiles Harune Aira, Amamiya Rizumu, and Takamine Mion as characters in the series.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {"subject_type":"Character","subject_key":"harune_aira","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pretty_rhythm"},
+      {"subject_type":"Character","subject_key":"amamiya_rizumu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pretty_rhythm"},
+      {"subject_type":"Character","subject_key":"takamine_mion","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pretty_rhythm"}
+    ],
+    "terminal_reviews": [],
+    "notes": "Each canonical subject is explicitly named on the official Aurora Dream character page."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-pretty-rhythm-dear-my-future-official-character-roster-20260928",
+    "campaign_key": "authority:pretty_rhythm",
+    "campaign_fingerprint": "c207b14c70fc6327791a326af9b38a31b536a60d456af8af9dfbca18d7a90261",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://www.tv-tokyo.co.jp/anime/prettyrhythm2012/chara/",
+    "source_claim": "TV Tokyo's official Pretty Rhythm: Dear My Future character directory names and profiles Ageha Mia as a character in the series.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {"subject_type":"Character","subject_key":"ageha_mia","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pretty_rhythm"}
+    ],
+    "terminal_reviews": [],
+    "notes": "The official Japanese directory gives the name 上葉みあ (Ageha Mia), matching the exact campaign member."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-pretty-rhythm-rainbow-live-official-character-roster-20260928",
+    "campaign_key": "authority:pretty_rhythm",
+    "campaign_fingerprint": "c207b14c70fc6327791a326af9b38a31b536a60d456af8af9dfbca18d7a90261",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://www.tv-tokyo.co.jp/anime/prettyrhythm2013/chara/",
+    "source_claim": "TV Tokyo's official Pretty Rhythm: Rainbow Live character directory names and profiles Fukuhara Ann, Suzuno Ito, Renjouji Beru, Takanashi Otoha, and Morizono Wakana as characters in the series.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {"subject_type":"Character","subject_key":"fukuhara_ann","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pretty_rhythm"},
+      {"subject_type":"Character","subject_key":"suzuno_ito","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pretty_rhythm"},
+      {"subject_type":"Character","subject_key":"renjouji_beru","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pretty_rhythm"},
+      {"subject_type":"Character","subject_key":"takanashi_otoha","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pretty_rhythm"},
+      {"subject_type":"Character","subject_key":"morizono_wakana","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pretty_rhythm"}
+    ],
+    "terminal_reviews": [],
+    "notes": "The page's official Japanese names match these exact canonical subjects. Hayami Hiro is not listed on this character directory and is supported separately by the official cast page."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-pretty-rhythm-rainbow-live-official-cast-20260928",
+    "campaign_key": "authority:pretty_rhythm",
+    "campaign_fingerprint": "c207b14c70fc6327791a326af9b38a31b536a60d456af8af9dfbca18d7a90261",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://www.tv-tokyo.co.jp/anime/prettyrhythm2013/staff/",
+    "source_claim": "TV Tokyo's official Pretty Rhythm: Rainbow Live staff and cast page lists Hayami Hiro in the character cast roster.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {"subject_type":"Character","subject_key":"hayami_hiro","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pretty_rhythm"}
+    ],
+    "terminal_reviews": [],
+    "notes": "The named character/cast pair on the official series page supports this exact subject. No relation is inferred for Amou June: the Aurora Dream directory names Takigawa Jun, which does not establish that campaign identity."
+  }
+]
