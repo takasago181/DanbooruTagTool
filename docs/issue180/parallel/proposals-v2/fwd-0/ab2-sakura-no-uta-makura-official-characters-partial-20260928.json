@@ -1,0 +1,37 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-sakura-no-uta-makura-official-characters-partial-20260928",
+  "campaign_key": "authority:sakura_no_uta",
+  "campaign_fingerprint": "a48770fa84f0770b71dc9ad4dd51f96c0569080f41a5072317cb60ff933f5c1e",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.makura-soft.com/sakuranouta/character/character.html",
+  "source_claim": "Makura's first-party Sakura no Uta character pages directly identify three exact campaign Characters: Misakura Rin (御桜 稟), Natsume Shizuku (夏目 雫), and Natsume Ai (夏目 藍). The Rin and Shizuku profiles are under the official Sakura no Uta character directory; the official Ai profile is likewise published under that game's Sakura no Uta character directory. The product pages identify the work and carry Makura's copyright.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "misakura_rin",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "sakura_no_uta"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "natsume_ai",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "sakura_no_uta"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "natsume_shizuku",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "sakura_no_uta"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Additional exact official character pages: https://www.makura-soft.com/sakuranouta/character/character_sizuku.html and https://www.makura-soft.com/sakuranouta/character/character_ai.html. Kusanagi Naoya and Honma Misuzu were not individually confirmed from the checked Sakura no Uta profile set, and Onda Nei appears associated with Sakura no Toki materials; no relation is proposed for these campaign members."
+}

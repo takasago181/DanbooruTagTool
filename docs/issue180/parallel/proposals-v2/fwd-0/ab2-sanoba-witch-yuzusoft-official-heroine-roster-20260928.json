@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-sanoba-witch-yuzusoft-official-heroine-roster-20260928",
+  "campaign_key": "authority:sanoba_witch",
+  "campaign_fingerprint": "0f95d159d5e86eab7b4c294c69223b87ecad4c4e7746dd53334d21797c60db70",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.yuzu-soft.com/products/sothewitch/character.html",
+  "source_claim": "Yuzusoft's official Sanoba Witch character page identifies the four campaign heroines Ayachi Nene (綾地寧々), Inaba Meguru (因幡めぐる), Shiiba Tsumugi (椎葉紬), and Togakushi Touko (戸隠憧子). The same first-party page is credited ©2014 YUZUSOFT/JUNOS and is scoped to Sanoba Witch.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "ayachi_nene",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "sanoba_witch"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "inaba_meguru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "sanoba_witch"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shiiba_tsumugi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "sanoba_witch"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "togakushi_touko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "sanoba_witch"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The page's separate official sub-character page does not textually expose the remaining campaign member names, so Hoshina Shuuji and Kariya Wakana are intentionally left unresolved in this batch."
+}

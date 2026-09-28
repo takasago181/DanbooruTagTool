@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-racing-miku-goodsmile-official-project-variants-20260928",
+  "campaign_key": "base:racing_miku",
+  "campaign_fingerprint": "1d7b3527e9a6a555477d7ced49db5157dd9d18ede3787ded358d04605de95c15",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.goodsmileracing.com/en/team2013/",
+  "source_claim": "GOODSMILE RACING's first-party Hatsune Miku GT Project page says the team's trademark is a machine with a Hatsune Miku Racing Ver. design. Good Smile's official product pages identify the exact 2013, 2013 Sepang, 2014, 2015, 2023 and 2025 Racing Miku designs as the official character/mascot of the Hatsune Miku GT Project; these are the six exact campaign variants and establish their relation to the canonical Hatsune Miku Character.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "racing_miku_(2013)",
+      "relation_type": "VARIANT_OF",
+      "object_type": "Character",
+      "object_key": "hatsune_miku"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "racing_miku_(2013_sepang_ver.)",
+      "relation_type": "VARIANT_OF",
+      "object_type": "Character",
+      "object_key": "hatsune_miku"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "racing_miku_(2014)",
+      "relation_type": "VARIANT_OF",
+      "object_type": "Character",
+      "object_key": "hatsune_miku"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "racing_miku_(2015)",
+      "relation_type": "VARIANT_OF",
+      "object_type": "Character",
+      "object_key": "hatsune_miku"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "racing_miku_(2023)",
+      "relation_type": "VARIANT_OF",
+      "object_type": "Character",
+      "object_key": "hatsune_miku"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "racing_miku_(2025)",
+      "relation_type": "VARIANT_OF",
+      "object_type": "Character",
+      "object_key": "hatsune_miku"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Checked official products: https://www.goodsmile.info/en/product/4153/Racing%2BMiku%2B2013%2Bver.html ; https://www.goodsmile.info/en/product/7599/Nendoroid%2BRacing%2BMiku%2B2013%2BSepang%2BVer.html ; https://www.goodsmile.info/en/product/4552/ ; https://www.goodsmile.info/en/product/5414/Racing%2BMiku%2B2015%2BVer.html ; https://www.goodsmile.info/en/product/15238/figma%2BRacing%2BMiku%2B2023%2Bver.html ; https://www.goodsmile.com/en/product/1137000/Racing%2BMiku%2B2025%2BVer. The 2013 project page identifies Hatsune Miku Racing Ver.; each named product explicitly identifies its Racing Miku variant and the Hatsune Miku GT Project."
+}
