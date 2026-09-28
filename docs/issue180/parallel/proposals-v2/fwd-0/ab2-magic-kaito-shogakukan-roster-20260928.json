@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-magic-kaito-shogakukan-roster-20260928",
+  "campaign_key": "authority:magic_kaito",
+  "campaign_fingerprint": "c3288d30bb94cabd167e83b7544583fb53aed0609baa45771252ed7b600e7b39",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://websunday.net/work/719/",
+  "source_claim": "Shogakukan's official Weekly Shonen Sunday work page identifies Magic Kaito as Gosho Aoyama's series and explicitly lists Kuroba Kaito / Kaitou Kid as the same character, plus Nakamori Aoko, Koizumi Akako, and Hakuba Saguru in its story and character section.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "hakuba_saguru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "magic_kaito"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kaitou_kid",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "magic_kaito"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "koizumi_akako",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "magic_kaito"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kuroba_kaito",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "magic_kaito"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nakamori_aoko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "magic_kaito"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official work page's character heading pairs Kuroba Kaito and Kaitou Kid and describes Kid's civilian identity, so both exact campaign identities are supported. The other three exact targets have individual character entries on the same page. No crossover-only inference is used."
+}
