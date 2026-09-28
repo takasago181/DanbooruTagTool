@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-prism-project-official-talent-roster-20260928-01",
+  "campaign_key": "authority:prism_project",
+  "campaign_fingerprint": "881c0f3a875dd24dacef48a91f327a342687b5cddcc940c2aa537b5f92a34f3c",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://sony.mediaroom.com/2022-08-09-Virtual-Talent-Management-Agency-PRISM-Project-Announces-2022-Auditions",
+  "source_claim": "Sony Music Entertainment Japan's official media release describes PRISM Project as part of its virtual talent brands and identifies the listed members as PRISM Project talents/agents. It names Iku Hoshifuri, Aoi Tokimori, Rita Kamishiro, Shiki Miyoshino, Nia Suzune, and Yura Rikudou, and explicitly describes VTubers as characters as well as talents.",
+  "authority_type": "OFFICIAL_WORK_CAST_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "hoshifuri_iku",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "prism_project"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kamishiro_rita",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "prism_project"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "miyoshino_shiki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "prism_project"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "rikudou_yura",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "prism_project"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "suzune_nia",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "prism_project"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tokimori_aoi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "prism_project"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "This single official Sony Music roster release covers all six campaign members. No non-campaign talent or unsupported affiliation is proposed."
+}

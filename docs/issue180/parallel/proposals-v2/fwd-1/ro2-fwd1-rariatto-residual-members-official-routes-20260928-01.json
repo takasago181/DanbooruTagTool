@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-fwd1-rariatto-residual-members-official-routes-20260928-01",
+  "campaign_key": "authority:rariatto",
+  "campaign_fingerprint": "5dca5a44888d22f9ed471c4e2cb2eb97964aae43f0c0316bd4f980edaeca9abb",
+  "worker_slot": 1,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "Four distinct official/publisher routes were checked for campaign members Aldegon, Asta Rindo, Neneko, and Rudy. The checked material did not establish those exact members' direct HOME relations, so only the separately verified Noss and Zakuro relations are proposed.",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "OFFICIAL_PUBLISHER_SERIES_AND_CHARACTER_ROSTER",
+      "url_or_query": "https://matogrosso.jp/serial/noss-and-zakuro_08-41/",
+      "result": "The official roster explicitly names Noss and Zakuro and introduces other series characters, but does not identify Aldegon, Asta Rindo, Neneko, or Rudy."
+    },
+    {
+      "route_type": "OFFICIAL_PUBLISHER_BOOK_CATALOG",
+      "url_or_query": "https://www.eastpress.co.jp/goods/detail/9784781624181",
+      "result": "The publisher identifies the Noss & Zakuro book and the author, and describes its two vampire leads; it does not name the four residual campaign members."
+    },
+    {
+      "route_type": "OFFICIAL_ARTIST_PROFILE",
+      "url_or_query": "https://bsky.app/profile/rariatoo.bsky.social",
+      "result": "The artist's profile links the official Noss & Zakuro series and professional profiles, but does not identify the four residual campaign characters or assign them a work."
+    },
+    {
+      "route_type": "OFFICIAL_ARTIST_SOCIAL_ACCOUNT",
+      "url_or_query": "https://x.com/rariatoo",
+      "result": "The artist's official account could not be fetched (403), so it supplied no checkable identity or HOME evidence for the four residual members."
+    }
+  ],
+  "notes": "The four residual characters remain unresolved. This is partial progress only, not negative evidence or a terminal conclusion; no creator association or co-occurrence has been used to infer HOME."
+}

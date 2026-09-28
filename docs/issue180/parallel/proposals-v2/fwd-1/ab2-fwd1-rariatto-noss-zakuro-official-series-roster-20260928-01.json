@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-rariatto-noss-zakuro-official-series-roster-20260928-01",
+  "campaign_key": "authority:rariatto",
+  "campaign_fingerprint": "5dca5a44888d22f9ed471c4e2cb2eb97964aae43f0c0316bd4f980edaeca9abb",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://matogrosso.jp/serial/noss-and-zakuro_08-41/",
+  "source_claim": "East Press's official Matogrosso series page identifies the work as ノス＆ザクロ by ラリアット and explicitly introduces its characters ノス・ザ・ノスフェラトゥ (Noss) and ザクロ・ザ・ヴァンパイア (Zakuro) in the series character roster.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "noss_(rariatto)",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "noss_&_zakuro"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "zakuro_(rariatto)",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "noss_&_zakuro"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official publisher's series page explicitly links both named campaign characters to this titled work. No creator-wide relation is inferred for other Rariatto characters."
+}
