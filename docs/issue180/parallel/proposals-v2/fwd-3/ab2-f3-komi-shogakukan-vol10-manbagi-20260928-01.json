@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-komi-shogakukan-vol10-manbagi-20260928-01",
+  "campaign_key": "authority:komi-san_wa_komyushou_desu",
+  "campaign_fingerprint": "771822c4aab73a0f1713e76e974ee0ddbf4d9721d98c3ad5de062aaa2f856437",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://e-comi.shogakukan.co.jp/books/091283900000d0000000",
+  "source_claim": "Shogakukan’s official volume 10 listing for Komi-san wa, Komyushou desu identifies Manbagi as the gyaru seated next to Komi in the new class, explicitly establishing Manbagi Rumiko as a character in this manga.",
+  "authority_type": "FIRST_PARTY_PUBLISHER_WORK_DESCRIPTION",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "manbagi_rumiko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "komi-san_wa_komyushou_desu"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The publisher product description names Manbagi in the exact Komi-san series context; no identity is inferred from fan sources."
+}

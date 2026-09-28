@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-mahoyo-typemoon-character-roster-20260928-01",
+  "campaign_key": "authority:mahou_tsukai_no_yoru",
+  "campaign_fingerprint": "45913316f0dddded031159e53ceb8dc55ab8323e5d093ec26fcae14026e8acaa",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://typemoon.com/products/mahoyo/windows/character.html",
+  "source_claim": "TYPE-MOON’s official Mahou Tsukai no Yoru character page gives named profiles for Aoko Aozaki, Alice Kuonji, Soujuurou Shizuki, and Kojika Kumari as characters in the work.",
+  "authority_type": "FIRST_PARTY_DEVELOPER_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "aozaki_aoko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mahou_tsukai_no_yoru"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kuonji_alice",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mahou_tsukai_no_yoru"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shizuki_soujuurou",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mahou_tsukai_no_yoru"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kumari_kojika",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mahou_tsukai_no_yoru"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The developer character page directly identifies four exact campaign characters. Super Aoko and Lost Robin Rondo are not named on this roster and are not inferred here."
+}
