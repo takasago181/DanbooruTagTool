@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "campaign_key": "authority:evillious_nendaiki",
+  "campaign_fingerprint": "3a159e96b7134e1a76a0185c8564e4b3677e11389713fc84ea5790275da7a9fa",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "terminal_reviews": [],
+  "proposal_id": "ab2-f3-evillious-sateriasis-venomania-php-official-20260928-01",
+  "source_url": "https://www.php.co.jp/books/detail.php?isbn=978-4-569-80903-8",
+  "source_claim": "PHP研究所の『悪ノ大罪 ヴェノマニア公の狂気』紹介は、悪ノP（mothy）著の『悪ノ大罪』シリーズ作品として、主人公の公爵を「サテリジアス＝ヴェノマニア」と明記している。",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "sateriasis_venomania",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "evillious_nendaiki"
+    }
+  ],
+  "notes": "The publisher page directly identifies the exact named character in an Akuno-P (mothy) work from the Evillious/悪ノ大罪 series. This is a positive source-level HOME proposal only; no claim is made about unlisted campaign members or campaign exhaustion."
+}
