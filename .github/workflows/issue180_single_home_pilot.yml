@@ -51,7 +51,7 @@ jobs:
             src tools/production data/production
 
   full-v3:
-    if: github.ref_name == 'research/issue180-single-home-pilot' || github.ref_name == 'research/issue180-qa-integrator'
+    if: github.ref_name == 'research/issue180-single-home-pilot' || github.ref_name == 'research/issue180-qa-integrator' || github.ref_name == 'research/issue180-serial-completion'
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
