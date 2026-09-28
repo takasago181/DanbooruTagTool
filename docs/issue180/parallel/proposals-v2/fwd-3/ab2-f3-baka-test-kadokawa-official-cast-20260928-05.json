@@ -1,0 +1,22 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-baka-test-kadokawa-official-cast-20260928-05",
+  "campaign_key": "authority:baka_to_test_to_shoukanjuu",
+  "campaign_fingerprint": "b94ec67270b4290e95fe4b991280581ea6df87219dd68afc2518e73e97f410f5",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://kadokawa-animation.jp/lineup/bakatest",
+  "source_claim": "KADOKAWA Animation's official Baka to Test to Shoukanjuu page names Akihisa Yoshii, Mizuki Himeji, Minami Shimada, Hideyoshi Kinoshita, Kota Tsuchiya, and Shoko Kirishima in the cast for this work.",
+  "authority_type": "FIRST_PARTY_PUBLISHER_CAST_PAGE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"himeji_mizuki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"baka_to_test_to_shoukanjuu"},
+    {"subject_type":"Character","subject_key":"kinoshita_hideyoshi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"baka_to_test_to_shoukanjuu"},
+    {"subject_type":"Character","subject_key":"kirishima_shouko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"baka_to_test_to_shoukanjuu"},
+    {"subject_type":"Character","subject_key":"shimada_minami","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"baka_to_test_to_shoukanjuu"},
+    {"subject_type":"Character","subject_key":"tsuchiya_kouta","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"baka_to_test_to_shoukanjuu"},
+    {"subject_type":"Character","subject_key":"yoshii_akihisa","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"baka_to_test_to_shoukanjuu"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official publisher page's work introduction and cast section directly connect all six named packet targets to the series."
+}
