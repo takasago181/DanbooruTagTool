@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-utdr-official-soul-color-authority-routes-partial-20260928",
+  "campaign_key": "authority:utdr",
+  "campaign_fingerprint": "b9c99577a276a49f46127b640ad36e550faf39b98d5d90103085a3abece6b759",
+  "worker_slot": 0,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "Checked the official UNDERTALE and DELTARUNE product pages and Toby Fox's official Chapter 5 commentary; these identify the works and discuss their content, but do not explicitly establish that the queued color-soul tags map as Characters to a single Copyright target.",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "OFFICIAL_GAME_PRODUCT_PAGE",
+      "url_or_query": "https://undertale.com/",
+      "result": "Identifies the official UNDERTALE game and rights attribution, but does not name the queued color-soul tags or establish their mapping."
+    },
+    {
+      "route_type": "OFFICIAL_GAME_PRODUCT_PAGE",
+      "url_or_query": "https://deltarune.com/",
+      "result": "Identifies DELTARUNE as an UNDERTALE-series game and describes battle gameplay, but does not name the queued color-soul tags or establish their mapping."
+    },
+    {
+      "route_type": "CREATOR_COMMENTARY",
+      "url_or_query": "https://toby.fangamer.com/interviews/chapter5/",
+      "result": "Toby Fox discusses DELTARUNE Chapter 5 characters grouped by colors; the wording concerns character designs, not the queued SOUL-tag identities, so it does not safely prove those exact relations."
+    }
+  ],
+  "notes": "This is route accounting only. The campaign covers multiple soul/color tags and remains open; no exhaustive or negative conclusion is made."
+}
