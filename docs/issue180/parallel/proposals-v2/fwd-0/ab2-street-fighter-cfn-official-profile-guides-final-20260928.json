@@ -1,0 +1,50 @@
+[
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-street-fighter-cfn-li-fen-guide-20260928",
+    "campaign_key": "authority:street_fighter",
+    "campaign_fingerprint": "b246b47379ee47ef9adda6cf5496e9fb6611281ad1d11a5b02cd0f05ce0e74a0",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://game.capcom.com/cfn/sfv/column-130377?lang=en",
+    "source_claim": "CAPCOM's official Character Guide 095 names Li-Fen and explicitly places her in Street Fighter.",
+    "source_review_id_hint": "src180-ab2-street-fighter-capcom-zangief-character-data-20260928",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [{"subject_type":"Character","subject_key":"li-fen","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"street_fighter"}],
+    "terminal_reviews": [],
+    "notes": "Exact official named character profile."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-street-fighter-cfn-nash-guide-20260928",
+    "campaign_key": "authority:street_fighter",
+    "campaign_fingerprint": "b246b47379ee47ef9adda6cf5496e9fb6611281ad1d11a5b02cd0f05ce0e74a0",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://game.capcom.com/cfn/sfv/column-130439?lang=en",
+    "source_claim": "CAPCOM's official Character Guide 107 names Nash and gives his profile as Guile's former Air Force friend.",
+    "source_review_id_hint": "src180-ab2-street-fighter-capcom-zangief-character-data-20260928",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [{"subject_type":"Character","subject_key":"charlie_nash","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"street_fighter"}],
+    "terminal_reviews": [],
+    "notes": "The official page's exact display name is Nash; the current Issue #180 canonical key is charlie_nash."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-street-fighter-cfn-rainbow-mika-guide-20260928",
+    "campaign_key": "authority:street_fighter",
+    "campaign_fingerprint": "b246b47379ee47ef9adda6cf5496e9fb6611281ad1d11a5b02cd0f05ce0e74a0",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://game.capcom.com/cfn/sfv/column-130514?lang=en",
+    "source_claim": "CAPCOM's official Character Guide 111 explicitly names Rainbow Mika; its profile also identifies her real name as Mika Nanakawa.",
+    "source_review_id_hint": "src180-ab2-street-fighter-capcom-zangief-character-data-20260928",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [{"subject_type":"Character","subject_key":"rainbow_mika","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"street_fighter"}],
+    "terminal_reviews": [],
+    "notes": "Exact official named character profile."
+  }
+]
