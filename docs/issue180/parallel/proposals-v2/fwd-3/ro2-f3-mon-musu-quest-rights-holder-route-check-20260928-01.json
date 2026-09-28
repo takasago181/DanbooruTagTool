@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-f3-mon-musu-quest-rights-holder-route-check-20260928-01",
+  "campaign_key": "authority:mon-musu_quest!",
+  "campaign_fingerprint": "8c0e46ac2fe046fc846fce13bd06943225c1c9f2599e71bbcc5a79efbb21dc05",
+  "worker_slot": 3,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "RIGHTS_HOLDER_OR_DEVELOPER_SITE",
+      "url_or_query": "Search: \"もんむす・くえすと\" official / site:torotoro.ws character",
+      "result": "No rights-holder page that names or maps the five exact campaign identities was located."
+    },
+    {
+      "route_type": "OFFICIAL_DISTRIBUTION_PRODUCT_PAGE",
+      "url_or_query": "https://www.dlsite.com/maniax/work/%3D/product_id/RJ01114724.html (official distributor route discovered via translation download page)",
+      "result": "The DLsite product route could not be opened by the browser tool (non-retryable URL error); no character-level evidence could be checked."
+    },
+    {
+      "route_type": "OFFICIAL_CHARACTER_OR_ROSTER_PAGE",
+      "url_or_query": "Search: \"Ilias\" \"Alma Elma\" \"Erubetie\" \"Granberia\" official Monster Girl Quest",
+      "result": "Search returned fan/reference material and no accessible creator-controlled roster; none was promoted as authority evidence."
+    }
+  ],
+  "notes": "The campaign is a broad game roster. The rights-holder/developer and distributor routes did not provide an accessible exact character mapping in this pass, so this records partial route progress only. No negative conclusion or canonical relation is asserted."
+}

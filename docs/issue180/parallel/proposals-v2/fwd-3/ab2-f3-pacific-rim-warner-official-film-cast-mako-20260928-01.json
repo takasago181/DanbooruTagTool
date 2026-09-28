@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-pacific-rim-warner-official-film-cast-mako-20260928-01",
+  "campaign_key": "authority:pacific_rim",
+  "campaign_fingerprint": "781aeb31fa1a20bda4f92d2105e83d8cae865ce0fe35cb14e80e02c31abaedc6",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.warnerbros.co.jp/home_entertainment/a210jo4z4o/",
+  "source_claim": "Warner Bros. Japan’s official Pacific Rim home-entertainment page lists Mori Mako in the film cast and identifies the 2013 Warner Bros. film.",
+  "authority_type": "FIRST_PARTY_STUDIO_FILM_CAST_PAGE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "mako_mori",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "pacific_rim"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The Warner Bros. cast list directly establishes the exact character Mako Mori. Jaeger campaign identities are not included because the official Jaeger catalog route was inaccessible to direct verification during this pass."
+}

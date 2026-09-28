@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-ochikobore-fruit-tart-official-cast-20260928-01",
+  "campaign_key": "authority:ochikobore_fruit_tart",
+  "campaign_fingerprint": "eaf154d191c82fcc5cc0a64d22c23dedf8d6358bb0363df732509d2b59d6345a",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://ochifuru-anime.com/news.html",
+  "source_claim": "The official Ochikobore Fruit Tart anime news page identifies the five cast roles Sakura Ino, Roko Sekino, Hayu Nukui, Nina Maehara, and Hemo Midori.",
+  "authority_type": "FIRST_PARTY_ANIME_OFFICIAL_CAST_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "maehara_nina",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ochikobore_fruit_tart"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "midori_hemo",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ochikobore_fruit_tart"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nukui_hayu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ochikobore_fruit_tart"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sakura_ino",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ochikobore_fruit_tart"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sekino_roko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ochikobore_fruit_tart"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official anime page pairs each exact character name with its voice performer and explicitly associates the role with Ochikobore Fruit Tart."
+}
