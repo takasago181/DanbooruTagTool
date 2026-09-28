@@ -1,0 +1,198 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-alice-gear-aegis-official-character-directory-20260928",
+  "campaign_key": "authority:alice_gear_aegis",
+  "campaign_fingerprint": "352d255ce020275d9bc9a40dd4dac2e43068e8bb5ab1d6743b1168f4d52b1d48",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://colopl.co.jp/alicegearaegis/character/",
+  "source_claim": "The official Alice Gear Aegis game Character directory names the campaign's listed characters across its story chapters and event/relationship-character section. The same page identifies the game title Alice Gear Aegis, its developer Pyramid and publisher COLOPL, and carries their copyright line. Exact Japanese names were cross-checked against the current Issue 70 canonical tag labels.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "agatsuma_kaede",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "alice_gear_aegis"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "agatsuma_kei",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "alice_gear_aegis"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "aikawa_aika",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "alice_gear_aegis"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "araime_yasuri",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "alice_gear_aegis"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "himukai_rin",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "alice_gear_aegis"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hirasaka_yotsuyu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "alice_gear_aegis"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ichijou_ayaka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "alice_gear_aegis"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kaeruzaka_raiya",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "alice_gear_aegis"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kagome_misaki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "alice_gear_aegis"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kanagata_sugumi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "alice_gear_aegis"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kaneshiya_sitara",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "alice_gear_aegis"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kimikage_yui",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "alice_gear_aegis"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "koashi_mutsumi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "alice_gear_aegis"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kotomura_akane",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "alice_gear_aegis"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "merabuchi_kanami",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "alice_gear_aegis"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "momoshina_fumika",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "alice_gear_aegis"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nikotama_mai",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "alice_gear_aegis"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "noelle_francisca",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "alice_gear_aegis"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ohzeki_koyui",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "alice_gear_aegis"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "rakuhana_meru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "alice_gear_aegis"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "rita_henschel",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "alice_gear_aegis"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shanti_rana",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "alice_gear_aegis"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shimoochiai_touka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "alice_gear_aegis"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sutegoro_shiina",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "alice_gear_aegis"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "takanashi_rei",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "alice_gear_aegis"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yotsuya_yumi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "alice_gear_aegis"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "All 26 exact campaign members are individually named by the first-party game directory, including the ETC/event character section. The Japanese-to-canonical-name mapping was checked against Issue 70 labels; no resemblance-only or voice-actor-based inference is used."
+}
