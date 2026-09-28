@@ -1,0 +1,28 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-nichijou-official-character-and-cast-rosters-20260928",
+  "campaign_key": "authority:nichijou",
+  "campaign_fingerprint": "cad39f1dd01ef698edeb874a4072debc3e55971b0e7eea9e88a6d20ef8d0848c",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.kyotoanimation.co.jp/works/nichijou/",
+  "source_claim": "Kyoto Animation's official Nichijou work page names the principal cast, while the official Nichijou site lists additional character-profile entries and character songs for the campaign's named school and Shinonome Laboratory characters.",
+  "authority_type": "OFFICIAL_ANIME_CHARACTER_AND_CAST_ROSTERS",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"aioi_yuuko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"nichijou"},
+    {"subject_type":"Character","subject_key":"annaka_haruna","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"nichijou"},
+    {"subject_type":"Character","subject_key":"minakami_mai","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"nichijou"},
+    {"subject_type":"Character","subject_key":"naganohara_mio","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"nichijou"},
+    {"subject_type":"Character","subject_key":"nakamura_kana","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"nichijou"},
+    {"subject_type":"Character","subject_key":"professor_shinonome","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"nichijou"},
+    {"subject_type":"Character","subject_key":"sakurai_izumi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"nichijou"},
+    {"subject_type":"Character","subject_key":"sasahara_koujirou","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"nichijou"},
+    {"subject_type":"Character","subject_key":"sekiguchi_yuria","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"nichijou"},
+    {"subject_type":"Character","subject_key":"shinonome_nano","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"nichijou"},
+    {"subject_type":"Character","subject_key":"tachibana_misato","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"nichijou"},
+    {"subject_type":"Character","subject_key":"takasaki_manabu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"nichijou"}
+  ],
+  "terminal_reviews": [],
+  "notes": "Kyoto Animation's official Nichijou page identifies the work and its adaptation/production context, names Yuuko Aioi, Mio Naganohara, Mai Minakami, Professor/Hakase, Nano Shinonome, Misato Tachibana, Yuria Sekiguchi, Annaka, Sakurai-sensei, Takasaki-sensei, and Nakamura-sensei in its story/cast listing (https://www.kyotoanimation.co.jp/works/nichijou/). The official Nichijou site character page lists Sasahara Koujirou, Misato, Sakurai-sensei, and Takasaki-sensei among the character-profile entries (https://shinonome-lab.com/character/index.html); its official staff/cast and drama/character-song pages identify the related named cast including the Shinonome Laboratory characters and character-specific songs (https://shinonome-lab.com/staffcast/, https://shinonome-lab.com/goods/cd_index.html). These sources establish direct appearances in the named Nichijou anime; romanized catalog tag forms are retained as the campaign keys."
+}

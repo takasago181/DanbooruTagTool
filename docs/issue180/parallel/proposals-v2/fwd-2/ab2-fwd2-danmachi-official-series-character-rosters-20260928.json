@@ -1,0 +1,28 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-danmachi-official-series-character-rosters-20260928",
+  "campaign_key": "authority:dungeon_ni_deai_wo_motomeru_no_wa_machigatteiru_darou_ka",
+  "campaign_fingerprint": "92aa20fd05fa2da07a259334215f9998d8f5247e14eb392b19c15c707d78a182",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://danmachi.com/danmachi4/character/",
+  "source_claim": "The official DanMachi series character portal identifies Bell Cranel, Aiz Wallenstein, Liliruca Arde, Eina Tulle, Syr Flover, Ryu Lion, Sanjouno Haruhime, and Yamato Mikoto; the official Sword Oratoria character roster identifies Lefiya Viridis, Riveria Ljos Alf, Tiona Hiryute, and Tione Hiryute as members of the DanMachi's Loki Familia cast.",
+  "authority_type": "OFFICIAL_ANIME_SERIES_CHARACTER_ROSTERS",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"aiz_wallenstein","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"dungeon_ni_deai_wo_motomeru_no_wa_machigatteiru_darou_ka"},
+    {"subject_type":"Character","subject_key":"bell_cranel","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"dungeon_ni_deai_wo_motomeru_no_wa_machigatteiru_darou_ka"},
+    {"subject_type":"Character","subject_key":"eina_tulle","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"dungeon_ni_deai_wo_motomeru_no_wa_machigatteiru_darou_ka"},
+    {"subject_type":"Character","subject_key":"lefiya_viridis","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"dungeon_ni_deai_wo_motomeru_no_wa_machigatteiru_darou_ka"},
+    {"subject_type":"Character","subject_key":"liliruca_arde","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"dungeon_ni_deai_wo_motomeru_no_wa_machigatteiru_darou_ka"},
+    {"subject_type":"Character","subject_key":"riveria_ljos_alf","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"dungeon_ni_deai_wo_motomeru_no_wa_machigatteiru_darou_ka"},
+    {"subject_type":"Character","subject_key":"ryu_lion","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"dungeon_ni_deai_wo_motomeru_no_wa_machigatteiru_darou_ka"},
+    {"subject_type":"Character","subject_key":"sanjouno_haruhime","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"dungeon_ni_deai_wo_motomeru_no_wa_machigatteiru_darou_ka"},
+    {"subject_type":"Character","subject_key":"syr_flover","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"dungeon_ni_deai_wo_motomeru_no_wa_machigatteiru_darou_ka"},
+    {"subject_type":"Character","subject_key":"tiona_hyryute","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"dungeon_ni_deai_wo_motomeru_no_wa_machigatteiru_darou_ka"},
+    {"subject_type":"Character","subject_key":"tione_hyryute","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"dungeon_ni_deai_wo_motomeru_no_wa_machigatteiru_darou_ka"},
+    {"subject_type":"Character","subject_key":"yamato_mikoto","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"dungeon_ni_deai_wo_motomeru_no_wa_machigatteiru_darou_ka"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official DanMachi Season 4 character portal directly names Bell Cranel, Liliruca Arde, Yamato Mikoto, and Sanjouno Haruhime (https://danmachi.com/danmachi4/character/), and its Season 3 character portal directly profiles Aiz Wallenstein, Eina Tulle, and Syr Flover (https://danmachi.com/danmachi3/character/). The official DanMachi Season 2 cast page names Lyu/Ryu Lion and the members of this production (https://danmachi.com/danmachi2/); the series character portal also profiles Ryu Lion (https://danmachi.com/danmachi4/character/). The official Sword Oratoria site lists Lefiya Viridis, Tiona Hiryute, Tione Hiryute, and Riveria Ljos Alf in the Loki Familia cast and character roster (https://danmachi.com/sword_oratoria/character/), with the official DanMachi movie cast page also identifying Lefiya and the main-series cast together (https://danmachi.com/movie/staff_cast/index.html). The cited pages are official productions based on Fujino Omori's DanMachi novels and list the exact campaign characters; tags use the project's established Latin spellings where Japanese pages render names in Japanese."
+}

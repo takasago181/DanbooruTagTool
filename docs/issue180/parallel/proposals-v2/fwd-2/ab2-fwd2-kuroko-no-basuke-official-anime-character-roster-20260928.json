@@ -1,0 +1,28 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-kuroko-no-basuke-official-anime-character-roster-20260928",
+  "campaign_key": "authority:kuroko_no_basuke",
+  "campaign_fingerprint": "f99b642c961edf3e651f204b6e3d0d73998633e9e3f9782ea36d8fba0d5a08b2",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://tv.kurobas.com/character/",
+  "source_claim": "The official Kuroko's Basketball anime character page groups and names all twelve campaign characters across Seirin, Kaijo, Shutoku, Touou, Yosen, and Rakuzan teams.",
+  "authority_type": "OFFICIAL_ANIME_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"aida_riko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kuroko_no_basuke"},
+    {"subject_type":"Character","subject_key":"akashi_seijuurou","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kuroko_no_basuke"},
+    {"subject_type":"Character","subject_key":"aomine_daiki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kuroko_no_basuke"},
+    {"subject_type":"Character","subject_key":"himuro_tatsuya","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kuroko_no_basuke"},
+    {"subject_type":"Character","subject_key":"kagami_taiga","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kuroko_no_basuke"},
+    {"subject_type":"Character","subject_key":"kasamatsu_yukio","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kuroko_no_basuke"},
+    {"subject_type":"Character","subject_key":"kise_ryouta","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kuroko_no_basuke"},
+    {"subject_type":"Character","subject_key":"kuroko_tetsuya","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kuroko_no_basuke"},
+    {"subject_type":"Character","subject_key":"midorima_shintarou","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kuroko_no_basuke"},
+    {"subject_type":"Character","subject_key":"momoi_satsuki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kuroko_no_basuke"},
+    {"subject_type":"Character","subject_key":"murasakibara_atsushi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kuroko_no_basuke"},
+    {"subject_type":"Character","subject_key":"takao_kazunari","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kuroko_no_basuke"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official TV anime character page groups named characters by their school team and explicitly lists the entire exact campaign roster: Seirin lists Aida Riko, Kagami Taiga, and Kuroko Tetsuya; Kaijo lists Kasamatsu Yukio and Kise Ryouta; Shutoku lists Midorima Shintarou and Takao Kazunari; Touou lists Aomine Daiki and Momoi Satsuki; Yosen lists Himuro Tatsuya and Murasakibara Atsushi; Rakuzan lists Akashi Seijuurou (https://tv.kurobas.com/character/). The page carries the production copyright notice (C) Fujimaki Tadatoshi / Shueisha / Kuroko's Basketball Production Committee. Each relation is an exact campaign character directly named on the official franchise character roster."
+}
