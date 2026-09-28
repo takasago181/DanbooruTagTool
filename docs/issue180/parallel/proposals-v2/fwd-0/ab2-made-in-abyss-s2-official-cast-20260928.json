@@ -1,0 +1,22 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-made-in-abyss-s2-official-cast-20260928",
+  "campaign_key": "authority:made_in_abyss",
+  "campaign_fingerprint": "f89edeb65a9c37a5283b31abb3e3c6c3776b4770744e305a2bcc9faa7aae64de",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://miabyss.com/2nd_staff.html",
+  "source_claim": "The official second-season Made in Abyss staff and cast page explicitly lists Faputa, Vueko, Belaf, Maaa-san, Prushka, and Bondrewd as cast characters.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"belafu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"made_in_abyss"},
+    {"subject_type":"Character","subject_key":"bondrewd","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"made_in_abyss"},
+    {"subject_type":"Character","subject_key":"faputa","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"made_in_abyss"},
+    {"subject_type":"Character","subject_key":"maaa","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"made_in_abyss"},
+    {"subject_type":"Character","subject_key":"prushka","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"made_in_abyss"},
+    {"subject_type":"Character","subject_key":"vueko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"made_in_abyss"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The exact official Japanese/romanized character names correspond to these catalog identities on the season-two cast list. Characters from this campaign that are not named in this source are omitted."
+}

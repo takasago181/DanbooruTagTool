@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-shirobako-official-production-cast-20260928",
+  "campaign_key": "authority:shirobako",
+  "campaign_fingerprint": "2597549768a64e8bc3cc7bc31d5a063a9b8a2fc3631834d0fbed52354f064549",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://infinitedayo.jp/works/7/",
+  "source_claim": "The official SHIROBAKO production page lists these named characters in its cast section for the 2014 project.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"imai_midori","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"shirobako"},
+    {"subject_type":"Character","subject_key":"miyamori_aoi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"shirobako"},
+    {"subject_type":"Character","subject_key":"ogasawara_rinko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"shirobako"},
+    {"subject_type":"Character","subject_key":"sakaki_shizuka","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"shirobako"},
+    {"subject_type":"Character","subject_key":"toudou_misa","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"shirobako"},
+    {"subject_type":"Character","subject_key":"yano_erika","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"shirobako"},
+    {"subject_type":"Character","subject_key":"yasuhara_ema","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"shirobako"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official production page's cast names match these catalog identities directly. No characters absent from that cast list, appearance-only links, or production staff identities are included."
+}
