@@ -1,0 +1,19 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-sonic-tangle-whisper-sega-crossworlds-20260928-01",
+  "campaign_key": "authority:sonic_(series)",
+  "campaign_fingerprint": "7f10f51fbdaa222f614b56350564268d678e35de8671deeb5003bcef795904fc",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.sega.jp/topics/detail/260226_4/",
+  "source_claim": "SEGA's official Sonic Racing: CrossWorlds update announcement names Tangle and Whisper, says they are characters from the Sonic the Hedgehog IDW comic series, and describes them as Sonic's allies. Both exact Character identities occur in the current Sonic campaign; the source supports their HOME under the accepted Sonic series root.",
+  "authority_type": "SEGA_OFFICIAL_CHARACTER_ANNOUNCEMENT",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "source_review_id_hint": "src180-ab2-fwd1-sonic-big-the-cat-sega-profile-20260928-01",
+  "relations": [
+    {"subject_type":"Character","subject_key":"tangle_the_lemur","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"sonic_(series)"},
+    {"subject_type":"Character","subject_key":"whisper_the_wolf","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"sonic_(series)"}
+  ],
+  "terminal_reviews": [],
+  "notes": "Only exact current campaign members named by SEGA are included. The relation uses the accepted stable Sonic series root, not the CrossWorlds appearance as HOME."
+}

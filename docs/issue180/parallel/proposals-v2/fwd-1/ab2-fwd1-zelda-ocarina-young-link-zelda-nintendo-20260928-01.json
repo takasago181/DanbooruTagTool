@@ -1,0 +1,19 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-zelda-ocarina-young-link-zelda-nintendo-20260928-01",
+  "campaign_key": "authority:the_legend_of_zelda",
+  "campaign_fingerprint": "3455302279eab03946d0605cbe21bf979565436caca608ab8c99acfc914360f8",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/The-Legend-of-Zelda-Ocarina-of-Time-3115664.html",
+  "source_claim": "Nintendo's official Ocarina of Time product page identifies the title and its character roster. It describes Link as a boy beginning his quest and Princess Zelda as the young princess of Hyrule. These are the exact Ocarina of Time identities represented by current campaign tags young_link and young_zelda; the accepted Nintendo mapping resolves them to the stable Legend of Zelda HOME root.",
+  "authority_type": "NINTENDO_OFFICIAL_CHARACTER_DIRECTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "source_review_id_hint": "src180-ab2-fwd1-zelda-oot-official-cast-20260928-01",
+  "relations": [
+    {"subject_type":"Character","subject_key":"young_link","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"the_legend_of_zelda"},
+    {"subject_type":"Character","subject_key":"young_zelda","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"the_legend_of_zelda"}
+  ],
+  "terminal_reviews": [],
+  "notes": "Only the two exact Ocarina of Time youth identities present in the current campaign are included. The HOME root is the accepted stable Zelda franchise root, not a second appearance-specific title home."
+}
