@@ -1,0 +1,52 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-cookie-run-kingdom-official-june18-beast-cookie-and-timekeeper-update-20260928",
+  "campaign_key": "authority:cookie_run",
+  "campaign_fingerprint": "100b9d8a17dbf56e78f176eae4c4f11408cd6f5a238618b97dacce0e1c3ca944",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://hub.cookierun-kingdom.com/news/updates/june-18-update-notice",
+  "source_claim": "The first-party CookieRun: Kingdom June 18 update notice names Mystic Flour Cookie, Eternal Sugar Cookie, Shadow Milk Cookie, Cream Soda Cookie, and Timekeeper Cookie in game-character, costume, or game-content contexts. The accepted CookieRun: Kingdom source-review mapping resolves exact named characters on this official first-party source to the stable root cookie_run:_kingdom.",
+  "authority_type": "FIRST_PARTY_OFFICIAL_GAME_ANNOUNCEMENT",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "mystic_flour_cookie",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cookie_run:_kingdom"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "eternal_sugar_cookie",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cookie_run:_kingdom"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shadow_milk_cookie",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cookie_run:_kingdom"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "cream_soda_cookie",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cookie_run:_kingdom"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "timekeeper_cookie",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cookie_run:_kingdom"
+    }
+  ],
+  "terminal_reviews": [],
+  "source_review_id_hint": "src180-ab2-cookie-run-kingdom-official-seasonal-cookie-roster-20260928",
+  "notes": "Each listed Cookie name is explicit in the first-party update notice. Product appearance alone is not used to add any relation. The broader campaign remains open."
+}
