@@ -1,0 +1,32 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-jujutsu-first-season-roster-20260928-01",
+  "campaign_key": "authority:jujutsu_kaisen",
+  "campaign_fingerprint": "26324ea0de49861c0788d607f017ca7e7af36a7fb612e5ea0cda03ec4fef5259",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://jujutsukaisen.jp/character/index_1st.php",
+  "source_claim": "The official Jujutsu Kaisen first-season character roster explicitly names the following current campaign characters in the Jujutsu Kaisen story.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"itadori_yuji","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"jujutsu_kaisen"},
+    {"subject_type":"Character","subject_key":"fushiguro_megumi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"jujutsu_kaisen"},
+    {"subject_type":"Character","subject_key":"kugisaki_nobara","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"jujutsu_kaisen"},
+    {"subject_type":"Character","subject_key":"zen'in_maki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"jujutsu_kaisen"},
+    {"subject_type":"Character","subject_key":"gojo_satoru","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"jujutsu_kaisen"},
+    {"subject_type":"Character","subject_key":"yaga_masamichi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"jujutsu_kaisen"},
+    {"subject_type":"Character","subject_key":"nanami_kento","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"jujutsu_kaisen"},
+    {"subject_type":"Character","subject_key":"ijichi_kiyotaka","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"jujutsu_kaisen"},
+    {"subject_type":"Character","subject_key":"ieiri_shoko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"jujutsu_kaisen"},
+    {"subject_type":"Character","subject_key":"zen'in_mai","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"jujutsu_kaisen"},
+    {"subject_type":"Character","subject_key":"kamo_noritoshi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"jujutsu_kaisen"},
+    {"subject_type":"Character","subject_key":"nishimiya_momo","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"jujutsu_kaisen"},
+    {"subject_type":"Character","subject_key":"miwa_kasumi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"jujutsu_kaisen"},
+    {"subject_type":"Character","subject_key":"geto_suguru","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"jujutsu_kaisen"},
+    {"subject_type":"Character","subject_key":"yoshino_junpei","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"jujutsu_kaisen"},
+    {"subject_type":"Character","subject_key":"iori_utahime","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"jujutsu_kaisen"}
+  ],
+  "terminal_reviews": [],
+  "notes": "Only exact named current campaign identities shown in this official first-season roster are included. Series-root selection follows the current canonical Copyright family key jujutsu_kaisen; no sequel, variant, or character identity is inferred from appearance alone."
+}
