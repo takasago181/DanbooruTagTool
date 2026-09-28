@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-orange-juice-official-game-catalog-20260928",
+  "campaign_key": "authority:orange_juice",
+  "campaign_fingerprint": "6fe221e96d58fe2a1e289c7c079b33484f7c8cc495db22c63889402c7fd7e23d",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://store.steampowered.com/app/390710/Acceleration_of_SUGURI_2/",
+  "source_claim": "Official Steam catalog pages for Orange_Juice-developed SUGURI-universe games explicitly identify Suguri, Sora, Hime, Star Breaker, and Marc across the SUGURI, Sora, 100% Orange Juice, and Flying Red Barrel products. The pages identify Orange_Juice as developer and Orange Juice as the franchise/universe; they state that Acceleration of SUGURI 2 is a direct sequel to Sora and that Star Breaker is from Sora.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "hime_(orange_juice)",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "orange_juice"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "marc_(orange_juice)",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "orange_juice"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sora_(orange_juice)",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "orange_juice"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "star_breaker_(orange_juice)",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "orange_juice"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "suguri_(orange_juice)",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "orange_juice"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Official source routes: the SUGURI Steam page identifies the SUGURI title as created by Orange_Juice and centers Suguri (https://store.steampowered.com/app/262240/SUGURI/); the Sora page identifies Sora as its namesake protagonist and Orange_Juice as developer (https://store.steampowered.com/app/390730/Sora/); the official 100% Orange Juice Suguri & Hime Winter Costume DLC calls them the popular duo from the SUGURI series and states they are both unlockable characters (https://store.steampowered.com/app/583640/100_Orange_Juice__Suguri__Hime_Winter_Costumes/); the official Breaker Pack names Star Breaker as a playable character from Sora and says its characters come from Orange_Juice games (https://store.steampowered.com/app/465480/100_Orange_Juice__Breaker_Pack/); Marc is included in the official 100% Orange Juice publisher announcement as a playable bonus character tied to the Orange_Juice-developed Flying Red Barrel game (https://store.steampowered.com/news/posts/?appids=282800&enddate=1593115256&feed=steam_community_announcements). The Sora product page lists Orange_Juice as developer; the official Acceleration of SUGURI 2 page identifies the Orange Juice franchise, SUGURI universe, and direct sequel relationship to Sora."
+}
