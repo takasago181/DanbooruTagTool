@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-fwd1-ookami-mio-official-routes-partial-20260928-01",
+  "campaign_key": "authority:ookami_mio",
+  "campaign_fingerprint": "6a4c16c374ac93879cbb53f62f7c48d9709c8b701032424d35b1f10c3bd916d6",
+  "worker_slot": 1,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "Hololive's official profile confirms Ookami Mio and identifies Miofa as her fan name, but the checked official routes do not identify the four exact mascot-character tags in this campaign or establish their HOME mapping.",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {"route_type":"OFFICIAL_TALENT_PROFILE","url_or_query":"https://hololive.hololivepro.com/talents/ookami-mio/","result":"The talent page identifies Ookami Mio and gives Miofa (みおーんファミリー) as her fan name, but it does not list Hatotaurus, Taiga, or Tawa as characters or provide a roster matching all four exact campaign tags."},
+    {"route_type":"OFFICIAL_TALENT_EVENT_REPORT","url_or_query":"https://hololive.hololivepro.com/events/our-sparkle/","result":"The official live report refers to Miofa as the fans/audience (including the 'Miofa tree') and not as a named fictional-character roster; it does not establish the four exact campaign identities."},
+    {"route_type":"OFFICIAL_GOODS_DIRECTORY","url_or_query":"https://hololive.hololivepro.com/goods","result":"The official goods directory links the Hololive Production shop but the checked directory page itself contains no Mio mascot catalog or exact campaign member mapping."}
+  ],
+  "notes": "PARTIAL only. The campaign covers multiple mascot entities and these profile/event/shop routes do not exhaust it. No negative or terminal relation is proposed."
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-pac-man-official-character-directory-20260928-01",
+  "campaign_key": "authority:pac-man",
+  "campaign_fingerprint": "6029080557d1f12076ea855bac2b0b72b4a87689d687cc3b1197ded8a8257531",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://pacman.com/en/character/",
+  "source_claim": "Bandai Namco's official PAC-MAN character directory individually names and profiles BLINKY, INKY, CLYDE, and PINKY as the Ghosts. Each exact campaign tag is explicitly identified as a PAC-MAN series character.",
+  "authority_type": "OFFICIAL_WORK_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"blinky_(pac-man)","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pac-man"},
+    {"subject_type":"Character","subject_key":"clyde_(pac-man)","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pac-man"},
+    {"subject_type":"Character","subject_key":"inky_(pac-man)","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pac-man"},
+    {"subject_type":"Character","subject_key":"pinky_(pac-man)","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pac-man"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official directory names all four exact campaign members; no terminal conclusion is proposed."
+}

@@ -1,0 +1,18 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-ookami-capcom-official-manual-amaterasu-sakuya-20260928-01",
+  "campaign_key": "authority:ookami",
+  "campaign_fingerprint": "84359a9f5ef6586a5554c3972f8d687bf5897faef6f6e788d5b73f7611b9a6c3",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://static.capcom.com/okami/manuals/Wii_Okami_Manual.pdf",
+  "source_claim": "Capcom's official Okami Wii manual has a character section naming Amaterasu and describing the wood sprite Sakuya as a character in the game. These two exact campaign characters have direct HOME in Okami; this batch makes no claim about the other campaign members.",
+  "authority_type": "OFFICIAL_WORK_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"amaterasu_(ookami)","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ookami"},
+    {"subject_type":"Character","subject_key":"sakuya_(ookami)","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ookami"}
+  ],
+  "terminal_reviews": [],
+  "notes": "Only the two exact names explicitly covered by the official Capcom manual are included; no inference or terminal review is made for Okikurumi or Ushiwakamaru."
+}
