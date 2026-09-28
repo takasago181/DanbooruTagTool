@@ -1,0 +1,87 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-street-fighter-capcom-official-usage-roster-20260928",
+  "campaign_key": "authority:street_fighter",
+  "campaign_fingerprint": "b246b47379ee47ef9adda6cf5496e9fb6611281ad1d11a5b02cd0f05ce0e74a0",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://game.capcom.com/cfn/sfv/stats/usagerate?lang=en",
+  "source_claim": "Capcom’s official Shadaloo C.R.I. Character Usage page enumerates these Street Fighter V fighters by their official names: Blanka, Dhalsim, E. Honda, F.A.N.G, Guile, M. Bison, Kolin, Menat, Sagat, and Urien. These exact base-character entries establish membership in the Street Fighter franchise. The accepted Capcom source mapping src180-ab2-street-fighter-capcom-zangief-character-data-20260928 maps an exact named first-party Character entry to the stable HOME root street_fighter.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "source_review_id_hint": "src180-ab2-street-fighter-capcom-zangief-character-data-20260928",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "blanka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "street_fighter"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "dhalsim",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "street_fighter"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "e._honda",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "street_fighter"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "f.a.n.g",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "street_fighter"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "guile",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "street_fighter"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "m._bison",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "street_fighter"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kolin",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "street_fighter"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "menat",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "street_fighter"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sagat",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "street_fighter"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "urien",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "street_fighter"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only exact base fighters explicitly named by Capcom in this usage roster are included. Alternate forms and members absent from this page are not inferred."
+}
