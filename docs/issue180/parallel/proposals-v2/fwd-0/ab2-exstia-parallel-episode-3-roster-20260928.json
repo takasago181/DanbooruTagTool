@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-exstia-parallel-episode-3-roster-20260928",
+  "campaign_key": "authority:kouyoku_senki_exs-tia",
+  "campaign_fingerprint": "590d23424cb875ea363ae4b9ec943e800c5f58199fb8f839209104065b112525",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://lusterise.nexton-net.jp/product/exs-tia_para/ep03/",
+  "source_claim": "The official Lusterise Parallel Episode 3 character section names Shiho Souma (紫峰 創真) and describes him as the EXS-TiA protagonist who activates the EXS-TiA system.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "shihou_souma",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kouyoku_senki_exs-tia"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official page uses the exact kanji name 紫峰 創真."
+}

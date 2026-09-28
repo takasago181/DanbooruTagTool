@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-exstia-r-character-directory-20260928",
+  "campaign_key": "authority:kouyoku_senki_exs-tia",
+  "campaign_fingerprint": "590d23424cb875ea363ae4b9ec943e800c5f58199fb8f839209104065b112525",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://lusterise.nexton-net.jp/product/exs-tia_r/",
+  "source_claim": "The official Lusterise EXS-TiA R character section lists Rieszverne Suzette Paladill, Claire Austin, Shiho Souma, and Exs-Tia Chevalier as story characters; it describes Rieszverne transforming into Chevalier.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "rieszverne_suzette_paladill",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kouyoku_senki_exs-tia"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "claire_austin",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kouyoku_senki_exs-tia"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shihou_souma",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kouyoku_senki_exs-tia"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "exs-tia_chevalier",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kouyoku_senki_exs-tia"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Exact character entries and named transformation form appear together on the official product page."
+}

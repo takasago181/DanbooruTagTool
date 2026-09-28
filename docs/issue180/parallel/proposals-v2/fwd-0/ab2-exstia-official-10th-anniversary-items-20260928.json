@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-exstia-official-10th-anniversary-items-20260928",
+  "campaign_key": "authority:kouyoku_senki_exs-tia",
+  "campaign_fingerprint": "590d23424cb875ea363ae4b9ec943e800c5f58199fb8f839209104065b112525",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://lusterise.nexton-net.jp/product/exs-tia_10th/box.html",
+  "source_claim": "The official Lusterise 10th anniversary Box page names Dark Exs-TiA, Exs-Slave Alpha, mind-controlled Exs-TiA, and Luxtia in its official store-bonus goods list for the EXS-TiA anniversary product.",
+  "authority_type": "FIRST_PARTY_CHARACTER_MATERIAL",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "dark_exs-tia",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kouyoku_senki_exs-tia"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "exs-slave_alpha",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kouyoku_senki_exs-tia"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mind_controlled_exs-tia",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kouyoku_senki_exs-tia"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "luxtia",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kouyoku_senki_exs-tia"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Each Japanese character/form name is explicitly listed as a bonus item for the official EXS-TiA anniversary product; this batch records only those four exact named campaign tags."
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-exstia-magica-official-side-episode-20260928",
+  "campaign_key": "authority:kouyoku_senki_exs-tia",
+  "campaign_fingerprint": "590d23424cb875ea363ae4b9ec943e800c5f58199fb8f839209104065b112525",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://lusterise.nexton-net.jp/product/exs-tia_a_dl/",
+  "source_claim": "The official Lusterise side-episode page explicitly calls Azarin エクスティア・マギカ (Exs-Tia Magica) in its story description and identifies that storyline as part of the official EXS-TiA A side-episode release.",
+  "authority_type": "FIRST_PARTY_CHARACTER_MATERIAL",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "exs-tia_magica",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kouyoku_senki_exs-tia"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Exact officially named character form; no relation is inferred for the separate monster discussed on the page."
+}

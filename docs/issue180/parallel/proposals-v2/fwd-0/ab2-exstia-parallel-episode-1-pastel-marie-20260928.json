@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-exstia-parallel-episode-1-pastel-marie-20260928",
+  "campaign_key": "authority:kouyoku_senki_exs-tia",
+  "campaign_fingerprint": "590d23424cb875ea363ae4b9ec943e800c5f58199fb8f839209104065b112525",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://lusterise.nexton-net.jp/product/exs-tia_para/ep01/",
+  "source_claim": "The official Lusterise Parallel Episode 1 page identifies Pastel Marie as the magical-girl transformation of Katsuragi Marina and presents the entry in the product character section.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "pastel_marie",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kouyoku_senki_exs-tia"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The source spells the form ぱすてるまりぃ; the canonical campaign tag is the exact romanized name pastel_marie."
+}
