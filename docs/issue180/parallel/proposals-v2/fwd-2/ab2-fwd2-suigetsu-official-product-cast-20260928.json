@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-suigetsu-official-product-cast-20260928",
+  "campaign_key": "authority:suigetsu",
+  "campaign_fingerprint": "233f7e2124a630beb273494d112daa3f6de71020835ef3b50ed52bce16a1d253",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://fandc.co.jp/suigetsu_gp/main.php",
+  "source_claim": "F&C's official Suigetsu Grand Package page identifies 水月 ～すいげつ～ Grand Package and provides its cast with exact character-role credits. The campaign characters Kotonomiya Yuki, Kousaka Alice, Kousaka Maria, Makino Nanami, Miyashiro Karin, and Yamato Suzuran are each explicitly listed as roles in this game.",
+  "authority_type": "FANDC_OFFICIAL_PRODUCT_AND_CAST_CREDITS",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "kotonomiya_yuki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "suigetsu"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kousaka_alice",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "suigetsu"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kousaka_maria",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "suigetsu"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "makino_nanami",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "suigetsu"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "miyashiro_karin",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "suigetsu"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yamato_suzuran",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "suigetsu"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The F&C official product site identifies the re-release by the title 水月 ～すいげつ～ Grand Package and credits the exact role names 琴乃宮雪, 香坂アリス, 香坂マリア, 牧野那波, 宮代花梨, and 大和鈴蘭. The dispatch member waha does not occur in the official character roster or cast list, so this checked source does not establish a relation for that tag. No family or variant edges are inferred."
+}

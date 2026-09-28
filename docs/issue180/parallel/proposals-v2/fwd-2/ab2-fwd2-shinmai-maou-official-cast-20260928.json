@@ -1,0 +1,65 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-shinmai-maou-official-cast-20260928",
+  "campaign_key": "authority:shinmai_maou_no_testament",
+  "campaign_fingerprint": "6fda1787b2d51a7275197c94330ae84e3215acde0897fb3b4397786244fffeb5",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://anime-shinmaimaou.com/",
+  "source_claim": "The official anime website for Shinmai Maou no Testament identifies its DEPARTURES installment and its main cast. The cast list explicitly names Tojo Basara, Naruse Mio, Nonaka Yuki, Naruse Maria, Nonaka Kurumi, Zest, and Hasegawa Chisato, covering all members in this campaign.",
+  "authority_type": "OFFICIAL_ANIME_MAIN_CAST",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "hasegawa_chisato",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shinmai_maou_no_testament"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "naruse_maria",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shinmai_maou_no_testament"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "naruse_mio",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shinmai_maou_no_testament"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nonaka_kurumi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shinmai_maou_no_testament"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nonaka_yuki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shinmai_maou_no_testament"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "toujou_basara",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shinmai_maou_no_testament"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "zest",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shinmai_maou_no_testament"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The first-party anime site has a Main Cast roster and associates it with the DEPARTURES installment. The same official site has the first-series story synopsis identifying the series characters in plot context. The roster's exact Japanese names are 長谷川千里, 成瀬万理亜, 成瀬澪, 野中胡桃, 野中柚希, 東城刃更, and ゼスト. Direct HOME edges only; no family/variant edges asserted."
+}

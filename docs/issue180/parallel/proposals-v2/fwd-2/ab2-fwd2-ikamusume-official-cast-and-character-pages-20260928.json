@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-ikamusume-official-cast-and-character-pages-20260928",
+  "campaign_key": "authority:shinryaku!_ikamusume",
+  "campaign_fingerprint": "803747e19537010f571ce07c06e1dffe58c783b03f3c66952c5daa0a622b40c9",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.tv-tokyo.co.jp/contents/ika-musume/chara/",
+  "source_claim": "TV Tokyo's official Squid Girl character page profiles Ika Musume, Eiko Aizawa, Chizuru Aizawa, Takeru Aizawa, and Sanae Nagatsuki as characters in the anime. TV Tokyo's official staff/cast page credits Ika Musume's voice to Hisako Kanemoto, and a separate TV Tokyo feature explicitly describes Mini Ika Musume as a character from Squid Girl.",
+  "authority_type": "TV_TOKYO_OFFICIAL_CHARACTER_AND_CAST_PAGES",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "aizawa_chizuru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shinryaku!_ikamusume"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "aizawa_eiko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shinryaku!_ikamusume"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "aizawa_takeru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shinryaku!_ikamusume"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ikamusume",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shinryaku!_ikamusume"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mini-ikamusume",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shinryaku!_ikamusume"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nagatsuki_sanae",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shinryaku!_ikamusume"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "TV Tokyo's character page gives profiles and story roles for the five named characters. Its staff/cast page identifies 金元寿子 as the voice actor for イカ娘, which is not evidence that the person tag kanemoto_hisako is a fictional character, so no Character relation is asserted for that packet member. TV Tokyo's own https://www.tv-tokyo.co.jp/kamiapp/20110907.html calls ミニイカ娘 a character from 侵略！イカ娘 and describes its care/training app; direct HOME is supported, but no VARIANT_OF edge is inferred."
+}
