@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-last-origin-official-bioroid-directory-20260928-01",
+  "campaign_key": "authority:last_origin",
+  "campaign_fingerprint": "ba0b0b9b93f13ec4c3c3d0f66cf8397fd5df918b4b6bc78fb13755f019665e35",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.last-origin.com/bio.html",
+  "source_claim": "The official Last Origin Bioroid directory lists ConstantiaS2 and ScissorsLise among its named Bioroid entries.",
+  "authority_type": "FIRST_PARTY_GAME_BIOROID_DIRECTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "constantia_s2",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "last_origin"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "scissors_lise",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "last_origin"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only the two campaign identities directly matching names in the official directory are proposed; broader name similarity is not used."
+}

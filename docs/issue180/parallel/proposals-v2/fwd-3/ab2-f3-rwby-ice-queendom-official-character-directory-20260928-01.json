@@ -1,0 +1,121 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-rwby-ice-queendom-official-character-directory-20260928-01",
+  "campaign_key": "authority:rwby",
+  "campaign_fingerprint": "5810ea375d01469948517b3a51f85fd9aaa9bf00bc68d41bf701e6a297c1f9c3",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://anime.team-rwby-project.jp/en/character/",
+  "source_claim": "The official RWBY: Ice Queendom character directory names Ruby Rose, Weiss Schnee, Blake Belladonna, Yang Xiao Long, Jaune Arc, Nora Valkyrie, Pyrrha Nikos, Lie Ren, Ozpin, Glynda Goodwitch, Winter Schnee, Willow Schnee, Adam Taurus, Penny Polendina, and Roman Torchwick.",
+  "authority_type": "FIRST_PARTY_ANIME_CHARACTER_DIRECTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "ruby_rose",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "rwby"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "weiss_schnee",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "rwby"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "blake_belladonna",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "rwby"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yang_xiao_long",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "rwby"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "jaune_arc",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "rwby"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nora_valkyrie",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "rwby"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "pyrrha_nikos",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "rwby"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "lie_ren",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "rwby"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "professor_ozpin",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "rwby"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "glynda_goodwitch",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "rwby"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "winter_schnee",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "rwby"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "willow_schnee",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "rwby"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "adam_taurus",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "rwby"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "penny_polendina",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "rwby"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "roman_torchwick",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "rwby"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only names directly listed on the official character directory that match this campaign are proposed. Characters absent from the Ice Queendom page are omitted."
+}

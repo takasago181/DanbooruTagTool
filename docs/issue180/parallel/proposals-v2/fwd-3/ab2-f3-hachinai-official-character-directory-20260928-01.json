@@ -1,0 +1,233 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-hachinai-official-character-directory-20260928-01",
+  "campaign_key": "authority:cinderella_series",
+  "campaign_fingerprint": "e6936640b1f95e98bbbd45bda9bed978d49200e249257bfaf084a31d21f09fd6",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://hachinai.com/character/",
+  "source_claim": "The official Hachigatsu no Cinderella Nine character directory names the matching campaign characters across its school rosters, including Sora Agatsuma, Koko Aisaka, Komugi Akino, Tsubasa Arihara, Iroha Asahina, Chikage Honjo, and Shizuku Tsukahara.",
+  "authority_type": "FIRST_PARTY_GAME_CHARACTER_DIRECTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "agatsuma_sora",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cinderella_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "aisaka_koko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cinderella_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "akino_komugi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cinderella_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "amakusa_kotone",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cinderella_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "arihara_tsubasa",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cinderella_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "asada_aoi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cinderella_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "asahina_iroha",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cinderella_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hanayama_emi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cinderella_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hase_maria",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cinderella_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hiiragi_kotoha",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cinderella_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "honjo_chikage",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cinderella_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "jinguji_sayaka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cinderella_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kawakita_tomoe",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cinderella_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kurashiki_maiko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cinderella_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kusakari_rena",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cinderella_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kusakari_runa",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cinderella_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nagai_kanako",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cinderella_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nakano_ayaka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cinderella_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "naoe_tayu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cinderella_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nitta_minako",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cinderella_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nozaki_yuuki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cinderella_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sakagami_mei",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cinderella_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sakurada_chiyo",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cinderella_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "senba_ayako",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cinderella_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shinonome_ryo",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cinderella_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "suzuki_waka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cinderella_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "takanashi_yuzu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cinderella_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "taketomi_aya",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cinderella_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tsukahara_shizuku",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cinderella_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tsukumo_kana",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cinderella_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ukita_akane",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cinderella_series"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only matching identities named in the official game character directory are proposed. Katato Ikusa is omitted because the directory page does not list that comic character."
+}
