@@ -1,0 +1,65 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-sao-dengekibunko-franchise-roster-20260928-01",
+  "campaign_key": "authority:sword_art_online",
+  "campaign_fingerprint": "d4da97a9eeff8e2dfd6d72bf2ddb8562f1d26bd773a07da6f27b5d63da251fa0",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://dengekibunko.jp/title/sao/about/",
+  "source_claim": "The official Reki Kawahara / Sword Art Online site describes the SAO series and its cross-media scope, and explicitly profiles Kirito, Agil, Silica, Eugeo, Ronye, Tiese, and Argo as SAO characters.",
+  "authority_type": "FIRST_PARTY_FRANCHISE_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "kirito",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "sword_art_online"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "agil",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "sword_art_online"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "silica",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "sword_art_online"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "eugeo",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "sword_art_online"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ronye_arabel",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "sword_art_online"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tiese_schtrinen",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "sword_art_online"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "argo_the_rat",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "sword_art_online"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only exact current campaign tags explicitly supported as Sword Art Online characters or presentations by the official source are included; unresolved variants are left for later evidence."
+}

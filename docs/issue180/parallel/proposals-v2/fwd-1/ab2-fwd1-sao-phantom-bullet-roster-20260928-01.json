@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-sao-phantom-bullet-roster-20260928-01",
+  "campaign_key": "authority:sword_art_online",
+  "campaign_fingerprint": "d4da97a9eeff8e2dfd6d72bf2ddb8562f1d26bd773a07da6f27b5d63da251fa0",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.swordart-online.net/phantom/",
+  "source_claim": "The official Sword Art Online II Phantom Bullet page names Asada Shino and Sinon as the real-world and GGO presentations of its sniper character, lists Leafa (Kirigaya Suguha), Silica, and Death Gun as SAO II characters, and identifies Death Gun’s role in the GGO incident.",
+  "authority_type": "OFFICIAL_ANIME_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "asada_shino",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "sword_art_online"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sinon",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "sword_art_online"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kirigaya_suguha",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "sword_art_online"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "silica",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "sword_art_online"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "death_gun",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "sword_art_online"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kirito",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "sword_art_online"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only exact current campaign tags explicitly supported as Sword Art Online characters or presentations by the official source are included; unresolved variants are left for later evidence."
+}
