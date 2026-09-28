@@ -1,0 +1,19 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-hsr-official-lord-ravager-roster-20260928",
+  "campaign_key": "authority:honkai:_star_rail",
+  "campaign_fingerprint": "1713e1e3bc1b48508362d7e94766ba8998bb5d6a16dbb6cd38a6747ea9f3b9e1",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://wiki.hoyolab.com/pc/hsr/entry/983?lang=th-th",
+  "source_claim": "HoYoWiki's Honkai: Star Rail Lord Ravager entry lists Zephyro, Irontomb, and Phantylia among the named Lord Ravagers of the Antimatter Legion and describes Phantylia's in-game actions against the Xianzhou Luofu. This is a first-party game encyclopedia page identifying the named entities within Honkai: Star Rail.",
+  "authority_type": "FIRST_PARTY_LORE_ENTRY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"irontomb","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"honkai:_star_rail"},
+    {"subject_type":"Character","subject_key":"phantylia","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"honkai:_star_rail"},
+    {"subject_type":"Character","subject_key":"zephyro","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"honkai:_star_rail"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The source names these entities as members of Honkai: Star Rail's Lord Ravager group. Asat Pramad is separately established in HoYoverse's official version announcement. Unlisted canonical tags are omitted."
+}
