@@ -1,0 +1,25 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-kanon-key-official-character-intro-20260928",
+  "campaign_key": "authority:kanon",
+  "campaign_fingerprint": "fdec9496ebfdc9f24667b0046774b2e323992264abe1c52d4b872517b26d0319",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://key.visualarts.gr.jp/product/kanon/character/",
+  "source_claim": "Key's official Kanon character introduction explicitly lists Tsukimiya Ayu, Minase Nayuki, Sawatari Makoto, Misaka Shiori, and Kawasumi Mai as main characters, and Misaka Kaori, Kurata Sayuri, Amano Mishio, and Minase Akiko as subcharacters. Key's official Kanon product page documents the Kanon game editions, including the original 1999 release.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"amano_mishio","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kanon"},
+    {"subject_type":"Character","subject_key":"kawasumi_mai","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kanon"},
+    {"subject_type":"Character","subject_key":"kurata_sayuri","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kanon"},
+    {"subject_type":"Character","subject_key":"minase_akiko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kanon"},
+    {"subject_type":"Character","subject_key":"minase_nayuki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kanon"},
+    {"subject_type":"Character","subject_key":"misaka_kaori","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kanon"},
+    {"subject_type":"Character","subject_key":"misaka_shiori","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kanon"},
+    {"subject_type":"Character","subject_key":"sawatari_makoto","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kanon"},
+    {"subject_type":"Character","subject_key":"tsukimiya_ayu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kanon"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The source's Japanese names and descriptions match the exact nine current Danbooru Character keys. Aizawa Yuuichi, Keropii, and Piro are not named on this roster page and are intentionally omitted."
+}
