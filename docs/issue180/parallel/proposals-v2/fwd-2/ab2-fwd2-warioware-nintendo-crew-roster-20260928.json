@@ -1,0 +1,72 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-warioware-nintendo-crew-roster-20260928",
+  "campaign_key": "authority:warioware",
+  "campaign_fingerprint": "7ec2862955ab2d4b317b8492df309aa6cdf14b473621fa5122528d7b1f6279d8",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.nintendo.com/au/games/nintendo-switch/warioware-get-it-together/",
+  "source_claim": "Nintendo's official WarioWare: Get It Together! page identifies Young Cricket, 18-Volt, Dr. Crygor, 9-Volt, Mike, Kat, Ana, Jimmy T, Ashley, Orbulon, Spitz and 5-Volt as members of the playable crew in this WarioWare game.",
+  "authority_type": "NINTENDO_OFFICIAL_GAME_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "young_cricket",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "warioware"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "18-volt",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "warioware"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "dr._crygor",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "warioware"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "9-volt",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "warioware"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "jimmy_t",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "warioware"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "orbulon",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "warioware"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "spitz",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "warioware"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "5-volt",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "warioware"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Exact campaign members proved by Nintendo's named crew section are included. Penny Crygor is not named on this game page and is omitted."
+}

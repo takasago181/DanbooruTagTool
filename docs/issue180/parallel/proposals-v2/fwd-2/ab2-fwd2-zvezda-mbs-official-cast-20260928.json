@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-zvezda-mbs-official-cast-20260928",
+  "campaign_key": "authority:sekai_seifuku:_bouryaku_no_zvezda",
+  "campaign_fingerprint": "0c4d51d288a40969c61133f519595aa856082fdef37ca7303287c5586b2a9717",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.mbs.jp/sekaiseifuku-zzz/",
+  "source_claim": "MBS' official program page for World Conquest Zvezda Plot names Hoshimiya Kate, Jimon Asuta, Komadori Renge, Shikabane Itsuka and White Robin in its program synopsis/cast listing.",
+  "authority_type": "OFFICIAL_BROADCASTER_CAST_PAGE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "hoshimiya_kate",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "sekai_seifuku:_bouryaku_no_zvezda"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "jimon_asuta",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "sekai_seifuku:_bouryaku_no_zvezda"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "komadori_renge",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "sekai_seifuku:_bouryaku_no_zvezda"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shikabane_itsuka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "sekai_seifuku:_bouryaku_no_zvezda"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "white_robin",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "sekai_seifuku:_bouryaku_no_zvezda"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only exact packet members named on the official MBS page are claimed. The other current campaign names are not established by this page."
+}

@@ -1,0 +1,72 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-shokugeki-official-final-cast-20260928",
+  "campaign_key": "authority:shokugeki_no_souma",
+  "campaign_fingerprint": "6f6940af7a564ea7997fee45fa20ab69085572333d1c223593a3987bb7ae72c3",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://shokugekinosoma.com/5thplate/special/comment.html",
+  "source_claim": "The official Shokugeki no Soma series-finale page pairs the listed character names with their roles in the series cast, including Soma Yukihira, Erina Nakiri, Megumi Tadokoro, Hisako Arato, Ikumi Mito, Alice Nakiri, Rindo Kobayashi and Ryo Kurokiba.",
+  "authority_type": "OFFICIAL_ANIME_SERIES_CAST_PAGE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "yukihira_souma",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shokugeki_no_souma"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nakiri_erina",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shokugeki_no_souma"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tadokoro_megumi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shokugeki_no_souma"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "arato_hisako",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shokugeki_no_souma"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mito_ikumi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shokugeki_no_souma"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nakiri_alice",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shokugeki_no_souma"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kobayashi_rindou",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shokugeki_no_souma"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kurokiba_ryou",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shokugeki_no_souma"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The page names Asahi as Saiba Asahi, not the packet key Nakiri Asahi; that member is intentionally omitted pending exact identity/alias evidence."
+}
