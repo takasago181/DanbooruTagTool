@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-street-fighter-capcom-official-chun-li-story-20260928",
+  "campaign_key": "authority:street_fighter",
+  "campaign_fingerprint": "ab37f1f51e64e6b055209b3ac09386afee070419bf7add2301621668babea06f",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.streetfighter.com/6/fr/column/detail/wtstory20",
+  "source_claim": "CAPCOM's official Street Fighter 6 World Tour story calls Chun-Li a famous fighter and describes her Kung Fu teaching role in the game's Chinatown setting.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"chun-li","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"street_fighter"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official game-site story names Chun-Li in the Street Fighter 6 World Tour context. No alternate identity is inferred."
+}

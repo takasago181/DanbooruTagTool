@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-street-fighter-capcom-zangief-character-data-20260928",
+  "campaign_key": "authority:street_fighter",
+  "campaign_fingerprint": "ab37f1f51e64e6b055209b3ac09386afee070419bf7add2301621668babea06f",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://game.capcom.com/cfn/sfv/character/zangief?lang=en",
+  "source_claim": "CAPCOM's official Shadaloo C.R.I. character-data profile identifies Zangief as a Street Fighter V character.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"zangief","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"street_fighter"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official Capcom profile title names Zangief and identifies the page as Street Fighter V character data. No variant or costume is inferred."
+}

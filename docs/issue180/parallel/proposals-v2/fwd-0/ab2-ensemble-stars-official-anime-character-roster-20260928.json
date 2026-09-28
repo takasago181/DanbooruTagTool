@@ -1,0 +1,233 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-ensemble-stars-official-anime-character-roster-20260928",
+  "campaign_key": "authority:ensemble_stars!",
+  "campaign_fingerprint": "727e7145a0bf228a3b48664af5f5ac396b81a71a8f52513f202c88a1f03807f8",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://ensemblestars-anime.com/profile",
+  "source_claim": "The official Ensemble Stars! TV anime profile roster names the characters below, with Japanese names and roman-letter renderings grouped by their units at Yumenosaki Academy and other schools.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "akehoshi_subaru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ensemble_stars!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "aoba_tsumugi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ensemble_stars!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "aoi_hinata",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ensemble_stars!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "aoi_yuta",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ensemble_stars!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "fushimi_yuzuru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ensemble_stars!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hakaze_kaoru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ensemble_stars!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "harukawa_sora",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ensemble_stars!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hasumi_keito",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ensemble_stars!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hibiki_wataru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ensemble_stars!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hidaka_hokuto",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ensemble_stars!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "himemiya_tori",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ensemble_stars!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "isara_mao",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ensemble_stars!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kanzaki_souma",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ensemble_stars!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kiryu_kuro",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ensemble_stars!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mashiro_tomoya",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ensemble_stars!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mikejima_madara",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ensemble_stars!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "narukami_arashi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ensemble_stars!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nito_nazuna",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ensemble_stars!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ogami_koga",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ensemble_stars!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "otogari_adonis",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ensemble_stars!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ran_nagisa",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ensemble_stars!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "saegusa_ibara",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ensemble_stars!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sakasaki_natsume",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ensemble_stars!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sakuma_ritsu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ensemble_stars!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sazanami_jun",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ensemble_stars!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shino_hajime",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ensemble_stars!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "suou_tsukasa",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ensemble_stars!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tenma_mitsuru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ensemble_stars!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tenshouin_eichi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ensemble_stars!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tomoe_hiyori",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ensemble_stars!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tsukinaga_leo",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ensemble_stars!"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only exact roman-letter names from the official 2019 anime roster that are members of the current authority campaign are included. Newer targets not present on this roster are omitted."
+}
