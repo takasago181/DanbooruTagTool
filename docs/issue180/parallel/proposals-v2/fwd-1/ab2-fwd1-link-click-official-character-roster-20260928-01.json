@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-link-click-official-character-roster-20260928-01",
+  "campaign_key": "authority:shiguang_dailiren",
+  "campaign_fingerprint": "13acb0b0c6f888a645892bc32cc78b5d061df51934b62e2036dc410f40427370",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://link-click.jp/character/",
+  "source_claim": "The official Japanese-dub Link Click character roster lists Cheng Xiaoshi, Lu Guang, Qiao Ling, Liu Xiao, and Xia Fei by their original Chinese names and identifies their roles and voice casts in the series.",
+  "authority_type": "OFFICIAL_FRANCHISE_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"cheng_xiaoshi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"shiguang_dailiren"},
+    {"subject_type":"Character","subject_key":"liu_xiao","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"shiguang_dailiren"},
+    {"subject_type":"Character","subject_key":"lu_guang","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"shiguang_dailiren"},
+    {"subject_type":"Character","subject_key":"qiao_ling","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"shiguang_dailiren"},
+    {"subject_type":"Character","subject_key":"xia_fei","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"shiguang_dailiren"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The current official character roster explicitly covers all five exact target identities. The series introduction identifies the work as the original bilibili animation 時光代理人 / LINK CLICK."
+}

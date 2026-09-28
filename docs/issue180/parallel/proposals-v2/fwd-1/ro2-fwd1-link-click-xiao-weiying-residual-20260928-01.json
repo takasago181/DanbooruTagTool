@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-fwd1-link-click-xiao-weiying-residual-20260928-01",
+  "campaign_key": "authority:shiguang_dailiren",
+  "campaign_fingerprint": "13acb0b0c6f888a645892bc32cc78b5d061df51934b62e2036dc410f40427370",
+  "worker_slot": 1,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "https://link-click.jp/character/",
+  "source_claim": "The official Link Click character roster and checked official season materials identify the other six exact campaign members, but the checked official sources provide no exact identity match for the remaining tag xiao_weiying. This partial search does not establish a safe HOME relation for that tag.",
+  "authority_type": "OFFICIAL_CHARACTER_ROSTER_RESIDUAL_RESEARCH",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {"route_type":"OFFICIAL_SERIES_CHARACTER_ROSTER","url_or_query":"https://link-click.jp/character/","result":"Lists the current English Capital arc characters but not an exact character named Xiao Weiying."},
+    {"route_type":"OFFICIAL_SEASON_TWO_PROMOTION_INDEX","url_or_query":"https://link-click.jp/2nd/movie/","result":"Lists official character PVs including Li Tianchen/Li Tianxi; no exact Xiao Weiying identity appears in the checked index."},
+    {"route_type":"OFFICIAL_SERIES_SITE_EXACT_NAME_SEARCH","url_or_query":"site:link-click.jp \"肖维英\" OR \"肖力\"","result":"The checked official-site search yielded no exact match that safely maps campaign tag xiao_weiying to a character."}
+  ],
+  "notes": "Partial progress only; no negative or terminal conclusion. The six safe positive relations remain in the companion AUTHORITY_BATCH files."
+}

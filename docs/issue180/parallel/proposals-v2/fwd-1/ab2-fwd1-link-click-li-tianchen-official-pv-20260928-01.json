@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-link-click-li-tianchen-official-pv-20260928-01",
+  "campaign_key": "authority:shiguang_dailiren",
+  "campaign_fingerprint": "13acb0b0c6f888a645892bc32cc78b5d061df51934b62e2036dc410f40427370",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://link-click.jp/2nd/movie/",
+  "source_claim": "The official Japanese Link Click II site lists an official character PV titled 李天辰（リー・ティエンチェン）／李天希（リー・ティエンシー）, directly naming Li Tianchen as a character in the second season of the series.",
+  "authority_type": "OFFICIAL_CHARACTER_PROMOTION",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"li_tianchen","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"shiguang_dailiren"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official season-two movie index labels the promotional video as a character PV and gives Li Tianchen's exact Chinese name and Japanese reading."
+}
