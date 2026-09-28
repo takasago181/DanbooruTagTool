@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "terminal_reviews": [],
+  "proposal_id": "ab2-f3-futoku-no-guild-anime-official-cast-official-20260928-01",
+  "campaign_key": "authority:futoku_no_guild",
+  "campaign_fingerprint": "7fd1b5aac249f16a5c285afb221737723c31f8e895d6201b9d8e2c2c9a305890",
+  "source_url": "https://futoku-no-anime.com/staffcast/",
+  "source_claim": "TVアニメ「不徳のギルド」公式サイトのSTAFF&CASTは、作品の製作委員会を表示し、キクル・マダン、ヒタム・キャン、メイデナ・アンジェ、トキシッコ・ダナー、ハナバタ・ノーキンス、ノマ・ルーン、エノメを出演者名とともに列挙している。",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "kikuru_madan",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "futoku_no_guild"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hitamu_kyan",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "futoku_no_guild"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "maidena_angers",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "futoku_no_guild"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tokishikko_dana",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "futoku_no_guild"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hanabata_nohkins",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "futoku_no_guild"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "enome",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "futoku_no_guild"
+    }
+  ],
+  "notes": "This proposal includes the exact campaign characters explicitly named by the checked official roster/profile page. Other packet identities are not inferred from omission or association."
+}

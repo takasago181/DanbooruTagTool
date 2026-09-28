@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "terminal_reviews": [],
+  "proposal_id": "ab2-f3-mahouka-season3-official-character-update-official-20260928-01",
+  "campaign_key": "authority:mahouka_koukou_no_rettousei",
+  "campaign_fingerprint": "df34373056fd2cb284137d88e2aa3849a3801e04f97508c303c21392db63bbb1",
+  "source_url": "https://mahouka.jp/news/?id=64817",
+  "source_claim": "TVアニメ「魔法科高校の劣等生」公式ニュースは、2024年2月17日にキャラクターページへ千葉エリカ、柴田美月、光井ほのか、北山雫、七草真由美らの掲載を追加したと明記している。",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "chiba_erika",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mahouka_koukou_no_rettousei"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shibata_mizuki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mahouka_koukou_no_rettousei"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mitsui_honoka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mahouka_koukou_no_rettousei"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kitayama_shizuku",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mahouka_koukou_no_rettousei"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "saegusa_mayumi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mahouka_koukou_no_rettousei"
+    }
+  ],
+  "notes": "This proposal includes the exact campaign characters explicitly named by the checked official roster/profile page. Other packet identities are not inferred from omission or association."
+}

@@ -1,0 +1,37 @@
+{
+  "schema_version": 2,
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "terminal_reviews": [],
+  "proposal_id": "ab2-f3-mahouka-visitor-arc-official-roster-official-20260928-01",
+  "campaign_key": "authority:mahouka_koukou_no_rettousei",
+  "campaign_fingerprint": "df34373056fd2cb284137d88e2aa3849a3801e04f97508c303c21392db63bbb1",
+  "source_url": "https://mahouka.jp/2nd/character/",
+  "source_claim": "TVアニメ「魔法科高校の劣等生 来訪者編」公式キャラクターページは、司波達也、司波深雪、アンジェリーナ＝クドウ＝シールズをそれぞれキャラクターとして掲載し、ローマ字表記も掲げている。",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "shiba_tatsuya",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mahouka_koukou_no_rettousei"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shiba_miyuki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mahouka_koukou_no_rettousei"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "angelina_kudou_shields",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mahouka_koukou_no_rettousei"
+    }
+  ],
+  "notes": "This proposal includes the exact campaign characters explicitly named by the checked official roster/profile page. Other packet identities are not inferred from omission or association."
+}
