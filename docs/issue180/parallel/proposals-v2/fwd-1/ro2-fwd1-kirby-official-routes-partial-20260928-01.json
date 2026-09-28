@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-fwd1-kirby-official-routes-partial-20260928-01",
+  "campaign_key": "authority:kirby_(series)",
+  "campaign_fingerprint": "c384d2be07c515aeed3af10ab8df8d420b2c6a7ea04a0dc70aebcd69383c090b",
+  "worker_slot": 1,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "OFFICIAL_PRODUCT_CHARACTER_ROSTER",
+      "url_or_query": "https://www.nintendo.com/us/store/products/kirby-and-the-forgotten-land-114404/",
+      "result": "The accepted Nintendo roster names Kirby, Elfilin, Bandana Waddle Dee, Waddle Dees, and the Beast Pack; none exactly matches a current member id in this 60-member campaign."
+    },
+    {
+      "route_type": "OFFICIAL_FRANCHISE_CHARACTER_PAGE",
+      "url_or_query": "https://kirby.nintendo.com/about/",
+      "result": "Nintendo's Kirby series page names Kirby, Waddle Dee, King Dedede, and Meta Knight; none exactly matches a current member id in this campaign."
+    },
+    {
+      "route_type": "OFFICIAL_PRODUCT_CHARACTER_ROSTER",
+      "url_or_query": "https://www.nintendo.com/us/store/products/kirbys-return-to-dream-land-deluxe-switch/",
+      "result": "The product page names Magolor and describes Magolor Epilogue, but does not explicitly identify the campaign's magolor_soul or interdimensional_magolor identities; no exact safe mapping to those tags was established."
+    }
+  ],
+  "notes": "This broad Kirby campaign remains open. These routes are partial progress only; the source names and story references did not establish an exact current campaign identity and no negative HOME conclusion is made."
+}

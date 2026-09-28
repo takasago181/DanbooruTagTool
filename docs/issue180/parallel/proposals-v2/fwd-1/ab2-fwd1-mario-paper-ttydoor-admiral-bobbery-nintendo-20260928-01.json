@@ -1,0 +1,18 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-mario-paper-ttydoor-admiral-bobbery-nintendo-20260928-01",
+  "campaign_key": "authority:mario_(series)",
+  "campaign_fingerprint": "70f2ad4a8b718a6abea2a1d597eb02a78a7957e3b52323188c505bb9fe3cf4b3",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-games/Paper-Mario-The-Thousand-Year-Door-2445545.html",
+  "source_claim": "Nintendo's official Paper Mario: The Thousand-Year Door product page describes the game and explicitly names Admiral Bobbery as one of its characters, including his story and role as Mario's partner. The exact Admiral Bobbery Character in the current Mario campaign has this title-family HOME.",
+  "authority_type": "OFFICIAL_GAME_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "source_review_id_hint": "src180-ab2-fwd1-mario-paper-mario-ttydoor-roster-20260928-01",
+  "relations": [
+    {"subject_type":"Character","subject_key":"admiral_bobbery","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"paper_mario_(series)"}
+  ],
+  "terminal_reviews": [],
+  "notes": "Only the exact campaign member Admiral Bobbery is included. The reused accepted mapping rule assigns exact Paper Mario character entries to the Paper Mario series root; the page does not justify homes for other Mario campaign members."
+}

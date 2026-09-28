@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-eiyuu-sen4-official-main-roster-20260928-01",
+  "campaign_key": "authority:eiyuu_densetsu",
+  "campaign_fingerprint": "4a3f15212af631d628ad312e63db3aab83dfefc9b26000dc6bd1a4333ea44f0c",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.falcom.co.jp/sen4/",
+  "source_claim": "Nihon Falcom's official Trails of Cold Steel IV page identifies the game and lists Ash Carbide, Juna Crawford, and Musse Egret in its character section. Each exact identity appears in the current Eiyuu Densetsu authority campaign, and the accepted Falcom roster mapping rule resolves named official character entries to the Eiyuu Densetsu HOME root.",
+  "authority_type": "OFFICIAL_GAME_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "source_review_id_hint": "src180-ab2-fwd1-eiyuu-kuro-official-roster-20260928-01",
+  "relations": [
+    {"subject_type":"Character","subject_key":"ash_carbide","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"eiyuu_densetsu"},
+    {"subject_type":"Character","subject_key":"juna_crawford","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"eiyuu_densetsu"},
+    {"subject_type":"Character","subject_key":"musse_egret","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"eiyuu_densetsu"}
+  ],
+  "terminal_reviews": [],
+  "notes": "Only exact current campaign members listed on the official Falcom page are included. The accepted mapping rule uses the stable Eiyuu Densetsu root; this does not infer homes for other campaign members from appearances."
+}
