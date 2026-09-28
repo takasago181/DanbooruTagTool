@@ -1,0 +1,22 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-delicious-party-toei-character-profiles-20260928-01",
+  "campaign_key": "authority:delicious_party_precure",
+  "campaign_fingerprint": "528e3f5097977152d9a7ec3e5abdaccb432781ddca37c4161f7048dcc90e060a",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.toei-anim.co.jp/tv/delicious-party_precure/info/",
+  "source_claim": "Toei Animation's official Delicious Party Precure series information and character pages identify Cure Finale/Kasai Amane, Cure Yum-Yum/Hanam Ran, Fuwa Kokone/Cure Spicy, Narcistoru, Pam-Pam, and Shinada Takumi as named characters in the series. The pages describe their roles, profiles, transformations or official cast credits within this series.",
+  "authority_type": "OFFICIAL_RIGHTSHOLDER_CHARACTER_PROFILES",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"cure_finale","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"delicious_party_precure"},
+    {"subject_type":"Character","subject_key":"cure_yum-yum","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"delicious_party_precure"},
+    {"subject_type":"Character","subject_key":"fuwa_kokone","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"delicious_party_precure"},
+    {"subject_type":"Character","subject_key":"narcistoru","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"delicious_party_precure"},
+    {"subject_type":"Character","subject_key":"pam-pam","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"delicious_party_precure"},
+    {"subject_type":"Character","subject_key":"shinada_takumi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"delicious_party_precure"}
+  ],
+  "terminal_reviews": [],
+  "notes": "Checked Toei's series-info, transformation-character profiles, energy-fairy profile, enemy profile, and Takumi profile. The official Recipippi page describes a broad fairy category with many individual food-specific Recipippi, so the generic recipipi campaign member is deliberately left out of this positive batch."
+}

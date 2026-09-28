@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-fwd1-delicious-party-generic-recipipi-scope-20260928-01",
+  "campaign_key": "authority:delicious_party_precure",
+  "campaign_fingerprint": "528e3f5097977152d9a7ec3e5abdaccb432781ddca37c4161f7048dcc90e060a",
+  "worker_slot": 1,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "https://www.toei-anim.co.jp/tv/delicious-party_precure/character/recipeppi.php",
+  "source_claim": "Toei Animation's official Recipippi page describes Recipeppi as a category of fairies inhabiting dishes and enumerates numerous distinct food-specific members. It does not establish that the generic tag recipipi identifies one exact Character for a single DIRECT_HOME relation.",
+  "authority_type": "OFFICIAL_RIGHTSHOLDER_CHARACTER_SCOPE_RESEARCH",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {"route_type":"OFFICIAL_CHARACTER_CATEGORY_PAGE","url_or_query":"https://www.toei-anim.co.jp/tv/delicious-party_precure/character/recipeppi.php","result":"The page defines Recipeppi as food fairies and lists many separate recipe-specific fairies; it does not identify the generic recipipi tag as one exact character."},
+    {"route_type":"OFFICIAL_SERIES_INTRODUCTION","url_or_query":"https://www.toei-anim.co.jp/tv/delicious-party_precure/info/","result":"The official series introduction refers to Recipeppi as cooking fairies in the plural and explains their story role, without resolving the generic tag's exact identity scope."}
+  ],
+  "notes": "Partial scope finding only; no negative or terminal HOME claim is made for recipipi. Six exact character positives are recorded in the companion authority batch."
+}
