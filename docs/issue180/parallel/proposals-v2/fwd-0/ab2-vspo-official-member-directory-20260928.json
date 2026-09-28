@@ -1,0 +1,177 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-vspo-official-member-directory-20260928",
+  "campaign_key": "authority:vspo!",
+  "campaign_fingerprint": "ea0dd835e526cfee11af68f8927015f6c8e6728ba47bc20410e16512d669843e",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://vspo.jp/",
+  "source_claim": "The official VSPO! member directory lists the campaign characters under its Members section and gives each an individual profile; the displayed Japanese names and romanized profile headings correspond to the exact campaign tags.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "aizawa_ema",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "vspo!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "amayui_moka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "vspo!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "asumi_sena",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "vspo!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "choya_hanabi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "vspo!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ginjo_saine",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "vspo!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hanabusa_lisa",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "vspo!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ichinose_uruha",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "vspo!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kaga_nazuna",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "vspo!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kaga_sumire",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "vspo!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kaminari_qpi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "vspo!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kogara_toto",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "vspo!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "komori_met",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "vspo!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kurumi_noah",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "vspo!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nekota_tsuna",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "vspo!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sendo_yuuhi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "vspo!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shinomiya_runa",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "vspo!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shiranami_ramune",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "vspo!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tachibana_hinano",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "vspo!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tosaki_mimi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "vspo!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tsumugi_kokage",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "vspo!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yakumo_beni",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "vspo!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yano_kuromu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "vspo!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yumeno_akari",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "vspo!"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "This records only the 23 exact campaign members named in the official profile directory. Additional VSPO! members and EN profiles are outside this campaign; no costume, staff, or co-occurrence relations are inferred."
+}
