@@ -1,0 +1,86 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-free-dive-to-future-official-roster-20260928-01",
+  "campaign_key": "authority:free!",
+  "campaign_fingerprint": "f507103469056916047ddb73a0dd22c4f4a5b175a5c17e62ef0647a226f39d53",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://df.iwatobi-sc.com/character/",
+  "source_claim": "The official Free! -Dive to the Future- character directory lists all ten matching campaign identities included here: Nagisa Hazuki, Rin Matsuoka, Momotaro Mikoshiba, Seijuro Mikoshiba, Aiichiro Nitori, Rei Ryugazaki, Kisumi Shigino, Makoto Tachibana, and Sosuke Yamazaki, along with Gou Matsuoka.",
+  "authority_type": "FIRST_PARTY_ANIME_CHARACTER_DIRECTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "hazuki_nagisa",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "free!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "matsuoka_gou",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "free!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "matsuoka_rin",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "free!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mikoshiba_momotarou",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "free!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mikoshiba_seijuurou",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "free!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nitori_aiichirou",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "free!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ryuugazaki_rei",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "free!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shigino_kisumi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "free!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tachibana_makoto",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "free!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yamazaki_sousuke",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "free!"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The proposal follows the official Dive to the Future character page and includes only matching dispatch identities individually listed there."
+}

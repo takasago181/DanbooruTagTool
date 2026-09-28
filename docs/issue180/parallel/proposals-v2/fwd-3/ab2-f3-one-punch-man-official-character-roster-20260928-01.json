@@ -1,0 +1,72 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-one-punch-man-official-character-roster-20260928-01",
+  "campaign_key": "authority:one-punch_man",
+  "campaign_fingerprint": "f516a164613f001d3f983067ce6f8bfe25477c55d7aa72a55f382a56ee1c68ed",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.tv-tokyo.co.jp/anime/onepunchman/sp/chara/index.html",
+  "source_claim": "The official One-Punch Man character directory lists the matching named characters Genos, Metal Bat, Boros, Mumen Rider, Speed-o’-Sound Sonic, Flashy Flash, Tatsumaki, and Zombieman.",
+  "authority_type": "FIRST_PARTY_ANIME_CHARACTER_DIRECTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "genos",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "one-punch_man"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kinzoku_bat",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "one-punch_man"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "lord_boros",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "one-punch_man"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mumen_rider",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "one-punch_man"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "onsoku_no_sonic",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "one-punch_man"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "senkou_no_flash",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "one-punch_man"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tatsumaki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "one-punch_man"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "zombieman",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "one-punch_man"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only matching campaign identities named in the official character directory are proposed. Campaign characters absent from that roster page are left for separate evidence."
+}

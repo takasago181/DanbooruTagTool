@@ -1,0 +1,65 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-mob-psycho-100-official-character-roster-20260928-01",
+  "campaign_key": "authority:mob_psycho_100",
+  "campaign_fingerprint": "7300b7ecf851dafa5d3eeeb4926f148842c8947ab2d23382ea33f3f940123658",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://mobpsycho100.com/character/",
+  "source_claim": "The official Mob Psycho 100 III character directory lists Shigeo Kageyama, Arataka Reigen, Ritsu Kageyama, Teruki Hanazawa, Tome Kurata, Serizawa, and Tsubomi among the named characters.",
+  "authority_type": "FIRST_PARTY_ANIME_CHARACTER_DIRECTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "hanazawa_teruki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mob_psycho_100"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kageyama_ritsu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mob_psycho_100"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kageyama_shigeo",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mob_psycho_100"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kurata_tome",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mob_psycho_100"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "reigen_arataka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mob_psycho_100"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "serizawa_katsuya",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mob_psycho_100"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "takane_tsubomi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mob_psycho_100"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only matching campaign identities named in the official third-season directory are proposed. Other campaign members not shown on that page are omitted."
+}
