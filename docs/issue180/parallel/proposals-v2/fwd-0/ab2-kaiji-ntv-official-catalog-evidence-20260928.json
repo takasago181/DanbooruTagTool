@@ -1,0 +1,36 @@
+[
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-kaiji-ntv-film-kaiji-ito-20260928",
+    "campaign_key": "authority:tobaku_mokushiroku_kaiji",
+    "campaign_fingerprint": "b53d1738b3cbd3c6ae625861271c7d1942f131354f14d4f77da44df15217f8c9",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://www.ntv.co.jp/english/pc/2011/02/kaiji-2009.html",
+    "source_claim": "Nippon TV's official catalog identifies KAIJI as a live-action adaptation of Nobuyuki Fukumoto's Kaiji comic series and explicitly names Kaiji Ito (伊藤カイジ) as its main character.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {"subject_type":"Character","subject_key":"itou_kaiji","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tobaku_mokushiroku_kaiji"}
+    ],
+    "terminal_reviews": [],
+    "notes": "The broadcaster's catalog ties the character directly to the manga property, rather than relying on co-occurrence."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-kaiji-ntv-store-tonegawa-root-20260928",
+    "campaign_key": "authority:tobaku_mokushiroku_kaiji",
+    "campaign_fingerprint": "b53d1738b3cbd3c6ae625861271c7d1942f131354f14d4f77da44df15217f8c9",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://shop.ntv.co.jp/item/1003aEEZ0303",
+    "source_claim": "Nippon TV's official product page describes Yukio Tonegawa as one of the characters in Tobaku Mokushiroku Kaiji and names him as the central character of the Tonegawa spin-off.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {"subject_type":"Character","subject_key":"tonegawa_yukio","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tobaku_mokushiroku_kaiji"}
+    ],
+    "terminal_reviews": [],
+    "notes": "The page explicitly states that Tonegawa is a Kaiji character, rather than treating his spin-off appearance as the home."
+  }
+]
