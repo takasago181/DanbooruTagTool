@@ -1,0 +1,19 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-kimetsu-risshihen-episode25-butterfly-mansion-cast-20260928",
+  "campaign_key": "authority:kimetsu_no_yaiba",
+  "campaign_fingerprint": "c9708664c1ddbdcf25d9ff5efa0d73f44271f9f555cac57b8a9e841bb5e099d6",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://kimetsu.com/anime/risshihen/story/?story=25",
+  "source_claim": "The official Kimetsu no Yaiba episode 25 page lists Terauchi Kiyo, Nakahara Sumi, and Takada Naho in the episode cast credits and depicts them participating in Tanjiro's Butterfly Mansion recovery-training story.",
+  "authority_type": "FIRST_PARTY_EPISODE_CREDITS",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"nakahara_sumi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kimetsu_no_yaiba"},
+    {"subject_type":"Character","subject_key":"takada_naho","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kimetsu_no_yaiba"},
+    {"subject_type":"Character","subject_key":"terauchi_kiyo","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kimetsu_no_yaiba"}
+  ],
+  "terminal_reviews": [],
+  "notes": "All three exact campaign names appear in the official episode cast credits; no unnamed or inferred companion relations are added."
+}

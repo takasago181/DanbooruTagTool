@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-kimetsu-current-hashira-page-tsuyuri-kanao-20260928",
+  "campaign_key": "authority:kimetsu_no_yaiba",
+  "campaign_fingerprint": "c9708664c1ddbdcf25d9ff5efa0d73f44271f9f555cac57b8a9e841bb5e099d6",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://kimetsu.com/anime/hashirageikohen/character/",
+  "source_claim": "The official Hashira Training Arc character directory names Tsuyuri Kanao and identifies her as a member of the Demon Slayer Corps and a Tsuguko. The directory is part of the official Kimetsu no Yaiba anime site.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"tsuyuri_kanao","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kimetsu_no_yaiba"}
+  ],
+  "terminal_reviews": [],
+  "notes": "Only the exact current campaign member named on this official directory is included."
+}
