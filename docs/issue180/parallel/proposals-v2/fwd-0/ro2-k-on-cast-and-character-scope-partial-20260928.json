@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-k-on-cast-and-character-scope-partial-20260928",
+  "campaign_key": "authority:k-on!",
+  "campaign_fingerprint": "1ff2a9e8ec029d33caf1152cc9dde0875f5c13d6bde1f49fa8ea5c4a3621eae5",
+  "worker_slot": 0,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "OFFICIAL_ANIMATION_WORK_PAGE",
+      "url_or_query": "https://www.kyotoanimation.co.jp/en/works/k-on/",
+      "result": "Kyoto Animation's official work page summarizes K-ON! and names the principal light-music-club characters, but it does not establish exact identity or HOME relations for the residual dispatch members."
+    },
+    {
+      "route_type": "OFFICIAL_ANIMATION_SEQUEL_WORK_PAGE",
+      "url_or_query": "https://www.kyotoanimation.co.jp/en/works/k-on02/",
+      "result": "The official K-ON!! page confirms the sequel and names Yui, Ritsu, Mio, Tsumugi, and Azusa in its synopsis. The residual members are not listed or mapped there."
+    },
+    {
+      "route_type": "OFFICIAL_BROADCASTER_LIVE_EVENT_CAST_REPORT",
+      "url_or_query": "https://www.tbs.co.jp/anime/k-on/k-on_tv/special/event110220.html",
+      "result": "TBS's official event report explicitly distinguishes performers from the roles they play (for example, Toyosaki Aki as Yui Hirasawa, Hikasa Youko as Mio Akiyama, Satou Satomi as Ritsu Tainaka, and Taketatsu Ayana as Azusa Nakano). The current residual includes cast-name tags as well as character-name tags, so a performer credit does not safely establish that the performer tag is a fictional K-ON! Character with that work as HOME. The other residual names are not exhaustively identified by this event report."
+    },
+    {
+      "route_type": "OFFICIAL_BROADCASTER_CHARACTER_ROSTER",
+      "url_or_query": "https://www.tbs.co.jp/anime/k-on/k-on_tv/chara/chara.html",
+      "result": "The TBS character page linked from the event page lists nine named fictional characters (Yui, Mio, Ritsu, Tsumugi, Nodoka, Ui, Sawako, Azusa, and Jun). None of the exact remaining dispatch member tags is among those nine names; the page therefore does not establish relations for the residual members."
+    }
+  ],
+  "notes": "This broad residual campaign remains open. The accepted Kyoto Animation and TBS hints confirm K-ON! as a work, but the current members mix performer-name tags with character-name tags and side-character names outside the checked official roster. Do not attach performer identities to the fictional work based only on cast credits, or infer a negative relation for unlisted members. Record partial research progress and retain the campaign for later exact authority review."
+}
