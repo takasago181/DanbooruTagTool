@@ -1,0 +1,22 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-big-hero-6-disney-movie-character-page-20260928-06",
+  "campaign_key": "authority:big_hero_6",
+  "campaign_fingerprint": "a735a4d9236cbf5db804dc3abce298cb605385534554988b0377c94ca72fb8eb",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://movies.disney.com/big-hero-6/",
+  "source_claim": "Disney's official Big Hero 6 film page names Baymax, Hiro Hamada, Tadashi Hamada, Go Go Tomago, and Honey Lemon in its film synopsis/character area and identifies Cass in a movie character image; the page is explicitly the Big Hero 6 film page.",
+  "authority_type": "FIRST_PARTY_STUDIO_FILM_AND_CHARACTER_PAGE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"baymax","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"big_hero_6"},
+    {"subject_type":"Character","subject_key":"cass_hamada","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"big_hero_6"},
+    {"subject_type":"Character","subject_key":"gogo_tomago","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"big_hero_6"},
+    {"subject_type":"Character","subject_key":"hiro_hamada","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"big_hero_6"},
+    {"subject_type":"Character","subject_key":"honey_lemon","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"big_hero_6"},
+    {"subject_type":"Character","subject_key":"tadashi_hamada","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"big_hero_6"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The page is Disney's official film-specific source; the Cass image alt text identifies her as a character in the film."
+}

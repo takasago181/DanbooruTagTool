@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-big-hero-6-disney-corporate-cast-announcement-20260928-06",
+  "campaign_key": "authority:big_hero_6",
+  "campaign_fingerprint": "a735a4d9236cbf5db804dc3abce298cb605385534554988b0377c94ca72fb8eb",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://thewaltdisneycompany.com/news/original-cast-members-reprise-roles-disney-xds-animated-tv-series-big-hero-6/",
+  "source_claim": "The Walt Disney Company announcement describes the animated Big Hero 6 series as based on the film and names Aunt Cass, Go Go, Baymax, Hiro, and Honey Lemon as returning character roles.",
+  "authority_type": "FIRST_PARTY_STUDIO_CAST_ANNOUNCEMENT",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"baymax","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"big_hero_6"},
+    {"subject_type":"Character","subject_key":"cass_hamada","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"big_hero_6"},
+    {"subject_type":"Character","subject_key":"gogo_tomago","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"big_hero_6"},
+    {"subject_type":"Character","subject_key":"hiro_hamada","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"big_hero_6"},
+    {"subject_type":"Character","subject_key":"honey_lemon","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"big_hero_6"}
+  ],
+  "terminal_reviews": [],
+  "notes": "Tadashi Hamada is omitted because this series casting announcement does not name his role."
+}

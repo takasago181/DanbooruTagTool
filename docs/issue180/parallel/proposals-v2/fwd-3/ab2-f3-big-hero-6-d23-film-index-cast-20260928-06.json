@@ -1,0 +1,22 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-big-hero-6-d23-film-index-cast-20260928-06",
+  "campaign_key": "authority:big_hero_6",
+  "campaign_fingerprint": "a735a4d9236cbf5db804dc3abce298cb605385534554988b0377c94ca72fb8eb",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://d23.com/a-to-z/big-hero-6-film/",
+  "source_claim": "Disney's D23 film index identifies Big Hero 6 as a Walt Disney Animation Studios film and lists voices for Honey Lemon, Go Go Tomago, Aunt Cass, Hiro Hamada, Tadashi Hamada, and Baymax.",
+  "authority_type": "FIRST_PARTY_STUDIO_FILM_INDEX_AND_CAST",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"baymax","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"big_hero_6"},
+    {"subject_type":"Character","subject_key":"cass_hamada","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"big_hero_6"},
+    {"subject_type":"Character","subject_key":"gogo_tomago","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"big_hero_6"},
+    {"subject_type":"Character","subject_key":"hiro_hamada","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"big_hero_6"},
+    {"subject_type":"Character","subject_key":"honey_lemon","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"big_hero_6"},
+    {"subject_type":"Character","subject_key":"tadashi_hamada","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"big_hero_6"}
+  ],
+  "terminal_reviews": [],
+  "notes": "D23 is Disney's official archive; each packet target is explicitly named in the film entry cast."
+}
