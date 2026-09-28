@@ -1,0 +1,40 @@
+[
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-heartcatch-abc-cure-team-20260928",
+    "campaign_key": "authority:heartcatch_precure!",
+    "campaign_fingerprint": "cdd597f0371f8cd2afea997847ad964a95b6360407c1d0b8674a104a357ee80b",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://www.asahi.co.jp/heartcatch_precure/character.html",
+    "source_claim": "ABC TV's official HeartCatch PreCure character page identifies the Cure Blossom, Cure Marine, Cure Sunshine, and Cure Moonlight characters and describes their roles and transformations within the series.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {"subject_type":"Character","subject_key":"cure_marine","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"heartcatch_precure!"},
+      {"subject_type":"Character","subject_key":"cure_moonlight","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"heartcatch_precure!"},
+      {"subject_type":"Character","subject_key":"cure_sunshine","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"heartcatch_precure!"}
+    ],
+    "terminal_reviews": [],
+    "notes": "Only three exact campaign characters named by this character page are included here."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-heartcatch-abc-flower-and-momoka-20260928",
+    "campaign_key": "authority:heartcatch_precure!",
+    "campaign_fingerprint": "cdd597f0371f8cd2afea997847ad964a95b6360407c1d0b8674a104a357ee80b",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://www.asahi.co.jp/heartcatch_precure/characterPeople.html",
+    "source_claim": "ABC TV's official HeartCatch PreCure character page names Cure Flower and identifies her as Hanazaki Kaoruko's past Precure identity; it also names Kurumi Momoka as Erika's older sister.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {"subject_type":"Character","subject_key":"cure_flower","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"heartcatch_precure!"},
+      {"subject_type":"Character","subject_key":"hanasaki_kaoruko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"heartcatch_precure!"},
+      {"subject_type":"Character","subject_key":"kurumi_momoka","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"heartcatch_precure!"}
+    ],
+    "terminal_reviews": [],
+    "notes": "The page explicitly links Kaoruko to her Cure Flower identity and lists Momoka in the work's cast of characters."
+  }
+]
