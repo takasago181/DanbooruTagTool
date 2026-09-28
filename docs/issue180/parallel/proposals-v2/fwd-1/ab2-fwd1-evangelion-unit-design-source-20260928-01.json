@@ -1,0 +1,18 @@
+{
+  "schema_version": 2,
+  "campaign_key": "authority:neon_genesis_evangelion",
+  "campaign_fingerprint": "802e9aa18dbcff6fcc1a52f024d6594e17445e392d45bff8f8a775682a831534",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "terminal_reviews": [],
+  "notes": "The official 30th-anniversary site explicitly identifies Unit 01 and Unit 13 as Evangelion mecha in Shin Evangelion, including their battle sequence. Only the exact packet unit identities are proposed.",
+  "proposal_id": "ab2-fwd1-evangelion-unit-design-source-20260928-01",
+  "source_url": "https://30th.evangelion.jp/fes/eva-extra-30",
+  "source_claim": "The official Evangelion anniversary site's exhibit description names Evangelion Unit 01 and Unit 13 as combatants in Shin Evangelion.",
+  "relations": [
+    {"subject_type":"Character","subject_key":"eva_01","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"neon_genesis_evangelion"},
+    {"subject_type":"Character","subject_key":"eva_13","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"neon_genesis_evangelion"}
+  ]
+}

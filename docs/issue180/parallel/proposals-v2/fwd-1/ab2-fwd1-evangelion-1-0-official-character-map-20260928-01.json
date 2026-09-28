@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "campaign_key": "authority:neon_genesis_evangelion",
+  "campaign_fingerprint": "802e9aa18dbcff6fcc1a52f024d6594e17445e392d45bff8f8a775682a831534",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "terminal_reviews": [],
+  "notes": "The official Evangelion 1.0 character relationship page individually identifies the listed main cast in the film's own story context.",
+  "proposal_id": "ab2-fwd1-evangelion-1-0-official-character-map-20260928-01",
+  "source_url": "https://www.evangelion.jp/1_0/chara.html",
+  "source_claim": "The official Evangelion 1.0 character map profiles Shinji, Rei, Misato, Ritsuko, Gendo, Touji, and Kensuke in the film's cast and story world.",
+  "relations": [
+    {"subject_type":"Character","subject_key":"ikari_shinji","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"neon_genesis_evangelion"},
+    {"subject_type":"Character","subject_key":"ayanami_rei","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"neon_genesis_evangelion"},
+    {"subject_type":"Character","subject_key":"katsuragi_misato","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"neon_genesis_evangelion"},
+    {"subject_type":"Character","subject_key":"akagi_ritsuko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"neon_genesis_evangelion"},
+    {"subject_type":"Character","subject_key":"ikari_gendou","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"neon_genesis_evangelion"},
+    {"subject_type":"Character","subject_key":"suzuhara_touji","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"neon_genesis_evangelion"},
+    {"subject_type":"Character","subject_key":"aida_kensuke","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"neon_genesis_evangelion"}
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "campaign_key": "authority:neon_genesis_evangelion",
+  "campaign_fingerprint": "802e9aa18dbcff6fcc1a52f024d6594e17445e392d45bff8f8a775682a831534",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "terminal_reviews": [],
+  "notes": "The official Evangelion 25th anniversary release lists these characters in its series cast roll. The combined Asuka voice-cast entry is omitted because it does not distinguish the packet's Souryuu character from Shikinami.",
+  "proposal_id": "ab2-fwd1-evangelion-25th-anniversary-cast-20260928-01",
+  "source_url": "https://www.evangelion.jp/news/eva25th1004/",
+  "source_claim": "The official Evangelion series-anniversary cast roll names the listed characters for the franchise's animated productions.",
+  "relations": [
+    {"subject_type":"Character","subject_key":"ayanami_rei","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"neon_genesis_evangelion"},
+    {"subject_type":"Character","subject_key":"makinami_mari_illustrious","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"neon_genesis_evangelion"},
+    {"subject_type":"Character","subject_key":"katsuragi_misato","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"neon_genesis_evangelion"},
+    {"subject_type":"Character","subject_key":"akagi_ritsuko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"neon_genesis_evangelion"},
+    {"subject_type":"Character","subject_key":"kaji_ryouji","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"neon_genesis_evangelion"},
+    {"subject_type":"Character","subject_key":"nagisa_kaworu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"neon_genesis_evangelion"},
+    {"subject_type":"Character","subject_key":"ikari_gendou","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"neon_genesis_evangelion"},
+    {"subject_type":"Character","subject_key":"fuyutsuki_kouzou","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"neon_genesis_evangelion"},
+    {"subject_type":"Character","subject_key":"ibuki_maya","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"neon_genesis_evangelion"},
+    {"subject_type":"Character","subject_key":"aoba_shigeru","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"neon_genesis_evangelion"},
+    {"subject_type":"Character","subject_key":"hyuuga_makoto","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"neon_genesis_evangelion"},
+    {"subject_type":"Character","subject_key":"suzuhara_touji","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"neon_genesis_evangelion"},
+    {"subject_type":"Character","subject_key":"aida_kensuke","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"neon_genesis_evangelion"},
+    {"subject_type":"Character","subject_key":"suzuhara_sakura","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"neon_genesis_evangelion"}
+  ]
+}
