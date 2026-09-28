@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-durarara-wagon-cast-20260928-01",
+  "campaign_key": "authority:durarara!!",
+  "campaign_fingerprint": "b1e998abc52fdaddfbd12e5a1fb4dc3f00947b4d64f19aa55327dbf39217ca98",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.durarara.com/character/",
+  "source_claim": "The official Durarara!! x2 character roster names Kadota Kyohei, Yumasaki Walker, Karisawa Erika, and Togusa Saburo as characters and members of the same van group.",
+  "authority_type": "OFFICIAL_ANIME_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"kadota_kyouhei","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"durarara!!"},
+    {"subject_type":"Character","subject_key":"yumasaki_walker","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"durarara!!"},
+    {"subject_type":"Character","subject_key":"karisawa_erika","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"durarara!!"},
+    {"subject_type":"Character","subject_key":"togusa_saburou","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"durarara!!"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The first-party page gives Japanese and Roman-script names and explicitly relates Walker, Karisawa, and Togusa to Kadota's van group. Each subject matches an exact current campaign member."
+}

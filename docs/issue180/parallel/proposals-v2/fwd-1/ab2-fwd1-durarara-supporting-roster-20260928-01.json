@@ -1,0 +1,22 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-durarara-supporting-roster-20260928-01",
+  "campaign_key": "authority:durarara!!",
+  "campaign_fingerprint": "b1e998abc52fdaddfbd12e5a1fb4dc3f00947b4d64f19aa55327dbf39217ca98",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.durarara.com/character/",
+  "source_claim": "The official Durarara!! x2 character roster names Kasuka Heiwajima, Orihara Kururi, Orihara Mairu, Vorona, Awakusu Akane, and Namie Yagiri.",
+  "authority_type": "OFFICIAL_ANIME_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"heiwajima_kasuka","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"durarara!!"},
+    {"subject_type":"Character","subject_key":"orihara_kururi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"durarara!!"},
+    {"subject_type":"Character","subject_key":"orihara_mairu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"durarara!!"},
+    {"subject_type":"Character","subject_key":"vorona","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"durarara!!"},
+    {"subject_type":"Character","subject_key":"awakusu_akane","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"durarara!!"},
+    {"subject_type":"Character","subject_key":"yagiri_namie","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"durarara!!"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The first-party x2 roster directly lists these six current packet characters and includes their family and story roles. Each relation is restricted to the displayed character identity and the current Durarara!! campaign HOME."
+}

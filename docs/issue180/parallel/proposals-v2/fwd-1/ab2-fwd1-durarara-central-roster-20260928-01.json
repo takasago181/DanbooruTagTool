@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-durarara-central-roster-20260928-01",
+  "campaign_key": "authority:durarara!!",
+  "campaign_fingerprint": "b1e998abc52fdaddfbd12e5a1fb4dc3f00947b4d64f19aa55327dbf39217ca98",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.durarara.com/character/",
+  "source_claim": "The official Durarara!! x2 character roster names Celty Sturluson, Mikado Ryugamine, Masaomi Kida, Anri Sonohara, Izaya Orihara, Shizuo Heiwajima, and Shinra Kishitani.",
+  "authority_type": "OFFICIAL_ANIME_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"celty_sturluson","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"durarara!!"},
+    {"subject_type":"Character","subject_key":"ryuugamine_mikado","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"durarara!!"},
+    {"subject_type":"Character","subject_key":"kida_masaomi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"durarara!!"},
+    {"subject_type":"Character","subject_key":"sonohara_anri","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"durarara!!"},
+    {"subject_type":"Character","subject_key":"orihara_izaya","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"durarara!!"},
+    {"subject_type":"Character","subject_key":"heiwajima_shizuo","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"durarara!!"},
+    {"subject_type":"Character","subject_key":"kishitani_shinra","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"durarara!!"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The first-party x2 character page names each listed character as part of the Durarara!! anime roster. These exact names map to current packet member keys; this proposal records only those direct cast matches."
+}
