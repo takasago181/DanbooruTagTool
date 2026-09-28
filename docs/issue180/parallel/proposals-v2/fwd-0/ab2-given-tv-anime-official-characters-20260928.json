@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-given-tv-anime-official-characters-20260928",
+  "campaign_key": "authority:given",
+  "campaign_fingerprint": "637b47a770eeab4778726a0585e7707a7d031be7f9050e15e1198c09dd854c14",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://tv.given-anime.com/character/",
+  "source_claim": "The official Given TV anime character page names and profiles Mafuyu Sato, Ritsuka Uenoyama, Haruki Nakayama, Akihiko Kaji, and Ugetsu Murata as characters in the series.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"satou_mafuyu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"given"},
+    {"subject_type":"Character","subject_key":"uenoyama_ritsuka","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"given"},
+    {"subject_type":"Character","subject_key":"nakayama_haruki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"given"},
+    {"subject_type":"Character","subject_key":"kaji_akihiko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"given"},
+    {"subject_type":"Character","subject_key":"murata_ugetsu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"given"}
+  ],
+  "terminal_reviews": [],
+  "notes": "All five campaign identities appear in the official cast of characters with role descriptions; voice performers are not relations."
+}
