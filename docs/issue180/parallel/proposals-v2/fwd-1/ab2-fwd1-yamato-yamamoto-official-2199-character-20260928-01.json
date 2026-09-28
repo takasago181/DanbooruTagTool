@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-yamato-yamamoto-official-2199-character-20260928-01",
+  "campaign_key": "authority:uchuu_senkan_yamato",
+  "campaign_fingerprint": "e2bcd551b2e4b42169652c4fd4bd4ad0aba7e11894ef5b2107bdda0a5f5ecc71",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.yamato2199.net/character_akira.html",
+  "source_claim": "The official Space Battleship Yamato 2199 character page labels the character as Yamamoto Akira and carries the Yamato 2199 Production Committee copyright notice, establishing this exact character in the Yamato 2199 work.",
+  "authority_type": "OFFICIAL_CHARACTER_PROFILE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_key": "yamamoto_akira",
+      "object_key": "uchuu_senkan_yamato",
+      "subject_type": "Character",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official franchise site provides an individual character page; its character name is present as the page character label and the footer identifies the 2012 Space Battleship Yamato 2199 Production Committee."
+}
