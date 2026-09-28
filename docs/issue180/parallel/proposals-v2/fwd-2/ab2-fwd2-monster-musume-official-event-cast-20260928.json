@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-monster-musume-official-event-cast-20260928",
+  "campaign_key": "authority:monster_musume_no_iru_nichijou",
+  "campaign_fingerprint": "a7769e8ee4f0e50c78999b2d5023e721db310f5c1e1e4cd400d6a32bc9091776",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://monmusu.tv/news/1149/",
+  "source_claim": "The official Monster Musume anime event report names and credits Kurusu Kimihito, Centorea Shianus, Meroune Lorelei, Rachnera Arachnella, Smith, Manako, and Tionishia among the event's character cast.",
+  "authority_type": "OFFICIAL_ANIME_CAST_AND_EVENT_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"centorea_shianus","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"monster_musume_no_iru_nichijou"},
+    {"subject_type":"Character","subject_key":"kurusu_kimihito","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"monster_musume_no_iru_nichijou"},
+    {"subject_type":"Character","subject_key":"manako","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"monster_musume_no_iru_nichijou"},
+    {"subject_type":"Character","subject_key":"meroune_lorelei","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"monster_musume_no_iru_nichijou"},
+    {"subject_type":"Character","subject_key":"ms._smith","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"monster_musume_no_iru_nichijou"},
+    {"subject_type":"Character","subject_key":"rachnera_arachnera","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"monster_musume_no_iru_nichijou"},
+    {"subject_type":"Character","subject_key":"tionishia","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"monster_musume_no_iru_nichijou"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official event article attributes the named characters to their cast/voice actors. Cathyl, Miia's Mother, and Polt are not listed on the checked page and are omitted."
+}

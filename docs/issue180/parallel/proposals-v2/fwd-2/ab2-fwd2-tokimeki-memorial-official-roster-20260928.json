@@ -1,0 +1,19 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-tokimeki-memorial-official-roster-20260928",
+  "campaign_key": "authority:tokimeki_memorial",
+  "campaign_fingerprint": "d0cbd4dc216a2227b4919dbb705357e5397fb758e662ef22d924b55d1de2a337",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.konami.com/games/tokimeki/1r/",
+  "source_claim": "KONAMI's official Tokimeki Memorial: Forever With You Emotional site includes a character roster/profile for Shiori Fujisaki, Yuina Himoo, and Miharu Tatebayashi, all exact members of the current packet.",
+  "authority_type": "KONAMI_FIRST_PARTY_GAME_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"fujisaki_shiori","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tokimeki_memorial"},
+    {"subject_type":"Character","subject_key":"himoo_yuina","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tokimeki_memorial"},
+    {"subject_type":"Character","subject_key":"tatebayashi_miharu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tokimeki_memorial"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The page is for the first Tokimeki Memorial game. Other packet identities across later series entries are not inferred from this roster."
+}

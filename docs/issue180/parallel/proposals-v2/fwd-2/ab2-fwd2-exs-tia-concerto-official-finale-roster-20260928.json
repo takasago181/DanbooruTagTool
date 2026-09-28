@@ -1,0 +1,24 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-exs-tia-concerto-official-finale-roster-20260928",
+  "campaign_key": "authority:kouyoku_senki_exs-tia_concert",
+  "campaign_fingerprint": "bebea8ce1c7af83c055374161ec1026d6273d98d2e847fa4d85893b7e7ce1b90",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://lusterise.nexton-net.jp/product/exs-tia_conce/finale/",
+  "source_claim": "Lusterise's official ExS-TIA Concerto finale roster pairs Aikawa Haruno with ExS-TIA Ignis, Sugahara Touka with ExS-TIA Luna, Oosumi Kanon with ExS-TIA Sol, and Kunijima Chiaki with ExS-TIA Aqua. The page identifies each as a main heroine in Concerto 1–4 and describes the series context.",
+  "authority_type": "LUSTERISE_FIRST_PARTY_SERIES_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"aikawa_haruno","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kouyoku_senki_exs-tia_concert"},
+    {"subject_type":"Character","subject_key":"exs-tia_ignis","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kouyoku_senki_exs-tia_concert"},
+    {"subject_type":"Character","subject_key":"sugahara_touka","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kouyoku_senki_exs-tia_concert"},
+    {"subject_type":"Character","subject_key":"exs-tia_luna","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kouyoku_senki_exs-tia_concert"},
+    {"subject_type":"Character","subject_key":"oosumi_kanon","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kouyoku_senki_exs-tia_concert"},
+    {"subject_type":"Character","subject_key":"exs-tia_sol","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kouyoku_senki_exs-tia_concert"},
+    {"subject_type":"Character","subject_key":"kunijima_chiaki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kouyoku_senki_exs-tia_concert"},
+    {"subject_type":"Character","subject_key":"exs-tia_aqua","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kouyoku_senki_exs-tia_concert"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The other current members ExS-TIA Avalas and Itakano Shigure are omitted: the checked official finale roster does not explicitly provide these exact identities or mappings."
+}

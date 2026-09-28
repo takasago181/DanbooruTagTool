@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-fwd2-sword-girls-official-routes-partial-20260928",
+  "campaign_key": "authority:sword_girls",
+  "campaign_fingerprint": "b9cfee9a43a09de043ada8525f556bc19a76d57bf15d27dbdcf724431c97590a",
+  "worker_slot": 2,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {"route_type":"OFFICIAL_GAME_SITE","url_or_query":"https://www.swordgirlsonline.com/","result":"The link labeled Official Site on the contemporaneous game listing resolves to the original game domain, but the source could not be fetched in the research browser (cache miss). No character evidence was available."},
+    {"route_type":"DEVELOPER_OFFICIAL_SITE","url_or_query":"https://www.zeonix.co.kr/","result":"The former developer domain resolves but exposes no readable character/game roster content in the research browser."},
+    {"route_type":"PUBLISHER_OFFICIAL_CATALOG","url_or_query":"https://www.changyou.com/","result":"The publisher's current official catalog was readable, but the checked visible catalog contains no Sword Girls page or exact packet-member names. This does not establish absence from the historical game."}
+  ],
+  "notes": "Sword Girls' historical game authority pages are no longer available through the checked primary routes. No card database, wiki, fandom list, or unverified character name was promoted to evidence. This broad campaign remains open with partial route progress, not a negative conclusion."
+}

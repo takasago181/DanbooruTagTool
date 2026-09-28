@@ -1,0 +1,46 @@
+[
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-fwd2-kof-snk-roster-exact-names-20260928",
+    "campaign_key": "authority:the_king_of_fighters",
+    "campaign_fingerprint": "29d63a0c0a4331b5293cf0401fa0887316b7f9696e859f4d8e1c7b872cb53169",
+    "worker_slot": 2,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://www.snk-corp.co.jp/official/kof-portal/characters/",
+    "source_claim": "SNK's official KOF character database has exact named character entries and KOF appearance histories for Elisabeth Blanctorche, Kagura Chizuru, Krizalid, Leona Heidern, Maxima, May Lee, Nanakase Yashiro, Shen Woo, Sie Kensou, Yabuki Shingo, and Yamazaki Ryuji.",
+    "authority_type": "SNK_FIRST_PARTY_KOF_CHARACTER_DATABASE",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {"subject_type":"Character","subject_key":"elisabeth_blanctorche","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"the_king_of_fighters"},
+      {"subject_type":"Character","subject_key":"kagura_chizuru","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"the_king_of_fighters"},
+      {"subject_type":"Character","subject_key":"krizalid","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"the_king_of_fighters"},
+      {"subject_type":"Character","subject_key":"leona_heidern","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"the_king_of_fighters"},
+      {"subject_type":"Character","subject_key":"maxima","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"the_king_of_fighters"},
+      {"subject_type":"Character","subject_key":"may_lee","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"the_king_of_fighters"},
+      {"subject_type":"Character","subject_key":"nanakase_yashiro","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"the_king_of_fighters"},
+      {"subject_type":"Character","subject_key":"shen_woo","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"the_king_of_fighters"},
+      {"subject_type":"Character","subject_key":"sie_kensou","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"the_king_of_fighters"},
+      {"subject_type":"Character","subject_key":"yabuki_shingo","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"the_king_of_fighters"},
+      {"subject_type":"Character","subject_key":"yamazaki_ryuuji","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"the_king_of_fighters"}
+    ],
+    "terminal_reviews": [],
+    "notes": "Only exact named database entries in the current packet are included. Alice Garnet Nakata was omitted because the checked entry surfaced only Alice, and the Orochi Leona/Shermie forms were not treated as separate direct-home identities."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-fwd2-kof-k9999-official-profile-20260928",
+    "campaign_key": "authority:the_king_of_fighters",
+    "campaign_fingerprint": "29d63a0c0a4331b5293cf0401fa0887316b7f9696e859f4d8e1c7b872cb53169",
+    "worker_slot": 2,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://game.snk-corp.co.jp/official/kof2002/chara/k9999.html",
+    "source_claim": "SNK's official KOF 2002 character profile explicitly identifies K9999 as an in-game character in the KOF 2001 team/profile context.",
+    "authority_type": "SNK_FIRST_PARTY_CHARACTER_PROFILE",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {"subject_type":"Character","subject_key":"k9999","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"the_king_of_fighters"}
+    ],
+    "terminal_reviews": [],
+    "notes": "This historical first-party page explicitly preserves the exact K9999 identity named by the packet."
+  }
+]
