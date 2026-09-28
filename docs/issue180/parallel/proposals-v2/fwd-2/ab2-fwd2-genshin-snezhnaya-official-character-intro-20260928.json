@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-genshin-snezhnaya-official-character-intro-20260928",
+  "campaign_key": "authority:genshin_impact",
+  "campaign_fingerprint": "f5b0dc8aabaecd40dc3e569b1c431e4e4cee9a7d21ca63f750a75c93dc8eba06",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.youtube.com/watch?v=952O97Z-dFs",
+  "source_claim": "The verified Genshin Impact YouTube channel presents the exact name Anastasya Feodorovna Snezhnaya as the subject of its Genshin Impact Transcendence Trailer 'Sudden Snow'. This identifies the exact named character as belonging to Genshin Impact.",
+  "authority_type": "HOYOVERSE_OFFICIAL_CHARACTER_INTRODUCTION",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"anastasya_feodorovna_snezhnaya","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"genshin_impact"}
+  ],
+  "terminal_reviews": [],
+  "notes": "Exact current campaign member only. No voice-actor names, name variants, objects, or inferred aliases are included; the campaign remains open for its other residual members."
+}

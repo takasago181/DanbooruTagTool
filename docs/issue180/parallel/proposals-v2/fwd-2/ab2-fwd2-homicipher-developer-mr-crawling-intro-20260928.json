@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-homicipher-developer-mr-crawling-intro-20260928",
+  "campaign_key": "authority:homicipher",
+  "campaign_fingerprint": "441306756a053aa37977d2825baa8c249254360530b4444b03c652b1d317e877",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://note.com/yatsunagigames/n/nb33b4e42d06c?hl=en",
+  "source_claim": "Homicipher developer Yanamugi Games' official character introduction names Mr. Crawling and identifies him as the poster character/main partner in Homicipher.",
+  "authority_type": "DEVELOPER_OFFICIAL_CHARACTER_INTRODUCTION",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "mr._crawling",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "homicipher"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The first-party developer source explicitly names the exact campaign character and work. Other current campaign members are not claimed."
+}

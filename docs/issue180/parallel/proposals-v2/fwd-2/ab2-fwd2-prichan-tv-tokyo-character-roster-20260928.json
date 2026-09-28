@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-prichan-tv-tokyo-character-roster-20260928",
+  "campaign_key": "authority:kiratto_pri_chan",
+  "campaign_fingerprint": "0569ed30f6ba8e8b8081c9517af74901029eba9527004785203622786d935791",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.tv-tokyo.co.jp/anime/prichan/chara/",
+  "source_claim": "TV Tokyo's official Kiratto Pri\u2606Chan character page names and describes Mirai Momoyama, Emo Moegi, Rinka Aoba, Anna Akagi, Sara Midorikawa and Mel Shido as characters in the work.",
+  "authority_type": "RIGHTS_HOLDER_OFFICIAL_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "momoyama_mirai",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kiratto_pri_chan"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "moegi_emo",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kiratto_pri_chan"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "aoba_rinka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kiratto_pri_chan"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "akagi_anna",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kiratto_pri_chan"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "midorikawa_sara",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kiratto_pri_chan"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shido_mel",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kiratto_pri_chan"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Exact roster entries from the official page only. Asuka Ruu, Fudou Devi, and Nijinosaki Dia are not claimed from this checked page; the campaign remains open."
+}

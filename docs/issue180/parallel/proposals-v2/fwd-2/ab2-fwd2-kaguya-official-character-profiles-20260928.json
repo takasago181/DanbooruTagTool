@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-kaguya-official-character-profiles-20260928",
+  "campaign_key": "authority:kaguya-sama_wa_kokurasetai_~tensai-tachi_no_renai_zunousen~",
+  "campaign_fingerprint": "0bf347beeef75f24538a934308bcba424c6f4160df76ecc71bde6298f81e7341",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://kaguyasama-anime.com/1st/character/",
+  "source_claim": "The official Kaguya-sama: Love Is War character page identifies Kaguya Shinomiya, Miyuki Shirogane, Chika Fujiwara, Yu Ishigami, and Ai Hayasaka as main/series characters and provides their series profiles.",
+  "authority_type": "OFFICIAL_ANIME_CHARACTER_PROFILES",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "shinomiya_kaguya",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kaguya-sama_wa_kokurasetai_~tensai-tachi_no_renai_zunousen~"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shirogane_miyuki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kaguya-sama_wa_kokurasetai_~tensai-tachi_no_renai_zunousen~"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "fujiwara_chika",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kaguya-sama_wa_kokurasetai_~tensai-tachi_no_renai_zunousen~"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ishigami_yuu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kaguya-sama_wa_kokurasetai_~tensai-tachi_no_renai_zunousen~"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hayasaka_ai",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kaguya-sama_wa_kokurasetai_~tensai-tachi_no_renai_zunousen~"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only exact campaign members named on this official character page are included. Kei is only mentioned by given name in Miyuki's profile, while Moeha, Miko and Smithee A. Haysaca are not established by this page; those members remain unclaimed and the campaign stays open."
+}
