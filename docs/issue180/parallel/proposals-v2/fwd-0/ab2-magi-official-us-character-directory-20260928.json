@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-magi-official-us-character-directory-20260928",
+  "campaign_key": "authority:magi_the_labyrinth_of_magic",
+  "campaign_fingerprint": "746f95f6dd16c4af44e1c1b306bd114625aa700bb6d676806647c7bd4653f730",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.magi-usa.com/character/",
+  "source_claim": "The official Magi character directory profiles Alibaba, Morgiana, Masrur, and Judar as characters in the Magi anime. The page carries the Shinobu Ohtaka/Shogakukan/Magi2 Committee/MBS copyright notice.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"alibaba_saluja","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"magi_the_labyrinth_of_magic"},
+    {"subject_type":"Character","subject_key":"judal","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"magi_the_labyrinth_of_magic"},
+    {"subject_type":"Character","subject_key":"masrur","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"magi_the_labyrinth_of_magic"},
+    {"subject_type":"Character","subject_key":"morgiana","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"magi_the_labyrinth_of_magic"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The English official page spells the Japanese name ジュダル as Judar; the current campaign's canonical tag is judal. No relation is inferred for campaign members absent from this directory."
+}
