@@ -1,0 +1,83 @@
+[
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-kara-no-kyoukai-official-broadcast-character-directory-20260928",
+    "campaign_key": "authority:kara_no_kyoukai",
+    "campaign_fingerprint": "6e176328beeb6831e210f8bb4a2942df1eeb5c4b7cdd03e5591a8cc636736a92",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://www.asahi.co.jp/anime/karanokyoukai/",
+    "source_claim": "ABC TV's official Kara no Kyoukai anime page lists Ryougi Shiki (両儀式), Kokutou Mikiya (黒桐幹也), Aozaki Touko (青崎橙子, with reading あおざきとうこ), and Kokutou Azaka (黒桐鮮花, with reading こくとうあざか) in its character section. It identifies the original work and the Kara no Kyoukai film production committee.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {"subject_type":"Character","subject_key":"aozaki_touko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kara_no_kyoukai"},
+      {"subject_type":"Character","subject_key":"kokutou_azaka","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kara_no_kyoukai"},
+      {"subject_type":"Character","subject_key":"kokutou_mikiya","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kara_no_kyoukai"},
+      {"subject_type":"Character","subject_key":"ryougi_shiki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kara_no_kyoukai"}
+    ],
+    "terminal_reviews": [],
+    "notes": "Names and readings are listed on ABC TV's official character directory."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-kara-no-kyoukai-official-dvd-cast-chapter-3-20260928",
+    "campaign_key": "authority:kara_no_kyoukai",
+    "campaign_fingerprint": "6e176328beeb6831e210f8bb4a2942df1eeb5c4b7cdd03e5591a8cc636736a92",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://www.karanokyoukai.com/dvdz/dv03.html",
+    "source_claim": "The official Chapter 3 ('Remaining Sense of Pain') DVD page lists the cast Ryougi Shiki, Kokutou Mikiya, Aozaki Touko, Kokutou Azaka, and Asagami Fujino (浅上藤乃) for the Kara no Kyoukai film.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {"subject_type":"Character","subject_key":"asagami_fujino","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kara_no_kyoukai"},
+      {"subject_type":"Character","subject_key":"aozaki_touko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kara_no_kyoukai"},
+      {"subject_type":"Character","subject_key":"kokutou_azaka","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kara_no_kyoukai"},
+      {"subject_type":"Character","subject_key":"kokutou_mikiya","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kara_no_kyoukai"},
+      {"subject_type":"Character","subject_key":"ryougi_shiki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kara_no_kyoukai"}
+    ],
+    "terminal_reviews": [],
+    "notes": "All five names are explicitly included in the official disc's cast list."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-kara-no-kyoukai-official-dvd-cast-chapter-2-20260928",
+    "campaign_key": "authority:kara_no_kyoukai",
+    "campaign_fingerprint": "6e176328beeb6831e210f8bb4a2942df1eeb5c4b7cdd03e5591a8cc636736a92",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://www.karanokyoukai.com/archive/dvdz/dv02.html",
+    "source_claim": "The official Chapter 2 ('Murder Speculation, Part 1') DVD page lists Ryougi Shiki, Kokutou Mikiya, Shirasumi Lio (白純里緒), and Araya Souren (荒耶宗蓮) in the cast for the Kara no Kyoukai film.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {"subject_type":"Character","subject_key":"araya_souren","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kara_no_kyoukai"},
+      {"subject_type":"Character","subject_key":"kokutou_mikiya","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kara_no_kyoukai"},
+      {"subject_type":"Character","subject_key":"ryougi_shiki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kara_no_kyoukai"},
+      {"subject_type":"Character","subject_key":"shirazumi_lio","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kara_no_kyoukai"}
+    ],
+    "terminal_reviews": [],
+    "notes": "All four names are explicitly included in the official disc's cast list."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-kara-no-kyoukai-official-mirai-fukuin-cast-20260928",
+    "campaign_key": "authority:kara_no_kyoukai",
+    "campaign_fingerprint": "6e176328beeb6831e210f8bb4a2942df1eeb5c4b7cdd03e5591a8cc636736a92",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://www.karanokyoukai.com/miraifukuin/",
+    "source_claim": "The official Future Gospel page identifies the film as Kara no Kyoukai and lists Ryougi Shiki, Kokutou Mikiya, Aozaki Touko, and Ryougi Mana (両儀未那) in its cast panel. Its story text describes Mana as the employer's daughter traveling with Mitsuru Binakura.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {"subject_type":"Character","subject_key":"ryougi_mana","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kara_no_kyoukai"},
+      {"subject_type":"Character","subject_key":"ryougi_shiki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kara_no_kyoukai"},
+      {"subject_type":"Character","subject_key":"kokutou_mikiya","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kara_no_kyoukai"},
+      {"subject_type":"Character","subject_key":"aozaki_touko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kara_no_kyoukai"}
+    ],
+    "terminal_reviews": [],
+    "notes": "Mana is included by her exact official written name. Void Shiki is omitted because no checked first-party source in this route established an exact safe mapping for that campaign subject."
+  }
+]
