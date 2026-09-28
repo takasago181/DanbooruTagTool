@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-dog-days-noir-official-character-profile-20260928-01",
+  "campaign_key": "authority:dog_days",
+  "campaign_fingerprint": "625e707c984cc5d756b25dbfb7eaf1bd094cd8af299b2bd0411432deddd378d4",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.dogdays.tv/2nd/ipn/1st/character/chara15.html",
+  "source_claim": "The official DOG DAYS character page identifies Noir’s full name as Noir Vinocacao (ノワール・ヴィノカカオ) and gives her character profile.",
+  "authority_type": "OFFICIAL_ANIMATION_CAST_OR_CHARACTER_PAGE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "noir_vinocacao",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dog_days"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "This official DOG DAYS character page establishes the full campaign character name Noir Vinocacao in the franchise."
+}

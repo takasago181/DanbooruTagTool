@@ -1,0 +1,72 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-dog-days-aniplex-official-cast-20260928-01",
+  "campaign_key": "authority:dog_days",
+  "campaign_fingerprint": "625e707c984cc5d756b25dbfb7eaf1bd094cd8af299b2bd0411432deddd378d4",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.aniplex.co.jp/lineup/dogdays/",
+  "source_claim": "Aniplex’s official DOG DAYS page identifies DOG DAYS as a PROJECT DD original TV anime and lists campaign characters Cinque Izumi, Millhiore F. Biscotti, Eclair Martinozzi, Ricotta Elmar, Brioche d'Arquien, Yukikaze Panettone, Leonmitchelli Galette des Rois, and Rebecca Anderson in its cast list.",
+  "authority_type": "OFFICIAL_ANIMATION_CAST_OR_CHARACTER_PAGE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "brioche_d'arquien",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dog_days"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "cinque_izumi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dog_days"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "eclair_martinozzi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dog_days"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "leonmitchelli_galette_des_rois",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dog_days"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "millhiore_f._biscotti",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dog_days"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "rebecca_anderson",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dog_days"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ricotta_elmar",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dog_days"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yukikaze_panettone",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dog_days"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "This official Aniplex source lists the exact eight campaign members by name as cast of DOG DAYS. Noir is excluded here because this cast list gives only her given name; her exact full-name official character page is recorded separately."
+}

@@ -1,0 +1,72 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-cho-kaguya-official-character-page-20260928-01",
+  "campaign_key": "authority:cho_kaguya-hime!",
+  "campaign_fingerprint": "13785aa0cbbbea8cde480b7c513c1b216fb9285d4dc66b23015f980fa1e60e40",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.cho-kaguyahime.com/?cid=1",
+  "source_claim": "The official Cosmic Princess Kaguya! character page lists campaign members Iroha Sakayori (酒寄彩葉), Yachiyo Runami (月見ヤチヨ), Rai Komazawa (駒沢雷), Noi Komazawa (駒沢乃依), Roka Ayatsumugi (綾紬芦花), Mami Isayama (諌山真実), Chuken Otako (忠犬オタ公), and Inudoge (犬DOGE) as characters in the film.",
+  "authority_type": "OFFICIAL_FILM_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "ayatsumugi_roka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cho_kaguya-hime!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "chuken_otako",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cho_kaguya-hime!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "inudoge",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cho_kaguya-hime!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "isayama_mami",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cho_kaguya-hime!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "komazawa_noi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cho_kaguya-hime!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "komazawa_rai",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cho_kaguya-hime!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "runami_yachiyo",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cho_kaguya-hime!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sakayori_iroha",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cho_kaguya-hime!"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The first-party film site’s character section names and profiles each of these eight exact campaign members. Other characters on the page are outside this campaign and are not included."
+}

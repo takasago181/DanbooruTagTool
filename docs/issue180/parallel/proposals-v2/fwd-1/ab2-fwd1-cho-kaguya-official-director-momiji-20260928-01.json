@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-cho-kaguya-official-director-momiji-20260928-01",
+  "campaign_key": "authority:cho_kaguya-hime!",
+  "campaign_fingerprint": "13785aa0cbbbea8cde480b7c513c1b216fb9285d4dc66b23015f980fa1e60e40",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.news.cho-kaguyahime.com/923/",
+  "source_claim": "In an official Cosmic Princess Kaguya! production interview, director Shingo Yamashita discusses Iroha’s mother Momiji as a character in the anime and novelization, describing her role and the phone scene between her and Iroha.",
+  "authority_type": "OFFICIAL_PRODUCTION_INTERVIEW_CHARACTER_REFERENCE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "sakayori_momiji",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cho_kaguya-hime!"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official film news site interviews the director and novelist about the Sakayori family. The director explicitly identifies Momiji as Iroha’s mother and discusses her anime/novelization scenes, establishing this campaign character in the work."
+}
