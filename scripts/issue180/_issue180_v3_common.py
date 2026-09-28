@@ -26,14 +26,11 @@ CHARACTER_CATEGORY = "4"
 COPYRIGHT_CATEGORY = "3"
 FINAL_STATES = {"HOME_CONFIRMED", "HOME_UNRESOLVED", "NOT_OFFICIAL_CHARACTER"}
 STRUCTURAL_FAMILY_BLOCKS = {"collab", "collaboration", "crossover", "cross_over", "company", "platform", "event", "costume", "attribute"}
-DECISION_FILES = (
-    "direct_and_exceptions_v2.csv",
-    "discovery_roster_reviews_v2.csv",
-    "family_terminal_reviews_v2.csv",
-    "roster_verified_v4.csv",
-    "variant_pattern_reviews_v2.csv",
-    "variants_verified_v4.csv",
+DECISION_SCHEMA = (
+    "scope", "key", "home_copyright", "base_character", "authority_type",
+    "evidence_url", "evidence_claim", "validation_state", "officiality_state", "notes",
 )
+PROTECTED_DECISION_BASE = "AUTHORITY_DECISIONS_BASE_V2.csv"
 
 def read_csv(path: Path) -> list[dict[str, str]]:
     csv.field_size_limit(16 * 1024 * 1024)
@@ -93,16 +90,54 @@ def load_catalog() -> tuple[list[dict[str, str]], list[dict[str, str]], dict[str
         raise ValueError("Issue #70 Copyright source has duplicate canonical tags")
     return characters, copyrights, by_tag
 
-def load_decisions() -> list[dict[str, str]]:
+def decision_paths(directory: Path | None = None) -> list[Path]:
+    """Return the one deterministic active decision-shard set used by v3.
+
+    The frozen authority base is deliberately not an active mutable shard. Stable
+    filename ordering retains the historical six-shard order while discovering
+    newly added shards without loader/manifest drift.
+    """
+    source_dir = directory if directory is not None else DECISION_DIR
+    return sorted(
+        (path for path in source_dir.glob("*.csv") if path.name != PROTECTED_DECISION_BASE),
+        key=lambda path: path.name,
+    )
+
+
+def load_decisions(directory: Path | None = None) -> list[dict[str, str]]:
     out: list[dict[str, str]] = []
-    for name in DECISION_FILES:
-        path = DECISION_DIR / name
-        if not path.exists():
-            continue
-        for line, row in enumerate(read_csv(path), start=2):
-            row["_source_file"] = relpath(path)
-            row["_source_line"] = str(line)
-            out.append(row)
+    seen: dict[tuple[str, str], tuple[str, int]] = {}
+    for path in decision_paths(directory):
+        try:
+            with path.open("r", encoding="utf-8-sig", newline="") as source:
+                reader = csv.reader(source, strict=True)
+                header = next(reader, None)
+                if tuple(header or ()) != DECISION_SCHEMA:
+                    raise ValueError(f"expected exact schema {','.join(DECISION_SCHEMA)}")
+                for values in reader:
+                    line = reader.line_num
+                    if len(values) != len(DECISION_SCHEMA):
+                        raise ValueError(f"malformed CSV row at line {line}: wrong column count")
+                    row = dict(zip(DECISION_SCHEMA, values))
+                    scope, key = (row.get("scope") or "").strip(), (row.get("key") or "").strip()
+                    if not scope or not key:
+                        raise ValueError(f"blank scope/key at line {line}")
+                    identity = (scope, key)
+                    if identity in seen:
+                        prior_path, prior_line = seen[identity]
+                        raise ValueError(
+                            f"duplicate decision (scope,key) {identity!r}: "
+                            f"{prior_path}:{prior_line} and {relpath(path)}:{line}"
+                        )
+                    seen[identity] = (relpath(path), line)
+                    row["scope"], row["key"] = scope, key
+                    row["_source_file"] = relpath(path)
+                    row["_source_line"] = str(line)
+                    out.append(row)
+        except (csv.Error, UnicodeDecodeError, OSError) as exc:
+            raise ValueError(f"malformed decision shard {relpath(path)}: {exc}") from exc
+        except ValueError as exc:
+            raise ValueError(f"invalid decision shard {relpath(path)}: {exc}") from exc
     return out
 
 def canonical_family_candidates(characters: list[dict[str, str]]) -> list[dict[str, str]]:

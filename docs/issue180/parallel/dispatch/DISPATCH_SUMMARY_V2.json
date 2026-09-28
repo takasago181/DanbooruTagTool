@@ -22,9 +22,9 @@
     }
   },
   "packet_limit_per_lane": 200,
-  "progressed_open_campaigns": 117,
+  "progressed_open_campaigns": 116,
   "queue_ids": [
-    "q2-e67000873edd56ac9184"
+    "q2-e86273ebe20c5f92460b"
   ],
   "total_forward_campaigns": 4489,
   "total_open_campaigns": 4489

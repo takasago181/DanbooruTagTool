@@ -2,11 +2,16 @@ import importlib.util
 import json
 import unittest
 from pathlib import Path
+import sys
 
 ROOT=Path(__file__).resolve().parents[2]
 SCRIPT=ROOT/"scripts/issue180/build_parallel_campaigns_v2.py"
 spec=importlib.util.spec_from_file_location("issue180_parallel_v2",SCRIPT)
 mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)
+GUARD_SCRIPT=ROOT/"scripts/issue180/validate_parallel_worktree_v2.py"
+sys.path.insert(0,str(ROOT/"scripts/issue180"))
+guard_spec=importlib.util.spec_from_file_location("issue180_parallel_guard_v2",GUARD_SCRIPT)
+guard=importlib.util.module_from_spec(guard_spec); guard_spec.loader.exec_module(guard)
 
 class Issue180ParallelV2Tests(unittest.TestCase):
     def cfg(self):
@@ -15,6 +20,16 @@ class Issue180ParallelV2Tests(unittest.TestCase):
     def test_owner_slot_stable_by_authority_key(self):
         self.assertEqual(mod.owner_slot("authority:pokemon",4),mod.owner_slot("authority:pokemon",4))
         self.assertIn(mod.owner_slot("authority:pokemon",4),range(4))
+
+    def test_serial_writer_scope_allows_issue180_work_and_rejects_protected_paths(self):
+        guard.validate_serial_scope({
+            "docs/issue180/parallel/QA_REVIEW_LEDGER_V2.csv",
+            "scripts/issue180/_issue180_v3_common.py",
+            "tests/issue180/test_issue180_v3.py",
+            ".github/workflows/issue180_single_home_pilot.yml",
+        })
+        with self.assertRaisesRegex(SystemExit, "Serial Issue180 writer scope violation"):
+            guard.validate_serial_scope({"docs/issue70/data/runtime/issue70_catalog_overlay.csv"})
 
     def test_same_family_authority_is_one_campaign(self):
         cfg=self.cfg()

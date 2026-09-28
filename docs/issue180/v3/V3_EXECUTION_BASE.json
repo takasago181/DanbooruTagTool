@@ -1,7 +1,7 @@
 {
   "active_pipeline": {
     "build_residual_units_v3.py": "90ee4af6cb48c8f1f27a88349d33e43d7a54a297a0ac91058e50aebbb588214a",
-    "build_structure_v3.py": "d3b99962c0e93bef5df5616c1dcc08345538fcb7dcd3ff1a6533b86be54c9804",
+    "build_structure_v3.py": "4d7783a9a3a61f61890c5c7cbb1d96fa560bc03c17f75605a859bcced1925157",
     "migrate_evidence_v3.py": "81ca520f3d47c074a94a8c89397cfbb072f9753d88dcfd72e066d91885049192",
     "resolve_character_home_v3.py": "7b69c47828f4b0ab5b4b1b0916730fda9f896c3de4c95992ce38c4a12f80f7b1",
     "run_issue180_v3.py": "2d232a1bd0a753615927d4a1e3a6c218172ea3ffaa093b463dc39f3f53ad027e",
@@ -9,7 +9,7 @@
   },
   "catalog_sha256": "1d346ad75655ea6091f9bce9a4cf58b1cf6f8fac18c7eb441f8edd009ee81433",
   "evidence_schema_version": 2,
-  "helper_sha256": "abec6bd3a6937938ff87111ef52155dbef8a899dd208789fafa545a5e5f4952e",
+  "helper_sha256": "1f0896871cd832d8e0276024062a5042fbceebdf78e260c6915b9cb7478f77d3",
   "issue179_handoff_sha256": "b4db9a73db834bb3cc567b66559ea046b93ab4eb5a738dc2ac8270a23da2f222",
   "issue180_policy_sha256": "704ad9c2d8df1e7d04c68e491a3f967c6facde85d7567aa65b01be574a029d32",
   "legacy_v1_v2_pipeline_dependency": false,

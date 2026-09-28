@@ -3,6 +3,7 @@
   "status": "ACTIVE",
   "supersedes": "PARALLEL_EXECUTION_V1",
   "canonical_branch": "research/issue180-single-home-pilot",
+  "serial_branch": "research/issue180-serial-completion",
   "qa_branch": "research/issue180-qa-integrator",
   "forward_slots": 4,
   "forward_branches": [

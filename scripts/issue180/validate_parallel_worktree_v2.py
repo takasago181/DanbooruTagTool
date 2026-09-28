@@ -12,6 +12,8 @@ from _issue180_v3_common import ROOT
 from build_parallel_campaigns_v2 import owner_slot
 
 CONFIG=ROOT/"docs/issue180/parallel/PARALLEL_EXECUTION_V2.json"
+SERIAL_ALLOWED_PREFIXES=("docs/issue180/", "scripts/issue180/", "tests/issue180/")
+SERIAL_ALLOWED_EXACT={".github/workflows/issue180_single_home_pilot.yml"}
 
 def run(*args: str, check: bool=True) -> str:
     p=subprocess.run(["git",*args],cwd=ROOT,text=True,capture_output=True)
@@ -34,6 +36,12 @@ def require_latest_canonical_ancestor(canonical: str) -> None:
     p=subprocess.run(["git","merge-base","--is-ancestor",remote,"HEAD"],cwd=ROOT,text=True,capture_output=True)
     if p.returncode:
         raise SystemExit("QA Worktree must contain latest canonical before integration")
+
+def validate_serial_scope(changed: set[str]) -> None:
+    bad=sorted(path for path in changed
+               if path not in SERIAL_ALLOWED_EXACT and not path.startswith(SERIAL_ALLOWED_PREFIXES))
+    if bad:
+        raise SystemExit("Serial Issue180 writer scope violation:\n"+"\n".join("  "+path for path in bad))
 
 RELATION_CONTRACTS={
     ("Character","DIRECT_HOME","Copyright"),
@@ -132,6 +140,11 @@ def main() -> None:
     canonical=cfg["canonical_branch"]
     if br==canonical:
         print("Issue180 v2 guard PASS: canonical")
+        return
+    if br==cfg.get("serial_branch"):
+        require_latest_canonical_ancestor(canonical)
+        validate_serial_scope(changed_from_canonical(canonical))
+        print("Issue180 v2 guard PASS: serial integration writer; canonical ancestry and Issue180 scope verified")
         return
     changed=changed_from_canonical(canonical)
     if br in cfg["forward_branches"]:
