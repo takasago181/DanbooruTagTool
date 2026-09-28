@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-theresa-astralop-official-announcement-20260928-01",
+  "campaign_key": "base:theresa_apocalypse",
+  "campaign_fingerprint": "4a06b398530832c273170a25bf31b38c58f77a2486bc30871457867cb94b1900",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://honkaiimpact3.hoyoverse.com/m/global/en-us/news/129853?cate=516",
+  "source_claim": "The official Honkai Impact 3rd v8.1 event announcement says a new S-rank AstralOp Theresa Apocalypse will be available, explicitly naming Theresa Apocalypse in the AstralOp role represented by the campaign tag.",
+  "authority_type": "OFFICIAL_GAME_CHARACTER_ANNOUNCEMENT",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "theresa_apocalypse_(astralop)",
+      "relation_type": "VARIANT_OF",
+      "object_type": "Character",
+      "object_key": "theresa_apocalypse"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official game announcement names Theresa Apocalypse as the new AstralOp; this batch records the exact campaign-tagged AstralOp form as a variant of the base Theresa Apocalypse character."
+}
