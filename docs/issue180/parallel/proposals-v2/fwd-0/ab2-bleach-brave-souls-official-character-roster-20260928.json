@@ -1,0 +1,93 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-bleach-brave-souls-official-character-roster-20260928",
+  "campaign_key": "authority:bleach",
+  "campaign_fingerprint": "cf965ff14a19d44c25d7442a1d8d281590ab5c0e8dc8b6a10475bea3e8ed9d3b",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.bleach-bravesouls.com/character/",
+  "source_claim": "The official BLEACH Brave Souls character directory, operated by KLabGames, explicitly lists the exact BLEACH characters Coyote Starrk, Cyan Sung-Sun, Kiyone Kotetsu (listed jointly with Sentaro Kotsubaki), Kuna Mashiro, Lilynette Gingerbuck, Loly Aivirrne, Nnoitra Gilga, Kukaku Shiba, Szayelaporro Granz, Tier Harribel, and Ulquiorra Cifer. The page identifies itself as the BLEACH character directory. Exact displayed Japanese names were checked against the current campaign's canonical tags.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "coyote_starrk",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bleach"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "cyan_sung-sun",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bleach"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kotetsu_kiyone",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bleach"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kuna_mashiro",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bleach"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "lilynette_gingerbuck",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bleach"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "loly_aivirrne",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bleach"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nnoitra_gilga",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bleach"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shiba_kuukaku",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bleach"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "szayelaporro_granz",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bleach"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tier_harribel",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bleach"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ulquiorra_cifer",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bleach"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only exact character entries in the official BLEACH Brave Souls character directory are included. Ambiguous form/ability/mascot tags and campaign members not listed in this source are omitted; the broad campaign remains open for further authority research."
+}
