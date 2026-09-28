@@ -1,0 +1,72 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-rosario-vampire-shueisha-character-roster-20260928",
+  "campaign_key": "authority:rosario+vampire",
+  "campaign_fingerprint": "764b1ff49ecfeb75d2cec7fd08096865e92cd4ab27d4bae4ba1d7609f3a740c0",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://jumpsq.shueisha.co.jp/rensai/rosario/",
+  "source_claim": "Shueisha's official Jump SQ series page for Rosario + Vampire season II identifies Akashiya Moka, Kurono Kurumu, Shirayuki Mizore, Sendou Yukari, Toujou Ruby, Shuzen Kokoa, and Aono Tsukune as characters in the work. It describes Moka's sealed and true vampire form, covering the Danbooru inner_moka identity as Moka's form.",
+  "authority_type": "FIRST_PARTY_PUBLISHER_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "akashiya_moka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "rosario+vampire"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "aono_tsukune",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "rosario+vampire"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "inner_moka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "rosario+vampire"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kurono_kurumu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "rosario+vampire"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sendou_yukari",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "rosario+vampire"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shirayuki_mizore",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "rosario+vampire"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shuzen_kokoa",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "rosario+vampire"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "toujou_ruby",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "rosario+vampire"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The page explicitly names the seven characters and states that Moka's rosario-sealed appearance conceals her true vampire nature. inner_moka is mapped as that same named character's form, not as a new identity."
+}
