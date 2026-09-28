@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-f3-ayanepuna-first-party-creator-route-check-20260928-01",
+  "campaign_key": "authority:ayanepuna",
+  "campaign_fingerprint": "c2a5b4df528c72ff33c6758f37da1e8d1eeed389c2dd7df7acc4c7b909675106",
+  "worker_slot": 3,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "FIRST_PARTY_CREATOR_ACCOUNT_SEARCH",
+      "url_or_query": "ayanepuna official profile ii nia shio yune",
+      "result": "No creator-controlled character profile/roster surfaced in this pass."
+    },
+    {
+      "route_type": "CREATOR_ARTWORK_DISCOVERY",
+      "url_or_query": "https://twitter.com/ayanepuna/status/1849875840043188348",
+      "result": "A post URL was surfaced through a third-party artwork index, but the original post was not independently verified as an authority roster and it does not establish a named copyright scope."
+    },
+    {
+      "route_type": "FIRST_PARTY_CREATOR_STORE_SEARCH",
+      "url_or_query": "ayanepuna official shop ii nia shio yune",
+      "result": "No publisher or creator shop page tying the exact dispatched names to a bounded work/copyright was located."
+    }
+  ],
+  "notes": "The indexed artwork shows a creator discovery lead but no first-party mapping from these exact names to a single HOME Copyright. This is partial route accounting, not a rights-holder or character conclusion."
+}

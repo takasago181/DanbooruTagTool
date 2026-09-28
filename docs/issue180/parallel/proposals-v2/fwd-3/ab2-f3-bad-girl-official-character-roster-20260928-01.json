@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-bad-girl-official-character-roster-20260928-01",
+  "campaign_key": "authority:bad_girl_(manga)",
+  "campaign_fingerprint": "cdf966f2bf751546247986d1e0ae059fc7802bfab9d3ef0efd8435209de6fe9e",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://badgirl-anime.com/",
+  "source_claim": "The official Bad Girl anime character roster lists Yuu Yuutani, Atori Mizutori, Suzu Suzukaze, and Rura Ruriha, and identifies the adaptation’s source manga Bad Girl by Nikumaru and publisher Houbunsha.",
+  "authority_type": "FIRST_PARTY_ANIME_CHARACTER_ROSTER_AND_SOURCE_CREDIT",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "yuutani_yuu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bad_girl_(manga)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mizutori_atori",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bad_girl_(manga)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "suzukaze_suzu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bad_girl_(manga)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ruriha_rura",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bad_girl_(manga)"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official site names all four dispatched characters and credits the source manga; the batch preserves the packet’s exact character tags and manga copyright scope."
+}

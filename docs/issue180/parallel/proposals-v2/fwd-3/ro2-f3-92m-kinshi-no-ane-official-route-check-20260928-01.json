@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-f3-92m-kinshi-no-ane-official-route-check-20260928-01",
+  "campaign_key": "authority:92m",
+  "campaign_fingerprint": "97cf37fa79a54eead013d3691f4a1b8ec4f31b393bbe8210e0340a76d714ee43",
+  "worker_slot": 3,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "FIRST_PARTY_PUBLISHER_ARTBOOK_PAGE",
+      "url_or_query": "https://www.kadokawa.co.jp/product/322304000925/",
+      "result": "KADOKAWA identifies the 92M artbook and Kinshi no Ane heroine/sibling premise, but does not identify the four dispatched tags by exact names."
+    },
+    {
+      "route_type": "PUBLISHER_DIGITAL_CATALOG",
+      "url_or_query": "https://bookwalker.jp/de174fbd99-4aa4-46ff-84ad-92673c623527/",
+      "result": "The publisher-linked digital listing confirms 92M and the Kinshi no Ane series, but gives only unnamed sister/brother descriptions rather than exact packet identities."
+    },
+    {
+      "route_type": "FIRST_PARTY_CREATOR_ACCOUNT_SEARCH",
+      "url_or_query": "92M 近視の姉 公式 creator Dateko Kakita Kinshi no Ane",
+      "result": "No creator-controlled post or official character roster mapping Dateko, Kakita, Kinshi no Ane, and Otouto surfaced in this search."
+    }
+  ],
+  "notes": "A publisher source confirms the relevant work but the exact tag-to-character name mappings remain unverified. Partial route accounting only, not negative evidence or exhaustion."
+}

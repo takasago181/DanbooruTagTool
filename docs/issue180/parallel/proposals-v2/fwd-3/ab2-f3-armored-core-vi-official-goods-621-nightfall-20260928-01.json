@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-armored-core-vi-official-goods-621-nightfall-20260928-01",
+  "campaign_key": "authority:armored_core_vi",
+  "campaign_fingerprint": "15da8882182cb86856fbb575e8de5703b0935f61991e9f3fbe0a38bb808c7225",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.armoredcore.net/goods.html",
+  "source_claim": "FromSoftware’s official ARMORED CORE VI goods page lists C4-621 merchandise and a Nightfall AC figure explicitly from Fires of Rubicon.",
+  "authority_type": "FIRST_PARTY_GAME_GOODS_CATALOG",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "621_(armored_core_vi)",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "armored_core_vi"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nightfall_(armored_core_vi)",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "armored_core_vi"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official goods catalog directly ties the C4-621 identity and Nightfall AC to ARMORED CORE VI. Ayre and ALLMIND are left out because the checked merch/music listings do not safely establish their exact character identities."
+}

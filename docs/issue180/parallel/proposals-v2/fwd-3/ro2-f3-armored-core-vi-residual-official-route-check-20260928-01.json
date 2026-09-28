@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-f3-armored-core-vi-residual-official-route-check-20260928-01",
+  "campaign_key": "authority:armored_core_vi",
+  "campaign_fingerprint": "15da8882182cb86856fbb575e8de5703b0935f61991e9f3fbe0a38bb808c7225",
+  "worker_slot": 3,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "FIRST_PARTY_GAME_GOODS_CATALOG",
+      "url_or_query": "https://www.armoredcore.net/goods.html",
+      "result": "The official page lists C4-621 and Nightfall goods, but has no exact character bio for Ayre or ALLMIND."
+    },
+    {
+      "route_type": "FIRST_PARTY_PUBLISHER_SOUNDTRACK_PAGE",
+      "url_or_query": "https://store.bandainamcoent.com/merchandise/armored-core/armored-core-vi-fires-of-rubicon/armored-core-vi-fires-of-rubicon-official-vinyl",
+      "result": "Bandai Namco’s official soundtrack track list includes “Allmind”; a track title does not establish the packet tag as a Character."
+    },
+    {
+      "route_type": "FIRST_PARTY_GAME_CATALOG",
+      "url_or_query": "https://www.bandainamcoent.com/games/armored-core-vi-fires-of-rubicon",
+      "result": "The official game catalog establishes the work and setting but does not list the exact Ayre and ALLMIND character mappings."
+    }
+  ],
+  "notes": "C4-621 and Nightfall have been submitted in a separate positive source batch. Ayre and ALLMIND remain without a safely verified exact Character relation; partial route accounting only, not campaign exhaustion."
+}
