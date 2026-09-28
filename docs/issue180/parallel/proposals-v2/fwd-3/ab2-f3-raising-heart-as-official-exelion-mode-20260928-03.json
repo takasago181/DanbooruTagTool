@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-raising-heart-as-official-exelion-mode-20260928-03",
+  "campaign_key": "base:raising_heart",
+  "campaign_fingerprint": "5c38290cae52b1adb152a480daa5448e45c07d07b6f8b3e833e49253d94854d6",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.nanoha.com/archive2/chara/cha_723.html",
+  "source_claim": "The official Magical Girl Lyrical Nanoha A's Raising Heart profile names Exelion Mode and describes it as the device's full-drive mode.",
+  "authority_type": "FIRST_PARTY_OFFICIAL_DEVICE_PROFILE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"raising_heart_(exelion_mode)","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mahou_shoujo_lyrical_nanoha_a's"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The exact mode and Raising Heart are explicitly named in the official A's profile."
+}
