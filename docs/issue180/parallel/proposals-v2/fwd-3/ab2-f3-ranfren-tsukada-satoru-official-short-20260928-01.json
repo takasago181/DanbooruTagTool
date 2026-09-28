@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-ranfren-tsukada-satoru-official-short-20260928-01",
+  "campaign_key": "authority:randal's_friends",
+  "campaign_fingerprint": "be5dbe9bf16ce1a596829d440b27aeecfe163e8a9a890aeab09dbbe0051a22bc",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://ranfren.neocities.org/comics",
+  "source_claim": "The creator’s official comic index lists the short “2020.10.29 tsukada satoru and randal ivory,” which links to the comic asset /lucid/short/tsutsu2.png.",
+  "authority_type": "FIRST_PARTY_COMIC_CATALOG",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "tsukada_satoru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "randal's_friends"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official title explicitly names the exact campaign member and Randal Ivory within the Randal’s Friends comic index. No Dream Luther identity is inferred from other titles."
+}

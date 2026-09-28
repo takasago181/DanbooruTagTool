@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-ranfren-randal-profile-20260928-01",
+  "campaign_key": "authority:randal's_friends",
+  "campaign_fingerprint": "be5dbe9bf16ce1a596829d440b27aeecfe163e8a9a890aeab09dbbe0051a22bc",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://ranfren.neocities.org/profile/randal/randalivory",
+  "source_claim": "The creator’s official character profile is headed RANDAL IVORY and provides Randal’s character data within Randal’s Friends.",
+  "authority_type": "FIRST_PARTY_CHARACTER_PROFILE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "randal_ivory",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "randal's_friends"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Exact full-name profile match for the campaign member."
+}

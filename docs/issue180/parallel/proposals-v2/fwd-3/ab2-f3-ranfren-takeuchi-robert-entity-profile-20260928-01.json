@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-ranfren-takeuchi-robert-entity-profile-20260928-01",
+  "campaign_key": "authority:randal's_friends",
+  "campaign_fingerprint": "be5dbe9bf16ce1a596829d440b27aeecfe163e8a9a890aeab09dbbe0051a22bc",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://ranfren.neocities.org/profile/entities/ratpage/ratman",
+  "source_claim": "The creator’s entity profile explicitly names PRESENT DAY PROBLEM TAKEUCHI ROBERT and identifies him as the main character of LUCID17–21 in Randal’s Friends.",
+  "authority_type": "FIRST_PARTY_CHARACTER_PROFILE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "present_day_problem_takeuchi_robert",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "randal's_friends"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Exact title and spelling match for the campaign identity; no other entities are inferred from the page."
+}
