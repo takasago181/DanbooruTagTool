@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "campaign_key": "authority:xenoblade_chronicles_(series)",
+  "campaign_fingerprint": "3a7ba5bee4a0216c1c574c916e4983f0511c809bfaae3bf8dfc53a64b198c1e7",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "terminal_reviews": [],
+  "proposal_id": "ab2-f3-xenoblade-melia-nintendo-xenoblade-definitive-roster-20260928-01",
+  "source_url": "https://www.nintendo.com/jp/switch/aubqa/character/index.html",
+  "source_claim": "Nintendoの『ゼノブレイド ディフィニティブ・エディション』公式登場人物ページは、メリアを本作のキャラクターとしてプロフィール付きで掲載している。",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "melia_antiqua",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "xenoblade_chronicles_(series)"
+    }
+  ],
+  "notes": "This is positive source-level evidence for the exact campaign identity named by the official work/source. Other campaign members and whole-campaign completion are not inferred."
+}

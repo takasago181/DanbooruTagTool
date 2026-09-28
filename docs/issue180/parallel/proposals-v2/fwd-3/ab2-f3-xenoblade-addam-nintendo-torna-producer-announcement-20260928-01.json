@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "campaign_key": "authority:xenoblade_chronicles_(series)",
+  "campaign_fingerprint": "3a7ba5bee4a0216c1c574c916e4983f0511c809bfaae3bf8dfc53a64b198c1e7",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "terminal_reviews": [],
+  "proposal_id": "ab2-f3-xenoblade-addam-nintendo-torna-producer-announcement-20260928-01",
+  "source_url": "https://www.nintendo.com/en-gb/News/2018/June/Monolith-Soft-s-Tetsuya-Takahashi-reveals-more-on-Xenoblade-Chronicles-2-Torna-The-Golden-Country-1392565.html",
+  "source_claim": "Nintendoが掲載したMonolith Soft総監督・高橋哲哉の公式発表は、『Xenoblade Chronicles 2: Torna - The Golden Country』を本編追加シナリオと説明し、物語で重要な人物としてAddamを明記している。",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "addam_origo",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "xenoblade_chronicles_(series)"
+    }
+  ],
+  "notes": "This is positive source-level evidence for the exact campaign identity named by the official work/source. Other campaign members and whole-campaign completion are not inferred."
+}
