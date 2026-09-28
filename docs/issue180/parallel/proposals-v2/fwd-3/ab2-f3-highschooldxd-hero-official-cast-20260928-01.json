@@ -1,0 +1,79 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-highschooldxd-hero-official-cast-20260928-01",
+  "campaign_key": "authority:high_school_dxd",
+  "campaign_fingerprint": "8d77850f16dd1d86ef0a885c128c96adf748ef1ccd322808425ad62b7cd1c3e2",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://haremking.tv/staffcast/",
+  "source_claim": "The official High School DxD HERO cast page names Issei Hyoudou, Rias Gremory, Asia Argento, Akeno Himejima, Koneko Toujou, Xenovia Quarta, Irina Shidou, Gasper Vladi, and Rossweisse.",
+  "authority_type": "FIRST_PARTY_ANIME_CAST_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "asia_argento",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "high_school_dxd"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "gasper_vladi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "high_school_dxd"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "himejima_akeno",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "high_school_dxd"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hyoudou_issei",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "high_school_dxd"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "rias_gremory",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "high_school_dxd"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "rossweisse",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "high_school_dxd"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shidou_irina",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "high_school_dxd"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "toujou_koneko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "high_school_dxd"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "xenovia_quarta",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "high_school_dxd"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only campaign identities explicitly named in the official HERO cast roster are proposed. Other current campaign characters are omitted."
+}

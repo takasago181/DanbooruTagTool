@@ -1,0 +1,114 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-osomatsu-official-character-roster-20260928-01",
+  "campaign_key": "authority:osomatsu_(series)",
+  "campaign_fingerprint": "1f75772fc20663ac3ce5c2790ab026df4e87cb4b2f6baafcc7162dfd2c5e7716",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://osomatsusan.com/character/",
+  "source_claim": "The official Osomatsu-san character directory profiles the six Matsuno brothers, Totoko, Iyami, Chibita, Dekapan, Dayon, Hatabou, Matsuzou, and Matsuyo.",
+  "authority_type": "FIRST_PARTY_ANIME_CHARACTER_DIRECTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "chibita",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "osomatsu_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "dayoon",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "osomatsu_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "dekapan",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "osomatsu_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hatabou",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "osomatsu_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "iyami",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "osomatsu_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "matsuno_choromatsu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "osomatsu_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "matsuno_ichimatsu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "osomatsu_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "matsuno_jyushimatsu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "osomatsu_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "matsuno_karamatsu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "osomatsu_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "matsuno_matsuyo",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "osomatsu_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "matsuno_matsuzou",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "osomatsu_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "matsuno_osomatsu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "osomatsu_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "matsuno_todomatsu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "osomatsu_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yowai_totoko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "osomatsu_(series)"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only campaign identities with named entries in the official character directory are included. The remaining tags are not present in that roster page and are left for separate evidence."
+}
