@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-riddle-joker-yuzusoft-official-character-roster-20260928",
+  "campaign_key": "authority:riddle_joker",
+  "campaign_fingerprint": "a0629cf8356f2211553cafcdfad78a46910b0474a2c97e3cc0126016704a4da5",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.yuzu-soft.com/products/riddle/character.html",
+  "source_claim": "Yuzusoft's official RIDDLE JOKER character page lists the six campaign characters by name: Ayase Mitsukasa (三司あやせ), Nanami Arihara (在原七海), Mayu Shikibe (式部茉優), Hazuki Nijouin (二条院羽月), Chisaki Mibu (壬生千咲), and Satoru Arihara (在原暁). The page carries the work's ©2018 YUZUSOFT / JUNOS copyright.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "arihara_nanami",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "riddle_joker"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "arihara_satoru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "riddle_joker"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mibu_chisaki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "riddle_joker"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mitsukasa_ayase",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "riddle_joker"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nijouin_hazuki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "riddle_joker"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shikibe_mayu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "riddle_joker"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Official publisher/developer first-party roster; this batch contains only exact campaign members named in the character list."
+}

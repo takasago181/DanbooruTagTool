@@ -1,0 +1,37 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-powerpuffgirls-official-broadcaster-core-girls-20260928",
+  "campaign_key": "authority:ppg",
+  "campaign_fingerprint": "cc59f83492025fcf736aadb72871de85060b9f34bcc1d7a84c7175eb8cf4966e",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.discoveryjapan.jp/cartoonnetwork/ppg/",
+  "source_claim": "The official Warner Bros. Discovery Japan / Cartoon Network program page names Blossom, Bubbles, and Buttercup as the three Powerpuff Girls and credits The Cartoon Network, Inc. as the copyright and trademark owner for the series and related elements. This proves the three exact girl-character campaign relations to the stable Powerpuff Girls root.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "blossom_(ppg)",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "powerpuff_girls"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "bubbles_(ppg)",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "powerpuff_girls"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "buttercup_(ppg)",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "powerpuff_girls"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "This checked official page establishes only the three girls; it does not explicitly name the campaign's Rowdyruff Boys (Boomer, Brick, Butch). No HOME relation is proposed for those three from this source."
+}

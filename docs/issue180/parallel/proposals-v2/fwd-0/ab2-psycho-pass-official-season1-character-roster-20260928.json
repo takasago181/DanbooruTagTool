@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-psycho-pass-official-season1-character-roster-20260928",
+  "campaign_key": "authority:psycho-pass",
+  "campaign_fingerprint": "fd7d412d2ea241bcc4af463ea2ec5ba8777eac73c1b1aff737551a08ebc8a8bb",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://psycho-pass.com/archive/sp/character/tv1.php",
+  "source_claim": "The official PSYCHO-PASS season-one character profile page names and profiles all six campaign members, with explicit Roman-letter names and Japanese identities: Shinya Kogami (狡噛慎也), Akane Tsunemori (常守朱), Nobuchika Ginoza (宜野座伸元), Shion Karanomori (唐之杜志恩), Yayoi Kunizuka (六合塚弥生), and Shogo Makishima (槙島聖護). The archive page is explicitly under PSYCHO-PASS 1 and carries the production committee copyright.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "ginoza_nobuchika",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "psycho-pass"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "karanomori_shion",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "psycho-pass"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kougami_shin'ya",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "psycho-pass"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kunizuka_yayoi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "psycho-pass"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "makishima_shougo",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "psycho-pass"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tsunemori_akane",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "psycho-pass"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The source explicitly presents these characters in the series' first-season section; the stable root is PSYCHO-PASS rather than a particular adaptation installment."
+}
