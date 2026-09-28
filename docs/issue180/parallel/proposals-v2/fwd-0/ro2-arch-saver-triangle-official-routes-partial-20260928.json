@@ -1,0 +1,28 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-arch-saver-triangle-official-routes-partial-20260928",
+  "campaign_key": "authority:shinsou_kenki_arch_saver",
+  "campaign_fingerprint": "68f334bec2b9bc2099996eef87ad96e813c8e348e117e8d832f17a4865304989",
+  "worker_slot": 0,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "OFFICIAL_CHARACTER_PAGE",
+      "url_or_query": "https://www.route2.co.jp/Triangle/Products/ArchSaver/index.html",
+      "result": "Triangle's official Shinsou Kenki Arch Saver product/character page is image-only in its accessible text extraction. It confirms the work page exists, but the visible text does not identify the six campaign members or explicitly provide their canonical HOME mapping."
+    },
+    {
+      "route_type": "OFFICIAL_PUBLISHER_NEWS",
+      "url_or_query": "https://www.route2.co.jp/Triangle/news.html",
+      "result": "Triangle's official news archive is a second publisher route; it confirms the brand publishes the Arch Saver line, but the checked accessible text did not expose the six exact roster names or a direct character-to-title list."
+    }
+  ],
+  "notes": "This six-member franchise campaign is not exhaustively researched. No relation is inferred from third-party character databases or game-extracted artwork; retain the checked-route progress and leave the campaign open for later roster evidence."
+}

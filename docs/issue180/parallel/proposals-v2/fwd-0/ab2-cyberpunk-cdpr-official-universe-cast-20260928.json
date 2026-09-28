@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-cyberpunk-cdpr-official-universe-cast-20260928",
+  "campaign_key": "authority:cyberpunk_(series)",
+  "campaign_fingerprint": "9a65bb6ebfc64264a628bede0fa7040a519edbeb9a5c715b246201d92ee7e908",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.cyberpunk.net/gm/en/cyberpunk-2077",
+  "source_claim": "CD PROJEKT RED's official Cyberpunk 2077 universe page names and describes Panam Palmer, Judy Álvarez, Johnny Silverhand, and Adam Smasher in its character roster. The same first-party Cyberpunk site identifies Cyberpunk: Edgerunners 2 as a new standalone story from the world of Cyberpunk 2077, created by CD PROJEKT RED and TRIGGER, and its official character roster names Talia. Together these first-party sources place all five campaign characters under the Cyberpunk franchise root.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "adam_smasher",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cyberpunk"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "johnny_silverhand",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cyberpunk"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "judy_alvarez",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cyberpunk"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "panam_palmer",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cyberpunk"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "talia_yang",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cyberpunk"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Supporting first-party roster pages: https://www.cyberpunk.net/gm/en/cyberpunk-2077 and https://www.cyberpunk.net/en/edgerunners2. The Edgerunners 2 page explicitly places the installment in the Cyberpunk 2077 world and identifies CD PROJEKT RED and TRIGGER as creators. This batch covers exactly the five campaign members; no adaptation-specific or second HOME edge is inferred."
+}

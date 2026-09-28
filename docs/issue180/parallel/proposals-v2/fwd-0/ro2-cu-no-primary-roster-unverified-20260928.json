@@ -1,0 +1,28 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-cu-no-primary-roster-unverified-20260928",
+  "campaign_key": "authority:cu-no",
+  "campaign_fingerprint": "c1022ad01d5222cfc187cef670f3424ec08b4a9e5f53fe1a4a062499dd81eff5",
+  "worker_slot": 0,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "OFFICIAL_CHARACTER_PAGE",
+      "url_or_query": "\"cu-no\" official game character",
+      "result": "Exact-title and official-character searches did not surface a verifiable first-party work or roster page. Search results were fan-maintained image/character indexes and do not establish canonical identity or direct HOME relations for this campaign."
+    },
+    {
+      "route_type": "OFFICIAL_WORK_PAGE",
+      "url_or_query": "\"C.U.-no\" game",
+      "result": "Exact punctuation/title search did not identify an authoritative publisher or creator page for C.U.-no. The five campaign members remain unverified against primary evidence."
+    }
+  ],
+  "notes": "This five-member authority campaign is not exhausted. Fan indexes associate the names with a CU-NO label, but without a first-party source this is insufficient for direct HOME authority; leave relations unresolved and retain the campaign open for follow-up primary-source research."
+}
