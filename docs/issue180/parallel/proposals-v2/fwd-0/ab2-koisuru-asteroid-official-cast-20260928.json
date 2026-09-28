@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-koisuru-asteroid-official-cast-20260928",
+  "campaign_key": "authority:koisuru_asteroid",
+  "campaign_fingerprint": "77a5433c5a826f2547d389006c0baef01cfdb3f24ef66924c701a104ca261b1e",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://koiastv.com/staff.html",
+  "source_claim": "The official TV anime Staff & Cast page credits the series as adapted from Quro's Manga Time Kirara Carat work and lists Konohata Mira (木ノ幡みら), Manaka Ao (真中あお), Inose Mai (猪瀬 舞), Sakurai Mikage (桜井美景), and Morino Mari (森野真理) as cast characters.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "inose_mai",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "koisuru_asteroid"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "konohata_mira",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "koisuru_asteroid"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "manaka_ao",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "koisuru_asteroid"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "morino_mari",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "koisuru_asteroid"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sakurai_mikage",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "koisuru_asteroid"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official cast page lists all five exact campaign members, so no out-of-campaign characters are included."
+}
