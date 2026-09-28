@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-kanojo-okarishimasu-official-six-character-roster-20260928-01",
+  "campaign_key": "authority:kanojo_okarishimasu",
+  "campaign_fingerprint": "d973516561335f3c81a4d099c3089f9f68c14fcf3474490a7b8a233977f7b412",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://kanokari-official.com/3rd/chara/",
+  "source_claim": "The official TV anime Kanojo, Okarishimasu character directory profiles Kinoshita Kazuya, Mizuhara Chizuru, Nanami Mami, Sakurasawa Sumi, Sarashina Ruka, and Yaemori Mini as characters of the work.",
+  "authority_type": "OFFICIAL_ANIME_CHARACTER_DIRECTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "kinoshita_kazuya",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kanojo_okarishimasu"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mizuhara_chizuru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kanojo_okarishimasu"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nanami_mami",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kanojo_okarishimasu"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sakurasawa_sumi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kanojo_okarishimasu"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sarashina_ruka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kanojo_okarishimasu"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yaemori_mini",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kanojo_okarishimasu"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official anime character directory explicitly covers all six exact campaign members."
+}

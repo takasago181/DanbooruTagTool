@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-konosuba-komekko-chomusuke-official-bakuen-20260928-01",
+  "campaign_key": "authority:kono_subarashii_sekai_ni_shukufuku_wo!",
+  "campaign_fingerprint": "3551829fd8a9a59f3d23b7c9bd1ddf82a2b6f05c0c4ead6173c7290c3ad4316a",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://konosuba.com/bakuen/staff_cast/",
+  "source_claim": "The official KonoSuba: An Explosion on This Wonderful World! cast page identifies Komekko and Chomusuke by name as characters in the official KonoSuba spin-off work; the official character page separately profiles Komekko as Megumin's younger sister.",
+  "authority_type": "OFFICIAL_SPINOFF_CAST_AND_CHARACTER_PROFILES",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "chomusuke",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kono_subarashii_sekai_ni_shukufuku_wo!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "komekko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kono_subarashii_sekai_ni_shukufuku_wo!"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "This is the official KonoSuba spin-off portal for Megumin and Komekko's story. Chomusuke and Komekko are explicitly listed on the official cast page."
+}

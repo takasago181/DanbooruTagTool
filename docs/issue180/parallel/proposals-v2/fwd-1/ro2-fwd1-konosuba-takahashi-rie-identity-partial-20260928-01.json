@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-fwd1-konosuba-takahashi-rie-identity-partial-20260928-01",
+  "campaign_key": "authority:kono_subarashii_sekai_ni_shukufuku_wo!",
+  "campaign_fingerprint": "3551829fd8a9a59f3d23b7c9bd1ddf82a2b6f05c0c4ead6173c7290c3ad4316a",
+  "worker_slot": 1,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "The official KonoSuba sources identify Rie Takahashi as Megumin's voice actor, while her agency identifies her as a voice actor; the checked sources do not establish takahashi_rie as a fictional Character with KonoSuba HOME.",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "url_or_query": "https://konosuba.com/3rd/character/",
+      "route_type": "OFFICIAL_ANIME_CHARACTER_DIRECTORY",
+      "result": "Lists Megumin as the character and 高橋李依 as her CV; this distinguishes the character from the actor rather than showing the actor as a character."
+    },
+    {
+      "url_or_query": "https://konosuba.com/bakuen/character/",
+      "route_type": "OFFICIAL_SPINOFF_CHARACTER_DIRECTORY",
+      "result": "Profiles Komekko and Megumin as fictional characters and lists their cast separately; it does not establish a fictional character named Takahashi Rie."
+    },
+    {
+      "url_or_query": "https://www.81produce.co.jp/dcms_plusdb/index.php/item?id=236",
+      "route_type": "OFFICIAL_TALENT_AGENCY_PROFILE",
+      "result": "Identifies Rie Takahashi as an agency talent/voice actor; this route does not establish that the campaign tag is a KonoSuba character identity."
+    }
+  ],
+  "notes": "Five campaign members have separately proposed DIRECT_HOME evidence. This PARTIAL outcome records only the unresolved identity represented by takahashi_rie; it is not negative evidence and does not close the campaign."
+}
