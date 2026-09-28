@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-mashiro-palette-official-roster-20260928-01",
+  "campaign_key": "authority:mashiroiro_symphony",
+  "campaign_fingerprint": "5402b67205cf144767dd1930bacab35e3a4fbd0fdadbc4fd8c8d434e6bbd228e",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://palette.clearrave.co.jp/product/mashiro-project/mashiro/",
+  "source_claim": "Palette’s official Mashiroiro Symphony -Love is pure white- product page has named character profiles for Miu Amaha, Angelina Nanatsu Sewell, Sana Inui, Pan-nyan, Airi Sena, and Sakuno Uryuu.",
+  "authority_type": "FIRST_PARTY_DEVELOPER_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "amaha_miu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mashiroiro_symphony"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "angelina_nanatsu_sewell",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mashiroiro_symphony"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "inui_sana",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mashiroiro_symphony"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "pan-nya",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mashiroiro_symphony"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sena_airi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mashiroiro_symphony"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "uryuu_sakuno",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mashiroiro_symphony"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The developer page labels the work and directly profiles all six campaign identities, including the named mascot Pan-nyan."
+}

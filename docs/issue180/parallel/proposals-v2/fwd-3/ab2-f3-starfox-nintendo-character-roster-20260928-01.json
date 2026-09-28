@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-starfox-nintendo-character-roster-20260928-01",
+  "campaign_key": "authority:star_fox",
+  "campaign_fingerprint": "feb1efc7c41cc6507f4fada543a544f7ca1cadc2a1de8a5d14460eae822d35e6",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.nintendo.com/jp/games/switch2/abgwa/character/index.html",
+  "source_claim": "Nintendo’s official Star Fox character page profiles Fox McCloud, Falco Lombardi, Peppy Hare, Slippy Toad, and Wolf O’Donnell under the Star Fox title and character roster.",
+  "authority_type": "FIRST_PARTY_PUBLISHER_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "fox_mccloud",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "star_fox"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "falco_lombardi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "star_fox"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "peppy_hare",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "star_fox"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "slippy_toad",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "star_fox"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "wolf_o'donnell",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "star_fox"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Nintendo directly names and describes five exact campaign characters on its official Star Fox roster. Krystal is not named on this page and is not inferred."
+}

@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-ppgz-aniplex-six-identities-20260928-01",
+  "campaign_key": "authority:powerpuff_girls_z",
+  "campaign_fingerprint": "e8e8beb0bdde664c8507c8dcca2c91f15862f66dc9dc990988a51979bd6e7495",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.aniplex.co.jp/ppgz/who/index.html",
+  "source_claim": "Aniplex’s official Demashita! Powerpuff Girls Z introduction names Momoko Akatsutsumi, Miyako Gotokuji, and Kaoru Matsubara and states that they transform into Hyper Blossom, Rolling Bubbles, and Powered Buttercup respectively.",
+  "authority_type": "FIRST_PARTY_ANIME_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "akazutsumi_momoko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "powerpuff_girls_z"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "goutokuji_miyako",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "powerpuff_girls_z"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hyper_blossom",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "powerpuff_girls_z"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "matsubara_kaoru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "powerpuff_girls_z"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "powered_buttercup",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "powerpuff_girls_z"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "rolling_bubbles",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "powerpuff_girls_z"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The rights-holder’s series page explicitly establishes both civilian identities and their transformed character identities within Powerpuff Girls Z."
+}
