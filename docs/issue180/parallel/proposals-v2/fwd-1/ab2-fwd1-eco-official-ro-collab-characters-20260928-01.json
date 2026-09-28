@@ -1,0 +1,18 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-eco-official-ro-collab-characters-20260928-01",
+  "campaign_key": "authority:emil_chronicle_online",
+  "campaign_fingerprint": "c1d3f4d425c1edfdb663ecbb800391f48643324c1a45eb1f283c9a9be7701367",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://ragnarokonline.gungho.jp/news/information/costama-eco.html",
+  "source_claim": "GungHo's official Ragnarok Online collaboration announcement describes the collaboration as featuring popular Emil Chronicle Online characters and identifies Minnie Doe Alma and Mitama Aria individually in its character item descriptions.",
+  "authority_type": "OFFICIAL_PUBLISHER_SERIES_CHARACTER_ANNOUNCEMENT",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"minnie_doe_alma","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"emil_chronicle_online"},
+    {"subject_type":"Character","subject_key":"mitama_aria","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"emil_chronicle_online"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The publisher-operated collaboration page explicitly identifies the items as based on popular ECO characters and describes Minnie Doe Alma and Mitama Aria as ECO characters. Japanese character names map directly to the exact campaign keys. No visual-only inference is used."
+}
