@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-chaos-head-erin-fray-official-psp-20260928",
+  "campaign_key": "authority:chaos;head",
+  "campaign_fingerprint": "bcd8fb4a6f2f8e469768554c918ae3d189367edf8b33795aff7704f36143f8d0",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://lovechuchu.net/psp/",
+  "source_claim": "The official CHAOS;HEAD Love Chu Chu PSP site identifies the game and credits Emiri Kato as the voice of Erin-fray Orgel (エリンフレイ・オルジェル), including in its radio personality and event sections; its page also describes the work as the CHAOS;HEAD Love Chu Chu PSP edition.",
+  "authority_type": "FIRST_PARTY_CHARACTER_CREDIT",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"erin-fray_orgel","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"chaos;head"}
+  ],
+  "terminal_reviews": [],
+  "notes": "This batch asserts only Erin-fray Orgel, whose exact name and role are stated on the official product site."
+}

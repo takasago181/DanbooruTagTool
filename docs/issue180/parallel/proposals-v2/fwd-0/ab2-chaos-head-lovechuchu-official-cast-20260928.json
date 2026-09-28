@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-chaos-head-lovechuchu-official-cast-20260928",
+  "campaign_key": "authority:chaos;head",
+  "campaign_fingerprint": "bcd8fb4a6f2f8e469768554c918ae3d189367edf8b33795aff7704f36143f8d0",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.kagaku-adv.com/titles/chaoshead_lovechuchu/",
+  "source_claim": "The official Science Adventure Series portal page for CHAOS;HEAD Love Chu Chu identifies the game, describes the six returning Gigalomaniacs and Seira Orgel in its story, and lists Aoi Sena (蒼井セナ), Kusunoki Yua (楠優愛), Kishimoto Ayase (岸本あやせ), Nishijou Nanami (西條七海), and Seira Orgel (星来オルジェル) in the cast. The page identifies MAGES. as the copyright holder.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"aoi_sena","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"chaos;head"},
+    {"subject_type":"Character","subject_key":"kusunoki_yua","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"chaos;head"},
+    {"subject_type":"Character","subject_key":"kishimoto_ayase","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"chaos;head"},
+    {"subject_type":"Character","subject_key":"nishijou_nanami","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"chaos;head"},
+    {"subject_type":"Character","subject_key":"seira_orgel","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"chaos;head"}
+  ],
+  "terminal_reviews": [],
+  "notes": "These five exact campaign identities have first-party title/story/cast evidence on the official portal page. Other campaign members are not asserted by this batch."
+}
