@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-pokemon-official-oras-steven-profile-20260928",
+  "campaign_key": "authority:pokemon",
+  "campaign_fingerprint": "363f40347749fda6a34d3f763c7ebe8233040943c1ab046bc37c094b4527b068",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.pokemon.com/us/pokemon-video-games/pokemon-omega-ruby-and-pokemon-alpha-sapphire",
+  "source_claim": "The Pokémon Company International's official Pokémon Omega Ruby and Pokémon Alpha Sapphire page explicitly names Steven as a character appearing in those Pokémon games.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"steven_stone","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pokemon"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official English source uses the canonical name Steven and places him within the named Pokémon game works. No other campaign member is inferred from this page."
+}

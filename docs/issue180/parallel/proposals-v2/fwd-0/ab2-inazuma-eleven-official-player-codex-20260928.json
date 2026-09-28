@@ -1,0 +1,28 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-inazuma-eleven-official-player-codex-20260928",
+  "campaign_key": "authority:inazuma_eleven_(series)",
+  "campaign_fingerprint": "aa3517cbca6bd081350743781837a46634eb9787c1473eda3e1f99d884c7daf1",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://zukan.inazuma.jp/chara_list/",
+  "source_claim": "The official Inazuma Eleven player codex lists the named characters below and identifies each entry's work as イナズマイレブン (Inazuma Eleven).",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"domon_asuka","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"inazuma_eleven_(series)"},
+    {"subject_type":"Character","subject_key":"gouenji_shuuya","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"inazuma_eleven_(series)"},
+    {"subject_type":"Character","subject_key":"ichinose_kazuya","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"inazuma_eleven_(series)"},
+    {"subject_type":"Character","subject_key":"kazemaru_ichirouta","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"inazuma_eleven_(series)"},
+    {"subject_type":"Character","subject_key":"kidou_yuuto","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"inazuma_eleven_(series)"},
+    {"subject_type":"Character","subject_key":"kino_aki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"inazuma_eleven_(series)"},
+    {"subject_type":"Character","subject_key":"matsuno_kuusuke","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"inazuma_eleven_(series)"},
+    {"subject_type":"Character","subject_key":"otonashi_haruna","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"inazuma_eleven_(series)"},
+    {"subject_type":"Character","subject_key":"raimon_natsumi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"inazuma_eleven_(series)"},
+    {"subject_type":"Character","subject_key":"sakuma_jirou","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"inazuma_eleven_(series)"},
+    {"subject_type":"Character","subject_key":"someoka_ryuugo","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"inazuma_eleven_(series)"}
+  ],
+  "terminal_reviews": [],
+  "notes": "Only exact character-name/readings in the official codex's visible roster are matched to canonical tag keys. The source shows the work title イナズマイレブン for these entries. No relation is inferred for English-localization-only names, nicknames, or other campaign members not verified in the cited roster view."
+}
+
