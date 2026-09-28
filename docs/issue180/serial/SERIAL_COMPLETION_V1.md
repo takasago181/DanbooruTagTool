@@ -215,3 +215,35 @@ Serial-mode useful fields additionally include:
 - stop_reason.
 
 The first serial activation snapshot is historical only; live GitHub always wins.
+
+## 12. User-directed Phase B revision — deterministic closeout
+
+Effective 2026-09-28. This section supersedes the Phase B instruction in §7 to process every OPEN campaign through web research. It changes scheduling and closeout only; HOME semantics, evidence standards, source authority, migration rules, and protected boundaries do not change. Preserve all existing Forward mailboxes, QA/source ledgers, v3 evidence, and migration provenance. Do not roll back, repeat completed research, or rebuild prior results from scratch.
+
+The objective is to assign one HOME only when existing evidence safely proves it. Otherwise, finish the Character in the existing `HOME_UNRESOLVED` state with a concrete reason. Maximizing `HOME_CONFIRMED` is not an objective; reaching zero OPEN/PENDING is.
+
+### 12.1 Phase A remains first
+
+Drain every persisted unreviewed proposal from Forward 0..3 by `proposal_id` against the live current QA ledger before any new campaign research. Do not discard or re-research Forward work. Keep separate research and review passes, reopen/recheck sources, verify exact Character/member coverage and canonical applicability, and apply the existing 100% review and deterministic sampling rules. Use the source/semantic wave sizing and CI batching in §§3–6.
+
+### 12.2 One-time deterministic Phase B classification
+
+After backlog reaches zero, run the current full v3 pipeline once, then deterministically classify every current OPEN Research Unit and campaign exactly once from that v3 snapshot into these operational lanes. These are scheduling labels only, not new semantic statuses:
+
+1. **AUTO_SAFE** — Existing Issue #180 evidence policy already proves exactly one HOME without new web research. Eligible evidence includes a terminal Copyright qualifier resolved through an already reviewed unique root normalization; an exact safe structural variant whose exact base exists and is HOME_CONFIRMED; exact member coverage plus HOME proved by already ACCEPTED source/evidence ledger entries; and the current `SAFE_STRUCTURE_READY` equivalent. Never use name similarity, RelatedCopyright, post co-occurrence, search-result proximity, or string similarity as authority.
+2. **HIGH_YIELD_RESEARCH** — Only cases with a concrete high-yield route: one permitted official/authorized roster, character, or cast source likely to resolve multiple current Characters (normally five or more); a reusable ACCEPTED source family/scope with exact additional members; a concrete official source hint already present in dispatch; or a migration residual/validated conflict that must be resolved for the final gate. Candidate roots or RelatedCopyright alone are not a reason to include an item. New web research is allowed only in this lane.
+3. **FINAL_UNRESOLVED** — Every remaining OPEN item. Deterministically inspect current v3 structures, evidence and candidate graph, #179 origin handoff, and ACCEPTED source ledger. If there is no validated direct HOME, safe family HOME plus membership path, safe exact base/variant path, approved reusable authority, high-yield route, or competing validated HOME conflict, and policy forbids guessing, close it through the existing exact-fingerprint terminal review mechanism using the correct existing reason (`NO_SAFE_EVIDENCE`, `PARTIALLY_RESOLVED`, `POLICY_BLOCKED`, `IDENTITY_BLOCKED`, or another already-defined reason). `FINAL_UNRESOLVED` is never written as a semantic status.
+
+Keep each Research Unit's exact fingerprint and `member_ids_sha256` binding. Do not use terminal review to conceal a validated conflict, skip identity review, or turn missing evidence into HOME_CONFIRMED. Unresolved is a normal final result and must carry a concrete reason and evidence/review path.
+
+### 12.3 Revised Phase B order and boundaries
+
+After Phase A:
+
+1. Bulk-process all AUTO_SAFE items under the unchanged evidence policy.
+2. Process HIGH_YIELD_RESEARCH in reusable-source waves. Reopen each source, collect all exact safe current relations that source proves in one pass, obey `RESEARCH_STOP_PROTOCOL_V2` route budgets, and do not repeat equivalent searches.
+3. Once the high-yield lane is complete, perform one deterministic bulk terminal sweep of FINAL_UNRESOLVED. Do not web-search these items individually or reopen research after the sweep starts.
+4. At the natural AUTO_SAFE, high-yield wave, and FINAL_UNRESOLVED boundaries only, run full v3, rebuild campaigns, refresh tracked dispatch, run required Issue180 tests/validators, verify source ledger, #179 freshness, protected-source boundaries, and reproducibility. Then use the exact-commit CI and no-force fast-forward promotion process in §§5–6.
+5. Confirm the final gate in §10 from the resulting current state.
+
+Small checkpoints inside a wave continue to use cheap validation. Routine serial pushes do not start full-v3 automatically. A failed CI, stale dispatch, duplicate, safe unresolved result, or ordinary serializer/schema repair remains an autonomous repair-and-continue task.
