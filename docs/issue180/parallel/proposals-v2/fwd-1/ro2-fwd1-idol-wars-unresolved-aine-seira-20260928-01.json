@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-fwd1-idol-wars-unresolved-aine-seira-20260928-01",
+  "campaign_key": "authority:idol_wars",
+  "campaign_fingerprint": "713167a221a7aaf40a1da09ab5af5c986bedae170e80f0c60c9af782ffc8c2b1",
+  "worker_slot": 1,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "https://games.dmm.com/detail/idolwars",
+  "source_claim": "Three distinct official routes were checked for the residual exact members oomiya_aine and tojo_seira. They did not establish a safe direct HOME relation to Idol Wars for those two members.",
+  "authority_type": "OFFICIAL_PUBLISHER_AND_DEVELOPER_ROUTE_RESEARCH",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "OFFICIAL_GAME_STORE_NOTICE",
+      "url_or_query": "https://games.dmm.com/detail/idolwars",
+      "result": "DMM GAMES confirms the exact Idol Wars title and that service ended on 2026-02-24; the current official listing has no character roster and does not identify Omiya Aine or Tojo Seira."
+    },
+    {
+      "route_type": "OFFICIAL_OPERATOR_ANNIVERSARY_RELEASE",
+      "url_or_query": "https://edia.co.jp/news/pressrelease/2020/07/10/6356/",
+      "result": "Edia identifies itself as the game operator and its official fifth-anniversary release explicitly covers seven packet characters in the companion AUTHORITY_BATCH. It does not name Omiya Aine or Tojo Seira."
+    },
+    {
+      "route_type": "OFFICIAL_DEVELOPER_CHARACTER_PAGE",
+      "url_or_query": "https://www.sushi-soft.com/kirakira-stars-reika",
+      "result": "Sushi soft explicitly identifies Omiya Aine as an ODA idol candidate alongside Reika Aiba in its Reika title. This establishes Aine in that developer-published title, but the page does not identify her as an Idol Wars character or provide a safe canonical mapping to the Idol Wars Copyright; it does not name Tojo Seira."
+    }
+  ],
+  "notes": "Partial campaign progress only. Preserve the seven positive relations in the companion AUTHORITY_BATCH. The official developer route surfaced a separate linked title for Omiya Aine but did not establish her canonical Idol Wars HOME; do not treat this outcome as negative evidence or as a terminal decision. Tojo Seira remains unresolved."
+}
