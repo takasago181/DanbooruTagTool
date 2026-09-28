@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-scp-official-personnel-dossier-20260928-01",
+  "campaign_key": "authority:scp_foundation",
+  "campaign_fingerprint": "2d557322f6481ccaf280be410bc3f4a002f524a17924d29cc17d3df4867f954e",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://scp-wiki.wikidot.com/personnel-and-character-dossier",
+  "source_claim": "The SCP Wiki's official Personnel and Character Dossier identifies Dr. Alto Clef and Dr. Benjamin Kondraki as Foundation personnel and separately describes SCP-173, SCP-076-2 (Able), and SCP-682 as named anomalous characters/entities in the same setting.",
+  "authority_type": "OFFICIAL_FRANCHISE_CHARACTER_DOSSIER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"alto_clef","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"scp_foundation"},
+    {"subject_type":"Character","subject_key":"kondraki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"scp_foundation"},
+    {"subject_type":"Character","subject_key":"scp-076-2","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"scp_foundation"},
+    {"subject_type":"Character","subject_key":"scp-173","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"scp_foundation"},
+    {"subject_type":"Character","subject_key":"scp-682","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"scp_foundation"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The SCP Wiki dossier explicitly names Alto Clef, Benjamin Kondraki, SCP-076-2/Able, SCP-173, and SCP-682 in a shared Foundation setting. The dossier is an official SCP Wiki page; its content uses the project's collaborative CC BY-SA licensing framework."
+}

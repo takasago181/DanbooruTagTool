@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-fwd1-scp-1471-040jp-residual-20260928-01",
+  "campaign_key": "authority:scp_foundation",
+  "campaign_fingerprint": "2d557322f6481ccaf280be410bc3f4a002f524a17924d29cc17d3df4867f954e",
+  "worker_slot": 1,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "https://scp-wiki.wikidot.com/personnel-and-character-dossier",
+  "source_claim": "The SCP Wiki personnel dossier and exact item pages were checked for SCP-1471 and SCP-040-JP. The checked sources describe SCP-1471 as an application whose associated entity is SCP-1471-A, and SCP-040-JP as an anomalous well; they do not establish that the two bare campaign tags denote the exact character identities intended for direct HOME assignment.",
+  "authority_type": "OFFICIAL_SOURCE_IDENTITY_RESIDUAL_RESEARCH",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {"route_type":"OFFICIAL_WORK_CHARACTER_DOSSIER","url_or_query":"https://scp-wiki.wikidot.com/personnel-and-character-dossier","result":"The roster contains multiple exact SCP entries and named personnel, but does not list SCP-1471 or SCP-040-JP in its accessible text."},
+    {"route_type":"OFFICIAL_ENGLISH_SCP_ITEM_PAGE","url_or_query":"https://scp-wiki.wikidot.com/scp-1471","result":"The page describes SCP-1471 as the MalO mobile application and distinguishes the associated humanoid entity as SCP-1471-A; the exact campaign tag SCP-1471 is not safely mapped to that separate entity."},
+    {"route_type":"OFFICIAL_JAPANESE_SCP_ITEM_PAGE","url_or_query":"https://scp-jp.wikidot.com/scp-040-jp","result":"The page describes SCP-040-JP as an anomalous well structure and does not identify the bare item designation as a separate character identity."}
+  ],
+  "notes": "Partial progress, not negative or terminal HOME evidence. The five positive relations are preserved in the companion AUTHORITY_BATCH. The Foundation's collaborative canon and the two item's character-vs-designation scope need exact tag identity evidence before assigning direct HOME."
+}

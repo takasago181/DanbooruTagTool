@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-sakura-trick-official-cast-20260928-01",
+  "campaign_key": "authority:sakura_trick",
+  "campaign_fingerprint": "e2c4abe2f5198eca7909c3e5d9c4e20a564b1fde645868abdf4cf9c693116509",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.tbs.co.jp/anime/sakura/staffcast/",
+  "source_claim": "The official Sakura Trick TV anime staff and cast page lists Takayama Haruka, Sonoda Yuu, Noda Kotone, Minami Shizuku, Ikeno Kaede, Iizuka Yuzu, and Sonoda Mitsuki with their performers.",
+  "authority_type": "OFFICIAL_FRANCHISE_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"iizuka_yuzu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"sakura_trick"},
+    {"subject_type":"Character","subject_key":"ikeno_kaede","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"sakura_trick"},
+    {"subject_type":"Character","subject_key":"minami_shizuku","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"sakura_trick"},
+    {"subject_type":"Character","subject_key":"noda_kotone","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"sakura_trick"},
+    {"subject_type":"Character","subject_key":"sonoda_mitsuki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"sakura_trick"},
+    {"subject_type":"Character","subject_key":"sonoda_yuu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"sakura_trick"},
+    {"subject_type":"Character","subject_key":"takayama_haruka","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"sakura_trick"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official TBS anime roster names all seven exact campaign characters and credits their cast. The current TBS page identifies itself as the Sakura Trick official homepage."
+}
