@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-pokemon-official-animation-delia-episode-20260928",
+  "campaign_key": "authority:pokemon",
+  "campaign_fingerprint": "363f40347749fda6a34d3f763c7ebe8233040943c1ab046bc37c094b4527b068",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.pokemon.com/us/animation/seasons/23/episode-30-betrayed-bothered-and-beleaguered",
+  "source_claim": "The official Pokémon animation episode page names Delia in an episode about Ash and describes her visit and return to Pallet Town with him.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"delia_ketchum","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pokemon"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The page identifies Delia in the Pokémon animated series story centered on Ash. The target's franchise spelling is used; no surname not present on the page is asserted as source text."
+}

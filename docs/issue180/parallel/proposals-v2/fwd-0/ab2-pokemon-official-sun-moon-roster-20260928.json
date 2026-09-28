@@ -1,0 +1,18 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-pokemon-official-sun-moon-roster-20260928",
+  "campaign_key": "authority:pokemon",
+  "campaign_fingerprint": "363f40347749fda6a34d3f763c7ebe8233040943c1ab046bc37c094b4527b068",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.pokemon.co.jp/ex/sun_moon/character/",
+  "source_claim": "The official Pokémon Sun and Moon character directory lists Professor Kukui among its main characters and lists the Team Skull grunts (したっぱ団員たち) under the Skull Gang section.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"professor_kukui","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pokemon"},
+    {"subject_type":"Character","subject_key":"team_skull_grunt","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pokemon"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The source identifies Kukui by name and groups the grunts explicitly under Team Skull. No other nearby Sun and Moon names were included because they are absent from this campaign's current member set."
+}
