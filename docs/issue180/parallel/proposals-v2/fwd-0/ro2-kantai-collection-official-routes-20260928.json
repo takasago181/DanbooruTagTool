@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-kantai-collection-official-routes-20260928",
+  "campaign_key": "authority:kantai_collection",
+  "campaign_fingerprint": "fd5e05849f35f2124ec6bfc61a33ad9215ac0f308d8ec5bb9af46148b7f490c5",
+  "worker_slot": 0,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "Three distinct first-party routes were checked: the TV anime character roster, its official story pages, and the DMM Games official game listing. They establish general KanColle/anime context and some named cast but do not explicitly establish any exact target-tag identity/home relation in this 29-member campaign.",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "OFFICIAL_ROSTER",
+      "url_or_query": "https://kancolle-anime.jp/character/",
+      "result": "The official TV anime roster names its anime cast (including Shimakaze) but does not name or otherwise explicitly cover the exact campaign members requiring proof; Shimakaze is not evidence for the distinct shimakaze-kun tag."
+    },
+    {
+      "route_type": "OFFICIAL_WORK_STORY",
+      "url_or_query": "https://kancolle-anime.jp/about/",
+      "result": "Official anime work/story overview establishes KanColle and generic Shinkaiseikan context, but does not explicitly identify the campaign's rare exact characters or their HOME relations. Did not infer specific Abyssal princess identities from generic enemy-group wording."
+    },
+    {
+      "route_type": "OFFICIAL_GAME_LISTING",
+      "url_or_query": "https://games.dmm.com/detail/kancolle",
+      "result": "DMM GAMES identifies the official game and links its operator updates, but the checked listing did not expose the exact 29 target-tag identities needed to establish safe relations."
+    }
+  ],
+  "notes": "This broad 29-member authority campaign remains open. This is partial route accounting only, not negative evidence and not an exact Research Unit terminal review. Official route checks did not justify any safe positive relation; continue with a different unproposed campaign and avoid conflating similarly named characters/tags."
+}

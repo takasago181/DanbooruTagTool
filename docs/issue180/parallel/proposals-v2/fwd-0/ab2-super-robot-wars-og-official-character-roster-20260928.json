@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-super-robot-wars-og-official-character-roster-20260928",
+  "campaign_key": "authority:super_robot_wars",
+  "campaign_fingerprint": "d22fe4d26c2dbbe54f47dcc3a79a1bb7751b5b87107c71d7ea1954360e6a5633",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.suparobo-anime.jp/ten_chara.html",
+  "source_claim": "The official Super Robot Wars OG Divine Wars anime character roster/profile page explicitly names Aya Kobayashi (アヤ・コバヤシ) and Kusuha Mizuha (クスハ・ミズハ) and identifies the work as Super Robot Wars OG. These exact tags are in the current campaign; the checked profiles establish their character identity in the Super Robot Wars franchise.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "aya_kobayashi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "super_robot_wars"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kusuha_mizuha",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "super_robot_wars"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official individual profiles give exact Japanese full names. Cross-checked their canonical Issue 70 tag labels and candidate copyright scope; this roster directly supports only these two campaign members, so no other OG/series character tags are inferred."
+}
