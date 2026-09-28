@@ -1,0 +1,18 @@
+{
+  "schema_version": 2,
+  "campaign_key": "authority:reverse:1999",
+  "campaign_fingerprint": "67f22efe9e072504d45f173ce9f049ec71e0098029c3e48ed59231db7af4f9b1",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "terminal_reviews": [],
+  "notes": "BLUEPOCH's official event release specifically identifies Shamane as the new playable character and Balloon Party in the same Reverse: 1999 event summon. Other listed Japanese names were not mapped without an exact campaign identity check.",
+  "proposal_id": "ab2-fwd1-reverse1999-shamane-banner-cast-20260928-01",
+  "source_url": "https://prtimes.jp/main/html/rd/p/000000034.000123449.html",
+  "source_claim": "The official Reverse: 1999 event release introduces Shamane as a new character and lists Balloon Party as an event summon character.",
+  "relations": [
+    {"subject_type":"Character","subject_key":"shamane","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"reverse:1999"},
+    {"subject_type":"Character","subject_key":"balloon_party","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"reverse:1999"}
+  ]
+}

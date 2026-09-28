@@ -1,0 +1,18 @@
+{
+  "schema_version": 2,
+  "campaign_key": "authority:reverse:1999",
+  "campaign_fingerprint": "67f22efe9e072504d45f173ce9f049ec71e0098029c3e48ed59231db7af4f9b1",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "terminal_reviews": [],
+  "notes": "BLUEPOCH's official character spotlight introduces Medicine Pocket and Oliver Fog within the Reverse: 1999 game. Only the exact target members that are explicitly named in the release are proposed.",
+  "proposal_id": "ab2-fwd1-reverse1999-male-character-intro-20260928-01",
+  "source_url": "https://prtimes.jp/main/html/rd/p/000000015.000123449.html",
+  "source_claim": "The BLUEPOCH release presents Medicine Pocket and Oliver Fog as characters in its Reverse: 1999 character introduction.",
+  "relations": [
+    {"subject_type":"Character","subject_key":"medicine_pocket","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"reverse:1999"},
+    {"subject_type":"Character","subject_key":"oliver_fog","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"reverse:1999"}
+  ]
+}

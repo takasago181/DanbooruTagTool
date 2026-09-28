@@ -1,0 +1,18 @@
+{
+  "schema_version": 2,
+  "campaign_key": "authority:reverse:1999",
+  "campaign_fingerprint": "67f22efe9e072504d45f173ce9f049ec71e0098029c3e48ed59231db7af4f9b1",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "terminal_reviews": [],
+  "notes": "BLUEPOCH's official launch-period character release identifies the game and introduces these named characters as its cast. The Japanese character names are explicit; exact campaign members only.",
+  "proposal_id": "ab2-fwd1-reverse1999-launch-roster-20260928-01",
+  "source_url": "https://prtimes.jp/main/html/rd/p/000000002.000123449.html",
+  "source_claim": "BLUEPOCH's official Reverse: 1999 introduction lists Sotheby and Druvis III among the game's characters and cast.",
+  "relations": [
+    {"subject_type":"Character","subject_key":"sotheby","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"reverse:1999"},
+    {"subject_type":"Character","subject_key":"druvis_iii","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"reverse:1999"}
+  ]
+}
