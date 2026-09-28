@@ -1,0 +1,114 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-gakuen-idolmaster-official-school-directory-20260928",
+  "campaign_key": "authority:gakuen_idolmaster",
+  "campaign_fingerprint": "bb60402295693c50260b3537d0f33baf4a470035afd883d97e26dc6335e53339",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://gakuen.idolmaster-official.jp/idol/",
+  "source_claim": "The official Gakuen Idolmaster school directory labels its roster as idol-course students and school faculty, displays the exact Japanese and romanized identities of these 14 campaign characters in the roster links, and identifies the game title in the page footer.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "amaya_tsubame",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "gakuen_idolmaster"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "arimura_mao",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "gakuen_idolmaster"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "fujita_kotone",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "gakuen_idolmaster"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hanami_saki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "gakuen_idolmaster"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hanami_ume",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "gakuen_idolmaster"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hataya_misuzu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "gakuen_idolmaster"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "himesaki_rinami",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "gakuen_idolmaster"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "juo_sena",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "gakuen_idolmaster"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "katsuragi_lilja",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "gakuen_idolmaster"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kuramoto_china",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "gakuen_idolmaster"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "neo_asari",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "gakuen_idolmaster"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shinosawa_hiro",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "gakuen_idolmaster"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shiun_sumika",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "gakuen_idolmaster"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tsukimura_temari",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "gakuen_idolmaster"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "This batch includes only exact campaign tags with a matching official roster entry: the 12 named idols plus student-council vice president Amaya Tsubame and school staff Asari Neo. Other campaign tags not shown in this roster remain unasserted."
+}
