@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-bleach-official-roster-and-publisher-routes-partial-20260928",
+  "campaign_key": "authority:bleach",
+  "campaign_fingerprint": "453c3481574033ca5fa1bc3a98af0a8155916ce6c4ecc77ff7c7c72ec51404dc",
+  "worker_slot": 0,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "The accepted Brave Souls character roster and additional official Bleach routes were checked, but no new exact current campaign relation was established.",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "OFFICIAL_GAME_CHARACTER_ROSTER",
+      "url_or_query": "https://www.bleach-bravesouls.com/character/",
+      "result": "The first-party Brave Souls character roster was inspected. It includes a named roster and novel-collaboration entries, but did not explicitly identify a remaining current campaign member for a safe new relation."
+    },
+    {
+      "route_type": "OFFICIAL_ANIME_CHARACTER_ROSTER",
+      "url_or_query": "https://bleach-anime.com/character/",
+      "result": "The official Thousand-Year Blood War character directory timed out during page inspection; no claim about its unobserved contents is made."
+    },
+    {
+      "route_type": "OFFICIAL_PUBLISHER_MANGA_VOLUME_PAGE",
+      "url_or_query": "https://books.shueisha.co.jp/items/contents.html?jdcn=08X10000000018615000",
+      "result": "Shueisha’s official BLEACH: No Breaths From Hell volume page provides a series synopsis but no exact current residual campaign identity that safely establishes a new relation."
+    }
+  ],
+  "notes": "The broad Bleach campaign remains open. This records partial route progress only; the inaccessible anime page is not negative evidence, and no Research Unit is terminalized."
+}
