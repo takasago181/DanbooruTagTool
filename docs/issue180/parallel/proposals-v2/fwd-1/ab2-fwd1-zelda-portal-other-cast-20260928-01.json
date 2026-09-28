@@ -1,0 +1,65 @@
+{
+  "schema_version": 2,
+  "campaign_key": "authority:the_legend_of_zelda",
+  "campaign_fingerprint": "e9affa370f8df222a545ac4c018f18a8df42420f8f5e67615b39d90b52bfca5c",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "authority_type": "NINTENDO_OFFICIAL_CHARACTER_DIRECTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "terminal_reviews": [],
+  "proposal_id": "ab2-fwd1-zelda-portal-other-cast-20260928-01",
+  "source_url": "https://www.nintendo.com/jp/character/zelda/en/characters/index.html",
+  "source_claim": "Nintendo’s official Zelda Portal lists and describes named Zelda-series characters, including Ganon as the beast form of Ganondorf, Sheik, Tingle, Skull Kid, Ghirahim, Midna, and Medli.",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "ganon",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "the_legend_of_zelda"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sheik",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "the_legend_of_zelda"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tingle",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "the_legend_of_zelda"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "skull_kid",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "the_legend_of_zelda"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ghirahim",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "the_legend_of_zelda"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "midna",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "the_legend_of_zelda"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "medli",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "the_legend_of_zelda"
+    }
+  ],
+  "notes": "One official publisher directory page supports all seven exact character identities. Ganon is separately named and explicitly defined as Ganondorf’s beast form; Sheik is explicitly named; Tingle and Skull Kid are named in their descriptions; Ghirahim, Midna, and Medli are listed in the character directory. No HOME is inferred from relation to Link alone."
+}

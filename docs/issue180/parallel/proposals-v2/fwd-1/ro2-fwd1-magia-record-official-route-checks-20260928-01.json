@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-fwd1-magia-record-official-route-checks-20260928-01",
+  "campaign_key": "authority:magia_record:_mahou_shoujo_madoka_magica_gaiden",
+  "campaign_fingerprint": "65d298a2da2d9bea97133ee1f2ba9ae7b3132ba4489d297fb012688c9b3d5c87",
+  "worker_slot": 1,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "https://magireco.com/character/",
+  "source_claim": "The official Magia Record game website and two distinct official series-related character pages were checked against the current 47-member campaign; none of their explicitly named roster entries exactly matches a current member tag.",
+  "authority_type": "OFFICIAL_CHARACTER_ROSTER_RESEARCH",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "OFFICIAL_ROSTER",
+      "url_or_query": "https://magireco.com/character/",
+      "result": "Checked the official game character page, which explicitly identifies itself as Magia Record and lists its named character roster. None of the listed names exactly matches the 47 current residual campaign tags; the page is only a partial cast roster and does not exhaust the game campaign."
+    },
+    {
+      "route_type": "OFFICIAL_ANIME_CAST",
+      "url_or_query": "https://anime.magireco.com/chara/",
+      "result": "Checked the official anime character page and its named Japanese/Latin-script cast entries. No exact member of the current campaign packet is named; anime coverage is not an exhaustive game roster."
+    },
+    {
+      "route_type": "OFFICIAL_SERIES_SIDE_STORY",
+      "url_or_query": "https://madoka-exedra.com/side/crescent/",
+      "result": "Checked the official Magia Record Crescent Memoria side-story page, which names Sumire Yoake and Fuuka Higurashi; neither name exactly matches a current campaign member tag. The side story is not an exhaustive Magia Record roster."
+    }
+  ],
+  "notes": "PARTIAL campaign research only after three distinct safe authority routes. These routes establish no new relation for the current residual, but do not exhaust the broad 47-member campaign. Do not treat this as negative evidence or a unit terminal conclusion."
+}

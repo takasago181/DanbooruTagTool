@@ -1,0 +1,275 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-zzz-official-character-roster-20260928-01",
+  "campaign_key": "authority:zenless_zone_zero",
+  "campaign_fingerprint": "252a38bbddc43549f8a2748ce87102efb1f12fcb96b05827bd8c51e4ef39df87",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://zenless.hoyoverse.com/en-us/main?catchSpider=1&page=feature",
+  "source_claim": "HoYoverse official Zenless Zone Zero site publishes an agent character roster and names these current packet members exactly. The roster page is explicitly the official site for the game, establishing their direct work-level HOME.",
+  "authority_type": "HOYOVERSE_OFFICIAL_GAME_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "severian_lowell",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "zenless_zone_zero"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "claret_flint",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "zenless_zone_zero"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sigrid_de_l'azur",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "zenless_zone_zero"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "remielle_dan",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "zenless_zone_zero"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "norma_hollowell",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "zenless_zone_zero"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "velina_airgid",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "zenless_zone_zero"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nangong_yu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "zenless_zone_zero"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ye_shunguang",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "zenless_zone_zero"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "komano_manato",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "zenless_zone_zero"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "seed",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "zenless_zone_zero"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "alice_thymefield",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "zenless_zone_zero"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ukinami_yuzuha",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "zenless_zone_zero"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ju_fufu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "zenless_zone_zero"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "pan_yinhu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "zenless_zone_zero"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "pulchra_fellini",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "zenless_zone_zero"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "evelyn_chevalier",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "zenless_zone_zero"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "astra_yao",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "zenless_zone_zero"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "asaba_harumasa",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "zenless_zone_zero"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tsukishiro_yanagi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "zenless_zone_zero"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "seth_lowell",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "zenless_zone_zero"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "jane_doe",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "zenless_zone_zero"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "qingyi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "zenless_zone_zero"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "piper_wheel",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "zenless_zone_zero"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "zhu_yuan",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "zenless_zone_zero"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ellen_joe",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "zenless_zone_zero"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "alexandrina_sebastiane",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "zenless_zone_zero"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "grace_howard",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "zenless_zone_zero"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hoshimi_miyabi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "zenless_zone_zero"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ben_bigger",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "zenless_zone_zero"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "anton_ivanov",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "zenless_zone_zero"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "koleda_belobog",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "zenless_zone_zero"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "von_lycaon",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "zenless_zone_zero"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "corin_wickes",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "zenless_zone_zero"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nekomiya_mana",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "zenless_zone_zero"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "billy_kid",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "zenless_zone_zero"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nicole_demara",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "zenless_zone_zero"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "anby_demara",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "zenless_zone_zero"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Included only exact character names in the official roster that also occur in the current campaign: Severian Lowell, Claret Flint, Sigrid de L’Azur, Remielle Dan, Norma Hollowell, Velina Airgid, Nangong Yu, Ye Shunguang, Komano Manato, Seed, Alice Thymefield, Ukinami Yuzuha, Ju Fufu, Pan Yinhu, Pulchra Fellini, Evelyn Chevalier, Astra Yao, Asaba Harumasa, Tsukishiro Yanagi, Seth Lowell, Jane Doe, Qingyi, Piper Wheel, Zhu Yuan, Ellen Joe, Alexandrina Sebastiane, Grace Howard, Hoshimi Miyabi, Ben Bigger, Anton Ivanov, Koleda Belobog, Von Lycaon, Corin Wickes, Nekomiya Mana, Billy Kid, Nicole Demara, and Anby Demara. Name-only roster forms without the packet member’s full identity were omitted. No inferences are made from variants or related entities."
+}

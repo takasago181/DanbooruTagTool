@@ -1,0 +1,37 @@
+{
+  "schema_version": 2,
+  "campaign_key": "authority:the_legend_of_zelda",
+  "campaign_fingerprint": "e9affa370f8df222a545ac4c018f18a8df42420f8f5e67615b39d90b52bfca5c",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "authority_type": "NINTENDO_OFFICIAL_CHARACTER_DIRECTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "terminal_reviews": [],
+  "proposal_id": "ab2-fwd1-zelda-oot-official-cast-20260928-01",
+  "source_url": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/The-Legend-of-Zelda-Ocarina-of-Time-3115664.html",
+  "source_claim": "Nintendo’s official Ocarina of Time page names Navi and Darunia and identifies Ruto as a Zora princess in the game cast. The game is explicitly a The Legend of Zelda title.",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "navi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "the_legend_of_zelda"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "darunia",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "the_legend_of_zelda"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "princess_ruto",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "the_legend_of_zelda"
+    }
+  ],
+  "notes": "Exact cast matches from the same publisher game page: Navi, Darunia, and Princess Ruto (the page labels her Ruto and explicitly describes her as a princess). No variants or other cast members are inferred."
+}
