@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-voms-official-member-pages-20260928",
+  "campaign_key": "authority:voms",
+  "campaign_fingerprint": "63daa59927448c2a747daa65590781e6067484a1ee3910a07c270dabc30e95a0",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://voms.net/monsters/",
+  "source_claim": "VOMS Project's official monster roster individually names and romanizes Hikasa Tomoshika, Haneuzu Miuneru, and Daimonji Ryugon. The same official site retains profile pages identifying Amano Pikamee and Jitomi Monoe as VOMS members and records their graduation/activity end.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "amano_pikamee",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "voms"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "daimonji_ryugon",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "voms"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "haneuzu_miuneru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "voms"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hikasa_tomoshika",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "voms"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "jitomi_monoe",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "voms"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Official individual/member evidence: https://voms.net/monsters/amano-pikamee/ and https://voms.net/monsters/jitomi-monoe/ identify and profile the former members. https://voms.net/blog/230301/ records Pikamee's departure; https://voms.net/blog/210219/ records Monoe's activity end. The roster page lists the three current campaign members with Japanese and Romanized names."
+}
