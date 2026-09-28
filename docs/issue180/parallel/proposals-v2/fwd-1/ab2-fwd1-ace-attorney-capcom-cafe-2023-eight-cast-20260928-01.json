@@ -1,0 +1,72 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-ace-attorney-capcom-cafe-2023-eight-cast-20260928-01",
+  "campaign_key": "authority:ace_attorney",
+  "campaign_fingerprint": "b90d9aafc6ed5edc67278f90f32d7d4f7d4645504782a0df647a804cfc66cda3",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.capcom.co.jp/amusement/brands/capcomcafe-umeda/topics/1687/",
+  "source_claim": "CAPCOM CAFE names four characters as belonging to the Gyakuten Saiban series and four as belonging to the Dai Gyakuten Saiban series in its official collaboration announcement.",
+  "authority_type": "OFFICIAL_PUBLISHER_SERIES_CAST_ANNOUNCEMENT",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "phoenix_wright",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ace_attorney"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "maya_fey",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ace_attorney"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "miles_edgeworth",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ace_attorney"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "apollo_justice",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ace_attorney"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ryunosuke_naruhodo",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ace_attorney"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "susato_mikotoba",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ace_attorney"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kazuma_asogi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ace_attorney"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "barok_van_zieks",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ace_attorney"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The announcement explicitly separates the original Ace Attorney series four (Phoenix Wright, Maya Fey, Miles Edgeworth, Apollo Justice) from The Great Ace Attorney four (Ryunosuke Naruhodo, Susato Mikotoba, Kazuma Asogi, Barok van Zieks). All eight are exact members of the current ace_attorney campaign; this source names them and identifies their series. No relationship is inferred from visual co-occurrence."
+}

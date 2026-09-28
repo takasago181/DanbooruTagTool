@@ -1,0 +1,65 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-ace-attorney-capcom-cafe-2026-anniversary-cast-20260928-01",
+  "campaign_key": "authority:ace_attorney",
+  "campaign_fingerprint": "b90d9aafc6ed5edc67278f90f32d7d4f7d4645504782a0df647a804cfc66cda3",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.capcom.co.jp/amusement/brands/capcomcafe-umeda/topics/2961/",
+  "source_claim": "CAPCOM CAFE states this is an Ace Attorney series 25th-anniversary collaboration and names seven characters in its character-themed menu descriptions.",
+  "authority_type": "OFFICIAL_PUBLISHER_CHARACTER_ANNIVERSARY_ANNOUNCEMENT",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "apollo_justice",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ace_attorney"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "simon_blackquill",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ace_attorney"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "maya_fey",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ace_attorney"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "phoenix_wright",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ace_attorney"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "miles_edgeworth",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ace_attorney"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "athena_cykes",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ace_attorney"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "klavier_gavin",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ace_attorney"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The announcement explicitly frames the event as the Ace Attorney series 25th anniversary and names Apollo Justice (王泥喜法介), Simon Blackquill under his Japanese name Shin Yuugami (夕神迅), Maya Fey (綾里真宵), Phoenix Wright (成歩堂龍一), Miles Edgeworth (御剣怜侍), Athena Cykes (希月心音), and Klavier Gavin (牙琉響也). Seven exact current campaign members are directly tied to the series event; the seventh menu name Klavier Gavin appears in a second item mentioned in the same page. No relation is inferred from the anniversary artwork."
+}

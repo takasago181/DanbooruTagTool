@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-ace-attorney-capcom-cafe-2020-five-cast-20260928-01",
+  "campaign_key": "authority:ace_attorney",
+  "campaign_fingerprint": "b90d9aafc6ed5edc67278f90f32d7d4f7d4645504782a0df647a804cfc66cda3",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.capcom.co.jp/amusement/capcomcafe/topics/post_83.html",
+  "source_claim": "CAPCOM CAFE describes the announced characters as familiar characters from its Ace Attorney series collaboration and names Phoenix Wright, Miles Edgeworth, Maya Fey, Apollo Justice, and Klavier Gavin.",
+  "authority_type": "OFFICIAL_PUBLISHER_SERIES_CHARACTER_ANNOUNCEMENT",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "phoenix_wright",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ace_attorney"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "miles_edgeworth",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ace_attorney"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "maya_fey",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ace_attorney"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "apollo_justice",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ace_attorney"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "klavier_gavin",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ace_attorney"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The publisher-run CAPCOM CAFE announcement identifies the collaboration as an Ace Attorney series event and names these five familiar series characters. Japanese labels 成歩堂龍一, 御剣怜侍, 綾里真宵, 王泥喜法介, and 牙琉響也 map directly to the exact current campaign keys listed here. This is independent corroborating source evidence; no relationship is inferred from the illustration."
+}
