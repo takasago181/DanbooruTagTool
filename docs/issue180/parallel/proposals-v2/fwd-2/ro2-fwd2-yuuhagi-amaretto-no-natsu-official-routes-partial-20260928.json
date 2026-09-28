@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-fwd2-yuuhagi-amaretto-no-natsu-official-routes-partial-20260928",
+  "campaign_key": "authority:amaretto-no-natsu)",
+  "campaign_fingerprint": "35f83c0d6d8ac5c3998bc689d5b142558eae1c8c61a40e5120a31f18171071f7",
+  "worker_slot": 2,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "The campaign contains eight original-character tags associated with illustrator yuuhagi (悠萩). An exact primary creator source covering these names and their home could not be verified through the checked routes.",
+  "authority_type": "CREATOR_OWNED_ORIGINAL_CHARACTER_ROUTE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "CREATOR_SOCIAL_PROFILE_AND_POSTS",
+      "url_or_query": "https://x.com/yuuhagi and https://x.com/yuuhagi/status/1484480906328948737",
+      "result": "The artist profile was identifiable, but the official profile/post pages did not expose verifiable member-to-work evidence in the checked view. Search discovery surfaced repost/database copies, which were not used as authority."
+    },
+    {
+      "route_type": "CREATOR_PORTFOLIO",
+      "url_or_query": "https://www.pixiv.net/users/2342360",
+      "result": "The creator’s linked Pixiv profile route could not be opened; no exact character roster or home mapping was verified."
+    },
+    {
+      "route_type": "CREATOR_MEMBERSHIP_SITE",
+      "url_or_query": "https://yuuhagi.fanbox.cc/; site search for 悠萩 + シエラ / ヒーラーのこ / うさのこ",
+      "result": "No indexed official roster or exact member-to-work statement was found in the checked route."
+    }
+  ],
+  "notes": "This is partial campaign progress only for a broad eight-member creator-original campaign. No member is marked terminal or assigned a home from naming or repost metadata; later authoritative creator material can still resolve members."
+}

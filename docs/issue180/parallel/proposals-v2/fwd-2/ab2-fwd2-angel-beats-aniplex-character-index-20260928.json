@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-angel-beats-aniplex-character-index-20260928",
+  "campaign_key": "authority:angel_beats!",
+  "campaign_fingerprint": "d5e7ff276692e235a3699760513fe6fd4dd658dc0cb023084e39d9cf2adc8ee0",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.angelbeats.jp/chara/index.html",
+  "source_claim": "Aniplex’s official Angel Beats! character index names Otonashi, Hinata, Iwasawa, and Sekine among its work-specific character entries and is copyright-noticed to VisualArt’s/Key and the Angel Beats! Project.",
+  "authority_type": "ANIPLEX_OFFICIAL_CHARACTER_INDEX",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "otonashi_yuzuru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "angel_beats!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hinata_hideki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "angel_beats!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "iwasawa_masami",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "angel_beats!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sekine_shiori",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "angel_beats!"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only exact campaign members named or individually identified by this official source are included."
+}

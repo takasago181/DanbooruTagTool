@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-angel-beats-key-naoi-character-page-20260928",
+  "campaign_key": "authority:angel_beats!",
+  "campaign_fingerprint": "d5e7ff276692e235a3699760513fe6fd4dd658dc0cb023084e39d9cf2adc8ee0",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://key.visualarts.gr.jp/angelbeats/character_naoi.html",
+  "source_claim": "Key’s official Angel Beats! -1st beat- character page is the dedicated Naoi character entry; the page’s character-specific route and page assets identify Naoi within the game credited to VisualArt’s/Key.",
+  "authority_type": "KEY_OFFICIAL_GAME_CHARACTER_PAGE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "naoi_ayato",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "angel_beats!"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only exact campaign members named or individually identified by this official source are included."
+}
