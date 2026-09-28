@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-mlp-hasbro-sci-twi-crystal-prep-20260928-06",
+  "campaign_key": "authority:my_little_pony",
+  "campaign_fingerprint": "036d90735e2c908f28d99697decff50fa3cde850a4e7a6f01f299b10c0d0be1a",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://newsroom.hasbro.com/news-releases/news-release-details/hasbro-brings-hotly-anticipated-special-edition-toys-comic-con",
+  "source_claim": "Hasbro identifies Sci-Twi as a special edition My Little Pony Equestria Girls character and explains that this Twilight Sparkle lives in the Equestria Girls world and attends Crystal Prep.",
+  "authority_type": "OFFICIAL_FRANCHISE_CHARACTER_ANNOUNCEMENT",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "sci-twi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "my_little_pony"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official Hasbro announcement explicitly names the distinct Sci-Twi character and places her in Equestria Girls. This proposal maps only the exact sci-twi campaign key and does not merge her with pony Twilight Sparkle."
+}

@@ -1,0 +1,86 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-mlp-hasbro-2020-product-character-roster-20260928-02",
+  "campaign_key": "authority:my_little_pony",
+  "campaign_fingerprint": "036d90735e2c908f28d99697decff50fa3cde850a4e7a6f01f299b10c0d0be1a",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.hasbro.com/common/documents/430E4F3F6BFD10148A8EF35124427085/2B41EEF9A8D84278A8053B521738501D.pdf",
+  "source_claim": "Hasbro product descriptions identify named figures inspired by My Little Pony / Friendship is Magic characters and Equestria Girls characters, including Fluttershy, Twilight Sparkle, Applejack, Trixie Lulamoon, Princess Celestia, Angel Bunny, Starlight Glimmer, Sunset Shimmer, Princess Luna, and Rainbow Dash.",
+  "authority_type": "OFFICIAL_HASBRO_CHARACTER_PRODUCT_DESCRIPTIONS",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "fluttershy",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "my_little_pony"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "twilight_sparkle",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "my_little_pony"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "applejack",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "my_little_pony"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "trixie_lulamoon",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "my_little_pony"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "princess_celestia",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "my_little_pony"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "angel_bunny",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "my_little_pony"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "starlight_glimmer",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "my_little_pony"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sunset_shimmer",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "my_little_pony"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "princess_luna",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "my_little_pony"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "rainbow_dash",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "my_little_pony"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The source explicitly names these characters in Hasbro entertainment-inspired product descriptions. Pinkie Pie is not mapped to the distinct campaign tag pinkamena_diane_pie; DJ Pon-3 is not mapped to vinyl_scratch absent explicit alias confirmation."
+}

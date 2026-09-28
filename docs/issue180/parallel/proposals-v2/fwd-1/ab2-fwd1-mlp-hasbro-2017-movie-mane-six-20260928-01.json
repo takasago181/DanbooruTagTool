@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-mlp-hasbro-2017-movie-mane-six-20260928-01",
+  "campaign_key": "authority:my_little_pony",
+  "campaign_fingerprint": "036d90735e2c908f28d99697decff50fa3cde850a4e7a6f01f299b10c0d0be1a",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://newsroom.hasbro.com/news-releases/news-release-details/magic-friendship-comes-big-screen-new-my-little-pony-movie",
+  "source_claim": "Hasbro and Lionsgate identify Twilight Sparkle, Applejack, Rainbow Dash, Pinkie Pie, Fluttershy, and Rarity as the Mane 6 in the Hasbro My Little Pony film.",
+  "authority_type": "OFFICIAL_FRANCHISE_FILM_ANNOUNCEMENT",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "twilight_sparkle",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "my_little_pony"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "applejack",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "my_little_pony"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "rainbow_dash",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "my_little_pony"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "fluttershy",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "my_little_pony"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The campaign keys here match exact named My Little Pony characters in the official film announcement. Pinkie Pie and Rarity were not assigned because the current campaign instead contains a distinct Pinkamena tag and no Rarity tag."
+}

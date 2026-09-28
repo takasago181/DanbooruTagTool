@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-mlp-hasbro-equestria-girls-mane-event-dazzlings-20260928-05",
+  "campaign_key": "authority:my_little_pony",
+  "campaign_fingerprint": "036d90735e2c908f28d99697decff50fa3cde850a4e7a6f01f299b10c0d0be1a",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.hasbro.com/common/documents/F0C7980050569047F5DE28496CA8092B/B974569DDEFC44B2A64A3D975020A08E.pdf",
+  "source_claim": "The Hasbro-authorized Equestria Girls story The Mane Event names Adagio Dazzle, Aria Blaze, and Sonata Dusk together as the three newly arrived girls, and separately names Sunset Shimmer in the same Equestria Girls story.",
+  "authority_type": "OFFICIAL_LICENSED_EQUESTRIA_GIRLS_STORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "adagio_dazzle",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "my_little_pony"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "aria_blaze",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "my_little_pony"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sonata_dusk",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "my_little_pony"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sunset_shimmer",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "my_little_pony"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The source copyright page states MY LITTLE PONY, EQUESTRIA GIRLS and related characters are Hasbro trademarks and identifies the book as ©2014 Hasbro. The story explicitly names each mapped character; no relation is inferred from inspiration or appearance."
+}

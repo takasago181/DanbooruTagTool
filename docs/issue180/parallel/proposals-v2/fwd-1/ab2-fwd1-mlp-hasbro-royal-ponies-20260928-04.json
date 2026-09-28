@@ -1,0 +1,37 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-mlp-hasbro-royal-ponies-20260928-04",
+  "campaign_key": "authority:my_little_pony",
+  "campaign_fingerprint": "036d90735e2c908f28d99697decff50fa3cde850a4e7a6f01f299b10c0d0be1a",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://consumercare.hasbro.com/en-us/product/my-little-pony-royal-ponies-of-equestria-figures/DA767685-3680-4972-8EAF-72099142E4C4",
+  "source_claim": "Hasbro’s Royal Ponies of Equestria product identifies Princess Celestia, Princess Luna, and Princess Cadance as figures from the My Little Pony: Friendship is Magic animated television series.",
+  "authority_type": "OFFICIAL_HASBRO_CHARACTER_PRODUCT_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "princess_celestia",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "my_little_pony"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "princess_luna",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "my_little_pony"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "princess_cadance",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "my_little_pony"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The three named campaign characters are explicitly included in an official Hasbro MLP product page that identifies the source series."
+}
