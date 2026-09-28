@@ -1,0 +1,163 @@
+{
+  "schema_version": 2,
+  "campaign_key": "authority:twisted_wonderland",
+  "campaign_fingerprint": "714093a4b7a45eaca18787c26b9d98b559bf6105707259efc67d40f1dc60092f",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "terminal_reviews": [],
+  "proposal_id": "ab2-fwd1-twisted-wonderland-official-en-cast-20260928-01",
+  "source_url": "https://disneytwistedwonderland.com/staff/",
+  "source_claim": "The official English Disney Twisted-Wonderland STAFF/CAST page identifies these named characters as cast of Disney Twisted-Wonderland: Riddle Rosehearts, Ace Trappola, Deuce Spade, Trey Clover, Cater Diamond, Leona Kingscholar, Jack Howl, Ruggie Bucchi, Azul Ashengrotto, Jade Leech, Floyd Leech, Kalim Al-Asim, Jamil Viper, Vil Schoenheit, Epel Felmier, Rook Hunt, Idia Shroud, Ortho Shroud, Malleus Draconia, Lilia Vanrouge, and Sebek Zigvolt.",
+  "authority_type": "OFFICIAL_PUBLISHER_GAME_CAST_LIST",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "riddle_rosehearts",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "twisted_wonderland"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ace_trappola",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "twisted_wonderland"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "deuce_spade",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "twisted_wonderland"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "trey_clover",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "twisted_wonderland"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "cater_diamond",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "twisted_wonderland"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "leona_kingscholar",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "twisted_wonderland"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "jack_howl",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "twisted_wonderland"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ruggie_bucchi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "twisted_wonderland"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "azul_ashengrotto",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "twisted_wonderland"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "jade_leech",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "twisted_wonderland"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "floyd_leech",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "twisted_wonderland"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kalim_al-asim",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "twisted_wonderland"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "jamil_viper",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "twisted_wonderland"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "vil_schoenheit",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "twisted_wonderland"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "epel_felmier",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "twisted_wonderland"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "rook_hunt",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "twisted_wonderland"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "idia_shroud",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "twisted_wonderland"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ortho_shroud",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "twisted_wonderland"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "malleus_draconia",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "twisted_wonderland"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "lilia_vanrouge",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "twisted_wonderland"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sebek_zigvolt",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "twisted_wonderland"
+    }
+  ],
+  "notes": "The publisher/distributor-hosted English official site names the characters in the cast list under the Disney Twisted-Wonderland title. Each relation is limited to an exact English character name explicitly listed there; no HOME is inferred from dorm inspiration or visual resemblance."
+}

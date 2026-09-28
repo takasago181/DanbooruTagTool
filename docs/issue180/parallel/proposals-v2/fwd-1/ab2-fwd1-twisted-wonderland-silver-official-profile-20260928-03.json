@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "campaign_key": "authority:twisted_wonderland",
+  "campaign_fingerprint": "714093a4b7a45eaca18787c26b9d98b559bf6105707259efc67d40f1dc60092f",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "terminal_reviews": [],
+  "proposal_id": "ab2-fwd1-twisted-wonderland-silver-official-profile-20260928-03",
+  "source_url": "https://twisted-wonderland.aniplex.co.jp/character/silver/",
+  "source_claim": "The official Aniplex character profile titled Silver identifies him as a second-year student in Diasomnia who guards Malleus; the official Disney Twisted-Wonderland site separately lists Silver in its cast.",
+  "authority_type": "OFFICIAL_GAME_CHARACTER_PROFILE",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "silver_vanrouge",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "twisted_wonderland"
+    }
+  ],
+  "notes": "The official profile establishes the character identity in the title by the Silver profile URL, display name, and Diasomnia/Malleus relationship. The canonical tag uses the fuller Silver Vanrouge form; no separate surname claim is made from this page."
+}
