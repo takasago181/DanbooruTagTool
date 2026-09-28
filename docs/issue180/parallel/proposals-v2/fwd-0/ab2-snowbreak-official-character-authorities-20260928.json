@@ -1,0 +1,170 @@
+[
+  {
+    "schema_version": 2,
+    "campaign_key": "authority:snowbreak:_containment_zone",
+    "campaign_fingerprint": "839f0941ce261c043e3b9361a171d483d3d92f6da028b2f8eaf0d02ac135c4a4",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "terminal_reviews": [],
+    "proposal_id": "ab2-snowbreak-cherno-kegaard-official-x-20260928",
+    "source_url": "https://x.com/SnowbreakEN/status/1650681030594928641",
+    "source_claim": "The official SnowbreakEN account's character introduction names Cherno Kegaard and describes her as a Heimdall Force team member.",
+    "authority_type": "FIRST_PARTY_OFFICIAL_SOCIAL_CHARACTER_INTRODUCTION",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "cherno_kegaard",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "snowbreak:_containment_zone"
+      }
+    ],
+    "notes": "Official game-account post explicitly names the exact Character."
+  },
+  {
+    "schema_version": 2,
+    "campaign_key": "authority:snowbreak:_containment_zone",
+    "campaign_fingerprint": "839f0941ce261c043e3b9361a171d483d3d92f6da028b2f8eaf0d02ac135c4a4",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "terminal_reviews": [],
+    "proposal_id": "ab2-snowbreak-enya-murphy-taptap-20260928",
+    "source_url": "https://www.taptap.io/post/5479310",
+    "source_claim": "The Snowbreak: Containment Zone game's official TapTap account publishes the Archive - Enya Murphy character introduction and profile.",
+    "authority_type": "FIRST_PARTY_GAME_CHARACTER_ARCHIVE",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "enya_murphy",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "snowbreak:_containment_zone"
+      }
+    ],
+    "notes": "Official game-account archive names the exact Character."
+  },
+  {
+    "schema_version": 2,
+    "campaign_key": "authority:snowbreak:_containment_zone",
+    "campaign_fingerprint": "839f0941ce261c043e3b9361a171d483d3d92f6da028b2f8eaf0d02ac135c4a4",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "terminal_reviews": [],
+    "proposal_id": "ab2-snowbreak-fenny-golden-taptap-20260928",
+    "source_url": "https://www.taptap.io/es/post/4950571",
+    "source_claim": "The Snowbreak: Containment Zone game's official TapTap account publishes the Archive - Fenny Golden character introduction and profile.",
+    "authority_type": "FIRST_PARTY_GAME_CHARACTER_ARCHIVE",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "fenny_golden",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "snowbreak:_containment_zone"
+      }
+    ],
+    "notes": "Official game-account archive names the exact Character."
+  },
+  {
+    "schema_version": 2,
+    "campaign_key": "authority:snowbreak:_containment_zone",
+    "campaign_fingerprint": "839f0941ce261c043e3b9361a171d483d3d92f6da028b2f8eaf0d02ac135c4a4",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "terminal_reviews": [],
+    "proposal_id": "ab2-snowbreak-fritia-ignis-taptap-20260928",
+    "source_url": "https://www.taptap.io/post/5035439",
+    "source_claim": "The Snowbreak: Containment Zone game's official TapTap account publishes the Archive - Fritia Ignis character introduction and profile.",
+    "authority_type": "FIRST_PARTY_GAME_CHARACTER_ARCHIVE",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "fritia_ignis",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "snowbreak:_containment_zone"
+      }
+    ],
+    "notes": "Official game-account archive names the exact Character."
+  },
+  {
+    "schema_version": 2,
+    "campaign_key": "authority:snowbreak:_containment_zone",
+    "campaign_fingerprint": "839f0941ce261c043e3b9361a171d483d3d92f6da028b2f8eaf0d02ac135c4a4",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "terminal_reviews": [],
+    "proposal_id": "ab2-snowbreak-lyfe-bestla-taptap-20260928",
+    "source_url": "https://www.taptap.io/es/post/4820585",
+    "source_claim": "The Snowbreak: Containment Zone game's official TapTap account publishes the Archive - Lyfe Bestla character introduction and profile.",
+    "authority_type": "FIRST_PARTY_GAME_CHARACTER_ARCHIVE",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "lyfe_bestla",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "snowbreak:_containment_zone"
+      }
+    ],
+    "notes": "Official game-account archive names the exact Character."
+  },
+  {
+    "schema_version": 2,
+    "campaign_key": "authority:snowbreak:_containment_zone",
+    "campaign_fingerprint": "839f0941ce261c043e3b9361a171d483d3d92f6da028b2f8eaf0d02ac135c4a4",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "terminal_reviews": [],
+    "proposal_id": "ab2-snowbreak-marian-andreotti-taptap-20260928",
+    "source_url": "https://www.taptap.io/es/post/5349960",
+    "source_claim": "The Snowbreak: Containment Zone game's official TapTap account publishes the Archive - Marian Andreotti character introduction and profile.",
+    "authority_type": "FIRST_PARTY_GAME_CHARACTER_ARCHIVE",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "marian_andreotti",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "snowbreak:_containment_zone"
+      }
+    ],
+    "notes": "Official game-account archive names the exact Character."
+  },
+  {
+    "schema_version": 2,
+    "campaign_key": "authority:snowbreak:_containment_zone",
+    "campaign_fingerprint": "839f0941ce261c043e3b9361a171d483d3d92f6da028b2f8eaf0d02ac135c4a4",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "terminal_reviews": [],
+    "proposal_id": "ab2-snowbreak-katya-vidya-official-app-store-20260928",
+    "source_url": "https://apps.apple.com/us/app/snowbreak-containment-zone/id6443791795",
+    "source_claim": "The developer-published Snowbreak: Containment Zone App Store product history names Katya - Dawnwing and says Operative Vidya - Agave joins the squad; these identify Katya and Vidya as characters of this game.",
+    "authority_type": "FIRST_PARTY_PRODUCT_UPDATE_NOTES",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "katya_klein",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "snowbreak:_containment_zone"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "vidya_shannon",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "snowbreak:_containment_zone"
+      }
+    ],
+    "notes": "The developer's official product listing identifies both operatives in update notes; no outfit/version identity is proposed."
+  }
+]
