@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-shugo-prism-saber-official-roster-20260928",
+  "campaign_key": "authority:shugo_seijo_prism_saber",
+  "campaign_fingerprint": "2d3e290b04aabb4129be6a7eb203a6905a4f6f28a97f78b153f8328ba58c35e7",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://lusterise.nexton-net.jp/product/prism_syo/_chara_tag.html",
+  "source_claim": "Lusterise's official character page provides four individually selectable character profiles. The official profile-selector labels identify 篠宮ルリナ, 功刀千晶, 神楽坂珠優, and 天城真白; the corresponding official profile frames are named rurina, tiaki, miyu, and masi. Lusterise's official product page identifies the titled work as 守護聖女プリズムセイバー and gives the 2011 Lusterise rights notice. The other four Prism Saber campaign members are not named in this four-character roster and are not included.",
+  "authority_type": "LUSTERISE_OFFICIAL_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "amagi_mashiro",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shugo_seijo_prism_saber"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kagurazaka_miyu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shugo_seijo_prism_saber"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kunugi_chiaki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shugo_seijo_prism_saber"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shinomiya_rurina",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shugo_seijo_prism_saber"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Batch covers every exact campaign member this official roster names. Source pages checked: product page https://lusterise.nexton-net.jp/product/prism_syo/; character roster https://lusterise.nexton-net.jp/product/prism_syo/_chara_tag.html; official selectable profile frames https://lusterise.nexton-net.jp/product/prism_syo/chara/fl_rurina_.html, /chara/fl_tiaki_.html, /chara/fl_miyu_.html, /chara/fl_masi_.html and linked profile frames. Remaining Prism Saber forms require another authority source."
+}

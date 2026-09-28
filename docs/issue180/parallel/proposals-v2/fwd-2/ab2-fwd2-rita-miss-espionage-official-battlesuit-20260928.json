@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-rita-miss-espionage-official-battlesuit-20260928",
+  "campaign_key": "base:rita_rossweisse",
+  "campaign_fingerprint": "c2c7896baa5696076949743a434e7ad0420fc7819ea6fb1365f58a7eb62a6f1b",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.hoyolab.com/article/42848491",
+  "source_claim": "The Honkai Impact 3rd publisher's official HoYoLAB post is titled \"Rita's New S-rank Battlesuit ‘Miss Espionage’ Debuts\" and states that Rita's new S-rank battlesuit Miss Espionage debuts in v8.6. This explicitly identifies the current Miss Espionage member as a Rita battlesuit in Honkai Impact 3rd.",
+  "authority_type": "HOYOVERSE_OFFICIAL_MISS_ESPIONAGE_BATTLE_SUIT_ANNOUNCEMENT",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "rita_rossweisse",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "honkai_impact_3rd"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "rita_rossweisse_(miss_espionage)",
+      "relation_type": "VARIANT_OF",
+      "object_type": "Character",
+      "object_key": "rita_rossweisse"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "This source explicitly proves the Miss Espionage-to-Rita relation and that Rita is presented in the Honkai Impact 3rd v8.6 game context. Other Rita campaign variants are not inferred from this announcement."
+}

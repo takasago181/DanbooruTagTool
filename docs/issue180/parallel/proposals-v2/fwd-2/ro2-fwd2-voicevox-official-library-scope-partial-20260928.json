@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-fwd2-voicevox-official-library-scope-partial-20260928",
+  "campaign_key": "authority:voicevox",
+  "campaign_fingerprint": "b173b4c78a941e3d6316a7e4dde1b0174c292cba4847acee8d5cdb24a317deb5",
+  "worker_slot": 2,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "https://voicevox.hiroshiba.jp/",
+  "source_claim": "The official VOICEVOX site identifies VOICEVOX as a speech/singing synthesis application and lists multiple named character libraries, while directing users to separate character terms. The checked platform roster establishes VOICEVOX use/library membership but does not establish a shared single HOME Copyright for these eight characters.",
+  "authority_type": "VOICEVOX_OFFICIAL_LIBRARY_CATALOG",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "OFFICIAL_ROSTER",
+      "url_or_query": "https://voicevox.hiroshiba.jp/",
+      "result": "Official software and library roster checked; platform/library presence does not prove one common Character HOME. Distinct creators and licensing terms remain character-specific; no safe positive relation for the whole multi-member campaign was established."
+    }
+  ],
+  "notes": "This records a checked route only. It is not negative HOME evidence and does not terminalize the Research Unit. Existing Issue #180 policy notes that VOICEVOX is a synthesis platform/ecosystem, not a common in-world HOME; further identity/origin work requires character-specific authority."
+}
