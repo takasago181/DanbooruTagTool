@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-seele-official-wings-of-panacea-20260928-01",
+  "campaign_key": "base:seele_vollerei",
+  "campaign_fingerprint": "d2e848a4ea3d4db506a363146dc5577025848364bd2b5a59a921674d3b478d0b",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.youtube.com/watch?v=tN8Gl86kPtU",
+  "source_claim": "The verified Honkai Impact 3rd official channel introduces Seele’s new S-rank battlesuit Wings of Panacea and names Seele Vollerei in the voice artist credits.",
+  "authority_type": "OFFICIAL_GAME_BATTLESUIT_ANNOUNCEMENT",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "seele_vollerei_(wings_of_panacea)",
+      "relation_type": "VARIANT_OF",
+      "object_type": "Character",
+      "object_key": "seele_vollerei"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official announcement links the named battlesuit Wings of Panacea to Seele Vollerei, supporting this exact campaign variant relation."
+}

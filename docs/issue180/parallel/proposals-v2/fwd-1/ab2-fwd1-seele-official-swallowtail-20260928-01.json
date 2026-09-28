@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-seele-official-swallowtail-20260928-01",
+  "campaign_key": "base:seele_vollerei",
+  "campaign_fingerprint": "d2e848a4ea3d4db506a363146dc5577025848364bd2b5a59a921674d3b478d0b",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.youtube.com/watch?v=wV-tWmvQ8Gk",
+  "source_claim": "The verified Honkai Impact 3rd official channel introduces Seele Vollerei and explicitly calls Swallowtail Phantasm her A-rank battlesuit.",
+  "authority_type": "OFFICIAL_GAME_BATTLESUIT_ANNOUNCEMENT",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "seele_vollerei_(swallowtail_phantasm)",
+      "relation_type": "VARIANT_OF",
+      "object_type": "Character",
+      "object_key": "seele_vollerei"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "This first-party announcement explicitly binds Swallowtail Phantasm to Seele Vollerei as her battlesuit, supporting the exact variant relation."
+}

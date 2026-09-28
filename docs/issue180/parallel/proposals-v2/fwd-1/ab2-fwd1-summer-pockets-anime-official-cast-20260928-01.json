@@ -1,0 +1,86 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-summer-pockets-anime-official-cast-20260928-01",
+  "campaign_key": "authority:summer_pockets",
+  "campaign_fingerprint": "8a78a078c8413646a1a8f13720370077b8762226b487936779fdc47a84aa2fb6",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://summerpockets-anime.jp/",
+  "source_claim": "The official TV anime site presents the series as Summer Pockets and has a character/cast section naming Naruse Shiroha, Sorakado Ao, Kushima Kamome, Tsumugi Wenders, Nomura Miki, Mizuori Shizuku, Kato Umi, Mitani Ryouichi, and Takahara Hairi. Its episode 13 synopsis identifies Sorakado Ai as Ao’s twin older sister.",
+  "authority_type": "OFFICIAL_ANIME_CHARACTER_ROSTER_AND_SYNOPSIS",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "naruse_shiroha",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "summer_pockets"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sorakado_ao",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "summer_pockets"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kushima_kamome",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "summer_pockets"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tsumugi_wenders",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "summer_pockets"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nomura_miki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "summer_pockets"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mizuori_shizuku",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "summer_pockets"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "katou_umi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "summer_pockets"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mitani_ryouichi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "summer_pockets"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "takahara_hairi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "summer_pockets"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sorakado_ai",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "summer_pockets"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The first-party anime website identifies this as the Summer Pockets adaptation and names each roster member in its character/cast section; the episode synopsis names 空門藍 and states she is 蒼’s twin sister within that series story. Japanese labels map directly to the campaign identities."
+}

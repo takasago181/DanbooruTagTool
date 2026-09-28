@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-summer-pockets-key-shiki-20260928-01",
+  "campaign_key": "authority:summer_pockets",
+  "campaign_fingerprint": "8a78a078c8413646a1a8f13720370077b8762226b487936779fdc47a84aa2fb6",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://key.visualarts.gr.jp/archives/2306",
+  "source_claim": "Key’s official announcement identifies Kamiyama Shiki as a character of the PC game Summer Pockets REFLECTION BLUE and announces her voice cast.",
+  "authority_type": "OFFICIAL_GAME_CHARACTER_ANNOUNCEMENT",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "kamiyama_shiki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "summer_pockets"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The rights-holder/publisher Key explicitly names 神山識 as part of the Summer Pockets REFLECTION BLUE game. REFLECTION BLUE is the expanded Summer Pockets edition, so this proves direct-home membership in the campaign Copyright."
+}
