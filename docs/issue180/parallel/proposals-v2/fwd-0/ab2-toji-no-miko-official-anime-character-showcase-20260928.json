@@ -1,0 +1,86 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-toji-no-miko-official-anime-character-showcase-20260928",
+  "campaign_key": "authority:toji_no_miko",
+  "campaign_fingerprint": "68e422a43b58d42698f297b4ffc5b3653cac8a55b8df56a2c895b6d0c2c9c28c",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.mbs.jp/tojinomiko/",
+  "source_claim": "The official MBS broadcast program character showcase profiles the campaign characters Kanami Eto, Hiyori Jujo, Mai Yanase, Sayaka Itomi, Kaoru Mashiko, Ellen Kohagura, Maki Shido, Suzuka Konohana, Yomi Satsuki, Yume Tsubakuro, and Yukari Origami as characters in the Toji no Miko anime.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "etou_kanami",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "toji_no_miko"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "juujou_hiyori",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "toji_no_miko"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yanase_mai",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "toji_no_miko"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "itomi_sayaka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "toji_no_miko"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mashiko_kaoru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "toji_no_miko"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kohagura_ellen",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "toji_no_miko"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "konohana_suzuka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "toji_no_miko"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "satsuki_yomi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "toji_no_miko"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tsubakuro_yume",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "toji_no_miko"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "origami_yukari",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "toji_no_miko"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "This campaign batch includes only exact identity tags explicitly named and profiled on the official broadcaster page."
+}

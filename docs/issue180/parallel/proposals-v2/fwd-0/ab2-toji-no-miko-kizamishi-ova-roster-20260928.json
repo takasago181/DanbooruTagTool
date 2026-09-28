@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-toji-no-miko-kizamishi-ova-roster-20260928",
+  "campaign_key": "authority:toji_no_miko",
+  "campaign_fingerprint": "68e422a43b58d42698f297b4ffc5b3653cac8a55b8df56a2c895b6d0c2c9c28c",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://tojitomo-anime.jp/staffcast/",
+  "source_claim": "The official staff/cast page for the Toji no Miko: Kizamishi Issen no Tomoshibi OVA names the six Akabane research unit characters Mihono Asakura, Chie Setouchi, Kofuki Shichinosato, Kiyoka Musumi, Mirja Kitora, and Yui Yamashiro in its cast list.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "asakura_mihono",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "toji_no_miko:_kizamishi_issen_no_tomoshibi"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "setouchi_chie",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "toji_no_miko:_kizamishi_issen_no_tomoshibi"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shichinosato_kofuki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "toji_no_miko:_kizamishi_issen_no_tomoshibi"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "musumi_kiyoka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "toji_no_miko:_kizamishi_issen_no_tomoshibi"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kitora_mirja",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "toji_no_miko:_kizamishi_issen_no_tomoshibi"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yamashiro_yui",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "toji_no_miko:_kizamishi_issen_no_tomoshibi"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "These six characters are explicitly cast in the official Tojitomo OVA, whose title and program description place them in the Toji no Miko game world."
+}
