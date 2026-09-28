@@ -1,0 +1,18 @@
+{
+  "schema_version": 2,
+  "campaign_key": "authority:hunter_x_hunter",
+  "campaign_fingerprint": "e00b576370439a4f03acc563bc5431984d2a3c28c850f26f7ad06c14bc0419cb",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "terminal_reviews": [],
+  "notes": "NTV's official Zoldyck-family character directory lists Milluki and Kalluto by name in the HUNTER×HUNTER story. No kinship-derived additional relations are inferred.",
+  "proposal_id": "ab2-fwd1-hunter-x-hunter-zoldyck-family-character-list-20260928-01",
+  "source_url": "https://www.ntv.co.jp/hunterhunter/character/other_02.html",
+  "source_claim": "The official HUNTER×HUNTER Zoldyck-family arc directory includes Milluki and Kalluto as named characters.",
+  "relations": [
+    {"subject_type":"Character","subject_key":"milluki_zoldyck","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"hunter_x_hunter"},
+    {"subject_type":"Character","subject_key":"kalluto_zoldyck","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"hunter_x_hunter"}
+  ]
+}

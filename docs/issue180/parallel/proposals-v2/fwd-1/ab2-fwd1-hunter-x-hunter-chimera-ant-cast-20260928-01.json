@@ -1,0 +1,19 @@
+{
+  "schema_version": 2,
+  "campaign_key": "authority:hunter_x_hunter",
+  "campaign_fingerprint": "e00b576370439a4f03acc563bc5431984d2a3c28c850f26f7ad06c14bc0419cb",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "terminal_reviews": [],
+  "notes": "NTV's official episode 125 synopsis explicitly names Meruem, Neferpitou, and Shaiapouf in the HUNTER×HUNTER Chimera Ant story context.",
+  "proposal_id": "ab2-fwd1-hunter-x-hunter-chimera-ant-cast-20260928-01",
+  "source_url": "https://www.ntv.co.jp/hunterhunter/story/125.html",
+  "source_claim": "The official HUNTER×HUNTER episode synopsis names the Chimera Ant King Meruem, Neferpitou, and Shaiapouf in the same series story.",
+  "relations": [
+    {"subject_type":"Character","subject_key":"meruem","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"hunter_x_hunter"},
+    {"subject_type":"Character","subject_key":"neferpitou","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"hunter_x_hunter"},
+    {"subject_type":"Character","subject_key":"shaiapouf","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"hunter_x_hunter"}
+  ]
+}

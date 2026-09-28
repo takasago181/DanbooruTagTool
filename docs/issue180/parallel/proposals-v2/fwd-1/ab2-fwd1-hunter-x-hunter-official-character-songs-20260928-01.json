@@ -1,0 +1,19 @@
+{
+  "schema_version": 2,
+  "campaign_key": "authority:hunter_x_hunter",
+  "campaign_fingerprint": "e00b576370439a4f03acc563bc5431984d2a3c28c850f26f7ad06c14bc0419cb",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "terminal_reviews": [],
+  "notes": "The official HUNTER×HUNTER site music discography credits character songs to Chrollo, Phinks, and Neferpitou. Only exact listed campaign characters are proposed.",
+  "proposal_id": "ab2-fwd1-hunter-x-hunter-official-character-songs-20260928-01",
+  "source_url": "https://www.ntv.co.jp/hunterhunter/music/index.html",
+  "source_claim": "The official series site credits Hunter×Hunter character-song tracks to Chrollo Lucilfer, Phinks, and Neferpitou.",
+  "relations": [
+    {"subject_type":"Character","subject_key":"chrollo_lucilfer","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"hunter_x_hunter"},
+    {"subject_type":"Character","subject_key":"phinks_magcub","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"hunter_x_hunter"},
+    {"subject_type":"Character","subject_key":"neferpitou","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"hunter_x_hunter"}
+  ]
+}

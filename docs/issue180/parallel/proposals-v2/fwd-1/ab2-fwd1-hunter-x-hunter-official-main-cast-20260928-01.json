@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "campaign_key": "authority:hunter_x_hunter",
+  "campaign_fingerprint": "e00b576370439a4f03acc563bc5431984d2a3c28c850f26f7ad06c14bc0419cb",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "terminal_reviews": [],
+  "notes": "NTV's official 2011 anime cast page identifies the series and credits these five main characters. The target keys correspond to the exact Japanese character names in the cast list.",
+  "proposal_id": "ab2-fwd1-hunter-x-hunter-official-main-cast-20260928-01",
+  "source_url": "https://www.ntv.co.jp/hunterhunter/caststaff/index.html",
+  "source_claim": "The official NTV HUNTER×HUNTER cast page names Gon Freecss, Killua Zoldyck, Leorio, Kurapika, and Hisoka as main cast characters.",
+  "relations": [
+    {"subject_type":"Character","subject_key":"gon_freecss","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"hunter_x_hunter"},
+    {"subject_type":"Character","subject_key":"killua_zoldyck","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"hunter_x_hunter"},
+    {"subject_type":"Character","subject_key":"leorio_paladiknight","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"hunter_x_hunter"},
+    {"subject_type":"Character","subject_key":"kurapika","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"hunter_x_hunter"},
+    {"subject_type":"Character","subject_key":"hisoka_morow","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"hunter_x_hunter"}
+  ]
+}

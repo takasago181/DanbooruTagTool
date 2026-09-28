@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "campaign_key": "authority:hunter_x_hunter",
+  "campaign_fingerprint": "e00b576370439a4f03acc563bc5431984d2a3c28c850f26f7ad06c14bc0419cb",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "terminal_reviews": [],
+  "notes": "The NTV official character list for the Greed Island arc directly names Biscuit (Biske) Krueger. This proposal is limited to that exact packet character.",
+  "proposal_id": "ab2-fwd1-hunter-x-hunter-gi-official-character-list-20260928-01",
+  "source_url": "https://www.ntv.co.jp/hunterhunter/character/other_05.html",
+  "source_claim": "NTV's official HUNTER×HUNTER Greed Island character directory lists Biscuit Krueger among the arc's characters.",
+  "relations": [
+    {"subject_type":"Character","subject_key":"biscuit_krueger","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"hunter_x_hunter"}
+  ]
+}
