@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-euphonium-ensemble-official-characters-20260928-01",
+  "campaign_key": "authority:hibike!_euphonium",
+  "campaign_fingerprint": "47465b716dcae8241539be88caf59ff8f38915c6c068a5c4fe179040c9af0d6d",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://ensemble.anime-eupho.com/characters/",
+  "source_claim": "The official Sound! Euphonium: Ensemble Contest character page profiles Kumiko Oumae, Hazuki Katou, Sapphire Kawashima, Reina Kousaka, Kanade Hisaishi, and Ririka Kenzaki.",
+  "authority_type": "FIRST_PARTY_ANIME_CHARACTER_PROFILE_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "hisaishi_kanade",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "hibike!_euphonium"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "katou_hazuki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "hibike!_euphonium"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kawashima_sapphire",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "hibike!_euphonium"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kenzaki_ririka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "hibike!_euphonium"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kousaka_reina",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "hibike!_euphonium"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "oumae_kumiko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "hibike!_euphonium"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only matching campaign identities named on the official Ensemble Contest character page are proposed. Other characters and mascot tags are omitted."
+}

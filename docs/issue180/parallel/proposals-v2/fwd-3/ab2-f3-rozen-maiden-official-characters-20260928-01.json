@@ -1,0 +1,72 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-rozen-maiden-official-characters-20260928-01",
+  "campaign_key": "authority:rozen_maiden",
+  "campaign_fingerprint": "88f998a664f2692cb6a53046016ed640a017fe4b2d90c91e4372218ce7ab3b95",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.tbs.co.jp/anime/rozen/chara/",
+  "source_claim": "TBS’s official Rozen Maiden character page names Jun Sakurada, Shinku, Kirakishou, Suigintou, Suiseiseki, Souseiseki, Kanaria, and Hinaichigo.",
+  "authority_type": "FIRST_PARTY_ANIME_CHARACTER_DIRECTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "hinaichigo",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "rozen_maiden"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kanaria",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "rozen_maiden"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kirakishou",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "rozen_maiden"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sakurada_jun",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "rozen_maiden"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shinku",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "rozen_maiden"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "souseiseki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "rozen_maiden"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "suigintou",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "rozen_maiden"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "suiseiseki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "rozen_maiden"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only matching campaign identities directly named in the official character directory are included. Other campaign entities and tag variants absent from the listed names are omitted."
+}

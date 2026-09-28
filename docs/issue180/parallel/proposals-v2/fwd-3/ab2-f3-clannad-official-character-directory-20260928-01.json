@@ -1,0 +1,72 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-clannad-official-character-directory-20260928-01",
+  "campaign_key": "authority:clannad",
+  "campaign_fingerprint": "1184dbe649a934032dcf4cff397e10a6c3123951a9dc5d1353585009bf2316b9",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.tbs.co.jp/clannad/clannad1/04chara/chara.html",
+  "source_claim": "TBS’s official CLANNAD character directory names Tomoya Okazaki, Nagisa Furukawa, Kyou and Ryou Fujibayashi, Tomoyo Sakagami, Fuuko Ibuki, Kotomi Ichinose, and Youhei Sunohara.",
+  "authority_type": "FIRST_PARTY_ANIME_CHARACTER_DIRECTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "fujibayashi_kyou",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "clannad"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "fujibayashi_ryou",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "clannad"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "furukawa_nagisa",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "clannad"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ibuki_fuuko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "clannad"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ichinose_kotomi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "clannad"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "okazaki_tomoya",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "clannad"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sakagami_tomoyo",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "clannad"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sunohara_youhei",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "clannad"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only matching campaign identities individually listed in the official first-season CLANNAD character directory are included; other TV-series and sequel characters are not inferred."
+}
