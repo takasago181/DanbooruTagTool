@@ -1,0 +1,18 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-league-of-legends-official-soraka-skin-roster-20260928",
+  "campaign_key": "authority:league_of_legends",
+  "campaign_fingerprint": "c41c4a63ac190edd5265dc9162b8f44aa1a0d9f81eb32da028c1465eb6fb048a",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.leagueoflegends.com/en-us/champions/soraka/",
+  "source_claim": "Riot Games' official Soraka champion page presents an Available Skins list under the Soraka champion profile and explicitly lists Star Guardian Soraka and Cafe Cuties Soraka.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"cafe_cuties_soraka","relation_type":"VARIANT_OF","object_type":"Character","object_key":"soraka"},
+    {"subject_type":"Character","subject_key":"star_guardian_soraka","relation_type":"VARIANT_OF","object_type":"Character","object_key":"soraka"}
+  ],
+  "terminal_reviews": [],
+  "notes": "Only exact current campaign skin names shown under the Soraka champion profile are included."
+}

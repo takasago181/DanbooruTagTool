@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-league-of-legends-official-ahri-skin-roster-20260928",
+  "campaign_key": "authority:league_of_legends",
+  "campaign_fingerprint": "c41c4a63ac190edd5265dc9162b8f44aa1a0d9f81eb32da028c1465eb6fb048a",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.leagueoflegends.com/en-us/champions/ahri/",
+  "source_claim": "Riot Games' official Ahri champion page presents an Available Skins list beneath the Ahri champion profile and explicitly lists Academy Ahri, Arcade Ahri, Popstar Ahri, Star Guardian Ahri, K/DA Ahri, K/DA ALL OUT Ahri, and Spirit Blossom Ahri.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"academy_ahri","relation_type":"VARIANT_OF","object_type":"Character","object_key":"ahri"},
+    {"subject_type":"Character","subject_key":"arcade_ahri","relation_type":"VARIANT_OF","object_type":"Character","object_key":"ahri"},
+    {"subject_type":"Character","subject_key":"k/da_ahri","relation_type":"VARIANT_OF","object_type":"Character","object_key":"ahri"},
+    {"subject_type":"Character","subject_key":"k/da_all_out_ahri","relation_type":"VARIANT_OF","object_type":"Character","object_key":"ahri"},
+    {"subject_type":"Character","subject_key":"popstar_ahri","relation_type":"VARIANT_OF","object_type":"Character","object_key":"ahri"},
+    {"subject_type":"Character","subject_key":"spirit_blossom_ahri","relation_type":"VARIANT_OF","object_type":"Character","object_key":"ahri"},
+    {"subject_type":"Character","subject_key":"star_guardian_ahri","relation_type":"VARIANT_OF","object_type":"Character","object_key":"ahri"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official page's skin list is scoped to the Ahri champion profile, establishing each listed skin as an Ahri variant. The Baddest Ahri tag is not a separately listed skin name and is omitted."
+}
