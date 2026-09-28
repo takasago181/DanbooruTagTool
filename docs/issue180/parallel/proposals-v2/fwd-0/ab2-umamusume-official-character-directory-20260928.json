@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-umamusume-official-character-directory-20260928",
+  "campaign_key": "authority:umamusume",
+  "campaign_fingerprint": "89cf9789196d0d1df71b3b919120fb5d2553656ccdc7f70438047918b6d068ee",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://umamusume.jp/character/",
+  "source_claim": "Cygames' official Umamusume: Pretty Derby character directory explicitly presents Anshinzawa Sasami, Hayakawa Tazuna, Kiryuin Aoi, Otonashi Etsuko, Satake Mei, and Tsurugi Ryoka as character entries, with their Japanese names, profiles, and voice credits. Those names match six exact Character tags in the current campaign.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "anshinzawa_sasami",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "umamusume"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hayakawa_tazuna",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "umamusume"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kiryuin_aoi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "umamusume"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "otonashi_etsuko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "umamusume"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "satake_mei",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "umamusume"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tsurugi_ryoka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "umamusume"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only fictional character entries explicitly present in Cygames' official directory are included. Real-life voice-actor/person tags, unnamed staff, and remaining campaign members are not inferred; the broad campaign remains open."
+}
