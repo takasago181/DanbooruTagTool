@@ -1,0 +1,65 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-toradora-official-story-and-cast-20260928",
+  "campaign_key": "authority:toradora!",
+  "campaign_fingerprint": "5227e518d0e4c426042a232aff3cc83979852403dd7f89528618a50ef7d9333d",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://dengekibunko.jp/special/toradora/",
+  "source_claim": "Dengeki Bunko's official Toradora! 15th-anniversary page gives the work's synopsis and official character roster. It names Taiga Aisaka, Ryuuji Takasu, Minori Kushieda, Yusaku Kitamura, Ami Kawashima, and Yasuko Takasu. The synopsis identifies Taiga by her in-story nickname 手乗りタイガー (Palmtop Tiger).",
+  "authority_type": "DENGEKI_BUNKO_OFFICIAL_WORK_OVERVIEW_AND_CAST",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "aisaka_taiga",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "toradora!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kawashima_ami",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "toradora!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kitamura_yuusaku",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "toradora!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kushieda_minori",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "toradora!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "palmtop_tiger",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "toradora!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "takasu_ryuuji",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "toradora!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "takasu_yasuko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "toradora!"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official synopsis calls Taiga the tiny but ferocious girl feared as 手乗りタイガー, and the official character tiles name 逢坂大河, 高須竜児, 櫛枝実乃梨, 北村祐作, 川嶋亜美, and 高須泰子. The canonical Toradora! title is used for direct HOME. palmtop_tiger is the in-work alias/title for Taiga, not a separate character; this batch only records its direct work association and does not assert an identity edge."
+}

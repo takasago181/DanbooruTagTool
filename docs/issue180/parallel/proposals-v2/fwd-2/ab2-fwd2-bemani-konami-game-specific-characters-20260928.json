@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-bemani-konami-game-specific-characters-20260928",
+  "campaign_key": "authority:bemani",
+  "campaign_fingerprint": "aff0a749657b320f88a81683be4eeb7ec716e40489ec972e4814b6a34c08aae3",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.konami.com/arcadegames/topics/list/?game=am_popn_jamfizz&type=topics",
+  "source_claim": "KONAMI's official pop'n music product topics identify MZD as a pop'n music character. KONAMI's official SOUND VOLTEX anniversary announcement identifies レイシス (Rasis) as a character of SOUND VOLTEX. These exact game-specific first-party sources support separate direct HOME relations for MZD and Rasis; no BEMANI umbrella HOME is inferred for the campaign.",
+  "authority_type": "KONAMI_OFFICIAL_GAME_PRODUCT_CHARACTER_NOTICES",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "mzd",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "pop'n_music"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "rasis",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "sound_voltex"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The pop'n music Jam&Fizz official topics index (https://www.konami.com/arcadegames/topics/list/?game=am_popn_jamfizz&type=topics) has an official pop'n birthday topic naming MZD. KONAMI's official SOUND VOLTEX 12th anniversary notice (https://www.konami.com/videonews/movie_view.html?movie_url=6345788920112) explicitly calls レイシス a SOUND VOLTEX character. The campaign candidate `bemani` is an umbrella spanning separately titled music games and is not proposed as a HOME. No relations are proposed for `kougei_ciel_nana`, `maud`, `rie-chan`, or `sanae-chan`: the checked first-party routes did not establish an exact canonical game/work HOME for these members; secondary databases/community pages were not promoted into authority. This batch is positive partial progress, not a terminal review of the four unassigned members."
+}

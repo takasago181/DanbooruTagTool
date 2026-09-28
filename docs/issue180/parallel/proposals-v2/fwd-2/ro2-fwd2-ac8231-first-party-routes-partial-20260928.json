@@ -1,0 +1,28 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-fwd2-ac8231-first-party-routes-partial-20260928",
+  "campaign_key": "authority:ac8231",
+  "campaign_fingerprint": "fe026481ded1a898a277b318d8c66b39f9626e0c0a05e1d2fb8197d275ef76b5",
+  "worker_slot": 2,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "The reachable evidence discovery surfaced creator-attributed ac8231 posts, but the first-party X profile and exact post pages could not be retrieved and no official roster/profile or publisher source was found that establishes these six Characters under a stable Copyright HOME.",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "FIRST_PARTY_CREATOR_PROFILE",
+      "url_or_query": "https://x.com/ac8231",
+      "result": "Direct access returned 403 Forbidden. Search discovery did not surface a first-party bio or linked official roster that establishes the exact campaign members or a stable work/IP root. No HOME relation can be safely inferred from the artist handle."
+    },
+    {
+      "route_type": "FIRST_PARTY_CREATOR_PUBLICATION_POSTS",
+      "url_or_query": "https://x.com/ac8231/status/1817790603754876966 ; https://x.com/ac8231/status/1548253574030770176 ; https://x.com/ac8231/status/1758939188639219713",
+      "result": "Direct exact-post requests returned cache-miss/unavailable responses. Third-party image-board records expose these URLs as source links, but do not substitute for the creator's source content and do not prove that the six-member campaign belongs under Copyright ac8231 or original."
+    }
+  ],
+  "notes": "PARTIAL progress only for the broad creator-identity campaign. The evidence does not establish whether the current member set shares a stable Copyright work/root. Do not use the artist name as HOME, and do not infer original solely from secondary tags. Move on to untouched OPEN work; this record is neither negative evidence nor a terminal decision."
+}

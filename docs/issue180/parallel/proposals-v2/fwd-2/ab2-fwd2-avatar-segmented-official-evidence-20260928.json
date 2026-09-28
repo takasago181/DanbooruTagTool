@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-avatar-segmented-official-evidence-20260928",
+  "campaign_key": "authority:avatar",
+  "campaign_fingerprint": "261cd4d412c4b81ae4cab426092b4766a87ffd134d213ae475f709e8ef236957",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.avatarstudiosofficial.com/timeline/",
+  "source_claim": "Avatar Studios' official timeline places Avatar Kyoshi and Suki in entries explicitly titled Avatar: The Last Airbender and places Mako in a Legend of Korra entry. Nickelodeon's official character profiles identify Mai and Momo and give their first appearances in Avatar: The Last Airbender episodes. These sources support title-specific HOME relations for five exact members; the sixth member Jin was not safely established by the checked first-party sources.",
+  "authority_type": "RIGHTSHOLDER_OFFICIAL_TITLE_LABELED_TIMELINE_AND_CHARACTER_PROFILES",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "kyoshi_(avatar)",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "avatar:_the_last_airbender"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mai_(avatar)",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "avatar:_the_last_airbender"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mako_(avatar)",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "the_legend_of_korra"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "momo_(avatar)",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "avatar:_the_last_airbender"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "suki_(avatar)",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "avatar:_the_last_airbender"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Avatar Studios' official timeline (https://www.avatarstudiosofficial.com/timeline/) labels Avatar Day and Escape from the Spirit World as Avatar: The Last Airbender and explicitly describes Kyoshi in both; it labels Suki, Alone as Avatar: The Last Airbender and describes Suki, and labels Republic City Hustle as The Legend of Korra while naming Mako. Nickelodeon's official Mai profile (https://www.nick.com/info-page/esmqi5/mai) and Momo profile (https://www.nick.com/info-page/exlf40/momo) identify their first appearances in Avatar: The Last Airbender episodes. Relations are title-specific, not a shared Avatar franchise umbrella. Jin is omitted: search for an official animation-era source did not identify the exact `jin_(avatar)` member; the surfaced official live-action adaptation material is not evidence for the source Character tag. No negative or terminal conclusion is asserted for Jin."
+}

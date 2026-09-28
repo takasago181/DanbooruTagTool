@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-aikatsu-tv-tokyo-official-roster-20260928",
+  "campaign_key": "authority:aikatsu!",
+  "campaign_fingerprint": "35c91a0dba2fc493a727c6d921582901caf63346ed6fab30fdcbfb9b6eed2243",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.tv-tokyo.co.jp/anime/aikatsuonparade/charalist/",
+  "source_claim": "TV Tokyo's official Aikatsu! character materials explicitly list Himesato Maria, Minowa Hikari, Nono Daichi, Risa Shirakaba, and Yu Hattori in the Aikatsu! On Parade idol roster. The official Aikatsu! character and episode pages identify Nono Daichi and Risa Shirakaba in Aikatsu!, and the official episode guide places Sena Tsubasa in the Aikatsu! story. Together these first-party sources establish the six exact members as characters belonging directly to the Aikatsu! Copyright work.",
+  "authority_type": "TV_TOKYO_OFFICIAL_AIKATSU_CHARACTER_ROSTER_AND_EPISODE_GUIDE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "daichi_nono",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "aikatsu!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hattori_yu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "aikatsu!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "himesato_maria",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "aikatsu!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "minowa_hikari",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "aikatsu!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sena_tsubasa",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "aikatsu!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shirakaba_risa",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "aikatsu!"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Exact source routes: TV Tokyo's Aikatsu! On Parade roster (https://www.tv-tokyo.co.jp/anime/aikatsuonparade/charalist/) lists 姫里マリア, 三ノ輪ヒカリ, 大地のの, 白樺リサ, 服部ユウ; the original Aikatsu! character page (https://www.tv-tokyo.co.jp/anime/aikatsu/sp/chara/) gives Nono and Risa's Aikatsu! debut; the official episode guide (https://www.tv-tokyo.co.jp/anime/aikatsu/episodes/index_2.html) names Nono, Risa, and designer 瀬名翼 in Aikatsu! episodes. The roster page is explicitly the official character list for Aikatsu! On Parade and credits BNP/BANDAI, DENTSU, TV TOKYO. This establishes direct work membership only; it does not assert additional identity or cross-franchise relations."
+}
