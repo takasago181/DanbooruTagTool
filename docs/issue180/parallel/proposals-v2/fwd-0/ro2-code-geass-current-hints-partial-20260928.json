@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-code-geass-current-hints-partial-20260928",
+  "campaign_key": "authority:code_geass",
+  "campaign_fingerprint": "348791e9c013316b5c8ca64404b15aa9380e1d9651d31fcdf544739f0a9af4d1",
+  "worker_slot": 0,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "OFFICIAL_ANIME_CAST_CREDITS",
+      "url_or_query": "https://geass.jp/akito/cast.html",
+      "result": "The first-party Akito cast page lists its character/cast pairs, including Akito, Leila, and others, but none is an exact current campaign member. Fukuyama Jun is a credited actor for Julius Kingsley, not the fictional character identity fukuyama_jun."
+    },
+    {
+      "route_type": "OFFICIAL_ANIME_STAFF_CAST",
+      "url_or_query": "https://geass.jp/nunnally/staffcast.html",
+      "result": "The first-party Nunnally in Wonderland credits list character roles and performers; no exact current fictional campaign member is safely established. Yukana is credited as C.C.’s performer, not as a Code Geass Character identity."
+    },
+    {
+      "route_type": "OFFICIAL_FILM_CHARACTER_ROSTER",
+      "url_or_query": "https://geass.jp/R-geass/character.php",
+      "result": "The first-party Resurrection character roster names the film’s characters, but none exactly matches the current campaign members."
+    }
+  ],
+  "notes": "The broad Code Geass campaign remains open. These three accepted source-hint routes were checked without establishing an exact current member-to-root relation; actor credits and mech names are not mapped as Characters."
+}
