@@ -1,0 +1,28 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-cell-of-empireo-official-cast-20260928",
+  "campaign_key": "authority:saibou_shinkyoku",
+  "campaign_fingerprint": "5f45f112f30cd6f7415db00c7eed491947f563ce97a601781cfa53a47a59d77b",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://lamondocommedia8.wixsite.com/cos-coe/blank-1",
+  "source_claim": "The Cell of Empireo game's official character page identifies Haruki Atou, Rui Otowa, Terumi Kurachi, Reiji Isoi, Aiba Ibuki, You Jabuchi, Noriyuki Utsugi, Hajime Hatsutori, Eiji Shinano, Nina Yanagi, Karen Kumazaki, Kanou Aogu, Riku Kumazaki, Noa Enomoto, and Minoru Harada as characters in the work. The page is hosted under the creator's official Cell of Empireo site, whose home page and copyright identify SharkTale Factory.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"atou_haruki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"saibou_shinkyoku"},
+    {"subject_type":"Character","subject_key":"isoi_reiji","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"saibou_shinkyoku"},
+    {"subject_type":"Character","subject_key":"aiba_ibuki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"saibou_shinkyoku"},
+    {"subject_type":"Character","subject_key":"jabuchi_you","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"saibou_shinkyoku"},
+    {"subject_type":"Character","subject_key":"utsugi_noriyuki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"saibou_shinkyoku"},
+    {"subject_type":"Character","subject_key":"hatsutori_hajime","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"saibou_shinkyoku"},
+    {"subject_type":"Character","subject_key":"shinano_eiji","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"saibou_shinkyoku"},
+    {"subject_type":"Character","subject_key":"yanagi_nina","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"saibou_shinkyoku"},
+    {"subject_type":"Character","subject_key":"kumazaki_karen","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"saibou_shinkyoku"},
+    {"subject_type":"Character","subject_key":"kanou_aogu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"saibou_shinkyoku"},
+    {"subject_type":"Character","subject_key":"enomoto_noa","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"saibou_shinkyoku"},
+    {"subject_type":"Character","subject_key":"harada_minoru","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"saibou_shinkyoku"}
+  ],
+  "terminal_reviews": [],
+  "notes": "This is a positive source-level partial roster batch. Only exact identities represented in the current campaign and individually named on the official character page are proposed. Other campaign members, including later-work, variant, or similarly named identities, remain open and are not inferred from this roster."
+}

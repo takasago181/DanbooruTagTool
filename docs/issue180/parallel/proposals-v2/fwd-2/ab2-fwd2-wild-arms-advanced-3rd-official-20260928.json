@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-wild-arms-advanced-3rd-official-20260928",
+  "campaign_key": "authority:wild_arms",
+  "campaign_fingerprint": "ef0098560dc65b81a0e33447b19a53742b5d9b640440b7ee25a080d0c760b4f7",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://ssl.media-vision.co.jp/soft/wa3.php",
+  "source_claim": "Media.Vision's official Wild Arms Advanced 3rd work page identifies the title and explicitly names Virginia Maxwell as its 18-year-old heroine.",
+  "authority_type": "DEVELOPER_OFFICIAL_TITLE_AND_CHARACTER_PROFILE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"virginia_maxwell","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"wild_arms"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The campaign spans multiple Wild Arms installments. This batch proposes only the exact protagonist named in the developer's Advanced 3rd page; remaining campaign identities stay open and receive no series-wide inference."
+}

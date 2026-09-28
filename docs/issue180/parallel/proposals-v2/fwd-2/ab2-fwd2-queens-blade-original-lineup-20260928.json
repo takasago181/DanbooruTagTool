@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-queens-blade-original-lineup-20260928",
+  "campaign_key": "authority:queen's_blade",
+  "campaign_fingerprint": "534d5b2bb1d9d925a9ac98d312ff5aded5d2a6d5e111fc9f319a14c030000eb0",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://queensblade.net/15th/",
+  "source_claim": "Hobby Japan's official Queen's Blade history lists original Queen's Blade character visual books for Leina, Risty, Nowa, Irma, Tomoe, Echidna, Menace, Elina, Nanael, Cattleya, Melpha, Melona, Claudette, Ymir, Alleyne, and Aldra. It identifies the property as the Queen's Blade battle visual book series.",
+  "authority_type": "HOBBY_JAPAN_OFFICIAL_CHARACTER_BOOK_HISTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"exiled_warrior_leina","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"queen's_blade"},
+    {"subject_type":"Character","subject_key":"wilderness_bandit_risty","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"queen's_blade"},
+    {"subject_type":"Character","subject_key":"forest_keeper_nowa","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"queen's_blade"},
+    {"subject_type":"Character","subject_key":"fang_assassin_irma","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"queen's_blade"},
+    {"subject_type":"Character","subject_key":"musha_miko_tomoe","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"queen's_blade"},
+    {"subject_type":"Character","subject_key":"veteran_mercenary_echidna","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"queen's_blade"},
+    {"subject_type":"Character","subject_key":"ancient_princess_menace","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"queen's_blade"},
+    {"subject_type":"Character","subject_key":"captain_of_the_royal_guard_elina","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"queen's_blade"},
+    {"subject_type":"Character","subject_key":"angel_of_light_nanael","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"queen's_blade"},
+    {"subject_type":"Character","subject_key":"weapon_merchant_cattleya","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"queen's_blade"},
+    {"subject_type":"Character","subject_key":"gainos_priestess_melpha","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"queen's_blade"},
+    {"subject_type":"Character","subject_key":"protean_assassin_melona","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"queen's_blade"},
+    {"subject_type":"Character","subject_key":"claudette_lord_of_thundercloud","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"queen's_blade"},
+    {"subject_type":"Character","subject_key":"iron_princess_ymir","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"queen's_blade"},
+    {"subject_type":"Character","subject_key":"fighting_master_alleyne","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"queen's_blade"},
+    {"subject_type":"Character","subject_key":"queen_aldra","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"queen's_blade"},
+    {"subject_type":"Character","subject_key":"summoner_aldra","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"queen's_blade"}
+  ],
+  "terminal_reviews": [],
+  "notes": "Only characters whose original Queen's Blade visual book entries are listed in Hobby Japan's official franchise history are included. Rebellion-only and crossover characters are left out; the broader campaign remains open."
+}
