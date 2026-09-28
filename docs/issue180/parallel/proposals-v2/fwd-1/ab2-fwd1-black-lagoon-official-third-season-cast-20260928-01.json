@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-black-lagoon-official-third-season-cast-20260928-01",
+  "campaign_key": "authority:black_lagoon",
+  "campaign_fingerprint": "540b8220cc4d55473e36d02da5af3478bbfeb4d9682fbd53562c39d51fca4605",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.blacklagoon.jp/character3.html",
+  "source_claim": "The official Black Lagoon third-season character list names Rock, Fabiola Iglesias, Shenhua, and Sawyer and carries the copyright line for Rei Hiroe, Shogakukan, and the Black Lagoon Production Committee. The official Sawyer profile identifies the same Sawyer character by name; Frederica Sawyer is the current campaign identity for this character.",
+  "authority_type": "OFFICIAL_WORK_CAST_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "fabiola_iglesias",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "black_lagoon"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "frederica_sawyer",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "black_lagoon"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "okajima_rokuro",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "black_lagoon"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shenhua",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "black_lagoon"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": ""
+}
